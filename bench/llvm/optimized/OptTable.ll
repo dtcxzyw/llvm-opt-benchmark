@@ -3,11 +3,6 @@ source_filename = "bench/llvm/original/OptTable.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::opt::OptTable::Info" = type { i32, %"class.llvm::StringTable::Offset", ptr, %"struct.std::array", ptr, i32, i8, i8, i32, i32, i16, i16, ptr, ptr }
-%"class.llvm::StringTable::Offset" = type { i32 }
-%"struct.std::array" = type { [1 x %"struct.std::pair"] }
-%"struct.std::pair" = type { %"struct.std::array.7", ptr }
-%"struct.std::array.7" = type { [2 x i32] }
 %"class.llvm::opt::Option" = type { ptr, ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
@@ -69,6 +64,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVector.53" = type { %"class.llvm::SmallVectorImpl.32" }
 %"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
 %"struct.llvm::SmallVectorStorage" = type { [48 x i8] }
+%"struct.std::pair" = type { %"struct.std::array.7", ptr }
+%"struct.std::array.7" = type { [2 x i32] }
 %"class.std::map" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::vector<(anonymous namespace)::OptionInfo>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::vector<(anonymous namespace)::OptionInfo>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::vector<(anonymous namespace)::OptionInfo>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::vector<(anonymous namespace)::OptionInfo>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -181,7 +178,7 @@ define dso_local void @_ZN4llvm3opt8OptTableC2ERKNS_11StringTableENS_8ArrayRefIN
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %4, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [80 x i8], ptr %4, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 44
   %31 = load i8, ptr %30, align 4, !tbaa !54
   switch i8 %31, label %.critedge [
@@ -411,7 +408,7 @@ define dso_local { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifi
   %8 = add i32 %1, -1
   %9 = zext i32 %8 to i64
   %10 = load ptr, ptr %7, align 8, !tbaa !64
-  %11 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [80 x i8], ptr %10, i64 %9
   call void @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %11, ptr noundef nonnull %0) #23
   br label %12
 
@@ -452,7 +449,7 @@ define dso_local void @_ZNK4llvm3opt8OptTable23suggestValueCompletionsB5cxx11ENS
 
 23:                                               ; preds = %.lr.ph, %_ZL13optionMatchesRKN4llvm11StringTableENS_8ArrayRefINS0_6OffsetEEERKNS_3opt8OptTable4InfoENS_9StringRefE.exit.thread
   %.065 = phi i64 [ %13, %.lr.ph ], [ %133, %_ZL13optionMatchesRKN4llvm11StringTableENS_8ArrayRefINS0_6OffsetEEERKNS_3opt8OptTable4InfoENS_9StringRefE.exit.thread ]
-  %24 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %18, i64 %.065
+  %24 = getelementptr inbounds nuw [80 x i8], ptr %18, i64 %.065
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %26 = load ptr, ptr %25, align 8, !tbaa !66
   %.not = icmp eq ptr %26, null
@@ -478,7 +475,7 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
 _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i: ; preds = %30
   %33 = add i32 %.val31, 1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %.sroa.013.0.copyload, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.013.0.copyload, i64 %34
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %35, align 4, !tbaa !70
   %36 = zext i32 %.sroa.01.0.copyload.i.i.i to i64
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 %36
@@ -531,10 +528,10 @@ _ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6Offs
   %60 = add i32 %.val31, 1
   %61 = zext i32 %60 to i64
   %62 = zext i32 %.val31 to i64
-  %63 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %.sroa.013.0.copyload, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.013.0.copyload, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !71
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %.sroa.013.0.copyload, i64 %61
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.013.0.copyload, i64 %61
   %67 = shl nuw nsw i64 %65, 2
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 %67
   %.not10.i = icmp eq i32 %64, 0
@@ -834,7 +831,7 @@ define dso_local void @_ZNK4llvm3opt8OptTable12findByPrefixB5cxx11ENS_9StringRef
 40:                                               ; preds = %.lr.ph92, %.loopexit
   %.03891 = phi i64 [ %16, %.lr.ph92 ], [ %177, %.loopexit ]
   %41 = load ptr, ptr %17, align 8, !tbaa !64
-  %42 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %41, i64 %.03891
+  %42 = getelementptr inbounds nuw [80 x i8], ptr %41, i64 %.03891
   %43 = load i32, ptr %42, align 8, !tbaa !69
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.loopexit, label %45
@@ -883,7 +880,7 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
 63:                                               ; preds = %59
   %64 = add i32 %43, 1
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %.sroa.016.0.copyload, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.016.0.copyload, i64 %65
   %.sroa.01.0.copyload.i.i = load i32, ptr %66, align 4, !tbaa !70
   %67 = zext i32 %.sroa.01.0.copyload.i.i to i64
   %68 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %67
@@ -906,10 +903,10 @@ _ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6Offs
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.sroa.speculated4.i.i.i
   %80 = sub i64 %77, %.sroa.speculated4.i.i.i
   %81 = zext i32 %43 to i64
-  %82 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %.sroa.016.0.copyload, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.016.0.copyload, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !71
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %.sroa.016.0.copyload, i64 %.pre-phi97
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.016.0.copyload, i64 %.pre-phi97
   %.idx = shl nuw nsw i64 %84, 2
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx
   %.not4489 = icmp eq i32 %83, 0
@@ -1264,12 +1261,12 @@ define dso_local noundef i32 @_ZNK4llvm3opt8OptTable19internalFindNearestENS_9St
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load i32, ptr %24, align 8, !tbaa !57
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %.sroa.0101.0.copyload, i64 %.sroa.4102.0.copyload
+  %27 = getelementptr inbounds nuw [80 x i8], ptr %.sroa.0101.0.copyload, i64 %.sroa.4102.0.copyload
   %.not112 = icmp samesign eq i64 %.sroa.4102.0.copyload, %26
   br i1 %.not112, label %_ZN4llvm11SmallVectorIcLj16EED2Ev.exit, label %.lr.ph115
 
 .lr.ph115:                                        ; preds = %7
-  %28 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %.sroa.0101.0.copyload, i64 %26
+  %28 = getelementptr inbounds nuw [80 x i8], ptr %.sroa.0101.0.copyload, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = zext i32 %4 to i64
@@ -1336,7 +1333,7 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
 _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i: ; preds = %51
   %55 = add i32 %49, 1
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %.sroa.035.0.copyload, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.035.0.copyload, i64 %56
   %.sroa.01.0.copyload.i.i = load i32, ptr %57, align 4, !tbaa !70
   %58 = zext i32 %.sroa.01.0.copyload.i.i to i64
   %59 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %58
@@ -1548,10 +1545,10 @@ _ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6Offs
   %139 = add i32 %137, 1
   %140 = zext i32 %139 to i64
   %141 = zext i32 %137 to i64
-  %142 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %.sroa.022.0.copyload, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.022.0.copyload, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !71
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %.sroa.022.0.copyload, i64 %140
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.022.0.copyload, i64 %140
   %146 = shl nuw nsw i64 %144, 2
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 %146
   %.not67109 = icmp eq i32 %143, 0
@@ -1814,7 +1811,7 @@ define dso_local void @_ZNK4llvm3opt8OptTable18parseOneArgGroupedERNS0_12InputAr
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %17 = zext i32 %15 to i64
   %18 = load ptr, ptr %16, align 8, !tbaa !48
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %20, ptr %9, align 8, !tbaa !67
@@ -1896,7 +1893,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i: ; preds = %_ZNK4llvm9String
   %48 = add i32 %43, -1
   %49 = zext i32 %48 to i64
   %50 = load ptr, ptr %47, align 8, !tbaa !64
-  %51 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [80 x i8], ptr %50, i64 %49
   call void @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(176) %1) #23
   br label %_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit
 
@@ -1921,7 +1918,7 @@ _ZL7isInputRKN4llvm8ArrayRefINS_9StringRefEEES1_.exit: ; preds = %_ZNK4llvm9Stri
   %56 = load ptr, ptr %55, align 8, !tbaa !64
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %58 = load i64, ptr %57, align 8, !tbaa !65
-  %59 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [80 x i8], ptr %56, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %61 = load ptr, ptr %60, align 8, !tbaa !51
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -1937,7 +1934,7 @@ _ZL7isInputRKN4llvm8ArrayRefINS_9StringRefEEES1_.exit: ; preds = %_ZNK4llvm9Stri
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %71 = load i32, ptr %70, align 8, !tbaa !57
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw [80 x i8], ptr %69, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !21
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1956,7 +1953,7 @@ _ZSt7advanceIPKN4llvm3opt8OptTable4InfoElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu
   %.05.i.i = phi ptr [ %73, %_ZSt7advanceIPKN4llvm3opt8OptTable4InfoElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111OptNameLessEEclIPKN4llvm3opt8OptTable4InfoEKNS6_9StringRefEEEbT_RT0_.exit.i.i ]
   %.0114.i.i = phi i64 [ %81, %_ZSt7advanceIPKN4llvm3opt8OptTable4InfoElEvRT_T0_.exit.lr.ph.i.i ], [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111OptNameLessEEclIPKN4llvm3opt8OptTable4InfoEKNS6_9StringRefEEEbT_RT0_.exit.i.i ]
   %82 = lshr i64 %.0114.i.i, 1
-  %83 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %.05.i.i, i64 %82
+  %83 = getelementptr inbounds nuw [80 x i8], ptr %.05.i.i, i64 %82
   %.val14.i.i = load i32, ptr %83, align 8, !tbaa !69
   %84 = getelementptr i8, ptr %83, i64 4
   %.val15.i.i = load i32, ptr %84, align 4
@@ -1976,7 +1973,7 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
 _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i.i.i.i: ; preds = %86
   %89 = add i32 %.val14.i.i, 1
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %.sroa.013.0.copyload, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.013.0.copyload, i64 %90
   %.sroa.01.0.copyload.i.i.i.i.i.i = load i32, ptr %91, align 4, !tbaa !70
   %92 = zext i32 %.sroa.01.0.copyload.i.i.i.i.i.i to i64
   %93 = getelementptr inbounds nuw i8, ptr %.val.val.i.i, i64 %92
@@ -2044,7 +2041,7 @@ _ZSt11lower_boundIPKN4llvm3opt8OptTable4InfoENS0_9StringRefEN12_GLOBAL__N_111Opt
   %123 = load i32, ptr %3, align 4, !tbaa !70
   %124 = zext i32 %123 to i64
   %125 = load ptr, ptr %16, align 8, !tbaa !48
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %124
   %127 = load ptr, ptr %126, align 8, !tbaa !60
   %128 = zext i32 %121 to i64
   call void @_ZNK4llvm3opt6Option6acceptERKNS0_7ArgListENS_9StringRefEbRj(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr %127, i64 %128, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3) #23
@@ -2116,7 +2113,7 @@ _ZNSt10unique_ptrIN4llvm3opt3ArgESt14default_deleteIS2_EED2Ev.exit: ; preds = %1
   %151 = add i32 %147, -1
   %152 = zext i32 %151 to i64
   %153 = load ptr, ptr %55, align 8, !tbaa !64
-  %154 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %153, i64 %152
+  %154 = getelementptr inbounds nuw [80 x i8], ptr %153, i64 %152
   call void @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %154, ptr noundef nonnull align 8 dereferenceable(176) %1) #23
   br label %_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit78
 
@@ -2169,7 +2166,7 @@ _ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit78: ; preds = %149, %15
   %170 = call noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(352) %2, ptr noundef nonnull align 8 dereferenceable(34) %12)
   %171 = zext i32 %162 to i64
   %172 = load ptr, ptr %16, align 8, !tbaa !48
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %171
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %171
   store ptr %170, ptr %173, align 8, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2214,7 +2211,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit116:               ; preds = %._crit_edge.thread
   %190 = call noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(352) %2, ptr noundef nonnull align 8 dereferenceable(34) %14)
   %191 = zext i32 %182 to i64
   %192 = load ptr, ptr %16, align 8, !tbaa !48
-  %193 = getelementptr inbounds nuw ptr, ptr %192, i64 %191
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %191
   store ptr %190, ptr %193, align 8, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -2231,7 +2228,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit116:               ; preds = %._crit_edge.thread
   %199 = add i32 %195, -1
   %200 = zext i32 %199 to i64
   %201 = load ptr, ptr %55, align 8, !tbaa !64
-  %202 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %201, i64 %200
+  %202 = getelementptr inbounds nuw [80 x i8], ptr %201, i64 %200
   call void @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %202, ptr noundef nonnull align 8 dereferenceable(176) %1) #23
   br label %_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit122
 
@@ -2271,7 +2268,7 @@ _ZSt11make_uniqueIN4llvm3opt3ArgEJKNS1_6OptionERPKcRjS7_EENSt8__detail9_MakeUniq
   %214 = add i32 %210, -1
   %215 = zext i32 %214 to i64
   %216 = load ptr, ptr %55, align 8, !tbaa !64
-  %217 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %216, i64 %215
+  %217 = getelementptr inbounds nuw [80 x i8], ptr %216, i64 %215
   call void @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %217, ptr noundef nonnull align 8 dereferenceable(176) %1) #23
   br label %_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit132
 
@@ -2318,7 +2315,7 @@ _ZNK4llvm3opt8OptTable4Info7getNameERKNS_11StringTableENS_8ArrayRefINS3_6OffsetE
 _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i: ; preds = %10
   %14 = add i32 %8, 1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %15
   %.sroa.01.0.copyload.i.i = load i32, ptr %16, align 4, !tbaa !70
   %17 = zext i32 %.sroa.01.0.copyload.i.i to i64
   %18 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %17
@@ -2347,10 +2344,10 @@ _ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6Offs
   %29 = add i32 %8, 1
   %30 = zext i32 %29 to i64
   %31 = zext i32 %8 to i64
-  %32 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !71
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %1, i64 %30
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %30
   %36 = shl nuw nsw i64 %34, 2
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 %36
   %.not75 = icmp eq i32 %33, 0
@@ -2677,7 +2674,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i: ; preds = %_ZNK4llvm9String
   %42 = add i32 %37, -1
   %43 = zext i32 %42 to i64
   %44 = load ptr, ptr %41, align 8, !tbaa !64
-  %45 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [80 x i8], ptr %44, i64 %43
   call void @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(176) %1) #23
   br label %_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit
 
@@ -2736,7 +2733,7 @@ _ZSt7advanceIPKN4llvm3opt8OptTable4InfoElEvRT_T0_.exit.i.i: ; preds = %_ZN9__gnu
   %.05.i.i = phi ptr [ %55, %_ZSt7advanceIPKN4llvm3opt8OptTable4InfoElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111OptNameLessEEclIPKN4llvm3opt8OptTable4InfoEKNS6_9StringRefEEEbT_RT0_.exit.i.i ]
   %.0114.i.i = phi i64 [ %72, %_ZSt7advanceIPKN4llvm3opt8OptTable4InfoElEvRT_T0_.exit.lr.ph.i.i ], [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111OptNameLessEEclIPKN4llvm3opt8OptTable4InfoEKNS6_9StringRefEEEbT_RT0_.exit.i.i ]
   %73 = lshr i64 %.0114.i.i, 1
-  %74 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %.05.i.i, i64 %73
+  %74 = getelementptr inbounds nuw [80 x i8], ptr %.05.i.i, i64 %73
   %.val14.i.i = load i32, ptr %74, align 8, !tbaa !69
   %75 = getelementptr i8, ptr %74, i64 4
   %.val15.i.i = load i32, ptr %75, align 4
@@ -2756,7 +2753,7 @@ _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6Offse
 _ZNK4llvm3opt8OptTable4Info9getPrefixERKNS_11StringTableENS_8ArrayRefINS3_6OffsetEEEj.exit.thread13.i.i.i.i.i: ; preds = %77
   %80 = add i32 %.val14.i.i, 1
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %.sroa.03.0.copyload, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.03.0.copyload, i64 %81
   %.sroa.01.0.copyload.i.i.i.i.i.i = load i32, ptr %82, align 4, !tbaa !70
   %83 = zext i32 %.sroa.01.0.copyload.i.i.i.i.i.i to i64
   %84 = getelementptr inbounds nuw i8, ptr %.val.val.i.i, i64 %83
@@ -2894,7 +2891,7 @@ _ZNSt10unique_ptrIN4llvm3opt3ArgESt14default_deleteIS2_EED2Ev.exit: ; preds = %1
   %140 = add i32 %136, -1
   %141 = zext i32 %140 to i64
   %142 = load ptr, ptr %50, align 8, !tbaa !64
-  %143 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %142, i64 %141
+  %143 = getelementptr inbounds nuw [80 x i8], ptr %142, i64 %141
   call void @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %143, ptr noundef nonnull align 8 dereferenceable(176) %1) #23
   br label %_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit62
 
@@ -2929,7 +2926,7 @@ _ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit62: ; preds = %138, %13
   %154 = add i32 %150, -1
   %155 = zext i32 %154 to i64
   %156 = load ptr, ptr %50, align 8, !tbaa !64
-  %157 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %156, i64 %155
+  %157 = getelementptr inbounds nuw [80 x i8], ptr %156, i64 %155
   call void @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %157, ptr noundef nonnull align 8 dereferenceable(176) %1) #23
   br label %_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit74
 
@@ -3009,7 +3006,7 @@ define dso_local void @_ZNK4llvm3opt8OptTable17internalParseArgsENS_8ArrayRefIPK
   %9 = alloca i32, align 4
   %10 = alloca %"class.std::unique_ptr", align 8
   %11 = alloca %"class.std::function.40", align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %3
   tail call void @_ZN4llvm3opt12InputArgListC1EPKPKcS5_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %2, ptr noundef %12) #23
   store i32 0, ptr %5, align 4, !tbaa !70
   store i32 0, ptr %4, align 4, !tbaa !70
@@ -3033,7 +3030,7 @@ define dso_local void @_ZNK4llvm3opt8OptTable17internalParseArgsENS_8ArrayRefIPK
   %21 = phi i32 [ 0, %.lr.ph ], [ %.be, %.backedge50.backedge ]
   %22 = zext i32 %21 to i64
   %23 = load ptr, ptr %14, align 8, !tbaa !48
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !60
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.backedge, label %_ZN4llvm9StringRefC2EPKc.exit
@@ -3092,7 +3089,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit24.preheader:    ; preds = %30
   %42 = add i32 %38, -1
   %43 = zext i32 %42 to i64
   %44 = load ptr, ptr %35, align 8, !tbaa !64
-  %45 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [80 x i8], ptr %44, i64 %43
   call void @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(176) %1) #23
   br label %_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit
 
@@ -3103,7 +3100,7 @@ _ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit: ; preds = %40, %41
   %46 = load i32, ptr %9, align 4, !tbaa !70
   %47 = zext i32 %46 to i64
   %48 = load ptr, ptr %14, align 8, !tbaa !48
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8, !tbaa !60
   call void @_ZN4llvm3opt3ArgC1ENS0_6OptionENS_9StringRefEjPKcPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %37, ptr %.fca.0.load.i, ptr %.fca.1.load.i, ptr nonnull %25, i64 2, i32 noundef %46, ptr noundef %50, ptr noundef null) #23
   call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %37) #23
@@ -3285,7 +3282,7 @@ _ZNK4llvm3opt8OptTable9ParseArgsENS_8ArrayRefIPKcEERjS6_NS0_10VisibilityE.exit: 
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %45 = zext i32 %43 to i64
   %46 = load ptr, ptr %44, align 8, !tbaa !48
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8, !tbaa !60
   %49 = load i8, ptr %48, align 1, !tbaa !61
   %.not.i = icmp eq i8 %49, 0
@@ -3362,8 +3359,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %72 = load ptr, ptr %71, align 8, !tbaa !48, !noalias !178
   %73 = ptrtoint ptr %72 to i64
   %74 = and i64 %70, 4294967295
-  %75 = getelementptr inbounds nuw ptr, ptr %72, i64 %74
-  %76 = getelementptr ptr, ptr %72, i64 %.sroa.4.0.extract.shift.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %74
+  %76 = getelementptr [8 x i8], ptr %72, i64 %.sroa.4.0.extract.shift.i
   %.not29.i.i.i = icmp samesign eq i64 %74, %.sroa.4.0.extract.shift.i
   br i1 %.not29.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.preheader.i
 
@@ -4092,7 +4089,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit65:               ; preds = %97, %99
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %128 = add nsw i64 %indvars.iv, -1
   %129 = load ptr, ptr %110, align 8, !tbaa !64
-  %130 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %129, i64 %128
+  %130 = getelementptr inbounds nuw [80 x i8], ptr %129, i64 %128
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 44
   %132 = load i8, ptr %131, align 4, !tbaa !54
   %133 = icmp eq i8 %132, 0
@@ -4124,7 +4121,7 @@ _ZNKSt8functionIFbRKN4llvm3opt8OptTable4InfoEEEclES5_.exit: ; preds = %139
 
 144:                                              ; preds = %_ZNKSt8functionIFbRKN4llvm3opt8OptTable4InfoEEEclES5_.exit
   %145 = load ptr, ptr %110, align 8, !tbaa !64
-  %146 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %145, i64 %128
+  %146 = getelementptr inbounds nuw [80 x i8], ptr %145, i64 %128
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %146, i64 8
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !60
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %146, i64 16
@@ -4178,7 +4175,7 @@ _ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit: ; preds = %_ZNK4llvm3
   %159 = add nuw nsw i64 %157, 4294967295
   %160 = and i64 %159, 4294967295
   %161 = load ptr, ptr %158, align 8, !tbaa !64
-  %162 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %161, i64 %160
+  %162 = getelementptr inbounds nuw [80 x i8], ptr %161, i64 %160
   call void @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %162, ptr noundef nonnull align 8 dereferenceable(176) %.fca.1.load.i.pre) #23
   br label %_ZNK4llvm3opt6Option8getAliasEv.exit
 
@@ -4194,7 +4191,7 @@ _ZNK4llvm3opt6Option8getAliasEv.exit:             ; preds = %155, %156
   %166 = add i32 %165, -1
   %167 = zext i32 %166 to i64
   %168 = load ptr, ptr %110, align 8, !tbaa !64
-  %169 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %168, i64 %167
+  %169 = getelementptr inbounds nuw [80 x i8], ptr %168, i64 %167
   %.sroa.3.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %.sroa.3.0.copyload.i68 = load ptr, ptr %.sroa.3.0..sroa_idx.i67, align 8, !tbaa !60
   %.sroa.4.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %169, i64 16
@@ -4239,7 +4236,7 @@ tailrecurse.i:                                    ; preds = %178, %184
   %.tr14.i = phi i64 [ %185, %184 ], [ %indvars.iv, %178 ]
   %179 = add nuw i64 %.tr14.i, 4294967295
   %180 = and i64 %179, 4294967295
-  %181 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %177, i64 %180
+  %181 = getelementptr inbounds nuw [80 x i8], ptr %177, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 56
   %183 = load i16, ptr %182, align 8, !tbaa !84
   %.not.i = icmp eq i16 %183, 0
@@ -4248,7 +4245,7 @@ tailrecurse.i:                                    ; preds = %178, %184
 184:                                              ; preds = %tailrecurse.i
   %185 = zext i16 %183 to i64
   %186 = zext i16 %183 to i64
-  %187 = getelementptr %"struct.llvm::opt::OptTable::Info", ptr %177, i64 %186
+  %187 = getelementptr [80 x i8], ptr %177, i64 %186
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr i8, ptr %187, i64 -72
   %.sroa.3.0.copyload.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !tbaa !60
   %.not12.i = icmp eq ptr %.sroa.3.0.copyload.i.i.i, null
@@ -4259,7 +4256,7 @@ _ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit.i: ; preds = %tailrecu
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.experimental.noalias.scope.decl(metadata !209)
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !209
-  %188 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %177, i64 %128
+  %188 = getelementptr inbounds nuw [80 x i8], ptr %177, i64 %128
   call void @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %188, ptr noundef nonnull align 8 dereferenceable(176) %0) #23
   %.fca.0.load.i.i77.pre = load ptr, ptr %13, align 8, !noalias !209
   %.fca.1.load.i.i79.pre = load ptr, ptr %.fca.1.gep.i.i78, align 8, !noalias !209
@@ -4270,7 +4267,7 @@ _ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE.exit.i: ; preds = %tailrecu
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !209
   %189 = add i32 %.pre165, -1
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %.pre167, i64 %190
+  %191 = getelementptr inbounds nuw [80 x i8], ptr %.pre167, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %.fca.1.load.i.i79.pre, i64 8
   %193 = load ptr, ptr %192, align 8, !tbaa !21
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 4
@@ -4344,7 +4341,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit.i:          ; preds = %_ZNSt7__cxx1112basi
 
 213:                                              ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i
   %214 = load ptr, ptr %110, align 8, !tbaa !64, !noalias !209
-  %215 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %214, i64 %128
+  %215 = getelementptr inbounds nuw [80 x i8], ptr %214, i64 %128
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 32
   %217 = load ptr, ptr %216, align 8, !tbaa !216
   %.not.i80 = icmp eq ptr %217, null
@@ -4454,7 +4451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit21.i: ; preds = %2
 
 264:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit21.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i
   %265 = load ptr, ptr %110, align 8, !tbaa !64, !noalias !209
-  %266 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %265, i64 %128
+  %266 = getelementptr inbounds nuw [80 x i8], ptr %265, i64 %128
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 32
   %268 = load ptr, ptr %267, align 8, !tbaa !216
   %.not17.i = icmp eq ptr %268, null
@@ -5141,7 +5138,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110OptionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIN12_GLOBAL__N_110OptionInfoESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_110OptionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30.i.i.i, %496
   store ptr %465, ptr %417, align 8, !tbaa !228
   store ptr %495, ptr %432, align 8, !tbaa !223
-  %500 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OptionInfo", ptr %465, i64 %461
+  %500 = getelementptr inbounds nuw [48 x i8], ptr %465, i64 %461
   store ptr %500, ptr %434, align 8, !tbaa !226
   %.pre169 = load ptr, ptr %21, align 8, !tbaa !75
   %501 = icmp eq ptr %.pre169, %119
@@ -5414,7 +5411,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %614, %612
   %617 = load ptr, ptr %9, align 8, !tbaa !48
   %618 = load i32, ptr %125, align 8, !tbaa !49
   %619 = zext i32 %618 to i64
-  %620 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %617, i64 %619
+  %620 = getelementptr inbounds nuw [16 x i8], ptr %617, i64 %619
   %621 = getelementptr inbounds nuw i8, ptr %592, i64 16
   %.not69.i = icmp eq ptr %620, %621
   br i1 %.not69.i, label %._crit_edge.i, label %.lr.ph71.i
@@ -5476,7 +5473,7 @@ _ZN4llvm11raw_ostreamlsEc.exit54.i:               ; preds = %643, %641
   %646 = load ptr, ptr %9, align 8, !tbaa !48
   %647 = load i32, ptr %125, align 8, !tbaa !49
   %648 = zext i32 %647 to i64
-  %649 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %646, i64 %648
+  %649 = getelementptr inbounds nuw [16 x i8], ptr %646, i64 %648
   %650 = getelementptr inbounds nuw i8, ptr %622, i64 16
   %.not.i104 = icmp eq ptr %649, %650
   br i1 %.not.i104, label %._crit_edge.i, label %.lr.ph71.i, !llvm.loop !239
@@ -5581,7 +5578,7 @@ define dso_local void @_ZN4llvm3opt15GenericOptTableC2ERKNS_11StringTableENS_8Ar
 .lr.ph.i:                                         ; preds = %7, %40
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %40 ], [ 0, %7 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %4, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [80 x i8], ptr %4, i64 %indvars.iv.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 44
   %31 = load i8, ptr %30, align 4, !tbaa !54
   switch i8 %31, label %.critedge.i [
@@ -5626,12 +5623,12 @@ _ZN4llvm3opt8OptTableC2ERKNS_11StringTableENS_8ArrayRefINS2_6OffsetEEENS5_INS1_4
   store ptr %42, ptr %45, align 8, !tbaa !206
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 0, ptr %46, align 8, !tbaa !207
-  %47 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %4, i64 %5
+  %47 = getelementptr inbounds nuw [80 x i8], ptr %4, i64 %5
   %.not62 = icmp samesign eq i64 %5, %41
   br i1 %.not62, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIN4llvm9StringRefEEENSt15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %.lr.ph64.preheader
 
 .lr.ph64.preheader:                               ; preds = %_ZN4llvm3opt8OptTableC2ERKNS_11StringTableENS_8ArrayRefINS2_6OffsetEEENS5_INS1_4InfoEEEb.exit
-  %48 = getelementptr inbounds nuw %"struct.llvm::opt::OptTable::Info", ptr %4, i64 %41
+  %48 = getelementptr inbounds nuw [80 x i8], ptr %4, i64 %41
   br label %.lr.ph64
 
 ._crit_edge65:                                    ; preds = %._crit_edge
@@ -5672,7 +5669,7 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit.i: ; preds = %58, %_ZSt
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit.i
   %60 = load ptr, ptr %20, align 8, !tbaa !48
-  %61 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %60, i64 %.pre-phi.i
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %.pre-phi.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
@@ -5710,10 +5707,10 @@ _ZNK4llvm3opt8OptTable4Info16getPrefixOffsetsENS_8ArrayRefINS_11StringTable6Offs
   %71 = add i32 %69, 1
   %72 = zext i32 %71 to i64
   %73 = zext i32 %69 to i64
-  %74 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %2, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !71
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw %"class.llvm::StringTable::Offset", ptr %2, i64 %72
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %72
   %78 = shl nuw nsw i64 %76, 2
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 %78
   %.not2860 = icmp eq i32 %75, 0
@@ -6245,7 +6242,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !247
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !78
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !81
   ret void
 }
@@ -6441,7 +6438,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %73
   store ptr %23, ptr %0, align 8, !tbaa !247
   store ptr %.0.lcssa.i.i.i25, ptr %5, align 8, !tbaa !78
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !81
   ret void
 }

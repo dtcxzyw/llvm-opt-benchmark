@@ -1374,7 +1374,7 @@ define hidden void @_ZN16uv_install_wheel5wheel25read_scripts_from_section17h19e
 
 67:                                               ; preds = %62, %58
   %68 = load ptr, ptr %17, align 8, !alias.scope !184, !noalias !187, !nonnull !4, !noundef !4
-  %69 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %68, i64 %59
+  %69 = getelementptr inbounds [72 x i8], ptr %68, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %69, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   %70 = add i64 %59, 1
   store i64 %70, ptr %18, align 8, !alias.scope !184, !noalias !187
@@ -2809,7 +2809,7 @@ define void @_ZN16uv_install_wheel5wheel16parse_wheel_file17he2f41476182679efE(p
   %49 = add i64 %.sroa.01.0.i.i.i, %48
   %50 = and i64 %49, %40
   %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %41, i64 %51
+  %52 = getelementptr inbounds [48 x i8], ptr %41, i64 %51
   %53 = getelementptr i8, ptr %52, i64 -32
   %.val5.i.i.i = load i64, ptr %53, align 8, !alias.scope !575, !noalias !582, !noundef !4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.val5.i.i.i, 15
@@ -2934,7 +2934,7 @@ define void @_ZN16uv_install_wheel5wheel16parse_wheel_file17he2f41476182679efE(p
   %96 = add i64 %.sroa.01.0.i.i.i153, %95
   %97 = and i64 %96, %87
   %98 = sub nsw i64 0, %97
-  %99 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %88, i64 %98
+  %99 = getelementptr inbounds [48 x i8], ptr %88, i64 %98
   %100 = getelementptr i8, ptr %99, i64 -32
   %.val5.i.i.i157 = load i64, ptr %100, align 8, !alias.scope !620, !noalias !627, !noundef !4
   %.not.i.i.i.i.i.i.i158 = icmp eq i64 %.val5.i.i.i157, 13
@@ -3480,7 +3480,7 @@ _ZN7walkdir7WalkDir3new17hdf0825fd79202c6bE.exit: ; preds = %43
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %59 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %7, i64 %8
+  %59 = getelementptr inbounds [64 x i8], ptr %7, i64 %8
   %60 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -5403,8 +5403,8 @@ define void @_ZN16uv_install_wheel5wheel12install_data17h17c74c54cfa188b9E(ptr d
   %274 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %275 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %276 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %277 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %8, i64 %9
-  %278 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %10, i64 %11
+  %277 = getelementptr inbounds [72 x i8], ptr %8, i64 %9
+  %278 = getelementptr inbounds [72 x i8], ptr %10, i64 %11
   %279 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %280 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %281 = getelementptr inbounds nuw i8, ptr %147, i64 24
@@ -5499,7 +5499,7 @@ define void @_ZN16uv_install_wheel5wheel12install_data17h17c74c54cfa188b9E(ptr d
   %343 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.6250.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 56
   %344 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %345 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %12, i64 %13
+  %345 = getelementptr inbounds [64 x i8], ptr %12, i64 %13
   %346 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.6167.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.8170.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 16

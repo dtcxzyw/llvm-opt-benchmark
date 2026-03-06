@@ -99,7 +99,7 @@ define { ptr, i64 } @"_ZN6intern19Interned$LT$str$GT$7new_str17h2116fc579227f329
 
 43:                                               ; preds = %"_ZN4core4hash5impls50_$LT$impl$u20$core..hash..Hash$u20$for$u20$str$GT$4hash17h0249edf6e9d8c5c1E.exit.i"
   %44 = load ptr, ptr @"_ZN42_$LT$str$u20$as$u20$intern..Internable$GT$7storage7STORAGE17h213898acd8a3831aE", align 8, !noalias !4, !nonnull !31, !noundef !31
-  %45 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [40 x i8], ptr %44, i64 %40
   %46 = cmpxchg weak ptr %45, i64 0, i64 -4 acquire monotonic, align 8, !noalias !4
   %47 = extractvalue { i64, i1 } %46, 1
   br i1 %47, label %"_ZN6intern17Interned$LT$T$GT$6select17hdc6428ff5f6de982E.exit", label %48
@@ -153,7 +153,7 @@ define { ptr, i64 } @"_ZN6intern19Interned$LT$str$GT$7new_str17h2116fc579227f329
   %68 = add i64 %.sroa.01.0.i.i.i, %65
   %69 = and i64 %68, %55
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds { { { { ptr, i64 } }, {} }, { { {} } } }, ptr %56, i64 %70
+  %71 = getelementptr inbounds [16 x i8], ptr %56, i64 %70
   %72 = getelementptr i8, ptr %71, i64 -8
   %.val5.i.i.i = load i64, ptr %72, align 8, !alias.scope !50, !noalias !55, !noundef !31
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %1, %.val5.i.i.i
@@ -380,7 +380,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
   %179 = add i64 %178, 1
   store i64 %179, ptr %177, align 8, !alias.scope !108, !noalias !81
   %180 = sub nsw i64 0, %.04.i.i
-  %181 = getelementptr inbounds { { { { ptr, i64 } }, {} }, { { {} } } }, ptr %166, i64 %180
+  %181 = getelementptr inbounds [16 x i8], ptr %166, i64 %180
   %182 = getelementptr inbounds i8, ptr %181, i64 -16
   store ptr %98, ptr %182, align 8, !noalias !105
   %183 = getelementptr inbounds i8, ptr %181, i64 -8

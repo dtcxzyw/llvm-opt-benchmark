@@ -19,15 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl" }
 %"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl" = type { %"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<p2t::Triangle *, std::allocator<p2t::Triangle *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.Assimp::Blender::MLoop" = type { %"struct.Assimp::Blender::ElemBase", i32, i32 }
-%"struct.Assimp::Blender::ElemBase" = type { ptr, ptr }
-%"struct.Assimp::Blender::MVert" = type <{ %"struct.Assimp::Blender::ElemBase", [3 x float], [3 x float], i8, [3 x i8], i32, i32, [4 x i8] }>
-%"struct.Assimp::Blender::PointP2T" = type { %class.aiVector3t, %"struct.p2t::Point", i32, i32 }
-%"struct.p2t::Point" = type { double, double, %"class.std::vector.16" }
-%"class.std::vector.16" = type { %"struct.std::_Vector_base.17" }
-%"struct.std::_Vector_base.17" = type { %"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl" }
-%"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl" = type { %"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<p2t::Edge *, std::allocator<p2t::Edge *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.aiMatrix3x3t = type { float, float, float, float, float, float, float, float, float }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -150,14 +141,14 @@ _ZN6Assimp21BlenderTessellatorP2T17AssertVertexCountEi.exit: ; preds = %4
 
 .lr.ph.i:                                         ; preds = %_ZN6Assimp21BlenderTessellatorP2T17AssertVertexCountEi.exit, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZN6Assimp21BlenderTessellatorP2T17AssertVertexCountEi.exit ]
-  %20 = getelementptr inbounds nuw %"struct.Assimp::Blender::MLoop", ptr %1, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds nuw %"struct.Assimp::Blender::MVert", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %indvars.iv.i
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %29 = load float, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 20
@@ -288,7 +279,7 @@ _ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8P
 .lr.ph.i21:                                       ; preds = %_ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit, %.lr.ph.i21
   %96 = phi ptr [ %133, %.lr.ph.i21 ], [ %95, %_ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit ]
   %.011.i = phi i64 [ %131, %.lr.ph.i21 ], [ 0, %_ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit ]
-  %97 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %96, i64 %.011.i
+  %97 = getelementptr inbounds nuw [64 x i8], ptr %96, i64 %.011.i
   %98 = load float, ptr %8, align 4
   %99 = load float, ptr %97, align 4
   %100 = load float, ptr %75, align 4
@@ -383,7 +374,7 @@ _ZSt6fill_nIPPN3p2t5PointEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = 
 
 _ZNSt12_Vector_baseIPN3p2t5PointESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; preds = %_ZSt6fill_nIPPN3p2t5PointEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc37
   store ptr %147, ptr %9, align 8
-  %151 = getelementptr inbounds nuw ptr, ptr %147, i64 %.pre-phi44
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %.pre-phi44
   store ptr %151, ptr %141, align 8
   store ptr %151, ptr %143, align 8
   br label %_ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit.i
@@ -394,9 +385,9 @@ _ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit.i: ; preds = %_ZNK6Assimp21Blen
 
 .lr.ph.i25:                                       ; preds = %_ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit.i, %.lr.ph.i25
   %.08.i = phi i64 [ %156, %.lr.ph.i25 ], [ 0, %_ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit.i ]
-  %153 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %140, i64 %.08.i
+  %153 = getelementptr inbounds nuw [64 x i8], ptr %140, i64 %.08.i
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %155 = getelementptr inbounds nuw ptr, ptr %152, i64 %.08.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %.08.i
   store ptr %154, ptr %155, align 8
   %156 = add nuw nsw i64 %.08.i, 1
   %157 = icmp samesign ult i64 %156, %.pre-phi44
@@ -644,7 +635,7 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T14Copy3DVerticesEPKNS_7Ble
   br i1 %18, label %19, label %_ZNSt6vectorIN6Assimp7Blender8PointP2TESaIS2_EE6resizeEm.exit
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %9, i64 %6
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %6
   %.not.i.i = icmp eq ptr %8, %20
   br i1 %.not.i.i, label %_ZNSt6vectorIN6Assimp7Blender8PointP2TESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -686,14 +677,14 @@ _ZNSt6vectorIN6Assimp7Blender8PointP2TESaIS2_EE6resizeEm.exit: ; preds = %15, %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %31 = getelementptr inbounds nuw %"struct.Assimp::Blender::MLoop", ptr %1, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds nuw %"struct.Assimp::Blender::MVert", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %34
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = load float, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 20
@@ -754,7 +745,7 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T13FindLLSQPlaneERKSt6vecto
   %.sroa.10.075 = phi float [ %27, %.lr.ph ], [ 0.000000e+00, %3 ]
   %.sroa.6.074 = phi float [ %24, %.lr.ph ], [ 0.000000e+00, %3 ]
   %.sroa.068.073 = phi float [ %21, %.lr.ph ], [ 0.000000e+00, %3 ]
-  %19 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %8, i64 %.076
+  %19 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %.076
   %20 = load float, ptr %19, align 4
   %21 = fadd float %.sroa.068.073, %20
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -800,7 +791,7 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T13FindLLSQPlaneERKSt6vecto
   %.05883 = phi float [ %58, %.lr.ph89 ], [ 0.000000e+00, %._crit_edge ]
   %.05982 = phi float [ %59, %.lr.ph89 ], [ 0.000000e+00, %._crit_edge ]
   %.06081 = phi i64 [ %60, %.lr.ph89 ], [ 0, %._crit_edge ]
-  %45 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %8, i64 %.06081
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %.06081
   %46 = load float, ptr %45, align 4
   %47 = fsub float %46, %16
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -1006,7 +997,7 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecti
 18:                                               ; preds = %.lr.ph, %18
   %19 = phi ptr [ %6, %.lr.ph ], [ %56, %18 ]
   %.011 = phi i64 [ 0, %.lr.ph ], [ %54, %18 ]
-  %20 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %19, i64 %.011
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %.011
   %21 = load float, ptr %1, align 4
   %22 = load float, ptr %20, align 4
   %23 = load float, ptr %7, align 4
@@ -1086,7 +1077,7 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T15ReferencePointsERSt6vect
   br i1 %22, label %23, label %_ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %10
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %10
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit, label %25
 
@@ -1106,10 +1097,10 @@ _ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit: ; preds = %19, %21, %23, %25
 .lr.ph:                                           ; preds = %_ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit, %.lr.ph
   %28 = phi ptr [ %35, %.lr.ph ], [ %27, %_ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit ]
   %.08 = phi i64 [ %33, %.lr.ph ], [ 0, %_ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit ]
-  %29 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %28, i64 %.08
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %28, i64 %.08
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.08
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.08
   store ptr %30, ptr %32, align 8
   %33 = add nuw i64 %.08, 1
   %34 = load ptr, ptr %4, align 8
@@ -1145,7 +1136,7 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T22MakeFacesFromTrianglesER
 .lr.ph:                                           ; preds = %2, %_ZNK6Assimp21BlenderTessellatorP2T23GetActualPointStructureERN3p2t5PointE.exit14
   %9 = phi ptr [ %48, %_ZNK6Assimp21BlenderTessellatorP2T23GetActualPointStructureERN3p2t5PointE.exit14 ], [ %8, %2 ]
   %.015 = phi i64 [ %46, %_ZNK6Assimp21BlenderTessellatorP2T23GetActualPointStructureERN3p2t5PointE.exit14 ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.015
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.015
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -1580,7 +1571,7 @@ define hidden noundef float @_ZNK6Assimp21BlenderTessellatorP2T21FindLargestMatr
 _ZNK12aiMatrix3x3tIfEixEj.exit.us:                ; preds = %.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit.us
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %_ZNK12aiMatrix3x3tIfEixEj.exit.us ], [ 0, %.preheader ]
   %.110.us = phi float [ %9, %_ZNK12aiMatrix3x3tIfEixEj.exit.us ], [ %.0919, %.preheader ]
-  %5 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv26
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv26
   %6 = load float, ptr %5, align 4
   %7 = tail call noundef float @llvm.fabs.f32(float %6)
   %8 = fcmp ogt float %7, %.110.us
@@ -1592,7 +1583,7 @@ _ZNK12aiMatrix3x3tIfEixEj.exit.us:                ; preds = %.preheader, %_ZNK12
 _ZNK12aiMatrix3x3tIfEixEj.exit.us15:              ; preds = %.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit.us15
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK12aiMatrix3x3tIfEixEj.exit.us15 ], [ 0, %.preheader ]
   %.110.us14 = phi float [ %14, %_ZNK12aiMatrix3x3tIfEixEj.exit.us15 ], [ %.0919, %.preheader ]
-  %10 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %11 = load float, ptr %10, align 4
   %12 = tail call noundef float @llvm.fabs.f32(float %11)
   %13 = fcmp ogt float %12, %.110.us14
@@ -1612,7 +1603,7 @@ _ZNK12aiMatrix3x3tIfEixEj.exit.us15:              ; preds = %.preheader, %_ZNK12
 _ZNK12aiMatrix3x3tIfEixEj.exit:                   ; preds = %.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %_ZNK12aiMatrix3x3tIfEixEj.exit ], [ 0, %.preheader ]
   %.110 = phi float [ %20, %_ZNK12aiMatrix3x3tIfEixEj.exit ], [ %.0919, %.preheader ]
-  %16 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv30
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv30
   %17 = load float, ptr %16, align 4
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
   %19 = fcmp ogt float %18, %.110
@@ -1654,10 +1645,10 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix
 
 _ZNK12aiMatrix3x3tIfEixEj.exit.thread.us:         ; preds = %.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv25
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv25
   %.pn.us = load float, ptr %15, align 4
   %16 = fmul float %3, %.pn.us
-  %17 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv25
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv25
   store float %16, ptr %17, align 4
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 3
@@ -1665,10 +1656,10 @@ _ZNK12aiMatrix3x3tIfEixEj.exit.thread.us:         ; preds = %.preheader, %_ZNK12
 
 _ZNK12aiMatrix3x3tIfEixEj.exit.thread12.us:       ; preds = %.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread12.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread12.us ], [ 0, %.preheader ]
-  %18 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %.pn.us20 = load float, ptr %18, align 4
   %19 = fmul float %3, %.pn.us20
-  %20 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store float %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1683,10 +1674,10 @@ _ZNK12aiMatrix3x3tIfEixEj.exit.thread12.us:       ; preds = %.preheader, %_ZNK12
 
 _ZNK12aiMatrix3x3tIfEixEj.exit:                   ; preds = %.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %_ZNK12aiMatrix3x3tIfEixEj.exit ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv29
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv29
   %.pn = load float, ptr %22, align 4
   %23 = fmul float %3, %.pn
-  %24 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv29
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv29
   store float %23, ptr %24, align 4
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 3
@@ -1714,7 +1705,7 @@ _ZNK12aiMatrix3x3tIfEixEj.exit.us.i.preheader:    ; preds = %.preheader.i
 _ZNK12aiMatrix3x3tIfEixEj.exit.us.i:              ; preds = %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i ], [ 0, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i.preheader ]
   %.110.us.i = phi float [ %10, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i ], [ %.0919.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i.preheader ]
-  %6 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv26.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv26.i
   %7 = load float, ptr %6, align 4
   %8 = tail call noundef float @llvm.fabs.f32(float %7)
   %9 = fcmp ogt float %8, %.110.us.i
@@ -1726,7 +1717,7 @@ _ZNK12aiMatrix3x3tIfEixEj.exit.us.i:              ; preds = %_ZNK12aiMatrix3x3tI
 _ZNK12aiMatrix3x3tIfEixEj.exit.us15.i:            ; preds = %.preheader.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.us15.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.us15.i ], [ 0, %.preheader.i ]
   %.110.us14.i = phi float [ %15, %_ZNK12aiMatrix3x3tIfEixEj.exit.us15.i ], [ %.0919.i, %.preheader.i ]
-  %11 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4
   %13 = tail call noundef float @llvm.fabs.f32(float %12)
   %14 = fcmp ogt float %13, %.110.us14.i
@@ -1743,7 +1734,7 @@ _ZNK12aiMatrix3x3tIfEixEj.exit.us15.i:            ; preds = %.preheader.i, %_ZNK
 _ZNK12aiMatrix3x3tIfEixEj.exit.i:                 ; preds = %.preheader.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.i ], [ 0, %.preheader.i ]
   %.110.i = phi float [ %21, %_ZNK12aiMatrix3x3tIfEixEj.exit.i ], [ %.0919.i, %.preheader.i ]
-  %17 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv30.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv30.i
   %18 = load float, ptr %17, align 4
   %19 = tail call noundef float @llvm.fabs.f32(float %18)
   %20 = fcmp ogt float %19, %.110.i
@@ -1784,10 +1775,10 @@ _ZNK6Assimp21BlenderTessellatorP2T21FindLargestMatrixElemERK12aiMatrix3x3tIfE.ex
 
 _ZNK12aiMatrix3x3tIfEixEj.exit.thread.us.i:       ; preds = %.preheader.i12, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us.i ], [ 0, %.preheader.i12 ]
-  %31 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv25.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv25.i
   %.pn.us.i = load float, ptr %31, align 4, !noalias !16
   %32 = fmul float %22, %.pn.us.i
-  %33 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv25.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv25.i
   store float %32, ptr %33, align 4, !alias.scope !16
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 3
@@ -1795,10 +1786,10 @@ _ZNK12aiMatrix3x3tIfEixEj.exit.thread.us.i:       ; preds = %.preheader.i12, %_Z
 
 _ZNK12aiMatrix3x3tIfEixEj.exit.thread12.us.i:     ; preds = %.preheader.i12, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread12.us.i
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread12.us.i ], [ 0, %.preheader.i12 ]
-  %34 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i13
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i13
   %.pn.us20.i = load float, ptr %34, align 4, !noalias !16
   %35 = fmul float %22, %.pn.us20.i
-  %36 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv.i13
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv.i13
   store float %35, ptr %36, align 4, !alias.scope !16
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 3
@@ -1810,10 +1801,10 @@ _ZNK12aiMatrix3x3tIfEixEj.exit.thread12.us.i:     ; preds = %.preheader.i12, %_Z
 
 _ZNK12aiMatrix3x3tIfEixEj.exit.i17:               ; preds = %.preheader.i12, %_ZNK12aiMatrix3x3tIfEixEj.exit.i17
   %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.i17 ], [ 0, %.preheader.i12 ]
-  %38 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv29.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv29.i
   %.pn.i = load float, ptr %38, align 4, !noalias !16
   %39 = fmul float %22, %.pn.i
-  %40 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv29.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv29.i
   store float %39, ptr %40, align 4, !alias.scope !16
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 3
@@ -2527,9 +2518,9 @@ _ZNSt6vectorIN6Assimp7Blender8PointP2TESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
 _ZNSt12_Vector_baseIN6Assimp7Blender8PointP2TESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN6Assimp7Blender8PointP2TESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %45
   store ptr %26, ptr %0, align 8
-  %49 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %27, i64 %1
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 %1
   store ptr %49, ptr %4, align 8
-  %50 = getelementptr inbounds nuw %"struct.Assimp::Blender::PointP2T", ptr %26, i64 %24
+  %50 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %24
   store ptr %50, ptr %11, align 8
   br label %51
 
@@ -2635,9 +2626,9 @@ _ZNSt6vectorIPN3p2t5PointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %
 
 _ZNSt12_Vector_baseIPN3p2t5PointESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIPN3p2t5PointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %37
   store ptr %30, ptr %0, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8
   br label %41
 

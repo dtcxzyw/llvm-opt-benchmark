@@ -5,22 +5,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.PLpgSQL_execstate = type { ptr, ptr, ptr, i64, i8, i32, i32, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
-%struct.NullableDatum = type { i64, i8 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.plpgsql_CastHashKey = type { i32, i32, i32, i32 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%union.ListCell = type { ptr }
 %struct.PLpgSQL_stmt_execsql = type { i32, i32, i32, ptr, i8, i8, i8, i8, ptr }
 %struct.SPIExecuteOptions = type { ptr, i8, i8, i8, i64, ptr, ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.SPIPrepareOptions = type { ptr, ptr, i32, i32 }
-%struct.ParamExternData = type { i64, i8, i16, i32 }
 %struct.SPIParseOpenOptions = type { ptr, i32, i8 }
 %struct.ExprEvalStep = type { i64, ptr, ptr, %union.anon.1 }
 %union.anon.1 = type { %struct.anon.26 }
@@ -279,11 +274,11 @@ define hidden i64 @plpgsql_exec_function(ptr noundef initializes((536, 544)) %0,
 
 29:                                               ; preds = %.lr.ph, %exec_eval_cleanup.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %exec_eval_cleanup.exit ]
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %24, align 8
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %35, align 4
   switch i32 %36, label %87 [
@@ -292,7 +287,7 @@ define hidden i64 @plpgsql_exec_function(ptr noundef initializes((536, 544)) %0,
   ]
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds nuw %struct.NullableDatum, ptr %25, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i8, ptr %40, align 8, !range !3, !noundef !4
@@ -346,7 +341,7 @@ define hidden i64 @plpgsql_exec_function(ptr noundef initializes((536, 544)) %0,
   br label %exec_eval_cleanup.exit
 
 71:                                               ; preds = %29
-  %72 = getelementptr inbounds nuw %struct.NullableDatum, ptr %25, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i8, ptr %73, align 8, !range !3, !noundef !4
   %75 = trunc nuw i8 %74 to i1
@@ -386,7 +381,7 @@ define hidden i64 @plpgsql_exec_function(ptr noundef initializes((536, 544)) %0,
   %88 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8
   %93 = load i32, ptr %92, align 4
   %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %93) #11
@@ -407,7 +402,7 @@ exec_eval_cleanup.exit:                           ; preds = %58, %84, %82, %37, 
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %101 = load i32, ptr %100, align 8
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds ptr, ptr %99, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %99, i64 %102
   %104 = load ptr, ptr %103, align 8
   call fastcc void @assign_simple_var(ptr noundef nonnull readonly %7, ptr noundef %104, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
   %105 = load ptr, ptr @plpgsql_plugin_ptr, align 8
@@ -1021,7 +1016,7 @@ define internal fastcc void @copy_plpgsql_datums(ptr noundef nonnull captures(no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
   %.02528 = phi ptr [ %11, %.lr.ph.preheader ], [ %.1, %27 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   switch i32 %18, label %23 [
@@ -1052,7 +1047,7 @@ define internal fastcc void @copy_plpgsql_datums(ptr noundef nonnull captures(no
 27:                                               ; preds = %.lr.ph, %.lr.ph, %21, %19
   %.1 = phi ptr [ %20, %19 ], [ %22, %21 ], [ %.02528, %.lr.ph ], [ %.02528, %.lr.ph ]
   %.0 = phi ptr [ %.02528, %19 ], [ %.02528, %21 ], [ %17, %.lr.ph ], [ %17, %.lr.ph ]
-  %28 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store ptr %.0, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1647,8 +1642,8 @@ expanded_record_get_tupdesc.exit:                 ; preds = %53, %56
 
 .lr.ph.i:                                         ; preds = %97, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %97 ]
-  %67 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %63, i64 %indvars.iv.i
-  %68 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %65, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [100 x i8], ptr %63, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [100 x i8], ptr %65, i64 %indvars.iv.i
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 91
   %70 = load i8, ptr %69, align 1, !range !3, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 91
@@ -2192,12 +2187,12 @@ define hidden ptr @plpgsql_exec_trigger(ptr noundef initializes((536, 544)) %0, 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %16, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %16, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %16, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %28 = load ptr, ptr %27, align 8
@@ -2264,7 +2259,7 @@ define hidden ptr @plpgsql_exec_trigger(ptr noundef initializes((536, 544)) %0, 
   %61 = sext i32 %60 to i64
   %62 = shl nsw i64 %61, 4
   %63 = getelementptr i8, ptr %14, i64 %62
-  %64 = getelementptr %struct.FormData_pg_attribute, ptr %63, i64 %indvars.iv
+  %64 = getelementptr [100 x i8], ptr %63, i64 %indvars.iv
   %65 = getelementptr i8, ptr %64, i64 114
   %66 = load i8, ptr %65, align 2
   %67 = icmp eq i8 %66, 115
@@ -2312,7 +2307,7 @@ default.unreachable:                              ; preds = %37
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %84 = load i32, ptr %83, align 8
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds ptr, ptr %82, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %82, i64 %85
   %87 = load ptr, ptr %86, align 8
   call fastcc void @assign_simple_var(ptr noundef nonnull readonly %3, ptr noundef %87, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
   %88 = load ptr, ptr @plpgsql_plugin_ptr, align 8
@@ -2791,7 +2786,7 @@ define i32 @plpgsql_exec_get_datum_type(ptr noundef readonly captures(none) %0, 
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %21, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %21, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
@@ -2941,7 +2936,7 @@ define hidden void @plpgsql_exec_get_datum_type_info(ptr noundef readonly captur
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %32, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %32, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load ptr, ptr %38, align 8
@@ -3143,11 +3138,11 @@ define internal fastcc i32 @exec_stmt_block(ptr noundef nonnull initializes((216
 14:                                               ; preds = %.lr.ph, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr %12, align 8
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %13, align 8
   %22 = load i32, ptr %21, align 4
@@ -3400,7 +3395,7 @@ exec_eval_cleanup.exit:                           ; preds = %125, %129
 
 141:                                              ; preds = %.lr.ph149, %.critedge
   %indvars.iv157 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next158, %.critedge ]
-  %142 = getelementptr inbounds nuw %union.ListCell, ptr %140, i64 %indvars.iv157
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv157
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
@@ -3465,12 +3460,12 @@ exec_eval_cleanup.exit:                           ; preds = %125, %129
   %161 = load ptr, ptr %160, align 8
   %162 = load i32, ptr %132, align 8
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds ptr, ptr %161, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %161, i64 %163
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %167 = load i32, ptr %166, align 4
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds ptr, ptr %161, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %161, i64 %168
   %170 = load ptr, ptr %169, align 8
   %171 = call ptr @unpack_sql_state(i32 noundef %.fr) #11
   %172 = call ptr @cstring_to_text(ptr noundef %171) #11
@@ -3736,7 +3731,7 @@ define internal void @exec_assign_value(ptr noundef readonly captures(none) %0, 
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %102 = load i32, ptr %101, align 8
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds ptr, ptr %100, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %100, i64 %103
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -4105,7 +4100,7 @@ define internal fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef reado
   %134 = phi ptr [ %.pre752, %.lr.ph589 ], [ %2222, %130 ]
   %indvars.iv749 = phi i64 [ 0, %.lr.ph589 ], [ %indvars.iv.next750, %130 ]
   %135 = load ptr, ptr %79, align 8
-  %136 = getelementptr inbounds nuw %union.ListCell, ptr %135, i64 %indvars.iv749
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv749
   %137 = load ptr, ptr %136, align 8
   store ptr %137, ptr %74, align 8
   %138 = load ptr, ptr %134, align 8
@@ -4185,7 +4180,7 @@ define internal fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef reado
   %.val96 = load ptr, ptr %157, align 8
   %158 = load ptr, ptr %81, align 8
   %159 = sext i32 %.val to i64
-  %160 = getelementptr inbounds ptr, ptr %158, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %158, i64 %159
   %161 = load ptr, ptr %160, align 8
   call void @exec_assign_expr(ptr noundef nonnull %0, ptr noundef %161, ptr noundef %.val96)
   br label %exec_stmt_perform.exit
@@ -4199,7 +4194,7 @@ define internal fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef reado
   %167 = load ptr, ptr %81, align 8
   %168 = load i32, ptr %85, align 8
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds ptr, ptr %167, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %167, i64 %169
   %171 = load ptr, ptr %170, align 8
   %172 = zext i1 %166 to i64
   call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %171, i64 noundef %172, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -4377,7 +4372,7 @@ list_length.exit.thread.i.i:                      ; preds = %list_length.exit.i.
   %258 = getelementptr i8, ptr %257, i64 16
   %.val57.i.i = load ptr, ptr %258, align 8
   %259 = sext i32 %.05.i.i to i64
-  %260 = getelementptr inbounds %union.ListCell, ptr %.val57.i.i, i64 %259
+  %260 = getelementptr inbounds [8 x i8], ptr %.val57.i.i, i64 %259
   %261 = load ptr, ptr %260, align 8
   %262 = load i32, ptr %261, align 4
   %263 = icmp eq i32 %262, 8
@@ -4390,7 +4385,7 @@ list_length.exit.thread.i.i:                      ; preds = %list_length.exit.i.
   call fastcc void @exec_check_assignable(ptr noundef nonnull readonly %0, i32 noundef %267)
   %268 = load ptr, ptr %244, align 8
   %269 = add i32 %.05.i.i, 1
-  %270 = getelementptr inbounds i32, ptr %268, i64 %259
+  %270 = getelementptr inbounds [4 x i8], ptr %268, i64 %259
   store i32 %267, ptr %270, align 4
   br label %291
 
@@ -4400,7 +4395,7 @@ list_length.exit.thread.i.i:                      ; preds = %list_length.exit.i.
   br i1 %.not54.i.i, label %285, label %273
 
 273:                                              ; preds = %271
-  %274 = getelementptr inbounds nuw ptr, ptr %272, i64 %indvars.iv.i.i
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %indvars.iv.i.i
   %275 = load ptr, ptr %274, align 8
   %.not55.i.i = icmp eq ptr %275, null
   br i1 %.not55.i.i, label %285, label %276
@@ -4414,7 +4409,7 @@ list_length.exit.thread.i.i:                      ; preds = %list_length.exit.i.
   %279 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
   %280 = call i32 @errcode(i32 noundef 16801924) #11
   %281 = load ptr, ptr %71, align 8
-  %282 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv.i.i
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv.i.i
   %283 = load ptr, ptr %282, align 8
   %284 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef %283) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2383, ptr noundef nonnull @__func__.make_callstmt_target) #11
@@ -4593,13 +4588,13 @@ exec_stmt_call.exit:                              ; preds = %341, %343
 .lr.ph585:                                        ; preds = %.lr.ph.i, %505
   %indvars.iv.i584 = phi i64 [ %indvars.iv.next.i, %505 ], [ 0, %.lr.ph.i ]
   %365 = load ptr, ptr %362, align 8
-  %366 = getelementptr inbounds nuw %union.ListCell, ptr %365, i64 %indvars.iv.i584
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %indvars.iv.i584
   %367 = load ptr, ptr %366, align 8
   %368 = load ptr, ptr %81, align 8
   %369 = getelementptr inbounds nuw i8, ptr %367, i64 4
   %370 = load i32, ptr %369, align 4
   %371 = sext i32 %370 to i64
-  %372 = getelementptr inbounds ptr, ptr %368, i64 %371
+  %372 = getelementptr inbounds [8 x i8], ptr %368, i64 %371
   %373 = load ptr, ptr %372, align 8
   %374 = load i32, ptr %367, align 4
   switch i32 %374, label %501 [
@@ -4922,7 +4917,7 @@ exec_eval_cleanup.exit206:                        ; preds = %519, %521
 .lr.ph583:                                        ; preds = %.lr.ph576, %535
   %indvars.iv746 = phi i64 [ %indvars.iv.next747, %535 ], [ 0, %.lr.ph576 ]
   %539 = load ptr, ptr %532, align 8
-  %540 = getelementptr inbounds nuw %union.ListCell, ptr %539, i64 %indvars.iv746
+  %540 = getelementptr inbounds nuw [8 x i8], ptr %539, i64 %indvars.iv746
   %541 = load ptr, ptr %540, align 8
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 8
   %543 = load ptr, ptr %542, align 8
@@ -4991,7 +4986,7 @@ exec_stmt_if.exit:                                ; preds = %.split580, %526, %.
   %567 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %568 = load i32, ptr %567, align 8
   %569 = sext i32 %568 to i64
-  %570 = getelementptr inbounds ptr, ptr %566, i64 %569
+  %570 = getelementptr inbounds [8 x i8], ptr %566, i64 %569
   %571 = load ptr, ptr %570, align 8
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 32
   %573 = load ptr, ptr %572, align 8
@@ -5069,7 +5064,7 @@ exec_eval_cleanup.exit219:                        ; preds = %590, %592
 .lr.ph573:                                        ; preds = %.lr.ph570, %602
   %indvars.iv = phi i64 [ %indvars.iv.next, %602 ], [ 0, %.lr.ph570 ]
   %606 = load ptr, ptr %599, align 8
-  %607 = getelementptr inbounds nuw %union.ListCell, ptr %606, i64 %indvars.iv
+  %607 = getelementptr inbounds nuw [8 x i8], ptr %606, i64 %indvars.iv
   %608 = load ptr, ptr %607, align 8
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 8
   %610 = load ptr, ptr %609, align 8
@@ -5411,7 +5406,7 @@ exec_stmt_while.exit:                             ; preds = %exec_eval_cleanup.e
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 4
   %765 = load i32, ptr %764, align 4
   %766 = sext i32 %765 to i64
-  %767 = getelementptr inbounds ptr, ptr %761, i64 %766
+  %767 = getelementptr inbounds [8 x i8], ptr %761, i64 %766
   %768 = load ptr, ptr %767, align 8
   %769 = getelementptr inbounds nuw i8, ptr %137, i64 32
   %770 = load ptr, ptr %769, align 8
@@ -5677,7 +5672,7 @@ exec_stmt_fori.exit:                              ; preds = %exec_stmt_fori.exit
   %899 = load ptr, ptr %81, align 8
   %900 = load i32, ptr %85, align 8
   %901 = sext i32 %900 to i64
-  %902 = getelementptr inbounds ptr, ptr %899, i64 %901
+  %902 = getelementptr inbounds [8 x i8], ptr %899, i64 %901
   %903 = load ptr, ptr %902, align 8
   call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %903, i64 noundef %.163.i, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
@@ -5701,7 +5696,7 @@ exec_stmt_fori.exit:                              ; preds = %exec_stmt_fori.exit
   %912 = getelementptr inbounds nuw i8, ptr %137, i64 40
   %913 = load i32, ptr %912, align 8
   %914 = sext i32 %913 to i64
-  %915 = getelementptr inbounds ptr, ptr %911, i64 %914
+  %915 = getelementptr inbounds [8 x i8], ptr %911, i64 %914
   %916 = load ptr, ptr %915, align 8
   %917 = getelementptr inbounds nuw i8, ptr %916, i64 64
   %918 = load i8, ptr %917, align 8, !range !3, !noundef !4
@@ -5771,7 +5766,7 @@ get_stmt_mcontext.exit:                           ; preds = %920, %923
   store i8 1, ptr %119, align 2
   %951 = load ptr, ptr %81, align 8
   %952 = zext nneg i32 %942 to i64
-  %953 = getelementptr inbounds nuw ptr, ptr %951, i64 %952
+  %953 = getelementptr inbounds nuw [8 x i8], ptr %951, i64 %952
   %954 = load ptr, ptr %953, align 8
   store ptr %954, ptr %120, align 8
   call fastcc void @exec_stmt_execsql(ptr noundef nonnull %0, ptr noundef nonnull %60)
@@ -6034,7 +6029,7 @@ exec_eval_cleanup.exit242:                        ; preds = %1067, %1069
   %1088 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %1089 = load i32, ptr %1088, align 8
   %1090 = sext i32 %1089 to i64
-  %1091 = getelementptr inbounds ptr, ptr %1087, i64 %1090
+  %1091 = getelementptr inbounds [8 x i8], ptr %1087, i64 %1090
   %1092 = load ptr, ptr %1091, align 8
   %1093 = load i32, ptr %1092, align 4
   %.off.i = add i32 %1093, -1
@@ -6172,7 +6167,7 @@ exec_stmt_foreach_a.exit:                         ; preds = %1146, %1144, %1129,
   %1154 = load ptr, ptr %81, align 8
   %1155 = load i32, ptr %85, align 8
   %1156 = sext i32 %1155 to i64
-  %1157 = getelementptr inbounds ptr, ptr %1154, i64 %1156
+  %1157 = getelementptr inbounds [8 x i8], ptr %1154, i64 %1156
   %1158 = load ptr, ptr %1157, align 8
   call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %1158, i64 noundef %.1.i131, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
@@ -6252,7 +6247,7 @@ exec_eval_cleanup.exit.i:                         ; preds = %1171, %1169
 1189:                                             ; preds = %1185
   %1190 = load ptr, ptr %81, align 8
   %1191 = zext nneg i32 %1187 to i64
-  %1192 = getelementptr inbounds nuw ptr, ptr %1190, i64 %1191
+  %1192 = getelementptr inbounds nuw [8 x i8], ptr %1190, i64 %1191
   %1193 = load ptr, ptr %1192, align 8
   %1194 = load i32, ptr %1193, align 4
   switch i32 %1194, label %1226 [
@@ -6412,7 +6407,7 @@ exec_eval_cleanup.exit.i:                         ; preds = %1171, %1169
 1273:                                             ; preds = %1267
   %1274 = load ptr, ptr %81, align 8
   %1275 = zext nneg i32 %1271 to i64
-  %1276 = getelementptr inbounds nuw ptr, ptr %1274, i64 %1275
+  %1276 = getelementptr inbounds nuw [8 x i8], ptr %1274, i64 %1275
   %1277 = load ptr, ptr %1276, align 8
   %1278 = load i32, ptr %1277, align 4
   switch i32 %1278, label %1358 [
@@ -6949,7 +6944,7 @@ exec_stmt_return_query.exit:                      ; preds = %1532, %1534
   %1541 = load ptr, ptr %81, align 8
   %1542 = load i32, ptr %85, align 8
   %1543 = sext i32 %1542 to i64
-  %1544 = getelementptr inbounds ptr, ptr %1541, i64 %1543
+  %1544 = getelementptr inbounds [8 x i8], ptr %1541, i64 %1543
   %1545 = load ptr, ptr %1544, align 8
   %1546 = zext i1 %1540 to i64
   call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %1545, i64 noundef %1546, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -7108,7 +7103,7 @@ list_head.exit.i:                                 ; preds = %1585, %1581
   %.val162.i = load ptr, ptr %1616, align 8
   %1617 = getelementptr inbounds nuw i8, ptr %.0121.i, i64 8
   %1618 = sext i32 %.val161.i to i64
-  %1619 = getelementptr inbounds %union.ListCell, ptr %.val162.i, i64 %1618
+  %1619 = getelementptr inbounds [8 x i8], ptr %.val162.i, i64 %1618
   %1620 = icmp ult ptr %1617, %1619
   %..i.i = select i1 %1620, ptr %1617, ptr null
   %1621 = load ptr, ptr %83, align 8
@@ -7191,7 +7186,7 @@ exec_eval_cleanup.exit.i163:                      ; preds = %1625, %1623, %1596
   %.1298.i538 = phi i32 [ %.2.i169, %exec_eval_cleanup.exit166.i ], [ %.0.i158, %.lr.ph.i164 ]
   %indvars.iv.i165537 = phi i64 [ %indvars.iv.next.i170, %exec_eval_cleanup.exit166.i ], [ 0, %.lr.ph.i164 ]
   %1644 = load ptr, ptr %1641, align 8
-  %1645 = getelementptr inbounds nuw %union.ListCell, ptr %1644, i64 %indvars.iv.i165537
+  %1645 = getelementptr inbounds nuw [8 x i8], ptr %1644, i64 %indvars.iv.i165537
   %1646 = load ptr, ptr %1645, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
@@ -7786,7 +7781,7 @@ exec_eval_cleanup.exit.i183:                      ; preds = %1851, %1849
   %1892 = getelementptr inbounds nuw i8, ptr %1891, i64 4
   %1893 = load i32, ptr %1892, align 4
   %1894 = sext i32 %1893 to i64
-  %1895 = getelementptr inbounds ptr, ptr %1889, i64 %1894
+  %1895 = getelementptr inbounds [8 x i8], ptr %1889, i64 %1894
   %1896 = load ptr, ptr %1895, align 8
   switch i64 %1877, label %1915 [
     i64 0, label %1897
@@ -7914,7 +7909,7 @@ exec_stmt_dynexecute.exit:                        ; preds = %1876, %1941, %1943
   %1956 = getelementptr inbounds nuw i8, ptr %137, i64 12
   %1957 = load i32, ptr %1956, align 4
   %1958 = sext i32 %1957 to i64
-  %1959 = getelementptr inbounds ptr, ptr %1955, i64 %1958
+  %1959 = getelementptr inbounds [8 x i8], ptr %1955, i64 %1958
   %1960 = load ptr, ptr %1959, align 8
   %1961 = getelementptr inbounds nuw i8, ptr %1960, i64 64
   %1962 = load i8, ptr %1961, align 8, !range !3, !noundef !4
@@ -8026,7 +8021,7 @@ get_stmt_mcontext.exit.i187:                      ; preds = %1967, %1964
   store i8 1, ptr %91, align 2
   %2020 = load ptr, ptr %81, align 8
   %2021 = zext nneg i32 %2011 to i64
-  %2022 = getelementptr inbounds nuw ptr, ptr %2020, i64 %2021
+  %2022 = getelementptr inbounds nuw [8 x i8], ptr %2020, i64 %2021
   %2023 = load ptr, ptr %2022, align 8
   store ptr %2023, ptr %92, align 8
   call fastcc void @exec_stmt_execsql(ptr noundef nonnull %0, ptr noundef nonnull %14)
@@ -8140,7 +8135,7 @@ exec_eval_cleanup.exit.i196:                      ; preds = %2071, %2069
   %2079 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %2080 = load i32, ptr %2079, align 8
   %2081 = sext i32 %2080 to i64
-  %2082 = getelementptr inbounds ptr, ptr %2078, i64 %2081
+  %2082 = getelementptr inbounds [8 x i8], ptr %2078, i64 %2081
   %2083 = load ptr, ptr %2082, align 8
   %2084 = getelementptr inbounds nuw i8, ptr %2083, i64 64
   %2085 = load i8, ptr %2084, align 8, !range !3, !noundef !4
@@ -8251,7 +8246,7 @@ exec_eval_cleanup.exit.i200:                      ; preds = %2128, %2126
   %2143 = getelementptr inbounds nuw i8, ptr %2142, i64 4
   %2144 = load i32, ptr %2143, align 4
   %2145 = sext i32 %2144 to i64
-  %2146 = getelementptr inbounds ptr, ptr %2140, i64 %2145
+  %2146 = getelementptr inbounds [8 x i8], ptr %2140, i64 %2145
   %2147 = load ptr, ptr %2146, align 8
   %2148 = icmp eq i64 %2139, 0
   br i1 %2148, label %2153, label %2149
@@ -8302,7 +8297,7 @@ exec_stmt_fetch.exit:                             ; preds = %exec_eval_cleanup.e
   %2165 = load ptr, ptr %81, align 8
   %2166 = load i32, ptr %85, align 8
   %2167 = sext i32 %2166 to i64
-  %2168 = getelementptr inbounds ptr, ptr %2165, i64 %2167
+  %2168 = getelementptr inbounds [8 x i8], ptr %2165, i64 %2167
   %2169 = load ptr, ptr %2168, align 8
   %2170 = zext i1 %2164 to i64
   call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %2169, i64 noundef %2170, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -8313,7 +8308,7 @@ exec_stmt_fetch.exit:                             ; preds = %exec_eval_cleanup.e
   %.val98 = load i32, ptr %2172, align 4
   %2173 = load ptr, ptr %81, align 8
   %2174 = sext i32 %.val98 to i64
-  %2175 = getelementptr inbounds ptr, ptr %2173, i64 %2174
+  %2175 = getelementptr inbounds [8 x i8], ptr %2173, i64 %2174
   %2176 = load ptr, ptr %2175, align 8
   %2177 = getelementptr inbounds nuw i8, ptr %2176, i64 64
   %2178 = load i8, ptr %2177, align 8, !range !3, !noundef !4
@@ -9280,7 +9275,7 @@ define internal fastcc void @exec_stmt_execsql(ptr noundef nonnull captures(none
 
 27:                                               ; preds = %.lr.ph105, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next, %32 ]
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i32, ptr %30, align 8
@@ -9370,7 +9365,7 @@ setup_param_list.exit:                            ; preds = %33, %37
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %64 = load i32, ptr %63, align 8
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %62, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = zext i1 %60 to i64
   tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %67, i64 noundef %68, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -9384,7 +9379,7 @@ setup_param_list.exit:                            ; preds = %33, %37
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %75 = load i32, ptr %74, align 8
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds ptr, ptr %73, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %73, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = zext i1 %71 to i64
   tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %78, i64 noundef %79, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -9396,7 +9391,7 @@ setup_param_list.exit:                            ; preds = %33, %37
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %84 = load i32, ptr %83, align 8
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds ptr, ptr %82, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %82, i64 %85
   %87 = load ptr, ptr %86, align 8
   tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %87, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %101
@@ -9451,7 +9446,7 @@ setup_param_list.exit:                            ; preds = %33, %37
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds ptr, ptr %115, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %115, i64 %120
   %122 = load ptr, ptr %121, align 8
   switch i64 %102, label %141 [
     i64 0, label %123
@@ -9630,7 +9625,7 @@ define internal fastcc void @exec_check_assignable(ptr noundef nonnull readonly 
 tailrecurse:                                      ; preds = %19, %2
   %.tr7 = phi i32 [ %1, %2 ], [ %21, %19 ]
   %5 = sext i32 %.tr7 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %22 [
@@ -9689,7 +9684,7 @@ define internal fastcc noundef i32 @exec_for_query(ptr noundef nonnull %0, ptr n
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   %13 = load ptr, ptr %12, align 8
   tail call void @PinPortal(ptr noundef %2) #11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 47
@@ -9773,7 +9768,7 @@ define internal fastcc noundef i32 @exec_for_query(ptr noundef nonnull %0, ptr n
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %39, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.069126
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.069126
   %53 = load ptr, ptr %52, align 8
   %54 = load i8, ptr %14, align 1, !range !3, !noundef !4
   %55 = trunc nuw i8 %54 to i1
@@ -9784,7 +9779,7 @@ define internal fastcc noundef i32 @exec_for_query(ptr noundef nonnull %0, ptr n
 57:                                               ; preds = %._crit_edge, %45
   %.pre-phi = phi i1 [ %.pre, %._crit_edge ], [ %49, %45 ]
   %58 = load ptr, ptr %39, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.069126
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.069126
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %.084128, align 8
   tail call fastcc void @exec_move_row(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %60, ptr noundef %61)
@@ -9836,8 +9831,8 @@ expanded_record_get_tupdesc.exit:                 ; preds = %70, %74
 
 .lr.ph.i:                                         ; preds = %115, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %115 ]
-  %85 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %81, i64 %indvars.iv.i
-  %86 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %83, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [100 x i8], ptr %81, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [100 x i8], ptr %83, i64 %indvars.iv.i
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 91
   %88 = load i8, ptr %87, align 1, !range !3, !noundef !4
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 91
@@ -9899,7 +9894,7 @@ compatible_tupdescs.exit:                         ; preds = %115, %110, %105, %1
 
 119:                                              ; preds = %40
   %120 = load ptr, ptr %39, align 8
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %.069126
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %.069126
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %.084128, align 8
   tail call fastcc void @exec_move_row(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %122, ptr noundef %123)
@@ -9998,7 +9993,7 @@ exec_eval_cleanup.exit105:                        ; preds = %127, %129
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %159 = load i32, ptr %158, align 8
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds ptr, ptr %157, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %157, i64 %160
   %162 = load ptr, ptr %161, align 8
   %163 = zext i1 %20 to i64
   tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %162, i64 noundef %163, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -10319,11 +10314,11 @@ default.unreachable:                              ; preds = %68, %33
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 56
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv
   %159 = load ptr, ptr %158, align 8
   %160 = tail call ptr @cstring_to_text(ptr noundef %159) #11
   %161 = ptrtoint ptr %160 to i64
-  %162 = getelementptr inbounds nuw i64, ptr %151, i64 %indvars.iv
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv
   store i64 %161, ptr %162, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -10583,7 +10578,7 @@ define internal void @exec_eval_datum(ptr noundef readonly captures(none) %0, pt
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %77 = load i32, ptr %76, align 8
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds ptr, ptr %75, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %75, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %82 = load ptr, ptr %81, align 8
@@ -10659,7 +10654,7 @@ define internal void @exec_eval_datum(ptr noundef readonly captures(none) %0, pt
   store i8 %125, ptr %5, align 1
   %126 = getelementptr inbounds nuw i8, ptr %.0, i64 88
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i64, ptr %127, i64 %123
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %123
   %129 = load i64, ptr %128, align 8
   br label %expanded_record_get_field.exit
 
@@ -10734,7 +10729,7 @@ define internal fastcc ptr @make_tuple_from_row(ptr noundef readonly captures(no
   %26 = sext i32 %25 to i64
   %27 = shl nsw i64 %26, 4
   %28 = getelementptr i8, ptr %2, i64 %27
-  %29 = getelementptr %struct.FormData_pg_attribute, ptr %28, i64 %indvars.iv
+  %29 = getelementptr [100 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr i8, ptr %29, i64 115
   %31 = load i8, ptr %30, align 1, !range !3, !noundef !4
   %32 = trunc nuw i8 %31 to i1
@@ -10748,12 +10743,12 @@ define internal fastcc ptr @make_tuple_from_row(ptr noundef readonly captures(no
 35:                                               ; preds = %24
   %36 = load ptr, ptr %22, align 8
   %37 = load ptr, ptr %23, align 8
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %36, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %36, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   call void @exec_eval_datum(ptr noundef %0, ptr noundef %42, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %43, ptr noundef %44)
   %45 = load i32, ptr %4, align 4
@@ -10761,7 +10756,7 @@ define internal fastcc ptr @make_tuple_from_row(ptr noundef readonly captures(no
   %47 = sext i32 %46 to i64
   %48 = shl nsw i64 %47, 4
   %49 = getelementptr i8, ptr %2, i64 %48
-  %50 = getelementptr %struct.FormData_pg_attribute, ptr %49, i64 %indvars.iv
+  %50 = getelementptr [100 x i8], ptr %49, i64 %indvars.iv
   %51 = getelementptr i8, ptr %50, i64 92
   %52 = load i32, ptr %51, align 4
   %.not32 = icmp eq i32 %45, %52
@@ -10936,9 +10931,9 @@ get_stmt_mcontext.exit:                           ; preds = %list_length.exit, %
 24:                                               ; preds = %.lr.ph, %exec_eval_cleanup.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %exec_eval_cleanup.exit ]
   %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw %struct.ParamExternData, ptr %21, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 10
   store i16 1, ptr %29, align 2
@@ -11090,7 +11085,7 @@ define internal fastcc ptr @format_expr_params(ptr noundef nonnull readonly capt
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load ptr, ptr %21, align 8
   %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   call void @exec_eval_datum(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %8)
   %28 = icmp sgt i32 %.01316, 0
@@ -11181,7 +11176,7 @@ define internal fastcc ptr @format_preparedparamsdata(ptr noundef nonnull readon
 
 16:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %17 = getelementptr inbounds nuw %struct.ParamExternData, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %.not16 = icmp eq i64 %indvars.iv, 0
   %18 = select i1 %.not16, ptr @.str.55, ptr @.str.125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11369,7 +11364,7 @@ define internal noundef ptr @plpgsql_param_fetch(ptr noundef readonly captures(n
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %6 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %17 = load ptr, ptr %16, align 8
@@ -11392,7 +11387,7 @@ define internal noundef ptr @plpgsql_param_fetch(ptr noundef readonly captures(n
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
@@ -11507,7 +11502,7 @@ define internal void @plpgsql_param_compile(ptr noundef readonly captures(none) 
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %13 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   store i64 51, ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -11624,7 +11619,7 @@ define internal void @plpgsql_param_eval_var_check(ptr noundef readnone captures
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %9 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load i8, ptr %19, align 8, !range !3, !noundef !4
@@ -11812,7 +11807,7 @@ exec_check_rw_parameter.exit:                     ; preds = %exec_check_rw_param
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 112
   %110 = load ptr, ptr %109, align 8
   %111 = sext i32 %105 to i64
-  %112 = getelementptr inbounds ptr, ptr %110, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %110, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 64
   %115 = load i8, ptr %114, align 8, !range !3, !noundef !4
@@ -11846,7 +11841,7 @@ plpgsql_param_eval_var_ro.exit:                   ; preds = %103, %119
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 112
   %134 = load ptr, ptr %133, align 8
   %135 = sext i32 %129 to i64
-  %136 = getelementptr inbounds ptr, ptr %134, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %134, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 64
   %139 = load i8, ptr %138, align 8, !range !3, !noundef !4
@@ -11911,7 +11906,7 @@ plpgsql_param_eval_var_ro.exit:                   ; preds = %103, %119
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 112
   %176 = load ptr, ptr %175, align 8
   %177 = sext i32 %171 to i64
-  %178 = getelementptr inbounds ptr, ptr %176, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %176, i64 %177
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 56
   %181 = load i64, ptr %180, align 8
@@ -11956,7 +11951,7 @@ define internal void @plpgsql_param_eval_var_ro(ptr readnone captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %6 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load i8, ptr %16, align 8, !range !3, !noundef !4
@@ -11993,7 +11988,7 @@ define internal void @plpgsql_param_eval_var(ptr readnone captures(none) %0, ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %6 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load i64, ptr %16, align 8
@@ -12020,12 +12015,12 @@ define internal void @plpgsql_param_eval_recfield(ptr readnone captures(none) %0
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %6 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %12, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %12, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -12097,7 +12092,7 @@ define internal void @plpgsql_param_eval_recfield(ptr readnone captures(none) %0
   store i8 %63, ptr %49, align 1
   %64 = getelementptr inbounds nuw i8, ptr %.0, i64 88
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %61
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %61
   %67 = load i64, ptr %66, align 8
   br label %expanded_record_get_field.exit
 
@@ -12149,7 +12144,7 @@ define internal void @plpgsql_param_eval_generic_ro(ptr readnone captures(none) 
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %8 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -12211,7 +12206,7 @@ define internal void @plpgsql_param_eval_generic(ptr readnone captures(none) %0,
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %8 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -12255,7 +12250,7 @@ define internal void @plpgsql_param_eval_var_transfer(ptr readnone captures(none
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %6 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load i8, ptr %16, align 8, !range !3, !noundef !4
@@ -12550,7 +12545,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %25, %28
   %48 = shl nsw i64 %47, 4
   %49 = getelementptr i8, ptr %.0.i, i64 %48
   %50 = getelementptr i8, ptr %49, i64 24
-  %51 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %50, i64 %indvars.iv243
+  %51 = getelementptr inbounds nuw [100 x i8], ptr %50, i64 %indvars.iv243
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 91
   %53 = load i8, ptr %52, align 1, !range !3, !noundef !4
@@ -12572,7 +12567,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %25, %28
 
 62:                                               ; preds = %.lr.ph209, %67
   %indvars.iv238 = phi i64 [ %61, %.lr.ph209 ], [ %indvars.iv.next239, %67 ]
-  %63 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %60, i64 %indvars.iv238
+  %63 = getelementptr inbounds [100 x i8], ptr %60, i64 %indvars.iv238
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 91
   %65 = load i8, ptr %64, align 1, !range !3, !noundef !4
   %66 = trunc nuw i8 %65 to i1
@@ -12586,7 +12581,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %25, %28
 
 .critedge:                                        ; preds = %62
   %68 = trunc nsw i64 %indvars.iv238 to i32
-  %69 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv238
+  %69 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv238
   %70 = load i64, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv238
   %72 = load i8, ptr %71, align 1, !range !3, !noundef !4
@@ -12625,7 +12620,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %25, %28
   %88 = getelementptr inbounds nuw i8, ptr %51, i64 76
   %89 = load i32, ptr %88, align 4
   %90 = call i64 @exec_cast_value(ptr noundef %0, i64 noundef %.0164, ptr noundef nonnull %9, i32 noundef %.0163, i32 noundef %.0162, i32 noundef %87, i32 noundef %89)
-  %91 = getelementptr inbounds nuw i64, ptr %.0169, i64 %indvars.iv243
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %.0169, i64 %indvars.iv243
   store i64 %90, ptr %91, align 8
   %92 = load i8, ptr %9, align 1, !range !3, !noundef !4
   %93 = getelementptr inbounds nuw i8, ptr %.0168, i64 %indvars.iv243
@@ -12661,7 +12656,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %25, %28
 
 102:                                              ; preds = %.preheader, %101
   %indvars.iv247 = phi i64 [ %100, %.preheader ], [ %indvars.iv.next248, %101 ]
-  %103 = getelementptr %struct.FormData_pg_attribute, ptr %99, i64 %indvars.iv247
+  %103 = getelementptr [100 x i8], ptr %99, i64 %indvars.iv247
   %104 = getelementptr i8, ptr %103, i64 115
   %105 = load i8, ptr %104, align 1, !range !3, !noundef !4
   %106 = trunc nuw i8 %105 to i1
@@ -12714,10 +12709,10 @@ assign_record_var.exit:                           ; preds = %.critedge186, %122
   %.5203 = phi i32 [ 0, %.lr.ph205 ], [ %.7, %164 ]
   %126 = load ptr, ptr %23, align 8
   %127 = load ptr, ptr %24, align 8
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv230
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv230
   %129 = load i32, ptr %128, align 4
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds ptr, ptr %126, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %126, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = icmp slt i32 %.5203, %17
   br i1 %133, label %.lr.ph, label %.critedge187
@@ -12733,7 +12728,7 @@ assign_record_var.exit:                           ; preds = %.critedge186, %122
 
 140:                                              ; preds = %.lr.ph, %145
   %indvars.iv = phi i64 [ %139, %.lr.ph ], [ %indvars.iv.next, %145 ]
-  %141 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %138, i64 %indvars.iv
+  %141 = getelementptr inbounds [100 x i8], ptr %138, i64 %indvars.iv
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 91
   %143 = load i8, ptr %142, align 1, !range !3, !noundef !4
   %144 = trunc nuw i8 %143 to i1
@@ -12747,7 +12742,7 @@ assign_record_var.exit:                           ; preds = %.critedge186, %122
 
 .critedge11:                                      ; preds = %140
   %146 = trunc nsw i64 %indvars.iv to i32
-  %147 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %147 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %148 = load i64, ptr %147, align 8
   %149 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
   %150 = load i8, ptr %149, align 1, !range !3, !noundef !4
@@ -12810,7 +12805,7 @@ assign_record_var.exit:                           ; preds = %.critedge186, %122
 
 175:                                              ; preds = %.preheader195, %174
   %indvars.iv233 = phi i64 [ %173, %.preheader195 ], [ %indvars.iv.next234, %174 ]
-  %176 = getelementptr %struct.FormData_pg_attribute, ptr %172, i64 %indvars.iv233
+  %176 = getelementptr [100 x i8], ptr %172, i64 %indvars.iv233
   %177 = getelementptr i8, ptr %176, i64 115
   %178 = load i8, ptr %177, align 1, !range !3, !noundef !4
   %179 = trunc nuw i8 %178 to i1

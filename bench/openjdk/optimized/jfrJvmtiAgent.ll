@@ -296,7 +296,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i36: ; preds = %66, %_ZN18Safepoi
   br label %_ZL23check_exception_and_logP7JNIEnv_P10JavaThread.exit
 
 _ZL23check_exception_and_logP7JNIEnv_P10JavaThread.exit: ; preds = %.lr.ph, %69
-  %70 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store ptr %51, ptr %70, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -340,7 +340,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %85
   %indvars.iv52 = phi i64 [ 0, %.lr.ph49.preheader ], [ %indvars.iv.next53, %85 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv52
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv52
   %82 = load ptr, ptr %81, align 8
   %83 = call noundef zeroext i1 @_ZN11JdkJfrEvent4is_aEP7_jclass(ptr noundef %82) #11
   br i1 %83, label %85, label %84
@@ -407,7 +407,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i40: ; preds = %103, %_ZN18Safepo
   store volatile i32 6, ptr %24, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(43) %4, ptr noundef nonnull align 16 dereferenceable(43) @__const._ZL13log_and_throw10jvmtiErrorP10JavaThread.base_error_msg, i64 43, i1 false)
   %104 = sext i32 %90 to i64
-  %105 = getelementptr inbounds ptr, ptr @_ZN9JvmtiUtil12_error_namesE, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr @_ZN9JvmtiUtil12_error_namesE, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #12
   %108 = add i64 %107, 43

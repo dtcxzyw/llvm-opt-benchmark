@@ -24,9 +24,9 @@ define range(i64 0, 2) i64 @OSQPVectorf_is_eq(ptr noundef readonly captures(none
 11:                                               ; preds = %.lr.ph, %11
   %.024 = phi i64 [ 1, %.lr.ph ], [ %.1, %11 ]
   %.01923 = phi i64 [ 0, %.lr.ph ], [ %19, %11 ]
-  %12 = getelementptr inbounds nuw double, ptr %9, i64 %.01923
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.01923
   %13 = load double, ptr %12, align 8, !tbaa !11
-  %14 = getelementptr inbounds nuw double, ptr %10, i64 %.01923
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01923
   %15 = load double, ptr %14, align 8, !tbaa !11
   %16 = fsub double %13, %15
   %17 = tail call double @llvm.fabs.f64(double %16)
@@ -74,9 +74,9 @@ OSQPVectorf_malloc.exit:                          ; preds = %6
 
 .lr.ph.i:                                         ; preds = %OSQPVectorf_malloc.exit, %.lr.ph.i
   %.08.i = phi i64 [ %14, %.lr.ph.i ], [ 0, %OSQPVectorf_malloc.exit ]
-  %11 = getelementptr inbounds nuw double, ptr %0, i64 %.08.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.08.i
   %12 = load double, ptr %11, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw double, ptr %8, i64 %.08.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.08.i
   store double %12, ptr %13, align 8, !tbaa !11
   %14 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %14, %1
@@ -129,9 +129,9 @@ define void @OSQPVectorf_from_raw(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw double, ptr %1, i64 %.08
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.08
   %8 = load double, ptr %7, align 8, !tbaa !11
-  %9 = getelementptr inbounds nuw double, ptr %5, i64 %.08
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.08
   store double %8, ptr %9, align 8, !tbaa !11
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
@@ -174,9 +174,9 @@ OSQPVectori_malloc.exit:                          ; preds = %6
 
 .lr.ph.i:                                         ; preds = %OSQPVectori_malloc.exit, %.lr.ph.i
   %.08.i = phi i64 [ %14, %.lr.ph.i ], [ 0, %OSQPVectori_malloc.exit ]
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %.08.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.08.i
   %12 = load i64, ptr %11, align 8, !tbaa !20
-  %13 = getelementptr inbounds nuw i64, ptr %8, i64 %.08.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.08.i
   store i64 %12, ptr %13, align 8, !tbaa !20
   %14 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %14, %1
@@ -229,9 +229,9 @@ define void @OSQPVectori_from_raw(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.08
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.08
   %8 = load i64, ptr %7, align 8, !tbaa !20
-  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %.08
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.08
   store i64 %8, ptr %9, align 8, !tbaa !20
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
@@ -348,9 +348,9 @@ OSQPVectorf_malloc.exit:                          ; preds = %7
 
 .lr.ph.i.i:                                       ; preds = %OSQPVectorf_malloc.exit, %.lr.ph.i.i
   %.08.i.i = phi i64 [ %16, %.lr.ph.i.i ], [ 0, %OSQPVectorf_malloc.exit ]
-  %13 = getelementptr inbounds nuw double, ptr %11, i64 %.08.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.08.i.i
   %14 = load double, ptr %13, align 8, !tbaa !11
-  %15 = getelementptr inbounds nuw double, ptr %9, i64 %.08.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.08.i.i
   store double %14, ptr %15, align 8, !tbaa !11
   %16 = add nuw nsw i64 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %16, %3
@@ -372,9 +372,9 @@ define void @OSQPVectorf_copy(ptr noundef readonly captures(none) %0, ptr nounde
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.08.i = phi i64 [ %11, %.lr.ph.i ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw double, ptr %3, i64 %.08.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.08.i
   %9 = load double, ptr %8, align 8, !tbaa !11
-  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.08.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.08.i
   store double %9, ptr %10, align 8, !tbaa !11
   %11 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %11, %5
@@ -421,15 +421,15 @@ define void @OSQPVectorf_subvector_assign(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %5
   %7 = load ptr, ptr %0, align 8, !tbaa !10
-  %8 = getelementptr double, ptr %7, i64 %2
+  %8 = getelementptr [8 x i8], ptr %7, i64 %2
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
   %.08 = phi i64 [ 0, %.lr.ph ], [ %14, %9 ]
-  %10 = getelementptr inbounds nuw double, ptr %1, i64 %.08
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.08
   %11 = load double, ptr %10, align 8, !tbaa !11
   %12 = fmul double %4, %11
-  %13 = getelementptr double, ptr %8, i64 %.08
+  %13 = getelementptr [8 x i8], ptr %8, i64 %.08
   store double %12, ptr %13, align 8, !tbaa !11
   %14 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %14, %3
@@ -446,12 +446,12 @@ define void @OSQPVectorf_subvector_assign_scalar(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %4
   %6 = load ptr, ptr %0, align 8, !tbaa !10
-  %7 = getelementptr double, ptr %6, i64 %2
+  %7 = getelementptr [8 x i8], ptr %6, i64 %2
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
   %.06 = phi i64 [ 0, %.lr.ph ], [ %10, %8 ]
-  %9 = getelementptr double, ptr %7, i64 %.06
+  %9 = getelementptr [8 x i8], ptr %7, i64 %.06
   store double %1, ptr %9, align 8, !tbaa !11
   %10 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %10, %3
@@ -475,7 +475,7 @@ define noalias noundef ptr @OSQPVectorf_subvector_byrows(ptr noundef readonly ca
 7:                                                ; preds = %.lr.ph, %7
   %.02030 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %7 ]
   %.02229 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %.02229
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02229
   %9 = load i64, ptr %8, align 8, !tbaa !20
   %.not26 = icmp ne i64 %9, 0
   %10 = zext i1 %.not26 to i64
@@ -522,16 +522,16 @@ OSQPVectorf_malloc.exit:                          ; preds = %15, %19
 22:                                               ; preds = %.lr.ph34, %31
   %.033 = phi i64 [ 0, %.lr.ph34 ], [ %.1, %31 ]
   %.12332 = phi i64 [ 0, %.lr.ph34 ], [ %32, %31 ]
-  %23 = getelementptr inbounds nuw i64, ptr %21, i64 %.12332
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.12332
   %24 = load i64, ptr %23, align 8, !tbaa !20
   %.not25 = icmp eq i64 %24, 0
   br i1 %.not25, label %31, label %25
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %0, align 8, !tbaa !10
-  %27 = getelementptr inbounds nuw double, ptr %26, i64 %.12332
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.12332
   %28 = load double, ptr %27, align 8, !tbaa !11
-  %29 = getelementptr inbounds double, ptr %20, i64 %.033
+  %29 = getelementptr inbounds [8 x i8], ptr %20, i64 %.033
   store double %28, ptr %29, align 8, !tbaa !11
   %30 = add nsw i64 %.033, 1
   br label %31
@@ -595,14 +595,14 @@ OSQPVectorf_malloc.exit:                          ; preds = %11, %15
 
 .lr.ph26:                                         ; preds = %.preheader
   %20 = load ptr, ptr %1, align 8, !tbaa !10
-  %invariant.gep = getelementptr double, ptr %16, i64 %.019.lcssa
+  %invariant.gep = getelementptr [8 x i8], ptr %16, i64 %.019.lcssa
   br label %26
 
 21:                                               ; preds = %.lr.ph, %21
   %.01924 = phi i64 [ 0, %.lr.ph ], [ %25, %21 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %.01924
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01924
   %23 = load double, ptr %22, align 8, !tbaa !11
-  %24 = getelementptr inbounds nuw double, ptr %16, i64 %.01924
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01924
   store double %23, ptr %24, align 8, !tbaa !11
   %25 = add nuw nsw i64 %.01924, 1
   %exitcond.not = icmp eq i64 %25, %4
@@ -610,9 +610,9 @@ OSQPVectorf_malloc.exit:                          ; preds = %11, %15
 
 26:                                               ; preds = %.lr.ph26, %26
   %.025 = phi i64 [ 0, %.lr.ph26 ], [ %29, %26 ]
-  %27 = getelementptr inbounds nuw double, ptr %20, i64 %.025
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.025
   %28 = load double, ptr %27, align 8, !tbaa !11
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.025
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %.025
   store double %28, ptr %gep, align 8, !tbaa !11
   %29 = add nuw nsw i64 %.025, 1
   %exitcond27.not = icmp eq i64 %29, %6
@@ -633,7 +633,7 @@ define noalias noundef ptr @OSQPVectorf_view(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %6, align 8, !tbaa !3
   %7 = load ptr, ptr %0, align 8, !tbaa !10
-  %8 = getelementptr inbounds double, ptr %7, i64 %1
+  %8 = getelementptr inbounds [8 x i8], ptr %7, i64 %1
   store ptr %8, ptr %4, align 8, !tbaa !10
   br label %9
 
@@ -646,7 +646,7 @@ define void @OSQPVectorf_view_update(ptr noundef writeonly captures(none) initia
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %5, align 8, !tbaa !3
   %6 = load ptr, ptr %1, align 8, !tbaa !10
-  %7 = getelementptr inbounds double, ptr %6, i64 %2
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %2
   store ptr %7, ptr %0, align 8, !tbaa !10
   ret void
 }
@@ -668,7 +668,7 @@ define double @OSQPVectorf_norm_2(ptr noundef readonly captures(none) %0) local_
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.012 = phi double [ %8, %.lr.ph ], [ 0.000000e+00, %1 ]
   %.01011 = phi i64 [ %9, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw double, ptr %4, i64 %.01011
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01011
   %7 = load double, ptr %6, align 8, !tbaa !11
   %8 = tail call double @llvm.fmuladd.f64(double %7, double %7, double %.012)
   %9 = add nuw nsw i64 %.01011, 1
@@ -717,9 +717,9 @@ define void @OSQPVectorf_to_raw(ptr noundef writeonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.08
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.08
   %8 = load double, ptr %7, align 8, !tbaa !11
-  %9 = getelementptr inbounds nuw double, ptr %0, i64 %.08
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.08
   store double %8, ptr %9, align 8, !tbaa !11
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
@@ -739,9 +739,9 @@ define void @OSQPVectori_to_raw(ptr noundef writeonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %.08
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.08
   %8 = load i64, ptr %7, align 8, !tbaa !20
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %.08
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.08
   store i64 %8, ptr %9, align 8, !tbaa !20
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
@@ -761,7 +761,7 @@ define void @OSQPVectorf_set_scalar(ptr noundef readonly captures(none) %0, doub
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi i64 [ %8, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.07
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.07
   store double %1, ptr %7, align 8, !tbaa !11
   %8 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %8, %4
@@ -782,19 +782,19 @@ define void @OSQPVectorf_set_scalar_conditional(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %5, %21
   %.019 = phi i64 [ %22, %21 ], [ 0, %5 ]
-  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %.019
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.019
   %12 = load i64, ptr %11, align 8, !tbaa !20
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw double, ptr %8, i64 %.019
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.019
   store double %3, ptr %15, align 8, !tbaa !11
   br label %21
 
 16:                                               ; preds = %.lr.ph
   %17 = icmp sgt i64 %12, 0
-  %18 = getelementptr inbounds nuw double, ptr %8, i64 %.019
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.019
   br i1 %17, label %19, label %20
 
 19:                                               ; preds = %16
@@ -824,7 +824,7 @@ define void @OSQPVectorf_round_to_zero(ptr noundef readonly captures(none) %0, d
 
 .lr.ph:                                           ; preds = %2, %12
   %.014 = phi i64 [ %13, %12 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.014
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.014
   %8 = load double, ptr %7, align 8, !tbaa !11
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp olt double %9, %1
@@ -853,7 +853,7 @@ define void @OSQPVectorf_mult_scalar(ptr noundef readonly captures(none) %0, dou
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.07
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.07
   %8 = load double, ptr %7, align 8, !tbaa !11
   %9 = fmul double %1, %8
   store double %9, ptr %7, align 8, !tbaa !11
@@ -884,9 +884,9 @@ define void @OSQPVectorf_plus(ptr noundef readonly captures(address) %0, ptr nou
 
 .lr.ph25:                                         ; preds = %.preheader, %.lr.ph25
   %.024 = phi i64 [ %16, %.lr.ph25 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw double, ptr %7, i64 %.024
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.024
   %12 = load double, ptr %11, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw double, ptr %8, i64 %.024
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.024
   %14 = load double, ptr %13, align 8, !tbaa !11
   %15 = fadd double %12, %14
   store double %15, ptr %13, align 8, !tbaa !11
@@ -896,12 +896,12 @@ define void @OSQPVectorf_plus(ptr noundef readonly captures(address) %0, ptr nou
 
 .lr.ph:                                           ; preds = %.preheader21, %.lr.ph
   %.123 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader21 ]
-  %17 = getelementptr inbounds nuw double, ptr %6, i64 %.123
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.123
   %18 = load double, ptr %17, align 8, !tbaa !11
-  %19 = getelementptr inbounds nuw double, ptr %7, i64 %.123
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.123
   %20 = load double, ptr %19, align 8, !tbaa !11
   %21 = fadd double %18, %20
-  %22 = getelementptr inbounds nuw double, ptr %8, i64 %.123
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.123
   store double %21, ptr %22, align 8, !tbaa !11
   %23 = add nuw nsw i64 %.123, 1
   %exitcond.not = icmp eq i64 %23, %5
@@ -930,9 +930,9 @@ define void @OSQPVectorf_minus(ptr noundef readonly captures(address) %0, ptr no
 
 .lr.ph25:                                         ; preds = %.preheader, %.lr.ph25
   %.024 = phi i64 [ %16, %.lr.ph25 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw double, ptr %7, i64 %.024
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.024
   %12 = load double, ptr %11, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw double, ptr %8, i64 %.024
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.024
   %14 = load double, ptr %13, align 8, !tbaa !11
   %15 = fsub double %14, %12
   store double %15, ptr %13, align 8, !tbaa !11
@@ -942,12 +942,12 @@ define void @OSQPVectorf_minus(ptr noundef readonly captures(address) %0, ptr no
 
 .lr.ph:                                           ; preds = %.preheader21, %.lr.ph
   %.123 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader21 ]
-  %17 = getelementptr inbounds nuw double, ptr %6, i64 %.123
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.123
   %18 = load double, ptr %17, align 8, !tbaa !11
-  %19 = getelementptr inbounds nuw double, ptr %7, i64 %.123
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.123
   %20 = load double, ptr %19, align 8, !tbaa !11
   %21 = fsub double %18, %20
-  %22 = getelementptr inbounds nuw double, ptr %8, i64 %.123
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.123
   store double %21, ptr %22, align 8, !tbaa !11
   %23 = add nuw nsw i64 %.123, 1
   %exitcond.not = icmp eq i64 %23, %5
@@ -978,9 +978,9 @@ define void @OSQPVectorf_add_scaled(ptr noundef readonly captures(address) %0, d
 
 .lr.ph30:                                         ; preds = %.preheader, %.lr.ph30
   %.029 = phi i64 [ %19, %.lr.ph30 ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds nuw double, ptr %9, i64 %.029
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.029
   %15 = load double, ptr %14, align 8, !tbaa !11
-  %16 = getelementptr inbounds nuw double, ptr %10, i64 %.029
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.029
   %17 = load double, ptr %16, align 8, !tbaa !11
   %18 = tail call double @llvm.fmuladd.f64(double %3, double %15, double %17)
   store double %18, ptr %16, align 8, !tbaa !11
@@ -990,13 +990,13 @@ define void @OSQPVectorf_add_scaled(ptr noundef readonly captures(address) %0, d
 
 .lr.ph:                                           ; preds = %.preheader26, %.lr.ph
   %.128 = phi i64 [ %27, %.lr.ph ], [ 0, %.preheader26 ]
-  %20 = getelementptr inbounds nuw double, ptr %8, i64 %.128
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.128
   %21 = load double, ptr %20, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw double, ptr %9, i64 %.128
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.128
   %23 = load double, ptr %22, align 8, !tbaa !11
   %24 = fmul double %3, %23
   %25 = tail call double @llvm.fmuladd.f64(double %1, double %21, double %24)
-  %26 = getelementptr inbounds nuw double, ptr %10, i64 %.128
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.128
   store double %25, ptr %26, align 8, !tbaa !11
   %27 = add nuw nsw i64 %.128, 1
   %exitcond.not = icmp eq i64 %27, %7
@@ -1028,13 +1028,13 @@ define void @OSQPVectorf_add_scaled3(ptr noundef readonly captures(address) %0, 
 
 .lr.ph37:                                         ; preds = %.preheader, %.lr.ph37
   %.036 = phi i64 [ %26, %.lr.ph37 ], [ 0, %.preheader ]
-  %17 = getelementptr inbounds nuw double, ptr %11, i64 %.036
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.036
   %18 = load double, ptr %17, align 8, !tbaa !11
-  %19 = getelementptr inbounds nuw double, ptr %12, i64 %.036
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.036
   %20 = load double, ptr %19, align 8, !tbaa !11
   %21 = fmul double %5, %20
   %22 = tail call double @llvm.fmuladd.f64(double %3, double %18, double %21)
-  %23 = getelementptr inbounds nuw double, ptr %13, i64 %.036
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.036
   %24 = load double, ptr %23, align 8, !tbaa !11
   %25 = fadd double %24, %22
   store double %25, ptr %23, align 8, !tbaa !11
@@ -1044,16 +1044,16 @@ define void @OSQPVectorf_add_scaled3(ptr noundef readonly captures(address) %0, 
 
 .lr.ph:                                           ; preds = %.preheader33, %.lr.ph
   %.135 = phi i64 [ %37, %.lr.ph ], [ 0, %.preheader33 ]
-  %27 = getelementptr inbounds nuw double, ptr %10, i64 %.135
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.135
   %28 = load double, ptr %27, align 8, !tbaa !11
-  %29 = getelementptr inbounds nuw double, ptr %11, i64 %.135
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.135
   %30 = load double, ptr %29, align 8, !tbaa !11
   %31 = fmul double %3, %30
   %32 = tail call double @llvm.fmuladd.f64(double %1, double %28, double %31)
-  %33 = getelementptr inbounds nuw double, ptr %12, i64 %.135
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.135
   %34 = load double, ptr %33, align 8, !tbaa !11
   %35 = tail call double @llvm.fmuladd.f64(double %5, double %34, double %32)
-  %36 = getelementptr inbounds nuw double, ptr %13, i64 %.135
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.135
   store double %35, ptr %36, align 8, !tbaa !11
   %37 = add nuw nsw i64 %.135, 1
   %exitcond.not = icmp eq i64 %37, %9
@@ -1074,7 +1074,7 @@ define double @OSQPVectorf_norm_inf(ptr noundef readonly captures(none) %0) loca
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.019 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
   %.01418 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %1 ]
-  %6 = getelementptr inbounds nuw double, ptr %4, i64 %.019
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.019
   %7 = load double, ptr %6, align 8, !tbaa !11
   %8 = fcmp olt double %7, 0.000000e+00
   %9 = fneg double %7
@@ -1102,9 +1102,9 @@ define double @OSQPVectorf_scaled_norm_inf(ptr noundef readonly captures(none) %
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.026 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %2 ]
   %.02125 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw double, ptr %6, i64 %.02125
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02125
   %9 = load double, ptr %8, align 8, !tbaa !11
-  %10 = getelementptr inbounds nuw double, ptr %5, i64 %.02125
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02125
   %11 = load double, ptr %10, align 8, !tbaa !11
   %12 = fmul double %9, %11
   %13 = fcmp olt double %12, 0.000000e+00
@@ -1133,9 +1133,9 @@ define double @OSQPVectorf_norm_inf_diff(ptr noundef readonly captures(none) %0,
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.026 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %2 ]
   %.02125 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw double, ptr %5, i64 %.02125
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02125
   %9 = load double, ptr %8, align 8, !tbaa !11
-  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.02125
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02125
   %11 = load double, ptr %10, align 8, !tbaa !11
   %12 = fsub double %9, %11
   %13 = fcmp olt double %12, 0.000000e+00
@@ -1164,9 +1164,9 @@ define double @OSQPVectorf_dot_prod(ptr noundef readonly captures(none) %0, ptr 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.013 = phi double [ %12, %.lr.ph ], [ 0.000000e+00, %2 ]
   %.01112 = phi i64 [ %13, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw double, ptr %5, i64 %.01112
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01112
   %9 = load double, ptr %8, align 8, !tbaa !11
-  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.01112
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01112
   %11 = load double, ptr %10, align 8, !tbaa !11
   %12 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %.013)
   %13 = add nuw nsw i64 %.01112, 1
@@ -1199,9 +1199,9 @@ define double @OSQPVectorf_dot_prod_signed(ptr noundef readonly captures(none) %
 .lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
   %.038 = phi double [ %15, %.lr.ph39 ], [ 0.000000e+00, %.preheader ]
   %.02737 = phi i64 [ %16, %.lr.ph39 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw double, ptr %6, i64 %.02737
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02737
   %10 = load double, ptr %9, align 8, !tbaa !11
-  %11 = getelementptr inbounds nuw double, ptr %7, i64 %.02737
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.02737
   %12 = load double, ptr %11, align 8, !tbaa !11
   %13 = fcmp ogt double %12, 0.000000e+00
   %14 = select i1 %13, double %12, double 0.000000e+00
@@ -1213,9 +1213,9 @@ define double @OSQPVectorf_dot_prod_signed(ptr noundef readonly captures(none) %
 .lr.ph:                                           ; preds = %.preheader33, %.lr.ph
   %.236 = phi double [ %23, %.lr.ph ], [ 0.000000e+00, %.preheader33 ]
   %.12835 = phi i64 [ %24, %.lr.ph ], [ 0, %.preheader33 ]
-  %17 = getelementptr inbounds nuw double, ptr %6, i64 %.12835
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.12835
   %18 = load double, ptr %17, align 8, !tbaa !11
-  %19 = getelementptr inbounds nuw double, ptr %7, i64 %.12835
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.12835
   %20 = load double, ptr %19, align 8, !tbaa !11
   %21 = fcmp olt double %20, 0.000000e+00
   %22 = select i1 %21, double %20, double 0.000000e+00
@@ -1230,9 +1230,9 @@ define double @OSQPVectorf_dot_prod_signed(ptr noundef readonly captures(none) %
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
   %.013.i = phi double [ %30, %.lr.ph.i ], [ 0.000000e+00, %25 ]
   %.01112.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %25 ]
-  %26 = getelementptr inbounds nuw double, ptr %6, i64 %.01112.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01112.i
   %27 = load double, ptr %26, align 8, !tbaa !11
-  %28 = getelementptr inbounds nuw double, ptr %7, i64 %.01112.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.01112.i
   %29 = load double, ptr %28, align 8, !tbaa !11
   %30 = tail call double @llvm.fmuladd.f64(double %27, double %29, double %.013.i)
   %31 = add nuw nsw i64 %.01112.i, 1
@@ -1263,9 +1263,9 @@ define void @OSQPVectorf_ew_prod(ptr noundef readonly captures(address) %0, ptr 
 
 .lr.ph25:                                         ; preds = %.preheader, %.lr.ph25
   %.024 = phi i64 [ %16, %.lr.ph25 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw double, ptr %7, i64 %.024
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.024
   %12 = load double, ptr %11, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw double, ptr %8, i64 %.024
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.024
   %14 = load double, ptr %13, align 8, !tbaa !11
   %15 = fmul double %12, %14
   store double %15, ptr %13, align 8, !tbaa !11
@@ -1275,12 +1275,12 @@ define void @OSQPVectorf_ew_prod(ptr noundef readonly captures(address) %0, ptr 
 
 .lr.ph:                                           ; preds = %.preheader21, %.lr.ph
   %.123 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader21 ]
-  %17 = getelementptr inbounds nuw double, ptr %6, i64 %.123
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.123
   %18 = load double, ptr %17, align 8, !tbaa !11
-  %19 = getelementptr inbounds nuw double, ptr %7, i64 %.123
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.123
   %20 = load double, ptr %19, align 8, !tbaa !11
   %21 = fmul double %18, %20
-  %22 = getelementptr inbounds nuw double, ptr %8, i64 %.123
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.123
   store double %21, ptr %22, align 8, !tbaa !11
   %23 = add nuw nsw i64 %.123, 1
   %exitcond.not = icmp eq i64 %23, %5
@@ -1306,9 +1306,9 @@ define range(i64 0, 2) i64 @OSQPVectorf_all_leq(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %2, %8
   %.01011 = phi i64 [ %9, %8 ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw double, ptr %5, i64 %.01011
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01011
   %11 = load double, ptr %10, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw double, ptr %6, i64 %.01011
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01011
   %13 = load double, ptr %12, align 8, !tbaa !11
   %14 = fcmp ogt double %11, %13
   br i1 %14, label %._crit_edge, label %8
@@ -1331,17 +1331,17 @@ define void @OSQPVectorf_ew_bound_vec(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.035 = phi i64 [ %22, %.lr.ph ], [ 0, %4 ]
-  %12 = getelementptr inbounds nuw double, ptr %8, i64 %.035
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.035
   %13 = load double, ptr %12, align 8, !tbaa !11
-  %14 = getelementptr inbounds nuw double, ptr %9, i64 %.035
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.035
   %15 = load double, ptr %14, align 8, !tbaa !11
   %16 = fcmp ogt double %13, %15
   %. = select i1 %16, double %13, double %15
-  %17 = getelementptr inbounds nuw double, ptr %10, i64 %.035
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.035
   %18 = load double, ptr %17, align 8, !tbaa !11
   %19 = fcmp olt double %., %18
   %20 = select i1 %19, double %., double %18
-  %21 = getelementptr inbounds nuw double, ptr %7, i64 %.035
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.035
   store double %20, ptr %21, align 8, !tbaa !11
   %22 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %22, %6
@@ -1367,16 +1367,16 @@ define void @OSQPVectorf_project_polar_reccone(ptr noundef readonly captures(non
 
 12:                                               ; preds = %.lr.ph, %32
   %.032 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
-  %13 = getelementptr inbounds nuw double, ptr %9, i64 %.032
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.032
   %14 = load double, ptr %13, align 8, !tbaa !11
   %15 = fcmp ogt double %14, %3
-  %16 = getelementptr inbounds nuw double, ptr %8, i64 %.032
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.032
   %17 = load double, ptr %16, align 8, !tbaa !11
   %18 = fcmp olt double %17, %11
   br i1 %15, label %19, label %26
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw double, ptr %7, i64 %.032
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.032
   br i1 %18, label %21, label %22
 
 21:                                               ; preds = %19
@@ -1394,7 +1394,7 @@ define void @OSQPVectorf_project_polar_reccone(ptr noundef readonly captures(non
   br i1 %18, label %27, label %32
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds nuw double, ptr %7, i64 %.032
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.032
   %29 = load double, ptr %28, align 8, !tbaa !11
   %30 = fcmp ogt double %29, 0.000000e+00
   %31 = select i1 %30, double %29, double 0.000000e+00
@@ -1427,25 +1427,25 @@ define range(i64 0, 2) i64 @OSQPVectorf_in_reccone(ptr noundef readonly captures
 
 14:                                               ; preds = %.lr.ph, %30
   %.01920 = phi i64 [ 0, %.lr.ph ], [ %31, %30 ]
-  %15 = getelementptr inbounds nuw double, ptr %10, i64 %.01920
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01920
   %16 = load double, ptr %15, align 8, !tbaa !11
   %17 = fcmp olt double %16, %3
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw double, ptr %8, i64 %.01920
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01920
   %20 = load double, ptr %19, align 8, !tbaa !11
   %21 = fcmp ogt double %20, %4
   br i1 %21, label %._crit_edge, label %22
 
 22:                                               ; preds = %18, %14
-  %23 = getelementptr inbounds nuw double, ptr %9, i64 %.01920
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.01920
   %24 = load double, ptr %23, align 8, !tbaa !11
   %25 = fcmp ogt double %24, %12
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw double, ptr %8, i64 %.01920
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01920
   %28 = load double, ptr %27, align 8, !tbaa !11
   %29 = fcmp olt double %28, %13
   br i1 %29, label %._crit_edge, label %30
@@ -1471,7 +1471,7 @@ define double @OSQPVectorf_norm_1(ptr noundef readonly captures(none) %0) local_
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.118 = phi double [ %11, %.lr.ph ], [ 0.000000e+00, %1 ]
   %.01317 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw double, ptr %4, i64 %.01317
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01317
   %7 = load double, ptr %6, align 8, !tbaa !11
   %8 = fcmp olt double %7, 0.000000e+00
   %9 = fneg double %7
@@ -1497,10 +1497,10 @@ define void @OSQPVectorf_ew_reciprocal(ptr noundef readonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi i64 [ %12, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw double, ptr %5, i64 %.09
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.09
   %9 = load double, ptr %8, align 8, !tbaa !11
   %10 = fdiv double 1.000000e+00, %9
-  %11 = getelementptr inbounds nuw double, ptr %6, i64 %.09
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.09
   store double %10, ptr %11, align 8, !tbaa !11
   %12 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %12, %4
@@ -1520,7 +1520,7 @@ define void @OSQPVectorf_ew_sqrt(ptr noundef readonly captures(none) %0) local_u
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.08 = phi i64 [ %9, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw double, ptr %4, i64 %.08
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.08
   %7 = load double, ptr %6, align 8, !tbaa !11
   %8 = tail call double @sqrt(double noundef %7) #21, !tbaa !29
   store double %8, ptr %6, align 8, !tbaa !11
@@ -1544,13 +1544,13 @@ define void @OSQPVectorf_ew_max_vec(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.018 = phi i64 [ %16, %.lr.ph ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.018
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.018
   %11 = load double, ptr %10, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw double, ptr %7, i64 %.018
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.018
   %13 = load double, ptr %12, align 8, !tbaa !11
   %14 = fcmp ogt double %11, %13
   %. = select i1 %14, double %11, double %13
-  %15 = getelementptr inbounds nuw double, ptr %8, i64 %.018
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.018
   store double %., ptr %15, align 8, !tbaa !11
   %16 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %16, %5
@@ -1572,13 +1572,13 @@ define void @OSQPVectorf_ew_min_vec(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.018 = phi i64 [ %16, %.lr.ph ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.018
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.018
   %11 = load double, ptr %10, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw double, ptr %7, i64 %.018
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.018
   %13 = load double, ptr %12, align 8, !tbaa !11
   %14 = fcmp olt double %11, %13
   %. = select i1 %14, double %11, double %13
-  %15 = getelementptr inbounds nuw double, ptr %8, i64 %.018
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.018
   store double %., ptr %15, align 8, !tbaa !11
   %16 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %16, %5
@@ -1605,12 +1605,12 @@ define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr noundef readonly capt
 13:                                               ; preds = %.lr.ph, %13
   %.032 = phi i64 [ 0, %.lr.ph ], [ %25, %13 ]
   %.03031 = phi i1 [ false, %.lr.ph ], [ %narrow, %13 ]
-  %14 = getelementptr inbounds nuw i64, ptr %8, i64 %.032
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.032
   %15 = load i64, ptr %14, align 8, !tbaa !20
-  %16 = getelementptr inbounds nuw double, ptr %9, i64 %.032
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.032
   %17 = load double, ptr %16, align 8, !tbaa !11
   %18 = fcmp olt double %17, %12
-  %19 = getelementptr inbounds nuw double, ptr %10, i64 %.032
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.032
   %20 = load double, ptr %19, align 8, !tbaa !11
   %21 = fcmp ogt double %20, %4
   %or.cond = select i1 %18, i1 %21, i1 false
@@ -1645,11 +1645,11 @@ define void @OSQPVectorf_set_scalar_if_lt(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.014 = phi i64 [ %14, %.lr.ph ], [ 0, %4 ]
-  %10 = getelementptr inbounds nuw double, ptr %8, i64 %.014
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.014
   %11 = load double, ptr %10, align 8, !tbaa !11
   %12 = fcmp olt double %11, %2
   %. = select i1 %12, double %3, double %11
-  %13 = getelementptr inbounds nuw double, ptr %7, i64 %.014
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.014
   store double %., ptr %13, align 8, !tbaa !11
   %14 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %14, %6
@@ -1670,11 +1670,11 @@ define void @OSQPVectorf_set_scalar_if_gt(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.014 = phi i64 [ %14, %.lr.ph ], [ 0, %4 ]
-  %10 = getelementptr inbounds nuw double, ptr %8, i64 %.014
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.014
   %11 = load double, ptr %10, align 8, !tbaa !11
   %12 = fcmp ogt double %11, %2
   %. = select i1 %12, double %3, double %11
-  %13 = getelementptr inbounds nuw double, ptr %7, i64 %.014
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.014
   store double %., ptr %13, align 8, !tbaa !11
   %14 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %14, %6

@@ -1562,10 +1562,10 @@ define noundef zeroext i1 @"_ZN132_$LT$$LT$proto..context_operation..UpdateMessa
 
 switch.lookup:                                    ; preds = %2
   %20 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN132_$LT$$LT$proto..context_operation..UpdateMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h825d49aeca149ddaE", i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN132_$LT$$LT$proto..context_operation..UpdateMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h825d49aeca149ddaE", i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   %21 = zext nneg i32 %4 to i64
-  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN132_$LT$$LT$proto..context_operation..UpdateMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h825d49aeca149ddaE.3", i64 %21
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN132_$LT$$LT$proto..context_operation..UpdateMessage$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17h825d49aeca149ddaE.3", i64 %21
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load6)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.exit"
@@ -1720,7 +1720,7 @@ define void @"_ZN90_$LT$proto..context_operation..SlashCommandFinished$u20$as$u2
   br i1 %8, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$proto..SlashCommandOutputSection$u5d$$GT$17h6da4cc22d7a08536E.exit", label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds { { i64, [9 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %4, i64 %.sroa.0.0.i
+  %10 = getelementptr inbounds [152 x i8], ptr %4, i64 %.sroa.0.0.i
   %11 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..SlashCommandOutputSection$GT$17h5e5281b1def98d44E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %10)
           to label %7 unwind label %14
@@ -1736,7 +1736,7 @@ define void @"_ZN90_$LT$proto..context_operation..SlashCommandFinished$u20$as$u2
   br label %12
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds { { i64, [9 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %4, i64 %.sroa.0.1.i
+  %17 = getelementptr inbounds [152 x i8], ptr %4, i64 %.sroa.0.1.i
   %18 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$proto..SlashCommandOutputSection$GT$17h5e5281b1def98d44E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %17) #15
           to label %12 unwind label %20

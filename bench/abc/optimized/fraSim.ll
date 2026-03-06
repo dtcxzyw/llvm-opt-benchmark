@@ -27,7 +27,7 @@ define range(i32 0, -1) i32 @Fra_SmlNodeHash(ptr noundef readonly captures(none)
   %11 = load i32, ptr %10, align 4, !tbaa !25
   %12 = mul nsw i32 %11, %8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %9, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %9, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !27
   %17 = icmp slt i32 %16, %11
@@ -41,10 +41,10 @@ define range(i32 0, -1) i32 @Fra_SmlNodeHash(ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01213 = phi i32 [ 0, %.lr.ph.preheader ], [ %25, %.lr.ph ]
-  %19 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !28
   %21 = and i64 %indvars.iv, 127
-  %22 = getelementptr inbounds nuw i32, ptr @Fra_SmlNodeHash.s_FPrimes, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @Fra_SmlNodeHash.s_FPrimes, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !28
   %24 = mul i32 %23, %20
   %25 = xor i32 %24, %.01213
@@ -71,7 +71,7 @@ define range(i32 0, 2) i32 @Fra_SmlNodeIsConst(ptr noundef readonly captures(non
   %10 = load i32, ptr %9, align 4, !tbaa !25
   %11 = mul nsw i32 %10, %7
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %8, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %8, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = load i32, ptr %14, align 8, !tbaa !27
   %16 = icmp slt i32 %15, %10
@@ -89,7 +89,7 @@ define range(i32 0, 2) i32 @Fra_SmlNodeIsConst(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ %17, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds [4 x i8], ptr %13, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !28
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %18, label %._crit_edge
@@ -112,12 +112,12 @@ define range(i32 0, 2) i32 @Fra_SmlNodesAreEqual(ptr noundef readonly captures(n
   %11 = load i32, ptr %10, align 4, !tbaa !25
   %12 = mul nsw i32 %11, %8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %9, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %9, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = mul nsw i32 %16, %11
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %9, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %9, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !27
   %22 = icmp slt i32 %21, %11
@@ -135,9 +135,9 @@ define range(i32 0, 2) i32 @Fra_SmlNodesAreEqual(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %indvars.iv = phi i64 [ %23, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %25 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !28
-  %27 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
+  %27 = getelementptr inbounds [4 x i8], ptr %19, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !28
   %.not = icmp eq i32 %26, %28
   br i1 %.not, label %24, label %._crit_edge
@@ -154,10 +154,10 @@ define i32 @Fra_SmlNodeNotEquWeight(ptr noundef readonly captures(none) %0, i32 
   %6 = load i32, ptr %5, align 4, !tbaa !25
   %7 = mul nsw i32 %6, %1
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %4, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %4, i64 %8
   %10 = mul nsw i32 %6, %2
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %4, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %4, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !27
   %15 = icmp slt i32 %14, %6
@@ -171,9 +171,9 @@ define i32 @Fra_SmlNodeNotEquWeight(ptr noundef readonly captures(none) %0, i32 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.015 = phi i32 [ 0, %.lr.ph.preheader ], [ %41, %.lr.ph ]
-  %17 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %17 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !28
-  %19 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %19 = getelementptr inbounds [4 x i8], ptr %12, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !28
   %21 = xor i32 %20, %18
   %22 = and i32 %21, 1431655765
@@ -214,7 +214,7 @@ define range(i32 0, 2) i32 @Fra_SmlNodeIsZero(ptr noundef readonly captures(none
   %7 = load i32, ptr %6, align 4, !tbaa !25
   %8 = mul nsw i32 %7, %4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %5, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %5, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8, !tbaa !27
   %13 = icmp slt i32 %12, %7
@@ -232,7 +232,7 @@ define range(i32 0, 2) i32 @Fra_SmlNodeIsZero(ptr noundef readonly captures(none
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ %14, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %16 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !28
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %15, label %._crit_edge
@@ -251,7 +251,7 @@ define i32 @Fra_SmlNodeCountOnes(ptr noundef readonly captures(none) %0, ptr nou
   %7 = load i32, ptr %6, align 4, !tbaa !25
   %8 = mul nsw i32 %7, %4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %5, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %5, i64 %9
   %11 = icmp sgt i32 %7, 0
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
@@ -262,7 +262,7 @@ define i32 @Fra_SmlNodeCountOnes(ptr noundef readonly captures(none) %0, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.010 = phi i32 [ 0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !28
   %14 = and i32 %13, 1431655765
   %15 = lshr i32 %13, 1
@@ -351,7 +351,7 @@ define void @Fra_SmlSavePattern1(ptr noundef readonly captures(none) %0, i32 nou
   %27 = shl nuw i32 1, %26
   %28 = ashr i32 %25, 5
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %19, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %19, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !28
   %32 = xor i32 %27, %31
   store i32 %32, ptr %30, align 4, !tbaa !28
@@ -394,7 +394,7 @@ define void @Fra_SmlSavePattern(ptr noundef readonly captures(none) %0) local_un
 18:                                               ; preds = %.lr.ph, %40
   %.val3357 = phi i32 [ %.val3346, %.lr.ph ], [ %.val33, %40 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val34, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !65
   %21 = getelementptr i8, ptr %20, i64 36
   %.val35 = load i32, ptr %21, align 4, !tbaa !22
@@ -403,10 +403,10 @@ define void @Fra_SmlSavePattern(ptr noundef readonly captures(none) %0) local_un
   %23 = getelementptr i8, ptr %.val36, i64 152
   %.val36.val = load ptr, ptr %23, align 8, !tbaa !66
   %24 = sext i32 %.val35 to i64
-  %25 = getelementptr inbounds i32, ptr %.val36.val, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %.val36.val, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !28
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %.val37, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %.val37, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !28
   %.not45 = icmp eq i32 %29, 1
   br i1 %.not45, label %30, label %40
@@ -418,7 +418,7 @@ define void @Fra_SmlSavePattern(ptr noundef readonly captures(none) %0) local_un
   %34 = shl nuw i32 1, %33
   %35 = lshr i64 %indvars.iv, 5
   %36 = and i64 %35, 134217727
-  %37 = getelementptr inbounds nuw i32, ptr %31, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !28
   %39 = or i32 %38, %34
   store i32 %39, ptr %37, align 4, !tbaa !28
@@ -456,7 +456,7 @@ define void @Fra_SmlSavePattern(ptr noundef readonly captures(none) %0) local_un
   %53 = load ptr, ptr %2, align 8, !tbaa !36
   %54 = lshr i32 %.150, 5
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !28
   %58 = and i32 %.150, 31
   %59 = lshr i32 %57, %58
@@ -525,7 +525,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %89 = add nsw i32 %88, 1
   store i32 %89, ptr %61, align 4, !tbaa !69
   %90 = sext i32 %88 to i64
-  %91 = getelementptr inbounds i32, ptr %87, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %87, i64 %90
   store i32 %60, ptr %91, align 4, !tbaa !28
   %92 = add nuw nsw i32 %.150, 1
   %93 = load ptr, ptr %47, align 8, !tbaa !38
@@ -560,7 +560,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %104 = load ptr, ptr %2, align 8, !tbaa !36
   %105 = ashr i32 %.253, 5
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i32, ptr %104, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %104, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !28
   %109 = and i32 %.253, 31
   %110 = lshr i32 %108, %109
@@ -629,7 +629,7 @@ Vec_IntPush.exit44:                               ; preds = %.Vec_IntGrow.exit10
   %140 = add nsw i32 %139, 1
   store i32 %140, ptr %112, align 4, !tbaa !69
   %141 = sext i32 %139 to i64
-  %142 = getelementptr inbounds i32, ptr %138, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %138, i64 %141
   store i32 %111, ptr %142, align 4, !tbaa !28
   %143 = add nsw i32 %.253, 1
   %144 = load ptr, ptr %8, align 8, !tbaa !50
@@ -658,7 +658,7 @@ define void @Fra_SmlCheckOutputSavePattern(ptr noundef readonly captures(none) %
   %13 = load i32, ptr %12, align 4, !tbaa !25
   %14 = mul nsw i32 %13, %10
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %11, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %11, i64 %15
   %17 = icmp sgt i32 %13, 0
   br i1 %17, label %.lr.ph.preheader, label %._crit_edge
 
@@ -668,7 +668,7 @@ define void @Fra_SmlCheckOutputSavePattern(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !28
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %._crit_edge.loopexit.split.loop.exit
@@ -685,7 +685,7 @@ define void @Fra_SmlCheckOutputSavePattern(ptr noundef readonly captures(none) %
 ._crit_edge:                                      ; preds = %20, %._crit_edge.loopexit.split.loop.exit, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %21, %._crit_edge.loopexit.split.loop.exit ], [ %13, %20 ]
   %22 = zext nneg i32 %.0.lcssa to i64
-  %23 = getelementptr inbounds nuw i32, ptr %16, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !28
   br label %25
 
@@ -727,24 +727,24 @@ define void @Fra_SmlCheckOutputSavePattern(ptr noundef readonly captures(none) %
   %46 = add nuw i32 %45, %.0.lcssa
   %47 = and i32 %46, 134217727
   %48 = zext nneg i32 %47 to i64
-  %invariant.gep = getelementptr i32, ptr %11, i64 %48
+  %invariant.gep = getelementptr [4 x i8], ptr %11, i64 %48
   %49 = and i32 %.030.lcssa, 31
   %50 = zext nneg i32 %.val3340 to i64
   br label %51
 
 51:                                               ; preds = %.lr.ph43, %51
   %indvars.iv47 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next48, %51 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv47
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.val34, i64 %indvars.iv47
   %53 = load ptr, ptr %52, align 8, !tbaa !65
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 36
   %55 = load i32, ptr %54, align 4, !tbaa !22
   %56 = mul nsw i32 %13, %55
   %57 = sext i32 %56 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %57
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %57
   %58 = load i32, ptr %gep, align 4, !tbaa !28
   %59 = lshr i32 %58, %49
   %60 = and i32 %59, 1
-  %61 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv47
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv47
   store i32 %60, ptr %61, align 4, !tbaa !28
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %62 = icmp samesign ult i64 %indvars.iv.next48, %50
@@ -756,7 +756,7 @@ define void @Fra_SmlCheckOutputSavePattern(ptr noundef readonly captures(none) %
   %65 = getelementptr i8, ptr %39, i64 136
   %.val = load i32, ptr %65, align 8, !tbaa !28
   %66 = sext i32 %.val to i64
-  %67 = getelementptr inbounds i32, ptr %37, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %37, i64 %66
   store i32 %64, ptr %67, align 4, !tbaa !28
   %68 = getelementptr inbounds nuw i8, ptr %32, i64 296
   store ptr %37, ptr %68, align 8, !tbaa !79
@@ -785,7 +785,7 @@ define range(i32 0, 2) i32 @Fra_SmlCheckOutput(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %8 = getelementptr inbounds nuw ptr, ptr %.val12.val, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val12.val, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !65
   %10 = getelementptr i8, ptr %9, i64 8
   %.val11 = load ptr, ptr %10, align 8, !tbaa !75
@@ -803,7 +803,7 @@ define range(i32 0, 2) i32 @Fra_SmlCheckOutput(ptr noundef readonly captures(non
   %22 = load i32, ptr %21, align 4, !tbaa !25
   %23 = mul nsw i32 %22, %19
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %20, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %20, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !27
   %28 = icmp slt i32 %27, %22
@@ -821,7 +821,7 @@ define range(i32 0, 2) i32 @Fra_SmlCheckOutput(ptr noundef readonly captures(non
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %29, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %30 ]
-  %31 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv.i
+  %31 = getelementptr inbounds [4 x i8], ptr %25, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4, !tbaa !28
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %30, label %Fra_SmlNodeIsConst.exit
@@ -849,14 +849,14 @@ define void @Fra_SmlAssignRandom(ptr noundef captures(none) %0, ptr noundef read
   %7 = load i32, ptr %6, align 4, !tbaa !25
   %8 = mul nsw i32 %7, %4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %5, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %5, i64 %9
   %11 = icmp sgt i32 %7, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %12 = tail call i32 @Aig_ManRandom(i32 noundef 0) #24
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %12, ptr %13, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %6, align 4, !tbaa !25
@@ -877,12 +877,12 @@ define void @Fra_SmlAssignConst(ptr noundef captures(none) %0, ptr noundef reado
   %9 = load i32, ptr %8, align 4, !tbaa !25
   %10 = mul nsw i32 %9, %6
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %7, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !83
   %15 = mul nsw i32 %14, %3
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %12, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %12, i64 %16
   %18 = icmp sgt i32 %14, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
@@ -893,7 +893,7 @@ define void @Fra_SmlAssignConst(ptr noundef captures(none) %0, ptr noundef reado
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   store i32 %19, ptr %21, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %13, align 8, !tbaa !83
@@ -974,20 +974,20 @@ define void @Fra_SmlInitialize(ptr noundef captures(none) %0, i32 noundef %1) lo
   %34 = load ptr, ptr %33, align 8, !tbaa !45
   %35 = getelementptr i8, ptr %34, i64 8
   %.val35 = load ptr, ptr %35, align 8, !tbaa !51
-  %36 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.val35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 36
   %39 = load i32, ptr %38, align 4, !tbaa !22
   %40 = mul nsw i32 %32, %39
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %8, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %8, i64 %41
   %43 = icmp sgt i32 %32, 0
   br i1 %43, label %.lr.ph.i, label %Fra_SmlAssignRandom.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.split ]
   %44 = tail call i32 @Aig_ManRandom(i32 noundef 0) #24
-  %45 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i
   store i32 %44, ptr %45, align 4, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %46 = load i32, ptr %9, align 4, !tbaa !25
@@ -1016,20 +1016,20 @@ Fra_SmlAssignRandom.exit:                         ; preds = %Fra_SmlAssignRandom
   %.val3270 = phi i32 [ %.val3251, %.lr.ph53.split.preheader ], [ %.val32, %Fra_SmlAssignConst.exit ]
   %56 = phi i32 [ %28, %.lr.ph53.split.preheader ], [ %70, %Fra_SmlAssignConst.exit ]
   %indvars.iv64 = phi i64 [ %30, %.lr.ph53.split.preheader ], [ %indvars.iv.next65, %Fra_SmlAssignConst.exit ]
-  %57 = getelementptr inbounds ptr, ptr %.val34, i64 %indvars.iv64
+  %57 = getelementptr inbounds [8 x i8], ptr %.val34, i64 %indvars.iv64
   %58 = load ptr, ptr %57, align 8, !tbaa !65
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 36
   %60 = load i32, ptr %59, align 4, !tbaa !22
   %61 = load i32, ptr %26, align 4, !tbaa !25
   %62 = mul nsw i32 %61, %60
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %25, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %25, i64 %63
   %65 = icmp sgt i32 %56, 0
   br i1 %65, label %.lr.ph.i36, label %Fra_SmlAssignConst.exit
 
 .lr.ph.i36:                                       ; preds = %.lr.ph53.split, %.lr.ph.i36
   %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i38, %.lr.ph.i36 ], [ 0, %.lr.ph53.split ]
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv.i37
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i37
   store i32 0, ptr %66, align 4, !tbaa !28
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %67 = load i32, ptr %27, align 8, !tbaa !83
@@ -1056,20 +1056,20 @@ Fra_SmlAssignConst.exit:                          ; preds = %Fra_SmlAssignConst.
   %75 = phi ptr [ %93, %Fra_SmlAssignRandom.exit42 ], [ %13, %.lr.ph56 ]
   %76 = getelementptr i8, ptr %75, i64 8
   %.val33 = load ptr, ptr %76, align 8, !tbaa !51
-  %77 = getelementptr inbounds nuw ptr, ptr %.val33, i64 %indvars.iv67
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %.val33, i64 %indvars.iv67
   %78 = load ptr, ptr %77, align 8, !tbaa !65
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 36
   %80 = load i32, ptr %79, align 4, !tbaa !22
   %81 = mul nsw i32 %74, %80
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %16, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %16, i64 %82
   %84 = icmp sgt i32 %74, 0
   br i1 %84, label %.lr.ph.i39, label %Fra_SmlAssignRandom.exit42
 
 .lr.ph.i39:                                       ; preds = %.lr.ph56.split, %.lr.ph.i39
   %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i41, %.lr.ph.i39 ], [ 0, %.lr.ph56.split ]
   %85 = tail call i32 @Aig_ManRandom(i32 noundef 0) #24
-  %86 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i40
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.i40
   store i32 %85, ptr %86, align 4, !tbaa !28
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %87 = load i32, ptr %17, align 4, !tbaa !25
@@ -1127,14 +1127,14 @@ define void @Fra_SmlAssignDist1(ptr noundef captures(none) %0, ptr noundef reado
   %.val74142 = phi i32 [ %.val74, %Fra_SmlAssignConst.exit ], [ %.val74102, %.lr.ph104 ]
   %17 = phi i32 [ %41, %Fra_SmlAssignConst.exit ], [ %15, %.lr.ph104 ]
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %Fra_SmlAssignConst.exit ], [ 0, %.lr.ph104 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %.val77, i64 %indvars.iv120
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val77, i64 %indvars.iv120
   %19 = load ptr, ptr %18, align 8, !tbaa !65
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %21 = load i32, ptr %20, align 4, !tbaa !22
   %22 = load i32, ptr %13, align 4, !tbaa !25
   %23 = mul nsw i32 %22, %21
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %12, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %12, i64 %24
   %26 = icmp sgt i32 %17, 0
   br i1 %26, label %.lr.ph.i, label %Fra_SmlAssignConst.exit
 
@@ -1142,7 +1142,7 @@ define void @Fra_SmlAssignDist1(ptr noundef captures(none) %0, ptr noundef reado
   %27 = trunc nuw nsw i64 %indvars.iv120 to i32
   %28 = lshr i64 %indvars.iv120, 5
   %29 = and i64 %28, 134217727
-  %30 = getelementptr inbounds nuw i32, ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !28
   %32 = and i32 %27, 31
   %33 = lshr i32 %31, %32
@@ -1152,7 +1152,7 @@ define void @Fra_SmlAssignDist1(ptr noundef captures(none) %0, ptr noundef reado
 
 36:                                               ; preds = %36, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv.i
   store i32 %35, ptr %37, align 4, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %38 = load i32, ptr %14, align 8, !tbaa !83
@@ -1192,21 +1192,21 @@ Fra_SmlAssignConst.exit:                          ; preds = %Fra_SmlAssignConst.
 
 53:                                               ; preds = %.lr.ph108, %53
   %indvars.iv123 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next124, %53 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %.val78.val, i64 %indvars.iv123
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.val78.val, i64 %indvars.iv123
   %55 = load ptr, ptr %54, align 8, !tbaa !65
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 36
   %57 = load i32, ptr %56, align 4, !tbaa !22
   %58 = load i32, ptr %45, align 4, !tbaa !25
   %59 = mul nsw i32 %58, %57
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %52, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %52, i64 %60
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %62 = trunc nuw nsw i64 %indvars.iv.next124 to i32
   %63 = and i32 %62, 31
   %64 = shl nuw i32 1, %63
   %65 = lshr i64 %indvars.iv.next124, 5
   %66 = and i64 %65, 134217727
-  %67 = getelementptr inbounds nuw i32, ptr %61, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !28
   %69 = xor i32 %68, %64
   store i32 %69, ptr %67, align 4, !tbaa !28
@@ -1254,17 +1254,17 @@ Fra_SmlAssignConst.exit:                          ; preds = %Fra_SmlAssignConst.
   %.val67132 = phi i32 [ %.val67, %Fra_SmlAssignConst.exit83 ], [ %.val67130, %.lr.ph ]
   %87 = phi i32 [ %115, %Fra_SmlAssignConst.exit83 ], [ %85, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %Fra_SmlAssignConst.exit83 ], [ 0, %.lr.ph ]
-  %88 = getelementptr inbounds nuw ptr, ptr %.val76, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %.val76, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !65
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 36
   %91 = load i32, ptr %90, align 4, !tbaa !22
   %92 = load i32, ptr %77, align 4, !tbaa !25
   %93 = mul nsw i32 %92, %91
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds i32, ptr %76, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %76, i64 %94
   %96 = sext i32 %87 to i64
   %97 = mul nsw i64 %indvars.iv114, %96
-  %98 = getelementptr inbounds i32, ptr %95, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %95, i64 %97
   %99 = icmp sgt i32 %87, 0
   br i1 %99, label %.lr.ph.i79, label %Fra_SmlAssignConst.exit83
 
@@ -1273,7 +1273,7 @@ Fra_SmlAssignConst.exit:                          ; preds = %Fra_SmlAssignConst.
   %101 = trunc i64 %100 to i32
   %102 = ashr i32 %101, 5
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i32, ptr %1, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %1, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !28
   %106 = and i32 %101, 31
   %107 = lshr i32 %105, %106
@@ -1283,7 +1283,7 @@ Fra_SmlAssignConst.exit:                          ; preds = %Fra_SmlAssignConst.
 
 110:                                              ; preds = %110, %.lr.ph.i79
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.i79 ], [ %indvars.iv.next.i82, %110 ]
-  %111 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv.i81
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv.i81
   store i32 %109, ptr %111, align 4, !tbaa !28
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
   %112 = load i32, ptr %78, align 8, !tbaa !83
@@ -1353,7 +1353,7 @@ Fra_SmlAssignConst.exit83:                        ; preds = %Fra_SmlAssignConst.
   %133 = phi i32 [ %130, %.lr.ph101.split.preheader ], [ %160, %Fra_SmlAssignConst.exit88 ]
   %indvars.iv117 = phi i64 [ %132, %.lr.ph101.split.preheader ], [ %indvars.iv.next118, %Fra_SmlAssignConst.exit88 ]
   %.06599 = phi i32 [ 0, %.lr.ph101.split.preheader ], [ %136, %Fra_SmlAssignConst.exit88 ]
-  %134 = getelementptr inbounds ptr, ptr %.val75, i64 %indvars.iv117
+  %134 = getelementptr inbounds [8 x i8], ptr %.val75, i64 %indvars.iv117
   %135 = load ptr, ptr %134, align 8, !tbaa !65
   %136 = add nuw nsw i32 %.06599, 1
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 36
@@ -1361,7 +1361,7 @@ Fra_SmlAssignConst.exit83:                        ; preds = %Fra_SmlAssignConst.
   %139 = load i32, ptr %128, align 4, !tbaa !25
   %140 = mul nsw i32 %139, %138
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %127, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %127, i64 %141
   %143 = icmp sgt i32 %133, 0
   br i1 %143, label %.lr.ph.i84, label %Fra_SmlAssignConst.exit88
 
@@ -1371,7 +1371,7 @@ Fra_SmlAssignConst.exit83:                        ; preds = %Fra_SmlAssignConst.
   %146 = add nsw i32 %145, %.06599
   %147 = ashr i32 %146, 5
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i32, ptr %1, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr %1, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !28
   %151 = and i32 %146, 31
   %152 = lshr i32 %150, %151
@@ -1381,7 +1381,7 @@ Fra_SmlAssignConst.exit83:                        ; preds = %Fra_SmlAssignConst.
 
 155:                                              ; preds = %155, %.lr.ph.i84
   %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.i84 ], [ %indvars.iv.next.i87, %155 ]
-  %156 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv.i86
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %indvars.iv.i86
   store i32 %154, ptr %156, align 4, !tbaa !28
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %157 = load i32, ptr %129, align 8, !tbaa !83
@@ -1414,12 +1414,12 @@ define void @Fra_SmlNodeSimulate(ptr noundef captures(none) %0, ptr noundef read
   %8 = load i32, ptr %7, align 4, !tbaa !25
   %9 = mul nsw i32 %8, %5
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %6, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %6, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !83
   %14 = mul nsw i32 %13, %2
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %11, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %11, i64 %15
   %17 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %17, align 8, !tbaa !75
   %18 = ptrtoint ptr %.val to i64
@@ -1429,8 +1429,8 @@ define void @Fra_SmlNodeSimulate(ptr noundef captures(none) %0, ptr noundef read
   %22 = load i32, ptr %21, align 4, !tbaa !22
   %23 = mul nsw i32 %22, %8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %6, i64 %24
-  %26 = getelementptr inbounds i32, ptr %25, i64 %15
+  %25 = getelementptr inbounds [4 x i8], ptr %6, i64 %24
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %15
   %27 = getelementptr i8, ptr %1, i64 16
   %.val104 = load ptr, ptr %27, align 8, !tbaa !96
   %28 = ptrtoint ptr %.val104 to i64
@@ -1440,8 +1440,8 @@ define void @Fra_SmlNodeSimulate(ptr noundef captures(none) %0, ptr noundef read
   %32 = load i32, ptr %31, align 4, !tbaa !22
   %33 = mul nsw i32 %32, %8
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %6, i64 %34
-  %36 = getelementptr inbounds i32, ptr %35, i64 %15
+  %35 = getelementptr inbounds [4 x i8], ptr %6, i64 %34
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %15
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load i64, ptr %37, align 8
   %39 = trunc i64 %38 to i32
@@ -1494,12 +1494,12 @@ Aig_ObjPhaseReal.exit108:                         ; preds = %Aig_ObjPhaseReal.ex
 
 .lr.ph135:                                        ; preds = %.preheader109, %.lr.ph135
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %.lr.ph135 ], [ 0, %.preheader109 ]
-  %63 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv161
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv161
   %64 = load i32, ptr %63, align 4, !tbaa !28
-  %65 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv161
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv161
   %66 = load i32, ptr %65, align 4, !tbaa !28
   %67 = or i32 %66, %64
-  %68 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv161
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv161
   store i32 %67, ptr %68, align 4, !tbaa !28
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %69 = load i32, ptr %12, align 8, !tbaa !83
@@ -1509,13 +1509,13 @@ Aig_ObjPhaseReal.exit108:                         ; preds = %Aig_ObjPhaseReal.ex
 
 .lr.ph137:                                        ; preds = %.preheader, %.lr.ph137
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %.lr.ph137 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv164
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv164
   %73 = load i32, ptr %72, align 4, !tbaa !28
-  %74 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv164
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv164
   %75 = load i32, ptr %74, align 4, !tbaa !28
   %76 = or i32 %75, %73
   %77 = xor i32 %76, -1
-  %78 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv164
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv164
   store i32 %77, ptr %78, align 4, !tbaa !28
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %79 = load i32, ptr %12, align 8, !tbaa !83
@@ -1541,13 +1541,13 @@ Aig_ObjPhaseReal.exit108:                         ; preds = %Aig_ObjPhaseReal.ex
 
 .lr.ph:                                           ; preds = %.preheader121, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader121 ]
-  %86 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4, !tbaa !28
-  %88 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4, !tbaa !28
   %90 = xor i32 %89, -1
   %91 = or i32 %87, %90
-  %92 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   store i32 %91, ptr %92, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %93 = load i32, ptr %12, align 8, !tbaa !83
@@ -1557,13 +1557,13 @@ Aig_ObjPhaseReal.exit108:                         ; preds = %Aig_ObjPhaseReal.ex
 
 .lr.ph125:                                        ; preds = %.preheader119, %.lr.ph125
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.lr.ph125 ], [ 0, %.preheader119 ]
-  %96 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv146
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv146
   %97 = load i32, ptr %96, align 4, !tbaa !28
   %98 = xor i32 %97, -1
-  %99 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv146
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv146
   %100 = load i32, ptr %99, align 4, !tbaa !28
   %101 = and i32 %100, %98
-  %102 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv146
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv146
   store i32 %101, ptr %102, align 4, !tbaa !28
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %103 = load i32, ptr %12, align 8, !tbaa !83
@@ -1588,13 +1588,13 @@ Aig_ObjPhaseReal.exit108:                         ; preds = %Aig_ObjPhaseReal.ex
 
 .lr.ph131:                                        ; preds = %.preheader113, %.lr.ph131
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %.lr.ph131 ], [ 0, %.preheader113 ]
-  %109 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv155
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv155
   %110 = load i32, ptr %109, align 4, !tbaa !28
   %111 = xor i32 %110, -1
-  %112 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv155
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv155
   %113 = load i32, ptr %112, align 4, !tbaa !28
   %114 = or i32 %113, %111
-  %115 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv155
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv155
   store i32 %114, ptr %115, align 4, !tbaa !28
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %116 = load i32, ptr %12, align 8, !tbaa !83
@@ -1604,13 +1604,13 @@ Aig_ObjPhaseReal.exit108:                         ; preds = %Aig_ObjPhaseReal.ex
 
 .lr.ph133:                                        ; preds = %.preheader111, %.lr.ph133
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.lr.ph133 ], [ 0, %.preheader111 ]
-  %119 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv158
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv158
   %120 = load i32, ptr %119, align 4, !tbaa !28
-  %121 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv158
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv158
   %122 = load i32, ptr %121, align 4, !tbaa !28
   %123 = xor i32 %122, -1
   %124 = and i32 %120, %123
-  %125 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv158
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv158
   store i32 %124, ptr %125, align 4, !tbaa !28
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %126 = load i32, ptr %12, align 8, !tbaa !83
@@ -1629,13 +1629,13 @@ Aig_ObjPhaseReal.exit108:                         ; preds = %Aig_ObjPhaseReal.ex
 
 .lr.ph127:                                        ; preds = %.preheader117, %.lr.ph127
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %.lr.ph127 ], [ 0, %.preheader117 ]
-  %130 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv149
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv149
   %131 = load i32, ptr %130, align 4, !tbaa !28
-  %132 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv149
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv149
   %133 = load i32, ptr %132, align 4, !tbaa !28
   %134 = and i32 %133, %131
   %135 = xor i32 %134, -1
-  %136 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv149
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv149
   store i32 %135, ptr %136, align 4, !tbaa !28
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %137 = load i32, ptr %12, align 8, !tbaa !83
@@ -1645,12 +1645,12 @@ Aig_ObjPhaseReal.exit108:                         ; preds = %Aig_ObjPhaseReal.ex
 
 .lr.ph129:                                        ; preds = %.preheader115, %.lr.ph129
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.lr.ph129 ], [ 0, %.preheader115 ]
-  %140 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv152
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv152
   %141 = load i32, ptr %140, align 4, !tbaa !28
-  %142 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv152
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv152
   %143 = load i32, ptr %142, align 4, !tbaa !28
   %144 = and i32 %143, %141
-  %145 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv152
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv152
   store i32 %144, ptr %145, align 4, !tbaa !28
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %146 = load i32, ptr %12, align 8, !tbaa !83
@@ -1671,20 +1671,20 @@ define range(i32 0, 2) i32 @Fra_SmlNodesCompareInFrame(ptr noundef readonly capt
   %10 = load i32, ptr %9, align 4, !tbaa !25
   %11 = mul nsw i32 %10, %7
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %8, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %8, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !83
   %16 = mul nsw i32 %15, %3
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %13, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %13, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %20 = load i32, ptr %19, align 4, !tbaa !22
   %21 = mul nsw i32 %20, %10
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %8, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %8, i64 %22
   %24 = mul nsw i32 %15, %4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %23, i64 %25
   %27 = icmp sgt i32 %15, 0
   br i1 %27, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1699,9 +1699,9 @@ define range(i32 0, 2) i32 @Fra_SmlNodesCompareInFrame(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !28
-  %31 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !28
   %.not = icmp eq i32 %30, %32
   br i1 %.not, label %28, label %._crit_edge
@@ -1720,12 +1720,12 @@ define void @Fra_SmlNodeCopyFanin(ptr noundef captures(none) %0, ptr noundef rea
   %8 = load i32, ptr %7, align 4, !tbaa !25
   %9 = mul nsw i32 %8, %5
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %6, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %6, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !83
   %14 = mul nsw i32 %13, %2
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %11, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %11, i64 %15
   %17 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %17, align 8, !tbaa !75
   %18 = ptrtoint ptr %.val to i64
@@ -1735,8 +1735,8 @@ define void @Fra_SmlNodeCopyFanin(ptr noundef captures(none) %0, ptr noundef rea
   %22 = load i32, ptr %21, align 4, !tbaa !22
   %23 = mul nsw i32 %22, %8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %6, i64 %24
-  %26 = getelementptr inbounds i32, ptr %25, i64 %15
+  %25 = getelementptr inbounds [4 x i8], ptr %6, i64 %24
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %15
   %.not.i = icmp eq ptr %.val, null
   br i1 %.not.i, label %.critedge.preheader, label %Aig_ObjPhaseReal.exit
 
@@ -1761,10 +1761,10 @@ Aig_ObjPhaseReal.exit:                            ; preds = %3
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.critedge ], [ 0, %.critedge.preheader ]
-  %37 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv32
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv32
   %38 = load i32, ptr %37, align 4, !tbaa !28
   %39 = xor i32 %38, -1
-  %40 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv32
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv32
   store i32 %39, ptr %40, align 4, !tbaa !28
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %41 = load i32, ptr %12, align 8, !tbaa !83
@@ -1774,9 +1774,9 @@ Aig_ObjPhaseReal.exit:                            ; preds = %3
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %44 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !28
-  %46 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   store i32 %45, ptr %46, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %12, align 8, !tbaa !83
@@ -1797,29 +1797,29 @@ define void @Fra_SmlNodeTransferNext(ptr noundef captures(none) %0, ptr noundef 
   %9 = load i32, ptr %8, align 4, !tbaa !25
   %10 = mul nsw i32 %9, %6
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %7, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !83
   %15 = mul nsw i32 %14, %3
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %12, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %12, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %19 = load i32, ptr %18, align 4, !tbaa !22
   %20 = mul nsw i32 %19, %9
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %7, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %7, i64 %21
   %23 = add nsw i32 %3, 1
   %24 = mul nsw i32 %14, %23
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %22, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %22, i64 %25
   %27 = icmp sgt i32 %14, 0
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
-  %28 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !28
-  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store i32 %29, ptr %30, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %13, align 8, !tbaa !83
@@ -1862,18 +1862,18 @@ define range(i32 0, 2) i32 @Fra_SmlCheckNonConstOutputs(ptr noundef readonly cap
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.preheader.i.us.preheader, %.loopexit.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader ], [ %indvars.iv.next, %.loopexit.us ]
-  %17 = getelementptr inbounds nuw ptr, ptr %.val9, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val9, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !65
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
   %20 = load i32, ptr %19, align 4, !tbaa !22
   %21 = mul nsw i32 %12, %20
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %10, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %10, i64 %22
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %26, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ %16, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %26 ]
-  %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.i.us
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv.i.us
   %25 = load i32, ptr %24, align 4, !tbaa !28
   %.not.i.us = icmp eq i32 %25, 0
   br i1 %.not.i.us, label %26, label %.critedge
@@ -1963,7 +1963,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %32 = phi ptr [ %46, %43 ], [ %19, %.preheader90 ]
   %33 = getelementptr i8, ptr %32, i64 8
   %.val61 = load ptr, ptr %33, align 8, !tbaa !51
-  %34 = getelementptr inbounds nuw ptr, ptr %.val61, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.val61, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !65
   %36 = icmp eq ptr %35, null
   br i1 %36, label %43, label %37
@@ -1996,17 +1996,17 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 50:                                               ; preds = %.lr.ph100, %Fra_SmlNodeCopyFanin.exit
   %51 = phi i32 [ %.pre123, %.lr.ph100 ], [ %96, %Fra_SmlNodeCopyFanin.exit ]
   %indvars.iv116 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next117, %Fra_SmlNodeCopyFanin.exit ]
-  %52 = getelementptr inbounds nuw ptr, ptr %.val60, i64 %indvars.iv116
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.val60, i64 %indvars.iv116
   %53 = load ptr, ptr %52, align 8, !tbaa !65
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 36
   %55 = load i32, ptr %54, align 4, !tbaa !22
   %56 = load i32, ptr %14, align 4, !tbaa !25
   %57 = mul nsw i32 %56, %55
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %13, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %13, i64 %58
   %60 = mul nsw i32 %51, %.053110
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %59, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %59, i64 %61
   %63 = getelementptr i8, ptr %53, i64 8
   %.val.i = load ptr, ptr %63, align 8, !tbaa !75
   %64 = ptrtoint ptr %.val.i to i64
@@ -2016,8 +2016,8 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %68 = load i32, ptr %67, align 4, !tbaa !22
   %69 = mul nsw i32 %68, %56
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %13, i64 %70
-  %72 = getelementptr inbounds i32, ptr %71, i64 %61
+  %71 = getelementptr inbounds [4 x i8], ptr %13, i64 %70
+  %72 = getelementptr inbounds [4 x i8], ptr %71, i64 %61
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %.critedge.preheader.i, label %Aig_ObjPhaseReal.exit.i
 
@@ -2042,10 +2042,10 @@ Aig_ObjPhaseReal.exit.i:                          ; preds = %50
 
 .critedge.i:                                      ; preds = %.critedge.preheader.i, %.critedge.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %.critedge.i ], [ 0, %.critedge.preheader.i ]
-  %83 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv32.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv32.i
   %84 = load i32, ptr %83, align 4, !tbaa !28
   %85 = xor i32 %84, -1
-  %86 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv32.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv32.i
   store i32 %85, ptr %86, align 4, !tbaa !28
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %87 = load i32, ptr %15, align 8, !tbaa !83
@@ -2055,9 +2055,9 @@ Aig_ObjPhaseReal.exit.i:                          ; preds = %50
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %90 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i
   %91 = load i32, ptr %90, align 4, !tbaa !28
-  %92 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i
   store i32 %91, ptr %92, align 4, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %93 = load i32, ptr %15, align 8, !tbaa !83
@@ -2126,17 +2126,17 @@ Fra_SmlNodeCopyFanin.exit:                        ; preds = %.lr.ph.i, %.critedg
 116:                                              ; preds = %.lr.ph104, %Fra_SmlNodeCopyFanin.exit76
   %117 = phi i32 [ %.pre124, %.lr.ph104 ], [ %162, %Fra_SmlNodeCopyFanin.exit76 ]
   %indvars.iv119 = phi i64 [ %108, %.lr.ph104 ], [ %indvars.iv.next120, %Fra_SmlNodeCopyFanin.exit76 ]
-  %118 = getelementptr inbounds ptr, ptr %.val59, i64 %indvars.iv119
+  %118 = getelementptr inbounds [8 x i8], ptr %.val59, i64 %indvars.iv119
   %119 = load ptr, ptr %118, align 8, !tbaa !65
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 36
   %121 = load i32, ptr %120, align 4, !tbaa !22
   %122 = load i32, ptr %14, align 4, !tbaa !25
   %123 = mul nsw i32 %122, %121
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds i32, ptr %13, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %13, i64 %124
   %126 = mul nsw i32 %117, %.053110
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i32, ptr %125, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %125, i64 %127
   %129 = getelementptr i8, ptr %119, i64 8
   %.val.i65 = load ptr, ptr %129, align 8, !tbaa !75
   %130 = ptrtoint ptr %.val.i65 to i64
@@ -2146,8 +2146,8 @@ Fra_SmlNodeCopyFanin.exit:                        ; preds = %.lr.ph.i, %.critedg
   %134 = load i32, ptr %133, align 4, !tbaa !22
   %135 = mul nsw i32 %134, %122
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i32, ptr %13, i64 %136
-  %138 = getelementptr inbounds i32, ptr %137, i64 %127
+  %137 = getelementptr inbounds [4 x i8], ptr %13, i64 %136
+  %138 = getelementptr inbounds [4 x i8], ptr %137, i64 %127
   %.not.i.i66 = icmp eq ptr %.val.i65, null
   br i1 %.not.i.i66, label %.critedge.preheader.i68, label %Aig_ObjPhaseReal.exit.i67
 
@@ -2172,10 +2172,10 @@ Aig_ObjPhaseReal.exit.i67:                        ; preds = %116
 
 .critedge.i69:                                    ; preds = %.critedge.preheader.i68, %.critedge.i69
   %indvars.iv32.i70 = phi i64 [ %indvars.iv.next33.i71, %.critedge.i69 ], [ 0, %.critedge.preheader.i68 ]
-  %149 = getelementptr inbounds nuw i32, ptr %138, i64 %indvars.iv32.i70
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvars.iv32.i70
   %150 = load i32, ptr %149, align 4, !tbaa !28
   %151 = xor i32 %150, -1
-  %152 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv32.i70
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %indvars.iv32.i70
   store i32 %151, ptr %152, align 4, !tbaa !28
   %indvars.iv.next33.i71 = add nuw nsw i64 %indvars.iv32.i70, 1
   %153 = load i32, ptr %15, align 8, !tbaa !83
@@ -2185,9 +2185,9 @@ Aig_ObjPhaseReal.exit.i67:                        ; preds = %116
 
 .lr.ph.i73:                                       ; preds = %.preheader.i72, %.lr.ph.i73
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %.lr.ph.i73 ], [ 0, %.preheader.i72 ]
-  %156 = getelementptr inbounds nuw i32, ptr %138, i64 %indvars.iv.i74
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvars.iv.i74
   %157 = load i32, ptr %156, align 4, !tbaa !28
-  %158 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv.i74
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %indvars.iv.i74
   store i32 %157, ptr %158, align 4, !tbaa !28
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %159 = load i32, ptr %15, align 8, !tbaa !83
@@ -2211,38 +2211,38 @@ Fra_SmlNodeCopyFanin.exit76:                      ; preds = %.lr.ph.i73, %.crite
   %166 = sub i32 %.3108, %.val128
   %167 = add i32 %166, %.val4.i
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds ptr, ptr %.val3.i, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.val3.i, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !65
   %.val.i78 = load i32, ptr %113, align 8, !tbaa !28
   %171 = add i32 %166, %.val.i78
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds ptr, ptr %.val4.i80, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %.val4.i80, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !65
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 36
   %176 = load i32, ptr %175, align 4, !tbaa !22
   %177 = load i32, ptr %14, align 4, !tbaa !25
   %178 = mul nsw i32 %177, %176
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds i32, ptr %13, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %13, i64 %179
   %181 = mul nsw i32 %165, %.053110
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds i32, ptr %180, i64 %182
+  %183 = getelementptr inbounds [4 x i8], ptr %180, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %174, i64 36
   %185 = load i32, ptr %184, align 4, !tbaa !22
   %186 = mul nsw i32 %185, %177
   %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds i32, ptr %13, i64 %187
+  %188 = getelementptr inbounds [4 x i8], ptr %13, i64 %187
   %189 = mul nsw i32 %165, %115
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds i32, ptr %188, i64 %190
+  %191 = getelementptr inbounds [4 x i8], ptr %188, i64 %190
   %192 = icmp sgt i32 %165, 0
   br i1 %192, label %.lr.ph.i81, label %Fra_SmlNodeTransferNext.exit
 
 .lr.ph.i81:                                       ; preds = %.critedge6, %.lr.ph.i81
   %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i83, %.lr.ph.i81 ], [ 0, %.critedge6 ]
-  %193 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv.i82
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %indvars.iv.i82
   %194 = load i32, ptr %193, align 4, !tbaa !28
-  %195 = getelementptr inbounds nuw i32, ptr %191, i64 %indvars.iv.i82
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %indvars.iv.i82
   store i32 %194, ptr %195, align 4, !tbaa !28
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
   %196 = load i32, ptr %15, align 8, !tbaa !83
@@ -2333,7 +2333,7 @@ define void @Fra_SmlResimulate(ptr noundef %0) local_unnamed_addr #8 {
 
 .lr.ph.i:                                         ; preds = %.loopexit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %19 = getelementptr inbounds nuw ptr, ptr %.val12.val.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val12.val.i, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !65
   %21 = getelementptr i8, ptr %20, i64 8
   %.val11.i = load ptr, ptr %21, align 8, !tbaa !75
@@ -2351,7 +2351,7 @@ define void @Fra_SmlResimulate(ptr noundef %0) local_unnamed_addr #8 {
   %33 = load i32, ptr %32, align 4, !tbaa !25
   %34 = mul nsw i32 %33, %30
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %31, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %31, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !27
   %39 = icmp slt i32 %38, %33
@@ -2369,7 +2369,7 @@ define void @Fra_SmlResimulate(ptr noundef %0) local_unnamed_addr #8 {
 
 .lr.ph.i.i:                                       ; preds = %41, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %40, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %41 ]
-  %42 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds [4 x i8], ptr %36, i64 %indvars.iv.i.i
   %43 = load i32, ptr %42, align 4, !tbaa !28
   %.not.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i, label %41, label %Fra_SmlCheckOutput.exit
@@ -2518,7 +2518,7 @@ define void @Fra_SmlSimulate(ptr noundef captures(none) %0, i32 noundef %1) loca
 
 .lr.ph.i:                                         ; preds = %.loopexit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %22 = getelementptr inbounds nuw ptr, ptr %.val12.val.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val12.val.i, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !65
   %24 = getelementptr i8, ptr %23, i64 8
   %.val11.i = load ptr, ptr %24, align 8, !tbaa !75
@@ -2536,7 +2536,7 @@ define void @Fra_SmlSimulate(ptr noundef captures(none) %0, i32 noundef %1) loca
   %36 = load i32, ptr %35, align 4, !tbaa !25
   %37 = mul nsw i32 %36, %33
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %34, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %34, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %41 = load i32, ptr %40, align 8, !tbaa !27
   %42 = icmp slt i32 %41, %36
@@ -2554,7 +2554,7 @@ define void @Fra_SmlSimulate(ptr noundef captures(none) %0, i32 noundef %1) loca
 
 .lr.ph.i.i:                                       ; preds = %44, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %43, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %44 ]
-  %45 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds [4 x i8], ptr %39, i64 %indvars.iv.i.i
   %46 = load i32, ptr %45, align 4, !tbaa !28
   %.not.i.i = icmp eq i32 %46, 0
   br i1 %.not.i.i, label %44, label %Fra_SmlCheckOutput.exit
@@ -2610,7 +2610,7 @@ Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %15, %
 
 .lr.ph.i72:                                       ; preds = %.loopexit.i75, %.lr.ph.preheader.i70
   %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i76, %.loopexit.i75 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %.val12.val.i67, i64 %indvars.iv.i73
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.val12.val.i67, i64 %indvars.iv.i73
   %71 = load ptr, ptr %70, align 8, !tbaa !65
   %72 = getelementptr i8, ptr %71, i64 8
   %.val11.i74 = load ptr, ptr %72, align 8, !tbaa !75
@@ -2628,7 +2628,7 @@ Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %15, %
   %84 = load i32, ptr %83, align 4, !tbaa !25
   %85 = mul nsw i32 %84, %81
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %82, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %82, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %89 = load i32, ptr %88, align 8, !tbaa !27
   %90 = icmp slt i32 %89, %84
@@ -2646,7 +2646,7 @@ Fra_SmlCheckOutput.exit.thread:                   ; preds = %.loopexit.i, %15, %
 
 .lr.ph.i.i79:                                     ; preds = %92, %.lr.ph.preheader.i.i78
   %indvars.iv.i.i80 = phi i64 [ %91, %.lr.ph.preheader.i.i78 ], [ %indvars.iv.next.i.i83, %92 ]
-  %93 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv.i.i80
+  %93 = getelementptr inbounds [4 x i8], ptr %87, i64 %indvars.iv.i.i80
   %94 = load i32, ptr %93, align 4, !tbaa !28
   %.not.i.i81 = icmp eq i32 %94, 0
   br i1 %.not.i.i81, label %92, label %Fra_SmlCheckOutput.exit86
@@ -2747,7 +2747,7 @@ Abc_Clock.exit88.Fra_SmlSavePattern1.exit_crit_edge: ; preds = %Abc_Clock.exit88
   %139 = shl nuw i32 1, %138
   %140 = ashr i32 %137, 5
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %.pre171, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %.pre171, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !28
   %144 = xor i32 %139, %143
   store i32 %144, ptr %142, align 4, !tbaa !28
@@ -2786,7 +2786,7 @@ Fra_SmlSavePattern1.exit:                         ; preds = %133, %Abc_Clock.exi
 
 .lr.ph.i97:                                       ; preds = %.loopexit.i100, %.lr.ph.preheader.i95
   %indvars.iv.i98 = phi i64 [ 0, %.lr.ph.preheader.i95 ], [ %indvars.iv.next.i101, %.loopexit.i100 ]
-  %160 = getelementptr inbounds nuw ptr, ptr %.val12.val.i92, i64 %indvars.iv.i98
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %.val12.val.i92, i64 %indvars.iv.i98
   %161 = load ptr, ptr %160, align 8, !tbaa !65
   %162 = getelementptr i8, ptr %161, i64 8
   %.val11.i99 = load ptr, ptr %162, align 8, !tbaa !75
@@ -2804,7 +2804,7 @@ Fra_SmlSavePattern1.exit:                         ; preds = %133, %Abc_Clock.exi
   %174 = load i32, ptr %173, align 4, !tbaa !25
   %175 = mul nsw i32 %174, %171
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds i32, ptr %172, i64 %176
+  %177 = getelementptr inbounds [4 x i8], ptr %172, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %179 = load i32, ptr %178, align 8, !tbaa !27
   %180 = icmp slt i32 %179, %174
@@ -2822,7 +2822,7 @@ Fra_SmlSavePattern1.exit:                         ; preds = %133, %Abc_Clock.exi
 
 .lr.ph.i.i104:                                    ; preds = %182, %.lr.ph.preheader.i.i103
   %indvars.iv.i.i105 = phi i64 [ %181, %.lr.ph.preheader.i.i103 ], [ %indvars.iv.next.i.i108, %182 ]
-  %183 = getelementptr inbounds i32, ptr %177, i64 %indvars.iv.i.i105
+  %183 = getelementptr inbounds [4 x i8], ptr %177, i64 %indvars.iv.i.i105
   %184 = load i32, ptr %183, align 4, !tbaa !28
   %.not.i.i106 = icmp eq i32 %184, 0
   br i1 %.not.i.i106, label %182, label %Fra_SmlCheckOutput.exit111
@@ -2917,7 +2917,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
 
 .lr.ph.i122:                                      ; preds = %.loopexit.i125, %.lr.ph.preheader.i120
   %indvars.iv.i123 = phi i64 [ 0, %.lr.ph.preheader.i120 ], [ %indvars.iv.next.i126, %.loopexit.i125 ]
-  %226 = getelementptr inbounds nuw ptr, ptr %.val12.val.i117, i64 %indvars.iv.i123
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %.val12.val.i117, i64 %indvars.iv.i123
   %227 = load ptr, ptr %226, align 8, !tbaa !65
   %228 = getelementptr i8, ptr %227, i64 8
   %.val11.i124 = load ptr, ptr %228, align 8, !tbaa !75
@@ -2935,7 +2935,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   %240 = load i32, ptr %239, align 4, !tbaa !25
   %241 = mul nsw i32 %240, %237
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds i32, ptr %238, i64 %242
+  %243 = getelementptr inbounds [4 x i8], ptr %238, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %235, i64 24
   %245 = load i32, ptr %244, align 8, !tbaa !27
   %246 = icmp slt i32 %245, %240
@@ -2953,7 +2953,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
 
 .lr.ph.i.i129:                                    ; preds = %248, %.lr.ph.preheader.i.i128
   %indvars.iv.i.i130 = phi i64 [ %247, %.lr.ph.preheader.i.i128 ], [ %indvars.iv.next.i.i133, %248 ]
-  %249 = getelementptr inbounds i32, ptr %243, i64 %indvars.iv.i.i130
+  %249 = getelementptr inbounds [4 x i8], ptr %243, i64 %indvars.iv.i.i130
   %250 = load i32, ptr %249, align 4, !tbaa !28
   %.not.i.i131 = icmp eq i32 %250, 0
   br i1 %.not.i.i131, label %248, label %Fra_SmlCheckOutput.exit136
@@ -3116,20 +3116,20 @@ define noalias noundef ptr @Fra_SmlSimulateComb(ptr noundef %0, i32 noundef %1, 
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %Fra_SmlAssignRandom.exit42.i ], [ 0, %.lr.ph56.i ]
   %26 = getelementptr i8, ptr %24, i64 8
   %.val33.i = load ptr, ptr %26, align 8, !tbaa !51
-  %27 = getelementptr inbounds nuw ptr, ptr %.val33.i, i64 %indvars.iv67.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.val33.i, i64 %indvars.iv67.i
   %28 = load ptr, ptr %27, align 8, !tbaa !65
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %30 = load i32, ptr %29, align 4, !tbaa !22
   %31 = mul nsw i32 %30, %25
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %22, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %22, i64 %32
   %34 = icmp sgt i32 %25, 0
   br i1 %34, label %.lr.ph.i39.i, label %Fra_SmlAssignRandom.exit42.i
 
 .lr.ph.i39.i:                                     ; preds = %.lr.ph56.split.i, %.lr.ph.i39.i
   %indvars.iv.i40.i = phi i64 [ %indvars.iv.next.i41.i, %.lr.ph.i39.i ], [ 0, %.lr.ph56.split.i ]
   %35 = tail call i32 @Aig_ManRandom(i32 noundef 0) #24
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i40.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i40.i
   store i32 %35, ptr %36, align 4, !tbaa !28
   %indvars.iv.next.i41.i = add nuw nsw i64 %indvars.iv.i40.i, 1
   %37 = load i32, ptr %16, align 4, !tbaa !25
@@ -3184,18 +3184,18 @@ Fra_SmlInitialize.exit:                           ; preds = %Fra_SmlAssignRandom
 
 .lr.ph.preheader.i.us.i:                          ; preds = %.loopexit.us.i, %.lr.ph.preheader.i.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader.i ], [ %indvars.iv.next.i, %.loopexit.us.i ]
-  %59 = getelementptr inbounds nuw ptr, ptr %.val9.i, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.val9.i, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8, !tbaa !65
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 36
   %62 = load i32, ptr %61, align 4, !tbaa !22
   %63 = mul nsw i32 %62, %55
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %54, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %54, i64 %64
   br label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %68, %.lr.ph.preheader.i.us.i
   %indvars.iv.i.us.i = phi i64 [ %58, %.lr.ph.preheader.i.us.i ], [ %indvars.iv.next.i.us.i, %68 ]
-  %66 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv.i.us.i
+  %66 = getelementptr inbounds [4 x i8], ptr %65, i64 %indvars.iv.i.us.i
   %67 = load i32, ptr %66, align 4, !tbaa !28
   %.not.i.us.i = icmp eq i32 %67, 0
   br i1 %.not.i.us.i, label %68, label %Fra_SmlCheckNonConstOutputs.exit
@@ -3396,14 +3396,14 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
 
 20:                                               ; preds = %._crit_edge.us, %.lr.ph50.split.us
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %._crit_edge.us ], [ 0, %.lr.ph50.split.us ]
-  %21 = getelementptr inbounds nuw ptr, ptr %.val37, i64 %indvars.iv84
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val37, i64 %indvars.iv84
   %22 = load ptr, ptr %21, align 8, !tbaa !65
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %24 = load i32, ptr %23, align 4, !tbaa !22
   %25 = load i32, ptr %7, align 4, !tbaa !25
   %26 = mul nsw i32 %25, %24
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %15, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %15, i64 %27
   %29 = icmp sgt i32 %25, 0
   br i1 %29, label %.lr.ph.us, label %.preheader41.us
 
@@ -3430,7 +3430,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
   %39 = shl nuw i32 1, %38
   %40 = lshr i32 %.245.us, 5
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %28, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !28
   %44 = or i32 %43, %39
   store i32 %44, ptr %42, align 4, !tbaa !28
@@ -3457,7 +3457,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
   %55 = shl nuw i32 1, %54
   %56 = lshr i32 %.143.us, 5
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %28, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !28
   %60 = or i32 %59, %55
   store i32 %60, ptr %58, align 4, !tbaa !28
@@ -3470,7 +3470,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
 
 .lr.ph.us:                                        ; preds = %20, %.lr.ph.us
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.lr.ph.us ], [ 0, %20 ]
-  %63 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv79
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv79
   store i32 0, ptr %63, align 4, !tbaa !28
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %64 = load i32, ptr %7, align 4, !tbaa !25
@@ -3496,14 +3496,14 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
 
 69:                                               ; preds = %._crit_edge.us62, %.lr.ph50.split.split.us
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %._crit_edge.us62 ], [ 0, %.lr.ph50.split.split.us ]
-  %70 = getelementptr inbounds nuw ptr, ptr %.val37, i64 %indvars.iv76
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.val37, i64 %indvars.iv76
   %71 = load ptr, ptr %70, align 8, !tbaa !65
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 36
   %73 = load i32, ptr %72, align 4, !tbaa !22
   %74 = load i32, ptr %7, align 4, !tbaa !25
   %75 = mul nsw i32 %74, %73
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %15, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %15, i64 %76
   %78 = icmp sgt i32 %74, 0
   br i1 %78, label %.lr.ph.us58, label %.preheader41.us57
 
@@ -3523,7 +3523,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
   %87 = shl nuw i32 1, %86
   %88 = lshr i32 %.245.us53, 5
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %77, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !28
   %92 = or i32 %91, %87
   store i32 %92, ptr %90, align 4, !tbaa !28
@@ -3536,7 +3536,7 @@ define void @Fra_SmlInitializeGiven(ptr noundef captures(none) %0, ptr noundef r
 
 .lr.ph.us58:                                      ; preds = %69, %.lr.ph.us58
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.lr.ph.us58 ], [ 0, %69 ]
-  %95 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv73
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv73
   store i32 0, ptr %95, align 4, !tbaa !28
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %96 = load i32, ptr %7, align 4, !tbaa !25
@@ -3582,7 +3582,7 @@ define void @Fra_SmlPrintOutputs(ptr noundef readonly captures(none) %0, i32 nou
 .lr.ph:                                           ; preds = %.preheader
   %11 = lshr i32 %.034, 5
   %12 = zext nneg i32 %11 to i64
-  %invariant.gep = getelementptr i32, ptr %4, i64 %12
+  %invariant.gep = getelementptr [4 x i8], ptr %4, i64 %12
   %13 = and i32 %.034, 31
   br label %14
 
@@ -3591,14 +3591,14 @@ define void @Fra_SmlPrintOutputs(ptr noundef readonly captures(none) %0, i32 nou
   %15 = phi ptr [ %8, %.lr.ph ], [ %30, %14 ]
   %16 = getelementptr i8, ptr %15, i64 8
   %.val26 = load ptr, ptr %16, align 8, !tbaa !51
-  %17 = getelementptr inbounds nuw ptr, ptr %.val26, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val26, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !65
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
   %20 = load i32, ptr %19, align 4, !tbaa !22
   %21 = load i32, ptr %5, align 4, !tbaa !25
   %22 = mul nsw i32 %21, %20
   %23 = sext i32 %22 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %23
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %23
   %24 = load i32, ptr %gep, align 4, !tbaa !28
   %25 = lshr i32 %24, %13
   %26 = and i32 %25, 1
@@ -3626,7 +3626,7 @@ define void @Fra_SmlPrintOutputs(ptr noundef readonly captures(none) %0, i32 nou
 .lr.ph31:                                         ; preds = %.critedge
   %39 = lshr i32 %.034, 5
   %40 = zext nneg i32 %39 to i64
-  %invariant.gep32 = getelementptr i32, ptr %4, i64 %40
+  %invariant.gep32 = getelementptr [4 x i8], ptr %4, i64 %40
   %41 = and i32 %.034, 31
   br label %42
 
@@ -3635,14 +3635,14 @@ define void @Fra_SmlPrintOutputs(ptr noundef readonly captures(none) %0, i32 nou
   %43 = phi ptr [ %36, %.lr.ph31 ], [ %58, %42 ]
   %44 = getelementptr i8, ptr %43, i64 8
   %.val25 = load ptr, ptr %44, align 8, !tbaa !51
-  %45 = getelementptr inbounds nuw ptr, ptr %.val25, i64 %indvars.iv36
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val25, i64 %indvars.iv36
   %46 = load ptr, ptr %45, align 8, !tbaa !65
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
   %48 = load i32, ptr %47, align 4, !tbaa !22
   %49 = load i32, ptr %5, align 4, !tbaa !25
   %50 = mul nsw i32 %49, %48
   %51 = sext i32 %50 to i64
-  %gep33 = getelementptr i32, ptr %invariant.gep32, i64 %51
+  %gep33 = getelementptr [4 x i8], ptr %invariant.gep32, i64 %51
   %52 = load i32, ptr %gep33, align 4, !tbaa !28
   %53 = lshr i32 %52, %41
   %54 = and i32 %53, 1
@@ -3771,18 +3771,18 @@ Vec_StrFree.exit35:                               ; preds = %17, %39
 
 .lr.ph.preheader.i.us.i:                          ; preds = %.loopexit.us.i, %.lr.ph.preheader.i.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader.i ], [ %indvars.iv.next.i, %.loopexit.us.i ]
-  %54 = getelementptr inbounds nuw ptr, ptr %.val9.i, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.val9.i, i64 %indvars.iv.i
   %55 = load ptr, ptr %54, align 8, !tbaa !65
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 36
   %57 = load i32, ptr %56, align 4, !tbaa !22
   %58 = mul nsw i32 %57, %50
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i32, ptr %49, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %49, i64 %59
   br label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %63, %.lr.ph.preheader.i.us.i
   %indvars.iv.i.us.i = phi i64 [ %53, %.lr.ph.preheader.i.us.i ], [ %indvars.iv.next.i.us.i, %63 ]
-  %61 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv.i.us.i
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %indvars.iv.i.us.i
   %62 = load i32, ptr %61, align 4, !tbaa !28
   %.not.i.us.i = icmp eq i32 %62, 0
   br i1 %.not.i.us.i, label %63, label %Fra_SmlCheckNonConstOutputs.exit
@@ -3880,18 +3880,18 @@ define noalias noundef ptr @Fra_SmlSimulateSeq(ptr noundef %0, i32 noundef %1, i
 
 .lr.ph.preheader.i.us.i:                          ; preds = %.loopexit.us.i, %.lr.ph.preheader.i.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader.i ], [ %indvars.iv.next.i, %.loopexit.us.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr %.val9.i, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.val9.i, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8, !tbaa !65
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 36
   %42 = load i32, ptr %41, align 4, !tbaa !22
   %43 = mul nsw i32 %42, %35
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %34, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %34, i64 %44
   br label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %48, %.lr.ph.preheader.i.us.i
   %indvars.iv.i.us.i = phi i64 [ %38, %.lr.ph.preheader.i.us.i ], [ %indvars.iv.next.i.us.i, %48 ]
-  %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv.i.us.i
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %indvars.iv.i.us.i
   %47 = load i32, ptr %46, align 4, !tbaa !28
   %.not.i.us.i = icmp eq i32 %47, 0
   br i1 %.not.i.us.i, label %48, label %Fra_SmlCheckNonConstOutputs.exit
@@ -3949,18 +3949,18 @@ define noundef ptr @Fra_SmlGetCounterExample(ptr noundef readonly captures(none)
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.preheader.i.us.preheader, %.loopexit.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader ], [ %indvars.iv.next, %.loopexit.us ]
-  %18 = getelementptr inbounds nuw ptr, ptr %.val92, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val92, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !65
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %21 = load i32, ptr %20, align 4, !tbaa !22
   %22 = mul nsw i32 %12, %21
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %10, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %10, i64 %23
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %27, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ %16, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %27 ]
-  %25 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i.us
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv.i.us
   %26 = load i32, ptr %25, align 4, !tbaa !28
   %.not.i.us = icmp eq i32 %26, 0
   br i1 %.not.i.us, label %27, label %.lr.ph122.preheader
@@ -3982,7 +3982,7 @@ define noundef ptr @Fra_SmlGetCounterExample(ptr noundef readonly captures(none)
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %Fra_SmlNodeIsZero.exit
   %indvars.iv143 = phi i64 [ %16, %.lr.ph122.preheader ], [ %indvars.iv.next144, %Fra_SmlNodeIsZero.exit ]
-  %29 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv143
+  %29 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv143
   %30 = load i32, ptr %29, align 4, !tbaa !28
   %.not77 = icmp eq i32 %30, 0
   br i1 %.not77, label %Fra_SmlNodeIsZero.exit, label %31
@@ -4051,7 +4051,7 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph122
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %60 = ashr i32 %.072, 5
   %61 = sext i32 %60 to i64
-  %invariant.gep = getelementptr i32, ptr %58, i64 %61
+  %invariant.gep = getelementptr [4 x i8], ptr %58, i64 %61
   %62 = and i32 %.072, 31
   %63 = shl nuw i32 1, %62
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 20
@@ -4079,14 +4079,14 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph122
 75:                                               ; preds = %.lr.ph125, %94
   %.val89154 = phi i32 [ %.val89123, %.lr.ph125 ], [ %.val89, %94 ]
   %indvars.iv147 = phi i64 [ %65, %.lr.ph125 ], [ %indvars.iv.next148, %94 ]
-  %76 = getelementptr inbounds ptr, ptr %.val91, i64 %indvars.iv147
+  %76 = getelementptr inbounds [8 x i8], ptr %.val91, i64 %indvars.iv147
   %77 = load ptr, ptr %76, align 8, !tbaa !65
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 36
   %79 = load i32, ptr %78, align 4, !tbaa !22
   %80 = load i32, ptr %59, align 4, !tbaa !25
   %81 = mul nsw i32 %80, %79
   %82 = sext i32 %81 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %82
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %82
   %83 = load i32, ptr %gep, align 4, !tbaa !28
   %84 = and i32 %83, %63
   %.not81 = icmp eq i32 %84, 0
@@ -4098,7 +4098,7 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph122
   %88 = shl nuw i32 1, %87
   %89 = ashr i32 %86, 5
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i32, ptr %64, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %64, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !28
   %93 = or i32 %92, %88
   store i32 %93, ptr %91, align 4, !tbaa !28
@@ -4130,20 +4130,20 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph122
   %.val84166 = phi i32 [ %.val84164, %.lr.ph130 ], [ %.val84, %130 ]
   %.val162 = phi i32 [ %.val160, %.lr.ph130 ], [ %.val, %130 ]
   %indvars.iv150 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next151, %130 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %.val90, i64 %indvars.iv150
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %.val90, i64 %indvars.iv150
   %101 = load ptr, ptr %100, align 8, !tbaa !65
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 36
   %103 = load i32, ptr %102, align 4, !tbaa !22
   %104 = load i32, ptr %68, align 4, !tbaa !25
   %105 = mul nsw i32 %104, %103
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i32, ptr %67, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %67, i64 %106
   %108 = load i32, ptr %69, align 8, !tbaa !83
   %109 = mul i32 %98, %108
   %110 = add nsw i32 %109, %.072
   %111 = ashr i32 %110, 5
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i32, ptr %107, i64 %112
+  %113 = getelementptr inbounds [4 x i8], ptr %107, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !28
   %115 = and i32 %114, %71
   %.not80 = icmp eq i32 %115, 0
@@ -4160,7 +4160,7 @@ Fra_SmlNodeIsZero.exit:                           ; preds = %.lr.ph122
   %124 = shl nuw i32 1, %123
   %125 = ashr i32 %122, 5
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i32, ptr %72, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %72, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !28
   %129 = or i32 %124, %128
   store i32 %129, ptr %127, align 4, !tbaa !28
@@ -4230,14 +4230,14 @@ define noundef ptr @Fra_SmlCopyCounterExample(ptr noundef %0, ptr noundef readon
   %.val50 = load ptr, ptr %14, align 8, !tbaa !51
   %.val43 = load i32, ptr %9, align 8, !tbaa !28
   %15 = sext i32 %.val43 to i64
-  %16 = getelementptr inbounds i32, ptr %2, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %2, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !28
   %wide.trip.count = zext nneg i32 %.val49 to i64
   br label %18
 
 18:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %.val50, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val50, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !65
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %22 = load i32, ptr %21, align 4, !tbaa !22
@@ -4285,7 +4285,7 @@ define noundef ptr @Fra_SmlCopyCounterExample(ptr noundef %0, ptr noundef readon
   %.pre63 = phi i32 [ %.pre63.pre, %.lr.ph56 ], [ %.pre6364, %36 ]
   %indvars.iv60 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next61, %36 ]
   %indvars62 = trunc i64 %indvars.iv60 to i32
-  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv60
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv60
   %41 = load i32, ptr %40, align 4, !tbaa !28
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %51, label %42
@@ -4296,7 +4296,7 @@ define noundef ptr @Fra_SmlCopyCounterExample(ptr noundef %0, ptr noundef readon
   %45 = shl nuw i32 1, %44
   %46 = ashr i32 %43, 5
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %33, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %33, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !28
   %50 = or i32 %45, %49
   store i32 %50, ptr %48, align 4, !tbaa !28

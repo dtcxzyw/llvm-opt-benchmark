@@ -3,14 +3,6 @@ source_filename = "bench/ffmpeg/original/aptx.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.InvertQuantize = type { i32, i32, i32 }
-%struct.Prediction = type { [2 x i32], [2 x i32], [24 x i32], i32, [48 x i32], i32, i32, i32 }
-%struct.Quantize = type { i32, i32, i32 }
-%struct.Channel = type { i32, i32, [4 x i32], %struct.QMFAnalysis, [4 x %struct.Quantize], [4 x %struct.InvertQuantize], [4 x %struct.Prediction] }
-%struct.QMFAnalysis = type { [2 x %struct.FilterSignal], [2 x [2 x %struct.FilterSignal]] }
-%struct.FilterSignal = type { i32, [32 x i32] }
-
 @quantize_intervals_LF = internal constant [65 x i32] [i32 -9948, i32 9948, i32 29860, i32 49808, i32 69822, i32 89926, i32 110144, i32 130502, i32 151026, i32 171738, i32 192666, i32 213832, i32 235264, i32 256982, i32 279014, i32 301384, i32 324118, i32 347244, i32 370790, i32 394782, i32 419250, i32 444226, i32 469742, i32 495832, i32 522536, i32 549890, i32 577936, i32 606720, i32 636290, i32 666700, i32 698006, i32 730270, i32 763562, i32 797958, i32 833538, i32 870398, i32 908640, i32 948376, i32 989740, i32 1032874, i32 1077948, i32 1125150, i32 1174700, i32 1226850, i32 1281900, i32 1340196, i32 1402156, i32 1468282, i32 1539182, i32 1615610, i32 1698514, i32 1789098, i32 1888944, i32 2000168, i32 2125700, i32 2269750, i32 2438670, i32 2642660, i32 2899462, i32 3243240, i32 3746078, i32 4535138, i32 5664098, i32 7102424, i32 8897462], align 16
 @invert_quantize_dither_factors_LF = internal constant [65 x i32] [i32 9948, i32 9948, i32 9962, i32 9988, i32 10026, i32 10078, i32 10142, i32 10218, i32 10306, i32 10408, i32 10520, i32 10646, i32 10784, i32 10934, i32 11098, i32 11274, i32 11462, i32 11664, i32 11880, i32 12112, i32 12358, i32 12618, i32 12898, i32 13194, i32 13510, i32 13844, i32 14202, i32 14582, i32 14988, i32 15422, i32 15884, i32 16380, i32 16912, i32 17484, i32 18098, i32 18762, i32 19480, i32 20258, i32 21106, i32 22030, i32 23044, i32 24158, i32 25390, i32 26760, i32 28290, i32 30008, i32 31954, i32 34172, i32 36728, i32 39700, i32 43202, i32 47382, i32 52462, i32 58762, i32 66770, i32 77280, i32 91642, i32 112348, i32 144452, i32 199326, i32 303512, i32 485546, i32 643414, i32 794914, i32 1000124], align 16
 @quantize_dither_factors_LF = internal constant [65 x i32] [i32 0, i32 4, i32 7, i32 10, i32 13, i32 16, i32 19, i32 22, i32 26, i32 28, i32 32, i32 35, i32 38, i32 41, i32 44, i32 47, i32 51, i32 54, i32 58, i32 62, i32 65, i32 70, i32 74, i32 79, i32 84, i32 90, i32 95, i32 102, i32 109, i32 116, i32 124, i32 133, i32 143, i32 154, i32 166, i32 180, i32 195, i32 212, i32 231, i32 254, i32 279, i32 308, i32 343, i32 383, i32 430, i32 487, i32 555, i32 639, i32 743, i32 876, i32 1045, i32 1270, i32 1575, i32 2002, i32 2628, i32 3591, i32 5177, i32 8026, i32 13719, i32 26047, i32 45509, i32 39467, i32 37875, i32 51303, i32 0], align 16
@@ -82,7 +74,7 @@ define void @ff_aptx_generate_dither(ptr noundef captures(none) %0) local_unname
   %29 = mul i32 %28, -5
   %30 = add i32 %29, 23
   %31 = shl i32 %25, %30
-  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store i32 %31, ptr %32, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -103,25 +95,25 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [4 x %struct.anon], ptr @ff_aptx_quant_tables, i64 %7
+  %8 = getelementptr inbounds [192 x i8], ptr @ff_aptx_quant_tables, i64 %7
   br label %9
 
 9:                                                ; preds = %2, %aptx_process_subband.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %aptx_process_subband.exit ]
-  %10 = getelementptr inbounds nuw %struct.InvertQuantize, ptr %3, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw %struct.Prediction, ptr %4, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw %struct.Quantize, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [320 x i8], ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !4
-  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !12
-  %16 = getelementptr inbounds nuw %struct.anon, ptr %8, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %indvars.iv
   %17 = icmp slt i32 %13, 0
   %.lobit.neg.i.i = ashr i32 %13, 31
   %18 = xor i32 %.lobit.neg.i.i, %13
   %19 = add nsw i32 %18, 1
   %20 = load ptr, ptr %16, align 16, !tbaa !16
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = sdiv i32 %23, 2
   %25 = sub nsw i32 0, %24
@@ -131,7 +123,7 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %28 = sext i32 %15 to i64
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !21
-  %31 = getelementptr inbounds i32, ptr %30, i64 %21
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %21
   %32 = load i32, ptr %31, align 4, !tbaa !12
   %33 = sext i32 %32 to i64
   %34 = mul nsw i64 %33, %28
@@ -158,7 +150,7 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %52 = mul nsw i32 %51, 32620
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !24
-  %55 = getelementptr inbounds i16, ptr %54, i64 %21
+  %55 = getelementptr inbounds [2 x i8], ptr %54, i64 %21
   %56 = load i16, ptr %55, align 2, !tbaa !25
   %57 = sext i16 %56 to i32
   %58 = shl nsw i32 %57, 15
@@ -180,7 +172,7 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %70 = sub nsw i32 %66, %.0.i.i.i
   %71 = ashr i32 %70, 8
   %72 = zext nneg i32 %69 to i64
-  %73 = getelementptr inbounds nuw i16, ptr @quantization_factors, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr @quantization_factors, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !25
   %75 = sext i16 %74 to i32
   %76 = shl nsw i32 %75, 11
@@ -254,19 +246,19 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   store i32 %.0.i.i41.i, ptr %128, align 4, !tbaa !32
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 116
   %131 = sext i32 %123 to i64
-  %132 = getelementptr inbounds i32, ptr %130, i64 %131
+  %132 = getelementptr inbounds [4 x i8], ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %134 = load i32, ptr %133, align 4, !tbaa !33
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i32, ptr %132, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %132, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !12
-  %138 = getelementptr inbounds i32, ptr %130, i64 %135
+  %138 = getelementptr inbounds [4 x i8], ptr %130, i64 %135
   store i32 %137, ptr %138, align 4, !tbaa !12
   %139 = add nsw i32 %134, 1
   %140 = srem i32 %139, %123
   store i32 %140, ptr %133, align 4, !tbaa !33
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %132, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %132, i64 %141
   store i32 %48, ptr %142, align 4, !tbaa !12
   %143 = icmp sgt i32 %123, 0
   br i1 %143, label %.lr.ph.i.i, label %aptx_process_subband.exit
@@ -286,11 +278,11 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %.043.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %167, %147 ]
   %148 = sub nsw i64 0, %indvars.iv.i.i
   %149 = xor i64 %indvars.iv.i.i, -1
-  %150 = getelementptr inbounds i32, ptr %142, i64 %149
+  %150 = getelementptr inbounds [4 x i8], ptr %142, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !12
   %152 = ashr i32 %151, 31
   %153 = or i32 %152, 1
-  %154 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i.i
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv.i.i
   %155 = load i32, ptr %154, align 4, !tbaa !12
   %.neg.i43.i = mul nsw i32 %146, %153
   %156 = add i32 %155, 128
@@ -302,7 +294,7 @@ define void @ff_aptx_invert_quantize_and_prediction(ptr noundef captures(none) %
   %.neg41.i.i = add i32 %155, %.neg.i.neg44.i.i
   %161 = sub i32 %.neg41.i.i, %158
   store i32 %161, ptr %154, align 4, !tbaa !12
-  %162 = getelementptr inbounds i32, ptr %142, i64 %148
+  %162 = getelementptr inbounds [4 x i8], ptr %142, i64 %148
   %163 = load i32, ptr %162, align 4, !tbaa !12
   %164 = sext i32 %163 to i64
   %165 = sext i32 %161 to i64
@@ -370,13 +362,13 @@ define range(i32 -1094995529, 1) i32 @ff_aptx_init(ptr noundef readonly captures
 15:                                               ; preds = %6, %22
   %16 = phi i1 [ true, %6 ], [ false, %22 ]
   %indvars.iv21 = phi i64 [ 0, %6 ], [ 1, %22 ]
-  %17 = getelementptr inbounds nuw %struct.Channel, ptr %3, i64 %indvars.iv21
+  %17 = getelementptr inbounds nuw [2192 x i8], ptr %3, i64 %indvars.iv21
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 924
   br label %19
 
 19:                                               ; preds = %15, %19
   %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %struct.Prediction, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [320 x i8], ptr %18, i64 %indvars.iv
   store i32 1, ptr %20, align 4, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 1, ptr %21, align 4, !tbaa !12

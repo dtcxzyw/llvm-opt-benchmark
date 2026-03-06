@@ -439,7 +439,7 @@ define range(i32 -1, 1) i32 @H5T__enum_insert(ptr noundef readonly captures(none
 
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !34
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %1) #11
   %.not50 = icmp eq i32 %22, 0
@@ -533,7 +533,7 @@ define range(i32 -1, 1) i32 @H5T__enum_insert(ptr noundef readonly captures(none
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 72
   %80 = load ptr, ptr %79, align 8, !tbaa !31
   %81 = zext i32 %75 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %81
   store ptr %77, ptr %82, align 8, !tbaa !34
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %84 = load ptr, ptr %83, align 8, !tbaa !31
@@ -936,13 +936,13 @@ define range(i32 -1, 1) i32 @H5Tenum_nameof(i64 noundef %0, ptr noundef readonly
 119:                                              ; preds = %114
   %120 = getelementptr inbounds nuw i8, ptr %99, i64 72
   %121 = load ptr, ptr %120, align 8, !tbaa !31
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %109
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %109
   %123 = load ptr, ptr %122, align 8, !tbaa !34
   %124 = call ptr @strncpy(ptr noundef nonnull %2, ptr noundef %123, i64 noundef %3) #10
   %125 = load ptr, ptr %98, align 8, !tbaa !14
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 72
   %127 = load ptr, ptr %126, align 8, !tbaa !31
-  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %109
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %109
   %129 = load ptr, ptr %128, align 8, !tbaa !34
   %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #11
   %.not69.i = icmp ult i64 %130, %3
@@ -1172,7 +1172,7 @@ define range(i32 -1, 1) i32 @H5Tenum_valueof(i64 noundef %0, ptr noundef readonl
   %102 = add i32 %.03556.i, %.03157.i
   %103 = lshr i32 %102, 1
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %100, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !34
   %107 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %106) #11
   %108 = icmp slt i32 %107, 0

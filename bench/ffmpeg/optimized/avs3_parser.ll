@@ -210,7 +210,7 @@ thread-pre-split:                                 ; preds = %avs3_find_frame_end
   %..i = call i32 @llvm.smax.i32(i32 %89, i32 %90)
   store i32 %..i, ptr %88, align 4, !tbaa !42
   %91 = zext nneg i32 %82 to i64
-  %92 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_avs3_frame_rate_tab, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr @ff_avs3_frame_rate_tab, i64 %91
   %93 = load i32, ptr %92, align 8, !tbaa !43
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i32 %93, ptr %94, align 4, !tbaa !44

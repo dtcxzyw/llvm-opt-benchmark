@@ -1207,7 +1207,7 @@ define hidden void @dis_field_udh(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %51 = zext i8 %50 to i32
   %52 = add nuw nsw i32 %51, 2
   %53 = zext i8 %26 to i64
-  %54 = getelementptr i32, ptr @ett_udh_ieis, i64 %53
+  %54 = getelementptr [4 x i8], ptr @ett_udh_ieis, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = tail call ptr @rval_to_str_const(i32 noundef %27, ptr noundef nonnull @gsm_sms_tp_ud_ie_id_rvals, ptr noundef nonnull @.str.116)
   %57 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %0, i32 noundef %.041.i, i32 noundef %52, i32 noundef %55, ptr noundef null, ptr noundef nonnull @.str.333, ptr noundef %56)
@@ -1278,14 +1278,14 @@ dis_field_ud_iei.exit:                            ; preds = %dis_field_ud_iei.ex
   br i1 %77, label %95, label %100
 
 95:                                               ; preds = %92
-  %96 = getelementptr ptr, ptr @dis_field_udh.fill_bits_mask_gsm, i64 %93
+  %96 = getelementptr [8 x i8], ptr @dis_field_udh.fill_bits_mask_gsm, i64 %93
   %97 = load ptr, ptr %96, align 8
   %98 = load i32, ptr %97, align 4
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %98, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef 0)
   br label %109
 
 100:                                              ; preds = %92
-  %101 = getelementptr ptr, ptr @dis_field_udh.fill_bits_mask_ascii, i64 %93
+  %101 = getelementptr [8 x i8], ptr @dis_field_udh.fill_bits_mask_ascii, i64 %93
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %102, align 4
   %104 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %103, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef 0)
@@ -1338,8 +1338,8 @@ define hidden void @proto_register_gsm_sms() local_unnamed_addr #0 {
 15:                                               ; preds = %0, %15
   %indvars.iv13 = phi i64 [ 14, %0 ], [ %indvars.iv.next14, %15 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr i32, ptr @ett_udh_ieis, i64 %indvars.iv
-  %17 = getelementptr ptr, ptr %1, i64 %indvars.iv13
+  %16 = getelementptr [4 x i8], ptr @ett_udh_ieis, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv13
   store ptr %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
@@ -1454,7 +1454,7 @@ define internal i32 @dissect_gsm_sms(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread
 
 36:                                               ; preds = %28
-  %37 = getelementptr ptr, ptr @gsm_sms_msg_fcn, i64 %30
+  %37 = getelementptr [8 x i8], ptr @gsm_sms_msg_fcn, i64 %30
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef %0, ptr noundef %1, ptr noundef %26, i32 noundef 0, ptr noundef %3)
   br label %.thread
@@ -2847,7 +2847,7 @@ dis_field_dt.exit:                                ; preds = %36, %39
 
 dis_field_st.exit:                                ; preds = %dis_field_dt.exit
   %96 = zext nneg i32 %93 to i64
-  %97 = getelementptr i32, ptr @hf_gsm_sms_dis_field_st_reason, i64 %96
+  %97 = getelementptr [4 x i8], ptr @hf_gsm_sms_dis_field_st_reason, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %98, ptr noundef %0, i32 noundef %storemerge.i, i32 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

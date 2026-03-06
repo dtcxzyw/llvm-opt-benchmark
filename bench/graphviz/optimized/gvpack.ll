@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ingraph_state = type { %union.anon.9, i32, i32, ptr, ptr, i8, i32 }
 %union.anon.9 = type { ptr }
 %struct.pack_info = type { float, i32, i32, i8, i32, ptr, ptr, i32 }
-%struct.attr_t = type { ptr, ptr }
 %"struct.std::pair.18" = type { %"class.std::__cxx11::basic_string", %"struct.(anonymous namespace)::AttributeValue" }
 %"struct.(anonymous namespace)::AttributeValue" = type { %"class.std::__cxx11::basic_string", i64 }
 
@@ -581,7 +580,7 @@ _ZNSt6vectorI6attr_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i.i: ; pre
 _ZNSt6vectorI6attr_tSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i: ; preds = %162, %_ZNSt6vectorI6attr_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i.i
   store ptr %157, ptr @_ZL6G_args, align 8, !tbaa !4
   store ptr %161, ptr getelementptr inbounds nuw (i8, ptr @_ZL6G_args, i64 8), align 8, !tbaa !40
-  %163 = getelementptr inbounds nuw %struct.attr_t, ptr %157, i64 %155
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %157, i64 %155
   store ptr %163, ptr getelementptr inbounds nuw (i8, ptr @_ZL6G_args, i64 16), align 8, !tbaa !9
   br label %_ZL12setNameValuePc.exit.i.backedge
 
@@ -676,7 +675,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit65.i: ; preds = %198, 
 
 205:                                              ; preds = %202
   %206 = sext i32 %203 to i64
-  %207 = getelementptr inbounds ptr, ptr %1, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %1, i64 %206
   store ptr %207, ptr @_ZL7myFiles, align 8, !tbaa !54
   br label %208
 
@@ -973,7 +972,7 @@ _ZNSt6vectorIP8Agraph_sSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; pred
   br label %_ZNSt6vectorIP8Agraph_sSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIP8Agraph_sSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %320, %_ZNSt6vectorIP8Agraph_sSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  %321 = getelementptr inbounds nuw ptr, ptr %315, i64 %313
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %313
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit25.i.outer.outer
 
 .loopexit.i12:                                    ; preds = %.loopexit.i12.loopexit, %.loopexit.i12.loopexit.split-lp.loopexit.split-lp, %.loopexit.i12.loopexit.split-lp.loopexit, %.loopexit.split-lp.i17
@@ -1315,7 +1314,7 @@ _ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i: ; preds = %.noexc34.i.i, %
 436:                                              ; preds = %619, %.lr.ph164.i
   %.067162.i = phi i1 [ true, %.lr.ph164.i ], [ %.1.i, %619 ]
   %.068161.i = phi i64 [ 0, %.lr.ph164.i ], [ %620, %619 ]
-  %437 = getelementptr inbounds nuw ptr, ptr %.ph.ph, i64 %.068161.i
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %.ph.ph, i64 %.068161.i
   %438 = load ptr, ptr %437, align 8, !tbaa !65
   %.b.i23 = load i1, ptr @_ZL7verbose, align 4
   br i1 %.b.i23, label %439, label %464
@@ -1792,7 +1791,7 @@ _ZL9gv_callocmm.exit.i:                           ; preds = %635
   %650 = phi ptr [ %646, %.lr.ph170.preheader.i ], [ %664, %.lr.ph170.i ]
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 240
   %652 = load ptr, ptr %651, align 8, !tbaa !128
-  %653 = getelementptr inbounds nuw ptr, ptr %652, i64 %indvars.iv181.i
+  %653 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %indvars.iv181.i
   %654 = load ptr, ptr %653, align 8, !tbaa !65
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 16
   %656 = load ptr, ptr %655, align 8, !tbaa !81
@@ -1801,7 +1800,7 @@ _ZL9gv_callocmm.exit.i:                           ; preds = %635
   %659 = load ptr, ptr %418, align 8, !tbaa !81
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 240
   %661 = load ptr, ptr %660, align 8, !tbaa !128
-  %662 = getelementptr inbounds ptr, ptr %661, i64 %indvars.iv.i
+  %662 = getelementptr inbounds [8 x i8], ptr %661, i64 %indvars.iv.i
   store ptr %658, ptr %662, align 8, !tbaa !65
   %663 = load ptr, ptr %653, align 8, !tbaa !65
   call fastcc void @_ZL16cloneClusterTreeP8Agraph_sS0_(ptr noundef %663, ptr noundef %658)
@@ -1884,7 +1883,7 @@ _ZNSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ES
   %689 = phi double [ %.sroa.speculated6.i, %.lr.ph.i40 ], [ %.sroa.7.0.copyload46, %681 ]
   %.sroa.speculated911.i = phi double [ %.sroa.speculated9.i, %.lr.ph.i40 ], [ %.sroa.0.0.copyload44, %681 ]
   %.010.i = phi i64 [ %699, %.lr.ph.i40 ], [ 1, %681 ]
-  %690 = getelementptr inbounds nuw ptr, ptr %.ph.ph, i64 %.010.i
+  %690 = getelementptr inbounds nuw [8 x i8], ptr %.ph.ph, i64 %.010.i
   %691 = load ptr, ptr %690, align 8, !tbaa !65, !noalias !131
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 16
   %693 = load ptr, ptr %692, align 8, !tbaa !81, !noalias !131
@@ -3108,7 +3107,7 @@ _ZL9gv_callocmm.exit:                             ; preds = %22
   %31 = phi ptr [ %45, %.lr.ph ], [ %10, %_ZL9gv_callocmm.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 240
   %33 = load ptr, ptr %32, align 8, !tbaa !128
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !65
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !81
@@ -3117,7 +3116,7 @@ _ZL9gv_callocmm.exit:                             ; preds = %22
   %40 = load ptr, ptr %4, align 8, !tbaa !81
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 240
   %42 = load ptr, ptr %41, align 8, !tbaa !128
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   store ptr %39, ptr %43, align 8, !tbaa !65
   %44 = load ptr, ptr %34, align 8, !tbaa !65
   tail call fastcc void @_ZL16cloneClusterTreeP8Agraph_sS0_(ptr noundef %44, ptr noundef %39)

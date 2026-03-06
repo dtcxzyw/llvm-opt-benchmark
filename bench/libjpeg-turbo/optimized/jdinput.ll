@@ -252,12 +252,12 @@ define internal noundef i32 @consume_markers(ptr noundef %0) #0 {
   store i32 %120, ptr %121, align 8, !tbaa !69
   %122 = load ptr, ptr %16, align 8, !tbaa !46
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %124 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv.i
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %indvars.iv.i
   store i32 0, ptr %124, align 4, !tbaa !70
   %125 = load i32, ptr %109, align 4, !tbaa !68
   %126 = add i32 %125, -1
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 72
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv.i
   store i32 %126, ptr %128, align 4, !tbaa !70
   %129 = load i32, ptr %94, align 8, !tbaa !50
   %130 = zext i32 %129 to i64
@@ -477,7 +477,7 @@ define internal void @start_input_pass(ptr noundef %0) #0 {
 
 46:                                               ; preds = %._crit_edge.i, %.lr.ph84.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph84.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8, !tbaa !89
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8, !tbaa !62
@@ -537,7 +537,7 @@ define internal void @start_input_pass(ptr noundef %0) #0 {
   %83 = add nsw i32 %82, 1
   store i32 %83, ptr %41, align 8, !tbaa !88
   %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds i32, ptr %45, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %45, i64 %84
   store i32 %80, ptr %85, align 4, !tbaa !70
   %86 = icmp samesign ugt i32 %.07581.i, 1
   br i1 %86, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !96
@@ -609,7 +609,7 @@ per_scan_setup.exit.thread:                       ; preds = %1
 124:                                              ; preds = %151, %.lr.ph.i10
   %125 = phi i32 [ %120, %.lr.ph.i10 ], [ %152, %151 ]
   %indvars.iv.i11 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %151 ]
-  %126 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv.i11
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv.i11
   %127 = load ptr, ptr %126, align 8, !tbaa !89
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 80
   %129 = load ptr, ptr %128, align 8, !tbaa !74
@@ -624,7 +624,7 @@ per_scan_setup.exit.thread:                       ; preds = %1
 
 133:                                              ; preds = %130
   %134 = zext nneg i32 %132 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr %122, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !89
   %137 = icmp eq ptr %136, null
   br i1 %137, label %138, label %144
@@ -645,7 +645,7 @@ per_scan_setup.exit.thread:                       ; preds = %1
   %146 = load ptr, ptr %145, align 8, !tbaa !30
   %147 = tail call ptr %146(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 132) #5
   %148 = sext i32 %132 to i64
-  %149 = getelementptr inbounds ptr, ptr %122, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %122, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !89
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %147, ptr noundef nonnull align 4 dereferenceable(132) %150, i64 132, i1 false)
   store ptr %147, ptr %128, align 8, !tbaa !74

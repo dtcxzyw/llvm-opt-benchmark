@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SDL_DisplayMode = type { i32, i32, i32, i32, float, float, i32, i32, ptr }
 %struct.SDL_HDROutputProperties = type { float, float }
 %struct.SDL_Point = type { i32, i32 }
-%struct.anon.1 = type { ptr, i64, i8 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.SDL_MessageBoxData = type { i32, ptr, ptr, ptr, i32, ptr, ptr }
@@ -309,7 +308,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @SDL_GetNumVideoDrivers_RE
 
 .preheader:                                       ; preds = %3, %.loopexit
   %indvars.iv18 = phi i64 [ 0, %3 ], [ %indvars.iv.next19, %.loopexit ]
-  %4 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv18
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv18
   %.not16 = icmp eq i64 %indvars.iv18, 0
   br i1 %.not16, label %.critedge, label %.lr.ph
 
@@ -329,7 +328,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @SDL_GetNumVideoDrivers_RE
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @SDL_strcmp_REAL(ptr noundef %10, ptr noundef %13) #19
@@ -342,7 +341,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @SDL_GetNumVideoDrivers_RE
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr @SDL_GetNumVideoDrivers_REAL.num_drivers, align 4
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr @deduped_bootstrap, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr @deduped_bootstrap, i64 %19
   store ptr %16, ptr %20, align 8
   br label %.loopexit
 
@@ -374,7 +373,7 @@ define hidden ptr @SDL_GetVideoDriver_REAL(i32 noundef %0) local_unnamed_addr #0
 
 .preheader.i:                                     ; preds = %.loopexit.i, %6
   %indvars.iv18.i = phi i64 [ 0, %6 ], [ %indvars.iv.next19.i, %.loopexit.i ]
-  %7 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv18.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv18.i
   %.not16.i = icmp eq i64 %indvars.iv18.i, 0
   %.pre = load ptr, ptr %7, align 8
   br i1 %.not16.i, label %.critedge.i, label %.lr.ph.i
@@ -391,7 +390,7 @@ define hidden ptr @SDL_GetVideoDriver_REAL(i32 noundef %0) local_unnamed_addr #0
 .lr.ph.i:                                         ; preds = %.preheader.i, %10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %10 ], [ 0, %.preheader.i ]
   %11 = load ptr, ptr %.pre, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @SDL_strcmp_REAL(ptr noundef %11, ptr noundef %14) #19
@@ -403,7 +402,7 @@ define hidden ptr @SDL_GetVideoDriver_REAL(i32 noundef %0) local_unnamed_addr #0
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr @SDL_GetNumVideoDrivers_REAL.num_drivers, align 4
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr @deduped_bootstrap, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr @deduped_bootstrap, i64 %19
   store ptr %.pre, ptr %20, align 8
   br label %.loopexit.i
 
@@ -419,7 +418,7 @@ SDL_GetNumVideoDrivers_REAL.exit:                 ; preds = %3, %8
 
 22:                                               ; preds = %SDL_GetNumVideoDrivers_REAL.exit
   %23 = zext nneg i32 %0 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @deduped_bootstrap, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @deduped_bootstrap, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   br label %29
@@ -541,7 +540,7 @@ select.unfold.preheader:                          ; preds = %select.unfold
 
 47:                                               ; preds = %30, %35, %39, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv.next
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv.next
   %49 = load ptr, ptr %48, align 8
   %.not69 = icmp eq i64 %indvars.iv.next, 7
   br i1 %.not69, label %select.unfold, label %30, !llvm.loop !8
@@ -561,7 +560,7 @@ select.unfold:                                    ; preds = %43, %47
 
 51:                                               ; preds = %50, %57
   %indvars.iv141 = phi i64 [ 0, %50 ], [ %indvars.iv.next142, %57 ]
-  %52 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv141
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv141
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
@@ -745,7 +744,7 @@ SDL_EnableScreenSaver_REAL.exit:                  ; preds = %4, %6, %13, %15
   %30 = load ptr, ptr @_this, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 808
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv.next
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %indvars.iv.next
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 8
   tail call void @SDL_DelVideoDisplay(i32 noundef %35, i1 noundef zeroext false)
@@ -1064,10 +1063,10 @@ define hidden void @SDL_UpdateDesktopBounds() local_unnamed_addr #0 {
 
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i
   store i32 %20, ptr %21, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1075,7 +1074,7 @@ define hidden void @SDL_UpdateDesktopBounds() local_unnamed_addr #0 {
 
 SDL_GetDisplays_REAL.exit:                        ; preds = %17, %13
   %.015.lcssa.i = phi i64 [ 0, %13 ], [ %wide.trip.count.i, %17 ]
-  %22 = getelementptr inbounds nuw i32, ptr %12, i64 %.015.lcssa.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.015.lcssa.i
   store i32 0, ptr %22, align 4
   %23 = load i32, ptr %12, align 4
   %.not811 = icmp eq i32 %23, 0
@@ -1107,7 +1106,7 @@ SDL_GetDisplays_REAL.exit:                        ; preds = %17, %13
 31:                                               ; preds = %28, %29, %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.next
   %33 = load i32, ptr %32, align 4
   %.not8 = icmp eq i32 %33, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -1174,10 +1173,10 @@ define hidden noalias ptr @SDL_GetDisplays_REAL(ptr noundef writeonly captures(a
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store i32 %22, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1189,7 +1188,7 @@ define hidden noalias ptr @SDL_GetDisplays_REAL(ptr noundef writeonly captures(a
 
 ._crit_edge:                                      ; preds = %._crit_edge25, %._crit_edge.loopexit
   %.015.lcssa = phi i64 [ %24, %._crit_edge.loopexit ], [ 0, %._crit_edge25 ]
-  %25 = getelementptr inbounds nuw i32, ptr %13, i64 %.015.lcssa
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.015.lcssa
   store i32 0, ptr %25, align 4
   br label %28
 
@@ -1229,7 +1228,7 @@ define hidden zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef %0, ptr noundef 
 
 11:                                               ; preds = %16, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %0, %14
@@ -1246,7 +1245,7 @@ define hidden zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef %0, ptr noundef 
 
 SDL_GetVideoDisplay.exit:                         ; preds = %11
   %18 = and i64 %indvars.iv.i.i, 4294967295
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %SDL_GetVideoDisplay.exit.thread, label %21
@@ -1318,7 +1317,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %34, %36
 
 50:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %0, %53
@@ -1340,7 +1339,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %34, %36
 
 SDL_GetDisplayIndex.exit:                         ; preds = %._crit_edge.i, %.loopexit.loopexit.i
   %.06.i = phi i64 [ %57, %.loopexit.loopexit.i ], [ -1, %._crit_edge.i ]
-  %58 = getelementptr ptr, ptr %46, i64 %.06.i
+  %58 = getelementptr [8 x i8], ptr %46, i64 %.06.i
   %59 = getelementptr i8, ptr %58, i64 -8
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %60, align 8
@@ -1430,7 +1429,7 @@ define hidden i32 @SDL_AddVideoDisplay(ptr noundef readonly captures(none) %0, i
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 8
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds ptr, ptr %14, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %14, i64 %22
   store ptr %4, ptr %23, align 8
   %24 = tail call i32 @SDL_GetNextObjectID() #19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
@@ -1535,7 +1534,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %56, %65
 78:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %79 = load ptr, ptr %77, align 8
-  %80 = getelementptr inbounds nuw %struct.SDL_DisplayMode, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [40 x i8], ptr %79, i64 %indvars.iv
   store i32 %24, ptr %80, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %74, align 4
@@ -1578,7 +1577,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %56, %65
 
 102:                                              ; preds = %107, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %107 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv.i.i.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv.i.i.i
   %104 = load ptr, ptr %103, align 8
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %24, %105
@@ -1595,7 +1594,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %56, %65
 
 SDL_GetVideoDisplay.exit.i:                       ; preds = %102
   %109 = and i64 %indvars.iv.i.i.i, 4294967295
-  %110 = getelementptr inbounds nuw ptr, ptr %99, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %109
   %111 = load ptr, ptr %110, align 8
   %.not.i = icmp eq ptr %111, null
   br i1 %.not.i, label %SDL_GetDisplayProperties_REAL.exit, label %112
@@ -1663,7 +1662,7 @@ define hidden i32 @SDL_GetDisplayProperties_REAL(i32 noundef %0) local_unnamed_a
 
 10:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %0, %13
@@ -1680,7 +1679,7 @@ define hidden i32 @SDL_GetDisplayProperties_REAL(i32 noundef %0) local_unnamed_a
 
 SDL_GetVideoDisplay.exit:                         ; preds = %10
   %17 = and i64 %indvars.iv.i.i, 4294967295
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %SDL_GetVideoDisplay.exit.thread, label %20
@@ -1764,7 +1763,7 @@ define internal fastcc void @SDL_CheckWindowDisplayChanged(ptr noundef %0) unnam
 
 18:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %6, %21
@@ -1799,7 +1798,7 @@ SDL_GetDisplayIndex.exit:                         ; preds = %16, %._crit_edge.i,
 
 32:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = load ptr, ptr %35, align 8
@@ -1816,7 +1815,7 @@ SDL_GetDisplayIndex.exit:                         ; preds = %16, %._crit_edge.i,
 
 42:                                               ; preds = %38
   %43 = zext nneg i32 %.06.i to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %31, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 104
   %47 = load ptr, ptr %46, align 8
@@ -1877,7 +1876,7 @@ define hidden void @SDL_DelVideoDisplay(i32 noundef %0, i1 noundef zeroext %1) l
 
 11:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %0, %14
@@ -1895,7 +1894,7 @@ define hidden void @SDL_DelVideoDisplay(i32 noundef %0, i1 noundef zeroext %1) l
 SDL_GetDisplayIndex.exit:                         ; preds = %11
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %19 = and i64 %indvars.iv.i, 4294967295
-  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %19
   %21 = load ptr, ptr %20, align 8
   br i1 %1, label %22, label %23
 
@@ -1924,12 +1923,12 @@ SDL_GetDisplayIndex.exit:                         ; preds = %11
   %indvars.iv.i17 = phi i64 [ %31, %.lr.ph.i16 ], [ %indvars.iv.next.i18, %32 ]
   %indvars.iv.next.i18 = add nsw i64 %indvars.iv.i17, -1
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %33, i64 %indvars.iv.next.i18
+  %34 = getelementptr inbounds [40 x i8], ptr %33, i64 %indvars.iv.next.i18
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   tail call void @SDL_free_REAL(ptr noundef %36) #19
   %37 = load ptr, ptr %30, align 8
-  %38 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %37, i64 %indvars.iv.next.i18
+  %38 = getelementptr inbounds [40 x i8], ptr %37, i64 %indvars.iv.next.i18
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr null, ptr %39, align 8
   %.not.i19 = icmp eq i64 %indvars.iv.next.i18, 0
@@ -1963,7 +1962,7 @@ SDL_ResetFullscreenDisplayModes.exit:             ; preds = %32, %23
 54:                                               ; preds = %SDL_ResetFullscreenDisplayModes.exit
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 808
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %19
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %19
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = xor i32 %18, -1
   %60 = add i32 %51, %59
@@ -2008,7 +2007,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @SDL_GetDisplayIndex(i32 no
 
 10:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %0, %13
@@ -2050,12 +2049,12 @@ define hidden void @SDL_ResetFullscreenDisplayModes(ptr noundef %0) local_unname
   %indvars.iv = phi i64 [ %5, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %7, i64 %indvars.iv.next
+  %8 = getelementptr inbounds [40 x i8], ptr %7, i64 %indvars.iv.next
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @SDL_free_REAL(ptr noundef %10) #19
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %11, i64 %indvars.iv.next
+  %12 = getelementptr inbounds [40 x i8], ptr %11, i64 %indvars.iv.next
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %13, align 8
   %.not = icmp eq i64 %indvars.iv.next, 0
@@ -2100,7 +2099,7 @@ define hidden ptr @SDL_GetVideoDisplay(i32 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %0, %13
@@ -2117,7 +2116,7 @@ define hidden ptr @SDL_GetVideoDisplay(i32 noundef %0) local_unnamed_addr #0 {
 
 SDL_GetDisplayIndex.exit:                         ; preds = %10
   %17 = and i64 %indvars.iv.i, 4294967295
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %SDL_GetDisplayIndex.exit.thread
 
@@ -2151,7 +2150,7 @@ define hidden ptr @SDL_GetVideoDisplayForWindow(ptr noundef %0) local_unnamed_ad
 
 11:                                               ; preds = %16, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %2, %14
@@ -2168,7 +2167,7 @@ define hidden ptr @SDL_GetVideoDisplayForWindow(ptr noundef %0) local_unnamed_ad
 
 SDL_GetDisplayIndex.exit.i:                       ; preds = %11
   %18 = and i64 %indvars.iv.i.i, 4294967295
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8
   br label %SDL_GetVideoDisplay.exit
 
@@ -2313,7 +2312,7 @@ define hidden ptr @SDL_GetDisplayDriverData(i32 noundef %0) local_unnamed_addr #
 
 10:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %0, %13
@@ -2330,7 +2329,7 @@ define hidden ptr @SDL_GetDisplayDriverData(i32 noundef %0) local_unnamed_addr #
 
 SDL_GetVideoDisplay.exit:                         ; preds = %10
   %17 = and i64 %indvars.iv.i.i, 4294967295
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %SDL_GetVideoDisplay.exit.thread, label %20
@@ -2370,7 +2369,7 @@ define hidden ptr @SDL_GetDisplayDriverDataForWindow(ptr noundef %0) local_unnam
 
 11:                                               ; preds = %16, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %16 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i.i
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %2, %14
@@ -2387,7 +2386,7 @@ define hidden ptr @SDL_GetDisplayDriverDataForWindow(ptr noundef %0) local_unnam
 
 SDL_GetVideoDisplay.exit.i:                       ; preds = %11
   %18 = and i64 %indvars.iv.i.i.i, 4294967295
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %SDL_GetDisplayDriverData.exit, label %21
@@ -2428,7 +2427,7 @@ define hidden ptr @SDL_GetDisplayName_REAL(i32 noundef %0) local_unnamed_addr #0
 
 10:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %0, %13
@@ -2445,7 +2444,7 @@ define hidden ptr @SDL_GetDisplayName_REAL(i32 noundef %0) local_unnamed_addr #0
 
 SDL_GetVideoDisplay.exit:                         ; preds = %10
   %17 = and i64 %indvars.iv.i.i, 4294967295
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %SDL_GetVideoDisplay.exit.thread, label %20
@@ -2484,7 +2483,7 @@ define hidden zeroext i1 @SDL_GetDisplayUsableBounds_REAL(i32 noundef %0, ptr no
 
 11:                                               ; preds = %16, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %0, %14
@@ -2501,7 +2500,7 @@ define hidden zeroext i1 @SDL_GetDisplayUsableBounds_REAL(i32 noundef %0, ptr no
 
 SDL_GetVideoDisplay.exit:                         ; preds = %11
   %18 = and i64 %indvars.iv.i.i, 4294967295
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %SDL_GetVideoDisplay.exit.thread, label %21
@@ -2577,7 +2576,7 @@ define hidden i32 @SDL_GetNaturalDisplayOrientation_REAL(i32 noundef %0) local_u
 
 10:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %0, %13
@@ -2594,7 +2593,7 @@ define hidden i32 @SDL_GetNaturalDisplayOrientation_REAL(i32 noundef %0) local_u
 
 SDL_GetVideoDisplay.exit:                         ; preds = %10
   %17 = and i64 %indvars.iv.i.i, 4294967295
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %SDL_GetVideoDisplay.exit.thread, label %20
@@ -2634,7 +2633,7 @@ define hidden i32 @SDL_GetCurrentDisplayOrientation_REAL(i32 noundef %0) local_u
 
 10:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %0, %13
@@ -2651,7 +2650,7 @@ define hidden i32 @SDL_GetCurrentDisplayOrientation_REAL(i32 noundef %0) local_u
 
 SDL_GetVideoDisplay.exit:                         ; preds = %10
   %17 = and i64 %indvars.iv.i.i, 4294967295
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %SDL_GetVideoDisplay.exit.thread, label %20
@@ -2742,7 +2741,7 @@ define internal fastcc void @SDL_CheckWindowDisplayScaleChanged(ptr noundef %0) 
 
 18:                                               ; preds = %23, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %23 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i.i
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %9, %21
@@ -2759,7 +2758,7 @@ define internal fastcc void @SDL_CheckWindowDisplayScaleChanged(ptr noundef %0) 
 
 SDL_GetVideoDisplay.exit.i:                       ; preds = %18
   %25 = and i64 %indvars.iv.i.i.i, 4294967295
-  %26 = getelementptr inbounds nuw ptr, ptr %15, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %25
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %SDL_GetDisplayContentScale_REAL.exit, label %28
@@ -2814,7 +2813,7 @@ define hidden float @SDL_GetDisplayContentScale_REAL(i32 noundef %0) local_unnam
 
 10:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %0, %13
@@ -2831,7 +2830,7 @@ define hidden float @SDL_GetDisplayContentScale_REAL(i32 noundef %0) local_unnam
 
 SDL_GetVideoDisplay.exit:                         ; preds = %10
   %17 = and i64 %indvars.iv.i.i, 4294967295
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %SDL_GetVideoDisplay.exit.thread, label %20
@@ -3076,7 +3075,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %18, %27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw %struct.SDL_DisplayMode, ptr %37, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %37, i64 %indvars.iv
   %43 = call i32 @cmpmodes(ptr noundef nonnull %3, ptr noundef %42)
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.loopexit, label %41
@@ -3115,12 +3114,12 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %18, %27
 59:                                               ; preds = %.lr.ph44, %65
   %indvars.iv47 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next48, %65 ]
   %60 = phi ptr [ %.promoted, %.lr.ph44 ], [ %66, %65 ]
-  %61 = getelementptr inbounds nuw %struct.SDL_DisplayMode, ptr %54, i64 %indvars.iv47
+  %61 = getelementptr inbounds nuw [40 x i8], ptr %54, i64 %indvars.iv47
   %62 = icmp eq ptr %60, %61
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw %struct.SDL_DisplayMode, ptr %52, i64 %indvars.iv47
+  %64 = getelementptr inbounds nuw [40 x i8], ptr %52, i64 %indvars.iv47
   store ptr %64, ptr %58, align 8
   br label %65
 
@@ -3148,7 +3147,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %18, %27
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %38, align 4
   %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %.035, i64 %73
+  %74 = getelementptr inbounds [40 x i8], ptr %.035, i64 %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %75 = load ptr, ptr %36, align 8
   %76 = load i32, ptr %38, align 4
@@ -3312,7 +3311,7 @@ define hidden ptr @SDL_GetFullscreenDisplayModes_REAL(i32 noundef %0, ptr nounde
 
 11:                                               ; preds = %16, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %0, %14
@@ -3329,7 +3328,7 @@ define hidden ptr @SDL_GetFullscreenDisplayModes_REAL(i32 noundef %0, ptr nounde
 
 SDL_GetDisplayIndex.exit.i:                       ; preds = %11
   %18 = and i64 %indvars.iv.i.i, 4294967295
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8
   br label %SDL_GetVideoDisplay.exit
 
@@ -3392,7 +3391,7 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %23, %27, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.038 = phi ptr [ %42, %.lr.ph.preheader ], [ %46, %.lr.ph ]
   %46 = getelementptr inbounds nuw i8, ptr %.038, i64 40
-  %47 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   store ptr %.038, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3404,7 +3403,7 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %23, %27, %31
 
 ._crit_edge:                                      ; preds = %41, %._crit_edge.loopexit
   %.029.lcssa = phi i64 [ %48, %._crit_edge.loopexit ], [ 0, %41 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %40, i64 %.029.lcssa
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.029.lcssa
   store ptr null, ptr %49, align 8
   br i1 %.not, label %51, label %.sink.split
 
@@ -3450,7 +3449,7 @@ define hidden zeroext i1 @SDL_GetClosestFullscreenDisplayMode_REAL(i32 noundef %
 
 16:                                               ; preds = %21, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %21 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %0, %19
@@ -3469,7 +3468,7 @@ SDL_GetVideoDisplay.exit.thread:                  ; preds = %21, %.preheader.i.i
 
 SDL_GetVideoDisplay.exit:                         ; preds = %16
   %23 = and i64 %indvars.iv.i.i, 4294967295
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %.not56 = icmp eq ptr %25, null
@@ -3517,7 +3516,7 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %35, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %SDL_UpdateFullscreenDisplayModes.exit ]
   %.04664 = phi ptr [ %.147, %95 ], [ null, %SDL_UpdateFullscreenDisplayModes.exit ]
   %47 = load ptr, ptr %45, align 8
-  %48 = getelementptr inbounds nuw %struct.SDL_DisplayMode, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp sgt i32 %1, %50
@@ -3786,7 +3785,7 @@ define hidden ptr @SDL_GetDesktopDisplayMode_REAL(i32 noundef %0) local_unnamed_
 
 10:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %0, %13
@@ -3803,7 +3802,7 @@ define hidden ptr @SDL_GetDesktopDisplayMode_REAL(i32 noundef %0) local_unnamed_
 
 SDL_GetDisplayIndex.exit.i:                       ; preds = %10
   %17 = and i64 %indvars.iv.i.i, 4294967295
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %SDL_GetVideoDisplay.exit
 
@@ -3931,7 +3930,7 @@ define hidden ptr @SDL_GetCurrentDisplayMode_REAL(i32 noundef %0) local_unnamed_
 
 10:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %0, %13
@@ -3948,7 +3947,7 @@ define hidden ptr @SDL_GetCurrentDisplayMode_REAL(i32 noundef %0) local_unnamed_
 
 SDL_GetVideoDisplay.exit:                         ; preds = %10
   %17 = and i64 %indvars.iv.i.i, 4294967295
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %SDL_GetVideoDisplay.exit.thread, label %20
@@ -4273,7 +4272,7 @@ define internal fastcc i32 @GetDisplayForRect(i32 noundef %0, i32 noundef %1, i3
   %.02340 = phi i32 [ 2147483647, %.lr.ph ], [ %.124.ph, %51 ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 808
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = load i32, ptr %24, align 8
@@ -4587,7 +4586,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %9, %32, %30, %12
 
 45:                                               ; preds = %50, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %50 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i.i
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %.2, %48
@@ -4604,7 +4603,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %9, %32, %30, %12
 
 SDL_GetDisplayIndex.exit.i:                       ; preds = %45
   %52 = and i64 %indvars.iv.i.i, 4294967295
-  %53 = getelementptr inbounds nuw ptr, ptr %42, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %52
   %54 = load ptr, ptr %53, align 8
   br label %SDL_GetVideoDisplay.exit
 
@@ -4835,7 +4834,7 @@ SDL_GetWindowFullscreenMode_REAL.exit:            ; preds = %38
 
 53:                                               ; preds = %58, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %58 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i.i.i
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %18, %56
@@ -4852,7 +4851,7 @@ SDL_GetWindowFullscreenMode_REAL.exit:            ; preds = %38
 
 SDL_GetVideoDisplay.exit.i:                       ; preds = %53
   %60 = and i64 %indvars.iv.i.i.i, 4294967295
-  %61 = getelementptr inbounds nuw ptr, ptr %50, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %60
   %62 = load ptr, ptr %61, align 8
   %.not.i33 = icmp eq ptr %62, null
   br i1 %.not.i33, label %SDL_GetCurrentDisplayMode_REAL.exit.thread, label %63
@@ -4901,7 +4900,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
 
 81:                                               ; preds = %86, %.lr.ph.i.i.i40
   %indvars.iv.i.i.i42 = phi i64 [ 0, %.lr.ph.i.i.i40 ], [ %indvars.iv.next.i.i.i43, %86 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.i.i.i42
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.i.i.i42
   %83 = load ptr, ptr %82, align 8
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %18, %84
@@ -4918,7 +4917,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
 
 SDL_GetDesktopDisplayMode_REAL.exit:              ; preds = %81
   %88 = and i64 %indvars.iv.i.i.i42, 4294967295
-  %89 = getelementptr inbounds nuw ptr, ptr %78, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %88
   %90 = load ptr, ptr %89, align 8
   %.not.i38 = icmp eq ptr %90, null
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
@@ -5048,7 +5047,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 
 32:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = load ptr, ptr %35, align 8
@@ -5117,7 +5116,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   %indvars.iv333 = phi i64 [ %indvars.iv.next334, %.thread209 ], [ 0, %.thread209.preheader ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 808
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv333
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv333
   %59 = load ptr, ptr %58, align 8
   %.not155 = icmp eq ptr %59, %.1125168214.ph
   br i1 %.not155, label %.thread209, label %60
@@ -5900,7 +5899,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %41, %50
 
 66:                                               ; preds = %71, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %71 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i.i
   %68 = load ptr, ptr %67, align 8
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %59, %69
@@ -5913,7 +5912,7 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %41, %50
 
 SDL_GetVideoDisplay.exit:                         ; preds = %66
   %72 = and i64 %indvars.iv.i.i, 4294967295
-  %73 = getelementptr inbounds nuw ptr, ptr %65, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %72
   %74 = load ptr, ptr %73, align 8
   %.not = icmp eq ptr %74, null
   br i1 %.not, label %SDL_GetVideoDisplay.exit.thread, label %75
@@ -5954,14 +5953,14 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %75, %82
 91:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
   %92 = load ptr, ptr %86, align 8
-  %93 = getelementptr inbounds nuw %struct.SDL_DisplayMode, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [40 x i8], ptr %92, i64 %indvars.iv
   %94 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %2, ptr noundef %93, i64 noundef 40) #19
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %.loopexit, label %87
 
 .loopexit:                                        ; preds = %91
   %96 = load ptr, ptr %86, align 8
-  %97 = getelementptr inbounds nuw %struct.SDL_DisplayMode, ptr %96, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [40 x i8], ptr %96, i64 %indvars.iv
   %.not26 = icmp eq ptr %96, null
   br i1 %.not26, label %.preheaderthread-pre-split, label %SDL_GetVideoDisplay.exit.thread
 
@@ -5987,7 +5986,7 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %75, %82
 
 103:                                              ; preds = %.lr.ph35, %102
   %indvars.iv41 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next42, %102 ]
-  %104 = getelementptr inbounds nuw %struct.SDL_DisplayMode, ptr %101, i64 %indvars.iv41
+  %104 = getelementptr inbounds nuw [40 x i8], ptr %101, i64 %indvars.iv41
   %105 = call i32 @cmpmodes(ptr noundef nonnull %2, ptr noundef %104)
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %SDL_GetVideoDisplay.exit.thread, label %102
@@ -6104,7 +6103,7 @@ define hidden i32 @SDL_GetWindowPixelFormat_REAL(ptr noundef %0) local_unnamed_a
 
 19:                                               ; preds = %24, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %24 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i.i.i
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %10, %22
@@ -6121,7 +6120,7 @@ define hidden i32 @SDL_GetWindowPixelFormat_REAL(ptr noundef %0) local_unnamed_a
 
 SDL_GetVideoDisplay.exit.i:                       ; preds = %19
   %26 = and i64 %indvars.iv.i.i.i, 4294967295
-  %27 = getelementptr inbounds nuw ptr, ptr %16, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %SDL_GetCurrentDisplayMode_REAL.exit.thread, label %29
@@ -6264,7 +6263,7 @@ define hidden noalias ptr @SDL_GetWindows_REAL(ptr noundef writeonly captures(ad
   %indvars.iv = phi i64 [ 0, %.lr.ph44.preheader ], [ %indvars.iv.next, %19 ]
   %.12442 = phi ptr [ %.12439, %.lr.ph44.preheader ], [ %.124, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store ptr %.12442, ptr %21, align 8
   %22 = icmp eq i64 %indvars.iv.next, %18
   br i1 %22, label %._crit_edge45, label %19
@@ -6276,7 +6275,7 @@ define hidden noalias ptr @SDL_GetWindows_REAL(ptr noundef writeonly captures(ad
 ._crit_edge45:                                    ; preds = %.lr.ph44, %._crit_edge45.loopexit.split.loop.exit54, %15
   %.122 = phi i32 [ 0, %15 ], [ %23, %._crit_edge45.loopexit.split.loop.exit54 ], [ %.020.lcssa, %.lr.ph44 ]
   %24 = sext i32 %.122 to i64
-  %25 = getelementptr inbounds ptr, ptr %14, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %14, i64 %24
   store ptr null, ptr %25, align 8
   br i1 %.not, label %27, label %26
 
@@ -6305,7 +6304,7 @@ define hidden noundef ptr @SDL_CreateWindowWithProperties_REAL(i32 noundef %0) l
 11:                                               ; preds = %24, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %24 ]
   %.016.i = phi i64 [ %10, %1 ], [ %.1.i, %24 ]
-  %12 = getelementptr inbounds nuw %struct.anon.1, ptr @SDL_WindowFlagProperties, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [24 x i8], ptr @SDL_WindowFlagProperties, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i8, ptr %13, align 8, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
@@ -6481,7 +6480,7 @@ switch.early.test:                                ; preds = %67
 
 85:                                               ; preds = %90, %.lr.ph.i
   %indvars.iv.i179 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i180, %90 ]
-  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i179
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i179
   %87 = load ptr, ptr %86, align 8
   %88 = load i32, ptr %87, align 8
   %89 = icmp eq i32 %.0121187, %88
@@ -7178,7 +7177,7 @@ define hidden void @SDL_DestroyWindow_REAL(ptr noundef %0) local_unnamed_addr #0
   %47 = phi i32 [ %41, %.lr.ph72 ], [ %56, %55 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %55 ]
   %48 = load ptr, ptr %43, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 104
   %52 = load ptr, ptr %51, align 8
@@ -8927,7 +8926,7 @@ define hidden zeroext i1 @SDL_SetWindowPosition_REAL(ptr noundef %0, i32 noundef
 
 47:                                               ; preds = %52, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %.04372, %50
@@ -12460,7 +12459,7 @@ define hidden noundef zeroext i1 @SDL_AddWindowRenderer(ptr noundef captures(non
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %5, align 4
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds ptr, ptr %10, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %10, i64 %14
   store ptr %1, ptr %15, align 8
   br label %16
 
@@ -12483,7 +12482,7 @@ define hidden void @SDL_RemoveWindowRenderer(ptr noundef captures(none) %0, ptr 
 
 8:                                                ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %12, label %24
@@ -12495,7 +12494,7 @@ define hidden void @SDL_RemoveWindowRenderer(ptr noundef captures(none) %0, ptr 
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = xor i32 %13, -1
   %20 = add nsw i32 %4, %19
@@ -14869,7 +14868,7 @@ select.unfold.preheader:                          ; preds = %59, %select.unfold
 
 90:                                               ; preds = %74, %78, %82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %91 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv.next
+  %91 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv.next
   %92 = load ptr, ptr %91, align 8
   %.not123 = icmp eq i64 %indvars.iv.next, 7
   br i1 %.not123, label %select.unfold, label %74, !llvm.loop !47
@@ -14885,7 +14884,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
 
 94:                                               ; preds = %.preheader, %101
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %101 ], [ 0, %.preheader ]
-  %95 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv152
+  %95 = getelementptr inbounds nuw [8 x i8], ptr @bootstrap, i64 %indvars.iv152
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load ptr, ptr %97, align 8
@@ -16047,7 +16046,7 @@ switch.edge269:                                   ; preds = %94
 
 104:                                              ; preds = %switch.edge269.thr_comm301, %switch.edge269.thr_comm, %87, %90, %switch.edge269
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %105 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.next
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.next
   %106 = load i32, ptr %105, align 4
   %.not199 = icmp eq i32 %106, 0
   br i1 %.not199, label %.loopexit, label %87, !llvm.loop !53

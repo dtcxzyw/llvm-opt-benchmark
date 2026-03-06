@@ -96,8 +96,8 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %25 = mul nuw nsw i64 %indvars.iv, %15
   %26 = mul i64 %25, %23
-  %27 = getelementptr inbounds nuw float, ptr %2, i64 %26
-  %28 = getelementptr inbounds nuw float, ptr %21, i64 %25
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %26
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %25
   br label %29
 
 29:                                               ; preds = %.lr.ph.us, %51
@@ -143,7 +143,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %54 = fmul reassoc nnan nsz arcp contract afn double %53, 5.000000e-01
   %55 = fptrunc reassoc nsz arcp contract afn double %54 to float
   store float %55, ptr %.0195233.us, align 4, !tbaa !29
-  %56 = getelementptr inbounds float, ptr %.0194234.us, i64 %23
+  %56 = getelementptr inbounds [4 x i8], ptr %.0194234.us, i64 %23
   %57 = getelementptr inbounds nuw i8, ptr %.0195233.us, i64 4
   %58 = add nuw nsw i32 %.0196232.us, 1
   %exitcond.not = icmp eq i32 %58, %14
@@ -237,19 +237,19 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 .preheader231.us:                                 ; preds = %.preheader231.us.preheader, %._crit_edge.us243
   %indvars.iv294 = phi i64 [ %111, %.preheader231.us.preheader ], [ %indvars.iv.next295, %._crit_edge.us243 ]
   %112 = mul nsw i64 %indvars.iv294, %110
-  %113 = getelementptr float, ptr %21, i64 %112
+  %113 = getelementptr [4 x i8], ptr %21, i64 %112
   br label %114
 
 114:                                              ; preds = %.preheader231.us, %114
   %indvars.iv289 = phi i64 [ %87, %.preheader231.us ], [ %indvars.iv.next290, %114 ]
-  %115 = getelementptr float, ptr %113, i64 %indvars.iv289
+  %115 = getelementptr [4 x i8], ptr %113, i64 %indvars.iv289
   %116 = load float, ptr %115, align 4, !tbaa !29
   %117 = fmul reassoc nsz arcp contract afn float %116, 2.560000e+02
   %118 = fpext reassoc nsz arcp contract afn float %117 to double
   %119 = fadd reassoc nsz arcp contract afn double %118, 5.000000e-01
   %120 = fptoui double %119 to i32
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %7, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !36
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %122, align 4, !tbaa !36
@@ -275,7 +275,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %130 = load i32, ptr %83, align 4, !tbaa !27
   %131 = sext i32 %130 to i64
   %132 = mul nsw i64 %indvars.iv341, %131
-  %133 = getelementptr float, ptr %21, i64 %132
+  %133 = getelementptr [4 x i8], ptr %21, i64 %132
   %134 = sitofp i32 %130 to double
   %135 = icmp sge i32 %94, %101
   %136 = sext i32 %94 to i64
@@ -288,15 +288,15 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %137 = mul nsw i64 %indvars.iv341, %86
   %138 = zext nneg i32 %128 to i64
   %139 = mul i64 %137, %138
-  %140 = getelementptr inbounds nuw float, ptr %3, i64 %139
-  %141 = getelementptr inbounds nuw float, ptr %2, i64 %139
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %139
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %139
   %wide.trip.count339 = zext nneg i32 %128 to i64
   br label %.lr.ph274
 
 142:                                              ; preds = %.lr.ph266, %._crit_edge
   %indvars.iv331 = phi i64 [ 0, %.lr.ph266 ], [ %indvars.iv.next332, %._crit_edge ]
   %.0205264 = phi ptr [ %68, %.lr.ph266 ], [ %239, %._crit_edge ]
-  %143 = getelementptr float, ptr %133, i64 %indvars.iv331
+  %143 = getelementptr [4 x i8], ptr %133, i64 %indvars.iv331
   %144 = load float, ptr %143, align 4, !tbaa !29
   %145 = fmul reassoc nsz arcp contract afn float %144, 2.560000e+02
   %146 = fpext reassoc nsz arcp contract afn float %145 to double
@@ -326,13 +326,13 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 .lr.ph:                                           ; preds = %142
   %168 = zext nneg i32 %153 to i64
-  %invariant.gep = getelementptr float, ptr %21, i64 %168
+  %invariant.gep = getelementptr [4 x i8], ptr %21, i64 %168
   br label %169
 
 169:                                              ; preds = %.lr.ph, %169
   %indvars.iv299 = phi i64 [ %136, %.lr.ph ], [ %indvars.iv.next300, %169 ]
   %170 = mul nsw i64 %indvars.iv299, %131
-  %gep = getelementptr float, ptr %invariant.gep, i64 %170
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %170
   %171 = getelementptr i8, ptr %gep, i64 -4
   %172 = load float, ptr %171, align 4, !tbaa !29
   %173 = fmul reassoc nsz arcp contract afn float %172, 2.560000e+02
@@ -340,7 +340,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %175 = fadd reassoc nsz arcp contract afn double %174, 5.000000e-01
   %176 = fptoui double %175 to i32
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds nuw i32, ptr %7, i64 %177
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !36
   %180 = add nsw i32 %179, -1
   store i32 %180, ptr %178, align 4, !tbaa !36
@@ -354,20 +354,20 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   br i1 %brmerge283, label %.loopexit228, label %.lr.ph246
 
 .lr.ph246:                                        ; preds = %.loopexit230
-  %invariant.gep247 = getelementptr float, ptr %21, i64 %154
+  %invariant.gep247 = getelementptr [4 x i8], ptr %21, i64 %154
   br label %181
 
 181:                                              ; preds = %.lr.ph246, %181
   %indvars.iv304 = phi i64 [ %136, %.lr.ph246 ], [ %indvars.iv.next305, %181 ]
   %182 = mul nsw i64 %indvars.iv304, %131
-  %gep248 = getelementptr float, ptr %invariant.gep247, i64 %182
+  %gep248 = getelementptr [4 x i8], ptr %invariant.gep247, i64 %182
   %183 = load float, ptr %gep248, align 4, !tbaa !29
   %184 = fmul reassoc nsz arcp contract afn float %183, 2.560000e+02
   %185 = fpext reassoc nsz arcp contract afn float %184 to double
   %186 = fadd reassoc nsz arcp contract afn double %185, 5.000000e-01
   %187 = fptoui double %186 to i32
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw i32, ptr %7, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !36
   %191 = add nsw i32 %190, 1
   store i32 %191, ptr %189, align 4, !tbaa !36
@@ -392,7 +392,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 197:                                              ; preds = %192, %204
   %indvars.iv309 = phi i64 [ 0, %192 ], [ %indvars.iv.next310, %204 ]
   %.1199249 = phi i32 [ 0, %192 ], [ %.2, %204 ]
-  %198 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv309
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv309
   %199 = load i32, ptr %198, align 4, !tbaa !36
   %200 = sub nsw i32 %199, %166
   %201 = icmp sgt i32 %200, 0
@@ -416,7 +416,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 207:                                              ; preds = %193, %207
   %indvars.iv313 = phi i64 [ 0, %193 ], [ %indvars.iv.next314, %207 ]
-  %208 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv313
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv313
   %209 = load i32, ptr %208, align 4, !tbaa !36
   %210 = add nsw i32 %209, %196
   store i32 %210, ptr %208, align 4, !tbaa !36
@@ -433,7 +433,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 216:                                              ; preds = %211, %216
   %indvars.iv317 = phi i64 [ 0, %211 ], [ %indvars.iv.next318, %216 ]
-  %217 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv317
+  %217 = getelementptr inbounds [4 x i8], ptr %8, i64 %indvars.iv317
   %218 = load i32, ptr %217, align 4, !tbaa !36
   %219 = add nsw i32 %218, 1
   store i32 %219, ptr %217, align 4, !tbaa !36
@@ -452,7 +452,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 .preheader226:                                    ; preds = %.loopexit, %.preheader226
   %indvars.iv320 = phi i64 [ %indvars.iv.next321, %.preheader226 ], [ 0, %.loopexit ]
   %.0191253 = phi i32 [ %spec.select, %.preheader226 ], [ 256, %.loopexit ]
-  %221 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv320
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv320
   %222 = load i32, ptr %221, align 4, !tbaa !36
   %.not218 = icmp eq i32 %222, 0
   %223 = trunc nuw nsw i64 %indvars.iv320 to i32
@@ -474,7 +474,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 .lr.ph258:                                        ; preds = %.preheader225, %.lr.ph258
   %indvars.iv324 = phi i64 [ %indvars.iv.next325, %.lr.ph258 ], [ %224, %.preheader225 ]
   %.0189256 = phi i32 [ %230, %.lr.ph258 ], [ 0, %.preheader225 ]
-  %228 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv324
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv324
   %229 = load i32, ptr %228, align 4, !tbaa !36
   %230 = add nsw i32 %229, %.0189256
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
@@ -484,7 +484,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 ._crit_edge:                                      ; preds = %.lr.ph261, %.preheader
   %.0187.lcssa = phi i32 [ %.0189.lcssa, %.preheader ], [ %242, %.lr.ph261 ]
-  %232 = getelementptr inbounds nuw i32, ptr %8, i64 %224
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %224
   %233 = load i32, ptr %232, align 4, !tbaa !36
   %234 = sub nsw i32 %.0189.lcssa, %233
   %235 = sitofp i32 %234 to float
@@ -501,7 +501,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %indvars.iv327 = phi i64 [ %227, %.lr.ph261.preheader ], [ %indvars.iv.next328, %.lr.ph261 ]
   %.0187259 = phi i32 [ %.0189.lcssa, %.lr.ph261.preheader ], [ %242, %.lr.ph261 ]
   %indvars.iv.next328 = add nsw i64 %indvars.iv327, 1
-  %240 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next328
+  %240 = getelementptr inbounds [4 x i8], ptr %8, i64 %indvars.iv.next328
   %241 = load i32, ptr %240, align 4, !tbaa !36
   %242 = add nsw i32 %241, %.0187259
   %exitcond330.not = icmp eq i64 %indvars.iv.next328, 256
@@ -534,7 +534,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   br i1 %256, label %259, label %rgb2hsl.exit.thread
 
 rgb2hsl.exit.thread:                              ; preds = %.lr.ph274
-  %257 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv336
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv336
   %258 = load float, ptr %257, align 4, !tbaa !29
   br label %302
 
@@ -606,7 +606,7 @@ rgb2hsl.exit.thread:                              ; preds = %.lr.ph274
 
 rgb2hsl.exit:                                     ; preds = %293, %295, %297
   %.0.i = phi nsz float [ %294, %293 ], [ %298, %297 ], [ %291, %295 ]
-  %299 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv336
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv336
   %300 = load float, ptr %299, align 4, !tbaa !29
   %301 = fcmp reassoc nsz arcp contract afn oeq float %271, 0.000000e+00
   br i1 %301, label %302, label %306
@@ -732,8 +732,8 @@ hue2rgb.exit38.i:                                 ; preds = %364, %362, %358
 hsl2rgb.exit:                                     ; preds = %302, %hue2rgb.exit38.i
   %372 = getelementptr inbounds nuw i8, ptr %.0183270, i64 12
   store float 0.000000e+00, ptr %372, align 4, !tbaa !29
-  %373 = getelementptr inbounds float, ptr %.0183270, i64 %86
-  %374 = getelementptr inbounds float, ptr %.0184269, i64 %86
+  %373 = getelementptr inbounds [4 x i8], ptr %.0183270, i64 %86
+  %374 = getelementptr inbounds [4 x i8], ptr %.0184269, i64 %86
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
   %exitcond340.not = icmp eq i64 %indvars.iv.next337, %wide.trip.count339
   br i1 %exitcond340.not, label %._crit_edge275, label %.lr.ph274

@@ -579,7 +579,7 @@ HIDAPI_DriverPS3_UpdateEffects.exit:              ; preds = %115, %129
   br i1 %.not113.i, label %219, label %209
 
 209:                                              ; preds = %.preheader.i
-  %210 = getelementptr inbounds nuw i32, ptr @HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.button_axis_offsets, i64 %indvars.iv.i
+  %210 = getelementptr inbounds nuw [4 x i8], ptr @HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.button_axis_offsets, i64 %indvars.iv.i
   %211 = load i32, ptr %210, align 4
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds i8, ptr %5, i64 %212
@@ -1193,7 +1193,7 @@ switch.lookup:                                    ; preds = %97
   br i1 %.not116.i, label %143, label %133
 
 133:                                              ; preds = %.preheader.i
-  %134 = getelementptr inbounds nuw i32, ptr @HIDAPI_DriverPS3ThirdParty_HandleStatePacket19.button_axis_offsets, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw [4 x i8], ptr @HIDAPI_DriverPS3ThirdParty_HandleStatePacket19.button_axis_offsets, i64 %indvars.iv.i
   %135 = load i32, ptr %134, align 4
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i8, ptr %2, i64 %136
@@ -1329,7 +1329,7 @@ HIDAPI_DriverPS3ThirdParty_HandleStatePacket19.exit: ; preds = %143, %101
   br i1 %.not84.i, label %225, label %215
 
 215:                                              ; preds = %.preheader.i20
-  %216 = getelementptr inbounds nuw i32, ptr @HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.button_axis_offsets, i64 %indvars.iv.i21
+  %216 = getelementptr inbounds nuw [4 x i8], ptr @HIDAPI_DriverPS3ThirdParty_HandleStatePacket18.button_axis_offsets, i64 %indvars.iv.i21
   %217 = load i32, ptr %216, align 4
   %218 = sext i32 %217 to i64
   %219 = getelementptr inbounds i8, ptr %2, i64 %218
@@ -1764,7 +1764,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverPS3SonySixaxis_UpdateDevice(ptr
   br i1 %.not113.i, label %120, label %110
 
 110:                                              ; preds = %.preheader.i
-  %111 = getelementptr inbounds nuw i32, ptr @HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.button_axis_offsets, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr @HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.button_axis_offsets, i64 %indvars.iv.i
   %112 = load i32, ptr %111, align 4
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds i8, ptr %25, i64 %113

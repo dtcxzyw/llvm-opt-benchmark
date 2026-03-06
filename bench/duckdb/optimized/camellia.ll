@@ -109,7 +109,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %35 = load i8, ptr %34, align 1, !tbaa !8
   %36 = zext i8 %35 to i32
   %37 = or disjoint i32 %33, %36
-  %38 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 %.2205
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.2205
   store i32 %37, ptr %38, align 8, !tbaa !11
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %40 = load i8, ptr %39, align 4, !tbaa !8
@@ -160,7 +160,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %77 = load i8, ptr %76, align 1, !tbaa !8
   %78 = zext i8 %77 to i32
   %79 = or disjoint i32 %75, %78
-  %80 = getelementptr inbounds nuw i32, ptr %6, i64 %.3206
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.3206
   store i32 %79, ptr %80, align 4, !tbaa !11
   %81 = add nuw nsw i64 %.3206, 1
   %exitcond221.not = icmp eq i64 %81, 8
@@ -168,7 +168,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 .preheader200:                                    ; preds = %60, %.preheader200
   %.4207 = phi i64 [ %88, %.preheader200 ], [ 0, %60 ]
-  %82 = getelementptr inbounds nuw i32, ptr %6, i64 %.4207
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.4207
   %83 = load i32, ptr %82, align 4, !tbaa !11
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %85 = load i32, ptr %84, align 4, !tbaa !11
@@ -339,7 +339,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 235:                                              ; preds = %89, %235
   %.5208 = phi i64 [ 0, %89 ], [ %241, %235 ]
-  %236 = getelementptr inbounds nuw i32, ptr %6, i64 %.5208
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.5208
   %237 = load i32, ptr %236, align 4, !tbaa !11
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 32
   %239 = load i32, ptr %238, align 4, !tbaa !11
@@ -507,7 +507,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 .preheader199:                                    ; preds = %242, %.preheader199
   %.6209 = phi i64 [ %393, %.preheader199 ], [ 0, %242 ]
-  %386 = getelementptr inbounds nuw i32, ptr %6, i64 %.6209
+  %386 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.6209
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %388 = load i32, ptr %387, align 4, !tbaa !11
   %389 = getelementptr inbounds nuw i8, ptr %386, i64 32
@@ -694,11 +694,11 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %551 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %550, ptr %551, align 4, !tbaa !11
   %552 = zext nneg i32 %.0159251 to i64
-  %553 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZL6shifts, i64 %552
+  %553 = getelementptr inbounds nuw [16 x i8], ptr @_ZL6shifts, i64 %552
   br label %555
 
 .preheader198:                                    ; preds = %580
-  %554 = getelementptr inbounds nuw [4 x [20 x i8]], ptr @_ZL7indexes, i64 %552
+  %554 = getelementptr inbounds nuw [80 x i8], ptr @_ZL7indexes, i64 %552
   br label %582
 
 555:                                              ; preds = %541, %580
@@ -750,10 +750,10 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   br i1 %.not168, label %590, label %585
 
 585:                                              ; preds = %582
-  %586 = getelementptr inbounds nuw i32, ptr %7, i64 %.8211
+  %586 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.8211
   %587 = load i32, ptr %586, align 4, !tbaa !11
   %588 = sext i8 %584 to i64
-  %589 = getelementptr inbounds i32, ptr %8, i64 %588
+  %589 = getelementptr inbounds [4 x i8], ptr %8, i64 %588
   store i32 %587, ptr %589, align 4, !tbaa !11
   br label %590
 
@@ -833,10 +833,10 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   br i1 %.not165, label %638, label %633
 
 633:                                              ; preds = %630
-  %634 = getelementptr inbounds nuw i32, ptr %7, i64 %.10213
+  %634 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.10213
   %635 = load i32, ptr %634, align 4, !tbaa !11
   %636 = sext i8 %632 to i64
-  %637 = getelementptr inbounds i32, ptr %8, i64 %636
+  %637 = getelementptr inbounds [4 x i8], ptr %8, i64 %636
   store i32 %635, ptr %637, align 4, !tbaa !11
   br label %638
 
@@ -907,10 +907,10 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   br i1 %.not162, label %678, label %673
 
 673:                                              ; preds = %670
-  %674 = getelementptr inbounds nuw i32, ptr %7, i64 %.12215
+  %674 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.12215
   %675 = load i32, ptr %674, align 4, !tbaa !11
   %676 = sext i8 %672 to i64
-  %677 = getelementptr inbounds i32, ptr %8, i64 %676
+  %677 = getelementptr inbounds [4 x i8], ptr %8, i64 %676
   store i32 %675, ptr %677, align 4, !tbaa !11
   br label %678
 
@@ -990,10 +990,10 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   br i1 %.not160, label %726, label %721
 
 721:                                              ; preds = %718
-  %722 = getelementptr inbounds nuw i32, ptr %7, i64 %.14217
+  %722 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.14217
   %723 = load i32, ptr %722, align 4, !tbaa !11
   %724 = sext i8 %720 to i64
-  %725 = getelementptr inbounds i32, ptr %8, i64 %724
+  %725 = getelementptr inbounds [4 x i8], ptr %8, i64 %724
   store i32 %723, ptr %725, align 4, !tbaa !11
   br label %726
 
@@ -1006,7 +1006,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %728 = getelementptr inbounds nuw [20 x i8], ptr @_ZL10transposes, i64 %552
   %729 = mul nuw nsw i32 %.0159251, 12
   %730 = zext nneg i32 %729 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %8, i64 %730
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %730
   br label %731
 
 731:                                              ; preds = %.loopexit194, %739
@@ -1018,9 +1018,9 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 734:                                              ; preds = %731
   %735 = sext i8 %733 to i64
-  %736 = getelementptr inbounds i32, ptr %8, i64 %735
+  %736 = getelementptr inbounds [4 x i8], ptr %8, i64 %735
   %737 = load i32, ptr %736, align 4, !tbaa !11
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %.15218
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %.15218
   %738 = getelementptr inbounds nuw i8, ptr %gep, i64 128
   store i32 %737, ptr %738, align 4, !tbaa !11
   br label %739
@@ -1057,7 +1057,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_dec(ptr noundef wri
   %11 = select i1 %8, i32 8, i32 0
   %12 = shl nuw nsw i32 %11, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %14, align 4, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8

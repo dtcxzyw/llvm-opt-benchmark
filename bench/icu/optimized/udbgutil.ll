@@ -679,7 +679,7 @@ define range(i32 -1, 25) i32 @udbg_enumCount(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.udbg_enumArrayValue, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.udbg_enumArrayValue, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL15_udbg_enumCount14UDebugEnumTypea.exit
 
@@ -695,7 +695,7 @@ define range(i32 -1, 27) i32 @udbg_enumExpectedCount(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.udbg_enumExpectedCount, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.udbg_enumExpectedCount, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL15_udbg_enumCount14UDebugEnumTypea.exit
 
@@ -713,17 +713,17 @@ define ptr @udbg_enumName(i32 noundef %0, i32 noundef %1) local_unnamed_addr #9 
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.udbg_enumArrayValue, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.udbg_enumArrayValue, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not = icmp samesign ult i32 %1, %switch.load
   br i1 %.not, label %switch.lookup17, label %_ZL16_udbg_enumFields14UDebugEnumType.exit
 
 switch.lookup17:                                  ; preds = %switch.lookup
   %6 = zext nneg i32 %0 to i64
-  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table.udbg_enumByName, i64 %6
+  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.udbg_enumByName, i64 %6
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.Field, ptr %switch.load19, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %switch.load19, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = load i32, ptr %8, align 8, !tbaa !17
@@ -745,17 +745,17 @@ define i32 @udbg_enumArrayValue(i32 noundef %0, i32 noundef %1) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.udbg_enumArrayValue, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.udbg_enumArrayValue, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not = icmp samesign ult i32 %1, %switch.load
   br i1 %.not, label %switch.lookup15, label %_ZL16_udbg_enumFields14UDebugEnumType.exit
 
 switch.lookup15:                                  ; preds = %switch.lookup
   %6 = zext nneg i32 %0 to i64
-  %switch.gep16 = getelementptr inbounds nuw ptr, ptr @switch.table.udbg_enumByName, i64 %6
+  %switch.gep16 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.udbg_enumByName, i64 %6
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.Field, ptr %switch.load17, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %switch.load17, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !18
   br label %_ZL16_udbg_enumFields14UDebugEnumType.exit
@@ -772,10 +772,10 @@ define i32 @udbg_enumByName(i32 noundef %0, ptr noundef readonly captures(none) 
 
 switch.lookup:                                    ; preds = %2
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.udbg_enumByName, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.udbg_enumByName, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep60 = getelementptr inbounds nuw i64, ptr @switch.table.udbg_enumByName.4, i64 %4
+  %switch.gep60 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.udbg_enumByName.4, i64 %4
   %switch.load61 = load i64, ptr %switch.gep60, align 8
   br label %switch.lookup59
 
@@ -786,12 +786,12 @@ switch.lookup59:                                  ; preds = %6, %switch.lookup
 
 .preheader.preheader:                             ; preds = %switch.lookup59
   %5 = zext nneg i32 %0 to i64
-  %switch.gep63 = getelementptr inbounds nuw i64, ptr @switch.table.udbg_enumByName.4, i64 %5
+  %switch.gep63 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.udbg_enumByName.4, i64 %5
   %switch.load64 = load i64, ptr %switch.gep63, align 8
   br label %.preheader
 
 6:                                                ; preds = %switch.lookup59
-  %7 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %switch.load, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   %10 = load i32, ptr %7, align 8, !tbaa !17
@@ -808,7 +808,7 @@ switch.lookup59:                                  ; preds = %6, %switch.lookup
   br i1 %.not35, label %14, label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread
 
 14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %indvars.iv47
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %switch.load, i64 %indvars.iv47
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %17) #29
@@ -818,7 +818,7 @@ switch.lookup59:                                  ; preds = %6, %switch.lookup
 
 _ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split: ; preds = %6, %14
   %19 = phi i64 [ %indvars.iv47, %14 ], [ %indvars.iv, %6 ]
-  %20 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %switch.load, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !18
   br label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread
@@ -1339,7 +1339,7 @@ define ptr @udbg_getSystemParameterNameByIndex(i32 noundef %0) local_unnamed_add
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.USystemParams, ptr @_ZL12systemParams, i64 %3
+  %4 = getelementptr inbounds nuw [32 x i8], ptr @_ZL12systemParams, i64 %3
   %5 = load ptr, ptr %4, align 16, !tbaa !26
   br label %6
 
@@ -1355,7 +1355,7 @@ define noundef i32 @udbg_getSystemParameterValueByIndex(i32 noundef %0, ptr noun
 
 5:                                                ; preds = %4
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw %struct.USystemParams, ptr @_ZL12systemParams, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr @_ZL12systemParams, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = tail call noundef i32 %9(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %2, ptr noundef %3)
@@ -1376,7 +1376,7 @@ define void @udbg_writeIcuInfo(ptr noundef captures(none) %0) local_unnamed_addr
 
 udbg_getSystemParameterNameByIndex.exit:          ; preds = %1, %18
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %18 ]
-  %5 = getelementptr inbounds nuw %struct.USystemParams, ptr @_ZL12systemParams, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [32 x i8], ptr @_ZL12systemParams, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 16, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !13
@@ -2018,7 +2018,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %192
 
 .preheader.i.i:                                   ; preds = %205, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %210, %.preheader.i.i ], [ 0, %205 ]
-  %207 = getelementptr inbounds nuw i16, ptr %3, i64 %.0.i.i.i.i
+  %207 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.0.i.i.i.i
   %208 = load i16, ptr %207, align 2, !tbaa !49
   %209 = icmp eq i16 %208, 0
   %210 = add i64 %.0.i.i.i.i, 1

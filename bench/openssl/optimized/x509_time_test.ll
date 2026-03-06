@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { %struct.asn1_string_st, ptr }
 %struct.asn1_string_st = type { i32, i32, ptr, i64 }
 %struct.anon.1 = type { %struct.asn1_string_st, ptr }
-%struct.TESTDATA = type { ptr, i32, i64, i32 }
-%struct.TESTDATA_FORMAT = type { ptr, i32, i32, i32, ptr }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 
 @.str = private unnamed_addr constant [27 x i8] c"test_x509_cmp_time_current\00", align 1
@@ -198,7 +196,7 @@ define internal range(i32 0, 2) i32 @test_x509_cmp_time(i32 noundef %0) #0 {
   %2 = alloca %struct.asn1_string_st, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.TESTDATA, ptr @x509_cmp_tests, i64 %3
+  %4 = getelementptr inbounds [32 x i8], ptr @x509_cmp_tests, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -233,7 +231,7 @@ define internal range(i32 0, 2) i32 @test_x509_cmp_time(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_x509_time(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.TESTDATA_FORMAT, ptr @x509_format_tests, i64 %2
+  %3 = getelementptr inbounds [32 x i8], ptr @x509_format_tests, i64 %2
   %4 = shl nuw i64 1, %2
   %5 = and i64 %4, 61503
   %.not.not = icmp eq i64 %5, 0
@@ -321,7 +319,7 @@ define internal range(i32 0, 2) i32 @test_days(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.anon, ptr @day_of_week_tests, i64 %4
+  %5 = getelementptr inbounds [20 x i8], ptr @day_of_week_tests, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !26
@@ -392,7 +390,7 @@ define internal range(i32 0, 2) i32 @test_x509_time_print_rfc_822(i32 noundef %0
 
 6:                                                ; preds = %1
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.anon.0, ptr @x509_print_tests_rfc_822, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr @x509_print_tests_rfc_822, i64 %7
   %9 = tail call i32 @ASN1_TIME_print_ex(ptr noundef %4, ptr noundef nonnull %8, i64 noundef 0) #5
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !33
@@ -446,7 +444,7 @@ define internal range(i32 0, 2) i32 @test_x509_time_print_iso_8601(i32 noundef %
 
 6:                                                ; preds = %1
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.anon.1, ptr @x509_print_tests_iso_8601, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr @x509_print_tests_iso_8601, i64 %7
   %9 = tail call i32 @ASN1_TIME_print_ex(ptr noundef %4, ptr noundef nonnull %8, i64 noundef 1) #5
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !33

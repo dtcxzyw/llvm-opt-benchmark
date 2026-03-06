@@ -569,7 +569,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %62, %.preheade
   %indvars.iv = phi i64 [ 1, %247 ], [ %indvars.iv.next, %249 ]
   %.0215314 = phi i32 [ 0, %247 ], [ %spec.select293, %249 ]
   %.0216313 = phi i32 [ %220, %247 ], [ %spec.select, %249 ]
-  %250 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %251 = load i32, ptr %250, align 4, !tbaa !14
   %252 = icmp ult i32 %251, %.0216313
   %spec.select = tail call i32 @llvm.umin.i32(i32 %251, i32 %.0216313)
@@ -663,7 +663,7 @@ define void @_ZN5RarVM7PrepareEPhjP18VM_PreparedProgram(ptr noundef nonnull read
 
 13:                                               ; preds = %10, %25
   %indvars.iv26 = phi i64 [ 0, %10 ], [ %indvars.iv.next27, %25 ]
-  %14 = getelementptr inbounds nuw %struct.StandardFilters, ptr @_ZZN5RarVM7PrepareEPhjP18VM_PreparedProgramE7StdList, i64 %indvars.iv26
+  %14 = getelementptr inbounds nuw [12 x i8], ptr @_ZZN5RarVM7PrepareEPhjP18VM_PreparedProgramE7StdList, i64 %indvars.iv26
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !31
   %17 = xor i32 %16, %12

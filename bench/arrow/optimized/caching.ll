@@ -20,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<arrow::io::internal::RangeCacheEntry, std::allocator<arrow::io::internal::RangeCacheEntry>>::_Vector_impl" }
 %"struct.std::_Vector_base<arrow::io::internal::RangeCacheEntry, std::allocator<arrow::io::internal::RangeCacheEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<arrow::io::internal::RangeCacheEntry, std::allocator<arrow::io::internal::RangeCacheEntry>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<arrow::io::internal::RangeCacheEntry, std::allocator<arrow::io::internal::RangeCacheEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.arrow::io::internal::RangeCacheEntry" = type { %"struct.arrow::io::ReadRange", %"class.arrow::Future.15" }
-%"struct.arrow::io::ReadRange" = type { i64, i64 }
 %"class.arrow::StopToken" = type { %"class.std::shared_ptr.0" }
 %"class.std::shared_ptr.0" = type { %"class.std::__shared_ptr.1" }
 %"class.std::__shared_ptr.1" = type { ptr, %"class.std::__shared_count" }
@@ -1057,7 +1055,7 @@ _ZNSt12_Vector_baseIN5arrow2io8internal15RangeCacheEntryESaIS3_EE13_M_deallocate
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %17, ptr %0, align 8, !tbaa !58
   store ptr %17, ptr %18, align 8, !tbaa !59
-  %19 = getelementptr inbounds nuw %"struct.arrow::io::internal::RangeCacheEntry", ptr %17, i64 %11
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %11
   store ptr %19, ptr %15, align 8, !tbaa !62
   br label %_ZNSt6vectorIN5arrow2io8internal15RangeCacheEntryESaIS3_EE7reserveEm.exit
 
@@ -1490,7 +1488,7 @@ _ZNSt12_Vector_baseIN5arrow2io8internal15RangeCacheEntryESaIS3_EE13_M_deallocate
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %17, ptr %0, align 8, !tbaa !58
   store ptr %17, ptr %18, align 8, !tbaa !59
-  %19 = getelementptr inbounds nuw %"struct.arrow::io::internal::RangeCacheEntry", ptr %17, i64 %11
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %11
   store ptr %19, ptr %15, align 8, !tbaa !62
   br label %_ZNSt6vectorIN5arrow2io8internal15RangeCacheEntryESaIS3_EE7reserveEm.exit
 
@@ -1770,7 +1768,7 @@ _ZNSt6vectorIN5arrow2io8internal15RangeCacheEntryESaIS3_EE17_S_check_init_lenEmR
 
 .noexc26:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %77, ptr %7, align 8, !tbaa !58
-  %78 = getelementptr inbounds nuw %"struct.arrow::io::internal::RangeCacheEntry", ptr %77, i64 %73
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %77, i64 %73
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %77, i8 0, i64 %76, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %77, i64 %76
   br label %_ZNSt12_Vector_baseIN5arrow2io8internal15RangeCacheEntryESaIS3_EEC2EmRKS4_.exit.thread.i
@@ -2204,7 +2202,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5arrow2io8internal15RangeCacheEntr
   %.013.i.i = phi i64 [ %26, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5arrow2io8internal15RangeCacheEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5arrow2io8internal15RangeCacheEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i ]
   %.sroa.011.012.i.i = phi ptr [ %20, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5arrow2io8internal15RangeCacheEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5arrow2io8internal15RangeCacheEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i ]
   %29 = lshr i64 %.013.i.i, 1
-  %30 = getelementptr inbounds nuw %"struct.arrow::io::internal::RangeCacheEntry", ptr %.sroa.011.012.i.i, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.011.012.i.i, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !66
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !71
@@ -3097,7 +3095,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5arrow2io8internal15RangeCacheEntr
   %.013.i.i = phi i64 [ %103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5arrow2io8internal15RangeCacheEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5arrow2io8internal15RangeCacheEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i ]
   %.sroa.011.012.i.i = phi ptr [ %98, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5arrow2io8internal15RangeCacheEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5arrow2io8internal15RangeCacheEntryESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i ]
   %109 = lshr i64 %.013.i.i, 1
-  %110 = getelementptr inbounds nuw %"struct.arrow::io::internal::RangeCacheEntry", ptr %.sroa.011.012.i.i, i64 %109
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.011.012.i.i, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !66
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %113 = load i64, ptr %112, align 8, !tbaa !71
@@ -4029,7 +4027,7 @@ _ZNSt6vectorIN5arrow2io8internal15RangeCacheEntryESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt12_Vector_baseIN5arrow2io8internal15RangeCacheEntryESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN5arrow2io8internal15RangeCacheEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %46
   store ptr %21, ptr %0, align 8, !tbaa !58
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8, !tbaa !59
-  %50 = getelementptr inbounds nuw %"struct.arrow::io::internal::RangeCacheEntry", ptr %21, i64 %17
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %50, ptr %45, align 8, !tbaa !62
   ret void
 }
@@ -6017,7 +6015,7 @@ _ZNSt6vectorIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EE11_S_relocateEPS4_S7_S
 _ZNSt12_Vector_baseIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32, %69
   store ptr %22, ptr %0, align 8, !tbaa !117
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !120
-  %73 = getelementptr inbounds nuw %"class.arrow::Future", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !122
   ret void
 }
@@ -6179,9 +6177,9 @@ _ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; p
 
 _ZNSt12_Vector_baseIN5arrow2io9ReadRangeESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !53
-  %44 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8, !tbaa !56
-  %45 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8, !tbaa !57
   br label %46
 
@@ -6290,7 +6288,7 @@ _ZNSt6vectorIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EE11_S_relocateEPS4_S7_S
 _ZNSt12_Vector_baseIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !117
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !120
-  %44 = getelementptr inbounds nuw %"class.arrow::Future", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !122
   ret void
 }

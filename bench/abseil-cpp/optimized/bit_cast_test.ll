@@ -924,7 +924,7 @@ define internal void @_ZN4absl12_GLOBAL__N_118BitCast_Int32_Test8TestBodyEv(ptr 
 18:                                               ; preds = %108, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %108 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %19 = getelementptr inbounds nuw i32, ptr @_ZZN4absl12_GLOBAL__N_118BitCast_Int32_Test8TestBodyEvE8int_list, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4absl12_GLOBAL__N_118BitCast_Int32_Test8TestBodyEvE8int_list, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4, !tbaa !42
   store i32 %20, ptr %2, align 4, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1309,7 +1309,7 @@ define internal void @_ZN4absl12_GLOBAL__N_118BitCast_Int64_Test8TestBodyEv(ptr 
 18:                                               ; preds = %108, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %108 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %19 = getelementptr inbounds nuw i64, ptr @_ZZN4absl12_GLOBAL__N_118BitCast_Int64_Test8TestBodyEvE10int64_list, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4absl12_GLOBAL__N_118BitCast_Int64_Test8TestBodyEvE10int64_list, i64 %indvars.iv.i
   %20 = load i64, ptr %19, align 8, !tbaa !58
   store i64 %20, ptr %2, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1694,7 +1694,7 @@ define internal void @_ZN4absl12_GLOBAL__N_119BitCast_Uint64_Test8TestBodyEv(ptr
 18:                                               ; preds = %108, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %108 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %19 = getelementptr inbounds nuw i64, ptr @_ZZN4absl12_GLOBAL__N_119BitCast_Uint64_Test8TestBodyEvE11uint64_list, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4absl12_GLOBAL__N_119BitCast_Uint64_Test8TestBodyEvE11uint64_list, i64 %indvars.iv.i
   %20 = load i64, ptr %19, align 8, !tbaa !58
   store i64 %20, ptr %2, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2103,7 +2103,7 @@ define internal void @_ZN4absl12_GLOBAL__N_118BitCast_Float_Test8TestBodyEv(ptr 
 42:                                               ; preds = %132, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %132 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %43 = getelementptr inbounds nuw float, ptr @_ZZN4absl12_GLOBAL__N_118BitCast_Float_Test8TestBodyEvE10float_list, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4absl12_GLOBAL__N_118BitCast_Float_Test8TestBodyEvE10float_list, i64 %indvars.iv.i
   %44 = load float, ptr %43, align 4, !tbaa !61
   store float %44, ptr %26, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -2443,7 +2443,7 @@ _ZN4absl12_GLOBAL__N_112TestMarshallIfEEvPKT_i.exit: ; preds = %132, %.loopexit.
 136:                                              ; preds = %227, %_ZN4absl12_GLOBAL__N_112TestMarshallIfEEvPKT_i.exit
   %indvars.iv.i1 = phi i64 [ 0, %_ZN4absl12_GLOBAL__N_112TestMarshallIfEEvPKT_i.exit ], [ %indvars.iv.next.i21, %227 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %137 = getelementptr inbounds nuw float, ptr @_ZZN4absl12_GLOBAL__N_118BitCast_Float_Test8TestBodyEvE10float_list, i64 %indvars.iv.i1
+  %137 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4absl12_GLOBAL__N_118BitCast_Float_Test8TestBodyEvE10float_list, i64 %indvars.iv.i1
   %138 = load float, ptr %137, align 4, !tbaa !61
   store float %138, ptr %14, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -2774,7 +2774,7 @@ _ZN4absl12_GLOBAL__N_112TestIntegralIfiEEvPKT_i.exit: ; preds = %227, %.loopexit
 231:                                              ; preds = %322, %_ZN4absl12_GLOBAL__N_112TestIntegralIfiEEvPKT_i.exit
   %indvars.iv.i23 = phi i64 [ 0, %_ZN4absl12_GLOBAL__N_112TestIntegralIfiEEvPKT_i.exit ], [ %indvars.iv.next.i51, %322 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %232 = getelementptr inbounds nuw float, ptr @_ZZN4absl12_GLOBAL__N_118BitCast_Float_Test8TestBodyEvE10float_list, i64 %indvars.iv.i23
+  %232 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4absl12_GLOBAL__N_118BitCast_Float_Test8TestBodyEvE10float_list, i64 %indvars.iv.i23
   %233 = load float, ptr %232, align 4, !tbaa !61
   store float %233, ptr %2, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3380,7 +3380,7 @@ define internal void @_ZN4absl12_GLOBAL__N_119BitCast_Double_Test8TestBodyEv(ptr
 42:                                               ; preds = %132, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %132 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %43 = getelementptr inbounds nuw double, ptr @_ZZN4absl12_GLOBAL__N_119BitCast_Double_Test8TestBodyEvE11double_list, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4absl12_GLOBAL__N_119BitCast_Double_Test8TestBodyEvE11double_list, i64 %indvars.iv.i
   %44 = load double, ptr %43, align 8, !tbaa !83
   store double %44, ptr %26, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -3720,7 +3720,7 @@ _ZN4absl12_GLOBAL__N_112TestMarshallIdEEvPKT_i.exit: ; preds = %132, %.loopexit.
 136:                                              ; preds = %227, %_ZN4absl12_GLOBAL__N_112TestMarshallIdEEvPKT_i.exit
   %indvars.iv.i1 = phi i64 [ 0, %_ZN4absl12_GLOBAL__N_112TestMarshallIdEEvPKT_i.exit ], [ %indvars.iv.next.i22, %227 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %137 = getelementptr inbounds nuw double, ptr @_ZZN4absl12_GLOBAL__N_119BitCast_Double_Test8TestBodyEvE11double_list, i64 %indvars.iv.i1
+  %137 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4absl12_GLOBAL__N_119BitCast_Double_Test8TestBodyEvE11double_list, i64 %indvars.iv.i1
   %138 = load double, ptr %137, align 8, !tbaa !83
   store double %138, ptr %14, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -4051,7 +4051,7 @@ _ZN4absl12_GLOBAL__N_112TestIntegralIdlEEvPKT_i.exit: ; preds = %227, %.loopexit
 231:                                              ; preds = %322, %_ZN4absl12_GLOBAL__N_112TestIntegralIdlEEvPKT_i.exit
   %indvars.iv.i24 = phi i64 [ 0, %_ZN4absl12_GLOBAL__N_112TestIntegralIdlEEvPKT_i.exit ], [ %indvars.iv.next.i66, %322 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %232 = getelementptr inbounds nuw double, ptr @_ZZN4absl12_GLOBAL__N_119BitCast_Double_Test8TestBodyEvE11double_list, i64 %indvars.iv.i24
+  %232 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4absl12_GLOBAL__N_119BitCast_Double_Test8TestBodyEvE11double_list, i64 %indvars.iv.i24
   %233 = load double, ptr %232, align 8, !tbaa !83
   store double %233, ptr %2, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

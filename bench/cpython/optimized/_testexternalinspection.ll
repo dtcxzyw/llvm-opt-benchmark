@@ -31,8 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._asyncio_thread_state = type { i64, i64, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.Elf64_Shdr = type { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }
-%struct.Elf64_Phdr = type { i32, i32, i64, i64, i64, i64, i64, i64 }
 
 @module = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 552977039360 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str.1, ptr null, i64 -1, ptr @methods, ptr null, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [27 x i8] c"PROCESS_VM_READV_SUPPORTED\00", align 1
@@ -1080,7 +1078,7 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 62
   %54 = load i16, ptr %53, align 2, !tbaa !56
   %55 = zext i16 %54 to i64
-  %56 = getelementptr %struct.Elf64_Shdr, ptr %52, i64 %55
+  %56 = getelementptr [64 x i8], ptr %52, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load i64, ptr %57, align 8, !tbaa !57
   %59 = getelementptr i8, ptr %44, i64 %58
@@ -1100,7 +1098,7 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr %struct.Elf64_Shdr, ptr %52, i64 %indvars.iv
+  %63 = getelementptr [64 x i8], ptr %52, i64 %indvars.iv
   %64 = load i32, ptr %63, align 8, !tbaa !61
   %65 = zext i32 %64 to i64
   %66 = getelementptr i8, ptr %59, i64 %65
@@ -1130,7 +1128,7 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %74
   %indvars.iv79 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next80, %74 ]
-  %75 = getelementptr %struct.Elf64_Phdr, ptr %71, i64 %indvars.iv79
+  %75 = getelementptr [56 x i8], ptr %71, i64 %indvars.iv79
   %76 = load i32, ptr %75, align 8, !tbaa !65
   %77 = icmp eq i32 %76, 1
   br i1 %77, label %78, label %74
@@ -2315,7 +2313,7 @@ read_memory.exit37.i:                             ; preds = %120
 .preheader.i:                                     ; preds = %read_memory.exit37.i, %.preheader.i
   %.02744.i = phi i64 [ %130, %.preheader.i ], [ 0, %read_memory.exit37.i ]
   %.02843.i = phi i64 [ %129, %.preheader.i ], [ 0, %read_memory.exit37.i ]
-  %124 = getelementptr i32, ptr %102, i64 %.02744.i
+  %124 = getelementptr [4 x i8], ptr %102, i64 %.02744.i
   %125 = load i32, ptr %124, align 4, !tbaa !6
   %126 = zext i32 %125 to i64
   %127 = mul i64 %.02744.i, 30

@@ -290,10 +290,10 @@ entry:
   %mul = shl nsw i64 %spec.select, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %1, ptr align 2 %0, i64 %mul, i1 false)
   %2 = load ptr, ptr %pSrc, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %2, i64 %spec.select
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %2, i64 %spec.select
   store ptr %add.ptr, ptr %pSrc, align 8
   %3 = load ptr, ptr %pDest, align 8
-  %add.ptr5 = getelementptr inbounds i16, ptr %3, i64 %spec.select
+  %add.ptr5 = getelementptr inbounds [2 x i8], ptr %3, i64 %spec.select
   store ptr %add.ptr5, ptr %pDest, align 8
   ret i1 true
 }
@@ -312,7 +312,7 @@ entry:
   %sub.ptr.sub3 = sub i64 %sub.ptr.lhs.cast1, %sub.ptr.rhs.cast2
   %sub.ptr.div4 = ashr exact i64 %sub.ptr.sub3, 2
   %cmp = icmp ugt i64 %sub.ptr.div, %sub.ptr.div4
-  %add.ptr = getelementptr inbounds i16, ptr %0, i64 %sub.ptr.div4
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %0, i64 %sub.ptr.div4
   %spec.select = select i1 %cmp, ptr %add.ptr, ptr %pSrcEnd
   %cmp5.not7 = icmp eq ptr %0, %spec.select
   br i1 %cmp5.not7, label %while.end, label %while.body
@@ -558,7 +558,7 @@ entry:
   %sub.ptr.sub3 = sub i64 %sub.ptr.lhs.cast1, %sub.ptr.rhs.cast2
   %sub.ptr.div4 = ashr exact i64 %sub.ptr.sub3, 1
   %cmp = icmp ugt i64 %sub.ptr.div, %sub.ptr.div4
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 %sub.ptr.div4
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %0, i64 %sub.ptr.div4
   %spec.select = select i1 %cmp, ptr %add.ptr, ptr %pSrcEnd
   %cmp5.not7 = icmp eq ptr %0, %spec.select
   br i1 %cmp5.not7, label %while.end, label %while.body
@@ -598,10 +598,10 @@ entry:
   %mul = shl nsw i64 %spec.select, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %0, i64 %mul, i1 false)
   %2 = load ptr, ptr %pSrc, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %2, i64 %spec.select
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %2, i64 %spec.select
   store ptr %add.ptr, ptr %pSrc, align 8
   %3 = load ptr, ptr %pDest, align 8
-  %add.ptr5 = getelementptr inbounds i32, ptr %3, i64 %spec.select
+  %add.ptr5 = getelementptr inbounds [4 x i8], ptr %3, i64 %spec.select
   store ptr %add.ptr5, ptr %pDest, align 8
   ret i1 true
 }
@@ -645,7 +645,7 @@ entry:
   %sub.ptr.sub3 = sub i64 %sub.ptr.lhs.cast1, %sub.ptr.rhs.cast2
   %sub.ptr.div4 = ashr exact i64 %sub.ptr.sub3, 1
   %cmp = icmp ugt i64 %sub.ptr.div, %sub.ptr.div4
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 %sub.ptr.div4
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %0, i64 %sub.ptr.div4
   %spec.select = select i1 %cmp, ptr %add.ptr, ptr %pSrcEnd
   %cmp5.not7 = icmp eq ptr %0, %spec.select
   br i1 %cmp5.not7, label %while.end, label %while.body

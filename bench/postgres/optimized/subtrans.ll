@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SlruCtlData = type { ptr, i16, i8, i32, ptr, [64 x i8] }
-%union.LWLockPadded = type { %struct.LWLock, [112 x i8] }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.proclist_head = type { i32, i32 }
 
 @SubTransCtlData = internal global %struct.SlruCtlData zeroinitializer, align 8
 @TransactionXmin = external local_unnamed_addr global i32, align 4
@@ -33,17 +29,17 @@ define dso_local void @SubTransSetParent(i32 noundef %0, i32 noundef %1) local_u
   %8 = load ptr, ptr @SubTransCtlData, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw %union.LWLockPadded, ptr %10, i64 %.zext.i
+  %11 = getelementptr inbounds nuw [128 x i8], ptr %10, i64 %.zext.i
   %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef %11, i32 noundef 0) #5
   %13 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @SubTransCtlData, i64 noundef %4, i1 noundef zeroext true, i32 noundef %0) #5
   %14 = load ptr, ptr @SubTransCtlData, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %13 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %5 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %.not = icmp eq i32 %22, %1
   br i1 %.not, label %28, label %23
@@ -82,10 +78,10 @@ define dso_local i32 @SubTransGetParent(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %7 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %6 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = load i16, ptr getelementptr inbounds nuw (i8, ptr @SubTransCtlData, i64 8), align 8
   %.rhs.trunc.i = zext i16 %17 to i32
@@ -93,7 +89,7 @@ define dso_local i32 @SubTransGetParent(i32 noundef %0) local_unnamed_addr #0 {
   %.zext.i = zext nneg i32 %18 to i64
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw %union.LWLockPadded, ptr %20, i64 %.zext.i
+  %21 = getelementptr inbounds nuw [128 x i8], ptr %20, i64 %.zext.i
   tail call void @LWLockRelease(ptr noundef %21) #5
   br label %22
 
@@ -132,10 +128,10 @@ SubTransGetParent.exit:                           ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %10 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = load i16, ptr getelementptr inbounds nuw (i8, ptr @SubTransCtlData, i64 8), align 8
   %.rhs.trunc.i.i = zext i16 %20 to i32
@@ -143,7 +139,7 @@ SubTransGetParent.exit:                           ; preds = %5
   %.zext.i.i = zext nneg i32 %21 to i64
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw %union.LWLockPadded, ptr %23, i64 %.zext.i.i
+  %24 = getelementptr inbounds nuw [128 x i8], ptr %23, i64 %.zext.i.i
   tail call void @LWLockRelease(ptr noundef %24) #5
   %25 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %19, i32 noundef %.01114) #5
   br i1 %25, label %2, label %.loopexit, !llvm.loop !4
@@ -316,7 +312,7 @@ define dso_local void @StartupSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   %11 = load ptr, ptr @SubTransCtlData, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw %union.LWLockPadded, ptr %13, i64 %.zext.i
+  %14 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 %.zext.i
   %.not = icmp eq ptr %.013, %14
   br i1 %.not, label %19, label %15
 
@@ -375,7 +371,7 @@ define dso_local void @ExtendSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   %10 = load ptr, ptr @SubTransCtlData, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw %union.LWLockPadded, ptr %12, i64 %.zext.i
+  %13 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 %.zext.i
   %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef %13, i32 noundef 0) #5
   %15 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SubTransCtlData, i64 noundef range(i64 0, 2097152) %7) #5
   tail call void @LWLockRelease(ptr noundef %13) #5

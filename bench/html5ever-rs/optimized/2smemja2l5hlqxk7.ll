@@ -77,7 +77,7 @@ define noundef zeroext i1 @"_ZN73_$LT$markup5ever..interface..ExpandedName$u20$a
   br i1 %21, label %22, label %24, !prof !13
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.6dd4c94a770fa611fd0f90a1f94be9fc.1125.llvm.11517934075587973166, i64 %20
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @anon.6dd4c94a770fa611fd0f90a1f94be9fc.1125.llvm.11517934075587973166, i64 %20
   br label %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8a818541783fc6ecE.exit.sink.split"
 
 24:                                               ; preds = %19

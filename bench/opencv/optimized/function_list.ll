@@ -97,7 +97,7 @@ define hidden range(i32 0, 2) i32 @opj_procedure_list_add_procedure(ptr noundef 
   %19 = phi i32 [ %6, %._crit_edge ], [ %.pre20, %.thread ]
   %20 = phi ptr [ %.pre, %._crit_edge ], [ %14, %.thread ]
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   store ptr %1, ptr %22, align 8, !tbaa !12
   %23 = add i32 %19, 1
   store i32 %23, ptr %0, align 8, !tbaa !11

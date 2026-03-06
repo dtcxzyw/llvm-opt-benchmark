@@ -316,7 +316,7 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @ucnv_setToUCallBack_77(ptr noundef nonnull %53, ptr noundef nonnull @UCNV_TO_U_CALLBACK_STOP_77, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1)
   %55 = sext i32 %.097 to i64
-  %56 = getelementptr inbounds i16, ptr %13, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %13, i64 %55
   store ptr %56, ptr %3, align 8, !tbaa !12
   store ptr %.0100, ptr %4, align 8, !tbaa !3
   %57 = sext i32 %.sink125 to i64
@@ -326,7 +326,7 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
   %61 = load i32, ptr %60, align 8, !tbaa !27
   %62 = sub nsw i32 %61, %.097
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i16, ptr %56, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %56, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %66 = load i32, ptr %65, align 4, !tbaa !20
   %67 = icmp eq i32 %66, 0
@@ -416,7 +416,7 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
   %121 = load i32, ptr %60, align 8, !tbaa !27
   %122 = sub nsw i32 %121, %.097
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i16, ptr %56, i64 %123
+  %124 = getelementptr inbounds [2 x i8], ptr %56, i64 %123
   %125 = load i32, ptr %65, align 4, !tbaa !20
   %126 = icmp eq i32 %125, 0
   %127 = zext i1 %126 to i8
@@ -441,7 +441,7 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
 
 135:                                              ; preds = %51
   %136 = sext i32 %.097 to i64
-  %137 = getelementptr inbounds i16, ptr %13, i64 %136
+  %137 = getelementptr inbounds [2 x i8], ptr %13, i64 %136
   call void @u_charsToUChars_77(ptr noundef nonnull %.0100, ptr noundef %137, i32 noundef %.sink125)
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %139 = load i32, ptr %138, align 4, !tbaa !20
@@ -454,7 +454,7 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
   %.098 = phi i32 [ %134, %128 ], [ %142, %135 ]
   store ptr %13, ptr %14, align 8, !tbaa !16
   %144 = sext i32 %.098 to i64
-  %145 = getelementptr inbounds i16, ptr %13, i64 %144
+  %145 = getelementptr inbounds [2 x i8], ptr %13, i64 %144
   store ptr %145, ptr %16, align 8, !tbaa !19
   store i16 0, ptr %145, align 2, !tbaa !21
   %.not110 = icmp eq ptr %.0100, %5
@@ -643,7 +643,7 @@ define i32 @ucbuf_getcx32(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %59 = load i32, ptr %3, align 4, !tbaa !8
   %60 = load ptr, ptr %10, align 8, !tbaa !16
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds i16, ptr %60, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %60, i64 %61
   store ptr %62, ptr %10, align 8, !tbaa !16
   br label %.thread
 
@@ -660,7 +660,7 @@ define internal noundef zeroext i16 @_ZL7_charAtiPv(i32 noundef %0, ptr noundef 
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds i16, ptr %4, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %4, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !21
   ret i16 %7
 }

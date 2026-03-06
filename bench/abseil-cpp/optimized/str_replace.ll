@@ -176,9 +176,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %32, %4
   %60 = phi i64 [ %74, %73 ], [ %59, %53 ]
   %.051 = phi i64 [ %60, %73 ], [ %58, %53 ]
   %61 = load ptr, ptr %2, align 8, !tbaa !21
-  %62 = getelementptr %"struct.absl::strings_internal::ViableSubstitution", ptr %61, i64 %.051
+  %62 = getelementptr [40 x i8], ptr %61, i64 %.051
   %63 = getelementptr i8, ptr %62, i64 -80
-  %64 = getelementptr inbounds nuw %"struct.absl::strings_internal::ViableSubstitution", ptr %61, i64 %60
+  %64 = getelementptr inbounds nuw [40 x i8], ptr %61, i64 %60
   %65 = getelementptr i8, ptr %62, i64 -48
   %66 = load i64, ptr %65, align 8, !tbaa !9
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 32
@@ -468,7 +468,7 @@ _ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_al
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #16
   store ptr %13, ptr %0, align 8, !tbaa !21
   store ptr %13, ptr %11, align 8, !tbaa !19
-  %14 = getelementptr inbounds nuw %"struct.absl::strings_internal::ViableSubstitution", ptr %13, i64 %7
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %7
   store ptr %14, ptr %10, align 8, !tbaa !30
   %15 = load ptr, ptr %3, align 8, !tbaa !34
   %.idx = shl nuw nsw i64 %7, 5
@@ -613,7 +613,7 @@ _ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_S_relocateE
 
 .noexc26:                                         ; preds = %62, %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i
   store ptr %61, ptr %20, align 8, !tbaa !19
-  %63 = getelementptr inbounds nuw %"struct.absl::strings_internal::ViableSubstitution", ptr %55, i64 %53
+  %63 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %53
   br label %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12emplace_backIJRSt17basic_string_viewIcSt11char_traitsIcEERKS9_RmEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12emplace_backIJRSt17basic_string_viewIcSt11char_traitsIcEERKS9_RmEEERS2_DpOT_.exit: ; preds = %.noexc26, %39
@@ -631,9 +631,9 @@ _ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12emplace_back
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12emplace_backIJRSt17basic_string_viewIcSt11char_traitsIcEERKS9_RmEEERS2_DpOT_.exit, %84
   %72 = phi i64 [ %85, %84 ], [ %71, %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12emplace_backIJRSt17basic_string_viewIcSt11char_traitsIcEERKS9_RmEEERS2_DpOT_.exit ]
   %.060 = phi i64 [ %72, %84 ], [ %70, %_ZNSt6vectorIN4absl16strings_internal18ViableSubstitutionESaIS2_EE12emplace_backIJRSt17basic_string_viewIcSt11char_traitsIcEERKS9_RmEEERS2_DpOT_.exit ]
-  %73 = getelementptr %"struct.absl::strings_internal::ViableSubstitution", ptr %65, i64 %.060
+  %73 = getelementptr [40 x i8], ptr %65, i64 %.060
   %74 = getelementptr i8, ptr %73, i64 -80
-  %75 = getelementptr inbounds nuw %"struct.absl::strings_internal::ViableSubstitution", ptr %65, i64 %72
+  %75 = getelementptr inbounds nuw [40 x i8], ptr %65, i64 %72
   %76 = getelementptr i8, ptr %73, i64 -48
   %77 = load i64, ptr %76, align 8, !tbaa !9
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 32

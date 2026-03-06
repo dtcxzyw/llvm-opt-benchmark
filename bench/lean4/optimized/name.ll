@@ -514,7 +514,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %21, %11, %18, %20
   %.01324 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = load ptr, ptr %1, align 8, !tbaa !18
   %24 = load i64, ptr %5, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %.not25 = icmp eq ptr %.01324, %25
   br i1 %.not25, label %.loopexit, label %.lr.ph
 
@@ -556,7 +556,7 @@ _ZN4lean10object_refD2Ev.exit23:                  ; preds = %37, %27, %34, %36
   %.013 = getelementptr inbounds nuw i8, ptr %.01326, i64 8
   %39 = load ptr, ptr %1, align 8, !tbaa !18
   %40 = load i64, ptr %5, align 8, !tbaa !13
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %.not = icmp eq ptr %.013, %41
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
@@ -822,7 +822,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit.i: ; preds = %_ZN4lean
   %55 = phi i64 [ %40, %._crit_edge.i.i ], [ %54, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i ]
   %56 = phi i64 [ %41, %._crit_edge.i.i ], [ %.pre2.i.i, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i ]
   %57 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %44, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i ]
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   store ptr %.06.i, ptr %58, align 8, !tbaa !26
   %59 = add i64 %56, 1
   store i64 %59, ptr %32, align 8, !tbaa !30
@@ -919,7 +919,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit.i48: ; preds = %_ZN4le
   %87 = phi i64 [ %72, %._crit_edge.i.i58 ], [ %86, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i46 ]
   %88 = phi i64 [ %73, %._crit_edge.i.i58 ], [ %.pre2.i.i47, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i46 ]
   %89 = phi ptr [ %.pre.i.i59, %._crit_edge.i.i58 ], [ %76, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i46 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %88
   store ptr %.06.i41, ptr %90, align 8, !tbaa !26
   %91 = add i64 %88, 1
   store i64 %91, ptr %35, align 8, !tbaa !30
@@ -1081,7 +1081,7 @@ _ZN4leanneERKNS_10string_refES2_.exit.thread78:   ; preds = %151, %138, %_ZN4lea
   %156 = getelementptr inbounds nuw i8, ptr %.082, i64 8
   %157 = load ptr, ptr %3, align 8, !tbaa !27
   %158 = load i64, ptr %32, align 8, !tbaa !30
-  %159 = getelementptr inbounds nuw ptr, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %158
   %.not35 = icmp eq ptr %155, %159
   br i1 %.not35, label %_ZN4leanneERKNS_10string_refES2_.exit.thread, label %.lr.ph, !llvm.loop !35
 
@@ -1265,7 +1265,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit.i: ; preds = %_ZN4lean
   %28 = phi i64 [ %13, %._crit_edge.i.i ], [ %27, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i ]
   %29 = phi i64 [ %14, %._crit_edge.i.i ], [ %.pre2.i.i, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i ]
   %30 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %17, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i ]
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %29
   store ptr %.06.i, ptr %31, align 8, !tbaa !26
   %32 = add i64 %29, 1
   store i64 %32, ptr %6, align 8, !tbaa !30
@@ -1364,7 +1364,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit.i53: ; preds = %_ZN4le
   %62 = phi i64 [ %47, %._crit_edge.i.i63 ], [ %61, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i51 ]
   %63 = phi i64 [ %48, %._crit_edge.i.i63 ], [ %.pre2.i.i52, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i51 ]
   %64 = phi ptr [ %.pre.i.i64, %._crit_edge.i.i63 ], [ %51, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i.i51 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %63
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %63
   store ptr %.06.i46, ptr %65, align 8, !tbaa !26
   %66 = add i64 %63, 1
   store i64 %66, ptr %9, align 8, !tbaa !30
@@ -1413,7 +1413,7 @@ _ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit66: ; preds = %.l
   %.03093 = phi ptr [ %125, %124 ], [ %81, %.lr.ph.preheader ]
   %82 = load ptr, ptr %4, align 8, !tbaa !27
   %83 = load i64, ptr %9, align 8, !tbaa !30
-  %84 = getelementptr inbounds nuw ptr, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %83
   %.not39 = icmp eq ptr %.02994, %84
   br i1 %.not39, label %.thread.loopexit, label %85
 
@@ -1524,7 +1524,7 @@ _ZN4leanltERKNS_3natES2_.exit77:                  ; preds = %.critedge.i.i.i75
   %126 = getelementptr inbounds nuw i8, ptr %.02994, i64 8
   %127 = load ptr, ptr %3, align 8, !tbaa !27
   %128 = load i64, ptr %6, align 8, !tbaa !30
-  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %128
   %.not = icmp eq ptr %125, %129
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !36
 
@@ -1537,7 +1537,7 @@ _ZN4leanltERKNS_3natES2_.exit77:                  ; preds = %.critedge.i.i.i75
   %130 = phi i64 [ %78, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit66 ], [ %.pre102, %._crit_edge.loopexit ]
   %131 = phi ptr [ %79, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit66 ], [ %.pre101, %._crit_edge.loopexit ]
   %.029.lcssa = phi ptr [ %79, %_ZN4leanL10copy_limbsEP11lean_objectRNS_6bufferIS1_Lm16EEE.exit66 ], [ %126, %._crit_edge.loopexit ]
-  %132 = getelementptr inbounds nuw ptr, ptr %131, i64 %130
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %130
   %133 = icmp ne ptr %.029.lcssa, %132
   %spec.select = sext i1 %133 to i32
   br label %.thread

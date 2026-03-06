@@ -9,9 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.pathspec = type { i32, i8, i32, i32, ptr }
-%struct.pathspec_item = type { ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr }
 %struct.pretty_print_context = type { i32, i32, ptr, i32, %struct.date_mode, i8, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, %struct.string_list, i32 }
 %struct.date_mode = type { i32, i32, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
@@ -31,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 %struct.setup_revision_opt = type { ptr, ptr, i8, i32 }
 %struct.collect_changed_submodules_cb_data = type { ptr, ptr, ptr }
-%struct.refspec_item = type { i8, ptr, ptr, ptr }
 %struct.submodule_parallel_fetch = type { i32, i32, %struct.strvec, ptr, ptr, i32, i32, i32, i32, %struct.string_list, %struct.string_list, ptr, i32, i32, %struct.strbuf }
 %struct.run_process_parallel_opts = type { ptr, ptr, i64, i8, ptr, ptr, ptr, ptr }
 %struct.has_commit_data = type { ptr, i32, ptr, ptr }
@@ -236,7 +233,7 @@ define dso_local range(i32 0, 2) i32 @is_gitmodules_unmerged(ptr noundef %0) loc
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8, !tbaa !25
   %11 = zext nneg i32 %5 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load i32, ptr %14, align 8, !tbaa !28
@@ -314,7 +311,7 @@ define dso_local range(i32 0, 2) i32 @is_staging_gitmodules_ok(ptr noundef %0) l
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8, !tbaa !25
   %14 = zext nneg i32 %3 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !26
   %17 = call i32 @ie_modified(ptr noundef nonnull %0, ptr noundef %16, ptr noundef nonnull %2, i32 noundef 0) #18
   %18 = lshr i32 %17, 5
@@ -364,7 +361,7 @@ define dso_local i32 @update_path_in_gitmodules(ptr noundef %0, ptr noundef %1) 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %8, align 8, !tbaa !25
   %18 = zext nneg i32 %12 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load i32, ptr %21, align 8, !tbaa !28
@@ -490,7 +487,7 @@ define dso_local range(i32 -1, 1) i32 @remove_path_from_gitmodules(ptr noundef %
 15:                                               ; preds = %10
   %16 = load ptr, ptr %7, align 8, !tbaa !25
   %17 = zext nneg i32 %11 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load i32, ptr %20, align 8, !tbaa !28
@@ -609,7 +606,7 @@ define dso_local i32 @register_all_submodule_odb_as_alternates() local_unnamed_a
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %3 = load ptr, ptr @added_submodule_odb_paths, align 8, !tbaa !55
-  %4 = getelementptr inbounds nuw %struct.string_list_item, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !56
   tail call void @add_to_alternates_memory(ptr noundef %5) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -707,7 +704,7 @@ define dso_local void @set_diffopt_flags_from_submodule_config(ptr noundef write
 30:                                               ; preds = %25
   %31 = load ptr, ptr %22, align 8, !tbaa !25
   %32 = zext nneg i32 %26 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !26
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %36 = load i32, ptr %35, align 8, !tbaa !28
@@ -880,7 +877,7 @@ define dso_local i32 @is_tree_submodule_active(ptr noundef %0, ptr noundef %1, p
   %23 = load ptr, ptr %22, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !52
-  %26 = getelementptr inbounds nuw %struct.string_list_item, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %25
   %27 = icmp ult ptr %21, %26
   br i1 %27, label %.lr.ph, label %.critedge.loopexit
 
@@ -893,7 +890,7 @@ define dso_local i32 @is_tree_submodule_active(ptr noundef %0, ptr noundef %1, p
   %32 = load ptr, ptr %31, align 8, !tbaa !55
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !52
-  %35 = getelementptr inbounds nuw %struct.string_list_item, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %34
   %36 = icmp ult ptr %30, %35
   br i1 %36, label %.lr.ph, label %.critedge.loopexit
 
@@ -996,7 +993,7 @@ define dso_local void @die_in_unpopulated_submodule(ptr noundef readonly capture
 
 9:                                                ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load i32, ptr %12, align 8, !tbaa !28
@@ -1053,7 +1050,7 @@ define dso_local void @die_path_inside_submodule(ptr noundef readonly captures(n
 
 7:                                                ; preds = %.lr.ph33, %.loopexit
   %indvars.iv40 = phi i64 [ 0, %.lr.ph33 ], [ %indvars.iv.next41, %.loopexit ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv40
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv40
   %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i32, ptr %10, align 8, !tbaa !28
@@ -1078,7 +1075,7 @@ define dso_local void @die_path_inside_submodule(ptr noundef readonly captures(n
 
 22:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %23 = getelementptr inbounds nuw %struct.pathspec_item, ptr %18, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %18, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4, !tbaa !84
   %.not = icmp sgt i32 %25, %11
@@ -1873,7 +1870,7 @@ define dso_local i32 @find_unpushed_submodules(ptr noundef %0, ptr noundef %1, p
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %21 = load ptr, ptr %8, align 8, !tbaa !55
   %22 = load i64, ptr %16, align 8, !tbaa !52
-  %23 = getelementptr inbounds nuw %struct.string_list_item, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %22
   %24 = icmp ult ptr %15, %23
   br i1 %24, label %.lr.ph43, label %.critedge
 
@@ -1969,7 +1966,7 @@ submodule_needs_pushing.exit:                     ; preds = %46
   %67 = getelementptr inbounds nuw i8, ptr %.0193042, i64 16
   %68 = load ptr, ptr %8, align 8, !tbaa !55
   %69 = load i64, ptr %16, align 8, !tbaa !52
-  %70 = getelementptr inbounds nuw %struct.string_list_item, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %69
   %71 = icmp ult ptr %67, %70
   br i1 %71, label %.lr.ph43, label %.critedge
 
@@ -1996,7 +1993,7 @@ submodule_needs_pushing.exit:                     ; preds = %46
   %79 = getelementptr inbounds nuw i8, ptr %.09.i31, i64 16
   %80 = load ptr, ptr %8, align 8, !tbaa !55
   %81 = load i64, ptr %72, align 8, !tbaa !52
-  %82 = getelementptr inbounds nuw %struct.string_list_item, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %81
   %83 = icmp ult ptr %79, %82
   br i1 %83, label %.lr.ph32, label %free_submodules_data.exit
 
@@ -2147,7 +2144,7 @@ define dso_local range(i32 0, 2) i32 @push_unpushed_submodules(ptr noundef %0, p
 30:                                               ; preds = %.lr.ph, %submodule_push_check.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %submodule_push_check.exit ]
   %31 = load ptr, ptr %9, align 8, !tbaa !55
-  %32 = getelementptr inbounds nuw %struct.string_list_item, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
@@ -2173,7 +2170,7 @@ define dso_local range(i32 0, 2) i32 @push_unpushed_submodules(ptr noundef %0, p
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %38 ]
   %46 = load ptr, ptr %3, align 8, !tbaa !182
-  %47 = getelementptr inbounds nuw %struct.refspec_item, ptr %46, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %indvars.iv.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !183
   %50 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %49) #18
@@ -2231,7 +2228,7 @@ submodule_push_check.exit:                        ; preds = %._crit_edge.i
   %indvars.iv60 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next61, %push_submodule.exit.thread ]
   %.02449 = phi i32 [ 1, %.lr.ph52 ], [ %.125, %push_submodule.exit.thread ]
   %71 = load ptr, ptr %9, align 8, !tbaa !55
-  %72 = getelementptr inbounds nuw %struct.string_list_item, ptr %71, i64 %indvars.iv60
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %indvars.iv60
   %73 = load ptr, ptr %72, align 8, !tbaa !56
   %74 = load ptr, ptr @stderr, align 8, !tbaa !187
   %75 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28
@@ -2292,7 +2289,7 @@ _.exit:                                           ; preds = %70, %76
   %100 = getelementptr inbounds nuw i8, ptr %.02231.i47, i64 16
   %101 = load ptr, ptr %4, align 8, !tbaa !55
   %102 = load i64, ptr %64, align 8, !tbaa !52
-  %103 = getelementptr inbounds nuw %struct.string_list_item, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %102
   %104 = icmp ult ptr %100, %103
   br i1 %104, label %.lr.ph.i33, label %.critedge.i
 
@@ -2311,7 +2308,7 @@ _.exit:                                           ; preds = %70, %76
 .lr.ph34.i:                                       ; preds = %106, %.lr.ph34.i
   %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %.lr.ph34.i ], [ 0, %106 ]
   %111 = load ptr, ptr %3, align 8, !tbaa !182
-  %112 = getelementptr inbounds nuw %struct.refspec_item, ptr %111, i64 %indvars.iv.i34
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %111, i64 %indvars.iv.i34
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8, !tbaa !183
   %115 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef %114) #18
@@ -2458,7 +2455,7 @@ define dso_local i32 @submodule_touches_in_range(ptr noundef %0, ptr noundef %1,
   %27 = getelementptr inbounds nuw i8, ptr %.09.i7, i64 16
   %28 = load ptr, ptr %4, align 8, !tbaa !55
   %29 = load i64, ptr %17, align 8, !tbaa !52
-  %30 = getelementptr inbounds nuw %struct.string_list_item, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %29
   %31 = icmp ult ptr %27, %30
   br i1 %31, label %.lr.ph.i, label %free_submodules_data.exit
 
@@ -2539,7 +2536,7 @@ define dso_local i32 @fetch_submodules(ptr noundef %0, ptr noundef readonly capt
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %34 ]
   %39 = load ptr, ptr %1, align 8, !tbaa !79
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !60
   %42 = call ptr @strvec_push(ptr noundef nonnull %35, ptr noundef %41) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2644,7 +2641,7 @@ repo_has_absorbed_submodules.exit.i:              ; preds = %48
   %82 = getelementptr inbounds nuw i8, ptr %.02334.i19, i64 16
   %83 = load ptr, ptr %46, align 8, !tbaa !55
   %84 = load i64, ptr %60, align 8, !tbaa !52
-  %85 = getelementptr inbounds nuw %struct.string_list_item, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %84
   %86 = icmp ult ptr %82, %85
   br i1 %86, label %.lr.ph20, label %.critedge.i
 
@@ -2693,7 +2690,7 @@ _.exit:                                           ; preds = %89, %92
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %100 = load ptr, ptr %98, align 8, !tbaa !55
   %101 = load i64, ptr %99, align 8, !tbaa !52
-  %102 = getelementptr inbounds nuw %struct.string_list_item, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %101
   %103 = icmp ult ptr %.pre, %102
   br i1 %103, label %.lr.ph22, label %free_submodules_data.exit
 
@@ -2709,7 +2706,7 @@ _.exit:                                           ; preds = %89, %92
   %109 = getelementptr inbounds nuw i8, ptr %.09.i21, i64 16
   %110 = load ptr, ptr %98, align 8, !tbaa !55
   %111 = load i64, ptr %99, align 8, !tbaa !52
-  %112 = getelementptr inbounds nuw %struct.string_list_item, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %111
   %113 = icmp ult ptr %109, %112
   br i1 %113, label %.lr.ph22, label %free_submodules_data.exit
 
@@ -2753,7 +2750,7 @@ define internal range(i32 0, 2) i32 @get_next_submodule(ptr noundef %0, ptr noun
   %18 = phi i32 [ %7, %.lr.ph.i ], [ %73, %71 ]
   %19 = load ptr, ptr %17, align 8, !tbaa !25
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 52
   %24 = load i32, ptr %23, align 4, !tbaa !28
@@ -2902,7 +2899,7 @@ get_fetch_task_from_index.exit:                   ; preds = %33, %_.exit.i
 89:                                               ; preds = %148, %.lr.ph.i55
   %90 = phi i64 [ %85, %.lr.ph.i55 ], [ %151, %148 ]
   %91 = load ptr, ptr %88, align 8, !tbaa !220
-  %92 = getelementptr inbounds %struct.string_list_item, ptr %91, i64 %90
+  %92 = getelementptr inbounds [16 x i8], ptr %91, i64 %90
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %92, i64 8
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !221
   %93 = load ptr, ptr %6, align 8, !tbaa !198
@@ -3081,7 +3078,7 @@ get_fetch_task_from_changed.exit:                 ; preds = %get_fetch_task_from
   %186 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %187 = load ptr, ptr %186, align 8, !tbaa !209
   %188 = sext i32 %184 to i64
-  %189 = getelementptr ptr, ptr %187, i64 %188
+  %189 = getelementptr [8 x i8], ptr %187, i64 %188
   %190 = getelementptr i8, ptr %189, i64 -8
   %191 = load ptr, ptr %190, align 8, !tbaa !229
   %192 = add nsw i32 %184, -1
@@ -3258,7 +3255,7 @@ st_mult.exit:                                     ; preds = %36
   %49 = phi i32 [ %33, %._crit_edge ], [ %.pre45, %st_mult.exit ]
   %50 = phi ptr [ %.pre, %._crit_edge ], [ %47, %st_mult.exit ]
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   store ptr %3, ptr %52, align 8, !tbaa !229
   %53 = add nsw i32 %49, 1
   store i32 %53, ptr %32, align 8, !tbaa !228
@@ -4772,7 +4769,7 @@ define internal void @collect_changed_submodules_cb(ptr noundef readonly capture
 .lr.ph:                                           ; preds = %3, %.critedge.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge.thread ], [ 0, %3 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !243
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !244
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !246

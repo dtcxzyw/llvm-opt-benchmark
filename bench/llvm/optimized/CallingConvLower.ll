@@ -19,17 +19,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"struct.llvm::ISD::InputArg" = type <{ %"struct.llvm::ISD::ArgFlagsTy", %"class.llvm::MVT", [6 x i8], %"struct.llvm::EVT", i8, [3 x i8], i32, i32, [4 x i8] }>
-%"struct.llvm::EVT" = type { %"class.llvm::MVT", ptr }
-%"struct.llvm::ISD::OutputArg" = type <{ %"struct.llvm::ISD::ArgFlagsTy", %"class.llvm::MVT", [6 x i8], %"struct.llvm::EVT", i8, [3 x i8], i32, i32, [4 x i8] }>
 %"class.llvm::SmallVector.142" = type { %"class.llvm::SmallVectorImpl.138", %"struct.llvm::SmallVectorStorage.143" }
 %"class.llvm::SmallVectorImpl.138" = type { %"class.llvm::SmallVectorTemplateBase.139" }
 %"class.llvm::SmallVectorTemplateBase.139" = type { %"class.llvm::SmallVectorTemplateCommon.140" }
 %"class.llvm::SmallVectorTemplateCommon.140" = type { %"class.llvm::SmallVectorBase.122" }
 %"class.llvm::SmallVectorBase.122" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.143" = type { [16 x i8] }
-%"struct.llvm::ForwardedRegister" = type { %"class.llvm::Register", i16, %"class.llvm::MVT" }
-%"class.llvm::Register" = type { i32 }
 %"class.llvm::SmallVector.0" = type { %"class.llvm::SmallVectorImpl.1", %"struct.llvm::SmallVectorStorage.4" }
 %"class.llvm::SmallVectorImpl.1" = type { %"class.llvm::SmallVectorTemplateBase.2" }
 %"class.llvm::SmallVectorTemplateBase.2" = type { %"class.llvm::SmallVectorTemplateCommon.3" }
@@ -150,7 +145,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge: 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge, %48
   %50 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge ], [ %25, %48 ]
   %.pre-phi.i.i9 = phi i64 [ %.pre13.i.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge ], [ 0, %48 ]
-  %51 = getelementptr i32, ptr %50, i64 %.pre-phi.i.i9
+  %51 = getelementptr [4 x i8], ptr %50, i64 %.pre-phi.i.i9
   %52 = sub nsw i64 %46, %.pre-phi.i.i9
   %53 = shl nsw i64 %52, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %51, i8 0, i64 %53, i1 false), !tbaa !181
@@ -296,7 +291,7 @@ _ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit: ; preds = %72, %76
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit, label %96, !prof !208
 
 96:                                               ; preds = %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit
-  %97 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %.pre3.i.i, i64 %92
+  %97 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i, i64 %92
   %98 = icmp uge ptr %10, %.pre3.i.i
   %99 = icmp ult ptr %10, %97
   %spec.select.i.i.i.i.i.i = and i1 %98, %99
@@ -323,7 +318,7 @@ _ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit: ; preds = %_ZN4llvm7CCState13A
   %.016.i.i.i.i = phi ptr [ %10, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit ], [ %106, %100 ], [ %10, %.critedge.i.i.i.i ]
   %109 = load i32, ptr %90, align 8, !tbaa !162
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %108, i64 %110
+  %111 = getelementptr inbounds nuw [32 x i8], ptr %108, i64 %110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i, i64 32, i1 false)
   %112 = load i32, ptr %90, align 8, !tbaa !162
   %113 = add i32 %112, 1
@@ -384,7 +379,7 @@ define dso_local void @_ZN4llvm7CCState13MarkAllocatedEt(ptr noundef nonnull rea
   %16 = shl nuw i32 1, %15
   %17 = lshr i32 %14, 5
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %11, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !181
   %21 = or i32 %16, %20
   store i32 %21, ptr %19, align 4, !tbaa !181
@@ -423,7 +418,7 @@ define dso_local void @_ZN4llvm7CCState15MarkUnallocatedEt(ptr noundef nonnull r
   %17 = xor i32 %16, -1
   %18 = lshr i32 %14, 5
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %11, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !181
   %22 = and i32 %21, %17
   store i32 %22, ptr %20, align 4, !tbaa !181
@@ -439,7 +434,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7CCState20IsShadowAllocatedRegENS_
   %4 = lshr i32 %.fr, 5
   %5 = zext nneg i32 %4 to i64
   %6 = load ptr, ptr %3, align 8, !tbaa !161
-  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %5
   %8 = load i32, ptr %7, align 4, !tbaa !181
   %9 = and i32 %.fr, 31
   %10 = shl nuw i32 1, %9
@@ -592,7 +587,7 @@ define dso_local void @_ZN4llvm7CCState22AnalyzeFormalArgumentsERKNS_15SmallVect
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %10 = load ptr, ptr %1, align 8, !tbaa !161
-  %11 = getelementptr inbounds nuw %"struct.llvm::ISD::InputArg", ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.04.0.copyload = load i16, ptr %12, align 8, !tbaa !204
   %.sroa.03.0.copyload = load i64, ptr %11, align 8, !tbaa !188
@@ -716,7 +711,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7CCState11CheckReturnERKNS_15SmallV
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = load ptr, ptr %1, align 8, !tbaa !161
-  %8 = getelementptr inbounds nuw %"struct.llvm::ISD::OutputArg", ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.04.0.copyload = load i16, ptr %9, align 8, !tbaa !204
   %.sroa.03.0.copyload = load i64, ptr %8, align 8, !tbaa !188
@@ -758,7 +753,7 @@ define dso_local void @_ZN4llvm7CCState13AnalyzeReturnERKNS_15SmallVectorImplINS
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %10 = load ptr, ptr %1, align 8, !tbaa !161
-  %11 = getelementptr inbounds nuw %"struct.llvm::ISD::OutputArg", ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.04.0.copyload = load i16, ptr %12, align 8, !tbaa !204
   %.sroa.03.0.copyload = load i64, ptr %11, align 8, !tbaa !188
@@ -809,7 +804,7 @@ define dso_local void @_ZN4llvm7CCState19AnalyzeCallOperandsERKNS_15SmallVectorI
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = load ptr, ptr %1, align 8, !tbaa !161
-  %8 = getelementptr inbounds nuw %"struct.llvm::ISD::OutputArg", ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.04.0.copyload = load i16, ptr %9, align 8, !tbaa !204
   %.sroa.03.0.copyload = load i64, ptr %8, align 8, !tbaa !188
@@ -840,10 +835,10 @@ define dso_local void @_ZN4llvm7CCState19AnalyzeCallOperandsERNS_15SmallVectorIm
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = load ptr, ptr %1, align 8, !tbaa !233
-  %10 = getelementptr inbounds nuw %"class.llvm::MVT", ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   %.sroa.04.0.copyload = load i16, ptr %10, align 2, !tbaa !204
   %11 = load ptr, ptr %2, align 8, !tbaa !161
-  %12 = getelementptr inbounds nuw %"struct.llvm::ISD::ArgFlagsTy", ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   %.sroa.03.0.copyload = load i64, ptr %12, align 4, !tbaa !188
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 4
@@ -871,7 +866,7 @@ define dso_local void @_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImp
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = load ptr, ptr %1, align 8, !tbaa !161
-  %8 = getelementptr inbounds nuw %"struct.llvm::ISD::InputArg", ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.04.0.copyload = load i16, ptr %9, align 8, !tbaa !204
   %.sroa.03.0.copyload = load i64, ptr %8, align 8, !tbaa !188
@@ -930,7 +925,7 @@ _ZL21isValueTypeInRegForCCjN4llvm3MVTE.exit.thread30: ; preds = %4, %_ZL21isValu
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !162
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -24
   %26 = load i8, ptr %25, align 8, !tbaa !205
   br label %27
@@ -986,7 +981,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit:           ; preds = %31, %33
   %43 = load ptr, ptr %8, align 8, !tbaa !207
   %44 = zext i32 %.033 to i64
   %45 = load ptr, ptr %43, align 8, !tbaa !161
-  %46 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %44
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i8, ptr %47, align 8, !tbaa !205
   br label %49
@@ -1040,7 +1035,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %59
 _ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit: ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit, %65
   %66 = phi i64 [ %62, %_ZNK4llvm11CCValAssign9getLocRegEv.exit ], [ %.pre.i, %65 ]
   %67 = load ptr, ptr %1, align 8, !tbaa !233
-  %68 = getelementptr inbounds nuw i16, ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %66
   store i16 %61, ptr %68, align 1
   %69 = load i64, ptr %37, align 8, !tbaa !231
   %70 = add i64 %69, 1
@@ -1159,7 +1154,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_17ForwardedRegisterELb1EE9push_backES1_.exi
   %48 = phi i32 [ %43, %38 ], [ %.pre.i, %45 ]
   %49 = load ptr, ptr %1, align 8, !tbaa !161
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw %"struct.llvm::ForwardedRegister", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   store i64 %.sroa.0.0.insert.insert, ptr %51, align 1
   %52 = load i32, ptr %16, align 8, !tbaa !162
   %53 = add i32 %52, 1
@@ -1202,7 +1197,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7CCState17resultsCompatibleEjjRNS_1
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %20 = load ptr, ptr %4, align 8, !tbaa !161
-  %21 = getelementptr inbounds nuw %"struct.llvm::ISD::InputArg", ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.sroa.04.0.copyload.i = load i16, ptr %22, align 8, !tbaa !204
   %.sroa.03.0.copyload.i = load i64, ptr %21, align 8, !tbaa !188
@@ -1235,7 +1230,7 @@ _ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPF
 .lr.ph.i16:                                       ; preds = %.lr.ph.i16, %.lr.ph.preheader.i15
   %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.preheader.i15 ], [ %indvars.iv.next.i22, %.lr.ph.i16 ]
   %30 = load ptr, ptr %4, align 8, !tbaa !161
-  %31 = getelementptr inbounds nuw %"struct.llvm::ISD::InputArg", ptr %30, i64 %indvars.iv.i17
+  %31 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %indvars.iv.i17
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %.sroa.04.0.copyload.i18 = load i16, ptr %32, align 8, !tbaa !204
   %.sroa.03.0.copyload.i19 = load i64, ptr %31, align 8, !tbaa !188

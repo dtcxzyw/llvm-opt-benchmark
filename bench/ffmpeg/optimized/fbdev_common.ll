@@ -25,7 +25,7 @@ define i32 @ff_get_pixfmt_from_fb_varinfo(ptr noundef readonly captures(none) %0
 
 7:                                                ; preds = %1, %29
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %29 ]
-  %8 = getelementptr inbounds nuw %struct.rgb_pixfmt_map_entry, ptr @rgb_pixfmt_map, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr @rgb_pixfmt_map, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8, !tbaa !10
   %10 = icmp eq i32 %9, %3
   br i1 %10, label %11, label %29

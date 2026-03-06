@@ -17,14 +17,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.irr::SJoystickInfo" = type <{ i8, [7 x i8], %"class.irr::core::string", i32, i32, i32, [4 x i8] }>
-%"class.irr::core::string" = type { %"class.std::__cxx11::basic_string" }
 %struct.timespec = type { i64, i64 }
 %"class.std::bitset" = type { %"struct.std::_Base_bitset" }
 %"struct.std::_Base_bitset" = type { [2 x i64] }
-%struct.JoystickButtonCmb = type { %struct.JoystickCombination.base, i32, i32, [4 x i8] }
-%struct.JoystickCombination.base = type <{ ptr, i32 }>
-%struct.JoystickAxisCmb = type <{ %struct.JoystickCombination.base, i16, [2 x i8], i32, i16, [2 x i8] }>
 
 $_ZN14JoystickLayoutD2Ev = comdat any
 
@@ -106,7 +101,7 @@ entry:
   %axis_to_compare = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i16, ptr %axis_to_compare, align 4, !tbaa !15
   %idxprom = zext i16 %0 to i64
-  %arrayidx = getelementptr inbounds nuw i16, ptr %Axis, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x i8], ptr %Axis, i64 %idxprom
   %1 = load i16, ptr %arrayidx, align 2, !tbaa !17
   %conv = sext i16 %1 to i32
   %direction = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2847,7 +2842,7 @@ if.then31:                                        ; preds = %lor.lhs.false27.if.
   %20 = phi ptr [ %.pre164, %lor.lhs.false27.if.then31_crit_edge ], [ %.pre163.pre, %if.then25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp32)
   %conv33 = zext nneg i32 %id.0 to i64
-  %Name.split = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %20, i64 %conv33
+  %Name.split = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %conv33
   %Name = getelementptr inbounds nuw i8, ptr %Name.split, i64 8
   %21 = load ptr, ptr %Name, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 16
@@ -3588,7 +3583,7 @@ _ZNSt6bitsetILm77EE3setEmb.exit:                  ; preds = %if.then10
   %rem.i.i8.i.i = and i64 %conv11, 63
   %shl.i9.i.i = shl nuw i64 1, %rem.i.i8.i.i
   %div1.i.i.i.i = lshr i64 %conv11, 6
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %keys_pressed, i64 %div1.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %keys_pressed, i64 %div1.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !24
   %or.i.i = or i64 %10, %shl.i9.i.i
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8, !tbaa !24
@@ -3632,7 +3627,7 @@ _ZNSt6bitsetILm77EE3setEmb.exit139:               ; preds = %if.then31
   %rem.i.i8.i.i133 = and i64 %conv33, 63
   %shl.i9.i.i134 = shl nuw i64 1, %rem.i.i8.i.i133
   %div1.i.i.i.i135 = lshr i64 %conv33, 6
-  %arrayidx.i.i.i136 = getelementptr inbounds nuw i64, ptr %keys_pressed, i64 %div1.i.i.i.i135
+  %arrayidx.i.i.i136 = getelementptr inbounds nuw [8 x i8], ptr %keys_pressed, i64 %div1.i.i.i.i135
   %15 = load i64, ptr %arrayidx.i.i.i136, align 8, !tbaa !24
   %or.i.i137 = or i64 %15, %shl.i9.i.i134
   store i64 %or.i.i137, ptr %arrayidx.i.i.i136, align 8, !tbaa !24
@@ -3651,7 +3646,7 @@ for.cond91.preheader:                             ; preds = %_ZNSt6bitsetILm77EE
   %16 = load i32, ptr %invert, align 4, !tbaa !76
   %17 = load i16, ptr %axes, align 8, !tbaa !78
   %idxprom = zext i16 %17 to i64
-  %arrayidx97 = getelementptr inbounds nuw i16, ptr %Axis, i64 %idxprom
+  %arrayidx97 = getelementptr inbounds nuw [2 x i8], ptr %Axis, i64 %idxprom
   %18 = load i16, ptr %arrayidx97, align 2, !tbaa !17
   %19 = trunc i32 %16 to i16
   %conv99 = mul i16 %18, %19
@@ -3661,7 +3656,7 @@ for.cond91.preheader:                             ; preds = %_ZNSt6bitsetILm77EE
   %20 = load i32, ptr %invert.1, align 4, !tbaa !76
   %21 = load i16, ptr %arrayidx96.1, align 8, !tbaa !78
   %idxprom.1 = zext i16 %21 to i64
-  %arrayidx97.1 = getelementptr inbounds nuw i16, ptr %Axis, i64 %idxprom.1
+  %arrayidx97.1 = getelementptr inbounds nuw [2 x i8], ptr %Axis, i64 %idxprom.1
   %22 = load i16, ptr %arrayidx97.1, align 2, !tbaa !17
   %23 = trunc i32 %20 to i16
   %conv99.1 = mul i16 %22, %23
@@ -3672,7 +3667,7 @@ for.cond91.preheader:                             ; preds = %_ZNSt6bitsetILm77EE
   %24 = load i32, ptr %invert.2, align 4, !tbaa !76
   %25 = load i16, ptr %arrayidx96.2, align 8, !tbaa !78
   %idxprom.2 = zext i16 %25 to i64
-  %arrayidx97.2 = getelementptr inbounds nuw i16, ptr %Axis, i64 %idxprom.2
+  %arrayidx97.2 = getelementptr inbounds nuw [2 x i8], ptr %Axis, i64 %idxprom.2
   %26 = load i16, ptr %arrayidx97.2, align 2, !tbaa !17
   %27 = trunc i32 %24 to i16
   %conv99.2 = mul i16 %26, %27
@@ -3683,7 +3678,7 @@ for.cond91.preheader:                             ; preds = %_ZNSt6bitsetILm77EE
   %28 = load i32, ptr %invert.3, align 4, !tbaa !76
   %29 = load i16, ptr %arrayidx96.3, align 8, !tbaa !78
   %idxprom.3 = zext i16 %29 to i64
-  %arrayidx97.3 = getelementptr inbounds nuw i16, ptr %Axis, i64 %idxprom.3
+  %arrayidx97.3 = getelementptr inbounds nuw [2 x i8], ptr %Axis, i64 %idxprom.3
   %30 = load i16, ptr %arrayidx97.3, align 2, !tbaa !17
   %31 = trunc i32 %28 to i16
   %conv99.3 = mul i16 %30, %31
@@ -3695,7 +3690,7 @@ for.cond91.preheader:                             ; preds = %_ZNSt6bitsetILm77EE
 for.body42:                                       ; preds = %_ZNSt6bitsetILm77EE9referenceaSERKS1_.exit, %for.cond39.preheader
   %i.0230 = phi i64 [ 0, %for.cond39.preheader ], [ %inc, %_ZNSt6bitsetILm77EE9referenceaSERKS1_.exit ]
   %div1.i.i.i.i141 = lshr i64 %i.0230, 6
-  %arrayidx.i.i.i142 = getelementptr inbounds nuw i64, ptr %keys_pressed, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i142 = getelementptr inbounds nuw [8 x i8], ptr %keys_pressed, i64 %div1.i.i.i.i141
   %rem.i.i.i = and i64 %i.0230, 63
   %32 = load i64, ptr %arrayidx.i.i.i142, align 8, !tbaa !24
   %shl.i.i = shl nuw i64 1, %rem.i.i.i
@@ -3704,14 +3699,14 @@ for.body42:                                       ; preds = %_ZNSt6bitsetILm77EE
   br i1 %cmp.i144.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %for.body42
-  %arrayidx.i.i.i146 = getelementptr inbounds nuw i64, ptr %m_past_keys_pressed, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i146 = getelementptr inbounds nuw [8 x i8], ptr %m_past_keys_pressed, i64 %div1.i.i.i.i141
   %33 = load i64, ptr %arrayidx.i.i.i146, align 8, !tbaa !24
   %and.i152 = and i64 %33, %shl.i.i
   %cmp.i153.not = icmp eq i64 %and.i152, 0
   br i1 %cmp.i153.not, label %land.rhs, label %cleanup.done74
 
 land.rhs:                                         ; preds = %if.then44
-  %arrayidx = getelementptr inbounds nuw float, ptr %m_past_pressed_time, i64 %i.0230
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %m_past_pressed_time, i64 %i.0230
   %34 = load float, ptr %arrayidx, align 4, !tbaa !79
   %cmp48 = fcmp nsz olt float %34, %sub
   br i1 %cmp48, label %if.then49, label %cleanup.done74
@@ -3723,28 +3718,28 @@ if.then49:                                        ; preds = %land.rhs
   br label %cleanup.done74
 
 if.else:                                          ; preds = %for.body42
-  %arrayidx.i.i.i162 = getelementptr inbounds nuw i64, ptr %m_keys_down68, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i162 = getelementptr inbounds nuw [8 x i8], ptr %m_keys_down68, i64 %div1.i.i.i.i141
   %35 = load i64, ptr %arrayidx.i.i.i162, align 8, !tbaa !24
   %and.i168 = and i64 %35, %shl.i.i
   %cmp.i169.not = icmp eq i64 %and.i168, 0
   br i1 %cmp.i169.not, label %if.else.i, label %if.then59
 
 if.then59:                                        ; preds = %if.else
-  %arrayidx.i.i.i171 = getelementptr inbounds nuw i64, ptr %m_keys_released, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i171 = getelementptr inbounds nuw [8 x i8], ptr %m_keys_released, i64 %div1.i.i.i.i141
   %36 = load i64, ptr %arrayidx.i.i.i171, align 8, !tbaa !24
   %or.i177 = or i64 %36, %shl.i.i
   store i64 %or.i177, ptr %arrayidx.i.i.i171, align 8, !tbaa !24
   br label %if.else.i
 
 cleanup.done74:                                   ; preds = %if.then49, %land.rhs, %if.then44
-  %arrayidx.i.i.i188 = getelementptr inbounds nuw i64, ptr %m_keys_down68, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i188 = getelementptr inbounds nuw [8 x i8], ptr %m_keys_down68, i64 %div1.i.i.i.i141
   %37 = load i64, ptr %arrayidx.i.i.i188, align 8, !tbaa !24
   %and.i194 = and i64 %37, %shl.i.i
   %cmp.i195.not = icmp eq i64 %and.i194, 0
   br i1 %cmp.i195.not, label %if.then78, label %if.then.i
 
 if.then78:                                        ; preds = %cleanup.done74
-  %arrayidx.i.i.i197 = getelementptr inbounds nuw i64, ptr %m_keys_pressed, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i197 = getelementptr inbounds nuw [8 x i8], ptr %m_keys_pressed, i64 %div1.i.i.i.i141
   %38 = load i64, ptr %arrayidx.i.i.i197, align 8, !tbaa !24
   %or.i203 = or i64 %38, %shl.i.i
   store i64 %or.i203, ptr %arrayidx.i.i.i197, align 8, !tbaa !24
@@ -3778,7 +3773,7 @@ define dso_local noundef float @_ZN18JoystickController18getAxisWithoutDeadE12Jo
 entry:
   %m_axes_vals = getelementptr inbounds nuw i8, ptr %this, i64 96
   %idxprom = zext i32 %axis to i64
-  %arrayidx = getelementptr inbounds nuw i16, ptr %m_axes_vals, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x i8], ptr %m_axes_vals, i64 %idxprom
   %0 = load i16, ptr %arrayidx, align 2, !tbaa !17
   %1 = tail call i16 @llvm.abs.i16(i16 %0, i1 false)
   %2 = zext i16 %1 to i32
@@ -4075,7 +4070,7 @@ _ZNSt12_Vector_baseI17JoystickButtonCmbSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !52
   store ptr %__cur.0.lcssa.i.i.i65, ptr %_M_finish.i.i, align 8, !tbaa !46
-  %add.ptr30 = getelementptr inbounds nuw %struct.JoystickButtonCmb, ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr30 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8, !tbaa !42
   ret void
 }
@@ -4194,7 +4189,7 @@ _ZNSt12_Vector_baseI17JoystickButtonCmbSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !52
   store ptr %__cur.0.lcssa.i.i.i65, ptr %_M_finish.i.i, align 8, !tbaa !46
-  %add.ptr30 = getelementptr inbounds nuw %struct.JoystickButtonCmb, ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr30 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8, !tbaa !42
   ret void
 }
@@ -4307,7 +4302,7 @@ _ZNSt12_Vector_baseI17JoystickButtonCmbSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !52
   store ptr %__cur.0.lcssa.i.i.i65, ptr %_M_finish.i.i, align 8, !tbaa !46
-  %add.ptr30 = getelementptr inbounds nuw %struct.JoystickButtonCmb, ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr30 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8, !tbaa !42
   ret void
 }
@@ -4422,7 +4417,7 @@ _ZNSt12_Vector_baseI15JoystickAxisCmbSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !49
   store ptr %__cur.0.lcssa.i.i.i67, ptr %_M_finish.i.i, align 8, !tbaa !48
-  %add.ptr32 = getelementptr inbounds nuw %struct.JoystickAxisCmb, ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr32 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr32, ptr %_M_end_of_storage, align 8, !tbaa !47
   ret void
 }

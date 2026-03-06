@@ -5,13 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.llvm::RegisterBank" = type { i32, i32, ptr, ptr }
 %"struct.llvm::RegisterBankInfo::PartialMapping" = type { i32, i32, ptr }
-%"struct.llvm::RegisterBankInfo::ValueMapping" = type <{ ptr, i32, [4 x i8] }>
 %"struct.__gnu_cxx::__ops::_Iter_pred" = type { %class.anon }
 %class.anon = type { ptr, ptr, ptr, ptr }
-%"class.llvm::MachineOperand" = type { i32, %union.anon.60, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon.60 = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef" }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
 %"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
 %"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
 %"class.llvm::LLT" = type { i64 }
@@ -27,13 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.222" = type { %"class.llvm::SmallVectorTemplateCommon.223" }
 %"class.llvm::SmallVectorTemplateCommon.223" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.269" = type { [64 x i8] }
-%"struct.std::pair" = type { %"class.llvm::PointerUnion", ptr }
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.12" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.12" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.13" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.13" = type { %"class.llvm::PointerIntPair.14" }
-%"class.llvm::PointerIntPair.14" = type { %"struct.llvm::detail::PunnedPointer.15" }
-%"struct.llvm::detail::PunnedPointer.15" = type { [8 x i8] }
 %"class.llvm::SmallVector.277" = type { %"class.llvm::SmallVectorImpl.278", %"struct.llvm::SmallVectorStorage.281" }
 %"class.llvm::SmallVectorImpl.278" = type { %"class.llvm::SmallVectorTemplateBase.279" }
 %"class.llvm::SmallVectorTemplateBase.279" = type { %"class.llvm::SmallVectorTemplateCommon.280" }
@@ -105,7 +93,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm22X86
   tail call void @llvm.assume(i1 %8)
   %9 = lshr i32 %7, 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr @_ZZNK4llvm22X86GenRegisterBankInfo22getRegBankFromRegClassERKNS_19TargetRegisterClassENS_3LLTEE16RegClass2RegBank, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZZNK4llvm22X86GenRegisterBankInfo22getRegBankFromRegClassERKNS_19TargetRegisterClassENS_3LLTEE16RegClass2RegBank, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !21
   %13 = shl nuw nsw i32 %7, 1
   %14 = and i32 %13, 30
@@ -115,7 +103,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm22X86
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = zext nneg i32 %16 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !35
   tail call void @llvm.assume(i1 %.not)
   ret ptr %21
@@ -127,7 +115,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm22X86GenRegisterBankInfo15getValue
   tail call void @llvm.assume(i1 %3)
   %4 = mul nuw nsw i32 %0, 3
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %5
   ret ptr %6
 }
 
@@ -156,7 +144,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19X86RegisterBankInfo16hasFPConstr
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !59
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !60
   %switch.tableidx = add i32 %19, -14398
@@ -226,11 +214,11 @@ _ZL13isFPIntrinsicRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrE.exit.thread
   %49 = load ptr, ptr %29, align 8, !tbaa !59
   %50 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #14
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %51
   %53 = load ptr, ptr %29, align 8, !tbaa !59
   %54 = tail call noundef i32 @_ZNK4llvm12MachineInstr22getNumExplicitOperandsEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #14
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %55
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -560,7 +548,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit43:            ; preds = %_ZNK4llvm3LLT13getS
   %40 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %41 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %40, i1 true)
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb, i64 %41
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %62
 
@@ -708,7 +696,7 @@ define dso_local void @_ZN4llvm19X86RegisterBankInfo26getInstrPartialMappingIdxs
 11:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %12 = load ptr, ptr %8, align 8, !tbaa !59
-  %13 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 255
   %16 = icmp eq i32 %15, 0
@@ -722,7 +710,7 @@ define dso_local void @_ZN4llvm19X86RegisterBankInfo26getInstrPartialMappingIdxs
 
 .critedge:                                        ; preds = %11, %17
   %20 = load ptr, ptr %3, align 8, !tbaa !302
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   store i32 -1, ptr %21, align 4, !tbaa !303
   br label %36
 
@@ -740,7 +728,7 @@ define dso_local void @_ZN4llvm19X86RegisterBankInfo26getInstrPartialMappingIdxs
 28:                                               ; preds = %24
   %29 = zext nneg i32 %25 to i64
   %30 = load ptr, ptr %10, align 8, !tbaa !302
-  %31 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %29
   %32 = load i64, ptr %31, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -749,7 +737,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %22, %24, %
   store i64 %.sroa.04.0.i, ptr %5, align 8
   %33 = call noundef i32 @_ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %2)
   %34 = load ptr, ptr %3, align 8, !tbaa !302
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store i32 %33, ptr %35, align 4, !tbaa !303
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
@@ -777,7 +765,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19X86RegisterBankInfo20getInstrValu
 
 10:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %11 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 255
   %14 = icmp eq i32 %13, 0
@@ -790,13 +778,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm19X86RegisterBankInfo20getInstrValu
   br i1 %.not, label %32, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !303
   %21 = icmp ult i32 %20, 12
   tail call void @llvm.assume(i1 %21)
   %22 = mul nuw nsw i32 %20, 3
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %23
   %25 = load ptr, ptr %24, align 16, !tbaa !307
   %.not.i = icmp ne ptr %25, null
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -806,7 +794,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19X86RegisterBankInfo20getInstrValu
   br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %24, ptr %31, align 8, !tbaa !310
   br label %32
 
@@ -848,7 +836,7 @@ define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm19X86
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 448
   %23 = zext nneg i32 %17 to i64
   %24 = load ptr, ptr %22, align 8, !tbaa !302
-  %25 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load i64, ptr %25, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -871,7 +859,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %16, %2
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 448
   %37 = zext nneg i32 %31 to i64
   %38 = load ptr, ptr %36, align 8, !tbaa !302
-  %39 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %37
   %40 = load i64, ptr %39, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit17
 
@@ -895,7 +883,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit17: ; preds = %_ZNK4llv
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 448
   %51 = zext nneg i32 %45 to i64
   %52 = load ptr, ptr %50, align 8, !tbaa !302
-  %53 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit19
 
@@ -906,7 +894,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit19: ; preds = %_ZNK4llv
   %55 = call noundef i32 @_ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %2)
   %56 = mul nuw nsw i32 %55, 3
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %57
   %59 = load i32, ptr @_ZN4llvm16RegisterBankInfo16DefaultMappingIDE, align 4, !tbaa !21
   %60 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 noundef zeroext false, i32 noundef %59, i32 noundef 1, ptr noundef nonnull %58, i32 noundef 3) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1004,7 +992,7 @@ define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm19X86
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 448
   %66 = zext nneg i32 %60 to i64
   %67 = load ptr, ptr %65, align 8, !tbaa !302
-  %68 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %66
   %69 = load i64, ptr %68, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
 
@@ -1027,7 +1015,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i: ; preds = %64, %59,
   %79 = getelementptr inbounds nuw i8, ptr %53, i64 448
   %80 = zext nneg i32 %74 to i64
   %81 = load ptr, ptr %79, align 8, !tbaa !302
-  %82 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %80
   %83 = load i64, ptr %82, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit17.i
 
@@ -1051,7 +1039,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit17.i: ; preds = %78, %7
   %93 = getelementptr inbounds nuw i8, ptr %53, i64 448
   %94 = zext nneg i32 %88 to i64
   %95 = load ptr, ptr %93, align 8, !tbaa !302
-  %96 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %95, i64 %94
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %94
   %97 = load i64, ptr %96, align 8, !tbaa !60
   br label %_ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exit
 
@@ -1062,7 +1050,7 @@ _ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exi
   %98 = call noundef i32 @_ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false)
   %99 = mul nuw nsw i32 %98, 3
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %100
+  %101 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %100
   %102 = load i32, ptr @_ZN4llvm16RegisterBankInfo16DefaultMappingIDE, align 4, !tbaa !21
   %103 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj(ptr noundef nonnull align 8 dereferenceable(168) %0, i1 noundef zeroext false, i32 noundef %102, i32 noundef 1, ptr noundef nonnull %101, i32 noundef 3) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1093,7 +1081,7 @@ _ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exi
   %121 = getelementptr inbounds nuw i8, ptr %109, i64 448
   %122 = zext nneg i32 %116 to i64
   %123 = load ptr, ptr %121, align 8, !tbaa !302
-  %124 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %123, i64 %122
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %122
   %125 = load i64, ptr %124, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i118
 
@@ -1116,7 +1104,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i118: ; preds = %120, 
   %135 = getelementptr inbounds nuw i8, ptr %109, i64 448
   %136 = zext nneg i32 %130 to i64
   %137 = load ptr, ptr %135, align 8, !tbaa !302
-  %138 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %137, i64 %136
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %136
   %139 = load i64, ptr %138, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit17.i121
 
@@ -1140,7 +1128,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit17.i121: ; preds = %134
   %149 = getelementptr inbounds nuw i8, ptr %109, i64 448
   %150 = zext nneg i32 %144 to i64
   %151 = load ptr, ptr %149, align 8, !tbaa !302
-  %152 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %151, i64 %150
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %150
   %153 = load i64, ptr %152, align 8, !tbaa !60
   br label %_ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exit126
 
@@ -1151,7 +1139,7 @@ _ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exi
   %154 = call noundef i32 @_ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   %155 = mul nuw nsw i32 %154, 3
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %156
+  %157 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %156
   %158 = load i32, ptr @_ZN4llvm16RegisterBankInfo16DefaultMappingIDE, align 4, !tbaa !21
   %159 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj(ptr noundef nonnull align 8 dereferenceable(168) %0, i1 noundef zeroext false, i32 noundef %158, i32 noundef 1, ptr noundef nonnull %157, i32 noundef 3) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1180,7 +1168,7 @@ _ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exi
   %175 = getelementptr inbounds nuw i8, ptr %33, i64 448
   %176 = zext nneg i32 %170 to i64
   %177 = load ptr, ptr %175, align 8, !tbaa !302
-  %178 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %177, i64 %176
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %176
   %179 = load i64, ptr %178, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -1190,7 +1178,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %160, %169,
   %180 = call noundef i32 @_ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext false)
   %181 = mul nuw nsw i32 %180, 3
   %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %182
+  %183 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %182
   %184 = load i32, ptr @_ZN4llvm16RegisterBankInfo16DefaultMappingIDE, align 4, !tbaa !21
   %185 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 noundef zeroext false, i32 noundef %184, i32 noundef 1, ptr noundef nonnull %183, i32 noundef %163) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1229,7 +1217,7 @@ _ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reser
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i, %195
   %197 = phi ptr [ %.pre.i, %_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ %191, %195 ]
   %.pre-phi.i.i3.i = phi i64 [ %.pre13.i.i.i, %_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ 0, %195 ]
-  %198 = getelementptr i32, ptr %197, i64 %.pre-phi.i.i3.i
+  %198 = getelementptr [4 x i8], ptr %197, i64 %.pre-phi.i.i3.i
   %199 = sub nsw i64 %190, %.pre-phi.i.i3.i
   %200 = shl nsw i64 %199, 2
   call void @llvm.memset.p0.i64(ptr align 4 %198, i8 0, i64 %200, i1 false), !tbaa !303
@@ -1279,7 +1267,7 @@ _ZN4llvm11SmallVectorINS_22X86GenRegisterBankInfo17PartialMappingIdxELj4EEC2Em.e
   %214 = getelementptr inbounds nuw i8, ptr %33, i64 448
   %215 = zext nneg i32 %209 to i64
   %216 = load ptr, ptr %214, align 8, !tbaa !302
-  %217 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %216, i64 %215
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %215
   %218 = load i64, ptr %217, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit128
 
@@ -1303,7 +1291,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit128: ; preds = %202, %2
   %228 = getelementptr inbounds nuw i8, ptr %33, i64 448
   %229 = zext nneg i32 %223 to i64
   %230 = load ptr, ptr %228, align 8, !tbaa !302
-  %231 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %230, i64 %229
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %229
   %232 = load i64, ptr %231, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130
 
@@ -1344,7 +1332,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130: ; preds = %_ZNK4ll
   %253 = getelementptr inbounds nuw i8, ptr %33, i64 448
   %254 = zext nneg i32 %248 to i64
   %255 = load ptr, ptr %253, align 8, !tbaa !302
-  %256 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %255, i64 %254
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %254
   %257 = load i64, ptr %256, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit132
 
@@ -1394,7 +1382,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit132: ; preds = %241, %2
   %277 = getelementptr inbounds nuw i8, ptr %33, i64 448
   %278 = zext nneg i32 %272 to i64
   %279 = load ptr, ptr %277, align 8, !tbaa !302
-  %280 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %279, i64 %278
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %278
   %281 = load i64, ptr %280, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit136
 
@@ -1418,7 +1406,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit136: ; preds = %265, %2
   %291 = getelementptr inbounds nuw i8, ptr %33, i64 448
   %292 = zext nneg i32 %286 to i64
   %293 = load ptr, ptr %291, align 8, !tbaa !302
-  %294 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %293, i64 %292
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %292
   %295 = load i64, ptr %294, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit138
 
@@ -1591,7 +1579,7 @@ _ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE7reserveEm.exit
 .lr.ph.preheader.i.i.i139:                        ; preds = %_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i, %354
   %356 = phi ptr [ %.pre.i145, %_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ %351, %354 ]
   %.pre-phi.i.i3.i140 = phi i64 [ %.pre13.i.i.i143, %_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ 0, %354 ]
-  %357 = getelementptr ptr, ptr %356, i64 %.pre-phi.i.i3.i140
+  %357 = getelementptr [8 x i8], ptr %356, i64 %.pre-phi.i.i3.i140
   %358 = sub nsw i64 %190, %.pre-phi.i.i3.i140
   %359 = shl nsw i64 %358, 3
   call void @llvm.memset.p0.i64(ptr align 8 %357, i8 0, i64 %359, i1 false), !tbaa !310
@@ -1616,7 +1604,7 @@ _ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EEC2Em.exit: ; pr
 
 365:                                              ; preds = %387, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %387 ]
-  %366 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %362, i64 %indvars.iv.i
+  %366 = getelementptr inbounds nuw [32 x i8], ptr %362, i64 %indvars.iv.i
   %367 = load i32, ptr %366, align 8
   %368 = and i32 %367, 255
   %369 = icmp eq i32 %368, 0
@@ -1629,13 +1617,13 @@ _ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EEC2Em.exit: ; pr
   br i1 %.not.i146, label %387, label %373
 
 373:                                              ; preds = %370
-  %374 = getelementptr inbounds nuw i32, ptr %363, i64 %indvars.iv.i
+  %374 = getelementptr inbounds nuw [4 x i8], ptr %363, i64 %indvars.iv.i
   %375 = load i32, ptr %374, align 4, !tbaa !303
   %376 = icmp ult i32 %375, 12
   call void @llvm.assume(i1 %376)
   %377 = mul nuw nsw i32 %375, 3
   %378 = zext nneg i32 %377 to i64
-  %379 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %378
+  %379 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %378
   %380 = load ptr, ptr %379, align 16, !tbaa !307
   %.not.i.i = icmp ne ptr %380, null
   %381 = getelementptr inbounds nuw i8, ptr %379, i64 8
@@ -1645,7 +1633,7 @@ _ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EEC2Em.exit: ; pr
   br i1 %384, label %385, label %_ZN4llvm19X86RegisterBankInfo20getInstrValueMappingERKNS_12MachineInstrERKNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEERNS4_IPKNS_16RegisterBankInfo12ValueMappingEEE.exit
 
 385:                                              ; preds = %373
-  %386 = getelementptr inbounds nuw ptr, ptr %364, i64 %indvars.iv.i
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %364, i64 %indvars.iv.i
   store ptr %379, ptr %386, align 8, !tbaa !310
   br label %387
 
@@ -1721,7 +1709,7 @@ _ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reser
 11:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reserveEm.exit.i.i.i, %_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reserveEm.exit.i.i.thread.i
   %.pre8.i.i5.i = phi i64 [ %10, %_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reserveEm.exit.i.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reserveEm.exit.i.i.i ]
   %12 = load ptr, ptr %0, align 8, !tbaa !302
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %.pre8.i.i5.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.pre8.i.i5.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 4 %1, i64 %.idx.i.i, i1 false)
   %.pre.i.i.i = load i32, ptr %4, align 8, !tbaa !305
   br label %_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE6assignESt16initializer_listIS2_E.exit
@@ -1811,12 +1799,12 @@ define linkonce_odr hidden { ptr, ptr } @_ZNK4llvm19MachineRegisterInfo22use_nod
   %5 = and i32 %1, 2147483647
   %6 = zext nneg i32 %5 to i64
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %11 = zext nneg i32 %1 to i64
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %.0.in.i.i = select i1 %3, ptr %9, ptr %13
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !369
   %.not.i.i = icmp eq ptr %.0.i.i, null
@@ -1950,7 +1938,7 @@ _ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reser
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i, %42
   %44 = phi ptr [ %.pre.i, %_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ %35, %42 ]
   %.pre-phi.i.i3.i = phi i64 [ %.pre13.i.i.i, %_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ 0, %42 ]
-  %45 = getelementptr i32, ptr %44, i64 %.pre-phi.i.i3.i
+  %45 = getelementptr [4 x i8], ptr %44, i64 %.pre-phi.i.i3.i
   %46 = sub nsw i64 %34, %.pre-phi.i.i3.i
   %47 = shl nsw i64 %46, 2
   call void @llvm.memset.p0.i64(ptr align 4 %45, i8 0, i64 %47, i1 false), !tbaa !303
@@ -1971,7 +1959,7 @@ _ZN4llvm11SmallVectorINS_22X86GenRegisterBankInfo17PartialMappingIdxELj4EEC2Em.e
 50:                                               ; preds = %75, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %75 ]
   %51 = load ptr, ptr %23, align 8, !tbaa !59
-  %52 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %51, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %indvars.iv.i
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 255
   %55 = icmp eq i32 %54, 0
@@ -1985,7 +1973,7 @@ _ZN4llvm11SmallVectorINS_22X86GenRegisterBankInfo17PartialMappingIdxELj4EEC2Em.e
 
 .critedge.i:                                      ; preds = %56, %50
   %59 = load ptr, ptr %6, align 8, !tbaa !302
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i
   store i32 -1, ptr %60, align 4, !tbaa !303
   br label %75
 
@@ -2003,7 +1991,7 @@ _ZN4llvm11SmallVectorINS_22X86GenRegisterBankInfo17PartialMappingIdxELj4EEC2Em.e
 67:                                               ; preds = %63
   %68 = zext nneg i32 %64 to i64
   %69 = load ptr, ptr %49, align 8, !tbaa !302
-  %70 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %68
   %71 = load i64, ptr %70, align 8, !tbaa !60
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
 
@@ -2012,7 +2000,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i: ; preds = %67, %63,
   store i64 %.sroa.04.0.i.i, ptr %4, align 8
   %72 = call noundef i32 @_ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext true)
   %73 = load ptr, ptr %6, align 8, !tbaa !302
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i
   store i32 %72, ptr %74, align 4, !tbaa !303
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %75
@@ -2047,7 +2035,7 @@ _ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE7reserveEm.exit
 .lr.ph.preheader.i.i.i26:                         ; preds = %_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i, %_ZN4llvm19X86RegisterBankInfo26getInstrPartialMappingIdxsERKNS_12MachineInstrERKNS_19MachineRegisterInfoEbRNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEE.exit.thread51
   %80 = phi ptr [ %.pre.i32, %_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ %76, %_ZN4llvm19X86RegisterBankInfo26getInstrPartialMappingIdxsERKNS_12MachineInstrERKNS_19MachineRegisterInfoEbRNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEE.exit.thread51 ]
   %.pre-phi.i.i3.i27 = phi i64 [ %.pre13.i.i.i30, %_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ 0, %_ZN4llvm19X86RegisterBankInfo26getInstrPartialMappingIdxsERKNS_12MachineInstrERKNS_19MachineRegisterInfoEbRNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEE.exit.thread51 ]
-  %81 = getelementptr ptr, ptr %80, i64 %.pre-phi.i.i3.i27
+  %81 = getelementptr [8 x i8], ptr %80, i64 %.pre-phi.i.i3.i27
   %82 = sub nsw i64 %34, %.pre-phi.i.i3.i27
   %83 = shl nsw i64 %82, 3
   call void @llvm.memset.p0.i64(ptr align 8 %81, i8 0, i64 %83, i1 false), !tbaa !310
@@ -2072,7 +2060,7 @@ _ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EEC2Em.exit: ; pr
 
 89:                                               ; preds = %111, %.lr.ph.i33
   %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i36, %111 ]
-  %90 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %86, i64 %indvars.iv.i35
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %86, i64 %indvars.iv.i35
   %91 = load i32, ptr %90, align 8
   %92 = and i32 %91, 255
   %93 = icmp eq i32 %92, 0
@@ -2085,13 +2073,13 @@ _ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EEC2Em.exit: ; pr
   br i1 %.not.i39, label %111, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv.i35
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv.i35
   %99 = load i32, ptr %98, align 4, !tbaa !303
   %100 = icmp ult i32 %99, 12
   call void @llvm.assume(i1 %100)
   %101 = mul nuw nsw i32 %99, 3
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %102
+  %103 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %102
   %104 = load ptr, ptr %103, align 16, !tbaa !307
   %.not.i.i = icmp ne ptr %104, null
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
@@ -2101,7 +2089,7 @@ _ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EEC2Em.exit: ; pr
   br i1 %108, label %109, label %_ZN4llvm19X86RegisterBankInfo20getInstrValueMappingERKNS_12MachineInstrERKNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEERNS4_IPKNS_16RegisterBankInfo12ValueMappingEEE.exit
 
 109:                                              ; preds = %97
-  %110 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv.i35
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv.i35
   store ptr %103, ptr %110, align 8, !tbaa !310
   br label %111
 

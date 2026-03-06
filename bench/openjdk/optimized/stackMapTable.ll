@@ -111,7 +111,7 @@ define hidden void @_ZN13StackMapTableC2EP14StackMapReaderP13StackMapFramettPciP
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   store ptr %28, ptr %37, align 8
   %38 = load i32, ptr %28, align 8
   %.not = icmp slt i32 %38, %6
@@ -630,7 +630,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.
 
 .lr.ph360:                                        ; preds = %.lr.ph360.preheader, %248
   %indvars.iv373 = phi i64 [ 0, %.lr.ph360.preheader ], [ %indvars.iv.next374, %248 ]
-  %249 = getelementptr inbounds nuw %class.VerificationType, ptr %236, i64 %indvars.iv373
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %indvars.iv373
   %250 = load i64, ptr %249, align 8
   %251 = and i64 %250, 16776962
   %252 = icmp eq i64 %251, 16776962
@@ -714,8 +714,8 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.
 
 .lr.ph:                                           ; preds = %282, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %282 ]
-  %295 = getelementptr inbounds nuw %class.VerificationType, ptr %292, i64 %indvars.iv
-  %296 = getelementptr inbounds nuw %class.VerificationType, ptr %290, i64 %indvars.iv
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %indvars.iv
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %indvars.iv
   %297 = load i64, ptr %295, align 8
   store i64 %297, ptr %296, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -735,7 +735,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.
   %.0277342 = phi i32 [ %318, %317 ], [ %285, %.lr.ph345.preheader ]
   %303 = call ptr @_ZN14StackMapReader23parse_verification_typeEPhP10JavaThread(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %304 = sext i32 %.0277342 to i64
-  %305 = getelementptr inbounds %class.VerificationType, ptr %290, i64 %304
+  %305 = getelementptr inbounds [8 x i8], ptr %290, i64 %304
   store ptr %303, ptr %305, align 8
   %306 = load ptr, ptr %28, align 8
   %.not315 = icmp eq ptr %306, null
@@ -752,7 +752,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.
   %313 = select i1 %312, ptr inttoptr (i64 852993 to ptr), ptr inttoptr (i64 918529 to ptr)
   %314 = add nsw i32 %.0277342, 1
   %315 = sext i32 %314 to i64
-  %316 = getelementptr inbounds %class.VerificationType, ptr %290, i64 %315
+  %316 = getelementptr inbounds [8 x i8], ptr %290, i64 %315
   store ptr %313, ptr %316, align 8
   br label %317
 
@@ -851,7 +851,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit297:
   %.0269347 = phi i32 [ %375, %374 ], [ 0, %.lr.ph350.preheader ]
   %360 = call ptr @_ZN14StackMapReader23parse_verification_typeEPhP10JavaThread(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %8, ptr noundef nonnull %5)
   %361 = sext i32 %.0269347 to i64
-  %362 = getelementptr inbounds %class.VerificationType, ptr %359, i64 %361
+  %362 = getelementptr inbounds [8 x i8], ptr %359, i64 %361
   store ptr %360, ptr %362, align 8
   %363 = load ptr, ptr %28, align 8
   %.not323 = icmp eq ptr %363, null
@@ -868,7 +868,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit297:
   %370 = select i1 %369, ptr inttoptr (i64 852993 to ptr), ptr inttoptr (i64 918529 to ptr)
   %371 = add nsw i32 %.0269347, 1
   %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds %class.VerificationType, ptr %359, i64 %372
+  %373 = getelementptr inbounds [8 x i8], ptr %359, i64 %372
   store ptr %370, ptr %373, align 8
   br label %374
 
@@ -928,7 +928,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299.
   %.1268353 = phi i32 [ %410, %408 ], [ 0, %.lr.ph356.preheader ]
   %394 = call ptr @_ZN14StackMapReader23parse_verification_typeEPhP10JavaThread(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef null, ptr noundef nonnull %5)
   %395 = sext i32 %.0258354 to i64
-  %396 = getelementptr inbounds %class.VerificationType, ptr %393, i64 %395
+  %396 = getelementptr inbounds [8 x i8], ptr %393, i64 %395
   store ptr %394, ptr %396, align 8
   %397 = load ptr, ptr %28, align 8
   %.not322 = icmp eq ptr %397, null
@@ -945,7 +945,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299.
   %404 = select i1 %403, ptr inttoptr (i64 852993 to ptr), ptr inttoptr (i64 918529 to ptr)
   %405 = add nsw i32 %.0258354, 1
   %406 = sext i32 %405 to i64
-  %407 = getelementptr inbounds %class.VerificationType, ptr %393, i64 %406
+  %407 = getelementptr inbounds [8 x i8], ptr %393, i64 %406
   store ptr %404, ptr %407, align 8
   br label %408
 
@@ -1042,7 +1042,7 @@ define hidden noundef i32 @_ZNK13StackMapTable21get_index_from_offsetEi(ptr noun
 
 8:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %1
@@ -1077,7 +1077,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMa
 
 13:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, %2
@@ -1137,7 +1137,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMa
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = zext nneg i32 %3 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   br i1 %4, label %22, label %31
 
@@ -1199,7 +1199,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMa
 51:                                               ; preds = %51, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
   %52 = load ptr, ptr %47, align 8
-  %53 = getelementptr inbounds nuw %class.VerificationType, ptr %52, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i
   store ptr inttoptr (i64 4294901761 to ptr), ptr %53, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = load i16, ptr %45, align 8
@@ -1210,7 +1210,7 @@ define hidden noundef zeroext i1 @_ZNK13StackMapTable14match_stackmapEP13StackMa
 57:                                               ; preds = %57, %.lr.ph9.i
   %indvars.iv12.i = phi i64 [ 0, %.lr.ph9.i ], [ %indvars.iv.next13.i, %57 ]
   %58 = load ptr, ptr %50, align 8
-  %59 = getelementptr inbounds nuw %class.VerificationType, ptr %58, i64 %indvars.iv12.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv12.i
   store ptr inttoptr (i64 4294901761 to ptr), ptr %59, align 8
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %60 = load i16, ptr %48, align 2
@@ -1278,7 +1278,7 @@ define hidden void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10J
 
 20:                                               ; preds = %25, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %2
@@ -1321,7 +1321,7 @@ _ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThr
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext nneg i32 %.0.lcssa.i.i to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef zeroext i1 @_ZNK13StackMapFrame16is_assignable_toEPKS_P12ErrorContextP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %36, ptr noundef nonnull %5, ptr noundef %3) #10
   br label %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameiibbP12ErrorContextP10JavaThread.exit
@@ -1380,7 +1380,7 @@ define hidden void @_ZNK13StackMapTable8print_onEP12outputStream(ptr noundef non
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZNK13StackMapFrame8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %1) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1470,7 +1470,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = sext i32 %39 to i64
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %42, i64 %43
   store ptr %22, ptr %44, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -1603,7 +1603,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN14StackMapRead
   %.020 = phi i32 [ 0, %.lr.ph ], [ %11, %10 ]
   %.01319 = phi i32 [ %8, %.lr.ph ], [ %.1, %10 ]
   %13 = sext i32 %.01319 to i64
-  %14 = getelementptr inbounds %class.VerificationType, ptr %1, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 1025
   %17 = icmp eq i64 %16, 1025
@@ -2004,9 +2004,9 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2023,7 +2023,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

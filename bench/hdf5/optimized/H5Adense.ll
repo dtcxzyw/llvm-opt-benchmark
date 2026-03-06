@@ -2704,7 +2704,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
 82:                                               ; preds = %76
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !105
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %4
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %4
   %86 = load ptr, ptr %85, align 8, !tbaa !37
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 96
   %88 = load ptr, ptr %87, align 8, !tbaa !53

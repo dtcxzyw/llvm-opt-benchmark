@@ -51,7 +51,7 @@ define noundef ptr @io_time_set(ptr noundef captures(ret: address, provenance) %
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.timeval, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %13
   %15 = tail call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #10
   switch i32 %1, label %83 [
     i32 8, label %16
@@ -109,7 +109,7 @@ define noundef ptr @io_time_set(ptr noundef captures(ret: address, provenance) %
   %49 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #10
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %51 = zext i32 %1 to i64
-  %52 = getelementptr inbounds nuw %struct.timeval, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %51
   %.val38 = load i64, ptr %4, align 8, !tbaa !13
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.val39 = load i64, ptr %53, align 8, !tbaa !16
@@ -126,7 +126,7 @@ define noundef ptr @io_time_set(ptr noundef captures(ret: address, provenance) %
   %62 = fadd double %61, %59
   %63 = fsub double %58, %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = getelementptr inbounds nuw double, ptr %64, i64 %51
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %51
   %66 = load double, ptr %65, align 8, !tbaa !17
   %67 = fadd double %66, %63
   store double %67, ptr %65, align 8, !tbaa !17
@@ -181,7 +181,7 @@ declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captur
 define double @io_time_get(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw double, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load double, ptr %5, align 8, !tbaa !17
   ret double %6
 }

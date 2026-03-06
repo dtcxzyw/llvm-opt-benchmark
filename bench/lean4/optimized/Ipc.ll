@@ -949,7 +949,7 @@ declare ptr @l_IO_FS_Stream_writeLspMessage(ptr noundef, ptr noundef, ptr nounde
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -8906,7 +8906,7 @@ lean_alloc_ctor.exit1468:                         ; preds = %1217
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1468
   %1226 = zext nneg i8 %.val1335 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs.11, i64 %1226
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs.11, i64 %1226
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %1227
 
@@ -11445,7 +11445,7 @@ lean_alloc_ctor.exit1599:                         ; preds = %2206
 
 switch.lookup2023:                                ; preds = %lean_alloc_ctor.exit1599
   %2215 = zext nneg i8 %.val1336 to i64
-  %switch.gep2024 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs.11, i64 %2215
+  %switch.gep2024 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs.11, i64 %2215
   %switch.load2025 = load ptr, ptr %switch.gep2024, align 8
   br label %2216
 
@@ -20520,7 +20520,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Lsp_Ipc_waitF
 
 9:                                                ; preds = %.lr.ph, %7
   %.01833 = phi i64 [ %2, %.lr.ph ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01833
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01833
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i1

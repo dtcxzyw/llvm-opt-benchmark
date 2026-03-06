@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @mbc_enc_len(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !4
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @EncLen_EUCJP, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EUCJP, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !7
   ret i32 %5
 }
@@ -80,7 +80,7 @@ define internal range(i32 -400, 4) i32 @code_to_mbclen(i32 noundef %0) #3 {
   %8 = lshr i32 %0, 8
   %9 = and i32 %8, 255
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr @EncLen_EUCJP, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EUCJP, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !7
   %13 = icmp eq i32 %12, 2
   br i1 %13, label %22, label %21
@@ -91,7 +91,7 @@ define internal range(i32 -400, 4) i32 @code_to_mbclen(i32 noundef %0) #3 {
 
 16:                                               ; preds = %14
   %17 = zext nneg i32 %0 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @EncLen_EUCJP, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EUCJP, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !7
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %22, label %21
@@ -243,7 +243,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw i16, ptr @OnigEncAsciiCtypeTable, i64 %7
+  %8 = getelementptr inbounds nuw [2 x i8], ptr @OnigEncAsciiCtypeTable, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !19
   %10 = zext i16 %9 to i32
   %11 = lshr i32 %10, %1
@@ -273,7 +273,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
   %22 = lshr i32 %0, 8
   %23 = and i32 %22, 255
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @EncLen_EUCJP, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EUCJP, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !7
   %27 = icmp eq i32 %26, 2
   br i1 %27, label %code_to_mbclen.exit, label %35
@@ -284,7 +284,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 
 30:                                               ; preds = %28
   %31 = zext nneg i32 %0 to i64
-  %32 = getelementptr inbounds nuw i32, ptr @EncLen_EUCJP, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EUCJP, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !7
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %code_to_mbclen.exit, label %35
@@ -299,7 +299,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
 
 39:                                               ; preds = %36
   %40 = zext nneg i32 %37 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr @PropertyList, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @PropertyList, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !21
   %43 = tail call i32 @onig_is_in_code_range(ptr noundef %42, i32 noundef %0) #8
   br label %code_to_mbclen.exit
@@ -322,7 +322,7 @@ define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr n
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @PropertyList, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @PropertyList, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   store ptr %11, ptr %2, align 8, !tbaa !21
   br label %12

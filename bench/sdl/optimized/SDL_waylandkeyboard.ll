@@ -281,7 +281,7 @@ define hidden noundef zeroext i1 @Wayland_StartTextInput(ptr noundef readonly ca
 
 switch.lookup:                                    ; preds = %33
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Wayland_StartTextInput, i64 %36
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Wayland_StartTextInput, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %37 = load i32, ptr %11, align 8
   %38 = or i32 %37, %switch.load

@@ -400,7 +400,7 @@ bitstream_getbits.exit119:                        ; preds = %.preheader.i113, %.
   %.promoted175188206 = phi i32 [ %.promoted184324346355, %.thread333.thread ], [ %.promoted212, %127 ]
   %.promoted174195205 = phi i32 [ %.promoted190351, %.thread333.thread ], [ %.promoted211, %127 ]
   %132 = phi i8 [ %.promoted196322348353, %.thread333.thread ], [ %158, %127 ]
-  %133 = getelementptr %struct.zgfx_token_t, ptr %123, i64 %indvars.iv
+  %133 = getelementptr [16 x i8], ptr %123, i64 %indvars.iv
   %134 = load i32, ptr %133, align 16
   %.not97 = icmp eq i32 %.078210, %134
   br i1 %.not97, label %.thread159, label %135

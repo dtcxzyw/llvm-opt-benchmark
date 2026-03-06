@@ -20,21 +20,21 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sss
 10:                                               ; preds = %3, %10
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %10 ]
   %11 = mul nsw i64 %indvars.iv, %9
-  %12 = getelementptr i32, ptr %0, i64 %11
+  %12 = getelementptr [4 x i8], ptr %0, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !3
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %14, ptr %15, align 4, !tbaa !3
   %16 = getelementptr i8, ptr %12, i64 -8
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = sub nsw i32 %14, %17
-  %19 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %18, ptr %19, align 4, !tbaa !3
   %20 = getelementptr i8, ptr %12, i64 -12
   %21 = load i32, ptr %20, align 4, !tbaa !3
   %.neg240 = sub i32 %21, %17
   %22 = add i32 %.neg240, %18
-  %23 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %22, ptr %23, align 4, !tbaa !3
   %24 = shl nsw i32 %21, 1
   %25 = getelementptr i8, ptr %12, i64 -16
@@ -42,7 +42,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sss
   %27 = add i32 %17, %26
   %.neg301 = sub i32 %24, %27
   %28 = add i32 %.neg301, %22
-  %29 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %28, ptr %29, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -64,9 +64,9 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sss
   %40 = zext nneg i32 %37 to i64
   %41 = zext nneg i32 %38 to i64
   %wide.trip.count = zext nneg i32 %8 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %39
-  %invariant.gep361 = getelementptr inbounds nuw i32, ptr %0, i64 %40
-  %invariant.gep363 = getelementptr inbounds nuw i32, ptr %0, i64 %41
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %39
+  %invariant.gep361 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %40
+  %invariant.gep363 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %41
   br label %42
 
 42:                                               ; preds = %.lr.ph, %42
@@ -80,16 +80,16 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sss
   %49 = phi <4 x i32> [ zeroinitializer, %.lr.ph ], [ %64, %42 ]
   %50 = phi <4 x i32> [ zeroinitializer, %.lr.ph ], [ %61, %42 ]
   %51 = phi <4 x i32> [ zeroinitializer, %.lr.ph ], [ %58, %42 ]
-  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv343
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv343
   %53 = load i32, ptr %52, align 4, !tbaa !3
   %.sroa.0.0.vec.insert = insertelement <4 x i32> poison, i32 %53, i64 0
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv343
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv343
   %54 = load i32, ptr %gep, align 4, !tbaa !3
   %.sroa.0.4.vec.insert = insertelement <4 x i32> %.sroa.0.0.vec.insert, i32 %54, i64 1
-  %gep362 = getelementptr inbounds nuw i32, ptr %invariant.gep361, i64 %indvars.iv343
+  %gep362 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep361, i64 %indvars.iv343
   %55 = load i32, ptr %gep362, align 4, !tbaa !3
   %.sroa.0.8.vec.insert = insertelement <4 x i32> %.sroa.0.4.vec.insert, i32 %55, i64 2
-  %gep364 = getelementptr inbounds nuw i32, ptr %invariant.gep363, i64 %indvars.iv343
+  %gep364 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep363, i64 %indvars.iv343
   %56 = load i32, ptr %gep364, align 4, !tbaa !3
   %.sroa.0.12.vec.insert = insertelement <4 x i32> %.sroa.0.8.vec.insert, i32 %56, i64 3
   %57 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %.sroa.0.12.vec.insert, i1 false)
@@ -164,7 +164,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sss
 
 .lr.ph324.preheader:                              ; preds = %._crit_edge
   %79 = zext nneg i32 %.1224.lcssa to i64
-  %80 = getelementptr i32, ptr %0, i64 %79
+  %80 = getelementptr [4 x i8], ptr %0, i64 %79
   %81 = getelementptr i8, ptr %80, i64 -12
   %82 = load i32, ptr %81, align 4, !tbaa !3
   %.neg330.neg = shl i32 %82, 1
@@ -193,7 +193,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sss
   %.1208316 = phi i32 [ %74, %.lr.ph324.preheader ], [ %102, %.lr.ph324 ]
   %.1210315 = phi i32 [ %75, %.lr.ph324.preheader ], [ %105, %.lr.ph324 ]
   %.1222314 = phi i32 [ %76, %.lr.ph324.preheader ], [ %108, %.lr.ph324 ]
-  %93 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv347
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv347
   %94 = load i32, ptr %93, align 4, !tbaa !3
   %95 = tail call i32 @llvm.abs.i32(i32 %94, i1 true)
   %96 = add i32 %95, %.1322

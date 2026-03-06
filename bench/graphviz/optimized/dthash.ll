@@ -343,7 +343,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %160 = add nsw i32 %155, -1
   %161 = and i32 %160, %.0294
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %159, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !22
   %.not348491 = icmp eq ptr %164, null
   br i1 %.not348491, label %.thread390, label %.lr.ph
@@ -432,7 +432,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %208 = add nsw i32 %207, -1
   %209 = and i32 %208, %203
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds nuw ptr, ptr %205, i64 %210
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %210
   br label %233
 
 .thread390:                                       ; preds = %199, %153, %157
@@ -648,7 +648,7 @@ thread-pre-split:                                 ; preds = %281, %277, %270
   %300 = add nsw i32 %282, -1
   %301 = and i32 %300, %.1295398429
   %302 = zext i32 %301 to i64
-  %303 = getelementptr inbounds nuw ptr, ptr %299, i64 %302
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %302
   %304 = load ptr, ptr %303, align 8, !tbaa !22
   store ptr %304, ptr %.3286, align 8, !tbaa !26
   store ptr %.3286, ptr %303, align 8, !tbaa !22
@@ -680,7 +680,7 @@ thread-pre-split:                                 ; preds = %281, %277, %270
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %316 = load i32, ptr %315, align 8, !tbaa !21
   %317 = sext i32 %316 to i64
-  %318 = getelementptr inbounds ptr, ptr %314, i64 %317
+  %318 = getelementptr inbounds [8 x i8], ptr %314, i64 %317
   br label %319
 
 319:                                              ; preds = %321, %312
@@ -854,7 +854,7 @@ thread-pre-split:                                 ; preds = %281, %277, %270
   %380 = load i32, ptr %379, align 8, !tbaa !20
   %381 = and i32 %380, %375
   %382 = zext i32 %381 to i64
-  %383 = getelementptr inbounds nuw ptr, ptr %367, i64 %382
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %367, i64 %382
   %384 = icmp eq ptr %383, %.162.i
   br i1 %384, label %387, label %385
 
@@ -1119,7 +1119,7 @@ define internal fastcc void @dthtab(ptr noundef captures(none) %0) unnamed_addr 
   %33 = load i32, ptr %32, align 8, !tbaa !20
   %34 = and i32 %33, %28
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %20, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %35
   %37 = icmp eq ptr %36, %.162
   br i1 %37, label %40, label %38
 

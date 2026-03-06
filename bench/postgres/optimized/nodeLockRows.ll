@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/nodeLockRows.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
 %struct.TM_FailureData = type { %struct.ItemPointerData, i32, i32, i8 }
@@ -65,7 +64,7 @@ define dso_local noundef ptr @ExecInitLockRows(ptr noundef %0, ptr noundef %1, i
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph ]
   %.04549 = phi ptr [ %.1, %53 ], [ null, %.lr.ph ]
   %26 = load ptr, ptr %21, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load i8, ptr %29, align 4, !range !4, !noundef !5
@@ -189,7 +188,7 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   %.067131211 = phi i1 [ %.2101, %.thread98 ], [ false, %.lr.ph ]
   %indvars.iv210 = phi i64 [ %indvars.iv.next, %.thread98 ], [ 0, %.lr.ph ]
   %39 = load ptr, ptr %33, align 8
-  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv210
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv210
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -238,7 +237,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %54, %slot_getsomeat
 
 69:                                               ; preds = %ExecGetJunkAttribute.exit
   %70 = load ptr, ptr %36, align 8
-  %71 = getelementptr inbounds i64, ptr %70, i64 %62
+  %71 = getelementptr inbounds [8 x i8], ptr %70, i64 %62
   %72 = load i64, ptr %71, align 8
   %73 = trunc i64 %72 to i32
   %74 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -278,7 +277,7 @@ ExecGetJunkAttribute.exit91:                      ; preds = %.thread, %slot_gets
   %90 = getelementptr inbounds i8, ptr %87, i64 %89
   %91 = load i8, ptr %90, align 1, !range !4, !noundef !5
   %92 = load ptr, ptr %36, align 8
-  %93 = getelementptr inbounds i64, ptr %92, i64 %89
+  %93 = getelementptr inbounds [8 x i8], ptr %92, i64 %89
   %94 = load i64, ptr %93, align 8
   %95 = trunc nuw i8 %91 to i1
   br i1 %95, label %96, label %99

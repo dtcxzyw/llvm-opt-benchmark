@@ -549,7 +549,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i8 %192, ptr %53, align 1
   %193 = and i32 %188, 3
   %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr i32, ptr @__const.prism_rate_return_sig.dsss_tbl, i64 %194
+  %195 = getelementptr [4 x i8], ptr @__const.prism_rate_return_sig.dsss_tbl, i64 %194
   %196 = load i32, ptr %195, align 4
   %197 = load i16, ptr %54, align 8
   %198 = or i16 %197, 4
@@ -610,7 +610,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
 233:                                              ; preds = %232
   %.not210.i = icmp eq i32 %213, 0
   %234 = zext nneg i32 %206 to i64
-  %235 = getelementptr [2 x i32], ptr @ht_20_tbl, i64 %234
+  %235 = getelementptr [8 x i8], ptr @ht_20_tbl, i64 %234
   br i1 %.not210.i, label %239, label %236
 
 236:                                              ; preds = %233
@@ -625,7 +625,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
 241:                                              ; preds = %232
   %.not209.i = icmp eq i32 %213, 0
   %242 = zext nneg i32 %206 to i64
-  %243 = getelementptr [2 x i32], ptr @ht_40_tbl, i64 %242
+  %243 = getelementptr [8 x i8], ptr @ht_40_tbl, i64 %242
   br i1 %.not209.i, label %247, label %244
 
 244:                                              ; preds = %241
@@ -666,7 +666,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %269 = and i32 %257, 3
   %270 = shl nuw nsw i32 20, %269
   %271 = zext nneg i32 %269 to i64
-  %272 = getelementptr i32, ptr @prism_rate_return_sig.bw_map, i64 %271
+  %272 = getelementptr [4 x i8], ptr @prism_rate_return_sig.bw_map, i64 %271
   %273 = load i32, ptr %272, align 4
   %274 = trunc i32 %273 to i8
   store i8 %274, ptr %45, align 2
@@ -726,13 +726,13 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
 304:                                              ; preds = %303
   %.not204.i = icmp eq i32 %265, 0
   %305 = zext nneg i32 %288 to i64
-  %306 = getelementptr [8 x i32], ptr @vht_20_tbl, i64 %305
+  %306 = getelementptr [32 x i8], ptr @vht_20_tbl, i64 %305
   br i1 %.not204.i, label %313, label %307
 
 307:                                              ; preds = %304
   %308 = shl nuw nsw i32 %286, 1
   %309 = zext nneg i32 %308 to i64
-  %310 = getelementptr i32, ptr %306, i64 %309
+  %310 = getelementptr [4 x i8], ptr %306, i64 %309
   %311 = getelementptr i8, ptr %310, i64 -4
   %312 = load i32, ptr %311, align 4
   br label %360
@@ -740,20 +740,20 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
 313:                                              ; preds = %304
   %314 = shl nuw nsw i32 %.0192.i, 1
   %315 = zext nneg i32 %314 to i64
-  %316 = getelementptr i32, ptr %306, i64 %315
+  %316 = getelementptr [4 x i8], ptr %306, i64 %315
   %317 = load i32, ptr %316, align 8
   br label %360
 
 318:                                              ; preds = %303
   %.not203.i = icmp eq i32 %265, 0
   %319 = zext nneg i32 %288 to i64
-  %320 = getelementptr [8 x i32], ptr @vht_40_tbl, i64 %319
+  %320 = getelementptr [32 x i8], ptr @vht_40_tbl, i64 %319
   br i1 %.not203.i, label %327, label %321
 
 321:                                              ; preds = %318
   %322 = shl nuw nsw i32 %286, 1
   %323 = zext nneg i32 %322 to i64
-  %324 = getelementptr i32, ptr %320, i64 %323
+  %324 = getelementptr [4 x i8], ptr %320, i64 %323
   %325 = getelementptr i8, ptr %324, i64 -4
   %326 = load i32, ptr %325, align 4
   br label %360
@@ -761,20 +761,20 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
 327:                                              ; preds = %318
   %328 = shl nuw nsw i32 %.0192.i, 1
   %329 = zext nneg i32 %328 to i64
-  %330 = getelementptr i32, ptr %320, i64 %329
+  %330 = getelementptr [4 x i8], ptr %320, i64 %329
   %331 = load i32, ptr %330, align 8
   br label %360
 
 332:                                              ; preds = %303
   %.not202.i = icmp eq i32 %265, 0
   %333 = zext nneg i32 %288 to i64
-  %334 = getelementptr [8 x i32], ptr @vht_80_tbl, i64 %333
+  %334 = getelementptr [32 x i8], ptr @vht_80_tbl, i64 %333
   br i1 %.not202.i, label %341, label %335
 
 335:                                              ; preds = %332
   %336 = shl nuw nsw i32 %286, 1
   %337 = zext nneg i32 %336 to i64
-  %338 = getelementptr i32, ptr %334, i64 %337
+  %338 = getelementptr [4 x i8], ptr %334, i64 %337
   %339 = getelementptr i8, ptr %338, i64 -4
   %340 = load i32, ptr %339, align 4
   br label %360
@@ -782,20 +782,20 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
 341:                                              ; preds = %332
   %342 = shl nuw nsw i32 %.0192.i, 1
   %343 = zext nneg i32 %342 to i64
-  %344 = getelementptr i32, ptr %334, i64 %343
+  %344 = getelementptr [4 x i8], ptr %334, i64 %343
   %345 = load i32, ptr %344, align 8
   br label %360
 
 346:                                              ; preds = %303
   %.not201.i = icmp eq i32 %265, 0
   %347 = zext nneg i32 %288 to i64
-  %348 = getelementptr [8 x i32], ptr @vht_160_tbl, i64 %347
+  %348 = getelementptr [32 x i8], ptr @vht_160_tbl, i64 %347
   br i1 %.not201.i, label %355, label %349
 
 349:                                              ; preds = %346
   %350 = shl nuw nsw i32 %286, 1
   %351 = zext nneg i32 %350 to i64
-  %352 = getelementptr i32, ptr %348, i64 %351
+  %352 = getelementptr [4 x i8], ptr %348, i64 %351
   %353 = getelementptr i8, ptr %352, i64 -4
   %354 = load i32, ptr %353, align 4
   br label %360
@@ -803,7 +803,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
 355:                                              ; preds = %346
   %356 = shl nuw nsw i32 %.0192.i, 1
   %357 = zext nneg i32 %356 to i64
-  %358 = getelementptr i32, ptr %348, i64 %357
+  %358 = getelementptr [4 x i8], ptr %348, i64 %357
   %359 = load i32, ptr %358, align 8
   br label %360
 

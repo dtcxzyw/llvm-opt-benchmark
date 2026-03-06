@@ -50,12 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::StreamingDiagnostic" = type { ptr, ptr }
 %"class.clang::SourceLocation" = type { i32 }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
-%"class.llvm::BitCodeAbbrevOp" = type <{ i64, i8, [7 x i8] }>
-%"struct.llvm::BitstreamCursor::Block" = type { i32, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::shared_ptr<llvm::BitCodeAbbrev>, std::allocator<std::shared_ptr<llvm::BitCodeAbbrev>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<llvm::BitCodeAbbrev>, std::allocator<std::shared_ptr<llvm::BitCodeAbbrev>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<llvm::BitCodeAbbrev>, std::allocator<std::shared_ptr<llvm::BitCodeAbbrev>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<llvm::BitCodeAbbrev>, std::allocator<std::shared_ptr<llvm::BitCodeAbbrev>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon.589 }
 %struct.anon.589 = type { ptr, i64 }
@@ -1296,7 +1290,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %37
   %51 = add i32 %33, -1
   store i32 %51, ptr %32, align 8, !tbaa !573
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !587
   store i8 0, ptr %54, align 8, !tbaa !575
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 424
@@ -1355,7 +1349,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %77 = add i8 %76, 1
   store i8 %77, ptr %74, align 8, !tbaa !575
   %78 = zext i8 %76 to i64
-  %79 = getelementptr inbounds nuw i64, ptr %75, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %78
   store i64 %27, ptr %79, align 8, !tbaa !67
   %80 = load i32, ptr %9, align 4, !tbaa !34
   %81 = zext i32 %80 to i64
@@ -1369,7 +1363,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %88 = add i8 %87, 1
   store i8 %88, ptr %85, align 8, !tbaa !575
   %89 = zext i8 %87 to i64
-  %90 = getelementptr inbounds nuw i64, ptr %86, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %89
   store i64 %81, ptr %90, align 8, !tbaa !67
   %91 = load i32, ptr %12, align 8, !tbaa !34
   %92 = zext i32 %91 to i64
@@ -1383,7 +1377,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %99 = add i8 %98, 1
   store i8 %99, ptr %96, align 8, !tbaa !575
   %100 = zext i8 %98 to i64
-  %101 = getelementptr inbounds nuw i64, ptr %97, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %100
   store i64 %92, ptr %101, align 8, !tbaa !67
   %102 = load i32, ptr %13, align 4, !tbaa !34
   %103 = zext i32 %102 to i64
@@ -1397,7 +1391,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %110 = add i8 %109, 1
   store i8 %110, ptr %107, align 8, !tbaa !575
   %111 = zext i8 %109 to i64
-  %112 = getelementptr inbounds nuw i64, ptr %108, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %111
   store i64 %103, ptr %112, align 8, !tbaa !67
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %114 = load i8, ptr %113, align 8, !tbaa !589, !range !124, !noundef !125
@@ -1684,7 +1678,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %2, %_ZN4llvm15Bitst
 37:                                               ; preds = %.lr.ph, %_ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit ]
   %38 = load ptr, ptr %1, align 8, !tbaa !17
-  %39 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i8, ptr %40, align 8
   %42 = and i8 %41, 1
@@ -2183,7 +2177,7 @@ _ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE11_S_relocateEPS3_S6_
 _ZNSt12_Vector_baseISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !32
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !28
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !31
   ret void
 }
@@ -2294,7 +2288,7 @@ _ZSt4copyIPKN4llvm15BitstreamCursor5BlockEPS2_ET0_T_S7_S6_.exit: ; preds = %_ZSt
   %.pre-phi = phi i64 [ %.pre42, %_ZSt4copyIPKN4llvm15BitstreamCursor5BlockEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %11, %24 ]
   %26 = phi ptr [ %.pre, %_ZSt4copyIPKN4llvm15BitstreamCursor5BlockEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %25, %24 ]
   %.0 = phi ptr [ %21, %_ZSt4copyIPKN4llvm15BitstreamCursor5BlockEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %25, %24 ]
-  %27 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %26, i64 %.pre-phi
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %27
   br i1 %.not4.i, label %.sink.split, label %.lr.ph.i
 
@@ -2448,13 +2442,13 @@ _ZSt4copyIPKN4llvm15BitstreamCursor5BlockEPS2_ET0_T_S7_S6_.exit35: ; preds = %_Z
   %88 = load ptr, ptr %1, align 8, !tbaa !17
   %89 = load i32, ptr %6, align 8, !tbaa !21
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %90
   %.not10.i.i.i.i = icmp samesign eq i64 %.022, %90
   br i1 %.not10.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKN4llvm15BitstreamCursor5BlockEPS2_ET0_T_S7_S6_.exit35
-  %92 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %87, i64 %.022
-  %93 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %88, i64 %.022
+  %92 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %.022
+  %93 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN4llvm15BitstreamCursor5BlockEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
@@ -3808,7 +3802,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamCursor13popBlockScopeEv(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8, !tbaa !21
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -32
   %9 = load i32, ptr %8, align 8, !tbaa !633
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3905,7 +3899,7 @@ _ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EEaSEOS5_.exit: ; preds
   store i32 %52, ptr %4, align 8, !tbaa !21
   %53 = load ptr, ptr %2, align 8, !tbaa !17
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !32
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -4345,7 +4339,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !573
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !587
   br label %43
 
@@ -4504,7 +4498,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrev
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = zext i32 %9 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !32
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8, !tbaa !597
@@ -4591,7 +4585,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   %.04672 = phi i32 [ 0, %.lr.ph75 ], [ %.147, %.loopexit ]
   %57 = zext i32 %.14473 to i64
   %58 = load ptr, ptr %14, align 8, !tbaa !17
-  %59 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
@@ -4612,7 +4606,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 68:                                               ; preds = %65
   %69 = add i32 %.14473, 1
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %70
   %.not51 = icmp eq ptr %.074, null
   br i1 %.not51, label %75, label %72
 
@@ -4638,7 +4632,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 .lr.ph70:                                         ; preds = %75, %.lr.ph70
   %.369 = phi i32 [ %80, %.lr.ph70 ], [ %.04672, %75 ]
   %77 = zext i32 %.369 to i64
-  %78 = getelementptr inbounds nuw i64, ptr %2, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !67
   tail call void @_ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldImEEvRKNS_15BitCodeAbbrevOpET_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(9) %71, i64 noundef %79)
   %80 = add i32 %.369, 1
@@ -4656,13 +4650,13 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 83:                                               ; preds = %81
   %84 = zext i32 %.04672 to i64
   %85 = sub i64 %3, %84
-  %86 = getelementptr inbounds nuw i64, ptr %2, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %84
   tail call void @_ZN4llvm15BitstreamWriter8emitBlobImEEvNS_8ArrayRefIT_EEb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr %86, i64 %85, i1 noundef zeroext true)
   br label %.loopexit
 
 87:                                               ; preds = %65
   %88 = zext i32 %.04672 to i64
-  %89 = getelementptr inbounds nuw i64, ptr %2, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !67
   tail call void @_ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldImEEvRKNS_15BitCodeAbbrevOpET_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(9) %59, i64 noundef %90)
   %91 = add i32 %.04672, 1
@@ -5608,7 +5602,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !573
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !587
   store i8 0, ptr %32, align 8, !tbaa !575
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -5716,7 +5710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %73 = add i8 %72, 1
   store i8 %73, ptr %70, align 8, !tbaa !575
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !56
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = icmp eq ptr %76, %77

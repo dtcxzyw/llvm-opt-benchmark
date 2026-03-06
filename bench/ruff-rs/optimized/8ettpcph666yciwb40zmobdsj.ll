@@ -351,7 +351,7 @@ _ZN5serde2de9SeqAccess12next_element17hafdcd2cdb24b108bE.exit: ; preds = %25
 
 40:                                               ; preds = %35, %31
   %41 = load ptr, ptr %22, align 8, !alias.scope !50, !noalias !53, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %43 = add i64 %32, 1
   store i64 %43, ptr %23, align 8, !alias.scope !50, !noalias !53
@@ -3102,10 +3102,10 @@ define internal noundef zeroext i1 @"_ZN69_$LT$ruff_db..system..CaseSensitivity$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !280, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN69_$LT$ruff_db..system..CaseSensitivity$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbeea3426f2ef598E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN69_$LT$ruff_db..system..CaseSensitivity$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbeea3426f2ef598E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN69_$LT$ruff_db..system..CaseSensitivity$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbeea3426f2ef598E.30", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN69_$LT$ruff_db..system..CaseSensitivity$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbeea3426f2ef598E.30", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -5592,7 +5592,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 157:                                              ; preds = %152, %148
   %158 = load ptr, ptr %44, align 8, !alias.scope !586, !noalias !589, !nonnull !4, !noundef !4
-  %159 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %158, i64 %149
+  %159 = getelementptr inbounds nuw [64 x i8], ptr %158, i64 %149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %159, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 64, i1 false), !noalias !505
   %160 = add i64 %149, 1
   store i64 %160, ptr %45, align 8, !alias.scope !586, !noalias !589
@@ -7102,7 +7102,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 
 47:                                               ; preds = %42, %38
   %48 = load ptr, ptr %19, align 8, !alias.scope !801, !noalias !804, !nonnull !4, !noundef !4
-  %49 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %48, i64 %39
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %50 = add i64 %39, 1
   store i64 %50, ptr %20, align 8, !alias.scope !801, !noalias !804
@@ -7243,7 +7243,7 @@ _ZN5serde2de9SeqAccess12next_element17hb39f2680547dde61E.exit: ; preds = %25
 
 40:                                               ; preds = %35, %31
   %41 = load ptr, ptr %22, align 8, !alias.scope !809, !noalias !812, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %41, i64 %32
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %43 = add i64 %32, 1
   store i64 %43, ptr %23, align 8, !alias.scope !809, !noalias !812
@@ -7414,7 +7414,7 @@ define hidden void @_ZN7ty_test10diagnostic17SortedDiagnostics10iter_lines17hf74
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = getelementptr inbounds nuw { i64, { i64, i64 } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %10
   store ptr %4, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %12, align 8
@@ -7462,7 +7462,7 @@ define void @"_ZN103_$LT$ty_test..diagnostic..LineDiagnosticsIterator$u20$as$u20
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb80a5f692ac4e4c8E.exit": ; preds = %17
   %21 = sub nuw i64 %.val3, %.val
-  %22 = getelementptr inbounds nuw ptr, ptr %12, i64 %.val
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.val
   store i64 %11, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %22, ptr %.sroa.4.0..sroa_idx, align 8

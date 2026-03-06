@@ -48,7 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.5" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.7" = type { %"class.std::__shared_ptr.8" }
 %"class.std::__shared_ptr.8" = type { ptr, %"class.std::__shared_count" }
-%"struct.rapidjson::GenericMember" = type { %"class.rapidjson::GenericValue", %"class.rapidjson::GenericValue" }
 %"class.std::shared_ptr.19" = type { %"class.std::__shared_ptr.20" }
 %"class.std::__shared_ptr.20" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.22" = type { %"class.std::__shared_ptr.23" }
@@ -2700,7 +2699,7 @@ _ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAlloca
 .loopexit90:                                      ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread4.i.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i.i, %115, %77
   %storemerge.lcssa.i.i.i.i = phi ptr [ %91, %77 ], [ %storemerge7.i.i.i.i, %115 ], [ %storemerge7.i.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i.i ], [ %94, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread4.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !113
-  %125 = getelementptr inbounds nuw %"struct.rapidjson::GenericMember", ptr %91, i64 %93
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %91, i64 %93
   %.not88 = icmp eq ptr %storemerge.lcssa.i.i.i.i, %125
   br i1 %.not88, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, label %126
 
@@ -3232,7 +3231,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %337 = ptrtoint ptr %336 to i64
   %338 = and i64 %337, 281474976710655
   %339 = inttoptr i64 %338 to ptr
-  %340 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %339, i64 %indvars.iv.i
+  %340 = getelementptr inbounds nuw [16 x i8], ptr %339, i64 %indvars.iv.i
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 14
   %342 = load i16, ptr %341, align 2, !tbaa !19, !noalias !145
   %343 = icmp eq i16 %342, 3
@@ -4704,7 +4703,7 @@ _ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAlloca
 _ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit: ; preds = %41, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread4.i.i.i, %2
   %storemerge.lcssa.i.i.i = phi ptr [ %17, %2 ], [ %20, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread4.i.i.i ], [ %storemerge7.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i ], [ %storemerge7.i.i.i, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !182
-  %51 = getelementptr inbounds nuw %"struct.rapidjson::GenericMember", ptr %17, i64 %19
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %19
   %52 = icmp ne ptr %storemerge.lcssa.i.i.i, %51
   ret i1 %52
 }
@@ -4790,7 +4789,7 @@ _ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAlloca
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberIS5_EENS_21GenericMemberIteratorILb0ES2_S5_EERKNS0_IS2_T_EE.exit.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread4.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i, %41, %2
   %storemerge.lcssa.i.i = phi ptr [ %17, %2 ], [ %storemerge7.i.i, %41 ], [ %storemerge7.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i ], [ %20, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.thread4.i.i ]
-  %51 = getelementptr inbounds nuw %"struct.rapidjson::GenericMember", ptr %17, i64 %19
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %19
   %.not.i = icmp eq ptr %storemerge.lcssa.i.i, %51
   br i1 %.not.i, label %54, label %52
 
@@ -5853,7 +5852,7 @@ define internal fastcc void @_ZN6opencc12_GLOBAL__N_114ConfigInternal9ParseDictE
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %54, 281474976710655
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 14
   %59 = load i16, ptr %58, align 2, !tbaa !19
   %60 = icmp eq i16 %59, 3
@@ -8667,7 +8666,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !10
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !13
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !22
   ret void
 
@@ -9503,7 +9502,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !10
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !13
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !22
   ret void
 }
@@ -11077,7 +11076,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   %202 = fdiv double %.7102643, 1.000000e+308
   %203 = sub nuw nsw i32 -308, %197
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw double, ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %204
+  %205 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %204
   %206 = load double, ptr %205, align 8, !tbaa !340
   %207 = fdiv double %202, %206
   br label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit
@@ -11088,7 +11087,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
 
 210:                                              ; preds = %208
   %211 = zext nneg i32 %197 to i64
-  %212 = getelementptr inbounds nuw double, ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %211
   %213 = load double, ptr %212, align 8, !tbaa !340
   %214 = fmul double %.7102643, %213
   br label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit
@@ -11096,7 +11095,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
 215:                                              ; preds = %208
   %216 = sub nsw i32 0, %197
   %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds nuw double, ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %217
   %219 = load double, ptr %218, align 8, !tbaa !340
   %220 = fdiv double %.7102643, %219
   br label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit

@@ -2718,7 +2718,7 @@ _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE11_S_relocateEPS4_S7_S7_RS
 _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %874, %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %869, ptr %846, align 8, !tbaa !124
   store ptr %873, ptr %847, align 8, !tbaa !122
-  %875 = getelementptr inbounds nuw ptr, ptr %869, i64 %867
+  %875 = getelementptr inbounds nuw [8 x i8], ptr %869, i64 %867
   store ptr %875, ptr %848, align 8, !tbaa !123
   br label %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE9push_backERKS4_.exit
 

@@ -6,11 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogTagSet = type { ptr, i64, [5 x i32], [4 x i8], %class.LogOutputList, %class.LogDecorators, ptr }
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
-%"class.metaspace::Metachunk" = type { ptr, i64, i64, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%"class.metaspace::FreeChunkList" = type <{ ptr, ptr, %"class.metaspace::AbstractCounter", [4 x i8] }>
-%"class.metaspace::AbstractCounter" = type { i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"class.metaspace::RootChunkArea" = type { ptr, ptr }
 
 $_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz = comdat any
 
@@ -147,7 +143,7 @@ _ZN9metaspace13MetachunkList12remove_firstEv.exit.i: ; preds = %9, %6
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = sext i32 %25 to i64
-  %30 = getelementptr inbounds %"class.metaspace::Metachunk", ptr %27, i64 %29
+  %30 = getelementptr inbounds [72 x i8], ptr %27, i64 %29
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr %28, align 8
   br label %_ZN9metaspace15ChunkHeaderPool21allocate_chunk_headerEv.exit
@@ -265,7 +261,7 @@ _ZN9metaspace13MetachunkList12remove_firstEv.exit.i: ; preds = %38, %35
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = sext i32 %54 to i64
-  %59 = getelementptr inbounds %"class.metaspace::Metachunk", ptr %56, i64 %58
+  %59 = getelementptr inbounds [72 x i8], ptr %56, i64 %58
   %60 = add nsw i32 %54, 1
   store i32 %60, ptr %57, align 8
   br label %_ZN9metaspace15ChunkHeaderPool21allocate_chunk_headerEv.exit
@@ -282,7 +278,7 @@ _ZN9metaspace15ChunkHeaderPool21allocate_chunk_headerEv.exit: ; preds = %_ZN9met
   %67 = sext i8 %66 to i64
   %68 = and i64 %67, 4294967295
   %69 = lshr i64 2097152, %68
-  %70 = getelementptr inbounds nuw ptr, ptr %65, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %72, i8 0, i64 18, i1 false)
@@ -375,7 +371,7 @@ _ZN9metaspace15ChunkHeaderPool21allocate_chunk_headerEv.exit: ; preds = %_ZN9met
 126:                                              ; preds = %109, %111
   %127 = load i8, ptr %74, align 8
   %128 = sext i8 %127 to i64
-  %129 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %3, i64 %128
+  %129 = getelementptr inbounds [24 x i8], ptr %3, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %131 = load i64, ptr %130, align 8
   %132 = icmp eq i64 %131, 0
@@ -568,7 +564,7 @@ define hidden noundef ptr @_ZN9metaspace13RootChunkArea5mergeEPNS_9MetachunkEPNS
 72:                                               ; preds = %.lr.ph83, %64
   %73 = phi i8 [ %62, %.lr.ph83 ], [ %.pre, %64 ]
   %74 = sext i8 %73 to i64
-  %75 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %2, i64 %74
+  %75 = getelementptr inbounds [24 x i8], ptr %2, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %60, i64 48
@@ -788,7 +784,7 @@ define hidden noundef zeroext i1 @_ZN9metaspace13RootChunkArea21attempt_enlarge_
   store ptr %72, ptr %17, align 8
   %74 = load i8, ptr %23, align 8
   %75 = sext i8 %74 to i64
-  %76 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %2, i64 %75
+  %76 = getelementptr inbounds [24 x i8], ptr %2, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %18, i64 48
@@ -999,7 +995,7 @@ define hidden void @_ZN9metaspace16RootChunkAreaLUTC2EPKP12MetaWordImplm(ptr nou
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.09 = phi ptr [ %12, %.lr.ph.preheader ], [ %16, %.lr.ph ]
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds nuw %"class.metaspace::RootChunkArea", ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   store ptr %.09, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %15, align 8
@@ -1035,7 +1031,7 @@ define hidden void @_ZN9metaspace16RootChunkAreaLUTD2Ev(ptr noundef nonnull read
   %11 = phi i32 [ %3, %.lr.ph ], [ %26, %_ZN9metaspace13RootChunkAreaD2Ev.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN9metaspace13RootChunkAreaD2Ev.exit ]
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds nuw %"class.metaspace::RootChunkArea", ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
@@ -1098,7 +1094,7 @@ define hidden void @_ZNK9metaspace16RootChunkAreaLUT8print_onEP12outputStream(pt
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.17, i32 noundef %8) #8
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %"class.metaspace::RootChunkArea", ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, i64 noundef %12) #8

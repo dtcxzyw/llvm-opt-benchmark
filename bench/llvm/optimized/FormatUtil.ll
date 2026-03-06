@@ -503,7 +503,7 @@ define dso_local void @_ZN4llvm3pdb15typesetItemListENS_8ArrayRefINSt7__cxx1112b
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.01.0.copyload.pre = load ptr, ptr %5, align 8, !tbaa !14
   %..i29 = tail call i64 @llvm.umin.i64(i64 %14, i64 %2)
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %..i29
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %..i29
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4llvm6detail9join_implIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SA_NS_9StringRefESt20forward_iterator_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef %1, ptr noundef %32, ptr %.sroa.01.0.copyload.pre, i64 %.sroa.22.0.copyload)
   %33 = load i64, ptr %15, align 8, !tbaa !9
@@ -629,7 +629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %..i = call i64 @llvm.umin.i64(i64 %14, i64 %40)
   %72 = sub i64 %40, %..i
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %39, i64 %..i
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %..i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4llvm6detail9join_implIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_T_SA_NS_9StringRefESt20forward_iterator_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef %39, ptr noundef %73, ptr %.sroa.0.0.copyload, i64 %.sroa.22.0.copyload)
   %74 = load i64, ptr %15, align 8, !tbaa !9
@@ -7802,7 +7802,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !121
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !118
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !120
   ret void
 }

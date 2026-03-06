@@ -150,7 +150,7 @@ _ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit: ; pr
   %61 = phi i64 [ %.pre.i, %59 ], [ %57, %39 ]
   %.05.i = phi ptr [ %37, %59 ], [ %.sink2.i.i17, %39 ]
   %.0.i = phi ptr [ %60, %59 ], [ %.sink3.i.i, %39 ]
-  %62 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, ptr %.0.i, i64 %61
+  %62 = getelementptr inbounds [28 x i8], ptr %.0.i, i64 %61
   store i32 %41, ptr %62, align 4
   %.sroa.252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 %53, ptr %.sroa.252.0..sroa_idx, align 4
@@ -188,7 +188,7 @@ _ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit: ; pr
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.084, i64 20
   %79 = load i32, ptr %78, align 4, !alias.scope !61, !noalias !64, !noundef !11
   %80 = load i32, ptr %71, align 4, !range !36, !alias.scope !66, !noalias !64, !noundef !11
-  %81 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, ptr %.sink3.i, i64 %.sroa.7.083
+  %81 = getelementptr inbounds [28 x i8], ptr %.sink3.i, i64 %.sroa.7.083
   store i32 %68, ptr %81, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %80, ptr %.sroa.2.0..sroa_idx, align 4
@@ -333,7 +333,7 @@ _ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit: ; pr
   %49 = phi i64 [ %.pre.i, %47 ], [ %45, %41 ]
   %.05.i = phi ptr [ %11, %47 ], [ %.sink2.i.i, %41 ]
   %.0.i = phi ptr [ %48, %47 ], [ %.sink3.i.i, %41 ]
-  %50 = getelementptr inbounds { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.0.i, i64 %49
+  %50 = getelementptr inbounds [72 x i8], ptr %.0.i, i64 %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.032, i64 64, i1 false)
   %.sroa.233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 64
   store i8 %.sroa.529.0.copyload30, ptr %.sroa.233.0..sroa_idx, align 8
@@ -358,7 +358,7 @@ _ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit: ; pr
   %.sroa.724.0..sroa.0.0.10.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.048, i64 65
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.048, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.724.0..sroa.0.0.10.sroa_idx, i64 7, i1 false)
-  %56 = getelementptr inbounds { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, ptr %.sink3.i, i64 %.sroa.7.047
+  %56 = getelementptr inbounds [72 x i8], ptr %.sink3.i, i64 %.sroa.7.047
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.048, i64 64, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 64
   store i8 %.sroa.522.0.copyload23, ptr %.sroa.2.0..sroa_idx, align 8
@@ -561,7 +561,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %73 = phi i64 [ %.pre.i, %65 ], [ %60, %56 ]
   %.05.i = phi ptr [ %16, %65 ], [ %.sink2.i.i, %56 ]
   %.0.i = phi ptr [ %66, %65 ], [ %.sink3.i.i, %56 ]
-  %74 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %.0.i, i64 %73
+  %74 = getelementptr inbounds [608 x i8], ptr %.0.i, i64 %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %74, ptr noundef nonnull align 8 dereferenceable(608) %3, i64 608, i1 false)
   %75 = load i64, ptr %.05.i, align 8, !alias.scope !149, !noalias !158, !noundef !11
   %76 = add i64 %75, 1
@@ -584,7 +584,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 81:                                               ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67ef97d28e53b6f8E.exit"
   %.sroa.7.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(600) %.sroa.7.0..sroa_idx64, i64 600, i1 false)
-  %82 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %.sink3.i, i64 %.sroa.7.052
+  %82 = getelementptr inbounds [608 x i8], ptr %.sink3.i, i64 %.sroa.7.052
   store i64 %.sroa.0.0.copyload63, ptr %82, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(600) %.sroa.2, i64 600, i1 false)
@@ -737,7 +737,7 @@ define hidden noundef nonnull align 4 dereferenceable(28) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !162
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, ptr %1, i64 %0
+  %7 = getelementptr inbounds [28 x i8], ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -763,7 +763,7 @@ define hidden noundef nonnull align 4 dereferenceable(28) ptr @"_ZN80_$LT$smallv
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !163, !noalias !166, !nonnull !11
   %.sink5.i = select i1 %5, ptr %11, ptr %10
-  %12 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, ptr %.sink5.i, i64 %1
+  %12 = getelementptr inbounds [28 x i8], ptr %.sink5.i, i64 %1
   ret ptr %12
 }
 

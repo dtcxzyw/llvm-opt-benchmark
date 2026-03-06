@@ -138,13 +138,13 @@ define range(i32 -22, 1) i32 @ff_vmafmotion_init(ptr noundef writeonly captures(
 
 .preheader:                                       ; preds = %23, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %23 ]
-  %26 = getelementptr inbounds nuw float, ptr @FILTER_5, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @FILTER_5, i64 %indvars.iv
   %27 = load float, ptr %26, align 4, !tbaa !26
   %28 = fmul nsz float %27, 3.276800e+04
   %29 = fpext nsz float %28 to double
   %30 = tail call i64 @llvm.lrint.i64.f64(double %29)
   %31 = trunc i64 %30 to i16
-  %32 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %31, ptr %32, align 2, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -398,7 +398,7 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
   %34 = getelementptr i8, ptr %3, i64 %20
   %wide.trip.count153 = zext nneg i32 %11 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %invariant.gep = getelementptr i16, ptr %2, i64 %.neg122
+  %invariant.gep = getelementptr [2 x i8], ptr %2, i64 %.neg122
   %wide.trip.count162 = zext nneg i32 %1 to i64
   %wide.trip.count181 = sext i32 %4 to i64
   %wide.trip.count176 = zext nneg i32 %1 to i64
@@ -413,9 +413,9 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
 
 .preheader124.us.preheader:                       ; preds = %.preheader127
   %36 = mul nuw nsw i64 %9, %indvar
-  %37 = getelementptr i16, ptr %2, i64 %36
+  %37 = getelementptr [2 x i8], ptr %2, i64 %36
   %38 = mul nuw nsw i64 %10, %indvar
-  %39 = getelementptr inbounds nuw i16, ptr %3, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %38
   br label %.preheader124.us
 
 .preheader124.us:                                 ; preds = %.preheader124.us.preheader, %._crit_edge.us
@@ -434,11 +434,11 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
   %46 = xor i32 %45, -1
   %47 = add i32 %reass.add120, %46
   %.097.us = select i1 %.not118.us, i32 %45, i32 %47
-  %48 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %49 = load i16, ptr %48, align 2, !tbaa !28
   %50 = zext i16 %49 to i32
   %51 = sext i32 %.097.us to i64
-  %52 = getelementptr i16, ptr %37, i64 %51
+  %52 = getelementptr [2 x i8], ptr %37, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !28
   %54 = zext i16 %53 to i32
   %55 = mul nuw nsw i32 %54, %50
@@ -450,7 +450,7 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
 ._crit_edge.us:                                   ; preds = %42
   %57 = lshr i32 %56, 15
   %58 = trunc nuw i32 %57 to i16
-  %59 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv150
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv150
   store i16 %58, ptr %59, align 2, !tbaa !28
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
@@ -461,26 +461,26 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
 
 .preheader123.lr.ph:                              ; preds = %.preheader126
   %60 = mul nuw nsw i64 %10, %indvar
-  %61 = getelementptr i16, ptr %3, i64 %60
+  %61 = getelementptr [2 x i8], ptr %3, i64 %60
   br i1 %15, label %.preheader123.us.preheader, label %.preheader125.thread
 
 .preheader123.us.preheader:                       ; preds = %.preheader123.lr.ph
   %62 = mul nuw nsw i64 %9, %indvar
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %62
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %62
   br label %.preheader123.us
 
 .preheader123.us:                                 ; preds = %.preheader123.us.preheader, %._crit_edge.us134
   %indvars.iv164 = phi i64 [ %19, %.preheader123.us.preheader ], [ %indvars.iv.next165, %._crit_edge.us134 ]
-  %63 = getelementptr i16, ptr %gep, i64 %indvars.iv164
+  %63 = getelementptr [2 x i8], ptr %gep, i64 %indvars.iv164
   br label %64
 
 64:                                               ; preds = %.preheader123.us, %64
   %indvars.iv159 = phi i64 [ 0, %.preheader123.us ], [ %indvars.iv.next160, %64 ]
   %.096132.us = phi i32 [ 0, %.preheader123.us ], [ %72, %64 ]
-  %65 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv159
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv159
   %66 = load i16, ptr %65, align 2, !tbaa !28
   %67 = zext i16 %66 to i32
-  %68 = getelementptr i16, ptr %63, i64 %indvars.iv159
+  %68 = getelementptr [2 x i8], ptr %63, i64 %indvars.iv159
   %69 = load i16, ptr %68, align 2, !tbaa !28
   %70 = zext i16 %69 to i32
   %71 = mul nuw nsw i32 %70, %67
@@ -492,7 +492,7 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
 ._crit_edge.us134:                                ; preds = %64
   %73 = lshr i32 %72, 15
   %74 = trunc nuw i32 %73 to i16
-  %75 = getelementptr i16, ptr %61, i64 %indvars.iv164
+  %75 = getelementptr [2 x i8], ptr %61, i64 %indvars.iv164
   store i16 %74, ptr %75, align 2, !tbaa !28
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %26
@@ -507,9 +507,9 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
 
 .preheader.lr.ph:                                 ; preds = %.preheader125
   %76 = mul nuw nsw i64 %9, %indvar
-  %77 = getelementptr i16, ptr %2, i64 %76
+  %77 = getelementptr [2 x i8], ptr %2, i64 %76
   %78 = mul nuw nsw i64 %10, %indvar
-  %79 = getelementptr i16, ptr %3, i64 %78
+  %79 = getelementptr [2 x i8], ptr %3, i64 %78
   br i1 %15, label %.preheader.us, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader125.thread, %.preheader.lr.ph
@@ -532,11 +532,11 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
   %86 = xor i32 %85, -1
   %87 = add i32 %reass.add120, %86
   %.0.us = select i1 %.not.us, i32 %85, i32 %87
-  %88 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv173
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv173
   %89 = load i16, ptr %88, align 2, !tbaa !28
   %90 = zext i16 %89 to i32
   %91 = sext i32 %.0.us to i64
-  %92 = getelementptr i16, ptr %77, i64 %91
+  %92 = getelementptr [2 x i8], ptr %77, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !28
   %94 = zext i16 %93 to i32
   %95 = mul nuw nsw i32 %94, %90
@@ -548,7 +548,7 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
 ._crit_edge.us140:                                ; preds = %82
   %97 = lshr i32 %96, 15
   %98 = trunc nuw i32 %97 to i16
-  %99 = getelementptr i16, ptr %79, i64 %indvars.iv178
+  %99 = getelementptr [2 x i8], ptr %79, i64 %indvars.iv178
   store i16 %98, ptr %99, align 2, !tbaa !28
   %indvars.iv.next179 = add nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
@@ -587,14 +587,14 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
 .preheader137.us.us:                              ; preds = %.preheader137.us.us.preheader, %._crit_edge141.split.us.us.us
   %indvars.iv187 = phi i64 [ 0, %.preheader137.us.us.preheader ], [ %indvars.iv.next188, %._crit_edge141.split.us.us.us ]
   %15 = mul nuw nsw i64 %10, %indvars.iv187
-  %16 = getelementptr inbounds nuw i16, ptr %3, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %15
   %17 = trunc i64 %indvars.iv187 to i32
   %18 = sub i32 %17, %11
   br label %.preheader136.us.us.us
 
 .preheader136.us.us.us:                           ; preds = %._crit_edge.us.us.us, %.preheader137.us.us
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %._crit_edge.us.us.us ], [ 0, %.preheader137.us.us ]
-  %invariant.gep.us.us.us = getelementptr i16, ptr %2, i64 %indvars.iv182
+  %invariant.gep.us.us.us = getelementptr [2 x i8], ptr %2, i64 %indvars.iv182
   br label %19
 
 19:                                               ; preds = %19, %.preheader136.us.us.us
@@ -607,12 +607,12 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   %23 = xor i32 %22, -1
   %24 = add i32 %reass.add129, %23
   %.0102.us.us.us = select i1 %.not127.us.us.us, i32 %22, i32 %24
-  %25 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !28
   %27 = zext i16 %26 to i32
   %28 = sext i32 %.0102.us.us.us to i64
   %29 = mul nsw i64 %9, %28
-  %gep.us.us.us = getelementptr i16, ptr %invariant.gep.us.us.us, i64 %29
+  %gep.us.us.us = getelementptr [2 x i8], ptr %invariant.gep.us.us.us, i64 %29
   %30 = load i16, ptr %gep.us.us.us, align 2, !tbaa !28
   %31 = zext i16 %30 to i32
   %32 = mul nuw nsw i32 %31, %27
@@ -624,7 +624,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
 ._crit_edge.us.us.us:                             ; preds = %19
   %34 = lshr i32 %33, 10
   %35 = trunc i32 %34 to i16
-  %36 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv182
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv182
   store i16 %35, ptr %36, align 2, !tbaa !28
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
@@ -669,24 +669,24 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   %49 = trunc nsw i64 %indvars.iv207 to i32
   %50 = sub i32 %49, %11
   %51 = mul nuw nsw i64 %10, %indvars.iv207
-  %52 = getelementptr i16, ptr %3, i64 %51
+  %52 = getelementptr [2 x i8], ptr %3, i64 %51
   %53 = sext i32 %50 to i64
   br label %.preheader133.us.us.us
 
 .preheader133.us.us.us:                           ; preds = %._crit_edge.us.us.us158, %.preheader134.us.us
   %indvars.iv202 = phi i64 [ %indvars.iv.next203, %._crit_edge.us.us.us158 ], [ 0, %.preheader134.us.us ]
-  %invariant.gep.us.us.us156 = getelementptr i16, ptr %2, i64 %indvars.iv202
+  %invariant.gep.us.us.us156 = getelementptr [2 x i8], ptr %2, i64 %indvars.iv202
   br label %54
 
 54:                                               ; preds = %54, %.preheader133.us.us.us
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %54 ], [ 0, %.preheader133.us.us.us ]
   %.1148.us.us.us = phi i32 [ %63, %54 ], [ 0, %.preheader133.us.us.us ]
-  %55 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv197
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv197
   %56 = load i16, ptr %55, align 2, !tbaa !28
   %57 = zext i16 %56 to i32
   %58 = add nsw i64 %indvars.iv197, %53
   %59 = mul nsw i64 %9, %58
-  %gep.us.us.us157 = getelementptr i16, ptr %invariant.gep.us.us.us156, i64 %59
+  %gep.us.us.us157 = getelementptr [2 x i8], ptr %invariant.gep.us.us.us156, i64 %59
   %60 = load i16, ptr %gep.us.us.us157, align 2, !tbaa !28
   %61 = zext i16 %60 to i32
   %62 = mul nuw nsw i32 %61, %57
@@ -698,7 +698,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
 ._crit_edge.us.us.us158:                          ; preds = %54
   %64 = lshr i32 %63, 10
   %65 = trunc i32 %64 to i16
-  %66 = getelementptr i16, ptr %52, i64 %indvars.iv202
+  %66 = getelementptr [2 x i8], ptr %52, i64 %indvars.iv202
   store i16 %65, ptr %66, align 2, !tbaa !28
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
@@ -753,12 +753,12 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   %79 = trunc nsw i64 %indvars.iv229 to i32
   %80 = sub i32 %79, %11
   %81 = mul nsw i64 %10, %indvars.iv229
-  %82 = getelementptr i16, ptr %3, i64 %81
+  %82 = getelementptr [2 x i8], ptr %3, i64 %81
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us171, %.preheader131.us.us
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %._crit_edge.us.us.us171 ], [ 0, %.preheader131.us.us ]
-  %invariant.gep.us.us.us169 = getelementptr i16, ptr %2, i64 %indvars.iv224
+  %invariant.gep.us.us.us169 = getelementptr [2 x i8], ptr %2, i64 %indvars.iv224
   br label %83
 
 83:                                               ; preds = %83, %.preheader.us.us.us
@@ -771,12 +771,12 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   %87 = xor i32 %86, -1
   %88 = add i32 %reass.add, %87
   %.0.us.us.us = select i1 %.not.us.us.us, i32 %86, i32 %88
-  %89 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv219
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv219
   %90 = load i16, ptr %89, align 2, !tbaa !28
   %91 = zext i16 %90 to i32
   %92 = sext i32 %.0.us.us.us to i64
   %93 = mul nsw i64 %9, %92
-  %gep.us.us.us170 = getelementptr i16, ptr %invariant.gep.us.us.us169, i64 %93
+  %gep.us.us.us170 = getelementptr [2 x i8], ptr %invariant.gep.us.us.us169, i64 %93
   %94 = load i16, ptr %gep.us.us.us170, align 2, !tbaa !28
   %95 = zext i16 %94 to i32
   %96 = mul nuw nsw i32 %95, %91
@@ -788,7 +788,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
 ._crit_edge.us.us.us171:                          ; preds = %83
   %98 = lshr i32 %97, 10
   %99 = trunc i32 %98 to i16
-  %100 = getelementptr i16, ptr %82, i64 %indvars.iv224
+  %100 = getelementptr [2 x i8], ptr %82, i64 %indvars.iv224
   store i16 %99, ptr %100, align 2, !tbaa !28
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
@@ -836,7 +836,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
 .preheader137.us.us:                              ; preds = %.preheader137.us.us.preheader, %._crit_edge141.split.us.us.us
   %indvars.iv187 = phi i64 [ 0, %.preheader137.us.us.preheader ], [ %indvars.iv.next188, %._crit_edge141.split.us.us.us ]
   %14 = mul nuw nsw i64 %9, %indvars.iv187
-  %15 = getelementptr inbounds nuw i16, ptr %3, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %14
   %16 = trunc i64 %indvars.iv187 to i32
   %17 = sub i32 %16, %10
   br label %.preheader136.us.us.us
@@ -856,7 +856,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   %22 = xor i32 %21, -1
   %23 = add i32 %reass.add129, %22
   %.0102.us.us.us = select i1 %.not127.us.us.us, i32 %21, i32 %23
-  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !28
   %26 = zext i16 %25 to i32
   %27 = sext i32 %.0102.us.us.us to i64
@@ -873,7 +873,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
 ._crit_edge.us.us.us:                             ; preds = %18
   %33 = lshr i32 %32, 8
   %34 = trunc i32 %33 to i16
-  %35 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv182
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv182
   store i16 %34, ptr %35, align 2, !tbaa !28
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
@@ -918,7 +918,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   %48 = trunc nsw i64 %indvars.iv207 to i32
   %49 = sub i32 %48, %10
   %50 = mul nuw nsw i64 %9, %indvars.iv207
-  %51 = getelementptr i16, ptr %3, i64 %50
+  %51 = getelementptr [2 x i8], ptr %3, i64 %50
   %52 = sext i32 %49 to i64
   br label %.preheader133.us.us.us
 
@@ -930,7 +930,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
 53:                                               ; preds = %53, %.preheader133.us.us.us
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %53 ], [ 0, %.preheader133.us.us.us ]
   %.1148.us.us.us = phi i32 [ %62, %53 ], [ 0, %.preheader133.us.us.us ]
-  %54 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv197
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv197
   %55 = load i16, ptr %54, align 2, !tbaa !28
   %56 = zext i16 %55 to i32
   %57 = add nsw i64 %indvars.iv197, %52
@@ -947,7 +947,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
 ._crit_edge.us.us.us158:                          ; preds = %53
   %63 = lshr i32 %62, 8
   %64 = trunc i32 %63 to i16
-  %65 = getelementptr i16, ptr %51, i64 %indvars.iv202
+  %65 = getelementptr [2 x i8], ptr %51, i64 %indvars.iv202
   store i16 %64, ptr %65, align 2, !tbaa !28
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
@@ -1002,7 +1002,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   %78 = trunc nsw i64 %indvars.iv229 to i32
   %79 = sub i32 %78, %10
   %80 = mul nsw i64 %9, %indvars.iv229
-  %81 = getelementptr i16, ptr %3, i64 %80
+  %81 = getelementptr [2 x i8], ptr %3, i64 %80
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us171, %.preheader131.us.us
@@ -1020,7 +1020,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   %86 = xor i32 %85, -1
   %87 = add i32 %reass.add, %86
   %.0.us.us.us = select i1 %.not.us.us.us, i32 %85, i32 %87
-  %88 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv219
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv219
   %89 = load i16, ptr %88, align 2, !tbaa !28
   %90 = zext i16 %89 to i32
   %91 = sext i32 %.0.us.us.us to i64
@@ -1037,7 +1037,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
 ._crit_edge.us.us.us171:                          ; preds = %82
   %97 = lshr i32 %96, 8
   %98 = trunc i32 %97 to i16
-  %99 = getelementptr i16, ptr %81, i64 %indvars.iv224
+  %99 = getelementptr [2 x i8], ptr %81, i64 %indvars.iv224
   store i16 %98, ptr %99, align 2, !tbaa !28
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
@@ -1085,10 +1085,10 @@ define internal i64 @image_sad(ptr noundef readonly captures(none) %0, ptr nound
 11:                                               ; preds = %.preheader.us, %11
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %11 ]
   %.121.us = phi i64 [ %.01825.us, %.preheader.us ], [ %21, %11 ]
-  %12 = getelementptr inbounds nuw i16, ptr %.01924.us, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %.01924.us, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2, !tbaa !28
   %14 = zext i16 %13 to i32
-  %15 = getelementptr inbounds nuw i16, ptr %.02023.us, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %.02023.us, i64 %indvars.iv
   %16 = load i16, ptr %15, align 2, !tbaa !28
   %17 = zext i16 %16 to i32
   %18 = sub nsw i32 %14, %17
@@ -1100,8 +1100,8 @@ define internal i64 @image_sad(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !86
 
 ._crit_edge.us:                                   ; preds = %11
-  %22 = getelementptr inbounds nuw i16, ptr %.01924.us, i64 %7
-  %23 = getelementptr inbounds nuw i16, ptr %.02023.us, i64 %8
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %.01924.us, i64 %7
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.02023.us, i64 %8
   %24 = add nuw nsw i32 %.01726.us, 1
   %exitcond31.not = icmp eq i32 %24, %3
   br i1 %exitcond31.not, label %._crit_edge27, label %.preheader.us, !llvm.loop !87

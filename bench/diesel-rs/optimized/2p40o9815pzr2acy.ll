@@ -59,8 +59,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 9:                                                ; preds = %6
   %10 = add nuw i64 %7, 1
   store i64 %10, ptr %2, align 8, !alias.scope !7
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %.val4.i.i, i64 %7
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %.val.i.i, i64 %7
+  %11 = getelementptr inbounds [16 x i8], ptr %.val4.i.i, i64 %7
+  %12 = getelementptr inbounds [16 x i8], ptr %.val.i.i, i64 %7
   %13 = getelementptr i8, ptr %11, i64 8
   %.fca.0.extract.val6 = load i64, ptr %13, align 8, !noundef !12
   %14 = getelementptr i8, ptr %12, i64 8
@@ -165,8 +165,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %exitcond.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h435bbafb74354231E.llvm.6229933791239335933.exit, label %6
 
 6:                                                ; preds = %.preheader
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %5
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %5
+  %7 = getelementptr inbounds [16 x i8], ptr %0, i64 %5
+  %8 = getelementptr inbounds [16 x i8], ptr %2, i64 %5
   %9 = getelementptr i8, ptr %7, i64 8
   %.fca.0.extract.val6.i = load i64, ptr %9, align 8, !noalias !21, !noundef !12
   %10 = getelementptr i8, ptr %8, i64 8

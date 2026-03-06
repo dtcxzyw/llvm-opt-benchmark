@@ -28,7 +28,7 @@ define void @ff_mpeg12_find_best_frame_rate(i64 %0, ptr noundef writeonly captur
 
 .split.us.split:                                  ; preds = %.split.us, %av_cmp_q.exit.thread.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %av_cmp_q.exit.thread.us ], [ 1, %.split.us ]
-  %12 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8
   %14 = ashr i64 %13, 32
   %15 = mul nsw i64 %14, %9
@@ -56,7 +56,7 @@ av_cmp_q.exit.thread.us:                          ; preds = %18, %.split.us.spli
 
 .split.split.us:                                  ; preds = %.split, %av_cmp_q.exit.thread.us149
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %av_cmp_q.exit.thread.us149 ], [ 1, %.split ]
-  %21 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv196
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv196
   %22 = load i64, ptr %21, align 8
   %23 = ashr i64 %22, 32
   %24 = mul nuw nsw i64 %23, %9
@@ -78,7 +78,7 @@ av_cmp_q.exit.thread.us149:                       ; preds = %.split.split.us
 
 .split.split:                                     ; preds = %.split, %av_cmp_q.exit.thread
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %av_cmp_q.exit.thread ], [ 1, %.split ]
-  %28 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv191
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv191
   %29 = load i64, ptr %28, align 8
   %30 = ashr i64 %29, 32
   %31 = mul nsw i64 %30, %9
@@ -99,7 +99,7 @@ av_cmp_q.exit.thread:                             ; preds = %.split.split
   %.160169 = phi i32 [ 1, %.preheader123 ], [ %.463.ph, %92 ]
   %.166168 = phi i32 [ 1, %.preheader123 ], [ %.469.ph, %92 ]
   %.sroa.015.0167 = phi i64 [ 6442450943, %.preheader123 ], [ %.sroa.015.3.ph, %92 ]
-  %34 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv207
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @ff_mpeg12_frame_rate_tab, i64 %indvars.iv207
   %35 = load i64, ptr %34, align 8
   %36 = trunc nuw nsw i64 %indvars.iv207 to i32
   br label %.preheader

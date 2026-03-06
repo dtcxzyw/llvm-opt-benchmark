@@ -1920,7 +1920,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.i:         ; preds = %549
   br i1 %exitcond.not.i15, label %652, label %637, !llvm.loop !11
 
 637:                                              ; preds = %636
-  %638 = getelementptr inbounds nuw i64, ptr %620, i64 %indvars.iv.next.i
+  %638 = getelementptr inbounds nuw [8 x i8], ptr %620, i64 %indvars.iv.next.i
   %639 = load i64, ptr %638, align 8
   store i64 %639, ptr %23, align 8
   %640 = icmp sgt i64 %639, 53

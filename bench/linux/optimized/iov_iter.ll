@@ -44,17 +44,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_iov_iter_ext
 %struct.static_call_key = type { ptr, %union.anon.41 }
 %union.anon.41 = type { i64 }
 %struct.xa_state = type { ptr, i64, i8, i8, i8, i8, ptr, ptr, ptr, ptr }
-%struct.page = type { i64, %union.anon.2, %union.anon.10, %struct.atomic_t, [8 x i8] }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { %union.anon.4, ptr, %union.anon.6, i64 }
-%union.anon.4 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.6 = type { i64 }
-%union.anon.10 = type { %struct.atomic_t }
-%struct.iovec = type { ptr, i64 }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.__large_struct = type { [100 x i64] }
-%struct.compat_iovec = type { i32, i32 }
 
 @__UNIQUE_ID___addressable_fault_in_iov_iter_readable401 = internal global ptr @fault_in_iov_iter_readable, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_fault_in_iov_iter_writeable408 = internal global ptr @fault_in_iov_iter_writeable, section ".discard.addressable", align 8
@@ -455,7 +445,7 @@ define dso_local i64 @_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr noundef 
   %110 = add i64 %103, %109
   %111 = load ptr, ptr %105, align 8
   %112 = lshr i64 %110, 12
-  %113 = getelementptr %struct.page, ptr %111, i64 %112
+  %113 = getelementptr [64 x i8], ptr %111, i64 %112
   %114 = load i64, ptr @vmemmap_base, align 8
   %115 = ptrtoint ptr %113 to i64
   %116 = sub i64 %115, %114
@@ -883,7 +873,7 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nound
   %106 = add i64 %99, %105
   %107 = load ptr, ptr %101, align 8
   %108 = lshr i64 %106, 12
-  %109 = getelementptr %struct.page, ptr %107, i64 %108
+  %109 = getelementptr [64 x i8], ptr %107, i64 %108
   %110 = load i64, ptr @vmemmap_base, align 8
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %111, %110
@@ -1341,7 +1331,7 @@ define dso_local i64 @_copy_from_iter(ptr noundef %0, i64 noundef %1, ptr nounde
   %116 = add i64 %109, %115
   %117 = load ptr, ptr %111, align 8
   %118 = lshr i64 %116, 12
-  %119 = getelementptr %struct.page, ptr %117, i64 %118
+  %119 = getelementptr [64 x i8], ptr %117, i64 %118
   %120 = load i64, ptr @vmemmap_base, align 8
   %121 = ptrtoint ptr %119 to i64
   %122 = sub i64 %121, %120
@@ -1750,7 +1740,7 @@ define dso_local i64 @_copy_from_iter_nocache(ptr noundef %0, i64 noundef %1, pt
   %94 = add i64 %87, %93
   %95 = load ptr, ptr %89, align 8
   %96 = lshr i64 %94, 12
-  %97 = getelementptr %struct.page, ptr %95, i64 %96
+  %97 = getelementptr [64 x i8], ptr %95, i64 %96
   %98 = load i64, ptr @vmemmap_base, align 8
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %99, %98
@@ -2164,7 +2154,7 @@ define dso_local i64 @_copy_from_iter_flushcache(ptr noundef %0, i64 noundef %1,
   %103 = getelementptr i8, ptr %0, i64 %88
   %104 = load ptr, ptr %89, align 8
   %105 = lshr i64 %94, 12
-  %106 = getelementptr %struct.page, ptr %104, i64 %105
+  %106 = getelementptr [64 x i8], ptr %104, i64 %105
   %107 = ptrtoint ptr %106 to i64
   %108 = load i64, ptr @vmemmap_base, align 8
   %109 = sub i64 %107, %108
@@ -2523,7 +2513,7 @@ define dso_local i64 @copy_page_to_iter(ptr noundef %0, i64 noundef %1, i64 noun
 
 62:                                               ; preds = %57
   %63 = lshr i64 %1, 12
-  %64 = getelementptr %struct.page, ptr %0, i64 %63
+  %64 = getelementptr [64 x i8], ptr %0, i64 %63
   %65 = and i64 %1, 4095
   br label %66
 
@@ -2663,7 +2653,7 @@ define dso_local i64 @copy_page_to_iter_nofault(ptr noundef %0, i32 noundef %1, 
 
 64:                                               ; preds = %59
   %65 = lshr i64 %6, 12
-  %66 = getelementptr %struct.page, ptr %0, i64 %65
+  %66 = getelementptr [64 x i8], ptr %0, i64 %65
   %67 = and i32 %1, 4095
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -2804,7 +2794,7 @@ define dso_local i64 @copy_page_to_iter_nofault(ptr noundef %0, i32 noundef %1, 
   %166 = add i64 %159, %165
   %167 = load ptr, ptr %161, align 8
   %168 = lshr i64 %166, 12
-  %169 = getelementptr %struct.page, ptr %167, i64 %168
+  %169 = getelementptr [64 x i8], ptr %167, i64 %168
   %170 = load i64, ptr @vmemmap_base, align 8
   %171 = ptrtoint ptr %169 to i64
   %172 = sub i64 %171, %170
@@ -3166,7 +3156,7 @@ define dso_local i64 @copy_page_from_iter(ptr noundef %0, i64 noundef %1, i64 no
 
 57:                                               ; preds = %52, %4
   %58 = lshr i64 %1, 12
-  %59 = getelementptr %struct.page, ptr %0, i64 %58
+  %59 = getelementptr [64 x i8], ptr %0, i64 %58
   %60 = and i64 %1, 4095
   br label %61
 
@@ -3361,7 +3351,7 @@ define dso_local i64 @iov_iter_zero(i64 noundef %0, ptr noundef captures(none) %
   %103 = add i64 %96, %102
   %104 = load ptr, ptr %98, align 8
   %105 = lshr i64 %103, 12
-  %106 = getelementptr %struct.page, ptr %104, i64 %105
+  %106 = getelementptr [64 x i8], ptr %104, i64 %105
   %107 = load i64, ptr @vmemmap_base, align 8
   %108 = ptrtoint ptr %106 to i64
   %109 = sub i64 %108, %107
@@ -3908,7 +3898,7 @@ define dso_local i64 @copy_page_from_iter_atomic(ptr noundef %0, i64 noundef %1,
   %183 = add i64 %176, %182
   %184 = load ptr, ptr %178, align 8
   %185 = lshr i64 %183, 12
-  %186 = getelementptr %struct.page, ptr %184, i64 %185
+  %186 = getelementptr [64 x i8], ptr %184, i64 %185
   %187 = load i64, ptr @vmemmap_base, align 8
   %188 = ptrtoint ptr %186 to i64
   %189 = sub i64 %188, %187
@@ -4269,7 +4259,7 @@ define internal fastcc void @iov_iter_iovec_advance(ptr noundef %0, i64 noundef 
   %17 = phi ptr [ %15, %14 ], [ %3, %7 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr %struct.iovec, ptr %17, i64 %19
+  %20 = getelementptr [16 x i8], ptr %17, i64 %19
   %21 = icmp ult ptr %17, %20
   br i1 %21, label %.preheader, label %.loopexit
 
@@ -4329,7 +4319,7 @@ define internal fastcc void @iov_iter_bvec_advance(ptr noundef captures(none) %0
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr %struct.bio_vec, ptr %12, i64 %14
+  %15 = getelementptr [16 x i8], ptr %12, i64 %14
   %16 = icmp ult ptr %12, %15
   br i1 %16, label %.preheader, label %.loopexit
 
@@ -4735,7 +4725,7 @@ define internal fastcc noundef zeroext i1 @iov_iter_aligned_iovec(ptr noundef re
   %18 = phi i32 [ %37, %34 ], [ 0, %7 ]
   %19 = phi i64 [ 0, %34 ], [ %9, %7 ]
   %20 = phi i64 [ %35, %34 ], [ %11, %7 ]
-  %21 = getelementptr %struct.iovec, ptr %14, i64 %17
+  %21 = getelementptr [16 x i8], ptr %14, i64 %17
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = sub i64 %23, %19
@@ -4770,7 +4760,7 @@ define internal fastcc noundef zeroext i1 @iov_iter_aligned_iovec(ptr noundef re
   %43 = phi i32 [ 0, %.split ], [ %62, %59 ]
   %44 = phi i64 [ %9, %.split ], [ 0, %59 ]
   %45 = phi i64 [ %11, %.split ], [ %60, %59 ]
-  %46 = getelementptr %struct.iovec, ptr %40, i64 %42
+  %46 = getelementptr [16 x i8], ptr %40, i64 %42
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = sub i64 %48, %44
@@ -4824,7 +4814,7 @@ define internal fastcc noundef zeroext i1 @iov_iter_aligned_bvec(ptr noundef rea
   %18 = phi i32 [ 0, %7 ], [ %37, %34 ]
   %19 = phi i32 [ %10, %7 ], [ 0, %34 ]
   %20 = phi i64 [ %12, %7 ], [ %35, %34 ]
-  %.split = getelementptr %struct.bio_vec, ptr %14, i64 %17
+  %.split = getelementptr [16 x i8], ptr %14, i64 %17
   %21 = getelementptr i8, ptr %.split, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sub i32 %22, %19
@@ -4930,7 +4920,7 @@ define internal fastcc i64 @iov_iter_alignment_iovec(ptr noundef readonly captur
   %15 = phi i64 [ 0, %32 ], [ %7, %5 ]
   %16 = phi i64 [ %34, %32 ], [ %9, %5 ]
   %17 = phi i64 [ %33, %32 ], [ 0, %5 ]
-  %18 = getelementptr %struct.iovec, ptr %12, i64 %13
+  %18 = getelementptr [16 x i8], ptr %12, i64 %13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, %15
@@ -4968,7 +4958,7 @@ define internal fastcc i64 @iov_iter_alignment_iovec(ptr noundef readonly captur
   %44 = phi i64 [ %7, %.split ], [ 0, %61 ]
   %45 = phi i64 [ %9, %.split ], [ %63, %61 ]
   %46 = phi i64 [ 0, %.split ], [ %62, %61 ]
-  %47 = getelementptr %struct.iovec, ptr %40, i64 %42
+  %47 = getelementptr [16 x i8], ptr %40, i64 %42
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, %44
@@ -5024,7 +5014,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @iov_iter_alignment_bvec(ptr
   %16 = phi i32 [ %8, %5 ], [ 0, %13 ]
   %17 = phi i64 [ %10, %5 ], [ %31, %13 ]
   %18 = phi i32 [ 0, %5 ], [ %30, %13 ]
-  %19 = getelementptr %struct.bio_vec, ptr %12, i64 %14
+  %19 = getelementptr [16 x i8], ptr %12, i64 %14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = sub i32 %21, %16
@@ -5086,7 +5076,7 @@ define dso_local i64 @iov_iter_gap_alignment(ptr noundef readonly captures(none)
   %16 = phi i32 [ 0, %9 ], [ %39, %34 ]
   %17 = phi i64 [ %3, %9 ], [ %36, %34 ]
   %18 = phi i64 [ 0, %9 ], [ %35, %34 ]
-  %19 = getelementptr %struct.iovec, ptr %11, i64 %14
+  %19 = getelementptr [16 x i8], ptr %11, i64 %14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
@@ -5202,7 +5192,7 @@ define internal fastcc range(i64 -2147483648, 2147479553) i64 @__iov_iter_get_pa
 43:                                               ; preds = %40, %36
   %44 = phi i64 [ 0, %36 ], [ %41, %40 ]
   %45 = phi i64 [ %38, %36 ], [ 0, %40 ]
-  %46 = getelementptr %struct.iovec, ptr %39, i64 %44
+  %46 = getelementptr [16 x i8], ptr %39, i64 %44
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = icmp eq i64 %48, %45
@@ -5335,7 +5325,7 @@ define internal fastcc range(i64 -2147483648, 2147479553) i64 @__iov_iter_get_pa
   %116 = add i64 %106, %115
   %117 = load ptr, ptr %107, align 8
   %118 = lshr i64 %116, 12
-  %119 = getelementptr %struct.page, ptr %117, i64 %118
+  %119 = getelementptr [64 x i8], ptr %117, i64 %118
   %120 = and i64 %116, 4095
   store i64 %120, ptr %4, align 8
   %121 = tail call fastcc i32 @want_pages_array(ptr noundef %1, i64 noundef %112, i64 noundef %120, i32 noundef %3)
@@ -5368,8 +5358,8 @@ define internal fastcc range(i64 -2147483648, 2147479553) i64 @__iov_iter_get_pa
 
 141:                                              ; preds = %141, %123
   %indvars.iv = phi i64 [ %indvars.iv.next, %141 ], [ 0, %123 ]
-  %142 = getelementptr %struct.page, ptr %119, i64 %indvars.iv
-  %143 = getelementptr ptr, ptr %124, i64 %indvars.iv
+  %142 = getelementptr [64 x i8], ptr %119, i64 %indvars.iv
+  %143 = getelementptr [8 x i8], ptr %124, i64 %indvars.iv
   store ptr %142, ptr %143, align 8
   tail call fastcc void @get_page(ptr noundef %142)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5722,7 +5712,7 @@ define internal fastcc range(i32 -22, 1) i32 @copy_compat_iovec_from_user(ptr no
 11:                                               ; preds = %10, %21
   %12 = phi i64 [ %28, %21 ], [ 0, %10 ]
   %13 = phi i32 [ %27, %21 ], [ 0, %10 ]
-  %14 = getelementptr %struct.compat_iovec, ptr %1, i64 %12
+  %14 = getelementptr [8 x i8], ptr %1, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = callbr i32 asm sideeffect "\0A1:\09movl $1,$0\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "=r,*m,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.__large_struct) %15) #15
           to label %17 [label %30], !srcloc !115
@@ -5738,7 +5728,7 @@ define internal fastcc range(i32 -22, 1) i32 @copy_compat_iovec_from_user(ptr no
 21:                                               ; preds = %19
   %22 = zext i32 %18 to i64
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr %struct.iovec, ptr %0, i64 %12
+  %24 = getelementptr [16 x i8], ptr %0, i64 %12
   store ptr %23, ptr %24, align 8
   %25 = zext nneg i32 %16 to i64
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -6005,7 +5995,7 @@ iovec_from_user.exit.thread:                      ; preds = %iovec_from_user.exi
 .preheader:                                       ; preds = %iovec_from_user.exit, %126
   %131 = phi i64 [ %129, %126 ], [ 0, %iovec_from_user.exit ]
   %132 = phi i64 [ %128, %126 ], [ 0, %iovec_from_user.exit ]
-  %133 = getelementptr %struct.iovec, ptr %121, i64 %131
+  %133 = getelementptr [16 x i8], ptr %121, i64 %131
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load i64, ptr %134, align 8
   %136 = load ptr, ptr %133, align 8
@@ -6182,7 +6172,7 @@ define dso_local void @iov_iter_restore(ptr noundef captures(none) %0, ptr nound
   %25 = load i64, ptr %24, align 8
   %26 = sub i64 %25, %23
   %27 = load ptr, ptr %19, align 8
-  %28 = getelementptr %struct.bio_vec, ptr %27, i64 %26
+  %28 = getelementptr [16 x i8], ptr %27, i64 %26
   br label %38
 
 29:                                               ; preds = %.thread, %14
@@ -6193,7 +6183,7 @@ define dso_local void @iov_iter_restore(ptr noundef captures(none) %0, ptr nound
   %34 = load i64, ptr %33, align 8
   %35 = sub i64 %34, %32
   %36 = load ptr, ptr %30, align 8
-  %37 = getelementptr %struct.iovec, ptr %36, i64 %35
+  %37 = getelementptr [16 x i8], ptr %36, i64 %35
   br label %38
 
 38:                                               ; preds = %29, %21
@@ -6270,7 +6260,7 @@ define dso_local range(i64 -2147483648, 17592186040321) i64 @iov_iter_extract_pa
 48:                                               ; preds = %45, %40
   %49 = phi i64 [ 0, %40 ], [ %46, %45 ]
   %50 = phi i64 [ %42, %40 ], [ 0, %45 ]
-  %51 = getelementptr %struct.iovec, ptr %44, i64 %49
+  %51 = getelementptr [16 x i8], ptr %44, i64 %49
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, %50
@@ -6504,13 +6494,13 @@ define internal fastcc range(i64 -12, 17592186040321) i64 @iov_iter_extract_kvec
   %67 = select i1 %63, i64 %64, i64 %66
   %68 = add i64 %62, %67
   %69 = lshr i64 %68, 12
-  %70 = getelementptr %struct.page, ptr %60, i64 %69
+  %70 = getelementptr [64 x i8], ptr %60, i64 %69
   br label %71
 
 71:                                               ; preds = %58, %56
   %72 = phi ptr [ %57, %56 ], [ %70, %58 ]
   %73 = sext i32 %53 to i64
-  %74 = getelementptr ptr, ptr %48, i64 %73
+  %74 = getelementptr [8 x i8], ptr %48, i64 %73
   store ptr %72, ptr %74, align 8
   %75 = getelementptr i8, ptr %52, i64 4096
   %76 = add nuw i32 %53, 1
@@ -6610,7 +6600,7 @@ define internal fastcc range(i64 -12, 17592186040321) i64 @iov_iter_extract_bvec
   %32 = add i64 %16, %31
   %33 = load ptr, ptr %15, align 8
   %34 = lshr i64 %32, 12
-  %35 = getelementptr %struct.page, ptr %33, i64 %34
+  %35 = getelementptr [64 x i8], ptr %33, i64 %34
   %36 = and i64 %32, 4095
   store i64 %36, ptr %4, align 8
   %37 = add nuw nsw i64 %22, 4095
@@ -6650,8 +6640,8 @@ define internal fastcc range(i64 -12, 17592186040321) i64 @iov_iter_extract_bvec
 54:                                               ; preds = %54, %.thread24
   %55 = phi i32 [ 0, %.thread24 ], [ %59, %54 ]
   %56 = sext i32 %55 to i64
-  %57 = getelementptr %struct.page, ptr %35, i64 %56
-  %58 = getelementptr ptr, ptr %53, i64 %56
+  %57 = getelementptr [64 x i8], ptr %35, i64 %56
+  %58 = getelementptr [8 x i8], ptr %53, i64 %56
   store ptr %57, ptr %58, align 8
   %59 = add nuw i32 %55, 1
   %60 = icmp eq i32 %59, %41
@@ -6795,7 +6785,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_p
   %53 = lshr i64 %50, %52
   %54 = and i64 %53, 63
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %56 = getelementptr ptr, ptr %55, i64 %54
+  %56 = getelementptr [8 x i8], ptr %55, i64 %54
   %57 = load volatile ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 3
@@ -6807,7 +6797,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_p
 63:                                               ; preds = %49
   %64 = lshr i64 %58, 2
   %65 = and i64 %64, 255
-  %66 = getelementptr ptr, ptr %55, i64 %65
+  %66 = getelementptr [8 x i8], ptr %55, i64 %65
   br label %67
 
 67:                                               ; preds = %63, %46
@@ -6842,14 +6832,14 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_p
 
 87:                                               ; preds = %81, %77
   %88 = phi i64 [ %86, %81 ], [ 0, %77 ]
-  %89 = getelementptr %struct.page, ptr %40, i64 %88
+  %89 = getelementptr [64 x i8], ptr %40, i64 %88
   br label %90
 
 90:                                               ; preds = %87, %73
   %91 = phi ptr [ %89, %87 ], [ %40, %73 ]
   %92 = add i32 %41, 1
   %93 = zext i32 %41 to i64
-  %94 = getelementptr ptr, ptr %37, i64 %93
+  %94 = getelementptr [8 x i8], ptr %37, i64 %93
   store ptr %91, ptr %94, align 8
   %95 = icmp eq i32 %92, %25
   br i1 %95, label %124, label %97
@@ -6890,7 +6880,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_p
   store i8 %116, ptr %17, align 2
   %117 = getelementptr inbounds nuw i8, ptr %99, i64 40
   %118 = zext i8 %116 to i64
-  %119 = getelementptr ptr, ptr %117, i64 %118
+  %119 = getelementptr [8 x i8], ptr %117, i64 %118
   %120 = load volatile ptr, ptr %119, align 8
   br label %121
 
@@ -7000,7 +6990,7 @@ define internal fastcc ptr @xas_next_entry(ptr noundef %0) unnamed_addr #8 align
 
 26:                                               ; preds = %21
   %27 = zext i8 %22 to i64
-  %28 = getelementptr ptr, ptr %20, i64 %27
+  %28 = getelementptr [8 x i8], ptr %20, i64 %27
   %29 = load volatile ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 3
@@ -7078,7 +7068,7 @@ define internal fastcc i64 @__copy_from_iter_mc(ptr noundef %0, i64 noundef %1, 
   %24 = add i64 %17, %23
   %25 = load ptr, ptr %19, align 8
   %26 = lshr i64 %24, 12
-  %27 = getelementptr %struct.page, ptr %25, i64 %26
+  %27 = getelementptr [64 x i8], ptr %25, i64 %26
   %28 = load i64, ptr @vmemmap_base, align 8
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %29, %28
@@ -7314,7 +7304,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr
   %50 = lshr i64 %47, %49
   %51 = and i64 %50, 63
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %53 = getelementptr ptr, ptr %52, i64 %51
+  %53 = getelementptr [8 x i8], ptr %52, i64 %51
   %54 = load volatile ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = and i64 %55, 3
@@ -7326,7 +7316,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr
 60:                                               ; preds = %46
   %61 = lshr i64 %55, 2
   %62 = and i64 %61, 255
-  %63 = getelementptr ptr, ptr %52, i64 %62
+  %63 = getelementptr [8 x i8], ptr %52, i64 %62
   br label %64
 
 64:                                               ; preds = %60, %43
@@ -7361,13 +7351,13 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr
 
 84:                                               ; preds = %78, %74
   %85 = phi i64 [ %83, %78 ], [ 0, %74 ]
-  %86 = getelementptr %struct.page, ptr %38, i64 %85
+  %86 = getelementptr [64 x i8], ptr %38, i64 %85
   br label %87
 
 87:                                               ; preds = %84, %70
   %88 = phi ptr [ %86, %84 ], [ %38, %70 ]
   %89 = zext i32 %37 to i64
-  %90 = getelementptr ptr, ptr %26, i64 %89
+  %90 = getelementptr [8 x i8], ptr %26, i64 %89
   store ptr %88, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %92 = load volatile i64, ptr %91, align 8
@@ -7452,7 +7442,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr
   store i8 %140, ptr %32, align 2
   %141 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %142 = zext i8 %140 to i64
-  %143 = getelementptr ptr, ptr %141, i64 %142
+  %143 = getelementptr [8 x i8], ptr %141, i64 %142
   %144 = load volatile ptr, ptr %143, align 8
   br label %145
 

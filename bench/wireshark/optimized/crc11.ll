@@ -20,7 +20,7 @@ define zeroext range(i16 0, 2048) i16 @crc11_307_noreflect_noxor(ptr noundef rea
   %6 = zext i8 %5 to i16
   %7 = xor i16 %4, %6
   %8 = zext nneg i16 %7 to i64
-  %9 = getelementptr i16, ptr @crc11_table_307_noreflect_noxor, i64 %8
+  %9 = getelementptr [2 x i8], ptr @crc11_table_307_noreflect_noxor, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = shl i16 %.0610, 8
   %12 = xor i16 %10, %11

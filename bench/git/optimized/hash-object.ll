@@ -311,7 +311,7 @@ define dso_local noundef i32 @cmd_hash_object(i32 noundef %0, ptr noundef %1, pt
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %126 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv56
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv56
   %127 = load ptr, ptr %126, align 8, !tbaa !4
   %128 = call ptr @prefix_filename(ptr noundef nonnull %.027, ptr noundef %127) #9
   %129 = load ptr, ptr %8, align 8, !tbaa !4
@@ -332,7 +332,7 @@ define dso_local noundef i32 @cmd_hash_object(i32 noundef %0, ptr noundef %1, pt
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %137 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %138 = load ptr, ptr %137, align 8, !tbaa !4
   %139 = load ptr, ptr %8, align 8, !tbaa !4
   %140 = load i32, ptr %11, align 4, !tbaa !9

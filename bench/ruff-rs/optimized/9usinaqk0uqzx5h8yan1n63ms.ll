@@ -263,7 +263,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 113:                                              ; preds = %107
   %114 = load ptr, ptr %102, align 8, !noalias !105, !nonnull !4, !noundef !4
-  %115 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %114, i64 %110
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %114, i64 %110
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i32, ptr %116, align 8, !noalias !105, !noundef !4
   %118 = load i64, ptr %103, align 8, !noalias !106, !noundef !4
@@ -276,7 +276,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %113
   %121 = load ptr, ptr %104, align 8, !noalias !106, !nonnull !4, !noundef !4
-  %122 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %121, i64 %110
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 %110
   %123 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %122), !noalias !106
   %.not.i7.i.i.i = icmp eq ptr %123, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17ha9c67ca09579d567E.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1a582a87be9df12eE.exit.i.i.i"
@@ -348,7 +348,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %153 = load ptr, ptr %152, align 8, !nonnull !4, !noundef !4
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %155 = load i64, ptr %154, align 8, !noundef !4
-  %156 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %153, i64 %155
+  %156 = getelementptr inbounds nuw [64 x i8], ptr %153, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %158 = load ptr, ptr %157, align 8, !nonnull !4, !align !6, !noundef !4
   br label %159
@@ -389,7 +389,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %178 = load ptr, ptr %177, align 8, !nonnull !4, !noundef !4
   %179 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %180 = load i64, ptr %179, align 8, !noundef !4
-  %181 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %178, i64 %180
+  %181 = getelementptr inbounds nuw [80 x i8], ptr %178, i64 %180
   br label %182
 
 182:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17ha99a00d054dfcfe8E.exit.i", %176
@@ -703,7 +703,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 108:                                              ; preds = %102
   %109 = load ptr, ptr %97, align 8, !noalias !235, !nonnull !4, !noundef !4
-  %110 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %109, i64 %105
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %109, i64 %105
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load i32, ptr %111, align 8, !noalias !235, !noundef !4
   %113 = load i64, ptr %98, align 8, !noalias !236, !noundef !4
@@ -716,7 +716,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %108
   %116 = load ptr, ptr %99, align 8, !noalias !236, !nonnull !4, !noundef !4
-  %117 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %116, i64 %105
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %116, i64 %105
   %118 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %117), !noalias !236
   %.not.i7.i.i.i = icmp eq ptr %118, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h572c73e3fe3e0946E.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4ffa0dcfa5c3527dE.exit.i.i.i"
@@ -759,7 +759,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
   %135 = load ptr, ptr %134, align 8, !nonnull !4, !noundef !4
   %136 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %137 = load i64, ptr %136, align 8, !noundef !4
-  %138 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %135, i64 %137
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %135, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %140 = load ptr, ptr %139, align 8, !nonnull !4, !align !6, !noundef !4
   br label %141
@@ -795,7 +795,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
   %157 = load ptr, ptr %156, align 8, !nonnull !4, !noundef !4
   %158 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %159 = load i64, ptr %158, align 8, !noundef !4
-  %160 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [80 x i8], ptr %157, i64 %159
   br label %161
 
 161:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17hfa0680f063e71bbdE.exit.i", %155
@@ -1075,7 +1075,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 108:                                              ; preds = %102
   %109 = load ptr, ptr %97, align 8, !noalias !335, !nonnull !4, !noundef !4
-  %110 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %109, i64 %105
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %109, i64 %105
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load i32, ptr %111, align 8, !noalias !335, !noundef !4
   %113 = load i64, ptr %98, align 8, !noalias !336, !noundef !4
@@ -1088,7 +1088,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %108
   %116 = load ptr, ptr %99, align 8, !noalias !336, !nonnull !4, !noundef !4
-  %117 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %116, i64 %105
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %116, i64 %105
   %118 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %117), !noalias !336
   %.not.i7.i.i.i = icmp eq ptr %118, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h3e528cf10382f2e5E.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h707a40f02a6c9485E.exit.i.i.i"
@@ -1131,7 +1131,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
   %135 = load ptr, ptr %134, align 8, !nonnull !4, !noundef !4
   %136 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %137 = load i64, ptr %136, align 8, !noundef !4
-  %138 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %135, i64 %137
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %135, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %140 = load ptr, ptr %139, align 8, !nonnull !4, !align !6, !noundef !4
   br label %141
@@ -1167,7 +1167,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
   %157 = load ptr, ptr %156, align 8, !nonnull !4, !noundef !4
   %158 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %159 = load i64, ptr %158, align 8, !noundef !4
-  %160 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [80 x i8], ptr %157, i64 %159
   br label %161
 
 161:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h403a60705b0e25daE.exit.i", %155
@@ -1450,7 +1450,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 111:                                              ; preds = %105
   %112 = load ptr, ptr %100, align 8, !noalias !440, !nonnull !4, !noundef !4
-  %113 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %112, i64 %108
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %112, i64 %108
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load i32, ptr %114, align 8, !noalias !440, !noundef !4
   %116 = load i64, ptr %101, align 8, !noalias !441, !noundef !4
@@ -1463,7 +1463,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %111
   %119 = load ptr, ptr %102, align 8, !noalias !441, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %119, i64 %108
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %108
   %121 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %120), !noalias !441
   %.not.i7.i.i.i = icmp eq ptr %121, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17hc9eccb6b183a5244E.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1a35f895327e985fE.exit.i.i.i"
@@ -1538,7 +1538,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %150 = load ptr, ptr %149, align 8, !nonnull !4, !noundef !4
   %151 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %152 = load i64, ptr %151, align 8, !noundef !4
-  %153 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [64 x i8], ptr %150, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %155 = load ptr, ptr %154, align 8, !nonnull !4, !align !6, !noundef !4
   br label %156
@@ -1575,7 +1575,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %173 = load ptr, ptr %172, align 8, !nonnull !4, !noundef !4
   %174 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %175 = load i64, ptr %174, align 8, !noundef !4
-  %176 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %173, i64 %175
+  %176 = getelementptr inbounds nuw [80 x i8], ptr %173, i64 %175
   br label %177
 
 177:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h893319e908e944d0E.exit.i", %171
@@ -1888,7 +1888,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 108:                                              ; preds = %102
   %109 = load ptr, ptr %97, align 8, !noalias !567, !nonnull !4, !noundef !4
-  %110 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %109, i64 %105
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %109, i64 %105
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load i32, ptr %111, align 8, !noalias !567, !noundef !4
   %113 = load i64, ptr %98, align 8, !noalias !568, !noundef !4
@@ -1901,7 +1901,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %108
   %116 = load ptr, ptr %99, align 8, !noalias !568, !nonnull !4, !noundef !4
-  %117 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %116, i64 %105
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %116, i64 %105
   %118 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %117), !noalias !568
   %.not.i7.i.i.i = icmp eq ptr %118, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17hc3eb9d4ca28431e1E.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b48c486761481e7E.exit.i.i.i"
@@ -1944,7 +1944,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
   %135 = load ptr, ptr %134, align 8, !nonnull !4, !noundef !4
   %136 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %137 = load i64, ptr %136, align 8, !noundef !4
-  %138 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %135, i64 %137
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %135, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %140 = load ptr, ptr %139, align 8, !nonnull !4, !align !6, !noundef !4
   br label %141
@@ -1980,7 +1980,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
   %157 = load ptr, ptr %156, align 8, !nonnull !4, !noundef !4
   %158 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %159 = load i64, ptr %158, align 8, !noundef !4
-  %160 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [80 x i8], ptr %157, i64 %159
   br label %161
 
 161:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17hb1b117321ee4ad05E.exit.i", %155
@@ -2263,7 +2263,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 111:                                              ; preds = %105
   %112 = load ptr, ptr %100, align 8, !noalias !672, !nonnull !4, !noundef !4
-  %113 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %112, i64 %108
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %112, i64 %108
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load i32, ptr %114, align 8, !noalias !672, !noundef !4
   %116 = load i64, ptr %101, align 8, !noalias !673, !noundef !4
@@ -2276,7 +2276,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %111
   %119 = load ptr, ptr %102, align 8, !noalias !673, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %119, i64 %108
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %108
   %121 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %120), !noalias !673
   %.not.i7.i.i.i = icmp eq ptr %121, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17hf64b72fd0002b4c6E.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hae10963e851a3025E.exit.i.i.i"
@@ -2348,7 +2348,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %151 = load ptr, ptr %150, align 8, !nonnull !4, !noundef !4
   %152 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %153 = load i64, ptr %152, align 8, !noundef !4
-  %154 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %151, i64 %153
+  %154 = getelementptr inbounds nuw [64 x i8], ptr %151, i64 %153
   %155 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %156 = load ptr, ptr %155, align 8, !nonnull !4, !align !6, !noundef !4
   br label %157
@@ -2385,7 +2385,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %174 = load ptr, ptr %173, align 8, !nonnull !4, !noundef !4
   %175 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %176 = load i64, ptr %175, align 8, !noundef !4
-  %177 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %174, i64 %176
+  %177 = getelementptr inbounds nuw [80 x i8], ptr %174, i64 %176
   br label %178
 
 178:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17hb1f3c2cd37424eb9E.exit.i", %172
@@ -2702,7 +2702,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 113:                                              ; preds = %107
   %114 = load ptr, ptr %102, align 8, !noalias !804, !nonnull !4, !noundef !4
-  %115 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %114, i64 %110
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %114, i64 %110
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i32, ptr %116, align 8, !noalias !804, !noundef !4
   %118 = load i64, ptr %103, align 8, !noalias !805, !noundef !4
@@ -2715,7 +2715,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %113
   %121 = load ptr, ptr %104, align 8, !noalias !805, !nonnull !4, !noundef !4
-  %122 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %121, i64 %110
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 %110
   %123 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %122), !noalias !805
   %.not.i7.i.i.i = icmp eq ptr %123, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17had19eb0f0614a80dE.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h021686f20d61c17cE.exit.i.i.i"
@@ -2787,7 +2787,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %153 = load ptr, ptr %152, align 8, !nonnull !4, !noundef !4
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %155 = load i64, ptr %154, align 8, !noundef !4
-  %156 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %153, i64 %155
+  %156 = getelementptr inbounds nuw [64 x i8], ptr %153, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %158 = load ptr, ptr %157, align 8, !nonnull !4, !align !6, !noundef !4
   br label %159
@@ -2828,7 +2828,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %178 = load ptr, ptr %177, align 8, !nonnull !4, !noundef !4
   %179 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %180 = load i64, ptr %179, align 8, !noundef !4
-  %181 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %178, i64 %180
+  %181 = getelementptr inbounds nuw [80 x i8], ptr %178, i64 %180
   br label %182
 
 182:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h72d34998092e6819E.exit.i", %176
@@ -3142,7 +3142,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 108:                                              ; preds = %102
   %109 = load ptr, ptr %97, align 8, !noalias !931, !nonnull !4, !noundef !4
-  %110 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %109, i64 %105
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %109, i64 %105
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load i32, ptr %111, align 8, !noalias !931, !noundef !4
   %113 = load i64, ptr %98, align 8, !noalias !932, !noundef !4
@@ -3155,7 +3155,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %108
   %116 = load ptr, ptr %99, align 8, !noalias !932, !nonnull !4, !noundef !4
-  %117 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %116, i64 %105
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %116, i64 %105
   %118 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %117), !noalias !932
   %.not.i7.i.i.i = icmp eq ptr %118, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h7051580c274fd646E.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee7ebf38bb950b5cE.exit.i.i.i"
@@ -3198,7 +3198,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
   %135 = load ptr, ptr %134, align 8, !nonnull !4, !noundef !4
   %136 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %137 = load i64, ptr %136, align 8, !noundef !4
-  %138 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %135, i64 %137
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %135, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %140 = load ptr, ptr %139, align 8, !nonnull !4, !align !6, !noundef !4
   br label %141
@@ -3234,7 +3234,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
   %157 = load ptr, ptr %156, align 8, !nonnull !4, !noundef !4
   %158 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %159 = load i64, ptr %158, align 8, !noundef !4
-  %160 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [80 x i8], ptr %157, i64 %159
   br label %161
 
 161:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h1d7ebd59bf4d8c33E.exit.i", %155
@@ -3517,7 +3517,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 111:                                              ; preds = %105
   %112 = load ptr, ptr %100, align 8, !noalias !1036, !nonnull !4, !noundef !4
-  %113 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %112, i64 %108
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %112, i64 %108
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load i32, ptr %114, align 8, !noalias !1036, !noundef !4
   %116 = load i64, ptr %101, align 8, !noalias !1037, !noundef !4
@@ -3530,7 +3530,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %111
   %119 = load ptr, ptr %102, align 8, !noalias !1037, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %119, i64 %108
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %108
   %121 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %120), !noalias !1037
   %.not.i7.i.i.i = icmp eq ptr %121, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h60ea2693aa83679eE.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h92da3144fe85d795E.exit.i.i.i"
@@ -3602,7 +3602,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %151 = load ptr, ptr %150, align 8, !nonnull !4, !noundef !4
   %152 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %153 = load i64, ptr %152, align 8, !noundef !4
-  %154 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %151, i64 %153
+  %154 = getelementptr inbounds nuw [64 x i8], ptr %151, i64 %153
   %155 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %156 = load ptr, ptr %155, align 8, !nonnull !4, !align !6, !noundef !4
   br label %157
@@ -3639,7 +3639,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %174 = load ptr, ptr %173, align 8, !nonnull !4, !noundef !4
   %175 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %176 = load i64, ptr %175, align 8, !noundef !4
-  %177 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %174, i64 %176
+  %177 = getelementptr inbounds nuw [80 x i8], ptr %174, i64 %176
   br label %178
 
 178:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17hfdc22ba355027c8dE.exit.i", %172
@@ -3952,7 +3952,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 111:                                              ; preds = %105
   %112 = load ptr, ptr %100, align 8, !noalias !1168, !nonnull !4, !noundef !4
-  %113 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %112, i64 %108
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %112, i64 %108
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load i32, ptr %114, align 8, !noalias !1168, !noundef !4
   %116 = load i64, ptr %101, align 8, !noalias !1169, !noundef !4
@@ -3965,7 +3965,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %111
   %119 = load ptr, ptr %102, align 8, !noalias !1169, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %119, i64 %108
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %108
   %121 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %120), !noalias !1169
   %.not.i7.i.i.i = icmp eq ptr %121, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17he1d5e873f76ffadfE.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h48283f2964f631ffE.exit.i.i.i"
@@ -4040,7 +4040,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %150 = load ptr, ptr %149, align 8, !nonnull !4, !noundef !4
   %151 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %152 = load i64, ptr %151, align 8, !noundef !4
-  %153 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [64 x i8], ptr %150, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %155 = load ptr, ptr %154, align 8, !nonnull !4, !align !6, !noundef !4
   br label %156
@@ -4077,7 +4077,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %173 = load ptr, ptr %172, align 8, !nonnull !4, !noundef !4
   %174 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %175 = load i64, ptr %174, align 8, !noundef !4
-  %176 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %173, i64 %175
+  %176 = getelementptr inbounds nuw [80 x i8], ptr %173, i64 %175
   br label %177
 
 177:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h3dcbe568f8b2743eE.exit.i", %171
@@ -4397,7 +4397,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 113:                                              ; preds = %107
   %114 = load ptr, ptr %102, align 8, !noalias !1300, !nonnull !4, !noundef !4
-  %115 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %114, i64 %110
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %114, i64 %110
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i32, ptr %116, align 8, !noalias !1300, !noundef !4
   %118 = load i64, ptr %103, align 8, !noalias !1301, !noundef !4
@@ -4410,7 +4410,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %113
   %121 = load ptr, ptr %104, align 8, !noalias !1301, !nonnull !4, !noundef !4
-  %122 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %121, i64 %110
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 %110
   %123 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %122), !noalias !1301
   %.not.i7.i.i.i = icmp eq ptr %123, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h8a6656abc067f005E.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h896c0cd792b33811E.exit.i.i.i"
@@ -4482,7 +4482,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %153 = load ptr, ptr %152, align 8, !nonnull !4, !noundef !4
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %155 = load i64, ptr %154, align 8, !noundef !4
-  %156 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %153, i64 %155
+  %156 = getelementptr inbounds nuw [64 x i8], ptr %153, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %158 = load ptr, ptr %157, align 8, !nonnull !4, !align !6, !noundef !4
   br label %159
@@ -4523,7 +4523,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %178 = load ptr, ptr %177, align 8, !nonnull !4, !noundef !4
   %179 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %180 = load i64, ptr %179, align 8, !noundef !4
-  %181 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %178, i64 %180
+  %181 = getelementptr inbounds nuw [80 x i8], ptr %178, i64 %180
   br label %182
 
 182:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h836fb520f5b7b1f6E.exit.i", %176
@@ -4844,7 +4844,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 113:                                              ; preds = %107
   %114 = load ptr, ptr %102, align 8, !noalias !1432, !nonnull !4, !noundef !4
-  %115 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %114, i64 %110
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %114, i64 %110
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i32, ptr %116, align 8, !noalias !1432, !noundef !4
   %118 = load i64, ptr %103, align 8, !noalias !1433, !noundef !4
@@ -4857,7 +4857,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8682a0af75ab586cE.exit.i: ; pr
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i.i": ; preds = %113
   %121 = load ptr, ptr %104, align 8, !noalias !1433, !nonnull !4, !noundef !4
-  %122 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %121, i64 %110
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 %110
   %123 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %122), !noalias !1433
   %.not.i7.i.i.i = icmp eq ptr %123, null
   br i1 %.not.i7.i.i.i, label %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h5e4d9176989785e4E.exit", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5bf7f526d0daa10dE.exit.i.i.i"
@@ -4929,7 +4929,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %153 = load ptr, ptr %152, align 8, !nonnull !4, !noundef !4
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %155 = load i64, ptr %154, align 8, !noundef !4
-  %156 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %153, i64 %155
+  %156 = getelementptr inbounds nuw [64 x i8], ptr %153, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %158 = load ptr, ptr %157, align 8, !nonnull !4, !align !6, !noundef !4
   br label %159
@@ -4970,7 +4970,7 @@ _ZN20ruff_python_semantic7analyze6typing18BuiltinTypeChecker15match_expr_type17h
   %178 = load ptr, ptr %177, align 8, !nonnull !4, !noundef !4
   %179 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %180 = load i64, ptr %179, align 8, !noundef !4
-  %181 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %178, i64 %180
+  %181 = getelementptr inbounds nuw [80 x i8], ptr %178, i64 %180
   br label %182
 
 182:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing10check_type28_$u7b$$u7b$closure$u7d$$u7d$17h195ec3d565b137f1E.exit.i", %176

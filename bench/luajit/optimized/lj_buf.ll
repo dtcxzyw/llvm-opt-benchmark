@@ -3,8 +3,6 @@ source_filename = "bench/luajit/original/lj_buf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.TValue = type { i64 }
-
 ; Function Attrs: noinline nounwind uwtable
 define hidden ptr @lj_buf_need2(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 2147483392
@@ -752,7 +750,7 @@ define hidden noundef ptr @lj_buf_puttab(ptr noundef %0, ptr noundef %1, ptr nou
 21:                                               ; preds = %17
   %22 = load i64, ptr %12, align 8, !tbaa !51
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds %union.TValue, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv
   br label %27
 
 25:                                               ; preds = %17

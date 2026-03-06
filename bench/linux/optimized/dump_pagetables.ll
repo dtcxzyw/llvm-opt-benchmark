@@ -384,7 +384,7 @@ define internal void @note_page(ptr noundef captures(none) %0, i64 noundef %1, i
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = sext i32 %2 to i64
-  %12 = getelementptr i64, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = load i64, ptr %12, align 8
   br label %14
 
@@ -866,7 +866,7 @@ define internal void @note_page(ptr noundef captures(none) %0, i64 noundef %1, i
   %257 = phi i32 [ %150, %250 ], [ %123, %130 ], [ %150, %253 ]
   %258 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %.str.33.sink) #9
   %259 = sext i32 %257 to i64
-  %260 = getelementptr ptr, ptr @printk_prot.level_name, i64 %259
+  %260 = getelementptr [8 x i8], ptr @printk_prot.level_name, i64 %259
   %261 = load ptr, ptr %260, align 8
   %262 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef %261) #9
   br label %.thread9
@@ -876,7 +876,7 @@ define internal void @note_page(ptr noundef captures(none) %0, i64 noundef %1, i
   %264 = phi i32 [ %150, %251 ], [ %123, %131 ], [ %150, %254 ]
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull %.str.34.sink) #8
   %265 = sext i32 %264 to i64
-  %266 = getelementptr ptr, ptr @printk_prot.level_name, i64 %265
+  %266 = getelementptr [8 x i8], ptr @printk_prot.level_name, i64 %265
   %267 = load ptr, ptr %266, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.58, ptr noundef %267) #8
   br label %.thread9
@@ -973,7 +973,7 @@ define internal void @effective_prot(ptr noundef captures(none) %0, i32 noundef 
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr i64, ptr %0, i64 %6
+  %7 = getelementptr [8 x i8], ptr %0, i64 %6
   %8 = getelementptr i8, ptr %7, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %2, 6
@@ -991,7 +991,7 @@ define internal void @effective_prot(ptr noundef captures(none) %0, i32 noundef 
   %18 = phi i64 [ %14, %5 ], [ %16, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = sext i32 %1 to i64
-  %21 = getelementptr i64, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   store i64 %18, ptr %21, align 8
   ret void
 }

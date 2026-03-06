@@ -539,7 +539,7 @@ define internal i32 @pci_device_probe(ptr noundef %0) #0 align 16 {
   %39 = load i64, ptr %37, align 8
   %40 = load i64, ptr %38, align 8
   %41 = and i64 %40, %39
-  %42 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %32
+  %42 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %32
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %41, %43
   %45 = icmp eq i64 %44, 0

@@ -27,7 +27,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %tmpSeqBuffer.sroa.0.0417 = phi ptr [ null, %for.body.lr.ph ], [ %tmpSeqBuffer.sroa.0.1, %for.inc ]
   %tmpSeqBuffer.sroa.25.0416 = phi ptr [ null, %for.body.lr.ph ], [ %tmpSeqBuffer.sroa.25.2, %for.inc ]
   %tmpSeqBuffer.sroa.59.0415 = phi ptr [ null, %for.body.lr.ph ], [ %tmpSeqBuffer.sroa.59.1, %for.inc ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %literals.coerce0, i64 %i.0418
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %literals.coerce0, i64 %i.0418
   %0 = load ptr, ptr %arrayidx.i, align 8
   %1 = load i8, ptr %0, align 8
   switch i8 %1, label %sw.default [

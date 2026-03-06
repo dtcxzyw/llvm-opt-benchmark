@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.4 = type { %struct.v4l2_captureparm, [160 x i8] }
 %struct.v4l2_captureparm = type { i32, i32, %struct.v4l2_fract, i32, i32, [4 x i32] }
 %struct.v4l2_requestbuffers = type { i32, i32, i32, i32, i8, [3 x i8] }
-%struct.buffer = type { ptr, i64, i32 }
 %struct.fd_set = type { [16 x i64] }
 %struct.timeval = type { i64, i64 }
 %struct.v4l2_buffer = type { i32, i32, i32, i32, i32, %struct.timeval, %struct.v4l2_timecode, i32, i32, %union.anon.5, i32, i32, %union.anon.6 }
@@ -617,7 +616,7 @@ xioctl.exit:                                      ; preds = %12, %15
   %32 = phi ptr [ %44, %43 ], [ %20, %.preheader35 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw %struct.buffer, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i64, ptr %37, align 8
@@ -643,7 +642,7 @@ xioctl.exit:                                      ; preds = %12, %15
   %49 = phi ptr [ %54, %.lr.ph39 ], [ %20, %.preheader ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw %struct.buffer, ptr %51, i64 %indvars.iv42
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %indvars.iv42
   %53 = load ptr, ptr %52, align 8
   call void @SDL_free_REAL(ptr noundef %53) #11
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
@@ -691,7 +690,7 @@ define internal zeroext i1 @V4L2_WaitDevice(ptr noundef %0) #1 {
   %9 = shl nuw i64 1, %8
   %10 = sdiv i32 %6, 64
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %2, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = add nsw i32 %6, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -850,7 +849,7 @@ xioctl.exit:                                      ; preds = %41
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = zext nneg i32 %49 to i64
-  %61 = getelementptr inbounds nuw %struct.buffer, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %62, ptr %63, align 8
@@ -866,7 +865,7 @@ xioctl.exit:                                      ; preds = %41
   %70 = load ptr, ptr %5, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw %struct.buffer, ptr %72, i64 %60
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %60
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i32 1, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -929,7 +928,7 @@ xioctl.exit58.preheader:                          ; preds = %85
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %xioctl.exit58
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %xioctl.exit58 ]
-  %105 = getelementptr inbounds nuw %struct.buffer, ptr %95, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %indvars.iv
   %106 = load ptr, ptr %105, align 8
   %107 = ptrtoint ptr %106 to i64
   %108 = icmp eq i64 %93, %107
@@ -961,7 +960,7 @@ xioctl.exit58._crit_edge:                         ; preds = %xioctl.exit58, %.lr
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8
   %122 = and i64 %indvars.iv, 4294967295
-  %123 = getelementptr inbounds nuw %struct.buffer, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i32 1, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1004,7 +1003,7 @@ define internal void @V4L2_ReleaseFrame(ptr noundef readonly captures(none) %0, 
 
 16:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %17 = getelementptr inbounds nuw %struct.buffer, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %13, %18
   br i1 %19, label %21, label %20
@@ -1047,7 +1046,7 @@ xioctl.exit:                                      ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = and i64 %indvars.iv, 4294967295
-  %38 = getelementptr inbounds nuw %struct.buffer, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %37
   br label %xioctl.exit.thread.sink.split
 
 39:                                               ; preds = %21
@@ -1062,7 +1061,7 @@ xioctl.exit:                                      ; preds = %27
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %43, ptr %44, align 8
   %45 = and i64 %indvars.iv, 4294967295
-  %46 = getelementptr inbounds nuw %struct.buffer, ptr %15, i64 %45
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = trunc i64 %48 to i32
@@ -1085,7 +1084,7 @@ xioctl.exit21:                                    ; preds = %51
   %58 = load ptr, ptr %4, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw %struct.buffer, ptr %60, i64 %45
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %60, i64 %45
   br label %xioctl.exit.thread.sink.split
 
 xioctl.exit.thread.sink.split:                    ; preds = %xioctl.exit21, %xioctl.exit
@@ -1652,7 +1651,7 @@ xioctl.exit:                                      ; preds = %16
   %25 = load ptr, ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw %struct.buffer, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %24, ptr %29, align 8
   %30 = load i32, ptr %11, align 8
@@ -1663,12 +1662,12 @@ xioctl.exit:                                      ; preds = %16
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw %struct.buffer, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %indvars.iv
   store ptr %34, ptr %38, align 8
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw %struct.buffer, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, inttoptr (i64 -1 to ptr)
   br i1 %44, label %.thread, label %46
@@ -1718,19 +1717,19 @@ define internal fastcc noundef zeroext i1 @AllocBufferUserPtr(ptr noundef readon
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %12 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %22, %8 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %13 = getelementptr inbounds nuw %struct.buffer, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %1, ptr %14, align 8
   %15 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef %1) #13
   %16 = load ptr, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw %struct.buffer, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv
   store ptr %15, ptr %19, align 8
   %20 = load ptr, ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw %struct.buffer, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %.not.not.not = icmp ne ptr %24, null
   br i1 %.not.not.not, label %8, label %._crit_edge
@@ -1785,7 +1784,7 @@ define internal fastcc zeroext i1 @EnqueueBuffers(ptr noundef readonly captures(
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw %struct.buffer, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
@@ -1835,7 +1834,7 @@ xioctl.exit:                                      ; preds = %31
   %indvars.iv54 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next55, %71 ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw %struct.buffer, ptr %48, i64 %indvars.iv54
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %indvars.iv54
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 0
@@ -1849,12 +1848,12 @@ xioctl.exit:                                      ; preds = %31
   %54 = trunc nuw nsw i64 %indvars.iv54 to i32
   store i32 %54, ptr %3, align 8
   %55 = load ptr, ptr %47, align 8
-  %56 = getelementptr inbounds nuw %struct.buffer, ptr %55, i64 %indvars.iv54
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %indvars.iv54
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   store i64 %58, ptr %18, align 8
   %59 = load ptr, ptr %47, align 8
-  %60 = getelementptr inbounds nuw %struct.buffer, ptr %59, i64 %indvars.iv54
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %indvars.iv54
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = trunc i64 %62 to i32

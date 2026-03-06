@@ -1910,7 +1910,7 @@ define hidden { ptr, ptr } @"_ZN4core5slice4iter87_$LT$impl$u20$core..iter..trai
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, ptr } @"_ZN4core5slice4iter95_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$mut$u20$$u5b$T$u5d$$GT$9into_iter17h8f0c72e6eec547deE"(ptr noalias noundef nonnull align 4 %0, i64 noundef %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds i32, ptr %0, i64 %1
+  %3 = getelementptr inbounds [4 x i8], ptr %0, i64 %1
   %4 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %5 = insertvalue { ptr, ptr } %4, ptr %3, 1
   ret { ptr, ptr } %5
@@ -6310,7 +6310,7 @@ common.ret:                                       ; preds = %41, %7
   %10 = load ptr, ptr %9, align 8, !alias.scope !929, !nonnull !20, !noundef !20
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !929, !noundef !20
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 %12
+  %13 = getelementptr inbounds [16 x i8], ptr %10, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %10, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -6557,7 +6557,7 @@ common.ret:                                       ; preds = %41, %7
   %10 = load ptr, ptr %9, align 8, !alias.scope !955, !nonnull !20, !noundef !20
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !955, !noundef !20
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 %12
+  %13 = getelementptr inbounds [16 x i8], ptr %10, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %10, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24

@@ -7252,7 +7252,7 @@ define hidden void @"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closur
   %63 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %54, %44 ]
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %65 = load ptr, ptr %64, align 8, !alias.scope !707, !noalias !710, !nonnull !10, !noundef !10
-  %66 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %65, i64 %63
+  %66 = getelementptr inbounds [32 x i8], ptr %65, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %67 = load i64, ptr %53, align 8, !alias.scope !707, !noalias !710, !noundef !10
   %68 = add i64 %67, 1

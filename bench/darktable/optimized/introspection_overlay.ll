@@ -18,9 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutexattr_t = type { i32 }
 %struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
 %struct._PangoRectangle = type { i32, i32, i32, i32 }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"composite\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"combine with elements from a processed image\00", align 1
@@ -218,7 +215,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 30:                                               ; preds = %29
   %31 = sext i32 %25 to i64
-  %32 = getelementptr inbounds ptr, ptr %.val, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.val, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !43
   tail call void @free(ptr noundef %33) #21
   store ptr null, ptr %32, align 8, !tbaa !43
@@ -234,11 +231,11 @@ _clear_cache_entry.exit:                          ; preds = %30, %29, %6
   %40 = load i32, ptr %39, align 8, !tbaa !46
   %41 = icmp eq i32 %37, %40
   %42 = sext i32 %25 to i64
-  %43 = getelementptr inbounds ptr, ptr %13, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %13, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 400
-  %45 = getelementptr inbounds i64, ptr %44, i64 %42
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %42
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 800
-  %47 = getelementptr inbounds i64, ptr %46, i64 %42
+  %47 = getelementptr inbounds [8 x i8], ptr %46, i64 %42
   br i1 %41, label %.cont372, label %.cont372.thread
 
 .cont372:                                         ; preds = %_clear_cache_entry.exit
@@ -1051,8 +1048,8 @@ _setup_overlay.exit:                              ; preds = %197, %_get_disabled
 473:                                              ; preds = %.lr.ph, %473
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %473 ]
   %474 = mul nsw i64 %indvars.iv, %472
-  %475 = getelementptr inbounds float, ptr %2, i64 %474
-  %476 = getelementptr inbounds float, ptr %3, i64 %474
+  %475 = getelementptr inbounds [4 x i8], ptr %2, i64 %474
+  %476 = getelementptr inbounds [4 x i8], ptr %3, i64 %474
   %477 = shl nsw i64 %indvars.iv, 2
   %478 = getelementptr inbounds nuw i8, ptr %228, i64 %477
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 3
@@ -1238,7 +1235,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !148
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !152
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %7) #21
   tail call void @gtk_toggle_button_set_active(ptr noundef %14, i32 noundef 1) #21
@@ -1262,7 +1259,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
 
 27:                                               ; preds = %1, %27
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !152
   %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %7) #21
   tail call void @gtk_toggle_button_set_active(ptr noundef %30, i32 noundef 0) #21
@@ -1428,7 +1425,7 @@ define void @cleanup_global(ptr noundef captures(none) %0) local_unnamed_addr #1
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !43
   tail call void @free(ptr noundef %9) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1596,7 +1593,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   %104 = trunc nuw nsw i64 %indvars.iv to i32
   %105 = shl nuw nsw i32 16384, %104
   %106 = tail call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_alignment, i32 noundef %105, ptr noundef null) #21
-  %107 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv
   store ptr %106, ptr %107, align 8, !tbaa !152
   %108 = tail call ptr @g_type_check_instance_cast(ptr noundef %67, i64 noundef %10) #21
   %109 = load ptr, ptr %107, align 8, !tbaa !152
@@ -1852,7 +1849,7 @@ define internal void @_drag_and_drop_received(ptr readnone captures(none) %0, pt
 
 36:                                               ; preds = %34
   %37 = sext i32 %19 to i64
-  %38 = getelementptr inbounds ptr, ptr %.val, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !43
   tail call void @free(ptr noundef %39) #21
   store ptr null, ptr %38, align 8, !tbaa !43
@@ -1948,7 +1945,7 @@ define internal void @_alignment_callback(ptr noundef readnone captures(address)
 15:                                               ; preds = %6, %29
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %29 ]
   %.02021 = phi i32 [ -1, %6 ], [ %.1, %29 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !152
   %18 = tail call i32 @g_signal_handlers_block_matched(ptr noundef %17, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_alignment_callback, ptr noundef %1) #21
   %19 = load ptr, ptr %16, align 8, !tbaa !152
@@ -2034,7 +2031,7 @@ define internal void @_signal_image_changed(ptr readnone captures(none) %0, ptr 
   br i1 %.not.i, label %_clear_cache_entry.exit, label %6
 
 6:                                                ; preds = %.preheader.split
-  %7 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   tail call void @free(ptr noundef %8) #21
   store ptr null, ptr %7, align 8, !tbaa !43
@@ -2076,7 +2073,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !141
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

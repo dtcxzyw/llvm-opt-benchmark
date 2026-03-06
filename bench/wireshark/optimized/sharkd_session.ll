@@ -24,9 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.color_t = type { i16, i16, i16 }
 %struct._value_string = type { i32, ptr }
 %struct.sharkd_analyse_data = type { ptr, ptr, ptr }
-%struct.jsmntok_t = type { i32, i32, i32, i32 }
-%struct.member_attribute = type { ptr, ptr, i32, i32, i32, i8 }
-%struct.encap_type_info = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.except_stacknode = type { ptr, i32, %union.anon }
 %union.anon = type { ptr }
@@ -35,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.sharkd_session_process_complete_pref_data = type { ptr, ptr }
-%struct.col_item_t = type { i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i8, i32 }
 %struct._rtpstream_tapinfo = type { ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, i8, i8 }
 %struct.sharkd_iograph = type { i32, i32, i32, i8, i32, i32, ptr, ptr }
 %struct.sharkd_frame_request_data = type { i8 }
@@ -43,21 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sharkd_download_rtp = type { %struct._rtpstream_id, ptr, double }
 %struct._rtpstream_id = type { %struct._address, i16, %struct._address, i16, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
-%struct._conversation_item_t = type { ptr, %struct._address, %struct._address, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, %struct._conversation_extension_tcp_t }
-%struct._conversation_extension_tcp_t = type { i64 }
-%struct._endpoint_item_t = type { ptr, %struct._address, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8 }
-%struct._stat_tap_table_item = type { i32, i32, ptr, ptr }
-%struct._rtd_timestat = type { i32, ptr, i32, i32, i32, i32 }
-%struct._timestat_t = type { i32, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, double }
-%struct._srt_procedure_t = type { i32, %struct._timestat_t, ptr }
 %struct._rtpstream_info_calc = type { ptr, i16, ptr, i16, i32, ptr, i32, i32, i32, i32, double, double, double, double, double, double, double, double, i8, double, double, double, double, i32, double, i32, i32 }
-%struct._io_graph_item_t = type { i32, i64, i64, %union.anon.10, %union.anon.11, %union.anon.12, i32, i32, i32, i32 }
-%union.anon.10 = type { %struct.nstime_t }
-%union.anon.11 = type { %struct.nstime_t }
-%union.anon.12 = type { %struct.nstime_t }
-%struct._uat_field_t = type { ptr, ptr, i32, %struct.anon.14, %struct.anon.15, ptr, ptr, ptr }
-%struct.anon.14 = type { ptr, ptr, ptr }
-%struct.anon.15 = type { ptr, ptr, ptr }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [17 x i8] c"Hello in child.\0A\00", align 1
@@ -646,7 +628,7 @@ define hidden noundef i32 @sharkd_session_main(i32 noundef %0) local_unnamed_add
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %44 = getelementptr %struct.jsmntok_t, ptr %39, i64 %indvars.iv.i.i
+  %44 = getelementptr [16 x i8], ptr %39, i64 %indvars.iv.i.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
@@ -668,7 +650,7 @@ define hidden noundef i32 @sharkd_session_main(i32 noundef %0) local_unnamed_add
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph.i.tail.thread.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.tail.thread.i.i ], [ 0, %.lr.ph.i.i ]
-  %55 = getelementptr %struct.jsmntok_t, ptr %39, i64 %indvars.iv.i.i.i
+  %55 = getelementptr [16 x i8], ptr %39, i64 %indvars.iv.i.i.i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
@@ -716,7 +698,7 @@ json_find_attr.exit.i.i:                          ; preds = %.lr.ph.i.tail.i.i
 
 .lr.ph.i178.i.i:                                  ; preds = %.lr.ph.i178.i.i.preheader, %74
   %indvars.iv.i179.i.i = phi i64 [ %indvars.iv.next.i181.i.i, %74 ], [ 0, %.lr.ph.i178.i.i.preheader ]
-  %76 = getelementptr %struct.jsmntok_t, ptr %39, i64 %indvars.iv.i179.i.i
+  %76 = getelementptr [16 x i8], ptr %39, i64 %indvars.iv.i179.i.i
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = sext i32 %78 to i64
@@ -736,7 +718,7 @@ json_find_attr.exit184.i.i:                       ; preds = %.lr.ph.i178.i.i
 .preheader229.i.i:                                ; preds = %json_find_attr.exit184.i.i, %94
   %indvars.iv341.i.i = phi i64 [ %indvars.iv.next342.i.i, %94 ], [ 0, %json_find_attr.exit184.i.i ]
   %.0124269.i.i = phi i1 [ %.1125.i.i, %94 ], [ false, %json_find_attr.exit184.i.i ]
-  %86 = getelementptr %struct.member_attribute, ptr @__const.json_prep.name_array, i64 %indvars.iv341.i.i
+  %86 = getelementptr [32 x i8], ptr @__const.json_prep.name_array, i64 %indvars.iv341.i.i
   %87 = load ptr, ptr %86, align 16
   %.not.i.i = icmp samesign ult i64 %indvars.iv341.i.i, 5
   br i1 %.not.i.i, label %94, label %88
@@ -775,7 +757,7 @@ json_find_attr.exit184.i.i:                       ; preds = %.lr.ph.i178.i.i
 
 .lr.ph286.i.i:                                    ; preds = %.thread217.i.i, %.critedge.i.i
   %indvars.iv343.i.i = phi i64 [ %indvars.iv.next344.i.i, %.thread217.i.i ], [ 0, %.critedge.i.i ]
-  %98 = getelementptr %struct.jsmntok_t, ptr %39, i64 %indvars.iv343.i.i
+  %98 = getelementptr [16 x i8], ptr %39, i64 %indvars.iv343.i.i
   %99 = load i32, ptr %98, align 4
   %.not157.i.i = icmp eq i32 %99, 3
   br i1 %.not157.i.i, label %105, label %100
@@ -841,7 +823,7 @@ json_find_attr.exit184.i.i:                       ; preds = %.lr.ph.i178.i.i
 .preheader228.split.us.i.i:                       ; preds = %.preheader228.i.i, %.backedge.us.i.i
   %131 = phi i64 [ %153, %.backedge.us.i.i ], [ 0, %.preheader228.i.i ]
   %.0120271.us.i.i = phi i64 [ %.0120.be.us.i.i, %.backedge.us.i.i ], [ 0, %.preheader228.i.i ]
-  %132 = getelementptr %struct.member_attribute, ptr @__const.json_prep.name_array, i64 %.0120271.us.i.i
+  %132 = getelementptr [32 x i8], ptr @__const.json_prep.name_array, i64 %.0120271.us.i.i
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = call ptr @g_strrstr(ptr noundef %134, ptr noundef nonnull @.str.116)
@@ -892,7 +874,7 @@ is_param_match.exit.us.i.i:                       ; preds = %141, %136
 .preheader228.split.i.i:                          ; preds = %.preheader228.i.i, %.backedge.i.i
   %154 = phi i64 [ %170, %.backedge.i.i ], [ 0, %.preheader228.i.i ]
   %.0120271.i.i = phi i64 [ %.0120.be.i.i, %.backedge.i.i ], [ 0, %.preheader228.i.i ]
-  %155 = getelementptr %struct.member_attribute, ptr @__const.json_prep.name_array, i64 %.0120271.i.i
+  %155 = getelementptr [32 x i8], ptr @__const.json_prep.name_array, i64 %.0120271.i.i
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8
   %158 = call ptr @g_strrstr(ptr noundef %157, ptr noundef nonnull @.str.116)
@@ -1019,7 +1001,7 @@ is_param_match.exit.i.i:                          ; preds = %164, %159
 
 .preheader226.split.i.i:                          ; preds = %.thread217.i.i, %223
   %.0287.i.i = phi i64 [ %224, %223 ], [ 0, %.thread217.i.i ]
-  %201 = getelementptr %struct.member_attribute, ptr @__const.json_prep.name_array, i64 %.0287.i.i
+  %201 = getelementptr [32 x i8], ptr @__const.json_prep.name_array, i64 %.0287.i.i
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 28
   %203 = load i8, ptr %202, align 4, !range !15, !noundef !16
   %204 = trunc nuw i8 %203 to i1
@@ -1040,7 +1022,7 @@ is_param_match.exit.i.i:                          ; preds = %164, %159
 
 .lr.ph.i188.i.i:                                  ; preds = %209, %.lr.ph.preheader.i187.i.i
   %indvars.iv.i189.i.i = phi i64 [ 0, %.lr.ph.preheader.i187.i.i ], [ %indvars.iv.next.i191.i.i, %209 ]
-  %211 = getelementptr %struct.jsmntok_t, ptr %39, i64 %indvars.iv.i189.i.i
+  %211 = getelementptr [16 x i8], ptr %39, i64 %indvars.iv.i189.i.i
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
   %213 = load i32, ptr %212, align 4
   %214 = sext i32 %213 to i64
@@ -1072,7 +1054,7 @@ json_find_attr.exit194.thread.i.i:                ; preds = %json_find_attr.exit
 .preheader.i.i:                                   ; preds = %223, %251
   %226 = phi i64 [ %253, %251 ], [ 0, %223 ]
   %.1291.i.i = phi i64 [ %252, %251 ], [ 0, %223 ]
-  %227 = getelementptr %struct.member_attribute, ptr @__const.json_prep.name_array, i64 %.1291.i.i
+  %227 = getelementptr [32 x i8], ptr @__const.json_prep.name_array, i64 %.1291.i.i
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 28
   %229 = load i8, ptr %228, align 4, !range !15, !noundef !16
   %230 = trunc nuw i8 %229 to i1
@@ -1099,7 +1081,7 @@ json_find_attr.exit194.thread.i.i:                ; preds = %json_find_attr.exit
 
 .lr.ph.i197.i.i:                                  ; preds = %238, %.lr.ph.i197.preheader.i.i
   %indvars.iv.i198.i.i = phi i64 [ %indvars.iv.next.i200.i.i, %238 ], [ 0, %.lr.ph.i197.preheader.i.i ]
-  %240 = getelementptr %struct.jsmntok_t, ptr %39, i64 %indvars.iv.i198.i.i
+  %240 = getelementptr [16 x i8], ptr %39, i64 %indvars.iv.i198.i.i
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
   %242 = load i32, ptr %241, align 4
   %243 = sext i32 %242 to i64
@@ -1134,7 +1116,7 @@ json_find_attr.exit203.thread.i.i:                ; preds = %json_find_attr.exit
 
 .lr.ph.i84.i:                                     ; preds = %251, %254
   %indvars.iv.i85.i = phi i64 [ %indvars.iv.next.i86.i, %254 ], [ 0, %251 ]
-  %256 = getelementptr %struct.jsmntok_t, ptr %39, i64 %indvars.iv.i85.i
+  %256 = getelementptr [16 x i8], ptr %39, i64 %indvars.iv.i85.i
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   %258 = load i32, ptr %257, align 4
   %259 = sext i32 %258 to i64
@@ -1454,7 +1436,7 @@ sharkd_session_process_analyse.exit.i:            ; preds = %336, %334
 .lr.ph.i.i96.i:                                   ; preds = %361, %.lr.ph.i.i96.i
   %indvars.iv.i.i97.i = phi i64 [ %indvars.iv.next.i.i98.i, %.lr.ph.i.i96.i ], [ 0, %361 ]
   %365 = load ptr, ptr %362, align 8
-  %366 = getelementptr i32, ptr %365, i64 %indvars.iv.i.i97.i
+  %366 = getelementptr [4 x i8], ptr %365, i64 %indvars.iv.i.i97.i
   %367 = load i32, ptr %366, align 4
   call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %368 = call ptr @wtap_file_type_subtype_name(i32 noundef %367)
@@ -1487,7 +1469,7 @@ sharkd_session_print_capture_types.exit.i.i:      ; preds = %.lr.ph.i.i96.i, %36
   %.02829.i.i.i = phi ptr [ %.1.i.i.i, %386 ], [ null, %sharkd_session_print_capture_types.exit.i.i ]
   %379 = trunc nuw nsw i64 %indvars.iv.i13.i.i to i32
   %380 = call ptr @wtap_encap_name(i32 noundef %379)
-  %381 = getelementptr %struct.encap_type_info, ptr %376, i64 %indvars.iv.i13.i.i
+  %381 = getelementptr [16 x i8], ptr %376, i64 %indvars.iv.i13.i.i
   store ptr %380, ptr %381, align 8
   %.not.i14.i.i = icmp eq ptr %380, null
   br i1 %.not.i14.i.i, label %386, label %382
@@ -1885,7 +1867,7 @@ define internal fastcc void @sharkd_session_process_load(ptr noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %10 ]
-  %12 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %12 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
@@ -2067,7 +2049,7 @@ define internal fastcc void @sharkd_session_process_check(ptr noundef %0, ptr no
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %9 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
@@ -2094,7 +2076,7 @@ define internal fastcc void @sharkd_session_process_check(ptr noundef %0, ptr no
 
 .lr.ph.i21:                                       ; preds = %19, %.lr.ph.preheader.i20
   %indvars.iv.i22 = phi i64 [ 0, %.lr.ph.preheader.i20 ], [ %indvars.iv.next.i24, %19 ]
-  %21 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i22
+  %21 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i22
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
@@ -2221,7 +2203,7 @@ define internal fastcc void @sharkd_session_process_complete(ptr noundef %0, ptr
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %10 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %10 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
@@ -2248,7 +2230,7 @@ define internal fastcc void @sharkd_session_process_complete(ptr noundef %0, ptr
 
 .lr.ph.i66:                                       ; preds = %20, %.lr.ph.preheader.i65
   %indvars.iv.i67 = phi i64 [ 0, %.lr.ph.preheader.i65 ], [ %indvars.iv.next.i69, %20 ]
-  %22 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i67
+  %22 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i67
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
@@ -2505,7 +2487,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  %20 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %20 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
@@ -2532,7 +2514,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
 
 .lr.ph.i95:                                       ; preds = %30, %.lr.ph.preheader.i94
   %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.preheader.i94 ], [ %indvars.iv.next.i98, %30 ]
-  %32 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i96
+  %32 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i96
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
@@ -2560,7 +2542,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
 
 .lr.ph.i104:                                      ; preds = %43, %.lr.ph.preheader.i103
   %indvars.iv.i105 = phi i64 [ 0, %.lr.ph.preheader.i103 ], [ %indvars.iv.next.i107, %43 ]
-  %45 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i105
+  %45 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i105
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
@@ -2587,7 +2569,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
 
 .lr.ph.i113:                                      ; preds = %55, %.lr.ph.preheader.i112
   %indvars.iv.i114 = phi i64 [ 0, %.lr.ph.preheader.i112 ], [ %indvars.iv.next.i116, %55 ]
-  %57 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i114
+  %57 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i114
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
@@ -2628,7 +2610,7 @@ json_find_attr.exit119:                           ; preds = %55, %.thread.i118
 
 .lr.ph.i122:                                      ; preds = %67, %json_find_attr.exit119
   %indvars.iv.i123 = phi i64 [ 0, %json_find_attr.exit119 ], [ %indvars.iv.next.i125, %67 ]
-  %69 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i123
+  %69 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i123
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
@@ -2677,7 +2659,7 @@ json_find_attr.exit128:                           ; preds = %67, %.thread.i127
 
 .lr.ph.i.i:                                       ; preds = %83, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %83 ]
-  %85 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i
+  %85 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i.i
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
@@ -2695,9 +2677,9 @@ json_find_attr.exit.i:                            ; preds = %.lr.ph.i.i
   br i1 %95, label %.loopexit.i, label %96
 
 96:                                               ; preds = %json_find_attr.exit.i
-  %97 = getelementptr ptr, ptr %5, i64 %indvars.iv.i129
+  %97 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i129
   store ptr null, ptr %97, align 8
-  %98 = getelementptr i16, ptr %7, i64 %indvars.iv.i129
+  %98 = getelementptr [2 x i8], ptr %7, i64 %indvars.iv.i129
   store i16 0, ptr %98, align 2
   %99 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %94, i32 noundef 58) #19
   %.not.i132 = icmp eq ptr %99, null
@@ -2705,7 +2687,7 @@ json_find_attr.exit.i:                            ; preds = %.lr.ph.i.i
 
 100:                                              ; preds = %96
   store i8 0, ptr %99, align 1
-  %101 = getelementptr i16, ptr %6, i64 %indvars.iv.i129
+  %101 = getelementptr [2 x i8], ptr %6, i64 %indvars.iv.i129
   store i16 4, ptr %101, align 2
   store ptr %94, ptr %97, align 8
   %102 = getelementptr i8, ptr %99, i64 1
@@ -2713,7 +2695,7 @@ json_find_attr.exit.i:                            ; preds = %.lr.ph.i.i
   br i1 %103, label %111, label %132
 
 104:                                              ; preds = %96
-  %105 = getelementptr i16, ptr %6, i64 %indvars.iv.i129
+  %105 = getelementptr [2 x i8], ptr %6, i64 %indvars.iv.i129
   %106 = call zeroext i1 @ws_strtou16(ptr noundef nonnull %94, ptr noundef null, ptr noundef %105)
   br i1 %106, label %107, label %132
 
@@ -2749,8 +2731,8 @@ json_find_attr.exit.i:                            ; preds = %.lr.ph.i.i
 113:                                              ; preds = %130, %.lr.ph.i130
   %indvars.iv68.i = phi i64 [ 0, %.lr.ph.i130 ], [ %indvars.iv.next69.i, %130 ]
   %114 = load ptr, ptr %112, align 8
-  %115 = getelementptr %struct.col_item_t, ptr %114, i64 %indvars.iv68.i
-  %116 = getelementptr i16, ptr %6, i64 %indvars.iv68.i
+  %115 = getelementptr [88 x i8], ptr %114, i64 %indvars.iv68.i
+  %116 = getelementptr [2 x i8], ptr %6, i64 %indvars.iv68.i
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
   store i32 %118, ptr %115, align 8
@@ -2760,12 +2742,12 @@ json_find_attr.exit.i:                            ; preds = %.lr.ph.i.i
   br i1 %120, label %121, label %130
 
 121:                                              ; preds = %113
-  %122 = getelementptr ptr, ptr %5, i64 %indvars.iv68.i
+  %122 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv68.i
   %123 = load ptr, ptr %122, align 8
   %124 = call noalias ptr @g_strdup(ptr noundef %123)
   %125 = getelementptr inbounds nuw i8, ptr %115, i64 24
   store ptr %124, ptr %125, align 8
-  %126 = getelementptr i16, ptr %7, i64 %indvars.iv68.i
+  %126 = getelementptr [2 x i8], ptr %7, i64 %indvars.iv68.i
   %127 = load i16, ptr %126, align 2
   %128 = sext i16 %127 to i32
   %129 = getelementptr inbounds nuw i8, ptr %115, i64 32
@@ -3101,7 +3083,7 @@ json_find_attr.exit.thread:                       ; preds = %3
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  %20 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %20 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
@@ -3142,7 +3124,7 @@ json_find_attr.exit:                              ; preds = %18, %.thread.i
 
 .lr.ph.i374:                                      ; preds = %31, %.lr.ph.preheader.i373
   %indvars.iv.i375 = phi i64 [ 0, %.lr.ph.preheader.i373 ], [ %indvars.iv.next.i377, %31 ]
-  %33 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i375
+  %33 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i375
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
@@ -3652,7 +3634,7 @@ sub_1:                                            ; preds = %sub_0
   %253 = shl nuw i32 1, %252
   %254 = lshr i32 %251, 5
   %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr i32, ptr @voip_conv_sel, i64 %255
+  %256 = getelementptr [4 x i8], ptr @voip_conv_sel, i64 %255
   %257 = load i32, ptr %256, align 4
   %258 = or i32 %257, %253
   store i32 %258, ptr %256, align 4
@@ -3747,7 +3729,7 @@ sub_2427:                                         ; preds = %sub_1426
   %.2285 = phi i8 [ %.1284489, %.tail424 ], [ %.1284489, %286 ], [ 1, %288 ]
   %291 = add i32 %.0490, 1
   %292 = sext i32 %291 to i64
-  %293 = getelementptr ptr, ptr %271, i64 %292
+  %293 = getelementptr [8 x i8], ptr %271, i64 %292
   %294 = load ptr, ptr %293, align 8
   %.not364 = icmp eq ptr %294, null
   br i1 %.not364, label %._crit_edge, label %sub_0425, !llvm.loop !35
@@ -3806,10 +3788,10 @@ sub_2427:                                         ; preds = %sub_1426
 312:                                              ; preds = %304
   %313 = load ptr, ptr %9, align 8
   %314 = sext i32 %.0277495 to i64
-  %315 = getelementptr ptr, ptr %4, i64 %314
+  %315 = getelementptr [8 x i8], ptr %4, i64 %314
   store ptr %313, ptr %315, align 8
   %316 = load ptr, ptr %10, align 8
-  %317 = getelementptr ptr, ptr %5, i64 %314
+  %317 = getelementptr [8 x i8], ptr %5, i64 %314
   store ptr %316, ptr %317, align 8
   %318 = add i32 %.0277495, 1
   br label %319
@@ -3878,7 +3860,7 @@ json_find_attr.exit380.thread:                    ; preds = %json_find_attr.exit
 
 .lr.ph499:                                        ; preds = %.lr.ph499.preheader, %342
   %indvars.iv = phi i64 [ 0, %.lr.ph499.preheader ], [ %indvars.iv.next, %342 ]
-  %335 = getelementptr ptr, ptr %4, i64 %indvars.iv
+  %335 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv
   %336 = load ptr, ptr %335, align 8
   %.not370 = icmp eq ptr %336, null
   br i1 %.not370, label %338, label %337
@@ -3888,7 +3870,7 @@ json_find_attr.exit380.thread:                    ; preds = %json_find_attr.exit
   br label %338
 
 338:                                              ; preds = %337, %.lr.ph499
-  %339 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %339 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %340 = load ptr, ptr %339, align 8
   %.not371 = icmp eq ptr %340, null
   br i1 %.not371, label %342, label %341
@@ -3927,7 +3909,7 @@ define internal fastcc void @sharkd_session_process_follow(ptr noundef %0, ptr n
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
@@ -3954,7 +3936,7 @@ define internal fastcc void @sharkd_session_process_follow(ptr noundef %0, ptr n
 
 .lr.ph.i71:                                       ; preds = %18, %.lr.ph.preheader.i70
   %indvars.iv.i72 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i74, %18 ]
-  %20 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i72
+  %20 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i72
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
@@ -3981,7 +3963,7 @@ define internal fastcc void @sharkd_session_process_follow(ptr noundef %0, ptr n
 
 .lr.ph.i80:                                       ; preds = %30, %.lr.ph.preheader.i79
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.preheader.i79 ], [ %indvars.iv.next.i83, %30 ]
-  %32 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i81
+  %32 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i81
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
@@ -4168,7 +4150,7 @@ define internal fastcc void @sharkd_session_process_iograph(ptr noundef %0, ptr 
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %10 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %10 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
@@ -4195,7 +4177,7 @@ define internal fastcc void @sharkd_session_process_iograph(ptr noundef %0, ptr 
 
 .lr.ph.i152:                                      ; preds = %20, %.lr.ph.preheader.i151
   %indvars.iv.i153 = phi i64 [ 0, %.lr.ph.preheader.i151 ], [ %indvars.iv.next.i155, %20 ]
-  %22 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i153
+  %22 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i153
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
@@ -4336,7 +4318,7 @@ sub_1224:                                         ; preds = %sub_0218
   %.0255 = phi i1 [ true, %156 ], [ false, %.tail227.thread ]
   %.0109254 = phi i32 [ %157, %156 ], [ 0, %.tail227.thread ]
   %73 = zext nneg i32 %.0109254 to i64
-  %74 = getelementptr %struct.sharkd_iograph, ptr %4, i64 %73
+  %74 = getelementptr [40 x i8], ptr %4, i64 %73
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %75 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %6, i64 noundef 32, i32 noundef 2, i64 noundef 32, ptr noundef nonnull @.str.401, i32 noundef %.0109254)
   br label %.lr.ph.i161
@@ -4348,7 +4330,7 @@ sub_1224:                                         ; preds = %sub_0218
 
 .lr.ph.i161:                                      ; preds = %76, %.lr.ph.preheader.i160
   %indvars.iv.i162 = phi i64 [ 0, %.lr.ph.preheader.i160 ], [ %indvars.iv.next.i164, %76 ]
-  %78 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i162
+  %78 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i162
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
@@ -4376,7 +4358,7 @@ json_find_attr.exit167:                           ; preds = %.lr.ph.i161
 
 .lr.ph.i170:                                      ; preds = %89, %.lr.ph.preheader.i169
   %indvars.iv.i171 = phi i64 [ 0, %.lr.ph.preheader.i169 ], [ %indvars.iv.next.i173, %89 ]
-  %91 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i171
+  %91 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i171
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = sext i32 %93 to i64
@@ -4474,7 +4456,7 @@ json_find_attr.exit176:                           ; preds = %89, %.thread.i175
 
 .lr.ph.i179:                                      ; preds = %130, %.lr.ph.preheader.i178
   %indvars.iv.i180 = phi i64 [ 0, %.lr.ph.preheader.i178 ], [ %indvars.iv.next.i182, %130 ]
-  %132 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i180
+  %132 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i180
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %134 = load i32, ptr %133, align 4
   %135 = sext i32 %134 to i64
@@ -4557,7 +4539,7 @@ json_find_attr.exit185.thread:                    ; preds = %130, %json_find_att
 .lr.ph263:                                        ; preds = %159, %._crit_edge
   %.1113261 = phi i32 [ %199, %._crit_edge ], [ 0, %159 ]
   %162 = zext nneg i32 %.1113261 to i64
-  %163 = getelementptr %struct.sharkd_iograph, ptr %4, i64 %162
+  %163 = getelementptr [40 x i8], ptr %4, i64 %162
   call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %165 = load ptr, ptr %164, align 8
@@ -4675,7 +4657,7 @@ define internal fastcc void @sharkd_session_process_intervals(ptr noundef %0, pt
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %9 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
@@ -4702,7 +4684,7 @@ define internal fastcc void @sharkd_session_process_intervals(ptr noundef %0, pt
 
 .lr.ph.i69:                                       ; preds = %19, %.lr.ph.preheader.i68
   %indvars.iv.i70 = phi i64 [ 0, %.lr.ph.preheader.i68 ], [ %indvars.iv.next.i72, %19 ]
-  %21 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i70
+  %21 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i70
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
@@ -4990,7 +4972,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef %0, ptr no
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %12 ]
-  %14 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %14 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
@@ -5017,7 +4999,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef %0, ptr no
 
 .lr.ph.i47:                                       ; preds = %24, %.lr.ph.preheader.i46
   %indvars.iv.i48 = phi i64 [ 0, %.lr.ph.preheader.i46 ], [ %indvars.iv.next.i50, %24 ]
-  %26 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i48
+  %26 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i48
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
@@ -5044,7 +5026,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef %0, ptr no
 
 .lr.ph.i56:                                       ; preds = %36, %.lr.ph.preheader.i55
   %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.preheader.i55 ], [ %indvars.iv.next.i59, %36 ]
-  %38 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i57
+  %38 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i57
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
@@ -5124,7 +5106,7 @@ json_find_attr.exit62:                            ; preds = %36, %3, %.thread.i6
 
 .lr.ph.i65:                                       ; preds = %69, %.lr.ph.preheader.i64
   %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.preheader.i64 ], [ %indvars.iv.next.i68, %69 ]
-  %71 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i66
+  %71 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i66
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
@@ -5153,7 +5135,7 @@ json_find_attr.exit62:                            ; preds = %36, %3, %.thread.i6
 
 .lr.ph.i74:                                       ; preds = %83, %.lr.ph.preheader.i73
   %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i73 ], [ %indvars.iv.next.i77, %83 ]
-  %85 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i75
+  %85 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i75
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
@@ -5183,7 +5165,7 @@ json_find_attr.exit62:                            ; preds = %36, %3, %.thread.i6
 
 .lr.ph.i83:                                       ; preds = %98, %.lr.ph.preheader.i82
   %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.preheader.i82 ], [ %indvars.iv.next.i86, %98 ]
-  %100 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i84
+  %100 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i84
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
@@ -5217,7 +5199,7 @@ json_find_attr.exit89:                            ; preds = %.lr.ph.i83
 
 .lr.ph.i92:                                       ; preds = %115, %.thread
   %indvars.iv.i93 = phi i64 [ 0, %.thread ], [ %indvars.iv.next.i95, %115 ]
-  %117 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i93
+  %117 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i93
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
@@ -5250,7 +5232,7 @@ json_find_attr.exit98.thread:                     ; preds = %115, %json_find_att
 
 .lr.ph.i101:                                      ; preds = %.lr.ph.i101.tail.thread, %129
   %indvars.iv.i102 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i104, %.lr.ph.i101.tail.thread ]
-  %132 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i102
+  %132 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i102
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %134 = load i32, ptr %133, align 4
   %135 = sext i32 %134 to i64
@@ -5337,7 +5319,7 @@ json_find_attr.exit29.thread:                     ; preds = %3
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
@@ -5364,7 +5346,7 @@ json_find_attr.exit29.thread:                     ; preds = %3
 
 .lr.ph.i23:                                       ; preds = %18, %.lr.ph.preheader.i22
   %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.preheader.i22 ], [ %indvars.iv.next.i26, %18 ]
-  %20 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i24
+  %20 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i24
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
@@ -5454,7 +5436,7 @@ json_find_attr.exit22.thread:                     ; preds = %3
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %9 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
@@ -5481,7 +5463,7 @@ json_find_attr.exit22.thread:                     ; preds = %3
 
 .lr.ph.i16:                                       ; preds = %19, %.lr.ph.preheader.i15
   %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.preheader.i15 ], [ %indvars.iv.next.i19, %19 ]
-  %21 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i17
+  %21 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i17
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
@@ -5584,7 +5566,7 @@ define internal fastcc void @sharkd_session_process_dumpconf(ptr noundef %0, ptr
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %10 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %10 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
@@ -5729,7 +5711,7 @@ define internal fastcc void @sharkd_session_process_download(ptr noundef %0, ptr
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %10 ]
-  %12 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %12 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
@@ -7016,7 +6998,7 @@ define internal void @sharkd_session_process_tap_flow_cb(ptr noundef %0) #0 {
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr %struct._address, ptr %6, i64 %indvars.iv
+  %8 = getelementptr [24 x i8], ptr %6, i64 %indvars.iv
   %9 = tail call ptr @address_to_display(ptr noundef null, ptr noundef %8)
   tail call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %9)
   tail call void @wmem_free(ptr noundef null, ptr noundef %9)
@@ -7188,7 +7170,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly ca
   %34 = phi ptr [ %25, %.lr.ph92 ], [ %78, %74 ]
   %.06990 = phi i32 [ 0, %.lr.ph92 ], [ %.2, %74 ]
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr %struct._conversation_item_t, ptr %35, i64 %indvars.iv98
+  %36 = getelementptr [200 x i8], ptr %35, i64 %indvars.iv98
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i8, ptr %31, align 8, !range !15, !noundef !16
@@ -7292,7 +7274,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr noundef readonly ca
   %90 = phi ptr [ %25, %.lr.ph ], [ %114, %112 ]
   %.488 = phi i32 [ 0, %.lr.ph ], [ %spec.select84, %112 ]
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr %struct._endpoint_item_t, ptr %91, i64 %indvars.iv
+  %92 = getelementptr [112 x i8], ptr %91, i64 %indvars.iv
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i8, ptr %87, align 8, !range !15, !noundef !16
@@ -7413,7 +7395,7 @@ define internal void @sharkd_session_process_tap_nstat_cb(ptr noundef readonly c
   %.036 = phi i32 [ %15, %.lr.ph ], [ 0, %1 ]
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr %struct._stat_tap_table_item, ptr %11, i64 %9
+  %12 = getelementptr [24 x i8], ptr %11, i64 %9
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -7444,7 +7426,7 @@ define internal void @sharkd_session_process_tap_nstat_cb(ptr noundef readonly c
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge44 ], [ 0, %._crit_edge ]
   %26 = phi ptr [ %70, %._crit_edge44 ], [ %23, %._crit_edge ]
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %30 = load ptr, ptr %29, align 8
@@ -7630,7 +7612,7 @@ define internal void @sharkd_session_process_tap_rtd_cb(ptr noundef readonly cap
   %25 = phi i32 [ %22, %.lr.ph48 ], [ %78, %._crit_edge ]
   %indvars.iv53 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next54, %._crit_edge ]
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr %struct._rtd_timestat, ptr %26, i64 %indvars.iv53
+  %27 = getelementptr [32 x i8], ptr %26, i64 %indvars.iv53
   %28 = load i32, ptr %27, align 8
   %.not51 = icmp eq i32 %28, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph
@@ -7647,7 +7629,7 @@ define internal void @sharkd_session_process_tap_rtd_cb(ptr noundef readonly cap
   %35 = phi i32 [ %28, %.lr.ph ], [ %75, %74 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %36 = load ptr, ptr %29, align 8
-  %37 = getelementptr %struct._timestat_t, ptr %36, i64 %indvars.iv
+  %37 = getelementptr [72 x i8], ptr %36, i64 %indvars.iv
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %74, label %40
@@ -7662,31 +7644,31 @@ define internal void @sharkd_session_process_tap_rtd_cb(ptr noundef readonly cap
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.244)
   tail call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %43)
   %44 = load ptr, ptr %29, align 8
-  %45 = getelementptr %struct._timestat_t, ptr %44, i64 %indvars.iv
+  %45 = getelementptr [72 x i8], ptr %44, i64 %indvars.iv
   %46 = load i32, ptr %45, align 8
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.196, ptr noundef nonnull @.str.123, i32 noundef %46)
   %47 = load ptr, ptr %29, align 8
-  %48 = getelementptr %struct._timestat_t, ptr %47, i64 %indvars.iv
+  %48 = getelementptr [72 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = tail call double @nstime_to_sec(ptr noundef nonnull %49)
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.125, double noundef %50)
   %51 = load ptr, ptr %29, align 8
-  %52 = getelementptr %struct._timestat_t, ptr %51, i64 %indvars.iv
+  %52 = getelementptr [72 x i8], ptr %51, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = tail call double @nstime_to_sec(ptr noundef nonnull %53)
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.125, double noundef %54)
   %55 = load ptr, ptr %29, align 8
-  %56 = getelementptr %struct._timestat_t, ptr %55, i64 %indvars.iv
+  %56 = getelementptr [72 x i8], ptr %55, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = tail call double @nstime_to_sec(ptr noundef nonnull %57)
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.305, ptr noundef nonnull @.str.125, double noundef %58)
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr %struct._timestat_t, ptr %59, i64 %indvars.iv
+  %60 = getelementptr [72 x i8], ptr %59, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.123, i32 noundef %62)
   %63 = load ptr, ptr %29, align 8
-  %64 = getelementptr %struct._timestat_t, ptr %63, i64 %indvars.iv
+  %64 = getelementptr [72 x i8], ptr %63, i64 %indvars.iv
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i32, ptr %65, align 8
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.307, ptr noundef nonnull @.str.123, i32 noundef %66)
@@ -7781,7 +7763,7 @@ define internal void @sharkd_session_process_tap_srt_cb(ptr noundef readonly cap
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %._crit_edge ], [ 0, %1 ]
   %9 = phi ptr [ %59, %._crit_edge ], [ %6, %1 ]
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv46
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv46
   %12 = load ptr, ptr %11, align 8
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %13 = load ptr, ptr %12, align 8
@@ -7847,7 +7829,7 @@ define internal void @sharkd_session_process_tap_srt_cb(ptr noundef readonly cap
   %35 = phi i32 [ %31, %.lr.ph ], [ %56, %55 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr %struct._srt_procedure_t, ptr %36, i64 %indvars.iv
+  %37 = getelementptr [88 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 0
@@ -8743,7 +8725,7 @@ define internal void @sharkd_session_process_tap_voip_calls_cb(ptr noundef reado
 
 26:                                               ; preds = %23, %6
   %27 = zext i32 %21 to i64
-  %28 = getelementptr ptr, ptr @voip_protocol_name, i64 %27
+  %28 = getelementptr [8 x i8], ptr @voip_protocol_name, i64 %27
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -8756,7 +8738,7 @@ define internal void @sharkd_session_process_tap_voip_calls_cb(ptr noundef reado
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.362, ptr noundef nonnull @.str.123, i32 noundef %33)
   %34 = load i32, ptr %5, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr ptr, ptr @voip_call_state_name, i64 %35
+  %36 = getelementptr [8 x i8], ptr @voip_call_state_name, i64 %35
   %37 = load ptr, ptr %36, align 8
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.380)
   tail call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %37)
@@ -8842,7 +8824,7 @@ define internal void @sharkd_session_process_tap_voip_convs_cb(ptr noundef reado
   %12 = load i16, ptr %11, align 8
   %13 = lshr i16 %12, 5
   %14 = zext nneg i16 %13 to i64
-  %15 = getelementptr i32, ptr @voip_conv_sel, i64 %14
+  %15 = getelementptr [4 x i8], ptr @voip_conv_sel, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = and i16 %12, 31
   %18 = zext nneg i16 %17 to i32
@@ -9707,7 +9689,7 @@ define internal range(i32 0, 2) i32 @sharkd_iograph_packet(ptr noundef captures(
   store ptr %24, ptr %20, align 8
   %25 = load i32, ptr %16, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr %struct._io_graph_item_t, ptr %24, i64 %26
+  %27 = getelementptr [88 x i8], ptr %24, i64 %26
   %28 = sub i32 %19, %25
   %29 = sext i32 %28 to i64
   %.not.i = icmp eq i32 %19, %25
@@ -9715,7 +9697,7 @@ define internal range(i32 0, 2) i32 @sharkd_iograph_packet(ptr noundef captures(
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
   %.014.i = phi i64 [ %36, %.lr.ph.i ], [ 0, %18 ]
-  %30 = getelementptr %struct._io_graph_item_t, ptr %27, i64 %.014.i
+  %30 = getelementptr [88 x i8], ptr %27, i64 %.014.i
   store i32 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 72
@@ -9752,7 +9734,7 @@ reset_io_graph_items.exit:                        ; preds = %.lr.ph.i, %18
 
 .lr.ph.i56:                                       ; preds = %41, %.lr.ph.i56
   %.014.i57 = phi i64 [ %52, %.lr.ph.i56 ], [ 0, %41 ]
-  %46 = getelementptr %struct._io_graph_item_t, ptr %43, i64 %.014.i57
+  %46 = getelementptr [88 x i8], ptr %43, i64 %.014.i57
   store i32 0, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 72
@@ -9779,7 +9761,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = load i32, ptr %7, align 8
-  %60 = getelementptr %struct._io_graph_item_t, ptr %55, i64 %9
+  %60 = getelementptr [88 x i8], ptr %55, i64 %9
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 0
@@ -9854,7 +9836,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 
 88:                                               ; preds = %86, %86, %86, %86
   %89 = load ptr, ptr %73, align 8
-  %90 = getelementptr ptr, ptr %89, i64 %indvars.iv220.i
+  %90 = getelementptr [8 x i8], ptr %89, i64 %indvars.iv220.i
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %93 = load ptr, ptr %92, align 8
@@ -9896,7 +9878,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 
 111:                                              ; preds = %86, %86, %86, %86
   %112 = load ptr, ptr %73, align 8
-  %113 = getelementptr ptr, ptr %112, i64 %indvars.iv220.i
+  %113 = getelementptr [8 x i8], ptr %112, i64 %indvars.iv220.i
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %116 = load ptr, ptr %115, align 8
@@ -9938,7 +9920,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 
 134:                                              ; preds = %86, %86, %86, %86
   %135 = load ptr, ptr %73, align 8
-  %136 = getelementptr ptr, ptr %135, i64 %indvars.iv220.i
+  %136 = getelementptr [8 x i8], ptr %135, i64 %indvars.iv220.i
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %139 = load ptr, ptr %138, align 8
@@ -9979,7 +9961,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 
 156:                                              ; preds = %86, %86, %86, %86
   %157 = load ptr, ptr %73, align 8
-  %158 = getelementptr ptr, ptr %157, i64 %indvars.iv220.i
+  %158 = getelementptr [8 x i8], ptr %157, i64 %indvars.iv220.i
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 48
   %161 = load ptr, ptr %160, align 8
@@ -10020,7 +10002,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 
 178:                                              ; preds = %86
   %179 = load ptr, ptr %73, align 8
-  %180 = getelementptr ptr, ptr %179, i64 %indvars.iv220.i
+  %180 = getelementptr [8 x i8], ptr %179, i64 %indvars.iv220.i
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
   %183 = load ptr, ptr %182, align 8
@@ -10062,7 +10044,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 
 201:                                              ; preds = %86
   %202 = load ptr, ptr %73, align 8
-  %203 = getelementptr ptr, ptr %202, i64 %indvars.iv220.i
+  %203 = getelementptr [8 x i8], ptr %202, i64 %indvars.iv220.i
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 48
   %206 = load ptr, ptr %205, align 8
@@ -10102,7 +10084,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
 
 222:                                              ; preds = %86
   %223 = load ptr, ptr %73, align 8
-  %224 = getelementptr ptr, ptr %223, i64 %indvars.iv220.i
+  %224 = getelementptr [8 x i8], ptr %223, i64 %indvars.iv220.i
   %225 = load ptr, ptr %224, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 48
   %227 = load ptr, ptr %226, align 8
@@ -10142,7 +10124,7 @@ reset_io_graph_items.exit59:                      ; preds = %.lr.ph.i56, %41, %3
   %indvars.iv.i = phi i64 [ %9, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %264 ]
   %.1195213.i = phi i64 [ %spec.select.i, %.lr.ph.preheader.i ], [ %..i, %264 ]
   %.0196212.i = phi i64 [ %239, %.lr.ph.preheader.i ], [ %265, %264 ]
-  %247 = getelementptr %struct._io_graph_item_t, ptr %55, i64 %indvars.iv.i
+  %247 = getelementptr [88 x i8], ptr %55, i64 %indvars.iv.i
   %248 = trunc nuw i64 %.1195213.i to i32
   %249 = mul i32 %248, 1000
   %250 = getelementptr inbounds nuw i8, ptr %247, i64 64
@@ -10403,7 +10385,7 @@ define internal void @sharkd_session_process_frame_cb(ptr noundef %0, ptr nounde
   %45 = trunc nuw i64 %indvars.iv to i32
   %46 = call ptr @g_slist_nth_data(ptr noundef nonnull %3, i32 noundef %45)
   %47 = call ptr @get_data_source_tvb(ptr noundef %46)
-  %48 = getelementptr ptr, ptr %44, i64 %indvars.iv
+  %48 = getelementptr [8 x i8], ptr %44, i64 %indvars.iv
   store ptr %47, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -10411,7 +10393,7 @@ define internal void @sharkd_session_process_frame_cb(ptr noundef %0, ptr nounde
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %39
   %.pre-phi = phi i64 [ 0, %39 ], [ %wide.trip.count, %.lr.ph103 ]
-  %49 = getelementptr ptr, ptr %44, i64 %.pre-phi
+  %49 = getelementptr [8 x i8], ptr %44, i64 %.pre-phi
   store ptr null, ptr %49, align 8
   br label %50
 
@@ -10703,7 +10685,7 @@ sharkd_json_array_open.exit:                      ; preds = %5, %7
 33:                                               ; preds = %.lr.ph
   %34 = add i32 %.072104, 1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr ptr, ptr %3, i64 %35
+  %36 = getelementptr [8 x i8], ptr %3, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not92 = icmp eq ptr %37, null
   br i1 %.not92, label %.loopexit, label %.lr.ph, !llvm.loop !75
@@ -11158,7 +11140,7 @@ define internal noundef i32 @sharkd_session_process_dumpconf_cb(ptr noundef %0, 
 .lr.ph:                                           ; preds = %48, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %48 ]
   %55 = load ptr, ptr %47, align 8
-  %56 = getelementptr %struct._uat_field_t, ptr %55, i64 %indvars.iv
+  %56 = getelementptr [96 x i8], ptr %55, i64 %indvars.iv
   %57 = call ptr @uat_fld_tostr(ptr noundef %53, ptr noundef %56)
   call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %57)
   call void @g_free(ptr noundef %57)

@@ -114,7 +114,7 @@ AddLength.exit:                                   ; preds = %7, %12
 
 .lr.ph26.i:                                       ; preds = %28, %.lr.ph26.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph26.i ], [ 0, %28 ]
-  %31 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv30.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv30.i
   %32 = load i32, ptr %31, align 4, !tbaa !3
   %33 = tail call noundef i32 @llvm.bswap.i32(i32 %32)
   store i32 %33, ptr %31, align 4, !tbaa !3
@@ -157,7 +157,7 @@ ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26
 
 .lr.ph26.i64.us:                                  ; preds = %.lr.ph26.i64.preheader.us, %.lr.ph26.i64.us
   %indvars.iv30.i65.us = phi i64 [ %indvars.iv.next31.i66.us, %.lr.ph26.i64.us ], [ 0, %.lr.ph26.i64.preheader.us ]
-  %41 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv30.i65.us
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv30.i65.us
   %42 = load i32, ptr %41, align 4, !tbaa !3
   %43 = tail call noundef i32 @llvm.bswap.i32(i32 %42)
   store i32 %43, ptr %41, align 4, !tbaa !3
@@ -229,10 +229,10 @@ define range(i32 -173, 1) i32 @wc_Sha256FinalRaw(ptr noundef %0, ptr noundef wri
 
 .lr.ph26.i:                                       ; preds = %6, %.lr.ph26.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph26.i ], [ 0, %6 ]
-  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv30.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv30.i
   %10 = load i32, ptr %9, align 4, !tbaa !3
   %11 = tail call noundef i32 @llvm.bswap.i32(i32 %10)
-  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv30.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv30.i
   store i32 %11, ptr %12, align 4, !tbaa !3
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next31.i, 8
@@ -282,7 +282,7 @@ define range(i32 -192, 1) i32 @wc_Sha256Final(ptr noundef %0, ptr noundef writeo
 
 .lr.ph26.i:                                       ; preds = %7, %.lr.ph26.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph26.i ], [ 0, %7 ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv30.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv30.i
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = tail call noundef i32 @llvm.bswap.i32(i32 %11)
   store i32 %12, ptr %10, align 4, !tbaa !3
@@ -373,7 +373,7 @@ define internal fastcc range(i32 -192, 1) i32 @Sha256Final(ptr noundef nonnull %
 
 .lr.ph26.i:                                       ; preds = %19, %.lr.ph26.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph26.i ], [ 0, %19 ]
-  %22 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv30.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv30.i
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = tail call noundef i32 @llvm.bswap.i32(i32 %23)
   store i32 %24, ptr %22, align 4, !tbaa !3
@@ -417,7 +417,7 @@ ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26
 
 .lr.ph26.i43:                                     ; preds = %28, %.lr.ph26.i43
   %indvars.iv30.i44 = phi i64 [ %indvars.iv.next31.i45, %.lr.ph26.i43 ], [ 0, %28 ]
-  %40 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv30.i44
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv30.i44
   %41 = load i32, ptr %40, align 4, !tbaa !3
   %42 = tail call noundef i32 @llvm.bswap.i32(i32 %41)
   store i32 %42, ptr %40, align 4, !tbaa !3
@@ -527,7 +527,7 @@ define range(i32 -192, 1) i32 @wc_Sha224Final(ptr noundef %0, ptr noundef writeo
 
 .lr.ph26.i:                                       ; preds = %7, %.lr.ph26.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph26.i ], [ 0, %7 ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv30.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv30.i
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = tail call noundef i32 @llvm.bswap.i32(i32 %11)
   store i32 %12, ptr %10, align 4, !tbaa !3
@@ -770,7 +770,7 @@ define range(i32 -192, 1) i32 @wc_Sha224GetHash(ptr noundef readonly captures(ad
 
 .lr.ph26.i.i:                                     ; preds = %6, %.lr.ph26.i.i
   %indvars.iv30.i.i = phi i64 [ %indvars.iv.next31.i.i, %.lr.ph26.i.i ], [ 0, %6 ]
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv30.i.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv30.i.i
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = call noundef i32 @llvm.bswap.i32(i32 %9)
   store i32 %10, ptr %8, align 4, !tbaa !3
@@ -833,7 +833,7 @@ define range(i32 -192, 1) i32 @wc_Sha256GetHash(ptr noundef readonly captures(ad
 
 .lr.ph26.i.i:                                     ; preds = %6, %.lr.ph26.i.i
   %indvars.iv30.i.i = phi i64 [ %indvars.iv.next31.i.i, %.lr.ph26.i.i ], [ 0, %6 ]
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv30.i.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv30.i.i
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = call noundef i32 @llvm.bswap.i32(i32 %9)
   store i32 %10, ptr %8, align 4, !tbaa !3
@@ -913,7 +913,7 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
 
 .preheader68:                                     ; preds = %.preheader69.preheader, %.preheader68
   %indvars.iv = phi i64 [ 16, %.preheader69.preheader ], [ %indvars.iv.next, %.preheader68 ]
-  %11 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %11 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 15)
@@ -970,9 +970,9 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
   %48 = xor i32 %37, %36
   %49 = and i32 %48, %35
   %50 = xor i32 %49, %36
-  %51 = getelementptr inbounds nuw i32, ptr @K, i64 %indvars.iv99
+  %51 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %indvars.iv99
   %52 = load i32, ptr %51, align 32, !tbaa !3
-  %53 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv99
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv99
   %54 = load i32, ptr %53, align 16, !tbaa !3
   %55 = add i32 %47, %52
   %56 = add i32 %55, %54
@@ -998,9 +998,9 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
   %76 = and i32 %67, %75
   %77 = xor i32 %76, %37
   %78 = or disjoint i64 %indvars.iv99, 1
-  %79 = getelementptr inbounds nuw i32, ptr @K, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !3
-  %81 = getelementptr inbounds nuw i32, ptr %3, i64 %78
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %78
   %82 = load i32, ptr %81, align 4, !tbaa !3
   %83 = add i32 %77, %36
   %84 = add i32 %83, %80
@@ -1027,9 +1027,9 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
   %105 = and i32 %97, %104
   %106 = xor i32 %105, %35
   %107 = or disjoint i64 %indvars.iv99, 2
-  %108 = getelementptr inbounds nuw i32, ptr @K, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %107
   %109 = load i32, ptr %108, align 8, !tbaa !3
-  %110 = getelementptr inbounds nuw i32, ptr %3, i64 %107
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %107
   %111 = load i32, ptr %110, align 8, !tbaa !3
   %112 = add i32 %109, %37
   %113 = add i32 %112, %111
@@ -1056,9 +1056,9 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
   %134 = and i32 %126, %133
   %135 = xor i32 %134, %67
   %136 = or disjoint i64 %indvars.iv99, 3
-  %137 = getelementptr inbounds nuw i32, ptr @K, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %136
   %138 = load i32, ptr %137, align 4, !tbaa !3
-  %139 = getelementptr inbounds nuw i32, ptr %3, i64 %136
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %136
   %140 = load i32, ptr %139, align 4, !tbaa !3
   %141 = add i32 %138, %35
   %142 = add i32 %141, %140
@@ -1085,9 +1085,9 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
   %163 = and i32 %155, %162
   %164 = xor i32 %163, %97
   %165 = or disjoint i64 %indvars.iv99, 4
-  %166 = getelementptr inbounds nuw i32, ptr @K, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %165
   %167 = load i32, ptr %166, align 16, !tbaa !3
-  %168 = getelementptr inbounds nuw i32, ptr %3, i64 %165
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %165
   %169 = load i32, ptr %168, align 16, !tbaa !3
   %170 = add i32 %167, %67
   %171 = add i32 %170, %169
@@ -1114,9 +1114,9 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
   %192 = and i32 %184, %191
   %193 = xor i32 %192, %126
   %194 = or disjoint i64 %indvars.iv99, 5
-  %195 = getelementptr inbounds nuw i32, ptr @K, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !3
-  %197 = getelementptr inbounds nuw i32, ptr %3, i64 %194
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %194
   %198 = load i32, ptr %197, align 4, !tbaa !3
   %199 = add i32 %196, %97
   %200 = add i32 %199, %198
@@ -1143,9 +1143,9 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
   %221 = and i32 %213, %220
   %222 = xor i32 %221, %155
   %223 = or disjoint i64 %indvars.iv99, 6
-  %224 = getelementptr inbounds nuw i32, ptr @K, i64 %223
+  %224 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %223
   %225 = load i32, ptr %224, align 8, !tbaa !3
-  %226 = getelementptr inbounds nuw i32, ptr %3, i64 %223
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %223
   %227 = load i32, ptr %226, align 8, !tbaa !3
   %228 = add i32 %225, %126
   %229 = add i32 %228, %227
@@ -1172,9 +1172,9 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
   %250 = and i32 %242, %249
   %251 = xor i32 %250, %184
   %252 = or disjoint i64 %indvars.iv99, 7
-  %253 = getelementptr inbounds nuw i32, ptr @K, i64 %252
+  %253 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %252
   %254 = load i32, ptr %253, align 4, !tbaa !3
-  %255 = getelementptr inbounds nuw i32, ptr %3, i64 %252
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %252
   %256 = load i32, ptr %255, align 4, !tbaa !3
   %257 = add i32 %254, %155
   %258 = add i32 %257, %256
@@ -1198,9 +1198,9 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
 
 274:                                              ; preds = %.preheader, %274
   %indvars.iv102 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next103, %274 ]
-  %275 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv102
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv102
   %276 = load i32, ptr %275, align 4, !tbaa !3
-  %277 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv102
+  %277 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv102
   %278 = load i32, ptr %277, align 4, !tbaa !3
   %279 = add i32 %278, %276
   store i32 %279, ptr %277, align 4, !tbaa !3

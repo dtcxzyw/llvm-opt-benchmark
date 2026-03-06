@@ -168,7 +168,7 @@ _ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; p
   %27 = xor i8 %25, %26
   %28 = lshr i32 %.014.i.i, 8
   %29 = zext i8 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %21, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !16
   %32 = xor i32 %31, %28
   %.not10.i.i = icmp eq i64 %23, 0
@@ -300,7 +300,7 @@ define linkonce_odr void @_ZN5boost6detail31make_partial_xor_products_tableILi8E
 
 _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us: ; preds = %.lr.ph.i.i9.us.us
   %46 = zext i16 %.1.i.i11.us.us to i64
-  %47 = getelementptr inbounds nuw i32, ptr %0, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %46
   store i32 %30, ptr %47, align 4, !tbaa !16
   %48 = add nuw nsw i16 %.013.us.us, 1
   %exitcond22.not = icmp eq i16 %48, 256
@@ -386,7 +386,7 @@ _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us: ; preds = %
 
 _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us: ; preds = %.lr.ph.i.i9.us
   %93 = zext i16 %.1.i.i11.us to i64
-  %94 = getelementptr inbounds nuw i32, ptr %0, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %93
   store i32 %.1.i.i.us, ptr %94, align 4, !tbaa !16
   %95 = add nuw nsw i16 %.013.us, 1
   %exitcond21.not = icmp eq i16 %95, 256
@@ -439,7 +439,7 @@ _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us: ; preds = %.lr
   br i1 %.not.i, label %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit, label %.lr.ph.i, !llvm.loop !20
 
 _ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit: ; preds = %.lr.ph.i
-  %120 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %117, ptr %120, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -514,7 +514,7 @@ _ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; pr
   %27 = xor i8 %25, %26
   %28 = lshr i32 %.014.i.i, 8
   %29 = zext i8 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %21, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !16
   %32 = xor i32 %31, %28
   %.not10.i.i = icmp eq i64 %23, 0

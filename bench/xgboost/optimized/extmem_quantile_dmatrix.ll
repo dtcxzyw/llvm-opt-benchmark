@@ -121,13 +121,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.238" = type { ptr }
 %class.anon.226 = type { %"struct.xgboost::InitNewThread", ptr }
 %"struct.std::__basic_future<std::shared_ptr<xgboost::GHistIndexMatrix>>::_Reset" = type { ptr }
+%"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
-%"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
 
@@ -3398,7 +3396,7 @@ _ZNSt10unique_ptrIN7xgboost4data26ExtGradientIndexPageSourceESt14default_deleteI
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %345 = getelementptr inbounds nuw i8, ptr %339, i64 192
   %346 = load ptr, ptr %53, align 8, !tbaa !143
-  %347 = getelementptr inbounds nuw i64, ptr %346, i64 %.037
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %.037
   %348 = load i64, ptr %345, align 8, !tbaa !24, !noalias !180
   %349 = load i64, ptr %347, align 8, !tbaa !24, !noalias !180
   %350 = icmp eq i64 %348, %349
@@ -8038,7 +8036,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !199
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -8094,7 +8092,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !319
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -17275,7 +17273,7 @@ _ZNSt11_Deque_baseISt8functionIFvvEESaIS2_EE15_M_allocate_mapEm.exit: ; preds = 
   store ptr %9, ptr %0, align 8, !tbaa !578
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %.idx = shl nuw nsw i64 %7, 3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
@@ -17369,7 +17367,7 @@ _ZNSt11_Deque_baseISt8functionIFvvEESaIS2_EE15_M_create_nodesEPPS2_S6_.exit: ; p
   store ptr %50, ptr %51, align 8, !tbaa !584
   store ptr %41, ptr %39, align 8, !tbaa !585
   %52 = and i64 %1, 15
-  %53 = getelementptr inbounds nuw %"class.std::function", ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %52
   store ptr %53, ptr %45, align 8, !tbaa !586
   ret void
 
@@ -17506,7 +17504,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, %45
   store ptr %21, ptr %0, align 8, !tbaa !560
   store ptr %.0.lcssa.i.i.i31, ptr %5, align 8, !tbaa !541
-  %49 = getelementptr inbounds nuw %"class.std::thread", ptr %21, i64 %17
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   store ptr %49, ptr %44, align 8, !tbaa !542
   ret void
 

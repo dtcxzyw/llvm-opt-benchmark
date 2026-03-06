@@ -432,7 +432,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory23ModelManagerDistribu
   %20 = load i32, ptr %2, align 4, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !67
   %or.cond = icmp ult i32 %20, 2
   br i1 %or.cond, label %.thread, label %25

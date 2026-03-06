@@ -3033,7 +3033,7 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
 
 188:                                              ; preds = %183, %179
   %189 = load ptr, ptr %46, align 8, !alias.scope !683, !noalias !686, !nonnull !3, !noundef !3
-  %190 = getelementptr inbounds { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { i64, ptr, {} }, {} }, i64 } }, { [45 x i8], i8, [2 x i8] } }, ptr %189, i64 %180
+  %190 = getelementptr inbounds [96 x i8], ptr %189, i64 %180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %190, ptr noundef nonnull align 8 dereferenceable(96) %15, i64 96, i1 false)
   %191 = add i64 %180, 1
   store i64 %191, ptr %47, align 8, !alias.scope !683, !noalias !686

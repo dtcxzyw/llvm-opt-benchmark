@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/lzwenc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Code = type { i32, i32, i8 }
-
 @ff_lzw_encode_state_size = local_unnamed_addr constant i32 197008, align 4
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"s->maxbits >= 9 && s->maxbits <= 12\00", align 1
@@ -124,7 +122,7 @@ define i32 @ff_lzw_encode(ptr noundef captures(none) %0, ptr noundef readonly ca
   %.neg.i = add nsw i32 %spec.select.i.i, -16411
   %.neg18.i = select i1 %.not.i.i, i32 -1, i32 %.neg.i
   %39 = zext nneg i32 %spec.select.i.i to i64
-  %40 = getelementptr inbounds nuw %struct.Code, ptr %19, i64 %39
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %19, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !27
   %.not19.i = icmp eq i32 %41, -2
   br i1 %.not19.i, label %findCode.exit, label %.lr.ph.i
@@ -133,7 +131,7 @@ define i32 @ff_lzw_encode(ptr noundef captures(none) %0, ptr noundef readonly ca
   %42 = phi i32 [ %55, %49 ], [ %41, %29 ]
   %43 = phi i64 [ %53, %49 ], [ %39, %29 ]
   %.01620.i = phi i32 [ %spec.select.i17.i, %49 ], [ %spec.select.i.i, %29 ]
-  %44 = getelementptr inbounds %struct.Code, ptr %19, i64 %43
+  %44 = getelementptr inbounds [12 x i8], ptr %19, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i8, ptr %45, align 4, !tbaa !29
   %47 = icmp eq i8 %46, %31
@@ -147,7 +145,7 @@ define i32 @ff_lzw_encode(ptr noundef captures(none) %0, ptr noundef readonly ca
   %52 = add nsw i32 %50, 16411
   %spec.select.i17.i = select i1 %51, i32 %52, i32 %50
   %53 = sext i32 %spec.select.i17.i to i64
-  %54 = getelementptr inbounds %struct.Code, ptr %19, i64 %53
+  %54 = getelementptr inbounds [12 x i8], ptr %19, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !27
   %.not.i = icmp eq i32 %55, -2
   br i1 %.not.i, label %findCode.exit, label %.lr.ph.i, !llvm.loop !30
@@ -155,7 +153,7 @@ define i32 @ff_lzw_encode(ptr noundef captures(none) %0, ptr noundef readonly ca
 findCode.exit:                                    ; preds = %.lr.ph.i, %49, %29
   %.016.lcssa.i = phi i32 [ %spec.select.i.i, %29 ], [ %.01620.i, %.lr.ph.i ], [ %spec.select.i17.i, %49 ]
   %56 = sext i32 %.016.lcssa.i to i64
-  %57 = getelementptr inbounds %struct.Code, ptr %19, i64 %56
+  %57 = getelementptr inbounds [12 x i8], ptr %19, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !27
   %59 = icmp eq i32 %58, -2
   br i1 %59, label %60, label %findCode.exit.addCode.exit_crit_edge
@@ -282,7 +280,7 @@ addCode.exit:                                     ; preds = %findCode.exit.addCo
   %121 = phi i32 [ %.pre, %findCode.exit.addCode.exit_crit_edge ], [ %112, %writeCode.exit ], [ %112, %119 ]
   %.0 = phi i32 [ %.016.lcssa.i, %findCode.exit.addCode.exit_crit_edge ], [ %35, %writeCode.exit ], [ %35, %119 ]
   %122 = sext i32 %.0 to i64
-  %123 = getelementptr inbounds %struct.Code, ptr %19, i64 %122
+  %123 = getelementptr inbounds [12 x i8], ptr %19, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i32, ptr %124, align 4, !tbaa !33
   store i32 %125, ptr %13, align 4, !tbaa !22
@@ -431,7 +429,7 @@ writeCode.exit:                                   ; preds = %put_bits_le.exit.i,
 
 59:                                               ; preds = %writeCode.exit, %59
   %indvars.iv = phi i64 [ 0, %writeCode.exit ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw %struct.Code, ptr %58, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [12 x i8], ptr %58, i64 %indvars.iv
   store i32 -2, ptr %60, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16411

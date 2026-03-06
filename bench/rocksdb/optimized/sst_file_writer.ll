@@ -66,12 +66,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.146" = type { %"class.std::__shared_ptr.147" }
 %"class.std::__shared_ptr.147" = type { ptr, %"class.std::__shared_count" }
 %"struct.rocksdb::ExternalSstFileInfo" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, i64, i64, i64, i32, [4 x i8] }>
-%"class.std::unique_ptr.135" = type { %"struct.std::__uniq_ptr_data.136" }
-%"struct.std::__uniq_ptr_data.136" = type { %"class.std::__uniq_ptr_impl.137" }
-%"class.std::__uniq_ptr_impl.137" = type { %"class.std::tuple.138" }
-%"class.std::tuple.138" = type { %"struct.std::_Tuple_impl.139" }
-%"struct.std::_Tuple_impl.139" = type { %"struct.std::_Head_base.142" }
-%"struct.std::_Head_base.142" = type { ptr }
 %"struct.rocksdb::FileChecksumGenContext" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::unique_ptr.170" = type { %"struct.std::__uniq_ptr_data.171" }
 %"struct.std::__uniq_ptr_data.171" = type { %"class.std::__uniq_ptr_impl.172" }
@@ -93,8 +87,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::allocator.204" = type { i8 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"class.std::function.164" = type { %"class.std::_Function_base", ptr }
-%"class.std::shared_ptr.188" = type { %"class.std::__shared_ptr.189" }
-%"class.std::__shared_ptr.189" = type { ptr, %"class.std::__shared_count" }
 %"struct.rocksdb::ParsedInternalKey" = type <{ %"class.rocksdb::Slice", i64, i8, [7 x i8] }>
 %"class.rocksdb::WideColumn" = type { %"class.rocksdb::Slice", %"class.rocksdb::Slice" }
 %"class.rocksdb::InternalKey" = type { %"class.std::__cxx11::basic_string" }
@@ -1291,7 +1283,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb31TablePropertiesCollectorFactoryEESaIS3_EE
           to label %150 unwind label %228
 
 150:                                              ; preds = %147
-  %151 = getelementptr inbounds nuw %"class.std::shared_ptr.143", ptr %148, i64 %.057168
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %.057168
   %152 = load ptr, ptr %151, align 8, !tbaa !266
   store ptr %152, ptr %11, align 8, !tbaa !266
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -1424,7 +1416,7 @@ _ZNSt6vectorISt10unique_ptrIN7rocksdb26InternalTblPropCollFactoryESt14default_de
 _ZNSt6vectorISt10unique_ptrIN7rocksdb26InternalTblPropCollFactoryESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPNS1_38UserKeyTablePropertiesCollectorFactoryEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %196, %_ZNSt6vectorISt10unique_ptrIN7rocksdb26InternalTblPropCollFactoryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i108
   store ptr %190, ptr %9, align 8, !tbaa !257
   store ptr %195, ptr %104, align 8, !tbaa !260
-  %197 = getelementptr inbounds nuw %"class.std::unique_ptr.135", ptr %190, i64 %188
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %188
   store ptr %197, ptr %105, align 8, !tbaa !261
   br label %_ZNSt6vectorISt10unique_ptrIN7rocksdb26InternalTblPropCollFactoryESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_38UserKeyTablePropertiesCollectorFactoryEEEERS5_DpOT_.exit
 
@@ -9934,7 +9926,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !470
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !413
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.188", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !414
   ret void
 }
@@ -10210,7 +10202,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 19:                                               ; preds = %19, %16
   %.08.i.i.i = phi i64 [ %18, %16 ], [ %21, %19 ]
-  %20 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.08.i.i.i
+  %20 = getelementptr inbounds [32 x i8], ptr %0, i64 %.08.i.i.i
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_T2_(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %14, ptr noundef nonnull byval(%"class.rocksdb::WideColumn") align 8 %20)
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %21 = add nsw i64 %.08.i.i.i, -1
@@ -10232,7 +10224,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 27:                                               ; preds = %13
   %28 = lshr i64 %14, 1
-  %29 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %28
   %30 = getelementptr inbounds i8, ptr %storemerge23, i64 -32
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_SH_SH_SH_T0_(ptr %0, ptr nonnull %11, ptr %29, ptr nonnull %30)
   br label %31
@@ -10379,9 +10371,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   %.040 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.040, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -10395,8 +10387,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   %21 = icmp slt i32 %19, 0
   %22 = select i1 %.not.i.i.i, i1 %20, i1 %21
   %spec.select = select i1 %22, i64 %11, i64 %9
-  %23 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %spec.select
-  %24 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.040
+  %23 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select
+  %24 = getelementptr inbounds [32 x i8], ptr %0, i64 %.040
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false), !tbaa.struct !428
   %25 = icmp slt i64 %spec.select, %6
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !550
@@ -10416,8 +10408,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
 32:                                               ; preds = %28
   %33 = shl nsw i64 %.0.lcssa, 1
   %34 = or disjoint i64 %33, 1
-  %35 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.0.lcssa
+  %35 = getelementptr inbounds [32 x i8], ptr %0, i64 %34
+  %36 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !428
   br label %37
 
@@ -10433,7 +10425,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   %.018.i = phi i64 [ %.0919.i, %47 ], [ %.1, %37 ]
   %.0919.in.i = add nsw i64 %.018.i, -1
   %.0919.i = sdiv i64 %.0919.in.i, 2
-  %39 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.0919.i
+  %39 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0919.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !11
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %41, i64 %.sroa.2.0.copyload)
@@ -10446,7 +10438,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   br i1 %46, label %47, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_RT2_.exit
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.018.i
+  %48 = getelementptr inbounds [32 x i8], ptr %0, i64 %.018.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !tbaa.struct !428
   %49 = icmp sgt i64 %.0919.i, %1
   br i1 %49, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_RT2_.exit, !llvm.loop !551
@@ -10454,7 +10446,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_RT2_.exit: ; preds = %.lr.ph.i, %47, %37
   %.0.lcssa.i = phi i64 [ %.1, %37 ], [ %.018.i, %.lr.ph.i ], [ %.0919.i, %47 ]
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %50 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.0.lcssa.i
+  %50 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %.sroa.039.0.copyload, ptr %50, align 8, !tbaa !225
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !168
@@ -10620,7 +10612,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vec
   %19 = sub i64 %18, %6
   %20 = ashr exact i64 %19, 5
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %17, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %17, i64 %21
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %19, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !428
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

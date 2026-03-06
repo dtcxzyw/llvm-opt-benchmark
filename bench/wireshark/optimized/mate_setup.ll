@@ -414,7 +414,7 @@ define hidden ptr @mate_make_config(ptr noundef %0, i32 noundef %1) local_unname
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %analyze_pdu_config.exit.i ]
   %69 = phi ptr [ %56, %.lr.ph.i ], [ %128, %analyze_pdu_config.exit.i ]
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr ptr, ptr %70, i64 %indvars.iv.i
+  %71 = getelementptr [8 x i8], ptr %70, i64 %indvars.iv.i
   %72 = load ptr, ptr %71, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %59, i8 0, i64 48, i1 false)
@@ -485,7 +485,7 @@ define hidden ptr @mate_make_config(ptr noundef %0, i32 noundef %1) local_unname
   %104 = phi ptr [ %99, %.lr.ph.i.i ], [ %112, %102 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr ptr, ptr %105, i64 %indvars.iv.i.i
+  %106 = getelementptr [8 x i8], ptr %105, i64 %indvars.iv.i.i
   %107 = load ptr, ptr %106, align 8
   %108 = load i32, ptr %107, align 4
   store i32 %108, ptr %6, align 4
@@ -1363,7 +1363,7 @@ define internal fastcc void @analyze_transform_hfrs(ptr noundef readonly capture
   %17 = phi i32 [ %8, %.lr.ph26 ], [ %39, %._crit_edge23 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next, %._crit_edge23 ]
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv
   %.01318 = load ptr, ptr %19, align 8
   %.not19 = icmp eq ptr %.01318, null
   br i1 %.not19, label %._crit_edge23, label %.lr.ph22

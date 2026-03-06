@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SDL_RenderDriver = type { ptr, ptr }
-%struct.SDL_FPoint = type { float, float }
 
 @.str = private unnamed_addr constant [7 x i8] c"opengl\00", align 1
 @GL_RenderDriver = hidden local_unnamed_addr global %struct.SDL_RenderDriver { ptr @GL_CreateRenderer, ptr @.str }, align 8
@@ -2243,7 +2242,7 @@ define internal noundef zeroext i1 @GL_QueueDrawPoints(ptr noundef %0, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01518 = phi ptr [ %9, %.lr.ph.preheader ], [ %21, %.lr.ph ]
-  %14 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %2, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %15 = load float, ptr %14, align 4
   %16 = fadd float %15, 5.000000e-01
   %17 = getelementptr inbounds nuw i8, ptr %.01518, i64 4
@@ -2294,7 +2293,7 @@ define internal noundef zeroext i1 @GL_QueueDrawLines(ptr noundef %0, ptr nounde
   %.03842 = phi float [ %15, %.lr.ph.preheader ], [ %30, %.lr.ph ]
   %.pn41 = phi ptr [ %8, %.lr.ph.preheader ], [ %.039, %.lr.ph ]
   %.039 = getelementptr inbounds nuw i8, ptr %.pn41, i64 8
-  %18 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %19 = load float, ptr %18, align 4
   %20 = fadd float %19, 5.000000e-01
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -2379,13 +2378,13 @@ define internal noundef zeroext i1 @GL_QueueGeometry(ptr noundef %0, ptr noundef
   br label %48
 
 41:                                               ; preds = %.lr.ph.split.us
-  %42 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv75
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv75
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i32
   br label %48
 
 45:                                               ; preds = %.lr.ph.split.us
-  %46 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv75
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv75
   %47 = load i32, ptr %46, align 4
   br label %48
 
@@ -2439,12 +2438,12 @@ define internal noundef zeroext i1 @GL_QueueGeometry(ptr noundef %0, ptr noundef
   ]
 
 77:                                               ; preds = %.lr.ph.split
-  %78 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4
   br label %88
 
 80:                                               ; preds = %.lr.ph.split
-  %81 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
   br label %88
@@ -3055,7 +3054,7 @@ SetTextureScaleMode.exit.i:                       ; preds = %258
 
 switch.lookup:                                    ; preds = %258
   %263 = zext nneg i32 %260 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.GL_RunCommandQueue.5, i64 %263
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GL_RunCommandQueue.5, i64 %263
   %switch.load = load i32, ptr %switch.gep, align 4
   %264 = load ptr, ptr %37, align 8
   call void %264(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load) #6
@@ -3095,7 +3094,7 @@ SetTextureScaleMode.exit99.i:                     ; preds = %274
   %.sink369 = phi i32 [ %267, %SetTextureScaleMode.exit.thread.i ], [ %276, %274 ]
   %switch.table.GL_RunCommandQueue.4.sink = phi ptr [ @switch.table.GL_RunCommandQueue.5, %SetTextureScaleMode.exit.thread.i ], [ @switch.table.GL_RunCommandQueue.5, %274 ]
   %279 = zext nneg i32 %.sink369 to i64
-  %switch.gep367 = getelementptr inbounds nuw i32, ptr %switch.table.GL_RunCommandQueue.4.sink, i64 %279
+  %switch.gep367 = getelementptr inbounds nuw [4 x i8], ptr %switch.table.GL_RunCommandQueue.4.sink, i64 %279
   %switch.load368 = load i32, ptr %switch.gep367, align 4
   %280 = load ptr, ptr %37, align 8
   call void %280(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load368) #6
@@ -3120,7 +3119,7 @@ SetTextureScaleMode.exit101.i:                    ; preds = %282
 
 switch.lookup370:                                 ; preds = %282
   %286 = zext nneg i32 %283 to i64
-  %switch.gep371 = getelementptr inbounds nuw i32, ptr @switch.table.GL_RunCommandQueue.5, i64 %286
+  %switch.gep371 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GL_RunCommandQueue.5, i64 %286
   %switch.load372 = load i32, ptr %switch.gep371, align 4
   %287 = load ptr, ptr %37, align 8
   call void %287(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load372) #6
@@ -3613,7 +3612,7 @@ define internal void @GL_DestroyRenderer(ptr noundef readonly captures(none) %0)
 21:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %21 ]
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
   tail call void @SDL_free_REAL(ptr noundef %24) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3776,7 +3775,7 @@ define internal void @GL_HandleDebugMessage(i32 noundef %0, i32 noundef %1, i32 
   %22 = load ptr, ptr %15, align 8
   %23 = load i32, ptr %12, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr ptr, ptr %22, i64 %24
+  %25 = getelementptr [8 x i8], ptr %22, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -8
   store ptr %21, ptr %26, align 8
   br label %27
@@ -3891,7 +3890,7 @@ define internal fastcc noundef zeroext i1 @GL_ActivateRenderer(ptr noundef reado
 23:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
   tail call void @SDL_free_REAL(ptr noundef %26) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3968,7 +3967,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
 22:                                               ; preds = %.lr.ph9, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph9 ], [ %indvars.iv.next, %22 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %2, ptr noundef %3, ptr noundef %25) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4008,7 +4007,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
 39:                                               ; preds = %39, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
   %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8
   tail call void @SDL_free_REAL(ptr noundef %42) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4313,7 +4312,7 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull re
 
 switch.lookup:                                    ; preds = %110
   %117 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.8, i64 %117
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SetDrawState.8, i64 %117
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %GetBlendFunc.exit
 
@@ -4326,7 +4325,7 @@ GetBlendFunc.exit:                                ; preds = %110, %switch.lookup
 
 switch.lookup2:                                   ; preds = %GetBlendFunc.exit
   %120 = zext nneg i32 %switch.tableidx1 to i64
-  %switch.gep3 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.8, i64 %120
+  %switch.gep3 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SetDrawState.8, i64 %120
   %switch.load4 = load i32, ptr %switch.gep3, align 4
   br label %GetBlendFunc.exit125
 
@@ -4339,7 +4338,7 @@ GetBlendFunc.exit125:                             ; preds = %GetBlendFunc.exit, 
 
 switch.lookup6:                                   ; preds = %GetBlendFunc.exit125
   %123 = zext nneg i32 %switch.tableidx5 to i64
-  %switch.gep7 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.8, i64 %123
+  %switch.gep7 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SetDrawState.8, i64 %123
   %switch.load8 = load i32, ptr %switch.gep7, align 4
   br label %GetBlendFunc.exit127
 
@@ -4352,7 +4351,7 @@ GetBlendFunc.exit127:                             ; preds = %GetBlendFunc.exit12
 
 switch.lookup10:                                  ; preds = %GetBlendFunc.exit127
   %126 = zext nneg i32 %switch.tableidx9 to i64
-  %switch.gep11 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.8, i64 %126
+  %switch.gep11 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SetDrawState.8, i64 %126
   %switch.load12 = load i32, ptr %switch.gep11, align 4
   br label %GetBlendFunc.exit129
 
@@ -4368,7 +4367,7 @@ GetBlendFunc.exit129:                             ; preds = %GetBlendFunc.exit12
 
 switch.lookup14:                                  ; preds = %GetBlendFunc.exit129
   %131 = zext nneg i32 %switch.tableidx13 to i64
-  %switch.gep15 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.9, i64 %131
+  %switch.gep15 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SetDrawState.9, i64 %131
   %switch.load16 = load i32, ptr %switch.gep15, align 4
   br label %GetBlendEquation.exit
 

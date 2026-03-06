@@ -404,7 +404,7 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.04350.us = phi i64 [ %180, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %177 = getelementptr inbounds nuw ptr, ptr %166, i64 %.04350.us
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %.04350.us
   %178 = load ptr, ptr %177, align 8, !tbaa !63
   %179 = call i64 @graphviz_node_induce(ptr noundef %178, ptr noundef null) #12
   call fastcc void @sfdpLayout(ptr noundef %178, ptr noundef nonnull %52, double %.sroa.0.0, double %.sroa.6.0)
@@ -423,7 +423,7 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.04350 = phi i64 [ %188, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %184 = getelementptr inbounds nuw ptr, ptr %166, i64 %.04350
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %.04350
   %185 = load ptr, ptr %184, align 8, !tbaa !63
   %186 = call i64 @graphviz_node_induce(ptr noundef %185, ptr noundef null) #12
   call fastcc void @sfdpLayout(ptr noundef %185, ptr noundef nonnull %52, double %.sroa.0.0, double %.sroa.6.0)
@@ -448,7 +448,7 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
 
 .lr.ph53:                                         ; preds = %191, %.lr.ph53
   %.051 = phi i64 [ %196, %.lr.ph53 ], [ 0, %191 ]
-  %193 = getelementptr inbounds nuw ptr, ptr %166, i64 %.051
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %.051
   %194 = load ptr, ptr %193, align 8, !tbaa !63
   %195 = call i32 @agdelete(ptr noundef %0, ptr noundef %194) #12
   %196 = add nuw i64 %.051, 1
@@ -601,7 +601,7 @@ getPos.exit:                                      ; preds = %.loopexit.i, %gv_ca
   %67 = load i32, ptr %66, align 4, !tbaa !70
   %68 = mul nsw i32 %67, %63
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds double, ptr %31, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %31, i64 %69
   %.not33 = icmp eq i16 %62, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
@@ -613,9 +613,9 @@ getPos.exit:                                      ; preds = %.loopexit.i, %gv_ca
 
 73:                                               ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
-  %74 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %75 = load double, ptr %74, align 8, !tbaa !56
-  %76 = getelementptr inbounds nuw double, ptr %72, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   store double %75, ptr %76, align 8, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

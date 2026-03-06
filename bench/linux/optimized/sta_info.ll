@@ -25,6 +25,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_st
 %struct.atomic_t = type { i32 }
 %union.anon.33 = type { i64 }
 %struct.rhashtable_compare_arg = type { ptr, ptr }
+%struct.list_head = type { ptr, ptr }
 %struct.sk_buff_head = type { %union.anon.12, i32, %struct.spinlock }
 %union.anon.12 = type { %struct.anon.13 }
 %struct.anon.13 = type { ptr, ptr }
@@ -33,12 +34,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_st
 %struct.raw_spinlock = type { %struct.qspinlock }
 %struct.qspinlock = type { %union.anon.0 }
 %union.anon.0 = type { %struct.atomic_t }
-%struct.airtime_info = type { i64, i64, i64, i32, %struct.atomic_t, i32, i32 }
-%struct.ieee80211_rate = type { i32, i16, i16, i16 }
-%struct.list_head = type { ptr, ptr }
-%struct.ewma_signal = type { i64 }
-%struct.cfg80211_tid_stats = type { i32, i64, i64, i64, i64, %struct.cfg80211_txq_stats }
-%struct.cfg80211_txq_stats = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @sta_rht_params = internal constant %struct.rhashtable_params { i16 3, i16 6, i16 64, i16 48, i32 0, i16 0, i8 1, ptr null, ptr null, ptr null }, align 8
 @link_sta_rht_params = internal constant %struct.rhashtable_params { i16 3, i16 6, i16 0, i16 8, i32 0, i16 0, i8 1, ptr null, ptr null, ptr null }, align 8
@@ -167,7 +162,7 @@ define dso_local void @ieee80211_purge_sta_txqs(ptr noundef readonly captures(no
 
 7:                                                ; preds = %14, %1
   %8 = phi i64 [ 0, %1 ], [ %15, %14 ]
-  %9 = getelementptr ptr, ptr %6, i64 %8
+  %9 = getelementptr [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %12
@@ -240,7 +235,7 @@ define internal fastcc ptr @rhltable_lookup(ptr noundef %0, ptr noundef %1, ptr 
 29:                                               ; preds = %.split11.us
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %31 = zext i32 %23 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   br label %.split.us.us
 
 .split.us.us:                                     ; preds = %29, %27
@@ -321,7 +316,7 @@ define internal fastcc ptr @rhltable_lookup(ptr noundef %0, ptr noundef %1, ptr 
 83:                                               ; preds = %.split11
   %84 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %85 = zext i32 %77 to i64
-  %86 = getelementptr ptr, ptr %84, i64 %85
+  %86 = getelementptr [8 x i8], ptr %84, i64 %85
   br label %.split
 
 .split:                                           ; preds = %83, %81
@@ -543,7 +538,7 @@ define dso_local ptr @ieee80211_find_sta_by_link_addrs(ptr noundef %0, ptr nound
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 3904
   %21 = zext i8 %17 to i64
-  %22 = getelementptr ptr, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %42, label %31
@@ -681,7 +676,7 @@ define dso_local void @sta_info_free(ptr readnone captures(none) %0, ptr noundef
 
 7:                                                ; preds = %14, %2
   %8 = phi i64 [ 0, %2 ], [ %15, %14 ]
-  %9 = getelementptr ptr, ptr %3, i64 %8
+  %9 = getelementptr [8 x i8], ptr %3, i64 %8
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %12
@@ -774,7 +769,7 @@ define internal fastcc void @sta_remove_link(ptr noundef %0, i32 noundef %1, i1 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2560
   %6 = zext i32 %1 to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11, !prof !29
@@ -809,7 +804,7 @@ define internal fastcc void @sta_remove_link(ptr noundef %0, i32 noundef %1, i1 
   store i16 %27, ptr %23, align 8
   store volatile ptr null, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 3120
-  %29 = getelementptr ptr, ptr %28, i64 %6
+  %29 = getelementptr [8 x i8], ptr %28, i64 %6
   store volatile ptr null, ptr %29, align 8
   br i1 %21, label %34, label %30
 
@@ -860,7 +855,7 @@ define internal fastcc void @sta_remove_link(ptr noundef %0, i32 noundef %1, i1 
   br i1 %59, label %.loopexit, label %60
 
 60:                                               ; preds = %54
-  %61 = getelementptr ptr, ptr %28, i64 %55
+  %61 = getelementptr [8 x i8], ptr %28, i64 %55
   %62 = load volatile ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.loopexit, label %64
@@ -889,9 +884,9 @@ define internal fastcc void @sta_remove_link(ptr noundef %0, i32 noundef %1, i1 
 
 77:                                               ; preds = %77, %67
   %78 = phi i64 [ 0, %67 ], [ %84, %77 ]
-  %79 = getelementptr i16, ptr %53, i64 %78
+  %79 = getelementptr [2 x i8], ptr %53, i64 %78
   %80 = load i16, ptr %79, align 2
-  %81 = getelementptr i16, ptr %76, i64 %78
+  %81 = getelementptr [2 x i8], ptr %76, i64 %78
   %82 = load i16, ptr %81, align 2
   %83 = tail call i16 @llvm.umin.i16(i16 %80, i16 %82)
   store i16 %83, ptr %79, align 2
@@ -992,11 +987,11 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !37
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 2560
   %42 = zext nneg i32 %2 to i64
-  %43 = getelementptr ptr, ptr %41, i64 %42
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
   store volatile ptr %18, ptr %43, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 3120
-  %45 = getelementptr ptr, ptr %44, i64 %42
+  %45 = getelementptr [8 x i8], ptr %44, i64 %42
   store volatile ptr %33, ptr %45, align 8
   %46 = shl nuw i64 1, %42
   %47 = trunc i64 %46 to i16
@@ -1151,7 +1146,7 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
 
 135:                                              ; preds = %135, %124
   %136 = phi i64 [ 0, %124 ], [ %156, %135 ]
-  %137 = getelementptr %struct.sk_buff_head, ptr %126, i64 %136
+  %137 = getelementptr [24 x i8], ptr %126, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 20
   store i32 0, ptr %138, align 4
   store ptr %137, ptr %137, align 8
@@ -1159,7 +1154,7 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
   store ptr %137, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store i32 0, ptr %140, align 8
-  %141 = getelementptr %struct.sk_buff_head, ptr %127, i64 %136
+  %141 = getelementptr [24 x i8], ptr %127, i64 %136
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 20
   store i32 0, ptr %142, align 4
   store ptr %141, ptr %141, align 8
@@ -1169,16 +1164,16 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
   store i32 0, ptr %144, align 8
   %145 = load i16, ptr %125, align 8
   %146 = zext i16 %145 to i32
-  %147 = getelementptr %struct.airtime_info, ptr %128, i64 %136
+  %147 = getelementptr [40 x i8], ptr %128, i64 %136
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store i32 %146, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 28
   store volatile i32 0, ptr %149, align 4
-  %150 = getelementptr i32, ptr %129, i64 %136
+  %150 = getelementptr [4 x i8], ptr %129, i64 %136
   %151 = load i32, ptr %150, align 4
   %152 = getelementptr inbounds nuw i8, ptr %147, i64 32
   store i32 %151, ptr %152, align 8
-  %153 = getelementptr i32, ptr %130, i64 %136
+  %153 = getelementptr [4 x i8], ptr %130, i64 %136
   %154 = load i32, ptr %153, align 4
   %155 = getelementptr inbounds nuw i8, ptr %147, i64 36
   store i32 %154, ptr %155, align 4
@@ -1192,7 +1187,7 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
   %161 = phi ptr [ %.pre, %131 ], [ %211, %.loopexit ]
   %162 = phi i64 [ 0, %131 ], [ %212, %.loopexit ]
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 312
-  %164 = getelementptr ptr, ptr %163, i64 %162
+  %164 = getelementptr [8 x i8], ptr %163, i64 %162
   %165 = load ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, null
   br i1 %166, label %.loopexit, label %167
@@ -1224,7 +1219,7 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
   %174 = phi ptr [ %160, %167 ], [ %.pre4, %171 ], [ %160, %170 ], [ %160, %169 ]
   %175 = phi i32 [ 0, %167 ], [ 0, %171 ], [ 2, %170 ], [ 12, %169 ]
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 312
-  %177 = getelementptr ptr, ptr %176, i64 %162
+  %177 = getelementptr [8 x i8], ptr %176, i64 %162
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %180 = load i32, ptr %179, align 8
@@ -1232,7 +1227,7 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
   br i1 %181, label %182, label %.loopexit
 
 182:                                              ; preds = %172
-  %183 = getelementptr i32, ptr %134, i64 %162
+  %183 = getelementptr [4 x i8], ptr %134, i64 %162
   br label %184
 
 184:                                              ; preds = %199, %182
@@ -1241,7 +1236,7 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
   %187 = phi ptr [ %178, %182 ], [ %204, %199 ]
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr %struct.ieee80211_rate, ptr %189, i64 %186
+  %190 = getelementptr [12 x i8], ptr %189, i64 %186
   %191 = load i32, ptr %190, align 4
   %192 = and i32 %191, %175
   %193 = icmp eq i32 %192, 0
@@ -1260,7 +1255,7 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
   %200 = phi ptr [ %.pre5, %194 ], [ %185, %184 ]
   %201 = add nuw nsw i64 %186, 1
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 312
-  %203 = getelementptr ptr, ptr %202, i64 %162
+  %203 = getelementptr [8 x i8], ptr %202, i64 %162
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
   %206 = load i32, ptr %205, align 8
@@ -1721,13 +1716,13 @@ define internal fastcc void @__sta_info_recalc_tim(ptr noundef %0, i1 noundef ze
   br i1 %53, label %54, label %84
 
 54:                                               ; preds = %46
-  %55 = getelementptr %struct.sk_buff_head, ptr %42, i64 %47
+  %55 = getelementptr [24 x i8], ptr %42, i64 %47
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %55
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %54
-  %59 = getelementptr %struct.sk_buff_head, ptr %43, i64 %47
+  %59 = getelementptr [24 x i8], ptr %43, i64 %47
   %60 = load ptr, ptr %59, align 8
   %61 = icmp ne ptr %60, %59
   %62 = zext i1 %61 to i8
@@ -2284,7 +2279,7 @@ define internal fastcc range(i32 -2, 1) i32 @__sta_info_destroy_part1(ptr nounde
   br i1 %74, label %80, label %75
 
 75:                                               ; preds = %68
-  %76 = getelementptr ptr, ptr %66, i64 %69
+  %76 = getelementptr [8 x i8], ptr %66, i64 %69
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = tail call fastcc i32 @rhltable_remove(ptr noundef nonnull %67, ptr noundef nonnull %78, ptr noundef nonnull byval(%struct.rhashtable_params) align 8 @link_sta_rht_params)
@@ -2915,7 +2910,7 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
 20:                                               ; preds = %109, %16
   %21 = phi i64 [ 0, %16 ], [ %110, %109 ]
   %22 = phi i1 [ false, %16 ], [ %cond.fr, %109 ]
-  %23 = getelementptr %struct.sk_buff_head, ptr %17, i64 %21
+  %23 = getelementptr [24 x i8], ptr %17, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %24) #18
@@ -2971,7 +2966,7 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
 .thread:                                          ; preds = %.lr.ph, %.thread8, %20
   %.lcssa36.sink = phi i64 [ %26, %20 ], [ %57, %.thread8 ], [ %32, %.lr.ph ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %24, i64 noundef %.lcssa36.sink) #18
-  %62 = getelementptr %struct.sk_buff_head, ptr %19, i64 %21
+  %62 = getelementptr [24 x i8], ptr %19, i64 %21
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 20
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %65 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %63) #18
@@ -3420,7 +3415,7 @@ define dso_local void @ieee80211_sta_expire(ptr noundef readonly captures(addres
 
 27:                                               ; preds = %23
   %28 = and i64 %24, 63
-  %29 = getelementptr i64, ptr @__per_cpu_offset, i64 %28
+  %29 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %16
   %32 = inttoptr i64 %31 to ptr
@@ -3512,7 +3507,7 @@ define dso_local i64 @ieee80211_sta_last_active(ptr noundef readonly captures(no
 
 19:                                               ; preds = %15
   %20 = and i64 %16, 63
-  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
+  %21 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %8
   %24 = inttoptr i64 %23 to ptr
@@ -3860,7 +3855,7 @@ define dso_local void @ieee80211_sta_ps_deliver_wakeup(ptr noundef %0) local_unn
 
 117:                                              ; preds = %188, %113
   %118 = phi i64 [ 0, %113 ], [ %189, %188 ]
-  %119 = getelementptr ptr, ptr %114, i64 %118
+  %119 = getelementptr [8 x i8], ptr %114, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
   br i1 %121, label %188, label %122
@@ -4001,7 +3996,7 @@ define dso_local void @ieee80211_sta_ps_deliver_wakeup(ptr noundef %0) local_unn
 198:                                              ; preds = %231, %191
   %199 = phi i64 [ 0, %191 ], [ %235, %231 ]
   %200 = phi i32 [ 0, %191 ], [ %234, %231 ]
-  %201 = getelementptr %struct.sk_buff_head, ptr %196, i64 %199
+  %201 = getelementptr [24 x i8], ptr %196, i64 %199
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 20
   %203 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %202) #18
   %204 = load ptr, ptr %201, align 8
@@ -4030,7 +4025,7 @@ define dso_local void @ieee80211_sta_ps_deliver_wakeup(ptr noundef %0) local_unn
 215:                                              ; preds = %206, %198
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %202, i64 noundef %203) #18
   %216 = load i32, ptr %194, align 8
-  %217 = getelementptr %struct.sk_buff_head, ptr %197, i64 %199
+  %217 = getelementptr [24 x i8], ptr %197, i64 %199
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 20
   %219 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %218) #18
   %220 = load ptr, ptr %217, align 8
@@ -4188,8 +4183,8 @@ define internal fastcc void @ieee80211_sta_ps_deliver_response(ptr noundef %0, i
   br i1 %51, label %52, label %.loopexit30
 
 52:                                               ; preds = %47
-  %53 = getelementptr %struct.sk_buff_head, ptr %20, i64 %25
-  %54 = getelementptr %struct.sk_buff_head, ptr %21, i64 %25
+  %53 = getelementptr [24 x i8], ptr %20, i64 %25
+  %54 = getelementptr [24 x i8], ptr %21, i64 %25
   br label %55
 
 55:                                               ; preds = %65, %52
@@ -4226,13 +4221,13 @@ define internal fastcc void @ieee80211_sta_ps_deliver_response(ptr noundef %0, i
 
 .loopexit30:                                      ; preds = %59, %65, %47
   %72 = phi i32 [ %26, %47 ], [ %56, %59 ], [ 0, %65 ]
-  %73 = getelementptr %struct.sk_buff_head, ptr %20, i64 %25
+  %73 = getelementptr [24 x i8], ptr %20, i64 %25
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, %73
   br i1 %75, label %76, label %.thread18
 
 76:                                               ; preds = %.loopexit30
-  %77 = getelementptr %struct.sk_buff_head, ptr %21, i64 %25
+  %77 = getelementptr [24 x i8], ptr %21, i64 %25
   %78 = load ptr, ptr %77, align 8
   %79 = icmp ne ptr %78, %77
   br label %80
@@ -4269,13 +4264,13 @@ define internal fastcc void @ieee80211_sta_ps_deliver_response(ptr noundef %0, i
   br i1 %98, label %99, label %107
 
 99:                                               ; preds = %93
-  %100 = getelementptr %struct.sk_buff_head, ptr %20, i64 %94
+  %100 = getelementptr [24 x i8], ptr %20, i64 %94
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, %100
   br i1 %102, label %103, label %.loopexit28
 
 103:                                              ; preds = %99
-  %104 = getelementptr %struct.sk_buff_head, ptr %21, i64 %94
+  %104 = getelementptr [24 x i8], ptr %21, i64 %94
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, %104
   br i1 %106, label %107, label %.loopexit28
@@ -4587,7 +4582,7 @@ define internal fastcc void @ieee80211_sta_ps_deliver_response(ptr noundef %0, i
 
 276:                                              ; preds = %294, %274
   %277 = phi i64 [ 0, %274 ], [ %295, %294 ]
-  %278 = getelementptr ptr, ptr %275, i64 %277
+  %278 = getelementptr [8 x i8], ptr %275, i64 %277
   %279 = load ptr, ptr %278, align 8
   %280 = icmp eq ptr %279, null
   br i1 %280, label %294, label %281
@@ -4884,13 +4879,13 @@ define dso_local void @ieee80211_send_eosp_nullfunc(ptr noundef %0, i32 noundef 
   br i1 %37, label %38, label %46
 
 38:                                               ; preds = %32
-  %39 = getelementptr %struct.sk_buff_head, ptr %30, i64 %33
+  %39 = getelementptr [24 x i8], ptr %30, i64 %33
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %39
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %38
-  %43 = getelementptr %struct.sk_buff_head, ptr %31, i64 %33
+  %43 = getelementptr [24 x i8], ptr %31, i64 %33
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %43
   br i1 %45, label %46, label %49
@@ -4953,7 +4948,7 @@ define internal fastcc void @ieee80211_send_null_response(ptr noundef %0, i32 no
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 140
   store i32 %1, ptr %37, align 4
   %38 = sext i32 %1 to i64
-  %39 = getelementptr i32, ptr @ieee802_1d_to_ac, i64 %38
+  %39 = getelementptr [4 x i8], ptr @ieee802_1d_to_ac, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = trunc i32 %40 to i16
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 124
@@ -5115,7 +5110,7 @@ define dso_local void @ieee80211_sta_register_airtime(ptr noundef captures(none)
   %8 = load ptr, ptr %7, align 8
   %9 = and i8 %1, 7
   %10 = zext nneg i8 %9 to i64
-  %11 = getelementptr i32, ptr @ieee802_1d_to_ac, i64 %10
+  %11 = getelementptr [4 x i8], ptr @ieee802_1d_to_ac, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr i8, ptr %0, i64 -2608
   %14 = load ptr, ptr %13, align 8
@@ -5124,11 +5119,11 @@ define dso_local void @ieee80211_sta_register_airtime(ptr noundef captures(none)
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 292
   %18 = and i32 %12, 255
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr %struct.spinlock, ptr %17, i64 %19
+  %20 = getelementptr [4 x i8], ptr %17, i64 %19
   tail call void @_raw_spin_lock_bh(ptr noundef %20) #18
   %21 = zext i32 %2 to i64
   %22 = getelementptr i8, ptr %0, i64 -2152
-  %23 = getelementptr %struct.airtime_info, ptr %22, i64 %19
+  %23 = getelementptr [40 x i8], ptr %22, i64 %19
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %21
@@ -5198,7 +5193,7 @@ define dso_local void @__ieee80211_sta_recalc_aggregates(ptr noundef %0, i16 nou
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr ptr, ptr %12, i64 %18
+  %24 = getelementptr [8 x i8], ptr %12, i64 %18
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit, label %27
@@ -5227,9 +5222,9 @@ define dso_local void @__ieee80211_sta_recalc_aggregates(ptr noundef %0, i16 nou
 
 40:                                               ; preds = %40, %30
   %41 = phi i64 [ 0, %30 ], [ %47, %40 ]
-  %42 = getelementptr i16, ptr %16, i64 %41
+  %42 = getelementptr [2 x i8], ptr %16, i64 %41
   %43 = load i16, ptr %42, align 2
-  %44 = getelementptr i16, ptr %39, i64 %41
+  %44 = getelementptr [2 x i8], ptr %39, i64 %41
   %45 = load i16, ptr %44, align 2
   %46 = tail call i16 @llvm.umin.i16(i16 %43, i16 %45)
   store i16 %46, ptr %42, align 2
@@ -5295,7 +5290,7 @@ define dso_local void @ieee80211_sta_recalc_aggregates(ptr noundef %0) #0 align 
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %22
-  %29 = getelementptr ptr, ptr %17, i64 %23
+  %29 = getelementptr [8 x i8], ptr %17, i64 %23
   %30 = load volatile ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.loopexit, label %32
@@ -5324,9 +5319,9 @@ define dso_local void @ieee80211_sta_recalc_aggregates(ptr noundef %0) #0 align 
 
 45:                                               ; preds = %45, %35
   %46 = phi i64 [ 0, %35 ], [ %52, %45 ]
-  %47 = getelementptr i16, ptr %21, i64 %46
+  %47 = getelementptr [2 x i8], ptr %21, i64 %46
   %48 = load i16, ptr %47, align 2
-  %49 = getelementptr i16, ptr %44, i64 %46
+  %49 = getelementptr [2 x i8], ptr %44, i64 %46
   %50 = load i16, ptr %49, align 2
   %51 = tail call i16 @llvm.umin.i16(i16 %48, i16 %50)
   store i16 %51, ptr %47, align 2
@@ -5381,7 +5376,7 @@ define dso_local void @ieee80211_sta_update_pending_airtime(ptr noundef %0, ptr 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 428
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %18, i32 %.pre, ptr nonnull elementtype(i32) %18) #18, !srcloc !207
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %20 = getelementptr %struct.atomic_t, ptr %19, i64 %.pre7
+  %20 = getelementptr [4 x i8], ptr %19, i64 %.pre7
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 %.pre, ptr elementtype(i32) %20) #18, !srcloc !207
   br label %53
 
@@ -5411,7 +5406,7 @@ define dso_local void @ieee80211_sta_update_pending_airtime(ptr noundef %0, ptr 
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 428
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %32, i32 %.pre, ptr nonnull elementtype(i32) %32) #18, !srcloc !210
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %34 = getelementptr %struct.atomic_t, ptr %33, i64 %.pre7
+  %34 = getelementptr [4 x i8], ptr %33, i64 %.pre7
   %35 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34, i32 %.pre-phi10, ptr elementtype(i32) %34) #18, !srcloc !208
   %36 = sub i32 %35, %.pre
   %37 = icmp sgt i32 %36, -1
@@ -5488,7 +5483,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 
 25:                                               ; preds = %21
   %26 = and i64 %22, 63
-  %27 = getelementptr i64, ptr @__per_cpu_offset, i64 %26
+  %27 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %14
   %30 = inttoptr i64 %29 to ptr
@@ -5730,7 +5725,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 
 176:                                              ; preds = %172
   %177 = and i64 %173, 63
-  %178 = getelementptr i64, ptr @__per_cpu_offset, i64 %177
+  %178 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %177
   %179 = load i64, ptr %178, align 8
   %180 = add i64 %179, %165
   %181 = inttoptr i64 %180 to ptr
@@ -5775,7 +5770,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 209:                                              ; preds = %209, %206
   %210 = phi i64 [ 0, %206 ], [ %215, %209 ]
   %211 = phi i64 [ 0, %206 ], [ %214, %209 ]
-  %212 = getelementptr i64, ptr %208, i64 %210
+  %212 = getelementptr [8 x i8], ptr %208, i64 %210
   %213 = load i64, ptr %212, align 8
   %214 = add i64 %213, %211
   store i64 %214, ptr %207, align 8
@@ -5803,7 +5798,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 226:                                              ; preds = %226, %223
   %227 = phi i64 [ 0, %223 ], [ %233, %226 ]
   %228 = phi i32 [ 0, %223 ], [ %232, %226 ]
-  %229 = getelementptr i64, ptr %225, i64 %227
+  %229 = getelementptr [8 x i8], ptr %225, i64 %227
   %230 = load i64, ptr %229, align 8
   %231 = trunc i64 %230 to i32
   %232 = add i32 %228, %231
@@ -5856,7 +5851,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   %262 = load ptr, ptr %9, align 8
   %263 = ptrtoint ptr %262 to i64
   %264 = and i64 %258, 63
-  %265 = getelementptr i64, ptr @__per_cpu_offset, i64 %264
+  %265 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %264
   %266 = load i64, ptr %265, align 8
   %267 = add i64 %266, %263
   %268 = inttoptr i64 %267 to ptr
@@ -5911,7 +5906,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   %299 = load ptr, ptr %9, align 8
   %300 = ptrtoint ptr %299 to i64
   %301 = and i64 %295, 63
-  %302 = getelementptr i64, ptr @__per_cpu_offset, i64 %301
+  %302 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %301
   %303 = load i64, ptr %302, align 8
   %304 = add i64 %303, %300
   %305 = inttoptr i64 %304 to ptr
@@ -5976,7 +5971,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 341:                                              ; preds = %341, %337
   %342 = phi i64 [ 0, %337 ], [ %347, %341 ]
   %343 = phi i64 [ %340, %337 ], [ %346, %341 ]
-  %344 = getelementptr %struct.airtime_info, ptr %338, i64 %342
+  %344 = getelementptr [40 x i8], ptr %338, i64 %342
   %345 = load i64, ptr %344, align 8
   %346 = add i64 %345, %343
   store i64 %346, ptr %339, align 8
@@ -6066,7 +6061,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   %399 = load ptr, ptr %9, align 8
   %400 = ptrtoint ptr %399 to i64
   %401 = and i64 %395, 63
-  %402 = getelementptr i64, ptr @__per_cpu_offset, i64 %401
+  %402 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %401
   %403 = load i64, ptr %402, align 8
   %404 = add i64 %403, %400
   %405 = inttoptr i64 %404 to ptr
@@ -6197,7 +6192,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   %482 = load i8, ptr %481, align 1
   %483 = getelementptr i8, ptr %476, i64 %480
   store i8 %482, ptr %483, align 1
-  %484 = getelementptr %struct.ewma_signal, ptr %477, i64 %480
+  %484 = getelementptr [8 x i8], ptr %477, i64 %480
   %485 = load i64, ptr %484, align 8
   %486 = lshr i64 %485, 10
   %487 = trunc i64 %486 to i8
@@ -6280,7 +6275,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 
 537:                                              ; preds = %533
   %538 = and i64 %534, 63
-  %539 = getelementptr i64, ptr @__per_cpu_offset, i64 %538
+  %539 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %538
   %540 = load i64, ptr %539, align 8
   %541 = add i64 %540, %526
   %542 = inttoptr i64 %541 to ptr
@@ -6358,7 +6353,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   %585 = load ptr, ptr %584, align 8
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 312
   %587 = zext nneg i32 %583 to i64
-  %588 = getelementptr ptr, ptr %586, i64 %587
+  %588 = getelementptr [8 x i8], ptr %586, i64 %587
   %589 = load ptr, ptr %588, align 8
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 8
   %591 = load ptr, ptr %590, align 8
@@ -6375,7 +6370,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 594:                                              ; preds = %581
   %595 = and i32 %555, 15
   %596 = zext nneg i32 %595 to i64
-  %.split = getelementptr %struct.ieee80211_rate, ptr %591, i64 %596
+  %.split = getelementptr [12 x i8], ptr %591, i64 %596
   %597 = getelementptr i8, ptr %.split, i64 4
   %598 = load i16, ptr %597, align 4
   %599 = icmp eq i8 %562, 2
@@ -6465,7 +6460,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 656:                                              ; preds = %739, %649
   %657 = phi i64 [ 0, %649 ], [ %747, %739 ]
   %658 = load ptr, ptr %650, align 8
-  %659 = getelementptr %struct.cfg80211_tid_stats, ptr %658, i64 %657
+  %659 = getelementptr [88 x i8], ptr %658, i64 %657
   %660 = load ptr, ptr %426, align 8
   %661 = load i32, ptr %659, align 8
   %662 = and i32 %661, 2
@@ -6473,7 +6468,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   br i1 %663, label %664, label %700
 
 664:                                              ; preds = %656
-  %665 = getelementptr i64, ptr %651, i64 %657
+  %665 = getelementptr [8 x i8], ptr %651, i64 %657
   %666 = load i64, ptr %665, align 8
   %667 = getelementptr inbounds nuw i8, ptr %659, i64 8
   %668 = load i64, ptr %667, align 8
@@ -6505,12 +6500,12 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   %685 = load ptr, ptr %9, align 8
   %686 = ptrtoint ptr %685 to i64
   %687 = and i64 %681, 63
-  %688 = getelementptr i64, ptr @__per_cpu_offset, i64 %687
+  %688 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %687
   %689 = load i64, ptr %688, align 8
   %690 = add i64 %689, %686
   %691 = inttoptr i64 %690 to ptr
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 64
-  %693 = getelementptr i64, ptr %692, i64 %657
+  %693 = getelementptr [8 x i8], ptr %692, i64 %657
   %694 = load i64, ptr %693, align 8
   %695 = add i64 %675, %694
   store i64 %695, ptr %667, align 8
@@ -6533,7 +6528,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 704:                                              ; preds = %700
   %705 = or disjoint i32 %701, 4
   store i32 %705, ptr %659, align 8
-  %706 = getelementptr i64, ptr %652, i64 %657
+  %706 = getelementptr [8 x i8], ptr %652, i64 %657
   %707 = load i64, ptr %706, align 8
   %708 = getelementptr inbounds nuw i8, ptr %659, i64 16
   store i64 %707, ptr %708, align 8
@@ -6555,7 +6550,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 718:                                              ; preds = %713
   %719 = or disjoint i32 %710, 8
   store i32 %719, ptr %659, align 8
-  %720 = getelementptr i64, ptr %653, i64 %657
+  %720 = getelementptr [8 x i8], ptr %653, i64 %657
   %721 = load i64, ptr %720, align 8
   %722 = getelementptr inbounds nuw i8, ptr %659, i64 24
   store i64 %721, ptr %722, align 8
@@ -6577,7 +6572,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 732:                                              ; preds = %727
   %733 = or disjoint i32 %724, 16
   store i32 %733, ptr %659, align 8
-  %734 = getelementptr i64, ptr %654, i64 %657
+  %734 = getelementptr [8 x i8], ptr %654, i64 %657
   %735 = load i64, ptr %734, align 8
   %736 = getelementptr inbounds nuw i8, ptr %659, i64 32
   store i64 %735, ptr %736, align 8
@@ -6595,7 +6590,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   %742 = or i32 %741, 64
   store i32 %742, ptr %659, align 8
   %743 = getelementptr inbounds nuw i8, ptr %659, i64 40
-  %744 = getelementptr ptr, ptr %655, i64 %657
+  %744 = getelementptr [8 x i8], ptr %655, i64 %657
   %745 = load ptr, ptr %744, align 8
   %746 = getelementptr i8, ptr %745, i64 -232
   tail call void @ieee80211_fill_txq_stats(ptr noundef nonnull %743, ptr noundef %746) #18
@@ -7010,7 +7005,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_sta_allocate_link(ptr 
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2560
-  %24 = getelementptr ptr, ptr %23, i64 %18
+  %24 = getelementptr [8 x i8], ptr %23, i64 %18
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %28, label %27, !prof !9
@@ -7070,7 +7065,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_sta_allocate_link(ptr 
   store volatile ptr %30, ptr %24, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 3120
-  %56 = getelementptr ptr, ptr %55, i64 %18
+  %56 = getelementptr [8 x i8], ptr %55, i64 %18
   store volatile ptr %48, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 936
   store i32 1, ptr %57, align 8
@@ -7114,7 +7109,7 @@ define dso_local i32 @ieee80211_sta_activate_link(ptr noundef %0, i32 noundef %1
   %10 = trunc i64 %9 to i16
   %11 = or i16 %7, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2560
-  %13 = getelementptr ptr, ptr %12, i64 %8
+  %13 = getelementptr [8 x i8], ptr %12, i64 %8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq i16 %7, %11
   %16 = icmp eq ptr %14, null
@@ -7189,7 +7184,7 @@ define dso_local i32 @ieee80211_sta_activate_link(ptr noundef %0, i32 noundef %1
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %50
-  %57 = getelementptr ptr, ptr %45, i64 %51
+  %57 = getelementptr [8 x i8], ptr %45, i64 %51
   %58 = load volatile ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %.loopexit, label %60
@@ -7218,9 +7213,9 @@ define dso_local i32 @ieee80211_sta_activate_link(ptr noundef %0, i32 noundef %1
 
 73:                                               ; preds = %73, %63
   %74 = phi i64 [ 0, %63 ], [ %80, %73 ]
-  %75 = getelementptr i16, ptr %49, i64 %74
+  %75 = getelementptr [2 x i8], ptr %49, i64 %74
   %76 = load i16, ptr %75, align 2
-  %77 = getelementptr i16, ptr %72, i64 %74
+  %77 = getelementptr [2 x i8], ptr %72, i64 %74
   %78 = load i16, ptr %77, align 2
   %79 = tail call i16 @llvm.umin.i16(i16 %76, i16 %78)
   store i16 %79, ptr %75, align 2
@@ -7432,7 +7427,7 @@ define internal fastcc range(i32 -2, 1) i32 @rhltable_remove(ptr noundef %0, ptr
 55:                                               ; preds = %45
   %56 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %57 = zext i32 %49 to i64
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   br label %59
 
 59:                                               ; preds = %55, %53
@@ -7897,7 +7892,7 @@ define internal fastcc void @cleanup_single_sta(ptr noundef %0) unnamed_addr #0 
 
 32:                                               ; preds = %39, %29
   %33 = phi i64 [ 0, %29 ], [ %40, %39 ]
-  %34 = getelementptr ptr, ptr %31, i64 %33
+  %34 = getelementptr [8 x i8], ptr %31, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %39, label %37
@@ -7920,14 +7915,14 @@ define internal fastcc void @cleanup_single_sta(ptr noundef %0) unnamed_addr #0 
 
 46:                                               ; preds = %46, %42
   %47 = phi i64 [ 0, %42 ], [ %54, %46 ]
-  %48 = getelementptr %struct.sk_buff_head, ptr %43, i64 %47
+  %48 = getelementptr [24 x i8], ptr %43, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = load i32, ptr %44, align 8
   %52 = sub i32 %51, %50
   store i32 %52, ptr %44, align 8
   tail call void @ieee80211_purge_tx_queue(ptr noundef %5, ptr noundef %48) #18
-  %53 = getelementptr %struct.sk_buff_head, ptr %45, i64 %47
+  %53 = getelementptr [24 x i8], ptr %45, i64 %47
   tail call void @ieee80211_purge_tx_queue(ptr noundef %5, ptr noundef %53) #18
   %54 = add nuw nsw i64 %47, 1
   %55 = icmp eq i64 %54, 4
@@ -7942,10 +7937,10 @@ define internal fastcc void @cleanup_single_sta(ptr noundef %0) unnamed_addr #0 
 
 61:                                               ; preds = %70, %56
   %62 = phi i64 [ 0, %56 ], [ %71, %70 ]
-  %63 = getelementptr ptr, ptr %59, i64 %62
+  %63 = getelementptr [8 x i8], ptr %59, i64 %62
   %64 = load ptr, ptr %63, align 8
   tail call void @kfree(ptr noundef %64) #18
-  %65 = getelementptr ptr, ptr %60, i64 %62
+  %65 = getelementptr [8 x i8], ptr %60, i64 %62
   %66 = load volatile ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %70, label %68
@@ -8043,7 +8038,7 @@ define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr 
 58:                                               ; preds = %48
   %59 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %60 = zext i32 %52 to i64
-  %61 = getelementptr ptr, ptr %59, i64 %60
+  %61 = getelementptr [8 x i8], ptr %59, i64 %60
   br label %62
 
 62:                                               ; preds = %58, %56

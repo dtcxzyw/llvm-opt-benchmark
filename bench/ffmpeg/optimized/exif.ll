@@ -99,7 +99,7 @@ exif_decode_tag.exit.thread:                      ; preds = %.lr.ph.split
 
 49:                                               ; preds = %48, %45
   %indvars.iv.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i, %48 ]
-  %50 = getelementptr inbounds nuw %struct.exif_tag, ptr @tag_list, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [34 x i8], ptr @tag_list, i64 %indvars.iv.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load i16, ptr %51, align 2, !tbaa !16
   %53 = icmp eq i16 %52, %47

@@ -575,7 +575,7 @@ define hidden i32 @dissect_coap_options(ptr noundef %0, ptr noundef %1, ptr noun
 
 112:                                              ; preds = %116, %99
   %indvars.iv.i.i = phi i64 [ 0, %99 ], [ %indvars.iv.next.i.i, %116 ]
-  %113 = getelementptr %struct.coap_option_range_t, ptr @coi, i64 %indvars.iv.i.i
+  %113 = getelementptr [12 x i8], ptr @coi, i64 %indvars.iv.i.i
   %114 = load i32, ptr %113, align 4
   %115 = icmp eq i32 %114, %83
   br i1 %115, label %.thread.i.i, label %116
@@ -600,7 +600,7 @@ define hidden i32 @dissect_coap_options(ptr noundef %0, ptr noundef %1, ptr noun
 
 .thread.i.i:                                      ; preds = %112
   %123 = and i64 %indvars.iv.i.i, 4294967295
-  %124 = getelementptr %struct.coap_option_range_t, ptr @coi, i64 %123
+  %124 = getelementptr [12 x i8], ptr @coi, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4
   %127 = icmp slt i32 %.0310.i, %126

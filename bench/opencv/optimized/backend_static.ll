@@ -1028,7 +1028,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %35, %.noex
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %36, ptr %6, align 8, !tbaa !22
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %29
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %29
   store ptr %38, ptr %7, align 8, !tbaa !64
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 

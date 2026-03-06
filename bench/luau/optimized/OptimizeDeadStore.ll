@@ -10,13 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.Luau::CodeGen::RemoveDeadStoreState" = type <{ ptr, %"struct.std::array", i32, i8, [3 x i8] }>
 %"struct.std::array" = type { [256 x %"struct.Luau::CodeGen::StoreRegInfo"] }
 %"struct.Luau::CodeGen::StoreRegInfo" = type <{ i32, i32, i32, i8, i8, [2 x i8] }>
-%"struct.Luau::CodeGen::IrConst" = type { i8, %union.anon }
-%union.anon = type { double }
-%"struct.Luau::CodeGen::IrBlock" = type { i8, i16, i32, i32, i32, i32, i32, %"struct.Luau::CodeGen::Label" }
-%"struct.Luau::CodeGen::Label" = type { i32, i32 }
-%"struct.Luau::CodeGen::RegisterSet" = type <{ %"class.std::bitset", i8, i8, [6 x i8] }>
-%"class.std::bitset" = type { %"struct.std::_Base_bitset" }
-%"struct.std::_Base_bitset" = type { [4 x i64] }
 
 $_ZN4Luau7CodeGen20RemoveDeadStoreState12checkLiveInsENS0_4IrOpE = comdat any
 
@@ -194,7 +187,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreStateC2ERNS0_10IrFunctionE.exit.i: ; preds = %6
   %.058.i.i = phi i32 [ %553, %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i ], [ %83, %74 ]
   %86 = zext i32 %.058.i.i to i64
   %87 = load ptr, ptr %21, align 8, !tbaa !110
-  %88 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %87, i64 %86
+  %88 = getelementptr inbounds nuw [44 x i8], ptr %87, i64 %86
   %89 = load i8, ptr %88, align 4, !tbaa !111
   switch i8 %89, label %.invoke145 [
     i8 12, label %90
@@ -265,7 +258,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreStateC2ERNS0_10IrFunctionE.exit.i: ; preds = %6
 
 _ZNKSt6bitsetILm256EE4testEm.exit43.i.i:          ; preds = %95
   %100 = lshr i64 %97, 6
-  %101 = getelementptr inbounds nuw i64, ptr %23, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %100
   %102 = load i64, ptr %101, align 8, !tbaa !120
   %103 = and i64 %97, 63
   %104 = shl nuw i64 1, %103
@@ -274,7 +267,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit43.i.i:          ; preds = %95
   br i1 %.not51.i.i, label %106, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 106:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit43.i.i
-  %107 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %17, i64 %97
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %97
   %108 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.sroa.083.0.copyload.i.i.i = load i32, ptr %108, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -284,7 +277,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit43.i.i:          ; preds = %95
   %109 = lshr i32 %.sroa.083.0.copyload.i.i.i, 4
   %110 = zext nneg i32 %109 to i64
   %111 = load ptr, ptr %22, align 8, !tbaa !121
-  %112 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %111, i64 %110
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i8, ptr %113, align 8, !tbaa !17
   %115 = load i32, ptr %107, align 8, !tbaa !20
@@ -309,7 +302,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit43.i.i:          ; preds = %95
 
 123:                                              ; preds = %122
   %124 = zext i32 %118 to i64
-  %125 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %87, i64 %124
+  %125 = getelementptr inbounds nuw [44 x i8], ptr %87, i64 %124
   %126 = load i8, ptr %125, align 4, !tbaa !111
   %127 = icmp eq i8 %126, 17
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
@@ -358,7 +351,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit43.i.i:          ; preds = %95
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %137 = zext i32 %134 to i64
   %138 = load ptr, ptr %136, align 8, !tbaa !110
-  %139 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %138, i64 %137
+  %139 = getelementptr inbounds nuw [44 x i8], ptr %138, i64 %137
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %135, ptr noundef nonnull align 4 dereferenceable(43) %139)
           to label %.noexc22 unwind label %.loopexit
 
@@ -378,7 +371,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState12killTagStoreERNS0_12StoreRegInfoE.exit.i
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %145 = zext i32 %141 to i64
   %146 = load ptr, ptr %144, align 8, !tbaa !110
-  %147 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %146, i64 %145
+  %147 = getelementptr inbounds nuw [44 x i8], ptr %146, i64 %145
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %143, ptr noundef nonnull align 4 dereferenceable(43) %147)
           to label %.noexc23 unwind label %.loopexit
 
@@ -409,7 +402,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
 
 156:                                              ; preds = %153
   %157 = zext i32 %155 to i64
-  %158 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %87, i64 %157
+  %158 = getelementptr inbounds nuw [44 x i8], ptr %87, i64 %157
   %159 = load i8, ptr %158, align 4, !tbaa !111
   switch i8 %159, label %188 [
     i8 19, label %160
@@ -447,7 +440,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
   %163 = load ptr, ptr %6, align 8, !tbaa !122
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %165 = load ptr, ptr %164, align 8, !tbaa !110
-  %166 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %165, i64 %.pre-phi.i.i
+  %166 = getelementptr inbounds nuw [44 x i8], ptr %165, i64 %.pre-phi.i.i
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %163, ptr noundef nonnull align 4 dereferenceable(43) %166)
           to label %.noexc26 unwind label %.loopexit
 
@@ -506,7 +499,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %177 = load ptr, ptr %6, align 8, !tbaa !122
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
   %179 = load ptr, ptr %178, align 8, !tbaa !110
-  %180 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %179, i64 %.pre-phi67.i.i
+  %180 = getelementptr inbounds nuw [44 x i8], ptr %179, i64 %.pre-phi67.i.i
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %177, ptr noundef nonnull align 4 dereferenceable(43) %180)
           to label %.noexc29 unwind label %.loopexit
 
@@ -570,7 +563,7 @@ _ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9
   %201 = lshr i32 %197, 4
   %202 = and i32 %201, 255
   %203 = zext nneg i32 %202 to i64
-  %204 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %17, i64 %203
+  %204 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %203
   store i32 -1, ptr %204, align 8, !tbaa !20
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 4
   store i32 -1, ptr %205, align 4, !tbaa !23
@@ -595,7 +588,7 @@ _ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9
 
 _ZNKSt6bitsetILm256EE4testEm.exit28.i.i:          ; preds = %213
   %217 = lshr i64 %215, 6
-  %218 = getelementptr inbounds nuw i64, ptr %23, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %217
   %219 = load i64, ptr %218, align 8, !tbaa !120
   %220 = and i64 %215, 63
   %221 = shl nuw i64 1, %220
@@ -604,7 +597,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit28.i.i:          ; preds = %213
   br i1 %.not50.i.i, label %223, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 223:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit28.i.i
-  %224 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %17, i64 %215
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %215
   %225 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.sroa.068.0.copyload.i.i.i = load i32, ptr %225, align 4, !tbaa !17
   %226 = invoke fastcc noundef zeroext i1 @_ZN4Luau7CodeGenL28tryReplaceValueWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE(ptr noundef nonnull align 8 dereferenceable(4109) %6, ptr noundef nonnull align 8 dereferenceable(624) %7, ptr noundef nonnull align 4 dereferenceable(32) %.031.i, i32 noundef %.058.i.i, i32 %210, i32 %.sroa.068.0.copyload.i.i.i, ptr noundef nonnull align 4 dereferenceable(14) %224)
@@ -636,7 +629,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit28.i.i:          ; preds = %213
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %238 = zext i32 %234 to i64
   %239 = load ptr, ptr %237, align 8, !tbaa !110
-  %240 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %239, i64 %238
+  %240 = getelementptr inbounds nuw [44 x i8], ptr %239, i64 %238
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %236, ptr noundef nonnull align 4 dereferenceable(43) %240)
           to label %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit.i.i.i unwind label %.loopexit
 
@@ -663,7 +656,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i.i.i:          ; preds = %248
   %252 = lshr i64 %250, 6
-  %253 = getelementptr inbounds nuw i64, ptr %23, i64 %252
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %252
   %254 = load i64, ptr %253, align 8, !tbaa !120
   %255 = and i64 %250, 63
   %256 = shl nuw i64 1, %255
@@ -672,7 +665,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i.i:          ; preds = %248
   br i1 %.not3.i.i.i, label %258, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 258:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i.i.i
-  %259 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %17, i64 %250
+  %259 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %250
   %260 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.sroa.058.0.copyload.i.i.i = load i32, ptr %260, align 4, !tbaa !17
   %261 = invoke fastcc noundef zeroext i1 @_ZN4Luau7CodeGenL28tryReplaceValueWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE(ptr noundef nonnull align 8 dereferenceable(4109) %6, ptr noundef nonnull align 8 dereferenceable(624) %7, ptr noundef nonnull align 4 dereferenceable(32) %.031.i, i32 noundef %.058.i.i, i32 %245, i32 %.sroa.058.0.copyload.i.i.i, ptr noundef nonnull align 4 dereferenceable(14) %259)
@@ -698,7 +691,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i.i:          ; preds = %248
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 24
   %271 = zext i32 %267 to i64
   %272 = load ptr, ptr %270, align 8, !tbaa !110
-  %273 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %272, i64 %271
+  %273 = getelementptr inbounds nuw [44 x i8], ptr %272, i64 %271
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %269, ptr noundef nonnull align 4 dereferenceable(43) %273)
           to label %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit227.i.i.i unwind label %.loopexit
 
@@ -724,7 +717,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
 
 _ZNKSt6bitsetILm256EE4testEm.exit27.i.i:          ; preds = %281
   %285 = lshr i64 %283, 6
-  %286 = getelementptr inbounds nuw i64, ptr %23, i64 %285
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %285
   %287 = load i64, ptr %286, align 8, !tbaa !120
   %288 = and i64 %283, 63
   %289 = shl nuw i64 1, %288
@@ -733,7 +726,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit27.i.i:          ; preds = %281
   br i1 %.not49.i.i, label %291, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 291:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit27.i.i
-  %292 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %17, i64 %283
+  %292 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %283
   %293 = load i32, ptr %292, align 8, !tbaa !20
   %.not.i20.i.i = icmp eq i32 %293, -1
   %294 = getelementptr inbounds nuw i8, ptr %292, i64 4
@@ -744,7 +737,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit27.i.i:          ; preds = %281
 
 296:                                              ; preds = %291
   %297 = zext i32 %293 to i64
-  %298 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %87, i64 %297
+  %298 = getelementptr inbounds nuw [44 x i8], ptr %87, i64 %297
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %.sroa.016.0.copyload.i.i.i = load i32, ptr %299, align 4, !tbaa !17
   %300 = getelementptr inbounds nuw i8, ptr %88, i64 20
@@ -761,7 +754,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit27.i.i:          ; preds = %281
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 24
   %305 = zext i32 %301 to i64
   %306 = load ptr, ptr %304, align 8, !tbaa !110
-  %307 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %306, i64 %305
+  %307 = getelementptr inbounds nuw [44 x i8], ptr %306, i64 %305
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %303, ptr noundef nonnull align 4 dereferenceable(43) %307)
           to label %.noexc40 unwind label %.loopexit
 
@@ -781,7 +774,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState12killTagStoreERNS0_12StoreRegInfoE.exit.i
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 24
   %313 = zext i32 %309 to i64
   %314 = load ptr, ptr %312, align 8, !tbaa !110
-  %315 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %314, i64 %313
+  %315 = getelementptr inbounds nuw [44 x i8], ptr %314, i64 %313
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %311, ptr noundef nonnull align 4 dereferenceable(43) %315)
           to label %.noexc41 unwind label %.loopexit
 
@@ -804,7 +797,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
 
 321:                                              ; preds = %318
   %322 = zext i32 %320 to i64
-  %323 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %87, i64 %322
+  %323 = getelementptr inbounds nuw [44 x i8], ptr %87, i64 %322
   %324 = load i8, ptr %323, align 4, !tbaa !111
   switch i8 %324, label %_ZN4Luau7CodeGenL34tryReplaceVectorValueWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjRNS0_12StoreRegInfoE.exit.i.i [
     i8 19, label %325
@@ -828,7 +821,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 24
   %332 = zext i32 %328 to i64
   %333 = load ptr, ptr %331, align 8, !tbaa !110
-  %334 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %333, i64 %332
+  %334 = getelementptr inbounds nuw [44 x i8], ptr %333, i64 %332
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %330, ptr noundef nonnull align 4 dereferenceable(43) %334)
           to label %.noexc43 unwind label %.loopexit
 
@@ -858,7 +851,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 24
   %343 = zext i32 %339 to i64
   %344 = load ptr, ptr %342, align 8, !tbaa !110
-  %345 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %344, i64 %343
+  %345 = getelementptr inbounds nuw [44 x i8], ptr %344, i64 %343
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %341, ptr noundef nonnull align 4 dereferenceable(43) %345)
           to label %.noexc45 unwind label %.loopexit
 
@@ -883,7 +876,7 @@ _ZN4Luau7CodeGenL34tryReplaceVectorValueWithFullStoreERNS0_20RemoveDeadStoreStat
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 24
   %352 = zext i32 %295 to i64
   %353 = load ptr, ptr %351, align 8, !tbaa !110
-  %354 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %353, i64 %352
+  %354 = getelementptr inbounds nuw [44 x i8], ptr %353, i64 %352
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %350, ptr noundef nonnull align 4 dereferenceable(43) %354)
           to label %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit229.i.i.i unwind label %.loopexit
 
@@ -908,7 +901,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
 
 _ZNKSt6bitsetILm256EE4testEm.exit19.i.i:          ; preds = %361
   %365 = lshr i64 %363, 6
-  %366 = getelementptr inbounds nuw i64, ptr %23, i64 %365
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %365
   %367 = load i64, ptr %366, align 8, !tbaa !120
   %368 = and i64 %363, 63
   %369 = shl nuw i64 1, %368
@@ -917,7 +910,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit19.i.i:          ; preds = %361
   br i1 %.not48.i.i, label %371, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 371:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit19.i.i
-  %372 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %17, i64 %363
+  %372 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %363
   %373 = load i32, ptr %372, align 8, !tbaa !20
   %.not.i13.i.i = icmp ne i32 %373, -1
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 13
@@ -940,7 +933,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit19.i.i:          ; preds = %361
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 24
   %386 = zext i32 %373 to i64
   %387 = load ptr, ptr %385, align 8, !tbaa !110
-  %388 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %387, i64 %386
+  %388 = getelementptr inbounds nuw [44 x i8], ptr %387, i64 %386
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %384, ptr noundef nonnull align 4 dereferenceable(43) %388)
           to label %.noexc48 unwind label %.loopexit
 
@@ -959,7 +952,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit19.i.i:          ; preds = %361
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 24
   %394 = zext i32 %390 to i64
   %395 = load ptr, ptr %393, align 8, !tbaa !110
-  %396 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %395, i64 %394
+  %396 = getelementptr inbounds nuw [44 x i8], ptr %395, i64 %394
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %392, ptr noundef nonnull align 4 dereferenceable(43) %396)
           to label %.noexc49 unwind label %.loopexit
 
@@ -983,7 +976,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState24killTagAndValueStorePairERNS0_12StoreReg
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 24
   %404 = zext i32 %400 to i64
   %405 = load ptr, ptr %403, align 8, !tbaa !110
-  %406 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %405, i64 %404
+  %406 = getelementptr inbounds nuw [44 x i8], ptr %405, i64 %404
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %402, ptr noundef nonnull align 4 dereferenceable(43) %406)
           to label %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit.i.i.i unwind label %.loopexit
 
@@ -999,7 +992,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %411 = lshr i32 %.sroa.033.0.copyload.i.i.i, 4
   %412 = zext nneg i32 %411 to i64
   %413 = load ptr, ptr %21, align 8
-  %414 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %413, i64 %412
+  %414 = getelementptr inbounds nuw [44 x i8], ptr %413, i64 %412
   %.not2212.i.i.i = icmp eq ptr %413, null
   %.not221.i.i.i = select i1 %410, i1 true, i1 %.not2212.i.i.i
   br i1 %.not221.i.i.i, label %430, label %415
@@ -1022,7 +1015,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %422 = lshr i32 %419, 4
   %423 = zext nneg i32 %422 to i64
   %424 = load ptr, ptr %22, align 8, !tbaa !121
-  %425 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %424, i64 %423
+  %425 = getelementptr inbounds nuw [16 x i8], ptr %424, i64 %423
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
   %427 = load i8, ptr %426, align 8, !tbaa !17
   %428 = invoke noundef zeroext i1 @_ZN4Luau7CodeGen5isGCOEh(i8 noundef zeroext %427)
@@ -1059,7 +1052,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i.i:            ; preds = %439
   %443 = lshr i64 %441, 6
-  %444 = getelementptr inbounds nuw i64, ptr %23, i64 %443
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %443
   %445 = load i64, ptr %444, align 8, !tbaa !120
   %446 = and i64 %441, 63
   %447 = shl nuw i64 1, %446
@@ -1068,7 +1061,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i:            ; preds = %439
   br i1 %.not47.i.i, label %449, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i
 
 449:                                              ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i.i
-  %450 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %17, i64 %441
+  %450 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %441
   %451 = load i32, ptr %450, align 8, !tbaa !20
   %.not.i12.i.i = icmp ne i32 %451, -1
   %452 = getelementptr inbounds nuw i8, ptr %450, i64 13
@@ -1091,7 +1084,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i:            ; preds = %439
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 24
   %464 = zext i32 %451 to i64
   %465 = load ptr, ptr %463, align 8, !tbaa !110
-  %466 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %465, i64 %464
+  %466 = getelementptr inbounds nuw [44 x i8], ptr %465, i64 %464
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %462, ptr noundef nonnull align 4 dereferenceable(43) %466)
           to label %.noexc53 unwind label %.loopexit
 
@@ -1110,7 +1103,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i:            ; preds = %439
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 24
   %472 = zext i32 %468 to i64
   %473 = load ptr, ptr %471, align 8, !tbaa !110
-  %474 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %473, i64 %472
+  %474 = getelementptr inbounds nuw [44 x i8], ptr %473, i64 %472
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %470, ptr noundef nonnull align 4 dereferenceable(43) %474)
           to label %.noexc54 unwind label %.loopexit
 
@@ -1134,7 +1127,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState24killTagAndValueStorePairERNS0_12StoreReg
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 24
   %482 = zext i32 %478 to i64
   %483 = load ptr, ptr %481, align 8, !tbaa !110
-  %484 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %483, i64 %482
+  %484 = getelementptr inbounds nuw [44 x i8], ptr %483, i64 %482
   invoke void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %480, ptr noundef nonnull align 4 dereferenceable(43) %484)
           to label %.noexc55 unwind label %.loopexit
 
@@ -1150,7 +1143,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %487 = lshr i32 %.sroa.022.0.copyload.i.i.i, 4
   %488 = zext nneg i32 %487 to i64
   %489 = load ptr, ptr %22, align 8, !tbaa !121
-  %490 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %489, i64 %488
+  %490 = getelementptr inbounds nuw [16 x i8], ptr %489, i64 %488
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
   %492 = load i8, ptr %491, align 8, !tbaa !17
   %493 = invoke noundef zeroext i1 @_ZN4Luau7CodeGen5isGCOEh(i8 noundef zeroext %492)
@@ -1164,7 +1157,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %496 = lshr i32 %.sroa.021.0.copyload.i.i.i, 4
   %497 = zext nneg i32 %496 to i64
   %498 = load ptr, ptr %22, align 8, !tbaa !121
-  %499 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %498, i64 %497
+  %499 = getelementptr inbounds nuw [16 x i8], ptr %498, i64 %497
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 8
   %501 = load i8, ptr %500, align 8, !tbaa !17
   store i8 %501, ptr %452, align 1, !tbaa !26
@@ -1187,7 +1180,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %509 = lshr i32 %.sroa.015.0.copyload.i.i.i, 4
   %510 = zext nneg i32 %509 to i64
   %511 = load ptr, ptr %21, align 8
-  %512 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %511, i64 %510
+  %512 = getelementptr inbounds nuw [44 x i8], ptr %511, i64 %510
   %.not1.i.i.i = icmp eq ptr %511, null
   %.not.i.i.i18 = select i1 %508, i1 true, i1 %.not1.i.i.i
   br i1 %.not.i.i.i18, label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i, label %513
@@ -1207,13 +1200,13 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
 521:                                              ; preds = %516
   %522 = lshr i32 %518, 4
   %523 = zext nneg i32 %522 to i64
-  %524 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %6, i64 %523
+  %524 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %523
   %525 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.sroa.013.0.copyload.i.i.i = load i32, ptr %525, align 4, !tbaa !17
   %526 = lshr i32 %.sroa.013.0.copyload.i.i.i, 4
   %527 = zext nneg i32 %526 to i64
   %528 = load ptr, ptr %22, align 8, !tbaa !121
-  %529 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %528, i64 %527
+  %529 = getelementptr inbounds nuw [16 x i8], ptr %528, i64 %527
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 8
   %531 = load i8, ptr %530, align 8, !tbaa !17
   %532 = getelementptr inbounds nuw i8, ptr %524, i64 21
@@ -1261,7 +1254,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
 
 544:                                              ; preds = %552, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %552 ]
-  %545 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %17, i64 %indvars.iv.i.i.i.i
+  %545 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv.i.i.i.i
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 12
   %547 = load i8, ptr %546, align 4, !tbaa !25, !range !123, !noundef !124
   %548 = trunc nuw i8 %547 to i1
@@ -1299,7 +1292,7 @@ _ZN4Luau7CodeGenL21markDeadStoresInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_20Re
   %555 = phi i32 [ %85, %74 ], [ %554, %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i ]
   %556 = zext i32 %555 to i64
   %557 = load ptr, ptr %21, align 8, !tbaa !110
-  %558 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %557, i64 %556
+  %558 = getelementptr inbounds nuw [44 x i8], ptr %557, i64 %556
   %559 = load i8, ptr %558, align 4, !tbaa !111
   %560 = icmp eq i8 %559, 46
   br i1 %560, label %561, label %_ZN4Luau7CodeGenL26markDeadStoresInBlockChainERNS0_9IrBuilderERSt6vectorIhSaIhEEPNS0_7IrBlockE.exit
@@ -1315,7 +1308,7 @@ _ZN4Luau7CodeGenL21markDeadStoresInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_20Re
   %567 = lshr i32 %563, 4
   %568 = zext nneg i32 %567 to i64
   %569 = load ptr, ptr %7, align 8, !tbaa !10
-  %570 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %569, i64 %568
+  %570 = getelementptr inbounds nuw [32 x i8], ptr %569, i64 %568
   %571 = getelementptr inbounds nuw i8, ptr %570, i64 2
   %572 = load i16, ptr %571, align 2, !tbaa !128
   %573 = icmp eq i16 %572, 1
@@ -1368,7 +1361,7 @@ define internal fastcc noundef zeroext i1 @_ZN4Luau7CodeGenL28tryReplaceValueWit
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = zext i32 %11 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !110
-  %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [44 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.010.0.copyload = load i32, ptr %19, align 4, !tbaa !17
   store i8 19, ptr %8, align 8, !tbaa !111
@@ -1394,7 +1387,7 @@ define internal fastcc noundef zeroext i1 @_ZN4Luau7CodeGenL28tryReplaceValueWit
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = zext i32 %26 to i64
   %31 = load ptr, ptr %29, align 8, !tbaa !110
-  %32 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [44 x i8], ptr %31, i64 %30
   tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %28, ptr noundef nonnull align 4 dereferenceable(43) %32)
   store i32 -1, ptr %6, align 4, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -1411,7 +1404,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState12killTagStoreERNS0_12StoreRegInfoE.exit: 
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = zext i32 %34 to i64
   %39 = load ptr, ptr %37, align 8, !tbaa !110
-  %40 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [44 x i8], ptr %39, i64 %38
   tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %36, ptr noundef nonnull align 4 dereferenceable(43) %40)
   store i32 -1, ptr %12, align 4, !tbaa !23
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -1433,7 +1426,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %48 = zext i32 %45 to i64
   %49 = load ptr, ptr %47, align 8, !tbaa !110
-  %50 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [44 x i8], ptr %49, i64 %48
   %51 = load i8, ptr %50, align 4, !tbaa !111
   switch i8 %51, label %.thread [
     i8 19, label %52
@@ -1466,7 +1459,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = zext i32 %60 to i64
   %65 = load ptr, ptr %63, align 8, !tbaa !110
-  %66 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [44 x i8], ptr %65, i64 %64
   tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %62, ptr noundef nonnull align 4 dereferenceable(43) %66)
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %67, align 4, !tbaa !25
@@ -1502,7 +1495,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = zext i32 %76 to i64
   %81 = load ptr, ptr %79, align 8, !tbaa !110
-  %82 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [44 x i8], ptr %81, i64 %80
   tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %78, ptr noundef nonnull align 4 dereferenceable(43) %82)
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %83, align 4, !tbaa !25
@@ -1539,7 +1532,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen20RemoveDeadStoreState12chec
   %.04.i = phi i32 [ 0, %.lr.ph.i ], [ %15, %8 ]
   %9 = and i32 %.04.i, 255
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %10
   store i32 -1, ptr %11, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 -1, ptr %12, align 4, !tbaa !23
@@ -1567,7 +1560,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen20RemoveDeadStoreState12chec
   br i1 %28, label %29, label %57
 
 29:                                               ; preds = %16
-  %30 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterSet", ptr %23, i64 %18
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %32 = load i32, ptr %31, align 8, !tbaa !107
   %.not20 = icmp slt i32 %32, 0
@@ -1592,7 +1585,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen20RemoveDeadStoreState12chec
 
 _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %37
   %39 = lshr i64 %indvars.iv, 6
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !120
   %42 = and i64 %indvars.iv, 63
   %43 = shl nuw i64 1, %42
@@ -1612,7 +1605,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %37
   br i1 %.not13, label %56, label %51
 
 51:                                               ; preds = %48, %_ZNKSt6bitsetILm256EE4testEm.exit
-  %52 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %35, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv
   store i32 -1, ptr %52, align 8, !tbaa !20
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 -1, ptr %53, align 4, !tbaa !23
@@ -1641,7 +1634,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %37
   %.04.i16 = phi i32 [ 0, %.lr.ph.i15 ], [ %68, %61 ]
   %62 = and i32 %.04.i16, 255
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %60, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %63
   store i32 -1, ptr %64, align 8, !tbaa !20
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 -1, ptr %65, align 4, !tbaa !23
@@ -1727,7 +1720,7 @@ define internal fastcc void @_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_20RemoveD
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = and i32 %10, 255
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %13
   store i32 -1, ptr %14, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 -1, ptr %15, align 4, !tbaa !23
@@ -1757,7 +1750,7 @@ define internal fastcc void @_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_20RemoveD
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = and i32 %27, 255
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %30
   store i32 -1, ptr %31, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 -1, ptr %32, align 4, !tbaa !23
@@ -1770,7 +1763,7 @@ define internal fastcc void @_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_20RemoveD
   %36 = lshr i32 %.sroa.079.0.copyload, 4
   %37 = and i32 %36, 255
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %28, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %38
   store i32 -1, ptr %39, align 8, !tbaa !20
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 -1, ptr %40, align 4, !tbaa !23
@@ -1787,7 +1780,7 @@ define internal fastcc void @_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_20RemoveD
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = and i32 %45, 255
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %48
   store i32 -1, ptr %49, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 -1, ptr %50, align 4, !tbaa !23
@@ -1809,7 +1802,7 @@ define internal fastcc void @_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_20RemoveD
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = and i32 %58, 255
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %61
   store i32 -1, ptr %62, align 8, !tbaa !20
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 -1, ptr %63, align 4, !tbaa !23
@@ -1831,7 +1824,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit236: ; preds = %5
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = and i32 %70, 255
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %73
   store i32 -1, ptr %74, align 8, !tbaa !20
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 -1, ptr %75, align 4, !tbaa !23
@@ -1856,7 +1849,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit237: ; preds = %_
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %85 = and i32 %83, 255
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %86
   store i32 -1, ptr %87, align 8, !tbaa !20
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store i32 -1, ptr %88, align 4, !tbaa !23
@@ -1874,7 +1867,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit237: ; preds = %_
   %95 = lshr i32 %.sroa.073.0.copyload, 4
   %96 = and i32 %95, 255
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %84, i64 %97
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %97
   store i32 -1, ptr %98, align 8, !tbaa !20
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 -1, ptr %99, align 4, !tbaa !23
@@ -1899,7 +1892,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit238: ; preds = %8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %109 = and i32 %107, 255
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %108, i64 %110
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %110
   store i32 -1, ptr %111, align 8, !tbaa !20
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store i32 -1, ptr %112, align 4, !tbaa !23
@@ -1912,7 +1905,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit238: ; preds = %8
   %116 = lshr i32 %.sroa.070.0.copyload, 4
   %117 = and i32 %116, 255
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %108, i64 %118
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %118
   store i32 -1, ptr %119, align 8, !tbaa !20
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store i32 -1, ptr %120, align 4, !tbaa !23
@@ -1930,7 +1923,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit238: ; preds = %8
   %127 = lshr i32 %.sroa.069.0.copyload, 4
   %128 = and i32 %127, 255
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %108, i64 %129
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %129
   store i32 -1, ptr %130, align 8, !tbaa !20
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   store i32 -1, ptr %131, align 4, !tbaa !23
@@ -1947,7 +1940,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit238: ; preds = %8
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %138 = and i32 %136, 255
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %137, i64 %139
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %139
   store i32 -1, ptr %140, align 8, !tbaa !20
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   store i32 -1, ptr %141, align 4, !tbaa !23
@@ -1980,7 +1973,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit238: ; preds = %8
   %156 = lshr i32 %.sroa.064.0.copyload, 4
   %157 = zext nneg i32 %156 to i64
   %158 = load ptr, ptr %155, align 8, !tbaa !121
-  %159 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %158, i64 %157
+  %159 = getelementptr inbounds nuw [16 x i8], ptr %158, i64 %157
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load i32, ptr %160, align 8, !tbaa !17
   %162 = icmp eq i32 %161, -1
@@ -2010,7 +2003,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit238: ; preds = %8
   %.05.i.i = phi i32 [ %167, %.lr.ph.i.i ], [ %178, %171 ]
   %172 = and i32 %.05.i.i, 255
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %170, i64 %173
+  %174 = getelementptr inbounds nuw [16 x i8], ptr %170, i64 %173
   store i32 -1, ptr %174, align 8, !tbaa !20
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 4
   store i32 -1, ptr %175, align 4, !tbaa !23
@@ -2026,7 +2019,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit238: ; preds = %8
   %.010.i = phi i32 [ %153, %.lr.ph.i ], [ %186, %179 ]
   %180 = and i32 %.010.i, 255
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %165, i64 %181
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %165, i64 %181
   store i32 -1, ptr %182, align 8, !tbaa !20
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   store i32 -1, ptr %183, align 4, !tbaa !23
@@ -2044,7 +2037,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %.sroa.062.0.copyload = load i32, ptr %154, align 4, !tbaa !17
   %189 = lshr i32 %.sroa.062.0.copyload, 4
   %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %158, i64 %190
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %158, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load i32, ptr %192, align 8, !tbaa !17
   %194 = icmp eq i32 %193, -1
@@ -2094,7 +2087,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %215 = and i32 %213, 255
   %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %214, i64 %216
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %214, i64 %216
   store i32 -1, ptr %217, align 8, !tbaa !20
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 4
   store i32 -1, ptr %218, align 4, !tbaa !23
@@ -2116,7 +2109,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %228 = and i32 %226, 255
   %229 = zext nneg i32 %228 to i64
-  %230 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %227, i64 %229
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %227, i64 %229
   store i32 -1, ptr %230, align 8, !tbaa !20
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
   store i32 -1, ptr %231, align 4, !tbaa !23
@@ -2138,7 +2131,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %241 = and i32 %239, 255
   %242 = zext nneg i32 %241 to i64
-  %243 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %240, i64 %242
+  %243 = getelementptr inbounds nuw [16 x i8], ptr %240, i64 %242
   store i32 -1, ptr %243, align 8, !tbaa !20
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
   store i32 -1, ptr %244, align 4, !tbaa !23
@@ -2155,7 +2148,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %251 = and i32 %249, 255
   %252 = zext nneg i32 %251 to i64
-  %253 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %250, i64 %252
+  %253 = getelementptr inbounds nuw [16 x i8], ptr %250, i64 %252
   store i32 -1, ptr %253, align 8, !tbaa !20
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 4
   store i32 -1, ptr %254, align 4, !tbaa !23
@@ -2172,7 +2165,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %261 = lshr i32 %.sroa.053.0.copyload, 4
   %262 = zext nneg i32 %261 to i64
   %263 = load ptr, ptr %260, align 8, !tbaa !121
-  %264 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %263, i64 %262
+  %264 = getelementptr inbounds nuw [16 x i8], ptr %263, i64 %262
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load i32, ptr %265, align 8, !tbaa !17
   %267 = icmp eq i32 %266, -1
@@ -2194,7 +2187,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %.05.i.i253 = phi i32 [ %280, %.lr.ph.i.i252 ], [ %271, %270 ]
   %274 = and i32 %.05.i.i253, 255
   %275 = zext nneg i32 %274 to i64
-  %276 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %250, i64 %275
+  %276 = getelementptr inbounds nuw [16 x i8], ptr %250, i64 %275
   store i32 -1, ptr %276, align 8, !tbaa !20
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 4
   store i32 -1, ptr %277, align 4, !tbaa !23
@@ -2210,7 +2203,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %.010.i250 = phi i32 [ %287, %.lr.ph.i249 ], [ %258, %.preheader.i248 ]
   %281 = and i32 %.010.i250, 255
   %282 = zext nneg i32 %281 to i64
-  %283 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %250, i64 %282
+  %283 = getelementptr inbounds nuw [16 x i8], ptr %250, i64 %282
   store i32 -1, ptr %283, align 8, !tbaa !20
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 4
   store i32 -1, ptr %284, align 4, !tbaa !23
@@ -2229,7 +2222,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %293 = and i32 %291, 255
   %294 = zext nneg i32 %293 to i64
-  %295 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %292, i64 %294
+  %295 = getelementptr inbounds nuw [16 x i8], ptr %292, i64 %294
   store i32 -1, ptr %295, align 8, !tbaa !20
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 4
   store i32 -1, ptr %296, align 4, !tbaa !23
@@ -2246,7 +2239,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %303 = lshr i32 %.sroa.050.0.copyload, 4
   %304 = zext nneg i32 %303 to i64
   %305 = load ptr, ptr %302, align 8, !tbaa !121
-  %306 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %305, i64 %304
+  %306 = getelementptr inbounds nuw [16 x i8], ptr %305, i64 %304
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %308 = load i32, ptr %307, align 8, !tbaa !17
   %309 = icmp eq i32 %308, -1
@@ -2268,7 +2261,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %.05.i.i261 = phi i32 [ %322, %.lr.ph.i.i260 ], [ %313, %312 ]
   %316 = and i32 %.05.i.i261, 255
   %317 = zext nneg i32 %316 to i64
-  %318 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %292, i64 %317
+  %318 = getelementptr inbounds nuw [16 x i8], ptr %292, i64 %317
   store i32 -1, ptr %318, align 8, !tbaa !20
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 4
   store i32 -1, ptr %319, align 4, !tbaa !23
@@ -2284,7 +2277,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit: ; preds = %179, %171, %
   %.010.i258 = phi i32 [ %329, %.lr.ph.i257 ], [ %300, %.preheader.i256 ]
   %323 = and i32 %.010.i258, 255
   %324 = zext nneg i32 %323 to i64
-  %325 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %292, i64 %324
+  %325 = getelementptr inbounds nuw [16 x i8], ptr %292, i64 %324
   store i32 -1, ptr %325, align 8, !tbaa !20
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 4
   store i32 -1, ptr %326, align 4, !tbaa !23
@@ -2303,7 +2296,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit263: ; preds = %.lr.ph.i2
   %.sroa.048.0.copyload = load i32, ptr %332, align 4, !tbaa !17
   %333 = lshr i32 %.sroa.048.0.copyload, 4
   %334 = zext nneg i32 %333 to i64
-  %335 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %305, i64 %334
+  %335 = getelementptr inbounds nuw [16 x i8], ptr %305, i64 %334
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 8
   %337 = load i32, ptr %336, align 8, !tbaa !17
   %338 = icmp eq i32 %337, -1
@@ -2348,7 +2341,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit263: ; preds = %.lr.ph.i2
   %356 = lshr i32 %.sroa.046.0.copyload, 4
   %357 = zext nneg i32 %356 to i64
   %358 = load ptr, ptr %355, align 8, !tbaa !121
-  %359 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %358, i64 %357
+  %359 = getelementptr inbounds nuw [16 x i8], ptr %358, i64 %357
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %361 = load i32, ptr %360, align 8, !tbaa !17
   %362 = icmp eq i32 %361, -1
@@ -2378,7 +2371,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit263: ; preds = %.lr.ph.i2
   %.05.i.i277 = phi i32 [ %367, %.lr.ph.i.i276 ], [ %378, %371 ]
   %372 = and i32 %.05.i.i277, 255
   %373 = zext nneg i32 %372 to i64
-  %374 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %370, i64 %373
+  %374 = getelementptr inbounds nuw [16 x i8], ptr %370, i64 %373
   store i32 -1, ptr %374, align 8, !tbaa !20
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 4
   store i32 -1, ptr %375, align 4, !tbaa !23
@@ -2394,7 +2387,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit263: ; preds = %.lr.ph.i2
   %.010.i274 = phi i32 [ %353, %.lr.ph.i273 ], [ %386, %379 ]
   %380 = and i32 %.010.i274, 255
   %381 = zext nneg i32 %380 to i64
-  %382 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %365, i64 %381
+  %382 = getelementptr inbounds nuw [16 x i8], ptr %365, i64 %381
   store i32 -1, ptr %382, align 8, !tbaa !20
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 4
   store i32 -1, ptr %383, align 4, !tbaa !23
@@ -2413,7 +2406,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit263: ; preds = %.lr.ph.i2
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %392 = and i32 %390, 255
   %393 = zext nneg i32 %392 to i64
-  %394 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %391, i64 %393
+  %394 = getelementptr inbounds nuw [16 x i8], ptr %391, i64 %393
   store i32 -1, ptr %394, align 8, !tbaa !20
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 4
   store i32 -1, ptr %395, align 4, !tbaa !23
@@ -2427,7 +2420,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit263: ; preds = %.lr.ph.i2
   %400 = lshr i32 %.sroa.042.0.copyload, 4
   %401 = zext nneg i32 %400 to i64
   %402 = load ptr, ptr %399, align 8, !tbaa !121
-  %403 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %402, i64 %401
+  %403 = getelementptr inbounds nuw [16 x i8], ptr %402, i64 %401
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 8
   %405 = load i32, ptr %404, align 8, !tbaa !17
   %.not235 = icmp eq i32 %405, -1
@@ -2447,7 +2440,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit263: ; preds = %.lr.ph.i2
   %412 = lshr i32 %.sroa.034.0.copyload, 4
   %413 = zext nneg i32 %412 to i64
   %414 = load ptr, ptr %411, align 8, !tbaa !121
-  %415 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %414, i64 %413
+  %415 = getelementptr inbounds nuw [16 x i8], ptr %414, i64 %413
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
   %417 = load i32, ptr %416, align 8, !tbaa !17
   %.not = icmp eq i32 %417, -1
@@ -2483,7 +2476,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit263: ; preds = %.lr.ph.i2
   %432 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %433 = and i32 %431, 255
   %434 = zext nneg i32 %433 to i64
-  %435 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %432, i64 %434
+  %435 = getelementptr inbounds nuw [16 x i8], ptr %432, i64 %434
   store i32 -1, ptr %435, align 8, !tbaa !20
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 4
   store i32 -1, ptr %436, align 4, !tbaa !23
@@ -2505,7 +2498,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit263: ; preds = %.lr.ph.i2
   %445 = lshr i32 %.sroa.031.0.copyload, 4
   %446 = and i32 %445, 255
   %447 = zext nneg i32 %446 to i64
-  %448 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %432, i64 %447
+  %448 = getelementptr inbounds nuw [16 x i8], ptr %432, i64 %447
   store i32 -1, ptr %448, align 8, !tbaa !20
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 4
   store i32 -1, ptr %449, align 4, !tbaa !23
@@ -2529,7 +2522,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit280: ; preds = %4
   %457 = lshr i32 %.sroa.030.0.copyload, 4
   %458 = and i32 %457, 255
   %459 = zext nneg i32 %458 to i64
-  %460 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %432, i64 %459
+  %460 = getelementptr inbounds nuw [16 x i8], ptr %432, i64 %459
   store i32 -1, ptr %460, align 8, !tbaa !20
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 4
   store i32 -1, ptr %461, align 4, !tbaa !23
@@ -2557,7 +2550,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit280: ; preds = %4
   %.05.i = phi i32 [ %467, %.lr.ph.i282 ], [ %478, %471 ]
   %472 = and i32 %.05.i, 255
   %473 = zext nneg i32 %472 to i64
-  %474 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %470, i64 %473
+  %474 = getelementptr inbounds nuw [16 x i8], ptr %470, i64 %473
   store i32 -1, ptr %474, align 8, !tbaa !20
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 4
   store i32 -1, ptr %475, align 4, !tbaa !23
@@ -2575,7 +2568,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit281: ; preds = %4
   %.sroa.027.0.copyload = load i32, ptr %480, align 4, !tbaa !17
   %481 = lshr i32 %.sroa.027.0.copyload, 4
   %482 = zext nneg i32 %481 to i64
-  %483 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %479, i64 %482
+  %483 = getelementptr inbounds nuw [16 x i8], ptr %479, i64 %482
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 8
   %485 = load i32, ptr %484, align 8, !tbaa !17
   %.not234 = icmp eq i32 %485, -1
@@ -2596,7 +2589,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit281: ; preds = %4
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %494 = and i32 %492, 255
   %495 = zext nneg i32 %494 to i64
-  %496 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %493, i64 %495
+  %496 = getelementptr inbounds nuw [16 x i8], ptr %493, i64 %495
   store i32 -1, ptr %496, align 8, !tbaa !20
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 4
   store i32 -1, ptr %497, align 4, !tbaa !23
@@ -2609,7 +2602,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit281: ; preds = %4
   %501 = add nuw nsw i32 %500, 2
   %502 = and i32 %501, 255
   %503 = zext nneg i32 %502 to i64
-  %504 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %493, i64 %503
+  %504 = getelementptr inbounds nuw [16 x i8], ptr %493, i64 %503
   store i32 -1, ptr %504, align 8, !tbaa !20
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 4
   store i32 -1, ptr %505, align 4, !tbaa !23
@@ -2631,7 +2624,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit281: ; preds = %4
   %515 = lshr i32 %.sroa.021.0.copyload, 4
   %516 = zext nneg i32 %515 to i64
   %517 = load ptr, ptr %514, align 8, !tbaa !121
-  %518 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %517, i64 %516
+  %518 = getelementptr inbounds nuw [16 x i8], ptr %517, i64 %516
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 8
   %520 = load i32, ptr %519, align 8, !tbaa !17
   %521 = icmp eq i32 %520, -1
@@ -2678,7 +2671,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit281: ; preds = %4
   %.010.i293 = phi i32 [ %536, %534 ], [ %546, %539 ]
   %540 = and i32 %.010.i293, 255
   %541 = zext nneg i32 %540 to i64
-  %542 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %537, i64 %541
+  %542 = getelementptr inbounds nuw [16 x i8], ptr %537, i64 %541
   store i32 -1, ptr %542, align 8, !tbaa !20
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 4
   store i32 -1, ptr %543, align 4, !tbaa !23
@@ -2705,7 +2698,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit294: ; preds = %539
   %554 = lshr i32 %.sroa.017.0.copyload, 4
   %555 = zext nneg i32 %554 to i64
   %556 = load ptr, ptr %553, align 8, !tbaa !121
-  %557 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %556, i64 %555
+  %557 = getelementptr inbounds nuw [16 x i8], ptr %556, i64 %555
   %558 = getelementptr inbounds nuw i8, ptr %557, i64 8
   %559 = load i32, ptr %558, align 8, !tbaa !17
   %560 = and i32 %559, 255
@@ -2728,7 +2721,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit294: ; preds = %539
   %568 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %569 = and i32 %567, 255
   %570 = zext nneg i32 %569 to i64
-  %571 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %568, i64 %570
+  %571 = getelementptr inbounds nuw [16 x i8], ptr %568, i64 %570
   store i32 -1, ptr %571, align 8, !tbaa !20
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 4
   store i32 -1, ptr %572, align 4, !tbaa !23
@@ -2753,7 +2746,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit294: ; preds = %539
   %582 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %583 = and i32 %581, 255
   %584 = zext nneg i32 %583 to i64
-  %585 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %582, i64 %584
+  %585 = getelementptr inbounds nuw [16 x i8], ptr %582, i64 %584
   store i32 -1, ptr %585, align 8, !tbaa !20
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 4
   store i32 -1, ptr %586, align 4, !tbaa !23
@@ -2770,7 +2763,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit294: ; preds = %539
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %593 = and i32 %591, 255
   %594 = zext nneg i32 %593 to i64
-  %595 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %592, i64 %594
+  %595 = getelementptr inbounds nuw [16 x i8], ptr %592, i64 %594
   store i32 -1, ptr %595, align 8, !tbaa !20
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 4
   store i32 -1, ptr %596, align 4, !tbaa !23
@@ -2792,7 +2785,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit294: ; preds = %539
   %605 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %606 = and i32 %604, 255
   %607 = zext nneg i32 %606 to i64
-  %608 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %605, i64 %607
+  %608 = getelementptr inbounds nuw [16 x i8], ptr %605, i64 %607
   store i32 -1, ptr %608, align 8, !tbaa !20
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 4
   store i32 -1, ptr %609, align 4, !tbaa !23
@@ -2805,7 +2798,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit294: ; preds = %539
   %613 = lshr i32 %.sroa.010.0.copyload, 4
   %614 = and i32 %613, 255
   %615 = zext nneg i32 %614 to i64
-  %616 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %605, i64 %615
+  %616 = getelementptr inbounds nuw [16 x i8], ptr %605, i64 %615
   store i32 -1, ptr %616, align 8, !tbaa !20
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 4
   store i32 -1, ptr %617, align 4, !tbaa !23
@@ -2822,7 +2815,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit294: ; preds = %539
   %623 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %624 = and i32 %622, 255
   %625 = zext nneg i32 %624 to i64
-  %626 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %623, i64 %625
+  %626 = getelementptr inbounds nuw [16 x i8], ptr %623, i64 %625
   store i32 -1, ptr %626, align 8, !tbaa !20
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 4
   store i32 -1, ptr %627, align 4, !tbaa !23
@@ -2854,7 +2847,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit294: ; preds = %539
   %640 = lshr i32 %.sroa.06.0.copyload, 4
   %641 = zext nneg i32 %640 to i64
   %642 = load ptr, ptr %639, align 8, !tbaa !121
-  %643 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %642, i64 %641
+  %643 = getelementptr inbounds nuw [16 x i8], ptr %642, i64 %641
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 8
   %645 = load i32, ptr %644, align 8, !tbaa !17
   %646 = icmp eq i32 %645, -1
@@ -2909,7 +2902,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit294: ; preds = %539
   %.010.i317 = phi i32 [ %665, %663 ], [ %675, %668 ]
   %669 = and i32 %.010.i317, 255
   %670 = zext nneg i32 %669 to i64
-  %671 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %666, i64 %670
+  %671 = getelementptr inbounds nuw [16 x i8], ptr %666, i64 %670
   store i32 -1, ptr %671, align 8, !tbaa !20
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 4
   store i32 -1, ptr %672, align 4, !tbaa !23
@@ -2961,7 +2954,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit318: ; preds = %668
   %692 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %693 = and i32 %691, 255
   %694 = zext nneg i32 %693 to i64
-  %695 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %692, i64 %694
+  %695 = getelementptr inbounds nuw [16 x i8], ptr %692, i64 %694
   store i32 -1, ptr %695, align 8, !tbaa !20
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 4
   store i32 -1, ptr %696, align 4, !tbaa !23
@@ -2978,7 +2971,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8useRangeEii.exit318: ; preds = %668
   %702 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %703 = and i32 %701, 255
   %704 = zext nneg i32 %703 to i64
-  %705 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %702, i64 %704
+  %705 = getelementptr inbounds nuw [16 x i8], ptr %702, i64 %704
   store i32 -1, ptr %705, align 8, !tbaa !20
   %706 = getelementptr inbounds nuw i8, ptr %705, i64 4
   store i32 -1, ptr %706, align 4, !tbaa !23
@@ -3013,7 +3006,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen20RemoveDeadStoreState13chec
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterSet", ptr %13, i64 %9
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %22 = load i32, ptr %21, align 8, !tbaa !107
   %.not23 = icmp slt i32 %22, 0
@@ -3036,7 +3029,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen20RemoveDeadStoreState13chec
 
 _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %26
   %28 = lshr i64 %indvars.iv, 6
-  %29 = getelementptr inbounds nuw i64, ptr %20, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !120
   %31 = and i64 %indvars.iv, 63
   %32 = shl nuw i64 1, %31
@@ -3056,10 +3049,10 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %26
   br i1 %.not21, label %_ZNKSt6bitsetILm256EE4testEm.exit18, label %.critedge
 
 _ZNKSt6bitsetILm256EE4testEm.exit18:              ; preds = %37, %34
-  %40 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %25, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %41 = load ptr, ptr %0, align 8, !tbaa !122
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 576
-  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %28
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %28
   %44 = load i64, ptr %43, align 8, !tbaa !120
   %45 = and i64 %44, %32
   %.not22 = icmp eq i64 %45, 0
@@ -3087,7 +3080,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit18:              ; preds = %37, %34
   %58 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %59 = zext i32 %47 to i64
   %60 = load ptr, ptr %58, align 8, !tbaa !110
-  %61 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [44 x i8], ptr %60, i64 %59
   tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %41, ptr noundef nonnull align 4 dereferenceable(43) %61)
   store i32 -1, ptr %40, align 8, !tbaa !20
   %.pre.i = load i32, ptr %52, align 4, !tbaa !23
@@ -3103,7 +3096,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit18:              ; preds = %37, %34
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = zext i32 %63 to i64
   %68 = load ptr, ptr %66, align 8, !tbaa !110
-  %69 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [44 x i8], ptr %68, i64 %67
   tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %65, ptr noundef nonnull align 4 dereferenceable(43) %69)
   store i32 -1, ptr %52, align 4, !tbaa !23
   br label %70
@@ -3124,7 +3117,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState24killTagAndValueStorePairERNS0_12StoreReg
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = zext i32 %73 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !110
-  %79 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [44 x i8], ptr %78, i64 %77
   tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %75, ptr noundef nonnull align 4 dereferenceable(43) %79)
   store i32 -1, ptr %72, align 8, !tbaa !24
   %80 = getelementptr inbounds nuw i8, ptr %40, i64 12
@@ -3180,7 +3173,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen20RemoveDeadStoreState8useRa
   %.05.i = phi i32 [ %9, %.lr.ph.i ], [ %20, %13 ]
   %14 = and i32 %.05.i, 255
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %15
   store i32 -1, ptr %16, align 8, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 -1, ptr %17, align 4, !tbaa !23
@@ -3196,7 +3189,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen20RemoveDeadStoreState8useRa
   %.010 = phi i32 [ %1, %.lr.ph ], [ %28, %21 ]
   %22 = and i32 %.010, 255
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %7, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %23
   store i32 -1, ptr %24, align 8, !tbaa !20
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 -1, ptr %25, align 4, !tbaa !23
@@ -3254,11 +3247,11 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState10defVarargsEh.exit: ; preds = %.lr.ph, %.
 define linkonce_odr dso_local void @_ZN4Luau7CodeGen20RemoveDeadStoreState6defRegEh(ptr noundef nonnull align 8 dereferenceable(4109) %0, i8 noundef zeroext %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw %"struct.Luau::CodeGen::StoreRegInfo", ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %0, align 8, !tbaa !122
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 576
   %8 = lshr i64 %4, 6
-  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !120
   %11 = and i64 %4, 63
   %12 = shl nuw i64 1, %11
@@ -3288,7 +3281,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen20RemoveDeadStoreState6defRe
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %27 = zext i32 %15 to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !110
-  %29 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [44 x i8], ptr %28, i64 %27
   tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %6, ptr noundef nonnull align 4 dereferenceable(43) %29)
   store i32 -1, ptr %5, align 8, !tbaa !20
   %.pre.i = load i32, ptr %20, align 4, !tbaa !23
@@ -3304,7 +3297,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen20RemoveDeadStoreState6defRe
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = zext i32 %31 to i64
   %36 = load ptr, ptr %34, align 8, !tbaa !110
-  %37 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [44 x i8], ptr %36, i64 %35
   tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %33, ptr noundef nonnull align 4 dereferenceable(43) %37)
   store i32 -1, ptr %20, align 4, !tbaa !23
   br label %38
@@ -3325,7 +3318,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState24killTagAndValueStorePairERNS0_12StoreReg
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = zext i32 %41 to i64
   %46 = load ptr, ptr %44, align 8, !tbaa !110
-  %47 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [44 x i8], ptr %46, i64 %45
   tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %43, ptr noundef nonnull align 4 dereferenceable(43) %47)
   store i32 -1, ptr %40, align 8, !tbaa !24
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 12

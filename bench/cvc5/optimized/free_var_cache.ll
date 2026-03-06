@@ -509,7 +509,7 @@ _ZNSt3mapIN4cvc58internal8TypeNodeESt6vectorINS1_12NodeTemplateILb1EEESaIS5_EESt
   %.sroa.06.0.i127 = phi ptr [ %197, %.critedge.i128 ], [ %.19.i.i.i.i121, %191 ]
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i127, i64 40
   %199 = load ptr, ptr %198, align 8, !tbaa !23
-  %200 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.9", ptr %199, i64 %3
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %3
   %201 = load ptr, ptr %200, align 8, !tbaa !25
   store ptr %201, ptr %0, align 8, !tbaa !33
   ret void
@@ -1506,7 +1506,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !23
   store ptr %42, ptr %4, align 8, !tbaa !20
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.9", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !24
   ret void
 

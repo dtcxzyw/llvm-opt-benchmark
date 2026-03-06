@@ -140,7 +140,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tarray_create2(i64 noundef %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !11
   %.not42 = icmp eq i64 %51, 0
   br i1 %.not42, label %52, label %49, !prof !14
@@ -283,11 +283,11 @@ define ptr @H5T__array_create(ptr noundef %0, i32 noundef %1, ptr noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %33 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %34 = load i64, ptr %33, align 8, !tbaa !11
   %35 = load ptr, ptr %18, align 8, !tbaa !17
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   store i64 %34, ptr %37, align 8, !tbaa !32
   %38 = load ptr, ptr %18, align 8, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
@@ -570,9 +570,9 @@ define range(i32 -1, -2147483648) i32 @H5Tget_array_dims2(i64 noundef %0, ptr no
 
 64:                                               ; preds = %64, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %64 ]
-  %65 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i
   %66 = load i64, ptr %65, align 8, !tbaa !32
-  %67 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   store i64 %66, ptr %67, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %68 = load i32, ptr %61, align 8, !tbaa !32
@@ -636,9 +636,9 @@ define i32 @H5T__get_array_dims(ptr noundef readonly captures(none) %0, ptr noun
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !32
-  %18 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i64 %17, ptr %18, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %12, align 8, !tbaa !32
@@ -743,7 +743,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tarray_create1(i64 noundef %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %52 = load i64, ptr %51, align 8, !tbaa !11
   %.not42 = icmp eq i64 %52, 0
   br i1 %.not42, label %53, label %50, !prof !14
@@ -925,9 +925,9 @@ define range(i32 -1, -2147483648) i32 @H5Tget_array_dims1(i64 noundef %0, ptr no
 
 65:                                               ; preds = %65, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
-  %66 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i
   %67 = load i64, ptr %66, align 8, !tbaa !32
-  %68 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   store i64 %67, ptr %68, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %69 = load i32, ptr %62, align 8, !tbaa !32

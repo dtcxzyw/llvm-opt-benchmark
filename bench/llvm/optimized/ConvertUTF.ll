@@ -959,7 +959,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
 58:                                               ; preds = %53, %24
   %.374 = phi ptr [ %.071105, %24 ], [ %55, %53 ]
   %.064 = phi i32 [ 0, %24 ], [ %57, %53 ]
-  %59 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL15offsetsFromUTF8E, i64 %17
+  %59 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4llvmL15offsetsFromUTF8E, i64 %17
   %60 = load i32, ptr %59, align 4, !tbaa !10
   %61 = sub i32 %.064, %60
   %.not84 = icmp ult ptr %.067106, %3
@@ -1397,7 +1397,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
 173:                                              ; preds = %168, %139
   %.373 = phi ptr [ %.07099, %139 ], [ %170, %168 ]
   %.062 = phi i32 [ 0, %139 ], [ %172, %168 ]
-  %174 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL15offsetsFromUTF8E, i64 %19
+  %174 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4llvmL15offsetsFromUTF8E, i64 %19
   %175 = load i32, ptr %174, align 4, !tbaa !10
   %176 = sub i32 %.062, %175
   %177 = icmp ult i32 %176, 1114112

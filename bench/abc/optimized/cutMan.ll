@@ -113,7 +113,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %25, %Vec_PtrAlloc.e
 30:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !19
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   store ptr null, ptr %32, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -192,7 +192,7 @@ Vec_PtrGrow.exit.i68:                             ; preds = %Vec_PtrAlloc.exit66
 62:                                               ; preds = %62, %.lr.ph.i69
   %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.i69 ], [ %indvars.iv.next.i72, %62 ]
   %63 = load ptr, ptr %61, align 8, !tbaa !19
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv.i71
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i71
   store ptr null, ptr %64, align 8, !tbaa !21
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i70
@@ -270,7 +270,7 @@ Vec_PtrGrow.exit.i81:                             ; preds = %88, %Vec_PtrAlloc.e
 93:                                               ; preds = %93, %.lr.ph.i82
   %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.i82 ], [ %indvars.iv.next.i85, %93 ]
   %94 = load ptr, ptr %91, align 8, !tbaa !19
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i84
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i84
   store ptr null, ptr %95, align 8, !tbaa !21
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i83
@@ -343,13 +343,13 @@ Vec_PtrFill.exit88:                               ; preds = %93, %Vec_PtrAlloc.e
   %131 = getelementptr inbounds nuw i8, ptr %calloc145, i64 144
   store ptr %130, ptr %131, align 8, !tbaa !34
   %132 = zext nneg i32 %126 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %130, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %calloc145, i64 152
   store ptr %133, ptr %134, align 8, !tbaa !34
-  %135 = getelementptr inbounds nuw i32, ptr %133, i64 %132
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %132
   %136 = getelementptr inbounds nuw i8, ptr %calloc145, i64 160
   store ptr %135, ptr %136, align 8, !tbaa !34
-  %137 = getelementptr inbounds nuw i32, ptr %135, i64 %132
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %132
   %138 = getelementptr inbounds nuw i8, ptr %calloc145, i64 168
   store ptr %137, ptr %138, align 8, !tbaa !34
   br label %139

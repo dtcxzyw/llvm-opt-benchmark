@@ -681,7 +681,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %30, %.noex
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %31, ptr %6, align 8, !tbaa !21
-  %33 = getelementptr inbounds nuw i32, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %25
   store ptr %33, ptr %7, align 8, !tbaa !20
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -758,7 +758,7 @@ define linkonce_odr void @_ZSt11make_uniqueISt23mersenne_twister_engineImLm32ELm
 6:                                                ; preds = %6, %2
   %store_forwarded = phi i64 [ %5, %2 ], [ %12, %6 ]
   %.011.i.i = phi i64 [ 1, %2 ], [ %13, %6 ]
-  %7 = getelementptr i64, ptr %3, i64 %.011.i.i
+  %7 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i
   %8 = lshr i64 %store_forwarded, 30
   %9 = xor i64 %8, %store_forwarded
   %10 = mul nuw nsw i64 %9, 1812433253
@@ -1460,7 +1460,7 @@ define noundef double @_ZN13sentencepiece10log_domain6LogSumERKSt6vectorIdSaIdEE
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %6 ]
   %.0912 = phi double [ %19, %.lr.ph ], [ %7, %6 ]
-  %13 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %14 = load double, ptr %13, align 8, !tbaa !64
   %15 = fcmp ogt double %.0912, %14
   %.04.i = select i1 %15, double %14, double %.0912
@@ -1715,7 +1715,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !60
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !55
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !58
   ret void
 }

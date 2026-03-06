@@ -159,7 +159,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %14 = phi i8 [ %12, %.lr.ph.us ], [ %22, %20 ]
   %15 = phi ptr [ %.promoted45.us, %.lr.ph.us ], [ %21, %20 ]
   %16 = zext i8 %14 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %.pre63, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %.pre63, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 8192
   %.not30.us = icmp eq i16 %19, 0
@@ -192,7 +192,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %31 = call i32 @uint32in_subr(ptr noundef %30, ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef null) #12
   %32 = getelementptr inbounds nuw i8, ptr %.127.us, i64 24
   %33 = sext i32 %.044.us to i64
-  %34 = getelementptr inbounds i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %32, i64 %33
   store i32 %31, ptr %34, align 4
   %35 = add i32 %.044.us, 1
   %.promoted.us = load ptr, ptr %2, align 8
@@ -213,7 +213,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %39 = phi i8 [ %37, %.lr.ph ], [ %47, %45 ]
   %40 = phi ptr [ %.promoted45, %.lr.ph ], [ %46, %45 ]
   %41 = zext i8 %39 to i64
-  %42 = getelementptr inbounds nuw i16, ptr %.pre, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = and i16 %43, 8192
   %.not30 = icmp eq i16 %44, 0
@@ -246,7 +246,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %56 = call i32 @uint32in_subr(ptr noundef %55, ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull %.fr) #12
   %57 = getelementptr inbounds nuw i8, ptr %.127, i64 24
   %58 = sext i32 %.044 to i64
-  %59 = getelementptr inbounds i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %57, i64 %58
   store i32 %56, ptr %59, align 4
   %60 = load i32, ptr %.fr, align 4
   %61 = icmp eq i32 %60, 446
@@ -331,7 +331,7 @@ define dso_local i64 @oidvectorout(ptr noundef readonly captures(none) %0) local
 
 16:                                               ; preds = %14, %13
   %.1 = phi ptr [ %15, %14 ], [ %.01315, %13 ]
-  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.1, ptr noundef nonnull @.str.1, i32 noundef %18) #12
   %scevgep = getelementptr i8, ptr %.1, i64 1

@@ -1041,7 +1041,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %3, i64 %sub.ptr.sub.i38
   %25 = load double, ptr %arrayidx.i, align 8, !tbaa !34
   %26 = load i64, ptr %iter.sroa.0.063, align 8, !tbaa !41
-  %arrayidx.i40 = getelementptr inbounds nuw double, ptr %4, i64 %26
+  %arrayidx.i40 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %26
   store double %25, ptr %arrayidx.i40, align 8, !tbaa !34
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %iter.sroa.0.063, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %0

@@ -140,7 +140,7 @@ define internal void @lv_keyboard_constructor(ptr readnone captures(none) %0, pt
   tail call void @lv_obj_set_style_base_dir(ptr noundef %1, i32 noundef 0, i32 noundef 0) #4
   %9 = load i32, ptr %4, align 8, !tbaa !18
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @kb_map, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @kb_map, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   tail call void @lv_buttonmatrix_set_map(ptr noundef %1, ptr noundef %12) #4
   tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %1)
@@ -210,7 +210,7 @@ define void @lv_keyboard_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_
 7:                                                ; preds = %3
   store i32 %1, ptr %4, align 8, !tbaa !18
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @kb_map, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @kb_map, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   tail call void @lv_buttonmatrix_set_map(ptr noundef nonnull %0, ptr noundef %10) #4
   tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef nonnull %0)
@@ -252,7 +252,7 @@ define internal fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %0) unnamed
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i32, ptr %6, align 8, !tbaa !18
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @kb_ctrl, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @kb_ctrl, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   tail call void @lv_buttonmatrix_set_ctrl_map(ptr noundef nonnull %0, ptr noundef %10) #4
   br label %33
@@ -266,7 +266,7 @@ define internal fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %0) unnamed
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load i32, ptr %17, align 8, !tbaa !18
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr @kb_ctrl, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @kb_ctrl, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = load i32, ptr %12, align 8, !tbaa !21
   %23 = zext i32 %22 to i64
@@ -278,7 +278,7 @@ define internal fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %0) unnamed
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %11 ]
-  %27 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !22
   %29 = and i32 %28, -1025
   store i32 %29, ptr %27, align 4, !tbaa !22
@@ -307,14 +307,14 @@ define void @lv_keyboard_set_map(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 5:                                                ; preds = %4
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @kb_map, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @kb_map, i64 %6
   store ptr %2, ptr %7, align 8, !tbaa !19
-  %8 = getelementptr inbounds nuw ptr, ptr @kb_ctrl, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @kb_ctrl, i64 %6
   store ptr %3, ptr %8, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8, !tbaa !18
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @kb_map, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @kb_map, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   tail call void @lv_buttonmatrix_set_map(ptr noundef nonnull %0, ptr noundef %13) #4
   tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef nonnull %0)

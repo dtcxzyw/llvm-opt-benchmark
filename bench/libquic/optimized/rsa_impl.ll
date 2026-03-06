@@ -795,7 +795,7 @@ define internal fastcc ptr @rsa_blinding_get(ptr noundef %0, ptr noundef nonnull
   store i8 1, ptr %14, align 1, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %17 = load ptr, ptr %16, align 8, !tbaa !37
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !38
   store i32 %15, ptr %1, align 4, !tbaa !24
   %.not = icmp eq ptr %19, null
@@ -840,7 +840,7 @@ thread-pre-split:                                 ; preds = %13
   %37 = zext i32 %28 to i64
   %38 = shl nuw nsw i64 %37, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 8 %36, i64 %38, i1 false)
-  %39 = getelementptr inbounds nuw ptr, ptr %32, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %37
   store ptr %22, ptr %39, align 8, !tbaa !38
   %40 = tail call noalias ptr @malloc(i64 noundef %30) #9
   %41 = icmp eq ptr %40, null

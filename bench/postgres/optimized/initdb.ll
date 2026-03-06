@@ -1486,7 +1486,7 @@ define internal fastcc ptr @find_matching_ts_config(ptr noundef %0) unnamed_addr
 
 13:                                               ; preds = %11, %12
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %12 ]
-  %14 = getelementptr inbounds nuw %struct.tsearch_config_match, ptr @tsearch_config_languages, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @tsearch_config_languages, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @pg_strcasecmp(ptr noundef %16, ptr noundef %.016) #19
@@ -1826,7 +1826,7 @@ define dso_local void @initialize_data_directory() local_unnamed_addr #0 {
 19:                                               ; preds = %0, %28
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %28 ]
   %20 = load ptr, ptr @pg_data, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr @subdirs, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @subdirs, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.57, ptr noundef %20, ptr noundef %22) #19
   %24 = load i32, ptr @pg_dir_create_mode, align 4
@@ -1925,7 +1925,7 @@ choose_dsm_implementation.exit.i:                 ; preds = %54, %.loopexit.sink
 
 61:                                               ; preds = %67, %choose_dsm_implementation.exit.i
   %indvars.iv.i = phi i64 [ 0, %choose_dsm_implementation.exit.i ], [ %indvars.iv.next.i, %67 ]
-  %62 = getelementptr inbounds nuw i32, ptr @test_config_settings.trial_conns, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr @test_config_settings.trial_conns, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4
   %64 = sdiv i32 %63, 6
   store i32 %64, ptr @n_av_slots, align 4
@@ -1947,7 +1947,7 @@ choose_dsm_implementation.exit.i:                 ; preds = %54, %.loopexit.sink
 .split.loop.exit38.i:                             ; preds = %67, %.split.loop.exit.i
   %.019.lcssa.i = phi i64 [ %70, %.split.loop.exit.i ], [ 4, %67 ]
   %.0.i = phi i32 [ %65, %.split.loop.exit.i ], [ 0, %67 ]
-  %71 = getelementptr inbounds nuw i32, ptr @test_config_settings.trial_conns, i64 %.019.lcssa.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr @test_config_settings.trial_conns, i64 %.019.lcssa.i
   %72 = load i32, ptr %71, align 4
   store i32 %72, ptr @n_connections, align 4
   %73 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.292, i32 noundef %72) #19
@@ -1960,7 +1960,7 @@ choose_dsm_implementation.exit.i:                 ; preds = %54, %.loopexit.sink
 
 79:                                               ; preds = %84, %.split.loop.exit38.i
   %indvars.iv30.i = phi i64 [ 0, %.split.loop.exit38.i ], [ %indvars.iv.next31.i, %84 ]
-  %80 = getelementptr inbounds nuw i32, ptr @test_config_settings.trial_bufs, i64 %indvars.iv30.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr @test_config_settings.trial_bufs, i64 %indvars.iv30.i
   %81 = load i32, ptr %80, align 4
   %82 = shl i32 %81, 13
   %83 = ashr exact i32 %82, 13
@@ -3654,7 +3654,7 @@ add_stringlist_item.exit67:                       ; preds = %79, %82
 
 180:                                              ; preds = %175
   %181 = sext i32 %176 to i64
-  %182 = getelementptr inbounds ptr, ptr %1, i64 %181
+  %182 = getelementptr inbounds [8 x i8], ptr %1, i64 %181
   %183 = load ptr, ptr %182, align 8
   %184 = call ptr @pg_strdup(ptr noundef %183) #19
   store ptr %184, ptr @pg_data, align 8
@@ -3670,7 +3670,7 @@ add_stringlist_item.exit67:                       ; preds = %79, %82
 
 190:                                              ; preds = %187
   %191 = sext i32 %188 to i64
-  %192 = getelementptr inbounds ptr, ptr %1, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %1, i64 %191
   %193 = load ptr, ptr %192, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.123, ptr noundef %193) #19
   %194 = load ptr, ptr @progname, align 8
@@ -4517,7 +4517,7 @@ define internal fastcc ptr @readfile(ptr noundef %0) unnamed_addr #0 {
   %17 = call ptr @pg_strdup(ptr noundef %16) #19
   %18 = add i32 %.020, 1
   %19 = sext i32 %.020 to i64
-  %20 = getelementptr inbounds ptr, ptr %.116, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %.116, i64 %19
   store ptr %17, ptr %20, align 8
   %21 = call zeroext i1 @pg_get_line_buf(ptr noundef nonnull %3, ptr noundef nonnull %2) #19
   br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
@@ -4529,7 +4529,7 @@ define internal fastcc ptr @readfile(ptr noundef %0) unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
   %.015.lcssa = phi ptr [ %7, %6 ], [ %.116, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %6 ], [ %22, %._crit_edge.loopexit ]
-  %23 = getelementptr inbounds ptr, ptr %.015.lcssa, i64 %.0.lcssa
+  %23 = getelementptr inbounds [8 x i8], ptr %.015.lcssa, i64 %.0.lcssa
   store ptr null, ptr %23, align 8
   %24 = load ptr, ptr %2, align 8
   call void @pfree(ptr noundef %24) #19
@@ -4631,7 +4631,7 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   %37 = tail call ptr @__ctype_b_loc() #23
   %38 = load ptr, ptr %37, align 8
   %39 = zext i8 %34 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 8192
   %.not89 = icmp eq i16 %42, 0
@@ -4655,7 +4655,7 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   %.184 = phi ptr [ %47, %46 ], [ %55, %49 ]
   %50 = load i8, ptr %.184, align 1
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = and i16 %53, 8192
   %.not91 = icmp eq i16 %54, 0
@@ -4667,7 +4667,7 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   br i1 %.not92, label %57, label %90
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %32
+  %58 = getelementptr inbounds [8 x i8], ptr %0, i64 %32
   %59 = load ptr, ptr %6, align 8
   %60 = zext i1 %3 to i64
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
@@ -4747,7 +4747,7 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
 90:                                               ; preds = %44, %56
   %91 = add i32 %.082111, 1
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds ptr, ptr %0, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %0, i64 %92
   %94 = load ptr, ptr %93, align 8
   %.not = icmp eq ptr %94, null
   br i1 %.not, label %.thread98, label %.preheader, !llvm.loop !24
@@ -4770,10 +4770,10 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   %103 = tail call ptr @pg_realloc(ptr noundef nonnull %0, i64 noundef %102) #19
   %104 = load ptr, ptr %6, align 8
   %105 = add i32 %.082107, 1
-  %106 = getelementptr inbounds ptr, ptr %103, i64 %99
+  %106 = getelementptr inbounds [8 x i8], ptr %103, i64 %99
   store ptr %104, ptr %106, align 8
   %107 = sext i32 %105 to i64
-  %108 = getelementptr inbounds ptr, ptr %103, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %103, i64 %107
   store ptr null, ptr %108, align 8
   br label %109
 
@@ -4892,7 +4892,7 @@ define internal fastcc noundef ptr @replace_token(ptr noundef returned captures(
 33:                                               ; preds = %12, %17
   %34 = add i32 %.042, 1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %0, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %0, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !26

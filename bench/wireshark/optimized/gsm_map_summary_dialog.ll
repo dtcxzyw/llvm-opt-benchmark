@@ -3403,10 +3403,10 @@ _ZN7QStringD2Ev.exit741:                          ; preds = %913, %_ZN17QArrayDa
   %indvars.iv = phi i64 [ 0, %874 ], [ %indvars.iv.next, %917 ]
   %.01631546 = phi i32 [ 0, %874 ], [ %923, %917 ]
   %.01641545 = phi i32 [ 0, %874 ], [ %920, %917 ]
-  %918 = getelementptr i32, ptr @gsm_map_stat, i64 %indvars.iv
+  %918 = getelementptr [4 x i8], ptr @gsm_map_stat, i64 %indvars.iv
   %919 = load i32, ptr %918, align 4
   %920 = add i32 %919, %.01641545
-  %921 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @gsm_map_stat, i64 1024), i64 %indvars.iv
+  %921 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @gsm_map_stat, i64 1024), i64 %indvars.iv
   %922 = load i32, ptr %921, align 4
   %923 = add i32 %922, %.01631546
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3427,10 +3427,10 @@ _ZN7QStringD2Ev.exit741:                          ; preds = %913, %_ZN17QArrayDa
   %indvars.iv1555 = phi i64 [ %indvars.iv.next1556, %.preheader ], [ 0, %917 ]
   %.01611549 = phi i32 [ %936, %.preheader ], [ 0, %917 ]
   %.01621548 = phi i32 [ %933, %.preheader ], [ 0, %917 ]
-  %931 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @gsm_map_stat, i64 2048), i64 %indvars.iv1555
+  %931 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @gsm_map_stat, i64 2048), i64 %indvars.iv1555
   %932 = load i32, ptr %931, align 4
   %933 = add i32 %932, %.01621548
-  %934 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @gsm_map_stat, i64 3072), i64 %indvars.iv1555
+  %934 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @gsm_map_stat, i64 3072), i64 %indvars.iv1555
   %935 = load i32, ptr %934, align 4
   %936 = add i32 %935, %.01611549
   %indvars.iv.next1556 = add nuw nsw i64 %indvars.iv1555, 1
@@ -6857,7 +6857,7 @@ define internal noundef i32 @_ZL22gsm_map_summary_packetPvP12_packet_infoP12epan
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr i32, ptr %.sink25, i64 %10
+  %11 = getelementptr [4 x i8], ptr %.sink25, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -6867,7 +6867,7 @@ define internal noundef i32 @_ZL22gsm_map_summary_packetPvP12_packet_infoP12epan
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %18 = load i32, ptr %8, align 4
   %19 = zext i32 %18 to i64
-  %20 = getelementptr i32, ptr %17, i64 %19
+  %20 = getelementptr [4 x i8], ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = add i32 %21, %16
   store i32 %22, ptr %20, align 4

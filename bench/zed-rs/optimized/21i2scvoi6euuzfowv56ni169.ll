@@ -6270,7 +6270,7 @@ define hidden void @_ZN4gpui7element13ParentElement8children17hc299183a339da3f0E
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !668, !noalias !671, !nonnull !12, !noundef !12
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !668, !noalias !671
-  %5 = getelementptr inbounds { { ptr, { ptr, ptr } } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %5 = getelementptr inbounds [24 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   store ptr %.sroa.4.0.copyload.i, ptr %4, align 8, !alias.scope !673
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !673
@@ -6416,7 +6416,7 @@ common.resume:                                    ; preds = %21, %11
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hed4299877b57ca69E.llvm.3741760397517672727.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfcfdb4a5d542ca1aE.llvm.3741760397517672727.exit", %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %26 = load ptr, ptr %25, align 8, !alias.scope !684, !noalias !687, !nonnull !12, !noundef !12
-  %27 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %26, i64 %17
+  %27 = getelementptr inbounds [16 x i8], ptr %26, i64 %17
   store ptr %8, ptr %27, align 8, !noalias !687
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.26.llvm.3741760397517672727, ptr %28, align 8, !noalias !687
@@ -6515,7 +6515,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1c761063c1e39543E.llvm.3741760397517672727.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.exit, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %19 = load ptr, ptr %18, align 8, !alias.scope !694, !noalias !697, !nonnull !12, !noundef !12
-  %20 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %19, i64 %9
+  %20 = getelementptr inbounds [16 x i8], ptr %19, i64 %9
   store ptr %5, ptr %20, align 8, !noalias !697
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.27.llvm.3741760397517672727, ptr %21, align 8, !noalias !697
@@ -6566,7 +6566,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1c761063c1e39543E.llvm.3741760397517672727.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.exit, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %19 = load ptr, ptr %18, align 8, !alias.scope !699, !noalias !702, !nonnull !12, !noundef !12
-  %20 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %19, i64 %9
+  %20 = getelementptr inbounds [16 x i8], ptr %19, i64 %9
   store ptr %5, ptr %20, align 8, !noalias !702
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.28.llvm.3741760397517672727, ptr %21, align 8, !noalias !702
@@ -6617,7 +6617,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1c761063c1e39543E.llvm.3741760397517672727.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.exit, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %19 = load ptr, ptr %18, align 8, !alias.scope !704, !noalias !707, !nonnull !12, !noundef !12
-  %20 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %19, i64 %9
+  %20 = getelementptr inbounds [16 x i8], ptr %19, i64 %9
   store ptr %5, ptr %20, align 8, !noalias !707
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.30.llvm.3741760397517672727, ptr %21, align 8, !noalias !707
@@ -6691,7 +6691,7 @@ common.resume:                                    ; preds = %21, %11
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1c761063c1e39543E.llvm.3741760397517672727.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hca1bf0d083ceed37E.llvm.3741760397517672727.exit", %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %26 = load ptr, ptr %25, align 8, !alias.scope !712, !noalias !715, !nonnull !12, !noundef !12
-  %27 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %26, i64 %17
+  %27 = getelementptr inbounds [16 x i8], ptr %26, i64 %17
   store ptr %8, ptr %27, align 8, !noalias !715
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.31.llvm.3741760397517672727, ptr %28, align 8, !noalias !715
@@ -6742,7 +6742,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1c761063c1e39543E.llvm.3741760397517672727.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.exit, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %19 = load ptr, ptr %18, align 8, !alias.scope !717, !noalias !720, !nonnull !12, !noundef !12
-  %20 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %19, i64 %9
+  %20 = getelementptr inbounds [16 x i8], ptr %19, i64 %9
   store ptr %5, ptr %20, align 8, !noalias !720
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.32.llvm.3741760397517672727, ptr %21, align 8, !noalias !720
@@ -7012,7 +7012,7 @@ define hidden void @_ZN4gpui8elements3div13Interactivity13on_mouse_move17ha4585e
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha9c72ba1cc56f558E.llvm.3741760397517672727.exit": ; preds = %1, %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %14 = load ptr, ptr %13, align 8, !alias.scope !727, !noalias !730, !nonnull !12, !noundef !12
-  %15 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %14, i64 %4
+  %15 = getelementptr inbounds [16 x i8], ptr %14, i64 %4
   store ptr inttoptr (i64 1 to ptr), ptr %15, align 8, !noalias !730
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.33.llvm.3741760397517672727, ptr %16, align 8, !noalias !730
@@ -7084,7 +7084,7 @@ common.resume:                                    ; preds = %19, %9
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha9c72ba1cc56f558E.llvm.3741760397517672727.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he7de20f7362cd6f2E.llvm.3741760397517672727.exit", %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %24 = load ptr, ptr %23, align 8, !alias.scope !735, !noalias !738, !nonnull !12, !noundef !12
-  %25 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %24, i64 %15
+  %25 = getelementptr inbounds [16 x i8], ptr %24, i64 %15
   store ptr %6, ptr %25, align 8, !noalias !738
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.34.llvm.3741760397517672727, ptr %26, align 8, !noalias !738
@@ -7202,7 +7202,7 @@ common.resume:                                    ; preds = %19, %9
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1c761063c1e39543E.llvm.3741760397517672727.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfebd2ef3d86f1773E.llvm.3741760397517672727.exit", %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %24 = load ptr, ptr %23, align 8, !alias.scope !748, !noalias !751, !nonnull !12, !noundef !12
-  %25 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %24, i64 %15
+  %25 = getelementptr inbounds [16 x i8], ptr %24, i64 %15
   store ptr %6, ptr %25, align 8, !noalias !751
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.35.llvm.3741760397517672727, ptr %26, align 8, !noalias !751
@@ -7460,7 +7460,7 @@ common.resume:                                    ; preds = %19, %9
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc55aee4ea3ba0571E.llvm.3741760397517672727.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h151f5ee24d563fb6E.llvm.3741760397517672727.exit", %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %24 = load ptr, ptr %23, align 8, !alias.scope !789, !noalias !792, !nonnull !12, !noundef !12
-  %25 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %24, i64 %15
+  %25 = getelementptr inbounds [16 x i8], ptr %24, i64 %15
   store ptr %6, ptr %25, align 8, !noalias !792
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.38.llvm.3741760397517672727, ptr %26, align 8, !noalias !792
@@ -7527,7 +7527,7 @@ common.resume:                                    ; preds = %17, %8
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc55aee4ea3ba0571E.llvm.3741760397517672727.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1fbaf410be31ec67E.llvm.3741760397517672727.exit", %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %22 = load ptr, ptr %21, align 8, !alias.scope !797, !noalias !800, !nonnull !12, !noundef !12
-  %23 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %22, i64 %13
+  %23 = getelementptr inbounds [16 x i8], ptr %22, i64 %13
   store ptr %5, ptr %23, align 8, !noalias !800
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.39.llvm.3741760397517672727, ptr %24, align 8, !noalias !800
@@ -7567,7 +7567,7 @@ define hidden void @_ZN4gpui8elements3div13Interactivity8on_click17hfa4e45e22862
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc55aee4ea3ba0571E.llvm.3741760397517672727.exit": ; preds = %1, %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %14 = load ptr, ptr %13, align 8, !alias.scope !802, !noalias !805, !nonnull !12, !noundef !12
-  %15 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %14, i64 %4
+  %15 = getelementptr inbounds [16 x i8], ptr %14, i64 %4
   store ptr inttoptr (i64 1 to ptr), ptr %15, align 8, !noalias !805
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.40.llvm.3741760397517672727, ptr %16, align 8, !noalias !805
@@ -7945,7 +7945,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
 22:                                               ; preds = %17, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %24 = load ptr, ptr %23, align 8, !alias.scope !862, !noalias !865, !nonnull !12, !noundef !12
-  %25 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %24, i64 %14
+  %25 = getelementptr inbounds [16 x i8], ptr %24, i64 %14
   store ptr %10, ptr %25, align 8, !noalias !865
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.27.llvm.3741760397517672727, ptr %26, align 8, !noalias !865
@@ -8021,7 +8021,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
 22:                                               ; preds = %17, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %24 = load ptr, ptr %23, align 8, !alias.scope !870, !noalias !873, !nonnull !12, !noundef !12
-  %25 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %24, i64 %14
+  %25 = getelementptr inbounds [16 x i8], ptr %24, i64 %14
   store ptr %10, ptr %25, align 8, !noalias !873
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.30.llvm.3741760397517672727, ptr %26, align 8, !noalias !873
@@ -8137,7 +8137,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
 22:                                               ; preds = %17, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %24 = load ptr, ptr %23, align 8, !alias.scope !878, !noalias !881, !nonnull !12, !noundef !12
-  %25 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %24, i64 %14
+  %25 = getelementptr inbounds [16 x i8], ptr %24, i64 %14
   store ptr %10, ptr %25, align 8, !noalias !881
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.28.llvm.3741760397517672727, ptr %26, align 8, !noalias !881
@@ -8213,7 +8213,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
 21:                                               ; preds = %16, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %23 = load ptr, ptr %22, align 8, !alias.scope !886, !noalias !889, !nonnull !12, !noundef !12
-  %24 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %23, i64 %13
+  %24 = getelementptr inbounds [16 x i8], ptr %23, i64 %13
   store ptr %9, ptr %24, align 8, !noalias !889
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.32.llvm.3741760397517672727, ptr %25, align 8, !noalias !889
@@ -8314,7 +8314,7 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement13on_mouse_move17hb
 16:                                               ; preds = %11, %"_ZN98_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..elements..div..InteractiveElement$GT$13interactivity17hb2abebae5c0078fbE.llvm.3741760397517672727.exit"
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %18 = load ptr, ptr %17, align 8, !alias.scope !891, !noalias !896, !nonnull !12, !noundef !12
-  %19 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %18, i64 %8
+  %19 = getelementptr inbounds [16 x i8], ptr %18, i64 %8
   store ptr inttoptr (i64 1 to ptr), ptr %19, align 8, !noalias !896
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.33.llvm.3741760397517672727, ptr %20, align 8, !noalias !896
@@ -9649,7 +9649,7 @@ define hidden void @_ZN4gpui8elements3div26StatefulInteractiveElement8on_click17
 16:                                               ; preds = %11, %"_ZN98_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..elements..div..InteractiveElement$GT$13interactivity17hb2abebae5c0078fbE.llvm.3741760397517672727.exit"
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 472
   %18 = load ptr, ptr %17, align 8, !alias.scope !1131, !noalias !1136, !nonnull !12, !noundef !12
-  %19 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %18, i64 %8
+  %19 = getelementptr inbounds [16 x i8], ptr %18, i64 %8
   store ptr inttoptr (i64 1 to ptr), ptr %19, align 8, !noalias !1136
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.40.llvm.3741760397517672727, ptr %20, align 8, !noalias !1136
@@ -9891,7 +9891,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1c761063c1e39543E.ll
 9:                                                ; preds = %3, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !12, !noundef !12
-  %12 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %11, i64 %5
+  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 %5
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %13, align 8
@@ -9930,7 +9930,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha9c72ba1cc56f558E.ll
 9:                                                ; preds = %3, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !12, !noundef !12
-  %12 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %11, i64 %5
+  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 %5
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %13, align 8
@@ -9969,7 +9969,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc55aee4ea3ba0571E.ll
 9:                                                ; preds = %3, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !12, !noundef !12
-  %12 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %11, i64 %5
+  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 %5
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %13, align 8
@@ -10008,7 +10008,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hed4299877b57ca69E.ll
 9:                                                ; preds = %3, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !12, !noundef !12
-  %12 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %11, i64 %5
+  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 %5
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %13, align 8
@@ -11504,7 +11504,7 @@ define hidden void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ite
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !12, !noundef !12
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %3 = getelementptr inbounds { { ptr, { ptr, ptr } } }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %3 = getelementptr inbounds [24 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   store ptr %.sroa.4.0.copyload, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
@@ -11788,7 +11788,7 @@ define hidden void @"_ZN9workspace13notifications38_$LT$impl$u20$workspace..Work
 86:                                               ; preds = %81, %73
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %88 = load ptr, ptr %87, align 8, !alias.scope !1425, !noalias !1428, !nonnull !12, !noundef !12
-  %89 = getelementptr inbounds { { { i64, [3 x i64] }, { { i64, i64 } } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %88, i64 %78
+  %89 = getelementptr inbounds [64 x i8], ptr %88, i64 %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %90 = add i64 %78, 1
   store i64 %90, ptr %77, align 8, !alias.scope !1425, !noalias !1428
@@ -12821,7 +12821,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
 83:                                               ; preds = %76, %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.exit.i.i
   %84 = getelementptr inbounds nuw i8, ptr %64, i64 256
   %85 = load ptr, ptr %84, align 8, !alias.scope !1556, !noalias !1559, !nonnull !12, !noundef !12
-  %86 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %85, i64 %73
+  %86 = getelementptr inbounds [16 x i8], ptr %85, i64 %73
   store ptr %69, ptr %86, align 8, !noalias !1559
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr @anon.e5de137b7ceed8b5471ed51606bea5eb.29, ptr %87, align 8, !noalias !1559
@@ -13556,7 +13556,7 @@ define hidden void @_ZN9title_bar8TitleBar3new17hf1ab144f747ff80fE(ptr dead_on_u
 
 89:                                               ; preds = %84, %77
   %90 = load ptr, ptr %60, align 8, !alias.scope !1692, !nonnull !12, !noundef !12
-  %91 = getelementptr inbounds { { ptr, [1 x i64] } }, ptr %90, i64 %81
+  %91 = getelementptr inbounds [16 x i8], ptr %90, i64 %81
   store ptr %78, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %79, ptr %92, align 8
@@ -13626,7 +13626,7 @@ define hidden void @_ZN9title_bar8TitleBar3new17hf1ab144f747ff80fE(ptr dead_on_u
 
 114:                                              ; preds = %109, %102
   %115 = load ptr, ptr %60, align 8, !alias.scope !1695, !nonnull !12, !noundef !12
-  %116 = getelementptr inbounds { { ptr, [1 x i64] } }, ptr %115, i64 %106
+  %116 = getelementptr inbounds [16 x i8], ptr %115, i64 %106
   store ptr %103, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr %104, ptr %117, align 8
@@ -13667,7 +13667,7 @@ define hidden void @_ZN9title_bar8TitleBar3new17hf1ab144f747ff80fE(ptr dead_on_u
 
 132:                                              ; preds = %127, %120
   %133 = load ptr, ptr %60, align 8, !alias.scope !1698, !nonnull !12, !noundef !12
-  %134 = getelementptr inbounds { { ptr, [1 x i64] } }, ptr %133, i64 %124
+  %134 = getelementptr inbounds [16 x i8], ptr %133, i64 %124
   store ptr %121, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %122, ptr %135, align 8
@@ -13708,7 +13708,7 @@ define hidden void @_ZN9title_bar8TitleBar3new17hf1ab144f747ff80fE(ptr dead_on_u
 
 150:                                              ; preds = %145, %138
   %151 = load ptr, ptr %60, align 8, !alias.scope !1701, !nonnull !12, !noundef !12
-  %152 = getelementptr inbounds { { ptr, [1 x i64] } }, ptr %151, i64 %142
+  %152 = getelementptr inbounds [16 x i8], ptr %151, i64 %142
   store ptr %139, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %140, ptr %153, align 8
@@ -13749,7 +13749,7 @@ define hidden void @_ZN9title_bar8TitleBar3new17hf1ab144f747ff80fE(ptr dead_on_u
 
 168:                                              ; preds = %163, %156
   %169 = load ptr, ptr %60, align 8, !alias.scope !1704, !nonnull !12, !noundef !12
-  %170 = getelementptr inbounds { { ptr, [1 x i64] } }, ptr %169, i64 %160
+  %170 = getelementptr inbounds [16 x i8], ptr %169, i64 %160
   store ptr %157, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store ptr %158, ptr %171, align 8

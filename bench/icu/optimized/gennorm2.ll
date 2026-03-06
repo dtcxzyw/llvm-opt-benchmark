@@ -549,7 +549,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %14 = load ptr, ptr @stderr, align 8, !tbaa !18
   %15 = sub nsw i32 0, %11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !20
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, ptr noundef %18) #24
   br label %20
@@ -717,7 +717,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %.noexc
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %165 ]
   %.03894 = phi i8 [ 0, %.lr.ph ], [ %.1, %165 ]
   %.04093 = phi ptr [ %42, %.lr.ph ], [ %.141, %165 ]
-  %89 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !20
   %91 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %90)
   %92 = load ptr, ptr %89, align 8, !tbaa !20

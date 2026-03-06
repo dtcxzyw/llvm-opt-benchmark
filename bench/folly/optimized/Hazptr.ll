@@ -48,7 +48,7 @@ define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicED2Ev(ptr noundef no
 
 5:                                                ; preds = %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.i ]
-  %6 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv.i
   %7 = atomicrmw xchg ptr %6, i64 0 acq_rel, align 8
   %.not3.i.i = icmp eq i64 %7, 0
   br i1 %.not3.i.i, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.i, label %.lr.ph.i.preheader.i

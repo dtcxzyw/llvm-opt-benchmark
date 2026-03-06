@@ -136,7 +136,7 @@ entry:
   %sub = sub i64 %1, %2
   %spec.select = tail call i64 @llvm.umin.i64(i64 %nCount, i64 %sub)
   %3 = load ptr, ptr %pContext16, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %3, i64 %2
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %3, i64 %2
   %mul = shl i64 %spec.select, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr, ptr align 2 %pData, i64 %mul, i1 false)
   %add = add i64 %spec.select, %2
@@ -155,7 +155,7 @@ entry:
   %sub = sub i64 %1, %2
   %spec.select = tail call i64 @llvm.umin.i64(i64 %nCount, i64 %sub)
   %3 = load ptr, ptr %pContext32, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %3, i64 %2
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %3, i64 %2
   %mul = shl i64 %spec.select, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr, ptr align 4 %pData, i64 %mul, i1 false)
   %add = add i64 %spec.select, %2
@@ -5346,7 +5346,7 @@ land.lhs.true:                                    ; preds = %if.then23
   br i1 %cmp27, label %if.then28, label %if.end45
 
 if.then28:                                        ; preds = %land.lhs.true
-  %add.ptr29 = getelementptr inbounds i16, ptr %pInBufferData.addr.091, i64 %4
+  %add.ptr29 = getelementptr inbounds [2 x i8], ptr %pInBufferData.addr.091, i64 %4
   %sub31 = sub nuw i64 %idx.ext, %4
   %call32 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef null, ptr noundef %add.ptr29, i64 noundef 0, i64 noundef %sub31)
   %cmp33 = icmp slt i32 %call32, 0
@@ -5459,7 +5459,7 @@ if.end57:                                         ; preds = %land.lhs.true53.if.
   %conv58 = phi i32 [ %12, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %13 = load i64, ptr %nInUsed, align 8
-  %add.ptr60 = getelementptr inbounds i16, ptr %pInBufferData.addr.091, i64 %13
+  %add.ptr60 = getelementptr inbounds [2 x i8], ptr %pInBufferData.addr.091, i64 %13
   %cmp6 = icmp ugt i32 %nPrecision.088, 4103
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
   %14 = select i1 %cmp6, i1 %cmp7, i1 false
@@ -5587,7 +5587,7 @@ land.lhs.true:                                    ; preds = %if.then23
   br i1 %cmp27, label %if.then28, label %if.end45
 
 if.then28:                                        ; preds = %land.lhs.true
-  %add.ptr29 = getelementptr inbounds i32, ptr %pInBufferData.addr.091, i64 %3
+  %add.ptr29 = getelementptr inbounds [4 x i8], ptr %pInBufferData.addr.091, i64 %3
   %sub31 = sub nuw i64 %idx.ext, %3
   %call32 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDimm(ptr noundef null, ptr noundef %add.ptr29, i64 noundef 0, i64 noundef %sub31)
   %cmp33 = icmp slt i32 %call32, 0
@@ -5700,7 +5700,7 @@ if.end57:                                         ; preds = %land.lhs.true53.if.
   %conv58 = phi i32 [ %11, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %12 = load i64, ptr %nInUsed, align 8
-  %add.ptr60 = getelementptr inbounds i32, ptr %pInBufferData.addr.091, i64 %12
+  %add.ptr60 = getelementptr inbounds [4 x i8], ptr %pInBufferData.addr.091, i64 %12
   %cmp6 = icmp ugt i32 %nPrecision.088, 4103
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
   %13 = select i1 %cmp6, i1 %cmp7, i1 false
@@ -6485,7 +6485,7 @@ if.end133:                                        ; preds = %if.then129, %FType
   %sub.ptr.div = ashr exact i64 %gepdiff, 1
   %conv142 = sext i32 %nPrecision.0 to i64
   %cmp143 = icmp sgt i64 %sub.ptr.div, %conv142
-  %add.ptr146 = getelementptr inbounds i16, ptr %add.ptr137, i64 %conv142
+  %add.ptr146 = getelementptr inbounds [2 x i8], ptr %add.ptr137, i64 %conv142
   %spec.select123 = select i1 %cmp143, ptr %add.ptr146, ptr %add.ptr141
   %cmp149131 = icmp ugt ptr %spec.select123, %add.ptr137
   br i1 %cmp149131, label %while.body150, label %while.end174
@@ -6661,7 +6661,7 @@ entry:
   %nSpace.i = alloca i16, align 2
   %nFill.i = alloca i16, align 2
   %idx.ext = sext i32 %nWriteCount to i64
-  %add.ptr = getelementptr inbounds i16, ptr %pBufferData, i64 %idx.ext
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %pBufferData, i64 %idx.ext
   call void @llvm.lifetime.start.p0(ptr nonnull %nFill.i)
   %0 = load i32, ptr %fd, align 4, !noalias !113
   %cmp.i = icmp eq i32 %0, 0
@@ -7566,7 +7566,7 @@ land.lhs.true:                                    ; preds = %if.then23
   br i1 %cmp27, label %if.then28, label %if.end45
 
 if.then28:                                        ; preds = %land.lhs.true
-  %add.ptr29 = getelementptr inbounds i32, ptr %pInBufferData.addr.091, i64 %3
+  %add.ptr29 = getelementptr inbounds [4 x i8], ptr %pInBufferData.addr.091, i64 %3
   %sub31 = sub nuw i64 %idx.ext, %3
   %call32 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPDsPKDimm(ptr noundef null, ptr noundef %add.ptr29, i64 noundef 0, i64 noundef %sub31)
   %cmp33 = icmp slt i32 %call32, 0
@@ -7679,7 +7679,7 @@ if.end57:                                         ; preds = %land.lhs.true53.if.
   %conv58 = phi i32 [ %11, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %12 = load i64, ptr %nInUsed, align 8
-  %add.ptr60 = getelementptr inbounds i32, ptr %pInBufferData.addr.091, i64 %12
+  %add.ptr60 = getelementptr inbounds [4 x i8], ptr %pInBufferData.addr.091, i64 %12
   %cmp6 = icmp ugt i32 %nPrecision.088, 4103
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
   %13 = select i1 %cmp6, i1 %cmp7, i1 false
@@ -8454,7 +8454,7 @@ if.end124:                                        ; preds = %if.then121, %FType
   %sub.ptr.div = ashr exact i64 %gepdiff, 2
   %conv133 = sext i32 %nPrecision.0 to i64
   %cmp134 = icmp sgt i64 %sub.ptr.div, %conv133
-  %add.ptr137 = getelementptr inbounds i32, ptr %add.ptr128, i64 %conv133
+  %add.ptr137 = getelementptr inbounds [4 x i8], ptr %add.ptr128, i64 %conv133
   %spec.select123 = select i1 %cmp134, ptr %add.ptr137, ptr %add.ptr132
   %cmp140131 = icmp ugt ptr %spec.select123, %add.ptr128
   br i1 %cmp140131, label %while.body141, label %while.end163
@@ -8628,7 +8628,7 @@ entry:
   %nSpace.i = alloca i32, align 4
   %nFill.i = alloca i32, align 4
   %idx.ext = sext i32 %nWriteCount to i64
-  %add.ptr = getelementptr inbounds i32, ptr %pBufferData, i64 %idx.ext
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %pBufferData, i64 %idx.ext
   call void @llvm.lifetime.start.p0(ptr nonnull %nFill.i)
   %0 = load i32, ptr %fd, align 4, !noalias !147
   %cmp.i = icmp eq i32 %0, 0
@@ -9541,7 +9541,7 @@ land.lhs.true:                                    ; preds = %if.then23
   br i1 %cmp27, label %if.then28, label %if.end45
 
 if.then28:                                        ; preds = %land.lhs.true
-  %add.ptr29 = getelementptr inbounds i16, ptr %pInBufferData.addr.091, i64 %4
+  %add.ptr29 = getelementptr inbounds [2 x i8], ptr %pInBufferData.addr.091, i64 %4
   %sub31 = sub nuw i64 %idx.ext, %4
   %call32 = call noundef i32 @_ZN2EA4StdC7StrlcpyEPDiPKDsmm(ptr noundef null, ptr noundef %add.ptr29, i64 noundef 0, i64 noundef %sub31)
   %cmp33 = icmp slt i32 %call32, 0
@@ -9654,7 +9654,7 @@ if.end57:                                         ; preds = %land.lhs.true53.if.
   %conv58 = phi i32 [ %12, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %13 = load i64, ptr %nInUsed, align 8
-  %add.ptr60 = getelementptr inbounds i16, ptr %pInBufferData.addr.091, i64 %13
+  %add.ptr60 = getelementptr inbounds [2 x i8], ptr %pInBufferData.addr.091, i64 %13
   %cmp6 = icmp ugt i32 %nPrecision.088, 4103
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
   %14 = select i1 %cmp6, i1 %cmp7, i1 false

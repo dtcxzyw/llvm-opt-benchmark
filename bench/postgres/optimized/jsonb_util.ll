@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%struct.JsonbPair = type { %struct.JsonbValue, %struct.JsonbValue, i32 }
 %struct.JsonbValue = type { i32, %union.anon }
 %union.anon = type { %struct.anon.0 }
 %struct.anon.0 = type { i32, ptr, i8 }
@@ -122,7 +121,7 @@ define dso_local noundef ptr @JsonbValueToJsonb(ptr noundef %0) local_unnamed_ad
   %32 = add i32 %31, 1
   store i32 %32, ptr %28, align 8
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds %struct.JsonbPair, ptr %30, i64 %33
+  %34 = getelementptr inbounds [72 x i8], ptr %30, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull readonly align 8 dereferenceable(32) %21, i64 32, i1 false)
   br label %pushJsonbValueScalar.exit
@@ -257,10 +256,10 @@ define dso_local ptr @pushJsonbValue(ptr noundef %0, i32 noundef %1, ptr noundef
 30:                                               ; preds = %.lr.ph71, %30
   %indvars.iv77 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next78, %30 ]
   %31 = load ptr, ptr %29, align 8
-  %32 = getelementptr inbounds nuw %struct.JsonbPair, ptr %31, i64 %indvars.iv77
+  %32 = getelementptr inbounds nuw [72 x i8], ptr %31, i64 %indvars.iv77
   %33 = tail call fastcc ptr @pushJsonbValueScalar(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %32)
   %34 = load ptr, ptr %29, align 8
-  %35 = getelementptr inbounds nuw %struct.JsonbPair, ptr %34, i64 %indvars.iv77
+  %35 = getelementptr inbounds nuw [72 x i8], ptr %34, i64 %indvars.iv77
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = tail call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %36)
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -313,7 +312,7 @@ define dso_local ptr @pushJsonbValue(ptr noundef %0, i32 noundef %1, ptr noundef
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
   %66 = load ptr, ptr %64, align 8
-  %67 = getelementptr inbounds nuw %struct.JsonbValue, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %66, i64 %indvars.iv
   %68 = tail call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %67)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %61, align 8
@@ -348,7 +347,7 @@ define dso_local ptr @pushJsonbValue(ptr noundef %0, i32 noundef %1, ptr noundef
   %83 = add i32 %82, 1
   store i32 %83, ptr %79, align 8
   %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds %struct.JsonbPair, ptr %81, i64 %84
+  %85 = getelementptr inbounds [72 x i8], ptr %81, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull readonly align 8 dereferenceable(32) %72, i64 32, i1 false)
   br label %pushJsonbValueScalar.exit
@@ -497,7 +496,7 @@ define dso_local i32 @getJsonbOffset(ptr noundef readonly captures(none) %0, i32
 
 8:                                                ; preds = %5
   %9 = and i64 %indvars.iv.next, 2147483647
-  %10 = getelementptr inbounds nuw i32, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 268435455
   %13 = add i32 %12, %.08
@@ -513,7 +512,7 @@ define dso_local i32 @getJsonbOffset(ptr noundef readonly captures(none) %0, i32
 define dso_local i32 @getJsonbLength(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4
   %.not = icmp sgt i32 %6, -1
   br i1 %.not, label %20, label %7
@@ -532,7 +531,7 @@ define dso_local i32 @getJsonbLength(ptr noundef readonly captures(none) %0, i32
 
 12:                                               ; preds = %9
   %13 = and i64 %indvars.iv.next.i, 2147483647
-  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 268435455
   %17 = add i32 %16, %.08.i
@@ -963,7 +962,7 @@ define dso_local range(i32 0, 8) i32 @JsonbIteratorNext(ptr noundef captures(non
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %44, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %44, i64 %47
   %49 = load i32, ptr %48, align 4
   %.not94 = icmp sgt i32 %49, -1
   %50 = and i32 %49, 268435455
@@ -1083,7 +1082,7 @@ switch.early.test:                                ; preds = %55
 
 110:                                              ; preds = %107
   %111 = and i64 %indvars.iv.next.i, 2147483647
-  %112 = getelementptr inbounds nuw i32, ptr %105, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 268435455
   %115 = add i32 %114, %.08.i
@@ -1157,7 +1156,7 @@ getJsonbOffset.exit:                              ; preds = %107, %110
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %156 = load i32, ptr %155, align 8
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds i32, ptr %154, i64 %157
+  %158 = getelementptr inbounds [4 x i8], ptr %154, i64 %157
   %159 = load i32, ptr %158, align 4
   %.not = icmp sgt i32 %159, -1
   %160 = and i32 %159, 268435455
@@ -1181,7 +1180,7 @@ getJsonbOffset.exit:                              ; preds = %107, %110
   %172 = load i32, ptr %171, align 8
   %173 = add i32 %172, %170
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw i32, ptr %168, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %174
   %176 = load i32, ptr %175, align 4
   %.not90 = icmp sgt i32 %176, -1
   %177 = and i32 %176, 268435455
@@ -1299,7 +1298,7 @@ define dso_local ptr @findJsonbValueFromContainer(ptr noundef %0, i32 noundef %1
 11:                                               ; preds = %8
   %12 = tail call ptr @palloc(i64 noundef 32) #12
   %13 = zext nneg i32 %6 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %13
   br label %15
 
 15:                                               ; preds = %11, %22
@@ -1317,7 +1316,7 @@ define dso_local ptr @findJsonbValueFromContainer(ptr noundef %0, i32 noundef %1
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %15, %20
-  %23 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 268435455
   %.not4145 = icmp slt i32 %24, 0
@@ -1353,7 +1352,7 @@ define dso_local ptr @findJsonbValueFromContainer(ptr noundef %0, i32 noundef %1
 define internal fastcc void @fillJsonbValue(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, 28
   %11 = and i32 %10, 7
@@ -1394,7 +1393,7 @@ define internal fastcc void @fillJsonbValue(ptr noundef readonly captures(none) 
 
 24:                                               ; preds = %21
   %25 = and i64 %indvars.iv.next.i.i, 2147483647
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 268435455
   %29 = add i32 %28, %.08.i.i
@@ -1465,7 +1464,7 @@ getJsonbLength.exit:                              ; preds = %getJsonbOffset.exit
 
 57:                                               ; preds = %54
   %58 = and i64 %indvars.iv.next.i.i34, 2147483647
-  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 268435455
   %62 = add i32 %61, %.08.i.i33
@@ -1574,7 +1573,7 @@ define dso_local ptr @getKeyJsonValueFromContainer(ptr noundef %0, ptr noundef r
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = shl nuw nsw i32 %6, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   %13 = sext i32 %2 to i64
   br label %14
 
@@ -1597,7 +1596,7 @@ define dso_local ptr @getKeyJsonValueFromContainer(ptr noundef %0, ptr noundef r
 
 22:                                               ; preds = %19
   %23 = and i64 %indvars.iv.next.i, 2147483647
-  %24 = getelementptr inbounds nuw i32, ptr %9, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 268435455
   %27 = add i32 %26, %.08.i
@@ -1609,7 +1608,7 @@ getJsonbOffset.exit:                              ; preds = %19, %22
   %28 = zext i32 %.1.i to i64
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 %28
   %30 = sext i32 %17 to i64
-  %31 = getelementptr inbounds i32, ptr %9, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %9, i64 %30
   %32 = load i32, ptr %31, align 4
   %.not.i48 = icmp sgt i32 %32, -1
   br i1 %.not.i48, label %43, label %.preheader
@@ -1624,7 +1623,7 @@ getJsonbOffset.exit:                              ; preds = %19, %22
 
 35:                                               ; preds = %.preheader
   %36 = and i64 %indvars.iv.next.i.i, 2147483647
-  %37 = getelementptr inbounds nuw i32, ptr %9, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 268435455
   %40 = add i32 %39, %.08.i.i
@@ -1680,7 +1679,7 @@ lengthCompareJsonbString.exit:                    ; preds = %getJsonbLength.exit
 
 58:                                               ; preds = %55
   %59 = and i64 %indvars.iv.next.i52, 2147483647
-  %60 = getelementptr inbounds nuw i32, ptr %9, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 268435455
   %63 = add i32 %62, %.08.i51
@@ -1727,7 +1726,7 @@ define dso_local ptr @getIthJsonbValueFromContainer(ptr noundef %0, i32 noundef 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = tail call ptr @palloc(i64 noundef 32) #12
   %15 = zext nneg i32 %1 to i64
   br label %16
@@ -1742,7 +1741,7 @@ define dso_local ptr @getIthJsonbValueFromContainer(ptr noundef %0, i32 noundef 
 
 19:                                               ; preds = %16
   %20 = and i64 %indvars.iv.next.i, 2147483647
-  %21 = getelementptr inbounds nuw i32, ptr %11, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 268435455
   %24 = add i32 %23, %.08.i
@@ -1892,12 +1891,12 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %63
   %70 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %68, %63 ]
   %71 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %72 = sext i32 %69 to i64
-  %73 = getelementptr inbounds %struct.JsonbPair, ptr %70, i64 %72
+  %73 = getelementptr inbounds [72 x i8], ptr %70, i64 %72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
   %74 = load i32, ptr %52, align 8
   %75 = load ptr, ptr %71, align 8
   %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds %struct.JsonbPair, ptr %75, i64 %76
+  %77 = getelementptr inbounds [72 x i8], ptr %75, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
   store i32 %74, ptr %78, align 8
   br label %197
@@ -1911,7 +1910,7 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %63
   %85 = add i32 %84, 1
   store i32 %85, ptr %81, align 8
   %86 = sext i32 %84 to i64
-  %87 = getelementptr inbounds %struct.JsonbPair, ptr %83, i64 %86
+  %87 = getelementptr inbounds [72 x i8], ptr %83, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
   br label %197
@@ -2153,7 +2152,7 @@ uniqueifyJsonbObject.exit:                        ; preds = %120, %.thread.i, %.
   %187 = add i32 %186, 1
   store i32 %187, ptr %183, align 8
   %188 = sext i32 %186 to i64
-  %189 = getelementptr inbounds %struct.JsonbPair, ptr %185, i64 %188
+  %189 = getelementptr inbounds [72 x i8], ptr %185, i64 %188
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull readonly align 8 dereferenceable(32) %176, i64 32, i1 false)
   br label %197
@@ -2433,7 +2432,7 @@ JsonbIteratorInit.exit87:                         ; preds = %76, %86
 126:                                              ; preds = %.lr.ph
   %127 = add i32 %.055102, 1
   %128 = zext i32 %.055102 to i64
-  %129 = getelementptr inbounds nuw %struct.JsonbValue, ptr %122, i64 %128
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %130
 
@@ -2463,7 +2462,7 @@ JsonbIteratorInit.exit87:                         ; preds = %76, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next, %201 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %136 = getelementptr inbounds nuw %struct.JsonbValue, ptr %.266145, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [32 x i8], ptr %.266145, i64 %indvars.iv
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load ptr, ptr %137, align 8
   %139 = tail call ptr @palloc0(i64 noundef 56) #12
@@ -2787,7 +2786,7 @@ define internal fastcc void @appendElement(ptr noundef captures(none) %0, ptr no
   %23 = add i32 %21, 1
   store i32 %23, ptr %3, align 8
   %24 = sext i32 %21 to i64
-  %25 = getelementptr inbounds %struct.JsonbValue, ptr %22, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %22, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
@@ -2962,7 +2961,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %13
   %.0.i41 = phi i32 [ %43, %.lr.ph42 ], [ %71, %62 ]
   %.029.i39 = phi i32 [ 0, %.lr.ph42 ], [ %56, %62 ]
   %52 = load ptr, ptr %49, align 8
-  %53 = getelementptr inbounds nuw %struct.JsonbValue, ptr %52, i64 %indvars.iv52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %indvars.iv52
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %53, i32 noundef %50)
   %54 = load i32, ptr %7, align 4
@@ -3090,7 +3089,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %80
   %.0.i1733 = phi i32 [ %108, %.lr.ph ], [ %138, %129 ]
   %.045.i31 = phi i32 [ 0, %.lr.ph ], [ %123, %129 ]
   %119 = load ptr, ptr %114, align 8
-  %120 = getelementptr inbounds nuw %struct.JsonbPair, ptr %119, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [72 x i8], ptr %119, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @convertJsonbScalar(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %120)
   %121 = load i32, ptr %5, align 4
@@ -3128,7 +3127,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %80
   %.1.i37 = phi i32 [ %138, %.lr.ph38 ], [ %162, %151 ]
   %.146.i35 = phi i32 [ %123, %.lr.ph38 ], [ %145, %151 ]
   %140 = load ptr, ptr %115, align 8
-  %141 = getelementptr inbounds nuw %struct.JsonbPair, ptr %140, i64 %indvars.iv47
+  %141 = getelementptr inbounds nuw [72 x i8], ptr %140, i64 %indvars.iv47
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
   call fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %142, i32 noundef %116)

@@ -1189,7 +1189,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %9, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -1363,7 +1363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA5_KcJRA30_S3_EEEOT_D
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA5_KcJRA30_S3_EEEOT_DpOT0_.exit
   %.05.i.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA5_KcJRA30_S3_EEEOT_DpOT0_.exit ]
-  %32 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %30, i64 %.05.i.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.05.i.i.i.i
   store atomic i64 0, ptr %32 monotonic, align 8
   %33 = add nuw nsw i64 %.05.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i64 %33, 3
@@ -1418,7 +1418,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %34
 
 51:                                               ; preds = %57, %43
   %.012.i.i.i.i = phi i64 [ 0, %43 ], [ %58, %57 ]
-  %52 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %.0.i.i.i.i.i.i, i64 %.012.i.i.i.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i, i64 %.012.i.i.i.i
   %53 = load atomic i64, ptr %52 monotonic, align 8
   %.0.i.i.i.i.i = inttoptr i64 %53 to ptr
   %.not.i.i.i.i17 = icmp ult ptr %50, %.0.i.i.i.i.i
@@ -1451,7 +1451,7 @@ _ZNK3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeak
 
 66:                                               ; preds = %72, %60
   %.012.i.i.i.i19 = phi i64 [ 0, %60 ], [ %73, %72 ]
-  %67 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %.0.i.i.i.i.i.i18, i64 %.012.i.i.i.i19
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i18, i64 %.012.i.i.i.i19
   %68 = load atomic i64, ptr %67 monotonic, align 8, !noalias !28
   %.0.i.i.i.i.i20 = inttoptr i64 %68 to ptr
   %.not.i.i.i.i21 = icmp ult ptr %65, %.0.i.i.i.i.i20
@@ -1607,7 +1607,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_10PlugP
 118:                                              ; preds = %.noexc.i.i, %.loopexit
   %.07.i.i.i.i = phi i64 [ %117, %.loopexit ], [ %119, %.noexc.i.i ]
   %119 = add nsw i64 %.07.i.i.i.i, -1
-  %120 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %.0.i.i.i.i.i.i27, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i27, i64 %119
   %121 = load atomic i64, ptr %120 monotonic, align 8
   %.not6.i.i.i.i = icmp eq i64 %121, 0
   br i1 %.not6.i.i.i.i, label %.noexc.i.i, label %122
@@ -1637,7 +1637,7 @@ _ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc1.i.i
   %.05.i.i.i.i.i = phi i64 [ %126, %.lr.ph.i.i.i.i.i ], [ 0, %.noexc1.i.i ]
-  %125 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %30, i64 %.05.i.i.i.i.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.05.i.i.i.i.i
   store atomic i64 0, ptr %125 monotonic, align 8
   %126 = add nuw nsw i64 %.05.i.i.i.i.i, 1
   %.not.i.i.i.i.i29 = icmp eq i64 %126, 3
@@ -1780,7 +1780,7 @@ define linkonce_odr void @_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0
 7:                                                ; preds = %.noexc.i, %1
   %.07.i.i.i = phi i64 [ %6, %1 ], [ %8, %.noexc.i ]
   %8 = add nsw i64 %.07.i.i.i, -1
-  %9 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %.0.i.i.i.i.i, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %8
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %.not6.i.i.i = icmp eq i64 %10, 0
   br i1 %.not6.i.i.i, label %.noexc.i, label %11
@@ -1810,7 +1810,7 @@ _ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.noexc1.i
   %.05.i.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i.i ], [ 0, %.noexc1.i ]
-  %14 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %4, i64 %.05.i.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.05.i.i.i.i
   store atomic i64 0, ptr %14 monotonic, align 8
   %15 = add nuw nsw i64 %.05.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i64 %15, 3
@@ -3243,7 +3243,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tbb6det
 
 .lr.ph.i.i:                                       ; preds = %12, %_ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit.i.i
   %.02024.i.i = phi i64 [ %28, %_ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit.i.i ], [ 0, %12 ]
-  %15 = getelementptr inbounds %"struct.std::atomic.21", ptr %8, i64 %.02024.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %8, i64 %.02024.i.i
   %16 = load atomic i64, ptr %15 acquire, align 8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %.lr.ph.i.i.i12, label %_ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit.i.i
@@ -3296,8 +3296,8 @@ _ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPt
 
 .noexc:                                           ; preds = %33, %.noexc
   %.01825.i.i = phi i64 [ %38, %.noexc ], [ 0, %33 ]
-  %35 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %34, i64 %.01825.i.i
-  %36 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %8, i64 %.01825.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.01825.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01825.i.i
   %37 = load atomic i64, ptr %36 monotonic, align 8
   %.0.i.i.i = inttoptr i64 %37 to ptr
   store ptr %.0.i.i.i, ptr %35, align 8
@@ -3369,7 +3369,7 @@ _ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
 
 _ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EENS1_17concurrent_vectorIS6_S8_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS6_Emm.exit: ; preds = %_ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EENS1_17concurrent_vectorIS6_S8_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS6_Emm.exit.loopexit, %41, %39, %2
   %.019 = phi ptr [ %.0.i, %2 ], [ %34, %39 ], [ %.0.i.i11, %41 ], [ %.0.i.i.le, %_ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EENS1_17concurrent_vectorIS6_S8_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS6_Emm.exit.loopexit ]
-  %60 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %.019, i64 %5
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.019, i64 %5
   %61 = load atomic i64, ptr %60 acquire, align 8
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %63, label %78
@@ -3383,7 +3383,7 @@ _ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
   %66 = shl nuw i64 1, %5
   %67 = and i64 %66, -2
   %68 = sub i64 0, %67
-  %69 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.27", ptr %64, i64 %68
+  %69 = getelementptr inbounds [16 x i8], ptr %64, i64 %68
   %70 = ptrtoint ptr %69 to i64
   %71 = cmpxchg ptr %60, i64 0, i64 %70 seq_cst seq_cst, align 8
   %72 = extractvalue { i64, i1 } %71, 1
@@ -3417,7 +3417,7 @@ _ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
   br label %82
 
 82:                                               ; preds = %81, %78
-  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.27", ptr %.0, i64 %1
+  %83 = getelementptr inbounds [16 x i8], ptr %.0, i64 %1
   ret ptr %83
 }
 
@@ -3439,7 +3439,7 @@ define linkonce_odr void @_ZZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24
 
 .lr.ph.i:                                         ; preds = %1, %_ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit.i
   %.02024.i = phi i64 [ %21, %_ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit.i ], [ 0, %1 ]
-  %8 = getelementptr inbounds %"struct.std::atomic.21", ptr %4, i64 %.02024.i
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %.02024.i
   %9 = load atomic i64, ptr %8 acquire, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %.lr.ph.i.i, label %_ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit.i
@@ -3494,8 +3494,8 @@ _ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPt
 
 29:                                               ; preds = %29, %27
   %.01825.i = phi i64 [ 0, %27 ], [ %33, %29 ]
-  %30 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %28, i64 %.01825.i
-  %31 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %4, i64 %.01825.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.01825.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01825.i
   %32 = load atomic i64, ptr %31 monotonic, align 8
   %.0.i.i = inttoptr i64 %32 to ptr
   store ptr %.0.i.i, ptr %30, align 8
@@ -3559,7 +3559,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d117concurrent_vectorIN32pxrInte
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds %"struct.std::atomic.21", ptr %16, i64 %2
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %2
   %18 = load atomic i64, ptr %17 acquire, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %.lr.ph.i, label %_ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit
@@ -3670,7 +3670,7 @@ _ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
 .lr.ph:                                           ; preds = %_ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EENS1_17concurrent_vectorIS6_S8_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS6_Emm.exit, %.lr.ph
   %.01594 = phi i64 [ %57, %.lr.ph ], [ 1, %_ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EENS1_17concurrent_vectorIS6_S8_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS6_Emm.exit ]
   %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %"struct.std::atomic.21", ptr %55, i64 %.01594
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %.01594
   store atomic i64 %41, ptr %56 release, align 8
   %57 = add nuw i64 %.01594, 1
   %58 = load i64, ptr %9, align 8
@@ -3680,7 +3680,7 @@ _ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
 .lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
   %60 = phi i1 [ false, %.lr.ph96 ], [ true, %.preheader ]
   %.01495 = phi i64 [ 2, %.lr.ph96 ], [ 1, %.preheader ]
-  %61 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %46, i64 %.01495
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.01495
   store atomic i64 %41, ptr %61 release, align 8
   %62 = add nuw nsw i64 %.01495, 1
   %63 = icmp ult i64 %62, %58
@@ -3695,7 +3695,7 @@ _ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
 67:                                               ; preds = %65
   call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef %37)
   %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %"struct.std::atomic.21", ptr %68, i64 %2
+  %69 = getelementptr inbounds [8 x i8], ptr %68, i64 %2
   %70 = load atomic i64, ptr %69 acquire, align 8
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %.lr.ph.i22, label %_ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit
@@ -3747,21 +3747,21 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i24: ; preds = %_ZN3tbb6detail
 _ZN3tbb6detail2d010raii_guardIZNS0_2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS5_10PlugPluginEEENS3_23cache_aligned_allocatorIS8_EEE14create_segmentEPSt6atomicIPS8_EmmEUlvE2_ED2Ev.exit2.i: ; preds = %86
   %92 = landingpad { ptr, i32 }
           cleanup
-  %93 = getelementptr inbounds %"struct.std::atomic.21", ptr %1, i64 %2
+  %93 = getelementptr inbounds [8 x i8], ptr %1, i64 %2
   %94 = ptrtoint ptr %87 to i64
   store atomic i64 %94, ptr %93 release, align 8
   br label %common.resume
 
 _ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS5_10PlugPluginEEENS3_23cache_aligned_allocatorIS8_EEE14create_segmentEPSt6atomicIPS8_EmmEUlvE1_E13on_completionIZNSB_14create_segmentESF_mmEUlvE2_EEvT_.exit: ; preds = %86
   %95 = sub i64 0, %3
-  %96 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.27", ptr %91, i64 %95
-  %97 = getelementptr inbounds %"struct.std::atomic.21", ptr %1, i64 %2
+  %96 = getelementptr inbounds [16 x i8], ptr %91, i64 %95
+  %97 = getelementptr inbounds [8 x i8], ptr %1, i64 %2
   %98 = ptrtoint ptr %96 to i64
   store atomic i64 %98, ptr %97 release, align 8
   br label %_ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit
 
 99:                                               ; preds = %82
-  %100 = getelementptr inbounds %"struct.std::atomic.21", ptr %1, i64 %2
+  %100 = getelementptr inbounds [8 x i8], ptr %1, i64 %2
   %101 = load atomic i64, ptr %100 acquire, align 8
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %.lr.ph.i33, label %_ZN3tbb6detail2d015spin_wait_whileIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEEZNS1_18spin_wait_while_eqIS7_S7_EET_RKSt6atomicIS9_ET0_St12memory_orderEUlS7_E_EES9_SD_SE_SF_.exit
@@ -3840,7 +3840,7 @@ define linkonce_odr void @_ZN3tbb6detail2d010raii_guardIZNS0_2d117concurrent_vec
   %.05.i = phi i64 [ %30, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
   %25 = load ptr, ptr %0, align 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %"struct.std::atomic.21", ptr %26, i64 %.05.i
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %.05.i
   %28 = load ptr, ptr %7, align 8
   %29 = ptrtoint ptr %28 to i64
   store atomic i64 %29, ptr %27 release, align 8
@@ -4284,7 +4284,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -4293,7 +4293,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_EN32pxrInternal_v0_24__pxrReserved__6TfHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb1EEE.exit
@@ -4313,13 +4313,13 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_EN32pxrInternal_v0_24__pxrReserved__6TfHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb1EEE.exit
 
@@ -4361,7 +4361,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState12_AppendBytesE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_EN32pxrInternal_v0_24__pxrReserved__6TfHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_find_before_node_trIS5_EEPNS7_15_Hash_node_baseEmRKT_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_EN32pxrInternal_v0_24__pxrReserved__6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS6_EEbRKT_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread18, label %8
@@ -4476,7 +4476,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4491,7 +4491,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -4540,7 +4540,7 @@ define linkonce_odr void @_ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load atomic i64, ptr %3 acquire, align 8
   %.0.i.i = inttoptr i64 %4 to ptr
-  %5 = getelementptr inbounds %"struct.std::atomic.21", ptr %.0.i.i, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.0.i.i, i64 %1
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load atomic i64, ptr %7 seq_cst, align 8
@@ -4562,7 +4562,7 @@ define linkonce_odr void @_ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24_
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.012.i = phi i64 [ %14, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %13 = getelementptr inbounds %"struct.std::atomic.21", ptr %.0.i.i, i64 %.012.i
+  %13 = getelementptr inbounds [8 x i8], ptr %.0.i.i, i64 %.012.i
   store atomic i64 0, ptr %13 monotonic, align 8
   %14 = add nuw i64 %.012.i, 1
   %15 = load atomic i64, ptr %7 seq_cst, align 8
@@ -4578,7 +4578,7 @@ _ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakP
 19:                                               ; preds = %_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EEE15nullify_segmentEPSt6atomicIPS6_Em.exit
   %20 = shl nuw i64 1, %1
   %21 = and i64 %20, -2
-  %22 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.27", ptr %.0.i.i6, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %.0.i.i6, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load atomic i64, ptr %23 monotonic, align 8
   %25 = icmp eq i64 %1, 0
@@ -4606,7 +4606,7 @@ _ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakP
 
 .lr.ph.i8:                                        ; preds = %_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EEE29number_of_elements_in_segmentEm.exit.i, %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i
   %.08.i = phi i64 [ %44, %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ 0, %_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EEE29number_of_elements_in_segmentEm.exit.i ]
-  %34 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.27", ptr %22, i64 %.08.i
+  %34 = getelementptr inbounds [16 x i8], ptr %22, i64 %.08.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %36, null
@@ -4680,7 +4680,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10P
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEEEE8allocateERS4_m.exit.i
   %14 = phi ptr [ %13, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEEEE8allocateERS4_m.exit.i ], [ null, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit ]
   store ptr %14, ptr %0, align 8
-  %15 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.27", ptr %14, i64 %9
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8
   %17 = load ptr, ptr %1, align 8
@@ -4711,10 +4711,10 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPlug
   %29 = xor i64 %28, 63
   %30 = load atomic i64, ptr %24 acquire, align 8
   %.0.i.i.i.i.i.us.i.i.i = inttoptr i64 %30 to ptr
-  %31 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %.0.i.i.i.i.i.us.i.i.i, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.us.i.i.i, i64 %29
   %32 = load atomic i64, ptr %31 acquire, align 8
   %.0.i5.i.i.i.i.us.i.i.i = inttoptr i64 %32 to ptr
-  %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.27", ptr %.0.i5.i.i.i.i.us.i.i.i, i64 %.sroa.35.0.us.i.i.i
+  %33 = getelementptr inbounds [16 x i8], ptr %.0.i5.i.i.i.i.us.i.i.i, i64 %.sroa.35.0.us.i.i.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.us.i.i.i
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.us.i.i.i: ; preds = %26, %.lr.ph.i.us.i.i.i
@@ -4757,10 +4757,10 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginE
   %52 = xor i64 %51, 63
   %53 = load atomic i64, ptr %24 acquire, align 8
   %.0.i.i.i.i.i.i.i.i = inttoptr i64 %53 to ptr
-  %54 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %.0.i.i.i.i.i.i.i.i, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i.i.i, i64 %52
   %55 = load atomic i64, ptr %54 acquire, align 8
   %.0.i5.i.i.i.i.i.i.i = inttoptr i64 %55 to ptr
-  %56 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.27", ptr %.0.i5.i.i.i.i.i.i.i, i64 %.sroa.35.0.i.i.i
+  %56 = getelementptr inbounds [16 x i8], ptr %.0.i5.i.i.i.i.i.i.i, i64 %.sroa.35.0.i.i.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i: ; preds = %49, %.lr.ph.i.i.i.i

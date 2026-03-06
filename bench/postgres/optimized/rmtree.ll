@@ -99,7 +99,7 @@ sub_149:                                          ; preds = %.tail
   %.2 = phi ptr [ %35, %33 ], [ %.031.ph67, %31 ]
   %38 = call ptr @pstrdup(ptr noundef nonnull %3) #5
   %39 = add i64 %.035.ph65, 1
-  %40 = getelementptr inbounds nuw ptr, ptr %.2, i64 %.035.ph65
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.2, i64 %.035.ph65
   store ptr %38, ptr %40, align 8
   br label %.outer
 
@@ -162,7 +162,7 @@ sub_149:                                          ; preds = %.tail
 .lr.ph:                                           ; preds = %55, %.lr.ph
   %.073 = phi i64 [ %61, %.lr.ph ], [ 0, %55 ]
   %.372 = phi i1 [ %spec.select, %.lr.ph ], [ %.239, %55 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %.031.ph.lcssa, i64 %.073
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.031.ph.lcssa, i64 %.073
   %58 = load ptr, ptr %57, align 8
   %59 = call zeroext i1 @rmtree(ptr noundef %58, i1 noundef zeroext true)
   %spec.select = select i1 %59, i1 %.372, i1 false

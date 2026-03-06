@@ -3,11 +3,6 @@ source_filename = "bench/php/original/formatted_print.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._zval_struct = type { %union._zend_value, %union.anon, %union.anon.2 }
-%union._zend_value = type { i64 }
-%union.anon = type { i32 }
-%union.anon.2 = type { i32 }
-
 @.str = private unnamed_addr constant [69 x i8] c"Argument number specifier must be greater than zero and less than %d\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"stream\00", align 1
 @.str.2 = private unnamed_addr constant [26 x i8] c"Missing padding character\00", align 1
@@ -41,7 +36,7 @@ define hidden range(i32 -2, 2147483647) i32 @php_sprintf_get_argnum(ptr noundef 
   %.010 = phi ptr [ %4, %2 ], [ %13, %7 ]
   %8 = load i8, ptr %.010, align 1, !tbaa !11
   %9 = sext i8 %8 to i64
-  %10 = getelementptr inbounds i16, ptr %6, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %6, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !12
   %12 = and i16 %11, 2048
   %.not = icmp eq i16 %12, 0
@@ -511,7 +506,7 @@ php_sprintf_appendchar.exit:                      ; preds = %135, %zend_string_e
   %179 = tail call ptr @__ctype_b_loc() #16
   %180 = load ptr, ptr %179, align 8, !tbaa !9
   %181 = sext i8 %133 to i64
-  %182 = getelementptr inbounds i16, ptr %180, i64 %181
+  %182 = getelementptr inbounds [2 x i8], ptr %180, i64 %181
   %183 = load i16, ptr %182, align 2, !tbaa !12
   %184 = and i16 %183, 1024
   %.not177 = icmp eq i16 %184, 0
@@ -521,7 +516,7 @@ php_sprintf_appendchar.exit:                      ; preds = %135, %zend_string_e
   %.010.i = phi ptr [ %190, %.preheader ], [ %131, %178 ]
   %185 = load i8, ptr %.010.i, align 1, !tbaa !11
   %186 = sext i8 %185 to i64
-  %187 = getelementptr inbounds i16, ptr %180, i64 %186
+  %187 = getelementptr inbounds [2 x i8], ptr %180, i64 %186
   %188 = load i16, ptr %187, align 2, !tbaa !12
   %189 = and i16 %188, 2048
   %.not.i221 = icmp eq i16 %189, 0
@@ -621,7 +616,7 @@ php_sprintf_get_argnum.exit:                      ; preds = %191, %196
   %.010.i225 = phi ptr [ %218, %217 ], [ %226, %220 ]
   %221 = load i8, ptr %.010.i225, align 1, !tbaa !11
   %222 = sext i8 %221 to i64
-  %223 = getelementptr inbounds i16, ptr %219, i64 %222
+  %223 = getelementptr inbounds [2 x i8], ptr %219, i64 %222
   %224 = load i16, ptr %223, align 2, !tbaa !12
   %225 = and i16 %224, 2048
   %.not.i226 = icmp eq i16 %225, 0
@@ -679,7 +674,7 @@ php_sprintf_get_argnum.exit234.thread381:         ; preds = %227
 
 243:                                              ; preds = %240
   %244 = sext i32 %.0116 to i64
-  %245 = getelementptr inbounds %struct._zval_struct, ptr %2, i64 %244
+  %245 = getelementptr inbounds [16 x i8], ptr %2, i64 %244
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %247 = load i8, ptr %246, align 8, !tbaa !11
   %248 = icmp eq i8 %247, 10
@@ -718,7 +713,7 @@ php_sprintf_get_argnum.exit234.thread381:         ; preds = %227
 260:                                              ; preds = %203
   %261 = load ptr, ptr %179, align 8, !tbaa !9
   %262 = sext i8 %204 to i64
-  %263 = getelementptr inbounds i16, ptr %261, i64 %262
+  %263 = getelementptr inbounds [2 x i8], ptr %261, i64 %262
   %264 = load i16, ptr %263, align 2, !tbaa !12
   %265 = and i16 %264, 2048
   %.not178 = icmp eq i16 %265, 0
@@ -769,7 +764,7 @@ php_sprintf_getnumber.exit:                       ; preds = %260
   %.010.i237 = phi ptr [ %282, %281 ], [ %290, %284 ]
   %285 = load i8, ptr %.010.i237, align 1, !tbaa !11
   %286 = sext i8 %285 to i64
-  %287 = getelementptr inbounds i16, ptr %283, i64 %286
+  %287 = getelementptr inbounds [2 x i8], ptr %283, i64 %286
   %288 = load i16, ptr %287, align 2, !tbaa !12
   %289 = and i16 %288, 2048
   %.not.i238 = icmp eq i16 %289, 0
@@ -827,7 +822,7 @@ php_sprintf_get_argnum.exit246.thread402:         ; preds = %291
 
 307:                                              ; preds = %304
   %308 = sext i32 %.0115 to i64
-  %309 = getelementptr inbounds %struct._zval_struct, ptr %2, i64 %308
+  %309 = getelementptr inbounds [16 x i8], ptr %2, i64 %308
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %311 = load i8, ptr %310, align 8, !tbaa !11
   %312 = icmp eq i8 %311, 10
@@ -867,7 +862,7 @@ php_sprintf_get_argnum.exit246.thread402:         ; preds = %291
 325:                                              ; preds = %276
   %326 = load ptr, ptr %179, align 8, !tbaa !9
   %327 = sext i8 %279 to i64
-  %328 = getelementptr inbounds i16, ptr %326, i64 %327
+  %328 = getelementptr inbounds [2 x i8], ptr %326, i64 %327
   %329 = load i16, ptr %328, align 2, !tbaa !12
   %330 = and i16 %329, 2048
   %.not181 = icmp eq i16 %330, 0
@@ -946,7 +941,7 @@ php_sprintf_getnumber.exit251:                    ; preds = %325
 
 thread-pre-split:                                 ; preds = %348, %351, %351, %351, %351
   %353 = sext i32 %spec.select193 to i64
-  %354 = getelementptr inbounds %struct._zval_struct, ptr %2, i64 %353
+  %354 = getelementptr inbounds [16 x i8], ptr %2, i64 %353
   switch i8 %350, label %.loopexit446.loopexit [
     i8 115, label %355
     i8 100, label %379
@@ -1809,7 +1804,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
 
 40:                                               ; preds = %36
   %41 = sext i32 %.029.i to i64
-  %42 = getelementptr inbounds %struct._zval_struct, ptr %25, i64 %41
+  %42 = getelementptr inbounds [16 x i8], ptr %25, i64 %41
   %43 = load ptr, ptr %.02527.i, align 8, !tbaa !11
   %44 = load i32, ptr %37, align 8, !tbaa !11
   store ptr %43, ptr %42, align 8, !tbaa !11
@@ -2008,7 +2003,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
 
 40:                                               ; preds = %36
   %41 = sext i32 %.029.i to i64
-  %42 = getelementptr inbounds %struct._zval_struct, ptr %25, i64 %41
+  %42 = getelementptr inbounds [16 x i8], ptr %25, i64 %41
   %43 = load ptr, ptr %.02527.i, align 8, !tbaa !11
   %44 = load i32, ptr %37, align 8, !tbaa !11
   store ptr %43, ptr %42, align 8, !tbaa !11
@@ -2240,7 +2235,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
 
 49:                                               ; preds = %45
   %50 = sext i32 %.029.i to i64
-  %51 = getelementptr inbounds %struct._zval_struct, ptr %34, i64 %50
+  %51 = getelementptr inbounds [16 x i8], ptr %34, i64 %50
   %52 = load ptr, ptr %.02527.i, align 8, !tbaa !11
   %53 = load i32, ptr %46, align 8, !tbaa !11
   store ptr %52, ptr %51, align 8, !tbaa !11

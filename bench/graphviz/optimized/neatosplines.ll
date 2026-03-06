@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pointf_s = type { double, double }
 %struct.boxf = type { %struct.pointf_s, %struct.pointf_s }
 %struct.Ppoly_t = type { ptr, i64 }
-%struct.Pedge_t = type { %struct.pointf_s, %struct.pointf_s }
 %struct.edgeitem = type { %struct.dtlink_s_, %struct.edgeinfo, ptr }
 %struct.dtlink_s_ = type { ptr, %union.anon }
 %union.anon = type { ptr }
@@ -220,7 +219,7 @@ define void @makeSelfArcs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 
 gv_calloc.exit:                                   ; preds = %35, %gv_calloc.exit
   %.03641 = phi i64 [ %49, %gv_calloc.exit ], [ 0, %35 ]
   %.03740 = phi ptr [ %48, %gv_calloc.exit ], [ %0, %35 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %36, i64 %.03641
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.03641
   store ptr %.03740, ptr %44, align 8, !tbaa !44
   %45 = getelementptr inbounds nuw i8, ptr %.03740, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !20
@@ -236,7 +235,7 @@ gv_calloc.exit:                                   ; preds = %35, %gv_calloc.exit
 
 51:                                               ; preds = %42, %69
   %.042 = phi i64 [ 0, %42 ], [ %70, %69 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %36, i64 %.042
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.042
   %53 = load ptr, ptr %52, align 8, !tbaa !44
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !20
@@ -404,7 +403,7 @@ gv_alloc.exit:                                    ; preds = %7
   %62 = select i1 %.not, i64 0, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %64 = load ptr, ptr %63, align 8, !tbaa !73
-  %65 = getelementptr inbounds nuw %struct.pointf_s, ptr %64, i64 %62
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %62
   %66 = load double, ptr %1, align 8, !tbaa !74
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load double, ptr %67, align 8, !tbaa !76
@@ -441,7 +440,7 @@ gv_calloc.exit:                                   ; preds = %73
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = uitofp nneg i64 %.0267355 to double
   %82 = icmp eq i64 %.0267355, 4
-  %83 = getelementptr %struct.pointf_s, ptr %74, i64 %.0267355
+  %83 = getelementptr [16 x i8], ptr %74, i64 %.0267355
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.0268354, label %gv_calloc.exit.split.us, label %gv_calloc.exit.split
 
@@ -476,7 +475,7 @@ gv_calloc.exit.split.us.split.us.split.us:        ; preds = %gv_calloc.exit.spli
 92:                                               ; preds = %91, %90, %89, %gv_calloc.exit.split.us.split.us.split.us
   %.0272.us.us.us = phi double [ %87, %89 ], [ %.sroa.13.0351, %91 ], [ %87, %90 ], [ %.sroa.13.0351, %gv_calloc.exit.split.us.split.us.split.us ]
   %.0271.us.us.us = phi double [ %.sroa.068.0352, %89 ], [ %88, %91 ], [ %88, %90 ], [ %.sroa.068.0352, %gv_calloc.exit.split.us.split.us.split.us ]
-  %93 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us.us.us
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %.0269353, i64 %.0270325.us.us.us
   %94 = load double, ptr %93, align 8, !tbaa !60
   %95 = fadd double %.0271.us.us.us, %94
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -487,7 +486,7 @@ gv_calloc.exit.split.us.split.us.split.us:        ; preds = %gv_calloc.exit.spli
   %101 = load double, ptr %100, align 8, !tbaa !80
   %102 = fadd double %95, %101
   %103 = xor i64 %.0270325.us.us.us, -1
-  %104 = getelementptr %struct.pointf_s, ptr %83, i64 %103
+  %104 = getelementptr [16 x i8], ptr %83, i64 %103
   store double %102, ptr %104, align 8, !tbaa !60
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 40
   %106 = load double, ptr %105, align 8, !tbaa !81
@@ -506,7 +505,7 @@ gv_calloc.exit.split.us.split.us.split:           ; preds = %gv_calloc.exit.spli
 
 113:                                              ; preds = %113, %gv_calloc.exit.split.us.split.us.split
   %.0270325.us.us = phi i64 [ 0, %gv_calloc.exit.split.us.split.us.split ], [ %132, %113 ]
-  %114 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us.us
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %.0269353, i64 %.0270325.us.us
   %115 = load double, ptr %114, align 8, !tbaa !60
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = load double, ptr %116, align 8, !tbaa !61
@@ -520,7 +519,7 @@ gv_calloc.exit.split.us.split.us.split:           ; preds = %gv_calloc.exit.spli
   %125 = load double, ptr %111, align 8, !tbaa !80
   %126 = fadd double %121, %125
   %127 = xor i64 %.0270325.us.us, -1
-  %128 = getelementptr %struct.pointf_s, ptr %83, i64 %127
+  %128 = getelementptr [16 x i8], ptr %83, i64 %127
   store double %126, ptr %128, align 8, !tbaa !60
   %129 = load double, ptr %112, align 8, !tbaa !81
   %130 = fadd double %124, %129
@@ -538,7 +537,7 @@ gv_calloc.exit.split.us.split:                    ; preds = %gv_calloc.exit.spli
 
 136:                                              ; preds = %136, %gv_calloc.exit.split.us.split
   %.0270325.us = phi i64 [ 0, %gv_calloc.exit.split.us.split ], [ %150, %136 ]
-  %137 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %.0269353, i64 %.0270325.us
   %138 = load double, ptr %137, align 8, !tbaa !60
   %139 = fmul double %.sroa.068.0352, %138
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
@@ -547,7 +546,7 @@ gv_calloc.exit.split.us.split:                    ; preds = %gv_calloc.exit.spli
   %143 = load double, ptr %134, align 8, !tbaa !80
   %144 = fadd double %139, %143
   %145 = xor i64 %.0270325.us, -1
-  %146 = getelementptr %struct.pointf_s, ptr %83, i64 %145
+  %146 = getelementptr [16 x i8], ptr %83, i64 %145
   store double %144, ptr %146, align 8, !tbaa !60
   %147 = load double, ptr %135, align 8, !tbaa !81
   %148 = fadd double %142, %147
@@ -637,7 +636,7 @@ default.unreachable:                              ; preds = %gv_calloc.exit.spli
   %215 = load double, ptr %160, align 8, !tbaa !80
   %216 = fadd double %212, %215
   %217 = xor i64 %.0270325, -1
-  %218 = getelementptr %struct.pointf_s, ptr %83, i64 %217
+  %218 = getelementptr [16 x i8], ptr %83, i64 %217
   store double %216, ptr %218, align 8, !tbaa !60
   %219 = load double, ptr %161, align 8, !tbaa !81
   %220 = fadd double %214, %219
@@ -975,7 +974,7 @@ define void @makeSpline(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %.sroa.01.0.copyload = load double, ptr %.sroa.012.0.copyload, align 8, !tbaa !11
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 8
   %.sroa.42.0.copyload = load double, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !11
-  %10 = getelementptr %struct.pointf_s, ptr %.sroa.012.0.copyload, i64 %.sroa.6.0.copyload
+  %10 = getelementptr [16 x i8], ptr %.sroa.012.0.copyload, i64 %.sroa.6.0.copyload
   %11 = getelementptr i8, ptr %10, i64 -16
   %.sroa.0.0.copyload = load double, ptr %11, align 8, !tbaa !11
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %10, i64 -8
@@ -996,7 +995,7 @@ define void @makeSpline(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !88
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1012,7 +1011,7 @@ define void @makeSpline(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !88
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1051,7 +1050,7 @@ define void @makeSpline(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   br i1 %or.cond.i, label %43, label %37
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !88
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !69
@@ -1112,7 +1111,7 @@ gv_calloc.exit.i:                                 ; preds = %49, %.thread.i.i
   br i1 %or.cond49.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph58.i
-  %59 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv64.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv64.i
   %60 = load ptr, ptr %59, align 8, !tbaa !88
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !69
@@ -1131,12 +1130,12 @@ gv_calloc.exit.i:                                 ; preds = %49, %.thread.i.i
   %.253.i = phi i64 [ %.057.i, %.lr.ph54.preheader.i ], [ %71, %.lr.ph54.i ]
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %.not.i = icmp samesign ult i64 %indvars.iv.next62.i, %65
-  %66 = getelementptr inbounds nuw %struct.Pedge_t, ptr %56, i64 %.253.i
-  %67 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre.i, i64 %indvars.iv61.i
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %56, i64 %.253.i
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i, i64 %indvars.iv61.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false), !tbaa.struct !92
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %69 = select i1 %.not.i, i64 %indvars.iv.next62.i, i64 0
-  %70 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre.i, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i, i64 %69
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !92
   %71 = add i64 %.253.i, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next62.i, %umax
@@ -1523,7 +1522,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %17
   store i32 %.0126176, ptr %31, align 4, !tbaa !85
   %33 = add nsw i32 %.0126176, 1
   %34 = sext i32 %.0126176 to i64
-  %35 = getelementptr inbounds ptr, ptr %24, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %24, i64 %34
   store ptr %28, ptr %35, align 8, !tbaa !88
   br label %37
 
@@ -2029,7 +2028,7 @@ makePolyline.exit:                                ; preds = %.lr.ph190.split, %2
 
 .lr.ph210:                                        ; preds = %.lr.ph210.preheader, %.lr.ph210
   %indvars.iv = phi i64 [ 0, %.lr.ph210.preheader ], [ %indvars.iv.next, %.lr.ph210 ]
-  %270 = getelementptr inbounds nuw ptr, ptr %.0125169, i64 %indvars.iv
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %.0125169, i64 %indvars.iv
   %271 = load ptr, ptr %270, align 8, !tbaa !88
   %272 = load ptr, ptr %271, align 8, !tbaa !77
   call void @free(ptr noundef %272) #20
@@ -2615,7 +2614,7 @@ define internal fastcc void @shiftClusters(ptr noundef readonly captures(none) %
   %8 = phi ptr [ %13, %.lr.ph ], [ %5, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %10 = load ptr, ptr %9, align 8, !tbaa !173
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !174
   tail call fastcc void @shiftClusters(ptr noundef %12, double %1, double %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2958,7 +2957,7 @@ define internal fastcc void @translateG(ptr noundef readonly captures(none) %0, 
   %34 = phi ptr [ %39, %.lr.ph ], [ %5, %31 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 240
   %36 = load ptr, ptr %35, align 8, !tbaa !173
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !174
   tail call fastcc void @translateG(ptr noundef %38, double %1, double %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3085,7 +3084,7 @@ define internal fastcc void @scaleBB(ptr noundef readonly captures(none) %0, dou
   %34 = phi ptr [ %39, %.lr.ph ], [ %5, %31 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 240
   %36 = load ptr, ptr %35, align 8, !tbaa !173
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !174
   tail call fastcc void @scaleBB(ptr noundef %38, double noundef %1, double noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

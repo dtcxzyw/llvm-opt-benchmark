@@ -988,7 +988,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
 .lr.ph167:                                        ; preds = %.lr.ph170._crit_edge, %319
   %178 = phi ptr [ %322, %319 ], [ %170, %.lr.ph170._crit_edge ]
   %.031166 = phi i64 [ %320, %319 ], [ 0, %.lr.ph170._crit_edge ]
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %.031166
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %.031166
   %180 = load ptr, ptr %179, align 8, !tbaa !56
   %181 = icmp eq ptr %180, %126
   br i1 %181, label %319, label %182
@@ -1208,7 +1208,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i: ; preds = %261, %259
   %.022.i = phi i64 [ %.0923.i135138, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i ], [ %258, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i ]
   %.0923.in.i = add nsw i64 %.022.i, -1
   %.0923.i135138 = lshr i64 %.0923.in.i, 1
-  %263 = getelementptr inbounds nuw %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %236, i64 %.0923.i135138
+  %263 = getelementptr inbounds nuw [80 x i8], ptr %236, i64 %.0923.i135138
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
   %265 = load double, ptr %264, align 8, !tbaa !25
   %266 = load double, ptr %48, align 8, !tbaa !25
@@ -1216,7 +1216,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i: ; preds = %261, %259
   br i1 %267, label %268, label %.critedge.i
 
 268:                                              ; preds = %.lr.ph.i
-  %269 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %236, i64 %.022.i
+  %269 = getelementptr inbounds [80 x i8], ptr %236, i64 %.022.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %269, ptr noundef nonnull align 8 dereferenceable(80) %263, i64 32, i1 false)
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   %271 = getelementptr inbounds nuw i8, ptr %269, i64 48
@@ -1273,7 +1273,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i: ; preds = %282, %_ZNSt8
 
 .critedge.i:                                      ; preds = %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i, %.lr.ph.i, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i
   %.0.lcssa.i = phi i64 [ %258, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EOS1_.exit3.i ], [ %.022.i, %.lr.ph.i ], [ 0, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit.i ]
-  %292 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %236, i64 %.0.lcssa.i
+  %292 = getelementptr inbounds [80 x i8], ptr %236, i64 %.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %292, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 32, i1 false)
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 32
   %294 = getelementptr inbounds nuw i8, ptr %292, i64 48
@@ -1957,7 +1957,7 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
 136:                                              ; preds = %131
   %137 = sub i64 %124, %133
   %138 = lshr i64 %137, 1
-  %139 = getelementptr inbounds nuw ptr, ptr %125, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %138
   %140 = icmp ult ptr %139, %100
   %141 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %141, %100
@@ -1976,12 +1976,12 @@ _ZNSt3mapIPN3g2o10HyperGraph6VertexENS0_13HyperDijkstra17AdjacencyMapEntryESt4le
   br i1 %.not.i.i.i.i.i.i, label %.noexc41, label %147
 
 147:                                              ; preds = %146
-  %148 = getelementptr inbounds nuw ptr, ptr %139, i64 %132
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %132
   %149 = ptrtoint ptr %141 to i64
   %150 = sub i64 %149, %102
   %151 = ashr exact i64 %150, 3
   %152 = sub nsw i64 0, %151
-  %153 = getelementptr inbounds ptr, ptr %148, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %148, i64 %152
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %153, ptr align 8 %100, i64 %150, i1 false)
   br label %.noexc41
 
@@ -2018,7 +2018,7 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit.i:
 .noexc45:                                         ; preds = %_ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit.i
   %162 = sub nsw i64 %156, %133
   %163 = lshr i64 %162, 1
-  %164 = getelementptr inbounds nuw ptr, ptr %161, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %.not.i.i.i.i.i25.i = icmp eq ptr %165, %100
   br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit26.i, label %166
@@ -2043,7 +2043,7 @@ _ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit26.i: ; preds = %166, 
   store ptr %170, ptr %16, align 8, !tbaa !98
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
   store ptr %171, ptr %15, align 8, !tbaa !99
-  %172 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %132
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %132
   %173 = getelementptr inbounds i8, ptr %172, i64 -8
   store ptr %173, ptr %20, align 8, !tbaa !96
   %174 = load ptr, ptr %173, align 8, !tbaa !97
@@ -2397,7 +2397,7 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !103
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -2491,7 +2491,7 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_create_nodesEPPS3_S7_.
   store ptr %48, ptr %49, align 8, !tbaa !99
   store ptr %39, ptr %37, align 8, !tbaa !100
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !89
   ret void
 
@@ -3214,7 +3214,7 @@ _ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S
 _ZNSt12_Vector_baseIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3g2o13HyperDijkstra17AdjacencyMapEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, %81
   store ptr %21, ptr %0, align 8, !tbaa !82
   store ptr %.0.lcssa.i.i.i37, ptr %5, align 8, !tbaa !67
-  %85 = getelementptr inbounds nuw %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %21, i64 %17
+  %85 = getelementptr inbounds nuw [80 x i8], ptr %21, i64 %17
   store ptr %85, ptr %80, align 8, !tbaa !69
   ret void
 
@@ -3263,7 +3263,7 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2
   %.022 = phi i64 [ %1, %.lr.ph ], [ %.0923, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit ]
   %.0923.in = add nsw i64 %.022, -1
   %.0923 = sdiv i64 %.0923.in, 2
-  %9 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %0, i64 %.0923
+  %9 = getelementptr inbounds [80 x i8], ptr %0, i64 %.0923
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load double, ptr %10, align 8, !tbaa !25
   %12 = load double, ptr %7, align 8, !tbaa !25
@@ -3271,7 +3271,7 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3g2
   br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %0, i64 %.022
+  %15 = getelementptr inbounds [80 x i8], ptr %0, i64 %.022
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 32, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -3328,7 +3328,7 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit: ; preds = %_ZNSt8_Rb_tree
 
 .critedge:                                        ; preds = %8, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0923, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit ], [ %.022, %8 ]
-  %39 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %0, i64 %.0.lcssa
+  %39 = getelementptr inbounds [80 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 32, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 48
@@ -3576,7 +3576,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %4
-  %.phi.trans.insert = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %0, i64 %1
+  %.phi.trans.insert = getelementptr inbounds [80 x i8], ptr %0, i64 %1
   %.phi.trans.insert42 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert42, align 8, !tbaa !27
   br label %.lr.ph
@@ -3586,17 +3586,17 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3
   %.038 = phi i64 [ %spec.select, %_ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit ], [ %1, %.lr.ph.preheader ]
   %11 = shl i64 %.038, 1
   %12 = add i64 %11, 2
-  %13 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %0, i64 %12
+  %13 = getelementptr inbounds [80 x i8], ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %0, i64 %14
+  %15 = getelementptr inbounds [80 x i8], ptr %0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load double, ptr %16, align 8, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %19 = load double, ptr %18, align 8, !tbaa !25
   %20 = fcmp ogt double %17, %19
   %spec.select = select i1 %20, i64 %14, i64 %12
-  %21 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %0, i64 %spec.select
-  %22 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %0, i64 %.038
+  %21 = getelementptr inbounds [80 x i8], ptr %0, i64 %spec.select
+  %22 = getelementptr inbounds [80 x i8], ptr %0, i64 %.038
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull align 8 dereferenceable(80) %21, i64 32, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 48
@@ -3665,8 +3665,8 @@ _ZN3g2o13HyperDijkstra17AdjacencyMapEntryaSEOS1_.exit: ; preds = %_ZNSt8_Rb_tree
 51:                                               ; preds = %47
   %52 = shl nsw i64 %.0.lcssa, 1
   %53 = or disjoint i64 %52, 1
-  %54 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %0, i64 %53
-  %55 = getelementptr inbounds %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", ptr %0, i64 %.0.lcssa
+  %54 = getelementptr inbounds [80 x i8], ptr %0, i64 %53
+  %55 = getelementptr inbounds [80 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %55, ptr noundef nonnull align 8 dereferenceable(80) %54, i64 32, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 48
@@ -3889,9 +3889,9 @@ define linkonce_odr void @_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE17_M_rea
   %19 = load ptr, ptr %0, align 8, !tbaa !103
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -3910,12 +3910,12 @@ define linkonce_odr void @_ZNSt5dequeIPN3g2o10HyperGraph6VertexESaIS3_EE17_M_rea
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit
 
@@ -3943,9 +3943,9 @@ _ZNSt11_Deque_baseIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_allocate_mapEm.exit: ;
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #23
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit26, label %53
@@ -3973,7 +3973,7 @@ _ZSt4copyIPPPN3g2o10HyperGraph6VertexES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !99
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !96
   %64 = load ptr, ptr %63, align 8, !tbaa !97

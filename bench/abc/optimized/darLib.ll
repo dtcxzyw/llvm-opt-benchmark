@@ -3,11 +3,7 @@ source_filename = "bench/abc/original/darLib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Dar_LibObj_t_ = type { i64 }
-%struct.Dar_LibDat_t_ = type { %union.anon, i32, i32, float, i8, [3 x i8] }
-%union.anon = type { ptr }
 %struct.timespec = type { i64, i64 }
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
 
 @__const.Dar_LibAlloc.uTruths = private unnamed_addr constant [4 x i32] [i32 43690, i32 52428, i32 61680, i32 65280], align 16
 @s_DarLib = internal unnamed_addr global ptr null, align 8
@@ -38,14 +34,14 @@ define noundef ptr @Dar_LibAlloc(i32 noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %1, %12
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %calloc, align 8, !tbaa !15
-  %14 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load i64, ptr %14, align 4
   %16 = or i64 %15, 34359738368
   store i64 %16, ptr %14, align 4
-  %17 = getelementptr inbounds nuw i32, ptr @__const.Dar_LibAlloc.uTruths, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @__const.Dar_LibAlloc.uTruths, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !18
   %19 = load ptr, ptr %calloc, align 8, !tbaa !15
-  %20 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load i64, ptr %20, align 4
   %22 = and i32 %18, 268435455
   %23 = zext nneg i32 %22 to i64
@@ -261,7 +257,7 @@ define void @Dar_LibReturnCanonicals(ptr noundef writeonly captures(none) %0) lo
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1, !tbaa !35
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !18
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %18
@@ -270,7 +266,7 @@ define void @Dar_LibReturnCanonicals(ptr noundef writeonly captures(none) %0) lo
   store i32 1, ptr %10, align 4, !tbaa !18
   %13 = add nsw i32 %.09, 1
   %14 = sext i32 %.09 to i64
-  %15 = getelementptr inbounds i32, ptr %0, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %0, i64 %14
   %16 = trunc i64 %indvars.iv to i32
   %17 = mul i32 %16, 65537
   store i32 %17, ptr %15, align 4, !tbaa !18
@@ -291,15 +287,15 @@ define void @Dar_LibReturnCanonicals(ptr noundef writeonly captures(none) %0) lo
 define void @Dar_LibAddNode(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
   %.val = load ptr, ptr %0, align 8, !tbaa !15
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %.val, i64 %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !17
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 4, !tbaa !17
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %.val, i64 %13
   %15 = load i64, ptr %14, align 4
   %16 = and i64 %15, -17179869184
   %17 = shl i32 %2, 16
@@ -367,13 +363,13 @@ define void @Dar_LibSetup_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   store i64 %15, ptr %1, align 4
   %16 = and i64 %5, 65535
   %.val26 = load ptr, ptr %0, align 8, !tbaa !15
-  %17 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val26, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val26, i64 %16
   tail call void @Dar_LibSetup_rec(ptr noundef nonnull %0, ptr noundef %17, i32 noundef %2, i32 noundef %3)
   %18 = load i64, ptr %1, align 4
   %19 = lshr i64 %18, 16
   %.val = load ptr, ptr %0, align 8, !tbaa !15
   %20 = and i64 %19, 65535
-  %21 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %20
   tail call void @Dar_LibSetup_rec(ptr noundef nonnull %0, ptr noundef %21, i32 noundef %2, i32 noundef %3)
   %.not23 = icmp eq i32 %3, 0
   br i1 %.not23, label %39, label %22
@@ -387,22 +383,22 @@ define void @Dar_LibSetup_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8936
   %30 = sext i32 %2 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !37
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8048
-  %34 = getelementptr inbounds i32, ptr %33, i64 %30
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %30
   %35 = load i32, ptr %34, align 4, !tbaa !18
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %34, align 4, !tbaa !18
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds i32, ptr %32, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %32, i64 %37
   store i32 %28, ptr %38, align 4, !tbaa !18
   br label %45
 
 39:                                               ; preds = %10
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8048
   %41 = sext i32 %2 to i64
-  %42 = getelementptr inbounds i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !18
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %42, align 4, !tbaa !18
@@ -439,7 +435,7 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
 
 11:                                               ; preds = %3, %11
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 0, ptr %12, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 222
@@ -447,10 +443,10 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv271 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next272, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.val223, i64 %indvars.iv271
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.val223, i64 %indvars.iv271
   %15 = load i32, ptr %14, align 4, !tbaa !18
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val217, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.val217, i64 %16
   %.val226 = load i64, ptr %17, align 4
   %18 = lshr i64 %.val226, 36
   %19 = trunc nuw nsw i64 %18 to i32
@@ -461,7 +457,7 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !35
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !18
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %26, align 4, !tbaa !18
@@ -508,14 +504,14 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
   %44 = load ptr, ptr %33, align 8, !tbaa !24
   %45 = load i32, ptr %36, align 8, !tbaa !43
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %44, i64 %46
-  %48 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv274
+  %47 = getelementptr inbounds [4 x i8], ptr %44, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv274
   store ptr %47, ptr %48, align 8, !tbaa !37
   %49 = load ptr, ptr %35, align 8, !tbaa !25
-  %50 = getelementptr inbounds i32, ptr %49, i64 %46
-  %51 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv274
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %46
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv274
   store ptr %50, ptr %51, align 8, !tbaa !37
-  %52 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv274
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv274
   %53 = load i32, ptr %52, align 4, !tbaa !18
   %54 = add nsw i32 %53, %45
   store i32 %54, ptr %36, align 8, !tbaa !43
@@ -526,10 +522,10 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
 
 55:                                               ; preds = %.lr.ph244, %55
   %indvars.iv278 = phi i64 [ 0, %.lr.ph244 ], [ %indvars.iv.next279, %55 ]
-  %56 = getelementptr inbounds nuw i32, ptr %.val224, i64 %indvars.iv278
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.val224, i64 %indvars.iv278
   %57 = load i32, ptr %56, align 4, !tbaa !18
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val216, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %.val216, i64 %58
   %.val227 = load i64, ptr %59, align 4
   %60 = lshr i64 %.val227, 36
   %61 = trunc nuw nsw i64 %60 to i32
@@ -540,14 +536,14 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
   %65 = getelementptr inbounds nuw i8, ptr %42, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !35
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %37, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !37
-  %70 = getelementptr inbounds nuw i32, ptr %5, i64 %67
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %67
   %71 = load i32, ptr %70, align 4, !tbaa !18
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %70, align 4, !tbaa !18
   %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds i32, ptr %69, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %69, i64 %73
   store i32 %57, ptr %74, align 4, !tbaa !18
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %.val221 = load i32, ptr %6, align 4, !tbaa !38
@@ -577,10 +573,10 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
   %.0251 = phi i32 [ 0, %.critedge2 ], [ %.1.lcssa, %._crit_edge ]
   %86 = phi i32 [ 0, %.critedge2 ], [ %92, %._crit_edge ]
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %78, i64 %87
-  %89 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv289
+  %88 = getelementptr inbounds [4 x i8], ptr %78, i64 %87
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv289
   store ptr %88, ptr %89, align 8, !tbaa !37
-  %90 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv289
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv289
   %91 = load i32, ptr %90, align 4, !tbaa !18
   %92 = add nsw i32 %91, %86
   store i32 %92, ptr %36, align 8, !tbaa !43
@@ -598,9 +594,9 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
   %indvars.iv283 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next284, %96 ]
   %indvars.iv281 = phi i64 [ %95, %.lr.ph248 ], [ %indvars.iv.next282, %96 ]
   %indvars.iv.next282 = add nsw i64 %indvars.iv281, 1
-  %97 = getelementptr inbounds i32, ptr %.val225, i64 %indvars.iv281
+  %97 = getelementptr inbounds [4 x i8], ptr %.val225, i64 %indvars.iv281
   %98 = load i32, ptr %97, align 4, !tbaa !18
-  %99 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv283
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv283
   store i32 %98, ptr %99, align 4, !tbaa !18
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %exitcond288.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count
@@ -619,7 +615,7 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
 .lr.ph253:                                        ; preds = %.preheader234, %.lr.ph253
   %indvars.iv293 = phi i64 [ %indvars.iv.next294, %.lr.ph253 ], [ 0, %.preheader234 ]
   %.val215 = load ptr, ptr %0, align 8, !tbaa !15
-  %101 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val215, i64 %indvars.iv293
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %.val215, i64 %indvars.iv293
   %102 = load i64, ptr %101, align 4
   %103 = and i64 %102, 68719476735
   %104 = or disjoint i64 %103, 17523466567680
@@ -635,24 +631,24 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
 
 .preheader232:                                    ; preds = %.preheader232.preheader, %._crit_edge256
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %._crit_edge256 ], [ 0, %.preheader232.preheader ]
-  %108 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv299
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv299
   %109 = load i32, ptr %108, align 4, !tbaa !18
   %110 = icmp sgt i32 %109, 0
   br i1 %110, label %.lr.ph255, label %._crit_edge256
 
 .lr.ph255:                                        ; preds = %.preheader232
-  %111 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv299
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv299
   %112 = trunc nuw nsw i64 %indvars.iv299 to i32
   br label %113
 
 113:                                              ; preds = %.lr.ph255, %113
   %indvars.iv296 = phi i64 [ 0, %.lr.ph255 ], [ %indvars.iv.next297, %113 ]
   %114 = load ptr, ptr %111, align 8, !tbaa !37
-  %115 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv296
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv296
   %116 = load i32, ptr %115, align 4, !tbaa !18
   %.val214 = load ptr, ptr %0, align 8, !tbaa !15
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val214, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %.val214, i64 %117
   tail call void @Dar_LibSetup_rec(ptr noundef nonnull %0, ptr noundef %118, i32 noundef %112, i32 noundef 0)
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %119 = load i32, ptr %108, align 4, !tbaa !18
@@ -673,7 +669,7 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
 124:                                              ; preds = %122, %124
   %indvars.iv303 = phi i64 [ 0, %122 ], [ %indvars.iv.next304, %124 ]
   %125 = phi i32 [ 0, %122 ], [ %128, %124 ]
-  %126 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv303
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv303
   %127 = load i32, ptr %126, align 4, !tbaa !18
   %128 = add nsw i32 %125, %127
   store i32 %128, ptr %123, align 8, !tbaa !51
@@ -705,14 +701,14 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
   %141 = load ptr, ptr %133, align 8, !tbaa !22
   %142 = load i32, ptr %123, align 8, !tbaa !51
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds i32, ptr %141, i64 %143
-  %145 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv307
+  %144 = getelementptr inbounds [4 x i8], ptr %141, i64 %143
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv307
   store ptr %144, ptr %145, align 8, !tbaa !37
   %146 = load ptr, ptr %135, align 8, !tbaa !23
-  %147 = getelementptr inbounds i32, ptr %146, i64 %143
-  %148 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv307
+  %147 = getelementptr inbounds [4 x i8], ptr %146, i64 %143
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv307
   store ptr %147, ptr %148, align 8, !tbaa !37
-  %149 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv307
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv307
   %150 = load i32, ptr %149, align 4, !tbaa !18
   %151 = add nsw i32 %150, %142
   store i32 %151, ptr %123, align 8, !tbaa !51
@@ -724,7 +720,7 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
 .lr.ph262:                                        ; preds = %.preheader231, %.lr.ph262
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %.lr.ph262 ], [ 0, %.preheader231 ]
   %.val213 = load ptr, ptr %0, align 8, !tbaa !15
-  %152 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val213, i64 %indvars.iv311
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %.val213, i64 %indvars.iv311
   %153 = load i64, ptr %152, align 4
   %154 = and i64 %153, 68719476735
   %155 = or disjoint i64 %154, 17523466567680
@@ -740,24 +736,24 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
 
 .preheader229:                                    ; preds = %.preheader229.preheader, %._crit_edge265
   %indvars.iv317 = phi i64 [ %indvars.iv.next318, %._crit_edge265 ], [ 0, %.preheader229.preheader ]
-  %159 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv317
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv317
   %160 = load i32, ptr %159, align 4, !tbaa !18
   %161 = icmp sgt i32 %160, 0
   br i1 %161, label %.lr.ph264, label %._crit_edge265
 
 .lr.ph264:                                        ; preds = %.preheader229
-  %162 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv317
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv317
   %163 = trunc nuw nsw i64 %indvars.iv317 to i32
   br label %164
 
 164:                                              ; preds = %.lr.ph264, %164
   %indvars.iv314 = phi i64 [ 0, %.lr.ph264 ], [ %indvars.iv.next315, %164 ]
   %165 = load ptr, ptr %162, align 8, !tbaa !37
-  %166 = getelementptr inbounds nuw i32, ptr %165, i64 %indvars.iv314
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %165, i64 %indvars.iv314
   %167 = load i32, ptr %166, align 4, !tbaa !18
   %.val212 = load ptr, ptr %0, align 8, !tbaa !15
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val212, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.val212, i64 %168
   tail call void @Dar_LibSetup_rec(ptr noundef nonnull %0, ptr noundef %169, i32 noundef %163, i32 noundef 1)
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %170 = load i32, ptr %159, align 4, !tbaa !18
@@ -773,7 +769,7 @@ define void @Dar_LibSetup(ptr noundef initializes((16, 904)) %0, ptr noundef rea
 .preheader:                                       ; preds = %._crit_edge265, %.preheader
   %indvars.iv321 = phi i64 [ %indvars.iv.next322, %.preheader ], [ 0, %._crit_edge265 ]
   %.val = load ptr, ptr %0, align 8, !tbaa !15
-  %173 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val, i64 %indvars.iv321
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv321
   %174 = load i64, ptr %173, align 4
   %175 = shl nuw nsw i64 %indvars.iv321, 36
   %176 = and i64 %174, 68719476735
@@ -836,13 +832,13 @@ define void @Dar_LibSetup0_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   store i64 %15, ptr %1, align 4
   %16 = and i64 %5, 65535
   %.val26 = load ptr, ptr %0, align 8, !tbaa !15
-  %17 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val26, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val26, i64 %16
   tail call void @Dar_LibSetup0_rec(ptr noundef nonnull %0, ptr noundef %17, i32 noundef %2, i32 noundef %3)
   %18 = load i64, ptr %1, align 4
   %19 = lshr i64 %18, 16
   %.val = load ptr, ptr %0, align 8, !tbaa !15
   %20 = and i64 %19, 65535
-  %21 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %20
   tail call void @Dar_LibSetup0_rec(ptr noundef nonnull %0, ptr noundef %21, i32 noundef %2, i32 noundef %3)
   %.not23 = icmp eq i32 %3, 0
   br i1 %.not23, label %39, label %22
@@ -856,22 +852,22 @@ define void @Dar_LibSetup0_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 11624
   %30 = sext i32 %2 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !37
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 10732
-  %34 = getelementptr inbounds i32, ptr %33, i64 %30
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %30
   %35 = load i32, ptr %34, align 4, !tbaa !18
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %34, align 4, !tbaa !18
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds i32, ptr %32, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %32, i64 %37
   store i32 %28, ptr %38, align 4, !tbaa !18
   br label %45
 
 39:                                               ; preds = %10
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 10732
   %41 = sext i32 %2 to i64
-  %42 = getelementptr inbounds i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !18
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %42, align 4, !tbaa !18
@@ -920,16 +916,16 @@ define void @Dar_LibPrepare(i32 noundef %0) local_unnamed_addr #11 {
   br label %28
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv126
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv126
   %25 = load i32, ptr %24, align 4, !tbaa !18
   %26 = tail call noundef i32 @llvm.smin.i32(i32 %25, i32 %0)
-  %27 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv126
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv126
   store i32 %26, ptr %27, align 4, !tbaa !18
   br label %28
 
 28:                                               ; preds = %23, %21
   %29 = phi i32 [ %26, %23 ], [ %22, %21 ]
-  %30 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv126
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv126
   %31 = load i32, ptr %7, align 8, !tbaa !60
   %32 = add nsw i32 %31, %29
   store i32 %32, ptr %7, align 8, !tbaa !60
@@ -938,22 +934,22 @@ define void @Dar_LibPrepare(i32 noundef %0) local_unnamed_addr #11 {
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %28
-  %35 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv126
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv126
   %36 = load ptr, ptr %35, align 8, !tbaa !37
-  %37 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv126
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv126
   %38 = load ptr, ptr %37, align 8, !tbaa !37
-  %39 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv126
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv126
   %40 = load ptr, ptr %39, align 8, !tbaa !37
   br label %41
 
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !18
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %36, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %36, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !18
-  %47 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   store i32 %46, ptr %47, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %30, align 4, !tbaa !18
@@ -969,7 +965,7 @@ define void @Dar_LibPrepare(i32 noundef %0) local_unnamed_addr #11 {
 .lr.ph111:                                        ; preds = %.preheader105, %.lr.ph111
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.lr.ph111 ], [ 0, %.preheader105 ]
   %.val98 = load ptr, ptr %2, align 8, !tbaa !15
-  %51 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val98, i64 %indvars.iv132
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.val98, i64 %indvars.iv132
   %52 = load i64, ptr %51, align 4
   %53 = and i64 %52, 68719476735
   %54 = or disjoint i64 %53, 17523466567680
@@ -991,13 +987,13 @@ define void @Dar_LibPrepare(i32 noundef %0) local_unnamed_addr #11 {
   %60 = phi i32 [ 0, %._crit_edge112 ], [ %84, %._crit_edge115 ]
   %61 = phi i32 [ 0, %._crit_edge112 ], [ %82, %._crit_edge115 ]
   %indvars.iv138 = phi i64 [ 0, %._crit_edge112 ], [ %indvars.iv.next139, %._crit_edge115 ]
-  %62 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv138
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv138
   %63 = load i32, ptr %62, align 4, !tbaa !18
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph114, label %._crit_edge115
 
 .lr.ph114:                                        ; preds = %.preheader103
-  %65 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv138
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv138
   %66 = trunc nuw nsw i64 %indvars.iv138 to i32
   br label %69
 
@@ -1010,11 +1006,11 @@ define void @Dar_LibPrepare(i32 noundef %0) local_unnamed_addr #11 {
 69:                                               ; preds = %.lr.ph114, %69
   %indvars.iv135 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next136, %69 ]
   %70 = load ptr, ptr %65, align 8, !tbaa !37
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv135
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv135
   %72 = load i32, ptr %71, align 4, !tbaa !18
   %.val97 = load ptr, ptr %2, align 8, !tbaa !15
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val97, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %.val97, i64 %73
   tail call void @Dar_LibSetup0_rec(ptr noundef nonnull %2, ptr noundef %74, i32 noundef %66, i32 noundef 0)
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %75 = load i32, ptr %62, align 4, !tbaa !18
@@ -1030,7 +1026,7 @@ define void @Dar_LibPrepare(i32 noundef %0) local_unnamed_addr #11 {
 ._crit_edge115:                                   ; preds = %._crit_edge115.loopexit, %.preheader103
   %78 = phi i32 [ %.pre160, %._crit_edge115.loopexit ], [ %60, %.preheader103 ]
   %79 = phi i32 [ %.pre159, %._crit_edge115.loopexit ], [ %61, %.preheader103 ]
-  %80 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv138
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv138
   %81 = load i32, ptr %80, align 4, !tbaa !18
   %82 = add nsw i32 %79, %81
   store i32 %82, ptr %58, align 8, !tbaa !64
@@ -1044,7 +1040,7 @@ define void @Dar_LibPrepare(i32 noundef %0) local_unnamed_addr #11 {
 .lr.ph119:                                        ; preds = %.preheader102, %.lr.ph119
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %.lr.ph119 ], [ 0, %.preheader102 ]
   %.val96 = load ptr, ptr %2, align 8, !tbaa !15
-  %85 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val96, i64 %indvars.iv145
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.val96, i64 %indvars.iv145
   %86 = load i64, ptr %85, align 4
   %87 = and i64 %86, 68719476735
   %88 = or disjoint i64 %87, 17523466567680
@@ -1060,24 +1056,24 @@ define void @Dar_LibPrepare(i32 noundef %0) local_unnamed_addr #11 {
 
 .preheader99:                                     ; preds = %.preheader99.preheader, %._crit_edge122
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %._crit_edge122 ], [ 0, %.preheader99.preheader ]
-  %92 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv151
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv151
   %93 = load i32, ptr %92, align 4, !tbaa !18
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %.lr.ph121, label %._crit_edge122
 
 .lr.ph121:                                        ; preds = %.preheader99
-  %95 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv151
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv151
   %96 = trunc nuw nsw i64 %indvars.iv151 to i32
   br label %97
 
 97:                                               ; preds = %.lr.ph121, %97
   %indvars.iv148 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next149, %97 ]
   %98 = load ptr, ptr %95, align 8, !tbaa !37
-  %99 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv148
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv148
   %100 = load i32, ptr %99, align 4, !tbaa !18
   %.val95 = load ptr, ptr %2, align 8, !tbaa !15
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val95, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %.val95, i64 %101
   tail call void @Dar_LibSetup0_rec(ptr noundef nonnull %2, ptr noundef %102, i32 noundef %96, i32 noundef 1)
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %103 = load i32, ptr %92, align 4, !tbaa !18
@@ -1093,7 +1089,7 @@ define void @Dar_LibPrepare(i32 noundef %0) local_unnamed_addr #11 {
 .preheader:                                       ; preds = %._crit_edge122, %.preheader
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %.preheader ], [ 0, %._crit_edge122 ]
   %.val = load ptr, ptr %2, align 8, !tbaa !15
-  %106 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val, i64 %indvars.iv155
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv155
   %107 = load i64, ptr %106, align 4
   %108 = shl nuw nsw i64 %indvars.iv155, 36
   %109 = and i64 %107, 68719476735
@@ -1164,14 +1160,14 @@ define noundef ptr @Dar_LibRead() local_unnamed_addr #0 {
 17:                                               ; preds = %17, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %17 ]
   %18 = load ptr, ptr %calloc.i, align 8, !tbaa !15
-  %19 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %20 = load i64, ptr %19, align 4
   %21 = or i64 %20, 34359738368
   store i64 %21, ptr %19, align 4
-  %22 = getelementptr inbounds nuw i32, ptr @__const.Dar_LibAlloc.uTruths, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @__const.Dar_LibAlloc.uTruths, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !18
   %24 = load ptr, ptr %calloc.i, align 8, !tbaa !15
-  %25 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %26 = load i64, ptr %25, align 4
   %27 = and i32 %23, 268435455
   %28 = zext nneg i32 %27 to i64
@@ -1195,7 +1191,7 @@ Dar_LibAlloc.exit.preheader:                      ; preds = %17
 Dar_LibAlloc.exit:                                ; preds = %.lr.ph, %Dar_LibAlloc.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Dar_LibAlloc.exit ]
   %35 = load ptr, ptr %34, align 8, !tbaa !40
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !18
   %38 = ashr i32 %37, 1
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -1205,14 +1201,14 @@ Dar_LibAlloc.exit:                                ; preds = %.lr.ph, %Dar_LibAll
   %43 = and i32 %40, 1
   %.val.i = load ptr, ptr %calloc.i, align 8, !tbaa !15
   %44 = sext i32 %38 to i64
-  %45 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val.i, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %44
   %46 = sext i32 %41 to i64
-  %47 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val.i, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %46
   %48 = load i32, ptr %16, align 4, !tbaa !17
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %16, align 4, !tbaa !17
   %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val.i, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %50
   %52 = load i64, ptr %51, align 4
   %53 = and i64 %52, -17179869184
   %54 = shl i32 %41, 16
@@ -1332,20 +1328,20 @@ define void @Dar_LibIncrementScore(i32 noundef %0, i32 noundef %1, i32 noundef %
   %4 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2704
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4488
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %6
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %6
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 6272
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %6
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %6
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !18
   %18 = add nsw i32 %17, %2
   store i32 %18, ptr %16, align 4, !tbaa !18
-  %19 = getelementptr inbounds i32, ptr %11, i64 %15
+  %19 = getelementptr inbounds [4 x i8], ptr %11, i64 %15
   %20 = load i32, ptr %19, align 4, !tbaa !18
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %.critedge
@@ -1354,11 +1350,11 @@ define void @Dar_LibIncrementScore(i32 noundef %0, i32 noundef %1, i32 noundef %
   %22 = phi i32 [ %43, %32 ], [ %20, %3 ]
   %23 = load i32, ptr %16, align 4, !tbaa !18
   %24 = zext nneg i32 %22 to i64
-  %25 = getelementptr i32, ptr %8, i64 %24
+  %25 = getelementptr [4 x i8], ptr %8, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -4
   %27 = load i32, ptr %26, align 4, !tbaa !18
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %14, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %14, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !18
   %31 = icmp sgt i32 %23, %30
   br i1 %31, label %32, label %.critedge
@@ -1366,17 +1362,17 @@ define void @Dar_LibIncrementScore(i32 noundef %0, i32 noundef %1, i32 noundef %
 32:                                               ; preds = %.lr.ph
   %33 = add nsw i32 %22, -1
   store i32 %33, ptr %19, align 4, !tbaa !18
-  %34 = getelementptr inbounds i32, ptr %11, i64 %28
+  %34 = getelementptr inbounds [4 x i8], ptr %11, i64 %28
   %35 = load i32, ptr %34, align 4, !tbaa !18
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %34, align 4, !tbaa !18
   %37 = load i32, ptr %19, align 4, !tbaa !18
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %8, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %8, i64 %38
   store i32 %1, ptr %39, align 4, !tbaa !18
   %40 = load i32, ptr %34, align 4, !tbaa !18
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %8, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %8, i64 %41
   store i32 %27, ptr %42, align 4, !tbaa !18
   %43 = load i32, ptr %19, align 4, !tbaa !18
   %44 = icmp sgt i32 %43, 0
@@ -1400,7 +1396,7 @@ define void @Dar_LibDumpPriorities() local_unnamed_addr #13 {
   %indvars.iv28 = phi i64 [ 0, %0 ], [ %indvars.iv.next29, %._crit_edge ]
   %.01425 = phi i32 [ 0, %0 ], [ %.115.lcssa, %._crit_edge ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv28
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv28
   %8 = load i32, ptr %7, align 4, !tbaa !18
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -1410,9 +1406,9 @@ define void @Dar_LibDumpPriorities() local_unnamed_addr #13 {
   %10 = phi ptr [ %21, %20 ], [ %5, %.preheader ]
   %.11521 = phi i32 [ %.2, %20 ], [ %.01425, %.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2704
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv28
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv28
   %13 = load ptr, ptr %12, align 8, !tbaa !37
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !18
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %15)
   %17 = add nsw i32 %.11521, 1
@@ -1428,7 +1424,7 @@ define void @Dar_LibDumpPriorities() local_unnamed_addr #13 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv28
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv28
   %24 = load i32, ptr %23, align 4, !tbaa !18
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
@@ -1468,7 +1464,7 @@ define range(i32 0, 2) i32 @Dar_LibCutMatch(ptr noundef captures(none) %0, ptr n
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %9
   %18 = load i8, ptr %17, align 1, !tbaa !35
   %19 = sext i8 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %14, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %14, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !76
   %.not32 = icmp ult i32 %7, 536870912
   br i1 %.not32, label %._crit_edge, label %.lr.ph
@@ -1491,12 +1487,12 @@ Aig_ManObj.exit:                                  ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1, !tbaa !35
   %30 = sext i8 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %23, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %23, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !18
   %33 = getelementptr i8, ptr %.val29, i64 8
   %.val.i = load ptr, ptr %33, align 8, !tbaa !92
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds ptr, ptr %.val.i, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !94
   %37 = icmp eq ptr %36, null
   br i1 %37, label %Aig_ManObj.exit.thread, label %41
@@ -1517,7 +1513,7 @@ Aig_ManObj.exit.thread:                           ; preds = %25, %Aig_ManObj.exi
   %47 = xor i64 %45, %46
   %48 = inttoptr i64 %47 to ptr
   %49 = load ptr, ptr %24, align 8, !tbaa !21
-  %50 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %indvars.iv
   store ptr %48, ptr %50, align 8, !tbaa !35
   %51 = and i64 %45, -2
   %52 = inttoptr i64 %51 to ptr
@@ -1527,7 +1523,7 @@ Aig_ManObj.exit.thread:                           ; preds = %25, %Aig_ManObj.exi
   %56 = trunc nuw i64 %55 to i32
   %57 = and i32 %56, 16777215
   %58 = load ptr, ptr %24, align 8, !tbaa !21
-  %59 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i32 %57, ptr %60, align 8, !tbaa !96
   %61 = load ptr, ptr %0, align 8, !tbaa !99
@@ -1545,7 +1541,7 @@ Aig_ManObj.exit.thread:                           ; preds = %25, %Aig_ManObj.exi
   %69 = getelementptr i8, ptr %67, i64 8
   %.val = load ptr, ptr %69, align 8, !tbaa !40
   %70 = sext i32 %.val30 to i64
-  %71 = getelementptr inbounds i32, ptr %.val, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %.val, i64 %70
   %72 = load float, ptr %71, align 4, !tbaa !18
   %73 = and i64 %47, 1
   %.not28 = icmp eq i64 %73, 0
@@ -1589,7 +1585,7 @@ define i32 @Dar_LibCutMarkMffc(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !21
-  %10 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
@@ -1619,7 +1615,7 @@ define i32 @Dar_LibCutMarkMffc(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 25:                                               ; preds = %.lr.ph15, %25
   %indvars.iv18 = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next19, %25 ]
   %26 = load ptr, ptr %24, align 8, !tbaa !21
-  %27 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %26, i64 %indvars.iv18
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %indvars.iv18
   %28 = load ptr, ptr %27, align 8, !tbaa !35
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, -2
@@ -1666,7 +1662,7 @@ define void @Dar_LibObjPrint_rec(ptr noundef %0) local_unnamed_addr #13 {
   %15 = load i64, ptr %0, align 4
   %16 = and i64 %15, 65535
   %.val12 = load ptr, ptr %14, align 8, !tbaa !15
-  %17 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val12, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val12, i64 %16
   tail call void @Dar_LibObjPrint_rec(ptr noundef %17)
   %18 = load i64, ptr %0, align 4
   %19 = and i64 %18, 4294967296
@@ -1684,7 +1680,7 @@ define void @Dar_LibObjPrint_rec(ptr noundef %0) local_unnamed_addr #13 {
   %24 = lshr i64 %22, 16
   %.val = load ptr, ptr %23, align 8, !tbaa !15
   %25 = and i64 %24, 65535
-  %26 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %25
   tail call void @Dar_LibObjPrint_rec(ptr noundef %26)
   %27 = load i64, ptr %0, align 4
   %28 = and i64 %27, 4294967296
@@ -1706,7 +1702,7 @@ define void @Dar_LibEvalAssignNums(ptr noundef readonly captures(none) %0, i32 n
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 10732
-  %7 = getelementptr inbounds i32, ptr %6, i64 %4
+  %7 = getelementptr inbounds [4 x i8], ptr %6, i64 %4
   %8 = load i32, ptr %7, align 4, !tbaa !18
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -1719,13 +1715,13 @@ define void @Dar_LibEvalAssignNums(ptr noundef readonly captures(none) %0, i32 n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
   %12 = phi ptr [ %5, %.lr.ph ], [ %107, %106 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 11624
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %4
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %4
   %15 = load ptr, ptr %14, align 8, !tbaa !37
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !18
   %.val48 = load ptr, ptr %12, align 8, !tbaa !15
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val48, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.val48, i64 %18
   %20 = load i64, ptr %19, align 4
   %21 = add nuw nsw i64 %indvars.iv, 4
   %22 = and i64 %21, 268435455
@@ -1735,7 +1731,7 @@ define void @Dar_LibEvalAssignNums(ptr noundef readonly captures(none) %0, i32 n
   store i64 %25, ptr %19, align 4
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 16096
   %27 = load ptr, ptr %26, align 8, !tbaa !21
-  %28 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %27, i64 %22
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %29, align 4, !tbaa !109
   store ptr null, ptr %28, align 8, !tbaa !35
@@ -1745,16 +1741,16 @@ define void @Dar_LibEvalAssignNums(ptr noundef readonly captures(none) %0, i32 n
   %32 = load i64, ptr %19, align 4
   %33 = and i64 %32, 65535
   %.val47 = load ptr, ptr %12, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val47, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.val47, i64 %33
   %35 = load i64, ptr %34, align 4
   %36 = lshr i64 %35, 36
-  %37 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %31, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %36
   %38 = lshr i64 %32, 16
   %39 = and i64 %38, 65535
-  %40 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val47, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.val47, i64 %39
   %41 = load i64, ptr %40, align 4
   %42 = lshr i64 %41, 36
-  %43 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %31, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !96
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -1832,7 +1828,7 @@ define void @Dar_LibEvalAssignNums(ptr noundef readonly captures(none) %0, i32 n
   %98 = getelementptr i8, ptr %96, i64 8
   %.val49 = load ptr, ptr %98, align 8, !tbaa !40
   %99 = sext i32 %.val50 to i64
-  %100 = getelementptr inbounds i32, ptr %.val49, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %.val49, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !18
   %102 = and i64 %78, 1
   %.not46 = icmp eq i64 %102, 0
@@ -1846,7 +1842,7 @@ define void @Dar_LibEvalAssignNums(ptr noundef readonly captures(none) %0, i32 n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %107 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 10732
-  %109 = getelementptr inbounds i32, ptr %108, i64 %4
+  %109 = getelementptr inbounds [4 x i8], ptr %108, i64 %4
   %110 = load i32, ptr %109, align 4, !tbaa !18
   %111 = sext i32 %110 to i64
   %112 = icmp slt i64 %indvars.iv.next, %111
@@ -1877,7 +1873,7 @@ define range(i32 -2147483647, -2147483648) i32 @Dar_LibEval_rec(ptr noundef read
   %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = load i64, ptr %0, align 4
   %14 = lshr i64 %13, 36
-  %15 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i32, ptr %16, align 4, !tbaa !110
   %18 = icmp eq i32 %17, %1
@@ -1929,7 +1925,7 @@ define range(i32 -2147483647, -2147483648) i32 @Dar_LibEval_rec(ptr noundef read
   %40 = add nsw i32 %2, -1
   %41 = and i64 %20, 65535
   %.val67 = load ptr, ptr %10, align 8, !tbaa !15
-  %42 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val67, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.val67, i64 %41
   %43 = add nsw i32 %3, 1
   %. = select i1 %.not, ptr null, ptr %6
   %44 = call i32 @Dar_LibEval_rec(ptr noundef %42, i32 noundef %1, i32 noundef %40, i32 noundef %43, ptr noundef %.)
@@ -1942,7 +1938,7 @@ define range(i32 -2147483647, -2147483648) i32 @Dar_LibEval_rec(ptr noundef read
   %48 = lshr i64 %47, 16
   %.val66 = load ptr, ptr %46, align 8, !tbaa !15
   %49 = and i64 %48, 65535
-  %50 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val66, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.val66, i64 %49
   %.1 = select i1 %.not, ptr null, ptr %7
   %51 = call i32 @Dar_LibEval_rec(ptr noundef %50, i32 noundef %1, i32 noundef %40, i32 noundef %43, ptr noundef %.1)
   %52 = add nsw i32 %51, %44
@@ -1959,16 +1955,16 @@ define range(i32 -2147483647, -2147483648) i32 @Dar_LibEval_rec(ptr noundef read
   %58 = load i64, ptr %0, align 4
   %59 = and i64 %58, 65535
   %.val65 = load ptr, ptr %55, align 8, !tbaa !15
-  %60 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val65, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val65, i64 %59
   %61 = load i64, ptr %60, align 4
   %62 = lshr i64 %61, 36
-  %63 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %57, i64 %62
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %62
   %64 = lshr i64 %58, 16
   %65 = and i64 %64, 65535
-  %66 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val65, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.val65, i64 %65
   %67 = load i64, ptr %66, align 4
   %68 = lshr i64 %67, 36
-  %69 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %57, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %68
   %70 = and i64 %58, 4294967296
   %.not63 = icmp eq i64 %70, 0
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -2079,7 +2075,7 @@ Abc_Clock.exit:                                   ; preds = %5, %12
 30:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
   %31 = load ptr, ptr %29, align 8, !tbaa !21
-  %32 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8, !tbaa !35
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, -2
@@ -2109,7 +2105,7 @@ Abc_Clock.exit:                                   ; preds = %5, %12
 47:                                               ; preds = %47, %.lr.ph15.i
   %indvars.iv18.i = phi i64 [ 0, %.lr.ph15.i ], [ %indvars.iv.next19.i, %47 ]
   %48 = load ptr, ptr %46, align 8, !tbaa !21
-  %49 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %48, i64 %indvars.iv18.i
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %indvars.iv18.i
   %50 = load ptr, ptr %49, align 8, !tbaa !35
   %51 = ptrtoint ptr %50 to i64
   %52 = and i64 %51, -2
@@ -2140,7 +2136,7 @@ Dar_LibCutMarkMffc.exit:                          ; preds = %47, %._crit_edge.i
   %70 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 13412
   %72 = zext i8 %68 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !18
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %76 = load i32, ptr %75, align 4, !tbaa !118
@@ -2148,7 +2144,7 @@ Dar_LibCutMarkMffc.exit:                          ; preds = %47, %._crit_edge.i
   store i32 %77, ptr %75, align 4, !tbaa !118
   %78 = load i32, ptr %73, align 4, !tbaa !18
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 1848
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %72
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %72
   %81 = load i32, ptr %80, align 4, !tbaa !18
   %82 = add nsw i32 %81, %78
   store i32 %82, ptr %80, align 4, !tbaa !18
@@ -2169,18 +2165,18 @@ Dar_LibCutMarkMffc.exit:                          ; preds = %47, %._crit_edge.i
   %indvars.iv94 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next95, %207 ]
   %92 = phi ptr [ %70, %.lr.ph90 ], [ %208, %207 ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 14304
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %72
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %72
   %95 = load ptr, ptr %94, align 8, !tbaa !37
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv94
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv94
   %97 = load i32, ptr %96, align 4, !tbaa !18
   %.val = load ptr, ptr %92, align 8, !tbaa !15
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %.val, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 16096
   %101 = load ptr, ptr %100, align 8, !tbaa !21
   %102 = load i64, ptr %99, align 4
   %103 = lshr i64 %102, 36
-  %104 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !35
   %106 = ptrtoint ptr %105 to i64
   %107 = and i64 %106, -2
@@ -2245,7 +2241,7 @@ Dar_LibCutMarkMffc.exit:                          ; preds = %47, %._crit_edge.i
   %142 = load ptr, ptr %141, align 8, !tbaa !21
   %143 = load i64, ptr %99, align 4
   %144 = lshr i64 %143, 36
-  %145 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %142, i64 %144
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %142, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load i32, ptr %146, align 8, !tbaa !96
   %148 = load i32, ptr %86, align 4, !tbaa !121
@@ -2266,7 +2262,7 @@ Dar_LibCutMarkMffc.exit:                          ; preds = %47, %._crit_edge.i
   %154 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16096
   %156 = load ptr, ptr %155, align 8, !tbaa !21
-  %157 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %156, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [24 x i8], ptr %156, i64 %indvars.iv
   %158 = load ptr, ptr %157, align 8, !tbaa !35
   %159 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %160 = load i32, ptr %159, align 4, !tbaa !123
@@ -2332,7 +2328,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %187 = add nsw i32 %186, 1
   store i32 %187, ptr %159, align 4, !tbaa !123
   %188 = sext i32 %186 to i64
-  %189 = getelementptr inbounds ptr, ptr %185, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %185, i64 %188
   store ptr %158, ptr %189, align 8, !tbaa !94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %190 = load i32, ptr %16, align 4
@@ -2344,9 +2340,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %149
   %194 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 14304
-  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %72
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %72
   %197 = load ptr, ptr %196, align 8, !tbaa !37
-  %198 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv94
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %indvars.iv94
   %199 = load i32, ptr %198, align 4, !tbaa !18
   store i32 %199, ptr %88, align 8, !tbaa !126
   store i32 %117, ptr %89, align 4, !tbaa !127
@@ -2354,7 +2350,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %201 = load ptr, ptr %200, align 8, !tbaa !21
   %202 = load i64, ptr %99, align 4
   %203 = lshr i64 %202, 36
-  %204 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %201, i64 %203
+  %204 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %203
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load i32, ptr %205, align 8, !tbaa !96
   store i32 %206, ptr %86, align 4, !tbaa !121
@@ -2367,7 +2363,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %208 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 13412
-  %210 = getelementptr inbounds nuw i32, ptr %209, i64 %72
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %72
   %211 = load i32, ptr %210, align 4, !tbaa !18
   %212 = sext i32 %211 to i64
   %213 = icmp slt i64 %indvars.iv.next95, %212
@@ -2393,7 +2389,7 @@ Abc_Clock.exit83:                                 ; preds = %._crit_edge91, %216
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %223 = add i64 %.0.i82, %.0.i.neg
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %225 = getelementptr inbounds nuw i32, ptr %224, i64 %72
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %72
   %226 = load i32, ptr %225, align 4, !tbaa !18
   %227 = trunc i64 %223 to i32
   %228 = add i32 %226, %227
@@ -2435,18 +2431,18 @@ tailrecurse:                                      ; preds = %.lr.ph, %tailrecurs
   %14 = or disjoint i64 %13, %12
   store i64 %14, ptr %.tr11, align 4
   %15 = load ptr, ptr %6, align 8, !tbaa !21
-  %16 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %11
   store ptr null, ptr %16, align 8, !tbaa !35
   %17 = load i64, ptr %.tr11, align 4
   %18 = and i64 %17, 65535
   %.val8 = load ptr, ptr %5, align 8, !tbaa !15
-  %19 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val8, i64 %18
   tail call void @Dar_LibBuildClear_rec(ptr noundef %19, ptr noundef nonnull %1)
   %20 = load i64, ptr %.tr11, align 4
   %21 = lshr i64 %20, 16
   %.val = load ptr, ptr %5, align 8, !tbaa !15
   %22 = and i64 %21, 65535
-  %23 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %22
   %24 = load i64, ptr %23, align 4
   %25 = and i64 %24, 34359738368
   %.not = icmp eq i64 %25, 0
@@ -2463,7 +2459,7 @@ define ptr @Dar_LibBuildBest_rec(ptr noundef %0, ptr noundef readonly captures(n
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = load i64, ptr %1, align 4
   %7 = lshr i64 %6, 36
-  %8 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !35
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %common.ret19
@@ -2475,14 +2471,14 @@ common.ret19:                                     ; preds = %2, %10
 10:                                               ; preds = %2
   %11 = and i64 %6, 65535
   %.val18 = load ptr, ptr %3, align 8, !tbaa !15
-  %12 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val18, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val18, i64 %11
   %13 = tail call ptr @Dar_LibBuildBest_rec(ptr noundef %0, ptr noundef %12)
   %14 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %15 = load i64, ptr %1, align 4
   %16 = lshr i64 %15, 16
   %.val = load ptr, ptr %14, align 8, !tbaa !15
   %17 = and i64 %16, 65535
-  %18 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %17
   %19 = tail call ptr @Dar_LibBuildBest_rec(ptr noundef %0, ptr noundef %18)
   %20 = load i64, ptr %1, align 4
   %21 = lshr i64 %20, 32
@@ -2526,10 +2522,10 @@ define ptr @Dar_LibBuildBest(ptr noundef %0) local_unnamed_addr #0 {
   %9 = phi ptr [ %4, %.lr.ph ], [ %15, %8 ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val9 = load ptr, ptr %10, align 8, !tbaa !92
-  %11 = getelementptr inbounds nuw ptr, ptr %.val9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !94
   %13 = load ptr, ptr %7, align 8, !tbaa !21
-  %14 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv
   store ptr %12, ptr %14, align 8, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load ptr, ptr %3, align 8, !tbaa !122
@@ -2544,12 +2540,12 @@ define ptr @Dar_LibBuildBest(ptr noundef %0) local_unnamed_addr #0 {
   %20 = load i32, ptr %19, align 8, !tbaa !126
   %.val8 = load ptr, ptr %.pre, align 8, !tbaa !15
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val8, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %.val8, i64 %21
   call void @Dar_LibBuildClear_rec(ptr noundef %22, ptr noundef nonnull %2)
   %23 = load i32, ptr %19, align 8, !tbaa !126
   %.val = load ptr, ptr %.pre, align 8, !tbaa !15
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %.val, i64 %24
   %26 = tail call ptr @Dar_LibBuildBest_rec(ptr noundef nonnull %0, ptr noundef %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %26
@@ -2571,7 +2567,7 @@ define noundef i32 @Dar2_LibCutMatch(ptr noundef readonly captures(none) %0, ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %7
   %16 = load i8, ptr %15, align 1, !tbaa !35
   %17 = sext i8 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %12, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %12, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !76
   %20 = getelementptr i8, ptr %1, i64 4
   %.val18 = load i32, ptr %20, align 4, !tbaa !38
@@ -2593,21 +2589,21 @@ define noundef i32 @Dar2_LibCutMatch(ptr noundef readonly captures(none) %0, ptr
   %29 = load i8, ptr %28, align 1, !tbaa !35
   %.val14 = load ptr, ptr %22, align 8, !tbaa !40
   %30 = sext i8 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %.val14, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %.val14, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !18
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = lshr i32 %10, %33
   %35 = and i32 %34, 1
   %36 = xor i32 %32, %35
-  %37 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %27, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %indvars.iv
   store i32 %36, ptr %37, align 8, !tbaa !35
   %38 = load ptr, ptr %23, align 8, !tbaa !21
-  %39 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 8, !tbaa !35
   %.val15 = load ptr, ptr %24, align 8, !tbaa !132
   %41 = ashr i32 %40, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val15, i64 %42
+  %43 = getelementptr inbounds [12 x i8], ptr %.val15, i64 %42
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, -2
   %.val17 = load ptr, ptr %25, align 8, !tbaa !144
@@ -2713,7 +2709,7 @@ Gia_ObjLevel.exit:                                ; preds = %26, %._crit_edge.i.
   %91 = ashr exact i64 %sext.i, 30
   %92 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !18
-  %94 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %89, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %89, i64 %indvars.iv
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 %93, ptr %95, align 8, !tbaa !96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2731,7 +2727,7 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %3 = sext i32 %1 to i64
   %4 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 10732
-  %6 = getelementptr inbounds i32, ptr %5, i64 %3
+  %6 = getelementptr inbounds [4 x i8], ptr %5, i64 %3
   %7 = load i32, ptr %6, align 4, !tbaa !18
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -2745,13 +2741,13 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %149 ]
   %12 = phi ptr [ %4, %.lr.ph ], [ %150, %149 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 11624
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %3
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %3
   %15 = load ptr, ptr %14, align 8, !tbaa !37
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !18
   %.val51 = load ptr, ptr %12, align 8, !tbaa !15
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val51, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.val51, i64 %18
   %20 = load i64, ptr %19, align 4
   %21 = add nuw nsw i64 %indvars.iv, 4
   %22 = and i64 %21, 268435455
@@ -2761,7 +2757,7 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   store i64 %25, ptr %19, align 4
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 16096
   %27 = load ptr, ptr %26, align 8, !tbaa !21
-  %28 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %27, i64 %22
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %29, align 4, !tbaa !109
   store i32 -1, ptr %28, align 8, !tbaa !35
@@ -2771,16 +2767,16 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %32 = load i64, ptr %19, align 4
   %33 = and i64 %32, 65535
   %.val50 = load ptr, ptr %12, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val50, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.val50, i64 %33
   %35 = load i64, ptr %34, align 4
   %36 = lshr i64 %35, 36
-  %37 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %31, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %36
   %38 = lshr i64 %32, 16
   %39 = and i64 %38, 65535
-  %40 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val50, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.val50, i64 %39
   %41 = load i64, ptr %40, align 4
   %42 = lshr i64 %41, 36
-  %43 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %31, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !96
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -2830,7 +2826,7 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %.val54 = load ptr, ptr %9, align 8, !tbaa !132
   %76 = ashr i32 %51, 1
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %77
+  %78 = getelementptr inbounds [12 x i8], ptr %.val54, i64 %77
   %79 = and i32 %61, 1
   %80 = ptrtoint ptr %78 to i64
   %81 = zext nneg i32 %79 to i64
@@ -2838,7 +2834,7 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %83 = inttoptr i64 %82 to ptr
   %84 = ashr i32 %54, 1
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %85
+  %86 = getelementptr inbounds [12 x i8], ptr %.val54, i64 %85
   %87 = and i32 %65, 1
   %88 = ptrtoint ptr %86 to i64
   %89 = zext nneg i32 %87 to i64
@@ -2867,7 +2863,7 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %.val52 = load ptr, ptr %9, align 8, !tbaa !132
   %97 = lshr i32 %.058, 1
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val52, i64 %98
+  %99 = getelementptr inbounds nuw [12 x i8], ptr %.val52, i64 %98
   %100 = ptrtoint ptr %99 to i64
   %101 = and i64 %100, -2
   %.val56 = load ptr, ptr %10, align 8, !tbaa !144
@@ -2978,7 +2974,7 @@ Gia_ObjLevel.exit:                                ; preds = %96, %._crit_edge.i.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %150 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 10732
-  %152 = getelementptr inbounds i32, ptr %151, i64 %3
+  %152 = getelementptr inbounds [4 x i8], ptr %151, i64 %3
   %153 = load i32, ptr %152, align 4, !tbaa !18
   %154 = sext i32 %153 to i64
   %155 = icmp slt i64 %indvars.iv.next, %154
@@ -3002,7 +2998,7 @@ tailrecurse:                                      ; preds = %18, %2
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = load i64, ptr %.tr, align 4
   %7 = lshr i64 %6, 36
-  %8 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !110
   %11 = icmp eq i32 %10, %1
@@ -3027,13 +3023,13 @@ common.ret:                                       ; preds = %tailrecurse, %12, %
 18:                                               ; preds = %15
   %19 = and i64 %13, 65535
   %.val14 = load ptr, ptr %3, align 8, !tbaa !15
-  %20 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val14, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val14, i64 %19
   %21 = tail call i32 @Dar2_LibEval_rec(ptr noundef %20, i32 noundef %1)
   %22 = load i64, ptr %.tr, align 4
   %23 = lshr i64 %22, 16
   %.val = load ptr, ptr %3, align 8, !tbaa !15
   %24 = and i64 %23, 65535
-  %25 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %24
   %26 = add i32 %21, 1
   %27 = add i32 %26, %accumulator.tr
   br label %tailrecurse
@@ -3053,14 +3049,14 @@ define i32 @Dar2_LibEval(ptr noundef %0, ptr noundef readonly captures(none) %1,
   %14 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 13412
   %16 = zext i8 %12 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !18
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph60, label %._crit_edge61
 
 .lr.ph60:                                         ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 14304
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %16
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   %.not = icmp eq i32 %3, 0
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 16096
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3074,11 +3070,11 @@ define i32 @Dar2_LibEval(ptr noundef %0, ptr noundef readonly captures(none) %1,
   %.04257 = phi i32 [ 1000000, %.lr.ph60 ], [ %.143, %99 ]
   %.04655 = phi i32 [ -1000000, %.lr.ph60 ], [ %.147, %99 ]
   %26 = load ptr, ptr %21, align 8, !tbaa !37
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv63
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv63
   %28 = load i32, ptr %27, align 4, !tbaa !18
   %.val = load ptr, ptr %14, align 8, !tbaa !15
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.val, i64 %29
   %31 = trunc nuw nsw i64 %indvars.iv63 to i32
   %32 = tail call i32 @Dar2_LibEval_rec(ptr noundef %30, i32 noundef %31)
   %33 = sub nsw i32 0, %32
@@ -3088,7 +3084,7 @@ define i32 @Dar2_LibEval(ptr noundef %0, ptr noundef readonly captures(none) %1,
   %35 = load ptr, ptr %22, align 8, !tbaa !21
   %36 = load i64, ptr %30, align 4
   %37 = lshr i64 %36, 36
-  %38 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !96
   %41 = icmp sgt i32 %40, %.04257
@@ -3112,7 +3108,7 @@ define i32 @Dar2_LibEval(ptr noundef %0, ptr noundef readonly captures(none) %1,
   %49 = load ptr, ptr %22, align 8, !tbaa !21
   %50 = load i64, ptr %30, align 4
   %51 = lshr i64 %50, 36
-  %52 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !96
   %.not50 = icmp slt i32 %54, %.04257
@@ -3132,7 +3128,7 @@ define i32 @Dar2_LibEval(ptr noundef %0, ptr noundef readonly captures(none) %1,
   %57 = phi i32 [ %.pr, %.lr.phthread-pre-split ], [ 0, %55 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.phthread-pre-split ], [ 0, %55 ]
   %58 = load ptr, ptr %22, align 8, !tbaa !21
-  %59 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %indvars.iv
   %60 = load i32, ptr %59, align 8, !tbaa !35
   %61 = load i32, ptr %4, align 8, !tbaa !145
   %62 = icmp eq i32 %57, %61
@@ -3193,7 +3189,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %85 = add nsw i32 %84, 1
   store i32 %85, ptr %23, align 4, !tbaa !38
   %86 = sext i32 %84 to i64
-  %87 = getelementptr inbounds i32, ptr %83, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %83, i64 %86
   store i32 %60, ptr %87, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val52 = load i32, ptr %24, align 4, !tbaa !38
@@ -3203,12 +3199,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit, %55
   %90 = load ptr, ptr %21, align 8, !tbaa !37
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv63
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv63
   %92 = load i32, ptr %91, align 4, !tbaa !18
   %93 = load ptr, ptr %22, align 8, !tbaa !21
   %94 = load i64, ptr %30, align 4
   %95 = lshr i64 %94, 36
-  %96 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %93, i64 %95
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i32, ptr %97, align 8, !tbaa !96
   br label %99
@@ -3253,18 +3249,18 @@ tailrecurse:                                      ; preds = %.lr.ph, %tailrecurs
   %14 = or disjoint i64 %13, %12
   store i64 %14, ptr %.tr11, align 4
   %15 = load ptr, ptr %6, align 8, !tbaa !21
-  %16 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %11
   store i32 -1, ptr %16, align 8, !tbaa !35
   %17 = load i64, ptr %.tr11, align 4
   %18 = and i64 %17, 65535
   %.val8 = load ptr, ptr %5, align 8, !tbaa !15
-  %19 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val8, i64 %18
   tail call void @Dar2_LibBuildClear_rec(ptr noundef %19, ptr noundef nonnull %1)
   %20 = load i64, ptr %.tr11, align 4
   %21 = lshr i64 %20, 16
   %.val = load ptr, ptr %5, align 8, !tbaa !15
   %22 = and i64 %21, 65535
-  %23 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %22
   %24 = load i64, ptr %23, align 4
   %25 = and i64 %24, 34359738368
   %.not = icmp eq i64 %25, 0
@@ -3281,7 +3277,7 @@ define i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr noundef readonly captures(
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = load i64, ptr %1, align 4
   %7 = lshr i64 %6, 36
-  %8 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %7
   %9 = load i32, ptr %8, align 8, !tbaa !35
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %186, label %11
@@ -3289,14 +3285,14 @@ define i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr noundef readonly captures(
 11:                                               ; preds = %2
   %12 = and i64 %6, 65535
   %.val24 = load ptr, ptr %3, align 8, !tbaa !15
-  %13 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val24, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val24, i64 %12
   %14 = tail call i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr noundef %13)
   %15 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %16 = load i64, ptr %1, align 4
   %17 = lshr i64 %16, 16
   %.val = load ptr, ptr %15, align 8, !tbaa !15
   %18 = and i64 %17, 65535
-  %19 = getelementptr inbounds nuw %struct.Dar_LibObj_t_, ptr %.val, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %18
   %20 = tail call i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr noundef %19)
   %21 = load i64, ptr %1, align 4
   %22 = lshr i64 %21, 32
@@ -3313,7 +3309,7 @@ define i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr noundef readonly captures(
   %32 = getelementptr i8, ptr %0, i64 32
   %.val25 = load ptr, ptr %32, align 8, !tbaa !132
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val25, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %.val25, i64 %33
   %.val26 = load i64, ptr %34, align 4
   %35 = and i64 %.val26, 2147483648
   %.not.i = icmp ne i64 %35, 0
@@ -3435,7 +3431,7 @@ Gia_ObjLevel.exit.i:                              ; preds = %._crit_edge.i.i.i.i
   %86 = lshr i64 %81, 32
   %87 = and i64 %86, 536870911
   %88 = sub nsw i64 0, %87
-  %89 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %34, i64 %88
+  %89 = getelementptr inbounds [12 x i8], ptr %34, i64 %88
   %90 = ptrtoint ptr %89 to i64
   %91 = sub i64 %90, %.pre-phi.i
   %92 = sdiv exact i64 %91, 12
@@ -3679,10 +3675,10 @@ define i32 @Dar2_LibBuildBest(ptr noundef %0, ptr noundef readonly captures(none
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.val11 = load ptr, ptr %7, align 8, !tbaa !40
-  %10 = getelementptr inbounds nuw i32, ptr %.val11, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %.val11, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !18
   %12 = load ptr, ptr %8, align 8, !tbaa !21
-  %13 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv
   store i32 %11, ptr %13, align 8, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val10 = load i32, ptr %5, align 4, !tbaa !38
@@ -3693,10 +3689,10 @@ define i32 @Dar2_LibBuildBest(ptr noundef %0, ptr noundef readonly captures(none
 .critedge:                                        ; preds = %9, %3
   %.val9 = load ptr, ptr %.pre, align 8, !tbaa !15
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val9, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.val9, i64 %16
   call void @Dar2_LibBuildClear_rec(ptr noundef %17, ptr noundef nonnull %4)
   %.val = load ptr, ptr %.pre, align 8, !tbaa !15
-  %18 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val, i64 %16
+  %18 = getelementptr inbounds [8 x i8], ptr %.val, i64 %16
   %19 = tail call i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr noundef %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %19
@@ -3722,10 +3718,10 @@ define i32 @Dar_LibEvalBuild(ptr noundef %0, ptr noundef readonly captures(none)
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %.val11.i = load ptr, ptr %10, align 8, !tbaa !40
-  %13 = getelementptr inbounds nuw i32, ptr %.val11.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.val11.i, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4, !tbaa !18
   %15 = load ptr, ptr %11, align 8, !tbaa !21
-  %16 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv.i
   store i32 %14, ptr %16, align 8, !tbaa !35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val10.i = load i32, ptr %8, align 4, !tbaa !38
@@ -3736,10 +3732,10 @@ define i32 @Dar_LibEvalBuild(ptr noundef %0, ptr noundef readonly captures(none)
 Dar2_LibBuildBest.exit:                           ; preds = %12, %5
   %.val9.i = load ptr, ptr %.pre.i, align 8, !tbaa !15
   %19 = sext i32 %7 to i64
-  %20 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val9.i, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %.val9.i, i64 %19
   call void @Dar2_LibBuildClear_rec(ptr noundef %20, ptr noundef nonnull %6)
   %.val.i = load ptr, ptr %.pre.i, align 8, !tbaa !15
-  %21 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val.i, i64 %19
+  %21 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %19
   %22 = tail call i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr noundef %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %22

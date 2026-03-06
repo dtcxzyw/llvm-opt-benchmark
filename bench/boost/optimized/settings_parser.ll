@@ -1529,7 +1529,7 @@ _ZSt7getlineIwSt11char_traitsIwESaIwEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112
   %60 = load ptr, ptr %8, align 8, !tbaa !75
   store ptr %60, ptr %9, align 8, !tbaa !28
   %61 = load i64, ptr %42, align 8, !tbaa !69
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %61
   invoke void @_ZN5boost3log11v2_mt_posix9anonymous15settings_parserIwE10parse_lineERPKwS6_(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %62)
           to label %63 unwind label %76
 
@@ -5792,7 +5792,7 @@ _ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElEvRT_T0_.exit.i.i.i.i ], [ %31, %44 ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElEvRT_T0_.exit.i.i.i.i ], [ %33, %44 ]
   %45 = lshr i64 %.01116.i.i.i.i, 1
-  %46 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %.017.i.i.i.i, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i.i, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !147
   %48 = icmp ult ptr %47, %42
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -5885,7 +5885,7 @@ define linkonce_odr hidden void @_ZN5boost11multi_index6detail8copy_mapINS1_20se
 8:                                                ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   %.04 = phi i64 [ 0, %.lr.ph ], [ %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
   %9 = load ptr, ptr %7, align 8, !tbaa !142
-  %10 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %9, i64 %.04
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.04
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !151
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -5918,7 +5918,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   %26 = load ptr, ptr %7, align 8, !tbaa !142
-  %27 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %26, i64 %.04
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %.04
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !151
   tail call void @_ZdlPvm(ptr noundef %29, i64 noundef 112) #32
@@ -5952,7 +5952,7 @@ define linkonce_odr hidden void @_ZN5boost11multi_index6detail8copy_mapINS1_20se
   %6 = load ptr, ptr %5, align 8, !tbaa !142
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !143
-  %9 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %8
   store ptr %1, ptr %9, align 8, !tbaa !147
   %10 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #33
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -6126,7 +6126,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %72 = call ptr @__cxa_begin_catch(ptr %71) #29
   %73 = load ptr, ptr %5, align 8, !tbaa !142
   %74 = load i64, ptr %7, align 8, !tbaa !143
-  %75 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !151
   call void @_ZdlPvm(ptr noundef %77, i64 noundef 112) #32
@@ -6217,13 +6217,13 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN5boost11multi_index6de
   %25 = and i64 %17, 16
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %27
-  %29 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %22
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %27
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %22
   br label %30
 
 30:                                               ; preds = %_ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElSQ_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.i.i, %19
   %.013.i.i13 = phi i64 [ %22, %19 ], [ %56, %_ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElSQ_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.i.i ]
-  %31 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %.013.i.i13
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.013.i.i13
   %.sroa.01.0.copyload.i.i = load ptr, ptr %31, align 8, !tbaa !28
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !28
@@ -6234,16 +6234,16 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN5boost11multi_index6de
   %.030.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.013.i.i13, %30 ]
   %33 = shl i64 %.030.i.i.i, 1
   %34 = add i64 %33, 2
-  %35 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %34
-  %36 = getelementptr %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %33
+  %35 = getelementptr inbounds [16 x i8], ptr %0, i64 %34
+  %36 = getelementptr [16 x i8], ptr %0, i64 %33
   %37 = getelementptr i8, ptr %36, i64 16
   %38 = load ptr, ptr %35, align 8, !tbaa !147
   %39 = load ptr, ptr %37, align 8, !tbaa !147
   %40 = icmp ult ptr %38, %39
   %41 = or disjoint i64 %33, 1
   %spec.select.i.i.i = select i1 %40, i64 %41, i64 %34
-  %42 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %spec.select.i.i.i
-  %43 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %.030.i.i.i
+  %42 = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select.i.i.i
+  %43 = getelementptr inbounds [16 x i8], ptr %0, i64 %.030.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !153
   %44 = icmp slt i64 %spec.select.i.i.i, %24
   br i1 %44, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !154
@@ -6267,20 +6267,20 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN5boost11multi_index6de
   %.01316.i.i.i.i = phi i64 [ %.017.i.i.i.i, %52 ], [ %.1.i.i.i, %47 ]
   %.017.in.i.i.i.i = add nsw i64 %.01316.i.i.i.i, -1
   %.017.i.i.i.i = sdiv i64 %.017.in.i.i.i.i, 2
-  %49 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %.017.i.i.i.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.017.i.i.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !147
   %51 = icmp ult ptr %50, %.sroa.01.0.copyload.i.i
   br i1 %51, label %52, label %_ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElSQ_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.i.i
 
 52:                                               ; preds = %.lr.ph.i.i.i.i14
-  %53 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %.01316.i.i.i.i
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.01316.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !153
   %54 = icmp sgt i64 %.017.i.i.i.i, %.013.i.i13
   br i1 %54, label %.lr.ph.i.i.i.i14, label %_ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElSQ_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.i.i, !llvm.loop !155
 
 _ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElSQ_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SW_T1_T2_.exit.i.i: ; preds = %52, %.lr.ph.i.i.i.i14, %47
   %.013.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %47 ], [ %.017.i.i.i.i, %52 ], [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i14 ]
-  %55 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %.013.lcssa.i.i.i.i
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i
   store ptr %.sroa.01.0.copyload.i.i, ptr %55, align 8, !tbaa !28
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %.sroa.4.0.copyload.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8, !tbaa !28
@@ -6307,16 +6307,16 @@ _ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %64 = shl i64 %.030.i.i.i.i, 1
   %65 = add i64 %64, 2
-  %66 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %65
-  %67 = getelementptr %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %64
+  %66 = getelementptr inbounds [16 x i8], ptr %0, i64 %65
+  %67 = getelementptr [16 x i8], ptr %0, i64 %64
   %68 = getelementptr i8, ptr %67, i64 16
   %69 = load ptr, ptr %66, align 8, !tbaa !147
   %70 = load ptr, ptr %68, align 8, !tbaa !147
   %71 = icmp ult ptr %69, %70
   %72 = or disjoint i64 %64, 1
   %spec.select.i.i.i.i = select i1 %71, i64 %72, i64 %65
-  %73 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %spec.select.i.i.i.i
-  %74 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %.030.i.i.i.i
+  %73 = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select.i.i.i.i
+  %74 = getelementptr inbounds [16 x i8], ptr %0, i64 %.030.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !153
   %75 = icmp slt i64 %spec.select.i.i.i.i, %62
   br i1 %75, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !154
@@ -6336,8 +6336,8 @@ _ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced
 .thread.i.i.i:                                    ; preds = %78
   %82 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %83 = or disjoint i64 %82, 1
-  %84 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %83
-  %85 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %83
+  %85 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !153
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -6353,20 +6353,20 @@ _ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced
   %.01316.i.i.i.i.i = phi i64 [ %.017.i.i78.i.i.i, %90 ], [ %.01316.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.017.in.i.i.i.i.i = add nsw i64 %.01316.i.i.i.i.i, -1
   %.017.i.i78.i.i.i = lshr i64 %.017.in.i.i.i.i.i, 1
-  %87 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %.017.i.i78.i.i.i
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.017.i.i78.i.i.i
   %88 = load ptr, ptr %87, align 8, !tbaa !147
   %89 = icmp ult ptr %88, %.sroa.01.0.copyload.i.i.i
   br i1 %89, label %90, label %_ZSt10__pop_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i
 
 90:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %91 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %.01316.i.i.i.i.i
+  %91 = getelementptr inbounds [16 x i8], ptr %0, i64 %.01316.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !tbaa.struct !153
   %.not9.i.i.i = icmp eq i64 %.017.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !155
 
 _ZSt10__pop_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SV_SV_RT0_.exit.i.i: ; preds = %90, %.lr.ph.i.i.i.i.i, %86
   %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %86 ], [ %.01316.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %90 ]
-  %92 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %92 = getelementptr inbounds [16 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %.sroa.01.0.copyload.i.i.i, ptr %92, align 8, !tbaa !28
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !28
@@ -6376,7 +6376,7 @@ _ZSt10__pop_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_in
 94:                                               ; preds = %16
   %95 = add nsw i64 %.01221, -1
   %96 = lshr i64 %17, 5
-  %97 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %0, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %96
   %98 = getelementptr inbounds i8, ptr %.022, i64 -16
   %99 = load ptr, ptr %15, align 8, !tbaa !147
   %100 = load ptr, ptr %97, align 8, !tbaa !147
@@ -6609,7 +6609,7 @@ _ZSt25__unguarded_linear_insertIPN5boost11multi_index6detail14copy_map_entryINS2
   %35 = sub i64 %34, %6
   %36 = ashr exact i64 %35, 4
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry", ptr %33, i64 %37
+  %38 = getelementptr inbounds [16 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %35, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -6708,7 +6708,7 @@ _ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElEvRT_T0_.exit.i.i.i ], [ %35, %33 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElEvRT_T0_.exit.i.i.i ], [ %37, %33 ]
   %39 = lshr i64 %.01116.i.i.i, 1
-  %40 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %.017.i.i.i, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !147
   %42 = icmp ult ptr %41, %27
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -6755,7 +6755,7 @@ _ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index
   %.017.i.i.i52 = phi ptr [ %.1.i.i.i57, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElEvRT_T0_.exit.i.i.i51 ], [ %61, %59 ]
   %.01116.i.i.i53 = phi i64 [ %.112.i.i.i56, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElEvRT_T0_.exit.i.i.i51 ], [ %63, %59 ]
   %65 = lshr i64 %.01116.i.i.i53, 1
-  %66 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %.017.i.i.i52, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i52, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !147
   %68 = icmp ult ptr %67, %55
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -6805,7 +6805,7 @@ _ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index
   %.017.i.i.i64 = phi ptr [ %.1.i.i.i69, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElEvRT_T0_.exit.i.i.i63 ], [ %88, %86 ]
   %.01116.i.i.i65 = phi i64 [ %.112.i.i.i68, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElEvRT_T0_.exit.i.i.i63 ], [ %90, %86 ]
   %92 = lshr i64 %.01116.i.i.i65, 1
-  %93 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %.017.i.i.i64, i64 %92
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i64, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !147
   %95 = icmp ult ptr %94, %81
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 16
@@ -6880,7 +6880,7 @@ _ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index
   %.017.i.i.i76 = phi ptr [ %.1.i.i.i81, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElEvRT_T0_.exit.i.i.i75 ], [ %131, %130 ]
   %.01116.i.i.i77 = phi i64 [ %.112.i.i.i80, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEElEvRT_T0_.exit.i.i.i75 ], [ %132, %130 ]
   %134 = lshr i64 %.01116.i.i.i77, 1
-  %135 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %.017.i.i.i76, i64 %134
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i76, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !147
   %137 = icmp ult ptr %136, %127
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 16
@@ -10529,7 +10529,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous15settings_
   %43 = phi ptr [ %27, %._crit_edge.i.i ], [ %27, %28 ], [ %.pre7.i.i, %30 ]
   %44 = phi i64 [ %26, %._crit_edge.i.i ], [ %26, %28 ], [ %.pre6.i.i, %30 ]
   store i64 %44, ptr %18, align 8, !tbaa !69
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   store i32 0, ptr %45, align 4, !tbaa !71
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -11009,7 +11009,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous15settings_
   %55 = phi ptr [ %49, %._crit_edge.i.i ], [ %49, %50 ], [ %.pre7.i.i, %52 ]
   %56 = phi i64 [ %48, %._crit_edge.i.i ], [ %48, %50 ], [ %.pre6.i.i, %52 ]
   store i64 %56, ptr %40, align 8, !tbaa !69
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   store i32 0, ptr %57, align 4, !tbaa !71
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -11614,7 +11614,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree11basic_ptreeINSt7__cxx
   %21 = phi i64 [ %13, %._crit_edge.i.i.i.i.i.i ], [ %13, %15 ], [ %.pre6.i.i.i.i.i.i, %17 ]
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %21, ptr %22, align 8, !tbaa !69, !alias.scope !270
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 0, ptr %23, align 4, !tbaa !71
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !270
   store i8 1, ptr %4, align 8, !tbaa !273, !alias.scope !270
@@ -12828,7 +12828,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2ERKS4_.exit: ; preds = %.
   %18 = phi i64 [ %11, %._crit_edge.i.i ], [ %11, %13 ], [ %.pre6.i.i, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %18, ptr %19, align 8, !tbaa !69
-  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   store i32 0, ptr %20, align 4, !tbaa !71
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
@@ -12987,7 +12987,7 @@ _ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElEvRT_T0_.exit.i.i.i.i ], [ %31, %44 ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElEvRT_T0_.exit.i.i.i.i ], [ %33, %44 ]
   %45 = lshr i64 %.01116.i.i.i.i, 1
-  %46 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %.017.i.i.i.i, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i.i, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !287
   %48 = icmp ult ptr %47, %42
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -13080,7 +13080,7 @@ define linkonce_odr hidden void @_ZN5boost11multi_index6detail8copy_mapINS1_20se
 8:                                                ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   %.04 = phi i64 [ 0, %.lr.ph ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
   %9 = load ptr, ptr %7, align 8, !tbaa !282
-  %10 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %9, i64 %.04
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.04
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !291
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -13114,7 +13114,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   %27 = load ptr, ptr %7, align 8, !tbaa !282
-  %28 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %27, i64 %.04
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.04
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !291
   tail call void @_ZdlPvm(ptr noundef %30, i64 noundef 112) #32
@@ -13147,7 +13147,7 @@ define linkonce_odr hidden void @_ZN5boost11multi_index6detail8copy_mapINS1_20se
   %5 = load ptr, ptr %4, align 8, !tbaa !282
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !283
-  %8 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %7
   store ptr %1, ptr %8, align 8, !tbaa !287
   %9 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #33
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -13225,7 +13225,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %37 = call ptr @__cxa_begin_catch(ptr %36) #29
   %38 = load ptr, ptr %4, align 8, !tbaa !282
   %39 = load i64, ptr %6, align 8, !tbaa !283
-  %40 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !291
   call void @_ZdlPvm(ptr noundef %42, i64 noundef 112) #32
@@ -13312,13 +13312,13 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN5boost11multi_index6de
   %25 = and i64 %17, 16
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %27
-  %29 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %22
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %27
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %22
   br label %30
 
 30:                                               ; preds = %_ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElST_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SZ_T1_T2_.exit.i.i, %19
   %.013.i.i13 = phi i64 [ %22, %19 ], [ %56, %_ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElST_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SZ_T1_T2_.exit.i.i ]
-  %31 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %.013.i.i13
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.013.i.i13
   %.sroa.01.0.copyload.i.i = load ptr, ptr %31, align 8, !tbaa !28
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !28
@@ -13329,16 +13329,16 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN5boost11multi_index6de
   %.030.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.013.i.i13, %30 ]
   %33 = shl i64 %.030.i.i.i, 1
   %34 = add i64 %33, 2
-  %35 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %34
-  %36 = getelementptr %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %33
+  %35 = getelementptr inbounds [16 x i8], ptr %0, i64 %34
+  %36 = getelementptr [16 x i8], ptr %0, i64 %33
   %37 = getelementptr i8, ptr %36, i64 16
   %38 = load ptr, ptr %35, align 8, !tbaa !287
   %39 = load ptr, ptr %37, align 8, !tbaa !287
   %40 = icmp ult ptr %38, %39
   %41 = or disjoint i64 %33, 1
   %spec.select.i.i.i = select i1 %40, i64 %41, i64 %34
-  %42 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %spec.select.i.i.i
-  %43 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %.030.i.i.i
+  %42 = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select.i.i.i
+  %43 = getelementptr inbounds [16 x i8], ptr %0, i64 %.030.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !153
   %44 = icmp slt i64 %spec.select.i.i.i, %24
   br i1 %44, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !293
@@ -13362,20 +13362,20 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN5boost11multi_index6de
   %.01316.i.i.i.i = phi i64 [ %.017.i.i.i.i, %52 ], [ %.1.i.i.i, %47 ]
   %.017.in.i.i.i.i = add nsw i64 %.01316.i.i.i.i, -1
   %.017.i.i.i.i = sdiv i64 %.017.in.i.i.i.i, 2
-  %49 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %.017.i.i.i.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.017.i.i.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !287
   %51 = icmp ult ptr %50, %.sroa.01.0.copyload.i.i
   br i1 %51, label %52, label %_ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElST_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SZ_T1_T2_.exit.i.i
 
 52:                                               ; preds = %.lr.ph.i.i.i.i14
-  %53 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %.01316.i.i.i.i
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.01316.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !153
   %54 = icmp sgt i64 %.017.i.i.i.i, %.013.i.i13
   br i1 %54, label %.lr.ph.i.i.i.i14, label %_ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElST_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SZ_T1_T2_.exit.i.i, !llvm.loop !294
 
 _ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElST_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SZ_T1_T2_.exit.i.i: ; preds = %52, %.lr.ph.i.i.i.i14, %47
   %.013.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %47 ], [ %.017.i.i.i.i, %52 ], [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i14 ]
-  %55 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %.013.lcssa.i.i.i.i
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i
   store ptr %.sroa.01.0.copyload.i.i, ptr %55, align 8, !tbaa !28
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %.sroa.4.0.copyload.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8, !tbaa !28
@@ -13402,16 +13402,16 @@ _ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %64 = shl i64 %.030.i.i.i.i, 1
   %65 = add i64 %64, 2
-  %66 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %65
-  %67 = getelementptr %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %64
+  %66 = getelementptr inbounds [16 x i8], ptr %0, i64 %65
+  %67 = getelementptr [16 x i8], ptr %0, i64 %64
   %68 = getelementptr i8, ptr %67, i64 16
   %69 = load ptr, ptr %66, align 8, !tbaa !287
   %70 = load ptr, ptr %68, align 8, !tbaa !287
   %71 = icmp ult ptr %69, %70
   %72 = or disjoint i64 %64, 1
   %spec.select.i.i.i.i = select i1 %71, i64 %72, i64 %65
-  %73 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %spec.select.i.i.i.i
-  %74 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %.030.i.i.i.i
+  %73 = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select.i.i.i.i
+  %74 = getelementptr inbounds [16 x i8], ptr %0, i64 %.030.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !153
   %75 = icmp slt i64 %spec.select.i.i.i.i, %62
   br i1 %75, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !293
@@ -13431,8 +13431,8 @@ _ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced
 .thread.i.i.i:                                    ; preds = %78
   %82 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %83 = or disjoint i64 %82, 1
-  %84 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %83
-  %85 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %83
+  %85 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !153
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -13448,20 +13448,20 @@ _ZSt13__adjust_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced
   %.01316.i.i.i.i.i = phi i64 [ %.017.i.i78.i.i.i, %90 ], [ %.01316.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.017.in.i.i.i.i.i = add nsw i64 %.01316.i.i.i.i.i, -1
   %.017.i.i78.i.i.i = lshr i64 %.017.in.i.i.i.i.i, 1
-  %87 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %.017.i.i78.i.i.i
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.017.i.i78.i.i.i
   %88 = load ptr, ptr %87, align 8, !tbaa !287
   %89 = icmp ult ptr %88, %.sroa.01.0.copyload.i.i.i
   br i1 %89, label %90, label %_ZSt10__pop_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SY_SY_RT0_.exit.i.i
 
 90:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %91 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %.01316.i.i.i.i.i
+  %91 = getelementptr inbounds [16 x i8], ptr %0, i64 %.01316.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !tbaa.struct !153
   %.not9.i.i.i = icmp eq i64 %.017.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SY_SY_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !294
 
 _ZSt10__pop_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SY_SY_RT0_.exit.i.i: ; preds = %90, %.lr.ph.i.i.i.i.i, %86
   %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %86 ], [ %.01316.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %90 ]
-  %92 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %92 = getelementptr inbounds [16 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %.sroa.01.0.copyload.i.i.i, ptr %92, align 8, !tbaa !28
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !28
@@ -13471,7 +13471,7 @@ _ZSt10__pop_heapIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_in
 94:                                               ; preds = %16
   %95 = add nsw i64 %.01221, -1
   %96 = lshr i64 %17, 5
-  %97 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %0, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %96
   %98 = getelementptr inbounds i8, ptr %.022, i64 -16
   %99 = load ptr, ptr %15, align 8, !tbaa !287
   %100 = load ptr, ptr %97, align 8, !tbaa !287
@@ -13704,7 +13704,7 @@ _ZSt25__unguarded_linear_insertIPN5boost11multi_index6detail14copy_map_entryINS2
   %35 = sub i64 %34, %6
   %36 = ashr exact i64 %35, 4
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %33, i64 %37
+  %38 = getelementptr inbounds [16 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %35, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !153
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -13797,7 +13797,7 @@ _ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElEvRT_T0_.exit.i.i.i ], [ %35, %33 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElEvRT_T0_.exit.i.i.i ], [ %37, %33 ]
   %39 = lshr i64 %.01116.i.i.i, 1
-  %40 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %.017.i.i.i, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !287
   %42 = icmp ult ptr %41, %27
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -13844,7 +13844,7 @@ _ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index
   %.017.i.i.i52 = phi ptr [ %.1.i.i.i57, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElEvRT_T0_.exit.i.i.i51 ], [ %61, %59 ]
   %.01116.i.i.i53 = phi i64 [ %.112.i.i.i56, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElEvRT_T0_.exit.i.i.i51 ], [ %63, %59 ]
   %65 = lshr i64 %.01116.i.i.i53, 1
-  %66 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %.017.i.i.i52, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i52, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !287
   %68 = icmp ult ptr %67, %55
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -13894,7 +13894,7 @@ _ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index
   %.017.i.i.i64 = phi ptr [ %.1.i.i.i69, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElEvRT_T0_.exit.i.i.i63 ], [ %88, %86 ]
   %.01116.i.i.i65 = phi i64 [ %.112.i.i.i68, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElEvRT_T0_.exit.i.i.i63 ], [ %90, %86 ]
   %92 = lshr i64 %.01116.i.i.i65, 1
-  %93 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %.017.i.i.i64, i64 %92
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i64, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !287
   %95 = icmp ult ptr %94, %81
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 16
@@ -13969,7 +13969,7 @@ _ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index
   %.017.i.i.i76 = phi ptr [ %.1.i.i.i81, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElEvRT_T0_.exit.i.i.i75 ], [ %131, %130 ]
   %.01116.i.i.i77 = phi i64 [ %.112.i.i.i80, %_ZSt7advanceIPKN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_NSA_IwSB_IwESaIwEEESt4lessISE_EEEESaISO_EEEEEEEEElEvRT_T0_.exit.i.i.i75 ], [ %132, %130 ]
   %134 = lshr i64 %.01116.i.i.i77, 1
-  %135 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry.344", ptr %.017.i.i.i76, i64 %134
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i76, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !287
   %137 = icmp ult ptr %136, %127
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 16

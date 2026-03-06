@@ -122,7 +122,7 @@ define void @exr_get_library_version(ptr noundef writeonly captures(address_is_n
 define ptr @exr_get_default_error_message(i32 noundef %0) local_unnamed_addr #1 {
   %.0 = tail call i32 @llvm.umin.i32(i32 %0, i32 33)
   %2 = zext nneg i32 %.0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @the_default_errors, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @the_default_errors, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !7
   ret ptr %4
 }
@@ -131,7 +131,7 @@ define ptr @exr_get_default_error_message(i32 noundef %0) local_unnamed_addr #1 
 define ptr @exr_get_error_code_as_string(i32 noundef %0) local_unnamed_addr #1 {
   %.0 = tail call i32 @llvm.umin.i32(i32 %0, i32 33)
   %2 = zext nneg i32 %.0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @the_error_code_names, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @the_error_code_names, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !7
   ret ptr %4
 }

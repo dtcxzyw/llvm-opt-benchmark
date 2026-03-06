@@ -139,10 +139,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !17, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hec3218e7d76886d5E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hec3218e7d76886d5E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hec3218e7d76886d5E.11", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hec3218e7d76886d5E.11", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -265,7 +265,7 @@ common.resume.i:                                  ; preds = %46, %35
   %39 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %31, %26 ]
   %40 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !47, !noalias !50, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %41, i64 %39
+  %42 = getelementptr inbounds [24 x i8], ptr %41, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !19
   %43 = load i64, ptr %30, align 8, !alias.scope !47, !noalias !50, !noundef !4
   %44 = add i64 %43, 1

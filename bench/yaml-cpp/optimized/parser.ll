@@ -1242,7 +1242,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !16
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN4YAMLL10TokenNamesE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4YAMLL10TokenNamesE, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !66
   %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #20
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %8, i64 noundef %9)

@@ -1040,7 +1040,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEESa
   %219 = load i64, ptr %218, align 8
   %220 = urem i64 %217, %219
   %221 = load ptr, ptr %214, align 8
-  %222 = getelementptr inbounds ptr, ptr %221, i64 %220
+  %222 = getelementptr inbounds [8 x i8], ptr %221, i64 %220
   %223 = load ptr, ptr %222, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %223, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i, label %224
@@ -3275,7 +3275,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit239.i: ; preds = %_ZN32pxr
   %1082 = load i64, ptr %1081, align 8
   %1083 = urem i64 %1080, %1082
   %1084 = load ptr, ptr %1077, align 8
-  %1085 = getelementptr inbounds ptr, ptr %1084, i64 %1083
+  %1085 = getelementptr inbounds [8 x i8], ptr %1084, i64 %1083
   %1086 = load ptr, ptr %1085, align 8
   %.not.i.i.i.i.i.i12 = icmp eq ptr %1086, null
   br i1 %.not.i.i.i.i.i.i12, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i18, label %1087
@@ -5369,7 +5369,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipD2Ev.exit2
   %1863 = load i64, ptr %1862, align 8
   %1864 = urem i64 %1861, %1863
   %1865 = load ptr, ptr %1858, align 8
-  %1866 = getelementptr inbounds ptr, ptr %1865, i64 %1864
+  %1866 = getelementptr inbounds [8 x i8], ptr %1865, i64 %1864
   %1867 = load ptr, ptr %1866, align 8
   %.not.i.i.i.i.i.i65 = icmp eq ptr %1867, null
   br i1 %.not.i.i.i.i.i.i65, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i71, label %1868
@@ -6486,7 +6486,7 @@ define internal fastcc void @_ZL21TestAttributeMetadatav() unnamed_addr #0 perso
   %166 = load i64, ptr %165, align 8
   %167 = urem i64 %164, %166
   %168 = load ptr, ptr %161, align 8
-  %169 = getelementptr inbounds ptr, ptr %168, i64 %167
+  %169 = getelementptr inbounds [8 x i8], ptr %168, i64 %167
   %170 = load ptr, ptr %169, align 8
   %.not.i.i.i.i.i = icmp eq ptr %170, null
   br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit, label %171
@@ -11014,7 +11014,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   %25 = load i64, ptr %24, align 8
   %26 = urem i64 %23, %25
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread, label %30
@@ -11636,7 +11636,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   %25 = load i64, ptr %24, align 8
   %26 = urem i64 %23, %25
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread, label %30
@@ -12083,7 +12083,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   %25 = load i64, ptr %24, align 8
   %26 = urem i64 %23, %25
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread, label %30
@@ -12451,7 +12451,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   %25 = load i64, ptr %24, align 8
   %26 = urem i64 %23, %25
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread, label %30
@@ -13891,7 +13891,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   %25 = load i64, ptr %24, align 8
   %26 = urem i64 %23, %25
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread, label %30

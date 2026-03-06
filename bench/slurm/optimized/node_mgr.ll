@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.pack_node_info_t = type { i32, ptr }
-%struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 
 @avail_node_bitmap = dso_local global ptr null, align 8
 @bf_ignore_node_bitmap = dso_local global ptr null, align 8
@@ -1640,7 +1639,7 @@ define internal fastcc range(i32 0, 2019) i32 @_validate_nodes_vs_nodeset(ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -1650,7 +1649,7 @@ define internal fastcc range(i32 0, 2019) i32 @_validate_nodes_vs_nodeset(ptr no
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -1826,7 +1825,7 @@ define dso_local ptr @pack_all_nodes(i16 noundef zeroext %0, i32 noundef %1, i16
   %.0124 = phi i32 [ 0, %.lr.ph125 ], [ %77, %76 ]
   %.081122 = phi i1 [ false, %.lr.ph125 ], [ %.182, %76 ]
   %36 = load ptr, ptr @node_record_table_ptr, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv146
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv146
   %38 = load ptr, ptr %37, align 8
   %.not94 = icmp eq ptr %38, null
   br i1 %.not94, label %.critedge, label %39
@@ -1871,13 +1870,13 @@ define dso_local ptr @pack_all_nodes(i16 noundef zeroext %0, i32 noundef %1, i16
 
 .lr.ph.i:                                         ; preds = %..critedge_crit_edge.i, %.lr.ph.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next32.i, %..critedge_crit_edge.i ]
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv31.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv31.i
   %57 = load ptr, ptr %56, align 8
   br label %61
 
 58:                                               ; preds = %61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %59 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next.i
   %60 = load ptr, ptr %59, align 8
   %.not23.i = icmp eq ptr %60, null
   br i1 %.not23.i, label %..critedge_crit_edge.i, label %61, !llvm.loop !14
@@ -1996,7 +1995,7 @@ _node_is_hidden.exit:                             ; preds = %61, %50, %39
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %112
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %112 ], [ 0, %.lr.ph.split.us ]
   %101 = load ptr, ptr @node_record_table_ptr, align 8
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv136
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv136
   %103 = load ptr, ptr %102, align 8
   %.not.us.us = icmp eq ptr %103, null
   br i1 %.not.us.us, label %.critedge99.us.us, label %_node_is_hidden.exit116.us.us
@@ -2035,7 +2034,7 @@ _node_is_hidden.exit116.us.us:                    ; preds = %.lr.ph.split.us.spl
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %132
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %132 ], [ 0, %.lr.ph.split.us ]
   %116 = load ptr, ptr @node_record_table_ptr, align 8
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv141
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv141
   %118 = load ptr, ptr %117, align 8
   %.not.us = icmp eq ptr %118, null
   br i1 %.not.us, label %.critedge99.us, label %_node_is_hidden.exit116.us
@@ -2081,7 +2080,7 @@ _node_is_hidden.exit116.us:                       ; preds = %.lr.ph.split.us.spl
 .lr.ph.split:                                     ; preds = %.lr.ph, %176
   %indvars.iv = phi i64 [ %indvars.iv.next, %176 ], [ 0, %.lr.ph ]
   %136 = load ptr, ptr @node_record_table_ptr, align 8
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv
   %138 = load ptr, ptr %137, align 8
   %.not = icmp eq ptr %138, null
   br i1 %.not, label %.critedge99, label %139
@@ -2123,13 +2122,13 @@ _node_is_hidden.exit116.us:                       ; preds = %.lr.ph.split.us.spl
 
 .lr.ph.i106:                                      ; preds = %..critedge_crit_edge.i111, %.lr.ph.preheader.i104
   %indvars.iv31.i107 = phi i64 [ 0, %.lr.ph.preheader.i104 ], [ %indvars.iv.next32.i112, %..critedge_crit_edge.i111 ]
-  %155 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv31.i107
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv31.i107
   %156 = load ptr, ptr %155, align 8
   br label %160
 
 157:                                              ; preds = %160
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
-  %158 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next.i109
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next.i109
   %159 = load ptr, ptr %158, align 8
   %.not23.i110 = icmp eq ptr %159, null
   br i1 %.not23.i110, label %..critedge_crit_edge.i111, label %160, !llvm.loop !14
@@ -3191,13 +3190,13 @@ define dso_local ptr @pack_one_node(i16 noundef zeroext %0, i32 noundef %1, ptr 
 
 .lr.ph.i:                                         ; preds = %..critedge_crit_edge.i, %.lr.ph.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next32.i, %..critedge_crit_edge.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv31.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv31.i
   %40 = load ptr, ptr %39, align 8
   br label %44
 
 41:                                               ; preds = %44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %42 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next.i
   %43 = load ptr, ptr %42, align 8
   %.not23.i = icmp eq ptr %43, null
   br i1 %.not23.i, label %..critedge_crit_edge.i, label %44, !llvm.loop !14
@@ -3304,13 +3303,13 @@ _node_is_hidden.exit:                             ; preds = %44, %33, %21
 
 .lr.ph.i80:                                       ; preds = %..critedge_crit_edge.i85, %.lr.ph.preheader.i78
   %indvars.iv31.i81 = phi i64 [ 0, %.lr.ph.preheader.i78 ], [ %indvars.iv.next32.i86, %..critedge_crit_edge.i85 ]
-  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv31.i81
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv31.i81
   %88 = load ptr, ptr %87, align 8
   br label %92
 
 89:                                               ; preds = %92
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
-  %90 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next.i83
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next.i83
   %91 = load ptr, ptr %90, align 8
   %.not23.i84 = icmp eq ptr %91, null
   br i1 %.not23.i84, label %..critedge_crit_edge.i85, label %92, !llvm.loop !14
@@ -7196,14 +7195,14 @@ _valid_reported_active_features.exit.thread:      ; preds = %_valid_reported_act
   %280 = phi i16 [ %276, %.lr.ph109.i ], [ %325, %324 ]
   %indvars.iv114.i = phi i64 [ 0, %.lr.ph109.i ], [ %indvars.iv.next115.i, %324 ]
   %281 = load ptr, ptr %259, align 8
-  %282 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv114.i
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv114.i
   %283 = load ptr, ptr %282, align 8
   %.not91.i = icmp eq ptr %283, null
   br i1 %.not91.i, label %324, label %284
 
 284:                                              ; preds = %279
   %285 = load ptr, ptr %266, align 8
-  %286 = getelementptr inbounds nuw ptr, ptr %285, i64 %indvars.iv114.i
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %indvars.iv114.i
   %287 = load ptr, ptr %286, align 8
   %.not92.i = icmp eq ptr %287, null
   br i1 %.not92.i, label %289, label %288
@@ -7215,16 +7214,16 @@ _valid_reported_active_features.exit.thread:      ; preds = %_valid_reported_act
 
 289:                                              ; preds = %288, %284
   %290 = phi ptr [ %.pre.i, %288 ], [ %285, %284 ]
-  %291 = getelementptr inbounds nuw ptr, ptr %290, i64 %indvars.iv114.i
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %indvars.iv114.i
   store ptr null, ptr %291, align 8
   %292 = load i16, ptr %272, align 8
   %293 = zext i16 %292 to i64
   %294 = call ptr @bit_alloc(i64 noundef %293) #15
   %295 = load ptr, ptr %266, align 8
-  %296 = getelementptr inbounds nuw ptr, ptr %295, i64 %indvars.iv114.i
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %indvars.iv114.i
   store ptr %294, ptr %296, align 8
   %297 = load ptr, ptr %278, align 8
-  %298 = getelementptr inbounds nuw i64, ptr %297, i64 %indvars.iv114.i
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %indvars.iv114.i
   %299 = load i64, ptr %298, align 8
   %300 = mul i64 %299, %277
   %301 = trunc i64 %300 to i32
@@ -7236,7 +7235,7 @@ _valid_reported_active_features.exit.thread:      ; preds = %_valid_reported_act
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %316 ], [ 0, %289 ]
   %.073102.i = phi i32 [ %.275.i, %316 ], [ 0, %289 ]
   %303 = load ptr, ptr %259, align 8
-  %304 = getelementptr inbounds nuw ptr, ptr %303, i64 %indvars.iv114.i
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %indvars.iv114.i
   %305 = load ptr, ptr %304, align 8
   %306 = call i32 @slurm_bit_test(ptr noundef %305, i64 noundef %indvars.iv.i) #15
   %.not93.i = icmp eq i32 %306, 0
@@ -7252,7 +7251,7 @@ _valid_reported_active_features.exit.thread:      ; preds = %_valid_reported_act
   %311 = load ptr, ptr %238, align 8
   call void @bit_set(ptr noundef %311, i64 noundef %indvars.iv.i) #15
   %312 = load ptr, ptr %266, align 8
-  %313 = getelementptr inbounds nuw ptr, ptr %312, i64 %indvars.iv114.i
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %indvars.iv114.i
   %314 = load ptr, ptr %313, align 8
   call void @bit_set(ptr noundef %314, i64 noundef %indvars.iv.i) #15
   %315 = add nsw i32 %.073102.i, 1
@@ -7300,7 +7299,7 @@ _valid_reported_active_features.exit.thread:      ; preds = %_valid_reported_act
   %329 = select i1 %.not98.i, ptr @.str.56, ptr @.str.65
   %330 = getelementptr inbounds nuw i8, ptr %255, i64 128
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds nuw ptr, ptr %331, i64 %indvars.iv114.i
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %indvars.iv114.i
   %333 = load ptr, ptr %332, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %9, ptr noundef nonnull @.str.157, ptr noundef nonnull %329, i32 noundef %236, ptr noundef %333, i32 noundef %321, i32 noundef %.174.i) #15
   br label %_set_gpu_spec.exit
@@ -8942,7 +8941,7 @@ _front_end_reg.exit.thread:                       ; preds = %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %192 ]
   %.0184240 = phi ptr [ null, %.lr.ph ], [ %.1185, %192 ]
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %indvars.iv
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i32, ptr %95, align 8
   %97 = add i32 %96, 65536
@@ -8956,7 +8955,7 @@ _front_end_reg.exit.thread:                       ; preds = %28
 
 101:                                              ; preds = %98
   %102 = load ptr, ptr %90, align 8
-  %103 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %102, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %102, i64 %indvars.iv
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.93, ptr noundef %103) #15
   br label %192
 
@@ -8980,17 +8979,17 @@ _front_end_reg.exit.thread:                       ; preds = %28
 113:                                              ; preds = %109
   %114 = load ptr, ptr @node_record_table_ptr, align 8
   %115 = and i64 %110, 2147483647
-  %116 = getelementptr inbounds nuw ptr, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %115
   %117 = load ptr, ptr %116, align 8
   br label %128
 
 118:                                              ; preds = %104
   %119 = load ptr, ptr %90, align 8
-  %120 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %119, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %indvars.iv
   %121 = load ptr, ptr %91, align 8
   %122 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.94, ptr noundef %120, ptr noundef %121) #15
   %123 = load ptr, ptr %90, align 8
-  %124 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %123, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %123, i64 %indvars.iv
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load i32, ptr %125, align 8
   %127 = load ptr, ptr %91, align 8
@@ -9006,7 +9005,7 @@ _front_end_reg.exit.thread:                       ; preds = %28
 
 132:                                              ; preds = %128
   %133 = load ptr, ptr %90, align 8
-  %134 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %133, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [24 x i8], ptr %133, i64 %indvars.iv
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load i32, ptr %135, align 8
   %137 = load ptr, ptr %91, align 8
@@ -9031,7 +9030,7 @@ _front_end_reg.exit.thread:                       ; preds = %28
 
 148:                                              ; preds = %145
   %149 = load ptr, ptr %90, align 8
-  %150 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %149, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [24 x i8], ptr %149, i64 %indvars.iv
   %151 = load ptr, ptr %91, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.96, ptr noundef nonnull %105, ptr noundef %150, ptr noundef %151) #15
   br label %152
@@ -9062,11 +9061,11 @@ _front_end_reg.exit.thread:                       ; preds = %28
 
 162:                                              ; preds = %160
   %163 = load ptr, ptr %90, align 8
-  %164 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %163, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %163, i64 %indvars.iv
   %165 = load ptr, ptr %91, align 8
   %166 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.97, ptr noundef nonnull %105, ptr noundef %164, ptr noundef %165) #15
   %167 = load ptr, ptr %90, align 8
-  %168 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %167, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw [24 x i8], ptr %167, i64 %indvars.iv
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load i32, ptr %169, align 8
   %171 = load ptr, ptr %91, align 8
@@ -9089,14 +9088,14 @@ _front_end_reg.exit.thread:                       ; preds = %28
 
 182:                                              ; preds = %179
   %183 = load ptr, ptr %90, align 8
-  %184 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %183, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw [24 x i8], ptr %183, i64 %indvars.iv
   %185 = load ptr, ptr %91, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.98, ptr noundef nonnull %105, ptr noundef %184, ptr noundef %185) #15
   br label %192
 
 186:                                              ; preds = %172
   %187 = load ptr, ptr %90, align 8
-  %188 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %187, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw [24 x i8], ptr %187, i64 %indvars.iv
   %189 = tail call ptr @job_state_string(i32 noundef %143) #15
   %190 = load ptr, ptr %91, align 8
   %191 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.99, ptr noundef nonnull %105, ptr noundef %188, ptr noundef %189, ptr noundef %190) #15
@@ -10150,7 +10149,7 @@ define dso_local void @msg_to_slurmd(i32 noundef %0) local_unnamed_addr #0 {
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 208
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 368
   %36 = load i16, ptr %35, align 8
@@ -10293,7 +10292,7 @@ define dso_local void @push_reconfig_to_slurmd() local_unnamed_addr #0 {
 
 32:                                               ; preds = %.preheader, %31
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %31 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i16, ptr %35, align 8
@@ -10340,7 +10339,7 @@ define dso_local void @push_reconfig_to_slurmd() local_unnamed_addr #0 {
 
 56:                                               ; preds = %._crit_edge, %77
   %indvars.iv26 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next27, %77 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv26
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv26
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %2, align 8
   store ptr null, ptr %57, align 8
@@ -12020,7 +12019,7 @@ define dso_local i32 @create_nodes(ptr noundef %0, ptr noundef %1) local_unnamed
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %20 ]
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -12034,7 +12033,7 @@ _validate_nodes_vs_nodeset.exit.thread43:         ; preds = %20, %18
 
 _validate_nodes_vs_nodeset.exit:                  ; preds = %.lr.ph.i
   %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -12414,7 +12413,7 @@ define dso_local range(i32 -1, 2003) i32 @create_dynamic_reg_node(ptr noundef %0
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -12428,7 +12427,7 @@ _validate_nodes_vs_nodeset.exit.thread69:         ; preds = %25, %23
 
 32:                                               ; preds = %.lr.ph.i
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8

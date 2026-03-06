@@ -523,7 +523,7 @@ uv__stream_queue_fd.exit.thread.i.i:              ; preds = %if.end25.sink.split
   %inc.i.i.i = add i32 %63, 1
   store i32 %inc.i.i.i, ptr %offset26.i.i.i, align 4
   %idxprom.i.i.i = zext i32 %63 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr %fds.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %fds.i.i.i, i64 %idxprom.i.i.i
   store i32 %fd.0.copyload.i.i, ptr %arrayidx.i.i.i, align 4
   br label %for.inc19.i.i
 
@@ -875,7 +875,7 @@ if.then5:                                         ; preds = %while.body
   %write_index.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load i32, ptr %write_index.i, align 8
   %idx.ext.i = zext i32 %11 to i64
-  %add.ptr.i = getelementptr inbounds nuw %struct.uv_buf_t, ptr %10, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %idx.ext.i
   %nbufs.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = load i32, ptr %nbufs.i, align 8
   %sub.i = sub i32 %12, %11
@@ -1491,7 +1491,7 @@ if.end:                                           ; preds = %for.cond
   %write_index = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i32, ptr %write_index, align 8
   %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds nuw %struct.uv_buf_t, ptr %1, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %idxprom
   %nbufs = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %nbufs, align 8
   %sub = sub i32 %3, %2
@@ -1510,7 +1510,7 @@ if.then6:                                         ; preds = %if.end
   %6 = load ptr, ptr %bufs, align 8
   %7 = load i32, ptr %write_index, align 8
   %idx.ext.i = zext i32 %7 to i64
-  %add.ptr.i = getelementptr inbounds nuw %struct.uv_buf_t, ptr %6, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %idx.ext.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then6
@@ -1526,7 +1526,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   store i64 %sub5.i, ptr %len1.i, align 8
   %cmp7.i = icmp ule i64 %8, %n.addr.0.i
   %idx.ext8.i = zext i1 %cmp7.i to i64
-  %add.ptr9.i = getelementptr inbounds nuw %struct.uv_buf_t, ptr %buf.0.i, i64 %idx.ext8.i
+  %add.ptr9.i = getelementptr inbounds nuw [16 x i8], ptr %buf.0.i, i64 %idx.ext8.i
   %sub10.i = sub i64 %n.addr.0.i, %n.addr.0..i
   %cmp11.not.i = icmp eq i64 %sub10.i, 0
   br i1 %cmp11.not.i, label %uv__write_req_update.exit, label %do.body.i
@@ -2095,7 +2095,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw i32, ptr %fds, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %fds, i64 %indvars.iv
   %14 = load i32, ptr %arrayidx, align 4
   %call38 = tail call i32 @uv__close(i32 noundef %14) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -5,13 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.TM_IndexDeleteOp = type { ptr, i32, i8, i32, i32, ptr, ptr }
-%struct.ItemIdData = type { i32 }
-%struct.TM_IndexDelete = type { %struct.ItemPointerData, i16 }
-%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
-%struct.BlockIdData = type { i16, i16 }
-%struct.TM_IndexStatus = type { i16, i8, i8, i16 }
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"(%s)=(\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"null\00", align 1
@@ -168,7 +161,7 @@ define dso_local ptr @BuildIndexValueDescription(ptr noundef readonly captures(n
 
 24:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %25 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2
   %27 = icmp eq i16 %26, 0
   br i1 %27, label %.loopexit34, label %.critedge
@@ -201,11 +194,11 @@ define dso_local ptr @BuildIndexValueDescription(ptr noundef readonly captures(n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = load ptr, ptr %31, align 8
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv39
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv39
   %39 = load i32, ptr %38, align 4
   call void @getTypeOutputInfo(i32 noundef %39, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   %40 = load i32, ptr %5, align 4
-  %41 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv39
   %42 = load i64, ptr %41, align 8
   %43 = call ptr @OidOutputFunctionCall(i32 noundef %40, i64 noundef %42) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -271,7 +264,7 @@ define dso_local i32 @index_compute_xid_horizon_for_tuples(ptr noundef %0, ptr n
   %9 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %10 = xor i32 %2, -1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %BufferGetPage.exit
 
@@ -328,20 +321,20 @@ BufferGetPage.exit:                               ; preds = %8, %14
 41:                                               ; preds = %.lr.ph, %41
   %42 = phi i32 [ 0, %.lr.ph ], [ %57, %41 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %43 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %44 = load i16, ptr %43, align 2
   %45 = zext i16 %44 to i64
-  %46 = getelementptr %struct.ItemIdData, ptr %33, i64 %45
+  %46 = getelementptr [4 x i8], ptr %33, i64 %45
   %.val = load i32, ptr %46, align 4
   %47 = and i32 %.val, 32767
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %48
-  %50 = getelementptr inbounds nuw %struct.TM_IndexDelete, ptr %27, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %50, ptr noundef nonnull readonly align 2 dereferenceable(6) %49, i64 6, i1 false)
   %51 = trunc i32 %42 to i16
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 6
   store i16 %51, ptr %52, align 2
-  %53 = getelementptr inbounds nuw %struct.TM_IndexStatus, ptr %30, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [6 x i8], ptr %30, i64 %indvars.iv
   store i16 %44, ptr %53, align 2
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   store i8 1, ptr %54, align 2
@@ -420,8 +413,8 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
 
 33:                                               ; preds = %.lr.ph65, %32
   %indvars.iv68 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next69, %32 ]
-  %34 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %29, i64 %indvars.iv68
-  %35 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %5, i64 %indvars.iv68
+  %34 = getelementptr inbounds nuw [72 x i8], ptr %29, i64 %indvars.iv68
+  %35 = getelementptr inbounds nuw [72 x i8], ptr %5, i64 %indvars.iv68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull align 8 dereferenceable(72) %35, i64 72, i1 false)
   %36 = load ptr, ptr %31, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -439,7 +432,7 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
 
 44:                                               ; preds = %.lr.ph, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
-  %45 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv
   %46 = load i16, ptr %45, align 2
   %47 = icmp eq i16 %42, %46
   br i1 %47, label %48, label %53
@@ -820,8 +813,8 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
 
 45:                                               ; preds = %.lr.ph54, %44
   %indvars.iv57 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next58, %44 ]
-  %46 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %41, i64 %indvars.iv57
-  %47 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %4, i64 %indvars.iv57
+  %46 = getelementptr inbounds nuw [72 x i8], ptr %41, i64 %indvars.iv57
+  %47 = getelementptr inbounds nuw [72 x i8], ptr %4, i64 %indvars.iv57
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %46, ptr noundef nonnull align 8 dereferenceable(72) %47, i64 72, i1 false)
   %48 = load ptr, ptr %43, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -839,7 +832,7 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
 
 56:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %57 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv
   %58 = load i16, ptr %57, align 2
   %59 = icmp eq i16 %54, %58
   br i1 %59, label %60, label %65

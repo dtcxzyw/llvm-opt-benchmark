@@ -398,7 +398,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit12:               ; preds = %39, %_ZNKSt7__cxx11
   %229 = fdiv double %133, %228
   %230 = call double @sqrt(double noundef %229) #21, !tbaa !89
   %231 = fptrunc double %230 to float
-  %232 = getelementptr inbounds [3 x float], ptr %3, i64 %147
+  %232 = getelementptr inbounds [12 x i8], ptr %3, i64 %147
   %233 = fmul nnan double %228, 5.000000e-01
   br label %236
 
@@ -426,7 +426,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit12:               ; preds = %39, %_ZNKSt7__cxx11
 
 ._crit_edge.i.i.i.i:                              ; preds = %241
   %.phi.trans.insert1.i.i.i.i = zext nneg i32 %238 to i64
-  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw i64, ptr %127, i64 %.phi.trans.insert1.i.i.i.i
+  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %.phi.trans.insert1.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i.i, align 8, !tbaa !24
   %243 = add nuw nsw i32 %238, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i
@@ -590,12 +590,12 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj64EEEEEfRT_.e
   %335 = phi i32 [ %240, %._crit_edge.i.i.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i ]
   %336 = phi i64 [ %.sroa.7.263.i, %._crit_edge.i.i.i ], [ %331, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i ]
   %337 = and i64 %336, 16383
-  %338 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %337
+  %338 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %337
   %339 = load float, ptr %338, align 4, !tbaa !91
   %340 = lshr i64 %336, 14
   %341 = fadd float %339, 0.000000e+00
   %342 = fmul float %341, %231
-  %343 = getelementptr inbounds nuw float, ptr %232, i64 %indvars.iv.i
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %indvars.iv.i
   store float %342, ptr %343, align 4, !tbaa !91
   %344 = fpext float %342 to double
   %345 = fmul double %233, %344
@@ -635,7 +635,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj64EEEEEfRT_.e
 
 .preheader.i:                                     ; preds = %358, %.preheader.preheader.i
   %indvars.iv78.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next79.i, %358 ]
-  %357 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv78.i
+  %357 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv78.i
   br label %359
 
 358:                                              ; preds = %359
@@ -645,7 +645,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj64EEEEEfRT_.e
 
 359:                                              ; preds = %359, %.preheader.i
   %indvars.iv74.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next75.i, %359 ]
-  %360 = getelementptr inbounds nuw float, ptr %357, i64 %indvars.iv74.i
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %357, i64 %indvars.iv74.i
   %361 = load float, ptr %360, align 4, !tbaa !91
   %362 = fmul float %354, %361
   store float %362, ptr %360, align 4, !tbaa !91
@@ -1257,10 +1257,10 @@ define void @_Z7stop_cmRKN3gmx8MDLoggerEiPfPA3_fS5_(ptr noundef nonnull readnone
 19:                                               ; preds = %59, %.lr.ph.i
   %indvars.iv91.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next92.i, %59 ]
   %.07477.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %60, %59 ]
-  %20 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv91.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv91.i
   %21 = load float, ptr %20, align 4, !tbaa !91
-  %22 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv91.i
-  %23 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv91.i
+  %22 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv91.i
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv91.i
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load float, ptr %24, align 4, !tbaa !91
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1287,21 +1287,21 @@ define void @_Z7stop_cmRKN3gmx8MDLoggerEiPfPA3_fS5_(ptr noundef nonnull readnone
 
 43:                                               ; preds = %43, %19
   %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %43 ]
-  %44 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i
   %45 = load float, ptr %44, align 4, !tbaa !91
-  %46 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %47 = load float, ptr %46, align 4, !tbaa !91
   %48 = tail call float @llvm.fmuladd.f32(float %21, float %45, float %47)
   store float %48, ptr %46, align 4, !tbaa !91
-  %49 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i
   %50 = load float, ptr %49, align 4, !tbaa !91
-  %51 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %52 = load float, ptr %51, align 4, !tbaa !91
   %53 = tail call float @llvm.fmuladd.f32(float %21, float %50, float %52)
   store float %53, ptr %51, align 4, !tbaa !91
-  %54 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !91
-  %56 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %57 = load float, ptr %56, align 4, !tbaa !91
   %58 = tail call float @llvm.fmuladd.f32(float %21, float %55, float %57)
   store float %58, ptr %56, align 4, !tbaa !91
@@ -1350,18 +1350,18 @@ define void @_Z7stop_cmRKN3gmx8MDLoggerEiPfPA3_fS5_(ptr noundef nonnull readnone
 
 78:                                               ; preds = %78, %._crit_edge.i
   %indvars.iv95.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next96.i, %78 ]
-  %79 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv95.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv95.i
   %80 = load float, ptr %79, align 4, !tbaa !91
   %81 = fdiv float %80, %.074.lcssa.i
   store float %81, ptr %79, align 4, !tbaa !91
-  %82 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv95.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv95.i
   %83 = load float, ptr %82, align 4, !tbaa !91
   %84 = fdiv float %83, %.074.lcssa.i
   store float %84, ptr %82, align 4, !tbaa !91
-  %85 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv95.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv95.i
   %86 = load float, ptr %85, align 4, !tbaa !91
   %87 = fdiv float %86, %.074.lcssa.i
-  %88 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv95.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv95.i
   %89 = load float, ptr %88, align 4, !tbaa !91
   %90 = fsub float %89, %87
   store float %90, ptr %88, align 4, !tbaa !91
@@ -1379,14 +1379,14 @@ _ZL7calc_cmiPKfPA3_fS2_PfS3_S3_S2_.exit:          ; preds = %91
 
 .preheader:                                       ; preds = %_ZL7calc_cmiPKfPA3_fS2_PfS3_S3_S2_.exit, %99
   %indvars.iv18 = phi i64 [ 0, %_ZL7calc_cmiPKfPA3_fS2_PfS3_S3_S2_.exit ], [ %indvars.iv.next19, %99 ]
-  %92 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv18
+  %92 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv18
   br label %93
 
 93:                                               ; preds = %.preheader, %93
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %93 ]
-  %94 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %95 = load float, ptr %94, align 4, !tbaa !91
-  %96 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv
   %97 = load float, ptr %96, align 4, !tbaa !91
   %98 = fsub float %97, %95
   store float %98, ptr %96, align 4, !tbaa !91

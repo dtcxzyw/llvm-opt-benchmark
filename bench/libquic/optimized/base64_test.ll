@@ -41,7 +41,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 
 4:                                                ; preds = %13, %0
   %.01423.i = phi i64 [ 0, %0 ], [ %14, %13 ]
-  %5 = getelementptr inbounds nuw %struct.TestVector, ptr @_ZL12kTestVectors, i64 %.01423.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @_ZL12kTestVectors, i64 %.01423.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load ptr, ptr %5, align 16, !tbaa !6
   %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
@@ -82,7 +82,7 @@ _ZL10TestEncodev.exit:                            ; preds = %4, %12
 
 21:                                               ; preds = %19, %18
   %.03062.i = phi i64 [ 0, %18 ], [ %20, %19 ]
-  %22 = getelementptr inbounds nuw %struct.TestVector, ptr @_ZL12kTestVectors, i64 %.03062.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @_ZL12kTestVectors, i64 %.03062.i
   %23 = load ptr, ptr %22, align 16, !tbaa !6
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #7
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8

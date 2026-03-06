@@ -19,7 +19,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pnp_unregist
 %struct.bus_type = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
 %struct.device_attribute = type { %struct.attribute, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.anon.2 = type { [8 x i8] }
 
 @pnp_cards = dso_local global %struct.list_head { ptr @pnp_cards, ptr @pnp_cards }, align 8
 @.str = private unnamed_addr constant [10 x i8] c"%02x:%02x\00", align 1
@@ -315,7 +314,7 @@ define internal fastcc void @card_probe(ptr noundef %0, ptr noundef %1) unnamed_
 21:                                               ; preds = %19, %35
   %22 = phi i32 [ 0, %19 ], [ %36, %35 ]
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr %struct.anon.2, ptr %20, i64 %23
+  %24 = getelementptr [8 x i8], ptr %20, i64 %23
   %25 = load i8, ptr %24, align 8
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %41, label %.preheader11

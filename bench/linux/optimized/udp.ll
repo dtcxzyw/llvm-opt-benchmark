@@ -36,15 +36,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_udp6_seq_ops
 %struct.timer_list = type { %struct.hlist_node, i64, ptr, i32 }
 %struct.hlist_node = type { ptr, ptr }
 %struct.proto_ops = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.udp_hslot = type { %struct.hlist_head, i32, %struct.spinlock }
-%struct.hlist_head = type { ptr }
-%struct.spinlock = type { %union.anon.9 }
-%union.anon.9 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.10 }
-%union.anon.10 = type { %struct.atomic_t }
-%struct.xfrm_offload = type { %struct.anon.102, i32, i32, i8, i8 }
-%struct.anon.102 = type { i32, i32 }
 %struct.ipv6_txoptions = type { %struct.refcount_struct, i32, i16, i16, ptr, ptr, ptr, ptr, %struct.callback_head }
 %struct.refcount_struct = type { %struct.atomic_t }
 %struct.callback_head = type { ptr, ptr }
@@ -464,7 +455,7 @@ define dso_local ptr @__udp6_lib_lookup(ptr noundef %0, ptr noundef %1, i16 noun
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = zext i32 %16 to i64
-  %20 = getelementptr %struct.udp_hslot, ptr %18, i64 %19
+  %20 = getelementptr [16 x i8], ptr %18, i64 %19
   %21 = tail call fastcc ptr @udp6_lib_lookup2(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, i32 noundef %11, i32 noundef %5, i32 noundef %6, ptr noundef %20, ptr noundef %8)
   %22 = icmp eq ptr %21, null
   %23 = icmp ugt ptr %21, inttoptr (i64 -4096 to ptr)
@@ -504,7 +495,7 @@ define dso_local ptr @__udp6_lib_lookup(ptr noundef %0, ptr noundef %1, i16 noun
   %43 = and i32 %42, %41
   %44 = load ptr, ptr %17, align 8
   %45 = zext i32 %43 to i64
-  %46 = getelementptr %struct.udp_hslot, ptr %44, i64 %45
+  %46 = getelementptr [16 x i8], ptr %44, i64 %45
   %47 = tail call fastcc ptr @udp6_lib_lookup2(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef nonnull @in6addr_any, i32 noundef %11, i32 noundef %5, i32 noundef %6, ptr noundef %46, ptr noundef %8)
   br label %48
 
@@ -1406,7 +1397,7 @@ define dso_local i32 @__udp6_lib_err(ptr noundef %0, ptr noundef %1, i8 noundef 
 
 79:                                               ; preds = %.preheader, %91
   %80 = phi i64 [ %92, %91 ], [ 0, %.preheader ]
-  %81 = getelementptr ptr, ptr @ip6tun_encaps, i64 %80
+  %81 = getelementptr [8 x i8], ptr @ip6tun_encaps, i64 %80
   %82 = load volatile ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %91, label %84
@@ -1967,13 +1958,13 @@ udp6_unicast_rcv_skb.exit:                        ; preds = %126, %.thread19, %1
   %214 = getelementptr inbounds nuw i8, ptr %204, i64 64
   %215 = add i32 %208, -1
   %216 = sext i32 %215 to i64
-  %217 = getelementptr %struct.xfrm_offload, ptr %214, i64 %216
+  %217 = getelementptr [20 x i8], ptr %214, i64 %216
   %218 = icmp eq ptr %217, null
   br i1 %218, label %.thread27, label %219
 
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %221 = getelementptr ptr, ptr %220, i64 %216
+  %221 = getelementptr [8 x i8], ptr %220, i64 %216
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 656
   %224 = load i8, ptr %223, align 8
@@ -2335,7 +2326,7 @@ define internal fastcc void @__udp6_lib_mcast_deliver(ptr noundef readonly captu
   %22 = add i32 %21, %16
   %23 = and i32 %22, %19
   %24 = zext i32 %23 to i64
-  %25 = getelementptr %struct.udp_hslot, ptr %17, i64 %24
+  %25 = getelementptr [16 x i8], ptr %17, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = icmp slt i32 %27, 11
@@ -2357,7 +2348,7 @@ define internal fastcc void @__udp6_lib_mcast_deliver(ptr noundef readonly captu
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = zext i32 %38 to i64
-  %43 = getelementptr %struct.udp_hslot, ptr %41, i64 %42
+  %43 = getelementptr [16 x i8], ptr %41, i64 %42
   br label %44
 
 44:                                               ; preds = %36, %6
@@ -2665,7 +2656,7 @@ define dso_local void @udp_v6_early_demux(ptr noundef %0) local_unnamed_addr #0 
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = zext i32 %60 to i64
-  %64 = getelementptr %struct.udp_hslot, ptr %62, i64 %63
+  %64 = getelementptr [16 x i8], ptr %62, i64 %63
   %65 = shl nuw i32 %55, 16
   %66 = zext i16 %50 to i32
   %67 = or disjoint i32 %65, %66
@@ -4882,7 +4873,7 @@ define internal fastcc range(i32 -1, -2147483647) i32 @udpv6_queue_rcv_one_skb(p
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %31 = add i32 %24, -1
   %32 = sext i32 %31 to i64
-  %33 = getelementptr %struct.xfrm_offload, ptr %30, i64 %32
+  %33 = getelementptr [20 x i8], ptr %30, i64 %32
   br label %.thread.i
 
 .thread.i:                                        ; preds = %29, %26, %22, %13, %2
@@ -4923,7 +4914,7 @@ define internal fastcc range(i32 -1, -2147483647) i32 @udpv6_queue_rcv_one_skb(p
   %56 = load i32, ptr %54, align 8
   %57 = add i32 %56, -1
   %58 = sext i32 %57 to i64
-  %59 = getelementptr ptr, ptr %55, i64 %58
+  %59 = getelementptr [8 x i8], ptr %55, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 656
   %62 = load i8, ptr %61, align 8

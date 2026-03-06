@@ -1133,7 +1133,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %387 = load i64, ptr %386, align 8
   %388 = urem i64 %385, %387
   %389 = load ptr, ptr %364, align 8
-  %390 = getelementptr inbounds ptr, ptr %389, i64 %388
+  %390 = getelementptr inbounds [8 x i8], ptr %389, i64 %388
   %391 = load ptr, ptr %390, align 8
   %.not.i.i.i.i122 = icmp eq ptr %391, null
   br i1 %.not.i.i.i.i122, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit, label %392
@@ -1243,7 +1243,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNKSt13unord
   %446 = load i64, ptr %445, align 8
   %447 = urem i64 %444, %446
   %448 = load ptr, ptr %364, align 8
-  %449 = getelementptr inbounds ptr, ptr %448, i64 %447
+  %449 = getelementptr inbounds [8 x i8], ptr %448, i64 %447
   %450 = load ptr, ptr %449, align 8
   %.not.i.i.i.i129 = icmp eq ptr %450, null
   br i1 %.not.i.i.i.i129, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEdNS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_dEEE4findERS6_.exit139, label %451
@@ -1420,7 +1420,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %517 = load i64, ptr %516, align 8
   %518 = urem i64 %515, %517
   %519 = load ptr, ptr %495, align 8
-  %520 = getelementptr inbounds ptr, ptr %519, i64 %518
+  %520 = getelementptr inbounds [8 x i8], ptr %519, i64 %518
   %521 = load ptr, ptr %520, align 8
   %.not.i.i.i.i159 = icmp eq ptr %521, null
   br i1 %.not.i.i.i.i159, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, label %522
@@ -1522,7 +1522,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit170: ; preds = %_ZNKSt13un
   %572 = load i64, ptr %571, align 8
   %573 = urem i64 %570, %572
   %574 = load ptr, ptr %495, align 8
-  %575 = getelementptr inbounds ptr, ptr %574, i64 %573
+  %575 = getelementptr inbounds [8 x i8], ptr %574, i64 %573
   %576 = load ptr, ptr %575, align 8
   %.not.i.i.i.i174 = icmp eq ptr %576, null
   br i1 %.not.i.i.i.i174, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit184, label %577

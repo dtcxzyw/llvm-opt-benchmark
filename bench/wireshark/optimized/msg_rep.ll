@@ -808,7 +808,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %137
   %139 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_mac_mgmt_msg_rep_rsp_decoder, i64 %139
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_mac_mgmt_msg_rep_rsp_decoder, i64 %139
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %140
 

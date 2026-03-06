@@ -46,7 +46,7 @@ define signext range(i8 0, 32) i8 @u_charType_77(i32 noundef %0) local_unnamed_a
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -58,7 +58,7 @@ define signext range(i8 0, 32) i8 @u_charType_77(i32 noundef %0) local_unnamed_a
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -69,7 +69,7 @@ define signext range(i8 0, 32) i8 @u_charType_77(i32 noundef %0) local_unnamed_a
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = trunc i16 %35 to i8
   %37 = and i8 %36, 31
@@ -140,7 +140,7 @@ define signext range(i8 0, 2) i8 @u_islower_77(i32 noundef %0) local_unnamed_add
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -152,7 +152,7 @@ define signext range(i8 0, 2) i8 @u_islower_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -163,7 +163,7 @@ define signext range(i8 0, 2) i8 @u_islower_77(i32 noundef %0) local_unnamed_add
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = icmp eq i16 %36, 2
@@ -198,7 +198,7 @@ define signext range(i8 0, 2) i8 @u_isupper_77(i32 noundef %0) local_unnamed_add
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -210,7 +210,7 @@ define signext range(i8 0, 2) i8 @u_isupper_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -221,7 +221,7 @@ define signext range(i8 0, 2) i8 @u_isupper_77(i32 noundef %0) local_unnamed_add
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = icmp eq i16 %36, 1
@@ -256,7 +256,7 @@ define signext range(i8 0, 2) i8 @u_istitle_77(i32 noundef %0) local_unnamed_add
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -268,7 +268,7 @@ define signext range(i8 0, 2) i8 @u_istitle_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -279,7 +279,7 @@ define signext range(i8 0, 2) i8 @u_istitle_77(i32 noundef %0) local_unnamed_add
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = icmp eq i16 %36, 3
@@ -314,7 +314,7 @@ define signext range(i8 0, 2) i8 @u_isdigit_77(i32 noundef %0) local_unnamed_add
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -326,7 +326,7 @@ define signext range(i8 0, 2) i8 @u_isdigit_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -337,7 +337,7 @@ define signext range(i8 0, 2) i8 @u_isdigit_77(i32 noundef %0) local_unnamed_add
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = icmp eq i16 %36, 9
@@ -388,7 +388,7 @@ define signext range(i8 0, 2) i8 @u_isxdigit_77(i32 noundef %0) local_unnamed_ad
 20:                                               ; preds = %18
   %21 = lshr i32 %0, 11
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4160
   %25 = load i16, ptr %24, align 2, !tbaa !3
   %26 = zext i16 %25 to i32
@@ -400,7 +400,7 @@ define signext range(i8 0, 2) i8 @u_isxdigit_77(i32 noundef %0) local_unnamed_ad
 .sink.split:                                      ; preds = %9, %20, %13
   %.sink36 = phi i32 [ %17, %13 ], [ %29, %20 ], [ %10, %9 ]
   %30 = zext nneg i32 %.sink36 to i64
-  %31 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !3
   %33 = zext i16 %32 to i32
   %34 = shl nuw nsw i32 %33, 2
@@ -411,7 +411,7 @@ define signext range(i8 0, 2) i8 @u_isxdigit_77(i32 noundef %0) local_unnamed_ad
 
 38:                                               ; preds = %.sink.split, %18
   %39 = phi i64 [ 4876, %18 ], [ %37, %.sink.split ]
-  %40 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !3
   %42 = and i16 %41, 31
   %43 = icmp eq i16 %42, 9
@@ -450,7 +450,7 @@ define signext range(i8 0, 2) i8 @u_isalpha_77(i32 noundef %0) local_unnamed_add
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -462,7 +462,7 @@ define signext range(i8 0, 2) i8 @u_isalpha_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -473,7 +473,7 @@ define signext range(i8 0, 2) i8 @u_isalpha_77(i32 noundef %0) local_unnamed_add
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -510,7 +510,7 @@ define signext range(i8 0, 2) i8 @u_isUAlphabetic_77(i32 noundef %0) local_unnam
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -522,7 +522,7 @@ define signext range(i8 0, 2) i8 @u_isUAlphabetic_77(i32 noundef %0) local_unnam
 .sink.split.i:                                    ; preds = %14, %7, %3
   %.sink23.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink23.i to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -533,10 +533,10 @@ define signext range(i8 0, 2) i8 @u_isUAlphabetic_77(i32 noundef %0) local_unnam
 
 u_getUnicodeProperties_77.exit:                   ; preds = %12, %.sink.split.i
   %32 = phi i64 [ 5364, %12 ], [ %31, %.sink.split.i ]
-  %33 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !3
   %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZL12propsVectors, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12propsVectors, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !11
   %39 = lshr i32 %38, 8
@@ -576,7 +576,7 @@ define i32 @u_getUnicodeProperties_77(i32 noundef %0, i32 noundef %1) local_unna
 17:                                               ; preds = %15
   %18 = lshr i32 %0, 11
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4160
   %22 = load i16, ptr %21, align 2, !tbaa !3
   %23 = zext i16 %22 to i32
@@ -588,7 +588,7 @@ define i32 @u_getUnicodeProperties_77(i32 noundef %0, i32 noundef %1) local_unna
 .sink.split:                                      ; preds = %6, %17, %10
   %.sink23 = phi i32 [ %14, %10 ], [ %26, %17 ], [ %7, %6 ]
   %27 = zext nneg i32 %.sink23 to i64
-  %28 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !3
   %30 = zext i16 %29 to i32
   %31 = shl nuw nsw i32 %30, 2
@@ -599,12 +599,12 @@ define i32 @u_getUnicodeProperties_77(i32 noundef %0, i32 noundef %1) local_unna
 
 35:                                               ; preds = %.sink.split, %15
   %36 = phi i64 [ 5364, %15 ], [ %34, %.sink.split ]
-  %37 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !3
   %39 = zext i16 %38 to i32
   %40 = add nsw i32 %1, %39
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr @_ZL12propsVectors, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr @_ZL12propsVectors, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !11
   br label %44
 
@@ -640,7 +640,7 @@ define signext range(i8 0, 2) i8 @u_isalnum_77(i32 noundef %0) local_unnamed_add
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -652,7 +652,7 @@ define signext range(i8 0, 2) i8 @u_isalnum_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -663,7 +663,7 @@ define signext range(i8 0, 2) i8 @u_isalnum_77(i32 noundef %0) local_unnamed_add
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -700,7 +700,7 @@ define signext range(i8 0, 2) i8 @u_isalnumPOSIX_77(i32 noundef %0) local_unname
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -712,17 +712,17 @@ define signext range(i8 0, 2) i8 @u_isalnumPOSIX_77(i32 noundef %0) local_unname
 u_isUAlphabetic_77.exit:                          ; preds = %3, %7, %14
   %.sink23.i.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink23.i.i to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
   %29 = and i32 %0, 31
   %30 = add nuw nsw i32 %28, %29
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !3
   %34 = zext i16 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @_ZL12propsVectors, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12propsVectors, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !11
   %38 = and i32 %37, 256
@@ -750,7 +750,7 @@ u_isUAlphabetic_77.exit:                          ; preds = %3, %7, %14
 49:                                               ; preds = %42
   %50 = lshr i32 %0, 11
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4160
   %54 = load i16, ptr %53, align 2, !tbaa !3
   %55 = zext i16 %54 to i32
@@ -762,7 +762,7 @@ u_isUAlphabetic_77.exit:                          ; preds = %3, %7, %14
 .sink.split.i:                                    ; preds = %49, %44, %40
   %.sink16.i = phi i32 [ %48, %44 ], [ %58, %49 ], [ %41, %40 ]
   %59 = zext nneg i32 %.sink16.i to i64
-  %60 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !3
   %62 = zext i16 %61 to i32
   %63 = shl nuw nsw i32 %62, 2
@@ -772,7 +772,7 @@ u_isUAlphabetic_77.exit:                          ; preds = %3, %7, %14
 
 u_isdigit_77.exit:                                ; preds = %12, %.sink.split.i
   %66 = phi i64 [ 4876, %12 ], [ %65, %.sink.split.i ]
-  %67 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !3
   %69 = and i16 %68, 31
   %70 = icmp eq i16 %69, 9
@@ -811,7 +811,7 @@ define signext range(i8 0, 2) i8 @u_isdefined_77(i32 noundef %0) local_unnamed_a
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -823,7 +823,7 @@ define signext range(i8 0, 2) i8 @u_isdefined_77(i32 noundef %0) local_unnamed_a
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -834,7 +834,7 @@ define signext range(i8 0, 2) i8 @u_isdefined_77(i32 noundef %0) local_unnamed_a
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = icmp ne i16 %36, 0
@@ -869,7 +869,7 @@ define signext range(i8 0, 2) i8 @u_isbase_77(i32 noundef %0) local_unnamed_addr
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -881,7 +881,7 @@ define signext range(i8 0, 2) i8 @u_isbase_77(i32 noundef %0) local_unnamed_addr
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -892,7 +892,7 @@ define signext range(i8 0, 2) i8 @u_isbase_77(i32 noundef %0) local_unnamed_addr
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -929,7 +929,7 @@ define signext range(i8 0, 2) i8 @u_iscntrl_77(i32 noundef %0) local_unnamed_add
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -941,7 +941,7 @@ define signext range(i8 0, 2) i8 @u_iscntrl_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -952,7 +952,7 @@ define signext range(i8 0, 2) i8 @u_iscntrl_77(i32 noundef %0) local_unnamed_add
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -999,7 +999,7 @@ define signext range(i8 0, 2) i8 @u_isspace_77(i32 noundef %0) local_unnamed_add
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -1011,7 +1011,7 @@ define signext range(i8 0, 2) i8 @u_isspace_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink26 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink26 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -1022,7 +1022,7 @@ define signext range(i8 0, 2) i8 @u_isspace_77(i32 noundef %0) local_unnamed_add
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -1080,7 +1080,7 @@ define signext range(i8 0, 2) i8 @u_isJavaSpaceChar_77(i32 noundef %0) local_unn
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -1092,7 +1092,7 @@ define signext range(i8 0, 2) i8 @u_isJavaSpaceChar_77(i32 noundef %0) local_unn
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -1103,7 +1103,7 @@ define signext range(i8 0, 2) i8 @u_isJavaSpaceChar_77(i32 noundef %0) local_unn
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -1140,7 +1140,7 @@ define signext range(i8 0, 2) i8 @u_isWhitespace_77(i32 noundef %0) local_unname
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -1152,7 +1152,7 @@ define signext range(i8 0, 2) i8 @u_isWhitespace_77(i32 noundef %0) local_unname
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink32 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink32 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -1163,7 +1163,7 @@ define signext range(i8 0, 2) i8 @u_isWhitespace_77(i32 noundef %0) local_unname
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -1236,7 +1236,7 @@ define signext range(i8 0, 2) i8 @u_isblank_77(i32 noundef %0) local_unnamed_add
 20:                                               ; preds = %18
   %21 = lshr i32 %0, 11
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4160
   %25 = load i16, ptr %24, align 2, !tbaa !3
   %26 = zext i16 %25 to i32
@@ -1248,7 +1248,7 @@ define signext range(i8 0, 2) i8 @u_isblank_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %9, %20, %13
   %.sink22 = phi i32 [ %17, %13 ], [ %29, %20 ], [ %10, %9 ]
   %30 = zext nneg i32 %.sink22 to i64
-  %31 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !3
   %33 = zext i16 %32 to i32
   %34 = shl nuw nsw i32 %33, 2
@@ -1259,7 +1259,7 @@ define signext range(i8 0, 2) i8 @u_isblank_77(i32 noundef %0) local_unnamed_add
 
 38:                                               ; preds = %.sink.split, %18
   %39 = phi i64 [ 4876, %18 ], [ %37, %.sink.split ]
-  %40 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !3
   %42 = and i16 %41, 31
   %43 = icmp eq i16 %42, 12
@@ -1298,7 +1298,7 @@ define signext range(i8 0, 2) i8 @u_isUWhiteSpace_77(i32 noundef %0) local_unnam
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -1310,7 +1310,7 @@ define signext range(i8 0, 2) i8 @u_isUWhiteSpace_77(i32 noundef %0) local_unnam
 .sink.split.i:                                    ; preds = %14, %7, %3
   %.sink23.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink23.i to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -1321,10 +1321,10 @@ define signext range(i8 0, 2) i8 @u_isUWhiteSpace_77(i32 noundef %0) local_unnam
 
 u_getUnicodeProperties_77.exit:                   ; preds = %12, %.sink.split.i
   %32 = phi i64 [ 5364, %12 ], [ %31, %.sink.split.i ]
-  %33 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !3
   %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZL12propsVectors, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12propsVectors, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !11
   %39 = trunc i32 %38 to i8
@@ -1359,7 +1359,7 @@ define signext range(i8 0, 2) i8 @u_isprint_77(i32 noundef %0) local_unnamed_add
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -1371,7 +1371,7 @@ define signext range(i8 0, 2) i8 @u_isprint_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -1382,7 +1382,7 @@ define signext range(i8 0, 2) i8 @u_isprint_77(i32 noundef %0) local_unnamed_add
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -1408,7 +1408,7 @@ define signext range(i8 0, 2) i8 @u_isprintPOSIX_77(i32 noundef %0) local_unname
 7:                                                ; preds = %5
   %8 = lshr i32 %0, 11
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4160
   %12 = load i16, ptr %11, align 2, !tbaa !3
   %13 = zext i16 %12 to i32
@@ -1416,7 +1416,7 @@ define signext range(i8 0, 2) i8 @u_isprintPOSIX_77(i32 noundef %0) local_unname
   %15 = and i32 %14, 63
   %16 = add nuw nsw i32 %15, %13
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
   %21 = shl nuw nsw i32 %20, 2
@@ -1427,7 +1427,7 @@ define signext range(i8 0, 2) i8 @u_isprintPOSIX_77(i32 noundef %0) local_unname
 
 25:                                               ; preds = %7, %5
   %26 = phi i64 [ %24, %7 ], [ 4876, %5 ]
-  %27 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !3
   %29 = and i16 %28, 31
   %30 = icmp eq i16 %29, 12
@@ -1439,14 +1439,14 @@ define signext range(i8 0, 2) i8 @u_isprintPOSIX_77(i32 noundef %0) local_unname
   %33 = lshr i32 %0, 5
   %34 = add nuw nsw i32 %32, %33
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !3
   %38 = zext i16 %37 to i32
   %39 = shl nuw nsw i32 %38, 2
   %40 = and i32 %0, 31
   %41 = add nuw nsw i32 %39, %40
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !3
   %45 = and i16 %44, 31
   %46 = icmp eq i16 %45, 12
@@ -1455,14 +1455,14 @@ define signext range(i8 0, 2) i8 @u_isprintPOSIX_77(i32 noundef %0) local_unname
 .thread:                                          ; preds = %1
   %47 = lshr i32 %0, 5
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !3
   %51 = zext i16 %50 to i32
   %52 = shl nuw nsw i32 %51, 2
   %53 = and i32 %0, 31
   %54 = add nuw nsw i32 %52, %53
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !3
   %58 = and i16 %57, 31
   %59 = icmp eq i16 %58, 12
@@ -1482,7 +1482,7 @@ define signext range(i8 0, 2) i8 @u_isprintPOSIX_77(i32 noundef %0) local_unname
 66:                                               ; preds = %64
   %67 = lshr i32 %0, 11
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %68
+  %69 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4160
   %71 = load i16, ptr %70, align 2, !tbaa !3
   %72 = zext i16 %71 to i32
@@ -1494,7 +1494,7 @@ define signext range(i8 0, 2) i8 @u_isprintPOSIX_77(i32 noundef %0) local_unname
 .sink.split.i:                                    ; preds = %.thread, %66, %.thread16
   %.sink16.i = phi i32 [ %63, %.thread16 ], [ %75, %66 ], [ %47, %.thread ]
   %76 = zext nneg i32 %.sink16.i to i64
-  %77 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %76
   %78 = load i16, ptr %77, align 2, !tbaa !3
   %79 = zext i16 %78 to i32
   %80 = shl nuw nsw i32 %79, 2
@@ -1505,7 +1505,7 @@ define signext range(i8 0, 2) i8 @u_isprintPOSIX_77(i32 noundef %0) local_unname
 
 u_isgraphPOSIX_77.exit:                           ; preds = %64, %.sink.split.i
   %84 = phi i64 [ 4876, %64 ], [ %83, %.sink.split.i ]
-  %85 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !3
   %87 = and i16 %86, 31
   %88 = zext nneg i16 %87 to i32
@@ -1546,7 +1546,7 @@ define signext range(i8 0, 2) i8 @u_isgraphPOSIX_77(i32 noundef %0) local_unname
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -1558,7 +1558,7 @@ define signext range(i8 0, 2) i8 @u_isgraphPOSIX_77(i32 noundef %0) local_unname
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -1569,7 +1569,7 @@ define signext range(i8 0, 2) i8 @u_isgraphPOSIX_77(i32 noundef %0) local_unname
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -1606,7 +1606,7 @@ define signext range(i8 0, 2) i8 @u_isgraph_77(i32 noundef %0) local_unnamed_add
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -1618,7 +1618,7 @@ define signext range(i8 0, 2) i8 @u_isgraph_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -1629,7 +1629,7 @@ define signext range(i8 0, 2) i8 @u_isgraph_77(i32 noundef %0) local_unnamed_add
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -1666,7 +1666,7 @@ define signext range(i8 0, 2) i8 @u_ispunct_77(i32 noundef %0) local_unnamed_add
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -1678,7 +1678,7 @@ define signext range(i8 0, 2) i8 @u_ispunct_77(i32 noundef %0) local_unnamed_add
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -1689,7 +1689,7 @@ define signext range(i8 0, 2) i8 @u_ispunct_77(i32 noundef %0) local_unnamed_add
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -1744,7 +1744,7 @@ define signext range(i8 0, 2) i8 @u_isIDIgnorable_77(i32 noundef %0) local_unnam
 23:                                               ; preds = %21
   %24 = lshr i32 %0, 11
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4160
   %28 = load i16, ptr %27, align 2, !tbaa !3
   %29 = zext i16 %28 to i32
@@ -1756,7 +1756,7 @@ define signext range(i8 0, 2) i8 @u_isIDIgnorable_77(i32 noundef %0) local_unnam
 .sink.split:                                      ; preds = %12, %23, %16
   %.sink29 = phi i32 [ %20, %16 ], [ %32, %23 ], [ %13, %12 ]
   %33 = zext nneg i32 %.sink29 to i64
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = zext i16 %35 to i32
   %37 = shl nuw nsw i32 %36, 2
@@ -1767,7 +1767,7 @@ define signext range(i8 0, 2) i8 @u_isIDIgnorable_77(i32 noundef %0) local_unnam
 
 41:                                               ; preds = %.sink.split, %21
   %42 = phi i64 [ 4876, %21 ], [ %40, %.sink.split ]
-  %43 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !3
   %45 = and i16 %44, 31
   %46 = icmp eq i16 %45, 16
@@ -1806,7 +1806,7 @@ define signext range(i8 0, 2) i8 @u_isJavaIDStart_77(i32 noundef %0) local_unnam
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -1818,7 +1818,7 @@ define signext range(i8 0, 2) i8 @u_isJavaIDStart_77(i32 noundef %0) local_unnam
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -1829,7 +1829,7 @@ define signext range(i8 0, 2) i8 @u_isJavaIDStart_77(i32 noundef %0) local_unnam
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -1866,7 +1866,7 @@ define signext range(i8 0, 2) i8 @u_isJavaIDPart_77(i32 noundef %0) local_unname
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -1878,7 +1878,7 @@ define signext range(i8 0, 2) i8 @u_isJavaIDPart_77(i32 noundef %0) local_unname
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink18 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink18 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -1889,7 +1889,7 @@ define signext range(i8 0, 2) i8 @u_isJavaIDPart_77(i32 noundef %0) local_unname
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
@@ -1941,7 +1941,7 @@ define signext range(i8 0, 2) i8 @u_isJavaIDPart_77(i32 noundef %0) local_unname
 61:                                               ; preds = %59
   %62 = lshr i32 %0, 11
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4160
   %66 = load i16, ptr %65, align 2, !tbaa !3
   %67 = zext i16 %66 to i32
@@ -1953,7 +1953,7 @@ define signext range(i8 0, 2) i8 @u_isJavaIDPart_77(i32 noundef %0) local_unname
 .sink.split.i:                                    ; preds = %61, %54, %50
   %.sink29.i = phi i32 [ %58, %54 ], [ %70, %61 ], [ %51, %50 ]
   %71 = zext nneg i32 %.sink29.i to i64
-  %72 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %71
+  %72 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !3
   %74 = zext i16 %73 to i32
   %75 = shl nuw nsw i32 %74, 2
@@ -1964,7 +1964,7 @@ define signext range(i8 0, 2) i8 @u_isJavaIDPart_77(i32 noundef %0) local_unname
 
 79:                                               ; preds = %.sink.split.i, %59
   %80 = phi i64 [ 4876, %59 ], [ %78, %.sink.split.i ]
-  %81 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !3
   %83 = and i16 %82, 31
   %84 = icmp eq i16 %83, 16
@@ -2007,7 +2007,7 @@ define range(i32 -1, 10) i32 @u_charDigitValue_77(i32 noundef %0) local_unnamed_
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -2019,7 +2019,7 @@ define range(i32 -1, 10) i32 @u_charDigitValue_77(i32 noundef %0) local_unnamed_
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink22 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink22 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -2030,7 +2030,7 @@ define range(i32 -1, 10) i32 @u_charDigitValue_77(i32 noundef %0) local_unnamed_
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = icmp ult i16 %35, 704
   %37 = lshr i16 %35, 6
@@ -2067,7 +2067,7 @@ define double @u_getNumericValue_77(i32 noundef %0) local_unnamed_addr #0 {
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -2079,7 +2079,7 @@ define double @u_getNumericValue_77(i32 noundef %0) local_unnamed_addr #0 {
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink75 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink75 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -2090,7 +2090,7 @@ define double @u_getNumericValue_77(i32 noundef %0) local_unnamed_addr #0 {
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = lshr i16 %35, 6
   %37 = zext nneg i16 %36 to i32
@@ -2190,7 +2190,7 @@ switch.lookup:                                    ; preds = %82
   %85 = add nsw i32 %84, -191
   %86 = and i32 %37, 3
   %87 = zext nneg i32 %86 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.u_getNumericValue_77, i64 %87
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.u_getNumericValue_77, i64 %87
   %switch.load = load i32, ptr %switch.gep, align 4
   %88 = mul nuw nsw i32 %85, %switch.load
   %89 = uitofp nneg i32 %88 to double
@@ -2268,7 +2268,7 @@ define range(i32 -1, 36) i32 @u_digit_77(i32 noundef %0, i8 noundef signext %1) 
 18:                                               ; preds = %16
   %19 = lshr i32 %0, 11
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4160
   %23 = load i16, ptr %22, align 2, !tbaa !3
   %24 = zext i16 %23 to i32
@@ -2280,7 +2280,7 @@ define range(i32 -1, 36) i32 @u_digit_77(i32 noundef %0, i8 noundef signext %1) 
 .sink.split.i:                                    ; preds = %18, %11, %7
   %.sink22.i = phi i32 [ %15, %11 ], [ %27, %18 ], [ %8, %7 ]
   %28 = zext nneg i32 %.sink22.i to i64
-  %29 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !3
   %31 = zext i16 %30 to i32
   %32 = shl nuw nsw i32 %31, 2
@@ -2291,7 +2291,7 @@ define range(i32 -1, 36) i32 @u_digit_77(i32 noundef %0, i8 noundef signext %1) 
 
 u_charDigitValue_77.exit:                         ; preds = %16, %.sink.split.i
   %36 = phi i64 [ 4876, %16 ], [ %35, %.sink.split.i ]
-  %37 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !3
   %39 = icmp ult i16 %38, 704
   %40 = lshr i16 %38, 6
@@ -2412,7 +2412,7 @@ define range(i32 0, 65536) i32 @u_getMainProperties_77(i32 noundef %0) local_unn
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 11
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4160
   %19 = load i16, ptr %18, align 2, !tbaa !3
   %20 = zext i16 %19 to i32
@@ -2424,7 +2424,7 @@ define range(i32 0, 65536) i32 @u_getMainProperties_77(i32 noundef %0) local_unn
 .sink.split:                                      ; preds = %3, %14, %7
   %.sink16 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
   %24 = zext nneg i32 %.sink16 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -2435,7 +2435,7 @@ define range(i32 0, 65536) i32 @u_getMainProperties_77(i32 noundef %0) local_unn
 
 32:                                               ; preds = %.sink.split, %12
   %33 = phi i64 [ 4876, %12 ], [ %31, %.sink.split ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL15propsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = zext i16 %35 to i32
   ret i32 %36
@@ -2494,7 +2494,7 @@ define void @u_charAge_77(i32 noundef %0, ptr noundef writeonly captures(address
 16:                                               ; preds = %14
   %17 = lshr i32 %0, 11
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4160
   %21 = load i16, ptr %20, align 2, !tbaa !3
   %22 = zext i16 %21 to i32
@@ -2506,7 +2506,7 @@ define void @u_charAge_77(i32 noundef %0, ptr noundef writeonly captures(address
 .sink.split.i:                                    ; preds = %16, %9, %5
   %.sink23.i = phi i32 [ %13, %9 ], [ %25, %16 ], [ %6, %5 ]
   %26 = zext nneg i32 %.sink23.i to i64
-  %27 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !3
   %29 = zext i16 %28 to i32
   %30 = shl nuw nsw i32 %29, 2
@@ -2517,10 +2517,10 @@ define void @u_charAge_77(i32 noundef %0, ptr noundef writeonly captures(address
 
 u_getUnicodeProperties_77.exit:                   ; preds = %14, %.sink.split.i
   %34 = phi i64 [ 5364, %14 ], [ %33, %.sink.split.i ]
-  %35 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !3
   %37 = zext i16 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZL12propsVectors, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12propsVectors, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !11
   %40 = lshr i32 %39, 24
   %41 = lshr i32 %39, 26
@@ -2580,7 +2580,7 @@ define range(i32 -1, 65536) i32 @uscript_getScript_77(i32 noundef %0, ptr nounde
 21:                                               ; preds = %14
   %22 = lshr i32 %0, 11
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4160
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
@@ -2592,17 +2592,17 @@ define range(i32 -1, 65536) i32 @uscript_getScript_77(i32 noundef %0, ptr nounde
 u_getUnicodeProperties_77.exit:                   ; preds = %12, %16, %21
   %.sink23.i = phi i32 [ %20, %16 ], [ %30, %21 ], [ %13, %12 ]
   %31 = zext nneg i32 %.sink23.i to i64
-  %32 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !3
   %34 = zext i16 %33 to i32
   %35 = shl nuw nsw i32 %34, 2
   %36 = and i32 %0, 31
   %37 = add nuw nsw i32 %35, %36
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !3
   %41 = zext i16 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr @_ZL12propsVectors, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12propsVectors, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !11
   %44 = and i32 %43, 4095
   %45 = and i32 %43, 1023
@@ -2619,7 +2619,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %12, %16, %21
 
 51:                                               ; preds = %49
   %52 = zext nneg i32 %45 to i64
-  %53 = getelementptr inbounds nuw i16, ptr @_ZL16scriptExtensions, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr @_ZL16scriptExtensions, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !3
   %55 = zext i16 %54 to i32
   br label %56
@@ -2656,7 +2656,7 @@ define signext range(i8 0, 2) i8 @uscript_hasScript_77(i32 noundef %0, i32 nound
 15:                                               ; preds = %13
   %16 = lshr i32 %0, 11
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4160
   %20 = load i16, ptr %19, align 2, !tbaa !3
   %21 = zext i16 %20 to i32
@@ -2668,7 +2668,7 @@ define signext range(i8 0, 2) i8 @uscript_hasScript_77(i32 noundef %0, i32 nound
 .sink.split.i:                                    ; preds = %15, %8, %4
   %.sink23.i = phi i32 [ %12, %8 ], [ %24, %15 ], [ %5, %4 ]
   %25 = zext nneg i32 %.sink23.i to i64
-  %26 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !3
   %28 = zext i16 %27 to i32
   %29 = shl nuw nsw i32 %28, 2
@@ -2679,10 +2679,10 @@ define signext range(i8 0, 2) i8 @uscript_hasScript_77(i32 noundef %0, i32 nound
 
 u_getUnicodeProperties_77.exit:                   ; preds = %13, %.sink.split.i
   %33 = phi i64 [ 5364, %13 ], [ %32, %.sink.split.i ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !3
   %36 = zext i16 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr @_ZL12propsVectors, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12propsVectors, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !11
   %39 = and i32 %38, 4095
   %40 = and i32 %38, 1023
@@ -2695,7 +2695,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %13, %.sink.split.i
 
 44:                                               ; preds = %u_getUnicodeProperties_77.exit
   %45 = zext nneg i32 %40 to i64
-  %46 = getelementptr inbounds nuw i16, ptr @_ZL16scriptExtensions, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr @_ZL16scriptExtensions, i64 %45
   %47 = icmp samesign ugt i32 %39, 3071
   br i1 %47, label %48, label %53
 
@@ -2703,7 +2703,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %13, %.sink.split.i
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %50 = load i16, ptr %49, align 2, !tbaa !3
   %51 = zext i16 %50 to i64
-  %52 = getelementptr inbounds nuw i16, ptr @_ZL16scriptExtensions, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr @_ZL16scriptExtensions, i64 %51
   br label %53
 
 53:                                               ; preds = %48, %44
@@ -2780,7 +2780,7 @@ define range(i32 -2147483647, -2147483648) i32 @uscript_getScriptExtensions_77(i
 28:                                               ; preds = %26
   %29 = lshr i32 %0, 11
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4160
   %33 = load i16, ptr %32, align 2, !tbaa !3
   %34 = zext i16 %33 to i32
@@ -2792,7 +2792,7 @@ define range(i32 -2147483647, -2147483648) i32 @uscript_getScriptExtensions_77(i
 .sink.split.i:                                    ; preds = %28, %21, %17
   %.sink23.i = phi i32 [ %25, %21 ], [ %37, %28 ], [ %18, %17 ]
   %38 = zext nneg i32 %.sink23.i to i64
-  %39 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !3
   %41 = zext i16 %40 to i32
   %42 = shl nuw nsw i32 %41, 2
@@ -2803,10 +2803,10 @@ define range(i32 -2147483647, -2147483648) i32 @uscript_getScriptExtensions_77(i
 
 u_getUnicodeProperties_77.exit:                   ; preds = %26, %.sink.split.i
   %46 = phi i64 [ 5364, %26 ], [ %45, %.sink.split.i ]
-  %47 = getelementptr inbounds nuw i16, ptr @_ZL22propsVectorsTrie_index, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr @_ZL22propsVectorsTrie_index, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !3
   %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr @_ZL12propsVectors, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12propsVectors, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !11
   %52 = and i32 %51, 4095
   %53 = and i32 %51, 1023
@@ -2827,7 +2827,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %26, %.sink.split.i
 
 59:                                               ; preds = %u_getUnicodeProperties_77.exit
   %60 = zext nneg i32 %53 to i64
-  %61 = getelementptr inbounds nuw i16, ptr @_ZL16scriptExtensions, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr @_ZL16scriptExtensions, i64 %60
   %62 = icmp samesign ugt i32 %52, 3071
   br i1 %62, label %63, label %.backedge.preheader
 
@@ -2835,7 +2835,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %26, %.sink.split.i
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %65 = load i16, ptr %64, align 2, !tbaa !3
   %66 = zext i16 %65 to i64
-  %67 = getelementptr inbounds nuw i16, ptr @_ZL16scriptExtensions, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr @_ZL16scriptExtensions, i64 %66
   br label %.backedge.preheader
 
 .backedge.preheader:                              ; preds = %63, %59
@@ -2854,7 +2854,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %26, %.sink.split.i
   %72 = and i16 %69, 32767
   %73 = zext nneg i16 %72 to i32
   %74 = zext nneg i32 %.029 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %1, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %74
   store i32 %73, ptr %75, align 4, !tbaa !19
   %76 = add nuw nsw i32 %.029, 1
   %77 = icmp sgt i16 %69, -1

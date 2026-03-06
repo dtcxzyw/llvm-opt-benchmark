@@ -300,7 +300,7 @@ file_rule.exit:                                   ; preds = %13, %23, %26, %.thr
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !24
   %56 = sext i32 %50 to i64
-  %57 = getelementptr ptr, ptr %55, i64 %56
+  %57 = getelementptr [8 x i8], ptr %55, i64 %56
   br label %67
 
 58:                                               ; preds = %.thread42.i
@@ -314,7 +314,7 @@ file_rule.exit:                                   ; preds = %13, %23, %26, %.thr
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !24
   %65 = sext i32 %50 to i64
-  %66 = getelementptr ptr, ptr %64, i64 %65
+  %66 = getelementptr [8 x i8], ptr %64, i64 %65
   br i1 %62, label %67, label %121
 
 67:                                               ; preds = %61, %.thread126.i.i
@@ -1013,7 +1013,7 @@ statement_rule.exit.thread42:                     ; preds = %35, %42
   %.159.i = phi ptr [ %.058.i, %statement_rule.exit.thread42 ], [ %48, %45 ]
   %.155.i = phi i64 [ %.054.i, %statement_rule.exit.thread42 ], [ %46, %45 ]
   %51 = add i64 %.053.i, 1
-  %52 = getelementptr ptr, ptr %.159.i, i64 %.053.i
+  %52 = getelementptr [8 x i8], ptr %.159.i, i64 %.053.i
   store ptr %.129.i45, ptr %52, align 8, !tbaa !25
   %53 = load i32, ptr %13, align 8, !tbaa !22
   br label %.preheader70, !llvm.loop !33
@@ -1058,10 +1058,10 @@ _loop1_2_rule.exit.thread58:                      ; preds = %60
 
 67:                                               ; preds = %.lr.ph, %67
   %.0.i89 = phi i64 [ 0, %.lr.ph ], [ %72, %67 ]
-  %68 = getelementptr ptr, ptr %.058.i, i64 %.0.i89
+  %68 = getelementptr [8 x i8], ptr %.058.i, i64 %.0.i89
   %69 = load ptr, ptr %68, align 8, !tbaa !25
   %70 = load ptr, ptr %65, align 8, !tbaa !35
-  %71 = getelementptr ptr, ptr %70, i64 %.0.i89
+  %71 = getelementptr [8 x i8], ptr %70, i64 %.0.i89
   store ptr %69, ptr %71, align 8, !tbaa !25
   %72 = add nuw nsw i64 %.0.i89, 1
   %exitcond.not = icmp eq i64 %72, %.053.i
@@ -1274,7 +1274,7 @@ function_def_rule.exit.thread._crit_edge:         ; preds = %function_def_rule.e
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !24
   %65 = sext i32 %55 to i64
-  %66 = getelementptr ptr, ptr %64, i64 %65
+  %66 = getelementptr [8 x i8], ptr %64, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !25
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 20
   %69 = load i32, ptr %68, align 4, !tbaa !26
@@ -1767,7 +1767,7 @@ define internal fastcc ptr @simple_stmts_rule(ptr noundef %0) unnamed_addr #0 {
   %.160.i.i = phi i64 [ %.05981.i33.i, %.lr.ph.i ], [ %50, %49 ]
   %.256.i.i = phi ptr [ %.05483.i31.i, %.lr.ph.i ], [ %52, %49 ]
   %54 = add i64 %.05882.i32.i, 1
-  %55 = getelementptr ptr, ptr %.256.i.i, i64 %.05882.i32.i
+  %55 = getelementptr [8 x i8], ptr %.256.i.i, i64 %.05882.i32.i
   store ptr %47, ptr %55, align 8, !tbaa !25
   %56 = load i32, ptr %11, align 8, !tbaa !22
   %57 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 13) #5
@@ -1798,10 +1798,10 @@ define internal fastcc ptr @simple_stmts_rule(ptr noundef %0) unnamed_addr #0 {
 
 63:                                               ; preds = %63, %.lr.ph92.i.i
   %.091.i.i = phi i64 [ 0, %.lr.ph92.i.i ], [ %68, %63 ]
-  %64 = getelementptr ptr, ptr %.054.lcssa.i.i, i64 %.091.i.i
+  %64 = getelementptr [8 x i8], ptr %.054.lcssa.i.i, i64 %.091.i.i
   %65 = load ptr, ptr %64, align 8, !tbaa !25
   %66 = load ptr, ptr %62, align 8, !tbaa !35
-  %67 = getelementptr ptr, ptr %66, i64 %.091.i.i
+  %67 = getelementptr [8 x i8], ptr %66, i64 %.091.i.i
   store ptr %65, ptr %67, align 8, !tbaa !25
   %68 = add nuw nsw i64 %.091.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %68, %.058.lcssa.i.i
@@ -2076,7 +2076,7 @@ define internal fastcc ptr @with_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = sext i32 %12 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !26
@@ -2641,7 +2641,7 @@ define internal fastcc ptr @for_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = sext i32 %12 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !26
@@ -3026,7 +3026,7 @@ define internal fastcc ptr @try_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = sext i32 %12 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !26
@@ -3539,7 +3539,7 @@ define internal fastcc ptr @while_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = sext i32 %12 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !26
@@ -3761,7 +3761,7 @@ define internal fastcc ptr @match_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -3779,7 +3779,7 @@ define internal fastcc ptr @match_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread91, %24
@@ -4209,7 +4209,7 @@ case_block_rule.exit.thread118.i:                 ; preds = %159, %127, %97
   %.159.i = phi ptr [ %.058.i, %case_block_rule.exit.thread118.i ], [ %172, %169 ]
   %.155.i = phi i64 [ %.054.i, %case_block_rule.exit.thread118.i ], [ %170, %169 ]
   %175 = add i64 %.053.i, 1
-  %176 = getelementptr ptr, ptr %.159.i, i64 %.053.i
+  %176 = getelementptr [8 x i8], ptr %.159.i, i64 %.053.i
   store ptr %.235.i121.i, ptr %176, align 8, !tbaa !25
   %177 = load i32, ptr %11, align 8, !tbaa !22
   br label %58, !llvm.loop !44
@@ -4257,10 +4257,10 @@ case_block_rule.exit.thread118.i:                 ; preds = %159, %127, %97
 
 192:                                              ; preds = %192, %.lr.ph.i
   %.0160.i = phi i64 [ 0, %.lr.ph.i ], [ %197, %192 ]
-  %193 = getelementptr ptr, ptr %.058.i, i64 %.0160.i
+  %193 = getelementptr [8 x i8], ptr %.058.i, i64 %.0160.i
   %194 = load ptr, ptr %193, align 8, !tbaa !25
   %195 = load ptr, ptr %189, align 8, !tbaa !35
-  %196 = getelementptr ptr, ptr %195, i64 %.0160.i
+  %196 = getelementptr [8 x i8], ptr %195, i64 %.0160.i
   store ptr %194, ptr %196, align 8, !tbaa !25
   %197 = add nuw nsw i64 %.0160.i, 1
   %exitcond.not.i = icmp eq i64 %197, %.053.i
@@ -4552,7 +4552,7 @@ define internal fastcc ptr @decorators_rule(ptr noundef %0) unnamed_addr #0 {
   %.159.i = phi ptr [ %.058.i, %38 ], [ %43, %40 ]
   %.155.i = phi i64 [ %.054.i, %38 ], [ %41, %40 ]
   %45 = add i64 %.053.i, 1
-  %46 = getelementptr ptr, ptr %.159.i, i64 %.053.i
+  %46 = getelementptr [8 x i8], ptr %.159.i, i64 %.053.i
   store ptr %35, ptr %46, align 8, !tbaa !25
   %47 = load i32, ptr %13, align 8, !tbaa !22
   br label %.preheader81.i, !llvm.loop !47
@@ -4603,10 +4603,10 @@ define internal fastcc ptr @decorators_rule(ptr noundef %0) unnamed_addr #0 {
 
 62:                                               ; preds = %62, %.lr.ph.i
   %.092.i = phi i64 [ 0, %.lr.ph.i ], [ %67, %62 ]
-  %63 = getelementptr ptr, ptr %.058.i, i64 %.092.i
+  %63 = getelementptr [8 x i8], ptr %.058.i, i64 %.092.i
   %64 = load ptr, ptr %63, align 8, !tbaa !25
   %65 = load ptr, ptr %59, align 8, !tbaa !35
-  %66 = getelementptr ptr, ptr %65, i64 %.092.i
+  %66 = getelementptr [8 x i8], ptr %65, i64 %.092.i
   store ptr %64, ptr %66, align 8, !tbaa !25
   %67 = add nuw nsw i64 %.092.i, 1
   %exitcond.not.i = icmp eq i64 %67, %.053.i
@@ -4677,7 +4677,7 @@ define internal fastcc ptr @function_def_raw_rule(ptr noundef %0) unnamed_addr #
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = sext i32 %12 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !26
@@ -5413,7 +5413,7 @@ define internal fastcc ptr @assignment_expression_rule(ptr noundef %0) unnamed_a
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -5431,7 +5431,7 @@ define internal fastcc ptr @assignment_expression_rule(ptr noundef %0) unnamed_a
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread70, %24
@@ -5586,7 +5586,7 @@ define internal fastcc ptr @expression_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -5652,7 +5652,7 @@ define internal fastcc ptr @expression_rule(ptr noundef %0) unnamed_addr #0 {
   %65 = load i32, ptr %21, align 8, !tbaa !22
   %66 = add i32 %65, -1
   %67 = sext i32 %66 to i64
-  %68 = getelementptr ptr, ptr %64, i64 %67
+  %68 = getelementptr [8 x i8], ptr %64, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !25
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i32, ptr %70, align 8, !tbaa !55
@@ -6118,7 +6118,7 @@ define internal fastcc ptr @bitwise_or_rule(ptr noundef %0) unnamed_addr #0 {
 .thread:                                          ; preds = %33
   %37 = load ptr, ptr %21, align 8, !tbaa !24
   %38 = sext i32 %34 to i64
-  %39 = getelementptr ptr, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   br label %48
 
 40:                                               ; preds = %33
@@ -6131,7 +6131,7 @@ define internal fastcc ptr @bitwise_or_rule(ptr noundef %0) unnamed_addr #0 {
   %44 = icmp eq i32 %.pre, 0
   %45 = load ptr, ptr %21, align 8, !tbaa !24
   %46 = sext i32 %34 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   br i1 %44, label %48, label %bitwise_or_raw.exit
 
 48:                                               ; preds = %.thread, %43
@@ -6470,7 +6470,7 @@ define internal fastcc ptr @bitwise_xor_rule(ptr noundef %0) unnamed_addr #0 {
 .thread:                                          ; preds = %33
   %37 = load ptr, ptr %21, align 8, !tbaa !24
   %38 = sext i32 %34 to i64
-  %39 = getelementptr ptr, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   br label %48
 
 40:                                               ; preds = %33
@@ -6483,7 +6483,7 @@ define internal fastcc ptr @bitwise_xor_rule(ptr noundef %0) unnamed_addr #0 {
   %44 = icmp eq i32 %.pre, 0
   %45 = load ptr, ptr %21, align 8, !tbaa !24
   %46 = sext i32 %34 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   br i1 %44, label %48, label %bitwise_xor_raw.exit
 
 48:                                               ; preds = %.thread, %43
@@ -6670,7 +6670,7 @@ define internal fastcc ptr @bitwise_and_rule(ptr noundef %0) unnamed_addr #0 {
 .thread:                                          ; preds = %33
   %37 = load ptr, ptr %21, align 8, !tbaa !24
   %38 = sext i32 %34 to i64
-  %39 = getelementptr ptr, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   br label %48
 
 40:                                               ; preds = %33
@@ -6683,7 +6683,7 @@ define internal fastcc ptr @bitwise_and_rule(ptr noundef %0) unnamed_addr #0 {
   %44 = icmp eq i32 %.pre, 0
   %45 = load ptr, ptr %21, align 8, !tbaa !24
   %46 = sext i32 %34 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   br i1 %44, label %48, label %bitwise_and_raw.exit
 
 48:                                               ; preds = %.thread, %43
@@ -6869,7 +6869,7 @@ define internal fastcc ptr @shift_expr_rule(ptr noundef %0) unnamed_addr #0 {
 .thread:                                          ; preds = %34
   %38 = load ptr, ptr %21, align 8, !tbaa !24
   %39 = sext i32 %35 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   br label %49
 
 41:                                               ; preds = %34
@@ -6882,7 +6882,7 @@ define internal fastcc ptr @shift_expr_rule(ptr noundef %0) unnamed_addr #0 {
   %45 = icmp eq i32 %.pre, 0
   %46 = load ptr, ptr %21, align 8, !tbaa !24
   %47 = sext i32 %35 to i64
-  %48 = getelementptr ptr, ptr %46, i64 %47
+  %48 = getelementptr [8 x i8], ptr %46, i64 %47
   br i1 %45, label %49, label %shift_expr_raw.exit
 
 49:                                               ; preds = %.thread, %44
@@ -7123,7 +7123,7 @@ define internal fastcc ptr @sum_rule(ptr noundef %0) unnamed_addr #0 {
 .thread:                                          ; preds = %33
   %37 = load ptr, ptr %21, align 8, !tbaa !24
   %38 = sext i32 %34 to i64
-  %39 = getelementptr ptr, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   br label %48
 
 40:                                               ; preds = %33
@@ -7136,7 +7136,7 @@ define internal fastcc ptr @sum_rule(ptr noundef %0) unnamed_addr #0 {
   %44 = icmp eq i32 %.pre, 0
   %45 = load ptr, ptr %21, align 8, !tbaa !24
   %46 = sext i32 %34 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   br i1 %44, label %48, label %sum_raw.exit
 
 48:                                               ; preds = %.thread, %43
@@ -7536,7 +7536,7 @@ define internal fastcc ptr @term_rule(ptr noundef %0) unnamed_addr #0 {
 .thread:                                          ; preds = %34
   %38 = load ptr, ptr %21, align 8, !tbaa !24
   %39 = sext i32 %35 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   br label %49
 
 41:                                               ; preds = %34
@@ -7549,7 +7549,7 @@ define internal fastcc ptr @term_rule(ptr noundef %0) unnamed_addr #0 {
   %45 = icmp eq i32 %.pre, 0
   %46 = load ptr, ptr %21, align 8, !tbaa !24
   %47 = sext i32 %35 to i64
-  %48 = getelementptr ptr, ptr %46, i64 %47
+  %48 = getelementptr [8 x i8], ptr %46, i64 %47
   br i1 %45, label %49, label %term_raw.exit
 
 49:                                               ; preds = %.thread, %44
@@ -7901,7 +7901,7 @@ define internal fastcc ptr @factor_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -8275,7 +8275,7 @@ define internal fastcc ptr @power_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -8293,7 +8293,7 @@ define internal fastcc ptr @power_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread80, %24
@@ -8429,7 +8429,7 @@ define internal fastcc ptr @await_primary_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -8617,7 +8617,7 @@ define internal fastcc ptr @primary_rule(ptr noundef %0) unnamed_addr #0 {
 .thread:                                          ; preds = %33
   %37 = load ptr, ptr %21, align 8, !tbaa !24
   %38 = sext i32 %34 to i64
-  %39 = getelementptr ptr, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   br label %48
 
 40:                                               ; preds = %33
@@ -8630,7 +8630,7 @@ define internal fastcc ptr @primary_rule(ptr noundef %0) unnamed_addr #0 {
   %44 = icmp eq i32 %.pre, 0
   %45 = load ptr, ptr %21, align 8, !tbaa !24
   %46 = sext i32 %34 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   br i1 %44, label %48, label %primary_raw.exit
 
 48:                                               ; preds = %.thread, %43
@@ -8926,7 +8926,7 @@ define internal fastcc ptr @genexp_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -8944,7 +8944,7 @@ define internal fastcc ptr @genexp_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread74
 
 30:                                               ; preds = %.thread, %24
@@ -9229,7 +9229,7 @@ define internal fastcc ptr @slices_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -9247,7 +9247,7 @@ define internal fastcc ptr @slices_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread71
 
 30:                                               ; preds = %.thread, %24
@@ -9408,7 +9408,7 @@ define internal fastcc ptr @slices_rule(ptr noundef %0) unnamed_addr #0 {
   %.160.i.i = phi i64 [ %.059.i97.i, %80 ], [ %85, %84 ]
   %.256.i.i = phi ptr [ %.054.i99.i, %80 ], [ %87, %84 ]
   %89 = add i64 %.058.i98.i, 1
-  %90 = getelementptr ptr, ptr %.256.i.i, i64 %.058.i98.i
+  %90 = getelementptr [8 x i8], ptr %.256.i.i, i64 %.058.i98.i
   store ptr %.122.i32.ph.i, ptr %90, align 8, !tbaa !25
   %91 = load i32, ptr %11, align 8, !tbaa !22
   %92 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -9442,10 +9442,10 @@ define internal fastcc ptr @slices_rule(ptr noundef %0) unnamed_addr #0 {
 
 100:                                              ; preds = %100, %.lr.ph104.i
   %.0.i26103.i = phi i64 [ 0, %.lr.ph104.i ], [ %105, %100 ]
-  %101 = getelementptr ptr, ptr %.054.i88.i, i64 %.0.i26103.i
+  %101 = getelementptr [8 x i8], ptr %.054.i88.i, i64 %.0.i26103.i
   %102 = load ptr, ptr %101, align 8, !tbaa !25
   %103 = load ptr, ptr %99, align 8, !tbaa !35
-  %104 = getelementptr ptr, ptr %103, i64 %.0.i26103.i
+  %104 = getelementptr [8 x i8], ptr %103, i64 %.0.i26103.i
   store ptr %102, ptr %104, align 8, !tbaa !25
   %105 = add nuw nsw i64 %.0.i26103.i, 1
   %exitcond.not.i = icmp eq i64 %105, %.058.i93.i
@@ -9559,7 +9559,7 @@ define internal fastcc ptr @atom_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -9577,7 +9577,7 @@ define internal fastcc ptr @atom_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread220
 
 30:                                               ; preds = %.thread, %24
@@ -10558,7 +10558,7 @@ _tmp_168_rule.exit.i.i:                           ; preds = %125
   %.155.i.i = phi ptr [ %.054.i.i, %130 ], [ %135, %132 ]
   %.151.i.i = phi i64 [ %.050.i.i, %130 ], [ %133, %132 ]
   %137 = add i64 %.049.i.i, 1
-  %138 = getelementptr ptr, ptr %.155.i.i, i64 %.049.i.i
+  %138 = getelementptr [8 x i8], ptr %.155.i.i, i64 %.049.i.i
   store ptr %127, ptr %138, align 8, !tbaa !25
   %139 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader64.i, !llvm.loop !58
@@ -10602,10 +10602,10 @@ _loop0_165_rule.exit.thread46.i:                  ; preds = %.loopexit.i
 
 151:                                              ; preds = %151, %.lr.ph.i
   %.0.i3179.i = phi i64 [ 0, %.lr.ph.i ], [ %156, %151 ]
-  %152 = getelementptr ptr, ptr %.054.i.i, i64 %.0.i3179.i
+  %152 = getelementptr [8 x i8], ptr %.054.i.i, i64 %.0.i3179.i
   %153 = load ptr, ptr %152, align 8, !tbaa !25
   %154 = load ptr, ptr %149, align 8, !tbaa !35
-  %155 = getelementptr ptr, ptr %154, i64 %.0.i3179.i
+  %155 = getelementptr [8 x i8], ptr %154, i64 %.0.i3179.i
   store ptr %153, ptr %155, align 8, !tbaa !25
   %156 = add nuw nsw i64 %.0.i3179.i, 1
   %exitcond.not.i = icmp eq i64 %156, %.049.i.i
@@ -10702,7 +10702,7 @@ for_if_clause_rule.exit.thread104:                ; preds = %invalid_for_if_clau
   %.159 = phi ptr [ %.058, %for_if_clause_rule.exit.thread104 ], [ %182, %179 ]
   %.155 = phi i64 [ %.054, %for_if_clause_rule.exit.thread104 ], [ %180, %179 ]
   %184 = add i64 %.053, 1
-  %185 = getelementptr ptr, ptr %.159, i64 %.053
+  %185 = getelementptr [8 x i8], ptr %.159, i64 %.053
   store ptr %.164.i107, ptr %185, align 8, !tbaa !25
   %186 = load i32, ptr %11, align 8, !tbaa !22
   br label %21, !llvm.loop !60
@@ -10756,10 +10756,10 @@ for_if_clause_rule.exit.thread:                   ; preds = %72, %74, %61, %63, 
 
 202:                                              ; preds = %.lr.ph, %202
   %.0173 = phi i64 [ 0, %.lr.ph ], [ %207, %202 ]
-  %203 = getelementptr ptr, ptr %.058, i64 %.0173
+  %203 = getelementptr [8 x i8], ptr %.058, i64 %.0173
   %204 = load ptr, ptr %203, align 8, !tbaa !25
   %205 = load ptr, ptr %199, align 8, !tbaa !35
-  %206 = getelementptr ptr, ptr %205, i64 %.0173
+  %206 = getelementptr [8 x i8], ptr %205, i64 %.0173
   store ptr %204, ptr %206, align 8, !tbaa !25
   %207 = add nuw nsw i64 %.0173, 1
   %exitcond.not = icmp eq i64 %207, %.053
@@ -10804,7 +10804,7 @@ define internal fastcc ptr @star_targets_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -10822,7 +10822,7 @@ define internal fastcc ptr @star_targets_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread77
 
 30:                                               ; preds = %.thread, %24
@@ -10927,7 +10927,7 @@ define internal fastcc ptr @star_targets_rule(ptr noundef %0) unnamed_addr #0 {
   %.155.i = phi ptr [ %.054.i, %62 ], [ %69, %66 ]
   %.151.i = phi i64 [ %.050.i, %62 ], [ %67, %66 ]
   %71 = add i64 %.049.i, 1
-  %72 = getelementptr ptr, ptr %.155.i, i64 %.049.i
+  %72 = getelementptr [8 x i8], ptr %.155.i, i64 %.049.i
   store ptr %61, ptr %72, align 8, !tbaa !25
   %73 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader80.i, !llvm.loop !62
@@ -10953,10 +10953,10 @@ _tmp_160_rule.exit.thread.i:                      ; preds = %60, %58, %56
 
 79:                                               ; preds = %79, %.lr.ph.i
   %.091.i = phi i64 [ 0, %.lr.ph.i ], [ %84, %79 ]
-  %80 = getelementptr ptr, ptr %.054.i, i64 %.091.i
+  %80 = getelementptr [8 x i8], ptr %.054.i, i64 %.091.i
   %81 = load ptr, ptr %80, align 8, !tbaa !25
   %82 = load ptr, ptr %78, align 8, !tbaa !35
-  %83 = getelementptr ptr, ptr %82, i64 %.091.i
+  %83 = getelementptr [8 x i8], ptr %82, i64 %.091.i
   store ptr %81, ptr %83, align 8, !tbaa !25
   %84 = add nuw nsw i64 %.091.i, 1
   %exitcond.not.i = icmp eq i64 %84, %.049.i
@@ -11096,7 +11096,7 @@ define internal fastcc ptr @disjunction_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -11197,7 +11197,7 @@ define internal fastcc ptr @disjunction_rule(ptr noundef %0) unnamed_addr #0 {
   %.159.i = phi ptr [ %.058.i, %72 ], [ %79, %76 ]
   %.155.i = phi i64 [ %.054.i, %72 ], [ %77, %76 ]
   %81 = add i64 %.053.i, 1
-  %82 = getelementptr ptr, ptr %.159.i, i64 %.053.i
+  %82 = getelementptr [8 x i8], ptr %.159.i, i64 %.053.i
   store ptr %71, ptr %82, align 8, !tbaa !25
   %83 = load i32, ptr %21, align 8, !tbaa !22
   br label %.preheader93, !llvm.loop !64
@@ -11248,10 +11248,10 @@ _loop1_59_rule.exit.thread81:                     ; preds = %90
 
 97:                                               ; preds = %.lr.ph, %97
   %.0.i104 = phi i64 [ 0, %.lr.ph ], [ %102, %97 ]
-  %98 = getelementptr ptr, ptr %.058.i, i64 %.0.i104
+  %98 = getelementptr [8 x i8], ptr %.058.i, i64 %.0.i104
   %99 = load ptr, ptr %98, align 8, !tbaa !25
   %100 = load ptr, ptr %95, align 8, !tbaa !35
-  %101 = getelementptr ptr, ptr %100, i64 %.0.i104
+  %101 = getelementptr [8 x i8], ptr %100, i64 %.0.i104
   store ptr %99, ptr %101, align 8, !tbaa !25
   %102 = add nuw nsw i64 %.0.i104, 1
   %exitcond.not = icmp eq i64 %102, %.053.i
@@ -11443,7 +11443,7 @@ define internal fastcc ptr @_loop0_84_rule(ptr noundef %0) unnamed_addr #0 {
   %.155 = phi ptr [ %.054, %28 ], [ %35, %32 ]
   %.151 = phi i64 [ %.050, %28 ], [ %33, %32 ]
   %37 = add i64 %.049, 1
-  %38 = getelementptr ptr, ptr %.155, i64 %.049
+  %38 = getelementptr [8 x i8], ptr %.155, i64 %.049
   store ptr %27, ptr %38, align 8, !tbaa !25
   %39 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader80, !llvm.loop !66
@@ -11485,10 +11485,10 @@ _tmp_158_rule.exit.thread:                        ; preds = %22, %24, %26
 
 49:                                               ; preds = %.lr.ph, %49
   %.091 = phi i64 [ 0, %.lr.ph ], [ %54, %49 ]
-  %50 = getelementptr ptr, ptr %.054, i64 %.091
+  %50 = getelementptr [8 x i8], ptr %.054, i64 %.091
   %51 = load ptr, ptr %50, align 8, !tbaa !25
   %52 = load ptr, ptr %46, align 8, !tbaa !35
-  %53 = getelementptr ptr, ptr %52, i64 %.091
+  %53 = getelementptr [8 x i8], ptr %52, i64 %.091
   store ptr %51, ptr %53, align 8, !tbaa !25
   %54 = add nuw nsw i64 %.091, 1
   %exitcond.not = icmp eq i64 %54, %.049
@@ -11657,7 +11657,7 @@ define internal fastcc ptr @star_target_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -11876,7 +11876,7 @@ define internal fastcc ptr @target_with_star_atom_rule(ptr noundef %0) unnamed_a
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -12143,7 +12143,7 @@ define internal fastcc ptr @t_primary_rule(ptr noundef %0) unnamed_addr #0 {
 .thread:                                          ; preds = %33
   %37 = load ptr, ptr %21, align 8, !tbaa !24
   %38 = sext i32 %34 to i64
-  %39 = getelementptr ptr, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   br label %48
 
 40:                                               ; preds = %33
@@ -12156,7 +12156,7 @@ define internal fastcc ptr @t_primary_rule(ptr noundef %0) unnamed_addr #0 {
   %44 = icmp eq i32 %.pre, 0
   %45 = load ptr, ptr %21, align 8, !tbaa !24
   %46 = sext i32 %34 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   br i1 %44, label %48, label %t_primary_raw.exit
 
 48:                                               ; preds = %.thread, %43
@@ -12533,7 +12533,7 @@ define internal fastcc ptr @star_atom_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -12551,7 +12551,7 @@ define internal fastcc ptr @star_atom_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread138
 
 30:                                               ; preds = %.thread163, %24
@@ -12830,7 +12830,7 @@ define internal fastcc ptr @star_targets_tuple_seq_rule(ptr noundef %0) unnamed_
   %.159.i = phi ptr [ %.058.i, %38 ], [ %45, %42 ]
   %.155.i = phi i64 [ %.054.i, %38 ], [ %43, %42 ]
   %47 = add i64 %.053.i, 1
-  %48 = getelementptr ptr, ptr %.159.i, i64 %.053.i
+  %48 = getelementptr [8 x i8], ptr %.159.i, i64 %.053.i
   store ptr %37, ptr %48, align 8, !tbaa !25
   %49 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader88, !llvm.loop !68
@@ -12881,10 +12881,10 @@ _loop1_96_rule.exit.thread68:                     ; preds = %56
 
 63:                                               ; preds = %.lr.ph, %63
   %.0.i99 = phi i64 [ 0, %.lr.ph ], [ %68, %63 ]
-  %64 = getelementptr ptr, ptr %.058.i, i64 %.0.i99
+  %64 = getelementptr [8 x i8], ptr %.058.i, i64 %.0.i99
   %65 = load ptr, ptr %64, align 8, !tbaa !25
   %66 = load ptr, ptr %61, align 8, !tbaa !35
-  %67 = getelementptr ptr, ptr %66, i64 %.0.i99
+  %67 = getelementptr [8 x i8], ptr %66, i64 %.0.i99
   store ptr %65, ptr %67, align 8, !tbaa !25
   %68 = add nuw nsw i64 %.0.i99, 1
   %exitcond.not = icmp eq i64 %68, %.053.i
@@ -13070,7 +13070,7 @@ _gather_95_rule.exit.thread:                      ; preds = %16
   %.160.i = phi i64 [ %.059.i5179, %.lr.ph80 ], [ %37, %36 ]
   %.256.i = phi ptr [ %.054.i5377, %.lr.ph80 ], [ %39, %36 ]
   %41 = add i64 %.058.i5278, 1
-  %42 = getelementptr ptr, ptr %.256.i, i64 %.058.i5278
+  %42 = getelementptr [8 x i8], ptr %.256.i, i64 %.058.i5278
   store ptr %34, ptr %42, align 8, !tbaa !25
   %43 = load i32, ptr %11, align 8, !tbaa !22
   %44 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -13101,10 +13101,10 @@ _gather_95_rule.exit.thread:                      ; preds = %16
 
 50:                                               ; preds = %.lr.ph62, %50
   %.0.i2761 = phi i64 [ 0, %.lr.ph62 ], [ %55, %50 ]
-  %51 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2761
+  %51 = getelementptr [8 x i8], ptr %.054.i.lcssa, i64 %.0.i2761
   %52 = load ptr, ptr %51, align 8, !tbaa !25
   %53 = load ptr, ptr %49, align 8, !tbaa !35
-  %54 = getelementptr ptr, ptr %53, i64 %.0.i2761
+  %54 = getelementptr [8 x i8], ptr %53, i64 %.0.i2761
   store ptr %52, ptr %54, align 8, !tbaa !25
   %55 = add nuw nsw i64 %.0.i2761, 1
   %exitcond.not = icmp eq i64 %55, %.058.i.lcssa
@@ -13227,7 +13227,7 @@ define internal fastcc ptr @conjunction_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -13328,7 +13328,7 @@ define internal fastcc ptr @conjunction_rule(ptr noundef %0) unnamed_addr #0 {
   %.159.i = phi ptr [ %.058.i, %72 ], [ %79, %76 ]
   %.155.i = phi i64 [ %.054.i, %72 ], [ %77, %76 ]
   %81 = add i64 %.053.i, 1
-  %82 = getelementptr ptr, ptr %.159.i, i64 %.053.i
+  %82 = getelementptr [8 x i8], ptr %.159.i, i64 %.053.i
   store ptr %71, ptr %82, align 8, !tbaa !25
   %83 = load i32, ptr %21, align 8, !tbaa !22
   br label %.preheader93, !llvm.loop !72
@@ -13379,10 +13379,10 @@ _loop1_60_rule.exit.thread81:                     ; preds = %90
 
 97:                                               ; preds = %.lr.ph, %97
   %.0.i104 = phi i64 [ 0, %.lr.ph ], [ %102, %97 ]
-  %98 = getelementptr ptr, ptr %.058.i, i64 %.0.i104
+  %98 = getelementptr [8 x i8], ptr %.058.i, i64 %.0.i104
   %99 = load ptr, ptr %98, align 8, !tbaa !25
   %100 = load ptr, ptr %95, align 8, !tbaa !35
-  %101 = getelementptr ptr, ptr %100, i64 %.0.i104
+  %101 = getelementptr [8 x i8], ptr %100, i64 %.0.i104
   store ptr %99, ptr %101, align 8, !tbaa !25
   %102 = add nuw nsw i64 %.0.i104, 1
   %exitcond.not = icmp eq i64 %102, %.053.i
@@ -13556,7 +13556,7 @@ define internal fastcc ptr @inversion_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -13697,7 +13697,7 @@ define internal fastcc ptr @comparison_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -13715,7 +13715,7 @@ define internal fastcc ptr @comparison_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread160
 
 30:                                               ; preds = %.thread, %24
@@ -14174,7 +14174,7 @@ compare_op_bitwise_or_pair_rule.exit:             ; preds = %181
   %.159.i = phi ptr [ %.058.i, %186 ], [ %193, %190 ]
   %.155.i = phi i64 [ %.054.i, %186 ], [ %191, %190 ]
   %195 = add i64 %.053.i, 1
-  %196 = getelementptr ptr, ptr %.159.i, i64 %.053.i
+  %196 = getelementptr [8 x i8], ptr %.159.i, i64 %.053.i
   store ptr %.178.i.ph, ptr %196, align 8, !tbaa !25
   %197 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader173, !llvm.loop !74
@@ -14225,10 +14225,10 @@ _loop1_61_rule.exit.thread154:                    ; preds = %205
 
 212:                                              ; preds = %.lr.ph, %212
   %.0.i235 = phi i64 [ 0, %.lr.ph ], [ %217, %212 ]
-  %213 = getelementptr ptr, ptr %.058.i, i64 %.0.i235
+  %213 = getelementptr [8 x i8], ptr %.058.i, i64 %.0.i235
   %214 = load ptr, ptr %213, align 8, !tbaa !25
   %215 = load ptr, ptr %210, align 8, !tbaa !35
-  %216 = getelementptr ptr, ptr %215, i64 %.0.i235
+  %216 = getelementptr [8 x i8], ptr %215, i64 %.0.i235
   store ptr %214, ptr %216, align 8, !tbaa !25
   %217 = add nuw nsw i64 %.0.i235, 1
   %exitcond.not = icmp eq i64 %217, %.053.i
@@ -14647,7 +14647,7 @@ define internal fastcc ptr @star_expressions_rule(ptr noundef %0) unnamed_addr #
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -14665,7 +14665,7 @@ define internal fastcc ptr @star_expressions_rule(ptr noundef %0) unnamed_addr #
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread125
 
 30:                                               ; preds = %.thread, %24
@@ -14759,7 +14759,7 @@ define internal fastcc ptr @star_expressions_rule(ptr noundef %0) unnamed_addr #
   %.159.i = phi ptr [ %.058.i, %58 ], [ %65, %62 ]
   %.155.i = phi i64 [ %.054.i, %58 ], [ %63, %62 ]
   %67 = add i64 %.053.i, 1
-  %68 = getelementptr ptr, ptr %.159.i, i64 %.053.i
+  %68 = getelementptr [8 x i8], ptr %.159.i, i64 %.053.i
   store ptr %57, ptr %68, align 8, !tbaa !25
   %69 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader145, !llvm.loop !76
@@ -14810,10 +14810,10 @@ _loop1_56_rule.exit.thread120:                    ; preds = %76
 
 83:                                               ; preds = %.lr.ph, %83
   %.0.i156 = phi i64 [ 0, %.lr.ph ], [ %88, %83 ]
-  %84 = getelementptr ptr, ptr %.058.i, i64 %.0.i156
+  %84 = getelementptr [8 x i8], ptr %.058.i, i64 %.0.i156
   %85 = load ptr, ptr %84, align 8, !tbaa !25
   %86 = load ptr, ptr %81, align 8, !tbaa !35
-  %87 = getelementptr ptr, ptr %86, i64 %.0.i156
+  %87 = getelementptr [8 x i8], ptr %86, i64 %.0.i156
   store ptr %85, ptr %87, align 8, !tbaa !25
   %88 = add nuw nsw i64 %.0.i156, 1
   %exitcond.not = icmp eq i64 %88, %.053.i
@@ -15050,7 +15050,7 @@ define internal fastcc ptr @star_expression_rule(ptr noundef %0) unnamed_addr #0
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -15207,7 +15207,7 @@ define internal fastcc ptr @starred_expression_rule(ptr noundef %0) unnamed_addr
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = sext i32 %12 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !26
@@ -15403,7 +15403,7 @@ define internal fastcc ptr @star_named_expression_rule(ptr noundef %0) unnamed_a
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -15421,7 +15421,7 @@ define internal fastcc ptr @star_named_expression_rule(ptr noundef %0) unnamed_a
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread75, %24
@@ -15695,7 +15695,7 @@ define internal fastcc ptr @_loop0_57_rule(ptr noundef %0) unnamed_addr #0 {
   %.160 = phi i64 [ %.05981103, %.lr.ph104 ], [ %24, %23 ]
   %.256 = phi ptr [ %.05483101, %.lr.ph104 ], [ %26, %23 ]
   %29 = add i64 %.05882102, 1
-  %30 = getelementptr ptr, ptr %.256, i64 %.05882102
+  %30 = getelementptr [8 x i8], ptr %.256, i64 %.05882102
   store ptr %21, ptr %30, align 8, !tbaa !25
   %31 = load i32, ptr %11, align 8, !tbaa !22
   %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -15736,10 +15736,10 @@ define internal fastcc ptr @_loop0_57_rule(ptr noundef %0) unnamed_addr #0 {
 
 40:                                               ; preds = %.lr.ph92, %40
   %.091 = phi i64 [ 0, %.lr.ph92 ], [ %45, %40 ]
-  %41 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
+  %41 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.091
   %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = load ptr, ptr %37, align 8, !tbaa !35
-  %44 = getelementptr ptr, ptr %43, i64 %.091
+  %44 = getelementptr [8 x i8], ptr %43, i64 %.091
   store ptr %42, ptr %44, align 8, !tbaa !25
   %45 = add nuw nsw i64 %.091, 1
   %exitcond.not = icmp eq i64 %45, %.058.lcssa
@@ -15788,7 +15788,7 @@ define internal fastcc ptr @args_rule(ptr noundef %0) unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = sext i32 %14 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %.pre148 = load i32, ptr %2, align 8, !tbaa !20
   br label %33
 
@@ -15808,7 +15808,7 @@ define internal fastcc ptr @args_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = sext i32 %14 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   %.pre149 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %28, label %33, label %.thread105
 
@@ -16377,7 +16377,7 @@ _tmp_103_rule.exit.thread.thread:                 ; preds = %63
   %.160.i = phi i64 [ %.059.i329, %111 ], [ %116, %115 ]
   %.256.i = phi ptr [ %.054.i331, %111 ], [ %118, %115 ]
   %120 = add i64 %.058.i330, 1
-  %121 = getelementptr ptr, ptr %.256.i, i64 %.058.i330
+  %121 = getelementptr [8 x i8], ptr %.256.i, i64 %.058.i330
   store ptr %108, ptr %121, align 8, !tbaa !25
   %122 = load i32, ptr %11, align 8, !tbaa !22
   %123 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -16411,10 +16411,10 @@ _tmp_103_rule.exit.thread.thread:                 ; preds = %63
 
 131:                                              ; preds = %.lr.ph336, %131
   %.0.i204335 = phi i64 [ 0, %.lr.ph336 ], [ %136, %131 ]
-  %132 = getelementptr ptr, ptr %.054.i322, i64 %.0.i204335
+  %132 = getelementptr [8 x i8], ptr %.054.i322, i64 %.0.i204335
   %133 = load ptr, ptr %132, align 8, !tbaa !25
   %134 = load ptr, ptr %130, align 8, !tbaa !35
-  %135 = getelementptr ptr, ptr %134, i64 %.0.i204335
+  %135 = getelementptr [8 x i8], ptr %134, i64 %.0.i204335
   store ptr %133, ptr %135, align 8, !tbaa !25
   %136 = add nuw nsw i64 %.0.i204335, 1
   %exitcond.not = icmp eq i64 %136, %.058.i326
@@ -17158,7 +17158,7 @@ _tmp_159_rule.exit.thread:                        ; preds = %23, %28, %46, %_tmp
   %.160 = phi i64 [ %.05981, %52 ], [ %57, %56 ]
   %.256 = phi ptr [ %.05483, %52 ], [ %59, %56 ]
   %62 = add i64 %.05882, 1
-  %63 = getelementptr ptr, ptr %.256, i64 %.05882
+  %63 = getelementptr [8 x i8], ptr %.256, i64 %.05882
   store ptr %.0.i, ptr %63, align 8, !tbaa !25
   %64 = load i32, ptr %11, align 8, !tbaa !22
   %65 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -17196,10 +17196,10 @@ _tmp_159_rule.exit.thread:                        ; preds = %23, %28, %46, %_tmp
 
 73:                                               ; preds = %.lr.ph92, %73
   %.091 = phi i64 [ 0, %.lr.ph92 ], [ %78, %73 ]
-  %74 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
+  %74 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.091
   %75 = load ptr, ptr %74, align 8, !tbaa !25
   %76 = load ptr, ptr %70, align 8, !tbaa !35
-  %77 = getelementptr ptr, ptr %76, i64 %.091
+  %77 = getelementptr [8 x i8], ptr %76, i64 %.091
   store ptr %75, ptr %77, align 8, !tbaa !25
   %78 = add nuw nsw i64 %.091, 1
   %exitcond.not = icmp eq i64 %78, %.058.lcssa
@@ -17260,7 +17260,7 @@ define internal fastcc ptr @kwarg_or_starred_rule(ptr noundef %0) unnamed_addr #
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = sext i32 %12 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !26
@@ -17450,7 +17450,7 @@ define internal fastcc ptr @_loop0_89_rule(ptr noundef %0) unnamed_addr #0 {
   %.160 = phi i64 [ %.05981103, %.lr.ph104 ], [ %24, %23 ]
   %.256 = phi ptr [ %.05483101, %.lr.ph104 ], [ %26, %23 ]
   %29 = add i64 %.05882102, 1
-  %30 = getelementptr ptr, ptr %.256, i64 %.05882102
+  %30 = getelementptr [8 x i8], ptr %.256, i64 %.05882102
   store ptr %21, ptr %30, align 8, !tbaa !25
   %31 = load i32, ptr %11, align 8, !tbaa !22
   %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -17491,10 +17491,10 @@ define internal fastcc ptr @_loop0_89_rule(ptr noundef %0) unnamed_addr #0 {
 
 40:                                               ; preds = %.lr.ph92, %40
   %.091 = phi i64 [ 0, %.lr.ph92 ], [ %45, %40 ]
-  %41 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
+  %41 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.091
   %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = load ptr, ptr %37, align 8, !tbaa !35
-  %44 = getelementptr ptr, ptr %43, i64 %.091
+  %44 = getelementptr [8 x i8], ptr %43, i64 %.091
   store ptr %42, ptr %44, align 8, !tbaa !25
   %45 = add nuw nsw i64 %.091, 1
   %exitcond.not = icmp eq i64 %45, %.058.lcssa
@@ -17889,7 +17889,7 @@ define internal fastcc ptr @kwarg_or_double_starred_rule(ptr noundef %0) unnamed
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = sext i32 %12 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !26
@@ -18104,7 +18104,7 @@ define internal fastcc ptr @_loop0_91_rule(ptr noundef %0) unnamed_addr #0 {
   %.160 = phi i64 [ %.05981103, %.lr.ph104 ], [ %24, %23 ]
   %.256 = phi ptr [ %.05483101, %.lr.ph104 ], [ %26, %23 ]
   %29 = add i64 %.05882102, 1
-  %30 = getelementptr ptr, ptr %.256, i64 %.05882102
+  %30 = getelementptr [8 x i8], ptr %.256, i64 %.05882102
   store ptr %21, ptr %30, align 8, !tbaa !25
   %31 = load i32, ptr %11, align 8, !tbaa !22
   %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -18145,10 +18145,10 @@ define internal fastcc ptr @_loop0_91_rule(ptr noundef %0) unnamed_addr #0 {
 
 40:                                               ; preds = %.lr.ph92, %40
   %.091 = phi i64 [ 0, %.lr.ph92 ], [ %45, %40 ]
-  %41 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
+  %41 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.091
   %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = load ptr, ptr %37, align 8, !tbaa !35
-  %44 = getelementptr ptr, ptr %43, i64 %.091
+  %44 = getelementptr [8 x i8], ptr %43, i64 %.091
   store ptr %42, ptr %44, align 8, !tbaa !25
   %45 = add nuw nsw i64 %.091, 1
   %exitcond.not = icmp eq i64 %45, %.058.lcssa
@@ -18376,7 +18376,7 @@ define internal fastcc ptr @slice_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -18394,7 +18394,7 @@ define internal fastcc ptr @slice_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread88, %24
@@ -18652,7 +18652,7 @@ define internal fastcc ptr @strings_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -18846,7 +18846,7 @@ fstring_middle_rule.exit.thread83.i:              ; preds = %101, %94
   %.155.i223 = phi ptr [ %.054.i221, %fstring_middle_rule.exit.thread83.i ], [ %110, %107 ]
   %.151.i = phi i64 [ %.050.i, %fstring_middle_rule.exit.thread83.i ], [ %108, %107 ]
   %112 = add i64 %.049.i, 1
-  %113 = getelementptr ptr, ptr %.155.i223, i64 %.049.i
+  %113 = getelementptr [8 x i8], ptr %.155.i223, i64 %.049.i
   store ptr %.126.i86.i, ptr %113, align 8, !tbaa !25
   %114 = load i32, ptr %21, align 8, !tbaa !22
   br label %.preheader98.i, !llvm.loop !89
@@ -18871,10 +18871,10 @@ fstring_middle_rule.exit.thread83.i:              ; preds = %101, %94
 
 121:                                              ; preds = %121, %.lr.ph.i
   %.0117.i = phi i64 [ 0, %.lr.ph.i ], [ %126, %121 ]
-  %122 = getelementptr ptr, ptr %.054.i221, i64 %.0117.i
+  %122 = getelementptr [8 x i8], ptr %.054.i221, i64 %.0117.i
   %123 = load ptr, ptr %122, align 8, !tbaa !25
   %124 = load ptr, ptr %120, align 8, !tbaa !35
-  %125 = getelementptr ptr, ptr %124, i64 %.0117.i
+  %125 = getelementptr [8 x i8], ptr %124, i64 %.0117.i
   store ptr %123, ptr %125, align 8, !tbaa !25
   %126 = add nuw nsw i64 %.0117.i, 1
   %exitcond.not.i = icmp eq i64 %126, %.049.i
@@ -18991,7 +18991,7 @@ _tmp_157_rule.exit:                               ; preds = %145, %.thread186, %
   %.159.i = phi ptr [ %.058.i, %155 ], [ %161, %158 ]
   %.155.i = phi i64 [ %.054.i, %155 ], [ %159, %158 ]
   %163 = add i64 %.053.i, 1
-  %164 = getelementptr ptr, ptr %.159.i, i64 %.053.i
+  %164 = getelementptr [8 x i8], ptr %.159.i, i64 %.053.i
   store ptr %.122.i.ph, ptr %164, align 8, !tbaa !25
   %165 = load i32, ptr %21, align 8, !tbaa !22
   br label %.preheader99, !llvm.loop !91
@@ -19040,10 +19040,10 @@ _loop1_79_rule.exit.thread87:                     ; preds = %172
 
 178:                                              ; preds = %.lr.ph, %178
   %.0.i134 = phi i64 [ 0, %.lr.ph ], [ %183, %178 ]
-  %179 = getelementptr ptr, ptr %.058.i, i64 %.0.i134
+  %179 = getelementptr [8 x i8], ptr %.058.i, i64 %.0.i134
   %180 = load ptr, ptr %179, align 8, !tbaa !25
   %181 = load ptr, ptr %176, align 8, !tbaa !35
-  %182 = getelementptr ptr, ptr %181, i64 %.0.i134
+  %182 = getelementptr [8 x i8], ptr %181, i64 %.0.i134
   store ptr %180, ptr %182, align 8, !tbaa !25
   %183 = add nuw nsw i64 %.0.i134, 1
   %exitcond.not = icmp eq i64 %183, %.053.i
@@ -19351,7 +19351,7 @@ define internal fastcc ptr @_tmp_68_rule(ptr noundef %0) unnamed_addr #0 {
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = sext i32 %24 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   br label %42
 
 32:                                               ; preds = %.thread
@@ -19369,7 +19369,7 @@ define internal fastcc ptr @_tmp_68_rule(ptr noundef %0) unnamed_addr #0 {
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !24
   %40 = sext i32 %24 to i64
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   br i1 %37, label %42, label %listcomp_rule.exit.thread
 
 42:                                               ; preds = %.thread63, %36
@@ -19511,7 +19511,7 @@ define internal fastcc ptr @_tmp_69_rule(ptr noundef %0) unnamed_addr #0 {
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !24
   %26 = sext i32 %20 to i64
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   br label %39
 
 28:                                               ; preds = %.thread
@@ -19525,7 +19525,7 @@ define internal fastcc ptr @_tmp_69_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %20 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   br i1 %32, label %39, label %37
 
 37:                                               ; preds = %31
@@ -19759,7 +19759,7 @@ set_rule.exit.thread.thread183:                   ; preds = %106
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !24
   %115 = sext i32 %110 to i64
-  %116 = getelementptr ptr, ptr %114, i64 %115
+  %116 = getelementptr [8 x i8], ptr %114, i64 %115
   br label %126
 
 117:                                              ; preds = %.thread164
@@ -19773,7 +19773,7 @@ set_rule.exit.thread.thread183:                   ; preds = %106
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !24
   %124 = sext i32 %110 to i64
-  %125 = getelementptr ptr, ptr %123, i64 %124
+  %125 = getelementptr [8 x i8], ptr %123, i64 %124
   br i1 %121, label %126, label %set_rule.exit.thread
 
 126:                                              ; preds = %.thread166, %120
@@ -19860,7 +19860,7 @@ set_rule.exit.thread:                             ; preds = %132, %130, %126, %1
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %161 = load ptr, ptr %160, align 8, !tbaa !24
   %162 = sext i32 %157 to i64
-  %163 = getelementptr ptr, ptr %161, i64 %162
+  %163 = getelementptr [8 x i8], ptr %161, i64 %162
   br label %173
 
 164:                                              ; preds = %.thread220
@@ -19874,7 +19874,7 @@ set_rule.exit.thread:                             ; preds = %132, %130, %126, %1
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !24
   %171 = sext i32 %157 to i64
-  %172 = getelementptr ptr, ptr %170, i64 %171
+  %172 = getelementptr [8 x i8], ptr %170, i64 %171
   br i1 %168, label %173, label %220
 
 173:                                              ; preds = %167, %.thread.i
@@ -20052,7 +20052,7 @@ define internal fastcc ptr @fstring_replacement_field_rule(ptr noundef %0) unnam
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -20070,7 +20070,7 @@ define internal fastcc ptr @fstring_replacement_field_rule(ptr noundef %0) unnam
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread94
 
 30:                                               ; preds = %.thread, %24
@@ -20849,7 +20849,7 @@ define internal fastcc ptr @fstring_full_format_spec_rule(ptr noundef %0) unname
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -20867,7 +20867,7 @@ define internal fastcc ptr @fstring_full_format_spec_rule(ptr noundef %0) unname
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread62, %24
@@ -20956,7 +20956,7 @@ define internal fastcc ptr @yield_expr_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -20974,7 +20974,7 @@ define internal fastcc ptr @yield_expr_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread102, %24
@@ -21195,7 +21195,7 @@ fstring_format_spec_rule.exit.thread82:           ; preds = %27, %34
   %.155 = phi ptr [ %.054, %fstring_format_spec_rule.exit.thread82 ], [ %40, %37 ]
   %.151 = phi i64 [ %.050, %fstring_format_spec_rule.exit.thread82 ], [ %38, %37 ]
   %43 = add i64 %.049, 1
-  %44 = getelementptr ptr, ptr %.155, i64 %.049
+  %44 = getelementptr [8 x i8], ptr %.155, i64 %.049
   store ptr %.126.i85, ptr %44, align 8, !tbaa !25
   %45 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader97, !llvm.loop !96
@@ -21231,10 +21231,10 @@ fstring_format_spec_rule.exit.thread82:           ; preds = %27, %34
 
 55:                                               ; preds = %.lr.ph, %55
   %.0116 = phi i64 [ 0, %.lr.ph ], [ %60, %55 ]
-  %56 = getelementptr ptr, ptr %.054, i64 %.0116
+  %56 = getelementptr [8 x i8], ptr %.054, i64 %.0116
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %58 = load ptr, ptr %52, align 8, !tbaa !35
-  %59 = getelementptr ptr, ptr %58, i64 %.0116
+  %59 = getelementptr [8 x i8], ptr %58, i64 %.0116
   store ptr %57, ptr %59, align 8, !tbaa !25
   %60 = add nuw nsw i64 %.0116, 1
   %exitcond.not = icmp eq i64 %60, %.049
@@ -21602,7 +21602,7 @@ define internal fastcc ptr @tuple_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -21620,7 +21620,7 @@ define internal fastcc ptr @tuple_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread59
 
 30:                                               ; preds = %.thread, %24
@@ -21892,7 +21892,7 @@ define internal fastcc ptr @list_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -21910,7 +21910,7 @@ define internal fastcc ptr @list_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread65
 
 30:                                               ; preds = %.thread, %24
@@ -22078,7 +22078,7 @@ define internal fastcc ptr @setcomp_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -22096,7 +22096,7 @@ define internal fastcc ptr @setcomp_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread74
 
 30:                                               ; preds = %.thread, %24
@@ -22659,7 +22659,7 @@ define internal fastcc ptr @_loop0_81_rule(ptr noundef %0) unnamed_addr #0 {
   %.160 = phi i64 [ %.05981103, %.lr.ph104 ], [ %24, %23 ]
   %.256 = phi ptr [ %.05483101, %.lr.ph104 ], [ %26, %23 ]
   %29 = add i64 %.05882102, 1
-  %30 = getelementptr ptr, ptr %.256, i64 %.05882102
+  %30 = getelementptr [8 x i8], ptr %.256, i64 %.05882102
   store ptr %21, ptr %30, align 8, !tbaa !25
   %31 = load i32, ptr %11, align 8, !tbaa !22
   %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -22700,10 +22700,10 @@ define internal fastcc ptr @_loop0_81_rule(ptr noundef %0) unnamed_addr #0 {
 
 40:                                               ; preds = %.lr.ph92, %40
   %.091 = phi i64 [ 0, %.lr.ph92 ], [ %45, %40 ]
-  %41 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
+  %41 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.091
   %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = load ptr, ptr %37, align 8, !tbaa !35
-  %44 = getelementptr ptr, ptr %43, i64 %.091
+  %44 = getelementptr [8 x i8], ptr %43, i64 %.091
   store ptr %42, ptr %44, align 8, !tbaa !25
   %45 = add nuw nsw i64 %.091, 1
   %exitcond.not = icmp eq i64 %45, %.058.lcssa
@@ -23060,7 +23060,7 @@ define internal fastcc ptr @lambdef_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -23078,7 +23078,7 @@ define internal fastcc ptr @lambdef_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread62
 
 30:                                               ; preds = %.thread, %24
@@ -23298,7 +23298,7 @@ define internal fastcc ptr @expression_without_invalid_rule(ptr noundef %0) unna
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = sext i32 %14 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   br label %32
 
 22:                                               ; preds = %12
@@ -23316,7 +23316,7 @@ define internal fastcc ptr @expression_without_invalid_rule(ptr noundef %0) unna
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = sext i32 %14 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   br i1 %27, label %32, label %.thread
 
 32:                                               ; preds = %.thread124, %26
@@ -24219,7 +24219,7 @@ define internal fastcc ptr @_loop0_75_rule(ptr noundef %0) unnamed_addr #0 {
   %.155 = phi ptr [ %.05474, %.lr.ph ], [ %24, %21 ]
   %.151 = phi i64 [ %.05075, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.04976, 1
-  %27 = getelementptr ptr, ptr %.155, i64 %.04976
+  %27 = getelementptr [8 x i8], ptr %.155, i64 %.04976
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @lambda_param_maybe_default_rule(ptr noundef nonnull %0)
@@ -24263,10 +24263,10 @@ define internal fastcc ptr @_loop0_75_rule(ptr noundef %0) unnamed_addr #0 {
 
 39:                                               ; preds = %.lr.ph80, %39
   %.079 = phi i64 [ 0, %.lr.ph80 ], [ %44, %39 ]
-  %40 = getelementptr ptr, ptr %.054.lcssa, i64 %.079
+  %40 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.079
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = load ptr, ptr %36, align 8, !tbaa !35
-  %43 = getelementptr ptr, ptr %42, i64 %.079
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.079
   store ptr %41, ptr %43, align 8, !tbaa !25
   %44 = add nuw nsw i64 %.079, 1
   %exitcond.not = icmp eq i64 %44, %.049.lcssa
@@ -24409,7 +24409,7 @@ define internal fastcc ptr @_loop0_71_rule(ptr noundef %0) unnamed_addr #0 {
   %.155 = phi ptr [ %.05474, %.lr.ph ], [ %24, %21 ]
   %.151 = phi i64 [ %.05075, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.04976, 1
-  %27 = getelementptr ptr, ptr %.155, i64 %.04976
+  %27 = getelementptr [8 x i8], ptr %.155, i64 %.04976
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @lambda_param_no_default_rule(ptr noundef nonnull %0)
@@ -24453,10 +24453,10 @@ define internal fastcc ptr @_loop0_71_rule(ptr noundef %0) unnamed_addr #0 {
 
 39:                                               ; preds = %.lr.ph80, %39
   %.079 = phi i64 [ 0, %.lr.ph80 ], [ %44, %39 ]
-  %40 = getelementptr ptr, ptr %.054.lcssa, i64 %.079
+  %40 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.079
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = load ptr, ptr %36, align 8, !tbaa !35
-  %43 = getelementptr ptr, ptr %42, i64 %.079
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.079
   store ptr %41, ptr %43, align 8, !tbaa !25
   %44 = add nuw nsw i64 %.079, 1
   %exitcond.not = icmp eq i64 %44, %.049.lcssa
@@ -24679,7 +24679,7 @@ define internal fastcc ptr @_gather_127_rule(ptr noundef %0) unnamed_addr #0 {
   %.160.i = phi i64 [ %.05981.i33, %.lr.ph ], [ %32, %31 ]
   %.256.i = phi ptr [ %.05483.i31, %.lr.ph ], [ %34, %31 ]
   %36 = add i64 %.05882.i32, 1
-  %37 = getelementptr ptr, ptr %.256.i, i64 %.05882.i32
+  %37 = getelementptr [8 x i8], ptr %.256.i, i64 %.05882.i32
   store ptr %29, ptr %37, align 8, !tbaa !25
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -24710,10 +24710,10 @@ define internal fastcc ptr @_gather_127_rule(ptr noundef %0) unnamed_addr #0 {
 
 45:                                               ; preds = %45, %.lr.ph92.i
   %.091.i = phi i64 [ 0, %.lr.ph92.i ], [ %50, %45 ]
-  %46 = getelementptr ptr, ptr %.054.lcssa.i, i64 %.091.i
+  %46 = getelementptr [8 x i8], ptr %.054.lcssa.i, i64 %.091.i
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = load ptr, ptr %44, align 8, !tbaa !35
-  %49 = getelementptr ptr, ptr %48, i64 %.091.i
+  %49 = getelementptr [8 x i8], ptr %48, i64 %.091.i
   store ptr %47, ptr %49, align 8, !tbaa !25
   %50 = add nuw nsw i64 %.091.i, 1
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i
@@ -24868,7 +24868,7 @@ define internal fastcc ptr @_loop1_76_rule(ptr noundef %0) unnamed_addr #0 {
   %.159 = phi ptr [ %.05879, %.lr.ph ], [ %24, %21 ]
   %.155 = phi i64 [ %.05480, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.05381, 1
-  %27 = getelementptr ptr, ptr %.159, i64 %.05381
+  %27 = getelementptr [8 x i8], ptr %.159, i64 %.05381
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @lambda_param_maybe_default_rule(ptr noundef nonnull %0)
@@ -24923,10 +24923,10 @@ define internal fastcc ptr @_loop1_76_rule(ptr noundef %0) unnamed_addr #0 {
 
 44:                                               ; preds = %.lr.ph85, %44
   %.084 = phi i64 [ 0, %.lr.ph85 ], [ %49, %44 ]
-  %45 = getelementptr ptr, ptr %.159, i64 %.084
+  %45 = getelementptr [8 x i8], ptr %.159, i64 %.084
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = load ptr, ptr %41, align 8, !tbaa !35
-  %48 = getelementptr ptr, ptr %47, i64 %.084
+  %48 = getelementptr [8 x i8], ptr %47, i64 %.084
   store ptr %46, ptr %48, align 8, !tbaa !25
   %49 = add nuw nsw i64 %.084, 1
   %exitcond.not = icmp eq i64 %.084, %.05381
@@ -25111,7 +25111,7 @@ define internal fastcc ptr @_loop1_74_rule(ptr noundef %0) unnamed_addr #0 {
   %.159 = phi ptr [ %.05879, %.lr.ph ], [ %24, %21 ]
   %.155 = phi i64 [ %.05480, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.05381, 1
-  %27 = getelementptr ptr, ptr %.159, i64 %.05381
+  %27 = getelementptr [8 x i8], ptr %.159, i64 %.05381
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @lambda_param_with_default_rule(ptr noundef nonnull %0)
@@ -25166,10 +25166,10 @@ define internal fastcc ptr @_loop1_74_rule(ptr noundef %0) unnamed_addr #0 {
 
 44:                                               ; preds = %.lr.ph85, %44
   %.084 = phi i64 [ 0, %.lr.ph85 ], [ %49, %44 ]
-  %45 = getelementptr ptr, ptr %.159, i64 %.084
+  %45 = getelementptr [8 x i8], ptr %.159, i64 %.084
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = load ptr, ptr %41, align 8, !tbaa !35
-  %48 = getelementptr ptr, ptr %47, i64 %.084
+  %48 = getelementptr [8 x i8], ptr %47, i64 %.084
   store ptr %46, ptr %48, align 8, !tbaa !25
   %49 = add nuw nsw i64 %.084, 1
   %exitcond.not = icmp eq i64 %.084, %.05381
@@ -25313,7 +25313,7 @@ define internal fastcc ptr @lambda_param_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -25331,7 +25331,7 @@ define internal fastcc ptr @lambda_param_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread56, %24
@@ -25713,7 +25713,7 @@ define internal fastcc ptr @_loop1_73_rule(ptr noundef %0) unnamed_addr #0 {
   %.159 = phi ptr [ %.05879, %.lr.ph ], [ %24, %21 ]
   %.155 = phi i64 [ %.05480, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.05381, 1
-  %27 = getelementptr ptr, ptr %.159, i64 %.05381
+  %27 = getelementptr [8 x i8], ptr %.159, i64 %.05381
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @lambda_param_no_default_rule(ptr noundef nonnull %0)
@@ -25768,10 +25768,10 @@ define internal fastcc ptr @_loop1_73_rule(ptr noundef %0) unnamed_addr #0 {
 
 44:                                               ; preds = %.lr.ph85, %44
   %.084 = phi i64 [ 0, %.lr.ph85 ], [ %49, %44 ]
-  %45 = getelementptr ptr, ptr %.159, i64 %.084
+  %45 = getelementptr [8 x i8], ptr %.159, i64 %.084
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = load ptr, ptr %41, align 8, !tbaa !35
-  %48 = getelementptr ptr, ptr %47, i64 %.084
+  %48 = getelementptr [8 x i8], ptr %47, i64 %.084
   store ptr %46, ptr %48, align 8, !tbaa !25
   %49 = add nuw nsw i64 %.084, 1
   %exitcond.not = icmp eq i64 %.084, %.05381
@@ -25845,7 +25845,7 @@ define internal fastcc ptr @_loop0_72_rule(ptr noundef %0) unnamed_addr #0 {
   %.155 = phi ptr [ %.05474, %.lr.ph ], [ %24, %21 ]
   %.151 = phi i64 [ %.05075, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.04976, 1
-  %27 = getelementptr ptr, ptr %.155, i64 %.04976
+  %27 = getelementptr [8 x i8], ptr %.155, i64 %.04976
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @lambda_param_with_default_rule(ptr noundef nonnull %0)
@@ -25889,10 +25889,10 @@ define internal fastcc ptr @_loop0_72_rule(ptr noundef %0) unnamed_addr #0 {
 
 39:                                               ; preds = %.lr.ph80, %39
   %.079 = phi i64 [ 0, %.lr.ph80 ], [ %44, %39 ]
-  %40 = getelementptr ptr, ptr %.054.lcssa, i64 %.079
+  %40 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.079
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = load ptr, ptr %36, align 8, !tbaa !35
-  %43 = getelementptr ptr, ptr %42, i64 %.079
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.079
   store ptr %41, ptr %43, align 8, !tbaa !25
   %44 = add nuw nsw i64 %.079, 1
   %exitcond.not = icmp eq i64 %44, %.049.lcssa
@@ -26804,7 +26804,7 @@ define internal fastcc ptr @type_params_rule(ptr noundef %0) unnamed_addr #0 {
   %.160.i.i.i = phi i64 [ %.05981.i33.i.i, %.lr.ph.i.i ], [ %71, %70 ]
   %.256.i.i.i = phi ptr [ %.05483.i31.i.i, %.lr.ph.i.i ], [ %73, %70 ]
   %75 = add i64 %.05882.i32.i.i, 1
-  %76 = getelementptr ptr, ptr %.256.i.i.i, i64 %.05882.i32.i.i
+  %76 = getelementptr [8 x i8], ptr %.256.i.i.i, i64 %.05882.i32.i.i
   store ptr %68, ptr %76, align 8, !tbaa !25
   %77 = load i32, ptr %11, align 8, !tbaa !22
   %78 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -26835,10 +26835,10 @@ define internal fastcc ptr @type_params_rule(ptr noundef %0) unnamed_addr #0 {
 
 84:                                               ; preds = %84, %.lr.ph92.i.i.i
   %.091.i.i.i = phi i64 [ 0, %.lr.ph92.i.i.i ], [ %89, %84 ]
-  %85 = getelementptr ptr, ptr %.054.lcssa.i.i.i, i64 %.091.i.i.i
+  %85 = getelementptr [8 x i8], ptr %.054.lcssa.i.i.i, i64 %.091.i.i.i
   %86 = load ptr, ptr %85, align 8, !tbaa !25
   %87 = load ptr, ptr %83, align 8, !tbaa !35
-  %88 = getelementptr ptr, ptr %87, i64 %.091.i.i.i
+  %88 = getelementptr [8 x i8], ptr %87, i64 %.091.i.i.i
   store ptr %86, ptr %88, align 8, !tbaa !25
   %89 = add nuw nsw i64 %.091.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %89, %.058.lcssa.i.i.i
@@ -27969,7 +27969,7 @@ define internal fastcc ptr @type_param_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -28626,7 +28626,7 @@ define internal fastcc ptr @_loop0_32_rule(ptr noundef %0) unnamed_addr #0 {
   %.155 = phi ptr [ %.05474, %.lr.ph ], [ %24, %21 ]
   %.151 = phi i64 [ %.05075, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.04976, 1
-  %27 = getelementptr ptr, ptr %.155, i64 %.04976
+  %27 = getelementptr [8 x i8], ptr %.155, i64 %.04976
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @param_maybe_default_rule(ptr noundef nonnull %0)
@@ -28670,10 +28670,10 @@ define internal fastcc ptr @_loop0_32_rule(ptr noundef %0) unnamed_addr #0 {
 
 39:                                               ; preds = %.lr.ph80, %39
   %.079 = phi i64 [ 0, %.lr.ph80 ], [ %44, %39 ]
-  %40 = getelementptr ptr, ptr %.054.lcssa, i64 %.079
+  %40 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.079
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = load ptr, ptr %36, align 8, !tbaa !35
-  %43 = getelementptr ptr, ptr %42, i64 %.079
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.079
   store ptr %41, ptr %43, align 8, !tbaa !25
   %44 = add nuw nsw i64 %.079, 1
   %exitcond.not = icmp eq i64 %44, %.049.lcssa
@@ -28816,7 +28816,7 @@ define internal fastcc ptr @_loop0_28_rule(ptr noundef %0) unnamed_addr #0 {
   %.155 = phi ptr [ %.05474, %.lr.ph ], [ %24, %21 ]
   %.151 = phi i64 [ %.05075, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.04976, 1
-  %27 = getelementptr ptr, ptr %.155, i64 %.04976
+  %27 = getelementptr [8 x i8], ptr %.155, i64 %.04976
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @param_no_default_rule(ptr noundef nonnull %0)
@@ -28860,10 +28860,10 @@ define internal fastcc ptr @_loop0_28_rule(ptr noundef %0) unnamed_addr #0 {
 
 39:                                               ; preds = %.lr.ph80, %39
   %.079 = phi i64 [ 0, %.lr.ph80 ], [ %44, %39 ]
-  %40 = getelementptr ptr, ptr %.054.lcssa, i64 %.079
+  %40 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.079
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = load ptr, ptr %36, align 8, !tbaa !35
-  %43 = getelementptr ptr, ptr %42, i64 %.079
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.079
   store ptr %41, ptr %43, align 8, !tbaa !25
   %44 = add nuw nsw i64 %.079, 1
   %exitcond.not = icmp eq i64 %44, %.049.lcssa
@@ -29107,7 +29107,7 @@ define internal fastcc ptr @_loop1_30_rule(ptr noundef %0) unnamed_addr #0 {
   %.159 = phi ptr [ %.05879, %.lr.ph ], [ %24, %21 ]
   %.155 = phi i64 [ %.05480, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.05381, 1
-  %27 = getelementptr ptr, ptr %.159, i64 %.05381
+  %27 = getelementptr [8 x i8], ptr %.159, i64 %.05381
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @param_no_default_rule(ptr noundef nonnull %0)
@@ -29162,10 +29162,10 @@ define internal fastcc ptr @_loop1_30_rule(ptr noundef %0) unnamed_addr #0 {
 
 44:                                               ; preds = %.lr.ph85, %44
   %.084 = phi i64 [ 0, %.lr.ph85 ], [ %49, %44 ]
-  %45 = getelementptr ptr, ptr %.159, i64 %.084
+  %45 = getelementptr [8 x i8], ptr %.159, i64 %.084
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = load ptr, ptr %41, align 8, !tbaa !35
-  %48 = getelementptr ptr, ptr %47, i64 %.084
+  %48 = getelementptr [8 x i8], ptr %47, i64 %.084
   store ptr %46, ptr %48, align 8, !tbaa !25
   %49 = add nuw nsw i64 %.084, 1
   %exitcond.not = icmp eq i64 %.084, %.05381
@@ -29292,7 +29292,7 @@ define internal fastcc ptr @_loop1_33_rule(ptr noundef %0) unnamed_addr #0 {
   %.159 = phi ptr [ %.05879, %.lr.ph ], [ %24, %21 ]
   %.155 = phi i64 [ %.05480, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.05381, 1
-  %27 = getelementptr ptr, ptr %.159, i64 %.05381
+  %27 = getelementptr [8 x i8], ptr %.159, i64 %.05381
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @param_maybe_default_rule(ptr noundef nonnull %0)
@@ -29347,10 +29347,10 @@ define internal fastcc ptr @_loop1_33_rule(ptr noundef %0) unnamed_addr #0 {
 
 44:                                               ; preds = %.lr.ph85, %44
   %.084 = phi i64 [ 0, %.lr.ph85 ], [ %49, %44 ]
-  %45 = getelementptr ptr, ptr %.159, i64 %.084
+  %45 = getelementptr [8 x i8], ptr %.159, i64 %.084
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = load ptr, ptr %41, align 8, !tbaa !35
-  %48 = getelementptr ptr, ptr %47, i64 %.084
+  %48 = getelementptr [8 x i8], ptr %47, i64 %.084
   store ptr %46, ptr %48, align 8, !tbaa !25
   %49 = add nuw nsw i64 %.084, 1
   %exitcond.not = icmp eq i64 %.084, %.05381
@@ -29535,7 +29535,7 @@ define internal fastcc ptr @_loop1_31_rule(ptr noundef %0) unnamed_addr #0 {
   %.159 = phi ptr [ %.05879, %.lr.ph ], [ %24, %21 ]
   %.155 = phi i64 [ %.05480, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.05381, 1
-  %27 = getelementptr ptr, ptr %.159, i64 %.05381
+  %27 = getelementptr [8 x i8], ptr %.159, i64 %.05381
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @param_with_default_rule(ptr noundef nonnull %0)
@@ -29590,10 +29590,10 @@ define internal fastcc ptr @_loop1_31_rule(ptr noundef %0) unnamed_addr #0 {
 
 44:                                               ; preds = %.lr.ph85, %44
   %.084 = phi i64 [ 0, %.lr.ph85 ], [ %49, %44 ]
-  %45 = getelementptr ptr, ptr %.159, i64 %.084
+  %45 = getelementptr [8 x i8], ptr %.159, i64 %.084
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = load ptr, ptr %41, align 8, !tbaa !35
-  %48 = getelementptr ptr, ptr %47, i64 %.084
+  %48 = getelementptr [8 x i8], ptr %47, i64 %.084
   store ptr %46, ptr %48, align 8, !tbaa !25
   %49 = add nuw nsw i64 %.084, 1
   %exitcond.not = icmp eq i64 %.084, %.05381
@@ -29751,7 +29751,7 @@ define internal fastcc ptr @param_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -29769,7 +29769,7 @@ define internal fastcc ptr @param_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread65, %24
@@ -30045,7 +30045,7 @@ define internal fastcc ptr @_loop0_29_rule(ptr noundef %0) unnamed_addr #0 {
   %.155 = phi ptr [ %.05474, %.lr.ph ], [ %24, %21 ]
   %.151 = phi i64 [ %.05075, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.04976, 1
-  %27 = getelementptr ptr, ptr %.155, i64 %.04976
+  %27 = getelementptr [8 x i8], ptr %.155, i64 %.04976
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @param_with_default_rule(ptr noundef nonnull %0)
@@ -30089,10 +30089,10 @@ define internal fastcc ptr @_loop0_29_rule(ptr noundef %0) unnamed_addr #0 {
 
 39:                                               ; preds = %.lr.ph80, %39
   %.079 = phi i64 [ 0, %.lr.ph80 ], [ %44, %39 ]
-  %40 = getelementptr ptr, ptr %.054.lcssa, i64 %.079
+  %40 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.079
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = load ptr, ptr %36, align 8, !tbaa !35
-  %43 = getelementptr ptr, ptr %42, i64 %.079
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.079
   store ptr %41, ptr %43, align 8, !tbaa !25
   %44 = add nuw nsw i64 %.079, 1
   %exitcond.not = icmp eq i64 %44, %.049.lcssa
@@ -30970,7 +30970,7 @@ define internal fastcc ptr @param_star_annotation_rule(ptr noundef %0) unnamed_a
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -30988,7 +30988,7 @@ define internal fastcc ptr @param_star_annotation_rule(ptr noundef %0) unnamed_a
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread65, %24
@@ -31341,7 +31341,7 @@ define internal fastcc ptr @elif_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = sext i32 %12 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !26
@@ -31770,7 +31770,7 @@ define internal fastcc ptr @class_def_raw_rule(ptr noundef %0) unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = sext i32 %12 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !26
@@ -32159,7 +32159,7 @@ define internal fastcc ptr @_gather_35_rule(ptr noundef %0) unnamed_addr #0 {
   %.160.i = phi i64 [ %.05981.i33, %.lr.ph ], [ %32, %31 ]
   %.256.i = phi ptr [ %.05483.i31, %.lr.ph ], [ %34, %31 ]
   %36 = add i64 %.05882.i32, 1
-  %37 = getelementptr ptr, ptr %.256.i, i64 %.05882.i32
+  %37 = getelementptr [8 x i8], ptr %.256.i, i64 %.05882.i32
   store ptr %29, ptr %37, align 8, !tbaa !25
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -32190,10 +32190,10 @@ define internal fastcc ptr @_gather_35_rule(ptr noundef %0) unnamed_addr #0 {
 
 45:                                               ; preds = %45, %.lr.ph92.i
   %.091.i = phi i64 [ 0, %.lr.ph92.i ], [ %50, %45 ]
-  %46 = getelementptr ptr, ptr %.054.lcssa.i, i64 %.091.i
+  %46 = getelementptr [8 x i8], ptr %.054.lcssa.i, i64 %.091.i
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = load ptr, ptr %44, align 8, !tbaa !35
-  %49 = getelementptr ptr, ptr %48, i64 %.091.i
+  %49 = getelementptr [8 x i8], ptr %48, i64 %.091.i
   store ptr %47, ptr %49, align 8, !tbaa !25
   %50 = add nuw nsw i64 %.091.i, 1
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i
@@ -32457,7 +32457,7 @@ define internal fastcc ptr @_gather_135_rule(ptr noundef %0) unnamed_addr #0 {
   %.160.i = phi i64 [ %.05981.i33, %.lr.ph ], [ %32, %31 ]
   %.256.i = phi ptr [ %.05483.i31, %.lr.ph ], [ %34, %31 ]
   %36 = add i64 %.05882.i32, 1
-  %37 = getelementptr ptr, ptr %.256.i, i64 %.05882.i32
+  %37 = getelementptr [8 x i8], ptr %.256.i, i64 %.05882.i32
   store ptr %29, ptr %37, align 8, !tbaa !25
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -32488,10 +32488,10 @@ define internal fastcc ptr @_gather_135_rule(ptr noundef %0) unnamed_addr #0 {
 
 45:                                               ; preds = %45, %.lr.ph92.i
   %.091.i = phi i64 [ 0, %.lr.ph92.i ], [ %50, %45 ]
-  %46 = getelementptr ptr, ptr %.054.lcssa.i, i64 %.091.i
+  %46 = getelementptr [8 x i8], ptr %.054.lcssa.i, i64 %.091.i
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = load ptr, ptr %44, align 8, !tbaa !35
-  %49 = getelementptr ptr, ptr %48, i64 %.091.i
+  %49 = getelementptr [8 x i8], ptr %48, i64 %.091.i
   store ptr %47, ptr %49, align 8, !tbaa !25
   %50 = add nuw nsw i64 %.091.i, 1
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i
@@ -32620,7 +32620,7 @@ define internal fastcc ptr @_gather_137_rule(ptr noundef %0) unnamed_addr #0 {
   %.160.i = phi i64 [ %.05981.i33, %.lr.ph ], [ %32, %31 ]
   %.256.i = phi ptr [ %.05483.i31, %.lr.ph ], [ %34, %31 ]
   %36 = add i64 %.05882.i32, 1
-  %37 = getelementptr ptr, ptr %.256.i, i64 %.05882.i32
+  %37 = getelementptr [8 x i8], ptr %.256.i, i64 %.05882.i32
   store ptr %29, ptr %37, align 8, !tbaa !25
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -32651,10 +32651,10 @@ define internal fastcc ptr @_gather_137_rule(ptr noundef %0) unnamed_addr #0 {
 
 45:                                               ; preds = %45, %.lr.ph92.i
   %.091.i = phi i64 [ 0, %.lr.ph92.i ], [ %50, %45 ]
-  %46 = getelementptr ptr, ptr %.054.lcssa.i, i64 %.091.i
+  %46 = getelementptr [8 x i8], ptr %.054.lcssa.i, i64 %.091.i
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = load ptr, ptr %44, align 8, !tbaa !35
-  %49 = getelementptr ptr, ptr %48, i64 %.091.i
+  %49 = getelementptr [8 x i8], ptr %48, i64 %.091.i
   store ptr %47, ptr %49, align 8, !tbaa !25
   %50 = add nuw nsw i64 %.091.i, 1
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i
@@ -32911,7 +32911,7 @@ define internal fastcc ptr @expressions_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -32929,7 +32929,7 @@ define internal fastcc ptr @expressions_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread142, %24
@@ -33023,7 +33023,7 @@ define internal fastcc ptr @expressions_rule(ptr noundef %0) unnamed_addr #0 {
   %.159.i = phi ptr [ %.058.i, %58 ], [ %63, %60 ]
   %.155.i = phi i64 [ %.054.i, %58 ], [ %61, %60 ]
   %65 = add i64 %.053.i, 1
-  %66 = getelementptr ptr, ptr %.159.i, i64 %.053.i
+  %66 = getelementptr [8 x i8], ptr %.159.i, i64 %.053.i
   store ptr %57, ptr %66, align 8, !tbaa !25
   %67 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader81.i, !llvm.loop !142
@@ -33074,10 +33074,10 @@ define internal fastcc ptr @expressions_rule(ptr noundef %0) unnamed_addr #0 {
 
 82:                                               ; preds = %82, %.lr.ph.i
   %.092.i = phi i64 [ 0, %.lr.ph.i ], [ %87, %82 ]
-  %83 = getelementptr ptr, ptr %.058.i, i64 %.092.i
+  %83 = getelementptr [8 x i8], ptr %.058.i, i64 %.092.i
   %84 = load ptr, ptr %83, align 8, !tbaa !25
   %85 = load ptr, ptr %79, align 8, !tbaa !35
-  %86 = getelementptr ptr, ptr %85, i64 %.092.i
+  %86 = getelementptr [8 x i8], ptr %85, i64 %.092.i
   store ptr %84, ptr %86, align 8, !tbaa !25
   %87 = add nuw nsw i64 %.092.i, 1
   %exitcond.not.i = icmp eq i64 %87, %.053.i
@@ -33688,7 +33688,7 @@ define internal fastcc ptr @_loop1_37_rule(ptr noundef %0) unnamed_addr #0 {
   %.pre264 = phi i32 [ %.pre264.pre, %._crit_edge266 ], [ 0, %31 ]
   %41 = load ptr, ptr %19, align 8, !tbaa !24
   %42 = sext i32 %32 to i64
-  %43 = getelementptr ptr, ptr %41, i64 %42
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !25
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %46 = load i32, ptr %45, align 4, !tbaa !26
@@ -34391,7 +34391,7 @@ except_block_rule.exit.thread119:                 ; preds = %except_block_rule.e
   %.159 = phi ptr [ %.058, %except_block_rule.exit.thread119 ], [ %303, %300 ]
   %.155 = phi i64 [ %.054, %except_block_rule.exit.thread119 ], [ %301, %300 ]
   %305 = add i64 %.053, 1
-  %306 = getelementptr ptr, ptr %.159, i64 %.053
+  %306 = getelementptr [8 x i8], ptr %.159, i64 %.053
   store ptr %.284.i122, ptr %306, align 8, !tbaa !25
   %307 = load i32, ptr %11, align 8, !tbaa !22
   br label %22, !llvm.loop !144
@@ -34445,10 +34445,10 @@ except_block_rule.exit.thread:                    ; preds = %_tmp_22_rule.exit, 
 
 322:                                              ; preds = %.lr.ph, %322
   %.0199 = phi i64 [ 0, %.lr.ph ], [ %327, %322 ]
-  %323 = getelementptr ptr, ptr %.058, i64 %.0199
+  %323 = getelementptr [8 x i8], ptr %.058, i64 %.0199
   %324 = load ptr, ptr %323, align 8, !tbaa !25
   %325 = load ptr, ptr %319, align 8, !tbaa !35
-  %326 = getelementptr ptr, ptr %325, i64 %.0199
+  %326 = getelementptr [8 x i8], ptr %325, i64 %.0199
   store ptr %324, ptr %326, align 8, !tbaa !25
   %327 = add nuw nsw i64 %.0199, 1
   %exitcond.not = icmp eq i64 %327, %.053
@@ -34548,7 +34548,7 @@ define internal fastcc ptr @_loop1_38_rule(ptr noundef %0) unnamed_addr #0 {
   %.pre203 = phi i32 [ %.pre203.pre, %._crit_edge204 ], [ 0, %29 ]
   %38 = load ptr, ptr %19, align 8, !tbaa !24
   %39 = sext i32 %30 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %43 = load i32, ptr %42, align 4, !tbaa !26
@@ -35203,7 +35203,7 @@ except_star_block_rule.exit.thread103:            ; preds = %.except_star_block_
   %.159 = phi ptr [ %.058, %except_star_block_rule.exit.thread103 ], [ %280, %277 ]
   %.155 = phi i64 [ %.054, %except_star_block_rule.exit.thread103 ], [ %278, %277 ]
   %283 = add i64 %.053, 1
-  %284 = getelementptr ptr, ptr %.159, i64 %.053
+  %284 = getelementptr [8 x i8], ptr %.159, i64 %.053
   store ptr %.263.i106, ptr %284, align 8, !tbaa !25
   %285 = load i32, ptr %11, align 8, !tbaa !22
   br label %22, !llvm.loop !146
@@ -35251,10 +35251,10 @@ except_star_block_rule.exit.thread103:            ; preds = %.except_star_block_
 
 299:                                              ; preds = %.lr.ph, %299
   %.0160 = phi i64 [ 0, %.lr.ph ], [ %304, %299 ]
-  %300 = getelementptr ptr, ptr %.058, i64 %.0160
+  %300 = getelementptr [8 x i8], ptr %.058, i64 %.0160
   %301 = load ptr, ptr %300, align 8, !tbaa !25
   %302 = load ptr, ptr %296, align 8, !tbaa !35
-  %303 = getelementptr ptr, ptr %302, i64 %.0160
+  %303 = getelementptr [8 x i8], ptr %302, i64 %.0160
   store ptr %301, ptr %303, align 8, !tbaa !25
   %304 = add nuw nsw i64 %.0160, 1
   %exitcond.not = icmp eq i64 %304, %.053
@@ -35379,7 +35379,7 @@ define internal fastcc ptr @_loop0_139_rule(ptr noundef %0) unnamed_addr #0 {
   %.155 = phi ptr [ %.05474, %.lr.ph ], [ %24, %21 ]
   %.151 = phi i64 [ %.05075, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.04976, 1
-  %27 = getelementptr ptr, ptr %.155, i64 %.04976
+  %27 = getelementptr [8 x i8], ptr %.155, i64 %.04976
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @block_rule(ptr noundef nonnull %0)
@@ -35423,10 +35423,10 @@ define internal fastcc ptr @_loop0_139_rule(ptr noundef %0) unnamed_addr #0 {
 
 39:                                               ; preds = %.lr.ph80, %39
   %.079 = phi i64 [ 0, %.lr.ph80 ], [ %44, %39 ]
-  %40 = getelementptr ptr, ptr %.054.lcssa, i64 %.079
+  %40 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.079
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = load ptr, ptr %36, align 8, !tbaa !35
-  %43 = getelementptr ptr, ptr %42, i64 %.079
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.079
   store ptr %41, ptr %43, align 8, !tbaa !25
   %44 = add nuw nsw i64 %.079, 1
   %exitcond.not = icmp eq i64 %44, %.049.lcssa
@@ -35606,7 +35606,7 @@ define internal fastcc ptr @subject_expr_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -35624,7 +35624,7 @@ define internal fastcc ptr @subject_expr_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread83, %24
@@ -35743,7 +35743,7 @@ define internal fastcc ptr @patterns_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -35761,7 +35761,7 @@ define internal fastcc ptr @patterns_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread73, %24
@@ -36207,7 +36207,7 @@ define internal fastcc ptr @star_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -36446,7 +36446,7 @@ define internal fastcc ptr @wildcard_pattern_rule(ptr noundef %0) unnamed_addr #
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -36464,7 +36464,7 @@ define internal fastcc ptr @wildcard_pattern_rule(ptr noundef %0) unnamed_addr #
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread53, %24
@@ -36666,7 +36666,7 @@ define internal fastcc ptr @_gather_45_rule(ptr noundef %0) unnamed_addr #0 {
   %.160.i = phi i64 [ %.059.i4165, %.lr.ph66 ], [ %32, %31 ]
   %.256.i = phi ptr [ %.054.i4363, %.lr.ph66 ], [ %34, %31 ]
   %36 = add i64 %.058.i4264, 1
-  %37 = getelementptr ptr, ptr %.256.i, i64 %.058.i4264
+  %37 = getelementptr [8 x i8], ptr %.256.i, i64 %.058.i4264
   store ptr %29, ptr %37, align 8, !tbaa !25
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -36697,10 +36697,10 @@ define internal fastcc ptr @_gather_45_rule(ptr noundef %0) unnamed_addr #0 {
 
 45:                                               ; preds = %.lr.ph52, %45
   %.0.i51 = phi i64 [ 0, %.lr.ph52 ], [ %50, %45 ]
-  %46 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i51
+  %46 = getelementptr [8 x i8], ptr %.054.i.lcssa, i64 %.0.i51
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = load ptr, ptr %44, align 8, !tbaa !35
-  %49 = getelementptr ptr, ptr %48, i64 %.0.i51
+  %49 = getelementptr [8 x i8], ptr %48, i64 %.0.i51
   store ptr %47, ptr %49, align 8, !tbaa !25
   %50 = add nuw nsw i64 %.0.i51, 1
   %exitcond.not = icmp eq i64 %50, %.058.i.lcssa
@@ -36773,7 +36773,7 @@ define internal fastcc ptr @as_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -36791,7 +36791,7 @@ define internal fastcc ptr @as_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread76, %24
@@ -36997,7 +36997,7 @@ define internal fastcc ptr @or_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = sext i32 %14 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   br label %35
 
 22:                                               ; preds = %12
@@ -37016,7 +37016,7 @@ define internal fastcc ptr @or_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = sext i32 %14 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   br i1 %28, label %35, label %33
 
 33:                                               ; preds = %27
@@ -37139,7 +37139,7 @@ _gather_41_rule.exit.thread:                      ; preds = %41
   %.160.i = phi i64 [ %.059.i79115, %.lr.ph116 ], [ %73, %72 ]
   %.256.i = phi ptr [ %.054.i81113, %.lr.ph116 ], [ %75, %72 ]
   %80 = add i64 %.058.i80114, 1
-  %81 = getelementptr ptr, ptr %.256.i, i64 %.058.i80114
+  %81 = getelementptr [8 x i8], ptr %.256.i, i64 %.058.i80114
   store ptr %70, ptr %81, align 8, !tbaa !25
   %82 = load i32, ptr %13, align 8, !tbaa !22
   %83 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 18) #5
@@ -37178,10 +37178,10 @@ _loop0_40_rule.exit.thread55:                     ; preds = %.critedge.i
 
 90:                                               ; preds = %.lr.ph90, %90
   %.0.i5189 = phi i64 [ 0, %.lr.ph90 ], [ %95, %90 ]
-  %91 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i5189
+  %91 = getelementptr [8 x i8], ptr %.054.i.lcssa, i64 %.0.i5189
   %92 = load ptr, ptr %91, align 8, !tbaa !25
   %93 = load ptr, ptr %88, align 8, !tbaa !35
-  %94 = getelementptr ptr, ptr %93, i64 %.0.i5189
+  %94 = getelementptr [8 x i8], ptr %93, i64 %.0.i5189
   store ptr %92, ptr %94, align 8, !tbaa !25
   %95 = add nuw nsw i64 %.0.i5189, 1
   %exitcond.not = icmp eq i64 %95, %.058.i.lcssa
@@ -37342,7 +37342,7 @@ define internal fastcc ptr @closed_pattern_rule(ptr noundef %0) unnamed_addr #0 
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !24
   %38 = sext i32 %32 to i64
-  %39 = getelementptr ptr, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   br label %49
 
 40:                                               ; preds = %.thread
@@ -37356,7 +37356,7 @@ define internal fastcc ptr @closed_pattern_rule(ptr noundef %0) unnamed_addr #0 
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !24
   %47 = sext i32 %32 to i64
-  %48 = getelementptr ptr, ptr %46, i64 %47
+  %48 = getelementptr [8 x i8], ptr %46, i64 %47
   br i1 %44, label %49, label %164
 
 49:                                               ; preds = %43, %.thread254.i
@@ -37750,7 +37750,7 @@ define internal fastcc ptr @capture_pattern_rule(ptr noundef %0) unnamed_addr #0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -37768,7 +37768,7 @@ define internal fastcc ptr @capture_pattern_rule(ptr noundef %0) unnamed_addr #0
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread56, %24
@@ -37852,7 +37852,7 @@ define internal fastcc ptr @value_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -37870,7 +37870,7 @@ define internal fastcc ptr @value_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread58, %24
@@ -38047,7 +38047,7 @@ define internal fastcc ptr @sequence_pattern_rule(ptr noundef %0) unnamed_addr #
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = sext i32 %14 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   br label %35
 
 22:                                               ; preds = %12
@@ -38066,7 +38066,7 @@ define internal fastcc ptr @sequence_pattern_rule(ptr noundef %0) unnamed_addr #
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = sext i32 %14 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   br i1 %28, label %35, label %33
 
 33:                                               ; preds = %27
@@ -38276,7 +38276,7 @@ define internal fastcc ptr @mapping_pattern_rule(ptr noundef %0) unnamed_addr #0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -38294,7 +38294,7 @@ define internal fastcc ptr @mapping_pattern_rule(ptr noundef %0) unnamed_addr #0
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread225, %24
@@ -38625,7 +38625,7 @@ define internal fastcc ptr @class_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -38643,7 +38643,7 @@ define internal fastcc ptr @class_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread268, %24
@@ -39096,7 +39096,7 @@ define internal fastcc ptr @signed_number_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -39114,7 +39114,7 @@ define internal fastcc ptr @signed_number_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread65
 
 30:                                               ; preds = %.thread, %24
@@ -39263,7 +39263,7 @@ define internal fastcc ptr @complex_number_rule(ptr noundef %0) unnamed_addr #0 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -39281,7 +39281,7 @@ define internal fastcc ptr @complex_number_rule(ptr noundef %0) unnamed_addr #0 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread114, %24
@@ -39464,7 +39464,7 @@ define internal fastcc ptr @signed_real_number_rule(ptr noundef %0) unnamed_addr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = sext i32 %14 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   br label %35
 
 22:                                               ; preds = %12
@@ -39483,7 +39483,7 @@ define internal fastcc ptr @signed_real_number_rule(ptr noundef %0) unnamed_addr
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = sext i32 %14 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   br i1 %28, label %35, label %33
 
 33:                                               ; preds = %27
@@ -39791,7 +39791,7 @@ define internal fastcc ptr @attr_rule(ptr noundef %0) unnamed_addr #0 {
 .thread:                                          ; preds = %33
   %37 = load ptr, ptr %21, align 8, !tbaa !24
   %38 = sext i32 %34 to i64
-  %39 = getelementptr ptr, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   br label %48
 
 40:                                               ; preds = %33
@@ -39804,7 +39804,7 @@ define internal fastcc ptr @attr_rule(ptr noundef %0) unnamed_addr #0 {
   %44 = icmp eq i32 %.pre, 0
   %45 = load ptr, ptr %21, align 8, !tbaa !24
   %46 = sext i32 %34 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   br i1 %44, label %48, label %attr_raw.exit
 
 48:                                               ; preds = %.thread, %43
@@ -40164,7 +40164,7 @@ _gather_47_rule.exit.thread:                      ; preds = %15
   %.160.i = phi i64 [ %.059.i4575, %.lr.ph76 ], [ %47, %46 ]
   %.256.i = phi ptr [ %.054.i4773, %.lr.ph76 ], [ %49, %46 ]
   %54 = add i64 %.058.i4674, 1
-  %55 = getelementptr ptr, ptr %.256.i, i64 %.058.i4674
+  %55 = getelementptr [8 x i8], ptr %.256.i, i64 %.058.i4674
   store ptr %44, ptr %55, align 8, !tbaa !25
   %56 = load i32, ptr %11, align 8, !tbaa !22
   %57 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -40203,10 +40203,10 @@ _loop0_46_rule.exit.thread25:                     ; preds = %.critedge.i
 
 64:                                               ; preds = %.lr.ph56, %64
   %.0.i2155 = phi i64 [ 0, %.lr.ph56 ], [ %69, %64 ]
-  %65 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2155
+  %65 = getelementptr [8 x i8], ptr %.054.i.lcssa, i64 %.0.i2155
   %66 = load ptr, ptr %65, align 8, !tbaa !25
   %67 = load ptr, ptr %62, align 8, !tbaa !35
-  %68 = getelementptr ptr, ptr %67, i64 %.0.i2155
+  %68 = getelementptr [8 x i8], ptr %67, i64 %.0.i2155
   store ptr %66, ptr %68, align 8, !tbaa !25
   %69 = add nuw nsw i64 %.0.i2155, 1
   %exitcond.not = icmp eq i64 %69, %.058.i.lcssa
@@ -40309,7 +40309,7 @@ define internal fastcc ptr @key_value_pattern_rule(ptr noundef %0) unnamed_addr 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = sext i32 %24 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   br label %41
 
 32:                                               ; preds = %.thread.i
@@ -40323,7 +40323,7 @@ define internal fastcc ptr @key_value_pattern_rule(ptr noundef %0) unnamed_addr 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = sext i32 %24 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   br i1 %36, label %41, label %114
 
 41:                                               ; preds = %35, %.thread.i.i
@@ -40840,7 +40840,7 @@ _gather_52_rule.exit.thread:                      ; preds = %15
   %.160.i = phi i64 [ %.059.i4575, %.lr.ph76 ], [ %47, %46 ]
   %.256.i = phi ptr [ %.054.i4773, %.lr.ph76 ], [ %49, %46 ]
   %54 = add i64 %.058.i4674, 1
-  %55 = getelementptr ptr, ptr %.256.i, i64 %.058.i4674
+  %55 = getelementptr [8 x i8], ptr %.256.i, i64 %.058.i4674
   store ptr %44, ptr %55, align 8, !tbaa !25
   %56 = load i32, ptr %11, align 8, !tbaa !22
   %57 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -40879,10 +40879,10 @@ _loop0_51_rule.exit.thread25:                     ; preds = %.critedge.i
 
 64:                                               ; preds = %.lr.ph56, %64
   %.0.i2155 = phi i64 [ 0, %.lr.ph56 ], [ %69, %64 ]
-  %65 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2155
+  %65 = getelementptr [8 x i8], ptr %.054.i.lcssa, i64 %.0.i2155
   %66 = load ptr, ptr %65, align 8, !tbaa !25
   %67 = load ptr, ptr %62, align 8, !tbaa !35
-  %68 = getelementptr ptr, ptr %67, i64 %.0.i2155
+  %68 = getelementptr [8 x i8], ptr %67, i64 %.0.i2155
   store ptr %66, ptr %68, align 8, !tbaa !25
   %69 = add nuw nsw i64 %.0.i2155, 1
   %exitcond.not = icmp eq i64 %69, %.058.i.lcssa
@@ -41322,7 +41322,7 @@ define internal fastcc ptr @_loop0_49_rule(ptr noundef %0) unnamed_addr #0 {
   %.160 = phi i64 [ %.059109, %32 ], [ %37, %36 ]
   %.256 = phi ptr [ %.054111, %32 ], [ %39, %36 ]
   %42 = add i64 %.058110, 1
-  %43 = getelementptr ptr, ptr %.256, i64 %.058110
+  %43 = getelementptr [8 x i8], ptr %.256, i64 %.058110
   store ptr %.122.i.ph, ptr %43, align 8, !tbaa !25
   %44 = load i32, ptr %11, align 8, !tbaa !22
   %45 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -41366,10 +41366,10 @@ define internal fastcc ptr @_loop0_49_rule(ptr noundef %0) unnamed_addr #0 {
 
 55:                                               ; preds = %.lr.ph116, %55
   %.0115 = phi i64 [ 0, %.lr.ph116 ], [ %60, %55 ]
-  %56 = getelementptr ptr, ptr %.054100, i64 %.0115
+  %56 = getelementptr [8 x i8], ptr %.054100, i64 %.0115
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %58 = load ptr, ptr %52, align 8, !tbaa !35
-  %59 = getelementptr ptr, ptr %58, i64 %.0115
+  %59 = getelementptr [8 x i8], ptr %58, i64 %.0115
   store ptr %57, ptr %59, align 8, !tbaa !25
   %60 = add nuw nsw i64 %.0115, 1
   %exitcond.not = icmp eq i64 %60, %.058105
@@ -41549,7 +41549,7 @@ define internal fastcc ptr @simple_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -41586,7 +41586,7 @@ define internal fastcc ptr @simple_stmt_rule(ptr noundef %0) unnamed_addr #0 {
 .thread254.i:                                     ; preds = %.thread
   %54 = load ptr, ptr %33, align 8, !tbaa !24
   %55 = sext i32 %51 to i64
-  %56 = getelementptr ptr, ptr %54, i64 %55
+  %56 = getelementptr [8 x i8], ptr %54, i64 %55
   br label %66
 
 57:                                               ; preds = %.thread
@@ -41603,7 +41603,7 @@ define internal fastcc ptr @simple_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %62 = icmp eq i32 %.pre.i, 0
   %63 = load ptr, ptr %33, align 8, !tbaa !24
   %64 = sext i32 %51 to i64
-  %65 = getelementptr ptr, ptr %63, i64 %64
+  %65 = getelementptr [8 x i8], ptr %63, i64 %64
   br i1 %62, label %66, label %.thread266
 
 66:                                               ; preds = %61, %.thread254.i
@@ -42322,7 +42322,7 @@ define internal fastcc ptr @type_alias_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -42340,7 +42340,7 @@ define internal fastcc ptr @type_alias_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread72, %24
@@ -42455,7 +42455,7 @@ define internal fastcc ptr @return_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -42473,7 +42473,7 @@ define internal fastcc ptr @return_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread57, %24
@@ -42715,7 +42715,7 @@ define internal fastcc ptr @import_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %.160.i.i.i = phi i64 [ %.05981.i33.i.i, %.lr.ph.i.i ], [ %50, %49 ]
   %.256.i.i.i = phi ptr [ %.05483.i31.i.i, %.lr.ph.i.i ], [ %52, %49 ]
   %54 = add i64 %.05882.i32.i.i, 1
-  %55 = getelementptr ptr, ptr %.256.i.i.i, i64 %.05882.i32.i.i
+  %55 = getelementptr [8 x i8], ptr %.256.i.i.i, i64 %.05882.i32.i.i
   store ptr %47, ptr %55, align 8, !tbaa !25
   %56 = load i32, ptr %13, align 8, !tbaa !22
   %57 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -42746,10 +42746,10 @@ define internal fastcc ptr @import_stmt_rule(ptr noundef %0) unnamed_addr #0 {
 
 63:                                               ; preds = %63, %.lr.ph92.i.i.i
   %.091.i.i.i = phi i64 [ 0, %.lr.ph92.i.i.i ], [ %68, %63 ]
-  %64 = getelementptr ptr, ptr %.054.lcssa.i.i.i, i64 %.091.i.i.i
+  %64 = getelementptr [8 x i8], ptr %.054.lcssa.i.i.i, i64 %.091.i.i.i
   %65 = load ptr, ptr %64, align 8, !tbaa !25
   %66 = load ptr, ptr %62, align 8, !tbaa !35
-  %67 = getelementptr ptr, ptr %66, i64 %.091.i.i.i
+  %67 = getelementptr [8 x i8], ptr %66, i64 %.091.i.i.i
   store ptr %65, ptr %67, align 8, !tbaa !25
   %68 = add nuw nsw i64 %.091.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %68, %.058.lcssa.i.i.i
@@ -42888,7 +42888,7 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %121 = load ptr, ptr %120, align 8, !tbaa !24
   %122 = sext i32 %116 to i64
-  %123 = getelementptr ptr, ptr %121, i64 %122
+  %123 = getelementptr [8 x i8], ptr %121, i64 %122
   br label %133
 
 124:                                              ; preds = %.thread118
@@ -42902,7 +42902,7 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !24
   %131 = sext i32 %116 to i64
-  %132 = getelementptr ptr, ptr %130, i64 %131
+  %132 = getelementptr [8 x i8], ptr %130, i64 %131
   br i1 %128, label %133, label %211
 
 133:                                              ; preds = %127, %.thread82.i
@@ -43016,7 +43016,7 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
   %.160.i.i.i.i = phi i64 [ %.05981.i33.i.i.i, %.lr.ph.i.i.i49 ], [ %168, %167 ]
   %.256.i.i.i.i = phi ptr [ %.05483.i31.i.i.i, %.lr.ph.i.i.i49 ], [ %170, %167 ]
   %172 = add i64 %.05882.i32.i.i.i, 1
-  %173 = getelementptr ptr, ptr %.256.i.i.i.i, i64 %.05882.i32.i.i.i
+  %173 = getelementptr [8 x i8], ptr %.256.i.i.i.i, i64 %.05882.i32.i.i.i
   store ptr %165, ptr %173, align 8, !tbaa !25
   %174 = load i32, ptr %13, align 8, !tbaa !22
   %175 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -43047,10 +43047,10 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
 
 181:                                              ; preds = %181, %.lr.ph92.i.i.i.i
   %.091.i.i.i.i = phi i64 [ 0, %.lr.ph92.i.i.i.i ], [ %186, %181 ]
-  %182 = getelementptr ptr, ptr %.054.lcssa.i.i.i.i, i64 %.091.i.i.i.i
+  %182 = getelementptr [8 x i8], ptr %.054.lcssa.i.i.i.i, i64 %.091.i.i.i.i
   %183 = load ptr, ptr %182, align 8, !tbaa !25
   %184 = load ptr, ptr %180, align 8, !tbaa !35
-  %185 = getelementptr ptr, ptr %184, i64 %.091.i.i.i.i
+  %185 = getelementptr [8 x i8], ptr %184, i64 %.091.i.i.i.i
   store ptr %183, ptr %185, align 8, !tbaa !25
   %186 = add nuw nsw i64 %.091.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %186, %.058.lcssa.i.i.i.i
@@ -43196,7 +43196,7 @@ define internal fastcc ptr @raise_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = sext i32 %14 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   br label %35
 
 22:                                               ; preds = %12
@@ -43215,7 +43215,7 @@ define internal fastcc ptr @raise_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = sext i32 %14 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   br i1 %28, label %35, label %33
 
 33:                                               ; preds = %27
@@ -43413,7 +43413,7 @@ define internal fastcc ptr @del_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -43431,7 +43431,7 @@ define internal fastcc ptr @del_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread73, %24
@@ -43536,7 +43536,7 @@ define internal fastcc ptr @yield_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -43554,7 +43554,7 @@ define internal fastcc ptr @yield_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread56, %24
@@ -43636,7 +43636,7 @@ define internal fastcc ptr @assert_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -43654,7 +43654,7 @@ define internal fastcc ptr @assert_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread67, %24
@@ -43791,7 +43791,7 @@ define internal fastcc ptr @global_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -43809,7 +43809,7 @@ define internal fastcc ptr @global_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread60, %24
@@ -43905,7 +43905,7 @@ define internal fastcc ptr @nonlocal_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -43923,7 +43923,7 @@ define internal fastcc ptr @nonlocal_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread60, %24
@@ -44217,7 +44217,7 @@ define internal fastcc ptr @_loop1_12_rule(ptr noundef %0) unnamed_addr #0 {
   %.159 = phi ptr [ %.058, %28 ], [ %33, %30 ]
   %.155 = phi i64 [ %.054, %28 ], [ %31, %30 ]
   %35 = add i64 %.053, 1
-  %36 = getelementptr ptr, ptr %.159, i64 %.053
+  %36 = getelementptr [8 x i8], ptr %.159, i64 %.053
   store ptr %25, ptr %36, align 8, !tbaa !25
   %37 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader81, !llvm.loop !177
@@ -44272,10 +44272,10 @@ define internal fastcc ptr @_loop1_12_rule(ptr noundef %0) unnamed_addr #0 {
 
 52:                                               ; preds = %.lr.ph, %52
   %.092 = phi i64 [ 0, %.lr.ph ], [ %57, %52 ]
-  %53 = getelementptr ptr, ptr %.058, i64 %.092
+  %53 = getelementptr [8 x i8], ptr %.058, i64 %.092
   %54 = load ptr, ptr %53, align 8, !tbaa !25
   %55 = load ptr, ptr %49, align 8, !tbaa !35
-  %56 = getelementptr ptr, ptr %55, i64 %.092
+  %56 = getelementptr [8 x i8], ptr %55, i64 %.092
   store ptr %54, ptr %56, align 8, !tbaa !25
   %57 = add nuw nsw i64 %.092, 1
   %exitcond.not = icmp eq i64 %57, %.053
@@ -45050,7 +45050,7 @@ define internal fastcc ptr @single_subscript_attribute_target_rule(ptr noundef %
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -45068,7 +45068,7 @@ define internal fastcc ptr @single_subscript_attribute_target_rule(ptr noundef %
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread117, %24
@@ -45324,7 +45324,7 @@ define internal fastcc ptr @_loop0_115_rule(ptr noundef %0) unnamed_addr #0 {
   %.155 = phi ptr [ %.05474, %.lr.ph ], [ %24, %21 ]
   %.151 = phi i64 [ %.05075, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.04976, 1
-  %27 = getelementptr ptr, ptr %.155, i64 %.04976
+  %27 = getelementptr [8 x i8], ptr %.155, i64 %.04976
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call fastcc ptr @star_named_expressions_rule(ptr noundef nonnull %0)
@@ -45368,10 +45368,10 @@ define internal fastcc ptr @_loop0_115_rule(ptr noundef %0) unnamed_addr #0 {
 
 39:                                               ; preds = %.lr.ph80, %39
   %.079 = phi i64 [ 0, %.lr.ph80 ], [ %44, %39 ]
-  %40 = getelementptr ptr, ptr %.054.lcssa, i64 %.079
+  %40 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.079
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = load ptr, ptr %36, align 8, !tbaa !35
-  %43 = getelementptr ptr, ptr %42, i64 %.079
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.079
   store ptr %41, ptr %43, align 8, !tbaa !25
   %44 = add nuw nsw i64 %.079, 1
   %exitcond.not = icmp eq i64 %44, %.049.lcssa
@@ -45469,7 +45469,7 @@ define internal fastcc ptr @_loop0_116_rule(ptr noundef %0) unnamed_addr #0 {
   %.155 = phi ptr [ %.054, %28 ], [ %33, %30 ]
   %.151 = phi i64 [ %.050, %28 ], [ %31, %30 ]
   %35 = add i64 %.049, 1
-  %36 = getelementptr ptr, ptr %.155, i64 %.049
+  %36 = getelementptr [8 x i8], ptr %.155, i64 %.049
   store ptr %25, ptr %36, align 8, !tbaa !25
   %37 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader76, !llvm.loop !181
@@ -45511,10 +45511,10 @@ define internal fastcc ptr @_loop0_116_rule(ptr noundef %0) unnamed_addr #0 {
 
 47:                                               ; preds = %.lr.ph, %47
   %.087 = phi i64 [ 0, %.lr.ph ], [ %52, %47 ]
-  %48 = getelementptr ptr, ptr %.054, i64 %.087
+  %48 = getelementptr [8 x i8], ptr %.054, i64 %.087
   %49 = load ptr, ptr %48, align 8, !tbaa !25
   %50 = load ptr, ptr %44, align 8, !tbaa !35
-  %51 = getelementptr ptr, ptr %50, i64 %.087
+  %51 = getelementptr [8 x i8], ptr %50, i64 %.087
   store ptr %49, ptr %51, align 8, !tbaa !25
   %52 = add nuw nsw i64 %.087, 1
   %exitcond.not = icmp eq i64 %52, %.049
@@ -45563,7 +45563,7 @@ define internal fastcc ptr @import_from_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -45581,7 +45581,7 @@ define internal fastcc ptr @import_from_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread132, %24
@@ -45678,7 +45678,7 @@ define internal fastcc ptr @import_from_rule(ptr noundef %0) unnamed_addr #0 {
   %.155.i = phi ptr [ %.054.i, %59 ], [ %66, %63 ]
   %.151.i = phi i64 [ %.050.i, %59 ], [ %64, %63 ]
   %68 = add i64 %.049.i, 1
-  %69 = getelementptr ptr, ptr %.155.i, i64 %.049.i
+  %69 = getelementptr [8 x i8], ptr %.155.i, i64 %.049.i
   store ptr %.0.i.i, ptr %69, align 8, !tbaa !25
   %70 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader74.i, !llvm.loop !183
@@ -45704,10 +45704,10 @@ define internal fastcc ptr @import_from_rule(ptr noundef %0) unnamed_addr #0 {
 
 78:                                               ; preds = %78, %.lr.ph.i
   %.085.i = phi i64 [ 0, %.lr.ph.i ], [ %83, %78 ]
-  %79 = getelementptr ptr, ptr %.054.i, i64 %.085.i
+  %79 = getelementptr [8 x i8], ptr %.054.i, i64 %.085.i
   %80 = load ptr, ptr %79, align 8, !tbaa !25
   %81 = load ptr, ptr %77, align 8, !tbaa !35
-  %82 = getelementptr ptr, ptr %81, i64 %.085.i
+  %82 = getelementptr [8 x i8], ptr %81, i64 %.085.i
   store ptr %80, ptr %82, align 8, !tbaa !25
   %83 = add nuw nsw i64 %.085.i, 1
   %exitcond.not.i = icmp eq i64 %83, %.049.i
@@ -46031,7 +46031,7 @@ define internal fastcc ptr @dotted_as_name_rule(ptr noundef %0) unnamed_addr #0 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -46049,7 +46049,7 @@ define internal fastcc ptr @dotted_as_name_rule(ptr noundef %0) unnamed_addr #0 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread68, %24
@@ -46191,7 +46191,7 @@ define internal fastcc ptr @import_from_targets_rule(ptr noundef %0) unnamed_add
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -46209,7 +46209,7 @@ define internal fastcc ptr @import_from_targets_rule(ptr noundef %0) unnamed_add
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread112
 
 30:                                               ; preds = %.thread, %24
@@ -46429,7 +46429,7 @@ define internal fastcc ptr @_loop1_19_rule(ptr noundef %0) unnamed_addr #0 {
   %.159 = phi ptr [ %.058, %31 ], [ %38, %35 ]
   %.155 = phi i64 [ %.054, %31 ], [ %36, %35 ]
   %40 = add i64 %.053, 1
-  %41 = getelementptr ptr, ptr %.159, i64 %.053
+  %41 = getelementptr [8 x i8], ptr %.159, i64 %.053
   store ptr %.0.i, ptr %41, align 8, !tbaa !25
   %42 = load i32, ptr %11, align 8, !tbaa !22
   br label %.preheader79, !llvm.loop !185
@@ -46484,10 +46484,10 @@ define internal fastcc ptr @_loop1_19_rule(ptr noundef %0) unnamed_addr #0 {
 
 59:                                               ; preds = %.lr.ph, %59
   %.090 = phi i64 [ 0, %.lr.ph ], [ %64, %59 ]
-  %60 = getelementptr ptr, ptr %.058, i64 %.090
+  %60 = getelementptr [8 x i8], ptr %.058, i64 %.090
   %61 = load ptr, ptr %60, align 8, !tbaa !25
   %62 = load ptr, ptr %56, align 8, !tbaa !35
-  %63 = getelementptr ptr, ptr %62, i64 %.090
+  %63 = getelementptr [8 x i8], ptr %62, i64 %.090
   store ptr %61, ptr %63, align 8, !tbaa !25
   %64 = add nuw nsw i64 %.090, 1
   %exitcond.not = icmp eq i64 %64, %.053
@@ -46605,7 +46605,7 @@ define internal fastcc ptr @import_from_as_names_rule(ptr noundef %0) unnamed_ad
   %.160.i.i = phi i64 [ %.05981.i33.i, %.lr.ph.i ], [ %39, %38 ]
   %.256.i.i = phi ptr [ %.05483.i31.i, %.lr.ph.i ], [ %41, %38 ]
   %43 = add i64 %.05882.i32.i, 1
-  %44 = getelementptr ptr, ptr %.256.i.i, i64 %.05882.i32.i
+  %44 = getelementptr [8 x i8], ptr %.256.i.i, i64 %.05882.i32.i
   store ptr %36, ptr %44, align 8, !tbaa !25
   %45 = load i32, ptr %13, align 8, !tbaa !22
   %46 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -46636,10 +46636,10 @@ define internal fastcc ptr @import_from_as_names_rule(ptr noundef %0) unnamed_ad
 
 52:                                               ; preds = %52, %.lr.ph92.i.i
   %.091.i.i = phi i64 [ 0, %.lr.ph92.i.i ], [ %57, %52 ]
-  %53 = getelementptr ptr, ptr %.054.lcssa.i.i, i64 %.091.i.i
+  %53 = getelementptr [8 x i8], ptr %.054.lcssa.i.i, i64 %.091.i.i
   %54 = load ptr, ptr %53, align 8, !tbaa !25
   %55 = load ptr, ptr %51, align 8, !tbaa !35
-  %56 = getelementptr ptr, ptr %55, i64 %.091.i.i
+  %56 = getelementptr [8 x i8], ptr %55, i64 %.091.i.i
   store ptr %54, ptr %56, align 8, !tbaa !25
   %57 = add nuw nsw i64 %.091.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %57, %.058.lcssa.i.i
@@ -46814,7 +46814,7 @@ define internal fastcc ptr @import_from_as_name_rule(ptr noundef %0) unnamed_add
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -46832,7 +46832,7 @@ define internal fastcc ptr @import_from_as_name_rule(ptr noundef %0) unnamed_add
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
 30:                                               ; preds = %.thread68, %24
@@ -47047,7 +47047,7 @@ _gather_99_rule.exit.thread:                      ; preds = %16
   %.160.i = phi i64 [ %.059.i5179, %.lr.ph80 ], [ %37, %36 ]
   %.256.i = phi ptr [ %.054.i5377, %.lr.ph80 ], [ %39, %36 ]
   %41 = add i64 %.058.i5278, 1
-  %42 = getelementptr ptr, ptr %.256.i, i64 %.058.i5278
+  %42 = getelementptr [8 x i8], ptr %.256.i, i64 %.058.i5278
   store ptr %34, ptr %42, align 8, !tbaa !25
   %43 = load i32, ptr %11, align 8, !tbaa !22
   %44 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -47078,10 +47078,10 @@ _gather_99_rule.exit.thread:                      ; preds = %16
 
 50:                                               ; preds = %.lr.ph62, %50
   %.0.i2761 = phi i64 [ 0, %.lr.ph62 ], [ %55, %50 ]
-  %51 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2761
+  %51 = getelementptr [8 x i8], ptr %.054.i.lcssa, i64 %.0.i2761
   %52 = load ptr, ptr %51, align 8, !tbaa !25
   %53 = load ptr, ptr %49, align 8, !tbaa !35
-  %54 = getelementptr ptr, ptr %53, i64 %.0.i2761
+  %54 = getelementptr [8 x i8], ptr %53, i64 %.0.i2761
   store ptr %52, ptr %54, align 8, !tbaa !25
   %55 = add nuw nsw i64 %.0.i2761, 1
   %exitcond.not = icmp eq i64 %55, %.058.i.lcssa
@@ -47336,7 +47336,7 @@ define internal fastcc ptr @del_target_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = sext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -47557,7 +47557,7 @@ define internal fastcc ptr @del_t_atom_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %30
 
 20:                                               ; preds = %10
@@ -47575,7 +47575,7 @@ define internal fastcc ptr @del_t_atom_rule(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = sext i32 %12 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br i1 %25, label %30, label %.thread138
 
 30:                                               ; preds = %.thread163, %24
@@ -47837,7 +47837,7 @@ define internal fastcc ptr @_gather_15_rule(ptr noundef %0) unnamed_addr #0 {
   %.160.i = phi i64 [ %.05981.i33, %.lr.ph ], [ %32, %31 ]
   %.256.i = phi ptr [ %.05483.i31, %.lr.ph ], [ %34, %31 ]
   %36 = add i64 %.05882.i32, 1
-  %37 = getelementptr ptr, ptr %.256.i, i64 %.05882.i32
+  %37 = getelementptr [8 x i8], ptr %.256.i, i64 %.05882.i32
   store ptr %29, ptr %37, align 8, !tbaa !25
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -47868,10 +47868,10 @@ define internal fastcc ptr @_gather_15_rule(ptr noundef %0) unnamed_addr #0 {
 
 45:                                               ; preds = %45, %.lr.ph92.i
   %.091.i = phi i64 [ 0, %.lr.ph92.i ], [ %50, %45 ]
-  %46 = getelementptr ptr, ptr %.054.lcssa.i, i64 %.091.i
+  %46 = getelementptr [8 x i8], ptr %.054.lcssa.i, i64 %.091.i
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = load ptr, ptr %44, align 8, !tbaa !35
-  %49 = getelementptr ptr, ptr %48, i64 %.091.i
+  %49 = getelementptr [8 x i8], ptr %48, i64 %.091.i
   store ptr %47, ptr %49, align 8, !tbaa !25
   %50 = add nuw nsw i64 %.091.i, 1
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i
@@ -47981,7 +47981,7 @@ define internal fastcc ptr @_loop0_1_rule(ptr noundef %0) unnamed_addr #0 {
   %.155 = phi ptr [ %.05474, %.lr.ph ], [ %24, %21 ]
   %.151 = phi i64 [ %.05075, %.lr.ph ], [ %22, %21 ]
   %26 = add i64 %.04976, 1
-  %27 = getelementptr ptr, ptr %.155, i64 %.04976
+  %27 = getelementptr [8 x i8], ptr %.155, i64 %.04976
   store ptr %19, ptr %27, align 8, !tbaa !25
   %28 = load i32, ptr %11, align 8, !tbaa !22
   %29 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 4) #5
@@ -48025,10 +48025,10 @@ define internal fastcc ptr @_loop0_1_rule(ptr noundef %0) unnamed_addr #0 {
 
 39:                                               ; preds = %.lr.ph80, %39
   %.079 = phi i64 [ 0, %.lr.ph80 ], [ %44, %39 ]
-  %40 = getelementptr ptr, ptr %.054.lcssa, i64 %.079
+  %40 = getelementptr [8 x i8], ptr %.054.lcssa, i64 %.079
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = load ptr, ptr %36, align 8, !tbaa !35
-  %43 = getelementptr ptr, ptr %42, i64 %.079
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.079
   store ptr %41, ptr %43, align 8, !tbaa !25
   %44 = add nuw nsw i64 %.079, 1
   %exitcond.not = icmp eq i64 %44, %.049.lcssa
@@ -48133,7 +48133,7 @@ define internal fastcc ptr @_gather_101_rule(ptr noundef %0) unnamed_addr #0 {
   %.160.i = phi i64 [ %.05981.i33, %.lr.ph ], [ %32, %31 ]
   %.256.i = phi ptr [ %.05483.i31, %.lr.ph ], [ %34, %31 ]
   %36 = add i64 %.05882.i32, 1
-  %37 = getelementptr ptr, ptr %.256.i, i64 %.05882.i32
+  %37 = getelementptr [8 x i8], ptr %.256.i, i64 %.05882.i32
   store ptr %29, ptr %37, align 8, !tbaa !25
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -48164,10 +48164,10 @@ define internal fastcc ptr @_gather_101_rule(ptr noundef %0) unnamed_addr #0 {
 
 45:                                               ; preds = %45, %.lr.ph92.i
   %.091.i = phi i64 [ 0, %.lr.ph92.i ], [ %50, %45 ]
-  %46 = getelementptr ptr, ptr %.054.lcssa.i, i64 %.091.i
+  %46 = getelementptr [8 x i8], ptr %.054.lcssa.i, i64 %.091.i
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = load ptr, ptr %44, align 8, !tbaa !35
-  %49 = getelementptr ptr, ptr %48, i64 %.091.i
+  %49 = getelementptr [8 x i8], ptr %48, i64 %.091.i
   store ptr %47, ptr %49, align 8, !tbaa !25
   %50 = add nuw nsw i64 %.091.i, 1
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i

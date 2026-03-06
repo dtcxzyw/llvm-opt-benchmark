@@ -666,11 +666,11 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr noundef 
 
 18:                                               ; preds = %.lr.ph, %16
   %.02938 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %.02938
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02938
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !16
-  %23 = getelementptr inbounds nuw ptr, ptr %.03050, i64 %.02938
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.03050, i64 %.02938
   store ptr %22, ptr %23, align 8, !tbaa !14
   %24 = load i64, ptr %20, align 8, !tbaa !18
   %.not37 = icmp eq i64 %24, %.pre4052
@@ -749,11 +749,11 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr noundef
 
 18:                                               ; preds = %.lr.ph, %16
   %.02938 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %.02938
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02938
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !16
-  %23 = getelementptr inbounds nuw ptr, ptr %.03050, i64 %.02938
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.03050, i64 %.02938
   store ptr %22, ptr %23, align 8, !tbaa !14
   %24 = load i64, ptr %20, align 8, !tbaa !18
   %.not37 = icmp eq i64 %24, %.pre4052

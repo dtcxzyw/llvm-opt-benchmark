@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.QueryCompletion = type { i32, i64 }
@@ -191,7 +190,7 @@ list_length.exit:                                 ; preds = %1
 46:                                               ; preds = %.lr.ph140, %.thread103
   %indvars.iv = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next, %.thread103 ]
   %.050130138 = phi i32 [ 0, %.lr.ph140 ], [ %.555, %.thread103 ]
-  %47 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %48, align 4
   switch i32 %49, label %.split [
@@ -668,7 +667,7 @@ define dso_local void @PortalSetResultFormat(ptr noundef captures(none) %0, i32 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %indvars.iv34 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next35, %.lr.ph31 ]
   %28 = load ptr, ptr %14, align 8
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv34
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv34
   store i16 %26, ptr %29, align 2
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
@@ -677,7 +676,7 @@ define dso_local void @PortalSetResultFormat(ptr noundef captures(none) %0, i32 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %30 = load ptr, ptr %14, align 8
-  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   store i16 0, ptr %31, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1138,7 +1137,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   %.0506577 = phi i8 [ %.3, %75 ], [ 0, %.lr.ph ]
   %indvars.iv76 = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.lr.ph ]
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv76
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv76
   %27 = load ptr, ptr %26, align 8
   %28 = load volatile i32, ptr @InterruptPending, align 4
   %.not56 = icmp eq i32 %28, 0
@@ -1240,7 +1239,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   %.val63 = load ptr, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %72 = sext i32 %.val to i64
-  %73 = getelementptr inbounds %union.ListCell, ptr %.val63, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %.val63, i64 %72
   %.not64 = icmp ult ptr %71, %73
   br i1 %.not64, label %74, label %75
 
@@ -2085,7 +2084,7 @@ define internal fastcc void @ProcessQuery(ptr noundef %0, ptr noundef %1, ptr no
 
 switch.lookup:                                    ; preds = %23
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ProcessQuery, i64 %31
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ProcessQuery, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split
 

@@ -3,12 +3,9 @@ source_filename = "bench/postgres/original/gistproc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.GISTENTRY = type { i64, ptr, ptr, i16, i8 }
 %struct.BOX = type { %struct.Point, %struct.Point }
 %struct.Point = type { double, double }
 %struct.ConsiderSplitContext = type { i32, %struct.BOX, i8, double, double, float, float, i32, double }
-%struct.SplitInterval = type { double, double }
-%struct.CommonEntry = type { i32, double }
 
 @.str = private unnamed_addr constant [33 x i8] c"unrecognized strategy number: %d\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"gistproc.c\00", align 1
@@ -72,7 +69,7 @@ define dso_local range(i64 0, 2) i64 @gist_box_consistent(ptr noundef readonly c
 
 switch.lookup:                                    ; preds = %28
   %35 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.gist_box_consistent, i64 %35
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gist_box_consistent, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   %36 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull %switch.load, i32 noundef 0, i64 noundef %14, i64 noundef %6) #15
   %.0.in.i = icmp ne i64 %36, 0
@@ -223,7 +220,7 @@ define dso_local noundef i64 @gist_box_union(ptr noundef readonly captures(none)
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %adjustBox.exit ]
   %17 = phi double [ %.promoted15, %.lr.ph ], [ %44, %adjustBox.exit ]
   %18 = phi double [ %.promoted, %.lr.ph ], [ %28, %adjustBox.exit ]
-  %19 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %9, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
   %22 = load double, ptr %21, align 8
@@ -470,7 +467,7 @@ define dso_local i64 @gist_box_picksplit(ptr noundef readonly captures(none) %0)
 23:                                               ; preds = %.lr.ph, %adjustBox.exit
   %.0236309 = phi i16 [ 1, %.lr.ph ], [ %60, %adjustBox.exit ]
   %24 = zext i16 %.0236309 to i64
-  %25 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %17, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = inttoptr i64 %26 to ptr
   %28 = icmp eq i16 %.0236309, 1
@@ -553,9 +550,9 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
   store i8 1, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %63 = sext i32 %12 to i64
-  %64 = getelementptr inbounds %struct.SplitInterval, ptr %15, i64 %63
+  %64 = getelementptr inbounds [16 x i8], ptr %15, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = getelementptr inbounds %struct.SplitInterval, ptr %16, i64 %63
+  %66 = getelementptr inbounds [16 x i8], ptr %16, i64 %63
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = zext nneg i32 %11 to i64
   %69 = trunc i32 %10 to i16
@@ -573,12 +570,12 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
 .lr.ph312.split.us:                               ; preds = %.lr.ph312, %.lr.ph312.split.us
   %.1237311.us = phi i16 [ %82, %.lr.ph312.split.us ], [ 1, %.lr.ph312 ]
   %72 = zext i16 %.1237311.us to i64
-  %73 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %62, i64 %72
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = inttoptr i64 %74 to ptr
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load double, ptr %76, align 8
-  %78 = getelementptr %struct.SplitInterval, ptr %15, i64 %72
+  %78 = getelementptr [16 x i8], ptr %15, i64 %72
   %79 = getelementptr i8, ptr %78, i64 -16
   store double %77, ptr %79, align 8
   %80 = load double, ptr %75, align 8
@@ -591,12 +588,12 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
 .lr.ph312.split:                                  ; preds = %.lr.ph312, %.lr.ph312.split
   %.1237311 = phi i16 [ %94, %.lr.ph312.split ], [ 1, %.lr.ph312 ]
   %83 = zext i16 %.1237311 to i64
-  %84 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %62, i64 %83
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %83
   %85 = load i64, ptr %84, align 8
   %86 = inttoptr i64 %85 to ptr
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load double, ptr %87, align 8
-  %89 = getelementptr %struct.SplitInterval, ptr %15, i64 %83
+  %89 = getelementptr [16 x i8], ptr %15, i64 %83
   %90 = getelementptr i8, ptr %89, i64 -16
   store double %88, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -629,7 +626,7 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
   %indvars.iv = phi i64 [ %98, %.lr.ph317 ], [ %indvars.iv.next, %float8_lt.exit.thread ]
   %.1233314 = phi double [ %.0232324, %.lr.ph317 ], [ %.2234, %float8_lt.exit.thread ]
   %.1233314.fr = freeze double %.1233314
-  %100 = getelementptr inbounds %struct.SplitInterval, ptr %15, i64 %indvars.iv
+  %100 = getelementptr inbounds [16 x i8], ptr %15, i64 %indvars.iv
   %101 = load double, ptr %100, align 8
   %102 = fcmp uno double %101, 0.000000e+00
   %103 = fcmp oeq double %.0228325, %101
@@ -676,7 +673,7 @@ float8_lt.exit.thread:                            ; preds = %104, %111, %float8_
 
 .lr.ph321.split:                                  ; preds = %.lr.ph321.split.preheader, %125
   %indvars.iv365 = phi i64 [ %120, %.lr.ph321.split.preheader ], [ %indvars.iv.next366, %125 ]
-  %121 = getelementptr inbounds %struct.SplitInterval, ptr %16, i64 %indvars.iv365
+  %121 = getelementptr inbounds [16 x i8], ptr %16, i64 %indvars.iv365
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load double, ptr %122, align 8
   %124 = fcmp ugt double %123, %.1233314.fr
@@ -714,7 +711,7 @@ float8_lt.exit.thread:                            ; preds = %104, %111, %float8_
 132:                                              ; preds = %.lr.ph331, %float8_gt.exit.thread
   %indvars.iv368 = phi i64 [ %131, %.lr.ph331 ], [ %indvars.iv.next369, %float8_gt.exit.thread ]
   %.2230328 = phi double [ %.1229340, %.lr.ph331 ], [ %.3231, %float8_gt.exit.thread ]
-  %133 = getelementptr inbounds nuw %struct.SplitInterval, ptr %16, i64 %indvars.iv368
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv368
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load double, ptr %134, align 8
   %136 = fcmp uno double %135, 0.000000e+00
@@ -746,7 +743,7 @@ float8_gt.exit.thread:                            ; preds = %138, %144, %float8_
 .critedge4:                                       ; preds = %132
   %147 = trunc nuw i64 %indvars.iv368 to i32
   %148 = and i64 %indvars.iv368, 4294967295
-  %149 = getelementptr inbounds nuw %struct.SplitInterval, ptr %16, i64 %148
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load double, ptr %150, align 8
   %152 = icmp sgt i32 %.2226341, -1
@@ -758,7 +755,7 @@ float8_gt.exit.thread:                            ; preds = %138, %144, %float8_
 
 .lr.ph335:                                        ; preds = %.lr.ph335.preheader, %159
   %indvars.iv371 = phi i64 [ %153, %.lr.ph335.preheader ], [ %indvars.iv.next372, %159 ]
-  %154 = getelementptr inbounds nuw %struct.SplitInterval, ptr %15, i64 %indvars.iv371
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv371
   %155 = load double, ptr %154, align 8
   %156 = fcmp uno double %155, 0.000000e+00
   %157 = fcmp oge double %155, %.2230328
@@ -826,7 +823,7 @@ float8_gt.exit.thread:                            ; preds = %138, %144, %float8_
   %.03653.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %278 ]
   %.03752.i = phi ptr [ null, %.lr.ph.i ], [ %.138.i, %278 ]
   %184 = zext i16 %.054.i to i64
-  %185 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %62, i64 %184
+  %185 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %184
   %186 = load i64, ptr %185, align 8
   %187 = inttoptr i64 %186 to ptr
   %.not42.i = icmp samesign ult i32 %180, %183
@@ -836,7 +833,7 @@ float8_gt.exit.thread:                            ; preds = %138, %144, %float8_
   %189 = load ptr, ptr %8, align 8
   %190 = load i32, ptr %179, align 8
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds i16, ptr %189, i64 %191
+  %192 = getelementptr inbounds [2 x i8], ptr %189, i64 %191
   store i16 %.054.i, ptr %192, align 2
   %193 = icmp eq ptr %.03653.i, null
   br i1 %193, label %194, label %196
@@ -927,7 +924,7 @@ adjustBox.exit.i:                                 ; preds = %230, %float8_gt.exi
   %234 = load ptr, ptr %177, align 8
   %235 = load i32, ptr %178, align 8
   %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds i16, ptr %234, i64 %236
+  %237 = getelementptr inbounds [2 x i8], ptr %234, i64 %236
   store i16 %.054.i, ptr %237, align 2
   %238 = icmp eq ptr %.03752.i, null
   br i1 %238, label %239, label %241
@@ -1073,7 +1070,7 @@ fallbackSplit.exit:                               ; preds = %168, %._crit_edge.l
   %.2238346 = phi i16 [ 1, %.lr.ph348 ], [ %405, %404 ]
   %.0241345 = phi i32 [ 0, %.lr.ph348 ], [ %.1242, %404 ]
   %311 = zext i16 %.2238346 to i64
-  %312 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %62, i64 %311
+  %312 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %311
   %313 = load i64, ptr %312, align 8
   %314 = inttoptr i64 %313 to ptr
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 16
@@ -1096,7 +1093,7 @@ fallbackSplit.exit:                               ; preds = %168, %._crit_edge.l
 324:                                              ; preds = %320
   %325 = add i32 %.0241345, 1
   %326 = sext i32 %.0241345 to i64
-  %327 = getelementptr inbounds %struct.CommonEntry, ptr %293, i64 %326
+  %327 = getelementptr inbounds [16 x i8], ptr %293, i64 %326
   store i32 %310, ptr %327, align 8
   br label %404
 
@@ -1179,7 +1176,7 @@ adjustBox.exit262:                                ; preds = %359, %float8_gt.exi
   %363 = add i32 %362, 1
   store i32 %363, ptr %289, align 8
   %364 = sext i32 %362 to i64
-  %365 = getelementptr inbounds i16, ptr %361, i64 %364
+  %365 = getelementptr inbounds [2 x i8], ptr %361, i64 %364
   store i16 %.2238346, ptr %365, align 2
   br label %404
 
@@ -1262,7 +1259,7 @@ adjustBox.exit270:                                ; preds = %397, %float8_gt.exi
   %401 = add i32 %400, 1
   store i32 %401, ptr %290, align 8
   %402 = sext i32 %400 to i64
-  %403 = getelementptr inbounds i16, ptr %399, i64 %402
+  %403 = getelementptr inbounds [2 x i8], ptr %399, i64 %402
   store i16 %.2238346, ptr %403, align 2
   br label %404
 
@@ -1287,10 +1284,10 @@ adjustBox.exit270:                                ; preds = %397, %float8_gt.exi
 413:                                              ; preds = %408, %float8_mi.exit
   %.3239351 = phi i16 [ 0, %408 ], [ %433, %float8_mi.exit ]
   %414 = zext i16 %.3239351 to i64
-  %415 = getelementptr inbounds nuw %struct.CommonEntry, ptr %293, i64 %414
+  %415 = getelementptr inbounds nuw [16 x i8], ptr %293, i64 %414
   %416 = load i32, ptr %415, align 8
   %417 = sext i32 %416 to i64
-  %418 = getelementptr inbounds %struct.GISTENTRY, ptr %62, i64 %417
+  %418 = getelementptr inbounds [32 x i8], ptr %62, i64 %417
   %419 = load i64, ptr %418, align 8
   %420 = inttoptr i64 %419 to ptr
   %421 = tail call fastcc double @box_penalty(ptr noundef %291, ptr noundef %420)
@@ -1335,10 +1332,10 @@ float8_mi.exit:                                   ; preds = %413, %426
   %445 = phi i32 [ 0, %436 ], [ %625, %621 ]
   %.4352 = phi i16 [ 0, %436 ], [ %624, %621 ]
   %446 = zext i16 %.4352 to i64
-  %447 = getelementptr inbounds nuw %struct.CommonEntry, ptr %293, i64 %446
+  %447 = getelementptr inbounds nuw [16 x i8], ptr %293, i64 %446
   %448 = load i32, ptr %447, align 8
   %449 = sext i32 %448 to i64
-  %450 = getelementptr inbounds %struct.GISTENTRY, ptr %62, i64 %449
+  %450 = getelementptr inbounds [32 x i8], ptr %62, i64 %449
   %451 = load i64, ptr %450, align 8
   %452 = inttoptr i64 %451 to ptr
   %453 = load i32, ptr %289, align 8
@@ -1699,7 +1696,7 @@ adjustBox.exit302:                                ; preds = %615, %float8_gt.exi
   %.sink.in = phi i32 [ %491, %adjustBox.exit278 ], [ %577, %adjustBox.exit294 ], [ %617, %adjustBox.exit302 ], [ %533, %adjustBox.exit286 ]
   %.sink = trunc i32 %.sink.in to i16
   %622 = sext i32 %.sink436 to i64
-  %623 = getelementptr inbounds i16, ptr %.sink434, i64 %622
+  %623 = getelementptr inbounds [2 x i8], ptr %.sink434, i64 %622
   store i16 %.sink, ptr %623, align 2
   %624 = add i16 %.4352, 1
   %625 = zext i16 %624 to i32

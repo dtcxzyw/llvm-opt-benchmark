@@ -1012,7 +1012,7 @@ define internal fastcc ptr @gvevent_find_cluster(ptr noundef readonly captures(r
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !118
   %14 = tail call fastcc ptr @gvevent_find_cluster(ptr noundef %13, ptr noundef nonnull byval(%struct.boxf) align 8 %1)
   %.not14 = icmp eq ptr %14, null

@@ -70,7 +70,7 @@ define void @rb_Digest_SHA256_Transform(ptr noundef captures(none) %0, ptr nound
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %21 = load i32, ptr %.0, align 4, !tbaa !11
   %22 = tail call i32 @llvm.bswap.i32(i32 %21)
-  %23 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %22, ptr %23, align 4, !tbaa !11
   %24 = tail call i32 @llvm.fshl.i32(i32 %.0138, i32 %.0138, i32 26)
   %25 = tail call i32 @llvm.fshl.i32(i32 %.0138, i32 %.0138, i32 21)
@@ -83,7 +83,7 @@ define void @rb_Digest_SHA256_Transform(ptr noundef captures(none) %0, ptr nound
   %32 = and i32 %.0134, %31
   %33 = or i32 %32, %30
   %34 = add i32 %29, %33
-  %35 = getelementptr inbounds nuw i32, ptr @K256, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @K256, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !11
   %37 = add i32 %34, %22
   %38 = add i32 %37, %36
@@ -115,7 +115,7 @@ define void @rb_Digest_SHA256_Transform(ptr noundef captures(none) %0, ptr nound
   %.1127 = phi i32 [ %104, %.preheader ], [ %50, %19 ]
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %51 = and i64 %indvars.iv.next151, 15
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !11
   %54 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 25)
   %55 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 14)
@@ -124,7 +124,7 @@ define void @rb_Digest_SHA256_Transform(ptr noundef captures(none) %0, ptr nound
   %58 = xor i32 %56, %57
   %59 = add nuw i64 %indvars.iv150, 14
   %60 = and i64 %59, 15
-  %61 = getelementptr inbounds nuw i32, ptr %3, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !11
   %63 = tail call i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 15)
   %64 = tail call i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 13)
@@ -142,15 +142,15 @@ define void @rb_Digest_SHA256_Transform(ptr noundef captures(none) %0, ptr nound
   %76 = and i32 %.1135, %75
   %77 = or i32 %76, %74
   %78 = add i32 %73, %77
-  %79 = getelementptr inbounds nuw i32, ptr @K256, i64 %indvars.iv150
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @K256, i64 %indvars.iv150
   %80 = load i32, ptr %79, align 4, !tbaa !11
   %81 = add i32 %78, %80
   %82 = add nuw i64 %indvars.iv150, 9
   %83 = and i64 %82, 15
-  %84 = getelementptr inbounds nuw i32, ptr %3, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !11
   %86 = and i64 %indvars.iv150, 15
-  %87 = getelementptr inbounds nuw i32, ptr %3, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !11
   %89 = add i32 %58, %85
   %90 = add i32 %89, %67
@@ -344,7 +344,7 @@ define noundef i32 @rb_Digest_SHA256_Finish(ptr noundef %0, ptr noundef writeonl
 33:                                               ; preds = %29, %33
   %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %33 ]
   %.051 = phi ptr [ %1, %29 ], [ %37, %33 ]
-  %34 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !11
   %36 = tail call i32 @llvm.bswap.i32(i32 %35)
   store i32 %36, ptr %34, align 4, !tbaa !11
@@ -506,7 +506,7 @@ define void @rb_Digest_SHA512_Transform(ptr noundef captures(none) %0, ptr nound
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %21 = load i64, ptr %.0, align 8, !tbaa !20
   %22 = tail call i64 @llvm.bswap.i64(i64 %21)
-  %23 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store i64 %22, ptr %23, align 8, !tbaa !20
   %24 = tail call i64 @llvm.fshl.i64(i64 %.0140, i64 %.0140, i64 50)
   %25 = tail call i64 @llvm.fshl.i64(i64 %.0140, i64 %.0140, i64 46)
@@ -519,7 +519,7 @@ define void @rb_Digest_SHA512_Transform(ptr noundef captures(none) %0, ptr nound
   %32 = and i64 %.0136, %31
   %33 = or i64 %32, %30
   %34 = add i64 %29, %33
-  %35 = getelementptr inbounds nuw i64, ptr @K512, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @K512, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8, !tbaa !20
   %37 = add i64 %34, %22
   %38 = add i64 %37, %36
@@ -551,7 +551,7 @@ define void @rb_Digest_SHA512_Transform(ptr noundef captures(none) %0, ptr nound
   %.1129 = phi i64 [ %104, %.preheader ], [ %50, %19 ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %51 = and i64 %indvars.iv.next153, 15
-  %52 = getelementptr inbounds nuw i64, ptr %3, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !20
   %54 = tail call i64 @llvm.fshl.i64(i64 %53, i64 %53, i64 63)
   %55 = tail call i64 @llvm.fshl.i64(i64 %53, i64 %53, i64 56)
@@ -560,7 +560,7 @@ define void @rb_Digest_SHA512_Transform(ptr noundef captures(none) %0, ptr nound
   %58 = xor i64 %56, %57
   %59 = add nuw i64 %indvars.iv152, 14
   %60 = and i64 %59, 15
-  %61 = getelementptr inbounds nuw i64, ptr %3, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !20
   %63 = tail call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 45)
   %64 = tail call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 3)
@@ -578,15 +578,15 @@ define void @rb_Digest_SHA512_Transform(ptr noundef captures(none) %0, ptr nound
   %76 = and i64 %.1137, %75
   %77 = or i64 %76, %74
   %78 = add i64 %73, %77
-  %79 = getelementptr inbounds nuw i64, ptr @K512, i64 %indvars.iv152
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @K512, i64 %indvars.iv152
   %80 = load i64, ptr %79, align 8, !tbaa !20
   %81 = add i64 %78, %80
   %82 = add nuw i64 %indvars.iv152, 9
   %83 = and i64 %82, 15
-  %84 = getelementptr inbounds nuw i64, ptr %3, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %83
   %85 = load i64, ptr %84, align 8, !tbaa !20
   %86 = and i64 %indvars.iv152, 15
-  %87 = getelementptr inbounds nuw i64, ptr %3, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !20
   %89 = add i64 %58, %85
   %90 = add i64 %89, %67
@@ -821,7 +821,7 @@ define noundef i32 @rb_Digest_SHA512_Finish(ptr noundef %0, ptr noundef writeonl
 4:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
   %.021 = phi ptr [ %1, %3 ], [ %8, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8, !tbaa !20
   %7 = tail call i64 @llvm.bswap.i64(i64 %6)
   store i64 %7, ptr %5, align 8, !tbaa !20
@@ -850,7 +850,7 @@ define ptr @rb_Digest_SHA512_End(ptr noundef %0, ptr noundef writeonly captures(
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.021.i = phi ptr [ %3, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8, !tbaa !20
   %8 = tail call i64 @llvm.bswap.i64(i64 %7)
   store i64 %8, ptr %6, align 8, !tbaa !20
@@ -919,7 +919,7 @@ define ptr @rb_Digest_SHA512_Data(ptr noundef readonly captures(none) %0, i64 no
 8:                                                ; preds = %8, %7
   %indvars.iv.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i, %8 ]
   %.021.i.i = phi ptr [ %4, %7 ], [ %12, %8 ]
-  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i
   %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = call i64 @llvm.bswap.i64(i64 %10)
   store i64 %11, ptr %9, align 8, !tbaa !20
@@ -997,7 +997,7 @@ define noundef i32 @rb_Digest_SHA384_Finish(ptr noundef %0, ptr noundef writeonl
 4:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
   %.021 = phi ptr [ %1, %3 ], [ %8, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8, !tbaa !20
   %7 = tail call i64 @llvm.bswap.i64(i64 %6)
   store i64 %7, ptr %5, align 8, !tbaa !20
@@ -1026,7 +1026,7 @@ define ptr @rb_Digest_SHA384_End(ptr noundef %0, ptr noundef writeonly captures(
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.021.i = phi ptr [ %3, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8, !tbaa !20
   %8 = tail call i64 @llvm.bswap.i64(i64 %7)
   store i64 %8, ptr %6, align 8, !tbaa !20
@@ -1095,7 +1095,7 @@ define ptr @rb_Digest_SHA384_Data(ptr noundef readonly captures(none) %0, i64 no
 8:                                                ; preds = %8, %7
   %indvars.iv.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i, %8 ]
   %.021.i.i = phi ptr [ %4, %7 ], [ %12, %8 ]
-  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i
   %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = call i64 @llvm.bswap.i64(i64 %10)
   store i64 %11, ptr %9, align 8, !tbaa !20

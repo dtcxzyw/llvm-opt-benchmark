@@ -19,10 +19,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl" }
 %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<net::HpackHuffmanSymbol, std::allocator<net::HpackHuffmanSymbol>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.net::HpackHuffmanSymbol" = type { i32, i8, i16 }
 %"struct.net::HpackHuffmanTable::DecodeEntry" = type { i8, i8, i16 }
-%"struct.net::HpackHuffmanTable::DecodeTable" = type { i8, i8, i64 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { ptr }
+%"struct.net::HpackHuffmanSymbol" = type { i32, i8, i16 }
 
 $__clang_call_terminate = comdat any
 
@@ -178,7 +177,7 @@ _ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %11 = shl nuw nsw i64 %2, 3
   %12 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #22
   store ptr %12, ptr %5, align 8, !tbaa !27
-  %13 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !30
   store i64 0, ptr %12, align 4
@@ -216,14 +215,14 @@ _ZNSt6vectorIN3net18HpackHuffmanSymbolESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 22:                                               ; preds = %.lr.ph, %27
   %23 = phi i64 [ 0, %.lr.ph ], [ %31, %27 ]
   %.040159 = phi i16 [ 0, %.lr.ph ], [ %30, %27 ]
-  %24 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6
   %26 = load i16, ptr %25, align 2, !tbaa !34
   %.not = icmp eq i16 %.040159, %26
   br i1 %.not, label %27, label %.critedge54.thread.sink.split
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %12, i64 %23
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %23
   %29 = load i64, ptr %24, align 4
   store i64 %29, ptr %28, align 4
   %30 = add i16 %.040159, 1
@@ -383,7 +382,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
   %100 = sub i64 %99, %32
   %101 = ashr exact i64 %100, 3
   %102 = sub nsw i64 0, %101
-  %103 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %98, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %98, i64 %102
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %103, ptr noundef nonnull align 4 dereferenceable(1) %12, i64 %100, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i
 
@@ -454,7 +453,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3
 
 .lr.ph163:                                        ; preds = %.preheader, %143
   %.038162 = phi i64 [ %144, %143 ], [ 1, %.preheader ]
-  %132 = getelementptr %"struct.net::HpackHuffmanSymbol", ptr %121, i64 %.038162
+  %132 = getelementptr [8 x i8], ptr %121, i64 %.038162
   %133 = getelementptr i8, ptr %132, i64 -8
   %134 = getelementptr i8, ptr %132, i64 -4
   %135 = load i8, ptr %134, align 4, !tbaa !38
@@ -607,7 +606,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
   %194 = sub i64 %193, %125
   %195 = ashr exact i64 %194, 3
   %196 = sub nsw i64 0, %195
-  %197 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %192, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %192, i64 %196
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %197, ptr noundef nonnull align 4 dereferenceable(1) %121, i64 %194, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i72
 
@@ -779,7 +778,7 @@ define void @_ZN3net17HpackHuffmanTable17BuildDecodeTablesERKSt6vectorINS_18Hpac
   %51 = phi i8 [ %137, %_ZN7logging11CheckNEImplIhhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ], [ 0, %47 ]
   %52 = zext i8 %51 to i64
   %53 = load ptr, ptr %0, align 8, !tbaa !23
-  %54 = getelementptr inbounds nuw %"struct.net::HpackHuffmanTable::DecodeTable", ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %52
   %.sroa.081.0.copyload = load i8, ptr %54, align 8, !tbaa !67
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !67
@@ -823,8 +822,8 @@ _ZN7logging11CheckLTImplIjmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %68 = load i32, ptr %22, align 4, !tbaa !69
   %69 = zext i32 %68 to i64
   %70 = load ptr, ptr %38, align 8, !tbaa !20
-  %71 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %70, i64 %.sroa.1087.0.copyload
-  %72 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %71, i64 %69
+  %71 = getelementptr [4 x i8], ptr %70, i64 %.sroa.1087.0.copyload
+  %72 = getelementptr [4 x i8], ptr %71, i64 %69
   %73 = load i32, ptr %72, align 2
   store i32 %73, ptr %25, align 4
   %74 = add i8 %.sroa.5.0.copyload, %.sroa.081.0.copyload
@@ -1001,8 +1000,8 @@ _ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.ex
   %126 = load i32, ptr %9, align 4, !tbaa !69
   %127 = zext i32 %126 to i64
   %128 = load ptr, ptr %38, align 8, !tbaa !20
-  %129 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %128, i64 %.sroa.1087.0.copyload
-  %130 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %129, i64 %127
+  %129 = getelementptr [4 x i8], ptr %128, i64 %.sroa.1087.0.copyload
+  %130 = getelementptr [4 x i8], ptr %129, i64 %127
   %131 = load i32, ptr %25, align 4
   store i32 %131, ptr %130, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1038,8 +1037,8 @@ _ZN7logging11CheckNEImplIhhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %139 = load i32, ptr %15, align 4, !tbaa !69
   %140 = zext i32 %139 to i64
   %141 = load ptr, ptr %38, align 8, !tbaa !20
-  %142 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %141, i64 %.sroa.1087.0.copyload
-  %143 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %142, i64 %140
+  %142 = getelementptr [4 x i8], ptr %141, i64 %.sroa.1087.0.copyload
+  %143 = getelementptr [4 x i8], ptr %142, i64 %140
   %144 = load i32, ptr %25, align 4
   store i32 %144, ptr %143, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1056,7 +1055,7 @@ _ZN7logging11CheckNEImplIhhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 146:                                              ; preds = %.lr.ph123, %218
   %147 = phi ptr [ %44, %.lr.ph123 ], [ %221, %218 ]
   %.037122 = phi i64 [ 0, %.lr.ph123 ], [ %219, %218 ]
-  %148 = getelementptr inbounds nuw %"struct.net::HpackHuffmanTable::DecodeTable", ptr %147, i64 %.037122
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %147, i64 %.037122
   %149 = load i8, ptr %148, align 8, !tbaa !72
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 1
   %151 = load i8, ptr %150, align 1, !tbaa !10
@@ -1070,8 +1069,8 @@ _ZN7logging11CheckNEImplIhhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %156 = load i64, ptr %153, align 8, !tbaa !73
   %157 = and i64 %.038120, 4294967295
   %158 = load ptr, ptr %45, align 8, !tbaa !20
-  %159 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %158, i64 %156
-  %160 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %159, i64 %157
+  %159 = getelementptr [4 x i8], ptr %158, i64 %156
+  %160 = getelementptr [4 x i8], ptr %159, i64 %157
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 1
   %162 = load i8, ptr %161, align 1, !tbaa !8
   %.not43 = icmp ne i8 %162, 0
@@ -1122,8 +1121,8 @@ _ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %174 = load i64, ptr %153, align 8, !tbaa !73
   %175 = and i64 %172, 4294967295
   %176 = load ptr, ptr %45, align 8, !tbaa !20
-  %177 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %176, i64 %174
-  %178 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %177, i64 %175
+  %177 = getelementptr [4 x i8], ptr %176, i64 %174
+  %178 = getelementptr [4 x i8], ptr %177, i64 %175
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 0, ptr %32, align 4, !tbaa !69
@@ -1218,8 +1217,8 @@ _ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.ex
   %206 = load i32, ptr %3, align 4, !tbaa !69
   %207 = zext i32 %206 to i64
   %208 = load ptr, ptr %45, align 8, !tbaa !20
-  %209 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %208, i64 %205
-  %210 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %209, i64 %207
+  %209 = getelementptr [4 x i8], ptr %208, i64 %205
+  %210 = getelementptr [4 x i8], ptr %209, i64 %207
   %211 = load i32, ptr %160, align 2
   store i32 %211, ptr %210, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1289,7 +1288,7 @@ define void @_ZN3net17HpackHuffmanTable16BuildEncodeTableERKSt6vectorINS_18Hpack
 14:                                               ; preds = %.lr.ph, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit
   %15 = phi ptr [ %7, %.lr.ph ], [ %80, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit ]
   %storemerge15 = phi i64 [ 0, %.lr.ph ], [ %78, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit ]
-  %16 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %15, i64 %storemerge15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %storemerge15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %18 = load i16, ptr %17, align 2, !tbaa !77
   %19 = zext i16 %18 to i64
@@ -1366,7 +1365,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %45, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %47, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %41, ptr %8, align 8, !tbaa !17
   store ptr %46, ptr %9, align 8, !tbaa !78
-  %48 = getelementptr inbounds nuw i32, ptr %41, i64 %39
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %39
   store ptr %48, ptr %10, align 8, !tbaa !79
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -1566,7 +1565,7 @@ _ZNSt6vectorIN3net17HpackHuffmanTable11DecodeTableESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN3net17HpackHuffmanTable11DecodeTableESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %50, %_ZNSt6vectorIN3net17HpackHuffmanTable11DecodeTableESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %45, ptr %0, align 8, !tbaa !23
   store ptr %49, ptr %7, align 8, !tbaa !66
-  %51 = getelementptr inbounds nuw %"struct.net::HpackHuffmanTable::DecodeTable", ptr %45, i64 %43
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   store ptr %51, ptr %27, align 8, !tbaa !83
   br label %_ZNSt6vectorIN3net17HpackHuffmanTable11DecodeTableESaIS2_EE9push_backERKS2_.exit
 
@@ -1594,7 +1593,7 @@ _ZNSt6vectorIN3net17HpackHuffmanTable11DecodeTableESaIS2_EE9push_backERKS2_.exit
   br i1 %65, label %66, label %_ZNSt6vectorIN3net17HpackHuffmanTable11DecodeEntryESaIS2_EE6resizeEm.exit
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %54, i64 %61
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %61
   %.not.i.i = icmp eq ptr %53, %67
   br i1 %.not.i.i, label %_ZNSt6vectorIN3net17HpackHuffmanTable11DecodeEntryESaIS2_EE6resizeEm.exit, label %68
 
@@ -1621,8 +1620,8 @@ define noundef nonnull align 2 dereferenceable(4) ptr @_ZNK3net17HpackHuffmanTab
   %6 = load i64, ptr %5, align 8, !tbaa !73
   %7 = zext i32 %2 to i64
   %8 = load ptr, ptr %4, align 8, !tbaa !20
-  %9 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %8, i64 %6
-  %10 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %9, i64 %7
+  %9 = getelementptr [4 x i8], ptr %8, i64 %6
+  %10 = getelementptr [4 x i8], ptr %9, i64 %7
   ret ptr %10
 }
 
@@ -1707,8 +1706,8 @@ _ZN7logging11CheckLTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %38 = load i32, ptr %5, align 4, !tbaa !69
   %39 = zext i32 %38 to i64
   %40 = load ptr, ptr %25, align 8, !tbaa !20
-  %41 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %40, i64 %37
-  %42 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %41, i64 %39
+  %41 = getelementptr [4 x i8], ptr %40, i64 %37
+  %42 = getelementptr [4 x i8], ptr %41, i64 %39
   %43 = load i32, ptr %3, align 2
   store i32 %43, ptr %42, align 2
   ret void
@@ -1777,7 +1776,7 @@ _ZN7logging11CheckGTImplImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %30 = load i8, ptr %29, align 1, !tbaa !67
   %31 = zext i8 %30 to i32
   %32 = load ptr, ptr %8, align 8, !tbaa !17
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %27
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %27
   %34 = load i32, ptr %33, align 4, !tbaa !69
   %35 = sub nsw i32 32, %31
   %36 = lshr i32 %34, %35
@@ -1949,8 +1948,8 @@ define noundef zeroext i1 @_ZNK3net17HpackHuffmanTable19GenericDecodeStringEPNS_
   %17 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !73
   %19 = zext i32 %43 to i64
-  %20 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %15, i64 %18
-  %21 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %20, i64 %19
+  %20 = getelementptr [4 x i8], ptr %15, i64 %18
+  %21 = getelementptr [4 x i8], ptr %20, i64 %19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = zext i8 %23 to i64
@@ -1965,11 +1964,11 @@ define noundef zeroext i1 @_ZNK3net17HpackHuffmanTable19GenericDecodeStringEPNS_
   %28 = getelementptr inbounds nuw i8, ptr %.02940, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !73
   %30 = zext i32 %.02841 to i64
-  %31 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %15, i64 %29
-  %32 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %31, i64 %30
+  %31 = getelementptr [4 x i8], ptr %15, i64 %29
+  %32 = getelementptr [4 x i8], ptr %31, i64 %30
   %33 = load i8, ptr %32, align 2, !tbaa !3
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw %"struct.net::HpackHuffmanTable::DecodeTable", ptr %12, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %34
   %36 = load i8, ptr %35, align 8, !tbaa !72
   %37 = zext nneg i8 %36 to i32
   %38 = shl i32 %13, %37
@@ -2141,13 +2140,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.038.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %25 = shl i64 %.038.i.i.i.i, 1
   %26 = add i64 %25, 2
-  %27 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %26
   %28 = or disjoint i64 %25, 1
-  %29 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %0, i64 %28
   %30 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(8) %29)
   %spec.select.i.i.i.i = select i1 %30, i64 %28, i64 %26
-  %31 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %spec.select.i.i.i.i
-  %32 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.038.i.i.i.i
+  %31 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i.i.i.i
+  %32 = getelementptr inbounds [8 x i8], ptr %0, i64 %.038.i.i.i.i
   %33 = load i64, ptr %31, align 4
   store i64 %33, ptr %32, align 4
   %34 = icmp slt i64 %spec.select.i.i.i.i, %23
@@ -2168,8 +2167,8 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 .thread.i.i.i:                                    ; preds = %37
   %41 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %42
-  %44 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %42
+  %44 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   %45 = load i64, ptr %43, align 4
   store i64 %45, ptr %44, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2190,12 +2189,12 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.018.i.i.i.i.i = phi i64 [ %.0919.i.i89.i.i.i, %49 ], [ %.018.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0919.in.i.i.i.i.i = add nsw i64 %.018.i.i.i.i.i, -1
   %.0919.i.i89.i.i.i = lshr i64 %.0919.in.i.i.i.i.i, 1
-  %47 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0919.i.i89.i.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0919.i.i89.i.i.i
   %48 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %47, ptr noundef nonnull align 4 dereferenceable(8) %6)
   br i1 %48, label %49, label %.critedge.loopexit.i.i.i.i.i
 
 49:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %50 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.018.i.i.i.i.i
+  %50 = getelementptr inbounds [8 x i8], ptr %0, i64 %.018.i.i.i.i.i
   %51 = load i64, ptr %47, align 4
   store i64 %51, ptr %50, align 4
   %.not10.i.i.i = icmp eq i64 %.0919.i.i89.i.i.i, 0
@@ -2209,7 +2208,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i: ; preds = %.critedge.loopexit.i.i.i.i.i, %46
   %52 = phi i64 [ %.sroa.03.0.copyload.i.i.i, %46 ], [ %.pre.i.i.i.i.i, %.critedge.loopexit.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %46 ], [ %.0.lcssa.ph.i.i.i.i.i, %.critedge.loopexit.i.i.i.i.i ]
-  %53 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %53 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store i64 %52, ptr %53, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %54 = icmp sgt i64 %20, 8
@@ -2218,7 +2217,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6ve
 55:                                               ; preds = %13
   %56 = add nsw i64 %.020, -1
   %57 = lshr i64 %14, 1
-  %58 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %57
   %59 = getelementptr inbounds i8, ptr %storemerge19, i64 -8
   %60 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %58)
   br i1 %60, label %61, label %73
@@ -2345,13 +2344,13 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ne
 
 .split.preheader:                                 ; preds = %10
   %18 = or disjoint i64 %11, 1
-  %19 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %18
-  %20 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %17
   br label %.split
 
 .split.us:                                        ; preds = %10, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.us
   %.010.us = phi i64 [ %42, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.us ], [ %12, %10 ]
-  %21 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.010.us
+  %21 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010.us
   %.sroa.03.0.copyload.us = load i64, ptr %21, align 4
   %.sroa.0.0.copyload.us = load ptr, ptr %2, align 8, !tbaa !99
   %22 = icmp slt i64 %.010.us, %14
@@ -2365,13 +2364,13 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ne
   %.038.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.010.us, %.split.us ]
   %23 = shl i64 %.038.i.us, 1
   %24 = add i64 %23, 2
-  %25 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %26
   %28 = call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef nonnull align 4 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(8) %27)
   %spec.select.i.us = select i1 %28, i64 %26, i64 %24
-  %29 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %spec.select.i.us
-  %30 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.038.i.us
+  %29 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i.us
+  %30 = getelementptr inbounds [8 x i8], ptr %0, i64 %.038.i.us
   %31 = load i64, ptr %29, align 4
   store i64 %31, ptr %30, align 4
   %32 = icmp slt i64 %spec.select.i.us, %14
@@ -2387,12 +2386,12 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ne
   %.018.i.i.us = phi i64 [ %.0919.i.i.us, %36 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0919.in.i.i.us = add nsw i64 %.018.i.i.us, -1
   %.0919.i.i.us = sdiv i64 %.0919.in.i.i.us, 2
-  %34 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0919.i.i.us
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0919.i.i.us
   %35 = call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %4)
   br i1 %35, label %36, label %.critedge.loopexit.i.i.us
 
 36:                                               ; preds = %.lr.ph.i.i.us
-  %37 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.018.i.i.us
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.018.i.i.us
   %38 = load i64, ptr %34, align 4
   store i64 %38, ptr %37, align 4
   %39 = icmp sgt i64 %.0919.i.i.us, %.010.us
@@ -2406,7 +2405,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ne
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.us: ; preds = %._crit_edge.i.us.thread, %.critedge.loopexit.i.i.us, %._crit_edge.i.us
   %40 = phi i64 [ %.sroa.03.0.copyload.us, %._crit_edge.i.us ], [ %.pre.i.i.us, %.critedge.loopexit.i.i.us ], [ %.sroa.03.0.copyload.us, %._crit_edge.i.us.thread ]
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.0.lcssa.ph.i.i.us, %.critedge.loopexit.i.i.us ], [ %.010.us, %._crit_edge.i.us.thread ]
-  %41 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0.lcssa.i.i.us
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.lcssa.i.i.us
   store i64 %40, ptr %41, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.us = icmp eq i64 %.010.us, 0
@@ -2415,7 +2414,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit
   %.010 = phi i64 [ %68, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit ], [ %12, %.split.preheader ]
-  %43 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.010
+  %43 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010
   %.sroa.03.0.copyload = load i64, ptr %43, align 4
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !99
   %44 = icmp slt i64 %.010, %14
@@ -2425,13 +2424,13 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
   %.038.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.010, %.split ]
   %45 = shl i64 %.038.i, 1
   %46 = add i64 %45, 2
-  %47 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %0, i64 %46
   %48 = or disjoint i64 %45, 1
-  %49 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %0, i64 %48
   %50 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(8) %47, ptr noundef nonnull align 4 dereferenceable(8) %49)
   %spec.select.i = select i1 %50, i64 %48, i64 %46
-  %51 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %spec.select.i
-  %52 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.038.i
+  %51 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i
+  %52 = getelementptr inbounds [8 x i8], ptr %0, i64 %.038.i
   %53 = load i64, ptr %51, align 4
   store i64 %53, ptr %52, align 4
   %54 = icmp slt i64 %spec.select.i, %14
@@ -2458,12 +2457,12 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
   %.018.i.i = phi i64 [ %.0919.i.i, %62 ], [ %.1.i, %58 ]
   %.0919.in.i.i = add nsw i64 %.018.i.i, -1
   %.0919.i.i = sdiv i64 %.0919.in.i.i, 2
-  %60 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0919.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0919.i.i
   %61 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 4 dereferenceable(8) %4)
   br i1 %61, label %62, label %.critedge.loopexit.i.i
 
 62:                                               ; preds = %.lr.ph.i.i
-  %63 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.018.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.018.i.i
   %64 = load i64, ptr %60, align 4
   store i64 %64, ptr %63, align 4
   %65 = icmp sgt i64 %.0919.i.i, %.010
@@ -2477,7 +2476,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit: ; preds = %58, %.critedge.loopexit.i.i
   %66 = phi i64 [ %.sroa.03.0.copyload, %58 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
   %.0.lcssa.i.i = phi i64 [ %.1.i, %58 ], [ %.0.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
-  %67 = getelementptr inbounds nuw %"struct.net::HpackHuffmanSymbol", ptr %0, i64 %.0.lcssa.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.lcssa.i.i
   store i64 %66, ptr %67, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i64 %.010, 0
@@ -3178,9 +3177,9 @@ _ZNSt6vectorIN3net17HpackHuffmanTable11DecodeEntryESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt12_Vector_baseIN3net17HpackHuffmanTable11DecodeEntryESaIS2_EE13_M_deallocateEPS2_m.exit39: ; preds = %_ZNSt6vectorIN3net17HpackHuffmanTable11DecodeEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %58
   store ptr %37, ptr %0, align 8, !tbaa !20
-  %59 = getelementptr inbounds nuw %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %38, i64 %1
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %1
   store ptr %59, ptr %4, align 8, !tbaa !70
-  %60 = getelementptr inbounds nuw %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %37, i64 %35
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %35
   store ptr %60, ptr %11, align 8, !tbaa !138
   br label %61
 

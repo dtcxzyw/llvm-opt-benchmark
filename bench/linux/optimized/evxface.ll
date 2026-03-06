@@ -79,7 +79,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr %struct.acpi_global_notify_handler, ptr @acpi_gbl_global_notify, i64 %17
+  %23 = getelementptr [16 x i8], ptr @acpi_gbl_global_notify, i64 %17
   %24 = load ptr, ptr %23, align 16
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %.loopexit
@@ -134,14 +134,14 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
   br i1 %55, label %.loopexit11, label %56
 
 56:                                               ; preds = %49
-  %57 = getelementptr ptr, ptr %48, i64 %51
+  %57 = getelementptr [8 x i8], ptr %48, i64 %51
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %.loopexit11, label %.preheader9
 
 60:                                               ; preds = %.preheader9
   %61 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %62 = getelementptr ptr, ptr %61, i64 %51
+  %62 = getelementptr [8 x i8], ptr %61, i64 %51
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.loopexit11, label %.preheader9, !llvm.loop !8
@@ -183,9 +183,9 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %78
-  %86 = getelementptr ptr, ptr %48, i64 %80
+  %86 = getelementptr [8 x i8], ptr %48, i64 %80
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr ptr, ptr %77, i64 %80
+  %88 = getelementptr [8 x i8], ptr %77, i64 %80
   store ptr %87, ptr %88, align 8
   store ptr %70, ptr %86, align 8
   br label %89
@@ -264,7 +264,7 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
   br i1 %20, label %21, label %.loopexit
 
 21:                                               ; preds = %18
-  %22 = getelementptr %struct.acpi_global_notify_handler, ptr @acpi_gbl_global_notify, i64 %13
+  %22 = getelementptr [16 x i8], ptr @acpi_gbl_global_notify, i64 %13
   %23 = load ptr, ptr %22, align 16
   %24 = icmp eq ptr %23, %2
   br i1 %24, label %25, label %.loopexit7
@@ -307,7 +307,7 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
   br i1 %45, label %46, label %.loopexit
 
 46:                                               ; preds = %43
-  %47 = getelementptr ptr, ptr %35, i64 %38
+  %47 = getelementptr [8 x i8], ptr %35, i64 %38
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.loopexit7, label %50
@@ -327,7 +327,7 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
 .preheader8:                                      ; preds = %50, %54
   %58 = phi ptr [ %61, %54 ], [ %48, %50 ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %60 = getelementptr ptr, ptr %59, i64 %38
+  %60 = getelementptr [8 x i8], ptr %59, i64 %38
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.loopexit7, label %54, !llvm.loop !12
@@ -337,10 +337,10 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
   %64 = phi ptr [ null, %50 ], [ %58, %54 ]
   %65 = icmp eq ptr %64, null
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %67 = getelementptr ptr, ptr %66, i64 %38
+  %67 = getelementptr [8 x i8], ptr %66, i64 %38
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 48
-  %70 = getelementptr ptr, ptr %69, i64 %38
+  %70 = getelementptr [8 x i8], ptr %69, i64 %38
   %71 = select i1 %65, ptr %47, ptr %70
   store ptr %68, ptr %71, align 8
   %72 = tail call i32 @acpi_ut_release_mutex(i32 noundef 1) #5
@@ -533,7 +533,7 @@ define dso_local i32 @acpi_install_fixed_event_handler(i32 noundef %0, ptr nound
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr %struct.acpi_fixed_event_handler, ptr @acpi_gbl_fixed_event_handlers, i64 %9
+  %10 = getelementptr [16 x i8], ptr @acpi_gbl_fixed_event_handlers, i64 %9
   %11 = load ptr, ptr %10, align 16
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %22
@@ -593,7 +593,7 @@ define dso_local i32 @acpi_remove_fixed_event_handler(i32 noundef %0, ptr readno
 7:                                                ; preds = %4
   %8 = tail call i32 @acpi_disable_event(i32 noundef %0, i32 noundef 0) #5
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr %struct.acpi_fixed_event_handler, ptr @acpi_gbl_fixed_event_handlers, i64 %9
+  %10 = getelementptr [16 x i8], ptr @acpi_gbl_fixed_event_handlers, i64 %9
   %11 = icmp eq i32 %8, 0
   tail call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   br i1 %11, label %14, label %12

@@ -71,7 +71,7 @@ sunvasnprintf.exit:                               ; preds = %12
 
 switch.lookup:                                    ; preds = %22
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sunCreateLogMessage, i64 %24
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sunCreateLogMessage, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.fold.split
 

@@ -5723,7 +5723,7 @@ ures_getKey_77.exit:                              ; preds = %.preheader63, %.thr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !38
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %27) #27
   %.not58 = icmp eq i32 %42, 0
@@ -5751,7 +5751,7 @@ ures_getKey_77.exit:                              ; preds = %.preheader63, %.thr
   %53 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %27) #23
   %54 = add nsw i32 %.24467, 1
   %55 = sext i32 %.24467 to i64
-  %56 = getelementptr inbounds ptr, ptr %5, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %5, i64 %55
   store ptr %52, ptr %56, align 8, !tbaa !38
   %57 = sext i32 %46 to i64
   %58 = getelementptr inbounds i8, ptr %4, i64 %57
@@ -8252,7 +8252,7 @@ _ZL12setEntryNameP18UResourceDataEntryPKcP10UErrorCode.exit: ; preds = %.thread.
   %78 = load i32, ptr %77, align 4, !tbaa !12
   %79 = and i32 %78, 255
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr %81, ptr %82, align 8, !tbaa !112
   %83 = getelementptr inbounds nuw i8, ptr %62, i64 56

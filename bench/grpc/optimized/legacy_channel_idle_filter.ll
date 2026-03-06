@@ -138,19 +138,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.absl::lts_20240722::internal_any_invocable::TypeErasedState" = type { %struct.anon.112 }
 %struct.anon.112 = type { ptr, i64 }
 %"class.absl::lts_20240722::random_internal::RandenPoolSeedSeq" = type { i8 }
-%struct.BitGen = type { %"class.absl::lts_20240722::Mutex", %"class.absl::lts_20240722::random_internal::NonsecureURBGBase" }
-%"class.absl::lts_20240722::Mutex" = type { %"struct.std::atomic.26" }
-%"struct.std::atomic.26" = type { %"struct.std::__atomic_base.27" }
-%"struct.std::__atomic_base.27" = type { i64 }
-%"class.absl::lts_20240722::random_internal::NonsecureURBGBase" = type { %"class.absl::lts_20240722::random_internal::randen_engine" }
-%"class.absl::lts_20240722::random_internal::randen_engine" = type { [264 x i8], i64, %"class.absl::lts_20240722::random_internal::Randen" }
-%"class.absl::lts_20240722::random_internal::Randen" = type <{ ptr, i8, [7 x i8] }>
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
+%"class.grpc_core::Waker" = type { %"struct.grpc_core::Waker::WakeableAndArg" }
+%"struct.grpc_core::Waker::WakeableAndArg" = type { ptr, i16 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.134 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.134 = type { i64, [8 x i8] }
-%"class.grpc_core::Waker" = type { %"struct.grpc_core::Waker::WakeableAndArg" }
-%"struct.grpc_core::Waker::WakeableAndArg" = type { ptr, i16 }
 %"class.grpc_core::Poll" = type { i8, %union.anon.310 }
 %union.anon.310 = type { %"class.absl::lts_20240722::Status" }
 %"class.grpc_core::Poll.315" = type { i8, %union.anon.316 }
@@ -1200,7 +1192,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %82, %80
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 56
   %95 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !92
   %96 = zext i16 %95 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %94, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %96
   store ptr %93, ptr %97, align 8, !tbaa !94
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
@@ -2698,7 +2690,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i53: ; preds = %100, %
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %113 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !92
   %114 = zext i16 %113 to i64
-  %115 = getelementptr inbounds nuw ptr, ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %114
   store ptr %111, ptr %115, align 8, !tbaa !94
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %117 = load i64, ptr %13, align 8, !tbaa !35
@@ -4662,7 +4654,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !260
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !257
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !261
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -4857,7 +4849,7 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
   %22 = load i64, ptr %21, align 8, !tbaa !262
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !276
-  %25 = getelementptr inbounds nuw %struct.BitGen, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [296 x i8], ptr %24, i64 %23
   ret ptr %25
 }
 
@@ -4896,9 +4888,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engine
   %.022.i.i = phi i64 [ 60, %2 ], [ %26, %9 ]
   %10 = add nsw i64 %.022.i.i, -4
   %11 = lshr exact i64 %10, 1
-  %12 = getelementptr i32, ptr %3, i64 %.022.i.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %.022.i.i
   %13 = getelementptr i8, ptr %12, i64 -20
-  %14 = getelementptr i32, ptr %3, i64 %11
+  %14 = getelementptr [4 x i8], ptr %3, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %13, align 4, !tbaa !53
   %17 = load i32, ptr %15, align 4, !tbaa !53
@@ -4917,7 +4909,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engine
   store i32 %25, ptr %22, align 4, !tbaa !53
   store i32 %24, ptr %23, align 4, !tbaa !53
   %26 = add nsw i64 %.022.i.i, -8
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   %28 = getelementptr i8, ptr %14, i64 -16
   %29 = load i32, ptr %27, align 16, !tbaa !53
   %30 = load i32, ptr %28, align 8, !tbaa !53
@@ -5000,7 +4992,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURB
   %21 = load i64, ptr %10, align 8, !tbaa !280
   %22 = add i64 %21, 1
   store i64 %22, ptr %10, align 8, !tbaa !280
-  %23 = getelementptr inbounds nuw i64, ptr %9, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !35
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us, label %26
@@ -5045,7 +5037,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURB
   %43 = load i64, ptr %10, align 8, !tbaa !280
   %44 = add i64 %43, 1
   store i64 %44, ptr %10, align 8, !tbaa !280
-  %45 = getelementptr inbounds nuw i64, ptr %9, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %43
   %46 = load i64, ptr %45, align 8, !tbaa !35
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i, label %48
@@ -5981,7 +5973,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !233
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -6033,7 +6025,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !233
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -10717,7 +10709,7 @@ define linkonce_odr noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17M
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit7VersionES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.48, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit7VersionES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.48, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9grpc_corelsERSoNS_11ChannelInit7VersionE.exit.i
 
@@ -10738,7 +10730,7 @@ _ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIN9grpc_core11Channe
 
 switch.lookup8:                                   ; preds = %11
   %14 = zext nneg i8 %12 to i64
-  %switch.gep9 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit7VersionES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.48, i64 %14
+  %switch.gep9 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIRKN9grpc_core11ChannelInit7VersionES7_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc.48, i64 %14
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   br label %_ZN9grpc_corelsERSoNS_11ChannelInit7VersionE.exit.i4
 

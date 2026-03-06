@@ -26,12 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.Imf_3_4::Slice" = type <{ i32, [4 x i8], ptr, i64, i64, i32, i32, double, i8, i8, [6 x i8] }>
-%"class.std::unique_ptr.73" = type { %"struct.std::__uniq_ptr_data.74" }
-%"struct.std::__uniq_ptr_data.74" = type { %"class.std::__uniq_ptr_impl.75" }
-%"class.std::__uniq_ptr_impl.75" = type { %"class.std::tuple.76" }
-%"class.std::tuple.76" = type { %"struct.std::_Tuple_impl.77" }
-%"struct.std::_Tuple_impl.77" = type { %"struct.std::_Head_base.80" }
-%"struct.std::_Head_base.80" = type { ptr }
 %"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
 %"class.Imath_3_2::Vec2" = type { i32, i32 }
 %"class.Imath_3_2::Vec2.81" = type { float, float }
@@ -884,7 +878,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   br i1 %28, label %29, label %.lr.ph.preheader
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %16, i64 %23
+  %30 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %23
   %.not.i.i32 = icmp eq ptr %15, %30
   br i1 %.not.i.i32, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i
 
@@ -919,7 +913,7 @@ _ZSt8_DestroyIPN7Imf_3_46HeaderES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i
 
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %13, align 8, !tbaa !139
-  %39 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %indvars.iv
   %40 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7Imf_3_46HeaderaSEOS0_(ptr noundef nonnull align 8 dereferenceable(49) %39, ptr noundef nonnull align 8 dereferenceable(49) %3)
           to label %41 unwind label %44
 
@@ -950,7 +944,7 @@ _ZSt8_DestroyIPN7Imf_3_46HeaderES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i
 .loopexit:                                        ; preds = %41, %12
   %47 = zext nneg i32 %1 to i64
   %48 = load ptr, ptr %13, align 8, !tbaa !139
-  %49 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [56 x i8], ptr %48, i64 %47
   %50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   ret ptr %49
 
@@ -1964,7 +1958,7 @@ _ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4
 .noexc:                                           ; preds = %146, %_ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i
   store ptr %139, ptr %37, align 8, !tbaa !152
   store ptr %145, ptr %39, align 8, !tbaa !153
-  %147 = getelementptr inbounds nuw %"class.std::unique_ptr.73", ptr %139, i64 %137
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %137
   store ptr %147, ptr %109, align 8, !tbaa !165
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
@@ -3032,9 +3026,9 @@ _ZSt8_DestroyIPN7Imf_3_46HeaderES1_EvT_S3_RSaIT0_E.exit44: ; preds = %.lr.ph.i.i
 
 _ZNSt12_Vector_baseIN7Imf_3_46HeaderESaIS1_EE13_M_deallocateEPS1_m.exit46: ; preds = %_ZSt8_DestroyIPN7Imf_3_46HeaderES1_EvT_S3_RSaIT0_E.exit44, %54
   store ptr %27, ptr %0, align 8, !tbaa !139
-  %58 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %28, i64 %1
+  %58 = getelementptr inbounds nuw [56 x i8], ptr %28, i64 %1
   store ptr %58, ptr %4, align 8, !tbaa !138
-  %59 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %27, i64 %25
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %25
   store ptr %59, ptr %11, align 8, !tbaa !193
   br label %60
 

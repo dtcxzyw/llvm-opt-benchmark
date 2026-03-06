@@ -878,7 +878,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
 
 28:                                               ; preds = %19
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %"struct.std::pair.167", ptr %.pre3.i.pre.i.i, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.pre.i.i, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -32
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %31, align 8
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %30, i64 -24
@@ -909,7 +909,7 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i: ; preds = %28, %19
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i, label %37, !prof !54
 
 37:                                               ; preds = %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i
-  %38 = getelementptr inbounds nuw %"struct.std::pair.167", ptr %.pre3.i.pre.i.i, i64 %.pre-phi.i.i
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.pre.i.i, i64 %.pre-phi.i.i
   %39 = icmp uge ptr %5, %.pre3.i.pre.i.i
   %40 = icmp ult ptr %5, %38
   %spec.select.i.i.i.i.i.i.i = and i1 %39, %40
@@ -936,7 +936,7 @@ _ZN4llvm10MCStreamer11pushSectionEv.exit.i:       ; preds = %.critedge.i.i.i.i.i
   %.016.i.i.i.i.i = phi ptr [ %5, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %47, %41 ], [ %5, %.critedge.i.i.i.i.i ]
   %50 = load i32, ptr %26, align 8, !tbaa !11
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.std::pair.167", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i.i, i64 32, i1 false)
   %53 = load i32, ptr %26, align 8, !tbaa !11
   %54 = add i32 %53, 1
@@ -1327,7 +1327,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
 33:                                               ; preds = %24
   %34 = load ptr, ptr %25, align 8, !tbaa !6
   %35 = zext i32 %27 to i64
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %35
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !27
   %37 = getelementptr inbounds i8, ptr %36, i64 -8
@@ -1346,7 +1346,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit._ZN4llvmplERKNS_5TwineES2_.exit
   %.pre.i = load ptr, ptr %25, align 8, !tbaa !6
   %.pre6.i = load i32, ptr %26, align 8, !tbaa !11
   %.phi.trans.insert.i = zext i32 %.pre6.i to i64
-  %.phi.trans.insert7.i = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre.i, i64 %.phi.trans.insert.i
+  %.phi.trans.insert7.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i, i64 %.phi.trans.insert.i
   %.phi.trans.insert8.i = getelementptr inbounds i8, ptr %.phi.trans.insert7.i, i64 -8
   %.pre9.i = load i64, ptr %.phi.trans.insert8.i, align 8, !tbaa !60, !noalias !70
   br label %_ZN4llvmplERKNS_5TwineES2_.exit.i
@@ -1357,7 +1357,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZNK4llvm9StringRef
   %44 = phi ptr [ %.pre.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit._ZN4llvmplERKNS_5TwineES2_.exit_crit_edge.i ], [ %34, %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %45 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %44, i64 %.pre-phi.i
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %.pre-phi.i
   %46 = getelementptr inbounds i8, ptr %45, i64 -16
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -1682,7 +1682,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i: ; pr
   %152 = phi i32 [ %145, %134 ], [ %.pre.i.i, %148 ]
   %153 = load ptr, ptr %143, align 8, !tbaa !6
   %154 = zext i32 %152 to i64
-  %155 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %154
   store ptr %.sroa.0.0.copyload.i, ptr %155, align 1
   %.sroa.2.0..sroa_idx.i31.i = getelementptr inbounds nuw i8, ptr %155, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i31.i, align 1

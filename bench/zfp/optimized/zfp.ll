@@ -172,7 +172,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %.0357713 = phi i32 [ %.1358, %247 ], [ 0, %.preheader537 ]
   %.0359712 = phi i32 [ %.1360, %247 ], [ 0, %.preheader537 ]
   %19 = sext i32 %.0338720 to i64
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !12
   %22 = load i8, ptr %21, align 1, !tbaa !15
   %.not455 = icmp eq i8 %22, 45
@@ -220,7 +220,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 33:                                               ; preds = %30
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds ptr, ptr %1, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %1, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !12
   %37 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %36, ptr noundef nonnull @.str, ptr noundef nonnull %3) #16
   %.not480 = icmp eq i32 %37, 1
@@ -243,7 +243,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 43:                                               ; preds = %40
   %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds ptr, ptr %1, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %1, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !12
   %47 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %46, ptr noundef nonnull @.str, ptr noundef nonnull %3) #16
   %.not478 = icmp eq i32 %47, 1
@@ -256,7 +256,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 51:                                               ; preds = %48
   %52 = sext i32 %49 to i64
-  %53 = getelementptr inbounds ptr, ptr %1, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %1, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !12
   %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %54, ptr noundef nonnull @.str, ptr noundef nonnull %4) #16
   %.not479 = icmp eq i32 %55, 1
@@ -278,7 +278,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 61:                                               ; preds = %58
   %62 = sext i32 %59 to i64
-  %63 = getelementptr inbounds ptr, ptr %1, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %1, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !12
   %65 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %64, ptr noundef nonnull @.str, ptr noundef nonnull %3) #16
   %.not475 = icmp eq i32 %65, 1
@@ -291,7 +291,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 69:                                               ; preds = %66
   %70 = sext i32 %67 to i64
-  %71 = getelementptr inbounds ptr, ptr %1, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %1, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !12
   %73 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %72, ptr noundef nonnull @.str, ptr noundef nonnull %4) #16
   %.not476 = icmp eq i32 %73, 1
@@ -304,7 +304,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 77:                                               ; preds = %74
   %78 = sext i32 %75 to i64
-  %79 = getelementptr inbounds ptr, ptr %1, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %1, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !12
   %81 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %80, ptr noundef nonnull @.str, ptr noundef nonnull %5) #16
   %.not477 = icmp eq i32 %81, 1
@@ -325,7 +325,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 87:                                               ; preds = %84
   %88 = sext i32 %85 to i64
-  %89 = getelementptr inbounds ptr, ptr %1, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %1, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !12
   %91 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull %3) #16
   %.not471 = icmp eq i32 %91, 1
@@ -338,7 +338,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 95:                                               ; preds = %92
   %96 = sext i32 %93 to i64
-  %97 = getelementptr inbounds ptr, ptr %1, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %1, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !12
   %99 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %98, ptr noundef nonnull @.str, ptr noundef nonnull %4) #16
   %.not472 = icmp eq i32 %99, 1
@@ -351,7 +351,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 103:                                              ; preds = %100
   %104 = sext i32 %101 to i64
-  %105 = getelementptr inbounds ptr, ptr %1, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %1, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !12
   %107 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %106, ptr noundef nonnull @.str, ptr noundef nonnull %5) #16
   %.not473 = icmp eq i32 %107, 1
@@ -364,7 +364,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 111:                                              ; preds = %108
   %112 = sext i32 %109 to i64
-  %113 = getelementptr inbounds ptr, ptr %1, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %1, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !12
   %115 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %114, ptr noundef nonnull @.str, ptr noundef nonnull %6) #16
   %.not474 = icmp eq i32 %115, 1
@@ -381,7 +381,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 120:                                              ; preds = %117
   %121 = sext i32 %118 to i64
-  %122 = getelementptr inbounds ptr, ptr %1, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %1, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !12
   %124 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %123, ptr noundef nonnull @.str.1, ptr noundef nonnull %9) #16
   %.not470 = icmp eq i32 %124, 1
@@ -398,7 +398,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 129:                                              ; preds = %126
   %130 = sext i32 %127 to i64
-  %131 = getelementptr inbounds ptr, ptr %1, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %1, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !12
   %133 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %132, ptr noundef nonnull @.str.2, ptr noundef nonnull %10) #16
   %.not466 = icmp eq i32 %133, 1
@@ -411,7 +411,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 137:                                              ; preds = %134
   %138 = sext i32 %135 to i64
-  %139 = getelementptr inbounds ptr, ptr %1, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %1, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !12
   %141 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %140, ptr noundef nonnull @.str.2, ptr noundef nonnull %11) #16
   %.not467 = icmp eq i32 %141, 1
@@ -424,7 +424,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 145:                                              ; preds = %142
   %146 = sext i32 %143 to i64
-  %147 = getelementptr inbounds ptr, ptr %1, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %1, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !12
   %149 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %148, ptr noundef nonnull @.str.2, ptr noundef nonnull %12) #16
   %.not468 = icmp eq i32 %149, 1
@@ -437,7 +437,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 153:                                              ; preds = %150
   %154 = sext i32 %151 to i64
-  %155 = getelementptr inbounds ptr, ptr %1, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %1, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !12
   %157 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %156, ptr noundef nonnull @.str.3, ptr noundef nonnull %13) #16
   %.not469 = icmp eq i32 %157, 1
@@ -464,7 +464,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 165:                                              ; preds = %161
   %166 = sext i32 %162 to i64
-  %167 = getelementptr inbounds ptr, ptr %1, i64 %166
+  %167 = getelementptr inbounds [8 x i8], ptr %1, i64 %166
   %168 = load ptr, ptr %167, align 8, !tbaa !12
   br label %247
 
@@ -479,7 +479,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 173:                                              ; preds = %169
   %174 = sext i32 %170 to i64
-  %175 = getelementptr inbounds ptr, ptr %1, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %1, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !12
   br label %247
 
@@ -490,7 +490,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 180:                                              ; preds = %177
   %181 = sext i32 %178 to i64
-  %182 = getelementptr inbounds ptr, ptr %1, i64 %181
+  %182 = getelementptr inbounds [8 x i8], ptr %1, i64 %181
   %183 = load ptr, ptr %182, align 8, !tbaa !12
   %184 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %183, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #16
   %.not465 = icmp eq i32 %184, 1
@@ -510,7 +510,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 190:                                              ; preds = %187
   %191 = sext i32 %188 to i64
-  %192 = getelementptr inbounds ptr, ptr %1, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %1, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !12
   %194 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %193, ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #16
   %.not464 = icmp eq i32 %194, 1
@@ -537,7 +537,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 202:                                              ; preds = %198
   %203 = sext i32 %199 to i64
-  %204 = getelementptr inbounds ptr, ptr %1, i64 %203
+  %204 = getelementptr inbounds [8 x i8], ptr %1, i64 %203
   %205 = load ptr, ptr %204, align 8, !tbaa !12
   %206 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %205, ptr noundef nonnull dereferenceable(4) @.str.4) #17
   %.not460 = icmp eq i32 %206, 0
@@ -573,7 +573,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 218:                                              ; preds = %214
   %219 = sext i32 %215 to i64
-  %220 = getelementptr inbounds ptr, ptr %1, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %1, i64 %219
   %221 = load ptr, ptr %220, align 8, !tbaa !12
   %222 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %221, ptr noundef nonnull dereferenceable(7) @.str.8) #17
   %.not457 = icmp eq i32 %222, 0
@@ -625,7 +625,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 242:                                              ; preds = %238
   %243 = sext i32 %239 to i64
-  %244 = getelementptr inbounds ptr, ptr %1, i64 %243
+  %244 = getelementptr inbounds [8 x i8], ptr %1, i64 %243
   %245 = load ptr, ptr %244, align 8, !tbaa !12
   br label %247
 
@@ -1336,7 +1336,7 @@ sub_0534:                                         ; preds = %.split733.us
   %552 = load ptr, ptr @stderr, align 8, !tbaa !16
   %553 = add i32 %.2311, -1
   %554 = zext i32 %553 to i64
-  %555 = getelementptr inbounds nuw ptr, ptr @__const.main.type_name, i64 %554
+  %555 = getelementptr inbounds nuw [8 x i8], ptr @__const.main.type_name, i64 %554
   %556 = load ptr, ptr %555, align 8, !tbaa !12
   %557 = load i64, ptr %3, align 8, !tbaa !4
   %558 = load i64, ptr %4, align 8, !tbaa !4
@@ -1595,9 +1595,9 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
   ]
 
 5:                                                ; preds = %.lr.ph.split
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %.06582
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.06582
   %7 = load i32, ptr %6, align 4, !tbaa !10
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %.06582
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.06582
   %9 = load i32, ptr %8, align 4, !tbaa !10
   %10 = sub nsw i32 %7, %9
   %11 = sitofp i32 %10 to double
@@ -1606,9 +1606,9 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
   br label %39
 
 14:                                               ; preds = %.lr.ph.split
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %.06582
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.06582
   %16 = load i64, ptr %15, align 8, !tbaa !4
-  %17 = getelementptr inbounds nuw i64, ptr %1, i64 %.06582
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.06582
   %18 = load i64, ptr %17, align 8, !tbaa !4
   %19 = sub nsw i64 %16, %18
   %20 = sitofp i64 %19 to double
@@ -1617,9 +1617,9 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
   br label %39
 
 23:                                               ; preds = %.lr.ph.split
-  %24 = getelementptr inbounds nuw float, ptr %0, i64 %.06582
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.06582
   %25 = load float, ptr %24, align 4, !tbaa !24
-  %26 = getelementptr inbounds nuw float, ptr %1, i64 %.06582
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.06582
   %27 = load float, ptr %26, align 4, !tbaa !24
   %28 = fsub float %25, %27
   %29 = tail call float @llvm.fabs.f32(float %28)
@@ -1628,9 +1628,9 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
   br label %39
 
 32:                                               ; preds = %.lr.ph.split
-  %33 = getelementptr inbounds nuw double, ptr %0, i64 %.06582
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.06582
   %34 = load double, ptr %33, align 8, !tbaa !8
-  %35 = getelementptr inbounds nuw double, ptr %1, i64 %.06582
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.06582
   %36 = load double, ptr %35, align 8, !tbaa !8
   %37 = fsub double %34, %36
   %38 = tail call double @llvm.fabs.f64(double %37)

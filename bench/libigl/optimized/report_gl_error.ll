@@ -33,7 +33,7 @@ define dso_local noundef i32 @_ZN3igl6opengl15report_gl_errorENSt7__cxx1112basic
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3igl6opengl15report_gl_errorEv, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3igl6opengl15report_gl_errorEv, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %"_ZZN3igl6opengl15report_gl_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEj.exit"
 
@@ -75,7 +75,7 @@ define dso_local noundef i32 @_ZN3igl6opengl15report_gl_errorEv() local_unnamed_
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3igl6opengl15report_gl_errorEv, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3igl6opengl15report_gl_errorEv, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %"_ZZN3igl6opengl15report_gl_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEj.exit.i"
 

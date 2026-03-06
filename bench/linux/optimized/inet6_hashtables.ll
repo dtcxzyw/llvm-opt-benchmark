@@ -22,17 +22,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_inet6_hash: 
 %struct.pcpu_hot = type { %union.anon.36 }
 %union.anon.36 = type { %struct.anon.37, [16 x i8] }
 %struct.anon.37 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.inet_ehash_bucket = type { %struct.hlist_nulls_head }
-%struct.hlist_nulls_head = type { ptr }
 %struct.bpf_sk_lookup_kern = type { i16, i16, i16, i16, %struct.anon.28, %struct.anon.29, ptr, i32, i8 }
 %struct.anon.28 = type { i32, i32 }
 %struct.anon.29 = type { ptr, ptr }
-%struct.inet_listen_hashbucket = type { %struct.spinlock, %struct.hlist_nulls_head }
-%struct.spinlock = type { %union.anon.10 }
-%union.anon.10 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.11 }
-%union.anon.11 = type { %struct.atomic_t }
 
 @inet6_ehashfn.inet6_ehash_secret = internal global i32 0, section ".data..read_mostly", align 4
 @inet6_ehashfn.ipv6_hash_secret = internal global i32 0, section ".data..read_mostly", align 4
@@ -215,7 +207,7 @@ define dso_local ptr @__inet6_lookup_established(ptr noundef readonly captures(a
   %16 = and i32 %15, %13
   %17 = load ptr, ptr %1, align 64
   %18 = zext i32 %16 to i64
-  %19 = getelementptr %struct.inet_ehash_bucket, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = getelementptr i8, ptr %2, i64 8
   %21 = getelementptr i8, ptr %4, i64 8
   br label %22
@@ -659,7 +651,7 @@ define dso_local ptr @inet6_lookup_listener(ptr noundef %0, ptr noundef readonly
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, %21
   %27 = zext i32 %26 to i64
-  %28 = getelementptr %struct.inet_listen_hashbucket, ptr %23, i64 %27
+  %28 = getelementptr [16 x i8], ptr %23, i64 %27
   %29 = tail call fastcc ptr @inet6_lhash2_lookup(ptr noundef %0, ptr noundef %28, ptr noundef %2, i32 noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %7, i32 noundef %8, i32 noundef %9)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %39
@@ -671,7 +663,7 @@ define dso_local ptr @inet6_lookup_listener(ptr noundef %0, ptr noundef readonly
   %34 = load i32, ptr %24, align 4
   %35 = and i32 %34, %32
   %36 = zext i32 %35 to i64
-  %37 = getelementptr %struct.inet_listen_hashbucket, ptr %33, i64 %36
+  %37 = getelementptr [16 x i8], ptr %33, i64 %36
   %38 = tail call fastcc ptr @inet6_lhash2_lookup(ptr noundef %0, ptr noundef %37, ptr noundef %2, i32 noundef %3, ptr noundef %4, i16 noundef zeroext %5, ptr noundef nonnull @in6addr_any, i16 noundef zeroext %7, i32 noundef %8, i32 noundef %9)
   br label %39
 
@@ -1016,14 +1008,14 @@ define internal noundef range(i32 -99, 1) i32 @__inet6_check_established(ptr nou
   %22 = load i32, ptr %21, align 16
   %23 = and i32 %22, %19
   %24 = zext i32 %23 to i64
-  %25 = getelementptr %struct.inet_ehash_bucket, ptr %20, i64 %24
+  %25 = getelementptr [8 x i8], ptr %20, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, %19
   %31 = zext i32 %30 to i64
-  %32 = getelementptr %struct.spinlock, ptr %27, i64 %31
+  %32 = getelementptr [4 x i8], ptr %27, i64 %31
   tail call void @_raw_spin_lock(ptr noundef %32) #7
   %33 = load ptr, ptr %25, align 8
   %34 = ptrtoint ptr %33 to i64
@@ -1223,7 +1215,7 @@ define internal noundef range(i32 -99, 1) i32 @__inet6_check_established(ptr nou
   %155 = getelementptr inbounds nuw i8, ptr %151, i64 208
   %156 = load i32, ptr %155, align 8
   %157 = zext i32 %156 to i64
-  %158 = getelementptr i32, ptr %154, i64 %157
+  %158 = getelementptr [4 x i8], ptr %154, i64 %157
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %158, ptr elementtype(i32) %158) #7, !srcloc !35
   %159 = icmp eq ptr %3, null
   br i1 %159, label %161, label %160

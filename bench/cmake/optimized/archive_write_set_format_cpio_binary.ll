@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.cpio_binary_header = type <{ i16, i16, i16, i16, i16, i16, i16, i16, i32, i16, i32 }>
-%struct.anon = type { i64, i32 }
 
 @.str = private unnamed_addr constant [37 x i8] c"archive_write_set_format_cpio_binary\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"Can't allocate cpio data\00", align 1
@@ -455,7 +454,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 
 50:                                               ; preds = %48, %.lr.ph.i
   %.03343.i = phi i64 [ 0, %.lr.ph.i ], [ %49, %48 ]
-  %51 = getelementptr inbounds nuw %struct.anon, ptr %42, i64 %.03343.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %.03343.i
   %52 = load i64, ptr %51, align 8, !tbaa !43
   %53 = icmp eq i64 %52, %34
   br i1 %53, label %54, label %48
@@ -501,7 +500,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 71:                                               ; preds = %70, %._crit_edge._crit_edge.i
   %72 = phi i64 [ %40, %._crit_edge._crit_edge.i ], [ %.pre46.i, %70 ]
   %73 = phi ptr [ %.pre.i93, %._crit_edge._crit_edge.i ], [ %69, %70 ]
-  %74 = getelementptr inbounds nuw %struct.anon, ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %72
   store i64 %34, ptr %74, align 8, !tbaa !43
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 %60, ptr %75, align 8, !tbaa !45

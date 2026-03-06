@@ -143,9 +143,9 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
 
 60:                                               ; preds = %50
   %61 = add i32 %.05764, 1
-  %62 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !47
-  %64 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !48
   %66 = icmp slt i32 %55, -1
   %67 = icmp slt i32 %53, -7
@@ -165,7 +165,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %71 = mul nsw i64 %indvars.iv364.i, %69
   %72 = mul nuw nsw i64 %indvars.iv364.i, %70
   %invariant.gep.i = getelementptr i8, ptr %63, i64 %71
-  %invariant.gep402.i = getelementptr float, ptr %12, i64 %72
+  %invariant.gep402.i = getelementptr [4 x i8], ptr %12, i64 %72
   br label %73
 
 73:                                               ; preds = %73, %.preheader321.us.i
@@ -179,7 +179,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %79 = sub nsw i32 %75, %78
   %80 = tail call i32 @llvm.abs.i32(i32 %79, i1 true)
   %81 = uitofp nneg i32 %80 to float
-  %gep403.i = getelementptr float, ptr %invariant.gep402.i, i64 %indvars.iv.i
+  %gep403.i = getelementptr [4 x i8], ptr %invariant.gep402.i, i64 %indvars.iv.i
   store float %81, ptr %gep403.i, align 4, !tbaa !50
   %82 = load i8, ptr %76, align 1, !tbaa !49
   %83 = zext i8 %82 to i32
@@ -226,7 +226,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %124 = select nsz i1 %123, float 1.000000e+00, float %122
   %125 = fdiv nsz float %81, %124
   store float %125, ptr %gep403.i, align 4, !tbaa !50
-  %126 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i
   %127 = load float, ptr %126, align 4, !tbaa !50
   %128 = fadd nsz float %127, %125
   store float %128, ptr %126, align 4, !tbaa !50
@@ -282,7 +282,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %144 = trunc nuw nsw i64 %indvars.iv369.i to i32
   %145 = srem i32 %144, %.0290336.us.i
   %146 = icmp eq i32 %145, %132
-  %147 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv369.i
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv369.i
   %148 = load float, ptr %147, align 4, !tbaa !50
   br i1 %146, label %152, label %149
 
@@ -351,7 +351,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %182 = mul nsw i64 %181, %168
   %183 = add nsw i64 %indvars.iv380.i, -3
   %184 = mul nsw i64 %183, %168
-  %185 = getelementptr inbounds nuw float, ptr %12, i64 %172
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %172
   %.promoted.us.i = load float, ptr %185, align 4, !tbaa !50
   %invariant.gep404.i = getelementptr i8, ptr %63, i64 %170
   %invariant.gep406.i = getelementptr i8, ptr %63, i64 %171
@@ -375,7 +375,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %192 = sub nsw i32 %189, %191
   %193 = tail call i32 @llvm.abs.i32(i32 %192, i1 true)
   %194 = uitofp nneg i32 %193 to float
-  %gep409.i = getelementptr float, ptr %185, i64 %indvars.iv375.i
+  %gep409.i = getelementptr [4 x i8], ptr %185, i64 %indvars.iv375.i
   store float %194, ptr %gep409.i, align 4, !tbaa !50
   %195 = load i8, ptr %gep407.i, align 1, !tbaa !49
   %196 = zext i8 %195 to i32
@@ -456,7 +456,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %238 = srem i32 %237, %.0278357.i.us
   %239 = icmp eq i32 %238, %235
   %240 = mul nsw i64 %indvars.iv385.i.us, %234
-  %241 = getelementptr inbounds float, ptr %12, i64 %240
+  %241 = getelementptr inbounds [4 x i8], ptr %12, i64 %240
   %242 = load float, ptr %241, align 4, !tbaa !50
   br i1 %239, label %246, label %243
 
@@ -469,13 +469,13 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
 246:                                              ; preds = %236
   %247 = add nuw nsw i64 %indvars.iv385.i.us, 1
   %248 = mul nsw i64 %247, %234
-  %249 = getelementptr inbounds float, ptr %12, i64 %248
+  %249 = getelementptr inbounds [4 x i8], ptr %12, i64 %248
   %250 = load float, ptr %249, align 4, !tbaa !50
   %251 = fcmp nsz ogt float %242, %250
   %.315.i.us = select nsz i1 %251, float %242, float %250
   %252 = add nsw i64 %indvars.iv385.i.us, -1
   %253 = mul nsw i64 %252, %234
-  %254 = getelementptr inbounds float, ptr %12, i64 %253
+  %254 = getelementptr inbounds [4 x i8], ptr %12, i64 %253
   %255 = load float, ptr %254, align 4, !tbaa !50
   %256 = fcmp nsz ogt float %.315.i.us, %255
   %257 = select nsz i1 %256, float %.315.i.us, float %255

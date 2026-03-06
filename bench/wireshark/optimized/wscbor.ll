@@ -1335,7 +1335,7 @@ define ptr @proto_tree_add_cbor_bitmask(ptr noundef %0, i32 noundef %1, i32 noun
 
 switch.lookup:                                    ; preds = %8
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.proto_tree_add_cbor_bitmask, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.proto_tree_add_cbor_bitmask, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %19 = load ptr, ptr %18, align 8

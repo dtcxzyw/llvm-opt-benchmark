@@ -1925,7 +1925,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_instToSnapshotTreeDefsParsedSn
   %.02957 = phi i64 [ %69, %85 ], [ %1, %3 ]
   %.03156 = phi ptr [ %.0.i.i47, %85 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.03156, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02957
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.02957
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -1961,7 +1961,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %17, %16 ], [ %.03156, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02957
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.02957
   %20 = load ptr, ptr %19, align 8, !tbaa !10
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -2097,7 +2097,7 @@ lean_inc.exit:                                    ; preds = %66, %65, %63, %lean
 lean_ensure_exclusive_array.exit.i46:             ; preds = %71, %lean_inc.exit
   %.0.i.i47 = phi ptr [ %72, %71 ], [ %.0.i.i, %lean_inc.exit ]
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i47, i64 24
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.02957
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.02957
   %75 = load ptr, ptr %74, align 8, !tbaa !10
   %76 = ptrtoint ptr %75 to i64
   %77 = trunc i64 %76 to i1
@@ -2309,7 +2309,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Elab_DefView_
 
 7:                                                ; preds = %.lr.ph, %5
   %.01832 = phi i64 [ %1, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01832
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01832
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -3825,7 +3825,7 @@ declare ptr @l_Lean_Elab_addMacroStack___at_Lean_Elab_Command_instAddErrorMessag
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 10) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1

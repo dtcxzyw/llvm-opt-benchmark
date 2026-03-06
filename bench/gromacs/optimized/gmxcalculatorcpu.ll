@@ -989,8 +989,8 @@ _ZN19interaction_const_tD2Ev.exit:                ; preds = %_ZNSt10unique_ptrI2
 
 70:                                               ; preds = %_ZNSt6vectorIfSaIfEEaSEOS1_.exit.i.i.i, %64
   %.05.i.i.i = phi i64 [ 0, %64 ], [ %86, %_ZNSt6vectorIfSaIfEEaSEOS1_.exit.i.i.i ]
-  %71 = getelementptr inbounds nuw %"class.std::vector.3", ptr %68, i64 %.05.i.i.i
-  %72 = getelementptr inbounds nuw %"class.std::vector.3", ptr %69, i64 %.05.i.i.i
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %.05.i.i.i
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %.05.i.i.i
   %73 = load ptr, ptr %71, align 8, !tbaa !175
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -3062,7 +3062,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %48
   %88 = load i8, ptr %87, align 8, !tbaa !273, !range !227, !noundef !228
   %89 = trunc nuw i8 %88 to i1
   %90 = select i1 %89, i64 2, i64 1
-  %91 = getelementptr inbounds nuw %"class.std::vector.3", ptr %86, i64 %90
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !175
   store ptr %92, ptr %14, align 8, !tbaa !4
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -3227,7 +3227,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %152
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEN3gmx12ArrayRefIterIfEEET0_T_SB_SA_.exit
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEN3gmx12ArrayRefIterIfEEET0_T_SB_SA_.exit ]
-  %160 = getelementptr inbounds nuw %"class.std::vector.3", ptr %86, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %indvars.iv
   %161 = load ptr, ptr %160, align 8, !tbaa !278
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !278
@@ -3240,7 +3240,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %152
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %.preheader
   %169 = mul nsw i64 %indvars.iv, %146
-  %170 = getelementptr inbounds float, ptr %.sroa.01.0.copyload.i61, i64 %169
+  %170 = getelementptr inbounds [4 x i8], ptr %.sroa.01.0.copyload.i61, i64 %169
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i

@@ -106,10 +106,10 @@ define hidden double @SDL_uclibc_atan(double noundef %0) local_unnamed_addr #0 {
   br label %73
 
 60:                                               ; preds = %42
-  %61 = getelementptr inbounds nuw double, ptr @atanhi, i64 %.057
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @atanhi, i64 %.057
   %62 = load double, ptr %61, align 8
   %63 = fadd double %55, %50
-  %64 = getelementptr inbounds nuw double, ptr @atanlo, i64 %.057
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @atanlo, i64 %.057
   %65 = load double, ptr %64, align 8
   %66 = fneg double %65
   %67 = tail call double @llvm.fmuladd.f64(double %.056, double %63, double %66)

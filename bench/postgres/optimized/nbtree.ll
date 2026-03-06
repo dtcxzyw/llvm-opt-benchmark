@@ -5,14 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.BTScanPosItem = type { %struct.ItemPointerData, i16, i16 }
-%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
-%struct.BlockIdData = type { i16, i16 }
-%struct.BTArrayKeyInfo = type { i32, i32, i32, ptr }
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.BTVacState = type { ptr, ptr, ptr, ptr, i16, ptr, i32, i32, ptr, i32 }
-%struct.ItemIdData = type { i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"nbtree.c\00", align 1
 @__func__.btparallelrescan = private unnamed_addr constant [17 x i8] c"btparallelrescan\00", align 1
@@ -448,7 +441,7 @@ define dso_local noundef zeroext i1 @btgettuple(ptr noundef initializes((112, 11
   %28 = add nsw i32 %24, 1
   store i32 %28, ptr %9, align 8
   %29 = sext i32 %24 to i64
-  %30 = getelementptr inbounds i32, ptr %23, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %23, i64 %29
   store i32 %27, ptr %30, align 4
   br label %31
 
@@ -513,7 +506,7 @@ define dso_local i64 @btgetbitmap(ptr noundef %0, ptr noundef %1) #0 {
 18:                                               ; preds = %._crit_edge, %.preheader
   %19 = phi i32 [ %.pre, %._crit_edge ], [ %13, %.preheader ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.BTScanPosItem, ptr %8, i64 %20
+  %21 = getelementptr inbounds [10 x i8], ptr %8, i64 %20
   br label %.preheader
 
 .loopexit:                                        ; preds = %16, %10
@@ -964,19 +957,19 @@ define dso_local noundef zeroext i1 @_bt_parallel_seize(ptr noundef readonly cap
 .lr.ph.us:                                        ; preds = %48, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 0, %48 ]
   %51 = load ptr, ptr %35, align 8
-  %52 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %36, align 8
   %54 = load i32, ptr %52, align 8
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.ScanKeyData, ptr %53, i64 %55
-  %57 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %56 = getelementptr inbounds [72 x i8], ptr %53, i64 %55
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %58, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = sext i32 %58 to i64
-  %63 = getelementptr inbounds i64, ptr %61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %61, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %56, i64 64
   store i64 %64, ptr %65, align 8
@@ -1259,10 +1252,10 @@ define dso_local void @_bt_parallel_primscan_schedule(ptr noundef readonly captu
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   store i32 %32, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %23, align 8
@@ -1402,7 +1395,7 @@ define internal fastcc void @btvacuumscan(ptr noundef %0, ptr noundef initialize
   %63 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %64 = xor i32 %60, -1
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %65
   %67 = load ptr, ptr %66, align 8
   br label %BufferGetPage.exit.i
 
@@ -1583,7 +1576,7 @@ BTPageIsRecyclable.exit.thread.i:                 ; preds = %BTPageIsRecyclable.
   %.1139228.i = phi i32 [ 0, %.lr.ph.i ], [ %.2140.i, %218 ]
   %.1143227.i = phi i32 [ 0, %.lr.ph.i ], [ %.2144.i, %218 ]
   %146 = zext i16 %.0137229.i to i64
-  %147 = getelementptr %struct.ItemIdData, ptr %144, i64 %146
+  %147 = getelementptr [4 x i8], ptr %144, i64 %146
   %.val175.i = load i32, ptr %147, align 4
   %148 = and i32 %.val175.i, 32767
   %149 = zext nneg i32 %148 to i64
@@ -1608,7 +1601,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
 158:                                              ; preds = %BTreeTupleIsPosting.exit.thread.i
   %159 = add i32 %.1143227.i, 1
   %160 = sext i32 %.1143227.i to i64
-  %161 = getelementptr inbounds i16, ptr %6, i64 %160
+  %161 = getelementptr inbounds [2 x i8], ptr %6, i64 %160
   store i16 %.0137229.i, ptr %161, align 2
   %162 = add i32 %.1133231.i, 1
   br label %218
@@ -1642,7 +1635,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
   %.02530.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.1.i.i, %198 ]
   %.02629.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.127.i.i, %198 ]
   %176 = load ptr, ptr %14, align 8
-  %177 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %172, i64 %indvars.iv.i.i
+  %177 = getelementptr inbounds nuw [6 x i8], ptr %172, i64 %indvars.iv.i.i
   %178 = load ptr, ptr %15, align 8
   %179 = call zeroext i1 %176(ptr noundef nonnull %177, ptr noundef %178) #8
   br i1 %179, label %182, label %180
@@ -1675,7 +1668,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
   %195 = add i16 %194, 1
   store i16 %195, ptr %193, align 2
   %196 = zext i16 %194 to i64
-  %197 = getelementptr inbounds nuw i16, ptr %192, i64 %196
+  %197 = getelementptr inbounds nuw [2 x i8], ptr %192, i64 %196
   store i16 %191, ptr %197, align 2
   br label %198
 
@@ -1697,7 +1690,7 @@ btreevacuumposting.exit.i:                        ; preds = %198
 202:                                              ; preds = %200
   %203 = add i32 %.1139228.i, 1
   %204 = sext i32 %.1139228.i to i64
-  %205 = getelementptr inbounds ptr, ptr %7, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %7, i64 %204
   store ptr %.1.i.i, ptr %205, align 8
   %.val176.i = load i16, ptr %155, align 2
   %206 = and i16 %.val176.i, 4095
@@ -1709,7 +1702,7 @@ btreevacuumposting.exit.i:                        ; preds = %198
 210:                                              ; preds = %200
   %211 = add i32 %.1143227.i, 1
   %212 = sext i32 %.1143227.i to i64
-  %213 = getelementptr inbounds i16, ptr %6, i64 %212
+  %213 = getelementptr inbounds [2 x i8], ptr %6, i64 %212
   store i16 %.0137229.i, ptr %213, align 2
   %.val177.i = load i16, ptr %155, align 2
   %214 = and i16 %.val177.i, 4095
@@ -1770,7 +1763,7 @@ btreevacuumposting.exit.thread.i:                 ; preds = %210, %202, %btreeva
 
 .lr.ph237.i:                                      ; preds = %.lr.ph237.i, %.lr.ph237.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph237.preheader.i ], [ %indvars.iv.next.i, %.lr.ph237.i ]
-  %232 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %233 = load ptr, ptr %232, align 8
   call void @pfree(ptr noundef %233) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

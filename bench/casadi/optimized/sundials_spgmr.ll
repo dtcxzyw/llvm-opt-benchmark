@@ -33,7 +33,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 16:                                               ; preds = %.lr.ph, %22
   %indvars.iv164 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next165, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %18 = tail call noalias ptr @malloc(i64 noundef %14) #7
   store ptr %18, ptr %17, align 8, !tbaa !3
   %19 = icmp eq ptr %18, null
@@ -49,7 +49,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
   %indvars.iv161 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next162, %.lr.ph133 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv161
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv161
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   tail call void @free(ptr noundef %21) #6
   store ptr null, ptr %20, align 8, !tbaa !3
@@ -83,7 +83,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.lr.ph157
   %indvars.iv192 = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next193, %.lr.ph157 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv192
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv192
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   tail call void @free(ptr noundef %30) #6
   store ptr null, ptr %29, align 8, !tbaa !3
@@ -109,7 +109,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %.lr.ph153
   %indvars.iv186 = phi i64 [ 0, %.lr.ph153.preheader ], [ %indvars.iv.next187, %.lr.ph153 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv186
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv186
   %36 = load ptr, ptr %35, align 8, !tbaa !3
   tail call void @free(ptr noundef %36) #6
   store ptr null, ptr %35, align 8, !tbaa !3
@@ -136,7 +136,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
   %indvars.iv180 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next181, %.lr.ph148 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv180
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv180
   %42 = load ptr, ptr %41, align 8, !tbaa !3
   tail call void @free(ptr noundef %42) #6
   store ptr null, ptr %41, align 8, !tbaa !3
@@ -164,7 +164,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv174 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next175, %.lr.ph143 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv174
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv174
   %48 = load ptr, ptr %47, align 8, !tbaa !3
   tail call void @free(ptr noundef %48) #6
   store ptr null, ptr %47, align 8, !tbaa !3
@@ -193,7 +193,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph138:                                        ; preds = %.lr.ph138.preheader, %.lr.ph138
   %indvars.iv169 = phi i64 [ 0, %.lr.ph138.preheader ], [ %indvars.iv.next170, %.lr.ph138 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv169
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv169
   %54 = load ptr, ptr %53, align 8, !tbaa !3
   tail call void @free(ptr noundef %54) #6
   store ptr null, ptr %53, align 8, !tbaa !3
@@ -356,7 +356,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 
 .preheader.us:                                    ; preds = %.preheader318, %.preheader.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %.preheader318 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr align 8 %70, i8 0, i64 %67, i1 false), !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -383,7 +383,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   store i32 %76, ptr %14, align 4, !tbaa !28
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %indvars = trunc i64 %indvars.iv.next388 to i32
-  %77 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv387
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv387
   %78 = load ptr, ptr %77, align 8, !tbaa !29
   br i1 %.not297, label %80, label %79
 
@@ -399,7 +399,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   br i1 %.not, label %92, label %82
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next388
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next388
   %84 = load ptr, ptr %83, align 8, !tbaa !29
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %31, ptr noundef %84) #6
   %85 = load ptr, ptr %83, align 8, !tbaa !29
@@ -416,7 +416,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   br label %.loopexit
 
 92:                                               ; preds = %82, %81
-  %93 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next388
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next388
   %94 = load ptr, ptr %93, align 8, !tbaa !29
   %95 = tail call i32 %11(ptr noundef %1, ptr noundef %31, ptr noundef %94) #6
   %.not303 = icmp eq i32 %95, 0
@@ -461,9 +461,9 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   br label %113
 
 113:                                              ; preds = %112, %111
-  %114 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next388
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.next388
   %115 = load ptr, ptr %114, align 8, !tbaa !3
-  %116 = getelementptr inbounds nuw double, ptr %115, i64 %indvars.iv387
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %indvars.iv387
   br i1 %65, label %117, label %119
 
 117:                                              ; preds = %113
@@ -495,9 +495,9 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   br i1 %131, label %._crit_edge, label %132
 
 132:                                              ; preds = %124
-  %133 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next388
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.next388
   %134 = load ptr, ptr %133, align 8, !tbaa !3
-  %135 = getelementptr inbounds nuw double, ptr %134, i64 %indvars.iv387
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv387
   %136 = load double, ptr %135, align 8, !tbaa !30
   %137 = fdiv double 1.000000e+00, %136
   %138 = load ptr, ptr %93, align 8, !tbaa !29
@@ -534,9 +534,9 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 
 .lr.ph348:                                        ; preds = %.lr.ph348.preheader, %.lr.ph348
   %indvars.iv396 = phi i64 [ 0, %.lr.ph348.preheader ], [ %indvars.iv.next397, %.lr.ph348 ]
-  %143 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv396
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv396
   %144 = load double, ptr %143, align 8, !tbaa !30
-  %145 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv396
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv396
   %146 = load ptr, ptr %145, align 8, !tbaa !29
   tail call void @N_VLinearSum(double noundef %144, ptr noundef %146, double noundef 1.000000e+00, ptr noundef %27, ptr noundef %27) #6
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
@@ -596,7 +596,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   %163 = getelementptr i8, ptr %162, i64 -16
   %164 = load double, ptr %163, align 8, !tbaa !30
   %165 = fmul double %.0275350, %164
-  %166 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv402
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv402
   store double %165, ptr %166, align 8, !tbaa !30
   %167 = getelementptr i8, ptr %162, i64 -8
   %168 = load double, ptr %167, align 8, !tbaa !30
@@ -623,7 +623,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 
 .lr.ph358:                                        ; preds = %.lr.ph358.preheader, %.lr.ph358
   %indvars.iv406 = phi i64 [ 0, %.lr.ph358.preheader ], [ %indvars.iv.next407, %.lr.ph358 ]
-  %174 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv406
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv406
   %175 = load double, ptr %174, align 8, !tbaa !30
   %176 = fmul double %172, %175
   store double %176, ptr %174, align 8, !tbaa !30
@@ -646,9 +646,9 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 
 .lr.ph363:                                        ; preds = %.lr.ph363.preheader, %.lr.ph363
   %indvars.iv412 = phi i64 [ 1, %.lr.ph363.preheader ], [ %indvars.iv.next413, %.lr.ph363 ]
-  %182 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv412
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv412
   %183 = load double, ptr %182, align 8, !tbaa !30
-  %184 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv412
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv412
   %185 = load ptr, ptr %184, align 8, !tbaa !29
   %186 = load ptr, ptr %21, align 8, !tbaa !29
   tail call void @N_VLinearSum(double noundef %183, ptr noundef %185, double noundef 1.000000e+00, ptr noundef %186, ptr noundef %186) #6
@@ -747,7 +747,7 @@ define void @SpgmrFree(ptr noundef captures(address_is_null) %0) local_unnamed_a
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !23
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   tail call void @free(ptr noundef %10) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

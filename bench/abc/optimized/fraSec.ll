@@ -1336,7 +1336,7 @@ Abc_Clock.exit454:                                ; preds = %.loopexit504, %577
   %612 = load ptr, ptr %611, align 8, !tbaa !71
   %613 = getelementptr i8, ptr %612, i64 8
   %.val412 = load ptr, ptr %613, align 8, !tbaa !72
-  %614 = getelementptr inbounds nuw ptr, ptr %.val412, i64 %indvars.iv
+  %614 = getelementptr inbounds nuw [8 x i8], ptr %.val412, i64 %indvars.iv
   %615 = load ptr, ptr %614, align 8, !tbaa !74
   %616 = getelementptr i8, ptr %615, i64 8
   %.val413 = load ptr, ptr %616, align 8, !tbaa !75
@@ -1753,7 +1753,7 @@ Abc_Clock.exit458:                                ; preds = %786, %790
   %823 = shl nuw i32 1, %822
   %824 = lshr i32 %.0531, 5
   %825 = zext nneg i32 %824 to i64
-  %826 = getelementptr inbounds nuw i32, ptr %820, i64 %825
+  %826 = getelementptr inbounds nuw [4 x i8], ptr %820, i64 %825
   %827 = load i32, ptr %826, align 4, !tbaa !51
   %828 = or i32 %827, %823
   store i32 %828, ptr %826, align 4, !tbaa !51

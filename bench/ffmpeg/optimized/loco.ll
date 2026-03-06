@@ -96,7 +96,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %25
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.decode_init, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.decode_init, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %switch.load, ptr %34, align 8, !tbaa !35

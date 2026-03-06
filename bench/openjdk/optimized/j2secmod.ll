@@ -255,7 +255,7 @@ define ptr @Java_sun_security_pkcs11_Secmod_nssGetModuleList(ptr noundef %0, ptr
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %91
   %indvars.iv = phi i64 [ %indvars.iv.next, %91 ], [ 0, %.lr.ph ]
   %71 = load ptr, ptr %69, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 88
   %75 = load i64, ptr %74, align 8
@@ -291,7 +291,7 @@ define ptr @Java_sun_security_pkcs11_Secmod_nssGetModuleList(ptr noundef %0, ptr
   %95 = phi i32 [ %120, %119 ], [ %67, %.lr.ph ]
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %119 ], [ 0, %.lr.ph ]
   %96 = load ptr, ptr %69, align 8
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv94
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv94
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 88
   %100 = load i64, ptr %99, align 8

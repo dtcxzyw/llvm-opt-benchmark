@@ -10,6 +10,8 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
+%struct.timespec = type { i64, i64 }
+%"class.std::allocator" = type { i8 }
 %"class.igl::opengl::ViewerCore" = type { i32, [12 x i8], %"class.Eigen::Matrix", %"class.Eigen::Matrix.13", i8, i8, i32, i32, i32, i32, i32, float, i32, [4 x i8], %"class.Eigen::Quaternion", float, float, i8, %"class.Eigen::Matrix.13", %"class.Eigen::Matrix.13", %"class.Eigen::Matrix.13", %"class.Eigen::Matrix.13", %"class.Eigen::Matrix.13", float, float, float, i8, i8, double, float, [12 x i8], %"class.Eigen::Matrix", %"class.Eigen::Matrix.32", %"class.Eigen::Matrix.32", %"class.Eigen::Matrix.32", %"class.Eigen::Matrix.32", %"class.Eigen::Matrix.32" }
 %"class.Eigen::Quaternion" = type { %"class.Eigen::Matrix" }
 %"class.Eigen::Matrix.13" = type { %"class.Eigen::PlainObjectBase.14" }
@@ -24,40 +26,15 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.Eigen::PlainObjectBase.33" = type { %"class.Eigen::DenseStorage.40" }
 %"class.Eigen::DenseStorage.40" = type { %"struct.Eigen::internal::plain_array.41" }
 %"struct.Eigen::internal::plain_array.41" = type { [16 x float] }
-%struct.timespec = type { i64, i64 }
-%"class.std::allocator" = type { i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.igl::opengl::ViewerData" = type { %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.52", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.52", %"class.Eigen::Matrix.61", %"class.Eigen::Matrix.61", %"class.Eigen::Matrix.61", %"class.Eigen::Matrix.61", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.std::vector.70", %"class.std::vector.70", %"class.std::vector.70", i32, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, %"class.Eigen::Matrix.75", %"class.Eigen::Matrix.75", float, i32, [4 x i8], %"class.igl::opengl::MeshGL" }
-%"class.Eigen::Matrix.52" = type { %"class.Eigen::PlainObjectBase.53" }
-%"class.Eigen::PlainObjectBase.53" = type { %"class.Eigen::DenseStorage.60" }
-%"class.Eigen::DenseStorage.60" = type { ptr, i64, i64 }
-%"class.Eigen::Matrix.61" = type { %"class.Eigen::PlainObjectBase.62" }
-%"class.Eigen::PlainObjectBase.62" = type { %"class.Eigen::DenseStorage.69" }
-%"class.Eigen::DenseStorage.69" = type { ptr, i64, i64 }
 %"class.Eigen::Matrix.43" = type { %"class.Eigen::PlainObjectBase.44" }
 %"class.Eigen::PlainObjectBase.44" = type { %"class.Eigen::DenseStorage.51" }
 %"class.Eigen::DenseStorage.51" = type { ptr, i64, i64 }
-%"class.std::vector.70" = type { %"struct.std::_Vector_base.71" }
-%"struct.std::_Vector_base.71" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.Eigen::Matrix.75" = type { %"class.Eigen::PlainObjectBase.76" }
-%"class.Eigen::PlainObjectBase.76" = type { %"class.Eigen::DenseStorage.83" }
-%"class.Eigen::DenseStorage.83" = type { %"struct.Eigen::internal::plain_array.84" }
-%"struct.Eigen::internal::plain_array.84" = type { [4 x float] }
-%"class.igl::opengl::MeshGL" = type <{ i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"struct.igl::opengl::MeshGL::TextGL", %"struct.igl::opengl::MeshGL::TextGL", %"struct.igl::opengl::MeshGL::TextGL", i32, i32, i32, i32, i32, [4 x i8], %"class.Eigen::Matrix.103", %"class.Eigen::Matrix.94", %"class.Eigen::Matrix.94", %"class.Eigen::Matrix.94", i32, [4 x i8] }>
-%"class.Eigen::Matrix.85" = type { %"class.Eigen::PlainObjectBase.86" }
-%"class.Eigen::PlainObjectBase.86" = type { %"class.Eigen::DenseStorage.93" }
-%"class.Eigen::DenseStorage.93" = type { ptr, i64, i64 }
-%"struct.igl::opengl::MeshGL::TextGL" = type { i32, i32, i32, i32, i32, i32, %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.94" }
-%"class.Eigen::Matrix.103" = type { %"class.Eigen::PlainObjectBase.104" }
-%"class.Eigen::PlainObjectBase.104" = type { %"class.Eigen::DenseStorage.111" }
-%"class.Eigen::DenseStorage.111" = type { ptr, i64 }
-%"class.Eigen::Matrix.94" = type { %"class.Eigen::PlainObjectBase.95" }
-%"class.Eigen::PlainObjectBase.95" = type { %"class.Eigen::DenseStorage.102" }
-%"class.Eigen::DenseStorage.102" = type { ptr, i64, i64 }
+%"class.Eigen::Matrix.52" = type { %"class.Eigen::PlainObjectBase.53" }
+%"class.Eigen::PlainObjectBase.53" = type { %"class.Eigen::DenseStorage.60" }
+%"class.Eigen::DenseStorage.60" = type { ptr, i64, i64 }
 %"class.Eigen::Matrix.112" = type { %"class.Eigen::PlainObjectBase.113" }
 %"class.Eigen::PlainObjectBase.113" = type { %"class.Eigen::DenseStorage.120" }
 %"class.Eigen::DenseStorage.120" = type { %"struct.Eigen::internal::plain_array.121" }
@@ -83,6 +60,29 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.std::basic_ofstream" = type { %"class.std::basic_ostream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.__gnu_cxx::__normal_iterator.245" = type { ptr }
+%"class.igl::opengl::ViewerData" = type { %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.52", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.52", %"class.Eigen::Matrix.61", %"class.Eigen::Matrix.61", %"class.Eigen::Matrix.61", %"class.Eigen::Matrix.61", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.Eigen::Matrix.43", %"class.std::vector.70", %"class.std::vector.70", %"class.std::vector.70", i32, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, %"class.Eigen::Matrix.75", %"class.Eigen::Matrix.75", float, i32, [4 x i8], %"class.igl::opengl::MeshGL" }
+%"class.Eigen::Matrix.61" = type { %"class.Eigen::PlainObjectBase.62" }
+%"class.Eigen::PlainObjectBase.62" = type { %"class.Eigen::DenseStorage.69" }
+%"class.Eigen::DenseStorage.69" = type { ptr, i64, i64 }
+%"class.std::vector.70" = type { %"struct.std::_Vector_base.71" }
+%"struct.std::_Vector_base.71" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.Eigen::Matrix.75" = type { %"class.Eigen::PlainObjectBase.76" }
+%"class.Eigen::PlainObjectBase.76" = type { %"class.Eigen::DenseStorage.83" }
+%"class.Eigen::DenseStorage.83" = type { %"struct.Eigen::internal::plain_array.84" }
+%"struct.Eigen::internal::plain_array.84" = type { [4 x float] }
+%"class.igl::opengl::MeshGL" = type <{ i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"struct.igl::opengl::MeshGL::TextGL", %"struct.igl::opengl::MeshGL::TextGL", %"struct.igl::opengl::MeshGL::TextGL", i32, i32, i32, i32, i32, [4 x i8], %"class.Eigen::Matrix.103", %"class.Eigen::Matrix.94", %"class.Eigen::Matrix.94", %"class.Eigen::Matrix.94", i32, [4 x i8] }>
+%"class.Eigen::Matrix.85" = type { %"class.Eigen::PlainObjectBase.86" }
+%"class.Eigen::PlainObjectBase.86" = type { %"class.Eigen::DenseStorage.93" }
+%"class.Eigen::DenseStorage.93" = type { ptr, i64, i64 }
+%"struct.igl::opengl::MeshGL::TextGL" = type { i32, i32, i32, i32, i32, i32, %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.85", %"class.Eigen::Matrix.94" }
+%"class.Eigen::Matrix.103" = type { %"class.Eigen::PlainObjectBase.104" }
+%"class.Eigen::PlainObjectBase.104" = type { %"class.Eigen::DenseStorage.111" }
+%"class.Eigen::DenseStorage.111" = type { ptr, i64 }
+%"class.Eigen::Matrix.94" = type { %"class.Eigen::PlainObjectBase.95" }
+%"class.Eigen::PlainObjectBase.95" = type { %"class.Eigen::DenseStorage.102" }
+%"class.Eigen::DenseStorage.102" = type { ptr, i64, i64 }
 
 $_ZNSt6vectorIN3igl6opengl10ViewerDataESaIS2_EEC2EmRKS3_ = comdat any
 
@@ -393,7 +393,7 @@ define dso_local noundef i32 @_ZN3igl6opengl4glfw6Viewer6launchEbRKNSt7__cxx1112
   %22 = phi ptr [ %32, %.lr.ph.i.i ], [ %21, %._crit_edge21.i ]
   %23 = phi i64 [ %30, %.lr.ph.i.i ], [ 0, %._crit_edge21.i ]
   %.04.i.i = phi i32 [ %29, %.lr.ph.i.i ], [ 0, %._crit_edge21.i ]
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = load ptr, ptr %25, align 8, !tbaa !18
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -478,7 +478,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN3igl6opengl4glfw6Viewer11launc
   %39 = load i64, ptr %38, align 16, !tbaa !64
   %sext.i = shl i64 %39, 32
   %40 = ashr exact i64 %sext.i, 32
-  %41 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %32, i64 %40
+  %41 = getelementptr inbounds nuw [544 x i8], ptr %32, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 216
   %43 = load float, ptr %42, align 4, !tbaa !65
   %44 = fcmp ogt float %43, 0.000000e+00
@@ -509,7 +509,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN3igl6opengl4glfw6Viewer11launc
   %60 = load i64, ptr %59, align 16, !tbaa !64
   %sext.i47 = shl i64 %60, 32
   %61 = ashr exact i64 %sext.i47, 32
-  %62 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %53, i64 %61
+  %62 = getelementptr inbounds nuw [544 x i8], ptr %53, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 220
   %64 = load float, ptr %63, align 4, !tbaa !65
   %65 = fcmp ogt float %64, 0.000000e+00
@@ -617,7 +617,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN3igl6opengl4glfw6Viewer11launc
   %130 = load i64, ptr %129, align 16, !tbaa !64
   %sext.i.i.i = shl i64 %130, 32
   %131 = ashr exact i64 %sext.i.i.i, 32
-  %132 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %121, i64 %131
+  %132 = getelementptr inbounds nuw [544 x i8], ptr %121, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 208
   store float 0.000000e+00, ptr %133, align 16
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %132, i64 212
@@ -646,7 +646,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN3igl6opengl4glfw6Viewer11launc
   %141 = phi ptr [ %151, %.lr.ph.i.i ], [ %138, %134 ]
   %142 = phi i64 [ %149, %.lr.ph.i.i ], [ 0, %134 ]
   %.014.i.i = phi i32 [ %148, %.lr.ph.i.i ], [ 0, %134 ]
-  %143 = getelementptr inbounds nuw ptr, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !16
   %145 = load ptr, ptr %144, align 8, !tbaa !18
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 88
@@ -716,7 +716,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEEEclES4_.exit.i: ; preds = %._crit_e
   %177 = phi ptr [ %187, %.lr.ph.i.i52 ], [ %176, %172 ]
   %178 = phi i64 [ %185, %.lr.ph.i.i52 ], [ 0, %172 ]
   %.04.i.i = phi i32 [ %184, %.lr.ph.i.i52 ], [ 0, %172 ]
-  %179 = getelementptr inbounds nuw ptr, ptr %177, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %178
   %180 = load ptr, ptr %179, align 8, !tbaa !16
   %181 = load ptr, ptr %180, align 8, !tbaa !18
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
@@ -799,7 +799,7 @@ _ZN3igl6opengl4glfw6Viewer4initEv.exit:           ; preds = %.lr.ph.i.i52, %_ZNK
 
 .lr.ph.i.i54:                                     ; preds = %221, %.lr.ph.preheader.i.i
   %.0710.i.i = phi i64 [ %222, %221 ], [ 0, %.lr.ph.preheader.i.i ]
-  %218 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i57, i64 %.0710.i.i
+  %218 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i57, i64 %.0710.i.i
   %219 = load i32, ptr %218, align 16, !tbaa !113
   %220 = icmp eq i32 %219, %206
   br i1 %220, label %_ZN3igl6opengl4glfw6Viewer4coreEj.exit, label %221
@@ -813,7 +813,7 @@ _ZN3igl6opengl4glfw6Viewer4coreEj.exit:           ; preds = %.lr.ph.i.i54, %221,
   %.0.in.i = phi i64 [ %211, %210 ], [ 0, %212 ], [ 0, %221 ], [ %.0710.i.i, %.lr.ph.i.i54 ]
   %sext.i55 = shl i64 %.0.in.i, 32
   %223 = ashr exact i64 %sext.i55, 32
-  %224 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i57, i64 %223
+  %224 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i57, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.058.068, i64 24
   call void @_ZN3igl6opengl10ViewerCore19align_camera_centerERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS3_IiLin1ELin1ELi0ELin1ELin1EEE(ptr noundef nonnull align 16 dereferenceable(544) %224, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.058.068, ptr noundef nonnull align 8 dereferenceable(24) %225)
   br label %226
@@ -853,7 +853,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer16launch_renderin
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !63
   %sext.i = shl i64 %13, 32
   %14 = ashr exact i64 %sext.i, 32
-  %15 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i, i64 %14
+  %15 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 181
   %17 = load i8, ptr %16, align 1, !tbaa !121, !range !122, !noundef !123
   %18 = trunc nuw i8 %17 to i1
@@ -882,7 +882,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer16launch_renderin
   %.pre.i17 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !63
   %sext.i18 = shl i64 %28, 32
   %29 = ashr exact i64 %sext.i18, 32
-  %30 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i17, i64 %29
+  %30 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i17, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load double, ptr %31, align 8, !tbaa !124
   %33 = fdiv double 1.000000e+06, %32
@@ -973,7 +973,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer11launch_shutEv(ptr noundef non
   %16 = phi ptr [ %26, %.lr.ph.i ], [ %15, %._crit_edge21 ]
   %17 = phi i64 [ %24, %.lr.ph.i ], [ 0, %._crit_edge21 ]
   %.04.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %._crit_edge21 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = load ptr, ptr %19, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -1053,7 +1053,7 @@ define dso_local noundef nonnull align 16 dereferenceable(544) ptr @_ZN3igl6open
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %.0710.i = phi i64 [ %20, %19 ], [ 0, %.lr.ph.preheader.i ]
-  %16 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %11, i64 %.0710.i
+  %16 = getelementptr inbounds nuw [544 x i8], ptr %11, i64 %.0710.i
   %17 = load i32, ptr %16, align 16, !tbaa !113
   %18 = icmp eq i32 %17, %1
   br i1 %18, label %_ZNK3igl6opengl4glfw6Viewer10core_indexEi.exit, label %19
@@ -1068,7 +1068,7 @@ _ZNK3igl6opengl4glfw6Viewer10core_indexEi.exit:   ; preds = %19, %.lr.ph.i, %7, 
   %.0.in = phi i64 [ %6, %4 ], [ 0, %7 ], [ 0, %19 ], [ %.0710.i, %.lr.ph.i ]
   %sext = shl i64 %.0.in, 32
   %22 = ashr exact i64 %sext, 32
-  %23 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [544 x i8], ptr %21, i64 %22
   ret ptr %23
 }
 
@@ -1130,7 +1130,7 @@ define internal void @_ZL17glfw_key_callbackP10GLFWwindowiiii(ptr noundef %0, i3
   %29 = phi ptr [ %23, %19 ], [ %18, %13 ]
   %30 = phi i64 [ %21, %19 ], [ 0, %13 ]
   %.0914.i = phi i32 [ %20, %19 ], [ 0, %13 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !16
   %33 = load ptr, ptr %32, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 136
@@ -1186,7 +1186,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit.i: ; preds = %._cr
   %61 = phi ptr [ %55, %51 ], [ %50, %45 ]
   %62 = phi i64 [ %53, %51 ], [ 0, %45 ]
   %.0914.i11 = phi i32 [ %52, %51 ], [ 0, %45 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !16
   %65 = load ptr, ptr %64, align 8, !tbaa !18
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 144
@@ -1264,7 +1264,7 @@ define internal void @_ZL16glfw_window_sizeP10GLFWwindowii(ptr readnone captures
   %27 = load i64, ptr %26, align 16, !tbaa !64
   %sext.i.i = shl i64 %27, 32
   %28 = ashr exact i64 %sext.i.i, 32
-  %29 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %18, i64 %28
+  %29 = getelementptr inbounds nuw [544 x i8], ptr %18, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 208
   store float 0.000000e+00, ptr %30, align 16
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 212
@@ -1293,7 +1293,7 @@ define internal void @_ZL16glfw_window_sizeP10GLFWwindowii(ptr readnone captures
   %38 = phi ptr [ %48, %.lr.ph.i ], [ %35, %31 ]
   %39 = phi i64 [ %46, %.lr.ph.i ], [ 0, %31 ]
   %.014.i = phi i32 [ %45, %.lr.ph.i ], [ 0, %31 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !16
   %42 = load ptr, ptr %41, align 8, !tbaa !18
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 88
@@ -1371,7 +1371,7 @@ define internal void @_ZL16glfw_mouse_pressP10GLFWwindowiii(ptr readnone capture
   %27 = phi ptr [ %21, %17 ], [ %16, %11 ]
   %28 = phi i64 [ %19, %17 ], [ 0, %11 ]
   %.0914.i = phi i32 [ %18, %17 ], [ 0, %11 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !16
   %31 = load ptr, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
@@ -1483,7 +1483,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEEEclES4_.exit: ; preds = %._crit_edg
   %18 = phi ptr [ %28, %.lr.ph.i ], [ %17, %13 ]
   %19 = phi i64 [ %26, %.lr.ph.i ], [ 0, %13 ]
   %.04.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %13 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %22 = load ptr, ptr %21, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -1594,7 +1594,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer4drawEv(ptr noundef nonnull ali
   %55 = load i64, ptr %54, align 16, !tbaa !64
   %sext.i.i = shl i64 %55, 32
   %56 = ashr exact i64 %sext.i.i, 32
-  %57 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %46, i64 %56
+  %57 = getelementptr inbounds nuw [544 x i8], ptr %46, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 208
   store float 0.000000e+00, ptr %58, align 16
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 212
@@ -1623,7 +1623,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer4drawEv(ptr noundef nonnull ali
   %66 = phi ptr [ %76, %.lr.ph.i ], [ %63, %59 ]
   %67 = phi i64 [ %74, %.lr.ph.i ], [ 0, %59 ]
   %.014.i = phi i32 [ %73, %.lr.ph.i ], [ 0, %59 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !16
   %70 = load ptr, ptr %69, align 8, !tbaa !18
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 88
@@ -1697,7 +1697,7 @@ _ZN3igl6opengl4glfw6Viewer11post_resizeEii.exit:  ; preds = %._crit_edge.i, %_ZN
   %105 = phi ptr [ %100, %96 ], [ %94, %.preheader74 ]
   %106 = phi i64 [ %98, %96 ], [ 0, %.preheader74 ]
   %.03681 = phi i32 [ %97, %96 ], [ 0, %.preheader74 ]
-  %107 = getelementptr inbounds nuw ptr, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !16
   %109 = load ptr, ptr %108, align 8, !tbaa !18
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 72
@@ -1836,7 +1836,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEEEclES4_.exit: ; preds = %.critedge
   %167 = phi ptr [ %161, %157 ], [ %146, %.preheader ]
   %168 = phi i64 [ %159, %157 ], [ 0, %.preheader ]
   %.0100 = phi i32 [ %158, %157 ], [ 0, %.preheader ]
-  %169 = getelementptr inbounds nuw ptr, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !16
   %171 = load ptr, ptr %170, align 8, !tbaa !18
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 80
@@ -1891,7 +1891,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer16shutdown_pluginsEv(ptr nounde
   %6 = phi ptr [ %16, %.lr.ph ], [ %5, %1 ]
   %7 = phi i64 [ %14, %.lr.ph ], [ 0, %1 ]
   %.04 = phi i32 [ %13, %.lr.ph ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = load ptr, ptr %9, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1929,7 +1929,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer12init_pluginsEv(ptr noundef no
   %6 = phi ptr [ %16, %.lr.ph ], [ %5, %1 ]
   %7 = phi i64 [ %14, %.lr.ph ], [ 0, %1 ]
   %.04 = phi i32 [ %13, %.lr.ph ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = load ptr, ptr %9, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -2073,7 +2073,7 @@ define dso_local void @_ZN3igl6opengl4glfw6ViewerC2Ev(ptr noundef nonnull align 
   %.pre.i10 = load ptr, ptr %6, align 8, !tbaa !151
   %sext.i = shl i64 %74, 32
   %75 = ashr exact i64 %sext.i, 32
-  %76 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i10, i64 %75
+  %76 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i10, i64 %75
   invoke void @_ZN3igl6opengl10ViewerData14set_face_basedEb(ptr noundef nonnull align 8 dereferenceable(1488) %76, i1 noundef zeroext false)
           to label %77 unwind label %185
 
@@ -2637,7 +2637,7 @@ _ZNSt12_Vector_baseIN3igl6opengl10ViewerDataESaIS2_EEC2EmRKS3_.exit: ; preds = %
   store ptr %8, ptr %0, align 8, !tbaa !151
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !176
-  %10 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw [1488 x i8], ptr %8, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !177
   br label %.lr.ph.i.i.i.i
@@ -2745,7 +2745,7 @@ define dso_local noundef nonnull align 8 dereferenceable(1488) ptr @_ZN3igl6open
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %.0710.i = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader.i ]
-  %16 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %11, i64 %.0710.i
+  %16 = getelementptr inbounds nuw [1488 x i8], ptr %11, i64 %.0710.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 672
   %18 = load i32, ptr %17, align 8, !tbaa !144
   %19 = icmp eq i32 %18, %1
@@ -2761,7 +2761,7 @@ _ZNK3igl6opengl4glfw6Viewer10mesh_indexEi.exit:   ; preds = %20, %.lr.ph.i, %7, 
   %.0.in = phi i64 [ %6, %4 ], [ 0, %7 ], [ 0, %20 ], [ %.0710.i, %.lr.ph.i ]
   %sext = shl i64 %.0.in, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [1488 x i8], ptr %22, i64 %23
   ret ptr %24
 }
 
@@ -3120,7 +3120,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer19load_mesh_from_
   %40 = phi ptr [ %25, %.lr.ph ], [ %33, %29 ]
   %41 = phi i64 [ 0, %.lr.ph ], [ %31, %29 ]
   %.054159 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !16
   store ptr %26, ptr %7, align 8, !tbaa !152
   %44 = load ptr, ptr %1, align 8, !tbaa !58
@@ -3200,7 +3200,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !151
   %sext.i = shl i64 %72, 32
   %73 = ashr exact i64 %sext.i, 32
-  %74 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i, i64 %73
+  %74 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %76 = load i64, ptr %75, align 8, !tbaa !182
   %77 = icmp eq i64 %76, 0
@@ -3259,7 +3259,7 @@ _ZNSt6vectorIN3igl6opengl10ViewerDataESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.
   %106 = phi ptr [ %112, %.lr.ph.i ], [ %105, %_ZNSt6vectorIN3igl6opengl10ViewerDataESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i ]
   %107 = load ptr, ptr %83, align 16, !tbaa !4
   %108 = getelementptr inbounds i8, ptr %107, i64 -1488
-  %109 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %106, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [544 x i8], ptr %106, i64 %indvars.iv.i
   %110 = load i32, ptr %109, align 16, !tbaa !113
   call void @_ZN3igl6opengl10ViewerData11set_visibleEbj(ptr noundef nonnull align 8 dereferenceable(1488) %108, i1 noundef zeroext true, i32 noundef %110)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3282,7 +3282,7 @@ _ZN3igl6opengl4glfw6Viewer11append_meshEb.exit:   ; preds = %_ZN3igl6opengl4glfw
   %118 = phi i64 [ %.pre, %_ZN3igl6opengl4glfw6Viewer11append_meshEb.exit.loopexit ], [ %97, %_ZNSt6vectorIN3igl6opengl10ViewerDataESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i ], [ %72, %78 ]
   %sext.i88 = shl i64 %118, 32
   %119 = ashr exact i64 %sext.i88, 32
-  %120 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i87, i64 %119
+  %120 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i87, i64 %119
   call void @_ZN3igl6opengl10ViewerData5clearEv(ptr noundef nonnull align 8 dereferenceable(1488) %120)
   %121 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 46, i64 noundef -1) #37
   %122 = icmp eq i64 %121, -1
@@ -3503,7 +3503,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97
   %.pre.i101 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !151
   %sext.i102 = shl i64 %204, 32
   %205 = ashr exact i64 %sext.i102, 32
-  %206 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i101, i64 %205
+  %206 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i101, i64 %205
   invoke void @_ZN3igl6opengl10ViewerData8set_meshERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS3_IiLin1ELin1ELi0ELin1ELin1EEE(ptr noundef nonnull align 8 dereferenceable(1488) %206, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %207 unwind label %195
 
@@ -3522,7 +3522,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97
   %.pre.i104 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !151
   %sext.i105 = shl i64 %213, 32
   %214 = ashr exact i64 %sext.i105, 32
-  %215 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i104, i64 %214
+  %215 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i104, i64 %214
   invoke void @_ZN3igl6opengl10ViewerData6set_uvERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS3_IiLin1ELin1ELi0ELin1ELin1EEE(ptr noundef nonnull align 8 dereferenceable(1488) %215, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %216 unwind label %195
 
@@ -3662,7 +3662,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   %.pre.i117 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !151
   %sext.i118 = shl i64 %262, 32
   %263 = ashr exact i64 %sext.i118, 32
-  %264 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i117, i64 %263
+  %264 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i117, i64 %263
   invoke void @_ZN3igl6opengl10ViewerData8set_meshERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS3_IiLin1ELin1ELi0ELin1ELin1EEE(ptr noundef nonnull align 8 dereferenceable(1488) %264, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %265 unwind label %253
 
@@ -3690,7 +3690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %25
   %.pre.i120 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !151
   %sext.i121 = shl i64 %271, 32
   %272 = ashr exact i64 %sext.i121, 32
-  %273 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i120, i64 %272
+  %273 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i120, i64 %272
   invoke void @_ZN3igl6opengl10ViewerData15compute_normalsEv(ptr noundef nonnull align 8 dereferenceable(1488) %273)
           to label %274 unwind label %193
 
@@ -3699,7 +3699,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %25
   %.pre.i123 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !151
   %sext.i124 = shl i64 %275, 32
   %276 = ashr exact i64 %sext.i124, 32
-  %277 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i123, i64 %276
+  %277 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i123, i64 %276
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store double 2.000000e-01, ptr %19, align 8, !tbaa !68
   %278 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -3749,12 +3749,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %25
 .lr.ph162:                                        ; preds = %284, %299
   %indvars.iv = phi i64 [ %indvars.iv.next, %299 ], [ 0, %284 ]
   %293 = phi ptr [ %301, %299 ], [ %288, %284 ]
-  %294 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %293, i64 %indvars.iv
+  %294 = getelementptr inbounds nuw [544 x i8], ptr %293, i64 %indvars.iv
   %295 = load i64, ptr %71, align 16, !tbaa !141
   %.pre.i126 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !151
   %sext.i127 = shl i64 %295, 32
   %296 = ashr exact i64 %sext.i127, 32
-  %297 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i126, i64 %296
+  %297 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i126, i64 %296
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 24
   invoke void @_ZN3igl6opengl10ViewerCore19align_camera_centerERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS3_IiLin1ELin1ELi0ELin1ELin1EEE(ptr noundef nonnull align 16 dereferenceable(544) %294, ptr noundef nonnull align 8 dereferenceable(24) %297, ptr noundef nonnull align 8 dereferenceable(24) %298)
           to label %299 unwind label %307
@@ -3791,7 +3791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %25
   %318 = phi ptr [ %313, %309 ], [ %290, %.preheader ]
   %319 = phi i64 [ %311, %309 ], [ 0, %.preheader ]
   %.0164 = phi i32 [ %310, %309 ], [ 0, %.preheader ]
-  %320 = getelementptr inbounds nuw ptr, ptr %318, i64 %319
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %319
   %321 = load ptr, ptr %320, align 8, !tbaa !16
   %322 = load ptr, ptr %321, align 8, !tbaa !18
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 64
@@ -3901,7 +3901,7 @@ _ZNSt6vectorIN3igl6opengl10ViewerDataESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit:
   %28 = phi ptr [ %34, %.lr.ph ], [ %27, %.preheader ]
   %29 = load ptr, ptr %4, align 16, !tbaa !4
   %30 = getelementptr inbounds i8, ptr %29, i64 -1488
-  %31 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %28, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [544 x i8], ptr %28, i64 %indvars.iv
   %32 = load i32, ptr %31, align 16, !tbaa !113
   tail call void @_ZN3igl6opengl10ViewerData11set_visibleEbj(ptr noundef nonnull align 8 dereferenceable(1488) %30, i1 noundef zeroext true, i32 noundef %32)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3990,7 +3990,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer17save_mesh_to_fi
   %33 = phi ptr [ %18, %.lr.ph ], [ %26, %22 ]
   %34 = phi i64 [ 0, %.lr.ph ], [ %24, %22 ]
   %.02790 = phi i32 [ 0, %.lr.ph ], [ %23, %22 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !16
   store ptr %19, ptr %7, align 8, !tbaa !152
   %37 = load ptr, ptr %1, align 8, !tbaa !58
@@ -4232,7 +4232,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !151
   %sext.i = shl i64 %130, 32
   %131 = ashr exact i64 %sext.i, 32
-  %132 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i, i64 %131
+  %132 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %134 = invoke noundef zeroext i1 @_ZN3igl8writeOFFIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEEEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_10MatrixBaseIT_EERKNSB_IT0_EE(ptr noundef nonnull %9, ptr noundef nonnull align 1 dereferenceable(1) %132, ptr noundef nonnull align 1 dereferenceable(1) %133)
           to label %135 unwind label %142
@@ -4334,7 +4334,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   %.pre.i63 = load ptr, ptr %.phi.trans.insert.i62, align 8, !tbaa !151
   %sext.i64 = shl i64 %166, 32
   %167 = ashr exact i64 %sext.i64, 32
-  %168 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i63, i64 %167
+  %168 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i63, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %170 = invoke noundef zeroext i1 @_ZN3igl8writeOBJIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_S4_S3_S4_EEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_10MatrixBaseIT_EERKNSB_IT0_EERKNSB_IT1_EERKNSB_IT2_EERKNSB_IT3_EERKNSB_IT4_EE(ptr noundef nonnull %14, ptr noundef nonnull align 1 dereferenceable(1) %168, ptr noundef nonnull align 1 dereferenceable(1) %169, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %171 unwind label %182
@@ -4477,7 +4477,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer11key_pressedEji(
   %22 = phi ptr [ %16, %12 ], [ %11, %3 ]
   %23 = phi i64 [ %14, %12 ], [ 0, %3 ]
   %.012111 = phi i32 [ %13, %12 ], [ 0, %3 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = load ptr, ptr %25, align 8, !tbaa !18
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
@@ -4540,7 +4540,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !63
   %sext.i = shl i64 %39, 32
   %40 = ashr exact i64 %sext.i, 32
-  %41 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i, i64 %40
+  %41 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 181
   %43 = load i8, ptr %42, align 1, !tbaa !121, !range !122, !noundef !123
   %44 = xor i8 %43, 1
@@ -4554,7 +4554,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   %.pre.i21 = load ptr, ptr %.phi.trans.insert.i20, align 8, !tbaa !151
   %sext.i22 = shl i64 %47, 32
   %48 = ashr exact i64 %sext.i22, 32
-  %49 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i21, i64 %48
+  %49 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i21, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 581
   %51 = load i8, ptr %50, align 1, !tbaa !197, !range !122, !noundef !123
   %52 = xor i8 %51, 1
@@ -4568,7 +4568,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   %.pre.i27 = load ptr, ptr %.phi.trans.insert.i26, align 8, !tbaa !151
   %sext.i28 = shl i64 %55, 32
   %56 = ashr exact i64 %sext.i28, 32
-  %57 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i27, i64 %56
+  %57 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i27, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 580
   %59 = load i8, ptr %58, align 4, !tbaa !198, !range !122, !noundef !123
   %60 = trunc nuw i8 %59 to i1
@@ -4583,7 +4583,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   %.pre.i33 = load ptr, ptr %.phi.trans.insert.i32, align 8, !tbaa !151
   %sext.i34 = shl i64 %64, 32
   %65 = ashr exact i64 %sext.i34, 32
-  %66 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i33, i64 %65
+  %66 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i33, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 576
   %68 = load i32, ptr %67, align 8, !tbaa !199
   %69 = or i32 %68, 4
@@ -4601,14 +4601,14 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   %.pre.i42 = load ptr, ptr %.phi.trans.insert.i41, align 8, !tbaa !63
   %sext.i43 = shl i64 %75, 32
   %76 = ashr exact i64 %sext.i43, 32
-  %77 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i42, i64 %76
+  %77 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i42, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %79 = load i64, ptr %78, align 16, !tbaa !141
   %.phi.trans.insert.i44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i45 = load ptr, ptr %.phi.trans.insert.i44, align 8, !tbaa !151
   %sext.i46 = shl i64 %79, 32
   %80 = ashr exact i64 %sext.i46, 32
-  %81 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i45, i64 %80
+  %81 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i45, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 600
   call void @_ZNK3igl6opengl10ViewerCore6toggleERj(ptr noundef nonnull align 16 dereferenceable(544) %77, ptr noundef nonnull align 4 dereferenceable(4) %82)
   br label %.loopexit
@@ -4620,7 +4620,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   %.pre.i48 = load ptr, ptr %.phi.trans.insert.i47, align 8, !tbaa !63
   %sext.i49 = shl i64 %85, 32
   %86 = ashr exact i64 %sext.i49, 32
-  %87 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i48, i64 %86
+  %87 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i48, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 104
   %89 = load i8, ptr %88, align 8, !tbaa !201, !range !122, !noundef !123
   %90 = xor i8 %89, 1
@@ -4634,7 +4634,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   %.pre.i54 = load ptr, ptr %.phi.trans.insert.i53, align 8, !tbaa !63
   %sext.i55 = shl i64 %93, 32
   %94 = ashr exact i64 %sext.i55, 32
-  %95 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i54, i64 %94
+  %95 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i54, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 44
   %97 = load i8, ptr %96, align 4, !tbaa !202, !range !122, !noundef !123
   %98 = trunc nuw i8 %97 to i1
@@ -4685,14 +4685,14 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   %.pre.i84 = load ptr, ptr %.phi.trans.insert.i83, align 8, !tbaa !63
   %sext.i85 = shl i64 %124, 32
   %125 = ashr exact i64 %sext.i85, 32
-  %126 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i84, i64 %125
+  %126 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i84, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %128 = load i64, ptr %127, align 16, !tbaa !141
   %.phi.trans.insert.i86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i87 = load ptr, ptr %.phi.trans.insert.i86, align 8, !tbaa !151
   %sext.i88 = shl i64 %128, 32
   %129 = ashr exact i64 %sext.i88, 32
-  %130 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i87, i64 %129
+  %130 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i87, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 596
   call void @_ZNK3igl6opengl10ViewerCore6toggleERj(ptr noundef nonnull align 16 dereferenceable(544) %126, ptr noundef nonnull align 4 dereferenceable(4) %131)
   br label %.loopexit
@@ -4708,7 +4708,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   %.pre.i90 = load ptr, ptr %.phi.trans.insert.i89, align 8, !tbaa !63
   %sext.i91 = shl i64 %135, 32
   %136 = ashr exact i64 %sext.i91, 32
-  %137 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i90, i64 %136
+  %137 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i90, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 72
   %139 = load i32, ptr %138, align 8, !tbaa !203
   %140 = icmp eq i32 %139, 0
@@ -4773,7 +4773,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   %.pre.i99 = load ptr, ptr %.phi.trans.insert.i98, align 8, !tbaa !151
   %sext.i100 = shl i64 %177, 32
   %178 = ashr exact i64 %sext.i100, 32
-  %179 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i99, i64 %178
+  %179 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i99, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 616
   %181 = load i32, ptr %180, align 8, !tbaa !205
   %.not15 = icmp eq i32 %181, 0
@@ -4788,7 +4788,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEjiEEclES4_ji.exit: ; preds = %._crit
   %.pre.i105 = load ptr, ptr %.phi.trans.insert.i104, align 8, !tbaa !151
   %sext.i106 = shl i64 %185, 32
   %186 = ashr exact i64 %sext.i106, 32
-  %187 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i105, i64 %186
+  %187 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i105, i64 %186
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 592
   %189 = load i32, ptr %188, align 8, !tbaa !206
   %.not = icmp eq i32 %189, 0
@@ -4813,7 +4813,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer28snap_to_canonical_quaternionE
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !63
   %sext.i = shl i64 %4, 32
   %5 = ashr exact i64 %sext.i, 32
-  %6 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i, i64 %5
+  %6 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !146
   %8 = call noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_quatIffEEbRKN5Eigen10QuaternionIT_Li0EEEdRNS2_IT0_Li0EEE(ptr noundef nonnull align 16 dereferenceable(16) %2, double noundef 1.000000e+00, ptr noundef nonnull align 16 dereferenceable(16) %7)
@@ -4850,7 +4850,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer8key_downEii(ptr 
   %20 = phi ptr [ %14, %10 ], [ %9, %3 ]
   %21 = phi i64 [ %12, %10 ], [ 0, %3 ]
   %.0914 = phi i32 [ %11, %10 ], [ 0, %3 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = load ptr, ptr %23, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
@@ -4912,7 +4912,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer6key_upEii(ptr no
   %20 = phi ptr [ %14, %10 ], [ %9, %3 ]
   %21 = phi i64 [ %12, %10 ], [ 0, %3 ]
   %.0914 = phi i32 [ %11, %10 ], [ 0, %3 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = load ptr, ptr %23, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 144
@@ -4980,7 +4980,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer19select_hovered_coreEv(ptr nou
 
 22:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %23 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %9, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [544 x i8], ptr %9, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 208
   %.sroa.0.0.copyload = load float, ptr %24, align 16
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 216
@@ -5058,7 +5058,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer10mouse_downENS2_
   %31 = phi ptr [ %25, %21 ], [ %20, %3 ]
   %32 = phi i64 [ %23, %21 ], [ 0, %3 ]
   %.01062 = phi i32 [ %22, %21 ], [ 0, %3 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !16
   %35 = load ptr, ptr %34, align 8, !tbaa !18
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
@@ -5115,7 +5115,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEiiEEclES4_ii.exit: ; preds = %._crit
 
 63:                                               ; preds = %74, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %74 ]
-  %64 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %52, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [544 x i8], ptr %52, i64 %indvars.iv.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 208
   %.sroa.0.0.copyload.i = load float, ptr %65, align 16
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %64, i64 216
@@ -5154,7 +5154,7 @@ _ZN3igl6opengl4glfw6Viewer19select_hovered_coreEv.exit: ; preds = %74, %45, %.cr
   %76 = load i64, ptr %75, align 16, !tbaa !64
   %sext.i = shl i64 %76, 32
   %77 = ashr exact i64 %sext.i, 32
-  %78 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %52, i64 %77
+  %78 = getelementptr inbounds nuw [544 x i8], ptr %52, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 120
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %81 = load float, ptr %79, align 4, !tbaa !65
@@ -5177,7 +5177,7 @@ _ZN3igl6opengl4glfw6Viewer19select_hovered_coreEv.exit: ; preds = %74, %45, %.cr
   %.pre.i15 = load ptr, ptr %.phi.trans.insert.i14, align 8, !tbaa !151
   %sext.i16 = shl i64 %91, 32
   %92 = ashr exact i64 %sext.i16, 32
-  %93 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i15, i64 %92
+  %93 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i15, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load i64, ptr %94, align 8, !tbaa !183
   %96 = icmp sgt i64 %95, 0
@@ -5201,7 +5201,7 @@ _ZN3igl6opengl4glfw6Viewer19select_hovered_coreEv.exit: ; preds = %74, %45, %.cr
 .lr.ph.split.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEEEENS2_INS_13CwiseBinaryOpINS0_18scalar_quotient_opIddEEKNS_16PartialReduxExprINS4_IdLin1ELin1ELi0ELin1ELin1EEENS0_10member_sumIddEELi0EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS4_IdLi1ELin1ELi1ELi1ELin1EEEEEEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.split.preheader.i.i.i.i.i.i.i.i.i.i
   %.010.i.i.i.i.i.i.i.i.i.i = phi i64 [ %162, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEEEENS2_INS_13CwiseBinaryOpINS0_18scalar_quotient_opIddEEKNS_16PartialReduxExprINS4_IdLin1ELin1ELi0ELin1ELin1EEENS0_10member_sumIddEELi0EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS4_IdLi1ELin1ELi1ELi1ELin1EEEEEEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.split.preheader.i.i.i.i.i.i.i.i.i.i ]
   %105 = mul nuw nsw i64 %.010.i.i.i.i.i.i.i.i.i.i, %95
-  %106 = getelementptr inbounds nuw double, ptr %102, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %105
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %107, label %_ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 107:                                              ; preds = %.lr.ph.split.i.i.i.i.i.i.i.i.i.i
@@ -5225,7 +5225,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %154, label %119
 
 119:                                              ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %120 = getelementptr double, ptr %106, i64 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %120 = getelementptr [8 x i8], ptr %106, i64 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %121 = load <2 x double>, ptr %120, align 1, !tbaa !70
   %122 = icmp sgt i64 %112, 3
   br i1 %122, label %123, label %141
@@ -5252,10 +5252,10 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   %.054.in81.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.05482.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.17480.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %131, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %121, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.07679.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %135, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %125, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %129 = getelementptr inbounds nuw double, ptr %106, i64 %.05482.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %.05482.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %130 = load <2 x double>, ptr %129, align 1, !tbaa !70
   %131 = fadd <2 x double> %.17480.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %130
-  %132 = getelementptr double, ptr %106, i64 %.054.in81.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %132 = getelementptr [8 x i8], ptr %106, i64 %.054.in81.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %133 = getelementptr i8, ptr %132, i64 48
   %134 = load <2 x double>, ptr %133, align 1, !tbaa !70
   %135 = fadd <2 x double> %.07679.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %134
@@ -5264,7 +5264,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   br i1 %136, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !217
 
 137:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %138 = getelementptr inbounds double, ptr %106, i64 %117
+  %138 = getelementptr inbounds [8 x i8], ptr %106, i64 %117
   %139 = load <2 x double>, ptr %138, align 1, !tbaa !70
   %140 = fadd <2 x double> %127, %139
   br label %141
@@ -5285,7 +5285,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
 .lr.ph87.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %141, %.lr.ph87.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.05385.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %148, %.lr.ph87.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %141 ]
   %.07284.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %147, %.lr.ph87.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %142, %141 ]
-  %145 = getelementptr inbounds nuw double, ptr %106, i64 %.05385.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %.05385.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %146 = load double, ptr %145, align 8, !tbaa !68
   %147 = fadd double %.07284.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %146
   %148 = add nuw nsw i64 %.05385.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -5295,7 +5295,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
 .lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.05290.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %152, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %118, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.189.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %151, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %149 = getelementptr inbounds double, ptr %106, i64 %.05290.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %149 = getelementptr inbounds [8 x i8], ptr %106, i64 %.05290.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %150 = load double, ptr %149, align 8, !tbaa !68
   %151 = fadd double %.189.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %150
   %152 = add nsw i64 %.05290.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -5309,7 +5309,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
 .lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %154, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.094.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %159, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 1, %154 ]
   %.393.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %158, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %155, %154 ]
-  %156 = getelementptr inbounds nuw double, ptr %106, i64 %.094.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %.094.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %157 = load double, ptr %156, align 8, !tbaa !68
   %158 = fadd double %.393.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %157
   %159 = add nuw nsw i64 %.094.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -5318,7 +5318,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEEEENS2_INS_13CwiseBinaryOpINS0_18scalar_quotient_opIddEEKNS_16PartialReduxExprINS4_IdLin1ELin1ELi0ELin1ELin1EEENS0_10member_sumIddEELi0EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS4_IdLi1ELin1ELi1ELi1ELin1EEEEEEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %154, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %158, %.lr.ph96.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %155, %154 ], [ %151, %.lr.ph91.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %160 = getelementptr inbounds nuw double, ptr %8, i64 %.010.i.i.i.i.i.i.i.i.i.i
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.010.i.i.i.i.i.i.i.i.i.i
   %161 = fdiv double %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %99
   store double %161, ptr %160, align 8, !tbaa !68
   %162 = add nuw nsw i64 %.010.i.i.i.i.i.i.i.i.i.i, 1
@@ -5358,7 +5358,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEaSINS_13CwiseBin
   %.pre.i36 = load ptr, ptr %49, align 8, !tbaa !63
   %sext.i37 = shl i64 %177, 32
   %178 = ashr exact i64 %sext.i37, 32
-  %179 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i36, i64 %178
+  %179 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i36, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 80
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %182 = load <4 x float>, ptr %180, align 16, !tbaa !70
@@ -5420,7 +5420,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer8mouse_upENS2_11M
   %21 = phi ptr [ %15, %11 ], [ %10, %3 ]
   %22 = phi i64 [ %13, %11 ], [ 0, %3 ]
   %.0914 = phi i32 [ %12, %11 ], [ 0, %3 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !16
   %25 = load ptr, ptr %24, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 104
@@ -5506,7 +5506,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer10mouse_moveEii(p
   %35 = phi ptr [ %29, %25 ], [ %24, %18 ]
   %36 = phi i64 [ %27, %25 ], [ 0, %18 ]
   %.025125 = phi i32 [ %26, %25 ], [ 0, %18 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !16
   %39 = load ptr, ptr %38, align 8, !tbaa !18
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 112
@@ -5564,7 +5564,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEiiEEclES4_ii.exit: ; preds = %._crit
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !63
   %sext.i = shl i64 %59, 32
   %60 = ashr exact i64 %sext.i, 32
-  %61 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i, i64 %60
+  %61 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 72
   %63 = load i32, ptr %62, align 8, !tbaa !203
   switch i32 %63, label %210 [
@@ -5654,7 +5654,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEiiEEclES4_ii.exit: ; preds = %._crit
   %.pre.i84 = load ptr, ptr %.phi.trans.insert.i83, align 8, !tbaa !63
   %sext.i85 = shl i64 %133, 32
   %134 = ashr exact i64 %sext.i85, 32
-  %135 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i84, i64 %134
+  %135 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i84, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 208
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 220
   %138 = load float, ptr %137, align 4, !tbaa !65
@@ -5680,7 +5680,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEiiEEclES4_ii.exit: ; preds = %._crit
   %.pre.i96 = load ptr, ptr %.phi.trans.insert.i83, align 8, !tbaa !63
   %sext.i97 = shl i64 %150, 32
   %151 = ashr exact i64 %sext.i97, 32
-  %152 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i96, i64 %151
+  %152 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i96, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 208
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 220
   %155 = load float, ptr %154, align 4, !tbaa !65
@@ -5716,7 +5716,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEiiEEclES4_ii.exit: ; preds = %._crit
   %.pre.i108 = load ptr, ptr %.phi.trans.insert.i83, align 8, !tbaa !63
   %sext.i109 = shl i64 %179, 32
   %180 = ashr exact i64 %sext.i109, 32
-  %181 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i108, i64 %180
+  %181 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i108, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 120
   %183 = load float, ptr %178, align 4, !tbaa !65
   %184 = fadd float %167, %183
@@ -5752,7 +5752,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEiiEEclES4_ii.exit: ; preds = %._crit
   %.pre.i111 = load ptr, ptr %.phi.trans.insert.i110, align 8, !tbaa !63
   %sext.i112 = shl i64 %204, 32
   %205 = ashr exact i64 %sext.i112, 32
-  %206 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i111, i64 %205
+  %206 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i111, i64 %205
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 100
   %208 = load float, ptr %207, align 4, !tbaa !224
   %209 = fmul float %208, %202
@@ -5816,7 +5816,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer12mouse_scrollEf(
 
 28:                                               ; preds = %39, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
-  %29 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %15, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [544 x i8], ptr %15, i64 %indvars.iv.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 208
   %.sroa.0.0.copyload.i = load float, ptr %30, align 16
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 216
@@ -5881,7 +5881,7 @@ _ZN3igl6opengl4glfw6Viewer19select_hovered_coreEv.exit: ; preds = %39, %9, %.cri
   %58 = phi ptr [ %52, %48 ], [ %47, %40 ]
   %59 = phi i64 [ %50, %48 ], [ 0, %40 ]
   %.01225 = phi i32 [ %49, %48 ], [ 0, %40 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !16
   %62 = load ptr, ptr %61, align 8, !tbaa !18
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 120
@@ -5920,7 +5920,7 @@ _ZNKSt8functionIFbRN3igl6opengl4glfw6ViewerEfEEclES4_f.exit: ; preds = %._crit_e
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !63
   %sext.i = shl i64 %78, 32
   %79 = ashr exact i64 %sext.i, 32
-  %80 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i, i64 %79
+  %80 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 100
   %82 = load float, ptr %81, align 4, !tbaa !224
   %83 = fmul float %76, %82
@@ -6069,7 +6069,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer10load_sceneENSt7
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !63
   %sext.i = shl i64 %9, 32
   %10 = ashr exact i64 %sext.i, 32
-  %11 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i, i64 %10
+  %11 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %12, ptr %4, align 8, !tbaa !152
@@ -6167,7 +6167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   %.pre.i22 = load ptr, ptr %.phi.trans.insert.i21, align 8, !tbaa !151
   %sext.i23 = shl i64 %44, 32
   %45 = ashr exact i64 %sext.i23, 32
-  %46 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i22, i64 %45
+  %46 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i22, i64 %45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %47, ptr %6, align 8, !tbaa !152
@@ -6918,7 +6918,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer10save_sceneENSt7
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !63
   %sext.i = shl i64 %9, 32
   %10 = ashr exact i64 %sext.i, 32
-  %11 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i, i64 %10
+  %11 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %12, ptr %4, align 8, !tbaa !152
@@ -7016,7 +7016,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   %.pre.i22 = load ptr, ptr %.phi.trans.insert.i21, align 8, !tbaa !151
   %sext.i23 = shl i64 %44, 32
   %45 = ashr exact i64 %sext.i23, 32
-  %46 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %.pre.i22, i64 %45
+  %46 = getelementptr inbounds nuw [1488 x i8], ptr %.pre.i22, i64 %45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %47, ptr %6, align 8, !tbaa !152
@@ -7517,7 +7517,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer11post_resizeEii(ptr noundef no
   %18 = load i64, ptr %17, align 16, !tbaa !64
   %sext.i = shl i64 %18, 32
   %19 = ashr exact i64 %sext.i, 32
-  %20 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [544 x i8], ptr %9, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 208
   store float 0.000000e+00, ptr %21, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 212
@@ -7546,7 +7546,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer11post_resizeEii(ptr noundef no
   %29 = phi ptr [ %39, %.lr.ph ], [ %26, %22 ]
   %30 = phi i64 [ %37, %.lr.ph ], [ 0, %22 ]
   %.014 = phi i32 [ %36, %.lr.ph ], [ 0, %22 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !16
   %33 = load ptr, ptr %32, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 88
@@ -7629,7 +7629,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer6resizeEii(ptr noundef nonnull 
   %30 = load i64, ptr %29, align 16, !tbaa !64
   %sext.i.i = shl i64 %30, 32
   %31 = ashr exact i64 %sext.i.i, 32
-  %32 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %21, i64 %31
+  %32 = getelementptr inbounds nuw [544 x i8], ptr %21, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 208
   store float 0.000000e+00, ptr %33, align 16
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 212
@@ -7658,7 +7658,7 @@ define dso_local void @_ZN3igl6opengl4glfw6Viewer6resizeEii(ptr noundef nonnull 
   %41 = phi ptr [ %51, %.lr.ph.i ], [ %38, %34 ]
   %42 = phi i64 [ %49, %.lr.ph.i ], [ 0, %34 ]
   %.014.i = phi i32 [ %48, %.lr.ph.i ], [ 0, %34 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !16
   %45 = load ptr, ptr %44, align 8, !tbaa !18
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 88
@@ -7992,7 +7992,7 @@ define dso_local noundef range(i64 0, -1) i64 @_ZNK3igl6opengl4glfw6Viewer10mesh
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %.0710 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %6, i64 %.0710
+  %11 = getelementptr inbounds nuw [1488 x i8], ptr %6, i64 %.0710
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 672
   %13 = load i32, ptr %12, align 8, !tbaa !144
   %14 = icmp eq i32 %13, %1
@@ -8037,7 +8037,7 @@ define dso_local noundef nonnull align 8 dereferenceable(1488) ptr @_ZNK3igl6ope
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %.0710.i = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader.i ]
-  %16 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %11, i64 %.0710.i
+  %16 = getelementptr inbounds nuw [1488 x i8], ptr %11, i64 %.0710.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 672
   %18 = load i32, ptr %17, align 8, !tbaa !144
   %19 = icmp eq i32 %18, %1
@@ -8053,7 +8053,7 @@ _ZNK3igl6opengl4glfw6Viewer10mesh_indexEi.exit:   ; preds = %20, %.lr.ph.i, %7, 
   %.0.in = phi i64 [ %6, %4 ], [ 0, %7 ], [ 0, %20 ], [ %.0710.i, %.lr.ph.i ]
   %sext = shl i64 %.0.in, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [1488 x i8], ptr %22, i64 %23
   ret ptr %24
 }
 
@@ -8072,11 +8072,11 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer10erase_meshEm(pt
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %6, i64 %1
+  %12 = getelementptr inbounds nuw [1488 x i8], ptr %6, i64 %1
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 680
   tail call void @_ZN3igl6opengl6MeshGL4freeEv(ptr noundef nonnull align 8 dereferenceable(804) %13)
   %14 = load ptr, ptr %3, align 8, !tbaa !4
-  %15 = getelementptr inbounds %"class.igl::opengl::ViewerData", ptr %14, i64 %1
+  %15 = getelementptr inbounds [1488 x i8], ptr %14, i64 %1
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1488
   %17 = load ptr, ptr %4, align 16, !tbaa !4
   %.not.i.i = icmp eq ptr %16, %17
@@ -8147,7 +8147,7 @@ define dso_local noundef range(i64 0, -1) i64 @_ZNK3igl6opengl4glfw6Viewer10core
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %.0710 = phi i64 [ %15, %14 ], [ 0, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %6, i64 %.0710
+  %11 = getelementptr inbounds nuw [544 x i8], ptr %6, i64 %.0710
   %12 = load i32, ptr %11, align 16, !tbaa !113
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %._crit_edge, label %14
@@ -8191,7 +8191,7 @@ define dso_local noundef nonnull align 16 dereferenceable(544) ptr @_ZNK3igl6ope
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %.0710.i = phi i64 [ %20, %19 ], [ 0, %.lr.ph.preheader.i ]
-  %16 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %11, i64 %.0710.i
+  %16 = getelementptr inbounds nuw [544 x i8], ptr %11, i64 %.0710.i
   %17 = load i32, ptr %16, align 16, !tbaa !113
   %18 = icmp eq i32 %17, %1
   br i1 %18, label %_ZNK3igl6opengl4glfw6Viewer10core_indexEi.exit, label %19
@@ -8206,7 +8206,7 @@ _ZNK3igl6opengl4glfw6Viewer10core_indexEi.exit:   ; preds = %19, %.lr.ph.i, %7, 
   %.0.in = phi i64 [ %6, %4 ], [ 0, %7 ], [ 0, %19 ], [ %.0710.i, %.lr.ph.i ]
   %sext = shl i64 %.0.in, 32
   %22 = ashr exact i64 %sext, 32
-  %23 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [544 x i8], ptr %21, i64 %22
   ret ptr %23
 }
 
@@ -8223,10 +8223,10 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw6Viewer10erase_coreEm(pt
   br i1 %10, label %11, label %68
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %6, i64 %1
+  %12 = getelementptr inbounds nuw [544 x i8], ptr %6, i64 %1
   tail call void @_ZN3igl6opengl10ViewerCore4shutEv(ptr noundef nonnull align 16 dereferenceable(544) %12)
   %13 = load ptr, ptr %3, align 8, !tbaa !9
-  %14 = getelementptr inbounds %"class.igl::opengl::ViewerCore", ptr %13, i64 %1
+  %14 = getelementptr inbounds [544 x i8], ptr %13, i64 %1
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 544
   %16 = load ptr, ptr %4, align 16, !tbaa !9
   %.not.i.i = icmp eq ptr %15, %16
@@ -8338,7 +8338,7 @@ define dso_local noundef i32 @_ZN3igl6opengl4glfw6Viewer11append_coreEN5Eigen6Ma
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !63
   %sext.i = shl i64 %6, 32
   %7 = ashr exact i64 %sext.i, 32
-  %8 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i, i64 %7
+  %8 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 16, !tbaa !62
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8442,7 +8442,7 @@ _ZNSt6vectorIN3igl6opengl10ViewerCoreESaIS2_EE9push_backERKS2_.exit: ; preds = %
   %.pre.i6 = load ptr, ptr %4, align 8, !tbaa !63
   %sext.i7 = shl i64 %68, 32
   %69 = ashr exact i64 %sext.i7, 32
-  %70 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %.pre.i6, i64 %69
+  %70 = getelementptr inbounds nuw [544 x i8], ptr %.pre.i6, i64 %69
   %71 = load ptr, ptr %9, align 16, !tbaa !9
   %72 = getelementptr inbounds i8, ptr %71, i64 -544
   tail call void @_ZN3igl6opengl10ViewerData12copy_optionsERKNS0_10ViewerCoreES4_(ptr noundef nonnull align 8 dereferenceable(1488) %.sroa.08.012, ptr noundef nonnull align 16 dereferenceable(544) %70, ptr noundef nonnull align 16 dereferenceable(544) %72)
@@ -9450,15 +9450,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %14
   %indvars.iv202 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next203, %._crit_edge.us ]
   %.097191.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next198, %._crit_edge.us ]
   %176 = mul nsw i64 %163, %indvars.iv202
-  %invariant.gep.us = getelementptr double, ptr %162, i64 %176
+  %invariant.gep.us = getelementptr [8 x i8], ptr %162, i64 %176
   %177 = mul nsw i64 %166, %indvars.iv202
-  %invariant.gep183.us = getelementptr double, ptr %164, i64 %177
+  %invariant.gep183.us = getelementptr [8 x i8], ptr %164, i64 %177
   %178 = mul nsw i64 %169, %indvars.iv202
-  %invariant.gep185.us = getelementptr double, ptr %167, i64 %178
+  %invariant.gep185.us = getelementptr [8 x i8], ptr %167, i64 %178
   %179 = mul nsw i64 %172, %indvars.iv202
-  %invariant.gep187.us = getelementptr double, ptr %170, i64 %179
+  %invariant.gep187.us = getelementptr [8 x i8], ptr %170, i64 %179
   %180 = mul nsw i64 %175, %indvars.iv202
-  %invariant.gep189.us = getelementptr double, ptr %173, i64 %180
+  %invariant.gep189.us = getelementptr [8 x i8], ptr %173, i64 %180
   %sext = shl i64 %.097191.us, 32
   %181 = ashr exact i64 %sext, 32
   br label %182
@@ -9470,27 +9470,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %14
   %183 = getelementptr inbounds i8, ptr %157, i64 %.idx
   %184 = load float, ptr %183, align 4, !tbaa !65
   %185 = fpext float %184 to double
-  %gep.us = getelementptr double, ptr %invariant.gep.us, i64 %indvars.iv
+  %gep.us = getelementptr [8 x i8], ptr %invariant.gep.us, i64 %indvars.iv
   store double %185, ptr %gep.us, align 8, !tbaa !68
   %186 = getelementptr i8, ptr %183, i64 4
   %187 = load float, ptr %186, align 4, !tbaa !65
   %188 = fpext float %187 to double
-  %gep184.us = getelementptr double, ptr %invariant.gep183.us, i64 %indvars.iv
+  %gep184.us = getelementptr [8 x i8], ptr %invariant.gep183.us, i64 %indvars.iv
   store double %188, ptr %gep184.us, align 8, !tbaa !68
   %189 = getelementptr i8, ptr %183, i64 8
   %190 = load float, ptr %189, align 4, !tbaa !65
   %191 = fpext float %190 to double
-  %gep186.us = getelementptr double, ptr %invariant.gep185.us, i64 %indvars.iv
+  %gep186.us = getelementptr [8 x i8], ptr %invariant.gep185.us, i64 %indvars.iv
   store double %191, ptr %gep186.us, align 8, !tbaa !68
   %192 = getelementptr i8, ptr %183, i64 12
   %193 = load float, ptr %192, align 4, !tbaa !65
   %194 = fpext float %193 to double
-  %gep188.us = getelementptr double, ptr %invariant.gep187.us, i64 %indvars.iv
+  %gep188.us = getelementptr [8 x i8], ptr %invariant.gep187.us, i64 %indvars.iv
   store double %194, ptr %gep188.us, align 8, !tbaa !68
-  %195 = getelementptr inbounds float, ptr %159, i64 %indvars.iv197
+  %195 = getelementptr inbounds [4 x i8], ptr %159, i64 %indvars.iv197
   %196 = load float, ptr %195, align 4, !tbaa !65
   %197 = fpext float %196 to double
-  %gep190.us = getelementptr double, ptr %invariant.gep189.us, i64 %indvars.iv
+  %gep190.us = getelementptr [8 x i8], ptr %invariant.gep189.us, i64 %indvars.iv
   store double %197, ptr %gep190.us, align 8, !tbaa !68
   %indvars.iv.next198 = add nsw i64 %indvars.iv197, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9901,15 +9901,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %14
   %indvars.iv202 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next203, %._crit_edge.us ]
   %.097191.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next198, %._crit_edge.us ]
   %176 = mul nsw i64 %163, %indvars.iv202
-  %invariant.gep.us = getelementptr float, ptr %162, i64 %176
+  %invariant.gep.us = getelementptr [4 x i8], ptr %162, i64 %176
   %177 = mul nsw i64 %166, %indvars.iv202
-  %invariant.gep183.us = getelementptr float, ptr %164, i64 %177
+  %invariant.gep183.us = getelementptr [4 x i8], ptr %164, i64 %177
   %178 = mul nsw i64 %169, %indvars.iv202
-  %invariant.gep185.us = getelementptr float, ptr %167, i64 %178
+  %invariant.gep185.us = getelementptr [4 x i8], ptr %167, i64 %178
   %179 = mul nsw i64 %172, %indvars.iv202
-  %invariant.gep187.us = getelementptr float, ptr %170, i64 %179
+  %invariant.gep187.us = getelementptr [4 x i8], ptr %170, i64 %179
   %180 = mul nsw i64 %175, %indvars.iv202
-  %invariant.gep189.us = getelementptr float, ptr %173, i64 %180
+  %invariant.gep189.us = getelementptr [4 x i8], ptr %173, i64 %180
   %sext = shl i64 %.097191.us, 32
   %181 = ashr exact i64 %sext, 32
   br label %182
@@ -9920,23 +9920,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %14
   %.idx = shl nsw i64 %indvars.iv197, 4
   %183 = getelementptr inbounds i8, ptr %157, i64 %.idx
   %184 = load float, ptr %183, align 4, !tbaa !65
-  %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %indvars.iv
+  %gep.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %indvars.iv
   store float %184, ptr %gep.us, align 4, !tbaa !65
   %185 = getelementptr i8, ptr %183, i64 4
   %186 = load float, ptr %185, align 4, !tbaa !65
-  %gep184.us = getelementptr float, ptr %invariant.gep183.us, i64 %indvars.iv
+  %gep184.us = getelementptr [4 x i8], ptr %invariant.gep183.us, i64 %indvars.iv
   store float %186, ptr %gep184.us, align 4, !tbaa !65
   %187 = getelementptr i8, ptr %183, i64 8
   %188 = load float, ptr %187, align 4, !tbaa !65
-  %gep186.us = getelementptr float, ptr %invariant.gep185.us, i64 %indvars.iv
+  %gep186.us = getelementptr [4 x i8], ptr %invariant.gep185.us, i64 %indvars.iv
   store float %188, ptr %gep186.us, align 4, !tbaa !65
   %189 = getelementptr i8, ptr %183, i64 12
   %190 = load float, ptr %189, align 4, !tbaa !65
-  %gep188.us = getelementptr float, ptr %invariant.gep187.us, i64 %indvars.iv
+  %gep188.us = getelementptr [4 x i8], ptr %invariant.gep187.us, i64 %indvars.iv
   store float %190, ptr %gep188.us, align 4, !tbaa !65
-  %191 = getelementptr inbounds float, ptr %159, i64 %indvars.iv197
+  %191 = getelementptr inbounds [4 x i8], ptr %159, i64 %indvars.iv197
   %192 = load float, ptr %191, align 4, !tbaa !65
-  %gep190.us = getelementptr float, ptr %invariant.gep189.us, i64 %indvars.iv
+  %gep190.us = getelementptr [4 x i8], ptr %invariant.gep189.us, i64 %indvars.iv
   store float %192, ptr %gep190.us, align 4, !tbaa !65
   %indvars.iv.next198 = add nsw i64 %indvars.iv197, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10591,7 +10591,7 @@ _ZNSt6vectorIN3igl6opengl10ViewerCoreESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt12_Vector_baseIN3igl6opengl10ViewerCoreESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3igl6opengl10ViewerCoreESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %133
   store ptr %20, ptr %0, align 8, !tbaa !63
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !62
-  %137 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %20, i64 %16
+  %137 = getelementptr inbounds nuw [544 x i8], ptr %20, i64 %16
   store ptr %137, ptr %132, align 8, !tbaa !145
   ret void
 }
@@ -22077,7 +22077,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %115, label %116, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit.i
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %106, i64 %.0.copyload.i42
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %106, i64 %.0.copyload.i42
   %.not.i.i.i = icmp eq ptr %105, %117
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -22373,9 +22373,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %50
   store ptr %29, ptr %0, align 8, !tbaa !256
-  %54 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %1
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %1
   store ptr %54, ptr %4, align 8, !tbaa !257
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %27
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %27
   store ptr %55, ptr %11, align 8, !tbaa !259
   br label %56
 
@@ -25122,7 +25122,7 @@ _ZNSt6vectorIN3igl6opengl10ViewerDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 _ZNSt12_Vector_baseIN3igl6opengl10ViewerDataESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3igl6opengl10ViewerDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit31, %27
   store ptr %19, ptr %0, align 8, !tbaa !151
   store ptr %.0.lcssa.i.i.i30, ptr %3, align 8, !tbaa !176
-  %31 = getelementptr inbounds nuw %"class.igl::opengl::ViewerData", ptr %19, i64 %15
+  %31 = getelementptr inbounds nuw [1488 x i8], ptr %19, i64 %15
   store ptr %31, ptr %26, align 8, !tbaa !177
   ret void
 
@@ -26075,7 +26075,7 @@ _ZNSt6vectorIN3igl6opengl10ViewerCoreESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit3
 _ZNSt12_Vector_baseIN3igl6opengl10ViewerCoreESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3igl6opengl10ViewerCoreESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %133
   store ptr %20, ptr %0, align 8, !tbaa !63
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !62
-  %137 = getelementptr inbounds nuw %"class.igl::opengl::ViewerCore", ptr %20, i64 %16
+  %137 = getelementptr inbounds nuw [544 x i8], ptr %20, i64 %16
   store ptr %137, ptr %132, align 8, !tbaa !145
   ret void
 }

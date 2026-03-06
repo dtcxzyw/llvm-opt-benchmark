@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.urlmatch_config = type { %struct.string_list, %struct.url_info, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.url_info = type { ptr, ptr, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.fd_set = type { [16 x i64] }
 %struct.timeval = type { i64, i64 }
 %struct.http_get_options = type { i8, ptr, ptr, ptr, ptr, ptr }
@@ -757,7 +756,7 @@ _.exit:                                           ; preds = %20, %22
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %9, ptr noundef nonnull @.str.7, ptr noundef %29) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load ptr, ptr %8, align 8, !tbaa !42
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.next
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.next
   %32 = load ptr, ptr %31, align 8, !tbaa !44
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !48
@@ -849,7 +848,7 @@ _.exit:                                           ; preds = %20, %22
   %66 = getelementptr inbounds nuw i8, ptr %.09.i71, i64 16
   %67 = load ptr, ptr @extra_http_headers, align 8, !tbaa !56
   %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_http_headers, i64 8), align 8, !tbaa !59
-  %69 = getelementptr inbounds nuw %struct.string_list_item, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %68
   %70 = icmp ult ptr %66, %69
   br i1 %70, label %.lr.ph.i, label %http_copy_default_headers.exit
 
@@ -1123,7 +1122,7 @@ set_from_env.exit60:                              ; preds = %set_from_env.exit58
 .preheader190.i:                                  ; preds = %155, %160
   %161 = phi i1 [ false, %160 ], [ true, %155 ]
   %indvars.iv.i.i = phi i64 [ 1, %160 ], [ 0, %155 ]
-  %162 = getelementptr inbounds nuw %struct.anon.1, ptr @get_curl_http_version_opt.choice, i64 %indvars.iv.i.i
+  %162 = getelementptr inbounds nuw [16 x i8], ptr @get_curl_http_version_opt.choice, i64 %indvars.iv.i.i
   %163 = load ptr, ptr %162, align 16, !tbaa !65
   %164 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %159, ptr noundef nonnull dereferenceable(1) %163) #24
   %.not.i.i = icmp eq i32 %164, 0
@@ -1148,7 +1147,7 @@ get_curl_http_version_opt.exit.i:                 ; preds = %160
 
 .preheader189.i:                                  ; preds = %169, %179
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %179 ], [ 0, %169 ]
-  %173 = getelementptr inbounds nuw %struct.anon, ptr @curl_deleg_levels, i64 %indvars.iv.i
+  %173 = getelementptr inbounds nuw [16 x i8], ptr @curl_deleg_levels, i64 %indvars.iv.i
   %174 = load ptr, ptr %173, align 16, !tbaa !65
   %175 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %172, ptr noundef nonnull dereferenceable(1) %174) #24
   %.not94.i = icmp eq i32 %175, 0
@@ -1217,7 +1216,7 @@ get_curl_http_version_opt.exit.i:                 ; preds = %160
 
 .preheader.i:                                     ; preds = %196, %205
   %indvars.iv210.i = phi i64 [ %indvars.iv.next211.i, %205 ], [ 0, %196 ]
-  %199 = getelementptr inbounds nuw %struct.anon.0, ptr @sslversions, i64 %indvars.iv210.i
+  %199 = getelementptr inbounds nuw [16 x i8], ptr @sslversions, i64 %indvars.iv210.i
   %200 = load ptr, ptr %199, align 16, !tbaa !65
   %201 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %197, ptr noundef nonnull dereferenceable(1) %200) #24
   %.not100.i = icmp eq i32 %201, 0
@@ -1883,7 +1882,7 @@ var_override.exit.i.i:                            ; preds = %476, %set_proxyauth
 
 .preheader.i.i:                                   ; preds = %var_override.exit.i.i, %484
   %indvars.iv.i166.i = phi i64 [ %indvars.iv.next.i.i, %484 ], [ 0, %var_override.exit.i.i ]
-  %479 = getelementptr inbounds nuw %struct.anon.2, ptr @proxy_authmethods, i64 %indvars.iv.i166.i
+  %479 = getelementptr inbounds nuw [16 x i8], ptr @proxy_authmethods, i64 %indvars.iv.i166.i
   %480 = load ptr, ptr %479, align 16, !tbaa !65
   %481 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %478, ptr noundef nonnull dereferenceable(1) %480) #24
   %.not11.i.i = icmp eq i32 %481, 0
@@ -2485,7 +2484,7 @@ define dso_local ptr @http_copy_default_headers() local_unnamed_addr #2 {
 .lr.ph.preheader:                                 ; preds = %0
   %2 = load ptr, ptr @extra_http_headers, align 8, !tbaa !56
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_http_headers, i64 8), align 8, !tbaa !59
-  %4 = getelementptr inbounds nuw %struct.string_list_item, ptr %2, i64 %3
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %3
   %5 = icmp ult ptr %1, %4
   br i1 %5, label %.lr.ph, label %.critedge
 
@@ -2497,7 +2496,7 @@ define dso_local ptr @http_copy_default_headers() local_unnamed_addr #2 {
   %8 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %9 = load ptr, ptr @extra_http_headers, align 8, !tbaa !56
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_http_headers, i64 8), align 8, !tbaa !59
-  %11 = getelementptr inbounds nuw %struct.string_list_item, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
   %12 = icmp ult ptr %8, %11
   br i1 %12, label %.lr.ph, label %.critedge
 
@@ -3794,7 +3793,7 @@ st_mult.exit.i:                                   ; preds = %31
   %37 = call ptr @xrealloc(ptr noundef %.064.i, i64 noundef %36) #23
   %38 = call ptr @strbuf_detach(ptr noundef nonnull %1, ptr noundef null) #23
   %39 = sext i32 %.061.i to i64
-  %40 = getelementptr inbounds ptr, ptr %37, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %37, i64 %39
   store ptr %38, ptr %40, align 8, !tbaa !41
   %41 = icmp sgt i32 %.061.i, 997
   br i1 %41, label %.thread.thread.i, label %st_mult.exit._crit_edge.i
@@ -3845,7 +3844,7 @@ st_mult.exit87.i:                                 ; preds = %.thread.i.st_mult.e
   %54 = shl nuw nsw i64 %52, 3
   %55 = call ptr @xrealloc(ptr noundef %.16591141.i, i64 noundef %54) #23
   %56 = call ptr @xstrdup(ptr noundef nonnull @.str.182) #23
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %.pre-phi
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %.pre-phi
   store ptr %56, ptr %57, align 8, !tbaa !41
   %58 = icmp sgt i32 %.16292140.i, 0
   br i1 %58, label %.lr.ph105.i, label %._crit_edge.i
@@ -3890,7 +3889,7 @@ st_mult.exit87.i:                                 ; preds = %.thread.i.st_mult.e
 
 69:                                               ; preds = %68
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.185, i64 noundef 2) #23
-  %70 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i
   %71 = load ptr, ptr %70, align 8, !tbaa !41
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #24
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %71, i64 noundef %72) #23
@@ -3926,7 +3925,7 @@ st_mult.exit87.i:                                 ; preds = %.thread.i.st_mult.e
 
 .lr.ph115.i:                                      ; preds = %.lr.ph115.i, %.lr.ph115.preheader.i
   %indvars.iv127.i = phi i64 [ 0, %.lr.ph115.preheader.i ], [ %indvars.iv.next128.i, %.lr.ph115.i ]
-  %83 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv127.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv127.i
   %84 = load ptr, ptr %83, align 8, !tbaa !41
   call void @free(ptr noundef %84) #23
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
@@ -4697,7 +4696,7 @@ define dso_local ptr @new_direct_http_pack_request(ptr noundef %0, ptr noundef %
   %23 = getelementptr inbounds nuw i8, ptr %.09.i1.i, i64 16
   %24 = load ptr, ptr @extra_http_headers, align 8, !tbaa !56
   %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_http_headers, i64 8), align 8, !tbaa !59
-  %26 = getelementptr inbounds nuw %struct.string_list_item, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   %27 = icmp ult ptr %23, %26
   br i1 %27, label %.lr.ph.i.i, label %object_request_headers.exit
 
@@ -4941,7 +4940,7 @@ thread-pre-split:                                 ; preds = %41, %44
   %94 = getelementptr inbounds nuw i8, ptr %.09.i1.i, i64 16
   %95 = load ptr, ptr @extra_http_headers, align 8, !tbaa !56
   %96 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_http_headers, i64 8), align 8, !tbaa !59
-  %97 = getelementptr inbounds nuw %struct.string_list_item, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %96
   %98 = icmp ult ptr %94, %97
   br i1 %98, label %.lr.ph.i.i, label %object_request_headers.exit
 
@@ -6071,7 +6070,7 @@ define internal fastcc range(i32 0, 7) i32 @http_request(ptr noundef %0, ptr nou
   %16 = getelementptr inbounds nuw i8, ptr %.09.i91, i64 16
   %17 = load ptr, ptr @extra_http_headers, align 8, !tbaa !56
   %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @extra_http_headers, i64 8), align 8, !tbaa !59
-  %19 = getelementptr inbounds nuw %struct.string_list_item, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = icmp ult ptr %16, %19
   br i1 %20, label %.lr.ph.i, label %http_copy_default_headers.exit
 
@@ -6184,7 +6183,7 @@ http_copy_default_headers.exit:                   ; preds = %.lr.ph.i, %4
   %75 = load ptr, ptr %74, align 8, !tbaa !56
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = load i64, ptr %76, align 8, !tbaa !59
-  %78 = getelementptr inbounds nuw %struct.string_list_item, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 %77
   %79 = icmp ult ptr %73, %78
   br i1 %79, label %.lr.ph96, label %.critedge
 
@@ -6198,7 +6197,7 @@ http_copy_default_headers.exit:                   ; preds = %.lr.ph.i, %4
   %84 = load ptr, ptr %83, align 8, !tbaa !56
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !59
-  %87 = getelementptr inbounds nuw %struct.string_list_item, ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %86
   %88 = icmp ult ptr %82, %87
   br i1 %88, label %.lr.ph96, label %.critedge
 
@@ -6625,7 +6624,7 @@ is_hdr_continuation.exit.thread42:                ; preds = %34, %34
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @http_auth, i64 40), align 8, !tbaa !220
-  %43 = getelementptr ptr, ptr %42, i64 %36
+  %43 = getelementptr [8 x i8], ptr %42, i64 %36
   %44 = getelementptr i8, ptr %43, i64 -8
   %45 = load ptr, ptr %44, align 8, !tbaa !41
   %46 = call ptr @xstrdup(ptr noundef %45) #23

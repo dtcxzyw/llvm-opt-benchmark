@@ -37,52 +37,52 @@ define internal void @bswap_buf(ptr noundef writeonly captures(none) %0, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv46 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next47, %.lr.ph ]
   %indvars.iv = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv46
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv46
   %9 = load i32, ptr %8, align 4, !tbaa !10
   %10 = tail call i32 @llvm.bswap.i32(i32 %9)
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv46
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv46
   store i32 %10, ptr %11, align 4, !tbaa !10
   %12 = or disjoint i64 %indvars.iv46, 1
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !10
   %15 = tail call i32 @llvm.bswap.i32(i32 %14)
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %12
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %12
   store i32 %15, ptr %16, align 4, !tbaa !10
   %17 = or disjoint i64 %indvars.iv46, 2
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !10
   %20 = tail call i32 @llvm.bswap.i32(i32 %19)
-  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %17
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
   store i32 %20, ptr %21, align 4, !tbaa !10
   %22 = or disjoint i64 %indvars.iv46, 3
-  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !10
   %25 = tail call i32 @llvm.bswap.i32(i32 %24)
-  %26 = getelementptr inbounds nuw i32, ptr %0, i64 %22
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %22
   store i32 %25, ptr %26, align 4, !tbaa !10
   %27 = or disjoint i64 %indvars.iv46, 4
-  %28 = getelementptr inbounds nuw i32, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !10
   %30 = tail call i32 @llvm.bswap.i32(i32 %29)
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %27
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %27
   store i32 %30, ptr %31, align 4, !tbaa !10
   %32 = or disjoint i64 %indvars.iv46, 5
-  %33 = getelementptr inbounds nuw i32, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !10
   %35 = tail call i32 @llvm.bswap.i32(i32 %34)
-  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %32
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %32
   store i32 %35, ptr %36, align 4, !tbaa !10
   %37 = or disjoint i64 %indvars.iv46, 6
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !10
   %40 = tail call i32 @llvm.bswap.i32(i32 %39)
-  %41 = getelementptr inbounds nuw i32, ptr %0, i64 %37
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %37
   store i32 %40, ptr %41, align 4, !tbaa !10
   %42 = or disjoint i64 %indvars.iv46, 7
-  %43 = getelementptr inbounds nuw i32, ptr %1, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !10
   %45 = tail call i32 @llvm.bswap.i32(i32 %44)
-  %46 = getelementptr inbounds nuw i32, ptr %0, i64 %42
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %42
   store i32 %45, ptr %46, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %.not = icmp samesign ugt i64 %indvars.iv.next, %4
@@ -91,10 +91,10 @@ define internal void @bswap_buf(ptr noundef writeonly captures(none) %0, ptr nou
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %.lr.ph45
   %indvars.iv51 = phi i64 [ %7, %.lr.ph45.preheader ], [ %indvars.iv.next52, %.lr.ph45 ]
-  %47 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv51
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv51
   %48 = load i32, ptr %47, align 4, !tbaa !10
   %49 = tail call i32 @llvm.bswap.i32(i32 %48)
-  %50 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv51
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv51
   store i32 %49, ptr %50, align 4, !tbaa !10
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count

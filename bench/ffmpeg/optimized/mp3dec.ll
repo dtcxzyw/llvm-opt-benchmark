@@ -333,12 +333,12 @@ define internal i32 @mp3_read_header(ptr noundef initializes((192, 200)) %0) #0 
   %67 = load i32, ptr %48, align 4, !tbaa !72
   %68 = icmp eq i32 %67, 1
   %69 = zext i1 %68 to i64
-  %70 = getelementptr inbounds nuw [2 x i64], ptr @mp3_parse_info_tag.xing_offtbl, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr @mp3_parse_info_tag.xing_offtbl, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load i32, ptr %71, align 4, !tbaa !77
   %73 = icmp eq i32 %72, 1
   %74 = zext i1 %73 to i64
-  %75 = getelementptr inbounds nuw i64, ptr %70, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %74
   %76 = load i64, ptr %75, align 8, !tbaa !78
   %77 = call i64 @avio_skip(ptr noundef %66, i64 noundef %76) #6
   %78 = load ptr, ptr %20, align 8, !tbaa !64
@@ -907,7 +907,7 @@ check.exit87:                                     ; preds = %351
 
 381:                                              ; preds = %.lr.ph, %381
   %indvars.iv123 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next124, %381 ]
-  %382 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %378, i64 %indvars.iv123
+  %382 = getelementptr inbounds nuw [24 x i8], ptr %378, i64 %indvars.iv123
   %383 = load i64, ptr %382, align 8, !tbaa !97
   %384 = add nsw i64 %383, %.068
   store i64 %384, ptr %382, align 8, !tbaa !97
@@ -1028,7 +1028,7 @@ define internal i32 @mp3_seek(ptr noundef %0, i32 %1, i64 noundef %2, i32 nounde
   %44 = zext nneg i32 %41 to i64
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 320
   %46 = load ptr, ptr %45, align 8, !tbaa !96
-  %47 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %46, i64 %44
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %44
   %.pre90 = load i64, ptr %47, align 8, !tbaa !97
   br label %65
 

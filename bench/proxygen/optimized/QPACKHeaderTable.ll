@@ -15,16 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::fbstring_core" = type { %union.anon }
 %union.anon = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
 %"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
-%"struct.folly::f14::detail::F14Chunk" = type { %"struct.std::array", i8, i8, %"struct.std::array.17" }
-%"struct.std::array" = type { [14 x i8] }
-%"struct.std::array.17" = type { [12 x %"union.std::aligned_storage<4, 4>::type"] }
-%"union.std::aligned_storage<4, 4>::type" = type { [4 x i8] }
-%"struct.std::pair" = type { %"class.proxygen::HPACKHeaderName", %"class.std::__cxx11::list" }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<unsigned int, std::allocator<unsigned int>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<unsigned int, std::allocator<unsigned int>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.std::allocator.19" = type { i8 }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
@@ -248,7 +238,7 @@ call5.i.i.i.i2.i.i.noexc.i:                       ; preds = %if.end.i.i.i.i.i.i.
   store ptr %call5.i.i.i.i2.i.i1.i, ptr %call.i3, align 8, !noalias !4
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 8
   store ptr %call5.i.i.i.i2.i.i1.i, ptr %_M_finish.i.i.i.i, align 8, !noalias !4
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i2.i.i1.i, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i2.i.i1.i, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !noalias !4
   %3 = and i64 %mul.i.i.i.i.i.i.i, -2
@@ -513,7 +503,7 @@ if.then11:                                        ; preds = %if.end9
   %14 = load i32, ptr %head_, align 4
   %conv = zext i32 %14 to i64
   %15 = load ptr, ptr %13, align 8
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %15, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %conv
   store i16 0, ptr %add.ptr.i, align 2
   br label %while.end31
 
@@ -548,7 +538,7 @@ while.body36:                                     ; preds = %land.rhs
   %call2.i.i = call noundef i32 @_ZNK8proxygen11HeaderTable10toInternalEj(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %call.i)
   %conv39 = zext i32 %call2.i.i to i64
   %22 = load ptr, ptr %table_, align 8
-  %add.ptr.i7 = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %22, i64 %conv39
+  %add.ptr.i7 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %conv39
   %23 = load ptr, ptr %add.ptr.i7, align 8
   %call.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #28
   %conv.i.i = and i64 %call.i.i.i, 4294967295
@@ -858,7 +848,7 @@ for.body.i:                                       ; preds = %_ZNK5folly3f146deta
   %notmask.i = shl nsw i64 -1, %sh_prom.i19
   %sub.i = xor i64 %notmask.i, -1
   %and.i20 = and i64 %index.i.056, %sub.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %7, i64 %and.i20
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %and.i20
   %8 = load <16 x i8>, ptr %add.ptr.i, align 16
   %cmp.i.i = icmp eq <16 x i8> %8, %vecinit15.i.i
   %9 = bitcast <16 x i1> %cmp.i.i to i16
@@ -878,11 +868,11 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %sub.i25 = add nsw i32 %hits.i.sroa.0.053, -1
   %and.i26 = and i32 %sub.i25, %hits.i.sroa.0.053
   %conv9.i = zext nneg i32 %12 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
   %13 = load ptr, ptr %names_, align 8
   %14 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i = zext i32 %14 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair", ptr %13, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %idxprom.i
   %15 = load ptr, ptr %headerName, align 8
   %16 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i.i.i = icmp eq ptr %15, %16
@@ -930,11 +920,11 @@ if.end20.i:                                       ; preds = %while.end.i
   br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !11
 
 if.end:                                           ; preds = %land.rhs.i.i.i.i, %while.body.i, %if.end.i.i.i.i.i
-  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
+  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
   %20 = load ptr, ptr %names_, align 8, !nonnull !12, !noundef !12
   %21 = load i32, ptr %arrayidx.i.i.i.i.le, align 4
   %idx.ext8.i.i = zext i32 %21 to i64
-  %add.ptr9.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %idx.ext8.i.i
+  %add.ptr9.i.i = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %idx.ext8.i.i
   %second = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i, i64 8
   %22 = load ptr, ptr %second, align 8, !noalias !13
   %cmp.i.i.i34.not57 = icmp eq ptr %second, %22
@@ -995,7 +985,7 @@ for.body.us61.us:                                 ; preds = %for.body.lr.ph.spli
   %_M_storage.i.i.i.us65.us = getelementptr inbounds nuw i8, ptr %32, i64 16
   %33 = load i32, ptr %_M_storage.i.i.i.us65.us, align 4
   %conv.us.us = zext i32 %33 to i64
-  %add.ptr.i35.us.us = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %31, i64 %conv.us.us
+  %add.ptr.i35.us.us = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %conv.us.us
   %arrayidx.i.i.i.i.i.i.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.i35.us.us, i64 31
   %34 = load i8, ptr %arrayidx.i.i.i.i.i.i.us.us, align 1
   %size_.i.i.i.i.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.i35.us.us, i64 16
@@ -1018,7 +1008,7 @@ for.body.us61:                                    ; preds = %for.body.lr.ph.spli
   %_M_storage.i.i.i.us65 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %37 = load i32, ptr %_M_storage.i.i.i.us65, align 4
   %conv.us = zext i32 %37 to i64
-  %add.ptr.i35.us = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %31, i64 %conv.us
+  %add.ptr.i35.us = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %conv.us
   %arrayidx.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i35.us, i64 31
   %38 = load i8, ptr %arrayidx.i.i.i.i.i.i.us, align 1
   %size_.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i35.us, i64 16
@@ -1053,7 +1043,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %43 = load i32, ptr %_M_storage.i.i.i, align 4
   %conv = zext i32 %43 to i64
   %44 = load ptr, ptr %table_, align 8
-  %add.ptr.i35 = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %44, i64 %conv
+  %add.ptr.i35 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %conv
   %value13 = getelementptr inbounds nuw i8, ptr %add.ptr.i35, i64 8
   %45 = load ptr, ptr %value13, align 8
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i35, i64 31
@@ -1242,7 +1232,7 @@ _ZNK8proxygen16QPACKHeaderTable10toInternalEjj.exit: ; preds = %cleanup.done, %i
   %call2.i = tail call noundef i32 @_ZNK8proxygen11HeaderTable10toInternalEj(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %externalIndex.addr.0.i)
   %conv = zext i32 %call2.i to i64
   %2 = load ptr, ptr %table_, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %conv
   ret ptr %add.ptr.i
 }
 
@@ -1298,7 +1288,7 @@ entry:
 while.cond:                                       ; preds = %entry
   %conv = zext i32 %call to i64
   %1 = load ptr, ptr %0, align 8
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %1, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %conv
   %2 = load i16, ptr %add.ptr.i, align 2
   %cmp.i7 = icmp eq i16 %2, 0
   br i1 %cmp.i7, label %if.end, label %if.else.i
@@ -1564,7 +1554,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %conv
   %tobool.not.i.i = icmp eq ptr %1, %add.ptr.i
   br i1 %tobool.not.i.i, label %if.end, label %invoke.cont.i.i
 
@@ -1596,11 +1586,11 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %add.ptr.i.idx = shl nuw nsw i64 %conv, 1
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx
   %conv22 = zext i32 %newLength to i64
-  %add.ptr.i5 = getelementptr inbounds nuw i16, ptr %1, i64 %conv22
+  %add.ptr.i5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %conv22
   %2 = sub nsw i64 %conv13, %conv
   %gepdiff = shl nsw i64 %2, 1
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %add.ptr.i5, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [2 x i8], ptr %add.ptr.i5, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %add.ptr.i.i.i.i.i, ptr align 2 %add.ptr.i, i64 %gepdiff, i1 false)
   br label %if.end
 
@@ -1674,7 +1664,7 @@ land.lhs.true7:                                   ; preds = %land.lhs.true7.lr.p
   %4 = load ptr, ptr %refCount_, align 8
   %conv = zext i32 %i.013 to i64
   %5 = load ptr, ptr %4, align 8
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %5, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %conv
   %6 = load i16, ptr %add.ptr.i, align 2
   %cmp12 = icmp eq i16 %6, 0
   br i1 %cmp12, label %land.rhs, label %while.end
@@ -1690,7 +1680,7 @@ land.rhs:                                         ; preds = %land.lhs.true7
 
 while.body:                                       ; preds = %land.rhs
   %9 = load ptr, ptr %table_, align 8
-  %add.ptr.i8 = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %9, i64 %conv
+  %add.ptr.i8 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %conv
   %10 = load ptr, ptr %add.ptr.i8, align 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   %conv.i.i = and i64 %call.i.i.i, 4294967295
@@ -1943,7 +1933,7 @@ cleanup.done:                                     ; preds = %entry
   %call2.i.i = tail call noundef i32 @_ZNK8proxygen11HeaderTable10toInternalEj(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %call.i)
   %conv = zext i32 %call2.i.i to i64
   %2 = load ptr, ptr %0, align 8
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %conv
   %3 = load i16, ptr %add.ptr.i, align 2
   %inc = add i16 %3, 1
   store i16 %inc, ptr %add.ptr.i, align 2
@@ -1987,7 +1977,7 @@ cleanup.done:                                     ; preds = %entry
   %2 = load ptr, ptr %refCount_, align 8
   %conv = zext i32 %call2.i.i to i64
   %3 = load ptr, ptr %2, align 8
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %conv
   %4 = load i16, ptr %add.ptr.i, align 2
   %cmp.i2.not = icmp eq i16 %4, 0
   br i1 %cmp.i2.not, label %if.else.i, label %while.end
@@ -2027,7 +2017,7 @@ _ZN6google12Check_GTImplItiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 _ZN6google12Check_GTImplItiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge: ; preds = %_ZN6google12Check_GTImplItiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   %.pre = load ptr, ptr %refCount_, align 8
   %.pre10 = load ptr, ptr %.pre, align 8
-  %add.ptr.i5.phi.trans.insert = getelementptr inbounds nuw i16, ptr %.pre10, i64 %conv
+  %add.ptr.i5.phi.trans.insert = getelementptr inbounds nuw [2 x i8], ptr %.pre10, i64 %conv
   %.pre11 = load i16, ptr %add.ptr.i5.phi.trans.insert, align 2
   br label %while.end
 
@@ -2049,7 +2039,7 @@ lpad21:                                           ; preds = %while.body
 while.end:                                        ; preds = %cleanup.done, %_ZN6google12Check_GTImplItiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge
   %8 = phi i16 [ %.pre11, %_ZN6google12Check_GTImplItiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge ], [ %4, %cleanup.done ]
   %9 = phi ptr [ %.pre10, %_ZN6google12Check_GTImplItiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge ], [ %3, %cleanup.done ]
-  %add.ptr.i5 = getelementptr inbounds nuw i16, ptr %9, i64 %conv
+  %add.ptr.i5 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %conv
   %dec = add i16 %8, -1
   store i16 %dec, ptr %add.ptr.i5, align 2
   ret void
@@ -2282,7 +2272,7 @@ entry:
 for.body:                                         ; preds = %entry, %_ZNSt16allocator_traitsISaISt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEEEE7destroyIS8_EEvRS9_PT_.exit
   %i.04 = phi i64 [ %inc, %_ZNSt16allocator_traitsISaISt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEEEE7destroyIS8_EEvRS9_PT_.exit ], [ 0, %entry ]
   %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %i.04
+  %arrayidx = getelementptr inbounds [32 x i8], ptr %0, i64 %i.04
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %second.i.i.i, align 8
   %cmp.not4.i.i.i.i.i.i = icmp eq ptr %1, %second.i.i.i
@@ -3143,9 +3133,9 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorItSaItE
 
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit35: ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds nuw i16, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [2 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds nuw i16, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 

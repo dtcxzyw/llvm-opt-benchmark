@@ -4,14 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.job_step_info_t = type { i32, i32, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, i32, i64, i16, i32, %struct.slurm_step_id_msg, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 %union.pthread_attr_t = type { i64, [48 x i8] }
 %struct.slurm_msg = type { %struct.sockaddr_storage, ptr, i32, i32, i32, i8, i32, i8, i32, ptr, ptr, i32, ptr, ptr, i16, i8, i16, i16, %struct.forward, ptr, %struct.sockaddr_storage, ptr }
 %struct.forward = type { %struct.slurm_node_alias_addrs_t, i16, i16, ptr, i32, i16, i16 }
 %struct.slurm_node_alias_addrs_t = type { i64, ptr, ptr, i32, ptr }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.job_step_info_request_msg = type { i64, %struct.slurm_step_id_msg, i16 }
+%struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 %struct.container_id_request_msg_t = type { i16, ptr, i32 }
 
 @.str = private unnamed_addr constant [41 x i8] c"Job step data as of %s, record count %d\0A\00", align 1
@@ -81,7 +80,7 @@ define dso_local void @slurm_print_job_step_info_msg(ptr noundef captures(none) 
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %12 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [264 x i8], ptr %7, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call ptr @slurm_sprint_job_step_info(ptr noundef %12, i32 noundef %2)
   store ptr %13, ptr %4, align 8
@@ -589,7 +588,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %41, %46, %48, 
 
 94:                                               ; preds = %91, %89
   %95 = sext i32 %.06599.i to i64
-  %96 = getelementptr inbounds i64, ptr %61, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %61, i64 %95
   %97 = call i32 @pthread_create(ptr noundef %96, ptr noundef nonnull %9, ptr noundef nonnull @_load_step_thread, ptr noundef nonnull %76) #11
   %.not90.i = icmp eq i32 %97, 0
   br i1 %.not90.i, label %100, label %98
@@ -633,7 +632,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %41, %46, %48, 
 
 .lr.ph102.i:                                      ; preds = %.thread.i, %.lr.ph102.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph102.preheader.i ], [ %indvars.iv.next.i, %.thread.i ]
-  %110 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   %111 = load i64, ptr %110, align 8
   %.not84.i = icmp eq i64 %111, 0
   br i1 %.not84.i, label %.thread.i, label %112
@@ -698,7 +697,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %41, %46, %48, 
   store ptr %136, ptr %133, align 8
   %137 = load i32, ptr %130, align 8
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %136, i64 %138
+  %139 = getelementptr inbounds nuw [264 x i8], ptr %136, i64 %138
   %140 = load ptr, ptr %7, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = load ptr, ptr %141, align 8
@@ -1645,7 +1644,7 @@ define internal range(i32 -1, 1) i32 @_get_stepmgr_steps(ptr noundef readonly ca
   store ptr %53, ptr %50, align 8
   %54 = load i32, ptr %47, align 8
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [264 x i8], ptr %53, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %44, align 8

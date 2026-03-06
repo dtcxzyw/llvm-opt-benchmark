@@ -995,7 +995,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
 
 .preheader.split.us.split.us:                     ; preds = %.preheader.split.us.split.us.preheader, %22
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %22 ], [ 0, %.preheader.split.us.split.us.preheader ]
-  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv66
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv66
   %15 = load i32, ptr %14, align 4, !tbaa !26
   %16 = zext i32 %15 to i64
   %17 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %16, ptr noundef nonnull %9)
@@ -1019,7 +1019,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
 
 .preheader.split.us.split:                        ; preds = %.preheader.split.us, %31
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %31 ], [ 0, %.preheader.split.us ]
-  %23 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv70
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv70
   %24 = load i32, ptr %23, align 4, !tbaa !26
   %25 = zext i32 %24 to i64
   %26 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %25, ptr noundef nonnull %9)
@@ -1052,7 +1052,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = trunc nuw nsw i64 %indvars.iv.next to i32
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %1, i32 noundef %32)
-  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !26
   %36 = zext i32 %35 to i64
   %37 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %36, ptr noundef nonnull %9)
@@ -1080,7 +1080,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %43 = trunc nuw nsw i64 %indvars.iv.next63 to i32
   %44 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %1, i32 noundef %43)
-  %45 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv62
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv62
   %46 = load i32, ptr %45, align 4, !tbaa !26
   %47 = zext i32 %46 to i64
   %48 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %47, ptr noundef nonnull %9)
@@ -1132,7 +1132,7 @@ define internal fastcc i32 @test_aes128_cmac_prf(i32 noundef %0) unnamed_addr #0
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %19 ], [ 0, %1 ]
   %5 = trunc nuw nsw i64 %indvars.iv33 to i32
   %6 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %5)
-  %7 = getelementptr inbounds nuw i64, ptr @PRFKlen, i64 %indvars.iv33
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @PRFKlen, i64 %indvars.iv33
   %8 = load i64, ptr %7, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1177,7 +1177,7 @@ mbedtls_aes_cmac_prf_128.exit.us:                 ; preds = %15, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %1 ]
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %20)
-  %22 = getelementptr inbounds nuw i64, ptr @PRFKlen, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @PRFKlen, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

@@ -91,7 +91,7 @@ define hidden void @builtin_SHA1(ptr noundef writeonly captures(none) %0, ptr no
   %indvars.iv21.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next22.i, %29 ]
   %30 = lshr i64 %indvars.iv21.i, 2
   %31 = and i64 %30, 1073741823
-  %32 = getelementptr inbounds nuw i32, ptr %6, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %31
   %33 = load i32, ptr %32, align 4
   %indvars.iv21.tr.i = trunc i64 %indvars.iv21.i to i32
   %34 = shl i32 %indvars.iv21.tr.i, 3

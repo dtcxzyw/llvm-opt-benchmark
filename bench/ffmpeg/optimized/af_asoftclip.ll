@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
 %struct.ThreadData = type { ptr, ptr, i32, i32 }
-%struct.Lowpass = type { float, float, float, float, float, float, double, double, double, double, double, double }
 
 @.str = private unnamed_addr constant [10 x i8] c"asoftclip\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"Audio Soft Clipper.\00", align 1
@@ -181,7 +180,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #2 {
 
 23:                                               ; preds = %.preheader, %23
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw %struct.Lowpass, ptr %17, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [72 x i8], ptr %17, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = trunc i64 %indvars.iv.next to i32
   %26 = mul i32 %19, %25
@@ -322,7 +321,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
   %37 = and i1 %10, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = zext i32 %32 to i64
-  %40 = getelementptr inbounds nuw %struct.Lowpass, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [72 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -353,12 +352,12 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 51:                                               ; preds = %.lr.ph267, %._crit_edge264
   %indvars.iv340 = phi i64 [ %50, %.lr.ph267 ], [ %indvars.iv.next341, %._crit_edge264 ]
-  %52 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv340
+  %52 = getelementptr inbounds [8 x i8], ptr %31, i64 %indvars.iv340
   %53 = load ptr, ptr %52, align 8, !tbaa !73
-  %54 = getelementptr inbounds float, ptr %53, i64 %34
-  %55 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv340
+  %54 = getelementptr inbounds [4 x i8], ptr %53, i64 %34
+  %55 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv340
   %56 = load ptr, ptr %55, align 8, !tbaa !74
-  %57 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv340
+  %57 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv340
   %58 = load ptr, ptr %57, align 8, !tbaa !74
   br i1 %35, label %.lr.ph236, label %.preheader232
 
@@ -372,9 +371,9 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 .lr.ph236:                                        ; preds = %51, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %51 ]
   %60 = mul nsw i64 %indvars.iv, %49
-  %61 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %62 = load float, ptr %61, align 4, !tbaa !75
-  %63 = getelementptr inbounds float, ptr %58, i64 %60
+  %63 = getelementptr inbounds [4 x i8], ptr %58, i64 %60
   store float %62, ptr %63, align 4, !tbaa !75
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
@@ -433,7 +432,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph238.split:                                  ; preds = %.lr.ph238.split.preheader, %.lr.ph238.split
   %indvars.iv280 = phi i64 [ 0, %.lr.ph238.split.preheader ], [ %indvars.iv.next281, %.lr.ph238.split ]
-  %67 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv280
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv280
   %68 = load float, ptr %67, align 4, !tbaa !75
   %69 = load float, ptr %40, align 8, !tbaa !63
   %70 = load float, ptr %54, align 4, !tbaa !75
@@ -458,7 +457,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph257:                                        ; preds = %.preheader215, %.lr.ph257
   %indvars.iv325 = phi i64 [ %indvars.iv.next326, %.lr.ph257 ], [ 0, %.preheader215 ]
-  %83 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv325
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv325
   %84 = load float, ptr %83, align 4, !tbaa !75
   %85 = fmul nsz float %22, %84
   %86 = fcmp nsz ogt float %85, -1.000000e+00
@@ -473,7 +472,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph255:                                        ; preds = %.preheader216, %.lr.ph255
   %indvars.iv320 = phi i64 [ %indvars.iv.next321, %.lr.ph255 ], [ 0, %.preheader216 ]
-  %90 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv320
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv320
   %91 = load float, ptr %90, align 4, !tbaa !75
   %92 = fmul nsz float %22, %91
   %93 = fmul nsz float %92, %25
@@ -486,7 +485,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph253:                                        ; preds = %.preheader218, %.lr.ph253
   %indvars.iv315 = phi i64 [ %indvars.iv.next316, %.lr.ph253 ], [ 0, %.preheader218 ]
-  %96 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv315
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv315
   %97 = load float, ptr %96, align 4, !tbaa !75
   %98 = fmul nsz float %22, %97
   %99 = fmul nsz float %98, %25
@@ -502,7 +501,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph251:                                        ; preds = %.preheader220, %116
   %indvars.iv310 = phi i64 [ %indvars.iv.next311, %116 ], [ 0, %.preheader220 ]
-  %105 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv310
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv310
   %106 = load float, ptr %105, align 4, !tbaa !75
   %107 = fmul nsz float %22, %106
   %108 = tail call nsz float @llvm.fabs.f32(float %107)
@@ -529,7 +528,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph249:                                        ; preds = %.preheader222, %.lr.ph249
   %indvars.iv305 = phi i64 [ %indvars.iv.next306, %.lr.ph249 ], [ 0, %.preheader222 ]
-  %118 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv305
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv305
   %119 = load float, ptr %118, align 4, !tbaa !75
   %120 = fmul nsz float %119, -2.000000e+00
   %121 = fmul nsz float %22, %120
@@ -545,7 +544,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph247:                                        ; preds = %.preheader224, %.lr.ph247
   %indvars.iv300 = phi i64 [ %indvars.iv.next301, %.lr.ph247 ], [ 0, %.preheader224 ]
-  %127 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv300
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv300
   %128 = load float, ptr %127, align 4, !tbaa !75
   %129 = fmul nsz float %22, %128
   %130 = tail call nsz float @llvm.fmuladd.f32(float %129, float %129, float %25)
@@ -559,7 +558,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph245:                                        ; preds = %.preheader226, %145
   %indvars.iv295 = phi i64 [ %indvars.iv.next296, %145 ], [ 0, %.preheader226 ]
-  %134 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv295
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv295
   %135 = load float, ptr %134, align 4, !tbaa !75
   %136 = fmul nsz float %22, %135
   %137 = tail call nsz float @llvm.fabs.f32(float %136)
@@ -586,7 +585,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph243:                                        ; preds = %.preheader228, %158
   %indvars.iv290 = phi i64 [ %indvars.iv.next291, %158 ], [ 0, %.preheader228 ]
-  %147 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv290
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv290
   %148 = load float, ptr %147, align 4, !tbaa !75
   %149 = fmul nsz float %22, %148
   %150 = tail call nsz float @llvm.fabs.f32(float %149)
@@ -613,7 +612,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph241:                                        ; preds = %.preheader230, %.lr.ph241
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %.lr.ph241 ], [ 0, %.preheader230 ]
-  %160 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv285
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv285
   %161 = load float, ptr %160, align 4, !tbaa !75
   %162 = fmul nsz float %22, %161
   %163 = tail call nsz float @erff(float noundef %162) #14
@@ -632,9 +631,9 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
   %166 = load ptr, ptr %47, align 8, !tbaa !20
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 96
   %168 = load ptr, ptr %167, align 8, !tbaa !68
-  %169 = getelementptr inbounds ptr, ptr %168, i64 %indvars.iv340
+  %169 = getelementptr inbounds [8 x i8], ptr %168, i64 %indvars.iv340
   %170 = load ptr, ptr %169, align 8, !tbaa !73
-  %171 = getelementptr inbounds float, ptr %170, i64 %34
+  %171 = getelementptr inbounds [4 x i8], ptr %170, i64 %34
   br i1 %37, label %.lr.ph260.split.preheader, label %.preheader
 
 .lr.ph260.split.preheader:                        ; preds = %.loopexit
@@ -646,7 +645,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph260.split:                                  ; preds = %.lr.ph260.split.preheader, %.lr.ph260.split
   %indvars.iv330 = phi i64 [ 0, %.lr.ph260.split.preheader ], [ %indvars.iv.next331, %.lr.ph260.split ]
-  %173 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv330
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv330
   %174 = load float, ptr %173, align 4, !tbaa !75
   %175 = load float, ptr %40, align 8, !tbaa !63
   %176 = load float, ptr %171, align 4, !tbaa !75
@@ -678,10 +677,10 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 .lr.ph263:                                        ; preds = %.preheader, %.lr.ph263
   %indvars.iv335 = phi i64 [ %indvars.iv.next336, %.lr.ph263 ], [ 0, %.preheader ]
   %189 = mul nsw i64 %indvars.iv335, %49
-  %190 = getelementptr inbounds float, ptr %58, i64 %189
+  %190 = getelementptr inbounds [4 x i8], ptr %58, i64 %189
   %191 = load float, ptr %190, align 4, !tbaa !75
   %192 = fmul nsz float %13, %191
-  %193 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv335
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv335
   store float %192, ptr %193, align 4, !tbaa !75
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
@@ -722,7 +721,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
   %33 = and i1 %10, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = zext i32 %28 to i64
-  %36 = getelementptr inbounds nuw %struct.Lowpass, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [72 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 56
@@ -754,12 +753,12 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 48:                                               ; preds = %.lr.ph267, %._crit_edge264
   %indvars.iv340 = phi i64 [ %47, %.lr.ph267 ], [ %indvars.iv.next341, %._crit_edge264 ]
-  %49 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv340
+  %49 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv340
   %50 = load ptr, ptr %49, align 8, !tbaa !73
-  %51 = getelementptr inbounds double, ptr %50, i64 %30
-  %52 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv340
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %30
+  %52 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv340
   %53 = load ptr, ptr %52, align 8, !tbaa !74
-  %54 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv340
+  %54 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv340
   %55 = load ptr, ptr %54, align 8, !tbaa !74
   br i1 %31, label %.lr.ph236, label %.preheader232
 
@@ -773,9 +772,9 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 .lr.ph236:                                        ; preds = %48, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %48 ]
   %57 = mul nsw i64 %indvars.iv, %46
-  %58 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   %59 = load double, ptr %58, align 8, !tbaa !90
-  %60 = getelementptr inbounds double, ptr %55, i64 %57
+  %60 = getelementptr inbounds [8 x i8], ptr %55, i64 %57
   store double %59, ptr %60, align 8, !tbaa !90
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
@@ -834,7 +833,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph238.split:                                  ; preds = %.lr.ph238.split.preheader, %.lr.ph238.split
   %indvars.iv280 = phi i64 [ 0, %.lr.ph238.split.preheader ], [ %indvars.iv.next281, %.lr.ph238.split ]
-  %64 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv280
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv280
   %65 = load double, ptr %64, align 8, !tbaa !90
   %66 = load double, ptr %37, align 8, !tbaa !57
   %67 = load double, ptr %51, align 8, !tbaa !90
@@ -859,7 +858,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph257:                                        ; preds = %.preheader215, %.lr.ph257
   %indvars.iv325 = phi i64 [ %indvars.iv.next326, %.lr.ph257 ], [ 0, %.preheader215 ]
-  %80 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv325
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv325
   %81 = load double, ptr %80, align 8, !tbaa !90
   %82 = fmul nsz double %19, %81
   %83 = fcmp nsz ogt double %82, -1.000000e+00
@@ -874,7 +873,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph255:                                        ; preds = %.preheader216, %.lr.ph255
   %indvars.iv320 = phi i64 [ %indvars.iv.next321, %.lr.ph255 ], [ 0, %.preheader216 ]
-  %87 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv320
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv320
   %88 = load double, ptr %87, align 8, !tbaa !90
   %89 = fmul nsz double %19, %88
   %90 = fmul nsz double %21, %89
@@ -887,7 +886,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph253:                                        ; preds = %.preheader218, %.lr.ph253
   %indvars.iv315 = phi i64 [ %indvars.iv.next316, %.lr.ph253 ], [ 0, %.preheader218 ]
-  %93 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv315
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv315
   %94 = load double, ptr %93, align 8, !tbaa !90
   %95 = fmul nsz double %19, %94
   %96 = fmul nsz double %21, %95
@@ -901,7 +900,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph251:                                        ; preds = %.preheader220, %111
   %indvars.iv310 = phi i64 [ %indvars.iv.next311, %111 ], [ 0, %.preheader220 ]
-  %100 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv310
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv310
   %101 = load double, ptr %100, align 8, !tbaa !90
   %102 = fmul nsz double %19, %101
   %103 = tail call nsz double @llvm.fabs.f64(double %102)
@@ -928,7 +927,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph249:                                        ; preds = %.preheader222, %.lr.ph249
   %indvars.iv305 = phi i64 [ %indvars.iv.next306, %.lr.ph249 ], [ 0, %.preheader222 ]
-  %113 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv305
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv305
   %114 = load double, ptr %113, align 8, !tbaa !90
   %115 = fmul nsz double %114, -2.000000e+00
   %116 = fmul nsz double %19, %115
@@ -944,7 +943,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph247:                                        ; preds = %.preheader224, %.lr.ph247
   %indvars.iv300 = phi i64 [ %indvars.iv.next301, %.lr.ph247 ], [ 0, %.preheader224 ]
-  %122 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv300
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv300
   %123 = load double, ptr %122, align 8, !tbaa !90
   %124 = fmul nsz double %19, %123
   %125 = tail call nsz double @llvm.fmuladd.f64(double %124, double %124, double %21)
@@ -958,7 +957,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph245:                                        ; preds = %.preheader226, %140
   %indvars.iv295 = phi i64 [ %indvars.iv.next296, %140 ], [ 0, %.preheader226 ]
-  %129 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv295
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv295
   %130 = load double, ptr %129, align 8, !tbaa !90
   %131 = fmul nsz double %19, %130
   %132 = tail call nsz double @llvm.fabs.f64(double %131)
@@ -985,7 +984,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph243:                                        ; preds = %.preheader228, %152
   %indvars.iv290 = phi i64 [ %indvars.iv.next291, %152 ], [ 0, %.preheader228 ]
-  %142 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv290
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv290
   %143 = load double, ptr %142, align 8, !tbaa !90
   %144 = fmul nsz double %19, %143
   %145 = tail call nsz double @llvm.fabs.f64(double %144)
@@ -1011,7 +1010,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph241:                                        ; preds = %.preheader230, %.lr.ph241
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %.lr.ph241 ], [ 0, %.preheader230 ]
-  %154 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv285
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv285
   %155 = load double, ptr %154, align 8, !tbaa !90
   %156 = fmul nsz double %19, %155
   %157 = tail call nsz double @erf(double noundef %156) #14
@@ -1030,9 +1029,9 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
   %160 = load ptr, ptr %44, align 8, !tbaa !20
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 96
   %162 = load ptr, ptr %161, align 8, !tbaa !68
-  %163 = getelementptr inbounds ptr, ptr %162, i64 %indvars.iv340
+  %163 = getelementptr inbounds [8 x i8], ptr %162, i64 %indvars.iv340
   %164 = load ptr, ptr %163, align 8, !tbaa !73
-  %165 = getelementptr inbounds double, ptr %164, i64 %30
+  %165 = getelementptr inbounds [8 x i8], ptr %164, i64 %30
   br i1 %33, label %.lr.ph260.split.preheader, label %.preheader
 
 .lr.ph260.split.preheader:                        ; preds = %.loopexit
@@ -1044,7 +1043,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph260.split:                                  ; preds = %.lr.ph260.split.preheader, %.lr.ph260.split
   %indvars.iv330 = phi i64 [ 0, %.lr.ph260.split.preheader ], [ %indvars.iv.next331, %.lr.ph260.split ]
-  %167 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv330
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv330
   %168 = load double, ptr %167, align 8, !tbaa !90
   %169 = load double, ptr %37, align 8, !tbaa !57
   %170 = load double, ptr %165, align 8, !tbaa !90
@@ -1076,10 +1075,10 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 .lr.ph263:                                        ; preds = %.preheader, %.lr.ph263
   %indvars.iv335 = phi i64 [ %indvars.iv.next336, %.lr.ph263 ], [ 0, %.preheader ]
   %183 = mul nsw i64 %indvars.iv335, %46
-  %184 = getelementptr inbounds double, ptr %55, i64 %183
+  %184 = getelementptr inbounds [8 x i8], ptr %55, i64 %183
   %185 = load double, ptr %184, align 8, !tbaa !90
   %186 = fmul nsz double %13, %185
-  %187 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv335
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv335
   store double %186, ptr %187, align 8, !tbaa !90
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338

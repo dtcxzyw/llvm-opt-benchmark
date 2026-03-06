@@ -701,7 +701,7 @@ define dso_local range(i32 0, 812974081) i32 @nlmsvc_lock(ptr noundef %0, ptr no
   %203 = getelementptr inbounds nuw i8, ptr %104, i64 184
   %204 = tail call i32 @lock_to_openmode(ptr noundef nonnull %203) #9
   %205 = sext i32 %204 to i64
-  %206 = getelementptr ptr, ptr %8, i64 %205
+  %206 = getelementptr [8 x i8], ptr %8, i64 %205
   %207 = load ptr, ptr %206, align 8
   %208 = tail call i32 @vfs_lock_file(ptr noundef %207, i32 noundef 6, ptr noundef nonnull %203, ptr noundef null) #9
   %209 = getelementptr inbounds nuw i8, ptr %104, i64 264
@@ -1055,7 +1055,7 @@ define dso_local noundef range(i32 0, 67108865) i32 @nlmsvc_testlock(ptr noundef
   %17 = tail call i32 @lock_to_openmode(ptr noundef nonnull %16) #9
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %19 = sext i32 %17 to i64
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @vfs_test_lock(ptr noundef %21, ptr noundef nonnull %16) #9
   switch i32 %22, label %42 [
@@ -1169,7 +1169,7 @@ define dso_local range(i32 0, 67108865) i32 @nlmsvc_cancel_blocked(ptr noundef %
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %17 = sext i32 %13 to i64
-  %18 = getelementptr ptr, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @vfs_cancel_lock(ptr noundef %19, ptr noundef nonnull %12) #9
   %21 = load ptr, ptr %10, align 8
@@ -2035,7 +2035,7 @@ nlmsvc_insert_block_locked.exit:                  ; preds = %59, %63
   %119 = tail call i32 @lock_to_openmode(ptr noundef nonnull %111) #9
   %120 = getelementptr inbounds nuw i8, ptr %81, i64 152
   %121 = sext i32 %119 to i64
-  %122 = getelementptr ptr, ptr %120, i64 %121
+  %122 = getelementptr [8 x i8], ptr %120, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = tail call i32 @vfs_lock_file(ptr noundef %123, i32 noundef 6, ptr noundef nonnull %111, ptr noundef null) #9
   %125 = load i32, ptr %112, align 8

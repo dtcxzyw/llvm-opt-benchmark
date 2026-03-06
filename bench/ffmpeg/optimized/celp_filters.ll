@@ -17,7 +17,7 @@ define void @ff_celp_convolve_circ(ptr noundef captures(none) %0, ptr noundef re
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %.loopexit
   %indvars.iv39 = phi i64 [ 0, %.lr.ph36.preheader ], [ %indvars.iv.next40, %.loopexit ]
-  %8 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv39
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv39
   %9 = load i16, ptr %8, align 2, !tbaa !4
   %.not = icmp eq i16 %9, 0
   br i1 %.not, label %.loopexit, label %.preheader30
@@ -38,12 +38,12 @@ define void @ff_celp_convolve_circ(ptr noundef captures(none) %0, ptr noundef re
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = add i32 %11, %15
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i16, ptr %2, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %2, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !4
   %20 = sext i16 %19 to i32
   %21 = mul nsw i32 %20, %14
   %22 = lshr i32 %21, 15
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %24 = load i16, ptr %23, align 2, !tbaa !4
   %25 = trunc i32 %22 to i16
   %26 = add i16 %24, %25
@@ -60,12 +60,12 @@ define void @ff_celp_convolve_circ(ptr noundef captures(none) %0, ptr noundef re
   %27 = load i16, ptr %8, align 2, !tbaa !4
   %28 = sext i16 %27 to i32
   %29 = sub nuw nsw i64 %indvars.iv41, %indvars.iv39
-  %30 = getelementptr inbounds nuw i16, ptr %2, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !4
   %32 = sext i16 %31 to i32
   %33 = mul nsw i32 %32, %28
   %34 = lshr i32 %33, 15
-  %35 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv41
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv41
   %36 = load i16, ptr %35, align 2, !tbaa !4
   %37 = trunc i32 %34 to i16
   %38 = add i16 %36, %37
@@ -109,15 +109,15 @@ define void @ff_celp_circ_addf(ptr noundef writeonly captures(none) %0, ptr noun
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !12
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = add i32 %8, %15
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds float, ptr %2, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %2, i64 %17
   %19 = load float, ptr %18, align 4, !tbaa !12
   %20 = tail call nsz float @llvm.fmuladd.f32(float %4, float %19, float %14)
-  %21 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store float %20, ptr %21, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -125,13 +125,13 @@ define void @ff_celp_circ_addf(ptr noundef writeonly captures(none) %0, ptr noun
 
 .lr.ph25:                                         ; preds = %.lr.ph25.preheader, %.lr.ph25
   %indvars.iv27 = phi i64 [ %10, %.lr.ph25.preheader ], [ %indvars.iv.next28, %.lr.ph25 ]
-  %22 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv27
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv27
   %23 = load float, ptr %22, align 4, !tbaa !12
   %24 = sub nsw i64 %indvars.iv27, %11
-  %25 = getelementptr inbounds float, ptr %2, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %2, i64 %24
   %26 = load float, ptr %25, align 4, !tbaa !12
   %27 = tail call nsz float @llvm.fmuladd.f32(float %4, float %26, float %23)
-  %28 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv27
   store float %27, ptr %28, align 4, !tbaa !12
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
@@ -161,7 +161,7 @@ define range(i32 0, 2) i32 @ff_celp_lp_synthesis_filter(ptr noundef captures(non
 
 .preheader.us.us:                                 ; preds = %.preheader.lr.ph.split.us, %.preheader.us.us
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.preheader.us.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %11 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv75
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv75
   %12 = load i16, ptr %11, align 2, !tbaa !4
   %13 = sext i16 %12 to i32
   %14 = add nsw i32 %10, %13
@@ -169,7 +169,7 @@ define range(i32 0, 2) i32 @ff_celp_lp_synthesis_filter(ptr noundef captures(non
   %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 -32768)
   %17 = tail call i32 @llvm.smin.i32(i32 %16, i32 32767)
   %.0.i.us.us = trunc nsw i32 %17 to i16
-  %18 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv75
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv75
   store i16 %.0.i.us.us, ptr %18, align 2, !tbaa !4
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
@@ -177,7 +177,7 @@ define range(i32 0, 2) i32 @ff_celp_lp_synthesis_filter(ptr noundef captures(non
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %.critedge.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.critedge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %19 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv70
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv70
   %20 = load i16, ptr %19, align 2, !tbaa !4
   %21 = sext i16 %20 to i32
   %22 = add nsw i32 %10, %21
@@ -188,7 +188,7 @@ define range(i32 0, 2) i32 @ff_celp_lp_synthesis_filter(ptr noundef captures(non
 
 .critedge.us:                                     ; preds = %.preheader.us
   %.0.i.us = trunc nsw i32 %23 to i16
-  %25 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv70
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv70
   store i16 %.0.i.us, ptr %25, align 2, !tbaa !4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count78
@@ -206,12 +206,12 @@ define range(i32 0, 2) i32 @ff_celp_lp_synthesis_filter(ptr noundef captures(non
 27:                                               ; preds = %27, %.preheader.us40
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %27 ], [ 1, %.preheader.us40 ]
   %.02633.us = phi i32 [ %37, %27 ], [ %7, %.preheader.us40 ]
-  %28 = getelementptr i16, ptr %1, i64 %indvars.iv60
+  %28 = getelementptr [2 x i8], ptr %1, i64 %indvars.iv60
   %29 = getelementptr i8, ptr %28, i64 -2
   %30 = load i16, ptr %29, align 2, !tbaa !4
   %31 = sext i16 %30 to i32
   %32 = sub nsw i64 %indvars.iv65, %indvars.iv60
-  %33 = getelementptr inbounds i16, ptr %0, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %0, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !4
   %35 = sext i16 %34 to i32
   %36 = mul nsw i32 %35, %31
@@ -222,7 +222,7 @@ define range(i32 0, 2) i32 @ff_celp_lp_synthesis_filter(ptr noundef captures(non
 
 ._crit_edge.us:                                   ; preds = %27
   %38 = ashr i32 %37, 12
-  %39 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv65
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv65
   %40 = load i16, ptr %39, align 2, !tbaa !4
   %41 = sext i16 %40 to i32
   %42 = add nsw i32 %38, %41
@@ -230,7 +230,7 @@ define range(i32 0, 2) i32 @ff_celp_lp_synthesis_filter(ptr noundef captures(non
   %44 = tail call i32 @llvm.smax.i32(i32 %43, i32 -32768)
   %45 = tail call i32 @llvm.smin.i32(i32 %44, i32 32767)
   %.0.i.us43 = trunc nsw i32 %45 to i16
-  %46 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv65
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv65
   store i16 %.0.i.us43, ptr %46, align 2, !tbaa !4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count78
@@ -243,12 +243,12 @@ define range(i32 0, 2) i32 @ff_celp_lp_synthesis_filter(ptr noundef captures(non
 47:                                               ; preds = %.preheader, %47
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %47 ]
   %.02633 = phi i32 [ %7, %.preheader ], [ %57, %47 ]
-  %48 = getelementptr i16, ptr %1, i64 %indvars.iv
+  %48 = getelementptr [2 x i8], ptr %1, i64 %indvars.iv
   %49 = getelementptr i8, ptr %48, i64 -2
   %50 = load i16, ptr %49, align 2, !tbaa !4
   %51 = sext i16 %50 to i32
   %52 = sub nsw i64 %indvars.iv55, %indvars.iv
-  %53 = getelementptr inbounds i16, ptr %0, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %0, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !4
   %55 = sext i16 %54 to i32
   %56 = mul nsw i32 %55, %51
@@ -259,7 +259,7 @@ define range(i32 0, 2) i32 @ff_celp_lp_synthesis_filter(ptr noundef captures(non
 
 ._crit_edge:                                      ; preds = %47
   %58 = ashr i32 %57, 12
-  %59 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv55
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv55
   %60 = load i16, ptr %59, align 2, !tbaa !4
   %61 = sext i16 %60 to i32
   %62 = add nsw i32 %58, %61
@@ -270,7 +270,7 @@ define range(i32 0, 2) i32 @ff_celp_lp_synthesis_filter(ptr noundef captures(non
 
 .critedge:                                        ; preds = %._crit_edge
   %.0.i = trunc nsw i32 %63 to i16
-  %65 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv55
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv55
   store i16 %.0.i, ptr %65, align 2, !tbaa !4
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count78
@@ -358,9 +358,9 @@ define void @ff_celp_lp_synthesis_filterf(ptr noundef captures(none) %0, ptr nou
   %.0161165 = phi float [ %74, %.lr.ph ], [ %54, %30 ]
   %.0162164 = phi float [ %73, %.lr.ph ], [ %53, %30 ]
   %56 = sub nsw i64 0, %indvars.iv
-  %57 = getelementptr inbounds float, ptr %.0182, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %.0182, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !12
-  %59 = getelementptr float, ptr %1, i64 %indvars.iv
+  %59 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv
   %60 = getelementptr i8, ptr %59, i64 -4
   %61 = load float, ptr %60, align 4, !tbaa !12
   %62 = fneg nsz float %61
@@ -369,7 +369,7 @@ define void @ff_celp_lp_synthesis_filterf(ptr noundef captures(none) %0, ptr nou
   %65 = tail call nsz float @llvm.fmuladd.f32(float %62, float %.1157168, float %.0161165)
   %66 = tail call nsz float @llvm.fmuladd.f32(float %62, float %.1155169, float %.0160166)
   %67 = xor i64 %indvars.iv, -1
-  %68 = getelementptr inbounds float, ptr %.0182, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %.0182, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !12
   %70 = load float, ptr %59, align 4, !tbaa !12
   %71 = fneg nsz float %70
@@ -416,8 +416,8 @@ define void @ff_celp_lp_synthesis_filterf(ptr noundef captures(none) %0, ptr nou
   %.0.lcssa = phi ptr [ %0, %5 ], [ %86, %._crit_edge185.loopexit ]
   %91 = zext i32 %.0150.lcssa to i64
   %92 = sub nsw i64 0, %91
-  %93 = getelementptr inbounds float, ptr %.0.lcssa, i64 %92
-  %94 = getelementptr inbounds float, ptr %.0148.lcssa, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %.0.lcssa, i64 %92
+  %94 = getelementptr inbounds [4 x i8], ptr %.0148.lcssa, i64 %92
   %95 = icmp slt i32 %.0150.lcssa, %3
   br i1 %95, label %.lr.ph196, label %._crit_edge197
 
@@ -434,9 +434,9 @@ define void @ff_celp_lp_synthesis_filterf(ptr noundef captures(none) %0, ptr nou
 
 .lr.ph196.split.us:                               ; preds = %.lr.ph196, %.lr.ph196.split.us
   %indvars.iv214 = phi i64 [ %indvars.iv.next215, %.lr.ph196.split.us ], [ %91, %.lr.ph196 ]
-  %98 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv214
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv214
   %99 = load float, ptr %98, align 4, !tbaa !12
-  %100 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv214
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv214
   store float %99, ptr %100, align 4, !tbaa !12
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %101 = trunc nuw i64 %indvars.iv.next215 to i32
@@ -445,20 +445,20 @@ define void @ff_celp_lp_synthesis_filterf(ptr noundef captures(none) %0, ptr nou
 
 .lr.ph192:                                        ; preds = %.lr.ph192.preheader, %._crit_edge193
   %indvars.iv209 = phi i64 [ %97, %.lr.ph192.preheader ], [ %indvars.iv.next210, %._crit_edge193 ]
-  %103 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv209
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv209
   %104 = load float, ptr %103, align 4, !tbaa !12
-  %105 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv209
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv209
   store float %104, ptr %105, align 4, !tbaa !12
   br label %106
 
 106:                                              ; preds = %.lr.ph192, %106
   %indvars.iv206 = phi i64 [ 1, %.lr.ph192 ], [ %indvars.iv.next207, %106 ]
   %107 = phi float [ %104, %.lr.ph192 ], [ %115, %106 ]
-  %108 = getelementptr float, ptr %1, i64 %indvars.iv206
+  %108 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv206
   %109 = getelementptr i8, ptr %108, i64 -4
   %110 = load float, ptr %109, align 4, !tbaa !12
   %111 = sub nsw i64 %indvars.iv209, %indvars.iv206
-  %112 = getelementptr inbounds float, ptr %93, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %93, i64 %111
   %113 = load float, ptr %112, align 4, !tbaa !12
   %114 = fneg nsz float %110
   %115 = tail call nsz float @llvm.fmuladd.f32(float %114, float %113, float %107)
@@ -497,9 +497,9 @@ define void @ff_celp_lp_zero_synthesis_filterf(ptr noundef writeonly captures(no
 
 .lr.ph21.split.us:                                ; preds = %.lr.ph21.split.us.preheader, %.lr.ph21.split.us
   %indvars.iv30 = phi i64 [ 0, %.lr.ph21.split.us.preheader ], [ %indvars.iv.next31, %.lr.ph21.split.us ]
-  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv30
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv30
   %9 = load float, ptr %8, align 4, !tbaa !12
-  %10 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv30
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv30
   store float %9, ptr %10, align 4, !tbaa !12
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
@@ -507,20 +507,20 @@ define void @ff_celp_lp_zero_synthesis_filterf(ptr noundef writeonly captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
   %indvars.iv25 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next26, %._crit_edge ]
-  %11 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv25
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv25
   %12 = load float, ptr %11, align 4, !tbaa !12
-  %13 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv25
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv25
   store float %12, ptr %13, align 4, !tbaa !12
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = phi float [ %12, %.lr.ph ], [ %22, %14 ]
-  %16 = getelementptr float, ptr %1, i64 %indvars.iv
+  %16 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv
   %17 = getelementptr i8, ptr %16, i64 -4
   %18 = load float, ptr %17, align 4, !tbaa !12
   %19 = sub nsw i64 %indvars.iv25, %indvars.iv
-  %20 = getelementptr inbounds float, ptr %2, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %2, i64 %19
   %21 = load float, ptr %20, align 4, !tbaa !12
   %22 = tail call nsz float @llvm.fmuladd.f32(float %18, float %21, float %15)
   store float %22, ptr %13, align 4, !tbaa !12

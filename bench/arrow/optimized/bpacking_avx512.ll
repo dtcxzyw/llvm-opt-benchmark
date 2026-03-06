@@ -448,9 +448,9 @@ define noundef range(i32 -2147483648, 2147483617) i32 @_ZN5arrow8internal15unpac
 
 169:                                              ; preds = %169, %.lr.ph917.i
   %.0.i38134.i.i = phi i64 [ 0, %.lr.ph917.i ], [ %175, %169 ]
-  %170 = getelementptr inbounds nuw i32, ptr %125, i64 %.0.i38134.i.i
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %.0.i38134.i.i
   %171 = load i32, ptr %170, align 4, !tbaa !11, !noalias !3
-  %172 = getelementptr inbounds nuw i32, ptr %126, i64 %.0.i38134.i.i
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %.0.i38134.i.i
   %173 = load i32, ptr %172, align 4, !tbaa !11, !noalias !3
   %174 = lshr i32 %171, %173
   store i32 %174, ptr %170, align 4, !tbaa !11, !noalias !3
@@ -477,9 +477,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 181:                                              ; preds = %181, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit39.i.i
   %.0.i135.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit39.i.i ], [ %187, %181 ]
-  %182 = getelementptr inbounds nuw i32, ptr %127, i64 %.0.i135.i.i
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %.0.i135.i.i
   %183 = load i32, ptr %182, align 4, !tbaa !11, !noalias !18
-  %184 = getelementptr inbounds nuw i32, ptr %128, i64 %.0.i135.i.i
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %.0.i135.i.i
   %185 = load i32, ptr %184, align 4, !tbaa !11, !noalias !18
   %186 = lshr i32 %183, %185
   store i32 %186, ptr %182, align 4, !tbaa !11, !noalias !18
@@ -513,9 +513,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
 
 194:                                              ; preds = %194, %.lr.ph914.i
   %.0.i38134.i235.i = phi i64 [ 0, %.lr.ph914.i ], [ %200, %194 ]
-  %195 = getelementptr inbounds nuw i32, ptr %121, i64 %.0.i38134.i235.i
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %.0.i38134.i235.i
   %196 = load i32, ptr %195, align 4, !tbaa !11, !noalias !27
-  %197 = getelementptr inbounds nuw i32, ptr %122, i64 %.0.i38134.i235.i
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %.0.i38134.i235.i
   %198 = load i32, ptr %197, align 4, !tbaa !11, !noalias !27
   %199 = lshr i32 %196, %198
   store i32 %199, ptr %195, align 4, !tbaa !11, !noalias !27
@@ -543,9 +543,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 207:                                              ; preds = %207, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit39.i237.i
   %.0.i135.i239.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit39.i237.i ], [ %213, %207 ]
-  %208 = getelementptr inbounds nuw i32, ptr %123, i64 %.0.i135.i239.i
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %.0.i135.i239.i
   %209 = load i32, ptr %208, align 4, !tbaa !11, !noalias !35
-  %210 = getelementptr inbounds nuw i32, ptr %124, i64 %.0.i135.i239.i
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %.0.i135.i239.i
   %211 = load i32, ptr %210, align 4, !tbaa !11, !noalias !35
   %212 = lshr i32 %209, %211
   store i32 %212, ptr %208, align 4, !tbaa !11, !noalias !35
@@ -596,9 +596,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
 
 236:                                              ; preds = %236, %.lr.ph911.i
   %.0.i40138.i.i = phi i64 [ 0, %.lr.ph911.i ], [ %242, %236 ]
-  %237 = getelementptr inbounds nuw i32, ptr %117, i64 %.0.i40138.i.i
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %.0.i40138.i.i
   %238 = load i32, ptr %237, align 4, !tbaa !11, !noalias !44
-  %239 = getelementptr inbounds nuw i32, ptr %118, i64 %.0.i40138.i.i
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %.0.i40138.i.i
   %240 = load i32, ptr %239, align 4, !tbaa !11, !noalias !44
   %241 = lshr i32 %238, %240
   store i32 %241, ptr %237, align 4, !tbaa !11, !noalias !44
@@ -642,9 +642,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 264:                                              ; preds = %264, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit41.i.i
   %.0.i139.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit41.i.i ], [ %270, %264 ]
-  %265 = getelementptr inbounds nuw i32, ptr %119, i64 %.0.i139.i.i
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %.0.i139.i.i
   %266 = load i32, ptr %265, align 4, !tbaa !11, !noalias !52
-  %267 = getelementptr inbounds nuw i32, ptr %120, i64 %.0.i139.i.i
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %.0.i139.i.i
   %268 = load i32, ptr %267, align 4, !tbaa !11, !noalias !52
   %269 = lshr i32 %266, %268
   store i32 %269, ptr %265, align 4, !tbaa !11, !noalias !52
@@ -694,9 +694,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
 
 292:                                              ; preds = %292, %.lr.ph908.i
   %.0.i38134.i244.i = phi i64 [ 0, %.lr.ph908.i ], [ %298, %292 ]
-  %293 = getelementptr inbounds nuw i32, ptr %113, i64 %.0.i38134.i244.i
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %.0.i38134.i244.i
   %294 = load i32, ptr %293, align 4, !tbaa !11, !noalias !61
-  %295 = getelementptr inbounds nuw i32, ptr %114, i64 %.0.i38134.i244.i
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %.0.i38134.i244.i
   %296 = load i32, ptr %295, align 4, !tbaa !11, !noalias !61
   %297 = lshr i32 %294, %296
   store i32 %297, ptr %293, align 4, !tbaa !11, !noalias !61
@@ -740,9 +740,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 320:                                              ; preds = %320, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit39.i246.i
   %.0.i135.i248.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit39.i246.i ], [ %326, %320 ]
-  %321 = getelementptr inbounds nuw i32, ptr %115, i64 %.0.i135.i248.i
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %.0.i135.i248.i
   %322 = load i32, ptr %321, align 4, !tbaa !11, !noalias !69
-  %323 = getelementptr inbounds nuw i32, ptr %116, i64 %.0.i135.i248.i
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %.0.i135.i248.i
   %324 = load i32, ptr %323, align 4, !tbaa !11, !noalias !69
   %325 = lshr i32 %322, %324
   store i32 %325, ptr %321, align 4, !tbaa !11, !noalias !69
@@ -796,9 +796,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
 
 351:                                              ; preds = %351, %.lr.ph905.i
   %.0.i42142.i.i = phi i64 [ 0, %.lr.ph905.i ], [ %357, %351 ]
-  %352 = getelementptr inbounds nuw i32, ptr %109, i64 %.0.i42142.i.i
+  %352 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %.0.i42142.i.i
   %353 = load i32, ptr %352, align 4, !tbaa !11, !noalias !78
-  %354 = getelementptr inbounds nuw i32, ptr %110, i64 %.0.i42142.i.i
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %.0.i42142.i.i
   %355 = load i32, ptr %354, align 4, !tbaa !11, !noalias !78
   %356 = lshr i32 %353, %355
   store i32 %356, ptr %352, align 4, !tbaa !11, !noalias !78
@@ -845,9 +845,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 381:                                              ; preds = %381, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit43.i.i
   %.0.i143.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit43.i.i ], [ %387, %381 ]
-  %382 = getelementptr inbounds nuw i32, ptr %111, i64 %.0.i143.i.i
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %.0.i143.i.i
   %383 = load i32, ptr %382, align 4, !tbaa !11, !noalias !86
-  %384 = getelementptr inbounds nuw i32, ptr %112, i64 %.0.i143.i.i
+  %384 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %.0.i143.i.i
   %385 = load i32, ptr %384, align 4, !tbaa !11, !noalias !86
   %386 = lshr i32 %383, %385
   store i32 %386, ptr %382, align 4, !tbaa !11, !noalias !86
@@ -901,9 +901,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
 
 412:                                              ; preds = %412, %.lr.ph902.i
   %.0.i42142.i254.i = phi i64 [ 0, %.lr.ph902.i ], [ %418, %412 ]
-  %413 = getelementptr inbounds nuw i32, ptr %105, i64 %.0.i42142.i254.i
+  %413 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %.0.i42142.i254.i
   %414 = load i32, ptr %413, align 4, !tbaa !11, !noalias !95
-  %415 = getelementptr inbounds nuw i32, ptr %106, i64 %.0.i42142.i254.i
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %.0.i42142.i254.i
   %416 = load i32, ptr %415, align 4, !tbaa !11, !noalias !95
   %417 = lshr i32 %414, %416
   store i32 %417, ptr %413, align 4, !tbaa !11, !noalias !95
@@ -951,9 +951,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 443:                                              ; preds = %443, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit43.i256.i
   %.0.i143.i258.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit43.i256.i ], [ %449, %443 ]
-  %444 = getelementptr inbounds nuw i32, ptr %107, i64 %.0.i143.i258.i
+  %444 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.0.i143.i258.i
   %445 = load i32, ptr %444, align 4, !tbaa !11, !noalias !103
-  %446 = getelementptr inbounds nuw i32, ptr %108, i64 %.0.i143.i258.i
+  %446 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %.0.i143.i258.i
   %447 = load i32, ptr %446, align 4, !tbaa !11, !noalias !103
   %448 = lshr i32 %445, %447
   store i32 %448, ptr %444, align 4, !tbaa !11, !noalias !103
@@ -1010,9 +1010,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
 
 476:                                              ; preds = %476, %.lr.ph899.i
   %.0.i44146.i.i = phi i64 [ 0, %.lr.ph899.i ], [ %482, %476 ]
-  %477 = getelementptr inbounds nuw i32, ptr %101, i64 %.0.i44146.i.i
+  %477 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %.0.i44146.i.i
   %478 = load i32, ptr %477, align 4, !tbaa !11, !noalias !112
-  %479 = getelementptr inbounds nuw i32, ptr %102, i64 %.0.i44146.i.i
+  %479 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %.0.i44146.i.i
   %480 = load i32, ptr %479, align 4, !tbaa !11, !noalias !112
   %481 = lshr i32 %478, %480
   store i32 %481, ptr %477, align 4, !tbaa !11, !noalias !112
@@ -1062,9 +1062,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 508:                                              ; preds = %508, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit45.i.i
   %.0.i147.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit45.i.i ], [ %514, %508 ]
-  %509 = getelementptr inbounds nuw i32, ptr %103, i64 %.0.i147.i.i
+  %509 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.0.i147.i.i
   %510 = load i32, ptr %509, align 4, !tbaa !11, !noalias !120
-  %511 = getelementptr inbounds nuw i32, ptr %104, i64 %.0.i147.i.i
+  %511 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %.0.i147.i.i
   %512 = load i32, ptr %511, align 4, !tbaa !11, !noalias !120
   %513 = lshr i32 %510, %512
   store i32 %513, ptr %509, align 4, !tbaa !11, !noalias !120
@@ -1118,9 +1118,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
 
 538:                                              ; preds = %538, %.lr.ph896.i
   %.0.i38134.i269.i = phi i64 [ 0, %.lr.ph896.i ], [ %544, %538 ]
-  %539 = getelementptr inbounds nuw i32, ptr %97, i64 %.0.i38134.i269.i
+  %539 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %.0.i38134.i269.i
   %540 = load i32, ptr %539, align 4, !tbaa !11, !noalias !129
-  %541 = getelementptr inbounds nuw i32, ptr %98, i64 %.0.i38134.i269.i
+  %541 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %.0.i38134.i269.i
   %542 = load i32, ptr %541, align 4, !tbaa !11, !noalias !129
   %543 = lshr i32 %540, %542
   store i32 %543, ptr %539, align 4, !tbaa !11, !noalias !129
@@ -1168,9 +1168,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 568:                                              ; preds = %568, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit39.i271.i
   %.0.i135.i275.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit39.i271.i ], [ %574, %568 ]
-  %569 = getelementptr inbounds nuw i32, ptr %99, i64 %.0.i135.i275.i
+  %569 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.0.i135.i275.i
   %570 = load i32, ptr %569, align 4, !tbaa !11, !noalias !137
-  %571 = getelementptr inbounds nuw i32, ptr %100, i64 %.0.i135.i275.i
+  %571 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.0.i135.i275.i
   %572 = load i32, ptr %571, align 4, !tbaa !11, !noalias !137
   %573 = lshr i32 %570, %572
   store i32 %573, ptr %569, align 4, !tbaa !11, !noalias !137
@@ -1230,9 +1230,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
 
 603:                                              ; preds = %603, %.lr.ph893.i
   %.0.i46150.i.i = phi i64 [ 0, %.lr.ph893.i ], [ %609, %603 ]
-  %604 = getelementptr inbounds nuw i32, ptr %93, i64 %.0.i46150.i.i
+  %604 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %.0.i46150.i.i
   %605 = load i32, ptr %604, align 4, !tbaa !11, !noalias !146
-  %606 = getelementptr inbounds nuw i32, ptr %94, i64 %.0.i46150.i.i
+  %606 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %.0.i46150.i.i
   %607 = load i32, ptr %606, align 4, !tbaa !11, !noalias !146
   %608 = lshr i32 %605, %607
   store i32 %608, ptr %604, align 4, !tbaa !11, !noalias !146
@@ -1285,9 +1285,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 637:                                              ; preds = %637, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit47.i.i
   %.0.i151.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit47.i.i ], [ %643, %637 ]
-  %638 = getelementptr inbounds nuw i32, ptr %95, i64 %.0.i151.i.i
+  %638 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %.0.i151.i.i
   %639 = load i32, ptr %638, align 4, !tbaa !11, !noalias !154
-  %640 = getelementptr inbounds nuw i32, ptr %96, i64 %.0.i151.i.i
+  %640 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %.0.i151.i.i
   %641 = load i32, ptr %640, align 4, !tbaa !11, !noalias !154
   %642 = lshr i32 %639, %641
   store i32 %642, ptr %638, align 4, !tbaa !11, !noalias !154
@@ -1347,9 +1347,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
 
 672:                                              ; preds = %672, %.lr.ph890.i
   %.0.i46150.i289.i = phi i64 [ 0, %.lr.ph890.i ], [ %678, %672 ]
-  %673 = getelementptr inbounds nuw i32, ptr %89, i64 %.0.i46150.i289.i
+  %673 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.0.i46150.i289.i
   %674 = load i32, ptr %673, align 4, !tbaa !11, !noalias !163
-  %675 = getelementptr inbounds nuw i32, ptr %90, i64 %.0.i46150.i289.i
+  %675 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %.0.i46150.i289.i
   %676 = load i32, ptr %675, align 4, !tbaa !11, !noalias !163
   %677 = lshr i32 %674, %676
   store i32 %677, ptr %673, align 4, !tbaa !11, !noalias !163
@@ -1403,9 +1403,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 707:                                              ; preds = %707, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit47.i291.i
   %.0.i151.i294.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit47.i291.i ], [ %713, %707 ]
-  %708 = getelementptr inbounds nuw i32, ptr %91, i64 %.0.i151.i294.i
+  %708 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.0.i151.i294.i
   %709 = load i32, ptr %708, align 4, !tbaa !11, !noalias !171
-  %710 = getelementptr inbounds nuw i32, ptr %92, i64 %.0.i151.i294.i
+  %710 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %.0.i151.i294.i
   %711 = load i32, ptr %710, align 4, !tbaa !11, !noalias !171
   %712 = lshr i32 %709, %711
   store i32 %712, ptr %708, align 4, !tbaa !11, !noalias !171
@@ -1468,9 +1468,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 744:                                              ; preds = %744, %.lr.ph887.i
   %.0.i48154.i.i = phi i64 [ 0, %.lr.ph887.i ], [ %750, %744 ]
-  %745 = getelementptr inbounds nuw i32, ptr %85, i64 %.0.i48154.i.i
+  %745 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %.0.i48154.i.i
   %746 = load i32, ptr %745, align 4, !tbaa !11, !noalias !180
-  %747 = getelementptr inbounds nuw i32, ptr %86, i64 %.0.i48154.i.i
+  %747 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %.0.i48154.i.i
   %748 = load i32, ptr %747, align 4, !tbaa !11, !noalias !180
   %749 = lshr i32 %746, %748
   store i32 %749, ptr %745, align 4, !tbaa !11, !noalias !180
@@ -1526,9 +1526,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 780:                                              ; preds = %780, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit49.i.i
   %.0.i155.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit49.i.i ], [ %786, %780 ]
-  %781 = getelementptr inbounds nuw i32, ptr %87, i64 %.0.i155.i.i
+  %781 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %.0.i155.i.i
   %782 = load i32, ptr %781, align 4, !tbaa !11, !noalias !188
-  %783 = getelementptr inbounds nuw i32, ptr %88, i64 %.0.i155.i.i
+  %783 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.0.i155.i.i
   %784 = load i32, ptr %783, align 4, !tbaa !11, !noalias !188
   %785 = lshr i32 %782, %784
   store i32 %785, ptr %781, align 4, !tbaa !11, !noalias !188
@@ -1590,9 +1590,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 816:                                              ; preds = %816, %.lr.ph884.i
   %.0.i46150.i308.i = phi i64 [ 0, %.lr.ph884.i ], [ %822, %816 ]
-  %817 = getelementptr inbounds nuw i32, ptr %81, i64 %.0.i46150.i308.i
+  %817 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.0.i46150.i308.i
   %818 = load i32, ptr %817, align 4, !tbaa !11, !noalias !197
-  %819 = getelementptr inbounds nuw i32, ptr %82, i64 %.0.i46150.i308.i
+  %819 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %.0.i46150.i308.i
   %820 = load i32, ptr %819, align 4, !tbaa !11, !noalias !197
   %821 = lshr i32 %818, %820
   store i32 %821, ptr %817, align 4, !tbaa !11, !noalias !197
@@ -1648,9 +1648,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 852:                                              ; preds = %852, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit47.i310.i
   %.0.i151.i316.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit47.i310.i ], [ %858, %852 ]
-  %853 = getelementptr inbounds nuw i32, ptr %83, i64 %.0.i151.i316.i
+  %853 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %.0.i151.i316.i
   %854 = load i32, ptr %853, align 4, !tbaa !11, !noalias !205
-  %855 = getelementptr inbounds nuw i32, ptr %84, i64 %.0.i151.i316.i
+  %855 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.0.i151.i316.i
   %856 = load i32, ptr %855, align 4, !tbaa !11, !noalias !205
   %857 = lshr i32 %854, %856
   store i32 %857, ptr %853, align 4, !tbaa !11, !noalias !205
@@ -1716,9 +1716,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 891:                                              ; preds = %891, %.lr.ph881.i
   %.0.i50158.i.i = phi i64 [ 0, %.lr.ph881.i ], [ %897, %891 ]
-  %892 = getelementptr inbounds nuw i32, ptr %77, i64 %.0.i50158.i.i
+  %892 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.0.i50158.i.i
   %893 = load i32, ptr %892, align 4, !tbaa !11, !noalias !214
-  %894 = getelementptr inbounds nuw i32, ptr %78, i64 %.0.i50158.i.i
+  %894 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.0.i50158.i.i
   %895 = load i32, ptr %894, align 4, !tbaa !11, !noalias !214
   %896 = lshr i32 %893, %895
   store i32 %896, ptr %892, align 4, !tbaa !11, !noalias !214
@@ -1777,9 +1777,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 929:                                              ; preds = %929, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit51.i.i
   %.0.i159.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit51.i.i ], [ %935, %929 ]
-  %930 = getelementptr inbounds nuw i32, ptr %79, i64 %.0.i159.i.i
+  %930 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.0.i159.i.i
   %931 = load i32, ptr %930, align 4, !tbaa !11, !noalias !222
-  %932 = getelementptr inbounds nuw i32, ptr %80, i64 %.0.i159.i.i
+  %932 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.0.i159.i.i
   %933 = load i32, ptr %932, align 4, !tbaa !11, !noalias !222
   %934 = lshr i32 %931, %933
   store i32 %934, ptr %930, align 4, !tbaa !11, !noalias !222
@@ -1845,9 +1845,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 968:                                              ; preds = %968, %.lr.ph878.i
   %.0.i50158.i336.i = phi i64 [ 0, %.lr.ph878.i ], [ %974, %968 ]
-  %969 = getelementptr inbounds nuw i32, ptr %73, i64 %.0.i50158.i336.i
+  %969 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.0.i50158.i336.i
   %970 = load i32, ptr %969, align 4, !tbaa !11, !noalias !231
-  %971 = getelementptr inbounds nuw i32, ptr %74, i64 %.0.i50158.i336.i
+  %971 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %.0.i50158.i336.i
   %972 = load i32, ptr %971, align 4, !tbaa !11, !noalias !231
   %973 = lshr i32 %970, %972
   store i32 %973, ptr %969, align 4, !tbaa !11, !noalias !231
@@ -1907,9 +1907,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1007:                                             ; preds = %1007, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit51.i338.i
   %.0.i159.i345.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit51.i338.i ], [ %1013, %1007 ]
-  %1008 = getelementptr inbounds nuw i32, ptr %75, i64 %.0.i159.i345.i
+  %1008 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %.0.i159.i345.i
   %1009 = load i32, ptr %1008, align 4, !tbaa !11, !noalias !239
-  %1010 = getelementptr inbounds nuw i32, ptr %76, i64 %.0.i159.i345.i
+  %1010 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.0.i159.i345.i
   %1011 = load i32, ptr %1010, align 4, !tbaa !11, !noalias !239
   %1012 = lshr i32 %1009, %1011
   store i32 %1012, ptr %1008, align 4, !tbaa !11, !noalias !239
@@ -1978,9 +1978,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 1048:                                             ; preds = %1048, %.lr.ph875.i
   %.0.i52162.i.i = phi i64 [ 0, %.lr.ph875.i ], [ %1054, %1048 ]
-  %1049 = getelementptr inbounds nuw i32, ptr %69, i64 %.0.i52162.i.i
+  %1049 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %.0.i52162.i.i
   %1050 = load i32, ptr %1049, align 4, !tbaa !11, !noalias !248
-  %1051 = getelementptr inbounds nuw i32, ptr %70, i64 %.0.i52162.i.i
+  %1051 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %.0.i52162.i.i
   %1052 = load i32, ptr %1051, align 4, !tbaa !11, !noalias !248
   %1053 = lshr i32 %1050, %1052
   store i32 %1053, ptr %1049, align 4, !tbaa !11, !noalias !248
@@ -2042,9 +2042,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1088:                                             ; preds = %1088, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit53.i.i
   %.0.i163.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit53.i.i ], [ %1094, %1088 ]
-  %1089 = getelementptr inbounds nuw i32, ptr %71, i64 %.0.i163.i.i
+  %1089 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.0.i163.i.i
   %1090 = load i32, ptr %1089, align 4, !tbaa !11, !noalias !256
-  %1091 = getelementptr inbounds nuw i32, ptr %72, i64 %.0.i163.i.i
+  %1091 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %.0.i163.i.i
   %1092 = load i32, ptr %1091, align 4, !tbaa !11, !noalias !256
   %1093 = lshr i32 %1090, %1092
   store i32 %1093, ptr %1089, align 4, !tbaa !11, !noalias !256
@@ -2106,9 +2106,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 1122:                                             ; preds = %1122, %.lr.ph872.i
   %.0.i38134.i363.i = phi i64 [ 0, %.lr.ph872.i ], [ %1128, %1122 ]
-  %1123 = getelementptr inbounds nuw i32, ptr %65, i64 %.0.i38134.i363.i
+  %1123 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %.0.i38134.i363.i
   %1124 = load i32, ptr %1123, align 4, !tbaa !11, !noalias !265
-  %1125 = getelementptr inbounds nuw i32, ptr %66, i64 %.0.i38134.i363.i
+  %1125 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %.0.i38134.i363.i
   %1126 = load i32, ptr %1125, align 4, !tbaa !11, !noalias !265
   %1127 = lshr i32 %1124, %1126
   store i32 %1127, ptr %1123, align 4, !tbaa !11, !noalias !265
@@ -2164,9 +2164,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1156:                                             ; preds = %1156, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit39.i365.i
   %.0.i135.i374.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit39.i365.i ], [ %1162, %1156 ]
-  %1157 = getelementptr inbounds nuw i32, ptr %67, i64 %.0.i135.i374.i
+  %1157 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %.0.i135.i374.i
   %1158 = load i32, ptr %1157, align 4, !tbaa !11, !noalias !273
-  %1159 = getelementptr inbounds nuw i32, ptr %68, i64 %.0.i135.i374.i
+  %1159 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %.0.i135.i374.i
   %1160 = load i32, ptr %1159, align 4, !tbaa !11, !noalias !273
   %1161 = lshr i32 %1158, %1160
   store i32 %1161, ptr %1157, align 4, !tbaa !11, !noalias !273
@@ -2238,9 +2238,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 1199:                                             ; preds = %1199, %.lr.ph869.i
   %.0.i54166.i.i = phi i64 [ 0, %.lr.ph869.i ], [ %1205, %1199 ]
-  %1200 = getelementptr inbounds nuw i32, ptr %61, i64 %.0.i54166.i.i
+  %1200 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %.0.i54166.i.i
   %1201 = load i32, ptr %1200, align 4, !tbaa !11, !noalias !282
-  %1202 = getelementptr inbounds nuw i32, ptr %62, i64 %.0.i54166.i.i
+  %1202 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.0.i54166.i.i
   %1203 = load i32, ptr %1202, align 4, !tbaa !11, !noalias !282
   %1204 = lshr i32 %1201, %1203
   store i32 %1204, ptr %1200, align 4, !tbaa !11, !noalias !282
@@ -2305,9 +2305,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1241:                                             ; preds = %1241, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit55.i.i
   %.0.i167.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit55.i.i ], [ %1247, %1241 ]
-  %1242 = getelementptr inbounds nuw i32, ptr %63, i64 %.0.i167.i.i
+  %1242 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %.0.i167.i.i
   %1243 = load i32, ptr %1242, align 4, !tbaa !11, !noalias !290
-  %1244 = getelementptr inbounds nuw i32, ptr %64, i64 %.0.i167.i.i
+  %1244 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %.0.i167.i.i
   %1245 = load i32, ptr %1244, align 4, !tbaa !11, !noalias !290
   %1246 = lshr i32 %1243, %1245
   store i32 %1246, ptr %1242, align 4, !tbaa !11, !noalias !290
@@ -2379,9 +2379,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 1284:                                             ; preds = %1284, %.lr.ph866.i
   %.0.i54166.i400.i = phi i64 [ 0, %.lr.ph866.i ], [ %1290, %1284 ]
-  %1285 = getelementptr inbounds nuw i32, ptr %57, i64 %.0.i54166.i400.i
+  %1285 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %.0.i54166.i400.i
   %1286 = load i32, ptr %1285, align 4, !tbaa !11, !noalias !299
-  %1287 = getelementptr inbounds nuw i32, ptr %58, i64 %.0.i54166.i400.i
+  %1287 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.0.i54166.i400.i
   %1288 = load i32, ptr %1287, align 4, !tbaa !11, !noalias !299
   %1289 = lshr i32 %1286, %1288
   store i32 %1289, ptr %1285, align 4, !tbaa !11, !noalias !299
@@ -2447,9 +2447,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1327:                                             ; preds = %1327, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit55.i402.i
   %.0.i167.i412.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit55.i402.i ], [ %1333, %1327 ]
-  %1328 = getelementptr inbounds nuw i32, ptr %59, i64 %.0.i167.i412.i
+  %1328 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %.0.i167.i412.i
   %1329 = load i32, ptr %1328, align 4, !tbaa !11, !noalias !307
-  %1330 = getelementptr inbounds nuw i32, ptr %60, i64 %.0.i167.i412.i
+  %1330 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %.0.i167.i412.i
   %1331 = load i32, ptr %1330, align 4, !tbaa !11, !noalias !307
   %1332 = lshr i32 %1329, %1331
   store i32 %1332, ptr %1328, align 4, !tbaa !11, !noalias !307
@@ -2524,9 +2524,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 1372:                                             ; preds = %1372, %.lr.ph863.i
   %.0.i56170.i.i = phi i64 [ 0, %.lr.ph863.i ], [ %1378, %1372 ]
-  %1373 = getelementptr inbounds nuw i32, ptr %53, i64 %.0.i56170.i.i
+  %1373 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %.0.i56170.i.i
   %1374 = load i32, ptr %1373, align 4, !tbaa !11, !noalias !316
-  %1375 = getelementptr inbounds nuw i32, ptr %54, i64 %.0.i56170.i.i
+  %1375 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %.0.i56170.i.i
   %1376 = load i32, ptr %1375, align 4, !tbaa !11, !noalias !316
   %1377 = lshr i32 %1374, %1376
   store i32 %1377, ptr %1373, align 4, !tbaa !11, !noalias !316
@@ -2594,9 +2594,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1416:                                             ; preds = %1416, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit57.i.i
   %.0.i171.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit57.i.i ], [ %1422, %1416 ]
-  %1417 = getelementptr inbounds nuw i32, ptr %55, i64 %.0.i171.i.i
+  %1417 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %.0.i171.i.i
   %1418 = load i32, ptr %1417, align 4, !tbaa !11, !noalias !324
-  %1419 = getelementptr inbounds nuw i32, ptr %56, i64 %.0.i171.i.i
+  %1419 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %.0.i171.i.i
   %1420 = load i32, ptr %1419, align 4, !tbaa !11, !noalias !324
   %1421 = lshr i32 %1418, %1420
   store i32 %1421, ptr %1417, align 4, !tbaa !11, !noalias !324
@@ -2670,9 +2670,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 1460:                                             ; preds = %1460, %.lr.ph860.i
   %.0.i54166.i439.i = phi i64 [ 0, %.lr.ph860.i ], [ %1466, %1460 ]
-  %1461 = getelementptr inbounds nuw i32, ptr %49, i64 %.0.i54166.i439.i
+  %1461 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.0.i54166.i439.i
   %1462 = load i32, ptr %1461, align 4, !tbaa !11, !noalias !333
-  %1463 = getelementptr inbounds nuw i32, ptr %50, i64 %.0.i54166.i439.i
+  %1463 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %.0.i54166.i439.i
   %1464 = load i32, ptr %1463, align 4, !tbaa !11, !noalias !333
   %1465 = lshr i32 %1462, %1464
   store i32 %1465, ptr %1461, align 4, !tbaa !11, !noalias !333
@@ -2740,9 +2740,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1504:                                             ; preds = %1504, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit55.i441.i
   %.0.i167.i452.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit55.i441.i ], [ %1510, %1504 ]
-  %1505 = getelementptr inbounds nuw i32, ptr %51, i64 %.0.i167.i452.i
+  %1505 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.0.i167.i452.i
   %1506 = load i32, ptr %1505, align 4, !tbaa !11, !noalias !341
-  %1507 = getelementptr inbounds nuw i32, ptr %52, i64 %.0.i167.i452.i
+  %1507 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.0.i167.i452.i
   %1508 = load i32, ptr %1507, align 4, !tbaa !11, !noalias !341
   %1509 = lshr i32 %1506, %1508
   store i32 %1509, ptr %1505, align 4, !tbaa !11, !noalias !341
@@ -2820,9 +2820,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 1551:                                             ; preds = %1551, %.lr.ph857.i
   %.0.i58174.i.i = phi i64 [ 0, %.lr.ph857.i ], [ %1557, %1551 ]
-  %1552 = getelementptr inbounds nuw i32, ptr %45, i64 %.0.i58174.i.i
+  %1552 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.0.i58174.i.i
   %1553 = load i32, ptr %1552, align 4, !tbaa !11, !noalias !350
-  %1554 = getelementptr inbounds nuw i32, ptr %46, i64 %.0.i58174.i.i
+  %1554 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.0.i58174.i.i
   %1555 = load i32, ptr %1554, align 4, !tbaa !11, !noalias !350
   %1556 = lshr i32 %1553, %1555
   store i32 %1556, ptr %1552, align 4, !tbaa !11, !noalias !350
@@ -2893,9 +2893,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1597:                                             ; preds = %1597, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit59.i.i
   %.0.i175.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit59.i.i ], [ %1603, %1597 ]
-  %1598 = getelementptr inbounds nuw i32, ptr %47, i64 %.0.i175.i.i
+  %1598 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.0.i175.i.i
   %1599 = load i32, ptr %1598, align 4, !tbaa !11, !noalias !358
-  %1600 = getelementptr inbounds nuw i32, ptr %48, i64 %.0.i175.i.i
+  %1600 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.0.i175.i.i
   %1601 = load i32, ptr %1600, align 4, !tbaa !11, !noalias !358
   %1602 = lshr i32 %1599, %1601
   store i32 %1602, ptr %1598, align 4, !tbaa !11, !noalias !358
@@ -2973,9 +2973,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 1644:                                             ; preds = %1644, %.lr.ph854.i
   %.0.i58174.i485.i = phi i64 [ 0, %.lr.ph854.i ], [ %1650, %1644 ]
-  %1645 = getelementptr inbounds nuw i32, ptr %41, i64 %.0.i58174.i485.i
+  %1645 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.0.i58174.i485.i
   %1646 = load i32, ptr %1645, align 4, !tbaa !11, !noalias !367
-  %1647 = getelementptr inbounds nuw i32, ptr %42, i64 %.0.i58174.i485.i
+  %1647 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.0.i58174.i485.i
   %1648 = load i32, ptr %1647, align 4, !tbaa !11, !noalias !367
   %1649 = lshr i32 %1646, %1648
   store i32 %1649, ptr %1645, align 4, !tbaa !11, !noalias !367
@@ -3047,9 +3047,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1691:                                             ; preds = %1691, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit59.i487.i
   %.0.i175.i498.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit59.i487.i ], [ %1697, %1691 ]
-  %1692 = getelementptr inbounds nuw i32, ptr %43, i64 %.0.i175.i498.i
+  %1692 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.0.i175.i498.i
   %1693 = load i32, ptr %1692, align 4, !tbaa !11, !noalias !375
-  %1694 = getelementptr inbounds nuw i32, ptr %44, i64 %.0.i175.i498.i
+  %1694 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.0.i175.i498.i
   %1695 = load i32, ptr %1694, align 4, !tbaa !11, !noalias !375
   %1696 = lshr i32 %1693, %1695
   store i32 %1696, ptr %1692, align 4, !tbaa !11, !noalias !375
@@ -3130,9 +3130,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 1740:                                             ; preds = %1740, %.lr.ph851.i
   %.0.i60178.i.i = phi i64 [ 0, %.lr.ph851.i ], [ %1746, %1740 ]
-  %1741 = getelementptr inbounds nuw i32, ptr %37, i64 %.0.i60178.i.i
+  %1741 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.0.i60178.i.i
   %1742 = load i32, ptr %1741, align 4, !tbaa !11, !noalias !384
-  %1743 = getelementptr inbounds nuw i32, ptr %38, i64 %.0.i60178.i.i
+  %1743 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.0.i60178.i.i
   %1744 = load i32, ptr %1743, align 4, !tbaa !11, !noalias !384
   %1745 = lshr i32 %1742, %1744
   store i32 %1745, ptr %1741, align 4, !tbaa !11, !noalias !384
@@ -3206,9 +3206,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1788:                                             ; preds = %1788, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit61.i.i
   %.0.i179.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit61.i.i ], [ %1794, %1788 ]
-  %1789 = getelementptr inbounds nuw i32, ptr %39, i64 %.0.i179.i.i
+  %1789 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.0.i179.i.i
   %1790 = load i32, ptr %1789, align 4, !tbaa !11, !noalias !392
-  %1791 = getelementptr inbounds nuw i32, ptr %40, i64 %.0.i179.i.i
+  %1791 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %.0.i179.i.i
   %1792 = load i32, ptr %1791, align 4, !tbaa !11, !noalias !392
   %1793 = lshr i32 %1790, %1792
   store i32 %1793, ptr %1789, align 4, !tbaa !11, !noalias !392
@@ -3286,9 +3286,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 1834:                                             ; preds = %1834, %.lr.ph848.i
   %.0.i54166.i534.i = phi i64 [ 0, %.lr.ph848.i ], [ %1840, %1834 ]
-  %1835 = getelementptr inbounds nuw i32, ptr %33, i64 %.0.i54166.i534.i
+  %1835 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.0.i54166.i534.i
   %1836 = load i32, ptr %1835, align 4, !tbaa !11, !noalias !401
-  %1837 = getelementptr inbounds nuw i32, ptr %34, i64 %.0.i54166.i534.i
+  %1837 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %.0.i54166.i534.i
   %1838 = load i32, ptr %1837, align 4, !tbaa !11, !noalias !401
   %1839 = lshr i32 %1836, %1838
   store i32 %1839, ptr %1835, align 4, !tbaa !11, !noalias !401
@@ -3360,9 +3360,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1880:                                             ; preds = %1880, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit55.i536.i
   %.0.i167.i549.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit55.i536.i ], [ %1886, %1880 ]
-  %1881 = getelementptr inbounds nuw i32, ptr %35, i64 %.0.i167.i549.i
+  %1881 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %.0.i167.i549.i
   %1882 = load i32, ptr %1881, align 4, !tbaa !11, !noalias !409
-  %1883 = getelementptr inbounds nuw i32, ptr %36, i64 %.0.i167.i549.i
+  %1883 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %.0.i167.i549.i
   %1884 = load i32, ptr %1883, align 4, !tbaa !11, !noalias !409
   %1885 = lshr i32 %1882, %1884
   store i32 %1885, ptr %1881, align 4, !tbaa !11, !noalias !409
@@ -3446,9 +3446,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 1931:                                             ; preds = %1931, %.lr.ph845.i
   %.0.i62182.i.i = phi i64 [ 0, %.lr.ph845.i ], [ %1937, %1931 ]
-  %1932 = getelementptr inbounds nuw i32, ptr %29, i64 %.0.i62182.i.i
+  %1932 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.0.i62182.i.i
   %1933 = load i32, ptr %1932, align 4, !tbaa !11, !noalias !418
-  %1934 = getelementptr inbounds nuw i32, ptr %30, i64 %.0.i62182.i.i
+  %1934 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.0.i62182.i.i
   %1935 = load i32, ptr %1934, align 4, !tbaa !11, !noalias !418
   %1936 = lshr i32 %1933, %1935
   store i32 %1936, ptr %1932, align 4, !tbaa !11, !noalias !418
@@ -3525,9 +3525,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 1981:                                             ; preds = %1981, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit63.i.i
   %.0.i183.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit63.i.i ], [ %1987, %1981 ]
-  %1982 = getelementptr inbounds nuw i32, ptr %31, i64 %.0.i183.i.i
+  %1982 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0.i183.i.i
   %1983 = load i32, ptr %1982, align 4, !tbaa !11, !noalias !426
-  %1984 = getelementptr inbounds nuw i32, ptr %32, i64 %.0.i183.i.i
+  %1984 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.0.i183.i.i
   %1985 = load i32, ptr %1984, align 4, !tbaa !11, !noalias !426
   %1986 = lshr i32 %1983, %1985
   store i32 %1986, ptr %1982, align 4, !tbaa !11, !noalias !426
@@ -3611,9 +3611,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 2032:                                             ; preds = %2032, %.lr.ph842.i
   %.0.i62182.i588.i = phi i64 [ 0, %.lr.ph842.i ], [ %2038, %2032 ]
-  %2033 = getelementptr inbounds nuw i32, ptr %25, i64 %.0.i62182.i588.i
+  %2033 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.0.i62182.i588.i
   %2034 = load i32, ptr %2033, align 4, !tbaa !11, !noalias !435
-  %2035 = getelementptr inbounds nuw i32, ptr %26, i64 %.0.i62182.i588.i
+  %2035 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %.0.i62182.i588.i
   %2036 = load i32, ptr %2035, align 4, !tbaa !11, !noalias !435
   %2037 = lshr i32 %2034, %2036
   store i32 %2037, ptr %2033, align 4, !tbaa !11, !noalias !435
@@ -3691,9 +3691,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 2083:                                             ; preds = %2083, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit63.i590.i
   %.0.i183.i604.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit63.i590.i ], [ %2089, %2083 ]
-  %2084 = getelementptr inbounds nuw i32, ptr %27, i64 %.0.i183.i604.i
+  %2084 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.0.i183.i604.i
   %2085 = load i32, ptr %2084, align 4, !tbaa !11, !noalias !443
-  %2086 = getelementptr inbounds nuw i32, ptr %28, i64 %.0.i183.i604.i
+  %2086 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.0.i183.i604.i
   %2087 = load i32, ptr %2086, align 4, !tbaa !11, !noalias !443
   %2088 = lshr i32 %2085, %2087
   store i32 %2088, ptr %2084, align 4, !tbaa !11, !noalias !443
@@ -3780,9 +3780,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 2136:                                             ; preds = %2136, %.lr.ph839.i
   %.0.i64186.i.i = phi i64 [ 0, %.lr.ph839.i ], [ %2142, %2136 ]
-  %2137 = getelementptr inbounds nuw i32, ptr %21, i64 %.0.i64186.i.i
+  %2137 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.0.i64186.i.i
   %2138 = load i32, ptr %2137, align 4, !tbaa !11, !noalias !452
-  %2139 = getelementptr inbounds nuw i32, ptr %22, i64 %.0.i64186.i.i
+  %2139 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0.i64186.i.i
   %2140 = load i32, ptr %2139, align 4, !tbaa !11, !noalias !452
   %2141 = lshr i32 %2138, %2140
   store i32 %2141, ptr %2137, align 4, !tbaa !11, !noalias !452
@@ -3862,9 +3862,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 2188:                                             ; preds = %2188, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit65.i.i
   %.0.i187.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit65.i.i ], [ %2194, %2188 ]
-  %2189 = getelementptr inbounds nuw i32, ptr %23, i64 %.0.i187.i.i
+  %2189 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.0.i187.i.i
   %2190 = load i32, ptr %2189, align 4, !tbaa !11, !noalias !460
-  %2191 = getelementptr inbounds nuw i32, ptr %24, i64 %.0.i187.i.i
+  %2191 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.0.i187.i.i
   %2192 = load i32, ptr %2191, align 4, !tbaa !11, !noalias !460
   %2193 = lshr i32 %2190, %2192
   store i32 %2193, ptr %2189, align 4, !tbaa !11, !noalias !460
@@ -3950,9 +3950,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 2240:                                             ; preds = %2240, %.lr.ph836.i
   %.0.i62182.i647.i = phi i64 [ 0, %.lr.ph836.i ], [ %2246, %2240 ]
-  %2241 = getelementptr inbounds nuw i32, ptr %17, i64 %.0.i62182.i647.i
+  %2241 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.0.i62182.i647.i
   %2242 = load i32, ptr %2241, align 4, !tbaa !11, !noalias !469
-  %2243 = getelementptr inbounds nuw i32, ptr %18, i64 %.0.i62182.i647.i
+  %2243 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.0.i62182.i647.i
   %2244 = load i32, ptr %2243, align 4, !tbaa !11, !noalias !469
   %2245 = lshr i32 %2242, %2244
   store i32 %2245, ptr %2241, align 4, !tbaa !11, !noalias !469
@@ -4032,9 +4032,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 2292:                                             ; preds = %2292, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit63.i649.i
   %.0.i183.i663.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit63.i649.i ], [ %2298, %2292 ]
-  %2293 = getelementptr inbounds nuw i32, ptr %19, i64 %.0.i183.i663.i
+  %2293 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.0.i183.i663.i
   %2294 = load i32, ptr %2293, align 4, !tbaa !11, !noalias !477
-  %2295 = getelementptr inbounds nuw i32, ptr %20, i64 %.0.i183.i663.i
+  %2295 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.0.i183.i663.i
   %2296 = load i32, ptr %2295, align 4, !tbaa !11, !noalias !477
   %2297 = lshr i32 %2294, %2296
   store i32 %2297, ptr %2293, align 4, !tbaa !11, !noalias !477
@@ -4124,9 +4124,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 2347:                                             ; preds = %2347, %.lr.ph833.i
   %.0.i66190.i.i = phi i64 [ 0, %.lr.ph833.i ], [ %2353, %2347 ]
-  %2348 = getelementptr inbounds nuw i32, ptr %13, i64 %.0.i66190.i.i
+  %2348 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.0.i66190.i.i
   %2349 = load i32, ptr %2348, align 4, !tbaa !11, !noalias !486
-  %2350 = getelementptr inbounds nuw i32, ptr %14, i64 %.0.i66190.i.i
+  %2350 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.0.i66190.i.i
   %2351 = load i32, ptr %2350, align 4, !tbaa !11, !noalias !486
   %2352 = lshr i32 %2349, %2351
   store i32 %2352, ptr %2348, align 4, !tbaa !11, !noalias !486
@@ -4209,9 +4209,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 2401:                                             ; preds = %2401, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit67.i.i
   %.0.i191.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit67.i.i ], [ %2407, %2401 ]
-  %2402 = getelementptr inbounds nuw i32, ptr %15, i64 %.0.i191.i.i
+  %2402 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.0.i191.i.i
   %2403 = load i32, ptr %2402, align 4, !tbaa !11, !noalias !494
-  %2404 = getelementptr inbounds nuw i32, ptr %16, i64 %.0.i191.i.i
+  %2404 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.0.i191.i.i
   %2405 = load i32, ptr %2404, align 4, !tbaa !11, !noalias !494
   %2406 = lshr i32 %2403, %2405
   store i32 %2406, ptr %2402, align 4, !tbaa !11, !noalias !494
@@ -4301,9 +4301,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 2456:                                             ; preds = %2456, %.lr.ph830.i
   %.0.i66190.i708.i = phi i64 [ 0, %.lr.ph830.i ], [ %2462, %2456 ]
-  %2457 = getelementptr inbounds nuw i32, ptr %9, i64 %.0.i66190.i708.i
+  %2457 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.0.i66190.i708.i
   %2458 = load i32, ptr %2457, align 4, !tbaa !11, !noalias !503
-  %2459 = getelementptr inbounds nuw i32, ptr %10, i64 %.0.i66190.i708.i
+  %2459 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.0.i66190.i708.i
   %2460 = load i32, ptr %2459, align 4, !tbaa !11, !noalias !503
   %2461 = lshr i32 %2458, %2460
   store i32 %2461, ptr %2457, align 4, !tbaa !11, !noalias !503
@@ -4387,9 +4387,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 2511:                                             ; preds = %2511, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit67.i710.i
   %.0.i191.i726.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit67.i710.i ], [ %2517, %2511 ]
-  %2512 = getelementptr inbounds nuw i32, ptr %11, i64 %.0.i191.i726.i
+  %2512 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.0.i191.i726.i
   %2513 = load i32, ptr %2512, align 4, !tbaa !11, !noalias !511
-  %2514 = getelementptr inbounds nuw i32, ptr %12, i64 %.0.i191.i726.i
+  %2514 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.0.i191.i726.i
   %2515 = load i32, ptr %2514, align 4, !tbaa !11, !noalias !511
   %2516 = lshr i32 %2513, %2515
   store i32 %2516, ptr %2512, align 4, !tbaa !11, !noalias !511
@@ -4482,9 +4482,9 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 
 2568:                                             ; preds = %2568, %.lr.ph827.i
   %.0.i68194.i.i = phi i64 [ 0, %.lr.ph827.i ], [ %2574, %2568 ]
-  %2569 = getelementptr inbounds nuw i32, ptr %5, i64 %.0.i68194.i.i
+  %2569 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0.i68194.i.i
   %2570 = load i32, ptr %2569, align 4, !tbaa !11, !noalias !520
-  %2571 = getelementptr inbounds nuw i32, ptr %6, i64 %.0.i68194.i.i
+  %2571 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0.i68194.i.i
   %2572 = load i32, ptr %2571, align 4, !tbaa !11, !noalias !520
   %2573 = lshr i32 %2570, %2572
   store i32 %2573, ptr %2569, align 4, !tbaa !11, !noalias !520
@@ -4570,9 +4570,9 @@ _ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT
 
 2624:                                             ; preds = %2624, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit69.i.i
   %.0.i195.i.i = phi i64 [ 0, %_ZN5xsimd6kernel6detail5applyIZNS0_14bitwise_rshiftINS_8avx512bwEjvEENS_5batchIT0_T_EERKS8_SA_RKNS_7genericEEUljjE_S4_jJEEENS5_IT1_S6_EEOS7_RKSG_SJ_.exit69.i.i ], [ %2630, %2624 ]
-  %2625 = getelementptr inbounds nuw i32, ptr %7, i64 %.0.i195.i.i
+  %2625 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0.i195.i.i
   %2626 = load i32, ptr %2625, align 4, !tbaa !11, !noalias !528
-  %2627 = getelementptr inbounds nuw i32, ptr %8, i64 %.0.i195.i.i
+  %2627 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.0.i195.i.i
   %2628 = load i32, ptr %2627, align 4, !tbaa !11, !noalias !528
   %2629 = lshr i32 %2626, %2628
   store i32 %2629, ptr %2625, align 4, !tbaa !11, !noalias !528

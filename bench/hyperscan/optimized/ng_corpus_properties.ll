@@ -30,7 +30,7 @@ define hidden void @_ZN16CorpusPropertiesC2Ev(ptr noundef nonnull align 8 captur
 
 10:                                               ; preds = %10, %1
   %storemerge3.i.i.i = phi i64 [ 1, %1 ], [ %20, %10 ]
-  %11 = getelementptr i32, ptr %8, i64 %storemerge3.i.i.i
+  %11 = getelementptr [4 x i8], ptr %8, i64 %storemerge3.i.i.i
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4
   %14 = lshr i32 %13, 30
@@ -69,7 +69,7 @@ define hidden void @_ZN16CorpusPropertiesC2Ev(ptr noundef nonnull align 8 captur
 
 36:                                               ; preds = %34, %22
   %.0812.i.i.i.i = phi i64 [ 0, %22 ], [ %35, %34 ]
-  %37 = getelementptr inbounds nuw i32, ptr %8, i64 %.0812.i.i.i.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.0812.i.i.i.i
   %38 = load i32, ptr %37, align 4
   %.not10.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not10.i.i.i.i, label %34, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEC2Ev.exit
@@ -115,7 +115,7 @@ define hidden void @_ZN16CorpusProperties4seedEj(ptr noundef nonnull align 8 cap
 
 6:                                                ; preds = %6, %2
   %storemerge3.i = phi i64 [ 1, %2 ], [ %16, %6 ]
-  %7 = getelementptr i32, ptr %4, i64 %storemerge3.i
+  %7 = getelementptr [4 x i8], ptr %4, i64 %storemerge3.i
   %8 = getelementptr i8, ptr %7, i64 -4
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, 30
@@ -154,7 +154,7 @@ define hidden void @_ZN16CorpusProperties4seedEj(ptr noundef nonnull align 8 cap
 
 32:                                               ; preds = %30, %18
   %.0812.i.i = phi i64 [ 0, %18 ], [ %31, %30 ]
-  %33 = getelementptr inbounds nuw i32, ptr %4, i64 %.0812.i.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0812.i.i
   %34 = load i32, ptr %33, align 4
   %.not10.i.i = icmp eq i32 %34, 0
   br i1 %.not10.i.i, label %30, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EE4seedERKj.exit
@@ -233,7 +233,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6random6detail20generate_unifor
   br i1 %10, label %12, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %7
-  %.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %0, i64 %9
+  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %9
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %11 = add i64 %9, 1
   br label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEclEv.exit
@@ -245,10 +245,10 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6random6detail20generate_unifor
 13:                                               ; preds = %13, %12
   %14 = phi i32 [ %.pre.i.i, %12 ], [ %19, %13 ]
   %.037.i.i = phi i64 [ 0, %12 ], [ %17, %13 ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %.037.i.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.037.i.i
   %16 = and i32 %14, -2147483648
   %17 = add nuw nsw i64 %.037.i.i, 1
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 2147483646
   %21 = or disjoint i32 %20, %16
@@ -271,10 +271,10 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6random6detail20generate_unifor
 .preheader36.i.i:                                 ; preds = %.preheader36.i.i, %.preheader36.preheader.i.i
   %29 = phi i32 [ %34, %.preheader36.i.i ], [ %.pre42.i.i, %.preheader36.preheader.i.i ]
   %.03338.i.i = phi i64 [ %32, %.preheader36.i.i ], [ 222, %.preheader36.preheader.i.i ]
-  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %.03338.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.03338.i.i
   %31 = and i32 %29, -2147483648
   %32 = add nuw nsw i64 %.03338.i.i, 1
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 2147483646
   %36 = or disjoint i32 %35, %31
@@ -297,10 +297,10 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6random6detail20generate_unifor
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %44 = phi i32 [ %49, %.preheader.i.i ], [ %.pre44.i.i, %.preheader.preheader.i.i ]
   %.03539.i.i = phi i64 [ %47, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %45 = getelementptr inbounds nuw i32, ptr %0, i64 %.03539.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.03539.i.i
   %46 = and i32 %44, -2147483648
   %47 = add nuw nsw i64 %.03539.i.i, 1
-  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 2147483646
   %51 = or disjoint i32 %50, %46
@@ -370,7 +370,7 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
   br i1 %96, label %98, label %._crit_edge.i103
 
 ._crit_edge.i103:                                 ; preds = %94
-  %.phi.trans.insert.i104 = getelementptr inbounds nuw i32, ptr %0, i64 %95
+  %.phi.trans.insert.i104 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %95
   %.pre.i105 = load i32, ptr %.phi.trans.insert.i104, align 4
   %97 = add i64 %95, 1
   br label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEclEv.exit122
@@ -382,10 +382,10 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
 99:                                               ; preds = %99, %98
   %100 = phi i32 [ %.pre.i.i106, %98 ], [ %105, %99 ]
   %.037.i.i107 = phi i64 [ 0, %98 ], [ %103, %99 ]
-  %101 = getelementptr inbounds nuw i32, ptr %0, i64 %.037.i.i107
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.037.i.i107
   %102 = and i32 %100, -2147483648
   %103 = add nuw nsw i64 %.037.i.i107, 1
-  %104 = getelementptr inbounds nuw i32, ptr %0, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %103
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, 2147483646
   %107 = or disjoint i32 %106, %102
@@ -407,10 +407,10 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
 .preheader36.i.i112:                              ; preds = %.preheader36.i.i112, %.preheader36.preheader.i.i109
   %115 = phi i32 [ %120, %.preheader36.i.i112 ], [ %.pre42.i.i111, %.preheader36.preheader.i.i109 ]
   %.03338.i.i113 = phi i64 [ %118, %.preheader36.i.i112 ], [ 222, %.preheader36.preheader.i.i109 ]
-  %116 = getelementptr inbounds nuw i32, ptr %0, i64 %.03338.i.i113
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.03338.i.i113
   %117 = and i32 %115, -2147483648
   %118 = add nuw nsw i64 %.03338.i.i113, 1
-  %119 = getelementptr inbounds nuw i32, ptr %0, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = and i32 %120, 2147483646
   %122 = or disjoint i32 %121, %117
@@ -432,10 +432,10 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
 .preheader.i.i118:                                ; preds = %.preheader.i.i118, %.preheader.preheader.i.i115
   %130 = phi i32 [ %135, %.preheader.i.i118 ], [ %.pre44.i.i117, %.preheader.preheader.i.i115 ]
   %.03539.i.i119 = phi i64 [ %133, %.preheader.i.i118 ], [ 227, %.preheader.preheader.i.i115 ]
-  %131 = getelementptr inbounds nuw i32, ptr %0, i64 %.03539.i.i119
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.03539.i.i119
   %132 = and i32 %130, -2147483648
   %133 = add nuw nsw i64 %.03539.i.i119, 1
-  %134 = getelementptr inbounds nuw i32, ptr %0, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %133
   %135 = load i32, ptr %134, align 4
   %136 = and i32 %135, 2147483646
   %137 = or disjoint i32 %136, %132

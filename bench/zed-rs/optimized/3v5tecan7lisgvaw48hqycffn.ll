@@ -1499,7 +1499,7 @@ define internal fastcc void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$
   %.sroa.06.0 = phi i64 [ 0, %8 ], [ %43, %"_ZN4task13task_template12TaskTemplate12resolve_task28_$u7b$$u7b$closure$u7d$$u7d$17h513672a2438a3c88E.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %18 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %.sroa.06.0
+  %18 = getelementptr inbounds [24 x i8], ptr %1, i64 %.sroa.06.0
   store ptr %18, ptr %13, align 8
   %19 = getelementptr i8, ptr %18, i64 8
   %.val = load ptr, ptr %19, align 8
@@ -2984,7 +2984,7 @@ _ZN4task13task_template40substitute_all_template_variables_in_str17hecf9f1307158
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha2e570db5c5d5ccfE.exit.i": ; preds = %433, %_ZN4task13task_template40substitute_all_template_variables_in_str17hecf9f13071585a98E.exit.thread17.i
   %438 = load ptr, ptr %402, align 8, !alias.scope !559, !noalias !562, !nonnull !14, !noundef !14
-  %439 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %438, i64 %430
+  %439 = getelementptr inbounds [24 x i8], ptr %438, i64 %430
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %439, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !545
   %440 = add i64 %430, 1
   store i64 %440, ptr %403, align 8, !alias.scope !559, !noalias !562
@@ -3399,7 +3399,7 @@ _ZN4task13task_template40substitute_all_template_variables_in_str17hecf9f1307158
   br label %523
 
 526:                                              ; preds = %519
-  %527 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %520, i64 %522
+  %527 = getelementptr inbounds [24 x i8], ptr %520, i64 %522
   invoke fastcc void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfd698d74a7a1c42eE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %60, ptr noundef nonnull %520, ptr noundef %527, ptr noalias noundef align 8 captures(none) dereferenceable(24) %59)
           to label %528 unwind label %524
 
@@ -4589,7 +4589,7 @@ define void @"_ZN4task13vscode_format130_$LT$impl$u20$core..convert..TryFrom$LT$
   %.sroa.454.0.copyload = load ptr, ptr %.sroa.454.0..sroa_idx, align 8, !nonnull !14, !noundef !14
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.555.0.copyload = load i64, ptr %.sroa.555.0..sroa_idx, align 8
-  %139 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [6 x i64] }, { [3 x i64], i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr %.sroa.454.0.copyload, i64 %.sroa.555.0.copyload
+  %139 = getelementptr inbounds [160 x i8], ptr %.sroa.454.0.copyload, i64 %.sroa.555.0.copyload
   store ptr %.sroa.454.0.copyload, ptr %18, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %.sroa.454.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8

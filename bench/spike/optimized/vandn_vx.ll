@@ -358,7 +358,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vandn_vxP1
   %157 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %144, i1 true)
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %159 = and i64 %156, 31
-  %160 = getelementptr inbounds nuw i64, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   br label %165
 
 ._crit_edge:                                      ; preds = %204, %135
@@ -853,7 +853,7 @@ define noundef i64 @_Z19fast_rv64i_vandn_vxP11processor_t6insn_tm(ptr noundef %0
   %157 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %144, i1 true)
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %159 = and i64 %156, 31
-  %160 = getelementptr inbounds nuw i64, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   br label %163
 
 ._crit_edge:                                      ; preds = %202, %135
@@ -1228,7 +1228,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vandn_vx
   %157 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %144, i1 true)
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %159 = and i64 %156, 31
-  %160 = getelementptr inbounds nuw i64, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   br label %165
 
 ._crit_edge:                                      ; preds = %204, %135
@@ -1605,7 +1605,7 @@ define noundef i64 @_Z21logged_rv64i_vandn_vxP11processor_t6insn_tm(ptr noundef 
   %157 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %144, i1 true)
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %159 = and i64 %156, 31
-  %160 = getelementptr inbounds nuw i64, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   br label %163
 
 ._crit_edge:                                      ; preds = %202, %135
@@ -1981,7 +1981,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vandn_vxP1
   %158 = and i64 %156, 31
   %159 = icmp samesign ugt i64 %158, 15
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %161 = getelementptr inbounds nuw i64, ptr %160, i64 %158
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %158
   br label %166
 
 ._crit_edge:                                      ; preds = %229, %135
@@ -2419,7 +2419,7 @@ define noundef i64 @_Z19fast_rv64e_vandn_vxP11processor_t6insn_tm(ptr noundef %0
   %158 = and i64 %156, 31
   %159 = icmp samesign ugt i64 %158, 15
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %161 = getelementptr inbounds nuw i64, ptr %160, i64 %158
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %158
   br label %164
 
 ._crit_edge:                                      ; preds = %227, %135
@@ -2855,7 +2855,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vandn_vx
   %158 = and i64 %156, 31
   %159 = icmp samesign ugt i64 %158, 15
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %161 = getelementptr inbounds nuw i64, ptr %160, i64 %158
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %158
   br label %166
 
 ._crit_edge:                                      ; preds = %229, %135
@@ -3293,7 +3293,7 @@ define noundef i64 @_Z21logged_rv64e_vandn_vxP11processor_t6insn_tm(ptr noundef 
   %158 = and i64 %156, 31
   %159 = icmp samesign ugt i64 %158, 15
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %161 = getelementptr inbounds nuw i64, ptr %160, i64 %158
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %158
   br label %164
 
 ._crit_edge:                                      ; preds = %227, %135

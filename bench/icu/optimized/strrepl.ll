@@ -1274,7 +1274,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %11, %12, %19
   %.not.i.i.i = icmp eq i16 %64, 0
   %65 = load ptr, ptr %40, align 8
   %66 = select i1 %.not.i.i.i, ptr %65, ptr %39
-  %67 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %indvars.iv
   %68 = load i16, ptr %67, align 2, !tbaa !34
   %69 = zext i16 %68 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit

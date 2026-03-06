@@ -6,24 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ident_t = type { i32, i32, i32, i32, ptr }
 %"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
 %"struct.gmx::ArrayRefIter" = type { ptr }
-%"struct.gmx::NbnxnPairlistCpu" = type { %"struct.gmx::gmx_cache_protect_t", i32, i32, float, %"class.std::vector.12", %"class.std::vector.12", %"class.gmx::JClusterList", %"class.std::vector.17", i32, %"class.std::unique_ptr.23", %"struct.gmx::gmx_cache_protect_t" }
-%"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
-%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::JClusterList" = type { %"class.std::vector.17" }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.23" = type { %"struct.std::__uniq_ptr_data.24" }
-%"struct.std::__uniq_ptr_data.24" = type { %"class.std::__uniq_ptr_impl.25" }
-%"class.std::__uniq_ptr_impl.25" = type { %"class.std::tuple.26" }
-%"class.std::tuple.26" = type { %"struct.std::_Tuple_impl.27" }
-%"struct.std::_Tuple_impl.27" = type { %"struct.std::_Head_base.30" }
-%"struct.std::_Head_base.30" = type { ptr }
-%"struct.gmx::gmx_cache_protect_t" = type { [16 x i32] }
-%struct.wallcc_t = type { i32, i64, i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -147,7 +129,7 @@ define internal void @_ZN3gmx11PairlistSet19dispatchPruneKernelEPKNS_16nbnxn_ato
 23:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %71 ]
   %24 = load ptr, ptr %3, align 8, !tbaa !35
-  %25 = getelementptr inbounds nuw %"struct.gmx::NbnxnPairlistCpu", ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [256 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %20, align 8, !tbaa !9
   %27 = load i32, ptr %26, align 4, !tbaa !36
   %28 = load ptr, ptr %4, align 8, !tbaa !4
@@ -385,7 +367,7 @@ define void @_ZN3gmx18nonbonded_verlet_t22dispatchPruneKernelGpuEl(ptr noundef n
   %28 = load i32, ptr %27, align 4, !tbaa !108
   %29 = mul nsw i32 %28, 60
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct.wallcc_t, ptr %17, i64 %30
+  %31 = getelementptr [24 x i8], ptr %17, i64 %30
   %32 = getelementptr i8, ptr %31, i64 216
   %33 = load i32, ptr %32, align 8, !tbaa !109
   %34 = add nsw i32 %33, 1

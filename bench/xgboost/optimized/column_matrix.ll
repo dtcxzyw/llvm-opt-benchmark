@@ -379,7 +379,7 @@ _ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEED2Ev.exit: ; preds = %_ZN7
   %75 = shl nuw nsw i64 %23, 3
   %76 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #30
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %76, i8 0, i64 %75, i1 false), !tbaa !29
-  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %23
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %23
   %78 = ptrtoint ptr %77 to i64
   br label %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit
 
@@ -390,11 +390,11 @@ _ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEED2Ev.exit: ; preds = %_ZN7
   %79 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load ptr, ptr %79, align 8, !tbaa !30
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.next
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv.next
   %82 = load i32, ptr %81, align 4, !tbaa !27
   %83 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
   %84 = load ptr, ptr %83, align 8, !tbaa !30
-  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4, !tbaa !27
   %87 = sub i32 %82, %86
   store i32 %87, ptr %8, align 4, !tbaa !27
@@ -529,7 +529,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %_ZN7xgboost6common1
 
 .noexc76:                                         ; preds = %123
   %126 = load ptr, ptr %125, align 8, !tbaa !30
-  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %124
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %124
   %128 = load i32, ptr %127, align 4, !tbaa !27
   %129 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIjE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %.noexc77 unwind label %.loopexit
@@ -538,14 +538,14 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %_ZN7xgboost6common1
   %130 = add i32 %.01215.i, 1
   %131 = zext i32 %130 to i64
   %132 = load ptr, ptr %129, align 8, !tbaa !30
-  %133 = getelementptr inbounds nuw i32, ptr %132, i64 %131
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %131
   %134 = load i32, ptr %133, align 4, !tbaa !27
   %135 = icmp ult i32 %128, %134
   br i1 %135, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.noexc77
   %136 = load ptr, ptr %121, align 8, !tbaa !47
-  %137 = getelementptr inbounds nuw i64, ptr %.sroa.0112.0, i64 %124
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0112.0, i64 %124
   %.promoted.i = load i64, ptr %137, align 8, !tbaa !29
   %138 = zext i32 %128 to i64
   %wide.trip.count.i = zext i32 %134 to i64
@@ -554,7 +554,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %_ZN7xgboost6common1
 139:                                              ; preds = %139, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %138, %.lr.ph.i ], [ %indvars.iv.next.i, %139 ]
   %140 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %143, %139 ]
-  %141 = getelementptr inbounds nuw i64, ptr %136, i64 %indvars.iv.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv.i
   %142 = load i64, ptr %141, align 8, !tbaa !29
   %143 = add i64 %142, %140
   store i64 %143, ptr %137, align 8, !tbaa !29
@@ -593,7 +593,7 @@ _ZNK7xgboost16GHistIndexMatrix16GetFeatureCountsEPm.exit: ; preds = %.loopexit.i
 148:                                              ; preds = %.lr.ph123, %148
   %indvars.iv132 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next133, %148 ]
   %.043121 = phi i1 [ true, %.lr.ph123 ], [ %.144, %148 ]
-  %149 = getelementptr inbounds nuw i64, ptr %.sroa.0112.0, i64 %indvars.iv132
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0112.0, i64 %indvars.iv132
   %150 = load i64, ptr %149, align 8, !tbaa !29
   %151 = uitofp i64 %150 to double
   %152 = fcmp ogt double %145, %151
@@ -745,14 +745,14 @@ _ZN7xgboost6common15RefResourceViewImED2Ev.exit:  ; preds = %_ZN7xgboost6common1
   br i1 %215, label %219, label %216
 
 216:                                              ; preds = %211
-  %217 = getelementptr inbounds nuw i64, ptr %.sroa.0112.0, i64 %212
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0112.0, i64 %212
   %218 = load i64, ptr %217, align 8, !tbaa !29
   br label %219
 
 219:                                              ; preds = %211, %216
   %.pn58 = phi i64 [ %218, %216 ], [ %spec.select.i, %211 ]
   %.1 = add i64 %.pn58, %.041125
-  %220 = getelementptr inbounds nuw i64, ptr %206, i64 %indvars.iv136
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv136
   store i64 %.1, ptr %220, align 8, !tbaa !29
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
@@ -793,7 +793,7 @@ _ZN7xgboost6common15RefResourceViewImED2Ev.exit:  ; preds = %_ZN7xgboost6common1
   %236 = phi i64 [ 4, %234 ], [ 2, %233 ], [ 1, %229 ]
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %238 = load i64, ptr %237, align 8, !tbaa !3
-  %239 = getelementptr i64, ptr %206, i64 %238
+  %239 = getelementptr [8 x i8], ptr %206, i64 %238
   %240 = getelementptr i8, ptr %239, i64 -8
   %241 = load i64, ptr %240, align 8, !tbaa !29
   %242 = mul i64 %241, %236
@@ -919,7 +919,7 @@ _ZN7xgboost6common15RefResourceViewIhED2Ev.exit:  ; preds = %_ZN7xgboost6common1
 294:                                              ; preds = %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %295 = load ptr, ptr %155, align 8, !tbaa !47
-  %296 = getelementptr inbounds nuw i64, ptr %295, i64 %23
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %23
   %297 = load i64, ptr %296, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8, !tbaa !29
@@ -3789,7 +3789,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !148
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -3845,7 +3845,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !149
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48

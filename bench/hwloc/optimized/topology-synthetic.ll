@@ -4,12 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.hwloc_disc_component = type { ptr, i32, i32, ptr, i32, i32, ptr }
-%struct.hwloc_synthetic_intlv_loop_s = type { i32, i32, i32 }
 %union.hwloc_obj_attr_u = type { %struct.hwloc_numanode_attr_s, [24 x i8] }
 %struct.hwloc_numanode_attr_s = type { i64, i32, ptr }
-%struct.hwloc_synthetic_level_data_s = type { i32, i64, %struct.hwloc_synthetic_attr_s, %struct.hwloc_synthetic_indexes_s, ptr }
-%struct.hwloc_synthetic_attr_s = type { i32, i32, i32, i64, i64 }
-%struct.hwloc_synthetic_indexes_s = type { ptr, i64, ptr, i32 }
 
 @hwloc_synthetic_disc_component = internal global %struct.hwloc_disc_component { ptr @.str.4, i32 1, i32 -1, ptr @hwloc_synthetic_component_instantiate, i32 30, i32 1, ptr null }, align 8
 @hwloc_synthetic_component = hidden local_unnamed_addr constant { i32, [4 x i8], ptr, ptr, i32, [4 x i8], i64, ptr } { i32 8, [4 x i8] zeroinitializer, ptr null, ptr null, i32 0, [4 x i8] zeroinitializer, i64 0, ptr @hwloc_synthetic_disc_component }, align 8
@@ -652,10 +648,10 @@ thread-pre-split:                                 ; preds = %16, %5
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !63
   %80 = zext nneg i32 %72 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !64
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %80
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %80
   br label %85
 
 85:                                               ; preds = %77, %74
@@ -715,7 +711,7 @@ thread-pre-split:                                 ; preds = %16, %5
   %indvars.iv191.i = phi i64 [ 0, %.preheader129.us.i ], [ %indvars.iv.next192.i, %103 ]
   %.076156.us.i = phi i32 [ 1, %.preheader129.us.i ], [ %112, %103 ]
   %.077155.us.i = phi i32 [ 0, %.preheader129.us.i ], [ %111, %103 ]
-  %104 = getelementptr inbounds nuw %struct.hwloc_synthetic_intlv_loop_s, ptr %142, i64 %indvars.iv191.i
+  %104 = getelementptr inbounds nuw [12 x i8], ptr %142, i64 %indvars.iv191.i
   %105 = load i32, ptr %104, align 4, !tbaa !66
   %106 = udiv i32 %102, %105
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
@@ -734,7 +730,7 @@ thread-pre-split:                                 ; preds = %16, %5
   br i1 %exitcond196.not.i, label %.preheader.i, label %.preheader129.us.i, !llvm.loop !70
 
 ._crit_edge158.us.i:                              ; preds = %103
-  %114 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv173
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv173
   %115 = load ptr, ptr %114, align 8, !tbaa !47
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i32, ptr %116, align 8, !tbaa !42
@@ -754,7 +750,7 @@ thread-pre-split:                                 ; preds = %16, %5
 
 .lr.ph.i:                                         ; preds = %.preheader132.i, %125
   %indvars.iv = phi i64 [ %indvars.iv.next, %125 ], [ 1, %.preheader132.i ]
-  %120 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv
   %121 = load ptr, ptr %120, align 8, !tbaa !47
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load i32, ptr %122, align 8, !tbaa !42
@@ -789,7 +785,7 @@ thread-pre-split:                                 ; preds = %16, %5
   %indvars190.i = trunc i64 %indvars.iv.i to i32
   %131 = mul i32 %.079.lcssa.i, %indvars190.i
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %.0, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !47
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %136 = load i32, ptr %135, align 8, !tbaa !42
@@ -813,7 +809,7 @@ thread-pre-split:                                 ; preds = %16, %5
 
 143:                                              ; preds = %._crit_edge143.i
   %144 = zext i32 %.085149.i to i64
-  %145 = getelementptr inbounds nuw %struct.hwloc_synthetic_intlv_loop_s, ptr %142, i64 %144
+  %145 = getelementptr inbounds nuw [12 x i8], ptr %142, i64 %144
   store i32 %.079.lcssa.i, ptr %145, align 4, !tbaa !66
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
   store i32 %.078.lcssa.i, ptr %146, align 4, !tbaa !68
@@ -828,7 +824,7 @@ thread-pre-split:                                 ; preds = %16, %5
 
 .preheader129.i:                                  ; preds = %148, %.preheader129.preheader.i
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %148 ], [ 0, %.preheader129.preheader.i ]
-  %149 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv176
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv176
   %150 = load ptr, ptr %149, align 8, !tbaa !47
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = load i32, ptr %151, align 8, !tbaa !42
@@ -844,7 +840,7 @@ thread-pre-split:                                 ; preds = %16, %5
   %.0163.i = phi i32 [ %162, %161 ], [ 0, %.preheader.i ]
   %.0113162.i = phi ptr [ %169, %161 ], [ %96, %.preheader.i ]
   %.0117161.i = phi i64 [ %170, %161 ], [ %97, %.preheader.i ]
-  %153 = getelementptr inbounds nuw %struct.hwloc_synthetic_intlv_loop_s, ptr %142, i64 %indvars.iv198.i
+  %153 = getelementptr inbounds nuw [12 x i8], ptr %142, i64 %indvars.iv198.i
   %154 = load i32, ptr %153, align 4, !tbaa !66
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %156 = load i32, ptr %155, align 4, !tbaa !68
@@ -1410,7 +1406,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 -1, ptr %10, align 4, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %46 = getelementptr %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %.0283427.i
+  %46 = getelementptr [88 x i8], ptr %28, i64 %.0283427.i
   %47 = getelementptr i8, ptr %46, i64 -88
   store i32 0, ptr %47, align 8, !tbaa !94
   br label %48
@@ -1737,7 +1733,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 .loopexit.i:                                      ; preds = %.thread379.i, %.thread385.i, %41
   %.0283419.i = phi i64 [ %.0283427.i, %.thread385.i ], [ 1, %41 ], [ %.2285.ph.i, %.thread379.i ]
   %182 = add nsw i64 %.0283419.i, -1
-  %183 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %182
+  %183 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load i32, ptr %184, align 8, !tbaa !90
   switch i32 %185, label %186 [
@@ -1768,7 +1764,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 
 .lr.ph432.i:                                      ; preds = %192, %202
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %202 ], [ %193, %192 ]
-  %194 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %indvars.iv.i
+  %194 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %indvars.iv.i
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %196 = load i32, ptr %195, align 8, !tbaa !90
   %.not364.i = icmp eq i32 %196, -1
@@ -1776,7 +1772,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 
 197:                                              ; preds = %.lr.ph432.i
   %198 = zext i32 %196 to i64
-  %199 = getelementptr inbounds nuw i32, ptr %9, i64 %198
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %198
   %200 = load i32, ptr %199, align 4, !tbaa !58
   %201 = add nsw i32 %200, 1
   store i32 %201, ptr %199, align 4, !tbaa !58
@@ -1937,7 +1933,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %267 = phi i64 [ %274, %.lr.ph435.i ], [ 1, %.preheader.i ]
   %.2288434.i = phi i32 [ %273, %.lr.ph435.i ], [ 1, %.preheader.i ]
   %.0290433.i = phi i32 [ %spec.select.i, %.lr.ph435.i ], [ 0, %.preheader.i ]
-  %268 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %267
+  %268 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %267
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
   %270 = load i32, ptr %269, align 8, !tbaa !90
   %271 = icmp eq i32 %270, -1
@@ -2000,7 +1996,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 299:                                              ; preds = %299, %.lr.ph440.i
   %indvars.iv492.i = phi i64 [ 0, %.lr.ph440.i ], [ %indvars.iv.next493.i, %299 ]
   %indvars.iv.next493.i = add nuw nsw i64 %indvars.iv492.i, 1
-  %300 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %indvars.iv.next493.i
+  %300 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %indvars.iv.next493.i
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   store i32 13, ptr %301, align 8, !tbaa !90
   %exitcond.not.i = icmp eq i64 %indvars.iv.next493.i, %wide.trip.count.i
@@ -2017,7 +2013,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 304:                                              ; preds = %303
   %305 = add i32 %297, 1
   %306 = zext i32 %305 to i64
-  %307 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %306
+  %307 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %306
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 16
   store i32 1, ptr %308, align 8, !tbaa !90
   br label %309
@@ -2029,7 +2025,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %311 = add i32 %297, 1
   %312 = add i32 %311, %291
   %313 = zext i32 %312 to i64
-  %314 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %313
+  %314 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %313
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 16
   store i32 14, ptr %315, align 8, !tbaa !90
   br label %316
@@ -2051,7 +2047,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 
 326:                                              ; preds = %318
   %327 = zext i32 %324 to i64
-  %328 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %327
+  %328 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %327
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 16
   store i32 6, ptr %329, align 8, !tbaa !90
   %330 = getelementptr inbounds nuw i8, ptr %328, i64 20
@@ -2064,7 +2060,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 332:                                              ; preds = %318
   %333 = add i32 %324, 2
   %334 = zext i32 %321 to i64
-  %335 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %334
+  %335 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %334
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 16
   store i32 7, ptr %336, align 8, !tbaa !90
   %337 = getelementptr inbounds nuw i8, ptr %335, i64 20
@@ -2072,7 +2068,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %338 = getelementptr inbounds nuw i8, ptr %335, i64 24
   store i32 0, ptr %338, align 8, !tbaa !102
   %339 = zext i32 %324 to i64
-  %340 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %339
+  %340 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %339
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 16
   store i32 6, ptr %341, align 8, !tbaa !90
   %342 = getelementptr inbounds nuw i8, ptr %340, i64 20
@@ -2080,7 +2076,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %343 = getelementptr inbounds nuw i8, ptr %340, i64 24
   store i32 0, ptr %343, align 8, !tbaa !102
   %344 = zext i32 %325 to i64
-  %345 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %344
+  %345 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %344
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 16
   store i32 5, ptr %346, align 8, !tbaa !90
   %347 = getelementptr inbounds nuw i8, ptr %345, i64 20
@@ -2095,7 +2091,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %.sink568.i = phi i32 [ 5, %326 ], [ 10, %332 ]
   %.sink.i = phi i32 [ 1, %326 ], [ 2, %332 ]
   %349 = zext i32 %.sink572.i to i64
-  %350 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %349
+  %350 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %349
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 16
   store i32 %.sink568.i, ptr %351, align 8, !tbaa !90
   %352 = getelementptr inbounds nuw i8, ptr %350, i64 20
@@ -2113,7 +2109,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %357 = add i32 %356, %291
   %358 = add i32 %357, %296
   %359 = zext i32 %358 to i64
-  %360 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %359
+  %360 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %359
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
   store i32 3, ptr %361, align 8, !tbaa !90
   br label %.thread532.i
@@ -2167,7 +2163,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %382 = phi i32 [ %.promoted454.i, %.lr.ph452.i ], [ %449, %._crit_edge447.i ]
   %383 = phi i64 [ 0, %.lr.ph452.i ], [ %454, %._crit_edge447.i ]
   %.4450.i = phi i32 [ 0, %.lr.ph452.i ], [ %453, %._crit_edge447.i ]
-  %384 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %383
+  %384 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %383
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %386 = load i32, ptr %385, align 8, !tbaa !107
   %387 = icmp eq i32 %386, 13
@@ -2318,7 +2314,7 @@ hwloc_synthetic_set_default_attrs.exit372.i:      ; preds = %446, %443, %441, %4
 
 456:                                              ; preds = %._crit_edge.i.i, %.thread374.i
   %indvars.iv.i.i = phi i64 [ 0, %.thread374.i ], [ %indvars.iv.next.i.i, %._crit_edge.i.i ]
-  %457 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %indvars.iv.i.i
+  %457 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %indvars.iv.i.i
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 80
   %459 = load ptr, ptr %458, align 8, !tbaa !98
   %.not16.i.i = icmp eq ptr %459, null
@@ -2356,7 +2352,7 @@ hwloc_synthetic_free_levels.exit.i:               ; preds = %._crit_edge.i.i
   %470 = load ptr, ptr %7, align 8, !tbaa !81
   %471 = call noalias ptr @strdup(ptr noundef %470) #25
   store ptr %471, ptr %19, align 8, !tbaa !115
-  %472 = getelementptr %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %.3.i
+  %472 = getelementptr [88 x i8], ptr %28, i64 %.3.i
   %473 = getelementptr i8, ptr %472, i64 -88
   store i32 0, ptr %473, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2414,7 +2410,7 @@ define internal noundef i32 @hwloc_look_synthetic(ptr noundef captures(none) %0,
   store i32 0, ptr %18, align 8, !tbaa !128
   %19 = add i32 %.033, 1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %20
   %22 = load i32, ptr %21, align 8, !tbaa !94
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
@@ -2463,7 +2459,7 @@ define internal void @hwloc_synthetic_backend_disable(ptr noundef captures(none)
 
 3:                                                ; preds = %._crit_edge.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %4 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %2, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [88 x i8], ptr %2, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !98
   %.not16.i = icmp eq ptr %6, null
@@ -2792,7 +2788,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 
 28:                                               ; preds = %23
   %29 = trunc i64 %24 to i32
-  %30 = getelementptr inbounds nuw i32, ptr %14, i64 %.0215435
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.0215435
   store i32 %29, ptr %30, align 4, !tbaa !58
   %.not305 = icmp eq i64 %.0215435, %22
   br i1 %.not305, label %38, label %31
@@ -2952,7 +2948,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 
 87:                                               ; preds = %82
   %88 = zext i32 %.0226416 to i64
-  %89 = getelementptr inbounds nuw %struct.hwloc_synthetic_intlv_loop_s, ptr %52, i64 %88
+  %89 = getelementptr inbounds nuw [12 x i8], ptr %52, i64 %88
   store i32 %60, ptr %89, align 4, !tbaa !66
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i32 %73, ptr %90, align 4, !tbaa !68
@@ -3031,7 +3027,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 
 .lr.ph391.split.us:                               ; preds = %.lr.ph391, %121
   %.1216390.us = phi i64 [ %122, %121 ], [ 0, %.lr.ph391 ]
-  %115 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %103, i64 %.1216390.us
+  %115 = getelementptr inbounds nuw [88 x i8], ptr %103, i64 %.1216390.us
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i32, ptr %116, align 8, !tbaa !90
   %.not280.us = icmp eq i32 %108, %117
@@ -3045,7 +3041,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 
 121:                                              ; preds = %118, %.lr.ph391.split.us
   %122 = add i64 %.1216390.us, 1
-  %123 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %103, i64 %122
+  %123 = getelementptr inbounds nuw [88 x i8], ptr %103, i64 %122
   %124 = load i32, ptr %123, align 8, !tbaa !94
   %.not279.us = icmp eq i32 %124, 0
   br i1 %.not279.us, label %.thread496, label %.lr.ph391.split.us
@@ -3061,7 +3057,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 
 .lr.ph391.split:                                  ; preds = %.lr.ph391, %132
   %.1216390 = phi i64 [ %133, %132 ], [ 0, %.lr.ph391 ]
-  %129 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %103, i64 %.1216390
+  %129 = getelementptr inbounds nuw [88 x i8], ptr %103, i64 %.1216390
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load i32, ptr %130, align 8, !tbaa !90
   %.not280 = icmp eq i32 %108, %131
@@ -3069,7 +3065,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 
 132:                                              ; preds = %.lr.ph391.split
   %133 = add i64 %.1216390, 1
-  %134 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %103, i64 %133
+  %134 = getelementptr inbounds nuw [88 x i8], ptr %103, i64 %133
   %135 = load i32, ptr %134, align 8, !tbaa !94
   %.not279 = icmp eq i32 %135, 0
   br i1 %.not279, label %.thread496, label %.lr.ph391.split
@@ -3078,7 +3074,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %.us-phi = phi i64 [ %.1216390.us, %118 ], [ %.1216390, %.lr.ph391.split ]
   %136 = trunc i64 %.us-phi to i32
   %137 = zext i32 %.2228398 to i64
-  %138 = getelementptr inbounds nuw %struct.hwloc_synthetic_intlv_loop_s, ptr %52, i64 %137
+  %138 = getelementptr inbounds nuw [12 x i8], ptr %52, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i32 %136, ptr %139, align 4, !tbaa !139
   %140 = icmp eq i32 %136, -1
@@ -3120,7 +3116,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %.7407 = phi i32 [ %42, %.lr.ph409 ], [ %spec.select315, %171 ]
   %.6242406 = phi i64 [ 1, %.lr.ph409 ], [ %186, %171 ]
   %154 = zext i32 %.3229408 to i64
-  %155 = getelementptr inbounds nuw %struct.hwloc_synthetic_intlv_loop_s, ptr %52, i64 %154
+  %155 = getelementptr inbounds nuw [12 x i8], ptr %52, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load i32, ptr %156, align 4, !tbaa !139
   br label %158
@@ -3128,7 +3124,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 158:                                              ; preds = %153, %167
   %.2217405 = phi i64 [ 0, %153 ], [ %170, %167 ]
   %.0222404 = phi i32 [ 0, %153 ], [ %.1223, %167 ]
-  %159 = getelementptr inbounds nuw %struct.hwloc_synthetic_intlv_loop_s, ptr %52, i64 %.2217405
+  %159 = getelementptr inbounds nuw [12 x i8], ptr %52, i64 %.2217405
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load i32, ptr %160, align 4, !tbaa !139
   %162 = icmp ne i32 %161, %157
@@ -3155,13 +3151,13 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 
 171:                                              ; preds = %167
   %172 = zext i32 %157 to i64
-  %173 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %103, i64 %172
+  %173 = getelementptr inbounds nuw [88 x i8], ptr %103, i64 %172
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load i64, ptr %174, align 8, !tbaa !86
   %176 = udiv i64 %2, %175
   %177 = trunc i64 %176 to i32
   %178 = zext i32 %.1223 to i64
-  %179 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %103, i64 %178
+  %179 = getelementptr inbounds nuw [88 x i8], ptr %103, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load i64, ptr %180, align 8, !tbaa !86
   %182 = udiv i64 %175, %181
@@ -3207,7 +3203,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 
 193:                                              ; preds = %189
   %194 = zext i32 %.0224.lcssa to i64
-  %195 = getelementptr inbounds nuw %struct.hwloc_synthetic_intlv_loop_s, ptr %52, i64 %194
+  %195 = getelementptr inbounds nuw [12 x i8], ptr %52, i64 %194
   store i32 1, ptr %195, align 4, !tbaa !66
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   store i32 %.5235, ptr %196, align 4, !tbaa !68
@@ -3243,7 +3239,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 .lr.ph424.us:                                     ; preds = %.lr.ph429, %._crit_edge425.us
   %.3427.us = phi i64 [ %219, %._crit_edge425.us ], [ 0, %.lr.ph429 ]
   %.0250426.us = phi i32 [ %218, %._crit_edge425.us ], [ 1, %.lr.ph429 ]
-  %203 = getelementptr inbounds nuw %struct.hwloc_synthetic_intlv_loop_s, ptr %52, i64 %.3427.us
+  %203 = getelementptr inbounds nuw [12 x i8], ptr %52, i64 %.3427.us
   %204 = load i32, ptr %203, align 4, !tbaa !66
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 4
   %206 = load i32, ptr %205, align 4, !tbaa !68
@@ -3255,7 +3251,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %209 = udiv i32 %.0244422.us, %204
   %210 = urem i32 %209, %206
   %211 = mul i32 %210, %.0250426.us
-  %212 = getelementptr inbounds nuw i32, ptr %14, i64 %208
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %208
   %213 = load i32, ptr %212, align 4, !tbaa !58
   %214 = add i32 %213, %211
   store i32 %214, ptr %212, align 4, !tbaa !58
@@ -3284,7 +3280,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 .lr.ph433:                                        ; preds = %._crit_edge430, %220
   %224 = phi i64 [ %222, %220 ], [ 0, %._crit_edge430 ]
   %.1245431 = phi i32 [ %221, %220 ], [ 0, %._crit_edge430 ]
-  %225 = getelementptr inbounds nuw i32, ptr %14, i64 %224
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %224
   %226 = load i32, ptr %225, align 4, !tbaa !58
   %227 = zext i32 %226 to i64
   %.not302 = icmp ugt i64 %2, %227
@@ -3550,7 +3546,7 @@ define internal fastcc void @hwloc__look_synthetic(ptr noundef %0, ptr noundef c
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %struct.hwloc_synthetic_level_data_s, ptr %6, i64 %7
+  %8 = getelementptr inbounds [88 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !90
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -3564,7 +3560,7 @@ define internal fastcc void @hwloc__look_synthetic(ptr noundef %0, ptr noundef c
 
 16:                                               ; preds = %4
   %17 = zext i32 %12 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !58
   br label %hwloc_synthetic_next_index.exit
 
@@ -3674,7 +3670,7 @@ define internal fastcc void @hwloc_synthetic_insert_attached(ptr noundef %0, ptr
 
 11:                                               ; preds = %7
   %12 = zext i32 %8 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !58
   br label %hwloc_synthetic_next_index.exit
 

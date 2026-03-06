@@ -762,7 +762,7 @@ _ZNSt12__shared_ptrIN2cv8tracking4impl12_GLOBAL__N_110DummyModelELN9__gnu_cxx12_
   %180 = mul i64 %178, %179
   %181 = getelementptr inbounds nuw i8, ptr %175, i64 %180
   %182 = sext i32 %140 to i64
-  %183 = getelementptr inbounds float, ptr %181, i64 %182
+  %183 = getelementptr inbounds [4 x i8], ptr %181, i64 %182
   store float 1.000000e+00, ptr %183, align 4, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %184 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -3423,7 +3423,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !89
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !90
   br label %16

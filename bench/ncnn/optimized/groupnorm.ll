@@ -771,9 +771,9 @@ define internal void @_ZNK4ncnn9GroupNorm15forward_inplaceERNS_3MatERKNS_6Option
 
 .lr.ph109.split.us117:                            ; preds = %.lr.ph109.us, %.lr.ph109.split.us117
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph109.split.us117 ], [ 0, %.lr.ph109.us ]
-  %50 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv147
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv147
   %51 = load float, ptr %50, align 4, !tbaa !59
-  %52 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv147
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv147
   %53 = load float, ptr %52, align 4, !tbaa !59
   %54 = load float, ptr %32, align 8, !tbaa !36
   %55 = fadd fast float %54, %49
@@ -781,7 +781,7 @@ define internal void @_ZNK4ncnn9GroupNorm15forward_inplaceERNS_3MatERKNS_6Option
   %57 = fdiv fast float %51, %56
   %58 = fmul fast float %57, %48
   %59 = fsub fast float %53, %58
-  %60 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv147
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv147
   %61 = load float, ptr %60, align 4, !tbaa !59
   %62 = fmul fast float %61, %57
   %63 = fadd fast float %62, %59
@@ -793,7 +793,7 @@ define internal void @_ZNK4ncnn9GroupNorm15forward_inplaceERNS_3MatERKNS_6Option
 .lr.ph104.us:                                     ; preds = %.lr.ph104.us.preheader, %.lr.ph104.us
   %indvars.iv142 = phi i64 [ 0, %.lr.ph104.us.preheader ], [ %indvars.iv.next143, %.lr.ph104.us ]
   %.050102.us = phi float [ 0.000000e+00, %.lr.ph104.us.preheader ], [ %68, %.lr.ph104.us ]
-  %64 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv142
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv142
   %65 = load float, ptr %64, align 4, !tbaa !59
   %66 = fsub fast float %65, %48
   %67 = fmul fast float %66, %66
@@ -805,7 +805,7 @@ define internal void @_ZNK4ncnn9GroupNorm15forward_inplaceERNS_3MatERKNS_6Option
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
   %.045100.us = phi float [ 0.000000e+00, %.lr.ph.us.preheader ], [ %71, %.lr.ph.us ]
-  %69 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %70 = load float, ptr %69, align 4, !tbaa !59
   %71 = fadd fast float %70, %.045100.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -823,7 +823,7 @@ define internal void @_ZNK4ncnn9GroupNorm15forward_inplaceERNS_3MatERKNS_6Option
   %72 = load float, ptr %32, align 8, !tbaa !36
   %73 = fadd fast float %72, %49
   %74 = call fast float @llvm.sqrt.f32(float %73)
-  %75 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv152
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv152
   %76 = load float, ptr %75, align 4, !tbaa !59
   %77 = fsub fast float %76, %48
   %78 = fdiv fast float %77, %74
@@ -953,7 +953,7 @@ define internal void @_ZNK4ncnn9GroupNorm15forward_inplaceERNS_3MatERKNS_6Option
 58:                                               ; preds = %.lr.ph.us, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %58 ]
   %.1123.us = phi float [ %.060125.us, %.lr.ph.us ], [ %61, %58 ]
-  %59 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   %60 = load float, ptr %59, align 4, !tbaa !59
   %61 = fadd fast float %60, %.1123.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -979,7 +979,7 @@ define internal void @_ZNK4ncnn9GroupNorm15forward_inplaceERNS_3MatERKNS_6Option
 65:                                               ; preds = %.lr.ph.us138, %65
   %indvars.iv160 = phi i64 [ 0, %.lr.ph.us138 ], [ %indvars.iv.next161, %65 ]
   %.168130.us = phi float [ %.067133.us, %.lr.ph.us138 ], [ %70, %65 ]
-  %66 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv160
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv160
   %67 = load float, ptr %66, align 4, !tbaa !59
   %68 = fsub fast float %67, %62
   %69 = fmul fast float %68, %68
@@ -1016,9 +1016,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge, %48
   br i1 %.not72, label %88, label %77
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv175
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv175
   %79 = load float, ptr %78, align 4, !tbaa !59
-  %80 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv175
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv175
   %81 = load float, ptr %80, align 4, !tbaa !59
   %82 = load float, ptr %42, align 8, !tbaa !36
   %83 = fadd fast float %82, %72
@@ -1050,7 +1050,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge, %48
 
 .lr.ph:                                           ; preds = %94, %.lr.ph
   %indvars.iv170 = phi i64 [ %indvars.iv.next171, %.lr.ph ], [ 0, %94 ]
-  %97 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv170
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv170
   %98 = load float, ptr %97, align 4, !tbaa !59
   %99 = fmul fast float %98, %.063
   %100 = fadd fast float %99, %.062
@@ -1178,7 +1178,7 @@ _ZN4ncnn3MatD2Ev.exit77.us:                       ; preds = %_ZN4ncnn3MatD2Ev.ex
 71:                                               ; preds = %_ZN4ncnn3MatD2Ev.exit77.us, %71
   %indvars.iv = phi i64 [ 0, %_ZN4ncnn3MatD2Ev.exit77.us ], [ %indvars.iv.next, %71 ]
   %.1216.us = phi float [ %.060218.us, %_ZN4ncnn3MatD2Ev.exit77.us ], [ %74, %71 ]
-  %72 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %73 = load float, ptr %72, align 4, !tbaa !59
   %74 = fadd fast float %73, %.1216.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1204,7 +1204,7 @@ _ZN4ncnn3MatD2Ev.exit76.us:                       ; preds = %._crit_edge219, %._
 78:                                               ; preds = %_ZN4ncnn3MatD2Ev.exit76.us, %78
   %indvars.iv252 = phi i64 [ 0, %_ZN4ncnn3MatD2Ev.exit76.us ], [ %indvars.iv.next253, %78 ]
   %.168223.us = phi float [ %.067226.us, %_ZN4ncnn3MatD2Ev.exit76.us ], [ %83, %78 ]
-  %79 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv252
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv252
   %80 = load float, ptr %79, align 4, !tbaa !59
   %81 = fsub fast float %80, %75
   %82 = fmul fast float %81, %81
@@ -1241,9 +1241,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge, %62
   br i1 %.not72, label %101, label %90
 
 90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv267
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv267
   %92 = load float, ptr %91, align 4, !tbaa !59
-  %93 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv267
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv267
   %94 = load float, ptr %93, align 4, !tbaa !59
   %95 = load float, ptr %56, align 8, !tbaa !36
   %96 = fadd fast float %95, %85
@@ -1275,7 +1275,7 @@ _ZN4ncnn3MatD2Ev.exit75:                          ; preds = %101, %90
 
 .lr.ph:                                           ; preds = %_ZN4ncnn3MatD2Ev.exit75, %.lr.ph
   %indvars.iv262 = phi i64 [ %indvars.iv.next263, %.lr.ph ], [ 0, %_ZN4ncnn3MatD2Ev.exit75 ]
-  %109 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv262
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv262
   %110 = load float, ptr %109, align 4, !tbaa !59
   %111 = fmul fast float %110, %.063
   %112 = fadd fast float %111, %.062

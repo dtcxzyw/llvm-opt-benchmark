@@ -570,7 +570,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @main(i32 noundef %0, ptr
   %18 = load ptr, ptr @stderr, align 8, !tbaa !17
   %19 = sub nsw i32 0, %16
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0136, ptr noundef %22) #20
   br label %29
@@ -712,7 +712,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @main(i32 noundef %0, ptr
 87:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %86 ]
   %.1107242 = phi i32 [ 0, %.lr.ph ], [ %.7, %86 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !16
   %90 = call ptr @getLongPathname(ptr noundef %89)
   %.b = load i1, ptr @_ZL7verbose, align 1
@@ -1798,11 +1798,11 @@ _ZL11printIndentP5UFILEi.exit188:                 ; preds = %_ZNK6icu_7713Unicod
 
 .lr.ph212:                                        ; preds = %249, %.lr.ph212
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph212 ], [ 0, %249 ]
-  %254 = getelementptr inbounds nuw i32, ptr %229, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %indvars.iv
   %255 = load i32, ptr %254, align 4, !tbaa !13
   %256 = call i32 @uprv_itou_77(ptr noundef nonnull %26, i32 noundef 20, i32 noundef %255, i32 noundef 10, i32 noundef 0)
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds i16, ptr %26, i64 %257
+  %258 = getelementptr inbounds [2 x i8], ptr %26, i64 %257
   store i16 44, ptr %258, align 2, !tbaa !29
   %259 = getelementptr i8, ptr %258, i64 2
   store i16 32, ptr %259, align 2, !tbaa !29
@@ -1825,7 +1825,7 @@ _ZL11printIndentP5UFILEi.exit188:                 ; preds = %_ZNK6icu_7713Unicod
 
 268:                                              ; preds = %._crit_edge
   %269 = zext nneg i32 %.lcssa to i64
-  %270 = getelementptr inbounds nuw i32, ptr %229, i64 %269
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %269
   %271 = load i32, ptr %270, align 4, !tbaa !13
   %272 = call i32 @uprv_itou_77(ptr noundef nonnull %26, i32 noundef 20, i32 noundef %271, i32 noundef 10, i32 noundef 0)
   %273 = call i32 @u_strlen_77(ptr noundef nonnull %26)

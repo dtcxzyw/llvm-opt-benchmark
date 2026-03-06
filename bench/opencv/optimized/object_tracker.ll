@@ -17,10 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<vas::ot::Detection, std::allocator<vas::ot::Detection>>::_Vector_impl" }
 %"struct.std::_Vector_base<vas::ot::Detection, std::allocator<vas::ot::Detection>>::_Vector_impl" = type { %"struct.std::_Vector_base<vas::ot::Detection, std::allocator<vas::ot::Detection>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<vas::ot::Detection, std::allocator<vas::ot::Detection>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.vas::ot::Detection" = type { %"class.cv::Rect_.25", i32, i32 }
-%"class.cv::Rect_.25" = type { float, float, float, float }
-%"class.vas::ot::Object" = type <{ %"class.cv::Rect_", i64, i32, i32, i32, [4 x i8] }>
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 %"class.vas::ot::Tracker::InitParameters" = type { i32, i32, i32, i32, i8, float }
 %"class.std::unique_ptr.38" = type { %"struct.std::__uniq_ptr_data.39" }
 %"struct.std::__uniq_ptr_data.39" = type { %"class.std::__uniq_ptr_impl.40" }
@@ -679,7 +675,7 @@ _ZNSt6vectorIN3vas2ot9DetectionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i:
 _ZNSt6vectorIN3vas2ot9DetectionESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIN3vas2ot9DetectionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %79, ptr %5, align 8, !tbaa !88
   store ptr %83, ptr %42, align 8, !tbaa !87
-  %85 = getelementptr inbounds nuw %"struct.vas::ot::Detection", ptr %79, i64 %77
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %79, i64 %77
   store ptr %85, ptr %43, align 8, !tbaa !83
   br label %_ZNSt6vectorIN3vas2ot9DetectionESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit
 
@@ -957,7 +953,7 @@ _ZNSt6vectorIN3vas2ot6ObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; 
 
 _ZNSt6vectorIN3vas2ot6ObjectESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %206, %_ZNSt6vectorIN3vas2ot6ObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %205, ptr %103, align 8, !tbaa !139
-  %207 = getelementptr inbounds nuw %"class.vas::ot::Object", ptr %201, i64 %199
+  %207 = getelementptr inbounds nuw [40 x i8], ptr %201, i64 %199
   store ptr %207, ptr %104, align 8, !tbaa !134
   br label %_ZNSt6vectorIN3vas2ot6ObjectESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit
 
@@ -1510,7 +1506,7 @@ define hidden void @_ZNK3vas2ot13ObjectTracker7Builder5BuildENS0_12TrackingTypeE
 
 switch.lookup:                                    ; preds = %24
   %33 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3vas2ot13ObjectTracker7Builder5BuildENS0_12TrackingTypeE, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK3vas2ot13ObjectTracker7Builder5BuildENS0_12TrackingTypeE, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %5, align 4, !tbaa !185
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 20

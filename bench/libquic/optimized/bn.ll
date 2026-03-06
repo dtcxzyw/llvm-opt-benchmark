@@ -440,7 +440,7 @@ define hidden i32 @BN_num_bits(ptr noundef %0) local_unnamed_addr #0 {
   %7 = shl nsw i32 %6, 6
   %8 = load ptr, ptr %0, align 8, !tbaa !13
   %9 = sext i32 %6 to i64
-  %10 = getelementptr inbounds i64, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !18
   %.not.i = icmp ult i64 %11, 4294967296
   br i1 %.not.i, label %39, label %12
@@ -556,7 +556,7 @@ define hidden range(i32 0, 536870912) i32 @BN_num_bytes(ptr noundef %0) local_un
   %7 = shl nsw i32 %6, 6
   %8 = load ptr, ptr %0, align 8, !tbaa !13
   %9 = sext i32 %6 to i64
-  %10 = getelementptr inbounds i64, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !18
   %.not.i.i = icmp ult i64 %11, 4294967296
   br i1 %.not.i.i, label %39, label %12
@@ -812,7 +812,7 @@ define hidden range(i32 0, 2) i32 @bn_set_words(ptr noundef captures(address) %0
 12:                                               ; preds = %6
   %13 = load ptr, ptr %0, align 8, !tbaa !13
   %14 = and i64 %2, 2147483647
-  %15 = getelementptr i64, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   br label %16
 
 16:                                               ; preds = %18, %12
@@ -856,7 +856,7 @@ define hidden void @bn_correct_top(ptr noundef captures(none) %0) local_unnamed_
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !tbaa !13
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr i64, ptr %6, i64 %7
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
   br label %9
 
 9:                                                ; preds = %5, %11

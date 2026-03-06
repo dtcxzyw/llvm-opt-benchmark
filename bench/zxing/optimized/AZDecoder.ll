@@ -747,7 +747,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %26
   %47 = add nuw nsw i32 %45, %46
   %48 = add nuw nsw i32 %47, 1
   %49 = zext nneg i32 %43 to i64
-  %50 = getelementptr i32, ptr %36, i64 %49
+  %50 = getelementptr [4 x i8], ptr %36, i64 %49
   br label %51
 
 51:                                               ; preds = %51, %41
@@ -758,10 +758,10 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %26
   %55 = xor i32 %54, -1
   %56 = add nsw i32 %47, %55
   %57 = xor i64 %indvars.iv.i, -1
-  %58 = getelementptr i32, ptr %50, i64 %57
+  %58 = getelementptr [4 x i8], ptr %50, i64 %57
   store i32 %56, ptr %58, align 4, !tbaa !73, !noalias !69
   %59 = add nuw nsw i32 %48, %54
-  %gep.i = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   store i32 %59, ptr %gep.i, align 4, !tbaa !73, !noalias !69
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %49
@@ -845,7 +845,7 @@ _ZN5ZXing8BitArrayC2Ei.exit.i:                    ; preds = %.noexc97.i, %_ZNSt6
   %95 = mul i32 %.tr.i, 6
   %invariant.op208.i = add i32 %95, %.087210.i
   %96 = sext i32 %.087210.i to i64
-  %invariant.gep389.i = getelementptr inbounds nuw i32, ptr %36, i64 %90
+  %invariant.gep389.i = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %90
   br label %100
 
 97:                                               ; preds = %111
@@ -859,12 +859,12 @@ _ZN5ZXing8BitArrayC2Ei.exit.i:                    ; preds = %.noexc97.i, %_ZNSt6
 100:                                              ; preds = %111, %86
   %indvars.iv291.i = phi i64 [ 0, %86 ], [ %indvars.iv.next292.i, %111 ]
   %101 = shl nuw nsw i64 %indvars.iv291.i, 1
-  %gep390.i = getelementptr inbounds nuw i32, ptr %invariant.gep389.i, i64 %indvars.iv291.i
+  %gep390.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep389.i, i64 %indvars.iv291.i
   %102 = add nsw i64 %101, %96
   %103 = trunc nsw i64 %101 to i32
   %.reass.reass.i = add i32 %invariant.op207.i, %103
   %104 = sub nsw i64 %92, %indvars.iv291.i
-  %105 = getelementptr inbounds nuw i32, ptr %36, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %104
   %.reass202.reass.i = add i32 %invariant.op.i, %103
   %.reass204.reass.i = add i32 %invariant.op208.i, %103
   %106 = sext i32 %.reass204.reass.i to i64
@@ -882,7 +882,7 @@ _ZN5ZXing8BitArrayC2Ei.exit.i:                    ; preds = %.noexc97.i, %_ZNSt6
 112:                                              ; preds = %160, %100
   %113 = phi i1 [ true, %100 ], [ false, %160 ]
   %indvars.iv288.i = phi i64 [ 0, %100 ], [ 1, %160 ]
-  %gep388.i = getelementptr inbounds nuw i32, ptr %invariant.gep389.i, i64 %indvars.iv288.i
+  %gep388.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep389.i, i64 %indvars.iv288.i
   %114 = load i32, ptr %gep388.i, align 4, !tbaa !73, !noalias !69
   %115 = add nsw i32 %114, %110
   %116 = sext i32 %115 to i64
@@ -911,7 +911,7 @@ _ZN5ZXing8BitArrayC2Ei.exit.i:                    ; preds = %.noexc97.i, %_ZNSt6
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %118
   store i8 %125, ptr %126, align 1, !tbaa !3, !noalias !69
   %127 = sub nsw i64 %92, %indvars.iv288.i
-  %128 = getelementptr inbounds nuw i32, ptr %36, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !73, !noalias !69
   %130 = mul nsw i32 %129, %74
   %131 = add nsw i32 %130, %109
@@ -1151,7 +1151,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i.i: ; preds = %_ZNSt6vectorI
 
 .noexc31:                                         ; preds = %.noexc17.i.i
   store ptr %222, ptr %16, align 8, !tbaa !87, !alias.scope !84, !noalias !80
-  %223 = getelementptr inbounds nuw i32, ptr %222, i64 %219
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %219
   %224 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %223, ptr %224, align 8, !tbaa !90, !alias.scope !84, !noalias !80
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %222, i8 0, i64 %221, i1 false), !tbaa !73, !noalias !91
@@ -1201,7 +1201,7 @@ _ZN5ZXing5ToIntIivEET_RKNS_8BitArrayEii.exit.loopexit.us.i.i: ; preds = %.lr.ph.
   %241 = sub i32 %240, %186
   %242 = sdiv i32 %241, %.037.i
   %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds nuw i32, ptr %226, i64 %243
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %243
   store i32 %237, ptr %244, align 4, !tbaa !73, !noalias !91
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, %231
   %245 = icmp samesign ult i64 %indvars.iv.next.i.i, %sext.i.i
@@ -1212,7 +1212,7 @@ _ZN5ZXing5ToIntIivEET_RKNS_8BitArrayEii.exit.i.i: ; preds = %.lr.ph.i.i24, %_ZN5
   %246 = sub nsw i32 %.018.i.i, %186
   %247 = sdiv i32 %246, %.037.i
   %248 = sext i32 %247 to i64
-  %249 = getelementptr inbounds nuw i32, ptr %226, i64 %248
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %248
   store i32 0, ptr %249, align 4, !tbaa !73, !noalias !91
   %250 = add nsw i32 %.018.i.i, %.037.i
   %251 = icmp slt i32 %250, %184
@@ -1361,9 +1361,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i: ; preds = %306, %_ZSt27
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i.i: ; preds = %307, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i.i
   store ptr %300, ptr %16, align 8, !tbaa !87, !noalias !80
-  %309 = getelementptr inbounds nuw i32, ptr %301, i64 %280
+  %309 = getelementptr inbounds nuw [4 x i8], ptr %301, i64 %280
   store ptr %309, ptr %227, align 8, !tbaa !92, !noalias !80
-  %310 = getelementptr inbounds nuw i32, ptr %300, i64 %298
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %300, i64 %298
   store ptr %310, ptr %281, align 8, !tbaa !90, !noalias !80
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
@@ -1372,7 +1372,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i.i: ; preds = %307, %_ZNS
   br i1 %312, label %313, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 313:                                              ; preds = %311
-  %314 = getelementptr inbounds nuw i32, ptr %273, i64 %271
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %273, i64 %271
   %.not.i.i.i = icmp eq ptr %272, %314
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i, label %315
 
@@ -2000,10 +2000,10 @@ _ZN5ZXing7Content9push_backEh.exit.i.i:           ; preds = %_ZNSt6vectorIhSaIhE
 
 switch.lookup:                                    ; preds = %.lr.ph.i.i50.i.i
   %530 = zext nneg i32 %.031110.i.i to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5ZXing5Aztec6DecodeERKNS0_14DetectorResultE, i64 %530
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5ZXing5Aztec6DecodeERKNS0_14DetectorResultE, i64 %530
   %switch.load = load ptr, ptr %switch.gep, align 8
   %531 = sext i32 %526 to i64
-  %532 = getelementptr inbounds ptr, ptr %switch.load, i64 %531
+  %532 = getelementptr inbounds [8 x i8], ptr %switch.load, i64 %531
   %.0.i.i.i = load ptr, ptr %532, align 8, !tbaa !22, !noalias !96
   %533 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.10, i64 noundef 5) #25, !noalias !96
   %534 = icmp eq i32 %533, 0

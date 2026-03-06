@@ -14,11 +14,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.gc_config = type { i32, i32, i32, i64, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i64 }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.sysinfo = type { i64, [3 x i64], i64, i64, i64, i64, i64, i64, i16, i16, i64, i64, i32, [0 x i8] }
 %struct.timeval = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.maintenance_task = type { ptr, ptr, ptr, i8, i32, i32 }
 %struct.maintenance_start_opts = type { i32 }
 %struct.config_set = type { %struct.hashmap, i32, %struct.configset_list }
 %struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
@@ -1146,7 +1144,7 @@ report_last_gc_error.exit:                        ; preds = %_.exit.i, %278
 .lr.ph.i77:                                       ; preds = %355, %.lr.ph.i77
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i77 ], [ 0, %355 ]
   %360 = load ptr, ptr @pack_garbage, align 8, !tbaa !83
-  %361 = getelementptr inbounds nuw %struct.string_list_item, ptr %360, i64 %indvars.iv.i
+  %361 = getelementptr inbounds nuw [16 x i8], ptr %360, i64 %indvars.iv.i
   %362 = load ptr, ptr %361, align 8, !tbaa !84
   %363 = call i32 @unlink_or_warn(ptr noundef %362) #21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2494,7 +2492,7 @@ define internal range(i32 0, 2) i32 @maintenance_run(i32 noundef %0, ptr noundef
 
 89:                                               ; preds = %4, %89
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %89 ]
-  %90 = getelementptr inbounds nuw %struct.maintenance_task, ptr @tasks, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [40 x i8], ptr @tasks, i64 %indvars.iv
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   store i32 -1, ptr %91, align 8, !tbaa !116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2583,7 +2581,7 @@ initialize_maintenance_strategy.exit.i:           ; preds = %108, %105, %102
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %124, %122
-  %125 = getelementptr inbounds nuw %struct.maintenance_task, ptr @tasks, i64 %indvars.iv.i
+  %125 = getelementptr inbounds nuw [40 x i8], ptr @tasks, i64 %indvars.iv.i
   %126 = load ptr, ptr %125, align 8, !tbaa !121
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %7, ptr noundef nonnull @.str.157, ptr noundef %126) #21
   %127 = load ptr, ptr %121, align 8, !tbaa !53
@@ -2725,7 +2723,7 @@ _.exit.i:                                         ; preds = %171, %169
 
 181:                                              ; preds = %.preheader22, %181
   %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %181 ], [ 0, %.preheader22 ]
-  %182 = getelementptr inbounds nuw %struct.maintenance_task, ptr @tasks, i64 %indvars.iv.i10
+  %182 = getelementptr inbounds nuw [40 x i8], ptr @tasks, i64 %indvars.iv.i10
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %184 = load i32, ptr %183, align 8, !tbaa !116
   %185 = icmp slt i32 %184, 0
@@ -2747,7 +2745,7 @@ _.exit.i:                                         ; preds = %171, %169
 190:                                              ; preds = %.preheader, %225
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %225 ], [ 0, %.preheader ]
   %.03652.i = phi i32 [ %.137.i, %225 ], [ 0, %.preheader ]
-  %191 = getelementptr inbounds nuw %struct.maintenance_task, ptr @tasks, i64 %indvars.iv55.i
+  %191 = getelementptr inbounds nuw [40 x i8], ptr @tasks, i64 %indvars.iv55.i
   br i1 %185, label %.critedge.i, label %192
 
 192:                                              ; preds = %190
@@ -2957,7 +2955,7 @@ resolve_scheduler.exit.thread:                    ; preds = %is_systemd_timer_av
 39:                                               ; preds = %21, %resolve_scheduler.exit.thread
   %.0.i7 = phi i32 [ %.0.i.ph, %resolve_scheduler.exit.thread ], [ %22, %21 ]
   %40 = sext i32 %.0.i7 to i64
-  %41 = getelementptr inbounds %struct.anon.0, ptr @scheduler_fn, i64 %40
+  %41 = getelementptr inbounds [24 x i8], ptr @scheduler_fn, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !133
   %44 = call i32 %43() #21
@@ -3549,7 +3547,7 @@ define internal range(i32 0, 2) i32 @task_option_parse(ptr readnone captures(non
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %3 ]
   %.025 = phi ptr [ %.1, %.preheader ], [ null, %3 ]
   %.01424 = phi i32 [ %spec.select, %.preheader ], [ 0, %3 ]
-  %5 = getelementptr inbounds nuw %struct.maintenance_task, ptr @tasks, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [40 x i8], ptr @tasks, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !116
   %8 = icmp sgt i32 %7, -1
@@ -4479,7 +4477,7 @@ define internal fastcc i32 @update_background_schedule(ptr noundef readonly capt
 
 .preheader.split.us:                              ; preds = %.preheader, %22
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %22 ], [ 1, %.preheader ]
-  %13 = getelementptr inbounds nuw %struct.anon.0, ptr @scheduler_fn, i64 %indvars.iv26
+  %13 = getelementptr inbounds nuw [24 x i8], ptr @scheduler_fn, i64 %indvars.iv26
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !133
   %16 = call i32 %15() #21
@@ -4542,7 +4540,7 @@ _.exit22:                                         ; preds = %35, %36
   br i1 %41, label %52, label %42
 
 42:                                               ; preds = %.preheader.split
-  %43 = getelementptr inbounds nuw %struct.anon.0, ptr @scheduler_fn, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [24 x i8], ptr @scheduler_fn, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !133
   %46 = call i32 %45() #21
@@ -4568,7 +4566,7 @@ _.exit22:                                         ; preds = %35, %36
 53:                                               ; preds = %.split.us
   %54 = load i32, ptr %0, align 4, !tbaa !131
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.anon.0, ptr @scheduler_fn, i64 %55
+  %56 = getelementptr inbounds [24 x i8], ptr @scheduler_fn, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !169
   %.val = load ptr, ptr %3, align 8, !tbaa !55
@@ -4724,7 +4722,7 @@ xstrdup_or_null.exit:                             ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %4, align 8, !tbaa !83
   %18 = load i64, ptr %16, align 8, !tbaa !62
-  %19 = getelementptr inbounds nuw %struct.string_list_item, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = icmp ult ptr %15, %19
   br i1 %20, label %.lr.ph46, label %.critedge
 
@@ -4776,7 +4774,7 @@ xstrdup_or_null.exit:                             ; preds = %3
   %37 = getelementptr inbounds nuw i8, ptr %.0213845, i64 16
   %38 = load ptr, ptr %4, align 8, !tbaa !83
   %39 = load i64, ptr %16, align 8, !tbaa !62
-  %40 = getelementptr inbounds nuw %struct.string_list_item, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %39
   %41 = icmp ult ptr %37, %40
   br i1 %41, label %.lr.ph46, label %.critedge
 
@@ -5447,7 +5445,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(120) @__const.schtasks_remove_task.child, i64 120, i1 false)
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr ptr, ptr @switch.table.schtasks_schedule_task, i64 %5
+  %6 = getelementptr [8 x i8], ptr @switch.table.schtasks_schedule_task, i64 %5
   %switch.gep = getelementptr i8, ptr %6, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = icmp ne i32 %0, 0
@@ -5460,7 +5458,7 @@ switch.lookup:
 
 switch.lookup16:                                  ; preds = %switch.lookup
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr ptr, ptr @switch.table.schtasks_schedule_task, i64 %10
+  %11 = getelementptr [8 x i8], ptr @switch.table.schtasks_schedule_task, i64 %10
   %switch.gep17 = getelementptr i8, ptr %11, i64 -8
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   %12 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.209, ptr noundef nonnull %switch.load18, ptr noundef nonnull @.str.219) #21
@@ -5490,7 +5488,7 @@ _.exit.i:                                         ; preds = %17, %15
 
 switch.lookup20:                                  ; preds = %20
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr ptr, ptr @switch.table.systemd_timer_enable_unit.12, i64 %22
+  %23 = getelementptr [8 x i8], ptr @switch.table.systemd_timer_enable_unit.12, i64 %22
   %switch.gep21 = getelementptr i8, ptr %23, i64 -8
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
   %24 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull %switch.load22, i32 noundef range(i32 0, 60) %2) #21
@@ -5647,7 +5645,7 @@ declare ptr @xdg_config_home_for(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal fastcc range(i32 -1, 1) i32 @systemd_timer_delete_timer_file(i32 noundef range(i32 1, 4) %0) unnamed_addr #0 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %2 = getelementptr ptr, ptr @switch.table.schtasks_schedule_task, i64 %1
+  %2 = getelementptr [8 x i8], ptr @switch.table.schtasks_schedule_task, i64 %1
   %switch.gep = getelementptr i8, ptr %2, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.209, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.219) #21
@@ -5698,7 +5696,7 @@ switch.lookup:
   %9 = alloca %struct.stat, align 8
   %10 = alloca ptr, align 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr ptr, ptr @switch.table.schtasks_schedule_task, i64 %11
+  %12 = getelementptr [8 x i8], ptr @switch.table.schtasks_schedule_task, i64 %11
   %switch.gep = getelementptr i8, ptr %12, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5985,7 +5983,7 @@ switch.lookup:
   %1 = alloca %struct.strbuf, align 8
   %2 = alloca %struct.strbuf, align 8
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr ptr, ptr @switch.table.schtasks_schedule_task, i64 %3
+  %4 = getelementptr [8 x i8], ptr @switch.table.schtasks_schedule_task, i64 %3
   %switch.gep = getelementptr i8, ptr %4, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -6032,7 +6030,7 @@ switch.lookup:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(120) @__const.schtasks_remove_task.child, i64 120, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr ptr, ptr @switch.table.schtasks_schedule_task, i64 %8
+  %9 = getelementptr [8 x i8], ptr @switch.table.schtasks_schedule_task, i64 %8
   %switch.gep = getelementptr i8, ptr %9, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -6077,7 +6075,7 @@ switch.lookup19:                                  ; preds = %get_random_minute.e
   %26 = call i64 @fwrite(ptr nonnull @.str.249, i64 135, i64 1, ptr %25)
   %27 = load volatile ptr, ptr %24, align 8, !tbaa !176
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr @switch.table.schtasks_schedule_task.13, i64 %28
+  %29 = getelementptr [8 x i8], ptr @switch.table.schtasks_schedule_task.13, i64 %28
   %switch.gep20 = getelementptr i8, ptr %29, i64 -8
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull %switch.load21, i32 noundef %.0.i15) #21

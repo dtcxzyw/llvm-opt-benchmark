@@ -4,11 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.cli_ac_data = type { ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, [32 x i32], ptr, i32 }
-%struct.cli_mtarget = type { [10 x i32], ptr, i32, i8, i8, i8 }
 %struct.filter_match_info = type { i64 }
-%struct.recursion_level_tag = type { i32, i64, ptr, i32, i32, i32, %struct.image_fuzzy_hash, i8 }
-%struct.image_fuzzy_hash = type { [8 x i8] }
-%struct.cli_exe_section = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.cli_stats_sections = type { i64, ptr }
 %struct.icon_groupset = type { [2 x [4 x i64]] }
 %struct.cli_exe_info = type { ptr, i32, i32, i16, i32, i32, %struct.cli_hashset, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.pe_image_file_hdr, %union.anon, [16 x %struct.pe_image_data_dir] }
@@ -114,7 +110,7 @@ define i32 @cli_scan_buff(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr no
 
 .lr.ph.preheader:                                 ; preds = %12, %.thread
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.thread ], [ 1, %12 ]
-  %16 = getelementptr inbounds nuw %struct.cli_mtarget, ptr @cli_mtargets, i64 %indvars.iv84
+  %16 = getelementptr inbounds nuw [56 x i8], ptr @cli_mtargets, i64 %indvars.iv84
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 54
   %18 = load i8, ptr %17, align 2, !tbaa !44
   %19 = tail call i8 @llvm.umax.i8(i8 %18, i8 1)
@@ -128,13 +124,13 @@ define i32 @cli_scan_buff(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !46
   %23 = icmp eq i32 %22, %4
   br i1 %23, label %24, label %20
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv84
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv84
   %26 = load ptr, ptr %25, align 8, !tbaa !43
   %.not63 = icmp eq ptr %26, null
   br i1 %.not63, label %.thread, label %27
@@ -352,7 +348,7 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
   %78 = getelementptr inbounds nuw i8, ptr %15, i64 92
   %79 = load i32, ptr %78, align 4, !tbaa !76
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %77, i64 %80
+  %81 = getelementptr inbounds nuw [48 x i8], ptr %77, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 44
   %83 = load i8, ptr %82, align 4, !tbaa !77, !range !80, !noundef !81
   %84 = trunc nuw i8 %83 to i1
@@ -846,7 +842,7 @@ sub_1137:                                         ; preds = %sub_0136
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %148 = load i16, ptr %147, align 8, !tbaa !97
   %149 = zext i16 %148 to i64
-  %150 = getelementptr %struct.cli_exe_section, ptr %146, i64 %149
+  %150 = getelementptr [36 x i8], ptr %146, i64 %149
   %151 = getelementptr i8, ptr %150, i64 -28
   %152 = load i32, ptr %151, align 4, !tbaa !98
   %153 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -867,7 +863,7 @@ sub_1137:                                         ; preds = %sub_0136
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !96
   %165 = zext nneg i32 %158 to i64
-  %166 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %164, i64 %165
+  %166 = getelementptr inbounds nuw [36 x i8], ptr %164, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load i32, ptr %167, align 4, !tbaa !98
   %169 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -888,7 +884,7 @@ sub_1137:                                         ; preds = %sub_0136
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !96
   %181 = zext nneg i32 %174 to i64
-  %182 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [36 x i8], ptr %180, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load i32, ptr %183, align 4, !tbaa !98
   store i32 %184, ptr %4, align 4, !tbaa !46
@@ -897,7 +893,7 @@ sub_1137:                                         ; preds = %sub_0136
 185:                                              ; preds = %178
   %186 = load i32, ptr %173, align 4, !tbaa !46
   %187 = zext i32 %186 to i64
-  %188 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %180, i64 %187
+  %188 = getelementptr inbounds nuw [36 x i8], ptr %180, i64 %187
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 12
   %190 = load i32, ptr %189, align 4, !tbaa !100
   %191 = add i32 %190, %184
@@ -1082,7 +1078,7 @@ define range(i32 0, 2) i32 @cli_check_fp(ptr noundef %0, ptr noundef %1) local_u
 23:                                               ; preds = %.lr.ph, %.backedge
   %indvars.iv109 = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next110, %.backedge ]
   %24 = load ptr, ptr %12, align 8, !tbaa !75
-  %25 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %24, i64 %indvars.iv109
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %indvars.iv109
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !102
   %28 = call i32 @fmap_get_hash(ptr noundef %27, ptr noundef nonnull %7, i32 noundef 0) #13
@@ -1144,7 +1140,7 @@ define range(i32 0, 2) i32 @cli_check_fp(ptr noundef %0, ptr noundef %1) local_u
 
 59:                                               ; preds = %55, %53
   %60 = load ptr, ptr %12, align 8, !tbaa !75
-  %61 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %60, i64 %indvars.iv109
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %60, i64 %indvars.iv109
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !102
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 232
@@ -1741,7 +1737,7 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
 
 .lr.ph.preheader:                                 ; preds = %35, %.thread
   %indvars.iv554 = phi i64 [ %indvars.iv.next555, %.thread ], [ 1, %35 ]
-  %36 = getelementptr inbounds nuw %struct.cli_mtarget, ptr @cli_mtargets, i64 %indvars.iv554
+  %36 = getelementptr inbounds nuw [56 x i8], ptr @cli_mtargets, i64 %indvars.iv554
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 54
   %38 = load i8, ptr %37, align 2, !tbaa !44
   %39 = tail call i8 @llvm.umax.i8(i8 %38, i8 1)
@@ -1755,7 +1751,7 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !46
   %43 = icmp eq i32 %42, %1
   br i1 %43, label %44, label %40
@@ -1764,7 +1760,7 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
   %45 = load ptr, ptr %20, align 8, !tbaa !8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load ptr, ptr %46, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv554
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv554
   %49 = load ptr, ptr %48, align 8, !tbaa !43
   %.not302 = icmp eq ptr %49, null
   br i1 %.not302, label %.thread, label %.loopexit522.loopexit.split.loop.exit
@@ -2502,7 +2498,7 @@ define i32 @cli_exp_eval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 25:                                               ; preds = %.lr.ph, %204
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %204 ]
   %26 = load ptr, ptr %11, align 8, !tbaa !164
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !165
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !167
@@ -2528,7 +2524,7 @@ define i32 @cli_exp_eval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %39 = load ptr, ptr %17, align 8, !tbaa !170
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !175
   %42 = call i32 @cli_ac_chklsig(ptr noundef nonnull %33, ptr noundef nonnull %38, ptr noundef %41, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0) #13
   %.not102.i = icmp eq i32 %42, 1
@@ -2576,7 +2572,7 @@ define i32 @cli_exp_eval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %indvars.iv.i.i = phi i64 [ %59, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %67 ]
   %.019.i.i = phi i32 [ -2, %.lr.ph.preheader.i.i ], [ %.1.i.i, %67 ]
   %60 = load ptr, ptr %53, align 8, !tbaa !178
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i.i
   %62 = load i32, ptr %61, align 4, !tbaa !46
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %67, label %64
@@ -2764,10 +2760,10 @@ intermediates_eval.exit.i:                        ; preds = %67, %.preheader.i.i
   %160 = load ptr, ptr %23, align 8, !tbaa !8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 416
   %162 = load ptr, ptr %17, align 8, !tbaa !170
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv
   %164 = load ptr, ptr %163, align 8, !tbaa !175
   %165 = load ptr, ptr %24, align 8, !tbaa !187
-  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %indvars.iv
   %167 = load ptr, ptr %166, align 8, !tbaa !175
   %168 = load ptr, ptr %13, align 8, !tbaa !67
   %169 = call i32 @cli_bytecode_runlsig(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %161, i32 noundef %154, ptr noundef %164, ptr noundef %167, ptr noundef %168) #13

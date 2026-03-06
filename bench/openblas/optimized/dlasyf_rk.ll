@@ -40,13 +40,13 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %24 = load i32, ptr %5, align 4, !tbaa !3
   %narrow = xor i32 %24, -1
   %25 = sext i32 %narrow to i64
-  %26 = getelementptr inbounds double, ptr %4, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %4, i64 %25
   %27 = getelementptr inbounds i8, ptr %6, i64 -8
   %28 = getelementptr inbounds i8, ptr %7, i64 -4
   %29 = load i32, ptr %9, align 4, !tbaa !3
   %narrow696 = xor i32 %29, -1
   %30 = sext i32 %narrow696 to i64
-  %31 = getelementptr inbounds double, ptr %8, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %8, i64 %30
   store i32 0, ptr %10, align 4, !tbaa !3
   %32 = tail call double @dlamch_(ptr noundef nonnull @.str) #5
   %33 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.1) #5
@@ -87,11 +87,11 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %.fr716, ptr %19, align 4, !tbaa !3
   %48 = mul nsw i32 %.fr716, %24
   %49 = sext i32 %48 to i64
-  %50 = getelementptr double, ptr %26, i64 %49
+  %50 = getelementptr [8 x i8], ptr %26, i64 %49
   %51 = getelementptr i8, ptr %50, i64 8
   %52 = mul nsw i32 %41, %29
   %53 = sext i32 %52 to i64
-  %54 = getelementptr double, ptr %31, i64 %53
+  %54 = getelementptr [8 x i8], ptr %31, i64 %53
   %55 = getelementptr i8, ptr %54, i64 8
   call void @dcopy_(ptr noundef nonnull %18, ptr noundef %51, ptr noundef nonnull @c__1, ptr noundef %55, ptr noundef nonnull @c__1) #5
   %56 = load i32, ptr %18, align 4, !tbaa !3
@@ -105,13 +105,13 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %61 = add nsw i32 %56, 1
   %62 = mul nsw i32 %61, %24
   %63 = sext i32 %62 to i64
-  %64 = getelementptr double, ptr %26, i64 %63
+  %64 = getelementptr [8 x i8], ptr %26, i64 %63
   %65 = getelementptr i8, ptr %64, i64 8
   %66 = add nsw i32 %41, 1
   %67 = mul nsw i32 %66, %29
   %68 = add nsw i32 %56, %67
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds double, ptr %31, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %31, i64 %69
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %18, ptr noundef nonnull %12, ptr noundef nonnull @c_b9, ptr noundef %65, ptr noundef nonnull %5, ptr noundef %70, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %55, ptr noundef nonnull @c__1) #5
   %.pr = load i32, ptr %18, align 4, !tbaa !3
   br label %71
@@ -120,7 +120,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %72 = phi i32 [ %.pr, %59 ], [ %56, %47 ]
   %73 = add nsw i32 %72, %52
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds double, ptr %31, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %31, i64 %74
   %76 = load double, ptr %75, align 8, !tbaa !7
   %77 = fcmp oge double %76, 0.000000e+00
   %78 = fneg double %76
@@ -135,7 +135,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %83, ptr %17, align 4, !tbaa !3
   %84 = add nsw i32 %83, %52
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds double, ptr %31, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %31, i64 %85
   %87 = load double, ptr %86, align 8, !tbaa !7
   %88 = fcmp oge double %87, 0.000000e+00
   %89 = fneg double %87
@@ -163,7 +163,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %.pre866, ptr %23, align 4, !tbaa !3
   %100 = mul nsw i32 %.pre866, %24
   %101 = sext i32 %100 to i64
-  %102 = getelementptr double, ptr %26, i64 %101
+  %102 = getelementptr [8 x i8], ptr %26, i64 %101
   %103 = getelementptr i8, ptr %102, i64 8
   call void @dcopy_(ptr noundef nonnull %18, ptr noundef %55, ptr noundef nonnull @c__1, ptr noundef %103, ptr noundef nonnull @c__1) #5
   %104 = load i32, ptr %18, align 4, !tbaa !3
@@ -183,7 +183,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %111 = add nsw i32 %41, -1
   %112 = mul nsw i32 %111, %29
   %113 = sext i32 %112 to i64
-  %114 = getelementptr double, ptr %31, i64 %113
+  %114 = getelementptr [8 x i8], ptr %31, i64 %113
   %115 = getelementptr i8, ptr %114, i64 8
   %116 = add nsw i32 %41, 1
   %117 = mul nsw i32 %116, %29
@@ -201,7 +201,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %122 = load i32, ptr %17, align 4, !tbaa !3
   %123 = mul nsw i32 %122, %24
   %124 = sext i32 %123 to i64
-  %125 = getelementptr double, ptr %26, i64 %124
+  %125 = getelementptr [8 x i8], ptr %26, i64 %124
   %126 = getelementptr i8, ptr %125, i64 8
   call void @dcopy_(ptr noundef nonnull %17, ptr noundef %126, ptr noundef nonnull @c__1, ptr noundef %115, ptr noundef nonnull @c__1) #5
   %127 = load i32, ptr %18, align 4, !tbaa !3
@@ -212,10 +212,10 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %131 = mul nsw i32 %130, %24
   %132 = add nsw i32 %131, %128
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds double, ptr %26, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %26, i64 %133
   %135 = add nsw i32 %130, %112
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds double, ptr %31, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %31, i64 %136
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %134, ptr noundef nonnull %5, ptr noundef %137, ptr noundef nonnull @c__1) #5
   %138 = load i32, ptr %18, align 4, !tbaa !3
   %139 = load i32, ptr %1, align 4, !tbaa !3
@@ -228,12 +228,12 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %143 = add nsw i32 %138, 1
   %144 = mul nsw i32 %143, %24
   %145 = sext i32 %144 to i64
-  %146 = getelementptr double, ptr %26, i64 %145
+  %146 = getelementptr [8 x i8], ptr %26, i64 %145
   %147 = getelementptr i8, ptr %146, i64 8
   %148 = load i32, ptr %17, align 4, !tbaa !3
   %149 = add nsw i32 %148, %117
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds double, ptr %31, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %31, i64 %150
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %18, ptr noundef nonnull %12, ptr noundef nonnull @c_b9, ptr noundef %147, ptr noundef nonnull %5, ptr noundef %151, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %115, ptr noundef nonnull @c__1) #5
   %.pre863 = load i32, ptr %18, align 4, !tbaa !3
   br label %152
@@ -249,12 +249,12 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %156, ptr %12, align 4, !tbaa !3
   %157 = add i32 %118, %154
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds double, ptr %31, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %31, i64 %158
   %160 = call i32 @idamax_(ptr noundef nonnull %12, ptr noundef %159, ptr noundef nonnull @c__1) #5
   %161 = add nsw i32 %160, %154
   %162 = add nsw i32 %161, %112
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds double, ptr %31, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %31, i64 %163
   %165 = load double, ptr %164, align 8, !tbaa !7
   %166 = fcmp oge double %165, 0.000000e+00
   %167 = fneg double %165
@@ -275,7 +275,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %174 = call i32 @idamax_(ptr noundef nonnull %12, ptr noundef %115, ptr noundef nonnull @c__1) #5
   %175 = add nsw i32 %174, %112
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds double, ptr %31, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %31, i64 %176
   %178 = load double, ptr %177, align 8, !tbaa !7
   %179 = fcmp oge double %178, 0.000000e+00
   %180 = fneg double %178
@@ -292,7 +292,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %185 = load i32, ptr %17, align 4, !tbaa !3
   %186 = add nsw i32 %185, %112
   %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds double, ptr %31, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %31, i64 %187
   %189 = load double, ptr %188, align 8, !tbaa !7
   %190 = call double @llvm.fabs.f64(double %189)
   %191 = fmul double %.1, 0x3FE47E0F66AFED07
@@ -347,21 +347,21 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %213 = mul nsw i32 %202, %24
   %214 = add nsw i32 %212, %213
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds double, ptr %26, i64 %215
+  %216 = getelementptr inbounds [8 x i8], ptr %26, i64 %215
   %217 = mul nsw i32 %212, %24
   %218 = add nsw i32 %217, %209
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds double, ptr %26, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %26, i64 %219
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %216, ptr noundef nonnull @c__1, ptr noundef %220, ptr noundef nonnull %5) #5
   %221 = load i32, ptr %18, align 4, !tbaa !3
   %222 = mul nsw i32 %221, %24
   %223 = sext i32 %222 to i64
-  %224 = getelementptr double, ptr %26, i64 %223
+  %224 = getelementptr [8 x i8], ptr %26, i64 %223
   %225 = getelementptr i8, ptr %224, i64 8
   %226 = load i32, ptr %19, align 4, !tbaa !3
   %227 = mul nsw i32 %226, %24
   %228 = sext i32 %227 to i64
-  %229 = getelementptr double, ptr %26, i64 %228
+  %229 = getelementptr [8 x i8], ptr %26, i64 %228
   %230 = getelementptr i8, ptr %229, i64 8
   call void @dcopy_(ptr noundef nonnull %19, ptr noundef %225, ptr noundef nonnull @c__1, ptr noundef %230, ptr noundef nonnull @c__1) #5
   %231 = load i32, ptr %1, align 4, !tbaa !3
@@ -372,11 +372,11 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %235 = mul nsw i32 %232, %24
   %236 = add nsw i32 %235, %232
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds double, ptr %26, i64 %237
+  %238 = getelementptr inbounds [8 x i8], ptr %26, i64 %237
   %239 = load i32, ptr %19, align 4, !tbaa !3
   %240 = add nsw i32 %239, %235
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds double, ptr %26, i64 %241
+  %242 = getelementptr inbounds [8 x i8], ptr %26, i64 %241
   call void @dswap_(ptr noundef nonnull %12, ptr noundef %238, ptr noundef nonnull %5, ptr noundef %242, ptr noundef nonnull %5) #5
   %243 = load i32, ptr %1, align 4, !tbaa !3
   %244 = load i32, ptr %22, align 4, !tbaa !3
@@ -387,11 +387,11 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %248 = mul nsw i32 %207, %29
   %249 = add nsw i32 %247, %248
   %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds double, ptr %31, i64 %250
+  %251 = getelementptr inbounds [8 x i8], ptr %31, i64 %250
   %252 = load i32, ptr %19, align 4, !tbaa !3
   %253 = add nsw i32 %252, %248
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds double, ptr %31, i64 %254
+  %255 = getelementptr inbounds [8 x i8], ptr %31, i64 %254
   call void @dswap_(ptr noundef nonnull %12, ptr noundef %251, ptr noundef nonnull %9, ptr noundef %255, ptr noundef nonnull %9) #5
   %.pre864 = load i32, ptr %22, align 4, !tbaa !3
   br label %256
@@ -407,11 +407,11 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %261 = mul nsw i32 %260, %24
   %262 = add nsw i32 %261, %257
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds double, ptr %26, i64 %263
+  %264 = getelementptr inbounds [8 x i8], ptr %26, i64 %263
   %265 = load double, ptr %264, align 8, !tbaa !7
   %266 = add nsw i32 %261, %258
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds double, ptr %26, i64 %267
+  %268 = getelementptr inbounds [8 x i8], ptr %26, i64 %267
   store double %265, ptr %268, align 8, !tbaa !7
   %269 = xor i32 %258, -1
   %270 = add i32 %260, %269
@@ -420,21 +420,21 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %272 = mul nsw i32 %257, %24
   %273 = add nsw i32 %272, %271
   %274 = sext i32 %273 to i64
-  %275 = getelementptr inbounds double, ptr %26, i64 %274
+  %275 = getelementptr inbounds [8 x i8], ptr %26, i64 %274
   %276 = mul nsw i32 %271, %24
   %277 = add nsw i32 %276, %258
   %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds double, ptr %26, i64 %278
+  %279 = getelementptr inbounds [8 x i8], ptr %26, i64 %278
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %275, ptr noundef nonnull @c__1, ptr noundef %279, ptr noundef nonnull %5) #5
   %280 = load i32, ptr %22, align 4, !tbaa !3
   %281 = mul nsw i32 %280, %24
   %282 = sext i32 %281 to i64
-  %283 = getelementptr double, ptr %26, i64 %282
+  %283 = getelementptr [8 x i8], ptr %26, i64 %282
   %284 = getelementptr i8, ptr %283, i64 8
   %285 = load i32, ptr %23, align 4, !tbaa !3
   %286 = mul nsw i32 %285, %24
   %287 = sext i32 %286 to i64
-  %288 = getelementptr double, ptr %26, i64 %287
+  %288 = getelementptr [8 x i8], ptr %26, i64 %287
   %289 = getelementptr i8, ptr %288, i64 8
   call void @dcopy_(ptr noundef nonnull %23, ptr noundef %284, ptr noundef nonnull @c__1, ptr noundef %289, ptr noundef nonnull @c__1) #5
   %290 = load i32, ptr %1, align 4, !tbaa !3
@@ -445,11 +445,11 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %294 = mul nsw i32 %291, %24
   %295 = add nsw i32 %294, %291
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds double, ptr %26, i64 %296
+  %297 = getelementptr inbounds [8 x i8], ptr %26, i64 %296
   %298 = load i32, ptr %23, align 4, !tbaa !3
   %299 = add nsw i32 %298, %294
   %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds double, ptr %26, i64 %300
+  %301 = getelementptr inbounds [8 x i8], ptr %26, i64 %300
   call void @dswap_(ptr noundef nonnull %12, ptr noundef %297, ptr noundef nonnull %5, ptr noundef %301, ptr noundef nonnull %5) #5
   %302 = load i32, ptr %1, align 4, !tbaa !3
   %303 = load i32, ptr %22, align 4, !tbaa !3
@@ -459,11 +459,11 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %306 = mul nsw i32 %207, %29
   %307 = add nsw i32 %303, %306
   %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds double, ptr %31, i64 %308
+  %309 = getelementptr inbounds [8 x i8], ptr %31, i64 %308
   %310 = load i32, ptr %23, align 4, !tbaa !3
   %311 = add nsw i32 %310, %306
   %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds double, ptr %31, i64 %312
+  %313 = getelementptr inbounds [8 x i8], ptr %31, i64 %312
   call void @dswap_(ptr noundef nonnull %12, ptr noundef %309, ptr noundef nonnull %9, ptr noundef %313, ptr noundef nonnull %9) #5
   br label %314
 
@@ -474,7 +474,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 316:                                              ; preds = %314
   %317 = mul nsw i32 %315, %24
   %318 = sext i32 %317 to i64
-  %319 = getelementptr double, ptr %26, i64 %318
+  %319 = getelementptr [8 x i8], ptr %26, i64 %318
   %320 = getelementptr i8, ptr %319, i64 8
   call void @dcopy_(ptr noundef nonnull %18, ptr noundef %55, ptr noundef nonnull @c__1, ptr noundef %320, ptr noundef nonnull @c__1) #5
   %321 = load i32, ptr %18, align 4, !tbaa !3
@@ -484,7 +484,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 323:                                              ; preds = %316
   %324 = mul i32 %321, %36
   %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds double, ptr %26, i64 %325
+  %326 = getelementptr inbounds [8 x i8], ptr %26, i64 %325
   %327 = load double, ptr %326, align 8, !tbaa !7
   %328 = call double @llvm.fabs.f64(double %327)
   %329 = fcmp ult double %328, %32
@@ -497,7 +497,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %332, ptr %12, align 4, !tbaa !3
   %333 = mul nsw i32 %321, %24
   %334 = sext i32 %333 to i64
-  %335 = getelementptr double, ptr %26, i64 %334
+  %335 = getelementptr [8 x i8], ptr %26, i64 %334
   %336 = getelementptr i8, ptr %335, i64 8
   call void @dscal_(ptr noundef nonnull %12, ptr noundef nonnull %20, ptr noundef %336, ptr noundef nonnull @c__1) #5
   %.pre865 = load i32, ptr %18, align 4, !tbaa !3
@@ -513,16 +513,16 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %340 = mul nsw i32 %321, %24
   %341 = add nsw i32 %340, %321
   %342 = sext i32 %341 to i64
-  %343 = getelementptr inbounds double, ptr %26, i64 %342
+  %343 = getelementptr inbounds [8 x i8], ptr %26, i64 %342
   %344 = sext i32 %340 to i64
   %wide.trip.count846 = zext nneg i32 %321 to i64
-  %invariant.gep989 = getelementptr double, ptr %26, i64 %344
+  %invariant.gep989 = getelementptr [8 x i8], ptr %26, i64 %344
   br label %345
 
 345:                                              ; preds = %.lr.ph794, %345
   %indvars.iv843 = phi i64 [ 1, %.lr.ph794 ], [ %indvars.iv.next844, %345 ]
   %346 = load double, ptr %343, align 8, !tbaa !7
-  %gep990 = getelementptr double, ptr %invariant.gep989, i64 %indvars.iv843
+  %gep990 = getelementptr [8 x i8], ptr %invariant.gep989, i64 %indvars.iv843
   %347 = load double, ptr %gep990, align 8, !tbaa !7
   %348 = fdiv double %347, %346
   store double %348, ptr %gep990, align 8, !tbaa !7
@@ -554,16 +554,16 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 .lr.ph:                                           ; preds = %351
   %356 = add nsw i32 %353, %52
   %357 = sext i32 %356 to i64
-  %358 = getelementptr inbounds double, ptr %31, i64 %357
+  %358 = getelementptr inbounds [8 x i8], ptr %31, i64 %357
   %359 = load double, ptr %358, align 8, !tbaa !7
-  %360 = getelementptr inbounds double, ptr %31, i64 %355
+  %360 = getelementptr inbounds [8 x i8], ptr %31, i64 %355
   %361 = load double, ptr %360, align 8, !tbaa !7
   %362 = fdiv double %361, %359
   %363 = add nsw i32 %41, -1
   %364 = mul nsw i32 %363, %29
   %365 = add nsw i32 %353, %364
   %366 = sext i32 %365 to i64
-  %367 = getelementptr inbounds double, ptr %31, i64 %366
+  %367 = getelementptr inbounds [8 x i8], ptr %31, i64 %366
   %368 = load double, ptr %367, align 8, !tbaa !7
   %369 = fdiv double %368, %359
   %370 = call double @llvm.fmuladd.f64(double %362, double %369, double -1.000000e+00)
@@ -576,23 +576,23 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %376 = sext i32 %373 to i64
   %377 = sext i32 %374 to i64
   %wide.trip.count = zext nneg i32 %353 to i64
-  %invariant.gep = getelementptr double, ptr %31, i64 %375
-  %invariant.gep983 = getelementptr double, ptr %31, i64 %53
-  %invariant.gep985 = getelementptr double, ptr %26, i64 %376
-  %invariant.gep987 = getelementptr double, ptr %26, i64 %377
+  %invariant.gep = getelementptr [8 x i8], ptr %31, i64 %375
+  %invariant.gep983 = getelementptr [8 x i8], ptr %31, i64 %53
+  %invariant.gep985 = getelementptr [8 x i8], ptr %26, i64 %376
+  %invariant.gep987 = getelementptr [8 x i8], ptr %26, i64 %377
   br label %378
 
 378:                                              ; preds = %.lr.ph, %378
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %378 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %379 = load double, ptr %gep, align 8, !tbaa !7
-  %gep984 = getelementptr double, ptr %invariant.gep983, i64 %indvars.iv
+  %gep984 = getelementptr [8 x i8], ptr %invariant.gep983, i64 %indvars.iv
   %380 = load double, ptr %gep984, align 8, !tbaa !7
   %381 = fneg double %380
   %382 = call double @llvm.fmuladd.f64(double %362, double %379, double %381)
   %383 = fdiv double %382, %359
   %384 = fmul double %371, %383
-  %gep986 = getelementptr double, ptr %invariant.gep985, i64 %indvars.iv
+  %gep986 = getelementptr [8 x i8], ptr %invariant.gep985, i64 %indvars.iv
   store double %384, ptr %gep986, align 8, !tbaa !7
   %385 = load double, ptr %gep984, align 8, !tbaa !7
   %386 = load double, ptr %gep, align 8, !tbaa !7
@@ -600,7 +600,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %388 = call double @llvm.fmuladd.f64(double %369, double %385, double %387)
   %389 = fdiv double %388, %359
   %390 = fmul double %371, %389
-  %gep988 = getelementptr double, ptr %invariant.gep987, i64 %indvars.iv
+  %gep988 = getelementptr [8 x i8], ptr %invariant.gep987, i64 %indvars.iv
   store double %390, ptr %gep988, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -610,7 +610,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %.sink1010 = phi i64 [ %107, %106 ], [ %350, %.loopexit771 ]
   %.ph = phi i32 [ %104, %106 ], [ %349, %.loopexit771 ]
   %.1651.ph.ph = phi i32 [ %.0650, %106 ], [ %.2652, %.loopexit771 ]
-  %391 = getelementptr inbounds double, ptr %27, i64 %.sink1010
+  %391 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sink1010
   store double 0.000000e+00, ptr %391, align 8, !tbaa !7
   br label %392
 
@@ -619,40 +619,40 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %.1651.ph = phi i32 [ %.2652, %316 ], [ %.0650, %99 ], [ %.1651.ph.ph, %.sink.split ]
   %394 = load i32, ptr %23, align 4, !tbaa !3
   %395 = sext i32 %393 to i64
-  %396 = getelementptr inbounds i32, ptr %28, i64 %395
+  %396 = getelementptr inbounds [4 x i8], ptr %28, i64 %395
   store i32 %394, ptr %396, align 4, !tbaa !3
   br label %422
 
 .loopexit772:                                     ; preds = %378, %..loopexit772_crit_edge880
   %.pre-phi914 = phi i64 [ %.pre913, %..loopexit772_crit_edge880 ], [ %357, %378 ]
   %.pre-phi906 = phi i64 [ %.pre905, %..loopexit772_crit_edge880 ], [ %366, %378 ]
-  %397 = getelementptr inbounds double, ptr %31, i64 %.pre-phi906
+  %397 = getelementptr inbounds [8 x i8], ptr %31, i64 %.pre-phi906
   %398 = load double, ptr %397, align 8, !tbaa !7
   %399 = mul i32 %353, %36
   %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds double, ptr %26, i64 %400
+  %401 = getelementptr inbounds [8 x i8], ptr %26, i64 %400
   store double %398, ptr %401, align 8, !tbaa !7
   %402 = mul nsw i32 %315, %24
   %403 = add nsw i32 %353, %402
   %404 = sext i32 %403 to i64
-  %405 = getelementptr inbounds double, ptr %26, i64 %404
+  %405 = getelementptr inbounds [8 x i8], ptr %26, i64 %404
   store double 0.000000e+00, ptr %405, align 8, !tbaa !7
-  %406 = getelementptr inbounds double, ptr %31, i64 %355
+  %406 = getelementptr inbounds [8 x i8], ptr %31, i64 %355
   %407 = load double, ptr %406, align 8, !tbaa !7
   %408 = mul i32 %315, %36
   %409 = sext i32 %408 to i64
-  %410 = getelementptr inbounds double, ptr %26, i64 %409
+  %410 = getelementptr inbounds [8 x i8], ptr %26, i64 %409
   store double %407, ptr %410, align 8, !tbaa !7
-  %411 = getelementptr inbounds double, ptr %31, i64 %.pre-phi914
+  %411 = getelementptr inbounds [8 x i8], ptr %31, i64 %.pre-phi914
   %412 = load double, ptr %411, align 8, !tbaa !7
   %413 = sext i32 %315 to i64
-  %414 = getelementptr inbounds double, ptr %27, i64 %413
+  %414 = getelementptr inbounds [8 x i8], ptr %27, i64 %413
   store double %412, ptr %414, align 8, !tbaa !7
   %415 = getelementptr i8, ptr %414, i64 -8
   store double 0.000000e+00, ptr %415, align 8, !tbaa !7
   %416 = load i32, ptr %19, align 4, !tbaa !3
   %417 = sub nsw i32 0, %416
-  %418 = getelementptr inbounds i32, ptr %28, i64 %413
+  %418 = getelementptr inbounds [4 x i8], ptr %28, i64 %413
   store i32 %417, ptr %418, align 4, !tbaa !3
   %419 = load i32, ptr %23, align 4, !tbaa !3
   %420 = sub nsw i32 0, %419
@@ -685,7 +685,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %434 = mul nsw i32 %433, %29
   %435 = sext i32 %434 to i64
   %436 = sext i32 %24 to i64
-  %invariant.gep992 = getelementptr double, ptr %31, i64 %435
+  %invariant.gep992 = getelementptr [8 x i8], ptr %31, i64 %435
   br label %437
 
 437:                                              ; preds = %.lr.ph801, %477
@@ -704,7 +704,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 
 .lr.ph797:                                        ; preds = %437
   %445 = sext i32 %.1647799 to i64
-  %invariant.gep994 = getelementptr double, ptr %26, i64 %445
+  %invariant.gep994 = getelementptr [8 x i8], ptr %26, i64 %445
   br label %446
 
 446:                                              ; preds = %.lr.ph797, %446
@@ -721,10 +721,10 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %453 = mul nsw i32 %452, %24
   %454 = add nsw i32 %453, %.1647799
   %455 = sext i32 %454 to i64
-  %456 = getelementptr inbounds double, ptr %26, i64 %455
-  %gep993 = getelementptr double, ptr %invariant.gep992, i64 %indvars.iv848
+  %456 = getelementptr inbounds [8 x i8], ptr %26, i64 %455
+  %gep993 = getelementptr [8 x i8], ptr %invariant.gep992, i64 %indvars.iv848
   %457 = mul nsw i64 %indvars.iv848, %436
-  %gep995 = getelementptr double, ptr %invariant.gep994, i64 %457
+  %gep995 = getelementptr [8 x i8], ptr %invariant.gep994, i64 %457
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b9, ptr noundef %456, ptr noundef nonnull %5, ptr noundef %gep993, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %gep995, ptr noundef nonnull @c__1) #5
   %indvars.iv.next849 = add nsw i64 %indvars.iv848, 1
   %458 = load i32, ptr %13, align 4, !tbaa !3
@@ -745,14 +745,14 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %465 = add nsw i32 %463, 1
   %466 = mul nsw i32 %465, %24
   %467 = sext i32 %466 to i64
-  %468 = getelementptr double, ptr %26, i64 %467
+  %468 = getelementptr [8 x i8], ptr %26, i64 %467
   %469 = getelementptr i8, ptr %468, i64 8
   %470 = add nsw i32 %.1647799, %434
   %471 = sext i32 %470 to i64
-  %472 = getelementptr inbounds double, ptr %31, i64 %471
+  %472 = getelementptr inbounds [8 x i8], ptr %31, i64 %471
   %473 = mul nsw i32 %.1647799, %24
   %474 = sext i32 %473 to i64
-  %475 = getelementptr double, ptr %26, i64 %474
+  %475 = getelementptr [8 x i8], ptr %26, i64 %474
   %476 = getelementptr i8, ptr %475, i64 8
   call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %13, ptr noundef nonnull %21, ptr noundef nonnull %14, ptr noundef nonnull @c_b9, ptr noundef %469, ptr noundef nonnull %5, ptr noundef %472, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %476, ptr noundef nonnull %5) #5
   br label %477
@@ -780,7 +780,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 486:                                              ; preds = %11
   %487 = load i32, ptr %1, align 4, !tbaa !3
   %488 = sext i32 %487 to i64
-  %489 = getelementptr inbounds double, ptr %27, i64 %488
+  %489 = getelementptr inbounds [8 x i8], ptr %27, i64 %488
   store double 0.000000e+00, ptr %489, align 8, !tbaa !7
   %490 = add i32 %24, 1
   %491 = add i32 %29, 1
@@ -803,10 +803,10 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %495, ptr %12, align 4, !tbaa !3
   %496 = mul i32 %storemerge1032, %490
   %497 = sext i32 %496 to i64
-  %498 = getelementptr inbounds double, ptr %26, i64 %497
+  %498 = getelementptr inbounds [8 x i8], ptr %26, i64 %497
   %499 = mul i32 %storemerge1032, %491
   %500 = sext i32 %499 to i64
-  %501 = getelementptr inbounds double, ptr %31, i64 %500
+  %501 = getelementptr inbounds [8 x i8], ptr %31, i64 %500
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %498, ptr noundef nonnull @c__1, ptr noundef %501, ptr noundef nonnull @c__1) #5
   %502 = load i32, ptr %18, align 4, !tbaa !3
   %503 = icmp sgt i32 %502, 1
@@ -821,13 +821,13 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %507, ptr %13, align 4, !tbaa !3
   %508 = add nsw i32 %502, %24
   %509 = sext i32 %508 to i64
-  %510 = getelementptr inbounds double, ptr %26, i64 %509
+  %510 = getelementptr inbounds [8 x i8], ptr %26, i64 %509
   %511 = add nsw i32 %502, %29
   %512 = sext i32 %511 to i64
-  %513 = getelementptr inbounds double, ptr %31, i64 %512
+  %513 = getelementptr inbounds [8 x i8], ptr %31, i64 %512
   %514 = mul i32 %502, %491
   %515 = sext i32 %514 to i64
-  %516 = getelementptr inbounds double, ptr %31, i64 %515
+  %516 = getelementptr inbounds [8 x i8], ptr %31, i64 %515
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @c_b9, ptr noundef %510, ptr noundef nonnull %5, ptr noundef %513, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %516, ptr noundef nonnull @c__1) #5
   %.pre870 = load i32, ptr %18, align 4, !tbaa !3
   br label %517
@@ -836,7 +836,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %518 = phi i32 [ %.pre870, %504 ], [ %502, %.lr.ph1035 ]
   %519 = mul i32 %518, %491
   %520 = sext i32 %519 to i64
-  %521 = getelementptr inbounds double, ptr %31, i64 %520
+  %521 = getelementptr inbounds [8 x i8], ptr %31, i64 %520
   %522 = load double, ptr %521, align 8, !tbaa !7
   %523 = fcmp oge double %522, 0.000000e+00
   %524 = fneg double %522
@@ -852,7 +852,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %531 = mul nsw i32 %518, %29
   %532 = add nsw i32 %530, %531
   %533 = sext i32 %532 to i64
-  %534 = getelementptr inbounds double, ptr %31, i64 %533
+  %534 = getelementptr inbounds [8 x i8], ptr %31, i64 %533
   %535 = call i32 @idamax_(ptr noundef nonnull %12, ptr noundef %534, ptr noundef nonnull @c__1) #5
   %536 = add nsw i32 %535, %518
   store i32 %536, ptr %17, align 4, !tbaa !3
@@ -860,7 +860,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %538 = mul nsw i32 %537, %29
   %539 = add nsw i32 %538, %536
   %540 = sext i32 %539 to i64
-  %541 = getelementptr inbounds double, ptr %31, i64 %540
+  %541 = getelementptr inbounds [8 x i8], ptr %31, i64 %540
   %542 = load double, ptr %541, align 8, !tbaa !7
   %543 = fcmp oge double %542, 0.000000e+00
   %544 = fneg double %542
@@ -892,10 +892,10 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %557, ptr %12, align 4, !tbaa !3
   %558 = mul i32 %547, %491
   %559 = sext i32 %558 to i64
-  %560 = getelementptr inbounds double, ptr %31, i64 %559
+  %560 = getelementptr inbounds [8 x i8], ptr %31, i64 %559
   %561 = mul i32 %547, %490
   %562 = sext i32 %561 to i64
-  %563 = getelementptr inbounds double, ptr %26, i64 %562
+  %563 = getelementptr inbounds [8 x i8], ptr %26, i64 %562
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %560, ptr noundef nonnull @c__1, ptr noundef %563, ptr noundef nonnull @c__1) #5
   %564 = load i32, ptr %18, align 4, !tbaa !3
   %565 = load i32, ptr %1, align 4, !tbaa !3
@@ -922,12 +922,12 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %573 = mul nsw i32 %570, %24
   %574 = add nsw i32 %573, %571
   %575 = sext i32 %574 to i64
-  %576 = getelementptr inbounds double, ptr %26, i64 %575
+  %576 = getelementptr inbounds [8 x i8], ptr %26, i64 %575
   %577 = add nsw i32 %570, 1
   %578 = mul nsw i32 %577, %29
   %579 = add nsw i32 %578, %570
   %580 = sext i32 %579 to i64
-  %581 = getelementptr inbounds double, ptr %31, i64 %580
+  %581 = getelementptr inbounds [8 x i8], ptr %31, i64 %580
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %576, ptr noundef nonnull %5, ptr noundef %581, ptr noundef nonnull @c__1) #5
   %582 = load i32, ptr %1, align 4, !tbaa !3
   %583 = load i32, ptr %17, align 4, !tbaa !3
@@ -936,13 +936,13 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %585, ptr %12, align 4, !tbaa !3
   %586 = mul i32 %583, %490
   %587 = sext i32 %586 to i64
-  %588 = getelementptr inbounds double, ptr %26, i64 %587
+  %588 = getelementptr inbounds [8 x i8], ptr %26, i64 %587
   %589 = load i32, ptr %18, align 4, !tbaa !3
   %590 = add nsw i32 %589, 1
   %591 = mul nsw i32 %590, %29
   %592 = add nsw i32 %591, %583
   %593 = sext i32 %592 to i64
-  %594 = getelementptr inbounds double, ptr %31, i64 %593
+  %594 = getelementptr inbounds [8 x i8], ptr %31, i64 %593
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %588, ptr noundef nonnull @c__1, ptr noundef %594, ptr noundef nonnull @c__1) #5
   %595 = load i32, ptr %18, align 4, !tbaa !3
   %596 = icmp sgt i32 %595, 1
@@ -957,16 +957,16 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %600, ptr %13, align 4, !tbaa !3
   %601 = add nsw i32 %595, %24
   %602 = sext i32 %601 to i64
-  %603 = getelementptr inbounds double, ptr %26, i64 %602
+  %603 = getelementptr inbounds [8 x i8], ptr %26, i64 %602
   %604 = load i32, ptr %17, align 4, !tbaa !3
   %605 = add nsw i32 %604, %29
   %606 = sext i32 %605 to i64
-  %607 = getelementptr inbounds double, ptr %31, i64 %606
+  %607 = getelementptr inbounds [8 x i8], ptr %31, i64 %606
   %608 = add nuw nsw i32 %595, 1
   %609 = mul nsw i32 %608, %29
   %610 = add nsw i32 %609, %595
   %611 = sext i32 %610 to i64
-  %612 = getelementptr inbounds double, ptr %31, i64 %611
+  %612 = getelementptr inbounds [8 x i8], ptr %31, i64 %611
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @c_b9, ptr noundef %603, ptr noundef nonnull %5, ptr noundef %607, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %612, ptr noundef nonnull @c__1) #5
   %.pre872 = load i32, ptr %18, align 4, !tbaa !3
   br label %613
@@ -985,7 +985,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %620 = mul nsw i32 %619, %29
   %621 = add nsw i32 %620, %614
   %622 = sext i32 %621 to i64
-  %623 = getelementptr inbounds double, ptr %31, i64 %622
+  %623 = getelementptr inbounds [8 x i8], ptr %31, i64 %622
   %624 = call i32 @idamax_(ptr noundef nonnull %12, ptr noundef %623, ptr noundef nonnull @c__1) #5
   %625 = add nsw i32 %618, %624
   %626 = load i32, ptr %18, align 4, !tbaa !3
@@ -993,7 +993,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %628 = mul nsw i32 %627, %29
   %629 = add nsw i32 %628, %625
   %630 = sext i32 %629 to i64
-  %631 = getelementptr inbounds double, ptr %31, i64 %630
+  %631 = getelementptr inbounds [8 x i8], ptr %31, i64 %630
   %632 = load double, ptr %631, align 8, !tbaa !7
   %633 = fcmp oge double %632, 0.000000e+00
   %634 = fneg double %632
@@ -1023,7 +1023,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %645 = mul nsw i32 %644, %29
   %646 = add nsw i32 %643, %645
   %647 = sext i32 %646 to i64
-  %648 = getelementptr inbounds double, ptr %31, i64 %647
+  %648 = getelementptr inbounds [8 x i8], ptr %31, i64 %647
   %649 = call i32 @idamax_(ptr noundef nonnull %12, ptr noundef %648, ptr noundef nonnull @c__1) #5
   %650 = add nsw i32 %649, %638
   %651 = load i32, ptr %18, align 4, !tbaa !3
@@ -1031,7 +1031,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %653 = mul nsw i32 %652, %29
   %654 = add nsw i32 %653, %650
   %655 = sext i32 %654 to i64
-  %656 = getelementptr inbounds double, ptr %31, i64 %655
+  %656 = getelementptr inbounds [8 x i8], ptr %31, i64 %655
   %657 = load double, ptr %656, align 8, !tbaa !7
   %658 = fcmp oge double %657, 0.000000e+00
   %659 = fneg double %657
@@ -1051,7 +1051,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %665 = load i32, ptr %17, align 4, !tbaa !3
   %666 = add nsw i32 %.pre-phi884, %665
   %667 = sext i32 %666 to i64
-  %668 = getelementptr inbounds double, ptr %31, i64 %667
+  %668 = getelementptr inbounds [8 x i8], ptr %31, i64 %667
   %669 = load double, ptr %668, align 8, !tbaa !7
   %670 = call double @llvm.fabs.f64(double %669)
   %671 = fmul double %.3, 0x3FE47E0F66AFED07
@@ -1080,10 +1080,10 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %679, ptr %12, align 4, !tbaa !3
   %680 = add nsw i32 %.pre-phi884, %664
   %681 = sext i32 %680 to i64
-  %682 = getelementptr inbounds double, ptr %31, i64 %681
+  %682 = getelementptr inbounds [8 x i8], ptr %31, i64 %681
   %683 = mul i32 %664, %491
   %684 = sext i32 %683 to i64
-  %685 = getelementptr inbounds double, ptr %31, i64 %684
+  %685 = getelementptr inbounds [8 x i8], ptr %31, i64 %684
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %682, ptr noundef nonnull @c__1, ptr noundef %685, ptr noundef nonnull @c__1) #5
   %.pre871 = load i32, ptr %18, align 4, !tbaa !3
   br label %.preheader
@@ -1096,10 +1096,10 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %688, ptr %12, align 4, !tbaa !3
   %689 = add nsw i32 %.pre-phi884, %664
   %690 = sext i32 %689 to i64
-  %691 = getelementptr inbounds double, ptr %31, i64 %690
+  %691 = getelementptr inbounds [8 x i8], ptr %31, i64 %690
   %692 = mul i32 %664, %491
   %693 = sext i32 %692 to i64
-  %694 = getelementptr inbounds double, ptr %31, i64 %693
+  %694 = getelementptr inbounds [8 x i8], ptr %31, i64 %693
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %691, ptr noundef nonnull @c__1, ptr noundef %694, ptr noundef nonnull @c__1) #5
   %695 = load i32, ptr %18, align 4, !tbaa !3
   store i32 %695, ptr %22, align 4, !tbaa !3
@@ -1111,10 +1111,10 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %698 = mul nsw i32 %664, %24
   %699 = add nsw i32 %698, %664
   %700 = sext i32 %699 to i64
-  %701 = getelementptr inbounds double, ptr %26, i64 %700
+  %701 = getelementptr inbounds [8 x i8], ptr %26, i64 %700
   %702 = add nsw i32 %674, %698
   %703 = sext i32 %702 to i64
-  %704 = getelementptr inbounds double, ptr %26, i64 %703
+  %704 = getelementptr inbounds [8 x i8], ptr %26, i64 %703
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %701, ptr noundef nonnull @c__1, ptr noundef %704, ptr noundef nonnull %5) #5
   %705 = load i32, ptr %1, align 4, !tbaa !3
   %706 = load i32, ptr %19, align 4, !tbaa !3
@@ -1125,28 +1125,28 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %710 = mul nsw i32 %709, %24
   %711 = add nsw i32 %710, %706
   %712 = sext i32 %711 to i64
-  %713 = getelementptr inbounds double, ptr %26, i64 %712
+  %713 = getelementptr inbounds [8 x i8], ptr %26, i64 %712
   %714 = mul i32 %706, %490
   %715 = sext i32 %714 to i64
-  %716 = getelementptr inbounds double, ptr %26, i64 %715
+  %716 = getelementptr inbounds [8 x i8], ptr %26, i64 %715
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %713, ptr noundef nonnull @c__1, ptr noundef %716, ptr noundef nonnull @c__1) #5
   %717 = load i32, ptr %18, align 4, !tbaa !3
   %718 = add nsw i32 %717, %24
   %719 = sext i32 %718 to i64
-  %720 = getelementptr inbounds double, ptr %26, i64 %719
+  %720 = getelementptr inbounds [8 x i8], ptr %26, i64 %719
   %721 = load i32, ptr %19, align 4, !tbaa !3
   %722 = add nsw i32 %721, %24
   %723 = sext i32 %722 to i64
-  %724 = getelementptr inbounds double, ptr %26, i64 %723
+  %724 = getelementptr inbounds [8 x i8], ptr %26, i64 %723
   call void @dswap_(ptr noundef nonnull %18, ptr noundef %720, ptr noundef nonnull %5, ptr noundef %724, ptr noundef nonnull %5) #5
   %725 = load i32, ptr %18, align 4, !tbaa !3
   %726 = add nsw i32 %725, %29
   %727 = sext i32 %726 to i64
-  %728 = getelementptr inbounds double, ptr %31, i64 %727
+  %728 = getelementptr inbounds [8 x i8], ptr %31, i64 %727
   %729 = load i32, ptr %19, align 4, !tbaa !3
   %730 = add nsw i32 %729, %29
   %731 = sext i32 %730 to i64
-  %732 = getelementptr inbounds double, ptr %31, i64 %731
+  %732 = getelementptr inbounds [8 x i8], ptr %31, i64 %731
   call void @dswap_(ptr noundef nonnull %22, ptr noundef %728, ptr noundef nonnull %9, ptr noundef %732, ptr noundef nonnull %9) #5
   %.pre874 = load i32, ptr %22, align 4, !tbaa !3
   br label %733
@@ -1164,11 +1164,11 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %739 = mul nsw i32 %738, %24
   %740 = add nsw i32 %739, %734
   %741 = sext i32 %740 to i64
-  %742 = getelementptr inbounds double, ptr %26, i64 %741
+  %742 = getelementptr inbounds [8 x i8], ptr %26, i64 %741
   %743 = load double, ptr %742, align 8, !tbaa !7
   %744 = add nsw i32 %739, %736
   %745 = sext i32 %744 to i64
-  %746 = getelementptr inbounds double, ptr %26, i64 %745
+  %746 = getelementptr inbounds [8 x i8], ptr %26, i64 %745
   store double %743, ptr %746, align 8, !tbaa !7
   %747 = xor i32 %738, -1
   %748 = add i32 %736, %747
@@ -1177,11 +1177,11 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %750 = mul nsw i32 %734, %24
   %751 = add nsw i32 %749, %750
   %752 = sext i32 %751 to i64
-  %753 = getelementptr inbounds double, ptr %26, i64 %752
+  %753 = getelementptr inbounds [8 x i8], ptr %26, i64 %752
   %754 = mul nsw i32 %749, %24
   %755 = add nsw i32 %754, %736
   %756 = sext i32 %755 to i64
-  %757 = getelementptr inbounds double, ptr %26, i64 %756
+  %757 = getelementptr inbounds [8 x i8], ptr %26, i64 %756
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %753, ptr noundef nonnull @c__1, ptr noundef %757, ptr noundef nonnull %5) #5
   %758 = load i32, ptr %1, align 4, !tbaa !3
   %759 = load i32, ptr %23, align 4, !tbaa !3
@@ -1192,28 +1192,28 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %763 = mul nsw i32 %762, %24
   %764 = add nsw i32 %763, %759
   %765 = sext i32 %764 to i64
-  %766 = getelementptr inbounds double, ptr %26, i64 %765
+  %766 = getelementptr inbounds [8 x i8], ptr %26, i64 %765
   %767 = mul i32 %759, %490
   %768 = sext i32 %767 to i64
-  %769 = getelementptr inbounds double, ptr %26, i64 %768
+  %769 = getelementptr inbounds [8 x i8], ptr %26, i64 %768
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %766, ptr noundef nonnull @c__1, ptr noundef %769, ptr noundef nonnull @c__1) #5
   %770 = load i32, ptr %22, align 4, !tbaa !3
   %771 = add nsw i32 %770, %24
   %772 = sext i32 %771 to i64
-  %773 = getelementptr inbounds double, ptr %26, i64 %772
+  %773 = getelementptr inbounds [8 x i8], ptr %26, i64 %772
   %774 = load i32, ptr %23, align 4, !tbaa !3
   %775 = add nsw i32 %774, %24
   %776 = sext i32 %775 to i64
-  %777 = getelementptr inbounds double, ptr %26, i64 %776
+  %777 = getelementptr inbounds [8 x i8], ptr %26, i64 %776
   call void @dswap_(ptr noundef nonnull %22, ptr noundef %773, ptr noundef nonnull %5, ptr noundef %777, ptr noundef nonnull %5) #5
   %778 = load i32, ptr %22, align 4, !tbaa !3
   %779 = add nsw i32 %778, %29
   %780 = sext i32 %779 to i64
-  %781 = getelementptr inbounds double, ptr %31, i64 %780
+  %781 = getelementptr inbounds [8 x i8], ptr %31, i64 %780
   %782 = load i32, ptr %23, align 4, !tbaa !3
   %783 = add nsw i32 %782, %29
   %784 = sext i32 %783 to i64
-  %785 = getelementptr inbounds double, ptr %31, i64 %784
+  %785 = getelementptr inbounds [8 x i8], ptr %31, i64 %784
   call void @dswap_(ptr noundef nonnull %22, ptr noundef %781, ptr noundef nonnull %9, ptr noundef %785, ptr noundef nonnull %9) #5
   br label %786
 
@@ -1228,10 +1228,10 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %791, ptr %12, align 4, !tbaa !3
   %792 = mul i32 %789, %491
   %793 = sext i32 %792 to i64
-  %794 = getelementptr inbounds double, ptr %31, i64 %793
+  %794 = getelementptr inbounds [8 x i8], ptr %31, i64 %793
   %795 = mul i32 %789, %490
   %796 = sext i32 %795 to i64
-  %797 = getelementptr inbounds double, ptr %26, i64 %796
+  %797 = getelementptr inbounds [8 x i8], ptr %26, i64 %796
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %794, ptr noundef nonnull @c__1, ptr noundef %797, ptr noundef nonnull @c__1) #5
   %798 = load i32, ptr %18, align 4, !tbaa !3
   %799 = load i32, ptr %1, align 4, !tbaa !3
@@ -1241,7 +1241,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 801:                                              ; preds = %787
   %802 = mul i32 %798, %490
   %803 = sext i32 %802 to i64
-  %804 = getelementptr inbounds double, ptr %26, i64 %803
+  %804 = getelementptr inbounds [8 x i8], ptr %26, i64 %803
   %805 = load double, ptr %804, align 8, !tbaa !7
   %806 = call double @llvm.fabs.f64(double %805)
   %807 = fcmp ult double %806, %32
@@ -1256,7 +1256,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %812 = mul nsw i32 %798, %24
   %813 = add nsw i32 %811, %812
   %814 = sext i32 %813 to i64
-  %815 = getelementptr inbounds double, ptr %26, i64 %814
+  %815 = getelementptr inbounds [8 x i8], ptr %26, i64 %814
   call void @dscal_(ptr noundef nonnull %12, ptr noundef nonnull %20, ptr noundef %815, ptr noundef nonnull @c__1) #5
   %.pre875 = load i32, ptr %18, align 4, !tbaa !3
   br label %.sink.split1011
@@ -1270,18 +1270,18 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %818 = mul nsw i32 %798, %24
   %819 = add nsw i32 %818, %798
   %820 = sext i32 %819 to i64
-  %821 = getelementptr inbounds double, ptr %26, i64 %820
+  %821 = getelementptr inbounds [8 x i8], ptr %26, i64 %820
   %822 = sext i32 %798 to i64
   %823 = sext i32 %818 to i64
   %wide.trip.count858 = sext i32 %799 to i64
-  %invariant.gep1004 = getelementptr double, ptr %26, i64 %823
+  %invariant.gep1004 = getelementptr [8 x i8], ptr %26, i64 %823
   br label %824
 
 824:                                              ; preds = %.lr.ph810, %824
   %indvars.iv855 = phi i64 [ %822, %.lr.ph810 ], [ %indvars.iv.next856, %824 ]
   %indvars.iv.next856 = add nsw i64 %indvars.iv855, 1
   %825 = load double, ptr %821, align 8, !tbaa !7
-  %gep1005 = getelementptr double, ptr %invariant.gep1004, i64 %indvars.iv.next856
+  %gep1005 = getelementptr [8 x i8], ptr %invariant.gep1004, i64 %indvars.iv.next856
   %826 = load double, ptr %gep1005, align 8, !tbaa !7
   %827 = fdiv double %826, %825
   store double %827, ptr %gep1005, align 8, !tbaa !7
@@ -1308,16 +1308,16 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %835 = mul nsw i32 %829, %29
   %836 = add nsw i32 %833, %835
   %837 = sext i32 %836 to i64
-  %838 = getelementptr inbounds double, ptr %31, i64 %837
+  %838 = getelementptr inbounds [8 x i8], ptr %31, i64 %837
   %839 = load double, ptr %838, align 8, !tbaa !7
   %840 = mul i32 %833, %491
   %841 = sext i32 %840 to i64
-  %842 = getelementptr inbounds double, ptr %31, i64 %841
+  %842 = getelementptr inbounds [8 x i8], ptr %31, i64 %841
   %843 = load double, ptr %842, align 8, !tbaa !7
   %844 = fdiv double %843, %839
   %845 = add nsw i32 %835, %829
   %846 = sext i32 %845 to i64
-  %847 = getelementptr inbounds double, ptr %31, i64 %846
+  %847 = getelementptr inbounds [8 x i8], ptr %31, i64 %846
   %848 = load double, ptr %847, align 8, !tbaa !7
   %849 = fdiv double %848, %839
   %850 = call double @llvm.fmuladd.f64(double %844, double %849, double -1.000000e+00)
@@ -1337,23 +1337,23 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %859 = sext i32 %854 to i64
   %860 = sext i32 %855 to i64
   %861 = add i32 %830, 1
-  %invariant.gep996 = getelementptr double, ptr %31, i64 %857
-  %invariant.gep998 = getelementptr double, ptr %31, i64 %858
-  %invariant.gep1000 = getelementptr double, ptr %26, i64 %859
-  %invariant.gep1002 = getelementptr double, ptr %26, i64 %860
+  %invariant.gep996 = getelementptr [8 x i8], ptr %31, i64 %857
+  %invariant.gep998 = getelementptr [8 x i8], ptr %31, i64 %858
+  %invariant.gep1000 = getelementptr [8 x i8], ptr %26, i64 %859
+  %invariant.gep1002 = getelementptr [8 x i8], ptr %26, i64 %860
   br label %862
 
 862:                                              ; preds = %.lr.ph806, %862
   %indvars.iv851 = phi i64 [ %856, %.lr.ph806 ], [ %indvars.iv.next852, %862 ]
-  %gep997 = getelementptr double, ptr %invariant.gep996, i64 %indvars.iv851
+  %gep997 = getelementptr [8 x i8], ptr %invariant.gep996, i64 %indvars.iv851
   %863 = load double, ptr %gep997, align 8, !tbaa !7
-  %gep999 = getelementptr double, ptr %invariant.gep998, i64 %indvars.iv851
+  %gep999 = getelementptr [8 x i8], ptr %invariant.gep998, i64 %indvars.iv851
   %864 = load double, ptr %gep999, align 8, !tbaa !7
   %865 = fneg double %864
   %866 = call double @llvm.fmuladd.f64(double %844, double %863, double %865)
   %867 = fdiv double %866, %839
   %868 = fmul double %851, %867
-  %gep1001 = getelementptr double, ptr %invariant.gep1000, i64 %indvars.iv851
+  %gep1001 = getelementptr [8 x i8], ptr %invariant.gep1000, i64 %indvars.iv851
   store double %868, ptr %gep1001, align 8, !tbaa !7
   %869 = load double, ptr %gep999, align 8, !tbaa !7
   %870 = load double, ptr %gep997, align 8, !tbaa !7
@@ -1361,7 +1361,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %872 = call double @llvm.fmuladd.f64(double %849, double %869, double %871)
   %873 = fdiv double %872, %839
   %874 = fmul double %851, %873
-  %gep1003 = getelementptr double, ptr %invariant.gep1002, i64 %indvars.iv851
+  %gep1003 = getelementptr [8 x i8], ptr %invariant.gep1002, i64 %indvars.iv851
   store double %874, ptr %gep1003, align 8, !tbaa !7
   %indvars.iv.next852 = add nsw i64 %indvars.iv851, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next852 to i32
@@ -1372,7 +1372,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %.sink = phi i32 [ %564, %555 ], [ %.pre875, %808 ], [ %798, %816 ], [ %798, %824 ]
   %.7657.ph.ph = phi i32 [ %.66561033, %555 ], [ %.8742, %808 ], [ %.8742, %816 ], [ %.8742, %824 ]
   %875 = sext i32 %.sink to i64
-  %876 = getelementptr inbounds double, ptr %27, i64 %875
+  %876 = getelementptr inbounds [8 x i8], ptr %27, i64 %875
   store double 0.000000e+00, ptr %876, align 8, !tbaa !7
   br label %877
 
@@ -1381,7 +1381,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %.7657.ph = phi i32 [ %.8742, %787 ], [ %.66561033, %555 ], [ %.7657.ph.ph, %.sink.split1011 ]
   %879 = load i32, ptr %23, align 4, !tbaa !3
   %880 = sext i32 %878 to i64
-  %881 = getelementptr inbounds i32, ptr %28, i64 %880
+  %881 = getelementptr inbounds [4 x i8], ptr %28, i64 %880
   store i32 %879, ptr %881, align 4, !tbaa !3
   br label %909
 
@@ -1390,33 +1390,33 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %.pre-phi890 = phi i64 [ %.pre889, %..loopexit770_crit_edge ], [ %841, %834 ], [ %841, %862 ]
   %882 = mul i32 %829, %491
   %883 = sext i32 %882 to i64
-  %884 = getelementptr inbounds double, ptr %31, i64 %883
+  %884 = getelementptr inbounds [8 x i8], ptr %31, i64 %883
   %885 = load double, ptr %884, align 8, !tbaa !7
   %886 = mul i32 %829, %490
   %887 = sext i32 %886 to i64
-  %888 = getelementptr inbounds double, ptr %26, i64 %887
+  %888 = getelementptr inbounds [8 x i8], ptr %26, i64 %887
   store double %885, ptr %888, align 8, !tbaa !7
   %889 = mul nsw i32 %829, %24
   %890 = add nsw i32 %833, %889
   %891 = sext i32 %890 to i64
-  %892 = getelementptr inbounds double, ptr %26, i64 %891
+  %892 = getelementptr inbounds [8 x i8], ptr %26, i64 %891
   store double 0.000000e+00, ptr %892, align 8, !tbaa !7
-  %893 = getelementptr inbounds double, ptr %31, i64 %.pre-phi890
+  %893 = getelementptr inbounds [8 x i8], ptr %31, i64 %.pre-phi890
   %894 = load double, ptr %893, align 8, !tbaa !7
   %895 = mul i32 %833, %490
   %896 = sext i32 %895 to i64
-  %897 = getelementptr inbounds double, ptr %26, i64 %896
+  %897 = getelementptr inbounds [8 x i8], ptr %26, i64 %896
   store double %894, ptr %897, align 8, !tbaa !7
-  %898 = getelementptr inbounds double, ptr %31, i64 %.pre-phi896
+  %898 = getelementptr inbounds [8 x i8], ptr %31, i64 %.pre-phi896
   %899 = load double, ptr %898, align 8, !tbaa !7
   %900 = sext i32 %829 to i64
-  %901 = getelementptr inbounds double, ptr %27, i64 %900
+  %901 = getelementptr inbounds [8 x i8], ptr %27, i64 %900
   store double %899, ptr %901, align 8, !tbaa !7
   %902 = getelementptr i8, ptr %901, i64 8
   store double 0.000000e+00, ptr %902, align 8, !tbaa !7
   %903 = load i32, ptr %19, align 4, !tbaa !3
   %904 = sub nsw i32 0, %903
-  %905 = getelementptr inbounds i32, ptr %28, i64 %900
+  %905 = getelementptr inbounds [4 x i8], ptr %28, i64 %900
   store i32 %904, ptr %905, align 4, !tbaa !3
   %906 = load i32, ptr %23, align 4, !tbaa !3
   %907 = sub nsw i32 0, %906
@@ -1454,8 +1454,8 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 .lr.ph819:                                        ; preds = %._crit_edge1036
   %918 = sext i32 %24 to i64
   %919 = sext i32 %29 to i64
-  %invariant.gep1006 = getelementptr double, ptr %26, i64 %918
-  %invariant.gep1008 = getelementptr double, ptr %31, i64 %919
+  %invariant.gep1006 = getelementptr [8 x i8], ptr %26, i64 %918
+  %invariant.gep1008 = getelementptr [8 x i8], ptr %31, i64 %919
   br label %920
 
 920:                                              ; preds = %.lr.ph819, %957
@@ -1486,11 +1486,11 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %933 = load i32, ptr %18, align 4, !tbaa !3
   %934 = add nsw i32 %933, -1
   store i32 %934, ptr %16, align 4, !tbaa !3
-  %gep1007 = getelementptr double, ptr %invariant.gep1006, i64 %indvars.iv860
-  %gep1009 = getelementptr double, ptr %invariant.gep1008, i64 %indvars.iv860
+  %gep1007 = getelementptr [8 x i8], ptr %invariant.gep1006, i64 %indvars.iv860
+  %gep1009 = getelementptr [8 x i8], ptr %invariant.gep1008, i64 %indvars.iv860
   %935 = mul i32 %490, %930
   %936 = sext i32 %935 to i64
-  %937 = getelementptr inbounds double, ptr %26, i64 %936
+  %937 = getelementptr inbounds [8 x i8], ptr %26, i64 %936
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b9, ptr noundef %gep1007, ptr noundef nonnull %5, ptr noundef %gep1009, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %937, ptr noundef nonnull @c__1) #5
   %indvars.iv.next861 = add nsw i64 %indvars.iv860, 1
   %938 = load i32, ptr %14, align 4, !tbaa !3
@@ -1519,14 +1519,14 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   store i32 %946, ptr %15, align 4, !tbaa !3
   %947 = add nsw i32 %942, %24
   %948 = sext i32 %947 to i64
-  %949 = getelementptr inbounds double, ptr %26, i64 %948
+  %949 = getelementptr inbounds [8 x i8], ptr %26, i64 %948
   %950 = add nsw i32 %.3649817, %29
   %951 = sext i32 %950 to i64
-  %952 = getelementptr inbounds double, ptr %31, i64 %951
+  %952 = getelementptr inbounds [8 x i8], ptr %31, i64 %951
   %953 = mul nsw i32 %.3649817, %24
   %954 = add nsw i32 %942, %953
   %955 = sext i32 %954 to i64
-  %956 = getelementptr inbounds double, ptr %26, i64 %955
+  %956 = getelementptr inbounds [8 x i8], ptr %26, i64 %955
   call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %14, ptr noundef nonnull %21, ptr noundef nonnull %15, ptr noundef nonnull @c_b9, ptr noundef %949, ptr noundef nonnull %5, ptr noundef %952, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %956, ptr noundef nonnull %5) #5
   br label %957
 

@@ -184,7 +184,7 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
   br label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %26, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   br label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %9
@@ -278,7 +278,7 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
   br label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i31
 
 _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i31: ; preds = %53, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i29
-  %54 = getelementptr inbounds nuw ptr, ptr %49, i64 %47
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   br label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit34
 
 _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit34: ; preds = %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i31, %36
@@ -366,7 +366,7 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
   br label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i41
 
 _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i41: ; preds = %80, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i39
-  %81 = getelementptr inbounds nuw ptr, ptr %76, i64 %74
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %74
   br label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit44
 
 _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit44: ; preds = %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i41, %63
@@ -1854,7 +1854,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 16:                                               ; preds = %16, %13
   %.09.i.i.i = phi i64 [ %15, %13 ], [ %19, %16 ]
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %.09.i.i.i
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09.i.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %11, ptr noundef %18)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
@@ -1877,7 +1877,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 27:                                               ; preds = %10
   %28 = add nsw i64 %.024, -1
   %29 = lshr i64 %11, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %29
   %31 = getelementptr inbounds i8, ptr %storemerge23, i64 -8
   %32 = load ptr, ptr %9, align 8, !tbaa !10
   %33 = load ptr, ptr %30, align 8, !tbaa !10
@@ -2044,9 +2044,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.034 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.034, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = load ptr, ptr %10, align 8, !tbaa !10
   %14 = load ptr, ptr %12, align 8, !tbaa !10
   %.val.i = load ptr, ptr %13, align 8, !tbaa !24
@@ -2057,9 +2057,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.val3.i = load i64, ptr %16, align 8, !tbaa !22
   %17 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %.val.i, i64 %.val1.i, ptr %.val2.i, i64 %.val3.i) #16
   %spec.select = select i1 %17, i64 %11, i64 %9
-  %18 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
   %19 = load ptr, ptr %18, align 8, !tbaa !10
-  %20 = getelementptr inbounds ptr, ptr %0, i64 %.034
+  %20 = getelementptr inbounds [8 x i8], ptr %0, i64 %.034
   store ptr %19, ptr %20, align 8, !tbaa !10
   %21 = icmp slt i64 %spec.select, %6
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !39
@@ -2079,9 +2079,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 28:                                               ; preds = %24
   %29 = shl nsw i64 %.0.lcssa, 1
   %30 = or disjoint i64 %29, 1
-  %31 = getelementptr inbounds ptr, ptr %0, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %0, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !10
-  %33 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %33 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   store ptr %32, ptr %33, align 8, !tbaa !10
   br label %34
 
@@ -2098,7 +2098,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.010.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0911.i, %42 ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %38 = getelementptr inbounds ptr, ptr %0, i64 %.0911.i
+  %38 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0911.i
   %.val.val.i = load ptr, ptr %3, align 8, !tbaa !24
   %.val.val10.i = load i64, ptr %36, align 8, !tbaa !22
   %39 = load ptr, ptr %38, align 8, !tbaa !10
@@ -2110,14 +2110,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %38, align 8, !tbaa !10
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.010.i
+  %44 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010.i
   store ptr %43, ptr %44, align 8, !tbaa !10
   %45 = icmp sgt i64 %.0911.i, %1
   br i1 %45, label %37, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !40
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %37, %42, %34
   %.0.lcssa.i = phi i64 [ %.1, %34 ], [ %.010.i, %37 ], [ %.0911.i, %42 ]
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
+  %46 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %46, align 8, !tbaa !10
   ret void
 }
@@ -2163,7 +2163,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataES
   %14 = sub i64 %13, %4
   %15 = ashr exact i64 %14, 3
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds ptr, ptr %12, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %12, i64 %16
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %14, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_.exit"
 

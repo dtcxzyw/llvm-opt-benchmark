@@ -11,8 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::allocator.72" = type { i8 }
 %struct._Guard = type { ptr }
 %"struct.pkpy::Str" = type { i32, i8, ptr, [16 x i8] }
-%"struct.pkpy::Dict::Item" = type { ptr, ptr }
-%"struct.pkpy::Dict::ItemNode" = type { i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -287,7 +285,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EE9push_backIRS2_EEvOT_.exit: ; preds = %4
   %66 = add nsw i32 %64, 1
   store i32 %66, ptr %14, align 8
   %67 = sext i32 %64 to i64
-  %68 = getelementptr inbounds ptr, ptr %65, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %65, i64 %67
   store ptr %50, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.03238, i64 8
   %.not34 = icmp eq ptr %69, %45
@@ -518,7 +516,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %32, ptr %11, align 8
   store ptr %36, ptr %12, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr %38, ptr %14, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -1104,7 +1102,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %33, ptr %12, align 8
   store ptr %37, ptr %13, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %39, ptr %15, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -1289,7 +1287,7 @@ define internal noundef range(i32 0, 3) i32 @"_ZZN4pkpy13DictItemsIter9_register
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %5 to i64
-  %13 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %11, i64 %12
+  %13 = getelementptr inbounds [16 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 264296
   %16 = load ptr, ptr %15, align 8
@@ -1299,7 +1297,7 @@ define internal noundef range(i32 0, 3) i32 @"_ZZN4pkpy13DictItemsIter9_register
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr %4, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %18, i64 %20
+  %21 = getelementptr inbounds [16 x i8], ptr %18, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %15, align 8
@@ -1310,7 +1308,7 @@ define internal noundef range(i32 0, 3) i32 @"_ZZN4pkpy13DictItemsIter9_register
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %4, align 8
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %4, align 8
@@ -1489,7 +1487,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %27, ptr %6, align 8
   store ptr %31, ptr %7, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %9, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
@@ -1567,7 +1565,7 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_9GeneratorEEC2IJNS_5FrameERNS_8ArgsVie
   %32 = add nsw i32 %30, 1
   store i32 %32, ptr %11, align 8
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %31, i64 %33
   store ptr %15, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.not.i = icmp eq ptr %35, %.sroa.2.0.copyload

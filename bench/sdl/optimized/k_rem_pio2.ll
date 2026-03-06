@@ -21,7 +21,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 
 12:                                               ; preds = %6
   %13 = zext i32 %4 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @init_jk, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @init_jk, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %3, -1
   %17 = add nsw i32 %2, -3
@@ -52,14 +52,14 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 
 24:                                               ; preds = %.lr.ph
   %25 = zext nneg i32 %.0242318 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = sitofp i32 %27 to double
   br label %29
 
 29:                                               ; preds = %.lr.ph, %24
   %30 = phi double [ %28, %24 ], [ 0.000000e+00, %.lr.ph ]
-  %31 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store double %30, ptr %31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = add nsw i32 %.0242318, 1
@@ -73,7 +73,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 
 34:                                               ; preds = %._crit_edge
   %35 = zext nneg i32 %.pre-phi to i64
-  %36 = getelementptr inbounds nuw double, ptr %8, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %35
   %37 = shl nuw nsw i64 %35, 3
   %38 = sub nuw nsw i64 160, %37
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %38, i1 false)
@@ -95,12 +95,12 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 42:                                               ; preds = %.preheader306.us, %42
   %indvars.iv411 = phi i64 [ 0, %.preheader306.us ], [ %indvars.iv.next412, %42 ]
   %.0321.us = phi double [ 0.000000e+00, %.preheader306.us ], [ %50, %42 ]
-  %43 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv411
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv411
   %44 = load double, ptr %43, align 8
   %45 = trunc nuw nsw i64 %indvars.iv411 to i32
   %46 = sub i32 %41, %45
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds double, ptr %8, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %8, i64 %47
   %49 = load double, ptr %48, align 8
   %50 = tail call double @llvm.fmuladd.f64(double %44, double %49, double %.0321.us)
   %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1
@@ -108,7 +108,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br i1 %exitcond415.not, label %._crit_edge323.us, label %42, !llvm.loop !6
 
 ._crit_edge323.us:                                ; preds = %42
-  %51 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv416
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv416
   store double %50, ptr %51, align 8
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond421.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count420
@@ -121,7 +121,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   %55 = sub nsw i32 23, %19
   %56 = sext i32 %15 to i64
   %57 = zext nneg i32 %spec.store.select to i64
-  %invariant.gep = getelementptr i32, ptr %5, i64 %57
+  %invariant.gep = getelementptr [4 x i8], ptr %5, i64 %57
   %wide.trip.count446 = zext nneg i32 %3 to i64
   br label %.loopexit302
 
@@ -131,7 +131,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .loopexit302:                                     ; preds = %.loopexit302.loopexit, %.preheader305
   %.0259 = phi i32 [ %15, %.preheader305 ], [ %136, %.loopexit302.loopexit ]
   %58 = sext i32 %.0259 to i64
-  %59 = getelementptr inbounds double, ptr %10, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %10, i64 %58
   %60 = load double, ptr %59, align 8
   %61 = icmp sgt i32 %.0259, 0
   br i1 %61, label %.lr.ph330.preheader, label %._crit_edge331
@@ -149,9 +149,9 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   %65 = sitofp i32 %64 to double
   %66 = tail call double @llvm.fmuladd.f64(double %65, double 0xC170000000000000, double %.0234328)
   %67 = fptosi double %66 to i32
-  %68 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv424
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv424
   store i32 %67, ptr %68, align 4
-  %69 = getelementptr double, ptr %10, i64 %indvars.iv422
+  %69 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv422
   %70 = getelementptr i8, ptr %69, i64 -8
   %71 = load double, ptr %70, align 8
   %72 = fadd double %71, %65
@@ -166,7 +166,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %._crit_edge331
-  %75 = getelementptr inbounds nuw i32, ptr %7, i64 %58
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %58
   %76 = shl nuw nsw i64 %58, 2
   %77 = sub nuw nsw i64 80, %76
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %75, i8 0, i64 %77, i1 false)
@@ -183,7 +183,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br i1 %52, label %86, label %95
 
 86:                                               ; preds = %78
-  %87 = getelementptr i32, ptr %7, i64 %58
+  %87 = getelementptr [4 x i8], ptr %7, i64 %58
   %88 = getelementptr i8, ptr %87, i64 -4
   %89 = load i32, ptr %88, align 4
   %90 = ashr i32 %89, %54
@@ -198,7 +198,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br i1 %53, label %96, label %101
 
 96:                                               ; preds = %95
-  %97 = getelementptr i32, ptr %7, i64 %58
+  %97 = getelementptr [4 x i8], ptr %7, i64 %58
   %98 = getelementptr i8, ptr %97, i64 -4
   %99 = load i32, ptr %98, align 4
   %100 = ashr i32 %99, 23
@@ -227,7 +227,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .lr.ph334:                                        ; preds = %.lr.ph334.preheader, %111
   %indvars.iv431 = phi i64 [ 0, %.lr.ph334.preheader ], [ %indvars.iv.next432, %111 ]
   %.0257332 = phi i32 [ 0, %.lr.ph334.preheader ], [ %.1258, %111 ]
-  %106 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv431
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv431
   %107 = load i32, ptr %106, align 4
   %108 = icmp eq i32 %.0257332, 0
   br i1 %108, label %109, label %.sink.split
@@ -264,7 +264,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 
 .sink.split512:                                   ; preds = %113, %114
   %.sink515 = phi i32 [ 4194303, %114 ], [ 8388607, %113 ]
-  %115 = getelementptr i32, ptr %7, i64 %58
+  %115 = getelementptr [4 x i8], ptr %7, i64 %58
   %116 = getelementptr i8, ptr %115, i64 -4
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, %.sink515
@@ -299,7 +299,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   %indvars.iv436 = phi i64 [ %indvars.iv.next437, %.lr.ph340 ], [ %58, %.preheader304 ]
   %.3245339 = phi i32 [ %129, %.lr.ph340 ], [ 0, %.preheader304 ]
   %indvars.iv.next437 = add nsw i64 %indvars.iv436, -1
-  %127 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.next437
+  %127 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv.next437
   %128 = load i32, ptr %127, align 4
   %129 = or i32 %128, %.3245339
   %.not278.not = icmp sgt i64 %indvars.iv.next437, %56
@@ -315,7 +315,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .preheader303:                                    ; preds = %.preheader303.preheader, %.preheader303
   %indvars.iv439 = phi i64 [ %indvars.iv.next440, %.preheader303 ], [ 1, %.preheader303.preheader ]
   %131 = sub nsw i64 %56, %indvars.iv439
-  %132 = getelementptr inbounds i32, ptr %7, i64 %131
+  %132 = getelementptr inbounds [4 x i8], ptr %7, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = icmp eq i32 %133, 0
   %indvars.iv.next440 = add nuw nsw i64 %indvars.iv439, 1
@@ -330,23 +330,23 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .lr.ph347.preheader:                              ; preds = %._crit_edge348, %.preheader301
   %indvars.iv448 = phi i64 [ %58, %.preheader301 ], [ %indvars.iv.next449, %._crit_edge348 ]
   %indvars.iv.next449 = add nsw i64 %indvars.iv448, 1
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv.next449
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv.next449
   %138 = load i32, ptr %gep, align 4
   %139 = sitofp i32 %138 to double
   %140 = trunc nsw i64 %indvars.iv448 to i32
   %141 = add i32 %3, %140
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds double, ptr %8, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %8, i64 %142
   store double %139, ptr %143, align 8
   br label %.lr.ph347
 
 .lr.ph347:                                        ; preds = %.lr.ph347.preheader, %.lr.ph347
   %indvars.iv442 = phi i64 [ 0, %.lr.ph347.preheader ], [ %indvars.iv.next443, %.lr.ph347 ]
   %.1345 = phi double [ 0.000000e+00, %.lr.ph347.preheader ], [ %149, %.lr.ph347 ]
-  %144 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv442
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv442
   %145 = load double, ptr %144, align 8
   %146 = sub nsw i64 %142, %indvars.iv442
-  %147 = getelementptr inbounds double, ptr %8, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %8, i64 %146
   %148 = load double, ptr %147, align 8
   %149 = tail call double @llvm.fmuladd.f64(double %145, double %148, double %.1345)
   %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
@@ -354,7 +354,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br i1 %exitcond447.not, label %._crit_edge348, label %.lr.ph347, !llvm.loop !13
 
 ._crit_edge348:                                   ; preds = %.lr.ph347
-  %150 = getelementptr inbounds double, ptr %10, i64 %indvars.iv.next449
+  %150 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv.next449
   store double %149, ptr %150, align 8
   %.not282.not = icmp slt i64 %indvars.iv.next449, %137
   br i1 %.not282.not, label %.lr.ph347.preheader, label %.loopexit302.loopexit, !llvm.loop !8
@@ -364,7 +364,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   %.0237.in = phi i32 [ %.0237, %.preheader300 ], [ %19, %._crit_edge341 ]
   %.0237 = add nsw i32 %.0237.in, -24
   %indvars.iv.next454 = add nsw i64 %indvars.iv453, -1
-  %151 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.next454
+  %151 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv.next454
   %152 = load i32, ptr %151, align 4
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %.preheader300, label %.loopexit.loopexit, !llvm.loop !14
@@ -381,18 +381,18 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   %160 = sitofp i32 %159 to double
   %161 = tail call double @llvm.fmuladd.f64(double %160, double 0xC170000000000000, double %155)
   %162 = fptosi double %161 to i32
-  %163 = getelementptr inbounds i32, ptr %7, i64 %58
+  %163 = getelementptr inbounds [4 x i8], ptr %7, i64 %58
   store i32 %162, ptr %163, align 4
   %164 = add nsw i32 %.0259, 1
   %165 = add i32 %.neg, %2
   %166 = sext i32 %164 to i64
-  %167 = getelementptr inbounds i32, ptr %7, i64 %166
+  %167 = getelementptr inbounds [4 x i8], ptr %7, i64 %166
   store i32 %159, ptr %167, align 4
   br label %.loopexit
 
 168:                                              ; preds = %.critedge287
   %169 = fptosi double %155 to i32
-  %170 = getelementptr inbounds i32, ptr %7, i64 %58
+  %170 = getelementptr inbounds [4 x i8], ptr %7, i64 %58
   store i32 %169, ptr %170, align 4
   br label %.loopexit
 
@@ -414,11 +414,11 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .lr.ph356:                                        ; preds = %.lr.ph356.preheader, %.lr.ph356
   %indvars.iv456 = phi i64 [ %174, %.lr.ph356.preheader ], [ %indvars.iv.next457, %.lr.ph356 ]
   %.2354 = phi double [ %172, %.lr.ph356.preheader ], [ %180, %.lr.ph356 ]
-  %175 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv456
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv456
   %176 = load i32, ptr %175, align 4
   %177 = sitofp i32 %176 to double
   %178 = fmul double %.2354, %177
-  %179 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv456
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv456
   store double %178, ptr %179, align 8
   %180 = fmul double %.2354, 0x3E70000000000000
   %indvars.iv.next457 = add nsw i64 %indvars.iv456, -1
@@ -446,15 +446,15 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .lr.ph361.preheader:                              ; preds = %.preheader299
   %184 = add nuw i32 %invariant.smin, 1
   %wide.trip.count462 = zext i32 %184 to i64
-  %invariant.gep509 = getelementptr double, ptr %10, i64 %indvars.iv464
+  %invariant.gep509 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv464
   br label %.lr.ph361
 
 .lr.ph361:                                        ; preds = %.lr.ph361.preheader, %.lr.ph361
   %indvars.iv459 = phi i64 [ 0, %.lr.ph361.preheader ], [ %indvars.iv.next460, %.lr.ph361 ]
   %.3360 = phi double [ 0.000000e+00, %.lr.ph361.preheader ], [ %188, %.lr.ph361 ]
-  %185 = getelementptr inbounds nuw double, ptr @PIo2, i64 %indvars.iv459
+  %185 = getelementptr inbounds nuw [8 x i8], ptr @PIo2, i64 %indvars.iv459
   %186 = load double, ptr %185, align 8
-  %gep510 = getelementptr double, ptr %invariant.gep509, i64 %indvars.iv459
+  %gep510 = getelementptr [8 x i8], ptr %invariant.gep509, i64 %indvars.iv459
   %187 = load double, ptr %gep510, align 8
   %188 = tail call double @llvm.fmuladd.f64(double %186, double %187, double %.3360)
   %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, 1
@@ -464,7 +464,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .critedge:                                        ; preds = %.lr.ph361, %.preheader299
   %.3.lcssa = phi double [ 0.000000e+00, %.preheader299 ], [ %188, %.lr.ph361 ]
   %189 = sext i32 %.fr to i64
-  %190 = getelementptr inbounds double, ptr %9, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr %9, i64 %189
   store double %.3.lcssa, ptr %190, align 8
   %indvars.iv.next465 = add nsw i64 %indvars.iv464, -1
   %191 = icmp sgt i64 %indvars.iv464, 0
@@ -499,7 +499,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .lr.ph390:                                        ; preds = %.lr.ph390.preheader, %.lr.ph390
   %indvars.iv484 = phi i64 [ %195, %.lr.ph390.preheader ], [ %indvars.iv.next485, %.lr.ph390 ]
   %.4389 = phi double [ 0.000000e+00, %.lr.ph390.preheader ], [ %198, %.lr.ph390 ]
-  %196 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv484
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv484
   %197 = load double, ptr %196, align 8
   %198 = fadd double %.4389, %197
   %indvars.iv.next485 = add nsw i64 %indvars.iv484, -1
@@ -524,7 +524,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .lr.ph378:                                        ; preds = %.lr.ph378.preheader, %.lr.ph378
   %indvars.iv476 = phi i64 [ %203, %.lr.ph378.preheader ], [ %indvars.iv.next477, %.lr.ph378 ]
   %.5376 = phi double [ 0.000000e+00, %.lr.ph378.preheader ], [ %206, %.lr.ph378 ]
-  %204 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv476
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv476
   %205 = load double, ptr %204, align 8
   %206 = fadd double %.5376, %205
   %indvars.iv.next477 = add nsw i64 %indvars.iv476, -1
@@ -550,7 +550,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .lr.ph385:                                        ; preds = %.lr.ph385.preheader, %.lr.ph385
   %indvars.iv479 = phi i64 [ 1, %.lr.ph385.preheader ], [ %indvars.iv.next480, %.lr.ph385 ]
   %.6383 = phi double [ %211, %.lr.ph385.preheader ], [ %215, %.lr.ph385 ]
-  %213 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv479
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv479
   %214 = load double, ptr %213, align 8
   %215 = fadd double %.6383, %214
   %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
@@ -579,7 +579,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .lr.ph367:                                        ; preds = %.lr.ph367.preheader, %.lr.ph367
   %store_forwarded539 = phi double [ %load_initial538, %.lr.ph367.preheader ], [ %224, %.lr.ph367 ]
   %indvars.iv467 = phi i64 [ %193, %.lr.ph367.preheader ], [ %indvars.iv.next468, %.lr.ph367 ]
-  %221 = getelementptr double, ptr %9, i64 %indvars.iv467
+  %221 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv467
   %222 = getelementptr i8, ptr %221, i64 -8
   %223 = load double, ptr %222, align 8
   %224 = fadd double %223, %store_forwarded539
@@ -598,7 +598,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .lr.ph369:                                        ; preds = %.lr.ph369.preheader, %.lr.ph369
   %store_forwarded = phi double [ %load_initial, %.lr.ph369.preheader ], [ %232, %.lr.ph369 ]
   %indvars.iv470 = phi i64 [ %219, %.lr.ph369.preheader ], [ %indvars.iv.next471, %.lr.ph369 ]
-  %229 = getelementptr double, ptr %9, i64 %indvars.iv470
+  %229 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv470
   %230 = getelementptr i8, ptr %229, i64 -8
   %231 = load double, ptr %230, align 8
   %232 = fadd double %231, %store_forwarded
@@ -613,7 +613,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .lr.ph372:                                        ; preds = %.lr.ph372.preheader, %.lr.ph372
   %indvars.iv473 = phi i64 [ %228, %.lr.ph372.preheader ], [ %indvars.iv.next474, %.lr.ph372 ]
   %.7371 = phi double [ 0.000000e+00, %.lr.ph372.preheader ], [ %238, %.lr.ph372 ]
-  %236 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv473
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv473
   %237 = load double, ptr %236, align 8
   %238 = fadd double %.7371, %237
   %indvars.iv.next474 = add nsw i64 %indvars.iv473, -1

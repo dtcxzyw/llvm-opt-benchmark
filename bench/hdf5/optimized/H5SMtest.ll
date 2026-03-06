@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5SM_table_cache_ud_t = type { ptr }
-%struct.H5SM_index_header_t = type { i32, i64, i64, i64, i64, i32, i64, i64, i64 }
 
 @H5SM_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -77,7 +76,7 @@ define range(i32 -1, 1) i32 @H5SM__get_mesg_count_test(ptr noundef %0, i32 nound
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 264
   %35 = load ptr, ptr %34, align 8, !tbaa !16
-  %36 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %35, i64 %27
+  %36 = getelementptr inbounds nuw [72 x i8], ptr %35, i64 %27
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load i64, ptr %37, align 8, !tbaa !26
   store i64 %38, ptr %2, align 8, !tbaa !3

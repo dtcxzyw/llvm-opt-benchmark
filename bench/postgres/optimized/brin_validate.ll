@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/brin_validate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [42 x i8] c"cache lookup failed for operator class %u\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"brin_validate.c\00", align 1
 @__func__.brinvalidate = private unnamed_addr constant [13 x i8] c"brinvalidate\00", align 1
@@ -73,7 +71,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
   %.0130 = phi i1 [ true, %.lr.ph ], [ %.1, %87 ]
   %.097129 = phi i64 [ 0, %.lr.ph ], [ %.198, %87 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 80
   %.val126 = load ptr, ptr %33, align 8
@@ -178,7 +176,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %indvars.iv154 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next155, %151 ]
   %.3134 = phi i1 [ %.0.lcssa, %.lr.ph135 ], [ %.6, %151 ]
   %.099133 = phi i64 [ 0, %.lr.ph135 ], [ %.1100, %151 ]
-  %92 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv154
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv154
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr i8, ptr %93, i64 80
   %.val127 = load ptr, ptr %94, align 8
@@ -298,7 +296,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.7140178 = phi i1 [ %.8, %201 ], [ %.3.lcssa, %.lr.ph142 ]
   %indvars.iv156177 = phi i64 [ %indvars.iv.next157, %201 ], [ 0, %.lr.ph142 ]
   %160 = load ptr, ptr %157, align 8
-  %161 = getelementptr inbounds nuw %union.ListCell, ptr %160, i64 %indvars.iv156177
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv156177
   %162 = load ptr, ptr %161, align 8
   %163 = load i32, ptr %162, align 8
   %164 = icmp eq i32 %163, %16

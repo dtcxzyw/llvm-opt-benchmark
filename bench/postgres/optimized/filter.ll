@@ -135,7 +135,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 define dso_local noundef nonnull ptr @filter_object_type_name(i32 noundef %0) local_unnamed_addr #4 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.filter_object_type_name, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.filter_object_type_name, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -205,7 +205,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %.065 = phi ptr [ %10, %9 ], [ %22, %16 ]
   %17 = load i8, ptr %.065, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 8192
   %.not36 = icmp eq i16 %21, 0
@@ -222,7 +222,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %.015.i = phi ptr [ %30, %.preheader ], [ %.065, %23 ]
   %24 = load i8, ptr %.015.i, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %15, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
   %29 = and i32 %28, 8192
@@ -240,7 +240,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %.2.i = getelementptr inbounds nuw i8, ptr %.015.pn.i, i64 1
   %33 = load i8, ptr %.2.i, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %15, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 1024
   %.not17.i = icmp ne i16 %37, 0
@@ -298,7 +298,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %.015.i41 = phi ptr [ %.1.i7280, %57 ], [ %66, %59 ]
   %60 = load i8, ptr %.015.i41, align 1
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %58, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %61
   %63 = load i16, ptr %62, align 2
   %64 = zext i16 %63 to i32
   %65 = and i32 %64, 8192
@@ -316,7 +316,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %.2.i46 = getelementptr inbounds nuw i8, ptr %.015.pn.i45, i64 1
   %69 = load i8, ptr %.2.i46, align 1
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %58, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %70
   %72 = load i16, ptr %71, align 2
   %73 = and i16 %72, 1024
   %.not17.i47 = icmp ne i16 %73, 0
@@ -360,7 +360,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %.035.i = phi ptr [ %.1.i499298, %87 ], [ %95, %89 ]
   %90 = load i8, ptr %.035.i, align 1
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw i16, ptr %88, i64 %91
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %91
   %93 = load i16, ptr %92, align 2
   %94 = and i16 %93, 8192
   %.not42.i = icmp eq i16 %94, 0
@@ -404,7 +404,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %106 = phi i8 [ %.pr.i, %117 ], [ %105, %104 ]
   %107 = zext i8 %106 to i64
   %108 = load ptr, ptr %14, align 8
-  %109 = getelementptr inbounds nuw i16, ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %108, i64 %107
   %110 = load i16, ptr %109, align 2
   %111 = and i16 %110, 8192
   %.not46.i = icmp eq i16 %111, 0
@@ -584,7 +584,7 @@ read_quoted_string.exit.i:                        ; preds = %117, %read_quoted_s
   %.1.i54 = phi i1 [ false, %read_quoted_string.exit.i ], [ true, %167 ]
   %168 = load i8, ptr %.4.i, align 1
   %169 = zext i8 %168 to i64
-  %170 = getelementptr inbounds nuw i16, ptr %166, i64 %169
+  %170 = getelementptr inbounds nuw [2 x i8], ptr %166, i64 %169
   %171 = load i16, ptr %170, align 2
   %172 = and i16 %171, 8192
   %.not54.i = icmp eq i16 %172, 0

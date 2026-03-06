@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/yuv4mpegdec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { [9 x i8], i32, i32 }
-%struct.anon.0 = type { [9 x i8], i32 }
-
 @.str = private unnamed_addr constant [13 x i8] c"yuv4mpegpipe\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"YUV4MPEG pipe\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"y4m\00", align 1
@@ -141,7 +138,7 @@ define internal range(i32 -2147483642, 1) i32 @yuv4_read_header(ptr noundef %0) 
 
 .preheader148:                                    ; preds = %31, %51
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %51 ], [ 0, %31 ]
-  %41 = getelementptr inbounds nuw %struct.anon, ptr @yuv4_read_header.pix_fmt_array, i64 %indvars.iv243
+  %41 = getelementptr inbounds nuw [20 x i8], ptr @yuv4_read_header.pix_fmt_array, i64 %indvars.iv243
   %42 = call i32 @av_strstart(ptr noundef nonnull %32, ptr noundef nonnull %41, ptr noundef null) #10
   %.not145 = icmp eq i32 %42, 0
   br i1 %.not145, label %51, label %43
@@ -264,7 +261,7 @@ define internal range(i32 -2147483642, 1) i32 @yuv4_read_header(ptr noundef %0) 
 
 86:                                               ; preds = %82, %84
   %.0113185 = phi i64 [ 0, %82 ], [ %85, %84 ]
-  %87 = getelementptr inbounds nuw %struct.anon.0, ptr @yuv4_read_header.pix_fmt_array.11, i64 %.0113185
+  %87 = getelementptr inbounds nuw [16 x i8], ptr @yuv4_read_header.pix_fmt_array.11, i64 %.0113185
   %88 = call i32 @av_strstart(ptr noundef nonnull %83, ptr noundef nonnull %87, ptr noundef null) #10
   %.not141 = icmp eq i32 %88, 0
   br i1 %.not141, label %84, label %89

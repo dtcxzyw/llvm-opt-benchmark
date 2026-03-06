@@ -21307,7 +21307,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !798
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !645
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !646
   ret void
 }
@@ -23324,7 +23324,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit74: ; 
   %.1116 = phi i64 [ %130, %131 ], [ %130, %_ZN5arrowL11SliceBufferERKSt10shared_ptrINS_6BufferEEl.exit ], [ %130, %149 ], [ %130, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i67 ], [ %130, %164 ], [ 0, %4 ], [ %130, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit74 ]
   %.135115 = phi i64 [ %129, %131 ], [ %129, %_ZN5arrowL11SliceBufferERKSt10shared_ptrINS_6BufferEEl.exit ], [ %129, %149 ], [ %129, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i67 ], [ %129, %164 ], [ 0, %4 ], [ %129, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit74 ]
   %169 = load ptr, ptr %8, align 8, !tbaa !862
-  %170 = getelementptr inbounds %"class.std::shared_ptr", ptr %169, i64 %.135115
+  %170 = getelementptr inbounds [16 x i8], ptr %169, i64 %.135115
   %171 = invoke ptr @_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS3_S5_EES9_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %169, ptr %170)
           to label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit unwind label %187
 

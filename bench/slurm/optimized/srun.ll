@@ -560,7 +560,7 @@ thread-pre-split31:                               ; preds = %thread-pre-split31.
 209:                                              ; preds = %209, %.lr.ph.i26
   %indvars.iv.i = phi i64 [ %208, %.lr.ph.i26 ], [ %indvars.iv.next.i, %209 ]
   %210 = load ptr, ptr %11, align 8
-  %211 = getelementptr inbounds i32, ptr %210, i64 %indvars.iv.i
+  %211 = getelementptr inbounds [4 x i8], ptr %210, i64 %indvars.iv.i
   store i32 %.pre.i, ptr %211, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %201
@@ -579,7 +579,7 @@ thread-pre-split31:                               ; preds = %thread-pre-split31.
 215:                                              ; preds = %._crit_edge.i25
   %216 = load ptr, ptr %9, align 8
   %217 = sext i32 %.0164260.i to i64
-  %218 = getelementptr inbounds i16, ptr %216, i64 %217
+  %218 = getelementptr inbounds [2 x i8], ptr %216, i64 %217
   %219 = load i32, ptr %187, align 4
   %220 = zext i32 %219 to i64
   %221 = shl nuw nsw i64 %220, 1
@@ -613,7 +613,7 @@ thread-pre-split31:                               ; preds = %thread-pre-split31.
 
 236:                                              ; preds = %._crit_edge255.i, %.lr.ph257.i
   %indvars.iv317.i = phi i64 [ 0, %.lr.ph257.i ], [ %indvars.iv.next318.i, %._crit_edge255.i ]
-  %237 = getelementptr inbounds nuw i16, ptr %200, i64 %indvars.iv317.i
+  %237 = getelementptr inbounds nuw [2 x i8], ptr %200, i64 %indvars.iv317.i
   %238 = load i16, ptr %237, align 2
   %239 = zext i16 %238 to i64
   %240 = shl nuw nsw i64 %239, 2
@@ -623,17 +623,17 @@ thread-pre-split31:                               ; preds = %thread-pre-split31.
   br i1 %.not277.i, label %._crit_edge255.i, label %.lr.ph254.i
 
 .lr.ph254.i:                                      ; preds = %236
-  %243 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv317.i
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %indvars.iv317.i
   br label %244
 
 244:                                              ; preds = %244, %.lr.ph254.i
   %indvars.iv314.i = phi i64 [ 0, %.lr.ph254.i ], [ %indvars.iv.next315.i, %244 ]
   %245 = load ptr, ptr %243, align 8
-  %246 = getelementptr inbounds nuw i32, ptr %245, i64 %indvars.iv314.i
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %245, i64 %indvars.iv314.i
   %247 = load i32, ptr %246, align 4
   %248 = load i32, ptr %232, align 4
   %249 = add i32 %248, %247
-  %250 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv314.i
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %indvars.iv314.i
   store i32 %249, ptr %250, align 4
   %indvars.iv.next315.i = add nuw nsw i64 %indvars.iv314.i, 1
   %251 = load i16, ptr %237, align 2
@@ -643,8 +643,8 @@ thread-pre-split31:                               ; preds = %thread-pre-split31.
 
 ._crit_edge255.i:                                 ; preds = %244, %236
   %254 = load ptr, ptr %10, align 8
-  %255 = getelementptr ptr, ptr %254, i64 %indvars.iv317.i
-  %256 = getelementptr ptr, ptr %255, i64 %217
+  %255 = getelementptr [8 x i8], ptr %254, i64 %indvars.iv317.i
+  %256 = getelementptr [8 x i8], ptr %255, i64 %217
   store ptr %241, ptr %256, align 8
   %indvars.iv.next318.i = add nuw nsw i64 %indvars.iv317.i, 1
   %257 = load i32, ptr %187, align 4
@@ -766,14 +766,14 @@ thread-pre-split31:                               ; preds = %thread-pre-split31.
 304:                                              ; preds = %298
   %305 = load ptr, ptr %9, align 8
   %306 = sext i32 %299 to i64
-  %307 = getelementptr inbounds i16, ptr %305, i64 %306
+  %307 = getelementptr inbounds [2 x i8], ptr %305, i64 %306
   %308 = load i16, ptr %307, align 2
-  %309 = getelementptr inbounds nuw i16, ptr %289, i64 %indvars.iv.i.i
+  %309 = getelementptr inbounds nuw [2 x i8], ptr %289, i64 %indvars.iv.i.i
   store i16 %308, ptr %309, align 2
   %310 = load ptr, ptr %10, align 8
-  %311 = getelementptr inbounds ptr, ptr %310, i64 %306
+  %311 = getelementptr inbounds [8 x i8], ptr %310, i64 %306
   %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds nuw ptr, ptr %291, i64 %indvars.iv.i.i
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %indvars.iv.i.i
   store ptr %312, ptr %313, align 8
   call void @free(ptr noundef nonnull %294) #14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1171,7 +1171,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %277
 .lr.ph275.i:                                      ; preds = %.preheader.i, %.lr.ph275.i
   %indvars.iv320.i = phi i64 [ %indvars.iv.next321.i, %.lr.ph275.i ], [ 0, %.preheader.i ]
   %494 = load ptr, ptr %490, align 8
-  %495 = getelementptr inbounds nuw i32, ptr %494, i64 %indvars.iv320.i
+  %495 = getelementptr inbounds nuw [4 x i8], ptr %494, i64 %indvars.iv320.i
   store i32 %492, ptr %495, align 4
   %indvars.iv.next321.i = add nuw nsw i64 %indvars.iv320.i, 1
   %496 = load i32, ptr %439, align 8
@@ -1973,12 +1973,12 @@ _file_bcast.exit:                                 ; preds = %83
   %.02129.i = phi i32 [ 0, %.lr.ph.i ], [ %.122.i, %240 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %225 = icmp samesign ult i64 %indvars.iv.next.i, %222
-  %226 = getelementptr inbounds nuw i16, ptr %217, i64 %indvars.iv.i
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %217, i64 %indvars.iv.i
   %227 = load i16, ptr %226, align 2
   br i1 %225, label %228, label %._crit_edge
 
 228:                                              ; preds = %224
-  %229 = getelementptr inbounds nuw i16, ptr %217, i64 %indvars.iv.next.i
+  %229 = getelementptr inbounds nuw [2 x i8], ptr %217, i64 %indvars.iv.next.i
   %230 = load i16, ptr %229, align 2
   %231 = icmp eq i16 %227, %230
   br i1 %231, label %232, label %._crit_edge
@@ -2086,7 +2086,7 @@ _uint16_array_to_str.exit:                        ; preds = %207, %._crit_edge.l
   %284 = tail call ptr @__ctype_b_loc() #18
   %285 = load ptr, ptr %284, align 8
   %286 = sext i8 %282 to i64
-  %287 = getelementptr inbounds i16, ptr %285, i64 %286
+  %287 = getelementptr inbounds [2 x i8], ptr %285, i64 %286
   %288 = load i16, ptr %287, align 2
   %289 = and i16 %288, 2048
   %.not110 = icmp eq i16 %289, 0

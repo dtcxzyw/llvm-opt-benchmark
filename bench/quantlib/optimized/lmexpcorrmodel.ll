@@ -1024,9 +1024,9 @@ for.cond3.preheader.lr.ph:                        ; preds = %_ZNK8QuantLib9Param
 for.cond3.preheader:                              ; preds = %for.cond3.preheader.lr.ph, %for.cond.cleanup6
   %i.017 = phi i64 [ 0, %for.cond3.preheader.lr.ph ], [ %inc15, %for.cond.cleanup6 ]
   %conv = uitofp i64 %i.017 to double
-  %invariant.gep = getelementptr double, ptr %5, i64 %i.017
+  %invariant.gep = getelementptr [8 x i8], ptr %5, i64 %i.017
   %mul.i.i13 = mul i64 %6, %i.017
-  %add.ptr.i.i14 = getelementptr inbounds nuw double, ptr %5, i64 %mul.i.i13
+  %add.ptr.i.i14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %mul.i.i13
   br label %for.body7
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup6, %_ZNK8QuantLib9ParameterclEd.exit
@@ -1074,9 +1074,9 @@ for.body7:                                        ; preds = %for.cond3.preheader
   %mul = fmul double %13, %fneg
   %call9 = tail call double @exp(double noundef %mul) #19, !tbaa !52
   %mul.i.i = mul i64 %6, %j.015
-  %gep = getelementptr double, ptr %invariant.gep, i64 %mul.i.i
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %mul.i.i
   store double %call9, ptr %gep, align 8, !tbaa !38
-  %arrayidx13 = getelementptr inbounds nuw double, ptr %add.ptr.i.i14, i64 %j.015
+  %arrayidx13 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i14, i64 %j.015
   store double %call9, ptr %arrayidx13, align 8, !tbaa !38
   %inc = add nuw i64 %j.015, 1
   %exitcond.not = icmp eq i64 %inc, %4
@@ -1168,8 +1168,8 @@ entry:
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load i64, ptr %columns_.i.i, align 8, !tbaa !18
   %mul.i.i = mul i64 %3, %i
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %2, i64 %mul.i.i
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %j
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %mul.i.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %j
   %4 = load double, ptr %arrayidx, align 8, !tbaa !38
   ret double %4
 }

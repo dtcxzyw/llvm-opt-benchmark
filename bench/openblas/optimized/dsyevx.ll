@@ -51,12 +51,12 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %35 = load i32, ptr %5, align 4, !tbaa !3
   %narrow = xor i32 %35, -1
   %36 = sext i32 %narrow to i64
-  %37 = getelementptr inbounds double, ptr %4, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %4, i64 %36
   %38 = getelementptr inbounds i8, ptr %12, i64 -8
   %39 = load i32, ptr %14, align 4, !tbaa !3
   %narrow402 = xor i32 %39, -1
   %40 = sext i32 %narrow402 to i64
-  %41 = getelementptr inbounds double, ptr %13, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %13, i64 %40
   %42 = getelementptr inbounds i8, ptr %15, i64 -8
   %43 = getelementptr inbounds i8, ptr %17, i64 -4
   %44 = getelementptr inbounds i8, ptr %18, i64 -4
@@ -301,7 +301,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %149, ptr %22, align 4, !tbaa !3
   %150 = mul i32 %storemerge391436, %146
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds double, ptr %37, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %37, i64 %151
   call void @dscal_(ptr noundef nonnull %22, ptr noundef nonnull %26, ptr noundef %152, ptr noundef nonnull @c__1) #6
   %153 = load i32, ptr %25, align 4, !tbaa !3
   %154 = add nsw i32 %153, 1
@@ -317,7 +317,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %storemerge389438 = phi i32 [ %162, %.lr.ph439 ], [ 1, %156 ]
   %157 = mul nsw i32 %storemerge389438, %35
   %158 = sext i32 %157 to i64
-  %159 = getelementptr double, ptr %37, i64 %158
+  %159 = getelementptr [8 x i8], ptr %37, i64 %158
   %160 = getelementptr i8, ptr %159, i64 8
   call void @dscal_(ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef %160, ptr noundef nonnull @c__1) #6
   %161 = load i32, ptr %25, align 4, !tbaa !3
@@ -362,11 +362,11 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %184 = sub i32 %183, %181
   store i32 %184, ptr %31, align 4, !tbaa !3
   %185 = sext i32 %180 to i64
-  %186 = getelementptr inbounds double, ptr %42, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %42, i64 %185
   %187 = sext i32 %179 to i64
-  %188 = getelementptr inbounds double, ptr %42, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %42, i64 %187
   %189 = sext i32 %181 to i64
-  %190 = getelementptr inbounds double, ptr %42, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr %42, i64 %189
   call void @dsytrd_(ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %186, ptr noundef nonnull %188, ptr noundef nonnull %15, ptr noundef nonnull %190, ptr noundef nonnull %31, ptr noundef nonnull %27) #6
   %.not393 = icmp eq i32 %49, 0
   br i1 %.not393, label %199, label %191
@@ -402,7 +402,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %208 = add nsw i32 %204, -1
   store i32 %208, ptr %21, align 4, !tbaa !3
   %209 = sext i32 %206 to i64
-  %210 = getelementptr inbounds double, ptr %42, i64 %209
+  %210 = getelementptr inbounds [8 x i8], ptr %42, i64 %209
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef nonnull %188, ptr noundef nonnull @c__1, ptr noundef nonnull %210, ptr noundef nonnull @c__1) #6
   call void @dsterf_(ptr noundef nonnull %3, ptr noundef %12, ptr noundef nonnull %210, ptr noundef nonnull %19) #6
   br label %.loopexit432
@@ -414,7 +414,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %213 = add nsw i32 %212, -1
   store i32 %213, ptr %21, align 4, !tbaa !3
   %214 = sext i32 %206 to i64
-  %215 = getelementptr inbounds double, ptr %42, i64 %214
+  %215 = getelementptr inbounds [8 x i8], ptr %42, i64 %214
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef nonnull %188, ptr noundef nonnull @c__1, ptr noundef nonnull %215, ptr noundef nonnull @c__1) #6
   call void @dsteqr_(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %12, ptr noundef nonnull %215, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %190, ptr noundef nonnull %19) #6
   %216 = load i32, ptr %19, align 4, !tbaa !3
@@ -454,9 +454,9 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %227 = add nsw i32 %226, 1
   %228 = add nsw i32 %227, %226
   %229 = sext i32 %227 to i64
-  %230 = getelementptr inbounds i32, ptr %43, i64 %229
+  %230 = getelementptr inbounds [4 x i8], ptr %43, i64 %229
   %231 = sext i32 %228 to i64
-  %232 = getelementptr inbounds i32, ptr %43, i64 %231
+  %232 = getelementptr inbounds [4 x i8], ptr %43, i64 %231
   call void @dstebz_(ptr noundef %1, ptr noundef nonnull %28, ptr noundef nonnull %3, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %29, ptr noundef nonnull %186, ptr noundef nonnull %188, ptr noundef nonnull %11, ptr noundef nonnull %32, ptr noundef %12, ptr noundef %17, ptr noundef nonnull %230, ptr noundef nonnull %190, ptr noundef nonnull %232, ptr noundef nonnull %19) #6
   br i1 %.not, label %233, label %236
 
@@ -507,7 +507,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph452:                                        ; preds = %248, %._crit_edge.thread
   %storemerge397450 = phi i32 [ %282, %._crit_edge.thread ], [ 1, %248 ]
   %251 = sext i32 %storemerge397450 to i64
-  %252 = getelementptr inbounds double, ptr %38, i64 %251
+  %252 = getelementptr inbounds [8 x i8], ptr %38, i64 %251
   %253 = load double, ptr %252, align 8, !tbaa !7
   %254 = load i32, ptr %11, align 4, !tbaa !3
   store i32 %254, ptr %22, align 4, !tbaa !3
@@ -523,7 +523,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.0446 = phi double [ %253, %.lr.ph447.preheader ], [ %.1, %.lr.ph447 ]
   %.1357445 = phi i32 [ 0, %.lr.ph447.preheader ], [ %.2, %.lr.ph447 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %255 = getelementptr double, ptr %12, i64 %indvars.iv
+  %255 = getelementptr [8 x i8], ptr %12, i64 %indvars.iv
   %256 = load double, ptr %255, align 8, !tbaa !7
   %257 = fcmp olt double %256, %.0446
   %258 = trunc nsw i64 %indvars.iv.next to i32
@@ -538,22 +538,22 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 259:                                              ; preds = %._crit_edge
   %260 = sext i32 %.2 to i64
-  %261 = getelementptr inbounds i32, ptr %43, i64 %260
+  %261 = getelementptr inbounds [4 x i8], ptr %43, i64 %260
   %262 = load i32, ptr %261, align 4, !tbaa !3
-  %263 = getelementptr inbounds double, ptr %38, i64 %260
+  %263 = getelementptr inbounds [8 x i8], ptr %38, i64 %260
   store double %253, ptr %263, align 8, !tbaa !7
-  %264 = getelementptr inbounds i32, ptr %43, i64 %251
+  %264 = getelementptr inbounds [4 x i8], ptr %43, i64 %251
   %265 = load i32, ptr %264, align 4, !tbaa !3
   store i32 %265, ptr %261, align 4, !tbaa !3
   store double %.1, ptr %252, align 8, !tbaa !7
   store i32 %262, ptr %264, align 4, !tbaa !3
   %266 = mul nsw i32 %.2, %39
   %267 = sext i32 %266 to i64
-  %268 = getelementptr double, ptr %41, i64 %267
+  %268 = getelementptr [8 x i8], ptr %41, i64 %267
   %269 = getelementptr i8, ptr %268, i64 8
   %270 = mul nsw i32 %storemerge397450, %39
   %271 = sext i32 %270 to i64
-  %272 = getelementptr double, ptr %41, i64 %271
+  %272 = getelementptr [8 x i8], ptr %41, i64 %271
   %273 = getelementptr i8, ptr %272, i64 8
   call void @dswap_(ptr noundef nonnull %3, ptr noundef %269, ptr noundef nonnull @c__1, ptr noundef %273, ptr noundef nonnull @c__1) #6
   %274 = load i32, ptr %19, align 4, !tbaa !3
@@ -562,10 +562,10 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not401, label %._crit_edge.thread, label %275
 
 275:                                              ; preds = %259
-  %276 = getelementptr inbounds i32, ptr %44, i64 %260
+  %276 = getelementptr inbounds [4 x i8], ptr %44, i64 %260
   %277 = load i32, ptr %276, align 4, !tbaa !3
   %278 = sext i32 %.pre to i64
-  %279 = getelementptr inbounds i32, ptr %44, i64 %278
+  %279 = getelementptr inbounds [4 x i8], ptr %44, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !3
   store i32 %280, ptr %276, align 4, !tbaa !3
   store i32 %277, ptr %279, align 4, !tbaa !3

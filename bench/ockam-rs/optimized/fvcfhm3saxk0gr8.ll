@@ -3204,7 +3204,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
 
 383:                                              ; preds = %379
   %.val9.i.i.i = load ptr, ptr %368, align 8, !noalias !403, !nonnull !4, !noundef !4
-  %384 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }, ptr %.val9.i.i.i, i64 %373
+  %384 = getelementptr inbounds [64 x i8], ptr %.val9.i.i.i, i64 %373
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h0d99f6dac0b2c397E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %16, ptr noundef nonnull align 8 %384)
           to label %385 unwind label %.thread.loopexit.i.i.i, !noalias !403
 
@@ -3252,7 +3252,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
 401:                                              ; preds = %._crit_edge.i.i.i.i, %387
   %402 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %392, %387 ]
   %403 = load ptr, ptr %390, align 8, !alias.scope !407, !noalias !410, !nonnull !4, !noundef !4
-  %404 = getelementptr inbounds ptr, ptr %403, i64 %402
+  %404 = getelementptr inbounds [8 x i8], ptr %403, i64 %402
   store ptr %358, ptr %404, align 8, !noalias !410
   %405 = load i64, ptr %391, align 8, !alias.scope !407, !noalias !412, !noundef !4
   %406 = add i64 %405, 1
@@ -3762,12 +3762,12 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit338
   %545 = load i64, ptr %189, align 8, !noundef !4
   %546 = call i64 @llvm.usub.sat.i64(i64 %545, i64 10)
   %.val309 = load ptr, ptr %49, align 8, !nonnull !4, !noundef !4
-  %547 = getelementptr inbounds { ptr, i64 }, ptr %.val309, i64 %545
+  %547 = getelementptr inbounds [16 x i8], ptr %.val309, i64 %545
   %548 = icmp eq i64 %546, %545
   br i1 %548, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he02d6ee0cc99d095E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he02d6ee0cc99d095E.exit.preheader"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he02d6ee0cc99d095E.exit.preheader": ; preds = %544
-  %549 = getelementptr inbounds { ptr, i64 }, ptr %.val309, i64 %546
+  %549 = getelementptr inbounds [16 x i8], ptr %.val309, i64 %546
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he02d6ee0cc99d095E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he02d6ee0cc99d095E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he02d6ee0cc99d095E.exit.preheader", %723
@@ -4064,7 +4064,7 @@ _ZN5regex5regex6string5Match6as_str17h87b09744c741cb3eE.exit.i: ; preds = %"_ZN4
 634:                                              ; preds = %._crit_edge.i, %621
   %635 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %622, %621 ]
   %636 = load ptr, ptr %33, align 8, !alias.scope !520, !noalias !523, !nonnull !4, !noundef !4
-  %637 = getelementptr inbounds { ptr, [2 x i64] }, ptr %636, i64 %635
+  %637 = getelementptr inbounds [24 x i8], ptr %636, i64 %635
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %637, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
   %638 = load i64, ptr %562, align 8, !alias.scope !520, !noalias !523, !noundef !4
   %639 = add i64 %638, 1

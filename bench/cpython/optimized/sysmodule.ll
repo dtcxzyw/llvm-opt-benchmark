@@ -925,7 +925,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PyStructSequence_Field = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
-%union._Py_CODEUNIT = type { i16 }
 %struct.PyCompilerFlags = type { i32, i32 }
 
 @.str = private unnamed_addr constant [39 x i8] c"Exception ignored in PySys_GetObject()\00", align 1
@@ -5789,7 +5788,7 @@ define dso_local void @PySys_SetPath(ptr noundef %0) local_unnamed_addr #0 {
 
 14:                                               ; preds = %11
   %15 = tail call i64 @wcslen(ptr noundef %.024.i) #17
-  %16 = getelementptr i32, ptr %.024.i, i64 %15
+  %16 = getelementptr [4 x i8], ptr %.024.i, i64 %15
   br label %17
 
 17:                                               ; preds = %14, %11
@@ -5820,7 +5819,7 @@ define dso_local void @PySys_SetPath(ptr noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %17
   %31 = sext i32 %.027.i to i64
   %.val.i = load ptr, ptr %10, align 8, !tbaa !259
-  %32 = getelementptr ptr, ptr %.val.i, i64 %31
+  %32 = getelementptr [8 x i8], ptr %.val.i, i64 %31
   store ptr %22, ptr %32, align 8, !tbaa !93
   %33 = load i32, ptr %.1.i, align 4, !tbaa !211
   %34 = icmp eq i32 %33, 0
@@ -5897,7 +5896,7 @@ define dso_local void @PySys_SetArgvEx(i32 noundef %0, ptr noundef %1, i32 nound
 
 16:                                               ; preds = %26, %.preheader.i
   %.01622.i = phi i64 [ 0, %.preheader.i ], [ %28, %26 ]
-  %17 = getelementptr ptr, ptr %spec.select, i64 %.01622.i
+  %17 = getelementptr [8 x i8], ptr %spec.select, i64 %.01622.i
   %18 = load ptr, ptr %17, align 8, !tbaa !261
   %19 = tail call ptr @PyUnicode_FromWideChar(ptr noundef %18, i64 noundef -1) #15
   %.not.i33 = icmp eq ptr %19, null
@@ -5920,7 +5919,7 @@ define dso_local void @PySys_SetArgvEx(i32 noundef %0, ptr noundef %1, i32 nound
 
 26:                                               ; preds = %16
   %.val.i = load ptr, ptr %15, align 8, !tbaa !259
-  %27 = getelementptr ptr, ptr %.val.i, i64 %.01622.i
+  %27 = getelementptr [8 x i8], ptr %.val.i, i64 %.01622.i
   store ptr %19, ptr %27, align 8, !tbaa !93
   %28 = add nuw nsw i64 %.01622.i, 1
   %exitcond.not.i = icmp eq i64 %28, %12
@@ -7531,7 +7530,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 192
   %36 = load i32, ptr %35, align 8, !tbaa !278
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %union._Py_CODEUNIT, ptr %34, i64 %37
+  %38 = getelementptr [2 x i8], ptr %34, i64 %37
   %39 = icmp ult ptr %32, %38
   br i1 %39, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyFrame_GetFirstComplete.exit.i
 
@@ -7684,7 +7683,7 @@ _PyFrame_IsIncomplete.exit.i:                     ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 192
   %38 = load i32, ptr %37, align 8, !tbaa !278
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %union._Py_CODEUNIT, ptr %36, i64 %39
+  %40 = getelementptr [2 x i8], ptr %36, i64 %39
   %41 = icmp ult ptr %34, %40
   br i1 %41, label %.critedge2.i, label %_PyFrame_IsIncomplete.exit.thread2.i
 
@@ -8780,7 +8779,7 @@ define internal range(i32 -1, 1) i32 @profile_trampoline(ptr noundef %0, ptr nou
   store ptr %1, ptr %5, align 16, !tbaa !93
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr ptr, ptr @whatstrings, i64 %10
+  %11 = getelementptr [8 x i8], ptr @whatstrings, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !93
   store ptr %12, ptr %9, align 8, !tbaa !93
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8871,7 +8870,7 @@ define internal range(i32 -1, 1) i32 @trace_trampoline(ptr noundef %0, ptr nound
   store ptr %1, ptr %5, align 16, !tbaa !93
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = sext i32 %2 to i64
-  %18 = getelementptr ptr, ptr @whatstrings, i64 %17
+  %18 = getelementptr [8 x i8], ptr @whatstrings, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !93
   store ptr %19, ptr %16, align 8, !tbaa !93
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -9306,7 +9305,7 @@ define internal fastcc ptr @list_stdlib_module_names() unnamed_addr #0 {
 
 4:                                                ; preds = %.preheader, %13
   %.01925 = phi i64 [ 0, %.preheader ], [ %15, %13 ]
-  %5 = getelementptr ptr, ptr @_Py_stdlib_module_names, i64 %.01925
+  %5 = getelementptr [8 x i8], ptr @_Py_stdlib_module_names, i64 %.01925
   %6 = load ptr, ptr %5, align 8, !tbaa !213
   %7 = tail call ptr @PyUnicode_FromString(ptr noundef %6) #15
   %.not = icmp eq ptr %7, null
@@ -9324,7 +9323,7 @@ define internal fastcc ptr @list_stdlib_module_names() unnamed_addr #0 {
   br i1 %12, label %Py_DECREF.exit.sink.split, label %Py_DECREF.exit
 
 13:                                               ; preds = %4
-  %14 = getelementptr ptr, ptr %3, i64 %.01925
+  %14 = getelementptr [8 x i8], ptr %3, i64 %.01925
   store ptr %7, ptr %14, align 8, !tbaa !93
   %15 = add nuw nsw i64 %.01925, 1
   %exitcond = icmp eq i64 %15, 291

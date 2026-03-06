@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.libraw_static_table_t = type <{ ptr, i32, [4 x i8] }>
-%struct.tiff_ifd_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, float, i64, i64, i32, [2 x %struct.libraw_dng_color_t], %struct.libraw_dng_levels_t, i32 }
-%struct.libraw_dng_color_t = type { i32, i16, [4 x [4 x float]], [4 x [3 x float]], [3 x [4 x float]] }
-%struct.libraw_dng_levels_t = type { i32, [4104 x i32], i32, [4104 x float], float, [4 x i32], [4 x i16], [4 x float], i32, [4 x float], [4 x float], float, float }
 
 $_ZTI17LibRaw_exceptions = comdat any
 
@@ -177,7 +174,7 @@ define void @_ZN6LibRaw8initdataEv(ptr noundef nonnull writeonly align 8 derefer
 
 20:                                               ; preds = %1, %25
   %indvars.iv19 = phi i64 [ 0, %1 ], [ %indvars.iv.next20, %25 ]
-  %21 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %19, i64 %indvars.iv19
+  %21 = getelementptr inbounds nuw [33408 x i8], ptr %19, i64 %indvars.iv19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 312
   store i16 -1, ptr %22, align 8, !tbaa !84
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 144
@@ -196,7 +193,7 @@ define void @_ZN6LibRaw8initdataEv(ptr noundef nonnull writeonly align 8 derefer
 
 27:                                               ; preds = %20, %27
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store float 1.000000e+00, ptr %28, align 4, !tbaa !87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -280,7 +277,7 @@ define void @_ZN6LibRaw8initdataEv(ptr noundef nonnull writeonly align 8 derefer
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv23 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next24, %.preheader ]
   %66 = trunc i64 %indvars.iv23 to i16
-  %67 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv23
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %indvars.iv23
   store i16 %66, ptr %67, align 2, !tbaa !78
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 65536
@@ -300,24 +297,24 @@ define void @_ZN6LibRaw10aRGB_coeffEPA3_d(ptr noundef nonnull writeonly align 8 
 
 .preheader19:                                     ; preds = %2, %19
   %indvars.iv28 = phi i64 [ 0, %2 ], [ %indvars.iv.next29, %19 ]
-  %5 = getelementptr inbounds nuw [3 x double], ptr @_ZZN6LibRaw10aRGB_coeffEPA3_dE8rgb_aRGB, i64 %indvars.iv28
-  %6 = getelementptr inbounds nuw [3 x double], ptr %3, i64 %indvars.iv28
-  %7 = getelementptr inbounds nuw [4 x float], ptr %4, i64 %indvars.iv28
+  %5 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN6LibRaw10aRGB_coeffEPA3_dE8rgb_aRGB, i64 %indvars.iv28
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv28
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv28
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader19, %16
   %indvars.iv24 = phi i64 [ 0, %.preheader19 ], [ %indvars.iv.next25, %16 ]
-  %invariant.gep = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv24
-  %8 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv24
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv24
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv24
   %.promoted = load double, ptr %8, align 8, !tbaa !116
   br label %9
 
 9:                                                ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
   %10 = phi double [ %.promoted, %.preheader ], [ %15, %9 ]
-  %11 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %12 = load double, ptr %11, align 8, !tbaa !116
-  %gep = getelementptr inbounds nuw [3 x double], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep, i64 %indvars.iv
   %13 = load double, ptr %gep, align 8, !tbaa !116
   %14 = fmul reassoc nsz arcp contract afn double %13, %12
   %15 = fadd reassoc nsz arcp contract afn double %10, %14
@@ -328,7 +325,7 @@ define void @_ZN6LibRaw10aRGB_coeffEPA3_d(ptr noundef nonnull writeonly align 8 
 16:                                               ; preds = %9
   store double %15, ptr %8, align 8, !tbaa !116
   %17 = fptrunc reassoc nsz arcp contract afn double %15 to float
-  %18 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv24
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv24
   store float %17, ptr %18, align 4, !tbaa !87
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 3
@@ -351,23 +348,23 @@ define void @_ZN6LibRaw10romm_coeffEPA3_f(ptr noundef nonnull writeonly align 8 
 
 .preheader:                                       ; preds = %2, %16
   %indvars.iv25 = phi i64 [ 0, %2 ], [ %indvars.iv.next26, %16 ]
-  %4 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %indvars.iv25
-  %5 = getelementptr inbounds nuw [3 x float], ptr @_ZZN6LibRaw10romm_coeffEPA3_fE8rgb_romm, i64 %indvars.iv25
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv25
+  %5 = getelementptr inbounds nuw [12 x i8], ptr @_ZZN6LibRaw10romm_coeffEPA3_fE8rgb_romm, i64 %indvars.iv25
   br label %6
 
 6:                                                ; preds = %.preheader, %15
   %indvars.iv21 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next22, %15 ]
-  %7 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv21
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv21
   store float 0.000000e+00, ptr %7, align 4, !tbaa !87
-  %invariant.gep = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv21
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv21
   br label %8
 
 8:                                                ; preds = %6, %8
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %8 ]
   %9 = phi float [ 0.000000e+00, %6 ], [ %14, %8 ]
-  %10 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !87
-  %gep = getelementptr inbounds nuw [3 x float], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [12 x i8], ptr %invariant.gep, i64 %indvars.iv
   %12 = load float, ptr %gep, align 4, !tbaa !87
   %13 = fmul reassoc nsz arcp contract afn float %12, %11
   %14 = fadd reassoc nsz arcp contract afn float %9, %13
@@ -457,14 +454,14 @@ define void @_ZN6LibRaw13remove_zeroesEv(ptr noundef nonnull readonly align 8 ca
   %36 = lshr i32 %.04474, %31
   %37 = add nuw i32 %35, %36
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw [4 x i16], ptr %15, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %38
   %40 = and i32 %.04474, 1
   %41 = or disjoint i32 %40, %25
   %42 = shl nuw nsw i32 %41, 1
   %43 = lshr i32 %19, %42
   %44 = and i32 %43, 3
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %39, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !78
   %48 = icmp eq i16 %47, 0
   br i1 %48, label %49, label %84
@@ -473,7 +470,7 @@ define void @_ZN6LibRaw13remove_zeroesEv(ptr noundef nonnull readonly align 8 ca
   %50 = add nsw i32 %.04474, -2
   %51 = load i16, ptr %11, align 4
   %52 = zext i16 %51 to i32
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %15, i64 %45
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %45
   br label %53
 
 53:                                               ; preds = %49, %.split67.us
@@ -512,7 +509,7 @@ define void @_ZN6LibRaw13remove_zeroesEv(ptr noundef nonnull readonly align 8 ca
   %69 = lshr i32 %.04565.us, %31
   %70 = add nuw nsw i32 %69, %58
   %71 = zext nneg i32 %70 to i64
-  %gep = getelementptr inbounds nuw [4 x i16], ptr %invariant.gep, i64 %71
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %71
   %72 = load i16, ptr %gep, align 2, !tbaa !78
   %.not59.us = icmp eq i16 %72, 0
   br i1 %.not59.us, label %77, label %73
@@ -741,7 +738,7 @@ define void @_ZN6LibRaw18crop_masked_pixelsEv(ptr noundef nonnull align 8 derefe
 91:                                               ; preds = %.thread76.thread, %._crit_edge87
   %indvars.iv93 = phi i64 [ 0, %.thread76.thread ], [ %indvars.iv.next94, %._crit_edge87 ]
   %.02990 = phi i32 [ 0, %.thread76.thread ], [ %.1.lcssa, %._crit_edge87 ]
-  %92 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 %indvars.iv93
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv93
   %93 = load i32, ptr %92, align 4, !tbaa !135
   %spec.select = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -774,7 +771,7 @@ define void @_ZN6LibRaw18crop_masked_pixelsEv(ptr noundef nonnull align 8 derefe
   %107 = lshr i32 %106, 1
   %108 = zext nneg i32 %spec.select65 to i64
   %109 = zext nneg i32 %107 to i64
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %88, i64 %109
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %109
   br label %110
 
 110:                                              ; preds = %.lr.ph, %110
@@ -786,11 +783,11 @@ define void @_ZN6LibRaw18crop_masked_pixelsEv(ptr noundef nonnull align 8 derefe
   %114 = shl nuw nsw i32 %113, 1
   %115 = lshr i32 %86, %114
   %116 = and i32 %115, 3
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %117 = load i16, ptr %gep, align 2, !tbaa !78
   %118 = zext i16 %117 to i32
   %119 = zext nneg i32 %116 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %79, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !135
   %122 = add i32 %121, %118
   store i32 %122, ptr %120, align 4, !tbaa !135
@@ -892,13 +889,13 @@ define void @_ZN6LibRaw18crop_masked_pixelsEv(ptr noundef nonnull align 8 derefe
 
 178:                                              ; preds = %.preheader, %178
   %indvars.iv96 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next97, %178 ]
-  %179 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv96
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv96
   %180 = load i32, ptr %179, align 4, !tbaa !135
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %182 = load i32, ptr %181, align 4, !tbaa !135
   %spec.select74 = tail call i32 @llvm.umax.i32(i32 %182, i32 1)
   %183 = udiv i32 %180, %spec.select74
-  %184 = getelementptr inbounds nuw i32, ptr %177, i64 %indvars.iv96
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %indvars.iv96
   store i32 %183, ptr %184, align 4, !tbaa !135
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 4
@@ -958,14 +955,14 @@ define void @_ZN6LibRaw13pseudoinverseEPA3_dS1_i(ptr nonnull readnone align 8 ca
 .preheader74.us:                                  ; preds = %.preheader74.us.preheader, %.split.us.us
   %indvars.iv108 = phi i64 [ 0, %.preheader74.us.preheader ], [ %indvars.iv.next109, %.split.us.us ]
   %7 = add nuw nsw i64 %indvars.iv108, 3
-  %8 = getelementptr inbounds nuw [6 x double], ptr %5, i64 %indvars.iv108
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %indvars.iv108
   br label %9
 
 9:                                                ; preds = %9, %.preheader74.us
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %9 ], [ 0, %.preheader74.us ]
   %10 = icmp eq i64 %indvars.iv96, %7
   %11 = uitofp i1 %10 to double
-  %12 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv96
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv96
   store double %11, ptr %12, align 8, !tbaa !116
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 6
@@ -973,17 +970,17 @@ define void @_ZN6LibRaw13pseudoinverseEPA3_dS1_i(ptr nonnull readnone align 8 ca
 
 .preheader72.us.us:                               ; preds = %9, %._crit_edge.us.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %._crit_edge.us.us ], [ 0, %9 ]
-  %13 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv104
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv104
   %.promoted.us.us = load double, ptr %13, align 8, !tbaa !116
   br label %14
 
 14:                                               ; preds = %14, %.preheader72.us.us
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %14 ], [ 0, %.preheader72.us.us ]
   %15 = phi double [ %22, %14 ], [ %.promoted.us.us, %.preheader72.us.us ]
-  %16 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %indvars.iv100
-  %17 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv108
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv100
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv108
   %18 = load double, ptr %17, align 8, !tbaa !116
-  %19 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv104
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv104
   %20 = load double, ptr %19, align 8, !tbaa !116
   %21 = fmul reassoc nsz arcp contract afn double %20, %18
   %22 = fadd reassoc nsz arcp contract afn double %15, %21
@@ -1008,14 +1005,14 @@ define void @_ZN6LibRaw13pseudoinverseEPA3_dS1_i(ptr nonnull readnone align 8 ca
 .preheader74:                                     ; preds = %4, %.preheader72.preheader
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.preheader72.preheader ], [ 0, %4 ]
   %23 = add nuw nsw i64 %indvars.iv92, 3
-  %24 = getelementptr inbounds nuw [6 x double], ptr %5, i64 %indvars.iv92
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %indvars.iv92
   br label %25
 
 25:                                               ; preds = %.preheader74, %25
   %indvars.iv = phi i64 [ 0, %.preheader74 ], [ %indvars.iv.next, %25 ]
   %26 = icmp eq i64 %indvars.iv, %23
   %27 = uitofp i1 %26 to double
-  %28 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store double %27, ptr %28, align 8, !tbaa !116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -1035,8 +1032,8 @@ define void @_ZN6LibRaw13pseudoinverseEPA3_dS1_i(ptr nonnull readnone align 8 ca
 
 .preheader71:                                     ; preds = %.preheader71.preheader, %50
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %50 ], [ 0, %.preheader71.preheader ]
-  %29 = getelementptr inbounds nuw [6 x double], ptr %5, i64 %indvars.iv124
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv124
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %indvars.iv124
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv124
   %31 = load double, ptr %30, align 8, !tbaa !116
   %32 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %31)
   %33 = fcmp reassoc nsz arcp contract afn ogt double %32, 0x3EE4F8B580000000
@@ -1048,7 +1045,7 @@ define void @_ZN6LibRaw13pseudoinverseEPA3_dS1_i(ptr nonnull readnone align 8 ca
 
 .split81.us:                                      ; preds = %.split81.us.preheader, %.split81.us
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.split81.us ], [ 0, %.split81.us.preheader ]
-  %35 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv112
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv112
   %36 = load double, ptr %35, align 8, !tbaa !116
   %37 = fmul reassoc nsz arcp contract afn double %36, %34
   store double %37, ptr %35, align 8, !tbaa !116
@@ -1065,17 +1062,17 @@ define void @_ZN6LibRaw13pseudoinverseEPA3_dS1_i(ptr nonnull readnone align 8 ca
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %.preheader70
-  %40 = getelementptr inbounds nuw [6 x double], ptr %5, i64 %indvars.iv120
-  %41 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv124
+  %40 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %indvars.iv120
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv124
   %42 = load double, ptr %41, align 8, !tbaa !116
   br label %43
 
 43:                                               ; preds = %39, %43
   %indvars.iv116 = phi i64 [ 0, %39 ], [ %indvars.iv.next117, %43 ]
-  %44 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv116
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv116
   %45 = load double, ptr %44, align 8, !tbaa !116
   %46 = fmul reassoc nsz arcp contract afn double %45, %42
-  %47 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv116
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv116
   %48 = load double, ptr %47, align 8, !tbaa !116
   %49 = fsub reassoc nsz arcp contract afn double %48, %46
   store double %49, ptr %47, align 8, !tbaa !116
@@ -1095,24 +1092,24 @@ define void @_ZN6LibRaw13pseudoinverseEPA3_dS1_i(ptr nonnull readnone align 8 ca
 
 .preheader:                                       ; preds = %.preheader.preheader, %66
   %indvars.iv136 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next137, %66 ]
-  %51 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv136
-  %52 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %indvars.iv136
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv136
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv136
   br label %53
 
 53:                                               ; preds = %.preheader, %65
   %indvars.iv132 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next133, %65 ]
-  %54 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv132
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv132
   store double 0.000000e+00, ptr %54, align 8, !tbaa !116
-  %55 = getelementptr inbounds nuw [6 x double], ptr %5, i64 %indvars.iv132
+  %55 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %indvars.iv132
   br label %56
 
 56:                                               ; preds = %53, %56
   %indvars.iv128 = phi i64 [ 0, %53 ], [ %indvars.iv.next129, %56 ]
   %57 = phi double [ 0.000000e+00, %53 ], [ %64, %56 ]
-  %58 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv128
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv128
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load double, ptr %59, align 8, !tbaa !116
-  %61 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv128
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv128
   %62 = load double, ptr %61, align 8, !tbaa !116
   %63 = fmul reassoc nsz arcp contract afn double %62, %60
   %64 = fadd reassoc nsz arcp contract afn double %57, %63
@@ -1157,8 +1154,8 @@ define void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 ca
 
 .preheader56:                                     ; preds = %.preheader56.preheader, %22
   %indvars.iv84 = phi i64 [ 0, %.preheader56.preheader ], [ %indvars.iv.next85, %22 ]
-  %9 = getelementptr inbounds nuw [3 x double], ptr %4, i64 %indvars.iv84
-  %10 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv84
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv84
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv84
   br label %12
 
 .preheader54.lr.ph:                               ; preds = %22
@@ -1168,16 +1165,16 @@ define void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 ca
 
 12:                                               ; preds = %.preheader56, %21
   %indvars.iv80 = phi i64 [ 0, %.preheader56 ], [ %indvars.iv.next81, %21 ]
-  %13 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv80
-  %invariant.gep = getelementptr inbounds nuw double, ptr @_ZN16LibRaw_constants7xyz_rgbE, i64 %indvars.iv80
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv80
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr @_ZN16LibRaw_constants7xyz_rgbE, i64 %indvars.iv80
   br label %14
 
 14:                                               ; preds = %12, %14
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %14 ]
   %15 = phi double [ 0.000000e+00, %12 ], [ %20, %14 ]
-  %16 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !116
-  %gep = getelementptr inbounds nuw [3 x double], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep, i64 %indvars.iv
   %18 = load double, ptr %gep, align 8, !tbaa !116
   %19 = fmul reassoc nsz arcp contract afn double %18, %17
   %20 = fadd reassoc nsz arcp contract afn double %15, %19
@@ -1200,13 +1197,13 @@ define void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 ca
   %indvar = phi i64 [ 0, %.preheader54.lr.ph ], [ %indvar.next, %38 ]
   %23 = mul nuw nsw i64 %indvar, 24
   %scevgep = getelementptr nuw i8, ptr %4, i64 %23
-  %24 = getelementptr inbounds nuw [3 x double], ptr %4, i64 %indvar
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvar
   br label %25
 
 25:                                               ; preds = %.preheader54, %25
   %indvars.iv88 = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next89, %25 ]
   %.05161 = phi double [ 0.000000e+00, %.preheader54 ], [ %28, %25 ]
-  %26 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv88
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv88
   %27 = load double, ptr %26, align 8, !tbaa !116
   %28 = fadd reassoc nsz arcp contract afn double %27, %.05161
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
@@ -1227,7 +1224,7 @@ define void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 ca
 
 .preheader52:                                     ; preds = %.preheader52.preheader, %.preheader52
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.preheader52 ], [ 0, %.preheader52.preheader ]
-  %32 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv95
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv95
   %33 = load double, ptr %32, align 8, !tbaa !116
   %34 = fmul reassoc nsz arcp contract afn double %33, %31
   store double %34, ptr %32, align 8, !tbaa !116
@@ -1242,7 +1239,7 @@ define void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 ca
 
 38:                                               ; preds = %35, %.preheader53
   %.sink = phi float [ %37, %35 ], [ 1.000000e+00, %.preheader53 ]
-  %39 = getelementptr inbounds nuw float, ptr %11, i64 %indvar
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvar
   store float %.sink, ptr %39, align 4, !tbaa !87
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond101.not = icmp eq i64 %indvar.next, %wide.trip.count100
@@ -1259,16 +1256,16 @@ define void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 ca
 
 .preheader.us:                                    ; preds = %._crit_edge, %._crit_edge71.us
   %indvars.iv107 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next108, %._crit_edge71.us ]
-  %invariant.gep72.us = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv107
-  %40 = getelementptr inbounds nuw [4 x float], ptr %1, i64 %indvars.iv107
+  %invariant.gep72.us = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv107
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv107
   br label %41
 
 41:                                               ; preds = %.preheader.us, %41
   %indvars.iv102 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next103, %41 ]
-  %gep73.us = getelementptr inbounds nuw [3 x double], ptr %invariant.gep72.us, i64 %indvars.iv102
+  %gep73.us = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep72.us, i64 %indvars.iv102
   %42 = load double, ptr %gep73.us, align 8, !tbaa !116
   %43 = fptrunc reassoc nsz arcp contract afn double %42 to float
-  %44 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv102
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv102
   store float %43, ptr %44, align 4, !tbaa !87
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
@@ -1338,7 +1335,7 @@ define void @_ZN6LibRaw8tiff_getEjPjS0_S0_S0_(ptr noundef nonnull align 8 derefe
 41:                                               ; preds = %23
   %42 = load ptr, ptr @_ZN6LibRaw22tagtype_dataunit_bytesE, align 8, !tbaa !168
   %43 = zext i32 %spec.select to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !135
   br label %_ZNK21libraw_static_table_tixEj.exit
 

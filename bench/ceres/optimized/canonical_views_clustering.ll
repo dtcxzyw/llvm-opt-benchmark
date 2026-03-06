@@ -34,17 +34,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240116::container_internal::raw_hash_set.12" = type { %"class.absl::lts_20240116::container_internal::CompressedTuple.13" }
 %"class.absl::lts_20240116::container_internal::CompressedTuple.13" = type { %"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::CompressedTupleImpl.14" }
 %"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::CompressedTupleImpl.14" = type { %"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::Storage" }
-%"union.absl::lts_20240116::container_internal::map_slot_type" = type { %"struct.std::pair.54" }
-%"struct.std::pair.54" = type { i32, double }
-%"union.absl::lts_20240116::container_internal::map_slot_type.61" = type { %"struct.std::pair.52" }
-%"struct.std::pair.52" = type { i32, i32 }
-%"union.absl::lts_20240116::container_internal::map_slot_type.93" = type { %"struct.std::pair.91" }
-%"struct.std::pair.91" = type { %"struct.std::pair.62", double }
-%"struct.std::pair.62" = type { i32, i32 }
 %"class.absl::lts_20240116::container_internal::HashSetResizeHelper" = type <{ ptr, i64, i8, [7 x i8] }>
 %"class.std::allocator.47" = type { i8 }
-%"union.absl::lts_20240116::container_internal::map_slot_type.82" = type { %"struct.std::pair.80" }
-%"struct.std::pair.80" = type { i32, %"class.absl::lts_20240116::flat_hash_set" }
 
 $_ZN5ceres8internal24CanonicalViewsClusteringD2Ev = comdat any
 
@@ -372,7 +363,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %39 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %38, i1 true)
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 %40
-  %42 = getelementptr inbounds nuw i32, ptr %32, i64 %40
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %40
   %43 = load i8, ptr %41, align 1, !tbaa !44
   %44 = icmp slt i8 %43, -1
   br i1 %44, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !47
@@ -440,7 +431,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %70 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %69, i1 true)
   %71 = zext nneg i32 %70 to i64
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 %71
-  %73 = getelementptr inbounds nuw i32, ptr %63, i64 %71
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %71
   %74 = load i8, ptr %72, align 1, !tbaa !44
   %75 = icmp slt i8 %74, -1
   br i1 %75, label %.lr.ph.i.i54, label %._crit_edge.i.i52, !llvm.loop !47
@@ -552,7 +543,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %115, %.noe
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %117, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %112, ptr %3, align 8, !tbaa !24
   store ptr %116, ptr %13, align 8, !tbaa !27
-  %118 = getelementptr inbounds nuw i32, ptr %112, i64 %110
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %110
   store ptr %118, ptr %23, align 8, !tbaa !56
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -595,7 +586,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %143 = zext nneg i16 %142 to i64
   %144 = add i64 %.sroa.6.0.i.i.i, %143
   %145 = and i64 %144, %127
-  %146 = getelementptr inbounds nuw i32, ptr %132, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !21
   %148 = icmp eq i32 %147, %.179
   br i1 %148, label %157, label %149, !prof !12
@@ -759,7 +750,7 @@ define hidden void @_ZNK5ceres8internal24CanonicalViewsClustering14FindValidView
   %17 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %16, i1 true)
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 %18
-  %20 = getelementptr inbounds nuw i32, ptr %10, i64 %18
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %18
   %21 = load i8, ptr %19, align 1, !tbaa !44
   %22 = icmp slt i8 %21, -1
   br i1 %22, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !47
@@ -824,7 +815,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %54 = zext nneg i16 %53 to i64
   %55 = add i64 %.sroa.6.0.i.i.i.i.i.i.i, %54
   %56 = and i64 %55, %38
-  %57 = getelementptr inbounds nuw i32, ptr %47, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !21, !noalias !61
   %59 = icmp eq i32 %58, %30
   br i1 %59, label %.loopexit, label %.critedge.i.i.i.i.i.i.i, !prof !12
@@ -849,7 +840,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 67:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %68 = tail call noundef i64 @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %37), !noalias !61
   %69 = load ptr, ptr %25, align 8, !tbaa !43, !noalias !61
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %68
   %71 = load i32, ptr %.sroa.8.024, align 4, !tbaa !21, !noalias !61
   store i32 %71, ptr %70, align 4, !tbaa !21, !noalias !61
   br label %.loopexit
@@ -872,7 +863,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %83 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %82, i1 true)
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %77, i64 %84
-  %86 = getelementptr inbounds nuw i32, ptr %76, i64 %84
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %84
   %87 = load i8, ptr %85, align 1, !tbaa !44
   %88 = icmp slt i8 %87, -1
   br i1 %88, label %.lr.ph.i.i.i9, label %._crit_edge.i.i.i7, !llvm.loop !47
@@ -919,7 +910,7 @@ define hidden noundef double @_ZNK5ceres8internal24CanonicalViewsClustering34Com
   %29 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %28, i1 true)
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 %30
-  %32 = getelementptr inbounds nuw i32, ptr %22, i64 %30
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %30
   %33 = load i8, ptr %31, align 1, !tbaa !44
   %34 = icmp slt i8 %33, -1
   br i1 %34, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !47
@@ -995,7 +986,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %71 = zext nneg i16 %70 to i64
   %72 = add i64 %.sroa.6.0.i.i.i.i, %71
   %73 = and i64 %72, %55
-  %74 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %60, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !21
   %76 = icmp eq i32 %75, %47
   br i1 %76, label %85, label %77, !prof !12
@@ -1047,7 +1038,7 @@ _ZN5ceres15FindWithDefaultIN4absl12lts_2024011613flat_hash_mapIidNS2_13hash_inte
   %103 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %102, i1 true)
   %104 = zext nneg i32 %103 to i64
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 %104
-  %106 = getelementptr inbounds nuw i32, ptr %96, i64 %104
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %104
   %107 = load i8, ptr %105, align 1, !tbaa !44
   %108 = icmp slt i8 %107, -1
   br i1 %108, label %.lr.ph.i.i.i21, label %._crit_edge.i.i.i19, !llvm.loop !47
@@ -1106,7 +1097,7 @@ define hidden void @_ZN5ceres8internal24CanonicalViewsClustering30UpdateCanonica
   %20 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %19, i1 true)
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 %21
-  %23 = getelementptr inbounds nuw i32, ptr %13, i64 %21
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %21
   %24 = load i8, ptr %22, align 1, !tbaa !44
   %25 = icmp slt i8 %24, -1
   br i1 %25, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !47
@@ -1172,7 +1163,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %58 = zext nneg i16 %57 to i64
   %59 = add i64 %.sroa.6.0.i.i.i.i, %58
   %60 = and i64 %59, %42
-  %61 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %47, i64 %60
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !21
   %63 = icmp eq i32 %62, %34
   br i1 %63, label %72, label %64, !prof !12
@@ -1247,7 +1238,7 @@ _ZN5ceres15FindWithDefaultIN4absl12lts_2024011613flat_hash_mapIidNS2_13hash_inte
   %104 = zext nneg i16 %103 to i64
   %105 = add i64 %.sroa.6.0.i.i.i.i13, %104
   %106 = and i64 %105, %88
-  %107 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %97, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !21, !noalias !88
   %109 = icmp eq i32 %108, %80
   br i1 %109, label %_ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEEixIiS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit, label %.critedge.i.i.i.i, !prof !12
@@ -1272,7 +1263,7 @@ _ZN5ceres15FindWithDefaultIN4absl12lts_2024011613flat_hash_mapIidNS2_13hash_inte
 117:                                              ; preds = %._crit_edge.i.i.i.i16
   %118 = call noundef i64 @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef %87), !noalias !88
   %119 = load ptr, ptr %32, align 8, !tbaa !43, !noalias !88
-  %120 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %118
   %121 = load i32, ptr %.sroa.8.050, align 4, !tbaa !21, !noalias !88
   store i32 %121, ptr %120, align 4, !tbaa !96, !noalias !88
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 4
@@ -1282,7 +1273,7 @@ _ZN5ceres15FindWithDefaultIN4absl12lts_2024011613flat_hash_mapIidNS2_13hash_inte
 _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEEixIiS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit: ; preds = %.lr.ph.i.i.i.i14, %117
   %123 = phi ptr [ %119, %117 ], [ %97, %.lr.ph.i.i.i.i14 ]
   %.sroa.031.2.i14.i.i.i = phi i64 [ %118, %117 ], [ %106, %.lr.ph.i.i.i.i14 ]
-  %124 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %123, i64 %.sroa.031.2.i14.i.i.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %.sroa.031.2.i14.i.i.i
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   store i32 %78, ptr %125, align 4, !tbaa !21
   %126 = load ptr, ptr %27, align 8, !tbaa !18, !noalias !99
@@ -1324,7 +1315,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
   %151 = zext nneg i16 %150 to i64
   %152 = add i64 %.sroa.6.0.i.i.i.i19, %151
   %153 = and i64 %152, %135
-  %154 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %144, i64 %153
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !21, !noalias !99
   %156 = icmp eq i32 %155, %127
   br i1 %156, label %_ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIidEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKidEEEixIiS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit, label %.critedge.i.i.i.i23, !prof !12
@@ -1349,7 +1340,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
 164:                                              ; preds = %._crit_edge.i.i.i.i25
   %165 = call noundef i64 @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIidEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKidEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef %134), !noalias !99
   %166 = load ptr, ptr %29, align 8, !tbaa !43, !noalias !99
-  %167 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %166, i64 %165
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %166, i64 %165
   %168 = load i32, ptr %.sroa.8.050, align 4, !tbaa !21, !noalias !99
   store i32 %168, ptr %167, align 8, !tbaa !107, !noalias !99
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
@@ -1359,7 +1350,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
 _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIidEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKidEEEixIiS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit: ; preds = %.lr.ph.i.i.i.i21, %164
   %170 = phi ptr [ %166, %164 ], [ %144, %.lr.ph.i.i.i.i21 ]
   %.sroa.031.2.i14.i.i.i28 = phi i64 [ %165, %164 ], [ %153, %.lr.ph.i.i.i.i21 ]
-  %171 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %170, i64 %.sroa.031.2.i14.i.i.i28
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %170, i64 %.sroa.031.2.i14.i.i.i28
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   store double %75, ptr %172, align 8, !tbaa !22
   br label %173
@@ -1382,7 +1373,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
   %185 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %184, i1 true)
   %186 = zext nneg i32 %185 to i64
   %187 = getelementptr inbounds nuw i8, ptr %179, i64 %186
-  %188 = getelementptr inbounds nuw i32, ptr %178, i64 %186
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %186
   %189 = load i8, ptr %187, align 1, !tbaa !44
   %190 = icmp slt i8 %189, -1
   br i1 %190, label %.lr.ph.i.i.i31, label %._crit_edge.i.i.i29, !llvm.loop !47
@@ -1456,7 +1447,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %31 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %30, i1 true)
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 %32
-  %34 = getelementptr inbounds nuw i32, ptr %24, i64 %32
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %32
   %35 = load i8, ptr %33, align 1, !tbaa !44
   %36 = icmp slt i8 %35, -1
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !47
@@ -1473,7 +1464,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %40 = phi ptr [ %14, %.lr.ph ], [ %87, %.loopexit ]
   %41 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2024011618container_internal11kEmptyGroupE, i64 16), %.lr.ph ], [ %88, %.loopexit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %42 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   call void @llvm.prefetch.p0(ptr %41, i32 0, i32 1, i32 1), !noalias !110
   %43 = load i32, ptr %42, align 4, !tbaa !21, !noalias !110
   %44 = zext i32 %43 to i64
@@ -1512,7 +1503,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %67 = zext nneg i16 %66 to i64
   %68 = add i64 %.sroa.6.0.i.i.i.i, %67
   %69 = and i64 %68, %51
-  %70 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %60, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !21, !noalias !110
   %72 = icmp eq i32 %71, %43
   br i1 %72, label %.loopexit, label %.critedge.i.i.i.i, !prof !12
@@ -1540,7 +1531,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
 
 .noexc:                                           ; preds = %80
   %82 = load ptr, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !tbaa !43, !noalias !110
-  %83 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %81
   %84 = load i32, ptr %42, align 4, !tbaa !21, !noalias !110
   store i32 %84, ptr %83, align 4, !tbaa !96, !noalias !110
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
@@ -1556,7 +1547,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %88 = phi ptr [ %.pre.i.i.i, %.noexc ], [ %41, %.lr.ph.i.i.i.i ]
   %89 = phi ptr [ %82, %.noexc ], [ %60, %.lr.ph.i.i.i.i ]
   %.sroa.031.2.i14.i.i.i = phi i64 [ %81, %.noexc ], [ %69, %.lr.ph.i.i.i.i ]
-  %90 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %89, i64 %.sroa.031.2.i14.i.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.sroa.031.2.i14.i.i.i
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %92, ptr %91, align 4, !tbaa !21
@@ -1646,7 +1637,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %142 = zext nneg i16 %141 to i64
   %143 = add i64 %.sroa.6.0.i.i.i, %142
   %144 = and i64 %143, %126
-  %145 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %131, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !21
   %147 = icmp eq i32 %146, %118
   br i1 %147, label %157, label %148, !prof !12
@@ -1673,7 +1664,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   br label %165
 
 157:                                              ; preds = %.lr.ph.i.i.i36
-  %158 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %131, i64 %144
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %144
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 4, !tbaa !21
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
@@ -1715,7 +1706,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %178 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %177, i1 true)
   %179 = zext nneg i32 %178 to i64
   %180 = getelementptr inbounds nuw i8, ptr %172, i64 %179
-  %181 = getelementptr inbounds nuw i32, ptr %171, i64 %179
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %179
   %182 = load i8, ptr %180, align 1, !tbaa !44
   %183 = icmp slt i8 %182, -1
   br i1 %183, label %.lr.ph.i.i.i40, label %._crit_edge.i.i.i38, !llvm.loop !47
@@ -1816,7 +1807,7 @@ define linkonce_odr hidden noundef double @_ZNK5ceres8internal13WeightedGraphIiE
   %41 = zext nneg i16 %40 to i64
   %42 = add i64 %.sroa.6.0.i.i.i.i, %41
   %43 = and i64 %42, %10
-  %44 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.93", ptr %14, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !96
   %46 = icmp eq i32 %45, %4
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -1882,7 +1873,7 @@ define linkonce_odr hidden noundef double @_ZNK5ceres8internal13WeightedGraphIiE
   %85 = zext nneg i16 %84 to i64
   %86 = add i64 %.sroa.6.0.i.i.i.i16, %85
   %87 = and i64 %86, %10
-  %88 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.93", ptr %14, i64 %87
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !96
   %90 = icmp eq i32 %89, %5
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -1910,7 +1901,7 @@ define linkonce_odr hidden noundef double @_ZNK5ceres8internal13WeightedGraphIiE
 
 _ZN5ceres15FindWithDefaultIN4absl12lts_2024011613flat_hash_mapISt4pairIiiEdNS2_13hash_internal4HashIS5_EESt8equal_toIS5_ESaIS4_IKS5_dEEEEEEKNT_10value_type11second_typeERKSF_RKNSG_10first_typeERSI_.exit.sink.split: ; preds = %.lr.ph.i.i.i.i18, %.lr.ph.i.i.i.i
   %.lcssa57.sink = phi i64 [ %43, %.lr.ph.i.i.i.i ], [ %87, %.lr.ph.i.i.i.i18 ]
-  %103 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.93", ptr %14, i64 %.lcssa57.sink
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %.lcssa57.sink
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %.0.in.i23.sroa.speculate.load. = load double, ptr %104, align 8, !tbaa !22
   br label %_ZN5ceres15FindWithDefaultIN4absl12lts_2024011613flat_hash_mapISt4pairIiiEdNS2_13hash_internal4HashIS5_EESt8equal_toIS5_ESaIS4_IKS5_dEEEEEEKNT_10value_type11second_typeERKSF_RKNSG_10first_typeERSI_.exit
@@ -1968,7 +1959,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN5c
   %32 = zext nneg i16 %31 to i64
   %33 = add i64 %.sroa.6.0.i.i.i, %32
   %34 = and i64 %33, %15
-  %35 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %21, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !21
   %37 = icmp eq i32 %36, %6
   br i1 %37, label %.critedge, label %38, !prof !12
@@ -2015,7 +2006,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit: ; pr
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i
-  %52 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %21, i64 %34
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %34
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   ret ptr %53
 }
@@ -2066,7 +2057,7 @@ define linkonce_odr hidden void @_ZN5ceres11InsertOrDieIN4absl12lts_2024011613fl
   %34 = zext nneg i16 %33 to i64
   %35 = add i64 %.sroa.6.0.i.i.i.i.i.i.i.i, %34
   %36 = and i64 %35, %17
-  %37 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %27, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !21, !noalias !127
   %39 = icmp eq i32 %38, %6
   br i1 %39, label %47, label %.critedge.i.i.i.i.i.i.i.i, !prof !12
@@ -2115,7 +2106,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit: ; pr
 .critedge:                                        ; preds = %._crit_edge.i.i.i.i.i.i.i.i
   %53 = tail call noundef i64 @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %15), !noalias !127
   %54 = load ptr, ptr %26, align 8, !tbaa !43, !noalias !127
-  %55 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %53
   store i32 %6, ptr %55, align 4, !tbaa !96, !noalias !127
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 %7, ptr %56, align 4, !tbaa !98, !noalias !127
@@ -2280,7 +2271,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5c
   %32 = zext nneg i16 %31 to i64
   %33 = add i64 %.sroa.6.0.i.i.i, %32
   %34 = and i64 %33, %15
-  %35 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %21, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !21
   %37 = icmp eq i32 %36, %6
   br i1 %37, label %.critedge, label %38, !prof !12
@@ -2456,7 +2447,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal12raw
   br i1 %24, label %25, label %67
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %.02229
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.02229
   %27 = load i32, ptr %26, align 4, !tbaa !21
   %28 = zext i32 %27 to i64
   %29 = add i64 %28, ptrtoint (ptr @_ZN4absl12lts_2024011613hash_internal15MixingHashState5kSeedE to i64)
@@ -2509,7 +2500,7 @@ _ZN4absl12lts_2024011618container_internal19find_first_non_fullIvEENS1_8FindInfo
   %63 = getelementptr i8, ptr %35, i64 %61
   %64 = getelementptr i8, ptr %63, i64 %62
   store i8 %58, ptr %64, align 1, !tbaa !44
-  %65 = getelementptr inbounds nuw i32, ptr %19, i64 %56
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %56
   %66 = load i32, ptr %26, align 4
   store i32 %66, ptr %65, align 1
   %.pre = load i64, ptr %6, align 8, !tbaa !157
@@ -2782,7 +2773,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5
   %32 = zext nneg i16 %31 to i64
   %33 = add i64 %.sroa.6.0.i.i.i, %32
   %34 = and i64 %33, %15
-  %35 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.82", ptr %21, i64 %34
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !21
   %37 = icmp eq i32 %36, %6
   br i1 %37, label %.critedge, label %38, !prof !12
@@ -2956,7 +2947,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal12raw
   br i1 %24, label %25, label %67
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %15, i64 %.02229
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.02229
   %27 = load i32, ptr %26, align 4, !tbaa !21
   %28 = zext i32 %27 to i64
   %29 = add i64 %28, ptrtoint (ptr @_ZN4absl12lts_2024011613hash_internal15MixingHashState5kSeedE to i64)
@@ -3009,7 +3000,7 @@ _ZN4absl12lts_2024011618container_internal19find_first_non_fullIvEENS1_8FindInfo
   %63 = getelementptr i8, ptr %35, i64 %61
   %64 = getelementptr i8, ptr %63, i64 %62
   store i8 %58, ptr %64, align 1, !tbaa !44
-  %65 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.61", ptr %19, i64 %56
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %56
   %66 = load i64, ptr %26, align 1
   store i64 %66, ptr %65, align 1
   %.pre = load i64, ptr %6, align 8, !tbaa !157
@@ -3274,7 +3265,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal12raw
   br i1 %24, label %25, label %66
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %15, i64 %.02229
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.02229
   %27 = load i32, ptr %26, align 4, !tbaa !21
   %28 = zext i32 %27 to i64
   %29 = add i64 %28, ptrtoint (ptr @_ZN4absl12lts_2024011613hash_internal15MixingHashState5kSeedE to i64)
@@ -3327,7 +3318,7 @@ _ZN4absl12lts_2024011618container_internal19find_first_non_fullIvEENS1_8FindInfo
   %63 = getelementptr i8, ptr %35, i64 %61
   %64 = getelementptr i8, ptr %63, i64 %62
   store i8 %58, ptr %64, align 1, !tbaa !44
-  %65 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %19, i64 %56
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %65, ptr noundef nonnull align 1 dereferenceable(16) %26, i64 16, i1 false)
   %.pre = load i64, ptr %6, align 8, !tbaa !157
   br label %66

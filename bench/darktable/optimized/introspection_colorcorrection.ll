@@ -17,9 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_iop_colorcorrection_params_t = type { float, float, float, float, float }
 %struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
 %struct.cmsCIELab = type { double, double, double }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [17 x i8] c"color correction\00", align 1
 @.str.1 = private unnamed_addr constant [56 x i8] c"correct white balance selectively for blacks and whites\00", align 1
@@ -178,33 +175,33 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %.043 = phi i64 [ %54, %.lr.ph ], [ 0, %12 ]
-  %30 = getelementptr inbounds nuw float, ptr %2, i64 %.043
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.043
   %31 = load float, ptr %30, align 16, !tbaa !47
-  %32 = getelementptr inbounds nuw float, ptr %3, i64 %.043
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.043
   store float %31, ptr %32, align 16, !tbaa !47
   %33 = or disjoint i64 %.043, 1
-  %34 = getelementptr inbounds nuw float, ptr %2, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %33
   %35 = load float, ptr %34, align 4, !tbaa !47
   %36 = fmul reassoc nsz arcp contract afn float %31, %15
   %37 = fadd reassoc nsz arcp contract afn float %35, %17
   %38 = fadd reassoc nsz arcp contract afn float %37, %36
   %39 = fmul reassoc nsz arcp contract afn float %38, %14
-  %40 = getelementptr inbounds nuw float, ptr %3, i64 %33
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %33
   store float %39, ptr %40, align 4, !tbaa !47
   %41 = or disjoint i64 %.043, 2
-  %42 = getelementptr inbounds nuw float, ptr %2, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %41
   %43 = load float, ptr %42, align 8, !tbaa !47
   %44 = load float, ptr %30, align 16, !tbaa !47
   %45 = fmul reassoc nsz arcp contract afn float %44, %19
   %46 = fadd reassoc nsz arcp contract afn float %43, %21
   %47 = fadd reassoc nsz arcp contract afn float %46, %45
   %48 = fmul reassoc nsz arcp contract afn float %47, %14
-  %49 = getelementptr inbounds nuw float, ptr %3, i64 %41
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %41
   store float %48, ptr %49, align 8, !tbaa !47
   %50 = or disjoint i64 %.043, 3
-  %51 = getelementptr inbounds nuw float, ptr %2, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !47
-  %53 = getelementptr inbounds nuw float, ptr %3, i64 %50
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %50
   store float %52, ptr %53, align 4, !tbaa !47
   %54 = add nuw i64 %.043, 4
   %55 = icmp ult i64 %54, %29
@@ -1063,7 +1060,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -105,14 +105,14 @@ ZSTD_hashPtr.exit.i:                              ; preds = %52, %49, %46, %43, 
   %60 = trunc i64 %.0.i.i to i32
   %61 = and i32 %60, 255
   %62 = or disjoint i32 %61, %36
-  %63 = getelementptr inbounds nuw i32, ptr %11, i64 %59
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %59
   store i32 %62, ptr %63, align 4, !tbaa !22
   %.pre.i = lshr i64 %56, 8
   br label %68
 
 .critedge.i:                                      ; preds = %ZSTD_hashPtr.exit.i
   %64 = lshr i64 %56, 8
-  %65 = getelementptr inbounds nuw i32, ptr %7, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !22
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %76
@@ -125,7 +125,7 @@ ZSTD_hashPtr.exit.i:                              ; preds = %52, %49, %46, %43, 
   %72 = and i32 %71, 255
   %73 = shl i32 %70, 8
   %74 = or disjoint i32 %72, %73
-  %75 = getelementptr inbounds nuw i32, ptr %7, i64 %.pre-phi.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.pre-phi.i
   store i32 %74, ptr %75, align 4, !tbaa !22
   br label %76
 
@@ -179,9 +179,9 @@ ZSTD_hashPtr.exit.i:                              ; preds = %52, %49, %46, %43, 
   %99 = mul i64 %.val44.us.us.us.i, -3523014627327384477
   %100 = lshr i64 %99, %90
   %101 = lshr i64 %99, %93
-  %102 = getelementptr inbounds nuw i32, ptr %11, i64 %100
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %100
   store i32 %98, ptr %102, align 4, !tbaa !22
-  %103 = getelementptr inbounds nuw i32, ptr %7, i64 %101
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %101
   store i32 %98, ptr %103, align 4, !tbaa !22
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 3
   %105 = getelementptr inbounds nuw i8, ptr %95, i64 2
@@ -199,9 +199,9 @@ ZSTD_hashPtr.exit.i:                              ; preds = %52, %49, %46, %43, 
   %111 = lshr i64 %110, %90
   %112 = mul i64 %.val40.us.us.us.i, -3523014627327384477
   %113 = lshr i64 %112, %93
-  %114 = getelementptr inbounds nuw i32, ptr %11, i64 %111
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %111
   store i32 %109, ptr %114, align 4, !tbaa !22
-  %115 = getelementptr inbounds nuw i32, ptr %7, i64 %113
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %113
   store i32 %109, ptr %115, align 4, !tbaa !22
   %116 = getelementptr inbounds nuw i8, ptr %106, i64 3
   %117 = getelementptr inbounds nuw i8, ptr %106, i64 2
@@ -219,9 +219,9 @@ ZSTD_hashPtr.exit.i:                              ; preds = %52, %49, %46, %43, 
   %123 = lshr i64 %122, %90
   %124 = mul i64 %.val41.us.us.us.i, -3523014627327384477
   %125 = lshr i64 %124, %93
-  %126 = getelementptr inbounds nuw i32, ptr %11, i64 %123
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %123
   store i32 %121, ptr %126, align 4, !tbaa !22
-  %127 = getelementptr inbounds nuw i32, ptr %7, i64 %125
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %125
   store i32 %121, ptr %127, align 4, !tbaa !22
   %128 = getelementptr inbounds nuw i8, ptr %118, i64 3
   %129 = getelementptr inbounds nuw i8, ptr %118, i64 2
@@ -239,9 +239,9 @@ ZSTD_hashPtr.exit.i:                              ; preds = %52, %49, %46, %43, 
   %135 = lshr i64 %134, %90
   %136 = mul i64 %.val42.us.us.us.i, -3523014627327384477
   %137 = lshr i64 %136, %93
-  %138 = getelementptr inbounds nuw i32, ptr %11, i64 %135
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %135
   store i32 %133, ptr %138, align 4, !tbaa !22
-  %139 = getelementptr inbounds nuw i32, ptr %7, i64 %137
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %137
   store i32 %133, ptr %139, align 4, !tbaa !22
   %140 = getelementptr inbounds nuw i8, ptr %130, i64 3
   %141 = getelementptr inbounds nuw i8, ptr %130, i64 2
@@ -261,9 +261,9 @@ ZSTD_hashPtr.exit.i:                              ; preds = %52, %49, %46, %43, 
   %.val43.us.us.i = load i64, ptr %.03749.us.i, align 1, !tbaa !23
   %149 = mul i64 %.val43.us.us.i, -3523014627327384477
   %150 = lshr i64 %149, %93
-  %151 = getelementptr inbounds nuw i32, ptr %11, i64 %148
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %148
   store i32 %145, ptr %151, align 4, !tbaa !22
-  %152 = getelementptr inbounds nuw i32, ptr %7, i64 %150
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %150
   store i32 %145, ptr %152, align 4, !tbaa !22
   %153 = getelementptr inbounds nuw i8, ptr %142, i64 3
   %154 = getelementptr inbounds nuw i8, ptr %142, i64 2
@@ -329,12 +329,12 @@ ZSTD_hashPtr.exit.i9:                             ; preds = %174, %171, %168, %1
   br i1 %179, label %180, label %.critedge.i12
 
 180:                                              ; preds = %ZSTD_hashPtr.exit.i9
-  %181 = getelementptr inbounds nuw i32, ptr %11, i64 %.0.i.i11
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.0.i.i11
   store i32 %158, ptr %181, align 4, !tbaa !22
   br label %185
 
 .critedge.i12:                                    ; preds = %ZSTD_hashPtr.exit.i9
-  %182 = getelementptr inbounds nuw i32, ptr %7, i64 %178
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %178
   %183 = load i32, ptr %182, align 4, !tbaa !22
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %189
@@ -342,7 +342,7 @@ ZSTD_hashPtr.exit.i9:                             ; preds = %174, %171, %168, %1
 185:                                              ; preds = %.critedge.i12, %180
   %186 = trunc nuw nsw i64 %indvars.iv.i7 to i32
   %187 = add i32 %186, %158
-  %188 = getelementptr inbounds nuw i32, ptr %7, i64 %178
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %178
   store i32 %187, ptr %188, align 4, !tbaa !22
   br label %189
 
@@ -461,7 +461,7 @@ define i64 @ZSTD_compressBlock_doubleFast(ptr noundef readonly captures(none) %0
   %.0282.i.val.i = load i64, ptr %.0282.i368.i, align 1
   %78 = mul i64 %.0282.i.val.i, -3523014627327384477
   %79 = lshr i64 %78, %64
-  %80 = getelementptr inbounds nuw i32, ptr %14, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !22
   %82 = zext i32 %81 to i64
   %83 = getelementptr inbounds nuw i8, ptr %22, i64 %82
@@ -484,13 +484,13 @@ define i64 @ZSTD_compressBlock_doubleFast(ptr noundef readonly captures(none) %0
   %87 = mul i32 %.1283.i.val.us.i, -1640531535
   %88 = lshr i32 %87, %65
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %18, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !22
   %92 = ptrtoint ptr %.1283.i.us.i to i64
   %93 = sub i64 %92, %24
   %94 = trunc i64 %93 to i32
   store i32 %94, ptr %90, align 4, !tbaa !22
-  %95 = getelementptr inbounds nuw i32, ptr %14, i64 %.0292.i.us.i
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.0292.i.us.i
   store i32 %94, ptr %95, align 4, !tbaa !22
   %.0280.i.val.us.i = load i64, ptr %.0280.i.us.i, align 1
   %96 = mul i64 %.0280.i.val.us.i, -3523014627327384477
@@ -506,7 +506,7 @@ define i64 @ZSTD_compressBlock_doubleFast(ptr noundef readonly captures(none) %0
 .critedge.i.us.i:                                 ; preds = %.split.us.i
   %102 = zext i32 %91 to i64
   %103 = getelementptr inbounds nuw i8, ptr %22, i64 %102
-  %104 = getelementptr inbounds nuw i32, ptr %14, i64 %97
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %97
   %105 = load i32, ptr %104, align 4, !tbaa !22
   %106 = zext i32 %105 to i64
   %107 = getelementptr inbounds nuw i8, ptr %22, i64 %106
@@ -550,7 +550,7 @@ define i64 @ZSTD_compressBlock_doubleFast(ptr noundef readonly captures(none) %0
   %119 = mul i32 %.1283.i.val.i, -1640531535
   %120 = lshr i32 %119, %65
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %18, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !22
   %124 = ptrtoint ptr %.1283.i.i to i64
   %125 = sub i64 %124, %24
@@ -558,7 +558,7 @@ define i64 @ZSTD_compressBlock_doubleFast(ptr noundef readonly captures(none) %0
   %127 = zext i32 %123 to i64
   %128 = getelementptr inbounds nuw i8, ptr %22, i64 %127
   store i32 %126, ptr %122, align 4, !tbaa !22
-  %129 = getelementptr inbounds nuw i32, ptr %14, i64 %.0292.i.i
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.0292.i.i
   store i32 %126, ptr %129, align 4, !tbaa !22
   %130 = getelementptr inbounds nuw i8, ptr %.1283.i.i, i64 1
   %131 = getelementptr inbounds i8, ptr %130, i64 %85
@@ -936,7 +936,7 @@ ZSTD_count.exit74.i:                              ; preds = %270, %.thread63.i73
 
 .critedge.i.i:                                    ; preds = %227
   %290 = trunc i64 %.1283.i.val22.i to i32
-  %291 = getelementptr inbounds nuw i32, ptr %14, i64 %229
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %229
   %292 = load i32, ptr %291, align 4, !tbaa !22
   %293 = zext i32 %292 to i64
   %294 = getelementptr inbounds nuw i8, ptr %22, i64 %293
@@ -1240,7 +1240,7 @@ ZSTD_count.exit130.i:                             ; preds = %390, %.thread63.i12
   %418 = ptrtoint ptr %.0280.i296.i to i64
   %419 = sub i64 %418, %24
   %420 = trunc i64 %419 to i32
-  %421 = getelementptr inbounds nuw i32, ptr %14, i64 %414
+  %421 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %414
   store i32 %420, ptr %421, align 4, !tbaa !22
   br label %422
 
@@ -1410,7 +1410,7 @@ ZSTD_storeSeqOnly.exit14.i:                       ; preds = %ZSTD_storeSeqOnly.e
   %.val26.i = load i64, ptr %489, align 1, !tbaa !23
   %490 = mul i64 %.val26.i, -3523014627327384477
   %491 = lshr i64 %490, %64
-  %492 = getelementptr inbounds nuw i32, ptr %14, i64 %491
+  %492 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %491
   store i32 %487, ptr %492, align 4, !tbaa !22
   %493 = getelementptr inbounds i8, ptr %485, i64 -2
   %494 = ptrtoint ptr %493 to i64
@@ -1419,13 +1419,13 @@ ZSTD_storeSeqOnly.exit14.i:                       ; preds = %ZSTD_storeSeqOnly.e
   %.val25.i = load i64, ptr %493, align 1, !tbaa !23
   %497 = mul i64 %.val25.i, -3523014627327384477
   %498 = lshr i64 %497, %64
-  %499 = getelementptr inbounds nuw i32, ptr %14, i64 %498
+  %499 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %498
   store i32 %496, ptr %499, align 4, !tbaa !22
   %.val21.i = load i32, ptr %489, align 1, !tbaa !22
   %500 = mul i32 %.val21.i, -1640531535
   %501 = lshr i32 %500, %65
   %502 = zext i32 %501 to i64
-  %503 = getelementptr inbounds nuw i32, ptr %18, i64 %502
+  %503 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %502
   store i32 %487, ptr %503, align 4, !tbaa !22
   %504 = getelementptr inbounds i8, ptr %485, i64 -1
   %505 = ptrtoint ptr %504 to i64
@@ -1435,7 +1435,7 @@ ZSTD_storeSeqOnly.exit14.i:                       ; preds = %ZSTD_storeSeqOnly.e
   %508 = mul i32 %.val20.i, -1640531535
   %509 = lshr i32 %508, %65
   %510 = zext i32 %509 to i64
-  %511 = getelementptr inbounds nuw i32, ptr %18, i64 %510
+  %511 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %510
   store i32 %507, ptr %511, align 4, !tbaa !22
   br label %512
 
@@ -1559,12 +1559,12 @@ ZSTD_count.exit173.i:                             ; preds = %557, %.thread63.i17
   %564 = mul i32 %.2.i.val.i, -1640531535
   %565 = lshr i32 %564, %65
   %566 = zext i32 %565 to i64
-  %567 = getelementptr inbounds nuw i32, ptr %18, i64 %566
+  %567 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %566
   store i32 %563, ptr %567, align 4, !tbaa !22
   %.2.i.val24.i = load i64, ptr %.2.i367.i, align 1, !tbaa !23
   %568 = mul i64 %.2.i.val24.i, -3523014627327384477
   %569 = lshr i64 %568, %64
-  %570 = getelementptr inbounds nuw i32, ptr %14, i64 %569
+  %570 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %569
   store i32 %563, ptr %570, align 4, !tbaa !22
   %.not.i7.i = icmp ugt ptr %.2.i367.i, %69
   br i1 %.not.i7.i, label %ZSTD_storeSeq.exit8.i, label %571
@@ -1668,7 +1668,7 @@ ZSTD_compressBlock_doubleFast_noDict_4.exit:      ; preds = %.critedge5.i.i, %30
   %.0282.i.val.i33 = load i64, ptr %.0282.i368.i31, align 1, !tbaa !23
   %616 = mul i64 %.0282.i.val.i33, -3523014627327384477
   %617 = lshr i64 %616, %601
-  %618 = getelementptr inbounds nuw i32, ptr %14, i64 %617
+  %618 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %617
   %619 = load i32, ptr %618, align 4, !tbaa !22
   %620 = zext i32 %619 to i64
   %621 = getelementptr inbounds nuw i8, ptr %22, i64 %620
@@ -1688,13 +1688,13 @@ ZSTD_compressBlock_doubleFast_noDict_4.exit:      ; preds = %.critedge5.i.i, %30
   %.0274.i.us.i329 = phi ptr [ %.2276.i.us.i338, %652 ], [ %615, %613 ]
   %624 = mul i64 %.1283.i.val23.us.i, -3523014627271114752
   %625 = lshr i64 %624, %603
-  %626 = getelementptr inbounds nuw i32, ptr %18, i64 %625
+  %626 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %625
   %627 = load i32, ptr %626, align 4, !tbaa !22
   %628 = ptrtoint ptr %.1283.i.us.i326 to i64
   %629 = sub i64 %628, %24
   %630 = trunc i64 %629 to i32
   store i32 %630, ptr %626, align 4, !tbaa !22
-  %631 = getelementptr inbounds nuw i32, ptr %14, i64 %.0292.i.us.i325
+  %631 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.0292.i.us.i325
   store i32 %630, ptr %631, align 4, !tbaa !22
   %.0280.i.val.us.i330 = load i64, ptr %.0280.i.us.i327, align 1, !tbaa !23
   %632 = mul i64 %.0280.i.val.us.i330, -3523014627327384477
@@ -1709,7 +1709,7 @@ ZSTD_compressBlock_doubleFast_noDict_4.exit:      ; preds = %.critedge5.i.i, %30
 .critedge.i.us.i332:                              ; preds = %.split.us.i322
   %637 = zext i32 %627 to i64
   %638 = getelementptr inbounds nuw i8, ptr %22, i64 %637
-  %639 = getelementptr inbounds nuw i32, ptr %14, i64 %633
+  %639 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %633
   %640 = load i32, ptr %639, align 4, !tbaa !22
   %641 = zext i32 %640 to i64
   %642 = getelementptr inbounds nuw i8, ptr %22, i64 %641
@@ -1752,7 +1752,7 @@ ZSTD_compressBlock_doubleFast_noDict_4.exit:      ; preds = %.critedge5.i.i, %30
   %.0274.i.i42 = phi ptr [ %.2276.i.i52, %836 ], [ %615, %613 ]
   %654 = mul i64 %.1283.i.val23.i, -3523014627271114752
   %655 = lshr i64 %654, %603
-  %656 = getelementptr inbounds nuw i32, ptr %18, i64 %655
+  %656 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %655
   %657 = load i32, ptr %656, align 4, !tbaa !22
   %658 = ptrtoint ptr %.1283.i.i39 to i64
   %659 = sub i64 %658, %24
@@ -1760,7 +1760,7 @@ ZSTD_compressBlock_doubleFast_noDict_4.exit:      ; preds = %.critedge5.i.i, %30
   %661 = zext i32 %657 to i64
   %662 = getelementptr inbounds nuw i8, ptr %22, i64 %661
   store i32 %660, ptr %656, align 4, !tbaa !22
-  %663 = getelementptr inbounds nuw i32, ptr %14, i64 %.0292.i.i38
+  %663 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.0292.i.i38
   store i32 %660, ptr %663, align 4, !tbaa !22
   %664 = getelementptr inbounds nuw i8, ptr %.1283.i.i39, i64 1
   %665 = getelementptr inbounds i8, ptr %664, i64 %623
@@ -2135,7 +2135,7 @@ ZSTD_count.exit74.i244:                           ; preds = %803, %.thread63.i73
   br i1 %822, label %.lr.ph359.i246, label %.critedge3.i.i85, !llvm.loop !52
 
 .critedge.i.i47:                                  ; preds = %761
-  %823 = getelementptr inbounds nuw i32, ptr %14, i64 %763
+  %823 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %763
   %824 = load i32, ptr %823, align 4, !tbaa !22
   %825 = zext i32 %824 to i64
   %826 = getelementptr inbounds nuw i8, ptr %22, i64 %825
@@ -2440,7 +2440,7 @@ ZSTD_count.exit130.i190:                          ; preds = %922, %.thread63.i12
   %950 = ptrtoint ptr %.0280.i296.i86 to i64
   %951 = sub i64 %950, %24
   %952 = trunc i64 %951 to i32
-  %953 = getelementptr inbounds nuw i32, ptr %14, i64 %946
+  %953 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %946
   store i32 %952, ptr %953, align 4, !tbaa !22
   br label %954
 
@@ -2610,7 +2610,7 @@ ZSTD_storeSeqOnly.exit14.i95:                     ; preds = %ZSTD_storeSeqOnly.e
   %.val26.i103 = load i64, ptr %1021, align 1, !tbaa !23
   %1022 = mul i64 %.val26.i103, -3523014627327384477
   %1023 = lshr i64 %1022, %601
-  %1024 = getelementptr inbounds nuw i32, ptr %14, i64 %1023
+  %1024 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1023
   store i32 %1019, ptr %1024, align 4, !tbaa !22
   %1025 = getelementptr inbounds i8, ptr %1017, i64 -2
   %1026 = ptrtoint ptr %1025 to i64
@@ -2619,11 +2619,11 @@ ZSTD_storeSeqOnly.exit14.i95:                     ; preds = %ZSTD_storeSeqOnly.e
   %.val25.i104 = load i64, ptr %1025, align 1, !tbaa !23
   %1029 = mul i64 %.val25.i104, -3523014627327384477
   %1030 = lshr i64 %1029, %601
-  %1031 = getelementptr inbounds nuw i32, ptr %14, i64 %1030
+  %1031 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1030
   store i32 %1028, ptr %1031, align 4, !tbaa !22
   %1032 = mul i64 %.val26.i103, -3523014627271114752
   %1033 = lshr i64 %1032, %603
-  %1034 = getelementptr inbounds nuw i32, ptr %18, i64 %1033
+  %1034 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %1033
   store i32 %1019, ptr %1034, align 4, !tbaa !22
   %1035 = getelementptr inbounds i8, ptr %1017, i64 -1
   %1036 = ptrtoint ptr %1035 to i64
@@ -2632,7 +2632,7 @@ ZSTD_storeSeqOnly.exit14.i95:                     ; preds = %ZSTD_storeSeqOnly.e
   %.val21.i105 = load i64, ptr %1035, align 1, !tbaa !23
   %1039 = mul i64 %.val21.i105, -3523014627271114752
   %1040 = lshr i64 %1039, %603
-  %1041 = getelementptr inbounds nuw i32, ptr %18, i64 %1040
+  %1041 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %1040
   store i32 %1038, ptr %1041, align 4, !tbaa !22
   br label %1042
 
@@ -2756,11 +2756,11 @@ ZSTD_count.exit173.i123:                          ; preds = %1087, %.thread63.i1
   %.2.i.val20.i = load i64, ptr %.2.i367.i106, align 1, !tbaa !23
   %1094 = mul i64 %.2.i.val20.i, -3523014627271114752
   %1095 = lshr i64 %1094, %603
-  %1096 = getelementptr inbounds nuw i32, ptr %18, i64 %1095
+  %1096 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %1095
   store i32 %1093, ptr %1096, align 4, !tbaa !22
   %1097 = mul i64 %.2.i.val20.i, -3523014627327384477
   %1098 = lshr i64 %1097, %601
-  %1099 = getelementptr inbounds nuw i32, ptr %14, i64 %1098
+  %1099 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1098
   store i32 %1093, ptr %1099, align 4, !tbaa !22
   %.not.i7.i125 = icmp ugt ptr %.2.i367.i106, %607
   br i1 %.not.i7.i125, label %ZSTD_storeSeq.exit8.i128, label %1100
@@ -2864,7 +2864,7 @@ ZSTD_compressBlock_doubleFast_noDict_5.exit:      ; preds = %.critedge5.i.i111, 
   %.0282.i.val.i351 = load i64, ptr %.0282.i368.i349, align 1, !tbaa !23
   %1145 = mul i64 %.0282.i.val.i351, -3523014627327384477
   %1146 = lshr i64 %1145, %1130
-  %1147 = getelementptr inbounds nuw i32, ptr %14, i64 %1146
+  %1147 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1146
   %1148 = load i32, ptr %1147, align 4, !tbaa !22
   %1149 = zext i32 %1148 to i64
   %1150 = getelementptr inbounds nuw i8, ptr %22, i64 %1149
@@ -2884,13 +2884,13 @@ ZSTD_compressBlock_doubleFast_noDict_5.exit:      ; preds = %.critedge5.i.i111, 
   %.0274.i.us.i656 = phi ptr [ %.2276.i.us.i666, %1181 ], [ %1144, %1142 ]
   %1153 = mul i64 %.1283.i.val23.us.i649, -3523014627193847808
   %1154 = lshr i64 %1153, %1132
-  %1155 = getelementptr inbounds nuw i32, ptr %18, i64 %1154
+  %1155 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %1154
   %1156 = load i32, ptr %1155, align 4, !tbaa !22
   %1157 = ptrtoint ptr %.1283.i.us.i653 to i64
   %1158 = sub i64 %1157, %24
   %1159 = trunc i64 %1158 to i32
   store i32 %1159, ptr %1155, align 4, !tbaa !22
-  %1160 = getelementptr inbounds nuw i32, ptr %14, i64 %.0292.i.us.i652
+  %1160 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.0292.i.us.i652
   store i32 %1159, ptr %1160, align 4, !tbaa !22
   %.0280.i.val.us.i657 = load i64, ptr %.0280.i.us.i654, align 1, !tbaa !23
   %1161 = mul i64 %.0280.i.val.us.i657, -3523014627327384477
@@ -2905,7 +2905,7 @@ ZSTD_compressBlock_doubleFast_noDict_5.exit:      ; preds = %.critedge5.i.i111, 
 .critedge.i.us.i660:                              ; preds = %.split.us.i648
   %1166 = zext i32 %1156 to i64
   %1167 = getelementptr inbounds nuw i8, ptr %22, i64 %1166
-  %1168 = getelementptr inbounds nuw i32, ptr %14, i64 %1162
+  %1168 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1162
   %1169 = load i32, ptr %1168, align 4, !tbaa !22
   %1170 = zext i32 %1169 to i64
   %1171 = getelementptr inbounds nuw i8, ptr %22, i64 %1170
@@ -2948,7 +2948,7 @@ ZSTD_compressBlock_doubleFast_noDict_5.exit:      ; preds = %.critedge5.i.i111, 
   %.0274.i.i361 = phi ptr [ %.2276.i.i373, %1365 ], [ %1144, %1142 ]
   %1183 = mul i64 %.1283.i.val23.i354, -3523014627193847808
   %1184 = lshr i64 %1183, %1132
-  %1185 = getelementptr inbounds nuw i32, ptr %18, i64 %1184
+  %1185 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %1184
   %1186 = load i32, ptr %1185, align 4, !tbaa !22
   %1187 = ptrtoint ptr %.1283.i.i358 to i64
   %1188 = sub i64 %1187, %24
@@ -2956,7 +2956,7 @@ ZSTD_compressBlock_doubleFast_noDict_5.exit:      ; preds = %.critedge5.i.i111, 
   %1190 = zext i32 %1186 to i64
   %1191 = getelementptr inbounds nuw i8, ptr %22, i64 %1190
   store i32 %1189, ptr %1185, align 4, !tbaa !22
-  %1192 = getelementptr inbounds nuw i32, ptr %14, i64 %.0292.i.i357
+  %1192 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.0292.i.i357
   store i32 %1189, ptr %1192, align 4, !tbaa !22
   %1193 = getelementptr inbounds nuw i8, ptr %.1283.i.i358, i64 1
   %1194 = getelementptr inbounds i8, ptr %1193, i64 %1152
@@ -3331,7 +3331,7 @@ ZSTD_count.exit74.i570:                           ; preds = %1332, %.thread63.i7
   br i1 %1351, label %.lr.ph359.i572, label %.critedge3.i.i406, !llvm.loop !52
 
 .critedge.i.i367:                                 ; preds = %1290
-  %1352 = getelementptr inbounds nuw i32, ptr %14, i64 %1292
+  %1352 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1292
   %1353 = load i32, ptr %1352, align 4, !tbaa !22
   %1354 = zext i32 %1353 to i64
   %1355 = getelementptr inbounds nuw i8, ptr %22, i64 %1354
@@ -3636,7 +3636,7 @@ ZSTD_count.exit130.i516:                          ; preds = %1451, %.thread63.i1
   %1479 = ptrtoint ptr %.0280.i296.i407 to i64
   %1480 = sub i64 %1479, %24
   %1481 = trunc i64 %1480 to i32
-  %1482 = getelementptr inbounds nuw i32, ptr %14, i64 %1475
+  %1482 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1475
   store i32 %1481, ptr %1482, align 4, !tbaa !22
   br label %1483
 
@@ -3806,7 +3806,7 @@ ZSTD_storeSeqOnly.exit14.i417:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val26.i426 = load i64, ptr %1550, align 1, !tbaa !23
   %1551 = mul i64 %.val26.i426, -3523014627327384477
   %1552 = lshr i64 %1551, %1130
-  %1553 = getelementptr inbounds nuw i32, ptr %14, i64 %1552
+  %1553 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1552
   store i32 %1548, ptr %1553, align 4, !tbaa !22
   %1554 = getelementptr inbounds i8, ptr %1546, i64 -2
   %1555 = ptrtoint ptr %1554 to i64
@@ -3815,11 +3815,11 @@ ZSTD_storeSeqOnly.exit14.i417:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val25.i427 = load i64, ptr %1554, align 1, !tbaa !23
   %1558 = mul i64 %.val25.i427, -3523014627327384477
   %1559 = lshr i64 %1558, %1130
-  %1560 = getelementptr inbounds nuw i32, ptr %14, i64 %1559
+  %1560 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1559
   store i32 %1557, ptr %1560, align 4, !tbaa !22
   %1561 = mul i64 %.val26.i426, -3523014627193847808
   %1562 = lshr i64 %1561, %1132
-  %1563 = getelementptr inbounds nuw i32, ptr %18, i64 %1562
+  %1563 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %1562
   store i32 %1548, ptr %1563, align 4, !tbaa !22
   %1564 = getelementptr inbounds i8, ptr %1546, i64 -1
   %1565 = ptrtoint ptr %1564 to i64
@@ -3828,7 +3828,7 @@ ZSTD_storeSeqOnly.exit14.i417:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val21.i428 = load i64, ptr %1564, align 1, !tbaa !23
   %1568 = mul i64 %.val21.i428, -3523014627193847808
   %1569 = lshr i64 %1568, %1132
-  %1570 = getelementptr inbounds nuw i32, ptr %18, i64 %1569
+  %1570 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %1569
   store i32 %1567, ptr %1570, align 4, !tbaa !22
   br label %1571
 
@@ -3952,11 +3952,11 @@ ZSTD_count.exit173.i446:                          ; preds = %1616, %.thread63.i1
   %.2.i.val20.i448 = load i64, ptr %.2.i367.i429, align 1, !tbaa !23
   %1623 = mul i64 %.2.i.val20.i448, -3523014627193847808
   %1624 = lshr i64 %1623, %1132
-  %1625 = getelementptr inbounds nuw i32, ptr %18, i64 %1624
+  %1625 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %1624
   store i32 %1622, ptr %1625, align 4, !tbaa !22
   %1626 = mul i64 %.2.i.val20.i448, -3523014627327384477
   %1627 = lshr i64 %1626, %1130
-  %1628 = getelementptr inbounds nuw i32, ptr %14, i64 %1627
+  %1628 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1627
   store i32 %1622, ptr %1628, align 4, !tbaa !22
   %.not.i7.i449 = icmp ugt ptr %.2.i367.i429, %1136
   br i1 %.not.i7.i449, label %ZSTD_storeSeq.exit8.i452, label %1629
@@ -4060,7 +4060,7 @@ ZSTD_compressBlock_doubleFast_noDict_6.exit:      ; preds = %.critedge5.i.i434, 
   %.0282.i.val.i679 = load i64, ptr %.0282.i368.i677, align 1, !tbaa !23
   %1674 = mul i64 %.0282.i.val.i679, -3523014627327384477
   %1675 = lshr i64 %1674, %1659
-  %1676 = getelementptr inbounds nuw i32, ptr %14, i64 %1675
+  %1676 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1675
   %1677 = load i32, ptr %1676, align 4, !tbaa !22
   %1678 = zext i32 %1677 to i64
   %1679 = getelementptr inbounds nuw i8, ptr %22, i64 %1678
@@ -4080,13 +4080,13 @@ ZSTD_compressBlock_doubleFast_noDict_6.exit:      ; preds = %.critedge5.i.i434, 
   %.0274.i.us.i984 = phi ptr [ %.2276.i.us.i994, %1710 ], [ %1673, %1671 ]
   %1682 = mul i64 %.1283.i.val23.us.i977, -3523014627193167104
   %1683 = lshr i64 %1682, %1661
-  %1684 = getelementptr inbounds nuw i32, ptr %18, i64 %1683
+  %1684 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %1683
   %1685 = load i32, ptr %1684, align 4, !tbaa !22
   %1686 = ptrtoint ptr %.1283.i.us.i981 to i64
   %1687 = sub i64 %1686, %24
   %1688 = trunc i64 %1687 to i32
   store i32 %1688, ptr %1684, align 4, !tbaa !22
-  %1689 = getelementptr inbounds nuw i32, ptr %14, i64 %.0292.i.us.i980
+  %1689 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.0292.i.us.i980
   store i32 %1688, ptr %1689, align 4, !tbaa !22
   %.0280.i.val.us.i985 = load i64, ptr %.0280.i.us.i982, align 1, !tbaa !23
   %1690 = mul i64 %.0280.i.val.us.i985, -3523014627327384477
@@ -4101,7 +4101,7 @@ ZSTD_compressBlock_doubleFast_noDict_6.exit:      ; preds = %.critedge5.i.i434, 
 .critedge.i.us.i988:                              ; preds = %.split.us.i976
   %1695 = zext i32 %1685 to i64
   %1696 = getelementptr inbounds nuw i8, ptr %22, i64 %1695
-  %1697 = getelementptr inbounds nuw i32, ptr %14, i64 %1691
+  %1697 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1691
   %1698 = load i32, ptr %1697, align 4, !tbaa !22
   %1699 = zext i32 %1698 to i64
   %1700 = getelementptr inbounds nuw i8, ptr %22, i64 %1699
@@ -4144,7 +4144,7 @@ ZSTD_compressBlock_doubleFast_noDict_6.exit:      ; preds = %.critedge5.i.i434, 
   %.0274.i.i689 = phi ptr [ %.2276.i.i701, %1894 ], [ %1673, %1671 ]
   %1712 = mul i64 %.1283.i.val23.i682, -3523014627193167104
   %1713 = lshr i64 %1712, %1661
-  %1714 = getelementptr inbounds nuw i32, ptr %18, i64 %1713
+  %1714 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %1713
   %1715 = load i32, ptr %1714, align 4, !tbaa !22
   %1716 = ptrtoint ptr %.1283.i.i686 to i64
   %1717 = sub i64 %1716, %24
@@ -4152,7 +4152,7 @@ ZSTD_compressBlock_doubleFast_noDict_6.exit:      ; preds = %.critedge5.i.i434, 
   %1719 = zext i32 %1715 to i64
   %1720 = getelementptr inbounds nuw i8, ptr %22, i64 %1719
   store i32 %1718, ptr %1714, align 4, !tbaa !22
-  %1721 = getelementptr inbounds nuw i32, ptr %14, i64 %.0292.i.i685
+  %1721 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.0292.i.i685
   store i32 %1718, ptr %1721, align 4, !tbaa !22
   %1722 = getelementptr inbounds nuw i8, ptr %.1283.i.i686, i64 1
   %1723 = getelementptr inbounds i8, ptr %1722, i64 %1681
@@ -4527,7 +4527,7 @@ ZSTD_count.exit74.i898:                           ; preds = %1861, %.thread63.i7
   br i1 %1880, label %.lr.ph359.i900, label %.critedge3.i.i734, !llvm.loop !52
 
 .critedge.i.i695:                                 ; preds = %1819
-  %1881 = getelementptr inbounds nuw i32, ptr %14, i64 %1821
+  %1881 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1821
   %1882 = load i32, ptr %1881, align 4, !tbaa !22
   %1883 = zext i32 %1882 to i64
   %1884 = getelementptr inbounds nuw i8, ptr %22, i64 %1883
@@ -4832,7 +4832,7 @@ ZSTD_count.exit130.i844:                          ; preds = %1980, %.thread63.i1
   %2008 = ptrtoint ptr %.0280.i296.i735 to i64
   %2009 = sub i64 %2008, %24
   %2010 = trunc i64 %2009 to i32
-  %2011 = getelementptr inbounds nuw i32, ptr %14, i64 %2004
+  %2011 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2004
   store i32 %2010, ptr %2011, align 4, !tbaa !22
   br label %2012
 
@@ -5002,7 +5002,7 @@ ZSTD_storeSeqOnly.exit14.i745:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val26.i754 = load i64, ptr %2079, align 1, !tbaa !23
   %2080 = mul i64 %.val26.i754, -3523014627327384477
   %2081 = lshr i64 %2080, %1659
-  %2082 = getelementptr inbounds nuw i32, ptr %14, i64 %2081
+  %2082 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2081
   store i32 %2077, ptr %2082, align 4, !tbaa !22
   %2083 = getelementptr inbounds i8, ptr %2075, i64 -2
   %2084 = ptrtoint ptr %2083 to i64
@@ -5011,11 +5011,11 @@ ZSTD_storeSeqOnly.exit14.i745:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val25.i755 = load i64, ptr %2083, align 1, !tbaa !23
   %2087 = mul i64 %.val25.i755, -3523014627327384477
   %2088 = lshr i64 %2087, %1659
-  %2089 = getelementptr inbounds nuw i32, ptr %14, i64 %2088
+  %2089 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2088
   store i32 %2086, ptr %2089, align 4, !tbaa !22
   %2090 = mul i64 %.val26.i754, -3523014627193167104
   %2091 = lshr i64 %2090, %1661
-  %2092 = getelementptr inbounds nuw i32, ptr %18, i64 %2091
+  %2092 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %2091
   store i32 %2077, ptr %2092, align 4, !tbaa !22
   %2093 = getelementptr inbounds i8, ptr %2075, i64 -1
   %2094 = ptrtoint ptr %2093 to i64
@@ -5024,7 +5024,7 @@ ZSTD_storeSeqOnly.exit14.i745:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val21.i756 = load i64, ptr %2093, align 1, !tbaa !23
   %2097 = mul i64 %.val21.i756, -3523014627193167104
   %2098 = lshr i64 %2097, %1661
-  %2099 = getelementptr inbounds nuw i32, ptr %18, i64 %2098
+  %2099 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %2098
   store i32 %2096, ptr %2099, align 4, !tbaa !22
   br label %2100
 
@@ -5148,11 +5148,11 @@ ZSTD_count.exit173.i774:                          ; preds = %2145, %.thread63.i1
   %.2.i.val20.i776 = load i64, ptr %.2.i367.i757, align 1, !tbaa !23
   %2152 = mul i64 %.2.i.val20.i776, -3523014627193167104
   %2153 = lshr i64 %2152, %1661
-  %2154 = getelementptr inbounds nuw i32, ptr %18, i64 %2153
+  %2154 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %2153
   store i32 %2151, ptr %2154, align 4, !tbaa !22
   %2155 = mul i64 %.2.i.val20.i776, -3523014627327384477
   %2156 = lshr i64 %2155, %1659
-  %2157 = getelementptr inbounds nuw i32, ptr %14, i64 %2156
+  %2157 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2156
   store i32 %2151, ptr %2157, align 4, !tbaa !22
   %.not.i7.i777 = icmp ugt ptr %.2.i367.i757, %1665
   br i1 %.not.i7.i777, label %ZSTD_storeSeq.exit8.i780, label %2158
@@ -5379,11 +5379,11 @@ define i64 @ZSTD_compressBlock_doubleFast_dictMatchState(ptr noundef readonly ca
   %109 = lshr i64 %103, %89
   %110 = lshr i32 %106, %90
   %111 = lshr i64 %109, 8
-  %112 = getelementptr inbounds nuw i32, ptr %43, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !22
   %114 = lshr i32 %110, 8
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %45, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !22
   %118 = zext i32 %113 to i64
   %119 = xor i64 %109, %118
@@ -5395,9 +5395,9 @@ define i64 @ZSTD_compressBlock_doubleFast_dictMatchState(ptr noundef readonly ca
   %123 = ptrtoint ptr %.0.i254.i to i64
   %124 = sub i64 %123, %20
   %125 = trunc i64 %124 to i32
-  %126 = getelementptr inbounds nuw i32, ptr %10, i64 %104
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %104
   %127 = load i32, ptr %126, align 4, !tbaa !22
-  %128 = getelementptr inbounds nuw i32, ptr %14, i64 %108
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %108
   %129 = load i32, ptr %128, align 4, !tbaa !22
   %130 = zext i32 %127 to i64
   %131 = getelementptr inbounds nuw i8, ptr %18, i64 %130
@@ -5774,10 +5774,10 @@ ZSTD_count.exit.i:                                ; preds = %246, %.thread63.i.i
   %312 = mul i64 %.val22.i, -3523014627327384477
   %313 = lshr i64 %312, %86
   %314 = lshr i64 %312, %89
-  %315 = getelementptr inbounds nuw i32, ptr %10, i64 %313
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %313
   %316 = load i32, ptr %315, align 4, !tbaa !22
   %317 = lshr i64 %314, 8
-  %318 = getelementptr inbounds nuw i32, ptr %43, i64 %317
+  %318 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %317
   %319 = load i32, ptr %318, align 4, !tbaa !22
   %320 = zext i32 %319 to i64
   %321 = xor i64 %314, %320
@@ -6288,7 +6288,7 @@ ZSTD_storeSeqOnly.exit.i.i:                       ; preds = %ZSTD_storeSeqOnly.e
   %.val25.i = load i64, ptr %554, align 1, !tbaa !23
   %555 = mul i64 %.val25.i, -3523014627327384477
   %556 = lshr i64 %555, %86
-  %557 = getelementptr inbounds nuw i32, ptr %10, i64 %556
+  %557 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %556
   store i32 %552, ptr %557, align 4, !tbaa !22
   %558 = getelementptr inbounds i8, ptr %550, i64 -2
   %559 = ptrtoint ptr %558 to i64
@@ -6297,13 +6297,13 @@ ZSTD_storeSeqOnly.exit.i.i:                       ; preds = %ZSTD_storeSeqOnly.e
   %.val24.i = load i64, ptr %558, align 1, !tbaa !23
   %562 = mul i64 %.val24.i, -3523014627327384477
   %563 = lshr i64 %562, %86
-  %564 = getelementptr inbounds nuw i32, ptr %10, i64 %563
+  %564 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %563
   store i32 %561, ptr %564, align 4, !tbaa !22
   %.val11.i = load i32, ptr %554, align 1, !tbaa !22
   %565 = mul i32 %.val11.i, -1640531535
   %566 = lshr i32 %565, %87
   %567 = zext i32 %566 to i64
-  %568 = getelementptr inbounds nuw i32, ptr %14, i64 %567
+  %568 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %567
   store i32 %552, ptr %568, align 4, !tbaa !22
   %569 = getelementptr inbounds i8, ptr %550, i64 -1
   %570 = ptrtoint ptr %569 to i64
@@ -6313,7 +6313,7 @@ ZSTD_storeSeqOnly.exit.i.i:                       ; preds = %ZSTD_storeSeqOnly.e
   %573 = mul i32 %.val10.i, -1640531535
   %574 = lshr i32 %573, %87
   %575 = zext i32 %574 to i64
-  %576 = getelementptr inbounds nuw i32, ptr %14, i64 %575
+  %576 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %575
   store i32 %572, ptr %576, align 4, !tbaa !22
   br label %577
 
@@ -6596,12 +6596,12 @@ ZSTD_storeSeq.exit.i.i:                           ; preds = %682, %ZSTD_count_2s
   %699 = mul i32 %.16.i.val9.i, -1640531535
   %700 = lshr i32 %699, %87
   %701 = zext i32 %700 to i64
-  %702 = getelementptr inbounds nuw i32, ptr %14, i64 %701
+  %702 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %701
   store i32 %581, ptr %702, align 4, !tbaa !22
   %.16.i.val23.i = load i64, ptr %.3382.i249.i, align 1, !tbaa !23
   %703 = mul i64 %.16.i.val23.i, -3523014627327384477
   %704 = lshr i64 %703, %86
-  %705 = getelementptr inbounds nuw i32, ptr %10, i64 %704
+  %705 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %704
   store i32 %581, ptr %705, align 4, !tbaa !22
   %706 = getelementptr i8, ptr %.3382.i249.i, i64 %.0.i121.i
   %707 = getelementptr i8, ptr %706, i64 4
@@ -6696,10 +6696,10 @@ ZSTD_compressBlock_doubleFast_dictMatchState_generic.exit.loopexit.i: ; preds = 
   %751 = lshr i64 %747, %732
   %752 = lshr i64 %749, %734
   %753 = lshr i64 %751, 8
-  %754 = getelementptr inbounds nuw i32, ptr %43, i64 %753
+  %754 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %753
   %755 = load i32, ptr %754, align 4, !tbaa !22
   %756 = lshr i64 %752, 8
-  %757 = getelementptr inbounds nuw i32, ptr %45, i64 %756
+  %757 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %756
   %758 = load i32, ptr %757, align 4, !tbaa !22
   %759 = zext i32 %755 to i64
   %760 = xor i64 %751, %759
@@ -6712,9 +6712,9 @@ ZSTD_compressBlock_doubleFast_dictMatchState_generic.exit.loopexit.i: ; preds = 
   %765 = ptrtoint ptr %.0.i254.i41 to i64
   %766 = sub i64 %765, %20
   %767 = trunc i64 %766 to i32
-  %768 = getelementptr inbounds nuw i32, ptr %10, i64 %748
+  %768 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %748
   %769 = load i32, ptr %768, align 4, !tbaa !22
-  %770 = getelementptr inbounds nuw i32, ptr %14, i64 %750
+  %770 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %750
   %771 = load i32, ptr %770, align 4, !tbaa !22
   %772 = zext i32 %769 to i64
   %773 = getelementptr inbounds nuw i8, ptr %18, i64 %772
@@ -7091,10 +7091,10 @@ ZSTD_count.exit.i273:                             ; preds = %888, %.thread63.i.i
   %954 = mul i64 %.val22.i64, -3523014627327384477
   %955 = lshr i64 %954, %728
   %956 = lshr i64 %954, %732
-  %957 = getelementptr inbounds nuw i32, ptr %10, i64 %955
+  %957 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %955
   %958 = load i32, ptr %957, align 4, !tbaa !22
   %959 = lshr i64 %956, 8
-  %960 = getelementptr inbounds nuw i32, ptr %43, i64 %959
+  %960 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %959
   %961 = load i32, ptr %960, align 4, !tbaa !22
   %962 = zext i32 %961 to i64
   %963 = xor i64 %956, %962
@@ -7605,7 +7605,7 @@ ZSTD_storeSeqOnly.exit.i.i86:                     ; preds = %ZSTD_storeSeqOnly.e
   %.val25.i94 = load i64, ptr %1196, align 1, !tbaa !23
   %1197 = mul i64 %.val25.i94, -3523014627327384477
   %1198 = lshr i64 %1197, %728
-  %1199 = getelementptr inbounds nuw i32, ptr %10, i64 %1198
+  %1199 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1198
   store i32 %1194, ptr %1199, align 4, !tbaa !22
   %1200 = getelementptr inbounds i8, ptr %1192, i64 -2
   %1201 = ptrtoint ptr %1200 to i64
@@ -7614,11 +7614,11 @@ ZSTD_storeSeqOnly.exit.i.i86:                     ; preds = %ZSTD_storeSeqOnly.e
   %.val24.i95 = load i64, ptr %1200, align 1, !tbaa !23
   %1204 = mul i64 %.val24.i95, -3523014627327384477
   %1205 = lshr i64 %1204, %728
-  %1206 = getelementptr inbounds nuw i32, ptr %10, i64 %1205
+  %1206 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1205
   store i32 %1203, ptr %1206, align 4, !tbaa !22
   %1207 = mul i64 %.val25.i94, -3523014627271114752
   %1208 = lshr i64 %1207, %730
-  %1209 = getelementptr inbounds nuw i32, ptr %14, i64 %1208
+  %1209 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1208
   store i32 %1194, ptr %1209, align 4, !tbaa !22
   %1210 = getelementptr inbounds i8, ptr %1192, i64 -1
   %1211 = ptrtoint ptr %1210 to i64
@@ -7627,7 +7627,7 @@ ZSTD_storeSeqOnly.exit.i.i86:                     ; preds = %ZSTD_storeSeqOnly.e
   %.val17.i = load i64, ptr %1210, align 1, !tbaa !23
   %1214 = mul i64 %.val17.i, -3523014627271114752
   %1215 = lshr i64 %1214, %730
-  %1216 = getelementptr inbounds nuw i32, ptr %14, i64 %1215
+  %1216 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1215
   store i32 %1213, ptr %1216, align 4, !tbaa !22
   br label %1217
 
@@ -7909,11 +7909,11 @@ ZSTD_storeSeq.exit.i.i119:                        ; preds = %1322, %ZSTD_count_2
   %.16.i.val16.i = load i64, ptr %.3382.i249.i96, align 1, !tbaa !23
   %1339 = mul i64 %.16.i.val16.i, -3523014627271114752
   %1340 = lshr i64 %1339, %730
-  %1341 = getelementptr inbounds nuw i32, ptr %14, i64 %1340
+  %1341 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1340
   store i32 %1221, ptr %1341, align 4, !tbaa !22
   %1342 = mul i64 %.16.i.val16.i, -3523014627327384477
   %1343 = lshr i64 %1342, %728
-  %1344 = getelementptr inbounds nuw i32, ptr %10, i64 %1343
+  %1344 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1343
   store i32 %1221, ptr %1344, align 4, !tbaa !22
   %1345 = getelementptr i8, ptr %.3382.i249.i96, i64 %.0.i121.i115
   %1346 = getelementptr i8, ptr %1345, i64 4
@@ -8008,10 +8008,10 @@ ZSTD_compressBlock_doubleFast_dictMatchState_generic.exit.loopexit.i58: ; preds 
   %1390 = lshr i64 %1386, %1371
   %1391 = lshr i64 %1388, %1373
   %1392 = lshr i64 %1390, 8
-  %1393 = getelementptr inbounds nuw i32, ptr %43, i64 %1392
+  %1393 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1392
   %1394 = load i32, ptr %1393, align 4, !tbaa !22
   %1395 = lshr i64 %1391, 8
-  %1396 = getelementptr inbounds nuw i32, ptr %45, i64 %1395
+  %1396 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %1395
   %1397 = load i32, ptr %1396, align 4, !tbaa !22
   %1398 = zext i32 %1394 to i64
   %1399 = xor i64 %1390, %1398
@@ -8024,9 +8024,9 @@ ZSTD_compressBlock_doubleFast_dictMatchState_generic.exit.loopexit.i58: ; preds 
   %1404 = ptrtoint ptr %.0.i254.i342 to i64
   %1405 = sub i64 %1404, %20
   %1406 = trunc i64 %1405 to i32
-  %1407 = getelementptr inbounds nuw i32, ptr %10, i64 %1387
+  %1407 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1387
   %1408 = load i32, ptr %1407, align 4, !tbaa !22
-  %1409 = getelementptr inbounds nuw i32, ptr %14, i64 %1389
+  %1409 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1389
   %1410 = load i32, ptr %1409, align 4, !tbaa !22
   %1411 = zext i32 %1408 to i64
   %1412 = getelementptr inbounds nuw i8, ptr %18, i64 %1411
@@ -8403,10 +8403,10 @@ ZSTD_count.exit.i579:                             ; preds = %1527, %.thread63.i.
   %1593 = mul i64 %.val22.i366, -3523014627327384477
   %1594 = lshr i64 %1593, %1367
   %1595 = lshr i64 %1593, %1371
-  %1596 = getelementptr inbounds nuw i32, ptr %10, i64 %1594
+  %1596 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1594
   %1597 = load i32, ptr %1596, align 4, !tbaa !22
   %1598 = lshr i64 %1595, 8
-  %1599 = getelementptr inbounds nuw i32, ptr %43, i64 %1598
+  %1599 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %1598
   %1600 = load i32, ptr %1599, align 4, !tbaa !22
   %1601 = zext i32 %1600 to i64
   %1602 = xor i64 %1595, %1601
@@ -8917,7 +8917,7 @@ ZSTD_storeSeqOnly.exit.i.i389:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val25.i397 = load i64, ptr %1835, align 1, !tbaa !23
   %1836 = mul i64 %.val25.i397, -3523014627327384477
   %1837 = lshr i64 %1836, %1367
-  %1838 = getelementptr inbounds nuw i32, ptr %10, i64 %1837
+  %1838 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1837
   store i32 %1833, ptr %1838, align 4, !tbaa !22
   %1839 = getelementptr inbounds i8, ptr %1831, i64 -2
   %1840 = ptrtoint ptr %1839 to i64
@@ -8926,11 +8926,11 @@ ZSTD_storeSeqOnly.exit.i.i389:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val24.i398 = load i64, ptr %1839, align 1, !tbaa !23
   %1843 = mul i64 %.val24.i398, -3523014627327384477
   %1844 = lshr i64 %1843, %1367
-  %1845 = getelementptr inbounds nuw i32, ptr %10, i64 %1844
+  %1845 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1844
   store i32 %1842, ptr %1845, align 4, !tbaa !22
   %1846 = mul i64 %.val25.i397, -3523014627193847808
   %1847 = lshr i64 %1846, %1369
-  %1848 = getelementptr inbounds nuw i32, ptr %14, i64 %1847
+  %1848 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1847
   store i32 %1833, ptr %1848, align 4, !tbaa !22
   %1849 = getelementptr inbounds i8, ptr %1831, i64 -1
   %1850 = ptrtoint ptr %1849 to i64
@@ -8939,7 +8939,7 @@ ZSTD_storeSeqOnly.exit.i.i389:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val17.i399 = load i64, ptr %1849, align 1, !tbaa !23
   %1853 = mul i64 %.val17.i399, -3523014627193847808
   %1854 = lshr i64 %1853, %1369
-  %1855 = getelementptr inbounds nuw i32, ptr %14, i64 %1854
+  %1855 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1854
   store i32 %1852, ptr %1855, align 4, !tbaa !22
   br label %1856
 
@@ -9221,11 +9221,11 @@ ZSTD_storeSeq.exit.i.i423:                        ; preds = %1961, %ZSTD_count_2
   %.16.i.val16.i424 = load i64, ptr %.3382.i249.i400, align 1, !tbaa !23
   %1978 = mul i64 %.16.i.val16.i424, -3523014627193847808
   %1979 = lshr i64 %1978, %1369
-  %1980 = getelementptr inbounds nuw i32, ptr %14, i64 %1979
+  %1980 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %1979
   store i32 %1860, ptr %1980, align 4, !tbaa !22
   %1981 = mul i64 %.16.i.val16.i424, -3523014627327384477
   %1982 = lshr i64 %1981, %1367
-  %1983 = getelementptr inbounds nuw i32, ptr %10, i64 %1982
+  %1983 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1982
   store i32 %1860, ptr %1983, align 4, !tbaa !22
   %1984 = getelementptr i8, ptr %.3382.i249.i400, i64 %.0.i121.i419
   %1985 = getelementptr i8, ptr %1984, i64 4
@@ -9320,10 +9320,10 @@ ZSTD_compressBlock_doubleFast_dictMatchState_generic.exit.loopexit.i360: ; preds
   %2029 = lshr i64 %2025, %2010
   %2030 = lshr i64 %2027, %2012
   %2031 = lshr i64 %2029, 8
-  %2032 = getelementptr inbounds nuw i32, ptr %43, i64 %2031
+  %2032 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2031
   %2033 = load i32, ptr %2032, align 4, !tbaa !22
   %2034 = lshr i64 %2030, 8
-  %2035 = getelementptr inbounds nuw i32, ptr %45, i64 %2034
+  %2035 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %2034
   %2036 = load i32, ptr %2035, align 4, !tbaa !22
   %2037 = zext i32 %2033 to i64
   %2038 = xor i64 %2029, %2037
@@ -9336,9 +9336,9 @@ ZSTD_compressBlock_doubleFast_dictMatchState_generic.exit.loopexit.i360: ; preds
   %2043 = ptrtoint ptr %.0.i254.i648 to i64
   %2044 = sub i64 %2043, %20
   %2045 = trunc i64 %2044 to i32
-  %2046 = getelementptr inbounds nuw i32, ptr %10, i64 %2026
+  %2046 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %2026
   %2047 = load i32, ptr %2046, align 4, !tbaa !22
-  %2048 = getelementptr inbounds nuw i32, ptr %14, i64 %2028
+  %2048 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2028
   %2049 = load i32, ptr %2048, align 4, !tbaa !22
   %2050 = zext i32 %2047 to i64
   %2051 = getelementptr inbounds nuw i8, ptr %18, i64 %2050
@@ -9715,10 +9715,10 @@ ZSTD_count.exit.i885:                             ; preds = %2166, %.thread63.i.
   %2232 = mul i64 %.val22.i672, -3523014627327384477
   %2233 = lshr i64 %2232, %2006
   %2234 = lshr i64 %2232, %2010
-  %2235 = getelementptr inbounds nuw i32, ptr %10, i64 %2233
+  %2235 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %2233
   %2236 = load i32, ptr %2235, align 4, !tbaa !22
   %2237 = lshr i64 %2234, 8
-  %2238 = getelementptr inbounds nuw i32, ptr %43, i64 %2237
+  %2238 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %2237
   %2239 = load i32, ptr %2238, align 4, !tbaa !22
   %2240 = zext i32 %2239 to i64
   %2241 = xor i64 %2234, %2240
@@ -10229,7 +10229,7 @@ ZSTD_storeSeqOnly.exit.i.i695:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val25.i703 = load i64, ptr %2474, align 1, !tbaa !23
   %2475 = mul i64 %.val25.i703, -3523014627327384477
   %2476 = lshr i64 %2475, %2006
-  %2477 = getelementptr inbounds nuw i32, ptr %10, i64 %2476
+  %2477 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %2476
   store i32 %2472, ptr %2477, align 4, !tbaa !22
   %2478 = getelementptr inbounds i8, ptr %2470, i64 -2
   %2479 = ptrtoint ptr %2478 to i64
@@ -10238,11 +10238,11 @@ ZSTD_storeSeqOnly.exit.i.i695:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val24.i704 = load i64, ptr %2478, align 1, !tbaa !23
   %2482 = mul i64 %.val24.i704, -3523014627327384477
   %2483 = lshr i64 %2482, %2006
-  %2484 = getelementptr inbounds nuw i32, ptr %10, i64 %2483
+  %2484 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %2483
   store i32 %2481, ptr %2484, align 4, !tbaa !22
   %2485 = mul i64 %.val25.i703, -3523014627193167104
   %2486 = lshr i64 %2485, %2008
-  %2487 = getelementptr inbounds nuw i32, ptr %14, i64 %2486
+  %2487 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2486
   store i32 %2472, ptr %2487, align 4, !tbaa !22
   %2488 = getelementptr inbounds i8, ptr %2470, i64 -1
   %2489 = ptrtoint ptr %2488 to i64
@@ -10251,7 +10251,7 @@ ZSTD_storeSeqOnly.exit.i.i695:                    ; preds = %ZSTD_storeSeqOnly.e
   %.val17.i705 = load i64, ptr %2488, align 1, !tbaa !23
   %2492 = mul i64 %.val17.i705, -3523014627193167104
   %2493 = lshr i64 %2492, %2008
-  %2494 = getelementptr inbounds nuw i32, ptr %14, i64 %2493
+  %2494 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2493
   store i32 %2491, ptr %2494, align 4, !tbaa !22
   br label %2495
 
@@ -10533,11 +10533,11 @@ ZSTD_storeSeq.exit.i.i729:                        ; preds = %2600, %ZSTD_count_2
   %.16.i.val16.i730 = load i64, ptr %.3382.i249.i706, align 1, !tbaa !23
   %2617 = mul i64 %.16.i.val16.i730, -3523014627193167104
   %2618 = lshr i64 %2617, %2008
-  %2619 = getelementptr inbounds nuw i32, ptr %14, i64 %2618
+  %2619 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2618
   store i32 %2499, ptr %2619, align 4, !tbaa !22
   %2620 = mul i64 %.16.i.val16.i730, -3523014627327384477
   %2621 = lshr i64 %2620, %2006
-  %2622 = getelementptr inbounds nuw i32, ptr %10, i64 %2621
+  %2622 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %2621
   store i32 %2499, ptr %2622, align 4, !tbaa !22
   %2623 = getelementptr i8, ptr %.3382.i249.i706, i64 %.0.i121.i725
   %2624 = getelementptr i8, ptr %2623, i64 4
@@ -10924,7 +10924,7 @@ default.unreachable:                              ; preds = %367, %ZSTD_storeSeq
 ZSTD_hashPtr.exit358:                             ; preds = %62, %66, %69, %72
   %.0306.val400 = phi i64 [ %.0306.val400.pre, %62 ], [ %.0306.val395, %72 ], [ %.0306.val387, %66 ], [ %.0306.val391, %69 ]
   %.0.i357 = phi i64 [ %65, %62 ], [ %74, %72 ], [ %68, %66 ], [ %71, %69 ]
-  %75 = getelementptr inbounds nuw i32, ptr %13, i64 %.0.i357
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.0.i357
   %76 = load i32, ptr %75, align 4, !tbaa !22
   %77 = icmp ult i32 %76, %36
   %78 = select i1 %77, ptr %40, ptr %19
@@ -10932,7 +10932,7 @@ ZSTD_hashPtr.exit358:                             ; preds = %62, %66, %69, %72
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 %79
   %81 = mul i64 %.0306.val400, -3523014627327384477
   %82 = lshr i64 %81, %52
-  %83 = getelementptr inbounds nuw i32, ptr %9, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !22
   %85 = icmp ult i32 %84, %36
   %86 = select i1 %85, ptr %40, ptr %19
@@ -11278,7 +11278,7 @@ ZSTD_storeSeq.exit362:                            ; preds = %202, %.lr.ph.i431, 
   %.val401 = load i64, ptr %244, align 1, !tbaa !23
   %245 = mul i64 %.val401, -3523014627327384477
   %246 = lshr i64 %245, %52
-  %247 = getelementptr inbounds nuw i32, ptr %9, i64 %246
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %246
   %248 = load i32, ptr %247, align 4, !tbaa !22
   %249 = icmp ult i32 %248, %36
   %250 = select i1 %249, ptr %40, ptr %19
@@ -11530,7 +11530,7 @@ ZSTD_storeSeqOnly.exit:                           ; preds = %ZSTD_storeSeqOnly.e
   %.val402 = load i64, ptr %370, align 1, !tbaa !23
   %371 = mul i64 %.val402, -3523014627327384477
   %372 = lshr i64 %371, %52
-  %373 = getelementptr inbounds nuw i32, ptr %9, i64 %372
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %372
   store i32 %368, ptr %373, align 4, !tbaa !22
   %374 = getelementptr inbounds i8, ptr %366, i64 -2
   %375 = ptrtoint ptr %374 to i64
@@ -11539,7 +11539,7 @@ ZSTD_storeSeqOnly.exit:                           ; preds = %ZSTD_storeSeqOnly.e
   %.val403 = load i64, ptr %374, align 1, !tbaa !23
   %378 = mul i64 %.val403, -3523014627327384477
   %379 = lshr i64 %378, %52
-  %380 = getelementptr inbounds nuw i32, ptr %9, i64 %379
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %379
   store i32 %377, ptr %380, align 4, !tbaa !22
   switch i32 %5, label %default.unreachable [
     i32 7, label %ZSTD_hashPtr.exit352.thread471
@@ -11551,7 +11551,7 @@ ZSTD_storeSeqOnly.exit:                           ; preds = %ZSTD_storeSeqOnly.e
 ZSTD_hashPtr.exit352.thread467:                   ; preds = %367
   %381 = mul i64 %.val402, -3523014627271114752
   %382 = lshr i64 %381, %50
-  %383 = getelementptr inbounds nuw i32, ptr %13, i64 %382
+  %383 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %382
   store i32 %368, ptr %383, align 4, !tbaa !22
   %384 = getelementptr inbounds i8, ptr %366, i64 -1
   %.val389 = load i64, ptr %384, align 1, !tbaa !23
@@ -11562,7 +11562,7 @@ ZSTD_hashPtr.exit352.thread467:                   ; preds = %367
 ZSTD_hashPtr.exit352.thread469:                   ; preds = %367
   %387 = mul i64 %.val402, -3523014627193847808
   %388 = lshr i64 %387, %50
-  %389 = getelementptr inbounds nuw i32, ptr %13, i64 %388
+  %389 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %388
   store i32 %368, ptr %389, align 4, !tbaa !22
   %390 = getelementptr inbounds i8, ptr %366, i64 -1
   %.val393 = load i64, ptr %390, align 1, !tbaa !23
@@ -11573,7 +11573,7 @@ ZSTD_hashPtr.exit352.thread469:                   ; preds = %367
 ZSTD_hashPtr.exit352.thread471:                   ; preds = %367
   %393 = mul i64 %.val402, -3523014627193167104
   %394 = lshr i64 %393, %50
-  %395 = getelementptr inbounds nuw i32, ptr %13, i64 %394
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %394
   store i32 %368, ptr %395, align 4, !tbaa !22
   %396 = getelementptr inbounds i8, ptr %366, i64 -1
   %.val397 = load i64, ptr %396, align 1, !tbaa !23
@@ -11586,7 +11586,7 @@ ZSTD_hashPtr.exit352:                             ; preds = %367
   %399 = mul i32 %.val380, -1640531535
   %400 = lshr i32 %399, %48
   %401 = zext i32 %400 to i64
-  %402 = getelementptr inbounds nuw i32, ptr %13, i64 %401
+  %402 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %401
   store i32 %368, ptr %402, align 4, !tbaa !22
   %403 = getelementptr inbounds i8, ptr %366, i64 -1
   %.val381 = load i32, ptr %403, align 1, !tbaa !22
@@ -11601,7 +11601,7 @@ ZSTD_hashPtr.exit352:                             ; preds = %367
   %.pn = ptrtoint ptr %.pn.in to i64
   %.in = sub i64 %.pn, %21
   %407 = trunc i64 %.in to i32
-  %408 = getelementptr inbounds nuw i32, ptr %13, i64 %.0.i349
+  %408 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.0.i349
   store i32 %407, ptr %408, align 4, !tbaa !22
   br label %.lr.ph524
 
@@ -11708,11 +11708,11 @@ ZSTD_storeSeqOnly.exit375:                        ; preds = %ZSTD_storeSeq.exit,
 456:                                              ; preds = %453, %450, %447, %443
   %.8.val407 = phi i64 [ %.8.val407.pre, %443 ], [ %.8.val398, %453 ], [ %.8.val390, %447 ], [ %.8.val394, %450 ]
   %.0.i = phi i64 [ %446, %443 ], [ %455, %453 ], [ %449, %447 ], [ %452, %450 ]
-  %457 = getelementptr inbounds nuw i32, ptr %13, i64 %.0.i
+  %457 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.0.i
   store i32 %412, ptr %457, align 4, !tbaa !22
   %458 = mul i64 %.8.val407, -3523014627327384477
   %459 = lshr i64 %458, %52
-  %460 = getelementptr inbounds nuw i32, ptr %9, i64 %459
+  %460 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %459
   store i32 %412, ptr %460, align 4, !tbaa !22
   %461 = getelementptr i8, ptr %.3310523, i64 %426
   %462 = getelementptr i8, ptr %461, i64 4

@@ -139,7 +139,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
 
 26:                                               ; preds = %.lr.ph, %.critedge283.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge283.thread ]
-  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 61) #12
   %30 = ptrtoint ptr %29 to i64
@@ -192,7 +192,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.critedge283.thread
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %56, ptr noundef %2) #10
@@ -204,7 +204,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not256, label %64, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %62) #10
@@ -239,7 +239,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not280, label %81, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %79 = load ptr, ptr %78, align 8
   %80 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %79) #10
@@ -293,7 +293,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not262, label %102, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %100 = load ptr, ptr %99, align 8
   %101 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %100) #10
@@ -326,7 +326,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not265, label %116, label %112
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %114 = load ptr, ptr %113, align 8
   %115 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %114) #10
@@ -379,7 +379,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not279, label %.thread, label %139
 
 .thread:                                          ; preds = %132
-  %136 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %137 = load ptr, ptr %136, align 8
   %138 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.29, ptr noundef %137, ptr noundef %2) #10
@@ -402,7 +402,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not278, label %.thread286, label %150
 
 .thread286:                                       ; preds = %143
-  %147 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %148 = load ptr, ptr %147, align 8
   %149 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef %148, ptr noundef %2) #10
@@ -423,7 +423,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %or.cond, label %156, label %160
 
 156:                                              ; preds = %154
-  %157 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %158 = load ptr, ptr %157, align 8
   %159 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33, ptr noundef %158, ptr noundef %2) #10
@@ -457,7 +457,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %173, label %174, label %178
 
 174:                                              ; preds = %171
-  %175 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %176 = load ptr, ptr %175, align 8
   %177 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33, ptr noundef %176, ptr noundef %2) #10
@@ -602,7 +602,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not271, label %247, label %243
 
 243:                                              ; preds = %241
-  %244 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %245 = load ptr, ptr %244, align 8
   %246 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %245) #10
@@ -613,7 +613,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not272, label %252, label %248
 
 248:                                              ; preds = %247
-  %249 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %250 = load ptr, ptr %249, align 8
   %251 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, ptr noundef %250) #10
@@ -634,7 +634,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not269, label %262, label %258
 
 258:                                              ; preds = %256
-  %259 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %260 = load ptr, ptr %259, align 8
   %261 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %260) #10
@@ -645,7 +645,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not270, label %267, label %263
 
 263:                                              ; preds = %262
-  %264 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %265 = load ptr, ptr %264, align 8
   %266 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, ptr noundef %265) #10
@@ -672,7 +672,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %275, label %.critedge283.thread, label %276
 
 276:                                              ; preds = %273
-  %277 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %278 = load ptr, ptr %277, align 8
   %279 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.51, ptr noundef %278, ptr noundef %2) #10

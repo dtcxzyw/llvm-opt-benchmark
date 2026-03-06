@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"struct.std::pair" = type <{ ptr, i8, [7 x i8] }>
 
 $_ZN4YAML6detail13memory_holderC2Ev = comdat any
 
@@ -635,7 +634,7 @@ _ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %36, %_ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i
   store ptr %31, ptr %11, align 8, !tbaa !22
   store ptr %35, ptr %12, align 8, !tbaa !26
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %29
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %37, ptr %14, align 8, !tbaa !27
   br label %_ZN4YAML11NodeBuilder14RegisterAnchorEmRNS_6detail4nodeE.exit
 
@@ -896,7 +895,7 @@ _ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED
 define void @_ZN4YAML11NodeBuilder7OnAliasERKNS_4MarkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, ptr nonnull readnone align 4 captures(none) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !22
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %2
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %2
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   tail call void @_ZN4YAML11NodeBuilder4PushERNS_6detail4nodeE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(72) %7)
   tail call void @_ZN4YAML11NodeBuilder3PopEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
@@ -988,7 +987,7 @@ _ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %52, %_ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %47, ptr %3, align 8, !tbaa !22
   store ptr %51, ptr %5, align 8, !tbaa !26
-  %53 = getelementptr inbounds nuw ptr, ptr %47, i64 %45
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %45
   store ptr %53, ptr %31, align 8, !tbaa !27
   br label %_ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE9push_backEOS3_.exit
 
@@ -1062,7 +1061,7 @@ _ZNSt6vectorISt4pairIPN4YAML6detail4nodeEbESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.
 _ZNSt6vectorISt4pairIPN4YAML6detail4nodeEbESaIS5_EE17_M_realloc_insertIJS4_bEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %80, %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeEbESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i
   store ptr %74, ptr %20, align 8, !tbaa !44
   store ptr %79, ptr %21, align 8, !tbaa !94
-  %81 = getelementptr inbounds nuw %"struct.std::pair", ptr %74, i64 %72
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %81, ptr %56, align 8, !tbaa !97
   br label %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeEbESaIS5_EE12emplace_backIJS4_bEEEvDpOT_.exit
 
@@ -1121,7 +1120,7 @@ _ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i9: ; preds = %103, %_ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i7
   store ptr %98, ptr %3, align 8, !tbaa !22
   store ptr %102, ptr %5, align 8, !tbaa !26
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %82, align 8, !tbaa !27
   br label %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeEbESaIS5_EE12emplace_backIJS4_bEEEvDpOT_.exit
 
@@ -1264,7 +1263,7 @@ _ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %25, ptr %5, align 8, !tbaa !22
   store ptr %29, ptr %6, align 8, !tbaa !26
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !27
   br label %_ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE9push_backEOS3_.exit
 

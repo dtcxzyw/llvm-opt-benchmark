@@ -28,8 +28,8 @@ define hidden void @"_ZN4core3ptr126drop_in_place$LT$alloc..vec..Vec$LT$T$C$A$GT
   %10 = sub i64 %6, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !4, !noundef !3
-  %13 = getelementptr inbounds nuw { i32, i32 }, ptr %4, i64 %12
-  %14 = getelementptr inbounds nuw { i32, i32 }, ptr %4, i64 %9
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %9
   %15 = shl i64 %10, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull align 4 %14, i64 %15, i1 false), !noalias !4
   %16 = add i64 %10, %12

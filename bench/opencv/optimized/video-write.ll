@@ -1068,7 +1068,7 @@ _ZNSolsEPFRSoS_E.exit106:                         ; preds = %.noexc166
 
 436:                                              ; preds = %432
   %437 = load ptr, ptr %14, align 8, !tbaa !57
-  %438 = getelementptr inbounds nuw %"class.cv::Mat", ptr %437, i64 %indvars.iv
+  %438 = getelementptr inbounds nuw [96 x i8], ptr %437, i64 %indvars.iv
   %439 = load ptr, ptr %17, align 8, !tbaa !67
   %440 = load ptr, ptr %439, align 8, !tbaa !4
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 24

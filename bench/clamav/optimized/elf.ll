@@ -5,11 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.elf_file_hdr = type { %struct.elf_file_hdr64 }
 %struct.elf_file_hdr64 = type { [16 x i8], i16, i16, i32, i64, i64, i64, i32, i16, i16, i16, i16, i16, i16 }
-%struct.elf_program_hdr64 = type { i32, i32, i64, i64, i64, i64, i64, i64 }
-%struct.elf_program_hdr32 = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.elf_section_hdr64 = type { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }
-%struct.cli_exe_section = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.elf_section_hdr32 = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [16 x i8] c"in cli_scanelf\0A\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"ELF: File type: None\0A\00", align 1
@@ -652,7 +647,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph64(ptr noundef %0, ptr no
 .split.us:                                        ; preds = %.split.us.preheader, %59
   %indvars.iv195 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next196, %59 ]
   %.0140185.us = phi i64 [ %42, %.split.us.preheader ], [ %60, %59 ]
-  %53 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %45, i64 %indvars.iv195
+  %53 = getelementptr inbounds nuw [56 x i8], ptr %45, i64 %indvars.iv195
   %54 = load i64, ptr %51, align 8, !tbaa !24
   %or.cond180.not.us = icmp ult i64 %.0140185.us, %54
   br i1 %or.cond180.not.us, label %55, label %fmap_readn.exit.thread.loopexit
@@ -679,7 +674,7 @@ fmap_readn.exit.us:                               ; preds = %55
 .split:                                           ; preds = %.split.preheader, %106
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %106 ]
   %.0140185 = phi i64 [ %42, %.split.preheader ], [ %81, %106 ]
-  %61 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %47, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [56 x i8], ptr %47, i64 %indvars.iv
   %62 = load i64, ptr %49, align 8, !tbaa !24
   %or.cond180.not = icmp ult i64 %.0140185, %62
   %63 = trunc nuw nsw i64 %indvars.iv to i32
@@ -788,7 +783,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %118
   %indvars.iv125.i = phi i64 [ %indvars.iv.next126.i, %118 ], [ 0, %.lr.ph.i ]
-  %110 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %indvars.iv125.i
+  %110 = getelementptr inbounds nuw [56 x i8], ptr %108, i64 %indvars.iv125.i
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load i64, ptr %111, align 8, !tbaa !39
   %.not107.us.i = icmp ugt i64 %112, %23
@@ -808,7 +803,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 
 .thread.i:                                        ; preds = %.lr.ph.i, %128
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %128 ], [ 0, %.lr.ph.i ]
-  %119 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw [56 x i8], ptr %108, i64 %indvars.iv.i
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i64, ptr %120, align 8, !tbaa !39
   %122 = tail call i64 @llvm.bswap.i64(i64 %121)
@@ -830,7 +825,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 
 129:                                              ; preds = %.thread114.i
   %130 = and i64 %indvars.iv.i, 65535
-  %131 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %130
+  %131 = getelementptr inbounds nuw [56 x i8], ptr %108, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load i64, ptr %132, align 8, !tbaa !39
   %134 = tail call i64 @llvm.bswap.i64(i64 %133)
@@ -841,7 +836,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 
 .split.us.i:                                      ; preds = %113
   %138 = and i64 %indvars.iv125.i, 65535
-  %139 = getelementptr inbounds nuw %struct.elf_program_hdr64, ptr %108, i64 %138
+  %139 = getelementptr inbounds nuw [56 x i8], ptr %108, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %141 = load i64, ptr %140, align 8, !tbaa !39
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -1007,7 +1002,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr no
 .split.us:                                        ; preds = %.split.us.preheader, %60
   %indvars.iv163 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next164, %60 ]
   %.0108153.us = phi i32 [ %42, %.split.us.preheader ], [ %61, %60 ]
-  %53 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %45, i64 %indvars.iv163
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %indvars.iv163
   %54 = zext i32 %.0108153.us to i64
   %55 = load i64, ptr %51, align 8, !tbaa !24
   %or.cond148.not.us = icmp ugt i64 %55, %54
@@ -1035,7 +1030,7 @@ fmap_readn.exit.us:                               ; preds = %56
 .split:                                           ; preds = %.split.preheader, %108
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %108 ]
   %.0108153 = phi i32 [ %42, %.split.preheader ], [ %83, %108 ]
-  %62 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %47, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %47, i64 %indvars.iv
   %63 = zext i32 %.0108153 to i64
   %64 = load i64, ptr %49, align 8, !tbaa !24
   %or.cond148.not = icmp ugt i64 %64, %63
@@ -1145,7 +1140,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %120
   %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %120 ], [ 0, %.lr.ph.i ]
-  %112 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %indvars.iv85.i
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %110, i64 %indvars.iv85.i
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i32, ptr %113, align 4, !tbaa !57
   %.not67.us.i = icmp ugt i32 %114, %23
@@ -1165,7 +1160,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 
 .thread.i:                                        ; preds = %.lr.ph.i, %130
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %130 ], [ 0, %.lr.ph.i ]
-  %121 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %110, i64 %indvars.iv.i
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i32, ptr %122, align 4, !tbaa !57
   %124 = tail call i32 @llvm.bswap.i32(i32 %123)
@@ -1187,7 +1182,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 
 131:                                              ; preds = %.thread74.i
   %132 = and i64 %indvars.iv.i, 65535
-  %133 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %132
+  %133 = getelementptr inbounds nuw [32 x i8], ptr %110, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load i32, ptr %134, align 4, !tbaa !57
   %136 = tail call i32 @llvm.bswap.i32(i32 %135)
@@ -1198,7 +1193,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 
 .split.us.i:                                      ; preds = %115
   %140 = and i64 %indvars.iv85.i, 65535
-  %141 = getelementptr inbounds nuw %struct.elf_program_hdr32, ptr %110, i64 %140
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %110, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load i32, ptr %142, align 4, !tbaa !57
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 4
@@ -1374,7 +1369,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr no
 54:                                               ; preds = %.lr.ph, %133
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %133 ]
   %.0188222 = phi i64 [ %38, %.lr.ph ], [ %72, %133 ]
-  %55 = getelementptr inbounds nuw %struct.elf_section_hdr64, ptr %48, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %indvars.iv
   %56 = load i64, ptr %52, align 8, !tbaa !24
   %or.cond220.not = icmp ult i64 %.0188222, %56
   br i1 %or.cond220.not, label %57, label %fmap_readn.exit.thread
@@ -1432,7 +1427,7 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
   %77 = tail call i64 @llvm.bswap.i64(i64 %75)
   %78 = trunc i64 %77 to i32
   %79 = load ptr, ptr %2, align 8, !tbaa !64
-  %80 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [36 x i8], ptr %79, i64 %indvars.iv
   store i32 %78, ptr %80, align 4, !tbaa !67
   %81 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %82 = load i64, ptr %81, align 8, !tbaa !69
@@ -1448,7 +1443,7 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
 89:                                               ; preds = %73
   %90 = trunc i64 %75 to i32
   %91 = load ptr, ptr %2, align 8, !tbaa !64
-  %92 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [36 x i8], ptr %91, i64 %indvars.iv
   store i32 %90, ptr %92, align 4, !tbaa !67
   %93 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %94 = load i64, ptr %93, align 8, !tbaa !69
@@ -1462,7 +1457,7 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
 99:                                               ; preds = %89, %76
   %100 = phi ptr [ %79, %76 ], [ %91, %89 ]
   %101 = phi i64 [ %88, %76 ], [ %98, %89 ]
-  %102 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %100, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [36 x i8], ptr %100, i64 %indvars.iv
   %103 = trunc i64 %101 to i32
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 12
   store i32 %103, ptr %104, align 4, !tbaa !72
@@ -1647,7 +1642,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr no
 54:                                               ; preds = %.lr.ph, %128
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %128 ]
   %.0141173 = phi i32 [ %38, %.lr.ph ], [ %73, %128 ]
-  %55 = getelementptr inbounds nuw %struct.elf_section_hdr32, ptr %48, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %48, i64 %indvars.iv
   %56 = zext i32 %.0141173 to i64
   %57 = load i64, ptr %52, align 8, !tbaa !24
   %or.cond172.not = icmp ugt i64 %57, %56
@@ -1705,7 +1700,7 @@ fmap_readn.exit.thread:                           ; preds = %58, %54, %fmap_read
 77:                                               ; preds = %74
   %78 = tail call i32 @llvm.bswap.i32(i32 %76)
   %79 = load ptr, ptr %2, align 8, !tbaa !64
-  %80 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [36 x i8], ptr %79, i64 %indvars.iv
   store i32 %78, ptr %80, align 4, !tbaa !67
   %81 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %82 = load i32, ptr %81, align 4, !tbaa !80
@@ -1719,7 +1714,7 @@ fmap_readn.exit.thread:                           ; preds = %58, %54, %fmap_read
 
 88:                                               ; preds = %74
   %89 = load ptr, ptr %2, align 8, !tbaa !64
-  %90 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [36 x i8], ptr %89, i64 %indvars.iv
   store i32 %76, ptr %90, align 4, !tbaa !67
   %91 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %92 = load i32, ptr %91, align 4, !tbaa !80
@@ -1732,7 +1727,7 @@ fmap_readn.exit.thread:                           ; preds = %58, %54, %fmap_read
 96:                                               ; preds = %88, %77
   %97 = phi ptr [ %79, %77 ], [ %89, %88 ]
   %98 = phi i32 [ %87, %77 ], [ %95, %88 ]
-  %99 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %97, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [36 x i8], ptr %97, i64 %indvars.iv
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 12
   store i32 %98, ptr %100, align 4, !tbaa !72
   br label %101

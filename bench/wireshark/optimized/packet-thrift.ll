@@ -1663,7 +1663,7 @@ define internal fastcc i32 @dissect_thrift_c_list_set(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %59
   %61 = zext nneg i32 %51 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.compact_struct_type_to_generic_type, i64 %61
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.compact_struct_type_to_generic_type, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %compact_struct_type_to_generic_type.exit
 
@@ -1936,7 +1936,7 @@ define internal fastcc i32 @dissect_thrift_b_linear(ptr noundef %0, ptr noundef 
 
 switch.lookup:                                    ; preds = %82
   %86 = zext nneg i32 %11 to i64
-  %87 = getelementptr ptr, ptr @switch.table.dissect_thrift_b_linear, i64 %86
+  %87 = getelementptr [8 x i8], ptr @switch.table.dissect_thrift_b_linear, i64 %86
   %switch.gep = getelementptr i8, ptr %87, i64 -104
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.096 = load i32, ptr %switch.load, align 4
@@ -2438,7 +2438,7 @@ define internal fastcc range(i32 0, 17) i32 @compact_struct_type_to_generic_type
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.compact_struct_type_to_generic_type, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.compact_struct_type_to_generic_type, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -5315,7 +5315,7 @@ define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 nound
 
 41:                                               ; preds = %21
   %42 = zext nneg i8 %9 to i64
-  %43 = getelementptr i16, ptr %8, i64 %42
+  %43 = getelementptr [2 x i8], ptr %8, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 64
   %.not.us = icmp eq i16 %45, 0
@@ -5377,7 +5377,7 @@ select.unfold.us:                                 ; preds = %49, %47, %18, %15
 
 60:                                               ; preds = %58
   %61 = zext nneg i8 %51 to i64
-  %62 = getelementptr i16, ptr %8, i64 %61
+  %62 = getelementptr [2 x i8], ptr %8, i64 %61
   %63 = load i16, ptr %62, align 2
   %64 = and i16 %63, 64
   %.not = icmp eq i16 %64, 0

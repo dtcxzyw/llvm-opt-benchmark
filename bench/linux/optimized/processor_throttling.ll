@@ -26,10 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.26 = type { i64 }
 %struct.acpi_processor_throttling_arg = type { ptr, i32, i8 }
 %struct.acpi_buffer = type { i64, ptr }
-%struct.acpi_processor_tx_tss = type { i64, i64, i64, i64, i64 }
-%union.acpi_object = type { %struct.anon.23 }
-%struct.anon.23 = type { i32, i32, i64, i32 }
-%struct.acpi_processor_tx = type { i16, i16 }
 
 @__param_str_ignore_tpc = internal constant [21 x i8] c"processor.ignore_tpc\00", align 16
 @param_ops_int = external dso_local constant %struct.kernel_param_ops, align 8
@@ -96,7 +92,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
 
 12:                                               ; preds = %8
   %13 = and i64 %9, 63
-  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
+  %14 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @processors to i64)
   %17 = inttoptr i64 %16 to ptr
@@ -135,7 +131,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
 
 37:                                               ; preds = %33
   %38 = and i64 %34, 63
-  %39 = getelementptr i64, ptr @__per_cpu_offset, i64 %38
+  %39 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, ptrtoint (ptr @processors to i64)
   %42 = inttoptr i64 %41 to ptr
@@ -191,7 +187,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
 
 72:                                               ; preds = %70
   %73 = and i64 %66, 63
-  %74 = getelementptr i64, ptr @__per_cpu_offset, i64 %73
+  %74 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = add i64 %75, ptrtoint (ptr @processors to i64)
   %77 = inttoptr i64 %76 to ptr
@@ -255,7 +251,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
 
 111:                                              ; preds = %109
   %112 = and i64 %106, 63
-  %113 = getelementptr i64, ptr @__per_cpu_offset, i64 %112
+  %113 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = add i64 %114, ptrtoint (ptr @processors to i64)
   %116 = inttoptr i64 %115 to ptr
@@ -331,7 +327,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
 
 157:                                              ; preds = %153
   %158 = and i64 %154, 63
-  %159 = getelementptr i64, ptr @__per_cpu_offset, i64 %158
+  %159 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %158
   %160 = load i64, ptr %159, align 8
   %161 = add i64 %160, ptrtoint (ptr @processors to i64)
   %162 = inttoptr i64 %161 to ptr
@@ -594,7 +590,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
 
 42:                                               ; preds = %38
   %43 = and i64 %39, 63
-  %44 = getelementptr i64, ptr @__per_cpu_offset, i64 %43
+  %44 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, ptrtoint (ptr @processors to i64)
   %47 = inttoptr i64 %46 to ptr
@@ -671,7 +667,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
 
 96:                                               ; preds = %92
   %97 = and i64 %93, 63
-  %98 = getelementptr i64, ptr @__per_cpu_offset, i64 %97
+  %98 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %97
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, ptrtoint (ptr @processors to i64)
   %101 = inttoptr i64 %100 to ptr
@@ -763,7 +759,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
 
 156:                                              ; preds = %152
   %157 = and i64 %153, 63
-  %158 = getelementptr i64, ptr @__per_cpu_offset, i64 %157
+  %158 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %157
   %159 = load i64, ptr %158, align 8
   %160 = add i64 %159, ptrtoint (ptr @processors to i64)
   %161 = inttoptr i64 %160 to ptr
@@ -842,7 +838,7 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
 
 209:                                              ; preds = %205
   %210 = and i64 %206, 63
-  %211 = getelementptr i64, ptr @__per_cpu_offset, i64 %210
+  %211 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %210
   %212 = load i64, ptr %211, align 8
   %213 = add i64 %212, ptrtoint (ptr @processors to i64)
   %214 = inttoptr i64 %213 to ptr
@@ -1052,11 +1048,11 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %109 = phi i32 [ 0, %101 ], [ %105, %104 ]
   %110 = load ptr, ptr %96, align 8
   %111 = sext i32 %109 to i64
-  %112 = getelementptr %struct.acpi_processor_tx_tss, ptr %110, i64 %111
+  %112 = getelementptr [40 x i8], ptr %110, i64 %111
   store i64 40, ptr %8, align 8
   store ptr %112, ptr %102, align 8
   %113 = load ptr, ptr %103, align 8
-  %114 = getelementptr %union.acpi_object, ptr %113, i64 %111
+  %114 = getelementptr [24 x i8], ptr %113, i64 %111
   %115 = call i32 @acpi_extract_package(ptr noundef %114, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %120, label %117
@@ -1193,7 +1189,7 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %174 = trunc i32 %173 to i16
   %175 = sub i16 1000, %174
   %176 = sext i32 %172 to i64
-  %177 = getelementptr %struct.acpi_processor_tx, ptr %170, i64 %176
+  %177 = getelementptr [4 x i8], ptr %170, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 2
   store i16 %175, ptr %178, align 2
   store i16 %175, ptr %177, align 4
@@ -1659,7 +1655,7 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
 61:                                               ; preds = %58, %55
   %62 = phi i32 [ 0, %55 ], [ %59, %58 ]
   %63 = sext i32 %62 to i64
-  %.split = getelementptr %struct.acpi_processor_tx_tss, ptr %57, i64 %63
+  %.split = getelementptr [40 x i8], ptr %57, i64 %63
   %64 = getelementptr i8, ptr %.split, i64 24
   %65 = load i64, ptr %64, align 8
   %66 = icmp eq i64 %65, %51
@@ -1732,7 +1728,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %30 = load ptr, ptr %29, align 8
   %31 = zext nneg i32 %1 to i64
-  %.split = getelementptr %struct.acpi_processor_tx_tss, ptr %30, i64 %31
+  %.split = getelementptr [40 x i8], ptr %30, i64 %31
   %32 = getelementptr i8, ptr %.split, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 651

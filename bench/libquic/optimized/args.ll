@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.argument = type { ptr, i32, ptr }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
@@ -92,7 +91,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   %26 = phi i64 [ %91, %84 ], [ %21, %.lr.ph137.preheader ]
   %27 = phi ptr [ %87, %84 ], [ %17, %.lr.ph137.preheader ]
   %.064136 = phi i64 [ %85, %84 ], [ 0, %.lr.ph137.preheader ]
-  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %.064136
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %.064136
   %29 = load ptr, ptr %2, align 8, !tbaa !22
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %.not132 = icmp eq i8 %30, 0
@@ -101,7 +100,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 31:                                               ; preds = %.lr.ph
   %32 = add i64 %.062133, 1
-  %33 = getelementptr inbounds nuw %struct.argument, ptr %2, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !22
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %.not = icmp eq i8 %35, 0
@@ -120,7 +119,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br label %.critedge.thread
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw %struct.argument, ptr %2, i64 %.062133
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.062133
   %43 = load ptr, ptr %6, align 8, !tbaa !6
   %.not10.i.i.i = icmp eq ptr %43, null
   br i1 %.not10.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread, label %.lr.ph.i.i.i
@@ -222,7 +221,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br label %.critedge.thread
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %77
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %77
   %83 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %28)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %82)
   br label %84
@@ -242,7 +241,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 93:                                               ; preds = %.lr.ph140, %.critedge80
   %94 = phi ptr [ %22, %.lr.ph140 ], [ %141, %.critedge80 ]
   %.061139 = phi i64 [ 0, %.lr.ph140 ], [ %139, %.critedge80 ]
-  %95 = getelementptr inbounds nuw %struct.argument, ptr %2, i64 %.061139
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.061139
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load i32, ptr %96, align 8, !tbaa !37
   %98 = icmp eq i32 %97, 0
@@ -380,7 +379,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.crit
 
 .critedge80:                                      ; preds = %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %139 = add i64 %.061139, 1
-  %140 = getelementptr inbounds nuw %struct.argument, ptr %2, i64 %139
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !22
   %142 = load i8, ptr %141, align 1, !tbaa !26
   %.not73 = icmp eq i8 %142, 0
@@ -507,13 +506,13 @@ define hidden void @_Z10PrintUsagePK8argument(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %4 = phi ptr [ %12, %.lr.ph ], [ %2, %1 ]
   %.07 = phi i64 [ %10, %.lr.ph ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw %struct.argument, ptr %0, i64 %.07
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.07
   %6 = load ptr, ptr @stderr, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %4, ptr noundef %8) #19
   %10 = add i64 %.07, 1
-  %11 = getelementptr inbounds nuw %struct.argument, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %13 = load i8, ptr %12, align 1, !tbaa !26
   %.not = icmp eq i8 %13, 0

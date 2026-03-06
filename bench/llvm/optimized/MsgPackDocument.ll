@@ -6,19 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::msgpack::DocNode" = type { ptr, %union.anon }
 %union.anon = type { %"class.llvm::StringRef" }
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.31" }
-%"struct.std::_Head_base.31" = type { ptr }
 %"class.llvm::msgpack::ArrayDocNode" = type { %"class.llvm::msgpack::DocNode" }
-%"class.std::unique_ptr.33" = type { %"struct.std::__uniq_ptr_data.34" }
-%"struct.std::__uniq_ptr_data.34" = type { %"class.std::__uniq_ptr_impl.35" }
-%"class.std::__uniq_ptr_impl.35" = type { %"class.std::tuple.36" }
-%"class.std::tuple.36" = type { %"struct.std::_Tuple_impl.37" }
-%"struct.std::_Tuple_impl.37" = type { %"struct.std::_Head_base.40" }
-%"struct.std::_Head_base.40" = type { ptr }
 %"class.llvm::msgpack::MapDocNode" = type { %"class.llvm::msgpack::DocNode" }
 %"class.llvm::MemoryBufferRef" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"class.llvm::Error" = type { ptr }
@@ -49,12 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.WriterStackLevel = type <{ %"class.llvm::msgpack::DocNode", %"struct.std::_Rb_tree_iterator", %"class.__gnu_cxx::__normal_iterator", i8, [7 x i8] }>
 %"struct.std::_Rb_tree_iterator" = type { ptr }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
-%"class.std::unique_ptr.55" = type { %"struct.std::__uniq_ptr_data.56" }
-%"struct.std::__uniq_ptr_data.56" = type { %"class.std::__uniq_ptr_impl.57" }
-%"class.std::__uniq_ptr_impl.57" = type { %"class.std::tuple.58" }
-%"class.std::tuple.58" = type { %"struct.std::_Tuple_impl.59" }
-%"struct.std::_Tuple_impl.59" = type { %"struct.std::_Head_base.62" }
-%"struct.std::_Head_base.62" = type { ptr }
 
 $_ZN4llvm7msgpack8Document12getArrayNodeEv = comdat any
 
@@ -170,7 +152,7 @@ _ZNSt6vectorISt10unique_ptrIS_IN4llvm7msgpack7DocNodeESaIS3_EESt14default_delete
 _ZNSt6vectorISt10unique_ptrIS_IN4llvm7msgpack7DocNodeESaIS3_EESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIS_IN4llvm7msgpack7DocNodeESaIS3_EESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i, %35
   store ptr %28, ptr %6, align 8, !tbaa !25, !noalias !13
   store ptr %34, ptr %8, align 8, !tbaa !19, !noalias !13
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %28, i64 %26
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %36, ptr %10, align 8, !tbaa !22, !noalias !13
   br label %_ZNSt10unique_ptrISt6vectorIN4llvm7msgpack7DocNodeESaIS3_EESt14default_deleteIS5_EED2Ev.exit
 
@@ -265,7 +247,7 @@ _ZNSt6vectorISt10unique_ptrIS_IN4llvm7msgpack7DocNodeESaIS3_EESt14default_delete
 _ZNSt6vectorISt10unique_ptrIS_IN4llvm7msgpack7DocNodeESaIS3_EESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIS_IN4llvm7msgpack7DocNodeESaIS3_EESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i, %34
   store ptr %27, ptr %5, align 8, !tbaa !25
   store ptr %33, ptr %7, align 8, !tbaa !19
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %27, i64 %25
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %35, ptr %9, align 8, !tbaa !22
   br label %_ZNSt10unique_ptrISt6vectorIN4llvm7msgpack7DocNodeESaIS3_EESt14default_deleteIS5_EED2Ev.exit
 
@@ -371,7 +353,7 @@ _ZNSt6vectorISt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES4_St4lessIS4_ESaISt4p
 _ZNSt6vectorISt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES4_St4lessIS4_ESaISt4pairIKS4_S4_EEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES4_St4lessIS4_ESaISt4pairIKS4_S4_EEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i, %38
   store ptr %31, ptr %4, align 8, !tbaa !66, !noalias !46
   store ptr %37, ptr %11, align 8, !tbaa !60, !noalias !46
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.33", ptr %31, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %39, ptr %13, align 8, !tbaa !63, !noalias !46
   br label %_ZNSt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES3_St4lessIS3_ESaISt4pairIKS3_S3_EEESt14default_deleteISA_EED2Ev.exit
 
@@ -472,7 +454,7 @@ _ZNSt6vectorISt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES4_St4lessIS4_ESaISt4p
 _ZNSt6vectorISt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES4_St4lessIS4_ESaISt4pairIKS4_S4_EEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES4_St4lessIS4_ESaISt4pairIKS4_S4_EEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i, %37
   store ptr %30, ptr %1, align 8, !tbaa !66
   store ptr %36, ptr %10, align 8, !tbaa !60
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.33", ptr %30, i64 %28
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %38, ptr %12, align 8, !tbaa !63
   br label %_ZNSt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES3_St4lessIS3_ESaISt4pairIKS3_S3_EEESt14default_deleteISA_EED2Ev.exit
 
@@ -1026,7 +1008,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpa
   br i1 %22, label %23, label %_ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE6resizeEmRKS2_.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %"class.llvm::msgpack::DocNode", ptr %8, i64 %14
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %14
   %.not.i.i = icmp eq ptr %7, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE6resizeEmRKS2_.exit, label %25
 
@@ -1042,7 +1024,7 @@ _ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE6resizeEmRKS2_.exit: ; preds = %19, 
 
 26:                                               ; preds = %_ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE6resizeEmRKS2_.exit, %2
   %27 = phi ptr [ %.pre3, %_ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE6resizeEmRKS2_.exit ], [ %8, %2 ]
-  %28 = getelementptr inbounds nuw %"class.llvm::msgpack::DocNode", ptr %27, i64 %1
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   ret ptr %28
 }
 
@@ -1187,7 +1169,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7msgpack8Document12readFromBlobENS_
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit, label %35, !prof !107
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds nuw %struct.StackLevel, ptr %.pre3.i, i64 %32
+  %36 = getelementptr inbounds nuw [72 x i8], ptr %.pre3.i, i64 %32
   %37 = icmp uge ptr %17, %.pre3.i
   %38 = icmp ult ptr %17, %36
   %spec.select.i.i.i.i.i = and i1 %37, %38
@@ -1212,7 +1194,7 @@ _ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit: ; pred
   %.016.i.i.i = phi ptr [ %17, %26 ], [ %44, %39 ], [ %17, %.critedge.i.i.i ]
   %46 = load i32, ptr %24, align 8, !tbaa !102
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %struct.StackLevel, ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [72 x i8], ptr %45, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %48, ptr noundef nonnull align 8 dereferenceable(72) %.016.i.i.i, i64 72, i1 false)
   %49 = load i32, ptr %24, align 8, !tbaa !102
   %50 = add i32 %49, 1
@@ -1374,7 +1356,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %73, %_ZNSt10unique_
 101:                                              ; preds = %99
   %102 = load ptr, ptr %15, align 8, !tbaa !99
   %103 = zext i32 %100 to i64
-  %104 = getelementptr inbounds nuw %struct.StackLevel, ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw [72 x i8], ptr %102, i64 %103
   %105 = getelementptr inbounds i8, ptr %104, i64 -72
   %106 = load ptr, ptr %105, align 8, !tbaa !3
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
@@ -1387,7 +1369,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %73, %_ZNSt10unique_
   %112 = load ptr, ptr %15, align 8, !tbaa !99
   %113 = load i32, ptr %24, align 8, !tbaa !102
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw %struct.StackLevel, ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [72 x i8], ptr %112, i64 %114
   %116 = getelementptr inbounds i8, ptr %115, i64 -48
   %117 = load i64, ptr %116, align 8, !tbaa !104
   %118 = add i64 %117, 1
@@ -1423,7 +1405,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %73, %_ZNSt10unique_
   br i1 %136, label %137, label %_ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE6resizeEmRKS2_.exit.i
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds nuw %"class.llvm::msgpack::DocNode", ptr %123, i64 %118
+  %138 = getelementptr inbounds nuw [24 x i8], ptr %123, i64 %118
   %.not.i.i.i35 = icmp eq ptr %122, %138
   br i1 %.not.i.i.i35, label %_ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE6resizeEmRKS2_.exit.i, label %139
 
@@ -1439,7 +1421,7 @@ _ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE6resizeEmRKS2_.exit.i: ; preds = %13
 
 _ZN4llvm7msgpack12ArrayDocNodeixEm.exit:          ; preds = %110, %_ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE6resizeEmRKS2_.exit.i
   %140 = phi ptr [ %.pre3.i34, %_ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE6resizeEmRKS2_.exit.i ], [ %123, %110 ]
-  %141 = getelementptr inbounds nuw %"class.llvm::msgpack::DocNode", ptr %140, i64 %117
+  %141 = getelementptr inbounds nuw [24 x i8], ptr %140, i64 %117
   br label %171
 
 142:                                              ; preds = %101
@@ -1447,7 +1429,7 @@ _ZN4llvm7msgpack12ArrayDocNodeixEm.exit:          ; preds = %110, %_ZNSt6vectorI
   %144 = load ptr, ptr %15, align 8, !tbaa !99
   %145 = load i32, ptr %24, align 8, !tbaa !102
   %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds nuw %struct.StackLevel, ptr %144, i64 %146
+  %147 = getelementptr inbounds nuw [72 x i8], ptr %144, i64 %146
   %148 = getelementptr inbounds i8, ptr %147, i64 -32
   %149 = load ptr, ptr %148, align 8, !tbaa !125
   %.not.not = icmp eq ptr %149, null
@@ -1490,7 +1472,7 @@ _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.thread.i: ; preds = %_ZNK4llvm7msgpack7
   %162 = load ptr, ptr %15, align 8, !tbaa !99
   %163 = load i32, ptr %24, align 8, !tbaa !102
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds nuw %struct.StackLevel, ptr %162, i64 %164
+  %165 = getelementptr inbounds nuw [72 x i8], ptr %162, i64 %164
   %166 = getelementptr inbounds i8, ptr %165, i64 -32
   store ptr %154, ptr %166, align 8, !tbaa !125
   br label %.loopexit
@@ -1524,7 +1506,7 @@ _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit:         ; preds = %171
 178:                                              ; preds = %176
   %179 = load ptr, ptr %15, align 8, !tbaa !99
   %180 = zext i32 %177 to i64
-  %181 = getelementptr inbounds nuw %struct.StackLevel, ptr %179, i64 %180
+  %181 = getelementptr inbounds nuw [72 x i8], ptr %179, i64 %180
   %182 = getelementptr inbounds i8, ptr %181, i64 -24
   %183 = load ptr, ptr %182, align 8, !tbaa !3
   %.not.i38 = icmp eq ptr %183, null
@@ -1598,7 +1580,7 @@ _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.thread:  ; preds = %171, %_ZNK4llvm7msg
   br i1 %.not.i.i.not.i40, label %_ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit46, label %201, !prof !107
 
 201:                                              ; preds = %195
-  %202 = getelementptr inbounds nuw %struct.StackLevel, ptr %.pre3.i41, i64 %198
+  %202 = getelementptr inbounds nuw [72 x i8], ptr %.pre3.i41, i64 %198
   %203 = icmp uge ptr %22, %.pre3.i41
   %204 = icmp ult ptr %22, %202
   %spec.select.i.i.i.i.i42 = and i1 %203, %204
@@ -1622,7 +1604,7 @@ _ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit46: ; pr
   %.016.i.i.i45 = phi ptr [ %22, %195 ], [ %209, %205 ], [ %22, %.critedge.i.i.i43 ]
   %211 = load i32, ptr %24, align 8, !tbaa !102
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds nuw %struct.StackLevel, ptr %210, i64 %212
+  %213 = getelementptr inbounds nuw [72 x i8], ptr %210, i64 %212
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %213, ptr noundef nonnull align 8 dereferenceable(72) %.016.i.i.i45, i64 72, i1 false)
   %214 = load i32, ptr %24, align 8, !tbaa !102
   %215 = add i32 %214, 1
@@ -1642,7 +1624,7 @@ _ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit46: ; pr
 
 219:                                              ; preds = %.lr.ph, %228
   %indvars.iv = phi i64 [ %218, %.lr.ph ], [ %indvars.iv.next, %228 ]
-  %220 = getelementptr inbounds nuw %struct.StackLevel, ptr %217, i64 %indvars.iv
+  %220 = getelementptr inbounds nuw [72 x i8], ptr %217, i64 %indvars.iv
   %221 = getelementptr inbounds i8, ptr %220, i64 -32
   %222 = load ptr, ptr %221, align 8, !tbaa !125
   %.not = icmp eq ptr %222, null
@@ -1811,7 +1793,7 @@ _ZNSt6vectorISt10unique_ptrIS_IN4llvm7msgpack7DocNodeESaIS3_EESt14default_delete
 _ZNSt6vectorISt10unique_ptrIS_IN4llvm7msgpack7DocNodeESaIS3_EESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIS_IN4llvm7msgpack7DocNodeESaIS3_EESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i, %39
   store ptr %32, ptr %10, align 8, !tbaa !25, !noalias !129
   store ptr %38, ptr %12, align 8, !tbaa !19, !noalias !129
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %32, i64 %30
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr %40, ptr %14, align 8, !tbaa !22, !noalias !129
   br label %_ZNSt10unique_ptrISt6vectorIN4llvm7msgpack7DocNodeESaIS3_EESt14default_deleteIS5_EED2Ev.exit
 
@@ -1925,7 +1907,7 @@ _ZNSt6vectorISt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES4_St4lessIS4_ESaISt4p
 _ZNSt6vectorISt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES4_St4lessIS4_ESaISt4pairIKS4_S4_EEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES4_St4lessIS4_ESaISt4pairIKS4_S4_EEESt14default_deleteISB_EESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit22.i, %42
   store ptr %35, ptr %8, align 8, !tbaa !66, !noalias !142
   store ptr %41, ptr %15, align 8, !tbaa !60, !noalias !142
-  %43 = getelementptr inbounds nuw %"class.std::unique_ptr.33", ptr %35, i64 %33
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %43, ptr %17, align 8, !tbaa !63, !noalias !142
   br label %_ZNSt10unique_ptrISt3mapIN4llvm7msgpack7DocNodeES3_St4lessIS3_ESaISt4pairIKS3_S3_EEESt14default_deleteISA_EED2Ev.exit
 
@@ -2044,7 +2026,7 @@ define dso_local void @_ZN4llvm7msgpack8Document11writeToBlobERNSt7__cxx1112basi
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseI16WriterStackLevelLb1EE9push_backERKS1_.exit, label %55, !prof !107
 
 55:                                               ; preds = %35
-  %56 = getelementptr inbounds nuw %struct.WriterStackLevel, ptr %.pre3.i, i64 %52
+  %56 = getelementptr inbounds nuw [48 x i8], ptr %.pre3.i, i64 %52
   %57 = icmp uge ptr %7, %.pre3.i
   %58 = icmp ult ptr %7, %56
   %spec.select.i.i.i.i.i = and i1 %57, %58
@@ -2068,7 +2050,7 @@ _ZN4llvm23SmallVectorTemplateBaseI16WriterStackLevelLb1EE9push_backERKS1_.exit: 
   %.016.i.i.i = phi ptr [ %7, %35 ], [ %63, %59 ], [ %7, %.critedge.i.i.i ]
   %65 = load i32, ptr %18, align 8, !tbaa !102
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %struct.WriterStackLevel, ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [48 x i8], ptr %64, i64 %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i, i64 48, i1 false)
   %68 = load i32, ptr %18, align 8, !tbaa !102
   %69 = add i32 %68, 1
@@ -2103,7 +2085,7 @@ _ZN4llvm23SmallVectorTemplateBaseI16WriterStackLevelLb1EE9push_backERKS1_.exit: 
   br i1 %.not.i.i.not.i3, label %_ZN4llvm23SmallVectorTemplateBaseI16WriterStackLevelLb1EE9push_backERKS1_.exit9, label %86, !prof !107
 
 86:                                               ; preds = %70
-  %87 = getelementptr inbounds nuw %struct.WriterStackLevel, ptr %.pre3.i4, i64 %83
+  %87 = getelementptr inbounds nuw [48 x i8], ptr %.pre3.i4, i64 %83
   %88 = icmp uge ptr %8, %.pre3.i4
   %89 = icmp ult ptr %8, %87
   %spec.select.i.i.i.i.i5 = and i1 %88, %89
@@ -2127,7 +2109,7 @@ _ZN4llvm23SmallVectorTemplateBaseI16WriterStackLevelLb1EE9push_backERKS1_.exit9:
   %.016.i.i.i8 = phi ptr [ %8, %70 ], [ %94, %90 ], [ %8, %.critedge.i.i.i6 ]
   %96 = load i32, ptr %18, align 8, !tbaa !102
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %struct.WriterStackLevel, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [48 x i8], ptr %95, i64 %97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %98, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i8, i64 48, i1 false)
   %99 = load i32, ptr %18, align 8, !tbaa !102
   %100 = add i32 %99, 1
@@ -2188,7 +2170,7 @@ thread-pre-split:                                 ; preds = %101, %102, %105, %1
   %113 = phi i32 [ %139, %137 ], [ %.pr, %112 ]
   %114 = load ptr, ptr %5, align 8, !tbaa !99
   %115 = zext i32 %113 to i64
-  %116 = getelementptr inbounds nuw %struct.WriterStackLevel, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [48 x i8], ptr %114, i64 %115
   %117 = getelementptr inbounds i8, ptr %116, i64 -48
   %118 = load ptr, ptr %117, align 8, !tbaa !3
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
@@ -2232,7 +2214,7 @@ thread-pre-split:                                 ; preds = %101, %102, %105, %1
 140:                                              ; preds = %._crit_edge
   %141 = load ptr, ptr %5, align 8, !tbaa !99
   %142 = zext i32 %.pre.pr to i64
-  %143 = getelementptr inbounds nuw %struct.WriterStackLevel, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [48 x i8], ptr %141, i64 %142
   %144 = getelementptr inbounds i8, ptr %143, i64 -48
   %145 = load ptr, ptr %144, align 8, !tbaa !3
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
@@ -2737,7 +2719,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !211
   store ptr %67, ptr %41, align 8, !tbaa !208
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !210
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -2887,7 +2869,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !211
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !208
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !210
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -3007,7 +2989,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !211
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !208
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !210
   ret void
 }
@@ -3266,7 +3248,7 @@ _ZSt22__uninitialized_move_aIPN4llvm7msgpack7DocNodeES3_SaIS2_EET0_T_S6_S5_RT1_.
 
 _ZSt22__uninitialized_move_aIPN4llvm7msgpack7DocNodeES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN4llvm7msgpack7DocNodeES3_SaIS2_EET0_T_S6_S5_RT1_.exit.loopexit, %19
   %23 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN4llvm7msgpack7DocNodeES3_SaIS2_EET0_T_S6_S5_RT1_.exit.loopexit ], [ %9, %19 ]
-  %24 = getelementptr inbounds nuw %"class.llvm::msgpack::DocNode", ptr %23, i64 %2
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %2
   store ptr %24, ptr %8, align 8, !tbaa !92
   %.not.i.i.i.i.i50 = icmp eq ptr %20, %1
   br i1 %.not.i.i.i.i.i50, label %_ZSt13move_backwardIPN4llvm7msgpack7DocNodeES3_ET0_T_S5_S4_.exit, label %25
@@ -3275,7 +3257,7 @@ _ZSt22__uninitialized_move_aIPN4llvm7msgpack7DocNodeES3_SaIS2_EET0_T_S6_S5_RT1_.
   %26 = ptrtoint ptr %20 to i64
   %27 = sub i64 %26, %15
   %.neg.i.i.i.i.i = sdiv exact i64 %27, -24
-  %28 = getelementptr inbounds %"class.llvm::msgpack::DocNode", ptr %9, i64 %.neg.i.i.i.i.i
+  %28 = getelementptr inbounds [24 x i8], ptr %9, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPN4llvm7msgpack7DocNodeES3_ET0_T_S5_S4_.exit
 
@@ -3406,7 +3388,7 @@ _ZSt24__uninitialized_fill_n_aIPN4llvm7msgpack7DocNodeEmS2_S2_ET_S4_T0_RKT1_RSaI
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm7msgpack7DocNodeES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i71, %_ZSt24__uninitialized_fill_n_aIPN4llvm7msgpack7DocNodeEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit69
   %.0.lcssa.i.i.i.i.i75 = phi ptr [ %59, %_ZSt24__uninitialized_fill_n_aIPN4llvm7msgpack7DocNodeEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit69 ], [ %64, %.lr.ph.i.i.i.i.i71 ]
-  %65 = getelementptr inbounds nuw %"class.llvm::msgpack::DocNode", ptr %.0.lcssa.i.i.i.i.i75, i64 %2
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %.0.lcssa.i.i.i.i.i75, i64 %2
   %.not7.i.i.i.i.i76 = icmp eq ptr %1, %9
   br i1 %.not7.i.i.i.i.i76, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm7msgpack7DocNodeES3_SaIS2_EET0_T_S6_S5_RT1_.exit82, label %.lr.ph.i.i.i.i.i77
 
@@ -3434,7 +3416,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm7msgpack7DocNodeES3_SaIS2_EET0_T
 _ZNSt12_Vector_baseIN4llvm7msgpack7DocNodeESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm7msgpack7DocNodeES3_SaIS2_EET0_T_S6_S5_RT1_.exit82, %68
   store ptr %59, ptr %0, align 8, !tbaa !95
   store ptr %.0.lcssa.i.i.i.i.i81, ptr %8, align 8, !tbaa !92
-  %72 = getelementptr inbounds nuw %"class.llvm::msgpack::DocNode", ptr %59, i64 %53
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %53
   store ptr %72, ptr %6, align 8, !tbaa !250
   br label %73
 

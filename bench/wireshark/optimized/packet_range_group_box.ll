@@ -3923,10 +3923,10 @@ _ZN7QStringD2Ev.exit393:                          ; preds = %683, %_ZN17QArrayDa
 
 switch.lookup:                                    ; preds = %690
   %695 = zext nneg i32 %692 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN19PacketRangeGroupBox12updateCountsEv, i64 %695
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19PacketRangeGroupBox12updateCountsEv, i64 %695
   %switch.load = load i64, ptr %switch.gep, align 8
   %696 = zext nneg i32 %692 to i64
-  %switch.gep726 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19PacketRangeGroupBox12updateCountsEv.1, i64 %696
+  %switch.gep726 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19PacketRangeGroupBox12updateCountsEv.1, i64 %696
   %switch.load727 = load i64, ptr %switch.gep726, align 8
   %697 = getelementptr inbounds nuw i8, ptr %691, i64 %switch.load
   %698 = getelementptr inbounds nuw i8, ptr %691, i64 %switch.load727

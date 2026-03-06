@@ -38,7 +38,7 @@ define noalias ptr @ff_rdt_parse_open(ptr noundef %0, i32 noundef %1, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -57,7 +57,7 @@ define noalias ptr @ff_rdt_parse_open(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next
+  %21 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv.next
   %22 = load ptr, ptr %21, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %24 = load i32, ptr %23, align 4, !tbaa !32
@@ -433,7 +433,7 @@ define i32 @ff_rdt_parse_packet(ptr noundef captures(none) %0, ptr noundef %1, p
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = sext i32 %19 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !30
   %29 = call i32 %17(ptr noundef %21, ptr noundef %23, ptr noundef %28, ptr noundef %1, ptr noundef nonnull %9, ptr noundef null, i32 noundef 0, i16 noundef zeroext 0, i32 noundef 0) #11
   br label %71
@@ -505,7 +505,7 @@ define i32 @ff_rdt_parse_packet(ptr noundef captures(none) %0, ptr noundef %1, p
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !27
   %67 = sext i32 %53 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !30
   %70 = call i32 %32(ptr noundef %62, ptr noundef %64, ptr noundef %69, ptr noundef %1, ptr noundef nonnull %9, ptr noundef %61, i32 noundef %59, i16 noundef zeroext 0, i32 noundef %.0) #11
   br label %71
@@ -544,7 +544,7 @@ define void @ff_real_parse_sdp_a_line(ptr noundef %0, i32 noundef %1, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = load ptr, ptr %4, align 8, !tbaa !53
   %13 = load i8, ptr %12, align 1, !tbaa !48
@@ -681,7 +681,7 @@ define internal range(i32 -2147483648, 1) i32 @rdt_parse_sdp_line(ptr noundef re
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8, !tbaa !53
@@ -758,7 +758,7 @@ rdt_parse_b64buf.exit:                            ; preds = %13, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %126 ]
   %.04562 = phi i32 [ -1, %.lr.ph ], [ %.247, %126 ]
   %49 = load ptr, ptr %7, align 8, !tbaa !13
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !30
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !32
@@ -792,7 +792,7 @@ rdt_parse_b64buf.exit:                            ; preds = %13, %26
   %70 = load ptr, ptr %44, align 8, !tbaa !77
   %71 = load i32, ptr %43, align 8, !tbaa !76
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds ptr, ptr %70, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %70, i64 %72
   %74 = sub nsw i32 %59, %71
   %75 = sext i32 %74 to i64
   %76 = shl nsw i64 %75, 3
@@ -804,12 +804,12 @@ rdt_parse_b64buf.exit:                            ; preds = %13, %26
   %78 = call ptr @ff_rm_alloc_rmstream() #11
   %79 = load ptr, ptr %44, align 8, !tbaa !77
   %80 = load ptr, ptr %7, align 8, !tbaa !13
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !30
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !75
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds ptr, ptr %79, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %79, i64 %85
   store ptr %78, ptr %86, align 8, !tbaa !78
   %.not53 = icmp eq ptr %78, null
   br i1 %.not53, label %.thread58, label %87
@@ -878,7 +878,7 @@ rdt_parse_b64buf.exit:                            ; preds = %13, %26
   %119 = load ptr, ptr %44, align 8, !tbaa !77
   %120 = load i32, ptr %83, align 8, !tbaa !75
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %119, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !78
   %124 = call i32 @ff_rm_read_mdpr_codecdata(ptr noundef %118, ptr noundef nonnull %5, ptr noundef nonnull %82, ptr noundef %123, i32 noundef %.134.i, ptr noundef null) #11
   br label %125
@@ -917,7 +917,7 @@ define internal void @rdt_close_context(ptr noundef %0) #0 {
   %7 = phi i32 [ %3, %.lr.ph ], [ %15, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !77
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !78
   %.not13 = icmp eq ptr %10, null
   br i1 %.not13, label %14, label %11
@@ -925,7 +925,7 @@ define internal void @rdt_close_context(ptr noundef %0) #0 {
 11:                                               ; preds = %6
   tail call void @ff_rm_free_rmstream(ptr noundef nonnull %10) #11
   %12 = load ptr, ptr %5, align 8, !tbaa !77
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %13) #11
   %.pre = load i32, ptr %2, align 8, !tbaa !76
   br label %14
@@ -976,7 +976,7 @@ define internal range(i32 -2147483648, 2) i32 @rdt_parse_packet(ptr readnone cap
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !75
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !78
   %26 = load i32, ptr %4, align 4, !tbaa !52
   %27 = zext i32 %26 to i64
@@ -1033,7 +1033,7 @@ define internal range(i32 -2147483648, 2) i32 @rdt_parse_packet(ptr readnone cap
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !75
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !78
   %60 = call i32 @ff_rm_retrieve_cache(ptr noundef %50, ptr noundef %52, ptr noundef %2, ptr noundef %59, ptr noundef %3) #11
   store i32 %60, ptr %12, align 4, !tbaa !84

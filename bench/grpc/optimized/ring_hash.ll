@@ -122,14 +122,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.177" = type { ptr }
 %"class.grpc_core::RefCountedPtr.180" = type { ptr }
 %"class.grpc_core::RefCountedPtr.203" = type { ptr }
+%"struct.std::_Rb_tree<grpc_resolved_address, grpc_resolved_address, std::_Identity<grpc_resolved_address>, grpc_core::ResolvedAddressLessThan>::_Alloc_node" = type { ptr }
 %"class.grpc_core::EndpointAddresses" = type { %"class.std::vector.191", %"class.grpc_core::ChannelArgs" }
 %"class.std::vector.191" = type { %"struct.std::_Vector_base.192" }
 %"struct.std::_Vector_base.192" = type { %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl" }
 %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Rb_tree<grpc_resolved_address, grpc_resolved_address, std::_Identity<grpc_resolved_address>, grpc_core::ResolvedAddressLessThan>::_Alloc_node" = type { ptr }
-%"struct.grpc_core::(anonymous namespace)::RingHash::RingHashEndpoint::EndpointInfo" = type { %"class.grpc_core::RefCountedPtr.386", %"class.grpc_core::RefCountedPtr.180", i32, %"class.absl::lts_20240722::Status" }
-%"class.grpc_core::RefCountedPtr.386" = type { ptr }
 %"struct.std::_Rb_tree<grpc_core::EndpointAddressSet, std::pair<const grpc_core::EndpointAddressSet, unsigned long>, std::_Select1st<std::pair<const grpc_core::EndpointAddressSet, unsigned long>>, std::less<grpc_core::EndpointAddressSet>>::_Auto_node" = type { ptr, ptr }
 %class.anon.288 = type { i8 }
 %"class.grpc_core::experimental::Json" = type { %"class.std::variant" }
@@ -188,6 +186,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::random_internal::randen_engine" = type { [264 x i8], i64, %"class.absl::lts_20240722::random_internal::Randen" }
 %"class.absl::lts_20240722::random_internal::Randen" = type <{ ptr, i8, [7 x i8] }>
 %"class.grpc_core::RefCountedPtr.179" = type { ptr }
+%"class.grpc_core::RefCountedPtr.386" = type { ptr }
 %"class.grpc_core::DebugLocation" = type { i8 }
 %"class.absl::lts_20240722::random_internal::FastUniformBits" = type { i8 }
 %"class.absl::lts_20240722::AnyInvocable.397" = type { %"class.absl::lts_20240722::internal_any_invocable::Impl.398" }
@@ -947,7 +946,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !33
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !34
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -2710,7 +2709,7 @@ _ZNSt12_Vector_baseIZN9grpc_core12_GLOBAL__N_18RingHash4RingC1EPS2_PNS1_16RingHa
           to label %.lr.ph.i.i unwind label %_ZSt8_DestroyIPZN9grpc_core12_GLOBAL__N_18RingHash4RingC1EPS2_PNS1_16RingHashLbConfigEE14EndpointWeightS7_EvT_S9_RSaIT0_E.exit.i.thread.i, !noalias !167
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt12_Vector_baseIZN9grpc_core12_GLOBAL__N_18RingHash4RingC1EPS2_PNS1_16RingHashLbConfigEE14EndpointWeightSaIS7_EE11_M_allocateEm.exit.i.i.i
-  %161 = getelementptr inbounds nuw %struct.EndpointWeight, ptr %160, i64 %155
+  %161 = getelementptr inbounds nuw [48 x i8], ptr %160, i64 %155
   %162 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %163 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %164 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -3249,7 +3248,7 @@ _ZNSt6vectorIZN9grpc_core12_GLOBAL__N_18RingHash4RingC1EPS2_PNS1_16RingHashLbCon
   br label %_ZNSt6vectorIZN9grpc_core12_GLOBAL__N_18RingHash4RingC1EPS2_PNS1_16RingHashLbConfigEE14EndpointWeightSaIS7_EE9push_backEOS7_.exit.i.i
 
 _ZNSt6vectorIZN9grpc_core12_GLOBAL__N_18RingHash4RingC1EPS2_PNS1_16RingHashLbConfigEE14EndpointWeightSaIS7_EE9push_backEOS7_.exit.i.i: ; preds = %335, %_ZNSt6vectorIZN9grpc_core12_GLOBAL__N_18RingHash4RingC1EPS2_PNS1_16RingHashLbConfigEE14EndpointWeightSaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30.i.i.i.i.i
-  %336 = getelementptr inbounds nuw %struct.EndpointWeight, ptr %305, i64 %301
+  %336 = getelementptr inbounds nuw [48 x i8], ptr %305, i64 %301
   %.pre347.i.i = load ptr, ptr %10, align 8, !tbaa !10, !noalias !167
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !167
   %337 = icmp eq ptr %.pre347.i.i, %162
@@ -3385,7 +3384,7 @@ _ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESaIS4_EE13
   store ptr %384, ptr %147, align 8, !tbaa !189, !noalias !167
   %388 = getelementptr inbounds nuw i8, ptr %384, i64 %382
   store ptr %388, ptr %380, align 8, !tbaa !193, !noalias !167
-  %389 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %384, i64 %370
+  %389 = getelementptr inbounds nuw [16 x i8], ptr %384, i64 %370
   store ptr %389, ptr %374, align 8, !tbaa !192, !noalias !167
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESaIS4_EE7reserveEm.exit.i.i
 
@@ -3531,7 +3530,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18Ri
   %423 = sub i64 %422, %403
   %424 = ashr exact i64 %423, 4
   %425 = sub nsw i64 0, %424
-  %426 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %421, i64 %425
+  %426 = getelementptr inbounds [16 x i8], ptr %421, i64 %425
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %426, ptr noundef nonnull align 8 dereferenceable(1) %.val88.i.i, i64 %423, i1 false), !noalias !167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val88.i.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !199, !noalias !167
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3579,7 +3578,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18Ri
   %.062318.i.i = phi double [ 0.000000e+00, %.lr.ph319.i.i ], [ %.163.lcssa.i.i, %._crit_edge312.i.i ]
   %.064317.i.i = phi double [ 0.000000e+00, %.lr.ph319.i.i ], [ %458, %._crit_edge312.i.i ]
   %.066316.i.i = phi i64 [ 0, %.lr.ph319.i.i ], [ %691, %._crit_edge312.i.i ]
-  %436 = getelementptr inbounds nuw %struct.EndpointWeight, ptr %.sroa.0.4.i, i64 %.066316.i.i
+  %436 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.4.i, i64 %.066316.i.i
   %437 = load ptr, ptr %436, align 8, !tbaa !10, !noalias !167
   %438 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %439 = load i64, ptr %438, align 8, !tbaa !15, !noalias !167
@@ -4086,7 +4085,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESaIS4_EE11_S_relo
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i.i: ; preds = %662, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i.i.i
   store ptr %657, ptr %147, align 8, !tbaa !189, !noalias !167
   store ptr %661, ptr %399, align 8, !tbaa !193, !noalias !167
-  %663 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %657, i64 %655
+  %663 = getelementptr inbounds nuw [16 x i8], ptr %657, i64 %655
   store ptr %663, ptr %374, align 8, !tbaa !192, !noalias !167
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESaIS4_EE9push_backEOS4_.exit.i.i
 
@@ -4499,7 +4498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %78
 817:                                              ; preds = %.lr.ph, %_ZN9grpc_core18EndpointAddressSetD2Ev.exit
   %818 = phi ptr [ %751, %.lr.ph ], [ %941, %_ZN9grpc_core18EndpointAddressSetD2Ev.exit ]
   %storemerge292 = phi i64 [ 0, %.lr.ph ], [ %939, %_ZN9grpc_core18EndpointAddressSetD2Ev.exit ]
-  %819 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %818, i64 %storemerge292
+  %819 = getelementptr inbounds nuw [32 x i8], ptr %818, i64 %storemerge292
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %820 = load ptr, ptr %819, align 8, !tbaa !178
   %821 = getelementptr inbounds nuw i8, ptr %819, i64 8
@@ -7241,7 +7240,7 @@ _ZN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint16GetInfoForPickerEv.exit.
   %238 = getelementptr i8, ptr %.val28.i.i, i64 24
   %.val31.i.i = load i64, ptr %238, align 8, !tbaa !235, !noalias !308
   %.val32.i.i = load ptr, ptr %170, align 8, !tbaa !311, !noalias !308
-  %239 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::RingHashEndpoint::EndpointInfo", ptr %.val32.i.i, i64 %.val31.i.i
+  %239 = getelementptr inbounds nuw [32 x i8], ptr %.val32.i.i, i64 %.val31.i.i
   %240 = load ptr, ptr %239, align 8, !tbaa !230, !noalias !308
   store ptr %.val29.i.i, ptr %239, align 8, !tbaa !230, !noalias !308
   %.not.i.i.i.i.i = icmp eq ptr %240, null
@@ -7342,7 +7341,7 @@ _ZN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint12EndpointInfoD2Ev.exit.i.
   %280 = getelementptr i8, ptr %.val27.i.i, i64 24
   %.val30.i.i = load i64, ptr %280, align 8, !tbaa !235, !noalias !308
   %.val33.i.i = load ptr, ptr %170, align 8, !tbaa !311, !noalias !308
-  %281 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::RingHashEndpoint::EndpointInfo", ptr %.val33.i.i, i64 %.val30.i.i
+  %281 = getelementptr inbounds nuw [32 x i8], ptr %.val33.i.i, i64 %.val30.i.i
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 16
   %283 = load i32, ptr %282, align 8, !tbaa !332, !noalias !308
   %284 = icmp eq i32 %283, 1
@@ -7491,7 +7490,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit: ; pre
   %338 = getelementptr i8, ptr %.0.lcssa216, i64 24
   %.val99 = load i64, ptr %338, align 8, !tbaa !235
   %339 = load ptr, ptr %337, align 8, !tbaa !148
-  %340 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %339, i64 %.val99
+  %340 = getelementptr inbounds nuw [32 x i8], ptr %339, i64 %.val99
   invoke void @_ZNK9grpc_core17EndpointAddresses8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %340)
           to label %341 unwind label %374
 
@@ -7749,7 +7748,7 @@ _ZNSt3mapIN9grpc_core18EndpointAddressSetEmSt4lessIS1_ESaISt4pairIKS1_mEEE11lowe
   %36 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i.i.i, i64 80
   %37 = load i64, ptr %36, align 8, !tbaa !337
   %38 = load ptr, ptr %17, align 8, !tbaa !148
-  %39 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = invoke i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %40, i64 42, ptr nonnull @.str.32)
           to label %42 unwind label %105
@@ -8720,7 +8719,7 @@ _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 _ZNSt12_Vector_baseIN9grpc_core17EndpointAddressesESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, %44
   store ptr %20, ptr %0, align 8, !tbaa !148
   store ptr %.0.lcssa.i.i.i33, ptr %4, align 8, !tbaa !149
-  %48 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %20, i64 %16
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %48, ptr %43, align 8, !tbaa !155
   ret void
 
@@ -9077,13 +9076,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %25 = and i64 %.fr.i.i26.lcssa, 16
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %27
-  %29 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %22
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %.fr27, i64 %27
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %.fr27, i64 %22
   br label %30
 
 30:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i", %._crit_edge
   %.010.i.i.i = phi i64 [ %22, %._crit_edge ], [ %52, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i" ]
-  %31 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %.010.i.i.i
+  %31 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %.010.i.i.i
   %.sroa.03.0.copyload.i.i.i = load i64, ptr %31, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !17
@@ -9094,15 +9093,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.041.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.010.i.i.i, %30 ]
   %33 = shl i64 %.041.i.i.i.i, 1
   %34 = add i64 %33, 2
-  %35 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %34
   %36 = or disjoint i64 %33, 1
-  %37 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %36
+  %37 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %36
   %.val2.i.i.i.i.i = load i64, ptr %35, align 8, !tbaa !197
   %.val3.i.i.i.i.i = load i64, ptr %37, align 8, !tbaa !197
   %38 = icmp ult i64 %.val2.i.i.i.i.i, %.val3.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %38, i64 %36, i64 %34
-  %39 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %spec.select.i.i.i.i
-  %40 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %.041.i.i.i.i
+  %39 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %spec.select.i.i.i.i
+  %40 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %.041.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !199
   %41 = icmp slt i64 %spec.select.i.i.i.i, %24
   br i1 %41, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !374
@@ -9126,20 +9125,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.07.i.i.i.i.i = phi i64 [ %.098.i.i.i.i.i, %48 ], [ %.1.i.i.i.i, %44 ]
   %.098.in.i.i.i.i.i = add nsw i64 %.07.i.i.i.i.i, -1
   %.098.i.i.i.i.i = sdiv i64 %.098.in.i.i.i.i.i, 2
-  %46 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %.098.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.fr27, i64 %.098.i.i.i.i.i
   %.val2.i.i.i.i.i.i = load i64, ptr %46, align 8, !tbaa !197
   %47 = icmp ult i64 %.val2.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
   br i1 %47, label %48, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i"
 
 48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %.07.i.i.i.i.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %.fr27, i64 %.07.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !199
   %50 = icmp sgt i64 %.098.i.i.i.i.i, %.010.i.i.i
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i", !llvm.loop !375
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i": ; preds = %48, %.lr.ph.i.i.i.i.i, %44
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %44 ], [ %.07.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.098.i.i.i.i.i, %48 ]
-  %51 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %.0.lcssa.i.i.i.i.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %.fr27, i64 %.0.lcssa.i.i.i.i.i
   store i64 %.sroa.03.0.copyload.i.i.i, ptr %51, align 8, !tbaa !17
   %.sroa.3.0..sroa.0.0..val13.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa.0.0..val13.sroa_idx.i.i.i.i.i, align 8, !tbaa !17
@@ -9170,15 +9169,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.041.i.i.i23.i = phi i64 [ %spec.select.i.i.i26.i, %.lr.ph.i.i.i22.i ], [ 0, %.lr.ph.i9.i ]
   %61 = shl i64 %.041.i.i.i23.i, 1
   %62 = add i64 %61, 2
-  %63 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %62
+  %63 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %62
   %64 = or disjoint i64 %61, 1
-  %65 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %64
+  %65 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %64
   %.val2.i.i.i.i24.i = load i64, ptr %63, align 8, !tbaa !197
   %.val3.i.i.i.i25.i = load i64, ptr %65, align 8, !tbaa !197
   %66 = icmp ult i64 %.val2.i.i.i.i24.i, %.val3.i.i.i.i25.i
   %spec.select.i.i.i26.i = select i1 %66, i64 %64, i64 %62
-  %67 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %spec.select.i.i.i26.i
-  %68 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %.041.i.i.i23.i
+  %67 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %spec.select.i.i.i26.i
+  %68 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %.041.i.i.i23.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false), !tbaa.struct !199
   %69 = icmp slt i64 %spec.select.i.i.i26.i, %59
   br i1 %69, label %.lr.ph.i.i.i22.i, label %._crit_edge.i.i.i13.i, !llvm.loop !374
@@ -9198,8 +9197,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .thread.i.i.i:                                    ; preds = %72
   %76 = shl nuw nsw i64 %.0.lcssa.i.i.i14.i, 1
   %77 = or disjoint i64 %76, 1
-  %78 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %77
-  %79 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %.0.lcssa.i.i.i14.i
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %.fr27, i64 %77
+  %79 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %.0.lcssa.i.i.i14.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !199
   br label %.lr.ph.i.i.i.i16.i.preheader
 
@@ -9215,20 +9214,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.07.i.i.i.i17.i = phi i64 [ %.098.i.i34.i.i.i, %83 ], [ %.07.i.i.i.i17.i.ph, %.lr.ph.i.i.i.i16.i.preheader ]
   %.098.in.i.i.i.i18.i = add nsw i64 %.07.i.i.i.i17.i, -1
   %.098.i.i34.i.i.i = lshr i64 %.098.in.i.i.i.i18.i, 1
-  %81 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %.098.i.i34.i.i.i
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %.fr27, i64 %.098.i.i34.i.i.i
   %.val2.i.i.i.i.i19.i = load i64, ptr %81, align 8, !tbaa !197
   %82 = icmp ult i64 %.val2.i.i.i.i.i19.i, %.sroa.03.0.copyload.i.i10.i
   br i1 %82, label %83, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i"
 
 83:                                               ; preds = %.lr.ph.i.i.i.i16.i
-  %84 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %.07.i.i.i.i17.i
+  %84 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %.07.i.i.i.i17.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !199
   %.not5.i.i.i = icmp eq i64 %.098.i.i34.i.i.i, 0
   br i1 %.not5.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i", label %.lr.ph.i.i.i.i16.i, !llvm.loop !375
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i": ; preds = %83, %.lr.ph.i.i.i.i16.i, %80
   %.0.lcssa.i.i.i.i20.i = phi i64 [ 0, %80 ], [ %.07.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %83 ]
-  %85 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %.0.lcssa.i.i.i.i20.i
+  %85 = getelementptr inbounds [16 x i8], ptr %.fr27, i64 %.0.lcssa.i.i.i.i20.i
   store i64 %.sroa.03.0.copyload.i.i10.i, ptr %85, align 8, !tbaa !17
   %.sroa.3.0..sroa.0.0..val13.sroa_idx.i.i.i.i21.i = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 %.sroa.4.0.copyload.i.i12.i, ptr %.sroa.3.0..sroa.0.0..val13.sroa_idx.i.i.i.i21.i, align 8, !tbaa !17
@@ -9241,7 +9240,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %87 = phi i64 [ %116, %18 ], [ %14, %.lr.ph ]
   %88 = add nsw i64 %.02541, -1
   %89 = lshr i64 %87, 1
-  %90 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.fr27, i64 %89
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %.fr27, i64 %89
   %91 = getelementptr inbounds i8, ptr %storemerge2442, i64 -16
   %.val2.i.i.i = load i64, ptr %16, align 8, !tbaa !197
   %.val3.i.i.i = load i64, ptr %90, align 8, !tbaa !197
@@ -9864,7 +9863,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit48:      ; preds = %_ZNSt4pairIKNSt7__c
           to label %.noexc55 unwind label %250
 
 .noexc55:                                         ; preds = %121
-  %128 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %126, i64 %125
+  %128 = getelementptr inbounds nuw [32 x i8], ptr %126, i64 %125
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i32 1, ptr %129, align 8, !tbaa !70
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 12
@@ -12775,7 +12774,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !137
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !138
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !141
   ret void
 }
@@ -13438,7 +13437,7 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i: ; preds = %122, %_ZN9__gnu_c
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %128 = load i64, ptr %127, align 8, !tbaa !235
   %129 = load ptr, ptr %126, align 8, !tbaa !148
-  %130 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %129, i64 %128
+  %130 = getelementptr inbounds nuw [32 x i8], ptr %129, i64 %128
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.20, i32 noundef 611) #40
           to label %131 unwind label %175
@@ -14451,7 +14450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %19
   br i1 %210, label %.thread, label %211
 
 211:                                              ; preds = %207
-  %212 = getelementptr %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.val141, i64 %209
+  %212 = getelementptr [16 x i8], ptr %.val141, i64 %209
   %213 = load i64, ptr %212, align 8, !tbaa !197
   %.off = add i64 %208, 1
   %214 = icmp ult i64 %.off, 3
@@ -14495,10 +14494,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %19
   %.0103244 = phi i64 [ 0, %.lr.ph ], [ %287, %286 ]
   %228 = add i64 %.0103244, %.0101
   %229 = urem i64 %228, %206
-  %230 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.val141, i64 %229
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %.val141, i64 %229
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load i64, ptr %231, align 8, !tbaa !468
-  %233 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::RingHashEndpoint::EndpointInfo", ptr %.val149, i64 %232
+  %233 = getelementptr inbounds nuw [32 x i8], ptr %.val149, i64 %232
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %235 = load i32, ptr %234, align 8, !tbaa !332
   switch i32 %235, label %286 [
@@ -14649,11 +14648,11 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit172: ; preds =
   %.094248 = phi i8 [ %290, %.lr.ph251 ], [ %.296.ph, %353 ]
   %295 = add i64 %.093249, %.0101
   %296 = urem i64 %295, %294
-  %297 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.val133250, i64 %296
+  %297 = getelementptr inbounds nuw [16 x i8], ptr %.val133250, i64 %296
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %299 = load i64, ptr %298, align 8, !tbaa !468
   %.val148 = load ptr, ptr %291, align 8, !tbaa !311
-  %300 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::RingHashEndpoint::EndpointInfo", ptr %.val148, i64 %299
+  %300 = getelementptr inbounds nuw [32 x i8], ptr %.val148, i64 %299
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %301, align 8, !tbaa !332
   %.not114 = icmp eq i32 %302, 2
@@ -14810,11 +14809,11 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit186: ; preds =
   store ptr @.str.61, ptr %362, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %363 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %364 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %.val155, i64 %.0101
+  %364 = getelementptr inbounds nuw [16 x i8], ptr %.val155, i64 %.0101
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load i64, ptr %365, align 8, !tbaa !468
   %.val147 = load ptr, ptr %363, align 8, !tbaa !311
-  %367 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::RingHashEndpoint::EndpointInfo", ptr %.val147, i64 %366
+  %367 = getelementptr inbounds nuw [32 x i8], ptr %.val147, i64 %366
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 24
   %369 = load i64, ptr %368, align 8, !tbaa !84
   %370 = trunc i64 %369 to i1
@@ -15088,7 +15087,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURB
   %18 = load i64, ptr %7, align 8, !tbaa !483
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !483
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !17
   %22 = add i64 %.sroa.2.0.copyload.i, 1
   %23 = and i64 %22, %.sroa.2.0.copyload.i
@@ -15166,7 +15165,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImE8GenerateINS1_17Nonse
   %17 = load i64, ptr %6, align 8, !tbaa !483
   %18 = add i64 %17, 1
   store i64 %18, ptr %6, align 8, !tbaa !483
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !17
   ret i64 %20
 }
@@ -15196,9 +15195,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engine
   %.022.i.i = phi i64 [ 60, %2 ], [ %26, %9 ]
   %10 = add nsw i64 %.022.i.i, -4
   %11 = lshr exact i64 %10, 1
-  %12 = getelementptr i32, ptr %3, i64 %.022.i.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %.022.i.i
   %13 = getelementptr i8, ptr %12, i64 -20
-  %14 = getelementptr i32, ptr %3, i64 %11
+  %14 = getelementptr [4 x i8], ptr %3, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %13, align 4, !tbaa !74
   %17 = load i32, ptr %15, align 4, !tbaa !74
@@ -15217,7 +15216,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engine
   store i32 %25, ptr %22, align 4, !tbaa !74
   store i32 %24, ptr %23, align 4, !tbaa !74
   %26 = add nsw i64 %.022.i.i, -8
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   %28 = getelementptr i8, ptr %14, i64 -16
   %29 = load i32, ptr %27, align 16, !tbaa !74
   %30 = load i32, ptr %28, align 8, !tbaa !74
@@ -15665,7 +15664,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i: ; p
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %24 = load i64, ptr %23, align 8, !tbaa !235
   %25 = load ptr, ptr %22, align 8, !tbaa !148
-  %26 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %24
   invoke void @_ZNK9grpc_core17EndpointAddresses8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %27 unwind label %61
 

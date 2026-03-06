@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<llvm::StringRef, std::allocator<llvm::StringRef>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::StringRef, std::allocator<llvm::StringRef>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::StringRef, std::allocator<llvm::StringRef>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::StringRef, std::allocator<llvm::StringRef>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.35" = type { ptr, i64 }
 
 $_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_ = comdat any
 
@@ -461,7 +460,7 @@ define dso_local void @_ZNK4llvm7remarks11StringTable9serializeERNS_11raw_ostrea
   %5 = zext i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 4
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #10, !noalias !81
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %7, i8 0, i64 %6, i1 false), !noalias !81
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %7, i64 %6
   %9 = ptrtoint ptr %8 to i64
@@ -493,7 +492,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i: ; preds = %2, %.lr.ph.pr
 _ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit.i: ; preds = %.preheader.i.i.i.i, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i
   %.sroa.0.1.i.i = phi ptr [ %10, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i ], [ %.sroa.0.0.i.i, %.preheader.i.i.i.i ]
   %16 = zext i32 %12 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   %.not10.i = icmp eq ptr %.sroa.0.1.i.i, %17
   br i1 %.not10.i, label %_ZNK4llvm7remarks11StringTable9serializeEv.exit, label %.lr.ph.i
 
@@ -513,7 +512,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryI
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !87, !noalias !81
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.sroa.010.0, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.010.0, i64 %24
   store ptr %20, ptr %25, align 8, !tbaa !35, !noalias !81
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %21, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !36, !noalias !81
@@ -605,7 +604,7 @@ _ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = 
   %6 = shl nuw nsw i64 %5, 4
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #10
   store ptr %7, ptr %0, align 8, !tbaa !94
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %7, i8 0, i64 %6, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %7, i64 %6
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit
@@ -640,7 +639,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt12_Vector_
 _ZNK4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit: ; preds = %.preheader.i.i.i, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit
   %.sroa.0.1.i = phi ptr [ %12, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %18 = zext i32 %14 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %18
   %.not10 = icmp eq ptr %.sroa.0.1.i, %19
   br i1 %.not10, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge, label %.lr.ph
 
@@ -663,7 +662,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryI
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !87
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %9, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %26
   store ptr %22, ptr %27, align 8, !tbaa !35
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %23, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !36
@@ -692,7 +691,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocato
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #9
   %7 = load ptr, ptr %0, align 8, !tbaa !84
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !41
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -776,7 +775,7 @@ _ZN4llvm14StringMapEntryIjE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocato
   %46 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #9
   %47 = load ptr, ptr %0, align 8, !tbaa !84
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryIjE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJjEEEPS1_NS_9StringRefERT_DpOT0_.exit
@@ -837,7 +836,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !10
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.35", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -878,7 +877,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !10
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !12

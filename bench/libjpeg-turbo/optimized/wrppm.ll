@@ -286,13 +286,13 @@ define internal void @put_rgb(ptr noundef readonly captures(none) %0, ptr nounde
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !50
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @rgb_pixelsize, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @rgb_pixelsize, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !64
-  %16 = getelementptr inbounds nuw i32, ptr @rgb_blue, i64 %13
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @rgb_blue, i64 %13
   %17 = load i32, ptr %16, align 4, !tbaa !64
-  %18 = getelementptr inbounds nuw i32, ptr @rgb_green, i64 %13
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @rgb_green, i64 %13
   %19 = load i32, ptr %18, align 4, !tbaa !64
-  %20 = getelementptr inbounds nuw i32, ptr @rgb_red, i64 %13
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @rgb_red, i64 %13
   %21 = load i32, ptr %20, align 4, !tbaa !64
   %22 = sext i32 %21 to i64
   %23 = sext i32 %19 to i64

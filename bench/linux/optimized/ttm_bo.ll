@@ -1119,11 +1119,11 @@ define dso_local i32 @ttm_bo_mem_space(ptr noundef %0, ptr noundef readonly capt
   %28 = phi i8 [ 0, %14 ], [ %.ph, %select.unfold ]
   %29 = load ptr, ptr %15, align 8
   %30 = sext i32 %27 to i64
-  %31 = getelementptr %struct.ttm_place, ptr %29, i64 %30
+  %31 = getelementptr [16 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr ptr, ptr %16, i64 %34
+  %35 = getelementptr [8 x i8], ptr %16, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %select.unfold, label %38
@@ -1165,11 +1165,11 @@ select.unfold:                                    ; preds = %48, %38, %26, %41
   %56 = phi i8 [ %18, %22 ], [ %.ph14, %87 ]
   %57 = load ptr, ptr %23, align 8
   %58 = sext i32 %55 to i64
-  %59 = getelementptr %struct.ttm_place, ptr %57, i64 %58
+  %59 = getelementptr [16 x i8], ptr %57, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 4
   %62 = sext i32 %61 to i64
-  %63 = getelementptr ptr, ptr %24, i64 %62
+  %63 = getelementptr [8 x i8], ptr %24, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %87, label %66
@@ -1182,7 +1182,7 @@ select.unfold:                                    ; preds = %48, %38, %26, %41
 69:                                               ; preds = %66
   %70 = load ptr, ptr %5, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 144
-  %72 = getelementptr ptr, ptr %71, i64 %62
+  %72 = getelementptr [8 x i8], ptr %71, i64 %62
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %7, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
@@ -2005,7 +2005,7 @@ define internal fastcc i32 @ttm_bo_handle_move_mem(ptr noundef %0, ptr noundef %
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %15 = sext i32 %13 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %19 = load i8, ptr %18, align 1, !range !14, !noundef !15
@@ -2018,7 +2018,7 @@ define internal fastcc i32 @ttm_bo_handle_move_mem(ptr noundef %0, ptr noundef %
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %26 = sext i32 %24 to i64
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %30 = load i8, ptr %29, align 1, !range !14, !noundef !15
@@ -2258,7 +2258,7 @@ define internal fastcc void @ttm_bo_mem_space_debug(ptr noundef nonnull readonly
   %12 = phi i32 [ 0, %8 ], [ %25, %11 ]
   %13 = load ptr, ptr %9, align 8
   %14 = sext i32 %12 to i64
-  %15 = getelementptr %struct.ttm_place, ptr %13, i64 %14
+  %15 = getelementptr [16 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 12
@@ -2267,7 +2267,7 @@ define internal fastcc void @ttm_bo_mem_space_debug(ptr noundef nonnull readonly
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %22 = sext i32 %17 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   call void @ttm_resource_manager_debug(ptr noundef %24, ptr noundef nonnull %3) #6
   %25 = add nuw i32 %12, 1

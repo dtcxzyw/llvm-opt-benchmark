@@ -22,7 +22,7 @@ define void @swap_ij_case1(ptr noundef captures(none) %0, i32 noundef %1, i32 no
   %13 = add nsw i32 %12, %3
   %14 = mul nsw i32 %13, 3
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i64, ptr @__const.swap_ij_case1.maskArray, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @__const.swap_ij_case1.maskArray, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !3
   %18 = getelementptr i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !3
@@ -34,7 +34,7 @@ define void @swap_ij_case1(ptr noundef captures(none) %0, i32 noundef %1, i32 no
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = and i64 %17, %25
   %27 = and i64 %19, %25
@@ -81,14 +81,14 @@ define void @swap_ij_case2(ptr noundef captures(none) %0, i32 noundef %1, i32 no
 .lr.ph39:                                         ; preds = %4
   %15 = shl nuw i32 1, %2
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds i64, ptr %5, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %5, i64 %16
   %18 = zext i32 %15 to i64
   %19 = shl i32 2, %12
   %20 = sext i32 %13 to i64
   %21 = sext i32 %19 to i64
   %22 = sext i32 %11 to i64
   %.not = icmp eq i32 %12, 31
-  %invariant.gep = getelementptr i64, ptr %0, i64 %20
+  %invariant.gep = getelementptr [8 x i8], ptr %0, i64 %20
   br label %23
 
 23:                                               ; preds = %.lr.ph39, %._crit_edge
@@ -104,10 +104,10 @@ define void @swap_ij_case2(ptr noundef captures(none) %0, i32 noundef %1, i32 no
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv41 = phi i64 [ %24, %.lr.ph ], [ %indvars.iv.next42, %27 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv41
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv41
   %28 = load i64, ptr %gep, align 8, !tbaa !3
   %29 = and i64 %25, %28
-  %30 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv41
+  %30 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv41
   %31 = load i64, ptr %30, align 8, !tbaa !3
   %32 = and i64 %31, %25
   %33 = lshr i64 %32, %18
@@ -157,7 +157,7 @@ define void @swap_ij_case3(ptr noundef captures(none) %0, i32 noundef %1, i32 no
   %21 = sext i32 %7 to i64
   %22 = sext i32 %8 to i64
   %23 = icmp sgt i32 %15, 1
-  %invariant.gep = getelementptr i64, ptr %0, i64 %19
+  %invariant.gep = getelementptr [8 x i8], ptr %0, i64 %19
   br label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %._crit_edge
@@ -171,9 +171,9 @@ define void @swap_ij_case3(ptr noundef captures(none) %0, i32 noundef %1, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv38 = phi i64 [ %24, %.lr.ph.preheader ], [ %indvars.iv.next39, %.lr.ph ]
-  %25 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv38
+  %25 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %25, i64 %10, i1 false)
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv38
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %gep, i64 %10, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %gep, ptr align 8 %11, i64 %10, i1 false)
   %indvars.iv.next39 = add nsw i64 %indvars.iv38, %18
@@ -230,7 +230,7 @@ tailrecurse:                                      ; preds = %7, %4
   %21 = add nsw i32 %20, %.tr44
   %22 = mul nsw i32 %21, 3
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i64, ptr @__const.swap_ij_case1.maskArray, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr @__const.swap_ij_case1.maskArray, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = getelementptr i8, ptr %24, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !3
@@ -242,7 +242,7 @@ tailrecurse:                                      ; preds = %7, %4
 
 31:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %33 = load i64, ptr %32, align 8, !tbaa !3
   %34 = and i64 %33, %25
   %35 = and i64 %33, %27
@@ -289,12 +289,12 @@ tailrecurse:                                      ; preds = %7, %4
   %58 = sext i32 %56 to i64
   %59 = sext i32 %50 to i64
   %.not.i = icmp eq i32 %51, 31
-  %invariant.gep.i = getelementptr i64, ptr %0, i64 %57
+  %invariant.gep.i = getelementptr [8 x i8], ptr %0, i64 %57
   br i1 %.not.i, label %swap_ij_case2.exit, label %.lr.ph39.i.split
 
 .lr.ph39.i.split:                                 ; preds = %.lr.ph39.i
   %60 = sext i32 %.tr43 to i64
-  %61 = getelementptr inbounds i64, ptr %5, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %5, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !3
   %63 = xor i64 %62, -1
   br label %.lr.ph.i32
@@ -307,10 +307,10 @@ tailrecurse:                                      ; preds = %7, %4
 
 65:                                               ; preds = %65, %.lr.ph.i32
   %indvars.iv41.i = phi i64 [ %64, %.lr.ph.i32 ], [ %indvars.iv.next42.i, %65 ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %indvars.iv41.i
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %indvars.iv41.i
   %66 = load i64, ptr %gep.i, align 8, !tbaa !3
   %67 = and i64 %66, %62
-  %68 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv41.i
+  %68 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv41.i
   %69 = load i64, ptr %68, align 8, !tbaa !3
   %70 = and i64 %69, %62
   %71 = lshr i64 %70, %55
@@ -360,7 +360,7 @@ swap_ij_case2.exit:                               ; preds = %._crit_edge.i.loope
   %96 = sext i32 %84 to i64
   %97 = sext i32 %85 to i64
   %98 = icmp sgt i32 %92, 1
-  %invariant.gep.i34 = getelementptr i64, ptr %0, i64 %95
+  %invariant.gep.i34 = getelementptr [8 x i8], ptr %0, i64 %95
   br i1 %98, label %.lr.ph36.i.us.preheader, label %swap_ij_case1.exit
 
 .lr.ph36.i.us.preheader:                          ; preds = %.lr.ph36.preheader.i
@@ -376,9 +376,9 @@ swap_ij_case2.exit:                               ; preds = %._crit_edge.i.loope
 
 .lr.ph.i40.us:                                    ; preds = %.lr.ph.i40.us, %.lr.ph36.i.us
   %indvars.iv38.i.us = phi i64 [ %101, %.lr.ph36.i.us ], [ %indvars.iv.next39.i.us, %.lr.ph.i40.us ]
-  %102 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv38.i.us
+  %102 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv38.i.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %88, ptr align 8 %102, i64 %87, i1 false)
-  %gep.i41.us = getelementptr i64, ptr %invariant.gep.i34, i64 %indvars.iv38.i.us
+  %gep.i41.us = getelementptr [8 x i8], ptr %invariant.gep.i34, i64 %indvars.iv38.i.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %102, ptr align 8 %gep.i41.us, i64 %87, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %gep.i41.us, ptr align 8 %88, i64 %87, i1 false)
   %indvars.iv.next39.i.us = add nsw i64 %indvars.iv38.i.us, %94

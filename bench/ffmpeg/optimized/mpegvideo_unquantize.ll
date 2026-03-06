@@ -55,7 +55,7 @@ define internal void @dct_unquantize_h263_intra_c(ptr noundef readonly captures(
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !43
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %20, i64 %25
@@ -71,7 +71,7 @@ define internal void @dct_unquantize_h263_intra_c(ptr noundef readonly captures(
 
 30:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %31 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2, !tbaa !44
   %.not32 = icmp eq i16 %32, 0
   br i1 %.not32, label %38, label %33
@@ -103,7 +103,7 @@ define internal void @dct_unquantize_h263_inter_c(ptr noundef readonly captures(
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !43
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %8, i64 %13
@@ -114,7 +114,7 @@ define internal void @dct_unquantize_h263_inter_c(ptr noundef readonly captures(
 
 18:                                               ; preds = %4, %26
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %26 ]
-  %19 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2, !tbaa !44
   %.not22 = icmp eq i16 %20, 0
   br i1 %.not22, label %26, label %21
@@ -142,7 +142,7 @@ define internal void @dct_unquantize_h263_inter_c(ptr noundef readonly captures(
 define internal void @dct_unquantize_mpeg1_intra_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !43
   %9 = icmp slt i32 %2, 4
   %.in.v = select i1 %9, i64 8, i64 12
@@ -167,7 +167,7 @@ define internal void @dct_unquantize_mpeg1_intra_c(ptr noundef readonly captures
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1, !tbaa !46
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !44
   %23 = sext i16 %22 to i32
   %.not32 = icmp eq i16 %22, 0
@@ -178,7 +178,7 @@ define internal void @dct_unquantize_mpeg1_intra_c(ptr noundef readonly captures
   br i1 %25, label %26, label %37
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i16, ptr %14, i64 %20
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %20
   %28 = load i16, ptr %27, align 2, !tbaa !44
   %29 = zext i16 %28 to i32
   %30 = mul i32 %3, %23
@@ -192,7 +192,7 @@ define internal void @dct_unquantize_mpeg1_intra_c(ptr noundef readonly captures
 
 37:                                               ; preds = %24
   %38 = mul nsw i32 %3, %23
-  %39 = getelementptr inbounds nuw i16, ptr %14, i64 %20
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %20
   %40 = load i16, ptr %39, align 2, !tbaa !44
   %41 = zext i16 %40 to i32
   %42 = mul nsw i32 %38, %41
@@ -220,7 +220,7 @@ define internal void @dct_unquantize_mpeg1_intra_c(ptr noundef readonly captures
 define internal void @dct_unquantize_mpeg1_inter_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3704
   %.not29 = icmp slt i32 %8, 0
@@ -237,7 +237,7 @@ define internal void @dct_unquantize_mpeg1_inter_c(ptr noundef readonly captures
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1, !tbaa !46
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !44
   %18 = sext i16 %17 to i32
   %.not28 = icmp eq i16 %17, 0
@@ -245,7 +245,7 @@ define internal void @dct_unquantize_mpeg1_inter_c(ptr noundef readonly captures
 
 19:                                               ; preds = %12
   %20 = icmp slt i16 %17, 0
-  %21 = getelementptr inbounds nuw i16, ptr %9, i64 %15
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %15
   %22 = load i16, ptr %21, align 2, !tbaa !44
   %23 = zext i16 %22 to i32
   br i1 %20, label %24, label %32
@@ -308,7 +308,7 @@ define internal void @dct_unquantize_mpeg2_intra_c(ptr noundef readonly captures
   %.0 = phi i32 [ %11, %7 ], [ %13, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !43
   %19 = icmp slt i32 %2, 4
   %.in.v = select i1 %19, i64 8, i64 12
@@ -333,7 +333,7 @@ define internal void @dct_unquantize_mpeg2_intra_c(ptr noundef readonly captures
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1, !tbaa !46
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr %1, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !44
   %33 = sext i16 %32 to i32
   %.not35 = icmp eq i16 %32, 0
@@ -344,7 +344,7 @@ define internal void @dct_unquantize_mpeg2_intra_c(ptr noundef readonly captures
   br i1 %35, label %36, label %45
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i16, ptr %24, i64 %30
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %30
   %38 = load i16, ptr %37, align 2, !tbaa !44
   %39 = zext i16 %38 to i32
   %40 = mul i32 %.0, %33
@@ -356,7 +356,7 @@ define internal void @dct_unquantize_mpeg2_intra_c(ptr noundef readonly captures
 
 45:                                               ; preds = %34
   %46 = mul nsw i32 %.0, %33
-  %47 = getelementptr inbounds nuw i16, ptr %24, i64 %30
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %30
   %48 = load i16, ptr %47, align 2, !tbaa !44
   %49 = zext i16 %48 to i32
   %50 = mul nsw i32 %46, %49
@@ -400,7 +400,7 @@ define internal void @dct_unquantize_mpeg2_intra_bitexact(ptr noundef readonly c
   %.0 = phi i32 [ %11, %7 ], [ %13, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !43
   %19 = icmp slt i32 %2, 4
   %.in.v = select i1 %19, i64 8, i64 12
@@ -428,7 +428,7 @@ define internal void @dct_unquantize_mpeg2_intra_bitexact(ptr noundef readonly c
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1, !tbaa !46
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !44
   %35 = sext i16 %34 to i32
   %.not42 = icmp eq i16 %34, 0
@@ -439,7 +439,7 @@ define internal void @dct_unquantize_mpeg2_intra_bitexact(ptr noundef readonly c
   br i1 %37, label %38, label %47
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i16, ptr %26, i64 %32
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %32
   %40 = load i16, ptr %39, align 2, !tbaa !44
   %41 = zext i16 %40 to i32
   %42 = mul i32 %.0, %35
@@ -451,7 +451,7 @@ define internal void @dct_unquantize_mpeg2_intra_bitexact(ptr noundef readonly c
 
 47:                                               ; preds = %36
   %48 = mul nsw i32 %.0, %35
-  %49 = getelementptr inbounds nuw i16, ptr %26, i64 %32
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %32
   %50 = load i16, ptr %49, align 2, !tbaa !44
   %51 = zext i16 %50 to i32
   %52 = mul nsw i32 %48, %51
@@ -504,7 +504,7 @@ define internal void @dct_unquantize_mpeg2_inter_c(ptr noundef readonly captures
   %.0 = phi i32 [ %11, %7 ], [ %13, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3704
   %.not3537 = icmp slt i32 %18, 0
@@ -522,7 +522,7 @@ define internal void @dct_unquantize_mpeg2_inter_c(ptr noundef readonly captures
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !46
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %1, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !44
   %28 = sext i16 %27 to i32
   %.not36 = icmp eq i16 %27, 0
@@ -530,7 +530,7 @@ define internal void @dct_unquantize_mpeg2_inter_c(ptr noundef readonly captures
 
 29:                                               ; preds = %22
   %30 = icmp slt i16 %27, 0
-  %31 = getelementptr inbounds nuw i16, ptr %19, i64 %25
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %25
   %32 = load i16, ptr %31, align 2, !tbaa !44
   %33 = zext i16 %32 to i32
   br i1 %30, label %34, label %40

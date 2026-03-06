@@ -474,7 +474,7 @@ define internal fastcc void @appendBootClassPath(ptr %.8.val, ptr noundef %0, pt
   br label %._crit_edge.thread
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   store ptr %.1.i, ptr %17, align 8
   %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1.i, i32 noundef 32) #16
   %19 = icmp eq ptr %18, null
@@ -498,7 +498,7 @@ splitPathList.exit:                               ; preds = %16, %20, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %150 ], [ 0, %splitPathList.exit ]
   %.022 = phi ptr [ %.1, %150 ], [ null, %splitPathList.exit ]
   %.06021 = phi i32 [ %.161, %150 ], [ 0, %splitPathList.exit ]
-  %25 = getelementptr inbounds nuw ptr, ptr %.123.i, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.123.i, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = call noalias ptr @strdup(ptr noundef %26) #15
   %28 = icmp ne ptr %27, null

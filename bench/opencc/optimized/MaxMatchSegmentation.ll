@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %class.anon = type { ptr, ptr, ptr }
 %"class.std::allocator" = type { i8 }
-%"struct.std::pair" = type <{ i64, i8, [7 x i8] }>
 
 $_ZN6opencc8UTF8Util14NextCharLengthEPKc = comdat any
 
@@ -576,7 +575,7 @@ _ZNSt6vectorISt4pairImbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pre
 _ZNSt6vectorISt4pairImbESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorISt4pairImbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %33, ptr %4, align 8, !tbaa !50
   store ptr %37, ptr %13, align 8, !tbaa !46
-  %39 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %31
   store ptr %39, ptr %15, align 8, !tbaa !49
   br label %_ZNSt6vectorISt4pairImbESaIS1_EE9push_backEOS1_.exit
 
@@ -1254,7 +1253,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !45
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !42
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !56
   ret void
 

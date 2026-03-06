@@ -1448,7 +1448,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale10impl_posix8collatorIw
   %29 = phi i64 [ %21, %._crit_edge.i.i ], [ %21, %23 ], [ %.pre6.i.i, %25 ]
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %29, ptr %30, align 8, !tbaa !45
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   store i32 0, ptr %31, align 4, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1510,7 +1510,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale10impl_posix8collatorIw
   %52 = phi i64 [ %44, %._crit_edge.i.i17 ], [ %44, %46 ], [ %.pre6.i.i18, %48 ]
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %52, ptr %53, align 8, !tbaa !45
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %52
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %52
   store i32 0, ptr %54, align 4, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = load ptr, ptr %8, align 8, !tbaa !41
@@ -1625,7 +1625,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale10impl_posix8collatorIwE12do_t
   %27 = phi i64 [ %19, %._crit_edge.i.i ], [ %19, %21 ], [ %.pre6.i.i, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %27, ptr %28, align 8, !tbaa !45
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %29, align 4, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %30 = ashr exact i64 %10, 1
@@ -1650,7 +1650,7 @@ _ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %25
           to label %.noexc20 unwind label %82
 
 .noexc20:                                         ; preds = %34
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %31
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %31
   store i32 0, ptr %36, align 4, !tbaa !43
   %38 = getelementptr i8, ptr %36, i64 4
   %39 = icmp eq ptr %3, %2
@@ -1752,7 +1752,7 @@ _ZNSt6vectorIwSaIwEE11_S_relocateEPwS2_S2_RS0_.exit.i: ; preds = %74, %_ZSt27__u
   br label %_ZNSt12_Vector_baseIwSaIwEE13_M_deallocateEPwm.exit36.i
 
 _ZNSt12_Vector_baseIwSaIwEE13_M_deallocateEPwm.exit36.i: ; preds = %75, %_ZNSt6vectorIwSaIwEE11_S_relocateEPwS2_S2_RS0_.exit.i
-  %77 = getelementptr inbounds nuw i32, ptr %68, i64 %66
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %66
   br label %_ZNSt6vectorIwSaIwEE6resizeEm.exit
 
 _ZNSt6vectorIwSaIwEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_baseIwSaIwEE13_M_deallocateEPwm.exit36.i, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %58
@@ -1820,7 +1820,7 @@ _ZNSt6vectorIwSaIwEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
   store i32 %97, ptr %96, align 4, !tbaa !43
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %95, ptr %98, align 8, !tbaa !45
-  %99 = getelementptr inbounds nuw i32, ptr %96, i64 %95
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %95
   store i32 0, ptr %99, align 4, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %107
@@ -1836,7 +1836,7 @@ _ZNSt6vectorIwSaIwEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
   %104 = phi i64 [ %95, %._crit_edge.i.i23 ], [ %.pre6.i.i24, %100 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %104, ptr %105, align 8, !tbaa !45
-  %106 = getelementptr inbounds nuw i32, ptr %103, i64 %104
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %104
   store i32 0, ptr %106, align 4, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %88, label %_ZNSt6vectorIwSaIwEED2Ev.exit, label %107

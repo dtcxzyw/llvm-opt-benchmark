@@ -250,19 +250,19 @@ define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 92:                                               ; preds = %89
   %93 = zext nneg i16 %90 to i64
-  %94 = getelementptr inbounds nuw %struct.u_printf_info, ptr @_ZL16g_u_printf_infos, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr @_ZL16g_u_printf_infos, i64 %93
   %95 = load i32, ptr %94, align 16, !tbaa !22
   br label %96
 
 96:                                               ; preds = %92, %89
   %.sink.i = phi i32 [ %95, %92 ], [ 0, %89 ]
-  %97 = getelementptr inbounds i32, ptr %39, i64 %77
+  %97 = getelementptr inbounds [4 x i8], ptr %39, i64 %77
   store i32 %.sink.i, ptr %97, align 4, !tbaa !25
   br label %.preheader209.i, !llvm.loop !26
 
 98:                                               ; preds = %181, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %181 ]
-  %99 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i
   %100 = load i32, ptr %99, align 4, !tbaa !25
   switch i32 %100, label %179 [
     i32 5, label %101
@@ -297,7 +297,7 @@ define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 112:                                              ; preds = %109, %104
   %113 = phi ptr [ %107, %104 ], [ %110, %109 ]
   %114 = load ptr, ptr %113, align 8, !tbaa !27
-  %115 = getelementptr inbounds nuw %union.ufmt_args, ptr %42, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   store ptr %114, ptr %115, align 8, !tbaa !20
   br label %181
 
@@ -329,7 +329,7 @@ define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 130:                                              ; preds = %127, %122
   %131 = phi ptr [ %125, %122 ], [ %128, %127 ]
   %132 = load i64, ptr %131, align 8, !tbaa !28
-  %133 = getelementptr inbounds nuw %union.ufmt_args, ptr %42, i64 %indvars.iv.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   store i64 %132, ptr %133, align 8, !tbaa !20
   br label %181
 
@@ -354,7 +354,7 @@ define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %144 = phi ptr [ %138, %135 ], [ %141, %140 ]
   %145 = load i32, ptr %144, align 4, !tbaa !30
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds nuw %union.ufmt_args, ptr %42, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   store i64 %146, ptr %147, align 8, !tbaa !20
   br label %181
 
@@ -381,7 +381,7 @@ define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %160 = phi ptr [ %154, %151 ], [ %157, %156 ]
   %161 = load double, ptr %160, align 8, !tbaa !31
   %162 = fptrunc double %161 to float
-  %163 = getelementptr inbounds nuw %union.ufmt_args, ptr %42, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   store float %162, ptr %163, align 8, !tbaa !20
   br label %181
 
@@ -407,12 +407,12 @@ define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 175:                                              ; preds = %172, %167
   %176 = phi ptr [ %170, %167 ], [ %173, %172 ]
   %177 = load double, ptr %176, align 8, !tbaa !31
-  %178 = getelementptr inbounds nuw %union.ufmt_args, ptr %42, i64 %indvars.iv.i
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   store double %177, ptr %178, align 8, !tbaa !20
   br label %181
 
 179:                                              ; preds = %98
-  %180 = getelementptr inbounds nuw %union.ufmt_args, ptr %42, i64 %indvars.iv.i
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   store ptr null, ptr %180, align 8, !tbaa !20
   br label %181
 
@@ -971,7 +971,7 @@ thread-pre-split337:                              ; preds = %.loopexit342, %324,
 
 399:                                              ; preds = %396
   %400 = zext nneg i16 %397 to i64
-  %401 = getelementptr inbounds nuw %struct.u_printf_info, ptr @_ZL16g_u_printf_infos, i64 %400
+  %401 = getelementptr inbounds nuw [16 x i8], ptr @_ZL16g_u_printf_infos, i64 %400
   %402 = load i32, ptr %401, align 16, !tbaa !22
   %403 = load i32, ptr %185, align 4, !tbaa !41
   %404 = icmp sgt i32 %403, 0
@@ -999,28 +999,28 @@ thread-pre-split337:                              ; preds = %.loopexit342, %324,
 
 409:                                              ; preds = %407, %405, %405, %405
   %410 = zext nneg i32 %406 to i64
-  %411 = getelementptr inbounds nuw %union.ufmt_args, ptr %.0, i64 %410
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %410
   %412 = load ptr, ptr %411, align 8, !tbaa !20
   store ptr %412, ptr %8, align 8, !tbaa !20
   br label %502
 
 413:                                              ; preds = %405, %405, %405
   %414 = zext nneg i32 %406 to i64
-  %415 = getelementptr inbounds nuw %union.ufmt_args, ptr %.0, i64 %414
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %414
   %416 = load i64, ptr %415, align 8, !tbaa !20
   store i64 %416, ptr %8, align 8, !tbaa !20
   br label %502
 
 417:                                              ; preds = %405
   %418 = zext nneg i32 %406 to i64
-  %419 = getelementptr inbounds nuw %union.ufmt_args, ptr %.0, i64 %418
+  %419 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %418
   %420 = load float, ptr %419, align 8, !tbaa !20
   store float %420, ptr %8, align 8, !tbaa !20
   br label %502
 
 421:                                              ; preds = %405
   %422 = zext nneg i32 %406 to i64
-  %423 = getelementptr inbounds nuw %union.ufmt_args, ptr %.0, i64 %422
+  %423 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %422
   %424 = load double, ptr %423, align 8, !tbaa !20
   store double %424, ptr %8, align 8, !tbaa !20
   br label %502

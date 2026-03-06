@@ -414,7 +414,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9hashbrown11ru
   store i8 %19, ptr %26, align 1, !noalias !46
   %27 = load ptr, ptr %5, align 8, !alias.scope !53, !noalias !46, !nonnull !10, !noundef !10
   %28 = sub nsw i64 0, %9
-  %29 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, ptr }, ptr %27, i64 %28
+  %29 = getelementptr inbounds [56 x i8], ptr %27, i64 %28
   %30 = and i8 %17, 1
   %31 = zext nneg i8 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16

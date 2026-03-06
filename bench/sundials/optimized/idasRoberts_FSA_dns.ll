@@ -374,7 +374,7 @@ check_retval.exit175.thread:                      ; preds = %135
 
 check_retval.exit175:                             ; preds = %135, %check_retval.exit175
   %indvars.iv = phi i64 [ %indvars.iv.next, %check_retval.exit175 ], [ 0, %135 ]
-  %145 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv
   %146 = load ptr, ptr %145, align 8, !tbaa !26
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %146) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -393,7 +393,7 @@ check_retval.exit177.thread:                      ; preds = %147
 
 check_retval.exit177:                             ; preds = %147, %check_retval.exit177
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %check_retval.exit177 ], [ 0, %147 ]
-  %152 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv278
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv278
   %153 = load ptr, ptr %152, align 8, !tbaa !26
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %153) #17
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
@@ -468,7 +468,7 @@ check_retval.exit185:                             ; preds = %169
 
 188:                                              ; preds = %186, %188
   %indvars.iv282 = phi i64 [ 0, %186 ], [ %indvars.iv.next283, %188 ]
-  %189 = getelementptr inbounds nuw ptr, ptr %187, i64 %indvars.iv282
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %indvars.iv282
   %190 = load ptr, ptr %189, align 8, !tbaa !26
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %190) #17
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
@@ -772,7 +772,7 @@ define internal noundef i32 @resS(i32 %0, double %1, ptr noundef readonly captur
 
 34:                                               ; preds = %12, %71
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %71 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !26
   %37 = load ptr, ptr %36, align 8, !tbaa !17
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -782,7 +782,7 @@ define internal noundef i32 @resS(i32 %0, double %1, ptr noundef readonly captur
   %42 = load double, ptr %41, align 8, !tbaa !11
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %44 = load double, ptr %43, align 8, !tbaa !11
-  %45 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !26
   %47 = load ptr, ptr %46, align 8, !tbaa !17
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -826,7 +826,7 @@ default.unreachable69:                            ; preds = %34
 71:                                               ; preds = %69, %66, %63
   %.066 = phi double [ %70, %69 ], [ %65, %63 ], [ %68, %66 ]
   %.065 = phi double [ %55, %69 ], [ %64, %63 ], [ %67, %66 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !26
   %74 = load ptr, ptr %73, align 8, !tbaa !17
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16

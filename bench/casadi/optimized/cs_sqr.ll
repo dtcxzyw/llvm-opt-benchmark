@@ -88,7 +88,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %41 = phi double [ 0.000000e+00, %.lr.ph ], [ %45, %40 ]
-  %42 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !18
   %44 = sitofp i32 %43 to double
   %45 = fadd double %41, %44
@@ -123,7 +123,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !22
   %58 = sext i32 %10 to i64
-  %59 = getelementptr inbounds i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %57, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !18
   %61 = shl nsw i32 %60, 2
   %62 = add nsw i32 %61, %10
@@ -192,12 +192,12 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
 
 23:                                               ; preds = %2
   %24 = sext i32 %6 to i64
-  %25 = getelementptr i32, ptr %19, i64 %24
+  %25 = getelementptr [4 x i8], ptr %19, i64 %24
   %26 = sext i32 %4 to i64
-  %27 = getelementptr i32, ptr %25, i64 %26
+  %27 = getelementptr [4 x i8], ptr %25, i64 %26
   %28 = shl i32 %4, 1
   %29 = sext i32 %28 to i64
-  %30 = getelementptr i32, ptr %25, i64 %29
+  %30 = getelementptr [4 x i8], ptr %25, i64 %29
   %31 = icmp sgt i32 %4, 0
   br i1 %31, label %.lr.ph154.preheader, label %.preheader147
 
@@ -244,9 +244,9 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
 .lr.ph162:                                        ; preds = %.lr.ph162.preheader, %.loopexit
   %indvars.iv179 = phi i64 [ %41, %.lr.ph162.preheader ], [ %indvars.iv.next180, %.loopexit ]
   %indvars.iv.next180 = add nsw i64 %indvars.iv179, -1
-  %44 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next180
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.next180
   %45 = load i32, ptr %44, align 4, !tbaa !18
-  %46 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv179
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv179
   %47 = load i32, ptr %46, align 4, !tbaa !18
   %48 = icmp slt i32 %45, %47
   br i1 %48, label %.lr.ph158.preheader, label %.loopexit
@@ -258,10 +258,10 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.lr.ph158
   %indvars.iv = phi i64 [ %49, %.lr.ph158.preheader ], [ %indvars.iv.next, %.lr.ph158 ]
-  %51 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %51 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !18
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %15, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %15, i64 %53
   store i32 %50, ptr %54, align 4, !tbaa !18
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %46, align 4, !tbaa !18
@@ -272,16 +272,16 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %75
   %indvars.iv182 = phi i64 [ %43, %.lr.ph165.preheader ], [ %indvars.iv.next183, %75 ]
   %indvars.iv.next183 = add nsw i64 %indvars.iv182, -1
-  %58 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next183
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.next183
   store i32 -1, ptr %58, align 4, !tbaa !18
-  %59 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next183
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.next183
   %60 = load i32, ptr %59, align 4, !tbaa !18
   %61 = icmp eq i32 %60, -1
   br i1 %61, label %75, label %62
 
 62:                                               ; preds = %.lr.ph165
   %63 = sext i32 %60 to i64
-  %64 = getelementptr inbounds i32, ptr %30, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %30, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !18
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %64, align 4, !tbaa !18
@@ -293,16 +293,16 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
   br label %71
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i32, ptr %27, i64 %63
+  %69 = getelementptr inbounds [4 x i8], ptr %27, i64 %63
   %70 = trunc nuw nsw i64 %indvars.iv.next183 to i32
   store i32 %70, ptr %69, align 4, !tbaa !18
   br label %71
 
 71:                                               ; preds = %._crit_edge194, %68
   %.pre-phi = phi i32 [ %.pre195, %._crit_edge194 ], [ %70, %68 ]
-  %72 = getelementptr inbounds i32, ptr %25, i64 %63
+  %72 = getelementptr inbounds [4 x i8], ptr %25, i64 %63
   %73 = load i32, ptr %72, align 4, !tbaa !18
-  %74 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.next183
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.next183
   store i32 %73, ptr %74, align 4, !tbaa !18
   store i32 %.pre-phi, ptr %72, align 4, !tbaa !18
   br label %75
@@ -337,7 +337,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
 79:                                               ; preds = %.lr.ph168, %119
   %indvars.iv185 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next186, %119 ]
   %80 = phi double [ 0.000000e+00, %.lr.ph168 ], [ %120, %119 ]
-  %81 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv185
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv185
   %82 = load i32, ptr %81, align 4, !tbaa !18
   %83 = fadd double %80, 1.000000e+00
   %84 = icmp slt i32 %82, 0
@@ -352,10 +352,10 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
 88:                                               ; preds = %85, %79
   %.2 = phi i32 [ %86, %85 ], [ %82, %79 ]
   %89 = sext i32 %.2 to i64
-  %90 = getelementptr inbounds i32, ptr %14, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %14, i64 %89
   %91 = trunc nuw nsw i64 %indvars.iv185 to i32
   store i32 %91, ptr %90, align 4, !tbaa !18
-  %92 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv185
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv185
   %93 = load i32, ptr %92, align 4, !tbaa !18
   %94 = add nsw i32 %93, -1
   store i32 %94, ptr %92, align 4, !tbaa !18
@@ -365,32 +365,32 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
 96:                                               ; preds = %88
   %97 = uitofp nneg i32 %94 to double
   %98 = fadd double %83, %97
-  %99 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv185
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv185
   %100 = load i32, ptr %99, align 4, !tbaa !18
   %.not = icmp eq i32 %100, -1
   br i1 %.not, label %119, label %101
 
 101:                                              ; preds = %96
   %102 = sext i32 %100 to i64
-  %103 = getelementptr inbounds i32, ptr %30, i64 %102
+  %103 = getelementptr inbounds [4 x i8], ptr %30, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !18
   %105 = icmp eq i32 %104, 0
-  %106 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv185
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv185
   %107 = load i32, ptr %106, align 4, !tbaa !18
   br i1 %105, label %108, label %._crit_edge193
 
 108:                                              ; preds = %101
-  %109 = getelementptr inbounds i32, ptr %27, i64 %102
+  %109 = getelementptr inbounds [4 x i8], ptr %27, i64 %102
   store i32 %107, ptr %109, align 4, !tbaa !18
   br label %._crit_edge193
 
 ._crit_edge193:                                   ; preds = %101, %108
-  %110 = getelementptr inbounds i32, ptr %25, i64 %102
+  %110 = getelementptr inbounds [4 x i8], ptr %25, i64 %102
   %111 = load i32, ptr %110, align 4, !tbaa !18
   %112 = sext i32 %107 to i64
-  %113 = getelementptr inbounds i32, ptr %19, i64 %112
+  %113 = getelementptr inbounds [4 x i8], ptr %19, i64 %112
   store i32 %111, ptr %113, align 4, !tbaa !18
-  %114 = getelementptr inbounds i32, ptr %19, i64 %89
+  %114 = getelementptr inbounds [4 x i8], ptr %19, i64 %89
   %115 = load i32, ptr %114, align 4, !tbaa !18
   store i32 %115, ptr %110, align 4, !tbaa !18
   %116 = load i32, ptr %92, align 4, !tbaa !18
@@ -408,7 +408,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %126
   %indvars.iv188 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next189, %126 ]
   %.5169 = phi i32 [ %.4.lcssa, %.lr.ph171.preheader ], [ %.6, %126 ]
-  %121 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv188
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv188
   %122 = load i32, ptr %121, align 4, !tbaa !18
   %123 = icmp slt i32 %122, 0
   br i1 %123, label %124, label %126

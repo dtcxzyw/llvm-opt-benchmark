@@ -10,13 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<gmx::Any, std::allocator<gmx::Any>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx::Any, std::allocator<gmx::Any>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::Any, std::allocator<gmx::Any>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx::Any, std::allocator<gmx::Any>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::Any" = type { %"class.std::unique_ptr.61" }
-%"class.std::unique_ptr.61" = type { %"struct.std::__uniq_ptr_data.62" }
-%"struct.std::__uniq_ptr_data.62" = type { %"class.std::__uniq_ptr_impl.63" }
-%"class.std::__uniq_ptr_impl.63" = type { %"class.std::tuple.64" }
-%"class.std::tuple.64" = type { %"struct.std::_Tuple_impl.65" }
-%"struct.std::_Tuple_impl.65" = type { %"struct.std::_Head_base.68" }
-%"struct.std::_Head_base.68" = type { ptr }
 %"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
@@ -59,6 +52,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.74" = type { %"struct.std::_Tuple_impl.75" }
 %"struct.std::_Tuple_impl.75" = type { %"struct.std::_Head_base.78" }
 %"struct.std::_Head_base.78" = type { ptr }
+%"class.std::unique_ptr.61" = type { %"struct.std::__uniq_ptr_data.62" }
+%"struct.std::__uniq_ptr_data.62" = type { %"class.std::__uniq_ptr_impl.63" }
+%"class.std::__uniq_ptr_impl.63" = type { %"class.std::tuple.64" }
+%"class.std::tuple.64" = type { %"struct.std::_Tuple_impl.65" }
+%"struct.std::_Tuple_impl.65" = type { %"struct.std::_Head_base.68" }
+%"struct.std::_Head_base.68" = type { ptr }
 
 $_ZN3gmx15SelectionOptionD0Ev = comdat any
 
@@ -788,7 +787,7 @@ _ZNSt6vectorIN3gmx3AnyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = 
   br label %.noexc16
 
 .noexc16:                                         ; preds = %58, %_ZNSt6vectorIN3gmx3AnyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
-  %59 = getelementptr inbounds nuw %"class.gmx::Any", ptr %52, i64 %50
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
   br label %_ZN3gmx3AnyD2Ev.exit
 
 _ZN3gmx3AnyD2Ev.exit:                             ; preds = %38, %.noexc16
@@ -3347,7 +3346,7 @@ _ZNSt12_Vector_baseIN3gmx9SelectionESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; pred
   store ptr %23, ptr %4, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 %10
   store ptr %28, ptr %5, align 8, !tbaa !84
-  %29 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %23, i64 %12
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %12
   store ptr %29, ptr %16, align 8, !tbaa !26
   br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE7reserveEm.exit
 
@@ -3427,7 +3426,7 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; 
 _ZNSt6vectorIN3gmx9SelectionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %25, ptr %4, align 8, !tbaa !24
   store ptr %31, ptr %5, align 8, !tbaa !84
-  %33 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %25, i64 %23
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %33, ptr %7, align 8, !tbaa !26
   br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE9push_backERKS1_.exit
 
@@ -3482,7 +3481,7 @@ define linkonce_odr { ptr, ptr } @_ZN3gmx21OptionValueStorePlainINS_9SelectionEE
   %5 = load i32, ptr %4, align 8, !tbaa !139
   %6 = sext i32 %5 to i64
   %.not.i = icmp eq ptr %3, null
-  %7 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %spec.select.i = select i1 %.not.i, ptr null, ptr %7
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %3, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %spec.select.i, 1
@@ -3518,7 +3517,7 @@ define linkonce_odr void @_ZN3gmx21OptionValueStorePlainINS_9SelectionEE6appendE
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !139
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %"class.gmx::Selection", ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = load i64, ptr %1, align 8, !tbaa !34
   store i64 %9, ptr %8, align 8, !tbaa !34
   %10 = add nsw i32 %6, 1
@@ -3686,7 +3685,7 @@ _ZNSt12_Vector_baseIN3gmx9SelectionESaIS1_EE13_M_deallocateEPS1_m.exit.i.i: ; pr
   store ptr %23, ptr %4, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 %10
   store ptr %28, ptr %5, align 8, !tbaa !84
-  %29 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %23, i64 %12
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %12
   store ptr %29, ptr %16, align 8, !tbaa !26
   br label %_ZN3gmx22OptionValueStoreVectorINS_9SelectionEE7reserveEm.exit
 
@@ -3766,7 +3765,7 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: 
 _ZNSt6vectorIN3gmx9SelectionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !24
   store ptr %31, ptr %5, align 8, !tbaa !84
-  %33 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %25, i64 %23
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %33, ptr %7, align 8, !tbaa !26
   br label %_ZN3gmx22OptionValueStoreVectorINS_9SelectionEE6appendERKS1_.exit
 
@@ -4376,7 +4375,7 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; 
 _ZNSt6vectorIN3gmx9SelectionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %59, %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %52, ptr %32, align 8, !tbaa !24
   store ptr %58, ptr %33, align 8, !tbaa !84
-  %60 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %52, i64 %50
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
   store ptr %60, ptr %34, align 8, !tbaa !26
   br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE9push_backERKS1_.exit
 
@@ -6068,7 +6067,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !210
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !53
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !55
   ret void
 }

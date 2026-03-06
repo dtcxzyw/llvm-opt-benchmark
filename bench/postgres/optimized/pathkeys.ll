@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/pathkeys.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @enable_group_by_reordering = dso_local local_unnamed_addr global i8 1, align 1
 @.str = private unnamed_addr constant [37 x i8] c"too soon to build canonical pathkeys\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"pathkeys.c\00", align 1
@@ -64,7 +62,7 @@ define dso_local ptr @make_canonical_pathkey(ptr noundef captures(none) %0, ptr 
 
 23:                                               ; preds = %.lr.ph49, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next, %41 ]
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -146,7 +144,7 @@ define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly captu
   %indvars.iv = phi i64 [ %indvars.iv.next, %pathkey_is_redundant.exit ], [ 0, %.lr.ph ]
   %.01620 = phi ptr [ %.1, %pathkey_is_redundant.exit ], [ %0, %.lr.ph ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 8
   %.val = load ptr, ptr %11, align 8
@@ -178,7 +176,7 @@ define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly captu
 
 21:                                               ; preds = %20, %.lr.ph14.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next.i, %20 ]
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -257,7 +255,7 @@ define dso_local range(i32 0, 4) i32 @compare_pathkeys(ptr noundef readonly capt
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   br label %24
 
 24:                                               ; preds = %19, %21
@@ -279,7 +277,7 @@ define dso_local range(i32 0, 4) i32 @compare_pathkeys(ptr noundef readonly capt
   br i1 %.not33, label %.critedge, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %.fr, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.fr, i64 %indvars.iv
   %33 = load ptr, ptr %25, align 8
   %34 = load ptr, ptr %32, align 8
   %.not30 = icmp eq ptr %33, %34
@@ -351,7 +349,7 @@ define dso_local zeroext i1 @pathkeys_contained_in(ptr noundef readonly captures
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds nuw %union.ListCell, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   br label %22
 
 22:                                               ; preds = %19, %17
@@ -373,7 +371,7 @@ define dso_local zeroext i1 @pathkeys_contained_in(ptr noundef readonly captures
   br i1 %.not33.i, label %compare_pathkeys.exit, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw %union.ListCell, ptr %.fr.i, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.fr.i, i64 %indvars.iv.i
   %31 = load ptr, ptr %23, align 8
   %32 = load ptr, ptr %30, align 8
   %.not30.i = icmp eq ptr %31, %32
@@ -453,7 +451,7 @@ define dso_local ptr @get_useful_group_keys_orderings(ptr noundef readonly captu
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %25, align 8
-  %39 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i.i
   br label %40
 
 40:                                               ; preds = %37, %35
@@ -475,7 +473,7 @@ define dso_local ptr @get_useful_group_keys_orderings(ptr noundef readonly captu
   br i1 %.not33.i.i, label %pathkeys_contained_in.exit, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw %union.ListCell, ptr %.fr.i.i, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.fr.i.i, i64 %indvars.iv.i.i
   %49 = load ptr, ptr %41, align 8
   %50 = load ptr, ptr %48, align 8
   %.not30.i.i = icmp eq ptr %49, %50
@@ -507,7 +505,7 @@ pathkeys_contained_in.exit.thread49:              ; preds = %47, %pathkeys_conta
   %.03250.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %71, %70 ]
   %.03349.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %72, %70 ]
   %57 = load ptr, ptr %25, align 8
-  %58 = getelementptr inbounds nuw %union.ListCell, ptr %57, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge.i, label %60
@@ -623,7 +621,7 @@ group_keys_reorder_by_pathkeys.exit:              ; preds = %54, %.critedge.i, %
 
 108:                                              ; preds = %106
   %109 = load ptr, ptr %92, align 8
-  %110 = getelementptr inbounds nuw %union.ListCell, ptr %109, i64 %indvars.iv.i33
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv.i33
   br label %111
 
 111:                                              ; preds = %108, %106
@@ -640,7 +638,7 @@ group_keys_reorder_by_pathkeys.exit:              ; preds = %54, %.critedge.i, %
   br i1 %.not33.i, label %121, label %117
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds nuw %union.ListCell, ptr %.fr.i, i64 %indvars.iv.i33
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %.fr.i, i64 %indvars.iv.i33
   %119 = load ptr, ptr %112, align 8
   %120 = load ptr, ptr %118, align 8
   %.not30.i = icmp eq ptr %119, %120
@@ -711,7 +709,7 @@ define dso_local zeroext i1 @pathkeys_count_contained_in(ptr noundef readonly ca
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   br label %24
 
 24:                                               ; preds = %21, %19
@@ -731,7 +729,7 @@ define dso_local zeroext i1 @pathkeys_count_contained_in(ptr noundef readonly ca
   br i1 %.not45, label %.loopexit.loopexit, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %33 = load ptr, ptr %25, align 8
   %34 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, %34
@@ -784,7 +782,7 @@ define dso_local ptr @get_cheapest_path_for_pathkeys(ptr noundef readonly captur
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %pathkeys_contained_in.exit.thread25.us.us ], [ 0, %.lr.ph.split.us.split.us.split ]
   %.033.us.us61 = phi ptr [ %.1.us.us, %pathkeys_contained_in.exit.thread25.us.us ], [ null, %.lr.ph.split.us.split.us.split ]
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv75
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv75
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 33
   %16 = load i8, ptr %15, align 1, !range !4, !noundef !5
@@ -832,7 +830,7 @@ pathkeys_contained_in.exit.thread25.us.us:        ; preds = %27, %19, %.lr.ph63
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %pathkeys_contained_in.exit.thread25.us ], [ 0, %.lr.ph.split.us.split.split ]
   %.033.us55 = phi ptr [ %.1.us, %pathkeys_contained_in.exit.thread25.us ], [ null, %.lr.ph.split.us.split.split ]
   %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv72
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv72
   %35 = load ptr, ptr %34, align 8
   %.not22.us = icmp eq ptr %.033.us55, null
   br i1 %.not22.us, label %pathkeys_contained_in.exit.thread.us, label %36
@@ -871,7 +869,7 @@ pathkeys_contained_in.exit.thread25.us:           ; preds = %44, %36
   %.03397 = phi ptr [ %.1, %pathkeys_contained_in.exit.thread25 ], [ null, %.lr.ph.split.preheader ]
   %indvars.iv96 = phi i64 [ %indvars.iv.next, %pathkeys_contained_in.exit.thread25 ], [ 0, %.lr.ph.split.preheader ]
   %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds nuw %union.ListCell, ptr %50, i64 %indvars.iv96
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv96
   %52 = load ptr, ptr %51, align 8
   br i1 %4, label %53, label %57
 
@@ -930,7 +928,7 @@ pathkeys_contained_in.exit.thread25.us:           ; preds = %44, %36
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr %9, align 8
-  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv.i.i
   br label %79
 
 79:                                               ; preds = %76, %74
@@ -952,7 +950,7 @@ pathkeys_contained_in.exit.thread25.us:           ; preds = %44, %36
   br i1 %.not33.i.i, label %pathkeys_contained_in.exit, label %86
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw %union.ListCell, ptr %.fr.i.i, i64 %indvars.iv.i.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %.fr.i.i, i64 %indvars.iv.i.i
   %88 = load ptr, ptr %80, align 8
   %89 = load ptr, ptr %87, align 8
   %.not30.i.i = icmp eq ptr %88, %89
@@ -1017,7 +1015,7 @@ define dso_local ptr @get_cheapest_fractional_path_for_pathkeys(ptr noundef read
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %pathkeys_contained_in.exit.thread24.us ], [ 0, %.lr.ph.split.us.split ]
   %.032.us38 = phi ptr [ %.1.us, %pathkeys_contained_in.exit.thread24.us ], [ null, %.lr.ph.split.us.split ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv48
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv48
   %13 = load ptr, ptr %12, align 8
   %.not21.us = icmp eq ptr %.032.us38, null
   br i1 %.not21.us, label %pathkeys_contained_in.exit.thread.us, label %14
@@ -1056,7 +1054,7 @@ pathkeys_contained_in.exit.thread24.us:           ; preds = %22, %14
   %.03267 = phi ptr [ %.1, %pathkeys_contained_in.exit.thread24 ], [ null, %.lr.ph.split.preheader ]
   %indvars.iv66 = phi i64 [ %indvars.iv.next, %pathkeys_contained_in.exit.thread24 ], [ 0, %.lr.ph.split.preheader ]
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv66
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv66
   %30 = load ptr, ptr %29, align 8
   %.not21 = icmp eq ptr %.03267, null
   br i1 %.not21, label %34, label %31
@@ -1106,7 +1104,7 @@ pathkeys_contained_in.exit.thread24.us:           ; preds = %22, %14
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds nuw %union.ListCell, ptr %50, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i.i
   br label %52
 
 52:                                               ; preds = %49, %47
@@ -1128,7 +1126,7 @@ pathkeys_contained_in.exit.thread24.us:           ; preds = %22, %14
   br i1 %.not33.i.i, label %pathkeys_contained_in.exit, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw %union.ListCell, ptr %.fr.i.i, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.fr.i.i, i64 %indvars.iv.i.i
   %61 = load ptr, ptr %53, align 8
   %62 = load ptr, ptr %60, align 8
   %.not30.i.i = icmp eq ptr %61, %62
@@ -1185,7 +1183,7 @@ define dso_local ptr @get_cheapest_parallel_safe_total_inner(ptr noundef readonl
 
 7:                                                ; preds = %.lr.ph39, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next, %.critedge ]
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 33
   %11 = load i8, ptr %10, align 1, !range !4, !noundef !5
@@ -1251,7 +1249,7 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
 
 23:                                               ; preds = %.lr.ph75
   %24 = load ptr, ptr %12, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv73
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv73
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
@@ -1278,13 +1276,13 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
   %.042 = phi i8 [ %33, %32 ], [ %31, %38 ]
   %.041 = phi i8 [ %37, %32 ], [ %41, %38 ]
   %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv73
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv73
   %45 = load i32, ptr %44, align 4
   %46 = load ptr, ptr %16, align 8
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv73
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv73
   %48 = load i32, ptr %47, align 4
   %49 = load ptr, ptr %17, align 8
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv73
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv73
   %51 = load i32, ptr %50, align 4
   %52 = trunc nuw i8 %.042 to i1
   %53 = trunc nuw i8 %.041 to i1
@@ -1326,7 +1324,7 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
 
 69:                                               ; preds = %68, %.lr.ph14.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next.i, %68 ]
-  %70 = getelementptr inbounds nuw %union.ListCell, ptr %67, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
@@ -1418,19 +1416,19 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr noundef reado
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
   %.03056 = phi ptr [ null, %.lr.ph ], [ %.232.ph, %.loopexit ]
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 16
   %.val35 = load ptr, ptr %21, align 8
   %22 = load ptr, ptr %.val35, align 8
   %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %12, align 8
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = load ptr, ptr %13, align 8
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %15, align 8
   %33 = tail call fastcc ptr @make_pathkey_from_sortinfo(ptr noundef %0, ptr noundef %22, i32 noundef %25, i32 noundef %28, i32 noundef %31, i1 noundef zeroext %14, i1 noundef zeroext %14, i32 noundef 0, ptr noundef %32, i1 noundef zeroext false)
@@ -1468,7 +1466,7 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr noundef reado
 
 45:                                               ; preds = %44, %.lr.ph14.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next.i, %44 ]
-  %46 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
@@ -1483,7 +1481,7 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr noundef reado
   %52 = load ptr, ptr %5, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   switch i32 %56, label %pathkey_is_redundant.exit [
     i32 424, label %57
@@ -1505,7 +1503,7 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr noundef reado
 .lr.ph45.i:                                       ; preds = %.lr.ph.i37, %87
   %indvars.iv.i39 = phi i64 [ %indvars.iv.next.i40, %87 ], [ 0, %.lr.ph.i37 ]
   %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv.i39
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i39
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 18
   %67 = load i8, ptr %66, align 2, !range !4, !noundef !5
@@ -1516,7 +1514,7 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr noundef reado
   %70 = getelementptr i8, ptr %65, i64 8
   %.val.i = load ptr, ptr %70, align 8
   %.val23.i = load ptr, ptr %10, align 8
-  %71 = getelementptr inbounds nuw ptr, ptr %.val23.i, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.val23.i, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr i8, ptr %72, i64 16
   %.val.i.i = load ptr, ptr %73, align 8
@@ -1652,7 +1650,7 @@ list_length.exit:                                 ; preds = %4, %7
   %.088210296 = phi ptr [ %.2175, %pathkey_is_redundant.exit.thread170 ], [ null, %.lr.ph211 ]
   %indvars.iv240295 = phi i64 [ %indvars.iv.next241, %pathkey_is_redundant.exit.thread170 ], [ 0, %.lr.ph211 ]
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv240295
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv240295
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
@@ -1702,7 +1700,7 @@ list_length.exit:                                 ; preds = %4, %7
 
 52:                                               ; preds = %62, %.lr.ph32.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph32.i ], [ %indvars.iv.next.i, %62 ]
-  %53 = getelementptr inbounds nuw %union.ListCell, ptr %51, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 6
@@ -1781,7 +1779,7 @@ find_var_for_subquery_tle.exit:                   ; preds = %57
   %.397198291 = phi ptr [ %.4, %.critedge126 ], [ null, %.lr.ph199.split.preheader ]
   %indvars.iv237290 = phi i64 [ %indvars.iv.next238, %.critedge126 ], [ 0, %.lr.ph199.split.preheader ]
   %100 = load ptr, ptr %90, align 8
-  %101 = getelementptr inbounds nuw %union.ListCell, ptr %100, i64 %indvars.iv237290
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv237290
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
@@ -1803,7 +1801,7 @@ find_var_for_subquery_tle.exit:                   ; preds = %57
   %.5191287 = phi ptr [ %.6, %find_var_for_subquery_tle.exit140.thread ], [ %.397198291, %.preheader.preheader ]
   %indvars.iv286 = phi i64 [ %indvars.iv.next, %find_var_for_subquery_tle.exit140.thread ], [ 0, %.preheader.preheader ]
   %113 = load ptr, ptr %14, align 8
-  %114 = getelementptr inbounds nuw %union.ListCell, ptr %113, i64 %indvars.iv286
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv286
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 42
   %117 = load i8, ptr %116, align 2, !range !4, !noundef !5
@@ -1832,7 +1830,7 @@ find_var_for_subquery_tle.exit:                   ; preds = %57
 
 129:                                              ; preds = %139, %.lr.ph32.i134
   %indvars.iv.i136 = phi i64 [ 0, %.lr.ph32.i134 ], [ %indvars.iv.next.i137, %139 ]
-  %130 = getelementptr inbounds nuw %union.ListCell, ptr %128, i64 %indvars.iv.i136
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv.i136
   %131 = load ptr, ptr %130, align 8
   %132 = load i32, ptr %131, align 4
   %133 = icmp eq i32 %132, 6
@@ -1909,7 +1907,7 @@ find_var_for_subquery_tle.exit140:                ; preds = %134
 
 168:                                              ; preds = %186, %.lr.ph49.i
   %indvars.iv.i144 = phi i64 [ 0, %.lr.ph49.i ], [ %indvars.iv.next.i145, %186 ]
-  %169 = getelementptr inbounds nuw %union.ListCell, ptr %167, i64 %indvars.iv.i144
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %indvars.iv.i144
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load ptr, ptr %171, align 8
@@ -1980,7 +1978,7 @@ list_length.exit148:                              ; preds = %make_canonical_path
   %204 = load ptr, ptr %5, align 8
   %205 = getelementptr i8, ptr %204, i64 16
   %.val129 = load ptr, ptr %205, align 8
-  %206 = getelementptr inbounds %union.ListCell, ptr %.val129, i64 %97
+  %206 = getelementptr inbounds [8 x i8], ptr %.val129, i64 %97
   %207 = load ptr, ptr %206, align 8
   %208 = icmp eq ptr %207, %.1.i
   %spec.select = select i1 %208, i32 %201, i32 %202
@@ -2047,7 +2045,7 @@ find_var_for_subquery_tle.exit140.thread:         ; preds = %139, %.lr.ph.i132, 
 
 228:                                              ; preds = %227, %.lr.ph14.i
   %indvars.iv.i154 = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next.i155, %227 ]
-  %229 = getelementptr inbounds nuw %union.ListCell, ptr %226, i64 %indvars.iv.i154
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %indvars.iv.i154
   %230 = load ptr, ptr %229, align 8
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load ptr, ptr %231, align 8
@@ -2116,7 +2114,7 @@ define dso_local ptr @truncate_useless_pathkeys(ptr noundef %0, ptr noundef %1, 
 .lr.ph:                                           ; preds = %.lr.ph84.i, %.critedge46.thread.i
   %indvars.iv94.i87 = phi i64 [ %indvars.iv.next95.i, %.critedge46.thread.i ], [ 0, %.lr.ph84.i ]
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv94.i87
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv94.i87
   %13 = load ptr, ptr %12, align 8
   %.val.i = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
@@ -2139,7 +2137,7 @@ define dso_local ptr @truncate_useless_pathkeys(ptr noundef %0, ptr noundef %1, 
 
 22:                                               ; preds = %33, %.lr.ph15.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph15.i.i ], [ %indvars.iv.next.i.i, %33 ]
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %20, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
@@ -2200,7 +2198,7 @@ right_merge_direction.exit.i:                     ; preds = %28
   %56 = phi i32 [ %82, %81 ], [ %54, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %81 ], [ 0, %.lr.ph.i ]
   %57 = load ptr, ptr %52, align 8
-  %58 = getelementptr inbounds nuw %union.ListCell, ptr %57, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 144
   %61 = load ptr, ptr %60, align 8
@@ -2314,7 +2312,7 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph84.i, %.crite
 
 105:                                              ; preds = %103
   %106 = load ptr, ptr %100, align 8
-  %107 = getelementptr inbounds nuw %union.ListCell, ptr %106, i64 %indvars.iv.i.i39
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.i.i39
   br label %108
 
 108:                                              ; preds = %105, %103
@@ -2330,7 +2328,7 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph84.i, %.crite
   br i1 %.not45.i.i, label %.loopexit.loopexit.i.i, label %114
 
 114:                                              ; preds = %110
-  %115 = getelementptr inbounds nuw %union.ListCell, ptr %111, i64 %indvars.iv.i.i39
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.i.i39
   %116 = load ptr, ptr %109, align 8
   %117 = load ptr, ptr %115, align 8
   %.not.i.i41 = icmp eq ptr %116, %117
@@ -2369,7 +2367,7 @@ pathkeys_useful_for_ordering.exit:                ; preds = %108, %91, %92, %95,
 .lr.ph27.i:                                       ; preds = %.lr.ph.i44, %132
   %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i47, %132 ], [ 0, %.lr.ph.i44 ]
   %127 = load ptr, ptr %124, align 8
-  %128 = getelementptr inbounds nuw %union.ListCell, ptr %127, i64 %indvars.iv.i45
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i45
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %120, align 8
   %131 = tail call zeroext i1 @list_member_ptr(ptr noundef %130, ptr noundef %129) #9
@@ -2415,7 +2413,7 @@ pathkeys_useful_for_grouping.exit.thread:         ; preds = %.lr.ph.i44
 .lr.ph26.i:                                       ; preds = %.lr.ph.split.i, %147
   %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i52, %147 ], [ 0, %.lr.ph.split.i ]
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw %union.ListCell, ptr %142, i64 %indvars.iv.i49
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv.i49
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr %136, align 8
   %146 = tail call zeroext i1 @list_member_ptr(ptr noundef %145, ptr noundef %144) #9
@@ -2474,7 +2472,7 @@ pathkeys_useful_for_distinct.exit:                ; preds = %pathkeys_useful_for
 
 167:                                              ; preds = %165
   %168 = load ptr, ptr %162, align 8
-  %169 = getelementptr inbounds nuw %union.ListCell, ptr %168, i64 %indvars.iv.i.i58
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %indvars.iv.i.i58
   br label %170
 
 170:                                              ; preds = %167, %165
@@ -2490,7 +2488,7 @@ pathkeys_useful_for_distinct.exit:                ; preds = %pathkeys_useful_for
   br i1 %.not45.i.i60, label %.loopexit.loopexit.i.i65, label %176
 
 176:                                              ; preds = %172
-  %177 = getelementptr inbounds nuw %union.ListCell, ptr %173, i64 %indvars.iv.i.i58
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %indvars.iv.i.i58
   %178 = load ptr, ptr %171, align 8
   %179 = load ptr, ptr %177, align 8
   %.not.i.i61 = icmp eq ptr %178, %179
@@ -2570,7 +2568,7 @@ define dso_local ptr @make_pathkeys_for_sortclauses_extended(ptr noundef %0, ptr
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.041, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %.sroa.7.040 to i64
-  %21 = getelementptr inbounds %union.ListCell, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @get_sortgroupclause_expr(ptr noundef %22, ptr noundef %2) #9
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
@@ -2671,7 +2669,7 @@ make_pathkey_from_sortop.exit:                    ; preds = %32
 
 67:                                               ; preds = %66, %.lr.ph14.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next.i, %66 ]
-  %68 = getelementptr inbounds nuw %union.ListCell, ptr %65, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
@@ -2825,7 +2823,7 @@ define dso_local ptr @find_mergeclauses_for_outer_pathkeys(ptr noundef readnone 
 .lr.ph62:                                         ; preds = %.lr.ph, %update_mergeclause_eclasses.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %update_mergeclause_eclasses.exit ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %.promoted.i = load ptr, ptr %11, align 8
@@ -2885,7 +2883,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %53 ], [ 0, %.lr.ph77.split.split ]
   %.07694 = phi ptr [ %54, %53 ], [ null, %.lr.ph77.split.split ]
   %31 = load ptr, ptr %27, align 8
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv107
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv107
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -2898,7 +2896,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %49 ], [ 0, %.lr.ph65 ]
   %.0416372 = phi ptr [ %.142, %49 ], [ null, %.lr.ph65 ]
   %39 = load ptr, ptr %28, align 8
-  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv104
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv104
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 192
   %43 = load i8, ptr %42, align 8, !range !4, !noundef !5
@@ -2971,7 +2969,7 @@ list_length.exit:                                 ; preds = %3
   %indvars.iv233 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next234, %.loopexit183 ]
   %.0124196 = phi i32 [ 0, %.lr.ph197 ], [ %.1125, %.loopexit183 ]
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv233
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv233
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 152
   %.promoted.i = load ptr, ptr %21, align 8
@@ -3043,7 +3041,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
 
 .lr.ph200.us:                                     ; preds = %.lr.ph200.us.preheader, %53
   %indvars.iv241 = phi i64 [ 0, %.lr.ph200.us.preheader ], [ %indvars.iv.next242, %53 ]
-  %44 = getelementptr inbounds nuw %union.ListCell, ptr %42, i64 %indvars.iv241
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv241
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
@@ -3056,7 +3054,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
 
 49:                                               ; preds = %.lr.ph200.us, %48
   %indvars.iv236 = phi i64 [ 0, %.lr.ph200.us ], [ %indvars.iv.next237, %48 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv236
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv236
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %47
   br i1 %52, label %53, label %48
@@ -3073,7 +3071,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %.0136
   br i1 %57, label %.loopexit183, label %54
@@ -3096,7 +3094,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %indvars.iv230 = phi i64 [ %indvars.iv.next231, %85 ], [ 0, %.lr.ph188 ]
   %.0137187192 = phi i32 [ %.1138, %85 ], [ 0, %.lr.ph188 ]
   %65 = load ptr, ptr %61, align 8
-  %66 = getelementptr inbounds nuw %union.ListCell, ptr %65, i64 %indvars.iv230
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv230
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load i8, ptr %68, align 8, !range !4, !noundef !5
@@ -3106,9 +3104,9 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
 .critedge161:                                     ; preds = %85, %.lr.ph188, %.critedge159
   %.0137.lcssa = phi i32 [ 0, %.critedge159 ], [ 0, %.lr.ph188 ], [ %.1138, %85 ]
   %71 = sext i32 %.0124196 to i64
-  %72 = getelementptr inbounds ptr, ptr %10, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %10, i64 %71
   store ptr %.0136, ptr %72, align 8
-  %73 = getelementptr inbounds i32, ptr %12, i64 %71
+  %73 = getelementptr inbounds [4 x i8], ptr %12, i64 %71
   store i32 %.0137.lcssa, ptr %73, align 4
   %74 = add i32 %.0124196, 1
   br label %.loopexit183
@@ -3171,7 +3169,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %99 = phi i32 [ %97, %.lr.ph211.us.preheader ], [ %112, %..loopexit_crit_edge.us ]
   %indvars.iv253 = phi i64 [ 0, %.lr.ph211.us.preheader ], [ %indvars.iv.next254, %..loopexit_crit_edge.us ]
   %100 = load ptr, ptr %95, align 8
-  %101 = getelementptr inbounds nuw %union.ListCell, ptr %100, i64 %indvars.iv253
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv253
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
@@ -3184,13 +3182,13 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
 
 106:                                              ; preds = %.lr.ph211.us, %105
   %indvars.iv248 = phi i64 [ 0, %.lr.ph211.us ], [ %indvars.iv.next249, %105 ]
-  %107 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv248
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv248
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, %104
   br i1 %109, label %110, label %105
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv248
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv248
   store i32 -1, ptr %111, align 4
   %.pre261 = load i32, ptr %94, align 4
   br label %..loopexit_crit_edge.us
@@ -3226,7 +3224,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %indvars.iv256 = phi i64 [ %indvars.iv.next257, %.lr.ph222 ], [ 1, %118 ]
   %.0120220 = phi i32 [ %spec.select165, %.lr.ph222 ], [ %119, %118 ]
   %.0122219 = phi i32 [ %spec.select164, %.lr.ph222 ], [ 0, %118 ]
-  %120 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv256
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv256
   %121 = load i32, ptr %120, align 4
   %122 = icmp sgt i32 %121, %.0120220
   %123 = trunc nuw nsw i64 %indvars.iv256 to i32
@@ -3247,9 +3245,9 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   br i1 %125, label %list_length.exit.thread.sink.split, label %126
 
 126:                                              ; preds = %._crit_edge223
-  %127 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0122.lcssa
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0122.lcssa
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i32, ptr %12, i64 %.0122.lcssa
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.0122.lcssa
   store i32 -1, ptr %129, align 4
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %131 = load ptr, ptr %130, align 8
@@ -3312,7 +3310,7 @@ list_head.exit:                                   ; preds = %3, %4
   %.0386478 = phi ptr [ %.1, %pathkey_is_redundant.exit ], [ null, %.lr.ph ]
   %indvars.iv77 = phi i64 [ %indvars.iv.next, %pathkey_is_redundant.exit ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv77
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv77
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %.promoted.i = load ptr, ptr %17, align 8
@@ -3376,7 +3374,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %.val52 = load ptr, ptr %11, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0436081, i64 8
   %39 = sext i32 %.val to i64
-  %40 = getelementptr inbounds %union.ListCell, ptr %.val52, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %.val52, i64 %39
   %41 = icmp ult ptr %38, %40
   %..i = select i1 %41, ptr %38, ptr null
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -3440,7 +3438,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
 
 69:                                               ; preds = %68, %.lr.ph14.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next.i, %68 ]
-  %70 = getelementptr inbounds nuw %union.ListCell, ptr %67, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
@@ -3496,7 +3494,7 @@ list_head.exit:                                   ; preds = %3
   %.0305771 = phi ptr [ %14, %.lr.ph74.preheader ], [ %23, %.thread ]
   %.0295969 = phi ptr [ null, %.lr.ph74.preheader ], [ %35, %.thread ]
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 192
   %21 = load i8, ptr %20, align 8, !range !4, !noundef !5
@@ -3520,7 +3518,7 @@ list_head.exit:                                   ; preds = %3
   %.val45 = load ptr, ptr %6, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0355672, i64 8
   %31 = sext i32 %.val to i64
-  %32 = getelementptr inbounds %union.ListCell, ptr %.val45, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.val45, i64 %31
   %33 = icmp ult ptr %30, %32
   %..i48 = select i1 %33, ptr %30, ptr null
   %34 = icmp eq ptr %23, %29

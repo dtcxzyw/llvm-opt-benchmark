@@ -3,9 +3,8 @@ source_filename = "bench/cmake/original/doh.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.doh_probe = type { i64, i32, [512 x i8], i64, %struct.dynbuf }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
 %struct.dohentry = type { [4 x %struct.dynbuf], [24 x %struct.dohaddr], i32, i32, i32 }
+%struct.dynbuf = type { ptr, i64, i64, i64 }
 %struct.dohaddr = type { i32, %union.anon.2 }
 %union.anon.2 = type { [16 x i8] }
 
@@ -702,7 +701,7 @@ define dso_local void @Curl_doh_cleanup(ptr noundef captures(none) %0) local_unn
 10:                                               ; preds = %23, %8
   %11 = phi i1 [ true, %8 ], [ false, %23 ]
   %.021.i = phi i64 [ 0, %8 ], [ 1, %23 ]
-  %12 = getelementptr inbounds nuw %struct.doh_probe, ptr %9, i64 %.021.i
+  %12 = getelementptr inbounds nuw [568 x i8], ptr %9, i64 %.021.i
   %13 = load i64, ptr %12, align 8, !tbaa !80
   %14 = icmp slt i64 %13, 0
   br i1 %14, label %23, label %15
@@ -812,7 +811,7 @@ define dso_local range(i32 0, 28) i32 @Curl_doh_is_resolved(ptr noundef %0, ptr 
 32:                                               ; preds = %45, %31
   %33 = phi i1 [ true, %31 ], [ false, %45 ]
   %.021.i = phi i64 [ 0, %31 ], [ 1, %45 ]
-  %34 = getelementptr inbounds nuw %struct.doh_probe, ptr %9, i64 %.021.i
+  %34 = getelementptr inbounds nuw [568 x i8], ptr %9, i64 %.021.i
   %35 = load i64, ptr %34, align 8, !tbaa !80
   %36 = icmp slt i64 %35, 0
   br i1 %36, label %45, label %37
@@ -854,7 +853,7 @@ Curl_doh_close.exit:                              ; preds = %28, %46
 
 48:                                               ; preds = %48, %Curl_doh_close.exit
   %indvars.iv.i = phi i64 [ 0, %Curl_doh_close.exit ], [ %indvars.iv.next.i, %48 ]
-  %49 = getelementptr inbounds nuw %struct.dynbuf, ptr %5, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv.i
   call void @Curl_dyn_init(ptr noundef nonnull %49, i64 noundef 256) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -873,7 +872,7 @@ de_init.exit.preheader:                           ; preds = %48
   %57 = phi i1 [ true, %de_init.exit.preheader ], [ false, %de_init.exit ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %de_init.exit.preheader ], [ %.sroa.5, %de_init.exit ]
   %indvars.iv = phi i64 [ 0, %de_init.exit.preheader ], [ 1, %de_init.exit ]
-  %58 = getelementptr inbounds nuw %struct.doh_probe, ptr %9, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [568 x i8], ptr %9, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8, !tbaa !103
   %.not89 = icmp eq i32 %60, 0
@@ -1337,7 +1336,7 @@ doh_resp_decode.exit:                             ; preds = %97, %doh_skipqname.
 
 doh_strerror.exit:                                ; preds = %313, %311
   %317 = zext nneg i32 %.0.i to i64
-  %318 = getelementptr inbounds nuw ptr, ptr @errors, i64 %317
+  %318 = getelementptr inbounds nuw [8 x i8], ptr @errors, i64 %317
   %319 = load ptr, ptr %318, align 8, !tbaa !86
   %320 = load i32, ptr %59, align 8, !tbaa !103
   %switch.selectcmp.i = icmp eq i32 %320, 28
@@ -1419,7 +1418,7 @@ de_init.exit:                                     ; preds = %doh_resp_decode.exi
   %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.i96 ], [ %indvars.iv.next.i98, %377 ]
   %.05783.i = phi ptr [ null, %.lr.ph.i96 ], [ %357, %377 ]
   %.05982.i = phi ptr [ null, %.lr.ph.i96 ], [ %spec.select.i, %377 ]
-  %352 = getelementptr inbounds nuw %struct.dohaddr, ptr %348, i64 %indvars.iv.i97
+  %352 = getelementptr inbounds nuw [20 x i8], ptr %348, i64 %indvars.iv.i97
   %353 = load i32, ptr %352, align 4, !tbaa !131
   %354 = icmp eq i32 %353, 28
   %..i = select i1 %354, i64 28, i64 16
@@ -1493,7 +1492,7 @@ doh2ai.exit:                                      ; preds = %340, %382
 
 .lr.ph.i100:                                      ; preds = %doh2ai.exit, %.lr.ph.i100
   %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i102, %.lr.ph.i100 ], [ 0, %doh2ai.exit ]
-  %385 = getelementptr inbounds nuw %struct.dynbuf, ptr %5, i64 %indvars.iv.i101
+  %385 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv.i101
   call void @Curl_dyn_free(ptr noundef nonnull %385) #8
   %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i101, 1
   %386 = load i32, ptr %50, align 8, !tbaa !144
@@ -1546,7 +1545,7 @@ de_cleanup.exit.thread:                           ; preds = %402, %401, %322
 
 .lr.ph.i104:                                      ; preds = %de_cleanup.exit.thread, %.lr.ph.i104
   %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i106, %.lr.ph.i104 ], [ 0, %de_cleanup.exit.thread ]
-  %406 = getelementptr inbounds nuw %struct.dynbuf, ptr %5, i64 %indvars.iv.i105
+  %406 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv.i105
   call void @Curl_dyn_free(ptr noundef nonnull %406) #8
   %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i105, 1
   %407 = load i32, ptr %50, align 8, !tbaa !144
@@ -1597,7 +1596,7 @@ define dso_local void @Curl_doh_close(ptr noundef readonly captures(none) %0) lo
 10:                                               ; preds = %8, %23
   %11 = phi i1 [ true, %8 ], [ false, %23 ]
   %.021 = phi i64 [ 0, %8 ], [ 1, %23 ]
-  %12 = getelementptr inbounds nuw %struct.doh_probe, ptr %9, i64 %.021
+  %12 = getelementptr inbounds nuw [568 x i8], ptr %9, i64 %.021
   %13 = load i64, ptr %12, align 8, !tbaa !80
   %14 = icmp slt i64 %13, 0
   br i1 %14, label %23, label %15
@@ -1693,7 +1692,7 @@ define internal fastcc void @doh_show(ptr noundef nonnull %0, ptr noundef nonnul
 
 27:                                               ; preds = %.lr.ph, %81
   %indvars.iv79 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next80, %81 ]
-  %28 = getelementptr inbounds nuw %struct.dohaddr, ptr %21, i64 %indvars.iv79
+  %28 = getelementptr inbounds nuw [20 x i8], ptr %21, i64 %indvars.iv79
   %29 = load i32, ptr %28, align 4, !tbaa !131
   switch i32 %29, label %81 [
     i32 1, label %30
@@ -1814,7 +1813,7 @@ define internal fastcc void @doh_show(ptr noundef nonnull %0, ptr noundef nonnul
   br i1 %94, label %95, label %98
 
 95:                                               ; preds = %91, %89
-  %96 = getelementptr inbounds nuw %struct.dynbuf, ptr %1, i64 %indvars.iv82
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv82
   %97 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %96) #8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, ptr noundef %97) #8
   %.pre = load i32, ptr %23, align 8, !tbaa !144
@@ -2030,7 +2029,7 @@ define internal fastcc range(i32 0, 7) i32 @doh_rdata(ptr noundef nonnull %0, i6
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %14 = sext i32 %10 to i64
-  %15 = getelementptr inbounds %struct.dohaddr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [20 x i8], ptr %13, i64 %14
   store i32 1, ptr %15, align 4, !tbaa !131
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = sext i32 %4 to i64
@@ -2054,7 +2053,7 @@ define internal fastcc range(i32 0, 7) i32 @doh_rdata(ptr noundef nonnull %0, i6
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %28 = sext i32 %24 to i64
-  %29 = getelementptr inbounds %struct.dohaddr, ptr %27, i64 %28
+  %29 = getelementptr inbounds [20 x i8], ptr %27, i64 %28
   store i32 28, ptr %29, align 4, !tbaa !131
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = sext i32 %4 to i64
@@ -2074,7 +2073,7 @@ define internal fastcc range(i32 0, 7) i32 @doh_rdata(ptr noundef nonnull %0, i6
   %39 = add nsw i32 %36, 1
   store i32 %39, ptr %35, align 8, !tbaa !144
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds %struct.dynbuf, ptr %5, i64 %40
+  %41 = getelementptr inbounds [32 x i8], ptr %5, i64 %40
   br label %42
 
 42:                                               ; preds = %73, %38

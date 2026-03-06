@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ProcessTrianglesAction = type { ptr, i8, i8, i32, i32, ptr }
 %struct.ProcessVBoundsAction = type { ptr, i32, i32, i32, %class.btVector3, %class.btVector3, %class.btVector3, ptr, %struct.ProcessTrianglesAction }
 %"struct.(anonymous namespace)::GridRaycastState" = type { i32, i32, i32, i32, float, float, float, float }
-%"struct.btHeightfieldTerrainShape::Range" = type { float, float }
 
 $__clang_call_terminate = comdat any
 
@@ -568,7 +567,7 @@ define dso_local noundef float @_ZNK25btHeightfieldTerrainShape22getRawHeightFie
   %11 = mul nsw i32 %10, %2
   %12 = add nsw i32 %11, %1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds float, ptr %8, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %8, i64 %13
   %15 = load float, ptr %14, align 4, !tbaa !42
   br label %55
 
@@ -580,7 +579,7 @@ define dso_local noundef float @_ZNK25btHeightfieldTerrainShape22getRawHeightFie
   %21 = mul nsw i32 %20, %2
   %22 = add nsw i32 %21, %1
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds double, ptr %18, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %18, i64 %23
   %25 = load double, ptr %24, align 8, !tbaa !50
   %26 = fptrunc double %25 to float
   br label %55
@@ -609,7 +608,7 @@ define dso_local noundef float @_ZNK25btHeightfieldTerrainShape22getRawHeightFie
   %46 = mul nsw i32 %45, %2
   %47 = add nsw i32 %46, %1
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i16, ptr %43, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %43, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !52
   %51 = sitofp i16 %50 to float
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -928,11 +927,11 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
 
 94:                                               ; preds = %4, %94
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !54
   %97 = add nsw i32 %96, -1
   store i32 %97, ptr %95, align 4, !tbaa !54
-  %98 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %99 = load i32, ptr %98, align 4, !tbaa !54
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %98, align 4, !tbaa !54
@@ -979,9 +978,9 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
   %.1 = phi i32 [ 0, %85 ], [ %.2, %106 ], [ %.3, %111 ], [ %.075, %101 ]
   %.074 = phi i32 [ %91, %85 ], [ %spec.select109, %106 ], [ %spec.select110, %111 ], [ %spec.select108, %101 ]
   %117 = sext i32 %93 to i64
-  %118 = getelementptr inbounds float, ptr %2, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %2, i64 %117
   %119 = load float, ptr %118, align 4, !tbaa !42
-  %120 = getelementptr inbounds float, ptr %3, i64 %117
+  %120 = getelementptr inbounds [4 x i8], ptr %3, i64 %117
   %121 = load float, ptr %120, align 4, !tbaa !42
   %122 = icmp slt i32 %.1, %.074
   br i1 %122, label %.preheader.lr.ph, label %._crit_edge502
@@ -1304,11 +1303,11 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit180.us: ; preds = %.
   %285 = fmul float %277, %284
   store float %285, ptr %spec.select106.sroa.sel.sroa.sel328.us.pre-phi, align 4, !tbaa !42
   %286 = sext i32 %246 to i64
-  %287 = getelementptr inbounds float, ptr %7, i64 %286
+  %287 = getelementptr inbounds [4 x i8], ptr %7, i64 %286
   %288 = load float, ptr %287, align 4, !tbaa !42
-  %289 = getelementptr inbounds float, ptr %130, i64 %286
+  %289 = getelementptr inbounds [4 x i8], ptr %130, i64 %286
   %290 = load float, ptr %289, align 4, !tbaa !42
-  %291 = getelementptr inbounds float, ptr %.sroa.gep, i64 %286
+  %291 = getelementptr inbounds [4 x i8], ptr %.sroa.gep, i64 %286
   %292 = load float, ptr %291, align 4, !tbaa !42
   %293 = fcmp ogt float %288, %290
   br i1 %293, label %301, label %294
@@ -1452,7 +1451,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit199.us: ; preds = %.
   %360 = fmul float %352, %359
   store float %360, ptr %spec.select106.sroa.sel.sroa.sel328.us.pre-phi, align 4, !tbaa !42
   %361 = sext i32 %321 to i64
-  %362 = getelementptr inbounds float, ptr %spec.select106.sroa.sel.us, i64 %361
+  %362 = getelementptr inbounds [4 x i8], ptr %spec.select106.sroa.sel.us, i64 %361
   %363 = load float, ptr %362, align 4, !tbaa !42
   %364 = fcmp olt float %.sroa.0.0.vec.extract, %363
   %365 = select i1 %364, float %.sroa.0.0.vec.extract, float %363
@@ -1724,11 +1723,11 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit149.us: ; preds = %.
   %504 = fmul float %496, %503
   store float %504, ptr %spec.select106.sroa.sel382.sroa.sel445.us.pre-phi, align 4, !tbaa !42
   %505 = sext i32 %465 to i64
-  %506 = getelementptr inbounds float, ptr %7, i64 %505
+  %506 = getelementptr inbounds [4 x i8], ptr %7, i64 %505
   %507 = load float, ptr %506, align 4, !tbaa !42
-  %508 = getelementptr inbounds float, ptr %130, i64 %505
+  %508 = getelementptr inbounds [4 x i8], ptr %130, i64 %505
   %509 = load float, ptr %508, align 4, !tbaa !42
-  %510 = getelementptr inbounds float, ptr %.sroa.gep, i64 %505
+  %510 = getelementptr inbounds [4 x i8], ptr %.sroa.gep, i64 %505
   %511 = load float, ptr %510, align 4, !tbaa !42
   %512 = fcmp ogt float %507, %509
   br i1 %512, label %520, label %513
@@ -1872,7 +1871,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit159.us: ; preds = %.
   %579 = fmul float %571, %578
   store float %579, ptr %spec.select106.sroa.sel382.sroa.sel445.us.pre-phi, align 4, !tbaa !42
   %580 = sext i32 %540 to i64
-  %581 = getelementptr inbounds float, ptr %spec.select106.sroa.sel382.us, i64 %580
+  %581 = getelementptr inbounds [4 x i8], ptr %spec.select106.sroa.sel382.us, i64 %580
   %582 = load float, ptr %581, align 4, !tbaa !42
   %583 = fcmp olt float %.sroa.0213.0.vec.extract, %582
   %584 = select i1 %583, float %.sroa.0213.0.vec.extract, float %582
@@ -3323,17 +3322,17 @@ define linkonce_odr dso_local void @_Z11gridRaycastI22ProcessTrianglesActionEvRT
 23:                                               ; preds = %4
   %24 = load i32, ptr %3, align 4, !tbaa !54
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds float, ptr %2, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %2, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !42
-  %28 = getelementptr inbounds float, ptr %1, i64 %25
+  %28 = getelementptr inbounds [4 x i8], ptr %1, i64 %25
   %29 = load float, ptr %28, align 4, !tbaa !42
   %30 = fsub float %27, %29
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !54
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds float, ptr %2, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %2, i64 %33
   %35 = load float, ptr %34, align 4, !tbaa !42
-  %36 = getelementptr inbounds float, ptr %1, i64 %33
+  %36 = getelementptr inbounds [4 x i8], ptr %1, i64 %33
   %37 = load float, ptr %36, align 4, !tbaa !42
   %38 = fsub float %35, %37
   %39 = fmul float %38, %38
@@ -3498,17 +3497,17 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
 25:                                               ; preds = %4
   %26 = load i32, ptr %3, align 4, !tbaa !54
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds float, ptr %2, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %2, i64 %27
   %29 = load float, ptr %28, align 4, !tbaa !42
-  %30 = getelementptr inbounds float, ptr %1, i64 %27
+  %30 = getelementptr inbounds [4 x i8], ptr %1, i64 %27
   %31 = load float, ptr %30, align 4, !tbaa !42
   %32 = fsub float %29, %31
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load i32, ptr %33, align 4, !tbaa !54
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds float, ptr %2, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %2, i64 %35
   %37 = load float, ptr %36, align 4, !tbaa !42
-  %38 = getelementptr inbounds float, ptr %1, i64 %35
+  %38 = getelementptr inbounds [4 x i8], ptr %1, i64 %35
   %39 = load float, ptr %38, align 4, !tbaa !42
   %40 = fsub float %37, %39
   %41 = fmul float %40, %40
@@ -3789,9 +3788,9 @@ _ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i
 
 60:                                               ; preds = %60, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %60 ]
-  %61 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %62 = load ptr, ptr %59, align 8, !tbaa !15
-  %63 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %62, i64 %indvars.iv.i.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv.i.i.i
   %64 = load i64, ptr %63, align 4
   store i64 %64, ptr %61, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3902,8 +3901,8 @@ _ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exi
 
 ._crit_edge.us:                                   ; preds = %..loopexit_crit_edge.us
   %103 = load ptr, ptr %73, align 8, !tbaa !15
-  %104 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %103, i64 %indvars.iv
-  %105 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %104, i64 %77
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %77
   store float %.sroa.0.1.us, ptr %105, align 4
   %.sroa_idx69.us98 = getelementptr inbounds nuw i8, ptr %105, i64 4
   store float %.sroa.6.1.us, ptr %.sroa_idx69.us98, align 4
@@ -4000,7 +3999,7 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %.sroa.05.0.copyload = load float, ptr %23, align 4, !tbaa !42
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !42
@@ -4071,7 +4070,7 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !54
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds float, ptr %4, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %4, i64 %72
   %74 = load float, ptr %73, align 4, !tbaa !42
   %75 = fcmp ogt float %74, %.sroa.5.0.copyload
   br i1 %75, label %93, label %76
@@ -4086,7 +4085,7 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !54
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds float, ptr %4, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %4, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !42
   %86 = fcmp olt float %85, %.sroa.05.0.copyload
   br i1 %86, label %93, label %.critedge
@@ -4140,17 +4139,17 @@ define linkonce_odr dso_local void @_Z11gridRaycastIK22ProcessTrianglesActionEvR
 23:                                               ; preds = %4
   %24 = load i32, ptr %3, align 4, !tbaa !54
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds float, ptr %2, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %2, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !42
-  %28 = getelementptr inbounds float, ptr %1, i64 %25
+  %28 = getelementptr inbounds [4 x i8], ptr %1, i64 %25
   %29 = load float, ptr %28, align 4, !tbaa !42
   %30 = fsub float %27, %29
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !54
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds float, ptr %2, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %2, i64 %33
   %35 = load float, ptr %34, align 4, !tbaa !42
-  %36 = getelementptr inbounds float, ptr %1, i64 %33
+  %36 = getelementptr inbounds [4 x i8], ptr %1, i64 %33
   %37 = load float, ptr %36, align 4, !tbaa !42
   %38 = fsub float %35, %37
   %39 = fmul float %38, %38

@@ -1277,7 +1277,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImplC2ERKSt10shared
 10:                                               ; preds = %.preheader, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %11 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = load ptr, ptr %13, align 8
@@ -1285,7 +1285,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImplC2ERKSt10shared
           to label %15 unwind label %64
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %.ptr13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %.ptr13, i64 %indvars.iv
   %17 = load ptr, ptr %3, align 8, !tbaa !16
   %18 = load ptr, ptr %9, align 8, !tbaa !21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -1517,7 +1517,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl8validateEv(pt
 
 6:                                                ; preds = %1, %52
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %52 ]
-  %7 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -1547,7 +1547,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl8validateEv(pt
 
 switch.lookup:                                    ; preds = %20
   %22 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl8validateEv, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl8validateEv, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %switch.load)
           to label %24 unwind label %39
@@ -1694,7 +1694,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl
 5:                                                ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %6 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !16
   store ptr %7, ptr %2, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1870,7 +1870,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev19GradingRGBCurveImpl8getCurveENS_1
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !16
   store ptr %13, ptr %0, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1923,7 +1923,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImpl8getCurveENS_12
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !16
   store ptr %13, ptr %0, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8

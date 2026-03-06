@@ -1624,7 +1624,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %211
   %224 = sub i64 %222, %223
   %225 = ashr exact i64 %224, 3
   %226 = sub nsw i64 0, %225
-  %227 = getelementptr inbounds i64, ptr %221, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr %221, i64 %226
   call void @_ZdlPvm(ptr noundef %227, i64 noundef %224) #20
   store ptr null, ptr %90, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1707,7 +1707,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9LogicInfoD2Ev(ptr noundef non
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #20
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1778,7 +1778,7 @@ _ZN4cvc57context3CDOImEaSERKm.exit:               ; preds = %._crit_edge, %28
 .lr.ph:                                           ; preds = %2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %.010 = phi i64 [ %61, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %18, %2 ]
   %29 = load ptr, ptr %8, align 8, !tbaa !58
-  %30 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %29, i64 %.010
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.010
   %31 = load ptr, ptr %30, align 8, !tbaa !60
   store ptr %31, ptr %3, align 8, !tbaa !60
   %32 = load i64, ptr %31, align 8
@@ -2060,12 +2060,12 @@ define linkonce_odr hidden void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnul
 
 .noexc:                                           ; preds = %18
   %23 = lshr i64 %19, 6
-  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   store ptr %24, ptr %6, align 8, !tbaa !103
   store ptr %22, ptr %0, align 8
   store i32 0, ptr %3, align 8
   %25 = sdiv i64 %17, 64
-  %26 = getelementptr inbounds i64, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = and i64 %17, -9223372036854775745
   %28 = icmp ugt i64 %27, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %28, i64 -8, i64 0
@@ -2179,7 +2179,7 @@ define linkonce_odr hidden void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef non
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #20
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8

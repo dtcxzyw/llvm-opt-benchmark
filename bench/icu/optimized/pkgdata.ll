@@ -691,7 +691,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %41 = load ptr, ptr @progname, align 8, !tbaa !16
   %42 = sub nsw i32 0, %32
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !16
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.2, ptr noundef %41, ptr noundef %45) #24
   %47 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -829,7 +829,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %109 = load ptr, ptr @stderr, align 8, !tbaa !20
   %110 = icmp eq i64 %indvars.iv291, 0
   %111 = select i1 %110, ptr @.str.10, ptr @.str.11
-  %112 = getelementptr inbounds nuw %struct.UOption, ptr @_ZL7options, i64 %indvars.iv291
+  %112 = getelementptr inbounds nuw [40 x i8], ptr @_ZL7options, i64 %indvars.iv291
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %114 = load i8, ptr %113, align 8, !tbaa !25
   %115 = sext i8 %114 to i32
@@ -851,7 +851,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 122:                                              ; preds = %119, %135
   %indvars.iv295 = phi i64 [ 0, %119 ], [ %indvars.iv.next296, %135 ]
   %123 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %124 = getelementptr inbounds nuw %struct.anon, ptr @_ZL5modes, i64 %indvars.iv295
+  %124 = getelementptr inbounds nuw [24 x i8], ptr @_ZL5modes, i64 %indvars.iv295
   %125 = load ptr, ptr %124, align 8, !tbaa !28
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.15, ptr noundef %125) #24
   %.not98 = icmp eq i64 %indvars.iv295, 0
@@ -1001,7 +1001,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 .lr.ph247:                                        ; preds = %.lr.ph247.preheader, %.lr.ph247
   %indvars.iv = phi i64 [ 1, %.lr.ph247.preheader ], [ %indvars.iv.next, %.lr.ph247 ]
   %.sroa.0.0245 = phi ptr [ null, %.lr.ph247.preheader ], [ %193, %.lr.ph247 ]
-  %190 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %191 = load ptr, ptr %190, align 8, !tbaa !16
   %192 = call ptr @uprv_strdup_77(ptr noundef %191)
   %193 = call ptr @pkg_appendToList(ptr noundef %.sroa.0.0245, ptr noundef nonnull %30, ptr noundef %192)
@@ -1281,7 +1281,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %297 ], [ 0, %.preheader48.i.i.preheader ]
   %294 = call noalias dereferenceable_or_null(4096) ptr @uprv_malloc_77(i64 noundef 4096) #22
   %295 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
-  %296 = getelementptr inbounds nuw ptr, ptr %295, i64 %indvars.iv.i.i.us
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %indvars.iv.i.i.us
   store ptr %294, ptr %296, align 8, !tbaa !16
   %.not42.i.i.us = icmp eq ptr %294, null
   br i1 %.not42.i.i.us, label %.split.us, label %297
@@ -1306,7 +1306,7 @@ thread-pre-split.i.i:                             ; preds = %349
   %indvars.iv.i.i = phi i64 [ 0, %.preheader48.i.i ], [ %indvars.iv.next.i.i, %303 ]
   %300 = call noalias ptr @uprv_malloc_77(i64 noundef %298) #22
   %301 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
-  %302 = getelementptr inbounds nuw ptr, ptr %301, i64 %indvars.iv.i.i
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %indvars.iv.i.i
   store ptr %300, ptr %302, align 8, !tbaa !16
   %.not42.i.i = icmp eq ptr %300, null
   br i1 %.not42.i.i, label %.split.us, label %303
@@ -1362,7 +1362,7 @@ thread-pre-split.i.i:                             ; preds = %349
 .preheader.i.i:                                   ; preds = %327, %.preheader.preheader.i.i
   %321 = phi ptr [ %.pre79.i.i, %.preheader.preheader.i.i ], [ %328, %327 ]
   %indvars.iv64.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %indvars.iv.next65.i.i, %327 ]
-  %322 = getelementptr inbounds nuw ptr, ptr %321, i64 %indvars.iv64.i.i
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %321, i64 %indvars.iv64.i.i
   %323 = load ptr, ptr %322, align 8, !tbaa !16
   %.not46.i.i = icmp eq ptr %323, null
   br i1 %.not46.i.i, label %327, label %324
@@ -1370,7 +1370,7 @@ thread-pre-split.i.i:                             ; preds = %349
 324:                                              ; preds = %.preheader.i.i
   call void @uprv_free_77(ptr noundef nonnull %323)
   %325 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
-  %326 = getelementptr inbounds nuw ptr, ptr %325, i64 %indvars.iv64.i.i
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %indvars.iv64.i.i
   store ptr null, ptr %326, align 8, !tbaa !16
   br label %327
 
@@ -1407,10 +1407,10 @@ thread-pre-split.i.i:                             ; preds = %349
 340:                                              ; preds = %340, %335
   %indvars.iv68.i.i = phi i64 [ 0, %335 ], [ %indvars.iv.next69.i.i, %340 ]
   %341 = load ptr, ptr @stdout, align 8, !tbaa !20
-  %342 = getelementptr inbounds nuw ptr, ptr @_ZL10FLAG_NAMES, i64 %indvars.iv68.i.i
+  %342 = getelementptr inbounds nuw [8 x i8], ptr @_ZL10FLAG_NAMES, i64 %indvars.iv68.i.i
   %343 = load ptr, ptr %342, align 8, !tbaa !16
   %344 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
-  %345 = getelementptr inbounds nuw ptr, ptr %344, i64 %indvars.iv68.i.i
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %344, i64 %indvars.iv68.i.i
   %346 = load ptr, ptr %345, align 8, !tbaa !16
   %347 = trunc nuw nsw i64 %indvars.iv68.i.i to i32
   %348 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %341, ptr noundef nonnull @.str.84, i32 noundef %347, ptr noundef %343, ptr noundef %346) #21
@@ -2525,7 +2525,7 @@ _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %353, %_ZL19pkg_inst
 .preheader:                                       ; preds = %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, %881
   %877 = phi ptr [ %882, %881 ], [ %876, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit ]
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %881 ], [ 0, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit ]
-  %878 = getelementptr inbounds nuw ptr, ptr %877, i64 %indvars.iv287
+  %878 = getelementptr inbounds nuw [8 x i8], ptr %877, i64 %indvars.iv287
   %879 = load ptr, ptr %878, align 8, !tbaa !16
   %.not95 = icmp eq ptr %879, null
   br i1 %.not95, label %881, label %880

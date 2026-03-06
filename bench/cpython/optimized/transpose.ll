@@ -26,9 +26,9 @@ define hidden void @std_trans(ptr noundef writeonly captures(none) %0, ptr nound
   %.021.us = phi i64 [ 0, %.lr.ph.us ], [ %12, %6 ]
   %.01620.us = phi i64 [ %5, %.lr.ph.us ], [ %10, %6 ]
   %.01719.us = phi i64 [ %.01522.us, %.lr.ph.us ], [ %11, %6 ]
-  %7 = getelementptr i64, ptr %1, i64 %.01620.us
+  %7 = getelementptr [8 x i8], ptr %1, i64 %.01620.us
   %8 = load i64, ptr %7, align 8, !tbaa !3
-  %9 = getelementptr i64, ptr %0, i64 %.01719.us
+  %9 = getelementptr [8 x i8], ptr %0, i64 %.01719.us
   store i64 %8, ptr %9, align 8, !tbaa !3
   %10 = add i64 %.01620.us, 1
   %11 = add i64 %.01719.us, %2
@@ -97,7 +97,7 @@ mul_size_t.exit31:                                ; preds = %14
 26:                                               ; preds = %24
   tail call fastcc void @squaretrans_pow2(ptr noundef %0, i64 noundef %1)
   %27 = lshr i64 %umul.value.i, 1
-  %28 = getelementptr i64, ptr %0, i64 %27
+  %28 = getelementptr [8 x i8], ptr %0, i64 %27
   tail call fastcc void @squaretrans_pow2(ptr noundef %28, i64 noundef %1)
   br label %44
 
@@ -123,7 +123,7 @@ mul_size_t.exit34:                                ; preds = %29
 39:                                               ; preds = %mul_size_t.exit34
   tail call fastcc void @squaretrans_pow2(ptr noundef %0, i64 noundef %2)
   %40 = lshr i64 %umul.value.i, 1
-  %41 = getelementptr i64, ptr %0, i64 %40
+  %41 = getelementptr [8 x i8], ptr %0, i64 %40
   tail call fastcc void @squaretrans_pow2(ptr noundef %41, i64 noundef %2)
   %42 = tail call fastcc i32 @swap_halfrows_pow2(ptr noundef %0, i64 noundef %2, i64 noundef %1, i32 noundef 1)
   %.not = icmp eq i32 %42, 0
@@ -166,14 +166,14 @@ define internal fastcc void @squaretrans_pow2(ptr noundef captures(none) %0, i64
 
 .preheader113:                                    ; preds = %.preheader113.lr.ph, %58
   %.086137 = phi i64 [ 0, %.preheader113.lr.ph ], [ %59, %58 ]
-  %invariant.gep = getelementptr i64, ptr %0, i64 %.086137
+  %invariant.gep = getelementptr [8 x i8], ptr %0, i64 %.086137
   %9 = mul i64 %.086137, %1
-  %10 = getelementptr i64, ptr %0, i64 %9
+  %10 = getelementptr [8 x i8], ptr %0, i64 %9
   br label %11
 
 11:                                               ; preds = %.preheader113, %.loopexit
   %.085136 = phi i64 [ %.086137, %.preheader113 ], [ %56, %.loopexit ]
-  %12 = getelementptr i64, ptr %10, i64 %.085136
+  %12 = getelementptr [8 x i8], ptr %10, i64 %.085136
   br i1 %.not139, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
@@ -181,8 +181,8 @@ define internal fastcc void @squaretrans_pow2(ptr noundef captures(none) %0, i64
   %.088116 = phi ptr [ %13, %.lr.ph ], [ %12, %11 ]
   %.093115 = phi ptr [ %14, %.lr.ph ], [ %3, %11 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.093115, ptr align 8 %.088116, i64 %8, i1 false)
-  %13 = getelementptr i64, ptr %.088116, i64 %1
-  %14 = getelementptr i64, ptr %.093115, i64 %.087
+  %13 = getelementptr [8 x i8], ptr %.088116, i64 %1
+  %14 = getelementptr [8 x i8], ptr %.093115, i64 %.087
   %15 = add nuw nsw i64 %.0117, 1
   %exitcond.not = icmp eq i64 %15, %.087
   br i1 %exitcond.not, label %.lr.ph33.i, label %.lr.ph, !llvm.loop !14
@@ -208,9 +208,9 @@ define internal fastcc void @squaretrans_pow2(ptr noundef captures(none) %0, i64
   %.031.i = phi i64 [ %28, %.lr.ph.i ], [ %16, %.lr.ph.preheader.i ]
   %.02630.i = phi i64 [ %26, %.lr.ph.i ], [ %21, %.lr.ph.preheader.i ]
   %.02729.i = phi i64 [ %27, %.lr.ph.i ], [ %19, %.lr.ph.preheader.i ]
-  %22 = getelementptr i64, ptr %3, i64 %.02630.i
+  %22 = getelementptr [8 x i8], ptr %3, i64 %.02630.i
   %23 = load i64, ptr %22, align 8, !tbaa !3
-  %24 = getelementptr i64, ptr %3, i64 %.02729.i
+  %24 = getelementptr [8 x i8], ptr %3, i64 %.02729.i
   %25 = load i64, ptr %24, align 8, !tbaa !3
   store i64 %25, ptr %22, align 8, !tbaa !3
   store i64 %23, ptr %24, align 8, !tbaa !3
@@ -229,15 +229,15 @@ squaretrans.exit:                                 ; preds = %.loopexit.i
   %.189133 = phi ptr [ %30, %.lr.ph135 ], [ %3, %squaretrans.exit ]
   %.194132 = phi ptr [ %31, %.lr.ph135 ], [ %12, %squaretrans.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.194132, ptr align 8 %.189133, i64 %8, i1 false)
-  %30 = getelementptr i64, ptr %.189133, i64 %.087
-  %31 = getelementptr i64, ptr %.194132, i64 %1
+  %30 = getelementptr [8 x i8], ptr %.189133, i64 %.087
+  %31 = getelementptr [8 x i8], ptr %.194132, i64 %1
   %32 = add nuw nsw i64 %.1134, 1
   %exitcond153.not = icmp eq i64 %32, %.087
   br i1 %exitcond153.not, label %.loopexit, label %.lr.ph135, !llvm.loop !17
 
 .lr.ph122.preheader:                              ; preds = %squaretrans.exit
   %33 = mul i64 %.085136, %1
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %33
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %33
   br label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
@@ -245,8 +245,8 @@ squaretrans.exit:                                 ; preds = %.loopexit.i
   %.290119 = phi ptr [ %34, %.lr.ph122 ], [ %gep, %.lr.ph122.preheader ]
   %.295118 = phi ptr [ %35, %.lr.ph122 ], [ %4, %.lr.ph122.preheader ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.295118, ptr align 8 %.290119, i64 %8, i1 false)
-  %34 = getelementptr i64, ptr %.290119, i64 %1
-  %35 = getelementptr i64, ptr %.295118, i64 %.087
+  %34 = getelementptr [8 x i8], ptr %.290119, i64 %1
+  %35 = getelementptr [8 x i8], ptr %.295118, i64 %.087
   %36 = add nuw nsw i64 %.2120, 1
   %exitcond147.not = icmp eq i64 %36, %.087
   br i1 %exitcond147.not, label %.lr.ph33.i100, label %.lr.ph122, !llvm.loop !18
@@ -272,9 +272,9 @@ squaretrans.exit:                                 ; preds = %.loopexit.i
   %.031.i106 = phi i64 [ %49, %.lr.ph.i105 ], [ %37, %.lr.ph.preheader.i104 ]
   %.02630.i107 = phi i64 [ %47, %.lr.ph.i105 ], [ %42, %.lr.ph.preheader.i104 ]
   %.02729.i108 = phi i64 [ %48, %.lr.ph.i105 ], [ %40, %.lr.ph.preheader.i104 ]
-  %43 = getelementptr i64, ptr %4, i64 %.02630.i107
+  %43 = getelementptr [8 x i8], ptr %4, i64 %.02630.i107
   %44 = load i64, ptr %43, align 8, !tbaa !3
-  %45 = getelementptr i64, ptr %4, i64 %.02729.i108
+  %45 = getelementptr [8 x i8], ptr %4, i64 %.02729.i108
   %46 = load i64, ptr %45, align 8, !tbaa !3
   store i64 %46, ptr %43, align 8, !tbaa !3
   store i64 %44, ptr %45, align 8, !tbaa !3
@@ -289,8 +289,8 @@ squaretrans.exit:                                 ; preds = %.loopexit.i
   %.391125 = phi ptr [ %50, %.lr.ph127 ], [ %3, %.loopexit.i102 ]
   %.396124 = phi ptr [ %51, %.lr.ph127 ], [ %gep, %.loopexit.i102 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.396124, ptr align 8 %.391125, i64 %8, i1 false)
-  %50 = getelementptr i64, ptr %.391125, i64 %.087
-  %51 = getelementptr i64, ptr %.396124, i64 %1
+  %50 = getelementptr [8 x i8], ptr %.391125, i64 %.087
+  %51 = getelementptr [8 x i8], ptr %.396124, i64 %1
   %52 = add nuw nsw i64 %.3126, 1
   %exitcond149.not = icmp eq i64 %52, %.087
   br i1 %exitcond149.not, label %.lr.ph131, label %.lr.ph127, !llvm.loop !19
@@ -300,8 +300,8 @@ squaretrans.exit:                                 ; preds = %.loopexit.i
   %.492129 = phi ptr [ %53, %.lr.ph131 ], [ %4, %.lr.ph127 ]
   %.497128 = phi ptr [ %54, %.lr.ph131 ], [ %12, %.lr.ph127 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.497128, ptr align 8 %.492129, i64 %8, i1 false)
-  %53 = getelementptr i64, ptr %.492129, i64 %.087
-  %54 = getelementptr i64, ptr %.497128, i64 %1
+  %53 = getelementptr [8 x i8], ptr %.492129, i64 %.087
+  %54 = getelementptr [8 x i8], ptr %.497128, i64 %1
   %55 = add nuw nsw i64 %.4130, 1
   %exitcond151.not = icmp eq i64 %55, %.087
   br i1 %exitcond151.not, label %.loopexit, label %.lr.ph131, !llvm.loop !20
@@ -351,10 +351,10 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
 .lr.ph103.split.us:                               ; preds = %.lr.ph103, %..loopexit_crit_edge.us
   %.068101.us = phi i64 [ %24, %..loopexit_crit_edge.us ], [ 1, %.lr.ph103 ]
   %17 = lshr i64 %.068101.us, 6
-  %18 = getelementptr i64, ptr %11, i64 %17
+  %18 = getelementptr [8 x i8], ptr %11, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %20 = and i64 %.068101.us, 63
-  %21 = getelementptr i64, ptr @mpd_bits, i64 %20
+  %21 = getelementptr [8 x i8], ptr @mpd_bits, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = and i64 %22, %19
   %.not72.us = icmp eq i64 %23, 0
@@ -367,31 +367,31 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
 
 .lr.ph.us:                                        ; preds = %.preheader.us, %._crit_edge.us
   %.06498.us105 = phi i64 [ %25, %._crit_edge.us ], [ 0, %.preheader.us ]
-  %.08297.us106 = phi ptr [ %.18490.us, %._crit_edge.us ], [ %6, %.preheader.us ]
-  %.08396.us107 = phi ptr [ %.191.us, %._crit_edge.us ], [ %5, %.preheader.us ]
+  %.08197.us106 = phi ptr [ %.18390.us, %._crit_edge.us ], [ %6, %.preheader.us ]
+  %.08296.us107 = phi ptr [ %.191.us, %._crit_edge.us ], [ %5, %.preheader.us ]
   %25 = add nuw i64 %.06498.us105, 4096
   %26 = icmp ult i64 %25, %13
   %27 = sub nuw nsw i64 %13, %.06498.us105
   %28 = shl i64 %27, 3
   %29 = select i1 %26, i64 32768, i64 %28
-  %30 = getelementptr i64, ptr %49, i64 %.06498.us105
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.08396.us107, ptr align 8 %30, i64 %29, i1 false)
-  %invariant.gep = getelementptr i64, ptr %0, i64 %.06498.us105
+  %30 = getelementptr [8 x i8], ptr %49, i64 %.06498.us105
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.08296.us107, ptr align 8 %30, i64 %29, i1 false)
+  %invariant.gep = getelementptr [8 x i8], ptr %0, i64 %.06498.us105
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph.us
   %32 = phi i64 [ %.pn87.us, %.lr.ph.us ], [ %.pn.us, %31 ]
   %.092.us = phi i64 [ %56, %.lr.ph.us ], [ %46, %31 ]
-  %.191.us = phi ptr [ %.08396.us107, %.lr.ph.us ], [ %.18490.us, %31 ]
-  %.18490.us = phi ptr [ %.08297.us106, %.lr.ph.us ], [ %.191.us, %31 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.18490.us, ptr align 8 %gep, i64 %29, i1 false)
+  %.191.us = phi ptr [ %.08296.us107, %.lr.ph.us ], [ %.18390.us, %31 ]
+  %.18390.us = phi ptr [ %.08197.us106, %.lr.ph.us ], [ %.191.us, %31 ]
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.18390.us, ptr align 8 %gep, i64 %29, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %gep, ptr align 8 %.191.us, i64 %29, i1 false)
   %33 = and i64 %.092.us, 63
-  %34 = getelementptr i64, ptr @mpd_bits, i64 %33
+  %34 = getelementptr [8 x i8], ptr @mpd_bits, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !3
   %36 = lshr i64 %.092.us, 6
-  %37 = getelementptr i64, ptr %11, i64 %36
+  %37 = getelementptr [8 x i8], ptr %11, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !3
   %39 = or i64 %38, %35
   store i64 %39, ptr %37, align 8, !tbaa !3
@@ -410,7 +410,7 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
 .preheader.us:                                    ; preds = %.lr.ph103.split.us
   %47 = mul i64 %.068101.us, %2
   %48 = lshr i64 %47, 1
-  %49 = getelementptr i64, ptr %0, i64 %48
+  %49 = getelementptr [8 x i8], ptr %0, i64 %48
   %50 = zext i64 %.068101.us to i128
   %51 = mul nuw i128 %15, %50
   %52 = trunc i128 %51 to i64
@@ -420,14 +420,14 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
   %56 = sub i64 %52, %55
   %.pn.in86.us = mul i64 %56, %2
   %.pn87.us = lshr i64 %.pn.in86.us, 1
-  %.06788.us = getelementptr i64, ptr %0, i64 %.pn87.us
+  %.06788.us = getelementptr [8 x i8], ptr %0, i64 %.pn87.us
   %.not7389.us = icmp eq i64 %56, %.068101.us
   br i1 %.not7389.us, label %.lr.ph99.split.us.us, label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %31
-  %.067.us = getelementptr i64, ptr %0, i64 %.pn.us
-  %57 = getelementptr i64, ptr %.067.us, i64 %.06498.us105
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %57, ptr align 8 %.18490.us, i64 %29, i1 false)
+  %.067.us = getelementptr [8 x i8], ptr %0, i64 %.pn.us
+  %57 = getelementptr [8 x i8], ptr %.067.us, i64 %.06498.us105
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %57, ptr align 8 %.18390.us, i64 %29, i1 false)
   %58 = load i64, ptr %18, align 8, !tbaa !3
   %59 = or i64 %58, %22
   store i64 %59, ptr %18, align 8, !tbaa !3
@@ -435,16 +435,16 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
 
 .lr.ph99.split.us.us:                             ; preds = %.preheader.us, %.lr.ph99.split.us.us
   %.06498.us.us = phi i64 [ %60, %.lr.ph99.split.us.us ], [ 0, %.preheader.us ]
-  %.08297.us.us = phi ptr [ %.08396.us.us, %.lr.ph99.split.us.us ], [ %6, %.preheader.us ]
-  %.08396.us.us = phi ptr [ %.08297.us.us, %.lr.ph99.split.us.us ], [ %5, %.preheader.us ]
+  %.08197.us.us = phi ptr [ %.08296.us.us, %.lr.ph99.split.us.us ], [ %6, %.preheader.us ]
+  %.08296.us.us = phi ptr [ %.08197.us.us, %.lr.ph99.split.us.us ], [ %5, %.preheader.us ]
   %60 = add nuw i64 %.06498.us.us, 4096
   %61 = icmp ult i64 %60, %13
   %62 = sub nuw nsw i64 %13, %.06498.us.us
   %63 = shl i64 %62, 3
   %64 = select i1 %61, i64 32768, i64 %63
-  %65 = getelementptr i64, ptr %49, i64 %.06498.us.us
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %.08396.us.us, ptr align 8 %65, i64 %64, i1 false)
-  %66 = getelementptr i64, ptr %.06788.us, i64 %.06498.us.us
+  %65 = getelementptr [8 x i8], ptr %49, i64 %.06498.us.us
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %.08296.us.us, ptr align 8 %65, i64 %64, i1 false)
+  %66 = getelementptr [8 x i8], ptr %.06788.us, i64 %.06498.us.us
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %66, ptr align 8 %65, i64 %64, i1 false)
   %67 = load i64, ptr %18, align 8, !tbaa !3
   %68 = or i64 %67, %22

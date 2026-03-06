@@ -28,18 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %struct._Guard = type { ptr }
-%"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value" = type { %"class.std::variant" }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.10" }
-%"union.std::__detail::__variant::_Variadic_union.10" = type { %"union.std::__detail::__variant::_Variadic_union.12" }
-%"union.std::__detail::__variant::_Variadic_union.12" = type { %"struct.std::__detail::__variant::_Uninitialized.13", [56 x i8] }
-%"struct.std::__detail::__variant::_Uninitialized.13" = type { double }
 
 $_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSINS_20SdfUnregisteredValueEEENSt9enable_ifIXoontsr12_TypeInfoForIT_E4TypeE7IsLocalntsr12_TypeInfoForIS4_E4TypeE14HasTrivialCopyERS0_E4typeERKS4_ = comdat any
 
@@ -1127,7 +1115,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %73 = load ptr, ptr %72, align 8
   %74 = sext i32 %66 to i64
-  %75 = getelementptr i32, ptr %73, i64 %74
+  %75 = getelementptr [4 x i8], ptr %73, i64 %74
   %76 = getelementptr i8, ptr %75, i64 -4
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, 1
@@ -1146,7 +1134,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   br i1 %or.cond, label %85, label %.thread
 
 85:                                               ; preds = %79
-  %86 = getelementptr i64, ptr %0, i64 %81
+  %86 = getelementptr [8 x i8], ptr %0, i64 %81
   %87 = getelementptr i8, ptr %86, i64 32
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, -1
@@ -1253,7 +1241,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %45, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %47, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %42, ptr %19, align 8
   store ptr %46, ptr %20, align 8
-  %48 = getelementptr inbounds nuw i32, ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %40
   store ptr %48, ptr %29, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -1317,7 +1305,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i5: ; preds = %73, %_Z
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i7: ; preds = %75, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i5
   store ptr %70, ptr %49, align 8
   store ptr %74, ptr %50, align 8
-  %76 = getelementptr inbounds nuw i32, ptr %70, i64 %68
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %68
   store ptr %76, ptr %52, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit8
 
@@ -1412,12 +1400,12 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   %35 = add nsw i32 %16, -1
   %36 = sext i32 %35 to i64
   %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds i32, ptr %37, i64 %36
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %36
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 0
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i32, ptr %42, i64 %36
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %36
   %44 = load i32, ptr %43, align 4
   br i1 %40, label %45, label %68
 
@@ -1426,7 +1414,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   %46 = load i32, ptr %0, align 8
   %47 = load ptr, ptr %34, align 8
   %48 = sext i32 %46 to i64
-  %49 = getelementptr i32, ptr %47, i64 %48
+  %49 = getelementptr [4 x i8], ptr %47, i64 %48
   %50 = getelementptr i8, ptr %49, i64 -4
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
@@ -1555,7 +1543,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %87 = load ptr, ptr %86, align 8
   %88 = sext i32 %85 to i64
-  %89 = getelementptr i32, ptr %87, i64 %88
+  %89 = getelementptr [4 x i8], ptr %87, i64 %88
   %90 = getelementptr i8, ptr %89, i64 -4
   store i32 0, ptr %90, align 4
   %91 = load i32, ptr %0, align 8
@@ -1567,7 +1555,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
 94:                                               ; preds = %.thread
   %95 = load ptr, ptr %86, align 8
   %96 = zext nneg i32 %91 to i64
-  %97 = getelementptr i32, ptr %95, i64 %96
+  %97 = getelementptr [4 x i8], ptr %95, i64 %96
   %98 = getelementptr i8, ptr %97, i64 -8
   %99 = load i32, ptr %98, align 4
   %100 = add i32 %99, 1
@@ -1653,10 +1641,10 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
 
 34:                                               ; preds = %16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %36 = getelementptr inbounds i64, ptr %35, i64 %19
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %19
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = getelementptr inbounds i64, ptr %38, i64 %19
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %19
   store i64 %37, ptr %39, align 8
   %40 = load i32, ptr %17, align 8
   %41 = add nsw i32 %40, 1
@@ -1726,7 +1714,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   store i32 %28, ptr %12, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds i64, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load i64, ptr %31, align 8
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %45, label %33
@@ -1769,7 +1757,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
 
 47:                                               ; preds = %45
   %48 = zext nneg i32 %13 to i64
-  %49 = getelementptr i64, ptr %29, i64 %48
+  %49 = getelementptr [8 x i8], ptr %29, i64 %48
   %50 = getelementptr i8, ptr %49, i64 -16
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, -1
@@ -1791,7 +1779,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %60 = load ptr, ptr %59, align 8
   %61 = sext i32 %57 to i64
-  %62 = getelementptr i32, ptr %60, i64 %61
+  %62 = getelementptr [4 x i8], ptr %60, i64 %61
   %63 = getelementptr i8, ptr %62, i64 -4
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, 1
@@ -2880,7 +2868,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %35
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %5, align 8
-  %39 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %23, i64 %17
+  %39 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %17
   store ptr %39, ptr %34, align 8
   ret void
 

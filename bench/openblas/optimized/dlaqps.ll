@@ -24,7 +24,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %19 = load i32, ptr %6, align 4, !tbaa !3
   %narrow = xor i32 %19, -1
   %20 = sext i32 %narrow to i64
-  %21 = getelementptr inbounds double, ptr %5, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %5, i64 %20
   %22 = getelementptr inbounds i8, ptr %7, i64 -4
   %23 = getelementptr inbounds i8, ptr %8, i64 -8
   %24 = getelementptr inbounds i8, ptr %9, i64 -8
@@ -32,7 +32,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %26 = load i32, ptr %13, align 4, !tbaa !3
   %narrow228 = xor i32 %26, -1
   %27 = sext i32 %narrow228 to i64
-  %28 = getelementptr inbounds double, ptr %12, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %12, i64 %27
   %29 = load i32, ptr %0, align 4, !tbaa !3
   %30 = load i32, ptr %1, align 4, !tbaa !3
   %31 = load i32, ptr %2, align 4, !tbaa !3
@@ -62,7 +62,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %45 = sub i32 %44, %40
   store i32 %45, ptr %15, align 4, !tbaa !3
   %46 = sext i32 %41 to i64
-  %47 = getelementptr inbounds double, ptr %24, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %24, i64 %46
   %48 = call i32 @idamax_(ptr noundef nonnull %15, ptr noundef nonnull %47, ptr noundef nonnull @c__1) #7
   %49 = add nsw i32 %48, %40
   %50 = load i32, ptr %18, align 4, !tbaa !3
@@ -72,11 +72,11 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 51:                                               ; preds = %.lr.ph240
   %52 = mul nsw i32 %49, %19
   %53 = sext i32 %52 to i64
-  %54 = getelementptr double, ptr %21, i64 %53
+  %54 = getelementptr [8 x i8], ptr %21, i64 %53
   %55 = getelementptr i8, ptr %54, i64 8
   %56 = mul nsw i32 %50, %19
   %57 = sext i32 %56 to i64
-  %58 = getelementptr double, ptr %21, i64 %57
+  %58 = getelementptr [8 x i8], ptr %21, i64 %57
   %59 = getelementptr i8, ptr %58, i64 8
   call void @dswap_(ptr noundef nonnull %0, ptr noundef %55, ptr noundef nonnull @c__1, ptr noundef %59, ptr noundef nonnull @c__1) #7
   %60 = load i32, ptr %18, align 4, !tbaa !3
@@ -84,27 +84,27 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %61, ptr %15, align 4, !tbaa !3
   %62 = add nsw i32 %49, %26
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds double, ptr %28, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %28, i64 %63
   %65 = add nsw i32 %60, %26
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds double, ptr %28, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %28, i64 %66
   call void @dswap_(ptr noundef nonnull %15, ptr noundef %64, ptr noundef nonnull %13, ptr noundef %67, ptr noundef nonnull %13) #7
   %68 = sext i32 %49 to i64
-  %69 = getelementptr inbounds i32, ptr %22, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %22, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !3
   %71 = load i32, ptr %18, align 4, !tbaa !3
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %22, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %22, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !3
   store i32 %74, ptr %69, align 4, !tbaa !3
   store i32 %70, ptr %73, align 4, !tbaa !3
-  %75 = getelementptr inbounds double, ptr %24, i64 %72
+  %75 = getelementptr inbounds [8 x i8], ptr %24, i64 %72
   %76 = load double, ptr %75, align 8, !tbaa !7
-  %77 = getelementptr inbounds double, ptr %24, i64 %68
+  %77 = getelementptr inbounds [8 x i8], ptr %24, i64 %68
   store double %76, ptr %77, align 8, !tbaa !7
-  %78 = getelementptr inbounds double, ptr %25, i64 %72
+  %78 = getelementptr inbounds [8 x i8], ptr %25, i64 %72
   %79 = load double, ptr %78, align 8, !tbaa !7
-  %80 = getelementptr inbounds double, ptr %25, i64 %68
+  %80 = getelementptr inbounds [8 x i8], ptr %25, i64 %68
   store double %79, ptr %80, align 8, !tbaa !7
   br label %81
 
@@ -122,14 +122,14 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %87, ptr %16, align 4, !tbaa !3
   %88 = add nsw i32 %43, %19
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds double, ptr %21, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %21, i64 %89
   %91 = add nsw i32 %82, %26
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds double, ptr %28, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %28, i64 %92
   %94 = mul nsw i32 %82, %19
   %95 = add nsw i32 %94, %43
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds double, ptr %21, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %21, i64 %96
   call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b8, ptr noundef %90, ptr noundef nonnull %6, ptr noundef %93, ptr noundef nonnull %13, ptr noundef nonnull @c_b9, ptr noundef %97, ptr noundef nonnull @c__1) #7
   br label %98
 
@@ -146,13 +146,13 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %104 = mul nsw i32 %103, %19
   %105 = add nsw i32 %104, %43
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds double, ptr %21, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %21, i64 %106
   %108 = add nsw i32 %43, 1
   %109 = add nsw i32 %108, %104
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds double, ptr %21, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %21, i64 %110
   %112 = sext i32 %103 to i64
-  %113 = getelementptr inbounds double, ptr %23, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %23, i64 %112
   call void @dlarfg_(ptr noundef nonnull %15, ptr noundef %107, ptr noundef %111, ptr noundef nonnull @c__1, ptr noundef nonnull %113) #7
   br label %122
 
@@ -161,9 +161,9 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %116 = mul nsw i32 %115, %19
   %117 = add nsw i32 %116, %43
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds double, ptr %21, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %21, i64 %118
   %120 = sext i32 %115 to i64
-  %121 = getelementptr inbounds double, ptr %23, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %23, i64 %120
   call void @dlarfg_(ptr noundef nonnull @c__1, ptr noundef %119, ptr noundef %119, ptr noundef nonnull @c__1, ptr noundef nonnull %121) #7
   br label %122
 
@@ -172,7 +172,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %124 = mul nsw i32 %123, %19
   %125 = add nsw i32 %124, %43
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds double, ptr %21, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %21, i64 %126
   %128 = load double, ptr %127, align 8, !tbaa !7
   store double 1.000000e+00, ptr %127, align 8, !tbaa !7
   %129 = load i32, ptr %1, align 4, !tbaa !3
@@ -187,16 +187,16 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %134 = sub nsw i32 %129, %123
   store i32 %134, ptr %16, align 4, !tbaa !3
   %135 = sext i32 %123 to i64
-  %136 = getelementptr inbounds double, ptr %23, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %23, i64 %135
   %137 = add nsw i32 %123, 1
   %138 = mul nsw i32 %137, %19
   %139 = add nsw i32 %138, %43
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds double, ptr %21, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %21, i64 %140
   %142 = mul nsw i32 %123, %26
   %143 = add nsw i32 %137, %142
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds double, ptr %28, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %28, i64 %144
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %136, ptr noundef %141, ptr noundef nonnull %6, ptr noundef nonnull %127, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %145, ptr noundef nonnull @c__1) #7
   %.pre = load i32, ptr %18, align 4, !tbaa !3
   br label %146
@@ -227,24 +227,24 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %157 = add nsw i32 %147, -1
   store i32 %157, ptr %16, align 4, !tbaa !3
   %158 = zext nneg i32 %147 to i64
-  %159 = getelementptr inbounds nuw double, ptr %23, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %158
   %160 = load double, ptr %159, align 8, !tbaa !7
   %161 = fneg double %160
   store double %161, ptr %17, align 8, !tbaa !7
   %162 = add nsw i32 %43, %19
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds double, ptr %21, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %21, i64 %163
   %165 = mul nsw i32 %147, %19
   %166 = add nsw i32 %165, %43
   %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds double, ptr %21, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr %21, i64 %167
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %164, ptr noundef nonnull %6, ptr noundef %168, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b16, ptr noundef %11, ptr noundef nonnull @c__1) #7
   %169 = load i32, ptr %18, align 4, !tbaa !3
   %170 = add nsw i32 %169, -1
   store i32 %170, ptr %15, align 4, !tbaa !3
   %171 = mul nsw i32 %169, %26
   %172 = sext i32 %171 to i64
-  %173 = getelementptr double, ptr %28, i64 %172
+  %173 = getelementptr [8 x i8], ptr %28, i64 %172
   %174 = getelementptr i8, ptr %173, i64 8
   call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef nonnull @c_b9, ptr noundef %12, ptr noundef nonnull %13, ptr noundef %11, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b9, ptr noundef %174, ptr noundef nonnull @c__1) #7
   %.pre255 = load i32, ptr %18, align 4, !tbaa !3
@@ -262,14 +262,14 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %180 = add nsw i32 %175, 1
   %181 = add nsw i32 %180, %26
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds double, ptr %28, i64 %182
+  %183 = getelementptr inbounds [8 x i8], ptr %28, i64 %182
   %184 = add nsw i32 %43, %19
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds double, ptr %21, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %21, i64 %185
   %187 = mul nsw i32 %180, %19
   %188 = add nsw i32 %187, %43
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds double, ptr %21, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr %21, i64 %189
   call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %15, ptr noundef nonnull %18, ptr noundef nonnull @c_b8, ptr noundef %183, ptr noundef nonnull %13, ptr noundef %186, ptr noundef nonnull %6, ptr noundef nonnull @c_b9, ptr noundef %190, ptr noundef nonnull %6) #7
   %.pre256.pre = load i32, ptr %18, align 4, !tbaa !3
   br label %191
@@ -289,21 +289,21 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %195 = sext i32 %.pre256 to i64
   %196 = sext i32 %43 to i64
   %wide.trip.count = sext i32 %194 to i64
-  %invariant.gep = getelementptr double, ptr %21, i64 %196
+  %invariant.gep = getelementptr [8 x i8], ptr %21, i64 %196
   br label %.lr.ph238
 
 .lr.ph238:                                        ; preds = %.lr.ph238.preheader, %224
   %indvars.iv = phi i64 [ %195, %.lr.ph238.preheader ], [ %indvars.iv.next, %224 ]
   %.2235 = phi i32 [ 0, %.lr.ph238.preheader ], [ %.3, %224 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %197 = getelementptr double, ptr %9, i64 %indvars.iv
+  %197 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv
   %198 = load double, ptr %197, align 8, !tbaa !7
   %199 = fcmp une double %198, 0.000000e+00
   br i1 %199, label %200, label %224
 
 200:                                              ; preds = %.lr.ph238
   %201 = mul nsw i64 %indvars.iv.next, %39
-  %gep = getelementptr double, ptr %invariant.gep, i64 %201
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %201
   %202 = load double, ptr %gep, align 8, !tbaa !7
   %203 = fcmp oge double %202, 0.000000e+00
   %204 = fneg double %202
@@ -314,7 +314,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %209 = fmul double %207, %208
   %210 = fcmp ole double %209, 0.000000e+00
   %211 = select i1 %210, double 0.000000e+00, double %209
-  %212 = getelementptr double, ptr %10, i64 %indvars.iv
+  %212 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %213 = load double, ptr %212, align 8, !tbaa !7
   %214 = fdiv double %198, %213
   store double %214, ptr %17, align 8, !tbaa !7
@@ -345,7 +345,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %225 = mul nsw i32 %.pre256, %19
   %226 = add nsw i32 %225, %43
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds double, ptr %21, i64 %227
+  %228 = getelementptr inbounds [8 x i8], ptr %21, i64 %227
   store double %128, ptr %228, align 8, !tbaa !7
   %229 = load i32, ptr %3, align 4, !tbaa !3
   %230 = icmp slt i32 %.pre256, %229
@@ -375,15 +375,15 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %242 = add nsw i32 %233, 1
   %243 = add nsw i32 %242, %19
   %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds double, ptr %21, i64 %244
+  %245 = getelementptr inbounds [8 x i8], ptr %21, i64 %244
   %246 = add nsw i32 %.lcssa, 1
   %247 = add nsw i32 %246, %26
   %248 = sext i32 %247 to i64
-  %249 = getelementptr inbounds double, ptr %28, i64 %248
+  %249 = getelementptr inbounds [8 x i8], ptr %28, i64 %248
   %250 = mul nsw i32 %246, %19
   %251 = add nsw i32 %242, %250
   %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds double, ptr %21, i64 %252
+  %253 = getelementptr inbounds [8 x i8], ptr %21, i64 %252
   call void @dgemm_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull @c_b8, ptr noundef %245, ptr noundef nonnull %6, ptr noundef %249, ptr noundef nonnull %13, ptr noundef nonnull @c_b9, ptr noundef %253, ptr noundef nonnull %6) #7
   br label %254
 
@@ -398,7 +398,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 257:                                              ; preds = %.lr.ph246, %269
   %.4244 = phi i32 [ %.0.lcssa, %.lr.ph246 ], [ %271, %269 ]
   %258 = zext nneg i32 %.4244 to i64
-  %259 = getelementptr inbounds nuw double, ptr %25, i64 %258
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %258
   %260 = load double, ptr %259, align 8, !tbaa !7
   %261 = fcmp ult double %260, 0.000000e+00
   br i1 %261, label %265, label %262
@@ -423,9 +423,9 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %274 = mul nsw i32 %.4244, %19
   %275 = add nsw i32 %256, %274
   %276 = sext i32 %275 to i64
-  %277 = getelementptr inbounds double, ptr %21, i64 %276
+  %277 = getelementptr inbounds [8 x i8], ptr %21, i64 %276
   %278 = call double @dnrm2_(ptr noundef nonnull %15, ptr noundef %277, ptr noundef nonnull @c__1) #7
-  %279 = getelementptr inbounds nuw double, ptr %24, i64 %258
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %258
   store double %278, ptr %279, align 8, !tbaa !7
   store double %278, ptr %259, align 8, !tbaa !7
   %280 = icmp sgt i32 %271, 0

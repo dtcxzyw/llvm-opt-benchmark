@@ -37,10 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::vector.31" = type { %"struct.std::_Vector_base.32" }
-%"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<OpenColorIO_v2_5dev::LookParseResult::Token, std::allocator<OpenColorIO_v2_5dev::LookParseResult::Token>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_5dev::LookParseResult::Token, std::allocator<OpenColorIO_v2_5dev::LookParseResult::Token>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_5dev::LookParseResult::Token, std::allocator<OpenColorIO_v2_5dev::LookParseResult::Token>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_5dev::LookParseResult::Token, std::allocator<OpenColorIO_v2_5dev::LookParseResult::Token>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.OpenColorIO_v2_5dev::LookParseResult" = type { %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::vector<OpenColorIO_v2_5dev::LookParseResult::Token>, std::allocator<std::vector<OpenColorIO_v2_5dev::LookParseResult::Token>>>::_Vector_impl" }
@@ -50,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.41" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.46" = type { %"class.std::__shared_ptr.47" }
 %"class.std::__shared_ptr.47" = type { ptr, %"class.std::__shared_count" }
-%"struct.OpenColorIO_v2_5dev::LookParseResult::Token" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 
 $_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev13LookTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -1045,7 +1040,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit
 
 _ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceEEaSERKS3_.exit, %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i
   %93 = load ptr, ptr %11, align 8, !tbaa !53
-  %94 = getelementptr inbounds nuw %"class.std::vector.31", ptr %93, i64 %32
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %32
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113RunLookTokensERNS_10OpRcPtrVecERSt10shared_ptrIKNS_10ColorSpaceEEbRKNS_6ConfigERKS3_IKNS_7ContextEERKSt6vectorINS_15LookParseResult5TokenESaISI_EE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %94)
           to label %130 unwind label %95
 
@@ -1080,7 +1075,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %103, %1
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %108 = load ptr, ptr %11, align 8, !tbaa !53
-  %109 = getelementptr inbounds nuw %"class.std::vector.31", ptr %108, i64 %32
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %108, i64 %32
   invoke void @_ZN19OpenColorIO_v2_5dev15LookParseResult9serializeERSoRKSt6vectorINS0_5TokenESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %109)
           to label %110 unwind label %105
 
@@ -2637,7 +2632,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113RunLookToke
   %46 = phi ptr [ %26, %.lr.ph ], [ %554, %552 ]
   %47 = phi i64 [ 0, %.lr.ph ], [ %556, %552 ]
   %.067292 = phi i32 [ 0, %.lr.ph ], [ %555, %552 ]
-  %48 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::LookParseResult::Token", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !32
   %51 = icmp eq i64 %50, 0
@@ -2799,7 +2794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %93
 
 104:                                              ; preds = %103
   %105 = load ptr, ptr %5, align 8, !tbaa !66
-  %106 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::LookParseResult::Token", ptr %105, i64 %47
+  %106 = getelementptr inbounds nuw [40 x i8], ptr %105, i64 %47
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load i32, ptr %107, align 8, !tbaa !89
   switch i32 %108, label %385 [
@@ -3557,7 +3552,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151: ; preds = %392
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151
   %395 = load ptr, ptr %5, align 8, !tbaa !66
-  %396 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::LookParseResult::Token", ptr %395, i64 %47
+  %396 = getelementptr inbounds nuw [40 x i8], ptr %395, i64 %47
   %397 = load ptr, ptr %396, align 8, !tbaa !45
   %398 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %399 = load i64, ptr %398, align 8, !tbaa !32

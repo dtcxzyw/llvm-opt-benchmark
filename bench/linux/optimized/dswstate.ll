@@ -55,7 +55,7 @@ define dso_local noundef range(i32 0, 12307) i32 @acpi_ds_result_pop(ptr noundef
   %16 = and i8 %15, 7
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = zext nneg i8 %16 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %0, align 8
   %21 = icmp eq ptr %20, null
@@ -181,7 +181,7 @@ define dso_local noundef range(i32 0, 12304) i32 @acpi_ds_result_push(ptr nounde
   %39 = and i32 %27, 7
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %41 = zext nneg i32 %39 to i64
-  %42 = getelementptr ptr, ptr %40, i64 %41
+  %42 = getelementptr [8 x i8], ptr %40, i64 %41
   store ptr %0, ptr %42, align 8
   %43 = load i8, ptr %3, align 1
   %44 = add i8 %43, 1
@@ -210,7 +210,7 @@ define dso_local noundef range(i32 0, 13) i32 @acpi_ds_obj_stack_push(ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
-  %13 = getelementptr ptr, ptr %9, i64 %12
+  %13 = getelementptr [8 x i8], ptr %9, i64 %12
   store ptr %0, ptr %13, align 8
   %14 = add nuw nsw i8 %4, 1
   store i8 %14, ptr %3, align 1
@@ -249,7 +249,7 @@ define dso_local noundef range(i32 0, 14) i32 @acpi_ds_obj_stack_pop(i32 noundef
   %15 = add nsw i64 %10, -1
   %16 = trunc nuw i64 %15 to i8
   store i8 %16, ptr %5, align 1
-  %17 = getelementptr ptr, ptr %6, i64 %15
+  %17 = getelementptr [8 x i8], ptr %6, i64 %15
   store ptr null, ptr %17, align 8
   %18 = add nuw nsw i32 %11, 1
   %19 = icmp eq i32 %18, %0
@@ -285,7 +285,7 @@ define dso_local void @acpi_ds_obj_stack_pop_and_delete(i32 noundef %0, ptr noun
 15:                                               ; preds = %11
   %16 = add i8 %13, -1
   store i8 %16, ptr %5, align 1
-  %17 = getelementptr ptr, ptr %9, i64 %12
+  %17 = getelementptr [8 x i8], ptr %9, i64 %12
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %21, label %20

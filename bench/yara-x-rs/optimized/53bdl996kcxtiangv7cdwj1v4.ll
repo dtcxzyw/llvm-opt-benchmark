@@ -123,7 +123,7 @@ common.resume.i:                                  ; preds = %51, %47, %17
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !31
   %29 = icmp ult i64 %.sroa.3.0.copyload.i, 192153584101141163
   tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %.sroa.2.0.copyload.i, i64 %.sroa.3.0.copyload.i
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.2.0.copyload.i, i64 %.sroa.3.0.copyload.i
   %31 = icmp sgt i64 %.pr22.i, -1
   tail call void @llvm.assume(i1 %31)
   %32 = load ptr, ptr %1, align 8, !alias.scope !47, !noalias !3, !noundef !27
@@ -266,8 +266,8 @@ define hidden void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping
 5:                                                ; preds = %3, %5
   %.sroa.0.03 = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw i64 %.sroa.0.03, 1
-  %7 = getelementptr inbounds nuw { [8 x i8] }, ptr %0, i64 %.sroa.0.03
-  %8 = getelementptr inbounds nuw { [8 x i8] }, ptr %1, i64 %.sroa.0.03
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.03
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.0.03
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 1, !alias.scope !81, !noalias !84
@@ -528,9 +528,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hd55810fb43f8d470E"(
   store i64 %8, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !27, !noundef !27
-  %12 = getelementptr inbounds nuw { { { i32, i32 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %11, i64 %8
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %8
   %13 = sub i64 %5, %9
-  %14 = getelementptr inbounds nuw { { { i32, i32 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %11, i64 %9
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %9, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -596,7 +596,7 @@ define hidden { ptr, i64 } @"_ZN5alloc5slice99_$LT$impl$u20$core..slice..sort..s
   %3 = load ptr, ptr %2, align 8, !nonnull !27, !noundef !27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !27
-  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = load i64, ptr %0, align 8, !range !78, !noundef !27
   %8 = sub i64 %7, %5
   %9 = insertvalue { ptr, i64 } poison, ptr %6, 0
@@ -643,7 +643,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi i64 [ %6, %.lr.ph ], [ %32, %.backedge ]
   %12 = load ptr, ptr %1, align 8, !nonnull !27, !align !110, !noundef !27
-  %13 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %11
   %14 = tail call noundef zeroext i1 @_ZN8bitflags6traits5Flags8is_empty17hbf9e044a8926f56eE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8)
   br i1 %14, label %22, label %16
 
@@ -892,7 +892,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5d74c1720087a50cE.exit.i.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h443252e9334eaa64E.exit46.i.i.i.i.i", %60
   %80 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !156, !noalias !157, !nonnull !27, !noundef !27
-  %81 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %80, i64 %61
+  %81 = getelementptr inbounds nuw [48 x i8], ptr %80, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !119
   %82 = add nuw nsw i64 %61, 1
   store i64 %82, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !156, !noalias !157

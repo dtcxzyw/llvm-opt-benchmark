@@ -304,7 +304,7 @@ bytestream2_get_byte.exit217:                     ; preds = %bytestream2_get_byt
 
 bytestream2_get_byte.exit219:                     ; preds = %121, %120, %112
   %.3 = phi i32 [ %.1151262, %112 ], [ 0, %120 ], [ %124, %121 ]
-  %125 = getelementptr inbounds nuw i32, ptr @block_coords, i64 %107
+  %125 = getelementptr inbounds nuw [4 x i8], ptr @block_coords, i64 %107
   %126 = load i32, ptr %125, align 8, !tbaa !50
   %127 = add nsw i32 %126, %.0176386
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 4
@@ -337,7 +337,7 @@ bytestream2_get_byte.exit221:                     ; preds = %131
   %139 = load i8, ptr %133, align 1, !tbaa !47
   %140 = lshr i8 %139, 6
   %141 = zext nneg i8 %140 to i64
-  %142 = getelementptr inbounds nuw i32, ptr @angle_by_index, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr @angle_by_index, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !50
   %144 = and i8 %139, 63
   store i8 %144, ptr %6, align 1, !tbaa !47

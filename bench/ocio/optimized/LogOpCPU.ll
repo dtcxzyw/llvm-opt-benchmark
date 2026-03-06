@@ -2135,36 +2135,36 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLog2LinRenderer5applyEPKvPv
 
 21:                                               ; preds = %13, %49
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %49 ]
-  %22 = getelementptr inbounds nuw float, ptr %.03744, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.03744, i64 %indvars.iv
   %23 = load float, ptr %22, align 4, !tbaa !111
-  %24 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %25 = load float, ptr %24, align 4, !tbaa !111
   %26 = fcmp olt float %23, %25
-  %27 = getelementptr inbounds nuw float, ptr %.03942, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.03942, i64 %indvars.iv
   br i1 %26, label %28, label %35
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !111
-  %31 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !111
   %33 = fadd float %23, %32
   %34 = fmul float %30, %33
   br label %49
 
 35:                                               ; preds = %21
-  %36 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !111
   %38 = fadd float %23, %37
-  %39 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !111
   %41 = fmul float %38, %40
   %42 = tail call noundef float @exp2f(float noundef %41) #24, !tbaa !112
   store float %42, ptr %27, align 4, !tbaa !111
-  %43 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %44 = load float, ptr %43, align 4, !tbaa !111
   %45 = fadd float %42, %44
-  %46 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %47 = load float, ptr %46, align 4, !tbaa !111
   %48 = fmul float %45, %47
   br label %49
@@ -2539,35 +2539,35 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLin2LogRenderer5applyEPKvPv
 
 21:                                               ; preds = %13, %48
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %48 ]
-  %22 = getelementptr inbounds nuw float, ptr %.04148, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.04148, i64 %indvars.iv
   %23 = load float, ptr %22, align 4, !tbaa !111
-  %24 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %25 = load float, ptr %24, align 4, !tbaa !111
   %26 = fcmp olt float %23, %25
-  %27 = getelementptr inbounds nuw float, ptr %.04346, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.04346, i64 %indvars.iv
   br i1 %26, label %28, label %34
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !111
-  %31 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !111
   %33 = tail call float @llvm.fmuladd.f32(float %30, float %23, float %32)
   br label %48
 
 34:                                               ; preds = %21
-  %35 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %36 = load float, ptr %35, align 4, !tbaa !111
-  %37 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !111
   %39 = tail call float @llvm.fmuladd.f32(float %23, float %36, float %38)
   %40 = fcmp ogt float %39, 0x3810000000000000
   %41 = select i1 %40, float %39, float 0x3810000000000000
   %42 = tail call noundef float @log2f(float noundef %41) #24, !tbaa !112
   store float %42, ptr %27, align 4, !tbaa !111
-  %43 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %44 = load float, ptr %43, align 4, !tbaa !111
-  %45 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %46 = load float, ptr %45, align 4, !tbaa !111
   %47 = tail call float @llvm.fmuladd.f32(float %42, float %44, float %46)
   br label %48

@@ -18,8 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dictType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr }
 %struct.raxIterator = type { i32, ptr, ptr, ptr, i64, i64, [128 x i8], ptr, %struct.raxStack, ptr }
 %struct.raxStack = type { ptr, i64, i64, [32 x ptr], i32 }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr }
-%struct.anon.0 = type { i64, i64, i64 }
 
 @server = external local_unnamed_addr global %struct.redisServer, align 8
 @.str = private unnamed_addr constant [17 x i8] c"o->refcount == 1\00", align 1
@@ -458,7 +456,7 @@ define dso_local ptr @createStringObjectFromLongLongWithOptions(i64 noundef %0, 
   br i1 %or.cond3, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %0
+  %6 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %0
   %7 = load ptr, ptr %6, align 8, !tbaa !44
   br label %39
 
@@ -542,7 +540,7 @@ define dso_local ptr @createStringObjectFromLongLong(i64 noundef %0) local_unnam
   br i1 %or.cond.i, label %2, label %5
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %0
+  %3 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %0
   %4 = load ptr, ptr %3, align 8, !tbaa !44
   br label %createStringObjectFromLongLongWithOptions.exit
 
@@ -578,7 +576,7 @@ define dso_local ptr @createStringObjectFromLongLongForValue(i64 noundef %0) loc
   br i1 %or.cond.i, label %8, label %11
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %0
+  %9 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %0
   %10 = load ptr, ptr %9, align 8, !tbaa !44
   br label %createStringObjectFromLongLongWithOptions.exit
 
@@ -2321,7 +2319,7 @@ sdslen.exit.thread..thread_crit_edge:             ; preds = %sdslen.exit.thread
 55:                                               ; preds = %52
   call void @decrRefCount(ptr noundef nonnull %0)
   %56 = load i64, ptr %3, align 8, !tbaa !50
-  %57 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !44
   br label %createStringObjectFromLongLongForValue.exit
 
@@ -2364,7 +2362,7 @@ sdslen.exit.thread..thread_crit_edge:             ; preds = %sdslen.exit.thread
   br i1 %or.cond.i.i, label %78, label %81
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %71
+  %79 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %71
   %80 = load ptr, ptr %79, align 8, !tbaa !44
   br label %createStringObjectFromLongLongForValue.exit
 
@@ -3588,7 +3586,7 @@ define dso_local noundef nonnull ptr @strEncoding(i32 noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.objectCommand, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.objectCommand, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -4386,7 +4384,7 @@ define dso_local noalias noundef ptr @getMemoryOverheadData() local_unnamed_addr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %153 ]
   %.0109121 = phi i64 [ %95, %.lr.ph ], [ %.1, %153 ]
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !172
-  %106 = getelementptr inbounds nuw %struct.redisDb, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [88 x i8], ptr %105, i64 %indvars.iv
   %107 = load ptr, ptr %106, align 8, !tbaa !173
   %108 = tail call i32 @kvstoreNumAllocatedDicts(ptr noundef %107) #17
   %.not120 = icmp eq i32 %108, 0
@@ -4404,7 +4402,7 @@ define dso_local noalias noundef ptr @getMemoryOverheadData() local_unnamed_addr
   %117 = add i64 %116, 24
   %118 = tail call ptr @zrealloc(ptr noundef %114, i64 noundef %117) #20
   store ptr %118, ptr %99, align 8, !tbaa !126
-  %119 = getelementptr inbounds nuw %struct.anon.0, ptr %118, i64 %115
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %115
   store i64 %indvars.iv, ptr %119, align 8, !tbaa !177
   %120 = load ptr, ptr %106, align 8, !tbaa !173
   %121 = tail call i64 @kvstoreMemUsage(ptr noundef %120) #17
@@ -4876,7 +4874,7 @@ define dso_local void @objectCommand(ptr noundef %0) local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !195
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !44
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !192
@@ -4907,7 +4905,7 @@ objectCommandLookupOrReply.exit:                  ; preds = %17
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !195
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !44
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !192
@@ -4928,7 +4926,7 @@ objectCommandLookupOrReply.exit44:                ; preds = %33
 
 switch.lookup:                                    ; preds = %objectCommandLookupOrReply.exit44
   %48 = zext nneg i32 %46 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.objectCommand, i64 %48
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.objectCommand, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %strEncoding.exit
 
@@ -4949,7 +4947,7 @@ strEncoding.exit:                                 ; preds = %objectCommandLookup
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %55 = load i32, ptr %54, align 4, !tbaa !195
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !44
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !192
@@ -4989,7 +4987,7 @@ objectCommandLookupOrReply.exit46:                ; preds = %51
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %74 = load i32, ptr %73, align 4, !tbaa !195
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !44
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %79 = load ptr, ptr %78, align 8, !tbaa !192
@@ -5087,7 +5085,7 @@ define dso_local void @memoryCommand(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 3, %.preheader ]
   %24 = phi i32 [ %45, %44 ], [ %22, %.preheader ]
   %25 = load ptr, ptr %6, align 8, !tbaa !194
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !44
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !5
@@ -5102,7 +5100,7 @@ define dso_local void @memoryCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %32
   %37 = load ptr, ptr %36, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %38 = call i32 @getLongLongFromObject(ptr noundef %37, ptr noundef nonnull %2)
@@ -5345,7 +5343,7 @@ getLongLongFromObjectOrReply.exit.thread:         ; preds = %35
 155:                                              ; preds = %.lr.ph, %155
   %.0158181 = phi i64 [ 0, %.lr.ph ], [ %163, %155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %156 = getelementptr inbounds nuw %struct.anon.0, ptr %.pre, i64 %.0158181
+  %156 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %.0158181
   %157 = load i64, ptr %156, align 8, !tbaa !177
   %158 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 32, ptr noundef nonnull @.str.99, i64 noundef %157) #17
   call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef nonnull %4) #17

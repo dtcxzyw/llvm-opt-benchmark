@@ -236,7 +236,7 @@ define void @class2(ptr noundef %0) local_unnamed_addr #1 {
   %8 = phi ptr [ %13, %.lr.ph ], [ %5, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %10 = load ptr, ptr %9, align 8, !tbaa !61
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !62
   tail call void @build_skeleton(ptr noundef nonnull %0, ptr noundef %12) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -550,7 +550,7 @@ mergeable.exit.thread:                            ; preds = %mergeable.exit.merg
   %201 = getelementptr inbounds nuw i8, ptr %189, i64 360
   %202 = load i32, ptr %201, align 8, !tbaa !17
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds ptr, ptr %200, i64 %203
+  %204 = getelementptr inbounds [8 x i8], ptr %200, i64 %203
   %205 = load ptr, ptr %204, align 8, !tbaa !70
   br label %leader_of.exit.i
 
@@ -582,7 +582,7 @@ leader_of.exit.i:                                 ; preds = %194, %192
   %223 = getelementptr inbounds nuw i8, ptr %211, i64 360
   %224 = load i32, ptr %223, align 8, !tbaa !17
   %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds ptr, ptr %222, i64 %225
+  %226 = getelementptr inbounds [8 x i8], ptr %222, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !70
   br label %leader_of.exit42.i
 

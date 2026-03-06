@@ -219,7 +219,7 @@ define i32 @utf8_nextCharSafeBody_77(ptr noundef readonly captures(none) %0, ptr
   %.0106163 = phi i32 [ %.0106, %.thread ], [ %86, %94 ], [ %43, %55 ], [ %43, %53 ]
   %136 = sub nsw i32 %.0106163, %6
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i32, ptr @_ZL15utf8_errorValue, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr @_ZL15utf8_errorValue, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !3
   br label %_ZL10errorValueia.exit
 
@@ -351,7 +351,7 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
   %77 = sext i32 %1 to i64
   %78 = getelementptr inbounds i8, ptr %0, i64 %77
   %79 = zext nneg i32 %76 to i64
-  %80 = getelementptr i32, ptr @_ZL15utf8_errorValue, i64 %79
+  %80 = getelementptr [4 x i8], ptr @_ZL15utf8_errorValue, i64 %79
   %81 = getelementptr i8, ptr %80, i64 -4
   %82 = load i32, ptr %81, align 4, !tbaa !3
   %83 = icmp ult i32 %82, 128

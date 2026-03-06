@@ -643,7 +643,7 @@ define dso_local i32 @nr_processes() local_unnamed_addr #3 align 16 {
 
 12:                                               ; preds = %8
   %13 = and i64 %9, 63
-  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
+  %14 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @process_counts to i64)
   %17 = inttoptr i64 %16 to ptr
@@ -793,11 +793,11 @@ define dso_local void @exit_task_stack_account(ptr noundef readonly captures(non
 5:                                                ; preds = %5, %1
   %6 = phi i64 [ 0, %1 ], [ %14, %5 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr ptr, ptr %7, i64 %6
+  %8 = getelementptr [8 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 16
   %11 = lshr i64 %10, 58
-  %12 = getelementptr ptr, ptr @node_data, i64 %11
+  %12 = getelementptr [8 x i8], ptr @node_data, i64 %11
   %13 = load ptr, ptr %12, align 8
   tail call void @mod_node_page_state(ptr noundef %13, i32 noundef 37, i64 noundef -4) #18
   %14 = add nuw nsw i64 %6, 1
@@ -974,13 +974,13 @@ define dso_local void @__mmdrop(ptr noundef %0) #1 align 16 {
 
 25:                                               ; preds = %34, %23
   %26 = phi i64 [ 0, %23 ], [ %35, %34 ]
-  %27 = getelementptr %struct.percpu_counter, ptr %24, i64 %26
+  %27 = getelementptr [40 x i8], ptr %24, i64 %26
   %28 = tail call i64 @__percpu_counter_sum(ptr noundef %27) #18
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %34, label %30, !prof !10
 
 30:                                               ; preds = %25
-  %31 = getelementptr ptr, ptr @resident_page_types, i64 %26
+  %31 = getelementptr [8 x i8], ptr @resident_page_types, i64 %26
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, ptr noundef %0, ptr noundef %32, i64 noundef %28) #21
   br label %34
@@ -1209,7 +1209,7 @@ define dso_local void @fork_init() local_unnamed_addr #5 section ".init.text" al
 
 31:                                               ; preds = %31, %0
   %32 = phi i64 [ 0, %0 ], [ %34, %31 ]
-  %33 = getelementptr i64, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 488), i64 %32
+  %33 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 488), i64 %32
   store i64 %23, ptr %33, align 8
   %34 = add nuw nsw i64 %32, 1
   %35 = icmp eq i64 %34, 10
@@ -1233,7 +1233,7 @@ declare dso_local ptr @kmem_cache_create_usercopy(ptr noundef, i32 noundef, i32 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @free_vm_stack_cache(i32 noundef %0) #1 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cached_stacks to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -1242,7 +1242,7 @@ define internal noundef i32 @free_vm_stack_cache(i32 noundef %0) #1 align 16 {
 7:                                                ; preds = %16, %1
   %8 = phi i1 [ true, %1 ], [ false, %16 ]
   %9 = phi i64 [ 0, %1 ], [ 1, %16 ]
-  %10 = getelementptr ptr, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
@@ -1445,7 +1445,7 @@ define internal fastcc noundef ptr @mm_init(ptr noundef nonnull initializes((68,
   %77 = load ptr, ptr %65, align 16
   %78 = ptrtoint ptr %77 to i64
   %79 = and i64 %73, 63
-  %80 = getelementptr i64, ptr @__per_cpu_offset, i64 %79
+  %80 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %79
   %81 = load i64, ptr %80, align 8
   %82 = add i64 %81, %78
   %83 = inttoptr i64 %82 to ptr
@@ -2232,7 +2232,7 @@ define internal void @pidfd_show_fdinfo(ptr noundef %0, ptr noundef readonly cap
 33:                                               ; preds = %33, %31
   %34 = phi i32 [ %28, %31 ], [ %39, %33 ]
   %35 = sext i32 %34 to i64
-  %36 = getelementptr %struct.upid, ptr %32, i64 %35
+  %36 = getelementptr [16 x i8], ptr %32, i64 %35
   %37 = load i32, ptr %36, align 8
   %38 = sext i32 %37 to i64
   tail call void @seq_put_decimal_ll(ptr noundef %0, ptr noundef nonnull @.str.35, i64 noundef %38) #18
@@ -3061,7 +3061,7 @@ define dso_local ptr @copy_process(ptr noundef readnone captures(address) %0, i3
   %425 = getelementptr inbounds nuw i8, ptr %275, i64 4
   %426 = load i32, ptr %425, align 4
   %427 = zext i32 %426 to i64
-  %428 = getelementptr %struct.upid, ptr %424, i64 %427
+  %428 = getelementptr [16 x i8], ptr %424, i64 %427
   %429 = load i32, ptr %428, align 8
   %430 = icmp eq i32 %429, 1
   br i1 %430, label %431, label %443
@@ -3465,7 +3465,7 @@ define internal fastcc ptr @dup_task_struct(ptr noundef %0, i32 noundef %1) unna
 .preheader:                                       ; preds = %11, %14
   %15 = phi i1 [ false, %14 ], [ true, %11 ]
   %16 = phi i64 [ 1, %14 ], [ 0, %11 ]
-  %17 = getelementptr ptr, ptr @cached_stacks, i64 %16
+  %17 = getelementptr [8 x i8], ptr @cached_stacks, i64 %16
   %18 = tail call i64 asm sideeffect "movq %gs:$1, $0\0A1:\09cmpxchgq $2, %gs:$1\0A\09jnz 1b", "=&{ax},=*m,r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %17, i64 0, ptr elementtype(ptr) %17) #18, !srcloc !84
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %14, label %20
@@ -3531,11 +3531,11 @@ define internal fastcc ptr @dup_task_struct(ptr noundef %0, i32 noundef %1) unna
 53:                                               ; preds = %53, %46
   %54 = phi i64 [ 0, %46 ], [ %62, %53 ]
   %55 = load ptr, ptr %52, align 8
-  %56 = getelementptr ptr, ptr %55, i64 %54
+  %56 = getelementptr [8 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8
   %58 = load i64, ptr %57, align 16
   %59 = lshr i64 %58, 58
-  %60 = getelementptr ptr, ptr @node_data, i64 %59
+  %60 = getelementptr [8 x i8], ptr @node_data, i64 %59
   %61 = load ptr, ptr %60, align 8
   tail call void @mod_node_page_state(ptr noundef %61, i32 noundef 37, i64 noundef 4) #18
   %62 = add nuw nsw i64 %54, 1
@@ -4906,7 +4906,7 @@ define dso_local ptr @fork_idle(i32 noundef %0) local_unnamed_addr #5 section ".
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) @__const.fork_idle.args, i64 128, i1 false)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @numa_node to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -4923,7 +4923,7 @@ define dso_local ptr @fork_idle(i32 noundef %0) local_unnamed_addr #5 section ".
 
 15:                                               ; preds = %23, %11
   %16 = phi i64 [ 0, %11 ], [ %25, %23 ]
-  %17 = getelementptr %struct.hlist_node, ptr %12, i64 %16
+  %17 = getelementptr [16 x i8], ptr %12, i64 %16
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %23, label %19
@@ -4931,7 +4931,7 @@ define dso_local ptr @fork_idle(i32 noundef %0) local_unnamed_addr #5 section ".
 19:                                               ; preds = %15
   %20 = load ptr, ptr %13, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 360
-  %22 = getelementptr ptr, ptr %21, i64 %16
+  %22 = getelementptr [8 x i8], ptr %21, i64 %16
   br label %23
 
 23:                                               ; preds = %19, %15

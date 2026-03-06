@@ -502,7 +502,7 @@ define internal void @_ZN12_GLOBAL__N_134FastTypeIdTest_PrimitiveTypes_Test8Test
 _ZN7testing8internal8EqHelper7CompareIPKvS4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_.exit: ; preds = %1, %._crit_edge
   %indvars.iv46 = phi i64 [ 0, %1 ], [ %indvars.iv.next47, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv46
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv46
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3)
   %13 = load i8, ptr %3, align 8, !tbaa !20, !range !30, !noundef !31
   %14 = trunc nuw i8 %13 to i1
@@ -621,7 +621,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %38, %_ZNKSt14defaul
 .lr.ph:                                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit42
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit42 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %47 = load ptr, ptr %12, align 8, !tbaa !42, !noalias !43
   %48 = load ptr, ptr %46, align 8, !tbaa !42, !noalias !43
   %.not.i = icmp eq ptr %47, %48
@@ -1724,7 +1724,7 @@ define internal void @_ZN12_GLOBAL__N_135FastTypeIdTest_FixedWidthTypes_Test8Tes
 _ZN7testing8internal8EqHelper7CompareIPKvS4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_.exit: ; preds = %1, %._crit_edge
   %indvars.iv46 = phi i64 [ 0, %1 ], [ %indvars.iv.next47, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv46
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv46
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3)
   %13 = load i8, ptr %3, align 8, !tbaa !20, !range !30, !noundef !31
   %14 = trunc nuw i8 %13 to i1
@@ -1843,7 +1843,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %38, %_ZNKSt14defaul
 .lr.ph:                                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit42
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit42 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %47 = load ptr, ptr %12, align 8, !tbaa !42, !noalias !65
   %48 = load ptr, ptr %46, align 8, !tbaa !42, !noalias !65
   %.not.i = icmp eq ptr %47, %48

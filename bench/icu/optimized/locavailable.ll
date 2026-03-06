@@ -4,12 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.icu_77::ErrorCode" = type <{ ptr, i32, [4 x i8] }>
-%"class.icu_77::Locale" = type <{ %"class.icu_77::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
-%"class.icu_77::UObject" = type { ptr }
 %"class.icu_77::internal::LocalOpenPointer" = type { %"class.icu_77::LocalPointerBase.1" }
 %"class.icu_77::LocalPointerBase.1" = type { ptr }
 %"class.(anonymous namespace)::AvailableLocalesSink" = type { %"class.icu_77::ResourceSink" }
 %"class.icu_77::ResourceSink" = type { %"class.icu_77::UObject" }
+%"class.icu_77::UObject" = type { ptr }
 %"class.icu_77::ResourceTable" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
 
 $__clang_call_terminate = comdat any
@@ -152,7 +151,7 @@ thread-pre-split:                                 ; preds = %uloc_countAvailable
   %indvars.iv = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next, %uloc_getAvailable_77.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %35 = load ptr, ptr @_ZN6icu_77L19availableLocaleListE, align 8, !tbaa !12
-  %36 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %35, i64 %indvars.iv.next
+  %36 = getelementptr inbounds nuw [224 x i8], ptr %35, i64 %indvars.iv.next
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_779ErrorCodeE, i64 16), ptr %1, align 8, !tbaa !3
   store i32 0, ptr %32, align 8, !tbaa !6
@@ -177,7 +176,7 @@ thread-pre-split:                                 ; preds = %uloc_countAvailable
 
 45:                                               ; preds = %37
   %46 = load ptr, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, align 16, !tbaa !15
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.next
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.next
   %48 = load ptr, ptr %47, align 8, !tbaa !18
   br label %uloc_getAvailable_77.exit
 
@@ -263,7 +262,7 @@ define ptr @uloc_getAvailable_77(i32 noundef %0) local_unnamed_addr #0 personali
 11:                                               ; preds = %4
   %12 = load ptr, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, align 16, !tbaa !15
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !18
   br label %16
 
@@ -613,12 +612,12 @@ define internal void @_ZN12_GLOBAL__N_120AvailableLocalesSink3putEPKcRN6icu_7713
 
 32:                                               ; preds = %26
   %33 = load i32, ptr %18, align 8, !tbaa !38
-  %34 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 %.021
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 %.021
   store i32 %33, ptr %34, align 4, !tbaa !10
   %35 = sext i32 %33 to i64
   %36 = shl nsw i64 %35, 3
   %37 = call noalias ptr @uprv_malloc_77(i64 noundef %36) #17
-  %38 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 %.021
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 %.021
   store ptr %37, ptr %38, align 8, !tbaa !15
   %39 = icmp eq ptr %37, null
   br i1 %39, label %41, label %.preheader
@@ -636,7 +635,7 @@ define internal void @_ZN12_GLOBAL__N_120AvailableLocalesSink3putEPKcRN6icu_7713
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %42 = load ptr, ptr %6, align 8, !tbaa !18
   %43 = load ptr, ptr %38, align 8, !tbaa !15
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   store ptr %42, ptr %44, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -710,7 +709,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_133AvailableLocalesStringEnumerati
 
 13:                                               ; preds = %5
   %14 = zext i32 %7 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !10
   br label %17
 
@@ -747,16 +746,16 @@ define internal noundef ptr @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeratio
   %.019 = phi i32 [ %.120, %13 ], [ %10, %6 ]
   %.018 = phi i32 [ %.1, %13 ], [ %8, %6 ]
   %18 = zext i32 %.018 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZN12_GLOBAL__N_122gAvailableLocaleCountsE, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !10
   %21 = icmp slt i32 %.019, %20
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 %18
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_121gAvailableLocaleNamesE, i64 %18
   %24 = load ptr, ptr %23, align 8, !tbaa !15
   %25 = sext i32 %.019 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !18
   %.not27 = icmp eq ptr %1, null
   br i1 %.not27, label %32, label %28

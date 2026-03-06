@@ -156,7 +156,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 45:                                               ; preds = %.lr.ph.i.i
   %46 = tail call ptr @BIO_push(ptr noundef nonnull %43, ptr noundef %.01713.i.i) #7
   %47 = load ptr, ptr @chain, align 8, !tbaa !16
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.01515.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.01515.i.i
   store ptr %46, ptr %48, align 8, !tbaa !4
   %.not11.i.i = icmp eq ptr %46, null
   br i1 %.not11.i.i, label %setup_bio_chain.exit.thread.i, label %49
@@ -237,7 +237,7 @@ setup_bio_chain.exit.thread62.i:                  ; preds = %36, %setup_bio_chai
 
 86:                                               ; preds = %80
   %87 = load ptr, ptr @chain, align 8, !tbaa !16
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %.040.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.040.i
   %89 = load ptr, ptr %88, align 8, !tbaa !4
   %90 = tail call i64 @BIO_ctrl(ptr noundef %89, i32 noundef 80, i64 noundef %74, ptr noundef null) #7
   %91 = icmp slt i64 %90, 1
@@ -295,7 +295,7 @@ setup_bio_chain.exit.thread62.i:                  ; preds = %36, %setup_bio_chai
 
 119:                                              ; preds = %113
   %120 = load ptr, ptr @chain, align 8, !tbaa !16
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %.1.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %.1.i
   %122 = load ptr, ptr %121, align 8, !tbaa !4
   %123 = tail call i64 @BIO_ctrl(ptr noundef %122, i32 noundef 79, i64 noundef 0, ptr noundef nonnull %.142.i) #7
   %124 = icmp slt i64 %123, 1
@@ -339,7 +339,7 @@ setup.exit.thread:                                ; preds = %.preheader.i, %28, 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %137 = load ptr, ptr @chain, align 8, !tbaa !16
   %138 = load i64, ptr @amount, align 8, !tbaa !11
-  %139 = getelementptr ptr, ptr %137, i64 %138
+  %139 = getelementptr [8 x i8], ptr %137, i64 %138
   %140 = getelementptr i8, ptr %139, i64 -8
   %141 = load ptr, ptr %140, align 8, !tbaa !4
   %142 = call i32 @BIO_write_ex(ptr noundef %141, ptr noundef nonnull %3, i64 noundef %134, ptr noundef nonnull %5) #7
@@ -374,7 +374,7 @@ run_pipe.exit:                                    ; preds = %145, %128, %.crited
 
 152:                                              ; preds = %150
   %153 = load i64, ptr @amount, align 8, !tbaa !11
-  %154 = getelementptr ptr, ptr %151, i64 %153
+  %154 = getelementptr [8 x i8], ptr %151, i64 %153
   %155 = getelementptr i8, ptr %154, i64 -8
   %156 = load ptr, ptr %155, align 8, !tbaa !4
   call void @BIO_free_all(ptr noundef %156) #7

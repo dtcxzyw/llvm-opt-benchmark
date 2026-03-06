@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.trace_key = type { ptr, i32, i8 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.conv_attrs = type { ptr, i32, i32, i32, ptr }
@@ -287,7 +286,7 @@ _.exit:                                           ; preds = %8, %11
   %63 = getelementptr inbounds nuw i8, ptr %.05785129, i64 16
   %.pre118 = load ptr, ptr %4, align 8, !tbaa !33
   %64 = load i64, ptr %22, align 8, !tbaa !32
-  %65 = getelementptr inbounds nuw %struct.string_list_item, ptr %.pre118, i64 %64
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %.pre118, i64 %64
   %66 = icmp ult ptr %63, %65
   br i1 %66, label %.lr.ph132, label %.critedge2, !llvm.loop !39
 
@@ -308,7 +307,7 @@ _.exit:                                           ; preds = %8, %11
   %69 = getelementptr inbounds nuw i8, ptr %.05996137, i64 16
   %.pre = load ptr, ptr %18, align 8, !tbaa !29
   %.pre117 = load i64, ptr %19, align 8, !tbaa !28
-  %70 = getelementptr inbounds nuw %struct.string_list_item, ptr %.pre, i64 %.pre117
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %.pre117
   %71 = icmp ult ptr %69, %70
   br i1 %71, label %.lr.ph140, label %.critedge, !llvm.loop !41
 
@@ -348,7 +347,7 @@ stop_progress.exit:                               ; preds = %._crit_edge, %75
 .lr.ph115.preheader:                              ; preds = %stop_progress.exit
   %83 = load ptr, ptr %77, align 8, !tbaa !43
   %84 = load i64, ptr %78, align 8, !tbaa !27
-  %85 = getelementptr inbounds nuw %struct.string_list_item, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %84
   %86 = icmp ult ptr %82, %85
   br i1 %86, label %.lr.ph115, label %.critedge4
 
@@ -359,7 +358,7 @@ stop_progress.exit:                               ; preds = %._crit_edge, %75
   %89 = getelementptr inbounds nuw i8, ptr %.158114145, i64 16
   %90 = load ptr, ptr %77, align 8, !tbaa !43
   %91 = load i64, ptr %78, align 8, !tbaa !27
-  %92 = getelementptr inbounds nuw %struct.string_list_item, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %91
   %93 = icmp ult ptr %89, %92
   br i1 %93, label %.lr.ph115, label %.critedge4
 
@@ -1340,7 +1339,7 @@ define internal fastcc void @mark_colliding_entries(ptr noundef readonly capture
   %13 = phi ptr [ %29, %select.unfold.us ], [ %9, %.lr.ph ]
   %.024.us = phi i64 [ %28, %select.unfold.us ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %13, align 8, !tbaa !74
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.024.us
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.024.us
   %16 = load ptr, ptr %15, align 8, !tbaa !75
   %17 = icmp eq ptr %16, %1
   br i1 %17, label %25, label %18
@@ -1376,7 +1375,7 @@ select.unfold.us:                                 ; preds = %25, %22, %18
   %34 = phi ptr [ %56, %select.unfold ], [ %9, %.lr.ph ]
   %.024 = phi i64 [ %55, %select.unfold ], [ 0, %.lr.ph ]
   %35 = load ptr, ptr %34, align 8, !tbaa !74
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.024
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.024
   %37 = load ptr, ptr %36, align 8, !tbaa !75
   %38 = icmp eq ptr %37, %1
   br i1 %38, label %39, label %42

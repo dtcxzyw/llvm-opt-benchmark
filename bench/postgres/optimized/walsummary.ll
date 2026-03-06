@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/walsummary.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.iovec = type { ptr, i64 }
@@ -207,7 +206,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph75.split.us.split.us ], [ 0, %.lr.ph75.split.us ]
   %.026.us73.us.us = phi ptr [ %14, %.lr.ph75.split.us.split.us ], [ null, %.lr.ph75.split.us ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv111
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv111
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @lappend(ptr noundef %.026.us73.us.us, ptr noundef %13) #11
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -221,7 +220,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %26 ], [ 0, %.lr.ph75.split.us ]
   %.026.us73.us = phi ptr [ %.1.us.us77, %26 ], [ null, %.lr.ph75.split.us ]
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv108
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv108
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %3, %22
@@ -248,7 +247,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %39 ], [ 0, %.lr.ph75.split ]
   %.026.us73.us80 = phi ptr [ %.1.us.us81, %39 ], [ null, %.lr.ph75.split ]
   %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv105
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv105
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
@@ -273,7 +272,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %55 ], [ 0, %.lr.ph75.split ]
   %.026.us73 = phi ptr [ %.1.us, %55 ], [ null, %.lr.ph75.split ]
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds nuw %union.ListCell, ptr %44, i64 %indvars.iv102
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv102
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8
@@ -312,7 +311,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %67 ], [ 0, %.lr.ph66 ]
   %.026.us3064.us = phi ptr [ %.1.us32.us69, %67 ], [ null, %.lr.ph66 ]
   %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds nuw %union.ListCell, ptr %60, i64 %indvars.iv99
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv99
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
@@ -337,7 +336,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %82 ], [ 0, %.lr.ph66 ]
   %.026.us3064 = phi ptr [ %.1.us32, %82 ], [ null, %.lr.ph66 ]
   %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds nuw %union.ListCell, ptr %72, i64 %indvars.iv96
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv96
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
@@ -373,7 +372,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %98 ], [ 0, %.lr.ph.split.split.split.us.split ]
   %.026.us3758 = phi ptr [ %.1.us40, %98 ], [ null, %.lr.ph.split.split.split.us.split ]
   %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds nuw %union.ListCell, ptr %87, i64 %indvars.iv93
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv93
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i32, ptr %90, align 8
@@ -407,7 +406,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   %indvars.iv = phi i64 [ %indvars.iv.next, %117 ], [ 0, %.lr.ph.split.split.split.split ]
   %.02653 = phi ptr [ %.1, %117 ], [ null, %.lr.ph.split.split.split.split ]
   %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds nuw %union.ListCell, ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load i32, ptr %106, align 8
@@ -469,7 +468,7 @@ define dso_local noundef zeroext i1 @WalSummariesAreComplete(ptr noundef %0, i64
 13:                                               ; preds = %.lr.ph59, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next, %.thread ]
   %.0234958 = phi i64 [ %1, %.lr.ph59 ], [ %.22539, %.thread ]
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %16, %.0234958

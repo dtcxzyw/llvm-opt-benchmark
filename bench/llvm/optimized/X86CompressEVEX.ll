@@ -7,11 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.(anonymous namespace)::X86TableEntry" = type { i16, i16 }
 %class.anon.200 = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
-%"class.llvm::MachineOperand" = type { i32, %union.anon.193, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon.193 = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef.194" }
-%"class.llvm::ArrayRef.194" = type { ptr, i64 }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -372,7 +367,7 @@ switch.early.test.i:                              ; preds = %87
   %.04.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ @_ZN12_GLOBAL__N_120X86CompressEVEXTableE, %.lr.ph.i.i.i.i.i.preheader ]
   %.0113.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 1458, %.lr.ph.i.i.i.i.i.preheader ]
   %95 = lshr i64 %.0113.i.i.i.i.i, 1
-  %96 = getelementptr inbounds nuw %"struct.(anonymous namespace)::X86TableEntry", ptr %.04.i.i.i.i.i, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %.04.i.i.i.i.i, i64 %95
   %.val.i.i.i.i.i = load i16, ptr %96, align 2, !tbaa !306
   %97 = icmp ugt i16 %43, %.val.i.i.i.i.i
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 4
@@ -572,7 +567,7 @@ _ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i: ; pr
   %143 = add i32 %142, -1
   %144 = load ptr, ptr %106, align 8, !tbaa !301
   %145 = zext i32 %143 to i64
-  %146 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %144, i64 %145
+  %146 = getelementptr inbounds nuw [32 x i8], ptr %144, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %148 = load i64, ptr %147, align 8, !tbaa !302
   %149 = select i1 %141, i64 3, i64 2
@@ -585,7 +580,7 @@ _ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i: ; pr
   %153 = add i32 %152, -1
   %154 = load ptr, ptr %106, align 8, !tbaa !301
   %155 = zext i32 %153 to i64
-  %156 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [32 x i8], ptr %154, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = load i64, ptr %157, align 8, !tbaa !302
   %159 = shl i64 %158, 3
@@ -601,7 +596,7 @@ _ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i: ; pr
   %166 = add i32 %165, -1
   %167 = load ptr, ptr %106, align 8, !tbaa !301
   %168 = zext i32 %166 to i64
-  %169 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [32 x i8], ptr %167, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = load i64, ptr %170, align 8, !tbaa !302
   %.not.i.i.i = icmp ult i64 %171, 16
@@ -621,7 +616,7 @@ _ZN12_GLOBAL__N_114checkPredicateEjPKN4llvm12X86SubtargetE.exit.thread.i.i: ; pr
   %177 = load ptr, ptr %26, align 8, !tbaa !316
   %178 = zext i32 %175 to i64
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %177, i64 %179
+  %180 = getelementptr inbounds [32 x i8], ptr %177, i64 %179
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.016.028, ptr noundef nonnull align 8 dereferenceable(32) %180) #12
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %182 = load i64, ptr %181, align 8, !tbaa !298

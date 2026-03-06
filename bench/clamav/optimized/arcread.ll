@@ -126,7 +126,7 @@ define noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 derefe
 
 26:                                               ; preds = %26, %25
   %indvars.iv.i.i.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i.i.i, %26 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i.i.i
   store ptr @.str.8, ptr %27, align 8, !tbaa !63
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -636,7 +636,7 @@ define noundef i64 @_ZN7Archive12ReadHeader15Ev(ptr noundef nonnull align 8 dere
 
 36:                                               ; preds = %36, %35
   %indvars.iv.i.i.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i.i.i, %36 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i.i
   store ptr @.str.8, ptr %37, align 8, !tbaa !63
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -717,7 +717,7 @@ _ZN7Archive14UnexpEndArcMsgEv.exit:               ; preds = %46
 
 65:                                               ; preds = %65, %64
   %indvars.iv.i.i.i250 = phi i64 [ 0, %64 ], [ %indvars.iv.next.i.i.i251, %65 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i.i250
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i.i250
   store ptr @.str.8, ptr %66, align 8, !tbaa !63
   %indvars.iv.next.i.i.i251 = add nuw nsw i64 %indvars.iv.i.i.i250, 1
   %exitcond.not.i.i.i252 = icmp eq i64 %indvars.iv.next.i.i.i251, 8
@@ -784,7 +784,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i253: ; preds = %65
 
 94:                                               ; preds = %94, %93
   %indvars.iv.i.i.i258 = phi i64 [ 0, %93 ], [ %indvars.iv.next.i.i.i259, %94 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i.i258
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i.i258
   store ptr @.str.8, ptr %95, align 8, !tbaa !63
   %indvars.iv.next.i.i.i259 = add nuw nsw i64 %indvars.iv.i.i.i258, 1
   %exitcond.not.i.i.i260 = icmp eq i64 %indvars.iv.next.i.i.i259, 8
@@ -1475,7 +1475,7 @@ _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit: ; preds = %.split.us.split.us
 
 409:                                              ; preds = %396, %450
   %indvars.iv = phi i64 [ 0, %396 ], [ %indvars.iv.next, %450 ]
-  %410 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %411 = load ptr, ptr %410, align 8, !tbaa !155
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %412 = shl i32 %indvars.iv.tr, 2
@@ -1628,7 +1628,7 @@ _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit: ; preds = %.split.us.split.us
 
 472:                                              ; preds = %472, %471
   %indvars.iv.i.i = phi i64 [ 0, %471 ], [ %indvars.iv.next.i.i, %472 ]
-  %473 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
+  %473 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %473, align 8, !tbaa !63
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -2002,7 +2002,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_ZN10uiMsgStoreC2
 
 649:                                              ; preds = %649, %648
   %indvars.iv.i.i269 = phi i64 [ 0, %648 ], [ %indvars.iv.next.i.i270, %649 ]
-  %650 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i.i269
+  %650 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i.i269
   store ptr @.str.8, ptr %650, align 8, !tbaa !63
   %indvars.iv.next.i.i270 = add nuw nsw i64 %indvars.iv.i.i269, 1
   %exitcond.not.i.i271 = icmp eq i64 %indvars.iv.next.i.i270, 8
@@ -2116,7 +2116,7 @@ define noundef i64 @_ZN7Archive12ReadHeader50Ev(ptr noundef nonnull align 8 dere
 
 39:                                               ; preds = %39, %38
   %indvars.iv.i.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i.i, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %40, align 8, !tbaa !63
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -2176,7 +2176,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i:        ; preds = %39
 
 61:                                               ; preds = %61, %60
   %indvars.iv.i.i.i = phi i64 [ 0, %60 ], [ %indvars.iv.next.i.i.i, %61 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i.i
   store ptr @.str.8, ptr %62, align 8, !tbaa !63
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -2311,7 +2311,7 @@ _ZN16RarCheckPassword3SetEPhS0_jS0_.exit:         ; preds = %.noexc235
 
 120:                                              ; preds = %120, %119
   %indvars.iv.i.i236 = phi i64 [ 0, %119 ], [ %indvars.iv.next.i.i237, %120 ]
-  %121 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i236
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i236
   store ptr @.str.8, ptr %121, align 8, !tbaa !63
   %indvars.iv.next.i.i237 = add nuw nsw i64 %indvars.iv.i.i236, 1
   %exitcond.not.i.i238 = icmp eq i64 %indvars.iv.next.i.i237, 8
@@ -2350,7 +2350,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i239:     ; preds = %120
 
 132:                                              ; preds = %132, %131
   %indvars.iv.i.i241 = phi i64 [ 0, %131 ], [ %indvars.iv.next.i.i242, %132 ]
-  %133 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i241
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i241
   store ptr @.str.8, ptr %133, align 8, !tbaa !63
   %indvars.iv.next.i.i242 = add nuw nsw i64 %indvars.iv.i.i241, 1
   %exitcond.not.i.i243 = icmp eq i64 %indvars.iv.next.i.i242, 8
@@ -2445,7 +2445,7 @@ _ZN16RarCheckPasswordD2Ev.exit:                   ; preds = %146, %150
 
 162:                                              ; preds = %162, %161
   %indvars.iv.i.i.i250 = phi i64 [ 0, %161 ], [ %indvars.iv.next.i.i.i251, %162 ]
-  %163 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i.i250
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i.i250
   store ptr @.str.8, ptr %163, align 8, !tbaa !63
   %indvars.iv.next.i.i.i251 = add nuw nsw i64 %indvars.iv.i.i.i250, 1
   %exitcond.not.i.i.i252 = icmp eq i64 %indvars.iv.next.i.i.i251, 8
@@ -2501,7 +2501,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i253: ; preds = %162
 
 182:                                              ; preds = %182, %181
   %indvars.iv.i.i.i258 = phi i64 [ 0, %181 ], [ %indvars.iv.next.i.i.i259, %182 ]
-  %183 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i.i258
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i.i258
   store ptr @.str.8, ptr %183, align 8, !tbaa !63
   %indvars.iv.next.i.i.i259 = add nuw nsw i64 %indvars.iv.i.i.i258, 1
   %exitcond.not.i.i.i260 = icmp eq i64 %indvars.iv.next.i.i.i259, 8
@@ -2555,7 +2555,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i261: ; preds = %182
 
 203:                                              ; preds = %203, %202
   %indvars.iv.i.i.i264 = phi i64 [ 0, %202 ], [ %indvars.iv.next.i.i.i265, %203 ]
-  %204 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i.i264
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i.i264
   store ptr @.str.8, ptr %204, align 8, !tbaa !63
   %indvars.iv.next.i.i.i265 = add nuw nsw i64 %indvars.iv.i.i.i264, 1
   %exitcond.not.i.i.i266 = icmp eq i64 %indvars.iv.next.i.i.i265, 8
@@ -2615,7 +2615,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i267: ; preds = %203
 
 226:                                              ; preds = %226, %225
   %indvars.iv.i.i.i274 = phi i64 [ 0, %225 ], [ %indvars.iv.next.i.i.i275, %226 ]
-  %227 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i.i274
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i.i274
   store ptr @.str.8, ptr %227, align 8, !tbaa !63
   %indvars.iv.next.i.i.i275 = add nuw nsw i64 %indvars.iv.i.i.i274, 1
   %exitcond.not.i.i.i276 = icmp eq i64 %indvars.iv.next.i.i.i275, 8
@@ -2697,7 +2697,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i277: ; preds = %226
 
 256:                                              ; preds = %256, %255
   %indvars.iv.i.i282 = phi i64 [ 0, %255 ], [ %indvars.iv.next.i.i283, %256 ]
-  %257 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i282
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i282
   store ptr @.str.8, ptr %257, align 8, !tbaa !63
   %indvars.iv.next.i.i283 = add nuw nsw i64 %indvars.iv.i.i282, 1
   %exitcond.not.i.i284 = icmp eq i64 %indvars.iv.next.i.i283, 8
@@ -3328,7 +3328,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i285:     ; preds = %256
 
 542:                                              ; preds = %542, %541
   %indvars.iv.i.i290 = phi i64 [ 0, %541 ], [ %indvars.iv.next.i.i291, %542 ]
-  %543 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i.i290
+  %543 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i.i290
   store ptr @.str.8, ptr %543, align 8, !tbaa !63
   %indvars.iv.next.i.i291 = add nuw nsw i64 %indvars.iv.i.i290, 1
   %exitcond.not.i.i292 = icmp eq i64 %indvars.iv.next.i.i291, 8
@@ -3432,7 +3432,7 @@ define void @_ZN7Archive15BrokenHeaderMsgEv(ptr noundef nonnull align 8 derefere
 
 3:                                                ; preds = %3, %1
   %indvars.iv.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %4, align 8, !tbaa !63
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -3710,7 +3710,7 @@ define void @_ZN7Archive14UnexpEndArcMsgEv(ptr noundef nonnull align 8 dereferen
 
 9:                                                ; preds = %9, %8
   %indvars.iv.i.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i.i, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %10, align 8, !tbaa !63
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -3746,7 +3746,7 @@ define void @_ZN7Archive12UnkEncVerMsgEPKwS1_(ptr noundef nonnull align 8 derefe
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %5 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %6, align 8, !tbaa !63
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -4446,7 +4446,7 @@ thread-pre-split:                                 ; preds = %141, %147, %149, %1
 
 163:                                              ; preds = %163, %161
   %indvars.iv.i.i.i = phi i64 [ 0, %161 ], [ %indvars.iv.next.i.i.i, %163 ]
-  %164 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i.i
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i.i
   store ptr @.str.8, ptr %164, align 8, !tbaa !63
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -5010,7 +5010,7 @@ define noundef zeroext i1 @_ZN7Archive11ReadSubDataEP5ArrayIhEP4Fileb(ptr nounde
 
 14:                                               ; preds = %14, %13
   %indvars.iv.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i, %14 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %15, align 8, !tbaa !63
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -5053,7 +5053,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %14
 
 34:                                               ; preds = %34, %33
   %indvars.iv.i.i16 = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i17, %34 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i16
   store ptr @.str.8, ptr %35, align 8, !tbaa !63
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i16, 1
   %exitcond.not.i.i18 = icmp eq i64 %indvars.iv.next.i.i17, 8
@@ -5108,7 +5108,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit19: ; preds = %34
 
 58:                                               ; preds = %58, %57
   %indvars.iv.i.i20 = phi i64 [ 0, %57 ], [ %indvars.iv.next.i.i21, %58 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i20
   store ptr @.str.8, ptr %59, align 8, !tbaa !63
   %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i20, 1
   %exitcond.not.i.i22 = icmp eq i64 %indvars.iv.next.i.i21, 8
@@ -5254,7 +5254,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit23: ; preds = %_ZN10uiMsgStoreC2E
 
 133:                                              ; preds = %133, %132
   %indvars.iv.i.i24 = phi i64 [ 0, %132 ], [ %indvars.iv.next.i.i25, %133 ]
-  %134 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i24
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i24
   store ptr @.str.8, ptr %134, align 8, !tbaa !63
   %indvars.iv.next.i.i25 = add nuw nsw i64 %indvars.iv.i.i24, 1
   %exitcond.not.i.i26 = icmp eq i64 %indvars.iv.next.i.i25, 8

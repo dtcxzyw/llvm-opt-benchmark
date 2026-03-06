@@ -37,10 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.461" = type { %"class.llvm::SmallVectorTemplateCommon.462" }
 %"class.llvm::SmallVectorTemplateCommon.462" = type { %"class.llvm::SmallVectorBase.3" }
 %"struct.llvm::SmallVectorStorage.463" = type { [64 x i8] }
-%"struct.clang::comments::Comment::Argument" = type { %"class.clang::SourceRange", %"class.llvm::StringRef" }
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"class.clang::SourceLocation" = type { i32 }
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.(anonymous namespace)::CommentASTToXMLConverter" = type { ptr, %"class.llvm::raw_svector_ostream", ptr, ptr }
 %"struct.clang::PrintingPolicy" = type { i64, ptr }
 %"class.clang::DeclarationName" = type { i64 }
@@ -55,15 +51,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorBase" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.484" = type { [128 x i8] }
 %"class.llvm::VersionTuple" = type { i64, i64 }
+%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.470" }
 %"class.llvm::SmallVector.470" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.471" }
 %"struct.llvm::SmallVectorStorage.471" = type { [32 x i8] }
-%"class.clang::comments::HTMLStartTagComment::Attribute" = type { %"class.clang::SourceLocation", %"class.llvm::StringRef", %"class.clang::SourceLocation", %"class.clang::SourceRange", %"class.llvm::StringRef" }
-%"class.clang::SrcMgr::SLocEntry" = type { i32, [4 x i8], %union.anon.492 }
-%union.anon.492 = type { %"class.clang::SrcMgr::FileInfo" }
-%"class.clang::SrcMgr::FileInfo" = type { %"class.clang::SourceLocation", i32, %"class.llvm::PointerIntPair.493" }
-%"class.llvm::PointerIntPair.493" = type { %"struct.llvm::detail::PunnedPointer.494" }
-%"struct.llvm::detail::PunnedPointer.494" = type { [8 x i8] }
 %"struct.clang::format::FormatStyle" = type { i8, i32, i8, i8, %"struct.clang::format::FormatStyle::AlignConsecutiveStyle", %"struct.clang::format::FormatStyle::AlignConsecutiveStyle", %"struct.clang::format::FormatStyle::AlignConsecutiveStyle", %"struct.clang::format::FormatStyle::AlignConsecutiveStyle", %"struct.clang::format::FormatStyle::ShortCaseStatementsAlignmentStyle", %"struct.clang::format::FormatStyle::AlignConsecutiveStyle", %"struct.clang::format::FormatStyle::AlignConsecutiveStyle", %"struct.clang::format::FormatStyle::AlignConsecutiveStyle", i8, i8, %"struct.clang::format::FormatStyle::TrailingCommentsAlignmentStyle", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::vector.504", i8, i8, i8, i8, %"class.std::optional.517", %"struct.clang::format::FormatStyle::BraceWrappingFlags", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i32, i32, i8, i8, i8, i8, i8, i8, i8, %"class.std::vector.504", %"struct.clang::tooling::IncludeStyle", %"class.std::vector.504", i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, %"struct.clang::format::FormatStyle::IntegerLiteralSeparatorStyle", %"class.std::vector.504", i8, i8, %"struct.clang::format::FormatStyle::KeepEmptyLinesStyle", i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.504", i32, i8, %"class.std::vector.504", i8, i32, i8, %"class.std::vector.504", i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i8, %"class.std::vector.504", %"class.std::vector.530", i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %"struct.clang::format::FormatStyle::SpaceBeforeParensCustom", i8, i8, i8, i32, i8, i8, %"struct.clang::format::FormatStyle::SpacesInLineComment", i8, %"struct.clang::format::FormatStyle::SpacesInParensCustom", i8, i8, %"class.std::vector.504", %"class.std::vector.504", %"class.std::vector.504", i8, i32, %"class.std::vector.504", %"class.std::vector.504", %"class.std::vector.504", i8, %"class.std::vector.504", i8, %"class.std::vector.504", i8, %"struct.clang::format::FormatStyle::FormatStyleSet" }
 %"struct.clang::format::FormatStyle::ShortCaseStatementsAlignmentStyle" = type { i8, i8, i8, i8, i8 }
 %"struct.clang::format::FormatStyle::AlignConsecutiveStyle" = type { i8, i8, i8, i8, i8, i8, i8 }
@@ -106,7 +97,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected" = type { %union.anon.541, i8, [7 x i8] }
 %union.anon.541 = type { %"struct.llvm::AlignedCharArrayUnion.542" }
 %"struct.llvm::AlignedCharArrayUnion.542" = type { [32 x i8] }
-%"struct.std::pair.495" = type { ptr, i64 }
 
 $_ZN4llvm11raw_ostreamlsEPKc = comdat any
 
@@ -438,7 +428,7 @@ define internal fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make
 29:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
   %30 = load ptr, ptr %18, align 8, !tbaa !31
-  %31 = getelementptr inbounds nuw %"struct.clang::comments::Comment::Argument", ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.0.0.copyload.i17.i = load ptr, ptr %32, align 8, !tbaa !25
   %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -829,7 +819,7 @@ _ZN12_GLOBAL__N_125CommentASTToHTMLConverter34visitNonStandaloneParagraphComment
 235:                                              ; preds = %.lr.ph197, %242
   %indvars.iv = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next, %242 ]
   %236 = load ptr, ptr %227, align 8, !tbaa !80
-  %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %indvars.iv
   %238 = load ptr, ptr %237, align 8, !tbaa !81
   %239 = load ptr, ptr %230, align 8
   %240 = icmp eq ptr %238, %239
@@ -900,7 +890,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %253, %255
 .lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201
   %indvars.iv248 = phi i64 [ 0, %.lr.ph201.preheader ], [ %indvars.iv.next249, %.lr.ph201 ]
   %271 = load ptr, ptr %232, align 8, !tbaa !80
-  %272 = getelementptr inbounds nuw ptr, ptr %271, i64 %indvars.iv248
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %indvars.iv248
   %273 = load ptr, ptr %272, align 8, !tbaa !83
   call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %273)
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
@@ -969,7 +959,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %287, %289
 .lr.ph205:                                        ; preds = %.lr.ph205.preheader, %.lr.ph205
   %indvars.iv251 = phi i64 [ 0, %.lr.ph205.preheader ], [ %indvars.iv.next252, %.lr.ph205 ]
   %305 = load ptr, ptr %274, align 8, !tbaa !80
-  %306 = getelementptr inbounds nuw ptr, ptr %305, i64 %indvars.iv251
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %indvars.iv251
   %307 = load ptr, ptr %306, align 8, !tbaa !86
   call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %307)
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
@@ -1038,7 +1028,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %321, %323
 .lr.ph209:                                        ; preds = %.lr.ph209.preheader, %.lr.ph209
   %indvars.iv254 = phi i64 [ 0, %.lr.ph209.preheader ], [ %indvars.iv.next255, %.lr.ph209 ]
   %339 = load ptr, ptr %308, align 8, !tbaa !80
-  %340 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv254
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %indvars.iv254
   %341 = load ptr, ptr %340, align 8, !tbaa !89
   call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %341)
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
@@ -1481,7 +1471,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i32:             ; preds = %539, %537
 
 _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %561, %559
   %563 = load ptr, ptr %542, align 8, !tbaa !102
-  %564 = getelementptr inbounds nuw ptr, ptr %563, i64 %indvars.iv.next.i34176
+  %564 = getelementptr inbounds nuw [8 x i8], ptr %563, i64 %indvars.iv.next.i34176
   %565 = load ptr, ptr %564, align 8, !tbaa !103
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 16
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %566, align 8, !tbaa !25
@@ -1993,7 +1983,7 @@ define internal fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make
 43:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
   %44 = load ptr, ptr %32, align 8, !tbaa !31
-  %45 = getelementptr inbounds nuw %"struct.clang::comments::Comment::Argument", ptr %44, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %indvars.iv.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %.sroa.0.0.copyload.i17.i = load ptr, ptr %46, align 8, !tbaa !25
   %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -3357,7 +3347,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit232:              ; preds = %730, %732
 .lr.ph413:                                        ; preds = %.lr.ph413.preheader, %.lr.ph413
   %indvars.iv = phi i64 [ 0, %.lr.ph413.preheader ], [ %indvars.iv.next, %.lr.ph413 ]
   %748 = load ptr, ptr %720, align 8, !tbaa !80
-  %749 = getelementptr inbounds nuw ptr, ptr %748, i64 %indvars.iv
+  %749 = getelementptr inbounds nuw [8 x i8], ptr %748, i64 %indvars.iv
   %750 = load ptr, ptr %749, align 8, !tbaa !83
   call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %750)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3423,7 +3413,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit224:              ; preds = %761, %763
 .lr.ph417:                                        ; preds = %.lr.ph417.preheader, %.lr.ph417
   %indvars.iv440 = phi i64 [ 0, %.lr.ph417.preheader ], [ %indvars.iv.next441, %.lr.ph417 ]
   %779 = load ptr, ptr %751, align 8, !tbaa !80
-  %780 = getelementptr inbounds nuw ptr, ptr %779, i64 %indvars.iv440
+  %780 = getelementptr inbounds nuw [8 x i8], ptr %779, i64 %indvars.iv440
   %781 = load ptr, ptr %780, align 8, !tbaa !86
   call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %781)
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
@@ -3523,7 +3513,7 @@ _ZNK4llvm13TinyPtrVectorIPKN5clang8comments19BlockCommandCommentEE4sizeEv.exit: 
 
 822:                                              ; preds = %.lr.ph421
   %823 = load ptr, ptr %821, align 8, !tbaa !80
-  %824 = getelementptr inbounds nuw ptr, ptr %823, i64 %indvars.iv443
+  %824 = getelementptr inbounds nuw [8 x i8], ptr %823, i64 %indvars.iv443
   %825 = load ptr, ptr %824, align 8, !tbaa !89
   br label %_ZNK4llvm13TinyPtrVectorIPKN5clang8comments19BlockCommandCommentEEixEj.exit
 
@@ -3593,7 +3583,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit197:              ; preds = %836, %838
 .lr.ph425:                                        ; preds = %.lr.ph425.preheader, %.lr.ph425
   %indvars.iv446 = phi i64 [ 0, %.lr.ph425.preheader ], [ %indvars.iv.next447, %.lr.ph425 ]
   %854 = load ptr, ptr %826, align 8, !tbaa !80
-  %855 = getelementptr inbounds nuw ptr, ptr %854, i64 %indvars.iv446
+  %855 = getelementptr inbounds nuw [8 x i8], ptr %854, i64 %indvars.iv446
   %856 = load ptr, ptr %855, align 8, !tbaa !89
   call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %856)
   %indvars.iv.next447 = add nuw nsw i64 %indvars.iv446, 1
@@ -3631,7 +3621,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit193:              ; preds = %851, %849, %_ZN4llv
 875:                                              ; preds = %.lr.ph430, %_ZN4llvm11raw_ostreamlsEPKc.exit185
   %indvars.iv449 = phi i64 [ 0, %.lr.ph430 ], [ %indvars.iv.next450, %_ZN4llvm11raw_ostreamlsEPKc.exit185 ]
   %876 = load ptr, ptr %862, align 8, !tbaa !80
-  %877 = getelementptr inbounds nuw ptr, ptr %876, i64 %indvars.iv449
+  %877 = getelementptr inbounds nuw [8 x i8], ptr %876, i64 %indvars.iv449
   %878 = load ptr, ptr %877, align 8, !tbaa !504
   %879 = getelementptr inbounds nuw i8, ptr %878, i64 32
   %880 = load i16, ptr %879, align 8
@@ -4352,7 +4342,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit185:              ; preds = %959, %957, %938, %9
   %indvars.iv452 = phi i64 [ 0, %.lr.ph435 ], [ %indvars.iv.next453, %1267 ]
   %.0106.i432 = phi i8 [ 0, %.lr.ph435 ], [ %.1107.i, %1267 ]
   %1248 = load ptr, ptr %1241, align 8, !tbaa !80
-  %1249 = getelementptr inbounds nuw ptr, ptr %1248, i64 %indvars.iv452
+  %1249 = getelementptr inbounds nuw [8 x i8], ptr %1248, i64 %indvars.iv452
   %1250 = load ptr, ptr %1249, align 8, !tbaa !81
   %1251 = load ptr, ptr %1244, align 8
   %1252 = icmp eq ptr %1250, %1251
@@ -4736,7 +4726,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i43:             ; preds = %1401, %1398, %1393,
 
 _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %1424, %1422
   %1426 = load ptr, ptr %1404, align 8, !tbaa !102
-  %1427 = getelementptr inbounds nuw ptr, ptr %1426, i64 %indvars.iv.next.i45410
+  %1427 = getelementptr inbounds nuw [8 x i8], ptr %1426, i64 %indvars.iv.next.i45410
   %1428 = load ptr, ptr %1427, align 8, !tbaa !103
   %1429 = getelementptr inbounds nuw i8, ptr %1428, i64 16
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %1429, align 8, !tbaa !25
@@ -5447,7 +5437,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %22, %24, %25
 _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %37, %39
   %42 = phi ptr [ %.pre46, %37 ], [ %41, %39 ]
   %43 = load ptr, ptr %31, align 8, !tbaa !536
-  %44 = getelementptr inbounds nuw %"class.clang::comments::HTMLStartTagComment::Attribute", ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %43, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.sroa.01.0.copyload = load ptr, ptr %45, align 8, !tbaa !25
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -5786,7 +5776,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9
   %65 = phi i32 [ %60, %59 ], [ %.pre.i, %62 ]
   %66 = load ptr, ptr %19, align 8, !tbaa !80
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %69 = ptrtoint ptr %42 to i64
   store i64 %69, ptr %68, align 1
   %70 = load i32, ptr %21, align 8, !tbaa !79
@@ -5850,7 +5840,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9
   %96 = phi i32 [ %91, %90 ], [ %.pre.i63, %93 ]
   %97 = load ptr, ptr %6, align 8, !tbaa !80
   %98 = zext i32 %96 to i64
-  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %98
   %100 = ptrtoint ptr %42 to i64
   store i64 %100, ptr %99, align 1
   %101 = load i32, ptr %8, align 8, !tbaa !79
@@ -5884,7 +5874,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9
   %112 = phi i32 [ %107, %106 ], [ %.pre.i65, %109 ]
   %113 = load ptr, ptr %19, align 8, !tbaa !80
   %114 = zext i32 %112 to i64
-  %115 = getelementptr inbounds nuw ptr, ptr %113, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %114
   %116 = ptrtoint ptr %42 to i64
   store i64 %116, ptr %115, align 1
   %117 = load i32, ptr %21, align 8, !tbaa !79
@@ -5948,7 +5938,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19ParamCommandCommentELb1EE9
   %146 = phi i32 [ %141, %140 ], [ %.pre.i69, %143 ]
   %147 = load ptr, ptr %10, align 8, !tbaa !80
   %148 = zext i32 %146 to i64
-  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %148
   %150 = ptrtoint ptr %42 to i64
   store i64 %150, ptr %149, align 1
   %151 = load i32, ptr %12, align 8, !tbaa !79
@@ -6007,7 +5997,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments20TParamCommandCommentELb1EE
   %177 = phi i32 [ %172, %171 ], [ %.pre.i76, %174 ]
   %178 = load ptr, ptr %14, align 8, !tbaa !80
   %179 = zext i32 %177 to i64
-  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %179
   %181 = ptrtoint ptr %42 to i64
   store i64 %181, ptr %180, align 1
   %182 = load i32, ptr %16, align 8, !tbaa !79
@@ -6032,7 +6022,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9
   %190 = phi i32 [ %185, %184 ], [ %.pre.i78, %187 ]
   %191 = load ptr, ptr %19, align 8, !tbaa !80
   %192 = zext i32 %190 to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %192
   %194 = ptrtoint ptr %42 to i64
   store i64 %194, ptr %193, align 1
   %195 = load i32, ptr %21, align 8, !tbaa !79
@@ -6068,7 +6058,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockContentCommentELb1EE9
   %211 = phi i32 [ %206, %205 ], [ %.pre.i81, %208 ]
   %212 = load ptr, ptr %19, align 8, !tbaa !80
   %213 = zext i32 %211 to i64
-  %214 = getelementptr inbounds nuw ptr, ptr %212, i64 %213
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %213
   %215 = ptrtoint ptr %42 to i64
   store i64 %215, ptr %214, align 1
   %216 = load i32, ptr %21, align 8, !tbaa !79
@@ -6132,7 +6122,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9
   %25 = phi i32 [ %18, %9 ], [ %.pre.i, %21 ]
   %26 = load ptr, ptr %11, align 8, !tbaa !80
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   store i64 %10, ptr %28, align 1
   %29 = load i32, ptr %17, align 8, !tbaa !79
   %30 = add i32 %29, 1
@@ -6163,7 +6153,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9
   %42 = phi i32 [ %35, %31 ], [ %.pre.i7, %38 ]
   %43 = load ptr, ptr %33, align 8, !tbaa !80
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = ptrtoint ptr %1 to i64
   store i64 %46, ptr %45, align 1
   %47 = load i32, ptr %34, align 8, !tbaa !79
@@ -6216,7 +6206,7 @@ define internal fastcc void @_ZSt21__inplace_stable_sortIPPKN5clang8comments19Pa
   %16 = sub i64 %15, %4
   %17 = ashr exact i64 %16, 3
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds ptr, ptr %14, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %14, i64 %18
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %16, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPKN5clang8comments19ParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEEvT_T0_.exit.i
 
@@ -6251,7 +6241,7 @@ common.ret27:                                     ; preds = %8, %_ZSt25__unguard
 
 25:                                               ; preds = %2
   %26 = lshr i64 %6, 1
-  %27 = getelementptr inbounds nuw ptr, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %26
   tail call fastcc void @_ZSt21__inplace_stable_sortIPPKN5clang8comments19ParamCommandCommentEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEEvT_SC_T0_(ptr noundef %0, ptr noundef %27)
   tail call fastcc void @_ZSt21__inplace_stable_sortIPPKN5clang8comments19ParamCommandCommentEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEEvT_SC_T0_(ptr noundef %27, ptr noundef %1)
   %28 = ptrtoint ptr %27 to i64
@@ -6269,7 +6259,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIPPKN5clang8comments19P
   %8 = ashr exact i64 %7, 3
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -6336,7 +6326,7 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPPKN5clang8comments19P
 
 _ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit: ; preds = %17
   %20 = sdiv i64 %.tr7280, 2
-  %21 = getelementptr inbounds ptr, ptr %.tr77, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %.tr77, i64 %20
   %22 = sub i64 %8, %19
   %23 = ashr exact i64 %22, 3
   %24 = icmp sgt i64 %23, 0
@@ -6352,7 +6342,7 @@ _ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i: ; preds 
   %.05.i = phi ptr [ %.tr7078, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i ]
   %.0114.i = phi i64 [ %23, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i ]
   %26 = lshr i64 %.0114.i, 1
-  %27 = getelementptr inbounds nuw ptr, ptr %.05.i, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.05.i, i64 %26
   %.val.i = load ptr, ptr %27, align 8, !tbaa !86
   %28 = getelementptr i8, ptr %.val.i, i64 40
   %.val.val.i = load i32, ptr %28, align 8, !tbaa !111
@@ -6378,7 +6368,7 @@ _ZSt13__lower_boundIPPKN5clang8comments19ParamCommandCommentES4_N9__gnu_cxx5__op
 
 _ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit45: ; preds = %17
   %36 = sdiv i64 %.tr7381, 2
-  %37 = getelementptr inbounds ptr, ptr %.tr7078, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %.tr7078, i64 %36
   %38 = ptrtoint ptr %.tr77 to i64
   %39 = sub i64 %19, %38
   %40 = ashr exact i64 %39, 3
@@ -6395,7 +6385,7 @@ _ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i49: ; pred
   %.05.i50 = phi ptr [ %.tr77, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.lr.ph.i47 ], [ %.1.i56, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i49 ]
   %.0114.i51 = phi i64 [ %40, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.lr.ph.i47 ], [ %.112.i55, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i49 ]
   %43 = lshr i64 %.0114.i51, 1
-  %44 = getelementptr inbounds nuw ptr, ptr %.05.i50, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.05.i50, i64 %43
   %.val13.i = load ptr, ptr %44, align 8, !tbaa !86
   %45 = getelementptr i8, ptr %.val13.i, i64 40
   %.val13.val.i54 = load i32, ptr %45, align 8, !tbaa !111
@@ -6513,7 +6503,7 @@ _ZSt4moveIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit: ; preds
   br i1 %36, label %.lr.ph110.preheader, label %._crit_edge111
 
 .lr.ph110.preheader:                              ; preds = %35
-  %37 = getelementptr inbounds ptr, ptr %.058, i64 %.083
+  %37 = getelementptr inbounds [8 x i8], ptr %.058, i64 %.083
   br label %.lr.ph110
 
 ._crit_edge111:                                   ; preds = %.lr.ph110, %35
@@ -6556,7 +6546,7 @@ _ZSt4moveIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit: ; preds
   %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds ptr, ptr %49, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %49, i64 %55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %.058, i64 %53, i1 false)
   br label %_ZSt13move_backwardIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit
 
@@ -6565,9 +6555,9 @@ _ZSt13move_backwardIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exi
   br label %_ZSt11swap_rangesIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds ptr, ptr %.058, i64 %.086
+  %58 = getelementptr inbounds [8 x i8], ptr %.058, i64 %.086
   %59 = sub i64 0, %25
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   %61 = icmp sgt i64 %.083, 0
   br i1 %61, label %.lr.ph, label %._crit_edge
 
@@ -6636,7 +6626,7 @@ define internal fastcc void @_ZSt24__merge_sort_with_bufferIPPKN5clang8comments1
   %18 = sub i64 %17, %10
   %19 = ashr exact i64 %18, 3
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds ptr, ptr %16, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %16, i64 %20
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(1) %.034.i, i64 %18, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPKN5clang8comments19ParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEEvT_T0_.exit.i.i
 
@@ -6700,7 +6690,7 @@ _ZSt16__insertion_sortIPPKN5clang8comments19ParamCommandCommentEN9__gnu_cxx5__op
   %38 = sub i64 %37, %.lcssa.i
   %39 = ashr exact i64 %38, 3
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds ptr, ptr %36, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %36, i64 %40
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %41, ptr noundef nonnull align 8 dereferenceable(1) %.0.lcssa.i, i64 %38, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPKN5clang8comments19ParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEEvT_T0_.exit.i22.i
 
@@ -6886,7 +6876,7 @@ _ZSt13move_backwardIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exi
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 3
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.lcssa.sink.i, i64 %52
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %53, ptr align 8 %5, i64 %50, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPPKN5clang8comments19ParamCommandCommentES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEEvT_SC_T0_SD_T1_T2_.exit
 
@@ -6896,7 +6886,7 @@ _ZSt13move_backwardIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exi
 
 _ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit: ; preds = %54
   %56 = sdiv i64 %.tr113128, 2
-  %57 = getelementptr inbounds ptr, ptr %.tr125, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %.tr125, i64 %56
   %58 = sub i64 %8, %55
   %59 = ashr exact i64 %58, 3
   %60 = icmp sgt i64 %59, 0
@@ -6912,7 +6902,7 @@ _ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i: ; preds 
   %.05.i = phi ptr [ %.tr111126, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %.1.i78, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i ]
   %.0114.i = phi i64 [ %59, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i ]
   %62 = lshr i64 %.0114.i, 1
-  %63 = getelementptr inbounds nuw ptr, ptr %.05.i, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.05.i, i64 %62
   %.val.i = load ptr, ptr %63, align 8, !tbaa !86
   %64 = getelementptr i8, ptr %.val.i, i64 40
   %.val.val.i = load i32, ptr %64, align 8, !tbaa !111
@@ -6938,7 +6928,7 @@ _ZSt13__lower_boundIPPKN5clang8comments19ParamCommandCommentES4_N9__gnu_cxx5__op
 
 _ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit82: ; preds = %54
   %72 = sdiv i64 %.tr114129, 2
-  %73 = getelementptr inbounds ptr, ptr %.tr111126, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %.tr111126, i64 %72
   %74 = ptrtoint ptr %.tr125 to i64
   %75 = sub i64 %55, %74
   %76 = ashr exact i64 %75, 3
@@ -6955,7 +6945,7 @@ _ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i87: ; pred
   %.05.i88 = phi ptr [ %.tr125, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.lr.ph.i85 ], [ %.1.i94, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i87 ]
   %.0114.i89 = phi i64 [ %76, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.lr.ph.i85 ], [ %.112.i93, %_ZSt7advanceIPPKN5clang8comments19ParamCommandCommentElEvRT_T0_.exit.i87 ]
   %79 = lshr i64 %.0114.i89, 1
-  %80 = getelementptr inbounds nuw ptr, ptr %.05.i88, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %.05.i88, i64 %79
   %.val13.i = load ptr, ptr %80, align 8, !tbaa !86
   %81 = getelementptr i8, ptr %.val13.i, i64 40
   %.val13.val.i92 = load i32, ptr %81, align 8, !tbaa !111
@@ -7014,7 +7004,7 @@ _ZSt4moveIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit.i96: ; p
   %100 = sub i64 %95, %99
   %101 = ashr exact i64 %100, 3
   %102 = sub nsw i64 0, %101
-  %103 = getelementptr inbounds ptr, ptr %.0107, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %.0107, i64 %102
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %103, ptr align 8 %.0108, i64 %100, i1 false)
   br label %_ZSt13move_backwardIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit.i
 
@@ -7064,13 +7054,13 @@ _ZSt4moveIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit42.i: ; p
 116:                                              ; preds = %_ZSt4moveIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit42.i
   %117 = ashr exact i64 %111, 3
   %118 = sub nsw i64 0, %117
-  %119 = getelementptr inbounds ptr, ptr %.0107, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %.0107, i64 %118
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %119, ptr align 8 %5, i64 %111, i1 false)
   br label %_ZSt13move_backwardIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit45.i
 
 _ZSt13move_backwardIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit45.i: ; preds = %116, %_ZSt4moveIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit42.i
   %.pre-phi.i.i.i.i.i44.i = phi i64 [ %118, %116 ], [ 0, %_ZSt4moveIPPKN5clang8comments19ParamCommandCommentES5_ET0_T_S7_S6_.exit42.i ]
-  %120 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre-phi.i.i.i.i.i44.i
+  %120 = getelementptr inbounds [8 x i8], ptr %.0107, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPKN5clang8comments19ParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit
 
 121:                                              ; preds = %106
@@ -7317,7 +7307,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentCompar
   %31 = sub i64 %30, %4
   %32 = ashr exact i64 %31, 3
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds ptr, ptr %29, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %29, i64 %33
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %34, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %31, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_T0_.exit.i
 
@@ -7374,7 +7364,7 @@ common.ret35:                                     ; preds = %8, %_ZSt25__unguard
 
 47:                                               ; preds = %2
   %48 = lshr i64 %6, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %48
   tail call fastcc void @_ZSt21__inplace_stable_sortIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_(ptr noundef %0, ptr noundef %49)
   tail call fastcc void @_ZSt21__inplace_stable_sortIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_(ptr noundef %49, ptr noundef %1)
   %50 = ptrtoint ptr %49 to i64
@@ -7392,7 +7382,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIPPKN5clang8comments20T
   %8 = ashr exact i64 %7, 3
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -7482,7 +7472,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentCompar
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit: ; preds = %32
   %35 = sdiv i64 %.tr7685, 2
-  %36 = getelementptr inbounds ptr, ptr %.tr82, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %.tr82, i64 %35
   %37 = sub i64 %8, %34
   %38 = ashr exact i64 %37, 3
   %39 = icmp sgt i64 %38, 0
@@ -7498,7 +7488,7 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i: ; preds
   %.021.i = phi ptr [ %.tr7483, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %68, %.thread15.i ]
   %.01120.i = phi i64 [ %38, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %67, %.thread15.i ]
   %42 = lshr i64 %.01120.i, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %.021.i, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.021.i, i64 %42
   %.val.i = load ptr, ptr %43, align 8, !tbaa !83
   %44 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %45 = load i64, ptr %44, align 8, !tbaa !106
@@ -7562,7 +7552,7 @@ _ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__o
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit45: ; preds = %32
   %72 = sdiv i64 %.tr7786, 2
-  %73 = getelementptr inbounds ptr, ptr %.tr7483, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %.tr7483, i64 %72
   %74 = ptrtoint ptr %.tr82 to i64
   %75 = sub i64 %34, %74
   %76 = ashr exact i64 %75, 3
@@ -7584,7 +7574,7 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i49: ; pre
   %.020.i = phi ptr [ %.tr82, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i47 ], [ %107, %.thread.i54 ]
   %.01119.i = phi i64 [ %76, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i47 ], [ %106, %.thread.i54 ]
   %84 = lshr i64 %.01119.i, 1
-  %85 = getelementptr inbounds nuw ptr, ptr %.020.i, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.020.i, i64 %84
   %.val13.i = load ptr, ptr %85, align 8, !tbaa !83
   br i1 %.not.i.i.i48, label %.thread15.i56, label %86
 
@@ -7733,7 +7723,7 @@ _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit: ; pred
   br i1 %36, label %.lr.ph110.preheader, label %._crit_edge111
 
 .lr.ph110.preheader:                              ; preds = %35
-  %37 = getelementptr inbounds ptr, ptr %.058, i64 %.083
+  %37 = getelementptr inbounds [8 x i8], ptr %.058, i64 %.083
   br label %.lr.ph110
 
 ._crit_edge111:                                   ; preds = %.lr.ph110, %35
@@ -7776,7 +7766,7 @@ _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit: ; pred
   %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds ptr, ptr %49, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %49, i64 %55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %.058, i64 %53, i1 false)
   br label %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit
 
@@ -7785,9 +7775,9 @@ _ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.ex
   br label %_ZSt11swap_rangesIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds ptr, ptr %.058, i64 %.086
+  %58 = getelementptr inbounds [8 x i8], ptr %.058, i64 %.086
   %59 = sub i64 0, %25
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   %61 = icmp sgt i64 %.083, 0
   br i1 %61, label %.lr.ph, label %._crit_edge
 
@@ -7883,7 +7873,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentCompar
   %33 = sub i64 %32, %10
   %34 = ashr exact i64 %33, 3
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds ptr, ptr %31, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %31, i64 %35
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %36, ptr noundef nonnull align 8 dereferenceable(1) %.049.i, i64 %33, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_T0_.exit.i.i
 
@@ -7996,7 +7986,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentCompar
   %75 = sub i64 %74, %.lcssa.i
   %76 = ashr exact i64 %75, 3
   %77 = sub nsw i64 0, %76
-  %78 = getelementptr inbounds ptr, ptr %73, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %73, i64 %77
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %78, ptr noundef nonnull align 8 dereferenceable(1) %.0.lcssa.i, i64 %75, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPKN5clang8comments20TParamCommandCommentEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_T0_.exit.i23.i
 
@@ -8266,7 +8256,7 @@ _ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.ex
   %84 = sub i64 %82, %83
   %85 = ashr exact i64 %84, 3
   %86 = sub nsw i64 0, %85
-  %87 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %.lcssa.sink.i, i64 %86
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %87, ptr align 8 %5, i64 %84, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEEvT_SC_T0_SD_T1_T2_.exit
 
@@ -8276,7 +8266,7 @@ _ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.ex
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit: ; preds = %88
   %90 = sdiv i64 %.tr120137, 2
-  %91 = getelementptr inbounds ptr, ptr %.tr134, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.tr134, i64 %90
   %92 = sub i64 %8, %89
   %93 = ashr exact i64 %92, 3
   %94 = icmp sgt i64 %93, 0
@@ -8292,7 +8282,7 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i: ; preds
   %.021.i = phi ptr [ %.tr118135, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %123, %.thread15.i ]
   %.01120.i = phi i64 [ %93, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i ], [ %122, %.thread15.i ]
   %97 = lshr i64 %.01120.i, 1
-  %98 = getelementptr inbounds nuw ptr, ptr %.021.i, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %.021.i, i64 %97
   %.val.i = load ptr, ptr %98, align 8, !tbaa !83
   %99 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %100 = load i64, ptr %99, align 8, !tbaa !106
@@ -8356,7 +8346,7 @@ _ZSt13__lower_boundIPPKN5clang8comments20TParamCommandCommentES4_N9__gnu_cxx5__o
 
 _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit89: ; preds = %88
   %127 = sdiv i64 %.tr121138, 2
-  %128 = getelementptr inbounds ptr, ptr %.tr118135, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %.tr118135, i64 %127
   %129 = ptrtoint ptr %.tr134 to i64
   %130 = sub i64 %89, %129
   %131 = ashr exact i64 %130, 3
@@ -8378,7 +8368,7 @@ _ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.i94: ; pre
   %.020.i = phi ptr [ %.tr134, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i92 ], [ %162, %.thread.i99 ]
   %.01119.i = phi i64 [ %131, %_ZSt7advanceIPPKN5clang8comments20TParamCommandCommentElEvRT_T0_.exit.lr.ph.i92 ], [ %161, %.thread.i99 ]
   %139 = lshr i64 %.01119.i, 1
-  %140 = getelementptr inbounds nuw ptr, ptr %.020.i, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.020.i, i64 %139
   %.val13.i = load ptr, ptr %140, align 8, !tbaa !83
   br i1 %.not.i.i.i93, label %.thread15.i101, label %141
 
@@ -8471,7 +8461,7 @@ _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i103: ;
   %177 = sub i64 %172, %176
   %178 = ashr exact i64 %177, 3
   %179 = sub nsw i64 0, %178
-  %180 = getelementptr inbounds ptr, ptr %.0114, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %.0114, i64 %179
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %180, ptr align 8 %.0115, i64 %177, i1 false)
   br label %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit.i
 
@@ -8521,13 +8511,13 @@ _ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit42.i: ; 
 193:                                              ; preds = %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit42.i
   %194 = ashr exact i64 %188, 3
   %195 = sub nsw i64 0, %194
-  %196 = getelementptr inbounds ptr, ptr %.0114, i64 %195
+  %196 = getelementptr inbounds [8 x i8], ptr %.0114, i64 %195
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %196, ptr align 8 %5, i64 %188, i1 false)
   br label %_ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit45.i
 
 _ZSt13move_backwardIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit45.i: ; preds = %193, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit42.i
   %.pre-phi.i.i.i.i.i44.i = phi i64 [ %195, %193 ], [ 0, %_ZSt4moveIPPKN5clang8comments20TParamCommandCommentES5_ET0_T_S7_S6_.exit42.i ]
-  %197 = getelementptr inbounds ptr, ptr %.0114, i64 %.pre-phi.i.i.i.i.i44.i
+  %197 = getelementptr inbounds [8 x i8], ptr %.0114, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPKN5clang8comments20TParamCommandCommentES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit
 
 198:                                              ; preds = %183
@@ -8977,7 +8967,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %7, %8
   %16 = lshr i32 %14, 6
   %17 = zext nneg i32 %16 to i64
   %18 = load ptr, ptr %15, align 8, !tbaa !80
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = and i32 %14, 63
   %21 = load i64, ptr %19, align 8, !tbaa !26
   %22 = zext nneg i32 %20 to i64
@@ -8991,7 +8981,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %7, %8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %28 = lshr i64 %26, 5
   %29 = load ptr, ptr %27, align 8, !tbaa !80
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !574
   %.not.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i.i, label %32, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, !prof !576
@@ -9023,7 +9013,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i.i, %25
   %40 = phi ptr [ %.pre.i.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i.i ], [ %31, %25 ]
   %41 = and i64 %26, 31
-  %42 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %41
   br label %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 43:                                               ; preds = %13
@@ -9040,7 +9030,7 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %48 = zext nneg i32 %.sroa.02.0.i.i to i64
   %49 = load ptr, ptr %47, align 8, !tbaa !80
-  %50 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %48
   br label %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %43
@@ -9351,7 +9341,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %13 = lshr i32 %11, 6
   %14 = zext nneg i32 %13 to i64
   %15 = load ptr, ptr %12, align 8, !tbaa !80
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = and i32 %11, 63
   %18 = load i64, ptr %16, align 8, !tbaa !26
   %19 = zext nneg i32 %17 to i64
@@ -9365,7 +9355,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %25 = lshr i64 %23, 5
   %26 = load ptr, ptr %24, align 8, !tbaa !80
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !574
   %.not.i.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i.i.i, label %29, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, !prof !576
@@ -9397,7 +9387,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i, %22
   %37 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i ], [ %28, %22 ]
   %38 = and i64 %23, 31
-  %39 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %38
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 40:                                               ; preds = %10
@@ -9408,7 +9398,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; pre
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = zext nneg i32 %1 to i64
   %45 = load ptr, ptr %43, align 8, !tbaa !80
-  %46 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %44
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40, %42
@@ -9445,7 +9435,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %66 = lshr i32 %64, 6
   %67 = zext nneg i32 %66 to i64
   %68 = load ptr, ptr %65, align 8, !tbaa !80
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %67
   %70 = and i32 %64, 63
   %71 = load i64, ptr %69, align 8, !tbaa !26
   %72 = zext nneg i32 %70 to i64
@@ -9459,7 +9449,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %78 = lshr i64 %76, 5
   %79 = load ptr, ptr %77, align 8, !tbaa !80
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8, !tbaa !574
   %.not.i.i.i.i.i13 = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i.i13, label %82, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, !prof !576
@@ -9491,7 +9481,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i, %75
   %90 = phi ptr [ %.pre.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i ], [ %81, %75 ]
   %91 = and i64 %76, 31
-  %92 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %91
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 93:                                               ; preds = %63
@@ -9501,7 +9491,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds
 95:                                               ; preds = %61
   %96 = zext nneg i32 %4 to i64
   %97 = load ptr, ptr %53, align 8, !tbaa !80
-  %98 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %96
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, %93, %95
@@ -9586,7 +9576,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !80
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.495", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -9627,7 +9617,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !80
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !79
@@ -9670,7 +9660,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang13SourceManager19getSLocEntryFo
   %10 = lshr i32 %8, 6
   %11 = zext nneg i32 %10 to i64
   %12 = load ptr, ptr %9, align 8, !tbaa !80
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = and i32 %8, 63
   %15 = load i64, ptr %13, align 8, !tbaa !26
   %16 = zext nneg i32 %14 to i64
@@ -9684,7 +9674,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang13SourceManager19getSLocEntryFo
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %22 = lshr i64 %20, 5
   %23 = load ptr, ptr %21, align 8, !tbaa !80
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !574
   %.not.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i.i, label %26, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, !prof !576
@@ -9716,7 +9706,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i, %19
   %34 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i ], [ %25, %19 ]
   %35 = and i64 %20, 31
-  %36 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %35
   br label %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 37:                                               ; preds = %7
@@ -9733,7 +9723,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread9: ; preds =
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %42 = zext nneg i32 %1 to i64
   %43 = load ptr, ptr %41, align 8, !tbaa !80
-  %44 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %42
   br label %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %2, %37

@@ -651,7 +651,7 @@ define ptr @SRP_check_known_gN_param(ptr noundef %0, ptr noundef %1) local_unnam
 
 .preheader:                                       ; preds = %2, %17
   %.013 = phi i64 [ %18, %17 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw %struct.SRP_gN_st, ptr @knowngN, i64 %.013
+  %5 = getelementptr inbounds nuw [24 x i8], ptr @knowngN, i64 %.013
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = tail call i32 @BN_cmp(ptr noundef %7, ptr noundef %0) #5
@@ -693,7 +693,7 @@ define noundef ptr @SRP_get_default_gN(ptr noundef readonly captures(address_is_
 
 .preheader:                                       ; preds = %1, %3
   %.08 = phi i64 [ %4, %3 ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw %struct.SRP_gN_st, ptr @knowngN, i64 %.08
+  %5 = getelementptr inbounds nuw [24 x i8], ptr @knowngN, i64 %.08
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #6
   %8 = icmp eq i32 %7, 0

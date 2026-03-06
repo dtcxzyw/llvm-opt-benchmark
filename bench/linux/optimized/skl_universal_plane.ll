@@ -14,7 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.80 }
 %union.anon.80 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.i915_color_plane_view = type { i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"%s %s: %s\00", align 1
 @.str.1 = private unnamed_addr constant [52 x i8] c"drm_WARN_ON(alignment && !is_power_of_2(alignment))\00", align 1
@@ -228,7 +227,7 @@ define dso_local noundef range(i32 -22, 1) i32 @skl_calc_main_surface_offset(ptr
   %9 = tail call i32 @skl_main_to_aux_plane(ptr noundef %8, i32 noundef 0) #12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %11 = sext i32 %9 to i64
-  %12 = getelementptr %struct.i915_color_plane_view, ptr %10, i64 %11
+  %12 = getelementptr [20 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = tail call i32 @intel_surf_alignment(ptr noundef %8, i32 noundef 0) #12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -399,7 +398,7 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 5992
-  %31 = getelementptr ptr, ptr %30, i64 %18
+  %31 = getelementptr [8 x i8], ptr %30, i64 %18
   %32 = load ptr, ptr %31, align 8
   br label %33
 
@@ -1157,7 +1156,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %55 = zext nneg i32 %19 to i64
-  %56 = getelementptr %struct.i915_color_plane_view, ptr %54, i64 %55
+  %56 = getelementptr [20 x i8], ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -1985,7 +1984,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %571 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %572 = load i32, ptr %571, align 8
   %573 = zext i32 %572 to i64
-  %574 = getelementptr [9 x i16], ptr @icl_program_input_csc.input_csc_matrix, i64 %573
+  %574 = getelementptr [18 x i8], ptr @icl_program_input_csc.input_csc_matrix, i64 %573
   %575 = shl i32 %569, 12
   %576 = shl i32 %570, 8
   %577 = add i32 %576, %575
@@ -3413,7 +3412,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %1414 = shl i32 %1406, 12
   %1415 = load i32, ptr %5, align 4
   %1416 = zext i32 %1415 to i64
-  %1417 = getelementptr i32, ptr @constinit.21, i64 %1416
+  %1417 = getelementptr [4 x i8], ptr @constinit.21, i64 %1416
   %1418 = load i32, ptr %1417, align 4
   %1419 = or disjoint i32 %1414, 4
   %1420 = add i32 %1418, %1419
@@ -3484,7 +3483,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %1461 = or i32 %1460, %1454
   %1462 = load i32, ptr %5, align 4
   %1463 = zext i32 %1462 to i64
-  %1464 = getelementptr i32, ptr @constinit.21, i64 %1463
+  %1464 = getelementptr [4 x i8], ptr @constinit.21, i64 %1463
   %1465 = load i32, ptr %1464, align 4
   %1466 = or disjoint i32 %1414, 12
   %1467 = add i32 %1465, %1466
@@ -3558,7 +3557,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %1511 = or i32 %1510, %1505
   %1512 = load i32, ptr %5, align 4
   %1513 = zext i32 %1512 to i64
-  %1514 = getelementptr i32, ptr @constinit.21, i64 %1513
+  %1514 = getelementptr [4 x i8], ptr @constinit.21, i64 %1513
   %1515 = load i32, ptr %1514, align 4
   %1516 = or disjoint i32 %1414, 8
   %1517 = add i32 %1515, %1516
@@ -3700,7 +3699,7 @@ define internal void @icl_plane_update_arm(ptr noundef %0, ptr noundef %1, ptr n
   %56 = shl i32 %44, 12
   %57 = load i32, ptr %5, align 4
   %58 = zext i32 %57 to i64
-  %59 = getelementptr i32, ptr @constinit.21, i64 %58
+  %59 = getelementptr [4 x i8], ptr @constinit.21, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = add i32 %60, %56
   br i1 %55, label %62, label %95
@@ -4050,7 +4049,7 @@ define internal void @icl_plane_disable_arm(ptr noundef %0, ptr noundef %1) #2 a
   %56 = shl i32 %55, 12
   %57 = load i32, ptr %4, align 4
   %58 = zext i32 %57 to i64
-  %59 = getelementptr i32, ptr @constinit.21, i64 %58
+  %59 = getelementptr [4 x i8], ptr @constinit.21, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = add i32 %60, %56
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
@@ -5605,7 +5604,7 @@ define internal i32 @skl_plane_check(ptr noundef %0, ptr noundef %1) #2 align 16
   store i32 %175, ptr %13, align 4
   call void @intel_add_fb_offsets(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %1, i32 noundef %164) #12
   %176 = call i32 @intel_plane_compute_aligned_offset(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %1, i32 noundef %164) #12
-  %177 = getelementptr %struct.i915_color_plane_view, ptr %161, i64 %163
+  %177 = getelementptr [20 x i8], ptr %161, i64 %163
   store i32 %176, ptr %177, align 4
   %178 = load i32, ptr %12, align 4
   %179 = load i32, ptr %10, align 4
@@ -5738,7 +5737,7 @@ define internal i32 @skl_plane_check(ptr noundef %0, ptr noundef %1) #2 align 16
 258:                                              ; preds = %255
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %260 = sext i32 %216 to i64
-  %261 = getelementptr %struct.i915_color_plane_view, ptr %259, i64 %260
+  %261 = getelementptr [20 x i8], ptr %259, i64 %260
   %262 = load i32, ptr %261, align 4
   %263 = call i32 @intel_surf_alignment(ptr noundef %208, i32 noundef 1) #12
   %264 = icmp ugt i32 %256, %262
@@ -6010,7 +6009,7 @@ define internal i32 @skl_plane_check(ptr noundef %0, ptr noundef %1) #2 align 16
   %425 = load i32, ptr %3, align 4
   %426 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %427 = sext i32 %386 to i64
-  %428 = getelementptr %struct.i915_color_plane_view, ptr %426, i64 %427
+  %428 = getelementptr [20 x i8], ptr %426, i64 %427
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 4
   %430 = load i32, ptr %429, align 4
   %431 = icmp eq i32 %425, %430
@@ -7117,7 +7116,7 @@ define internal fastcc i32 @skl_surf_address(ptr noundef readonly captures(none)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %8 = sext i32 %1 to i64
-  %9 = getelementptr %struct.i915_color_plane_view, ptr %7, i64 %8
+  %9 = getelementptr [20 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = tail call zeroext i1 @intel_fb_uses_dpt(ptr noundef %6) #12
   br i1 %11, label %12, label %49
@@ -7812,7 +7811,7 @@ define internal fastcc noundef zeroext i1 @skl_check_main_ccs_coordinates(ptr no
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %13 = sext i32 %4 to i64
-  %14 = getelementptr %struct.i915_color_plane_view, ptr %12, i64 %13
+  %14 = getelementptr [20 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/eng_ctrl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ENGINE_CMD_DEFN_st = type { i32, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/engine/eng_ctrl.c\00", align 1
 @__func__.ENGINE_ctrl = private unnamed_addr constant [12 x i8] c"ENGINE_ctrl\00", align 1
 @__func__.ENGINE_cmd_is_executable = private unnamed_addr constant [25 x i8] c"ENGINE_cmd_is_executable\00", align 1
@@ -135,7 +133,7 @@ int_ctrl_cmd_by_name.exit.thread.i:               ; preds = %49, %int_ctrl_cmd_i
 
 int_ctrl_cmd_by_name.exit.i:                      ; preds = %47
   %54 = zext nneg i32 %.023.i.i to i64
-  %55 = getelementptr inbounds nuw %struct.ENGINE_CMD_DEFN_st, ptr %39, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %54
   %56 = load i32, ptr %55, align 8, !tbaa !23
   br label %int_ctrl_helper.exit
 
@@ -185,7 +183,7 @@ int_ctrl_cmd_by_num.exit.i:                       ; preds = %int_ctrl_cmd_by_num
   br label %int_ctrl_helper.exit
 
 74:                                               ; preds = %int_ctrl_cmd_by_num.exit.i
-  %75 = getelementptr inbounds nuw %struct.ENGINE_CMD_DEFN_st, ptr %39, i64 %.0.lcssa.i.i
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %.0.lcssa.i.i
   switch i32 %1, label %109 [
     i32 12, label %76
     i32 14, label %82

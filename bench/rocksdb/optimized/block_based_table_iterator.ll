@@ -51,8 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rocksdb::PlaceholderCacheInterface" = type { %"class.rocksdb::BaseCacheInterface" }
 %"class.rocksdb::BaseCacheInterface" = type { ptr }
 %"struct.rocksdb::ParsedInternalKey" = type <{ %"class.rocksdb::Slice", i64, i8, [7 x i8] }>
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
 %"class.std::vector.182" = type { %"struct.std::_Vector_base.183" }
 %"struct.std::_Vector_base.183" = type { %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl" }
 %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl" = type { %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data" }
@@ -4709,7 +4707,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZNKSt14default_del
   br i1 %243, label %244, label %246
 
 244:                                              ; preds = %242
-  %245 = getelementptr inbounds %"struct.rocksdb::BlockBasedTableIterator::BlockHandleInfo", ptr %209, i64 %239
+  %245 = getelementptr inbounds [80 x i8], ptr %209, i64 %239
   br label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN7rocksdb23BlockBasedTableIterator15BlockHandleInfoERS3_PS3_EEplEl.exit
 
 246:                                              ; preds = %242
@@ -4724,11 +4722,11 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZNKSt14default_del
 
 252:                                              ; preds = %248, %246
   %253 = phi i64 [ %247, %246 ], [ %251, %248 ]
-  %254 = getelementptr inbounds ptr, ptr %213, i64 %253
+  %254 = getelementptr inbounds [8 x i8], ptr %213, i64 %253
   %255 = load ptr, ptr %254, align 8, !tbaa !207, !noalias !396
   %.idx.i.i.i.i = mul i64 %253, -480
   %256 = getelementptr i8, ptr %255, i64 %.idx.i.i.i.i
-  %257 = getelementptr %"struct.rocksdb::BlockBasedTableIterator::BlockHandleInfo", ptr %256, i64 %240
+  %257 = getelementptr [80 x i8], ptr %256, i64 %240
   br label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN7rocksdb23BlockBasedTableIterator15BlockHandleInfoERS3_PS3_EEplEl.exit
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN7rocksdb23BlockBasedTableIterator15BlockHandleInfoERS3_PS3_EEplEl.exit: ; preds = %244, %252
@@ -7126,7 +7124,7 @@ _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit: ; preds = %6, %10
   %63 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !436
   %65 = zext i32 %60 to i64
-  %66 = getelementptr inbounds nuw %"struct.std::atomic", ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %65
   %67 = atomicrmw or ptr %66, i32 %62 monotonic, align 4
   %68 = and i32 %67, %62
   %.not9.i.i = icmp eq i32 %68, 0
@@ -8046,7 +8044,7 @@ _ZNSt11_Deque_baseIN7rocksdb23BlockBasedTableIterator15BlockHandleInfoESaIS2_EE1
   store ptr %12, ptr %0, align 8, !tbaa !477
   %13 = sub nsw i64 %.sroa.speculated, %10
   %14 = lshr i64 %13, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %.idx = shl nuw nsw i64 %10, 3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   br label %.lr.ph.i
@@ -8139,7 +8137,7 @@ _ZNSt11_Deque_baseIN7rocksdb23BlockBasedTableIterator15BlockHandleInfoESaIS2_EE1
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %53, ptr %54, align 8, !tbaa !200
   store ptr %44, ptr %42, align 8, !tbaa !414
-  %55 = getelementptr inbounds nuw %"struct.rocksdb::BlockBasedTableIterator::BlockHandleInfo", ptr %51, i64 %4
+  %55 = getelementptr inbounds nuw [80 x i8], ptr %51, i64 %4
   store ptr %55, ptr %48, align 8, !tbaa !389
   ret void
 
@@ -8365,7 +8363,7 @@ _ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %53, %
 _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %55, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %49, ptr %6, align 8, !tbaa !514
   store ptr %54, ptr %19, align 8, !tbaa !513
-  %56 = getelementptr inbounds nuw ptr, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %56, ptr %20, align 8, !tbaa !511
   br label %_ZNSt6vectorIPvSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit
 
@@ -11367,9 +11365,9 @@ define linkonce_odr void @_ZNSt5dequeIN7rocksdb23BlockBasedTableIterator15BlockH
   %19 = load ptr, ptr %0, align 8, !tbaa !477
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -11388,12 +11386,12 @@ define linkonce_odr void @_ZNSt5dequeIN7rocksdb23BlockBasedTableIterator15BlockH
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN7rocksdb23BlockBasedTableIterator15BlockHandleInfoES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN7rocksdb23BlockBasedTableIterator15BlockHandleInfoES4_ET0_T_S6_S5_.exit
 
@@ -11421,9 +11419,9 @@ _ZNSt11_Deque_baseIN7rocksdb23BlockBasedTableIterator15BlockHandleInfoESaIS2_EE1
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #25
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN7rocksdb23BlockBasedTableIterator15BlockHandleInfoES4_ET0_T_S6_S5_.exit26, label %53
@@ -11451,7 +11449,7 @@ _ZSt4copyIPPN7rocksdb23BlockBasedTableIterator15BlockHandleInfoES4_ET0_T_S6_S5_.
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 480
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !200
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !201
   %64 = load ptr, ptr %63, align 8, !tbaa !207

@@ -15,8 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::internal::LocalOpenPointer" = type { %"class.icu_77::LocalPointerBase.2" }
 %"class.icu_77::LocalPointerBase.2" = type { ptr }
 %"class.icu_77::UVector32" = type { %"class.icu_77::UObject", i32, i32, i32, ptr }
-%"class.icu_77::Hashtable" = type { ptr, %struct.UHashtable }
-%struct.UHashtable = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, float, float, i8, i8 }
 %"class.icu_77::ResourceArray" = type <{ ptr, ptr, i32, [4 x i8] }>
 
 $_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
@@ -945,7 +943,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !47
   %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %44, i64 %45
   store i32 0, ptr %46, align 4, !tbaa !12
   %47 = load i32, ptr %35, align 8, !tbaa !45
   %48 = add nsw i32 %47, 1
@@ -995,7 +993,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVec
   br i1 %63, label %64, label %72
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv139
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv139
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i32 %.086131, ptr %66, align 4, !tbaa !12
   %67 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %.086131)
@@ -1027,7 +1025,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVec
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !47
   %81 = zext nneg i32 %76 to i64
-  %82 = getelementptr i32, ptr %80, i64 %81
+  %82 = getelementptr [4 x i8], ptr %80, i64 %81
   %83 = getelementptr i8, ptr %82, i64 -4
   %84 = load i32, ptr %83, align 4, !tbaa !12
   br label %_ZNK6icu_779UVector3212lastElementiEv.exit
@@ -1087,7 +1085,7 @@ _ZNK6icu_779UVector3212lastElementiEv.exit:       ; preds = %78, %.critedge.thre
 
 109:                                              ; preds = %105
   %110 = load ptr, ptr %95, align 8, !tbaa !47
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv144
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv144
   %112 = load i32, ptr %111, align 4, !tbaa !12
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit
 
@@ -1109,7 +1107,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %105, %109
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %122 = load ptr, ptr %121, align 8, !tbaa !47
   %123 = zext nneg i32 %113 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !12
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit114
 
@@ -1166,7 +1164,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i.i: ; preds = %
   %143 = phi i32 [ %.pre.i.i, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i ], [ %138, %137 ]
   %144 = load ptr, ptr %99, align 8, !tbaa !47
   %145 = sext i32 %143 to i64
-  %146 = getelementptr inbounds i32, ptr %144, i64 %145
+  %146 = getelementptr inbounds [4 x i8], ptr %144, i64 %145
   store i32 %128, ptr %146, align 4, !tbaa !12
   %147 = load i32, ptr %97, align 8, !tbaa !45
   %148 = add nsw i32 %147, 1
@@ -1208,7 +1206,7 @@ _ZN6icu_779UVector324pushEiR10UErrorCode.exit:    ; preds = %_ZN6icu_779UVector3
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %164 = load ptr, ptr %163, align 8, !tbaa !47
   %165 = zext nneg i32 %159 to i64
-  %166 = getelementptr i32, ptr %164, i64 %165
+  %166 = getelementptr [4 x i8], ptr %164, i64 %165
   %167 = getelementptr i8, ptr %166, i64 -4
   %168 = load i32, ptr %167, align 4, !tbaa !12
   br label %_ZNK6icu_779UVector325peekiEv.exit
@@ -1375,7 +1373,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %_ZN6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !47
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %13, i64 %14
   store i32 %1, ptr %15, align 4, !tbaa !12
   %16 = load i32, ptr %4, align 8, !tbaa !45
   %17 = add nsw i32 %16, 1
@@ -1400,13 +1398,13 @@ define noundef i32 @_ZNK6icu_7713MlBreakEngine18evaluateBreakpointERKNS_13Unicod
   %16 = load i32, ptr %15, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %18 = sext i32 %3 to i64
-  %invariant.gep = getelementptr i32, ptr %2, i64 %18
+  %invariant.gep = getelementptr [4 x i8], ptr %2, i64 %18
   br label %19
 
 19:                                               ; preds = %14, %31
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %31 ]
   %.078102 = phi i32 [ %16, %14 ], [ %.1, %31 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %20 = load i32, ptr %gep, align 4, !tbaa !12
   %.not91 = icmp eq i32 %20, -1
   br i1 %.not91, label %31, label %21
@@ -1416,7 +1414,7 @@ define noundef i32 @_ZNK6icu_7713MlBreakEngine18evaluateBreakpointERKNS_13Unicod
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %.not92 = icmp eq i32 %23, -1
   %. = select i1 %.not92, i32 %4, i32 %23
-  %24 = getelementptr inbounds nuw %"class.icu_77::Hashtable", ptr %17, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [88 x i8], ptr %17, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = sub nsw i32 %., %20
   call void @_ZNK6icu_7713UnicodeString13tempSubStringEii(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %20, i32 noundef %25)
@@ -1444,13 +1442,13 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit: ; preds = %21
   br i1 %exitcond.not, label %.preheader98.preheader, label %19, !llvm.loop !54
 
 .preheader98.preheader:                           ; preds = %31
-  %invariant.gep120 = getelementptr i32, ptr %2, i64 %18
+  %invariant.gep120 = getelementptr [4 x i8], ptr %2, i64 %18
   br label %.preheader98
 
 .preheader98:                                     ; preds = %.preheader98.preheader, %48
   %indvars.iv109 = phi i64 [ 0, %.preheader98.preheader ], [ %indvars.iv.next110, %48 ]
   %.2104 = phi i32 [ %.1, %.preheader98.preheader ], [ %.3, %48 ]
-  %gep121 = getelementptr i32, ptr %invariant.gep120, i64 %indvars.iv109
+  %gep121 = getelementptr [4 x i8], ptr %invariant.gep120, i64 %indvars.iv109
   %32 = getelementptr i8, ptr %gep121, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !12
   %.not88 = icmp eq i32 %33, -1
@@ -1467,7 +1465,7 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit: ; preds = %21
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %.not90 = icmp eq i32 %39, -1
   %.94 = select i1 %.not90, i32 %4, i32 %39
-  %40 = getelementptr inbounds nuw %"class.icu_77::Hashtable", ptr %0, i64 %indvars.iv109
+  %40 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %indvars.iv109
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 936
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %42 = sub nsw i32 %.94, %33
@@ -1496,7 +1494,7 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit96: ; preds = %37
   br i1 %exitcond112.not, label %.preheader.preheader, label %.preheader98, !llvm.loop !55
 
 .preheader.preheader:                             ; preds = %48
-  %invariant.gep122 = getelementptr i32, ptr %2, i64 %18
+  %invariant.gep122 = getelementptr [4 x i8], ptr %2, i64 %18
   br label %.preheader
 
 49:                                               ; preds = %69
@@ -1506,7 +1504,7 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit96: ; preds = %37
 .preheader:                                       ; preds = %.preheader.preheader, %69
   %indvars.iv113 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next114, %69 ]
   %.4106 = phi i32 [ %.3, %.preheader.preheader ], [ %.5, %69 ]
-  %gep123 = getelementptr i32, ptr %invariant.gep122, i64 %indvars.iv113
+  %gep123 = getelementptr [4 x i8], ptr %invariant.gep122, i64 %indvars.iv113
   %51 = load i32, ptr %gep123, align 4, !tbaa !12
   %.not84 = icmp eq i32 %51, -1
   br i1 %.not84, label %69, label %52
@@ -1528,7 +1526,7 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit96: ; preds = %37
   %60 = load i32, ptr %59, align 4, !tbaa !12
   %.not87 = icmp eq i32 %60, -1
   %.95 = select i1 %.not87, i32 %4, i32 %60
-  %61 = getelementptr inbounds nuw %"class.icu_77::Hashtable", ptr %0, i64 %indvars.iv113
+  %61 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %indvars.iv113
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1200
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %63 = sub nsw i32 %.95, %51
@@ -1582,7 +1580,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !47
   %82 = sext i32 %79 to i64
-  %83 = getelementptr inbounds i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %81, i64 %82
   store i32 %71, ptr %83, align 4, !tbaa !12
   %84 = load i32, ptr %72, align 8, !tbaa !45
   %85 = add nsw i32 %84, 1
@@ -1729,7 +1727,7 @@ define void @_ZN6icu_7713MlBreakEngine12initKeyValueEP15UResourceBundlePKcS4_RNS
 
 .preheader.i.i:                                   ; preds = %48, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %53, %.preheader.i.i ], [ 0, %48 ]
-  %50 = getelementptr inbounds nuw i16, ptr %47, i64 %.0.i.i.i.i
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %.0.i.i.i.i
   %51 = load i16, ptr %50, align 2, !tbaa !60
   %52 = icmp eq i16 %51, 0
   %53 = add i64 %.0.i.i.i.i, 1
@@ -1755,7 +1753,7 @@ _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i
   br i1 %59, label %_ZN6icu_779Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit, label %60
 
 60:                                               ; preds = %_ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit
-  %61 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !12
   %63 = load i32, ptr %40, align 8, !tbaa !23
   %64 = sub nsw i32 %63, %62

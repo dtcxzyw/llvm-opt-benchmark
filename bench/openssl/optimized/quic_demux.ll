@@ -338,7 +338,7 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
   br i1 %42, label %demux_recv.exit.thread, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %2, i64 %.04563.i
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %.04563.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 296
@@ -423,7 +423,7 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
   %.166.i = phi i64 [ 0, %.lr.ph.i8 ], [ %116, %ossl_list_urxe_insert_tail.exit.i10 ]
   %.14765.i = phi ptr [ %.val.i, %.lr.ph.i8 ], [ %.147.val.i, %ossl_list_urxe_insert_tail.exit.i10 ]
   %.147.val.i = load ptr, ptr %.14765.i, align 8, !tbaa !18
-  %84 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %2, i64 %.166.i
+  %84 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %.166.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !38
   %87 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 16

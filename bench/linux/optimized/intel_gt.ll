@@ -12,8 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.i915_gem_ww_ctx = type { %struct.ww_acquire_ctx, %struct.list_head, ptr, i8 }
 %struct.ww_acquire_ctx = type { ptr, i64, i32, i16, i16 }
 %struct.list_head = type { ptr, ptr }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
-%struct.intel_gt_definition = type { i32, ptr, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"init\00", align 1
 @.str.1 = private unnamed_addr constant [48 x i8] c"[drm] *ERROR* GT%u: Enabling PPGTT failed (%d)\0A\00", align 1
@@ -637,7 +635,7 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   %108 = xor i32 %107, -1
   %109 = and i32 %103, %108
   %110 = sext i32 %104 to i64
-  %111 = getelementptr ptr, ptr %92, i64 %110
+  %111 = getelementptr [8 x i8], ptr %92, i64 %110
   %112 = load ptr, ptr %111, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -651,7 +649,7 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 56
   %116 = load i8, ptr %115, align 8
   %117 = zext i8 %116 to i64
-  %118 = getelementptr i32, ptr %3, i64 %117
+  %118 = getelementptr [4 x i8], ptr %3, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 144
   %121 = load ptr, ptr %120, align 8
@@ -664,7 +662,7 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   store i32 17044, ptr %98, align 4
   %125 = load i8, ptr %115, align 8
   %126 = zext i8 %125 to i64
-  %127 = getelementptr i32, ptr %4, i64 %126
+  %127 = getelementptr [4 x i8], ptr %4, i64 %126
   %128 = load i32, ptr %127, align 4
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 176
   %130 = load ptr, ptr %129, align 8
@@ -676,7 +674,7 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   store i32 17044, ptr %101, align 4
   %132 = load i8, ptr %115, align 8
   %133 = zext i8 %132 to i64
-  %134 = getelementptr i32, ptr %5, i64 %133
+  %134 = getelementptr [4 x i8], ptr %5, i64 %133
   %135 = load i32, ptr %134, align 4
   %136 = getelementptr inbounds nuw i8, ptr %131, i64 144
   %137 = load ptr, ptr %136, align 8
@@ -830,7 +828,7 @@ define dso_local void @intel_gt_check_and_clear_faults(ptr noundef %0) local_unn
 
 101:                                              ; preds = %137, %95
   %102 = phi i64 [ 0, %95 ], [ %138, %137 ]
-  %103 = getelementptr ptr, ptr %96, i64 %102
+  %103 = getelementptr [8 x i8], ptr %96, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %137, label %106
@@ -845,7 +843,7 @@ define dso_local void @intel_gt_check_and_clear_faults(ptr noundef %0) local_unn
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 56
   %110 = load i8, ptr %109, align 8
   %111 = zext i8 %110 to i64
-  %112 = getelementptr i32, ptr %2, i64 %111
+  %112 = getelementptr [4 x i8], ptr %2, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 144
   %115 = load ptr, ptr %114, align 8
@@ -1364,7 +1362,7 @@ define internal fastcc i32 @__engines_record_defaults(ptr noundef %0) unnamed_ad
 
 6:                                                ; preds = %61, %1
   %7 = phi i64 [ 0, %1 ], [ %62, %61 ]
-  %8 = getelementptr ptr, ptr %5, i64 %7
+  %8 = getelementptr [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %61, label %11
@@ -1428,7 +1426,7 @@ define internal fastcc i32 @__engines_record_defaults(ptr noundef %0) unnamed_ad
   br label %44
 
 44:                                               ; preds = %42, %38, %31
-  %45 = getelementptr ptr, ptr %3, i64 %7
+  %45 = getelementptr [8 x i8], ptr %3, i64 %7
   store ptr %21, ptr %45, align 8
   call void @i915_request_add(ptr noundef %21) #7
   br label %46
@@ -1543,7 +1541,7 @@ define internal fastcc i32 @__engines_record_defaults(ptr noundef %0) unnamed_ad
 
 .preheader:                                       ; preds = %.preheader.preheader, %122
   %96 = phi i64 [ %123, %122 ], [ 0, %.preheader.preheader ]
-  %97 = getelementptr ptr, ptr %3, i64 %96
+  %97 = getelementptr [8 x i8], ptr %3, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
   br i1 %99, label %122, label %100
@@ -1602,7 +1600,7 @@ define internal fastcc i32 @__engines_record_defaults(ptr noundef %0) unnamed_ad
 
 129:                                              ; preds = %.thread36, %.thread30.thread
   %130 = phi i64 [ %154, %.thread36 ], [ 0, %.thread30.thread ]
-  %131 = getelementptr ptr, ptr %3, i64 %130
+  %131 = getelementptr [8 x i8], ptr %3, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, null
   br i1 %133, label %.thread36, label %134
@@ -1812,7 +1810,7 @@ define dso_local void @intel_gt_driver_late_release_all(ptr noundef readonly cap
 3:                                                ; preds = %11, %1
   %4 = phi i1 [ true, %1 ], [ false, %11 ]
   %5 = phi i64 [ 0, %1 ], [ 1, %11 ]
-  %6 = getelementptr ptr, ptr %2, i64 %5
+  %6 = getelementptr [8 x i8], ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %11, label %9
@@ -1866,7 +1864,7 @@ define dso_local i32 @intel_gt_probe_all(ptr noundef %0) local_unnamed_addr #0 a
   %8 = icmp eq i8 %7, 2
   %9 = getelementptr i8, ptr %3, i64 736
   %10 = zext i1 %8 to i64
-  %11 = getelementptr %struct.resource, ptr %9, i64 %10
+  %11 = getelementptr [64 x i8], ptr %9, i64 %10
   %12 = load i64, ptr %11, align 8
   store ptr %0, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1995,13 +1993,13 @@ define dso_local i32 @intel_gt_probe_all(ptr noundef %0) local_unnamed_addr #0 a
 
 86:                                               ; preds = %83
   %87 = zext i32 %42 to i64
-  %88 = getelementptr ptr, ptr %4, i64 %87
+  %88 = getelementptr [8 x i8], ptr %4, i64 %87
   store ptr %43, ptr %88, align 8
   %89 = add i32 %42, 1
   %90 = load ptr, ptr %14, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr %struct.intel_gt_definition, ptr %92, i64 %87
+  %93 = getelementptr [32 x i8], ptr %92, i64 %87
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
@@ -2109,7 +2107,7 @@ define dso_local range(i32 -18, -19) i32 @intel_gt_tiles_init(ptr noundef readon
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %3 = phi i1 [ true, %1 ], [ false, %.backedge.backedge ]
   %4 = phi i64 [ 0, %1 ], [ 1, %.backedge.backedge ]
-  %5 = getelementptr ptr, ptr %2, i64 %4
+  %5 = getelementptr [8 x i8], ptr %2, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8
@@ -2149,7 +2147,7 @@ define dso_local range(i32 -18, -19) i32 @intel_gt_tiles_init(ptr noundef readon
   tail call void (ptr, ptr, ...) @intel_memory_region_set_name(ptr noundef %12, ptr noundef nonnull @.str.19, i32 noundef %29) #7
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8504
   %31 = sext i32 %25 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   store ptr %12, ptr %32, align 8
   br label %.thread
 

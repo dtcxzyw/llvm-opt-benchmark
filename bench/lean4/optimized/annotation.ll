@@ -1065,7 +1065,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4lean4nameESt4pairIKS2_NS1_8list_refINS1_8pair
   %24 = load i64, ptr %23, align 8, !tbaa !53
   %25 = urem i64 %.0.i.i.i.i.i.i.i, %24
   %26 = load ptr, ptr %5, align 8, !tbaa !54
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !55
   %.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIN4lean4nameENS0_8list_refINS0_8pair_refIS1_NS0_10data_valueEEEEENS0_12name_hash_fnENS0_10name_eq_fnESaISt4pairIKS1_S6_EEE4findERSA_.exit.thread, label %29
@@ -1555,7 +1555,7 @@ define hidden void @_ZN4lean16copy_annotationsERKNS_4exprES2_(ptr dead_on_unwind
 
 .noexc42:                                         ; preds = %35
   %39 = load ptr, ptr %5, align 8, !tbaa !68
-  %40 = getelementptr inbounds nuw %"class.lean::expr", ptr %39, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %33
   %41 = invoke noundef ptr @_ZSt16__do_uninit_copyIPN4lean4exprES2_ET0_T_S4_S3_(ptr noundef %39, ptr noundef %40, ptr noundef nonnull %38)
           to label %.noexc43 unwind label %.loopexit
 
@@ -1628,7 +1628,7 @@ _ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i40: ; preds = %_ZN4l
 63:                                               ; preds = %._crit_edge47, %.noexc
   %64 = phi ptr [ %38, %.noexc ], [ %.pre48, %._crit_edge47 ]
   %65 = phi i64 [ %.pre.i, %.noexc ], [ %33, %._crit_edge47 ]
-  %66 = getelementptr inbounds nuw %"class.lean::expr", ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %65
   %67 = load ptr, ptr %.014, align 8, !tbaa !3
   store ptr %67, ptr %66, align 8, !tbaa !3
   %68 = ptrtoint ptr %67 to i64
@@ -1763,7 +1763,7 @@ _ZN4lean4exprC2ERKS0_.exit:                       ; preds = %105, %103, %97, %10
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %111 = load ptr, ptr %5, align 8, !tbaa !68
-  %112 = getelementptr inbounds nuw %"class.lean::expr", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %110
   invoke void @_ZN4lean19get_annotation_kindERKNS_4exprE(ptr dead_on_unwind nonnull writable sret(%"class.lean::name") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %112)
           to label %113 unwind label %139
 
@@ -2675,7 +2675,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4lean4nameESt4pairIKS
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %0, align 8, !tbaa !54
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %33
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %33
   %38 = load ptr, ptr %37, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i, label %.critedge27, label %39
@@ -2814,7 +2814,7 @@ _ZNSt10_HashtableIN4lean4nameESt4pairIKS1_NS0_8list_refINS0_8pair_refIS1_NS0_10d
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8, !tbaa !56
   %33 = load ptr, ptr %0, align 8, !tbaa !54
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !55
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -2840,7 +2840,7 @@ _ZNSt10_HashtableIN4lean4nameESt4pairIKS1_NS0_8list_refINS0_8pair_refIS1_NS0_10d
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !56
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !55
   br label %49
 
@@ -2993,7 +2993,7 @@ _ZNSt10_HashtableIN4lean4nameESt4pairIKS1_NS0_8list_refINS0_8pair_refIS1_NS0_10d
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !56
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !55
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -3008,7 +3008,7 @@ _ZNSt10_HashtableIN4lean4nameESt4pairIKS1_NS0_8list_refINS0_8pair_refIS1_NS0_10d
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !55
   br label %28
 

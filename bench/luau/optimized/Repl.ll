@@ -62,16 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.base.55" = type { %"struct.std::_Optional_payload_base.base.54" }
 %"struct.std::_Optional_payload_base.base.54" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::unique_ptr.26" }
-%"class.std::unique_ptr.26" = type { %"struct.std::__uniq_ptr_data.27" }
-%"struct.std::__uniq_ptr_data.27" = type { %"class.std::__uniq_ptr_impl.28" }
-%"class.std::__uniq_ptr_impl.28" = type { %"class.std::tuple.29" }
-%"class.std::tuple.29" = type { %"struct.std::_Tuple_impl.30" }
-%"struct.std::_Tuple_impl.30" = type { %"struct.std::_Head_base.33" }
-%"struct.std::_Head_base.33" = type { ptr }
-%"struct.std::pair.34" = type { %"class.std::__cxx11::basic_string", %"struct.Luau::Config::AliasInfo" }
-%"struct.Luau::Config::AliasInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::basic_string_view", %"class.std::__cxx11::basic_string" }
-%"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 
 $_ZN4Luau7AstRttiINS_7AstAttrEE5valueE = comdat any
@@ -3250,7 +3240,7 @@ define dso_local void @_Z14setupArgumentsP9lua_StateiPPc(ptr noundef %0, i32 nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !89
   tail call void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef %0, ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4260,7 +4250,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %1
   %.0102305 = phi i1 [ false, %sub_0.preheader ], [ %.1103, %107 ]
   %.0104304 = phi i1 [ false, %sub_0.preheader ], [ %.1105, %107 ]
   %.0106303 = phi i1 [ false, %sub_0.preheader ], [ %.1107, %107 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !89
   %20 = load i8, ptr %19, align 1
   %.not313 = icmp eq i8 %20, 45
@@ -4477,7 +4467,7 @@ sub_1163:                                         ; preds = %sub_0162
   %108 = sub nsw i32 %0, %.0112
   store i32 %108, ptr @_ZL12program_argc, align 4, !tbaa !4
   %109 = sext i32 %.0112 to i64
-  %110 = getelementptr inbounds ptr, ptr %1, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %1, i64 %109
   store ptr %110, ptr @program_argv, align 8, !tbaa !110
   %111 = load i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, align 8, !tbaa !106, !range !43, !noundef !44
   %112 = trunc nuw i8 %111 to i1
@@ -4486,7 +4476,7 @@ sub_1163:                                         ; preds = %sub_0162
 .loopexit172.thread:                              ; preds = %2
   store i32 0, ptr @_ZL12program_argc, align 4, !tbaa !4
   %113 = sext i32 %0 to i64
-  %114 = getelementptr inbounds ptr, ptr %1, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %1, i64 %113
   store ptr %114, ptr @program_argv, align 8, !tbaa !110
   %115 = load i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, align 8, !tbaa !106, !range !43, !noundef !44
   %116 = trunc nuw i8 %115 to i1
@@ -4725,7 +4715,7 @@ _Z10setupStateP9lua_State.exit:                   ; preds = %.noexc127
   %.091310 = phi i32 [ 0, %.lr.ph ], [ %416, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i94.i ]
   %202 = add nsw i64 %200, -1
   %203 = icmp eq i64 %.090311, %202
-  %204 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %201, i64 %.090311
+  %204 = getelementptr inbounds nuw [32 x i8], ptr %201, i64 %.090311
   %205 = load ptr, ptr %204, align 8, !tbaa !14
   %206 = select i1 %.0104285425435, i1 %203, i1 false
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -5149,7 +5139,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65.i: ; preds = %3
 
 .lr.ph.i.i:                                       ; preds = %.noexc67.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc67.i ]
-  %338 = getelementptr inbounds nuw ptr, ptr %335, i64 %indvars.iv.i.i
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %indvars.iv.i.i
   %339 = load ptr, ptr %338, align 8, !tbaa !89
   invoke void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef %239, ptr noundef %339)
           to label %.noexc67.i unwind label %.loopexit.i
@@ -6506,7 +6496,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableINSt7__cxx111
 
 .lr.ph.i.i:                                       ; preds = %3, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i.i
   %.06.i.i = phi i64 [ %20, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit.i.i ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %2, i64 %.06.i.i
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %.06.i.i
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = icmp eq ptr %7, %8
@@ -6590,7 +6580,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableINSt7__cxx111
 
 .lr.ph.i.i:                                       ; preds = %3, %_ZN4Luau6Config9AliasInfoD2Ev.exit.i.i
   %.06.i.i = phi i64 [ %24, %_ZN4Luau6Config9AliasInfoD2Ev.exit.i.i ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %2, i64 %.06.i.i
+  %6 = getelementptr inbounds nuw [112 x i8], ptr %2, i64 %.06.i.i
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = icmp eq ptr %7, %8

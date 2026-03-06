@@ -1268,7 +1268,7 @@ lookup_conf.exit874:                              ; preds = %187
   %353 = phi i8 [ %342, %.lr.ph ], [ %351, %349 ]
   %.16271193 = phi ptr [ %.0626, %.lr.ph ], [ %350, %349 ]
   %354 = zext i8 %353 to i64
-  %355 = getelementptr inbounds nuw i16, ptr %344, i64 %354
+  %355 = getelementptr inbounds nuw [2 x i8], ptr %344, i64 %354
   %356 = load i16, ptr %355, align 2, !tbaa !37
   %357 = and i16 %356, 4096
   %.not847 = icmp eq i16 %357, 0
@@ -1836,7 +1836,7 @@ sub_2:                                            ; preds = %sub_1
 .lr.ph1201:                                       ; preds = %.lr.ph1201.preheader, %656
   %indvars.iv = phi i64 [ 0, %.lr.ph1201.preheader ], [ %indvars.iv.next, %656 ]
   %.36161198 = phi i32 [ %.2615, %.lr.ph1201.preheader ], [ %.4617, %656 ]
-  %630 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv
+  %630 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv
   %631 = load ptr, ptr %630, align 8, !tbaa !9
   %632 = load i32, ptr %7, align 4, !tbaa !11
   %633 = load ptr, ptr %3, align 8, !tbaa !4
@@ -2684,7 +2684,7 @@ define internal fastcc range(i32 -1, 2) i32 @get_certificate_status(ptr noundef 
 
 49:                                               ; preds = %48, %49
   %indvars.iv = phi i64 [ 0, %48 ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !9
   call void @CRYPTO_free(ptr noundef %51, ptr noundef nonnull @.str.202, i32 noundef 2263) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3453,9 +3453,9 @@ define internal fastcc range(i32 -1, 2) i32 @do_revoke(ptr noundef nonnull %0, p
 
 67:                                               ; preds = %65, %67
   %indvars.iv = phi i64 [ 0, %65 ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !9
-  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   store ptr %69, ptr %70, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -3540,7 +3540,7 @@ define internal fastcc range(i32 -1, 2) i32 @do_revoke(ptr noundef nonnull %0, p
 
 .preheader.i:                                     ; preds = %106, %110
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %110 ], [ 0, %106 ]
-  %111 = getelementptr inbounds nuw ptr, ptr @crl_reasons, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @crl_reasons, i64 %indvars.iv.i
   %112 = load ptr, ptr %111, align 8, !tbaa !9
   %113 = call i32 @OPENSSL_strcasecmp(ptr noundef %3, ptr noundef %112) #11
   %114 = icmp eq i32 %113, 0
@@ -3648,7 +3648,7 @@ make_revocation_str.exit.thread:                  ; preds = %make_revocation_str
 
 160:                                              ; preds = %159, %160
   %indvars.iv78 = phi i64 [ 0, %159 ], [ %indvars.iv.next79, %160 ]
-  %161 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv78
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv78
   %162 = load ptr, ptr %161, align 8, !tbaa !9
   call void @CRYPTO_free(ptr noundef %162, ptr noundef nonnull @.str.202, i32 noundef 2197) #11
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -3747,7 +3747,7 @@ define dso_local range(i32 0, 2) i32 @unpack_revinfo(ptr noundef writeonly captu
 
 .preheader:                                       ; preds = %29, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %29 ]
-  %30 = getelementptr inbounds nuw ptr, ptr @crl_reasons, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @crl_reasons, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !9
   %32 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.058, ptr noundef %31) #11
   %33 = icmp eq i32 %32, 0
@@ -4847,9 +4847,9 @@ select.unfold:                                    ; preds = %239, %173
 
 502:                                              ; preds = %500, %502
   %indvars.iv = phi i64 [ 0, %500 ], [ %indvars.iv.next, %502 ]
-  %503 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %503 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %504 = load ptr, ptr %503, align 8, !tbaa !9
-  %505 = getelementptr inbounds nuw ptr, ptr %501, i64 %indvars.iv
+  %505 = getelementptr inbounds nuw [8 x i8], ptr %501, i64 %indvars.iv
   store ptr %504, ptr %505, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -4883,7 +4883,7 @@ select.unfold:                                    ; preds = %239, %173
 
 518:                                              ; preds = %.thread401, %518
   %indvars.iv501 = phi i64 [ 0, %.thread401 ], [ %indvars.iv.next502, %518 ]
-  %519 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv501
+  %519 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv501
   %520 = load ptr, ptr %519, align 8, !tbaa !9
   call void @CRYPTO_free(ptr noundef %520, ptr noundef nonnull @.str.202, i32 noundef 1934) #11
   %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1

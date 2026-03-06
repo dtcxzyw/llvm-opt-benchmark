@@ -258,7 +258,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
   %93 = ashr i64 %92, 17
   %94 = tail call i64 @av_rescale(i64 noundef %93, i64 noundef %58, i64 noundef %59) #11
   %95 = trunc i64 %94 to i32
-  %96 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i
   store i32 %95, ptr %96, align 4, !tbaa !28
   %97 = load i32, ptr %56, align 8, !tbaa !53
   %98 = add nsw i32 %97, 1
@@ -266,7 +266,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
   br label %101
 
 99:                                               ; preds = %69
-  %100 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i
   store i32 0, ptr %100, align 4, !tbaa !28
   %.pre59.i = load i32, ptr %56, align 8, !tbaa !53
   br label %101

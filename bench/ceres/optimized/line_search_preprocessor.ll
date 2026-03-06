@@ -1106,7 +1106,7 @@ _ZNSt10_HashtableIPN5ceres8internal13ResidualBlockES3_SaIS3_ENSt8__detail9_Ident
   %33 = load i64, ptr %32, align 8, !tbaa !186
   %34 = ptrtoint ptr %30 to i64
   %35 = urem i64 %34, %33
-  %36 = getelementptr inbounds nuw ptr, ptr %18, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %35
   store ptr %31, ptr %36, align 8, !tbaa !205
   %.02837 = load ptr, ptr %20, align 8, !tbaa !200
   %.not3038 = icmp eq ptr %.02837, null
@@ -1143,7 +1143,7 @@ _ZNSt10_HashtableIPN5ceres8internal13ResidualBlockES3_SaIS3_ENSt8__detail9_Ident
   store ptr %.sink13.i34, ptr %.02639, align 8, !tbaa !200
   %47 = ptrtoint ptr %46 to i64
   %48 = urem i64 %47, %33
-  %49 = getelementptr inbounds nuw ptr, ptr %18, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !205
   %.not32 = icmp eq ptr %50, null
   br i1 %.not32, label %51, label %56

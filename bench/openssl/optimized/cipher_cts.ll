@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/cipher_cts.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cts_mode_name2id_st = type { i32, ptr }
 %union.aligned_16bytes = type { i64, [8 x i8] }
 
 @.str = private unnamed_addr constant [4 x i8] c"CS1\00", align 1
@@ -22,7 +21,7 @@ define ptr @ossl_cipher_cbc_cts_mode_id2name(i32 noundef %0) local_unnamed_addr 
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.cts_mode_name2id_st, ptr @cts_modes, i64 %.06
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @cts_modes, i64 %.06
   %6 = load i32, ptr %5, align 16, !tbaa !5
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %8, label %2
@@ -48,7 +47,7 @@ define i32 @ossl_cipher_cbc_cts_mode_name2id(ptr noundef %0) local_unnamed_addr 
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.cts_mode_name2id_st, ptr @cts_modes, i64 %.06
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @cts_modes, i64 %.06
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %0, ptr noundef %7) #7

@@ -326,7 +326,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20applyTetrahedralAVX2EPKfiS1_Pfi(pt
   %indvars.iv.i = phi i64 [ 0, %.lr.ph128.preheader.i ], [ %indvars.iv.next.i, %.lr.ph128.i ]
   %.1125.i = phi ptr [ %.068.lcssa.i, %.lr.ph128.preheader.i ], [ %282, %.lr.ph128.i ]
   %271 = load float, ptr %.1125.i, align 4, !tbaa !14
-  %272 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store float %271, ptr %272, align 16, !tbaa !14
   %273 = getelementptr inbounds nuw i8, ptr %.1125.i, i64 4
   %274 = load float, ptr %273, align 4, !tbaa !14
@@ -353,7 +353,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20applyTetrahedralAVX2EPKfiS1_Pfi(pt
 .lr.ph134.i:                                      ; preds = %.lr.ph134.i, %.lr.ph134.preheader.i
   %indvars.iv138.i = phi i64 [ 0, %.lr.ph134.preheader.i ], [ %indvars.iv.next139.i, %.lr.ph134.i ]
   %.170131.i = phi ptr [ %.069.lcssa.i, %.lr.ph134.preheader.i ], [ %295, %.lr.ph134.i ]
-  %284 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv138.i
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv138.i
   %285 = load float, ptr %284, align 16, !tbaa !14
   store float %285, ptr %.170131.i, align 4, !tbaa !14
   %286 = getelementptr inbounds nuw i8, ptr %284, i64 4

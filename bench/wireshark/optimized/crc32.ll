@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define i32 @crc32c_table_lookup(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr i32, ptr @crc32c_table, i64 %2
+  %3 = getelementptr [4 x i8], ptr @crc32c_table, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -20,7 +20,7 @@ define i32 @crc32c_table_lookup(i8 noundef zeroext %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define i32 @crc32_ccitt_table_lookup(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr i32, ptr @crc32_ccitt_table, i64 %2
+  %3 = getelementptr [4 x i8], ptr @crc32_ccitt_table, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -45,7 +45,7 @@ define i32 @crc32c_calculate(ptr noundef readonly captures(none) %0, i32 noundef
   %.012.tr = trunc i32 %.01215 to i8
   %.narrow = xor i8 %9, %.012.tr
   %10 = zext i8 %.narrow to i64
-  %11 = getelementptr i32, ptr @crc32c_table, i64 %10
+  %11 = getelementptr [4 x i8], ptr @crc32c_table, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = xor i32 %12, %7
   %14 = icmp samesign ugt i32 %.01314, 1
@@ -76,7 +76,7 @@ define i32 @crc32c_calculate_no_swap(ptr noundef readonly captures(none) %0, i32
   %.05.tr = trunc i32 %.058 to i8
   %.narrow = xor i8 %8, %.05.tr
   %9 = zext i8 %.narrow to i64
-  %10 = getelementptr i32, ptr @crc32c_table, i64 %9
+  %10 = getelementptr [4 x i8], ptr @crc32c_table, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = xor i32 %11, %6
   %13 = icmp samesign ugt i32 %.067, 1
@@ -125,7 +125,7 @@ define i32 @crc32_mpeg2_seed(ptr noundef readonly captures(none) %0, i32 noundef
   %8 = zext i8 %7 to i32
   %9 = xor i32 %5, %8
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr i32, ptr @crc32_mpeg2_table, i64 %10
+  %11 = getelementptr [4 x i8], ptr @crc32_mpeg2_table, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = xor i32 %12, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -153,7 +153,7 @@ define i32 @crc32_0x0AA725CF_seed(ptr noundef readonly captures(none) %0, i32 no
   %.0.tr = trunc i32 %.010 to i8
   %.narrow = xor i8 %7, %.0.tr
   %8 = zext i8 %.narrow to i64
-  %9 = getelementptr i32, ptr @crc32_0AA725CF_reverse, i64 %8
+  %9 = getelementptr [4 x i8], ptr @crc32_0AA725CF_reverse, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = xor i32 %10, %5
   %.not = icmp eq i32 %4, 0
@@ -180,7 +180,7 @@ define range(i32 0, 16777216) i32 @crc32_0x5D6DCB_seed(ptr noundef readonly capt
   %.tr = trunc i32 %7 to i8
   %.narrow = xor i8 %6, %.tr
   %8 = zext i8 %.narrow to i64
-  %9 = getelementptr i32, ptr @crc32_5D6DCB, i64 %8
+  %9 = getelementptr [4 x i8], ptr @crc32_5D6DCB, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %.112, 8
   %12 = xor i32 %10, %11

@@ -1152,7 +1152,7 @@ _ZN7tracing4span4Span8do_enter17h91d8a15bd4cd068fE.exit: ; preds = %.noexc45, %8
   %.not.i.i = icmp ult i64 %116, %118
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %120 = load ptr, ptr %119, align 8, !alias.scope !58, !noalias !59, !nonnull !5
-  %121 = getelementptr inbounds { i64, [38 x i64] }, ptr %120, i64 %116
+  %121 = getelementptr inbounds [312 x i8], ptr %120, i64 %116
   br i1 %.not.i.i, label %122, label %124
 
 122:                                              ; preds = %114
@@ -3825,7 +3825,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   %.not.i.i.i = icmp ult i64 %182, %189
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %191 = load ptr, ptr %190, align 8, !alias.scope !226, !noalias !227, !nonnull !5
-  %192 = getelementptr inbounds { i64, [38 x i64] }, ptr %191, i64 %182
+  %192 = getelementptr inbounds [312 x i8], ptr %191, i64 %182
   br i1 %.not.i.i.i, label %193, label %.noexc5.i
 
 193:                                              ; preds = %185
@@ -7186,7 +7186,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit909
   %920 = load i64, ptr %268, align 8, !alias.scope !367, !noalias !368, !noundef !5
   %.not.i.i = icmp ult i64 %914, %920
   %921 = load ptr, ptr %269, align 8, !alias.scope !367, !noalias !368, !nonnull !5
-  %922 = getelementptr inbounds { i64, [38 x i64] }, ptr %921, i64 %914
+  %922 = getelementptr inbounds [312 x i8], ptr %921, i64 %914
   br i1 %.not.i.i, label %923, label %.invoke1668
 
 923:                                              ; preds = %917
@@ -7460,7 +7460,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit914
   %1009 = load i64, ptr %268, align 8, !alias.scope !387, !noalias !388, !noundef !5
   %.not.i.i941 = icmp ult i64 %1003, %1009
   %1010 = load ptr, ptr %269, align 8, !alias.scope !387, !noalias !388, !nonnull !5
-  %1011 = getelementptr inbounds { i64, [38 x i64] }, ptr %1010, i64 %1003
+  %1011 = getelementptr inbounds [312 x i8], ptr %1010, i64 %1003
   br i1 %.not.i.i941, label %1012, label %.invoke1668
 
 1012:                                             ; preds = %1006
@@ -9084,7 +9084,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit270
   %.not.i.i = icmp ult i64 %409, %411
   %412 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %413 = load ptr, ptr %412, align 8, !alias.scope !480, !noalias !481, !nonnull !5
-  %414 = getelementptr inbounds { i64, [38 x i64] }, ptr %413, i64 %409
+  %414 = getelementptr inbounds [312 x i8], ptr %413, i64 %409
   br i1 %.not.i.i, label %415, label %417
 
 415:                                              ; preds = %407
@@ -9659,10 +9659,10 @@ define internal noundef zeroext i1 @"_ZN64_$LT$h2..codec..error..UserError$u20$a
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !303, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb91fd37631a5b917E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb91fd37631a5b917E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb91fd37631a5b917E.23", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb91fd37631a5b917E.23", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

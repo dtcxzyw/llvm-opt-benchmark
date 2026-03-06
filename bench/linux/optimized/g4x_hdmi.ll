@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.lock_class_key = type {}
 %struct.drm_encoder_funcs = type { ptr, ptr, ptr, ptr, ptr }
 %struct.drm_connector_list_iter = type { ptr, ptr }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.__drm_connnectors_state = type { ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [26 x i8] c"Adding [CONNECTOR:%d:%s]\0A\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"No VBT child device for HDMI-%c\0A\00", align 1
@@ -90,7 +88,7 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 144
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
-  %.split.us = getelementptr %struct.__drm_crtcs_state, ptr %41, i64 %44
+  %.split.us = getelementptr [56 x i8], ptr %41, i64 %44
   %45 = getelementptr i8, ptr %.split.us, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 10
@@ -147,7 +145,7 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 144
   %78 = load i32, ptr %77, align 8
   %79 = zext i32 %78 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %76, i64 %79
+  %.split = getelementptr [56 x i8], ptr %76, i64 %79
   %80 = getelementptr i8, ptr %.split, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 10
@@ -507,7 +505,7 @@ define internal i32 @g4x_hdmi_compute_config(ptr noundef %0, ptr noundef %1, ptr
   %27 = phi i32 [ %21, %23 ], [ %57, %.thread ]
   %28 = phi i64 [ 0, %23 ], [ %58, %.thread ]
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr %struct.__drm_connnectors_state, ptr %29, i64 %28
+  %30 = getelementptr [40 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.thread, label %33
@@ -539,7 +537,7 @@ define internal i32 @g4x_hdmi_compute_config(ptr noundef %0, ptr noundef %1, ptr
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 144
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %50, i64 %53
+  %.split = getelementptr [56 x i8], ptr %50, i64 %53
   %54 = getelementptr i8, ptr %.split, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = tail call zeroext i1 @intel_hdmi_compute_has_hdmi_sink(ptr noundef %37, ptr noundef %55, ptr noundef %35) #6

@@ -10,9 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.10" = type { ptr }
 %"class.std::tuple.11" = type { i8 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::shared_ptr<g2o::AbstractRobustKernelCreator>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::shared_ptr<g2o::AbstractRobustKernelCreator>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 
 $_ZNSt10unique_ptrIN3g2o19RobustKernelFactoryESt14default_deleteIS1_EED2Ev = comdat any
 
@@ -1735,7 +1732,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !44
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !46
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !48
   ret void
 

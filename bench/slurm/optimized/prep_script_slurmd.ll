@@ -258,7 +258,7 @@ _run_spank_job_script.exit:                       ; preds = %62, %64, %67
 89:                                               ; preds = %85, %113
   %indvars.iv = phi i64 [ 0, %85 ], [ %indvars.iv.next, %113 ]
   %.049117 = phi ptr [ null, %85 ], [ %.251.ph, %113 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i77 = icmp eq ptr %91, null
@@ -282,7 +282,7 @@ _run_spank_job_script.exit:                       ; preds = %62, %64, %67
 .lr.ph.i:                                         ; preds = %94, %.lr.ph.i
   %.013.i = phi i64 [ %101, %.lr.ph.i ], [ 0, %94 ]
   %97 = load ptr, ptr %88, align 8
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.013.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.013.i
   %99 = load ptr, ptr %98, align 8
   %100 = call ptr @xstrdup(ptr noundef %99) #6
   call void @list_push(ptr noundef %95, ptr noundef %100) #6
@@ -350,7 +350,7 @@ _script_list_create.exit:                         ; preds = %.lr.ph.i, %94
   br label %.critedge76
 
 .critedge76:                                      ; preds = %_script_list_create.exit, %.critedge76.sink.split
-  %118 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %119 = load ptr, ptr %118, align 8
   %120 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull %12, ptr noundef %119) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

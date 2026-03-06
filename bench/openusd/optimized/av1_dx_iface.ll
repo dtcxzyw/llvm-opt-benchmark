@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.aom_codec_iface = type { ptr, i32, i64, ptr, ptr, ptr, %struct.aom_codec_dec_iface, %struct.aom_codec_enc_iface, ptr }
 %struct.aom_codec_dec_iface = type { ptr, ptr, ptr, ptr, ptr }
 %struct.aom_codec_enc_iface = type { i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.aom_codec_frame_buffer = type { ptr, i64, ptr }
 %struct.AllocCbParam = type { ptr, ptr }
 %struct.yv12_buffer_config = type { %union.anon.2, %union.anon.4, %union.anon.6, %union.anon.8, %union.anon.10, %union.anon.12, i32, [3 x ptr], ptr, i32, ptr, i64, i32, i64, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, i32, ptr }
 %union.anon.2 = type { %struct.anon.3 }
@@ -22,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.11 = type { i32, i32 }
 %union.anon.12 = type { %struct.anon.13 }
 %struct.anon.13 = type { ptr, ptr, ptr }
-%struct.TileBufferDec = type { ptr, i64 }
 %struct.ObuHeader = type { i64, i8, i32, i32, i32, i32 }
 %struct.aom_read_bit_buffer = type { ptr, ptr, i32, ptr, ptr }
 
@@ -145,7 +143,7 @@ define internal noundef i32 @decoder_destroy(ptr noundef %0) #0 {
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.aom_codec_frame_buffer, ptr %28, i64 %.026
+  %35 = getelementptr inbounds [24 x i8], ptr %28, i64 %.026
   %36 = tail call i32 %32(ptr noundef %34, ptr noundef nonnull %35) #12
   %37 = add nuw i64 %.026, 1
   %38 = load i64, ptr %26, align 8
@@ -221,7 +219,7 @@ define internal i32 @decoder_decode(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 25:                                               ; preds = %.lr.ph, %decrease_ref_count.exit
   %.06195 = phi i64 [ 0, %.lr.ph ], [ %39, %decrease_ref_count.exit ]
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %.06195
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %.06195
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %decrease_ref_count.exit, label %28
@@ -270,7 +268,7 @@ decrease_ref_count.exit:                          ; preds = %25, %28, %32, %35
   %.06096 = phi i64 [ 0, %.lr.ph98 ], [ %53, %48 ]
   %49 = load ptr, ptr %45, align 8
   %50 = load ptr, ptr %46, align 8
-  %51 = getelementptr inbounds %struct.aom_codec_frame_buffer, ptr %47, i64 %.06096
+  %51 = getelementptr inbounds [24 x i8], ptr %47, i64 %.06096
   %52 = tail call i32 %49(ptr noundef %50, ptr noundef nonnull %51) #12
   %53 = add nuw i64 %.06096, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
@@ -793,7 +791,7 @@ check_resync.exit:                                ; preds = %39, %36, %32, %28, 
 44:                                               ; preds = %check_resync.exit
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 431800
   %46 = load i64, ptr %1, align 8
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %48, ptr %49, align 8
@@ -893,10 +891,10 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
 
 100:                                              ; preds = %.preheader147, %100
   %indvars.iv = phi i64 [ 1, %.preheader147 ], [ %indvars.iv.next, %100 ]
-  %101 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4
   %103 = mul nsw i32 %99, %102
-  %104 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8
   %106 = sext i32 %103 to i64
   %107 = getelementptr inbounds i8, ptr %105, i64 %106
@@ -961,7 +959,7 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
 
 141:                                              ; preds = %.preheader, %141
   %indvars.iv152 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next153, %141 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv152
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv152
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 %140
   store ptr %144, ptr %142, align 8
@@ -1024,7 +1022,7 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 27296
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 27392
   %180 = load i64, ptr %179, align 8
-  %181 = getelementptr inbounds %struct.aom_codec_frame_buffer, ptr %178, i64 %180
+  %181 = getelementptr inbounds [24 x i8], ptr %178, i64 %180
   store ptr %177, ptr %3, align 8
   %182 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %181, ptr %182, align 8
@@ -1944,7 +1942,7 @@ define internal range(i32 0, 9) i32 @ctrl_set_ext_ref_ptr(ptr noundef captures(n
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 168
   store ptr %25, ptr %17, align 8
-  %26 = getelementptr inbounds nuw %struct.yv12_buffer_config, ptr %21, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [208 x i8], ptr %21, i64 %indvars.iv
   tail call fastcc void @image2yuvconfig(ptr noundef %24, ptr noundef nonnull %26)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %22, align 8
@@ -2920,7 +2918,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_reference(ptr noundef readonly cap
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48928
   %27 = zext nneg i32 %19 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %get_ref_frame.exit.thread, label %get_ref_frame.exit
@@ -3034,20 +3032,20 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_data(ptr noundef readonly cap
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 431872
   %27 = load i32, ptr %26, align 32
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [64 x %struct.TileBufferDec], ptr %25, i64 %28
+  %29 = getelementptr inbounds [1024 x i8], ptr %25, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 431876
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.TileBufferDec, ptr %29, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %29, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
   store i64 %35, ptr %17, align 8
   %36 = load i32, ptr %26, align 32
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [64 x %struct.TileBufferDec], ptr %25, i64 %37
+  %38 = getelementptr inbounds [1024 x i8], ptr %25, i64 %37
   %39 = load i32, ptr %30, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.TileBufferDec, ptr %38, i64 %40
+  %41 = getelementptr inbounds [16 x i8], ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 16
   %43 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %42, ptr %43, align 8
@@ -3324,13 +3322,13 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_info(ptr noundef readonly cap
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i64 %indvars.iv, -1
-  %52 = getelementptr inbounds i32, ptr %42, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %42, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = sub nsw i32 %50, %53
-  %55 = getelementptr inbounds i32, ptr %43, i64 %51
+  %55 = getelementptr inbounds [4 x i8], ptr %43, i64 %51
   store i32 %54, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3338,13 +3336,13 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_info(ptr noundef readonly cap
 
 56:                                               ; preds = %.lr.ph51, %56
   %indvars.iv53 = phi i64 [ 1, %.lr.ph51 ], [ %indvars.iv.next54, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv53
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv53
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i64 %indvars.iv53, -1
-  %60 = getelementptr inbounds i32, ptr %45, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %45, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = sub nsw i32 %58, %61
-  %63 = getelementptr inbounds i32, ptr %46, i64 %59
+  %63 = getelementptr inbounds [4 x i8], ptr %46, i64 %59
   store i32 %62, ptr %63, align 4
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56

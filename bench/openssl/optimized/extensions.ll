@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.extensions_definition_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.raw_extension_st = type { %struct.PACKET, i32, i32, i32, i64 }
-%struct.PACKET = type { ptr, i64 }
 
 @ext_defs = internal unnamed_addr constant [29 x %struct.extensions_definition_st] [%struct.extensions_definition_st { i32 65281, i32 408, ptr null, ptr @tls_parse_ctos_renegotiate, ptr @tls_parse_stoc_renegotiate, ptr @tls_construct_stoc_renegotiate, ptr @tls_construct_ctos_renegotiate, ptr @final_renegotiate }, %struct.extensions_definition_st { i32 0, i32 1408, ptr @init_server_name, ptr @tls_parse_ctos_server_name, ptr @tls_parse_stoc_server_name, ptr @tls_construct_stoc_server_name, ptr @tls_construct_ctos_server_name, ptr @final_server_name }, %struct.extensions_definition_st { i32 1, i32 1408, ptr null, ptr @tls_parse_ctos_maxfragmentlen, ptr @tls_parse_stoc_maxfragmentlen, ptr @tls_construct_stoc_maxfragmentlen, ptr @tls_construct_ctos_maxfragmentlen, ptr @final_maxfragmentlen }, %struct.extensions_definition_st { i32 12, i32 144, ptr @init_srp, ptr @tls_parse_ctos_srp, ptr null, ptr null, ptr @tls_construct_ctos_srp, ptr null }, %struct.extensions_definition_st { i32 11, i32 400, ptr @init_ec_point_formats, ptr @tls_parse_ctos_ec_pt_formats, ptr @tls_parse_stoc_ec_pt_formats, ptr @tls_construct_stoc_ec_pt_formats, ptr @tls_construct_ctos_ec_pt_formats, ptr @final_ec_pt_formats }, %struct.extensions_definition_st { i32 10, i32 1408, ptr null, ptr @tls_parse_ctos_supported_groups, ptr null, ptr @tls_construct_stoc_supported_groups, ptr @tls_construct_ctos_supported_groups, ptr null }, %struct.extensions_definition_st { i32 35, i32 400, ptr @init_session_ticket, ptr @tls_parse_ctos_session_ticket, ptr @tls_parse_stoc_session_ticket, ptr @tls_construct_stoc_session_ticket, ptr @tls_construct_ctos_session_ticket, ptr null }, %struct.extensions_definition_st { i32 5, i32 20864, ptr @init_status_request, ptr @tls_parse_ctos_status_request, ptr @tls_parse_stoc_status_request, ptr @tls_construct_stoc_status_request, ptr @tls_construct_ctos_status_request, ptr null }, %struct.extensions_definition_st { i32 13172, i32 400, ptr @init_npn, ptr @tls_parse_ctos_npn, ptr @tls_parse_stoc_npn, ptr @tls_construct_stoc_next_proto_neg, ptr @tls_construct_ctos_npn, ptr null }, %struct.extensions_definition_st { i32 16, i32 1408, ptr @init_alpn, ptr @tls_parse_ctos_alpn, ptr @tls_parse_stoc_alpn, ptr @tls_construct_stoc_alpn, ptr @tls_construct_ctos_alpn, ptr @final_alpn }, %struct.extensions_definition_st { i32 14, i32 1410, ptr @init_srtp, ptr @tls_parse_ctos_use_srtp, ptr @tls_parse_stoc_use_srtp, ptr @tls_construct_stoc_use_srtp, ptr @tls_construct_ctos_use_srtp, ptr null }, %struct.extensions_definition_st { i32 22, i32 400, ptr @init_etm, ptr @tls_parse_ctos_etm, ptr @tls_parse_stoc_etm, ptr @tls_construct_stoc_etm, ptr @tls_construct_ctos_etm, ptr null }, %struct.extensions_definition_st { i32 18, i32 20864, ptr null, ptr null, ptr @tls_parse_stoc_sct, ptr null, ptr @tls_construct_ctos_sct, ptr null }, %struct.extensions_definition_st { i32 23, i32 400, ptr @init_ems, ptr @tls_parse_ctos_ems, ptr @tls_parse_stoc_ems, ptr @tls_construct_stoc_ems, ptr @tls_construct_ctos_ems, ptr @final_ems }, %struct.extensions_definition_st { i32 50, i32 16512, ptr @init_sig_algs_cert, ptr @tls_parse_ctos_sig_algs_cert, ptr @tls_parse_ctos_sig_algs_cert, ptr null, ptr null, ptr null }, %struct.extensions_definition_st { i32 49, i32 160, ptr @init_post_handshake_auth, ptr @tls_parse_ctos_post_handshake_auth, ptr null, ptr null, ptr @tls_construct_ctos_post_handshake_auth, ptr null }, %struct.extensions_definition_st { i32 19, i32 1408, ptr @init_client_cert_type, ptr @tls_parse_ctos_client_cert_type, ptr @tls_parse_stoc_client_cert_type, ptr @tls_construct_stoc_client_cert_type, ptr @tls_construct_ctos_client_cert_type, ptr null }, %struct.extensions_definition_st { i32 20, i32 1408, ptr @init_server_cert_type, ptr @tls_parse_ctos_server_cert_type, ptr @tls_parse_stoc_server_cert_type, ptr @tls_construct_stoc_server_cert_type, ptr @tls_construct_ctos_server_cert_type, ptr null }, %struct.extensions_definition_st { i32 13, i32 16512, ptr @init_sig_algs, ptr @tls_parse_ctos_sig_algs, ptr @tls_parse_ctos_sig_algs, ptr @tls_construct_ctos_sig_algs, ptr @tls_construct_ctos_sig_algs, ptr @final_sig_algs }, %struct.extensions_definition_st { i32 43, i32 2692, ptr null, ptr null, ptr @tls_parse_stoc_supported_versions, ptr @tls_construct_stoc_supported_versions, ptr @tls_construct_ctos_supported_versions, ptr @final_supported_versions }, %struct.extensions_definition_st { i32 45, i32 164, ptr @init_psk_kex_modes, ptr @tls_parse_ctos_psk_kex_modes, ptr null, ptr null, ptr @tls_construct_ctos_psk_kex_modes, ptr null }, %struct.extensions_definition_st { i32 51, i32 2724, ptr null, ptr @tls_parse_ctos_key_share, ptr @tls_parse_stoc_key_share, ptr @tls_construct_stoc_key_share, ptr @tls_construct_ctos_key_share, ptr @final_key_share }, %struct.extensions_definition_st { i32 44, i32 2212, ptr null, ptr @tls_parse_ctos_cookie, ptr @tls_parse_stoc_cookie, ptr @tls_construct_stoc_cookie, ptr @tls_construct_ctos_cookie, ptr null }, %struct.extensions_definition_st { i32 65000, i32 400, ptr null, ptr null, ptr null, ptr @tls_construct_stoc_cryptopro_bug, ptr null, ptr null }, %struct.extensions_definition_st { i32 27, i32 16548, ptr @tls_init_compress_certificate, ptr @tls_parse_compress_certificate, ptr @tls_parse_compress_certificate, ptr @tls_construct_compress_certificate, ptr @tls_construct_compress_certificate, ptr null }, %struct.extensions_definition_st { i32 42, i32 9376, ptr null, ptr @tls_parse_ctos_early_data, ptr @tls_parse_stoc_early_data, ptr @tls_construct_stoc_early_data, ptr @tls_construct_ctos_early_data, ptr @final_early_data }, %struct.extensions_definition_st { i32 47, i32 16544, ptr @init_certificate_authorities, ptr @tls_parse_certificate_authorities, ptr @tls_parse_certificate_authorities, ptr @tls_construct_certificate_authorities, ptr @tls_construct_certificate_authorities, ptr null }, %struct.extensions_definition_st { i32 21, i32 128, ptr null, ptr null, ptr null, ptr null, ptr @tls_construct_ctos_padding, ptr null }, %struct.extensions_definition_st { i32 41, i32 676, ptr null, ptr @tls_parse_ctos_psk, ptr @tls_parse_stoc_psk, ptr @tls_construct_stoc_psk, ptr @tls_construct_ctos_psk, ptr @final_psk }], align 16
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/ssl/statem/extensions.c\00", align 1
@@ -33,7 +31,7 @@ define i32 @ossl_get_extension_type(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw %struct.extensions_definition_st, ptr @ext_defs, i64 %0
+  %4 = getelementptr inbounds nuw [56 x i8], ptr @ext_defs, i64 %0
   %5 = load i32, ptr %4, align 8, !tbaa !3
   br label %6
 
@@ -77,7 +75,7 @@ define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captu
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw %struct.extensions_definition_st, ptr @ext_defs, i64 %.02937
+  %20 = getelementptr inbounds nuw [56 x i8], ptr @ext_defs, i64 %.02937
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   br label %30
 
@@ -344,7 +342,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %34, %45, %35
   br i1 %.not5.i.i, label %validate_context.exit.i, label %verify_extension.exit.thread
 
 validate_context.exit.i:                          ; preds = %77, %75
-  %79 = getelementptr inbounds nuw %struct.raw_extension_st, ptr %18, i64 %.03050.i
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %.03050.i
   br label %verify_extension.exit.thread127
 
 80:                                               ; preds = %60
@@ -397,7 +395,7 @@ verify_extension.exit.thread133:                  ; preds = %97, %85, %99
 
 verify_extension.exit:                            ; preds = %97, %99
   %101 = load i64, ptr %7, align 8, !tbaa !94
-  %102 = getelementptr %struct.raw_extension_st, ptr %18, i64 %101
+  %102 = getelementptr [40 x i8], ptr %18, i64 %101
   %103 = getelementptr i8, ptr %102, i64 1160
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %verify_extension.exit.thread127
@@ -632,7 +630,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define i32 @tls_parse_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.raw_extension_st, ptr %3, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !75
   %.not = icmp eq i32 %10, 0
@@ -650,7 +648,7 @@ define i32 @tls_parse_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %15, label %16, label %48
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw %struct.extensions_definition_st, ptr @ext_defs, i64 %7
+  %17 = getelementptr inbounds nuw [56 x i8], ptr @ext_defs, i64 %7
   %18 = and i32 %2, 2048
   %.not.i = icmp ne i32 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -778,7 +776,7 @@ define range(i32 0, 2) i32 @tls_parse_all_extensions(ptr noundef %0, i32 noundef
   br i1 %.not27, label %27, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw %struct.raw_extension_st, ptr %2, i64 %.132
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %.132
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !75
   %26 = tail call i32 %17(ptr noundef %0, i32 noundef %1, i32 noundef %25) #8

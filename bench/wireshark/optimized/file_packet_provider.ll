@@ -89,7 +89,7 @@ define hidden ptr @cap_file_provider_get_interface_name(ptr noundef readonly cap
 13:                                               ; preds = %3
   %14 = load ptr, ptr %9, align 8
   %15 = zext i32 %8 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call void @g_free(ptr noundef %6)
   %.not = icmp eq ptr %17, null
@@ -159,7 +159,7 @@ define hidden ptr @cap_file_provider_get_interface_description(ptr noundef reado
 13:                                               ; preds = %3
   %14 = load ptr, ptr %9, align 8
   %15 = zext i32 %8 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call void @g_free(ptr noundef %6)
   %.not = icmp eq ptr %17, null

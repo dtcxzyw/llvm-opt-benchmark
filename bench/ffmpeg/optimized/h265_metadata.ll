@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
 %union.anon = type { i64 }
 %struct.AVRational = type { i32, i32 }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"hevc_metadata\00", align 1
 @h265_metadata_codec_ids = internal constant [2 x i32] [i32 173, i32 0], align 4
@@ -156,7 +155,7 @@ define internal range(i32 -2147483648, 1) i32 @h265_metadata_update_fragment(ptr
   %.064160 = phi i32 [ 0, %.lr.ph ], [ %.165, %53 ]
   %.067159 = phi i32 [ 8, %.lr.ph ], [ %.168, %53 ]
   %.070158 = phi i8 [ 0, %.lr.ph ], [ %.171, %53 ]
-  %35 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %33, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %33, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !30
   %.not77 = icmp eq ptr %37, null
@@ -250,7 +249,7 @@ define internal range(i32 -2147483648, 1) i32 @h265_metadata_update_fragment(ptr
   %.05271.i = phi i32 [ 0, %.lr.ph.i ], [ %.153.i, %118 ]
   %.05570.i = phi i32 [ 0, %.lr.ph.i ], [ %.156.i, %118 ]
   %.05869.i = phi i32 [ 0, %.lr.ph.i ], [ %.159.i, %118 ]
-  %74 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %72, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %72, i64 %indvars.iv.i
   %75 = load i32, ptr %74, align 8, !tbaa !21
   switch i32 %75, label %118 [
     i32 32, label %76
@@ -399,7 +398,7 @@ h265_metadata_guess_level.exit:                   ; preds = %147, %._crit_edge.t
 155:                                              ; preds = %.lr.ph165, %h265_metadata_update_sps.exit
   %indvars.iv222 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next223, %h265_metadata_update_sps.exit ]
   %156 = load ptr, ptr %154, align 8, !tbaa !20
-  %157 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %156, i64 %indvars.iv222
+  %157 = getelementptr inbounds nuw [56 x i8], ptr %156, i64 %indvars.iv222
   %158 = load i32, ptr %157, align 8, !tbaa !21
   %159 = icmp eq i32 %158, 32
   br i1 %159, label %160, label %h265_metadata_update_vps.exit
@@ -502,7 +501,7 @@ h265_metadata_guess_level.exit:                   ; preds = %147, %._crit_edge.t
 
 h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %188, %155
   %204 = load ptr, ptr %154, align 8, !tbaa !20
-  %205 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %204, i64 %indvars.iv222
+  %205 = getelementptr inbounds nuw [56 x i8], ptr %204, i64 %indvars.iv222
   %206 = load i32, ptr %205, align 8, !tbaa !21
   %207 = icmp eq i32 %206, 33
   br i1 %207, label %208, label %h265_metadata_update_sps.exit
@@ -534,7 +533,7 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
 
 223:                                              ; preds = %231, %217
   %indvars.iv.i82 = phi i64 [ 1, %217 ], [ %indvars.iv.next.i83, %231 ]
-  %224 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h2645_pixel_aspect, i64 %indvars.iv.i82
+  %224 = getelementptr inbounds nuw [8 x i8], ptr @ff_h2645_pixel_aspect, i64 %indvars.iv.i82
   %225 = load i32, ptr %224, align 8, !tbaa !77
   %226 = icmp eq i32 %221, %225
   br i1 %226, label %227, label %231

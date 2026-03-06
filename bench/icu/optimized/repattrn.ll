@@ -3,7 +3,6 @@ source_filename = "bench/icu/original/repattrn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.icu_77::Regex8BitSet" = type { [32 x i8] }
 %"class.icu_77::RegexCompile" = type { ptr, ptr, ptr, ptr, i64, i8, i8, i8, i64, i64, i32, i32, %"struct.icu_77::RegexCompile::RegexPatternChar", [100 x i16], i32, i32, i32, i8, %"class.icu_77::UnicodeString", i64, %"class.icu_77::UVector32", i32, i32, i32, i32, %"class.icu_77::UStack", %"class.icu_77::UStack", i32, ptr }
 %"struct.icu_77::RegexCompile::RegexPatternChar" = type { i32, i8 }
 %"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
@@ -877,9 +876,9 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7712RegexPatter
   %116 = load ptr, ptr %98, align 8, !tbaa !38
   tail call void @_ZN6icu_777UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %116, ptr noundef nonnull %109, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %117 = load ptr, ptr %99, align 8, !tbaa !51
-  %118 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %117, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %indvars.iv
   %119 = load ptr, ptr %96, align 8, !tbaa !51
-  %120 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %119, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %120, ptr noundef nonnull align 1 dereferenceable(32) %118, i64 32, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1349,7 +1348,7 @@ define noundef zeroext i1 @_ZNK6icu_7712RegexPatterneqERKS0_(ptr noundef nonnull
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !61
-  %75 = getelementptr inbounds nuw i16, ptr %74, i64 %65
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %65
   %76 = load i16, ptr %75, align 2, !tbaa !62
   %77 = icmp ult i16 %76, -9216
   br i1 %77, label %78, label %81
@@ -1383,7 +1382,7 @@ define noundef zeroext i1 @_ZNK6icu_7712RegexPatterneqERKS0_(ptr noundef nonnull
 93:                                               ; preds = %88
   %94 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %95 = load ptr, ptr %94, align 8, !tbaa !61
-  %96 = getelementptr inbounds nuw i16, ptr %95, i64 %86
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %95, i64 %86
   %97 = load i16, ptr %96, align 2, !tbaa !62
   %98 = icmp ult i16 %97, -9216
   br i1 %98, label %99, label %102

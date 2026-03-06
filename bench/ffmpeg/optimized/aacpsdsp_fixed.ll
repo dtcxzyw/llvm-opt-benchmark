@@ -39,7 +39,7 @@ define internal void @ps_add_squares_c(ptr noalias noundef captures(none) %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !15
   %7 = sext i32 %6 to i64
   %8 = mul nsw i64 %7, %7
@@ -51,7 +51,7 @@ define internal void @ps_add_squares_c(ptr noalias noundef captures(none) %0, pt
   %14 = add nuw nsw i64 %13, %12
   %15 = lshr i64 %14, 28
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !15
   %19 = add i32 %18, %16
   store i32 %19, ptr %17, align 4, !tbaa !15
@@ -74,17 +74,17 @@ define internal void @ps_mul_pair_single_c(ptr noalias noundef writeonly capture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, %8
   %13 = add nsw i64 %12, 32768
   %14 = lshr i64 %13, 16
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i32 %15, ptr %16, align 4, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !15
@@ -128,14 +128,14 @@ define internal void @ps_hybrid_analysis_c(ptr noalias noundef writeonly capture
 
 17:                                               ; preds = %5, %17
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !15
   %20 = sub nuw nsw i64 12, %indvars.iv
-  %21 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %23 = add nsw i32 %22, %19
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %24, ptr %25, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !15
@@ -143,15 +143,15 @@ define internal void @ps_hybrid_analysis_c(ptr noalias noundef writeonly capture
   %29 = load i32, ptr %28, align 4, !tbaa !15
   %30 = sub nsw i32 %27, %29
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store i64 %31, ptr %32, align 8, !tbaa !20
   %33 = add nsw i32 %29, %27
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store i64 %34, ptr %35, align 8, !tbaa !20
   %36 = sub nsw i32 %19, %22
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i64 %37, ptr %38, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -166,7 +166,7 @@ define internal void @ps_hybrid_analysis_c(ptr noalias noundef writeonly capture
 
 39:                                               ; preds = %.lr.ph, %46
   %indvars.iv73 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next74, %46 ]
-  %40 = getelementptr inbounds nuw [8 x [2 x i32]], ptr %2, i64 %indvars.iv73
+  %40 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %indvars.iv73
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load i32, ptr %41, align 4, !tbaa !15
   %43 = sext i32 %42 to i64
@@ -179,7 +179,7 @@ define internal void @ps_hybrid_analysis_c(ptr noalias noundef writeonly capture
   %48 = lshr i64 %47, 31
   %49 = trunc i64 %48 to i32
   %50 = mul nsw i64 %3, %indvars.iv73
-  %51 = getelementptr inbounds [2 x i32], ptr %0, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %0, i64 %50
   store i32 %49, ptr %51, align 4, !tbaa !15
   %52 = add nsw i64 %78, 1073741824
   %53 = lshr i64 %52, 31
@@ -194,24 +194,24 @@ define internal void @ps_hybrid_analysis_c(ptr noalias noundef writeonly capture
   %indvars.iv69 = phi i64 [ 0, %39 ], [ %indvars.iv.next70, %56 ]
   %.05864 = phi i64 [ %45, %39 ], [ %78, %56 ]
   %.05963 = phi i64 [ %44, %39 ], [ %70, %56 ]
-  %57 = getelementptr inbounds nuw [2 x i32], ptr %40, i64 %indvars.iv69
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv69
   %58 = load i32, ptr %57, align 4, !tbaa !15
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv69
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv69
   %61 = load i64, ptr %60, align 8, !tbaa !20
   %62 = mul nsw i64 %61, %59
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !15
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv69
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv69
   %67 = load i64, ptr %66, align 8, !tbaa !20
   %68 = mul nsw i64 %67, %65
   %69 = add i64 %62, %.05963
   %70 = sub i64 %69, %68
-  %71 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv69
   %72 = load i64, ptr %71, align 8, !tbaa !20
   %73 = mul nsw i64 %72, %59
-  %74 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv69
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv69
   %75 = load i64, ptr %74, align 8, !tbaa !20
   %76 = mul nsw i64 %75, %65
   %77 = add i64 %73, %.05864
@@ -238,18 +238,18 @@ define internal void @ps_hybrid_analysis_ileave_c(ptr noalias noundef writeonly 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv24 = phi i64 [ %8, %.preheader.us.preheader ], [ %indvars.iv.next25, %._crit_edge.us ]
-  %invariant.gep.us = getelementptr i32, ptr %1, i64 %indvars.iv24
-  %9 = getelementptr inbounds [32 x [2 x i32]], ptr %0, i64 %indvars.iv24
-  %invariant.gep18.us = getelementptr i32, ptr %7, i64 %indvars.iv24
+  %invariant.gep.us = getelementptr [4 x i8], ptr %1, i64 %indvars.iv24
+  %9 = getelementptr inbounds [256 x i8], ptr %0, i64 %indvars.iv24
+  %invariant.gep18.us = getelementptr [4 x i8], ptr %7, i64 %indvars.iv24
   br label %10
 
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
-  %gep.us = getelementptr [64 x i32], ptr %invariant.gep.us, i64 %indvars.iv
+  %gep.us = getelementptr [256 x i8], ptr %invariant.gep.us, i64 %indvars.iv
   %11 = load i32, ptr %gep.us, align 4, !tbaa !15
-  %12 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i32 %11, ptr %12, align 4, !tbaa !15
-  %gep19.us = getelementptr [64 x i32], ptr %invariant.gep18.us, i64 %indvars.iv
+  %gep19.us = getelementptr [256 x i8], ptr %invariant.gep18.us, i64 %indvars.iv
   %13 = load i32, ptr %gep19.us, align 4, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %13, ptr %14, align 4, !tbaa !15
@@ -283,20 +283,20 @@ define internal void @ps_hybrid_synthesis_deint_c(ptr noundef writeonly captures
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv24 = phi i64 [ %8, %.preheader.us.preheader ], [ %indvars.iv.next25, %._crit_edge.us ]
-  %9 = getelementptr inbounds [32 x [2 x i32]], ptr %1, i64 %indvars.iv24
-  %invariant.gep.us = getelementptr i32, ptr %0, i64 %indvars.iv24
-  %invariant.gep18.us = getelementptr i32, ptr %7, i64 %indvars.iv24
+  %9 = getelementptr inbounds [256 x i8], ptr %1, i64 %indvars.iv24
+  %invariant.gep.us = getelementptr [4 x i8], ptr %0, i64 %indvars.iv24
+  %invariant.gep18.us = getelementptr [4 x i8], ptr %7, i64 %indvars.iv24
   br label %10
 
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !15
-  %gep.us = getelementptr [64 x i32], ptr %invariant.gep.us, i64 %indvars.iv
+  %gep.us = getelementptr [256 x i8], ptr %invariant.gep.us, i64 %indvars.iv
   store i32 %12, ptr %gep.us, align 4, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !15
-  %gep19.us = getelementptr [64 x i32], ptr %invariant.gep18.us, i64 %indvars.iv
+  %gep19.us = getelementptr [256 x i8], ptr %invariant.gep18.us, i64 %indvars.iv
   store i32 %14, ptr %gep19.us, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -329,14 +329,14 @@ define internal void @ps_decorrelate_c(ptr noundef writeonly captures(none) %0, 
 
 13:                                               ; preds = %8, %13
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr @ps_decorrelate_c.a, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @ps_decorrelate_c.a, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !15
   %16 = sext i32 %15 to i64
   %17 = mul nsw i64 %16, %10
   %18 = add nsw i64 %17, 536870912
   %19 = lshr i64 %18, 30
   %20 = trunc i64 %19 to i32
-  %21 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %20, ptr %21, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -344,7 +344,7 @@ define internal void @ps_decorrelate_c(ptr noundef writeonly captures(none) %0, 
 
 22:                                               ; preds = %.lr.ph, %103
   %indvars.iv88 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next89, %103 ]
-  %23 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 %indvars.iv88
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv88
   %24 = load i32, ptr %23, align 4, !tbaa !15
   %25 = sext i32 %24 to i64
   %26 = load i32, ptr %3, align 4, !tbaa !15
@@ -373,7 +373,7 @@ define internal void @ps_decorrelate_c(ptr noundef writeonly captures(none) %0, 
   %indvars.iv84 = phi i64 [ 0, %22 ], [ %indvars.iv.next85, %46 ]
   %.07479 = phi i32 [ %38, %22 ], [ %80, %46 ]
   %.07578 = phi i32 [ %44, %22 ], [ %87, %46 ]
-  %47 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv84
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv84
   %48 = load i32, ptr %47, align 4, !tbaa !15
   %49 = sext i32 %48 to i64
   %50 = sext i32 %.07479 to i64
@@ -386,13 +386,13 @@ define internal void @ps_decorrelate_c(ptr noundef writeonly captures(none) %0, 
   %57 = add nsw i64 %56, 1073741824
   %58 = lshr i64 %57, 31
   %59 = trunc i64 %58 to i32
-  %60 = getelementptr inbounds nuw [37 x [2 x i32]], ptr %2, i64 %indvars.iv84
+  %60 = getelementptr inbounds nuw [296 x i8], ptr %2, i64 %indvars.iv84
   %61 = sub nuw nsw i64 %45, %indvars.iv84
-  %62 = getelementptr inbounds nuw [2 x i32], ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !15
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !15
-  %66 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 %indvars.iv84
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv84
   %67 = load i32, ptr %66, align 4, !tbaa !15
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !15
@@ -420,7 +420,7 @@ define internal void @ps_decorrelate_c(ptr noundef writeonly captures(none) %0, 
   %91 = lshr i64 %90, 31
   %92 = trunc i64 %91 to i32
   %93 = add i32 %.07479, %92
-  %94 = getelementptr inbounds nuw [2 x i32], ptr %60, i64 %indvars.iv88
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv88
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   store i32 %93, ptr %95, align 4, !tbaa !15
   %96 = sext i32 %87 to i64
@@ -436,14 +436,14 @@ define internal void @ps_decorrelate_c(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond87.not, label %103, label %46, !llvm.loop !30
 
 103:                                              ; preds = %46
-  %104 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv88
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv88
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %107 = mul nsw i64 %106, %88
   %108 = add nsw i64 %107, 32768
   %109 = lshr i64 %108, 16
   %110 = trunc i64 %109 to i32
-  %111 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv88
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv88
   store i32 %110, ptr %111, align 4, !tbaa !15
   %112 = load i32, ptr %104, align 4, !tbaa !15
   %113 = sext i32 %112 to i64
@@ -491,11 +491,11 @@ define internal void @ps_stereo_interpolate_c(ptr noundef captures(none) %0, ptr
   %.05057 = phi i32 [ %19, %.lr.ph.preheader ], [ %30, %.lr.ph ]
   %.05156 = phi i32 [ %17, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   %.05255 = phi i32 [ %15, %.lr.ph.preheader ], [ %32, %.lr.ph ]
-  %21 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !15
-  %25 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !15
@@ -596,11 +596,11 @@ define internal void @ps_stereo_interpolate_ipdopd_c(ptr noundef captures(none) 
   %.08799 = phi i32 [ %27, %.lr.ph.preheader ], [ %51, %.lr.ph ]
   %.08898 = phi i32 [ %25, %.lr.ph.preheader ], [ %48, %.lr.ph ]
   %.08997 = phi i32 [ %23, %.lr.ph.preheader ], [ %52, %.lr.ph ]
-  %37 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !15
-  %41 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !15
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !15

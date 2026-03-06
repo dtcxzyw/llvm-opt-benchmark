@@ -210,7 +210,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %26, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %28, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %23, ptr %0, align 8, !tbaa !13
   store ptr %27, ptr %4, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !10
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -364,7 +364,7 @@ define noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef no
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !13
-  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %5
   %8 = load i32, ptr %7, align 4, !tbaa !11
   ret i32 %8
 }
@@ -1293,7 +1293,7 @@ define void @_ZN3gmx20AbstractAnalysisData15setDataSetCountEi(ptr noundef nonnul
   br i1 %23, label %24, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i32, ptr %14, i64 %11
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %11
   %.not.i.i = icmp eq ptr %13, %25
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %26
 
@@ -1396,9 +1396,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !13
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !4
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !10
   br label %41
 
@@ -1452,7 +1452,7 @@ define void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnul
   tail call void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef 1, i1 noundef zeroext %.013.lcssa)
   %25 = load ptr, ptr %6, align 8, !tbaa !16
   %26 = load ptr, ptr %25, align 8, !tbaa !13
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %22
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %22
   store i32 %2, ptr %27, align 4, !tbaa !11
   ret void
 
@@ -1462,7 +1462,7 @@ define void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnul
   br i1 %.not, label %32, label %28
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !11
   %31 = icmp sgt i32 %30, 1
   br label %32

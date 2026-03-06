@@ -24,7 +24,6 @@ module asm ".previous"
 %struct._summary_tally = type { i64, double, double, double, i32, i32, i64, double, double, i32, i32, i32, i32, i32, i64, double, double, ptr, i64, [65 x i8], [65 x i8], i32, i32, i32, ptr, i32, i8, i64, ptr, i8, ptr, i8 }
 %class.QTextStream = type { ptr, %class.QScopedPointer.1 }
 %class.QScopedPointer.1 = type { ptr }
-%struct.iface_summary_info_tag = type { ptr, ptr, ptr, ptr, i64, i8, i32, i32 }
 
 $_ZN30Ui_CaptureFilePropertiesDialog7setupUiEP7QDialog = comdat any
 
@@ -4154,7 +4153,7 @@ _ZN7QStringD2Ev.exit939:                          ; preds = %825, %_ZN17QArrayDa
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %835 = load ptr, ptr %790, align 8
   %836 = load ptr, ptr %835, align 8
-  %837 = getelementptr i32, ptr %836, i64 %indvars.iv
+  %837 = getelementptr [4 x i8], ptr %836, i64 %indvars.iv
   %838 = load i32, ptr %837, align 4
   %839 = invoke ptr @wtap_encap_description(i32 noundef %838)
           to label %840 unwind label %878
@@ -8027,7 +8026,7 @@ _ZN7QStringD2Ev.exit1619:                         ; preds = %1987, %_ZN17QArrayD
   %indvars.iv3242 = phi i64 [ %indvars.iv.next3243, %_ZN7QStringD2Ev.exit1752 ], [ 0, %1991 ]
   %1994 = phi ptr [ %2185, %_ZN7QStringD2Ev.exit1752 ], [ %.pre3256, %1991 ]
   %1995 = load ptr, ptr %1994, align 8
-  %1996 = getelementptr %struct.iface_summary_info_tag, ptr %1995, i64 %indvars.iv3242
+  %1996 = getelementptr [56 x i8], ptr %1995, i64 %indvars.iv3242
   %.sroa.029.0.copyload = load ptr, ptr %1996, align 8
   %.sroa.732.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1996, i64 8
   %.sroa.732.0.copyload = load ptr, ptr %.sroa.732.0..sroa_idx, align 8
@@ -9564,7 +9563,7 @@ _ZN7QStringD2Ev.exit1897:                         ; preds = %2329, %2417, %_ZN17
   %indvars.iv3251 = phi i64 [ %indvars.iv.next3252, %2428 ], [ 0, %.preheader ]
   %2423 = phi ptr [ %2429, %2428 ], [ %1433, %.preheader ]
   %2424 = load ptr, ptr %2423, align 8
-  %2425 = getelementptr %struct.iface_summary_info_tag, ptr %2424, i64 %indvars.iv3251
+  %2425 = getelementptr [56 x i8], ptr %2424, i64 %indvars.iv3251
   %.sroa.0.0.copyload = load ptr, ptr %2425, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2425, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8

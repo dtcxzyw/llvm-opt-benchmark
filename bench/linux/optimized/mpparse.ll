@@ -1355,7 +1355,7 @@ define internal fastcc void @replace_intsrc_all(ptr noundef nonnull %0, i64 noun
   br i1 %39, label %40, label %73
 
 40:                                               ; preds = %.preheader
-  %41 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %33
+  %41 = getelementptr [8 x i8], ptr @mp_irqs, i64 %33
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 0
@@ -1383,7 +1383,7 @@ define internal fastcc void @replace_intsrc_all(ptr noundef nonnull %0, i64 noun
 56:                                               ; preds = %54, %51
   %57 = add nsw i32 %36, -1
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr ptr, ptr @m_spare, i64 %58
+  %59 = getelementptr [8 x i8], ptr @m_spare, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = load i64, ptr %41, align 8
   store i64 %61, ptr %60, align 2
@@ -1470,7 +1470,7 @@ define internal fastcc void @check_irq_src(ptr noundef %0, ptr noundef captures(
 
 10:                                               ; preds = %7
   %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %11
+  %12 = getelementptr [8 x i8], ptr @mp_irqs, i64 %11
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %0, align 2
   %14 = load i32, ptr @apic_verbosity, align 4
@@ -1496,7 +1496,7 @@ define internal fastcc void @check_irq_src(ptr noundef %0, ptr noundef captures(
 
 24:                                               ; preds = %21
   %25 = sext i32 %22 to i64
-  %26 = getelementptr ptr, ptr @m_spare, i64 %25
+  %26 = getelementptr [8 x i8], ptr @m_spare, i64 %25
   store ptr %0, ptr %26, align 8
   %27 = add nsw i32 %22, 1
   store i32 %27, ptr %1, align 4
@@ -1589,7 +1589,7 @@ define internal fastcc i32 @get_MP_intsrc_index(ptr noundef readonly captures(no
 
 16:                                               ; preds = %42, %12
   %17 = phi i64 [ 0, %12 ], [ %43, %42 ]
-  %18 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %17
+  %18 = getelementptr [8 x i8], ptr @mp_irqs, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0

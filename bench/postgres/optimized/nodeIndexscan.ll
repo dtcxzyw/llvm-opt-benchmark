@@ -3,13 +3,6 @@ source_filename = "bench/postgres/original/nodeIndexscan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.IndexRuntimeKeyInfo = type { ptr, ptr, i8 }
-%struct.IndexArrayKeyInfo = type { ptr, ptr, i32, i32, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.SortSupportData = type { ptr, i32, i8, i8, i16, ptr, ptr, i8, ptr, ptr, ptr }
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [48 x i8] c"unexpected ExecIndexMarkPos call in EPQ recheck\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"nodeIndexscan.c\00", align 1
 @__func__.ExecIndexMarkPos = private unnamed_addr constant [17 x i8] c"ExecIndexMarkPos\00", align 1
@@ -59,7 +52,7 @@ define dso_local void @ExecReScanIndexScan(ptr noundef %0) local_unnamed_addr #0
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %41 ]
-  %16 = getelementptr inbounds nuw %struct.IndexRuntimeKeyInfo, ptr %11, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -161,7 +154,7 @@ ExecIndexEvalRuntimeKeys.exit:                    ; preds = %41, %5
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr %58, align 8
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv.i23
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.i23
   %73 = load i64, ptr %72, align 8
   %74 = inttoptr i64 %73 to ptr
   call void @pfree(ptr noundef %74) #7
@@ -233,7 +226,7 @@ define dso_local void @ExecIndexEvalRuntimeKeys(ptr noundef %0, ptr noundef read
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %9 = getelementptr inbounds nuw %struct.IndexRuntimeKeyInfo, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -315,7 +308,7 @@ define dso_local noundef zeroext i1 @ExecIndexEvalArrayKeys(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %15 = getelementptr inbounds nuw %struct.IndexArrayKeyInfo, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -415,7 +408,7 @@ define dso_local noundef zeroext i1 @ExecIndexAdvanceArrayKeys(ptr noundef captu
 
 7:                                                ; preds = %4
   %8 = and i64 %indvars.iv.next, 2147483647
-  %9 = getelementptr inbounds nuw %struct.IndexArrayKeyInfo, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i32, ptr %11, align 8
@@ -428,7 +421,7 @@ define dso_local noundef zeroext i1 @ExecIndexAdvanceArrayKeys(ptr noundef captu
   %.not = icmp slt i32 %12, %14
   %. = select i1 %.not, i32 %12, i32 0
   %19 = sext i32 %. to i64
-  %20 = getelementptr inbounds i64, ptr %16, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %16, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i64 %21, ptr %22, align 8
@@ -494,7 +487,7 @@ define dso_local void @ExecIndexMarkPos(ptr noundef readonly captures(none) %0) 
   %12 = load ptr, ptr %11, align 8
   %13 = add i32 %10, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %17, label %22
@@ -502,7 +495,7 @@ define dso_local void @ExecIndexMarkPos(ptr noundef readonly captures(none) %0) 
 17:                                               ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %14
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %14
   %21 = load ptr, ptr %20, align 8
   %.not13 = icmp eq ptr %21, null
   br i1 %.not13, label %31, label %22
@@ -558,7 +551,7 @@ define dso_local void @ExecIndexRestrPos(ptr noundef readonly captures(none) %0)
   %12 = load ptr, ptr %11, align 8
   %13 = add i32 %10, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %17, label %22
@@ -566,7 +559,7 @@ define dso_local void @ExecIndexRestrPos(ptr noundef readonly captures(none) %0)
 17:                                               ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %14
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %14
   %21 = load ptr, ptr %20, align 8
   %.not13 = icmp eq ptr %21, null
   br i1 %.not13, label %31, label %22
@@ -648,7 +641,7 @@ define dso_local noundef ptr @ExecInitIndexScan(ptr noundef %0, ptr noundef %1, 
   %.val.val = load ptr, ptr %32, align 8
   %33 = add i32 %30, -1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %union.ListCell, ptr %.val.val, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %38 = load i32, ptr %37, align 4
@@ -712,7 +705,7 @@ define dso_local noundef ptr @ExecInitIndexScan(ptr noundef %0, ptr noundef %1, 
 
 77:                                               ; preds = %.split.split
   %78 = load ptr, ptr %72, align 8
-  %79 = getelementptr inbounds nuw %union.ListCell, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv
   br label %80
 
 80:                                               ; preds = %.split.split, %77
@@ -743,13 +736,13 @@ define dso_local noundef ptr @ExecInitIndexScan(ptr noundef %0, ptr noundef %1, 
   br label %114
 
 97:                                               ; preds = %85
-  %98 = getelementptr inbounds nuw %union.ListCell, ptr %86, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
   %99 = load i32, ptr %81, align 8
   %100 = load ptr, ptr %98, align 8
   %101 = tail call i32 @exprType(ptr noundef %100) #7
   %102 = tail call i32 @exprCollation(ptr noundef %100) #7
   %103 = load ptr, ptr %61, align 8
-  %104 = getelementptr inbounds nuw %struct.SortSupportData, ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [64 x i8], ptr %103, i64 %indvars.iv
   %105 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %105, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
@@ -762,7 +755,7 @@ define dso_local noundef ptr @ExecInitIndexScan(ptr noundef %0, ptr noundef %1, 
   store i8 0, ptr %109, align 8
   tail call void @PrepareSortSupportFromOrderingOp(i32 noundef %99, ptr noundef nonnull %104) #7
   %110 = load ptr, ptr %66, align 8
-  %111 = getelementptr inbounds nuw i16, ptr %110, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %indvars.iv
   %112 = load ptr, ptr %63, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv
   tail call void @get_typlenbyval(i32 noundef %101, ptr noundef %111, ptr noundef %113) #7
@@ -884,10 +877,10 @@ list_length.exit:                                 ; preds = %10, %14
   %.0278465650 = phi ptr [ %.3, %420 ], [ %21, %.lr.ph ]
   %indvar649 = phi i64 [ %indvar.next, %420 ], [ 0, %.lr.ph ]
   %36 = load ptr, ptr %27, align 8
-  %37 = getelementptr inbounds nuw %union.ListCell, ptr %36, i64 %indvar649
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvar649
   %38 = load ptr, ptr %37, align 8
   %indvar.next = add nuw nsw i64 %indvar649, 1
-  %39 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %20, i64 %indvar649
+  %39 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %indvar649
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -964,7 +957,7 @@ thread-pre-split:                                 ; preds = %get_leftop.exit
 list_length.exit.i:                               ; preds = %66
   %74 = load ptr, ptr %29, align 8
   %75 = zext nneg i16 %68 to i64
-  %76 = getelementptr i32, ptr %74, i64 %75
+  %76 = getelementptr [4 x i8], ptr %74, i64 %75
   %77 = getelementptr i8, ptr %76, i64 -4
   %78 = load i32, ptr %77, align 4
   call void @get_op_opfamily_properties(i32 noundef %46, i32 noundef %78, i1 noundef zeroext %3, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #7
@@ -1021,7 +1014,7 @@ thread-pre-split383:                              ; preds = %list_length.exit.i
   %.2289 = phi i32 [ 8, %98 ], [ %101, %100 ], [ %.0287463652, %95 ]
   %.2 = phi ptr [ %99, %98 ], [ %104, %100 ], [ %.0278465650, %95 ]
   %106 = sext i32 %.0281464651 to i64
-  %107 = getelementptr inbounds %struct.IndexRuntimeKeyInfo, ptr %.2, i64 %106
+  %107 = getelementptr inbounds [24 x i8], ptr %.2, i64 %106
   store ptr %39, ptr %107, align 8
   %108 = call ptr @ExecInitExpr(ptr noundef nonnull %.0306, ptr noundef %0) #7
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -1102,7 +1095,7 @@ list_length.exit378:                              ; preds = %122, %125
 152:                                              ; preds = %149
   %153 = load ptr, ptr %140, align 8
   %154 = sext i32 %.0312 to i64
-  %155 = getelementptr inbounds %union.ListCell, ptr %153, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %153, i64 %154
   br label %156
 
 156:                                              ; preds = %148, %149, %152
@@ -1117,7 +1110,7 @@ list_length.exit378:                              ; preds = %122, %125
 161:                                              ; preds = %158
   %162 = load ptr, ptr %142, align 8
   %163 = sext i32 %.0312 to i64
-  %164 = getelementptr inbounds %union.ListCell, ptr %162, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %162, i64 %163
   br label %165
 
 165:                                              ; preds = %156, %158, %161
@@ -1132,7 +1125,7 @@ list_length.exit378:                              ; preds = %122, %125
 170:                                              ; preds = %167
   %171 = load ptr, ptr %144, align 8
   %172 = sext i32 %.0312 to i64
-  %173 = getelementptr inbounds %union.ListCell, ptr %171, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %171, i64 %172
   br label %174
 
 174:                                              ; preds = %165, %167, %170
@@ -1147,7 +1140,7 @@ list_length.exit378:                              ; preds = %122, %125
 179:                                              ; preds = %176
   %180 = load ptr, ptr %146, align 8
   %181 = sext i32 %.0312 to i64
-  %182 = getelementptr inbounds %union.ListCell, ptr %180, i64 %181
+  %182 = getelementptr inbounds [8 x i8], ptr %180, i64 %181
   br label %183
 
 183:                                              ; preds = %174, %176, %179
@@ -1164,7 +1157,7 @@ list_length.exit378:                              ; preds = %122, %125
 .critedge:                                        ; preds = %183
   %189 = add i32 %.0312, -1
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds %struct.ScanKeyData, ptr %131, i64 %190
+  %191 = getelementptr inbounds [72 x i8], ptr %131, i64 %190
   %192 = load i32, ptr %191, align 8
   %193 = or i32 %192, 16
   store i32 %193, ptr %191, align 8
@@ -1176,7 +1169,7 @@ list_length.exit378:                              ; preds = %122, %125
 
 194:                                              ; preds = %183
   %195 = sext i32 %.0312 to i64
-  %196 = getelementptr inbounds %struct.ScanKeyData, ptr %131, i64 %195
+  %196 = getelementptr inbounds [72 x i8], ptr %131, i64 %195
   %197 = load ptr, ptr %157, align 8, !nonnull !5, !noundef !5
   %198 = load ptr, ptr %166, align 8
   %199 = load i32, ptr %175, align 8
@@ -1231,7 +1224,7 @@ thread-pre-split385:                              ; preds = %194
 227:                                              ; preds = %215
   %228 = load ptr, ptr %29, align 8
   %229 = zext nneg i16 %217 to i64
-  %230 = getelementptr i32, ptr %228, i64 %229
+  %230 = getelementptr [4 x i8], ptr %228, i64 %229
   %231 = getelementptr i8, ptr %230, i64 -4
   %232 = load i32, ptr %231, align 4
   call void @get_op_opfamily_properties(i32 noundef %199, i32 noundef %232, i1 noundef zeroext %3, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #7
@@ -1311,7 +1304,7 @@ thread-pre-split387:                              ; preds = %247
   %.6293 = phi i32 [ 8, %264 ], [ %267, %266 ], [ %.4291, %261 ]
   %.6 = phi ptr [ %265, %264 ], [ %270, %266 ], [ %.4, %261 ]
   %272 = sext i32 %.3284 to i64
-  %273 = getelementptr inbounds %struct.IndexRuntimeKeyInfo, ptr %.6, i64 %272
+  %273 = getelementptr inbounds [24 x i8], ptr %.6, i64 %272
   store ptr %196, ptr %273, align 8
   %274 = call ptr @ExecInitExpr(ptr noundef nonnull %.1307, ptr noundef %0) #7
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 8
@@ -1413,7 +1406,7 @@ thread-pre-split389:                              ; preds = %297
 328:                                              ; preds = %320
   %329 = load ptr, ptr %29, align 8
   %330 = zext nneg i16 %322 to i64
-  %331 = getelementptr i32, ptr %329, i64 %330
+  %331 = getelementptr [4 x i8], ptr %329, i64 %330
   %332 = getelementptr i8, ptr %331, i64 -4
   %333 = load i32, ptr %332, align 4
   call void @get_op_opfamily_properties(i32 noundef %299, i32 noundef %333, i1 noundef zeroext %3, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #7
@@ -1480,7 +1473,7 @@ thread-pre-split389:                              ; preds = %297
   %.7294 = phi i32 [ 8, %361 ], [ %364, %363 ], [ %.0287463652, %358 ]
   %.7 = phi ptr [ %362, %361 ], [ %367, %363 ], [ %.0278465650, %358 ]
   %369 = sext i32 %.0281464651 to i64
-  %370 = getelementptr inbounds %struct.IndexRuntimeKeyInfo, ptr %.7, i64 %369
+  %370 = getelementptr inbounds [24 x i8], ptr %.7, i64 %369
   store ptr %39, ptr %370, align 8
   %371 = call ptr @ExecInitExpr(ptr noundef nonnull %.2308, ptr noundef %0) #7
   %372 = getelementptr inbounds nuw i8, ptr %370, i64 8
@@ -1492,7 +1485,7 @@ thread-pre-split389:                              ; preds = %297
 
 375:                                              ; preds = %344
   %376 = sext i32 %.0296462653 to i64
-  %377 = getelementptr inbounds %struct.IndexArrayKeyInfo, ptr %24, i64 %376
+  %377 = getelementptr inbounds [40 x i8], ptr %24, i64 %376
   store ptr %39, ptr %377, align 8
   %378 = call ptr @ExecInitExpr(ptr noundef %.2308, ptr noundef %0) #7
   %379 = getelementptr inbounds nuw i8, ptr %377, i64 8
@@ -1676,7 +1669,7 @@ define internal i32 @reorderqueue_cmp(ptr noundef readonly captures(none) %0, pt
 20:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds nuw %struct.SortSupportData, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %indvars.iv.i
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   %24 = load i8, ptr %23, align 1, !range !4, !noundef !5
   %25 = trunc nuw i8 %24 to i1
@@ -1696,9 +1689,9 @@ define internal i32 @reorderqueue_cmp(ptr noundef readonly captures(none) %0, pt
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %38 = load i64, ptr %37, align 8
   %39 = tail call i32 %34(i64 noundef %36, i64 noundef %38, ptr noundef %22) #7
   %.not.i = icmp eq i32 %39, 0
@@ -1999,7 +1992,7 @@ define internal ptr @IndexNextWithReorder(ptr noundef captures(none) %0) #0 {
 .lr.ph.i:                                         ; preds = %69, %78
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %78 ], [ 0, %69 ]
   %82 = load ptr, ptr %44, align 8
-  %83 = getelementptr inbounds nuw %struct.SortSupportData, ptr %82, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [64 x i8], ptr %82, i64 %indvars.iv.i
   %84 = getelementptr inbounds nuw i8, ptr %73, i64 %indvars.iv.i
   %85 = load i8, ptr %84, align 1, !range !4, !noundef !5
   %86 = trunc nuw i8 %85 to i1
@@ -2019,9 +2012,9 @@ define internal ptr @IndexNextWithReorder(ptr noundef captures(none) %0) #0 {
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.i
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.i
   %99 = load i64, ptr %98, align 8
   %100 = call i32 %95(i64 noundef %97, i64 noundef %99, ptr noundef %83) #7
   %.not.i = icmp eq i32 %100, 0
@@ -2064,7 +2057,7 @@ cmp_orderbyvals.exit.thread:                      ; preds = %69, %cmp_orderbyval
 
 121:                                              ; preds = %116
   %122 = load ptr, ptr %109, align 8
-  %123 = getelementptr inbounds nuw i64, ptr %122, i64 %indvars.iv.i85
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv.i85
   %124 = load i64, ptr %123, align 8
   %125 = inttoptr i64 %124 to ptr
   call void @pfree(ptr noundef %125) #7
@@ -2196,7 +2189,7 @@ ExecQualAndReset.exit:                            ; preds = %145
 .lr.ph22.i:                                       ; preds = %.lr.ph.i88, %.lr.ph22.i
   %indvars.iv.i89 = phi i64 [ %indvars.iv.next.i90, %.lr.ph22.i ], [ 0, %.lr.ph.i88 ]
   %177 = load ptr, ptr %174, align 8
-  %178 = getelementptr inbounds nuw %union.ListCell, ptr %177, i64 %indvars.iv.i89
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %indvars.iv.i89
   %179 = load ptr, ptr %178, align 8
   %180 = load ptr, ptr %52, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 %indvars.iv.i89
@@ -2204,7 +2197,7 @@ ExecQualAndReset.exit:                            ; preds = %145
   %183 = load ptr, ptr %182, align 8
   %184 = call i64 %183(ptr noundef %179, ptr noundef nonnull %6, ptr noundef %181) #7
   %185 = load ptr, ptr %53, align 8
-  %186 = getelementptr inbounds nuw i64, ptr %185, i64 %indvars.iv.i89
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %indvars.iv.i89
   store i64 %184, ptr %186, align 8
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
   %187 = load i32, ptr %173, align 4
@@ -2232,7 +2225,7 @@ EvalOrderByExpressions.exit:                      ; preds = %.lr.ph22.i, %168, %
 .lr.ph.i92:                                       ; preds = %EvalOrderByExpressions.exit, %196
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i95, %196 ], [ 0, %EvalOrderByExpressions.exit ]
   %200 = load ptr, ptr %44, align 8
-  %201 = getelementptr inbounds nuw %struct.SortSupportData, ptr %200, i64 %indvars.iv.i93
+  %201 = getelementptr inbounds nuw [64 x i8], ptr %200, i64 %indvars.iv.i93
   %202 = getelementptr inbounds nuw i8, ptr %191, i64 %indvars.iv.i93
   %203 = load i8, ptr %202, align 1, !range !4, !noundef !5
   %204 = trunc nuw i8 %203 to i1
@@ -2247,9 +2240,9 @@ EvalOrderByExpressions.exit:                      ; preds = %.lr.ph22.i, %168, %
 209:                                              ; preds = %207
   %210 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds nuw i64, ptr %190, i64 %indvars.iv.i93
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv.i93
   %213 = load i64, ptr %212, align 8
-  %214 = getelementptr inbounds nuw i64, ptr %192, i64 %indvars.iv.i93
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %indvars.iv.i93
   %215 = load i64, ptr %214, align 8
   %216 = call i32 %211(i64 noundef %213, i64 noundef %215, ptr noundef %201) #7
   %.not.i94 = icmp eq i32 %216, 0
@@ -2311,7 +2304,7 @@ cmp_orderbyvals.exit97.thread112:                 ; preds = %cmp_orderbyvals.exi
 .lr.ph.i99:                                       ; preds = %221, %228
   %indvars.iv.i100 = phi i64 [ %indvars.iv.next.i102, %228 ], [ 0, %221 ]
   %232 = load ptr, ptr %44, align 8
-  %233 = getelementptr inbounds nuw %struct.SortSupportData, ptr %232, i64 %indvars.iv.i100
+  %233 = getelementptr inbounds nuw [64 x i8], ptr %232, i64 %indvars.iv.i100
   %234 = getelementptr inbounds nuw i8, ptr %.073119, i64 %indvars.iv.i100
   %235 = load i8, ptr %234, align 1, !range !4, !noundef !5
   %236 = trunc nuw i8 %235 to i1
@@ -2331,9 +2324,9 @@ cmp_orderbyvals.exit97.thread112:                 ; preds = %cmp_orderbyvals.exi
 243:                                              ; preds = %241
   %244 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds nuw i64, ptr %.074121, i64 %indvars.iv.i100
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %.074121, i64 %indvars.iv.i100
   %247 = load i64, ptr %246, align 8
-  %248 = getelementptr inbounds nuw i64, ptr %223, i64 %indvars.iv.i100
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %indvars.iv.i100
   %249 = load i64, ptr %248, align 8
   %250 = call i32 %245(i64 noundef %247, i64 noundef %249, ptr noundef %233) #7
   %.not.i101 = icmp eq i32 %250, 0
@@ -2384,14 +2377,14 @@ cmp_orderbyvals.exit104:                          ; preds = %243, %239
   br i1 %278, label %291, label %279
 
 279:                                              ; preds = %.lr.ph.i105
-  %280 = getelementptr inbounds nuw i64, ptr %.074122, i64 %indvars.iv.i106
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %.074122, i64 %indvars.iv.i106
   %281 = load i64, ptr %280, align 8
   %282 = load ptr, ptr %56, align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 %indvars.iv.i106
   %284 = load i8, ptr %283, align 1, !range !4, !noundef !5
   %285 = trunc nuw i8 %284 to i1
   %286 = load ptr, ptr %57, align 8
-  %287 = getelementptr inbounds nuw i16, ptr %286, i64 %indvars.iv.i106
+  %287 = getelementptr inbounds nuw [2 x i8], ptr %286, i64 %indvars.iv.i106
   %288 = load i16, ptr %287, align 2
   %289 = sext i16 %288 to i32
   %290 = call i64 @datumCopy(i64 noundef %281, i1 noundef zeroext %285, i32 noundef %289) #7
@@ -2400,7 +2393,7 @@ cmp_orderbyvals.exit104:                          ; preds = %243, %239
 291:                                              ; preds = %279, %.lr.ph.i105
   %.sink.i = phi i64 [ %290, %279 ], [ 0, %.lr.ph.i105 ]
   %292 = load ptr, ptr %269, align 8
-  %293 = getelementptr inbounds nuw i64, ptr %292, i64 %indvars.iv.i106
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %indvars.iv.i106
   store i64 %.sink.i, ptr %293, align 8
   %294 = load i8, ptr %276, align 1, !range !4, !noundef !5
   %295 = load ptr, ptr %273, align 8

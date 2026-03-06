@@ -169,7 +169,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 
 53:                                               ; preds = %.thread
   %54 = zext nneg i32 %50 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %11, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !27
   %.not55 = icmp eq i32 %56, 0
   br i1 %.not55, label %58, label %57
@@ -206,7 +206,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %.thread65
 
 70:                                               ; preds = %58, %65
-  %71 = getelementptr inbounds nuw [64 x double], ptr %35, i64 %54
+  %71 = getelementptr inbounds nuw [512 x i8], ptr %35, i64 %54
   br label %72
 
 72:                                               ; preds = %.backedge, %70
@@ -239,7 +239,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 83:                                               ; preds = %79
   %84 = load i32, ptr %9, align 4, !tbaa !27
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i32, ptr %10, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %10, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !27
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %86, align 4, !tbaa !27
@@ -257,7 +257,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 91:                                               ; preds = %83
   %92 = load i32, ptr %7, align 4, !tbaa !27
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i32, ptr %13, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %13, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !27
   %.not60 = icmp eq i32 %95, 0
   br i1 %.not60, label %97, label %96
@@ -270,7 +270,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   store i32 1, ptr %94, align 4, !tbaa !27
   %98 = load double, ptr %12, align 8, !tbaa !30
   %99 = fmul nsz double %98, %.036
-  %100 = getelementptr inbounds double, ptr %71, i64 %93
+  %100 = getelementptr inbounds [8 x i8], ptr %71, i64 %93
   store double %99, ptr %100, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !27
@@ -326,13 +326,13 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 
 .preheader.i:                                     ; preds = %.critedge.i, %._crit_edge
   %indvars.iv29.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next30.i, %.critedge.i ]
-  %116 = getelementptr inbounds nuw [64 x double], ptr %115, i64 %indvars.iv29.i
+  %116 = getelementptr inbounds nuw [512 x i8], ptr %115, i64 %indvars.iv29.i
   br label %117
 
 117:                                              ; preds = %122, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %122 ]
   %.01725.i = phi i32 [ 0, %.preheader.i ], [ %.118.i, %122 ]
-  %118 = getelementptr inbounds nuw double, ptr %116, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv.i
   %119 = load double, ptr %118, align 8, !tbaa !30
   %120 = fcmp nsz une double %119, 0.000000e+00
   %121 = fcmp nsz une double %119, 1.000000e+00
@@ -521,10 +521,10 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [64 x double], ptr %11, i64 %indvars.iv
-  %21 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv168
+  %20 = getelementptr inbounds nuw [512 x i8], ptr %11, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv168
   %22 = load double, ptr %21, align 8, !tbaa !30
-  %23 = getelementptr inbounds double, ptr %20, i64 %18
+  %23 = getelementptr inbounds [8 x i8], ptr %20, i64 %18
   store double %22, ptr %23, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -595,7 +595,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
 
 .preheader130:                                    ; preds = %.preheader130.lr.ph, %._crit_edge141
   %indvars.iv177 = phi i64 [ 0, %.preheader130.lr.ph ], [ %indvars.iv.next178, %._crit_edge141 ]
-  %54 = getelementptr inbounds nuw [64 x double], ptr %49, i64 %indvars.iv177
+  %54 = getelementptr inbounds nuw [512 x i8], ptr %49, i64 %indvars.iv177
   %55 = load i32, ptr %27, align 4, !tbaa !62
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph140.preheader, label %._crit_edge141
@@ -606,7 +606,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %60
   %indvars.iv172 = phi i64 [ 0, %.lr.ph140.preheader ], [ %indvars.iv.next173, %60 ]
-  %57 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv172
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv172
   %58 = load double, ptr %57, align 8, !tbaa !30
   %59 = fcmp nsz une double %58, 0.000000e+00
   br i1 %59, label %._crit_edge141.loopexit.split.loop.exit, label %60
@@ -622,7 +622,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
 
 ._crit_edge141:                                   ; preds = %60, %._crit_edge141.loopexit.split.loop.exit, %.preheader130
   %.0 = phi i32 [ -1, %.preheader130 ], [ %61, %._crit_edge141.loopexit.split.loop.exit ], [ -1, %60 ]
-  %62 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv177
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv177
   store i32 %.0, ptr %62, align 4, !tbaa !27
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %63 = icmp samesign ult i64 %indvars.iv.next178, %51
@@ -651,14 +651,14 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
   br i1 %75, label %.lr.ph148, label %.loopexit
 
 .lr.ph148:                                        ; preds = %.preheader128
-  %76 = getelementptr inbounds nuw [64 x double], ptr %53, i64 %indvars.iv190
+  %76 = getelementptr inbounds nuw [512 x i8], ptr %53, i64 %indvars.iv190
   %wide.trip.count183 = zext nneg i32 %74 to i64
   br label %77
 
 77:                                               ; preds = %.lr.ph148, %77
   %indvars.iv180 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next181, %77 ]
   %.0110147 = phi double [ 0.000000e+00, %.lr.ph148 ], [ %81, %77 ]
-  %78 = getelementptr inbounds nuw double, ptr %76, i64 %indvars.iv180
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv180
   %79 = load double, ptr %78, align 8, !tbaa !30
   %80 = tail call nsz double @llvm.fabs.f64(double %79)
   %81 = fadd nsz double %.0110147, %80
@@ -672,7 +672,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
   br i1 %or.cond, label %84, label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %._crit_edge149
-  %83 = getelementptr inbounds nuw [64 x double], ptr %53, i64 %indvars.iv190
+  %83 = getelementptr inbounds nuw [512 x i8], ptr %53, i64 %indvars.iv190
   %wide.trip.count188 = zext nneg i32 %74 to i64
   br label %87
 
@@ -687,7 +687,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
 
 87:                                               ; preds = %.lr.ph153, %87
   %indvars.iv185 = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next186, %87 ]
-  %88 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv185
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv185
   %89 = load double, ptr %88, align 8, !tbaa !30
   %90 = fdiv nsz double %89, %81
   store double %90, ptr %88, align 8, !tbaa !30
@@ -732,7 +732,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
   br i1 %107, label %.lr.ph159, label %._crit_edge160
 
 .lr.ph159:                                        ; preds = %.preheader
-  %108 = getelementptr inbounds nuw [64 x double], ptr %105, i64 %indvars.iv196
+  %108 = getelementptr inbounds nuw [512 x i8], ptr %105, i64 %indvars.iv196
   br label %109
 
 109:                                              ; preds = %.lr.ph159, %109
@@ -742,7 +742,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
   %111 = sub i64 %104, %110
   %.not125 = icmp eq i64 %indvars.iv193, 0
   %112 = select i1 %.not125, ptr @.str.8, ptr @.str.7
-  %113 = getelementptr inbounds nuw double, ptr %108, i64 %indvars.iv193
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv193
   %114 = load double, ptr %113, align 8, !tbaa !30
   %115 = trunc nuw nsw i64 %indvars.iv193 to i32
   %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0119157, i64 noundef %111, ptr noundef nonnull @.str.6, ptr noundef nonnull %112, double noundef %114, i32 noundef %115) #8
@@ -781,7 +781,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #1 {
 
 132:                                              ; preds = %.lr.ph165, %138
   %indvars.iv199 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next200, %138 ]
-  %133 = getelementptr inbounds nuw i32, ptr %131, i64 %indvars.iv199
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %indvars.iv199
   %134 = load i32, ptr %133, align 4, !tbaa !27
   %135 = icmp slt i32 %134, 0
   br i1 %135, label %136, label %137

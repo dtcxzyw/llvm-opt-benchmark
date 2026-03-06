@@ -91,7 +91,7 @@ define internal i64 @printf_test_call(i32 noundef %0, ptr noundef readonly captu
 
 8:                                                ; preds = %3
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr i64, ptr %1, i64 %9
+  %10 = getelementptr [8 x i8], ptr %1, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8, !tbaa !6
   %13 = tail call i32 @rb_keyword_given_p() #6
@@ -113,7 +113,7 @@ define internal i64 @printf_test_call(i32 noundef %0, ptr noundef readonly captu
   %exitcond.not = phi i1 [ true, %.preheader ], [ false, %17 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader ], [ %4, %17 ]
   %indvars.iv = phi i64 [ 1, %.preheader ], [ 0, %17 ]
-  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !6
   store i64 %20, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   br i1 %exitcond.not, label %21, label %.preheader, !llvm.loop !10

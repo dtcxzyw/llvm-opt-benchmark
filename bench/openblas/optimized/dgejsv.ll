@@ -72,15 +72,15 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %35 = load i32, ptr %9, align 4, !tbaa !3
   %narrow = xor i32 %35, -1
   %36 = sext i32 %narrow to i64
-  %37 = getelementptr inbounds double, ptr %8, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %8, i64 %36
   %38 = load i32, ptr %12, align 4, !tbaa !3
   %narrow2282 = xor i32 %38, -1
   %39 = sext i32 %narrow2282 to i64
-  %40 = getelementptr inbounds double, ptr %11, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %11, i64 %39
   %41 = load i32, ptr %14, align 4, !tbaa !3
   %narrow2283 = xor i32 %41, -1
   %42 = sext i32 %narrow2283 to i64
-  %43 = getelementptr inbounds double, ptr %13, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %13, i64 %42
   %44 = getelementptr inbounds i8, ptr %15, i64 -8
   %45 = getelementptr inbounds i8, ptr %17, i64 -4
   %46 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str) #7
@@ -376,7 +376,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double 1.000000e+00, ptr %24, align 8, !tbaa !7
   %190 = mul nsw i32 %189, %35
   %191 = sext i32 %190 to i64
-  %192 = getelementptr double, ptr %37, i64 %191
+  %192 = getelementptr [8 x i8], ptr %37, i64 %191
   %193 = getelementptr i8, ptr %192, i64 8
   call void @dlassq_(ptr noundef nonnull %6, ptr noundef %193, ptr noundef nonnull @c__1, ptr noundef nonnull %23, ptr noundef nonnull %24) #7
   %194 = load double, ptr %23, align 8, !tbaa !7
@@ -403,7 +403,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %205 = fmul double %200, %194
   %206 = load i32, ptr %27, align 4, !tbaa !3
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds double, ptr %34, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %34, i64 %207
   store double %205, ptr %208, align 8, !tbaa !7
   br label %218
 
@@ -413,7 +413,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %212 = fmul double %194, %211
   %213 = load i32, ptr %27, align 4, !tbaa !3
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds double, ptr %34, i64 %214
+  %215 = getelementptr inbounds [8 x i8], ptr %34, i64 %214
   store double %212, ptr %215, align 8, !tbaa !7
   %.not2285 = icmp eq i32 %.019412367, 0
   br i1 %.not2285, label %218, label %216
@@ -463,7 +463,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv = phi i64 [ 1, %.lr.ph2373.preheader ], [ %indvars.iv.next, %235 ]
   %225 = phi double [ 0.000000e+00, %.lr.ph2373.preheader ], [ %230, %235 ]
   %226 = phi double [ %180, %.lr.ph2373.preheader ], [ %237, %235 ]
-  %227 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %228 = load double, ptr %227, align 8, !tbaa !7
   %229 = fcmp oge double %225, %228
   %230 = select i1 %229, double %225, double %228
@@ -563,7 +563,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %267 = sub nsw i32 %266, %264
   store i32 %267, ptr %20, align 4, !tbaa !3
   %268 = sext i32 %264 to i64
-  %269 = getelementptr double, ptr %44, i64 %268
+  %269 = getelementptr [8 x i8], ptr %44, i64 %268
   %270 = getelementptr i8, ptr %269, i64 8
   call void @dgeqrf_(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %15, ptr noundef %270, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %271 = load i32, ptr %16, align 4, !tbaa !3
@@ -571,7 +571,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %273 = sub nsw i32 %271, %272
   store i32 %273, ptr %20, align 4, !tbaa !3
   %274 = sext i32 %272 to i64
-  %275 = getelementptr double, ptr %44, i64 %274
+  %275 = getelementptr [8 x i8], ptr %44, i64 %274
   %276 = getelementptr i8, ptr %275, i64 8
   call void @dorgqr_(ptr noundef nonnull %6, ptr noundef nonnull %28, ptr noundef nonnull @c__1, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %15, ptr noundef %276, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   call void @dcopy_(ptr noundef nonnull %6, ptr noundef %8, ptr noundef nonnull @c__1, ptr noundef %11, ptr noundef nonnull @c__1) #7
@@ -687,7 +687,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double 1.000000e+00, ptr %26, align 8, !tbaa !7
   %317 = add nsw i32 %storemerge21272378, %35
   %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds double, ptr %37, i64 %318
+  %319 = getelementptr inbounds [8 x i8], ptr %37, i64 %318
   call void @dlassq_(ptr noundef nonnull %7, ptr noundef %319, ptr noundef nonnull %9, ptr noundef nonnull %33, ptr noundef nonnull %26) #7
   %320 = load double, ptr %33, align 8, !tbaa !7
   %321 = load double, ptr %32, align 8, !tbaa !7
@@ -698,7 +698,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %326 = load i32, ptr %27, align 4, !tbaa !3
   %327 = add nsw i32 %325, %326
   %328 = sext i32 %327 to i64
-  %329 = getelementptr inbounds double, ptr %44, i64 %328
+  %329 = getelementptr inbounds [8 x i8], ptr %44, i64 %328
   store double %322, ptr %329, align 8, !tbaa !7
   %330 = load double, ptr %26, align 8, !tbaa !7
   %331 = call double @sqrt(double noundef %330) #7, !tbaa !3
@@ -707,7 +707,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %334 = load i32, ptr %7, align 4, !tbaa !3
   %335 = add nsw i32 %334, %326
   %336 = sext i32 %335 to i64
-  %337 = getelementptr inbounds double, ptr %44, i64 %336
+  %337 = getelementptr inbounds [8 x i8], ptr %44, i64 %336
   store double %333, ptr %337, align 8, !tbaa !7
   store double %.119352380, ptr %22, align 8, !tbaa !7
   %338 = fcmp oge double %.119352380, %333
@@ -742,12 +742,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %348 = load double, ptr %32, align 8, !tbaa !7
   %349 = add nsw i32 %storemerge21252419, %35
   %350 = sext i32 %349 to i64
-  %351 = getelementptr inbounds double, ptr %37, i64 %350
+  %351 = getelementptr inbounds [8 x i8], ptr %37, i64 %350
   %352 = call i32 @idamax_(ptr noundef nonnull %7, ptr noundef %351, ptr noundef nonnull %9) #7
   %353 = mul nsw i32 %352, %35
   %354 = add nsw i32 %353, %storemerge21252419
   %355 = sext i32 %354 to i64
-  %356 = getelementptr inbounds double, ptr %37, i64 %355
+  %356 = getelementptr inbounds [8 x i8], ptr %37, i64 %355
   %357 = load double, ptr %356, align 8, !tbaa !7
   %358 = fcmp oge double %357, 0.000000e+00
   %359 = fneg double %357
@@ -759,7 +759,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %365 = load i32, ptr %27, align 4, !tbaa !3
   %366 = add nsw i32 %364, %365
   %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds double, ptr %44, i64 %367
+  %368 = getelementptr inbounds [8 x i8], ptr %44, i64 %367
   store double %361, ptr %368, align 8, !tbaa !7
   store double %.319402420, ptr %22, align 8, !tbaa !7
   %369 = fcmp ole double %.319402420, %361
@@ -790,7 +790,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 378:                                              ; preds = %.lr.ph2389, %388
   %indvars.iv2921 = phi i64 [ 1, %.lr.ph2389 ], [ %indvars.iv.next2922, %388 ]
   %.119542387 = phi double [ 0.000000e+00, %.lr.ph2389 ], [ %.21955, %388 ]
-  %379 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv2921
+  %379 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv2921
   %380 = load double, ptr %379, align 8, !tbaa !7
   %381 = fdiv double %380, %376
   %382 = fmul double %381, %381
@@ -838,7 +838,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 401:                                              ; preds = %.lr.ph2399, %411
   %indvars.iv2926 = phi i64 [ %399, %.lr.ph2399 ], [ %indvars.iv.next2927, %411 ]
   %.119302396 = phi double [ 0.000000e+00, %.lr.ph2399 ], [ %.21931, %411 ]
-  %402 = getelementptr inbounds double, ptr %44, i64 %indvars.iv2926
+  %402 = getelementptr inbounds [8 x i8], ptr %44, i64 %indvars.iv2926
   %403 = load double, ptr %402, align 8, !tbaa !7
   %404 = fdiv double %403, %398
   %405 = fmul double %404, %404
@@ -888,17 +888,17 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph2409:                                       ; preds = %.lr.ph2409.preheader, %428
   %indvars.iv2929 = phi i64 [ 1, %.lr.ph2409.preheader ], [ %indvars.iv.next2930, %428 ]
   %423 = mul nsw i64 %indvars.iv2929, %422
-  %invariant.gep = getelementptr double, ptr %37, i64 %423
-  %invariant.gep3436 = getelementptr double, ptr %37, i64 %indvars.iv2929
+  %invariant.gep = getelementptr [8 x i8], ptr %37, i64 %423
+  %invariant.gep3436 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv2929
   br label %424
 
 424:                                              ; preds = %.lr.ph2409, %424
   %indvars.iv2931 = phi i64 [ %indvars.iv2929, %.lr.ph2409 ], [ %indvars.iv.next2932, %424 ]
   %indvars.iv.next2932 = add nuw nsw i64 %indvars.iv2931, 1
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv.next2932
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv.next2932
   %425 = load double, ptr %gep, align 8, !tbaa !7
   %426 = mul nsw i64 %indvars.iv.next2932, %422
-  %gep3437 = getelementptr double, ptr %invariant.gep3436, i64 %426
+  %gep3437 = getelementptr [8 x i8], ptr %invariant.gep3436, i64 %426
   %427 = load double, ptr %gep3437, align 8, !tbaa !7
   store double %427, ptr %gep, align 8, !tbaa !7
   store double %425, ptr %gep3437, align 8, !tbaa !7
@@ -925,19 +925,19 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %431 = zext nneg i32 %421 to i64
   %432 = add nuw i32 %421, 1
   %wide.trip.count2942 = zext i32 %432 to i64
-  %invariant.gep3438 = getelementptr inbounds nuw double, ptr %44, i64 %431
+  %invariant.gep3438 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %431
   br label %433
 
 433:                                              ; preds = %.lr.ph2415, %433
   %indvars.iv2939 = phi i64 [ 1, %.lr.ph2415 ], [ %indvars.iv.next2940, %433 ]
-  %434 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv2939
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv2939
   %435 = load double, ptr %434, align 8, !tbaa !7
   %436 = trunc nuw nsw i64 %indvars.iv2939 to i32
   %.reass = add i32 %invariant.op, %436
   %437 = sext i32 %.reass to i64
-  %438 = getelementptr inbounds double, ptr %44, i64 %437
+  %438 = getelementptr inbounds [8 x i8], ptr %44, i64 %437
   store double %435, ptr %438, align 8, !tbaa !7
-  %gep3439 = getelementptr inbounds nuw double, ptr %invariant.gep3438, i64 %indvars.iv2939
+  %gep3439 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep3438, i64 %indvars.iv2939
   %439 = load double, ptr %gep3439, align 8, !tbaa !7
   store double %439, ptr %434, align 8, !tbaa !7
   %indvars.iv.next2940 = add nuw nsw i64 %indvars.iv2939, 1
@@ -1040,7 +1040,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %479 = phi i32 [ %494, %493 ], [ %478, %477 ]
   %storemerge21392424 = phi i32 [ %496, %493 ], [ 1, %477 ]
   %480 = sext i32 %storemerge21392424 to i64
-  %481 = getelementptr inbounds double, ptr %34, i64 %480
+  %481 = getelementptr inbounds [8 x i8], ptr %34, i64 %480
   %482 = load double, ptr %481, align 8, !tbaa !7
   %483 = load double, ptr %33, align 8, !tbaa !7
   %484 = fcmp olt double %482, %483
@@ -1049,12 +1049,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 485:                                              ; preds = %.lr.ph2426
   %486 = mul nsw i32 %storemerge21392424, %35
   %487 = sext i32 %486 to i64
-  %488 = getelementptr double, ptr %37, i64 %487
+  %488 = getelementptr [8 x i8], ptr %37, i64 %487
   %489 = getelementptr i8, ptr %488, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %6, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %489, ptr noundef nonnull %9) #7
   %490 = load i32, ptr %27, align 4, !tbaa !3
   %491 = sext i32 %490 to i64
-  %492 = getelementptr inbounds double, ptr %34, i64 %491
+  %492 = getelementptr inbounds [8 x i8], ptr %34, i64 %491
   store double 0.000000e+00, ptr %492, align 8, !tbaa !7
   %.pre3136 = load i32, ptr %20, align 4, !tbaa !3
   br label %493
@@ -1088,7 +1088,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %503 = add i32 %500, %storemerge21412428
   %504 = add i32 %503, %502
   %505 = sext i32 %504 to i64
-  %506 = getelementptr inbounds double, ptr %44, i64 %505
+  %506 = getelementptr inbounds [8 x i8], ptr %44, i64 %505
   %507 = call i32 @idamax_(ptr noundef nonnull %21, ptr noundef nonnull %506, ptr noundef nonnull @c__1) #7
   %508 = load i32, ptr %27, align 4, !tbaa !3
   %509 = add i32 %507, -1
@@ -1097,7 +1097,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %512 = shl i32 %511, 1
   %513 = add nsw i32 %512, %508
   %514 = sext i32 %513 to i64
-  %515 = getelementptr inbounds i32, ptr %45, i64 %514
+  %515 = getelementptr inbounds [4 x i8], ptr %45, i64 %514
   store i32 %510, ptr %515, align 4, !tbaa !3
   %.not2278 = icmp eq i32 %509, 0
   br i1 %.not2278, label %528, label %516
@@ -1108,12 +1108,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %519 = add nsw i32 %518, %517
   %520 = add nsw i32 %519, %508
   %521 = sext i32 %520 to i64
-  %522 = getelementptr inbounds double, ptr %44, i64 %521
+  %522 = getelementptr inbounds [8 x i8], ptr %44, i64 %521
   %523 = load double, ptr %522, align 8, !tbaa !7
   store double %523, ptr %26, align 8, !tbaa !7
   %524 = add nsw i32 %519, %510
   %525 = sext i32 %524 to i64
-  %526 = getelementptr inbounds double, ptr %44, i64 %525
+  %526 = getelementptr inbounds [8 x i8], ptr %44, i64 %525
   %527 = load double, ptr %526, align 8, !tbaa !7
   store double %527, ptr %522, align 8, !tbaa !7
   store double %523, ptr %526, align 8, !tbaa !7
@@ -1137,7 +1137,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %531 = load i32, ptr %7, align 4, !tbaa !3
   %532 = shl i32 %531, 1
   %533 = sext i32 %532 to i64
-  %534 = getelementptr i32, ptr %45, i64 %533
+  %534 = getelementptr [4 x i8], ptr %45, i64 %533
   %535 = getelementptr i8, ptr %534, i64 4
   %536 = call i32 @dlaswp_(ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull @c__1, ptr noundef nonnull %20, ptr noundef %535, ptr noundef nonnull @c__1) #7
   br label %537
@@ -1163,7 +1163,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %543 = sub nsw i32 %542, %541
   store i32 %543, ptr %20, align 4, !tbaa !3
   %544 = sext i32 %541 to i64
-  %545 = getelementptr double, ptr %44, i64 %544
+  %545 = getelementptr [8 x i8], ptr %44, i64 %544
   %546 = getelementptr i8, ptr %545, i64 8
   call void @dgeqp3_(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %17, ptr noundef %15, ptr noundef %546, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   store i32 1, ptr %31, align 4, !tbaa !3
@@ -1198,7 +1198,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %562 = trunc nuw nsw i64 %indvars.iv2964 to i32
   %563 = mul i32 %553, %562
   %564 = sext i32 %563 to i64
-  %565 = getelementptr inbounds double, ptr %37, i64 %564
+  %565 = getelementptr inbounds [8 x i8], ptr %37, i64 %564
   %566 = load double, ptr %565, align 8, !tbaa !7
   %567 = call double @llvm.fabs.f64(double %566)
   %568 = fcmp ult double %567, %558
@@ -1235,14 +1235,14 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %578 = trunc nuw nsw i64 %indvars.iv2954 to i32
   %579 = mul i32 %574, %578
   %580 = sext i32 %579 to i64
-  %581 = getelementptr inbounds double, ptr %37, i64 %580
+  %581 = getelementptr inbounds [8 x i8], ptr %37, i64 %580
   %582 = load double, ptr %581, align 8, !tbaa !7
   %583 = call double @llvm.fabs.f64(double %582)
   %584 = trunc i64 %indvars.iv2954 to i32
   %585 = add i32 %584, -1
   %586 = mul i32 %585, %574
   %587 = sext i32 %586 to i64
-  %588 = getelementptr inbounds double, ptr %37, i64 %587
+  %588 = getelementptr inbounds [8 x i8], ptr %37, i64 %587
   %589 = load double, ptr %588, align 8, !tbaa !7
   %590 = fcmp oge double %589, 0.000000e+00
   %591 = fneg double %589
@@ -1266,14 +1266,14 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %599 = trunc nuw nsw i64 %indvars.iv2959 to i32
   %600 = mul i32 %574, %599
   %601 = sext i32 %600 to i64
-  %602 = getelementptr inbounds double, ptr %37, i64 %601
+  %602 = getelementptr inbounds [8 x i8], ptr %37, i64 %601
   %603 = load double, ptr %602, align 8, !tbaa !7
   %604 = call double @llvm.fabs.f64(double %603)
   %605 = trunc i64 %indvars.iv2959 to i32
   %606 = add i32 %605, -1
   %607 = mul i32 %606, %574
   %608 = sext i32 %607 to i64
-  %609 = getelementptr inbounds double, ptr %37, i64 %608
+  %609 = getelementptr inbounds [8 x i8], ptr %37, i64 %608
   %610 = load double, ptr %609, align 8, !tbaa !7
   %611 = fcmp oge double %610, 0.000000e+00
   %612 = fneg double %610
@@ -1313,7 +1313,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %628 = trunc nuw nsw i64 %indvars.iv2949 to i32
   %629 = mul i32 %574, %628
   %630 = sext i32 %629 to i64
-  %631 = getelementptr inbounds double, ptr %37, i64 %630
+  %631 = getelementptr inbounds [8 x i8], ptr %37, i64 %630
   %632 = load double, ptr %631, align 8, !tbaa !7
   %633 = call double @llvm.fabs.f64(double %632)
   %634 = fcmp olt double %633, %179
@@ -1368,15 +1368,15 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %646 = trunc nuw nsw i64 %indvars.iv2969 to i32
   %647 = mul i32 %643, %646
   %648 = sext i32 %647 to i64
-  %649 = getelementptr inbounds double, ptr %37, i64 %648
+  %649 = getelementptr inbounds [8 x i8], ptr %37, i64 %648
   %650 = load double, ptr %649, align 8, !tbaa !7
   %651 = fcmp oge double %650, 0.000000e+00
   %652 = fneg double %650
   %653 = select i1 %651, double %650, double %652
-  %654 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv2969
+  %654 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv2969
   %655 = load i32, ptr %654, align 4, !tbaa !3
   %656 = sext i32 %655 to i64
-  %657 = getelementptr inbounds double, ptr %34, i64 %656
+  %657 = getelementptr inbounds [8 x i8], ptr %34, i64 %656
   %658 = load double, ptr %657, align 8, !tbaa !7
   %659 = fdiv double %653, %658
   %660 = fcmp ole double %.019272485, %659
@@ -1417,17 +1417,17 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph2496:                                       ; preds = %669, %.lr.ph2496
   %storemerge21602494 = phi i32 [ %683, %.lr.ph2496 ], [ 1, %669 ]
   %671 = sext i32 %storemerge21602494 to i64
-  %672 = getelementptr inbounds i32, ptr %45, i64 %671
+  %672 = getelementptr inbounds [4 x i8], ptr %45, i64 %671
   %673 = load i32, ptr %672, align 4, !tbaa !3
   %674 = sext i32 %673 to i64
-  %675 = getelementptr inbounds double, ptr %34, i64 %674
+  %675 = getelementptr inbounds [8 x i8], ptr %34, i64 %674
   %676 = load double, ptr %675, align 8, !tbaa !7
   store double %676, ptr %26, align 8, !tbaa !7
   %677 = fdiv double 1.000000e+00, %676
   store double %677, ptr %22, align 8, !tbaa !7
   %678 = mul nsw i32 %storemerge21602494, %41
   %679 = sext i32 %678 to i64
-  %680 = getelementptr double, ptr %43, i64 %679
+  %680 = getelementptr [8 x i8], ptr %43, i64 %679
   %681 = getelementptr i8, ptr %680, i64 8
   call void @dscal_(ptr noundef nonnull %27, ptr noundef nonnull %22, ptr noundef %681, ptr noundef nonnull @c__1) #7
   %682 = load i32, ptr %27, align 4, !tbaa !3
@@ -1444,13 +1444,13 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 ._crit_edge2497:                                  ; preds = %._crit_edge2497.loopexit, %669
   %685 = phi i32 [ %.pre3139, %._crit_edge2497.loopexit ], [ %670, %669 ]
   %686 = sext i32 %685 to i64
-  %687 = getelementptr double, ptr %44, i64 %686
+  %687 = getelementptr [8 x i8], ptr %44, i64 %686
   %688 = getelementptr i8, ptr %687, i64 8
   %689 = shl i32 %685, 1
   %690 = load i32, ptr %6, align 4, !tbaa !3
   %691 = add nsw i32 %689, %690
   %692 = sext i32 %691 to i64
-  %693 = getelementptr i32, ptr %45, i64 %692
+  %693 = getelementptr [4 x i8], ptr %45, i64 %692
   %694 = getelementptr i8, ptr %693, i64 4
   call void @dpocon_(ptr noundef nonnull @.str, ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull @c_b35, ptr noundef nonnull %26, ptr noundef %688, ptr noundef %694, ptr noundef nonnull %25) #7
   br label %757
@@ -1470,17 +1470,17 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph2501:                                       ; preds = %696, %.lr.ph2501
   %storemerge21582499 = phi i32 [ %710, %.lr.ph2501 ], [ 1, %696 ]
   %698 = sext i32 %storemerge21582499 to i64
-  %699 = getelementptr inbounds i32, ptr %45, i64 %698
+  %699 = getelementptr inbounds [4 x i8], ptr %45, i64 %698
   %700 = load i32, ptr %699, align 4, !tbaa !3
   %701 = sext i32 %700 to i64
-  %702 = getelementptr inbounds double, ptr %34, i64 %701
+  %702 = getelementptr inbounds [8 x i8], ptr %34, i64 %701
   %703 = load double, ptr %702, align 8, !tbaa !7
   store double %703, ptr %26, align 8, !tbaa !7
   %704 = fdiv double 1.000000e+00, %703
   store double %704, ptr %22, align 8, !tbaa !7
   %705 = mul nsw i32 %storemerge21582499, %38
   %706 = sext i32 %705 to i64
-  %707 = getelementptr double, ptr %40, i64 %706
+  %707 = getelementptr [8 x i8], ptr %40, i64 %706
   %708 = getelementptr i8, ptr %707, i64 8
   call void @dscal_(ptr noundef nonnull %27, ptr noundef nonnull %22, ptr noundef %708, ptr noundef nonnull @c__1) #7
   %709 = load i32, ptr %27, align 4, !tbaa !3
@@ -1497,20 +1497,20 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 ._crit_edge2502:                                  ; preds = %._crit_edge2502.loopexit, %696
   %712 = phi i32 [ %.pre3140, %._crit_edge2502.loopexit ], [ %697, %696 ]
   %713 = sext i32 %712 to i64
-  %714 = getelementptr double, ptr %44, i64 %713
+  %714 = getelementptr [8 x i8], ptr %44, i64 %713
   %715 = getelementptr i8, ptr %714, i64 8
   %716 = shl i32 %712, 1
   %717 = load i32, ptr %6, align 4, !tbaa !3
   %718 = add nsw i32 %716, %717
   %719 = sext i32 %718 to i64
-  %720 = getelementptr i32, ptr %45, i64 %719
+  %720 = getelementptr [4 x i8], ptr %45, i64 %719
   %721 = getelementptr i8, ptr %720, i64 4
   call void @dpocon_(ptr noundef nonnull @.str, ptr noundef nonnull %7, ptr noundef %11, ptr noundef nonnull %12, ptr noundef nonnull @c_b35, ptr noundef nonnull %26, ptr noundef %715, ptr noundef %721, ptr noundef nonnull %25) #7
   br label %757
 
 722:                                              ; preds = %695
   %723 = sext i32 %639 to i64
-  %724 = getelementptr double, ptr %44, i64 %723
+  %724 = getelementptr [8 x i8], ptr %44, i64 %723
   %725 = getelementptr i8, ptr %724, i64 8
   call void @dlacpy_(ptr noundef nonnull @.str, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %725, ptr noundef nonnull %7) #7
   %726 = load i32, ptr %7, align 4, !tbaa !3
@@ -1522,10 +1522,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph2506:                                       ; preds = %722, %.lr.ph2506
   %storemerge21562504 = phi i32 [ %740, %.lr.ph2506 ], [ 1, %722 ]
   %727 = sext i32 %storemerge21562504 to i64
-  %728 = getelementptr inbounds i32, ptr %45, i64 %727
+  %728 = getelementptr inbounds [4 x i8], ptr %45, i64 %727
   %729 = load i32, ptr %728, align 4, !tbaa !3
   %730 = sext i32 %729 to i64
-  %731 = getelementptr inbounds double, ptr %34, i64 %730
+  %731 = getelementptr inbounds [8 x i8], ptr %34, i64 %730
   %732 = load double, ptr %731, align 8, !tbaa !7
   store double %732, ptr %26, align 8, !tbaa !7
   %733 = fdiv double 1.000000e+00, %732
@@ -1533,7 +1533,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %734 = load i32, ptr %7, align 4, !tbaa !3
   %735 = mul i32 %734, %storemerge21562504
   %736 = sext i32 %735 to i64
-  %737 = getelementptr double, ptr %44, i64 %736
+  %737 = getelementptr [8 x i8], ptr %44, i64 %736
   %738 = getelementptr i8, ptr %737, i64 8
   call void @dscal_(ptr noundef nonnull %27, ptr noundef nonnull %22, ptr noundef %738, ptr noundef nonnull @c__1) #7
   %739 = load i32, ptr %27, align 4, !tbaa !3
@@ -1550,18 +1550,18 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 ._crit_edge2507:                                  ; preds = %._crit_edge2507.loopexit, %722
   %742 = phi i32 [ %.pre3141, %._crit_edge2507.loopexit ], [ %726, %722 ]
   %743 = sext i32 %742 to i64
-  %744 = getelementptr double, ptr %44, i64 %743
+  %744 = getelementptr [8 x i8], ptr %44, i64 %743
   %745 = getelementptr i8, ptr %744, i64 8
   %746 = add i32 %742, 1
   %747 = mul i32 %746, %742
   %748 = sext i32 %747 to i64
-  %749 = getelementptr double, ptr %44, i64 %748
+  %749 = getelementptr [8 x i8], ptr %44, i64 %748
   %750 = getelementptr i8, ptr %749, i64 8
   %751 = shl i32 %742, 1
   %752 = load i32, ptr %6, align 4, !tbaa !3
   %753 = add nsw i32 %751, %752
   %754 = sext i32 %753 to i64
-  %755 = getelementptr i32, ptr %45, i64 %754
+  %755 = getelementptr [4 x i8], ptr %45, i64 %754
   %756 = getelementptr i8, ptr %755, i64 4
   call void @dpocon_(ptr noundef nonnull @.str, ptr noundef nonnull %7, ptr noundef %745, ptr noundef nonnull %7, ptr noundef nonnull @c_b35, ptr noundef nonnull %26, ptr noundef %750, ptr noundef %756, ptr noundef nonnull %25) #7
   br label %757
@@ -1583,7 +1583,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %764 = add i32 %35, 1
   %765 = mul i32 %763, %764
   %766 = sext i32 %765 to i64
-  %767 = getelementptr inbounds double, ptr %37, i64 %766
+  %767 = getelementptr inbounds [8 x i8], ptr %37, i64 %766
   %768 = load double, ptr %767, align 8, !tbaa !7
   %769 = fdiv double %762, %768
   store double %769, ptr %22, align 8, !tbaa !7
@@ -1619,11 +1619,11 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %786 = mul nsw i32 %785, %35
   %787 = add nsw i32 %786, %782
   %788 = sext i32 %787 to i64
-  %789 = getelementptr inbounds double, ptr %37, i64 %788
+  %789 = getelementptr inbounds [8 x i8], ptr %37, i64 %788
   %790 = mul nsw i32 %782, %35
   %791 = add nsw i32 %785, %790
   %792 = sext i32 %791 to i64
-  %793 = getelementptr inbounds double, ptr %37, i64 %792
+  %793 = getelementptr inbounds [8 x i8], ptr %37, i64 %792
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef %789, ptr noundef nonnull %9, ptr noundef %793, ptr noundef nonnull @c__1) #7
   %794 = load i32, ptr %27, align 4, !tbaa !3
   %795 = add nsw i32 %794, 1
@@ -1662,8 +1662,8 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %807 = mul nsw i64 %indvars.iv2979, %804
   %808 = mul nsw i32 %35, %indvars2981
   %809 = sext i32 %808 to i64
-  %810 = getelementptr double, ptr %37, i64 %indvars.iv2979
-  %811 = getelementptr double, ptr %810, i64 %809
+  %810 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv2979
+  %811 = getelementptr [8 x i8], ptr %810, i64 %809
   %812 = load double, ptr %811, align 8, !tbaa !7
   %813 = fcmp oge double %812, 0.000000e+00
   %814 = fneg double %812
@@ -1684,7 +1684,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 822:                                              ; preds = %819
   %823 = add nsw i64 %indvars.iv2974, %807
-  %824 = getelementptr inbounds double, ptr %37, i64 %823
+  %824 = getelementptr inbounds [8 x i8], ptr %37, i64 %823
   %825 = load double, ptr %824, align 8, !tbaa !7
   %826 = call double @llvm.fabs.f64(double %825)
   %827 = fcmp ugt double %826, %816
@@ -1701,7 +1701,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 829:                                              ; preds = %._crit_edge3192, %822
   %.pre-phi3207 = phi i64 [ %.pre3206, %._crit_edge3192 ], [ %823, %822 ]
   %830 = phi double [ %820, %._crit_edge3192 ], [ %825, %822 ]
-  %831 = getelementptr inbounds double, ptr %37, i64 %.pre-phi3207
+  %831 = getelementptr inbounds [8 x i8], ptr %37, i64 %.pre-phi3207
   %832 = load double, ptr %831, align 8, !tbaa !7
   %833 = fcmp ult double %832, 0.000000e+00
   %834 = xor i1 %817, %833
@@ -1729,7 +1729,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %840, ptr %21, align 4, !tbaa !3
   %841 = shl i32 %35, 1
   %842 = sext i32 %841 to i64
-  %843 = getelementptr double, ptr %37, i64 %842
+  %843 = getelementptr [8 x i8], ptr %37, i64 %842
   %844 = getelementptr i8, ptr %843, i64 8
   call void @dlaset_(ptr noundef nonnull @.str, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %844, ptr noundef nonnull %9) #7
   %.pre3142 = load i32, ptr %7, align 4, !tbaa !3
@@ -1748,7 +1748,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %847 = sub nsw i32 %846, %845
   store i32 %847, ptr %20, align 4, !tbaa !3
   %848 = sext i32 %845 to i64
-  %849 = getelementptr double, ptr %44, i64 %848
+  %849 = getelementptr [8 x i8], ptr %44, i64 %848
   %850 = getelementptr i8, ptr %849, i64 8
   call void @dgeqrf_(ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %15, ptr noundef %850, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %851 = load i32, ptr %31, align 4, !tbaa !3
@@ -1767,11 +1767,11 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %857 = mul nsw i32 %856, %35
   %858 = add nsw i32 %857, %853
   %859 = sext i32 %858 to i64
-  %860 = getelementptr inbounds double, ptr %37, i64 %859
+  %860 = getelementptr inbounds [8 x i8], ptr %37, i64 %859
   %861 = mul nsw i32 %853, %35
   %862 = add nsw i32 %856, %861
   %863 = sext i32 %862 to i64
-  %864 = getelementptr inbounds double, ptr %37, i64 %863
+  %864 = getelementptr inbounds [8 x i8], ptr %37, i64 %863
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef %860, ptr noundef nonnull %9, ptr noundef %864, ptr noundef nonnull @c__1) #7
   %865 = load i32, ptr %27, align 4, !tbaa !3
   %866 = add nsw i32 %865, 1
@@ -1805,8 +1805,8 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %875 = mul nsw i64 %indvars.iv2989, %874
   %876 = mul nsw i32 %35, %indvars2991
   %877 = sext i32 %876 to i64
-  %878 = getelementptr double, ptr %37, i64 %indvars.iv2989
-  %879 = getelementptr double, ptr %878, i64 %877
+  %878 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv2989
+  %879 = getelementptr [8 x i8], ptr %878, i64 %877
   %880 = load double, ptr %879, align 8, !tbaa !7
   %881 = fcmp oge double %880, 0.000000e+00
   %882 = fneg double %880
@@ -1824,7 +1824,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 890:                                              ; preds = %887
   %891 = add nsw i64 %indvars.iv2984, %875
-  %892 = getelementptr inbounds double, ptr %37, i64 %891
+  %892 = getelementptr inbounds [8 x i8], ptr %37, i64 %891
   %893 = load double, ptr %892, align 8, !tbaa !7
   %894 = call double @llvm.fabs.f64(double %893)
   %895 = fcmp ugt double %894, %884
@@ -1841,7 +1841,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 897:                                              ; preds = %._crit_edge3193, %890
   %.pre-phi3205 = phi i64 [ %.pre3204, %._crit_edge3193 ], [ %891, %890 ]
   %898 = phi double [ %888, %._crit_edge3193 ], [ %893, %890 ]
-  %899 = getelementptr inbounds double, ptr %37, i64 %.pre-phi3205
+  %899 = getelementptr inbounds [8 x i8], ptr %37, i64 %.pre-phi3205
   %900 = load double, ptr %899, align 8, !tbaa !7
   %901 = fcmp ult double %900, 0.000000e+00
   %902 = xor i1 %885, %901
@@ -1867,7 +1867,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %907, ptr %21, align 4, !tbaa !3
   %908 = shl i32 %35, 1
   %909 = sext i32 %908 to i64
-  %910 = getelementptr double, ptr %37, i64 %909
+  %910 = getelementptr [8 x i8], ptr %37, i64 %909
   %911 = getelementptr i8, ptr %910, i64 8
   call void @dlaset_(ptr noundef nonnull @.str, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %911, ptr noundef nonnull %9) #7
   br label %.loopexit2357
@@ -1927,10 +1927,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %933, ptr %21, align 4, !tbaa !3
   %934 = mul i32 %931, %928
   %935 = sext i32 %934 to i64
-  %936 = getelementptr inbounds double, ptr %37, i64 %935
+  %936 = getelementptr inbounds [8 x i8], ptr %37, i64 %935
   %937 = mul i32 %931, %929
   %938 = sext i32 %937 to i64
-  %939 = getelementptr inbounds double, ptr %43, i64 %938
+  %939 = getelementptr inbounds [8 x i8], ptr %43, i64 %938
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef %936, ptr noundef nonnull %9, ptr noundef %939, ptr noundef nonnull @c__1) #7
   %940 = load i32, ptr %27, align 4, !tbaa !3
   %941 = add nsw i32 %940, 1
@@ -1950,7 +1950,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %944, ptr %21, align 4, !tbaa !3
   %945 = shl i32 %41, 1
   %946 = sext i32 %945 to i64
-  %947 = getelementptr double, ptr %43, i64 %946
+  %947 = getelementptr [8 x i8], ptr %43, i64 %946
   %948 = getelementptr i8, ptr %947, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.20, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %948, ptr noundef nonnull %14) #7
   call void @dgesvj_(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %10, ptr noundef nonnull %31, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %15, ptr noundef nonnull %16, ptr noundef nonnull %18) #7
@@ -1977,7 +1977,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %961, ptr %20, align 4, !tbaa !3
   store i32 %961, ptr %21, align 4, !tbaa !3
   %962 = sext i32 %35 to i64
-  %963 = getelementptr double, ptr %37, i64 %962
+  %963 = getelementptr [8 x i8], ptr %37, i64 %962
   %964 = getelementptr i8, ptr %963, i64 16
   call void @dlaset_(ptr noundef nonnull @.str.21, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %964, ptr noundef nonnull %9) #7
   %965 = load i32, ptr %16, align 4, !tbaa !3
@@ -1985,7 +1985,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %967 = sub nsw i32 %965, %966
   store i32 %967, ptr %20, align 4, !tbaa !3
   %968 = sext i32 %966 to i64
-  %969 = getelementptr double, ptr %44, i64 %968
+  %969 = getelementptr [8 x i8], ptr %44, i64 %968
   %970 = getelementptr i8, ptr %969, i64 8
   call void @dgelqf_(ptr noundef nonnull %31, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %15, ptr noundef %970, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   call void @dlacpy_(ptr noundef nonnull @.str.21, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %13, ptr noundef nonnull %14) #7
@@ -1995,7 +1995,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %972, ptr %21, align 4, !tbaa !3
   %973 = shl i32 %41, 1
   %974 = sext i32 %973 to i64
-  %975 = getelementptr double, ptr %43, i64 %974
+  %975 = getelementptr [8 x i8], ptr %43, i64 %974
   %976 = getelementptr i8, ptr %975, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.20, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %976, ptr noundef nonnull %14) #7
   %977 = load i32, ptr %16, align 4, !tbaa !3
@@ -2004,10 +2004,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %980 = sub nsw i32 %977, %979
   store i32 %980, ptr %20, align 4, !tbaa !3
   %981 = sext i32 %978 to i64
-  %982 = getelementptr double, ptr %44, i64 %981
+  %982 = getelementptr [8 x i8], ptr %44, i64 %981
   %983 = getelementptr i8, ptr %982, i64 8
   %984 = sext i32 %979 to i64
-  %985 = getelementptr double, ptr %44, i64 %984
+  %985 = getelementptr [8 x i8], ptr %44, i64 %984
   %986 = getelementptr i8, ptr %985, i64 8
   call void @dgeqrf_(ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %983, ptr noundef %986, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %987 = load i32, ptr %31, align 4, !tbaa !3
@@ -2028,7 +2028,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %992, ptr %21, align 4, !tbaa !3
   %993 = mul i32 %990, %988
   %994 = sext i32 %993 to i64
-  %995 = getelementptr inbounds double, ptr %43, i64 %994
+  %995 = getelementptr inbounds [8 x i8], ptr %43, i64 %994
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef %995, ptr noundef nonnull %14, ptr noundef %995, ptr noundef nonnull @c__1) #7
   %996 = load i32, ptr %27, align 4, !tbaa !3
   %997 = add nsw i32 %996, 1
@@ -2049,12 +2049,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dlaset_(ptr noundef nonnull @.str.20, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %976, ptr noundef nonnull %14) #7
   %1001 = load i32, ptr %7, align 4, !tbaa !3
   %1002 = sext i32 %1001 to i64
-  %1003 = getelementptr double, ptr %44, i64 %1002
+  %1003 = getelementptr [8 x i8], ptr %44, i64 %1002
   %1004 = getelementptr i8, ptr %1003, i64 8
   call void @dgesvj_(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %10, ptr noundef nonnull %31, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %1004, ptr noundef nonnull %16, ptr noundef nonnull %18) #7
   %1005 = load i32, ptr %7, align 4, !tbaa !3
   %1006 = sext i32 %1005 to i64
-  %1007 = getelementptr double, ptr %44, i64 %1006
+  %1007 = getelementptr [8 x i8], ptr %44, i64 %1006
   %1008 = getelementptr i8, ptr %1007, i64 8
   %1009 = load double, ptr %1008, align 8, !tbaa !7
   store double %1009, ptr %32, align 8, !tbaa !7
@@ -2086,7 +2086,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1026 = add i32 %41, 1
   %1027 = add i32 %1026, %1022
   %1028 = sext i32 %1027 to i64
-  %1029 = getelementptr inbounds double, ptr %43, i64 %1028
+  %1029 = getelementptr inbounds [8 x i8], ptr %43, i64 %1028
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %31, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1029, ptr noundef nonnull %14) #7
   %1030 = load i32, ptr %7, align 4, !tbaa !3
   %1031 = load i32, ptr %31, align 4, !tbaa !3
@@ -2095,7 +2095,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1033 = add nsw i32 %1031, 1
   %1034 = mul nsw i32 %1033, %41
   %1035 = sext i32 %1034 to i64
-  %1036 = getelementptr double, ptr %43, i64 %1035
+  %1036 = getelementptr [8 x i8], ptr %43, i64 %1035
   %1037 = getelementptr i8, ptr %1036, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %31, ptr noundef nonnull %20, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1037, ptr noundef nonnull %14) #7
   %1038 = load i32, ptr %7, align 4, !tbaa !3
@@ -2106,7 +2106,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1041 = add nsw i32 %1039, 1
   %1042 = mul i32 %1041, %1026
   %1043 = sext i32 %1042 to i64
-  %1044 = getelementptr inbounds double, ptr %43, i64 %1043
+  %1044 = getelementptr inbounds [8 x i8], ptr %43, i64 %1043
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b35, ptr noundef %1044, ptr noundef nonnull %14) #7
   %.pre3145 = load i32, ptr %7, align 4, !tbaa !3
   %.pre3190 = sext i32 %.pre3145 to i64
@@ -2118,7 +2118,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1047 = load i32, ptr %16, align 4, !tbaa !3
   %1048 = sub nsw i32 %1047, %1046
   store i32 %1048, ptr %20, align 4, !tbaa !3
-  %1049 = getelementptr double, ptr %44, i64 %.pre-phi3191
+  %1049 = getelementptr [8 x i8], ptr %44, i64 %.pre-phi3191
   %1050 = getelementptr i8, ptr %1049, i64 8
   call void @dormlq_(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %15, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1050, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   br label %1051
@@ -2135,13 +2135,13 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %storemerge21812560 = phi i32 [ %1063, %.lr.ph2562 ], [ 1, %1051 ]
   %1053 = add nsw i32 %storemerge21812560, %41
   %1054 = sext i32 %1053 to i64
-  %1055 = getelementptr inbounds double, ptr %43, i64 %1054
+  %1055 = getelementptr inbounds [8 x i8], ptr %43, i64 %1054
   %1056 = sext i32 %storemerge21812560 to i64
-  %1057 = getelementptr inbounds i32, ptr %45, i64 %1056
+  %1057 = getelementptr inbounds [4 x i8], ptr %45, i64 %1056
   %1058 = load i32, ptr %1057, align 4, !tbaa !3
   %1059 = add nsw i32 %1058, %35
   %1060 = sext i32 %1059 to i64
-  %1061 = getelementptr inbounds double, ptr %37, i64 %1060
+  %1061 = getelementptr inbounds [8 x i8], ptr %37, i64 %1060
   call void @dcopy_(ptr noundef nonnull %7, ptr noundef %1055, ptr noundef nonnull %14, ptr noundef %1061, ptr noundef nonnull %9) #7
   %1062 = load i32, ptr %27, align 4, !tbaa !3
   %1063 = add nsw i32 %1062, 1
@@ -2183,10 +2183,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1075, ptr %21, align 4, !tbaa !3
   %1076 = mul i32 %1073, %1070
   %1077 = sext i32 %1076 to i64
-  %1078 = getelementptr inbounds double, ptr %37, i64 %1077
+  %1078 = getelementptr inbounds [8 x i8], ptr %37, i64 %1077
   %1079 = mul i32 %1073, %1071
   %1080 = sext i32 %1079 to i64
-  %1081 = getelementptr inbounds double, ptr %40, i64 %1080
+  %1081 = getelementptr inbounds [8 x i8], ptr %40, i64 %1080
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef %1078, ptr noundef nonnull %9, ptr noundef %1081, ptr noundef nonnull @c__1) #7
   %1082 = load i32, ptr %27, align 4, !tbaa !3
   %1083 = add nsw i32 %1082, 1
@@ -2206,7 +2206,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1086, ptr %21, align 4, !tbaa !3
   %1087 = shl i32 %38, 1
   %1088 = sext i32 %1087 to i64
-  %1089 = getelementptr double, ptr %40, i64 %1088
+  %1089 = getelementptr [8 x i8], ptr %40, i64 %1088
   %1090 = getelementptr i8, ptr %1089, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.20, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1090, ptr noundef nonnull %12) #7
   %1091 = load i32, ptr %16, align 4, !tbaa !3
@@ -2215,10 +2215,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1094 = sub nsw i32 %1091, %1093
   store i32 %1094, ptr %20, align 4, !tbaa !3
   %1095 = sext i32 %1092 to i64
-  %1096 = getelementptr double, ptr %44, i64 %1095
+  %1096 = getelementptr [8 x i8], ptr %44, i64 %1095
   %1097 = getelementptr i8, ptr %1096, i64 8
   %1098 = sext i32 %1093 to i64
-  %1099 = getelementptr double, ptr %44, i64 %1098
+  %1099 = getelementptr [8 x i8], ptr %44, i64 %1098
   %1100 = getelementptr i8, ptr %1099, i64 8
   call void @dgeqrf_(ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %1097, ptr noundef %1100, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %1101 = load i32, ptr %31, align 4, !tbaa !3
@@ -2237,11 +2237,11 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1107 = mul nsw i32 %1106, %38
   %1108 = add nsw i32 %1107, %1103
   %1109 = sext i32 %1108 to i64
-  %1110 = getelementptr inbounds double, ptr %40, i64 %1109
+  %1110 = getelementptr inbounds [8 x i8], ptr %40, i64 %1109
   %1111 = mul nsw i32 %1103, %38
   %1112 = add nsw i32 %1106, %1111
   %1113 = sext i32 %1112 to i64
-  %1114 = getelementptr inbounds double, ptr %40, i64 %1113
+  %1114 = getelementptr inbounds [8 x i8], ptr %40, i64 %1113
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef %1110, ptr noundef nonnull %12, ptr noundef %1114, ptr noundef nonnull @c__1) #7
   %1115 = load i32, ptr %27, align 4, !tbaa !3
   %1116 = add nsw i32 %1115, 1
@@ -2265,12 +2265,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1120 = sub nsw i32 %1118, %1119
   store i32 %1120, ptr %20, align 4, !tbaa !3
   %1121 = sext i32 %1119 to i64
-  %1122 = getelementptr double, ptr %44, i64 %1121
+  %1122 = getelementptr [8 x i8], ptr %44, i64 %1121
   %1123 = getelementptr i8, ptr %1122, i64 8
   call void @dgesvj_(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %10, ptr noundef nonnull %31, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %1123, ptr noundef nonnull %20, ptr noundef nonnull %18) #7
   %1124 = load i32, ptr %7, align 4, !tbaa !3
   %1125 = sext i32 %1124 to i64
-  %1126 = getelementptr double, ptr %44, i64 %1125
+  %1126 = getelementptr [8 x i8], ptr %44, i64 %1125
   %1127 = getelementptr i8, ptr %1126, i64 8
   %1128 = load double, ptr %1127, align 8, !tbaa !7
   store double %1128, ptr %32, align 8, !tbaa !7
@@ -2303,7 +2303,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1146 = add i32 %38, 1
   %1147 = add i32 %1146, %1141
   %1148 = sext i32 %1147 to i64
-  %1149 = getelementptr inbounds double, ptr %40, i64 %1148
+  %1149 = getelementptr inbounds [8 x i8], ptr %40, i64 %1148
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %31, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1149, ptr noundef nonnull %12) #7
   %1150 = load i32, ptr %31, align 4, !tbaa !3
   %1151 = load i32, ptr %28, align 4, !tbaa !3
@@ -2316,7 +2316,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1155 = add nsw i32 %1150, 1
   %1156 = mul nsw i32 %1155, %38
   %1157 = sext i32 %1156 to i64
-  %1158 = getelementptr double, ptr %40, i64 %1157
+  %1158 = getelementptr [8 x i8], ptr %40, i64 %1157
   %1159 = getelementptr i8, ptr %1158, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %31, ptr noundef nonnull %20, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1159, ptr noundef nonnull %12) #7
   %1160 = load i32, ptr %6, align 4, !tbaa !3
@@ -2329,7 +2329,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1165 = add nsw i32 %1161, 1
   %1166 = mul i32 %1165, %1146
   %1167 = sext i32 %1166 to i64
-  %1168 = getelementptr inbounds double, ptr %40, i64 %1167
+  %1168 = getelementptr inbounds [8 x i8], ptr %40, i64 %1167
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b35, ptr noundef %1168, ptr noundef nonnull %12) #7
   br label %1169
 
@@ -2339,7 +2339,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1172 = sub nsw i32 %1170, %1171
   store i32 %1172, ptr %20, align 4, !tbaa !3
   %1173 = sext i32 %1171 to i64
-  %1174 = getelementptr double, ptr %44, i64 %1173
+  %1174 = getelementptr [8 x i8], ptr %44, i64 %1173
   %1175 = getelementptr i8, ptr %1174, i64 8
   call void @dormqr_(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.25, ptr noundef nonnull %6, ptr noundef nonnull %28, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %15, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %1175, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   br i1 %.01925.shrunk, label %1176, label %1185
@@ -2351,7 +2351,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1179 = load i32, ptr %7, align 4, !tbaa !3
   %1180 = shl i32 %1179, 1
   %1181 = sext i32 %1180 to i64
-  %1182 = getelementptr i32, ptr %45, i64 %1181
+  %1182 = getelementptr [4 x i8], ptr %45, i64 %1181
   %1183 = getelementptr i8, ptr %1182, i64 4
   %1184 = call i32 @dlaswp_(ptr noundef nonnull %28, ptr noundef %11, ptr noundef nonnull %12, ptr noundef nonnull @c__1, ptr noundef nonnull %20, ptr noundef %1183, ptr noundef nonnull @c_n1) #7
   br label %1185
@@ -2367,7 +2367,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %storemerge21872575 = phi i32 [ %1199, %.lr.ph2577 ], [ 1, %1185 ]
   %1187 = mul nsw i32 %storemerge21872575, %38
   %1188 = sext i32 %1187 to i64
-  %1189 = getelementptr double, ptr %40, i64 %1188
+  %1189 = getelementptr [8 x i8], ptr %40, i64 %1188
   %1190 = getelementptr i8, ptr %1189, i64 8
   %1191 = call double @dnrm2_(ptr noundef nonnull %6, ptr noundef %1190, ptr noundef nonnull @c__1) #7
   %1192 = fdiv double 1.000000e+00, %1191
@@ -2375,7 +2375,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1193 = load i32, ptr %27, align 4, !tbaa !3
   %1194 = mul nsw i32 %1193, %38
   %1195 = sext i32 %1194 to i64
-  %1196 = getelementptr double, ptr %40, i64 %1195
+  %1196 = getelementptr [8 x i8], ptr %40, i64 %1195
   %1197 = getelementptr i8, ptr %1196, i64 8
   call void @dscal_(ptr noundef nonnull %6, ptr noundef nonnull %33, ptr noundef %1197, ptr noundef nonnull @c__1) #7
   %1198 = load i32, ptr %27, align 4, !tbaa !3
@@ -2419,10 +2419,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1210, ptr %21, align 4, !tbaa !3
   %1211 = mul i32 %storemerge21912663, %1206
   %1212 = sext i32 %1211 to i64
-  %1213 = getelementptr inbounds double, ptr %37, i64 %1212
+  %1213 = getelementptr inbounds [8 x i8], ptr %37, i64 %1212
   %1214 = mul i32 %storemerge21912663, %1207
   %1215 = sext i32 %1214 to i64
-  %1216 = getelementptr inbounds double, ptr %43, i64 %1215
+  %1216 = getelementptr inbounds [8 x i8], ptr %43, i64 %1215
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef %1213, ptr noundef nonnull %9, ptr noundef %1216, ptr noundef nonnull @c__1) #7
   %1217 = load i32, ptr %27, align 4, !tbaa !3
   %1218 = add nsw i32 %1217, 1
@@ -2458,8 +2458,8 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1227 = mul nsw i64 %indvars.iv3042, %1224
   %1228 = mul nsw i32 %41, %indvars3044
   %1229 = sext i32 %1228 to i64
-  %1230 = getelementptr double, ptr %43, i64 %indvars.iv3042
-  %1231 = getelementptr double, ptr %1230, i64 %1229
+  %1230 = getelementptr [8 x i8], ptr %43, i64 %indvars.iv3042
+  %1231 = getelementptr [8 x i8], ptr %1230, i64 %1229
   %1232 = load double, ptr %1231, align 8, !tbaa !7
   %1233 = fcmp oge double %1232, 0.000000e+00
   %1234 = fneg double %1232
@@ -2470,7 +2470,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph2671:                                       ; preds = %1226
   %1237 = fcmp oge double %1236, 0.000000e+00
   %1238 = fneg double %1236
-  %invariant.gep3452 = getelementptr double, ptr %43, i64 %1227
+  %invariant.gep3452 = getelementptr [8 x i8], ptr %43, i64 %1227
   br label %1239
 
 1239:                                             ; preds = %.lr.ph2671, %1261
@@ -2481,7 +2481,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 1242:                                             ; preds = %1239
   %1243 = add nsw i64 %indvars.iv3037, %1227
-  %1244 = getelementptr inbounds double, ptr %43, i64 %1243
+  %1244 = getelementptr inbounds [8 x i8], ptr %43, i64 %1243
   %1245 = load double, ptr %1244, align 8, !tbaa !7
   %1246 = call double @llvm.fabs.f64(double %1245)
   %1247 = fcmp ugt double %1246, %1236
@@ -2498,7 +2498,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1249:                                             ; preds = %._crit_edge3195, %1242
   %.pre-phi3199 = phi i64 [ %.pre3198, %._crit_edge3195 ], [ %1243, %1242 ]
   %1250 = phi double [ %1240, %._crit_edge3195 ], [ %1245, %1242 ]
-  %1251 = getelementptr inbounds double, ptr %43, i64 %.pre-phi3199
+  %1251 = getelementptr inbounds [8 x i8], ptr %43, i64 %.pre-phi3199
   %1252 = load double, ptr %1251, align 8, !tbaa !7
   %1253 = fcmp ult double %1252, 0.000000e+00
   %1254 = xor i1 %1237, %1253
@@ -2512,7 +2512,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %1257, label %1258, label %1261
 
 1258:                                             ; preds = %1255
-  %gep3453 = getelementptr double, ptr %invariant.gep3452, i64 %indvars.iv3037
+  %gep3453 = getelementptr [8 x i8], ptr %invariant.gep3452, i64 %indvars.iv3037
   %1259 = load double, ptr %gep3453, align 8, !tbaa !7
   %1260 = fneg double %1259
   store double %1260, ptr %gep3453, align 8, !tbaa !7
@@ -2537,7 +2537,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1265, ptr %21, align 4, !tbaa !3
   %1266 = shl i32 %41, 1
   %1267 = sext i32 %1266 to i64
-  %1268 = getelementptr double, ptr %43, i64 %1267
+  %1268 = getelementptr [8 x i8], ptr %43, i64 %1267
   %1269 = getelementptr i8, ptr %1268, i64 8
   call void @dlaset_(ptr noundef nonnull @.str, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1269, ptr noundef nonnull %14) #7
   %.pre3158 = load i32, ptr %7, align 4, !tbaa !3
@@ -2554,7 +2554,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1270 = phi i32 [ %.pre3159, %1220 ], [ %.pre3159, %..loopexit2353_crit_edge ], [ %.pre3158, %1263 ]
   %1271 = shl i32 %1270, 1
   %1272 = sext i32 %1271 to i64
-  %1273 = getelementptr double, ptr %44, i64 %1272
+  %1273 = getelementptr [8 x i8], ptr %44, i64 %1272
   %1274 = getelementptr i8, ptr %1273, i64 8
   call void @dlacpy_(ptr noundef nonnull @.str.17, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1274, ptr noundef nonnull %31) #7
   %1275 = load i32, ptr %31, align 4, !tbaa !3
@@ -2576,7 +2576,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1282 = add i32 %1281, %storemerge21942682
   %1283 = add i32 %1282, %1279
   %1284 = sext i32 %1283 to i64
-  %1285 = getelementptr inbounds double, ptr %44, i64 %1284
+  %1285 = getelementptr inbounds [8 x i8], ptr %44, i64 %1284
   %1286 = call double @dnrm2_(ptr noundef nonnull %21, ptr noundef nonnull %1285, ptr noundef nonnull @c__1) #7
   store double %1286, ptr %26, align 8, !tbaa !7
   %1287 = load i32, ptr %31, align 4, !tbaa !3
@@ -2593,7 +2593,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1296 = add i32 %1295, %1288
   %1297 = add i32 %1296, %1293
   %1298 = sext i32 %1297 to i64
-  %1299 = getelementptr inbounds double, ptr %44, i64 %1298
+  %1299 = getelementptr inbounds [8 x i8], ptr %44, i64 %1298
   call void @dscal_(ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %1299, ptr noundef nonnull @c__1) #7
   %1300 = load i32, ptr %27, align 4, !tbaa !3
   %1301 = add nsw i32 %1300, 1
@@ -2611,17 +2611,17 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1304 = load i32, ptr %7, align 4, !tbaa !3
   %1305 = shl i32 %1304, 1
   %1306 = sext i32 %1305 to i64
-  %1307 = getelementptr double, ptr %44, i64 %1306
+  %1307 = getelementptr [8 x i8], ptr %44, i64 %1306
   %1308 = getelementptr i8, ptr %1307, i64 8
   %1309 = mul nsw i32 %1303, %1303
   %1310 = add nsw i32 %1309, %1305
   %1311 = sext i32 %1310 to i64
-  %1312 = getelementptr double, ptr %44, i64 %1311
+  %1312 = getelementptr [8 x i8], ptr %44, i64 %1311
   %1313 = getelementptr i8, ptr %1312, i64 8
   %1314 = load i32, ptr %6, align 4, !tbaa !3
   %1315 = add nsw i32 %1314, %1305
   %1316 = sext i32 %1315 to i64
-  %1317 = getelementptr i32, ptr %45, i64 %1316
+  %1317 = getelementptr [4 x i8], ptr %45, i64 %1316
   %1318 = getelementptr i8, ptr %1317, i64 4
   call void @dpocon_(ptr noundef nonnull @.str.21, ptr noundef nonnull %31, ptr noundef %1308, ptr noundef nonnull %31, ptr noundef nonnull @c_b35, ptr noundef nonnull %26, ptr noundef %1313, ptr noundef %1318, ptr noundef nonnull %25) #7
   %1319 = load double, ptr %26, align 8, !tbaa !7
@@ -2640,10 +2640,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1330 = sub nsw i32 %1327, %1329
   store i32 %1330, ptr %20, align 4, !tbaa !3
   %1331 = sext i32 %1328 to i64
-  %1332 = getelementptr double, ptr %44, i64 %1331
+  %1332 = getelementptr [8 x i8], ptr %44, i64 %1331
   %1333 = getelementptr i8, ptr %1332, i64 8
   %1334 = sext i32 %1329 to i64
-  %1335 = getelementptr double, ptr %44, i64 %1334
+  %1335 = getelementptr [8 x i8], ptr %44, i64 %1334
   %1336 = getelementptr i8, ptr %1335, i64 8
   call void @dgeqrf_(ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1333, ptr noundef %1336, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %.pre3163 = load i32, ptr %31, align 4, !tbaa !3
@@ -2669,9 +2669,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1344 = trunc nuw nsw i64 %indvars.iv3073 to i32
   %1345 = mul i32 %1340, %1344
   %1346 = sext i32 %1345 to i64
-  %1347 = getelementptr inbounds double, ptr %43, i64 %1346
+  %1347 = getelementptr inbounds [8 x i8], ptr %43, i64 %1346
   %1348 = mul nsw i64 %indvars.iv3073, %1341
-  %invariant.gep3460 = getelementptr double, ptr %43, i64 %1348
+  %invariant.gep3460 = getelementptr [8 x i8], ptr %43, i64 %1348
   br label %1349
 
 1349:                                             ; preds = %1343, %1373
@@ -2683,7 +2683,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1354 = trunc nuw nsw i64 %indvars.iv3068 to i32
   %1355 = mul i32 %1340, %1354
   %1356 = sext i32 %1355 to i64
-  %1357 = getelementptr inbounds double, ptr %43, i64 %1356
+  %1357 = getelementptr inbounds [8 x i8], ptr %43, i64 %1356
   %1358 = load double, ptr %1357, align 8, !tbaa !7
   %1359 = fcmp oge double %1358, 0.000000e+00
   %1360 = fneg double %1358
@@ -2691,7 +2691,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1362 = fcmp ole double %1353, %1361
   %1363 = select i1 %1362, double %1353, double %1361
   %1364 = fmul double %1339, %1363
-  %gep3461 = getelementptr double, ptr %invariant.gep3460, i64 %indvars.iv3068
+  %gep3461 = getelementptr [8 x i8], ptr %invariant.gep3460, i64 %indvars.iv3068
   %1365 = load double, ptr %gep3461, align 8, !tbaa !7
   %1366 = call double @llvm.fabs.f64(double %1365)
   %1367 = fcmp ugt double %1366, %1364
@@ -2736,7 +2736,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1378:                                             ; preds = %1376
   %1379 = shl i32 %1377, 1
   %1380 = sext i32 %1379 to i64
-  %1381 = getelementptr double, ptr %44, i64 %1380
+  %1381 = getelementptr [8 x i8], ptr %44, i64 %1380
   %1382 = getelementptr i8, ptr %1381, i64 8
   call void @dlacpy_(ptr noundef nonnull @.str.6, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1382, ptr noundef nonnull %7) #7
   %.pre3164 = load i32, ptr %31, align 4, !tbaa !3
@@ -2759,11 +2759,11 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1389 = mul nsw i32 %1388, %41
   %1390 = add nsw i32 %1389, %storemerge22112726
   %1391 = sext i32 %1390 to i64
-  %1392 = getelementptr inbounds double, ptr %43, i64 %1391
+  %1392 = getelementptr inbounds [8 x i8], ptr %43, i64 %1391
   %1393 = mul nsw i32 %storemerge22112726, %41
   %1394 = add nsw i32 %1388, %1393
   %1395 = sext i32 %1394 to i64
-  %1396 = getelementptr inbounds double, ptr %43, i64 %1395
+  %1396 = getelementptr inbounds [8 x i8], ptr %43, i64 %1395
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef %1392, ptr noundef nonnull %14, ptr noundef %1396, ptr noundef nonnull @c__1) #7
   %1397 = load i32, ptr %27, align 4, !tbaa !3
   %1398 = add nsw i32 %1397, 1
@@ -2785,7 +2785,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1402 = load i32, ptr %7, align 4, !tbaa !3
   %1403 = add nsw i32 %1402, %storemerge21962687
   %1404 = sext i32 %1403 to i64
-  %1405 = getelementptr inbounds i32, ptr %45, i64 %1404
+  %1405 = getelementptr inbounds [4 x i8], ptr %45, i64 %1404
   store i32 0, ptr %1405, align 4, !tbaa !3
   %1406 = add nuw i32 %storemerge21962687, 1
   %exitcond3047.not = icmp eq i32 %storemerge21962687, %1322
@@ -2801,10 +2801,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1410, ptr %20, align 4, !tbaa !3
   %1411 = add nsw i32 %1408, 1
   %1412 = sext i32 %1411 to i64
-  %1413 = getelementptr inbounds i32, ptr %45, i64 %1412
-  %1414 = getelementptr inbounds double, ptr %44, i64 %1412
+  %1413 = getelementptr inbounds [4 x i8], ptr %45, i64 %1412
+  %1414 = getelementptr inbounds [8 x i8], ptr %44, i64 %1412
   %1415 = sext i32 %1409 to i64
-  %1416 = getelementptr double, ptr %44, i64 %1415
+  %1416 = getelementptr [8 x i8], ptr %44, i64 %1415
   %1417 = getelementptr i8, ptr %1416, i64 8
   call void @dgeqp3_(ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %1413, ptr noundef nonnull %1414, ptr noundef %1417, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   br i1 %774, label %1418, label %.critedge
@@ -2829,9 +2829,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1425 = trunc nuw nsw i64 %indvars.iv3053 to i32
   %1426 = mul i32 %1421, %1425
   %1427 = sext i32 %1426 to i64
-  %1428 = getelementptr inbounds double, ptr %43, i64 %1427
+  %1428 = getelementptr inbounds [8 x i8], ptr %43, i64 %1427
   %1429 = mul nsw i64 %indvars.iv3053, %1422
-  %invariant.gep3454 = getelementptr double, ptr %43, i64 %1429
+  %invariant.gep3454 = getelementptr [8 x i8], ptr %43, i64 %1429
   br label %1430
 
 1430:                                             ; preds = %1424, %1454
@@ -2843,7 +2843,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1435 = trunc nuw nsw i64 %indvars.iv3048 to i32
   %1436 = mul i32 %1421, %1435
   %1437 = sext i32 %1436 to i64
-  %1438 = getelementptr inbounds double, ptr %43, i64 %1437
+  %1438 = getelementptr inbounds [8 x i8], ptr %43, i64 %1437
   %1439 = load double, ptr %1438, align 8, !tbaa !7
   %1440 = fcmp oge double %1439, 0.000000e+00
   %1441 = fneg double %1439
@@ -2851,7 +2851,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1443 = fcmp ole double %1434, %1442
   %1444 = select i1 %1443, double %1434, double %1442
   %1445 = fmul double %1419, %1444
-  %gep3455 = getelementptr double, ptr %invariant.gep3454, i64 %indvars.iv3048
+  %gep3455 = getelementptr [8 x i8], ptr %invariant.gep3454, i64 %indvars.iv3048
   %1446 = load double, ptr %gep3455, align 8, !tbaa !7
   %1447 = call double @llvm.fabs.f64(double %1446)
   %1448 = fcmp ugt double %1447, %1445
@@ -2889,7 +2889,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1458 = load i32, ptr %7, align 4, !tbaa !3
   %1459 = shl i32 %1458, 1
   %1460 = sext i32 %1459 to i64
-  %1461 = getelementptr double, ptr %44, i64 %1460
+  %1461 = getelementptr [8 x i8], ptr %44, i64 %1460
   %1462 = getelementptr i8, ptr %1461, i64 8
   call void @dlacpy_(ptr noundef nonnull @.str.6, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1462, ptr noundef nonnull %7) #7
   %1463 = call double @sqrt(double noundef %179) #7, !tbaa !3
@@ -2910,10 +2910,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1469 = trunc nuw nsw i64 %indvars.iv3063 to i32
   %1470 = mul i32 %1465, %1469
   %1471 = sext i32 %1470 to i64
-  %1472 = getelementptr inbounds double, ptr %43, i64 %1471
+  %1472 = getelementptr inbounds [8 x i8], ptr %43, i64 %1471
   %1473 = mul nsw i64 %indvars.iv3063, %1466
-  %invariant.gep3456 = getelementptr double, ptr %43, i64 %1473
-  %invariant.gep3458 = getelementptr double, ptr %43, i64 %indvars.iv3063
+  %invariant.gep3456 = getelementptr [8 x i8], ptr %43, i64 %1473
+  %invariant.gep3458 = getelementptr [8 x i8], ptr %43, i64 %indvars.iv3063
   br label %1474
 
 1474:                                             ; preds = %1468, %1474
@@ -2926,8 +2926,8 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1479 = mul nsw i64 %indvars.iv3058, %1466
   %1480 = mul nsw i32 %41, %indvars3060
   %1481 = sext i32 %1480 to i64
-  %1482 = getelementptr double, ptr %43, i64 %indvars.iv3058
-  %1483 = getelementptr double, ptr %1482, i64 %1481
+  %1482 = getelementptr [8 x i8], ptr %43, i64 %indvars.iv3058
+  %1483 = getelementptr [8 x i8], ptr %1482, i64 %1481
   %1484 = load double, ptr %1483, align 8, !tbaa !7
   %1485 = fcmp oge double %1484, 0.000000e+00
   %1486 = fneg double %1484
@@ -2935,14 +2935,14 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1488 = fcmp ole double %1478, %1487
   %1489 = select i1 %1488, double %1478, double %1487
   %1490 = fmul double %1463, %1489
-  %gep3457 = getelementptr double, ptr %invariant.gep3456, i64 %indvars.iv3058
+  %gep3457 = getelementptr [8 x i8], ptr %invariant.gep3456, i64 %indvars.iv3058
   %1491 = load double, ptr %gep3457, align 8, !tbaa !7
   %1492 = fcmp ult double %1491, 0.000000e+00
   %1493 = fcmp oge double %1490, 0.000000e+00
   %1494 = xor i1 %1493, %1492
   %.neg3502 = fneg double %1490
   %1495 = select i1 %1494, double %.neg3502, double %1490
-  %gep3459 = getelementptr double, ptr %invariant.gep3458, i64 %1479
+  %gep3459 = getelementptr [8 x i8], ptr %invariant.gep3458, i64 %1479
   store double %1495, ptr %gep3459, align 8, !tbaa !7
   %indvars.iv.next3059 = add nuw nsw i64 %indvars.iv3058, 1
   %exitcond3062.not = icmp eq i64 %indvars.iv.next3059, %indvars.iv3063
@@ -2957,7 +2957,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1497 = load i32, ptr %7, align 4, !tbaa !3
   %1498 = shl i32 %1497, 1
   %1499 = sext i32 %1498 to i64
-  %1500 = getelementptr double, ptr %44, i64 %1499
+  %1500 = getelementptr [8 x i8], ptr %44, i64 %1499
   %1501 = getelementptr i8, ptr %1500, i64 8
   call void @dlacpy_(ptr noundef nonnull @.str.6, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1501, ptr noundef nonnull %7) #7
   %1502 = load i32, ptr %31, align 4, !tbaa !3
@@ -2965,7 +2965,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1503, ptr %20, align 4, !tbaa !3
   store i32 %1503, ptr %21, align 4, !tbaa !3
   %1504 = sext i32 %41 to i64
-  %1505 = getelementptr double, ptr %43, i64 %1504
+  %1505 = getelementptr [8 x i8], ptr %43, i64 %1504
   %1506 = getelementptr i8, ptr %1505, i64 16
   call void @dlaset_(ptr noundef nonnull @.str.17, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1506, ptr noundef nonnull %14) #7
   %.pre3161 = load i32, ptr %31, align 4, !tbaa !3
@@ -2993,10 +2993,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1515 = sub i32 %1510, %1514
   store i32 %1515, ptr %20, align 4, !tbaa !3
   %1516 = sext i32 %1513 to i64
-  %1517 = getelementptr double, ptr %44, i64 %1516
+  %1517 = getelementptr [8 x i8], ptr %44, i64 %1516
   %1518 = getelementptr i8, ptr %1517, i64 8
   %1519 = sext i32 %1514 to i64
-  %1520 = getelementptr double, ptr %44, i64 %1519
+  %1520 = getelementptr [8 x i8], ptr %44, i64 %1519
   %1521 = getelementptr i8, ptr %1520, i64 8
   call void @dgelqf_(ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1518, ptr noundef %1521, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %1522 = load i32, ptr %7, align 4, !tbaa !3
@@ -3005,7 +3005,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1525 = mul i32 %1524, %1522
   %1526 = add nsw i32 %1525, %1523
   %1527 = sext i32 %1526 to i64
-  %1528 = getelementptr double, ptr %44, i64 %1527
+  %1528 = getelementptr [8 x i8], ptr %44, i64 %1527
   %1529 = getelementptr i8, ptr %1528, i64 8
   call void @dlacpy_(ptr noundef nonnull @.str.17, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1529, ptr noundef nonnull %31) #7
   %1530 = load i32, ptr %31, align 4, !tbaa !3
@@ -3023,7 +3023,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1535 = add i32 %1532, %storemerge22022712
   %1536 = add i32 %1535, %1534
   %1537 = sext i32 %1536 to i64
-  %1538 = getelementptr inbounds double, ptr %44, i64 %1537
+  %1538 = getelementptr inbounds [8 x i8], ptr %44, i64 %1537
   %1539 = call double @dnrm2_(ptr noundef nonnull %27, ptr noundef nonnull %1538, ptr noundef nonnull %31) #7
   store double %1539, ptr %26, align 8, !tbaa !7
   %1540 = fdiv double 1.000000e+00, %1539
@@ -3036,7 +3036,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1546 = add i32 %1545, %1542
   %1547 = add i32 %1546, %1544
   %1548 = sext i32 %1547 to i64
-  %1549 = getelementptr inbounds double, ptr %44, i64 %1548
+  %1549 = getelementptr inbounds [8 x i8], ptr %44, i64 %1548
   call void @dscal_(ptr noundef nonnull %27, ptr noundef nonnull %22, ptr noundef nonnull %1549, ptr noundef nonnull %31) #7
   %1550 = load i32, ptr %27, align 4, !tbaa !3
   %1551 = add nsw i32 %1550, 1
@@ -3057,17 +3057,17 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1557 = mul i32 %1556, %1554
   %1558 = add nsw i32 %1557, %1553
   %1559 = sext i32 %1558 to i64
-  %1560 = getelementptr double, ptr %44, i64 %1559
+  %1560 = getelementptr [8 x i8], ptr %44, i64 %1559
   %1561 = getelementptr i8, ptr %1560, i64 8
   %1562 = mul nsw i32 %1553, %1553
   %1563 = add nsw i32 %1558, %1562
   %1564 = sext i32 %1563 to i64
-  %1565 = getelementptr double, ptr %44, i64 %1564
+  %1565 = getelementptr [8 x i8], ptr %44, i64 %1564
   %1566 = getelementptr i8, ptr %1565, i64 8
   %1567 = load i32, ptr %6, align 4, !tbaa !3
   %1568 = add nsw i32 %1567, %1555
   %1569 = sext i32 %1568 to i64
-  %1570 = getelementptr i32, ptr %45, i64 %1569
+  %1570 = getelementptr [4 x i8], ptr %45, i64 %1569
   %1571 = getelementptr i8, ptr %1570, i64 4
   call void @dpocon_(ptr noundef nonnull @.str.17, ptr noundef nonnull %31, ptr noundef %1561, ptr noundef nonnull %31, ptr noundef nonnull @c_b35, ptr noundef nonnull %26, ptr noundef %1566, ptr noundef %1571, ptr noundef nonnull %25) #7
   %1572 = load double, ptr %26, align 8, !tbaa !7
@@ -3080,7 +3080,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1577 = load i32, ptr %7, align 4, !tbaa !3
   %1578 = shl i32 %1577, 1
   %1579 = sext i32 %1578 to i64
-  %1580 = getelementptr double, ptr %44, i64 %1579
+  %1580 = getelementptr [8 x i8], ptr %44, i64 %1579
   %1581 = getelementptr i8, ptr %1580, i64 8
   call void @dlacpy_(ptr noundef nonnull @.str, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1581, ptr noundef nonnull %7) #7
   br label %.loopexit2350
@@ -3108,18 +3108,18 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1587 = mul nsw i64 %indvars.iv3083, %1585
   %1588 = mul nsw i32 %41, %indvars3085
   %1589 = sext i32 %1588 to i64
-  %1590 = getelementptr double, ptr %43, i64 %indvars.iv3083
-  %1591 = getelementptr double, ptr %1590, i64 %1589
+  %1590 = getelementptr [8 x i8], ptr %43, i64 %indvars.iv3083
+  %1591 = getelementptr [8 x i8], ptr %1590, i64 %1589
   %1592 = load double, ptr %1591, align 8, !tbaa !7
   %1593 = fmul double %1583, %1592
   %1594 = fcmp oge double %1593, 0.000000e+00
-  %invariant.gep3462 = getelementptr double, ptr %43, i64 %1587
+  %invariant.gep3462 = getelementptr [8 x i8], ptr %43, i64 %1587
   %.neg3353 = fneg double %1593
   br label %1595
 
 1595:                                             ; preds = %.lr.ph2733, %1595
   %indvars.iv3078 = phi i64 [ 1, %.lr.ph2733 ], [ %indvars.iv.next3079, %1595 ]
-  %gep3463 = getelementptr double, ptr %invariant.gep3462, i64 %indvars.iv3078
+  %gep3463 = getelementptr [8 x i8], ptr %invariant.gep3462, i64 %indvars.iv3078
   %1596 = load double, ptr %gep3463, align 8, !tbaa !7
   %1597 = fcmp ult double %1596, 0.000000e+00
   %1598 = xor i1 %1594, %1597
@@ -3141,7 +3141,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1603, ptr %21, align 4, !tbaa !3
   %1604 = shl i32 %41, 1
   %1605 = sext i32 %1604 to i64
-  %1606 = getelementptr double, ptr %43, i64 %1605
+  %1606 = getelementptr [8 x i8], ptr %43, i64 %1605
   %1607 = getelementptr i8, ptr %1606, i64 8
   call void @dlaset_(ptr noundef nonnull @.str, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1607, ptr noundef nonnull %14) #7
   br label %.loopexit2349
@@ -3166,7 +3166,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1616 = sub i32 %1610, %1615
   store i32 %1616, ptr %20, align 4, !tbaa !3
   %1617 = sext i32 %1615 to i64
-  %1618 = getelementptr double, ptr %44, i64 %1617
+  %1618 = getelementptr [8 x i8], ptr %44, i64 %1617
   %1619 = getelementptr i8, ptr %1618, i64 8
   call void @dgesvj_(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %10, ptr noundef nonnull %31, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %1619, ptr noundef nonnull %20, ptr noundef nonnull %18) #7
   %1620 = load i32, ptr %7, align 4, !tbaa !3
@@ -3175,7 +3175,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1623 = mul i32 %1622, %1620
   %1624 = add nsw i32 %1623, %1621
   %1625 = sext i32 %1624 to i64
-  %1626 = getelementptr double, ptr %44, i64 %1625
+  %1626 = getelementptr [8 x i8], ptr %44, i64 %1625
   %1627 = getelementptr i8, ptr %1626, i64 8
   %1628 = load double, ptr %1627, align 8, !tbaa !7
   store double %1628, ptr %32, align 8, !tbaa !7
@@ -3206,19 +3206,19 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %storemerge22262779 = phi i32 [ %1657, %.lr.ph2781 ], [ 1, %1639 ]
   %1641 = mul nsw i32 %storemerge22262779, %41
   %1642 = sext i32 %1641 to i64
-  %1643 = getelementptr double, ptr %43, i64 %1642
+  %1643 = getelementptr [8 x i8], ptr %43, i64 %1642
   %1644 = getelementptr i8, ptr %1643, i64 8
   %1645 = mul nsw i32 %storemerge22262779, %38
   %1646 = sext i32 %1645 to i64
-  %1647 = getelementptr double, ptr %40, i64 %1646
+  %1647 = getelementptr [8 x i8], ptr %40, i64 %1646
   %1648 = getelementptr i8, ptr %1647, i64 8
   call void @dcopy_(ptr noundef nonnull %31, ptr noundef %1644, ptr noundef nonnull @c__1, ptr noundef %1648, ptr noundef nonnull @c__1) #7
   %1649 = load i32, ptr %27, align 4, !tbaa !3
   %1650 = sext i32 %1649 to i64
-  %1651 = getelementptr inbounds double, ptr %34, i64 %1650
+  %1651 = getelementptr inbounds [8 x i8], ptr %34, i64 %1650
   %1652 = mul nsw i32 %1649, %41
   %1653 = sext i32 %1652 to i64
-  %1654 = getelementptr double, ptr %43, i64 %1653
+  %1654 = getelementptr [8 x i8], ptr %43, i64 %1653
   %1655 = getelementptr i8, ptr %1654, i64 8
   call void @dscal_(ptr noundef nonnull %31, ptr noundef nonnull %1651, ptr noundef %1655, ptr noundef nonnull @c__1) #7
   %1656 = load i32, ptr %27, align 4, !tbaa !3
@@ -3246,7 +3246,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1663:                                             ; preds = %._crit_edge2782
   %1664 = shl i32 %1659, 1
   %1665 = sext i32 %1664 to i64
-  %1666 = getelementptr double, ptr %44, i64 %1665
+  %1666 = getelementptr [8 x i8], ptr %44, i64 %1665
   %1667 = getelementptr i8, ptr %1666, i64 8
   call void @dtrsm_(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef nonnull @c_b35, ptr noundef %1667, ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull %14) #7
   %1668 = load i32, ptr %31, align 4, !tbaa !3
@@ -3260,7 +3260,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1673 = add i32 %41, 1
   %1674 = add i32 %1673, %1668
   %1675 = sext i32 %1674 to i64
-  %1676 = getelementptr inbounds double, ptr %43, i64 %1675
+  %1676 = getelementptr inbounds [8 x i8], ptr %43, i64 %1675
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %31, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1676, ptr noundef nonnull %14) #7
   %1677 = load i32, ptr %7, align 4, !tbaa !3
   %1678 = load i32, ptr %31, align 4, !tbaa !3
@@ -3269,7 +3269,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1680 = add nsw i32 %1678, 1
   %1681 = mul nsw i32 %1680, %41
   %1682 = sext i32 %1681 to i64
-  %1683 = getelementptr double, ptr %43, i64 %1682
+  %1683 = getelementptr [8 x i8], ptr %43, i64 %1682
   %1684 = getelementptr i8, ptr %1683, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %31, ptr noundef nonnull %20, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1684, ptr noundef nonnull %14) #7
   %1685 = load i32, ptr %7, align 4, !tbaa !3
@@ -3280,7 +3280,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1688 = add nsw i32 %1686, 1
   %1689 = mul i32 %1688, %1673
   %1690 = sext i32 %1689 to i64
-  %1691 = getelementptr inbounds double, ptr %43, i64 %1690
+  %1691 = getelementptr inbounds [8 x i8], ptr %43, i64 %1690
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b35, ptr noundef %1691, ptr noundef nonnull %14) #7
   %.pre3172 = load i32, ptr %7, align 4, !tbaa !3
   %.pre3173 = load i32, ptr %31, align 4, !tbaa !3
@@ -3297,13 +3297,13 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1699, ptr %20, align 4, !tbaa !3
   %1700 = shl i32 %1694, 1
   %1701 = sext i32 %1700 to i64
-  %1702 = getelementptr double, ptr %44, i64 %1701
+  %1702 = getelementptr [8 x i8], ptr %44, i64 %1701
   %1703 = getelementptr i8, ptr %1702, i64 8
   %1704 = sext i32 %1694 to i64
-  %1705 = getelementptr double, ptr %44, i64 %1704
+  %1705 = getelementptr [8 x i8], ptr %44, i64 %1704
   %1706 = getelementptr i8, ptr %1705, i64 8
   %1707 = sext i32 %1698 to i64
-  %1708 = getelementptr double, ptr %44, i64 %1707
+  %1708 = getelementptr [8 x i8], ptr %44, i64 %1707
   %1709 = getelementptr i8, ptr %1708, i64 8
   call void @dormqr_(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.9, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %1703, ptr noundef nonnull %7, ptr noundef %1706, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1709, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   br label %.loopexit2348
@@ -3319,7 +3319,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1718 = sub i32 %1712, %1717
   store i32 %1718, ptr %20, align 4, !tbaa !3
   %1719 = sext i32 %1717 to i64
-  %1720 = getelementptr double, ptr %44, i64 %1719
+  %1720 = getelementptr [8 x i8], ptr %44, i64 %1719
   %1721 = getelementptr i8, ptr %1720, i64 8
   br i1 %1711, label %1722, label %1831
 
@@ -3331,7 +3331,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1726 = mul i32 %1725, %1723
   %1727 = add nsw i32 %1726, %1724
   %1728 = sext i32 %1727 to i64
-  %1729 = getelementptr double, ptr %44, i64 %1728
+  %1729 = getelementptr [8 x i8], ptr %44, i64 %1728
   %1730 = getelementptr i8, ptr %1729, i64 8
   %1731 = load double, ptr %1730, align 8, !tbaa !7
   store double %1731, ptr %32, align 8, !tbaa !7
@@ -3362,19 +3362,19 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %storemerge22192755 = phi i32 [ %1760, %.lr.ph2757 ], [ 1, %1742 ]
   %1744 = mul nsw i32 %storemerge22192755, %41
   %1745 = sext i32 %1744 to i64
-  %1746 = getelementptr double, ptr %43, i64 %1745
+  %1746 = getelementptr [8 x i8], ptr %43, i64 %1745
   %1747 = getelementptr i8, ptr %1746, i64 8
   %1748 = mul nsw i32 %storemerge22192755, %38
   %1749 = sext i32 %1748 to i64
-  %1750 = getelementptr double, ptr %40, i64 %1749
+  %1750 = getelementptr [8 x i8], ptr %40, i64 %1749
   %1751 = getelementptr i8, ptr %1750, i64 8
   call void @dcopy_(ptr noundef nonnull %31, ptr noundef %1747, ptr noundef nonnull @c__1, ptr noundef %1751, ptr noundef nonnull @c__1) #7
   %1752 = load i32, ptr %27, align 4, !tbaa !3
   %1753 = sext i32 %1752 to i64
-  %1754 = getelementptr inbounds double, ptr %34, i64 %1753
+  %1754 = getelementptr inbounds [8 x i8], ptr %34, i64 %1753
   %1755 = mul nsw i32 %1752, %38
   %1756 = sext i32 %1755 to i64
-  %1757 = getelementptr double, ptr %40, i64 %1756
+  %1757 = getelementptr [8 x i8], ptr %40, i64 %1756
   %1758 = getelementptr i8, ptr %1757, i64 8
   call void @dscal_(ptr noundef nonnull %31, ptr noundef nonnull %1754, ptr noundef %1758, ptr noundef nonnull @c__1) #7
   %1759 = load i32, ptr %27, align 4, !tbaa !3
@@ -3392,7 +3392,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1762 = phi i32 [ %.pre3167, %._crit_edge2758.loopexit ], [ %1723, %1742 ]
   %1763 = shl i32 %1762, 1
   %1764 = sext i32 %1763 to i64
-  %1765 = getelementptr double, ptr %44, i64 %1764
+  %1765 = getelementptr [8 x i8], ptr %44, i64 %1764
   %1766 = getelementptr i8, ptr %1765, i64 8
   call void @dtrsm_(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.9, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef nonnull @c_b35, ptr noundef %1766, ptr noundef nonnull %7, ptr noundef %11, ptr noundef nonnull %12) #7
   %1767 = load i32, ptr %31, align 4, !tbaa !3
@@ -3408,7 +3408,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1772 = mul i32 %1771, %1768
   %1773 = add nsw i32 %1772, %1767
   %1774 = sext i32 %1771 to i64
-  %invariant.gep3472 = getelementptr i32, ptr %45, i64 %1774
+  %invariant.gep3472 = getelementptr [4 x i8], ptr %45, i64 %1774
   %1775 = mul i32 %1771, %1768
   %invariant.op2771 = add i32 %1767, %1775
   br label %.lr.ph2762
@@ -3416,18 +3416,18 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph2762:                                       ; preds = %._crit_edge2769, %.lr.ph2776
   %indvars.iv3113 = phi i64 [ 1, %.lr.ph2776 ], [ %indvars.iv.next3114, %._crit_edge2769 ]
   %1776 = mul nsw i64 %indvars.iv3113, %1770
-  %invariant.gep3470 = getelementptr double, ptr %40, i64 %1776
+  %invariant.gep3470 = getelementptr [8 x i8], ptr %40, i64 %1776
   br label %1777
 
 1777:                                             ; preds = %.lr.ph2762, %1777
   %indvars.iv3103 = phi i64 [ 1, %.lr.ph2762 ], [ %indvars.iv.next3104, %1777 ]
-  %gep3471 = getelementptr double, ptr %invariant.gep3470, i64 %indvars.iv3103
+  %gep3471 = getelementptr [8 x i8], ptr %invariant.gep3470, i64 %indvars.iv3103
   %1778 = load double, ptr %gep3471, align 8, !tbaa !7
-  %gep3473 = getelementptr i32, ptr %invariant.gep3472, i64 %indvars.iv3103
+  %gep3473 = getelementptr [4 x i8], ptr %invariant.gep3472, i64 %indvars.iv3103
   %1779 = load i32, ptr %gep3473, align 4, !tbaa !3
   %1780 = add nsw i32 %1773, %1779
   %1781 = sext i32 %1780 to i64
-  %1782 = getelementptr inbounds double, ptr %44, i64 %1781
+  %1782 = getelementptr inbounds [8 x i8], ptr %44, i64 %1781
   store double %1778, ptr %1782, align 8, !tbaa !7
   %indvars.iv.next3104 = add nuw nsw i64 %indvars.iv3103, 1
   %exitcond3107.not = icmp eq i64 %indvars.iv.next3104, %wide.trip.count3116
@@ -3435,7 +3435,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph2768:                                       ; preds = %1777
   %1783 = mul nsw i64 %indvars.iv3113, %1770
-  %invariant.gep3474 = getelementptr double, ptr %40, i64 %1783
+  %invariant.gep3474 = getelementptr [8 x i8], ptr %40, i64 %1783
   br label %1784
 
 1784:                                             ; preds = %.lr.ph2768, %1784
@@ -3443,9 +3443,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1785 = trunc nuw nsw i64 %indvars.iv3108 to i32
   %.reass2772 = add i32 %invariant.op2771, %1785
   %1786 = sext i32 %.reass2772 to i64
-  %1787 = getelementptr inbounds double, ptr %44, i64 %1786
+  %1787 = getelementptr inbounds [8 x i8], ptr %44, i64 %1786
   %1788 = load double, ptr %1787, align 8, !tbaa !7
-  %gep3475 = getelementptr double, ptr %invariant.gep3474, i64 %indvars.iv3108
+  %gep3475 = getelementptr [8 x i8], ptr %invariant.gep3474, i64 %indvars.iv3108
   store double %1788, ptr %gep3475, align 8, !tbaa !7
   %indvars.iv.next3109 = add nuw nsw i64 %indvars.iv3108, 1
   %exitcond3112.not = icmp eq i64 %indvars.iv.next3109, %wide.trip.count3116
@@ -3472,7 +3472,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1794 = add i32 %41, 1
   %1795 = add i32 %1794, %1767
   %1796 = sext i32 %1795 to i64
-  %1797 = getelementptr inbounds double, ptr %43, i64 %1796
+  %1797 = getelementptr inbounds [8 x i8], ptr %43, i64 %1796
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %31, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1797, ptr noundef nonnull %14) #7
   %1798 = load i32, ptr %7, align 4, !tbaa !3
   %1799 = load i32, ptr %31, align 4, !tbaa !3
@@ -3481,7 +3481,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1801 = add nsw i32 %1799, 1
   %1802 = mul nsw i32 %1801, %41
   %1803 = sext i32 %1802 to i64
-  %1804 = getelementptr double, ptr %43, i64 %1803
+  %1804 = getelementptr [8 x i8], ptr %43, i64 %1803
   %1805 = getelementptr i8, ptr %1804, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %31, ptr noundef nonnull %20, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1805, ptr noundef nonnull %14) #7
   %1806 = load i32, ptr %7, align 4, !tbaa !3
@@ -3492,7 +3492,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1809 = add nsw i32 %1807, 1
   %1810 = mul i32 %1809, %1794
   %1811 = sext i32 %1810 to i64
-  %1812 = getelementptr inbounds double, ptr %43, i64 %1811
+  %1812 = getelementptr inbounds [8 x i8], ptr %43, i64 %1811
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b35, ptr noundef %1812, ptr noundef nonnull %14) #7
   %.pre3168 = load i32, ptr %7, align 4, !tbaa !3
   %.pre3169 = load i32, ptr %31, align 4, !tbaa !3
@@ -3509,13 +3509,13 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1820, ptr %20, align 4, !tbaa !3
   %1821 = shl i32 %1815, 1
   %1822 = sext i32 %1821 to i64
-  %1823 = getelementptr double, ptr %44, i64 %1822
+  %1823 = getelementptr [8 x i8], ptr %44, i64 %1822
   %1824 = getelementptr i8, ptr %1823, i64 8
   %1825 = sext i32 %1815 to i64
-  %1826 = getelementptr double, ptr %44, i64 %1825
+  %1826 = getelementptr [8 x i8], ptr %44, i64 %1825
   %1827 = getelementptr i8, ptr %1826, i64 8
   %1828 = sext i32 %1819 to i64
-  %1829 = getelementptr double, ptr %44, i64 %1828
+  %1829 = getelementptr [8 x i8], ptr %44, i64 %1828
   %1830 = getelementptr i8, ptr %1829, i64 8
   call void @dormqr_(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.9, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %1824, ptr noundef nonnull %7, ptr noundef %1827, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1830, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   br label %.loopexit2348
@@ -3528,7 +3528,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1835 = mul i32 %1834, %1832
   %1836 = add i32 %1835, %1833
   %1837 = sext i32 %1836 to i64
-  %1838 = getelementptr double, ptr %44, i64 %1837
+  %1838 = getelementptr [8 x i8], ptr %44, i64 %1837
   %1839 = getelementptr i8, ptr %1838, i64 8
   %1840 = load double, ptr %1839, align 8, !tbaa !7
   store double %1840, ptr %32, align 8, !tbaa !7
@@ -3559,7 +3559,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1856 = add i32 %41, 1
   %1857 = add i32 %1856, %1833
   %1858 = sext i32 %1857 to i64
-  %1859 = getelementptr inbounds double, ptr %43, i64 %1858
+  %1859 = getelementptr inbounds [8 x i8], ptr %43, i64 %1858
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %31, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1859, ptr noundef nonnull %14) #7
   %1860 = load i32, ptr %7, align 4, !tbaa !3
   %1861 = load i32, ptr %31, align 4, !tbaa !3
@@ -3568,7 +3568,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1863 = add nsw i32 %1861, 1
   %1864 = mul nsw i32 %1863, %41
   %1865 = sext i32 %1864 to i64
-  %1866 = getelementptr double, ptr %43, i64 %1865
+  %1866 = getelementptr [8 x i8], ptr %43, i64 %1865
   %1867 = getelementptr i8, ptr %1866, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %31, ptr noundef nonnull %20, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1867, ptr noundef nonnull %14) #7
   %1868 = load i32, ptr %7, align 4, !tbaa !3
@@ -3579,7 +3579,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1871 = add nsw i32 %1869, 1
   %1872 = mul i32 %1871, %1856
   %1873 = sext i32 %1872 to i64
-  %1874 = getelementptr inbounds double, ptr %43, i64 %1873
+  %1874 = getelementptr inbounds [8 x i8], ptr %43, i64 %1873
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b35, ptr noundef %1874, ptr noundef nonnull %14) #7
   %.pre3165 = load i32, ptr %7, align 4, !tbaa !3
   %.pre3166 = load i32, ptr %31, align 4, !tbaa !3
@@ -3598,12 +3598,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1878, ptr %20, align 4, !tbaa !3
   %1879 = shl i32 %1876, 1
   %1880 = sext i32 %1879 to i64
-  %1881 = getelementptr double, ptr %44, i64 %1880
+  %1881 = getelementptr [8 x i8], ptr %44, i64 %1880
   %1882 = getelementptr i8, ptr %1881, i64 8
   %1883 = sext i32 %1876 to i64
-  %1884 = getelementptr double, ptr %44, i64 %1883
+  %1884 = getelementptr [8 x i8], ptr %44, i64 %1883
   %1885 = getelementptr i8, ptr %1884, i64 8
-  %1886 = getelementptr double, ptr %44, i64 %.pre-phi3183
+  %1886 = getelementptr [8 x i8], ptr %44, i64 %.pre-phi3183
   %1887 = getelementptr i8, ptr %1886, i64 8
   call void @dormqr_(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.9, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %1882, ptr noundef nonnull %7, ptr noundef %1885, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1887, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %1888 = load i32, ptr %16, align 4, !tbaa !3
@@ -3616,13 +3616,13 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1894, ptr %20, align 4, !tbaa !3
   %1895 = shl i32 %1889, 1
   %1896 = sext i32 %1895 to i64
-  %1897 = getelementptr double, ptr %44, i64 %1896
+  %1897 = getelementptr [8 x i8], ptr %44, i64 %1896
   %1898 = getelementptr i8, ptr %1897, i64 8
   %1899 = sext i32 %1892 to i64
-  %1900 = getelementptr double, ptr %44, i64 %1899
+  %1900 = getelementptr [8 x i8], ptr %44, i64 %1899
   %1901 = getelementptr i8, ptr %1900, i64 8
   %1902 = sext i32 %1893 to i64
-  %1903 = getelementptr double, ptr %44, i64 %1902
+  %1903 = getelementptr [8 x i8], ptr %44, i64 %1902
   %1904 = getelementptr i8, ptr %1903, i64 8
   call void @dormlq_(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.8, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %1898, ptr noundef nonnull %7, ptr noundef %1901, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %1904, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %1905 = load i32, ptr %31, align 4, !tbaa !3
@@ -3638,7 +3638,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1910 = mul i32 %1909, %1906
   %1911 = add nsw i32 %1910, %1905
   %1912 = sext i32 %1909 to i64
-  %invariant.gep3466 = getelementptr i32, ptr %45, i64 %1912
+  %invariant.gep3466 = getelementptr [4 x i8], ptr %45, i64 %1912
   %1913 = mul i32 %1909, %1906
   %invariant.op2748 = add i32 %1905, %1913
   br label %.lr.ph2739
@@ -3646,18 +3646,18 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph2739:                                       ; preds = %._crit_edge2746, %.lr.ph2753
   %indvars.iv3098 = phi i64 [ 1, %.lr.ph2753 ], [ %indvars.iv.next3099, %._crit_edge2746 ]
   %1914 = mul nsw i64 %indvars.iv3098, %1908
-  %invariant.gep3464 = getelementptr double, ptr %40, i64 %1914
+  %invariant.gep3464 = getelementptr [8 x i8], ptr %40, i64 %1914
   br label %1915
 
 1915:                                             ; preds = %.lr.ph2739, %1915
   %indvars.iv3088 = phi i64 [ 1, %.lr.ph2739 ], [ %indvars.iv.next3089, %1915 ]
-  %gep3465 = getelementptr double, ptr %invariant.gep3464, i64 %indvars.iv3088
+  %gep3465 = getelementptr [8 x i8], ptr %invariant.gep3464, i64 %indvars.iv3088
   %1916 = load double, ptr %gep3465, align 8, !tbaa !7
-  %gep3467 = getelementptr i32, ptr %invariant.gep3466, i64 %indvars.iv3088
+  %gep3467 = getelementptr [4 x i8], ptr %invariant.gep3466, i64 %indvars.iv3088
   %1917 = load i32, ptr %gep3467, align 4, !tbaa !3
   %1918 = add nsw i32 %1911, %1917
   %1919 = sext i32 %1918 to i64
-  %1920 = getelementptr inbounds double, ptr %44, i64 %1919
+  %1920 = getelementptr inbounds [8 x i8], ptr %44, i64 %1919
   store double %1916, ptr %1920, align 8, !tbaa !7
   %indvars.iv.next3089 = add nuw nsw i64 %indvars.iv3088, 1
   %exitcond3092.not = icmp eq i64 %indvars.iv.next3089, %wide.trip.count3101
@@ -3665,7 +3665,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph2745:                                       ; preds = %1915
   %1921 = mul nsw i64 %indvars.iv3098, %1908
-  %invariant.gep3468 = getelementptr double, ptr %40, i64 %1921
+  %invariant.gep3468 = getelementptr [8 x i8], ptr %40, i64 %1921
   br label %1922
 
 1922:                                             ; preds = %.lr.ph2745, %1922
@@ -3673,9 +3673,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1923 = trunc nuw nsw i64 %indvars.iv3093 to i32
   %.reass2749 = add i32 %invariant.op2748, %1923
   %1924 = sext i32 %.reass2749 to i64
-  %1925 = getelementptr inbounds double, ptr %44, i64 %1924
+  %1925 = getelementptr inbounds [8 x i8], ptr %44, i64 %1924
   %1926 = load double, ptr %1925, align 8, !tbaa !7
-  %gep3469 = getelementptr double, ptr %invariant.gep3468, i64 %indvars.iv3093
+  %gep3469 = getelementptr [8 x i8], ptr %invariant.gep3468, i64 %indvars.iv3093
   store double %1926, ptr %gep3469, align 8, !tbaa !7
   %indvars.iv.next3094 = add nuw nsw i64 %indvars.iv3093, 1
   %exitcond3097.not = icmp eq i64 %indvars.iv.next3094, %wide.trip.count3101
@@ -3726,18 +3726,18 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %invariant.op2789 = add i32 %1935, %1937
   %1938 = add nuw i32 %1933, 1
   %wide.trip.count3121 = zext i32 %1938 to i64
-  %invariant.gep3476 = getelementptr double, ptr %43, i64 %1934
+  %invariant.gep3476 = getelementptr [8 x i8], ptr %43, i64 %1934
   br label %1939
 
 1939:                                             ; preds = %.lr.ph2786, %1939
   %indvars.iv3118 = phi i64 [ 1, %.lr.ph2786 ], [ %indvars.iv.next3119, %1939 ]
-  %gep3477 = getelementptr double, ptr %invariant.gep3476, i64 %indvars.iv3118
+  %gep3477 = getelementptr [8 x i8], ptr %invariant.gep3476, i64 %indvars.iv3118
   %1940 = load double, ptr %gep3477, align 8, !tbaa !7
-  %1941 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv3118
+  %1941 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv3118
   %1942 = load i32, ptr %1941, align 4, !tbaa !3
   %.reass2790 = add i32 %1942, %invariant.op2789
   %1943 = sext i32 %.reass2790 to i64
-  %1944 = getelementptr inbounds double, ptr %44, i64 %1943
+  %1944 = getelementptr inbounds [8 x i8], ptr %44, i64 %1943
   store double %1940, ptr %1944, align 8, !tbaa !7
   %indvars.iv.next3119 = add nuw nsw i64 %indvars.iv3118, 1
   %exitcond3122.not = icmp eq i64 %indvars.iv.next3119, %wide.trip.count3121
@@ -3757,7 +3757,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1948 = mul nsw i64 %indvars.iv3128, %1932
   %1949 = add nuw i32 %1933, 1
   %wide.trip.count3126 = zext i32 %1949 to i64
-  %invariant.gep3478 = getelementptr double, ptr %43, i64 %1948
+  %invariant.gep3478 = getelementptr [8 x i8], ptr %43, i64 %1948
   br label %1950
 
 1950:                                             ; preds = %.lr.ph2794, %1950
@@ -3765,9 +3765,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1951 = trunc nuw nsw i64 %indvars.iv3123 to i32
   %.reass2798 = add i32 %invariant.op2797, %1951
   %1952 = sext i32 %.reass2798 to i64
-  %1953 = getelementptr inbounds double, ptr %44, i64 %1952
+  %1953 = getelementptr inbounds [8 x i8], ptr %44, i64 %1952
   %1954 = load double, ptr %1953, align 8, !tbaa !7
-  %gep3479 = getelementptr double, ptr %invariant.gep3478, i64 %indvars.iv3123
+  %gep3479 = getelementptr [8 x i8], ptr %invariant.gep3478, i64 %indvars.iv3123
   store double %1954, ptr %gep3479, align 8, !tbaa !7
   %indvars.iv.next3124 = add nuw nsw i64 %indvars.iv3123, 1
   %exitcond3127.not = icmp eq i64 %indvars.iv.next3124, %wide.trip.count3126
@@ -3777,7 +3777,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.pre-phi3197 = phi i64 [ %.pre3196, %._crit_edge2787.._crit_edge2795_crit_edge ], [ %1948, %1950 ]
   %storemerge2233.lcssa = phi i32 [ 1, %._crit_edge2787.._crit_edge2795_crit_edge ], [ %1949, %1950 ]
   store i32 %storemerge2233.lcssa, ptr %27, align 4, !tbaa !3
-  %1955 = getelementptr double, ptr %43, i64 %.pre-phi3197
+  %1955 = getelementptr [8 x i8], ptr %43, i64 %.pre-phi3197
   %1956 = getelementptr i8, ptr %1955, i64 8
   %1957 = call double @dnrm2_(ptr noundef nonnull %7, ptr noundef %1956, ptr noundef nonnull @c__1) #7
   %1958 = fdiv double 1.000000e+00, %1957
@@ -3812,7 +3812,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1973 = add i32 %38, 1
   %1974 = add i32 %1973, %1968
   %1975 = sext i32 %1974 to i64
-  %1976 = getelementptr inbounds double, ptr %40, i64 %1975
+  %1976 = getelementptr inbounds [8 x i8], ptr %40, i64 %1975
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %31, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1976, ptr noundef nonnull %12) #7
   %1977 = load i32, ptr %31, align 4, !tbaa !3
   %1978 = load i32, ptr %28, align 4, !tbaa !3
@@ -3825,7 +3825,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1982 = add nsw i32 %1977, 1
   %1983 = mul nsw i32 %1982, %38
   %1984 = sext i32 %1983 to i64
-  %1985 = getelementptr double, ptr %40, i64 %1984
+  %1985 = getelementptr [8 x i8], ptr %40, i64 %1984
   %1986 = getelementptr i8, ptr %1985, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %31, ptr noundef nonnull %20, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1986, ptr noundef nonnull %12) #7
   %1987 = load i32, ptr %6, align 4, !tbaa !3
@@ -3838,7 +3838,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1992 = add nsw i32 %1988, 1
   %1993 = mul i32 %1992, %1973
   %1994 = sext i32 %1993 to i64
-  %1995 = getelementptr inbounds double, ptr %40, i64 %1994
+  %1995 = getelementptr inbounds [8 x i8], ptr %40, i64 %1994
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b35, ptr noundef %1995, ptr noundef nonnull %12) #7
   br label %1996
 
@@ -3848,7 +3848,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1999 = sub nsw i32 %1997, %1998
   store i32 %1999, ptr %20, align 4, !tbaa !3
   %2000 = sext i32 %1998 to i64
-  %2001 = getelementptr double, ptr %44, i64 %2000
+  %2001 = getelementptr [8 x i8], ptr %44, i64 %2000
   %2002 = getelementptr i8, ptr %2001, i64 8
   call void @dormqr_(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.26, ptr noundef nonnull %6, ptr noundef nonnull %28, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %15, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %2002, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %2003 = load i32, ptr %6, align 4, !tbaa !3
@@ -3866,7 +3866,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %storemerge22292805 = phi i32 [ %2027, %2025 ], [ 1, %1996 ]
   %2008 = mul nsw i32 %storemerge22292805, %38
   %2009 = sext i32 %2008 to i64
-  %2010 = getelementptr double, ptr %40, i64 %2009
+  %2010 = getelementptr [8 x i8], ptr %40, i64 %2009
   %2011 = getelementptr i8, ptr %2010, i64 8
   %2012 = call double @dnrm2_(ptr noundef nonnull %6, ptr noundef %2011, ptr noundef nonnull @c__1) #7
   %2013 = fdiv double 1.000000e+00, %2012
@@ -3883,7 +3883,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2020 = load i32, ptr %27, align 4, !tbaa !3
   %2021 = mul nsw i32 %2020, %38
   %2022 = sext i32 %2021 to i64
-  %2023 = getelementptr double, ptr %40, i64 %2022
+  %2023 = getelementptr [8 x i8], ptr %40, i64 %2022
   %2024 = getelementptr i8, ptr %2023, i64 8
   call void @dscal_(ptr noundef nonnull %6, ptr noundef nonnull %33, ptr noundef %2024, ptr noundef nonnull @c__1) #7
   br label %2025
@@ -3902,7 +3902,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 2029:                                             ; preds = %1203
   %2030 = load i32, ptr %7, align 4, !tbaa !3
   %2031 = sext i32 %2030 to i64
-  %2032 = getelementptr double, ptr %44, i64 %2031
+  %2032 = getelementptr [8 x i8], ptr %44, i64 %2031
   %2033 = getelementptr i8, ptr %2032, i64 8
   call void @dlacpy_(ptr noundef nonnull @.str.20, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %2033, ptr noundef nonnull %7) #7
   br i1 %774, label %2034, label %2059
@@ -3924,20 +3924,20 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2039 = trunc nuw nsw i64 %indvars.iv3032 to i32
   %2040 = mul i32 %2037, %2039
   %2041 = sext i32 %2040 to i64
-  %2042 = getelementptr inbounds double, ptr %44, i64 %2041
+  %2042 = getelementptr inbounds [8 x i8], ptr %44, i64 %2041
   %2043 = load double, ptr %2042, align 8, !tbaa !7
   %2044 = fmul double %2035, %2043
   %2045 = mul i32 %2036, %2039
   %2046 = fcmp oge double %2044, 0.000000e+00
   %2047 = sext i32 %2045 to i64
-  %invariant.gep3450 = getelementptr double, ptr %44, i64 %2047
+  %invariant.gep3450 = getelementptr [8 x i8], ptr %44, i64 %2047
   %.neg = fneg double %2044
-  %2048 = getelementptr double, ptr %44, i64 %indvars.iv3032
+  %2048 = getelementptr [8 x i8], ptr %44, i64 %indvars.iv3032
   br label %2049
 
 2049:                                             ; preds = %2038, %2049
   %indvars.iv3027 = phi i64 [ 1, %2038 ], [ %indvars.iv.next3028, %2049 ]
-  %gep3451 = getelementptr double, ptr %invariant.gep3450, i64 %indvars.iv3027
+  %gep3451 = getelementptr [8 x i8], ptr %invariant.gep3450, i64 %indvars.iv3027
   %2050 = load double, ptr %gep3451, align 8, !tbaa !7
   %2051 = fcmp ult double %2050, 0.000000e+00
   %2052 = xor i1 %2046, %2051
@@ -3945,7 +3945,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2054 = trunc nuw nsw i64 %indvars.iv3027 to i32
   %2055 = mul i32 %2036, %2054
   %2056 = sext i32 %2055 to i64
-  %2057 = getelementptr double, ptr %2048, i64 %2056
+  %2057 = getelementptr [8 x i8], ptr %2048, i64 %2056
   store double %2053, ptr %2057, align 8, !tbaa !7
   %indvars.iv.next3028 = add nuw nsw i64 %indvars.iv3027, 1
   %exitcond3031.not = icmp eq i64 %indvars.iv.next3028, %indvars.iv3032
@@ -3962,7 +3962,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2061, ptr %20, align 4, !tbaa !3
   store i32 %2061, ptr %21, align 4, !tbaa !3
   %2062 = sext i32 %2060 to i64
-  %2063 = getelementptr double, ptr %44, i64 %2062
+  %2063 = getelementptr [8 x i8], ptr %44, i64 %2062
   %2064 = getelementptr i8, ptr %2063, i64 16
   call void @dlaset_(ptr noundef nonnull @.str.21, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %2064, ptr noundef nonnull %7) #7
   %.pre3153 = load i32, ptr %7, align 4, !tbaa !3
@@ -3987,19 +3987,19 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2069 = add i32 %.neg2246, %2068
   store i32 %2069, ptr %20, align 4, !tbaa !3
   %2070 = sext i32 %2067 to i64
-  %2071 = getelementptr double, ptr %44, i64 %2070
+  %2071 = getelementptr [8 x i8], ptr %44, i64 %2070
   %2072 = getelementptr i8, ptr %2071, i64 8
   %2073 = add i32 %2067, 1
   %2074 = mul i32 %2073, %2067
   %2075 = sext i32 %2074 to i64
-  %2076 = getelementptr double, ptr %44, i64 %2075
+  %2076 = getelementptr [8 x i8], ptr %44, i64 %2075
   %2077 = getelementptr i8, ptr %2076, i64 8
   call void @dgesvj_(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef %2072, ptr noundef nonnull %7, ptr noundef %10, ptr noundef nonnull %7, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %2077, ptr noundef nonnull %20, ptr noundef nonnull %18) #7
   %2078 = load i32, ptr %7, align 4, !tbaa !3
   %2079 = add i32 %2078, 1
   %2080 = mul i32 %2079, %2078
   %2081 = sext i32 %2080 to i64
-  %2082 = getelementptr double, ptr %44, i64 %2081
+  %2082 = getelementptr [8 x i8], ptr %44, i64 %2081
   %2083 = getelementptr i8, ptr %2082, i64 8
   %2084 = load double, ptr %2083, align 8, !tbaa !7
   store double %2084, ptr %32, align 8, !tbaa !7
@@ -4031,20 +4031,20 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2097 = load i32, ptr %7, align 4, !tbaa !3
   %2098 = mul i32 %2097, %storemerge22472643
   %2099 = sext i32 %2098 to i64
-  %2100 = getelementptr double, ptr %44, i64 %2099
+  %2100 = getelementptr [8 x i8], ptr %44, i64 %2099
   %2101 = getelementptr i8, ptr %2100, i64 8
   %2102 = mul nsw i32 %storemerge22472643, %38
   %2103 = sext i32 %2102 to i64
-  %2104 = getelementptr double, ptr %40, i64 %2103
+  %2104 = getelementptr [8 x i8], ptr %40, i64 %2103
   %2105 = getelementptr i8, ptr %2104, i64 8
   call void @dcopy_(ptr noundef nonnull %7, ptr noundef %2101, ptr noundef nonnull @c__1, ptr noundef %2105, ptr noundef nonnull @c__1) #7
   %2106 = load i32, ptr %27, align 4, !tbaa !3
   %2107 = sext i32 %2106 to i64
-  %2108 = getelementptr inbounds double, ptr %34, i64 %2107
+  %2108 = getelementptr inbounds [8 x i8], ptr %34, i64 %2107
   %2109 = load i32, ptr %7, align 4, !tbaa !3
   %2110 = mul i32 %2109, %2106
   %2111 = sext i32 %2110 to i64
-  %2112 = getelementptr double, ptr %44, i64 %2111
+  %2112 = getelementptr [8 x i8], ptr %44, i64 %2111
   %2113 = getelementptr i8, ptr %2112, i64 8
   call void @dscal_(ptr noundef nonnull %7, ptr noundef nonnull %2108, ptr noundef %2113, ptr noundef nonnull @c__1) #7
   %2114 = load i32, ptr %27, align 4, !tbaa !3
@@ -4061,7 +4061,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 ._crit_edge2646:                                  ; preds = %._crit_edge2646.loopexit, %2095
   %2117 = phi i32 [ %.pre3154, %._crit_edge2646.loopexit ], [ %2078, %2095 ]
   %2118 = sext i32 %2117 to i64
-  %2119 = getelementptr double, ptr %44, i64 %2118
+  %2119 = getelementptr [8 x i8], ptr %44, i64 %2118
   %2120 = getelementptr i8, ptr %2119, i64 8
   call void @dtrsm_(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull @c_b35, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %2120, ptr noundef nonnull %7) #7
   %2121 = load i32, ptr %7, align 4, !tbaa !3
@@ -4075,13 +4075,13 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2122 = load i32, ptr %7, align 4, !tbaa !3
   %2123 = add nsw i32 %2122, %storemerge22492648
   %2124 = sext i32 %2123 to i64
-  %2125 = getelementptr inbounds double, ptr %44, i64 %2124
+  %2125 = getelementptr inbounds [8 x i8], ptr %44, i64 %2124
   %2126 = sext i32 %storemerge22492648 to i64
-  %2127 = getelementptr inbounds i32, ptr %45, i64 %2126
+  %2127 = getelementptr inbounds [4 x i8], ptr %45, i64 %2126
   %2128 = load i32, ptr %2127, align 4, !tbaa !3
   %2129 = add nsw i32 %2128, %41
   %2130 = sext i32 %2129 to i64
-  %2131 = getelementptr inbounds double, ptr %43, i64 %2130
+  %2131 = getelementptr inbounds [8 x i8], ptr %43, i64 %2130
   call void @dcopy_(ptr noundef nonnull %7, ptr noundef nonnull %2125, ptr noundef nonnull %7, ptr noundef %2131, ptr noundef nonnull %14) #7
   %2132 = load i32, ptr %27, align 4, !tbaa !3
   %2133 = add nsw i32 %2132, 1
@@ -4110,7 +4110,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %storemerge22512653 = phi i32 [ %2159, %2157 ], [ 1, %._crit_edge2651 ]
   %2140 = mul nsw i32 %storemerge22512653, %41
   %2141 = sext i32 %2140 to i64
-  %2142 = getelementptr double, ptr %43, i64 %2141
+  %2142 = getelementptr [8 x i8], ptr %43, i64 %2141
   %2143 = getelementptr i8, ptr %2142, i64 8
   %2144 = call double @dnrm2_(ptr noundef nonnull %7, ptr noundef %2143, ptr noundef nonnull @c__1) #7
   %2145 = fdiv double 1.000000e+00, %2144
@@ -4127,7 +4127,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2152 = load i32, ptr %27, align 4, !tbaa !3
   %2153 = mul nsw i32 %2152, %41
   %2154 = sext i32 %2153 to i64
-  %2155 = getelementptr double, ptr %43, i64 %2154
+  %2155 = getelementptr [8 x i8], ptr %43, i64 %2154
   %2156 = getelementptr i8, ptr %2155, i64 8
   call void @dscal_(ptr noundef nonnull %7, ptr noundef nonnull %33, ptr noundef %2156, ptr noundef nonnull @c__1) #7
   br label %2157
@@ -4156,7 +4156,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2166 = add i32 %38, 1
   %2167 = add i32 %2166, %2161
   %2168 = sext i32 %2167 to i64
-  %2169 = getelementptr inbounds double, ptr %40, i64 %2168
+  %2169 = getelementptr inbounds [8 x i8], ptr %40, i64 %2168
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %7, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %2169, ptr noundef nonnull %12) #7
   %2170 = load i32, ptr %7, align 4, !tbaa !3
   %2171 = load i32, ptr %28, align 4, !tbaa !3
@@ -4169,7 +4169,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2175 = add nsw i32 %2170, 1
   %2176 = mul nsw i32 %2175, %38
   %2177 = sext i32 %2176 to i64
-  %2178 = getelementptr double, ptr %40, i64 %2177
+  %2178 = getelementptr [8 x i8], ptr %40, i64 %2177
   %2179 = getelementptr i8, ptr %2178, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %7, ptr noundef nonnull %20, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %2179, ptr noundef nonnull %12) #7
   %2180 = load i32, ptr %6, align 4, !tbaa !3
@@ -4182,7 +4182,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2185 = add nsw i32 %2181, 1
   %2186 = mul i32 %2185, %2166
   %2187 = sext i32 %2186 to i64
-  %2188 = getelementptr inbounds double, ptr %40, i64 %2187
+  %2188 = getelementptr inbounds [8 x i8], ptr %40, i64 %2187
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b35, ptr noundef %2188, ptr noundef nonnull %12) #7
   %.pre3157 = load i32, ptr %7, align 4, !tbaa !3
   br label %2189
@@ -4193,7 +4193,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2192 = sub nsw i32 %2191, %2190
   store i32 %2192, ptr %20, align 4, !tbaa !3
   %2193 = sext i32 %2190 to i64
-  %2194 = getelementptr double, ptr %44, i64 %2193
+  %2194 = getelementptr [8 x i8], ptr %44, i64 %2193
   %2195 = getelementptr i8, ptr %2194, i64 8
   call void @dormqr_(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.25, ptr noundef nonnull %6, ptr noundef nonnull %28, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %15, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %2195, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %2196 = load i32, ptr %6, align 4, !tbaa !3
@@ -4211,7 +4211,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %storemerge22532658 = phi i32 [ %2220, %2218 ], [ 1, %2189 ]
   %2201 = mul nsw i32 %storemerge22532658, %38
   %2202 = sext i32 %2201 to i64
-  %2203 = getelementptr double, ptr %40, i64 %2202
+  %2203 = getelementptr [8 x i8], ptr %40, i64 %2202
   %2204 = getelementptr i8, ptr %2203, i64 8
   %2205 = call double @dnrm2_(ptr noundef nonnull %6, ptr noundef %2204, ptr noundef nonnull @c__1) #7
   %2206 = fdiv double 1.000000e+00, %2205
@@ -4228,7 +4228,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2213 = load i32, ptr %27, align 4, !tbaa !3
   %2214 = mul nsw i32 %2213, %38
   %2215 = sext i32 %2214 to i64
-  %2216 = getelementptr double, ptr %40, i64 %2215
+  %2216 = getelementptr [8 x i8], ptr %40, i64 %2215
   %2217 = getelementptr i8, ptr %2216, i64 8
   call void @dscal_(ptr noundef nonnull %6, ptr noundef nonnull %33, ptr noundef %2217, ptr noundef nonnull @c__1) #7
   br label %2218
@@ -4264,10 +4264,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2229, ptr %21, align 4, !tbaa !3
   %2230 = mul i32 %2227, %2224
   %2231 = sext i32 %2230 to i64
-  %2232 = getelementptr inbounds double, ptr %37, i64 %2231
+  %2232 = getelementptr inbounds [8 x i8], ptr %37, i64 %2231
   %2233 = mul i32 %2227, %2225
   %2234 = sext i32 %2233 to i64
-  %2235 = getelementptr inbounds double, ptr %43, i64 %2234
+  %2235 = getelementptr inbounds [8 x i8], ptr %43, i64 %2234
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef %2232, ptr noundef nonnull %9, ptr noundef %2235, ptr noundef nonnull @c__1) #7
   %2236 = load i32, ptr %27, align 4, !tbaa !3
   %2237 = add nsw i32 %2236, 1
@@ -4303,8 +4303,8 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2247 = mul nsw i64 %indvars.iv2999, %2244
   %2248 = mul nsw i32 %41, %indvars3001
   %2249 = sext i32 %2248 to i64
-  %2250 = getelementptr double, ptr %43, i64 %indvars.iv2999
-  %2251 = getelementptr double, ptr %2250, i64 %2249
+  %2250 = getelementptr [8 x i8], ptr %43, i64 %indvars.iv2999
+  %2251 = getelementptr [8 x i8], ptr %2250, i64 %2249
   %2252 = load double, ptr %2251, align 8, !tbaa !7
   %2253 = fcmp oge double %2252, 0.000000e+00
   %2254 = fneg double %2252
@@ -4315,7 +4315,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph2588:                                       ; preds = %2246
   %2257 = fcmp oge double %2256, 0.000000e+00
   %2258 = fneg double %2256
-  %invariant.gep3440 = getelementptr double, ptr %43, i64 %2247
+  %invariant.gep3440 = getelementptr [8 x i8], ptr %43, i64 %2247
   br label %2259
 
 2259:                                             ; preds = %.lr.ph2588, %2281
@@ -4326,7 +4326,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 2262:                                             ; preds = %2259
   %2263 = add nsw i64 %indvars.iv2994, %2247
-  %2264 = getelementptr inbounds double, ptr %43, i64 %2263
+  %2264 = getelementptr inbounds [8 x i8], ptr %43, i64 %2263
   %2265 = load double, ptr %2264, align 8, !tbaa !7
   %2266 = call double @llvm.fabs.f64(double %2265)
   %2267 = fcmp ugt double %2266, %2256
@@ -4343,7 +4343,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 2269:                                             ; preds = %._crit_edge3194, %2262
   %.pre-phi3203 = phi i64 [ %.pre3202, %._crit_edge3194 ], [ %2263, %2262 ]
   %2270 = phi double [ %2260, %._crit_edge3194 ], [ %2265, %2262 ]
-  %2271 = getelementptr inbounds double, ptr %43, i64 %.pre-phi3203
+  %2271 = getelementptr inbounds [8 x i8], ptr %43, i64 %.pre-phi3203
   %2272 = load double, ptr %2271, align 8, !tbaa !7
   %2273 = fcmp ult double %2272, 0.000000e+00
   %2274 = xor i1 %2257, %2273
@@ -4357,7 +4357,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %2277, label %2278, label %2281
 
 2278:                                             ; preds = %2275
-  %gep3441 = getelementptr double, ptr %invariant.gep3440, i64 %indvars.iv2994
+  %gep3441 = getelementptr [8 x i8], ptr %invariant.gep3440, i64 %indvars.iv2994
   %2279 = load double, ptr %gep3441, align 8, !tbaa !7
   %2280 = fneg double %2279
   store double %2280, ptr %gep3441, align 8, !tbaa !7
@@ -4382,7 +4382,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2285, ptr %21, align 4, !tbaa !3
   %2286 = shl i32 %41, 1
   %2287 = sext i32 %2286 to i64
-  %2288 = getelementptr double, ptr %43, i64 %2287
+  %2288 = getelementptr [8 x i8], ptr %43, i64 %2287
   %2289 = getelementptr i8, ptr %2288, i64 8
   call void @dlaset_(ptr noundef nonnull @.str, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %2289, ptr noundef nonnull %14) #7
   %.pre3148 = load i32, ptr %7, align 4, !tbaa !3
@@ -4402,16 +4402,16 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2293 = sub nsw i32 %2291, %2292
   store i32 %2293, ptr %20, align 4, !tbaa !3
   %2294 = sext i32 %2290 to i64
-  %2295 = getelementptr double, ptr %44, i64 %2294
+  %2295 = getelementptr [8 x i8], ptr %44, i64 %2294
   %2296 = getelementptr i8, ptr %2295, i64 8
   %2297 = sext i32 %2292 to i64
-  %2298 = getelementptr double, ptr %44, i64 %2297
+  %2298 = getelementptr [8 x i8], ptr %44, i64 %2297
   %2299 = getelementptr i8, ptr %2298, i64 8
   call void @dgeqrf_(ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %2296, ptr noundef %2299, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %2300 = load i32, ptr %7, align 4, !tbaa !3
   %2301 = shl i32 %2300, 1
   %2302 = sext i32 %2301 to i64
-  %2303 = getelementptr double, ptr %44, i64 %2302
+  %2303 = getelementptr [8 x i8], ptr %44, i64 %2302
   %2304 = getelementptr i8, ptr %2303, i64 8
   call void @dlacpy_(ptr noundef nonnull @.str.17, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %2304, ptr noundef nonnull %7) #7
   %2305 = load i32, ptr %31, align 4, !tbaa !3
@@ -4433,10 +4433,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2311, ptr %21, align 4, !tbaa !3
   %2312 = mul i32 %2309, %2306
   %2313 = sext i32 %2312 to i64
-  %2314 = getelementptr inbounds double, ptr %43, i64 %2313
+  %2314 = getelementptr inbounds [8 x i8], ptr %43, i64 %2313
   %2315 = mul i32 %2309, %2307
   %2316 = sext i32 %2315 to i64
-  %2317 = getelementptr inbounds double, ptr %40, i64 %2316
+  %2317 = getelementptr inbounds [8 x i8], ptr %40, i64 %2316
   call void @dcopy_(ptr noundef nonnull %21, ptr noundef %2314, ptr noundef nonnull %14, ptr noundef %2317, ptr noundef nonnull @c__1) #7
   %2318 = load i32, ptr %27, align 4, !tbaa !3
   %2319 = add nsw i32 %2318, 1
@@ -4469,10 +4469,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2329 = mul nsw i64 %indvars.iv3009, %2326
   %2330 = mul nsw i32 %38, %indvars3011
   %2331 = sext i32 %2330 to i64
-  %2332 = getelementptr double, ptr %40, i64 %indvars.iv3009
-  %2333 = getelementptr double, ptr %2332, i64 %2331
-  %invariant.gep3442 = getelementptr double, ptr %40, i64 %indvars.iv3009
-  %invariant.gep3444 = getelementptr double, ptr %40, i64 %2329
+  %2332 = getelementptr [8 x i8], ptr %40, i64 %indvars.iv3009
+  %2333 = getelementptr [8 x i8], ptr %2332, i64 %2331
+  %invariant.gep3442 = getelementptr [8 x i8], ptr %40, i64 %indvars.iv3009
+  %invariant.gep3444 = getelementptr [8 x i8], ptr %40, i64 %2329
   br label %2334
 
 2334:                                             ; preds = %2328, %2334
@@ -4480,7 +4480,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2335 = trunc nuw nsw i64 %indvars.iv3004 to i32
   %2336 = mul i32 %2325, %2335
   %2337 = sext i32 %2336 to i64
-  %2338 = getelementptr inbounds double, ptr %40, i64 %2337
+  %2338 = getelementptr inbounds [8 x i8], ptr %40, i64 %2337
   %2339 = load double, ptr %2338, align 8, !tbaa !7
   %2340 = fcmp oge double %2339, 0.000000e+00
   %2341 = fneg double %2339
@@ -4493,14 +4493,14 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2348 = select i1 %2347, double %2342, double %2346
   %2349 = fmul double %2323, %2348
   %2350 = mul nsw i64 %indvars.iv3004, %2326
-  %gep3443 = getelementptr double, ptr %invariant.gep3442, i64 %2350
+  %gep3443 = getelementptr [8 x i8], ptr %invariant.gep3442, i64 %2350
   %2351 = load double, ptr %gep3443, align 8, !tbaa !7
   %2352 = fcmp ult double %2351, 0.000000e+00
   %2353 = fcmp oge double %2349, 0.000000e+00
   %2354 = xor i1 %2353, %2352
   %.neg3501 = fneg double %2349
   %2355 = select i1 %2354, double %.neg3501, double %2349
-  %gep3445 = getelementptr double, ptr %invariant.gep3444, i64 %indvars.iv3004
+  %gep3445 = getelementptr [8 x i8], ptr %invariant.gep3444, i64 %indvars.iv3004
   store double %2355, ptr %gep3445, align 8, !tbaa !7
   %indvars.iv.next3005 = add nuw nsw i64 %indvars.iv3004, 1
   %exitcond3008.not = icmp eq i64 %indvars.iv.next3005, %indvars.iv3009
@@ -4518,7 +4518,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2359, ptr %21, align 4, !tbaa !3
   %2360 = shl i32 %38, 1
   %2361 = sext i32 %2360 to i64
-  %2362 = getelementptr double, ptr %40, i64 %2361
+  %2362 = getelementptr [8 x i8], ptr %40, i64 %2361
   %2363 = getelementptr i8, ptr %2362, i64 8
   call void @dlaset_(ptr noundef nonnull @.str, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %2363, ptr noundef nonnull %12) #7
   %.pre3150 = load i32, ptr %31, align 4, !tbaa !3
@@ -4541,7 +4541,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2370 = sub i32 %2366, %2369
   store i32 %2370, ptr %20, align 4, !tbaa !3
   %2371 = sext i32 %2369 to i64
-  %2372 = getelementptr double, ptr %44, i64 %2371
+  %2372 = getelementptr [8 x i8], ptr %44, i64 %2371
   %2373 = getelementptr i8, ptr %2372, i64 8
   call void @dgesvj_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %10, ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %2373, ptr noundef nonnull %20, ptr noundef nonnull %18) #7
   %2374 = load i32, ptr %7, align 4, !tbaa !3
@@ -4549,7 +4549,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2376 = add i32 %2375, 2
   %2377 = mul i32 %2376, %2374
   %2378 = sext i32 %2377 to i64
-  %2379 = getelementptr double, ptr %44, i64 %2378
+  %2379 = getelementptr [8 x i8], ptr %44, i64 %2378
   %2380 = getelementptr i8, ptr %2379, i64 8
   %2381 = load double, ptr %2380, align 8, !tbaa !7
   store double %2381, ptr %32, align 8, !tbaa !7
@@ -4580,7 +4580,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2397 = add i32 %41, 1
   %2398 = add i32 %2397, %2375
   %2399 = sext i32 %2398 to i64
-  %2400 = getelementptr inbounds double, ptr %43, i64 %2399
+  %2400 = getelementptr inbounds [8 x i8], ptr %43, i64 %2399
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %31, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %2400, ptr noundef nonnull %14) #7
   %2401 = load i32, ptr %7, align 4, !tbaa !3
   %2402 = load i32, ptr %31, align 4, !tbaa !3
@@ -4589,7 +4589,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2404 = add nsw i32 %2402, 1
   %2405 = mul nsw i32 %2404, %41
   %2406 = sext i32 %2405 to i64
-  %2407 = getelementptr double, ptr %43, i64 %2406
+  %2407 = getelementptr [8 x i8], ptr %43, i64 %2406
   %2408 = getelementptr i8, ptr %2407, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %31, ptr noundef nonnull %20, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %2408, ptr noundef nonnull %14) #7
   %2409 = load i32, ptr %7, align 4, !tbaa !3
@@ -4600,7 +4600,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2412 = add nsw i32 %2410, 1
   %2413 = mul i32 %2412, %2397
   %2414 = sext i32 %2413 to i64
-  %2415 = getelementptr inbounds double, ptr %43, i64 %2414
+  %2415 = getelementptr inbounds [8 x i8], ptr %43, i64 %2414
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b35, ptr noundef %2415, ptr noundef nonnull %14) #7
   %.pre3151 = load i32, ptr %7, align 4, !tbaa !3
   %.pre3152 = load i32, ptr %31, align 4, !tbaa !3
@@ -4620,14 +4620,14 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2420, ptr %20, align 4, !tbaa !3
   %2421 = shl i32 %2418, 1
   %2422 = sext i32 %2421 to i64
-  %2423 = getelementptr double, ptr %44, i64 %2422
+  %2423 = getelementptr [8 x i8], ptr %44, i64 %2422
   %2424 = getelementptr i8, ptr %2423, i64 8
   %2425 = sext i32 %2418 to i64
-  %2426 = getelementptr double, ptr %44, i64 %2425
+  %2426 = getelementptr [8 x i8], ptr %44, i64 %2425
   %2427 = getelementptr i8, ptr %2426, i64 8
   %2428 = add nsw i32 %.pre-phi3187, %2417
   %2429 = sext i32 %2428 to i64
-  %2430 = getelementptr double, ptr %44, i64 %2429
+  %2430 = getelementptr [8 x i8], ptr %44, i64 %2429
   %2431 = getelementptr i8, ptr %2430, i64 8
   call void @dormqr_(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.9, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %2424, ptr noundef nonnull %7, ptr noundef %2427, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %2431, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   %2432 = load i32, ptr %7, align 4, !tbaa !3
@@ -4663,18 +4663,18 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %invariant.op2618 = add i32 %2440, %2442
   %2443 = add nuw i32 %2438, 1
   %wide.trip.count3017 = zext i32 %2443 to i64
-  %invariant.gep3446 = getelementptr double, ptr %43, i64 %2439
+  %invariant.gep3446 = getelementptr [8 x i8], ptr %43, i64 %2439
   br label %2444
 
 2444:                                             ; preds = %.lr.ph2615, %2444
   %indvars.iv3014 = phi i64 [ 1, %.lr.ph2615 ], [ %indvars.iv.next3015, %2444 ]
-  %gep3447 = getelementptr double, ptr %invariant.gep3446, i64 %indvars.iv3014
+  %gep3447 = getelementptr [8 x i8], ptr %invariant.gep3446, i64 %indvars.iv3014
   %2445 = load double, ptr %gep3447, align 8, !tbaa !7
-  %2446 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv3014
+  %2446 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv3014
   %2447 = load i32, ptr %2446, align 4, !tbaa !3
   %.reass2619 = add i32 %2447, %invariant.op2618
   %2448 = sext i32 %.reass2619 to i64
-  %2449 = getelementptr inbounds double, ptr %44, i64 %2448
+  %2449 = getelementptr inbounds [8 x i8], ptr %44, i64 %2448
   store double %2445, ptr %2449, align 8, !tbaa !7
   %indvars.iv.next3015 = add nuw nsw i64 %indvars.iv3014, 1
   %exitcond3018.not = icmp eq i64 %indvars.iv.next3015, %wide.trip.count3017
@@ -4694,7 +4694,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2453 = mul nsw i64 %indvars.iv3024, %2437
   %2454 = add nuw i32 %2438, 1
   %wide.trip.count3022 = zext i32 %2454 to i64
-  %invariant.gep3448 = getelementptr double, ptr %43, i64 %2453
+  %invariant.gep3448 = getelementptr [8 x i8], ptr %43, i64 %2453
   br label %2455
 
 2455:                                             ; preds = %.lr.ph2624, %2455
@@ -4702,9 +4702,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2456 = trunc nuw nsw i64 %indvars.iv3019 to i32
   %.reass2628 = add i32 %invariant.op2627, %2456
   %2457 = sext i32 %.reass2628 to i64
-  %2458 = getelementptr inbounds double, ptr %44, i64 %2457
+  %2458 = getelementptr inbounds [8 x i8], ptr %44, i64 %2457
   %2459 = load double, ptr %2458, align 8, !tbaa !7
-  %gep3449 = getelementptr double, ptr %invariant.gep3448, i64 %indvars.iv3019
+  %gep3449 = getelementptr [8 x i8], ptr %invariant.gep3448, i64 %indvars.iv3019
   store double %2459, ptr %gep3449, align 8, !tbaa !7
   %indvars.iv.next3020 = add nuw nsw i64 %indvars.iv3019, 1
   %exitcond3023.not = icmp eq i64 %indvars.iv.next3020, %wide.trip.count3022
@@ -4714,7 +4714,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.pre-phi3201 = phi i64 [ %.pre3200, %._crit_edge2616.._crit_edge2625_crit_edge ], [ %2453, %2455 ]
   %storemerge2270.lcssa = phi i32 [ 1, %._crit_edge2616.._crit_edge2625_crit_edge ], [ %2454, %2455 ]
   store i32 %storemerge2270.lcssa, ptr %27, align 4, !tbaa !3
-  %2460 = getelementptr double, ptr %43, i64 %.pre-phi3201
+  %2460 = getelementptr [8 x i8], ptr %43, i64 %.pre-phi3201
   %2461 = getelementptr i8, ptr %2460, i64 8
   %2462 = call double @dnrm2_(ptr noundef nonnull %7, ptr noundef %2461, ptr noundef nonnull @c__1) #7
   %2463 = fdiv double 1.000000e+00, %2462
@@ -4749,7 +4749,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2478 = add i32 %38, 1
   %2479 = add i32 %2478, %2473
   %2480 = sext i32 %2479 to i64
-  %2481 = getelementptr inbounds double, ptr %40, i64 %2480
+  %2481 = getelementptr inbounds [8 x i8], ptr %40, i64 %2480
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %31, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %2481, ptr noundef nonnull %12) #7
   %2482 = load i32, ptr %31, align 4, !tbaa !3
   %2483 = load i32, ptr %28, align 4, !tbaa !3
@@ -4762,7 +4762,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2487 = add nsw i32 %2482, 1
   %2488 = mul nsw i32 %2487, %38
   %2489 = sext i32 %2488 to i64
-  %2490 = getelementptr double, ptr %40, i64 %2489
+  %2490 = getelementptr [8 x i8], ptr %40, i64 %2489
   %2491 = getelementptr i8, ptr %2490, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %31, ptr noundef nonnull %20, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %2491, ptr noundef nonnull %12) #7
   %2492 = load i32, ptr %6, align 4, !tbaa !3
@@ -4775,7 +4775,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2497 = add nsw i32 %2493, 1
   %2498 = mul i32 %2497, %2478
   %2499 = sext i32 %2498 to i64
-  %2500 = getelementptr inbounds double, ptr %40, i64 %2499
+  %2500 = getelementptr inbounds [8 x i8], ptr %40, i64 %2499
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b35, ptr noundef %2500, ptr noundef nonnull %12) #7
   br label %2501
 
@@ -4785,7 +4785,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2504 = sub nsw i32 %2502, %2503
   store i32 %2504, ptr %20, align 4, !tbaa !3
   %2505 = sext i32 %2503 to i64
-  %2506 = getelementptr double, ptr %44, i64 %2505
+  %2506 = getelementptr [8 x i8], ptr %44, i64 %2505
   %2507 = getelementptr i8, ptr %2506, i64 8
   call void @dormqr_(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.25, ptr noundef nonnull %6, ptr noundef nonnull %28, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %15, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %2507, ptr noundef nonnull %20, ptr noundef nonnull %25) #7
   br i1 %.01925.shrunk, label %.sink.split, label %2516
@@ -4800,7 +4800,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2510 = load i32, ptr %7, align 4, !tbaa !3
   %2511 = shl i32 %2510, 1
   %2512 = sext i32 %2511 to i64
-  %2513 = getelementptr i32, ptr %45, i64 %2512
+  %2513 = getelementptr [4 x i8], ptr %45, i64 %2512
   %2514 = getelementptr i8, ptr %2513, i64 4
   %2515 = call i32 @dlaswp_(ptr noundef nonnull %28, ptr noundef %11, ptr noundef nonnull %12, ptr noundef nonnull @c__1, ptr noundef nonnull %20, ptr noundef %2514, ptr noundef nonnull @c_n1) #7
   br label %2516
@@ -4822,11 +4822,11 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %storemerge22642810 = phi i32 [ %2528, %.lr.ph2812 ], [ 1, %2517 ]
   %2519 = mul nsw i32 %storemerge22642810, %38
   %2520 = sext i32 %2519 to i64
-  %2521 = getelementptr double, ptr %40, i64 %2520
+  %2521 = getelementptr [8 x i8], ptr %40, i64 %2520
   %2522 = getelementptr i8, ptr %2521, i64 8
   %2523 = mul nsw i32 %storemerge22642810, %41
   %2524 = sext i32 %2523 to i64
-  %2525 = getelementptr double, ptr %43, i64 %2524
+  %2525 = getelementptr [8 x i8], ptr %43, i64 %2524
   %2526 = getelementptr i8, ptr %2525, i64 8
   call void @dswap_(ptr noundef nonnull %7, ptr noundef %2522, ptr noundef nonnull @c__1, ptr noundef %2526, ptr noundef nonnull @c__1) #7
   %2527 = load i32, ptr %27, align 4, !tbaa !3
@@ -4869,7 +4869,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 2543:                                             ; preds = %.lr.ph2818, %2543
   %storemerge2266.in2820 = phi i32 [ %storemerge22662814, %.lr.ph2818 ], [ %storemerge2266, %2543 ]
   %2544 = sext i32 %storemerge2266.in2820 to i64
-  %2545 = getelementptr inbounds double, ptr %34, i64 %2544
+  %2545 = getelementptr inbounds [8 x i8], ptr %34, i64 %2544
   store double 0.000000e+00, ptr %2545, align 8, !tbaa !7
   %storemerge2266 = add i32 %storemerge2266.in2820, 1
   %exitcond3131.not = icmp eq i32 %storemerge2266.in2820, %smax

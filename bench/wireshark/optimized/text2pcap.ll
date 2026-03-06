@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i32, [12 x i8] }
 %union.anon.1 = type { i32, [12 x i8] }
 %struct.wtap_dump_params = type { i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.string_elem = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"text2pcap\00", align 1
 @.str.1 = private unnamed_addr constant [70 x i8] c"Can't get pathname of directory containing the text2pcap program: %s.\00", align 1
@@ -286,7 +285,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %.split.i
   %59 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.main, i64 %59
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.main, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %24, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1095,7 +1094,7 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %330
   %394 = load i32, ptr @ws_optind, align 4
   %395 = add i32 %394, 1
   %396 = sext i32 %395 to i64
-  %397 = getelementptr ptr, ptr %1, i64 %396
+  %397 = getelementptr [8 x i8], ptr %1, i64 %396
   %398 = load ptr, ptr %397, align 8
   %399 = call ptr @strrchr(ptr noundef %398, i32 noundef 46) #15
   %.not225.i = icmp eq ptr %399, null
@@ -1140,7 +1139,7 @@ list_output_compression_types.exit.i:             ; preds = %.lr.ph.i.i, %330
   %415 = phi i32 [ 0, %410 ], [ %404, %411 ], [ 0, %.thread268.i ]
   %416 = load i32, ptr @ws_optind, align 4
   %417 = sext i32 %416 to i64
-  %418 = getelementptr ptr, ptr %1, i64 %417
+  %418 = getelementptr [8 x i8], ptr %1, i64 %417
   %419 = load ptr, ptr %418, align 8
   %420 = load i8, ptr %419, align 1
   %.not507.i = icmp eq i8 %420, 45
@@ -1249,7 +1248,7 @@ sub_0274.i:                                       ; preds = %456
   %463 = load i32, ptr @ws_optind, align 4
   %464 = add i32 %463, 1
   %465 = sext i32 %464 to i64
-  %466 = getelementptr ptr, ptr %1, i64 %465
+  %466 = getelementptr [8 x i8], ptr %1, i64 %465
   %467 = load ptr, ptr %466, align 8
   %468 = load i8, ptr %467, align 1
   %.not508.i = icmp eq i8 %468, 45
@@ -1760,7 +1759,7 @@ define internal fastcc void @list_encap_types() unnamed_addr #0 {
 
 8:                                                ; preds = %.lr.ph
   %9 = tail call ptr @wtap_encap_name(i32 noundef %6)
-  %10 = getelementptr %struct.string_elem, ptr %3, i64 %indvars.iv
+  %10 = getelementptr [16 x i8], ptr %3, i64 %indvars.iv
   store ptr %9, ptr %10, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %11
@@ -1808,7 +1807,7 @@ define internal fastcc void @list_capture_types() unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr i32, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %7)

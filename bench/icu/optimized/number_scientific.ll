@@ -655,7 +655,7 @@ define noundef i32 @_ZNK6icu_776number4impl18ScientificModifier5applyERNS_22Form
   %68 = icmp eq i32 %57, 0
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 264
   %70 = zext nneg i32 %57 to i64
-  %71 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %61, i64 %70
+  %71 = getelementptr inbounds nuw [64 x i8], ptr %61, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1096
   %.0.i.i = select i1 %68, ptr %69, ptr %72
   %73 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i, i8 37, ptr noundef nonnull align 4 dereferenceable(4) %4)

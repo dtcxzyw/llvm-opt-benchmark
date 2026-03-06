@@ -2275,7 +2275,7 @@ define hidden void @"_ZN112_$LT$yara_x_parser..cst..CST$u20$as$u20$core..convert
   %88 = load ptr, ptr %38, align 8, !alias.scope !152, !nonnull !3, !noundef !3
   %89 = icmp ult i64 %82, 576460752303423489
   call void @llvm.assume(i1 %89)
-  %90 = getelementptr inbounds nuw { i16, [3 x i16], i64 }, ptr %88, i64 %85
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %85
   %91 = load i16, ptr %90, align 8, !noalias !152, !noundef !3
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load i64, ptr %92, align 8, !noalias !152, !noundef !3
@@ -2316,7 +2316,7 @@ define hidden void @"_ZN112_$LT$yara_x_parser..cst..CST$u20$as$u20$core..convert
 
 _ZN5rowan5green7builder16GreenNodeBuilder11finish_node17h967b48be2dec03baE.exit: ; preds = %.noexc60, %103
   %108 = load ptr, ptr %36, align 8, !alias.scope !156, !noalias !159, !nonnull !3, !noundef !3
-  %109 = getelementptr inbounds nuw { i64, { i64, [1 x i64] } }, ptr %108, i64 %100
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %108, i64 %100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %110 = add i64 %100, 1
   store i64 %110, ptr %35, align 8, !alias.scope !156, !noalias !159
@@ -2377,7 +2377,7 @@ _ZN5rowan5green7builder16GreenNodeBuilder11finish_node17h967b48be2dec03baE.exit:
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49753a5a68f63304E.exit": ; preds = %127, %121
   %128 = load ptr, ptr %38, align 8, !alias.scope !168, !nonnull !3, !noundef !3
-  %129 = getelementptr inbounds nuw { i16, [3 x i16], i64 }, ptr %128, i64 %124
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %124
   store i16 %80, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i64 %122, ptr %130, align 8
@@ -2509,7 +2509,7 @@ _ZN5rowan5green7builder16GreenNodeBuilder11finish_node17h967b48be2dec03baE.exit:
 
 170:                                              ; preds = %165, %159
   %171 = load ptr, ptr %36, align 8, !alias.scope !171, !noalias !174, !nonnull !3, !noundef !3
-  %172 = getelementptr inbounds nuw { i64, { i64, [1 x i64] } }, ptr %171, i64 %162
+  %172 = getelementptr inbounds nuw [24 x i8], ptr %171, i64 %162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %172, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %173 = add i64 %162, 1
   store i64 %173, ptr %35, align 8, !alias.scope !171, !noalias !174
@@ -2536,7 +2536,7 @@ _ZN5rowan5green7builder16GreenNodeBuilder11finish_node17h967b48be2dec03baE.exit:
 
 178:                                              ; preds = %116, %112
   %179 = load ptr, ptr %26, align 8, !alias.scope !163, !noalias !166, !nonnull !3, !noundef !3
-  %180 = getelementptr inbounds nuw { { { i32, i32 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %179, i64 %113
+  %180 = getelementptr inbounds nuw [32 x i8], ptr %179, i64 %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %180, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %181 = add i64 %113, 1
   store i64 %181, ptr %27, align 8, !alias.scope !163, !noalias !166
@@ -2570,10 +2570,10 @@ define internal noundef zeroext i1 @"_ZN80_$LT$yara_x_parser..cst..syntax_kind..
 switch.lookup:
   %2 = load i16, ptr %0, align 2, !range !39, !noundef !3
   %3 = zext nneg i16 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN80_$LT$yara_x_parser..cst..syntax_kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hacce29345f3dc513E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$yara_x_parser..cst..syntax_kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hacce29345f3dc513E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN80_$LT$yara_x_parser..cst..syntax_kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hacce29345f3dc513E.34", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$yara_x_parser..cst..syntax_kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hacce29345f3dc513E.34", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

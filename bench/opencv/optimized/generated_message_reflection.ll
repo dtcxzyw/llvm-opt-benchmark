@@ -12,17 +12,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %class.anon.31 = type { ptr, ptr }
-%"class.google::protobuf::FieldDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i8, i32, ptr, ptr, ptr, ptr, %union.anon.4, %union.anon.5, ptr, %union.anon.6 }
-%"class.google::protobuf::internal::SymbolBase" = type { i8 }
-%union.anon.4 = type { ptr }
-%union.anon.5 = type { ptr }
-%union.anon.6 = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.google::protobuf::internal::LogMessage" = type { i32, ptr, i32, %"class.std::__cxx11::basic_string" }
 %"class.google::protobuf::internal::LogFinisher" = type { i8 }
-%"class.google::protobuf::OneofDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i32, ptr, ptr, ptr, ptr }
 %"class.std::set" = type { %"class.std::_Rb_tree.65" }
 %"class.std::_Rb_tree.65" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -41,11 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon = type { ptr }
 %class.anon.87 = type { ptr, ptr, ptr }
 %"class.google::protobuf::AssignDescriptorsHelper" = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.google::protobuf::Descriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i16, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32 }
-%"class.google::protobuf::EnumDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i16, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr }
-%"class.google::protobuf::ServiceDescriptor" = type <{ %"class.google::protobuf::internal::SymbolBase", [7 x i8], ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"struct.std::pair" = type { ptr, ptr }
-%"struct.google::protobuf::Metadata" = type { ptr, ptr }
 %"class.google::protobuf::internal::RepeatedPtrFieldBase" = type { ptr, i32, i32, ptr }
 %struct.LocalVarWrapper = type { %union.anon.78, %"class.std::__cxx11::basic_string" }
 %union.anon.78 = type { i64 }
@@ -633,7 +622,7 @@ _ZNK6google8protobuf10Reflection16GetUnknownFieldsERKNS0_7MessageE.exit: ; preds
   %56 = load ptr, ptr %0, align 8, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8, !tbaa !77
-  %59 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [72 x i8], ptr %58, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = and i8 %61, 96
@@ -703,7 +692,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %64, %_ZN6googl
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %73 = load i8, ptr %72, align 2, !tbaa !78
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !79
   switch i32 %76, label %382 [
     i32 1, label %77
@@ -857,7 +846,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %64, %_ZN6googl
   %183 = phi ptr [ %190, %.lr.ph.i.i ], [ %179, %.preheader.i.i ]
   %.17.i.i = phi i64 [ %189, %.lr.ph.i.i ], [ %177, %.preheader.i.i ]
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = getelementptr inbounds nuw ptr, ptr %184, i64 %indvars.iv.i.i
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %indvars.iv.i.i
   %186 = load ptr, ptr %185, align 8, !tbaa !71
   %187 = call noundef i64 @_ZN6google8protobuf8internal32StringSpaceUsedExcludingSelfLongERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %186)
   %188 = add i64 %.17.i.i, 32
@@ -974,7 +963,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %223 = phi ptr [ %232, %.lr.ph.i ], [ %219, %.preheader.i ]
   %.17.i = phi i64 [ %231, %.lr.ph.i ], [ %217, %.preheader.i ]
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  %225 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv.i
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %indvars.iv.i
   %226 = load ptr, ptr %225, align 8, !tbaa !71
   %227 = load ptr, ptr %226, align 8, !tbaa !101
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 120
@@ -1097,7 +1086,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit81: ; preds = %_ZNK6google8
   %276 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %277 = load i8, ptr %276, align 2, !tbaa !78
   %278 = zext i8 %277 to i64
-  %279 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %278
+  %279 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !79
   switch i32 %280, label %382 [
     i32 10, label %368
@@ -1344,7 +1333,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i105: ; preds = %_ZN6google8
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i105
   %358 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %358
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %358
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK6google8protobuf10Reflection10DefaultRawINS0_8internal14ArenaStringPtrEEERKT_PKNS0_15FieldDescriptorE.exit
 
@@ -1619,7 +1608,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i: ; preds = %_ZN6google8proto
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
   %43 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %43
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK6google8protobuf8internal16ReflectionSchema15GetFieldDefaultEPKNS0_15FieldDescriptorE.exit
 
@@ -1890,7 +1879,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 %70
   %72 = lshr i32 %65, 5
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !15
   %76 = or i32 %75, %69
   store i32 %76, ptr %74, align 4, !tbaa !15
@@ -1975,7 +1964,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 %121
   %123 = lshr i32 %116, 5
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw i32, ptr %122, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !15
   %127 = or i32 %126, %120
   store i32 %127, ptr %125, align 4, !tbaa !15
@@ -2379,7 +2368,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %55 = load i32, ptr %54, align 4, !tbaa !15
   %56 = lshr i32 %55, 5
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %40, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %60 = and i32 %55, 31
   %61 = lshr i32 %59, %60
@@ -2443,7 +2432,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %_ZNK6google8pr
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %75 = load i8, ptr %74, align 2, !tbaa !78
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !79
   %79 = icmp eq i32 %78, 10
   br i1 %79, label %80, label %89
@@ -2509,7 +2498,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i8, ptr %74, align 2, !tbaa !78
   %.phi.trans.insert = zext i8 %.pre to i64
-  %.phi.trans.insert57 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert
+  %.phi.trans.insert57 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert
   %.pre58 = load i32, ptr %.phi.trans.insert57, align 4, !tbaa !79
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit54
 
@@ -2807,7 +2796,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 %96
   %98 = lshr i32 %90, 5
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %97, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !15
   %102 = and i32 %101, %95
   store i32 %102, ptr %100, align 4, !tbaa !15
@@ -2870,7 +2859,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %_ZNK6google8pr
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %115 = load i8, ptr %114, align 2, !tbaa !78
   %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !79
   switch i32 %118, label %_ZNK6google8protobuf10Reflection15ClearOneofFieldEPNS0_7MessageEPKNS0_15FieldDescriptorE.exit [
     i32 1, label %119
@@ -3105,7 +3094,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit91: ; preds = %226, %_ZN6go
   %238 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %239 = load i8, ptr %238, align 2, !tbaa !78
   %240 = zext i8 %239 to i64
-  %241 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %240
+  %241 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %240
   %242 = load i32, ptr %241, align 4, !tbaa !79
   switch i32 %242, label %_ZNK6google8protobuf10Reflection15ClearOneofFieldEPNS0_7MessageEPKNS0_15FieldDescriptorE.exit [
     i32 1, label %243
@@ -3195,7 +3184,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit91: ; preds = %226, %_ZN6go
 286:                                              ; preds = %286, %282
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %286 ], [ 0, %282 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %287 = getelementptr inbounds nuw ptr, ptr %285, i64 %indvars.iv.i.i
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %indvars.iv.i.i
   %288 = load ptr, ptr %287, align 8, !tbaa !71
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
   store i64 0, ptr %289, align 8, !tbaa !124
@@ -3295,7 +3284,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 323:                                              ; preds = %323, %319
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %323 ], [ 0, %319 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %324 = getelementptr inbounds nuw ptr, ptr %322, i64 %indvars.iv.i
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %322, i64 %indvars.iv.i
   %325 = load ptr, ptr %324, align 8, !tbaa !71
   %326 = load ptr, ptr %325, align 8, !tbaa !101
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 32
@@ -3393,7 +3382,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %27, %_ZN6googl
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %38 = load i8, ptr %37, align 2, !tbaa !78
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !79
   switch i32 %41, label %132 [
     i32 1, label %42
@@ -3597,7 +3586,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 145:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i93, %134
   %146 = load i8, ptr %37, align 2, !tbaa !78
   %147 = zext i8 %146 to i64
-  %148 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !79
   %150 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %133, i32 noundef %149)
           to label %151 unwind label %153
@@ -3680,7 +3669,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit99: ; preds = %157, %_ZN6go
   %167 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %168 = load i8, ptr %167, align 2, !tbaa !78
   %169 = zext i8 %168 to i64
-  %170 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !79
   switch i32 %171, label %268 [
     i32 1, label %172
@@ -3898,7 +3887,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 281:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i103, %270
   %282 = load i8, ptr %167, align 2, !tbaa !78
   %283 = zext i8 %282 to i64
-  %284 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %283
+  %284 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %283
   %285 = load i32, ptr %284, align 4, !tbaa !79
   %286 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %269, i32 noundef %285)
           to label %287 unwind label %289
@@ -4278,7 +4267,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %25, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %40 = icmp eq i32 %39, 10
   br i1 %40, label %41, label %51
@@ -4345,7 +4334,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pre = load i8, ptr %35, align 2, !tbaa !78
   %.phi.trans.insert = zext i8 %.pre to i64
-  %.phi.trans.insert78 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert
+  %.phi.trans.insert78 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert
   %.pre79 = load i32, ptr %.phi.trans.insert78, align 4, !tbaa !79
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit60
 
@@ -4412,7 +4401,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %66, %_ZN6goo
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %77 = load i8, ptr %76, align 2, !tbaa !78
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !79
   switch i32 %80, label %168 [
     i32 1, label %81
@@ -4624,7 +4613,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 181:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i76, %170
   %182 = load i8, ptr %76, align 2, !tbaa !78
   %183 = zext i8 %182 to i64
-  %184 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !79
   %186 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %169, i32 noundef %185)
           to label %187 unwind label %190
@@ -4948,7 +4937,7 @@ define hidden void @_ZNK6google8protobuf10Reflection15UnsafeArenaSwapEPNS0_7Mess
   %20 = load ptr, ptr %0, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !77
-  %23 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [72 x i8], ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 16
@@ -4997,7 +4986,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
   %43 = load ptr, ptr %0, align 8, !tbaa !18
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8, !tbaa !110
-  %46 = getelementptr inbounds nuw %"class.google::protobuf::OneofDescriptor", ptr %45, i64 %indvars.iv71
+  %46 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %indvars.iv71
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !104
   %49 = icmp eq i32 %48, 1
@@ -5050,7 +5039,7 @@ _ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.thread: ; preds = %.l
 69:                                               ; preds = %.lr.ph65, %91
   %indvars.iv74 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next75, %91 ]
   %.04062 = phi i32 [ 0, %.lr.ph65 ], [ %.1, %91 ]
-  %70 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %65, i64 %indvars.iv74
+  %70 = getelementptr inbounds nuw [72 x i8], ptr %65, i64 %indvars.iv74
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, 96
@@ -5098,8 +5087,8 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv79 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next80, %.lr.ph69 ]
-  %92 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv79
-  %93 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv79
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv79
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv79
   %94 = load i32, ptr %92, align 4, !tbaa !15
   %95 = load i32, ptr %93, align 4, !tbaa !15
   store i32 %95, ptr %92, align 4, !tbaa !15
@@ -6300,7 +6289,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %_ZN6google8p
   %84 = getelementptr inbounds nuw i8, ptr %71, i64 2
   %85 = load i8, ptr %84, align 2, !tbaa !78
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !79
   switch i32 %88, label %144 [
     i32 1, label %89
@@ -6491,7 +6480,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 157:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i, %146
   %158 = load i8, ptr %84, align 2, !tbaa !78
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !79
   %162 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %145, i32 noundef %161)
           to label %163 unwind label %165
@@ -6617,7 +6606,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %207 = getelementptr inbounds nuw i8, ptr %194, i64 2
   %208 = load i8, ptr %207, align 2, !tbaa !78
   %209 = zext i8 %208 to i64
-  %210 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %209
+  %210 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %209
   %211 = load i32, ptr %210, align 4, !tbaa !79
   switch i32 %211, label %267 [
     i32 1, label %212
@@ -6862,7 +6851,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 280:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i67, %269
   %281 = load i8, ptr %207, align 2, !tbaa !78
   %282 = zext i8 %281 to i64
-  %283 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %282
+  %283 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %282
   %284 = load i32, ptr %283, align 4, !tbaa !79
   %285 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %268, i32 noundef %284)
           to label %286 unwind label %288
@@ -6981,7 +6970,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97: ; preds = %_ZN6google
   %327 = getelementptr inbounds nuw i8, ptr %.038, i64 2
   %328 = load i8, ptr %327, align 2, !tbaa !78
   %329 = zext i8 %328 to i64
-  %330 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %329
+  %330 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %329
   %331 = load i32, ptr %330, align 4, !tbaa !79
   switch i32 %331, label %351 [
     i32 1, label %332
@@ -7160,7 +7149,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 364:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i104, %353
   %365 = load i8, ptr %327, align 2, !tbaa !78
   %366 = zext i8 %365 to i64
-  %367 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %366
+  %367 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %366
   %368 = load i32, ptr %367, align 4, !tbaa !79
   %369 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %352, i32 noundef %368)
           to label %370 unwind label %372
@@ -7356,7 +7345,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %35, %_ZN6googl
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %48 = load i8, ptr %47, align 2, !tbaa !78
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !79
   switch i32 %51, label %135 [
     i32 1, label %52
@@ -7734,7 +7723,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6googl
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %45 = load i8, ptr %44, align 2, !tbaa !78
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !79
   switch i32 %48, label %169 [
     i32 1, label %49
@@ -7842,7 +7831,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6googl
   %115 = add nsw i32 %114, -1
   store i32 %115, ptr %113, align 8, !tbaa !143
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds ptr, ptr %112, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %112, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !71
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i64 0, ptr %119, align 8, !tbaa !124
@@ -7922,7 +7911,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %146 = add nsw i32 %145, -1
   store i32 %146, ptr %144, align 8, !tbaa !143
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds ptr, ptr %143, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %143, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !71
   %150 = load ptr, ptr %149, align 8, !tbaa !101
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 32
@@ -7943,7 +7932,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %162 = add nsw i32 %161, -1
   store i32 %162, ptr %160, align 8, !tbaa !143
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds ptr, ptr %159, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %159, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !71
   %166 = load ptr, ptr %165, align 8, !tbaa !101
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
@@ -8046,7 +8035,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6googl
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %35 = load i8, ptr %34, align 2, !tbaa !78
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !79
   %.not = icmp eq i32 %38, 10
   br i1 %.not, label %41, label %39
@@ -8143,7 +8132,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %75, align 8, !tbaa !143
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds ptr, ptr %74, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %74, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !71
   %81 = load i32, ptr %73, align 8, !tbaa !97
   %82 = add nsw i32 %81, -1
@@ -8153,7 +8142,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 
 84:                                               ; preds = %66
   %85 = sext i32 %82 to i64
-  %86 = getelementptr inbounds ptr, ptr %74, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %74, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !71
   store ptr %87, ptr %79, align 8, !tbaa !71
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS1_18GenericTypeHandlerINS0_7MessageEEEEEPNT_4TypeEv.exit.i.i
@@ -8181,7 +8170,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %101 = add nsw i32 %100, -1
   store i32 %101, ptr %99, align 8, !tbaa !143
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds ptr, ptr %98, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %98, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !71
   %105 = load i32, ptr %97, align 8, !tbaa !97
   %106 = add nsw i32 %105, -1
@@ -8191,7 +8180,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 
 108:                                              ; preds = %_ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit.thread
   %109 = sext i32 %106 to i64
-  %110 = getelementptr inbounds ptr, ptr %98, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %98, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !71
   store ptr %111, ptr %103, align 8, !tbaa !71
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS1_18GenericTypeHandlerINS0_7MessageEEEEEPNT_4TypeEv.exit.i.i18
@@ -8255,7 +8244,7 @@ define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_130ReportReflection
 
 29:                                               ; preds = %27
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf12_GLOBAL__N_114cpptype_names_E, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf12_GLOBAL__N_114cpptype_names_E, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !191
   %33 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef %32)
           to label %34 unwind label %60
@@ -8317,10 +8306,10 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %50 = load i8, ptr %49, align 2, !tbaa !78
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !79
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf12_GLOBAL__N_114cpptype_names_E, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf12_GLOBAL__N_114cpptype_names_E, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !191
   %57 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef %56)
           to label %58 unwind label %60
@@ -8443,7 +8432,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6googl
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %35 = load i8, ptr %34, align 2, !tbaa !78
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !79
   %.not = icmp eq i32 %38, 10
   br i1 %.not, label %41, label %39
@@ -8540,7 +8529,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %75, align 8, !tbaa !143
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds ptr, ptr %74, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %74, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !71
   %81 = load i32, ptr %73, align 8, !tbaa !97
   %82 = add nsw i32 %81, -1
@@ -8550,7 +8539,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 
 84:                                               ; preds = %66
   %85 = sext i32 %82 to i64
-  %86 = getelementptr inbounds ptr, ptr %74, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %74, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !71
   store ptr %87, ptr %79, align 8, !tbaa !71
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS1_18GenericTypeHandlerINS0_7MessageEEEEEPNT_4TypeEv.exit
@@ -8568,7 +8557,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %97 = add nsw i32 %96, -1
   store i32 %97, ptr %95, align 8, !tbaa !143
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds ptr, ptr %94, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %94, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !71
   %101 = load i32, ptr %93, align 8, !tbaa !97
   %102 = add nsw i32 %101, -1
@@ -8578,7 +8567,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 
 104:                                              ; preds = %_ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit.thread
   %105 = sext i32 %102 to i64
-  %106 = getelementptr inbounds ptr, ptr %94, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %94, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !71
   store ptr %107, ptr %99, align 8, !tbaa !71
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS1_18GenericTypeHandlerINS0_7MessageEEEEEPNT_4TypeEv.exit
@@ -8694,7 +8683,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %34, %_ZN6googl
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %47 = load i8, ptr %46, align 2, !tbaa !78
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !79
   switch i32 %50, label %133 [
     i32 1, label %51
@@ -8841,9 +8830,9 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %112 = load ptr, ptr %111, align 8, !tbaa !96
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = sext i32 %3 to i64
-  %115 = getelementptr inbounds ptr, ptr %113, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %113, i64 %114
   %116 = sext i32 %4 to i64
-  %117 = getelementptr inbounds ptr, ptr %113, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %113, i64 %116
   %118 = load ptr, ptr %115, align 8, !tbaa !71
   %119 = load ptr, ptr %117, align 8, !tbaa !71
   store ptr %119, ptr %115, align 8, !tbaa !71
@@ -8859,9 +8848,9 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %125 = load ptr, ptr %124, align 8, !tbaa !96
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = sext i32 %3 to i64
-  %128 = getelementptr inbounds ptr, ptr %126, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %126, i64 %127
   %129 = sext i32 %4 to i64
-  %130 = getelementptr inbounds ptr, ptr %126, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %126, i64 %129
   %131 = load ptr, ptr %128, align 8, !tbaa !71
   %132 = load ptr, ptr %130, align 8, !tbaa !71
   store ptr %132, ptr %128, align 8, !tbaa !71
@@ -8958,7 +8947,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S
 _ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i: ; preds = %35, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
   store ptr %34, ptr %3, align 8, !tbaa !200
   store ptr %34, ptr %6, align 8, !tbaa !202
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %22
   store ptr %36, ptr %26, align 8, !tbaa !204
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE7reserveEm.exit
 
@@ -8985,7 +8974,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE7reserveEm.exit: ; pre
   %44 = load ptr, ptr %0, align 8, !tbaa !18
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !77
-  %47 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [72 x i8], ptr %46, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = and i8 %49, 96
@@ -9053,7 +9042,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %78, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %73, ptr %3, align 8, !tbaa !200
   store ptr %77, ptr %6, align 8, !tbaa !202
-  %79 = getelementptr inbounds nuw ptr, ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   store ptr %79, ptr %26, align 8, !tbaa !204
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE9push_backERKS4_.exit
 
@@ -9160,7 +9149,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i41: ; preds = %136, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i39
   store ptr %131, ptr %3, align 8, !tbaa !200
   store ptr %135, ptr %6, align 8, !tbaa !202
-  %137 = getelementptr inbounds nuw ptr, ptr %131, i64 %129
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %129
   store ptr %137, ptr %26, align 8, !tbaa !204
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE9push_backERKS4_.exit
 
@@ -9168,7 +9157,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
   br i1 %.not75, label %174, label %138
 
 138:                                              ; preds = %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit.thread74
-  %139 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %140 = load i32, ptr %139, align 4, !tbaa !15
   %.not31 = icmp eq i32 %140, -1
   br i1 %.not31, label %174, label %141
@@ -9176,7 +9165,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
 141:                                              ; preds = %138
   %142 = lshr i32 %140, 5
   %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %16, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !15
   %146 = and i32 %140, 31
   %147 = lshr i32 %145, %146
@@ -9239,7 +9228,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i49: ; preds = %172, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i47
   store ptr %167, ptr %3, align 8, !tbaa !200
   store ptr %171, ptr %6, align 8, !tbaa !202
-  %173 = getelementptr inbounds nuw ptr, ptr %167, i64 %165
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %165
   store ptr %173, ptr %26, align 8, !tbaa !204
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE9push_backERKS4_.exit
 
@@ -9303,7 +9292,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i57: ; preds = %199, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i55
   store ptr %194, ptr %3, align 8, !tbaa !200
   store ptr %198, ptr %6, align 8, !tbaa !202
-  %200 = getelementptr inbounds nuw ptr, ptr %194, i64 %192
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %192
   store ptr %200, ptr %26, align 8, !tbaa !204
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE9push_backERKS4_.exit
 
@@ -9441,7 +9430,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
   %251 = sub i64 %250, %212
   %252 = ashr exact i64 %251, 3
   %253 = sub nsw i64 0, %252
-  %254 = getelementptr inbounds ptr, ptr %249, i64 %253
+  %254 = getelementptr inbounds [8 x i8], ptr %249, i64 %253
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %254, ptr noundef nonnull align 8 dereferenceable(1) %208, i64 %251, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_.exit.i30.i.i.i
 
@@ -9569,7 +9558,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6googl
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %31 = load i8, ptr %30, align 2, !tbaa !78
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !79
   %.not18 = icmp eq i32 %34, 1
   br i1 %.not18, label %37, label %35
@@ -9752,7 +9741,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not14 = icmp eq i32 %39, 1
   br i1 %.not14, label %42, label %40
@@ -9982,7 +9971,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 %97
   %99 = lshr i32 %92, 5
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !15
   %103 = or i32 %102, %96
   store i32 %103, ptr %101, align 4, !tbaa !15
@@ -10072,7 +10061,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %33 = load i8, ptr %32, align 2, !tbaa !78
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !79
   %.not = icmp eq i32 %36, 1
   br i1 %.not, label %39, label %37
@@ -10106,7 +10095,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !210
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !15
   br label %60
 
@@ -10197,7 +10186,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %34 = load i8, ptr %33, align 2, !tbaa !78
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !79
   %.not = icmp eq i32 %37, 1
   br i1 %.not, label %40, label %38
@@ -10231,7 +10220,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !210
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   store i32 %4, ptr %58, align 4, !tbaa !15
   br label %59
 
@@ -10328,7 +10317,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 1
   br i1 %.not, label %42, label %40
@@ -10425,7 +10414,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !210
   %81 = zext i32 %73 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   store i32 %3, ptr %82, align 4, !tbaa !15
   br label %_ZNK6google8protobuf10Reflection8AddFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
@@ -10433,7 +10422,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !210
   %86 = zext i32 %73 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   store i32 %3, ptr %87, align 4, !tbaa !15
   %.pre.i.i = add i32 %73, 1
   br label %_ZNK6google8protobuf10Reflection8AddFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
@@ -10529,7 +10518,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6googl
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %31 = load i8, ptr %30, align 2, !tbaa !78
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !79
   %.not18 = icmp eq i32 %34, 2
   br i1 %.not18, label %37, label %35
@@ -10712,7 +10701,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not14 = icmp eq i32 %39, 2
   br i1 %.not14, label %42, label %40
@@ -10942,7 +10931,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 %97
   %99 = lshr i32 %92, 5
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !15
   %103 = or i32 %102, %96
   store i32 %103, ptr %101, align 4, !tbaa !15
@@ -11032,7 +11021,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %33 = load i8, ptr %32, align 2, !tbaa !78
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !79
   %.not = icmp eq i32 %36, 2
   br i1 %.not, label %39, label %37
@@ -11066,7 +11055,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !212
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !125
   br label %60
 
@@ -11157,7 +11146,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %34 = load i8, ptr %33, align 2, !tbaa !78
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !79
   %.not = icmp eq i32 %37, 2
   br i1 %.not, label %40, label %38
@@ -11191,7 +11180,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !212
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   store i64 %4, ptr %58, align 8, !tbaa !125
   br label %59
 
@@ -11288,7 +11277,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 2
   br i1 %.not, label %42, label %40
@@ -11385,7 +11374,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !212
   %81 = zext i32 %73 to i64
-  %82 = getelementptr inbounds nuw i64, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %81
   store i64 %3, ptr %82, align 8, !tbaa !125
   br label %_ZNK6google8protobuf10Reflection8AddFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
@@ -11393,7 +11382,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !212
   %86 = zext i32 %73 to i64
-  %87 = getelementptr inbounds nuw i64, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %86
   store i64 %3, ptr %87, align 8, !tbaa !125
   %.pre.i.i = add i32 %73, 1
   br label %_ZNK6google8protobuf10Reflection8AddFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
@@ -11489,7 +11478,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6googl
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %31 = load i8, ptr %30, align 2, !tbaa !78
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !79
   %.not18 = icmp eq i32 %34, 3
   br i1 %.not18, label %37, label %35
@@ -11672,7 +11661,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not14 = icmp eq i32 %39, 3
   br i1 %.not14, label %42, label %40
@@ -11902,7 +11891,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 %97
   %99 = lshr i32 %92, 5
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !15
   %103 = or i32 %102, %96
   store i32 %103, ptr %101, align 4, !tbaa !15
@@ -11992,7 +11981,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %33 = load i8, ptr %32, align 2, !tbaa !78
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !79
   %.not = icmp eq i32 %36, 3
   br i1 %.not, label %39, label %37
@@ -12026,7 +12015,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !213
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !15
   br label %60
 
@@ -12117,7 +12106,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %34 = load i8, ptr %33, align 2, !tbaa !78
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !79
   %.not = icmp eq i32 %37, 3
   br i1 %.not, label %40, label %38
@@ -12151,7 +12140,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !213
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   store i32 %4, ptr %58, align 4, !tbaa !15
   br label %59
 
@@ -12248,7 +12237,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 3
   br i1 %.not, label %42, label %40
@@ -12345,7 +12334,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !213
   %81 = zext i32 %73 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   store i32 %3, ptr %82, align 4, !tbaa !15
   br label %_ZNK6google8protobuf10Reflection8AddFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
@@ -12353,7 +12342,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !213
   %86 = zext i32 %73 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   store i32 %3, ptr %87, align 4, !tbaa !15
   %.pre.i.i = add i32 %73, 1
   br label %_ZNK6google8protobuf10Reflection8AddFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
@@ -12449,7 +12438,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6googl
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %31 = load i8, ptr %30, align 2, !tbaa !78
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !79
   %.not18 = icmp eq i32 %34, 4
   br i1 %.not18, label %37, label %35
@@ -12632,7 +12621,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not14 = icmp eq i32 %39, 4
   br i1 %.not14, label %42, label %40
@@ -12862,7 +12851,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 %97
   %99 = lshr i32 %92, 5
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !15
   %103 = or i32 %102, %96
   store i32 %103, ptr %101, align 4, !tbaa !15
@@ -12952,7 +12941,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %33 = load i8, ptr %32, align 2, !tbaa !78
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !79
   %.not = icmp eq i32 %36, 4
   br i1 %.not, label %39, label %37
@@ -12986,7 +12975,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !214
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !125
   br label %60
 
@@ -13077,7 +13066,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %34 = load i8, ptr %33, align 2, !tbaa !78
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !79
   %.not = icmp eq i32 %37, 4
   br i1 %.not, label %40, label %38
@@ -13111,7 +13100,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !214
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   store i64 %4, ptr %58, align 8, !tbaa !125
   br label %59
 
@@ -13208,7 +13197,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 4
   br i1 %.not, label %42, label %40
@@ -13305,7 +13294,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !214
   %81 = zext i32 %73 to i64
-  %82 = getelementptr inbounds nuw i64, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %81
   store i64 %3, ptr %82, align 8, !tbaa !125
   br label %_ZNK6google8protobuf10Reflection8AddFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
@@ -13313,7 +13302,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !214
   %86 = zext i32 %73 to i64
-  %87 = getelementptr inbounds nuw i64, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %86
   store i64 %3, ptr %87, align 8, !tbaa !125
   %.pre.i.i = add i32 %73, 1
   br label %_ZNK6google8protobuf10Reflection8AddFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
@@ -13409,7 +13398,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6googl
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %31 = load i8, ptr %30, align 2, !tbaa !78
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !79
   %.not19 = icmp eq i32 %34, 6
   br i1 %.not19, label %37, label %35
@@ -13592,7 +13581,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not14 = icmp eq i32 %39, 6
   br i1 %.not14, label %42, label %40
@@ -13822,7 +13811,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 %97
   %99 = lshr i32 %92, 5
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !15
   %103 = or i32 %102, %96
   store i32 %103, ptr %101, align 4, !tbaa !15
@@ -13912,7 +13901,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %33 = load i8, ptr %32, align 2, !tbaa !78
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !79
   %.not = icmp eq i32 %36, 6
   br i1 %.not, label %39, label %37
@@ -13946,7 +13935,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !215
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds float, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !132
   br label %60
 
@@ -14037,7 +14026,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %34 = load i8, ptr %33, align 2, !tbaa !78
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !79
   %.not = icmp eq i32 %37, 6
   br i1 %.not, label %40, label %38
@@ -14071,7 +14060,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !215
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds float, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   store float %4, ptr %58, align 4, !tbaa !132
   br label %59
 
@@ -14168,7 +14157,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 6
   br i1 %.not, label %42, label %40
@@ -14265,7 +14254,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !215
   %81 = zext i32 %73 to i64
-  %82 = getelementptr inbounds nuw float, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   store float %3, ptr %82, align 4, !tbaa !132
   br label %_ZNK6google8protobuf10Reflection8AddFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
@@ -14273,7 +14262,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !215
   %86 = zext i32 %73 to i64
-  %87 = getelementptr inbounds nuw float, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   store float %3, ptr %87, align 4, !tbaa !132
   %.pre.i.i = add i32 %73, 1
   br label %_ZNK6google8protobuf10Reflection8AddFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
@@ -14369,7 +14358,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6googl
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %31 = load i8, ptr %30, align 2, !tbaa !78
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !79
   %.not19 = icmp eq i32 %34, 5
   br i1 %.not19, label %37, label %35
@@ -14552,7 +14541,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not14 = icmp eq i32 %39, 5
   br i1 %.not14, label %42, label %40
@@ -14782,7 +14771,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 %97
   %99 = lshr i32 %92, 5
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !15
   %103 = or i32 %102, %96
   store i32 %103, ptr %101, align 4, !tbaa !15
@@ -14872,7 +14861,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %33 = load i8, ptr %32, align 2, !tbaa !78
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !79
   %.not = icmp eq i32 %36, 5
   br i1 %.not, label %39, label %37
@@ -14906,7 +14895,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !216
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds double, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !134
   br label %60
 
@@ -14997,7 +14986,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %34 = load i8, ptr %33, align 2, !tbaa !78
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !79
   %.not = icmp eq i32 %37, 5
   br i1 %.not, label %40, label %38
@@ -15031,7 +15020,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !216
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds double, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   store double %4, ptr %58, align 8, !tbaa !134
   br label %59
 
@@ -15128,7 +15117,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 5
   br i1 %.not, label %42, label %40
@@ -15225,7 +15214,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !216
   %81 = zext i32 %73 to i64
-  %82 = getelementptr inbounds nuw double, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %81
   store double %3, ptr %82, align 8, !tbaa !134
   br label %_ZNK6google8protobuf10Reflection8AddFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
@@ -15233,7 +15222,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !216
   %86 = zext i32 %73 to i64
-  %87 = getelementptr inbounds nuw double, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %86
   store double %3, ptr %87, align 8, !tbaa !134
   %.pre.i.i = add i32 %73, 1
   br label %_ZNK6google8protobuf10Reflection8AddFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
@@ -15329,7 +15318,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6googl
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %31 = load i8, ptr %30, align 2, !tbaa !78
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !79
   %.not19 = icmp eq i32 %34, 7
   br i1 %.not19, label %37, label %35
@@ -15516,7 +15505,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6googl
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %37 = load i8, ptr %36, align 2, !tbaa !78
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !79
   %.not14 = icmp eq i32 %40, 7
   br i1 %.not14, label %43, label %41
@@ -15746,7 +15735,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 %97
   %99 = lshr i32 %92, 5
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !15
   %103 = or i32 %102, %96
   store i32 %103, ptr %101, align 4, !tbaa !15
@@ -15836,7 +15825,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %33 = load i8, ptr %32, align 2, !tbaa !78
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !79
   %.not = icmp eq i32 %36, 7
   br i1 %.not, label %39, label %37
@@ -15962,7 +15951,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %34 = load i8, ptr %33, align 2, !tbaa !78
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !79
   %.not = icmp eq i32 %37, 7
   br i1 %.not, label %40, label %38
@@ -16095,7 +16084,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6googl
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %37 = load i8, ptr %36, align 2, !tbaa !78
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !79
   %.not = icmp eq i32 %40, 7
   br i1 %.not, label %43, label %41
@@ -16308,7 +16297,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %27, %_ZN6googl
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %40 = load i8, ptr %39, align 2, !tbaa !78
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !79
   %.not26 = icmp eq i32 %43, 9
   br i1 %.not26, label %46, label %44
@@ -16784,7 +16773,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6googl
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %35 = load i8, ptr %34, align 2, !tbaa !78
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !79
   %.not27 = icmp eq i32 %38, 9
   br i1 %.not27, label %41, label %39
@@ -17058,7 +17047,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %29, %_ZN6googl
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %42 = load i8, ptr %41, align 2, !tbaa !78
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !79
   %.not40 = icmp eq i32 %45, 9
   br i1 %.not40, label %48, label %46
@@ -17437,7 +17426,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 %192
   %194 = lshr i32 %187, 5
   %195 = zext nneg i32 %194 to i64
-  %196 = getelementptr inbounds nuw i32, ptr %193, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !15
   %198 = or i32 %197, %191
   store i32 %198, ptr %196, align 4, !tbaa !15
@@ -17572,7 +17561,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i75: ; preds = %_ZN6google8p
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i75
   %250 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %250
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %250
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK6google8protobuf10Reflection10DefaultRawINS0_8internal14ArenaStringPtrEEERKT_PKNS0_15FieldDescriptorE.exit
 
@@ -17732,7 +17721,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %343 = getelementptr inbounds nuw i8, ptr %1, i64 %342
   %344 = lshr i32 %337, 5
   %345 = zext nneg i32 %344 to i64
-  %346 = getelementptr inbounds nuw i32, ptr %343, i64 %345
+  %346 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %345
   %347 = load i32, ptr %346, align 4, !tbaa !15
   %348 = or i32 %347, %341
   store i32 %348, ptr %346, align 4, !tbaa !15
@@ -17845,7 +17834,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %406 = getelementptr inbounds nuw i8, ptr %1, i64 %405
   %407 = lshr i32 %400, 5
   %408 = zext nneg i32 %407 to i64
-  %409 = getelementptr inbounds nuw i32, ptr %406, i64 %408
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %406, i64 %408
   %410 = load i32, ptr %409, align 4, !tbaa !15
   %411 = or i32 %410, %404
   store i32 %411, ptr %409, align 4, !tbaa !15
@@ -17991,7 +17980,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %43, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %56 = load i8, ptr %55, align 2, !tbaa !78
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !79
   switch i32 %59, label %145 [
     i32 9, label %60
@@ -18097,7 +18086,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 %117
   %119 = lshr i32 %112, 5
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !15
   %123 = or i32 %122, %116
   store i32 %123, ptr %121, align 4, !tbaa !15
@@ -18241,7 +18230,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 9
   br i1 %.not, label %42, label %40
@@ -18317,7 +18306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %74 = load ptr, ptr %73, align 8, !tbaa !96
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = sext i32 %4 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !71
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %79, ptr %0, align 8, !tbaa !119
@@ -18448,7 +18437,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %34 = load i8, ptr %33, align 2, !tbaa !78
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !79
   %.not = icmp eq i32 %37, 9
   br i1 %.not, label %40, label %38
@@ -18483,7 +18472,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %57 = load ptr, ptr %56, align 8, !tbaa !96
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = sext i32 %3 to i64
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !71
   br label %62
 
@@ -18577,7 +18566,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6googl
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %35 = load i8, ptr %34, align 2, !tbaa !78
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !79
   %.not = icmp eq i32 %38, 9
   br i1 %.not, label %41, label %39
@@ -18742,7 +18731,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   %104 = load ptr, ptr %103, align 8, !tbaa !96
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = sext i32 %3 to i64
-  %107 = getelementptr inbounds ptr, ptr %105, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %105, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !71
   %109 = load ptr, ptr %108, align 8, !tbaa !122
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 16
@@ -18921,7 +18910,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6googl
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %37 = load i8, ptr %36, align 2, !tbaa !78
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !79
   %.not = icmp eq i32 %40, 9
   br i1 %.not, label %43, label %41
@@ -19148,7 +19137,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   %125 = add nsw i32 %120, 1
   store i32 %125, ptr %119, align 8, !tbaa !143
   %126 = sext i32 %120 to i64
-  %127 = getelementptr inbounds ptr, ptr %124, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %124, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !71
   br label %_ZNK6google8protobuf10Reflection8AddFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE.exit
 
@@ -19359,7 +19348,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6googl
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %31 = load i8, ptr %30, align 2, !tbaa !78
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !79
   %.not18 = icmp eq i32 %34, 8
   br i1 %.not18, label %37, label %35
@@ -19731,7 +19720,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %19, %_ZN6googl
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %32 = load i8, ptr %31, align 2, !tbaa !78
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !79
   %.not18 = icmp eq i32 %35, 8
   br i1 %.not18, label %38, label %36
@@ -19882,7 +19871,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %33 = load i8, ptr %32, align 2, !tbaa !78
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !79
   %.not = icmp eq i32 %36, 8
   br i1 %.not, label %39, label %37
@@ -19916,7 +19905,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !210
   %57 = sext i32 %3 to i64
-  %58 = getelementptr inbounds i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !15
   br label %60
 
@@ -19967,7 +19956,7 @@ define hidden void @_ZNK6google8protobuf10Reflection15SetRepeatedEnumEPNS0_7Mess
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !210
   %31 = sext i32 %3 to i64
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   store i32 %13, ptr %32, align 4, !tbaa !15
   br label %_ZNK6google8protobuf10Reflection28SetRepeatedEnumValueInternalEPNS0_7MessageEPKNS0_15FieldDescriptorEii.exit
 
@@ -20001,7 +19990,7 @@ define hidden void @_ZNK6google8protobuf10Reflection28SetRepeatedEnumValueIntern
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !210
   %23 = sext i32 %3 to i64
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   store i32 %4, ptr %24, align 4, !tbaa !15
   br label %25
 
@@ -20089,7 +20078,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %34 = load i8, ptr %33, align 2, !tbaa !78
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !79
   %.not = icmp eq i32 %37, 8
   br i1 %.not, label %40, label %38
@@ -20164,7 +20153,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6googl
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !210
   %83 = sext i32 %3 to i64
-  %84 = getelementptr inbounds i32, ptr %82, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %82, i64 %83
   store i32 %4, ptr %84, align 4, !tbaa !15
   br label %_ZNK6google8protobuf10Reflection28SetRepeatedEnumValueInternalEPNS0_7MessageEPKNS0_15FieldDescriptorEii.exit
 
@@ -20288,7 +20277,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %11, %_ZN6google8pr
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !210
   %49 = zext i32 %41 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %49
   store i32 %3, ptr %50, align 4, !tbaa !15
   br label %_ZNK6google8protobuf10Reflection8AddFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
@@ -20296,7 +20285,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %11, %_ZN6google8pr
   %52 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !210
   %54 = zext i32 %41 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   store i32 %3, ptr %55, align 4, !tbaa !15
   %.pre.i.i = add i32 %41, 1
   br label %_ZNK6google8protobuf10Reflection8AddFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
@@ -20390,7 +20379,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6googl
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %33 = load i8, ptr %32, align 2, !tbaa !78
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !79
   %.not = icmp eq i32 %36, 8
   br i1 %.not, label %39, label %37
@@ -20678,7 +20667,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8pro
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
   %98 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %98
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %98
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK6google8protobuf10Reflection10DefaultRawIPKNS0_7MessageEEERKT_PKNS0_15FieldDescriptorE.exit
 
@@ -20789,7 +20778,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %19, %_ZN6googl
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %32 = load i8, ptr %31, align 2, !tbaa !78
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !79
   %.not29 = icmp eq i32 %35, 10
   br i1 %.not29, label %38, label %36
@@ -20970,7 +20959,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %19, %_ZN6googl
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %32 = load i8, ptr %31, align 2, !tbaa !78
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !79
   %.not40 = icmp eq i32 %35, 10
   br i1 %.not40, label %38, label %36
@@ -21145,7 +21134,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 %141
   %143 = lshr i32 %136, 5
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw i32, ptr %142, i64 %144
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !15
   %147 = or i32 %146, %140
   store i32 %147, ptr %145, align 4, !tbaa !15
@@ -21228,7 +21217,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 %187
   %189 = lshr i32 %182, 5
   %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw i32, ptr %188, i64 %190
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !15
   %193 = or i32 %192, %186
   store i32 %193, ptr %191, align 4, !tbaa !15
@@ -21360,7 +21349,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6googl
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %35 = load i8, ptr %34, align 2, !tbaa !78
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !79
   %.not38 = icmp eq i32 %38, 10
   br i1 %.not38, label %41, label %39
@@ -21530,7 +21519,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 %123
   %125 = lshr i32 %117, 5
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %124, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !15
   %129 = and i32 %128, %122
   store i32 %129, ptr %127, align 4, !tbaa !15
@@ -21563,7 +21552,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 %145
   %147 = lshr i32 %140, 5
   %148 = zext nneg i32 %147 to i64
-  %149 = getelementptr inbounds nuw i32, ptr %146, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !15
   %151 = or i32 %150, %144
   store i32 %151, ptr %149, align 4, !tbaa !15
@@ -21796,7 +21785,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %19, %_ZN6googl
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %32 = load i8, ptr %31, align 2, !tbaa !78
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !79
   %.not31 = icmp eq i32 %35, 10
   br i1 %.not31, label %38, label %36
@@ -21884,7 +21873,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 %85
   %87 = lshr i32 %79, 5
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !15
   %91 = and i32 %90, %84
   store i32 %91, ptr %89, align 4, !tbaa !15
@@ -22082,7 +22071,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 10
   br i1 %.not, label %42, label %40
@@ -22175,7 +22164,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %74 = load ptr, ptr %73, align 8, !tbaa !96
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = sext i32 %3 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !71
   br label %89
 
@@ -22188,7 +22177,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %84 = load ptr, ptr %83, align 8, !tbaa !96
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = sext i32 %3 to i64
-  %87 = getelementptr inbounds ptr, ptr %85, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %85, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !71
   br label %89
 
@@ -22286,7 +22275,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 10
   br i1 %.not, label %42, label %40
@@ -22379,7 +22368,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %74 = load ptr, ptr %73, align 8, !tbaa !96
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = sext i32 %3 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !71
   br label %89
 
@@ -22392,7 +22381,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %84 = load ptr, ptr %83, align 8, !tbaa !96
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = sext i32 %3 to i64
-  %87 = getelementptr inbounds ptr, ptr %85, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %85, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !71
   br label %89
 
@@ -22490,7 +22479,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 10
   br i1 %.not, label %42, label %40
@@ -22609,7 +22598,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase14AddFromClearedINS1_18Generic
   %85 = add nsw i32 %.pre, 1
   store i32 %85, ptr %.phi.trans.insert, align 8, !tbaa !143
   %86 = sext i32 %.pre to i64
-  %87 = getelementptr inbounds ptr, ptr %84, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %84, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !71
   %89 = icmp eq ptr %88, null
   br i1 %89, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase14AddFromClearedINS1_18GenericTypeHandlerINS0_7MessageEEEEEPNT_4TypeEv.exit.thread, label %161
@@ -22686,7 +22675,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %102,
 129:                                              ; preds = %126
   %130 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %131 = sext i32 %116 to i64
-  %132 = getelementptr inbounds ptr, ptr %130, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %130, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !71
   %134 = load ptr, ptr %.030, align 8, !tbaa !146
   %135 = icmp ne ptr %134, null
@@ -22709,10 +22698,10 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %102,
 143:                                              ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %145 = sext i32 %116 to i64
-  %146 = getelementptr inbounds ptr, ptr %144, i64 %145
+  %146 = getelementptr inbounds [8 x i8], ptr %144, i64 %145
   %147 = load ptr, ptr %146, align 8, !tbaa !71
   %148 = sext i32 %127 to i64
-  %149 = getelementptr inbounds ptr, ptr %144, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %144, i64 %148
   store ptr %147, ptr %149, align 8, !tbaa !71
   %150 = load ptr, ptr %79, align 8, !tbaa !96
   %151 = load i32, ptr %150, align 8, !tbaa !97
@@ -22732,7 +22721,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS1_
   %158 = add nsw i32 %157, 1
   store i32 %158, ptr %91, align 8, !tbaa !143
   %159 = sext i32 %157 to i64
-  %160 = getelementptr inbounds ptr, ptr %156, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %156, i64 %159
   store ptr %113, ptr %160, align 8, !tbaa !71
   br label %161
 
@@ -22830,7 +22819,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 10
   br i1 %.not, label %42, label %40
@@ -22955,15 +22944,15 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   br i1 %90, label %92, label %._crit_edge.i.i
 
 92:                                               ; preds = %86
-  %93 = getelementptr inbounds ptr, ptr %87, i64 %91
+  %93 = getelementptr inbounds [8 x i8], ptr %87, i64 %91
   %94 = load ptr, ptr %93, align 8, !tbaa !71
   %95 = sext i32 %82 to i64
-  %96 = getelementptr inbounds ptr, ptr %87, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %87, i64 %95
   store ptr %94, ptr %96, align 8, !tbaa !71
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %92, %86
-  %97 = getelementptr inbounds ptr, ptr %87, i64 %91
+  %97 = getelementptr inbounds [8 x i8], ptr %87, i64 %91
   store ptr %3, ptr %97, align 8, !tbaa !71
   %98 = add nsw i32 %89, 1
   store i32 %98, ptr %88, align 8, !tbaa !143
@@ -23070,7 +23059,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i8, ptr %35, align 2, !tbaa !78
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !79
   %.not = icmp eq i32 %39, 10
   br i1 %.not, label %42, label %40
@@ -23204,7 +23193,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %94 = sext i32 %79 to i64
-  %95 = getelementptr inbounds ptr, ptr %93, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %93, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !71
   %97 = load ptr, ptr %.0, align 8, !tbaa !146
   %98 = icmp ne ptr %97, null
@@ -23227,10 +23216,10 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 106:                                              ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %108 = sext i32 %79 to i64
-  %109 = getelementptr inbounds ptr, ptr %107, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %107, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !71
   %111 = sext i32 %90 to i64
-  %112 = getelementptr inbounds ptr, ptr %107, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %107, i64 %111
   store ptr %110, ptr %112, align 8, !tbaa !71
   %113 = load ptr, ptr %75, align 8, !tbaa !96
   %114 = load i32, ptr %113, align 8, !tbaa !97
@@ -23251,7 +23240,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS1_
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %120, align 8, !tbaa !143
   %123 = sext i32 %121 to i64
-  %124 = getelementptr inbounds ptr, ptr %119, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %119, i64 %123
   store ptr %3, ptr %124, align 8, !tbaa !71
   br label %125
 
@@ -23351,7 +23340,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %33, %_ZN6googl
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %46 = load i8, ptr %45, align 2, !tbaa !78
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !79
   %.not = icmp eq i32 %49, %3
   br i1 %.not, label %66, label %50
@@ -23404,7 +23393,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.pre = load i8, ptr %45, align 2, !tbaa !78
   %.phi.trans.insert = zext i8 %.pre to i64
-  %.phi.trans.insert70 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert
+  %.phi.trans.insert70 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert
   %.pre71 = load i32, ptr %.phi.trans.insert70, align 4, !tbaa !79
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit46
 
@@ -23694,7 +23683,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i52: ; preds = %_ZN6google8p
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i52
   %148 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %148
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %148
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK6google8protobuf10Reflection18MutableRawNonOneofINS0_8internal12MapFieldBaseEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE.exit
 
@@ -23802,7 +23791,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i67: ; preds = %_ZN6google8p
 
 switch.lookup91:                                  ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i67
   %185 = zext nneg i8 %switch.tableidx90 to i64
-  %switch.gep92 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %185
+  %switch.gep92 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %185
   %switch.load93 = load i32, ptr %switch.gep92, align 4
   br label %_ZNK6google8protobuf10Reflection18MutableRawNonOneofIvEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE.exit
 
@@ -23911,7 +23900,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6googl
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %45 = load i8, ptr %44, align 2, !tbaa !78
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !79
   %.not = icmp eq i32 %48, %3
   br i1 %.not, label %51, label %49
@@ -24249,7 +24238,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i63: ; preds = %_ZN6google8p
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i63
   %150 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %150
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %150
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK6google8protobuf10Reflection14GetRawNonOneofINS0_8internal12MapFieldBaseEEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit
 
@@ -24357,7 +24346,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i78: ; preds = %_ZN6google8p
 
 switch.lookup98:                                  ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i78
   %187 = zext nneg i8 %switch.tableidx97 to i64
-  %switch.gep99 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %187
+  %switch.gep99 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %187
   %switch.load100 = load i32, ptr %switch.gep99, align 4
   br label %_ZNK6google8protobuf10Reflection14GetRawNonOneofIcEERKT_RKNS0_7MessageEPKNS0_15FieldDescriptorE.exit
 
@@ -24648,7 +24637,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %48 = load i8, ptr %47, align 2, !tbaa !78
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !79
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %51, ptr %52, align 8, !tbaa !229
@@ -24836,7 +24825,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %48 = load i8, ptr %47, align 2, !tbaa !78
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !79
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %51, ptr %52, align 8, !tbaa !229
@@ -25156,7 +25145,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %44 = load i8, ptr %43, align 2, !tbaa !78
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !79
   %48 = load i32, ptr %13, align 8, !tbaa !231
   %49 = icmp eq i32 %48, %47
@@ -25268,7 +25257,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   %80 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %81 = load i8, ptr %80, align 2, !tbaa !78
   %82 = zext i8 %81 to i64
-  %83 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !79
   store i32 %84, ptr %15, align 8, !tbaa !229
   %85 = load ptr, ptr %11, align 8, !tbaa !122
@@ -25868,7 +25857,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %.critedge53, %
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %44 = load i8, ptr %43, align 2, !tbaa !78
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !79
   %48 = icmp eq i32 %47, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -25922,7 +25911,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.pre = load i8, ptr %43, align 2, !tbaa !78
   %.phi.trans.insert = zext i8 %.pre to i64
-  %.phi.trans.insert69 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert
+  %.phi.trans.insert69 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert
   %.pre70 = load i32, ptr %.phi.trans.insert69, align 4, !tbaa !79
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65
 
@@ -26182,7 +26171,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8pro
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
   %139 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %139
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %139
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK6google8protobuf10Reflection18MutableRawNonOneofIcEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE.exit
 
@@ -26496,7 +26485,7 @@ _ZN6google8protobuf8internal12WrappedMutex4LockEv.exit: ; preds = %2
 23:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %24 = load ptr, ptr %18, align 8, !tbaa !259
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !244
   %.not56 = icmp eq ptr %26, null
   br i1 %.not56, label %34, label %27
@@ -26744,7 +26733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %90,
 99:                                               ; preds = %.lr.ph74, %99
   %indvars.iv83 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next84, %99 ]
   %100 = load ptr, ptr %83, align 8, !tbaa !276
-  %101 = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %100, i64 %indvars.iv83
+  %101 = getelementptr inbounds nuw [136 x i8], ptr %100, i64 %indvars.iv83
   call void @_ZN6google8protobuf23AssignDescriptorsHelper23AssignMessageDescriptorEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %101)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %102 = load i32, ptr %80, align 4, !tbaa !274
@@ -26781,7 +26770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %90,
   %indvars.iv86 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next87, %117 ]
   %118 = phi ptr [ %.promoted, %.lr.ph76 ], [ %121, %117 ]
   %119 = load ptr, ptr %87, align 8, !tbaa !284
-  %120 = getelementptr inbounds nuw %"class.google::protobuf::EnumDescriptor", ptr %119, i64 %indvars.iv86
+  %120 = getelementptr inbounds nuw [72 x i8], ptr %119, i64 %indvars.iv86
   store ptr %120, ptr %118, align 8, !tbaa !285
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
@@ -26791,8 +26780,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %90,
 122:                                              ; preds = %.lr.ph79, %122
   %indvars.iv91 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next92, %122 ]
   %123 = load ptr, ptr %114, align 8, !tbaa !287
-  %124 = getelementptr inbounds nuw %"class.google::protobuf::ServiceDescriptor", ptr %123, i64 %indvars.iv91
-  %125 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv91
+  %124 = getelementptr inbounds nuw [48 x i8], ptr %123, i64 %indvars.iv91
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv91
   store ptr %124, ptr %125, align 8, !tbaa !288
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
@@ -26910,7 +26899,7 @@ _ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE11_S_relocateEPS6_
 _ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %166, %_ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i
   store ptr %161, ptr %140, align 8, !tbaa !297
   store ptr %165, ptr %141, align 8, !tbaa !293
-  %167 = getelementptr inbounds nuw %"struct.std::pair", ptr %161, i64 %159
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %161, i64 %159
   store ptr %167, ptr %143, align 8, !tbaa !296
   br label %_ZN6google8protobuf12_GLOBAL__N_113MetadataOwner8AddArrayEPKNS0_8MetadataES5_.exit
 
@@ -26956,7 +26945,7 @@ _ZN6google8protobuf8internal20InitProtobufDefaultsEv.exit: ; preds = %4, %7
 12:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %13 = load ptr, ptr %11, align 8, !tbaa !259
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !244
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %17, label %16
@@ -27047,7 +27036,7 @@ _ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb.exit: 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %23 = getelementptr inbounds nuw %"struct.google::protobuf::Metadata", ptr %19, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !308
   %26 = load ptr, ptr %23, align 8, !tbaa !310
@@ -27184,7 +27173,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !111
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %38
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %38
   %42 = load i32, ptr %41, align 4, !tbaa !15
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !70
@@ -27247,7 +27236,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %_ZNK6google8protob
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
   %57 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %57
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %57
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS0_15FieldDescriptor4TypeE.exit
 
@@ -27350,7 +27339,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i: ; preds = %_ZN6google8proto
 
 switch.lookup17:                                  ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
   %90 = zext nneg i8 %switch.tableidx16 to i64
-  %switch.gep18 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %90
+  %switch.gep18 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %90
   %switch.load19 = load i32, ptr %switch.gep18, align 4
   br label %_ZNK6google8protobuf8internal16ReflectionSchema22GetFieldOffsetNonOneofEPKNS0_15FieldDescriptorE.exit
 
@@ -27422,7 +27411,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf23AssignDescriptorsHelper23A
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %36 = load ptr, ptr %6, align 8, !tbaa !324
-  %37 = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [136 x i8], ptr %36, i64 %indvars.iv
   tail call void @_ZN6google8protobuf23AssignDescriptorsHelper23AssignMessageDescriptorEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %37)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %3, align 8, !tbaa !320
@@ -27435,7 +27424,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf23AssignDescriptorsHelper23A
   %42 = ashr exact i64 %sext22.i, 30
   %43 = getelementptr inbounds i8, ptr %13, i64 %42
   %44 = ashr i64 %.sroa.0.0.copyload, 32
-  %45 = getelementptr inbounds i32, ptr %13, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %13, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %.sroa.11.8.extract.shift.i = lshr i64 %.sroa.2.0.copyload, 32
   %.sroa.11.8.extract.trunc.i = trunc nuw i64 %.sroa.11.8.extract.shift.i to i32
@@ -27526,7 +27515,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf23AssignDescriptorsHelper23A
   %indvars.iv23 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next24, %76 ]
   %77 = phi ptr [ %.promoted, %.lr.ph20 ], [ %80, %76 ]
   %78 = load ptr, ptr %66, align 8, !tbaa !327
-  %79 = getelementptr inbounds nuw %"class.google::protobuf::EnumDescriptor", ptr %78, i64 %indvars.iv23
+  %79 = getelementptr inbounds nuw [72 x i8], ptr %78, i64 %indvars.iv23
   store ptr %79, ptr %77, align 8, !tbaa !285
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
@@ -27779,7 +27768,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS1_18GenericTypeHa
 28:                                               ; preds = %28, %25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %25 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8, !tbaa !71
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %31, align 8, !tbaa !124
@@ -27868,7 +27857,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS1_18GenericTypeHandle
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6DeleteEPS8_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i11, %_ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6DeleteEPS8_PNS0_5ArenaE.exit.i ]
-  %71 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.i10
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i10
   %72 = load ptr, ptr %71, align 8, !tbaa !71
   %73 = icmp eq ptr %72, null
   br i1 %73, label %_ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6DeleteEPS8_PNS0_5ArenaE.exit.i, label %74
@@ -27917,7 +27906,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !124
   store i8 0, ptr %12, align 8, !tbaa !113
-  %14 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv28
+  %14 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv28
   store ptr %11, ptr %14, align 8, !tbaa !71
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
@@ -27936,7 +27925,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %20, align 8, !tbaa !124
   store i8 0, ptr %19, align 8, !tbaa !113
-  %21 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %16, ptr %21, align 8, !tbaa !71
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count31
@@ -27955,9 +27944,9 @@ _ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv33 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next34, %.lr.ph ]
-  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv33
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv33
   %24 = load ptr, ptr %23, align 8, !tbaa !71
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv33
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv33
   %26 = load ptr, ptr %25, align 8, !tbaa !71
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5MergeERKS8_PS8_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef %26)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
@@ -28034,7 +28023,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS1_18GenericTypeHa
 .noexc6:                                          ; preds = %.noexc6, %25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc6 ], [ 0, %25 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8, !tbaa !71
   %30 = load ptr, ptr %29, align 8, !tbaa !101
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -28123,7 +28112,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS1_18GenericTypeHandle
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE6DeleteEPS3_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i11 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i12, %_ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE6DeleteEPS3_PNS0_5ArenaE.exit.i ]
-  %71 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.i11
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i11
   %72 = load ptr, ptr %71, align 8, !tbaa !71
   %73 = icmp eq ptr %72, null
   br i1 %73, label %_ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE6DeleteEPS3_PNS0_5ArenaE.exit.i, label %74
@@ -28159,7 +28148,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 11:                                               ; preds = %7, %11
   %indvars.iv = phi i64 [ %10, %7 ], [ %indvars.iv.next, %11 ]
   %12 = tail call noundef ptr @_ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE16NewFromPrototypeEPKS3_PNS0_5ArenaE(ptr noundef %9, ptr noundef %8)
-  %13 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %12, ptr %13, align 8, !tbaa !71
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -28179,9 +28168,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %16 = load ptr, ptr %15, align 8, !tbaa !71
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE5MergeERKS3_PS3_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %18)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -28440,7 +28429,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8pro
 
 switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
   %47 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %47
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6google8protobuf8internal15SwapFieldHelper21SwapNonInlinedStringsILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE, i64 %47
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK6google8protobuf10Reflection10DefaultRawINS0_8internal14ArenaStringPtrEEERKT_PKNS0_15FieldDescriptorE.exit
 
@@ -28632,7 +28621,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %_ZN6google8p
   %86 = getelementptr inbounds nuw i8, ptr %73, i64 2
   %87 = load i8, ptr %86, align 2, !tbaa !78
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !79
   switch i32 %90, label %197 [
     i32 1, label %91
@@ -28914,7 +28903,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 210:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i33.i, %199
   %211 = load i8, ptr %86, align 2, !tbaa !78
   %212 = zext i8 %211 to i64
-  %213 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %212
+  %213 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %212
   %214 = load i32, ptr %213, align 4, !tbaa !79
   %215 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %198, i32 noundef %214)
           to label %216 unwind label %218
@@ -29025,7 +29014,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %240 = getelementptr inbounds nuw i8, ptr %227, i64 2
   %241 = load i8, ptr %240, align 2, !tbaa !78
   %242 = zext i8 %241 to i64
-  %243 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %242
+  %243 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %242
   %244 = load i32, ptr %243, align 4, !tbaa !79
   switch i32 %244, label %349 [
     i32 1, label %245
@@ -29352,7 +29341,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 362:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i33.i76, %351
   %363 = load i8, ptr %240, align 2, !tbaa !78
   %364 = zext i8 %363 to i64
-  %365 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %364
+  %365 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %364
   %366 = load i32, ptr %365, align 4, !tbaa !79
   %367 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %350, i32 noundef %366)
           to label %368 unwind label %370
@@ -29455,7 +29444,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i107: ; preds = %_ZN6googl
   %389 = getelementptr inbounds nuw i8, ptr %224, i64 2
   %390 = load i8, ptr %389, align 2, !tbaa !78
   %391 = zext i8 %390 to i64
-  %392 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %391
+  %392 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %391
   %393 = load i32, ptr %392, align 4, !tbaa !79
   switch i32 %393, label %413 [
     i32 1, label %394
@@ -29627,7 +29616,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 426:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i28.i, %415
   %427 = load i8, ptr %389, align 2, !tbaa !78
   %428 = zext i8 %427 to i64
-  %429 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %428
+  %429 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %428
   %430 = load i32, ptr %429, align 4, !tbaa !79
   %431 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %414, i32 noundef %430)
           to label %432 unwind label %434
@@ -29765,7 +29754,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
   %41 = lshr i32 %34, 5
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !15
   %45 = or i32 %44, %38
   store i32 %45, ptr %43, align 4, !tbaa !15
@@ -29827,7 +29816,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 %74
   %76 = lshr i32 %68, 5
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !15
   %80 = and i32 %79, %73
   store i32 %80, ptr %78, align 4, !tbaa !15
@@ -29893,7 +29882,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 %110
   %112 = lshr i32 %105, 5
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %111, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !15
   %116 = or i32 %115, %109
   store i32 %116, ptr %114, align 4, !tbaa !15
@@ -29955,7 +29944,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 %145
   %147 = lshr i32 %139, 5
   %148 = zext nneg i32 %147 to i64
-  %149 = getelementptr inbounds nuw i32, ptr %146, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !15
   %151 = and i32 %150, %144
   store i32 %151, ptr %149, align 4, !tbaa !15
@@ -30238,7 +30227,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 %97
   %99 = lshr i32 %92, 5
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !15
   %103 = or i32 %102, %96
   store i32 %103, ptr %101, align 4, !tbaa !15
@@ -30285,13 +30274,13 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 .split.preheader.i.i.i:                           ; preds = %._crit_edge
   %20 = or disjoint i64 %14, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %.fr29, i64 %20
-  %22 = getelementptr inbounds nuw ptr, ptr %.fr29, i64 %15
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.fr29, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.fr29, i64 %15
   br label %.split.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %._crit_edge, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.us.i.i.i
   %.09.us.i.i.i = phi i64 [ %50, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.us.i.i.i ], [ %15, %._crit_edge ]
-  %23 = getelementptr inbounds ptr, ptr %.fr29, i64 %.09.us.i.i.i
+  %23 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %.09.us.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !72
   %25 = icmp slt i64 %.09.us.i.i.i, %17
   br i1 %25, label %.lr.ph.i.us.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.us.i.i.i
@@ -30300,9 +30289,9 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.034.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %.lr.ph.i.us.i.i.i ], [ %.09.us.i.i.i, %.split.us.i.i.i ]
   %26 = shl i64 %.034.i.us.i.i.i, 1
   %27 = add i64 %26, 2
-  %28 = getelementptr inbounds ptr, ptr %.fr29, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %27
   %29 = or disjoint i64 %26, 1
-  %30 = getelementptr inbounds ptr, ptr %.fr29, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %29
   %31 = load ptr, ptr %28, align 8, !tbaa !72
   %32 = load ptr, ptr %30, align 8, !tbaa !72
   %33 = getelementptr i8, ptr %31, i64 4
@@ -30311,9 +30300,9 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.val1.i.i.us.i.i.i = load i32, ptr %34, align 4, !tbaa !50
   %35 = icmp slt i32 %.val.i.i.us.i.i.i, %.val1.i.i.us.i.i.i
   %spec.select.i.us.i.i.i = select i1 %35, i64 %29, i64 %27
-  %36 = getelementptr inbounds ptr, ptr %.fr29, i64 %spec.select.i.us.i.i.i
+  %36 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %spec.select.i.us.i.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !72
-  %38 = getelementptr inbounds ptr, ptr %.fr29, i64 %.034.i.us.i.i.i
+  %38 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %.034.i.us.i.i.i
   store ptr %37, ptr %38, align 8, !tbaa !72
   %39 = icmp slt i64 %spec.select.i.us.i.i.i, %17
   br i1 %39, label %.lr.ph.i.us.i.i.i, label %._crit_edge.i.us.i.i.i, !llvm.loop !365
@@ -30327,7 +30316,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.010.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ], [ %.0911.i.i.us.i.i.i, %46 ]
   %.0911.in.i.i.us.i.i.i = add nsw i64 %.010.i.i.us.i.i.i, -1
   %.0911.i.i.us.i.i.i = sdiv i64 %.0911.in.i.i.us.i.i.i, 2
-  %42 = getelementptr inbounds nuw ptr, ptr %.fr29, i64 %.0911.i.i.us.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.fr29, i64 %.0911.i.i.us.i.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !72
   %44 = getelementptr i8, ptr %43, i64 4
   %.val.i.i.i.us.i.i.i = load i32, ptr %44, align 4, !tbaa !50
@@ -30335,14 +30324,14 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   br i1 %45, label %46, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.us.i.i.i
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds nuw ptr, ptr %.fr29, i64 %.010.i.i.us.i.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.fr29, i64 %.010.i.i.us.i.i.i
   store ptr %43, ptr %47, align 8, !tbaa !72
   %48 = icmp sgt i64 %.0911.i.i.us.i.i.i, %.09.us.i.i.i
   br i1 %48, label %41, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.us.i.i.i, !llvm.loop !366
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.us.i.i.i: ; preds = %46, %41, %.split.us.i.i.i
   %.0.lcssa.i.i.us.i.i.i = phi i64 [ %.09.us.i.i.i, %.split.us.i.i.i ], [ %.0911.i.i.us.i.i.i, %46 ], [ %.010.i.i.us.i.i.i, %41 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %.fr29, i64 %.0.lcssa.i.i.us.i.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.fr29, i64 %.0.lcssa.i.i.us.i.i.i
   store ptr %24, ptr %49, align 8, !tbaa !72
   %.not.us.i.i.i = icmp eq i64 %.09.us.i.i.i, 0
   %50 = add nsw i64 %.09.us.i.i.i, -1
@@ -30350,7 +30339,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
 
 .split.i.i.i:                                     ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.i.i.i, %.split.preheader.i.i.i
   %.09.i.i.i = phi i64 [ %83, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.i.i.i ], [ %15, %.split.preheader.i.i.i ]
-  %51 = getelementptr inbounds ptr, ptr %.fr29, i64 %.09.i.i.i
+  %51 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %.09.i.i.i
   %52 = load ptr, ptr %51, align 8, !tbaa !72
   %53 = icmp slt i64 %.09.i.i.i, %17
   br i1 %53, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
@@ -30359,9 +30348,9 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
   %.034.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.09.i.i.i, %.split.i.i.i ]
   %54 = shl i64 %.034.i.i.i.i, 1
   %55 = add i64 %54, 2
-  %56 = getelementptr inbounds ptr, ptr %.fr29, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %55
   %57 = or disjoint i64 %54, 1
-  %58 = getelementptr inbounds ptr, ptr %.fr29, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %57
   %59 = load ptr, ptr %56, align 8, !tbaa !72
   %60 = load ptr, ptr %58, align 8, !tbaa !72
   %61 = getelementptr i8, ptr %59, i64 4
@@ -30370,9 +30359,9 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
   %.val1.i.i.i.i.i = load i32, ptr %62, align 4, !tbaa !50
   %63 = icmp slt i32 %.val.i.i.i.i.i, %.val1.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %63, i64 %57, i64 %55
-  %64 = getelementptr inbounds ptr, ptr %.fr29, i64 %spec.select.i.i.i.i
+  %64 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %spec.select.i.i.i.i
   %65 = load ptr, ptr %64, align 8, !tbaa !72
-  %66 = getelementptr inbounds ptr, ptr %.fr29, i64 %.034.i.i.i.i
+  %66 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %.034.i.i.i.i
   store ptr %65, ptr %66, align 8, !tbaa !72
   %67 = icmp slt i64 %spec.select.i.i.i.i, %17
   br i1 %67, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !365
@@ -30401,7 +30390,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
   %.010.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %79 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %75 = getelementptr inbounds nuw ptr, ptr %.fr29, i64 %.0911.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.fr29, i64 %.0911.i.i.i.i.i
   %76 = load ptr, ptr %75, align 8, !tbaa !72
   %77 = getelementptr i8, ptr %76, i64 4
   %.val.i.i.i.i.i.i = load i32, ptr %77, align 4, !tbaa !50
@@ -30409,14 +30398,14 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
   br i1 %78, label %79, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.i.i.i
 
 79:                                               ; preds = %74
-  %80 = getelementptr inbounds nuw ptr, ptr %.fr29, i64 %.010.i.i.i.i.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %.fr29, i64 %.010.i.i.i.i.i
   store ptr %76, ptr %80, align 8, !tbaa !72
   %81 = icmp sgt i64 %.0911.i.i.i.i.i, %.09.i.i.i
   br i1 %81, label %74, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.i.i.i, !llvm.loop !366
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_T0_SI_T1_T2_.exit.i.i.i: ; preds = %79, %74, %71
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %71 ], [ %.010.i.i.i.i.i, %74 ], [ %.0911.i.i.i.i.i, %79 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %.fr29, i64 %.0.lcssa.i.i.i.i.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.fr29, i64 %.0.lcssa.i.i.i.i.i
   store ptr %52, ptr %82, align 8, !tbaa !72
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
   %83 = add nsw i64 %.09.i.i.i, -1
@@ -30444,9 +30433,9 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDesc
   %.034.i.i.i20.i = phi i64 [ %spec.select.i.i.i23.i, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i9.i ]
   %94 = shl i64 %.034.i.i.i20.i, 1
   %95 = add i64 %94, 2
-  %96 = getelementptr inbounds ptr, ptr %.fr29, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %95
   %97 = or disjoint i64 %94, 1
-  %98 = getelementptr inbounds ptr, ptr %.fr29, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %97
   %99 = load ptr, ptr %96, align 8, !tbaa !72
   %100 = load ptr, ptr %98, align 8, !tbaa !72
   %101 = getelementptr i8, ptr %99, i64 4
@@ -30455,9 +30444,9 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDesc
   %.val1.i.i.i.i22.i = load i32, ptr %102, align 4, !tbaa !50
   %103 = icmp slt i32 %.val.i.i.i.i21.i, %.val1.i.i.i.i22.i
   %spec.select.i.i.i23.i = select i1 %103, i64 %97, i64 %95
-  %104 = getelementptr inbounds ptr, ptr %.fr29, i64 %spec.select.i.i.i23.i
+  %104 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %spec.select.i.i.i23.i
   %105 = load ptr, ptr %104, align 8, !tbaa !72
-  %106 = getelementptr inbounds ptr, ptr %.fr29, i64 %.034.i.i.i20.i
+  %106 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %.034.i.i.i20.i
   store ptr %105, ptr %106, align 8, !tbaa !72
   %107 = icmp slt i64 %spec.select.i.i.i23.i, %92
   br i1 %107, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i10.i, !llvm.loop !365
@@ -30477,9 +30466,9 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDesc
 .thread.i.i.i:                                    ; preds = %110
   %114 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
   %115 = or disjoint i64 %114, 1
-  %116 = getelementptr inbounds nuw ptr, ptr %.fr29, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %.fr29, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !72
-  %118 = getelementptr inbounds ptr, ptr %.fr29, i64 %.0.lcssa.i.i.i11.i
+  %118 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %.0.lcssa.i.i.i11.i
   store ptr %117, ptr %118, align 8, !tbaa !72
   br label %.lr.ph.i.i.i.i13.i
 
@@ -30497,7 +30486,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDesc
   %.010.i.i.i.i15.i = phi i64 [ %.1.i6.i.i.i, %.lr.ph.i.i.i.i13.i ], [ %.0911.i.i78.i.i.i, %126 ]
   %.0911.in.i.i.i.i16.i = add nsw i64 %.010.i.i.i.i15.i, -1
   %.0911.i.i78.i.i.i = lshr i64 %.0911.in.i.i.i.i16.i, 1
-  %122 = getelementptr inbounds nuw ptr, ptr %.fr29, i64 %.0911.i.i78.i.i.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %.fr29, i64 %.0911.i.i78.i.i.i
   %123 = load ptr, ptr %122, align 8, !tbaa !72
   %124 = getelementptr i8, ptr %123, i64 4
   %.val.i.i.i.i.i17.i = load i32, ptr %124, align 4, !tbaa !50
@@ -30505,14 +30494,14 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDesc
   br i1 %125, label %126, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_SH_SH_RT0_.exit.i.i
 
 126:                                              ; preds = %121
-  %127 = getelementptr inbounds ptr, ptr %.fr29, i64 %.010.i.i.i.i15.i
+  %127 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %.010.i.i.i.i15.i
   store ptr %123, ptr %127, align 8, !tbaa !72
   %.not9.i.i.i = icmp eq i64 %.0911.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_SH_SH_RT0_.exit.i.i, label %121, !llvm.loop !366
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_SH_SH_RT0_.exit.i.i: ; preds = %126, %121, %119
   %.0.lcssa.i.i.i.i18.i = phi i64 [ 0, %119 ], [ %.010.i.i.i.i15.i, %121 ], [ 0, %126 ]
-  %128 = getelementptr inbounds ptr, ptr %.fr29, i64 %.0.lcssa.i.i.i.i18.i
+  %128 = getelementptr inbounds [8 x i8], ptr %.fr29, i64 %.0.lcssa.i.i.i.i18.i
   store ptr %86, ptr %128, align 8, !tbaa !72
   %129 = icmp sgt i64 %89, 8
   br i1 %129, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_SH_SH_T0_.exit, !llvm.loop !368
@@ -30523,7 +30512,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescr
   %130 = phi i64 [ %175, %11 ], [ %7, %.lr.ph ]
   %131 = add nsw i64 %.02752, -1
   %132 = lshr i64 %130, 1
-  %133 = getelementptr inbounds nuw ptr, ptr %.fr29, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %.fr29, i64 %132
   %134 = getelementptr inbounds i8, ptr %storemerge2653, i64 -8
   %135 = load ptr, ptr %9, align 8, !tbaa !72
   %136 = load ptr, ptr %133, align 8, !tbaa !72
@@ -30747,7 +30736,7 @@ _ZN6google8protobuf5Arena11OwnInternalINS0_7MessageEEEvPT_St17integral_constantI
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %35 = sext i32 %20 to i64
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !71
   %38 = load ptr, ptr %0, align 8, !tbaa !146
   %39 = icmp ne ptr %38, null
@@ -30770,10 +30759,10 @@ _ZN6google8protobuf5Arena11OwnInternalINS0_7MessageEEEvPT_St17integral_constantI
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %49 = sext i32 %20 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !71
   %52 = sext i32 %31 to i64
-  %53 = getelementptr inbounds ptr, ptr %48, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %48, i64 %52
   store ptr %51, ptr %53, align 8, !tbaa !71
   %54 = load ptr, ptr %16, align 8, !tbaa !96
   %55 = load i32, ptr %54, align 8, !tbaa !97
@@ -30794,7 +30783,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS1_
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %61, align 8, !tbaa !143
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds ptr, ptr %60, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %60, i64 %64
   store ptr %.0, ptr %65, align 8, !tbaa !71
   ret void
 }

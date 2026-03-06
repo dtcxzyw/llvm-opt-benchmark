@@ -1145,7 +1145,7 @@ _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixEOm.ex
 
 switch.lookup:                                    ; preds = %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixEOm.exit
   %24 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 %24
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 %switch.load
   %26 = load i64, ptr %25, align 8, !tbaa !14

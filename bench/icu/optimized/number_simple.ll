@@ -1029,7 +1029,7 @@ define void @_ZN6icu_776number21SimpleNumberFormatter10initializeERKNS_6LocaleER
 
 .preheader.i.i:                                   ; preds = %31, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %37, %.preheader.i.i ], [ 0, %31 ]
-  %34 = getelementptr inbounds nuw i16, ptr %28, i64 %.0.i.i.i.i
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %.0.i.i.i.i
   %35 = load i16, ptr %34, align 2, !tbaa !62
   %36 = icmp eq i16 %35, 0
   %37 = add i64 %.0.i.i.i.i, 1
@@ -1463,7 +1463,7 @@ _ZNK6icu_776number21SimpleNumberFormatter10formatImplEPNS0_4impl20UFormattedNumb
   %switch.selectcmp19.i = icmp eq i32 %7, 2
   %switch.select20.i = select i1 %switch.selectcmp19.i, i64 0, i64 %switch.select.i
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %switch.select20.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %switch.select20.i
   %24 = load ptr, ptr %23, align 8, !tbaa !84
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1529,7 +1529,7 @@ define void @_ZNK6icu_776number21SimpleNumberFormatter10formatImplEPNS0_4impl20U
   %switch.selectcmp19 = icmp eq i32 %2, 2
   %switch.select20 = select i1 %switch.selectcmp19, i64 0, i64 %switch.select
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %switch.select20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %switch.select20
   %22 = load ptr, ptr %21, align 8, !tbaa !84
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8

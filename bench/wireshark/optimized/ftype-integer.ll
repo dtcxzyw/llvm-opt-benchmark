@@ -226,7 +226,7 @@ define internal noundef ptr @char_to_repr(ptr noundef %0, ptr noundef readonly c
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 255
-  %11 = getelementptr i16, ptr %7, i64 %10
+  %11 = getelementptr [2 x i8], ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 64
   %.not = icmp eq i16 %13, 0

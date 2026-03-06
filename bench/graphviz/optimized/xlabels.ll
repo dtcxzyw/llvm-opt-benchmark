@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.best_p_s = type { i32, double, %struct.pointf_s }
 %struct.pointf_s = type { double, double }
-%struct.object_t = type { %struct.pointf_s, %struct.pointf_s, ptr }
 %struct.Rect = type { [4 x i32] }
 
 @Hdisc = global { i32, i32, i32, [4 x i8], ptr, ptr, ptr } { i32 16, i32 4, i32 -1, [4 x i8] zeroinitializer, ptr null, ptr null, ptr @icompare }, align 8
@@ -119,7 +118,7 @@ xlnew.exit:                                       ; preds = %30
   unreachable
 
 gv_alloc.exit.i.i:                                ; preds = %51
-  %57 = getelementptr inbounds nuw %struct.object_t, ptr %0, i64 %.02632.i.i
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %.02632.i.i
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 40
   store ptr %57, ptr %59, align 8, !tbaa !30
@@ -346,7 +345,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
 153:                                              ; preds = %.lr.ph, %338
   %.0143 = phi i64 [ 0, %.lr.ph ], [ %339, %338 ]
   %.036141 = phi i32 [ 0, %.lr.ph ], [ %.1, %338 ]
-  %154 = getelementptr inbounds nuw %struct.object_t, ptr %0, i64 %.0143
+  %154 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %.0143
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %156 = load ptr, ptr %155, align 8, !tbaa !36
   %157 = icmp eq ptr %156, null
@@ -955,7 +954,7 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %lblenclosing.exit.thread
   %49 = phi i32 [ %78, %lblenclosing.exit.thread ], [ 0, %.lr.ph.split.split.preheader ]
   %.0115 = phi i64 [ %79, %lblenclosing.exit.thread ], [ 0, %.lr.ph.split.split.preheader ]
-  %50 = getelementptr inbounds nuw %struct.object_t, ptr %16, i64 %.0115
+  %50 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %.0115
   %51 = icmp eq ptr %2, %50
   br i1 %51, label %lblenclosing.exit.thread, label %52
 
@@ -1141,7 +1140,7 @@ aabbaabb.exit:                                    ; preds = %89
 
 getintrsxi.exit.i:                                ; preds = %158, %157, %155, %154, %149, %147, %140, %137, %128, %123
   %159 = phi i64 [ 5, %158 ], [ 5, %140 ], [ 5, %137 ], [ 5, %128 ], [ 5, %123 ], [ 3, %157 ], [ 6, %154 ], [ %.32.i.i, %155 ], [ 0, %147 ], [ %..i.i, %149 ]
-  %160 = getelementptr inbounds nuw ptr, ptr %3, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !10
   %.not.i64 = icmp eq ptr %161, null
   br i1 %.not.i64, label %241, label %162
@@ -1421,7 +1420,7 @@ aabbaabb.exit78:                                  ; preds = %251
 
 getintrsxi.exit.i81:                              ; preds = %319, %318, %316, %315, %310, %308, %301, %298, %290, %285
   %320 = phi i64 [ 5, %319 ], [ 5, %301 ], [ 5, %298 ], [ 5, %290 ], [ 5, %285 ], [ 3, %318 ], [ 6, %315 ], [ %.32.i.i110, %316 ], [ 0, %308 ], [ %..i.i111, %310 ]
-  %321 = getelementptr inbounds nuw ptr, ptr %3, i64 %320
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %320
   %322 = load ptr, ptr %321, align 8, !tbaa !10
   %.not.i82 = icmp eq ptr %322, null
   br i1 %.not.i82, label %402, label %323

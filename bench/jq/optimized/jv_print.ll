@@ -83,7 +83,7 @@ define dso_local range(i32 0, 2) i32 @jq_set_colors(ptr noundef %0) local_unname
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 %13
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
   store i8 109, ptr %25, align 1, !tbaa !11
-  %26 = getelementptr inbounds nuw ptr, ptr @color_bufps, i64 %.138
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @color_bufps, i64 %.138
   store ptr %16, ptr %26, align 8, !tbaa !9
   %27 = load i8, ptr %.029, align 1, !tbaa !11
   %28 = icmp eq i8 %27, 58
@@ -163,7 +163,7 @@ define internal fastcc void @jv_dump_term(ptr noundef %0, i64 %1, ptr %2, i32 no
   %30 = load ptr, ptr @colors, align 8, !tbaa !4
   %31 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #11
   %32 = sext i32 %31 to i64
-  %33 = getelementptr ptr, ptr %30, i64 %32
+  %33 = getelementptr [8 x i8], ptr %30, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8, !tbaa !9
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #10

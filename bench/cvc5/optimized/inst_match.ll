@@ -130,7 +130,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %22, %16, 
   %36 = icmp eq i32 %34, 2
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %38 = zext i1 %36 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !32, !noalias !29
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8
@@ -169,7 +169,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %22, %16, 
   br i1 %67, label %68, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE6resizeEm.exit
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %58, i64 %55
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %55
   %.not.i.i = icmp eq ptr %57, %69
   br i1 %.not.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -509,7 +509,7 @@ define hidden void @_ZNK4cvc58internal6theory11quantifiers9InstMatch8toStreamERS
   %.015 = phi i1 [ %.1, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit ], [ false, %.lr.ph.preheader ]
   %.01314 = phi i64 [ %36, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit ], [ 0, %.lr.ph.preheader ]
   %13 = load ptr, ptr %4, align 8, !tbaa !34
-  %14 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %13, i64 %.01314
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.01314
   %15 = load ptr, ptr %14, align 8, !tbaa !15
   %16 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %17 = icmp eq i8 %16, 0
@@ -554,7 +554,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit: ; preds = %.lr.ph, %18, %2
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.01314)
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.1, i64 noundef 4)
   %33 = load ptr, ptr %4, align 8, !tbaa !34
-  %34 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %33, i64 %.01314
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.01314
   %35 = load ptr, ptr %34, align 8, !tbaa !15
   tail call void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(8) %31)
   br label %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit
@@ -727,7 +727,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers9InstMatch8resetAllEv(p
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %19, %25, %27
   %29 = load ptr, ptr %3, align 8, !tbaa !34
-  %30 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %29, i64 %.010
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.010
   %31 = load ptr, ptr %30, align 8, !tbaa !15
   %.not.i = icmp eq ptr %31, %13
   br i1 %.not.i, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, label %32, !prof !18
@@ -830,7 +830,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
 define hidden void @_ZNK4cvc58internal6theory11quantifiers9InstMatch3getEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.cvc5::internal::NodeTemplate.0") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !34
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %5, i64 %2
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %2
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   store ptr %7, ptr %0, align 8, !tbaa !15
   %8 = load i64, ptr %7, align 8
@@ -873,7 +873,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers9InstMatc
   %9 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !34
-  %12 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %11, i64 %1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %15 = icmp eq i8 %14, 0
@@ -915,7 +915,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit: ; preds = %3, %16, %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !47
   %29 = load ptr, ptr %10, align 8, !tbaa !34
-  %30 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %29, i64 %1
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1
   %31 = load ptr, ptr %30, align 8, !tbaa !15
   store ptr %31, ptr %4, align 8, !tbaa !12
   %32 = load ptr, ptr %2, align 8, !tbaa !12
@@ -948,7 +948,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit: ; preds = %3, %16, %20
   %50 = icmp eq i32 %49, 2
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %52 = zext i1 %50 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !32, !noalias !48
   store ptr %54, ptr %8, align 8, !tbaa !15, !alias.scope !48
   %55 = load i64, ptr %54, align 8, !noalias !48
@@ -1117,7 +1117,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit17: ; preds = %_ZN4cvc58internal12
 
 137:                                              ; preds = %130, %37
   %138 = load ptr, ptr %10, align 8, !tbaa !34
-  %139 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %138, i64 %1
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %1
   %140 = load ptr, ptr %139, align 8, !tbaa !15
   %141 = load ptr, ptr %2, align 8, !tbaa !12
   %.not.i = icmp eq ptr %140, %141
@@ -1224,7 +1224,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers9InstMatch5resetEm(ptr 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %14, %20, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !34
-  %26 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %25, i64 %1
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %1
   %27 = load ptr, ptr %26, align 8, !tbaa !15
   %.not.i = icmp eq ptr %27, %8
   br i1 %.not.i, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, label %28, !prof !18
@@ -1682,7 +1682,7 @@ _ZSt27__uninitialized_default_n_aIPN4cvc58internal12NodeTemplateILb1EEEmS3_ET_S5
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
   %37 = tail call ptr @__cxa_begin_catch(ptr %36) #20
-  %38 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %28, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %1
   invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E(ptr noundef nonnull %28, ptr noundef nonnull %38, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit unwind label %39
 
@@ -1750,9 +1750,9 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit41: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %56
   store ptr %27, ptr %0, align 8, !tbaa !34
-  %60 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %28, i64 %1
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %1
   store ptr %60, ptr %4, align 8, !tbaa !33
-  %61 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.0", ptr %27, i64 %25
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %61, ptr %11, align 8, !tbaa !37
   br label %62
 

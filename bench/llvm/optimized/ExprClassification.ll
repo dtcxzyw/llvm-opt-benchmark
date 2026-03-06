@@ -624,7 +624,7 @@ tailrecurse.backedge:                             ; preds = %40, %43, %49, %64, 
   %153 = and i32 %152, 32767
   %154 = add nuw nsw i32 %.lobit.i.i, %153
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %150, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !379
   br label %tailrecurse.backedge
 
@@ -787,7 +787,7 @@ _ZNK5clang12CompoundStmt9body_backEv.exit:        ; preds = %242
   %248 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %249 = add i32 %246, -1
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds nuw ptr, ptr %248, i64 %250
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %250
   %252 = load ptr, ptr %251, align 8, !tbaa !379
   %.not.i.i = icmp eq ptr %252, null
   br i1 %.not.i.i, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread, label %253
@@ -941,7 +941,7 @@ _ZNK5clang4Expr8ClassifyERNS_10ASTContextE.exit:  ; preds = %2, %22, %_ZNK5clang
   %.011.i.i = phi i32 [ %3, %2 ], [ %3, %_ZNK5clang4Type10isVoidTypeEv.exit.i.i ], [ %3, %_ZNK5clang8QualType13hasQualifiersEv.exit.i.i ], [ %33, %31 ], [ %3, %22 ]
   %34 = and i32 %.011.i.i, 65535
   %35 = zext nneg i32 %34 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5clang4Expr14ClassifyLValueERNS_10ASTContextE, i64 %35
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK5clang4Expr14ClassifyLValueERNS_10ASTContextE, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5clang4Expr8ClassifyERNS_10ASTContextE.exit.thread
 
@@ -1004,7 +1004,7 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK5clang4Expr18isModifiableLval
 
 switch.lookup:                                    ; preds = %3
   %18 = zext nneg i32 %.sroa.4.0.extract.shift to i64
-  %19 = getelementptr i32, ptr @switch.table._ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE, i64 %18
+  %19 = getelementptr [4 x i8], ptr @switch.table._ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE, i64 %18
   %switch.gep = getelementptr i8, ptr %19, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %20
@@ -1080,7 +1080,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %26, %_ZNK4llvm6APSI
 _ZNK5clang16PackIndexingExpr16getSelectedIndexEv.exit: ; preds = %1, %_ZN4llvm5APIntD2Ev.exit.i
   %.sroa.2.0.i = phi i64 [ %30, %_ZN4llvm5APIntD2Ev.exit.i ], [ 0, %1 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.sroa.2.0.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.sroa.2.0.i
   %33 = load ptr, ptr %32, align 8, !tbaa !415
   ret ptr %33
 }
@@ -1234,7 +1234,7 @@ define internal fastcc noundef range(i32 0, 12) i32 @_ZL12ClassifyDeclRN5clang10
 
 switch.lookup:                                    ; preds = %14
   %41 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE, i64 %41
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 

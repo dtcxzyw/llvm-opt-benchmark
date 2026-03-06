@@ -50,7 +50,7 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr noundef writeonl
   %21 = call ptr @PMIx_Argv_split(ptr noundef nonnull %2, i32 noundef 58) #7
   %22 = call i32 @PMIx_Argv_count(ptr noundef %21) #7
   %23 = sext i32 %22 to i64
-  %24 = getelementptr ptr, ptr %21, i64 %23
+  %24 = getelementptr [8 x i8], ptr %21, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load ptr, ptr %25, align 8, !tbaa !7
   %27 = call i64 @strtol(ptr noundef captures(none) %26, ptr noundef null, i32 noundef 10) #7

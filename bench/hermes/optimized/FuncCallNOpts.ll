@@ -99,7 +99,7 @@ _ZNSt6vectorIPN6hermes5ValueESaIS2_EE7reserveEm.exit.i: ; preds = %if.then20
   br i1 %cmp10.i, label %for.body.i.preheader, label %_ZN12_GLOBAL__N_123getArgumentsWithoutThisEPN6hermes8CallInstE.exit
 
 for.body.i.preheader:                             ; preds = %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE7reserveEm.exit.i
-  %add.ptr21.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %conv.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %conv.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i
@@ -149,7 +149,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNKSt6vectorIPN6he
 
 _ZNSt6vectorIPN6hermes5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNKSt6vectorIPN6hermes5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %ref.tmp.sroa.0.0) #13, !noalias !4
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   br label %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i
 
 _ZNSt6vectorIPN6hermes5ValueESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNSt6vectorIPN6hermes5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %if.then.i.i8.i
@@ -195,7 +195,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit: ; preds 
   %10 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %8, %_ZNSt6vectorIPN6hermes5ValueESaIS2_EED2Ev.exit ]
   %11 = load ptr, ptr %destroyer, align 8
   %conv.i3.i.i = zext i32 %10 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %11, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %conv.i3.i.i
   %12 = ptrtoint ptr %__begin2.sroa.0.036 to i64
   store i64 %12, ptr %add.ptr.i.i.i, align 1
   %13 = load i32, ptr %Size.i.i.i.i.i.i, align 8

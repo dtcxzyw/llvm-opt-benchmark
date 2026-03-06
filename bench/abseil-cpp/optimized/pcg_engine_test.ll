@@ -1273,7 +1273,7 @@ define internal void @_ZN12_GLOBAL__N_143PCG642018EngineTest_VerifyGoldenSeeded_
   %.069.i.idx.i.i.i = phi i64 [ %.069.i.add.i.i.i, %.lr.ph.split.i.i.i.i ], [ 0, %1 ]
   %.069.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.069.i.idx.i.i.i
   %26 = add i64 %.010.i.i.i.i, 1
-  %27 = getelementptr inbounds nuw i32, ptr %18, i64 %.010.i.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.010.i.i.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !71
   store i32 %28, ptr %.069.i.ptr.i.i.i, align 4, !tbaa !71
   %.not7.i.i.i.i = icmp ult i64 %26, %25
@@ -1303,7 +1303,7 @@ _ZN4absl15random_internal15ExplicitSeedSeq8generateIPjEEvT_S4_.exit.i.i.i: ; pre
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i128 %31 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i128 %32, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i to i64
-  %33 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i
   %34 = load i32, ptr %33, align 4, !tbaa !71
   %35 = zext i32 %34 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i, %35
@@ -1353,7 +1353,7 @@ _ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924E
   %.069.i.idx.i.i = phi i64 [ %.069.i.add.i.i, %.lr.ph.split.i.i.i ], [ 0, %41 ]
   %.069.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.069.i.idx.i.i
   %49 = add i64 %.010.i.i.i, 1
-  %50 = getelementptr inbounds nuw i32, ptr %42, i64 %.010.i.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.010.i.i.i
   %51 = load i32, ptr %50, align 4, !tbaa !71
   store i32 %51, ptr %.069.i.ptr.i.i, align 4, !tbaa !71
   %.not7.i.i.i = icmp ult i64 %49, %48
@@ -1383,7 +1383,7 @@ _ZN4absl15random_internal15ExplicitSeedSeq8generateIPjEEvT_S4_.exit.i.i: ; preds
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i128 %54 to i64
   %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %55, 64
   %.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i to i64
-  %56 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i
   %57 = load i32, ptr %56, align 4, !tbaa !71
   %58 = zext i32 %57 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i, %58
@@ -1841,7 +1841,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %.no
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %0, align 8, !tbaa !81
   store ptr %29, ptr %4, align 8, !tbaa !89
-  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %23
   store ptr %31, ptr %5, align 8, !tbaa !83
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -2923,7 +2923,7 @@ define internal void @_ZN12_GLOBAL__N_143PCG322018EngineTest_VerifyGoldenSeeded_
   %.069.i.idx.i.i.i = phi i64 [ %.069.i.add.i.i.i, %.lr.ph.split.i.i.i.i ], [ 0, %1 ]
   %.069.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.069.i.idx.i.i.i
   %26 = add i64 %.010.i.i.i.i, 1
-  %27 = getelementptr inbounds nuw i32, ptr %18, i64 %.010.i.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.010.i.i.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !71
   store i32 %28, ptr %.069.i.ptr.i.i.i, align 4, !tbaa !71
   %.not7.i.i.i.i = icmp ult i64 %26, %25
@@ -2966,7 +2966,7 @@ _ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005EL
   %.069.i.idx.i.i = phi i64 [ %.069.i.add.i.i, %.lr.ph.split.i.i.i ], [ 0, %37 ]
   %.069.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.069.i.idx.i.i
   %45 = add i64 %.010.i.i.i, 1
-  %46 = getelementptr inbounds nuw i32, ptr %38, i64 %.010.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.010.i.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !71
   store i32 %47, ptr %.069.i.ptr.i.i, align 4, !tbaa !71
   %.not7.i.i.i = icmp ult i64 %45, %44
@@ -4281,7 +4281,7 @@ define internal void @_ZN12_GLOBAL__N_147PCGEngineTest_VerifyReseedChangesAllVal
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i128 %34 to i64
   %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %35, 64
   %.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i to i64
-  %36 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.016.i.i
   %37 = load i32, ptr %36, align 4, !tbaa !71
   %38 = zext i32 %37 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i, %38
@@ -4442,7 +4442,7 @@ _ZNSt13random_deviceclEv.exit64:                  ; preds = %_ZNSt13random_devic
   %.sroa.0.0.extract.trunc.i.i.i.i70 = trunc i128 %81 to i64
   %.sroa.2.0.extract.shift.i.i.i.i71 = lshr i128 %82, 64
   %.sroa.2.0.extract.trunc.i.i.i.i72 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i71 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i65
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i65
   %84 = load i32, ptr %83, align 4, !tbaa !71
   %85 = zext i32 %84 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i73 = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i70, %85
@@ -4619,9 +4619,9 @@ _ZNSt13random_deviceD2Ev.exit113:                 ; preds = %_ZNSt8seed_seqD2Ev.
   %.026171 = phi i64 [ 0, %_ZSt8generateIPmSt17reference_wrapperIN4absl15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEvT_SA_T0_.exit108 ], [ %152, %139 ]
   %140 = phi i64 [ 0, %_ZSt8generateIPmSt17reference_wrapperIN4absl15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEvT_SA_T0_.exit108 ], [ %148, %139 ]
   %141 = phi i64 [ 0, %_ZSt8generateIPmSt17reference_wrapperIN4absl15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEvT_SA_T0_.exit108 ], [ %151, %139 ]
-  %142 = getelementptr inbounds nuw i64, ptr %7, i64 %.023174
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.023174
   %143 = load i64, ptr %142, align 8, !tbaa !32
-  %144 = getelementptr inbounds nuw i64, ptr %11, i64 %.023174
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.023174
   %145 = load i64, ptr %144, align 8, !tbaa !32
   %146 = icmp eq i64 %143, %145
   %147 = zext i1 %146 to i64
@@ -5180,7 +5180,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %0, align 8, !tbaa !81
   store ptr %9, ptr %10, align 8, !tbaa !89
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %2
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %2
   store ptr %11, ptr %7, align 8, !tbaa !83
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5258,7 +5258,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %38, %.no
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %40, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %35, ptr %0, align 8, !tbaa !81
   store ptr %39, ptr %13, align 8, !tbaa !89
-  %41 = getelementptr inbounds nuw i32, ptr %35, i64 %33
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %33
   store ptr %41, ptr %7, align 8, !tbaa !83
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -5326,7 +5326,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %0, align 8, !tbaa !81
   store ptr %9, ptr %10, align 8, !tbaa !89
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %2
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %2
   store ptr %11, ptr %7, align 8, !tbaa !83
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5404,7 +5404,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %38, %.no
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %40, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %35, ptr %0, align 8, !tbaa !81
   store ptr %39, ptr %13, align 8, !tbaa !89
-  %41 = getelementptr inbounds nuw i32, ptr %35, i64 %33
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %33
   store ptr %41, ptr %7, align 8, !tbaa !83
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -5496,11 +5496,11 @@ define linkonce_odr dso_local void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr nound
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %35, i64 %12)
   %36 = trunc i64 %19 to i32
   %37 = add i32 %36, 1371501266
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %33
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %33
   %39 = load i32, ptr %38, align 4, !tbaa !71
   %40 = add i32 %39, 1371501266
   store i32 %40, ptr %38, align 4, !tbaa !71
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %34
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %34
   %42 = load i32, ptr %41, align 4, !tbaa !71
   %43 = add i32 %42, %37
   store i32 %43, ptr %41, align 4, !tbaa !71
@@ -5523,13 +5523,13 @@ define linkonce_odr dso_local void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr nound
   %47 = urem i64 %46, %12
   %48 = add i64 %.0131, %34
   %49 = urem i64 %48, %12
-  %50 = getelementptr inbounds nuw i32, ptr %1, i64 %45
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %45
   %51 = load i32, ptr %50, align 4, !tbaa !71
-  %52 = getelementptr inbounds nuw i32, ptr %1, i64 %47
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %47
   %53 = load i32, ptr %52, align 4, !tbaa !71
   %54 = add i64 %.0131, -1
   %55 = urem i64 %54, %12
-  %56 = getelementptr inbounds nuw i32, ptr %1, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !71
   %58 = xor i32 %51, %57
   %59 = xor i32 %58, %53
@@ -5537,13 +5537,13 @@ define linkonce_odr dso_local void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr nound
   %61 = xor i32 %60, %59
   %62 = mul i32 %61, 1664525
   %63 = trunc i64 %45 to i32
-  %64 = getelementptr inbounds nuw i32, ptr %15, i64 %54
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %54
   %65 = load i32, ptr %64, align 4, !tbaa !71
   %66 = add i32 %65, %63
   %67 = add i32 %66, %62
   %68 = add i32 %62, %53
   store i32 %68, ptr %52, align 4, !tbaa !71
-  %69 = getelementptr inbounds nuw i32, ptr %1, i64 %49
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %49
   %70 = load i32, ptr %69, align 4, !tbaa !71
   %71 = add i32 %67, %70
   store i32 %71, ptr %69, align 4, !tbaa !71
@@ -5564,13 +5564,13 @@ define linkonce_odr dso_local void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr nound
   %77 = urem i64 %76, %12
   %78 = add i64 %.0114132, %34
   %79 = urem i64 %78, %12
-  %80 = getelementptr inbounds nuw i32, ptr %1, i64 %75
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %75
   %81 = load i32, ptr %80, align 4, !tbaa !71
-  %82 = getelementptr inbounds nuw i32, ptr %1, i64 %77
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %77
   %83 = load i32, ptr %82, align 4, !tbaa !71
   %84 = add i64 %.0114132, -1
   %85 = urem i64 %84, %12
-  %86 = getelementptr inbounds nuw i32, ptr %1, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !71
   %88 = xor i32 %81, %87
   %89 = xor i32 %88, %83
@@ -5581,7 +5581,7 @@ define linkonce_odr dso_local void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr nound
   %94 = add i32 %92, %93
   %95 = add i32 %92, %83
   store i32 %95, ptr %82, align 4, !tbaa !71
-  %96 = getelementptr inbounds nuw i32, ptr %1, i64 %79
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %79
   %97 = load i32, ptr %96, align 4, !tbaa !71
   %98 = add i32 %94, %97
   store i32 %98, ptr %96, align 4, !tbaa !71
@@ -5597,14 +5597,14 @@ define linkonce_odr dso_local void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr nound
   %102 = urem i64 %101, %12
   %103 = add i64 %.0115134, %34
   %104 = urem i64 %103, %12
-  %105 = getelementptr inbounds nuw i32, ptr %1, i64 %100
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %100
   %106 = load i32, ptr %105, align 4, !tbaa !71
-  %107 = getelementptr inbounds nuw i32, ptr %1, i64 %102
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %102
   %108 = load i32, ptr %107, align 4, !tbaa !71
   %109 = add i32 %108, %106
   %110 = add i64 %.0115134, -1
   %111 = urem i64 %110, %12
-  %112 = getelementptr inbounds nuw i32, ptr %1, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !71
   %114 = add i32 %109, %113
   %115 = lshr i32 %114, 27
@@ -5614,7 +5614,7 @@ define linkonce_odr dso_local void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr nound
   %119 = sub i32 %117, %118
   %120 = xor i32 %117, %108
   store i32 %120, ptr %107, align 4, !tbaa !71
-  %121 = getelementptr inbounds nuw i32, ptr %1, i64 %104
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %104
   %122 = load i32, ptr %121, align 4, !tbaa !71
   %123 = xor i32 %119, %122
   store i32 %123, ptr %121, align 4, !tbaa !71
@@ -6942,9 +6942,9 @@ _ZNSt13random_deviceD2Ev.exit72:                  ; preds = %_ZNSt8seed_seqD2Ev.
   %.026125 = phi i64 [ 0, %_ZSt8generateIPjSt17reference_wrapperIN4absl15random_internal10pcg_engineINS3_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS3_16pcg_xsh_rr_64_32EEEEEvT_SA_T0_.exit67 ], [ %157, %143 ]
   %144 = phi i64 [ 0, %_ZSt8generateIPjSt17reference_wrapperIN4absl15random_internal10pcg_engineINS3_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS3_16pcg_xsh_rr_64_32EEEEEvT_SA_T0_.exit67 ], [ %152, %143 ]
   %145 = phi i64 [ 0, %_ZSt8generateIPjSt17reference_wrapperIN4absl15random_internal10pcg_engineINS3_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS3_16pcg_xsh_rr_64_32EEEEEvT_SA_T0_.exit67 ], [ %156, %143 ]
-  %146 = getelementptr inbounds nuw i32, ptr %7, i64 %.023128
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.023128
   %147 = load i32, ptr %146, align 4, !tbaa !71
-  %148 = getelementptr inbounds nuw i32, ptr %11, i64 %.023128
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.023128
   %149 = load i32, ptr %148, align 4, !tbaa !71
   %150 = icmp eq i32 %147, %149
   %151 = zext i1 %150 to i64
@@ -7925,7 +7925,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !10
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !19
   ret void
 }
@@ -11429,7 +11429,7 @@ define internal void @_ZN12_GLOBAL__N_138PCGEngineTest_StreamSerialization_TestI
   %.069.i.idx.i.i.i = phi i64 [ %.069.i.add.i.i.i, %.lr.ph.split.i.i.i.i ], [ 0, %38 ]
   %.069.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.069.i.idx.i.i.i
   %46 = add i64 %.010.i.i.i.i, 1
-  %47 = getelementptr inbounds nuw i32, ptr %39, i64 %.010.i.i.i.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.010.i.i.i.i
   %48 = load i32, ptr %47, align 4, !tbaa !71
   store i32 %48, ptr %.069.i.ptr.i.i.i, align 4, !tbaa !71
   %.not7.i.i.i.i = icmp ult i64 %46, %45
@@ -11459,7 +11459,7 @@ _ZN4absl15random_internal15ExplicitSeedSeq8generateIPjEEvT_S4_.exit.i.i.i: ; pre
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i128 %51 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i128 %52, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i to i64
-  %53 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.016.i.i.i
   %54 = load i32, ptr %53, align 4, !tbaa !71
   %55 = zext i32 %54 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i, %55
@@ -12769,7 +12769,7 @@ define internal void @_ZN12_GLOBAL__N_138PCGEngineTest_StreamSerialization_TestI
   %.069.i.idx.i.i.i = phi i64 [ %.069.i.add.i.i.i, %.lr.ph.split.i.i.i.i ], [ 0, %40 ]
   %.069.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.069.i.idx.i.i.i
   %48 = add i64 %.010.i.i.i.i, 1
-  %49 = getelementptr inbounds nuw i32, ptr %41, i64 %.010.i.i.i.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.010.i.i.i.i
   %50 = load i32, ptr %49, align 4, !tbaa !71
   store i32 %50, ptr %.069.i.ptr.i.i.i, align 4, !tbaa !71
   %.not7.i.i.i.i = icmp ult i64 %48, %47
@@ -13609,7 +13609,7 @@ define internal void @_ZN12_GLOBAL__N_146PCGEngineTest_RandomNumberEngineInterfa
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i128 %34 to i64
   %.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %35, 64
   %.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i to i64
-  %36 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.016.i.i
   %37 = load i32, ptr %36, align 4, !tbaa !71
   %38 = zext i32 %37 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i, %38
@@ -13657,7 +13657,7 @@ define internal void @_ZN12_GLOBAL__N_146PCGEngineTest_RandomNumberEngineInterfa
   %.sroa.0.0.extract.trunc.i.i.i.i.i59 = trunc i128 %49 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i60 = lshr i128 %50, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i61 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i60 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i54
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i54
   %52 = load i32, ptr %51, align 4, !tbaa !71
   %53 = zext i32 %52 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i62 = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i59, %53
@@ -13858,7 +13858,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.0.0.extract.trunc.i.i.i.i.i125 = trunc i128 %111 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i126 = lshr i128 %112, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i127 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i126 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i120
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i.i120
   %114 = load i32, ptr %113, align 4, !tbaa !71
   %115 = zext i32 %114 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i128 = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i125, %115

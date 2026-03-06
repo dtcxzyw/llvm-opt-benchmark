@@ -1319,7 +1319,7 @@ define hidden i32 @check_arithmetic(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 switch.lookup:                                    ; preds = %106
   %111 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.check_arithmetic, i64 %111
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.check_arithmetic, i64 %111
   %switch.load = load ptr, ptr %switch.gep, align 8
   %112 = load ptr, ptr %5, align 8
   %113 = load ptr, ptr %6, align 8
@@ -2225,7 +2225,7 @@ define internal fastcc range(i32 0, 6) i32 @mk_fvalue_from_hfinfo(ptr noundef re
 
 switch.lookup:                                    ; preds = %79
   %107 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mk_fvalue_from_hfinfo, i64 %107
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mk_fvalue_from_hfinfo, i64 %107
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -2431,7 +2431,7 @@ define internal fastcc noundef nonnull ptr @op_to_error_msg(i32 noundef %0) unna
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.op_to_error_msg, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.op_to_error_msg, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

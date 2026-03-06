@@ -72,7 +72,7 @@ define dso_local range(i32 -1, 1) i32 @apply_filters(ptr noundef readonly captur
 
 22:                                               ; preds = %33, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %33 ]
-  %23 = getelementptr inbounds nuw %struct.pack_info_t, ptr %21, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [1112 x i8], ptr %21, i64 %indvars.iv.i.i
   %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %0) #10
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %aux_find_obj.exit.i, label %26
@@ -133,7 +133,7 @@ aux_find_obj.exit.i:                              ; preds = %26, %22
 
 52:                                               ; preds = %36
   %53 = load ptr, ptr %20, align 8, !tbaa !18
-  %54 = getelementptr inbounds nuw %struct.pack_info_t, ptr %53, i64 %indvars.iv.i.i
+  %54 = getelementptr inbounds nuw [1112 x i8], ptr %53, i64 %indvars.iv.i.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 836
   %56 = load i32, ptr %55, align 4, !tbaa !24
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 836
@@ -157,9 +157,9 @@ aux_find_obj.exit.i:                              ; preds = %26, %22
 
 65:                                               ; preds = %65, %.lr.ph65.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph65.i ], [ %indvars.iv.next.i, %65 ]
-  %66 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i
   %67 = load i64, ptr %66, align 8, !tbaa !28
-  %68 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   store i64 %67, ptr %68, align 8, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -181,7 +181,7 @@ aux_find_obj.exit.i:                              ; preds = %26, %22
 
 75:                                               ; preds = %.loopexit59.i
   %76 = load ptr, ptr %20, align 8, !tbaa !18
-  %77 = getelementptr inbounds nuw %struct.pack_info_t, ptr %76, i64 %indvars.iv.i.i
+  %77 = getelementptr inbounds nuw [1112 x i8], ptr %76, i64 %indvars.iv.i.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 832
   %79 = load i32, ptr %78, align 8, !tbaa !31
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 832
@@ -195,11 +195,11 @@ aux_find_obj.exit.i:                              ; preds = %26, %22
 
 83:                                               ; preds = %83, %.lr.ph67.i
   %indvars.iv78.i = phi i64 [ 0, %.lr.ph67.i ], [ %indvars.iv.next79.i, %83 ]
-  %84 = getelementptr inbounds nuw %struct.filter_info_t, ptr %82, i64 %indvars.iv78.i
+  %84 = getelementptr inbounds nuw [96 x i8], ptr %82, i64 %indvars.iv78.i
   %85 = load ptr, ptr %20, align 8, !tbaa !18
-  %86 = getelementptr inbounds nuw %struct.pack_info_t, ptr %85, i64 %indvars.iv.i.i
+  %86 = getelementptr inbounds nuw [1112 x i8], ptr %85, i64 %indvars.iv.i.i
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 256
-  %88 = getelementptr inbounds nuw %struct.filter_info_t, ptr %87, i64 %indvars.iv78.i
+  %88 = getelementptr inbounds nuw [96 x i8], ptr %87, i64 %indvars.iv78.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %84, ptr noundef nonnull align 8 dereferenceable(96) %88, i64 96, i1 false), !tbaa.struct !32
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
   %89 = load i32, ptr %80, align 8, !tbaa !31
@@ -385,7 +385,7 @@ aux_assign_obj.exit:                              ; preds = %83, %71, %75, %.loo
 
 182:                                              ; preds = %181, %.lr.ph.i
   %indvars.iv.i261 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i262, %181 ]
-  %183 = getelementptr inbounds nuw %struct.filter_info_t, ptr %164, i64 %indvars.iv.i261
+  %183 = getelementptr inbounds nuw [96 x i8], ptr %164, i64 %indvars.iv.i261
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 88
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 8
@@ -696,10 +696,10 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %348 = icmp ugt i64 %.0154292, %325
   %spec.store.select = select i1 %348, i64 1, i64 %347
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %349 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.next
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %350 = load i64, ptr %349, align 8, !tbaa !28
   %.spec.store.select = call i64 @llvm.umin.i64(i64 %350, i64 %spec.store.select)
-  %351 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.next
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next
   store i64 %.spec.store.select, ptr %351, align 8, !tbaa !28
   %352 = mul i64 %.spec.store.select, %.0154292
   %353 = icmp sgt i64 %indvars.iv, 1
@@ -725,7 +725,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 
 360:                                              ; preds = %.lr.ph298, %670
   %indvars.iv313 = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next314, %670 ]
-  %361 = getelementptr inbounds nuw %struct.filter_info_t, ptr %357, i64 %indvars.iv313
+  %361 = getelementptr inbounds nuw [96 x i8], ptr %357, i64 %indvars.iv313
   %362 = load i32, ptr %361, align 8, !tbaa !39
   %363 = icmp slt i32 %362, 0
   br i1 %363, label %364, label %380
@@ -1250,7 +1250,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 
 682:                                              ; preds = %.lr.ph300, %678
   %indvars.iv316 = phi i64 [ 0, %.lr.ph300 ], [ %indvars.iv.next317, %678 ]
-  %683 = getelementptr inbounds nuw %struct.filter_info_t, ptr %677, i64 %indvars.iv316
+  %683 = getelementptr inbounds nuw [96 x i8], ptr %677, i64 %indvars.iv316
   %684 = load i32, ptr %683, align 8, !tbaa !39
   %685 = icmp slt i32 %684, 0
   br i1 %685, label %686, label %702

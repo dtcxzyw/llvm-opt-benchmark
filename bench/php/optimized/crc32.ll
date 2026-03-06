@@ -29,7 +29,7 @@ define dso_local i32 @php_crc32_bulk_update(i32 noundef %0, ptr noundef %1, i64 
   %.tr = trunc i32 %8 to i8
   %.narrow = xor i8 %11, %.tr
   %12 = zext i8 %.narrow to i64
-  %13 = getelementptr inbounds nuw i32, ptr @crc32tab, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @crc32tab, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !4
   %15 = xor i32 %14, %10
   %16 = getelementptr inbounds nuw i8, ptr %.011, i64 1
@@ -83,7 +83,7 @@ define dso_local range(i32 -1, 1) i32 @php_crc32_stream_bulk_update(ptr noundef 
   %.tr.i = trunc i32 %14 to i8
   %.narrow.i = xor i8 %17, %.tr.i
   %18 = zext i8 %.narrow.i to i64
-  %19 = getelementptr inbounds nuw i32, ptr @crc32tab, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @crc32tab, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !4
   %21 = xor i32 %20, %16
   %22 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
@@ -172,7 +172,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %7
   %.tr.i = trunc i32 %22 to i8
   %.narrow.i = xor i8 %25, %.tr.i
   %26 = zext i8 %.narrow.i to i64
-  %27 = getelementptr inbounds nuw i32, ptr @crc32tab, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @crc32tab, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = xor i32 %28, %24
   %30 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1

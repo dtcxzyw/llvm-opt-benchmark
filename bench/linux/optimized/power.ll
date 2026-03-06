@@ -97,7 +97,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
 
 .split.us:                                        ; preds = %7
   %11 = load ptr, ptr %8, align 8
-  %.split12.us = getelementptr %union.acpi_object, ptr %11, i64 %9
+  %.split12.us = getelementptr [24 x i8], ptr %11, i64 %9
   %12 = load i32, ptr %.split12.us, align 8
   %13 = icmp eq i32 %12, 20
   br i1 %13, label %14, label %.thread16
@@ -128,7 +128,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   %26 = phi i32 [ %22, %.critedge15 ], [ %5, %7 ]
   %27 = phi i64 [ %23, %.critedge15 ], [ %9, %7 ]
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr %union.acpi_object, ptr %28, i64 %27
+  %29 = getelementptr [24 x i8], ptr %28, i64 %27
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 20
   br i1 %31, label %32, label %.thread16
@@ -144,7 +144,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   br i1 %37, label %38, label %.critedge
 
 38:                                               ; preds = %36
-  %.split12 = getelementptr %union.acpi_object, ptr %28, i64 %9
+  %.split12 = getelementptr [24 x i8], ptr %28, i64 %9
   %39 = getelementptr i8, ptr %.split12, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %34
@@ -157,7 +157,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   br i1 %44, label %.critedge, label %45, !llvm.loop !9
 
 45:                                               ; preds = %.preheader17
-  %.split13 = getelementptr %union.acpi_object, ptr %28, i64 %43
+  %.split13 = getelementptr [24 x i8], ptr %28, i64 %43
   %46 = getelementptr i8, ptr %.split13, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, %34
@@ -607,7 +607,7 @@ define dso_local void @acpi_power_add_remove_device(ptr noundef %0, i1 noundef z
   %16 = phi i64 [ %19, %15 ], [ 0, %.preheader ]
   %.idx = shl i64 %16, 5
   %17 = getelementptr i8, ptr %14, i64 %.idx
-  %18 = getelementptr %struct.attribute_group, ptr @attr_groups, i64 %16
+  %18 = getelementptr [40 x i8], ptr @attr_groups, i64 %16
   tail call fastcc void @acpi_power_expose_hide(ptr noundef %0, ptr noundef %17, ptr noundef %18, i1 noundef zeroext %1)
   %19 = add nuw nsw i64 %16, 1
   %20 = icmp eq i64 %19, 4

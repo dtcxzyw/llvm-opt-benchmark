@@ -30,11 +30,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.merge_progress_callback_t = type { ptr, ptr }
-%struct.merge_in_file_s = type { ptr, ptr, %struct.wtap_rec, i32, i32, i64, ptr, i32, i32 }
 %struct.packet_range_tag = type { i32, i8, i8, i8, ptr, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32 }
 %struct.retap_callback_args_t = type { %struct.epan_dissect, ptr }
 %struct.print_callback_args_t = type { ptr, i8, ptr, i32, i8, i8, ptr, i32, ptr, i32, ptr, %struct.epan_dissect }
-%struct.col_item_t = type { i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i8, i32 }
 %struct.write_packet_callback_args_t = type { ptr, %struct.epan_dissect, ptr, %struct.json_dumper }
 %struct.json_dumper = type { ptr, ptr, i32, i32, i32, i32, [1100 x i8] }
 %struct.match_data = type { ptr, i64, ptr, ptr, ptr, i8, i8 }
@@ -959,7 +957,7 @@ calc_progbar_val.exit124:                         ; preds = %159, %163, %170
 
 195:                                              ; preds = %194, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %194 ]
-  %196 = getelementptr i32, ptr %193, i64 %indvars.iv.i.i
+  %196 = getelementptr [4 x i8], ptr %193, i64 %indvars.iv.i.i
   %197 = load i32, ptr %196, align 4
   %198 = icmp eq i32 %197, %189
   br i1 %198, label %cf_add_encapsulation_type.exit.i, label %194
@@ -2218,7 +2216,7 @@ define internal zeroext i1 @merge_callback(i32 noundef %0, i32 %1, ptr noundef r
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = phi i64 [ %.promoted, %.lr.ph ], [ %13, %8 ]
-  %10 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv
+  %10 = getelementptr [360 x i8], ptr %2, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 336
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %9, %12
@@ -2265,7 +2263,7 @@ define internal zeroext i1 @merge_callback(i32 noundef %0, i32 %1, ptr noundef r
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %.lr.ph42
   %indvars.iv47 = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next48, %.lr.ph42 ]
   %.041 = phi i64 [ 0, %.lr.ph42.preheader ], [ %33, %.lr.ph42 ]
-  %29 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv47
+  %29 = getelementptr [360 x i8], ptr %2, i64 %indvars.iv47
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i64 @wtap_read_so_far(ptr noundef %31)
@@ -2818,7 +2816,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %12
 
 switch.lookup:                                    ; preds = %.lr.ph.i30, %45
   %52 = zext nneg i32 %46 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cf_retap_packets, i64 %52
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cf_retap_packets, i64 %52
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %53
 
@@ -3140,26 +3138,26 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
 66:                                               ; preds = %61
   %67 = load ptr, ptr %16, align 8
   %68 = sext i32 %.0110126 to i64
-  %69 = getelementptr i32, ptr %67, i64 %68
+  %69 = getelementptr [4 x i8], ptr %67, i64 %68
   store i32 %58, ptr %69, align 4
   %70 = icmp eq i64 %indvars.iv, %46
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %66
   %72 = load ptr, ptr %14, align 8
-  %73 = getelementptr i32, ptr %72, i64 %68
+  %73 = getelementptr [4 x i8], ptr %72, i64 %68
   store i32 0, ptr %73, align 4
   br label %88
 
 74:                                               ; preds = %66
   %75 = load ptr, ptr %55, align 8
-  %76 = getelementptr %struct.col_item_t, ptr %75, i64 %indvars.iv
+  %76 = getelementptr [88 x i8], ptr %75, i64 %indvars.iv
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = tail call i64 @strlen(ptr noundef %78) #26
   %80 = trunc i64 %79 to i32
   %81 = load ptr, ptr %14, align 8
-  %82 = getelementptr i32, ptr %81, i64 %68
+  %82 = getelementptr [4 x i8], ptr %81, i64 %68
   store i32 %80, ptr %82, align 4
   %83 = tail call i32 @get_column_format(i32 noundef %58)
   %84 = tail call i32 @get_column_char_width(i32 noundef %83)
@@ -3175,7 +3173,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   %89 = phi i32 [ %85, %74 ], [ %84, %87 ], [ 0, %71 ]
   %90 = phi ptr [ %81, %74 ], [ %81, %87 ], [ %72, %71 ]
   %91 = load ptr, ptr %55, align 8
-  %92 = getelementptr %struct.col_item_t, ptr %91, i64 %indvars.iv
+  %92 = getelementptr [88 x i8], ptr %91, i64 %indvars.iv
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i64 @strlen(ptr noundef %94) #26
@@ -3188,7 +3186,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   br i1 %100, label %101, label %113
 
 101:                                              ; preds = %88
-  %102 = getelementptr i32, ptr %90, i64 %68
+  %102 = getelementptr [4 x i8], ptr %90, i64 %68
   %103 = load ptr, ptr %8, align 8
   %104 = ptrtoint ptr %.099129 to i64
   %105 = ptrtoint ptr %103 to i64
@@ -3204,7 +3202,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   %112 = getelementptr i8, ptr %110, i64 %111
   %.pre = load i32, ptr %102, align 4
   %.pre135 = load ptr, ptr %55, align 8
-  %.phi.trans.insert = getelementptr %struct.col_item_t, ptr %.pre135, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr [88 x i8], ptr %.pre135, i64 %indvars.iv
   %.phi.trans.insert136 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 16
   %.pre137 = load ptr, ptr %.phi.trans.insert136, align 8
   br label %113
@@ -3470,15 +3468,15 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
   %.0110117 = phi i32 [ 0, %.lr.ph ], [ %89, %118 ]
   %76 = load ptr, ptr %71, align 8
   %77 = load ptr, ptr %72, align 8
-  %78 = getelementptr i32, ptr %77, i64 %indvars.iv
+  %78 = getelementptr [4 x i8], ptr %77, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr %struct.col_item_t, ptr %76, i64 %80
+  %81 = getelementptr [88 x i8], ptr %76, i64 %80
   %82 = call ptr @get_column_text(ptr noundef nonnull %70, i32 noundef %79)
   %83 = call i64 @strlen(ptr noundef %82) #26
   %84 = trunc i64 %83 to i32
   %85 = load ptr, ptr %73, align 8
-  %86 = getelementptr i32, ptr %85, i64 %indvars.iv
+  %86 = getelementptr [4 x i8], ptr %85, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4
   %spec.select = call i32 @llvm.smax.i32(i32 %87, i32 %84)
   %88 = add i32 %spec.select, 1
@@ -3510,7 +3508,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
   %switch = icmp eq i32 %105, 32
   %106 = sext i32 %88 to i64
   %107 = load ptr, ptr %73, align 8
-  %108 = getelementptr i32, ptr %107, i64 %indvars.iv
+  %108 = getelementptr [4 x i8], ptr %107, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4
   %.str.57..str.26 = select i1 %switch, ptr @.str.57, ptr @.str.26
   %110 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.1, i64 noundef %106, i32 noundef 2, i64 noundef -1, ptr noundef nonnull %.str.57..str.26, i32 noundef %109, ptr noundef %82)
@@ -4809,7 +4807,7 @@ cf_read_record.exit:                              ; preds = %4
 
 31:                                               ; preds = %.lr.ph, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %32 = getelementptr %struct.col_item_t, ptr %30, i64 %indvars.iv
+  %32 = getelementptr [88 x i8], ptr %30, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 25
@@ -7465,7 +7463,7 @@ define hidden void @cf_update_section_comments(ptr noundef captures(none) %0, i3
 
 12:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %13 = getelementptr ptr, ptr %2, i64 %indvars.iv
+  %13 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = trunc nuw i64 %indvars.iv to i32
   %16 = call i32 @wtap_block_get_nth_string_option_value(ptr noundef nonnull %7, i32 noundef 1, i32 noundef %15, ptr noundef nonnull %4)
@@ -8420,7 +8418,7 @@ progress_is_slow.exit.thread103.us.i:             ; preds = %calc_progbar_val.ex
 
 295:                                              ; preds = %299, %.lr.ph.i93.us.i
   %indvars.iv.i.us.i = phi i64 [ 0, %.lr.ph.i93.us.i ], [ %indvars.iv.next.i.us.i, %299 ]
-  %296 = getelementptr i32, ptr %294, i64 %indvars.iv.i.us.i
+  %296 = getelementptr [4 x i8], ptr %294, i64 %indvars.iv.i.us.i
   %297 = load i32, ptr %296, align 4
   %298 = icmp eq i32 %297, %290
   br i1 %298, label %cf_add_encapsulation_type.exit.us.i, label %299
@@ -8490,7 +8488,7 @@ progress_is_slow.exit.thread103.i:                ; preds = %307, %.lr.ph.split.
 
 322:                                              ; preds = %321, %.lr.ph.i93.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i93.i ], [ %indvars.iv.next.i.i, %321 ]
-  %323 = getelementptr i32, ptr %320, i64 %indvars.iv.i.i
+  %323 = getelementptr [4 x i8], ptr %320, i64 %indvars.iv.i.i
   %324 = load i32, ptr %323, align 4
   %325 = icmp eq i32 %324, %316
   br i1 %325, label %cf_add_encapsulation_type.exit.i, label %321

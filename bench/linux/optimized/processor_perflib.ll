@@ -32,10 +32,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_process
 %struct.tracepoint = type { ptr, %struct.static_key, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.static_key = type { %struct.atomic_t, %union.anon.12 }
 %union.anon.12 = type { i64 }
-%struct.acpi_processor_px = type { i64, i64, i64, i64, i64, i64 }
 %struct.acpi_buffer = type { i64, ptr }
-%union.acpi_object = type { %struct.anon.10 }
-%struct.anon.10 = type { i32, i32, i64, i32 }
 
 @__param_str_ignore_ppc = internal constant [21 x i8] c"processor.ignore_ppc\00", align 16
 @param_ops_int = external dso_local constant %struct.kernel_param_ops, align 8
@@ -200,7 +197,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @acpi_processor_get_platfor
   %36 = load ptr, ptr %35, align 8
   %37 = shl nuw i64 %13, 32
   %38 = ashr exact i64 %37, 32
-  %39 = getelementptr %struct.acpi_processor_px, ptr %36, i64 %38
+  %39 = getelementptr [48 x i8], ptr %36, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = trunc i64 %40 to i32
   %42 = mul i32 %41, 1000
@@ -230,7 +227,7 @@ declare dso_local void @cpufreq_update_limits(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_get_bios_limit(i32 noundef %0, ptr noundef writeonly captures(none) %1) #2 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @processors to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -256,7 +253,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_get_bios_limit(i3
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr %struct.acpi_processor_px, ptr %20, i64 %23
+  %24 = getelementptr [48 x i8], ptr %20, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
   %27 = mul i32 %26, 1000
@@ -304,7 +301,7 @@ define dso_local void @acpi_processor_ppc_init(ptr noundef %0) local_unnamed_add
 
 14:                                               ; preds = %10
   %15 = and i64 %11, 63
-  %16 = getelementptr i64, ptr @__per_cpu_offset, i64 %15
+  %16 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @processors to i64)
   %19 = inttoptr i64 %18 to ptr
@@ -361,7 +358,7 @@ define dso_local void @acpi_processor_ppc_exit(ptr noundef readonly captures(non
 
 13:                                               ; preds = %9
   %14 = and i64 %10, 63
-  %15 = getelementptr i64, ptr @__per_cpu_offset, i64 %14
+  %15 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, ptrtoint (ptr @processors to i64)
   %18 = inttoptr i64 %17 to ptr
@@ -581,11 +578,11 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   %113 = getelementptr inbounds nuw i8, ptr %.be, i64 48
   %114 = load ptr, ptr %113, align 8
   %115 = sext i32 %.be50 to i64
-  %116 = getelementptr %struct.acpi_processor_px, ptr %114, i64 %115
+  %116 = getelementptr [48 x i8], ptr %114, i64 %115
   store i64 48, ptr %4, align 8
   store ptr %116, ptr %99, align 8
   %117 = load ptr, ptr %100, align 8
-  %118 = getelementptr %union.acpi_object, ptr %117, i64 %115
+  %118 = getelementptr [24 x i8], ptr %117, i64 %115
   %119 = call i32 @acpi_extract_package(ptr noundef %118, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !13
@@ -677,7 +674,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 48
   %181 = load ptr, ptr %180, align 8
   %182 = sext i32 %127 to i64
-  %183 = getelementptr %struct.acpi_processor_px, ptr %181, i64 %182
+  %183 = getelementptr [48 x i8], ptr %181, i64 %182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(48) %183, ptr noundef align 8 dereferenceable(48) %126, i64 48, i1 false)
   %184 = add nuw i32 %127, 1
   br label %107
@@ -994,7 +991,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 
 16:                                               ; preds = %12
   %17 = and i64 %13, 63
-  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %17
+  %18 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @processors to i64)
   %21 = inttoptr i64 %20 to ptr
@@ -1039,7 +1036,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 
 45:                                               ; preds = %41
   %46 = and i64 %42, 63
-  %47 = getelementptr i64, ptr @__per_cpu_offset, i64 %46
+  %47 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = add i64 %48, ptrtoint (ptr @processors to i64)
   %50 = inttoptr i64 %49 to ptr
@@ -1090,7 +1087,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 
 78:                                               ; preds = %74
   %79 = and i64 %75, 63
-  %80 = getelementptr i64, ptr @__per_cpu_offset, i64 %79
+  %80 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %79
   %81 = load i64, ptr %80, align 8
   %82 = add i64 %81, ptrtoint (ptr @processors to i64)
   %83 = inttoptr i64 %82 to ptr
@@ -1169,7 +1166,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 
 123:                                              ; preds = %121
   %124 = and i64 %117, 63
-  %125 = getelementptr i64, ptr @__per_cpu_offset, i64 %124
+  %125 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %124
   %126 = load i64, ptr %125, align 8
   %127 = add i64 %126, ptrtoint (ptr @processors to i64)
   %128 = inttoptr i64 %127 to ptr
@@ -1233,7 +1230,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 
 166:                                              ; preds = %164
   %167 = and i64 %161, 63
-  %168 = getelementptr i64, ptr @__per_cpu_offset, i64 %167
+  %168 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %167
   %169 = load i64, ptr %168, align 8
   %170 = add i64 %169, ptrtoint (ptr @processors to i64)
   %171 = inttoptr i64 %170 to ptr
@@ -1302,7 +1299,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 
 210:                                              ; preds = %206
   %211 = and i64 %207, 63
-  %212 = getelementptr i64, ptr @__per_cpu_offset, i64 %211
+  %212 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %211
   %213 = load i64, ptr %212, align 8
   %214 = add i64 %213, ptrtoint (ptr @processors to i64)
   %215 = inttoptr i64 %214 to ptr
@@ -1365,7 +1362,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_processor_register_performa
 5:                                                ; preds = %2
   tail call void @mutex_lock(ptr noundef nonnull @performance_mutex) #11
   %6 = zext i32 %1 to i64
-  %7 = getelementptr i64, ptr @__per_cpu_offset, i64 %6
+  %7 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, ptrtoint (ptr @processors to i64)
   %10 = inttoptr i64 %9 to ptr
@@ -1413,7 +1410,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_processor_register_performa
 define dso_local void @acpi_processor_unregister_performance(i32 noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @performance_mutex) #11
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @processors to i64)
   %6 = inttoptr i64 %5 to ptr

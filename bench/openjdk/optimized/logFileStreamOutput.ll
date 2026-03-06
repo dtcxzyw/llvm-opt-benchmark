@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
 %"class.LogMessageBuffer::Iterator" = type { ptr, i64, i32, ptr }
-%"struct.LogMessageBuffer::LogLine" = type { i32, i64 }
 
 $_ZN19LogFileStreamOutputD2Ev = comdat any
 
@@ -106,7 +105,7 @@ define hidden noundef range(i32 -1, -2147483648) i32 @_ZN19LogFileStreamOutput17
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
   %16 = call noundef ptr @_ZNK14LogDecorations10decorationEN13LogDecorators9DecoratorEPcm(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %9, ptr noundef nonnull %3, i64 noundef 256) #10
   %17 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %13, ptr noundef nonnull @.str.7, i64 noundef %15, ptr noundef %16) #10
@@ -216,7 +215,7 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput14write_internalERK14LogDecor
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %19 = load i64, ptr %18, align 8
   %20 = call noundef ptr @_ZNK14LogDecorations10decorationEN13LogDecorators9DecoratorEPcm(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %13, ptr noundef nonnull %4, i64 noundef 256) #10
   %21 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, i64 noundef %19, ptr noundef %20) #10
@@ -512,7 +511,7 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput5writeEN16LogMessageBuffer8It
   %18 = load ptr, ptr %14, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %20, i64 %17
+  %21 = getelementptr inbounds [16 x i8], ptr %20, i64 %17
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i32 %22, ptr %23, align 8
@@ -523,7 +522,7 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput5writeEN16LogMessageBuffer8It
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %29, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %27, i64 %33

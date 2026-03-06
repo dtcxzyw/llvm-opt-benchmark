@@ -66,9 +66,9 @@ define void @ff_jpegls_init_state(ptr noundef captures(none) initializes((5896, 
   %37 = add nsw i32 %36, 32
   %38 = ashr i32 %37, 6
   %spec.select28 = tail call i32 @llvm.smax.i32(i32 %38, i32 2)
-  %39 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   store i32 %spec.select28, ptr %39, align 4, !tbaa !18
-  %40 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store i32 1, ptr %40, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 367

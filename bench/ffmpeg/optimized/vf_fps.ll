@@ -233,7 +233,7 @@ read_frame.exit:                                  ; preds = %30
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %17, align 8, !tbaa !28
   %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds ptr, ptr %26, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %26, i64 %50
   store ptr %47, ptr %51, align 8, !tbaa !29
   %52 = load i32, ptr %27, align 4, !tbaa !44
   %53 = add nsw i32 %52, 1

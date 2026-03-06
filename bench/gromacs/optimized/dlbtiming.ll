@@ -280,7 +280,7 @@ define internal fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr nounde
 
 8:                                                ; preds = %6, %2
   %.sink53 = phi double [ 2.500000e-01, %2 ], [ %spec.select, %6 ]
-  %9 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %10 = load double, ptr %9, align 8, !tbaa !127
   %11 = fmul double %10, %.sink53
   %12 = tail call noundef i32 @_Z9cost_nrnbi(i32 noundef %3)
@@ -305,7 +305,7 @@ define internal fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr nounde
   br i1 %.not31, label %26, label %20
 
 20:                                               ; preds = %18, %.preheader34
-  %21 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv42
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv42
   %22 = load double, ptr %21, align 8, !tbaa !127
   %23 = tail call noundef i32 @_Z9cost_nrnbi(i32 noundef %15)
   %24 = sitofp i32 %23 to double
@@ -324,7 +324,7 @@ define internal fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr nounde
 .preheader:                                       ; preds = %26, %.preheader
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.preheader ], [ 60, %26 ]
   %.439 = phi double [ %33, %.preheader ], [ %.3, %26 ]
-  %28 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv46
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv46
   %29 = load double, ptr %28, align 8, !tbaa !127
   %30 = trunc nuw nsw i64 %indvars.iv46 to i32
   %31 = tail call noundef i32 @_Z9cost_nrnbi(i32 noundef %30)

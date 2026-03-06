@@ -376,16 +376,16 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %.0136159.us.i = phi i64 [ %91, %.lr.ph.split.us.i ], [ %78, %.lr.ph.i ]
-  %80 = getelementptr inbounds double, ptr %36, i64 %.0136159.us.i
+  %80 = getelementptr inbounds [8 x i8], ptr %36, i64 %.0136159.us.i
   %81 = load double, ptr %80, align 8, !tbaa !46
   %82 = tail call double @llvm.fabs.f64(double %81)
   %83 = fmul double %51, %82
-  %84 = getelementptr inbounds double, ptr %33, i64 %.0136159.us.i
+  %84 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0136159.us.i
   %85 = load double, ptr %84, align 8, !tbaa !46
   %86 = fdiv double %66, %85
   %87 = fcmp ogt double %83, %86
   %.157.us.i = select i1 %87, double %83, double %86
-  %88 = getelementptr inbounds double, ptr %37, i64 %.0136159.us.i
+  %88 = getelementptr inbounds [8 x i8], ptr %37, i64 %.0136159.us.i
   %89 = load double, ptr %88, align 8, !tbaa !46
   %90 = fadd double %89, %.157.us.i
   store double %90, ptr %88, align 8, !tbaa !46
@@ -395,16 +395,16 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %119
   %.0136159.i = phi i64 [ %123, %119 ], [ %78, %.lr.ph.i ]
-  %93 = getelementptr inbounds double, ptr %36, i64 %.0136159.i
+  %93 = getelementptr inbounds [8 x i8], ptr %36, i64 %.0136159.i
   %94 = load double, ptr %93, align 8, !tbaa !46
   %95 = tail call double @llvm.fabs.f64(double %94)
   %96 = fmul double %51, %95
-  %97 = getelementptr inbounds double, ptr %33, i64 %.0136159.i
+  %97 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0136159.i
   %98 = load double, ptr %97, align 8, !tbaa !46
   %99 = fdiv double %66, %98
   %100 = fcmp ogt double %96, %99
   %.157.i = select i1 %100, double %96, double %99
-  %101 = getelementptr inbounds double, ptr %.0132.i, i64 %.0136159.i
+  %101 = getelementptr inbounds [8 x i8], ptr %.0132.i, i64 %.0136159.i
   %102 = load double, ptr %101, align 8, !tbaa !46
   %103 = tail call double @llvm.fabs.f64(double %102)
   %104 = fcmp oeq double %103, 1.000000e+00
@@ -436,7 +436,7 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 
 119:                                              ; preds = %117, %113, %111, %109, %105
   %.0133.i = phi double [ %110, %109 ], [ %.157.i, %105 ], [ %118, %117 ], [ %.157.i, %113 ], [ %.157.i, %111 ]
-  %120 = getelementptr inbounds double, ptr %37, i64 %.0136159.i
+  %120 = getelementptr inbounds [8 x i8], ptr %37, i64 %.0136159.i
   %121 = load double, ptr %120, align 8, !tbaa !46
   %122 = fadd double %.0133.i, %121
   store double %122, ptr %120, align 8, !tbaa !46
@@ -461,16 +461,16 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph166.i:                                      ; preds = %.preheader.i, %._crit_edge164.i
   %.1137165.i = phi i64 [ %181, %._crit_edge164.i ], [ %78, %.preheader.i ]
-  %131 = getelementptr inbounds double, ptr %36, i64 %.1137165.i
+  %131 = getelementptr inbounds [8 x i8], ptr %36, i64 %.1137165.i
   %132 = load double, ptr %131, align 8, !tbaa !46
-  %133 = getelementptr inbounds double, ptr %37, i64 %.1137165.i
+  %133 = getelementptr inbounds [8 x i8], ptr %37, i64 %.1137165.i
   store double %132, ptr %133, align 8, !tbaa !46
   %134 = load ptr, ptr %10, align 8, !tbaa !32
   %135 = tail call ptr @SUNBandMatrix_Column(ptr noundef %134, i64 noundef %.1137165.i) #8
   %136 = load double, ptr %131, align 8, !tbaa !46
   %137 = tail call double @llvm.fabs.f64(double %136)
   %138 = fmul double %51, %137
-  %139 = getelementptr inbounds double, ptr %33, i64 %.1137165.i
+  %139 = getelementptr inbounds [8 x i8], ptr %33, i64 %.1137165.i
   %140 = load double, ptr %139, align 8, !tbaa !46
   %141 = fdiv double %66, %140
   %142 = fcmp ogt double %138, %141
@@ -480,7 +480,7 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
   br i1 %.not154.i, label %163, label %144
 
 144:                                              ; preds = %.lr.ph166.i
-  %145 = getelementptr inbounds double, ptr %.0132.i, i64 %.1137165.i
+  %145 = getelementptr inbounds [8 x i8], ptr %.0132.i, i64 %.1137165.i
   %146 = load double, ptr %145, align 8, !tbaa !46
   %147 = tail call double @llvm.fabs.f64(double %146)
   %148 = fcmp oeq double %147, 1.000000e+00
@@ -526,14 +526,14 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph163.i:                                      ; preds = %163, %.lr.ph163.i
   %.0135161.i = phi i64 [ %180, %.lr.ph163.i ], [ %spec.select.i, %163 ]
-  %172 = getelementptr inbounds nuw double, ptr %35, i64 %.0135161.i
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.0135161.i
   %173 = load double, ptr %172, align 8, !tbaa !46
-  %174 = getelementptr inbounds nuw double, ptr %34, i64 %.0135161.i
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0135161.i
   %175 = load double, ptr %174, align 8, !tbaa !46
   %176 = fsub double %173, %175
   %177 = fmul double %164, %176
   %178 = sub nsw i64 %.0135161.i, %.1137165.i
-  %179 = getelementptr inbounds double, ptr %135, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %135, i64 %178
   store double %177, ptr %179, align 8, !tbaa !46
   %180 = add nuw nsw i64 %.0135161.i, 1
   %.not155.not.i = icmp slt i64 %.0135161.i, %171

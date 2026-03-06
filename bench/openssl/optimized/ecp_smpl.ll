@@ -1915,7 +1915,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 .preheader182:                                    ; preds = %17, %21
   %.0137184 = phi i64 [ %22, %21 ], [ 0, %17 ]
   %23 = tail call ptr @BN_new() #3
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %.0137184
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0137184
   store ptr %23, ptr %24, align 8, !tbaa !35
   %25 = icmp eq ptr %23, null
   br i1 %25, label %.thread, label %21
@@ -1961,7 +1961,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 
 .lr.ph:                                           ; preds = %46, %70
   %.1185 = phi i64 [ %71, %70 ], [ 1, %46 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %2, i64 %.1185
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.1185
   %48 = load ptr, ptr %47, align 8, !tbaa !36
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !27
@@ -1973,7 +1973,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %53 = load ptr, ptr %0, align 8, !tbaa !20
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 248
   %55 = load ptr, ptr %54, align 8, !tbaa !32
-  %56 = getelementptr inbounds nuw ptr, ptr %19, i64 %.1185
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.1185
   %57 = load ptr, ptr %56, align 8, !tbaa !35
   %58 = getelementptr i8, ptr %56, i64 -8
   %59 = load ptr, ptr %58, align 8, !tbaa !35
@@ -1985,7 +1985,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   br i1 %.not175, label %.thread, label %70
 
 64:                                               ; preds = %.lr.ph
-  %65 = getelementptr inbounds nuw ptr, ptr %19, i64 %.1185
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.1185
   %66 = load ptr, ptr %65, align 8, !tbaa !35
   %67 = getelementptr i8, ptr %65, i64 -8
   %68 = load ptr, ptr %67, align 8, !tbaa !35
@@ -2003,7 +2003,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 272
   %74 = load ptr, ptr %73, align 8, !tbaa !30
   %75 = add i64 %1, -1
-  %76 = getelementptr inbounds nuw ptr, ptr %19, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !35
   %78 = tail call i32 %74(ptr noundef nonnull %0, ptr noundef %14, ptr noundef %77, ptr noundef nonnull %.0139) #3
   %.not155 = icmp eq i32 %78, 0
@@ -2041,7 +2041,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 
 .lr.ph189:                                        ; preds = %91, %118
   %.2187 = phi i64 [ %119, %118 ], [ %75, %91 ]
-  %92 = getelementptr inbounds nuw ptr, ptr %2, i64 %.2187
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.2187
   %93 = load ptr, ptr %92, align 8, !tbaa !36
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load ptr, ptr %94, align 8, !tbaa !27
@@ -2053,7 +2053,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %98 = load ptr, ptr %0, align 8, !tbaa !20
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 248
   %100 = load ptr, ptr %99, align 8, !tbaa !32
-  %101 = getelementptr ptr, ptr %19, i64 %.2187
+  %101 = getelementptr [8 x i8], ptr %19, i64 %.2187
   %102 = getelementptr i8, ptr %101, i64 -8
   %103 = load ptr, ptr %102, align 8, !tbaa !35
   %104 = tail call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %103, ptr noundef %14, ptr noundef nonnull %.0139) #3
@@ -2105,7 +2105,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 
 129:                                              ; preds = %.preheader224, %172
   %.3191 = phi i64 [ %173, %172 ], [ 0, %.preheader224 ]
-  %130 = getelementptr inbounds nuw ptr, ptr %2, i64 %.3191
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.3191
   %131 = load ptr, ptr %130, align 8, !tbaa !36
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load ptr, ptr %132, align 8, !tbaa !27
@@ -2189,7 +2189,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 
 .preheader:                                       ; preds = %.thread, %177
   %.4192 = phi i64 [ %178, %177 ], [ 0, %.thread ]
-  %174 = getelementptr inbounds nuw ptr, ptr %.0138, i64 %.4192
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %.0138, i64 %.4192
   %175 = load ptr, ptr %174, align 8, !tbaa !35
   %176 = icmp eq ptr %175, null
   br i1 %176, label %179, label %177

@@ -168,7 +168,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %48 = tail call ptr @__ctype_b_loc() #8
   %49 = load ptr, ptr %48, align 8
   %50 = zext i8 %.pre566 to i64
-  %51 = getelementptr inbounds nuw i16, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, 8192
   %.not406 = icmp eq i16 %53, 0
@@ -253,7 +253,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %102 = tail call ptr @__ctype_b_loc() #8
   %103 = load ptr, ptr %102, align 8
   %104 = zext i8 %.pre560 to i64
-  %105 = getelementptr inbounds nuw i16, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 %104
   %106 = load i16, ptr %105, align 2
   %107 = and i16 %106, 8192
   %.not389 = icmp ne i16 %107, 0
@@ -788,7 +788,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %369 = load ptr, ptr %0, align 8
   %370 = load i8, ptr %369, align 1
   %371 = zext i8 %370 to i64
-  %372 = getelementptr inbounds nuw i16, ptr %368, i64 %371
+  %372 = getelementptr inbounds nuw [2 x i8], ptr %368, i64 %371
   %373 = load i16, ptr %372, align 2
   %374 = and i16 %373, 2048
   %.not372 = icmp eq i16 %374, 0
@@ -819,7 +819,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %.2327 = phi i32 [ 0, %377 ], [ %.0325.ph, %381 ], [ %.0325.ph, %379 ]
   %.2324 = phi ptr [ %378, %377 ], [ %385, %381 ], [ %.0322.ph, %379 ]
   %387 = sext i32 %.2327 to i64
-  %388 = getelementptr inbounds i16, ptr %.2324, i64 %387
+  %388 = getelementptr inbounds [2 x i8], ptr %.2324, i64 %387
   %389 = load i16, ptr %388, align 2
   %390 = and i16 %389, -16384
   %391 = load ptr, ptr %0, align 8
@@ -890,7 +890,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 426:                                              ; preds = %423, %423, %423
   %427 = add i32 %.0325.ph, -1
   %428 = sext i32 %427 to i64
-  %429 = getelementptr inbounds i16, ptr %.0322.ph, i64 %428
+  %429 = getelementptr inbounds [2 x i8], ptr %.0322.ph, i64 %428
   %430 = load i16, ptr %429, align 2
   %.not371 = icmp ult i16 %430, 16384
   br i1 %.not371, label %443, label %431
@@ -921,7 +921,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 445:                                              ; preds = %423, %423
   %446 = add i32 %.0325.ph, -1
   %447 = sext i32 %446 to i64
-  %448 = getelementptr inbounds i16, ptr %.0322.ph, i64 %447
+  %448 = getelementptr inbounds [2 x i8], ptr %.0322.ph, i64 %447
   %449 = load i16, ptr %448, align 2
   %.not370 = icmp ult i16 %449, 16384
   br i1 %.not370, label %451, label %450
@@ -938,7 +938,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 453:                                              ; preds = %423, %423
   %454 = add i32 %.0325.ph, -1
   %455 = sext i32 %454 to i64
-  %456 = getelementptr inbounds i16, ptr %.0322.ph, i64 %455
+  %456 = getelementptr inbounds [2 x i8], ptr %.0322.ph, i64 %455
   %457 = load i16, ptr %456, align 2
   %.not369 = icmp ult i16 %457, 16384
   br i1 %.not369, label %459, label %458
@@ -955,7 +955,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 461:                                              ; preds = %423, %423
   %462 = add i32 %.0325.ph, -1
   %463 = sext i32 %462 to i64
-  %464 = getelementptr inbounds i16, ptr %.0322.ph, i64 %463
+  %464 = getelementptr inbounds [2 x i8], ptr %.0322.ph, i64 %463
   %465 = load i16, ptr %464, align 2
   %.not368 = icmp ult i16 %465, 16384
   br i1 %.not368, label %499, label %466
@@ -968,7 +968,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %468 = tail call ptr @__ctype_b_loc() #8
   %469 = load ptr, ptr %468, align 8
   %470 = zext i8 %425 to i64
-  %471 = getelementptr inbounds nuw i16, ptr %469, i64 %470
+  %471 = getelementptr inbounds nuw [2 x i8], ptr %469, i64 %470
   %472 = load i16, ptr %471, align 2
   %473 = zext i16 %472 to i32
   %474 = and i32 %473, 8192

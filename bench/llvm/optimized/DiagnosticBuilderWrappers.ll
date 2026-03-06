@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
-%"struct.std::pair" = type <{ i32, %"class.llvm::VersionTuple" }>
-%"class.llvm::VersionTuple" = type { i64, i64 }
 
 $_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE = comdat any
 
@@ -95,7 +93,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !13
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !39
   store i8 0, ptr %32, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -203,7 +201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %73 = add i8 %72, 1
   store i8 %73, ptr %70, align 8, !tbaa !16
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !40
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = icmp eq ptr %76, %77
@@ -395,7 +393,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %22, %24
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i32, ptr %31, align 8, !noalias !75
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw [20 x i8], ptr %30, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sink1.i.i.i.i6.i.i = select i1 %29, ptr %34, ptr %35
   %36 = icmp eq ptr %.sink1.i.i.i.i.i.i, %.sink1.i.i.i.i6.i.i

@@ -94,7 +94,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 22:                                               ; preds = %20
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds ptr, ptr %1, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %1, i64 %23
   store ptr %24, ptr @Files, align 8, !tbaa !11
   br label %init.exit
 
@@ -230,7 +230,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   %.0127157.i = phi double [ %96, %86 ], [ 0.000000e+00, %gv_calloc.exit.i ]
   %.0129156.i = phi ptr [ %97, %86 ], [ %78, %gv_calloc.exit.i ]
   %79 = add i64 %.0115158.i, 1
-  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %.0115158.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.0115158.i
   store ptr %.0129156.i, ptr %80, align 8, !tbaa !16
   %81 = call ptr @agget(ptr noundef nonnull %.0129156.i, ptr noundef nonnull @.str.15) #18
   %.not147.i = icmp eq ptr %81, null
@@ -271,7 +271,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 
 .lr.ph160.i:                                      ; preds = %._crit_edge.i, %.lr.ph160.i
   %.1116159.i = phi i64 [ %108, %.lr.ph160.i ], [ 0, %._crit_edge.i ]
-  %101 = getelementptr inbounds nuw ptr, ptr %77, i64 %.1116159.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.1116159.i
   %102 = load ptr, ptr %101, align 8, !tbaa !16
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8, !tbaa !18
@@ -299,7 +299,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 
 .lr.ph176.i:                                      ; preds = %.lr.ph176.i.preheader, %.loopexit.i
   %.2117174.i = phi i64 [ %165, %.loopexit.i ], [ 0, %.lr.ph176.i.preheader ]
-  %109 = getelementptr inbounds nuw ptr, ptr %77, i64 %.2117174.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.2117174.i
   %110 = load ptr, ptr %109, align 8, !tbaa !16
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8, !tbaa !18
@@ -309,7 +309,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 114:                                              ; preds = %114, %.lr.ph176.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph176.i ], [ %indvars.iv.next.i, %114 ]
   %.0122161.i = phi i32 [ 0, %.lr.ph176.i ], [ %.1123.i, %114 ]
-  %115 = getelementptr inbounds nuw double, ptr %113, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv.i
   %116 = load double, ptr %115, align 8, !tbaa !14
   %117 = fcmp une double %116, 0.000000e+00
   %118 = zext i1 %117 to i32
@@ -368,10 +368,10 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 145:                                              ; preds = %145, %.preheader150.i
   %indvars.iv191.i = phi i64 [ 0, %.preheader150.i ], [ %indvars.iv.next192.i, %145 ]
   %.0114165.i = phi double [ 0.000000e+00, %.preheader150.i ], [ %148, %145 ]
-  %146 = getelementptr inbounds nuw double, ptr %144, i64 %indvars.iv191.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv191.i
   %147 = load double, ptr %146, align 8, !tbaa !14
   %148 = fadd double %.0114165.i, %147
-  %149 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv191.i
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv191.i
   %150 = load double, ptr %149, align 8, !tbaa !14
   %151 = fadd double %147, %150
   store double %151, ptr %149, align 8, !tbaa !14
@@ -403,10 +403,10 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 
 160:                                              ; preds = %160, %.preheader151.i
   %indvars.iv195.i = phi i64 [ 0, %.preheader151.i ], [ %indvars.iv.next196.i, %160 ]
-  %161 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv195.i
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv195.i
   %162 = load double, ptr %161, align 8, !tbaa !14
   %163 = fdiv double %162, %157
-  %164 = getelementptr inbounds nuw double, ptr %159, i64 %indvars.iv195.i
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv195.i
   store double %163, ptr %164, align 8, !tbaa !14
   %indvars.iv.next196.i = add nuw nsw i64 %indvars.iv195.i, 1
   %exitcond198.not.i = icmp eq i64 %indvars.iv.next196.i, 3
@@ -420,7 +420,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 .lr.ph180.i:                                      ; preds = %.preheader.i, %198
   %.3179.i = phi i64 [ %201, %198 ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %166 = getelementptr inbounds nuw ptr, ptr %77, i64 %.3179.i
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.3179.i
   %167 = load ptr, ptr %166, align 8, !tbaa !16
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8, !tbaa !18
@@ -430,7 +430,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 171:                                              ; preds = %171, %.lr.ph180.i
   %indvars.iv200.i = phi i64 [ 0, %.lr.ph180.i ], [ %indvars.iv.next201.i, %171 ]
   %.0178.i = phi double [ 0.000000e+00, %.lr.ph180.i ], [ %174, %171 ]
-  %172 = getelementptr inbounds nuw double, ptr %170, i64 %indvars.iv200.i
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %indvars.iv200.i
   %173 = load double, ptr %172, align 8, !tbaa !14
   %174 = fadd double %.0178.i, %173
   %indvars.iv.next201.i = add nuw nsw i64 %indvars.iv200.i, 1

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.cli_ac_data = type { ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, [32 x i32], ptr, i32 }
-%struct.regex_list_ht = type { ptr, ptr }
 %struct.regex_list = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [47 x i8] c"regex_list_match: matcher must be initialized\0A\00", align 1
@@ -225,7 +224,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 84:                                               ; preds = %81
   %85 = load ptr, ptr %79, align 8, !tbaa !36
   %86 = sext i32 %.075115 to i64
-  %87 = getelementptr inbounds %struct.regex_list_ht, ptr %85, i64 %86
+  %87 = getelementptr inbounds [16 x i8], ptr %85, i64 %86
   br label %90
 
 88:                                               ; preds = %81
@@ -627,7 +626,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 %.02737.i
   %62 = load i8, ptr %61, align 1, !tbaa !10
   %63 = sext i8 %62 to i64
-  %64 = getelementptr inbounds i16, ptr %52, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %52, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !51
   %66 = and i16 %65, 2048
   %.not34.i = icmp eq i16 %66, 0
@@ -643,7 +642,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
   %70 = getelementptr inbounds nuw i8, ptr %49, i64 %.12838.i
   %71 = load i8, ptr %70, align 1, !tbaa !10
   %72 = sext i8 %71 to i64
-  %73 = getelementptr inbounds i16, ptr %59, i64 %72
+  %73 = getelementptr inbounds [2 x i8], ptr %59, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !51
   %75 = and i16 %74, 2048
   %.not33.i = icmp eq i16 %75, 0
@@ -934,7 +933,7 @@ define i32 @regex_list_add_pattern(ptr noundef %0, ptr noundef %1) local_unnamed
 36:                                               ; preds = %32
   %37 = load ptr, ptr %24, align 8, !tbaa !74
   %38 = load i64, ptr %26, align 8, !tbaa !75
-  %39 = getelementptr ptr, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -8
   store ptr %34, ptr %40, align 8, !tbaa !37
   %41 = tail call i32 @cli_regex2suffix(ptr noundef nonnull %1, ptr noundef nonnull %34, ptr noundef nonnull @add_pattern_suffix, ptr noundef nonnull %0) #14
@@ -1217,7 +1216,7 @@ define void @regex_list_done(ptr noundef %0) local_unnamed_addr #0 {
   %14 = phi i64 [ %21, %._crit_edge ], [ %13, %.preheader33 ]
   %.036 = phi i64 [ %22, %._crit_edge ], [ 0, %.preheader33 ]
   %15 = load ptr, ptr %10, align 8, !tbaa !36
-  %16 = getelementptr inbounds nuw %struct.regex_list_ht, ptr %15, i64 %.036
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.036
   %17 = load ptr, ptr %16, align 8, !tbaa !84
   %.not3234 = icmp eq ptr %17, null
   br i1 %.not3234, label %._crit_edge, label %.lr.ph
@@ -1271,7 +1270,7 @@ define void @regex_list_done(ptr noundef %0) local_unnamed_addr #0 {
 31:                                               ; preds = %.lr.ph40, %31
   %.139 = phi i64 [ 0, %.lr.ph40 ], [ %36, %31 ]
   %32 = load ptr, ptr %26, align 8, !tbaa !74
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.139
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.139
   %34 = load ptr, ptr %33, align 8, !tbaa !37
   tail call void @cli_regfree(ptr noundef %34) #14
   %35 = load ptr, ptr %30, align 8, !tbaa !45
@@ -1418,7 +1417,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !36
-  %40 = getelementptr inbounds nuw %struct.regex_list_ht, ptr %39, i64 %33
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %33
   %41 = load ptr, ptr %40, align 8, !tbaa !84
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %42, label %43
@@ -1460,7 +1459,7 @@ list_add_tail.exit:                               ; preds = %43, %46
 
 57:                                               ; preds = %48
   store ptr %56, ptr %52, align 8, !tbaa !36
-  %58 = getelementptr inbounds nuw %struct.regex_list_ht, ptr %56, i64 %50
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %50
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %14, ptr %59, align 8, !tbaa !88
   store ptr %14, ptr %58, align 8, !tbaa !84
@@ -1543,7 +1542,7 @@ list_add_tail.exit:                               ; preds = %43, %46
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 %.04965.i
   %98 = load i8, ptr %97, align 1, !tbaa !10
   %99 = sext i8 %98 to i16
-  %100 = getelementptr inbounds nuw i16, ptr %96, i64 %.04965.i
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %.04965.i
   store i16 %99, ptr %100, align 2, !tbaa !51
   %101 = add nuw i64 %.04965.i, 1
   %exitcond.not.i = icmp eq i64 %101, %2
@@ -1657,7 +1656,7 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   %.pre.pre = phi i8 [ %15, %.lr.ph ], [ %26, %23 ]
   %.052 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
   %19 = sext i8 %.pre.pre to i64
-  %20 = getelementptr inbounds i16, ptr %17, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %17, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !51
   %22 = and i16 %21, 8
   %.not46.not = icmp eq i16 %22, 0

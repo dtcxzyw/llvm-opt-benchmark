@@ -122,10 +122,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_addrconf_add
 %union.anon.66 = type { %struct.anon.67 }
 %struct.anon.67 = type { i32, i32 }
 %struct.in6_ifreq = type { %struct.in6_addr, i32, i32 }
-%struct.netdev_queue = type { ptr, %struct.netdevice_tracker, ptr, ptr, %struct.kobject, i32, i64, %struct.atomic64_t, ptr, ptr, %struct.spinlock, i32, i64, i64, [40 x i8], %struct.dql }
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.kref = type { %struct.refcount_struct }
-%struct.dql = type { i32, i32, i32, [52 x i8], i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, [20 x i8] }
 %struct.inet6_fill_args = type { i32, i32, i32, i32, i32, i32, i32 }
 %struct.ifla_cacheinfo = type { i32, i32, i32, i32 }
 %struct.ifa_cacheinfo = type { i32, i32, i32, i32 }
@@ -696,7 +692,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ipv6_dev_get_saddr(ptr noundef %
 .loopexit:                                        ; preds = %49, %.critedge, %.thread, %37
   %53 = phi i32 [ %38, %.thread ], [ 0, %37 ], [ 0, %.critedge ], [ %50, %49 ]
   %54 = zext nneg i32 %53 to i64
-  %.split = getelementptr %struct.ipv6_saddr_score, ptr %6, i64 %54
+  %.split = getelementptr [32 x i8], ptr %6, i64 %54
   %55 = getelementptr i8, ptr %.split, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
@@ -727,7 +723,7 @@ declare dso_local i32 @ipv6_addr_label(ptr noundef, ptr noundef, i32 noundef, i3
 define internal fastcc range(i32 0, 2) i32 @__ipv6_dev_get_saddr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 16 {
   %6 = xor i32 %4, 1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr %struct.ipv6_saddr_score, ptr %3, i64 %7
+  %8 = getelementptr [32 x i8], ptr %3, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load volatile ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 -200
@@ -738,7 +734,7 @@ define internal fastcc range(i32 0, 2) i32 @__ipv6_dev_get_saddr(ptr noundef %0,
 
 14:                                               ; preds = %5
   %15 = zext nneg i32 %4 to i64
-  %16 = getelementptr %struct.ipv6_saddr_score, ptr %3, i64 %15
+  %16 = getelementptr [32 x i8], ptr %3, i64 %15
   br label %17
 
 17:                                               ; preds = %.thread, %14
@@ -922,7 +918,7 @@ define internal fastcc ptr @__ipv6_chk_addr_and_flags(ptr noundef readonly captu
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2040
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %18 to i64
-  %23 = getelementptr %struct.hlist_head, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load volatile ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   %26 = getelementptr i8, ptr %24, i64 -184
@@ -1246,7 +1242,7 @@ define dso_local noundef ptr @ipv6_get_ifaddr(ptr noundef readonly captures(none
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2040
   %18 = load ptr, ptr %17, align 8
   %19 = zext nneg i32 %16 to i64
-  %20 = getelementptr %struct.hlist_head, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   %23 = getelementptr i8, ptr %21, i64 -184
@@ -4331,7 +4327,7 @@ define dso_local noundef range(i32 0, 2) i32 @ipv6_chk_rpl_srh_loop(ptr noundef 
   %12 = phi i64 [ 0, %5 ], [ %59, %.loopexit ]
   %13 = phi i32 [ 0, %5 ], [ %58, %.loopexit ]
   %14 = phi i1 [ false, %5 ], [ %57, %.loopexit ]
-  %15 = getelementptr %struct.in6_addr, ptr %1, i64 %12
+  %15 = getelementptr [16 x i8], ptr %1, i64 %12
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8
@@ -4343,7 +4339,7 @@ define dso_local noundef range(i32 0, 2) i32 @ipv6_chk_rpl_srh_loop(ptr noundef 
   %24 = mul i32 %23, 1640531527
   %25 = lshr i32 %24, 24
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr %struct.hlist_head, ptr %9, i64 %26
+  %27 = getelementptr [8 x i8], ptr %9, i64 %26
   %28 = load volatile ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   %30 = getelementptr i8, ptr %28, i64 -184
@@ -5008,7 +5004,7 @@ define internal fastcc ptr @ipv6_add_dev(ptr noundef %0) unnamed_addr #0 align 1
   br i1 %150, label %.critedge, label %151, !llvm.loop !71
 
 151:                                              ; preds = %147
-  %.split = getelementptr %struct.netdev_queue, ptr %141, i64 %149
+  %.split = getelementptr [320 x i8], ptr %141, i64 %149
   %152 = getelementptr i8, ptr %.split, i64 8
   %153 = load volatile ptr, ptr %152, align 8
   %154 = icmp eq ptr %153, @noop_qdisc
@@ -5221,7 +5217,7 @@ define internal i32 @inet6_dump_ifinfo(ptr noundef %0, ptr noundef captures(none
   %61 = phi i64 [ %59, %54 ], [ %95, %.loopexit5 ]
   %62 = phi i32 [ %55, %54 ], [ 0, %.loopexit5 ]
   %63 = load ptr, ptr %56, align 16
-  %64 = getelementptr %struct.hlist_head, ptr %63, i64 %61
+  %64 = getelementptr [8 x i8], ptr %63, i64 %61
   %65 = load volatile ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   %67 = getelementptr i8, ptr %65, i64 -1040
@@ -6143,7 +6139,7 @@ define internal i32 @inet6_rtm_getaddr(ptr noundef %0, ptr noundef %1, ptr nound
 
 .preheader:                                       ; preds = %52, %64
   %55 = phi i64 [ %65, %64 ], [ 0, %52 ]
-  %56 = getelementptr ptr, ptr %5, i64 %55
+  %56 = getelementptr [8 x i8], ptr %5, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %64, label %59
@@ -6423,7 +6419,7 @@ define internal i32 @inet6_netconf_get_devconf(ptr noundef %0, ptr noundef %1, p
 
 .preheader:                                       ; preds = %30, %35
   %38 = phi i64 [ %36, %35 ], [ 0, %30 ]
-  %39 = getelementptr ptr, ptr %4, i64 %38
+  %39 = getelementptr [8 x i8], ptr %4, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   %42 = icmp eq i64 %38, 1
@@ -6652,7 +6648,7 @@ define internal i32 @inet6_netconf_dump_devconf(ptr noundef %0, ptr noundef capt
   %44 = phi i64 [ %42, %33 ], [ %97, %.loopexit ]
   %45 = phi i32 [ %31, %33 ], [ 0, %.loopexit ]
   %46 = load ptr, ptr %34, align 16
-  %47 = getelementptr %struct.hlist_head, ptr %46, i64 %44
+  %47 = getelementptr [8 x i8], ptr %46, i64 %44
   tail call void @__rcu_read_lock() #20
   %48 = load volatile i32, ptr %35, align 16
   %49 = load i32, ptr %36, align 4
@@ -6927,7 +6923,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
 .split.us:                                        ; preds = %38, %.loopexit41.split.us.us
   %45 = phi i64 [ %53, %.loopexit41.split.us.us ], [ 0, %38 ]
   %46 = load ptr, ptr %41, align 8
-  %47 = getelementptr %struct.hlist_head, ptr %46, i64 %45
+  %47 = getelementptr [8 x i8], ptr %46, i64 %45
   call void @_raw_spin_lock_bh(ptr noundef nonnull %42) #20
   %48 = load volatile ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
@@ -7023,7 +7019,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
 .split:                                           ; preds = %.split.preheader, %.loopexit41.split
   %100 = phi i64 [ %144, %.loopexit41.split ], [ 0, %.split.preheader ]
   %101 = load ptr, ptr %44, align 8
-  %102 = getelementptr %struct.hlist_head, ptr %101, i64 %100
+  %102 = getelementptr [8 x i8], ptr %101, i64 %100
   call void @_raw_spin_lock_bh(ptr noundef nonnull %43) #20
   %103 = load volatile ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
@@ -7732,9 +7728,9 @@ define internal fastcc i32 @ipv6_get_saddr_eval(ptr noundef %0, ptr noundef %1, 
 136:                                              ; preds = %135, %131
   %137 = phi i1 [ true, %131 ], [ false, %135 ]
   %138 = phi i64 [ 0, %131 ], [ 1, %135 ]
-  %139 = getelementptr i64, ptr %133, i64 %138
+  %139 = getelementptr [8 x i8], ptr %133, i64 %138
   %140 = load i64, ptr %139, align 8
-  %141 = getelementptr i64, ptr %134, i64 %138
+  %141 = getelementptr [8 x i8], ptr %134, i64 %138
   %142 = load i64, ptr %141, align 8
   %143 = icmp eq i64 %142, %140
   br i1 %143, label %135, label %144
@@ -8272,7 +8268,7 @@ define internal fastcc noundef range(i32 -17, 1) i32 @ipv6_add_addr_hash(ptr nou
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 2040
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %16 to i64
-  %21 = getelementptr %struct.hlist_head, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %24 = getelementptr i8, ptr %22, i64 -184
@@ -9754,7 +9750,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
   %17 = phi i64 [ 0, %7 ], [ %210, %.loopexit ]
   %18 = phi i64 [ %11, %7 ], [ %209, %.loopexit ]
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr %struct.hlist_head, ptr %19, i64 %17
+  %20 = getelementptr [8 x i8], ptr %19, i64 %17
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   %23 = getelementptr i8, ptr %21, i64 -184
@@ -9765,7 +9761,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
 .thread19:                                        ; preds = %190, %192, %147, %.thread16, %193
   %.ph = phi i64 [ %169, %193 ], [ %130, %147 ], [ %89, %.thread16 ], [ %169, %192 ], [ %169, %190 ]
   %26 = load ptr, ptr %14, align 8
-  %27 = getelementptr %struct.hlist_head, ptr %26, i64 %17
+  %27 = getelementptr [8 x i8], ptr %26, i64 %17
   %28 = load volatile ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   %30 = getelementptr i8, ptr %28, i64 -184
@@ -10382,7 +10378,7 @@ define internal ptr @if6_seq_start(ptr noundef readonly captures(none) %0, ptr n
 18:                                               ; preds = %.loopexit5, %12
   %19 = phi i64 [ %17, %12 ], [ %42, %.loopexit5 ]
   %20 = load ptr, ptr %15, align 8
-  %21 = getelementptr %struct.hlist_head, ptr %20, i64 %19
+  %21 = getelementptr [8 x i8], ptr %20, i64 %19
   %22 = load volatile ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %24 = getelementptr i8, ptr %22, i64 -184
@@ -10467,7 +10463,7 @@ define internal ptr @if6_seq_next(ptr noundef readonly captures(none) %0, ptr no
 24:                                               ; preds = %20
   %25 = load ptr, ptr %18, align 8
   %26 = sext i32 %22 to i64
-  %27 = getelementptr %struct.hlist_head, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = load volatile ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   %30 = getelementptr i8, ptr %28, i64 -184
@@ -10840,7 +10836,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifla6_attrs(ptr
 
 235:                                              ; preds = %231
   %236 = and i64 %232, 63
-  %237 = getelementptr i64, ptr @__per_cpu_offset, i64 %236
+  %237 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %236
   %238 = load i64, ptr %237, align 8
   %239 = add i64 %238, %225
   %240 = inttoptr i64 %239 to ptr
@@ -10848,9 +10844,9 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifla6_attrs(ptr
 
 241:                                              ; preds = %241, %235
   %242 = phi i64 [ 1, %235 ], [ %248, %241 ]
-  %243 = getelementptr i64, ptr %240, i64 %242
+  %243 = getelementptr [8 x i8], ptr %240, i64 %242
   %244 = load i64, ptr %243, align 8
-  %245 = getelementptr i64, ptr %6, i64 %242
+  %245 = getelementptr [8 x i8], ptr %6, i64 %242
   %246 = load i64, ptr %245, align 8
   %247 = add i64 %246, %244
   store i64 %247, ptr %245, align 8
@@ -10895,8 +10891,8 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifla6_attrs(ptr
 
 267:                                              ; preds = %267, %266
   %268 = phi i64 [ 1, %266 ], [ %272, %267 ]
-  %269 = getelementptr i64, ptr %259, i64 %268
-  %270 = getelementptr %struct.atomic64_t, ptr %.val, i64 %268
+  %269 = getelementptr [8 x i8], ptr %259, i64 %268
+  %270 = getelementptr [8 x i8], ptr %.val, i64 %268
   %271 = load volatile i64, ptr %270, align 8
   store i64 %271, ptr %269, align 1
   %272 = add nuw nsw i64 %268, 1
@@ -11770,7 +11766,7 @@ define internal void @addrconf_exit_net(ptr noundef %0) #0 align 16 {
 25:                                               ; preds = %32, %19
   %26 = phi i64 [ 0, %19 ], [ %33, %32 ]
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr %struct.hlist_head, ptr %27, i64 %26
+  %28 = getelementptr [8 x i8], ptr %27, i64 %26
   %29 = load volatile ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %32, label %31, !prof !13
@@ -11851,7 +11847,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @__addrconf_sysctl_registe
 29:                                               ; preds = %28, %24, %15
   %30 = add i32 %19, 1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr %struct.ctl_table, ptr %6, i64 %31
+  %32 = getelementptr [64 x i8], ptr %6, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
@@ -13750,7 +13746,7 @@ define internal fastcc zeroext i1 @addrconf_link_ready(ptr noundef readonly capt
   br i1 %19, label %24, label %20, !llvm.loop !71
 
 20:                                               ; preds = %16
-  %.split = getelementptr %struct.netdev_queue, ptr %10, i64 %18
+  %.split = getelementptr [320 x i8], ptr %10, i64 %18
   %21 = getelementptr i8, ptr %.split, i64 8
   %22 = load volatile ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, @noop_qdisc
@@ -14661,7 +14657,7 @@ define internal fastcc void @addrconf_disable_policy_idev(ptr noundef %0, i32 no
   %38 = load ptr, ptr %23, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %34, 63
-  %41 = getelementptr i64, ptr @__per_cpu_offset, i64 %40
+  %41 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, %39
   %44 = inttoptr i64 %43 to ptr
@@ -15543,7 +15539,7 @@ define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr noundef captures
   %75 = phi i32 [ -1, %72 ], [ %92, %91 ]
   %76 = phi ptr [ %22, %72 ], [ %93, %91 ]
   %77 = phi i64 [ 0, %72 ], [ %94, %91 ]
-  %78 = getelementptr ptr, ptr %4, i64 %77
+  %78 = getelementptr [8 x i8], ptr %4, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %91, label %81
@@ -15650,7 +15646,7 @@ define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr noundef captures
   %129 = phi i32 [ %28, %123 ], [ 0, %.loopexit27 ]
   %130 = phi i32 [ %31, %123 ], [ %181, %.loopexit27 ]
   %131 = load ptr, ptr %124, align 16
-  %132 = getelementptr %struct.hlist_head, ptr %131, i64 %128
+  %132 = getelementptr [8 x i8], ptr %131, i64 %128
   %133 = load volatile ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
   %135 = getelementptr i8, ptr %133, i64 -1040

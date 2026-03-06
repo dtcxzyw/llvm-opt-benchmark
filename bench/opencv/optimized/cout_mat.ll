@@ -31,7 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"class.cv::Point_" = type { float, float }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -2025,7 +2024,7 @@ _ZNSolsEPFRSoS_E.exit271:                         ; preds = %.noexc471
   %.lhs.trunc = trunc nuw nsw i64 %.0547 to i8
   %743 = urem i8 %.lhs.trunc, 7
   %744 = uitofp nneg i8 %743 to float
-  %745 = getelementptr inbounds nuw %"class.cv::Point_", ptr %691, i64 %.0547
+  %745 = getelementptr inbounds nuw [8 x i8], ptr %691, i64 %.0547
   store float %742, ptr %745, align 4
   %.sroa_idx485 = getelementptr inbounds nuw i8, ptr %745, i64 4
   store float %744, ptr %.sroa_idx485, align 4

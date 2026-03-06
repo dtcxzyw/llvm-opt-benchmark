@@ -4546,7 +4546,7 @@ define linkonce_odr dso_local void @_ZNK5cmsys17RegularExpression5matchB5cxx11Ei
   %4 = alloca i64, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds ptr, ptr %1, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !75, !noalias !193
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %8, label %11
@@ -4561,7 +4561,7 @@ define linkonce_odr dso_local void @_ZNK5cmsys17RegularExpression5matchB5cxx11Ei
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %5
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %5
   %14 = load ptr, ptr %13, align 8, !tbaa !75, !noalias !193
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %7 to i64
@@ -7302,7 +7302,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !40
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !43
   ret void
 
@@ -7512,7 +7512,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !40
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !43
   ret void
 }
@@ -7706,7 +7706,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %71
   store ptr %23, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !40
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %75, ptr %70, align 8, !tbaa !43
   ret void
 
@@ -7927,7 +7927,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %71
   store ptr %23, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !40
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %75, ptr %70, align 8, !tbaa !43
   ret void
 
@@ -8154,7 +8154,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11cha
   %86 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %85, ptr %3, ptr noundef %13)
   %87 = sub nuw nsw i64 %9, %20
   %88 = load ptr, ptr %12, align 8, !tbaa !40
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %87
   store ptr %89, ptr %12, align 8, !tbaa !40
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit61, label %.lr.ph.i.i.i.i.i54
@@ -8374,7 +8374,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %166
   store ptr %128, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i.i.i83, ptr %12, align 8, !tbaa !40
-  %170 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %124
+  %170 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %124
   store ptr %170, ptr %10, align 8, !tbaa !43
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit
 
@@ -8612,7 +8612,7 @@ _ZNSt6vectorIN9cmCTestVC8RevisionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ;
 _ZNSt12_Vector_baseIN9cmCTestVC8RevisionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN9cmCTestVC8RevisionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %28
   store ptr %20, ptr %0, align 8, !tbaa !114
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !117
-  %32 = getelementptr inbounds nuw %"struct.cmCTestVC::Revision", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !122
   ret void
 
@@ -9566,7 +9566,7 @@ _ZSt22__uninitialized_move_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.ex
 
 _ZSt22__uninitialized_move_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit, %23
   %27 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit ], [ %17, %23 ]
-  %28 = getelementptr inbounds nuw %"struct.cmCTestVC::Revision", ptr %27, i64 %2
+  %28 = getelementptr inbounds nuw [256 x i8], ptr %27, i64 %2
   store ptr %28, ptr %9, align 8, !tbaa !117
   %29 = ptrtoint ptr %24 to i64
   %30 = sub i64 %29, %19
@@ -9889,7 +9889,7 @@ _ZSt24__uninitialized_fill_n_aIPN9cmCTestVC8RevisionEmS1_S1_ET_S3_T0_RKT1_RSaIT2
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i112, %_ZSt24__uninitialized_fill_n_aIPN9cmCTestVC8RevisionEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit110
   %.0.lcssa.i.i.i.i.i116 = phi ptr [ %109, %_ZSt24__uninitialized_fill_n_aIPN9cmCTestVC8RevisionEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit110 ], [ %125, %.lr.ph.i.i.i.i.i112 ]
-  %126 = getelementptr inbounds nuw %"struct.cmCTestVC::Revision", ptr %.0.lcssa.i.i.i.i.i116, i64 %2
+  %126 = getelementptr inbounds nuw [256 x i8], ptr %.0.lcssa.i.i.i.i.i116, i64 %2
   %.not11.i.i.i.i.i117 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i117, label %_ZSt34__uninitialized_move_if_noexcept_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.exit123, label %.lr.ph.i.i.i.i.i118
 
@@ -9928,7 +9928,7 @@ _ZSt8_DestroyIPN9cmCTestVC8RevisionES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i
 _ZNSt12_Vector_baseIN9cmCTestVC8RevisionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN9cmCTestVC8RevisionES1_EvT_S3_RSaIT0_E.exit, %130
   store ptr %109, ptr %0, align 8, !tbaa !114
   store ptr %.0.lcssa.i.i.i.i.i122, ptr %9, align 8, !tbaa !117
-  %134 = getelementptr inbounds nuw %"struct.cmCTestVC::Revision", ptr %109, i64 %103
+  %134 = getelementptr inbounds nuw [256 x i8], ptr %109, i64 %103
   store ptr %134, ptr %7, align 8, !tbaa !122
   br label %144
 

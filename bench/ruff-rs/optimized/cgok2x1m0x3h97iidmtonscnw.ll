@@ -404,7 +404,7 @@ _ZN5serde2de7Visitor18visit_borrowed_str17h2c7e18477bb272eaE.exit: ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !92
   %140 = icmp ult i64 %.sroa.3.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %140)
-  %141 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   %142 = icmp sgt i64 %.sroa.023.0.copyload, -1
   tail call void @llvm.assume(i1 %142)
   store ptr %.sroa.2.0.copyload, ptr %12, align 8, !noalias !92
@@ -482,7 +482,7 @@ _ZN5serde2de7Visitor18visit_borrowed_str17h2c7e18477bb272eaE.exit: ; preds = %10
 
 162:                                              ; preds = %157, %153
   %163 = load ptr, ptr %144, align 8, !alias.scope !100, !noalias !103, !nonnull !4, !noundef !4
-  %164 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %163, i64 %154
+  %164 = getelementptr inbounds nuw [32 x i8], ptr %163, i64 %154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !98
   %165 = add i64 %154, 1
   store i64 %165, ptr %145, align 8, !alias.scope !100, !noalias !103
@@ -585,7 +585,7 @@ _ZN5serde9__private2de7content17visit_content_seq17h87aeed491cb304d3E.exit: ; pr
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !111
   %182 = icmp ult i64 %.sroa.326.0.copyload, 144115188075855872
   tail call void @llvm.assume(i1 %182)
-  %183 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %.sroa.225.0.copyload, i64 %.sroa.326.0.copyload
+  %183 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.225.0.copyload, i64 %.sroa.326.0.copyload
   %184 = icmp sgt i64 %.sroa.024.0.copyload, -1
   tail call void @llvm.assume(i1 %184)
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -759,7 +759,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !122
   %28 = icmp ult i64 %.sroa.3.0.copyload, 144115188075855872
   tail call void @llvm.assume(i1 %28)
-  %29 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   %30 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -955,7 +955,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
 
 71:                                               ; preds = %66, %62
   %72 = load ptr, ptr %33, align 8, !alias.scope !136, !noalias !139, !nonnull !4, !noundef !4
-  %73 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %72, i64 %63
+  %73 = getelementptr inbounds nuw [64 x i8], ptr %72, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %73, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false), !noalias !128
   %74 = add i64 %63, 1
   store i64 %74, ptr %34, align 8, !alias.scope !136, !noalias !139
@@ -996,7 +996,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !124
   %83 = load ptr, ptr %33, align 8, !noalias !124, !nonnull !4, !noundef !4
   %84 = load i64, ptr %34, align 8, !noalias !124, !noundef !4
-  %85 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [64 x i8], ptr %83, i64 %84
   store ptr %83, ptr %11, align 8, !noalias !124
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %85, ptr %86, align 8, !noalias !124
@@ -1426,7 +1426,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !171
   %13 = icmp ult i64 %.sroa.3.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   %15 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %15)
   store ptr %.sroa.2.0.copyload, ptr %7, align 8, !noalias !171
@@ -2178,7 +2178,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !221
   %42 = icmp ult i64 %.sroa.3.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   %44 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %44)
   store ptr %.sroa.2.0.copyload, ptr %34, align 8, !noalias !221
@@ -2501,7 +2501,7 @@ _ZN5serde9__private2de7content17visit_content_seq17h2d57543ad22771b5E.exit: ; pr
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !243
   %116 = icmp ult i64 %.sroa.327.0.copyload, 144115188075855872
   tail call void @llvm.assume(i1 %116)
-  %117 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %.sroa.226.0.copyload, i64 %.sroa.327.0.copyload
+  %117 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.226.0.copyload, i64 %.sroa.327.0.copyload
   %118 = icmp sgt i64 %.sroa.025.0.copyload, -1
   tail call void @llvm.assume(i1 %118)
   %119 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -3333,7 +3333,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !277
   %45 = icmp ult i64 %.sroa.3.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   %47 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %47)
   store ptr %.sroa.2.0.copyload, ptr %37, align 8, !noalias !277
@@ -3658,7 +3658,7 @@ _ZN5serde9__private2de7content17visit_content_seq17h4e7b9af2ee0d8284E.exit: ; pr
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !294
   %126 = icmp ult i64 %.sroa.327.0.copyload, 144115188075855872
   tail call void @llvm.assume(i1 %126)
-  %127 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %.sroa.226.0.copyload, i64 %.sroa.327.0.copyload
+  %127 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.226.0.copyload, i64 %.sroa.327.0.copyload
   %128 = icmp sgt i64 %.sroa.025.0.copyload, -1
   tail call void @llvm.assume(i1 %128)
   %129 = getelementptr inbounds nuw i8, ptr %26, i64 32
@@ -4461,7 +4461,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !323
   %26 = icmp ult i64 %.sroa.3.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   %28 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %28)
   store ptr %.sroa.2.0.copyload, ptr %18, align 8, !noalias !323
@@ -4574,7 +4574,7 @@ _ZN5serde9__private2de7content17visit_content_seq17h2294e4ee1331a294E.exit: ; pr
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !333
   %52 = icmp ult i64 %.sroa.321.0.copyload, 144115188075855872
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %.sroa.220.0.copyload, i64 %.sroa.321.0.copyload
+  %53 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.220.0.copyload, i64 %.sroa.321.0.copyload
   %54 = icmp sgt i64 %.sroa.019.0.copyload, -1
   tail call void @llvm.assume(i1 %54)
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -4928,7 +4928,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !348
   %42 = icmp ult i64 %.sroa.3.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   %44 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %44)
   store ptr %.sroa.2.0.copyload, ptr %34, align 8, !noalias !348
@@ -5251,7 +5251,7 @@ _ZN5serde9__private2de7content17visit_content_seq17h01b51aba94decce3E.exit: ; pr
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !368
   %116 = icmp ult i64 %.sroa.327.0.copyload, 144115188075855872
   tail call void @llvm.assume(i1 %116)
-  %117 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %.sroa.226.0.copyload, i64 %.sroa.327.0.copyload
+  %117 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.226.0.copyload, i64 %.sroa.327.0.copyload
   %118 = icmp sgt i64 %.sroa.025.0.copyload, -1
   tail call void @llvm.assume(i1 %118)
   %119 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -7043,7 +7043,7 @@ _ZN5serde2de7Visitor18visit_borrowed_str17h2c7e18477bb272eaE.exit: ; preds = %11
   %155 = load i64, ptr %154, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !507)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !510
-  %156 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %153, i64 %155
+  %156 = getelementptr inbounds nuw [32 x i8], ptr %153, i64 %155
   store ptr %153, ptr %12, align 8, !noalias !510
   %157 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %156, ptr %157, align 8, !noalias !510
@@ -7109,7 +7109,7 @@ _ZN5serde2de7Visitor18visit_borrowed_str17h2c7e18477bb272eaE.exit: ; preds = %11
 
 174:                                              ; preds = %169, %165
   %175 = load ptr, ptr %159, align 8, !alias.scope !517, !noalias !520, !nonnull !4, !noundef !4
-  %176 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %175, i64 %166
+  %176 = getelementptr inbounds nuw [32 x i8], ptr %175, i64 %166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %176, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !516
   %177 = add i64 %166, 1
   store i64 %177, ptr %160, align 8, !alias.scope !517, !noalias !520
@@ -7191,7 +7191,7 @@ _ZN5serde9__private2de7content21visit_content_seq_ref17hfbd55205f6180bd4E.exit: 
   %197 = getelementptr inbounds nuw i8, ptr %.tr13, i64 24
   %198 = load i64, ptr %197, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !524)
-  %199 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %196, i64 %198
+  %199 = getelementptr inbounds nuw [64 x i8], ptr %196, i64 %198
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !527
   store ptr %196, ptr %6, align 8, !noalias !527
   %200 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -7298,7 +7298,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %14 = load i64, ptr %13, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !533)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !536
-  %15 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %14
   store ptr %12, ptr %7, align 8, !noalias !536
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %15, ptr %16, align 8, !noalias !536
@@ -8403,7 +8403,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 
 55:                                               ; preds = %50, %46
   %56 = load ptr, ptr %23, align 8, !alias.scope !579, !noalias !582, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %56, i64 %47
+  %57 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   %58 = add i64 %47, 1
   store i64 %58, ptr %24, align 8, !alias.scope !579, !noalias !582
@@ -8623,7 +8623,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 
 55:                                               ; preds = %50, %46
   %56 = load ptr, ptr %23, align 8, !alias.scope !598, !noalias !601, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %56, i64 %47
+  %57 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   %58 = add i64 %47, 1
   store i64 %58, ptr %24, align 8, !alias.scope !598, !noalias !601
@@ -8751,7 +8751,7 @@ _ZN5serde2de9SeqAccess12next_element17h7b4f39f8f8043f82E.exit: ; preds = %24
 
 41:                                               ; preds = %36, %32
   %42 = load ptr, ptr %21, align 8, !alias.scope !608, !noalias !611, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %42, i64 %33
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %44 = add i64 %33, 1
   store i64 %44, ptr %22, align 8, !alias.scope !608, !noalias !611
@@ -8879,7 +8879,7 @@ _ZN5serde2de9SeqAccess12next_element17h328de9e996ea4d6fE.exit: ; preds = %24
 
 41:                                               ; preds = %36, %32
   %42 = load ptr, ptr %21, align 8, !alias.scope !616, !noalias !619, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %42, i64 %33
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %44 = add i64 %33, 1
   store i64 %44, ptr %22, align 8, !alias.scope !616, !noalias !619
@@ -9308,7 +9308,7 @@ _ZN5serde2de9MapAccess10next_value17h9f6f48c2ca57263cE.exit: ; preds = %39
 
 69:                                               ; preds = %64, %60
   %70 = load ptr, ptr %25, align 8, !alias.scope !702, !noalias !705, !nonnull !4, !noundef !4
-  %71 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %70, i64 %61
+  %71 = getelementptr inbounds nuw [64 x i8], ptr %70, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %71, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   %72 = add i64 %61, 1
   store i64 %72, ptr %26, align 8, !alias.scope !702, !noalias !705
@@ -9552,7 +9552,7 @@ _ZN5serde2de9MapAccess10next_value17hf049cf1aefbd03f4E.exit: ; preds = %39
 
 69:                                               ; preds = %64, %60
   %70 = load ptr, ptr %25, align 8, !alias.scope !712, !noalias !715, !nonnull !4, !noundef !4
-  %71 = getelementptr inbounds nuw { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %70, i64 %61
+  %71 = getelementptr inbounds nuw [64 x i8], ptr %70, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %71, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   %72 = add i64 %61, 1
   store i64 %72, ptr %26, align 8, !alias.scope !712, !noalias !715

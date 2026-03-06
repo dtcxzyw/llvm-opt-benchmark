@@ -19,14 +19,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.2" = type { ptr }
 %"class.grpc_core::Thread" = type { i32, ptr, %"class.grpc_core::Thread::Options" }
 %"class.grpc_core::Thread::Options" = type { i8, i8, i64 }
-%"struct.grpc_core::ThreadState" = type { i64, i64, ptr, i64, %struct.grpc_closure_list, i64, i8, i8, %"class.grpc_core::Thread" }
-%struct.grpc_closure_list = type { ptr, ptr }
 %"class.absl::lts_20240722::Status" = type { i64 }
 %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
 %"class.absl::lts_20240722::Span" = type { ptr, i64 }
 %"class.grpc_core::ExecCtx" = type { ptr, %struct.grpc_closure_list, %"struct.grpc_core::ExecCtx::CombinerData", i64, %"class.std::optional", ptr }
+%struct.grpc_closure_list = type { ptr, ptr }
 %"struct.grpc_core::ExecCtx::CombinerData" = type { ptr, ptr }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
@@ -408,14 +407,14 @@ _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %_ZN9grpc_core6Threa
 _ZN9grpc_core6ThreadD2Ev.exit103:                 ; preds = %44, %_ZN9grpc_core6ThreadD2Ev.exit103
   %87 = phi ptr [ %100, %_ZN9grpc_core6ThreadD2Ev.exit103 ], [ %48, %44 ]
   %.078129 = phi i64 [ %103, %_ZN9grpc_core6ThreadD2Ev.exit103 ], [ 0, %44 ]
-  %88 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %87, i64 %.078129
+  %88 = getelementptr inbounds nuw [96 x i8], ptr %87, i64 %.078129
   call void @gpr_mu_init(ptr noundef %88)
   %89 = load ptr, ptr %49, align 8, !tbaa !19
-  %90 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %89, i64 %.078129
+  %90 = getelementptr inbounds nuw [96 x i8], ptr %89, i64 %.078129
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   call void @gpr_cv_init(ptr noundef nonnull %91)
   %92 = load ptr, ptr %49, align 8, !tbaa !19
-  %93 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %92, i64 %.078129
+  %93 = getelementptr inbounds nuw [96 x i8], ptr %92, i64 %.078129
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i64 %.078129, ptr %94, align 8, !tbaa !38
   %95 = load ptr, ptr %0, align 8, !tbaa !3
@@ -432,7 +431,7 @@ _ZN9grpc_core6ThreadD2Ev.exit103:                 ; preds = %44, %_ZN9grpc_core6
   %.sroa.11134.16..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 88
   store i64 0, ptr %.sroa.11134.16..sroa_idx, align 8, !tbaa !12
   %100 = load ptr, ptr %49, align 8, !tbaa !19
-  %101 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %100, i64 %.078129
+  %101 = getelementptr inbounds nuw [96 x i8], ptr %100, i64 %.078129
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %103 = add nuw i64 %.078129, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
@@ -492,16 +491,16 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi11EEERS2_RAT__Kc.exit104: ;
 120:                                              ; preds = %.lr.ph, %120
   %.073122 = phi i64 [ 0, %.lr.ph ], [ %129, %120 ]
   %121 = load ptr, ptr %110, align 8, !tbaa !19
-  %122 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %121, i64 %.073122
+  %122 = getelementptr inbounds nuw [96 x i8], ptr %121, i64 %.073122
   call void @gpr_mu_lock(ptr noundef %122)
   %123 = load ptr, ptr %110, align 8, !tbaa !19
-  %124 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %123, i64 %.073122
+  %124 = getelementptr inbounds nuw [96 x i8], ptr %123, i64 %.073122
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 56
   store i8 1, ptr %125, align 8, !tbaa !45
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 24
   call void @gpr_cv_signal(ptr noundef nonnull %126)
   %127 = load ptr, ptr %110, align 8, !tbaa !19
-  %128 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %127, i64 %.073122
+  %128 = getelementptr inbounds nuw [96 x i8], ptr %127, i64 %.073122
   call void @gpr_mu_unlock(ptr noundef %128)
   %129 = add nuw i64 %.073122, 1
   %130 = load i64, ptr %108, align 8, !tbaa !13
@@ -536,7 +535,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi11EEERS2_RAT__Kc.exit104: ;
 141:                                              ; preds = %.lr.ph124, %.critedge92
   %.070123 = phi i64 [ 0, %.lr.ph124 ], [ %.pre-phi, %.critedge92 ]
   %142 = load ptr, ptr %138, align 8, !tbaa !19
-  %143 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %142, i64 %.070123
+  %143 = getelementptr inbounds nuw [96 x i8], ptr %142, i64 %.070123
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 64
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 72
   %146 = load ptr, ptr %145, align 8, !tbaa !32
@@ -648,14 +647,14 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi5EEERS2_RAT__Kc.exit: ; pre
 175:                                              ; preds = %.lr.ph127, %175
   %.066125 = phi i64 [ 0, %.lr.ph127 ], [ %187, %175 ]
   %176 = load ptr, ptr %140, align 8, !tbaa !19
-  %177 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %176, i64 %.066125
+  %177 = getelementptr inbounds nuw [96 x i8], ptr %176, i64 %.066125
   call void @gpr_mu_destroy(ptr noundef %177)
   %178 = load ptr, ptr %140, align 8, !tbaa !19
-  %179 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %178, i64 %.066125
+  %179 = getelementptr inbounds nuw [96 x i8], ptr %178, i64 %.066125
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
   call void @gpr_cv_destroy(ptr noundef nonnull %180)
   %181 = load ptr, ptr %140, align 8, !tbaa !19
-  %182 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %181, i64 %.066125
+  %182 = getelementptr inbounds nuw [96 x i8], ptr %181, i64 %.066125
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8, !tbaa !42
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 32
@@ -1783,7 +1782,7 @@ _ZN9grpc_core7ExecCtx3GetEv.exit85:               ; preds = %102, %104
   %110 = lshr i64 %106, 14
   %111 = xor i64 %109, %110
   %112 = urem i64 %111, %81
-  %113 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %103, i64 %112
+  %113 = getelementptr inbounds nuw [96 x i8], ptr %103, i64 %112
   br label %114
 
 114:                                              ; preds = %_ZN9grpc_core7ExecCtx3GetEv.exit85, %99
@@ -1861,7 +1860,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; pr
   %136 = load ptr, ptr %22, align 8, !tbaa !19
   %137 = add i64 %135, 1
   %138 = urem i64 %137, %81
-  %139 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %136, i64 %138
+  %139 = getelementptr inbounds nuw [96 x i8], ptr %136, i64 %138
   %140 = icmp eq ptr %139, %.063
   br i1 %140, label %.critedge100, label %115
 
@@ -2033,14 +2032,14 @@ _ZN4absl12lts_202407226StatusD2Ev.exit96:         ; preds = %185, %186
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %209 = load ptr, ptr %0, align 8, !tbaa !3
   %210 = load ptr, ptr %22, align 8, !tbaa !19
-  %211 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %210, i64 %204
+  %211 = getelementptr inbounds nuw [96 x i8], ptr %210, i64 %204
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i8 1, ptr %19, align 8, !tbaa !24
   store i8 1, ptr %29, align 1, !tbaa !26
   store i64 0, ptr %30, align 8, !tbaa !27
   call void @_ZN9grpc_core6ThreadC1EPKcPFvPvES3_PbRKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef %209, ptr noundef nonnull @_ZN9grpc_core8Executor10ThreadMainEPv, ptr noundef %211, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %19)
   %212 = load ptr, ptr %22, align 8, !tbaa !19
-  %213 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %212, i64 %204
+  %213 = getelementptr inbounds nuw [96 x i8], ptr %212, i64 %204
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 64
   %.not.i = icmp eq ptr %214, %18
   br i1 %.not.i, label %_ZN9grpc_core6ThreadaSEOS0_.exit, label %_ZN9grpc_core6ThreadaSEOS0_.exit.thread
@@ -2083,7 +2082,7 @@ _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %_ZN9grpc_core6Threa
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %227 = load ptr, ptr %22, align 8, !tbaa !19
-  %228 = getelementptr inbounds nuw %"struct.grpc_core::ThreadState", ptr %227, i64 %204
+  %228 = getelementptr inbounds nuw [96 x i8], ptr %227, i64 %204
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 64
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 72
   %231 = load ptr, ptr %230, align 8, !tbaa !32
@@ -2258,9 +2257,9 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #15
 define void @_ZN9grpc_core8Executor3RunEP12grpc_closureN4absl12lts_202407226StatusENS_12ExecutorTypeENS_15ExecutorJobTypeE(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::lts_20240722::Status", align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_121executor_enqueue_fns_E, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_121executor_enqueue_fns_E, i64 %6
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !92
   %11 = load i64, ptr %1, align 8, !tbaa !56
   store i64 %11, ptr %5, align 8, !tbaa !56
@@ -2413,7 +2412,7 @@ define noundef zeroext i1 @_ZN9grpc_core8Executor10IsThreadedENS_12ExecutorTypeE
 
 .critedge:                                        ; preds = %1
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core12_GLOBAL__N_19executorsE, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_19executorsE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load atomic i64, ptr %8 acquire, align 8

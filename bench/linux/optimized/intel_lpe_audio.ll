@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.pci_device_id = type { i32, i32, i32, i32, i32, i32, i64, i32 }
 %struct.irq_chip = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.platform_device_info = type { ptr, ptr, i8, ptr, i32, ptr, i32, ptr, i64, i64, ptr }
-%struct.intel_hdmi_lpe_audio_port_pdata = type { [128 x i8], i32, i32, i32, i8 }
 
 @intel_lpe_audio_irq_handler._rs = internal global %struct.ratelimit_state { %struct.raw_spinlock zeroinitializer, i32 5000, i32 10, i32 0, i32 0, i64 0, i64 0 }, align 8
 @__func__.intel_lpe_audio_irq_handler = private unnamed_addr constant [28 x i8] c"intel_lpe_audio_irq_handler\00", align 1
@@ -375,7 +374,7 @@ define dso_local void @intel_lpe_audio_notify(ptr noundef %0, i32 noundef %1, i3
   %13 = load ptr, ptr %12, align 8
   %14 = add i32 %2, -1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.intel_hdmi_lpe_audio_port_pdata, ptr %13, i64 %15
+  %16 = getelementptr [144 x i8], ptr %13, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 448
   %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %17) #8
   %19 = icmp slt i32 %14, 1

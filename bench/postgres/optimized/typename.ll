@@ -41,7 +41,7 @@ define noundef nonnull ptr @ecpg_type_name(i32 noundef %0) local_unnamed_addr #0
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ecpg_type_name, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ecpg_type_name, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

@@ -21,7 +21,7 @@ define noundef zeroext i1 @_ZN17ruff_python_index16multiline_ranges15MultilineRa
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %34, %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges14contains_range28_$u7b$$u7b$closure$u7d$$u7d$17hc8896dba67a54972E.exit27.i" ]
   %8 = icmp ult i64 %.sroa.05.0.lcssa.i, %7
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %.sroa.05.0.lcssa.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sroa.05.0.lcssa.i
   %10 = load i32, ptr %9, align 4, !alias.scope !4, !noalias !9, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !alias.scope !4, !noalias !9, !noundef !3
@@ -47,7 +47,7 @@ define noundef zeroext i1 @_ZN17ruff_python_index16multiline_ranges15MultilineRa
   %22 = add i64 %21, %.sroa.05.031.i
   %23 = icmp ult i64 %22, %7
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %22
   %25 = load i32, ptr %24, align 4, !alias.scope !11, !noalias !9, !noundef !3
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4, !alias.scope !11, !noalias !9, !noundef !3
@@ -91,7 +91,7 @@ define noundef zeroext i1 @_ZN17ruff_python_index16multiline_ranges15MultilineRa
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %32, %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E.exit28.i" ]
   %8 = icmp ult i64 %.sroa.05.0.lcssa.i, %7
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %.sroa.05.0.lcssa.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sroa.05.0.lcssa.i
   %10 = load i32, ptr %9, align 4, !alias.scope !14, !noalias !19, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !alias.scope !14, !noalias !19, !noundef !3
@@ -117,7 +117,7 @@ define noundef zeroext i1 @_ZN17ruff_python_index16multiline_ranges15MultilineRa
   %21 = add i64 %20, %.sroa.05.032.i
   %22 = icmp ult i64 %21, %7
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %21
   %24 = load i32, ptr %23, align 4, !alias.scope !21, !noalias !19, !noundef !3
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %26 = load i32, ptr %25, align 4, !alias.scope !21, !noalias !19, !noundef !3
@@ -180,7 +180,7 @@ define hidden void @_ZN17ruff_python_index16multiline_ranges22MultilineRangesBui
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE.exit": ; preds = %8, %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !25, !nonnull !3, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32 }, ptr %18, i64 %13
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %13
   store i32 %10, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %11, ptr %20, align 4

@@ -163,7 +163,7 @@ define internal range(i32 -2147483648, 1) i32 @gif_encode_frame(ptr noundef %0, 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %37 ]
   %.01120.i = phi i32 [ %spec.select17.i, %.preheader.i ], [ 255, %37 ]
   %.01318.i = phi i32 [ %spec.select.i, %.preheader.i ], [ -1, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i
   %39 = load i32, ptr %38, align 4, !tbaa !32
   %40 = lshr i32 %39, 24
   %41 = icmp samesign ult i32 %40, %.01120.i
@@ -678,7 +678,7 @@ gif_crop_translucent.exit.i:                      ; preds = %.thread97.i.i, %119
   %indvars.iv.i236.i = phi i64 [ %indvars.iv.next.i238.i, %.preheader.i.i ], [ 0, %194 ]
   %.01120.i.i = phi i32 [ %spec.select17.i.i, %.preheader.i.i ], [ 255, %194 ]
   %.01318.i.i = phi i32 [ %spec.select.i237.i, %.preheader.i.i ], [ -1, %194 ]
-  %201 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv.i236.i
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %indvars.iv.i236.i
   %202 = load i32, ptr %201, align 4, !tbaa !32
   %203 = lshr i32 %202, 24
   %204 = icmp samesign ult i32 %203, %.01120.i.i
@@ -717,7 +717,7 @@ get_palette_transparency_index.exit.i:            ; preds = %.preheader.i.i
 .preheader87.i:                                   ; preds = %get_palette_transparency_index.exit.i, %.preheader87.i
   %.087 = phi ptr [ %232, %.preheader87.i ], [ %221, %get_palette_transparency_index.exit.i ]
   %indvars.iv162.i = phi i64 [ %indvars.iv.next163.i, %.preheader87.i ], [ 0, %get_palette_transparency_index.exit.i ]
-  %223 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv162.i
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %indvars.iv162.i
   %224 = load i32, ptr %223, align 4, !tbaa !32
   %225 = trunc i32 %224 to i8
   %226 = getelementptr inbounds nuw i8, ptr %.087, i64 2
@@ -771,7 +771,7 @@ get_palette_transparency_index.exit.i:            ; preds = %.preheader.i.i
   %245 = getelementptr inbounds nuw i8, ptr %.01721.us.i.i, i64 %indvars.iv.i243.i
   %246 = load i8, ptr %245, align 1, !tbaa !49
   %247 = zext i8 %246 to i64
-  %248 = getelementptr inbounds nuw i32, ptr %5, i64 %247
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %247
   %249 = load i32, ptr %248, align 4, !tbaa !32
   %250 = add nsw i32 %249, 1
   store i32 %250, ptr %248, align 4, !tbaa !32
@@ -790,7 +790,7 @@ get_palette_transparency_index.exit.i:            ; preds = %.preheader.i.i
 
 .preheader.i240.i:                                ; preds = %.preheader.i240.i.preheader, %255
   %indvars.iv27.i.i = phi i64 [ %indvars.iv.next28.i.i, %255 ], [ 0, %.preheader.i240.i.preheader ]
-  %253 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv27.i.i
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv27.i.i
   %254 = load i32, ptr %253, align 4, !tbaa !32
   %.not.i241.i = icmp eq i32 %254, 0
   br i1 %.not.i241.i, label %pick_palette_entry.exit.i, label %255
@@ -838,7 +838,7 @@ pick_palette_entry.exit.i:                        ; preds = %.preheader.i240.i
   %.02025.i.i = phi i64 [ 0, %265 ], [ %277, %.loopexit.i.i ]
   %.02124.i.i = phi i64 [ 0, %265 ], [ %.1.i251.i, %.loopexit.i.i ]
   %.not22.not.i.i = icmp eq i64 %.02124.i.i, 0
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i32, ptr %267, i64 %.02025.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw [4 x i8], ptr %267, i64 %.02025.i.i
   %.pre.i248.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !32
   br i1 %.not22.not.i.i, label %.critedge.i.i, label %.lr.ph.i249.i
 
@@ -849,13 +849,13 @@ pick_palette_entry.exit.i:                        ; preds = %.preheader.i240.i
 
 .lr.ph.i249.i:                                    ; preds = %.preheader.i247.i, %268
   %.023.i.i = phi i64 [ %269, %268 ], [ 0, %.preheader.i247.i ]
-  %270 = getelementptr inbounds nuw i32, ptr %6, i64 %.023.i.i
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.023.i.i
   %271 = load i32, ptr %270, align 4, !tbaa !32
   %272 = icmp eq i32 %.pre.i248.i, %271
   br i1 %272, label %.loopexit.i.i, label %268
 
 .critedge.i.i:                                    ; preds = %268, %.preheader.i247.i
-  %273 = getelementptr inbounds nuw i32, ptr %6, i64 %.02124.i.i
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.02124.i.i
   store i32 %.pre.i248.i, ptr %273, align 4, !tbaa !32
   %274 = trunc i64 %.02124.i.i to i8
   %275 = getelementptr inbounds nuw i8, ptr %7, i64 %.02025.i.i
@@ -884,7 +884,7 @@ shrink_palette.exit.thread.i:                     ; preds = %262
   %indvars.iv.i254.i = phi i64 [ %indvars.iv.next.i259.i, %.preheader.i253.i ], [ 0, %shrink_palette.exit.i ]
   %.01120.i255.i = phi i32 [ %spec.select17.i258.i, %.preheader.i253.i ], [ 255, %shrink_palette.exit.i ]
   %.01318.i256.i = phi i32 [ %spec.select.i257.i, %.preheader.i253.i ], [ -1, %shrink_palette.exit.i ]
-  %278 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv.i254.i
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %indvars.iv.i254.i
   %279 = load i32, ptr %278, align 4, !tbaa !32
   %280 = lshr i32 %279, 24
   %281 = icmp samesign ult i32 %280, %.01120.i255.i
@@ -988,7 +988,7 @@ get_palette_transparency_index.exit261.i:         ; preds = %283, %shrink_palett
 334:                                              ; preds = %334, %319
   %.2 = phi ptr [ %332, %319 ], [ %344, %334 ]
   %indvars.iv166.i = phi i64 [ 0, %319 ], [ %indvars.iv.next167.i, %334 ]
-  %335 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv166.i
+  %335 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv166.i
   %336 = load i32, ptr %335, align 4, !tbaa !32
   %337 = trunc i32 %336 to i8
   %338 = getelementptr inbounds nuw i8, ptr %.2, i64 2

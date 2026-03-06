@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { i64 }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
-%struct.ConcatFile = type { ptr, i64, i64, i64, i64, i64, i64, ptr, i64, i64, ptr, ptr, i32 }
-%struct.ConcatStream = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"concat\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"Virtual concatenation script\00", align 1
@@ -264,9 +262,9 @@ get_keyword.exit.i:                               ; preds = %32, %24
   br label %get_keyword.exit139.i
 
 get_keyword.exit139.i:                            ; preds = %77, %70
-  %82 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   store ptr %73, ptr %82, align 8, !tbaa !29
-  %83 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %84 = call i32 @av_parse_time(ptr noundef nonnull %83, ptr noundef nonnull %73, i32 noundef 1) #14
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %86, label %123
@@ -299,7 +297,7 @@ get_keyword.exit139.i:                            ; preds = %77, %70
 
 get_keyword.exit141.i:                            ; preds = %94, %87
   %99 = call i64 @strtol(ptr noundef nonnull captures(none) %90, ptr noundef null, i32 noundef 0) #14
-  %100 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   store i64 %99, ptr %100, align 8, !tbaa !42
   br label %123
 
@@ -326,12 +324,12 @@ get_keyword.exit141.i:                            ; preds = %94, %87
   br label %get_keyword.exit143.i
 
 get_keyword.exit143.i:                            ; preds = %108, %101
-  %113 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   store ptr %104, ptr %113, align 8, !tbaa !29
   br label %123
 
 114:                                              ; preds = %67
-  %115 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %116 = load ptr, ptr %115, align 8, !tbaa !29
   %.not131.i = icmp eq ptr %116, null
   br i1 %.not131.i, label %118, label %117
@@ -544,7 +542,7 @@ add_file.exit.i:                                  ; preds = %187, %._crit_edge.i
   %191 = add i32 %189, 1
   store i32 %191, ptr %177, align 8, !tbaa !40
   %192 = zext i32 %189 to i64
-  %193 = getelementptr inbounds nuw %struct.ConcatFile, ptr %190, i64 %192
+  %193 = getelementptr inbounds nuw [104 x i8], ptr %190, i64 %192
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %194, i8 0, i64 88, i1 false)
   store ptr %.1.i.i, ptr %193, align 8, !tbaa !47
@@ -725,7 +723,7 @@ add_file.exit.i:                                  ; preds = %187, %._crit_edge.i
 
 281:                                              ; preds = %281, %.loopexit.i
   %indvars.iv291.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next292.i, %281 ]
-  %282 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv291.i
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv291.i
   call void @av_freep(ptr noundef nonnull %282) #14
   %indvars.iv.next292.i = add nuw nsw i64 %indvars.iv291.i, 1
   %exitcond294.not.i = icmp eq i64 %indvars.iv.next292.i, 3
@@ -762,7 +760,7 @@ concat_parse_script.exit:                         ; preds = %281
 293:                                              ; preds = %.preheader, %321
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %321 ]
   %.055125 = phi i64 [ 0, %.preheader ], [ %319, %321 ]
-  %294 = getelementptr inbounds nuw %struct.ConcatFile, ptr %291, i64 %indvars.iv
+  %294 = getelementptr inbounds nuw [104 x i8], ptr %291, i64 %indvars.iv
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %296 = load i64, ptr %295, align 8, !tbaa !50
   %297 = icmp eq i64 %296, -9223372036854775808
@@ -988,7 +986,7 @@ packet_after_outpoint.exit:                       ; preds = %87
   %91 = load ptr, ptr %90, align 8, !tbaa !85
   %92 = load i32, ptr %22, align 4, !tbaa !86
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr %91, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %91, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !87
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load i64, ptr %96, align 8
@@ -1089,7 +1087,7 @@ packet_after_outpoint.exit.thread:                ; preds = %packet_after_outpoi
   %153 = load ptr, ptr %152, align 8, !tbaa !89
   %154 = load i32, ptr %22, align 4, !tbaa !86
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds %struct.ConcatStream, ptr %153, i64 %155
+  %156 = getelementptr inbounds [16 x i8], ptr %153, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load i32, ptr %157, align 8, !tbaa !90
   %159 = icmp slt i32 %158, 0
@@ -1148,7 +1146,7 @@ filter_packet.exit:                               ; preds = %164, %switch.early.
   %173 = load ptr, ptr %172, align 8, !tbaa !85
   %174 = load i32, ptr %22, align 4, !tbaa !86
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds ptr, ptr %173, i64 %175
+  %176 = getelementptr inbounds [8 x i8], ptr %173, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !87
   %178 = load ptr, ptr %20, align 8, !tbaa !81
   %179 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1210,7 +1208,7 @@ av_ts_make_string.exit108:                        ; preds = %197, %198
   %210 = load ptr, ptr %209, align 8, !tbaa !85
   %211 = load i32, ptr %22, align 4, !tbaa !86
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds ptr, ptr %210, i64 %212
+  %213 = getelementptr inbounds [8 x i8], ptr %210, i64 %212
   %214 = load ptr, ptr %213, align 8, !tbaa !87
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load i64, ptr %215, align 8
@@ -1363,10 +1361,10 @@ define internal noundef i32 @concat_read_close(ptr noundef readonly captures(non
 7:                                                ; preds = %.lr.ph29, %._crit_edge
   %indvars.iv34 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next35, %._crit_edge ]
   %8 = load ptr, ptr %6, align 8, !tbaa !46
-  %9 = getelementptr inbounds nuw %struct.ConcatFile, ptr %8, i64 %indvars.iv34
+  %9 = getelementptr inbounds nuw [104 x i8], ptr %8, i64 %indvars.iv34
   tail call void @av_freep(ptr noundef %9) #14
   %10 = load ptr, ptr %6, align 8, !tbaa !46
-  %11 = getelementptr inbounds nuw %struct.ConcatFile, ptr %10, i64 %indvars.iv34
+  %11 = getelementptr inbounds nuw [104 x i8], ptr %10, i64 %indvars.iv34
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8, !tbaa !107
   %.not32 = icmp eq i32 %13, 0
@@ -1375,10 +1373,10 @@ define internal noundef i32 @concat_read_close(ptr noundef readonly captures(non
 .lr.ph:                                           ; preds = %7, %21
   %14 = phi ptr [ %22, %21 ], [ %10, %7 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %7 ]
-  %15 = getelementptr inbounds nuw %struct.ConcatFile, ptr %14, i64 %indvars.iv34
+  %15 = getelementptr inbounds nuw [104 x i8], ptr %14, i64 %indvars.iv34
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !89
-  %18 = getelementptr inbounds nuw %struct.ConcatStream, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !93
   %.not25 = icmp eq ptr %19, null
   br i1 %.not25, label %21, label %20
@@ -1391,7 +1389,7 @@ define internal noundef i32 @concat_read_close(ptr noundef readonly captures(non
 21:                                               ; preds = %.lr.ph, %20
   %22 = phi ptr [ %14, %.lr.ph ], [ %.pre, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr inbounds nuw %struct.ConcatFile, ptr %22, i64 %indvars.iv34
+  %23 = getelementptr inbounds nuw [104 x i8], ptr %22, i64 %indvars.iv34
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8, !tbaa !107
   %26 = zext i32 %25 to i64
@@ -1400,15 +1398,15 @@ define internal noundef i32 @concat_read_close(ptr noundef readonly captures(non
 
 ._crit_edge:                                      ; preds = %21, %7
   %28 = phi ptr [ %10, %7 ], [ %22, %21 ]
-  %29 = getelementptr inbounds nuw %struct.ConcatFile, ptr %28, i64 %indvars.iv34
+  %29 = getelementptr inbounds nuw [104 x i8], ptr %28, i64 %indvars.iv34
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   tail call void @av_freep(ptr noundef nonnull %30) #14
   %31 = load ptr, ptr %6, align 8, !tbaa !46
-  %32 = getelementptr inbounds nuw %struct.ConcatFile, ptr %31, i64 %indvars.iv34
+  %32 = getelementptr inbounds nuw [104 x i8], ptr %31, i64 %indvars.iv34
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   tail call void @av_dict_free(ptr noundef nonnull %33) #14
   %34 = load ptr, ptr %6, align 8, !tbaa !46
-  %35 = getelementptr inbounds nuw %struct.ConcatFile, ptr %34, i64 %indvars.iv34
+  %35 = getelementptr inbounds nuw [104 x i8], ptr %34, i64 %indvars.iv34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 88
   tail call void @av_dict_free(ptr noundef nonnull %36) #14
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
@@ -1478,7 +1476,7 @@ define internal i32 @concat_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2,
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !85
   %32 = zext nneg i32 %1 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !87
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i64, ptr %35, align 8
@@ -1519,7 +1517,7 @@ define internal i32 @concat_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2,
   %50 = add nuw nsw i32 %.14663.i, %.04464.i
   %51 = lshr i32 %50, 1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw %struct.ConcatFile, ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [104 x i8], ptr %48, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !50
   %56 = icmp slt i64 %38, %55
@@ -1535,7 +1533,7 @@ define internal i32 @concat_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2,
   %60 = load ptr, ptr %19, align 8, !tbaa !81
   %61 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %62 = zext nneg i32 %.044.lcssa.i to i64
-  %63 = getelementptr inbounds nuw %struct.ConcatFile, ptr %59, i64 %62
+  %63 = getelementptr inbounds nuw [104 x i8], ptr %59, i64 %62
   %.not53.i = icmp eq ptr %60, %63
   br i1 %.not53.i, label %67, label %64
 
@@ -1597,7 +1595,7 @@ try_seek.exit.thread.i:                           ; preds = %86
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %93 = load ptr, ptr %92, align 8, !tbaa !85
   %94 = zext nneg i32 %1 to i64
-  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !87
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load i64, ptr %97, align 8
@@ -1637,7 +1635,7 @@ real_seek.exit.thread27:                          ; preds = %try_seek.exit.i
   %111 = load ptr, ptr %61, align 8, !tbaa !46
   %112 = add nuw nsw i32 %.044.lcssa.i, 1
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw %struct.ConcatFile, ptr %111, i64 %113
+  %114 = getelementptr inbounds nuw [104 x i8], ptr %111, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load i64, ptr %115, align 8, !tbaa !50
   %117 = load i64, ptr %15, align 8, !tbaa !42
@@ -1646,7 +1644,7 @@ real_seek.exit.thread27:                          ; preds = %try_seek.exit.i
 
 119:                                              ; preds = %110
   %120 = load ptr, ptr %19, align 8, !tbaa !81
-  %121 = getelementptr inbounds nuw %struct.ConcatFile, ptr %111, i64 %62
+  %121 = getelementptr inbounds nuw [104 x i8], ptr %111, i64 %62
   %122 = icmp eq ptr %120, %121
   br i1 %122, label %123, label %124
 
@@ -1704,7 +1702,7 @@ real_seek.exit.thread30:                          ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 48
   %152 = load ptr, ptr %151, align 8, !tbaa !85
   %153 = zext nneg i32 %1 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr %152, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !87
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %157 = load i64, ptr %156, align 8
@@ -1790,7 +1788,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @open_file(ptr noundef %0, 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !46
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.ConcatFile, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [104 x i8], ptr %7, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !112
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1872,7 +1870,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @open_file(ptr noundef %0, 
   %49 = load ptr, ptr %6, align 8, !tbaa !46
   %50 = add i32 %1, -1
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %struct.ConcatFile, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [104 x i8], ptr %49, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !50
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -2094,7 +2092,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @match_streams(ptr noundef 
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %23 = load i32, ptr %22, align 8, !tbaa !107
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.ConcatStream, ptr %18, i64 %24
+  %25 = getelementptr inbounds [16 x i8], ptr %18, i64 %24
   %26 = load ptr, ptr %9, align 8, !tbaa !80
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 44
   %28 = load i32, ptr %27, align 4, !tbaa !41
@@ -2121,7 +2119,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @match_streams(ptr noundef 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.lr.ph.split.us ], [ %43, %.lr.ph ]
-  %44 = getelementptr inbounds %struct.ConcatStream, ptr %18, i64 %indvars.iv53
+  %44 = getelementptr inbounds [16 x i8], ptr %18, i64 %indvars.iv53
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 -1, ptr %45, align 8, !tbaa !90
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
@@ -2132,7 +2130,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @match_streams(ptr noundef 
 .lr.ph.split:                                     ; preds = %.lr.ph, %119
   %48 = phi ptr [ %120, %119 ], [ %35, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %119 ], [ %43, %.lr.ph ]
-  %49 = getelementptr inbounds %struct.ConcatStream, ptr %18, i64 %indvars.iv
+  %49 = getelementptr inbounds [16 x i8], ptr %18, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 -1, ptr %50, align 8, !tbaa !90
   %51 = load ptr, ptr %3, align 8, !tbaa !11
@@ -2140,13 +2138,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @match_streams(ptr noundef 
   %53 = load ptr, ptr %52, align 8, !tbaa !80
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = load ptr, ptr %54, align 8, !tbaa !85
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !87
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !81
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
   %61 = load ptr, ptr %60, align 8, !tbaa !89
-  %62 = getelementptr inbounds %struct.ConcatStream, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds [16 x i8], ptr %61, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %64 = load i32, ptr %63, align 8, !tbaa !119
@@ -2294,7 +2292,7 @@ detect_stream_specific.exit.thread:               ; preds = %98, %101, %108, %11
 
 146:                                              ; preds = %141
   %147 = load ptr, ptr %139, align 8, !tbaa !85
-  %148 = getelementptr inbounds ptr, ptr %147, i64 %indvars.iv.i
+  %148 = getelementptr inbounds [8 x i8], ptr %147, i64 %indvars.iv.i
   %149 = load ptr, ptr %148, align 8, !tbaa !87
   br label %152
 
@@ -2312,7 +2310,7 @@ detect_stream_specific.exit.thread:               ; preds = %98, %101, %108, %11
   %.018.i = phi ptr [ %149, %146 ], [ %151, %._crit_edge27.i ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %155 = load ptr, ptr %154, align 8, !tbaa !85
-  %156 = getelementptr inbounds ptr, ptr %155, i64 %indvars.iv.i
+  %156 = getelementptr inbounds [8 x i8], ptr %155, i64 %indvars.iv.i
   %157 = load ptr, ptr %156, align 8, !tbaa !87
   %158 = call fastcc i32 @copy_stream_props(ptr noundef %.018.i, ptr noundef %157)
   %159 = icmp slt i32 %158, 0
@@ -2322,7 +2320,7 @@ detect_stream_specific.exit.thread:               ; preds = %98, %101, %108, %11
   %161 = load ptr, ptr %129, align 8, !tbaa !81
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 56
   %163 = load ptr, ptr %162, align 8, !tbaa !89
-  %164 = getelementptr inbounds %struct.ConcatStream, ptr %163, i64 %indvars.iv.i
+  %164 = getelementptr inbounds [16 x i8], ptr %163, i64 %indvars.iv.i
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i32 %144, ptr %165, align 8, !tbaa !90
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2364,7 +2362,7 @@ detect_stream_specific.exit.thread:               ; preds = %98, %101, %108, %11
   %indvars.iv37.i = phi i64 [ %185, %.lr.ph32.split.preheader.i ], [ %indvars.iv.next38.i, %._crit_edge.i ]
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 48
   %190 = load ptr, ptr %189, align 8, !tbaa !85
-  %191 = getelementptr inbounds ptr, ptr %190, i64 %indvars.iv37.i
+  %191 = getelementptr inbounds [8 x i8], ptr %190, i64 %indvars.iv37.i
   %192 = load ptr, ptr %191, align 8, !tbaa !87
   %.not33.i = icmp eq i32 %188, 0
   br i1 %.not33.i, label %._crit_edge.i, label %.lr.ph.i38
@@ -2378,7 +2376,7 @@ detect_stream_specific.exit.thread:               ; preds = %98, %101, %108, %11
   %196 = phi i32 [ %187, %.lr.ph.i38 ], [ %218, %217 ]
   %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.i38 ], [ %indvars.iv.next.i40, %217 ]
   %197 = load ptr, ptr %183, align 8, !tbaa !85
-  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv.i39
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv.i39
   %199 = load ptr, ptr %198, align 8, !tbaa !87
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 12
   %201 = load i32, ptr %200, align 4, !tbaa !56
@@ -2390,7 +2388,7 @@ detect_stream_specific.exit.thread:               ; preds = %98, %101, %108, %11
   %205 = trunc nuw nsw i64 %indvars.iv.i39 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.54, i32 noundef %194, i32 noundef %205, i32 noundef %201) #14
   %206 = load ptr, ptr %183, align 8, !tbaa !85
-  %207 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv.i39
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv.i39
   %208 = load ptr, ptr %207, align 8, !tbaa !87
   %209 = call fastcc i32 @copy_stream_props(ptr noundef %208, ptr noundef nonnull %192)
   %210 = icmp slt i32 %209, 0
@@ -2400,7 +2398,7 @@ detect_stream_specific.exit.thread:               ; preds = %98, %101, %108, %11
   %212 = load ptr, ptr %173, align 8, !tbaa !81
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 56
   %214 = load ptr, ptr %213, align 8, !tbaa !89
-  %215 = getelementptr inbounds %struct.ConcatStream, ptr %214, i64 %indvars.iv37.i
+  %215 = getelementptr inbounds [16 x i8], ptr %214, i64 %indvars.iv37.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i32 %205, ptr %216, align 8, !tbaa !90
   %.pre.i41 = load i32, ptr %182, align 4, !tbaa !41

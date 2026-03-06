@@ -13,15 +13,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SDL_GPUGraphicsPipelineTargetInfo = type { ptr, i32, i32, i8, i8, i8, i8 }
 %struct.SDL_GPUColorTargetDescription = type { i32, %struct.SDL_GPUColorTargetBlendState }
 %struct.SDL_GPUColorTargetBlendState = type { i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8 }
-%struct.BlitPipelineCacheEntry = type { i32, i32, ptr }
-%struct.SDL_GPUVertexBufferDescription = type { i32, i32, i32, i32 }
-%struct.SDL_GPUVertexAttribute = type { i32, i32, i32, i32 }
 %struct.SDL_GPUColorTargetInfo = type { ptr, i32, i32, %struct.SDL_FColor, i32, i32, ptr, i32, i32, i8, i8, i8, i8 }
 %struct.SDL_FColor = type { float, float, float, float }
 %struct.SDL_GPUViewport = type { float, float, float, float, float, float }
 %struct.SDL_GPUTextureSamplerBinding = type { ptr, ptr }
 %struct.BlitFragmentUniforms = type { float, float, float, float, i32, float }
-%struct.SDL_GPUStorageTextureReadWriteBinding = type { ptr, i32, i32, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [39 x i8] c"Failed to create GPU pipeline for blit\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"SDL.gpu.device.create.debugmode\00", align 1
@@ -452,14 +448,14 @@ define hidden ptr @SDL_GPU_FetchBlitPipeline(ptr noundef readonly captures(addre
 18:                                               ; preds = %12
   %19 = load ptr, ptr %9, align 8
   %20 = zext i32 %1 to i64
-  %21 = getelementptr inbounds nuw %struct.BlitPipelineCacheEntry, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %81
 
 24:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %25 = getelementptr inbounds nuw %struct.BlitPipelineCacheEntry, ptr %17, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, %1
   br i1 %27, label %28, label %34
@@ -558,18 +554,18 @@ define hidden ptr @SDL_GPU_FetchBlitPipeline(ptr noundef readonly captures(addre
   %65 = phi i32 [ %55, %._crit_edge58 ], [ %.pre59, %58 ]
   %66 = phi ptr [ %.pre, %._crit_edge58 ], [ %63, %58 ]
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw %struct.BlitPipelineCacheEntry, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %50, ptr %69, align 8
   %70 = load ptr, ptr %9, align 8
   %71 = load i32, ptr %10, align 4
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %struct.BlitPipelineCacheEntry, ptr %70, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %72
   store i32 %1, ptr %73, align 8
   %74 = load ptr, ptr %9, align 8
   %75 = load i32, ptr %10, align 4
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw %struct.BlitPipelineCacheEntry, ptr %74, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 %2, ptr %78, align 4
   %79 = load i32, ptr %10, align 4
@@ -676,7 +672,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 37:                                               ; preds = %.lr.ph, %95
   %38 = phi ptr [ %.pre, %.lr.ph ], [ %54, %95 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
-  %39 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetDescription, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [36 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, -105
   %or.cond = icmp ult i32 %41, -104
@@ -728,7 +724,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 
 53:                                               ; preds = %47
   %54 = load ptr, ptr %27, align 8
-  %55 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetDescription, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [36 x i8], ptr %54, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 29
   %57 = load i8, ptr %56, align 1, !range !5, !noundef !6
   %58 = trunc nuw i8 %57 to i1
@@ -1034,7 +1030,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 
 157:                                              ; preds = %.lr.ph440, %156
   %indvars.iv482 = phi i64 [ 0, %.lr.ph440 ], [ %indvars.iv.next483, %156 ]
-  %158 = getelementptr inbounds nuw %struct.SDL_GPUVertexBufferDescription, ptr %153, i64 %indvars.iv482
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %indvars.iv482
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 12
   %160 = load i32, ptr %159, align 4
   %.not256 = icmp eq i32 %160, 0
@@ -1063,7 +1059,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 165:                                              ; preds = %.lr.ph447, %.thread358
   %.0205445 = phi i32 [ 0, %.lr.ph447 ], [ %180, %.thread358 ]
   %166 = zext i32 %.0205445 to i64
-  %167 = getelementptr inbounds nuw %struct.SDL_GPUVertexAttribute, ptr %164, i64 %166
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %164, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load i32, ptr %168, align 4
   %170 = add i32 %169, -31
@@ -1079,7 +1075,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 
 172:                                              ; preds = %165
   %173 = load i32, ptr %167, align 4
-  %174 = getelementptr inbounds nuw i32, ptr %3, i64 %166
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %166
   store i32 %173, ptr %174, align 4
   %.not257441.not = icmp eq i32 %.0205445, 0
   br i1 %.not257441.not, label %.thread358, label %.lr.ph444
@@ -1091,7 +1087,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
 
 .lr.ph444:                                        ; preds = %172, %175
   %indvars.iv485 = phi i64 [ %indvars.iv.next486, %175 ], [ 0, %172 ]
-  %176 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv485
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv485
   %177 = load i32, ptr %176, align 4
   %178 = icmp eq i32 %177, %173
   br i1 %178, label %.preheader407, label %175
@@ -1692,7 +1688,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetInfo, ptr %1, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %47 = load i8, ptr %46, align 8, !range !5, !noundef !6
@@ -1973,9 +1969,9 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
 
 149:                                              ; preds = %.lr.ph232, %149
   %indvars.iv248 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next249, %149 ]
-  %150 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetInfo, ptr %1, i64 %indvars.iv248
+  %150 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 %indvars.iv248
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv248
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %indvars.iv248
   store ptr %151, ptr %152, align 8
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
@@ -2143,13 +2139,13 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
 
 .preheader55.us:                                  ; preds = %.preheader55.us.preheader, %._crit_edge.us
   %indvars.iv67 = phi i64 [ 0, %.preheader55.us.preheader ], [ %indvars.iv.next68, %._crit_edge.us ]
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv67
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv67
   br label %33
 
 33:                                               ; preds = %.preheader55.us, %.thread49.us
   %indvars.iv = phi i64 [ 0, %.preheader55.us ], [ %indvars.iv.next, %.thread49.us ]
   %34 = load ptr, ptr %32, align 8
-  %35 = getelementptr inbounds nuw %struct.SDL_GPUTextureSamplerBinding, ptr %2, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %34, %36
   br i1 %37, label %.preheader54.us, label %.thread49.us
@@ -2202,7 +2198,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
   br i1 %.not, label %.thread51, label %47
 
 47:                                               ; preds = %.lr.ph.split
-  %48 = getelementptr inbounds nuw %struct.SDL_GPUTextureSamplerBinding, ptr %2, i64 %indvars.iv70
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv70
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %46, %49
   br i1 %50, label %.preheader, label %.thread51
@@ -2713,7 +2709,7 @@ define hidden range(i32 0, 17) i32 @SDL_GPUTextureFormatTexelBlockSize_REAL(i32 
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GPUTextureFormatTexelBlockSize_REAL, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_GPUTextureFormatTexelBlockSize_REAL, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -4695,13 +4691,13 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
 
 .preheader55.us:                                  ; preds = %.preheader55.us.preheader, %._crit_edge.us
   %indvars.iv67 = phi i64 [ 0, %.preheader55.us.preheader ], [ %indvars.iv.next68, %._crit_edge.us ]
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv67
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv67
   br label %33
 
 33:                                               ; preds = %.preheader55.us, %.thread49.us
   %indvars.iv = phi i64 [ 0, %.preheader55.us ], [ %indvars.iv.next, %.thread49.us ]
   %34 = load ptr, ptr %32, align 8
-  %35 = getelementptr inbounds nuw %struct.SDL_GPUTextureSamplerBinding, ptr %2, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %34, %36
   br i1 %37, label %.preheader54.us, label %.thread49.us
@@ -4754,7 +4750,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
   br i1 %.not, label %.thread51, label %47
 
 47:                                               ; preds = %.lr.ph.split
-  %48 = getelementptr inbounds nuw %struct.SDL_GPUTextureSamplerBinding, ptr %2, i64 %indvars.iv70
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv70
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %46, %49
   br i1 %50, label %.preheader, label %.thread51
@@ -4837,13 +4833,13 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
 
 .preheader54.us:                                  ; preds = %.preheader54.us.preheader, %._crit_edge.us
   %indvars.iv66 = phi i64 [ 0, %.preheader54.us.preheader ], [ %indvars.iv.next67, %._crit_edge.us ]
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv66
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv66
   br label %27
 
 27:                                               ; preds = %.preheader54.us, %.thread48.us
   %indvars.iv = phi i64 [ 0, %.preheader54.us ], [ %indvars.iv.next, %.thread48.us ]
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %28, %30
   br i1 %31, label %.preheader53.us, label %.thread48.us
@@ -4907,7 +4903,7 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
   br i1 %.not, label %.thread50, label %43
 
 43:                                               ; preds = %.lr.ph.split
-  %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv69
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv69
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %42, %45
   br i1 %46, label %.preheader, label %.thread50
@@ -5044,13 +5040,13 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
 
 .preheader54.us:                                  ; preds = %.preheader54.us.preheader, %._crit_edge.us
   %indvars.iv66 = phi i64 [ 0, %.preheader54.us.preheader ], [ %indvars.iv.next67, %._crit_edge.us ]
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv66
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv66
   br label %27
 
 27:                                               ; preds = %.preheader54.us, %.thread48.us
   %indvars.iv = phi i64 [ 0, %.preheader54.us ], [ %indvars.iv.next, %.thread48.us ]
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %28, %30
   br i1 %31, label %.preheader53.us, label %.thread48.us
@@ -5114,7 +5110,7 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
   br i1 %.not, label %.thread50, label %43
 
 43:                                               ; preds = %.lr.ph.split
-  %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv69
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv69
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %42, %45
   br i1 %46, label %.preheader, label %.thread50
@@ -5516,7 +5512,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
-  %54 = getelementptr inbounds nuw %struct.SDL_GPUStorageTextureReadWriteBinding, ptr %1, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 4
@@ -7999,7 +7995,7 @@ define internal fastcc range(i32 0, 13) i32 @Texture_GetBlockWidth(i32 noundef %
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Texture_GetBlockWidth, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Texture_GetBlockWidth, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -8027,7 +8023,7 @@ define internal fastcc range(i32 0, 13) i32 @Texture_GetBlockHeight(i32 noundef 
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Texture_GetBlockHeight, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Texture_GetBlockHeight, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 

@@ -64,7 +64,7 @@ define void @ff_vp6_filter_diag4_c(ptr noundef writeonly captures(none) %0, ptr 
   %46 = sext i1 %isnotneg.i to i32
   %.0.i = select i1 %45, i32 %46, i32 %44
   %47 = and i32 %.0.i, 255
-  %48 = getelementptr inbounds nuw i32, ptr %.056, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.056, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !9
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %49, label %23, !llvm.loop !11
@@ -85,7 +85,7 @@ define void @ff_vp6_filter_diag4_c(ptr noundef writeonly captures(none) %0, ptr 
 
 53:                                               ; preds = %.preheader, %53
   %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %53 ]
-  %54 = getelementptr i32, ptr %.161, i64 %indvars.iv64
+  %54 = getelementptr [4 x i8], ptr %.161, i64 %indvars.iv64
   %55 = getelementptr i8, ptr %54, i64 -32
   %56 = load i32, ptr %55, align 4, !tbaa !9
   %57 = load i16, ptr %4, align 2, !tbaa !4

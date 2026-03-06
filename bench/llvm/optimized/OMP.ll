@@ -1515,10 +1515,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local { ptr, i64 } @_ZN4llvm3omp22getOpenMPDirectiveNameENS0_9DirectiveE(i32 noundef %0) local_unnamed_addr #2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp22getOpenMPDirectiveNameENS0_9DirectiveE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp22getOpenMPDirectiveNameENS0_9DirectiveE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp22getOpenMPDirectiveNameENS0_9DirectiveE.9, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp22getOpenMPDirectiveNameENS0_9DirectiveE.9, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -2617,10 +2617,10 @@ _ZN4llvm12StringSwitchINS_3omp6ClauseES2_E4CaseENS_13StringLiteralES2_.exit898: 
 define dso_local { ptr, i64 } @_ZN4llvm3omp19getOpenMPClauseNameENS0_6ClauseE(i32 noundef %0) local_unnamed_addr #2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp19getOpenMPClauseNameENS0_6ClauseE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp19getOpenMPClauseNameENS0_6ClauseE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp19getOpenMPClauseNameENS0_6ClauseE.10, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp19getOpenMPClauseNameENS0_6ClauseE.10, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -2669,10 +2669,10 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp21getOpenMPBindKindNameENS0_8BindKind
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp21getOpenMPBindKindNameENS0_8BindKindE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp21getOpenMPBindKindNameENS0_8BindKindE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp21getOpenMPBindKindNameENS0_8BindKindE.11, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp21getOpenMPBindKindNameENS0_8BindKindE.11, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -2726,10 +2726,10 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp38getOpenMPCancellationConstructTypeN
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp38getOpenMPCancellationConstructTypeNameENS0_25CancellationConstructTypeE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp38getOpenMPCancellationConstructTypeNameENS0_25CancellationConstructTypeE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp38getOpenMPCancellationConstructTypeNameENS0_25CancellationConstructTypeE.12, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp38getOpenMPCancellationConstructTypeNameENS0_25CancellationConstructTypeE.12, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -2812,7 +2812,7 @@ _ZN4llvm12StringSwitchINS_3omp15MemoryOrderKindES2_E4CaseENS_13StringLiteralES2_
 define dso_local { ptr, i64 } @_ZN4llvm3omp28getOpenMPMemoryOrderKindNameENS0_15MemoryOrderKindE(i32 noundef %0) local_unnamed_addr #2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %2 = getelementptr ptr, ptr @switch.table._ZN4llvm3omp28getOpenMPMemoryOrderKindNameENS0_15MemoryOrderKindE, i64 %1
+  %2 = getelementptr [8 x i8], ptr @switch.table._ZN4llvm3omp28getOpenMPMemoryOrderKindNameENS0_15MemoryOrderKindE, i64 %1
   %switch.gep = getelementptr i8, ptr %2, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
@@ -2944,10 +2944,10 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp25getOpenMPProcBindKindNameENS0_12Pro
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -2
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp25getOpenMPProcBindKindNameENS0_12ProcBindKindE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp25getOpenMPProcBindKindNameENS0_12ProcBindKindE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp25getOpenMPProcBindKindNameENS0_12ProcBindKindE.13, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp25getOpenMPProcBindKindNameENS0_12ProcBindKindE.13, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -3006,10 +3006,10 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp25getOpenMPScheduleKindNameENS0_12Sch
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -2
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp25getOpenMPScheduleKindNameENS0_12ScheduleKindE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp25getOpenMPScheduleKindNameENS0_12ScheduleKindE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp25getOpenMPScheduleKindNameENS0_12ScheduleKindE.14, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp25getOpenMPScheduleKindNameENS0_12ScheduleKindE.14, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -9666,7 +9666,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3omp27isAllowedClauseForDirectiveEN
 define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %0) local_unnamed_addr #2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -9675,7 +9675,7 @@ switch.lookup:
 define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm3omp20getDirectiveCategoryENS0_9DirectiveE(i32 noundef %0) local_unnamed_addr #2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3omp20getDirectiveCategoryENS0_9DirectiveE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm3omp20getDirectiveCategoryENS0_9DirectiveE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -9687,10 +9687,10 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE(i
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26LeafConstructTableOrdering, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr @_ZL18LeafConstructTable, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !7
@@ -9712,17 +9712,17 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9Direct
 
 ._ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread_crit_edge: ; preds = %1
   %.phi.trans.insert = sext i32 %0 to i64
-  %.phi.trans.insert9 = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %.phi.trans.insert
+  %.phi.trans.insert9 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26LeafConstructTableOrdering, i64 %.phi.trans.insert
   %.pre = load i32, ptr %.phi.trans.insert9, align 4, !tbaa !3
   %.pre10 = sext i32 %.pre to i64
   br label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread
 
 _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit: ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26LeafConstructTableOrdering, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @_ZL18LeafConstructTable, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !7
@@ -9732,7 +9732,7 @@ _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit: ; preds = %1
 
 _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread: ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit, %._ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread_crit_edge
   %.pre-phi = phi i64 [ %.pre10, %._ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread_crit_edge ], [ %6, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit ]
-  %13 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %.pre-phi
+  %13 = getelementptr inbounds [32 x i8], ptr @_ZL18LeafConstructTable, i64 %.pre-phi
   br label %14
 
 14:                                               ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread
@@ -9750,17 +9750,17 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp28getLeafOrCompositeConstructsENS0_9D
 
 ._ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread_crit_edge.i: ; preds = %2
   %.phi.trans.insert.i = sext i32 %0 to i64
-  %.phi.trans.insert9.i = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %.phi.trans.insert.i
+  %.phi.trans.insert9.i = getelementptr inbounds nuw [4 x i8], ptr @_ZL26LeafConstructTableOrdering, i64 %.phi.trans.insert.i
   %.pre.i = load i32, ptr %.phi.trans.insert9.i, align 4, !tbaa !3
   %.pre10.i = sext i32 %.pre.i to i64
   br label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread.i
 
 _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i: ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26LeafConstructTableOrdering, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr @_ZL18LeafConstructTable, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !7
@@ -9770,13 +9770,13 @@ _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i: ; preds = %2
 
 _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread.i: ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i, %._ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre10.i, %._ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread_crit_edge.i ], [ %7, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i ]
-  %14 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %.pre-phi.i
+  %14 = getelementptr inbounds [32 x i8], ptr @_ZL18LeafConstructTable, i64 %.pre-phi.i
   br label %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit
 
 _ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit: ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread.i
   %.sroa.3.0.i = phi i64 [ 1, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread.i ], [ %12, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i ]
   %.sroa.0.0.i = phi ptr [ %14, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread.i ], [ %9, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i ]
-  %15 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i, i64 %.sroa.3.0.i
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -9863,7 +9863,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit: ; 
   %43 = phi i32 [ %37, %.lr.ph ], [ %.pre.i12, %40 ]
   %44 = load ptr, ptr %1, align 8, !tbaa !17
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 %38, ptr %46, align 1
   %47 = load i32, ptr %16, align 8, !tbaa !12
   %48 = add i32 %47, 1
@@ -9899,7 +9899,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit15: 
   %62 = phi i32 [ %57, %51 ], [ %.pre.i14, %59 ]
   %63 = load ptr, ptr %1, align 8, !tbaa !17
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %56, ptr %65, align 1
   %66 = load i32, ptr %16, align 8, !tbaa !12
   %67 = add i32 %66, 1
@@ -9960,10 +9960,10 @@ define dso_local noundef i32 @_ZN4llvm3omp20getCompoundConstructENS_8ArrayRefINS
 
 _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit: ; preds = %.lr.ph
   %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26LeafConstructTableOrdering, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr @_ZL18LeafConstructTable, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !7
@@ -9989,7 +9989,7 @@ _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit: ; preds = %.lr.ph
 _ZN4llvm15SmallVectorImplINS_3omp9DirectiveEE7reserveEm.exit.i: ; preds = %25, %31
   %.pre-phi = phi i64 [ %27, %25 ], [ %.pre56, %31 ]
   %32 = load ptr, ptr %3, align 8, !tbaa !17
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %.pre-phi
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.pre-phi
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 8 %21, i64 %.idx, i1 false)
   br label %42
 
@@ -10009,7 +10009,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit: ; 
   %38 = phi i32 [ %13, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread ], [ %.pre.i17, %35 ]
   %39 = load ptr, ptr %3, align 8, !tbaa !17
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   store i32 %14, ptr %41, align 1
   br label %42
 
@@ -10123,10 +10123,10 @@ _ZSt7advanceIPA8_KN4llvm3omp9DirectiveElEvRT_T0_.exit.i.i: ; preds = %.thread.i.
 
 _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22: ; preds = %81
   %84 = zext nneg i32 %82 to i64
-  %85 = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26LeafConstructTableOrdering, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !3
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %87
+  %88 = getelementptr inbounds [32 x i8], ptr @_ZL18LeafConstructTable, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4, !tbaa !7
   %91 = sext i32 %90 to i64
@@ -10184,10 +10184,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm3omp15isLeafConstructENS0_9Directiv
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26LeafConstructTableOrdering, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr @_ZL18LeafConstructTable, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !7
   %11 = icmp eq i32 %10, 0
@@ -10205,10 +10205,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm3omp20isCompositeConstructENS0_9Dir
 
 _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.i: ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26LeafConstructTableOrdering, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @_ZL18LeafConstructTable, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !7
   %10 = icmp eq i32 %9, 0
@@ -10293,10 +10293,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm3omp19isCombinedConstructENS0_9Dire
 
 _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit: ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26LeafConstructTableOrdering, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr @_ZL18LeafConstructTable, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !7
   %10 = icmp eq i32 %9, 0

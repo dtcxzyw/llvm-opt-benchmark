@@ -245,7 +245,7 @@ define internal void @_ZNK4ncnn5Reorg7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_ou
   %66 = sext i32 %.043.us.us.us.us.us.us to i64
   %.reass.us.us.us.us.us.us = mul i64 %factor.op.mul.us.us, %66
   %67 = getelementptr inbounds nuw i8, ptr %44, i64 %.reass.us.us.us.us.us.us
-  %invariant.gep.us.us.us.us.us.us = getelementptr float, ptr %43, i64 %indvars.iv134
+  %invariant.gep.us.us.us.us.us.us = getelementptr [4 x i8], ptr %43, i64 %indvars.iv134
   br label %.lr.ph.us.us.us.us.us.us.us
 
 .lr.ph.us.us.us.us.us.us.us:                      ; preds = %._crit_edge.us.us.us.us.us.us.us, %.lr.ph.split.us.split.us.us.us.us.us
@@ -263,7 +263,7 @@ define internal void @_ZNK4ncnn5Reorg7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_ou
   %.175.us.us.us.us.us.us.us = phi ptr [ %.04278.us.us.us.us.us.us.us, %.lr.ph.us.us.us.us.us.us.us ], [ %74, %71 ]
   %72 = load float, ptr %.04076.us.us.us.us.us.us.us, align 4, !tbaa !50
   store float %72, ptr %.175.us.us.us.us.us.us.us, align 4, !tbaa !50
-  %73 = getelementptr inbounds nuw float, ptr %.04076.us.us.us.us.us.us.us, i64 %40
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.04076.us.us.us.us.us.us.us, i64 %40
   %74 = getelementptr inbounds nuw i8, ptr %.175.us.us.us.us.us.us.us, i64 4
   %75 = add nuw nsw i32 %.077.us.us.us.us.us.us.us, 1
   %exitcond.not = icmp eq i32 %75, %53

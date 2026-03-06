@@ -1384,7 +1384,7 @@ define noalias noundef nonnull ptr @lean_io_prim_handle_mk(ptr noundef %0, i8 no
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lean_io_prim_handle_mk, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lean_io_prim_handle_mk, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -1415,7 +1415,7 @@ switch.lookup:                                    ; preds = %3
 
 switch.lookup36:                                  ; preds = %17
   %19 = zext nneg i8 %switch.tableidx35 to i64
-  %switch.gep37 = getelementptr inbounds nuw ptr, ptr @switch.table.lean_io_prim_handle_mk.13, i64 %19
+  %switch.gep37 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lean_io_prim_handle_mk.13, i64 %19
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %20
 

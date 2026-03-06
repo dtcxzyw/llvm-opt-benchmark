@@ -896,7 +896,7 @@ safe_realloc_.exit:                               ; preds = %17
   %indvars.iv248.i = phi i64 [ %indvars.iv.next249.i, %.lr.ph94.i ], [ 0, %.preheader11.i ]
   %.034092.i = phi ptr [ %123, %.lr.ph94.i ], [ %.val, %.preheader11.i ]
   %119 = load ptr, ptr %1, align 8, !tbaa !11
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv248.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv248.i
   %121 = load i32, ptr %120, align 4, !tbaa !3
   %122 = trunc i32 %121 to i8
   %123 = getelementptr inbounds nuw i8, ptr %.034092.i, i64 1
@@ -909,13 +909,13 @@ safe_realloc_.exit:                               ; preds = %17
   %indvars.iv243.i = phi i64 [ 0, %.lr.ph91.i ], [ %indvars.iv.next244.i, %124 ]
   %.134189.i = phi ptr [ %.val, %.lr.ph91.i ], [ %134, %124 ]
   %125 = load ptr, ptr %1, align 8, !tbaa !11
-  %126 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv243.i
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %indvars.iv243.i
   %127 = load i32, ptr %126, align 4, !tbaa !3
   %128 = trunc i32 %127 to i8
   %129 = getelementptr inbounds nuw i8, ptr %.134189.i, i64 1
   store i8 %128, ptr %.134189.i, align 1, !tbaa !7
   %130 = load ptr, ptr %118, align 8, !tbaa !11
-  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv243.i
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv243.i
   %132 = load i32, ptr %131, align 4, !tbaa !3
   %133 = trunc i32 %132 to i8
   %134 = getelementptr inbounds nuw i8, ptr %.134189.i, i64 2
@@ -928,25 +928,25 @@ safe_realloc_.exit:                               ; preds = %17
   %indvars.iv238.i = phi i64 [ 0, %.lr.ph88.i ], [ %indvars.iv.next239.i, %135 ]
   %.234286.i = phi ptr [ %.val, %.lr.ph88.i ], [ %155, %135 ]
   %136 = load ptr, ptr %1, align 8, !tbaa !11
-  %137 = getelementptr inbounds nuw i32, ptr %136, i64 %indvars.iv238.i
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %indvars.iv238.i
   %138 = load i32, ptr %137, align 4, !tbaa !3
   %139 = trunc i32 %138 to i8
   %140 = getelementptr inbounds nuw i8, ptr %.234286.i, i64 1
   store i8 %139, ptr %.234286.i, align 1, !tbaa !7
   %141 = load ptr, ptr %115, align 8, !tbaa !11
-  %142 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv238.i
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv238.i
   %143 = load i32, ptr %142, align 4, !tbaa !3
   %144 = trunc i32 %143 to i8
   %145 = getelementptr inbounds nuw i8, ptr %.234286.i, i64 2
   store i8 %144, ptr %140, align 1, !tbaa !7
   %146 = load ptr, ptr %116, align 8, !tbaa !11
-  %147 = getelementptr inbounds nuw i32, ptr %146, i64 %indvars.iv238.i
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %indvars.iv238.i
   %148 = load i32, ptr %147, align 4, !tbaa !3
   %149 = trunc i32 %148 to i8
   %150 = getelementptr inbounds nuw i8, ptr %.234286.i, i64 3
   store i8 %149, ptr %145, align 1, !tbaa !7
   %151 = load ptr, ptr %117, align 8, !tbaa !11
-  %152 = getelementptr inbounds nuw i32, ptr %151, i64 %indvars.iv238.i
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %151, i64 %indvars.iv238.i
   %153 = load i32, ptr %152, align 4, !tbaa !3
   %154 = trunc i32 %153 to i8
   %155 = getelementptr inbounds nuw i8, ptr %.234286.i, i64 4
@@ -959,37 +959,37 @@ safe_realloc_.exit:                               ; preds = %17
   %indvars.iv233.i = phi i64 [ 0, %.lr.ph85.i ], [ %indvars.iv.next234.i, %156 ]
   %.334383.i = phi ptr [ %.val, %.lr.ph85.i ], [ %186, %156 ]
   %157 = load ptr, ptr %1, align 8, !tbaa !11
-  %158 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv233.i
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %indvars.iv233.i
   %159 = load i32, ptr %158, align 4, !tbaa !3
   %160 = trunc i32 %159 to i8
   %161 = getelementptr inbounds nuw i8, ptr %.334383.i, i64 1
   store i8 %160, ptr %.334383.i, align 1, !tbaa !7
   %162 = load ptr, ptr %110, align 8, !tbaa !11
-  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv233.i
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %indvars.iv233.i
   %164 = load i32, ptr %163, align 4, !tbaa !3
   %165 = trunc i32 %164 to i8
   %166 = getelementptr inbounds nuw i8, ptr %.334383.i, i64 2
   store i8 %165, ptr %161, align 1, !tbaa !7
   %167 = load ptr, ptr %111, align 8, !tbaa !11
-  %168 = getelementptr inbounds nuw i32, ptr %167, i64 %indvars.iv233.i
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %indvars.iv233.i
   %169 = load i32, ptr %168, align 4, !tbaa !3
   %170 = trunc i32 %169 to i8
   %171 = getelementptr inbounds nuw i8, ptr %.334383.i, i64 3
   store i8 %170, ptr %166, align 1, !tbaa !7
   %172 = load ptr, ptr %112, align 8, !tbaa !11
-  %173 = getelementptr inbounds nuw i32, ptr %172, i64 %indvars.iv233.i
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %indvars.iv233.i
   %174 = load i32, ptr %173, align 4, !tbaa !3
   %175 = trunc i32 %174 to i8
   %176 = getelementptr inbounds nuw i8, ptr %.334383.i, i64 4
   store i8 %175, ptr %171, align 1, !tbaa !7
   %177 = load ptr, ptr %113, align 8, !tbaa !11
-  %178 = getelementptr inbounds nuw i32, ptr %177, i64 %indvars.iv233.i
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %indvars.iv233.i
   %179 = load i32, ptr %178, align 4, !tbaa !3
   %180 = trunc i32 %179 to i8
   %181 = getelementptr inbounds nuw i8, ptr %.334383.i, i64 5
   store i8 %180, ptr %176, align 1, !tbaa !7
   %182 = load ptr, ptr %114, align 8, !tbaa !11
-  %183 = getelementptr inbounds nuw i32, ptr %182, i64 %indvars.iv233.i
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %indvars.iv233.i
   %184 = load i32, ptr %183, align 4, !tbaa !3
   %185 = trunc i32 %184 to i8
   %186 = getelementptr inbounds nuw i8, ptr %.334383.i, i64 6
@@ -1002,49 +1002,49 @@ safe_realloc_.exit:                               ; preds = %17
   %indvars.iv228.i = phi i64 [ 0, %.lr.ph82.i ], [ %indvars.iv.next229.i, %187 ]
   %.434480.i = phi ptr [ %.val, %.lr.ph82.i ], [ %227, %187 ]
   %188 = load ptr, ptr %1, align 8, !tbaa !11
-  %189 = getelementptr inbounds nuw i32, ptr %188, i64 %indvars.iv228.i
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %indvars.iv228.i
   %190 = load i32, ptr %189, align 4, !tbaa !3
   %191 = trunc i32 %190 to i8
   %192 = getelementptr inbounds nuw i8, ptr %.434480.i, i64 1
   store i8 %191, ptr %.434480.i, align 1, !tbaa !7
   %193 = load ptr, ptr %103, align 8, !tbaa !11
-  %194 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv228.i
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv228.i
   %195 = load i32, ptr %194, align 4, !tbaa !3
   %196 = trunc i32 %195 to i8
   %197 = getelementptr inbounds nuw i8, ptr %.434480.i, i64 2
   store i8 %196, ptr %192, align 1, !tbaa !7
   %198 = load ptr, ptr %104, align 8, !tbaa !11
-  %199 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv228.i
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %198, i64 %indvars.iv228.i
   %200 = load i32, ptr %199, align 4, !tbaa !3
   %201 = trunc i32 %200 to i8
   %202 = getelementptr inbounds nuw i8, ptr %.434480.i, i64 3
   store i8 %201, ptr %197, align 1, !tbaa !7
   %203 = load ptr, ptr %105, align 8, !tbaa !11
-  %204 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv228.i
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %indvars.iv228.i
   %205 = load i32, ptr %204, align 4, !tbaa !3
   %206 = trunc i32 %205 to i8
   %207 = getelementptr inbounds nuw i8, ptr %.434480.i, i64 4
   store i8 %206, ptr %202, align 1, !tbaa !7
   %208 = load ptr, ptr %106, align 8, !tbaa !11
-  %209 = getelementptr inbounds nuw i32, ptr %208, i64 %indvars.iv228.i
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %208, i64 %indvars.iv228.i
   %210 = load i32, ptr %209, align 4, !tbaa !3
   %211 = trunc i32 %210 to i8
   %212 = getelementptr inbounds nuw i8, ptr %.434480.i, i64 5
   store i8 %211, ptr %207, align 1, !tbaa !7
   %213 = load ptr, ptr %107, align 8, !tbaa !11
-  %214 = getelementptr inbounds nuw i32, ptr %213, i64 %indvars.iv228.i
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %213, i64 %indvars.iv228.i
   %215 = load i32, ptr %214, align 4, !tbaa !3
   %216 = trunc i32 %215 to i8
   %217 = getelementptr inbounds nuw i8, ptr %.434480.i, i64 6
   store i8 %216, ptr %212, align 1, !tbaa !7
   %218 = load ptr, ptr %108, align 8, !tbaa !11
-  %219 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv228.i
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv228.i
   %220 = load i32, ptr %219, align 4, !tbaa !3
   %221 = trunc i32 %220 to i8
   %222 = getelementptr inbounds nuw i8, ptr %.434480.i, i64 7
   store i8 %221, ptr %217, align 1, !tbaa !7
   %223 = load ptr, ptr %109, align 8, !tbaa !11
-  %224 = getelementptr inbounds nuw i32, ptr %223, i64 %indvars.iv228.i
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %223, i64 %indvars.iv228.i
   %225 = load i32, ptr %224, align 4, !tbaa !3
   %226 = trunc i32 %225 to i8
   %227 = getelementptr inbounds nuw i8, ptr %.434480.i, i64 8
@@ -1056,7 +1056,7 @@ safe_realloc_.exit:                               ; preds = %17
 228:                                              ; preds = %228, %.lr.ph79.i
   %indvars.iv223.i = phi i64 [ 0, %.lr.ph79.i ], [ %indvars.iv.next224.i, %228 ]
   %.033377.i = phi ptr [ %.val, %.lr.ph79.i ], [ %232, %228 ]
-  %229 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv223.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv223.i
   %230 = load i32, ptr %229, align 4, !tbaa !3
   %231 = trunc i32 %230 to i16
   %232 = getelementptr inbounds nuw i8, ptr %.033377.i, i64 2
@@ -1068,12 +1068,12 @@ safe_realloc_.exit:                               ; preds = %17
 233:                                              ; preds = %233, %.lr.ph76.i
   %indvars.iv218.i = phi i64 [ 0, %.lr.ph76.i ], [ %indvars.iv.next219.i, %233 ]
   %.133474.i = phi ptr [ %.val, %.lr.ph76.i ], [ %241, %233 ]
-  %234 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv218.i
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv218.i
   %235 = load i32, ptr %234, align 4, !tbaa !3
   %236 = trunc i32 %235 to i16
   %237 = getelementptr inbounds nuw i8, ptr %.133474.i, i64 2
   store i16 %236, ptr %.133474.i, align 2, !tbaa !20
-  %238 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv218.i
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv218.i
   %239 = load i32, ptr %238, align 4, !tbaa !3
   %240 = trunc i32 %239 to i16
   %241 = getelementptr inbounds nuw i8, ptr %.133474.i, i64 4
@@ -1085,22 +1085,22 @@ safe_realloc_.exit:                               ; preds = %17
 242:                                              ; preds = %242, %.lr.ph73.i
   %indvars.iv213.i = phi i64 [ 0, %.lr.ph73.i ], [ %indvars.iv.next214.i, %242 ]
   %.233571.i = phi ptr [ %.val, %.lr.ph73.i ], [ %258, %242 ]
-  %243 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv213.i
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv213.i
   %244 = load i32, ptr %243, align 4, !tbaa !3
   %245 = trunc i32 %244 to i16
   %246 = getelementptr inbounds nuw i8, ptr %.233571.i, i64 2
   store i16 %245, ptr %.233571.i, align 2, !tbaa !20
-  %247 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv213.i
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv213.i
   %248 = load i32, ptr %247, align 4, !tbaa !3
   %249 = trunc i32 %248 to i16
   %250 = getelementptr inbounds nuw i8, ptr %.233571.i, i64 4
   store i16 %249, ptr %246, align 2, !tbaa !20
-  %251 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv213.i
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv213.i
   %252 = load i32, ptr %251, align 4, !tbaa !3
   %253 = trunc i32 %252 to i16
   %254 = getelementptr inbounds nuw i8, ptr %.233571.i, i64 6
   store i16 %253, ptr %250, align 2, !tbaa !20
-  %255 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv213.i
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv213.i
   %256 = load i32, ptr %255, align 4, !tbaa !3
   %257 = trunc i32 %256 to i16
   %258 = getelementptr inbounds nuw i8, ptr %.233571.i, i64 8
@@ -1112,32 +1112,32 @@ safe_realloc_.exit:                               ; preds = %17
 259:                                              ; preds = %259, %.lr.ph70.i
   %indvars.iv208.i = phi i64 [ 0, %.lr.ph70.i ], [ %indvars.iv.next209.i, %259 ]
   %.333668.i = phi ptr [ %.val, %.lr.ph70.i ], [ %283, %259 ]
-  %260 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv208.i
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv208.i
   %261 = load i32, ptr %260, align 4, !tbaa !3
   %262 = trunc i32 %261 to i16
   %263 = getelementptr inbounds nuw i8, ptr %.333668.i, i64 2
   store i16 %262, ptr %.333668.i, align 2, !tbaa !20
-  %264 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv208.i
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv208.i
   %265 = load i32, ptr %264, align 4, !tbaa !3
   %266 = trunc i32 %265 to i16
   %267 = getelementptr inbounds nuw i8, ptr %.333668.i, i64 4
   store i16 %266, ptr %263, align 2, !tbaa !20
-  %268 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv208.i
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv208.i
   %269 = load i32, ptr %268, align 4, !tbaa !3
   %270 = trunc i32 %269 to i16
   %271 = getelementptr inbounds nuw i8, ptr %.333668.i, i64 6
   store i16 %270, ptr %267, align 2, !tbaa !20
-  %272 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv208.i
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv208.i
   %273 = load i32, ptr %272, align 4, !tbaa !3
   %274 = trunc i32 %273 to i16
   %275 = getelementptr inbounds nuw i8, ptr %.333668.i, i64 8
   store i16 %274, ptr %271, align 2, !tbaa !20
-  %276 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv208.i
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv208.i
   %277 = load i32, ptr %276, align 4, !tbaa !3
   %278 = trunc i32 %277 to i16
   %279 = getelementptr inbounds nuw i8, ptr %.333668.i, i64 10
   store i16 %278, ptr %275, align 2, !tbaa !20
-  %280 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv208.i
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv208.i
   %281 = load i32, ptr %280, align 4, !tbaa !3
   %282 = trunc i32 %281 to i16
   %283 = getelementptr inbounds nuw i8, ptr %.333668.i, i64 12
@@ -1149,42 +1149,42 @@ safe_realloc_.exit:                               ; preds = %17
 284:                                              ; preds = %284, %.lr.ph67.i
   %indvars.iv203.i = phi i64 [ 0, %.lr.ph67.i ], [ %indvars.iv.next204.i, %284 ]
   %.433765.i = phi ptr [ %.val, %.lr.ph67.i ], [ %316, %284 ]
-  %285 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv203.i
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv203.i
   %286 = load i32, ptr %285, align 4, !tbaa !3
   %287 = trunc i32 %286 to i16
   %288 = getelementptr inbounds nuw i8, ptr %.433765.i, i64 2
   store i16 %287, ptr %.433765.i, align 2, !tbaa !20
-  %289 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv203.i
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv203.i
   %290 = load i32, ptr %289, align 4, !tbaa !3
   %291 = trunc i32 %290 to i16
   %292 = getelementptr inbounds nuw i8, ptr %.433765.i, i64 4
   store i16 %291, ptr %288, align 2, !tbaa !20
-  %293 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv203.i
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv203.i
   %294 = load i32, ptr %293, align 4, !tbaa !3
   %295 = trunc i32 %294 to i16
   %296 = getelementptr inbounds nuw i8, ptr %.433765.i, i64 6
   store i16 %295, ptr %292, align 2, !tbaa !20
-  %297 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv203.i
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv203.i
   %298 = load i32, ptr %297, align 4, !tbaa !3
   %299 = trunc i32 %298 to i16
   %300 = getelementptr inbounds nuw i8, ptr %.433765.i, i64 8
   store i16 %299, ptr %296, align 2, !tbaa !20
-  %301 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv203.i
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv203.i
   %302 = load i32, ptr %301, align 4, !tbaa !3
   %303 = trunc i32 %302 to i16
   %304 = getelementptr inbounds nuw i8, ptr %.433765.i, i64 10
   store i16 %303, ptr %300, align 2, !tbaa !20
-  %305 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv203.i
+  %305 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv203.i
   %306 = load i32, ptr %305, align 4, !tbaa !3
   %307 = trunc i32 %306 to i16
   %308 = getelementptr inbounds nuw i8, ptr %.433765.i, i64 12
   store i16 %307, ptr %304, align 2, !tbaa !20
-  %309 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv203.i
+  %309 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv203.i
   %310 = load i32, ptr %309, align 4, !tbaa !3
   %311 = trunc i32 %310 to i16
   %312 = getelementptr inbounds nuw i8, ptr %.433765.i, i64 14
   store i16 %311, ptr %308, align 2, !tbaa !20
-  %313 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv203.i
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv203.i
   %314 = load i32, ptr %313, align 4, !tbaa !3
   %315 = trunc i32 %314 to i16
   %316 = getelementptr inbounds nuw i8, ptr %.433765.i, i64 16
@@ -1197,7 +1197,7 @@ safe_realloc_.exit:                               ; preds = %17
   %indvars.iv198.i = phi i64 [ %indvars.iv.next199.i, %.lr.ph64.i ], [ 0, %.preheader31.i ]
   %.534562.i = phi ptr [ %327, %.lr.ph64.i ], [ %.val, %.preheader31.i ]
   %317 = load ptr, ptr %1, align 8, !tbaa !11
-  %318 = getelementptr inbounds nuw i32, ptr %317, i64 %indvars.iv198.i
+  %318 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %indvars.iv198.i
   %319 = load i32, ptr %318, align 4, !tbaa !3
   %320 = trunc i32 %319 to i8
   %321 = getelementptr inbounds nuw i8, ptr %.534562.i, i64 1
@@ -1218,7 +1218,7 @@ safe_realloc_.exit:                               ; preds = %17
   %indvars.iv193.i = phi i64 [ 0, %.lr.ph61.i ], [ %indvars.iv.next194.i, %328 ]
   %.634659.i = phi ptr [ %.val, %.lr.ph61.i ], [ %350, %328 ]
   %329 = load ptr, ptr %1, align 8, !tbaa !11
-  %330 = getelementptr inbounds nuw i32, ptr %329, i64 %indvars.iv193.i
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %329, i64 %indvars.iv193.i
   %331 = load i32, ptr %330, align 4, !tbaa !3
   %332 = trunc i32 %331 to i8
   %333 = getelementptr inbounds nuw i8, ptr %.634659.i, i64 1
@@ -1232,7 +1232,7 @@ safe_realloc_.exit:                               ; preds = %17
   %339 = getelementptr inbounds nuw i8, ptr %.634659.i, i64 3
   store i8 %338, ptr %336, align 1, !tbaa !7
   %340 = load ptr, ptr %65, align 8, !tbaa !11
-  %341 = getelementptr inbounds nuw i32, ptr %340, i64 %indvars.iv193.i
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %340, i64 %indvars.iv193.i
   %342 = load i32, ptr %341, align 4, !tbaa !3
   %343 = trunc i32 %342 to i8
   %344 = getelementptr inbounds nuw i8, ptr %.634659.i, i64 4
@@ -1252,7 +1252,7 @@ safe_realloc_.exit:                               ; preds = %17
 351:                                              ; preds = %351, %.lr.ph58.i
   %indvars.iv188.i = phi i64 [ 0, %.lr.ph58.i ], [ %indvars.iv.next189.i, %351 ]
   %.032656.i = phi ptr [ %.val, %.lr.ph58.i ], [ %354, %351 ]
-  %352 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv188.i
+  %352 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv188.i
   %353 = load i32, ptr %352, align 4, !tbaa !3
   %354 = getelementptr inbounds nuw i8, ptr %.032656.i, i64 4
   store i32 %353, ptr %.032656.i, align 4, !tbaa !3
@@ -1263,11 +1263,11 @@ safe_realloc_.exit:                               ; preds = %17
 355:                                              ; preds = %355, %.lr.ph55.i
   %indvars.iv183.i = phi i64 [ 0, %.lr.ph55.i ], [ %indvars.iv.next184.i, %355 ]
   %.132753.i = phi ptr [ %.val, %.lr.ph55.i ], [ %361, %355 ]
-  %356 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv183.i
+  %356 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv183.i
   %357 = load i32, ptr %356, align 4, !tbaa !3
   %358 = getelementptr inbounds nuw i8, ptr %.132753.i, i64 4
   store i32 %357, ptr %.132753.i, align 4, !tbaa !3
-  %359 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv183.i
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv183.i
   %360 = load i32, ptr %359, align 4, !tbaa !3
   %361 = getelementptr inbounds nuw i8, ptr %.132753.i, i64 8
   store i32 %360, ptr %358, align 4, !tbaa !3
@@ -1278,19 +1278,19 @@ safe_realloc_.exit:                               ; preds = %17
 362:                                              ; preds = %362, %.lr.ph52.i
   %indvars.iv178.i = phi i64 [ 0, %.lr.ph52.i ], [ %indvars.iv.next179.i, %362 ]
   %.232850.i = phi ptr [ %.val, %.lr.ph52.i ], [ %374, %362 ]
-  %363 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv178.i
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv178.i
   %364 = load i32, ptr %363, align 4, !tbaa !3
   %365 = getelementptr inbounds nuw i8, ptr %.232850.i, i64 4
   store i32 %364, ptr %.232850.i, align 4, !tbaa !3
-  %366 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv178.i
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv178.i
   %367 = load i32, ptr %366, align 4, !tbaa !3
   %368 = getelementptr inbounds nuw i8, ptr %.232850.i, i64 8
   store i32 %367, ptr %365, align 4, !tbaa !3
-  %369 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv178.i
+  %369 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv178.i
   %370 = load i32, ptr %369, align 4, !tbaa !3
   %371 = getelementptr inbounds nuw i8, ptr %.232850.i, i64 12
   store i32 %370, ptr %368, align 4, !tbaa !3
-  %372 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv178.i
+  %372 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv178.i
   %373 = load i32, ptr %372, align 4, !tbaa !3
   %374 = getelementptr inbounds nuw i8, ptr %.232850.i, i64 16
   store i32 %373, ptr %371, align 4, !tbaa !3
@@ -1301,27 +1301,27 @@ safe_realloc_.exit:                               ; preds = %17
 375:                                              ; preds = %375, %.lr.ph49.i
   %indvars.iv173.i = phi i64 [ 0, %.lr.ph49.i ], [ %indvars.iv.next174.i, %375 ]
   %.332947.i = phi ptr [ %.val, %.lr.ph49.i ], [ %393, %375 ]
-  %376 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv173.i
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv173.i
   %377 = load i32, ptr %376, align 4, !tbaa !3
   %378 = getelementptr inbounds nuw i8, ptr %.332947.i, i64 4
   store i32 %377, ptr %.332947.i, align 4, !tbaa !3
-  %379 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv173.i
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv173.i
   %380 = load i32, ptr %379, align 4, !tbaa !3
   %381 = getelementptr inbounds nuw i8, ptr %.332947.i, i64 8
   store i32 %380, ptr %378, align 4, !tbaa !3
-  %382 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv173.i
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv173.i
   %383 = load i32, ptr %382, align 4, !tbaa !3
   %384 = getelementptr inbounds nuw i8, ptr %.332947.i, i64 12
   store i32 %383, ptr %381, align 4, !tbaa !3
-  %385 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv173.i
+  %385 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv173.i
   %386 = load i32, ptr %385, align 4, !tbaa !3
   %387 = getelementptr inbounds nuw i8, ptr %.332947.i, i64 16
   store i32 %386, ptr %384, align 4, !tbaa !3
-  %388 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv173.i
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv173.i
   %389 = load i32, ptr %388, align 4, !tbaa !3
   %390 = getelementptr inbounds nuw i8, ptr %.332947.i, i64 20
   store i32 %389, ptr %387, align 4, !tbaa !3
-  %391 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv173.i
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv173.i
   %392 = load i32, ptr %391, align 4, !tbaa !3
   %393 = getelementptr inbounds nuw i8, ptr %.332947.i, i64 24
   store i32 %392, ptr %390, align 4, !tbaa !3
@@ -1332,35 +1332,35 @@ safe_realloc_.exit:                               ; preds = %17
 394:                                              ; preds = %394, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %394 ]
   %.433045.i = phi ptr [ %.val, %.lr.ph.i ], [ %418, %394 ]
-  %395 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   %396 = load i32, ptr %395, align 4, !tbaa !3
   %397 = getelementptr inbounds nuw i8, ptr %.433045.i, i64 4
   store i32 %396, ptr %.433045.i, align 4, !tbaa !3
-  %398 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %398 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   %399 = load i32, ptr %398, align 4, !tbaa !3
   %400 = getelementptr inbounds nuw i8, ptr %.433045.i, i64 8
   store i32 %399, ptr %397, align 4, !tbaa !3
-  %401 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i
   %402 = load i32, ptr %401, align 4, !tbaa !3
   %403 = getelementptr inbounds nuw i8, ptr %.433045.i, i64 12
   store i32 %402, ptr %400, align 4, !tbaa !3
-  %404 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv.i
+  %404 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i
   %405 = load i32, ptr %404, align 4, !tbaa !3
   %406 = getelementptr inbounds nuw i8, ptr %.433045.i, i64 16
   store i32 %405, ptr %403, align 4, !tbaa !3
-  %407 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i
   %408 = load i32, ptr %407, align 4, !tbaa !3
   %409 = getelementptr inbounds nuw i8, ptr %.433045.i, i64 20
   store i32 %408, ptr %406, align 4, !tbaa !3
-  %410 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i
+  %410 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i
   %411 = load i32, ptr %410, align 4, !tbaa !3
   %412 = getelementptr inbounds nuw i8, ptr %.433045.i, i64 24
   store i32 %411, ptr %409, align 4, !tbaa !3
-  %413 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i
+  %413 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i
   %414 = load i32, ptr %413, align 4, !tbaa !3
   %415 = getelementptr inbounds nuw i8, ptr %.433045.i, i64 28
   store i32 %414, ptr %412, align 4, !tbaa !3
-  %416 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
+  %416 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i
   %417 = load i32, ptr %416, align 4, !tbaa !3
   %418 = getelementptr inbounds nuw i8, ptr %.433045.i, i64 32
   store i32 %417, ptr %415, align 4, !tbaa !3
@@ -1390,9 +1390,9 @@ safe_realloc_.exit:                               ; preds = %17
 420:                                              ; preds = %420, %.preheader8.us.i
   %indvars.iv253.i = phi i64 [ 0, %.preheader8.us.i ], [ %indvars.iv.next254.i, %420 ]
   %.633295.us.i = phi ptr [ %.533198.us.i, %.preheader8.us.i ], [ %425, %420 ]
-  %421 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv253.i
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv253.i
   %422 = load ptr, ptr %421, align 8, !tbaa !11
-  %423 = getelementptr inbounds nuw i32, ptr %422, i64 %indvars.iv258.i
+  %423 = getelementptr inbounds nuw [4 x i8], ptr %422, i64 %indvars.iv258.i
   %424 = load i32, ptr %423, align 4, !tbaa !3
   %425 = getelementptr inbounds nuw i8, ptr %.633295.us.i, i64 4
   store i32 %424, ptr %.633295.us.i, align 4, !tbaa !3
@@ -1419,9 +1419,9 @@ safe_realloc_.exit:                               ; preds = %17
 426:                                              ; preds = %426, %.preheader5.us.i
   %indvars.iv263.i = phi i64 [ 0, %.preheader5.us.i ], [ %indvars.iv.next264.i, %426 ]
   %.10350100.us.i = phi ptr [ %.9349103.us.i, %.preheader5.us.i ], [ %438, %426 ]
-  %427 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv263.i
+  %427 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv263.i
   %428 = load ptr, ptr %427, align 8, !tbaa !11
-  %429 = getelementptr inbounds nuw i32, ptr %428, i64 %indvars.iv268.i
+  %429 = getelementptr inbounds nuw [4 x i8], ptr %428, i64 %indvars.iv268.i
   %430 = load i32, ptr %429, align 4, !tbaa !3
   %431 = trunc i32 %430 to i8
   %432 = getelementptr inbounds nuw i8, ptr %.10350100.us.i, i64 1
@@ -1457,9 +1457,9 @@ safe_realloc_.exit:                               ; preds = %17
 439:                                              ; preds = %439, %.preheader2.us.i
   %indvars.iv273.i = phi i64 [ 0, %.preheader2.us.i ], [ %indvars.iv.next274.i, %439 ]
   %.6339107.us.i = phi ptr [ %.5338110.us.i, %.preheader2.us.i ], [ %445, %439 ]
-  %440 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv273.i
+  %440 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv273.i
   %441 = load ptr, ptr %440, align 8, !tbaa !11
-  %442 = getelementptr inbounds nuw i32, ptr %441, i64 %indvars.iv278.i
+  %442 = getelementptr inbounds nuw [4 x i8], ptr %441, i64 %indvars.iv278.i
   %443 = load i32, ptr %442, align 4, !tbaa !3
   %444 = trunc i32 %443 to i16
   %445 = getelementptr inbounds nuw i8, ptr %.6339107.us.i, i64 2
@@ -1487,9 +1487,9 @@ safe_realloc_.exit:                               ; preds = %17
 446:                                              ; preds = %446, %.preheader.us.i
   %indvars.iv283.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next284.i, %446 ]
   %.8348114.us.i = phi ptr [ %.7347117.us.i, %.preheader.us.i ], [ %452, %446 ]
-  %447 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv283.i
+  %447 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv283.i
   %448 = load ptr, ptr %447, align 8, !tbaa !11
-  %449 = getelementptr inbounds nuw i32, ptr %448, i64 %indvars.iv288.i
+  %449 = getelementptr inbounds nuw [4 x i8], ptr %448, i64 %indvars.iv288.i
   %450 = load i32, ptr %449, align 4, !tbaa !3
   %451 = trunc i32 %450 to i8
   %452 = getelementptr inbounds nuw i8, ptr %.8348114.us.i, i64 1

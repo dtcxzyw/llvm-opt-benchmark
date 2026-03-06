@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._longobject = type { %struct._object, %struct._PyLongValue }
 %struct._PyLongValue = type { i64, [1 x i32] }
 %struct.idarg_int64_converter_data = type { ptr, i64 }
-%struct.queue_id_and_info = type { i64, i32, i32 }
 %struct._PyXIData_lookup_context_t = type { ptr, ptr, ptr }
 
 @moduledef = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 552977039360 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @module_doc, i64 40, ptr @module_functions, ptr @module_slots, ptr @module_traverse, ptr @module_clear, ptr @module_free }, align 8
@@ -394,7 +393,7 @@ define internal ptr @queuesmod_list_all(ptr readnone captures(none) %0, ptr read
   %.03.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %.preheader.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.0214.i, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !46
-  %13 = getelementptr %struct.queue_id_and_info, ptr %9, i64 %.03.i
+  %13 = getelementptr [16 x i8], ptr %9, i64 %.03.i
   store i64 %12, ptr %13, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %.0214.i, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !49
@@ -467,7 +466,7 @@ define internal ptr @queuesmod_list_all(ptr readnone captures(none) %0, ptr read
 
 48:                                               ; preds = %35
   %.1.val = load ptr, ptr %34, align 8, !tbaa !56
-  %49 = getelementptr ptr, ptr %.1.val, i64 %.01936
+  %49 = getelementptr [8 x i8], ptr %.1.val, i64 %.01936
   store ptr %41, ptr %49, align 8, !tbaa !16
   %50 = getelementptr i8, ptr %.01837, i64 16
   %51 = add nuw nsw i64 %.01936, 1

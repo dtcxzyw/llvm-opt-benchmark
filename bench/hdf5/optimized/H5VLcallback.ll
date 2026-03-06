@@ -4040,7 +4040,7 @@ define range(i32 -1, 1) i32 @H5VLdataset_read(i64 noundef %0, ptr noundef %1, i6
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %.03042 = phi i64 [ %17, %16 ], [ 1, %.preheader ]
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %.03042
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03042
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %16, !prof !3
@@ -4291,7 +4291,7 @@ define range(i32 -1, 1) i32 @H5VLdataset_write(i64 noundef %0, ptr noundef %1, i
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %.03042 = phi i64 [ %17, %16 ], [ 1, %.preheader ]
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %.03042
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03042
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %16, !prof !3

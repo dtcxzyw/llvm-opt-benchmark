@@ -3316,7 +3316,7 @@ define noundef ptr @Z3_mk_sub(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
   %.03156 = phi ptr [ %19, %.lr.ph ], [ %28, %_Z11check_sortsP11_Z3_contextP3ast.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.03156, ptr %4, align 16, !tbaa !166
-  %25 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !172
   store ptr %26, ptr %20, align 8, !tbaa !166
   %27 = load ptr, ptr %21, align 8, !tbaa !157

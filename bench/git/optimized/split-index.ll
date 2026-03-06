@@ -134,7 +134,7 @@ init_split_index.exit:                            ; preds = %10, %18
 
 30:                                               ; preds = %.preheader, %32
   %.0811.i.i = phi i64 [ %33, %32 ], [ 0, %.preheader ]
-  %31 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %31 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %22, %31
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %32
 
@@ -367,7 +367,7 @@ copy_array.exit:                                  ; preds = %43, %st_mult.exit.i
 59:                                               ; preds = %59, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %59 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i
   %61 = load ptr, ptr %60, align 8, !tbaa !61
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 68
   %63 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -387,7 +387,7 @@ mark_base_index_entries.exit:                     ; preds = %59
 
 69:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !61
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 56
   %73 = load i32, ptr %72, align 8, !tbaa !29
@@ -436,7 +436,7 @@ define dso_local void @merge_base_index(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %13 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -514,7 +514,7 @@ copy_array.exit:                                  ; preds = %mark_base_index_ent
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
   %45 = phi ptr [ %.pre59, %.lr.ph.preheader ], [ %54, %52 ]
   %indvars.iv = phi i64 [ %44, %.lr.ph.preheader ], [ %indvars.iv.next, %52 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !61
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %49 = load i32, ptr %48, align 8, !tbaa !29
@@ -529,7 +529,7 @@ copy_array.exit:                                  ; preds = %mark_base_index_ent
 52:                                               ; preds = %.lr.ph
   %53 = tail call i32 @add_index_entry(ptr noundef nonnull %0, ptr noundef nonnull %47, i32 noundef 37) #12
   %54 = load ptr, ptr %19, align 8, !tbaa !65
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   store ptr null, ptr %55, align 8, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load i32, ptr %22, align 8, !tbaa !66
@@ -579,7 +579,7 @@ define internal void @replace_entry(i64 noundef %0, ptr noundef readonly capture
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %1, align 8, !tbaa !60
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %0
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %0
   %19 = load ptr, ptr %18, align 8, !tbaa !61
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load i32, ptr %20, align 8, !tbaa !29
@@ -596,7 +596,7 @@ define internal void @replace_entry(i64 noundef %0, ptr noundef readonly capture
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %27 = load ptr, ptr %26, align 8, !tbaa !65
   %28 = zext i32 %12 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !61
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %32 = load i32, ptr %31, align 8, !tbaa !29
@@ -653,7 +653,7 @@ define internal void @mark_entry_for_delete(i64 noundef %0, ptr noundef readonly
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %1, align 8, !tbaa !60
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %0
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %0
   %11 = load ptr, ptr %10, align 8, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i32, ptr %12, align 8, !tbaa !29
@@ -739,7 +739,7 @@ init_split_index.exit:                            ; preds = %1, %9
 .lr.ph:                                           ; preds = %.preheader148, %90
   %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %.preheader148 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !60
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !61
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 68
   %29 = load i32, ptr %28, align 4, !tbaa !29
@@ -765,7 +765,7 @@ init_split_index.exit:                            ; preds = %1, %9
   %40 = load ptr, ptr %31, align 8, !tbaa !60
   %41 = add i32 %29, -1
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !61
   %45 = icmp eq ptr %27, %44
   br i1 %45, label %46, label %53
@@ -867,7 +867,7 @@ compare_ce_content.exit:                          ; preds = %69
   %86 = load i32, ptr %28, align 4, !tbaa !29
   %87 = add i32 %86, -1
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %85, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %88
   store ptr %27, ptr %89, align 8, !tbaa !61
   br label %90
 
@@ -885,7 +885,7 @@ compare_ce_content.exit:                          ; preds = %69
   %.195164 = phi i32 [ 0, %.lr.ph166 ], [ %.296, %127 ]
   %.1102163 = phi i32 [ 0, %.lr.ph166 ], [ %.2103, %127 ]
   %96 = load ptr, ptr %95, align 8, !tbaa !60
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv187
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv187
   %98 = load ptr, ptr %97, align 8, !tbaa !61
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 56
   %100 = load i32, ptr %99, align 8, !tbaa !29
@@ -935,7 +935,7 @@ st_mult.exit:                                     ; preds = %111
   %.498 = phi i32 [ %., %st_mult.exit ], [ %.195164, %106 ]
   %.3 = phi ptr [ %118, %st_mult.exit ], [ %.1165, %106 ]
   %120 = sext i32 %.1102163 to i64
-  %121 = getelementptr inbounds ptr, ptr %.3, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %.3, i64 %120
   store ptr %98, ptr %121, align 8, !tbaa !61
   br label %122
 
@@ -978,7 +978,7 @@ st_mult.exit:                                     ; preds = %111
   %.599171 = phi i32 [ %.6100, %159 ], [ %.094, %.loopexit ]
   %.3104170 = phi i32 [ %.4105, %159 ], [ %.0101, %.loopexit ]
   %135 = load ptr, ptr %0, align 8, !tbaa !60
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv190
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv190
   %137 = load ptr, ptr %136, align 8, !tbaa !61
   %138 = load ptr, ptr %17, align 8, !tbaa !54
   %.not118 = icmp eq ptr %138, null
@@ -1024,7 +1024,7 @@ st_mult.exit146:                                  ; preds = %148
   %.8 = phi i32 [ %.140, %st_mult.exit146 ], [ %.599171, %146 ]
   %.6 = phi ptr [ %155, %st_mult.exit146 ], [ %.4172, %146 ]
   %157 = sext i32 %.3104170 to i64
-  %158 = getelementptr inbounds ptr, ptr %.6, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %.6, i64 %157
   store ptr %137, ptr %158, align 8, !tbaa !61
   br label %159
 
@@ -1181,7 +1181,7 @@ define dso_local void @save_or_free_index_entry(ptr noundef readonly captures(no
   %15 = load ptr, ptr %10, align 8, !tbaa !60
   %16 = add i32 %4, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !61
   %20 = icmp eq ptr %1, %19
   br i1 %20, label %21, label %25
@@ -1232,7 +1232,7 @@ define dso_local void @replace_index_entry_in_base(ptr noundef readonly captures
   %17 = load ptr, ptr %11, align 8, !tbaa !60
   %18 = add i32 %5, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !61
   %.not21 = icmp eq ptr %1, %21
   br i1 %.not21, label %23, label %22
@@ -1251,7 +1251,7 @@ define dso_local void @replace_index_entry_in_base(ptr noundef readonly captures
 23:                                               ; preds = %22, %15
   %.pre-phi27 = phi i64 [ %.pre26, %22 ], [ %19, %15 ]
   %24 = phi ptr [ %.pre23, %22 ], [ %17, %15 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.pre-phi27
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.pre-phi27
   store ptr %2, ptr %25, align 8, !tbaa !61
   br label %26
 

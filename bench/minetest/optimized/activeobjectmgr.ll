@@ -33,7 +33,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%class.DistanceSortedActiveObject = type <{ ptr, float, [4 x i8] }>
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<DistanceSortedActiveObject, std::allocator<DistanceSortedActiveObject>>::_Vector_impl" }
 %"struct.std::_Vector_base<DistanceSortedActiveObject, std::allocator<DistanceSortedActiveObject>>::_Vector_impl" = type { %"struct.std::_Vector_base<DistanceSortedActiveObject, std::allocator<DistanceSortedActiveObject>>::_Vector_impl_data" }
@@ -2183,7 +2182,7 @@ if.then.i59.i.i:                                  ; preds = %_ZNSt6vectorI26Dist
 _ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EE17_M_realloc_insertIJRP18ClientActiveObjectRfEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %if.then.i59.i.i, %_ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit58.i.i
   store ptr %call5.i.i.i.i.i48, ptr %dest, align 8, !tbaa !104
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !96
-  %add.ptr28.i.i = getelementptr inbounds nuw %class.DistanceSortedActiveObject, ptr %call5.i.i.i.i.i48, i64 %cond.i.i.i
+  %add.ptr28.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i48, i64 %cond.i.i.i
   store ptr %add.ptr28.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !91
   br label %cleanup24
 
@@ -2469,7 +2468,7 @@ if.then.i59.i.i:                                  ; preds = %_ZNSt6vectorI26Dist
 
 _ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EE17_M_realloc_insertIJRP18ClientActiveObjectRfEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %if.then.i59.i.i, %_ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit58.i.i
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !96
-  %add.ptr28.i.i = getelementptr inbounds nuw %class.DistanceSortedActiveObject, ptr %call5.i.i.i.i.i172, i64 %cond.i.i.i
+  %add.ptr28.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i172, i64 %cond.i.i.i
   store ptr %add.ptr28.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !91
   br label %cleanup81
 

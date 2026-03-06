@@ -5927,7 +5927,7 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 151:                                              ; preds = %144, %138
   %152 = getelementptr inbounds nuw i8, ptr %123, i64 400
   %153 = load ptr, ptr %152, align 8, !alias.scope !783, !noalias !786, !nonnull !4, !noundef !4
-  %154 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %153, i64 %141
+  %154 = getelementptr inbounds [104 x i8], ptr %153, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %154, ptr noundef nonnull readonly align 8 dereferenceable(104) %122, i64 104, i1 false), !noalias !790
   %155 = add i64 %141, 1
   store i64 %155, ptr %140, align 8, !alias.scope !783, !noalias !786
@@ -8709,7 +8709,7 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 151:                                              ; preds = %144, %138
   %152 = getelementptr inbounds nuw i8, ptr %123, i64 400
   %153 = load ptr, ptr %152, align 8, !alias.scope !1724, !noalias !1727, !nonnull !4, !noundef !4
-  %154 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %153, i64 %141
+  %154 = getelementptr inbounds [104 x i8], ptr %153, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %154, ptr noundef nonnull readonly align 8 dereferenceable(104) %122, i64 104, i1 false), !noalias !1730
   %155 = add i64 %141, 1
   store i64 %155, ptr %140, align 8, !alias.scope !1724, !noalias !1727
@@ -11653,7 +11653,7 @@ define void @"_ZN80_$LT$uv_cli..compat..PipListCompatArgs$u20$as$u20$clap_builde
 31:                                               ; preds = %24, %18
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 400
   %33 = load ptr, ptr %32, align 8, !alias.scope !2703, !noalias !2706, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %33, i64 %21
+  %34 = getelementptr inbounds [104 x i8], ptr %33, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %34, ptr noundef nonnull readonly align 8 dereferenceable(104) %16, i64 104, i1 false), !noalias !2709
   %35 = add i64 %21, 1
   store i64 %35, ptr %20, align 8, !alias.scope !2703, !noalias !2706
@@ -11943,7 +11943,7 @@ define void @"_ZN80_$LT$uv_cli..compat..PipListCompatArgs$u20$as$u20$clap_builde
 31:                                               ; preds = %24, %18
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 400
   %33 = load ptr, ptr %32, align 8, !alias.scope !2788, !noalias !2791, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %33, i64 %21
+  %34 = getelementptr inbounds [104 x i8], ptr %33, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %34, ptr noundef nonnull readonly align 8 dereferenceable(104) %16, i64 104, i1 false), !noalias !2794
   %35 = add i64 %21, 1
   store i64 %35, ptr %20, align 8, !alias.scope !2788, !noalias !2791
@@ -13852,7 +13852,7 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 89:                                               ; preds = %82, %76
   %90 = getelementptr inbounds nuw i8, ptr %68, i64 400
   %91 = load ptr, ptr %90, align 8, !alias.scope !3162, !noalias !3165, !nonnull !4, !noundef !4
-  %92 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %91, i64 %79
+  %92 = getelementptr inbounds [104 x i8], ptr %91, i64 %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %92, ptr noundef nonnull readonly align 8 dereferenceable(104) %67, i64 104, i1 false), !noalias !3168
   %93 = add i64 %79, 1
   store i64 %93, ptr %78, align 8, !alias.scope !3162, !noalias !3165
@@ -15363,7 +15363,7 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 89:                                               ; preds = %82, %76
   %90 = getelementptr inbounds nuw i8, ptr %68, i64 400
   %91 = load ptr, ptr %90, align 8, !alias.scope !3677, !noalias !3680, !nonnull !4, !noundef !4
-  %92 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %91, i64 %79
+  %92 = getelementptr inbounds [104 x i8], ptr %91, i64 %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %92, ptr noundef nonnull readonly align 8 dereferenceable(104) %67, i64 104, i1 false), !noalias !3683
   %93 = add i64 %79, 1
   store i64 %93, ptr %78, align 8, !alias.scope !3677, !noalias !3680
@@ -17585,7 +17585,7 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 67:                                               ; preds = %60, %54
   %68 = getelementptr inbounds nuw i8, ptr %49, i64 400
   %69 = load ptr, ptr %68, align 8, !alias.scope !4262, !noalias !4265, !nonnull !4, !noundef !4
-  %70 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %69, i64 %57
+  %70 = getelementptr inbounds [104 x i8], ptr %69, i64 %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %70, ptr noundef nonnull readonly align 8 dereferenceable(104) %48, i64 104, i1 false), !noalias !4268
   %71 = add i64 %57, 1
   store i64 %71, ptr %56, align 8, !alias.scope !4262, !noalias !4265
@@ -18587,7 +18587,7 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 67:                                               ; preds = %60, %54
   %68 = getelementptr inbounds nuw i8, ptr %49, i64 400
   %69 = load ptr, ptr %68, align 8, !alias.scope !4591, !noalias !4594, !nonnull !4, !noundef !4
-  %70 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %69, i64 %57
+  %70 = getelementptr inbounds [104 x i8], ptr %69, i64 %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %70, ptr noundef nonnull readonly align 8 dereferenceable(104) %48, i64 104, i1 false), !noalias !4597
   %71 = add i64 %57, 1
   store i64 %71, ptr %56, align 8, !alias.scope !4591, !noalias !4594
@@ -19941,7 +19941,7 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
 40:                                               ; preds = %33, %27
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 400
   %42 = load ptr, ptr %41, align 8, !alias.scope !4960, !noalias !4963, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %42, i64 %30
+  %43 = getelementptr inbounds [104 x i8], ptr %42, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %43, ptr noundef nonnull readonly align 8 dereferenceable(104) %24, i64 104, i1 false), !noalias !4966
   %44 = add i64 %30, 1
   store i64 %44, ptr %29, align 8, !alias.scope !4960, !noalias !4963
@@ -20409,7 +20409,7 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
 40:                                               ; preds = %33, %27
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 400
   %42 = load ptr, ptr %41, align 8, !alias.scope !5106, !noalias !5109, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %42, i64 %30
+  %43 = getelementptr inbounds [104 x i8], ptr %42, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %43, ptr noundef nonnull readonly align 8 dereferenceable(104) %24, i64 104, i1 false), !noalias !5112
   %44 = add i64 %30, 1
   store i64 %44, ptr %29, align 8, !alias.scope !5106, !noalias !5109
@@ -21201,7 +21201,7 @@ define void @"_ZN82_$LT$uv_cli..compat..PipGlobalCompatArgs$u20$as$u20$clap_buil
 31:                                               ; preds = %24, %18
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 400
   %33 = load ptr, ptr %32, align 8, !alias.scope !5292, !noalias !5295, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %33, i64 %21
+  %34 = getelementptr inbounds [104 x i8], ptr %33, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %34, ptr noundef nonnull readonly align 8 dereferenceable(104) %16, i64 104, i1 false), !noalias !5298
   %35 = add i64 %21, 1
   store i64 %35, ptr %20, align 8, !alias.scope !5292, !noalias !5295
@@ -21491,7 +21491,7 @@ define void @"_ZN82_$LT$uv_cli..compat..PipGlobalCompatArgs$u20$as$u20$clap_buil
 31:                                               ; preds = %24, %18
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 400
   %33 = load ptr, ptr %32, align 8, !alias.scope !5377, !noalias !5380, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %33, i64 %21
+  %34 = getelementptr inbounds [104 x i8], ptr %33, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %34, ptr noundef nonnull readonly align 8 dereferenceable(104) %16, i64 104, i1 false), !noalias !5383
   %35 = add i64 %21, 1
   store i64 %35, ptr %20, align 8, !alias.scope !5377, !noalias !5380

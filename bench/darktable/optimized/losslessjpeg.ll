@@ -3,15 +3,6 @@ source_filename = "bench/darktable/original/losslessjpeg.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.HuffTable = type <{ [17 x i32], [256 x i32], [256 x i32], i8, i8, [2 x i8], i32, [4 x i8], %"class.std::vector.5", %"class.std::vector.10", i8, [7 x i8] }>
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
-%"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.LibRaw_JpegComponentInfo = type { i32, i32, i32, i32, i32 }
 %struct.PseudoPump = type <{ %struct.BitPump, i64, i32, [4 x i8] }>
 %struct.BitPump = type { ptr }
@@ -404,9 +395,9 @@ _ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit:    ; preds = %_ZNSt6vectorI9HuffT
 
 107:                                              ; preds = %_ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit
   %108 = load ptr, ptr %70, align 8, !tbaa !42
-  %109 = getelementptr inbounds nuw %struct.HuffTable, ptr %108, i64 %indvars.iv
-  %110 = getelementptr inbounds nuw [17 x i32], ptr %5, i64 %indvars.iv
-  %111 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [2184 x i8], ptr %108, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [68 x i8], ptr %5, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 %indvars.iv
   call void @_ZN9HuffTable7initvalEPjS0_b(ptr noundef nonnull align 8 dereferenceable(2177) %109, ptr noundef nonnull %110, ptr noundef nonnull %111, i1 noundef zeroext %1)
   br label %112
 
@@ -950,7 +941,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit:                  ; preds = %.lr.ph56
 
 .preheader49:                                     ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit
   %37 = zext nneg i8 %35 to i64
-  %38 = getelementptr inbounds nuw [17 x i32], ptr %2, i64 %37
+  %38 = getelementptr inbounds nuw [68 x i8], ptr %2, i64 %37
   br label %41
 
 39:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit43
@@ -980,7 +971,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit43:                ; preds = %41
   store i32 %49, ptr %5, align 4, !tbaa !6
   %50 = zext i8 %48 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.next
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.next
   store i32 %50, ptr %51, align 4, !tbaa !71
   %52 = add i32 %.03251, %50
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -996,7 +987,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit43:                ; preds = %41
   br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %56 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 %37
+  %56 = getelementptr inbounds nuw [1024 x i8], ptr %3, i64 %37
   %wide.trip.count = zext nneg i32 %52 to i64
   br label %57
 
@@ -1020,7 +1011,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit45:                ; preds = %57
   %65 = add nuw i32 %58, 1
   store i32 %65, ptr %5, align 4, !tbaa !6
   %66 = zext i8 %64 to i32
-  %67 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv64
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv64
   store i32 %66, ptr %67, align 4, !tbaa !71
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
@@ -1125,7 +1116,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit40.us.us:          ; preds = %.lr.ph56.split.us.s
 
 40:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit40.us.us, %44
   %indvars.iv74 = phi i64 [ 0, %_ZN12ByteStreamBE6get_u8Ev.exit40.us.us ], [ %indvars.iv.next75, %44 ]
-  %41 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %27, i64 %indvars.iv74
+  %41 = getelementptr inbounds nuw [20 x i8], ptr %27, i64 %indvars.iv74
   %42 = load i32, ptr %41, align 4, !tbaa !64
   %43 = icmp eq i32 %42, %.03055.us.us
   br i1 %43, label %45, label %44
@@ -1152,7 +1143,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit42.us.us:          ; preds = %45
   %51 = lshr i8 %47, 4
   %52 = zext nneg i8 %51 to i32
   %53 = and i64 %indvars.iv74, 4294967295
-  %54 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %27, i64 %53
+  %54 = getelementptr inbounds nuw [20 x i8], ptr %27, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 %52, ptr %55, align 4, !tbaa !67
   %56 = add nuw i32 %.03055.us.us, 1
@@ -1176,7 +1167,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit40.us:             ; preds = %.lr.ph56.split.us.s
 
 62:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit40.us, %66
   %indvars.iv = phi i64 [ 0, %_ZN12ByteStreamBE6get_u8Ev.exit40.us ], [ %indvars.iv.next, %66 ]
-  %63 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %27, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [20 x i8], ptr %27, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !64
   %65 = icmp eq i32 %64, %61
   br i1 %65, label %67, label %66
@@ -1203,7 +1194,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit42.us:             ; preds = %67
   %73 = lshr i8 %69, 4
   %74 = zext nneg i8 %73 to i32
   %75 = and i64 %indvars.iv, 4294967295
-  %76 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %27, i64 %75
+  %76 = getelementptr inbounds nuw [20 x i8], ptr %27, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 %74, ptr %77, align 4, !tbaa !67
   %78 = add nuw i32 %.03055.us, 1
@@ -1305,7 +1296,7 @@ define void @_ZN9HuffTable7initvalEPjS0_b(ptr noundef nonnull align 8 dereferenc
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %16 ]
   %12 = phi i32 [ 16, %4 ], [ %17, %16 ]
   %13 = sub nuw nsw i64 16, %indvars.iv
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !71
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %18
@@ -1345,7 +1336,7 @@ define void @_ZN9HuffTable7initvalEPjS0_b(ptr noundef nonnull align 8 dereferenc
   br i1 %34, label %35, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i32, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %22
   %.not.i.i = icmp eq ptr %24, %36
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %37
 
@@ -1386,7 +1377,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %.03657 = phi i32 [ 0, %.preheader43.lr.ph ], [ %.137.lcssa, %._crit_edge54 ]
   %48 = add nuw nsw i32 %47, 1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %0, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !71
   %.not64 = icmp eq i32 %51, 0
   br i1 %.not64, label %._crit_edge54, label %.preheader.lr.ph
@@ -1415,8 +1406,8 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   br i1 %.not65, label %._crit_edge, label %.lr.ph49
 
 .lr.ph49:                                         ; preds = %.preheader
-  %62 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv74
-  %63 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv74
+  %62 = getelementptr inbounds [4 x i8], ptr %8, i64 %indvars.iv74
+  %63 = getelementptr inbounds [4 x i8], ptr %45, i64 %indvars.iv74
   %64 = sext i32 %.13751 to i64
   br label %76
 
@@ -1458,7 +1449,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %81 = load i32, ptr %63, align 4, !tbaa !71
   %82 = and i32 %81, 255
   %83 = or disjoint i32 %80, %82
-  %84 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv71
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv71
   store i32 %83, ptr %84, align 4, !tbaa !71
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
   %85 = add nuw nsw i32 %.03248, 1
@@ -1521,7 +1512,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   %114 = zext nneg i32 %113 to i64
   %115 = or disjoint i64 %114, 4294967296
   %116 = load ptr, ptr %94, align 8, !tbaa !43
-  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %indvars.iv77
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv77
   store i64 %115, ptr %117, align 8, !tbaa !94
   br label %118
 
@@ -1579,15 +1570,15 @@ define noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor16decode_ljpeg_422ERSt6v
   %32 = load i32, ptr %31, align 4, !tbaa !67
   %33 = zext i32 %32 to i64
   %34 = load ptr, ptr %28, align 8, !tbaa !42
-  %35 = getelementptr inbounds nuw %struct.HuffTable, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [2184 x i8], ptr %34, i64 %33
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !67
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.HuffTable, ptr %34, i64 %38
+  %39 = getelementptr inbounds nuw [2184 x i8], ptr %34, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %41 = load i32, ptr %40, align 4, !tbaa !67
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %struct.HuffTable, ptr %34, i64 %42
+  %43 = getelementptr inbounds nuw [2184 x i8], ptr %34, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 2176
   %45 = load i8, ptr %44, align 8, !tbaa !102, !range !55, !noundef !56
   %46 = trunc nuw i8 %45 to i1
@@ -1696,16 +1687,16 @@ define noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor16decode_ljpeg_422ERSt6v
   %111 = add i32 %105, %.06489
   %112 = select i1 %110, i32 %107, i32 %111
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw i16, ptr %19, i64 %113
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !111
   %116 = zext i16 %115 to i32
   %117 = add i32 %112, 1
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw i16, ptr %19, i64 %118
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !111
   %121 = add i32 %112, 2
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i16, ptr %19, i64 %122
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !111
   %125 = load i8, ptr %91, align 1, !tbaa !88, !range !55, !noundef !56
   %126 = trunc nuw i8 %125 to i1
@@ -1717,7 +1708,7 @@ define noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor16decode_ljpeg_422ERSt6v
   %130 = call noundef i32 %129(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
   %131 = zext i32 %130 to i64
   %132 = load ptr, ptr %92, align 8, !tbaa !43
-  %133 = getelementptr inbounds nuw i64, ptr %132, i64 %131
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %131
   %134 = load i64, ptr %133, align 8, !tbaa !94
   %135 = and i64 %134, 4294967296
   %.not.i = icmp eq i64 %135, 0
@@ -1772,7 +1763,7 @@ _ZN9HuffTable6decodeER7BitPump.exit:              ; preds = %144, %146, %151, %.
   %164 = call noundef i32 %163(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
   %165 = zext i32 %164 to i64
   %166 = load ptr, ptr %92, align 8, !tbaa !43
-  %167 = getelementptr inbounds nuw i64, ptr %166, i64 %165
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %165
   %168 = load i64, ptr %167, align 8, !tbaa !94
   %169 = and i64 %168, 4294967296
   %.not.i74 = icmp eq i64 %169, 0
@@ -1827,7 +1818,7 @@ _ZN9HuffTable6decodeER7BitPump.exit78:            ; preds = %178, %180, %185, %.
   %198 = call noundef i32 %197(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
   %199 = zext i32 %198 to i64
   %200 = load ptr, ptr %95, align 8, !tbaa !43
-  %201 = getelementptr inbounds nuw i64, ptr %200, i64 %199
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %199
   %202 = load i64, ptr %201, align 8, !tbaa !94
   %203 = and i64 %202, 4294967296
   %.not.i79 = icmp eq i64 %203, 0
@@ -1880,7 +1871,7 @@ _ZN9HuffTable6decodeER7BitPump.exit83:            ; preds = %212, %214, %219, %.
   %230 = call noundef i32 %229(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
   %231 = zext i32 %230 to i64
   %232 = load ptr, ptr %98, align 8, !tbaa !43
-  %233 = getelementptr inbounds nuw i64, ptr %232, i64 %231
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %231
   %234 = load i64, ptr %233, align 8, !tbaa !94
   %235 = and i64 %234, 4294967296
   %.not.i84 = icmp eq i64 %235, 0
@@ -1927,29 +1918,29 @@ _ZN9HuffTable6decodeER7BitPump.exit88:            ; preds = %244, %246, %251, %.
   %258 = add i32 %257, 3
   %259 = trunc i32 %158 to i16
   %260 = zext i32 %257 to i64
-  %261 = getelementptr inbounds nuw i16, ptr %19, i64 %260
+  %261 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %260
   store i16 %259, ptr %261, align 2, !tbaa !111
   %262 = add i16 %.0.i81, %120
   %263 = add i32 %257, 1
   %264 = zext i32 %263 to i64
-  %265 = getelementptr inbounds nuw i16, ptr %19, i64 %264
+  %265 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %264
   store i16 %262, ptr %265, align 2, !tbaa !111
   %266 = add i16 %.0.i86, %124
   %267 = add i32 %257, 2
   %268 = zext i32 %267 to i64
-  %269 = getelementptr inbounds nuw i16, ptr %19, i64 %268
+  %269 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %268
   store i16 %266, ptr %269, align 2, !tbaa !111
   %270 = trunc i32 %192 to i16
   %271 = zext i32 %258 to i64
-  %272 = getelementptr inbounds nuw i16, ptr %19, i64 %271
+  %272 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %271
   store i16 %270, ptr %272, align 2, !tbaa !111
   %273 = add i32 %257, 4
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds nuw i16, ptr %19, i64 %274
+  %275 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %274
   store i16 %262, ptr %275, align 2, !tbaa !111
   %276 = add i32 %257, 5
   %277 = zext i32 %276 to i64
-  %278 = getelementptr inbounds nuw i16, ptr %19, i64 %277
+  %278 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %277
   store i16 %266, ptr %278, align 2, !tbaa !111
   %279 = add i32 %.06489, 6
   %280 = icmp ult i32 %279, %2
@@ -1974,7 +1965,7 @@ define linkonce_odr noundef i32 @_ZN9HuffTable6decodeER7BitPump(ptr noundef nonn
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef 13)
   %11 = zext i32 %10 to i64
   %12 = load ptr, ptr %7, align 8, !tbaa !43
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load i64, ptr %13, align 8, !tbaa !94
   %15 = and i64 %14, 4294967296
   %.not = icmp eq i64 %15, 0
@@ -2044,7 +2035,7 @@ define linkonce_odr noundef i32 @_ZN9HuffTable12decode_slow2ER7BitPumpRj(ptr nou
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2128
   %10 = zext i32 %8 to i64
   %11 = load ptr, ptr %9, align 8, !tbaa !47
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %10
   %13 = load i32, ptr %12, align 4, !tbaa !71
   %14 = lshr i32 %13, 16
   %15 = and i32 %14, 255
@@ -2344,7 +2335,7 @@ define linkonce_odr noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr nound
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2128
   %9 = zext i32 %7 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !47
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !71
   %13 = lshr i32 %12, 16
   %14 = and i32 %13, 255
@@ -2685,9 +2676,9 @@ _ZNSt6vectorI9HuffTableSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseI9HuffTableSaIS0_EE13_M_deallocateEPS0_m.exit42: ; preds = %_ZNSt6vectorI9HuffTableSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %80
   store ptr %38, ptr %0, align 8, !tbaa !42
-  %84 = getelementptr inbounds nuw %struct.HuffTable, ptr %39, i64 %1
+  %84 = getelementptr inbounds nuw [2184 x i8], ptr %39, i64 %1
   store ptr %84, ptr %4, align 8, !tbaa !41
-  %85 = getelementptr inbounds nuw %struct.HuffTable, ptr %38, i64 %36
+  %85 = getelementptr inbounds nuw [2184 x i8], ptr %38, i64 %36
   store ptr %85, ptr %11, align 8, !tbaa !58
   br label %86
 
@@ -2842,7 +2833,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIP24LibRaw_JpegComponentInfoS1_SaIS0_EET
 _ZNSt12_Vector_baseI24LibRaw_JpegComponentInfoSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP24LibRaw_JpegComponentInfoS1_SaIS0_EET0_T_S4_S3_RT1_.exit34, %67
   store ptr %20, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !63
-  %71 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %20, i64 %16
+  %71 = getelementptr inbounds nuw [20 x i8], ptr %20, i64 %16
   store ptr %71, ptr %66, align 8, !tbaa !34
   ret void
 }
@@ -2936,9 +2927,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !47
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !87
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !50
   br label %41
 

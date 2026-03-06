@@ -844,7 +844,7 @@ define hidden void @zif_posix_getgroups(ptr noundef readonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !16
   %28 = zext i32 %27 to i64
   %29 = tail call i32 @add_next_index_long(ptr noundef nonnull %1, i64 noundef %28) #10
@@ -2056,7 +2056,7 @@ define hidden range(i32 0, 2) i32 @php_posix_group_to_array(ptr noundef readonly
   %20 = call i32 @add_next_index_string(ptr noundef nonnull %3, ptr noundef nonnull %.0.copyload32) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load ptr, ptr %18, align 8, !tbaa !51
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next
   %.0.copyload = load ptr, ptr %22, align 8
   %.not27 = icmp eq ptr %.0.copyload, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph

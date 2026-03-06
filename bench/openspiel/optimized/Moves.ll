@@ -10,16 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%"struct.Moves::moveStatType" = type { i32, i32, i32, i32 }
-%"struct.Moves::moveStatsType" = type { i32, [13 x %"struct.Moves::moveStatType"] }
-%struct.moveType = type { i32, i32, i32, i32 }
-%struct.highCardType = type { i32, i32 }
-%"struct.Moves::trackType" = type { i32, i32, [4 x i32], [4 x i32], %struct.trickDataType, [4 x %struct.extCard], [4 x i32], [4 x [4 x i32]], [4 x i32] }
-%struct.trickDataType = type { [4 x i32], i32, i32, i32, i32, i32 }
-%struct.extCard = type { i32, i32, i32 }
-%struct.movePlyType = type { [14 x %struct.moveType], i32, i32 }
-%struct.relRanksType = type { [15 x [4 x %struct.absRankType]] }
-%struct.absRankType = type { i8, i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -219,24 +209,24 @@ define void @_ZN5MovesC2Ev(ptr noundef nonnull align 8 dereferenceable(39992) %0
 
 .preheader:                                       ; preds = %.preheader51, %66
   %indvars.iv61 = phi i64 [ 0, %.preheader51 ], [ %indvars.iv.next62, %66 ]
-  %47 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 %indvars.iv61
-  %48 = getelementptr inbounds nuw [4 x %"struct.Moves::moveStatType"], ptr %43, i64 %indvars.iv61
-  %49 = getelementptr inbounds nuw [4 x %"struct.Moves::moveStatType"], ptr %44, i64 %indvars.iv61
-  %50 = getelementptr inbounds nuw [4 x %"struct.Moves::moveStatsType"], ptr %45, i64 %indvars.iv61
-  %51 = getelementptr inbounds nuw [4 x %"struct.Moves::moveStatsType"], ptr %46, i64 %indvars.iv61
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv61
+  %48 = getelementptr inbounds nuw [64 x i8], ptr %43, i64 %indvars.iv61
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 %indvars.iv61
+  %50 = getelementptr inbounds nuw [848 x i8], ptr %45, i64 %indvars.iv61
+  %51 = getelementptr inbounds nuw [848 x i8], ptr %46, i64 %indvars.iv61
   br label %52
 
 52:                                               ; preds = %.preheader, %65
   %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %65 ]
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv57
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv57
   store i32 13, ptr %53, align 4
-  %54 = getelementptr inbounds nuw %"struct.Moves::moveStatType", ptr %48, i64 %indvars.iv57
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv57
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds nuw %"struct.Moves::moveStatType", ptr %49, i64 %indvars.iv57
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv57
   store i32 0, ptr %55, align 8
-  %56 = getelementptr inbounds nuw %"struct.Moves::moveStatsType", ptr %50, i64 %indvars.iv57
+  %56 = getelementptr inbounds nuw [212 x i8], ptr %50, i64 %indvars.iv57
   store i32 0, ptr %56, align 4
-  %57 = getelementptr inbounds nuw %"struct.Moves::moveStatsType", ptr %51, i64 %indvars.iv57
+  %57 = getelementptr inbounds nuw [212 x i8], ptr %51, i64 %indvars.iv57
   store i32 0, ptr %57, align 4
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -244,9 +234,9 @@ define void @_ZN5MovesC2Ev(ptr noundef nonnull align 8 dereferenceable(39992) %0
 
 60:                                               ; preds = %52, %60
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw %"struct.Moves::moveStatType", ptr %58, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %indvars.iv
   store i32 0, ptr %61, align 4
-  %62 = getelementptr inbounds nuw %"struct.Moves::moveStatType", ptr %59, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv
   store i32 0, ptr %62, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
@@ -278,9 +268,9 @@ define void @_ZN5MovesC2Ev(ptr noundef nonnull align 8 dereferenceable(39992) %0
 
 72:                                               ; preds = %67, %72
   %indvars.iv65 = phi i64 [ 0, %67 ], [ %indvars.iv.next66, %72 ]
-  %73 = getelementptr inbounds nuw %"struct.Moves::moveStatType", ptr %70, i64 %indvars.iv65
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv65
   store i32 0, ptr %73, align 4
-  %74 = getelementptr inbounds nuw %"struct.Moves::moveStatType", ptr %71, i64 %indvars.iv65
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %indvars.iv65
   store i32 0, ptr %74, align 8
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 13
@@ -360,26 +350,26 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @partner, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @partner, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [4 x i16], ptr %1, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %8, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %8, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @highestRank, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @highestRank, i64 %14
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i32, ptr @rho, i64 %4
+  %17 = getelementptr inbounds [4 x i8], ptr @rho, i64 %4
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [4 x i16], ptr %1, i64 %19
-  %21 = getelementptr inbounds i16, ptr %20, i64 %11
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %19
+  %21 = getelementptr inbounds [2 x i8], ptr %20, i64 %11
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr @highestRank, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @highestRank, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %27 = load ptr, ptr %26, align 8
@@ -403,7 +393,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr noundef nonnull readonl
 36:                                               ; preds = %.lr.ph43, %36
   %indvars.iv46 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next47, %36 ]
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds nuw %struct.moveType, ptr %37, i64 %indvars.iv46
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv46
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = sub nsw i32 0, %40
@@ -416,9 +406,9 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr noundef nonnull readonl
   br i1 %45, label %36, label %.loopexit, !llvm.loop !9
 
 46:                                               ; preds = %2
-  %47 = getelementptr inbounds nuw i32, ptr @lowestRank, i64 %14
+  %47 = getelementptr inbounds nuw [4 x i8], ptr @lowestRank, i64 %14
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i32, ptr @lowestRank, i64 %23
+  %49 = getelementptr inbounds nuw [4 x i8], ptr @lowestRank, i64 %23
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.fr = freeze i32 %50
@@ -436,12 +426,12 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr noundef nonnull readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %57 = load i32, ptr %9, align 4
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i16, ptr %54, i64 %58
+  %59 = getelementptr inbounds [2 x i8], ptr %54, i64 %58
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i64
   %62 = getelementptr inbounds nuw [15 x i8], ptr @relRank, i64 %61
   %63 = load ptr, ptr %55, align 8
-  %64 = getelementptr inbounds nuw %struct.moveType, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
@@ -514,31 +504,31 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr noundef nonnull readonl
 define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @partner, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @partner, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [4 x i16], ptr %1, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %8, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %8, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @highestRank, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @highestRank, i64 %14
   %16 = load i32, ptr %15, align 4
   %.fr = freeze i32 %16
-  %17 = getelementptr inbounds i32, ptr @rho, i64 %4
+  %17 = getelementptr inbounds [4 x i8], ptr @rho, i64 %4
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [4 x i16], ptr %1, i64 %19
-  %21 = getelementptr inbounds i16, ptr %20, i64 %11
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %19
+  %21 = getelementptr inbounds [2 x i8], ptr %20, i64 %11
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr @highestRank, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @highestRank, i64 %23
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i32, ptr @lowestRank, i64 %14
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @lowestRank, i64 %14
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds nuw i32, ptr @lowestRank, i64 %23
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @lowestRank, i64 %23
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %invariant.smax = tail call i32 @llvm.smax.i32(i32 %25, i32 %.fr)
@@ -564,12 +554,12 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %216 ]
   %42 = load i32, ptr %9, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %33, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %33, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = zext i16 %45 to i64
   %47 = getelementptr inbounds nuw [15 x i8], ptr @relRank, i64 %46
   %48 = load ptr, ptr %34, align 8
-  %49 = getelementptr inbounds nuw %struct.moveType, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
@@ -606,7 +596,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
 70:                                               ; preds = %69
   %71 = load i32, ptr %0, align 8
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr @partner, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr @partner, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds [4 x i8], ptr %39, i64 %75
@@ -620,7 +610,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
   br i1 %38, label %82, label %.critedge
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds i32, ptr @rho, i64 %72
+  %83 = getelementptr inbounds [4 x i8], ptr @rho, i64 %72
   %84 = load i32, ptr %83, align 4
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds [4 x i8], ptr %39, i64 %85
@@ -640,7 +630,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
 92:                                               ; preds = %91
   %93 = load i32, ptr %0, align 8
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds i32, ptr @partner, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr @partner, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds [4 x i8], ptr %39, i64 %97
@@ -662,7 +652,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
 106:                                              ; preds = %105
   %107 = load i32, ptr %0, align 8
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i32, ptr @rho, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr @rho, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds [4 x i8], ptr %39, i64 %111
@@ -676,7 +666,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
   br i1 %.not94, label %117, label %.critedge107
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds i32, ptr @partner, i64 %108
+  %118 = getelementptr inbounds [4 x i8], ptr @partner, i64 %108
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds [4 x i8], ptr %39, i64 %120
@@ -686,11 +676,11 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
   br i1 %124, label %.critedge107, label %125
 
 125:                                              ; preds = %117
-  %126 = getelementptr inbounds [4 x i16], ptr %1, i64 %111
-  %127 = getelementptr inbounds i16, ptr %126, i64 %113
+  %126 = getelementptr inbounds [8 x i8], ptr %1, i64 %111
+  %127 = getelementptr inbounds [2 x i8], ptr %126, i64 %113
   %128 = load i16, ptr %127, align 2
-  %129 = getelementptr inbounds [4 x i16], ptr %1, i64 %120
-  %130 = getelementptr inbounds i16, ptr %129, i64 %113
+  %129 = getelementptr inbounds [8 x i8], ptr %1, i64 %120
+  %130 = getelementptr inbounds [2 x i8], ptr %129, i64 %113
   %131 = load i16, ptr %130, align 2
   %132 = icmp ugt i16 %128, %131
   br i1 %132, label %.critedge107, label %.critedge
@@ -701,7 +691,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
 134:                                              ; preds = %133
   %135 = load i32, ptr %0, align 8
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i32, ptr @rho, i64 %136
+  %137 = getelementptr inbounds [4 x i8], ptr @rho, i64 %136
   %138 = load i32, ptr %137, align 4
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds [4 x i8], ptr %39, i64 %139
@@ -712,11 +702,11 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
   br i1 %.not.not, label %.critedge, label %.critedge107
 
 144:                                              ; preds = %82
-  %145 = getelementptr inbounds [4 x i16], ptr %1, i64 %85
-  %146 = getelementptr inbounds i16, ptr %145, i64 %77
+  %145 = getelementptr inbounds [8 x i8], ptr %1, i64 %85
+  %146 = getelementptr inbounds [2 x i8], ptr %145, i64 %77
   %147 = load i16, ptr %146, align 2
-  %148 = getelementptr inbounds [4 x i16], ptr %1, i64 %75
-  %149 = getelementptr inbounds i16, ptr %148, i64 %77
+  %148 = getelementptr inbounds [8 x i8], ptr %1, i64 %75
+  %149 = getelementptr inbounds [2 x i8], ptr %148, i64 %77
   %150 = load i16, ptr %149, align 2
   %151 = icmp ugt i16 %147, %150
   br i1 %151, label %.critedge107, label %.critedge
@@ -738,14 +728,14 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
 158:                                              ; preds = %156
   %159 = load i32, ptr %0, align 8
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds [4 x i16], ptr %1, i64 %160
-  %162 = getelementptr inbounds i16, ptr %161, i64 %43
+  %161 = getelementptr inbounds [8 x i8], ptr %1, i64 %160
+  %162 = getelementptr inbounds [2 x i8], ptr %161, i64 %43
   %163 = load i16, ptr %162, align 2
-  %164 = getelementptr inbounds i32, ptr @rho, i64 %160
+  %164 = getelementptr inbounds [4 x i8], ptr @rho, i64 %160
   %165 = load i32, ptr %164, align 4
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds [4 x i16], ptr %1, i64 %166
-  %168 = getelementptr inbounds i16, ptr %167, i64 %43
+  %167 = getelementptr inbounds [8 x i8], ptr %1, i64 %166
+  %168 = getelementptr inbounds [2 x i8], ptr %167, i64 %43
   %169 = load i16, ptr %168, align 2
   %170 = icmp ugt i16 %163, %169
   br i1 %170, label %171, label %174
@@ -863,27 +853,27 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull read
 define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @rho, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @rho, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [4 x i16], ptr %1, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %8, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %8, i64 %11
   %13 = load i16, ptr %12, align 2
-  %14 = getelementptr inbounds i32, ptr @partner, i64 %4
+  %14 = getelementptr inbounds [4 x i8], ptr @partner, i64 %4
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [4 x i16], ptr %1, i64 %16
-  %18 = getelementptr inbounds i16, ptr %17, i64 %11
+  %17 = getelementptr inbounds [8 x i8], ptr %1, i64 %16
+  %18 = getelementptr inbounds [2 x i8], ptr %17, i64 %11
   %19 = load i16, ptr %18, align 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @bitMapRank, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = or i16 %26, %19
   %28 = icmp ugt i16 %13, %27
@@ -915,7 +905,7 @@ define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr noundef nonnull readonly a
 .sink.split:                                      ; preds = %40, %42
   %.sink51 = phi i64 [ 1484, %42 ], [ 1516, %40 ]
   %.sink48 = phi i32 [ -3, %42 ], [ -2, %40 ]
-  %43 = getelementptr %struct.highCardType, ptr %1, i64 %36
+  %43 = getelementptr [8 x i8], ptr %1, i64 %36
   %44 = getelementptr i8, ptr %43, i64 %.sink51
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %31
@@ -940,7 +930,7 @@ define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr noundef nonnull readonly a
 56:                                               ; preds = %.lr.ph39, %56
   %indvars.iv42 = phi i64 [ %55, %.lr.ph39 ], [ %indvars.iv.next43, %56 ]
   %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds %struct.moveType, ptr %57, i64 %indvars.iv42
+  %58 = getelementptr inbounds [16 x i8], ptr %57, i64 %indvars.iv42
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = sub nsw i32 %.029, %60
@@ -961,7 +951,7 @@ define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr noundef nonnull readonly a
   ]
 
 68:                                               ; preds = %66
-  %69 = getelementptr %struct.highCardType, ptr %1, i64 %36
+  %69 = getelementptr [8 x i8], ptr %1, i64 %36
   %70 = getelementptr i8, ptr %69, i64 1516
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, %31
@@ -970,7 +960,7 @@ define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr noundef nonnull readonly a
   br label %80
 
 74:                                               ; preds = %66
-  %75 = getelementptr %struct.highCardType, ptr %1, i64 %36
+  %75 = getelementptr [8 x i8], ptr %1, i64 %36
   %76 = getelementptr i8, ptr %75, i64 1484
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, %31
@@ -995,7 +985,7 @@ define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr noundef nonnull readonly a
 88:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ %87, %.lr.ph ], [ %indvars.iv.next, %88 ]
   %89 = load ptr, ptr %86, align 8
-  %90 = getelementptr inbounds %struct.moveType, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds [16 x i8], ptr %89, i64 %indvars.iv
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = sub nsw i32 %.028, %92
@@ -1033,25 +1023,25 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
 18:                                               ; preds = %2
   %19 = load i32, ptr %0, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr @rho, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr @rho, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [4 x i16], ptr %1, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %1, i64 %23
   %25 = sext i32 %14 to i64
-  %26 = getelementptr inbounds i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %24, i64 %25
   %27 = load i16, ptr %26, align 2
-  %28 = getelementptr inbounds i32, ptr @partner, i64 %20
+  %28 = getelementptr inbounds [4 x i8], ptr @partner, i64 %20
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [4 x i16], ptr %1, i64 %30
-  %32 = getelementptr inbounds i16, ptr %31, i64 %25
+  %31 = getelementptr inbounds [8 x i8], ptr %1, i64 %30
+  %32 = getelementptr inbounds [2 x i8], ptr %31, i64 %25
   %33 = load i16, ptr %32, align 2
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i16, ptr @bitMapRank, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = or i16 %40, %33
   %42 = icmp ugt i16 %27, %41
@@ -1071,7 +1061,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %46
-  %50 = getelementptr %struct.highCardType, ptr %1, i64 %10
+  %50 = getelementptr [8 x i8], ptr %1, i64 %10
   %51 = getelementptr i8, ptr %50, i64 1516
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, %5
@@ -1096,7 +1086,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
 63:                                               ; preds = %.lr.ph129, %63
   %indvars.iv148 = phi i64 [ %62, %.lr.ph129 ], [ %indvars.iv.next149, %63 ]
   %64 = load ptr, ptr %61, align 8
-  %65 = getelementptr inbounds %struct.moveType, ptr %64, i64 %indvars.iv148
+  %65 = getelementptr inbounds [16 x i8], ptr %64, i64 %indvars.iv148
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = sub nsw i32 %.076, %67
@@ -1112,7 +1102,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
   %.not = icmp eq i32 %9, %16
   %74 = load i32, ptr %0, align 8
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i32, ptr @partner, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr @partner, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds [4 x i8], ptr %3, i64 %78
@@ -1123,24 +1113,24 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
   br i1 %.not, label %198, label %83
 
 83:                                               ; preds = %73
-  %84 = getelementptr inbounds i32, ptr @rho, i64 %75
+  %84 = getelementptr inbounds [4 x i8], ptr @rho, i64 %75
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
   br i1 %.not80, label %131, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds [4 x i16], ptr %1, i64 %86
-  %89 = getelementptr inbounds i16, ptr %88, i64 %80
+  %88 = getelementptr inbounds [8 x i8], ptr %1, i64 %86
+  %89 = getelementptr inbounds [2 x i8], ptr %88, i64 %80
   %90 = load i16, ptr %89, align 2
-  %91 = getelementptr inbounds [4 x i16], ptr %1, i64 %78
-  %92 = getelementptr inbounds i16, ptr %91, i64 %80
+  %91 = getelementptr inbounds [8 x i8], ptr %1, i64 %78
+  %92 = getelementptr inbounds [2 x i8], ptr %91, i64 %80
   %93 = load i16, ptr %92, align 2
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 80
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i16, ptr @bitMapRank, i64 %98
+  %99 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = or i16 %100, %93
   %102 = icmp ugt i16 %90, %101
@@ -1186,7 +1176,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
   br i1 %124, label %125, label %180
 
 125:                                              ; preds = %120
-  %126 = getelementptr %struct.highCardType, ptr %1, i64 %10
+  %126 = getelementptr [8 x i8], ptr %1, i64 %10
   %127 = getelementptr i8, ptr %126, i64 1516
   %128 = load i32, ptr %127, align 4
   %129 = icmp eq i32 %128, %5
@@ -1206,12 +1196,12 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
   br label %149
 
 136:                                              ; preds = %131
-  %137 = getelementptr inbounds [4 x i16], ptr %1, i64 %86
+  %137 = getelementptr inbounds [8 x i8], ptr %1, i64 %86
   %138 = sext i32 %16 to i64
-  %139 = getelementptr inbounds i16, ptr %137, i64 %138
+  %139 = getelementptr inbounds [2 x i8], ptr %137, i64 %138
   %140 = load i16, ptr %139, align 2
-  %141 = getelementptr inbounds [4 x i16], ptr %1, i64 %78
-  %142 = getelementptr inbounds i16, ptr %141, i64 %138
+  %141 = getelementptr inbounds [8 x i8], ptr %1, i64 %78
+  %142 = getelementptr inbounds [2 x i8], ptr %141, i64 %138
   %143 = load i16, ptr %142, align 2
   %144 = icmp ugt i16 %140, %143
   br i1 %144, label %145, label %149
@@ -1232,15 +1222,15 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
   br i1 %152, label %153, label %169
 
 153:                                              ; preds = %149
-  %154 = getelementptr inbounds [4 x i16], ptr %1, i64 %86
-  %155 = getelementptr inbounds i16, ptr %154, i64 %80
+  %154 = getelementptr inbounds [8 x i8], ptr %1, i64 %86
+  %155 = getelementptr inbounds [2 x i8], ptr %154, i64 %80
   %156 = load i16, ptr %155, align 2
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 80
   %160 = load i32, ptr %159, align 4
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds i16, ptr @bitMapRank, i64 %161
+  %162 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %161
   %163 = load i16, ptr %162, align 2
   %164 = icmp ugt i16 %156, %163
   br i1 %164, label %165, label %169
@@ -1263,7 +1253,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
   br i1 %173, label %174, label %180
 
 174:                                              ; preds = %169
-  %175 = getelementptr %struct.highCardType, ptr %1, i64 %10
+  %175 = getelementptr [8 x i8], ptr %1, i64 %10
   %176 = getelementptr i8, ptr %175, i64 1516
   %177 = load i32, ptr %176, align 4
   %178 = icmp eq i32 %177, %5
@@ -1288,7 +1278,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
 188:                                              ; preds = %.lr.ph, %188
   %indvars.iv = phi i64 [ %187, %.lr.ph ], [ %indvars.iv.next, %188 ]
   %189 = load ptr, ptr %186, align 8
-  %190 = getelementptr inbounds %struct.moveType, ptr %189, i64 %indvars.iv
+  %190 = getelementptr inbounds [16 x i8], ptr %189, i64 %indvars.iv
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 4
   %192 = load i32, ptr %191, align 4
   %193 = sub nsw i32 %.1, %192
@@ -1324,7 +1314,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
 209:                                              ; preds = %.lr.ph123, %209
   %indvars.iv139 = phi i64 [ %208, %.lr.ph123 ], [ %indvars.iv.next140, %209 ]
   %210 = load ptr, ptr %207, align 8
-  %211 = getelementptr inbounds %struct.moveType, ptr %210, i64 %indvars.iv139
+  %211 = getelementptr inbounds [16 x i8], ptr %210, i64 %indvars.iv139
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
   %213 = load i32, ptr %212, align 4
   %214 = sub i32 %reass.sub84, %213
@@ -1337,7 +1327,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
   br i1 %218, label %209, label %.loopexit, !llvm.loop !16
 
 219:                                              ; preds = %198
-  %220 = getelementptr inbounds i32, ptr @rho, i64 %75
+  %220 = getelementptr inbounds [4 x i8], ptr @rho, i64 %75
   %221 = load i32, ptr %220, align 4
   %222 = sext i32 %221 to i64
   %223 = getelementptr inbounds [4 x i8], ptr %3, i64 %222
@@ -1353,11 +1343,11 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
   br i1 %.not81, label %258, label %230
 
 230:                                              ; preds = %227
-  %231 = getelementptr inbounds [4 x i16], ptr %1, i64 %222
-  %232 = getelementptr inbounds i16, ptr %231, i64 %10
+  %231 = getelementptr inbounds [8 x i8], ptr %1, i64 %222
+  %232 = getelementptr inbounds [2 x i8], ptr %231, i64 %10
   %233 = load i16, ptr %232, align 2
-  %234 = getelementptr inbounds [4 x i16], ptr %1, i64 %78
-  %235 = getelementptr inbounds i16, ptr %234, i64 %10
+  %234 = getelementptr inbounds [8 x i8], ptr %1, i64 %78
+  %235 = getelementptr inbounds [2 x i8], ptr %234, i64 %10
   %236 = load i16, ptr %235, align 2
   %237 = icmp ugt i16 %233, %236
   br i1 %237, label %238, label %258
@@ -1383,7 +1373,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
 248:                                              ; preds = %.lr.ph125, %248
   %indvars.iv142 = phi i64 [ %247, %.lr.ph125 ], [ %indvars.iv.next143, %248 ]
   %249 = load ptr, ptr %246, align 8
-  %250 = getelementptr inbounds %struct.moveType, ptr %249, i64 %indvars.iv142
+  %250 = getelementptr inbounds [16 x i8], ptr %249, i64 %indvars.iv142
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 4
   %252 = load i32, ptr %251, align 4
   %253 = sub i32 %reass.sub83, %252
@@ -1420,21 +1410,21 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
 271:                                              ; preds = %.lr.ph127, %303
   %indvars.iv145 = phi i64 [ %270, %.lr.ph127 ], [ %indvars.iv.next146, %303 ]
   %272 = load ptr, ptr %264, align 8
-  %273 = getelementptr inbounds %struct.moveType, ptr %272, i64 %indvars.iv145
+  %273 = getelementptr inbounds [16 x i8], ptr %272, i64 %indvars.iv145
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 4
   %275 = load i32, ptr %274, align 4
   %276 = sext i32 %275 to i64
-  %277 = getelementptr inbounds i16, ptr @bitMapRank, i64 %276
+  %277 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %276
   %278 = load i16, ptr %277, align 2
   %279 = load i32, ptr %0, align 8
   %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds i32, ptr @partner, i64 %280
+  %281 = getelementptr inbounds [4 x i8], ptr @partner, i64 %280
   %282 = load i32, ptr %281, align 4
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds [4 x i16], ptr %1, i64 %283
+  %284 = getelementptr inbounds [8 x i8], ptr %1, i64 %283
   %285 = load i32, ptr %15, align 4
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds i16, ptr %284, i64 %286
+  %287 = getelementptr inbounds [2 x i8], ptr %284, i64 %286
   %288 = load i16, ptr %287, align 2
   %289 = icmp ugt i16 %278, %288
   br i1 %289, label %290, label %292
@@ -1449,7 +1439,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
 293:                                              ; preds = %292
   %294 = load i32, ptr %8, align 8
   %295 = sext i32 %294 to i64
-  %296 = getelementptr %struct.highCardType, ptr %1, i64 %295
+  %296 = getelementptr [8 x i8], ptr %1, i64 %295
   %297 = getelementptr i8, ptr %296, i64 1516
   %298 = load i32, ptr %297, align 4
   %299 = load i32, ptr %4, align 8
@@ -1481,19 +1471,19 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonl
 define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @rho, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @rho, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [4 x i16], ptr %1, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %8, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %8, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @highestRank, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @highestRank, i64 %14
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds nuw i32, ptr @lowestRank, i64 %14
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @lowestRank, i64 %14
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 14968
   %20 = load ptr, ptr %19, align 8
@@ -1521,7 +1511,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonl
 .lr.ph65:                                         ; preds = %.preheader, %.lr.ph65
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph65 ], [ 0, %.preheader ]
   %35 = load ptr, ptr %19, align 8
-  %36 = getelementptr inbounds nuw %struct.moveType, ptr %35, i64 %indvars.iv75
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv75
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = sub nsw i32 0, %38
@@ -1552,7 +1542,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonl
   br i1 %48, label %49, label %.loopexit
 
 49:                                               ; preds = %._crit_edge66
-  %50 = getelementptr %struct.highCardType, ptr %1, i64 %.pre-phi
+  %50 = getelementptr [8 x i8], ptr %1, i64 %.pre-phi
   %51 = getelementptr i8, ptr %50, i64 1484
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1561,7 +1551,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonl
   br i1 %55, label %56, label %.loopexit
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds i32, ptr @rho, i64 %.pre-phi81
+  %57 = getelementptr inbounds [4 x i8], ptr @rho, i64 %.pre-phi81
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds [4 x i8], ptr %44, i64 %59
@@ -1569,7 +1559,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonl
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = add nsw i32 %63, -1
-  %65 = getelementptr inbounds i32, ptr @lho, i64 %.pre-phi81
+  %65 = getelementptr inbounds [4 x i8], ptr @lho, i64 %.pre-phi81
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds [4 x i8], ptr %44, i64 %67
@@ -1578,11 +1568,11 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonl
   %.not49 = icmp ugt i8 %62, %70
   %71 = zext i8 %70 to i32
   %spec.select = select i1 %.not49, i32 %64, i32 %71
-  %72 = getelementptr inbounds i32, ptr @partner, i64 %.pre-phi81
+  %72 = getelementptr inbounds [4 x i8], ptr @partner, i64 %.pre-phi81
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [4 x i16], ptr %1, i64 %74
-  %76 = getelementptr inbounds i16, ptr %75, i64 %.pre-phi
+  %75 = getelementptr inbounds [8 x i8], ptr %1, i64 %74
+  %76 = getelementptr inbounds [2 x i8], ptr %75, i64 %.pre-phi
   %77 = load i16, ptr %76, align 2
   %78 = load ptr, ptr %23, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 80
@@ -1600,7 +1590,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonl
 
 85:                                               ; preds = %84
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %86 = getelementptr inbounds nuw %struct.moveType, ptr %81, i64 %indvars.iv.next.i
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %indvars.iv.next.i
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = icmp sgt i32 %88, %80
@@ -1609,19 +1599,19 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonl
 .critedge.i:                                      ; preds = %85, %84
   %indvars.iv.i.lcssa = phi i64 [ %indvars.iv.i, %85 ], [ %smax, %84 ]
   %90 = zext i16 %77 to i64
-  %91 = getelementptr inbounds nuw %struct.moveGroupType, ptr @groupData, i64 %90
+  %91 = getelementptr inbounds nuw [116 x i8], ptr @groupData, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = getelementptr inbounds nuw i8, ptr %78, i64 204
-  %94 = getelementptr inbounds i32, ptr %93, i64 %.pre-phi
+  %94 = getelementptr inbounds [4 x i8], ptr %93, i64 %.pre-phi
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %80 to i64
-  %97 = getelementptr inbounds i16, ptr @bitMapRank, i64 %96
+  %97 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i32
   %100 = or i32 %95, %99
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 60
   %102 = sext i32 %92 to i64
-  %103 = getelementptr inbounds i32, ptr %101, i64 %102
+  %103 = getelementptr inbounds [4 x i8], ptr %101, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = getelementptr inbounds nuw i8, ptr %91, i64 88
   %106 = icmp sgt i32 %92, 0
@@ -1631,7 +1621,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonl
   %.027.i = phi i32 [ %117, %112 ], [ %104, %.critedge.i ]
   %.02426.i = phi i32 [ %113, %112 ], [ %92, %.critedge.i ]
   %107 = zext nneg i32 %.02426.i to i64
-  %108 = getelementptr inbounds nuw i32, ptr %105, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %107
   %109 = load i32, ptr %108, align 4
   %110 = and i32 %109, %100
   %111 = icmp eq i32 %110, %109
@@ -1640,7 +1630,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonl
 112:                                              ; preds = %.lr.ph.i
   %113 = add nsw i32 %.02426.i, -1
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw i32, ptr %101, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %114
   %116 = load i32, ptr %115, align 4
   %117 = or i32 %116, %.027.i
   %118 = icmp sgt i32 %.02426.i, 1
@@ -1649,7 +1639,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonl
 _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %112, %.critedge.i
   %.0.lcssa.i = phi i32 [ %104, %.critedge.i ], [ %.027.i, %.lr.ph.i ], [ %117, %112 ]
   %119 = sext i32 %.0.lcssa.i to i64
-  %120 = getelementptr inbounds i32, ptr @counttable, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr @counttable, i64 %119
   %121 = load i32, ptr %120, align 4
   %.not50.not = icmp slt i32 %spec.select, %121
   br i1 %.not50.not, label %122, label %.loopexit
@@ -1679,7 +1669,7 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %112, %.c
 .lr.ph63:                                         ; preds = %131, %.lr.ph63
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph63 ], [ 0, %131 ]
   %135 = load ptr, ptr %19, align 8
-  %136 = getelementptr inbounds nuw %struct.moveType, ptr %135, i64 %indvars.iv72
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %indvars.iv72
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %138 = load i32, ptr %137, align 4
   %139 = sub nsw i32 0, %138
@@ -1696,10 +1686,10 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %112, %.c
   br i1 %145, label %146, label %_ZNK5Moves13RankForcesAceEi.exit
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds nuw %struct.moveGroupType, ptr @groupData, i64 %14
+  %147 = getelementptr inbounds nuw [116 x i8], ptr @groupData, i64 %14
   %148 = load i32, ptr %147, align 4
   %149 = getelementptr inbounds nuw i8, ptr %24, i64 204
-  %150 = getelementptr inbounds i32, ptr %149, i64 %11
+  %150 = getelementptr inbounds [4 x i8], ptr %149, i64 %11
   %151 = load i32, ptr %150, align 4
   %152 = icmp sgt i32 %148, 0
   br i1 %152, label %.lr.ph.i55, label %.critedge.i52
@@ -1711,7 +1701,7 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %112, %.c
 154:                                              ; preds = %160, %.lr.ph.i55
   %.03241.i = phi i32 [ %148, %.lr.ph.i55 ], [ %161, %160 ]
   %155 = zext nneg i32 %.03241.i to i64
-  %156 = getelementptr inbounds nuw i32, ptr %153, i64 %155
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %155
   %157 = load i32, ptr %156, align 4
   %158 = and i32 %157, %151
   %159 = icmp eq i32 %158, %157
@@ -1729,7 +1719,7 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %112, %.c
 .critedge.thread.i:                               ; preds = %154, %.critedge.i52
   %.03240.i = phi i32 [ %148, %.critedge.i52 ], [ %.03241.i, %154 ]
   %163 = sext i32 %.03240.i to i64
-  %164 = getelementptr i32, ptr %147, i64 %163
+  %164 = getelementptr [4 x i8], ptr %147, i64 %163
   %165 = load i32, ptr %164, align 4
   %166 = icmp sgt i32 %165, %129
   br i1 %166, label %.preheader.i, label %178
@@ -1746,7 +1736,7 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %112, %.c
 
 170:                                              ; preds = %175, %.lr.ph48.i
   %indvars.iv54.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next55.i, %175 ]
-  %171 = getelementptr inbounds nuw %struct.moveType, ptr %20, i64 %indvars.iv54.i
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv54.i
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 4
   %173 = load i32, ptr %172, align 4
   %174 = icmp sgt i32 %173, %165
@@ -1782,7 +1772,7 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %112, %.c
 
 183:                                              ; preds = %188, %.lr.ph43.i
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph43.i ], [ %indvars.iv.next.i54, %188 ]
-  %184 = getelementptr inbounds nuw %struct.moveType, ptr %20, i64 %indvars.iv.i53
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv.i53
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
   %186 = load i32, ptr %185, align 4
   %187 = icmp sgt i32 %186, %129
@@ -1812,7 +1802,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %160, %.critedge4.lo
 .lr.ph:                                           ; preds = %_ZNK5Moves13RankForcesAceEi.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNK5Moves13RankForcesAceEi.exit ]
   %194 = load ptr, ptr %19, align 8
-  %195 = getelementptr inbounds nuw %struct.moveType, ptr %194, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [16 x i8], ptr %194, i64 %indvars.iv
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %197 = load i32, ptr %196, align 4
   %198 = load ptr, ptr %23, align 8
@@ -1838,7 +1828,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %160, %.critedge4.lo
 207:                                              ; preds = %._crit_edge
   %208 = load ptr, ptr %19, align 8
   %209 = sext i32 %.039 to i64
-  %210 = getelementptr inbounds %struct.moveType, ptr %208, i64 %209
+  %210 = getelementptr inbounds [16 x i8], ptr %208, i64 %209
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %207, %122
@@ -1857,20 +1847,20 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %160, %.critedge4.lo
 define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @rho, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @rho, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [4 x i16], ptr %1, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %8, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %8, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr @highestRank, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @highestRank, i64 %15
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds nuw i32, ptr @lowestRank, i64 %15
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @lowestRank, i64 %15
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 14968
   %21 = load ptr, ptr %20, align 8
@@ -1904,7 +1894,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull read
 .lr.ph197:                                        ; preds = %.preheader, %.lr.ph197
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %.lr.ph197 ], [ 0, %.preheader ]
   %40 = load ptr, ptr %20, align 8
-  %41 = getelementptr inbounds nuw %struct.moveType, ptr %40, i64 %indvars.iv248
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv248
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = sub nsw i32 0, %43
@@ -1935,7 +1925,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull read
 .lr.ph195:                                        ; preds = %55, %.lr.ph195
   %indvars.iv245 = phi i64 [ %indvars.iv.next246, %.lr.ph195 ], [ 0, %55 ]
   %59 = load ptr, ptr %20, align 8
-  %60 = getelementptr inbounds nuw %struct.moveType, ptr %59, i64 %indvars.iv245
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv245
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = sub nsw i32 0, %62
@@ -1960,7 +1950,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull read
 .lr.ph192:                                        ; preds = %.preheader146, %84
   %indvars.iv242 = phi i64 [ %indvars.iv.next243, %84 ], [ 0, %.preheader146 ]
   %73 = load ptr, ptr %20, align 8
-  %74 = getelementptr inbounds nuw %struct.moveType, ptr %73, i64 %indvars.iv242
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %indvars.iv242
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp sgt i32 %76, %17
@@ -1988,10 +1978,10 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull read
   br i1 %89, label %.lr.ph192, label %.loopexit, !llvm.loop !29
 
 90:                                               ; preds = %68
-  %91 = getelementptr inbounds nuw %struct.moveGroupType, ptr @groupData, i64 %15
+  %91 = getelementptr inbounds nuw [116 x i8], ptr @groupData, i64 %15
   %92 = load i32, ptr %91, align 4
   %93 = getelementptr inbounds nuw i8, ptr %28, i64 204
-  %94 = getelementptr inbounds i32, ptr %93, i64 %11
+  %94 = getelementptr inbounds [4 x i8], ptr %93, i64 %11
   %95 = load i32, ptr %94, align 4
   %96 = icmp sgt i32 %92, 0
   br i1 %96, label %.lr.ph.i, label %.critedge.i
@@ -2003,7 +1993,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull read
 98:                                               ; preds = %104, %.lr.ph.i
   %.03241.i = phi i32 [ %92, %.lr.ph.i ], [ %105, %104 ]
   %99 = zext nneg i32 %.03241.i to i64
-  %100 = getelementptr inbounds nuw i32, ptr %97, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, %95
   %103 = icmp eq i32 %102, %101
@@ -2021,7 +2011,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull read
 .critedge.thread.i:                               ; preds = %98, %.critedge.i
   %.03240.i = phi i32 [ %92, %.critedge.i ], [ %.03241.i, %98 ]
   %107 = sext i32 %.03240.i to i64
-  %108 = getelementptr i32, ptr %91, i64 %107
+  %108 = getelementptr [4 x i8], ptr %91, i64 %107
   %109 = load i32, ptr %108, align 4
   %110 = icmp sgt i32 %109, %53
   br i1 %110, label %.preheader.i, label %122
@@ -2038,7 +2028,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull read
 
 114:                                              ; preds = %119, %.lr.ph48.i
   %indvars.iv54.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next55.i, %119 ]
-  %115 = getelementptr inbounds nuw %struct.moveType, ptr %21, i64 %indvars.iv54.i
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv54.i
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %117 = load i32, ptr %116, align 4
   %118 = icmp sgt i32 %117, %109
@@ -2074,7 +2064,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull read
 
 127:                                              ; preds = %132, %.lr.ph43.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph43.i ], [ %indvars.iv.next.i, %132 ]
-  %128 = getelementptr inbounds nuw %struct.moveType, ptr %21, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %130 = load i32, ptr %129, align 4
   %131 = icmp sgt i32 %130, %53
@@ -2104,7 +2094,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
 .lr.ph189:                                        ; preds = %_ZNK5Moves13RankForcesAceEi.exit, %.lr.ph189
   %indvars.iv239 = phi i64 [ %indvars.iv.next240, %.lr.ph189 ], [ 0, %_ZNK5Moves13RankForcesAceEi.exit ]
   %138 = load ptr, ptr %20, align 8
-  %139 = getelementptr inbounds nuw %struct.moveType, ptr %138, i64 %indvars.iv239
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %indvars.iv239
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = load i32, ptr %140, align 4
   %142 = sub nsw i32 0, %141
@@ -2135,7 +2125,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
 .lr.ph187:                                        ; preds = %.preheader148, %.lr.ph187
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %.lr.ph187 ], [ 0, %.preheader148 ]
   %154 = load ptr, ptr %20, align 8
-  %155 = getelementptr inbounds nuw %struct.moveType, ptr %154, i64 %indvars.iv236
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %154, i64 %indvars.iv236
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %157 = load i32, ptr %156, align 4
   %158 = sub nsw i32 0, %157
@@ -2166,7 +2156,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
 .lr.ph185:                                        ; preds = %.preheader150, %.lr.ph185
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %.lr.ph185 ], [ 0, %.preheader150 ]
   %172 = load ptr, ptr %20, align 8
-  %173 = getelementptr inbounds nuw %struct.moveType, ptr %172, i64 %indvars.iv233
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %172, i64 %indvars.iv233
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 4
   %175 = load i32, ptr %174, align 4
   %176 = sub nsw i32 0, %175
@@ -2193,7 +2183,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
 .lr.ph183:                                        ; preds = %.preheader152, %.lr.ph183
   %indvars.iv230 = phi i64 [ %indvars.iv.next231, %.lr.ph183 ], [ 0, %.preheader152 ]
   %188 = load ptr, ptr %20, align 8
-  %189 = getelementptr inbounds nuw %struct.moveType, ptr %188, i64 %indvars.iv230
+  %189 = getelementptr inbounds nuw [16 x i8], ptr %188, i64 %indvars.iv230
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %191 = load i32, ptr %190, align 4
   %192 = sub nsw i32 0, %191
@@ -2224,7 +2214,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
 .lr.ph181:                                        ; preds = %203, %.lr.ph181
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %.lr.ph181 ], [ 0, %203 ]
   %207 = load ptr, ptr %20, align 8
-  %208 = getelementptr inbounds nuw %struct.moveType, ptr %207, i64 %indvars.iv227
+  %208 = getelementptr inbounds nuw [16 x i8], ptr %207, i64 %indvars.iv227
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 4
   %210 = load i32, ptr %209, align 4
   %211 = sub nsw i32 0, %210
@@ -2249,7 +2239,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
 .lr.ph178:                                        ; preds = %.preheader155, %.lr.ph178
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.lr.ph178 ], [ 0, %.preheader155 ]
   %221 = load ptr, ptr %20, align 8
-  %222 = getelementptr inbounds nuw %struct.moveType, ptr %221, i64 %indvars.iv224
+  %222 = getelementptr inbounds nuw [16 x i8], ptr %221, i64 %indvars.iv224
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 4
   %224 = load i32, ptr %223, align 4
   %225 = icmp sgt i32 %224, %17
@@ -2273,7 +2263,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
 .lr.ph175:                                        ; preds = %230, %.lr.ph175
   %indvars.iv221 = phi i64 [ %indvars.iv.next222, %.lr.ph175 ], [ 0, %230 ]
   %235 = load ptr, ptr %20, align 8
-  %236 = getelementptr inbounds nuw %struct.moveType, ptr %235, i64 %indvars.iv221
+  %236 = getelementptr inbounds nuw [16 x i8], ptr %235, i64 %indvars.iv221
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 4
   %238 = load i32, ptr %237, align 4
   %239 = load ptr, ptr %27, align 8
@@ -2308,7 +2298,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
 .lr.ph172:                                        ; preds = %.preheader157, %.lr.ph172
   %indvars.iv218 = phi i64 [ %indvars.iv.next219, %.lr.ph172 ], [ 0, %.preheader157 ]
   %252 = load ptr, ptr %20, align 8
-  %253 = getelementptr inbounds nuw %struct.moveType, ptr %252, i64 %indvars.iv218
+  %253 = getelementptr inbounds nuw [16 x i8], ptr %252, i64 %indvars.iv218
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 4
   %255 = load i32, ptr %254, align 4
   %256 = load ptr, ptr %27, align 8
@@ -2344,7 +2334,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
 .lr.ph170:                                        ; preds = %270, %.lr.ph170
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %.lr.ph170 ], [ 0, %270 ]
   %274 = load ptr, ptr %20, align 8
-  %275 = getelementptr inbounds nuw %struct.moveType, ptr %274, i64 %indvars.iv215
+  %275 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %indvars.iv215
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 4
   %277 = load i32, ptr %276, align 4
   %278 = sub nsw i32 0, %277
@@ -2369,7 +2359,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
 .lr.ph167:                                        ; preds = %.preheader160, %.lr.ph167
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %.lr.ph167 ], [ 0, %.preheader160 ]
   %288 = load ptr, ptr %20, align 8
-  %289 = getelementptr inbounds nuw %struct.moveType, ptr %288, i64 %indvars.iv212
+  %289 = getelementptr inbounds nuw [16 x i8], ptr %288, i64 %indvars.iv212
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 4
   %291 = load i32, ptr %290, align 4
   %292 = load ptr, ptr %27, align 8
@@ -2398,7 +2388,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
 .lr.ph:                                           ; preds = %301, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %301 ]
   %306 = load ptr, ptr %20, align 8
-  %307 = getelementptr inbounds nuw %struct.moveType, ptr %306, i64 %indvars.iv
+  %307 = getelementptr inbounds nuw [16 x i8], ptr %306, i64 %indvars.iv
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 4
   %309 = load i32, ptr %308, align 4
   %310 = load ptr, ptr %27, align 8
@@ -2425,7 +2415,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %104, %.critedge.i, 
   %.sink304 = phi i32 [ %231, %._crit_edge176 ], [ %.031.i, %._crit_edge190 ], [ %302, %._crit_edge ]
   %319 = load ptr, ptr %20, align 8
   %320 = sext i32 %.sink304 to i64
-  %321 = getelementptr inbounds %struct.moveType, ptr %319, i64 %320
+  %321 = getelementptr inbounds [16 x i8], ptr %319, i64 %320
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 12
   %323 = load i32, ptr %322, align 4
   %324 = add nsw i32 %323, 20
@@ -2458,7 +2448,7 @@ define void @_ZN5Moves18WeightAllocNTVoid2ERK3pos(ptr noundef nonnull readonly a
   ]
 
 15:                                               ; preds = %2
-  %16 = getelementptr %struct.highCardType, ptr %1, i64 %10
+  %16 = getelementptr [8 x i8], ptr %1, i64 %10
   %17 = getelementptr i8, ptr %16, i64 1516
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %5
@@ -2467,7 +2457,7 @@ define void @_ZN5Moves18WeightAllocNTVoid2ERK3pos(ptr noundef nonnull readonly a
   br label %27
 
 21:                                               ; preds = %2
-  %22 = getelementptr %struct.highCardType, ptr %1, i64 %10
+  %22 = getelementptr [8 x i8], ptr %1, i64 %10
   %23 = getelementptr i8, ptr %22, i64 1484
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, %5
@@ -2492,7 +2482,7 @@ define void @_ZN5Moves18WeightAllocNTVoid2ERK3pos(ptr noundef nonnull readonly a
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds %struct.moveType, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds [16 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = sub nsw i32 %.013, %39
@@ -2522,17 +2512,17 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonl
   %12 = load i8, ptr %11, align 1
   %13 = load i32, ptr %0, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr @rho, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr @rho, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [4 x i16], ptr %1, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %1, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %18, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %18, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @highestRank, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @highestRank, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %28 = load i32, ptr %27, align 4
@@ -2561,7 +2551,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonl
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ %39, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr inbounds %struct.moveType, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = sub nsw i32 %.zext88, %44
@@ -2614,7 +2604,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonl
 74:                                               ; preds = %.lr.ph100, %74
   %indvars.iv112 = phi i64 [ %73, %.lr.ph100 ], [ %indvars.iv.next113, %74 ]
   %75 = load ptr, ptr %72, align 8
-  %76 = getelementptr inbounds %struct.moveType, ptr %75, i64 %indvars.iv112
+  %76 = getelementptr inbounds [16 x i8], ptr %75, i64 %indvars.iv112
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = sub i32 -50, %78
@@ -2666,7 +2656,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonl
 
 103:                                              ; preds = %97
   %104 = load ptr, ptr %90, align 8
-  %105 = getelementptr inbounds %struct.moveType, ptr %104, i64 %indvars.iv109
+  %105 = getelementptr inbounds [16 x i8], ptr %104, i64 %indvars.iv109
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = getelementptr inbounds nuw i8, ptr %98, i64 92
@@ -2677,7 +2667,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonl
 111:                                              ; preds = %103
   %112 = load i32, ptr %8, align 8
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i16, ptr %93, i64 %113
+  %114 = getelementptr inbounds [2 x i8], ptr %93, i64 %113
   %115 = load i16, ptr %114, align 2
   %116 = zext i16 %115 to i64
   %117 = getelementptr inbounds nuw [15 x i8], ptr @relRank, i64 %116
@@ -2702,13 +2692,13 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonl
 129:                                              ; preds = %128
   %130 = load i32, ptr %19, align 4
   %131 = sext i32 %130 to i64
-  %132 = getelementptr %struct.highCardType, ptr %1, i64 %131
+  %132 = getelementptr [8 x i8], ptr %1, i64 %131
   %133 = getelementptr i8, ptr %132, i64 1516
   %134 = load i32, ptr %133, align 4
   %135 = load i32, ptr %0, align 8
   %136 = icmp eq i32 %134, %135
   %137 = load ptr, ptr %90, align 8
-  %138 = getelementptr inbounds %struct.moveType, ptr %137, i64 %indvars.iv109
+  %138 = getelementptr inbounds [16 x i8], ptr %137, i64 %indvars.iv109
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %140 = load i32, ptr %139, align 4
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 12
@@ -2726,20 +2716,20 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonl
 
 146:                                              ; preds = %128
   %147 = load ptr, ptr %90, align 8
-  %148 = getelementptr inbounds %struct.moveType, ptr %147, i64 %indvars.iv109
+  %148 = getelementptr inbounds [16 x i8], ptr %147, i64 %indvars.iv109
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i16, ptr @bitMapRank, i64 %151
+  %152 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %151
   %153 = load i16, ptr %152, align 2
   %154 = load i32, ptr %0, align 8
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i32, ptr @rho, i64 %155
+  %156 = getelementptr inbounds [4 x i8], ptr @rho, i64 %155
   %157 = load i32, ptr %156, align 4
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds [4 x i16], ptr %1, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %1, i64 %158
   %160 = sext i32 %101 to i64
-  %161 = getelementptr inbounds i16, ptr %159, i64 %160
+  %161 = getelementptr inbounds [2 x i8], ptr %159, i64 %160
   %162 = load i16, ptr %161, align 2
   %163 = icmp ugt i16 %153, %162
   %164 = getelementptr inbounds nuw i8, ptr %148, i64 12
@@ -2757,7 +2747,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonl
 
 169:                                              ; preds = %124
   %170 = load ptr, ptr %90, align 8
-  %171 = getelementptr inbounds %struct.moveType, ptr %170, i64 %indvars.iv109
+  %171 = getelementptr inbounds [16 x i8], ptr %170, i64 %indvars.iv109
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 4
   %173 = load i32, ptr %172, align 4
   br i1 %.not65, label %177, label %174
@@ -2770,16 +2760,16 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonl
 
 177:                                              ; preds = %169
   %178 = sext i32 %173 to i64
-  %179 = getelementptr inbounds i16, ptr @bitMapRank, i64 %178
+  %179 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %178
   %180 = load i16, ptr %179, align 2
   %181 = load i32, ptr %0, align 8
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds i32, ptr @rho, i64 %182
+  %183 = getelementptr inbounds [4 x i8], ptr @rho, i64 %182
   %184 = load i32, ptr %183, align 4
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds [4 x i16], ptr %1, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %1, i64 %185
   %187 = sext i32 %101 to i64
-  %188 = getelementptr inbounds i16, ptr %186, i64 %187
+  %188 = getelementptr inbounds [2 x i8], ptr %186, i64 %187
   %189 = load i16, ptr %188, align 2
   %190 = icmp ugt i16 %180, %189
   %191 = getelementptr inbounds nuw i8, ptr %171, i64 12
@@ -2842,7 +2832,7 @@ define void @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos(ptr noundef nonnull r
 22:                                               ; preds = %.lr.ph17, %22
   %indvars.iv20 = phi i64 [ 0, %.lr.ph17 ], [ %indvars.iv.next21, %22 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw %struct.moveType, ptr %23, i64 %indvars.iv20
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv20
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = sub nsw i32 0, %26
@@ -2867,7 +2857,7 @@ define void @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos(ptr noundef nonnull r
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %38 = load ptr, ptr %36, align 8
-  %39 = getelementptr inbounds nuw %struct.moveType, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %3, align 8
@@ -2910,7 +2900,7 @@ define void @_ZN5Moves18WeightAllocNTVoid3ERK3pos(ptr noundef nonnull readonly a
   ]
 
 15:                                               ; preds = %2
-  %16 = getelementptr %struct.highCardType, ptr %1, i64 %10
+  %16 = getelementptr [8 x i8], ptr %1, i64 %10
   %17 = getelementptr i8, ptr %16, i64 1516
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %5
@@ -2919,7 +2909,7 @@ define void @_ZN5Moves18WeightAllocNTVoid3ERK3pos(ptr noundef nonnull readonly a
   br label %27
 
 21:                                               ; preds = %2
-  %22 = getelementptr %struct.highCardType, ptr %1, i64 %10
+  %22 = getelementptr [8 x i8], ptr %1, i64 %10
   %23 = getelementptr i8, ptr %22, i64 1484
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, %5
@@ -2944,7 +2934,7 @@ define void @_ZN5Moves18WeightAllocNTVoid3ERK3pos(ptr noundef nonnull readonly a
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds %struct.moveType, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds [16 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = sub nsw i32 %.013, %39
@@ -2980,7 +2970,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr noundef nonnull readonl
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %2
-  %17 = getelementptr %struct.highCardType, ptr %1, i64 %10
+  %17 = getelementptr [8 x i8], ptr %1, i64 %10
   %18 = getelementptr i8, ptr %17, i64 1516
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %5
@@ -3013,7 +3003,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr noundef nonnull readonl
 36:                                               ; preds = %.lr.ph77, %36
   %indvars.iv100 = phi i64 [ %35, %.lr.ph77 ], [ %indvars.iv.next101, %36 ]
   %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds %struct.moveType, ptr %37, i64 %indvars.iv100
+  %38 = getelementptr inbounds [16 x i8], ptr %37, i64 %indvars.iv100
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = sub nsw i32 %.045, %40
@@ -3054,7 +3044,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr noundef nonnull readonl
 62:                                               ; preds = %.lr.ph75, %62
   %indvars.iv97 = phi i64 [ %61, %.lr.ph75 ], [ %indvars.iv.next98, %62 ]
   %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr inbounds %struct.moveType, ptr %63, i64 %indvars.iv97
+  %64 = getelementptr inbounds [16 x i8], ptr %63, i64 %indvars.iv97
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = sub i32 %reass.sub55, %66
@@ -3078,7 +3068,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr noundef nonnull readonl
 75:                                               ; preds = %.lr.ph73, %75
   %indvars.iv94 = phi i64 [ %74, %.lr.ph73 ], [ %indvars.iv.next95, %75 ]
   %76 = load ptr, ptr %73, align 8
-  %77 = getelementptr inbounds %struct.moveType, ptr %76, i64 %indvars.iv94
+  %77 = getelementptr inbounds [16 x i8], ptr %76, i64 %indvars.iv94
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = sub i32 %reass.sub54, %79
@@ -3118,12 +3108,12 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr noundef nonnull readonl
   %indvars.iv91 = phi i64 [ %99, %.lr.ph71 ], [ %indvars.iv.next92, %100 ]
   %101 = load i32, ptr %8, align 8
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i16, ptr %97, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %97, i64 %102
   %104 = load i16, ptr %103, align 2
   %105 = zext i16 %104 to i64
   %106 = getelementptr inbounds nuw [15 x i8], ptr @relRank, i64 %105
   %107 = load ptr, ptr %98, align 8
-  %108 = getelementptr inbounds %struct.moveType, ptr %107, i64 %indvars.iv91
+  %108 = getelementptr inbounds [16 x i8], ptr %107, i64 %indvars.iv91
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
@@ -3156,7 +3146,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr noundef nonnull readonl
 127:                                              ; preds = %.lr.ph69, %127
   %indvars.iv88 = phi i64 [ %126, %.lr.ph69 ], [ %indvars.iv.next89, %127 ]
   %128 = load ptr, ptr %125, align 8
-  %129 = getelementptr inbounds %struct.moveType, ptr %128, i64 %indvars.iv88
+  %129 = getelementptr inbounds [16 x i8], ptr %128, i64 %indvars.iv88
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4
   %132 = sub i32 %reass.sub53, %131
@@ -3184,12 +3174,12 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr noundef nonnull readonl
   %indvars.iv85 = phi i64 [ %141, %.lr.ph67 ], [ %indvars.iv.next86, %142 ]
   %143 = load i32, ptr %8, align 8
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i16, ptr %139, i64 %144
+  %145 = getelementptr inbounds [2 x i8], ptr %139, i64 %144
   %146 = load i16, ptr %145, align 2
   %147 = zext i16 %146 to i64
   %148 = getelementptr inbounds nuw [15 x i8], ptr @relRank, i64 %147
   %149 = load ptr, ptr %140, align 8
-  %150 = getelementptr inbounds %struct.moveType, ptr %149, i64 %indvars.iv85
+  %150 = getelementptr inbounds [16 x i8], ptr %149, i64 %indvars.iv85
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = sext i32 %152 to i64
@@ -3217,7 +3207,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr noundef nonnull readonl
 165:                                              ; preds = %.lr.ph, %165
   %indvars.iv = phi i64 [ %164, %.lr.ph ], [ %indvars.iv.next, %165 ]
   %166 = load ptr, ptr %163, align 8
-  %167 = getelementptr inbounds %struct.moveType, ptr %166, i64 %indvars.iv
+  %167 = getelementptr inbounds [16 x i8], ptr %166, i64 %indvars.iv
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %169 = load i32, ptr %168, align 4
   %170 = sub i32 %reass.sub, %169
@@ -3264,7 +3254,7 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 capture
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds %"struct.Moves::trackType", ptr %13, i64 %14
+  %15 = getelementptr inbounds [220 x i8], ptr %13, i64 %14
   store i32 %7, ptr %15, align 4
   br label %16
 
@@ -3274,18 +3264,18 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 capture
 
 .preheader44:                                     ; preds = %16, %26
   %indvars.iv52 = phi i64 [ 0, %16 ], [ %indvars.iv.next53, %26 ]
-  %18 = getelementptr inbounds nuw [4 x %struct.movePlyType], ptr %17, i64 %indvars.iv52
+  %18 = getelementptr inbounds nuw [928 x i8], ptr %17, i64 %indvars.iv52
   br label %22
 
 .preheader43:                                     ; preds = %26
   %19 = sext i32 %1 to i64
-  %20 = getelementptr %"struct.Moves::trackType", ptr %0, i64 %19
+  %20 = getelementptr [220 x i8], ptr %0, i64 %19
   %21 = getelementptr i8, ptr %20, i64 240
   br label %27
 
 22:                                               ; preds = %.preheader44, %22
   %indvars.iv = phi i64 [ 0, %.preheader44 ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw %struct.movePlyType, ptr %18, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [232 x i8], ptr %18, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 224
   store i32 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 228
@@ -3301,7 +3291,7 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 capture
 
 27:                                               ; preds = %.preheader43, %27
   %indvars.iv56 = phi i64 [ 0, %.preheader43 ], [ %indvars.iv.next57, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv56
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv56
   store i32 65535, ptr %28, align 4
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 4
@@ -3309,7 +3299,7 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 capture
 
 .preheader41:                                     ; preds = %27, %38
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %38 ], [ 0, %27 ]
-  %29 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 %indvars.iv64
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv64
   br label %31
 
 .preheader:                                       ; preds = %38
@@ -3322,10 +3312,10 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 capture
 
 31:                                               ; preds = %.preheader41, %31
   %indvars.iv60 = phi i64 [ 0, %.preheader41 ], [ %indvars.iv.next61, %31 ]
-  %32 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv60
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv60
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
-  %35 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv60
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv60
   %36 = load i32, ptr %35, align 4
   %37 = xor i32 %36, %34
   store i32 %37, ptr %35, align 4
@@ -3340,16 +3330,16 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 capture
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv68 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next69, %39 ]
-  %40 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv68
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv68
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv68
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv68
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i16, ptr @bitMapRank, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
   %48 = sext i32 %41 to i64
-  %49 = getelementptr inbounds i32, ptr %21, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %21, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = xor i32 %50, %47
   store i32 %51, ptr %49, align 4
@@ -3365,7 +3355,7 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 capture
 define void @_ZN5Moves6ReinitEii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"struct.Moves::trackType", ptr %4, i64 %5
+  %6 = getelementptr inbounds [220 x i8], ptr %4, i64 %5
   store i32 %2, ptr %6, align 4
   ret void
 }
@@ -3374,7 +3364,7 @@ define void @_ZN5Moves6ReinitEii(ptr noundef nonnull writeonly align 8 captures(
 define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(1544) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #4 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %"struct.Moves::trackType", ptr %7, i64 %8
+  %9 = getelementptr inbounds [220 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   store ptr %9, ptr %10, align 8
   %11 = load i32, ptr %9, align 4
@@ -3384,7 +3374,7 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2904
-  %15 = getelementptr inbounds [4 x %struct.movePlyType], ptr %14, i64 %8
+  %15 = getelementptr inbounds [928 x i8], ptr %14, i64 %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 14968
   store ptr %15, ptr %16, align 8
   br label %17
@@ -3393,7 +3383,7 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %17 ]
   %18 = load ptr, ptr %10, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 140
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store i32 0, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3410,7 +3400,7 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 1480
   %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds %struct.highCardType, ptr %26, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp ne i32 %29, 0
   br label %31
@@ -3426,9 +3416,9 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   %storemerge56 = phi i32 [ 0, %31 ], [ %97, %95 ]
   %36 = load i32, ptr %0, align 8
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [4 x i16], ptr %2, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %37
   %39 = sext i32 %storemerge56 to i64
-  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %38, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = icmp eq i16 %41, 0
   br i1 %42, label %95, label %43
@@ -3437,11 +3427,11 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   %44 = load i32, ptr %22, align 4
   store i32 %44, ptr %34, align 8
   %45 = zext i16 %41 to i64
-  %46 = getelementptr inbounds nuw %struct.moveGroupType, ptr @groupData, i64 %45
+  %46 = getelementptr inbounds nuw [116 x i8], ptr @groupData, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = load ptr, ptr %10, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 204
-  %50 = getelementptr inbounds i32, ptr %49, i64 %39
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %39
   %51 = load i32, ptr %50, align 4
   %52 = icmp sgt i32 %47, -1
   br i1 %52, label %.lr.ph55, label %._crit_edge
@@ -3457,9 +3447,9 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   %58 = phi i32 [ %44, %.lr.ph55 ], [ %90, %.critedge ]
   %.054 = phi i32 [ %47, %.lr.ph55 ], [ %91, %.critedge ]
   %59 = zext nneg i32 %.054 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %53, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %59
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds nuw i32, ptr %54, i64 %59
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %59
   %63 = load i32, ptr %62, align 4
   %.not4547 = icmp eq i32 %.054, 0
   br i1 %.not4547, label %.critedge, label %.lr.ph
@@ -3468,7 +3458,7 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   %.149 = phi i32 [ %70, %69 ], [ %.054, %57 ]
   %.04048 = phi i32 [ %74, %69 ], [ %63, %57 ]
   %64 = zext nneg i32 %.149 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %55, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, %51
   %68 = icmp eq i32 %67, %66
@@ -3477,7 +3467,7 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
 69:                                               ; preds = %.lr.ph
   %70 = add nsw i32 %.149, -1
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %56, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = or i32 %73, %.04048
   %.not45 = icmp eq i32 %70, 0
@@ -3488,19 +3478,19 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   %.1.lcssa = phi i32 [ 0, %57 ], [ 0, %69 ], [ %.149, %.lr.ph ]
   %75 = load ptr, ptr %16, align 8
   %76 = sext i32 %58 to i64
-  %77 = getelementptr inbounds %struct.moveType, ptr %75, i64 %76
+  %77 = getelementptr inbounds [16 x i8], ptr %75, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i32 %.040.lcssa, ptr %78, align 4
   %79 = load i32, ptr %33, align 8
   %80 = load ptr, ptr %16, align 8
   %81 = load i32, ptr %22, align 4
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.moveType, ptr %80, i64 %82
+  %83 = getelementptr inbounds [16 x i8], ptr %80, i64 %82
   store i32 %79, ptr %83, align 4
   %84 = load ptr, ptr %16, align 8
   %85 = load i32, ptr %22, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %struct.moveType, ptr %84, i64 %86
+  %87 = getelementptr inbounds [16 x i8], ptr %84, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store i32 %61, ptr %88, align 4
   %89 = load i32, ptr %22, align 4
@@ -3556,13 +3546,13 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr @lho, i64 %8
+  %12 = getelementptr inbounds [4 x i8], ptr @lho, i64 %8
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [4 x i8], ptr %6, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 %11
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i32, ptr @rho, i64 %8
+  %18 = getelementptr inbounds [4 x i8], ptr @rho, i64 %8
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds [4 x i8], ptr %6, i64 %20
@@ -3589,7 +3579,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 .lr.ph:                                           ; preds = %5
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %41 = getelementptr inbounds i16, ptr %40, i64 %11
+  %41 = getelementptr inbounds [2 x i8], ptr %40, i64 %11
   %42 = load i16, ptr %41, align 2
   %43 = getelementptr inbounds [4 x i8], ptr %6, i64 %8
   %44 = getelementptr inbounds i8, ptr %43, i64 %11
@@ -3602,7 +3592,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 1480
   %.not207 = icmp eq i8 %23, 1
   %52 = icmp eq i8 %45, 1
-  %53 = getelementptr inbounds nuw %struct.relRanksType, ptr %4, i64 %46
+  %53 = getelementptr inbounds nuw [120 x i8], ptr %4, i64 %46
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 1512
   %55 = icmp eq i8 %17, 1
   %.old252 = icmp ne i8 %23, 1
@@ -3614,7 +3604,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 59:                                               ; preds = %.lr.ph, %482
   %indvars.iv = phi i64 [ %58, %.lr.ph ], [ %indvars.iv.next, %482 ]
   %60 = load ptr, ptr %48, align 8
-  %61 = getelementptr inbounds %struct.moveType, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds [16 x i8], ptr %60, i64 %indvars.iv
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = sext i32 %63 to i64
@@ -3634,36 +3624,36 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 70:                                               ; preds = %59
   %71 = sext i32 %.pre to i64
-  %72 = getelementptr inbounds i32, ptr @lho, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr @lho, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [4 x i16], ptr %1, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %1, i64 %74
   %76 = sext i32 %68 to i64
-  %77 = getelementptr inbounds i16, ptr %75, i64 %76
+  %77 = getelementptr inbounds [2 x i8], ptr %75, i64 %76
   %78 = load i16, ptr %77, align 2
   %79 = icmp eq i16 %78, 0
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %70
   %81 = sext i32 %69 to i64
-  %82 = getelementptr inbounds i16, ptr %75, i64 %81
+  %82 = getelementptr inbounds [2 x i8], ptr %75, i64 %81
   %83 = load i16, ptr %82, align 2
   %.not203 = icmp eq i16 %83, 0
   br i1 %.not203, label %84, label %96
 
 84:                                               ; preds = %80, %70
-  %85 = getelementptr inbounds i32, ptr @rho, i64 %71
+  %85 = getelementptr inbounds [4 x i8], ptr @rho, i64 %71
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [4 x i16], ptr %1, i64 %87
-  %89 = getelementptr inbounds i16, ptr %88, i64 %76
+  %88 = getelementptr inbounds [8 x i8], ptr %1, i64 %87
+  %89 = getelementptr inbounds [2 x i8], ptr %88, i64 %76
   %90 = load i16, ptr %89, align 2
   %91 = icmp eq i16 %90, 0
   br i1 %91, label %92, label %97
 
 92:                                               ; preds = %84
   %93 = sext i32 %69 to i64
-  %94 = getelementptr inbounds i16, ptr %88, i64 %93
+  %94 = getelementptr inbounds [2 x i8], ptr %88, i64 %93
   %95 = load i16, ptr %94, align 2
   %.not204 = icmp eq i16 %95, 0
   br i1 %.not204, label %97, label %96
@@ -3673,7 +3663,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 97:                                               ; preds = %96, %92, %84
   %.0176.ph = phi i32 [ 0, %84 ], [ 0, %92 ], [ -12, %96 ]
-  %98 = getelementptr inbounds i32, ptr @partner, i64 %71
+  %98 = getelementptr inbounds [4 x i8], ptr @partner, i64 %71
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds [4 x i8], ptr %6, i64 %100
@@ -3696,16 +3686,16 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   %.pre-phi260 = phi i64 [ %.pre259, %._crit_edge257 ], [ %71, %105 ], [ %71, %97 ]
   %.pre-phi = phi i64 [ %.pre258, %._crit_edge257 ], [ %76, %105 ], [ %76, %97 ]
   %.1 = phi i32 [ 0, %._crit_edge257 ], [ %spec.select, %105 ], [ %.0176.ph, %97 ]
-  %112 = getelementptr inbounds %struct.highCardType, ptr %51, i64 %.pre-phi
+  %112 = getelementptr inbounds [8 x i8], ptr %51, i64 %.pre-phi
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i32, ptr @rho, i64 %.pre-phi260
+  %115 = getelementptr inbounds [4 x i8], ptr @rho, i64 %.pre-phi260
   %116 = load i32, ptr %115, align 4
   %117 = icmp ne i32 %114, %116
   br i1 %117, label %118, label %123
 
 118:                                              ; preds = %111
-  %119 = getelementptr %struct.highCardType, ptr %1, i64 %.pre-phi
+  %119 = getelementptr [8 x i8], ptr %1, i64 %.pre-phi
   %120 = getelementptr i8, ptr %119, i64 1516
   %121 = load i32, ptr %120, align 4
   %122 = icmp eq i32 %121, %116
@@ -3717,13 +3707,13 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br label %139
 
 125:                                              ; preds = %118
-  %126 = getelementptr inbounds i32, ptr @lho, i64 %.pre-phi260
+  %126 = getelementptr inbounds [4 x i8], ptr @lho, i64 %.pre-phi260
   %127 = load i32, ptr %126, align 4
   %128 = icmp eq i32 %114, %127
   br i1 %128, label %129, label %139
 
 129:                                              ; preds = %125
-  %130 = getelementptr inbounds i32, ptr @partner, i64 %.pre-phi260
+  %130 = getelementptr inbounds [4 x i8], ptr @partner, i64 %.pre-phi260
   %131 = load i32, ptr %130, align 4
   %132 = icmp eq i32 %121, %131
   br i1 %132, label %133, label %139
@@ -3753,7 +3743,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %.not208, label %157, label %146
 
 146:                                              ; preds = %141
-  %147 = getelementptr inbounds i32, ptr @partner, i64 %.pre-phi260
+  %147 = getelementptr inbounds [4 x i8], ptr @partner, i64 %.pre-phi260
   %148 = load i32, ptr %147, align 4
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds [4 x i8], ptr %6, i64 %149
@@ -3779,7 +3769,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %.not, label %.critedge, label %162
 
 162:                                              ; preds = %161
-  %163 = getelementptr inbounds i32, ptr @partner, i64 %.pre-phi260
+  %163 = getelementptr inbounds [4 x i8], ptr @partner, i64 %.pre-phi260
   %164 = load i32, ptr %163, align 4
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds [4 x i8], ptr %6, i64 %165
@@ -3796,7 +3786,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %173, label %174, label %196
 
 174:                                              ; preds = %169, %162
-  %175 = getelementptr inbounds i32, ptr @lho, i64 %.pre-phi260
+  %175 = getelementptr inbounds [4 x i8], ptr @lho, i64 %.pre-phi260
   %176 = load i32, ptr %175, align 4
   %177 = sext i32 %176 to i64
   %178 = getelementptr inbounds [4 x i8], ptr %6, i64 %177
@@ -3828,7 +3818,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %195, label %.critedge, label %.critedge234
 
 196:                                              ; preds = %169
-  %197 = getelementptr inbounds i32, ptr @lho, i64 %.pre-phi260
+  %197 = getelementptr inbounds [4 x i8], ptr @lho, i64 %.pre-phi260
   %198 = load i32, ptr %197, align 4
   %199 = sext i32 %198 to i64
   %200 = getelementptr inbounds [4 x i8], ptr %6, i64 %199
@@ -3838,11 +3828,11 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %.not220, label %203, label %211
 
 203:                                              ; preds = %196
-  %204 = getelementptr inbounds [4 x i16], ptr %1, i64 %165
-  %205 = getelementptr inbounds i16, ptr %204, i64 %170
+  %204 = getelementptr inbounds [8 x i8], ptr %1, i64 %165
+  %205 = getelementptr inbounds [2 x i8], ptr %204, i64 %170
   %206 = load i16, ptr %205, align 2
-  %207 = getelementptr inbounds [4 x i16], ptr %1, i64 %199
-  %208 = getelementptr inbounds i16, ptr %207, i64 %170
+  %207 = getelementptr inbounds [8 x i8], ptr %1, i64 %199
+  %208 = getelementptr inbounds [2 x i8], ptr %207, i64 %170
   %209 = load i16, ptr %208, align 2
   %210 = icmp ugt i16 %206, %209
   br i1 %210, label %211, label %.critedge234
@@ -3856,31 +3846,31 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %.not221, label %216, label %.critedge
 
 216:                                              ; preds = %211
-  %217 = getelementptr inbounds [4 x i16], ptr %1, i64 %165
-  %218 = getelementptr inbounds i16, ptr %217, i64 %170
+  %217 = getelementptr inbounds [8 x i8], ptr %1, i64 %165
+  %218 = getelementptr inbounds [2 x i8], ptr %217, i64 %170
   %219 = load i16, ptr %218, align 2
-  %220 = getelementptr inbounds [4 x i16], ptr %1, i64 %212
-  %221 = getelementptr inbounds i16, ptr %220, i64 %170
+  %220 = getelementptr inbounds [8 x i8], ptr %1, i64 %212
+  %221 = getelementptr inbounds [2 x i8], ptr %220, i64 %170
   %222 = load i16, ptr %221, align 2
   %223 = icmp ugt i16 %219, %222
   br i1 %223, label %.critedge, label %.critedge234
 
 224:                                              ; preds = %157
-  %225 = getelementptr inbounds i32, ptr @partner, i64 %.pre-phi260
+  %225 = getelementptr inbounds [4 x i8], ptr @partner, i64 %.pre-phi260
   %226 = load i32, ptr %225, align 4
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds [4 x i16], ptr %1, i64 %227
-  %229 = getelementptr inbounds i16, ptr %228, i64 %.pre-phi
+  %228 = getelementptr inbounds [8 x i8], ptr %1, i64 %227
+  %229 = getelementptr inbounds [2 x i8], ptr %228, i64 %.pre-phi
   %230 = load i16, ptr %229, align 2
-  %231 = getelementptr inbounds i32, ptr @lho, i64 %.pre-phi260
+  %231 = getelementptr inbounds [4 x i8], ptr @lho, i64 %.pre-phi260
   %232 = load i32, ptr %231, align 4
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds [4 x i16], ptr %1, i64 %233
-  %235 = getelementptr inbounds i16, ptr %234, i64 %.pre-phi
+  %234 = getelementptr inbounds [8 x i8], ptr %1, i64 %233
+  %235 = getelementptr inbounds [2 x i8], ptr %234, i64 %.pre-phi
   %236 = load i16, ptr %235, align 2
   %237 = sext i32 %116 to i64
-  %238 = getelementptr inbounds [4 x i16], ptr %1, i64 %237
-  %239 = getelementptr inbounds i16, ptr %238, i64 %.pre-phi
+  %238 = getelementptr inbounds [8 x i8], ptr %1, i64 %237
+  %239 = getelementptr inbounds [2 x i8], ptr %238, i64 %.pre-phi
   %240 = load i16, ptr %239, align 2
   %241 = or i16 %240, %236
   %242 = icmp ugt i16 %230, %241
@@ -3961,9 +3951,9 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %.not212, label %288, label %308
 
 288:                                              ; preds = %285, %280
-  %289 = getelementptr inbounds i16, ptr %228, i64 %269
+  %289 = getelementptr inbounds [2 x i8], ptr %228, i64 %269
   %290 = load i16, ptr %289, align 2
-  %291 = getelementptr inbounds i16, ptr %234, i64 %269
+  %291 = getelementptr inbounds [2 x i8], ptr %234, i64 %269
   %292 = load i16, ptr %291, align 2
   %293 = icmp ugt i16 %290, %292
   br i1 %293, label %.critedge, label %.critedge234
@@ -3982,19 +3972,19 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %.not214, label %.critedge, label %302
 
 302:                                              ; preds = %299
-  %303 = getelementptr inbounds i16, ptr %228, i64 %269
+  %303 = getelementptr inbounds [2 x i8], ptr %228, i64 %269
   %304 = load i16, ptr %303, align 2
-  %305 = getelementptr inbounds i16, ptr %238, i64 %269
+  %305 = getelementptr inbounds [2 x i8], ptr %238, i64 %269
   %306 = load i16, ptr %305, align 2
   %307 = icmp ugt i16 %304, %306
   br i1 %307, label %.critedge, label %.critedge234
 
 308:                                              ; preds = %285
-  %309 = getelementptr inbounds i16, ptr %228, i64 %269
+  %309 = getelementptr inbounds [2 x i8], ptr %228, i64 %269
   %310 = load i16, ptr %309, align 2
-  %311 = getelementptr inbounds i16, ptr %234, i64 %269
+  %311 = getelementptr inbounds [2 x i8], ptr %234, i64 %269
   %312 = load i16, ptr %311, align 2
-  %313 = getelementptr inbounds i16, ptr %238, i64 %269
+  %313 = getelementptr inbounds [2 x i8], ptr %238, i64 %269
   %314 = load i16, ptr %313, align 2
   %315 = or i16 %314, %312
   %316 = icmp ugt i16 %310, %315
@@ -4004,7 +3994,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %55, label %317, label %321
 
 317:                                              ; preds = %.critedge
-  %318 = getelementptr inbounds i32, ptr @lho, i64 %.pre-phi260
+  %318 = getelementptr inbounds [4 x i8], ptr @lho, i64 %.pre-phi260
   %319 = load i32, ptr %318, align 4
   %320 = icmp ne i32 %114, %319
   %brmerge = or i1 %.old252, %117
@@ -4027,10 +4017,10 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %327, label %328, label %347
 
 328:                                              ; preds = %326
-  %329 = getelementptr %struct.highCardType, ptr %1, i64 %.pre-phi
+  %329 = getelementptr [8 x i8], ptr %1, i64 %.pre-phi
   %330 = getelementptr i8, ptr %329, i64 1516
   %331 = load i32, ptr %330, align 4
-  %332 = getelementptr inbounds i32, ptr @partner, i64 %.pre-phi260
+  %332 = getelementptr inbounds [4 x i8], ptr @partner, i64 %.pre-phi260
   %333 = load i32, ptr %332, align 4
   %334 = icmp eq i32 %331, %333
   br i1 %334, label %335, label %339
@@ -4059,13 +4049,13 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br label %381
 
 347:                                              ; preds = %326
-  %348 = getelementptr inbounds i32, ptr @partner, i64 %.pre-phi260
+  %348 = getelementptr inbounds [4 x i8], ptr @partner, i64 %.pre-phi260
   %349 = load i32, ptr %348, align 4
   %350 = icmp eq i32 %114, %349
   br i1 %350, label %351, label %363
 
 351:                                              ; preds = %347
-  %352 = getelementptr %struct.highCardType, ptr %1, i64 %.pre-phi
+  %352 = getelementptr [8 x i8], ptr %1, i64 %.pre-phi
   %353 = getelementptr i8, ptr %352, i64 1516
   %354 = load i32, ptr %353, align 4
   %355 = icmp eq i32 %354, %.pre
@@ -4091,7 +4081,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   br i1 %.not225, label %377, label %366
 
 366:                                              ; preds = %363
-  %367 = getelementptr inbounds %struct.highCardType, ptr %54, i64 %.pre-phi
+  %367 = getelementptr inbounds [8 x i8], ptr %54, i64 %.pre-phi
   %368 = load i32, ptr %367, align 4
   %369 = icmp eq i32 %63, %368
   br i1 %369, label %370, label %373
@@ -4125,7 +4115,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 385:                                              ; preds = %381
   %386 = load i32, ptr %56, align 4
   %387 = load ptr, ptr %48, align 8
-  %388 = getelementptr inbounds %struct.moveType, ptr %387, i64 %indvars.iv
+  %388 = getelementptr inbounds [16 x i8], ptr %387, i64 %indvars.iv
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 4
   %390 = load i32, ptr %389, align 4
   %391 = icmp eq i32 %386, %390
@@ -4139,7 +4129,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 395:                                              ; preds = %392
   %396 = load i32, ptr %57, align 4
   %397 = load ptr, ptr %48, align 8
-  %398 = getelementptr inbounds %struct.moveType, ptr %397, i64 %indvars.iv
+  %398 = getelementptr inbounds [16 x i8], ptr %397, i64 %indvars.iv
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 4
   %400 = load i32, ptr %399, align 4
   %401 = icmp eq i32 %396, %400
@@ -4148,11 +4138,11 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 .critedge234:                                     ; preds = %302, %288, %191, %181, %216, %203, %262, %257, %248, %268, %263, %308
   %402 = phi i32 [ %232, %302 ], [ %232, %288 ], [ %176, %191 ], [ %176, %181 ], [ %198, %216 ], [ %198, %203 ], [ %232, %262 ], [ %232, %257 ], [ %232, %248 ], [ %232, %268 ], [ %232, %263 ], [ %232, %308 ]
   %403 = phi i32 [ %226, %302 ], [ %226, %288 ], [ %164, %191 ], [ %164, %181 ], [ %164, %216 ], [ %164, %203 ], [ %226, %262 ], [ %226, %257 ], [ %226, %248 ], [ %226, %268 ], [ %226, %263 ], [ %226, %308 ]
-  %404 = getelementptr %struct.absRankType, ptr %53, i64 %.pre-phi
+  %404 = getelementptr [2 x i8], ptr %53, i64 %.pre-phi
   %405 = getelementptr i8, ptr %404, i64 25
   %406 = load i8, ptr %405, align 1
   %407 = sext i8 %406 to i32
-  %408 = getelementptr inbounds %struct.highCardType, ptr %54, i64 %.pre-phi
+  %408 = getelementptr inbounds [8 x i8], ptr %54, i64 %.pre-phi
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 4
   %410 = load i32, ptr %409, align 4
   %411 = icmp eq i32 %410, %403
@@ -4278,7 +4268,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 472:                                              ; preds = %467
   %473 = load i32, ptr %56, align 4
   %474 = load ptr, ptr %48, align 8
-  %475 = getelementptr inbounds %struct.moveType, ptr %474, i64 %indvars.iv
+  %475 = getelementptr inbounds [16 x i8], ptr %474, i64 %indvars.iv
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 4
   %477 = load i32, ptr %476, align 4
   %478 = icmp eq i32 %473, %477
@@ -4312,13 +4302,13 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i32, ptr %0, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr @lho, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr @lho, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [4 x i8], ptr %9, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 %8
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i32, ptr @rho, i64 %11
+  %18 = getelementptr inbounds [4 x i8], ptr @rho, i64 %11
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds [4 x i8], ptr %9, i64 %20
@@ -4336,7 +4326,7 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
   %33 = add i32 %29, %32
   %34 = shl i32 %33, 7
   %.neg = sdiv i32 %34, -19
-  %35 = getelementptr inbounds i32, ptr @partner, i64 %11
+  %35 = getelementptr inbounds [4 x i8], ptr @partner, i64 %11
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds [4 x i8], ptr %9, i64 %37
@@ -4354,7 +4344,7 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
 
 .lr.ph:                                           ; preds = %5
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %49 = getelementptr inbounds i16, ptr %48, i64 %8
+  %49 = getelementptr inbounds [2 x i8], ptr %48, i64 %8
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i64
   %52 = getelementptr inbounds nuw [15 x i8], ptr @relRank, i64 %51
@@ -4364,7 +4354,7 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
   %.not113 = icmp eq i8 %23, 1
   %56 = add nsw i32 %.0, -10
   %spec.select117 = select i1 %.not113, i32 %.0, i32 %56
-  %57 = getelementptr inbounds nuw %struct.relRanksType, ptr %4, i64 %51
+  %57 = getelementptr inbounds nuw [120 x i8], ptr %4, i64 %51
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 1512
   %59 = icmp ne i8 %17, 1
   %60 = icmp ne i8 %23, 1
@@ -4381,7 +4371,7 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
 68:                                               ; preds = %.lr.ph, %228
   %indvars.iv = phi i64 [ %67, %.lr.ph ], [ %indvars.iv.next, %228 ]
   %69 = load ptr, ptr %53, align 8
-  %70 = getelementptr inbounds %struct.moveType, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds [16 x i8], ptr %69, i64 %indvars.iv
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
@@ -4390,7 +4380,7 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
   %76 = sext i8 %75 to i32
   %77 = load i32, ptr %6, align 8
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.highCardType, ptr %54, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %54, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %80, %72
   %.pre143 = load i32, ptr %0, align 8
@@ -4398,28 +4388,28 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
   br i1 %81, label %._crit_edge144, label %82
 
 ._crit_edge144:                                   ; preds = %68
-  %.phi.trans.insert146 = getelementptr inbounds i32, ptr @rho, i64 %.phi.trans.insert145
+  %.phi.trans.insert146 = getelementptr inbounds [4 x i8], ptr @rho, i64 %.phi.trans.insert145
   %.pre147 = load i32, ptr %.phi.trans.insert146, align 4
   br label %103
 
 82:                                               ; preds = %68
-  %83 = getelementptr inbounds i32, ptr @partner, i64 %.phi.trans.insert145
+  %83 = getelementptr inbounds [4 x i8], ptr @partner, i64 %.phi.trans.insert145
   %84 = load i32, ptr %83, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds [4 x i16], ptr %1, i64 %85
-  %87 = getelementptr inbounds i16, ptr %86, i64 %78
+  %86 = getelementptr inbounds [8 x i8], ptr %1, i64 %85
+  %87 = getelementptr inbounds [2 x i8], ptr %86, i64 %78
   %88 = load i16, ptr %87, align 2
-  %89 = getelementptr inbounds i32, ptr @lho, i64 %.phi.trans.insert145
+  %89 = getelementptr inbounds [4 x i8], ptr @lho, i64 %.phi.trans.insert145
   %90 = load i32, ptr %89, align 4
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds [4 x i16], ptr %1, i64 %91
-  %93 = getelementptr inbounds i16, ptr %92, i64 %78
+  %92 = getelementptr inbounds [8 x i8], ptr %1, i64 %91
+  %93 = getelementptr inbounds [2 x i8], ptr %92, i64 %78
   %94 = load i16, ptr %93, align 2
-  %95 = getelementptr inbounds i32, ptr @rho, i64 %.phi.trans.insert145
+  %95 = getelementptr inbounds [4 x i8], ptr @rho, i64 %.phi.trans.insert145
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [4 x i16], ptr %1, i64 %97
-  %99 = getelementptr inbounds i16, ptr %98, i64 %78
+  %98 = getelementptr inbounds [8 x i8], ptr %1, i64 %97
+  %99 = getelementptr inbounds [2 x i8], ptr %98, i64 %78
   %100 = load i16, ptr %99, align 2
   %101 = or i16 %100, %94
   %102 = icmp ugt i16 %88, %101
@@ -4427,11 +4417,11 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
 
 103:                                              ; preds = %._crit_edge144, %82
   %104 = phi i32 [ %.pre147, %._crit_edge144 ], [ %96, %82 ]
-  %105 = getelementptr %struct.highCardType, ptr %1, i64 %78
+  %105 = getelementptr [8 x i8], ptr %1, i64 %78
   %106 = getelementptr i8, ptr %105, i64 1516
   %107 = load i32, ptr %106, align 4
   %108 = icmp eq i32 %107, %104
-  %.phi.trans.insert149 = getelementptr inbounds i32, ptr @lho, i64 %.phi.trans.insert145
+  %.phi.trans.insert149 = getelementptr inbounds [4 x i8], ptr @lho, i64 %.phi.trans.insert145
   %.pre150 = load i32, ptr %.phi.trans.insert149, align 4
   br i1 %108, label %._crit_edge148, label %109
 
@@ -4469,7 +4459,7 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
 120:                                              ; preds = %113
   %121 = load i32, ptr %61, align 4
   %122 = load ptr, ptr %53, align 8
-  %123 = getelementptr inbounds %struct.moveType, ptr %122, i64 %indvars.iv
+  %123 = getelementptr inbounds [16 x i8], ptr %122, i64 %indvars.iv
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i32, ptr %124, align 4
   %126 = icmp eq i32 %121, %125
@@ -4483,7 +4473,7 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
 130:                                              ; preds = %127
   %131 = load i32, ptr %62, align 4
   %132 = load ptr, ptr %53, align 8
-  %133 = getelementptr inbounds %struct.moveType, ptr %132, i64 %indvars.iv
+  %133 = getelementptr inbounds [16 x i8], ptr %132, i64 %indvars.iv
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = icmp eq i32 %131, %135
@@ -4496,13 +4486,13 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
   br i1 %140, label %141, label %._crit_edge141
 
 ._crit_edge141:                                   ; preds = %137
-  %.phi.trans.insert = getelementptr inbounds %struct.highCardType, ptr %58, i64 %78
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %58, i64 %78
   %.phi.trans.insert142 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 4
   %.pre = load i32, ptr %.phi.trans.insert142, align 4
   br label %153
 
 141:                                              ; preds = %137
-  %142 = getelementptr %struct.highCardType, ptr %1, i64 %78
+  %142 = getelementptr [8 x i8], ptr %1, i64 %78
   %143 = getelementptr i8, ptr %142, i64 1516
   %144 = load i32, ptr %143, align 4
   %145 = icmp eq i32 %144, %96
@@ -4525,11 +4515,11 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
 153:                                              ; preds = %._crit_edge141, %141, %149, %146
   %154 = phi i32 [ %144, %146 ], [ %84, %149 ], [ %96, %141 ], [ %.pre, %._crit_edge141 ]
   %.1 = phi i32 [ %.0, %146 ], [ %spec.select119, %149 ], [ %spec.select117, %141 ], [ %spec.select117, %._crit_edge141 ]
-  %155 = getelementptr %struct.absRankType, ptr %57, i64 %78
+  %155 = getelementptr [2 x i8], ptr %57, i64 %78
   %156 = getelementptr i8, ptr %155, i64 25
   %157 = load i8, ptr %156, align 1
   %158 = sext i8 %157 to i32
-  %159 = getelementptr inbounds %struct.highCardType, ptr %58, i64 %78
+  %159 = getelementptr inbounds [8 x i8], ptr %58, i64 %78
   %160 = icmp eq i32 %154, %84
   %161 = icmp eq i32 %84, %158
   %or.cond120 = select i1 %160, i1 %161, i1 false
@@ -4626,7 +4616,7 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
 208:                                              ; preds = %203
   %209 = load i32, ptr %61, align 4
   %210 = load ptr, ptr %53, align 8
-  %211 = getelementptr inbounds %struct.moveType, ptr %210, i64 %indvars.iv
+  %211 = getelementptr inbounds [16 x i8], ptr %210, i64 %indvars.iv
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
   %213 = load i32, ptr %212, align 4
   %214 = icmp eq i32 %209, %213
@@ -4640,7 +4630,7 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
 218:                                              ; preds = %215
   %219 = load i32, ptr %62, align 4
   %220 = load ptr, ptr %53, align 8
-  %221 = getelementptr inbounds %struct.moveType, ptr %220, i64 %indvars.iv
+  %221 = getelementptr inbounds [16 x i8], ptr %220, i64 %indvars.iv
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 4
   %223 = load i32, ptr %222, align 4
   %224 = icmp eq i32 %219, %223
@@ -8937,7 +8927,7 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 2265:                                             ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %2266 = load ptr, ptr %5, align 8
-  %2267 = getelementptr inbounds nuw %struct.moveType, ptr %2266, i64 %indvars.iv
+  %2267 = getelementptr inbounds nuw [16 x i8], ptr %2266, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2267, i64 12, i1 false)
   %.sroa.388.0..sroa_idx780 = getelementptr inbounds nuw i8, ptr %2267, i64 12
   %.sroa.388.0.copyload781 = load i32, ptr %.sroa.388.0..sroa_idx780, align 4
@@ -8946,7 +8936,7 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 2268:                                             ; preds = %2265, %2274
   %indvars.iv787 = phi i64 [ %indvars.iv, %2265 ], [ %indvars.iv.next788, %2274 ]
   %2269 = load ptr, ptr %5, align 8
-  %2270 = getelementptr %struct.moveType, ptr %2269, i64 %indvars.iv787
+  %2270 = getelementptr [16 x i8], ptr %2269, i64 %indvars.iv787
   %2271 = getelementptr i8, ptr %2270, i64 -4
   %2272 = load i32, ptr %2271, align 4
   %2273 = icmp sgt i32 %.sroa.388.0.copyload781, %2272
@@ -8971,7 +8961,7 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 .critedge:                                        ; preds = %.critedgesplit, %..critedge_crit_edge
   %2278 = phi ptr [ %.pre1027, %..critedge_crit_edge ], [ %2269, %.critedgesplit ]
   %.0.lcssa = phi i64 [ 0, %..critedge_crit_edge ], [ %2277, %.critedgesplit ]
-  %2279 = getelementptr inbounds %struct.moveType, ptr %2278, i64 %.0.lcssa
+  %2279 = getelementptr inbounds [16 x i8], ptr %2278, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2279, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
   %.sroa.388.0..sroa_idx782 = getelementptr inbounds nuw i8, ptr %2279, i64 12
   store i32 %.sroa.388.0.copyload781, ptr %.sroa.388.0..sroa_idx782, align 4
@@ -8989,7 +8979,7 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(1544) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %"struct.Moves::trackType", ptr %5, i64 %6
+  %7 = getelementptr inbounds [220 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   store ptr %7, ptr %8, align 8
   %9 = load i32, ptr %7, align 4
@@ -9005,9 +8995,9 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %15, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2904
-  %18 = getelementptr inbounds [4 x %struct.movePlyType], ptr %17, i64 %6
+  %18 = getelementptr inbounds [928 x i8], ptr %17, i64 %6
   %19 = sext i32 %2 to i64
-  %20 = getelementptr inbounds %struct.movePlyType, ptr %18, i64 %19
+  %20 = getelementptr inbounds [232 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 14968
   store ptr %20, ptr %21, align 8
   br label %22
@@ -9016,8 +9006,8 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %22 ]
   %23 = load ptr, ptr %8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 140
-  %25 = getelementptr inbounds [4 x i32], ptr %24, i64 %19
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %25 = getelementptr inbounds [16 x i8], ptr %24, i64 %19
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   store i32 0, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -9034,7 +9024,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 1480
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds %struct.highCardType, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
@@ -9044,21 +9034,21 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %39 = phi i32 [ 0, %27 ], [ %37, %31 ]
   %40 = load i32, ptr %12, align 8
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [4 x i16], ptr %3, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %3, i64 %41
   %43 = load i32, ptr %16, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %42, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %42, i64 %44
   %46 = load i16, ptr %45, align 2
   %.not78 = icmp eq i16 %46, 0
   br i1 %.not78, label %118, label %47
 
 47:                                               ; preds = %38
   %48 = zext i16 %46 to i64
-  %49 = getelementptr inbounds nuw %struct.moveGroupType, ptr @groupData, i64 %48
+  %49 = getelementptr inbounds nuw [116 x i8], ptr @groupData, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %8, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 204
-  %53 = getelementptr inbounds i32, ptr %52, i64 %44
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %44
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %50, -1
   br i1 %55, label %.lr.ph98, label %._crit_edge.thread
@@ -9081,9 +9071,9 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %63 = phi i32 [ 0, %.lr.ph98 ], [ %95, %.critedge ]
   %.07297 = phi i32 [ %50, %.lr.ph98 ], [ %96, %.critedge ]
   %64 = zext nneg i32 %.07297 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %58, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %64
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds nuw i32, ptr %59, i64 %64
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %64
   %68 = load i32, ptr %67, align 4
   %.not8790 = icmp eq i32 %.07297, 0
   br i1 %.not8790, label %.critedge, label %.lr.ph
@@ -9092,7 +9082,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %.192 = phi i32 [ %75, %74 ], [ %.07297, %62 ]
   %.07391 = phi i32 [ %79, %74 ], [ %68, %62 ]
   %69 = zext nneg i32 %.192 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %60, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, %54
   %73 = icmp eq i32 %72, %71
@@ -9101,7 +9091,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
 74:                                               ; preds = %.lr.ph
   %75 = add nsw i32 %.192, -1
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %61, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = or i32 %78, %.07391
   %.not87 = icmp eq i32 %75, 0
@@ -9112,19 +9102,19 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %.1.lcssa = phi i32 [ 0, %62 ], [ 0, %74 ], [ %.192, %.lr.ph ]
   %80 = load ptr, ptr %21, align 8
   %81 = sext i32 %63 to i64
-  %82 = getelementptr inbounds %struct.moveType, ptr %80, i64 %81
+  %82 = getelementptr inbounds [16 x i8], ptr %80, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i32 %.073.lcssa, ptr %83, align 4
   %84 = load i32, ptr %16, align 4
   %85 = load ptr, ptr %21, align 8
   %86 = load i32, ptr %28, align 4
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds %struct.moveType, ptr %85, i64 %87
+  %88 = getelementptr inbounds [16 x i8], ptr %85, i64 %87
   store i32 %84, ptr %88, align 4
   %89 = load ptr, ptr %21, align 8
   %90 = load i32, ptr %28, align 4
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %struct.moveType, ptr %89, i64 %91
+  %92 = getelementptr inbounds [16 x i8], ptr %89, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   store i32 %66, ptr %93, align 4
   %94 = load i32, ptr %28, align 4
@@ -9147,7 +9137,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %103 = or disjoint i32 %39, %102
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 39736
   %105 = sext i32 %103 to i64
-  %106 = getelementptr inbounds { i64, i64 }, ptr %104, i64 %105
+  %106 = getelementptr inbounds [16 x i8], ptr %104, i64 %105
   %.unpack83 = load i64, ptr %106, align 8
   %.elt84 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.unpack85 = load i64, ptr %.elt84, align 8
@@ -9176,7 +9166,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %119 = shl nsw i32 %2, 2
   %120 = or disjoint i32 %39, %119
   %121 = sext i32 %120 to i64
-  %122 = getelementptr { i64, i64 }, ptr %0, i64 %121
+  %122 = getelementptr [16 x i8], ptr %0, i64 %121
   %123 = getelementptr i8, ptr %122, i64 39768
   %.unpack = load i64, ptr %123, align 8
   %.elt79 = getelementptr i8, ptr %122, i64 39776
@@ -9194,9 +9184,9 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %storemerge113 = phi i32 [ 0, %118 ], [ %196, %194 ]
   %130 = load i32, ptr %12, align 8
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds [4 x i16], ptr %3, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %3, i64 %131
   %133 = sext i32 %storemerge113 to i64
-  %134 = getelementptr inbounds i16, ptr %132, i64 %133
+  %134 = getelementptr inbounds [2 x i8], ptr %132, i64 %133
   %135 = load i16, ptr %134, align 2
   %136 = icmp eq i16 %135, 0
   br i1 %136, label %194, label %137
@@ -9205,11 +9195,11 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %138 = load i32, ptr %28, align 4
   store i32 %138, ptr %125, align 8
   %139 = zext i16 %135 to i64
-  %140 = getelementptr inbounds nuw %struct.moveGroupType, ptr @groupData, i64 %139
+  %140 = getelementptr inbounds nuw [116 x i8], ptr @groupData, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = load ptr, ptr %8, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 204
-  %144 = getelementptr inbounds i32, ptr %143, i64 %133
+  %144 = getelementptr inbounds [4 x i8], ptr %143, i64 %133
   %145 = load i32, ptr %144, align 4
   %146 = icmp sgt i32 %141, -1
   br i1 %146, label %.lr.ph111, label %._crit_edge112
@@ -9225,9 +9215,9 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %152 = phi i32 [ %138, %.lr.ph111 ], [ %184, %.critedge2 ]
   %.2109 = phi i32 [ %141, %.lr.ph111 ], [ %185, %.critedge2 ]
   %153 = zext nneg i32 %.2109 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %147, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %153
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr inbounds nuw i32, ptr %148, i64 %153
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %153
   %157 = load i32, ptr %156, align 4
   %.not8899 = icmp eq i32 %.2109, 0
   br i1 %.not8899, label %.critedge2, label %.lr.ph103
@@ -9236,7 +9226,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %.3101 = phi i32 [ %164, %163 ], [ %.2109, %151 ]
   %.174100 = phi i32 [ %168, %163 ], [ %157, %151 ]
   %158 = zext nneg i32 %.3101 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %149, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %158
   %160 = load i32, ptr %159, align 4
   %161 = and i32 %160, %145
   %162 = icmp eq i32 %161, %160
@@ -9245,7 +9235,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
 163:                                              ; preds = %.lr.ph103
   %164 = add nsw i32 %.3101, -1
   %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw i32, ptr %150, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %165
   %167 = load i32, ptr %166, align 4
   %168 = or i32 %167, %.174100
   %.not88 = icmp eq i32 %164, 0
@@ -9256,19 +9246,19 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %.3.lcssa = phi i32 [ 0, %151 ], [ 0, %163 ], [ %.3101, %.lr.ph103 ]
   %169 = load ptr, ptr %21, align 8
   %170 = sext i32 %152 to i64
-  %171 = getelementptr inbounds %struct.moveType, ptr %169, i64 %170
+  %171 = getelementptr inbounds [16 x i8], ptr %169, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   store i32 %.174.lcssa, ptr %172, align 4
   %173 = load i32, ptr %124, align 8
   %174 = load ptr, ptr %21, align 8
   %175 = load i32, ptr %28, align 4
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds %struct.moveType, ptr %174, i64 %176
+  %177 = getelementptr inbounds [16 x i8], ptr %174, i64 %176
   store i32 %173, ptr %177, align 4
   %178 = load ptr, ptr %21, align 8
   %179 = load i32, ptr %28, align 4
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds %struct.moveType, ptr %178, i64 %180
+  %181 = getelementptr inbounds [16 x i8], ptr %178, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
   store i32 %155, ptr %182, align 4
   %183 = load i32, ptr %28, align 4
@@ -9324,7 +9314,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAceEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %struct.moveGroupType, ptr @groupData, i64 %3
+  %4 = getelementptr inbounds [116 x i8], ptr @groupData, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %7 = load ptr, ptr %6, align 8
@@ -9332,7 +9322,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %8, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %8, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %5, 0
   br i1 %14, label %.lr.ph, label %.critedge
@@ -9344,7 +9334,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
 16:                                               ; preds = %.lr.ph, %22
   %.03241 = phi i32 [ %5, %.lr.ph ], [ %23, %22 ]
   %17 = zext nneg i32 %.03241 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, %13
   %21 = icmp eq i32 %20, %19
@@ -9362,7 +9352,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
 .critedge.thread:                                 ; preds = %16, %.critedge
   %.03240 = phi i32 [ %5, %.critedge ], [ %.03241, %16 ]
   %25 = sext i32 %.03240 to i64
-  %26 = getelementptr i32, ptr %4, i64 %25
+  %26 = getelementptr [4 x i8], ptr %4, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 92
   %29 = load i32, ptr %28, align 4
@@ -9383,7 +9373,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
 
 36:                                               ; preds = %.lr.ph48, %41
   %indvars.iv54 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next55, %41 ]
-  %37 = getelementptr inbounds nuw %struct.moveType, ptr %35, i64 %indvars.iv54
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv54
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, %27
@@ -9423,7 +9413,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
 
 53:                                               ; preds = %.lr.ph43, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %58 ]
-  %54 = getelementptr inbounds nuw %struct.moveType, ptr %52, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %56, %29
@@ -9468,7 +9458,7 @@ define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr noundef nonnull readonly align
 14:                                               ; preds = %8
   %15 = load ptr, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw %struct.moveType, ptr %15, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv.next
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, %2
@@ -9476,7 +9466,7 @@ define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr noundef nonnull readonly align
 
 .critedge:                                        ; preds = %8, %14
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds %struct.moveGroupType, ptr @groupData, i64 %20
+  %21 = getelementptr inbounds [116 x i8], ptr @groupData, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %24 = load ptr, ptr %23, align 8
@@ -9484,16 +9474,16 @@ define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr noundef nonnull readonly align
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %25, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %25, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %2 to i64
-  %32 = getelementptr inbounds i16, ptr @bitMapRank, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = or i32 %30, %34
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 60
   %37 = sext i32 %22 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %41 = icmp sgt i32 %22, 0
@@ -9503,7 +9493,7 @@ define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr noundef nonnull readonly align
   %.027 = phi i32 [ %52, %47 ], [ %39, %.critedge ]
   %.02426 = phi i32 [ %48, %47 ], [ %22, %.critedge ]
   %42 = zext nneg i32 %.02426 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, %35
   %46 = icmp eq i32 %45, %44
@@ -9512,7 +9502,7 @@ define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr noundef nonnull readonly align
 47:                                               ; preds = %.lr.ph
   %48 = add nsw i32 %.02426, -1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = or i32 %51, %.027
   %53 = icmp sgt i32 %.02426, 1
@@ -9521,7 +9511,7 @@ define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr noundef nonnull readonly align
 .critedge2:                                       ; preds = %.lr.ph, %47, %.critedge
   %.0.lcssa = phi i32 [ %39, %.critedge ], [ %52, %47 ], [ %.027, %.lr.ph ]
   %54 = sext i32 %.0.lcssa to i64
-  %55 = getelementptr inbounds i32, ptr @counttable, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr @counttable, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = add nsw i32 %56, -1
   store i32 %57, ptr %3, align 4
@@ -9531,9 +9521,9 @@ define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr noundef nonnull readonly align
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK5Moves9GetLengthEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr [4 x %struct.movePlyType], ptr %0, i64 %4
+  %5 = getelementptr [928 x i8], ptr %0, i64 %4
   %6 = sext i32 %2 to i64
-  %7 = getelementptr %struct.movePlyType, ptr %5, i64 %6
+  %7 = getelementptr [232 x i8], ptr %5, i64 %6
   %8 = getelementptr i8, ptr %7, i64 3132
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, 1
@@ -9544,7 +9534,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK5Moves9GetLengthEii(
 define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = sext i32 %2 to i64
-  %7 = getelementptr %"struct.Moves::trackType", ptr %5, i64 %6
+  %7 = getelementptr [220 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   store ptr %7, ptr %8, align 8
   %9 = icmp eq i32 %3, 0
@@ -9572,7 +9562,7 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
 22:                                               ; preds = %4
   %23 = add nsw i32 %3, -1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.extCard, ptr %11, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %11, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %10, %26
   br i1 %27, label %28, label %55
@@ -9584,25 +9574,25 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %30, %32
   %34 = sext i32 %3 to i64
-  %35 = getelementptr inbounds %struct.extCard, ptr %11, i64 %34
+  %35 = getelementptr inbounds [12 x i8], ptr %11, i64 %34
   br i1 %33, label %36, label %49
 
 36:                                               ; preds = %28
   store i32 %10, ptr %35, align 4
   %37 = load i32, ptr %29, align 4
   %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr %struct.extCard, ptr %38, i64 %34
+  %39 = getelementptr [12 x i8], ptr %38, i64 %34
   %40 = getelementptr i8, ptr %39, i64 80
   store i32 %37, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 4
   %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr %struct.extCard, ptr %43, i64 %34
+  %44 = getelementptr [12 x i8], ptr %43, i64 %34
   %45 = getelementptr i8, ptr %44, i64 84
   store i32 %42, ptr %45, align 4
   %46 = load ptr, ptr %8, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 124
-  %48 = getelementptr inbounds i32, ptr %47, i64 %34
+  %48 = getelementptr inbounds [4 x i8], ptr %47, i64 %34
   store i32 %3, ptr %48, align 4
   br label %81
 
@@ -9610,9 +9600,9 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %35, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false)
   %50 = load ptr, ptr %8, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 124
-  %52 = getelementptr inbounds i32, ptr %51, i64 %24
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %24
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i32, ptr %51, i64 %34
+  %54 = getelementptr inbounds [4 x i8], ptr %51, i64 %34
   store i32 %53, ptr %54, align 4
   br label %81
 
@@ -9621,7 +9611,7 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %10, %57
   %59 = sext i32 %3 to i64
-  %60 = getelementptr inbounds %struct.extCard, ptr %11, i64 %59
+  %60 = getelementptr inbounds [12 x i8], ptr %11, i64 %59
   br i1 %58, label %61, label %75
 
 61:                                               ; preds = %55
@@ -9629,18 +9619,18 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr %struct.extCard, ptr %64, i64 %59
+  %65 = getelementptr [12 x i8], ptr %64, i64 %59
   %66 = getelementptr i8, ptr %65, i64 80
   store i32 %63, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load i32, ptr %67, align 4
   %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr %struct.extCard, ptr %69, i64 %59
+  %70 = getelementptr [12 x i8], ptr %69, i64 %59
   %71 = getelementptr i8, ptr %70, i64 84
   store i32 %68, ptr %71, align 4
   %72 = load ptr, ptr %8, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 124
-  %74 = getelementptr inbounds i32, ptr %73, i64 %59
+  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 %59
   store i32 %3, ptr %74, align 4
   br label %81
 
@@ -9648,9 +9638,9 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %60, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false)
   %76 = load ptr, ptr %8, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 124
-  %78 = getelementptr inbounds i32, ptr %77, i64 %24
+  %78 = getelementptr inbounds [4 x i8], ptr %77, i64 %24
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i32, ptr %77, i64 %59
+  %80 = getelementptr inbounds [4 x i8], ptr %77, i64 %59
   store i32 %79, ptr %80, align 4
   br label %81
 
@@ -9659,13 +9649,13 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
   %82 = load i32, ptr %1, align 4
   %83 = load ptr, ptr %8, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = getelementptr inbounds i32, ptr %84, i64 %.pre-phi
+  %85 = getelementptr inbounds [4 x i8], ptr %84, i64 %.pre-phi
   store i32 %82, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = load ptr, ptr %8, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %90 = getelementptr inbounds i32, ptr %89, i64 %.pre-phi
+  %90 = getelementptr inbounds [4 x i8], ptr %89, i64 %.pre-phi
   store i32 %87, ptr %90, align 4
   %91 = icmp eq i32 %3, 3
   br i1 %91, label %92, label %.loopexit
@@ -9686,9 +9676,9 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
   %indvars.iv = phi i64 [ 0, %92 ], [ %indvars.iv.next, %101 ]
   %102 = load ptr, ptr %8, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 204
-  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv
   store i32 %105, ptr %106, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -9698,17 +9688,17 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.preheader ], [ 0, %101 ]
   %107 = load ptr, ptr %8, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  %109 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv60
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv60
   %110 = load i32, ptr %109, align 4
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv60
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv60
   %113 = load i32, ptr %112, align 4
   %114 = sext i32 %110 to i64
-  %115 = getelementptr inbounds i16, ptr @bitMapRank, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %114
   %116 = load i16, ptr %115, align 2
   %117 = zext i16 %116 to i32
   %118 = sext i32 %113 to i64
-  %119 = getelementptr inbounds i32, ptr %100, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %100, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = or i32 %120, %117
   store i32 %121, ptr %119, align 4
@@ -9727,13 +9717,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = sext i32 %1 to i64
-  %7 = getelementptr %"struct.Moves::trackType", ptr %5, i64 %6
+  %7 = getelementptr [220 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 140
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds [4 x i32], ptr %8, i64 %9
+  %10 = getelementptr inbounds [16 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2904
-  %12 = getelementptr inbounds [4 x %struct.movePlyType], ptr %11, i64 %6
-  %13 = getelementptr inbounds %struct.movePlyType, ptr %12, i64 %9
+  %12 = getelementptr inbounds [928 x i8], ptr %11, i64 %6
+  %13 = getelementptr inbounds [232 x i8], ptr %12, i64 %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   store ptr %7, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 228
@@ -9749,20 +9739,20 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
 
 22:                                               ; preds = %18
   %23 = sext i32 %20 to i64
-  %24 = getelementptr %struct.moveType, ptr %13, i64 %23
+  %24 = getelementptr [16 x i8], ptr %13, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -16
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %10, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %10, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %22
-  %32 = getelementptr inbounds i16, ptr %3, i64 %27
+  %32 = getelementptr inbounds [2 x i8], ptr %3, i64 %27
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @lowestRank, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @lowestRank, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
   %spec.store.select = select i1 %37, i32 15, i32 %36
@@ -9786,12 +9776,12 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
 .lr.ph:                                           ; preds = %42, %54
   %45 = phi i32 [ %55, %54 ], [ %.promoted, %42 ]
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds %struct.moveType, ptr %13, i64 %46
+  %47 = getelementptr inbounds [16 x i8], ptr %13, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = load i32, ptr %47, align 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %10, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %10, i64 %51
   %53 = load i32, ptr %52, align 4
   %.not.not = icmp slt i32 %49, %53
   br i1 %.not.not, label %54, label %._crit_edge.thread
@@ -9834,7 +9824,7 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
 74:                                               ; preds = %._crit_edge.thread
   %75 = add nsw i32 %2, -1
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %struct.extCard, ptr %59, i64 %76
+  %77 = getelementptr inbounds [12 x i8], ptr %59, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %57, %78
   br i1 %79, label %80, label %106
@@ -9845,25 +9835,25 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = icmp sgt i32 %82, %84
-  %86 = getelementptr inbounds %struct.extCard, ptr %59, i64 %9
+  %86 = getelementptr inbounds [12 x i8], ptr %59, i64 %9
   br i1 %85, label %87, label %100
 
 87:                                               ; preds = %80
   store i32 %57, ptr %86, align 4
   %88 = load i32, ptr %81, align 4
   %89 = load ptr, ptr %14, align 8
-  %90 = getelementptr %struct.extCard, ptr %89, i64 %9
+  %90 = getelementptr [12 x i8], ptr %89, i64 %9
   %91 = getelementptr i8, ptr %90, i64 80
   store i32 %88, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %93 = load i32, ptr %92, align 4
   %94 = load ptr, ptr %14, align 8
-  %95 = getelementptr %struct.extCard, ptr %94, i64 %9
+  %95 = getelementptr [12 x i8], ptr %94, i64 %9
   %96 = getelementptr i8, ptr %95, i64 84
   store i32 %93, ptr %96, align 4
   %97 = load ptr, ptr %14, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 124
-  %99 = getelementptr inbounds i32, ptr %98, i64 %9
+  %99 = getelementptr inbounds [4 x i8], ptr %98, i64 %9
   store i32 %2, ptr %99, align 4
   br label %131
 
@@ -9871,9 +9861,9 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %86, ptr noundef nonnull align 4 dereferenceable(12) %77, i64 12, i1 false)
   %101 = load ptr, ptr %14, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 124
-  %103 = getelementptr inbounds i32, ptr %102, i64 %76
+  %103 = getelementptr inbounds [4 x i8], ptr %102, i64 %76
   %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds i32, ptr %102, i64 %9
+  %105 = getelementptr inbounds [4 x i8], ptr %102, i64 %9
   store i32 %104, ptr %105, align 4
   br label %131
 
@@ -9881,7 +9871,7 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %108 = load i32, ptr %107, align 4
   %109 = icmp eq i32 %57, %108
-  %110 = getelementptr inbounds %struct.extCard, ptr %59, i64 %9
+  %110 = getelementptr inbounds [12 x i8], ptr %59, i64 %9
   br i1 %109, label %111, label %125
 
 111:                                              ; preds = %106
@@ -9889,18 +9879,18 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %112 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = load ptr, ptr %14, align 8
-  %115 = getelementptr %struct.extCard, ptr %114, i64 %9
+  %115 = getelementptr [12 x i8], ptr %114, i64 %9
   %116 = getelementptr i8, ptr %115, i64 80
   store i32 %113, ptr %116, align 4
   %117 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %118 = load i32, ptr %117, align 4
   %119 = load ptr, ptr %14, align 8
-  %120 = getelementptr %struct.extCard, ptr %119, i64 %9
+  %120 = getelementptr [12 x i8], ptr %119, i64 %9
   %121 = getelementptr i8, ptr %120, i64 84
   store i32 %118, ptr %121, align 4
   %122 = load ptr, ptr %14, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 124
-  %124 = getelementptr inbounds i32, ptr %123, i64 %9
+  %124 = getelementptr inbounds [4 x i8], ptr %123, i64 %9
   store i32 %2, ptr %124, align 4
   br label %131
 
@@ -9908,9 +9898,9 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %110, ptr noundef nonnull align 4 dereferenceable(12) %77, i64 12, i1 false)
   %126 = load ptr, ptr %14, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 124
-  %128 = getelementptr inbounds i32, ptr %127, i64 %76
+  %128 = getelementptr inbounds [4 x i8], ptr %127, i64 %76
   %129 = load i32, ptr %128, align 4
-  %130 = getelementptr inbounds i32, ptr %127, i64 %9
+  %130 = getelementptr inbounds [4 x i8], ptr %127, i64 %9
   store i32 %129, ptr %130, align 4
   br label %131
 
@@ -9918,13 +9908,13 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %132 = load i32, ptr %.1, align 4
   %133 = load ptr, ptr %14, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %135 = getelementptr inbounds i32, ptr %134, i64 %9
+  %135 = getelementptr inbounds [4 x i8], ptr %134, i64 %9
   store i32 %132, ptr %135, align 4
   %136 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %137 = load i32, ptr %136, align 4
   %138 = load ptr, ptr %14, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  %140 = getelementptr inbounds i32, ptr %139, i64 %9
+  %140 = getelementptr inbounds [4 x i8], ptr %139, i64 %9
   store i32 %137, ptr %140, align 4
   %141 = icmp eq i32 %2, 3
   br i1 %141, label %142, label %.loopexit
@@ -9945,9 +9935,9 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %indvars.iv = phi i64 [ 0, %142 ], [ %indvars.iv.next, %151 ]
   %152 = load ptr, ptr %14, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 204
-  %154 = getelementptr inbounds nuw i32, ptr %153, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %indvars.iv
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %indvars.iv
   store i32 %155, ptr %156, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -9957,17 +9947,17 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.preheader ], [ 0, %151 ]
   %157 = load ptr, ptr %14, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
-  %159 = getelementptr inbounds nuw i32, ptr %158, i64 %indvars.iv101
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %indvars.iv101
   %160 = load i32, ptr %159, align 4
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %162 = getelementptr inbounds nuw i32, ptr %161, i64 %indvars.iv101
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %indvars.iv101
   %163 = load i32, ptr %162, align 4
   %164 = sext i32 %160 to i64
-  %165 = getelementptr inbounds i16, ptr @bitMapRank, i64 %164
+  %165 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %164
   %166 = load i16, ptr %165, align 2
   %167 = zext i16 %166 to i32
   %168 = sext i32 %163 to i64
-  %169 = getelementptr inbounds i32, ptr %150, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %150, i64 %168
   %170 = load i32, ptr %169, align 4
   %171 = or i32 %170, %167
   store i32 %171, ptr %169, align 4
@@ -9990,9 +9980,9 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
 define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [4 x %struct.movePlyType], ptr %4, i64 %5
+  %6 = getelementptr inbounds [928 x i8], ptr %4, i64 %5
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %struct.movePlyType, ptr %6, i64 %7
+  %8 = getelementptr inbounds [232 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 228
@@ -10002,9 +9992,9 @@ define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 der
 
 14:                                               ; preds = %3
   %15 = sext i32 %10 to i64
-  %16 = getelementptr inbounds %struct.moveType, ptr %8, i64 %15
+  %16 = getelementptr inbounds [16 x i8], ptr %8, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %18 = getelementptr %"struct.Moves::trackType", ptr %17, i64 %5
+  %18 = getelementptr [220 x i8], ptr %17, i64 %5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   store ptr %18, ptr %19, align 8
   %20 = icmp eq i32 %2, 0
@@ -10032,7 +10022,7 @@ define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 der
 33:                                               ; preds = %14
   %34 = add nsw i32 %2, -1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.extCard, ptr %22, i64 %35
+  %36 = getelementptr inbounds [12 x i8], ptr %22, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %21, %37
   br i1 %38, label %39, label %65
@@ -10043,25 +10033,25 @@ define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 der
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = icmp sgt i32 %41, %43
-  %45 = getelementptr inbounds %struct.extCard, ptr %22, i64 %7
+  %45 = getelementptr inbounds [12 x i8], ptr %22, i64 %7
   br i1 %44, label %46, label %59
 
 46:                                               ; preds = %39
   store i32 %21, ptr %45, align 4
   %47 = load i32, ptr %40, align 4
   %48 = load ptr, ptr %19, align 8
-  %49 = getelementptr %struct.extCard, ptr %48, i64 %7
+  %49 = getelementptr [12 x i8], ptr %48, i64 %7
   %50 = getelementptr i8, ptr %49, i64 80
   store i32 %47, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = load ptr, ptr %19, align 8
-  %54 = getelementptr %struct.extCard, ptr %53, i64 %7
+  %54 = getelementptr [12 x i8], ptr %53, i64 %7
   %55 = getelementptr i8, ptr %54, i64 84
   store i32 %52, ptr %55, align 4
   %56 = load ptr, ptr %19, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 124
-  %58 = getelementptr inbounds i32, ptr %57, i64 %7
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %7
   store i32 %2, ptr %58, align 4
   br label %90
 
@@ -10069,9 +10059,9 @@ define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 der
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %45, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false)
   %60 = load ptr, ptr %19, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 124
-  %62 = getelementptr inbounds i32, ptr %61, i64 %35
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %35
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i32, ptr %61, i64 %7
+  %64 = getelementptr inbounds [4 x i8], ptr %61, i64 %7
   store i32 %63, ptr %64, align 4
   br label %90
 
@@ -10079,7 +10069,7 @@ define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 der
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %21, %67
-  %69 = getelementptr inbounds %struct.extCard, ptr %22, i64 %7
+  %69 = getelementptr inbounds [12 x i8], ptr %22, i64 %7
   br i1 %68, label %70, label %84
 
 70:                                               ; preds = %65
@@ -10087,18 +10077,18 @@ define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 der
   %71 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = load ptr, ptr %19, align 8
-  %74 = getelementptr %struct.extCard, ptr %73, i64 %7
+  %74 = getelementptr [12 x i8], ptr %73, i64 %7
   %75 = getelementptr i8, ptr %74, i64 80
   store i32 %72, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = load ptr, ptr %19, align 8
-  %79 = getelementptr %struct.extCard, ptr %78, i64 %7
+  %79 = getelementptr [12 x i8], ptr %78, i64 %7
   %80 = getelementptr i8, ptr %79, i64 84
   store i32 %77, ptr %80, align 4
   %81 = load ptr, ptr %19, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 124
-  %83 = getelementptr inbounds i32, ptr %82, i64 %7
+  %83 = getelementptr inbounds [4 x i8], ptr %82, i64 %7
   store i32 %2, ptr %83, align 4
   br label %90
 
@@ -10106,9 +10096,9 @@ define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 der
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %69, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false)
   %85 = load ptr, ptr %19, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 124
-  %87 = getelementptr inbounds i32, ptr %86, i64 %35
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %35
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i32, ptr %86, i64 %7
+  %89 = getelementptr inbounds [4 x i8], ptr %86, i64 %7
   store i32 %88, ptr %89, align 4
   br label %90
 
@@ -10116,13 +10106,13 @@ define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 der
   %91 = load i32, ptr %16, align 8
   %92 = load ptr, ptr %19, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = getelementptr inbounds i32, ptr %93, i64 %7
+  %94 = getelementptr inbounds [4 x i8], ptr %93, i64 %7
   store i32 %91, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = load ptr, ptr %19, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %99 = getelementptr inbounds i32, ptr %98, i64 %7
+  %99 = getelementptr inbounds [4 x i8], ptr %98, i64 %7
   store i32 %96, ptr %99, align 4
   %100 = icmp eq i32 %2, 3
   br i1 %100, label %101, label %109
@@ -10152,9 +10142,9 @@ define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5Moves4StepEii(ptr noundef nonnull align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr [4 x %struct.movePlyType], ptr %0, i64 %4
+  %5 = getelementptr [928 x i8], ptr %0, i64 %4
   %6 = sext i32 %2 to i64
-  %7 = getelementptr %struct.movePlyType, ptr %5, i64 %6
+  %7 = getelementptr [232 x i8], ptr %5, i64 %6
   %8 = getelementptr i8, ptr %7, i64 3128
   %9 = load i32, ptr %8, align 8
   %10 = add nsw i32 %9, 1
@@ -10165,9 +10155,9 @@ define void @_ZN5Moves4StepEii(ptr noundef nonnull align 8 captures(none) derefe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5Moves6RewindEii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr [4 x %struct.movePlyType], ptr %0, i64 %4
+  %5 = getelementptr [928 x i8], ptr %0, i64 %4
   %6 = sext i32 %2 to i64
-  %7 = getelementptr %struct.movePlyType, ptr %5, i64 %6
+  %7 = getelementptr [232 x i8], ptr %5, i64 %6
   %8 = getelementptr i8, ptr %7, i64 3128
   store i32 0, ptr %8, align 8
   ret void
@@ -10177,15 +10167,15 @@ define void @_ZN5Moves6RewindEii(ptr noundef nonnull writeonly align 8 captures(
 define void @_ZN5Moves5PurgeEiiPK8moveType(ptr noundef nonnull align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #13 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [4 x %struct.movePlyType], ptr %5, i64 %6
+  %7 = getelementptr inbounds [928 x i8], ptr %5, i64 %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds %struct.movePlyType, ptr %7, i64 %8
+  %9 = getelementptr inbounds [232 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 228
   br label %11
 
 11:                                               ; preds = %4, %.loopexit
   %indvars.iv45 = phi i64 [ 1, %4 ], [ %indvars.iv.next46, %.loopexit ]
-  %12 = getelementptr inbounds nuw %struct.moveType, ptr %3, i64 %indvars.iv45
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv45
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %15 = load i32, ptr %14, align 4
@@ -10200,7 +10190,7 @@ define void @_ZN5Moves5PurgeEiiPK8moveType(ptr noundef nonnull align 8 captures(
 .lr.ph38:                                         ; preds = %.preheader32, %32
   %18 = phi i32 [ %33, %32 ], [ %17, %.preheader32 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.preheader32 ]
-  %19 = getelementptr inbounds nuw %struct.moveType, ptr %9, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %13, %20
   br i1 %21, label %22, label %32
@@ -10219,8 +10209,8 @@ define void @_ZN5Moves5PurgeEiiPK8moveType(ptr noundef nonnull align 8 captures(
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.lr.ph ], [ %indvars.iv, %.preheader ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %27 = getelementptr inbounds nuw %struct.moveType, ptr %9, i64 %indvars.iv.next42
-  %28 = getelementptr inbounds nuw %struct.moveType, ptr %9, i64 %indvars.iv41
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv.next42
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   %29 = load i32, ptr %10, align 4
   %30 = sext i32 %29 to i64
@@ -10253,13 +10243,13 @@ define void @_ZN5Moves5PurgeEiiPK8moveType(ptr noundef nonnull align 8 captures(
 define void @_ZN5Moves6RewardEii(ptr noundef nonnull align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [4 x %struct.movePlyType], ptr %4, i64 %5
+  %6 = getelementptr inbounds [928 x i8], ptr %4, i64 %5
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %struct.movePlyType, ptr %6, i64 %7
+  %8 = getelementptr inbounds [232 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr %struct.moveType, ptr %8, i64 %11
+  %12 = getelementptr [16 x i8], ptr %8, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, 100
@@ -10271,7 +10261,7 @@ define void @_ZN5Moves6RewardEii(ptr noundef nonnull align 8 captures(none) dere
 define noundef nonnull align 4 dereferenceable(36) ptr @_ZN5Moves12GetTrickDataEi(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(39992) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
 .preheader24:
   %2 = sext i32 %1 to i64
-  %3 = getelementptr %"struct.Moves::trackType", ptr %0, i64 %2
+  %3 = getelementptr [220 x i8], ptr %0, i64 %2
   %4 = getelementptr i8, ptr %3, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2896
@@ -10281,10 +10271,10 @@ define noundef nonnull align 4 dereferenceable(36) ptr @_ZN5Moves12GetTrickDataE
   %indvars.iv = phi i64 [ 0, %.preheader24 ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %4, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %4, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %12, align 4
@@ -10295,7 +10285,7 @@ define noundef nonnull align 4 dereferenceable(36) ptr @_ZN5Moves12GetTrickDataE
 .preheader:                                       ; preds = %6, %.preheader
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.preheader ], [ 0, %6 ]
   %.02127 = phi i32 [ %17, %.preheader ], [ 0, %6 ]
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv31
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv31
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %.02127
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
@@ -10353,9 +10343,9 @@ declare void @exit(i32 noundef) local_unnamed_addr #14
 define void @_ZN5Moves4SortEii(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [4 x %struct.movePlyType], ptr %4, i64 %5
+  %6 = getelementptr inbounds [928 x i8], ptr %4, i64 %5
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %struct.movePlyType, ptr %6, i64 %7
+  %8 = getelementptr inbounds [232 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 228
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, 1
@@ -10423,7 +10413,7 @@ define void @_ZNK5Moves9PrintMoveB5cxx11ERK11movePlyType(ptr dead_on_unwind noal
           to label %30 unwind label %.loopexit
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw %struct.moveType, ptr %2, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr @cardSuit, i64 %33
@@ -10553,9 +10543,9 @@ define void @_ZNK5Moves10PrintMovesB5cxx11Eii(ptr dead_on_unwind noalias writabl
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2904
   %19 = sext i32 %2 to i64
-  %20 = getelementptr inbounds [4 x %struct.movePlyType], ptr %18, i64 %19
+  %20 = getelementptr inbounds [928 x i8], ptr %18, i64 %19
   %21 = sext i32 %3 to i64
-  %22 = getelementptr inbounds %struct.movePlyType, ptr %20, i64 %21
+  %22 = getelementptr inbounds [232 x i8], ptr %20, i64 %21
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, i32 noundef %2) #22
   %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 0, ptr noundef nonnull @.str.19)
           to label %24 unwind label %76
@@ -10915,7 +10905,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2904
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds [4 x %struct.movePlyType], ptr %5, i64 %6
+  %7 = getelementptr inbounds [928 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 464
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 696
@@ -10934,7 +10924,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %19 = getelementptr inbounds %"struct.Moves::trackType", ptr %18, i64 %6
+  %19 = getelementptr inbounds [220 x i8], ptr %18, i64 %6
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr @cardHand, i64 %21
@@ -10950,7 +10940,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.moveType, ptr %7, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr %7, i64 %30
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr @cardSuit, i64 %33
@@ -10961,7 +10951,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
 37:                                               ; preds = %27
   %38 = load i32, ptr %28, align 8
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.moveType, ptr %7, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %7, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
@@ -10978,7 +10968,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 456
   %51 = load i32, ptr %50, align 8
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.moveType, ptr %8, i64 %52
+  %53 = getelementptr inbounds [16 x i8], ptr %8, i64 %52
   %54 = load i32, ptr %53, align 8
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr @cardSuit, i64 %55
@@ -10989,7 +10979,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
 59:                                               ; preds = %49
   %60 = load i32, ptr %50, align 8
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.moveType, ptr %8, i64 %61
+  %62 = getelementptr inbounds [16 x i8], ptr %8, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
@@ -11006,7 +10996,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 688
   %73 = load i32, ptr %72, align 8
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.moveType, ptr %9, i64 %74
+  %75 = getelementptr inbounds [16 x i8], ptr %9, i64 %74
   %76 = load i32, ptr %75, align 8
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr @cardSuit, i64 %77
@@ -11017,7 +11007,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
 81:                                               ; preds = %71
   %82 = load i32, ptr %72, align 8
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds %struct.moveType, ptr %9, i64 %83
+  %84 = getelementptr inbounds [16 x i8], ptr %9, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
@@ -11034,7 +11024,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 920
   %95 = load i32, ptr %94, align 8
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %struct.moveType, ptr %10, i64 %96
+  %97 = getelementptr inbounds [16 x i8], ptr %10, i64 %96
   %98 = load i32, ptr %97, align 8
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds i8, ptr @cardSuit, i64 %99
@@ -11045,7 +11035,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
 103:                                              ; preds = %93
   %104 = load i32, ptr %94, align 8
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds %struct.moveType, ptr %10, i64 %105
+  %106 = getelementptr inbounds [16 x i8], ptr %10, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %108 to i64
@@ -11100,7 +11090,7 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %"struct.Moves::moveStatType", ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %2
@@ -11108,7 +11098,7 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull re
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %15 = getelementptr inbounds nuw %"struct.Moves::moveStatType", ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4
@@ -11132,7 +11122,7 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull re
   %26 = trunc nuw nsw i64 %indvars.iv42 to i32
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef %26)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.27)
-  %29 = getelementptr inbounds nuw %"struct.Moves::moveStatType", ptr %1, i64 %indvars.iv42
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv42
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 4
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %28, i32 noundef %31)
@@ -11152,7 +11142,7 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull re
   %38 = add nsw i32 %6, 1
   store i32 %38, ptr %1, align 4
   %39 = sext i32 %6 to i64
-  %40 = getelementptr inbounds %"struct.Moves::moveStatType", ptr %37, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %37, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %40, align 4
@@ -11177,12 +11167,12 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull re
 define void @_ZN5Moves11RegisterHitEii(ptr noundef nonnull align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [4 x %struct.movePlyType], ptr %4, i64 %5
+  %6 = getelementptr inbounds [928 x i8], ptr %4, i64 %5
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %struct.movePlyType, ptr %6, i64 %7
+  %8 = getelementptr inbounds [232 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 14976
-  %10 = getelementptr inbounds [4 x i32], ptr %9, i64 %5
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %10 = getelementptr inbounds [16 x i8], ptr %9, i64 %5
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 228
   %14 = load i32, ptr %13, align 4
@@ -11217,7 +11207,7 @@ define void @_ZN5Moves11RegisterHitEii(ptr noundef nonnull align 8 captures(none
 32:                                               ; preds = %24
   %33 = add nsw i32 %26, -1
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw %struct.moveType, ptr %8, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %34
   %36 = load i32, ptr %35, align 8
   %.not62 = icmp slt i32 %14, 0
   br i1 %.not62, label %._crit_edge, label %.lr.ph.preheader
@@ -11230,7 +11220,7 @@ define void @_ZN5Moves11RegisterHitEii(ptr noundef nonnull align 8 captures(none
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05664 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %.05763 = phi i32 [ 0, %.lr.ph.preheader ], [ %.158, %.lr.ph ]
-  %37 = getelementptr inbounds nuw %struct.moveType, ptr %8, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, %36
   %40 = add nsw i32 %.05763, 1
@@ -11246,8 +11236,8 @@ define void @_ZN5Moves11RegisterHitEii(ptr noundef nonnull align 8 captures(none
   %.057.lcssa = phi i32 [ 0, %32 ], [ %.158, %.lr.ph ]
   %.056.lcssa = phi i32 [ 0, %32 ], [ %.1, %.lr.ph ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 15600
-  %44 = getelementptr inbounds [4 x %"struct.Moves::moveStatType"], ptr %43, i64 %5
-  %45 = getelementptr inbounds %"struct.Moves::moveStatType", ptr %44, i64 %7
+  %44 = getelementptr inbounds [64 x i8], ptr %43, i64 %5
+  %45 = getelementptr inbounds [16 x i8], ptr %44, i64 %7
   %46 = load i32, ptr %45, align 8
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %45, align 8
@@ -11260,8 +11250,8 @@ define void @_ZN5Moves11RegisterHitEii(ptr noundef nonnull align 8 captures(none
   %53 = add nsw i32 %52, %15
   store i32 %53, ptr %51, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16432
-  %55 = getelementptr inbounds [4 x %"struct.Moves::moveStatType"], ptr %54, i64 %5
-  %56 = getelementptr inbounds %"struct.Moves::moveStatType", ptr %55, i64 %7
+  %55 = getelementptr inbounds [64 x i8], ptr %54, i64 %5
+  %56 = getelementptr inbounds [16 x i8], ptr %55, i64 %7
   %57 = load i32, ptr %56, align 8
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %56, align 8
@@ -11274,12 +11264,12 @@ define void @_ZN5Moves11RegisterHitEii(ptr noundef nonnull align 8 captures(none
   %64 = add nsw i32 %63, %.057.lcssa
   store i32 %64, ptr %62, align 4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 17264
-  %66 = getelementptr inbounds [4 x %"struct.Moves::moveStatsType"], ptr %65, i64 %5
-  %67 = getelementptr inbounds %"struct.Moves::moveStatsType", ptr %66, i64 %7
+  %66 = getelementptr inbounds [848 x i8], ptr %65, i64 %5
+  %67 = getelementptr inbounds [212 x i8], ptr %66, i64 %7
   tail call void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(212) %67, i32 noundef %12, i32 noundef %26, i32 noundef %15)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 28288
-  %69 = getelementptr inbounds [4 x %"struct.Moves::moveStatsType"], ptr %68, i64 %5
-  %70 = getelementptr inbounds %"struct.Moves::moveStatsType", ptr %69, i64 %7
+  %69 = getelementptr inbounds [848 x i8], ptr %68, i64 %5
+  %70 = getelementptr inbounds [212 x i8], ptr %69, i64 %7
   tail call void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(212) %70, i32 noundef %12, i32 noundef %.056.lcssa, i32 noundef %.057.lcssa)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 39312
   tail call void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(212) %71, i32 noundef %12, i32 noundef %26, i32 noundef %15)
@@ -11701,7 +11691,7 @@ define void @_ZNK5Moves15PrintTrickTableB5cxx11EPA4_KNS_12moveStatTypeE(ptr dead
           to label %77 unwind label %.loopexit
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw [4 x %"struct.Moves::moveStatType"], ptr %2, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %indvars.iv
   invoke void @_ZNK5Moves13AverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(16) %78)
           to label %79 unwind label %.loopexit
 
@@ -11938,13 +11928,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %51 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %45, i64 %indvars.iv33
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %indvars.iv33
   br label %52
 
 52:                                               ; preds = %.lr.ph, %70
   %53 = phi i32 [ %48, %.lr.ph ], [ %71, %70 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %54 = getelementptr inbounds nuw %"struct.Moves::moveStatType", ptr %44, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
@@ -12090,7 +12080,7 @@ define void @_ZNK5Moves17PrintTrickDetailsERSt14basic_ofstreamIcSt11char_traitsI
 
 .preheader31:                                     ; preds = %2, %23
   %indvars.iv37 = phi i64 [ 12, %2 ], [ %indvars.iv.next38, %23 ]
-  %7 = getelementptr inbounds nuw [4 x %"struct.Moves::moveStatsType"], ptr %6, i64 %indvars.iv37
+  %7 = getelementptr inbounds nuw [848 x i8], ptr %6, i64 %indvars.iv37
   %8 = trunc nuw nsw i64 %indvars.iv37 to i32
   br label %9
 
@@ -12102,7 +12092,7 @@ define void @_ZNK5Moves17PrintTrickDetailsERSt14basic_ofstreamIcSt11char_traitsI
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %13)
   %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.17)
-  %16 = getelementptr inbounds nuw %"struct.Moves::moveStatsType", ptr %7, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [212 x i8], ptr %7, i64 %indvars.iv
   call void @_ZNK5Moves18PrintFunctionTableB5cxx11ERKNS_13moveStatsTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(39992) %0, ptr noundef nonnull align 4 dereferenceable(212) %16)
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %18 unwind label %21
@@ -12134,7 +12124,7 @@ define void @_ZNK5Moves17PrintTrickDetailsERSt14basic_ofstreamIcSt11char_traitsI
 
 .preheader:                                       ; preds = %24, %43
   %indvars.iv44 = phi i64 [ 12, %24 ], [ %indvars.iv.next45, %43 ]
-  %27 = getelementptr inbounds nuw [4 x %"struct.Moves::moveStatsType"], ptr %26, i64 %indvars.iv44
+  %27 = getelementptr inbounds nuw [848 x i8], ptr %26, i64 %indvars.iv44
   %28 = trunc nuw nsw i64 %indvars.iv44 to i32
   br label %29
 
@@ -12146,7 +12136,7 @@ define void @_ZNK5Moves17PrintTrickDetailsERSt14basic_ofstreamIcSt11char_traitsI
   %33 = trunc nuw nsw i64 %indvars.iv40 to i32
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %33)
   %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @.str.17)
-  %36 = getelementptr inbounds nuw %"struct.Moves::moveStatsType", ptr %27, i64 %indvars.iv40
+  %36 = getelementptr inbounds nuw [212 x i8], ptr %27, i64 %indvars.iv40
   call void @_ZNK5Moves18PrintFunctionTableB5cxx11ERKNS_13moveStatsTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(39992) %0, ptr noundef nonnull align 4 dereferenceable(212) %36)
   %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %38 unwind label %41

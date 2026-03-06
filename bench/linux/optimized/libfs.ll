@@ -1084,7 +1084,7 @@ define internal noundef i32 @offset_readdir(ptr noundef captures(none) %0, ptr n
 
 72:                                               ; preds = %66
   %73 = zext i8 %67 to i64
-  %74 = getelementptr ptr, ptr %65, i64 %73
+  %74 = getelementptr [8 x i8], ptr %65, i64 %73
   %75 = load volatile ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
   %77 = and i64 %76, 3

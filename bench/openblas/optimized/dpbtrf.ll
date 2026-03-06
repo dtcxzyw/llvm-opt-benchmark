@@ -41,7 +41,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %15 = load i32, ptr %4, align 4, !tbaa !3
   %narrow = xor i32 %15, -1
   %16 = sext i32 %narrow to i64
-  %17 = getelementptr inbounds double, ptr %3, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %3, i64 %16
   store i32 0, ptr %5, align 4, !tbaa !3
   %18 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #5
   %.not = icmp eq i32 %18, 0
@@ -157,7 +157,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %58 = add i32 %57, 1
   %59 = add i32 %58, %56
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds double, ptr %17, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %17, i64 %60
   %62 = call i32 @dpotf2_(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %61, ptr noundef nonnull %8, ptr noundef nonnull %14) #5
   %63 = load i32, ptr %14, align 4, !tbaa !3
   %.not258 = icmp eq i32 %63, 0
@@ -199,12 +199,12 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %84 = add nsw i32 %71, 1
   %85 = add nsw i32 %84, %57
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds double, ptr %17, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %17, i64 %86
   %88 = mul nsw i32 %68, %15
   %89 = sub i32 %88, %67
   %90 = add i32 %89, %84
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds double, ptr %17, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %17, i64 %91
   call void @dtrsm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull @c_b18, ptr noundef %87, ptr noundef nonnull %8, ptr noundef %92, ptr noundef nonnull %9) #5
   %93 = load i32, ptr %4, align 4, !tbaa !3
   %94 = add nsw i32 %93, -1
@@ -218,10 +218,10 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %100 = mul nsw i32 %99, %15
   %101 = add nsw i32 %98, %100
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds double, ptr %17, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %17, i64 %102
   %104 = add nsw i32 %100, %96
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds double, ptr %17, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %17, i64 %105
   call void @dsyrk_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull @c_b21, ptr noundef %103, ptr noundef nonnull %8, ptr noundef nonnull @c_b18, ptr noundef %106, ptr noundef nonnull %9) #5
   %.pr270 = load i32, ptr %12, align 4, !tbaa !3
   br label %107
@@ -264,9 +264,9 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %123 = trunc nuw nsw i64 %indvars.iv373 to i32
   %.reass = add i32 %invariant.op, %123
   %124 = sext i32 %.reass to i64
-  %125 = getelementptr inbounds double, ptr %17, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %17, i64 %124
   %126 = load double, ptr %125, align 8, !tbaa !7
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv373
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv373
   %127 = getelementptr i8, ptr %gep, i64 -272
   store double %126, ptr %127, align 8, !tbaa !7
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
@@ -287,7 +287,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %131 = load i32, ptr %2, align 4, !tbaa !3
   %132 = add i32 %58, %131
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds double, ptr %17, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %17, i64 %133
   call void @dtrsm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull @c_b18, ptr noundef %134, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull @c__33) #5
   %135 = load i32, ptr %11, align 4, !tbaa !3
   %136 = icmp sgt i32 %135, 0
@@ -306,13 +306,13 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %145 = mul nsw i32 %144, %15
   %146 = add nsw i32 %143, %145
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds double, ptr %17, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %17, i64 %147
   %149 = add nsw i32 %142, 1
   %150 = add nsw i32 %140, %.1223311
   %151 = mul nsw i32 %150, %15
   %152 = add nsw i32 %149, %151
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds double, ptr %17, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %17, i64 %153
   call void @dgemm_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.7, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @c_b21, ptr noundef %148, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull @c__33, ptr noundef nonnull @c_b18, ptr noundef %154, ptr noundef nonnull %9) #5
   br label %155
 
@@ -326,7 +326,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %161 = mul nsw i32 %160, %15
   %162 = add nsw i32 %159, %161
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds double, ptr %17, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %17, i64 %163
   call void @dsyrk_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @c_b21, ptr noundef nonnull %10, ptr noundef nonnull @c__33, ptr noundef nonnull @c_b18, ptr noundef %164, ptr noundef nonnull %8) #5
   %165 = load i32, ptr %12, align 4, !tbaa !3
   store i32 %165, ptr %8, align 4, !tbaa !3
@@ -362,13 +362,13 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 176:                                              ; preds = %.lr.ph301, %176
   %indvars.iv383 = phi i64 [ %indvars.iv381, %.lr.ph301 ], [ %indvars.iv.next384, %176 ]
-  %gep452 = getelementptr double, ptr %invariant.gep451, i64 %indvars.iv383
+  %gep452 = getelementptr [8 x i8], ptr %invariant.gep451, i64 %indvars.iv383
   %177 = getelementptr i8, ptr %gep452, i64 -272
   %178 = load double, ptr %177, align 8, !tbaa !7
   %179 = trunc nuw nsw i64 %indvars.iv383 to i32
   %.reass305 = add i32 %invariant.op304, %179
   %180 = sext i32 %.reass305 to i64
-  %181 = getelementptr inbounds double, ptr %17, i64 %180
+  %181 = getelementptr inbounds [8 x i8], ptr %17, i64 %180
   store double %178, ptr %181, align 8, !tbaa !7
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
   %exitcond387.not = icmp eq i64 %indvars.iv.next384, %wide.trip.count386
@@ -431,7 +431,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %198, ptr %8, align 4, !tbaa !3
   %199 = mul nsw i32 %.3225352, %15
   %200 = sext i32 %199 to i64
-  %201 = getelementptr double, ptr %17, i64 %200
+  %201 = getelementptr [8 x i8], ptr %17, i64 %200
   %202 = getelementptr i8, ptr %201, i64 8
   %203 = call i32 @dpotf2_(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %202, ptr noundef nonnull %8, ptr noundef nonnull %14) #5
   %204 = load i32, ptr %14, align 4, !tbaa !3
@@ -474,7 +474,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %225 = add i32 %199, 1
   %226 = add i32 %225, %208
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds double, ptr %17, i64 %227
+  %228 = getelementptr inbounds [8 x i8], ptr %17, i64 %227
   call void @dtrsm_(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull @c_b18, ptr noundef %202, ptr noundef nonnull %8, ptr noundef %228, ptr noundef nonnull %9) #5
   %229 = load i32, ptr %4, align 4, !tbaa !3
   %230 = add nsw i32 %229, -1
@@ -483,11 +483,11 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %231 = load i32, ptr %13, align 4, !tbaa !3
   %232 = add i32 %225, %231
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds double, ptr %17, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %17, i64 %233
   %235 = add nsw i32 %231, %.3225352
   %236 = mul nsw i32 %235, %15
   %237 = sext i32 %236 to i64
-  %238 = getelementptr double, ptr %17, i64 %237
+  %238 = getelementptr [8 x i8], ptr %17, i64 %237
   %239 = getelementptr i8, ptr %238, i64 8
   call void @dsyrk_(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.7, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull @c_b21, ptr noundef %234, ptr noundef nonnull %8, ptr noundef nonnull @c_b18, ptr noundef %239, ptr noundef nonnull %9) #5
   %.pr271 = load i32, ptr %12, align 4, !tbaa !3
@@ -530,9 +530,9 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %253 = trunc nuw nsw i64 %indvars.iv401 to i32
   %.reass331 = add i32 %invariant.op330.reass, %253
   %254 = sext i32 %.reass331 to i64
-  %255 = getelementptr inbounds double, ptr %17, i64 %254
+  %255 = getelementptr inbounds [8 x i8], ptr %17, i64 %254
   %256 = load double, ptr %255, align 8, !tbaa !7
-  %gep454 = getelementptr double, ptr %invariant.gep453, i64 %indvars.iv401
+  %gep454 = getelementptr [8 x i8], ptr %invariant.gep453, i64 %indvars.iv401
   %257 = getelementptr i8, ptr %gep454, i64 -272
   store double %256, ptr %257, align 8, !tbaa !7
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
@@ -568,7 +568,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %267 = add i32 %199, 1
   %268 = add i32 %267, %266
   %269 = sext i32 %268 to i64
-  %270 = getelementptr inbounds double, ptr %17, i64 %269
+  %270 = getelementptr inbounds [8 x i8], ptr %17, i64 %269
   %271 = load i32, ptr %2, align 4, !tbaa !3
   %272 = add nsw i32 %266, %.3225352
   %273 = mul nsw i32 %272, %15
@@ -576,7 +576,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %274 = add i32 %reass.sub358, 1
   %275 = add nsw i32 %274, %273
   %276 = sext i32 %275 to i64
-  %277 = getelementptr inbounds double, ptr %17, i64 %276
+  %277 = getelementptr inbounds [8 x i8], ptr %17, i64 %276
   call void @dgemm_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.5, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull @c_b21, ptr noundef nonnull %10, ptr noundef nonnull @c__33, ptr noundef %270, ptr noundef nonnull %8, ptr noundef nonnull @c_b18, ptr noundef %277, ptr noundef nonnull %9) #5
   br label %278
 
@@ -588,7 +588,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %282 = add nsw i32 %281, %.3225352
   %283 = mul nsw i32 %282, %15
   %284 = sext i32 %283 to i64
-  %285 = getelementptr double, ptr %17, i64 %284
+  %285 = getelementptr [8 x i8], ptr %17, i64 %284
   %286 = getelementptr i8, ptr %285, i64 8
   call void @dsyrk_(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.7, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @c_b21, ptr noundef nonnull %10, ptr noundef nonnull @c__33, ptr noundef nonnull @c_b18, ptr noundef %286, ptr noundef nonnull %8) #5
   %287 = load i32, ptr %13, align 4, !tbaa !3
@@ -625,13 +625,13 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 298:                                              ; preds = %.lr.ph341, %298
   %indvars.iv412 = phi i64 [ 1, %.lr.ph341 ], [ %indvars.iv.next413, %298 ]
-  %gep457 = getelementptr double, ptr %invariant.gep456, i64 %indvars.iv412
+  %gep457 = getelementptr [8 x i8], ptr %invariant.gep456, i64 %indvars.iv412
   %299 = getelementptr i8, ptr %gep457, i64 -272
   %300 = load double, ptr %299, align 8, !tbaa !7
   %301 = trunc nuw nsw i64 %indvars.iv412 to i32
   %.reass345 = add i32 %invariant.op344, %301
   %302 = sext i32 %.reass345 to i64
-  %303 = getelementptr inbounds double, ptr %17, i64 %302
+  %303 = getelementptr inbounds [8 x i8], ptr %17, i64 %302
   store double %300, ptr %303, align 8, !tbaa !7
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %exitcond417.not = icmp eq i64 %indvars.iv.next413, %wide.trip.count416

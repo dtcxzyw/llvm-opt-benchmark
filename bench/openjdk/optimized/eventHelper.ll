@@ -8,13 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.jdwpPacket = type { %union.anon.6 }
 %union.anon.6 = type { %struct.jdwpCmdPacket }
 %struct.jdwpCmdPacket = type { i32, i32, i8, i8, i8, ptr }
-%struct.CommandSingle = type { i32, %union.anon.0 }
-%union.anon.0 = type { %struct.EventCommandSingle }
-%struct.EventCommandSingle = type { i8, i32, %struct.EventInfo }
-%struct.EventInfo = type { i32, ptr, i8, ptr, ptr, i64, ptr, %union.anon.1 }
-%union.anon.1 = type { %struct.anon.2 }
-%struct.anon.2 = type { ptr, ptr, i8, %union.jvalue }
-%union.jvalue = type { i64 }
 %struct.jvmtiThreadInfo = type { ptr, i32, i8, ptr, ptr }
 %struct.singleTracker = type { ptr, i32 }
 
@@ -312,7 +305,7 @@ needBlockCommandLoop.exit:                        ; preds = %dequeueCommand.exit
 
 73:                                               ; preds = %.thread.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.thread.i.i ]
-  %74 = getelementptr inbounds nuw %struct.CommandSingle, ptr %72, i64 %indvars.iv.i.i
+  %74 = getelementptr inbounds nuw [104 x i8], ptr %72, i64 %indvars.iv.i.i
   %75 = load i32, ptr %74, align 8
   switch i32 %75, label %.thread.i.i [
     i32 11, label %76
@@ -363,7 +356,7 @@ suspendWithInvokeEnabled.exit.i.i:                ; preds = %82, %80, %._crit_ed
 
 90:                                               ; preds = %handleEventCommandSingle.exit.i.i, %.lr.ph37.i.i
   %indvars.iv40.i.i = phi i64 [ 0, %.lr.ph37.i.i ], [ %indvars.iv.next41.i.i, %handleEventCommandSingle.exit.i.i ]
-  %91 = getelementptr inbounds nuw %struct.CommandSingle, ptr %89, i64 %indvars.iv40.i.i
+  %91 = getelementptr inbounds nuw [104 x i8], ptr %89, i64 %indvars.iv40.i.i
   %92 = load i32, ptr %91, align 8
   switch i32 %92, label %handleEventCommandSingle.exit.i.i [
     i32 11, label %93
@@ -1245,7 +1238,7 @@ define internal noundef zeroext i8 @enumForCopyingSingles(ptr noundef readonly c
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr %5, align 8
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds %struct.CommandSingle, ptr %4, i64 %8
+  %9 = getelementptr inbounds [104 x i8], ptr %4, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 1 dereferenceable(104) %0, i64 104, i1 false)
   ret i8 1
 }

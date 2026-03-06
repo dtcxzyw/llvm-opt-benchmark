@@ -137,12 +137,12 @@ define hidden range(i32 0, 2) i32 @BN_generate_prime_ex(ptr noundef %0, i32 noun
 
 55:                                               ; preds = %55, %.preheader65.i
   %indvars.iv.i = phi i64 [ 1, %.preheader65.i ], [ %indvars.iv.next.i, %55 ]
-  %56 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv.i
   %57 = load i16, ptr %56, align 2, !tbaa !12
   %58 = zext i16 %57 to i64
   %59 = tail call i64 @BN_mod_word(ptr noundef %0, i64 noundef %58) #5
   %60 = trunc i64 %59 to i16
-  %61 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.i
   store i16 %60, ptr %61, align 2, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2048
@@ -209,14 +209,14 @@ get_word.exit60.us.i:                             ; preds = %80, %79
 
 84:                                               ; preds = %83, %get_word.exit60.us.i
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %83 ], [ 1, %get_word.exit60.us.i ]
-  %85 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv87.i
+  %85 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv87.i
   %86 = load i16, ptr %85, align 2, !tbaa !12
   %87 = zext i16 %86 to i64
   %88 = icmp ugt i64 %.0.i59.us.i, %87
   br i1 %88, label %89, label %.critedge.thread.i
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv87.i
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv87.i
   %91 = load i16, ptr %90, align 2, !tbaa !12
   %92 = zext i16 %91 to i64
   %93 = add i64 %.047.us.i, %92
@@ -240,11 +240,11 @@ get_word.exit60.us.i:                             ; preds = %80, %79
 
 99:                                               ; preds = %98, %.preheader.i
   %indvars.iv83.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next84.i, %98 ]
-  %100 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv83.i
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv83.i
   %101 = load i16, ptr %100, align 2, !tbaa !12
   %102 = zext i16 %101 to i64
   %103 = add i64 %.047.i, %102
-  %104 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv83.i
+  %104 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv83.i
   %105 = load i16, ptr %104, align 2, !tbaa !12
   %106 = zext i16 %105 to i64
   %107 = urem i64 %103, %106
@@ -352,7 +352,7 @@ probable_prime.exit:                              ; preds = %112
 
 .preheader.i80:                                   ; preds = %138, %.preheader.i80.backedge
   %indvars.iv.i81 = phi i64 [ %indvars.iv.i81.be, %.preheader.i80.backedge ], [ 1, %138 ]
-  %141 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv.i81
+  %141 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv.i81
   %142 = load i16, ptr %141, align 2, !tbaa !12
   %143 = zext i16 %142 to i64
   %144 = tail call i64 @BN_mod_word(ptr noundef %0, i64 noundef %143) #5
@@ -428,7 +428,7 @@ probable_prime_dh_safe.exit:                      ; preds = %140
 
 167:                                              ; preds = %.backedge163, %.preheader162
   %indvars.iv.i85 = phi i64 [ 1, %.preheader162 ], [ %indvars.iv.i85.be, %.backedge163 ]
-  %168 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv.i85
+  %168 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv.i85
   %169 = load i16, ptr %168, align 2, !tbaa !12
   %170 = zext i16 %169 to i64
   %171 = tail call i64 @BN_mod_word(ptr noundef %0, i64 noundef %170) #5
@@ -615,7 +615,7 @@ define hidden i32 @BN_is_prime_fasttest_ex(ptr noundef %0, i32 noundef %1, ptr n
 
 .preheader138:                                    ; preds = %49, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 1, %49 ]
-  %51 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv
   %52 = load i16, ptr %51, align 2, !tbaa !12
   %53 = zext i16 %52 to i64
   %54 = tail call i64 @BN_mod_word(ptr noundef %0, i64 noundef %53) #5

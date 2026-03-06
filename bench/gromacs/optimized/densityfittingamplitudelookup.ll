@@ -317,7 +317,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw float, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !29
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit, label %26
@@ -326,7 +326,7 @@ _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds float, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit
 
@@ -437,7 +437,7 @@ _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw float, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -459,7 +459,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !25
   store ptr %72, ptr %8, align 8, !tbaa !29
-  %75 = getelementptr inbounds nuw float, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !28
   br label %_ZSt4fillIPffEvT_S1_RKT0_.exit
 
@@ -570,7 +570,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %29, %27, %25, %23, 
   %.sroa.04.09.i = phi ptr [ %36, %.lr.ph.i ], [ %30, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
   %31 = load i32, ptr %.sroa.06.010.i, align 4, !tbaa !42
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds float, ptr %3, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %3, i64 %32
   %34 = load float, ptr %33, align 4, !tbaa !33
   store float %34, ptr %.sroa.04.09.i, align 4, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i, i64 4
@@ -734,9 +734,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !25
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !29
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !28
   br label %41
 
@@ -838,7 +838,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %29, %27, %25, %23, 
   %.sroa.04.09.i = phi ptr [ %36, %.lr.ph.i ], [ %30, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
   %31 = load i32, ptr %.sroa.06.010.i, align 4, !tbaa !42
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds float, ptr %1, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %1, i64 %32
   %34 = load float, ptr %33, align 4, !tbaa !33
   store float %34, ptr %.sroa.04.09.i, align 4, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i, i64 4

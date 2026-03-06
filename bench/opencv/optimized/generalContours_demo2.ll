@@ -32,10 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
-%"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
-%"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -789,7 +785,7 @@ _ZNSt6vectorIN2cv11RotatedRectESaIS1_EED2Ev.exit105.thread: ; preds = %.lr.ph.pr
   %.044148 = phi i64 [ 0, %.lr.ph ], [ %87, %85 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %66 = getelementptr inbounds nuw %"class.std::vector.10", ptr %65, i64 %.044148
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %.044148
   store i32 0, ptr %51, align 8, !tbaa !46
   store i32 0, ptr %52, align 4, !tbaa !48
   store i32 -2130509812, ptr %10, align 8, !tbaa !49
@@ -798,12 +794,12 @@ _ZNSt6vectorIN2cv11RotatedRectESaIS1_EED2Ev.exit105.thread: ; preds = %.lr.ph.pr
           to label %67 unwind label %81
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw %"class.cv::RotatedRect", ptr %49, i64 %.044148
+  %68 = getelementptr inbounds nuw [20 x i8], ptr %49, i64 %.044148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %68, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false), !tbaa.struct !57
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %69 = load ptr, ptr %6, align 8, !tbaa !56
-  %70 = getelementptr inbounds nuw %"class.std::vector.10", ptr %69, i64 %.044148
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %.044148
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !60
   %73 = load ptr, ptr %70, align 8, !tbaa !63
@@ -824,7 +820,7 @@ _ZNSt6vectorIN2cv11RotatedRectESaIS1_EED2Ev.exit105.thread: ; preds = %.lr.ph.pr
           to label %79 unwind label %83
 
 79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw %"class.cv::RotatedRect", ptr %50, i64 %.044148
+  %80 = getelementptr inbounds nuw [20 x i8], ptr %50, i64 %.044148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %80, ptr noundef nonnull align 4 dereferenceable(20) %11, i64 20, i1 false), !tbaa.struct !57
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1001,7 +997,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %99
   store i64 0, ptr %119, align 8
   store i32 50397184, ptr %18, align 8, !tbaa !49
   store ptr %13, ptr %118, align 8, !tbaa !51
-  %158 = getelementptr inbounds nuw %"class.cv::RotatedRect", ptr %.sroa.0110.0172, i64 %.043150
+  %158 = getelementptr inbounds nuw [20 x i8], ptr %.sroa.0110.0172, i64 %.043150
   invoke void @_ZN2cv7ellipseERKNS_17_InputOutputArrayERKNS_11RotatedRectERKNS_7Scalar_IdEEii(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 4 dereferenceable(20) %158, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 2, i32 noundef 8)
           to label %159 unwind label %172
 
@@ -1009,7 +1005,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %99
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %19, i8 0, i64 32, i1 false), !tbaa !58
-  %160 = getelementptr inbounds nuw %"class.cv::RotatedRect", ptr %.sroa.0115.0140166, i64 %.043150
+  %160 = getelementptr inbounds nuw [20 x i8], ptr %.sroa.0115.0140166, i64 %.043150
   invoke void @_ZNK2cv11RotatedRect6pointsEPNS_6Point_IfEE(ptr noundef nonnull align 4 dereferenceable(20) %160, ptr noundef nonnull %19)
           to label %.preheader unwind label %174
 
@@ -1050,7 +1046,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %99
   store i64 0, ptr %121, align 8
   store i32 50397184, ptr %20, align 8, !tbaa !49
   store ptr %13, ptr %120, align 8, !tbaa !51
-  %176 = getelementptr inbounds nuw %"class.cv::Point_.8", ptr %19, i64 %indvars.iv
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %177 = load float, ptr %176, align 8, !tbaa !87
   %178 = insertelement <4 x float> poison, float %177, i64 0
   %179 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %178)
@@ -1064,7 +1060,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %99
   %.sroa.0.0.insert.insert.i92 = or disjoint i64 %.sroa.2.0.insert.shift.i90, %.sroa.0.0.insert.ext.i91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %184 = and i64 %indvars.iv.next, 3
-  %185 = getelementptr inbounds nuw %"class.cv::Point_.8", ptr %19, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %184
   %186 = load float, ptr %185, align 8, !tbaa !87
   %187 = insertelement <4 x float> poison, float %186, i64 0
   %188 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %187)

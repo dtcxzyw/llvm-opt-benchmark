@@ -370,7 +370,7 @@ mktree_line.exit:                                 ; preds = %st_add.exit18._crit
   %155 = add nsw i32 %153, 1
   store i32 %155, ptr @used, align 4, !tbaa !4
   %156 = sext i32 %153 to i64
-  %157 = getelementptr inbounds ptr, ptr %154, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %154, i64 %156
   store ptr %133, ptr %157, align 8, !tbaa !39
   call void @free(ptr noundef %.0.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -422,7 +422,7 @@ sane_qsort.exit.i:                                ; preds = %168, %165
 174:                                              ; preds = %174, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %174 ]
   %.013.i = phi i64 [ 0, %.lr.ph.i ], [ %181, %174 ]
-  %175 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %indvars.iv.i
   %176 = load ptr, ptr %175, align 8, !tbaa !39
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 40
   %178 = load i32, ptr %177, align 4, !tbaa !4
@@ -443,7 +443,7 @@ sane_qsort.exit.i:                                ; preds = %168, %165
 .lr.ph16.i:                                       ; preds = %._crit_edge.i, %.lr.ph16.i
   %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.lr.ph16.i ], [ 0, %._crit_edge.i ]
   %184 = load ptr, ptr @entries, align 8, !tbaa !37
-  %185 = getelementptr inbounds nuw ptr, ptr %184, i64 %indvars.iv19.i
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %indvars.iv19.i
   %186 = load ptr, ptr %185, align 8, !tbaa !39
   %187 = load i32, ptr %186, align 4, !tbaa !4
   %188 = getelementptr inbounds nuw i8, ptr %186, i64 44

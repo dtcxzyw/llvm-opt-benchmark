@@ -212,7 +212,7 @@ define hidden range(i32 0, 49) i32 @Curl_getinfo(ptr noundef %0, i32 noundef %1,
 
 switch.lookup:                                    ; preds = %35
   %65 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Curl_getinfo, i64 %65
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Curl_getinfo, i64 %65
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split.i
 

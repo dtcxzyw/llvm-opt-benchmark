@@ -131,7 +131,7 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr noundef captures(none) %0, 
 
 55:                                               ; preds = %31
   %56 = zext i8 %32 to i64
-  %57 = getelementptr i16, ptr %20, i64 %56
+  %57 = getelementptr [2 x i8], ptr %20, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, 64
   %.not109 = icmp eq i16 %59, 0

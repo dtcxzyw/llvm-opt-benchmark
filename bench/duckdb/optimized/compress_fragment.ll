@@ -381,7 +381,7 @@ _ZL7IsMatchPKhS0_.exit7.us200:                    ; preds = %.lr.ph186.us
 
 _ZL7IsMatchPKhS0_.exit7.thread.us201:             ; preds = %_ZL7IsMatchPKhS0_.exit7.us200, %.lr.ph186.us
   %134 = zext nneg i32 %.2350.i184.us195 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %4, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !77
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i8, ptr %1, i64 %137
@@ -407,7 +407,7 @@ _ZL7IsMatchPKhS0_.exit.us204:                     ; preds = %_ZL7IsMatchPKhS0_.e
   %149 = sub i64 %148, %87
   %150 = trunc i64 %149 to i32
   %151 = zext nneg i32 %.2350.i184.us195 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %4, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %151
   store i32 %150, ptr %152, align 4, !tbaa !77
   br label %.loopexit.split.us205
 
@@ -445,7 +445,7 @@ _ZL7IsMatchPKhS0_.exit.us204:                     ; preds = %_ZL7IsMatchPKhS0_.e
   %.0.copyload.i41.us = load i64, ptr %164, align 1
   %166 = mul i64 %.0.copyload.i41.us, 8503243848024064
   %167 = lshr i64 %166, 55
-  %168 = getelementptr inbounds nuw i32, ptr %4, i64 %.2350.i184.us
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.2350.i184.us
   %169 = load i32, ptr %168, align 4, !tbaa !77
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i8, ptr %1, i64 %170
@@ -569,7 +569,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 %223
   %225 = load i8, ptr %224, align 1, !tbaa !7
   %226 = zext i8 %225 to i64
-  %227 = getelementptr inbounds nuw i16, ptr %9, i64 %223
+  %227 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %223
   %228 = load i16, ptr %227, align 2, !tbaa !84
   %229 = zext i16 %228 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
@@ -585,7 +585,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %237, ptr %232, align 1, !noalias !86
   %238 = add i64 %230, %226
   store i64 %238, ptr %5, align 8, !tbaa !3, !alias.scope !86, !noalias !89
-  %239 = getelementptr inbounds nuw i32, ptr %10, i64 %223
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %223
   %240 = load i32, ptr %239, align 4, !tbaa !77
   %241 = add i32 %240, 1
   store i32 %241, ptr %239, align 4, !tbaa !77
@@ -609,7 +609,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %254 = getelementptr inbounds nuw i8, ptr %8, i64 %253
   %255 = load i8, ptr %254, align 1, !tbaa !7
   %256 = zext i8 %255 to i64
-  %257 = getelementptr inbounds nuw i16, ptr %9, i64 %253
+  %257 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %253
   %258 = load i16, ptr %257, align 2, !tbaa !84
   %259 = zext i16 %258 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
@@ -639,7 +639,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %277, ptr %272, align 1, !noalias !96
   %278 = add i64 %268, %249
   store i64 %278, ptr %5, align 8, !tbaa !3, !alias.scope !96, !noalias !99
-  %279 = getelementptr inbounds nuw i32, ptr %10, i64 %253
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %253
   %280 = load i32, ptr %279, align 4, !tbaa !77
   %281 = add i32 %280, 1
   store i32 %281, ptr %279, align 4, !tbaa !77
@@ -659,7 +659,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %291 = getelementptr inbounds nuw i8, ptr %8, i64 %290
   %292 = load i8, ptr %291, align 1, !tbaa !7
   %293 = zext i8 %292 to i64
-  %294 = getelementptr inbounds nuw i16, ptr %9, i64 %290
+  %294 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %290
   %295 = load i16, ptr %294, align 2, !tbaa !84
   %296 = zext i16 %295 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
@@ -690,7 +690,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %314, ptr %309, align 1, !noalias !106
   %315 = add i64 %305, %306
   store i64 %315, ptr %5, align 8, !tbaa !3, !alias.scope !106, !noalias !109
-  %316 = getelementptr inbounds nuw i32, ptr %10, i64 %290
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %290
   %317 = load i32, ptr %316, align 4, !tbaa !77
   %318 = add i32 %317, 1
   store i32 %318, ptr %316, align 4, !tbaa !77
@@ -840,7 +840,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit:             ; preds = %378, %353, %319, %2
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 %407
   %409 = load i8, ptr %408, align 1, !tbaa !7
   %410 = zext i8 %409 to i64
-  %411 = getelementptr inbounds nuw i16, ptr %11, i64 %407
+  %411 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %407
   %412 = load i16, ptr %411, align 2, !tbaa !84
   %413 = zext i16 %412 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
@@ -906,7 +906,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %457 = getelementptr inbounds nuw i8, ptr %8, i64 %456
   %458 = load i8, ptr %457, align 1, !tbaa !7
   %459 = zext i8 %458 to i64
-  %460 = getelementptr inbounds nuw i16, ptr %9, i64 %456
+  %460 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %456
   %461 = load i16, ptr %460, align 2, !tbaa !84
   %462 = zext i16 %461 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
@@ -932,7 +932,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %479 = or i64 %478, %476
   store i64 %479, ptr %474, align 1, !noalias !160
   %480 = add i64 %471, %446
-  %481 = getelementptr inbounds nuw i32, ptr %10, i64 %456
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %456
   %482 = load i32, ptr %481, align 4, !tbaa !77
   %483 = add i32 %482, 1
   store i32 %483, ptr %481, align 4, !tbaa !77
@@ -950,7 +950,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %489 = getelementptr inbounds nuw i8, ptr %8, i64 %488
   %490 = load i8, ptr %489, align 1, !tbaa !7
   %491 = zext i8 %490 to i64
-  %492 = getelementptr inbounds nuw i16, ptr %9, i64 %488
+  %492 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %488
   %493 = load i16, ptr %492, align 2, !tbaa !84
   %494 = zext i16 %493 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
@@ -965,7 +965,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %501, ptr %496, align 1, !noalias !162
   %502 = add i64 %485, %491
   store i64 %502, ptr %5, align 8, !tbaa !3, !alias.scope !162, !noalias !165
-  %503 = getelementptr inbounds nuw i32, ptr %10, i64 %488
+  %503 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %488
   %504 = load i32, ptr %503, align 4, !tbaa !77
   %505 = add i32 %504, 1
   store i32 %505, ptr %503, align 4, !tbaa !77
@@ -989,7 +989,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %518 = getelementptr inbounds nuw i8, ptr %8, i64 %517
   %519 = load i8, ptr %518, align 1, !tbaa !7
   %520 = zext i8 %519 to i64
-  %521 = getelementptr inbounds nuw i16, ptr %9, i64 %517
+  %521 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %517
   %522 = load i16, ptr %521, align 2, !tbaa !84
   %523 = zext i16 %522 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
@@ -1018,7 +1018,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %540, ptr %535, align 1, !noalias !172
   %541 = add i64 %531, %513
   store i64 %541, ptr %5, align 8, !tbaa !3, !alias.scope !172, !noalias !175
-  %542 = getelementptr inbounds nuw i32, ptr %10, i64 %517
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %517
   %543 = load i32, ptr %542, align 4, !tbaa !77
   %544 = add i32 %543, 1
   store i32 %544, ptr %542, align 4, !tbaa !77
@@ -1035,7 +1035,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %551 = getelementptr inbounds nuw i8, ptr %8, i64 %550
   %552 = load i8, ptr %551, align 1, !tbaa !7
   %553 = zext i8 %552 to i64
-  %554 = getelementptr inbounds nuw i16, ptr %9, i64 %550
+  %554 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %550
   %555 = load i16, ptr %554, align 2, !tbaa !84
   %556 = zext i16 %555 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
@@ -1079,7 +1079,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %584, ptr %579, align 1, !noalias !187
   %585 = add i64 %573, %575
   store i64 %585, ptr %5, align 8, !tbaa !3, !alias.scope !187, !noalias !190
-  %586 = getelementptr inbounds nuw i32, ptr %10, i64 %550
+  %586 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %550
   %587 = load i32, ptr %586, align 4, !tbaa !77
   %588 = add i32 %587, 1
   store i32 %588, ptr %586, align 4, !tbaa !77
@@ -1102,7 +1102,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %600 = getelementptr inbounds nuw i8, ptr %8, i64 %599
   %601 = load i8, ptr %600, align 1, !tbaa !7
   %602 = zext i8 %601 to i64
-  %603 = getelementptr inbounds nuw i16, ptr %9, i64 %599
+  %603 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %599
   %604 = load i16, ptr %603, align 2, !tbaa !84
   %605 = zext i16 %604 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
@@ -1148,7 +1148,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %634, ptr %629, align 1, !noalias !202
   %635 = add i64 %623, %625
   store i64 %635, ptr %5, align 8, !tbaa !3, !alias.scope !202, !noalias !205
-  %636 = getelementptr inbounds nuw i32, ptr %10, i64 %599
+  %636 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %599
   %637 = load i32, ptr %636, align 4, !tbaa !77
   %638 = add i32 %637, 1
   store i32 %638, ptr %636, align 4, !tbaa !77
@@ -1226,21 +1226,21 @@ _ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit:   ; preds = %487, %508, %547, %5
   %686 = sub i64 %685, %87
   %687 = trunc i64 %686 to i32
   %688 = add i32 %687, -3
-  %689 = getelementptr inbounds nuw i32, ptr %4, i64 %681
+  %689 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %681
   store i32 %688, ptr %689, align 4, !tbaa !77
   %690 = lshr i64 %.0.copyload.i43, 8
   %691 = mul i64 %690, 8503243848024064
   %692 = lshr i64 %691, 55
   %693 = add i32 %687, -2
-  %694 = getelementptr inbounds nuw i32, ptr %4, i64 %692
+  %694 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %692
   store i32 %693, ptr %694, align 4, !tbaa !77
   %695 = lshr i64 %.0.copyload.i43, 16
   %696 = mul i64 %695, 8503243848024064
   %697 = lshr i64 %696, 55
   %698 = add i32 %687, -1
-  %699 = getelementptr inbounds nuw i32, ptr %4, i64 %697
+  %699 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %697
   store i32 %698, ptr %699, align 4, !tbaa !77
-  %700 = getelementptr inbounds nuw i32, ptr %4, i64 %684
+  %700 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %684
   %701 = load i32, ptr %700, align 4, !tbaa !77
   store i32 %687, ptr %700, align 4, !tbaa !77
   %.pn257 = sext i32 %701 to i64
@@ -1361,7 +1361,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %749 = getelementptr inbounds nuw i8, ptr %8, i64 %748
   %750 = load i8, ptr %749, align 1, !tbaa !7
   %751 = zext i8 %750 to i64
-  %752 = getelementptr inbounds nuw i16, ptr %9, i64 %748
+  %752 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %748
   %753 = load i16, ptr %752, align 2, !tbaa !84
   %754 = zext i16 %753 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
@@ -1377,7 +1377,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %762, ptr %757, align 1, !noalias !222
   %763 = add i64 %755, %751
   store i64 %763, ptr %5, align 8, !tbaa !3, !alias.scope !222, !noalias !225
-  %764 = getelementptr inbounds nuw i32, ptr %10, i64 %748
+  %764 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %748
   %765 = load i32, ptr %764, align 4, !tbaa !77
   %766 = add i32 %765, 1
   store i32 %766, ptr %764, align 4, !tbaa !77
@@ -1401,7 +1401,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %779 = getelementptr inbounds nuw i8, ptr %8, i64 %778
   %780 = load i8, ptr %779, align 1, !tbaa !7
   %781 = zext i8 %780 to i64
-  %782 = getelementptr inbounds nuw i16, ptr %9, i64 %778
+  %782 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %778
   %783 = load i16, ptr %782, align 2, !tbaa !84
   %784 = zext i16 %783 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
@@ -1431,7 +1431,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %802, ptr %797, align 1, !noalias !232
   %803 = add i64 %793, %774
   store i64 %803, ptr %5, align 8, !tbaa !3, !alias.scope !232, !noalias !235
-  %804 = getelementptr inbounds nuw i32, ptr %10, i64 %778
+  %804 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %778
   %805 = load i32, ptr %804, align 4, !tbaa !77
   %806 = add i32 %805, 1
   store i32 %806, ptr %804, align 4, !tbaa !77
@@ -1451,7 +1451,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %816 = getelementptr inbounds nuw i8, ptr %8, i64 %815
   %817 = load i8, ptr %816, align 1, !tbaa !7
   %818 = zext i8 %817 to i64
-  %819 = getelementptr inbounds nuw i16, ptr %9, i64 %815
+  %819 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %815
   %820 = load i16, ptr %819, align 2, !tbaa !84
   %821 = zext i16 %820 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
@@ -1482,7 +1482,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %839, ptr %834, align 1, !noalias !242
   %840 = add i64 %830, %831
   store i64 %840, ptr %5, align 8, !tbaa !3, !alias.scope !242, !noalias !245
-  %841 = getelementptr inbounds nuw i32, ptr %10, i64 %815
+  %841 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %815
   %842 = load i32, ptr %841, align 4, !tbaa !77
   %843 = add i32 %842, 1
   store i32 %843, ptr %841, align 4, !tbaa !77
@@ -1545,7 +1545,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %885 = getelementptr inbounds nuw i8, ptr %8, i64 %884
   %886 = load i8, ptr %885, align 1, !tbaa !7
   %887 = zext i8 %886 to i64
-  %888 = getelementptr inbounds nuw i16, ptr %9, i64 %884
+  %888 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %884
   %889 = load i16, ptr %888, align 2, !tbaa !84
   %890 = zext i16 %889 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
@@ -1574,7 +1574,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   store i64 %907, ptr %902, align 1, !noalias !262
   %908 = add i64 %899, %874
   store i64 %908, ptr %5, align 8, !tbaa !3, !alias.scope !262, !noalias !265
-  %909 = getelementptr inbounds nuw i32, ptr %10, i64 %884
+  %909 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %884
   %910 = load i32, ptr %909, align 4, !tbaa !77
   %911 = add i32 %910, 1
   store i32 %911, ptr %909, align 4, !tbaa !77
@@ -1593,21 +1593,21 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %920 = sub i64 %919, %87
   %921 = trunc i64 %920 to i32
   %922 = add i32 %921, -3
-  %923 = getelementptr inbounds nuw i32, ptr %4, i64 %915
+  %923 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %915
   store i32 %922, ptr %923, align 4, !tbaa !77
   %924 = lshr i64 %.0.copyload.i44, 8
   %925 = mul i64 %924, 8503243848024064
   %926 = lshr i64 %925, 55
   %927 = add i32 %921, -2
-  %928 = getelementptr inbounds nuw i32, ptr %4, i64 %926
+  %928 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %926
   store i32 %927, ptr %928, align 4, !tbaa !77
   %929 = lshr i64 %.0.copyload.i44, 16
   %930 = mul i64 %929, 8503243848024064
   %931 = lshr i64 %930, 55
   %932 = add i32 %921, -1
-  %933 = getelementptr inbounds nuw i32, ptr %4, i64 %931
+  %933 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %931
   store i32 %932, ptr %933, align 4, !tbaa !77
-  %934 = getelementptr inbounds nuw i32, ptr %4, i64 %918
+  %934 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %918
   %935 = load i32, ptr %934, align 4, !tbaa !77
   store i32 %921, ptr %934, align 4, !tbaa !77
   %.pn = sext i32 %935 to i64
@@ -1638,7 +1638,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %943 = getelementptr inbounds nuw i8, ptr %106, i64 %.02024.i
   %944 = load i8, ptr %943, align 1, !tbaa !7
   %945 = zext i8 %944 to i64
-  %946 = getelementptr inbounds nuw i32, ptr %103, i64 %945
+  %946 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %945
   %947 = load i32, ptr %946, align 4, !tbaa !77
   %948 = add i32 %947, 1
   store i32 %948, ptr %946, align 4, !tbaa !77
@@ -1655,7 +1655,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
   %.zext = zext nneg i32 %952 to i64
-  %954 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %.zext
+  %954 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
@@ -1675,7 +1675,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
 961:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit23.i, %_ZN13duckdb_brotliL8FastLog2Em.exit.i
   %.026.i = phi double [ %960, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %977, %_ZN13duckdb_brotliL8FastLog2Em.exit23.i ]
   %.125.i = phi i64 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %978, %_ZN13duckdb_brotliL8FastLog2Em.exit23.i ]
-  %962 = getelementptr inbounds nuw i32, ptr %103, i64 %.125.i
+  %962 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.125.i
   %963 = load i32, ptr %962, align 4, !tbaa !77
   %964 = uitofp i32 %963 to double
   %965 = getelementptr inbounds nuw i8, ptr %0, i64 %.125.i
@@ -1686,7 +1686,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
 
 969:                                              ; preds = %961
   %970 = zext nneg i32 %963 to i64
-  %971 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %970
+  %971 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %970
   %972 = load double, ptr %971, align 8, !tbaa !268
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
@@ -1765,7 +1765,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1017 = getelementptr inbounds nuw i8, ptr %8, i64 %1016
   %1018 = load i8, ptr %1017, align 1, !tbaa !7
   %1019 = zext i8 %1018 to i64
-  %1020 = getelementptr inbounds nuw i16, ptr %9, i64 %1016
+  %1020 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1016
   %1021 = load i16, ptr %1020, align 2, !tbaa !84
   %1022 = zext i16 %1021 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
@@ -1781,7 +1781,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1030, ptr %1025, align 1, !noalias !271
   %1031 = add i64 %1023, %1019
   store i64 %1031, ptr %5, align 8, !tbaa !3, !alias.scope !271, !noalias !274
-  %1032 = getelementptr inbounds nuw i32, ptr %10, i64 %1016
+  %1032 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1016
   %1033 = load i32, ptr %1032, align 4, !tbaa !77
   %1034 = add i32 %1033, 1
   store i32 %1034, ptr %1032, align 4, !tbaa !77
@@ -1805,7 +1805,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1047 = getelementptr inbounds nuw i8, ptr %8, i64 %1046
   %1048 = load i8, ptr %1047, align 1, !tbaa !7
   %1049 = zext i8 %1048 to i64
-  %1050 = getelementptr inbounds nuw i16, ptr %9, i64 %1046
+  %1050 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1046
   %1051 = load i16, ptr %1050, align 2, !tbaa !84
   %1052 = zext i16 %1051 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
@@ -1835,7 +1835,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1070, ptr %1065, align 1, !noalias !281
   %1071 = add i64 %1061, %1042
   store i64 %1071, ptr %5, align 8, !tbaa !3, !alias.scope !281, !noalias !284
-  %1072 = getelementptr inbounds nuw i32, ptr %10, i64 %1046
+  %1072 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1046
   %1073 = load i32, ptr %1072, align 4, !tbaa !77
   %1074 = add i32 %1073, 1
   store i32 %1074, ptr %1072, align 4, !tbaa !77
@@ -1855,7 +1855,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1084 = getelementptr inbounds nuw i8, ptr %8, i64 %1083
   %1085 = load i8, ptr %1084, align 1, !tbaa !7
   %1086 = zext i8 %1085 to i64
-  %1087 = getelementptr inbounds nuw i16, ptr %9, i64 %1083
+  %1087 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1083
   %1088 = load i16, ptr %1087, align 2, !tbaa !84
   %1089 = zext i16 %1088 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
@@ -1886,7 +1886,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1107, ptr %1102, align 1, !noalias !291
   %1108 = add i64 %1098, %1099
   store i64 %1108, ptr %5, align 8, !tbaa !3, !alias.scope !291, !noalias !294
-  %1109 = getelementptr inbounds nuw i32, ptr %10, i64 %1083
+  %1109 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1083
   %1110 = load i32, ptr %1109, align 4, !tbaa !77
   %1111 = add i32 %1110, 1
   store i32 %1111, ptr %1109, align 4, !tbaa !77
@@ -1945,7 +1945,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit27:           ; preds = %1015, %1037, %1077,
   %1142 = getelementptr inbounds nuw i8, ptr %0, i64 %1141
   %1143 = load i8, ptr %1142, align 1, !tbaa !7
   %1144 = zext i8 %1143 to i64
-  %1145 = getelementptr inbounds nuw i16, ptr %11, i64 %1141
+  %1145 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %1141
   %1146 = load i16, ptr %1145, align 2, !tbaa !84
   %1147 = zext i16 %1146 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !306)
@@ -2060,7 +2060,7 @@ _ZL17EmitLongInsertLenmPKhPKtPjPmPh.exit30:       ; preds = %1165, %1190
   %1220 = getelementptr inbounds nuw i8, ptr %0, i64 %1219
   %1221 = load i8, ptr %1220, align 1, !tbaa !7
   %1222 = zext i8 %1221 to i64
-  %1223 = getelementptr inbounds nuw i16, ptr %11, i64 %1219
+  %1223 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %1219
   %1224 = load i16, ptr %1223, align 2, !tbaa !84
   %1225 = zext i16 %1224 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
@@ -2389,7 +2389,7 @@ _ZL7IsMatchPKhS0_.exit7.us200:                    ; preds = %.lr.ph186.us
 
 _ZL7IsMatchPKhS0_.exit7.thread.us201:             ; preds = %_ZL7IsMatchPKhS0_.exit7.us200, %.lr.ph186.us
   %134 = zext nneg i32 %.2350.i184.us195 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %4, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !77
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i8, ptr %1, i64 %137
@@ -2415,7 +2415,7 @@ _ZL7IsMatchPKhS0_.exit.us204:                     ; preds = %_ZL7IsMatchPKhS0_.e
   %149 = sub i64 %148, %87
   %150 = trunc i64 %149 to i32
   %151 = zext nneg i32 %.2350.i184.us195 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %4, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %151
   store i32 %150, ptr %152, align 4, !tbaa !77
   br label %.loopexit.split.us205
 
@@ -2453,7 +2453,7 @@ _ZL7IsMatchPKhS0_.exit.us204:                     ; preds = %_ZL7IsMatchPKhS0_.e
   %.0.copyload.i41.us = load i64, ptr %164, align 1
   %166 = mul i64 %.0.copyload.i41.us, 8503243848024064
   %167 = lshr i64 %166, 53
-  %168 = getelementptr inbounds nuw i32, ptr %4, i64 %.2350.i184.us
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.2350.i184.us
   %169 = load i32, ptr %168, align 4, !tbaa !77
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i8, ptr %1, i64 %170
@@ -2577,7 +2577,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 %223
   %225 = load i8, ptr %224, align 1, !tbaa !7
   %226 = zext i8 %225 to i64
-  %227 = getelementptr inbounds nuw i16, ptr %9, i64 %223
+  %227 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %223
   %228 = load i16, ptr %227, align 2, !tbaa !84
   %229 = zext i16 %228 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !396)
@@ -2593,7 +2593,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %237, ptr %232, align 1, !noalias !396
   %238 = add i64 %230, %226
   store i64 %238, ptr %5, align 8, !tbaa !3, !alias.scope !396, !noalias !399
-  %239 = getelementptr inbounds nuw i32, ptr %10, i64 %223
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %223
   %240 = load i32, ptr %239, align 4, !tbaa !77
   %241 = add i32 %240, 1
   store i32 %241, ptr %239, align 4, !tbaa !77
@@ -2617,7 +2617,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %254 = getelementptr inbounds nuw i8, ptr %8, i64 %253
   %255 = load i8, ptr %254, align 1, !tbaa !7
   %256 = zext i8 %255 to i64
-  %257 = getelementptr inbounds nuw i16, ptr %9, i64 %253
+  %257 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %253
   %258 = load i16, ptr %257, align 2, !tbaa !84
   %259 = zext i16 %258 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !401)
@@ -2647,7 +2647,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %277, ptr %272, align 1, !noalias !406
   %278 = add i64 %268, %249
   store i64 %278, ptr %5, align 8, !tbaa !3, !alias.scope !406, !noalias !409
-  %279 = getelementptr inbounds nuw i32, ptr %10, i64 %253
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %253
   %280 = load i32, ptr %279, align 4, !tbaa !77
   %281 = add i32 %280, 1
   store i32 %281, ptr %279, align 4, !tbaa !77
@@ -2667,7 +2667,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %291 = getelementptr inbounds nuw i8, ptr %8, i64 %290
   %292 = load i8, ptr %291, align 1, !tbaa !7
   %293 = zext i8 %292 to i64
-  %294 = getelementptr inbounds nuw i16, ptr %9, i64 %290
+  %294 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %290
   %295 = load i16, ptr %294, align 2, !tbaa !84
   %296 = zext i16 %295 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
@@ -2698,7 +2698,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %314, ptr %309, align 1, !noalias !416
   %315 = add i64 %305, %306
   store i64 %315, ptr %5, align 8, !tbaa !3, !alias.scope !416, !noalias !419
-  %316 = getelementptr inbounds nuw i32, ptr %10, i64 %290
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %290
   %317 = load i32, ptr %316, align 4, !tbaa !77
   %318 = add i32 %317, 1
   store i32 %318, ptr %316, align 4, !tbaa !77
@@ -2848,7 +2848,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit:             ; preds = %378, %353, %319, %2
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 %407
   %409 = load i8, ptr %408, align 1, !tbaa !7
   %410 = zext i8 %409 to i64
-  %411 = getelementptr inbounds nuw i16, ptr %11, i64 %407
+  %411 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %407
   %412 = load i16, ptr %411, align 2, !tbaa !84
   %413 = zext i16 %412 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
@@ -2914,7 +2914,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %457 = getelementptr inbounds nuw i8, ptr %8, i64 %456
   %458 = load i8, ptr %457, align 1, !tbaa !7
   %459 = zext i8 %458 to i64
-  %460 = getelementptr inbounds nuw i16, ptr %9, i64 %456
+  %460 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %456
   %461 = load i16, ptr %460, align 2, !tbaa !84
   %462 = zext i16 %461 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !461)
@@ -2940,7 +2940,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %479 = or i64 %478, %476
   store i64 %479, ptr %474, align 1, !noalias !469
   %480 = add i64 %471, %446
-  %481 = getelementptr inbounds nuw i32, ptr %10, i64 %456
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %456
   %482 = load i32, ptr %481, align 4, !tbaa !77
   %483 = add i32 %482, 1
   store i32 %483, ptr %481, align 4, !tbaa !77
@@ -2958,7 +2958,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %489 = getelementptr inbounds nuw i8, ptr %8, i64 %488
   %490 = load i8, ptr %489, align 1, !tbaa !7
   %491 = zext i8 %490 to i64
-  %492 = getelementptr inbounds nuw i16, ptr %9, i64 %488
+  %492 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %488
   %493 = load i16, ptr %492, align 2, !tbaa !84
   %494 = zext i16 %493 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !471)
@@ -2973,7 +2973,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %501, ptr %496, align 1, !noalias !471
   %502 = add i64 %485, %491
   store i64 %502, ptr %5, align 8, !tbaa !3, !alias.scope !471, !noalias !474
-  %503 = getelementptr inbounds nuw i32, ptr %10, i64 %488
+  %503 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %488
   %504 = load i32, ptr %503, align 4, !tbaa !77
   %505 = add i32 %504, 1
   store i32 %505, ptr %503, align 4, !tbaa !77
@@ -2997,7 +2997,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %518 = getelementptr inbounds nuw i8, ptr %8, i64 %517
   %519 = load i8, ptr %518, align 1, !tbaa !7
   %520 = zext i8 %519 to i64
-  %521 = getelementptr inbounds nuw i16, ptr %9, i64 %517
+  %521 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %517
   %522 = load i16, ptr %521, align 2, !tbaa !84
   %523 = zext i16 %522 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !476)
@@ -3026,7 +3026,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %540, ptr %535, align 1, !noalias !481
   %541 = add i64 %531, %513
   store i64 %541, ptr %5, align 8, !tbaa !3, !alias.scope !481, !noalias !484
-  %542 = getelementptr inbounds nuw i32, ptr %10, i64 %517
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %517
   %543 = load i32, ptr %542, align 4, !tbaa !77
   %544 = add i32 %543, 1
   store i32 %544, ptr %542, align 4, !tbaa !77
@@ -3043,7 +3043,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %551 = getelementptr inbounds nuw i8, ptr %8, i64 %550
   %552 = load i8, ptr %551, align 1, !tbaa !7
   %553 = zext i8 %552 to i64
-  %554 = getelementptr inbounds nuw i16, ptr %9, i64 %550
+  %554 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %550
   %555 = load i16, ptr %554, align 2, !tbaa !84
   %556 = zext i16 %555 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
@@ -3087,7 +3087,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %584, ptr %579, align 1, !noalias !496
   %585 = add i64 %573, %575
   store i64 %585, ptr %5, align 8, !tbaa !3, !alias.scope !496, !noalias !499
-  %586 = getelementptr inbounds nuw i32, ptr %10, i64 %550
+  %586 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %550
   %587 = load i32, ptr %586, align 4, !tbaa !77
   %588 = add i32 %587, 1
   store i32 %588, ptr %586, align 4, !tbaa !77
@@ -3110,7 +3110,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %600 = getelementptr inbounds nuw i8, ptr %8, i64 %599
   %601 = load i8, ptr %600, align 1, !tbaa !7
   %602 = zext i8 %601 to i64
-  %603 = getelementptr inbounds nuw i16, ptr %9, i64 %599
+  %603 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %599
   %604 = load i16, ptr %603, align 2, !tbaa !84
   %605 = zext i16 %604 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !501)
@@ -3156,7 +3156,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %634, ptr %629, align 1, !noalias !511
   %635 = add i64 %623, %625
   store i64 %635, ptr %5, align 8, !tbaa !3, !alias.scope !511, !noalias !514
-  %636 = getelementptr inbounds nuw i32, ptr %10, i64 %599
+  %636 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %599
   %637 = load i32, ptr %636, align 4, !tbaa !77
   %638 = add i32 %637, 1
   store i32 %638, ptr %636, align 4, !tbaa !77
@@ -3234,21 +3234,21 @@ _ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit:   ; preds = %487, %508, %547, %5
   %686 = sub i64 %685, %87
   %687 = trunc i64 %686 to i32
   %688 = add i32 %687, -3
-  %689 = getelementptr inbounds nuw i32, ptr %4, i64 %681
+  %689 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %681
   store i32 %688, ptr %689, align 4, !tbaa !77
   %690 = lshr i64 %.0.copyload.i43, 8
   %691 = mul i64 %690, 8503243848024064
   %692 = lshr i64 %691, 53
   %693 = add i32 %687, -2
-  %694 = getelementptr inbounds nuw i32, ptr %4, i64 %692
+  %694 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %692
   store i32 %693, ptr %694, align 4, !tbaa !77
   %695 = lshr i64 %.0.copyload.i43, 16
   %696 = mul i64 %695, 8503243848024064
   %697 = lshr i64 %696, 53
   %698 = add i32 %687, -1
-  %699 = getelementptr inbounds nuw i32, ptr %4, i64 %697
+  %699 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %697
   store i32 %698, ptr %699, align 4, !tbaa !77
-  %700 = getelementptr inbounds nuw i32, ptr %4, i64 %684
+  %700 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %684
   %701 = load i32, ptr %700, align 4, !tbaa !77
   store i32 %687, ptr %700, align 4, !tbaa !77
   %.pn257 = sext i32 %701 to i64
@@ -3369,7 +3369,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %749 = getelementptr inbounds nuw i8, ptr %8, i64 %748
   %750 = load i8, ptr %749, align 1, !tbaa !7
   %751 = zext i8 %750 to i64
-  %752 = getelementptr inbounds nuw i16, ptr %9, i64 %748
+  %752 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %748
   %753 = load i16, ptr %752, align 2, !tbaa !84
   %754 = zext i16 %753 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !531)
@@ -3385,7 +3385,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %762, ptr %757, align 1, !noalias !531
   %763 = add i64 %755, %751
   store i64 %763, ptr %5, align 8, !tbaa !3, !alias.scope !531, !noalias !534
-  %764 = getelementptr inbounds nuw i32, ptr %10, i64 %748
+  %764 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %748
   %765 = load i32, ptr %764, align 4, !tbaa !77
   %766 = add i32 %765, 1
   store i32 %766, ptr %764, align 4, !tbaa !77
@@ -3409,7 +3409,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %779 = getelementptr inbounds nuw i8, ptr %8, i64 %778
   %780 = load i8, ptr %779, align 1, !tbaa !7
   %781 = zext i8 %780 to i64
-  %782 = getelementptr inbounds nuw i16, ptr %9, i64 %778
+  %782 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %778
   %783 = load i16, ptr %782, align 2, !tbaa !84
   %784 = zext i16 %783 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !536)
@@ -3439,7 +3439,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %802, ptr %797, align 1, !noalias !541
   %803 = add i64 %793, %774
   store i64 %803, ptr %5, align 8, !tbaa !3, !alias.scope !541, !noalias !544
-  %804 = getelementptr inbounds nuw i32, ptr %10, i64 %778
+  %804 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %778
   %805 = load i32, ptr %804, align 4, !tbaa !77
   %806 = add i32 %805, 1
   store i32 %806, ptr %804, align 4, !tbaa !77
@@ -3459,7 +3459,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %816 = getelementptr inbounds nuw i8, ptr %8, i64 %815
   %817 = load i8, ptr %816, align 1, !tbaa !7
   %818 = zext i8 %817 to i64
-  %819 = getelementptr inbounds nuw i16, ptr %9, i64 %815
+  %819 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %815
   %820 = load i16, ptr %819, align 2, !tbaa !84
   %821 = zext i16 %820 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !546)
@@ -3490,7 +3490,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %839, ptr %834, align 1, !noalias !551
   %840 = add i64 %830, %831
   store i64 %840, ptr %5, align 8, !tbaa !3, !alias.scope !551, !noalias !554
-  %841 = getelementptr inbounds nuw i32, ptr %10, i64 %815
+  %841 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %815
   %842 = load i32, ptr %841, align 4, !tbaa !77
   %843 = add i32 %842, 1
   store i32 %843, ptr %841, align 4, !tbaa !77
@@ -3553,7 +3553,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %885 = getelementptr inbounds nuw i8, ptr %8, i64 %884
   %886 = load i8, ptr %885, align 1, !tbaa !7
   %887 = zext i8 %886 to i64
-  %888 = getelementptr inbounds nuw i16, ptr %9, i64 %884
+  %888 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %884
   %889 = load i16, ptr %888, align 2, !tbaa !84
   %890 = zext i16 %889 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !566)
@@ -3582,7 +3582,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   store i64 %907, ptr %902, align 1, !noalias !571
   %908 = add i64 %899, %874
   store i64 %908, ptr %5, align 8, !tbaa !3, !alias.scope !571, !noalias !574
-  %909 = getelementptr inbounds nuw i32, ptr %10, i64 %884
+  %909 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %884
   %910 = load i32, ptr %909, align 4, !tbaa !77
   %911 = add i32 %910, 1
   store i32 %911, ptr %909, align 4, !tbaa !77
@@ -3601,21 +3601,21 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %920 = sub i64 %919, %87
   %921 = trunc i64 %920 to i32
   %922 = add i32 %921, -3
-  %923 = getelementptr inbounds nuw i32, ptr %4, i64 %915
+  %923 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %915
   store i32 %922, ptr %923, align 4, !tbaa !77
   %924 = lshr i64 %.0.copyload.i44, 8
   %925 = mul i64 %924, 8503243848024064
   %926 = lshr i64 %925, 53
   %927 = add i32 %921, -2
-  %928 = getelementptr inbounds nuw i32, ptr %4, i64 %926
+  %928 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %926
   store i32 %927, ptr %928, align 4, !tbaa !77
   %929 = lshr i64 %.0.copyload.i44, 16
   %930 = mul i64 %929, 8503243848024064
   %931 = lshr i64 %930, 53
   %932 = add i32 %921, -1
-  %933 = getelementptr inbounds nuw i32, ptr %4, i64 %931
+  %933 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %931
   store i32 %932, ptr %933, align 4, !tbaa !77
-  %934 = getelementptr inbounds nuw i32, ptr %4, i64 %918
+  %934 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %918
   %935 = load i32, ptr %934, align 4, !tbaa !77
   store i32 %921, ptr %934, align 4, !tbaa !77
   %.pn = sext i32 %935 to i64
@@ -3646,7 +3646,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %943 = getelementptr inbounds nuw i8, ptr %106, i64 %.02024.i
   %944 = load i8, ptr %943, align 1, !tbaa !7
   %945 = zext i8 %944 to i64
-  %946 = getelementptr inbounds nuw i32, ptr %103, i64 %945
+  %946 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %945
   %947 = load i32, ptr %946, align 4, !tbaa !77
   %948 = add i32 %947, 1
   store i32 %948, ptr %946, align 4, !tbaa !77
@@ -3663,7 +3663,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
   %.zext = zext nneg i32 %952 to i64
-  %954 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %.zext
+  %954 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
@@ -3683,7 +3683,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
 961:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit23.i, %_ZN13duckdb_brotliL8FastLog2Em.exit.i
   %.026.i = phi double [ %960, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %977, %_ZN13duckdb_brotliL8FastLog2Em.exit23.i ]
   %.125.i = phi i64 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %978, %_ZN13duckdb_brotliL8FastLog2Em.exit23.i ]
-  %962 = getelementptr inbounds nuw i32, ptr %103, i64 %.125.i
+  %962 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.125.i
   %963 = load i32, ptr %962, align 4, !tbaa !77
   %964 = uitofp i32 %963 to double
   %965 = getelementptr inbounds nuw i8, ptr %0, i64 %.125.i
@@ -3694,7 +3694,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
 
 969:                                              ; preds = %961
   %970 = zext nneg i32 %963 to i64
-  %971 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %970
+  %971 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %970
   %972 = load double, ptr %971, align 8, !tbaa !268
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
@@ -3773,7 +3773,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1017 = getelementptr inbounds nuw i8, ptr %8, i64 %1016
   %1018 = load i8, ptr %1017, align 1, !tbaa !7
   %1019 = zext i8 %1018 to i64
-  %1020 = getelementptr inbounds nuw i16, ptr %9, i64 %1016
+  %1020 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1016
   %1021 = load i16, ptr %1020, align 2, !tbaa !84
   %1022 = zext i16 %1021 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !576)
@@ -3789,7 +3789,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1030, ptr %1025, align 1, !noalias !576
   %1031 = add i64 %1023, %1019
   store i64 %1031, ptr %5, align 8, !tbaa !3, !alias.scope !576, !noalias !579
-  %1032 = getelementptr inbounds nuw i32, ptr %10, i64 %1016
+  %1032 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1016
   %1033 = load i32, ptr %1032, align 4, !tbaa !77
   %1034 = add i32 %1033, 1
   store i32 %1034, ptr %1032, align 4, !tbaa !77
@@ -3813,7 +3813,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1047 = getelementptr inbounds nuw i8, ptr %8, i64 %1046
   %1048 = load i8, ptr %1047, align 1, !tbaa !7
   %1049 = zext i8 %1048 to i64
-  %1050 = getelementptr inbounds nuw i16, ptr %9, i64 %1046
+  %1050 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1046
   %1051 = load i16, ptr %1050, align 2, !tbaa !84
   %1052 = zext i16 %1051 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !581)
@@ -3843,7 +3843,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1070, ptr %1065, align 1, !noalias !586
   %1071 = add i64 %1061, %1042
   store i64 %1071, ptr %5, align 8, !tbaa !3, !alias.scope !586, !noalias !589
-  %1072 = getelementptr inbounds nuw i32, ptr %10, i64 %1046
+  %1072 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1046
   %1073 = load i32, ptr %1072, align 4, !tbaa !77
   %1074 = add i32 %1073, 1
   store i32 %1074, ptr %1072, align 4, !tbaa !77
@@ -3863,7 +3863,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1084 = getelementptr inbounds nuw i8, ptr %8, i64 %1083
   %1085 = load i8, ptr %1084, align 1, !tbaa !7
   %1086 = zext i8 %1085 to i64
-  %1087 = getelementptr inbounds nuw i16, ptr %9, i64 %1083
+  %1087 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1083
   %1088 = load i16, ptr %1087, align 2, !tbaa !84
   %1089 = zext i16 %1088 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !591)
@@ -3894,7 +3894,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1107, ptr %1102, align 1, !noalias !596
   %1108 = add i64 %1098, %1099
   store i64 %1108, ptr %5, align 8, !tbaa !3, !alias.scope !596, !noalias !599
-  %1109 = getelementptr inbounds nuw i32, ptr %10, i64 %1083
+  %1109 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1083
   %1110 = load i32, ptr %1109, align 4, !tbaa !77
   %1111 = add i32 %1110, 1
   store i32 %1111, ptr %1109, align 4, !tbaa !77
@@ -3953,7 +3953,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit27:           ; preds = %1015, %1037, %1077,
   %1142 = getelementptr inbounds nuw i8, ptr %0, i64 %1141
   %1143 = load i8, ptr %1142, align 1, !tbaa !7
   %1144 = zext i8 %1143 to i64
-  %1145 = getelementptr inbounds nuw i16, ptr %11, i64 %1141
+  %1145 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %1141
   %1146 = load i16, ptr %1145, align 2, !tbaa !84
   %1147 = zext i16 %1146 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !611)
@@ -4068,7 +4068,7 @@ _ZL17EmitLongInsertLenmPKhPKtPjPmPh.exit30:       ; preds = %1165, %1190
   %1220 = getelementptr inbounds nuw i8, ptr %0, i64 %1219
   %1221 = load i8, ptr %1220, align 1, !tbaa !7
   %1222 = zext i8 %1221 to i64
-  %1223 = getelementptr inbounds nuw i16, ptr %11, i64 %1219
+  %1223 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %1219
   %1224 = load i16, ptr %1223, align 2, !tbaa !84
   %1225 = zext i16 %1224 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !636)
@@ -4397,7 +4397,7 @@ _ZL7IsMatchPKhS0_.exit7.us200:                    ; preds = %.lr.ph186.us
 
 _ZL7IsMatchPKhS0_.exit7.thread.us201:             ; preds = %_ZL7IsMatchPKhS0_.exit7.us200, %.lr.ph186.us
   %134 = zext nneg i32 %.2350.i184.us195 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %4, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !77
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i8, ptr %1, i64 %137
@@ -4423,7 +4423,7 @@ _ZL7IsMatchPKhS0_.exit.us204:                     ; preds = %_ZL7IsMatchPKhS0_.e
   %149 = sub i64 %148, %87
   %150 = trunc i64 %149 to i32
   %151 = zext nneg i32 %.2350.i184.us195 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %4, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %151
   store i32 %150, ptr %152, align 4, !tbaa !77
   br label %.loopexit.split.us205
 
@@ -4461,7 +4461,7 @@ _ZL7IsMatchPKhS0_.exit.us204:                     ; preds = %_ZL7IsMatchPKhS0_.e
   %.0.copyload.i41.us = load i64, ptr %164, align 1
   %166 = mul i64 %.0.copyload.i41.us, 8503243848024064
   %167 = lshr i64 %166, 51
-  %168 = getelementptr inbounds nuw i32, ptr %4, i64 %.2350.i184.us
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.2350.i184.us
   %169 = load i32, ptr %168, align 4, !tbaa !77
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i8, ptr %1, i64 %170
@@ -4585,7 +4585,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 %223
   %225 = load i8, ptr %224, align 1, !tbaa !7
   %226 = zext i8 %225 to i64
-  %227 = getelementptr inbounds nuw i16, ptr %9, i64 %223
+  %227 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %223
   %228 = load i16, ptr %227, align 2, !tbaa !84
   %229 = zext i16 %228 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !701)
@@ -4601,7 +4601,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %237, ptr %232, align 1, !noalias !701
   %238 = add i64 %230, %226
   store i64 %238, ptr %5, align 8, !tbaa !3, !alias.scope !701, !noalias !704
-  %239 = getelementptr inbounds nuw i32, ptr %10, i64 %223
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %223
   %240 = load i32, ptr %239, align 4, !tbaa !77
   %241 = add i32 %240, 1
   store i32 %241, ptr %239, align 4, !tbaa !77
@@ -4625,7 +4625,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %254 = getelementptr inbounds nuw i8, ptr %8, i64 %253
   %255 = load i8, ptr %254, align 1, !tbaa !7
   %256 = zext i8 %255 to i64
-  %257 = getelementptr inbounds nuw i16, ptr %9, i64 %253
+  %257 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %253
   %258 = load i16, ptr %257, align 2, !tbaa !84
   %259 = zext i16 %258 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !706)
@@ -4655,7 +4655,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %277, ptr %272, align 1, !noalias !711
   %278 = add i64 %268, %249
   store i64 %278, ptr %5, align 8, !tbaa !3, !alias.scope !711, !noalias !714
-  %279 = getelementptr inbounds nuw i32, ptr %10, i64 %253
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %253
   %280 = load i32, ptr %279, align 4, !tbaa !77
   %281 = add i32 %280, 1
   store i32 %281, ptr %279, align 4, !tbaa !77
@@ -4675,7 +4675,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %291 = getelementptr inbounds nuw i8, ptr %8, i64 %290
   %292 = load i8, ptr %291, align 1, !tbaa !7
   %293 = zext i8 %292 to i64
-  %294 = getelementptr inbounds nuw i16, ptr %9, i64 %290
+  %294 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %290
   %295 = load i16, ptr %294, align 2, !tbaa !84
   %296 = zext i16 %295 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !716)
@@ -4706,7 +4706,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %314, ptr %309, align 1, !noalias !721
   %315 = add i64 %305, %306
   store i64 %315, ptr %5, align 8, !tbaa !3, !alias.scope !721, !noalias !724
-  %316 = getelementptr inbounds nuw i32, ptr %10, i64 %290
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %290
   %317 = load i32, ptr %316, align 4, !tbaa !77
   %318 = add i32 %317, 1
   store i32 %318, ptr %316, align 4, !tbaa !77
@@ -4856,7 +4856,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit:             ; preds = %378, %353, %319, %2
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 %407
   %409 = load i8, ptr %408, align 1, !tbaa !7
   %410 = zext i8 %409 to i64
-  %411 = getelementptr inbounds nuw i16, ptr %11, i64 %407
+  %411 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %407
   %412 = load i16, ptr %411, align 2, !tbaa !84
   %413 = zext i16 %412 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !756)
@@ -4922,7 +4922,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %457 = getelementptr inbounds nuw i8, ptr %8, i64 %456
   %458 = load i8, ptr %457, align 1, !tbaa !7
   %459 = zext i8 %458 to i64
-  %460 = getelementptr inbounds nuw i16, ptr %9, i64 %456
+  %460 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %456
   %461 = load i16, ptr %460, align 2, !tbaa !84
   %462 = zext i16 %461 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !766)
@@ -4948,7 +4948,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %479 = or i64 %478, %476
   store i64 %479, ptr %474, align 1, !noalias !774
   %480 = add i64 %471, %446
-  %481 = getelementptr inbounds nuw i32, ptr %10, i64 %456
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %456
   %482 = load i32, ptr %481, align 4, !tbaa !77
   %483 = add i32 %482, 1
   store i32 %483, ptr %481, align 4, !tbaa !77
@@ -4966,7 +4966,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %489 = getelementptr inbounds nuw i8, ptr %8, i64 %488
   %490 = load i8, ptr %489, align 1, !tbaa !7
   %491 = zext i8 %490 to i64
-  %492 = getelementptr inbounds nuw i16, ptr %9, i64 %488
+  %492 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %488
   %493 = load i16, ptr %492, align 2, !tbaa !84
   %494 = zext i16 %493 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !776)
@@ -4981,7 +4981,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %501, ptr %496, align 1, !noalias !776
   %502 = add i64 %485, %491
   store i64 %502, ptr %5, align 8, !tbaa !3, !alias.scope !776, !noalias !779
-  %503 = getelementptr inbounds nuw i32, ptr %10, i64 %488
+  %503 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %488
   %504 = load i32, ptr %503, align 4, !tbaa !77
   %505 = add i32 %504, 1
   store i32 %505, ptr %503, align 4, !tbaa !77
@@ -5005,7 +5005,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %518 = getelementptr inbounds nuw i8, ptr %8, i64 %517
   %519 = load i8, ptr %518, align 1, !tbaa !7
   %520 = zext i8 %519 to i64
-  %521 = getelementptr inbounds nuw i16, ptr %9, i64 %517
+  %521 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %517
   %522 = load i16, ptr %521, align 2, !tbaa !84
   %523 = zext i16 %522 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !781)
@@ -5034,7 +5034,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %540, ptr %535, align 1, !noalias !786
   %541 = add i64 %531, %513
   store i64 %541, ptr %5, align 8, !tbaa !3, !alias.scope !786, !noalias !789
-  %542 = getelementptr inbounds nuw i32, ptr %10, i64 %517
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %517
   %543 = load i32, ptr %542, align 4, !tbaa !77
   %544 = add i32 %543, 1
   store i32 %544, ptr %542, align 4, !tbaa !77
@@ -5051,7 +5051,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %551 = getelementptr inbounds nuw i8, ptr %8, i64 %550
   %552 = load i8, ptr %551, align 1, !tbaa !7
   %553 = zext i8 %552 to i64
-  %554 = getelementptr inbounds nuw i16, ptr %9, i64 %550
+  %554 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %550
   %555 = load i16, ptr %554, align 2, !tbaa !84
   %556 = zext i16 %555 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !791)
@@ -5095,7 +5095,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %584, ptr %579, align 1, !noalias !801
   %585 = add i64 %573, %575
   store i64 %585, ptr %5, align 8, !tbaa !3, !alias.scope !801, !noalias !804
-  %586 = getelementptr inbounds nuw i32, ptr %10, i64 %550
+  %586 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %550
   %587 = load i32, ptr %586, align 4, !tbaa !77
   %588 = add i32 %587, 1
   store i32 %588, ptr %586, align 4, !tbaa !77
@@ -5118,7 +5118,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %600 = getelementptr inbounds nuw i8, ptr %8, i64 %599
   %601 = load i8, ptr %600, align 1, !tbaa !7
   %602 = zext i8 %601 to i64
-  %603 = getelementptr inbounds nuw i16, ptr %9, i64 %599
+  %603 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %599
   %604 = load i16, ptr %603, align 2, !tbaa !84
   %605 = zext i16 %604 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !806)
@@ -5164,7 +5164,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %634, ptr %629, align 1, !noalias !816
   %635 = add i64 %623, %625
   store i64 %635, ptr %5, align 8, !tbaa !3, !alias.scope !816, !noalias !819
-  %636 = getelementptr inbounds nuw i32, ptr %10, i64 %599
+  %636 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %599
   %637 = load i32, ptr %636, align 4, !tbaa !77
   %638 = add i32 %637, 1
   store i32 %638, ptr %636, align 4, !tbaa !77
@@ -5242,21 +5242,21 @@ _ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit:   ; preds = %487, %508, %547, %5
   %686 = sub i64 %685, %87
   %687 = trunc i64 %686 to i32
   %688 = add i32 %687, -3
-  %689 = getelementptr inbounds nuw i32, ptr %4, i64 %681
+  %689 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %681
   store i32 %688, ptr %689, align 4, !tbaa !77
   %690 = lshr i64 %.0.copyload.i43, 8
   %691 = mul i64 %690, 8503243848024064
   %692 = lshr i64 %691, 51
   %693 = add i32 %687, -2
-  %694 = getelementptr inbounds nuw i32, ptr %4, i64 %692
+  %694 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %692
   store i32 %693, ptr %694, align 4, !tbaa !77
   %695 = lshr i64 %.0.copyload.i43, 16
   %696 = mul i64 %695, 8503243848024064
   %697 = lshr i64 %696, 51
   %698 = add i32 %687, -1
-  %699 = getelementptr inbounds nuw i32, ptr %4, i64 %697
+  %699 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %697
   store i32 %698, ptr %699, align 4, !tbaa !77
-  %700 = getelementptr inbounds nuw i32, ptr %4, i64 %684
+  %700 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %684
   %701 = load i32, ptr %700, align 4, !tbaa !77
   store i32 %687, ptr %700, align 4, !tbaa !77
   %.pn257 = sext i32 %701 to i64
@@ -5377,7 +5377,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %749 = getelementptr inbounds nuw i8, ptr %8, i64 %748
   %750 = load i8, ptr %749, align 1, !tbaa !7
   %751 = zext i8 %750 to i64
-  %752 = getelementptr inbounds nuw i16, ptr %9, i64 %748
+  %752 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %748
   %753 = load i16, ptr %752, align 2, !tbaa !84
   %754 = zext i16 %753 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !836)
@@ -5393,7 +5393,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %762, ptr %757, align 1, !noalias !836
   %763 = add i64 %755, %751
   store i64 %763, ptr %5, align 8, !tbaa !3, !alias.scope !836, !noalias !839
-  %764 = getelementptr inbounds nuw i32, ptr %10, i64 %748
+  %764 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %748
   %765 = load i32, ptr %764, align 4, !tbaa !77
   %766 = add i32 %765, 1
   store i32 %766, ptr %764, align 4, !tbaa !77
@@ -5417,7 +5417,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %779 = getelementptr inbounds nuw i8, ptr %8, i64 %778
   %780 = load i8, ptr %779, align 1, !tbaa !7
   %781 = zext i8 %780 to i64
-  %782 = getelementptr inbounds nuw i16, ptr %9, i64 %778
+  %782 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %778
   %783 = load i16, ptr %782, align 2, !tbaa !84
   %784 = zext i16 %783 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !841)
@@ -5447,7 +5447,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %802, ptr %797, align 1, !noalias !846
   %803 = add i64 %793, %774
   store i64 %803, ptr %5, align 8, !tbaa !3, !alias.scope !846, !noalias !849
-  %804 = getelementptr inbounds nuw i32, ptr %10, i64 %778
+  %804 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %778
   %805 = load i32, ptr %804, align 4, !tbaa !77
   %806 = add i32 %805, 1
   store i32 %806, ptr %804, align 4, !tbaa !77
@@ -5467,7 +5467,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %816 = getelementptr inbounds nuw i8, ptr %8, i64 %815
   %817 = load i8, ptr %816, align 1, !tbaa !7
   %818 = zext i8 %817 to i64
-  %819 = getelementptr inbounds nuw i16, ptr %9, i64 %815
+  %819 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %815
   %820 = load i16, ptr %819, align 2, !tbaa !84
   %821 = zext i16 %820 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !851)
@@ -5498,7 +5498,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %839, ptr %834, align 1, !noalias !856
   %840 = add i64 %830, %831
   store i64 %840, ptr %5, align 8, !tbaa !3, !alias.scope !856, !noalias !859
-  %841 = getelementptr inbounds nuw i32, ptr %10, i64 %815
+  %841 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %815
   %842 = load i32, ptr %841, align 4, !tbaa !77
   %843 = add i32 %842, 1
   store i32 %843, ptr %841, align 4, !tbaa !77
@@ -5561,7 +5561,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %885 = getelementptr inbounds nuw i8, ptr %8, i64 %884
   %886 = load i8, ptr %885, align 1, !tbaa !7
   %887 = zext i8 %886 to i64
-  %888 = getelementptr inbounds nuw i16, ptr %9, i64 %884
+  %888 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %884
   %889 = load i16, ptr %888, align 2, !tbaa !84
   %890 = zext i16 %889 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !871)
@@ -5590,7 +5590,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   store i64 %907, ptr %902, align 1, !noalias !876
   %908 = add i64 %899, %874
   store i64 %908, ptr %5, align 8, !tbaa !3, !alias.scope !876, !noalias !879
-  %909 = getelementptr inbounds nuw i32, ptr %10, i64 %884
+  %909 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %884
   %910 = load i32, ptr %909, align 4, !tbaa !77
   %911 = add i32 %910, 1
   store i32 %911, ptr %909, align 4, !tbaa !77
@@ -5609,21 +5609,21 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %920 = sub i64 %919, %87
   %921 = trunc i64 %920 to i32
   %922 = add i32 %921, -3
-  %923 = getelementptr inbounds nuw i32, ptr %4, i64 %915
+  %923 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %915
   store i32 %922, ptr %923, align 4, !tbaa !77
   %924 = lshr i64 %.0.copyload.i44, 8
   %925 = mul i64 %924, 8503243848024064
   %926 = lshr i64 %925, 51
   %927 = add i32 %921, -2
-  %928 = getelementptr inbounds nuw i32, ptr %4, i64 %926
+  %928 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %926
   store i32 %927, ptr %928, align 4, !tbaa !77
   %929 = lshr i64 %.0.copyload.i44, 16
   %930 = mul i64 %929, 8503243848024064
   %931 = lshr i64 %930, 51
   %932 = add i32 %921, -1
-  %933 = getelementptr inbounds nuw i32, ptr %4, i64 %931
+  %933 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %931
   store i32 %932, ptr %933, align 4, !tbaa !77
-  %934 = getelementptr inbounds nuw i32, ptr %4, i64 %918
+  %934 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %918
   %935 = load i32, ptr %934, align 4, !tbaa !77
   store i32 %921, ptr %934, align 4, !tbaa !77
   %.pn = sext i32 %935 to i64
@@ -5654,7 +5654,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %943 = getelementptr inbounds nuw i8, ptr %106, i64 %.02024.i
   %944 = load i8, ptr %943, align 1, !tbaa !7
   %945 = zext i8 %944 to i64
-  %946 = getelementptr inbounds nuw i32, ptr %103, i64 %945
+  %946 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %945
   %947 = load i32, ptr %946, align 4, !tbaa !77
   %948 = add i32 %947, 1
   store i32 %948, ptr %946, align 4, !tbaa !77
@@ -5671,7 +5671,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
   %.zext = zext nneg i32 %952 to i64
-  %954 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %.zext
+  %954 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
@@ -5691,7 +5691,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
 961:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit23.i, %_ZN13duckdb_brotliL8FastLog2Em.exit.i
   %.026.i = phi double [ %960, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %977, %_ZN13duckdb_brotliL8FastLog2Em.exit23.i ]
   %.125.i = phi i64 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %978, %_ZN13duckdb_brotliL8FastLog2Em.exit23.i ]
-  %962 = getelementptr inbounds nuw i32, ptr %103, i64 %.125.i
+  %962 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.125.i
   %963 = load i32, ptr %962, align 4, !tbaa !77
   %964 = uitofp i32 %963 to double
   %965 = getelementptr inbounds nuw i8, ptr %0, i64 %.125.i
@@ -5702,7 +5702,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
 
 969:                                              ; preds = %961
   %970 = zext nneg i32 %963 to i64
-  %971 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %970
+  %971 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %970
   %972 = load double, ptr %971, align 8, !tbaa !268
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
@@ -5781,7 +5781,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1017 = getelementptr inbounds nuw i8, ptr %8, i64 %1016
   %1018 = load i8, ptr %1017, align 1, !tbaa !7
   %1019 = zext i8 %1018 to i64
-  %1020 = getelementptr inbounds nuw i16, ptr %9, i64 %1016
+  %1020 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1016
   %1021 = load i16, ptr %1020, align 2, !tbaa !84
   %1022 = zext i16 %1021 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !881)
@@ -5797,7 +5797,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1030, ptr %1025, align 1, !noalias !881
   %1031 = add i64 %1023, %1019
   store i64 %1031, ptr %5, align 8, !tbaa !3, !alias.scope !881, !noalias !884
-  %1032 = getelementptr inbounds nuw i32, ptr %10, i64 %1016
+  %1032 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1016
   %1033 = load i32, ptr %1032, align 4, !tbaa !77
   %1034 = add i32 %1033, 1
   store i32 %1034, ptr %1032, align 4, !tbaa !77
@@ -5821,7 +5821,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1047 = getelementptr inbounds nuw i8, ptr %8, i64 %1046
   %1048 = load i8, ptr %1047, align 1, !tbaa !7
   %1049 = zext i8 %1048 to i64
-  %1050 = getelementptr inbounds nuw i16, ptr %9, i64 %1046
+  %1050 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1046
   %1051 = load i16, ptr %1050, align 2, !tbaa !84
   %1052 = zext i16 %1051 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !886)
@@ -5851,7 +5851,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1070, ptr %1065, align 1, !noalias !891
   %1071 = add i64 %1061, %1042
   store i64 %1071, ptr %5, align 8, !tbaa !3, !alias.scope !891, !noalias !894
-  %1072 = getelementptr inbounds nuw i32, ptr %10, i64 %1046
+  %1072 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1046
   %1073 = load i32, ptr %1072, align 4, !tbaa !77
   %1074 = add i32 %1073, 1
   store i32 %1074, ptr %1072, align 4, !tbaa !77
@@ -5871,7 +5871,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1084 = getelementptr inbounds nuw i8, ptr %8, i64 %1083
   %1085 = load i8, ptr %1084, align 1, !tbaa !7
   %1086 = zext i8 %1085 to i64
-  %1087 = getelementptr inbounds nuw i16, ptr %9, i64 %1083
+  %1087 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1083
   %1088 = load i16, ptr %1087, align 2, !tbaa !84
   %1089 = zext i16 %1088 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !896)
@@ -5902,7 +5902,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1107, ptr %1102, align 1, !noalias !901
   %1108 = add i64 %1098, %1099
   store i64 %1108, ptr %5, align 8, !tbaa !3, !alias.scope !901, !noalias !904
-  %1109 = getelementptr inbounds nuw i32, ptr %10, i64 %1083
+  %1109 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1083
   %1110 = load i32, ptr %1109, align 4, !tbaa !77
   %1111 = add i32 %1110, 1
   store i32 %1111, ptr %1109, align 4, !tbaa !77
@@ -5961,7 +5961,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit27:           ; preds = %1015, %1037, %1077,
   %1142 = getelementptr inbounds nuw i8, ptr %0, i64 %1141
   %1143 = load i8, ptr %1142, align 1, !tbaa !7
   %1144 = zext i8 %1143 to i64
-  %1145 = getelementptr inbounds nuw i16, ptr %11, i64 %1141
+  %1145 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %1141
   %1146 = load i16, ptr %1145, align 2, !tbaa !84
   %1147 = zext i16 %1146 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !916)
@@ -6076,7 +6076,7 @@ _ZL17EmitLongInsertLenmPKhPKtPjPmPh.exit30:       ; preds = %1165, %1190
   %1220 = getelementptr inbounds nuw i8, ptr %0, i64 %1219
   %1221 = load i8, ptr %1220, align 1, !tbaa !7
   %1222 = zext i8 %1221 to i64
-  %1223 = getelementptr inbounds nuw i16, ptr %11, i64 %1219
+  %1223 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %1219
   %1224 = load i16, ptr %1223, align 2, !tbaa !84
   %1225 = zext i16 %1224 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !941)
@@ -6405,7 +6405,7 @@ _ZL7IsMatchPKhS0_.exit7.us200:                    ; preds = %.lr.ph186.us
 
 _ZL7IsMatchPKhS0_.exit7.thread.us201:             ; preds = %_ZL7IsMatchPKhS0_.exit7.us200, %.lr.ph186.us
   %134 = zext nneg i32 %.2350.i184.us195 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %4, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !77
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i8, ptr %1, i64 %137
@@ -6431,7 +6431,7 @@ _ZL7IsMatchPKhS0_.exit.us204:                     ; preds = %_ZL7IsMatchPKhS0_.e
   %149 = sub i64 %148, %87
   %150 = trunc i64 %149 to i32
   %151 = zext nneg i32 %.2350.i184.us195 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %4, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %151
   store i32 %150, ptr %152, align 4, !tbaa !77
   br label %.loopexit.split.us205
 
@@ -6469,7 +6469,7 @@ _ZL7IsMatchPKhS0_.exit.us204:                     ; preds = %_ZL7IsMatchPKhS0_.e
   %.0.copyload.i41.us = load i64, ptr %164, align 1
   %166 = mul i64 %.0.copyload.i41.us, 8503243848024064
   %167 = lshr i64 %166, 49
-  %168 = getelementptr inbounds nuw i32, ptr %4, i64 %.2350.i184.us
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.2350.i184.us
   %169 = load i32, ptr %168, align 4, !tbaa !77
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i8, ptr %1, i64 %170
@@ -6593,7 +6593,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 %223
   %225 = load i8, ptr %224, align 1, !tbaa !7
   %226 = zext i8 %225 to i64
-  %227 = getelementptr inbounds nuw i16, ptr %9, i64 %223
+  %227 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %223
   %228 = load i16, ptr %227, align 2, !tbaa !84
   %229 = zext i16 %228 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1006)
@@ -6609,7 +6609,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %237, ptr %232, align 1, !noalias !1006
   %238 = add i64 %230, %226
   store i64 %238, ptr %5, align 8, !tbaa !3, !alias.scope !1006, !noalias !1009
-  %239 = getelementptr inbounds nuw i32, ptr %10, i64 %223
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %223
   %240 = load i32, ptr %239, align 4, !tbaa !77
   %241 = add i32 %240, 1
   store i32 %241, ptr %239, align 4, !tbaa !77
@@ -6633,7 +6633,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %254 = getelementptr inbounds nuw i8, ptr %8, i64 %253
   %255 = load i8, ptr %254, align 1, !tbaa !7
   %256 = zext i8 %255 to i64
-  %257 = getelementptr inbounds nuw i16, ptr %9, i64 %253
+  %257 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %253
   %258 = load i16, ptr %257, align 2, !tbaa !84
   %259 = zext i16 %258 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1011)
@@ -6663,7 +6663,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %277, ptr %272, align 1, !noalias !1016
   %278 = add i64 %268, %249
   store i64 %278, ptr %5, align 8, !tbaa !3, !alias.scope !1016, !noalias !1019
-  %279 = getelementptr inbounds nuw i32, ptr %10, i64 %253
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %253
   %280 = load i32, ptr %279, align 4, !tbaa !77
   %281 = add i32 %280, 1
   store i32 %281, ptr %279, align 4, !tbaa !77
@@ -6683,7 +6683,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %291 = getelementptr inbounds nuw i8, ptr %8, i64 %290
   %292 = load i8, ptr %291, align 1, !tbaa !7
   %293 = zext i8 %292 to i64
-  %294 = getelementptr inbounds nuw i16, ptr %9, i64 %290
+  %294 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %290
   %295 = load i16, ptr %294, align 2, !tbaa !84
   %296 = zext i16 %295 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1021)
@@ -6714,7 +6714,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   store i64 %314, ptr %309, align 1, !noalias !1026
   %315 = add i64 %305, %306
   store i64 %315, ptr %5, align 8, !tbaa !3, !alias.scope !1026, !noalias !1029
-  %316 = getelementptr inbounds nuw i32, ptr %10, i64 %290
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %290
   %317 = load i32, ptr %316, align 4, !tbaa !77
   %318 = add i32 %317, 1
   store i32 %318, ptr %316, align 4, !tbaa !77
@@ -6864,7 +6864,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit:             ; preds = %378, %353, %319, %2
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 %407
   %409 = load i8, ptr %408, align 1, !tbaa !7
   %410 = zext i8 %409 to i64
-  %411 = getelementptr inbounds nuw i16, ptr %11, i64 %407
+  %411 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %407
   %412 = load i16, ptr %411, align 2, !tbaa !84
   %413 = zext i16 %412 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1061)
@@ -6930,7 +6930,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %457 = getelementptr inbounds nuw i8, ptr %8, i64 %456
   %458 = load i8, ptr %457, align 1, !tbaa !7
   %459 = zext i8 %458 to i64
-  %460 = getelementptr inbounds nuw i16, ptr %9, i64 %456
+  %460 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %456
   %461 = load i16, ptr %460, align 2, !tbaa !84
   %462 = zext i16 %461 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1071)
@@ -6956,7 +6956,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %479 = or i64 %478, %476
   store i64 %479, ptr %474, align 1, !noalias !1079
   %480 = add i64 %471, %446
-  %481 = getelementptr inbounds nuw i32, ptr %10, i64 %456
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %456
   %482 = load i32, ptr %481, align 4, !tbaa !77
   %483 = add i32 %482, 1
   store i32 %483, ptr %481, align 4, !tbaa !77
@@ -6974,7 +6974,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %489 = getelementptr inbounds nuw i8, ptr %8, i64 %488
   %490 = load i8, ptr %489, align 1, !tbaa !7
   %491 = zext i8 %490 to i64
-  %492 = getelementptr inbounds nuw i16, ptr %9, i64 %488
+  %492 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %488
   %493 = load i16, ptr %492, align 2, !tbaa !84
   %494 = zext i16 %493 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1081)
@@ -6989,7 +6989,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %501, ptr %496, align 1, !noalias !1081
   %502 = add i64 %485, %491
   store i64 %502, ptr %5, align 8, !tbaa !3, !alias.scope !1081, !noalias !1084
-  %503 = getelementptr inbounds nuw i32, ptr %10, i64 %488
+  %503 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %488
   %504 = load i32, ptr %503, align 4, !tbaa !77
   %505 = add i32 %504, 1
   store i32 %505, ptr %503, align 4, !tbaa !77
@@ -7013,7 +7013,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %518 = getelementptr inbounds nuw i8, ptr %8, i64 %517
   %519 = load i8, ptr %518, align 1, !tbaa !7
   %520 = zext i8 %519 to i64
-  %521 = getelementptr inbounds nuw i16, ptr %9, i64 %517
+  %521 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %517
   %522 = load i16, ptr %521, align 2, !tbaa !84
   %523 = zext i16 %522 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
@@ -7042,7 +7042,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %540, ptr %535, align 1, !noalias !1091
   %541 = add i64 %531, %513
   store i64 %541, ptr %5, align 8, !tbaa !3, !alias.scope !1091, !noalias !1094
-  %542 = getelementptr inbounds nuw i32, ptr %10, i64 %517
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %517
   %543 = load i32, ptr %542, align 4, !tbaa !77
   %544 = add i32 %543, 1
   store i32 %544, ptr %542, align 4, !tbaa !77
@@ -7059,7 +7059,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %551 = getelementptr inbounds nuw i8, ptr %8, i64 %550
   %552 = load i8, ptr %551, align 1, !tbaa !7
   %553 = zext i8 %552 to i64
-  %554 = getelementptr inbounds nuw i16, ptr %9, i64 %550
+  %554 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %550
   %555 = load i16, ptr %554, align 2, !tbaa !84
   %556 = zext i16 %555 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1096)
@@ -7103,7 +7103,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %584, ptr %579, align 1, !noalias !1106
   %585 = add i64 %573, %575
   store i64 %585, ptr %5, align 8, !tbaa !3, !alias.scope !1106, !noalias !1109
-  %586 = getelementptr inbounds nuw i32, ptr %10, i64 %550
+  %586 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %550
   %587 = load i32, ptr %586, align 4, !tbaa !77
   %588 = add i32 %587, 1
   store i32 %588, ptr %586, align 4, !tbaa !77
@@ -7126,7 +7126,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   %600 = getelementptr inbounds nuw i8, ptr %8, i64 %599
   %601 = load i8, ptr %600, align 1, !tbaa !7
   %602 = zext i8 %601 to i64
-  %603 = getelementptr inbounds nuw i16, ptr %9, i64 %599
+  %603 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %599
   %604 = load i16, ptr %603, align 2, !tbaa !84
   %605 = zext i16 %604 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1111)
@@ -7172,7 +7172,7 @@ _ZL12EmitLiteralsPKhmS0_PKtPmPh.exit:             ; preds = %403, %_ZL13EmitInse
   store i64 %634, ptr %629, align 1, !noalias !1121
   %635 = add i64 %623, %625
   store i64 %635, ptr %5, align 8, !tbaa !3, !alias.scope !1121, !noalias !1124
-  %636 = getelementptr inbounds nuw i32, ptr %10, i64 %599
+  %636 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %599
   %637 = load i32, ptr %636, align 4, !tbaa !77
   %638 = add i32 %637, 1
   store i32 %638, ptr %636, align 4, !tbaa !77
@@ -7250,21 +7250,21 @@ _ZL23EmitCopyLenLastDistancemPKhPKtPjPmPh.exit:   ; preds = %487, %508, %547, %5
   %686 = sub i64 %685, %87
   %687 = trunc i64 %686 to i32
   %688 = add i32 %687, -3
-  %689 = getelementptr inbounds nuw i32, ptr %4, i64 %681
+  %689 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %681
   store i32 %688, ptr %689, align 4, !tbaa !77
   %690 = lshr i64 %.0.copyload.i43, 8
   %691 = mul i64 %690, 8503243848024064
   %692 = lshr i64 %691, 49
   %693 = add i32 %687, -2
-  %694 = getelementptr inbounds nuw i32, ptr %4, i64 %692
+  %694 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %692
   store i32 %693, ptr %694, align 4, !tbaa !77
   %695 = lshr i64 %.0.copyload.i43, 16
   %696 = mul i64 %695, 8503243848024064
   %697 = lshr i64 %696, 49
   %698 = add i32 %687, -1
-  %699 = getelementptr inbounds nuw i32, ptr %4, i64 %697
+  %699 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %697
   store i32 %698, ptr %699, align 4, !tbaa !77
-  %700 = getelementptr inbounds nuw i32, ptr %4, i64 %684
+  %700 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %684
   %701 = load i32, ptr %700, align 4, !tbaa !77
   store i32 %687, ptr %700, align 4, !tbaa !77
   %.pn257 = sext i32 %701 to i64
@@ -7385,7 +7385,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %749 = getelementptr inbounds nuw i8, ptr %8, i64 %748
   %750 = load i8, ptr %749, align 1, !tbaa !7
   %751 = zext i8 %750 to i64
-  %752 = getelementptr inbounds nuw i16, ptr %9, i64 %748
+  %752 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %748
   %753 = load i16, ptr %752, align 2, !tbaa !84
   %754 = zext i16 %753 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1141)
@@ -7401,7 +7401,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %762, ptr %757, align 1, !noalias !1141
   %763 = add i64 %755, %751
   store i64 %763, ptr %5, align 8, !tbaa !3, !alias.scope !1141, !noalias !1144
-  %764 = getelementptr inbounds nuw i32, ptr %10, i64 %748
+  %764 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %748
   %765 = load i32, ptr %764, align 4, !tbaa !77
   %766 = add i32 %765, 1
   store i32 %766, ptr %764, align 4, !tbaa !77
@@ -7425,7 +7425,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %779 = getelementptr inbounds nuw i8, ptr %8, i64 %778
   %780 = load i8, ptr %779, align 1, !tbaa !7
   %781 = zext i8 %780 to i64
-  %782 = getelementptr inbounds nuw i16, ptr %9, i64 %778
+  %782 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %778
   %783 = load i16, ptr %782, align 2, !tbaa !84
   %784 = zext i16 %783 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1146)
@@ -7455,7 +7455,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %802, ptr %797, align 1, !noalias !1151
   %803 = add i64 %793, %774
   store i64 %803, ptr %5, align 8, !tbaa !3, !alias.scope !1151, !noalias !1154
-  %804 = getelementptr inbounds nuw i32, ptr %10, i64 %778
+  %804 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %778
   %805 = load i32, ptr %804, align 4, !tbaa !77
   %806 = add i32 %805, 1
   store i32 %806, ptr %804, align 4, !tbaa !77
@@ -7475,7 +7475,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   %816 = getelementptr inbounds nuw i8, ptr %8, i64 %815
   %817 = load i8, ptr %816, align 1, !tbaa !7
   %818 = zext i8 %817 to i64
-  %819 = getelementptr inbounds nuw i16, ptr %9, i64 %815
+  %819 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %815
   %820 = load i16, ptr %819, align 2, !tbaa !84
   %821 = zext i16 %820 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1156)
@@ -7506,7 +7506,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.cr
   store i64 %839, ptr %834, align 1, !noalias !1161
   %840 = add i64 %830, %831
   store i64 %840, ptr %5, align 8, !tbaa !3, !alias.scope !1161, !noalias !1164
-  %841 = getelementptr inbounds nuw i32, ptr %10, i64 %815
+  %841 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %815
   %842 = load i32, ptr %841, align 4, !tbaa !77
   %843 = add i32 %842, 1
   store i32 %843, ptr %841, align 4, !tbaa !77
@@ -7569,7 +7569,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %885 = getelementptr inbounds nuw i8, ptr %8, i64 %884
   %886 = load i8, ptr %885, align 1, !tbaa !7
   %887 = zext i8 %886 to i64
-  %888 = getelementptr inbounds nuw i16, ptr %9, i64 %884
+  %888 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %884
   %889 = load i16, ptr %888, align 2, !tbaa !84
   %890 = zext i16 %889 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1176)
@@ -7598,7 +7598,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   store i64 %907, ptr %902, align 1, !noalias !1181
   %908 = add i64 %899, %874
   store i64 %908, ptr %5, align 8, !tbaa !3, !alias.scope !1181, !noalias !1184
-  %909 = getelementptr inbounds nuw i32, ptr %10, i64 %884
+  %909 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %884
   %910 = load i32, ptr %909, align 4, !tbaa !77
   %911 = add i32 %910, 1
   store i32 %911, ptr %909, align 4, !tbaa !77
@@ -7617,21 +7617,21 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %920 = sub i64 %919, %87
   %921 = trunc i64 %920 to i32
   %922 = add i32 %921, -3
-  %923 = getelementptr inbounds nuw i32, ptr %4, i64 %915
+  %923 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %915
   store i32 %922, ptr %923, align 4, !tbaa !77
   %924 = lshr i64 %.0.copyload.i44, 8
   %925 = mul i64 %924, 8503243848024064
   %926 = lshr i64 %925, 49
   %927 = add i32 %921, -2
-  %928 = getelementptr inbounds nuw i32, ptr %4, i64 %926
+  %928 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %926
   store i32 %927, ptr %928, align 4, !tbaa !77
   %929 = lshr i64 %.0.copyload.i44, 16
   %930 = mul i64 %929, 8503243848024064
   %931 = lshr i64 %930, 49
   %932 = add i32 %921, -1
-  %933 = getelementptr inbounds nuw i32, ptr %4, i64 %931
+  %933 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %931
   store i32 %932, ptr %933, align 4, !tbaa !77
-  %934 = getelementptr inbounds nuw i32, ptr %4, i64 %918
+  %934 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %918
   %935 = load i32, ptr %934, align 4, !tbaa !77
   store i32 %921, ptr %934, align 4, !tbaa !77
   %.pn = sext i32 %935 to i64
@@ -7662,7 +7662,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
   %943 = getelementptr inbounds nuw i8, ptr %106, i64 %.02024.i
   %944 = load i8, ptr %943, align 1, !tbaa !7
   %945 = zext i8 %944 to i64
-  %946 = getelementptr inbounds nuw i32, ptr %103, i64 %945
+  %946 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %945
   %947 = load i32, ptr %946, align 4, !tbaa !77
   %948 = add i32 %947, 1
   store i32 %948, ptr %946, align 4, !tbaa !77
@@ -7679,7 +7679,7 @@ _ZL11EmitCopyLenmPKhPKtPjPmPh.exit:               ; preds = %747, %769, %809, %8
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
   %.zext = zext nneg i32 %952 to i64
-  %954 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %.zext
+  %954 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
@@ -7699,7 +7699,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
 961:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit23.i, %_ZN13duckdb_brotliL8FastLog2Em.exit.i
   %.026.i = phi double [ %960, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %977, %_ZN13duckdb_brotliL8FastLog2Em.exit23.i ]
   %.125.i = phi i64 [ 0, %_ZN13duckdb_brotliL8FastLog2Em.exit.i ], [ %978, %_ZN13duckdb_brotliL8FastLog2Em.exit23.i ]
-  %962 = getelementptr inbounds nuw i32, ptr %103, i64 %.125.i
+  %962 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.125.i
   %963 = load i32, ptr %962, align 4, !tbaa !77
   %964 = uitofp i32 %963 to double
   %965 = getelementptr inbounds nuw i8, ptr %0, i64 %.125.i
@@ -7710,7 +7710,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %956, %._crit_edge.t
 
 969:                                              ; preds = %961
   %970 = zext nneg i32 %963 to i64
-  %971 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %970
+  %971 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %970
   %972 = load double, ptr %971, align 8, !tbaa !268
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit23.i
 
@@ -7789,7 +7789,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1017 = getelementptr inbounds nuw i8, ptr %8, i64 %1016
   %1018 = load i8, ptr %1017, align 1, !tbaa !7
   %1019 = zext i8 %1018 to i64
-  %1020 = getelementptr inbounds nuw i16, ptr %9, i64 %1016
+  %1020 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1016
   %1021 = load i16, ptr %1020, align 2, !tbaa !84
   %1022 = zext i16 %1021 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1186)
@@ -7805,7 +7805,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1030, ptr %1025, align 1, !noalias !1186
   %1031 = add i64 %1023, %1019
   store i64 %1031, ptr %5, align 8, !tbaa !3, !alias.scope !1186, !noalias !1189
-  %1032 = getelementptr inbounds nuw i32, ptr %10, i64 %1016
+  %1032 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1016
   %1033 = load i32, ptr %1032, align 4, !tbaa !77
   %1034 = add i32 %1033, 1
   store i32 %1034, ptr %1032, align 4, !tbaa !77
@@ -7829,7 +7829,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1047 = getelementptr inbounds nuw i8, ptr %8, i64 %1046
   %1048 = load i8, ptr %1047, align 1, !tbaa !7
   %1049 = zext i8 %1048 to i64
-  %1050 = getelementptr inbounds nuw i16, ptr %9, i64 %1046
+  %1050 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1046
   %1051 = load i16, ptr %1050, align 2, !tbaa !84
   %1052 = zext i16 %1051 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1191)
@@ -7859,7 +7859,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1070, ptr %1065, align 1, !noalias !1196
   %1071 = add i64 %1061, %1042
   store i64 %1071, ptr %5, align 8, !tbaa !3, !alias.scope !1196, !noalias !1199
-  %1072 = getelementptr inbounds nuw i32, ptr %10, i64 %1046
+  %1072 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1046
   %1073 = load i32, ptr %1072, align 4, !tbaa !77
   %1074 = add i32 %1073, 1
   store i32 %1074, ptr %1072, align 4, !tbaa !77
@@ -7879,7 +7879,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   %1084 = getelementptr inbounds nuw i8, ptr %8, i64 %1083
   %1085 = load i8, ptr %1084, align 1, !tbaa !7
   %1086 = zext i8 %1085 to i64
-  %1087 = getelementptr inbounds nuw i16, ptr %9, i64 %1083
+  %1087 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %1083
   %1088 = load i16, ptr %1087, align 2, !tbaa !84
   %1089 = zext i16 %1088 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1201)
@@ -7910,7 +7910,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   store i64 %1107, ptr %1102, align 1, !noalias !1206
   %1108 = add i64 %1098, %1099
   store i64 %1108, ptr %5, align 8, !tbaa !3, !alias.scope !1206, !noalias !1209
-  %1109 = getelementptr inbounds nuw i32, ptr %10, i64 %1083
+  %1109 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1083
   %1110 = load i32, ptr %1109, align 4, !tbaa !77
   %1111 = add i32 %1110, 1
   store i32 %1111, ptr %1109, align 4, !tbaa !77
@@ -7969,7 +7969,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit27:           ; preds = %1015, %1037, %1077,
   %1142 = getelementptr inbounds nuw i8, ptr %0, i64 %1141
   %1143 = load i8, ptr %1142, align 1, !tbaa !7
   %1144 = zext i8 %1143 to i64
-  %1145 = getelementptr inbounds nuw i16, ptr %11, i64 %1141
+  %1145 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %1141
   %1146 = load i16, ptr %1145, align 2, !tbaa !84
   %1147 = zext i16 %1146 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1221)
@@ -8084,7 +8084,7 @@ _ZL17EmitLongInsertLenmPKhPKtPjPmPh.exit30:       ; preds = %1165, %1190
   %1220 = getelementptr inbounds nuw i8, ptr %0, i64 %1219
   %1221 = load i8, ptr %1220, align 1, !tbaa !7
   %1222 = zext i8 %1221 to i64
-  %1223 = getelementptr inbounds nuw i16, ptr %11, i64 %1219
+  %1223 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %1219
   %1224 = load i16, ptr %1223, align 2, !tbaa !84
   %1225 = zext i16 %1224 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1246)
@@ -8285,7 +8285,7 @@ define internal fastcc noundef i64 @_ZL30BuildAndStoreLiteralPrefixCodePN13duckd
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.05466
   %11 = load i8, ptr %10, align 1, !tbaa !7
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !77
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 4, !tbaa !77
@@ -8299,7 +8299,7 @@ define internal fastcc noundef i64 @_ZL30BuildAndStoreLiteralPrefixCodePN13duckd
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.05268 = phi i64 [ %23, %.preheader ], [ %2, %.preheader.preheader ]
   %.15567 = phi i64 [ %24, %.preheader ], [ 0, %.preheader.preheader ]
-  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %.15567
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.15567
   %18 = load i32, ptr %17, align 4, !tbaa !77
   %19 = tail call noundef i32 @llvm.umin.i32(i32 %18, i32 11)
   %20 = shl nuw nsw i32 %19, 1
@@ -8316,7 +8316,7 @@ define internal fastcc noundef i64 @_ZL30BuildAndStoreLiteralPrefixCodePN13duckd
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.25663
   %26 = load i8, ptr %25, align 1, !tbaa !7
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %8, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !77
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 4, !tbaa !77
@@ -8332,7 +8332,7 @@ define internal fastcc noundef i64 @_ZL30BuildAndStoreLiteralPrefixCodePN13duckd
 36:                                               ; preds = %33, %36
   %.265 = phi i64 [ %35, %33 ], [ %44, %36 ]
   %.364 = phi i64 [ 0, %33 ], [ %45, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %8, i64 %.364
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.364
   %38 = load i32, ptr %37, align 4, !tbaa !77
   %39 = tail call noundef i32 @llvm.umin.i32(i32 %38, i32 11)
   %40 = shl nuw nsw i32 %39, 1
@@ -8354,7 +8354,7 @@ define internal fastcc noundef i64 @_ZL30BuildAndStoreLiteralPrefixCodePN13duckd
 47:                                               ; preds = %.loopexit, %57
   %.070 = phi i64 [ 0, %.loopexit ], [ %.1, %57 ]
   %.469 = phi i64 [ 0, %.loopexit ], [ %58, %57 ]
-  %48 = getelementptr inbounds nuw i32, ptr %8, i64 %.469
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.469
   %49 = load i32, ptr %48, align 4, !tbaa !77
   %.not = icmp eq i32 %49, 0
   br i1 %.not, label %57, label %50

@@ -3,20 +3,14 @@ source_filename = "bench/openssl/original/quic_ackm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.OSSL_TIME = type { i64 }
-%struct.tx_pkt_history_st = type { %struct.ossl_list_st_tx_history, ptr, i64, i64 }
-%struct.ossl_list_st_tx_history = type { ptr, ptr, i64 }
-%struct.rx_pkt_history_st = type { %struct.ossl_list_st_uint_set, i64 }
-%struct.ossl_list_st_uint_set = type { ptr, ptr, i64 }
 %struct.uint_range_st = type { i64, i64 }
 %struct.ossl_cc_ack_info_st = type { %struct.OSSL_TIME, i64 }
+%struct.OSSL_TIME = type { i64 }
 %struct.ossl_rtt_info_st = type { %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME }
 %struct.ossl_cc_loss_info_st = type { %struct.OSSL_TIME, i64 }
 %struct.ossl_ackm_tx_pkt_st = type { i64, i64, %struct.OSSL_TIME, i64, i8, ptr, ptr, ptr, ptr, %struct.anon, ptr, ptr }
 %struct.anon = type { ptr, ptr }
 %struct.ossl_cc_ecn_info_st = type { %struct.OSSL_TIME }
-%struct.ossl_quic_ack_range_st = type { i64, i64 }
-%struct.ossl_quic_frame_ack_st = type { ptr, i64, %struct.OSSL_TIME, i64, i64, i64, i8 }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/ssl/quic/quic_ackm.c\00", align 1
 
@@ -37,11 +31,11 @@ define ptr @ossl_ackm_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 11:                                               ; preds = %.preheader36, %19
   %indvars.iv = phi i64 [ 0, %.preheader36 ], [ %indvars.iv.next, %19 ]
-  %12 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store i64 -1, ptr %12, align 8, !tbaa !3
-  %13 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i64 -1, ptr %13, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw %struct.tx_pkt_history_st, ptr %6, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
@@ -63,7 +57,7 @@ define ptr @ossl_ackm_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 20:                                               ; preds = %.preheader35, %20
   %indvars.iv44 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next45, %20 ]
-  %21 = getelementptr inbounds nuw %struct.rx_pkt_history_st, ptr %10, i64 %indvars.iv44
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv44
   tail call void @ossl_uint_set_init(ptr noundef nonnull %21) #12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 0, ptr %22, align 8, !tbaa !15
@@ -91,7 +85,7 @@ define ptr @ossl_ackm_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.lr.ph ], [ %indvars.iv, %.preheader ]
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
-  %31 = getelementptr inbounds nuw %struct.tx_pkt_history_st, ptr %6, i64 %indvars.iv.next50
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %indvars.iv.next50
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !7
   tail call void @OPENSSL_LH_free(ptr noundef %33) #12
@@ -133,12 +127,12 @@ define void @ossl_ackm_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw %struct.tx_pkt_history_st, ptr %0, i64 %.010
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %.010
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !7
   tail call void @OPENSSL_LH_free(ptr noundef %11) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  %12 = getelementptr inbounds nuw %struct.rx_pkt_history_st, ptr %4, i64 %.010
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %.010
   tail call void @ossl_uint_set_destroy(ptr noundef nonnull %12) #12
   br label %13
 
@@ -161,7 +155,7 @@ define range(i32 0, 2) i32 @ossl_ackm_on_tx_packet(ptr noundef captures(none) %0
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 3
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.tx_pkt_history_st, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
@@ -169,7 +163,7 @@ define range(i32 0, 2) i32 @ossl_ackm_on_tx_packet(ptr noundef captures(none) %0
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %12 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %11, i64 %6
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %6
   %13 = load i64, ptr %12, align 8
   %14 = icmp ugt i64 %13, %9
   br i1 %14, label %tx_pkt_history_add.exit.thread, label %15
@@ -257,7 +251,7 @@ define range(i32 0, 2) i32 @ossl_ackm_on_tx_packet(ptr noundef captures(none) %0
 57:                                               ; preds = %55
   %58 = and i8 %53, 3
   %59 = zext nneg i8 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %11, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %59
   %61 = load i64, ptr %8, align 8, !tbaa !3
   store i64 %61, ptr %60, align 8, !tbaa !3
   %62 = load i64, ptr %16, align 8, !tbaa !35
@@ -265,7 +259,7 @@ define range(i32 0, 2) i32 @ossl_ackm_on_tx_packet(ptr noundef captures(none) %0
   %64 = load i8, ptr %3, align 8
   %65 = and i8 %64, 3
   %66 = zext nneg i8 %65 to i64
-  %67 = getelementptr inbounds nuw i64, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !3
   %69 = add i64 %68, %62
   store i64 %69, ptr %67, align 8, !tbaa !3
@@ -306,7 +300,7 @@ define internal fastcc void @ackm_set_loss_detection_timer(ptr noundef captures(
   %indvars.iv.i = phi i64 [ 1, %1 ], [ 2, %4 ]
   %.016.i = phi i32 [ 0, %1 ], [ %.1.i, %4 ]
   %.sroa.0.014.i = phi i64 [ %.sroa.0.0.copyload.i, %1 ], [ %.sroa.0.1.i, %4 ]
-  %.phi.trans.insert.i = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %3, i64 %indvars.iv.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %.sroa.0.0.copyload11.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %5 = freeze i64 %.sroa.0.0.copyload11.pre.i
   %6 = add i64 %.sroa.0.014.i, -1
@@ -341,7 +335,7 @@ ackm_get_loss_time_and_space.exit:                ; preds = %4
 17:                                               ; preds = %17, %15
   %indvars.iv.i13 = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %17 ]
   %.07.i = phi i64 [ 0, %15 ], [ %20, %17 ]
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i13
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i13
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %20 = add i64 %19, %.07.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i13, 1
@@ -413,7 +407,7 @@ define noundef i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %0, ptr noundef readon
   %16 = alloca ptr, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %18 = sext i32 %2 to i64
-  %19 = getelementptr inbounds i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !3
   %21 = icmp eq i64 %20, -1
   %22 = load ptr, ptr %1, align 8, !tbaa !56
@@ -436,7 +430,7 @@ define noundef i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %0, ptr noundef readon
 31:                                               ; preds = %30, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !61
-  %32 = getelementptr inbounds %struct.tx_pkt_history_st, ptr %0, i64 %18
+  %32 = getelementptr inbounds [48 x i8], ptr %0, i64 %18
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !59
   %35 = getelementptr i8, ptr %32, i64 24
@@ -478,7 +472,7 @@ define noundef i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %0, ptr noundef readon
 
 48:                                               ; preds = %78, %.lr.ph.i
   %.140.i = phi i64 [ %.045.i, %.lr.ph.i ], [ %79, %78 ]
-  %49 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %46, i64 %.140.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %.140.i
   %50 = load i64, ptr %49, align 8, !tbaa !63
   %.not.i.i = icmp ult i64 %47, %50
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -590,7 +584,7 @@ ackm_detect_and_remove_newly_acked_pkts.exit:     ; preds = %43, %.loopexit33.i,
   %exitcond.not.i.i = phi i1 [ false, %82 ], [ true, %84 ]
   %indvars.iv.i.i = phi i64 [ 1, %82 ], [ 2, %84 ]
   %.sroa.0.014.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %82 ], [ %.sroa.0.1.i.i, %84 ]
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %83, i64 %indvars.iv.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload11.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %85 = freeze i64 %.sroa.0.0.copyload11.pre.i.i
   %86 = add i64 %.sroa.0.014.i.i, -1
@@ -623,7 +617,7 @@ ackm_get_loss_time_and_space.exit.i:              ; preds = %84
 96:                                               ; preds = %96, %94
   %indvars.iv.i13.i = phi i64 [ 0, %94 ], [ %indvars.iv.next.i.i, %96 ]
   %.07.i.i = phi i64 [ 0, %94 ], [ %99, %96 ]
-  %97 = getelementptr inbounds nuw i64, ptr %95, i64 %indvars.iv.i13.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv.i13.i
   %98 = load i64, ptr %97, align 8, !tbaa !3
   %99 = add i64 %98, %.07.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i13.i, 1
@@ -745,7 +739,7 @@ ack_includes_ack_eliciting.exit.thread:           ; preds = %127, %145, %118
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %155 = load i64, ptr %154, align 8, !tbaa !68
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %157 = getelementptr inbounds i64, ptr %156, i64 %18
+  %157 = getelementptr inbounds [8 x i8], ptr %156, i64 %18
   %158 = load i64, ptr %157, align 8, !tbaa !3
   %159 = icmp ugt i64 %155, %158
   br i1 %159, label %160, label %ackm_process_ecn.exit
@@ -820,7 +814,7 @@ ackm_process_ecn.exit:                            ; preds = %153, %160, %166
 196:                                              ; preds = %189
   %197 = and i8 %194, 3
   %198 = zext nneg i8 %197 to i64
-  %199 = getelementptr inbounds nuw i64, ptr %180, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %198
   %200 = load i64, ptr %199, align 8, !tbaa !3
   %201 = sub i64 %200, %191
   store i64 %201, ptr %199, align 8, !tbaa !3
@@ -896,7 +890,7 @@ ackm_on_pkts_lost.exit:                           ; preds = %211
 242:                                              ; preds = %235
   %243 = and i8 %240, 3
   %244 = zext nneg i8 %243 to i64
-  %245 = getelementptr inbounds nuw i64, ptr %225, i64 %244
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %244
   %246 = load i64, ptr %245, align 8, !tbaa !3
   %247 = sub i64 %246, %237
   store i64 %247, ptr %245, align 8, !tbaa !3
@@ -912,7 +906,7 @@ ackm_on_pkts_lost.exit:                           ; preds = %211
   %252 = load i8, ptr %232, align 8
   %253 = and i8 %252, 3
   %254 = zext nneg i8 %253 to i64
-  %255 = getelementptr inbounds nuw %struct.rx_pkt_history_st, ptr %226, i64 %254
+  %255 = getelementptr inbounds nuw [32 x i8], ptr %226, i64 %254
   %256 = add nuw i64 %250, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 24
@@ -987,7 +981,7 @@ ackm_on_pkts_acked.exit:                          ; preds = %281
   %exitcond.not.i.i71 = phi i1 [ false, %285 ], [ true, %287 ]
   %indvars.iv.i.i72 = phi i64 [ 1, %285 ], [ 2, %287 ]
   %.sroa.0.014.i.i74 = phi i64 [ %.sroa.0.0.copyload.i.i70, %285 ], [ %.sroa.0.1.i.i78, %287 ]
-  %.phi.trans.insert.i.i75 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %286, i64 %indvars.iv.i.i72
+  %.phi.trans.insert.i.i75 = getelementptr inbounds nuw [8 x i8], ptr %286, i64 %indvars.iv.i.i72
   %.sroa.0.0.copyload11.pre.i.i76 = load i64, ptr %.phi.trans.insert.i.i75, align 8
   %288 = freeze i64 %.sroa.0.0.copyload11.pre.i.i76
   %289 = add i64 %.sroa.0.014.i.i74, -1
@@ -1016,7 +1010,7 @@ ackm_get_loss_time_and_space.exit.i80:            ; preds = %287
 .preheader:                                       ; preds = %ackm_get_loss_time_and_space.exit.i80, %.preheader
   %indvars.iv.i13.i83 = phi i64 [ %indvars.iv.next.i.i85, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i80 ]
   %.07.i.i84 = phi i64 [ %299, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i80 ]
-  %297 = getelementptr inbounds nuw i64, ptr %225, i64 %indvars.iv.i13.i83
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %indvars.iv.i13.i83
   %298 = load i64, ptr %297, align 8, !tbaa !3
   %299 = add i64 %298, %.07.i.i84
   %indvars.iv.next.i.i85 = add nuw nsw i64 %indvars.iv.i13.i83, 1
@@ -1081,7 +1075,7 @@ define internal fastcc ptr @ackm_detect_and_remove_lost_pkts(ptr noundef capture
   call void @ossl_statm_get_rtt_info(ptr noundef %8, ptr noundef nonnull %6) #12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %struct.OSSL_TIME, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   store i64 0, ptr %11, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i64, ptr %12, align 8
@@ -1099,14 +1093,14 @@ define internal fastcc ptr @ackm_detect_and_remove_lost_pkts(ptr noundef capture
   %23 = load ptr, ptr %22, align 8, !tbaa !28
   %24 = call i64 %21(ptr noundef %23) #12
   %..i54 = call i64 @llvm.usub.sat.i64(i64 %24, i64 %..i53)
-  %25 = getelementptr inbounds %struct.tx_pkt_history_st, ptr %0, i64 %10
+  %25 = getelementptr inbounds [48 x i8], ptr %0, i64 %10
   %.val = load ptr, ptr %25, align 8, !tbaa !45
   %.not59 = icmp eq ptr %.val, null
   br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %27 = getelementptr inbounds i64, ptr %26, i64 %10
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %10
   %28 = getelementptr i8, ptr %25, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -1246,7 +1240,7 @@ define range(i32 0, 2) i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %0, i32
   br i1 %9, label %.split38, label %.split
 
 .split:                                           ; preds = %8
-  %10 = getelementptr inbounds %struct.tx_pkt_history_st, ptr %0, i64 %5
+  %10 = getelementptr inbounds [48 x i8], ptr %0, i64 %5
   br label %13
 
 .split38:                                         ; preds = %8
@@ -1297,13 +1291,13 @@ define range(i32 0, 2) i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %0, i32
 
 ._crit_edge:                                      ; preds = %26, %13
   %.036.lcssa = phi i64 [ 0, %13 ], [ %.1, %26 ]
-  %31 = getelementptr inbounds %struct.tx_pkt_history_st, ptr %0, i64 %5
+  %31 = getelementptr inbounds [48 x i8], ptr %0, i64 %5
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !7
   tail call void @OPENSSL_LH_free(ptr noundef %33) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %35 = getelementptr inbounds %struct.rx_pkt_history_st, ptr %34, i64 %5
+  %35 = getelementptr inbounds [32 x i8], ptr %34, i64 %5
   tail call void @ossl_uint_set_destroy(ptr noundef nonnull %35) #12
   %.not41 = icmp eq i64 %.036.lcssa, 0
   br i1 %.not41, label %44, label %36
@@ -1320,16 +1314,16 @@ define range(i32 0, 2) i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %0, i32
 
 44:                                               ; preds = %36, %._crit_edge
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %46 = getelementptr inbounds %struct.OSSL_TIME, ptr %45, i64 %5
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %5
   store i64 0, ptr %46, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %48 = getelementptr inbounds %struct.OSSL_TIME, ptr %47, i64 %5
+  %48 = getelementptr inbounds [8 x i8], ptr %47, i64 %5
   store i64 0, ptr %48, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 0, ptr %49, align 8, !tbaa !87
   store i8 1, ptr %6, align 1, !tbaa !33
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %51 = getelementptr inbounds i64, ptr %50, i64 %5
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %5
   store i64 0, ptr %51, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload.i.i = load i64, ptr %47, align 8, !tbaa !3
@@ -1339,7 +1333,7 @@ define range(i32 0, 2) i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %0, i32
   %exitcond.not.i.i = phi i1 [ false, %44 ], [ true, %52 ]
   %indvars.iv.i.i = phi i64 [ 1, %44 ], [ 2, %52 ]
   %.sroa.0.014.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %44 ], [ %.sroa.0.1.i.i, %52 ]
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %47, i64 %indvars.iv.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload11.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %53 = freeze i64 %.sroa.0.0.copyload11.pre.i.i
   %54 = add i64 %.sroa.0.014.i.i, -1
@@ -1368,7 +1362,7 @@ ackm_get_loss_time_and_space.exit.i:              ; preds = %52
 .preheader:                                       ; preds = %ackm_get_loss_time_and_space.exit.i, %.preheader
   %indvars.iv.i13.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i ]
   %.07.i.i = phi i64 [ %64, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i ]
-  %62 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv.i13.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i13.i
   %63 = load i64, ptr %62, align 8, !tbaa !3
   %64 = add i64 %63, %.07.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i13.i, 1
@@ -1439,7 +1433,7 @@ define noundef i32 @ossl_ackm_on_handshake_confirmed(ptr noundef captures(none) 
   %exitcond.not.i.i = phi i1 [ false, %1 ], [ true, %6 ]
   %indvars.iv.i.i = phi i64 [ 1, %1 ], [ 2, %6 ]
   %.sroa.0.014.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %1 ], [ %.sroa.0.1.i.i, %6 ]
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %5, i64 %indvars.iv.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload11.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %7 = freeze i64 %.sroa.0.0.copyload11.pre.i.i
   %8 = add i64 %.sroa.0.014.i.i, -1
@@ -1472,7 +1466,7 @@ ackm_get_loss_time_and_space.exit.i:              ; preds = %6
 18:                                               ; preds = %18, %16
   %indvars.iv.i13.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %18 ]
   %.07.i.i = phi i64 [ 0, %16 ], [ %21, %18 ]
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i13.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i13.i
   %20 = load i64, ptr %19, align 8, !tbaa !3
   %21 = add i64 %20, %.07.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i13.i, 1
@@ -1534,7 +1528,7 @@ define noundef i32 @ossl_ackm_on_timeout(ptr noundef captures(none) %0) local_un
   %indvars.iv.i = phi i64 [ 1, %1 ], [ 2, %8 ]
   %.016.i = phi i32 [ 0, %1 ], [ %.1.i, %8 ]
   %.sroa.0.014.i = phi i64 [ %.sroa.0.0.copyload.i, %1 ], [ %.sroa.0.1.i, %8 ]
-  %.phi.trans.insert.i = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %7, i64 %indvars.iv.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %.sroa.0.0.copyload11.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %9 = freeze i64 %.sroa.0.0.copyload11.pre.i
   %10 = add i64 %.sroa.0.014.i, -1
@@ -1589,7 +1583,7 @@ ackm_get_loss_time_and_space.exit:                ; preds = %8
 32:                                               ; preds = %25
   %33 = and i8 %30, 3
   %34 = zext nneg i8 %33 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %16, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !3
   %37 = sub i64 %36, %27
   store i64 %37, ptr %35, align 8, !tbaa !3
@@ -1640,7 +1634,7 @@ ackm_on_pkts_lost.exit:                           ; preds = %47
   %exitcond.not.i.i = phi i1 [ false, %59 ], [ true, %60 ]
   %indvars.iv.i.i = phi i64 [ 1, %59 ], [ 2, %60 ]
   %.sroa.0.014.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %59 ], [ %.sroa.0.1.i.i, %60 ]
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %7, i64 %indvars.iv.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload11.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %61 = freeze i64 %.sroa.0.0.copyload11.pre.i.i
   %62 = add i64 %.sroa.0.014.i.i, -1
@@ -1673,7 +1667,7 @@ ackm_get_loss_time_and_space.exit.i:              ; preds = %60
 72:                                               ; preds = %72, %70
   %indvars.iv.i13.i = phi i64 [ 0, %70 ], [ %indvars.iv.next.i.i, %72 ]
   %.07.i.i = phi i64 [ 0, %70 ], [ %75, %72 ]
-  %73 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv.i13.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.i13.i
   %74 = load i64, ptr %73, align 8, !tbaa !3
   %75 = add i64 %74, %.07.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i13.i, 1
@@ -1730,7 +1724,7 @@ ackm_set_loss_detection_timer.exit:               ; preds = %63, %67, %80, %84, 
 97:                                               ; preds = %97, %95
   %indvars.iv.i18 = phi i64 [ 0, %95 ], [ %indvars.iv.next.i, %97 ]
   %.07.i = phi i64 [ 0, %95 ], [ %100, %97 ]
-  %98 = getelementptr inbounds nuw i64, ptr %96, i64 %indvars.iv.i18
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv.i18
   %99 = load i64, ptr %98, align 8, !tbaa !3
   %100 = add i64 %99, %.07.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i18, 1
@@ -1766,7 +1760,7 @@ ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %97
   %115 = load i32, ptr %6, align 4, !tbaa !92
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds i32, ptr %116, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %116, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !92
   %120 = add i32 %119, 1
   store i32 %120, ptr %118, align 4, !tbaa !92
@@ -1786,7 +1780,7 @@ ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %97
   %exitcond.not.i.i21 = phi i1 [ false, %121 ], [ true, %125 ]
   %indvars.iv.i.i22 = phi i64 [ 1, %121 ], [ 2, %125 ]
   %.sroa.0.014.i.i24 = phi i64 [ %.sroa.0.0.copyload.i.i20, %121 ], [ %.sroa.0.1.i.i28, %125 ]
-  %.phi.trans.insert.i.i25 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %7, i64 %indvars.iv.i.i22
+  %.phi.trans.insert.i.i25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i22
   %.sroa.0.0.copyload11.pre.i.i26 = load i64, ptr %.phi.trans.insert.i.i25, align 8
   %126 = freeze i64 %.sroa.0.0.copyload11.pre.i.i26
   %127 = add i64 %.sroa.0.014.i.i24, -1
@@ -1815,7 +1809,7 @@ ackm_get_loss_time_and_space.exit.i30:            ; preds = %125
 .preheader:                                       ; preds = %ackm_get_loss_time_and_space.exit.i30, %.preheader
   %indvars.iv.i13.i33 = phi i64 [ %indvars.iv.next.i.i35, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i30 ]
   %.07.i.i34 = phi i64 [ %137, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i30 ]
-  %135 = getelementptr inbounds nuw i64, ptr %96, i64 %indvars.iv.i13.i33
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv.i13.i33
   %136 = load i64, ptr %135, align 8, !tbaa !3
   %137 = add i64 %136, %.07.i.i34
   %indvars.iv.next.i.i35 = add nuw nsw i64 %indvars.iv.i13.i33, 1
@@ -1888,7 +1882,7 @@ define internal fastcc i64 @ackm_get_pto_time_and_space(ptr noundef readonly cap
 12:                                               ; preds = %12, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %12 ]
   %.07.i = phi i64 [ 0, %2 ], [ %15, %12 ]
-  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %14 = load i64, ptr %13, align 8, !tbaa !3
   %15 = add i64 %14, %.07.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1936,7 +1930,7 @@ ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %12
   %.sroa.018.049 = phi i64 [ %.sroa.02.0.i40, %.preheader ], [ %.sroa.018.1, %59 ]
   %.sroa.017.048 = phi i64 [ -1, %.preheader ], [ %.sroa.017.1, %59 ]
   %.047 = phi i32 [ 0, %.preheader ], [ %.1, %59 ]
-  %40 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %59, label %43
@@ -1965,7 +1959,7 @@ ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %12
 
 54:                                               ; preds = %47, %49, %43
   %.sroa.018.2 = phi i64 [ %.sroa.018.049, %47 ], [ %.sroa.03.0.i43, %49 ], [ %.sroa.018.049, %43 ]
-  %55 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %29, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %56 = load i64, ptr %55, align 8
   %.sroa.03.0.i44 = call i64 @llvm.uadd.sat.i64(i64 %56, i64 %.sroa.018.2)
   %57 = icmp ult i64 %.sroa.03.0.i44, %.sroa.017.048
@@ -2010,7 +2004,7 @@ define nonnull ptr @ossl_ackm_get0_probe_request(ptr noundef readnone captures(r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @ossl_ackm_get_largest_unacked(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct.tx_pkt_history_st, ptr %0, i64 %4
+  %5 = getelementptr inbounds [48 x i8], ptr %0, i64 %4
   %6 = getelementptr i8, ptr %5, i64 8
   %.val = load ptr, ptr %6, align 8, !tbaa !44
   %.not = icmp eq ptr %.val, null
@@ -2037,7 +2031,7 @@ define range(i32 0, 2) i32 @ossl_ackm_is_ack_desired(ptr noundef readonly captur
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %9 = getelementptr inbounds %struct.OSSL_TIME, ptr %8, i64 %4
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %4
   %10 = load i64, ptr %9, align 8
   %.not8 = icmp eq i64 %10, -1
   br i1 %.not8, label %20, label %11
@@ -2068,7 +2062,7 @@ define range(i32 0, 2) i32 @ossl_ackm_on_rx_packet(ptr noundef %0, ptr noundef r
   %8 = and i8 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = zext nneg i8 %8 to i64
-  %11 = getelementptr inbounds nuw %struct.rx_pkt_history_st, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %10
   %12 = load i64, ptr %1, align 8, !tbaa !96
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !15
@@ -2086,7 +2080,7 @@ ossl_ackm_is_rx_pn_processable.exit:              ; preds = %2
   %19 = load i8, ptr %6, align 8
   %20 = and i8 %19, 3
   %21 = zext nneg i8 %20 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !3
   %24 = icmp ugt i64 %17, %23
   br i1 %24, label %25, label %33
@@ -2097,7 +2091,7 @@ ossl_ackm_is_rx_pn_processable.exit:              ; preds = %2
   %27 = load i8, ptr %6, align 8
   %28 = and i8 %27, 3
   %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !3
   store i64 %32, ptr %30, align 8, !tbaa !3
@@ -2111,7 +2105,7 @@ ossl_ackm_is_rx_pn_processable.exit:              ; preds = %2
   %.pre-phi48 = phi i64 [ %.pre47, %25 ], [ %21, %16 ]
   %34 = phi i64 [ %.pre45, %25 ], [ %17, %16 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %36 = getelementptr inbounds nuw %struct.ossl_quic_frame_ack_st, ptr %35, i64 %.pre-phi48
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %.pre-phi48
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !62
   %.not.i33 = icmp eq i64 %38, 0
@@ -2126,7 +2120,7 @@ ossl_ackm_is_rx_pn_processable.exit:              ; preds = %2
 
 .lr.ph.i.i:                                       ; preds = %39, %range_contains.exit.thread.i.i
   %.09.i.i = phi i64 [ %47, %range_contains.exit.thread.i.i ], [ 0, %39 ]
-  %43 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %40, i64 %.09.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %.09.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !63
   %.not.i.i.i = icmp ult i64 %34, %44
   br i1 %.not.i.i.i, label %range_contains.exit.thread.i.i, label %range_contains.exit.i.i
@@ -2235,7 +2229,7 @@ rx_pkt_history_add_pn.exit:                       ; preds = %52
 
 85:                                               ; preds = %76
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 2312
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %82
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %82
   %88 = load i32, ptr %87, align 4, !tbaa !92
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 4, !tbaa !92
@@ -2249,14 +2243,14 @@ rx_pkt_history_add_pn.exit:                       ; preds = %52
   br i1 %or.cond35.i, label %113, label %95
 
 95:                                               ; preds = %85
-  %96 = getelementptr inbounds nuw %struct.rx_pkt_history_st, ptr %9, i64 %82
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %82
   %97 = getelementptr i8, ptr %96, i64 16
   %.val.i.i38 = load i64, ptr %97, align 8, !tbaa !99
   %.not.i.i39 = icmp eq i64 %.val.i.i38, 0
   br i1 %.not.i.i39, label %ackm_has_newly_missing.exit.thread.i, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds nuw %struct.ossl_quic_frame_ack_st, ptr %35, i64 %82
+  %99 = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %82
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i64, ptr %100, align 8, !tbaa !62
   %.not10.i.i = icmp eq i64 %101, 0
@@ -2283,7 +2277,7 @@ ackm_has_newly_missing.exit.i:                    ; preds = %102
 113:                                              ; preds = %ackm_has_newly_missing.exit.i, %85
   store i8 1, ptr %83, align 1, !tbaa !33
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %115 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %114, i64 %82
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %82
   store i64 -1, ptr %115, align 8, !tbaa !3
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %117 = load ptr, ptr %116, align 8, !tbaa !108
@@ -2301,7 +2295,7 @@ ackm_has_newly_missing.exit.thread.i:             ; preds = %ackm_has_newly_miss
   %.sroa.07.0.copyload.i = load i64, ptr %120, align 8, !tbaa !3
   %or.cond3.i = icmp samesign ult i8 %78, 2
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %122 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %121, i64 %82
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %82
   %123 = load i64, ptr %122, align 8
   %.not47.i = icmp eq i64 %123, -1
   %124 = call i64 @llvm.uadd.sat.i64(i64 %80, i64 %.sroa.07.0.copyload.i)
@@ -2350,7 +2344,7 @@ ackm_on_rx_ack_eliciting.exit:                    ; preds = %ossl_ackm_get_ack_d
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 2240
   %140 = and i8 %135, 3
   %141 = zext nneg i8 %140 to i64
-  %142 = getelementptr inbounds nuw i64, ptr %139, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %141
   %143 = load i64, ptr %142, align 8, !tbaa !3
   %144 = add i64 %143, 1
   store i64 %144, ptr %142, align 8, !tbaa !3
@@ -2360,7 +2354,7 @@ ackm_on_rx_ack_eliciting.exit:                    ; preds = %ossl_ackm_get_ack_d
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 2264
   %147 = and i8 %135, 3
   %148 = zext nneg i8 %147 to i64
-  %149 = getelementptr inbounds nuw i64, ptr %146, i64 %148
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %148
   %150 = load i64, ptr %149, align 8, !tbaa !3
   %151 = add i64 %150, 1
   store i64 %151, ptr %149, align 8, !tbaa !3
@@ -2370,7 +2364,7 @@ ackm_on_rx_ack_eliciting.exit:                    ; preds = %ossl_ackm_get_ack_d
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 2288
   %154 = and i8 %135, 3
   %155 = zext nneg i8 %154 to i64
-  %156 = getelementptr inbounds nuw i64, ptr %153, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %155
   %157 = load i64, ptr %156, align 8, !tbaa !3
   %158 = add i64 %157, 1
   store i64 %158, ptr %156, align 8, !tbaa !3
@@ -2388,7 +2382,7 @@ ossl_ackm_is_rx_pn_processable.exit.thread:       ; preds = %2, %rx_pkt_history_
 define range(i32 0, 2) i32 @ossl_ackm_is_rx_pn_processable(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds %struct.rx_pkt_history_st, ptr %4, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %.not = icmp ult i64 %1, %8
@@ -2409,13 +2403,13 @@ define range(i32 0, 2) i32 @ossl_ackm_is_rx_pn_processable(ptr noundef %0, i64 n
 define nonnull ptr @ossl_ackm_get_ack_frame(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct.ossl_quic_frame_ack_st, ptr %3, i64 %4
+  %5 = getelementptr inbounds [56 x i8], ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = tail call i64 %7(ptr noundef %9) #12
-  %11 = getelementptr %struct.rx_pkt_history_st, ptr %0, i64 %4
+  %11 = getelementptr [32 x i8], ptr %0, i64 %4
   %12 = getelementptr i8, ptr %11, i64 152
   %.01920.i = load ptr, ptr %12, align 8, !tbaa !110
   %.not.i = icmp eq ptr %.01920.i, null
@@ -2423,7 +2417,7 @@ define nonnull ptr @ossl_ackm_get_ack_frame(ptr noundef %0, i32 noundef %1) loca
 
 .lr.ph.i:                                         ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %14 = getelementptr inbounds [32 x %struct.ossl_quic_ack_range_st], ptr %13, i64 %4
+  %14 = getelementptr inbounds [512 x i8], ptr %13, i64 %4
   br label %15
 
 15:                                               ; preds = %15, %.lr.ph.i
@@ -2431,7 +2425,7 @@ define nonnull ptr @ossl_ackm_get_ack_frame(ptr noundef %0, i32 noundef %1) loca
   %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %15 ]
   %16 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !104
-  %18 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %14, i64 %.021.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %.021.i
   store i64 %17, ptr %18, align 8, !tbaa !63
   %19 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 24
   %20 = load i64, ptr %19, align 8, !tbaa !107
@@ -2448,12 +2442,12 @@ define nonnull ptr @ossl_ackm_get_ack_frame(ptr noundef %0, i32 noundef %1) loca
 ackm_fill_rx_ack_ranges.exit:                     ; preds = %15, %2
   %.0.lcssa.i = phi i64 [ 0, %2 ], [ %23, %15 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %28 = getelementptr inbounds [32 x %struct.ossl_quic_ack_range_st], ptr %27, i64 %4
+  %28 = getelementptr inbounds [512 x i8], ptr %27, i64 %4
   store ptr %28, ptr %5, align 8, !tbaa !56
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.0.lcssa.i, ptr %29, align 8, !tbaa !62
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2216
-  %31 = getelementptr inbounds %struct.OSSL_TIME, ptr %30, i64 %4
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %4
   %32 = load i64, ptr %31, align 8
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %38, label %33
@@ -2477,17 +2471,17 @@ ackm_fill_rx_ack_ranges.exit:                     ; preds = %15, %2
 
 40:                                               ; preds = %38, %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2240
-  %42 = getelementptr inbounds i64, ptr %41, i64 %4
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %4
   %43 = load i64, ptr %42, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %43, ptr %44, align 8, !tbaa !112
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2264
-  %46 = getelementptr inbounds i64, ptr %45, i64 %4
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %4
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %47, ptr %48, align 8, !tbaa !113
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 2288
-  %50 = getelementptr inbounds i64, ptr %49, i64 %4
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %4
   %51 = load i64, ptr %50, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %51, ptr %52, align 8, !tbaa !68
@@ -2496,7 +2490,7 @@ ackm_fill_rx_ack_ranges.exit:                     ; preds = %15, %2
   %55 = or i8 %54, 1
   store i8 %55, ptr %53, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 2312
-  %57 = getelementptr inbounds i32, ptr %56, i64 %4
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %4
   store i32 0, ptr %57, align 4, !tbaa !92
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %59 = getelementptr inbounds i8, ptr %58, i64 %4
@@ -2505,7 +2499,7 @@ ackm_fill_rx_ack_ranges.exit:                     ; preds = %15, %2
   %61 = getelementptr inbounds i8, ptr %60, i64 %4
   store i8 0, ptr %61, align 1, !tbaa !33
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %63 = getelementptr inbounds %struct.OSSL_TIME, ptr %62, i64 %4
+  %63 = getelementptr inbounds [8 x i8], ptr %62, i64 %4
   store i64 -1, ptr %63, align 8, !tbaa !3
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %65 = load ptr, ptr %64, align 8, !tbaa !108
@@ -2536,7 +2530,7 @@ define i64 @ossl_ackm_get_ack_deadline(ptr noundef readonly captures(none) %0, i
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %9 = getelementptr inbounds %struct.OSSL_TIME, ptr %8, i64 %4
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %4
   %.sroa.0.0.copyload = load i64, ptr %9, align 8, !tbaa !3
   br label %10
 
@@ -2572,7 +2566,7 @@ define range(i32 0, 2) i32 @ossl_ackm_mark_packet_pseudo_lost(ptr noundef captur
   %6 = alloca %struct.ossl_ackm_tx_pkt_st, align 8
   %7 = alloca %struct.ossl_ackm_tx_pkt_st, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.tx_pkt_history_st, ptr %0, i64 %8
+  %9 = getelementptr inbounds [48 x i8], ptr %0, i64 %8
   %10 = getelementptr i8, ptr %9, i64 24
   %.val = load ptr, ptr %10, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2680,7 +2674,7 @@ tx_pkt_history_remove.exit:                       ; preds = %13, %ossl_list_tx_h
 56:                                               ; preds = %49
   %57 = and i8 %54, 3
   %58 = zext nneg i8 %57 to i64
-  %59 = getelementptr inbounds nuw i64, ptr %43, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !3
   %61 = sub i64 %60, %51
   store i64 %61, ptr %59, align 8, !tbaa !3
@@ -2744,7 +2738,7 @@ declare void @ossl_statm_get_rtt_info(ptr noundef, ptr noundef) local_unnamed_ad
 define i64 @ossl_ackm_get_largest_acked(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i64, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !3
   ret i64 %6
 }

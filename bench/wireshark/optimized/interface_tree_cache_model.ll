@@ -406,7 +406,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 -4
-  %27 = getelementptr i32, ptr %25, i64 %21
+  %27 = getelementptr [4 x i8], ptr %25, i64 %21
   br label %28
 
 28:                                               ; preds = %30, %23
@@ -441,7 +441,7 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.t
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr i8, ptr %43, i64 -4
-  %45 = getelementptr i32, ptr %43, i64 %39
+  %45 = getelementptr [4 x i8], ptr %43, i64 %39
   br label %46
 
 46:                                               ; preds = %48, %41
@@ -788,7 +788,7 @@ define noundef zeroext i1 @_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20Inte
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 -4
-  %10 = getelementptr i32, ptr %8, i64 %4
+  %10 = getelementptr [4 x i8], ptr %8, i64 %4
   br label %11
 
 11:                                               ; preds = %13, %6
@@ -819,7 +819,7 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.t
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 -4
-  %26 = getelementptr i32, ptr %24, i64 %20
+  %26 = getelementptr [4 x i8], ptr %24, i64 %20
   br label %27
 
 27:                                               ; preds = %29, %22
@@ -879,7 +879,7 @@ define range(i32 0, 50) i32 @_ZNK23InterfaceTreeCacheModel5flagsERK11QModelIndex
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 -4
-  %19 = getelementptr i32, ptr %17, i64 %13
+  %19 = getelementptr [4 x i8], ptr %17, i64 %13
   br label %20
 
 20:                                               ; preds = %22, %15
@@ -915,7 +915,7 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.t
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 -4
-  %35 = getelementptr i32, ptr %33, i64 %29
+  %35 = getelementptr [4 x i8], ptr %33, i64 %29
   br label %36
 
 36:                                               ; preds = %38, %31
@@ -945,7 +945,7 @@ _ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.threa
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr i8, ptr %48, i64 -4
-  %50 = getelementptr i32, ptr %48, i64 %44
+  %50 = getelementptr [4 x i8], ptr %48, i64 %44
   br label %51
 
 51:                                               ; preds = %53, %46
@@ -1011,7 +1011,7 @@ define noundef zeroext i1 @_ZN23InterfaceTreeCacheModel7setDataERK11QModelIndexR
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 -4
-  %27 = getelementptr i32, ptr %25, i64 %21
+  %27 = getelementptr [4 x i8], ptr %25, i64 %21
   br label %28
 
 28:                                               ; preds = %30, %23
@@ -1042,7 +1042,7 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.t
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 -4
-  %43 = getelementptr i32, ptr %41, i64 %37
+  %43 = getelementptr [4 x i8], ptr %41, i64 %37
   br label %44
 
 44:                                               ; preds = %46, %39
@@ -1582,7 +1582,7 @@ _ZNK17QArrayDataPointerI20InterfaceTreeColumnsE14freeSpaceAtEndEv.exit: ; preds 
   br i1 %.not, label %27, label %22
 
 22:                                               ; preds = %_ZNK17QArrayDataPointerI20InterfaceTreeColumnsE14freeSpaceAtEndEv.exit
-  %23 = getelementptr i32, ptr %14, i64 %1
+  %23 = getelementptr [4 x i8], ptr %14, i64 %1
   %24 = load i32, ptr %2, align 4
   store i32 %24, ptr %23, align 4
   %25 = load i64, ptr %8, align 8
@@ -1627,7 +1627,7 @@ _ZNK17QArrayDataPointerI20InterfaceTreeColumnsE11needsDetachEv.exit.thread: ; pr
   tail call void @_ZN17QArrayDataPointerI20InterfaceTreeColumnsE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef %spec.store.select, i64 noundef 1, ptr noundef null, ptr noundef null)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr i32, ptr %48, i64 %1
+  %49 = getelementptr [4 x i8], ptr %48, i64 %1
   br i1 %or.cond, label %57, label %50
 
 50:                                               ; preds = %_ZNK17QArrayDataPointerI20InterfaceTreeColumnsE11needsDetachEv.exit.thread
@@ -1749,14 +1749,14 @@ _ZN9QtPrivate20q_relocate_overlap_nI20InterfaceTreeColumnsxEEvPT_T0_S3_.exit.i.i
   %48 = load ptr, ptr %3, align 8
   %49 = load ptr, ptr %21, align 8
   %50 = load i64, ptr %29, align 8
-  %51 = getelementptr i32, ptr %49, i64 %50
+  %51 = getelementptr [4 x i8], ptr %49, i64 %50
   %52 = icmp uge ptr %48, %49
   %53 = icmp ult ptr %48, %51
   %spec.select.i.i.i = and i1 %52, %53
   br i1 %spec.select.i.i.i, label %54, label %_ZN17QArrayDataPointerI20InterfaceTreeColumnsE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS0_.exit.thread22
 
 54:                                               ; preds = %47
-  %55 = getelementptr i32, ptr %48, i64 %38
+  %55 = getelementptr [4 x i8], ptr %48, i64 %38
   store ptr %55, ptr %3, align 8
   br label %_ZN17QArrayDataPointerI20InterfaceTreeColumnsE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS0_.exit.thread22
 
@@ -1870,14 +1870,14 @@ _ZN9QtPrivate20q_relocate_overlap_nI20InterfaceTreeColumnsxEEvPT_T0_S3_.exit.i: 
   %56 = load ptr, ptr %3, align 8
   %57 = load ptr, ptr %44, align 8
   %58 = load i64, ptr %47, align 8
-  %59 = getelementptr i32, ptr %57, i64 %58
+  %59 = getelementptr [4 x i8], ptr %57, i64 %58
   %60 = icmp uge ptr %56, %57
   %61 = icmp ult ptr %56, %59
   %spec.select.i.i = and i1 %60, %61
   br i1 %spec.select.i.i, label %62, label %_ZN17QArrayDataPointerI20InterfaceTreeColumnsE8relocateExPPKS0_.exit
 
 62:                                               ; preds = %55
-  %63 = getelementptr i32, ptr %56, i64 %43
+  %63 = getelementptr [4 x i8], ptr %56, i64 %43
   store ptr %63, ptr %3, align 8
   br label %_ZN17QArrayDataPointerI20InterfaceTreeColumnsE8relocateExPPKS0_.exit
 
@@ -2011,7 +2011,7 @@ _ZN9QtPrivate12QPodArrayOpsI20InterfaceTreeColumnsE10copyAppendEPKS1_S4_.exit.si
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr i32, ptr %31, i64 %54
+  %55 = getelementptr [4 x i8], ptr %31, i64 %54
   %56 = ashr exact i64 %.idx.sink55, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink55, i1 noundef false) #22
   %57 = load i64, ptr %53, align 8
@@ -2160,8 +2160,8 @@ _ZNK17QArrayDataPointerI20InterfaceTreeColumnsE16freeSpaceAtBeginEv.exit33: ; pr
   %56 = sdiv i64 %55, 2
   %57 = call noundef i64 @llvm.smax.i64(i64 %56, i64 0)
   %.pr.pre = load ptr, ptr %1, align 8
-  %58 = getelementptr i32, ptr %34, i64 %57
-  %59 = getelementptr i32, ptr %58, i64 %2
+  %58 = getelementptr [4 x i8], ptr %34, i64 %57
+  %59 = getelementptr [4 x i8], ptr %58, i64 %2
   %.not.i34 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i34, label %_ZNK17QArrayDataPointerI20InterfaceTreeColumnsE5flagsEv.exit, label %60
 

@@ -122,7 +122,7 @@ LZ4F_freeAndNullReadFile.exit37:                  ; preds = %39, %42
 
 switch.lookup:                                    ; preds = %47
   %52 = zext nneg i32 %48 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.LZ4F_writeOpen, i64 %52
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.LZ4F_writeOpen, i64 %52
   %switch.load = load i64, ptr %switch.gep, align 8
   %53 = load ptr, ptr %0, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
@@ -336,7 +336,7 @@ LZ4F_freeAndNullWriteFile.exit:                   ; preds = %11
 
 switch.lookup:                                    ; preds = %11
   %17 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.LZ4F_writeOpen, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.LZ4F_writeOpen, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %18
 

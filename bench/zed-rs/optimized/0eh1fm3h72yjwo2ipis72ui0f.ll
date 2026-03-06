@@ -49,8 +49,8 @@ define hidden void @_ZN4core10intrinsics10typed_swap17h8dc83e375820f491E.llvm.94
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %2
   %.sroa.0.05.i = phi i64 [ %7, %.lr.ph.i ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i
-  %4 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.0.05.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.0.05.i
   %5 = load i64, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   store i64 %6, ptr %3, align 8
@@ -143,8 +143,8 @@ define hidden void @_ZN4core3ptr19swap_nonoverlapping17hd2b408aa6480e70cE.llvm.9
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.0.05 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
-  %5 = getelementptr inbounds i64, ptr %0, i64 %.sroa.0.05
-  %6 = getelementptr inbounds i64, ptr %1, i64 %.sroa.0.05
+  %5 = getelementptr inbounds [8 x i8], ptr %0, i64 %.sroa.0.05
+  %6 = getelementptr inbounds [8 x i8], ptr %1, i64 %.sroa.0.05
   %7 = load i64, ptr %5, align 8
   %8 = load i64, ptr %6, align 8
   store i64 %8, ptr %5, align 8
@@ -204,8 +204,8 @@ define hidden void @"_ZN5alloc11collections11linked_list19LinkedList$LT$T$GT$6ap
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %.sroa.0.05.i.i = phi i64 [ %10, %.lr.ph.i.i ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.0.05.i.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.0.05.i.i
   %8 = load i64, ptr %6, align 8
   %9 = load i64, ptr %7, align 8
   store i64 %9, ptr %6, align 8

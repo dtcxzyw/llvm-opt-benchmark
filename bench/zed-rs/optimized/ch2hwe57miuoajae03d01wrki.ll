@@ -924,7 +924,7 @@ define void @_ZN4rope4Rope6append17h10e5ac0225e126fdE(ptr noalias noundef align 
 36:                                               ; preds = %34
   %37 = zext i32 %35 to i64
   %38 = getelementptr i8, ptr %5, i64 -8
-  %39 = getelementptr { ptr, i64, {} }, ptr %38, i64 %37
+  %39 = getelementptr [16 x i8], ptr %38, i64 %37
   %40 = load ptr, ptr %39, align 8, !alias.scope !81, !noalias !84, !nonnull !7, !align !87, !noundef !7
   %41 = load ptr, ptr %40, align 8, !noalias !86, !nonnull !7, !noundef !7
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -961,7 +961,7 @@ define void @_ZN4rope4Rope6append17h10e5ac0225e126fdE(ptr noalias noundef align 
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %57 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %56, i64 %46
+  %57 = getelementptr inbounds nuw [132 x i8], ptr %56, i64 %46
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %58 = load ptr, ptr %0, align 8, !alias.scope !94, !nonnull !7, !noundef !7
@@ -986,7 +986,7 @@ define void @_ZN4rope4Rope6append17h10e5ac0225e126fdE(ptr noalias noundef align 
 
 tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
   %65 = zext i32 %63 to i64
-  %66 = getelementptr ptr, ptr %62, i64 %65
+  %66 = getelementptr [8 x i8], ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !noalias !94, !nonnull !7, !noundef !7
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load i8, ptr %68, align 8, !range !17, !noalias !94, !noundef !7
@@ -1004,7 +1004,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
   %.not.i9 = icmp eq i32 %73, 0
   %74 = zext i32 %73 to i64
   %75 = getelementptr i8, ptr %71, i64 -108
-  %76 = getelementptr { { i32, [128 x i8] } }, ptr %75, i64 %74
+  %76 = getelementptr [132 x i8], ptr %75, i64 %74
   %77 = icmp eq ptr %76, null
   %78 = or i1 %.not.i9, %77
   br i1 %78, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h94a191b36b161c1eE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h94a191b36b161c1eE.exit"
@@ -1555,7 +1555,7 @@ define void @_ZN4rope4Rope4push17h9a5e42e2dddba055E(ptr noalias noundef align 8 
 
 66:                                               ; preds = %65, %59
   %67 = load ptr, ptr %30, align 8, !alias.scope !287, !noalias !290, !nonnull !7, !noundef !7
-  %68 = getelementptr inbounds { { i32, [128 x i8] } }, ptr %67, i64 %37
+  %68 = getelementptr inbounds [132 x i8], ptr %67, i64 %37
   store i32 %62, ptr %68, align 4, !noalias !260
   %.sroa.427.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %68, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.sroa.427.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(128) %.sroa.427.i, i64 128, i1 false), !noalias !260
@@ -1680,7 +1680,7 @@ _ZN4rope4Rope10push_large17h34a655280c8fd029E.exit: ; preds = %38, %40
   %113 = phi i64 [ %.pre.i, %.noexc16 ], [ %108, %.thread48 ]
   %.sroa.01.0.i = phi ptr [ %19, %.noexc16 ], [ %.sink9.i.i, %.thread48 ]
   %.sroa.0.0.i = phi ptr [ %111, %.noexc16 ], [ %.sink10.i.i, %.thread48 ]
-  %114 = getelementptr inbounds { { i32, [128 x i8] } }, ptr %.sroa.0.0.i, i64 %113
+  %114 = getelementptr inbounds [132 x i8], ptr %.sroa.0.0.i, i64 %113
   store i32 %104, ptr %114, align 4
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %114, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.sroa.424.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.424, i64 128, i1 false)
@@ -2431,7 +2431,7 @@ define noundef i64 @_ZN4rope4Rope22offset_to_offset_utf1617h536fba2281ac2b9aE(pt
 48:                                               ; preds = %45
   %49 = zext i32 %47 to i64
   %50 = getelementptr i8, ptr %5, i64 -8
-  %51 = getelementptr { ptr, i64, { i64, i64 } }, ptr %50, i64 %49
+  %51 = getelementptr [32 x i8], ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8, !alias.scope !676, !noalias !679, !nonnull !7, !align !87, !noundef !7
   %53 = load ptr, ptr %52, align 8, !noalias !685, !nonnull !7, !noundef !7
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -2462,7 +2462,7 @@ define noundef i64 @_ZN4rope4Rope22offset_to_offset_utf1617h536fba2281ac2b9aE(pt
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %67 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %66, i64 %58
+  %67 = getelementptr inbounds nuw [132 x i8], ptr %66, i64 %58
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %67, align 4, !alias.scope !686, !noundef !7
   %70 = zext i32 %69 to i64
@@ -2672,7 +2672,7 @@ define noundef i64 @_ZN4rope4Rope22offset_utf16_to_offset17h974d4f0ecd36b5bdE(pt
 50:                                               ; preds = %47
   %51 = zext i32 %49 to i64
   %52 = getelementptr i8, ptr %5, i64 -8
-  %53 = getelementptr { ptr, i64, { i64, i64 } }, ptr %52, i64 %51
+  %53 = getelementptr [32 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !alias.scope !727, !noalias !730, !nonnull !7, !align !87, !noundef !7
   %55 = load ptr, ptr %54, align 8, !noalias !732, !nonnull !7, !noundef !7
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -2703,7 +2703,7 @@ define noundef i64 @_ZN4rope4Rope22offset_utf16_to_offset17h974d4f0ecd36b5bdE(pt
 
 67:                                               ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %69 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %68, i64 %60
+  %69 = getelementptr inbounds nuw [132 x i8], ptr %68, i64 %60
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %69, align 4, !alias.scope !733, !noundef !7
   %72 = zext i32 %71 to i64
@@ -2910,7 +2910,7 @@ define { i32, i32 } @_ZN4rope4Rope15offset_to_point17h0d4410e230cfda5cE(ptr noal
 53:                                               ; preds = %50
   %54 = zext i32 %52 to i64
   %55 = getelementptr i8, ptr %5, i64 -8
-  %56 = getelementptr { ptr, i64, { i64, { i32, i32 } } }, ptr %55, i64 %54
+  %56 = getelementptr [32 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !alias.scope !770, !noalias !773, !nonnull !7, !align !87, !noundef !7
   %58 = load ptr, ptr %57, align 8, !noalias !779, !nonnull !7, !noundef !7
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -2941,7 +2941,7 @@ define { i32, i32 } @_ZN4rope4Rope15offset_to_point17h0d4410e230cfda5cE(ptr noal
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %72 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %71, i64 %63
+  %72 = getelementptr inbounds nuw [132 x i8], ptr %71, i64 %63
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %72, align 4, !alias.scope !780, !noundef !7
   %75 = zext i32 %74 to i64
@@ -3178,7 +3178,7 @@ define { i32, i32 } @_ZN4rope4Rope21offset_to_point_utf1617ha0b6c118d3e7b9d4E(pt
 52:                                               ; preds = %49
   %53 = zext i32 %51 to i64
   %54 = getelementptr i8, ptr %5, i64 -8
-  %55 = getelementptr { ptr, i64, { i64, { i32, i32 } } }, ptr %54, i64 %53
+  %55 = getelementptr [32 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %55, align 8, !alias.scope !817, !noalias !820, !nonnull !7, !align !87, !noundef !7
   %57 = load ptr, ptr %56, align 8, !noalias !826, !nonnull !7, !noundef !7
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -3209,7 +3209,7 @@ define { i32, i32 } @_ZN4rope4Rope21offset_to_point_utf1617ha0b6c118d3e7b9d4E(pt
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %71 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %70, i64 %62
+  %71 = getelementptr inbounds nuw [132 x i8], ptr %70, i64 %62
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load i32, ptr %71, align 4, !alias.scope !827, !noundef !7
   %74 = zext i32 %73 to i64
@@ -3449,7 +3449,7 @@ define { i32, i32 } @_ZN4rope4Rope20point_to_point_utf1617ha27c3c5526153a21E(ptr
 70:                                               ; preds = %67
   %71 = zext i32 %69 to i64
   %72 = getelementptr i8, ptr %6, i64 -8
-  %73 = getelementptr { ptr, i64, { { i32, i32 }, { i32, i32 } } }, ptr %72, i64 %71
+  %73 = getelementptr [32 x i8], ptr %72, i64 %71
   %74 = load ptr, ptr %73, align 8, !alias.scope !864, !noalias !867, !nonnull !7, !align !87, !noundef !7
   %75 = load ptr, ptr %74, align 8, !noalias !873, !nonnull !7, !noundef !7
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -3480,7 +3480,7 @@ define { i32, i32 } @_ZN4rope4Rope20point_to_point_utf1617ha27c3c5526153a21E(ptr
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %89 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %88, i64 %80
+  %89 = getelementptr inbounds nuw [132 x i8], ptr %88, i64 %80
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %89, align 4, !alias.scope !874, !noundef !7
   %92 = zext i32 %91 to i64
@@ -3750,7 +3750,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
 77:                                               ; preds = %74
   %78 = zext i32 %76 to i64
   %79 = getelementptr i8, ptr %19, i64 -8
-  %80 = getelementptr { ptr, i64, { { i32, i32 }, i64 } }, ptr %79, i64 %78
+  %80 = getelementptr [32 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8, !alias.scope !911, !noalias !914, !nonnull !7, !align !87, !noundef !7
   %82 = load ptr, ptr %81, align 8, !noalias !920, !nonnull !7, !noundef !7
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
@@ -3781,7 +3781,7 @@ define noundef i64 @_ZN4rope4Rope15point_to_offset17hdbb3044344a3fa12E(ptr noali
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %96 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %95, i64 %87
+  %96 = getelementptr inbounds nuw [132 x i8], ptr %95, i64 %87
   call void @llvm.experimental.noalias.scope.decl(metadata !921)
   call void @llvm.experimental.noalias.scope.decl(metadata !924)
   call void @llvm.experimental.noalias.scope.decl(metadata !927)
@@ -4301,7 +4301,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
 78:                                               ; preds = %75
   %79 = zext i32 %77 to i64
   %80 = getelementptr i8, ptr %20, i64 -8
-  %81 = getelementptr { ptr, i64, { { i32, i32 }, i64 } }, ptr %80, i64 %79
+  %81 = getelementptr [32 x i8], ptr %80, i64 %79
   %82 = load ptr, ptr %81, align 8, !alias.scope !993, !noalias !996, !nonnull !7, !align !87, !noundef !7
   %83 = load ptr, ptr %82, align 8, !noalias !1002, !nonnull !7, !noundef !7
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -4332,7 +4332,7 @@ define internal fastcc noundef i64 @_ZN4rope4Rope26point_utf16_to_offset_impl17h
 
 95:                                               ; preds = %93
   %96 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %97 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %96, i64 %88
+  %97 = getelementptr inbounds nuw [132 x i8], ptr %96, i64 %88
   call void @llvm.experimental.noalias.scope.decl(metadata !1003)
   call void @llvm.experimental.noalias.scope.decl(metadata !1006)
   call void @llvm.experimental.noalias.scope.decl(metadata !1009)
@@ -4825,7 +4825,7 @@ define { i32, i32 } @_ZN4rope4Rope30unclipped_point_utf16_to_point17h33c713b7aec
 70:                                               ; preds = %67
   %71 = zext i32 %69 to i64
   %72 = getelementptr i8, ptr %6, i64 -8
-  %73 = getelementptr { ptr, i64, { { i32, i32 }, { i32, i32 } } }, ptr %72, i64 %71
+  %73 = getelementptr [32 x i8], ptr %72, i64 %71
   %74 = load ptr, ptr %73, align 8, !alias.scope !1074, !noalias !1077, !nonnull !7, !align !87, !noundef !7
   %75 = load ptr, ptr %74, align 8, !noalias !1083, !nonnull !7, !noundef !7
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -4856,7 +4856,7 @@ define { i32, i32 } @_ZN4rope4Rope30unclipped_point_utf16_to_point17h33c713b7aec
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %89 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %88, i64 %80
+  %89 = getelementptr inbounds nuw [132 x i8], ptr %88, i64 %80
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %89, align 4, !alias.scope !1084, !noundef !7
   %92 = zext i32 %91 to i64
@@ -5076,7 +5076,7 @@ define noundef i64 @_ZN4rope4Rope11clip_offset17hde5002a522fbd064E(ptr noalias n
 40:                                               ; preds = %38
   %41 = zext i32 %39 to i64
   %42 = getelementptr i8, ptr %6, i64 -16
-  %43 = getelementptr { ptr, i64, i64 }, ptr %42, i64 %41
+  %43 = getelementptr [24 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !alias.scope !1115, !noalias !1118, !nonnull !7, !align !87, !noundef !7
   %45 = load ptr, ptr %44, align 8, !noalias !1120, !nonnull !7, !noundef !7
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -5107,7 +5107,7 @@ define noundef i64 @_ZN4rope4Rope11clip_offset17hde5002a522fbd064E(ptr noalias n
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %59 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %58, i64 %50
+  %59 = getelementptr inbounds nuw [132 x i8], ptr %58, i64 %50
   %60 = load i64, ptr %7, align 8, !noundef !7
   %61 = load i64, ptr %30, align 8, !noundef !7
   %62 = sub i64 %60, %61
@@ -5273,7 +5273,7 @@ define noundef i64 @_ZN4rope4Rope17clip_offset_utf1617h3b9305c9d58a15e9E(ptr noa
 43:                                               ; preds = %41
   %44 = zext i32 %42 to i64
   %45 = getelementptr i8, ptr %9, i64 -16
-  %46 = getelementptr { ptr, i64, i64 }, ptr %45, i64 %44
+  %46 = getelementptr [24 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8, !alias.scope !1146, !noalias !1149, !nonnull !7, !align !87, !noundef !7
   %48 = load ptr, ptr %47, align 8, !noalias !1151, !nonnull !7, !noundef !7
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -5304,7 +5304,7 @@ define noundef i64 @_ZN4rope4Rope17clip_offset_utf1617h3b9305c9d58a15e9E(ptr noa
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %62 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %61, i64 %53
+  %62 = getelementptr inbounds nuw [132 x i8], ptr %61, i64 %53
   %63 = load i64, ptr %33, align 8, !alias.scope !1152, !noundef !7
   %64 = sub i64 %1, %63
   call void @llvm.experimental.noalias.scope.decl(metadata !1155)
@@ -5445,7 +5445,7 @@ define { i32, i32 } @_ZN4rope4Rope10clip_point17h7e3775b812c2991fE(ptr noalias n
 33:                                               ; preds = %31
   %34 = zext i32 %32 to i64
   %35 = getelementptr i8, ptr %8, i64 -16
-  %36 = getelementptr { ptr, i64, { i32, i32 } }, ptr %35, i64 %34
+  %36 = getelementptr [24 x i8], ptr %35, i64 %34
   %37 = load ptr, ptr %36, align 8, !alias.scope !1183, !noalias !1186, !nonnull !7, !align !87, !noundef !7
   %38 = load ptr, ptr %37, align 8, !noalias !1188, !nonnull !7, !noundef !7
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -5468,7 +5468,7 @@ define { i32, i32 } @_ZN4rope4Rope10clip_point17h7e3775b812c2991fE(ptr noalias n
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %52 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %51, i64 %43
+  %52 = getelementptr inbounds nuw [132 x i8], ptr %51, i64 %43
   %53 = load i32, ptr %9, align 4, !noundef !7
   %54 = load i32, ptr %10, align 4, !noundef !7
   %55 = load i32, ptr %15, align 8, !alias.scope !1189, !noundef !7
@@ -6220,7 +6220,7 @@ define { i32, i32 } @_ZN4rope4Rope16clip_point_utf1617h6fb305ccc91a70c9E(ptr noa
 34:                                               ; preds = %32
   %35 = zext i32 %33 to i64
   %36 = getelementptr i8, ptr %9, i64 -16
-  %37 = getelementptr { ptr, i64, { i32, i32 } }, ptr %36, i64 %35
+  %37 = getelementptr [24 x i8], ptr %36, i64 %35
   %38 = load ptr, ptr %37, align 8, !alias.scope !1253, !noalias !1256, !nonnull !7, !align !87, !noundef !7
   %39 = load ptr, ptr %38, align 8, !noalias !1258, !nonnull !7, !noundef !7
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -6253,7 +6253,7 @@ define { i32, i32 } @_ZN4rope4Rope16clip_point_utf1617h6fb305ccc91a70c9E(ptr noa
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %55 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %54, i64 %44
+  %55 = getelementptr inbounds nuw [132 x i8], ptr %54, i64 %44
   %56 = load i32, ptr %10, align 4, !noundef !7
   %57 = load i32, ptr %11, align 4, !noundef !7
   %58 = load i32, ptr %16, align 8, !alias.scope !1259, !noundef !7
@@ -7183,7 +7183,7 @@ _ZN4rope4Rope3new17hd053e4ab1b341838E.exit:       ; preds = %.noexc.i.i
 
 25:                                               ; preds = %23
   %26 = zext i32 %24 to i64
-  %27 = getelementptr { ptr, i64, i64 }, ptr %0, i64 %26
+  %27 = getelementptr [24 x i8], ptr %0, i64 %26
   %28 = load ptr, ptr %27, align 8, !alias.scope !1495, !noalias !1498, !nonnull !7, !align !87, !noundef !7
   %29 = load ptr, ptr %28, align 8, !noalias !1500, !nonnull !7, !noundef !7
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -7223,7 +7223,7 @@ _ZN4rope4Rope3new17hd053e4ab1b341838E.exit:       ; preds = %.noexc.i.i
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %49 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %48, i64 %34
+  %49 = getelementptr inbounds nuw [132 x i8], ptr %48, i64 %34
   %50 = load i64, ptr %0, align 8, !noundef !7
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %52 = load i64, ptr %51, align 8, !noundef !7
@@ -7367,7 +7367,7 @@ _ZN4rope4Rope3new17hd053e4ab1b341838E.exit:       ; preds = %.noexc.i.i
 
 109:                                              ; preds = %107
   %110 = zext i32 %108 to i64
-  %111 = getelementptr { ptr, i64, i64 }, ptr %0, i64 %110
+  %111 = getelementptr [24 x i8], ptr %0, i64 %110
   %112 = load ptr, ptr %111, align 8, !alias.scope !1537, !noalias !1540, !nonnull !7, !align !87, !noundef !7
   %113 = load ptr, ptr %112, align 8, !noalias !1542, !nonnull !7, !noundef !7
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
@@ -7408,7 +7408,7 @@ _ZN4rope4Rope3new17hd053e4ab1b341838E.exit:       ; preds = %.noexc.i.i
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  %131 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %130, i64 %118
+  %131 = getelementptr inbounds nuw [132 x i8], ptr %130, i64 %118
   %132 = load i64, ptr %62, align 8, !noundef !7
   %133 = load i64, ptr %7, align 8, !noundef !7
   %134 = sub i64 %133, %132
@@ -8074,7 +8074,7 @@ define noundef zeroext i1 @_ZN4rope6Chunks9prev_line17hea0119f64d4a7709E(ptr noa
 29:                                               ; preds = %27
   %30 = zext i32 %28 to i64
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = getelementptr { ptr, i64, i64 }, ptr %31, i64 %30
+  %32 = getelementptr [24 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !alias.scope !1716, !noalias !1719, !nonnull !7, !align !87, !noundef !7
   %34 = load ptr, ptr %33, align 8, !noalias !1721, !nonnull !7, !noundef !7
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -8105,7 +8105,7 @@ define noundef zeroext i1 @_ZN4rope6Chunks9prev_line17hea0119f64d4a7709E(ptr noa
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %50 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %49, i64 %39
+  %50 = getelementptr inbounds nuw [132 x i8], ptr %49, i64 %39
   %51 = load i64, ptr %10, align 8, !noundef !7
   %52 = load i64, ptr %13, align 8, !noundef !7
   %53 = sub i64 %51, %52
@@ -8147,7 +8147,7 @@ define noundef zeroext i1 @_ZN4rope6Chunks9prev_line17hea0119f64d4a7709E(ptr noa
 69:                                               ; preds = %67
   %70 = zext i32 %68 to i64
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %72 = getelementptr { ptr, i64, i64 }, ptr %71, i64 %70
+  %72 = getelementptr [24 x i8], ptr %71, i64 %70
   %73 = load ptr, ptr %72, align 8, !alias.scope !1722, !noalias !1725, !nonnull !7, !align !87, !noundef !7
   %74 = load ptr, ptr %73, align 8, !noalias !1727, !nonnull !7, !noundef !7
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
@@ -8269,7 +8269,7 @@ _ZN4rope6Chunks15offset_is_valid17hbdf90f0a1799b285E.exit: ; preds = %"_ZN4core3
 
 126:                                              ; preds = %85
   %127 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %128 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %127, i64 %79
+  %128 = getelementptr inbounds nuw [132 x i8], ptr %127, i64 %79
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %130 = load i32, ptr %128, align 4, !noundef !7
   %131 = zext i32 %130 to i64
@@ -8397,7 +8397,7 @@ _ZN4rope6Chunks15offset_is_valid17hbdf90f0a1799b285E.exit46: ; preds = %"_ZN4cor
 
 184:                                              ; preds = %182
   %185 = zext i32 %183 to i64
-  %186 = getelementptr { ptr, i64, i64 }, ptr %146, i64 %185
+  %186 = getelementptr [24 x i8], ptr %146, i64 %185
   %187 = load ptr, ptr %186, align 8, !alias.scope !1761, !noalias !1764, !nonnull !7, !align !87, !noundef !7
   %188 = load ptr, ptr %187, align 8, !noalias !1766, !nonnull !7, !noundef !7
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
@@ -8526,7 +8526,7 @@ _ZN4rope6Chunks15offset_is_valid17hbdf90f0a1799b285E.exit: ; preds = %1
 
 28:                                               ; preds = %26
   %29 = zext i32 %27 to i64
-  %30 = getelementptr { ptr, i64, i64 }, ptr %9, i64 %29
+  %30 = getelementptr [24 x i8], ptr %9, i64 %29
   %31 = load ptr, ptr %30, align 8, !alias.scope !1790, !noalias !1793, !nonnull !7, !align !87, !noundef !7
   %32 = load ptr, ptr %31, align 8, !noalias !1795, !nonnull !7, !noundef !7
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -8564,7 +8564,7 @@ _ZN4rope6Chunks15offset_is_valid17hbdf90f0a1799b285E.exit: ; preds = %1
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %50 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %49, i64 %37
+  %50 = getelementptr inbounds nuw [132 x i8], ptr %49, i64 %37
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %52 = load i64, ptr %51, align 8, !noundef !7
   br i1 %5, label %59, label %53
@@ -8851,7 +8851,7 @@ define { ptr, i64 } @_ZN4rope5Bytes4peek17h4882ba5bd72bf61dE(ptr noalias noundef
 
 14:                                               ; preds = %12
   %15 = zext i32 %13 to i64
-  %16 = getelementptr { ptr, i64, i64 }, ptr %0, i64 %15
+  %16 = getelementptr [24 x i8], ptr %0, i64 %15
   %17 = load ptr, ptr %16, align 8, !alias.scope !1844, !noalias !1847, !nonnull !7, !align !87, !noundef !7
   %18 = load ptr, ptr %17, align 8, !noalias !1849, !nonnull !7, !noundef !7
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -8882,7 +8882,7 @@ define { ptr, i64 } @_ZN4rope5Bytes4peek17h4882ba5bd72bf61dE(ptr noalias noundef
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %34 = getelementptr inbounds nuw { { i32, [128 x i8] } }, ptr %33, i64 %23
+  %34 = getelementptr inbounds nuw [132 x i8], ptr %33, i64 %23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %36 = load i8, ptr %35, align 8, !range !17, !noundef !7
   %37 = trunc nuw i8 %36 to i1

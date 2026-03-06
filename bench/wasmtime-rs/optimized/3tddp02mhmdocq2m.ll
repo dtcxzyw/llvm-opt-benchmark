@@ -195,7 +195,7 @@ define { ptr, i64 } @_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE(ptr 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %5
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -351,7 +351,7 @@ define void @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E(pt
 33:                                               ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %35, i64 %25
+  %36 = getelementptr inbounds [24 x i8], ptr %35, i64 %25
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %10, ptr nonnull align 8 %36)
   store ptr %36, ptr %6, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -472,7 +472,7 @@ default.unreachable:                              ; preds = %3
 31:                                               ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %33 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %33, i64 %21
+  %34 = getelementptr inbounds [24 x i8], ptr %33, i64 %21
   store ptr %34, ptr %13, align 8
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %35, align 8
@@ -525,7 +525,7 @@ default.unreachable:                              ; preds = %3
 50:                                               ; preds = %25
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %52 = load ptr, ptr %51, align 8, !nonnull !4, !noundef !4
-  %53 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %52, i64 %27
+  %53 = getelementptr inbounds [24 x i8], ptr %52, i64 %27
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %12, ptr nonnull align 8 %53)
   store ptr %53, ptr %10, align 8
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1368,7 +1368,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   store i64 %.0.i56.i, ptr %33, align 8, !noalias !14
   %283 = load i64, ptr %123, align 8, !noalias !14, !noundef !4
   %284 = load ptr, ptr %122, align 8, !noalias !14, !nonnull !4, !noundef !4
-  %285 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %284, i64 %283
+  %285 = getelementptr inbounds [48 x i8], ptr %284, i64 %283
   store ptr %284, ptr %32, align 8, !noalias !14
   store ptr %285, ptr %129, align 8, !noalias !14
   %286 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h79ea3b823c3ae620E"(ptr nonnull align 8 %32, ptr nonnull align 8 %33)
@@ -1464,7 +1464,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   store i64 %.0.i64.i, ptr %25, align 8, !noalias !14
   %312 = load ptr, ptr %130, align 8, !noalias !14, !nonnull !4, !noundef !4
   %313 = load i64, ptr %131, align 8, !noalias !14, !noundef !4
-  %314 = getelementptr inbounds { i64, i64, i64 }, ptr %312, i64 %313
+  %314 = getelementptr inbounds [24 x i8], ptr %312, i64 %313
   store ptr %312, ptr %24, align 8, !noalias !14
   store ptr %314, ptr %133, align 8, !noalias !14
   %315 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc7072cd185ad48a4E"(ptr nonnull align 8 %24, ptr nonnull align 8 %25)
@@ -1723,7 +1723,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
 
 366:                                              ; preds = %364
   %367 = load ptr, ptr %108, align 8, !nonnull !4, !noundef !4
-  %368 = getelementptr inbounds { i64, [9 x i64] }, ptr %367, i64 %358
+  %368 = getelementptr inbounds [80 x i8], ptr %367, i64 %358
   %369 = load i64, ptr %368, align 8, !range !3, !noundef !4
   %370 = icmp eq i64 %369, -9223372036854775808
   %.0.v.i = select i1 %370, i64 8, i64 40
@@ -2222,7 +2222,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
 
 242:                                              ; preds = %.noexc77
   %243 = load ptr, ptr %207, align 8, !nonnull !4, !noundef !4
-  %244 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %243, i64 %236
+  %244 = getelementptr inbounds [240 x i8], ptr %243, i64 %236
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull align 16 dereferenceable(32) %245, i64 32, i1 false)
   store ptr %226, ptr %167, align 8
@@ -2253,7 +2253,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   %250 = load ptr, ptr %249, align 8, !nonnull !4, !noundef !4
   %251 = getelementptr inbounds nuw i8, ptr %220, i64 80
   %252 = load i64, ptr %251, align 16, !noundef !4
-  %253 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, i64, i64, i64 } }, ptr %250, i64 %252
+  %253 = getelementptr inbounds [56 x i8], ptr %250, i64 %252
   store ptr %250, ptr %161, align 8
   store ptr %253, ptr %210, align 8
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
@@ -2435,7 +2435,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
 
 306:                                              ; preds = %.noexc91
   %307 = load ptr, ptr %291, align 8, !nonnull !4, !noundef !4
-  %308 = getelementptr inbounds { i64, [9 x i64] }, ptr %307, i64 %.sroa.01.044.i
+  %308 = getelementptr inbounds [80 x i8], ptr %307, i64 %.sroa.01.044.i
   %309 = load i64, ptr %308, align 8, !range !3, !noundef !4
   %.not32.i = icmp eq i64 %309, -9223372036854775808
   br i1 %.not32.i, label %.backedge.i89, label %310
@@ -2479,7 +2479,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   %325 = load ptr, ptr %324, align 8, !nonnull !4, !noundef !4
   %326 = getelementptr inbounds nuw i8, ptr %319, i64 16
   %327 = load i64, ptr %326, align 8, !noundef !4
-  %328 = getelementptr inbounds { i64, i64, i64 }, ptr %325, i64 %327
+  %328 = getelementptr inbounds [24 x i8], ptr %325, i64 %327
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8afeb6507cf29b2bE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %144, ptr nonnull %325, ptr nonnull %328)
           to label %.noexc96 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2517,7 +2517,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
 
 339:                                              ; preds = %335
   %340 = load ptr, ptr %300, align 8, !nonnull !4, !noundef !4
-  %341 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %340, i64 %336
+  %341 = getelementptr inbounds [24 x i8], ptr %340, i64 %336
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %148, ptr nonnull align 8 %341)
           to label %.noexc100 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2747,7 +2747,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
 
 404:                                              ; preds = %400
   %405 = load ptr, ptr %374, align 8, !nonnull !4, !noundef !4
-  %406 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %405, i64 %401
+  %406 = getelementptr inbounds [240 x i8], ptr %405, i64 %401
   %407 = load i64, ptr %406, align 16, !range !6, !noundef !4
   switch i64 %407, label %.unreachabledefault [
     i64 3, label %408
@@ -3071,7 +3071,7 @@ default.unreachable:                              ; preds = %802
 
 493:                                              ; preds = %489
   %494 = load ptr, ptr %431, align 8, !nonnull !4, !noundef !4
-  %495 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %494, i64 %490
+  %495 = getelementptr inbounds [240 x i8], ptr %494, i64 %490
   %496 = load i64, ptr %495, align 16, !range !6, !noundef !4
   %.not122.i = icmp eq i64 %496, 3
   br i1 %.not122.i, label %503, label %499
@@ -3102,7 +3102,7 @@ default.unreachable:                              ; preds = %802
 507:                                              ; preds = %506
   %508 = load ptr, ptr %447, align 8, !nonnull !4, !noundef !4
   %509 = load i64, ptr %448, align 8, !noundef !4
-  %510 = getelementptr inbounds i64, ptr %508, i64 %509
+  %510 = getelementptr inbounds [8 x i8], ptr %508, i64 %509
   store ptr %508, ptr %103, align 8
   store ptr %510, ptr %450, align 8
   store ptr %449, ptr %451, align 8
@@ -3141,7 +3141,7 @@ default.unreachable:                              ; preds = %802
           to label %498 unwind label %.loopexit.split-lp168.i
 
 520:                                              ; preds = %515
-  %521 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %516, i64 %466
+  %521 = getelementptr inbounds [24 x i8], ptr %516, i64 %466
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull align 8 dereferenceable(24) %96, i64 24, i1 false)
   store ptr %521, ptr %99, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %456, align 8
@@ -3325,7 +3325,7 @@ default.unreachable:                              ; preds = %802
 
 568:                                              ; preds = %565
   %569 = load ptr, ptr %431, align 8, !nonnull !4, !noundef !4
-  %570 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %569, i64 %554
+  %570 = getelementptr inbounds [240 x i8], ptr %569, i64 %554
   %571 = load i64, ptr %570, align 16, !range !6, !noundef !4
   %572 = icmp eq i64 %571, 3
   br i1 %572, label %574, label %576
@@ -4059,7 +4059,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit79.i: ; pre
 
 769:                                              ; preds = %765
   %770 = load ptr, ptr %431, align 8, !nonnull !4, !noundef !4
-  %771 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %770, i64 %766
+  %771 = getelementptr inbounds [240 x i8], ptr %770, i64 %766
   %772 = load i64, ptr %771, align 16, !range !6, !noundef !4
   %773 = icmp eq i64 %772, 3
   br i1 %773, label %774, label %775
@@ -4193,7 +4193,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit79.i: ; pre
 
 802:                                              ; preds = %798
   %803 = load ptr, ptr %431, align 8, !nonnull !4, !noundef !4
-  %804 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %803, i64 %799
+  %804 = getelementptr inbounds [240 x i8], ptr %803, i64 %799
   %805 = load i64, ptr %804, align 16, !range !6, !noundef !4
   switch i64 %805, label %default.unreachable [
     i64 3, label %806
@@ -4490,7 +4490,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit79.i: ; pre
 
 880:                                              ; preds = %876
   %881 = load ptr, ptr %431, align 8, !nonnull !4, !noundef !4
-  %882 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %881, i64 %877
+  %882 = getelementptr inbounds [240 x i8], ptr %881, i64 %877
   %883 = load i64, ptr %882, align 16, !range !6, !noundef !4
   %.not.i241 = icmp eq i64 %883, 3
   br i1 %.not.i241, label %891, label %886
@@ -4524,8 +4524,8 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit79.i: ; pre
   %.val75.i = load i64, ptr %895, align 16, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %896 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val.i, i64 %.val73.i
-  %897 = getelementptr inbounds i64, ptr %.val74.i, i64 %.val75.i
+  %896 = getelementptr inbounds [128 x i8], ptr %.val.i, i64 %.val73.i
+  %897 = getelementptr inbounds [8 x i8], ptr %.val74.i, i64 %.val75.i
   invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h6999e0c77a7638f2E(ptr nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %15, ptr nonnull %.val.i, ptr nonnull %896, ptr nonnull %.val74.i, ptr nonnull %897)
           to label %.noexc77.i unwind label %.loopexit.i234
 
@@ -4544,7 +4544,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit79.i: ; pre
   %900 = load ptr, ptr %899, align 8, !nonnull !4, !noundef !4
   %901 = getelementptr inbounds nuw i8, ptr %852, i64 320
   %902 = load i64, ptr %901, align 16, !noundef !4
-  %903 = getelementptr inbounds { { i64, [15 x i64] }, { i64, [15 x i64] }, { i64, i64, i64, i64 } }, ptr %900, i64 %902
+  %903 = getelementptr inbounds [288 x i8], ptr %900, i64 %902
   %904 = getelementptr inbounds nuw i8, ptr %882, i64 144
   store ptr %900, ptr %24, align 8
   store ptr %903, ptr %841, align 8
@@ -4805,7 +4805,7 @@ _ZN14cranelift_isle4sema8Bindings10exit_scope17ha9efbc9b06456769E.exit.i: ; pred
 
 980:                                              ; preds = %976
   %981 = load ptr, ptr %431, align 8, !nonnull !4, !noundef !4
-  %982 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %981, i64 %977
+  %982 = getelementptr inbounds [240 x i8], ptr %981, i64 %977
   %983 = load i64, ptr %982, align 16, !range !6, !noundef !4
   %.not.i253 = icmp eq i64 %983, 2
   br i1 %.not.i253, label %_ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.i, label %.backedge.i252
@@ -5106,7 +5106,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit: ; preds =
   %89 = load ptr, ptr %88, align 8, !nonnull !4, !noundef !4
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %91 = load i64, ptr %90, align 8, !noundef !4
-  %92 = getelementptr inbounds { i64, i64, i64, i64 }, ptr %89, i64 %91
+  %92 = getelementptr inbounds [32 x i8], ptr %89, i64 %91
   store ptr %89, ptr %27, align 8
   %93 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %92, ptr %93, align 8
@@ -5202,7 +5202,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit156: ; pred
   %138 = load ptr, ptr %137, align 16, !nonnull !4, !noundef !4
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %140 = load i64, ptr %139, align 8, !noundef !4
-  %141 = getelementptr inbounds { i64, [15 x i64] }, ptr %138, i64 %140
+  %141 = getelementptr inbounds [128 x i8], ptr %138, i64 %140
   store ptr %138, ptr %64, align 8
   %142 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %141, ptr %142, align 8
@@ -5238,7 +5238,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit156: ; pred
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %152 = load ptr, ptr %151, align 8, !nonnull !4, !noundef !4
-  %153 = getelementptr i64, ptr %152, i64 %149
+  %153 = getelementptr [8 x i8], ptr %152, i64 %149
   %154 = getelementptr i8, ptr %153, i64 -8
   %155 = icmp eq ptr %154, null
   br i1 %155, label %.thread.i, label %_ZN14cranelift_isle4sema8Bindings7add_var17h984c97d47a19dabcE.exit
@@ -5319,7 +5319,7 @@ common.resume:                                    ; preds = %347, %351, %264, %3
 177:                                              ; preds = %173
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %179 = load ptr, ptr %178, align 8, !nonnull !4, !noundef !4
-  %180 = getelementptr inbounds { i64, [9 x i64] }, ptr %179, i64 %4
+  %180 = getelementptr inbounds [80 x i8], ptr %179, i64 %4
   %181 = load i64, ptr %180, align 8, !range !3, !noundef !4
   %182 = icmp eq i64 %181, -9223372036854775808
   %.0.v.i = select i1 %182, i64 48, i64 24
@@ -5337,7 +5337,7 @@ common.resume:                                    ; preds = %347, %351, %264, %3
 _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit: ; preds = %177
   %188 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %189 = load ptr, ptr %188, align 8, !nonnull !4, !noundef !4
-  %190 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %189, i64 %183
+  %190 = getelementptr inbounds [24 x i8], ptr %189, i64 %183
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load ptr, ptr %191, align 8, !nonnull !4, !noundef !4
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 16
@@ -5353,7 +5353,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit: ; preds = %177
   unreachable
 
 198:                                              ; preds = %_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit
-  %199 = getelementptr inbounds { i64, [9 x i64] }, ptr %179, i64 %168
+  %199 = getelementptr inbounds [80 x i8], ptr %179, i64 %168
   %200 = load i64, ptr %199, align 8, !range !3, !noundef !4
   %201 = icmp eq i64 %200, -9223372036854775808
   %.0.v.i159 = select i1 %201, i64 48, i64 24
@@ -5367,7 +5367,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit: ; preds = %177
   unreachable
 
 _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit161: ; preds = %198
-  %205 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %189, i64 %202
+  %205 = getelementptr inbounds [24 x i8], ptr %189, i64 %202
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %207 = load ptr, ptr %206, align 8, !nonnull !4, !noundef !4
   %208 = getelementptr inbounds nuw i8, ptr %205, i64 16
@@ -5451,7 +5451,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit161: ; preds = %198
   %231 = load ptr, ptr %230, align 8, !nonnull !4, !noundef !4
   %232 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %233 = load i64, ptr %232, align 8, !noundef !4
-  %234 = getelementptr inbounds { i64, i64, i64, i64 }, ptr %231, i64 %233
+  %234 = getelementptr inbounds [32 x i8], ptr %231, i64 %233
   store ptr %231, ptr %19, align 8
   %235 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %234, ptr %235, align 8
@@ -5483,7 +5483,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit161: ; preds = %198
 244:                                              ; preds = %240
   %245 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %246 = load ptr, ptr %245, align 8, !nonnull !4, !noundef !4
-  %247 = getelementptr i64, ptr %246, i64 %243
+  %247 = getelementptr [8 x i8], ptr %246, i64 %243
   %248 = getelementptr i8, ptr %247, i64 -8
   %249 = icmp eq ptr %248, null
   br i1 %249, label %.thread.i172, label %250
@@ -5559,7 +5559,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit161: ; preds = %198
 268:                                              ; preds = %102
   %269 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %270 = load ptr, ptr %269, align 8, !nonnull !4, !noundef !4
-  %271 = getelementptr inbounds { i64, [9 x i64] }, ptr %270, i64 %4
+  %271 = getelementptr inbounds [80 x i8], ptr %270, i64 %4
   %272 = load i64, ptr %271, align 8, !range !3, !noundef !4
   %273 = icmp eq i64 %272, -9223372036854775808
   br i1 %273, label %292, label %275
@@ -5583,7 +5583,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit161: ; preds = %198
 _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit178: ; preds = %275
   %281 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %282 = load ptr, ptr %281, align 8, !nonnull !4, !noundef !4
-  %283 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %282, i64 %276
+  %283 = getelementptr inbounds [24 x i8], ptr %282, i64 %276
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %285 = load ptr, ptr %284, align 8, !nonnull !4, !noundef !4
   %286 = getelementptr inbounds nuw i8, ptr %283, i64 16
@@ -5658,7 +5658,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit178: ; preds = %275
 307:                                              ; preds = %302
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %309 = load ptr, ptr %308, align 8, !nonnull !4, !noundef !4
-  %310 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %309, i64 %303
+  %310 = getelementptr inbounds [240 x i8], ptr %309, i64 %303
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 232
   %312 = load i64, ptr %311, align 8, !noundef !4
   %.not = icmp eq i64 %4, %312
@@ -5706,7 +5706,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit178: ; preds = %275
 
 329:                                              ; preds = %325
   %330 = load ptr, ptr %308, align 8, !noalias !40, !nonnull !4, !noundef !4
-  %331 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %330, i64 %326
+  %331 = getelementptr inbounds [240 x i8], ptr %330, i64 %326
   %332 = load i64, ptr %331, align 16, !range !6, !noalias !40, !noundef !4
   %333 = icmp eq i64 %332, 3
   br i1 %333, label %_ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.thread.i, label %_ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.i
@@ -5732,7 +5732,7 @@ _ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.thread.i: 
 342:                                              ; preds = %_ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.thread.i
   %343 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %344 = load ptr, ptr %343, align 8, !noalias !40, !nonnull !4, !noundef !4
-  %345 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %344, i64 %338
+  %345 = getelementptr inbounds [24 x i8], ptr %344, i64 %338
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %16, ptr nonnull align 8 %345), !noalias !40
   invoke void @_ZN14cranelift_isle3ast7Pattern3pos17h626ba3966c53166bE(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %15, ptr nonnull align 16 %3)
           to label %349 unwind label %347, !noalias !40
@@ -5842,7 +5842,7 @@ _ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.thread.i: 
 370:                                              ; preds = %363
   %371 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %372 = load ptr, ptr %371, align 8, !nonnull !4, !noundef !4
-  %373 = getelementptr inbounds { i64, [9 x i64] }, ptr %372, i64 %4
+  %373 = getelementptr inbounds [80 x i8], ptr %372, i64 %4
   %374 = load i64, ptr %373, align 8, !range !3, !noundef !4
   %375 = icmp eq i64 %374, -9223372036854775808
   %.0.v.i180 = select i1 %375, i64 48, i64 24
@@ -5860,7 +5860,7 @@ _ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.thread.i: 
 _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit182: ; preds = %370
   %381 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %382 = load ptr, ptr %381, align 8, !nonnull !4, !noundef !4
-  %383 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %382, i64 %376
+  %383 = getelementptr inbounds [24 x i8], ptr %382, i64 %376
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 8
   %385 = load ptr, ptr %384, align 8, !nonnull !4, !noundef !4
   %386 = getelementptr inbounds nuw i8, ptr %383, i64 16
@@ -5876,7 +5876,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit182: ; preds = %370
   unreachable
 
 391:                                              ; preds = %_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit182
-  %392 = getelementptr inbounds { i64, [9 x i64] }, ptr %372, i64 %312
+  %392 = getelementptr inbounds [80 x i8], ptr %372, i64 %312
   %393 = load i64, ptr %392, align 8, !range !3, !noundef !4
   %394 = icmp eq i64 %393, -9223372036854775808
   %.0.v.i183 = select i1 %394, i64 48, i64 24
@@ -5890,7 +5890,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit182: ; preds = %370
   unreachable
 
 _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit185: ; preds = %391
-  %398 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %382, i64 %395
+  %398 = getelementptr inbounds [24 x i8], ptr %382, i64 %395
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %400 = load ptr, ptr %399, align 8, !nonnull !4, !noundef !4
   %401 = getelementptr inbounds nuw i8, ptr %398, i64 16
@@ -5924,8 +5924,8 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit185: ; preds = %391
   %.val153 = load i64, ptr %410, align 16, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %411 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val, i64 %.val151
-  %412 = getelementptr inbounds i64, ptr %.val152, i64 %.val153
+  %411 = getelementptr inbounds [128 x i8], ptr %.val, i64 %.val151
+  %412 = getelementptr inbounds [8 x i8], ptr %.val152, i64 %.val153
   call void @_ZN4core4iter6traits8iterator8Iterator3zip17h6999e0c77a7638f2E(ptr nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %7, ptr nonnull %.val, ptr nonnull %411, ptr nonnull %.val152, ptr nonnull %412), !noalias !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !noalias !43
   %413 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -6025,7 +6025,7 @@ define internal fastcc void @_ZN14cranelift_isle4sema7TermEnv27maybe_implicit_co
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %27, i64 %20
+  %28 = getelementptr inbounds [240 x i8], ptr %27, i64 %20
   %29 = load i64, ptr %28, align 16, !range !6, !noundef !4
   %.not24 = icmp eq i64 %29, 2
   br i1 %.not24, label %24, label %31
@@ -6045,7 +6045,7 @@ define internal fastcc void @_ZN14cranelift_isle4sema7TermEnv27maybe_implicit_co
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %39 = load ptr, ptr %38, align 8, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %39, i64 %33
+  %40 = getelementptr inbounds [24 x i8], ptr %39, i64 %33
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %14, ptr nonnull align 8 %40)
   invoke void @_ZN14cranelift_isle3ast4Expr3pos17h2b71ba7499a60f7eE(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %13, ptr align 16 %3)
           to label %44 unwind label %42
@@ -6295,7 +6295,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit255: ; pred
   %126 = load ptr, ptr %125, align 8, !nonnull !4, !noundef !4
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %128 = load i64, ptr %127, align 8, !noundef !4
-  %129 = getelementptr inbounds { i64, i64, i64, i64 }, ptr %126, i64 %128
+  %129 = getelementptr inbounds [32 x i8], ptr %126, i64 %128
   store ptr %126, ptr %18, align 8
   %130 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %129, ptr %130, align 8
@@ -6378,7 +6378,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit258: ; pred
   %166 = load ptr, ptr %165, align 8, !nonnull !4, !noundef !4
   %167 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %168 = load i64, ptr %167, align 8, !noundef !4
-  %169 = getelementptr inbounds { i64, i64, i64, i64 }, ptr %166, i64 %168
+  %169 = getelementptr inbounds [32 x i8], ptr %166, i64 %168
   store ptr %166, ptr %14, align 8
   %170 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %169, ptr %170, align 8
@@ -6424,7 +6424,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit258: ; pred
 183:                                              ; preds = %172
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %185 = load ptr, ptr %184, align 8, !nonnull !4, !noundef !4
-  %186 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %185, i64 %173
+  %186 = getelementptr inbounds [240 x i8], ptr %185, i64 %173
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 232
   %188 = load i64, ptr %187, align 8, !noundef !4
   %189 = icmp ne i64 %4, 1
@@ -6477,7 +6477,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit258: ; pred
 204:                                              ; preds = %194
   %205 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %206 = load ptr, ptr %205, align 8, !nonnull !4, !noundef !4
-  %207 = getelementptr inbounds { i64, [9 x i64] }, ptr %206, i64 %5
+  %207 = getelementptr inbounds [80 x i8], ptr %206, i64 %5
   %208 = load i64, ptr %207, align 8, !range !3, !noundef !4
   %209 = icmp eq i64 %208, -9223372036854775808
   %.0.v.i = select i1 %209, i64 48, i64 24
@@ -6495,7 +6495,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit258: ; pred
 _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit: ; preds = %204
   %215 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %216 = load ptr, ptr %215, align 8, !nonnull !4, !noundef !4
-  %217 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %216, i64 %210
+  %217 = getelementptr inbounds [24 x i8], ptr %216, i64 %210
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %219 = load ptr, ptr %218, align 8, !nonnull !4, !noundef !4
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 16
@@ -6511,7 +6511,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit: ; preds = %204
   unreachable
 
 225:                                              ; preds = %_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit
-  %226 = getelementptr inbounds { i64, [9 x i64] }, ptr %206, i64 %188
+  %226 = getelementptr inbounds [80 x i8], ptr %206, i64 %188
   %227 = load i64, ptr %226, align 8, !range !3, !noundef !4
   %228 = icmp eq i64 %227, -9223372036854775808
   %.0.v.i260 = select i1 %228, i64 48, i64 24
@@ -6525,7 +6525,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit: ; preds = %204
   unreachable
 
 _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit262: ; preds = %225
-  %232 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %216, i64 %229
+  %232 = getelementptr inbounds [24 x i8], ptr %216, i64 %229
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %234 = load ptr, ptr %233, align 8, !nonnull !4, !noundef !4
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 16
@@ -6564,12 +6564,12 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit262: ; preds = %225
   %247 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %248 = load i64, ptr %247, align 16, !noundef !4
   call void @_ZN14cranelift_isle4sema4Term16check_args_count17h55d064b16260efa5E(ptr nonnull align 16 %186, ptr nonnull align 16 %246, i64 %248, ptr align 8 %2, ptr nonnull align 8 %94, ptr nonnull align 8 %100)
-  %249 = getelementptr inbounds { i64, [15 x i64] }, ptr %246, i64 %248
+  %249 = getelementptr inbounds [128 x i8], ptr %246, i64 %248
   %250 = getelementptr inbounds nuw i8, ptr %186, i64 200
   %251 = load ptr, ptr %250, align 8, !nonnull !4, !noundef !4
   %252 = getelementptr inbounds nuw i8, ptr %186, i64 208
   %253 = load i64, ptr %252, align 16, !noundef !4
-  %254 = getelementptr inbounds i64, ptr %251, i64 %253
+  %254 = getelementptr inbounds [8 x i8], ptr %251, i64 %253
   call void @_ZN4core4iter6traits8iterator8Iterator3zip17hbcbe1523c4bec959E(ptr nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %67, ptr nonnull %246, ptr nonnull %249, ptr nonnull %251, ptr nonnull %254)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, ptr noundef nonnull align 8 dereferenceable(56) %67, i64 56, i1 false)
   %255 = getelementptr inbounds nuw i8, ptr %68, i64 56
@@ -6731,7 +6731,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit262: ; preds = %225
 
 310:                                              ; preds = %302
   %311 = load ptr, ptr %303, align 8, !nonnull !4, !noundef !4
-  %312 = getelementptr inbounds { i64, [9 x i64] }, ptr %311, i64 %298
+  %312 = getelementptr inbounds [80 x i8], ptr %311, i64 %298
   %313 = call { ptr, i64 } @_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE(ptr nonnull align 8 %312, ptr nonnull align 8 %2)
   %314 = extractvalue { ptr, i64 } %313, 0
   %315 = extractvalue { ptr, i64 } %313, 1
@@ -6748,7 +6748,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit262: ; preds = %225
 
 320:                                              ; preds = %310
   %321 = load ptr, ptr %303, align 8, !nonnull !4, !noundef !4
-  %322 = getelementptr inbounds { i64, [9 x i64] }, ptr %321, i64 %5
+  %322 = getelementptr inbounds [80 x i8], ptr %321, i64 %5
   %323 = call { ptr, i64 } @_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE(ptr nonnull align 8 %322, ptr nonnull align 8 %2)
   %324 = extractvalue { ptr, i64 } %323, 0
   %325 = extractvalue { ptr, i64 } %323, 1
@@ -6799,7 +6799,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit262: ; preds = %225
 341:                                              ; preds = %337
   %342 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %343 = load ptr, ptr %342, align 8, !nonnull !4, !noundef !4
-  %344 = getelementptr inbounds { i64, [9 x i64] }, ptr %343, i64 %5
+  %344 = getelementptr inbounds [80 x i8], ptr %343, i64 %5
   %345 = load i64, ptr %344, align 8, !range !3, !noundef !4
   %346 = icmp eq i64 %345, -9223372036854775808
   br i1 %346, label %348, label %350
@@ -6832,7 +6832,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit262: ; preds = %225
 _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit265: ; preds = %350
   %356 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %357 = load ptr, ptr %356, align 8, !nonnull !4, !noundef !4
-  %358 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %357, i64 %351
+  %358 = getelementptr inbounds [24 x i8], ptr %357, i64 %351
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
   %360 = load ptr, ptr %359, align 8, !nonnull !4, !noundef !4
   %361 = getelementptr inbounds nuw i8, ptr %358, i64 16
@@ -6883,7 +6883,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit265: ; preds = %350
 377:                                              ; preds = %373
   %378 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %379 = load ptr, ptr %378, align 8, !nonnull !4, !noundef !4
-  %380 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %379, i64 %371
+  %380 = getelementptr inbounds [24 x i8], ptr %379, i64 %371
   %381 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %382 = load i64, ptr %381, align 8, !noundef !4
   %383 = icmp ult i64 %5, %382
@@ -6896,7 +6896,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit265: ; preds = %350
 385:                                              ; preds = %377
   %386 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %387 = load ptr, ptr %386, align 8, !nonnull !4, !noundef !4
-  %388 = getelementptr inbounds { i64, [9 x i64] }, ptr %387, i64 %5
+  %388 = getelementptr inbounds [80 x i8], ptr %387, i64 %5
   %389 = load i64, ptr %388, align 8, !range !3, !noundef !4
   %390 = icmp eq i64 %389, -9223372036854775808
   %.0.v.i266 = select i1 %390, i64 48, i64 24
@@ -6910,7 +6910,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit265: ; preds = %350
   unreachable
 
 _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit268: ; preds = %385
-  %394 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %379, i64 %391
+  %394 = getelementptr inbounds [24 x i8], ptr %379, i64 %391
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
   %396 = load ptr, ptr %395, align 8, !nonnull !4, !noundef !4
   %397 = getelementptr inbounds nuw i8, ptr %394, i64 16
@@ -6926,7 +6926,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit268: ; preds = %385
   unreachable
 
 402:                                              ; preds = %_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit268
-  %403 = getelementptr inbounds { i64, [9 x i64] }, ptr %387, i64 %369
+  %403 = getelementptr inbounds [80 x i8], ptr %387, i64 %369
   %404 = load i64, ptr %403, align 8, !range !3, !noundef !4
   %405 = icmp eq i64 %404, -9223372036854775808
   %.0.v.i269 = select i1 %405, i64 48, i64 24
@@ -6940,7 +6940,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit268: ; preds = %385
   unreachable
 
 _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit271: ; preds = %402
-  %409 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %379, i64 %406
+  %409 = getelementptr inbounds [24 x i8], ptr %379, i64 %406
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
   %411 = load ptr, ptr %410, align 8, !nonnull !4, !noundef !4
   %412 = getelementptr inbounds nuw i8, ptr %409, i64 16
@@ -7191,7 +7191,7 @@ _ZN14cranelift_isle4sema8Bindings10exit_scope17ha9efbc9b06456769E.exit: ; preds 
 
 494:                                              ; preds = %491
   %495 = load ptr, ptr %431, align 8, !nonnull !4, !noundef !4
-  %496 = getelementptr i64, ptr %495, i64 %493
+  %496 = getelementptr [8 x i8], ptr %495, i64 %493
   %497 = getelementptr i8, ptr %496, i64 -8
   %498 = icmp eq ptr %497, null
   br i1 %498, label %.thread.i, label %499

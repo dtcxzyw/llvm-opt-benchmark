@@ -44,23 +44,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::allocator" = type { i8 }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%"struct.Assimp::ObjExporter::vertexData" = type { %class.aiVector3t, %struct.aiColor3D, i32 }
-%class.aiVector3t = type { float, float, float }
-%struct.aiColor3D = type { float, float, float }
 %class.aiColor4t = type { float, float, float, float }
 %struct.aiString = type { i32, [1024 x i8] }
-%"struct.Assimp::ObjExporter::Face" = type { i8, %"class.std::vector.71" }
-%"class.std::vector.71" = type { %"struct.std::_Vector_base.72" }
-%"struct.std::_Vector_base.72" = type { %"struct.std::_Vector_base<Assimp::ObjExporter::FaceVertex, std::allocator<Assimp::ObjExporter::FaceVertex>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::ObjExporter::FaceVertex, std::allocator<Assimp::ObjExporter::FaceVertex>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::ObjExporter::FaceVertex, std::allocator<Assimp::ObjExporter::FaceVertex>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::ObjExporter::FaceVertex, std::allocator<Assimp::ObjExporter::FaceVertex>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.aiFace = type { i32, ptr }
-%"struct.Assimp::ObjExporter::FaceVertex" = type { i32, i32, i32 }
-%"struct.Assimp::ObjExporter::MeshInstance" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.65" }
-%"class.std::vector.65" = type { %"struct.std::_Vector_base.66" }
-%"struct.std::_Vector_base.66" = type { %"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_ = comdat any
 
@@ -1857,7 +1842,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %30,
   br i1 %62, label %63, label %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE6resizeEm.exit.i
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::vertexData", ptr %53, i64 %50
+  %64 = getelementptr inbounds nuw [28 x i8], ptr %53, i64 %50
   %.not.i.i.i = icmp eq ptr %52, %64
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE6resizeEm.exit.i, label %65
 
@@ -1879,7 +1864,7 @@ _ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE6resizeEm.exit.i: ; preds
   %71 = load i32, ptr %70, align 4
   %72 = load ptr, ptr %48, align 8
   %73 = sext i32 %71 to i64
-  %74 = getelementptr %"struct.Assimp::ObjExporter::vertexData", ptr %72, i64 %73
+  %74 = getelementptr [28 x i8], ptr %72, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %75, ptr noundef nonnull align 4 dereferenceable(28) %69, i64 12, i1 false)
   %76 = getelementptr i8, ptr %74, i64 -16
@@ -2028,7 +2013,7 @@ _ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE7getK
   br i1 %186, label %187, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit.i
 
 187:                                              ; preds = %185
-  %188 = getelementptr inbounds nuw %class.aiVector3t, ptr %177, i64 %174
+  %188 = getelementptr inbounds nuw [12 x i8], ptr %177, i64 %174
   %.not.i.i.i64 = icmp eq ptr %176, %188
   br i1 %.not.i.i.i64, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit.i, label %189
 
@@ -2050,7 +2035,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit.i: ; preds = %189, %187, %185
   %195 = load i32, ptr %194, align 4
   %196 = load ptr, ptr %172, align 8
   %197 = sext i32 %195 to i64
-  %198 = getelementptr %class.aiVector3t, ptr %196, i64 %197
+  %198 = getelementptr [12 x i8], ptr %196, i64 %197
   %199 = getelementptr i8, ptr %198, i64 -12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %199, ptr noundef nonnull align 4 dereferenceable(12) %193, i64 12, i1 false)
   %200 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.03.08.i62) #27
@@ -2102,7 +2087,7 @@ _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysE
   br i1 %232, label %233, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit.i65
 
 233:                                              ; preds = %231
-  %234 = getelementptr inbounds nuw %class.aiVector3t, ptr %223, i64 %220
+  %234 = getelementptr inbounds nuw [12 x i8], ptr %223, i64 %220
   %.not.i.i.i70 = icmp eq ptr %222, %234
   br i1 %.not.i.i.i70, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit.i65, label %235
 
@@ -2124,7 +2109,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit.i65: ; preds = %235, %233, %2
   %241 = load i32, ptr %240, align 4
   %242 = load ptr, ptr %218, align 8
   %243 = sext i32 %241 to i64
-  %244 = getelementptr %class.aiVector3t, ptr %242, i64 %243
+  %244 = getelementptr [12 x i8], ptr %242, i64 %243
   %245 = getelementptr i8, ptr %244, i64 -12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %245, ptr noundef nonnull align 4 dereferenceable(12) %239, i64 12, i1 false)
   %246 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.03.08.i68) #27
@@ -2483,7 +2468,7 @@ define hidden void @_ZN6Assimp11ObjExporter17WriteMaterialFileEv(ptr noundef non
   %19 = phi ptr [ %8, %.lr.ph ], [ %249, %245 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.14, i64 noundef 7)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -3499,7 +3484,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 38:                                               ; preds = %17
   %39 = zext i32 %2 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %21, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %58
@@ -3949,10 +3934,10 @@ define hidden void @_ZN6Assimp11ObjExporter7AddNodeEPK6aiNodeRK12aiMatrix4x4tIfE
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %143 = load ptr, ptr %142, align 8
   %144 = load ptr, ptr %136, align 8
-  %145 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %indvars.iv
   %146 = load i32, ptr %145, align 4
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw ptr, ptr %143, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %147
   %149 = load ptr, ptr %148, align 8
   %.not = icmp eq ptr %149, null
   br i1 %.not, label %152, label %150
@@ -3980,7 +3965,7 @@ define hidden void @_ZN6Assimp11ObjExporter7AddNodeEPK6aiNodeRK12aiMatrix4x4tIfE
 157:                                              ; preds = %.lr.ph29, %157
   %indvars.iv33 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next34, %157 ]
   %158 = load ptr, ptr %139, align 8
-  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv33
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %indvars.iv33
   %160 = load ptr, ptr %159, align 8
   call void @_ZN6Assimp11ObjExporter7AddNodeEPK6aiNodeRK12aiMatrix4x4tIfEb(ptr noundef nonnull align 8 dereferenceable(1120) %0, ptr noundef %160, ptr noundef nonnull align 4 dereferenceable(64) %5, i1 noundef zeroext %3)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
@@ -4295,7 +4280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %_ZN
   br i1 %130, label %131, label %_ZNSt6vectorIN6Assimp11ObjExporter4FaceESaIS2_EE6resizeEm.exit
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::Face", ptr %121, i64 %118
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %118
   %.not.i.i = icmp eq ptr %120, %132
   br i1 %.not.i.i, label %_ZNSt6vectorIN6Assimp11ObjExporter4FaceESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -4372,9 +4357,9 @@ common.resume:                                    ; preds = %_ZNSt8_Rb_treeI10ai
 173:                                              ; preds = %.lr.ph215, %._crit_edge
   %indvars.iv223 = phi i64 [ 0, %.lr.ph215 ], [ %indvars.iv.next224, %._crit_edge ]
   %174 = load ptr, ptr %143, align 8
-  %175 = getelementptr inbounds nuw %struct.aiFace, ptr %174, i64 %indvars.iv223
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %indvars.iv223
   %176 = load ptr, ptr %115, align 8
-  %177 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::Face", ptr %176, i64 %indvars.iv223
+  %177 = getelementptr inbounds nuw [32 x i8], ptr %176, i64 %indvars.iv223
   %178 = load i32, ptr %175, align 8
   %switch.selectcmp = icmp eq i32 %178, 2
   %switch.select = select i1 %switch.selectcmp, i8 108, i8 102
@@ -4404,7 +4389,7 @@ common.resume:                                    ; preds = %_ZNSt8_Rb_treeI10ai
   br i1 %193, label %194, label %_ZNSt6vectorIN6Assimp11ObjExporter10FaceVertexESaIS2_EE6resizeEm.exit
 
 194:                                              ; preds = %192
-  %195 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::FaceVertex", ptr %184, i64 %181
+  %195 = getelementptr inbounds nuw [12 x i8], ptr %184, i64 %181
   %.not.i.i87 = icmp eq ptr %183, %195
   br i1 %.not.i.i87, label %_ZNSt6vectorIN6Assimp11ObjExporter10FaceVertexESaIS2_EE6resizeEm.exit, label %196
 
@@ -4431,12 +4416,12 @@ _ZNSt6vectorIN6Assimp11ObjExporter10FaceVertexESaIS2_EE6resizeEm.exit: ; preds =
 202:                                              ; preds = %.lr.ph, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit130
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit130 ]
   %203 = load ptr, ptr %198, align 8
-  %204 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %indvars.iv
   %205 = load i32, ptr %204, align 4
   %206 = select i1 %4, i32 0, i32 %205
   %207 = load ptr, ptr %144, align 8
   %208 = zext i32 %205 to i64
-  %209 = getelementptr inbounds nuw %class.aiVector3t, ptr %207, i64 %208
+  %209 = getelementptr inbounds nuw [12 x i8], ptr %207, i64 %208
   %210 = load float, ptr %3, align 4
   %211 = load float, ptr %209, align 4
   %212 = load float, ptr %145, align 4
@@ -4473,7 +4458,7 @@ _ZNSt6vectorIN6Assimp11ObjExporter10FaceVertexESaIS2_EE6resizeEm.exit: ; preds =
   br i1 %.not70, label %478, label %240
 
 240:                                              ; preds = %202
-  %241 = getelementptr inbounds nuw %class.aiColor4t, ptr %239, i64 %208
+  %241 = getelementptr inbounds nuw [16 x i8], ptr %239, i64 %208
   %.sroa.01.0.copyload = load float, ptr %241, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -5387,7 +5372,7 @@ _ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairI
 _ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE8getIndexERKS2_.exit: ; preds = %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit157, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE4findERS4_.exit173, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE4findERS4_.exit
   %.0.i90.sink = phi i32 [ %476, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit ], [ %325, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE4findERS4_.exit ], [ %562, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE4findERS4_.exit173 ], [ %713, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit157 ]
   %715 = load ptr, ptr %179, align 8
-  %716 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::FaceVertex", ptr %715, i64 %indvars.iv
+  %716 = getelementptr inbounds nuw [12 x i8], ptr %715, i64 %indvars.iv
   store i32 %.0.i90.sink, ptr %716, align 4
   %717 = load ptr, ptr %161, align 8
   %.not71 = icmp eq ptr %717, null
@@ -5403,7 +5388,7 @@ _ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE8getI
   %725 = load float, ptr %152, align 4
   %726 = load float, ptr %153, align 4
   %727 = load float, ptr %154, align 4
-  %728 = getelementptr inbounds nuw %class.aiVector3t, ptr %717, i64 %208
+  %728 = getelementptr inbounds nuw [12 x i8], ptr %717, i64 %208
   %729 = load float, ptr %728, align 4
   %730 = getelementptr inbounds nuw i8, ptr %728, i64 4
   %731 = load float, ptr %730, align 4
@@ -5663,7 +5648,7 @@ _ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_
 _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit: ; preds = %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE8getIndexERKS2_.exit, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i
   %.sink434 = phi i32 [ %849, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i ], [ %778, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i ], [ 0, %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE8getIndexERKS2_.exit ]
   %851 = load ptr, ptr %179, align 8
-  %852 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::FaceVertex", ptr %851, i64 %indvars.iv
+  %852 = getelementptr inbounds nuw [12 x i8], ptr %851, i64 %indvars.iv
   %853 = getelementptr inbounds nuw i8, ptr %852, i64 4
   store i32 %.sink434, ptr %853, align 4
   %854 = load ptr, ptr %167, align 8
@@ -5671,7 +5656,7 @@ _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndex
   br i1 %.not72, label %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit130, label %855
 
 855:                                              ; preds = %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit
-  %856 = getelementptr inbounds nuw %class.aiVector3t, ptr %854, i64 %208
+  %856 = getelementptr inbounds nuw [12 x i8], ptr %854, i64 %208
   %857 = load ptr, ptr %170, align 8
   %.not14.i.i.i.i98 = icmp eq ptr %857, null
   br i1 %.not14.i.i.i.i98, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.thread.i129, label %.lr.ph.i.i.i.i99
@@ -5924,7 +5909,7 @@ _ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_
 _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit130: ; preds = %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127
   %.sink438 = phi i32 [ %972, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121 ], [ %898, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127 ], [ 0, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit ]
   %974 = load ptr, ptr %179, align 8
-  %975 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::FaceVertex", ptr %974, i64 %indvars.iv
+  %975 = getelementptr inbounds nuw [12 x i8], ptr %974, i64 %indvars.iv
   %976 = getelementptr inbounds nuw i8, ptr %975, i64 8
   store i32 %.sink438, ptr %976, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6393,9 +6378,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp11ObjExporter10vertexDataES3_S
 
 _ZNSt12_Vector_baseIN6Assimp11ObjExporter10vertexDataESaIS2_EE13_M_deallocateEPS2_m.exit46: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp11ObjExporter10vertexDataES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %43
   store ptr %26, ptr %0, align 8
-  %45 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::vertexData", ptr %27, i64 %1
+  %45 = getelementptr inbounds nuw [28 x i8], ptr %27, i64 %1
   store ptr %45, ptr %4, align 8
-  %46 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::vertexData", ptr %26, i64 %24
+  %46 = getelementptr inbounds nuw [28 x i8], ptr %26, i64 %24
   store ptr %46, ptr %11, align 8
   br label %47
 
@@ -6482,9 +6467,9 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds =
 
 _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %31
   store ptr %26, ptr %0, align 8
-  %33 = getelementptr inbounds nuw %class.aiVector3t, ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8
-  %34 = getelementptr inbounds nuw %class.aiVector3t, ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8
   br label %35
 
@@ -6742,7 +6727,7 @@ _ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_S_relocateEPS2_S5_S5
 _ZNSt12_Vector_baseIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29, %108
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i28, ptr %3, align 8
-  %112 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::MeshInstance", ptr %21, i64 %15
+  %112 = getelementptr inbounds nuw [88 x i8], ptr %21, i64 %15
   store ptr %112, ptr %107, align 8
   ret void
 }
@@ -6915,9 +6900,9 @@ _ZNSt6vectorIN6Assimp11ObjExporter4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 
 _ZNSt12_Vector_baseIN6Assimp11ObjExporter4FaceESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN6Assimp11ObjExporter4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %41
   store ptr %26, ptr %0, align 8
-  %45 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::Face", ptr %27, i64 %1
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %1
   store ptr %45, ptr %4, align 8
-  %46 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::Face", ptr %26, i64 %24
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %24
   store ptr %46, ptr %11, align 8
   br label %47
 
@@ -6998,9 +6983,9 @@ _ZNSt6vectorIN6Assimp11ObjExporter10FaceVertexESaIS2_EE11_S_relocateEPS2_S5_S5_R
 
 _ZNSt12_Vector_baseIN6Assimp11ObjExporter10FaceVertexESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN6Assimp11ObjExporter10FaceVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %31
   store ptr %26, ptr %0, align 8
-  %33 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::FaceVertex", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8
-  %34 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::FaceVertex", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8
   br label %35
 

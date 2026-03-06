@@ -3,9 +3,6 @@ source_filename = "bench/llvm/original/TrieRawHashMap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::LazyAtomicPointer" = type { %"struct.std::atomic.15" }
-%"struct.std::atomic.15" = type { %"struct.std::__atomic_base.16" }
-%"struct.std::__atomic_base.16" = type { i64 }
 %"class.llvm::function_ref" = type { ptr, i64 }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
@@ -24,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.34" = type { %"class.llvm::SmallVectorBase.35" }
 %"class.llvm::SmallVectorBase.35" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.36" = type { [16 x i8] }
-%"struct.std::pair" = type { ptr, i64 }
 
 $_ZN4llvm5toHexB5cxx11ENS_8ArrayRefIhEEb = comdat any
 
@@ -162,7 +158,7 @@ _ZN4llvm22TrieHashIndexGenerator4nextEv.exit:     ; preds = %.lr.ph.preheader.i.
   %30 = icmp ne i64 %.0.i, -1
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 128
-  %32 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %31, i64 %.0.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.0.i
   %33 = load atomic i64, ptr %32 seq_cst, align 8
   %34 = add i64 %33, 1
   %.not28119 = icmp ult i64 %34, 2
@@ -303,7 +299,7 @@ _ZN4llvm22TrieHashIndexGenerator4nextEv.exit74:   ; preds = %69, %.critedge, %55
   %85 = icmp ne i64 %.0.i52, -1
   tail call void @llvm.assume(i1 %85)
   %86 = getelementptr inbounds nuw i8, ptr %spec.select.i.i123154, i64 24
-  %87 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %86, i64 %.0.i52
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.0.i52
   %88 = load atomic i64, ptr %87 seq_cst, align 8
   %89 = add i64 %88, 1
   %.not28 = icmp ult i64 %89, 2
@@ -457,7 +453,7 @@ _ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer379: ; preds = %_ZN4l
   %71 = icmp ne i64 %.130.ph380, -1
   tail call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds nuw i8, ptr %.1.ph381, i64 24
-  %73 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %72, i64 %.130.ph380
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.130.ph380
   br label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread
 
 _ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread: ; preds = %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer379, %_ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit.thread237
@@ -832,7 +828,7 @@ _ZNK4llvm22TrieHashIndexGenerator16getCollidingBitsENS_8ArrayRefIhEE.exit: ; pre
   store ptr null, ptr %259, align 8, !tbaa !45, !noalias !77
   %260 = getelementptr inbounds nuw i8, ptr %255, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %260, i8 0, i64 %253, i1 false), !tbaa !46, !noalias !77
-  %261 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %260, i64 %.139.i.i
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %.139.i.i
   %262 = cmpxchg weak ptr %261, i64 0, i64 %.sink seq_cst seq_cst, align 8
   %263 = extractvalue { i64, i1 } %262, 1
   br i1 %263, label %_ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE5storeEPS2_.exit.i, label %_ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE21compare_exchange_weakERPS2_S4_.exit.i.i.i
@@ -848,7 +844,7 @@ _ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE21compare_exchange_weakERP
 
 _ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE5storeEPS2_.exit.i: ; preds = %_ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE21compare_exchange_weakERPS2_S4_.exit.i.i.i, %_ZNK4llvm22TrieHashIndexGenerator16getCollidingBitsENS_8ArrayRefIhEE.exit
   %270 = getelementptr inbounds nuw i8, ptr %.5265, i64 24
-  %271 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %270, i64 %.534264
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %.534264
   %272 = ptrtoint ptr %255 to i64
   %273 = cmpxchg ptr %271, i64 %.sink, i64 %272 seq_cst seq_cst, align 8
   %274 = extractvalue { i64, i1 } %273, 1
@@ -1063,7 +1059,7 @@ define dso_local void @_ZN4llvm28ThreadSafeTrieRawHashMapBase11destroyImplENS_12
 
 14:                                               ; preds = %.lr.ph, %_ZN4llvm16dyn_cast_or_nullIN12_GLOBAL__N_111TrieContentENS1_8TrieNodeEEEDaPT0_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm16dyn_cast_or_nullIN12_GLOBAL__N_111TrieContentENS1_8TrieNodeEEEDaPT0_.exit.thread ]
-  %15 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %16 = load atomic i64, ptr %15 seq_cst, align 8
   %17 = inttoptr i64 %16 to ptr
   %18 = add i64 %16, 1
@@ -1192,7 +1188,7 @@ define dso_local noundef i32 @_ZNK4llvm28ThreadSafeTrieRawHashMapBase14getNumSlo
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.01120 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %9 ]
-  %10 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load atomic i64, ptr %10 seq_cst, align 8
   %12 = add i64 %11, -1
   %.not16 = icmp ult i64 %12, -2
@@ -1257,7 +1253,7 @@ define dso_local void @_ZNK4llvm28ThreadSafeTrieRawHashMapBase21getTriePrefixAsS
 
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %20 = getelementptr inbounds nuw %"class.llvm::LazyAtomicPointer", ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %21 = load atomic i64, ptr %20 seq_cst, align 8
   %22 = add i64 %21, 1
   %.not55 = icmp ult i64 %22, 2
@@ -1833,7 +1829,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !15
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1874,7 +1870,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !15
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !18

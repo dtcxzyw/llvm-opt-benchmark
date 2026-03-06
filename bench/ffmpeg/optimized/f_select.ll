@@ -385,19 +385,19 @@ get_concatdec_select.exit.i:                      ; preds = %67, %66, %62, %37
   %.0391.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %161, %144 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %145 = load ptr, ptr %116, align 8, !tbaa !61
-  %146 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv.i.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv.i.i
   %147 = load ptr, ptr %146, align 8, !tbaa !62
-  %148 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.i.i
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv.i.i
   %149 = load i32, ptr %148, align 4, !tbaa !63
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i.i
   %152 = load ptr, ptr %151, align 8, !tbaa !62
-  %153 = getelementptr inbounds nuw i32, ptr %117, i64 %indvars.iv.i.i
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i.i
   %154 = load i32, ptr %153, align 4, !tbaa !63
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds nuw i64, ptr %118, i64 %indvars.iv.i.i
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv.i.i
   %157 = load i64, ptr %156, align 8, !tbaa !64
-  %158 = getelementptr inbounds nuw i64, ptr %119, i64 %indvars.iv.i.i
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv.i.i
   %159 = load i64, ptr %158, align 8, !tbaa !64
   call void %145(ptr noundef %147, i64 noundef %150, ptr noundef %152, i64 noundef %155, i64 noundef %157, i64 noundef %159, ptr noundef nonnull %4) #11
   %160 = load i64, ptr %4, align 8, !tbaa !64
@@ -569,7 +569,7 @@ select_frame.exit:                                ; preds = %231, %235, %245
   %258 = load ptr, ptr %257, align 8, !tbaa !74
   %259 = load i32, ptr %232, align 8, !tbaa !73
   %260 = sext i32 %259 to i64
-  %261 = getelementptr inbounds ptr, ptr %258, i64 %260
+  %261 = getelementptr inbounds [8 x i8], ptr %258, i64 %260
   %262 = load ptr, ptr %261, align 8, !tbaa !37
   %263 = call i32 @ff_filter_frame(ptr noundef %262, ptr noundef nonnull %1) #11
   br label %265
@@ -729,7 +729,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %85 = icmp sgt i32 %84, 8
   %86 = zext i1 %85 to i64
   %87 = ashr i64 %81, %86
-  %88 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   store i64 %87, ptr %88, align 8, !tbaa !64
   %89 = trunc i64 %indvars.iv to i32
   %90 = add i32 %89, -1
@@ -740,7 +740,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %94 = sub nsw i32 0, %93
   %95 = select i1 %or.cond, i32 %94, i32 %91
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   store i64 %96, ptr %97, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load i32, ptr %29, align 4, !tbaa !58

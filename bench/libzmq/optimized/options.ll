@@ -1855,7 +1855,7 @@ _ZNSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 _ZNSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, %28
   store ptr %23, ptr %0, align 8, !tbaa !115
   store ptr %27, ptr %3, align 8, !tbaa !116
-  %29 = getelementptr inbounds nuw %"class.zmq::tcp_address_mask_t", ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8, !tbaa !121
   br label %30
 

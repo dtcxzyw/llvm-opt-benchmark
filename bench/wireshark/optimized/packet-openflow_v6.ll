@@ -2766,7 +2766,7 @@ dissect_openflow_hello_element_v6.exit.i:         ; preds = %61, %60
 
 switch.lookup:                                    ; preds = %67
   %73 = zext nneg i32 %71 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_openflow_message_v6, i64 %73
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_openflow_message_v6, i64 %73
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %74
 

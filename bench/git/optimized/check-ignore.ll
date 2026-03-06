@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.cache_time = type { i32, i32 }
 %struct.object_id = type { [32 x i8], i32 }
 %struct.pathspec = type { i32, i8, i32, i32, ptr }
-%struct.pathspec_item = type { ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr }
 
 @check_ignore_usage = internal constant [3 x ptr] [ptr @.str.21, ptr @.str.22, ptr null], align 16
 @stdin_paths = internal global i32 0, align 4
@@ -348,7 +347,7 @@ define internal fastcc i32 @check_ignore(ptr noundef nonnull %0, ptr noundef %1,
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %22, align 8, !tbaa !44
-  %28 = getelementptr inbounds nuw %struct.pathspec_item, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !9
@@ -390,7 +389,7 @@ define internal fastcc i32 @check_ignore(ptr noundef nonnull %0, ptr noundef %1,
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %22, align 8, !tbaa !44
-  %50 = getelementptr inbounds nuw %struct.pathspec_item, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !49
   %.not.i = icmp eq ptr %.0, null

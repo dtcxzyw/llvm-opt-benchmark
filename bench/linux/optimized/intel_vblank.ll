@@ -13,21 +13,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.75 }
 %union.anon.75 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.drm_vblank_crtc = type { ptr, %struct.wait_queue_head, %struct.timer_list, %struct.seqlock_t, %struct.atomic64_t, i64, %struct.atomic_t, i32, i32, i32, i32, i32, i32, %struct.drm_display_mode, i8, ptr, %struct.list_head, %struct.wait_queue_head }
-%struct.timer_list = type { %struct.hlist_node, i64, ptr, i32 }
-%struct.hlist_node = type { ptr, ptr }
-%struct.seqlock_t = type { %struct.seqcount_spinlock, %struct.spinlock }
-%struct.seqcount_spinlock = type { %struct.seqcount }
-%struct.seqcount = type { i32 }
-%struct.spinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon }
-%union.anon = type { %struct.atomic_t }
-%struct.atomic64_t = type { i64 }
 %struct.drm_display_mode = type { i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i32, i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, %struct.list_head, [32 x i8], i32, i32 }
 %struct.list_head = type { ptr, ptr }
-%struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
 
 @.str = private unnamed_addr constant [10 x i8] c"%s %s: %s\00", align 1
 @.str.1 = private unnamed_addr constant [40 x i8] c"drm_WARN_ON((mode_flags & (1<<6)) == 0)\00", align 1
@@ -56,7 +43,7 @@ define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.drm_vblank_crtc, ptr %4, i64 %7
+  %8 = getelementptr [304 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
@@ -88,7 +75,7 @@ define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr noundef
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %37 = sext i32 %14 to i64
-  %38 = getelementptr i32, ptr %36, i64 %37
+  %38 = getelementptr [4 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %36, align 4
   %41 = sub i32 %39, %40
@@ -244,7 +231,7 @@ define dso_local i32 @g4x_get_vblank_counter(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.drm_vblank_crtc, ptr %4, i64 %7
+  %.split = getelementptr [304 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 104
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
@@ -257,7 +244,7 @@ define dso_local i32 @g4x_get_vblank_counter(ptr noundef readonly captures(none)
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %17 = sext i32 %13 to i64
-  %18 = getelementptr i32, ptr %16, i64 %17
+  %18 = getelementptr [4 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %16, align 4
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -284,7 +271,7 @@ define dso_local range(i32 -65534, 65535) i32 @intel_crtc_scanline_to_hw(ptr nou
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %.split = getelementptr %struct.drm_vblank_crtc, ptr %5, i64 %8
+  %.split = getelementptr [304 x i8], ptr %5, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 184
   %10 = load i16, ptr %9, align 8
   %11 = zext i16 %10 to i32
@@ -457,7 +444,7 @@ define internal noundef zeroext i1 @i915_get_crtc_scanoutpos(ptr noundef readonl
   %104 = load ptr, ptr %12, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 36
   %106 = sext i32 %11 to i64
-  %107 = getelementptr i32, ptr %105, i64 %106
+  %107 = getelementptr [4 x i8], ptr %105, i64 %106
   %108 = load i32, ptr %107, align 4
   %109 = load i32, ptr %105, align 4
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 32
@@ -625,7 +612,7 @@ define internal fastcc range(i32 -65534, 65535) i32 @__intel_get_crtc_scanline(p
   %15 = and i8 %14, 2
   %16 = icmp eq i8 %15, 0
   %17 = zext i32 %12 to i64
-  %.split = getelementptr %struct.drm_vblank_crtc, ptr %10, i64 %17
+  %.split = getelementptr [304 x i8], ptr %10, i64 %17
   br i1 %16, label %30, label %18
 
 18:                                               ; preds = %8
@@ -655,7 +642,7 @@ define internal fastcc range(i32 -65534, 65535) i32 @__intel_get_crtc_scanline(p
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 36
   %42 = sext i32 %4 to i64
-  %43 = getelementptr i32, ptr %41, i64 %42
+  %43 = getelementptr [4 x i8], ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = load i32, ptr %41, align 4
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -744,7 +731,7 @@ define internal fastcc range(i32 -65534, 65535) i32 @__intel_get_crtc_scanline(p
   tail call void @__const_udelay(i64 noundef 4295) #10
   %100 = load ptr, ptr %39, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 36
-  %102 = getelementptr i32, ptr %101, i64 %42
+  %102 = getelementptr [4 x i8], ptr %101, i64 %42
   %103 = load i32, ptr %102, align 4
   %104 = load i32, ptr %101, align 4
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 32
@@ -851,7 +838,7 @@ define internal fastcc void @wait_for_pipe_scanline_moving(ptr %.0.val, i32 %.16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !32
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  %15 = getelementptr i32, ptr %14, i64 %6
+  %15 = getelementptr [4 x i8], ptr %14, i64 %6
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr %14, align 4
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -1078,7 +1065,7 @@ define internal fastcc i32 @intel_crtc_scanlines_since_frame_timestamp(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.drm_vblank_crtc, ptr %4, i64 %7
+  %.split = getelementptr [304 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 170
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %.split, i64 156

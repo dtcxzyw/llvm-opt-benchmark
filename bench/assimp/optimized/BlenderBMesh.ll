@@ -3,13 +3,10 @@ source_filename = "bench/assimp/original/BlenderBMesh.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.Assimp::Blender::MPoly" = type <{ %"struct.Assimp::Blender::ElemBase", i32, i32, i16, i8, [5 x i8] }>
-%"struct.Assimp::Blender::ElemBase" = type { ptr, ptr }
 %"struct.Assimp::Blender::MTFace" = type { %"struct.Assimp::Blender::ElemBase", [4 x [2 x float]], i8, i16, i16, i16 }
+%"struct.Assimp::Blender::ElemBase" = type { ptr, ptr }
 %"struct.Assimp::Blender::MFace" = type <{ %"struct.Assimp::Blender::ElemBase", i32, i32, i32, i32, i32, i8, [3 x i8] }>
 %"class.Assimp::BlenderTessellatorP2T" = type { ptr }
-%"struct.Assimp::Blender::MLoop" = type { %"struct.Assimp::Blender::ElemBase", i32, i32 }
-%"struct.Assimp::Blender::MLoopUV" = type <{ %"struct.Assimp::Blender::ElemBase", [2 x float], i32, [4 x i8] }>
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -512,7 +509,7 @@ _ZN6Assimp21BlenderBMeshConverter14PrepareTriMeshEv.exit: ; preds = %23, %_ZSt8_
   %39 = phi ptr [ %43, %.lr.ph ], [ %34, %_ZN6Assimp21BlenderBMeshConverter14PrepareTriMeshEv.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1288
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw %"struct.Assimp::Blender::MPoly", ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %indvars.iv
   tail call void @_ZN6Assimp21BlenderBMeshConverter18ConvertPolyToFacesERKNS_7Blender5MPolyE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(27) %42)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load ptr, ptr %0, align 8
@@ -711,7 +708,7 @@ define hidden void @_ZN6Assimp21BlenderBMeshConverter18ConvertPolyToFacesERKNS_7
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds nuw %"struct.Assimp::Blender::MLoop", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %15 = load i32, ptr %14, align 4
   %.off = add i32 %15, -3
@@ -830,7 +827,7 @@ _ZN6Assimp21BlenderBMeshConverter7AddFaceEiiii.exit: ; preds = %42, %47
 
 80:                                               ; preds = %65
   %81 = sext i32 %70 to i64
-  %82 = getelementptr inbounds nuw %"struct.Assimp::Blender::MLoopUV", ptr %64, i64 %81
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 80
@@ -5236,7 +5233,7 @@ _ZNSt6vectorIN6Assimp7Blender5MFaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22:
 _ZNSt12_Vector_baseIN6Assimp7Blender5MFaceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp7Blender5MFaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %47
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %51 = getelementptr inbounds nuw %"struct.Assimp::Blender::MFace", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8
   ret void
 }
@@ -5348,7 +5345,7 @@ _ZNSt6vectorIN6Assimp7Blender6MTFaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
 _ZNSt12_Vector_baseIN6Assimp7Blender6MTFaceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp7Blender6MTFaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %47
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %51 = getelementptr inbounds nuw %"struct.Assimp::Blender::MTFace", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8
   ret void
 }

@@ -7,38 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.MapNode = type { i16, i8, i8 }
-%struct.ContentFeatures = type <{ [6 x %struct.TileSpec], [6 x %struct.TileSpec], i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::unordered_map.53", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", [24 x ptr], %"class.irr::video::SColor", float, [6 x %struct.TileDef], [6 x %struct.TileDef], [6 x %struct.TileDef], i8, [3 x i8], %"class.irr::video::SColor", %"class.std::__cxx11::basic_string", ptr, i8, i8, [6 x i8], %"class.std::vector.69", %"class.std::vector.74", %"class.irr::video::SColor", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8], %"class.std::__cxx11::basic_string", i16, i8, i8, i8, i8, i8, i8, %struct.NodeBox, %struct.NodeBox, %struct.NodeBox, %struct.SoundSpec, %struct.SoundSpec, %struct.SoundSpec, i8, i8, [6 x i8] }>
-%struct.TileSpec = type { i8, i8, i8, [5 x i8], [2 x %struct.TileLayer] }
-%struct.TileLayer = type <{ ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i8, i8, ptr, %"class.irr::video::SColor", i8, [3 x i8] }>
-%"class.std::unordered_map.53" = type { %"class.std::_Hashtable.54" }
-%"class.std::_Hashtable.54" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.TileDef = type <{ %"class.std::__cxx11::basic_string", i8, i8, i8, i8, %"class.irr::video::SColor", i8, i8, [2 x i8], %struct.TileAnimationParams, [4 x i8] }>
-%struct.TileAnimationParams = type { i8, %union.anon.67 }
-%union.anon.67 = type { %struct.anon }
-%struct.anon = type { i32, i32, float }
-%"class.std::vector.69" = type { %"struct.std::_Vector_base.70" }
-%"struct.std::_Vector_base.70" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.74" = type { %"struct.std::_Vector_base.75" }
-%"struct.std::_Vector_base.75" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::video::SColor" = type { i32 }
-%struct.NodeBox = type { i8, %"class.std::vector.79", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.std::shared_ptr" }
-%"class.std::vector.79" = type { %"struct.std::_Vector_base.80" }
-%"struct.std::_Vector_base.80" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::core::aabbox3d" = type { %"class.irr::core::vector3d.0", %"class.irr::core::vector3d.0" }
-%"class.irr::core::vector3d.0" = type { float, float, float }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%struct.SoundSpec = type <{ %"class.std::__cxx11::basic_string", float, float, float, float, i8, i8, [6 x i8] }>
 %"class.irr::core::vector3d" = type { i16, i16, i16 }
 %"class.std::allocator.46" = type { i8 }
 
@@ -480,7 +448,7 @@ for.body24:                                       ; preds = %if.end43, %for.body
   %x.0226 = phi i16 [ %nmin.sroa.0.0.extract.trunc, %for.body16 ], [ %inc44, %if.end43 ]
   %7 = load ptr, ptr %m_data, align 8, !tbaa !65
   %idxprom = zext i32 %i.0227 to i64
-  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %7, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %idxprom
   %8 = load i16, ptr %arrayidx, align 4, !tbaa !67
   %9 = load ptr, ptr %ndef, align 8, !tbaa !27
   %conv.i173 = zext i16 %8 to i64
@@ -496,7 +464,7 @@ for.body24:                                       ; preds = %if.end43, %for.body
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZNK14NodeDefManager3getEt.exit.thread218
 
 land.lhs.true.i:                                  ; preds = %for.body24
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %11, i64 %conv.i173
+  %add.ptr.i.i = getelementptr inbounds nuw [3712 x i8], ptr %11, i64 %conv.i173
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1456
   %12 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !37
   %cmp.i.i = icmp eq i64 %12, 0
@@ -631,7 +599,7 @@ for.body100:                                      ; preds = %if.end124, %for.bod
   %i88.0240 = phi i32 [ %add21.i212, %for.body87 ], [ %inc125, %if.end124 ]
   %31 = load ptr, ptr %m_data101, align 8, !tbaa !65
   %idxprom102 = zext i32 %i88.0240 to i64
-  %arrayidx103 = getelementptr inbounds nuw %struct.MapNode, ptr %31, i64 %idxprom102
+  %arrayidx103 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %idxprom102
   %32 = load i16, ptr %arrayidx103, align 4, !tbaa !67
   %33 = load i16, ptr %c_wall, align 4, !tbaa !41
   %cmp108 = icmp eq i16 %32, %33
@@ -646,7 +614,7 @@ if.then109:                                       ; preds = %for.body100
 
 if.then117:                                       ; preds = %if.then109
   %35 = load ptr, ptr %m_data101, align 8, !tbaa !65
-  %arrayidx120 = getelementptr inbounds nuw %struct.MapNode, ptr %35, i64 %idxprom102
+  %arrayidx120 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %idxprom102
   %36 = load i16, ptr %c_alt_wall, align 2, !tbaa !44
   store i16 %36, ptr %arrayidx120, align 4, !tbaa !67
   br label %if.end124
@@ -854,7 +822,7 @@ for.body131.us.us.us:                             ; preds = %cleanup.us.us.us, %
 
 cleanup.us.us.us:                                 ; preds = %for.body131.us.us.us
   %29 = load ptr, ptr %m_data, align 8, !tbaa !65
-  %arrayidx143.us.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %29, i64 %idxprom.us.us.us
+  %arrayidx143.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %idxprom.us.us.us
   %30 = load i16, ptr %arrayidx143.us.us.us, align 4, !tbaa !67
   %cmp146.not.us.us.us = icmp ne i16 %30, 127
   %spec.select371.us.us.us = select i1 %cmp146.not.us.us.us, i8 %fits.3505.us.us.us, i8 0
@@ -1371,7 +1339,7 @@ if.end.us:                                        ; preds = %_ZNK9VoxelArea8cont
 cleanup.cont.us:                                  ; preds = %if.end.us
   %m_data.us = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %m_data.us, align 8, !tbaa !65
-  %arrayidx22.us = getelementptr inbounds nuw %struct.MapNode, ptr %13, i64 %idxprom.us
+  %arrayidx22.us = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %idxprom.us
   store i32 %n_wall.sroa.0.0.insert.ext799, ptr %arrayidx22.us, align 4, !tbaa.struct !120
   %retval.sroa.0.0.insert.insert.i387.us = or disjoint i48 %retval.sroa.2.0.insert.shift.i.us, %retval.sroa.0.0.insert.ext.i386
   %14 = load ptr, ptr %this, align 8, !tbaa !4
@@ -1441,7 +1409,7 @@ if.end35.us:                                      ; preds = %_ZNK9VoxelArea8cont
 if.end49.us:                                      ; preds = %if.end35.us
   %m_data51.us = getelementptr inbounds nuw i8, ptr %14, i64 32
   %26 = load ptr, ptr %m_data51.us, align 8, !tbaa !65
-  %arrayidx53.us = getelementptr inbounds nuw %struct.MapNode, ptr %26, i64 %idxprom43.us
+  %arrayidx53.us = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %idxprom43.us
   store i32 %n_wall.sroa.0.0.insert.ext799, ptr %arrayidx53.us, align 4, !tbaa.struct !120
   %.pre = load ptr, ptr %this, align 8, !tbaa !4
   br label %for.inc.us
@@ -1588,7 +1556,7 @@ if.end87.us:                                      ; preds = %_ZNK9VoxelArea8cont
 cleanup.cont109.us:                               ; preds = %if.end87.us
   %m_data103.us = getelementptr inbounds nuw i8, ptr %36, i64 32
   %49 = load ptr, ptr %m_data103.us, align 8, !tbaa !65
-  %arrayidx105.us = getelementptr inbounds nuw %struct.MapNode, ptr %49, i64 %idxprom95.us
+  %arrayidx105.us = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %idxprom95.us
   store i32 %n_wall.sroa.0.0.insert.ext791970.pre-phi, ptr %arrayidx105.us, align 4, !tbaa.struct !120
   %50 = load ptr, ptr %this, align 8, !tbaa !4
   %m_area119.us = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -1651,7 +1619,7 @@ if.end123.us:                                     ; preds = %_ZNK9VoxelArea8cont
 if.end137.us:                                     ; preds = %if.end123.us
   %m_data139.us = getelementptr inbounds nuw i8, ptr %50, i64 32
   %62 = load ptr, ptr %m_data139.us, align 8, !tbaa !65
-  %arrayidx141.us = getelementptr inbounds nuw %struct.MapNode, ptr %62, i64 %idxprom131.us
+  %arrayidx141.us = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %idxprom131.us
   store i32 %n_wall.sroa.0.0.insert.ext791970.pre-phi, ptr %arrayidx141.us, align 4, !tbaa.struct !120
   %.pre12 = load ptr, ptr %this, align 8, !tbaa !4
   br label %for.inc146.us
@@ -1767,7 +1735,7 @@ if.end179.us:                                     ; preds = %_ZNK9VoxelArea8cont
 cleanup.cont201.us:                               ; preds = %if.end179.us
   %m_data195.us = getelementptr inbounds nuw i8, ptr %64, i64 32
   %76 = load ptr, ptr %m_data195.us, align 8, !tbaa !65
-  %arrayidx197.us = getelementptr inbounds nuw %struct.MapNode, ptr %76, i64 %idxprom187.us
+  %arrayidx197.us = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %idxprom187.us
   store i32 %n_wall.sroa.0.0.insert.ext.pre-phi, ptr %arrayidx197.us, align 4, !tbaa.struct !120
   %retval.sroa.0.0.insert.insert.i663.us = or disjoint i48 %retval.sroa.2.0.insert.shift.i660, %retval.sroa.0.0.insert.ext.i593.us
   %77 = load ptr, ptr %this, align 8, !tbaa !4
@@ -1837,7 +1805,7 @@ if.end215.us:                                     ; preds = %_ZNK9VoxelArea8cont
 if.end229.us:                                     ; preds = %if.end215.us
   %m_data231.us = getelementptr inbounds nuw i8, ptr %77, i64 32
   %89 = load ptr, ptr %m_data231.us, align 8, !tbaa !65
-  %arrayidx233.us = getelementptr inbounds nuw %struct.MapNode, ptr %89, i64 %idxprom223.us
+  %arrayidx233.us = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %idxprom223.us
   store i32 %n_wall.sroa.0.0.insert.ext.pre-phi, ptr %arrayidx233.us, align 4, !tbaa.struct !120
   %.pre14 = load ptr, ptr %this, align 8, !tbaa !4
   br label %for.inc238.us
@@ -1954,7 +1922,7 @@ if.end282.us.us.us:                               ; preds = %_ZNK9VoxelArea8cont
   %103 = load ptr, ptr %this, align 8, !tbaa !4
   %m_data295.us.us.us = getelementptr inbounds nuw i8, ptr %103, i64 32
   %104 = load ptr, ptr %m_data295.us.us.us, align 8, !tbaa !65
-  %arrayidx297.us.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %104, i64 %idxprom290.us.us.us
+  %arrayidx297.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %idxprom290.us.us.us
   store i32 126, ptr %arrayidx297.us.us.us, align 4, !tbaa.struct !120
   %.pre16 = load ptr, ptr %this, align 8, !tbaa !4
   br label %cleanup298.us.us.us
@@ -2186,7 +2154,7 @@ if.end.i:                                         ; preds = %land.lhs.true9.i158
 
 if.end6.i:                                        ; preds = %if.end.i
   %30 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i = getelementptr inbounds %struct.MapNode, ptr %30, i64 %idxprom.i
+  %arrayidx11.i = getelementptr inbounds [4 x i8], ptr %30, i64 %idxprom.i
   %31 = load i32, ptr %arrayidx11.i, align 4, !tbaa.struct !120
   %32 = trunc i32 %31 to i16
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
@@ -2211,7 +2179,7 @@ if.end.i222:                                      ; preds = %_ZN16VoxelManipulat
 
 if.end6.i238:                                     ; preds = %if.end.i222
   %35 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i240 = getelementptr inbounds %struct.MapNode, ptr %35, i64 %idxprom.i235
+  %arrayidx11.i240 = getelementptr inbounds [4 x i8], ptr %35, i64 %idxprom.i235
   %36 = load i32, ptr %arrayidx11.i240, align 4, !tbaa.struct !120
   %37 = trunc i32 %36 to i16
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit242
@@ -2294,7 +2262,7 @@ if.end.i349:                                      ; preds = %_ZN16VoxelManipulat
 
 if.end6.i365:                                     ; preds = %if.end.i349
   %49 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i367 = getelementptr inbounds %struct.MapNode, ptr %49, i64 %idxprom.i
+  %arrayidx11.i367 = getelementptr inbounds [4 x i8], ptr %49, i64 %idxprom.i
   %50 = load i32, ptr %arrayidx11.i367, align 4, !tbaa.struct !120
   %51 = trunc i32 %50 to i16
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit369
@@ -2319,7 +2287,7 @@ if.end.i422:                                      ; preds = %_ZN16VoxelManipulat
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit442: ; preds = %if.end.i422
   %54 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i440 = getelementptr inbounds %struct.MapNode, ptr %54, i64 %idxprom.i435
+  %arrayidx11.i440 = getelementptr inbounds [4 x i8], ptr %54, i64 %idxprom.i435
   %55 = load i32, ptr %arrayidx11.i440, align 4, !tbaa.struct !120
   %56 = and i32 %55, 65535
   %cmp51 = icmp eq i32 %56, 126
@@ -2359,7 +2327,7 @@ if.end.i495:                                      ; preds = %land.lhs.true9.i.i4
   br i1 %tobool.not.i510, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit515, label %if.end67
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit515: ; preds = %if.end.i495
-  %arrayidx11.i513 = getelementptr inbounds %struct.MapNode, ptr %54, i64 %idxprom.i508
+  %arrayidx11.i513 = getelementptr inbounds [4 x i8], ptr %54, i64 %idxprom.i508
   %59 = load i32, ptr %arrayidx11.i513, align 4, !tbaa.struct !120
   %.fr1038 = freeze i32 %59
   %60 = and i32 %.fr1038, 65535
@@ -2405,7 +2373,7 @@ if.end.i577:                                      ; preds = %land.lhs.true9.i.i5
 
 if.end6.i593:                                     ; preds = %if.end.i577
   %63 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i595 = getelementptr inbounds %struct.MapNode, ptr %63, i64 %idxprom.i590
+  %arrayidx11.i595 = getelementptr inbounds [4 x i8], ptr %63, i64 %idxprom.i590
   %64 = load i32, ptr %arrayidx11.i595, align 4, !tbaa.struct !120
   %65 = trunc i32 %64 to i16
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit597
@@ -2449,7 +2417,7 @@ if.end.i650:                                      ; preds = %land.lhs.true9.i.i6
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit670: ; preds = %if.end.i650
   %68 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i668 = getelementptr inbounds %struct.MapNode, ptr %68, i64 %idxprom.i663
+  %arrayidx11.i668 = getelementptr inbounds [4 x i8], ptr %68, i64 %idxprom.i663
   %69 = load i32, ptr %arrayidx11.i668, align 4, !tbaa.struct !120
   %70 = and i32 %69, 65535
   %cmp91 = icmp eq i32 %70, 126
@@ -2488,7 +2456,7 @@ if.end.i723:                                      ; preds = %land.lhs.true9.i.i6
   br i1 %tobool.not.i738, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit743, label %if.end107
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit743: ; preds = %if.end.i723
-  %arrayidx11.i741 = getelementptr inbounds %struct.MapNode, ptr %68, i64 %idxprom.i736
+  %arrayidx11.i741 = getelementptr inbounds [4 x i8], ptr %68, i64 %idxprom.i736
   %73 = load i32, ptr %arrayidx11.i741, align 4, !tbaa.struct !120
   %.fr1039 = freeze i32 %73
   %74 = and i32 %.fr1039, 65535
@@ -2531,7 +2499,7 @@ if.end.i789:                                      ; preds = %land.lhs.true9.i.i7
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit809: ; preds = %if.end.i789
   %77 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i807 = getelementptr inbounds %struct.MapNode, ptr %77, i64 %idxprom.i802
+  %arrayidx11.i807 = getelementptr inbounds [4 x i8], ptr %77, i64 %idxprom.i802
   %78 = load i32, ptr %arrayidx11.i807, align 4, !tbaa.struct !120
   %79 = and i32 %78, 65535
   %cmp113.not = icmp eq i32 %79, 126
@@ -2570,7 +2538,7 @@ if.end.i862:                                      ; preds = %land.lhs.true9.i.i8
   br i1 %tobool.not.i877, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit882, label %if.then124
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit882: ; preds = %if.end.i862
-  %arrayidx11.i880 = getelementptr inbounds %struct.MapNode, ptr %77, i64 %idxprom.i875
+  %arrayidx11.i880 = getelementptr inbounds [4 x i8], ptr %77, i64 %idxprom.i875
   %82 = load i32, ptr %arrayidx11.i880, align 4, !tbaa.struct !120
   %83 = and i32 %82, 65535
   %cmp123.not = icmp eq i32 %83, 126
@@ -2999,7 +2967,7 @@ land.rhs139.us:                                   ; preds = %_ZNK9VoxelArea8cont
   %m_data.us = getelementptr inbounds nuw i8, ptr %21, i64 32
   %30 = load ptr, ptr %m_data.us, align 8, !tbaa !65
   %idxprom.us = and i64 %add21.i.us, 4294967295
-  %arrayidx.us = getelementptr inbounds nuw %struct.MapNode, ptr %30, i64 %idxprom.us
+  %arrayidx.us = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %idxprom.us
   %31 = load i16, ptr %arrayidx.us, align 4, !tbaa !67
   %32 = load i16, ptr %c_wall, align 4, !tbaa !41
   %cmp146.us = icmp eq i16 %31, %32
@@ -3016,7 +2984,7 @@ if.then148.us:                                    ; preds = %land.rhs139.us
   %37 = load ptr, ptr %this, align 8, !tbaa !4
   %m_data158.us = getelementptr inbounds nuw i8, ptr %37, i64 32
   %38 = load ptr, ptr %m_data158.us, align 8, !tbaa !65
-  %arrayidx160.us = getelementptr inbounds nuw %struct.MapNode, ptr %38, i64 %idxprom.us
+  %arrayidx160.us = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %idxprom.us
   %ref.tmp154.sroa.0.0.insert.ext.us = zext i16 %36 to i32
   %ref.tmp154.sroa.0.0.insert.insert.us = or disjoint i32 %ref.tmp202.sroa.5.0.insert.shift, %ref.tmp154.sroa.0.0.insert.ext.us
   store i32 %ref.tmp154.sroa.0.0.insert.insert.us, ptr %arrayidx160.us, align 4, !tbaa.struct !120
@@ -3088,7 +3056,7 @@ land.rhs182.us:                                   ; preds = %_ZNK9VoxelArea8cont
   %m_data184.us = getelementptr inbounds nuw i8, ptr %39, i64 32
   %48 = load ptr, ptr %m_data184.us, align 8, !tbaa !65
   %idxprom185.us = and i64 %add21.i487.us, 4294967295
-  %arrayidx186.us = getelementptr inbounds nuw %struct.MapNode, ptr %48, i64 %idxprom185.us
+  %arrayidx186.us = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %idxprom185.us
   %49 = load i16, ptr %arrayidx186.us, align 4, !tbaa !67
   %50 = load i16, ptr %c_wall, align 4, !tbaa !41
   %cmp192.us = icmp eq i16 %49, %50
@@ -3105,7 +3073,7 @@ if.then194.us:                                    ; preds = %land.rhs182.us
   %55 = load ptr, ptr %this, align 8, !tbaa !4
   %m_data207.us = getelementptr inbounds nuw i8, ptr %55, i64 32
   %56 = load ptr, ptr %m_data207.us, align 8, !tbaa !65
-  %arrayidx209.us = getelementptr inbounds nuw %struct.MapNode, ptr %56, i64 %idxprom185.us
+  %arrayidx209.us = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %idxprom185.us
   %ref.tmp202.sroa.0.0.insert.ext.us = zext i16 %54 to i32
   %ref.tmp202.sroa.0.0.insert.insert.us = or disjoint i32 %ref.tmp202.sroa.5.0.insert.shift, %ref.tmp202.sroa.0.0.insert.ext.us
   store i32 %ref.tmp202.sroa.0.0.insert.insert.us, ptr %arrayidx209.us, align 4, !tbaa.struct !120
@@ -3588,7 +3556,7 @@ if.end26.us.us.us:                                ; preds = %if.end.us.us.us
   %11 = load ptr, ptr %this, align 8, !tbaa !4
   %m_data.us.us.us = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load ptr, ptr %m_data.us.us.us, align 8, !tbaa !65
-  %arrayidx36.us.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.us.us.us
+  %arrayidx36.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %idxprom.us.us.us
   store i32 %n.coerce, ptr %arrayidx36.us.us.us, align 4, !tbaa.struct !120
   %.pre = load ptr, ptr %this, align 8, !tbaa !4
   br label %cleanup37.us.us.us

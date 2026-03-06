@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.23" = type { i8 }
-%"class.nanogui::ref" = type { ptr }
-%"class.nanogui::Color" = type { %"struct.nanogui::Array.10" }
 %"struct.nanogui::Array" = type { [2 x i32] }
 %struct._Guard = type { ptr }
 
@@ -101,7 +99,7 @@ _ZNSt12_Vector_baseIN7nanogui3refINS0_6ObjectEEESaIS3_EEC2EmRKS4_.exit.thread.i:
 
 .noexc71:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %29, ptr %17, align 8
-  %30 = getelementptr inbounds nuw %"class.nanogui::ref", ptr %29, i64 %25
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %28, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %29, i64 %28
   br label %31
@@ -152,7 +150,7 @@ _ZNSt12_Vector_baseIN7nanogui5ColorESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %
   store ptr %48, ptr %37, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw %"class.nanogui::Color", ptr %48, i64 %43
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %43
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %50, ptr %51, align 8
   %.fca.1.gep.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -168,7 +166,7 @@ _ZNSt12_Vector_baseIN7nanogui5ColorESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %
 
 53:                                               ; preds = %53, %52
   %.04.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %52 ], [ %55, %53 ]
-  %54 = getelementptr inbounds nuw float, ptr %12, i64 %.04.i.i.i.i.i.i.i.i.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.04.i.i.i.i.i.i.i.i.i
   store float 2.550000e+02, ptr %54, align 4
   %55 = add nuw nsw i64 %.04.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %55, 4
@@ -180,12 +178,12 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i: ; preds = %53
 
 56:                                               ; preds = %56, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i
   %.06.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i ], [ %63, %56 ]
-  %57 = getelementptr inbounds nuw float, ptr %11, i64 %.06.i.i.i.i.i.i.i.i.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.06.i.i.i.i.i.i.i.i.i
   %58 = load float, ptr %57, align 4
-  %59 = getelementptr inbounds nuw float, ptr %12, i64 %.06.i.i.i.i.i.i.i.i.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.06.i.i.i.i.i.i.i.i.i
   %60 = load float, ptr %59, align 4
   %61 = fdiv float %58, %60
-  %62 = getelementptr inbounds nuw float, ptr %10, i64 %.06.i.i.i.i.i.i.i.i.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.06.i.i.i.i.i.i.i.i.i
   store float %61, ptr %62, align 4
   %63 = add nuw nsw i64 %.06.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i4.i.i.i.i.i.i.i.i = icmp eq i64 %63, 4
@@ -335,10 +333,10 @@ _ZN7nanogui3refINS_6ObjectEEaSEPS1_.exit87:       ; preds = %_ZN7nanogui3refINS_
 106:                                              ; preds = %.lr.ph, %134
   %107 = phi ptr [ %105, %.lr.ph ], [ %139, %134 ]
   %.046156 = phi i64 [ 0, %.lr.ph ], [ %137, %134 ]
-  %108 = getelementptr inbounds ptr, ptr %107, i64 %.046156
+  %108 = getelementptr inbounds [8 x i8], ptr %107, i64 %.046156
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %17, align 8
-  %111 = getelementptr %"class.nanogui::ref", ptr %110, i64 %.046156
+  %111 = getelementptr [8 x i8], ptr %110, i64 %.046156
   %112 = getelementptr i8, ptr %111, i64 16
   %113 = load ptr, ptr %112, align 8
   %.not.i88 = icmp eq ptr %113, %109
@@ -384,7 +382,7 @@ _ZN7nanogui3refINS_6ObjectEEaSEPS1_.exit93:       ; preds = %106, %119
 
 123:                                              ; preds = %123, %_ZN7nanogui3refINS_6ObjectEEaSEPS1_.exit93
   %.04.i.i = phi i64 [ 0, %_ZN7nanogui3refINS_6ObjectEEaSEPS1_.exit93 ], [ %125, %123 ]
-  %124 = getelementptr inbounds nuw float, ptr %9, i64 %.04.i.i
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.04.i.i
   store float 2.550000e+02, ptr %124, align 4
   %125 = add nuw nsw i64 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %125, 4
@@ -396,12 +394,12 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %123
 
 126:                                              ; preds = %126, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i
   %.06.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i ], [ %133, %126 ]
-  %127 = getelementptr inbounds nuw float, ptr %8, i64 %.06.i.i
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.06.i.i
   %128 = load float, ptr %127, align 4
-  %129 = getelementptr inbounds nuw float, ptr %9, i64 %.06.i.i
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.06.i.i
   %130 = load float, ptr %129, align 4
   %131 = fdiv float %128, %130
-  %132 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i.i
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i.i
   store float %131, ptr %132, align 4
   %133 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i4.i = icmp eq i64 %133, 4
@@ -414,7 +412,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %123
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %135 = load ptr, ptr %37, align 8
-  %136 = getelementptr inbounds %"class.nanogui::Color", ptr %135, i64 %.046156
+  %136 = getelementptr inbounds [16 x i8], ptr %135, i64 %.046156
   store <2 x float> %.fca.0.load.i.i, ptr %136, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 8
   store <2 x float> %.fca.1.load.i.i, ptr %.sroa.2.0..sroa_idx, align 4
@@ -512,7 +510,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %123
 
 172:                                              ; preds = %166, %168, %169
   %.0131 = phi i32 [ %171, %169 ], [ 36128, %168 ], [ 36096, %166 ]
-  %173 = getelementptr inbounds %"class.nanogui::ref", ptr %167, i64 %.051160
+  %173 = getelementptr inbounds [8 x i8], ptr %167, i64 %.051160
   %174 = load ptr, ptr %173, align 8
   %175 = icmp eq ptr %174, null
   br i1 %175, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, label %176
@@ -604,7 +602,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %205, %.n
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %207, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
-  %208 = getelementptr inbounds nuw i32, ptr %202, i64 %200
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %200
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 209:                                              ; preds = %176
@@ -683,7 +681,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %239, %.noe
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %241, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  %242 = getelementptr inbounds nuw i32, ptr %236, i64 %234
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %236, i64 %234
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %223, %220
@@ -1202,7 +1200,7 @@ define hidden void @_ZN7nanogui10RenderPass5beginEv(ptr noundef nonnull align 8 
   %54 = trunc i64 %.07 to i32
   %55 = add nsw i32 %54, -2
   %56 = load ptr, ptr %39, align 8
-  %57 = getelementptr %"class.nanogui::Color", ptr %56, i64 %.07
+  %57 = getelementptr [16 x i8], ptr %56, i64 %.07
   %58 = getelementptr i8, ptr %57, i64 -32
   call void @glClearBufferfv(i32 noundef 6144, i32 noundef %55, ptr noundef nonnull %58)
   br label %.thread
@@ -1281,7 +1279,7 @@ define hidden void @_ZN7nanogui10RenderPass12set_viewportERKNS_5ArrayIiLm2EEES4_
 26:                                               ; preds = %26, %11
   %.not8.i = phi i1 [ true, %11 ], [ false, %26 ]
   %.07.i = phi i64 [ 0, %11 ], [ 1, %26 ]
-  %27 = getelementptr inbounds nuw i32, ptr %4, i64 %.07.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.07.i
   %28 = load i32, ptr %27, align 4
   %.not.i = icmp eq i32 %28, 0
   %or.cond.i = and i1 %.not8.i, %.not.i
@@ -1294,9 +1292,9 @@ _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %26
 .preheader:                                       ; preds = %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, %.preheader
   %.not8.i4 = phi i1 [ false, %.preheader ], [ true, %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit ]
   %.07.i5 = phi i64 [ 1, %.preheader ], [ 0, %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit ]
-  %30 = getelementptr inbounds nuw i32, ptr %6, i64 %.07.i5
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.07.i5
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %.07.i5
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.07.i5
   %33 = load i32, ptr %32, align 4
   %.not.i6 = icmp eq i32 %31, %33
   %or.cond.i7 = and i1 %.not8.i4, %.not.i6
@@ -1728,7 +1726,7 @@ define hidden void @_ZN7nanogui10RenderPass6resizeERKNS_5ArrayIiLm2EEE(ptr nound
   %7 = phi ptr [ %15, %.thread ], [ %6, %2 ]
   %8 = phi ptr [ %16, %.thread ], [ %5, %2 ]
   %.011 = phi i64 [ %17, %.thread ], [ 0, %2 ]
-  %9 = getelementptr inbounds %"class.nanogui::ref", ptr %7, i64 %.011
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %.011
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
@@ -1787,7 +1785,7 @@ define hidden void @_ZN7nanogui10RenderPass15set_clear_colorEmRKNS_5ColorE(ptr n
   unreachable
 
 _ZNSt6vectorIN7nanogui5ColorESaIS1_EE2atEm.exit:  ; preds = %3
-  %13 = getelementptr inbounds %"class.nanogui::Color", ptr %7, i64 %1
+  %13 = getelementptr inbounds [16 x i8], ptr %7, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   ret void
 }

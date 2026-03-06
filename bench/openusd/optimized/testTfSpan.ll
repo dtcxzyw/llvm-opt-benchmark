@@ -433,7 +433,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit117:                 ; preds = %115
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.034308 = phi i64 [ %126, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %125 = getelementptr inbounds i32, ptr %119, i64 %.034308
+  %125 = getelementptr inbounds [4 x i8], ptr %119, i64 %.034308
   %126 = add nuw i64 %.034308, 1
   %127 = trunc i64 %126 to i32
   %128 = mul i32 %127, 10
@@ -834,7 +834,7 @@ _ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZN32pxrInternal_v0
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %_ZSt5equalIPKiS1_EbT_S2_T0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %23 = getelementptr inbounds i32, ptr %9, i64 %14
+  %23 = getelementptr inbounds [4 x i8], ptr %9, i64 %14
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %30, %.lr.ph.i.i.i.preheader.i
@@ -1137,7 +1137,7 @@ _ZSt5equalIPKiPiEbT_S3_T0_.exit:                  ; preds = %_ZN32pxrInternal_v0
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %_ZSt5equalIPKiPiEbT_S3_T0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %23 = getelementptr inbounds i32, ptr %9, i64 %14
+  %23 = getelementptr inbounds [4 x i8], ptr %9, i64 %14
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %30, %.lr.ph.i.i.i.preheader.i

@@ -574,7 +574,7 @@ define internal void @_ZN12_GLOBAL__N_144RandomDistributionsTest_UniformExamples
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %42 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %43, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %44 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !7
   %46 = zext i32 %45 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %46
@@ -4343,7 +4343,7 @@ define internal void @_ZN12_GLOBAL__N_150RandomDistributionsTest_UniformNonsense
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %115 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %116, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %117 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i.i.i.i
   %118 = load i32, ptr %117, align 4, !tbaa !7
   %119 = zext i32 %118 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %119
@@ -8539,7 +8539,7 @@ define internal void @_ZN12_GLOBAL__N_140RandomDistributionsTest_UniformReal_Tes
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %21 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %22, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !7
   %25 = zext i32 %24 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %25
@@ -8621,7 +8621,7 @@ _ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_
 
 _ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit: ; preds = %.split.i.i.i.i.i, %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit.split.loop.exit122
   %.0.i.i.i.i.i.i121 = phi double [ %46, %_ZN4absl7UniformIvRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSB_IXsr4absl11disjunctionINS1_23is_widening_convertibleIT1_T2_EENSD_ISF_SE_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISE_SF_EE5valueESF_SE_E4typeEE4typeEE4typeEOT0_SE_SF_.exit.split.loop.exit122 ], [ 0.000000e+00, %.split.i.i.i.i.i ]
-  %47 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   store double %.0.i.i.i.i.i.i121, ptr %47, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 400000
@@ -9217,7 +9217,7 @@ define internal void @_ZN12_GLOBAL__N_139RandomDistributionsTest_UniformInt_Test
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %21 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %22, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !7
   %25 = zext i32 %24 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %25
@@ -9318,7 +9318,7 @@ _ZN4absl7UniformIvNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureU
   %.0.i.i.i.i.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i42.le.i.i.i.i.i.i, %..loopexit_crit_edge.i.i.i.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i, %40 ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i, %33 ]
   %48 = uitofp nneg i64 %.0.i.i.i.i.i.i to double
   %49 = fdiv double %48, 1.000000e+12
-  %50 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   store double %49, ptr %50, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 400000
@@ -9911,7 +9911,7 @@ define internal void @_ZN12_GLOBAL__N_140RandomDistributionsTest_Exponential_Tes
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %22 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %23, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i.i.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !7
   %26 = zext i32 %25 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %26
@@ -9978,7 +9978,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %46 = bitcast i64 %45 to double
   %47 = call double @log1p(double noundef %46) #22, !tbaa !7
   %48 = fneg double %47
-  %49 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   store double %48, ptr %49, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 400000
@@ -11235,7 +11235,7 @@ define internal void @_ZN12_GLOBAL__N_143RandomDistributionsTest_PoissonDefault_
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %24 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %25, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %27 = load i32, ptr %26, align 4, !tbaa !7
   %28 = zext i32 %27 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %28
@@ -11291,7 +11291,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 40:                                               ; preds = %.noexc39
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %41 = sitofp i64 %39 to double
-  %42 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store double %41, ptr %42, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 400000
@@ -12113,7 +12113,7 @@ define internal void @_ZN12_GLOBAL__N_141RandomDistributionsTest_PoissonLarge_Te
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %24 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %25, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %27 = load i32, ptr %26, align 4, !tbaa !7
   %28 = zext i32 %27 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %28
@@ -12173,7 +12173,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 42:                                               ; preds = %.noexc39
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %43 = sitofp i64 %41 to double
-  %44 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store double %43, ptr %44, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 400000
@@ -12775,7 +12775,7 @@ define internal void @_ZN12_GLOBAL__N_138RandomDistributionsTest_Bernoulli_Test8
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %12 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %13, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i.i.i.i
   %15 = load i32, ptr %14, align 4, !tbaa !7
   %16 = zext i32 %15 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %16
@@ -12858,7 +12858,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 
 _ZN4absl9BernoulliIRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEEbOT_d.exit: ; preds = %34, %.thread.i.i.i.i.i
   %.125.i.i.i.i.i = phi double [ %33, %.thread.i.i.i.i.i ], [ 0.000000e+00, %34 ]
-  %40 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store double %.125.i.i.i.i.i, ptr %40, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 400000
@@ -13073,7 +13073,7 @@ define internal void @_ZN12_GLOBAL__N_133RandomDistributionsTest_Beta_Test8TestB
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %15 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %16, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.016.i.i.i.i.i
   %18 = load i32, ptr %17, align 4, !tbaa !7
   %19 = zext i32 %18 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %19
@@ -13127,7 +13127,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 30:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %31 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store double %29, ptr %31, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 400000
@@ -13772,7 +13772,7 @@ define internal void @_ZN12_GLOBAL__N_133RandomDistributionsTest_Zipf_Test8TestB
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %14 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %15, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = zext i32 %17 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %18
@@ -13838,7 +13838,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 35:                                               ; preds = %.noexc20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %36 = sitofp i64 %34 to double
-  %37 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store double %36, ptr %37, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 400000
@@ -14209,7 +14209,7 @@ define internal void @_ZN12_GLOBAL__N_144RandomDistributionsTest_ZipfWithZeroMax
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %14 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %15, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = zext i32 %17 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %18
@@ -14685,7 +14685,7 @@ define internal void @_ZN12_GLOBAL__N_137RandomDistributionsTest_Gaussian_Test8T
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %23 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %24, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %26 = load i32, ptr %25, align 4, !tbaa !7
   %27 = zext i32 %26 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %27
@@ -14740,7 +14740,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 40:                                               ; preds = %38
   %41 = fadd double %39, 0.000000e+00
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %42 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   store double %41, ptr %42, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 400000
@@ -15308,13 +15308,13 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %20 = xor i64 %19, 4607182418800017408
   %21 = bitcast i64 %20 to double
   %22 = and i64 %7, 127
-  %23 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %22
   %24 = load double, ptr %23, align 8, !tbaa !40
   %25 = fmul double %24, %21
   %26 = tail call noundef double @llvm.fabs.f64(double %25)
   %27 = add nuw nsw i32 %9, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !40
   %31 = fcmp olt double %26, %30
   br i1 %31, label %select.unfold.loopexit, label %32
@@ -15411,9 +15411,9 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17Non
   %reass.sub = sub nsw i64 %79, %78
   %80 = add nsw i64 %reass.sub, 4602678819172646912
   %81 = bitcast i64 %80 to double
-  %82 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %28
+  %82 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %28
   %83 = load double, ptr %82, align 8, !tbaa !40
-  %84 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %22
+  %84 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %22
   %85 = load double, ptr %84, align 8, !tbaa !40
   %86 = fsub double %85, %83
   %87 = tail call double @llvm.fmuladd.f64(double %81, double %86, double %83)
@@ -15509,7 +15509,7 @@ define internal void @_ZN12_GLOBAL__N_139RandomDistributionsTest_LogUniform_Test
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %14 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %15, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = zext i32 %17 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %18
@@ -15569,7 +15569,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 33:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = sitofp i64 %32 to double
-  %35 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store double %34, ptr %35, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 400000

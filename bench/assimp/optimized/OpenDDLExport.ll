@@ -192,7 +192,7 @@ define hidden noundef zeroext i1 @_ZN10ODDLParser13OpenDDLExport10handleNodeEPNS
   %18 = phi ptr [ %34, %33 ], [ %7, %11 ]
   %19 = phi ptr [ %35, %33 ], [ %9, %11 ]
   %20 = phi i64 [ %40, %33 ], [ 1, %11 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %33, label %23

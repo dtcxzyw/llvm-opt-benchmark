@@ -216,17 +216,17 @@ define dso_local range(i32 0, 2) i32 @get_homography(ptr noundef readonly captur
   br i1 %137, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %136
-  %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv142.i.i
+  %invariant.gep.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv142.i.i
   br label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %136
   %.0101.lcssa.i.i = phi i32 [ %138, %136 ], [ %.1102.i.i, %.lr.ph.i.i ]
-  %139 = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv142.i.i
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv142.i.i
   store i32 %.0101.lcssa.i.i, ptr %139, align 4, !tbaa !15
   %140 = mul nuw nsw i32 %.0101.lcssa.i.i, 9
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv142.i.i
-  %143 = getelementptr inbounds nuw double, ptr %142, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv142.i.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %141
   %144 = load double, ptr %143, align 8, !tbaa !13
   %145 = mul nuw nsw i64 %indvars.iv142.i.i, 9
   %.idx146.i.i = mul nuw nsw i64 %indvars.iv142.i.i, 80
@@ -257,7 +257,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   %151 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %150)
   %152 = mul nuw nsw i32 %.0101111.i.i, 9
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw double, ptr %invariant.gep.i.i, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i.i, i64 %153
   %155 = load double, ptr %154, align 8, !tbaa !13
   %156 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %155)
   %157 = fcmp reassoc nsz arcp contract afn ogt double %151, %156
@@ -273,8 +273,8 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   br i1 %.not.not.i.i, label %.preheader.us.preheader.i.i, label %.lr.ph117.preheader.i.i
 
 .lr.ph117.preheader.i.i:                          ; preds = %._crit_edge115.i.i
-  %invariant.gep152.i.i = getelementptr inbounds nuw double, ptr %4, i64 %141
-  %invariant.gep154.i.i = getelementptr inbounds nuw double, ptr %4, i64 %145
+  %invariant.gep152.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %141
+  %invariant.gep154.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %145
   br label %.lr.ph117.i.i
 
 .lr.ph114.i.i:                                    ; preds = %.lr.ph114.i.i.preheader, %.lr.ph114.i.i
@@ -291,9 +291,9 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
 
 .lr.ph117.i.i:                                    ; preds = %.lr.ph117.i.i, %.lr.ph117.preheader.i.i
   %indvars.iv130.i.i = phi i64 [ %indvars.iv.i.i, %.lr.ph117.preheader.i.i ], [ %indvars.iv.next131.i.i, %.lr.ph117.i.i ]
-  %gep153.i.i = getelementptr inbounds nuw double, ptr %invariant.gep152.i.i, i64 %indvars.iv130.i.i
+  %gep153.i.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep152.i.i, i64 %indvars.iv130.i.i
   %163 = load double, ptr %gep153.i.i, align 8, !tbaa !13
-  %gep155.i.i = getelementptr inbounds nuw double, ptr %invariant.gep154.i.i, i64 %indvars.iv130.i.i
+  %gep155.i.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep154.i.i, i64 %indvars.iv130.i.i
   %164 = load double, ptr %gep155.i.i, align 8, !tbaa !13
   store double %164, ptr %gep153.i.i, align 8, !tbaa !13
   store double %163, ptr %gep155.i.i, align 8, !tbaa !13
@@ -302,23 +302,23 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   br i1 %exitcond133.not.i.i, label %.preheader.us.preheader.i.i, label %.lr.ph117.i.i
 
 .preheader.us.preheader.i.i:                      ; preds = %.lr.ph117.i.i, %._crit_edge115.i.i
-  %invariant.gep156.i.i = getelementptr inbounds nuw double, ptr %4, i64 %145
+  %invariant.gep156.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %145
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %._crit_edge120.us.i.i, %.preheader.us.preheader.i.i
   %indvars.iv138.i.i = phi i64 [ %indvars.iv.i.i, %.preheader.us.preheader.i.i ], [ %indvars.iv.next139.i.i, %._crit_edge120.us.i.i ]
   %165 = mul nuw nsw i64 %indvars.iv138.i.i, 9
-  %gep161.i.i = getelementptr inbounds nuw double, ptr %142, i64 %165
-  %invariant.gep158.i.i = getelementptr inbounds nuw double, ptr %4, i64 %165
+  %gep161.i.i = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %165
+  %invariant.gep158.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %165
   br label %166
 
 166:                                              ; preds = %166, %.preheader.us.i.i
   %indvars.iv134.i.i = phi i64 [ %indvars.iv.i.i, %.preheader.us.i.i ], [ %indvars.iv.next135.i.i, %166 ]
   %167 = load double, ptr %gep161.i.i, align 8, !tbaa !13
-  %gep157.i.i = getelementptr inbounds nuw double, ptr %invariant.gep156.i.i, i64 %indvars.iv134.i.i
+  %gep157.i.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep156.i.i, i64 %indvars.iv134.i.i
   %168 = load double, ptr %gep157.i.i, align 8, !tbaa !13
   %169 = fmul reassoc nsz arcp contract afn double %168, %167
-  %gep159.i.i = getelementptr inbounds nuw double, ptr %invariant.gep158.i.i, i64 %indvars.iv134.i.i
+  %gep159.i.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep158.i.i, i64 %indvars.iv134.i.i
   %170 = load double, ptr %gep159.i.i, align 8, !tbaa !13
   %171 = fadd reassoc nsz arcp contract afn double %170, %169
   store double %171, ptr %gep159.i.i, align 8, !tbaa !13
@@ -340,16 +340,16 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
 .lr.ph.preheader.i9.i:                            ; preds = %.loopexit.i.i, %.loopexit.i16.i
   %indvars.iv60.i.i = phi i64 [ %indvars.iv.next61.i.i, %.loopexit.i16.i ], [ 0, %.loopexit.i.i ]
   %indvars.iv.i10.i = phi i64 [ %indvars.iv.next.i17.i, %.loopexit.i16.i ], [ 1, %.loopexit.i.i ]
-  %172 = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv60.i.i
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv60.i.i
   %173 = load i32, ptr %172, align 4, !tbaa !15
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds double, ptr %5, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %5, i64 %174
   %176 = load double, ptr %175, align 8, !tbaa !13
-  %177 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv60.i.i
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv60.i.i
   %178 = load double, ptr %177, align 8, !tbaa !13
   store double %178, ptr %175, align 8, !tbaa !13
   store double %176, ptr %177, align 8, !tbaa !13
-  %invariant.gep.i11.i = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv60.i.i
+  %invariant.gep.i11.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv60.i.i
   br label %.lr.ph.i12.i
 
 .lr.ph.i12.i:                                     ; preds = %.lr.ph.i12.i, %.lr.ph.preheader.i9.i
@@ -358,7 +358,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   %gep.i14.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i11.i, i64 %.idx.i13.i
   %179 = load double, ptr %gep.i14.i, align 8, !tbaa !13
   %180 = fmul reassoc nsz arcp contract afn double %179, %176
-  %181 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv57.i.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv57.i.i
   %182 = load double, ptr %181, align 8, !tbaa !13
   %183 = fadd reassoc nsz arcp contract afn double %182, %180
   store double %183, ptr %181, align 8, !tbaa !13
@@ -371,11 +371,11 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   %.idx71.i.i = mul nuw nsw i64 %indvars.iv68.i.i, 80
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx71.i.i
   %185 = load double, ptr %184, align 16, !tbaa !13
-  %186 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv68.i.i
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv68.i.i
   %187 = load double, ptr %186, align 8, !tbaa !13
   %188 = fdiv reassoc nsz arcp contract afn double %187, %185
   store double %188, ptr %186, align 8, !tbaa !13
-  %invariant.gep73.i.i = getelementptr double, ptr %4, i64 %indvars.iv68.i.i
+  %invariant.gep73.i.i = getelementptr [8 x i8], ptr %4, i64 %indvars.iv68.i.i
   br label %191
 
 189:                                              ; preds = %191
@@ -389,7 +389,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   %gep74.i.i = getelementptr i8, ptr %invariant.gep73.i.i, i64 %.idx72.i.i
   %192 = load double, ptr %gep74.i.i, align 8, !tbaa !13
   %193 = fmul reassoc nsz arcp contract afn double %192, %188
-  %194 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv64.i.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv64.i.i
   %195 = load double, ptr %194, align 8, !tbaa !13
   %196 = fsub reassoc nsz arcp contract afn double %195, %193
   store double %196, ptr %194, align 8, !tbaa !13
@@ -407,10 +407,10 @@ gauss_solve.exit:                                 ; preds = %189
 
 200:                                              ; preds = %gauss_solve.exit, %200
   %indvars.iv = phi i64 [ 0, %gauss_solve.exit ], [ %indvars.iv.next, %200 ]
-  %201 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %202 = load double, ptr %201, align 8, !tbaa !13
   %203 = fptrunc reassoc nsz arcp contract afn double %202 to float
-  %204 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %203, ptr %204, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9

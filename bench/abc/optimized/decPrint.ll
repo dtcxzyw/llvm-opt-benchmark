@@ -3,10 +3,6 @@ source_filename = "bench/abc/original/decPrint.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Dec_Node_t_ = type { %struct.Dec_Edge_t_, %struct.Dec_Edge_t_, %union.anon, i32 }
-%struct.Dec_Edge_t_ = type { i32 }
-%union.anon = type { ptr }
-
 @.str = private unnamed_addr constant [2 x i8] c"F\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"Constant %d\00", align 1
 @.str.6 = private unnamed_addr constant [4 x i8] c" + \00", align 1
@@ -49,7 +45,7 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03756 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %16 = getelementptr inbounds nuw ptr, ptr %.036, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.036, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #9
   %.fr63 = freeze i64 %18
@@ -92,7 +88,7 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %.not.i = icmp eq i32 %34, 0
   %35 = select i1 %.not.i, ptr @.str.10, ptr @.str.9
   %36 = zext nneg i32 %33 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %.036, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.036, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !13
   %39 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dec_GraphPrintGetLeafName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %35, ptr noundef %38) #8
   %fputs.i = tail call i32 @fputs(ptr nonnull @Dec_GraphPrintGetLeafName.Buffer, ptr %0)
@@ -104,7 +100,7 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %42 = getelementptr i8, ptr %1, i64 16
   %.val54 = load ptr, ptr %42, align 8, !tbaa !20
   %43 = sext i32 %.val53 to i64
-  %44 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val54, i64 %43
+  %44 = getelementptr inbounds [24 x i8], ptr %.val54, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -24
   %.val48 = load i32, ptr %27, align 8
   %46 = and i32 %.val48, 1
@@ -141,13 +137,13 @@ define internal fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, 
   %10 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %10, align 8, !tbaa !20
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, 1
   %16 = and i32 %15, 1073741823
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %17
   %19 = getelementptr i8, ptr %1, i64 4
   %.val108 = load i32, ptr %19, align 4, !tbaa !3
   %20 = ptrtoint ptr %2 to i64
@@ -182,13 +178,13 @@ define internal fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, 
   %36 = lshr i32 %35, 1
   %37 = and i32 %36, 1073741823
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = lshr i32 %41, 1
   %43 = and i32 %42, 1073741823
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %44
   %46 = load i32, ptr %18, align 8
   %47 = lshr i32 %46, 1
   %48 = and i32 %47, 1073741823
@@ -281,13 +277,13 @@ define void @Dec_GraphPrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %11 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %11, align 8, !tbaa !20
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = lshr i32 %15, 1
   %17 = and i32 %16, 1073741823
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %18
   %20 = getelementptr i8, ptr %1, i64 4
   %.val84 = load i32, ptr %20, align 4, !tbaa !3
   %21 = ptrtoint ptr %2 to i64

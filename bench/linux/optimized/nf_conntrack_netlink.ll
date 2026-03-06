@@ -39,11 +39,7 @@ module asm ".previous\09\09\09\09\09"
 %struct.netlink_dump_control = type { ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.in6_addr = type { %union.anon.0 }
 %union.anon.0 = type { [4 x i32] }
-%struct.hlist_head = type { ptr }
 %struct.nf_ct_iter_data = type { ptr, ptr, i32, i32 }
-%struct.hlist_nulls_head = type { ptr }
-%struct.nf_conn_counter = type { %struct.atomic64_t, %struct.atomic64_t }
-%struct.atomic64_t = type { i64 }
 
 @__UNIQUE_ID_file836 = internal constant [61 x i8] c"nf_conntrack_netlink.file=net/netfilter/nf_conntrack_netlink\00", section ".modinfo", align 1
 @__UNIQUE_ID_license837 = internal constant [33 x i8] c"nf_conntrack_netlink.license=GPL\00", section ".modinfo", align 1
@@ -1059,7 +1055,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, i8 0, i64 32, i1 false), !annotation !5
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr ptr, ptr %0, i64 %12
+  %13 = getelementptr [8 x i8], ptr %0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 4
   %16 = load i16, ptr %14, align 2
@@ -1470,7 +1466,7 @@ define internal i32 @ctnetlink_exp_dump_table(ptr noundef %0, ptr noundef captur
   %23 = phi i64 [ %13, %19 ], [ 0, %.backedge ]
   %24 = phi i64 [ %15, %19 ], [ %.be, %.backedge ]
   %25 = load ptr, ptr @nf_ct_expect_hash, align 8
-  %26 = getelementptr %struct.hlist_head, ptr %25, i64 %24
+  %26 = getelementptr [8 x i8], ptr %25, i64 %24
   %27 = load volatile ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   %29 = getelementptr i8, ptr %27, i64 -16
@@ -2631,7 +2627,7 @@ define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr noundef cap
   %34 = load ptr, ptr %19, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = sext i32 %28 to i64
-  %37 = getelementptr i64, ptr @__per_cpu_offset, i64 %36
+  %37 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %35
   %40 = inttoptr i64 %39 to ptr
@@ -4394,7 +4390,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr noundef captures(n
   %26 = phi i32 [ %27, %.thread ], [ %24, %23 ]
   %27 = add i32 %26, -1
   %28 = sext i32 %27 to i64
-  %29 = getelementptr ptr, ptr %3, i64 %28
+  %29 = getelementptr [8 x i8], ptr %3, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load volatile i32, ptr %31, align 8
@@ -4450,7 +4446,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr noundef captures(n
 .loopexit29:                                      ; preds = %.thread, %23
   %58 = load i64, ptr %12, align 8
   %59 = srem i64 %58, 1024
-  %60 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %59
+  %60 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %59
   tail call void @nf_conntrack_lock(ptr noundef %60) #16
   %61 = load i64, ptr %12, align 8
   %62 = load i32, ptr @nf_conntrack_htable_size, align 4
@@ -4460,7 +4456,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr noundef captures(n
 
 65:                                               ; preds = %.loopexit29
   %66 = load ptr, ptr @nf_conntrack_hash, align 8
-  %67 = getelementptr %struct.hlist_nulls_head, ptr %66, i64 %61
+  %67 = getelementptr [8 x i8], ptr %66, i64 %61
   %68 = load ptr, ptr %67, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = and i64 %69, 1
@@ -4526,7 +4522,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr noundef captures(n
 
 107:                                              ; preds = %105
   %108 = add nuw nsw i32 %73, 1
-  %109 = getelementptr ptr, ptr %3, i64 %87
+  %109 = getelementptr [8 x i8], ptr %3, i64 %87
   store ptr %79, ptr %109, align 8
   br label %189
 
@@ -4725,7 +4721,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr noundef captures(n
   %220 = phi i32 [ %221, %.thread24 ], [ %206, %.thread22 ]
   %221 = add i32 %220, -1
   %222 = sext i32 %221 to i64
-  %223 = getelementptr ptr, ptr %3, i64 %222
+  %223 = getelementptr [8 x i8], ptr %3, i64 %222
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load volatile i32, ptr %225, align 8
@@ -5829,7 +5825,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @dump_counters(ptr noundef %
   %7 = icmp eq i32 %2, 0
   %8 = icmp eq i32 %3, 3
   %9 = zext nneg i32 %2 to i64
-  %10 = getelementptr %struct.nf_conn_counter, ptr %1, i64 %9
+  %10 = getelementptr [16 x i8], ptr %1, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br i1 %8, label %12, label %15
 
@@ -6087,7 +6083,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr noundef capt
   %41 = load ptr, ptr %26, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = sext i32 %35 to i64
-  %44 = getelementptr i64, ptr @__per_cpu_offset, i64 %43
+  %44 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, %42
   %47 = inttoptr i64 %46 to ptr

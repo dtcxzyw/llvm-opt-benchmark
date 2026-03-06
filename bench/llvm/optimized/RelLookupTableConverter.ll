@@ -38,8 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::IRBuilderDefaultInserter" = type { ptr }
 %"class.llvm::APInt" = type <{ %union.anon.119, i32, [4 x i8] }>
 %union.anon.119 = type { i64 }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
-%"struct.std::pair" = type { i32, ptr }
 
 $_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE = comdat any
 
@@ -281,7 +279,7 @@ _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i: ; preds = %110
   %139 = and i32 %133, 134217727
   %140 = zext nneg i32 %139 to i64
   %141 = sub nsw i64 0, %140
-  %142 = getelementptr inbounds %"class.llvm::Use", ptr %118, i64 %141
+  %142 = getelementptr inbounds [32 x i8], ptr %118, i64 %141
   br label %_ZN4llvm4User8operandsEv.exit.i.i
 
 _ZN4llvm4User8operandsEv.exit.i.i:                ; preds = %138, %135
@@ -469,7 +467,7 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.i.i..lr.ph.preheader.i.
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i.i.i.i, %224
   %226 = phi ptr [ %.pre.i.i.i23.i, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i.i.i.i ], [ %55, %224 ]
   %.pre-phi.i.i3.i.i.i.i = phi i64 [ %.pre13.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i.i.i.i ], [ 0, %224 ]
-  %227 = getelementptr ptr, ptr %226, i64 %.pre-phi.i.i3.i.i.i.i
+  %227 = getelementptr [8 x i8], ptr %226, i64 %.pre-phi.i.i3.i.i.i.i
   %228 = sub nsw i64 %202, %.pre-phi.i.i3.i.i.i.i
   %229 = shl nsw i64 %228, 3
   call void @llvm.memset.p0.i64(ptr align 8 %227, i8 0, i64 %229, i1 false), !tbaa !203
@@ -499,7 +497,7 @@ _ZN4llvm11SmallVectorIPNS_8ConstantELj64EEC2Em.exit.i.i.i: ; preds = %.sink.spli
   %239 = and i32 %233, 134217727
   %240 = zext nneg i32 %239 to i64
   %241 = sub nsw i64 0, %240
-  %242 = getelementptr inbounds %"class.llvm::Use", ptr %195, i64 %241
+  %242 = getelementptr inbounds [32 x i8], ptr %195, i64 %241
   br label %_ZN4llvm4User8operandsEv.exit.i.i.i
 
 _ZN4llvm4User8operandsEv.exit.i.i.i:              ; preds = %238, %235
@@ -556,7 +554,7 @@ _ZN4llvm4User8operandsEv.exit.._crit_edge_crit_edge.i.i.i: ; preds = %_ZN4llvm4U
   %266 = call noundef ptr @_ZN4llvm12ConstantExpr8getTruncEPNS_8ConstantEPNS_4TypeEb(ptr noundef %263, ptr noundef %265, i1 noundef zeroext false) #7
   %267 = add nuw nsw i64 %.09.i.i.i, 1
   %268 = load ptr, ptr %9, align 8, !tbaa !64
-  %269 = getelementptr inbounds nuw ptr, ptr %268, i64 %.09.i.i.i
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %.09.i.i.i
   store ptr %266, ptr %269, align 8, !tbaa !203
   %270 = getelementptr inbounds nuw i8, ptr %.0408.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %270, %244
@@ -598,7 +596,7 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit.i.i: ; preds = %
   %281 = and i32 %280, 134217727
   %282 = zext nneg i32 %281 to i64
   %283 = sub nsw i64 0, %282
-  %284 = getelementptr inbounds %"class.llvm::Use", ptr %180, i64 %283
+  %284 = getelementptr inbounds [32 x i8], ptr %180, i64 %283
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 64
   %286 = load ptr, ptr %285, align 8, !tbaa !48
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
@@ -1034,7 +1032,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !64
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -1043,7 +1041,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   store i32 %19, ptr %6, align 8, !tbaa !66
   %20 = load ptr, ptr %0, align 8, !tbaa !64
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }

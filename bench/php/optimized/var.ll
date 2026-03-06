@@ -526,7 +526,7 @@ zend_string_release_ex.exit194:                   ; preds = %159, %165, %170
   %216 = sext i32 %215 to i64
   %217 = icmp slt i64 %212, %216
   call void @llvm.assume(i1 %217)
-  %218 = getelementptr inbounds nuw ptr, ptr %207, i64 %212
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %212
   %219 = load ptr, ptr %218, align 8, !tbaa !59
   br label %zend_get_property_info_for_slot.exit.i
 
@@ -827,7 +827,7 @@ define hidden void @zif_var_dump(ptr noundef %0, ptr noundef readnone captures(n
 
 .critedge:                                        ; preds = %.critedge.preheader49, %.critedge
   %indvars.iv = phi i64 [ 0, %.critedge.preheader49 ], [ %indvars.iv.next, %.critedge ]
-  %14 = getelementptr inbounds nuw %struct._zval_struct, ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   tail call void @php_var_dump(ptr noundef nonnull %14, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1240,7 +1240,7 @@ zend_string_release_ex.exit188:                   ; preds = %154, %162, %167
   %213 = sext i32 %212 to i64
   %214 = icmp slt i64 %209, %213
   call void @llvm.assume(i1 %214)
-  %215 = getelementptr inbounds nuw ptr, ptr %204, i64 %209
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %209
   %216 = load ptr, ptr %215, align 8, !tbaa !59
   br label %zend_get_property_info_for_slot.exit.i
 
@@ -1522,7 +1522,7 @@ define hidden void @zif_debug_zval_dump(ptr noundef %0, ptr noundef readnone cap
 
 .critedge:                                        ; preds = %.critedge.preheader49, %.critedge
   %indvars.iv = phi i64 [ 0, %.critedge.preheader49 ], [ %indvars.iv.next, %.critedge ]
-  %14 = getelementptr inbounds nuw %struct._zval_struct, ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   tail call void @php_debug_zval_dump(ptr noundef nonnull %14, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5889,7 +5889,7 @@ zend_object_release.exit:                         ; preds = %880, %875, %874, %8
 908:                                              ; preds = %.lr.ph545, %919
   %indvars.iv = phi i64 [ 0, %.lr.ph545 ], [ %indvars.iv.next, %919 ]
   %.0220542 = phi i32 [ %904, %.lr.ph545 ], [ %spec.select, %919 ]
-  %909 = getelementptr inbounds nuw ptr, ptr %907, i64 %indvars.iv
+  %909 = getelementptr inbounds nuw [8 x i8], ptr %907, i64 %indvars.iv
   %910 = load ptr, ptr %909, align 8, !tbaa !59
   %.not258 = icmp eq ptr %910, null
   br i1 %.not258, label %919, label %911
@@ -6006,7 +6006,7 @@ smart_str_alloc.exit286:                          ; preds = %940, %951
   %962 = phi i32 [ %958, %.lr.ph548 ], [ %988, %987 ]
   %indvars.iv569 = phi i64 [ 0, %.lr.ph548 ], [ %indvars.iv.next570, %987 ]
   %963 = load ptr, ptr %960, align 8, !tbaa !57
-  %964 = getelementptr inbounds nuw ptr, ptr %963, i64 %indvars.iv569
+  %964 = getelementptr inbounds nuw [8 x i8], ptr %963, i64 %indvars.iv569
   %965 = load ptr, ptr %964, align 8, !tbaa !59
   %.not257 = icmp eq ptr %965, null
   br i1 %.not257, label %987, label %966
@@ -8780,7 +8780,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_var_serialize_try_add_sleep_pro
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %33, %37
   tail call void @llvm.assume(i1 %38)
-  %39 = getelementptr inbounds nuw ptr, ptr %28, i64 %33
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %33
   %40 = load ptr, ptr %39, align 8, !tbaa !59
   br label %zend_get_property_info_for_slot.exit.i
 

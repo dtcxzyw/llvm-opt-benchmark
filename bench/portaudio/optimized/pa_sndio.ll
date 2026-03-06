@@ -3,7 +3,6 @@ source_filename = "bench/portaudio/original/pa_sndio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PaDeviceInfo = type { i32, ptr, i32, i32, i32, double, double, double, double, double }
 %struct.sio_par = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [3 x i32], i32 }
 %struct.pollfd = type { i32, i16, i16 }
 %struct.PaStreamCallbackTimeInfo = type { double, double, double }
@@ -82,7 +81,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   br i1 %29, label %25, label %.outer, !llvm.loop !34
 
 .outer:                                           ; preds = %27
-  %30 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %7, i64 %.1.ph46
+  %30 = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %.1.ph46
   store i32 2, ptr %30, align 8, !tbaa !8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %26, ptr %31, align 8, !tbaa !13
@@ -102,7 +101,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   store double 5.000000e-01, ptr %38, align 8, !tbaa !20
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store double 4.800000e+04, ptr %39, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw ptr, ptr %17, i64 %.1.ph46
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.1.ph46
   store ptr %30, ptr %40, align 8, !tbaa !22
   %41 = add nuw nsw i64 %.1.ph46, 1
   %exitcond.not = icmp eq i64 %41, 16
@@ -360,7 +359,7 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
   %.mux = select i1 %.not, ptr %3, ptr %2
   %.pn115.in = load i32, ptr %.mux, align 8, !tbaa !48
   %.pn115 = sext i32 %.pn115.in to i64
-  %.pn = getelementptr %struct.PaDeviceInfo, ptr %0, i64 %.pn115
+  %.pn = getelementptr [72 x i8], ptr %0, i64 %.pn115
   %.0.in = getelementptr i8, ptr %.pn, i64 272
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !13
   %85 = call ptr @sio_open(ptr noundef %.0, i32 noundef %.1, i32 noundef 0) #17

@@ -2279,7 +2279,7 @@ define internal fastcc void @process_control_avps(ptr noundef %0, ptr noundef %1
 
 switch.lookup:                                    ; preds = %134
   %136 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.process_control_avps.2, i64 %136
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.process_control_avps.2, i64 %136
   %switch.load = load i64, ptr %switch.gep, align 8
   %137 = getelementptr inbounds nuw i8, ptr %.0.i129.i, i64 %switch.load
   store i32 %121, ptr %137, align 4
@@ -3452,7 +3452,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
 
 switch.lookup762:                                 ; preds = %808
   %810 = zext nneg i32 %switch.tableidx760 to i64
-  %switch.gep766 = getelementptr inbounds nuw i64, ptr @switch.table.process_control_avps.2, i64 %810
+  %switch.gep766 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.process_control_avps.2, i64 %810
   %switch.load767 = load i64, ptr %switch.gep766, align 8
   %811 = getelementptr inbounds nuw i8, ptr %.0.i610, i64 %switch.load767
   store i32 %796, ptr %811, align 4
@@ -3534,7 +3534,7 @@ switch.lookup762:                                 ; preds = %808
 
 switch.lookup769:                                 ; preds = %847
   %850 = zext nneg i16 %848 to i64
-  %switch.gep770 = getelementptr inbounds nuw i32, ptr @switch.table.process_control_avps.3, i64 %850
+  %switch.gep770 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.process_control_avps.3, i64 %850
   %switch.load771 = load i32, ptr %switch.gep770, align 4
   br label %851
 

@@ -5,11 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.nameData = type { [64 x i8] }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.FormExtraData_pg_attribute = type { %struct.NullableDatum, %struct.NullableDatum }
-%struct.NullableDatum = type { i64, i8 }
 %struct.ObjectAddress = type { i32, i32, i32 }
-%union.ListCell = type { ptr }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
@@ -132,7 +128,7 @@ define dso_local ptr @SystemAttributeDefinition(i16 noundef signext %0) local_un
 6:                                                ; preds = %1
   %7 = xor i32 %2, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @SysAtt, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @SysAtt, i64 %8
   %10 = load ptr, ptr %9, align 8
   ret ptr %10
 }
@@ -157,7 +153,7 @@ define dso_local ptr @SystemAttributeByName(ptr noundef readonly captures(none) 
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @SysAtt, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @SysAtt, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #12
@@ -337,7 +333,7 @@ define dso_local void @CheckAttributeNamesTypes(ptr noundef %0, i8 noundef signe
 
 13:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %14 = getelementptr %struct.FormData_pg_attribute, ptr %12, i64 %indvars.iv
+  %14 = getelementptr [100 x i8], ptr %12, i64 %indvars.iv
   %15 = getelementptr i8, ptr %14, i64 28
   br label %17
 
@@ -348,7 +344,7 @@ define dso_local void @CheckAttributeNamesTypes(ptr noundef %0, i8 noundef signe
 
 17:                                               ; preds = %16, %13
   %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %16 ]
-  %18 = getelementptr inbounds nuw ptr, ptr @SysAtt, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @SysAtt, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %15) #12
@@ -381,7 +377,7 @@ SystemAttributeByName.exit:                       ; preds = %17
 
 .preheader43:                                     ; preds = %.preheader43.lr.ph, %49
   %indvars.iv61 = phi i64 [ 1, %.preheader43.lr.ph ], [ %indvars.iv.next62, %49 ]
-  %31 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %30, i64 %indvars.iv61
+  %31 = getelementptr inbounds nuw [100 x i8], ptr %30, i64 %indvars.iv61
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   br label %34
 
@@ -400,7 +396,7 @@ SystemAttributeByName.exit:                       ; preds = %17
 
 34:                                               ; preds = %.preheader43, %33
   %indvars.iv56 = phi i64 [ 0, %.preheader43 ], [ %indvars.iv.next57, %33 ]
-  %35 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %30, i64 %indvars.iv56
+  %35 = getelementptr inbounds nuw [100 x i8], ptr %30, i64 %indvars.iv56
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %32) #12
   %38 = icmp eq i32 %37, 0
@@ -413,7 +409,7 @@ SystemAttributeByName.exit:                       ; preds = %17
   %43 = sext i32 %42 to i64
   %44 = shl nsw i64 %43, 4
   %45 = getelementptr i8, ptr %0, i64 %44
-  %46 = getelementptr %struct.FormData_pg_attribute, ptr %45, i64 %indvars.iv56
+  %46 = getelementptr [100 x i8], ptr %45, i64 %indvars.iv56
   %47 = getelementptr i8, ptr %46, i64 28
   %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %47) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__func__.CheckAttributeNamesTypes) #11
@@ -431,7 +427,7 @@ SystemAttributeByName.exit:                       ; preds = %17
   %52 = shl nsw i64 %51, 4
   %53 = getelementptr i8, ptr %0, i64 %52
   %54 = getelementptr i8, ptr %53, i64 24
-  %55 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %54, i64 %indvars.iv66
+  %55 = getelementptr inbounds nuw [100 x i8], ptr %54, i64 %indvars.iv66
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 68
   %58 = load i32, ptr %57, align 4
@@ -546,7 +542,7 @@ define dso_local void @CheckAttributeType(ptr noundef %0, i32 noundef %1, i32 no
   %50 = shl nsw i64 %49, 4
   %51 = getelementptr i8, ptr %43, i64 %50
   %52 = getelementptr i8, ptr %51, i64 24
-  %53 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [100 x i8], ptr %52, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 91
   %55 = load i8, ptr %54, align 1, !range !10, !noundef !11
   %56 = trunc nuw i8 %55 to i1
@@ -681,7 +677,7 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %14 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %7, ptr noundef nonnull @TTSOpsHeapTuple) #11
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -697,10 +693,10 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
   %19 = shl nsw i64 %18, 4
   %20 = getelementptr i8, ptr %1, i64 %19
   %21 = getelementptr i8, ptr %20, i64 24
-  %22 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %21, i64 %indvars.iv161
-  %23 = getelementptr inbounds nuw %struct.FormExtraData_pg_attribute, ptr %3, i64 %indvars.iv161
+  %22 = getelementptr inbounds nuw [100 x i8], ptr %21, i64 %indvars.iv161
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv161
   %24 = sext i32 %.0137148 to i64
-  %25 = getelementptr inbounds ptr, ptr %11, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %11, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
@@ -994,7 +990,7 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
 
 .lr.ph156:                                        ; preds = %.lr.ph156.preheader, %.lr.ph156
   %indvars.iv163 = phi i64 [ 0, %.lr.ph156.preheader ], [ %indvars.iv.next164, %.lr.ph156 ]
-  %236 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv163
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv163
   %237 = load ptr, ptr %236, align 8
   tail call void @ExecDropSingleTupleTableSlot(ptr noundef %237) #11
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
@@ -1496,7 +1492,7 @@ AddNewRelationTuple.exit:                         ; preds = %102, %113
   %138 = shl nsw i64 %137, 4
   %139 = getelementptr i8, ptr %126, i64 %138
   %140 = getelementptr i8, ptr %139, i64 24
-  %141 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %140, i64 %indvars.iv.i
+  %141 = getelementptr inbounds nuw [100 x i8], ptr %140, i64 %indvars.iv.i
   store i32 1259, ptr %22, align 4
   store i32 %.0, ptr %131, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1630,7 +1626,7 @@ switch.early.test:                                ; preds = %AddNewAttributeTupl
   %indvars.iv.i187 = phi i64 [ 0, %.lr.ph.i186 ], [ %indvars.iv.next.i188, %214 ]
   %.032.i = phi i32 [ 0, %.lr.ph.i186 ], [ %.1.i, %214 ]
   %175 = load ptr, ptr %173, align 8
-  %176 = getelementptr inbounds nuw %union.ListCell, ptr %175, i64 %indvars.iv.i187
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv.i187
   %177 = load ptr, ptr %176, align 8
   %178 = load i32, ptr %177, align 8
   switch i32 %178, label %210 [
@@ -2402,7 +2398,7 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   %.1357557 = phi ptr [ %.2, %.preheader256 ], [ null, %.preheader256.preheader ]
   %indvars.iv556 = phi i64 [ %indvars.iv.next, %.preheader256 ], [ 0, %.preheader256.preheader ]
   %37 = load ptr, ptr %24, align 8
-  %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv556
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv556
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %11, align 8
   %41 = load i16, ptr %39, align 8
@@ -2412,7 +2408,7 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   %45 = shl nsw i64 %44, 4
   %46 = getelementptr i8, ptr %40, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -76
-  %48 = getelementptr %struct.FormData_pg_attribute, ptr %47, i64 %42
+  %48 = getelementptr [100 x i8], ptr %47, i64 %42
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 68
@@ -2511,7 +2507,7 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   %.4390559 = phi ptr [ %.6, %.preheader254 ], [ %.us-phi, %.preheader254.preheader ]
   %indvars.iv457558 = phi i64 [ %indvars.iv.next458, %.preheader254 ], [ 0, %.preheader254.preheader ]
   %97 = load ptr, ptr %29, align 8
-  %98 = getelementptr inbounds nuw %union.ListCell, ptr %97, i64 %indvars.iv457558
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv457558
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %100, align 4
@@ -2581,7 +2577,7 @@ cookConstraint.exit:                              ; preds = %list_length.exit.i,
 
 127:                                              ; preds = %.lr.ph.split.us373, %126
   %indvars.iv454 = phi i64 [ 0, %.lr.ph.split.us373 ], [ %indvars.iv.next455, %126 ]
-  %128 = getelementptr inbounds nuw %union.ListCell, ptr %132, i64 %indvars.iv454
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv454
   %129 = load ptr, ptr %128, align 8
   %130 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %129, ptr noundef nonnull dereferenceable(1) %121) #12
   %131 = icmp eq i32 %130, 0
@@ -3270,7 +3266,7 @@ list_length.exit:                                 ; preds = %9
   %indvars.iv58 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next59, %42 ]
   %.04452 = phi i32 [ 0, %.lr.ph55 ], [ %.1, %42 ]
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv58
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv58
   %26 = load ptr, ptr %25, align 8
   %27 = icmp sgt i32 %.04452, 0
   br i1 %27, label %.lr.ph, label %._crit_edge
@@ -3283,7 +3279,7 @@ list_length.exit:                                 ; preds = %9
 
 30:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %31 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, %29
   br i1 %33, label %._crit_edge.loopexit, label %34
@@ -3307,7 +3303,7 @@ list_length.exit:                                 ; preds = %9
   %38 = load i16, ptr %37, align 8
   %39 = add i32 %.04452, 1
   %40 = sext i32 %.04452 to i64
-  %41 = getelementptr inbounds i16, ptr %18, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %18, i64 %40
   store i16 %38, ptr %41, align 2
   %.pre = load i32, ptr %12, align 4
   br label %42
@@ -3447,7 +3443,7 @@ list_length.exit:                                 ; preds = %list_length.exit.lr
 14:                                               ; preds = %list_length.exit
   %15 = getelementptr i8, ptr %.0258, i64 16
   %.0.val = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %.0.val, i64 %indvars.iv311
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %indvars.iv311
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 48
@@ -3542,7 +3538,7 @@ list_length.exit183:                              ; preds = %63, %64
 69:                                               ; preds = %list_length.exit183
   %70 = getelementptr i8, ptr %.1, i64 16
   %.1.val = load ptr, ptr %70, align 8
-  %71 = getelementptr inbounds %union.ListCell, ptr %.1.val, i64 %62
+  %71 = getelementptr inbounds [8 x i8], ptr %.1.val, i64 %62
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %19, align 8
   %74 = getelementptr i8, ptr %73, i64 16
@@ -3645,7 +3641,7 @@ list_length.exit183:                              ; preds = %63, %64
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.042.0236, i64 16
   %128 = load ptr, ptr %127, align 8
   %129 = sext i32 %.sroa.7.0235 to i64
-  %130 = getelementptr inbounds %union.ListCell, ptr %128, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %128, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load i16, ptr %132, align 8
@@ -3709,7 +3705,7 @@ list_length.exit183:                              ; preds = %63, %64
 
 158:                                              ; preds = %.lr.ph248, %157
   %indvars.iv = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next, %157 ]
-  %159 = getelementptr inbounds nuw %union.ListCell, ptr %155, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %indvars.iv
   %160 = load ptr, ptr %159, align 8
   %161 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(1) %135) #12
   %162 = icmp eq i32 %161, 0
@@ -3771,7 +3767,7 @@ list_length.exit185:                              ; preds = %list_length.exit185
 189:                                              ; preds = %list_length.exit185
   %190 = getelementptr i8, ptr %.4287, i64 16
   %.4.val = load ptr, ptr %190, align 8
-  %191 = getelementptr inbounds nuw %union.ListCell, ptr %.4.val, i64 %indvars.iv319
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %.4.val, i64 %indvars.iv319
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
@@ -3821,7 +3817,7 @@ list_length.exit187:                              ; preds = %199, %200
 209:                                              ; preds = %list_length.exit187
   %.5.val = load ptr, ptr %198, align 8
   %210 = sext i32 %.0133 to i64
-  %211 = getelementptr inbounds %union.ListCell, ptr %.5.val, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %.5.val, i64 %210
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %214 = load i16, ptr %213, align 8
@@ -3860,7 +3856,7 @@ list_length.exit187:                              ; preds = %199, %200
 
 229:                                              ; preds = %.lr.ph276, %228
   %indvars.iv314 = phi i64 [ 0, %.lr.ph276 ], [ %indvars.iv.next315, %228 ]
-  %230 = getelementptr inbounds nuw %union.ListCell, ptr %227, i64 %indvars.iv314
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %indvars.iv314
   %231 = load ptr, ptr %230, align 8
   %232 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %231, ptr noundef nonnull dereferenceable(1) %.1138.ph) #12
   %233 = icmp eq i32 %232, 0
@@ -3989,7 +3985,7 @@ define dso_local void @heap_truncate(ptr noundef readonly captures(address_is_nu
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34 ], [ 0, %.lr.ph ]
   %.02832 = phi ptr [ %10, %.lr.ph34 ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8
   %9 = tail call ptr @table_open(i32 noundef %8, i32 noundef 8) #11
   %10 = tail call ptr @lappend(ptr noundef %.02832, ptr noundef %9) #11
@@ -4018,7 +4014,7 @@ define dso_local void @heap_truncate(ptr noundef readonly captures(address_is_nu
 .lr.ph39:                                         ; preds = %.lr.ph36, %heap_truncate_one_rel.exit
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %heap_truncate_one_rel.exit ], [ 0, %.lr.ph36 ]
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv41
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv41
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load ptr, ptr %21, align 8
@@ -4080,7 +4076,7 @@ define dso_local void @heap_truncate_check_FKs(ptr noundef readonly captures(add
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.lr.ph ]
   %.05862 = phi ptr [ %.1, %25 ], [ null, %.lr.ph ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
@@ -4132,7 +4128,7 @@ define dso_local void @heap_truncate_check_FKs(ptr noundef readonly captures(add
 35:                                               ; preds = %.lr.ph74, %.critedge55
   %indvars.iv82 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next83, %.critedge55 ]
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds nuw %union.ListCell, ptr %36, i64 %indvars.iv82
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv82
   %38 = load i32, ptr %37, align 8
   %.sroa.010.0.insert.ext = zext i32 %38 to i64
   %39 = inttoptr i64 %.sroa.010.0.insert.ext to ptr
@@ -4158,7 +4154,7 @@ define dso_local void @heap_truncate_check_FKs(ptr noundef readonly captures(add
 .lr.ph71:                                         ; preds = %.lr.ph66, %46
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %46 ], [ 0, %.lr.ph66 ]
   %50 = load ptr, ptr %43, align 8
-  %51 = getelementptr inbounds nuw %union.ListCell, ptr %50, i64 %indvars.iv79
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv79
   %52 = load i32, ptr %51, align 8
   %53 = tail call zeroext i1 @list_member_oid(ptr noundef nonnull %.1, i32 noundef %52) #11
   br i1 %53, label %46, label %.split
@@ -4247,7 +4243,7 @@ define internal fastcc void @RelationTruncateIndexes(ptr noundef %0) unnamed_add
 .lr.ph17:                                         ; preds = %.lr.ph, %.lr.ph17
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph17 ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %10 = tail call ptr @index_open(i32 noundef %9, i32 noundef 8) #11
   %11 = tail call ptr @BuildDummyIndexInfo(ptr noundef %10) #11
@@ -4357,7 +4353,7 @@ define dso_local ptr @heap_truncate_find_FKs(ptr noundef %0) local_unnamed_addr 
   %.3497188 = phi ptr [ %.4, %64 ], [ %.147, %.lr.ph74 ]
   %.1437287 = phi ptr [ %.244, %64 ], [ %.042, %.lr.ph74 ]
   %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %44) #11
@@ -4528,12 +4524,12 @@ define dso_local void @StorePartitionKey(ptr noundef %0, i8 noundef signext %1, 
 52:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
   store i32 2616, ptr %11, align 4
-  %53 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
   store i32 %54, ptr %50, align 4
   store i32 0, ptr %51, align 4
   call void @add_exact_object_address(ptr noundef nonnull %11, ptr noundef %45) #11
-  %55 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   switch i32 %56, label %57 [
     i32 0, label %58
@@ -4562,7 +4558,7 @@ define dso_local void @StorePartitionKey(ptr noundef %0, i8 noundef signext %1, 
 
 61:                                               ; preds = %._crit_edge, %68
   %indvars.iv67 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next68, %68 ]
-  %62 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv67
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv67
   %63 = load i16, ptr %62, align 2
   %64 = icmp eq i16 %63, 0
   br i1 %64, label %68, label %65
@@ -4763,7 +4759,7 @@ define internal zeroext i1 @check_nested_generated_walker(ptr noundef %0, ptr no
   %13 = getelementptr i8, ptr %9, i64 16
   %.val = load ptr, ptr %13, align 8
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %.val, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %18 = load i32, ptr %17, align 4

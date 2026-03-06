@@ -22,8 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec.5" }
 %"class.cv::Vec.5" = type { %"class.cv::Matx.6" }
 %"class.cv::Matx.6" = type { [4 x double] }
-%"class.cv::Vec.3" = type { %"class.cv::Matx.4" }
-%"class.cv::Matx.4" = type { [3 x float] }
 
 @.str = private unnamed_addr constant [13 x i8] c"smarties.png\00", align 1
 @.str.2 = private unnamed_addr constant [49 x i8] c" Program Arguments: [image_name -- default %s] \0A\00", align 1
@@ -353,18 +351,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   %124 = phi ptr [ %96, %.lr.ph ], [ %139, %136 ]
   %.03086 = phi i64 [ 0, %.lr.ph ], [ %137, %136 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %125 = getelementptr inbounds nuw %"class.cv::Vec.3", ptr %124, i64 %.03086
+  %125 = getelementptr inbounds nuw [12 x i8], ptr %124, i64 %.03086
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %16, i8 0, i64 12, i1 false), !tbaa !39, !alias.scope !36
   br label %126
 
 126:                                              ; preds = %126, %123
   %indvars.iv.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i, %126 ]
-  %127 = getelementptr inbounds nuw float, ptr %125, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %indvars.iv.i
   %128 = load float, ptr %127, align 4, !tbaa !40, !noalias !36
   %129 = insertelement <4 x float> poison, float %128, i64 0
   %130 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %129)
-  %131 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i
   store i32 %130, ptr %131, align 4, !tbaa !39, !alias.scope !36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

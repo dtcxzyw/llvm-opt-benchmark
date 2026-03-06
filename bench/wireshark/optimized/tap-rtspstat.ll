@@ -83,7 +83,7 @@ define internal void @rtspstat_init(ptr noundef %0, ptr readnone captures(none) 
   %26 = tail call i32 @g_hash_table_insert(ptr noundef %23, ptr noundef %25, ptr noundef %18)
   %27 = add i32 %.027.i, 1
   %28 = sext i32 %27 to i64
-  %29 = getelementptr %struct._value_string, ptr @rtsp_status_code_vals, i64 %28
+  %29 = getelementptr [16 x i8], ptr @rtsp_status_code_vals, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null

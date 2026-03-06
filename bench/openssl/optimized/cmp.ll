@@ -866,7 +866,7 @@ define dso_local range(i32 0, 2) i32 @cmp_main(i32 noundef %0, ptr noundef %1) l
 .lr.ph.i:                                         ; preds = %.preheader.i, %47
   %.025.i = phi i32 [ %48, %47 ], [ 1, %.preheader.i ]
   %11 = sext i32 %.025.i to i64
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = load i8, ptr %13, align 1, !tbaa !9
   %15 = icmp eq i8 %14, 45
@@ -881,7 +881,7 @@ define dso_local range(i32 0, 2) i32 @cmp_main(i32 noundef %0, ptr noundef %1) l
 19:                                               ; preds = %16
   %20 = add nsw i32 %.025.i, 1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %1, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   store ptr %23, ptr @opt_config, align 8, !tbaa !4
   br label %47
@@ -894,7 +894,7 @@ define dso_local range(i32 0, 2) i32 @cmp_main(i32 noundef %0, ptr noundef %1) l
 26:                                               ; preds = %24
   %27 = add nsw i32 %.025.i, 1
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %1, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %1, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !4
   store ptr %30, ptr @opt_section, align 8, !tbaa !4
   br label %47
@@ -907,7 +907,7 @@ define dso_local range(i32 0, 2) i32 @cmp_main(i32 noundef %0, ptr noundef %1) l
 34:                                               ; preds = %31
   %35 = add nsw i32 %.025.i, 1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %1, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %1, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = tail call i64 @strtol(ptr noundef nonnull captures(none) %38, ptr noundef null, i32 noundef 10) #12
   %40 = trunc i64 %39 to i32
@@ -1168,7 +1168,7 @@ handle_opts_upfront.exit:                         ; preds = %53, %._crit_edge.i
   %160 = tail call ptr @__ctype_b_loc() #15
   %161 = load ptr, ptr %160, align 8, !tbaa !26
   %162 = zext i8 %157 to i64
-  %163 = getelementptr inbounds nuw i16, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %161, i64 %162
   %164 = load i16, ptr %163, align 2, !tbaa !28
   %165 = and i16 %164, 8192
   %.not.i113.i = icmp eq i16 %165, 0
@@ -1213,7 +1213,7 @@ handle_opts_upfront.exit:                         ; preds = %53, %._crit_edge.i
   %182 = tail call ptr @__ctype_b_loc() #15
   %183 = load ptr, ptr %182, align 8, !tbaa !26
   %184 = zext i8 %180 to i64
-  %185 = getelementptr inbounds nuw i16, ptr %183, i64 %184
+  %185 = getelementptr inbounds nuw [2 x i8], ptr %183, i64 %184
   %186 = load i16, ptr %185, align 2, !tbaa !28
   %187 = and i16 %186, 8192
   %.not29.i.i = icmp eq i16 %187, 0
@@ -1412,14 +1412,14 @@ conf_get_string.exit.i:                           ; preds = %218, %206
 264:                                              ; preds = %259
   %265 = trunc nsw i64 %.2118.i to i32
   %266 = zext i32 %spec.select101.i to i64
-  %267 = getelementptr inbounds nuw %union.varref, ptr @cmp_vars, i64 %266
+  %267 = getelementptr inbounds nuw [8 x i8], ptr @cmp_vars, i64 %266
   %268 = load ptr, ptr %267, align 8, !tbaa !9
   store i32 %265, ptr %268, align 4, !tbaa !10
   br label %281
 
 269:                                              ; preds = %258
   %270 = zext i32 %spec.select101.i to i64
-  %271 = getelementptr inbounds nuw %union.varref, ptr @cmp_vars, i64 %270
+  %271 = getelementptr inbounds nuw [8 x i8], ptr @cmp_vars, i64 %270
   %272 = load ptr, ptr %271, align 8, !tbaa !9
   store i64 %.2118.i, ptr %272, align 8, !tbaa !33
   br label %281
@@ -1437,7 +1437,7 @@ conf_get_string.exit.i:                           ; preds = %218, %206
 277:                                              ; preds = %274, %273
   %.478.i = phi ptr [ %spec.store.select.i, %274 ], [ null, %273 ]
   %278 = zext i32 %spec.select101.i to i64
-  %279 = getelementptr inbounds nuw %union.varref, ptr @cmp_vars, i64 %278
+  %279 = getelementptr inbounds nuw [8 x i8], ptr @cmp_vars, i64 %278
   %280 = load ptr, ptr %279, align 8, !tbaa !9
   store ptr %.478.i, ptr %280, align 8, !tbaa !4
   br label %281
@@ -3052,7 +3052,7 @@ define internal fastcc noundef ptr @prev_item(ptr noundef readnone captures(addr
   %12 = tail call ptr @__ctype_b_loc() #15
   %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = zext i8 %9 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !28
   %17 = and i16 %16, 8192
   %.not = icmp eq i16 %17, 0
@@ -3097,7 +3097,7 @@ define internal fastcc noundef ptr @prev_item(ptr noundef readnone captures(addr
   %34 = tail call ptr @__ctype_b_loc() #15
   %35 = load ptr, ptr %34, align 8, !tbaa !26
   %36 = zext i8 %32 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !28
   %39 = and i16 %38, 8192
   %.not29 = icmp eq i16 %39, 0
@@ -8255,7 +8255,7 @@ define internal fastcc range(i32 0, 2) i32 @handle_opt_geninfo(ptr noundef %0) u
   %.1 = phi ptr [ %.044, %5 ], [ %13, %7 ]
   %8 = load i8, ptr %.1, align 1, !tbaa !9
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !28
   %12 = and i16 %11, 8192
   %.not = icmp eq i16 %12, 0
@@ -8749,7 +8749,7 @@ define internal fastcc range(i32 0, 2) i32 @set_fallback_pubkey(ptr noundef %0) 
   %7 = phi i8 [ %3, %.lr.ph ], [ %14, %12 ]
   %.02433 = phi ptr [ %2, %.lr.ph ], [ %13, %12 ]
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i16, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !28
   %11 = and i16 %10, 8192
   %.not29 = icmp ne i16 %11, 0

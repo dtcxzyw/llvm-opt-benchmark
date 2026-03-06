@@ -405,13 +405,13 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
 11:                                               ; preds = %13, %6
   %.val22.i = phi i64 [ %15, %13 ], [ %.sroa.4.0.copyload, %6 ]
   %.sroa.06.0.i = phi i64 [ %16, %13 ], [ 0, %6 ]
-  %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %0, i64 %.sroa.06.0.i
+  %12 = getelementptr inbounds [104 x i8], ptr %0, i64 %.sroa.06.0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5
   invoke void @"_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb1ac58073d9c2e30E"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %12)
           to label %13 unwind label %18, !noalias !11
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.sroa.5.0.copyload, i64 %.val22.i
+  %14 = getelementptr inbounds [104 x i8], ptr %.sroa.5.0.copyload, i64 %.val22.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, ptr noundef nonnull readonly align 8 dereferenceable(104) %4, i64 104, i1 false), !noalias !12
   %15 = add i64 %.val22.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5
@@ -621,10 +621,10 @@ switch.lookup:
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %2 = zext nneg i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = zext nneg i8 %.0.val to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE.23", i64 %3
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3368b4ecc4e038acE.23", i64 %3
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hda35a87c04b31632E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0, i64 noundef %switch.load4)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0f5c9d74c96a75f0E.exit" unwind label %4
@@ -2275,7 +2275,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 16:                                               ; preds = %6, %18
   %.val22 = phi i64 [ %20, %18 ], [ %.promoted, %6 ]
   %.sroa.06.0 = phi i64 [ %21, %18 ], [ 0, %6 ]
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %0, i64 %.sroa.06.0
+  %17 = getelementptr inbounds [104 x i8], ptr %0, i64 %.sroa.06.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !401
   invoke void @"_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb1ac58073d9c2e30E"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %17)
@@ -2284,7 +2284,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 18:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !403)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !406)
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %12, i64 %.val22
+  %19 = getelementptr inbounds [104 x i8], ptr %12, i64 %.val22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %19, ptr noundef nonnull readonly align 8 dereferenceable(104) %4, i64 104, i1 false), !noalias !409
   %20 = add i64 %.val22, 1
   store i64 %20, ptr %13, align 8, !alias.scope !409, !noalias !410
@@ -3597,7 +3597,7 @@ switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !720, !noundef !4
   %switch.tableidx = xor i8 %1, -128
   %2 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN17meilisearch_types5error4Code4http17h6a5d9de730835a9aE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN17meilisearch_types5error4Code4http17h6a5d9de730835a9aE, i64 %2
   %switch.load = load i16, ptr %switch.gep, align 2
   ret i16 %switch.load
 }

@@ -39,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::AlignedCharArrayUnion" = type { [32 x i8] }
 %class.anon.42 = type { ptr, ptr }
 %"class.llvm::ArrayRef.8" = type { ptr, i64 }
-%"struct.llvm::JSONScopedPrinter::ScopeContext" = type { i32, i32 }
 %class.anon.52 = type { ptr, ptr, ptr, ptr }
 %class.anon.56 = type { ptr, ptr }
 %"class.llvm::ArrayRef.17" = type { ptr, i64 }
@@ -2267,7 +2266,7 @@ _ZN4llvm11SmallVectorIjLj12EED2Ev.exit10:         ; preds = %_ZN4llvm11SmallVect
 36:                                               ; preds = %.lr.ph
   %37 = zext i32 %32 to i64
   %38 = load ptr, ptr %6, align 8, !tbaa !58
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %37
   %40 = load i8, ptr %.013, align 1, !tbaa !19
   %41 = zext i8 %40 to i32
   store i32 %41, ptr %39, align 4, !tbaa !92
@@ -2401,7 +2400,7 @@ _ZN4llvm11SmallVectorIiLj12EED2Ev.exit10:         ; preds = %_ZN4llvm11SmallVect
 36:                                               ; preds = %.lr.ph
   %37 = zext i32 %32 to i64
   %38 = load ptr, ptr %6, align 8, !tbaa !58
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %37
   %40 = load i8, ptr %.013, align 1, !tbaa !19
   %41 = sext i8 %40 to i32
   store i32 %41, ptr %39, align 4, !tbaa !92
@@ -4776,7 +4775,7 @@ _ZN4llvm17JSONScopedPrinter11scopedBeginENS0_12ScopeContextE.exit: ; preds = %1,
   %12 = phi i32 [ %5, %1 ], [ %.pre.i.i, %8 ]
   %13 = load ptr, ptr %3, align 8, !tbaa !58
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::JSONScopedPrinter::ScopeContext", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   store i64 1, ptr %15, align 1
   %16 = load i32, ptr %4, align 8, !tbaa !60
   %17 = add i32 %16, 1
@@ -4795,7 +4794,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11objectBeginENS_9St
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8, !tbaa !58
   %9 = zext i32 %6 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::JSONScopedPrinter::ScopeContext", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   %12 = load i32, ptr %11, align 4, !tbaa !109
   %.not.i = icmp eq i32 %12, 1
@@ -4829,7 +4828,7 @@ _ZN4llvm17JSONScopedPrinter11scopedBeginENS_9StringRefENS0_5ScopeE.exit: ; preds
   %24 = phi i32 [ %17, %15 ], [ %.pre.i.i.i, %20 ]
   %25 = load ptr, ptr %4, align 8, !tbaa !58
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::JSONScopedPrinter::ScopeContext", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   store i64 %.0.i, ptr %27, align 1
   %28 = load i32, ptr %5, align 8, !tbaa !60
   %29 = add i32 %28, 1
@@ -4844,7 +4843,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9objectEndEv(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8, !tbaa !60
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::JSONScopedPrinter::ScopeContext", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 4, !tbaa !113
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 -4
@@ -4910,7 +4909,7 @@ _ZN4llvm17JSONScopedPrinter11scopedBeginENS0_12ScopeContextE.exit: ; preds = %1,
   %12 = phi i32 [ %5, %1 ], [ %.pre.i.i, %8 ]
   %13 = load ptr, ptr %3, align 8, !tbaa !58
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::JSONScopedPrinter::ScopeContext", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   store i64 0, ptr %15, align 1
   %16 = load i32, ptr %4, align 8, !tbaa !60
   %17 = add i32 %16, 1
@@ -4929,7 +4928,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter10arrayBeginENS_9Str
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8, !tbaa !58
   %9 = zext i32 %6 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::JSONScopedPrinter::ScopeContext", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   %12 = load i32, ptr %11, align 4, !tbaa !109
   %.not.i = icmp eq i32 %12, 1
@@ -4963,7 +4962,7 @@ _ZN4llvm17JSONScopedPrinter11scopedBeginENS_9StringRefENS0_5ScopeE.exit: ; preds
   %24 = phi i32 [ %17, %15 ], [ %.pre.i.i.i, %20 ]
   %25 = load ptr, ptr %4, align 8, !tbaa !58
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::JSONScopedPrinter::ScopeContext", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   store i64 %.0.i, ptr %27, align 1
   %28 = load i32, ptr %5, align 8, !tbaa !60
   %29 = add i32 %28, 1
@@ -4978,7 +4977,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter8arrayEndEv(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8, !tbaa !60
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::JSONScopedPrinter::ScopeContext", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 4, !tbaa !113
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 -4
@@ -6102,14 +6101,14 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %2, %8
   %13 = zext i8 %3 to i32
   %14 = load ptr, ptr %0, align 8, !tbaa !58
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 %13, ptr %16, align 1
   %17 = load i32, ptr %4, align 8, !tbaa !60
   %18 = add i32 %17, 1
   store i32 %18, ptr %4, align 8, !tbaa !60
   %19 = load ptr, ptr %0, align 8, !tbaa !58
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -4
   ret ptr %22
 }
@@ -6667,14 +6666,14 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %2, %8
   %13 = sext i8 %3 to i32
   %14 = load ptr, ptr %0, align 8, !tbaa !58
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 %13, ptr %16, align 1
   %17 = load i32, ptr %4, align 8, !tbaa !60
   %18 = add i32 %17, 1
   store i32 %18, ptr %4, align 8, !tbaa !60
   %19 = load ptr, ptr %0, align 8, !tbaa !58
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -4
   ret ptr %22
 }

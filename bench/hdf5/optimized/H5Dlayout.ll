@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5D_layout_ops_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5D_chunk_ops_t = type { i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5O_efl_entry_t = type { i64, ptr, i64, i64 }
 
 @H5O_layout_ver_bounds = local_unnamed_addr constant [7 x i32] [i32 1, i32 3, i32 4, i32 4, i32 4, i32 4, i32 4], align 16
 @H5D_init_g = external local_unnamed_addr global i8, align 1
@@ -345,7 +344,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_version(ptr noundef %0, ptr noundef
   %11 = load i32, ptr %10, align 4, !tbaa !51
   %12 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr @H5O_layout_ver_bounds, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr @H5O_layout_ver_bounds, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !52
   %16 = icmp ugt i32 %11, %15
   br i1 %16, label %21, label %17
@@ -353,7 +352,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_version(ptr noundef %0, ptr noundef
 17:                                               ; preds = %9
   %18 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr @H5O_layout_ver_bounds, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr @H5O_layout_ver_bounds, i64 %19
   br label %21
 
 21:                                               ; preds = %9, %17
@@ -361,7 +360,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_version(ptr noundef %0, ptr noundef
   %22 = load i32, ptr %.in, align 4, !tbaa !52
   %23 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr @H5O_layout_ver_bounds, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr @H5O_layout_ver_bounds, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !52
   %27 = icmp ugt i32 %22, %26
   br i1 %27, label %28, label %32
@@ -439,18 +438,18 @@ define range(i32 -1, 1) i32 @H5D__layout_set_latest_indexing(ptr noundef capture
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %43 ]
   %.05064 = phi i1 [ true, %.preheader ], [ %.151, %43 ]
   %.05263 = phi i32 [ 0, %.preheader ], [ %spec.select, %43 ]
-  %32 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %33 = load i64, ptr %32, align 8, !tbaa !49
   %34 = icmp eq i64 %33, -1
   %35 = zext i1 %34 to i32
   %spec.select = add i32 %.05263, %35
-  %36 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8, !tbaa !49
   %.not61 = icmp eq i64 %37, %33
   br i1 %.not61, label %38, label %42
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !48
   %41 = zext i32 %40 to i64
   %.not62 = icmp eq i64 %33, %41
@@ -665,7 +664,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
 63:                                               ; preds = %60, %63
   %.0112 = phi i64 [ 0, %60 ], [ %71, %63 ]
   %.080111 = phi i64 [ 8, %60 ], [ %70, %63 ]
-  %64 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %62, i64 %.0112
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %.0112
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !63
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #5
@@ -723,7 +722,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
 96:                                               ; preds = %.lr.ph, %110
   %97 = phi ptr [ %.pre115, %.lr.ph ], [ %112, %110 ]
   %.1113 = phi i64 [ 0, %.lr.ph ], [ %114, %110 ]
-  %98 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %97, i64 %.1113
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %97, i64 %.1113
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !63
   %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #5
@@ -742,7 +741,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
 110:                                              ; preds = %96
   %111 = load i64, ptr %6, align 8, !tbaa !49
   %112 = load ptr, ptr %61, align 8, !tbaa !62
-  %113 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %112, i64 %.1113
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %.1113
   store i64 %111, ptr %113, align 8, !tbaa !68
   %114 = add nuw i64 %.1113, 1
   %115 = load i64, ptr %58, align 8, !tbaa !67

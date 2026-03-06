@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogTagSet = type { ptr, i64, [5 x i32], [4 x i8], %class.LogOutputList, %class.LogDecorators, ptr }
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
-%"class.ObjectLookup::ObjectEntry" = type <{ ptr, i32, [4 x i8] }>
 
 $_ZN13ValueRecorderIP8MetadataEC5EP5Arena = comdat any
 
@@ -276,7 +275,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE6appendERKS1_.exi
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %17 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   store ptr %1, ptr %21, align 8
   br i1 %2, label %22, label %89
 
@@ -295,7 +294,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE6appendERKS1_.exi
   %31 = add i32 %30, %29
   %32 = and i32 %31, 511
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %24, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = shl i32 %6, 1
   %.not.i = icmp ne i32 %35, 0
@@ -359,7 +358,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE6appendERKS1_.exi
 
 61:                                               ; preds = %60, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %60 ]
-  %62 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = icmp eq i64 %indvars.iv.next, %64
@@ -369,7 +368,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE6appendERKS1_.exi
   %66 = load ptr, ptr %23, align 8
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = ptrtoint ptr %70 to i64
   %72 = trunc i64 %71 to i32
@@ -379,7 +378,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE6appendERKS1_.exi
   %76 = add i32 %75, %74
   %77 = and i32 %76, 511
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %66, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = shl nuw i64 %indvars.iv.next, 1
   %.not.i11 = icmp ne i32 %80, 0
@@ -440,7 +439,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %108 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = sext i32 %106 to i64
-  %111 = getelementptr inbounds i32, ptr %109, i64 %110
+  %111 = getelementptr inbounds [4 x i8], ptr %109, i64 %110
   store i32 %6, ptr %111, align 4
   br label %_ZN13ValueRecorderIP8MetadataE7is_realES1_.exit.thread
 
@@ -484,7 +483,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8MetadataE16maybe_find_i
   %14 = add i32 %13, %12
   %15 = and i32 %14, 511
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = ashr i32 %18, 1
   %20 = icmp eq i32 %19, 0
@@ -499,7 +498,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8MetadataE16maybe_find_i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %19 to i64
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %1
@@ -528,7 +527,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8MetadataE16maybe_find_i
 44:                                               ; preds = %.lr.ph, %_ZNK17GrowableArrayViewIiE8containsERKi.exit
   %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.next
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.next
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %1
   br i1 %47, label %48, label %_ZNK17GrowableArrayViewIiE8containsERKi.exit
@@ -550,7 +549,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8MetadataE16maybe_find_i
 
 53:                                               ; preds = %52, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4
   %56 = zext i32 %55 to i64
   %57 = icmp eq i64 %indvars.iv, %56
@@ -608,7 +607,7 @@ define weak_odr hidden noundef ptr @_ZN13ValueRecorderIP8MetadataE2atEi(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8
   br label %12
@@ -803,7 +802,7 @@ _ZN26GrowableArrayWithAllocatorIP8_jobject13GrowableArrayIS1_EE6appendERKS1_.exi
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %17 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   store ptr %1, ptr %21, align 8
   br i1 %2, label %22, label %89
 
@@ -822,7 +821,7 @@ _ZN26GrowableArrayWithAllocatorIP8_jobject13GrowableArrayIS1_EE6appendERKS1_.exi
   %31 = add i32 %30, %29
   %32 = and i32 %31, 511
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %24, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = shl i32 %6, 1
   %.not.i = icmp ne i32 %35, 0
@@ -886,7 +885,7 @@ _ZN26GrowableArrayWithAllocatorIP8_jobject13GrowableArrayIS1_EE6appendERKS1_.exi
 
 61:                                               ; preds = %60, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %60 ]
-  %62 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = icmp eq i64 %indvars.iv.next, %64
@@ -896,7 +895,7 @@ _ZN26GrowableArrayWithAllocatorIP8_jobject13GrowableArrayIS1_EE6appendERKS1_.exi
   %66 = load ptr, ptr %23, align 8
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = ptrtoint ptr %70 to i64
   %72 = trunc i64 %71 to i32
@@ -906,7 +905,7 @@ _ZN26GrowableArrayWithAllocatorIP8_jobject13GrowableArrayIS1_EE6appendERKS1_.exi
   %76 = add i32 %75, %74
   %77 = and i32 %76, 511
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %66, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = shl nuw i64 %indvars.iv.next, 1
   %.not.i11 = icmp ne i32 %80, 0
@@ -967,7 +966,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %108 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = sext i32 %106 to i64
-  %111 = getelementptr inbounds i32, ptr %109, i64 %110
+  %111 = getelementptr inbounds [4 x i8], ptr %109, i64 %110
   store i32 %6, ptr %111, align 4
   br label %_ZN13ValueRecorderIP8_jobjectE7is_realES1_.exit.thread
 
@@ -1011,7 +1010,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_i
   %14 = add i32 %13, %12
   %15 = and i32 %14, 511
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = ashr i32 %18, 1
   %20 = icmp eq i32 %19, 0
@@ -1026,7 +1025,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %19 to i64
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %1
@@ -1055,7 +1054,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_i
 44:                                               ; preds = %.lr.ph, %_ZNK17GrowableArrayViewIiE8containsERKi.exit
   %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.next
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.next
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %1
   br i1 %47, label %48, label %_ZNK17GrowableArrayViewIiE8containsERKi.exit
@@ -1077,7 +1076,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_i
 
 53:                                               ; preds = %52, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4
   %56 = zext i32 %55 to i64
   %57 = icmp eq i64 %indvars.iv, %56
@@ -1135,7 +1134,7 @@ define weak_odr hidden noundef ptr @_ZN13ValueRecorderIP8_jobjectE2atEi(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8
   br label %12
@@ -1320,7 +1319,7 @@ define hidden void @_ZN12ObjectLookupC2Ev(ptr noundef nonnull writeonly align 8 
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %1
   %indvars.iv.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %5 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %2, i64 %indvars.iv.i.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv.i.i
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
@@ -1554,7 +1553,7 @@ _ZN12ObjectLookup12maybe_resortEv.exit:           ; preds = %_ZN10JNIHandles7res
   %35 = lshr i32 %34, 1
   %36 = load ptr, ptr %33, align 8
   %37 = zext nneg i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %37
   %.sroa.0.0.copyload.i.us = load ptr, ptr %38, align 8
   %.not.i.i.i.i.us = icmp eq ptr %.sroa.0.0.copyload.i.us, null
   br i1 %.not.i.i.i.i.us, label %.split.us, label %39
@@ -1600,7 +1599,7 @@ _ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i.us:
   %55 = lshr i32 %54, 1
   %56 = load ptr, ptr %33, align 8
   %57 = zext nneg i32 %55 to i64
-  %58 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %57
   %.sroa.0.0.copyload.i = load ptr, ptr %58, align 8
   %.not.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i, null
   br i1 %.not.i.i.i.i, label %_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.thread.i, label %59
@@ -1695,8 +1694,8 @@ _ZNK17GrowableArrayViewIN12ObjectLookup11ObjectEntryEE11find_sortedIP7oopDescTnP
   %indvars.iv.i = phi i64 [ %96, %.lr.ph.i12 ], [ %indvars.iv.next.i, %98 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %99 = load ptr, ptr %95, align 8
-  %100 = getelementptr inbounds %"class.ObjectLookup::ObjectEntry", ptr %99, i64 %indvars.iv.next.i
-  %101 = getelementptr inbounds %"class.ObjectLookup::ObjectEntry", ptr %99, i64 %indvars.iv.i
+  %100 = getelementptr inbounds [16 x i8], ptr %99, i64 %indvars.iv.next.i
+  %101 = getelementptr inbounds [16 x i8], ptr %99, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %101, ptr noundef nonnull align 8 dereferenceable(12) %100, i64 12, i1 false)
   %.not.not.i = icmp sgt i64 %indvars.iv.next.i, %97
   br i1 %.not.not.i, label %98, label %._crit_edge.loopexit.i, !llvm.loop !14
@@ -1712,7 +1711,7 @@ _ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_
   store i32 %103, ptr %0, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %105, i64 %.pre-phi.i
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %.pre-phi.i
   store ptr %79, ptr %106, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i32 %80, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1721,7 +1720,7 @@ _ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_
 .split.us:                                        ; preds = %75, %.lr.ph.i.split.us, %_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i.us
   %.pre-phi = phi i64 [ %37, %.lr.ph.i.split.us ], [ %37, %_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i.us ], [ %57, %75 ]
   %107 = load ptr, ptr %33, align 8
-  %108 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %107, i64 %.pre-phi
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %.pre-phi
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load i32, ptr %109, align 8
   br label %111
@@ -1752,7 +1751,7 @@ define hidden void @_ZN11OopRecorderC2EP5Arenab(ptr noundef nonnull align 8 dere
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %5
   %indvars.iv.i.i.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %10 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %7, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv.i.i.i
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %11, align 8
@@ -1827,7 +1826,7 @@ _ZN26GrowableArrayWithAllocatorIPh13GrowableArrayIS0_EE6appendERKS0_.exit: ; pre
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %17 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   store ptr %1, ptr %21, align 8
   br i1 %2, label %22, label %89
 
@@ -1846,7 +1845,7 @@ _ZN26GrowableArrayWithAllocatorIPh13GrowableArrayIS0_EE6appendERKS0_.exit: ; pre
   %31 = add i32 %30, %29
   %32 = and i32 %31, 511
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %24, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = shl i32 %6, 1
   %.not.i = icmp ne i32 %35, 0
@@ -1910,7 +1909,7 @@ _ZN26GrowableArrayWithAllocatorIPh13GrowableArrayIS0_EE6appendERKS0_.exit: ; pre
 
 61:                                               ; preds = %60, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %60 ]
-  %62 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = icmp eq i64 %indvars.iv.next, %64
@@ -1920,7 +1919,7 @@ _ZN26GrowableArrayWithAllocatorIPh13GrowableArrayIS0_EE6appendERKS0_.exit: ; pre
   %66 = load ptr, ptr %23, align 8
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = ptrtoint ptr %70 to i64
   %72 = trunc i64 %71 to i32
@@ -1930,7 +1929,7 @@ _ZN26GrowableArrayWithAllocatorIPh13GrowableArrayIS0_EE6appendERKS0_.exit: ; pre
   %76 = add i32 %75, %74
   %77 = and i32 %76, 511
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %66, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = shl nuw i64 %indvars.iv.next, 1
   %.not.i11 = icmp ne i32 %80, 0
@@ -1991,7 +1990,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %108 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = sext i32 %106 to i64
-  %111 = getelementptr inbounds i32, ptr %109, i64 %110
+  %111 = getelementptr inbounds [4 x i8], ptr %109, i64 %110
   store i32 %6, ptr %111, align 4
   br label %_ZN13ValueRecorderIPhE7is_realES0_.exit.thread
 
@@ -2035,7 +2034,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIPhE16maybe_find_indexES0_
   %14 = add i32 %13, %12
   %15 = and i32 %14, 511
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = ashr i32 %18, 1
   %20 = icmp eq i32 %19, 0
@@ -2050,7 +2049,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIPhE16maybe_find_indexES0_
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %19 to i64
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %1
@@ -2079,7 +2078,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIPhE16maybe_find_indexES0_
 44:                                               ; preds = %.lr.ph, %_ZNK17GrowableArrayViewIiE8containsERKi.exit
   %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %_ZNK17GrowableArrayViewIiE8containsERKi.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.next
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.next
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %1
   br i1 %47, label %48, label %_ZNK17GrowableArrayViewIiE8containsERKi.exit
@@ -2101,7 +2100,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIPhE16maybe_find_indexES0_
 
 53:                                               ; preds = %52, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4
   %56 = zext i32 %55 to i64
   %57 = icmp eq i64 %indvars.iv, %56
@@ -2159,7 +2158,7 @@ define weak_odr hidden noundef ptr @_ZN13ValueRecorderIPhE2atEi(ptr noundef nonn
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8
   br label %12
@@ -2377,7 +2376,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %0 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load ptr, ptr %13, align 8
   br label %_ZN13ValueRecorderIPhE2atEi.exit
@@ -2548,7 +2547,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm598084EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #12
@@ -2727,7 +2726,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %17 = lshr i64 %15, %16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %17
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
@@ -2747,7 +2746,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = lshr i64 %30, 6
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %32, %37
   %.not28.i = icmp eq i64 %38, 0
@@ -2787,7 +2786,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %56 = lshr i64 %54, %55
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %56
+  %59 = getelementptr inbounds [8 x i8], ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
@@ -2805,7 +2804,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   %70 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = lshr i64 %69, 6
-  %73 = getelementptr inbounds nuw i64, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %69, 63
   %76 = shl nuw i64 1, %75
@@ -2960,7 +2959,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -2977,7 +2976,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -3020,7 +3019,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
   %46 = lshr i64 %45, 21
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %46
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   %50 = load volatile ptr, ptr %49, align 8
   %.not.i6.i.i = icmp eq ptr %50, null
   %51 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -3055,7 +3054,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -3101,7 +3100,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -3118,7 +3117,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -3161,7 +3160,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
   %46 = lshr i64 %45, 21
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %46
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   %50 = load volatile ptr, ptr %49, align 8
   %.not.i6.i.i = icmp eq ptr %50, null
   %51 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -3196,7 +3195,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -3403,7 +3402,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %17 = lshr i64 %15, %16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %17
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp ult ptr %3, %21
   br i1 %.not.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
@@ -3423,7 +3422,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i: ; preds = %11
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = lshr i64 %30, 6
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %32, %37
   %.not28.i = icmp eq i64 %38, 0
@@ -3463,7 +3462,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %56 = lshr i64 %54, %55
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %56
+  %59 = getelementptr inbounds [8 x i8], ptr %58, i64 %56
   %60 = load ptr, ptr %59, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %39, %60
   br i1 %.not.i.i.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
@@ -3481,7 +3480,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   %70 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = lshr i64 %69, 6
-  %73 = getelementptr inbounds nuw i64, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %69, 63
   %76 = shl nuw i64 1, %75
@@ -3534,7 +3533,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm548932EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #12
@@ -3638,7 +3637,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -3652,7 +3651,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -3692,7 +3691,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
   %41 = lshr i64 %40, 21
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   %45 = load volatile ptr, ptr %44, align 8
   %.not.i6.i.i = icmp eq ptr %45, null
   %46 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -3718,7 +3717,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -3902,9 +3901,9 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3921,7 +3920,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -4007,9 +4006,9 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4026,7 +4025,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv20
   store i32 0, ptr %35, align 4
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -4102,9 +4101,9 @@ _ZN13GrowableArrayIP8_jobjectE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4121,7 +4120,7 @@ _ZN13GrowableArrayIP8_jobjectE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -4200,9 +4199,9 @@ _ZN13GrowableArrayIN12ObjectLookup11ObjectEntryEE8allocateEv.exit: ; preds = %7,
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %0, align 8
@@ -4218,7 +4217,7 @@ _ZN13GrowableArrayIN12ObjectLookup11ObjectEntryEE8allocateEv.exit: ; preds = %7,
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %34 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %.0.i, i64 %indvars.iv20
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 0, ptr %35, align 8
@@ -4296,9 +4295,9 @@ _ZN13GrowableArrayIPhE8allocateEv.exit:           ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4315,7 +4314,7 @@ _ZN13GrowableArrayIPhE8allocateEv.exit:           ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

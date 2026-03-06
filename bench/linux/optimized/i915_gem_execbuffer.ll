@@ -21,13 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.reloc_cache = type { %struct.drm_mm_node, i64, i64, i32, i8 }
 %struct.drm_mm_node = type { i64, i64, i64, ptr, %struct.list_head, %struct.list_head, %struct.rb_node, %struct.rb_node, %struct.rb_node, i64, i64, i64, i64 }
 %struct.rb_node = type { i64, ptr, ptr }
-%struct.drm_i915_gem_exec_object2 = type { i32, i32, i64, i64, i64, i64, %union.anon.45, i64 }
-%union.anon.45 = type { i64 }
-%struct.eb_fence = type { ptr, ptr, i64, ptr }
 %struct.__large_struct = type { [100 x i64] }
-%struct.eb_vma = type { ptr, i32, ptr, %struct.list_head, %struct.list_head, %struct.hlist_node, i32 }
-%struct.hlist_node = type { ptr, ptr }
-%struct.hlist_head = type { ptr }
 %struct.drm_i915_gem_relocation_entry = type { i32, i32, i64, i64, i32, i32 }
 %struct.i915_sched_attr = type { i32 }
 %struct.drm_i915_gem_execbuffer_ext_timeline_fences = type { %struct.i915_user_extension, i64, i64, i64 }
@@ -247,7 +241,7 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
   store ptr %60, ptr %95, align 8
   %96 = load i32, ptr %6, align 8
   %97 = zext i32 %96 to i64
-  %98 = getelementptr %struct.drm_i915_gem_exec_object2, ptr %60, i64 %97
+  %98 = getelementptr [56 x i8], ptr %60, i64 %97
   %99 = getelementptr i8, ptr %98, i64 56
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %99, ptr %100, align 8
@@ -413,7 +407,7 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
   store ptr %199, ptr %135, align 8
   %201 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %202 = load i64, ptr %136, align 8
-  %203 = getelementptr %struct.eb_fence, ptr %199, i64 %202
+  %203 = getelementptr [32 x i8], ptr %199, i64 %202
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %250
@@ -835,7 +829,7 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
 .preheader63:                                     ; preds = %422, %.thread62
   %426 = phi i64 [ %427, %.thread62 ], [ %424, %422 ]
   %427 = add nsw i64 %426, -1
-  %428 = getelementptr %struct.eb_fence, ptr %420, i64 %427
+  %428 = getelementptr [32 x i8], ptr %420, i64 %427
   %429 = load ptr, ptr %428, align 8
   %430 = ptrtoint ptr %429 to i64
   %431 = and i64 %430, -4
@@ -920,7 +914,7 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
 .preheader:                                       ; preds = %465, %479
   %468 = phi i32 [ %480, %479 ], [ %466, %465 ]
   %469 = phi i64 [ %481, %479 ], [ 0, %465 ]
-  %.split = getelementptr %struct.drm_i915_gem_exec_object2, ptr %60, i64 %469
+  %.split = getelementptr [56 x i8], ptr %60, i64 %469
   %470 = getelementptr i8, ptr %.split, i64 24
   %471 = load i64, ptr %470, align 8
   %472 = and i64 %471, 128
@@ -932,7 +926,7 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
   %476 = ashr exact i64 %475, 16
   %477 = and i64 %476, -4096
   store i64 %477, ptr %470, align 8
-  %.split39 = getelementptr %struct.drm_i915_gem_exec_object2, ptr %460, i64 %469
+  %.split39 = getelementptr [56 x i8], ptr %460, i64 %469
   %478 = getelementptr i8, ptr %.split39, i64 24
   callbr void asm sideeffect "\0A1:\09movq $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "er,*m,!i,~{dirflag},~{fpsr},~{flags}"(i64 %477, ptr elementtype(%struct.__large_struct) %478) #13
           to label %._crit_edge78 [label %.loopexit], !srcloc !29
@@ -1156,7 +1150,7 @@ define internal fastcc i32 @eb_select_engine(ptr noundef captures(none) %0) unna
   br label %80
 
 77:                                               ; preds = %67
-  %78 = getelementptr i32, ptr @user_ring_map, i64 %68
+  %78 = getelementptr [4 x i8], ptr @user_ring_map, i64 %68
   %79 = load i32, ptr %78, align 4
   br label %80
 
@@ -1178,7 +1172,7 @@ define internal fastcc i32 @eb_select_engine(ptr noundef captures(none) %0) unna
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %84, i64 72
   %92 = zext i32 %81 to i64
-  %93 = getelementptr ptr, ptr %91, i64 %92
+  %93 = getelementptr [8 x i8], ptr %91, i64 %92
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.thread, label %96, !prof !6
@@ -1653,7 +1647,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
   %23 = phi i64 [ 0, %7 ], [ %396, %395 ]
   %24 = phi i32 [ 0, %7 ], [ %.ph64, %395 ]
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr %struct.drm_i915_gem_exec_object2, ptr %25, i64 %23
+  %26 = getelementptr [56 x i8], ptr %25, i64 %23
   %27 = load i32, ptr %26, align 8
   %28 = load ptr, ptr %9, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -1965,7 +1959,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
 
 177:                                              ; preds = %.thread43
   %178 = load ptr, ptr %8, align 8
-  %179 = getelementptr %struct.drm_i915_gem_exec_object2, ptr %178, i64 %23
+  %179 = getelementptr [56 x i8], ptr %178, i64 %23
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
   %181 = load i32, ptr %180, align 4
   %182 = icmp eq i32 %181, 0
@@ -2079,9 +2073,9 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
 251:                                              ; preds = %232, %238, %247
   %252 = load ptr, ptr %0, align 8
   %253 = load ptr, ptr %8, align 8
-  %254 = getelementptr %struct.drm_i915_gem_exec_object2, ptr %253, i64 %23
+  %254 = getelementptr [56 x i8], ptr %253, i64 %23
   %255 = load ptr, ptr %14, align 8
-  %256 = getelementptr %struct.eb_vma, ptr %255, i64 %23
+  %256 = getelementptr [80 x i8], ptr %255, i64 %23
   store ptr %.ph55, ptr %256, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 16
   store ptr %254, ptr %257, align 8
@@ -2105,7 +2099,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
   %271 = sub i32 32, %269
   %272 = lshr i32 %270, %271
   %273 = zext i32 %272 to i64
-  %274 = getelementptr %struct.hlist_head, ptr %268, i64 %273
+  %274 = getelementptr [8 x i8], ptr %268, i64 %273
   %275 = load ptr, ptr %274, align 8
   store volatile ptr %275, ptr %267, align 8
   %276 = icmp eq ptr %275, null
@@ -2191,7 +2185,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
 
 321:                                              ; preds = %318, %314
   %322 = zext i32 %24 to i64
-  %323 = getelementptr ptr, ptr %19, i64 %322
+  %323 = getelementptr [8 x i8], ptr %19, i64 %322
   store ptr %256, ptr %323, align 8
   %324 = load i32, ptr %261, align 8
   %325 = and i32 %324, 4
@@ -2247,7 +2241,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
 355:                                              ; preds = %341
   %356 = icmp eq i32 %344, 0
   %357 = select i1 %356, i64 %346, i64 %345
-  %358 = getelementptr i64, ptr %21, i64 %322
+  %358 = getelementptr [8 x i8], ptr %21, i64 %322
   store i64 %357, ptr %358, align 8
   %359 = icmp eq i64 %357, 0
   br i1 %359, label %360, label %367, !prof !6
@@ -2293,13 +2287,13 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
 
 383:                                              ; preds = %378
   %384 = load ptr, ptr %14, align 8
-  %385 = getelementptr %struct.eb_vma, ptr %384, i64 %379
+  %385 = getelementptr [80 x i8], ptr %384, i64 %379
   store ptr null, ptr %385, align 8
   br label %.thread70
 
 386:                                              ; preds = %375
   %387 = load ptr, ptr %14, align 8
-  %.split = getelementptr %struct.eb_vma, ptr %387, i64 %23
+  %.split = getelementptr [80 x i8], ptr %387, i64 %23
   %388 = getelementptr i8, ptr %.split, i64 8
   %389 = load i32, ptr %388, align 8
   %390 = or i32 %389, 134217728
@@ -2321,7 +2315,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
 .thread58:                                        ; preds = %.thread39, %.thread58.loopexit, %249
   %400 = phi i32 [ -22, %249 ], [ -2, %.thread39 ], [ %176, %.thread58.loopexit ]
   %401 = load ptr, ptr %14, align 8
-  %402 = getelementptr %struct.eb_vma, ptr %401, i64 %23
+  %402 = getelementptr [80 x i8], ptr %401, i64 %23
   store ptr null, ptr %402, align 8
   br label %.thread70
 
@@ -2345,7 +2339,7 @@ define internal fastcc void @eb_release_vmas(ptr noundef captures(none) %0, i1 n
 .preheader27.split.us:                            ; preds = %.preheader27, %.thread.us
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %.thread.us ], [ 0, %.preheader27 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr %struct.eb_vma, ptr %8, i64 %indvars.iv40
+  %9 = getelementptr [80 x i8], ptr %8, i64 %indvars.iv40
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit28, label %12
@@ -2396,7 +2390,7 @@ define internal fastcc void @eb_release_vmas(ptr noundef captures(none) %0, i1 n
 .preheader27.split:                               ; preds = %.preheader27, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.preheader27 ]
   %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr %struct.eb_vma, ptr %33, i64 %indvars.iv
+  %34 = getelementptr [80 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit28, label %37
@@ -2437,7 +2431,7 @@ define internal fastcc void @eb_release_vmas(ptr noundef captures(none) %0, i1 n
 54:                                               ; preds = %61, %52
   %55 = phi i32 [ %50, %52 ], [ %62, %61 ]
   %56 = phi i64 [ 0, %52 ], [ %63, %61 ]
-  %57 = getelementptr ptr, ptr %53, i64 %56
+  %57 = getelementptr [8 x i8], ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %61, label %60
@@ -2984,7 +2978,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
 165:                                              ; preds = %.thread.i, %161
   %166 = phi i64 [ 0, %161 ], [ %163, %.thread.i ]
   %167 = load ptr, ptr %144, align 8
-  %168 = getelementptr %struct.drm_i915_gem_exec_object2, ptr %167, i64 %166
+  %168 = getelementptr [56 x i8], ptr %167, i64 %166
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4
   %171 = icmp eq i32 %170, 0
@@ -3052,7 +3046,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
 211:                                              ; preds = %286, %209
   %212 = phi i64 [ 0, %209 ], [ %287, %286 ]
   %213 = load ptr, ptr %144, align 8
-  %214 = getelementptr %struct.drm_i915_gem_exec_object2, ptr %213, i64 %212
+  %214 = getelementptr [56 x i8], ptr %213, i64 %212
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
   %216 = load i32, ptr %215, align 4
   %217 = icmp eq i32 %216, 0
@@ -3106,7 +3100,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
 
 250:                                              ; preds = %.loopexit71.i
   %251 = load ptr, ptr %144, align 8
-  %.split.i7 = getelementptr %struct.drm_i915_gem_exec_object2, ptr %251, i64 %212
+  %.split.i7 = getelementptr [56 x i8], ptr %251, i64 %212
   %252 = getelementptr i8, ptr %.split.i7, i64 8
   %253 = load i64, ptr %252, align 8
   %254 = inttoptr i64 %253 to ptr
@@ -3149,7 +3143,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
 
 276:                                              ; preds = %279, %275
   %277 = phi i64 [ 0, %275 ], [ %280, %279 ]
-  %.split36.i = getelementptr %struct.drm_i915_gem_relocation_entry, ptr %254, i64 %277
+  %.split36.i = getelementptr [32 x i8], ptr %254, i64 %277
   %278 = getelementptr i8, ptr %.split36.i, i64 16
   callbr void asm sideeffect "\0A1:\09movq $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "er,*m,!i,~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr elementtype(%struct.__large_struct) %278) #13
           to label %279 [label %289], !srcloc !69
@@ -3163,7 +3157,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !14
   %283 = ptrtoint ptr %255 to i64
   %284 = load ptr, ptr %144, align 8
-  %.split37.i = getelementptr %struct.drm_i915_gem_exec_object2, ptr %284, i64 %212
+  %.split37.i = getelementptr [56 x i8], ptr %284, i64 %212
   %285 = getelementptr i8, ptr %.split37.i, i64 8
   store i64 %283, ptr %285, align 8
   br label %286
@@ -3191,7 +3185,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
   %293 = phi i64 [ %294, %304 ], [ %291, %.thread42.i ]
   %294 = add nsw i64 %293, -1
   %295 = load ptr, ptr %144, align 8
-  %296 = getelementptr %struct.drm_i915_gem_exec_object2, ptr %295, i64 %294
+  %296 = getelementptr [56 x i8], ptr %295, i64 %294
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 4
   %298 = load i32, ptr %297, align 4
   %299 = icmp eq i32 %298, 0
@@ -3233,7 +3227,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
 317:                                              ; preds = %334, %315
   %318 = phi i64 [ 0, %315 ], [ %335, %334 ]
   %319 = load ptr, ptr %145, align 8
-  %320 = getelementptr %struct.eb_vma, ptr %319, i64 %318
+  %320 = getelementptr [80 x i8], ptr %319, i64 %318
   %321 = load ptr, ptr %320, align 8
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 184
   %323 = load ptr, ptr %322, align 8
@@ -3498,7 +3492,7 @@ eb_relocate_vma.exit.thread.split.us.i:           ; preds = %.preheader64.split.
 
 .preheader.i:                                     ; preds = %.preheader64.split.i, %467
   %472 = phi i64 [ %468, %467 ], [ 0, %.preheader64.split.i ]
-  %473 = getelementptr %struct.drm_i915_gem_relocation_entry, ptr %463, i64 %472
+  %473 = getelementptr [32 x i8], ptr %463, i64 %472
   %474 = tail call fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef %458, ptr noundef %473)
   %475 = icmp slt i64 %474, 0
   br i1 %475, label %.loopexit62.split.loop.exit107.i, label %467
@@ -3650,7 +3644,7 @@ reloc_cache_reset.exit.i:                         ; preds = %519, %.loopexit62.i
 546:                                              ; preds = %557, %544
   %547 = phi i64 [ 0, %544 ], [ %558, %557 ]
   %548 = load ptr, ptr %144, align 8
-  %549 = getelementptr %struct.drm_i915_gem_exec_object2, ptr %548, i64 %547
+  %549 = getelementptr [56 x i8], ptr %548, i64 %547
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 4
   %551 = load i32, ptr %550, align 4
   %552 = icmp eq i32 %551, 0
@@ -3705,7 +3699,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @eb_capture_stage(ptr nound
   %12 = phi i64 [ %10, %5 ], [ %13, %.loopexit ]
   %13 = add nsw i64 %12, -1
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr %struct.eb_vma, ptr %14, i64 %13
+  %15 = getelementptr [80 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8
@@ -3760,7 +3754,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @eb_capture_stage(ptr nound
   br i1 %54, label %72, label %55
 
 55:                                               ; preds = %50
-  %56 = getelementptr ptr, ptr %9, i64 %51
+  %56 = getelementptr [8 x i8], ptr %9, i64 %51
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %57, ptr %58, align 8
@@ -3858,7 +3852,7 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
 .loopexit39:                                      ; preds = %27, %19, %35
   %37 = phi ptr [ %23, %19 ], [ %36, %35 ], [ null, %27 ]
   %38 = tail call ptr @i915_request_create(ptr noundef %37) #13
-  %39 = getelementptr ptr, ptr %9, i64 %20
+  %39 = getelementptr [8 x i8], ptr %9, i64 %20
   store ptr %38, ptr %39, align 8
   %40 = icmp ugt ptr %38, inttoptr (i64 -4096 to ptr)
   br i1 %40, label %41, label %42
@@ -3934,7 +3928,7 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
   %82 = phi i64 [ %94, %91 ], [ 0, %78 ]
   %83 = phi i32 [ %93, %91 ], [ 0, %78 ]
   %84 = load ptr, ptr %13, align 8
-  %.split = getelementptr %struct.eb_fence, ptr %84, i64 %82
+  %.split = getelementptr [32 x i8], ptr %84, i64 %82
   %85 = getelementptr i8, ptr %.split, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
@@ -3989,9 +3983,9 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
 
 .preheader36:                                     ; preds = %113, %.preheader36
   %116 = phi i64 [ %121, %.preheader36 ], [ 0, %113 ]
-  %117 = getelementptr ptr, ptr %9, i64 %116
+  %117 = getelementptr [8 x i8], ptr %9, i64 %116
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr ptr, ptr %111, i64 %116
+  %119 = getelementptr [8 x i8], ptr %111, i64 %116
   store ptr %118, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 48
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %120, i64 13) #13, !srcloc !82
@@ -4025,7 +4019,7 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
 
 .preheader:                                       ; preds = %134, %152
   %138 = phi i64 [ %153, %152 ], [ 0, %134 ]
-  %139 = getelementptr ptr, ptr %111, i64 %138
+  %139 = getelementptr [8 x i8], ptr %111, i64 %138
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null
   br i1 %141, label %152, label %142
@@ -4105,7 +4099,7 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
 
 .thread31:                                        ; preds = %.thread35, %169, %173, %42
   %176 = phi ptr [ %174, %173 ], [ %21, %42 ], [ null, %169 ], [ null, %.thread35 ]
-  %177 = getelementptr ptr, ptr %17, i64 %20
+  %177 = getelementptr [8 x i8], ptr %17, i64 %20
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
   %180 = icmp eq ptr %179, null
@@ -4186,7 +4180,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
   %15 = phi i32 [ 0, %5 ], [ %11, %.thread ]
   %16 = add nsw i64 %14, -1
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr %struct.eb_vma, ptr %17, i64 %16
+  %18 = getelementptr [80 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8
@@ -4232,7 +4226,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 
 49:                                               ; preds = %44
   %50 = and i64 %46, 2147483647
-  %51 = getelementptr ptr, ptr %8, i64 %50
+  %51 = getelementptr [8 x i8], ptr %8, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %44, label %54, !llvm.loop !87
@@ -4261,7 +4255,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 
 69:                                               ; preds = %83, %66
   %70 = phi i64 [ %68, %66 ], [ %85, %83 ]
-  %71 = getelementptr ptr, ptr %8, i64 %70
+  %71 = getelementptr [8 x i8], ptr %8, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %83, label %74
@@ -4323,7 +4317,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
   %106 = phi i64 [ 0, %102 ], [ %122, %119 ]
   %107 = phi i32 [ 0, %102 ], [ %120, %119 ]
   %108 = load ptr, ptr %103, align 8
-  %109 = getelementptr %struct.eb_vma, ptr %108, i64 %106
+  %109 = getelementptr [80 x i8], ptr %108, i64 %106
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 184
   %112 = load ptr, ptr %111, align 8
@@ -4377,7 +4371,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
   br i1 %143, label %.loopexit32, label %.lr.ph
 
 144:                                              ; preds = %.lr.ph
-  %145 = getelementptr ptr, ptr %136, i64 %153
+  %145 = getelementptr [8 x i8], ptr %136, i64 %153
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, null
   br i1 %147, label %.loopexit32, label %.lr.ph, !llvm.loop !90
@@ -4385,7 +4379,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 .lr.ph:                                           ; preds = %140, %144
   %148 = phi ptr [ %146, %144 ], [ %142, %140 ]
   %149 = phi i64 [ %153, %144 ], [ 0, %140 ]
-  %150 = getelementptr ptr, ptr %141, i64 %149
+  %150 = getelementptr [8 x i8], ptr %141, i64 %149
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 488
   store ptr %151, ptr %152, align 8
@@ -4399,7 +4393,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 .preheader:                                       ; preds = %.thread28, %162
   %157 = phi i32 [ %164, %162 ], [ 0, %.thread28 ]
   %158 = sext i32 %157 to i64
-  %159 = getelementptr ptr, ptr %130, i64 %158
+  %159 = getelementptr [8 x i8], ptr %130, i64 %158
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, null
   br i1 %161, label %.loopexit32.thread74, label %162
@@ -4435,7 +4429,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 179:                                              ; preds = %311, %.loopexit32.thread74
   %indvars.iv = phi i64 [ %indvars.iv.next, %311 ], [ 0, %.loopexit32.thread74 ]
   %180 = phi i32 [ %312, %311 ], [ %170, %.loopexit32.thread74 ]
-  %181 = getelementptr ptr, ptr %171, i64 %indvars.iv
+  %181 = getelementptr [8 x i8], ptr %171, i64 %indvars.iv
   %182 = load ptr, ptr %181, align 8
   %183 = icmp eq ptr %182, null
   br i1 %183, label %.loopexit, label %184
@@ -4487,10 +4481,10 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 
 208:                                              ; preds = %206
   %209 = load ptr, ptr %181, align 8
-  %210 = getelementptr ptr, ptr %174, i64 %indvars.iv
+  %210 = getelementptr [8 x i8], ptr %174, i64 %indvars.iv
   %211 = load ptr, ptr %210, align 8
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr i64, ptr %175, i64 %indvars.iv
+  %213 = getelementptr [8 x i8], ptr %175, i64 %indvars.iv
   %214 = load i64, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %209, i64 88
   %216 = load ptr, ptr %215, align 8
@@ -4663,7 +4657,7 @@ define internal fastcc void @eb_requests_get(ptr noundef readonly captures(none)
 
 .preheader:                                       ; preds = %1, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %1 ]
-  %6 = getelementptr ptr, ptr %2, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
@@ -4715,7 +4709,7 @@ define internal fastcc i32 @eb_requests_add(ptr noundef readonly captures(none) 
 13:                                               ; preds = %89, %8
   %14 = phi i64 [ %12, %8 ], [ %91, %89 ]
   %15 = phi i32 [ %1, %8 ], [ %90, %89 ]
-  %16 = getelementptr ptr, ptr %9, i64 %14
+  %16 = getelementptr [8 x i8], ptr %9, i64 %14
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %89, label %19
@@ -4875,7 +4869,7 @@ define internal fastcc void @signal_fence_array(ptr noundef readonly captures(no
   %9 = phi i64 [ 0, %6 ], [ %31, %29 ]
   %10 = phi i32 [ 0, %6 ], [ %30, %29 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr %struct.eb_fence, ptr %11, i64 %9
+  %12 = getelementptr [32 x i8], ptr %11, i64 %9
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, -4
@@ -4895,7 +4889,7 @@ define internal fastcc void @signal_fence_array(ptr noundef readonly captures(no
   %25 = load i64, ptr %24, align 8
   tail call void @drm_syncobj_add_point(ptr noundef %16, ptr noundef nonnull %21, ptr noundef %1, i64 noundef %25) #13
   %26 = load ptr, ptr %7, align 8
-  %.split = getelementptr %struct.eb_fence, ptr %26, i64 %9
+  %.split = getelementptr [32 x i8], ptr %26, i64 %9
   %27 = getelementptr i8, ptr %.split, i64 24
   store ptr null, ptr %27, align 8
   br label %29
@@ -4962,7 +4956,7 @@ define internal fastcc void @eb_requests_put(ptr noundef readonly captures(none)
 
 .preheader:                                       ; preds = %1, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %1 ]
-  %6 = getelementptr ptr, ptr %2, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
@@ -5243,7 +5237,7 @@ define internal i32 @parse_timeline_fences(ptr noundef %0, ptr noundef captures(
 41:                                               ; preds = %34
   store ptr %39, ptr %35, align 8
   %42 = load i64, ptr %13, align 8
-  %43 = getelementptr %struct.eb_fence, ptr %39, i64 %42
+  %43 = getelementptr [32 x i8], ptr %39, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %46
@@ -6145,7 +6139,7 @@ define internal fastcc i32 @eb_validate_vmas(ptr noundef %0) unnamed_addr #0 ali
 20:                                               ; preds = %15, %10
   %21 = phi i64 [ 0, %10 ], [ %16, %15 ]
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr %struct.eb_vma, ptr %22, i64 %21
+  %23 = getelementptr [80 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
@@ -6243,9 +6237,9 @@ define internal fastcc i32 @eb_validate_vmas(ptr noundef %0) unnamed_addr #0 ali
 74:                                               ; preds = %69, %65
   %75 = phi i64 [ 0, %65 ], [ %70, %69 ]
   %76 = load ptr, ptr %66, align 8
-  %77 = getelementptr %struct.drm_i915_gem_exec_object2, ptr %76, i64 %75
+  %77 = getelementptr [56 x i8], ptr %76, i64 %75
   %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr %struct.eb_vma, ptr %78, i64 %75
+  %79 = getelementptr [80 x i8], ptr %78, i64 %75
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i64, ptr %81, align 8
@@ -6513,7 +6507,7 @@ define internal fastcc i32 @eb_validate_vmas(ptr noundef %0) unnamed_addr #0 ali
 248:                                              ; preds = %293, %246
   %249 = phi i64 [ 0, %246 ], [ %294, %293 ]
   %250 = load ptr, ptr %6, align 8
-  %251 = getelementptr %struct.eb_vma, ptr %250, i64 %249
+  %251 = getelementptr [80 x i8], ptr %250, i64 %249
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load i32, ptr %252, align 8
   %254 = and i32 %253, 16
@@ -7306,7 +7300,7 @@ i915_gem_object_lock.exit.thread:                 ; preds = %119, %123
   %212 = add i32 %211, 1
   store i32 %212, ptr %210, align 8
   %213 = zext i32 %211 to i64
-  %214 = getelementptr %struct.eb_vma, ptr %209, i64 %213
+  %214 = getelementptr [80 x i8], ptr %209, i64 %213
   store ptr %214, ptr %197, align 8
   %215 = tail call fastcc ptr @i915_vma_get(ptr noundef %185)
   %216 = load ptr, ptr %197, align 8
@@ -7345,7 +7339,7 @@ i915_gem_object_lock.exit.thread:                 ; preds = %119, %123
   %237 = add i32 %236, 1
   store i32 %237, ptr %235, align 8
   %238 = zext i32 %236 to i64
-  %239 = getelementptr %struct.eb_vma, ptr %234, i64 %238
+  %239 = getelementptr [80 x i8], ptr %234, i64 %238
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %239, ptr %240, align 8
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 8
@@ -7723,7 +7717,7 @@ define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef captur
   %19 = sub nsw i32 32, %9
   %20 = lshr i32 %18, %19
   %21 = zext i32 %20 to i64
-  %22 = getelementptr %struct.hlist_head, ptr %17, i64 %21
+  %22 = getelementptr [8 x i8], ptr %17, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   %25 = getelementptr i8, ptr %23, i64 -56
@@ -7750,7 +7744,7 @@ define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef captur
 39:                                               ; preds = %11
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr %struct.eb_vma, ptr %41, i64 %7
+  %42 = getelementptr [80 x i8], ptr %41, i64 %7
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.thread, label %.thread18, !prof !22
 

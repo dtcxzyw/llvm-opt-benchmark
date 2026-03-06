@@ -152,9 +152,9 @@ define void @_ZN7Imf_3_418SampleCountChannel3setEiij(ptr noundef nonnull align 8
   %9 = load i32, ptr %8, align 4, !tbaa !20
   %10 = mul nsw i32 %9, %2
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %7, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %7, i64 %11
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !6
   %17 = ptrtoint ptr %14 to i64
@@ -223,7 +223,7 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
   %56 = load i64, ptr %47, align 8, !tbaa !28
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %58 = load ptr, ptr %57, align 8, !tbaa !18
-  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %20
   store i64 %56, ptr %59, align 8, !tbaa !30
   %60 = add i64 %56, %49
   store i64 %60, ptr %47, align 8, !tbaa !28
@@ -264,11 +264,11 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
   %87 = mul nsw i32 %86, %9
   %88 = sext i32 %87 to i64
   %89 = sub nsw i64 0, %88
-  %90 = getelementptr inbounds i32, ptr %80, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %80, i64 %89
   %91 = load i32, ptr %84, align 4, !tbaa !35
   %92 = sext i32 %91 to i64
   %93 = sub nsw i64 0, %92
-  %94 = getelementptr inbounds i32, ptr %90, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %90, i64 %93
   store ptr %94, ptr %6, align 8, !tbaa !19
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %96 = load ptr, ptr %95, align 8, !tbaa !18
@@ -342,15 +342,15 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
   br i1 %122, label %126, label %123
 
 123:                                              ; preds = %.lr.ph
-  %124 = getelementptr inbounds nuw i32, ptr %16, i64 %.072
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.072
   %125 = load i32, ptr %124, align 4, !tbaa !24
   br label %126
 
 126:                                              ; preds = %.lr.ph, %123
   %.sink = phi i32 [ %125, %123 ], [ %3, %.lr.ph ]
-  %127 = getelementptr inbounds nuw i32, ptr %80, i64 %.072
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.072
   store i32 %.sink, ptr %127, align 4, !tbaa !24
-  %128 = getelementptr inbounds nuw i64, ptr %100, i64 %.072
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.072
   store i64 %121, ptr %128, align 8, !tbaa !30
   %129 = icmp eq i32 %.sink, 0
   br i1 %129, label %_ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit65, label %.preheader.i62
@@ -363,7 +363,7 @@ _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i
 
 _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit65: ; preds = %.preheader.i62, %126
   %.06.i64 = phi i32 [ 0, %126 ], [ %.0.i63, %.preheader.i62 ]
-  %132 = getelementptr inbounds nuw i32, ptr %31, i64 %.072
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.072
   store i32 %.06.i64, ptr %132, align 4, !tbaa !24
   %133 = zext i32 %.06.i64 to i64
   %134 = add i64 %121, %133
@@ -453,11 +453,11 @@ define void @_ZN7Imf_3_418SampleCountChannel16resetBasePointerEv(ptr noundef non
   %11 = mul nsw i32 %10, %8
   %12 = sext i32 %11 to i64
   %13 = sub nsw i64 0, %12
-  %14 = getelementptr inbounds i32, ptr %3, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %3, i64 %13
   %15 = load i32, ptr %6, align 4, !tbaa !35
   %16 = sext i32 %15 to i64
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds i32, ptr %14, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %18, ptr %19, align 8, !tbaa !19
   ret void
@@ -501,7 +501,7 @@ define void @_ZN7Imf_3_418SampleCountChannel3setEiPj(ptr noundef nonnull align 8
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %.089 = phi i32 [ %14, %.lr.ph ], [ %7, %3 ]
-  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !24
   tail call void @_ZN7Imf_3_418SampleCountChannel3setEiij(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %.089, i32 noundef %8, i32 noundef %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -531,11 +531,11 @@ define void @_ZN7Imf_3_418SampleCountChannel5clearEv(ptr noundef nonnull align 8
 
 11:                                               ; preds = %.lr.ph, %11
   %.0913 = phi i64 [ 0, %.lr.ph ], [ %15, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %.0913
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0913
   store i32 0, ptr %12, align 4, !tbaa !24
-  %13 = getelementptr inbounds nuw i32, ptr %8, i64 %.0913
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.0913
   store i32 0, ptr %13, align 4, !tbaa !24
-  %14 = getelementptr inbounds nuw i64, ptr %10, i64 %.0913
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0913
   store i64 0, ptr %14, align 8, !tbaa !30
   %15 = add nuw i64 %.0913, 1
   %16 = load i64, ptr %3, align 8, !tbaa !31
@@ -639,7 +639,7 @@ define void @_ZN7Imf_3_418SampleCountChannel7endEditEv(ptr noundef nonnull align
 13:                                               ; preds = %.lr.ph, %_ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit
   %14 = phi i64 [ 0, %.lr.ph ], [ %28, %_ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit ]
   %.01115 = phi i64 [ 0, %.lr.ph ], [ %29, %_ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit ]
-  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %.01115
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.01115
   %16 = load i32, ptr %15, align 4, !tbaa !24
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %_ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit, label %.preheader.i
@@ -652,9 +652,9 @@ define void @_ZN7Imf_3_418SampleCountChannel7endEditEv(ptr noundef nonnull align
 
 _ZN7Imf_3_412_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %.preheader.i, %13
   %.06.i = phi i32 [ 0, %13 ], [ %.0.i, %.preheader.i ]
-  %20 = getelementptr inbounds nuw i32, ptr %10, i64 %.01115
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.01115
   store i32 %.06.i, ptr %20, align 4, !tbaa !24
-  %21 = getelementptr inbounds nuw i64, ptr %12, i64 %.01115
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.01115
   store i64 %14, ptr %21, align 8, !tbaa !30
   %22 = load i32, ptr %15, align 4, !tbaa !24
   %23 = zext i32 %22 to i64
@@ -797,11 +797,11 @@ define void @_ZN7Imf_3_418SampleCountChannel6resizeEv(ptr noundef nonnull align 
   %35 = mul nsw i32 %34, %32
   %36 = sext i32 %35 to i64
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds i32, ptr %22, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %22, i64 %37
   %39 = load i32, ptr %30, align 4, !tbaa !35
   %40 = sext i32 %39 to i64
   %41 = sub nsw i64 0, %40
-  %42 = getelementptr inbounds i32, ptr %38, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %38, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %42, ptr %43, align 8, !tbaa !19
   %.not = icmp eq i64 %18, 0

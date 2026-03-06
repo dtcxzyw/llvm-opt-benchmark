@@ -205,7 +205,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit: ; preds = %
   br i1 %21, label %.preheader, label %.preheader22
 
 .preheader22:                                     ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit
-  %22 = getelementptr inbounds i32, ptr %8, i64 %5
+  %22 = getelementptr inbounds [4 x i8], ptr %8, i64 %5
   %23 = load i32, ptr %22, align 4
   %.not27 = icmp eq i32 %23, 0
   br i1 %.not27, label %.loopexit, label %.lr.ph

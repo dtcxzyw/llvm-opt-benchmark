@@ -51,8 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.33" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -1494,7 +1492,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i: ; preds =
 "_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN4absl12_GLOBAL__N_143BlockingCounterTest_BasicFunctionality_Test8TestBodyEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i": ; preds = %78, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i
   store ptr %58, ptr %5, align 8, !tbaa !73
   store ptr %77, ptr %19, align 8, !tbaa !76
-  %90 = getelementptr inbounds nuw %"class.std::thread", ptr %58, i64 %56
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
   store ptr %90, ptr %15, align 8, !tbaa !77
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN4absl12_GLOBAL__N_143BlockingCounterTest_BasicFunctionality_Test8TestBodyEvE3$_0EEERS0_DpOT_.exit"
 
@@ -1525,7 +1523,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i: ; preds =
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1, ptr %8, align 4, !tbaa !71
   %96 = load ptr, ptr %6, align 8, !tbaa !67
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !71, !noalias !96
   %99 = icmp eq i32 %98, 1
   br i1 %99, label %100, label %101
@@ -1814,7 +1812,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4absl1
   %7 = load i32, ptr %6, align 8, !tbaa !106
   %8 = sext i32 %7 to i64
   %9 = load ptr, ptr %5, align 8, !tbaa !67
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %8
   tail call void @AbslInternalSleepFor(i64 1, i32 0)
   store i32 1, ptr %10, align 4, !tbaa !71
   %11 = tail call noundef zeroext i1 @_ZN4absl15BlockingCounter14DecrementCountEv(ptr noundef nonnull align 8 dereferenceable(17) %3)

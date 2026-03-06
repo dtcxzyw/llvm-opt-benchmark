@@ -26,17 +26,17 @@ define void @ff_g729_postfilter(ptr noundef readonly captures(none) %0, ptr noun
 17:                                               ; preds = %10, %17
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.next
   %19 = load i16, ptr %18, align 2, !tbaa !4
   %20 = sext i16 %19 to i32
-  %21 = getelementptr inbounds nuw i16, ptr @formant_pp_factor_num_pow, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [2 x i8], ptr @formant_pp_factor_num_pow, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !4
   %23 = sext i16 %22 to i32
   %24 = mul nsw i32 %23, %20
   %25 = add nsw i32 %24, 16384
   %26 = lshr i32 %25, 15
   %27 = trunc i32 %26 to i16
-  %28 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 22
   store i16 %27, ptr %29, align 2, !tbaa !4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -45,17 +45,17 @@ define void @ff_g729_postfilter(ptr noundef readonly captures(none) %0, ptr noun
 .preheader:                                       ; preds = %17, %.preheader
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.preheader ], [ 0, %17 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %30 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.next80
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.next80
   %31 = load i16, ptr %30, align 2, !tbaa !4
   %32 = sext i16 %31 to i32
-  %33 = getelementptr inbounds nuw i16, ptr @formant_pp_factor_den_pow, i64 %indvars.iv79
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @formant_pp_factor_den_pow, i64 %indvars.iv79
   %34 = load i16, ptr %33, align 2, !tbaa !4
   %35 = sext i16 %34 to i32
   %36 = mul nsw i32 %35, %32
   %37 = add nsw i32 %36, 16384
   %38 = lshr i32 %37, 15
   %39 = trunc i32 %38 to i16
-  %40 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv.next80
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv.next80
   store i16 %39, ptr %40, align 2, !tbaa !4
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 10
   br i1 %exitcond82.not, label %41, label %.preheader, !llvm.loop !10
@@ -80,7 +80,7 @@ define void @ff_g729_postfilter(ptr noundef readonly captures(none) %0, ptr noun
 47:                                               ; preds = %47, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %47 ]
   %.018.i = phi i32 [ 2048, %.preheader.i ], [ %58, %47 ]
-  %48 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv.i
   %49 = load i16, ptr %48, align 2, !tbaa !4
   %50 = sext i16 %49 to i32
   %51 = xor i64 %indvars.iv.i, -1
@@ -97,19 +97,19 @@ define void @ff_g729_postfilter(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %exitcond.not.i, label %59, label %47, !llvm.loop !11
 
 59:                                               ; preds = %47
-  %60 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.next23.i
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv.next23.i
   %61 = load i16, ptr %60, align 2, !tbaa !4
   %62 = lshr i32 %58, 12
   %63 = trunc i32 %62 to i16
   %64 = add i16 %61, %63
-  %65 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv.next23.i
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv.next23.i
   store i16 %64, ptr %65, align 2, !tbaa !4
   %66 = icmp samesign ugt i64 %indvars.iv22.i, 1
   br i1 %66, label %.preheader.i, label %residual_filter.exit, !llvm.loop !12
 
 residual_filter.exit:                             ; preds = %59, %41
   %67 = sext i32 %9 to i64
-  %68 = getelementptr inbounds i16, ptr %8, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %8, i64 %67
   %69 = getelementptr inbounds i8, ptr %68, i64 -20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %6, ptr noundef nonnull align 2 dereferenceable(20) %69, i64 20, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %14, i64 20
@@ -128,7 +128,7 @@ residual_filter.exit:                             ; preds = %59, %41
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i48, %.lr.ph.i ]
   %.0232345.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %77, %.lr.ph.i ]
-  %73 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i47
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.i47
   %74 = load i16, ptr %73, align 2, !tbaa !4
   %75 = tail call i16 @llvm.abs.i16(i16 %74, i1 false)
   %76 = zext i16 %75 to i32
@@ -164,12 +164,12 @@ residual_filter.exit:                             ; preds = %59, %41
 
 .lr.ph351.i:                                      ; preds = %.lr.ph351.i, %.lr.ph351.preheader.i
   %indvars.iv383.i = phi i64 [ 0, %.lr.ph351.preheader.i ], [ %indvars.iv.next384.i, %.lr.ph351.i ]
-  %88 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv383.i
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv383.i
   %89 = load i16, ptr %88, align 2, !tbaa !4
   %90 = sext i16 %89 to i32
   %91 = ashr i32 %90, %.0272423426.i
   %92 = trunc nsw i32 %91 to i16
-  %93 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv383.i
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv383.i
   store i16 %92, ptr %93, align 2, !tbaa !4
   %indvars.iv.next384.i = add nuw nsw i64 %indvars.iv383.i, 1
   %exitcond388.not.i = icmp eq i64 %indvars.iv.next384.i, %wide.trip.count.i
@@ -177,12 +177,12 @@ residual_filter.exit:                             ; preds = %59, %41
 
 94:                                               ; preds = %94, %.lr.ph349.i
   %indvars.iv377.i = phi i64 [ 0, %.lr.ph349.i ], [ %indvars.iv.next378.i, %94 ]
-  %95 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv377.i
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv377.i
   %96 = load i16, ptr %95, align 2, !tbaa !4
   %97 = zext i16 %96 to i32
   %98 = shl nuw nsw i32 %97, %87
   %99 = trunc i32 %98 to i16
-  %100 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv377.i
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv377.i
   store i16 %99, ptr %100, align 2, !tbaa !4
   %indvars.iv.next378.i = add nuw nsw i64 %indvars.iv377.i, 1
   %exitcond382.not.i = icmp eq i64 %indvars.iv.next378.i, %wide.trip.count.i
@@ -219,7 +219,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %.0270352.i = phi i32 [ 0, %105 ], [ %spec.select.i, %115 ]
   %116 = load ptr, ptr %0, align 8, !tbaa !17
   %117 = sub nsw i64 0, %indvars.iv389.i
-  %118 = getelementptr inbounds i16, ptr %103, i64 %117
+  %118 = getelementptr inbounds [2 x i8], ptr %103, i64 %117
   %119 = call i32 %116(ptr noundef nonnull %103, ptr noundef nonnull %118, i32 noundef %9) #8
   %120 = icmp sgt i32 %119, %.0270352.i
   %121 = trunc i64 %indvars.iv389.i to i16
@@ -244,10 +244,10 @@ residual_filter.exit:                             ; preds = %59, %41
   %129 = load ptr, ptr %0, align 8, !tbaa !17
   %130 = sext i16 %spec.select298.i to i64
   %131 = sub nsw i64 0, %130
-  %132 = getelementptr inbounds i16, ptr %103, i64 %131
+  %132 = getelementptr inbounds [2 x i8], ptr %103, i64 %131
   %133 = call i32 %129(ptr noundef nonnull %132, ptr noundef nonnull %132, i32 noundef %9) #8
   %134 = sub nsw i64 152, %130
-  %135 = getelementptr inbounds i16, ptr %11, i64 %134
+  %135 = getelementptr inbounds [2 x i8], ptr %11, i64 %134
   %136 = add nsw i32 %9, 1
   br label %138
 
@@ -257,7 +257,7 @@ residual_filter.exit:                             ; preds = %59, %41
 
 138:                                              ; preds = %138, %128
   %indvars.iv391.i = phi i64 [ 0, %128 ], [ %indvars.iv.next392.i, %138 ]
-  %139 = getelementptr inbounds nuw [41 x i16], ptr %12, i64 %indvars.iv391.i
+  %139 = getelementptr inbounds nuw [82 x i8], ptr %12, i64 %indvars.iv391.i
   %140 = trunc i64 %indvars.iv391.i to i32
   %141 = sub i32 7, %140
   call void @ff_acelp_interpolate(ptr noundef nonnull %139, ptr noundef nonnull %135, ptr noundef nonnull @ff_g729_interp_filt_short, i32 noundef 8, i32 noundef %141, i32 noundef 2, i32 noundef %136) #8
@@ -269,16 +269,16 @@ residual_filter.exit:                             ; preds = %59, %41
   %indvars.iv395.i = phi i64 [ 0, %.preheader340.i ], [ %indvars.iv.next396.i, %142 ]
   %.1233356.i = phi i32 [ %133, %.preheader340.i ], [ %spec.select334.i, %142 ]
   %143 = load ptr, ptr %0, align 8, !tbaa !17
-  %144 = getelementptr inbounds nuw [41 x i16], ptr %12, i64 %indvars.iv395.i
+  %144 = getelementptr inbounds nuw [82 x i8], ptr %12, i64 %indvars.iv395.i
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 2
   %146 = call i32 %143(ptr noundef nonnull %145, ptr noundef nonnull %145, i32 noundef %137) #8
   %147 = load i16, ptr %144, align 2, !tbaa !4
   %148 = sext i16 %147 to i32
   %149 = mul nsw i32 %148, %148
   %150 = add nsw i32 %149, %146
-  %151 = getelementptr inbounds nuw [2 x i32], ptr %13, i64 %indvars.iv395.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv395.i
   store i32 %150, ptr %151, align 8, !tbaa !22
-  %152 = getelementptr inbounds i16, ptr %144, i64 %67
+  %152 = getelementptr inbounds [2 x i8], ptr %144, i64 %67
   %153 = load i16, ptr %152, align 2, !tbaa !4
   %154 = sext i16 %153 to i32
   %155 = mul nsw i32 %154, %154
@@ -330,8 +330,8 @@ residual_filter.exit:                             ; preds = %59, %41
   %.0249366.i = phi i32 [ %178, %171 ], [ %.2251.i, %211 ]
   %.1259365.i = phi i16 [ %174, %171 ], [ %.3261.i, %211 ]
   %.1265364.i = phi i16 [ %176, %171 ], [ %.3267.i, %211 ]
-  %179 = getelementptr inbounds nuw [41 x i16], ptr %12, i64 %indvars.iv401.i
-  %180 = getelementptr inbounds nuw [2 x i32], ptr %13, i64 %indvars.iv401.i
+  %179 = getelementptr inbounds nuw [82 x i8], ptr %12, i64 %indvars.iv401.i
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv401.i
   %181 = trunc i64 %indvars.iv401.i to i16
   %182 = add nuw nsw i16 %181, 1
   br label %183
@@ -345,14 +345,14 @@ residual_filter.exit:                             ; preds = %59, %41
   %.2260359.i = phi i16 [ %.1259365.i, %.preheader339.i ], [ %.3261.i, %210 ]
   %.2266358.i = phi i16 [ %.1265364.i, %.preheader339.i ], [ %.3267.i, %210 ]
   %185 = load ptr, ptr %0, align 8, !tbaa !17
-  %186 = getelementptr inbounds nuw i16, ptr %179, i64 %indvars.iv399.i
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %179, i64 %indvars.iv399.i
   %187 = call i32 %185(ptr noundef nonnull %186, ptr noundef nonnull %103, i32 noundef %9) #8
   %188 = ashr i32 %187, %172
   %189 = call i32 @llvm.smax.i32(i32 %188, i32 0)
   %sext297.i = shl i32 %189, 16
   %190 = ashr exact i32 %sext297.i, 16
   %191 = mul nsw i32 %190, %190
-  %192 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv399.i
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %indvars.iv399.i
   %193 = load i32, ptr %192, align 4, !tbaa !22
   %194 = ashr i32 %193, %169
   %195 = trunc i32 %194 to i16
@@ -417,7 +417,7 @@ residual_filter.exit:                             ; preds = %59, %41
 228:                                              ; preds = %227
   %229 = zext nneg i16 %.3237.i to i64
   %reass.sub.i = sub nsw i64 %229, %130
-  %230 = getelementptr i16, ptr %11, i64 %reass.sub.i
+  %230 = getelementptr [2 x i8], ptr %11, i64 %reass.sub.i
   %231 = getelementptr i8, ptr %230, i64 304
   %232 = sext i16 %.3241.i to i32
   %233 = sub nsw i32 8, %232
@@ -510,9 +510,9 @@ residual_filter.exit:                             ; preds = %59, %41
 
 291:                                              ; preds = %289
   %292 = sext i16 %.3241.i to i64
-  %293 = getelementptr [41 x i16], ptr %12, i64 %292
+  %293 = getelementptr [82 x i8], ptr %12, i64 %292
   %294 = getelementptr i8, ptr %293, i64 -82
-  %295 = getelementptr inbounds nuw i16, ptr %294, i64 %229
+  %295 = getelementptr inbounds nuw [2 x i8], ptr %294, i64 %229
   br label %296
 
 296:                                              ; preds = %291, %289
@@ -540,7 +540,7 @@ residual_filter.exit:                             ; preds = %59, %41
 
 .lr.ph373.i:                                      ; preds = %.lr.ph373.i, %.lr.ph373.preheader.i
   %indvars.iv409.i = phi i64 [ 0, %.lr.ph373.preheader.i ], [ %indvars.iv.next410.i, %.lr.ph373.i ]
-  %298 = getelementptr inbounds nuw i16, ptr %.0231.i, i64 %indvars.iv409.i
+  %298 = getelementptr inbounds nuw [2 x i8], ptr %.0231.i, i64 %indvars.iv409.i
   %299 = load i16, ptr %298, align 2, !tbaa !4
   %300 = zext i16 %299 to i32
   %301 = shl i32 %300, %.0272424.i
@@ -552,7 +552,7 @@ residual_filter.exit:                             ; preds = %59, %41
 
 303:                                              ; preds = %303, %.lr.ph371.i
   %indvars.iv404.i = phi i64 [ 0, %.lr.ph371.i ], [ %indvars.iv.next405.i, %303 ]
-  %304 = getelementptr inbounds nuw i16, ptr %.0231.i, i64 %indvars.iv404.i
+  %304 = getelementptr inbounds nuw [2 x i8], ptr %.0231.i, i64 %indvars.iv404.i
   %305 = load i16, ptr %304, align 2, !tbaa !4
   %306 = sext i16 %305 to i32
   %307 = ashr i32 %306, %297
@@ -566,8 +566,8 @@ residual_filter.exit:                             ; preds = %59, %41
   %310 = xor i16 %spec.select298.i, -1
   %.neg296.i = sext i16 %310 to i64
   %311 = zext nneg i16 %.3237.i to i64
-  %312 = getelementptr i16, ptr %43, i64 %.neg296.i
-  %313 = getelementptr i16, ptr %312, i64 %311
+  %312 = getelementptr [2 x i8], ptr %43, i64 %.neg296.i
+  %313 = getelementptr [2 x i8], ptr %312, i64 %311
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %303, %.lr.ph373.i, %309, %.preheader.i46, %.preheader337.i
@@ -601,7 +601,7 @@ long_term_filter.exit:                            ; preds = %.thread.i, %.loopex
   %326 = load i32, ptr %2, align 4, !tbaa !22
   %. = call i32 @llvm.smax.i32(i32 %326, i32 %.0.i)
   store i32 %., ptr %2, align 4, !tbaa !22
-  %327 = getelementptr inbounds i16, ptr %5, i64 %67
+  %327 = getelementptr inbounds [2 x i8], ptr %5, i64 %67
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(304) %5, ptr noundef nonnull align 2 dereferenceable(304) %327, i64 304, i1 false)
   %328 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i16 4096, ptr %328, align 4, !tbaa !4
@@ -637,7 +637,7 @@ long_term_filter.exit:                            ; preds = %.thread.i, %.loopex
 .preheader.i53:                                   ; preds = %long_term_filter.exit, %.preheader.i53
   %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i55, %.preheader.i53 ], [ 0, %long_term_filter.exit ]
   %.053.i = phi i32 [ %352, %.preheader.i53 ], [ 0, %long_term_filter.exit ]
-  %347 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.i54
+  %347 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv.i54
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 20
   %349 = load i16, ptr %348, align 2, !tbaa !4
   %350 = call i16 @llvm.abs.i16(i16 %349, i1 false)
@@ -662,7 +662,7 @@ long_term_filter.exit:                            ; preds = %.thread.i, %.loopex
 
 .lr.ph.i61:                                       ; preds = %.lr.ph.i61, %.lr.ph.preheader.i59
   %indvars.iv56.i = phi i64 [ 0, %.lr.ph.preheader.i59 ], [ %indvars.iv.next57.i, %.lr.ph.i61 ]
-  %358 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv56.i
+  %358 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv56.i
   %359 = load i16, ptr %358, align 2, !tbaa !4
   %360 = sext i16 %359 to i32
   %361 = mul nsw i32 %357, %360
@@ -685,7 +685,7 @@ get_tilt_comp.exit:                               ; preds = %long_term_filter.ex
   %.047.i = phi i32 [ %366, %.loopexit.i57 ], [ 0, %long_term_filter.exit ]
   %367 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %368 = call i32 @ff_celp_lp_synthesis_filter(ptr noundef nonnull %367, ptr noundef nonnull %329, ptr noundef nonnull %70, i32 noundef %9, i32 noundef 10, i32 noundef 0, i32 noundef 0, i32 noundef 2048) #8
-  %369 = getelementptr inbounds i16, ptr %7, i64 %67
+  %369 = getelementptr inbounds [2 x i8], ptr %7, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %7, ptr noundef nonnull align 2 dereferenceable(20) %369, i64 20, i1 false)
   %370 = load i16, ptr %1, align 2, !tbaa !4
   %371 = icmp sgt i32 %.047.i, 0
@@ -717,7 +717,7 @@ get_tilt_comp.exit:                               ; preds = %long_term_filter.ex
   %387 = sdiv i32 %381, %386
   %388 = add nsw i32 %9, -1
   %389 = sext i32 %388 to i64
-  %390 = getelementptr inbounds i16, ptr %367, i64 %389
+  %390 = getelementptr inbounds [2 x i8], ptr %367, i64 %389
   %391 = load i16, ptr %390, align 2, !tbaa !4
   %392 = icmp sgt i32 %9, 1
   br i1 %392, label %.lr.ph.i65, label %apply_tilt_comp.exit
@@ -729,7 +729,7 @@ get_tilt_comp.exit:                               ; preds = %long_term_filter.ex
 
 395:                                              ; preds = %395, %.lr.ph.i65
   %indvars.iv.i66 = phi i64 [ %394, %.lr.ph.i65 ], [ %indvars.iv.next.i67, %395 ]
-  %396 = getelementptr i16, ptr %367, i64 %indvars.iv.i66
+  %396 = getelementptr [2 x i8], ptr %367, i64 %indvars.iv.i66
   %397 = getelementptr i8, ptr %396, i64 -2
   %398 = load i16, ptr %397, align 2, !tbaa !4
   %399 = sext i16 %398 to i32
@@ -743,7 +743,7 @@ get_tilt_comp.exit:                               ; preds = %long_term_filter.ex
   %407 = add nsw i32 %406, %.036.i
   %408 = ashr i32 %407, %.0.i62
   %409 = trunc i32 %408 to i16
-  %410 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i66
+  %410 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv.i66
   store i16 %409, ptr %410, align 2, !tbaa !4
   %indvars.iv.next.i67 = add nsw i64 %indvars.iv.i66, -1
   %411 = icmp samesign ugt i64 %indvars.iv.i66, 1
@@ -888,7 +888,7 @@ define signext i16 @ff_g729_adaptive_gain_control(i32 noundef %0, i32 noundef %1
   %65 = lshr i32 %64, 16
   %66 = trunc nuw i32 %65 to i16
   %67 = tail call i16 @llvm.sadd.sat.i16(i16 %.1, i16 %66)
-  %68 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %69 = load i16, ptr %68, align 2, !tbaa !4
   %70 = sext i16 %69 to i32
   %71 = sext i16 %67 to i32

@@ -72,8 +72,8 @@ define void @dt_heal(ptr noundef readonly captures(none) %0, ptr noundef capture
   %34 = mul i64 %33, %28
   %35 = and i64 %.07382.us.us.i, 1
   %.not.us.us.i = icmp eq i64 %35, 0
-  %36 = getelementptr inbounds nuw float, ptr %18, i64 %34
-  %37 = getelementptr inbounds nuw float, ptr %19, i64 %34
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %34
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %34
   %38 = select i1 %.not.us.us.i, ptr %37, ptr %36
   %39 = select i1 %.not.us.us.i, ptr %36, ptr %37
   %factor.op.mul.reass.us.us.i = mul i64 %.07382.us.us.i, %factor.op.mul81.i
@@ -95,21 +95,21 @@ define void @dt_heal(ptr noundef readonly captures(none) %0, ptr noundef capture
 47:                                               ; preds = %47, %40
   %.07478.us.us.i = phi i64 [ 0, %40 ], [ %63, %47 ]
   %48 = or disjoint i64 %.07478.us.us.i, %42
-  %49 = getelementptr inbounds nuw float, ptr %1, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %48
   %50 = load float, ptr %49, align 4, !tbaa !11, !noalias !15
-  %51 = getelementptr inbounds nuw float, ptr %0, i64 %48
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %48
   %52 = load float, ptr %51, align 4, !tbaa !11, !noalias !15
   %53 = fsub reassoc nsz arcp contract afn float %50, %52
   %54 = add nuw nsw i64 %.07478.us.us.i, %43
-  %55 = getelementptr inbounds nuw float, ptr %38, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %54
   store float %53, ptr %55, align 4, !tbaa !11, !alias.scope !15
   %56 = add nuw nsw i64 %.07478.us.us.i, %44
-  %57 = getelementptr inbounds nuw float, ptr %1, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !11, !noalias !15
-  %59 = getelementptr inbounds nuw float, ptr %0, i64 %56
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %56
   %60 = load float, ptr %59, align 4, !tbaa !11, !noalias !15
   %61 = fsub reassoc nsz arcp contract afn float %58, %60
-  %62 = getelementptr inbounds nuw float, ptr %39, i64 %54
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %54
   store float %61, ptr %62, align 4, !tbaa !11, !alias.scope !15
   %63 = add nuw nsw i64 %.07478.us.us.i, 1
   %exitcond96.not.i = icmp eq i64 %63, 4
@@ -125,8 +125,8 @@ define void @dt_heal(ptr noundef readonly captures(none) %0, ptr noundef capture
   %65 = mul i64 %64, %28
   %66 = and i64 %.07382.us.i, 1
   %.not.us.i = icmp eq i64 %66, 0
-  %67 = getelementptr inbounds nuw float, ptr %18, i64 %65
-  %68 = getelementptr inbounds nuw float, ptr %19, i64 %65
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %65
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %65
   %69 = select i1 %.not.us.i, ptr %68, ptr %67
   %70 = select i1 %.not.us.i, ptr %67, ptr %68
   %factor.op.mul.reass.us.i = mul i64 %.07382.us.i, %factor.op.mul81.i
@@ -135,12 +135,12 @@ define void @dt_heal(ptr noundef readonly captures(none) %0, ptr noundef capture
 71:                                               ; preds = %._crit_edge.us.i, %71
   %.080.us.i = phi i64 [ 0, %._crit_edge.us.i ], [ %78, %71 ]
   %72 = add nuw nsw i64 %.080.us.i, %105
-  %73 = getelementptr inbounds nuw float, ptr %1, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %72
   %74 = load float, ptr %73, align 4, !tbaa !11, !noalias !15
-  %75 = getelementptr inbounds nuw float, ptr %0, i64 %72
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %72
   %76 = load float, ptr %75, align 4, !tbaa !11, !noalias !15
   %77 = fsub reassoc nsz arcp contract afn float %74, %76
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %.080.us.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %.080.us.i
   store float %77, ptr %gep.i, align 4, !tbaa !11, !alias.scope !15
   %78 = add nuw nsw i64 %.080.us.i, 1
   %exitcond94.not.i = icmp eq i64 %78, 4
@@ -162,21 +162,21 @@ define void @dt_heal(ptr noundef readonly captures(none) %0, ptr noundef capture
 86:                                               ; preds = %86, %79
   %.07478.us.i = phi i64 [ 0, %79 ], [ %102, %86 ]
   %87 = or disjoint i64 %.07478.us.i, %81
-  %88 = getelementptr inbounds nuw float, ptr %1, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %87
   %89 = load float, ptr %88, align 4, !tbaa !11, !noalias !15
-  %90 = getelementptr inbounds nuw float, ptr %0, i64 %87
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %87
   %91 = load float, ptr %90, align 4, !tbaa !11, !noalias !15
   %92 = fsub reassoc nsz arcp contract afn float %89, %91
   %93 = add nuw nsw i64 %.07478.us.i, %82
-  %94 = getelementptr inbounds nuw float, ptr %69, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %93
   store float %92, ptr %94, align 4, !tbaa !11, !alias.scope !15
   %95 = add nuw nsw i64 %83, %.07478.us.i
-  %96 = getelementptr inbounds nuw float, ptr %1, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %95
   %97 = load float, ptr %96, align 4, !tbaa !11, !noalias !15
-  %98 = getelementptr inbounds nuw float, ptr %0, i64 %95
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %95
   %99 = load float, ptr %98, align 4, !tbaa !11, !noalias !15
   %100 = fsub reassoc nsz arcp contract afn float %97, %99
-  %101 = getelementptr inbounds nuw float, ptr %70, i64 %93
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %93
   store float %100, ptr %101, align 4, !tbaa !11, !alias.scope !15
   %102 = add nuw nsw i64 %.07478.us.i, 1
   %exitcond.not.i = icmp eq i64 %102, 4
@@ -205,8 +205,8 @@ define void @dt_heal(ptr noundef readonly captures(none) %0, ptr noundef capture
   %108 = mul i64 %107, %28
   %109 = and i64 %.07382.i, 1
   %.not.i = icmp eq i64 %109, 0
-  %110 = getelementptr inbounds nuw float, ptr %18, i64 %108
-  %111 = getelementptr inbounds nuw float, ptr %19, i64 %108
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %108
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %108
   %112 = select i1 %.not.i, ptr %111, ptr %110
   %113 = select i1 %.not.i, ptr %110, ptr %111
   %114 = shl i64 %.07382.i, 2
@@ -216,12 +216,12 @@ define void @dt_heal(ptr noundef readonly captures(none) %0, ptr noundef capture
 115:                                              ; preds = %115, %.lr.ph84.split.split.i
   %.080.i = phi i64 [ 0, %.lr.ph84.split.split.i ], [ %123, %115 ]
   %116 = add nuw nsw i64 %.080.i, %114
-  %117 = getelementptr inbounds nuw float, ptr %1, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !11, !noalias !15
-  %119 = getelementptr inbounds nuw float, ptr %0, i64 %116
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %116
   %120 = load float, ptr %119, align 4, !tbaa !11, !noalias !15
   %121 = fsub reassoc nsz arcp contract afn float %118, %120
-  %122 = getelementptr inbounds nuw float, ptr %112, i64 %.080.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %.080.i
   store float %121, ptr %122, align 4, !tbaa !11, !alias.scope !15
   %123 = add nuw nsw i64 %.080.i, 1
   %exitcond99.not.i = icmp eq i64 %123, 4
@@ -236,10 +236,10 @@ _heal_sub.exit:                                   ; preds = %.loopexit.us.i, %._
   tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %18, i8 0, i64 %124, i1 false), !alias.scope !6, !noalias !9
   %125 = add nsw i64 %25, 1
   %126 = mul i64 %28, %125
-  %127 = getelementptr inbounds nuw float, ptr %18, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %126
   tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %127, i8 0, i64 %124, i1 false), !alias.scope !6, !noalias !9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %19, i8 0, i64 %124, i1 false), !alias.scope !9, !noalias !6
-  %128 = getelementptr inbounds nuw float, ptr %19, i64 %126
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %126
   tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %128, i8 0, i64 %124, i1 false), !alias.scope !9, !noalias !6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %129 = add nsw i64 %24, 1
@@ -272,7 +272,7 @@ _heal_sub.exit:                                   ; preds = %.loopexit.us.i, %._
   %141 = add nuw i64 %.035.i.i, 1
   %142 = mul i64 %141, %130
   %143 = mul i64 %.035.i.i, %24
-  %144 = getelementptr inbounds nuw float, ptr %2, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %143
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %145 = and i64 %.035.i.i, 1
@@ -320,7 +320,7 @@ _heal_sub.exit:                                   ; preds = %.loopexit.us.i, %._
   %.05778.i.i.i = phi i64 [ %173, %172 ], [ %.05778.i.ph.i.i, %.outer.i.i ]
   %.not71.i.i.i = phi i1 [ true, %172 ], [ %.not71.i.ph.i.i, %.outer.i.i ]
   %.16474.i.i.i = phi i64 [ %.265.i.i.i, %172 ], [ %.16474.i.ph.i.i, %.outer.i.i ]
-  %161 = getelementptr inbounds nuw float, ptr %144, i64 %.05778.i.i.i
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %.05778.i.i.i
   %162 = load float, ptr %161, align 4, !tbaa !11, !alias.scope !32, !noalias !33
   %163 = fcmp reassoc nsz arcp contract afn oeq float %162, 0.000000e+00
   br i1 %163, label %164, label %.thread.i.i
@@ -406,7 +406,7 @@ _collect_color_runs.exit.i.i:                     ; preds = %172, %195, %154
   %199 = add nuw i64 %.035.i51.i, 1
   %200 = mul i64 %199, %130
   %201 = mul i64 %.035.i51.i, %24
-  %202 = getelementptr inbounds nuw float, ptr %2, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %201
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %203 = and i64 %.035.i51.i, 1
@@ -454,7 +454,7 @@ _collect_color_runs.exit.i.i:                     ; preds = %172, %195, %154
   %.05778.i.i66.i = phi i64 [ %232, %231 ], [ %.05778.i.ph.i61.i, %.outer.i60.i ]
   %.not71.i.i67.i = phi i1 [ true, %231 ], [ %.not71.i.ph.i63.i, %.outer.i60.i ]
   %.16474.i.i68.i = phi i64 [ %.265.i.i76.i, %231 ], [ %.16474.i.ph.i65.i, %.outer.i60.i ]
-  %220 = getelementptr inbounds nuw float, ptr %202, i64 %.05778.i.i66.i
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %.05778.i.i66.i
   %221 = load float, ptr %220, align 4, !tbaa !11, !alias.scope !48, !noalias !49
   %222 = fcmp reassoc nsz arcp contract afn oeq float %221, 0.000000e+00
   br i1 %222, label %223, label %.thread.i69.i
@@ -595,8 +595,8 @@ _heal_laplace_loop.exit:                          ; preds = %273, %274
   %279 = mul i64 %278, %28
   %280 = and i64 %.05866.us.us.i, 1
   %.not.us.us.i45 = icmp eq i64 %280, 0
-  %281 = getelementptr inbounds nuw float, ptr %18, i64 %279
-  %282 = getelementptr inbounds nuw float, ptr %19, i64 %279
+  %281 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %279
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %279
   %283 = select i1 %.not.us.us.i45, ptr %282, ptr %281
   %284 = select i1 %.not.us.us.i45, ptr %281, ptr %282
   %factor.op.mul.reass.us.us.i46 = mul i64 %.05866.us.us.i, %factor.op.mul81.i
@@ -618,21 +618,21 @@ _heal_laplace_loop.exit:                          ; preds = %273, %274
 292:                                              ; preds = %292, %285
   %.05962.us.us.i = phi i64 [ 0, %285 ], [ %308, %292 ]
   %293 = add nuw nsw i64 %.05962.us.us.i, %288
-  %294 = getelementptr inbounds nuw float, ptr %283, i64 %293
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %283, i64 %293
   %295 = load float, ptr %294, align 4, !tbaa !11, !noalias !57
   %296 = or disjoint i64 %.05962.us.us.i, %287
-  %297 = getelementptr inbounds nuw float, ptr %0, i64 %296
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %296
   %298 = load float, ptr %297, align 4, !tbaa !11, !alias.scope !52, !noalias !58
   %299 = fadd reassoc nsz arcp contract afn float %298, %295
-  %300 = getelementptr inbounds nuw float, ptr %1, i64 %296
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %296
   store float %299, ptr %300, align 4, !tbaa !11, !alias.scope !55, !noalias !60
-  %301 = getelementptr inbounds nuw float, ptr %284, i64 %293
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %284, i64 %293
   %302 = load float, ptr %301, align 4, !tbaa !11, !noalias !57
   %303 = add nuw nsw i64 %.05962.us.us.i, %289
-  %304 = getelementptr inbounds nuw float, ptr %0, i64 %303
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %303
   %305 = load float, ptr %304, align 4, !tbaa !11, !alias.scope !52, !noalias !58
   %306 = fadd reassoc nsz arcp contract afn float %305, %302
-  %307 = getelementptr inbounds nuw float, ptr %1, i64 %303
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %303
   store float %306, ptr %307, align 4, !tbaa !11, !alias.scope !55, !noalias !60
   %308 = add nuw nsw i64 %.05962.us.us.i, 1
   %exitcond80.not.i = icmp eq i64 %308, 4
@@ -648,8 +648,8 @@ _heal_laplace_loop.exit:                          ; preds = %273, %274
   %310 = mul i64 %309, %28
   %311 = and i64 %.05866.us.i, 1
   %.not.us.i39 = icmp eq i64 %311, 0
-  %312 = getelementptr inbounds nuw float, ptr %18, i64 %310
-  %313 = getelementptr inbounds nuw float, ptr %19, i64 %310
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %310
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %310
   %314 = select i1 %.not.us.i39, ptr %313, ptr %312
   %315 = select i1 %.not.us.i39, ptr %312, ptr %313
   %factor.op.mul.reass.us.i40 = mul i64 %.05866.us.i, %factor.op.mul81.i
@@ -657,13 +657,13 @@ _heal_laplace_loop.exit:                          ; preds = %273, %274
 
 316:                                              ; preds = %._crit_edge.us.i42, %316
   %.064.us.i = phi i64 [ 0, %._crit_edge.us.i42 ], [ %324, %316 ]
-  %317 = getelementptr inbounds nuw float, ptr %352, i64 %.064.us.i
+  %317 = getelementptr inbounds nuw [4 x i8], ptr %352, i64 %.064.us.i
   %318 = load float, ptr %317, align 4, !tbaa !11, !noalias !57
   %319 = add nuw nsw i64 %.064.us.i, %351
-  %320 = getelementptr inbounds nuw float, ptr %0, i64 %319
+  %320 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %319
   %321 = load float, ptr %320, align 4, !tbaa !11, !alias.scope !52, !noalias !58
   %322 = fadd reassoc nsz arcp contract afn float %321, %318
-  %323 = getelementptr inbounds nuw float, ptr %1, i64 %319
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %319
   store float %322, ptr %323, align 4, !tbaa !11, !alias.scope !55, !noalias !60
   %324 = add nuw nsw i64 %.064.us.i, 1
   %exitcond78.not.i = icmp eq i64 %324, 4
@@ -685,21 +685,21 @@ _heal_laplace_loop.exit:                          ; preds = %273, %274
 332:                                              ; preds = %332, %325
   %.05962.us.i = phi i64 [ 0, %325 ], [ %348, %332 ]
   %333 = add nuw nsw i64 %.05962.us.i, %328
-  %334 = getelementptr inbounds nuw float, ptr %314, i64 %333
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %314, i64 %333
   %335 = load float, ptr %334, align 4, !tbaa !11, !noalias !57
   %336 = or disjoint i64 %.05962.us.i, %327
-  %337 = getelementptr inbounds nuw float, ptr %0, i64 %336
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %336
   %338 = load float, ptr %337, align 4, !tbaa !11, !alias.scope !52, !noalias !58
   %339 = fadd reassoc nsz arcp contract afn float %338, %335
-  %340 = getelementptr inbounds nuw float, ptr %1, i64 %336
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %336
   store float %339, ptr %340, align 4, !tbaa !11, !alias.scope !55, !noalias !60
-  %341 = getelementptr inbounds nuw float, ptr %315, i64 %333
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %315, i64 %333
   %342 = load float, ptr %341, align 4, !tbaa !11, !noalias !57
   %343 = add nuw nsw i64 %329, %.05962.us.i
-  %344 = getelementptr inbounds nuw float, ptr %0, i64 %343
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %343
   %345 = load float, ptr %344, align 4, !tbaa !11, !alias.scope !52, !noalias !58
   %346 = fadd reassoc nsz arcp contract afn float %345, %342
-  %347 = getelementptr inbounds nuw float, ptr %1, i64 %343
+  %347 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %343
   store float %346, ptr %347, align 4, !tbaa !11, !alias.scope !55, !noalias !60
   %348 = add nuw nsw i64 %.05962.us.i, 1
   %exitcond.not.i41 = icmp eq i64 %348, 4
@@ -726,20 +726,20 @@ _heal_laplace_loop.exit:                          ; preds = %273, %274
   %355 = and i64 %.05866.i, 1
   %.not.i48 = icmp eq i64 %355, 0
   %.v.i = select i1 %.not.i48, ptr %19, ptr %18
-  %356 = getelementptr inbounds nuw float, ptr %.v.i, i64 %354
+  %356 = getelementptr inbounds nuw [4 x i8], ptr %.v.i, i64 %354
   %357 = shl i64 %.05866.i, 2
   %358 = getelementptr inbounds nuw i8, ptr %356, i64 %.idx.i37
   br label %359
 
 359:                                              ; preds = %359, %.lr.ph68.split.split.i
   %.064.i = phi i64 [ 0, %.lr.ph68.split.split.i ], [ %367, %359 ]
-  %360 = getelementptr inbounds nuw float, ptr %358, i64 %.064.i
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %358, i64 %.064.i
   %361 = load float, ptr %360, align 4, !tbaa !11, !noalias !57
   %362 = add nuw nsw i64 %.064.i, %357
-  %363 = getelementptr inbounds nuw float, ptr %0, i64 %362
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %362
   %364 = load float, ptr %363, align 4, !tbaa !11, !alias.scope !52, !noalias !58
   %365 = fadd reassoc nsz arcp contract afn float %364, %361
-  %366 = getelementptr inbounds nuw float, ptr %1, i64 %362
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %362
   store float %365, ptr %366, align 4, !tbaa !11, !alias.scope !55, !noalias !60
   %367 = add nuw nsw i64 %.064.i, 1
   %exitcond83.not.i = icmp eq i64 %367, 4
@@ -796,7 +796,7 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
 
 .lr.ph141:                                        ; preds = %8
   %13 = shl i64 %3, 2
-  %invariant.gep = getelementptr float, ptr %1, i64 %13
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %13
   br label %17
 
 ._crit_edge142.loopexit:                          ; preds = %113
@@ -847,9 +847,9 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   br i1 %or.cond, label %.preheader132, label %39
 
 .preheader132:                                    ; preds = %33
-  %36 = getelementptr float, ptr %1, i64 %23
+  %36 = getelementptr [4 x i8], ptr %1, i64 %23
   %37 = getelementptr i8, ptr %36, i64 -16
-  %38 = getelementptr float, ptr %37, i64 %31
+  %38 = getelementptr [4 x i8], ptr %37, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %38, i64 16, i1 false), !tbaa !11
   br label %.loopexit133
 
@@ -866,8 +866,8 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   br i1 %or.cond3, label %.preheader, label %46
 
 .preheader:                                       ; preds = %.loopexit133
-  %44 = getelementptr inbounds nuw float, ptr %1, i64 %23
-  %45 = getelementptr inbounds nuw float, ptr %44, i64 %31
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %23
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %45, i64 16, i1 false), !tbaa !11
   br label %.loopexit
 
@@ -877,10 +877,10 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
 
 .loopexit:                                        ; preds = %.preheader, %46
   %.1 = phi nsz float [ %47, %46 ], [ %.0115, %.preheader ]
-  %48 = getelementptr inbounds nuw float, ptr %0, i64 %23
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %23
   %49 = sub i64 %23, %13
-  %50 = getelementptr inbounds nuw float, ptr %1, i64 %49
-  %gep = getelementptr float, ptr %invariant.gep, i64 %23
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %49
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %23
   br label %52
 
 51:                                               ; preds = %52
@@ -890,16 +890,16 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
 
 52:                                               ; preds = %.loopexit, %52
   %.0112138 = phi i64 [ 0, %.loopexit ], [ %74, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %48, i64 %.0112138
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.0112138
   %54 = load float, ptr %53, align 4, !tbaa !11
   %55 = fmul reassoc nsz arcp contract afn float %54, %.1
-  %56 = getelementptr inbounds nuw float, ptr %50, i64 %.0112138
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %.0112138
   %57 = load float, ptr %56, align 4, !tbaa !11
-  %58 = getelementptr inbounds nuw float, ptr %gep, i64 %.0112138
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %gep, i64 %.0112138
   %59 = load float, ptr %58, align 4, !tbaa !11
-  %60 = getelementptr inbounds nuw float, ptr %10, i64 %.0112138
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.0112138
   %61 = load float, ptr %60, align 4, !tbaa !11
-  %62 = getelementptr inbounds nuw float, ptr %11, i64 %.0112138
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.0112138
   %63 = load float, ptr %62, align 4, !tbaa !11
   %64 = fadd reassoc nsz arcp contract afn float %57, %59
   %65 = fadd reassoc nsz arcp contract afn float %64, %61
@@ -909,7 +909,7 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   %69 = fsub reassoc nsz arcp contract afn float %54, %68
   store float %69, ptr %53, align 4, !tbaa !11
   %70 = fmul reassoc nsz arcp contract afn float %68, %68
-  %71 = getelementptr inbounds nuw float, ptr %9, i64 %.0112138
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.0112138
   %72 = load float, ptr %71, align 4, !tbaa !11
   %73 = fadd reassoc nsz arcp contract afn float %70, %72
   store float %73, ptr %71, align 4, !tbaa !11
@@ -919,9 +919,9 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
 
 75:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %76 = getelementptr inbounds nuw float, ptr %1, i64 %23
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %23
   %77 = getelementptr inbounds i8, ptr %76, i64 -16
-  %78 = getelementptr inbounds nuw float, ptr %77, i64 %31
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull readonly align 4 dereferenceable(16) %78, i64 16, i1 false), !tbaa !11, !alias.scope !61
   %79 = zext i32 %22 to i64
   %.not143 = icmp eq i32 %22, 0
@@ -935,12 +935,12 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   %.0111135 = phi i64 [ %89, %88 ], [ 0, %75 ]
   %80 = add nuw nsw i64 %.0111135, %20
   %81 = shl nuw i64 %80, 2
-  %82 = getelementptr inbounds nuw float, ptr %1, i64 %81
-  %83 = getelementptr inbounds nuw float, ptr %82, i64 %31
-  %84 = getelementptr inbounds nuw float, ptr %0, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %81
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %31
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %81
   %85 = sub i64 %81, %13
-  %86 = getelementptr inbounds nuw float, ptr %1, i64 %85
-  %87 = getelementptr float, ptr %82, i64 %13
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %85
+  %87 = getelementptr [4 x i8], ptr %82, i64 %13
   br label %90
 
 88:                                               ; preds = %90
@@ -950,16 +950,16 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
 
 90:                                               ; preds = %.lr.ph, %90
   %.0134 = phi i64 [ 0, %.lr.ph ], [ %112, %90 ]
-  %91 = getelementptr inbounds nuw float, ptr %83, i64 %.0134
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %.0134
   %92 = load float, ptr %91, align 4, !tbaa !11
-  %93 = getelementptr inbounds nuw float, ptr %84, i64 %.0134
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.0134
   %94 = load float, ptr %93, align 4, !tbaa !11
   %95 = fmul reassoc nsz arcp contract afn float %94, %.1117
-  %96 = getelementptr inbounds nuw float, ptr %86, i64 %.0134
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %.0134
   %97 = load float, ptr %96, align 4, !tbaa !11
-  %98 = getelementptr inbounds nuw float, ptr %87, i64 %.0134
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %.0134
   %99 = load float, ptr %98, align 4, !tbaa !11
-  %100 = getelementptr inbounds nuw float, ptr %12, i64 %.0134
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.0134
   %101 = load float, ptr %100, align 4, !tbaa !11
   %102 = fadd reassoc nsz arcp contract afn float %92, %97
   %103 = fadd reassoc nsz arcp contract afn float %102, %99
@@ -969,7 +969,7 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   %107 = fsub reassoc nsz arcp contract afn float %94, %106
   store float %107, ptr %93, align 4, !tbaa !11
   %108 = fmul reassoc nsz arcp contract afn float %106, %106
-  %109 = getelementptr inbounds nuw float, ptr %9, i64 %.0134
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.0134
   %110 = load float, ptr %109, align 4, !tbaa !11
   %111 = fadd reassoc nsz arcp contract afn float %108, %110
   store float %111, ptr %109, align 4, !tbaa !11

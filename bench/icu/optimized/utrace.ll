@@ -1954,7 +1954,7 @@ _ZL10outputCharcPcPiii.exit.us35.i:               ; preds = %50
 57:                                               ; preds = %.lr.ph, %53
   %.pre.i = phi i32 [ %.pre.i.pre, %.lr.ph ], [ %98, %53 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
-  %58 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %59 = load i16, ptr %58, align 2, !tbaa !24
   %60 = zext i16 %59 to i64
   br label %.loopexit.i.i
@@ -2116,7 +2116,7 @@ define ptr @utrace_functionName_77(i32 noundef %0) local_unnamed_addr #9 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZL8trFnName, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZL8trFnName, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   br label %27
 
@@ -2127,7 +2127,7 @@ define ptr @utrace_functionName_77(i32 noundef %0) local_unnamed_addr #9 {
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr ptr, ptr @_ZL11trConvNames, i64 %9
+  %10 = getelementptr [8 x i8], ptr @_ZL11trConvNames, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -32768
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   br label %27
@@ -2139,7 +2139,7 @@ define ptr @utrace_functionName_77(i32 noundef %0) local_unnamed_addr #9 {
 
 15:                                               ; preds = %13
   %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr ptr, ptr @_ZL11trCollNames, i64 %16
+  %17 = getelementptr [8 x i8], ptr @_ZL11trCollNames, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -65536
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   br label %27
@@ -2151,7 +2151,7 @@ define ptr @utrace_functionName_77(i32 noundef %0) local_unnamed_addr #9 {
 
 22:                                               ; preds = %20
   %23 = zext nneg i32 %0 to i64
-  %24 = getelementptr ptr, ptr @_ZL14trResDataNames, i64 %23
+  %24 = getelementptr [8 x i8], ptr @_ZL14trResDataNames, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -98304
   %26 = load ptr, ptr %25, align 8, !tbaa !13
   br label %27

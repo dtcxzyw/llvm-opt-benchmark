@@ -945,7 +945,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %spec.select.i.i6 = select i1 %.not.i.i5, ptr null, ptr %72
   %73 = load i32, ptr %20, align 8, !tbaa !81
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %spec.select.i.i6, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %spec.select.i.i6, i64 %74
   %.not20 = icmp eq ptr %70, %75
   br i1 %.not20, label %._crit_edge, label %27, !llvm.loop !89
 }
@@ -998,7 +998,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter25NarrowDownPos
   %27 = load ptr, ptr %26, align 8, !tbaa !82
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = sext i32 %spec.select to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !83
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11RegExpCache9GetRegExpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %33 unwind label %42

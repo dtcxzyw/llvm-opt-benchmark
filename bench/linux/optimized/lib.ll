@@ -69,8 +69,8 @@ define dso_local i32 @rtc_year_days(i32 noundef %0, i32 noundef %1, i32 noundef 
 13:                                               ; preds = %9, %3
   %14 = phi i64 [ %12, %9 ], [ 1, %3 ]
   %15 = zext i32 %1 to i64
-  %.split = getelementptr [13 x i16], ptr @rtc_ydays, i64 %14
-  %16 = getelementptr i16, ptr %.split, i64 %15
+  %.split = getelementptr [26 x i8], ptr @rtc_ydays, i64 %14
+  %16 = getelementptr [2 x i8], ptr %.split, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = add i32 %0, -1

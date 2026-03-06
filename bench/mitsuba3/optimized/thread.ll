@@ -683,7 +683,7 @@ define noundef zeroext i1 @_ZN7mitsuba6Thread12set_priorityENS0_9EPriorityE(ptr 
 
 switch.lookup:                                    ; preds = %17
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._ZN7mitsuba6Thread12set_priorityENS0_9EPriorityE, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN7mitsuba6Thread12set_priorityENS0_9EPriorityE, i64 %19
   %switch.load = load float, ptr %switch.gep, align 4
   br label %20
 
@@ -980,7 +980,7 @@ common.resume:                                    ; preds = %121, %86, %41
 
 60:                                               ; preds = %56
   %61 = lshr i64 %indvars.iv, 6
-  %62 = getelementptr inbounds nuw i64, ptr %25, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = and i64 %indvars.iv, 63
   %65 = shl nuw i64 1, %64
@@ -1056,7 +1056,7 @@ _ZN7mitsuba6Thread6threadEv.exit110:              ; preds = %._crit_edge, %73
   %94 = and i64 %indvars.iv, 63
   %95 = shl nuw i64 1, %94
   %96 = lshr i64 %90, 6
-  %97 = getelementptr inbounds nuw i64, ptr %25, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %96
   %98 = load i64, ptr %97, align 8
   %99 = or i64 %98, %95
   store i64 %99, ptr %97, align 8
@@ -2351,11 +2351,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIP4TaskEEEENS_19__allocati
 
 .noexc2:                                          ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIP4TaskEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS7_m.exit.i.i.i
   %24 = getelementptr inbounds i8, ptr %23, i64 %11
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.0.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0.i.i.i
   store ptr %0, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = sub nsw i64 0, %12
-  %28 = getelementptr inbounds ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %8, i64 %11, i1 false)
   store ptr %28, ptr @_ZN7mitsubaL16registered_tasksE, align 8
   store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZN7mitsubaL16registered_tasksE, i64 8), align 8
@@ -3381,7 +3381,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -3939,7 +3939,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -4032,7 +4032,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8

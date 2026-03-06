@@ -1860,7 +1860,7 @@ define hidden void @"_ZN174_$LT$$LT$uv_pypi_types..supported_environments..Suppo
 
 56:                                               ; preds = %49, %54
   %57 = load ptr, ptr %17, align 8, !alias.scope !166, !nonnull !8, !noundef !8
-  %58 = getelementptr inbounds i64, ptr %57, i64 %51
+  %58 = getelementptr inbounds [8 x i8], ptr %57, i64 %51
   store i64 %50, ptr %58, align 8
   %59 = add i64 %51, 1
   store i64 %59, ptr %18, align 8, !alias.scope !166
@@ -2651,10 +2651,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !8, !align !9, !noundef !8
   %.val = load i8, ptr %2, align 1, !range !329, !noundef !8
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1f7dacdcb6ec0989E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1f7dacdcb6ec0989E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1f7dacdcb6ec0989E.225", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1f7dacdcb6ec0989E.225", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -3970,10 +3970,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !450)
   %3 = load i8, ptr %2, align 1, !range !329, !alias.scope !450, !noalias !453, !noundef !8
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN75_$LT$uv_python..discovery..PythonPreference$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbc557ca48c5c720E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN75_$LT$uv_python..discovery..PythonPreference$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbc557ca48c5c720E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN75_$LT$uv_python..discovery..PythonPreference$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbc557ca48c5c720E.233", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN75_$LT$uv_python..discovery..PythonPreference$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbc557ca48c5c720E.233", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !450
   ret i1 %6
@@ -4011,10 +4011,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !463)
   %3 = load i8, ptr %2, align 1, !range !466, !alias.scope !463, !noalias !467, !noundef !8
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$uv_python..implementation..ImplementationName$u20$as$u20$core..fmt..Debug$GT$3fmt17hec012c7918b12345E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$uv_python..implementation..ImplementationName$u20$as$u20$core..fmt..Debug$GT$3fmt17hec012c7918b12345E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$uv_python..implementation..ImplementationName$u20$as$u20$core..fmt..Debug$GT$3fmt17hec012c7918b12345E.234", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$uv_python..implementation..ImplementationName$u20$as$u20$core..fmt..Debug$GT$3fmt17hec012c7918b12345E.234", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !463
   ret i1 %6
@@ -4026,10 +4026,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !8, !align !9, !noundef !8
   %.val = load i8, ptr %2, align 1, !range !255, !noundef !8
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8af50bf6a816c326E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8af50bf6a816c326E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8af50bf6a816c326E.228", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8af50bf6a816c326E.228", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -4206,10 +4206,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !507)
   %3 = load i8, ptr %2, align 1, !range !510, !alias.scope !507, !noalias !511, !noundef !8
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN71_$LT$uv_python..discovery..PythonSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h45765239b0bcb785E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN71_$LT$uv_python..discovery..PythonSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h45765239b0bcb785E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$uv_python..discovery..PythonSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h45765239b0bcb785E.232", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN71_$LT$uv_python..discovery..PythonSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h45765239b0bcb785E.232", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !507
   ret i1 %6
@@ -31636,10 +31636,10 @@ define hidden { ptr, i64 } @"_ZN70_$LT$core..num..error..ParseIntError$u20$as$u2
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !255, !noundef !8
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hba6a4956a29412b4E.llvm.3264304222902269976", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hba6a4956a29412b4E.llvm.3264304222902269976", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hba6a4956a29412b4E.llvm.3264304222902269976.230", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hba6a4956a29412b4E.llvm.3264304222902269976.230", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -31720,10 +31720,10 @@ define internal noundef zeroext i1 @"_ZN71_$LT$uv_pep440..version..PrereleaseKin
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !466, !noundef !8
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN71_$LT$uv_pep440..version..PrereleaseKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h12f3df8f72734413E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN71_$LT$uv_pep440..version..PrereleaseKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h12f3df8f72734413E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$uv_pep440..version..PrereleaseKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h12f3df8f72734413E.231", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN71_$LT$uv_pep440..version..PrereleaseKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h12f3df8f72734413E.231", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -31734,10 +31734,10 @@ define internal noundef zeroext i1 @"_ZN71_$LT$uv_python..discovery..PythonSourc
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !510, !noundef !8
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN71_$LT$uv_python..discovery..PythonSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h45765239b0bcb785E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN71_$LT$uv_python..discovery..PythonSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h45765239b0bcb785E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$uv_python..discovery..PythonSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h45765239b0bcb785E.232", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN71_$LT$uv_python..discovery..PythonSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h45765239b0bcb785E.232", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -32837,10 +32837,10 @@ define internal noundef zeroext i1 @"_ZN75_$LT$uv_python..discovery..PythonPrefe
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !329, !noundef !8
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN75_$LT$uv_python..discovery..PythonPreference$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbc557ca48c5c720E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN75_$LT$uv_python..discovery..PythonPreference$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbc557ca48c5c720E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN75_$LT$uv_python..discovery..PythonPreference$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbc557ca48c5c720E.233", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN75_$LT$uv_python..discovery..PythonPreference$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbc557ca48c5c720E.233", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -33413,10 +33413,10 @@ define internal noundef zeroext i1 @"_ZN82_$LT$uv_python..implementation..Implem
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !466, !noundef !8
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$uv_python..implementation..ImplementationName$u20$as$u20$core..fmt..Debug$GT$3fmt17hec012c7918b12345E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$uv_python..implementation..ImplementationName$u20$as$u20$core..fmt..Debug$GT$3fmt17hec012c7918b12345E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$uv_python..implementation..ImplementationName$u20$as$u20$core..fmt..Debug$GT$3fmt17hec012c7918b12345E.234", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$uv_python..implementation..ImplementationName$u20$as$u20$core..fmt..Debug$GT$3fmt17hec012c7918b12345E.234", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -33599,10 +33599,10 @@ define internal noundef zeroext i1 @"_ZN85_$LT$uv_distribution_types..dist_error
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !255, !noundef !8
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN85_$LT$uv_distribution_types..dist_error..DistErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bcd00cc7fd77441E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$uv_distribution_types..dist_error..DistErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bcd00cc7fd77441E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN85_$LT$uv_distribution_types..dist_error..DistErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bcd00cc7fd77441E.235", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$uv_distribution_types..dist_error..DistErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bcd00cc7fd77441E.235", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -35827,7 +35827,7 @@ define void @_ZN2uv8commands11cache_prune11cache_prune17h9d427750d025a791E(ptr d
   %163 = trunc nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i to i32
   %164 = call float @llvm.powi.f32.i32(float 1.024000e+03, i32 %163)
   %165 = fdiv float %159, %164
-  %166 = getelementptr inbounds nuw { ptr, i64 }, ptr @_ZN2uv8commands20human_readable_bytes5UNITS17hd84353e6f6ef077cE.llvm.17365957607923278828, i64 %.sroa.0.0.sroa.speculated.i.i
+  %166 = getelementptr inbounds nuw [16 x i8], ptr @_ZN2uv8commands20human_readable_bytes5UNITS17hd84353e6f6ef077cE.llvm.17365957607923278828, i64 %.sroa.0.0.sroa.speculated.i.i
   %167 = load ptr, ptr %166, align 8, !noalias !7718, !nonnull !8, !align !9, !noundef !8
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %169 = load i64, ptr %168, align 8, !noalias !7718, !noundef !8
@@ -36585,7 +36585,7 @@ define void @_ZN2uv8commands3pip5check9pip_check17hfdbeb42b0bd03e28E(ptr dead_on
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %212) ]
   %216 = icmp ult i64 %.sroa.594.0.copyload, 24019198012642646
   call void @llvm.assume(i1 %216)
-  %217 = getelementptr inbounds nuw { i64, [47 x i64] }, ptr %212, i64 %.sroa.594.0.copyload
+  %217 = getelementptr inbounds nuw [384 x i8], ptr %212, i64 %.sroa.594.0.copyload
   store ptr %212, ptr %48, align 8, !alias.scope !7855, !noalias !7858
   %218 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i64 %209, ptr %218, align 8, !alias.scope !7855, !noalias !7858
@@ -37362,7 +37362,7 @@ define void @_ZN2uv8commands3pip6freeze10pip_freeze17h8e61f456ee8bf9d3E(ptr dead
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %107 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %108 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %109 = getelementptr inbounds { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } } }, { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i64, [5 x i64] }, i8, [7 x i8] }, ptr, { { { [4 x i64] } }, { { { i32 } } }, {}, [4 x i8] }, i8, i8, i8, i8, [4 x i8] }, { { { i64, ptr, {} }, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %.sroa.5.0.copyload.sink, i64 %.sroa.8.0.copyload.sink
+  %109 = getelementptr inbounds [680 x i8], ptr %.sroa.5.0.copyload.sink, i64 %.sroa.8.0.copyload.sink
   store i64 2, ptr %43, align 8
   %.sroa.089.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 48
   store i64 2, ptr %.sroa.089.sroa.5.0..sroa_idx, align 8
@@ -37395,7 +37395,7 @@ define void @_ZN2uv8commands3pip6freeze10pip_freeze17h8e61f456ee8bf9d3E(ptr dead
           to label %.loopexit313 unwind label %.loopexit.split-lp.i, !noalias !7970
 
 .lr.ph.preheader.i.i.i:                           ; preds = %116
-  %119 = getelementptr inbounds nuw ptr, ptr %112, i64 %114
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %114
   %120 = getelementptr inbounds nuw i8, ptr %112, i64 8
   br label %.lr.ph.i.i.i
 
@@ -37451,7 +37451,7 @@ define void @_ZN2uv8commands3pip6freeze10pip_freeze17h8e61f456ee8bf9d3E(ptr dead
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %130 = icmp ult i64 %.sroa.3.0.copyload, 384307168202282326
   call void @llvm.assume(i1 %130)
-  %131 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } } } }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !7977
   store ptr null, ptr %24, align 8, !noalias !7977
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !7981
@@ -37535,7 +37535,7 @@ define void @_ZN2uv8commands3pip6freeze10pip_freeze17h8e61f456ee8bf9d3E(ptr dead
   %.sroa.0.0.copyload.i138 = load i64, ptr %26, align 8, !noalias !7970
   %146 = icmp ult i64 %114, 1152921504606846976
   call void @llvm.assume(i1 %146)
-  %147 = getelementptr inbounds nuw ptr, ptr %112, i64 %114
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %114
   %148 = icmp sgt i64 %.sroa.0.0.copyload.i138, -1
   call void @llvm.assume(i1 %148)
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !7970
@@ -38316,7 +38316,7 @@ define void @_ZN2uv8commands3pip10operations9Changelog3new17h85d297cad37a0f4fE(p
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !8162, !noalias !8165
   %13 = icmp ult i64 %.sroa.5.0.copyload.i, 34937015291116576
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw { i64, [32 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %14 = getelementptr inbounds nuw [264 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   %15 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %15)
   store ptr %.sroa.4.0.copyload.i, ptr %11, align 8
@@ -38406,7 +38406,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbc28ed2b66a079f6E.exit.i.i: ; preds = %
   %.sroa.517.0.copyload = load i64, ptr %.sroa.517.0..sroa_idx, align 8
   %35 = icmp ult i64 %.sroa.517.0.copyload, 18900352534538476
   call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds nuw { i64, [60 x i64] }, ptr %.sroa.416.0.copyload, i64 %.sroa.517.0.copyload
+  %36 = getelementptr inbounds nuw [488 x i8], ptr %.sroa.416.0.copyload, i64 %.sroa.517.0.copyload
   %37 = icmp sgt i64 %.sroa.015.0.copyload, -1
   call void @llvm.assume(i1 %37)
   store ptr %.sroa.416.0.copyload, ptr %7, align 8
@@ -38488,7 +38488,7 @@ define void @_ZN2uv8commands3pip10operations9Changelog14from_installed17h362c7d2
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !8194, !noalias !8197
   %8 = icmp ult i64 %.sroa.5.0.copyload.i, 18900352534538476
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { i64, [60 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %9 = getelementptr inbounds nuw [488 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   %10 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %10)
   store ptr %.sroa.4.0.copyload.i, ptr %6, align 8
@@ -41348,7 +41348,7 @@ default.unreachable508:                           ; preds = %302
   %.sroa.5338.0.copyload = load i64, ptr %157, align 8
   %268 = icmp ult i64 %.sroa.5338.0.copyload, 34937015291116576
   call void @llvm.assume(i1 %268)
-  %269 = getelementptr inbounds nuw { i64, [32 x i64] }, ptr %.sroa.4337.0.copyload, i64 %.sroa.5338.0.copyload
+  %269 = getelementptr inbounds nuw [264 x i8], ptr %.sroa.4337.0.copyload, i64 %.sroa.5338.0.copyload
   %270 = icmp sgt i64 %.sroa.0336.0.copyload, -1
   call void @llvm.assume(i1 %270)
   %.sroa.0348.0.copyload = load i64, ptr %94, align 8
@@ -41357,7 +41357,7 @@ default.unreachable508:                           ; preds = %302
   %.sroa.5350.0.copyload = load i64, ptr %154, align 8
   %271 = icmp ult i64 %.sroa.5350.0.copyload, 34937015291116576
   call void @llvm.assume(i1 %271)
-  %272 = getelementptr inbounds nuw { i64, [32 x i64] }, ptr %.sroa.4349.0.copyload, i64 %.sroa.5350.0.copyload
+  %272 = getelementptr inbounds nuw [264 x i8], ptr %.sroa.4349.0.copyload, i64 %.sroa.5350.0.copyload
   %273 = icmp sgt i64 %.sroa.0348.0.copyload, -1
   call void @llvm.assume(i1 %273)
   %.sroa.0359.0.copyload = load i64, ptr %91, align 8
@@ -41365,7 +41365,7 @@ default.unreachable508:                           ; preds = %302
   %.sroa.4360.0.copyload = load ptr, ptr %.sroa.4360.0..sroa_idx, align 8, !nonnull !8, !noundef !8
   %274 = icmp ult i64 %.sroa.5361.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %274)
-  %275 = getelementptr inbounds nuw ptr, ptr %.sroa.4360.0.copyload, i64 %.sroa.5361.0.copyload
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.4360.0.copyload, i64 %.sroa.5361.0.copyload
   %276 = icmp sgt i64 %.sroa.0359.0.copyload, -1
   call void @llvm.assume(i1 %276)
   %.sroa.0370.0.copyload = load i64, ptr %98, align 8
@@ -41373,7 +41373,7 @@ default.unreachable508:                           ; preds = %302
   %.sroa.4371.0.copyload = load ptr, ptr %.sroa.4371.0..sroa_idx, align 8, !nonnull !8, !noundef !8
   %277 = icmp ult i64 %.sroa.5372.0.copyload, 18900352534538476
   call void @llvm.assume(i1 %277)
-  %278 = getelementptr inbounds nuw { i64, [60 x i64] }, ptr %.sroa.4371.0.copyload, i64 %.sroa.5372.0.copyload
+  %278 = getelementptr inbounds nuw [488 x i8], ptr %.sroa.4371.0.copyload, i64 %.sroa.5372.0.copyload
   %279 = icmp sgt i64 %.sroa.0370.0.copyload, -1
   call void @llvm.assume(i1 %279)
   call void @llvm.experimental.noalias.scope.decl(metadata !8745)
@@ -44361,7 +44361,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.3264304222902269976.ex
 .lr.ph.i.i:                                       ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %244 = getelementptr inbounds { i64, [32 x i64] }, ptr %77, i64 %79
+  %244 = getelementptr inbounds [264 x i8], ptr %77, i64 %79
   store ptr %77, ptr %36, align 8
   %245 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %244, ptr %245, align 8

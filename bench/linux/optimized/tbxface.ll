@@ -11,8 +11,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_install
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_remove_table_handler: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad acpi_remove_table_handler ; .previous"
 
 %struct.acpi_table_list = type { ptr, i32, i32, i8 }
-%struct.acpi_table_desc = type { i64, ptr, i32, %union.acpi_name_union, i16, i8, i16 }
-%union.acpi_name_union = type { i32 }
 
 @acpi_gbl_root_table_list = external dso_local local_unnamed_addr global %struct.acpi_table_list, align 8
 @acpi_gbl_enable_table_validation = external dso_local local_unnamed_addr global i8, align 1
@@ -111,7 +109,7 @@ define dso_local i32 @acpi_reallocate_root_table() local_unnamed_addr #2 section
   %11 = phi i32 [ %21, %20 ], [ %9, %.preheader2.preheader ]
   %12 = phi ptr [ %22, %20 ], [ %.pre4, %.preheader2.preheader ]
   %13 = phi i64 [ %23, %20 ], [ 0, %.preheader2.preheader ]
-  %14 = getelementptr %struct.acpi_table_desc, ptr %12, i64 %13
+  %14 = getelementptr [32 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -154,7 +152,7 @@ define dso_local i32 @acpi_reallocate_root_table() local_unnamed_addr #2 section
 .preheader:                                       ; preds = %30, %43
   %32 = phi i64 [ %44, %43 ], [ 0, %30 ]
   %33 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %34 = getelementptr %struct.acpi_table_desc, ptr %33, i64 %32
+  %34 = getelementptr [32 x i8], ptr %33, i64 %32
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 26
   %36 = load i8, ptr %35, align 2
   %37 = and i8 %36, 4
@@ -230,7 +228,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_get_table_header(ptr nound
 14:                                               ; preds = %39, %10
   %15 = phi i64 [ 0, %10 ], [ %41, %39 ]
   %16 = phi i32 [ 0, %10 ], [ %40, %39 ]
-  %17 = getelementptr %struct.acpi_table_desc, ptr %11, i64 %15
+  %17 = getelementptr [32 x i8], ptr %11, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %12
@@ -312,7 +310,7 @@ define dso_local i32 @acpi_get_table(ptr noundef readonly captures(address_is_nu
 15:                                               ; preds = %27, %11
   %16 = phi i64 [ 0, %11 ], [ %29, %27 ]
   %17 = phi i32 [ 0, %11 ], [ %28, %27 ]
-  %18 = getelementptr %struct.acpi_table_desc, ptr %12, i64 %16
+  %18 = getelementptr [32 x i8], ptr %12, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %13
@@ -369,7 +367,7 @@ define dso_local void @acpi_put_table(ptr noundef readnone captures(address) %0)
 
 12:                                               ; preds = %10, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %7 ]
-  %13 = getelementptr %struct.acpi_table_desc, ptr %8, i64 %indvars.iv
+  %13 = getelementptr [32 x i8], ptr %8, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
@@ -405,7 +403,7 @@ define dso_local i32 @acpi_get_table_by_index(i32 noundef %0, ptr noundef %1) #0
 8:                                                ; preds = %4
   %9 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %10 = zext i32 %0 to i64
-  %11 = getelementptr %struct.acpi_table_desc, ptr %9, i64 %10
+  %11 = getelementptr [32 x i8], ptr %9, i64 %10
   %12 = tail call i32 @acpi_tb_get_table(ptr noundef %11, ptr noundef nonnull %1) #6
   br label %13
 

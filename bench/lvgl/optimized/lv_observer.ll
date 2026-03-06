@@ -507,7 +507,7 @@ define void @lv_subject_init_group(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %lv_subject_add_observer.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %lv_subject_add_observer.exit ]
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !7
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %.preheader.i.i, label %14
@@ -768,7 +768,7 @@ define ptr @lv_subject_get_group_element(ptr noundef readonly captures(none) %0,
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !7
   br label %15
 

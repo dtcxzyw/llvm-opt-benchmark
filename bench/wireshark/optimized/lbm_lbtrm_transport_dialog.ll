@@ -5063,7 +5063,7 @@ _ZN4QMapIjP16LBMLBTRMSQNEntryE3endEv.exit73:      ; preds = %131, %132, %139
 182:                                              ; preds = %.lr.ph, %237
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %237 ]
   %183 = load ptr, ptr %179, align 8
-  %184 = getelementptr i32, ptr %183, i64 %indvars.iv
+  %184 = getelementptr [4 x i8], ptr %183, i64 %indvars.iv
   %185 = load ptr, ptr %178, align 8
   %.not.i.i74 = icmp eq ptr %185, null
   br i1 %.not.i.i74, label %187, label %186
@@ -5172,7 +5172,7 @@ _ZN4QMapIjP19LBMLBTRMNCFSQNEntryE3endEv.exit:     ; preds = %210, %211, %218
 223:                                              ; preds = %_ZN4QMapIjP19LBMLBTRMNCFSQNEntryE3endEv.exit
   %224 = call noalias noundef dereferenceable_or_null(112) ptr @_Znwm(i64 noundef 112) #22
   %225 = load ptr, ptr %179, align 8
-  %226 = getelementptr i32, ptr %225, i64 %indvars.iv
+  %226 = getelementptr [4 x i8], ptr %225, i64 %indvars.iv
   %227 = load i32, ptr %226, align 4
   invoke void @_ZN19LBMLBTRMNCFSQNEntryC1Ej(ptr noundef align 8 dereferenceable_or_null(112) %224, i32 noundef %227)
           to label %228 unwind label %232
@@ -5180,7 +5180,7 @@ _ZN4QMapIjP19LBMLBTRMNCFSQNEntryE3endEv.exit:     ; preds = %210, %211, %218
 228:                                              ; preds = %223
   store ptr %224, ptr %5, align 8
   %229 = load ptr, ptr %179, align 8
-  %230 = getelementptr i32, ptr %229, i64 %indvars.iv
+  %230 = getelementptr [4 x i8], ptr %229, i64 %indvars.iv
   %231 = call ptr @_ZN4QMapIjP19LBMLBTRMNCFSQNEntryE6insertERKjRKS1_(ptr noundef nonnull align 8 dereferenceable_or_null(8) %178, ptr noundef align 4 dereferenceable(4) %230, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %.pre126 = load ptr, ptr %5, align 8
   br label %237
@@ -12920,7 +12920,7 @@ define void @_ZN30LBMLBTRMReceiverTransportEntry13processPacketEPK12_packet_info
 49:                                               ; preds = %.lr.ph, %104
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %104 ]
   %50 = load ptr, ptr %47, align 8
-  %51 = getelementptr i32, ptr %50, i64 %indvars.iv
+  %51 = getelementptr [4 x i8], ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %46, align 8
   %.not.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i, label %54, label %53
@@ -13029,7 +13029,7 @@ _ZN4QMapIjP16LBMLBTRMSQNEntryE3endEv.exit:        ; preds = %77, %78, %85
 90:                                               ; preds = %_ZN4QMapIjP16LBMLBTRMSQNEntryE3endEv.exit
   %91 = call noalias noundef dereferenceable_or_null(112) ptr @_Znwm(i64 noundef 112) #22
   %92 = load ptr, ptr %47, align 8
-  %93 = getelementptr i32, ptr %92, i64 %indvars.iv
+  %93 = getelementptr [4 x i8], ptr %92, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4
   invoke void @_ZN16LBMLBTRMSQNEntryC1Ej(ptr noundef align 8 dereferenceable_or_null(112) %91, i32 noundef %94)
           to label %95 unwind label %99
@@ -13037,7 +13037,7 @@ _ZN4QMapIjP16LBMLBTRMSQNEntryE3endEv.exit:        ; preds = %77, %78, %85
 95:                                               ; preds = %90
   store ptr %91, ptr %4, align 8
   %96 = load ptr, ptr %47, align 8
-  %97 = getelementptr i32, ptr %96, i64 %indvars.iv
+  %97 = getelementptr [4 x i8], ptr %96, i64 %indvars.iv
   %98 = call ptr @_ZN4QMapIjP16LBMLBTRMSQNEntryE6insertERKjRKS1_(ptr noundef nonnull align 8 dereferenceable_or_null(8) %46, ptr noundef align 4 dereferenceable(4) %97, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pre = load ptr, ptr %4, align 8
   br label %104
@@ -21880,7 +21880,7 @@ define void @_ZN23LBMLBTRMTransportDialog27sourcesDetailCurrentChangedEi(ptr nou
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN23LBMLBTRMTransportDialog27sourcesDetailCurrentChangedEi, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN23LBMLBTRMTransportDialog27sourcesDetailCurrentChangedEi, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8

@@ -3,15 +3,12 @@ source_filename = "bench/icu/original/fmtable.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_77::Formattable" = type { %"class.icu_77::UObject", %union.anon, ptr, ptr, i32, %"class.icu_77::UnicodeString" }
-%"class.icu_77::UObject" = type { ptr }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, i32 }
+%"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
 %"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
 %"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
+%"class.icu_77::UObject" = type { ptr }
 %"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.1, [32 x i8] }
 %struct.anon.1 = type { i16, i32, i32, ptr }
-%"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
 
 $_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -958,8 +955,8 @@ _ZN6icu_7711Formattable4initEv.exit:              ; preds = %3
 
 .lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.noexc ]
-  %27 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %1, i64 %indvars.iv.i
-  %28 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [112 x i8], ptr %1, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [112 x i8], ptr %.ptr21.i, i64 %indvars.iv.i
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull readonly align 8 dereferenceable(112) %27)
           to label %.noexc unwind label %.loopexit
 
@@ -1116,8 +1113,8 @@ common.resume:                                    ; preds = %102, %45, %.loopexi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %33 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %14, i64 %indvars.iv
-  %34 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [112 x i8], ptr %14, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [112 x i8], ptr %.ptr21.i, i64 %indvars.iv
   %35 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %33)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1505,9 +1502,9 @@ define noundef zeroext i1 @_ZNK6icu_7711FormattableeqERKS0_(ptr noundef nonnull 
 .lr.ph:                                           ; preds = %.preheader, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.preheader ]
   %77 = load ptr, ptr %66, align 8, !tbaa !15
-  %78 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [112 x i8], ptr %77, i64 %indvars.iv
   %79 = load ptr, ptr %69, align 8, !tbaa !15
-  %80 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [112 x i8], ptr %79, i64 %indvars.iv
   %81 = tail call noundef zeroext i1 @_ZNK6icu_7711FormattableeqERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %78, ptr noundef nonnull align 8 dereferenceable(112) %80)
   br i1 %81, label %73, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
@@ -1980,8 +1977,8 @@ define void @_ZN6icu_7711Formattable8setArrayEPKS0_i(ptr noundef nonnull align 8
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %23 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %1, i64 %indvars.iv.i
-  %24 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %.ptr21.i, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %1, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [112 x i8], ptr %.ptr21.i, i64 %indvars.iv.i
   %25 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711FormattableaSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %24, ptr noundef nonnull readonly align 8 dereferenceable(112) %23)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3036,7 +3033,7 @@ _ZNK6icu_7711Formattable8getArrayERiR10UErrorCode.exit: ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [112 x i8], ptr %17, i64 %18
   br label %_ZN6icu_77L8setErrorER10UErrorCodeS0_.exit
 
 _ZN6icu_77L8setErrorER10UErrorCodeS0_.exit:       ; preds = %8, %6, %14, %_ZNK6icu_7711Formattable8getArrayERiR10UErrorCode.exit, %15

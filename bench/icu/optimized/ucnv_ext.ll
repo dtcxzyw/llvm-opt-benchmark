@@ -61,7 +61,7 @@ define signext range(i8 0, 2) i8 @ucnv_extInitialMatchToU_77(ptr noundef %0, ptr
   %48 = getelementptr inbounds i8, ptr %1, i64 %47
   %49 = and i32 %40, 262143
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i16, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %50
   %52 = lshr i32 %40, 18
   %53 = add nsw i32 %52, -12
   tail call void @ucnv_toUWriteUChars_77(ptr noundef nonnull %0, ptr noundef %51, i32 noundef %53, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %10)
@@ -178,7 +178,7 @@ define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr no
   %.053 = phi i32 [ 0, %24 ], [ %.049.i, %112 ]
   %.052 = phi i32 [ 0, %24 ], [ %.1, %112 ]
   %27 = zext nneg i32 %.053 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %18, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %28, align 4, !tbaa !3
   %31 = lshr i32 %30, 24
@@ -239,7 +239,7 @@ define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr no
   %53 = load i32, ptr %29, align 4, !tbaa !3
   %54 = lshr i32 %53, 24
   %55 = zext nneg i32 %31 to i64
-  %56 = getelementptr i32, ptr %29, i64 %55
+  %56 = getelementptr [4 x i8], ptr %29, i64 %55
   %57 = getelementptr i8, ptr %56, i64 -4
   %58 = load i32, ptr %57, align 4, !tbaa !3
   %59 = lshr i32 %58, 24
@@ -258,7 +258,7 @@ define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr no
 66:                                               ; preds = %63
   %67 = sub nsw i32 %60, %54
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i32, ptr %29, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %29, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !3
   br label %_ZL15ucnv_extFindToUPKjih.exit
 
@@ -277,7 +277,7 @@ define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr no
 
 77:                                               ; preds = %.lr.ph.i
   %78 = sext i32 %.04763.i to i64
-  %79 = getelementptr inbounds i32, ptr %29, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %29, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !3
   %.not.i = icmp ugt i32 %72, %80
   br i1 %.not.i, label %81, label %.loopexit.i
@@ -285,7 +285,7 @@ define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr no
 81:                                               ; preds = %77
   %82 = add nsw i32 %.04763.i, 1
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i32, ptr %29, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %29, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !3
   %.not58.i = icmp ugt i32 %72, %85
   br i1 %.not58.i, label %86, label %.loopexit.i
@@ -297,7 +297,7 @@ define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr no
 
 89:                                               ; preds = %86
   %90 = sext i32 %87 to i64
-  %91 = getelementptr inbounds i32, ptr %29, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %29, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !3
   %.not59.i = icmp ugt i32 %72, %92
   br i1 %.not59.i, label %93, label %.loopexit.i
@@ -310,7 +310,7 @@ define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr no
   %96 = add nsw i32 %.04763.i, %.064.i
   %97 = sdiv i32 %96, 2
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i32, ptr %29, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %29, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !3
   %101 = icmp ult i32 %73, %100
   %.047..i = select i1 %101, i32 %.04763.i, i32 %97
@@ -327,7 +327,7 @@ define internal fastcc noundef i32 @_ZL16ucnv_extMatchToUPKiaPKciS2_iPjaa(ptr no
 
 105:                                              ; preds = %.loopexit.i
   %106 = sext i32 %.148.i to i64
-  %107 = getelementptr inbounds i32, ptr %29, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %29, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !3
   %109 = lshr i32 %108, 24
   %110 = icmp eq i32 %109, %60
@@ -486,7 +486,7 @@ define void @ucnv_extContinueMatchToU_77(ptr noundef %0, ptr noundef %1, i32 nou
   %65 = getelementptr inbounds i8, ptr %61, i64 %64
   %66 = and i32 %52, 262143
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw i16, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %67
   %69 = lshr i32 %52, 18
   %70 = add nsw i32 %69, -12
   tail call void @ucnv_toUWriteUChars_77(ptr noundef nonnull %0, ptr noundef %68, i32 noundef %70, ptr noundef nonnull %53, ptr noundef %55, ptr noundef nonnull %56, i32 noundef %2, ptr noundef %3)
@@ -599,7 +599,7 @@ define signext range(i8 0, 2) i8 @ucnv_extInitialMatchFromU_77(ptr noundef %0, p
 
 34:                                               ; preds = %28, %24
   %35 = zext nneg i32 %22 to i64
-  %36 = getelementptr i16, ptr %14, i64 %35
+  %36 = getelementptr [2 x i8], ptr %14, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -4
   store ptr %37, ptr %3, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -712,7 +712,7 @@ _ZL18ucnv_extWriteFromUP10UConverterPKijPPcPKcPPiiP10UErrorCode.exit: ; preds = 
   %.03540 = phi ptr [ %14, %.lr.ph ], [ %84, %83 ]
   %84 = getelementptr inbounds nuw i8, ptr %.03540, i64 2
   %85 = load i16, ptr %.03540, align 2, !tbaa !48
-  %86 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %82, i64 %indvars.iv
   store i16 %85, ptr %86, align 2, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -763,28 +763,28 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
   %24 = sext i32 %12 to i64
-  %25 = getelementptr inbounds i16, ptr %19, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %19, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !52
   %27 = zext i16 %26 to i32
   %28 = lshr i32 %1, 4
   %29 = and i32 %28, 63
   %30 = add nuw nsw i32 %29, %27
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %19, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !52
   %34 = zext i16 %33 to i32
   %35 = shl nuw nsw i32 %34, 2
   %36 = and i32 %1, 15
   %37 = add nuw nsw i32 %35, %36
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %23, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !52
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %42 = load i32, ptr %41, align 4, !tbaa !3
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %0, i64 %43
   %45 = zext i16 %40 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !3
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %160, label %49
@@ -818,8 +818,8 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
   %.074 = phi i32 [ %47, %51 ], [ %138, %135 ]
   %.073 = phi i32 [ 0, %51 ], [ %.1, %135 ]
   %66 = zext nneg i32 %.074 to i64
-  %67 = getelementptr inbounds nuw i16, ptr %55, i64 %66
-  %68 = getelementptr inbounds nuw i32, ptr %59, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %66
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %66
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 2
   %70 = load i16, ptr %67, align 2, !tbaa !48
   %71 = zext i16 %70 to i32
@@ -878,7 +878,7 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
   %.178 = phi i32 [ %.077, %87 ], [ %84, %83 ]
   %.176 = phi i32 [ %88, %87 ], [ %.075, %83 ]
   %96 = sext i32 %.075.sink to i64
-  %97 = getelementptr inbounds i16, ptr %.sink, i64 %96
+  %97 = getelementptr inbounds [2 x i8], ptr %.sink, i64 %96
   %.0 = load i16, ptr %97, align 2, !tbaa !48
   %98 = icmp ult i16 %70, 2
   br i1 %98, label %.loopexit.i, label %.lr.ph.i
@@ -892,7 +892,7 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
 
 101:                                              ; preds = %.lr.ph.i
   %102 = sext i32 %.03244.i to i64
-  %103 = getelementptr inbounds i16, ptr %69, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %69, i64 %102
   %104 = load i16, ptr %103, align 2, !tbaa !48
   %.not.i = icmp ugt i16 %.0, %104
   br i1 %.not.i, label %105, label %.loopexit.i
@@ -900,7 +900,7 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
 105:                                              ; preds = %101
   %106 = add nsw i32 %.03244.i, 1
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds i16, ptr %69, i64 %107
+  %108 = getelementptr inbounds [2 x i8], ptr %69, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !48
   %.not39.i = icmp ugt i16 %.0, %109
   br i1 %.not39.i, label %110, label %.loopexit.i
@@ -912,7 +912,7 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
 
 113:                                              ; preds = %110
   %114 = sext i32 %111 to i64
-  %115 = getelementptr inbounds i16, ptr %69, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr %69, i64 %114
   %116 = load i16, ptr %115, align 2, !tbaa !48
   %.not40.i = icmp ugt i16 %.0, %116
   br i1 %.not40.i, label %117, label %.loopexit.i
@@ -925,7 +925,7 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
   %120 = add nsw i32 %.03244.i, %.045.i
   %121 = sdiv i32 %120, 2
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i16, ptr %69, i64 %122
+  %123 = getelementptr inbounds [2 x i8], ptr %69, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !48
   %125 = icmp ult i16 %.0, %124
   %.032..i = select i1 %125, i32 %.03244.i, i32 %121
@@ -942,7 +942,7 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
 
 129:                                              ; preds = %.loopexit.i
   %130 = sext i32 %.133.i to i64
-  %131 = getelementptr inbounds i16, ptr %69, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr %69, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !48
   %133 = icmp ne i16 %.0, %132
   %134 = icmp slt i32 %.133.i, 0
@@ -951,7 +951,7 @@ define internal fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr
 
 135:                                              ; preds = %129
   %136 = zext nneg i32 %.133.i to i64
-  %137 = getelementptr inbounds nuw i32, ptr %72, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %136
   %138 = load i32, ptr %137, align 4, !tbaa !3
   %139 = icmp ult i32 %138, 16777216
   br i1 %139, label %65, label %140, !llvm.loop !54
@@ -1077,14 +1077,14 @@ define void @ucnv_extContinueMatchFromU_77(ptr noundef %0, ptr noundef %1, i32 n
 34:                                               ; preds = %32
   %35 = sub nsw i32 %33, %16
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %18, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %36
   store ptr %37, ptr %17, align 8, !tbaa !55
   br label %45
 
 38:                                               ; preds = %32
   %39 = sub nsw i32 %16, %33
   %40 = zext nneg i32 %33 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %13, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %40
   %42 = tail call ptr @u_memmove_77(ptr noundef nonnull %13, ptr noundef nonnull %41, i32 noundef %39)
   %43 = trunc nsw i32 %39 to i8
   %44 = sub nsw i8 0, %43
@@ -1211,7 +1211,7 @@ _ZL18ucnv_extWriteFromUP10UConverterPKijPPcPKcPPiiP10UErrorCode.exit: ; preds = 
   %.05461 = phi ptr [ %18, %.lr.ph.preheader ], [ %96, %.lr.ph ]
   %96 = getelementptr inbounds nuw i8, ptr %.05461, i64 2
   %97 = load i16, ptr %.05461, align 2, !tbaa !48
-  %98 = getelementptr inbounds i16, ptr %13, i64 %indvars.iv
+  %98 = getelementptr inbounds [2 x i8], ptr %13, i64 %indvars.iv
   store i16 %97, ptr %98, align 2, !tbaa !48
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1300,7 +1300,7 @@ define void @ucnv_extGetUnicodeSet_77(ptr noundef readonly captures(none) %0, pt
 36:                                               ; preds = %.lr.ph, %.loopexit90
   %indvars.iv97 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next98, %.loopexit90 ]
   %.07095 = phi i32 [ 0, %.lr.ph ], [ %.4, %.loopexit90 ]
-  %37 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv97
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv97
   %38 = load i16, ptr %37, align 2, !tbaa !52
   %39 = zext i16 %38 to i32
   %40 = icmp slt i32 %24, %39
@@ -1308,13 +1308,13 @@ define void @ucnv_extGetUnicodeSet_77(ptr noundef readonly captures(none) %0, pt
 
 41:                                               ; preds = %36
   %42 = zext i16 %38 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %14, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %42
   br label %44
 
 44:                                               ; preds = %41, %.loopexit
   %indvars.iv = phi i64 [ 0, %41 ], [ %indvars.iv.next, %.loopexit ]
   %.193 = phi i32 [ %.07095, %41 ], [ %.3, %.loopexit ]
-  %45 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv
   %46 = load i16, ptr %45, align 2, !tbaa !52
   %.not = icmp eq i16 %46, 0
   br i1 %.not, label %114, label %47
@@ -1331,7 +1331,7 @@ define void @ucnv_extGetUnicodeSet_77(ptr noundef readonly captures(none) %0, pt
   %51 = getelementptr inbounds nuw i8, ptr %.072, i64 2
   %52 = load i16, ptr %.072, align 2, !tbaa !52
   %53 = zext i16 %52 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %22, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !3
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread, label %57
@@ -1486,12 +1486,12 @@ define internal fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterShare
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   %13 = sext i32 %7 to i64
-  %14 = getelementptr inbounds i16, ptr %12, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 4, !tbaa !3
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
-  %19 = getelementptr inbounds i32, ptr %18, i64 %13
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %13
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %21 = load i16, ptr %14, align 2, !tbaa !48
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -1544,7 +1544,7 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread19: ; preds = %2
 
 .lr.ph.thread21:                                  ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread19
   %42 = sext i32 %6 to i64
-  %43 = getelementptr inbounds i16, ptr %5, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %5, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = add nsw i32 %6, 1
   br label %.lr.ph.split.us.preheader
@@ -1555,14 +1555,14 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread: ; preds = %27
 
 .lr.ph.thread:                                    ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread
   %46 = sext i32 %6 to i64
-  %47 = getelementptr inbounds i16, ptr %5, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %5, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = add nsw i32 %6, 1
   br label %.lr.ph.split.preheader
 
 .lr.ph:                                           ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread
   %50 = sext i32 %6 to i64
-  %51 = getelementptr inbounds i16, ptr %5, i64 %50
+  %51 = getelementptr inbounds [2 x i8], ptr %5, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = add nsw i32 %6, 1
   br i1 %24, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
@@ -1583,10 +1583,10 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread: ; preds = %27
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread.us
   %indvars.iv10 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next11, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread.us ]
-  %60 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv10
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv10
   %61 = load i16, ptr %60, align 2, !tbaa !48
   store i16 %61, ptr %59, align 2, !tbaa !48
-  %62 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv10
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv10
   %63 = load i32, ptr %62, align 4, !tbaa !3
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread.us, label %65
@@ -1623,10 +1623,10 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread.us: ; preds = %74, %
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread ]
-  %75 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv
   %76 = load i16, ptr %75, align 2, !tbaa !48
   store i16 %76, ptr %56, align 2, !tbaa !48
-  %77 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4, !tbaa !3
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread, label %80

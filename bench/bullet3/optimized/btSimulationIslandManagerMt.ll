@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.UpdateIslandDispatcher = type { %class.btIParallelForBody, ptr, ptr }
 %class.btIParallelForBody = type { ptr }
 %class.IslandBodyCapacitySortPredicate = type { i8 }
-%struct.btElement = type { i32, i32 }
 %class.IslandBatchSizeSortPredicate = type { i8 }
 
 $__clang_call_terminate = comdat any
@@ -142,7 +141,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt22parallelIslandDispatchE
 
 20:                                               ; preds = %54
   %21 = load ptr, ptr %10, align 8, !tbaa !15
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next
   %23 = load ptr, ptr %22, align 8, !tbaa !45
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
   %25 = load i32, ptr %24, align 4, !tbaa !46
@@ -278,7 +277,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv
   %22 = phi i32 [ %3, %.lr.ph ], [ %29, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %23 = load ptr, ptr %5, align 8, !tbaa !15
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !45
   %26 = icmp eq ptr %25, null
   br i1 %26, label %28, label %27
@@ -644,7 +643,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt6Island6appendERKS0_(ptr 
   %21 = phi i32 [ %.pre, %.lr.ph ], [ %50, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit ]
   %22 = load ptr, ptr %6, align 8, !tbaa !52
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = icmp eq i32 %21, %20
   br i1 %24, label %25, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit
 
@@ -679,8 +678,8 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i.i: ; preds = %
 
 37:                                               ; preds = %37, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %37 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !68
   store ptr %40, ptr %38, align 8, !tbaa !68
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -716,7 +715,7 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit: ; preds = 
   %45 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i ], [ %20, %25 ], [ %21, %19 ]
   %46 = load ptr, ptr %9, align 8, !tbaa !52
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %23, align 8, !tbaa !68
   store ptr %49, ptr %48, align 8, !tbaa !68
   %50 = add nsw i32 %45, 1
@@ -748,7 +747,7 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit: ; preds = 
   %64 = phi i32 [ %.pre63, %.lr.ph52 ], [ %93, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit ]
   %indvars.iv56 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next57, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit ]
   %65 = load ptr, ptr %14, align 8, !tbaa !63
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv56
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv56
   %67 = icmp eq i32 %64, %63
   br i1 %67, label %68, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
@@ -783,8 +782,8 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
 
 80:                                               ; preds = %80, %.lr.ph.i.i.i25
   %indvars.iv.i.i.i27 = phi i64 [ 0, %.lr.ph.i.i.i25 ], [ %indvars.iv.next.i.i.i28, %80 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i20, i64 %indvars.iv.i.i.i27
-  %82 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.i.i.i27
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i20, i64 %indvars.iv.i.i.i27
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv.i.i.i27
   %83 = load ptr, ptr %82, align 8, !tbaa !73
   store ptr %83, ptr %81, align 8, !tbaa !73
   %indvars.iv.next.i.i.i28 = add nuw nsw i64 %indvars.iv.i.i.i27, 1
@@ -820,7 +819,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   %88 = phi i32 [ %.pre2.i23, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %63, %68 ], [ %64, %62 ]
   %89 = load ptr, ptr %17, align 8, !tbaa !63
   %90 = sext i32 %88 to i64
-  %91 = getelementptr inbounds ptr, ptr %89, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %89, i64 %90
   %92 = load ptr, ptr %66, align 8, !tbaa !73
   store ptr %92, ptr %91, align 8, !tbaa !73
   %93 = add nsw i32 %88, 1
@@ -839,7 +838,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   %99 = phi i32 [ %.pre65, %.lr.ph54 ], [ %128, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit ]
   %indvars.iv59 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next60, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit ]
   %100 = load ptr, ptr %57, align 8, !tbaa !60
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv59
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv59
   %102 = icmp eq i32 %99, %98
   br i1 %102, label %103, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit
 
@@ -874,8 +873,8 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi.exit.i.i: ; preds = %
 
 115:                                              ; preds = %115, %.lr.ph.i.i.i41
   %indvars.iv.i.i.i43 = phi i64 [ 0, %.lr.ph.i.i.i41 ], [ %indvars.iv.next.i.i.i44, %115 ]
-  %116 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i36, i64 %indvars.iv.i.i.i43
-  %117 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv.i.i.i43
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i36, i64 %indvars.iv.i.i.i43
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv.i.i.i43
   %118 = load ptr, ptr %117, align 8, !tbaa !77
   store ptr %118, ptr %116, align 8, !tbaa !77
   %indvars.iv.next.i.i.i44 = add nuw nsw i64 %indvars.iv.i.i.i43, 1
@@ -911,7 +910,7 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit: ; preds = 
   %123 = phi i32 [ %.pre2.i39, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i ], [ %98, %103 ], [ %99, %97 ]
   %124 = load ptr, ptr %60, align 8, !tbaa !60
   %125 = sext i32 %123 to i64
-  %126 = getelementptr inbounds ptr, ptr %124, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %124, i64 %125
   %127 = load ptr, ptr %101, align 8, !tbaa !77
   store ptr %127, ptr %126, align 8, !tbaa !77
   %128 = add nsw i32 %123, 1
@@ -938,7 +937,7 @@ define dso_local noundef zeroext i1 @_Z16btIsBodyInIslandRKN27btSimulationIsland
 
 8:                                                ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !68
   %11 = icmp eq ptr %10, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -997,8 +996,8 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.ex
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !45
   store ptr %24, ptr %22, align 8, !tbaa !45
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1163,7 +1162,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_
 80:                                               ; preds = %.lr.ph140, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next, %79 ]
   %.017139 = phi i32 [ 0, %.lr.ph140 ], [ %84, %79 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !45
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !67
@@ -1208,7 +1207,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31I
 95:                                               ; preds = %.lr.ph142, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
   %indvars.iv152 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next153, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit ]
   %96 = load ptr, ptr %91, align 8, !tbaa !15
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv152
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv152
   %98 = load ptr, ptr %97, align 8, !tbaa !45
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4, !tbaa !53
@@ -1376,8 +1375,8 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.ex
 
 167:                                              ; preds = %167, %.lr.ph.i.i.i120
   %indvars.iv.i.i.i122 = phi i64 [ 0, %.lr.ph.i.i.i120 ], [ %indvars.iv.next.i.i.i123, %167 ]
-  %168 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i116, i64 %indvars.iv.i.i.i122
-  %169 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv.i.i.i122
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i116, i64 %indvars.iv.i.i.i122
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %indvars.iv.i.i.i122
   %170 = load ptr, ptr %169, align 8, !tbaa !45
   store ptr %170, ptr %168, align 8, !tbaa !45
   %indvars.iv.next.i.i.i123 = add nuw nsw i64 %indvars.iv.i.i.i122, 1
@@ -1412,7 +1411,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS
   %174 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i119 ], [ %152, %155 ], [ %152, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit ]
   %175 = load ptr, ptr %93, align 8, !tbaa !15
   %176 = sext i32 %174 to i64
-  %177 = getelementptr inbounds ptr, ptr %175, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %175, i64 %176
   store ptr %98, ptr %177, align 8, !tbaa !45
   %178 = add nsw i32 %174, 1
   store i32 %178, ptr %57, align 4, !tbaa !16
@@ -1428,7 +1427,7 @@ define dso_local noundef ptr @_ZN27btSimulationIslandManagerMt9getIslandEi(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !45
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.preheader, label %21
@@ -1452,7 +1451,7 @@ define dso_local noundef ptr @_ZN27btSimulationIslandManagerMt9getIslandEi(ptr n
 
 15:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load i32, ptr %18, align 8, !tbaa !85
@@ -1486,7 +1485,7 @@ define dso_local noundef nonnull ptr @_ZN27btSimulationIslandManagerMt14allocate
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   store ptr %9, ptr %14, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !53
@@ -1524,7 +1523,7 @@ define dso_local noundef nonnull ptr @_ZN27btSimulationIslandManagerMt14allocate
 
 31:                                               ; preds = %29
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.next
   %33 = load ptr, ptr %32, align 8, !tbaa !45
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !67
@@ -1546,10 +1545,10 @@ define dso_local noundef nonnull ptr @_ZN27btSimulationIslandManagerMt14allocate
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv90 = phi i64 [ %40, %.lr.ph ], [ %indvars.iv.next91, %41 ]
   %indvars.iv85 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next86, %41 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv85
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv85
   %43 = load ptr, ptr %42, align 8, !tbaa !45
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, 1
-  %44 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv90
+  %44 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv90
   store ptr %43, ptr %44, align 8, !tbaa !45
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %45 = trunc nuw i64 %indvars.iv.next86 to i32
@@ -1597,8 +1596,8 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i: ; preds = %.t
 
 64:                                               ; preds = %64, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %64 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i.i
-  %66 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv.i.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i.i
   %67 = load ptr, ptr %66, align 8, !tbaa !68
   store ptr %67, ptr %65, align 8, !tbaa !68
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1664,8 +1663,8 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.ex
 
 89:                                               ; preds = %89, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %89 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %91 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv.i.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv.i.i.i
   %92 = load ptr, ptr %91, align 8, !tbaa !45
   store ptr %92, ptr %90, align 8, !tbaa !45
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1704,7 +1703,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %100 = load ptr, ptr %99, align 8, !tbaa !15
   %101 = sext i32 %98 to i64
-  %102 = getelementptr inbounds ptr, ptr %100, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %100, i64 %101
   store ptr %47, ptr %102, align 8, !tbaa !45
   %103 = add nsw i32 %98, 1
   store i32 %103, ptr %71, align 4, !tbaa !16
@@ -1717,7 +1716,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %107 = load ptr, ptr %106, align 8, !tbaa !15
   %108 = sext i32 %1 to i64
-  %109 = getelementptr inbounds ptr, ptr %107, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %107, i64 %108
   store ptr %.3, ptr %109, align 8, !tbaa !45
   %110 = icmp slt i32 %2, %105
   br i1 %110, label %111, label %113
@@ -1767,8 +1766,8 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.ex
 
 132:                                              ; preds = %132, %.lr.ph.i.i.i55
   %indvars.iv.i.i.i57 = phi i64 [ 0, %.lr.ph.i.i.i55 ], [ %indvars.iv.next.i.i.i58, %132 ]
-  %133 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i48, i64 %indvars.iv.i.i.i57
-  %134 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv.i.i.i57
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i48, i64 %indvars.iv.i.i.i57
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv.i.i.i57
   %135 = load ptr, ptr %134, align 8, !tbaa !45
   store ptr %135, ptr %133, align 8, !tbaa !45
   %indvars.iv.next.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i57, 1
@@ -1807,7 +1806,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %143 = load ptr, ptr %142, align 8, !tbaa !15
   %144 = sext i32 %141 to i64
-  %145 = getelementptr inbounds ptr, ptr %143, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %143, i64 %144
   store ptr %.3, ptr %145, align 8, !tbaa !45
   %146 = add nsw i32 %141, 1
   store i32 %146, ptr %114, align 4, !tbaa !16
@@ -1849,7 +1848,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
   %.06597 = phi i32 [ 0, %.lr.ph98 ], [ %.064.lcssa, %.loopexit ]
   %14 = load ptr, ptr %10, align 8, !tbaa !92
   %15 = zext nneg i32 %.06597 to i64
-  %16 = getelementptr inbounds nuw %struct.btElement, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !93
   %18 = add nuw nsw i32 %.06597, 1
   %smax = call i32 @llvm.smax.i32(i32 %8, i32 %18)
@@ -1863,7 +1862,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %struct.btElement, ptr %14, i64 %indvars.iv.next
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next
   %24 = load i32, ptr %23, align 4, !tbaa !93
   %25 = icmp eq i32 %24, %17
   br i1 %25, label %20, label %.critedge.split.loop.exit116, !llvm.loop !95
@@ -1891,11 +1890,11 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
 
 32:                                               ; preds = %.lr.ph, %44
   %indvars.iv101 = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next102, %44 ]
-  %33 = getelementptr inbounds nuw %struct.btElement, ptr %14, i64 %indvars.iv101
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv101
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !96
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %30, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %30, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !68
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 228
   %40 = load i32, ptr %39, align 4, !tbaa !97
@@ -1926,12 +1925,12 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
 .lr.ph96:                                         ; preds = %.lr.ph96.preheader, %.critedge87
   %indvars.iv109 = phi i64 [ %15, %.lr.ph96.preheader ], [ %indvars.iv.next110, %.critedge87 ]
   %46 = load ptr, ptr %10, align 8, !tbaa !92
-  %47 = getelementptr inbounds nuw %struct.btElement, ptr %46, i64 %indvars.iv109
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv109
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !96
   %50 = load ptr, ptr %11, align 8, !tbaa !52
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !68
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 228
   %55 = load i32, ptr %54, align 4, !tbaa !97
@@ -1956,12 +1955,12 @@ define dso_local void @_ZN27btSimulationIslandManagerMt12buildIslandsEP12btDispa
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %78
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %78 ], [ %15, %.lr.ph93.preheader ]
   %59 = load ptr, ptr %10, align 8, !tbaa !92
-  %60 = getelementptr inbounds nuw %struct.btElement, ptr %59, i64 %indvars.iv104
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv104
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !96
   %63 = load ptr, ptr %11, align 8, !tbaa !52
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds ptr, ptr %63, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %63, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !68
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 228
   %68 = load i32, ptr %67, align 4, !tbaa !97
@@ -2036,7 +2035,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt18addBodiesToIslandsEP16b
   %.03444 = phi i32 [ 0, %.lr.ph46 ], [ %.0.lcssa, %.loopexit ]
   %10 = load ptr, ptr %6, align 8, !tbaa !92
   %11 = sext i32 %.03444 to i64
-  %12 = getelementptr inbounds %struct.btElement, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !93
   %14 = add nsw i32 %.03444, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 %14)
@@ -2044,7 +2043,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt18addBodiesToIslandsEP16b
 
 15:                                               ; preds = %9, %19
   %indvars.iv = phi i64 [ %11, %9 ], [ %indvars.iv.next, %19 ]
-  %16 = getelementptr inbounds %struct.btElement, ptr %10, i64 %indvars.iv
+  %16 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !93
   %18 = icmp eq i32 %17, %13
   br i1 %18, label %19, label %.critedge.split.loop.exit66
@@ -2078,11 +2077,11 @@ define dso_local void @_ZN27btSimulationIslandManagerMt18addBodiesToIslandsEP16b
 
 24:                                               ; preds = %.outer, %_ZNK17btCollisionObject8isActiveEv.exit
   %indvars.iv50 = phi i64 [ %indvars.iv.next5162, %_ZNK17btCollisionObject8isActiveEv.exit ], [ %indvars.iv50.ph, %.outer ]
-  %25 = getelementptr inbounds %struct.btElement, ptr %10, i64 %indvars.iv50
+  %25 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv50
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !96
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %23, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %23, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !68
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 240
   %32 = load i32, ptr %31, align 8, !tbaa !107
@@ -2121,12 +2120,12 @@ _ZNK17btCollisionObject8isActiveEv.exit.thread:   ; preds = %24
   %45 = phi i32 [ %.pre, %.lr.ph43 ], [ %79, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit ]
   %indvars.iv52 = phi i64 [ %11, %.lr.ph43 ], [ %indvars.iv.next53, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit ]
   %46 = load ptr, ptr %6, align 8, !tbaa !92
-  %47 = getelementptr inbounds %struct.btElement, ptr %46, i64 %indvars.iv52
+  %47 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv52
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !96
   %50 = load ptr, ptr %7, align 8, !tbaa !52
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !68
   %54 = icmp eq i32 %45, %44
   br i1 %54, label %55, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit
@@ -2162,8 +2161,8 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i.i: ; preds = %
 
 67:                                               ; preds = %67, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %67 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %69 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.i.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i.i.i
   %70 = load ptr, ptr %69, align 8, !tbaa !68
   store ptr %70, ptr %68, align 8, !tbaa !68
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2199,7 +2198,7 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit: ; preds = 
   %75 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i ], [ %44, %55 ], [ %45, %43 ]
   %76 = load ptr, ptr %41, align 8, !tbaa !52
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds ptr, ptr %76, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %76, i64 %77
   store ptr %53, ptr %78, align 8, !tbaa !68
   %79 = add nsw i32 %75, 1
   store i32 %79, ptr %39, align 4, !tbaa !53
@@ -2327,7 +2326,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit:     ; preds = %52, %57
   %61 = phi i32 [ %60, %57 ], [ %55, %52 ]
   %62 = load ptr, ptr %8, align 8, !tbaa !15
   %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !45
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.preheader.i, label %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread
@@ -2349,7 +2348,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit:     ; preds = %52, %57
 
 71:                                               ; preds = %70, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %70 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 8, !tbaa !45
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 96
   %75 = load i32, ptr %74, align 8, !tbaa !85
@@ -2405,8 +2404,8 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
 
 95:                                               ; preds = %95, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %95 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %97 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i.i.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i.i.i
   %98 = load ptr, ptr %97, align 8, !tbaa !73
   store ptr %98, ptr %96, align 8, !tbaa !73
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2445,7 +2444,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   %105 = getelementptr inbounds nuw i8, ptr %.010.i37, i64 48
   %106 = load ptr, ptr %105, align 8, !tbaa !63
   %107 = sext i32 %104 to i64
-  %108 = getelementptr inbounds ptr, ptr %106, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %106, i64 %107
   store ptr %15, ptr %108, align 8, !tbaa !73
   %109 = add nsw i32 %104, 1
   store i32 %109, ptr %77, align 4, !tbaa !46
@@ -2480,7 +2479,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt23addConstraintsToIslands
   %11 = phi i32 [ %4, %.lr.ph ], [ %79, %78 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %12 = load ptr, ptr %6, align 8, !tbaa !60
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i8, ptr %15, align 4, !tbaa !123, !range !57, !noundef !71
@@ -2506,7 +2505,7 @@ _Z24btGetConstraintIslandId1PK17btTypedConstraint.exit: ; preds = %18, %24
   %29 = phi i32 [ %28, %24 ], [ %22, %18 ]
   %30 = load ptr, ptr %7, align 8, !tbaa !15
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !45
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.preheader.i, label %_ZN27btSimulationIslandManagerMt9getIslandEi.exit.thread
@@ -2528,7 +2527,7 @@ _Z24btGetConstraintIslandId1PK17btTypedConstraint.exit: ; preds = %18, %24
 
 39:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8, !tbaa !45
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8, !tbaa !85
@@ -2584,8 +2583,8 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi.exit.i.i: ; preds = %
 
 63:                                               ; preds = %63, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %63 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.i.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv.i.i.i
   %66 = load ptr, ptr %65, align 8, !tbaa !77
   store ptr %66, ptr %64, align 8, !tbaa !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2624,7 +2623,7 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit: ; preds = 
   %73 = getelementptr inbounds nuw i8, ptr %.010.i12, i64 80
   %74 = load ptr, ptr %73, align 8, !tbaa !60
   %75 = sext i32 %72 to i64
-  %76 = getelementptr inbounds ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %75
   store ptr %14, ptr %76, align 8, !tbaa !77
   %77 = add nsw i32 %72, 1
   store i32 %77, ptr %45, align 4, !tbaa !48
@@ -2671,7 +2670,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28I
 
 15:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !53
@@ -2711,7 +2710,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28I
   %.05386 = phi i32 [ %.05383, %.lr.ph88 ], [ %.053, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit ]
   %.053.in84 = phi i32 [ %9, %.lr.ph88 ], [ %.046, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit ]
   %37 = load ptr, ptr %31, align 8, !tbaa !15
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv98
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv98
   %39 = load ptr, ptr %38, align 8, !tbaa !45
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !53
@@ -2729,7 +2728,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28I
   %.048 = phi i32 [ %45, %36 ], [ %60, %48 ]
   %.046 = phi i32 [ %.05386, %36 ], [ %65, %48 ]
   %49 = sext i32 %.046 to i64
-  %50 = getelementptr inbounds ptr, ptr %37, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %37, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !45
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !53
@@ -2781,8 +2780,8 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i: ; preds = %72
 
 80:                                               ; preds = %80, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %80 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %indvars.iv.i.i
-  %82 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv.i.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv.i.i
   %83 = load ptr, ptr %82, align 8, !tbaa !68
   store ptr %83, ptr %81, align 8, !tbaa !68
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2840,8 +2839,8 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i: ; preds = 
 
 101:                                              ; preds = %101, %.lr.ph.i.i60
   %indvars.iv.i.i62 = phi i64 [ 0, %.lr.ph.i.i60 ], [ %indvars.iv.next.i.i63, %101 ]
-  %102 = getelementptr inbounds nuw ptr, ptr %.0.i.i58, i64 %indvars.iv.i.i62
-  %103 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv.i.i62
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i58, i64 %indvars.iv.i.i62
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv.i.i62
   %104 = load ptr, ptr %103, align 8, !tbaa !73
   store ptr %104, ptr %102, align 8, !tbaa !73
   %indvars.iv.next.i.i63 = add nuw nsw i64 %indvars.iv.i.i62, 1
@@ -2899,8 +2898,8 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi.exit.i: ; preds = %11
 
 122:                                              ; preds = %122, %.lr.ph.i.i68
   %indvars.iv.i.i70 = phi i64 [ 0, %.lr.ph.i.i68 ], [ %indvars.iv.next.i.i71, %122 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %.0.i.i66, i64 %indvars.iv.i.i70
-  %124 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv.i.i70
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i66, i64 %indvars.iv.i.i70
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv.i.i70
   %125 = load ptr, ptr %124, align 8, !tbaa !77
   store ptr %125, ptr %123, align 8, !tbaa !77
   %indvars.iv.next.i.i71 = add nuw nsw i64 %indvars.iv.i.i70, 1
@@ -2974,8 +2973,8 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.ex
 
 145:                                              ; preds = %145, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %145 ]
-  %146 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %147 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv.i.i.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv.i.i.i
   %148 = load ptr, ptr %147, align 8, !tbaa !45
   store ptr %148, ptr %146, align 8, !tbaa !45
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3026,7 +3025,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
   %indvars.iv94 = phi i64 [ %131, %.lr.ph81.preheader ], [ %indvars.iv.next95, %.lr.ph81 ]
   %159 = load ptr, ptr %31, align 8, !tbaa !15
-  %160 = getelementptr inbounds ptr, ptr %159, i64 %indvars.iv94
+  %160 = getelementptr inbounds [8 x i8], ptr %159, i64 %indvars.iv94
   %161 = load ptr, ptr %160, align 8, !tbaa !45
   call void @_ZN27btSimulationIslandManagerMt6Island6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(101) %39, ptr noundef nonnull align 8 dereferenceable(101) %161)
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
@@ -3106,7 +3105,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt20serialIslandDispatchEP2
 17:                                               ; preds = %.lr.ph, %_ZN27btSimulationIslandManagerMt11solveIslandEP18btConstraintSolverRNS_6IslandERKNS_12SolverParamsE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN27btSimulationIslandManagerMt11solveIslandEP18btConstraintSolverRNS_6IslandERKNS_12SolverParamsE.exit ]
   %18 = load ptr, ptr %11, align 8, !tbaa !15
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !45
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %22 = load i32, ptr %21, align 4, !tbaa !46
@@ -3232,7 +3231,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt22buildAndProcessIslandsE
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %89 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !73
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 840
   %57 = load ptr, ptr %56, align 8, !tbaa !117
@@ -3405,7 +3404,7 @@ define linkonce_odr dso_local void @_ZNK22UpdateIslandDispatcher7forLoopEii(ptr 
   %11 = load ptr, ptr %8, align 8, !tbaa !140
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !15
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !45
   %16 = load ptr, ptr %4, align 8, !tbaa !136
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 36
@@ -3453,7 +3452,7 @@ tailrecurse:                                      ; preds = %41, %4
   %7 = add nsw i32 %.tr37, %3
   %8 = sdiv i32 %7, 2
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !67
@@ -3467,7 +3466,7 @@ tailrecurse:                                      ; preds = %41, %4
 
 16:                                               ; preds = %16, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ %15, %14 ]
-  %17 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %17 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !45
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !67
@@ -3476,13 +3475,13 @@ tailrecurse:                                      ; preds = %41, %4
   br i1 %21, label %16, label %.preheader, !llvm.loop !142
 
 .preheader:                                       ; preds = %16
-  %22 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %22 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv
   %23 = sext i32 %.030 to i64
   br label %24
 
 24:                                               ; preds = %24, %.preheader
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %24 ], [ %23, %.preheader ]
-  %25 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv49
+  %25 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv49
   %26 = load ptr, ptr %25, align 8, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !67
@@ -3497,7 +3496,7 @@ tailrecurse:                                      ; preds = %41, %4
   br i1 %.not, label %37, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv49
+  %34 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv49
   store ptr %26, ptr %22, align 8, !tbaa !45
   store ptr %18, ptr %34, align 8, !tbaa !45
   %35 = add nsw i32 %31, 1
@@ -3537,7 +3536,7 @@ tailrecurse:                                      ; preds = %65, %4
   %7 = add nsw i32 %.tr37, %3
   %8 = sdiv i32 %7, 2
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !53
@@ -3559,7 +3558,7 @@ tailrecurse:                                      ; preds = %65, %4
 
 24:                                               ; preds = %24, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ %23, %22 ]
-  %25 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %25 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !53
@@ -3576,13 +3575,13 @@ tailrecurse:                                      ; preds = %65, %4
   br i1 %37, label %24, label %.preheader, !llvm.loop !145
 
 .preheader:                                       ; preds = %24
-  %38 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %38 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv
   %39 = sext i32 %.030 to i64
   br label %40
 
 40:                                               ; preds = %40, %.preheader
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %40 ], [ %39, %.preheader ]
-  %41 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv49
+  %41 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv49
   %42 = load ptr, ptr %41, align 8, !tbaa !45
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !53
@@ -3605,7 +3604,7 @@ tailrecurse:                                      ; preds = %65, %4
   br i1 %.not, label %61, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv49
+  %58 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv49
   store ptr %42, ptr %38, align 8, !tbaa !45
   store ptr %26, ptr %58, align 8, !tbaa !45
   %59 = add nsw i32 %55, 1

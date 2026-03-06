@@ -223,7 +223,7 @@ SDL_UDEV_UnloadLibrary.exit:                      ; preds = %19, %16, %10, %14, 
   %25 = phi i1 [ false, %SDL_UDEV_UnloadLibrary.exit16 ], [ true, %SDL_UDEV_UnloadLibrary.exit ]
   %indvars.iv = phi i64 [ 1, %SDL_UDEV_UnloadLibrary.exit16 ], [ 0, %SDL_UDEV_UnloadLibrary.exit ]
   %.217 = phi i1 [ %.4, %SDL_UDEV_UnloadLibrary.exit16 ], [ %.06.shrunk, %SDL_UDEV_UnloadLibrary.exit ]
-  %26 = getelementptr inbounds nuw ptr, ptr @SDL_UDEV_LIBS, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @SDL_UDEV_LIBS, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @SDL_LoadObject_REAL(ptr noundef %27) #8
   %29 = load ptr, ptr @_this, align 8
@@ -1385,7 +1385,7 @@ define internal fastcc void @get_caps(ptr noundef nonnull %0, ptr noundef %1, pt
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 %17, ptr %20, align 8
   br label %21
 
@@ -1405,7 +1405,7 @@ define internal fastcc void @get_caps(ptr noundef nonnull %0, ptr noundef %1, pt
 26:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %27 = phi i64 [ %14, %._crit_edge.thread ], [ %24, %._crit_edge ]
   %.0.lcssa8 = phi i64 [ 0, %._crit_edge.thread ], [ %23, %._crit_edge ]
-  %28 = getelementptr inbounds nuw i64, ptr %2, i64 %.0.lcssa8
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0.lcssa8
   store i64 %27, ptr %28, align 8
   br label %29
 

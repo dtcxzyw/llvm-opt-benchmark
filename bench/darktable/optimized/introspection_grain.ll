@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"grain\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"simulate silver grains from film\00", align 1
@@ -225,8 +222,8 @@ _hash_string.exit:                                ; preds = %.lr.ph.i, %10
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph90.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.lr.ph90.split.us ]
   %77 = mul nuw i64 %67, %indvars.iv
-  %78 = getelementptr inbounds nuw float, ptr %2, i64 %77
-  %79 = getelementptr inbounds nuw float, ptr %3, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %77
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %77
   %80 = trunc i64 %indvars.iv to i32
   %81 = add i32 %73, %80
   %82 = sitofp i32 %81 to double
@@ -276,20 +273,20 @@ _hash_string.exit:                                ; preds = %.lr.ph.i, %10
   %115 = shl nsw i32 %109, 7
   %116 = add nsw i32 %115, %106
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds float, ptr %70, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %70, i64 %117
   %119 = load float, ptr %118, align 4, !tbaa !68
   %120 = add nsw i32 %115, %110
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds float, ptr %70, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %70, i64 %121
   %123 = load float, ptr %122, align 4, !tbaa !68
   %124 = add i32 %115, 128
   %125 = add nsw i32 %124, %106
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds float, ptr %70, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %70, i64 %126
   %128 = load float, ptr %127, align 4, !tbaa !68
   %129 = add nsw i32 %124, %110
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds float, ptr %70, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %70, i64 %130
   %132 = load float, ptr %131, align 4, !tbaa !68
   %133 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %114
   %134 = fmul reassoc nsz arcp contract afn float %133, %119
@@ -377,7 +374,7 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
 7:                                                ; preds = %3, %_simplex_noise.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %_simplex_noise.exit ]
   %.01122 = phi double [ 0.000000e+00, %3 ], [ %202, %_simplex_noise.exit ]
-  %8 = getelementptr inbounds nuw double, ptr @_simplex_2d_noise.f, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_simplex_2d_noise.f, i64 %indvars.iv
   %9 = load double, ptr %8, align 8, !tbaa !69
   %10 = fmul reassoc nsz arcp contract afn double %0, %9
   %11 = fmul reassoc nsz arcp contract afn double %10, %4
@@ -481,13 +478,13 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
   %85 = zext nneg i32 %narrow169.i to i64
   %narrow170.i = add nuw nsw i32 %.0150.i, %82
   %86 = zext nneg i32 %narrow170.i to i64
-  %87 = getelementptr inbounds nuw i64, ptr @perm, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr @perm, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !70
-  %89 = getelementptr i64, ptr @perm, i64 %88
-  %90 = getelementptr i64, ptr %89, i64 %85
+  %89 = getelementptr [8 x i8], ptr @perm, i64 %88
+  %90 = getelementptr [8 x i8], ptr %89, i64 %85
   %91 = load i64, ptr %90, align 8, !tbaa !70
-  %92 = getelementptr i64, ptr @perm_mod, i64 %91
-  %93 = getelementptr i64, ptr %92, i64 %84
+  %92 = getelementptr [8 x i8], ptr @perm_mod, i64 %91
+  %93 = getelementptr [8 x i8], ptr %92, i64 %84
   %94 = load i64, ptr %93, align 8, !tbaa !70
   %narrow171.i = add nuw nsw i32 %.0151.i, %78
   %95 = zext nneg i32 %narrow171.i to i64
@@ -495,24 +492,24 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
   %96 = zext nneg i32 %narrow172.i to i64
   %narrow173.i = add nuw nsw i32 %.0153.i, %82
   %97 = zext nneg i32 %narrow173.i to i64
-  %98 = getelementptr inbounds nuw i64, ptr @perm, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr @perm, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !70
-  %100 = getelementptr i64, ptr @perm, i64 %99
-  %101 = getelementptr i64, ptr %100, i64 %96
+  %100 = getelementptr [8 x i8], ptr @perm, i64 %99
+  %101 = getelementptr [8 x i8], ptr %100, i64 %96
   %102 = load i64, ptr %101, align 8, !tbaa !70
-  %103 = getelementptr i64, ptr @perm_mod, i64 %102
-  %104 = getelementptr i64, ptr %103, i64 %95
+  %103 = getelementptr [8 x i8], ptr @perm_mod, i64 %102
+  %104 = getelementptr [8 x i8], ptr %103, i64 %95
   %105 = load i64, ptr %104, align 8, !tbaa !70
-  %106 = getelementptr inbounds nuw i64, ptr @perm, i64 %83
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @perm, i64 %83
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i64, ptr %107, align 8, !tbaa !70
-  %109 = getelementptr i64, ptr @perm, i64 %81
+  %109 = getelementptr [8 x i8], ptr @perm, i64 %81
   %110 = getelementptr i8, ptr %109, i64 8
-  %111 = getelementptr i64, ptr %110, i64 %108
+  %111 = getelementptr [8 x i8], ptr %110, i64 %108
   %112 = load i64, ptr %111, align 8, !tbaa !70
-  %113 = getelementptr i64, ptr @perm_mod, i64 %79
+  %113 = getelementptr [8 x i8], ptr @perm_mod, i64 %79
   %114 = getelementptr i8, ptr %113, i64 8
-  %115 = getelementptr i64, ptr %114, i64 %112
+  %115 = getelementptr [8 x i8], ptr %114, i64 %112
   %116 = load i64, ptr %115, align 8, !tbaa !70
   %.neg179.i.neg = fmul reassoc nsz arcp contract afn double %44, %44
   %.neg.i.neg = fmul reassoc nsz arcp contract afn double %46, %46
@@ -525,15 +522,15 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
 
 119:                                              ; preds = %56
   %120 = load i64, ptr %106, align 8, !tbaa !70
-  %121 = getelementptr i64, ptr @perm, i64 %120
-  %122 = getelementptr i64, ptr %121, i64 %81
+  %121 = getelementptr [8 x i8], ptr @perm, i64 %120
+  %122 = getelementptr [8 x i8], ptr %121, i64 %81
   %123 = load i64, ptr %122, align 8, !tbaa !70
-  %124 = getelementptr i64, ptr @perm_mod, i64 %123
-  %125 = getelementptr i64, ptr %124, i64 %79
+  %124 = getelementptr [8 x i8], ptr @perm_mod, i64 %123
+  %125 = getelementptr [8 x i8], ptr %124, i64 %79
   %126 = load i64, ptr %125, align 8, !tbaa !70
   %127 = fmul reassoc nsz arcp contract afn double %117, %117
   %128 = fmul reassoc nsz arcp contract afn double %127, %127
-  %129 = getelementptr inbounds nuw [3 x double], ptr @grad3, i64 %126
+  %129 = getelementptr inbounds nuw [24 x i8], ptr @grad3, i64 %126
   %130 = load double, ptr %129, align 8, !tbaa !69
   %131 = fmul reassoc nsz arcp contract afn double %130, %42
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
@@ -561,7 +558,7 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
 144:                                              ; preds = %141
   %145 = fmul reassoc nsz arcp contract afn double %142, %142
   %146 = fmul reassoc nsz arcp contract afn double %145, %145
-  %147 = getelementptr inbounds nuw [3 x double], ptr @grad3, i64 %94
+  %147 = getelementptr inbounds nuw [24 x i8], ptr @grad3, i64 %94
   %148 = load double, ptr %147, align 8, !tbaa !69
   %149 = fmul reassoc nsz arcp contract afn double %148, %59
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 8
@@ -590,7 +587,7 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
 163:                                              ; preds = %160
   %164 = fmul reassoc nsz arcp contract afn double %161, %161
   %165 = fmul reassoc nsz arcp contract afn double %164, %164
-  %166 = getelementptr inbounds nuw [3 x double], ptr @grad3, i64 %105
+  %166 = getelementptr inbounds nuw [24 x i8], ptr @grad3, i64 %105
   %167 = load double, ptr %166, align 8, !tbaa !69
   %168 = fmul reassoc nsz arcp contract afn double %167, %68
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 8
@@ -619,7 +616,7 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
 182:                                              ; preds = %179
   %183 = fmul reassoc nsz arcp contract afn double %180, %180
   %184 = fmul reassoc nsz arcp contract afn double %183, %183
-  %185 = getelementptr inbounds nuw [3 x double], ptr @grad3, i64 %116
+  %185 = getelementptr inbounds nuw [24 x i8], ptr @grad3, i64 %116
   %186 = load double, ptr %185, align 8, !tbaa !69
   %187 = fmul reassoc nsz arcp contract afn double %186, %75
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 8
@@ -637,7 +634,7 @@ define internal fastcc double @_simplex_2d_noise(double noundef %0, double nound
 _simplex_noise.exit:                              ; preds = %179, %182
   %.0147.i = phi double [ %197, %182 ], [ %.0146.i, %179 ]
   %198 = fmul reassoc nsz arcp contract afn double %.0147.i, 3.200000e+01
-  %199 = getelementptr inbounds nuw double, ptr @_simplex_2d_noise.a, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [8 x i8], ptr @_simplex_2d_noise.a, i64 %indvars.iv
   %200 = load double, ptr %199, align 8, !tbaa !69
   %201 = fmul reassoc nsz arcp contract afn double %198, %200
   %202 = fadd reassoc nsz arcp contract afn double %201, %.01122
@@ -679,7 +676,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %25 = trunc nuw nsw i64 %indvars.iv19.i to i32
   %26 = uitofp nneg i32 %25 to float
   %27 = fmul reassoc nnan nsz arcp contract afn float %26, 0x3F80204080000000
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv19.i
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv19.i
   br label %29
 
 28:                                               ; preds = %29
@@ -747,13 +744,13 @@ define void @init_global(ptr noundef readnone captures(none) %0) local_unnamed_a
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
   %3 = and i64 %indvars.iv.i, 255
-  %4 = getelementptr inbounds nuw i32, ptr @permutation, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @permutation, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !21
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds nuw i64, ptr @perm, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @perm, i64 %indvars.iv.i
   store i64 %6, ptr %7, align 8, !tbaa !70
   %8 = urem i64 %6, 12
-  %9 = getelementptr inbounds nuw i64, ptr @perm_mod, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @perm_mod, i64 %indvars.iv.i
   store i64 %8, ptr %9, align 8, !tbaa !70
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
@@ -838,7 +835,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

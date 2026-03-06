@@ -9,12 +9,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<folly::Range<char *>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<folly::Range<char *>>::_Storage" = type { %"class.folly::Range" }
 %"class.folly::Range" = type { ptr, ptr }
+%"class.facebook::velox::memory::ContiguousAllocation" = type { ptr, ptr, i64, i64 }
 %"class.facebook::velox::memory::Allocation" = type <{ ptr, %"class.std::vector.5", i32, [4 x i8] }>
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl" }
 %"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.facebook::velox::memory::ContiguousAllocation" = type { ptr, ptr, i64, i64 }
 
 $_ZSt27__throw_bad_optional_accessv = comdat any
 
@@ -61,7 +61,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %add.ptr.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %1, i64 %conv
+  %add.ptr.i = getelementptr inbounds [40 x i8], ptr %1, i64 %conv
   %runs_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %2 = load ptr, ptr %runs_.i, align 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %2, align 8
@@ -92,7 +92,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp14, label %if.then15, label %if.end26
 
 if.then15:                                        ; preds = %if.end
-  %add.ptr.i16 = getelementptr inbounds %"class.facebook::velox::memory::ContiguousAllocation", ptr %8, i64 %sub
+  %add.ptr.i16 = getelementptr inbounds [32 x i8], ptr %8, i64 %sub
   call void @_ZNK8facebook5velox6memory20ContiguousAllocation13hugePageRangeEv(ptr nonnull sret(%"class.std::optional") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i16)
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %9 = load i8, ptr %_M_engaged.i.i, align 8
@@ -982,7 +982,7 @@ _ZNSt12_Vector_baseIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE13_M_d
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i32, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.facebook::velox::memory::ContiguousAllocation", ptr %cond.i10, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %cond.i10, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -1189,7 +1189,7 @@ _ZNSt12_Vector_baseIN8facebook5velox6memory10AllocationESaIS3_EE13_M_deallocateE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i32, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.facebook::velox::memory::Allocation", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [40 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::internal_any_invocable::CoreImpl.94" = type { %"union.absl::lts_20240722::internal_any_invocable::TypeErasedState", ptr, ptr }
 %"union.absl::lts_20240722::internal_any_invocable::TypeErasedState" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%struct.grpc_auth_property = type { ptr, ptr, i64 }
 %"class.grpc_core::Slice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
 %"class.grpc_core::slice_detail::BaseSlice" = type { %struct.grpc_slice }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
@@ -111,16 +110,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Optional_payload_base<grpc_core::channelz::SocketNode::Security::Tls>::_Storage" = type { %"struct.grpc_core::channelz::SocketNode::Security::Tls" }
 %"struct.grpc_core::channelz::SocketNode::Security::Tls" = type { i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %class.anon.227 = type { i8 }
-%"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"struct.std::atomic.87", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_1800000_40", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20" }
-%"struct.std::atomic.87" = type { %"struct.std::__atomic_base.88" }
-%"struct.std::__atomic_base.88" = type { i64 }
-%"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic.87"] }
-%"class.grpc_core::HistogramCollector_65536_26" = type { [26 x %"struct.std::atomic.87"] }
-%"class.grpc_core::HistogramCollector_1800000_40" = type { [40 x %"struct.std::atomic.87"] }
-%"class.grpc_core::HistogramCollector_100000_20" = type { [20 x %"struct.std::atomic.87"] }
-%"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic.87"] }
-%"class.grpc_core::HistogramCollector_100_20" = type { [20 x %"struct.std::atomic.87"] }
-%"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic.87"] }
 
 $_ZN4absl12lts_202407226StatusD2Ev = comdat any
 
@@ -832,7 +821,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !101
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !98
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !102
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1592,7 +1581,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextE5resetERKNS_13DebugLocationEPKc
 .lr.ph:                                           ; preds = %.preheader, %15
   %.06 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
   %13 = load ptr, ptr %8, align 8, !tbaa !133
-  %14 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %13, i64 %.06
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.06
   invoke void @_Z24grpc_auth_property_resetP18grpc_auth_property(ptr noundef %14)
           to label %15 unwind label %.loopexit
 
@@ -7354,7 +7343,7 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
   %22 = load i64, ptr %21, align 8, !tbaa !104
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !114
-  %25 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [6632 x i8], ptr %24, i64 %23
   ret ptr %25
 }
 

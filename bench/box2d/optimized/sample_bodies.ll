@@ -22,10 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ImVec2 = type { float, float }
 %struct.b2ChainDef = type { ptr, ptr, i32, ptr, i32, %struct.b2Filter, i8, i32 }
 %struct.b2ExplosionDef = type { i64, %struct.b2Vec2, float, float, float }
-%struct.b2ShapeId = type { i32, i16, i16 }
 %struct.b2SensorEvents = type { ptr, ptr, i32, i32 }
-%struct.b2SensorBeginTouchEvent = type { %struct.b2ShapeId, %struct.b2ShapeId }
-%struct.b2SensorEndTouchEvent = type { %struct.b2ShapeId, %struct.b2ShapeId }
 
 $_ZN8BodyType6CreateER8Settings = comdat any
 
@@ -2558,7 +2555,7 @@ define linkonce_odr dso_local void @_ZN5SleepC2ER8Settings(ptr noundef nonnull a
           to label %66 unwind label %75
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw %struct.b2ShapeId, ptr %40, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   store i64 %65, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv
   store i8 0, ptr %68, align 1, !tbaa !83
@@ -2987,7 +2984,7 @@ define linkonce_odr dso_local void @_ZN5Sleep4StepER8Settings(ptr noundef nonnul
 
 54:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %55 = getelementptr inbounds nuw %struct.b2SensorBeginTouchEvent, ptr %8, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 4, !tbaa !98
   %58 = icmp eq i32 %57, %10
@@ -3060,7 +3057,7 @@ define linkonce_odr dso_local void @_ZN5Sleep4StepER8Settings(ptr noundef nonnul
 
 94:                                               ; preds = %.lr.ph34, %130
   %indvars.iv37 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next38, %130 ]
-  %95 = getelementptr inbounds nuw %struct.b2SensorEndTouchEvent, ptr %33, i64 %indvars.iv37
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv37
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load i32, ptr %96, align 4, !tbaa !106
   %98 = icmp eq i32 %97, %35

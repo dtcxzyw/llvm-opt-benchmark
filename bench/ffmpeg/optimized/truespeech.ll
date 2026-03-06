@@ -173,19 +173,19 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %94 = tail call i32 @llvm.bswap.i32(i32 %93)
   %95 = lshr i32 %94, 29
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i16, ptr @ts_cb_7, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr @ts_cb_7, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !44
   store i16 %98, ptr %29, align 2, !tbaa !44
   %99 = lshr i32 %94, 26
   %100 = and i32 %99, 7
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw i16, ptr @ts_cb_6, i64 %101
+  %102 = getelementptr inbounds nuw [2 x i8], ptr @ts_cb_6, i64 %101
   %103 = load i16, ptr %102, align 2, !tbaa !44
   store i16 %103, ptr %30, align 4, !tbaa !44
   %104 = lshr i32 %94, 23
   %105 = and i32 %104, 7
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw i16, ptr @ts_cb_5, i64 %106
+  %107 = getelementptr inbounds nuw [2 x i8], ptr @ts_cb_5, i64 %106
   %108 = load i16, ptr %107, align 2, !tbaa !44
   store i16 %108, ptr %31, align 2, !tbaa !44
   %109 = load i32, ptr %32, align 1, !tbaa !29
@@ -193,13 +193,13 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %111 = lshr i32 %110, 27
   %112 = and i32 %111, 15
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw i16, ptr @ts_cb_4, i64 %113
+  %114 = getelementptr inbounds nuw [2 x i8], ptr @ts_cb_4, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !44
   store i16 %115, ptr %33, align 8, !tbaa !44
   %116 = lshr i32 %110, 23
   %117 = and i32 %116, 15
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw i16, ptr @ts_cb_3, i64 %118
+  %119 = getelementptr inbounds nuw [2 x i8], ptr @ts_cb_3, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !44
   store i16 %120, ptr %34, align 2, !tbaa !44
   %121 = load i32, ptr %35, align 2, !tbaa !29
@@ -207,20 +207,20 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %123 = lshr i32 %122, 27
   %124 = and i32 %123, 15
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw i16, ptr @ts_cb_2, i64 %125
+  %126 = getelementptr inbounds nuw [2 x i8], ptr @ts_cb_2, i64 %125
   %127 = load i16, ptr %126, align 2, !tbaa !44
   store i16 %127, ptr %36, align 4, !tbaa !44
   %128 = lshr i32 %122, 22
   %129 = and i32 %128, 31
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw i16, ptr @ts_cb_1, i64 %130
+  %131 = getelementptr inbounds nuw [2 x i8], ptr @ts_cb_1, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !44
   store i16 %132, ptr %37, align 2, !tbaa !44
   %133 = load i32, ptr %38, align 1
   %134 = lshr i32 %133, 1
   %135 = and i32 %134, 31
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw i16, ptr @ts_cb_0, i64 %136
+  %137 = getelementptr inbounds nuw [2 x i8], ptr @ts_cb_0, i64 %136
   %138 = load i16, ptr %137, align 2, !tbaa !44
   store i16 %138, ptr %28, align 16, !tbaa !44
   %139 = and i32 %133, 1
@@ -346,14 +346,14 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
 229:                                              ; preds = %228
   %230 = shl nuw nsw i64 %indvars.iv31.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 4 %78, i64 %230, i1 false)
-  %231 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv31.i
-  %232 = getelementptr i16, ptr %8, i64 %indvars.iv31.i
+  %231 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv31.i
+  %232 = getelementptr [2 x i8], ptr %8, i64 %indvars.iv31.i
   br label %233
 
 233:                                              ; preds = %233, %229
   %indvars.iv.i = phi i64 [ 0, %229 ], [ %indvars.iv.next.i, %233 ]
   %234 = xor i64 %indvars.iv.i, -1
-  %235 = getelementptr i16, ptr %232, i64 %234
+  %235 = getelementptr [2 x i8], ptr %232, i64 %234
   %236 = load i16, ptr %235, align 2, !tbaa !44
   %237 = sext i16 %236 to i32
   %238 = load i16, ptr %231, align 2, !tbaa !44
@@ -361,7 +361,7 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %240 = mul nsw i32 %239, %237
   %241 = add nsw i32 %240, 16384
   %242 = lshr i32 %241, 15
-  %243 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv.i
+  %243 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %indvars.iv.i
   %244 = load i16, ptr %243, align 2, !tbaa !44
   %245 = trunc i32 %242 to i16
   %246 = add i16 %244, %245
@@ -371,13 +371,13 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   br i1 %exitcond.not.i, label %.loopexit.i, label %233, !llvm.loop !47
 
 .loopexit.i:                                      ; preds = %233, %228
-  %247 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv31.i
+  %247 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv31.i
   %248 = load i16, ptr %247, align 2, !tbaa !44
   %249 = sext i16 %248 to i32
   %250 = sub nsw i32 8, %249
   %251 = lshr i32 %250, 3
   %252 = trunc i32 %251 to i16
-  %253 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv31.i
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %indvars.iv31.i
   store i16 %252, ptr %253, align 2, !tbaa !44
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 8
@@ -385,10 +385,10 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
 
 .preheader.i:                                     ; preds = %.loopexit.i, %.preheader.i
   %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %.preheader.i ], [ 0, %.loopexit.i ]
-  %254 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv35.i
+  %254 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %indvars.iv35.i
   %255 = load i16, ptr %254, align 2, !tbaa !44
   %256 = sext i16 %255 to i32
-  %257 = getelementptr inbounds nuw i16, ptr @ts_decay_994_1000, i64 %indvars.iv35.i
+  %257 = getelementptr inbounds nuw [2 x i8], ptr @ts_decay_994_1000, i64 %indvars.iv35.i
   %258 = load i16, ptr %257, align 2, !tbaa !44
   %259 = sext i16 %258 to i32
   %260 = mul nsw i32 %259, %256
@@ -411,10 +411,10 @@ truespeech_correlate_filter.exit:                 ; preds = %.preheader.i
 
 .preheader.i51:                                   ; preds = %truespeech_correlate_filter.exit, %.preheader.i51
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.preheader.i51 ], [ 0, %truespeech_correlate_filter.exit ]
-  %267 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv41.i
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv41.i
   %268 = load i32, ptr %267, align 4, !tbaa !28
   %269 = trunc i32 %268 to i16
-  %270 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv41.i
+  %270 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %indvars.iv41.i
   store i16 %269, ptr %270, align 2, !tbaa !44
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 16
   store i16 %269, ptr %271, align 2, !tbaa !44
@@ -424,18 +424,18 @@ truespeech_correlate_filter.exit:                 ; preds = %.preheader.i
 
 .preheader34.i:                                   ; preds = %truespeech_correlate_filter.exit, %.preheader34.i
   %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i48, %.preheader34.i ], [ 0, %truespeech_correlate_filter.exit ]
-  %272 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv.i47
+  %272 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %indvars.iv.i47
   %273 = load i16, ptr %272, align 2, !tbaa !44
   %274 = sext i16 %273 to i32
   %275 = mul nsw i32 %274, 21846
-  %276 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i47
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv.i47
   %277 = load i32, ptr %276, align 4, !tbaa !28
   %278 = mul nsw i32 %277, 10923
   %279 = add i32 %278, 16384
   %280 = add i32 %279, %275
   %281 = lshr i32 %280, 15
   %282 = trunc i32 %281 to i16
-  %283 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv.i47
+  %283 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %indvars.iv.i47
   store i16 %282, ptr %283, align 2, !tbaa !44
   %284 = mul nsw i32 %274, 10923
   %285 = mul nsw i32 %277, 21846
@@ -454,9 +454,9 @@ truespeech_correlate_filter.exit:                 ; preds = %.preheader.i
 
 .loopexit.i50:                                    ; preds = %.loopexit.i50.preheader, %.loopexit.i50
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %.loopexit.i50 ], [ 0, %.loopexit.i50.preheader ]
-  %291 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv45.i
+  %291 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %indvars.iv45.i
   %292 = load i16, ptr %291, align 2, !tbaa !44
-  %293 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv45.i
+  %293 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %indvars.iv45.i
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 32
   store i16 %292, ptr %294, align 2, !tbaa !44
   %295 = getelementptr inbounds nuw i8, ptr %293, i64 48
@@ -469,7 +469,7 @@ truespeech_filters_merge.exit.preheader:          ; preds = %.loopexit.i50, %tru
   %indvars.iv = phi i64 [ %indvars.iv.next, %truespeech_synth.exit ], [ 0, %.loopexit.i50 ]
   %.177 = phi ptr [ %487, %truespeech_synth.exit ], [ %.04179, %.loopexit.i50 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %296 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %297 = load i32, ptr %296, align 4, !tbaa !28
   %298 = icmp eq i32 %297, 127
   br i1 %298, label %299, label %.preheader.i52
@@ -480,10 +480,10 @@ truespeech_filters_merge.exit.preheader:          ; preds = %.loopexit.i50, %tru
 
 .preheader.i52:                                   ; preds = %truespeech_filters_merge.exit.preheader, %.preheader.i52
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i54, %.preheader.i52 ], [ 0, %truespeech_filters_merge.exit.preheader ]
-  %300 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i53
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv.i53
   %301 = load i32, ptr %300, align 4, !tbaa !28
   %302 = trunc i32 %301 to i16
-  %303 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i53
+  %303 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.i53
   store i16 %302, ptr %303, align 2, !tbaa !44
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, 146
@@ -493,18 +493,18 @@ truespeech_filters_merge.exit.preheader:          ; preds = %.loopexit.i50, %tru
   %305 = sdiv i32 %297, 25
   %306 = lshr i64 %indvars.iv, 1
   %307 = and i64 %306, 2147483647
-  %308 = getelementptr inbounds nuw i32, ptr %41, i64 %307
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %307
   %309 = load i32, ptr %308, align 4, !tbaa !28
   %310 = add nsw i32 %309, %305
   %311 = tail call i32 @llvm.smax.i32(i32 %310, i32 -18)
   %312 = tail call i32 @llvm.smin.i32(i32 %311, i32 127)
   %narrow.i = sub nsw i32 -18, %312
   %313 = sext i32 %narrow.i to i64
-  %314 = getelementptr inbounds i16, ptr %89, i64 %313
+  %314 = getelementptr inbounds [2 x i8], ptr %89, i64 %313
   %315 = srem i32 %297, 25
   %316 = shl nsw i32 %315, 1
   %317 = sext i32 %316 to i64
-  %318 = getelementptr inbounds i16, ptr @ts_order2_coeffs, i64 %317
+  %318 = getelementptr inbounds [2 x i8], ptr @ts_order2_coeffs, i64 %317
   %319 = load i16, ptr %318, align 4, !tbaa !44
   %320 = sext i16 %319 to i32
   %321 = getelementptr inbounds nuw i8, ptr %318, i64 2
@@ -526,9 +526,9 @@ truespeech_filters_merge.exit.preheader:          ; preds = %.loopexit.i50, %tru
   %333 = add i32 %332, %331
   %334 = lshr i32 %333, 14
   %335 = trunc i32 %334 to i16
-  %336 = getelementptr inbounds nuw i16, ptr %84, i64 %indvars.iv33.i
+  %336 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %indvars.iv33.i
   store i16 %335, ptr %336, align 2, !tbaa !44
-  %337 = getelementptr inbounds nuw i16, ptr %90, i64 %indvars.iv33.i
+  %337 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %indvars.iv33.i
   store i16 %335, ptr %337, align 2, !tbaa !44
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next34.i, 60
@@ -538,8 +538,8 @@ truespeech_apply_twopoint_filter.exit:            ; preds = %324, %299
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(120) %.177, i8 0, i64 120, i1 false)
-  %338 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
-  %339 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
+  %338 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv
   %340 = load i32, ptr %339, align 4, !tbaa !28
   %341 = shl nsw i32 %340, 2
   %.promoted.i = load i32, ptr %338, align 4, !tbaa !28
@@ -552,10 +552,10 @@ truespeech_apply_twopoint_filter.exit:            ; preds = %324, %299
   %345 = ashr i32 %343, 2
   %346 = or disjoint i32 %344, %341
   %347 = sext i32 %346 to i64
-  %348 = getelementptr inbounds i16, ptr @ts_pulse_scales, i64 %347
+  %348 = getelementptr inbounds [2 x i8], ptr @ts_pulse_scales, i64 %347
   %349 = load i16, ptr %348, align 2, !tbaa !44
   %350 = sub nuw nsw i64 6, %indvars.iv.i57
-  %351 = getelementptr inbounds nuw i16, ptr %6, i64 %350
+  %351 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %350
   store i16 %349, ptr %351, align 2, !tbaa !44
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, 7
@@ -563,7 +563,7 @@ truespeech_apply_twopoint_filter.exit:            ; preds = %324, %299
 
 352:                                              ; preds = %342
   store i32 %345, ptr %338, align 4, !tbaa !28
-  %353 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv
   %354 = load i32, ptr %353, align 4, !tbaa !28
   %355 = ashr i32 %354, 15
   br label %356
@@ -587,7 +587,7 @@ truespeech_apply_twopoint_filter.exit:            ; preds = %324, %299
 362:                                              ; preds = %356
   %363 = getelementptr inbounds nuw i8, ptr %.04062.i, i64 2
   %364 = load i16, ptr %.04062.i, align 2, !tbaa !44
-  %365 = getelementptr inbounds nuw i16, ptr %.177, i64 %indvars.iv70.i
+  %365 = getelementptr inbounds nuw [2 x i8], ptr %.177, i64 %indvars.iv70.i
   store i16 %364, ptr %365, align 2, !tbaa !44
   %366 = getelementptr inbounds nuw i8, ptr %.04461.i, i64 62
   %367 = add nsw i32 %.04860.i, -1
@@ -627,7 +627,7 @@ truespeech_apply_twopoint_filter.exit:            ; preds = %324, %299
 380:                                              ; preds = %374
   %381 = getelementptr inbounds nuw i8, ptr %.24267.i, i64 2
   %382 = load i16, ptr %.24267.i, align 2, !tbaa !44
-  %383 = getelementptr inbounds nuw i16, ptr %.177, i64 %indvars.iv73.i
+  %383 = getelementptr inbounds nuw [2 x i8], ptr %.177, i64 %indvars.iv73.i
   store i16 %382, ptr %383, align 2, !tbaa !44
   %384 = getelementptr inbounds nuw i8, ptr %.24666.i, i64 62
   %385 = add nsw i32 %.25065.i, -1
@@ -651,16 +651,16 @@ truespeech_place_pulses.exit:                     ; preds = %386
 
 390:                                              ; preds = %390, %truespeech_place_pulses.exit
   %indvars.iv.i61 = phi i64 [ 0, %truespeech_place_pulses.exit ], [ %indvars.iv.next.i62, %390 ]
-  %391 = getelementptr inbounds nuw i16, ptr %.177, i64 %indvars.iv.i61
+  %391 = getelementptr inbounds nuw [2 x i8], ptr %.177, i64 %indvars.iv.i61
   %392 = load i16, ptr %391, align 2, !tbaa !44
   %393 = sext i16 %392 to i32
-  %394 = getelementptr inbounds nuw i16, ptr %84, i64 %indvars.iv.i61
+  %394 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %indvars.iv.i61
   %395 = load i16, ptr %394, align 2, !tbaa !44
   %396 = sext i16 %395 to i32
   %397 = add nsw i32 %396, %393
   %398 = ashr i32 %396, 3
   %399 = sub nsw i32 %397, %398
-  %400 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i61
+  %400 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv.i61
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 344
   store i32 %399, ptr %401, align 4, !tbaa !28
   %402 = add i16 %395, %392
@@ -682,10 +682,10 @@ truespeech_update_filters.exit:                   ; preds = %390
 404:                                              ; preds = %404, %.preheader103.i
   %indvars.iv.i64 = phi i64 [ 0, %.preheader103.i ], [ %indvars.iv.next.i65, %404 ]
   %.088105.i = phi i32 [ 0, %.preheader103.i ], [ %412, %404 ]
-  %405 = getelementptr inbounds nuw i16, ptr %85, i64 %indvars.iv.i64
+  %405 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %indvars.iv.i64
   %406 = load i16, ptr %405, align 2, !tbaa !44
   %407 = sext i16 %406 to i32
-  %408 = getelementptr inbounds nuw i16, ptr %403, i64 %indvars.iv.i64
+  %408 = getelementptr inbounds nuw [2 x i8], ptr %403, i64 %indvars.iv.i64
   %409 = load i16, ptr %408, align 2, !tbaa !44
   %410 = sext i16 %409 to i32
   %411 = mul nsw i32 %410, %407
@@ -695,7 +695,7 @@ truespeech_update_filters.exit:                   ; preds = %390
   br i1 %exitcond.not.i66, label %413, label %404, !llvm.loop !61
 
 413:                                              ; preds = %404
-  %414 = getelementptr inbounds nuw i16, ptr %.177, i64 %indvars.iv124.i
+  %414 = getelementptr inbounds nuw [2 x i8], ptr %.177, i64 %indvars.iv124.i
   %415 = load i16, ptr %414, align 2, !tbaa !44
   %416 = sext i16 %415 to i32
   %417 = add i32 %412, 2048
@@ -714,15 +714,15 @@ truespeech_update_filters.exit:                   ; preds = %390
 
 .preheader102.i:                                  ; preds = %413, %.preheader102.i
   %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %.preheader102.i ], [ 0, %413 ]
-  %423 = getelementptr inbounds nuw i16, ptr @ts_decay_35_64, i64 %indvars.iv128.i
+  %423 = getelementptr inbounds nuw [2 x i8], ptr @ts_decay_35_64, i64 %indvars.iv128.i
   %424 = load i16, ptr %423, align 2, !tbaa !44
   %425 = sext i16 %424 to i32
-  %426 = getelementptr inbounds nuw i16, ptr %403, i64 %indvars.iv128.i
+  %426 = getelementptr inbounds nuw [2 x i8], ptr %403, i64 %indvars.iv128.i
   %427 = load i16, ptr %426, align 2, !tbaa !44
   %428 = sext i16 %427 to i32
   %429 = mul nsw i32 %428, %425
   %430 = ashr i32 %429, 15
-  %431 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv128.i
+  %431 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv128.i
   store i32 %430, ptr %431, align 4, !tbaa !28
   %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %exitcond131.not.i = icmp eq i64 %indvars.iv.next129.i, 8
@@ -734,7 +734,7 @@ truespeech_update_filters.exit:                   ; preds = %390
 
 .preheader100.i:                                  ; preds = %438
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %scevgep136.i, ptr noundef nonnull align 2 dereferenceable(14) %86, i64 14, i1 false), !tbaa !44
-  %432 = getelementptr inbounds nuw i16, ptr %.177, i64 %indvars.iv140.i
+  %432 = getelementptr inbounds nuw [2 x i8], ptr %.177, i64 %indvars.iv140.i
   %433 = load i16, ptr %432, align 2, !tbaa !44
   store i16 %433, ptr %86, align 2, !tbaa !44
   %434 = sub nsw i32 0, %445
@@ -749,10 +749,10 @@ truespeech_update_filters.exit:                   ; preds = %390
 438:                                              ; preds = %438, %.preheader101.i
   %indvars.iv132.i = phi i64 [ 0, %.preheader101.i ], [ %indvars.iv.next133.i, %438 ]
   %.087110.i = phi i32 [ 0, %.preheader101.i ], [ %445, %438 ]
-  %439 = getelementptr inbounds nuw i16, ptr %86, i64 %indvars.iv132.i
+  %439 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %indvars.iv132.i
   %440 = load i16, ptr %439, align 2, !tbaa !44
   %441 = sext i16 %440 to i32
-  %442 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv132.i
+  %442 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv132.i
   %443 = load i32, ptr %442, align 4, !tbaa !28
   %444 = mul nsw i32 %443, %441
   %445 = add nsw i32 %444, %.087110.i
@@ -762,15 +762,15 @@ truespeech_update_filters.exit:                   ; preds = %390
 
 .preheader99.i:                                   ; preds = %.preheader100.i, %.preheader99.i
   %indvars.iv144.i = phi i64 [ %indvars.iv.next145.i, %.preheader99.i ], [ 0, %.preheader100.i ]
-  %446 = getelementptr inbounds nuw i16, ptr @ts_decay_3_4, i64 %indvars.iv144.i
+  %446 = getelementptr inbounds nuw [2 x i8], ptr @ts_decay_3_4, i64 %indvars.iv144.i
   %447 = load i16, ptr %446, align 2, !tbaa !44
   %448 = sext i16 %447 to i32
-  %449 = getelementptr inbounds nuw i16, ptr %403, i64 %indvars.iv144.i
+  %449 = getelementptr inbounds nuw [2 x i8], ptr %403, i64 %indvars.iv144.i
   %450 = load i16, ptr %449, align 2, !tbaa !44
   %451 = sext i16 %450 to i32
   %452 = mul nsw i32 %451, %448
   %453 = ashr i32 %452, 15
-  %454 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv144.i
+  %454 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv144.i
   store i32 %453, ptr %454, align 4, !tbaa !28
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %exitcond147.not.i = icmp eq i64 %indvars.iv.next145.i, 8
@@ -784,7 +784,7 @@ truespeech_update_filters.exit:                   ; preds = %390
 
 459:                                              ; preds = %.preheader.i67, %455
   %indvars.iv155.i = phi i64 [ 0, %455 ], [ %indvars.iv.next156.i, %.preheader.i67 ]
-  %460 = getelementptr inbounds nuw i16, ptr %.177, i64 %indvars.iv155.i
+  %460 = getelementptr inbounds nuw [2 x i8], ptr %.177, i64 %indvars.iv155.i
   %461 = load i16, ptr %460, align 2, !tbaa !44
   %462 = sext i16 %461 to i32
   %463 = shl nsw i32 %462, 12
@@ -818,10 +818,10 @@ truespeech_update_filters.exit:                   ; preds = %390
 479:                                              ; preds = %479, %459
   %indvars.iv148.i = phi i64 [ 0, %459 ], [ %indvars.iv.next149.i, %479 ]
   %.0115.i = phi i32 [ %463, %459 ], [ %486, %479 ]
-  %480 = getelementptr inbounds nuw i16, ptr %87, i64 %indvars.iv148.i
+  %480 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %indvars.iv148.i
   %481 = load i16, ptr %480, align 2, !tbaa !44
   %482 = sext i16 %481 to i32
-  %483 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv148.i
+  %483 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv148.i
   %484 = load i32, ptr %483, align 4, !tbaa !28
   %485 = mul nsw i32 %484, %482
   %486 = add nsw i32 %485, %.0115.i
@@ -838,10 +838,10 @@ truespeech_synth.exit:                            ; preds = %.preheader.i67
 
 .preheader:                                       ; preds = %truespeech_synth.exit, %.preheader
   %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i69, %.preheader ], [ 0, %truespeech_synth.exit ]
-  %488 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv.i68
+  %488 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %indvars.iv.i68
   %489 = load i16, ptr %488, align 2, !tbaa !44
   %490 = sext i16 %489 to i32
-  %491 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i68
+  %491 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv.i68
   store i32 %490, ptr %491, align 4, !tbaa !28
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, 8

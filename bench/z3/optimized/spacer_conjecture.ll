@@ -33,8 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.vector.36 = type { ptr }
 %class.expr_offset_map.37 = type <{ %class.vector.38, i32, [4 x i8] }>
 %class.vector.38 = type { ptr }
-%"struct.var_offset_map<expr_offset>::data" = type { %class.expr_offset, i32, [4 x i8] }
-%class.expr_offset = type <{ ptr, i32, [4 x i8] }>
 
 $_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev = comdat any
 
@@ -195,7 +193,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !38
   %17 = zext i32 %.pre2.i.i to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %17
   store ptr %11, ptr %18, align 8, !tbaa !24
   %19 = add i32 %.pre2.i.i, 1
   store i32 %19, ptr %.phi.trans.insert.i.i, align 4, !tbaa !38
@@ -807,13 +805,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
 148:                                              ; preds = %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i
   %149 = getelementptr inbounds i8, ptr %99, i64 -4
   store i32 %32, ptr %149, align 4, !tbaa !38
-  %150 = getelementptr inbounds nuw %"struct.var_offset_map<expr_offset>::data", ptr %99, i64 %45
+  %150 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %45
   %.not1218.i.i.i = icmp eq i32 %.0.i16.i.i.i.ph, %32
   br i1 %.not1218.i.i.i, label %_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE6resizeEj.exit.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %148
   %151 = zext i32 %.0.i16.i.i.i.ph to i64
-  %152 = getelementptr inbounds nuw %"struct.var_offset_map<expr_offset>::data", ptr %99, i64 %151
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %151
   br label %.lr.ph.i.i.i36
 
 .lr.ph.i.i.i36:                                   ; preds = %.lr.ph.i.i.i36, %.lr.ph.preheader.i.i.i
@@ -938,7 +936,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %196 = phi ptr [ %.pre.i.i39, %.noexc40 ], [ %186, %188 ]
   %197 = getelementptr inbounds i8, ptr %196, i64 -4
   %198 = zext i32 %195 to i64
-  %199 = getelementptr inbounds nuw ptr, ptr %196, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %198
   store ptr %181, ptr %199, align 8, !tbaa !24
   %200 = add i32 %195, 1
   store i32 %200, ptr %197, align 4, !tbaa !38

@@ -111,8 +111,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %16 = load double, ptr %.sroa.5314.56.copyload, align 8, !tbaa !11
   %17 = load double, ptr %.sroa.0310.0.copyload, align 8, !tbaa !11
   %18 = fsub double %17, %16
-  %19 = getelementptr inbounds double, ptr %.sroa.0310.0.copyload, i64 %13
-  %20 = getelementptr inbounds double, ptr %.sroa.5314.56.copyload, i64 %15
+  %19 = getelementptr inbounds [8 x i8], ptr %.sroa.0310.0.copyload, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %.sroa.5314.56.copyload, i64 %15
   %21 = load double, ptr %20, align 8, !tbaa !11
   %22 = load double, ptr %19, align 8, !tbaa !11
   %23 = fsub double %22, %21
@@ -130,7 +130,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %30 = load i64, ptr %29, align 8, !tbaa !4
   %31 = load double, ptr %.sroa.0302.0.copyload, align 8, !tbaa !11
   %32 = fsub double %31, %16
-  %33 = getelementptr inbounds double, ptr %.sroa.0302.0.copyload, i64 %30
+  %33 = getelementptr inbounds [8 x i8], ptr %.sroa.0302.0.copyload, i64 %30
   %34 = load double, ptr %33, align 8, !tbaa !11
   %35 = fsub double %34, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i219 = shl nsw i64 %30, 4
@@ -159,7 +159,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %50 = load double, ptr %.sroa.0291.0.copyload, align 8, !tbaa !11
   %51 = fsub double %50, %16
   %52 = insertelement <2 x double> poison, double %51, i64 0
-  %53 = getelementptr inbounds double, ptr %.sroa.0291.0.copyload, i64 %49
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.0291.0.copyload, i64 %49
   %54 = load double, ptr %53, align 8, !tbaa !11
   %55 = fsub double %54, %21
   %.sroa.0324.8.vec.insert350 = insertelement <2 x double> %52, double %55, i64 1
@@ -182,7 +182,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %66 = load double, ptr %.sroa.0283.0.copyload, align 8, !tbaa !11
   %67 = fsub double %66, %16
   %.sroa.0324.0.vec.insert335 = insertelement <2 x double> poison, double %67, i64 0
-  %68 = getelementptr inbounds double, ptr %.sroa.0283.0.copyload, i64 %65
+  %68 = getelementptr inbounds [8 x i8], ptr %.sroa.0283.0.copyload, i64 %65
   %69 = load double, ptr %68, align 8, !tbaa !11
   %70 = fsub double %69, %21
   %.sroa.0324.8.vec.insert352 = insertelement <2 x double> %.sroa.0324.0.vec.insert335, double %70, i64 1
@@ -204,7 +204,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %80 = load double, ptr %.sroa.0275.0.copyload, align 8, !tbaa !11
   %81 = fsub double %80, %16
   %.sroa.0324.0.vec.insert337 = insertelement <2 x double> poison, double %81, i64 0
-  %82 = getelementptr inbounds double, ptr %.sroa.0275.0.copyload, i64 %79
+  %82 = getelementptr inbounds [8 x i8], ptr %.sroa.0275.0.copyload, i64 %79
   %83 = load double, ptr %82, align 8, !tbaa !11
   %84 = fsub double %83, %21
   %.sroa.0324.8.vec.insert354 = insertelement <2 x double> %.sroa.0324.0.vec.insert337, double %84, i64 1
@@ -238,9 +238,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %101 = load double, ptr %.sroa.0267.0.copyload, align 8, !tbaa !11
   %102 = load double, ptr %.sroa.5271.56.copyload, align 8, !tbaa !11
   %103 = fsub double %101, %102
-  %104 = getelementptr inbounds double, ptr %.sroa.0267.0.copyload, i64 %98
+  %104 = getelementptr inbounds [8 x i8], ptr %.sroa.0267.0.copyload, i64 %98
   %105 = load double, ptr %104, align 8, !tbaa !11
-  %106 = getelementptr inbounds double, ptr %.sroa.5271.56.copyload, i64 %100
+  %106 = getelementptr inbounds [8 x i8], ptr %.sroa.5271.56.copyload, i64 %100
   %107 = load double, ptr %106, align 8, !tbaa !11
   %108 = fsub double %105, %107
   %.idx.i.i.i.i.i.i.i.i.i.i.i227 = shl nsw i64 %98, 4
@@ -256,7 +256,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %115 = load i64, ptr %114, align 8, !tbaa !4
   %116 = load double, ptr %.sroa.0259.0.copyload, align 8, !tbaa !11
   %117 = fsub double %116, %102
-  %118 = getelementptr inbounds double, ptr %.sroa.0259.0.copyload, i64 %115
+  %118 = getelementptr inbounds [8 x i8], ptr %.sroa.0259.0.copyload, i64 %115
   %119 = load double, ptr %118, align 8, !tbaa !11
   %120 = fsub double %119, %107
   %.idx.i.i.i.i.i.i.i.i.i.i.i229 = shl nsw i64 %115, 4
@@ -284,7 +284,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %135 = load double, ptr %.sroa.0248.0.copyload, align 8, !tbaa !11
   %136 = fsub double %135, %116
   %137 = insertelement <2 x double> poison, double %136, i64 0
-  %138 = getelementptr inbounds double, ptr %.sroa.0248.0.copyload, i64 %134
+  %138 = getelementptr inbounds [8 x i8], ptr %.sroa.0248.0.copyload, i64 %134
   %139 = load double, ptr %138, align 8, !tbaa !11
   %140 = fsub double %139, %119
   %.sroa.0324.8.vec.insert360 = insertelement <2 x double> %137, double %140, i64 1
@@ -306,7 +306,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %151 = load double, ptr %.sroa.0240.0.copyload, align 8, !tbaa !11
   %152 = fsub double %151, %116
   %.sroa.0324.0.vec.insert345 = insertelement <2 x double> poison, double %152, i64 0
-  %153 = getelementptr inbounds double, ptr %.sroa.0240.0.copyload, i64 %150
+  %153 = getelementptr inbounds [8 x i8], ptr %.sroa.0240.0.copyload, i64 %150
   %154 = load double, ptr %153, align 8, !tbaa !11
   %155 = fsub double %154, %119
   %.sroa.0324.8.vec.insert362 = insertelement <2 x double> %.sroa.0324.0.vec.insert345, double %155, i64 1
@@ -327,7 +327,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %165 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !11
   %166 = fsub double %165, %116
   %.sroa.0324.0.vec.insert347 = insertelement <2 x double> poison, double %166, i64 0
-  %167 = getelementptr inbounds double, ptr %.sroa.0.0.copyload, i64 %164
+  %167 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload, i64 %164
   %168 = load double, ptr %167, align 8, !tbaa !11
   %169 = fsub double %168, %119
   %.sroa.0324.8.vec.insert364 = insertelement <2 x double> %.sroa.0324.0.vec.insert347, double %169, i64 1
@@ -525,7 +525,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %36 = getelementptr inbounds i8, ptr %31, i64 %.idx
   %37 = load double, ptr %36, align 8, !tbaa !11
   store double %37, ptr %8, align 16, !tbaa !11
-  %38 = getelementptr inbounds double, ptr %31, i64 %35
+  %38 = getelementptr inbounds [8 x i8], ptr %31, i64 %35
   %39 = load double, ptr %38, align 8, !tbaa !11
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %39, ptr %40, align 8, !tbaa !11
@@ -538,7 +538,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %46 = getelementptr inbounds i8, ptr %41, i64 %.idx55
   %47 = load double, ptr %46, align 8, !tbaa !11
   store double %47, ptr %9, align 16, !tbaa !11
-  %48 = getelementptr inbounds double, ptr %41, i64 %45
+  %48 = getelementptr inbounds [8 x i8], ptr %41, i64 %45
   %49 = load double, ptr %48, align 8, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %49, ptr %50, align 8, !tbaa !11
@@ -551,7 +551,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %56 = getelementptr inbounds i8, ptr %51, i64 %.idx56
   %57 = load double, ptr %56, align 8, !tbaa !11
   store double %57, ptr %10, align 16, !tbaa !11
-  %58 = getelementptr inbounds double, ptr %51, i64 %55
+  %58 = getelementptr inbounds [8 x i8], ptr %51, i64 %55
   %59 = load double, ptr %58, align 8, !tbaa !11
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %59, ptr %60, align 8, !tbaa !11
@@ -564,7 +564,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %66 = getelementptr inbounds i8, ptr %61, i64 %.idx57
   %67 = load double, ptr %66, align 8, !tbaa !11
   store double %67, ptr %11, align 16, !tbaa !11
-  %68 = getelementptr inbounds double, ptr %61, i64 %65
+  %68 = getelementptr inbounds [8 x i8], ptr %61, i64 %65
   %69 = load double, ptr %68, align 8, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %69, ptr %70, align 8, !tbaa !11
@@ -577,7 +577,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %76 = getelementptr inbounds i8, ptr %71, i64 %.idx58
   %77 = load double, ptr %76, align 8, !tbaa !11
   store double %77, ptr %12, align 16, !tbaa !11
-  %78 = getelementptr inbounds double, ptr %71, i64 %75
+  %78 = getelementptr inbounds [8 x i8], ptr %71, i64 %75
   %79 = load double, ptr %78, align 8, !tbaa !11
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %79, ptr %80, align 8, !tbaa !11
@@ -590,7 +590,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %86 = getelementptr inbounds i8, ptr %81, i64 %.idx59
   %87 = load double, ptr %86, align 8, !tbaa !11
   store double %87, ptr %13, align 16, !tbaa !11
-  %88 = getelementptr inbounds double, ptr %81, i64 %85
+  %88 = getelementptr inbounds [8 x i8], ptr %81, i64 %85
   br label %198
 
 89:                                               ; preds = %7
@@ -679,7 +679,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %150 = load double, ptr %146, align 8, !tbaa !11
   store double %150, ptr %8, align 16, !tbaa !11
   %151 = load i64, ptr %149, align 8, !tbaa !4
-  %152 = getelementptr inbounds double, ptr %146, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %146, i64 %151
   %153 = load double, ptr %152, align 8, !tbaa !11
   %154 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %153, ptr %154, align 8, !tbaa !11
@@ -690,7 +690,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %159 = load double, ptr %155, align 8, !tbaa !11
   store double %159, ptr %9, align 16, !tbaa !11
   %160 = load i64, ptr %158, align 8, !tbaa !4
-  %161 = getelementptr inbounds double, ptr %155, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %155, i64 %160
   %162 = load double, ptr %161, align 8, !tbaa !11
   %163 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %162, ptr %163, align 8, !tbaa !11
@@ -701,7 +701,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %168 = load double, ptr %164, align 8, !tbaa !11
   store double %168, ptr %10, align 16, !tbaa !11
   %169 = load i64, ptr %167, align 8, !tbaa !4
-  %170 = getelementptr inbounds double, ptr %164, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %164, i64 %169
   %171 = load double, ptr %170, align 8, !tbaa !11
   %172 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %171, ptr %172, align 8, !tbaa !11
@@ -712,7 +712,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %177 = load double, ptr %173, align 8, !tbaa !11
   store double %177, ptr %11, align 16, !tbaa !11
   %178 = load i64, ptr %176, align 8, !tbaa !4
-  %179 = getelementptr inbounds double, ptr %173, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %173, i64 %178
   %180 = load double, ptr %179, align 8, !tbaa !11
   %181 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %180, ptr %181, align 8, !tbaa !11
@@ -723,7 +723,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %186 = load double, ptr %182, align 8, !tbaa !11
   store double %186, ptr %12, align 16, !tbaa !11
   %187 = load i64, ptr %185, align 8, !tbaa !4
-  %188 = getelementptr inbounds double, ptr %182, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %182, i64 %187
   %189 = load double, ptr %188, align 8, !tbaa !11
   %190 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %189, ptr %190, align 8, !tbaa !11
@@ -734,7 +734,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %195 = load double, ptr %191, align 8, !tbaa !11
   store double %195, ptr %13, align 16, !tbaa !11
   %196 = load i64, ptr %194, align 8, !tbaa !4
-  %197 = getelementptr inbounds double, ptr %191, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %191, i64 %196
   br label %198
 
 198:                                              ; preds = %92, %145, %30
@@ -873,7 +873,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %16 = load double, ptr %12, align 8, !tbaa !11
   %17 = fsub double %16, %15
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %19 = getelementptr inbounds double, ptr %.sroa.4305.8.copyload, i64 %14
+  %19 = getelementptr inbounds [8 x i8], ptr %.sroa.4305.8.copyload, i64 %14
   %20 = load double, ptr %19, align 8, !tbaa !11
   %21 = load double, ptr %18, align 8, !tbaa !11
   %22 = fsub double %21, %20
@@ -890,7 +890,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %29 = load i64, ptr %28, align 8, !tbaa !4
   %30 = load double, ptr %.sroa.0296.0.copyload, align 8, !tbaa !11
   %31 = fsub double %30, %15
-  %32 = getelementptr inbounds double, ptr %.sroa.0296.0.copyload, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %.sroa.0296.0.copyload, i64 %29
   %33 = load double, ptr %32, align 8, !tbaa !11
   %34 = fsub double %33, %20
   %.idx.i.i.i.i.i.i.i.i.i.i.i219 = shl nsw i64 %29, 4
@@ -919,7 +919,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %49 = load double, ptr %.sroa.0285.0.copyload, align 8, !tbaa !11
   %50 = fsub double %49, %15
   %51 = insertelement <2 x double> poison, double %50, i64 0
-  %52 = getelementptr inbounds double, ptr %.sroa.0285.0.copyload, i64 %48
+  %52 = getelementptr inbounds [8 x i8], ptr %.sroa.0285.0.copyload, i64 %48
   %53 = load double, ptr %52, align 8, !tbaa !11
   %54 = fsub double %53, %20
   %.sroa.0316.8.vec.insert342 = insertelement <2 x double> %51, double %54, i64 1
@@ -942,7 +942,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %65 = load double, ptr %.sroa.0277.0.copyload, align 8, !tbaa !11
   %66 = fsub double %65, %15
   %.sroa.0316.0.vec.insert327 = insertelement <2 x double> poison, double %66, i64 0
-  %67 = getelementptr inbounds double, ptr %.sroa.0277.0.copyload, i64 %64
+  %67 = getelementptr inbounds [8 x i8], ptr %.sroa.0277.0.copyload, i64 %64
   %68 = load double, ptr %67, align 8, !tbaa !11
   %69 = fsub double %68, %20
   %.sroa.0316.8.vec.insert344 = insertelement <2 x double> %.sroa.0316.0.vec.insert327, double %69, i64 1
@@ -964,7 +964,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %79 = load double, ptr %.sroa.0269.0.copyload, align 8, !tbaa !11
   %80 = fsub double %79, %15
   %.sroa.0316.0.vec.insert329 = insertelement <2 x double> poison, double %80, i64 0
-  %81 = getelementptr inbounds double, ptr %.sroa.0269.0.copyload, i64 %78
+  %81 = getelementptr inbounds [8 x i8], ptr %.sroa.0269.0.copyload, i64 %78
   %82 = load double, ptr %81, align 8, !tbaa !11
   %83 = fsub double %82, %20
   %.sroa.0316.8.vec.insert346 = insertelement <2 x double> %.sroa.0316.0.vec.insert329, double %83, i64 1
@@ -998,9 +998,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %100 = load double, ptr %.sroa.0261.0.copyload, align 8, !tbaa !11
   %101 = load double, ptr %.sroa.5265.56.copyload, align 8, !tbaa !11
   %102 = fsub double %100, %101
-  %103 = getelementptr inbounds double, ptr %.sroa.0261.0.copyload, i64 %97
+  %103 = getelementptr inbounds [8 x i8], ptr %.sroa.0261.0.copyload, i64 %97
   %104 = load double, ptr %103, align 8, !tbaa !11
-  %105 = getelementptr inbounds double, ptr %.sroa.5265.56.copyload, i64 %99
+  %105 = getelementptr inbounds [8 x i8], ptr %.sroa.5265.56.copyload, i64 %99
   %106 = load double, ptr %105, align 8, !tbaa !11
   %107 = fsub double %104, %106
   %.idx.i.i.i.i.i.i.i.i.i.i.i226 = shl nsw i64 %97, 4
@@ -1016,7 +1016,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %114 = load i64, ptr %113, align 8, !tbaa !4
   %115 = load double, ptr %.sroa.0253.0.copyload, align 8, !tbaa !11
   %116 = fsub double %115, %101
-  %117 = getelementptr inbounds double, ptr %.sroa.0253.0.copyload, i64 %114
+  %117 = getelementptr inbounds [8 x i8], ptr %.sroa.0253.0.copyload, i64 %114
   %118 = load double, ptr %117, align 8, !tbaa !11
   %119 = fsub double %118, %106
   %.idx.i.i.i.i.i.i.i.i.i.i.i228 = shl nsw i64 %114, 4
@@ -1059,7 +1059,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %146 = load double, ptr %.sroa.0238.0.copyload, align 8, !tbaa !11
   %147 = fsub double %146, %115
   %.sroa.0316.0.vec.insert337 = insertelement <2 x double> poison, double %147, i64 0
-  %148 = getelementptr inbounds double, ptr %.sroa.0238.0.copyload, i64 %145
+  %148 = getelementptr inbounds [8 x i8], ptr %.sroa.0238.0.copyload, i64 %145
   %149 = load double, ptr %148, align 8, !tbaa !11
   %150 = fsub double %149, %118
   %.sroa.0316.8.vec.insert354 = insertelement <2 x double> %.sroa.0316.0.vec.insert337, double %150, i64 1
@@ -1080,7 +1080,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %160 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !11
   %161 = fsub double %160, %115
   %.sroa.0316.0.vec.insert339 = insertelement <2 x double> poison, double %161, i64 0
-  %162 = getelementptr inbounds double, ptr %.sroa.0.0.copyload, i64 %159
+  %162 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload, i64 %159
   %163 = load double, ptr %162, align 8, !tbaa !11
   %164 = fsub double %163, %118
   %.sroa.0316.8.vec.insert356 = insertelement <2 x double> %.sroa.0316.0.vec.insert339, double %164, i64 1
@@ -1276,7 +1276,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %36 = getelementptr inbounds i8, ptr %31, i64 %.idx
   %37 = load double, ptr %36, align 8, !tbaa !11
   store double %37, ptr %8, align 16, !tbaa !11
-  %38 = getelementptr inbounds double, ptr %31, i64 %35
+  %38 = getelementptr inbounds [8 x i8], ptr %31, i64 %35
   %39 = load double, ptr %38, align 8, !tbaa !11
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %39, ptr %40, align 8, !tbaa !11
@@ -1289,7 +1289,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %46 = getelementptr inbounds i8, ptr %41, i64 %.idx55
   %47 = load double, ptr %46, align 8, !tbaa !11
   store double %47, ptr %9, align 16, !tbaa !11
-  %48 = getelementptr inbounds double, ptr %41, i64 %45
+  %48 = getelementptr inbounds [8 x i8], ptr %41, i64 %45
   %49 = load double, ptr %48, align 8, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %49, ptr %50, align 8, !tbaa !11
@@ -1302,7 +1302,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %56 = getelementptr inbounds i8, ptr %51, i64 %.idx56
   %57 = load double, ptr %56, align 8, !tbaa !11
   store double %57, ptr %10, align 16, !tbaa !11
-  %58 = getelementptr inbounds double, ptr %51, i64 %55
+  %58 = getelementptr inbounds [8 x i8], ptr %51, i64 %55
   %59 = load double, ptr %58, align 8, !tbaa !11
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %59, ptr %60, align 8, !tbaa !11
@@ -1315,7 +1315,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %66 = getelementptr inbounds i8, ptr %61, i64 %.idx57
   %67 = load double, ptr %66, align 8, !tbaa !11
   store double %67, ptr %11, align 16, !tbaa !11
-  %68 = getelementptr inbounds double, ptr %61, i64 %65
+  %68 = getelementptr inbounds [8 x i8], ptr %61, i64 %65
   %69 = load double, ptr %68, align 8, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %69, ptr %70, align 8, !tbaa !11
@@ -1336,7 +1336,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %82 = getelementptr inbounds i8, ptr %77, i64 %.idx58
   %83 = load double, ptr %82, align 8, !tbaa !11
   store double %83, ptr %13, align 16, !tbaa !11
-  %84 = getelementptr inbounds double, ptr %77, i64 %81
+  %84 = getelementptr inbounds [8 x i8], ptr %77, i64 %81
   br label %186
 
 85:                                               ; preds = %7
@@ -1420,7 +1420,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %142 = load double, ptr %138, align 8, !tbaa !11
   store double %142, ptr %8, align 16, !tbaa !11
   %143 = load i64, ptr %141, align 8, !tbaa !4
-  %144 = getelementptr inbounds double, ptr %138, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %138, i64 %143
   %145 = load double, ptr %144, align 8, !tbaa !11
   %146 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %145, ptr %146, align 8, !tbaa !11
@@ -1431,7 +1431,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %151 = load double, ptr %147, align 8, !tbaa !11
   store double %151, ptr %9, align 16, !tbaa !11
   %152 = load i64, ptr %150, align 8, !tbaa !4
-  %153 = getelementptr inbounds double, ptr %147, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %147, i64 %152
   %154 = load double, ptr %153, align 8, !tbaa !11
   %155 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %154, ptr %155, align 8, !tbaa !11
@@ -1442,7 +1442,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %160 = load double, ptr %156, align 8, !tbaa !11
   store double %160, ptr %10, align 16, !tbaa !11
   %161 = load i64, ptr %159, align 8, !tbaa !4
-  %162 = getelementptr inbounds double, ptr %156, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %156, i64 %161
   %163 = load double, ptr %162, align 8, !tbaa !11
   %164 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %163, ptr %164, align 8, !tbaa !11
@@ -1460,7 +1460,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %174 = load double, ptr %170, align 8, !tbaa !11
   store double %174, ptr %12, align 16, !tbaa !11
   %175 = load i64, ptr %173, align 8, !tbaa !4
-  %176 = getelementptr inbounds double, ptr %170, i64 %175
+  %176 = getelementptr inbounds [8 x i8], ptr %170, i64 %175
   %177 = load double, ptr %176, align 8, !tbaa !11
   %178 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %177, ptr %178, align 8, !tbaa !11
@@ -1471,7 +1471,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %183 = load double, ptr %179, align 8, !tbaa !11
   store double %183, ptr %13, align 16, !tbaa !11
   %184 = load i64, ptr %182, align 8, !tbaa !4
-  %185 = getelementptr inbounds double, ptr %179, i64 %184
+  %185 = getelementptr inbounds [8 x i8], ptr %179, i64 %184
   br label %186
 
 186:                                              ; preds = %88, %137, %30
@@ -1609,7 +1609,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %15 = load double, ptr %.sroa.4305.8.copyload, align 8, !tbaa !11
   %16 = fsub double %14, %15
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = getelementptr inbounds double, ptr %.sroa.4305.8.copyload, i64 %13
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.4305.8.copyload, i64 %13
   %19 = load double, ptr %17, align 8, !tbaa !11
   %20 = load double, ptr %18, align 8, !tbaa !11
   %21 = fsub double %19, %20
@@ -1626,7 +1626,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %28 = load i64, ptr %27, align 8, !tbaa !4
   %29 = load double, ptr %.sroa.0296.0.copyload, align 8, !tbaa !11
   %30 = fsub double %29, %15
-  %31 = getelementptr inbounds double, ptr %.sroa.0296.0.copyload, i64 %28
+  %31 = getelementptr inbounds [8 x i8], ptr %.sroa.0296.0.copyload, i64 %28
   %32 = load double, ptr %31, align 8, !tbaa !11
   %33 = fsub double %32, %20
   %.idx.i.i.i.i.i.i.i.i.i.i.i219 = shl nsw i64 %28, 4
@@ -1655,7 +1655,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %48 = load double, ptr %.sroa.0285.0.copyload, align 8, !tbaa !11
   %49 = fsub double %48, %15
   %50 = insertelement <2 x double> poison, double %49, i64 0
-  %51 = getelementptr inbounds double, ptr %.sroa.0285.0.copyload, i64 %47
+  %51 = getelementptr inbounds [8 x i8], ptr %.sroa.0285.0.copyload, i64 %47
   %52 = load double, ptr %51, align 8, !tbaa !11
   %53 = fsub double %52, %20
   %.sroa.0316.8.vec.insert342 = insertelement <2 x double> %50, double %53, i64 1
@@ -1678,7 +1678,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %64 = load double, ptr %.sroa.0277.0.copyload, align 8, !tbaa !11
   %65 = fsub double %64, %15
   %.sroa.0316.0.vec.insert327 = insertelement <2 x double> poison, double %65, i64 0
-  %66 = getelementptr inbounds double, ptr %.sroa.0277.0.copyload, i64 %63
+  %66 = getelementptr inbounds [8 x i8], ptr %.sroa.0277.0.copyload, i64 %63
   %67 = load double, ptr %66, align 8, !tbaa !11
   %68 = fsub double %67, %20
   %.sroa.0316.8.vec.insert344 = insertelement <2 x double> %.sroa.0316.0.vec.insert327, double %68, i64 1
@@ -1700,7 +1700,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %78 = load double, ptr %.sroa.0269.0.copyload, align 8, !tbaa !11
   %79 = fsub double %78, %15
   %.sroa.0316.0.vec.insert329 = insertelement <2 x double> poison, double %79, i64 0
-  %80 = getelementptr inbounds double, ptr %.sroa.0269.0.copyload, i64 %77
+  %80 = getelementptr inbounds [8 x i8], ptr %.sroa.0269.0.copyload, i64 %77
   %81 = load double, ptr %80, align 8, !tbaa !11
   %82 = fsub double %81, %20
   %.sroa.0316.8.vec.insert346 = insertelement <2 x double> %.sroa.0316.0.vec.insert329, double %82, i64 1
@@ -1734,8 +1734,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %99 = load double, ptr %.sroa.0261.0.copyload, align 8, !tbaa !11
   %100 = load double, ptr %.sroa.5265.56.copyload, align 8, !tbaa !11
   %101 = fsub double %99, %100
-  %102 = getelementptr inbounds double, ptr %.sroa.0261.0.copyload, i64 %96
-  %103 = getelementptr inbounds double, ptr %.sroa.5265.56.copyload, i64 %98
+  %102 = getelementptr inbounds [8 x i8], ptr %.sroa.0261.0.copyload, i64 %96
+  %103 = getelementptr inbounds [8 x i8], ptr %.sroa.5265.56.copyload, i64 %98
   %104 = load double, ptr %102, align 8, !tbaa !11
   %105 = load double, ptr %103, align 8, !tbaa !11
   %106 = fsub double %104, %105
@@ -1752,7 +1752,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %113 = load i64, ptr %112, align 8, !tbaa !4
   %114 = load double, ptr %.sroa.0253.0.copyload, align 8, !tbaa !11
   %115 = fsub double %114, %100
-  %116 = getelementptr inbounds double, ptr %.sroa.0253.0.copyload, i64 %113
+  %116 = getelementptr inbounds [8 x i8], ptr %.sroa.0253.0.copyload, i64 %113
   %117 = load double, ptr %116, align 8, !tbaa !11
   %118 = fsub double %117, %105
   %.idx.i.i.i.i.i.i.i.i.i.i.i228 = shl nsw i64 %113, 4
@@ -1792,7 +1792,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %142 = load double, ptr %.sroa.0238.0.copyload, align 8, !tbaa !11
   %143 = fsub double %142, %114
   %.sroa.0316.0.vec.insert337 = insertelement <2 x double> poison, double %143, i64 0
-  %144 = getelementptr inbounds double, ptr %.sroa.0238.0.copyload, i64 %141
+  %144 = getelementptr inbounds [8 x i8], ptr %.sroa.0238.0.copyload, i64 %141
   %145 = load double, ptr %144, align 8, !tbaa !11
   %146 = fsub double %145, %117
   %.sroa.0316.8.vec.insert354 = insertelement <2 x double> %.sroa.0316.0.vec.insert337, double %146, i64 1
@@ -1813,7 +1813,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %156 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !11
   %157 = fsub double %156, %114
   %.sroa.0316.0.vec.insert339 = insertelement <2 x double> poison, double %157, i64 0
-  %158 = getelementptr inbounds double, ptr %.sroa.0.0.copyload, i64 %155
+  %158 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload, i64 %155
   %159 = load double, ptr %158, align 8, !tbaa !11
   %160 = fsub double %159, %117
   %.sroa.0316.8.vec.insert356 = insertelement <2 x double> %.sroa.0316.0.vec.insert339, double %160, i64 1
@@ -2009,7 +2009,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %36 = getelementptr inbounds i8, ptr %31, i64 %.idx
   %37 = load double, ptr %36, align 8, !tbaa !11
   store double %37, ptr %8, align 16, !tbaa !11
-  %38 = getelementptr inbounds double, ptr %31, i64 %35
+  %38 = getelementptr inbounds [8 x i8], ptr %31, i64 %35
   %39 = load double, ptr %38, align 8, !tbaa !11
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %39, ptr %40, align 8, !tbaa !11
@@ -2022,7 +2022,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %46 = getelementptr inbounds i8, ptr %41, i64 %.idx55
   %47 = load double, ptr %46, align 8, !tbaa !11
   store double %47, ptr %9, align 16, !tbaa !11
-  %48 = getelementptr inbounds double, ptr %41, i64 %45
+  %48 = getelementptr inbounds [8 x i8], ptr %41, i64 %45
   %49 = load double, ptr %48, align 8, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %49, ptr %50, align 8, !tbaa !11
@@ -2035,7 +2035,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %56 = getelementptr inbounds i8, ptr %51, i64 %.idx56
   %57 = load double, ptr %56, align 8, !tbaa !11
   store double %57, ptr %10, align 16, !tbaa !11
-  %58 = getelementptr inbounds double, ptr %51, i64 %55
+  %58 = getelementptr inbounds [8 x i8], ptr %51, i64 %55
   %59 = load double, ptr %58, align 8, !tbaa !11
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %59, ptr %60, align 8, !tbaa !11
@@ -2048,7 +2048,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %66 = getelementptr inbounds i8, ptr %61, i64 %.idx57
   %67 = load double, ptr %66, align 8, !tbaa !11
   store double %67, ptr %11, align 16, !tbaa !11
-  %68 = getelementptr inbounds double, ptr %61, i64 %65
+  %68 = getelementptr inbounds [8 x i8], ptr %61, i64 %65
   %69 = load double, ptr %68, align 8, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %69, ptr %70, align 8, !tbaa !11
@@ -2068,7 +2068,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %81 = getelementptr inbounds i8, ptr %76, i64 %.idx58
   %82 = load double, ptr %81, align 8, !tbaa !11
   store double %82, ptr %13, align 16, !tbaa !11
-  %83 = getelementptr inbounds double, ptr %76, i64 %80
+  %83 = getelementptr inbounds [8 x i8], ptr %76, i64 %80
   br label %183
 
 84:                                               ; preds = %7
@@ -2151,7 +2151,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %140 = load double, ptr %136, align 8, !tbaa !11
   store double %140, ptr %8, align 16, !tbaa !11
   %141 = load i64, ptr %139, align 8, !tbaa !4
-  %142 = getelementptr inbounds double, ptr %136, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %136, i64 %141
   %143 = load double, ptr %142, align 8, !tbaa !11
   %144 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %143, ptr %144, align 8, !tbaa !11
@@ -2162,7 +2162,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %149 = load double, ptr %145, align 8, !tbaa !11
   store double %149, ptr %9, align 16, !tbaa !11
   %150 = load i64, ptr %148, align 8, !tbaa !4
-  %151 = getelementptr inbounds double, ptr %145, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %145, i64 %150
   %152 = load double, ptr %151, align 8, !tbaa !11
   %153 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %152, ptr %153, align 8, !tbaa !11
@@ -2173,7 +2173,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %158 = load double, ptr %154, align 8, !tbaa !11
   store double %158, ptr %10, align 16, !tbaa !11
   %159 = load i64, ptr %157, align 8, !tbaa !4
-  %160 = getelementptr inbounds double, ptr %154, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %154, i64 %159
   %161 = load double, ptr %160, align 8, !tbaa !11
   %162 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %161, ptr %162, align 8, !tbaa !11
@@ -2190,7 +2190,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %171 = load double, ptr %167, align 8, !tbaa !11
   store double %171, ptr %12, align 16, !tbaa !11
   %172 = load i64, ptr %170, align 8, !tbaa !4
-  %173 = getelementptr inbounds double, ptr %167, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %167, i64 %172
   %174 = load double, ptr %173, align 8, !tbaa !11
   %175 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %174, ptr %175, align 8, !tbaa !11
@@ -2201,7 +2201,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %180 = load double, ptr %176, align 8, !tbaa !11
   store double %180, ptr %13, align 16, !tbaa !11
   %181 = load i64, ptr %179, align 8, !tbaa !4
-  %182 = getelementptr inbounds double, ptr %176, i64 %181
+  %182 = getelementptr inbounds [8 x i8], ptr %176, i64 %181
   br label %183
 
 183:                                              ; preds = %87, %135, %30
@@ -2343,9 +2343,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %16 = load double, ptr %.sroa.0310.0.copyload, align 8, !tbaa !11
   %17 = load double, ptr %.sroa.5314.56.copyload, align 8, !tbaa !11
   %18 = fsub double %16, %17
-  %19 = getelementptr inbounds double, ptr %.sroa.0310.0.copyload, i64 %13
+  %19 = getelementptr inbounds [8 x i8], ptr %.sroa.0310.0.copyload, i64 %13
   %20 = load double, ptr %19, align 8, !tbaa !11
-  %21 = getelementptr inbounds double, ptr %.sroa.5314.56.copyload, i64 %15
+  %21 = getelementptr inbounds [8 x i8], ptr %.sroa.5314.56.copyload, i64 %15
   %22 = load double, ptr %21, align 8, !tbaa !11
   %23 = fsub double %20, %22
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %13, 4
@@ -2362,7 +2362,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %30 = load i64, ptr %29, align 8, !tbaa !4
   %31 = load double, ptr %.sroa.0302.0.copyload, align 8, !tbaa !11
   %32 = fsub double %31, %17
-  %33 = getelementptr inbounds double, ptr %.sroa.0302.0.copyload, i64 %30
+  %33 = getelementptr inbounds [8 x i8], ptr %.sroa.0302.0.copyload, i64 %30
   %34 = load double, ptr %33, align 8, !tbaa !11
   %35 = fsub double %34, %22
   %.idx.i.i.i.i.i.i.i.i.i.i.i219 = shl nsw i64 %30, 4
@@ -2391,7 +2391,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %50 = load double, ptr %.sroa.0291.0.copyload, align 8, !tbaa !11
   %51 = fsub double %50, %17
   %52 = insertelement <2 x double> poison, double %51, i64 0
-  %53 = getelementptr inbounds double, ptr %.sroa.0291.0.copyload, i64 %49
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.0291.0.copyload, i64 %49
   %54 = load double, ptr %53, align 8, !tbaa !11
   %55 = fsub double %54, %22
   %.sroa.0324.8.vec.insert350 = insertelement <2 x double> %52, double %55, i64 1
@@ -2414,7 +2414,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %66 = load double, ptr %.sroa.0283.0.copyload, align 8, !tbaa !11
   %67 = fsub double %66, %17
   %.sroa.0324.0.vec.insert335 = insertelement <2 x double> poison, double %67, i64 0
-  %68 = getelementptr inbounds double, ptr %.sroa.0283.0.copyload, i64 %65
+  %68 = getelementptr inbounds [8 x i8], ptr %.sroa.0283.0.copyload, i64 %65
   %69 = load double, ptr %68, align 8, !tbaa !11
   %70 = fsub double %69, %22
   %.sroa.0324.8.vec.insert352 = insertelement <2 x double> %.sroa.0324.0.vec.insert335, double %70, i64 1
@@ -2436,7 +2436,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %80 = load double, ptr %.sroa.0275.0.copyload, align 8, !tbaa !11
   %81 = fsub double %80, %17
   %.sroa.0324.0.vec.insert337 = insertelement <2 x double> poison, double %81, i64 0
-  %82 = getelementptr inbounds double, ptr %.sroa.0275.0.copyload, i64 %79
+  %82 = getelementptr inbounds [8 x i8], ptr %.sroa.0275.0.copyload, i64 %79
   %83 = load double, ptr %82, align 8, !tbaa !11
   %84 = fsub double %83, %22
   %.sroa.0324.8.vec.insert354 = insertelement <2 x double> %.sroa.0324.0.vec.insert337, double %84, i64 1
@@ -2470,9 +2470,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %101 = load double, ptr %.sroa.0267.0.copyload, align 8, !tbaa !11
   %102 = load double, ptr %.sroa.5271.56.copyload, align 8, !tbaa !11
   %103 = fsub double %101, %102
-  %104 = getelementptr inbounds double, ptr %.sroa.0267.0.copyload, i64 %98
+  %104 = getelementptr inbounds [8 x i8], ptr %.sroa.0267.0.copyload, i64 %98
   %105 = load double, ptr %104, align 8, !tbaa !11
-  %106 = getelementptr inbounds double, ptr %.sroa.5271.56.copyload, i64 %100
+  %106 = getelementptr inbounds [8 x i8], ptr %.sroa.5271.56.copyload, i64 %100
   %107 = load double, ptr %106, align 8, !tbaa !11
   %108 = fsub double %105, %107
   %.idx.i.i.i.i.i.i.i.i.i.i.i227 = shl nsw i64 %98, 4
@@ -2488,7 +2488,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %115 = load i64, ptr %114, align 8, !tbaa !4
   %116 = load double, ptr %.sroa.0259.0.copyload, align 8, !tbaa !11
   %117 = fsub double %116, %102
-  %118 = getelementptr inbounds double, ptr %.sroa.0259.0.copyload, i64 %115
+  %118 = getelementptr inbounds [8 x i8], ptr %.sroa.0259.0.copyload, i64 %115
   %119 = load double, ptr %118, align 8, !tbaa !11
   %120 = fsub double %119, %107
   %.idx.i.i.i.i.i.i.i.i.i.i.i229 = shl nsw i64 %115, 4
@@ -2516,7 +2516,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %135 = load double, ptr %.sroa.0248.0.copyload, align 8, !tbaa !11
   %136 = fsub double %135, %116
   %137 = insertelement <2 x double> poison, double %136, i64 0
-  %138 = getelementptr inbounds double, ptr %.sroa.0248.0.copyload, i64 %134
+  %138 = getelementptr inbounds [8 x i8], ptr %.sroa.0248.0.copyload, i64 %134
   %139 = load double, ptr %138, align 8, !tbaa !11
   %140 = fsub double %139, %119
   %.sroa.0324.8.vec.insert360 = insertelement <2 x double> %137, double %140, i64 1
@@ -2538,7 +2538,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %151 = load double, ptr %.sroa.0240.0.copyload, align 8, !tbaa !11
   %152 = fsub double %151, %116
   %.sroa.0324.0.vec.insert345 = insertelement <2 x double> poison, double %152, i64 0
-  %153 = getelementptr inbounds double, ptr %.sroa.0240.0.copyload, i64 %150
+  %153 = getelementptr inbounds [8 x i8], ptr %.sroa.0240.0.copyload, i64 %150
   %154 = load double, ptr %153, align 8, !tbaa !11
   %155 = fsub double %154, %119
   %.sroa.0324.8.vec.insert362 = insertelement <2 x double> %.sroa.0324.0.vec.insert345, double %155, i64 1
@@ -2559,7 +2559,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
   %165 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !11
   %166 = fsub double %165, %116
   %.sroa.0324.0.vec.insert347 = insertelement <2 x double> poison, double %166, i64 0
-  %167 = getelementptr inbounds double, ptr %.sroa.0.0.copyload, i64 %164
+  %167 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload, i64 %164
   %168 = load double, ptr %167, align 8, !tbaa !11
   %169 = fsub double %168, %119
   %.sroa.0324.8.vec.insert364 = insertelement <2 x double> %.sroa.0324.0.vec.insert347, double %169, i64 1
@@ -2755,7 +2755,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %36 = getelementptr inbounds i8, ptr %31, i64 %.idx
   %37 = load double, ptr %36, align 8, !tbaa !11
   store double %37, ptr %8, align 16, !tbaa !11
-  %38 = getelementptr inbounds double, ptr %31, i64 %35
+  %38 = getelementptr inbounds [8 x i8], ptr %31, i64 %35
   %39 = load double, ptr %38, align 8, !tbaa !11
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %39, ptr %40, align 8, !tbaa !11
@@ -2768,7 +2768,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %46 = getelementptr inbounds i8, ptr %41, i64 %.idx55
   %47 = load double, ptr %46, align 8, !tbaa !11
   store double %47, ptr %9, align 16, !tbaa !11
-  %48 = getelementptr inbounds double, ptr %41, i64 %45
+  %48 = getelementptr inbounds [8 x i8], ptr %41, i64 %45
   %49 = load double, ptr %48, align 8, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %49, ptr %50, align 8, !tbaa !11
@@ -2781,7 +2781,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %56 = getelementptr inbounds i8, ptr %51, i64 %.idx56
   %57 = load double, ptr %56, align 8, !tbaa !11
   store double %57, ptr %10, align 16, !tbaa !11
-  %58 = getelementptr inbounds double, ptr %51, i64 %55
+  %58 = getelementptr inbounds [8 x i8], ptr %51, i64 %55
   %59 = load double, ptr %58, align 8, !tbaa !11
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %59, ptr %60, align 8, !tbaa !11
@@ -2794,7 +2794,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %66 = getelementptr inbounds i8, ptr %61, i64 %.idx57
   %67 = load double, ptr %66, align 8, !tbaa !11
   store double %67, ptr %11, align 16, !tbaa !11
-  %68 = getelementptr inbounds double, ptr %61, i64 %65
+  %68 = getelementptr inbounds [8 x i8], ptr %61, i64 %65
   %69 = load double, ptr %68, align 8, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %69, ptr %70, align 8, !tbaa !11
@@ -2807,7 +2807,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %76 = getelementptr inbounds i8, ptr %71, i64 %.idx58
   %77 = load double, ptr %76, align 8, !tbaa !11
   store double %77, ptr %12, align 16, !tbaa !11
-  %78 = getelementptr inbounds double, ptr %71, i64 %75
+  %78 = getelementptr inbounds [8 x i8], ptr %71, i64 %75
   %79 = load double, ptr %78, align 8, !tbaa !11
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %79, ptr %80, align 8, !tbaa !11
@@ -2820,7 +2820,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %86 = getelementptr inbounds i8, ptr %81, i64 %.idx59
   %87 = load double, ptr %86, align 8, !tbaa !11
   store double %87, ptr %13, align 16, !tbaa !11
-  %88 = getelementptr inbounds double, ptr %81, i64 %85
+  %88 = getelementptr inbounds [8 x i8], ptr %81, i64 %85
   br label %198
 
 89:                                               ; preds = %7
@@ -2909,7 +2909,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %150 = load double, ptr %146, align 8, !tbaa !11
   store double %150, ptr %8, align 16, !tbaa !11
   %151 = load i64, ptr %149, align 8, !tbaa !4
-  %152 = getelementptr inbounds double, ptr %146, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %146, i64 %151
   %153 = load double, ptr %152, align 8, !tbaa !11
   %154 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %153, ptr %154, align 8, !tbaa !11
@@ -2920,7 +2920,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %159 = load double, ptr %155, align 8, !tbaa !11
   store double %159, ptr %9, align 16, !tbaa !11
   %160 = load i64, ptr %158, align 8, !tbaa !4
-  %161 = getelementptr inbounds double, ptr %155, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %155, i64 %160
   %162 = load double, ptr %161, align 8, !tbaa !11
   %163 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %162, ptr %163, align 8, !tbaa !11
@@ -2931,7 +2931,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %168 = load double, ptr %164, align 8, !tbaa !11
   store double %168, ptr %10, align 16, !tbaa !11
   %169 = load i64, ptr %167, align 8, !tbaa !4
-  %170 = getelementptr inbounds double, ptr %164, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %164, i64 %169
   %171 = load double, ptr %170, align 8, !tbaa !11
   %172 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %171, ptr %172, align 8, !tbaa !11
@@ -2942,7 +2942,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %177 = load double, ptr %173, align 8, !tbaa !11
   store double %177, ptr %11, align 16, !tbaa !11
   %178 = load i64, ptr %176, align 8, !tbaa !4
-  %179 = getelementptr inbounds double, ptr %173, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %173, i64 %178
   %180 = load double, ptr %179, align 8, !tbaa !11
   %181 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %180, ptr %181, align 8, !tbaa !11
@@ -2953,7 +2953,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %186 = load double, ptr %182, align 8, !tbaa !11
   store double %186, ptr %12, align 16, !tbaa !11
   %187 = load i64, ptr %185, align 8, !tbaa !4
-  %188 = getelementptr inbounds double, ptr %182, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %182, i64 %187
   %189 = load double, ptr %188, align 8, !tbaa !11
   %190 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %189, ptr %190, align 8, !tbaa !11
@@ -2964,7 +2964,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %195 = load double, ptr %191, align 8, !tbaa !11
   store double %195, ptr %13, align 16, !tbaa !11
   %196 = load i64, ptr %194, align 8, !tbaa !4
-  %197 = getelementptr inbounds double, ptr %191, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %191, i64 %196
   br label %198
 
 198:                                              ; preds = %92, %145, %30
@@ -3640,8 +3640,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %12 = load double, ptr %.sroa.5256.56.copyload, align 8, !tbaa !11
   %13 = load double, ptr %.sroa.0252.0.copyload, align 8, !tbaa !11
   %14 = fsub double %13, %12
-  %15 = getelementptr inbounds double, ptr %.sroa.0252.0.copyload, i64 %9
-  %16 = getelementptr inbounds double, ptr %.sroa.5256.56.copyload, i64 %11
+  %15 = getelementptr inbounds [8 x i8], ptr %.sroa.0252.0.copyload, i64 %9
+  %16 = getelementptr inbounds [8 x i8], ptr %.sroa.5256.56.copyload, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !11
   %18 = load double, ptr %15, align 8, !tbaa !11
   %19 = fsub double %18, %17
@@ -3659,7 +3659,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %26 = load i64, ptr %25, align 8, !tbaa !4
   %27 = load double, ptr %.sroa.0244.0.copyload, align 8, !tbaa !11
   %28 = fsub double %27, %12
-  %29 = getelementptr inbounds double, ptr %.sroa.0244.0.copyload, i64 %26
+  %29 = getelementptr inbounds [8 x i8], ptr %.sroa.0244.0.copyload, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !11
   %31 = fsub double %30, %17
   %.idx.i.i.i.i.i.i.i.i.i.i.i161 = shl nsw i64 %26, 4
@@ -3685,7 +3685,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %46 = load double, ptr %.sroa.0233.0.copyload, align 8, !tbaa !11
   %47 = fsub double %46, %12
   %48 = insertelement <2 x double> poison, double %47, i64 0
-  %49 = getelementptr inbounds double, ptr %.sroa.0233.0.copyload, i64 %45
+  %49 = getelementptr inbounds [8 x i8], ptr %.sroa.0233.0.copyload, i64 %45
   %50 = load double, ptr %49, align 8, !tbaa !11
   %51 = fsub double %50, %17
   %.sroa.0271.8.vec.insert297 = insertelement <2 x double> %48, double %51, i64 1
@@ -3707,7 +3707,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %61 = load double, ptr %.sroa.0225.0.copyload, align 8, !tbaa !11
   %62 = fsub double %61, %12
   %.sroa.0271.0.vec.insert282 = insertelement <2 x double> poison, double %62, i64 0
-  %63 = getelementptr inbounds double, ptr %.sroa.0225.0.copyload, i64 %60
+  %63 = getelementptr inbounds [8 x i8], ptr %.sroa.0225.0.copyload, i64 %60
   %64 = load double, ptr %63, align 8, !tbaa !11
   %65 = fsub double %64, %17
   %.sroa.0271.8.vec.insert299 = insertelement <2 x double> %.sroa.0271.0.vec.insert282, double %65, i64 1
@@ -3729,7 +3729,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %75 = load double, ptr %.sroa.0217.0.copyload, align 8, !tbaa !11
   %76 = fsub double %75, %12
   %.sroa.0271.0.vec.insert284 = insertelement <2 x double> poison, double %76, i64 0
-  %77 = getelementptr inbounds double, ptr %.sroa.0217.0.copyload, i64 %74
+  %77 = getelementptr inbounds [8 x i8], ptr %.sroa.0217.0.copyload, i64 %74
   %78 = load double, ptr %77, align 8, !tbaa !11
   %79 = fsub double %78, %17
   %.sroa.0271.8.vec.insert301 = insertelement <2 x double> %.sroa.0271.0.vec.insert284, double %79, i64 1
@@ -3775,7 +3775,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %108 = load double, ptr %.sroa.0252.0.copyload, align 8, !tbaa !11
   %109 = fsub double %108, %75
   %110 = insertelement <2 x double> poison, double %109, i64 0
-  %111 = getelementptr inbounds double, ptr %.sroa.0252.0.copyload, i64 %107
+  %111 = getelementptr inbounds [8 x i8], ptr %.sroa.0252.0.copyload, i64 %107
   %112 = load double, ptr %111, align 8, !tbaa !11
   %113 = fsub double %112, %78
   %.sroa.0271.8.vec.insert307 = insertelement <2 x double> %110, double %113, i64 1
@@ -3808,7 +3808,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %131 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !11
   %132 = fsub double %131, %75
   %.sroa.0271.0.vec.insert294 = insertelement <2 x double> poison, double %132, i64 0
-  %133 = getelementptr inbounds double, ptr %.sroa.0.0.copyload, i64 %130
+  %133 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload, i64 %130
   %134 = load double, ptr %133, align 8, !tbaa !11
   %135 = fsub double %134, %78
   %.sroa.0271.8.vec.insert311 = insertelement <2 x double> %.sroa.0271.0.vec.insert294, double %135, i64 1
@@ -3956,9 +3956,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %19 = load double, ptr %.sroa.072.0.copyload.i, align 8, !tbaa !11
   %20 = load double, ptr %.sroa.576.56.copyload.i, align 8, !tbaa !11
   %21 = fsub double %19, %20
-  %22 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i, i64 %16
+  %22 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i, i64 %16
   %23 = load double, ptr %22, align 8, !tbaa !11
-  %24 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i, i64 %18
+  %24 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i, i64 %18
   %25 = load double, ptr %24, align 8, !tbaa !11
   %26 = fsub double %23, %25
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %16, 4
@@ -3975,7 +3975,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %33 = load i64, ptr %32, align 8, !tbaa !4
   %34 = load double, ptr %.sroa.060.0.copyload.i, align 8, !tbaa !11
   %35 = fsub double %34, %20
-  %36 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i, i64 %33
   %37 = load double, ptr %36, align 8, !tbaa !11
   %38 = fsub double %37, %25
   %.idx.i.i.i.i.i.i.i.i.i.i13.i = shl nsw i64 %33, 4
@@ -4001,7 +4001,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %53 = load double, ptr %.sroa.043.0.copyload.i, align 8, !tbaa !11
   %54 = fsub double %53, %20
   %55 = insertelement <2 x double> poison, double %54, i64 0
-  %56 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i, i64 %52
+  %56 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i, i64 %52
   %57 = load double, ptr %56, align 8, !tbaa !11
   %58 = fsub double %57, %25
   %.sroa.080.8.vec.insert94.i = insertelement <2 x double> %55, double %58, i64 1
@@ -4029,7 +4029,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %72 = load i64, ptr %71, align 8, !tbaa !4
   %73 = load double, ptr %.sroa.027.0.copyload.i, align 8, !tbaa !11
   %74 = fsub double %73, %34
-  %75 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i, i64 %72
+  %75 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i, i64 %72
   %76 = load double, ptr %75, align 8, !tbaa !11
   %77 = fsub double %76, %37
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i = shl nsw i64 %72, 4
@@ -4055,7 +4055,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %92 = load double, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !11
   %93 = fsub double %92, %34
   %94 = insertelement <2 x double> poison, double %93, i64 0
-  %95 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i, i64 %91
+  %95 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i, i64 %91
   %96 = load double, ptr %95, align 8, !tbaa !11
   %97 = fsub double %96, %37
   %.sroa.080.8.vec.insert100.i = insertelement <2 x double> %94, double %97, i64 1
@@ -4090,9 +4090,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %113 = load double, ptr %.sroa.072.0.copyload.i95, align 8, !tbaa !11
   %114 = load double, ptr %.sroa.576.56.copyload.i98, align 8, !tbaa !11
   %115 = fsub double %113, %114
-  %116 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i95, i64 %110
+  %116 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i95, i64 %110
   %117 = load double, ptr %116, align 8, !tbaa !11
-  %118 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i98, i64 %112
+  %118 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i98, i64 %112
   %119 = load double, ptr %118, align 8, !tbaa !11
   %120 = fsub double %117, %119
   %.idx.i.i.i.i.i.i.i.i.i.i.i101 = shl nsw i64 %110, 4
@@ -4109,7 +4109,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %127 = load i64, ptr %126, align 8, !tbaa !4
   %128 = load double, ptr %.sroa.060.0.copyload.i103, align 8, !tbaa !11
   %129 = fsub double %128, %114
-  %130 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i103, i64 %127
+  %130 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i103, i64 %127
   %131 = load double, ptr %130, align 8, !tbaa !11
   %132 = fsub double %131, %119
   %.idx.i.i.i.i.i.i.i.i.i.i13.i106 = shl nsw i64 %127, 4
@@ -4135,7 +4135,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %147 = load double, ptr %.sroa.043.0.copyload.i109, align 8, !tbaa !11
   %148 = fsub double %147, %114
   %149 = insertelement <2 x double> poison, double %148, i64 0
-  %150 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i109, i64 %146
+  %150 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i109, i64 %146
   %151 = load double, ptr %150, align 8, !tbaa !11
   %152 = fsub double %151, %119
   %.sroa.080.8.vec.insert94.i112 = insertelement <2 x double> %149, double %152, i64 1
@@ -4163,7 +4163,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %166 = load i64, ptr %165, align 8, !tbaa !4
   %167 = load double, ptr %.sroa.027.0.copyload.i114, align 8, !tbaa !11
   %168 = fsub double %167, %128
-  %169 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i114, i64 %166
+  %169 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i114, i64 %166
   %170 = load double, ptr %169, align 8, !tbaa !11
   %171 = fsub double %170, %131
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i117 = shl nsw i64 %166, 4
@@ -4189,7 +4189,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %186 = load double, ptr %.sroa.0.0.copyload.i120, align 8, !tbaa !11
   %187 = fsub double %186, %128
   %188 = insertelement <2 x double> poison, double %187, i64 0
-  %189 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i120, i64 %185
+  %189 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i120, i64 %185
   %190 = load double, ptr %189, align 8, !tbaa !11
   %191 = fsub double %190, %131
   %.sroa.080.8.vec.insert100.i123 = insertelement <2 x double> %188, double %191, i64 1
@@ -4220,8 +4220,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %205 = load double, ptr %.sroa.576.56.copyload.i129, align 8, !tbaa !11
   %206 = load double, ptr %.sroa.072.0.copyload.i126, align 8, !tbaa !11
   %207 = fsub double %206, %205
-  %208 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i126, i64 %202
-  %209 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i129, i64 %204
+  %208 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i126, i64 %202
+  %209 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i129, i64 %204
   %210 = load double, ptr %209, align 8, !tbaa !11
   %211 = load double, ptr %208, align 8, !tbaa !11
   %212 = fsub double %211, %210
@@ -4239,7 +4239,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %219 = load i64, ptr %218, align 8, !tbaa !4
   %220 = load double, ptr %.sroa.060.0.copyload.i134, align 8, !tbaa !11
   %221 = fsub double %220, %205
-  %222 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i134, i64 %219
+  %222 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i134, i64 %219
   %223 = load double, ptr %222, align 8, !tbaa !11
   %224 = fsub double %223, %210
   %.idx.i.i.i.i.i.i.i.i.i.i13.i137 = shl nsw i64 %219, 4
@@ -4265,7 +4265,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %239 = load double, ptr %.sroa.043.0.copyload.i140, align 8, !tbaa !11
   %240 = fsub double %239, %205
   %241 = insertelement <2 x double> poison, double %240, i64 0
-  %242 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i140, i64 %238
+  %242 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i140, i64 %238
   %243 = load double, ptr %242, align 8, !tbaa !11
   %244 = fsub double %243, %210
   %.sroa.080.8.vec.insert94.i143 = insertelement <2 x double> %241, double %244, i64 1
@@ -4293,7 +4293,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %258 = load i64, ptr %257, align 8, !tbaa !4
   %259 = load double, ptr %.sroa.027.0.copyload.i145, align 8, !tbaa !11
   %260 = fsub double %259, %220
-  %261 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i145, i64 %258
+  %261 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i145, i64 %258
   %262 = load double, ptr %261, align 8, !tbaa !11
   %263 = fsub double %262, %223
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i148 = shl nsw i64 %258, 4
@@ -4319,7 +4319,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %278 = load double, ptr %.sroa.0.0.copyload.i151, align 8, !tbaa !11
   %279 = fsub double %278, %220
   %280 = insertelement <2 x double> poison, double %279, i64 0
-  %281 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i151, i64 %277
+  %281 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i151, i64 %277
   %282 = load double, ptr %281, align 8, !tbaa !11
   %283 = fsub double %282, %223
   %.sroa.080.8.vec.insert100.i154 = insertelement <2 x double> %280, double %283, i64 1
@@ -4358,9 +4358,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %301 = load double, ptr %.sroa.072.0.copyload.i157, align 8, !tbaa !11
   %302 = load double, ptr %.sroa.576.56.copyload.i160, align 8, !tbaa !11
   %303 = fsub double %301, %302
-  %304 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i157, i64 %298
+  %304 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i157, i64 %298
   %305 = load double, ptr %304, align 8, !tbaa !11
-  %306 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i160, i64 %300
+  %306 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i160, i64 %300
   %307 = load double, ptr %306, align 8, !tbaa !11
   %308 = fsub double %305, %307
   %.idx.i.i.i.i.i.i.i.i.i.i.i163 = shl nsw i64 %298, 4
@@ -4377,7 +4377,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %315 = load i64, ptr %314, align 8, !tbaa !4
   %316 = load double, ptr %.sroa.060.0.copyload.i165, align 8, !tbaa !11
   %317 = fsub double %316, %302
-  %318 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i165, i64 %315
+  %318 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i165, i64 %315
   %319 = load double, ptr %318, align 8, !tbaa !11
   %320 = fsub double %319, %307
   %.idx.i.i.i.i.i.i.i.i.i.i13.i168 = shl nsw i64 %315, 4
@@ -4403,7 +4403,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %335 = load double, ptr %.sroa.043.0.copyload.i171, align 8, !tbaa !11
   %336 = fsub double %335, %302
   %337 = insertelement <2 x double> poison, double %336, i64 0
-  %338 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i171, i64 %334
+  %338 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i171, i64 %334
   %339 = load double, ptr %338, align 8, !tbaa !11
   %340 = fsub double %339, %307
   %.sroa.080.8.vec.insert94.i174 = insertelement <2 x double> %337, double %340, i64 1
@@ -4431,7 +4431,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %354 = load i64, ptr %353, align 8, !tbaa !4
   %355 = load double, ptr %.sroa.027.0.copyload.i176, align 8, !tbaa !11
   %356 = fsub double %355, %316
-  %357 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i176, i64 %354
+  %357 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i176, i64 %354
   %358 = load double, ptr %357, align 8, !tbaa !11
   %359 = fsub double %358, %319
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i179 = shl nsw i64 %354, 4
@@ -4457,7 +4457,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %374 = load double, ptr %.sroa.0.0.copyload.i182, align 8, !tbaa !11
   %375 = fsub double %374, %316
   %376 = insertelement <2 x double> poison, double %375, i64 0
-  %377 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i182, i64 %373
+  %377 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i182, i64 %373
   %378 = load double, ptr %377, align 8, !tbaa !11
   %379 = fsub double %378, %319
   %.sroa.080.8.vec.insert100.i185 = insertelement <2 x double> %376, double %379, i64 1
@@ -4492,9 +4492,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %395 = load double, ptr %.sroa.072.0.copyload.i189, align 8, !tbaa !11
   %396 = load double, ptr %.sroa.576.56.copyload.i192, align 8, !tbaa !11
   %397 = fsub double %395, %396
-  %398 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i189, i64 %392
+  %398 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i189, i64 %392
   %399 = load double, ptr %398, align 8, !tbaa !11
-  %400 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i192, i64 %394
+  %400 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i192, i64 %394
   %401 = load double, ptr %400, align 8, !tbaa !11
   %402 = fsub double %399, %401
   %.idx.i.i.i.i.i.i.i.i.i.i.i195 = shl nsw i64 %392, 4
@@ -4511,7 +4511,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %409 = load i64, ptr %408, align 8, !tbaa !4
   %410 = load double, ptr %.sroa.060.0.copyload.i197, align 8, !tbaa !11
   %411 = fsub double %410, %396
-  %412 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i197, i64 %409
+  %412 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i197, i64 %409
   %413 = load double, ptr %412, align 8, !tbaa !11
   %414 = fsub double %413, %401
   %.idx.i.i.i.i.i.i.i.i.i.i13.i200 = shl nsw i64 %409, 4
@@ -4537,7 +4537,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %429 = load double, ptr %.sroa.043.0.copyload.i203, align 8, !tbaa !11
   %430 = fsub double %429, %396
   %431 = insertelement <2 x double> poison, double %430, i64 0
-  %432 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i203, i64 %428
+  %432 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i203, i64 %428
   %433 = load double, ptr %432, align 8, !tbaa !11
   %434 = fsub double %433, %401
   %.sroa.080.8.vec.insert94.i206 = insertelement <2 x double> %431, double %434, i64 1
@@ -4565,7 +4565,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %448 = load i64, ptr %447, align 8, !tbaa !4
   %449 = load double, ptr %.sroa.027.0.copyload.i208, align 8, !tbaa !11
   %450 = fsub double %449, %410
-  %451 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i208, i64 %448
+  %451 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i208, i64 %448
   %452 = load double, ptr %451, align 8, !tbaa !11
   %453 = fsub double %452, %413
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i211 = shl nsw i64 %448, 4
@@ -4591,7 +4591,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %468 = load double, ptr %.sroa.0.0.copyload.i214, align 8, !tbaa !11
   %469 = fsub double %468, %410
   %470 = insertelement <2 x double> poison, double %469, i64 0
-  %471 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i214, i64 %467
+  %471 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i214, i64 %467
   %472 = load double, ptr %471, align 8, !tbaa !11
   %473 = fsub double %472, %413
   %.sroa.080.8.vec.insert100.i217 = insertelement <2 x double> %470, double %473, i64 1
@@ -4622,8 +4622,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %487 = load double, ptr %.sroa.576.56.copyload.i224, align 8, !tbaa !11
   %488 = load double, ptr %.sroa.072.0.copyload.i221, align 8, !tbaa !11
   %489 = fsub double %488, %487
-  %490 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i221, i64 %484
-  %491 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i224, i64 %486
+  %490 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i221, i64 %484
+  %491 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i224, i64 %486
   %492 = load double, ptr %491, align 8, !tbaa !11
   %493 = load double, ptr %490, align 8, !tbaa !11
   %494 = fsub double %493, %492
@@ -4641,7 +4641,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %501 = load i64, ptr %500, align 8, !tbaa !4
   %502 = load double, ptr %.sroa.060.0.copyload.i229, align 8, !tbaa !11
   %503 = fsub double %502, %487
-  %504 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i229, i64 %501
+  %504 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i229, i64 %501
   %505 = load double, ptr %504, align 8, !tbaa !11
   %506 = fsub double %505, %492
   %.idx.i.i.i.i.i.i.i.i.i.i13.i232 = shl nsw i64 %501, 4
@@ -4667,7 +4667,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %521 = load double, ptr %.sroa.043.0.copyload.i235, align 8, !tbaa !11
   %522 = fsub double %521, %487
   %523 = insertelement <2 x double> poison, double %522, i64 0
-  %524 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i235, i64 %520
+  %524 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i235, i64 %520
   %525 = load double, ptr %524, align 8, !tbaa !11
   %526 = fsub double %525, %492
   %.sroa.080.8.vec.insert94.i238 = insertelement <2 x double> %523, double %526, i64 1
@@ -4695,7 +4695,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %540 = load i64, ptr %539, align 8, !tbaa !4
   %541 = load double, ptr %.sroa.027.0.copyload.i240, align 8, !tbaa !11
   %542 = fsub double %541, %502
-  %543 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i240, i64 %540
+  %543 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i240, i64 %540
   %544 = load double, ptr %543, align 8, !tbaa !11
   %545 = fsub double %544, %505
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i243 = shl nsw i64 %540, 4
@@ -4721,7 +4721,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %560 = load double, ptr %.sroa.0.0.copyload.i246, align 8, !tbaa !11
   %561 = fsub double %560, %502
   %562 = insertelement <2 x double> poison, double %561, i64 0
-  %563 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i246, i64 %559
+  %563 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i246, i64 %559
   %564 = load double, ptr %563, align 8, !tbaa !11
   %565 = fsub double %564, %505
   %.sroa.080.8.vec.insert100.i249 = insertelement <2 x double> %562, double %565, i64 1
@@ -4759,9 +4759,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %582 = load double, ptr %.sroa.072.0.copyload.i253, align 8, !tbaa !11
   %583 = load double, ptr %.sroa.576.56.copyload.i256, align 8, !tbaa !11
   %584 = fsub double %582, %583
-  %585 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i253, i64 %579
+  %585 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i253, i64 %579
   %586 = load double, ptr %585, align 8, !tbaa !11
-  %587 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i256, i64 %581
+  %587 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i256, i64 %581
   %588 = load double, ptr %587, align 8, !tbaa !11
   %589 = fsub double %586, %588
   %.idx.i.i.i.i.i.i.i.i.i.i.i259 = shl nsw i64 %579, 4
@@ -4778,7 +4778,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %596 = load i64, ptr %595, align 8, !tbaa !4
   %597 = load double, ptr %.sroa.060.0.copyload.i261, align 8, !tbaa !11
   %598 = fsub double %597, %583
-  %599 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i261, i64 %596
+  %599 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i261, i64 %596
   %600 = load double, ptr %599, align 8, !tbaa !11
   %601 = fsub double %600, %588
   %.idx.i.i.i.i.i.i.i.i.i.i13.i264 = shl nsw i64 %596, 4
@@ -4804,7 +4804,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %616 = load double, ptr %.sroa.043.0.copyload.i267, align 8, !tbaa !11
   %617 = fsub double %616, %583
   %618 = insertelement <2 x double> poison, double %617, i64 0
-  %619 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i267, i64 %615
+  %619 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i267, i64 %615
   %620 = load double, ptr %619, align 8, !tbaa !11
   %621 = fsub double %620, %588
   %.sroa.080.8.vec.insert94.i270 = insertelement <2 x double> %618, double %621, i64 1
@@ -4832,7 +4832,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %635 = load i64, ptr %634, align 8, !tbaa !4
   %636 = load double, ptr %.sroa.027.0.copyload.i272, align 8, !tbaa !11
   %637 = fsub double %636, %597
-  %638 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i272, i64 %635
+  %638 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i272, i64 %635
   %639 = load double, ptr %638, align 8, !tbaa !11
   %640 = fsub double %639, %600
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i275 = shl nsw i64 %635, 4
@@ -4858,7 +4858,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %655 = load double, ptr %.sroa.0.0.copyload.i278, align 8, !tbaa !11
   %656 = fsub double %655, %597
   %657 = insertelement <2 x double> poison, double %656, i64 0
-  %658 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i278, i64 %654
+  %658 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i278, i64 %654
   %659 = load double, ptr %658, align 8, !tbaa !11
   %660 = fsub double %659, %600
   %.sroa.080.8.vec.insert100.i281 = insertelement <2 x double> %657, double %660, i64 1
@@ -4889,8 +4889,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %674 = load double, ptr %.sroa.576.56.copyload.i288, align 8, !tbaa !11
   %675 = load double, ptr %.sroa.072.0.copyload.i285, align 8, !tbaa !11
   %676 = fsub double %675, %674
-  %677 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i285, i64 %671
-  %678 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i288, i64 %673
+  %677 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i285, i64 %671
+  %678 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i288, i64 %673
   %679 = load double, ptr %678, align 8, !tbaa !11
   %680 = load double, ptr %677, align 8, !tbaa !11
   %681 = fsub double %680, %679
@@ -4908,7 +4908,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %688 = load i64, ptr %687, align 8, !tbaa !4
   %689 = load double, ptr %.sroa.060.0.copyload.i293, align 8, !tbaa !11
   %690 = fsub double %689, %674
-  %691 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i293, i64 %688
+  %691 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i293, i64 %688
   %692 = load double, ptr %691, align 8, !tbaa !11
   %693 = fsub double %692, %679
   %.idx.i.i.i.i.i.i.i.i.i.i13.i296 = shl nsw i64 %688, 4
@@ -4934,7 +4934,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %708 = load double, ptr %.sroa.043.0.copyload.i299, align 8, !tbaa !11
   %709 = fsub double %708, %674
   %710 = insertelement <2 x double> poison, double %709, i64 0
-  %711 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i299, i64 %707
+  %711 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i299, i64 %707
   %712 = load double, ptr %711, align 8, !tbaa !11
   %713 = fsub double %712, %679
   %.sroa.080.8.vec.insert94.i302 = insertelement <2 x double> %710, double %713, i64 1
@@ -4962,7 +4962,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %727 = load i64, ptr %726, align 8, !tbaa !4
   %728 = load double, ptr %.sroa.027.0.copyload.i304, align 8, !tbaa !11
   %729 = fsub double %728, %689
-  %730 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i304, i64 %727
+  %730 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i304, i64 %727
   %731 = load double, ptr %730, align 8, !tbaa !11
   %732 = fsub double %731, %692
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i307 = shl nsw i64 %727, 4
@@ -4988,7 +4988,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %747 = load double, ptr %.sroa.0.0.copyload.i310, align 8, !tbaa !11
   %748 = fsub double %747, %689
   %749 = insertelement <2 x double> poison, double %748, i64 0
-  %750 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i310, i64 %746
+  %750 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i310, i64 %746
   %751 = load double, ptr %750, align 8, !tbaa !11
   %752 = fsub double %751, %692
   %.sroa.080.8.vec.insert100.i313 = insertelement <2 x double> %749, double %752, i64 1
@@ -5027,8 +5027,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %770 = load double, ptr %.sroa.576.56.copyload.i320, align 8, !tbaa !11
   %771 = load double, ptr %.sroa.072.0.copyload.i317, align 8, !tbaa !11
   %772 = fsub double %771, %770
-  %773 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i317, i64 %767
-  %774 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i320, i64 %769
+  %773 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i317, i64 %767
+  %774 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i320, i64 %769
   %775 = load double, ptr %774, align 8, !tbaa !11
   %776 = load double, ptr %773, align 8, !tbaa !11
   %777 = fsub double %776, %775
@@ -5046,7 +5046,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %784 = load i64, ptr %783, align 8, !tbaa !4
   %785 = load double, ptr %.sroa.060.0.copyload.i325, align 8, !tbaa !11
   %786 = fsub double %785, %770
-  %787 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i325, i64 %784
+  %787 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i325, i64 %784
   %788 = load double, ptr %787, align 8, !tbaa !11
   %789 = fsub double %788, %775
   %.idx.i.i.i.i.i.i.i.i.i.i13.i328 = shl nsw i64 %784, 4
@@ -5072,7 +5072,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %804 = load double, ptr %.sroa.043.0.copyload.i331, align 8, !tbaa !11
   %805 = fsub double %804, %770
   %806 = insertelement <2 x double> poison, double %805, i64 0
-  %807 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i331, i64 %803
+  %807 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i331, i64 %803
   %808 = load double, ptr %807, align 8, !tbaa !11
   %809 = fsub double %808, %775
   %.sroa.080.8.vec.insert94.i334 = insertelement <2 x double> %806, double %809, i64 1
@@ -5100,7 +5100,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %823 = load i64, ptr %822, align 8, !tbaa !4
   %824 = load double, ptr %.sroa.027.0.copyload.i336, align 8, !tbaa !11
   %825 = fsub double %824, %785
-  %826 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i336, i64 %823
+  %826 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i336, i64 %823
   %827 = load double, ptr %826, align 8, !tbaa !11
   %828 = fsub double %827, %788
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i339 = shl nsw i64 %823, 4
@@ -5126,7 +5126,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %843 = load double, ptr %.sroa.0.0.copyload.i342, align 8, !tbaa !11
   %844 = fsub double %843, %785
   %845 = insertelement <2 x double> poison, double %844, i64 0
-  %846 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i342, i64 %842
+  %846 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i342, i64 %842
   %847 = load double, ptr %846, align 8, !tbaa !11
   %848 = fsub double %847, %788
   %.sroa.080.8.vec.insert100.i345 = insertelement <2 x double> %845, double %848, i64 1
@@ -5157,9 +5157,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %862 = load double, ptr %.sroa.072.0.copyload.i349, align 8, !tbaa !11
   %863 = load double, ptr %.sroa.576.56.copyload.i352, align 8, !tbaa !11
   %864 = fsub double %862, %863
-  %865 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i349, i64 %859
+  %865 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i349, i64 %859
   %866 = load double, ptr %865, align 8, !tbaa !11
-  %867 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i352, i64 %861
+  %867 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i352, i64 %861
   %868 = load double, ptr %867, align 8, !tbaa !11
   %869 = fsub double %866, %868
   %.idx.i.i.i.i.i.i.i.i.i.i.i355 = shl nsw i64 %859, 4
@@ -5176,7 +5176,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %876 = load i64, ptr %875, align 8, !tbaa !4
   %877 = load double, ptr %.sroa.060.0.copyload.i357, align 8, !tbaa !11
   %878 = fsub double %877, %863
-  %879 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i357, i64 %876
+  %879 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i357, i64 %876
   %880 = load double, ptr %879, align 8, !tbaa !11
   %881 = fsub double %880, %868
   %.idx.i.i.i.i.i.i.i.i.i.i13.i360 = shl nsw i64 %876, 4
@@ -5202,7 +5202,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %896 = load double, ptr %.sroa.043.0.copyload.i363, align 8, !tbaa !11
   %897 = fsub double %896, %863
   %898 = insertelement <2 x double> poison, double %897, i64 0
-  %899 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i363, i64 %895
+  %899 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i363, i64 %895
   %900 = load double, ptr %899, align 8, !tbaa !11
   %901 = fsub double %900, %868
   %.sroa.080.8.vec.insert94.i366 = insertelement <2 x double> %898, double %901, i64 1
@@ -5230,7 +5230,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %915 = load i64, ptr %914, align 8, !tbaa !4
   %916 = load double, ptr %.sroa.027.0.copyload.i368, align 8, !tbaa !11
   %917 = fsub double %916, %877
-  %918 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i368, i64 %915
+  %918 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i368, i64 %915
   %919 = load double, ptr %918, align 8, !tbaa !11
   %920 = fsub double %919, %880
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i371 = shl nsw i64 %915, 4
@@ -5256,7 +5256,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %935 = load double, ptr %.sroa.0.0.copyload.i374, align 8, !tbaa !11
   %936 = fsub double %935, %877
   %937 = insertelement <2 x double> poison, double %936, i64 0
-  %938 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i374, i64 %934
+  %938 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i374, i64 %934
   %939 = load double, ptr %938, align 8, !tbaa !11
   %940 = fsub double %939, %880
   %.sroa.080.8.vec.insert100.i377 = insertelement <2 x double> %937, double %940, i64 1
@@ -5290,9 +5290,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %955 = load double, ptr %.sroa.072.0.copyload.i381, align 8, !tbaa !11
   %956 = load double, ptr %.sroa.576.56.copyload.i384, align 8, !tbaa !11
   %957 = fsub double %955, %956
-  %958 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i381, i64 %952
+  %958 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i381, i64 %952
   %959 = load double, ptr %958, align 8, !tbaa !11
-  %960 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i384, i64 %954
+  %960 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i384, i64 %954
   %961 = load double, ptr %960, align 8, !tbaa !11
   %962 = fsub double %959, %961
   %.idx.i.i.i.i.i.i.i.i.i.i.i387 = shl nsw i64 %952, 4
@@ -5309,7 +5309,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %969 = load i64, ptr %968, align 8, !tbaa !4
   %970 = load double, ptr %.sroa.060.0.copyload.i389, align 8, !tbaa !11
   %971 = fsub double %970, %956
-  %972 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i389, i64 %969
+  %972 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i389, i64 %969
   %973 = load double, ptr %972, align 8, !tbaa !11
   %974 = fsub double %973, %961
   %.idx.i.i.i.i.i.i.i.i.i.i13.i392 = shl nsw i64 %969, 4
@@ -5335,7 +5335,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %989 = load double, ptr %.sroa.043.0.copyload.i395, align 8, !tbaa !11
   %990 = fsub double %989, %956
   %991 = insertelement <2 x double> poison, double %990, i64 0
-  %992 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i395, i64 %988
+  %992 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i395, i64 %988
   %993 = load double, ptr %992, align 8, !tbaa !11
   %994 = fsub double %993, %961
   %.sroa.080.8.vec.insert94.i398 = insertelement <2 x double> %991, double %994, i64 1
@@ -5363,7 +5363,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %1008 = load i64, ptr %1007, align 8, !tbaa !4
   %1009 = load double, ptr %.sroa.027.0.copyload.i400, align 8, !tbaa !11
   %1010 = fsub double %1009, %970
-  %1011 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i400, i64 %1008
+  %1011 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i400, i64 %1008
   %1012 = load double, ptr %1011, align 8, !tbaa !11
   %1013 = fsub double %1012, %973
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i403 = shl nsw i64 %1008, 4
@@ -5389,7 +5389,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %1028 = load double, ptr %.sroa.0.0.copyload.i406, align 8, !tbaa !11
   %1029 = fsub double %1028, %970
   %1030 = insertelement <2 x double> poison, double %1029, i64 0
-  %1031 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i406, i64 %1027
+  %1031 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i406, i64 %1027
   %1032 = load double, ptr %1031, align 8, !tbaa !11
   %1033 = fsub double %1032, %973
   %.sroa.080.8.vec.insert100.i409 = insertelement <2 x double> %1030, double %1033, i64 1
@@ -5437,7 +5437,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %12 = load double, ptr %8, align 8, !tbaa !11
   %13 = fsub double %12, %11
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = getelementptr inbounds double, ptr %.sroa.4247.8.copyload, i64 %10
+  %15 = getelementptr inbounds [8 x i8], ptr %.sroa.4247.8.copyload, i64 %10
   %16 = load double, ptr %15, align 8, !tbaa !11
   %17 = load double, ptr %14, align 8, !tbaa !11
   %18 = fsub double %17, %16
@@ -5454,7 +5454,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %25 = load i64, ptr %24, align 8, !tbaa !4
   %26 = load double, ptr %.sroa.0238.0.copyload, align 8, !tbaa !11
   %27 = fsub double %26, %11
-  %28 = getelementptr inbounds double, ptr %.sroa.0238.0.copyload, i64 %25
+  %28 = getelementptr inbounds [8 x i8], ptr %.sroa.0238.0.copyload, i64 %25
   %29 = load double, ptr %28, align 8, !tbaa !11
   %30 = fsub double %29, %16
   %.idx.i.i.i.i.i.i.i.i.i.i.i161 = shl nsw i64 %25, 4
@@ -5480,7 +5480,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %45 = load double, ptr %.sroa.0227.0.copyload, align 8, !tbaa !11
   %46 = fsub double %45, %11
   %47 = insertelement <2 x double> poison, double %46, i64 0
-  %48 = getelementptr inbounds double, ptr %.sroa.0227.0.copyload, i64 %44
+  %48 = getelementptr inbounds [8 x i8], ptr %.sroa.0227.0.copyload, i64 %44
   %49 = load double, ptr %48, align 8, !tbaa !11
   %50 = fsub double %49, %16
   %.sroa.0263.8.vec.insert289 = insertelement <2 x double> %47, double %50, i64 1
@@ -5502,7 +5502,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %60 = load double, ptr %.sroa.0219.0.copyload, align 8, !tbaa !11
   %61 = fsub double %60, %11
   %.sroa.0263.0.vec.insert274 = insertelement <2 x double> poison, double %61, i64 0
-  %62 = getelementptr inbounds double, ptr %.sroa.0219.0.copyload, i64 %59
+  %62 = getelementptr inbounds [8 x i8], ptr %.sroa.0219.0.copyload, i64 %59
   %63 = load double, ptr %62, align 8, !tbaa !11
   %64 = fsub double %63, %16
   %.sroa.0263.8.vec.insert291 = insertelement <2 x double> %.sroa.0263.0.vec.insert274, double %64, i64 1
@@ -5524,7 +5524,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %74 = load double, ptr %.sroa.0211.0.copyload, align 8, !tbaa !11
   %75 = fsub double %74, %11
   %.sroa.0263.0.vec.insert276 = insertelement <2 x double> poison, double %75, i64 0
-  %76 = getelementptr inbounds double, ptr %.sroa.0211.0.copyload, i64 %73
+  %76 = getelementptr inbounds [8 x i8], ptr %.sroa.0211.0.copyload, i64 %73
   %77 = load double, ptr %76, align 8, !tbaa !11
   %78 = fsub double %77, %16
   %.sroa.0263.8.vec.insert293 = insertelement <2 x double> %.sroa.0263.0.vec.insert276, double %78, i64 1
@@ -5598,7 +5598,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %126 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !11
   %127 = fsub double %126, %74
   %.sroa.0263.0.vec.insert286 = insertelement <2 x double> poison, double %127, i64 0
-  %128 = getelementptr inbounds double, ptr %.sroa.0.0.copyload, i64 %125
+  %128 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload, i64 %125
   %129 = load double, ptr %128, align 8, !tbaa !11
   %130 = fsub double %129, %77
   %.sroa.0263.8.vec.insert303 = insertelement <2 x double> %.sroa.0263.0.vec.insert286, double %130, i64 1
@@ -5746,9 +5746,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %19 = load double, ptr %.sroa.068.0.copyload.i, align 8, !tbaa !11
   %20 = load double, ptr %.sroa.572.56.copyload.i, align 8, !tbaa !11
   %21 = fsub double %19, %20
-  %22 = getelementptr inbounds double, ptr %.sroa.068.0.copyload.i, i64 %16
+  %22 = getelementptr inbounds [8 x i8], ptr %.sroa.068.0.copyload.i, i64 %16
   %23 = load double, ptr %22, align 8, !tbaa !11
-  %24 = getelementptr inbounds double, ptr %.sroa.572.56.copyload.i, i64 %18
+  %24 = getelementptr inbounds [8 x i8], ptr %.sroa.572.56.copyload.i, i64 %18
   %25 = load double, ptr %24, align 8, !tbaa !11
   %26 = fsub double %23, %25
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %16, 4
@@ -5765,7 +5765,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %33 = load i64, ptr %32, align 8, !tbaa !4
   %34 = load double, ptr %.sroa.055.0.copyload.i, align 8, !tbaa !11
   %35 = fsub double %34, %20
-  %36 = getelementptr inbounds double, ptr %.sroa.055.0.copyload.i, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %.sroa.055.0.copyload.i, i64 %33
   %37 = load double, ptr %36, align 8, !tbaa !11
   %38 = fsub double %37, %25
   %.idx.i.i.i.i.i.i.i.i.i.i13.i = shl nsw i64 %33, 4
@@ -5814,7 +5814,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %71 = load i64, ptr %70, align 8, !tbaa !4
   %72 = load double, ptr %.sroa.026.0.copyload.i, align 8, !tbaa !11
   %73 = fsub double %72, %34
-  %74 = getelementptr inbounds double, ptr %.sroa.026.0.copyload.i, i64 %71
+  %74 = getelementptr inbounds [8 x i8], ptr %.sroa.026.0.copyload.i, i64 %71
   %75 = load double, ptr %74, align 8, !tbaa !11
   %76 = fsub double %75, %37
   %.idx.i.i.i.i.i.i.i.i.i.i.i16.i = shl nsw i64 %71, 4
@@ -5840,7 +5840,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %91 = load double, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !11
   %92 = fsub double %91, %34
   %93 = insertelement <2 x double> poison, double %92, i64 0
-  %94 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i, i64 %90
+  %94 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i, i64 %90
   %95 = load double, ptr %94, align 8, !tbaa !11
   %96 = fsub double %95, %37
   %.sroa.076.8.vec.insert96.i = insertelement <2 x double> %93, double %96, i64 1
@@ -5875,9 +5875,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %112 = load double, ptr %.sroa.068.0.copyload.i95, align 8, !tbaa !11
   %113 = load double, ptr %.sroa.572.56.copyload.i98, align 8, !tbaa !11
   %114 = fsub double %112, %113
-  %115 = getelementptr inbounds double, ptr %.sroa.068.0.copyload.i95, i64 %109
+  %115 = getelementptr inbounds [8 x i8], ptr %.sroa.068.0.copyload.i95, i64 %109
   %116 = load double, ptr %115, align 8, !tbaa !11
-  %117 = getelementptr inbounds double, ptr %.sroa.572.56.copyload.i98, i64 %111
+  %117 = getelementptr inbounds [8 x i8], ptr %.sroa.572.56.copyload.i98, i64 %111
   %118 = load double, ptr %117, align 8, !tbaa !11
   %119 = fsub double %116, %118
   %.idx.i.i.i.i.i.i.i.i.i.i.i101 = shl nsw i64 %109, 4
@@ -5894,7 +5894,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %126 = load i64, ptr %125, align 8, !tbaa !4
   %127 = load double, ptr %.sroa.055.0.copyload.i103, align 8, !tbaa !11
   %128 = fsub double %127, %113
-  %129 = getelementptr inbounds double, ptr %.sroa.055.0.copyload.i103, i64 %126
+  %129 = getelementptr inbounds [8 x i8], ptr %.sroa.055.0.copyload.i103, i64 %126
   %130 = load double, ptr %129, align 8, !tbaa !11
   %131 = fsub double %130, %118
   %.idx.i.i.i.i.i.i.i.i.i.i13.i106 = shl nsw i64 %126, 4
@@ -5920,7 +5920,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %146 = load double, ptr %.sroa.038.0.copyload.i, align 8, !tbaa !11
   %147 = fsub double %146, %113
   %148 = insertelement <2 x double> poison, double %147, i64 0
-  %149 = getelementptr inbounds double, ptr %.sroa.038.0.copyload.i, i64 %145
+  %149 = getelementptr inbounds [8 x i8], ptr %.sroa.038.0.copyload.i, i64 %145
   %150 = load double, ptr %149, align 8, !tbaa !11
   %151 = fsub double %150, %118
   %.sroa.076.8.vec.insert90.i109 = insertelement <2 x double> %148, double %151, i64 1
@@ -5948,7 +5948,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %165 = load i64, ptr %164, align 8, !tbaa !4
   %166 = load double, ptr %.sroa.023.0.copyload.i, align 8, !tbaa !11
   %167 = fsub double %166, %127
-  %168 = getelementptr inbounds double, ptr %.sroa.023.0.copyload.i, i64 %165
+  %168 = getelementptr inbounds [8 x i8], ptr %.sroa.023.0.copyload.i, i64 %165
   %169 = load double, ptr %168, align 8, !tbaa !11
   %170 = fsub double %169, %130
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i = shl nsw i64 %165, 4
@@ -5997,7 +5997,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %203 = load double, ptr %199, align 8, !tbaa !11
   %204 = fsub double %203, %202
   %205 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %206 = getelementptr inbounds double, ptr %.sroa.468.8.copyload.i, i64 %201
+  %206 = getelementptr inbounds [8 x i8], ptr %.sroa.468.8.copyload.i, i64 %201
   %207 = load double, ptr %206, align 8, !tbaa !11
   %208 = load double, ptr %205, align 8, !tbaa !11
   %209 = fsub double %208, %207
@@ -6014,7 +6014,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %216 = load i64, ptr %215, align 8, !tbaa !4
   %217 = load double, ptr %.sroa.054.0.copyload.i, align 8, !tbaa !11
   %218 = fsub double %217, %202
-  %219 = getelementptr inbounds double, ptr %.sroa.054.0.copyload.i, i64 %216
+  %219 = getelementptr inbounds [8 x i8], ptr %.sroa.054.0.copyload.i, i64 %216
   %220 = load double, ptr %219, align 8, !tbaa !11
   %221 = fsub double %220, %207
   %.idx.i.i.i.i.i.i.i.i.i.i13.i115 = shl nsw i64 %216, 4
@@ -6040,7 +6040,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %236 = load double, ptr %.sroa.037.0.copyload.i, align 8, !tbaa !11
   %237 = fsub double %236, %202
   %238 = insertelement <2 x double> poison, double %237, i64 0
-  %239 = getelementptr inbounds double, ptr %.sroa.037.0.copyload.i, i64 %235
+  %239 = getelementptr inbounds [8 x i8], ptr %.sroa.037.0.copyload.i, i64 %235
   %240 = load double, ptr %239, align 8, !tbaa !11
   %241 = fsub double %240, %207
   %.sroa.072.8.vec.insert86.i = insertelement <2 x double> %238, double %241, i64 1
@@ -6068,7 +6068,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %255 = load i64, ptr %254, align 8, !tbaa !4
   %256 = load double, ptr %.sroa.025.0.copyload.i, align 8, !tbaa !11
   %257 = fsub double %256, %217
-  %258 = getelementptr inbounds double, ptr %.sroa.025.0.copyload.i, i64 %255
+  %258 = getelementptr inbounds [8 x i8], ptr %.sroa.025.0.copyload.i, i64 %255
   %259 = load double, ptr %258, align 8, !tbaa !11
   %260 = fsub double %259, %220
   %.idx.i.i.i.i.i.i.i.i.i.i.i15.i = shl nsw i64 %255, 4
@@ -6094,7 +6094,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %275 = load double, ptr %.sroa.0.0.copyload.i117, align 8, !tbaa !11
   %276 = fsub double %275, %217
   %277 = insertelement <2 x double> poison, double %276, i64 0
-  %278 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i117, i64 %274
+  %278 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i117, i64 %274
   %279 = load double, ptr %278, align 8, !tbaa !11
   %280 = fsub double %279, %220
   %.sroa.072.8.vec.insert92.i = insertelement <2 x double> %277, double %280, i64 1
@@ -6133,9 +6133,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %298 = load double, ptr %.sroa.068.0.copyload.i120, align 8, !tbaa !11
   %299 = load double, ptr %.sroa.572.56.copyload.i123, align 8, !tbaa !11
   %300 = fsub double %298, %299
-  %301 = getelementptr inbounds double, ptr %.sroa.068.0.copyload.i120, i64 %295
+  %301 = getelementptr inbounds [8 x i8], ptr %.sroa.068.0.copyload.i120, i64 %295
   %302 = load double, ptr %301, align 8, !tbaa !11
-  %303 = getelementptr inbounds double, ptr %.sroa.572.56.copyload.i123, i64 %297
+  %303 = getelementptr inbounds [8 x i8], ptr %.sroa.572.56.copyload.i123, i64 %297
   %304 = load double, ptr %303, align 8, !tbaa !11
   %305 = fsub double %302, %304
   %.idx.i.i.i.i.i.i.i.i.i.i.i126 = shl nsw i64 %295, 4
@@ -6152,7 +6152,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %312 = load i64, ptr %311, align 8, !tbaa !4
   %313 = load double, ptr %.sroa.055.0.copyload.i128, align 8, !tbaa !11
   %314 = fsub double %313, %299
-  %315 = getelementptr inbounds double, ptr %.sroa.055.0.copyload.i128, i64 %312
+  %315 = getelementptr inbounds [8 x i8], ptr %.sroa.055.0.copyload.i128, i64 %312
   %316 = load double, ptr %315, align 8, !tbaa !11
   %317 = fsub double %316, %304
   %.idx.i.i.i.i.i.i.i.i.i.i13.i131 = shl nsw i64 %312, 4
@@ -6201,7 +6201,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %350 = load i64, ptr %349, align 8, !tbaa !4
   %351 = load double, ptr %.sroa.026.0.copyload.i135, align 8, !tbaa !11
   %352 = fsub double %351, %313
-  %353 = getelementptr inbounds double, ptr %.sroa.026.0.copyload.i135, i64 %350
+  %353 = getelementptr inbounds [8 x i8], ptr %.sroa.026.0.copyload.i135, i64 %350
   %354 = load double, ptr %353, align 8, !tbaa !11
   %355 = fsub double %354, %316
   %.idx.i.i.i.i.i.i.i.i.i.i.i16.i138 = shl nsw i64 %350, 4
@@ -6227,7 +6227,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %370 = load double, ptr %.sroa.0.0.copyload.i141, align 8, !tbaa !11
   %371 = fsub double %370, %313
   %372 = insertelement <2 x double> poison, double %371, i64 0
-  %373 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i141, i64 %369
+  %373 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i141, i64 %369
   %374 = load double, ptr %373, align 8, !tbaa !11
   %375 = fsub double %374, %316
   %.sroa.076.8.vec.insert96.i144 = insertelement <2 x double> %372, double %375, i64 1
@@ -6262,9 +6262,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %391 = load double, ptr %.sroa.068.0.copyload.i148, align 8, !tbaa !11
   %392 = load double, ptr %.sroa.572.56.copyload.i151, align 8, !tbaa !11
   %393 = fsub double %391, %392
-  %394 = getelementptr inbounds double, ptr %.sroa.068.0.copyload.i148, i64 %388
+  %394 = getelementptr inbounds [8 x i8], ptr %.sroa.068.0.copyload.i148, i64 %388
   %395 = load double, ptr %394, align 8, !tbaa !11
-  %396 = getelementptr inbounds double, ptr %.sroa.572.56.copyload.i151, i64 %390
+  %396 = getelementptr inbounds [8 x i8], ptr %.sroa.572.56.copyload.i151, i64 %390
   %397 = load double, ptr %396, align 8, !tbaa !11
   %398 = fsub double %395, %397
   %.idx.i.i.i.i.i.i.i.i.i.i.i154 = shl nsw i64 %388, 4
@@ -6281,7 +6281,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %405 = load i64, ptr %404, align 8, !tbaa !4
   %406 = load double, ptr %.sroa.055.0.copyload.i156, align 8, !tbaa !11
   %407 = fsub double %406, %392
-  %408 = getelementptr inbounds double, ptr %.sroa.055.0.copyload.i156, i64 %405
+  %408 = getelementptr inbounds [8 x i8], ptr %.sroa.055.0.copyload.i156, i64 %405
   %409 = load double, ptr %408, align 8, !tbaa !11
   %410 = fsub double %409, %397
   %.idx.i.i.i.i.i.i.i.i.i.i13.i159 = shl nsw i64 %405, 4
@@ -6307,7 +6307,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %425 = load double, ptr %.sroa.038.0.copyload.i162, align 8, !tbaa !11
   %426 = fsub double %425, %392
   %427 = insertelement <2 x double> poison, double %426, i64 0
-  %428 = getelementptr inbounds double, ptr %.sroa.038.0.copyload.i162, i64 %424
+  %428 = getelementptr inbounds [8 x i8], ptr %.sroa.038.0.copyload.i162, i64 %424
   %429 = load double, ptr %428, align 8, !tbaa !11
   %430 = fsub double %429, %397
   %.sroa.076.8.vec.insert90.i165 = insertelement <2 x double> %427, double %430, i64 1
@@ -6335,7 +6335,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %444 = load i64, ptr %443, align 8, !tbaa !4
   %445 = load double, ptr %.sroa.023.0.copyload.i167, align 8, !tbaa !11
   %446 = fsub double %445, %406
-  %447 = getelementptr inbounds double, ptr %.sroa.023.0.copyload.i167, i64 %444
+  %447 = getelementptr inbounds [8 x i8], ptr %.sroa.023.0.copyload.i167, i64 %444
   %448 = load double, ptr %447, align 8, !tbaa !11
   %449 = fsub double %448, %409
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i170 = shl nsw i64 %444, 4
@@ -6384,7 +6384,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %482 = load double, ptr %478, align 8, !tbaa !11
   %483 = fsub double %482, %481
   %484 = getelementptr inbounds nuw i8, ptr %478, i64 8
-  %485 = getelementptr inbounds double, ptr %.sroa.468.8.copyload.i176, i64 %480
+  %485 = getelementptr inbounds [8 x i8], ptr %.sroa.468.8.copyload.i176, i64 %480
   %486 = load double, ptr %485, align 8, !tbaa !11
   %487 = load double, ptr %484, align 8, !tbaa !11
   %488 = fsub double %487, %486
@@ -6401,7 +6401,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %495 = load i64, ptr %494, align 8, !tbaa !4
   %496 = load double, ptr %.sroa.054.0.copyload.i180, align 8, !tbaa !11
   %497 = fsub double %496, %481
-  %498 = getelementptr inbounds double, ptr %.sroa.054.0.copyload.i180, i64 %495
+  %498 = getelementptr inbounds [8 x i8], ptr %.sroa.054.0.copyload.i180, i64 %495
   %499 = load double, ptr %498, align 8, !tbaa !11
   %500 = fsub double %499, %486
   %.idx.i.i.i.i.i.i.i.i.i.i13.i183 = shl nsw i64 %495, 4
@@ -6427,7 +6427,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %515 = load double, ptr %.sroa.037.0.copyload.i186, align 8, !tbaa !11
   %516 = fsub double %515, %481
   %517 = insertelement <2 x double> poison, double %516, i64 0
-  %518 = getelementptr inbounds double, ptr %.sroa.037.0.copyload.i186, i64 %514
+  %518 = getelementptr inbounds [8 x i8], ptr %.sroa.037.0.copyload.i186, i64 %514
   %519 = load double, ptr %518, align 8, !tbaa !11
   %520 = fsub double %519, %486
   %.sroa.072.8.vec.insert86.i189 = insertelement <2 x double> %517, double %520, i64 1
@@ -6455,7 +6455,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %534 = load i64, ptr %533, align 8, !tbaa !4
   %535 = load double, ptr %.sroa.025.0.copyload.i191, align 8, !tbaa !11
   %536 = fsub double %535, %496
-  %537 = getelementptr inbounds double, ptr %.sroa.025.0.copyload.i191, i64 %534
+  %537 = getelementptr inbounds [8 x i8], ptr %.sroa.025.0.copyload.i191, i64 %534
   %538 = load double, ptr %537, align 8, !tbaa !11
   %539 = fsub double %538, %499
   %.idx.i.i.i.i.i.i.i.i.i.i.i15.i194 = shl nsw i64 %534, 4
@@ -6481,7 +6481,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %554 = load double, ptr %.sroa.0.0.copyload.i197, align 8, !tbaa !11
   %555 = fsub double %554, %496
   %556 = insertelement <2 x double> poison, double %555, i64 0
-  %557 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i197, i64 %553
+  %557 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i197, i64 %553
   %558 = load double, ptr %557, align 8, !tbaa !11
   %559 = fsub double %558, %499
   %.sroa.072.8.vec.insert92.i200 = insertelement <2 x double> %556, double %559, i64 1
@@ -6519,9 +6519,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %576 = load double, ptr %.sroa.068.0.copyload.i204, align 8, !tbaa !11
   %577 = load double, ptr %.sroa.572.56.copyload.i207, align 8, !tbaa !11
   %578 = fsub double %576, %577
-  %579 = getelementptr inbounds double, ptr %.sroa.068.0.copyload.i204, i64 %573
+  %579 = getelementptr inbounds [8 x i8], ptr %.sroa.068.0.copyload.i204, i64 %573
   %580 = load double, ptr %579, align 8, !tbaa !11
-  %581 = getelementptr inbounds double, ptr %.sroa.572.56.copyload.i207, i64 %575
+  %581 = getelementptr inbounds [8 x i8], ptr %.sroa.572.56.copyload.i207, i64 %575
   %582 = load double, ptr %581, align 8, !tbaa !11
   %583 = fsub double %580, %582
   %.idx.i.i.i.i.i.i.i.i.i.i.i210 = shl nsw i64 %573, 4
@@ -6538,7 +6538,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %590 = load i64, ptr %589, align 8, !tbaa !4
   %591 = load double, ptr %.sroa.055.0.copyload.i212, align 8, !tbaa !11
   %592 = fsub double %591, %577
-  %593 = getelementptr inbounds double, ptr %.sroa.055.0.copyload.i212, i64 %590
+  %593 = getelementptr inbounds [8 x i8], ptr %.sroa.055.0.copyload.i212, i64 %590
   %594 = load double, ptr %593, align 8, !tbaa !11
   %595 = fsub double %594, %582
   %.idx.i.i.i.i.i.i.i.i.i.i13.i215 = shl nsw i64 %590, 4
@@ -6564,7 +6564,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %610 = load double, ptr %.sroa.038.0.copyload.i218, align 8, !tbaa !11
   %611 = fsub double %610, %577
   %612 = insertelement <2 x double> poison, double %611, i64 0
-  %613 = getelementptr inbounds double, ptr %.sroa.038.0.copyload.i218, i64 %609
+  %613 = getelementptr inbounds [8 x i8], ptr %.sroa.038.0.copyload.i218, i64 %609
   %614 = load double, ptr %613, align 8, !tbaa !11
   %615 = fsub double %614, %582
   %.sroa.076.8.vec.insert90.i221 = insertelement <2 x double> %612, double %615, i64 1
@@ -6592,7 +6592,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %629 = load i64, ptr %628, align 8, !tbaa !4
   %630 = load double, ptr %.sroa.023.0.copyload.i223, align 8, !tbaa !11
   %631 = fsub double %630, %591
-  %632 = getelementptr inbounds double, ptr %.sroa.023.0.copyload.i223, i64 %629
+  %632 = getelementptr inbounds [8 x i8], ptr %.sroa.023.0.copyload.i223, i64 %629
   %633 = load double, ptr %632, align 8, !tbaa !11
   %634 = fsub double %633, %594
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i226 = shl nsw i64 %629, 4
@@ -6641,7 +6641,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %667 = load double, ptr %663, align 8, !tbaa !11
   %668 = fsub double %667, %666
   %669 = getelementptr inbounds nuw i8, ptr %663, i64 8
-  %670 = getelementptr inbounds double, ptr %.sroa.468.8.copyload.i232, i64 %665
+  %670 = getelementptr inbounds [8 x i8], ptr %.sroa.468.8.copyload.i232, i64 %665
   %671 = load double, ptr %670, align 8, !tbaa !11
   %672 = load double, ptr %669, align 8, !tbaa !11
   %673 = fsub double %672, %671
@@ -6658,7 +6658,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %680 = load i64, ptr %679, align 8, !tbaa !4
   %681 = load double, ptr %.sroa.054.0.copyload.i236, align 8, !tbaa !11
   %682 = fsub double %681, %666
-  %683 = getelementptr inbounds double, ptr %.sroa.054.0.copyload.i236, i64 %680
+  %683 = getelementptr inbounds [8 x i8], ptr %.sroa.054.0.copyload.i236, i64 %680
   %684 = load double, ptr %683, align 8, !tbaa !11
   %685 = fsub double %684, %671
   %.idx.i.i.i.i.i.i.i.i.i.i13.i239 = shl nsw i64 %680, 4
@@ -6684,7 +6684,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %700 = load double, ptr %.sroa.037.0.copyload.i242, align 8, !tbaa !11
   %701 = fsub double %700, %666
   %702 = insertelement <2 x double> poison, double %701, i64 0
-  %703 = getelementptr inbounds double, ptr %.sroa.037.0.copyload.i242, i64 %699
+  %703 = getelementptr inbounds [8 x i8], ptr %.sroa.037.0.copyload.i242, i64 %699
   %704 = load double, ptr %703, align 8, !tbaa !11
   %705 = fsub double %704, %671
   %.sroa.072.8.vec.insert86.i245 = insertelement <2 x double> %702, double %705, i64 1
@@ -6712,7 +6712,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %719 = load i64, ptr %718, align 8, !tbaa !4
   %720 = load double, ptr %.sroa.025.0.copyload.i247, align 8, !tbaa !11
   %721 = fsub double %720, %681
-  %722 = getelementptr inbounds double, ptr %.sroa.025.0.copyload.i247, i64 %719
+  %722 = getelementptr inbounds [8 x i8], ptr %.sroa.025.0.copyload.i247, i64 %719
   %723 = load double, ptr %722, align 8, !tbaa !11
   %724 = fsub double %723, %684
   %.idx.i.i.i.i.i.i.i.i.i.i.i15.i250 = shl nsw i64 %719, 4
@@ -6738,7 +6738,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %739 = load double, ptr %.sroa.0.0.copyload.i253, align 8, !tbaa !11
   %740 = fsub double %739, %681
   %741 = insertelement <2 x double> poison, double %740, i64 0
-  %742 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i253, i64 %738
+  %742 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i253, i64 %738
   %743 = load double, ptr %742, align 8, !tbaa !11
   %744 = fsub double %743, %684
   %.sroa.072.8.vec.insert92.i256 = insertelement <2 x double> %741, double %744, i64 1
@@ -6774,7 +6774,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %762 = load double, ptr %758, align 8, !tbaa !11
   %763 = fsub double %762, %761
   %764 = getelementptr inbounds nuw i8, ptr %758, i64 8
-  %765 = getelementptr inbounds double, ptr %.sroa.468.8.copyload.i260, i64 %760
+  %765 = getelementptr inbounds [8 x i8], ptr %.sroa.468.8.copyload.i260, i64 %760
   %766 = load double, ptr %765, align 8, !tbaa !11
   %767 = load double, ptr %764, align 8, !tbaa !11
   %768 = fsub double %767, %766
@@ -6791,7 +6791,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %775 = load i64, ptr %774, align 8, !tbaa !4
   %776 = load double, ptr %.sroa.054.0.copyload.i264, align 8, !tbaa !11
   %777 = fsub double %776, %761
-  %778 = getelementptr inbounds double, ptr %.sroa.054.0.copyload.i264, i64 %775
+  %778 = getelementptr inbounds [8 x i8], ptr %.sroa.054.0.copyload.i264, i64 %775
   %779 = load double, ptr %778, align 8, !tbaa !11
   %780 = fsub double %779, %766
   %.idx.i.i.i.i.i.i.i.i.i.i13.i267 = shl nsw i64 %775, 4
@@ -6817,7 +6817,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %795 = load double, ptr %.sroa.037.0.copyload.i270, align 8, !tbaa !11
   %796 = fsub double %795, %761
   %797 = insertelement <2 x double> poison, double %796, i64 0
-  %798 = getelementptr inbounds double, ptr %.sroa.037.0.copyload.i270, i64 %794
+  %798 = getelementptr inbounds [8 x i8], ptr %.sroa.037.0.copyload.i270, i64 %794
   %799 = load double, ptr %798, align 8, !tbaa !11
   %800 = fsub double %799, %766
   %.sroa.072.8.vec.insert86.i273 = insertelement <2 x double> %797, double %800, i64 1
@@ -6845,7 +6845,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %814 = load i64, ptr %813, align 8, !tbaa !4
   %815 = load double, ptr %.sroa.025.0.copyload.i275, align 8, !tbaa !11
   %816 = fsub double %815, %776
-  %817 = getelementptr inbounds double, ptr %.sroa.025.0.copyload.i275, i64 %814
+  %817 = getelementptr inbounds [8 x i8], ptr %.sroa.025.0.copyload.i275, i64 %814
   %818 = load double, ptr %817, align 8, !tbaa !11
   %819 = fsub double %818, %779
   %.idx.i.i.i.i.i.i.i.i.i.i.i15.i278 = shl nsw i64 %814, 4
@@ -6871,7 +6871,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %834 = load double, ptr %.sroa.0.0.copyload.i281, align 8, !tbaa !11
   %835 = fsub double %834, %776
   %836 = insertelement <2 x double> poison, double %835, i64 0
-  %837 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i281, i64 %833
+  %837 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i281, i64 %833
   %838 = load double, ptr %837, align 8, !tbaa !11
   %839 = fsub double %838, %779
   %.sroa.072.8.vec.insert92.i284 = insertelement <2 x double> %836, double %839, i64 1
@@ -6902,9 +6902,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %853 = load double, ptr %.sroa.068.0.copyload.i288, align 8, !tbaa !11
   %854 = load double, ptr %.sroa.572.56.copyload.i291, align 8, !tbaa !11
   %855 = fsub double %853, %854
-  %856 = getelementptr inbounds double, ptr %.sroa.068.0.copyload.i288, i64 %850
+  %856 = getelementptr inbounds [8 x i8], ptr %.sroa.068.0.copyload.i288, i64 %850
   %857 = load double, ptr %856, align 8, !tbaa !11
-  %858 = getelementptr inbounds double, ptr %.sroa.572.56.copyload.i291, i64 %852
+  %858 = getelementptr inbounds [8 x i8], ptr %.sroa.572.56.copyload.i291, i64 %852
   %859 = load double, ptr %858, align 8, !tbaa !11
   %860 = fsub double %857, %859
   %.idx.i.i.i.i.i.i.i.i.i.i.i294 = shl nsw i64 %850, 4
@@ -6921,7 +6921,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %867 = load i64, ptr %866, align 8, !tbaa !4
   %868 = load double, ptr %.sroa.055.0.copyload.i296, align 8, !tbaa !11
   %869 = fsub double %868, %854
-  %870 = getelementptr inbounds double, ptr %.sroa.055.0.copyload.i296, i64 %867
+  %870 = getelementptr inbounds [8 x i8], ptr %.sroa.055.0.copyload.i296, i64 %867
   %871 = load double, ptr %870, align 8, !tbaa !11
   %872 = fsub double %871, %859
   %.idx.i.i.i.i.i.i.i.i.i.i13.i299 = shl nsw i64 %867, 4
@@ -6947,7 +6947,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %887 = load double, ptr %.sroa.038.0.copyload.i302, align 8, !tbaa !11
   %888 = fsub double %887, %854
   %889 = insertelement <2 x double> poison, double %888, i64 0
-  %890 = getelementptr inbounds double, ptr %.sroa.038.0.copyload.i302, i64 %886
+  %890 = getelementptr inbounds [8 x i8], ptr %.sroa.038.0.copyload.i302, i64 %886
   %891 = load double, ptr %890, align 8, !tbaa !11
   %892 = fsub double %891, %859
   %.sroa.076.8.vec.insert90.i305 = insertelement <2 x double> %889, double %892, i64 1
@@ -6975,7 +6975,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %906 = load i64, ptr %905, align 8, !tbaa !4
   %907 = load double, ptr %.sroa.023.0.copyload.i307, align 8, !tbaa !11
   %908 = fsub double %907, %868
-  %909 = getelementptr inbounds double, ptr %.sroa.023.0.copyload.i307, i64 %906
+  %909 = getelementptr inbounds [8 x i8], ptr %.sroa.023.0.copyload.i307, i64 %906
   %910 = load double, ptr %909, align 8, !tbaa !11
   %911 = fsub double %910, %871
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i310 = shl nsw i64 %906, 4
@@ -7030,9 +7030,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %945 = load double, ptr %.sroa.068.0.copyload.i316, align 8, !tbaa !11
   %946 = load double, ptr %.sroa.572.56.copyload.i319, align 8, !tbaa !11
   %947 = fsub double %945, %946
-  %948 = getelementptr inbounds double, ptr %.sroa.068.0.copyload.i316, i64 %942
+  %948 = getelementptr inbounds [8 x i8], ptr %.sroa.068.0.copyload.i316, i64 %942
   %949 = load double, ptr %948, align 8, !tbaa !11
-  %950 = getelementptr inbounds double, ptr %.sroa.572.56.copyload.i319, i64 %944
+  %950 = getelementptr inbounds [8 x i8], ptr %.sroa.572.56.copyload.i319, i64 %944
   %951 = load double, ptr %950, align 8, !tbaa !11
   %952 = fsub double %949, %951
   %.idx.i.i.i.i.i.i.i.i.i.i.i322 = shl nsw i64 %942, 4
@@ -7049,7 +7049,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %959 = load i64, ptr %958, align 8, !tbaa !4
   %960 = load double, ptr %.sroa.055.0.copyload.i324, align 8, !tbaa !11
   %961 = fsub double %960, %946
-  %962 = getelementptr inbounds double, ptr %.sroa.055.0.copyload.i324, i64 %959
+  %962 = getelementptr inbounds [8 x i8], ptr %.sroa.055.0.copyload.i324, i64 %959
   %963 = load double, ptr %962, align 8, !tbaa !11
   %964 = fsub double %963, %951
   %.idx.i.i.i.i.i.i.i.i.i.i13.i327 = shl nsw i64 %959, 4
@@ -7098,7 +7098,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %997 = load i64, ptr %996, align 8, !tbaa !4
   %998 = load double, ptr %.sroa.026.0.copyload.i331, align 8, !tbaa !11
   %999 = fsub double %998, %960
-  %1000 = getelementptr inbounds double, ptr %.sroa.026.0.copyload.i331, i64 %997
+  %1000 = getelementptr inbounds [8 x i8], ptr %.sroa.026.0.copyload.i331, i64 %997
   %1001 = load double, ptr %1000, align 8, !tbaa !11
   %1002 = fsub double %1001, %963
   %.idx.i.i.i.i.i.i.i.i.i.i.i16.i334 = shl nsw i64 %997, 4
@@ -7124,7 +7124,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %1017 = load double, ptr %.sroa.0.0.copyload.i337, align 8, !tbaa !11
   %1018 = fsub double %1017, %960
   %1019 = insertelement <2 x double> poison, double %1018, i64 0
-  %1020 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i337, i64 %1016
+  %1020 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i337, i64 %1016
   %1021 = load double, ptr %1020, align 8, !tbaa !11
   %1022 = fsub double %1021, %963
   %.sroa.076.8.vec.insert96.i340 = insertelement <2 x double> %1019, double %1022, i64 1
@@ -7175,9 +7175,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %12 = load double, ptr %.sroa.0252.0.copyload, align 8, !tbaa !11
   %13 = load double, ptr %.sroa.5256.56.copyload, align 8, !tbaa !11
   %14 = fsub double %12, %13
-  %15 = getelementptr inbounds double, ptr %.sroa.0252.0.copyload, i64 %9
+  %15 = getelementptr inbounds [8 x i8], ptr %.sroa.0252.0.copyload, i64 %9
   %16 = load double, ptr %15, align 8, !tbaa !11
-  %17 = getelementptr inbounds double, ptr %.sroa.5256.56.copyload, i64 %11
+  %17 = getelementptr inbounds [8 x i8], ptr %.sroa.5256.56.copyload, i64 %11
   %18 = load double, ptr %17, align 8, !tbaa !11
   %19 = fsub double %16, %18
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %9, 4
@@ -7194,7 +7194,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %26 = load i64, ptr %25, align 8, !tbaa !4
   %27 = load double, ptr %.sroa.0244.0.copyload, align 8, !tbaa !11
   %28 = fsub double %27, %13
-  %29 = getelementptr inbounds double, ptr %.sroa.0244.0.copyload, i64 %26
+  %29 = getelementptr inbounds [8 x i8], ptr %.sroa.0244.0.copyload, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !11
   %31 = fsub double %30, %18
   %.idx.i.i.i.i.i.i.i.i.i.i.i161 = shl nsw i64 %26, 4
@@ -7220,7 +7220,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %46 = load double, ptr %.sroa.0233.0.copyload, align 8, !tbaa !11
   %47 = fsub double %46, %13
   %48 = insertelement <2 x double> poison, double %47, i64 0
-  %49 = getelementptr inbounds double, ptr %.sroa.0233.0.copyload, i64 %45
+  %49 = getelementptr inbounds [8 x i8], ptr %.sroa.0233.0.copyload, i64 %45
   %50 = load double, ptr %49, align 8, !tbaa !11
   %51 = fsub double %50, %18
   %.sroa.0271.8.vec.insert297 = insertelement <2 x double> %48, double %51, i64 1
@@ -7242,7 +7242,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %61 = load double, ptr %.sroa.0225.0.copyload, align 8, !tbaa !11
   %62 = fsub double %61, %13
   %.sroa.0271.0.vec.insert282 = insertelement <2 x double> poison, double %62, i64 0
-  %63 = getelementptr inbounds double, ptr %.sroa.0225.0.copyload, i64 %60
+  %63 = getelementptr inbounds [8 x i8], ptr %.sroa.0225.0.copyload, i64 %60
   %64 = load double, ptr %63, align 8, !tbaa !11
   %65 = fsub double %64, %18
   %.sroa.0271.8.vec.insert299 = insertelement <2 x double> %.sroa.0271.0.vec.insert282, double %65, i64 1
@@ -7264,7 +7264,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %75 = load double, ptr %.sroa.0217.0.copyload, align 8, !tbaa !11
   %76 = fsub double %75, %13
   %.sroa.0271.0.vec.insert284 = insertelement <2 x double> poison, double %76, i64 0
-  %77 = getelementptr inbounds double, ptr %.sroa.0217.0.copyload, i64 %74
+  %77 = getelementptr inbounds [8 x i8], ptr %.sroa.0217.0.copyload, i64 %74
   %78 = load double, ptr %77, align 8, !tbaa !11
   %79 = fsub double %78, %18
   %.sroa.0271.8.vec.insert301 = insertelement <2 x double> %.sroa.0271.0.vec.insert284, double %79, i64 1
@@ -7310,7 +7310,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %108 = load double, ptr %.sroa.0252.0.copyload, align 8, !tbaa !11
   %109 = fsub double %108, %75
   %110 = insertelement <2 x double> poison, double %109, i64 0
-  %111 = getelementptr inbounds double, ptr %.sroa.0252.0.copyload, i64 %107
+  %111 = getelementptr inbounds [8 x i8], ptr %.sroa.0252.0.copyload, i64 %107
   %112 = load double, ptr %111, align 8, !tbaa !11
   %113 = fsub double %112, %78
   %.sroa.0271.8.vec.insert307 = insertelement <2 x double> %110, double %113, i64 1
@@ -7343,7 +7343,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
   %131 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !11
   %132 = fsub double %131, %75
   %.sroa.0271.0.vec.insert294 = insertelement <2 x double> poison, double %132, i64 0
-  %133 = getelementptr inbounds double, ptr %.sroa.0.0.copyload, i64 %130
+  %133 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload, i64 %130
   %134 = load double, ptr %133, align 8, !tbaa !11
   %135 = fsub double %134, %78
   %.sroa.0271.8.vec.insert311 = insertelement <2 x double> %.sroa.0271.0.vec.insert294, double %135, i64 1
@@ -7491,9 +7491,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %19 = load double, ptr %.sroa.072.0.copyload.i, align 8, !tbaa !11
   %20 = load double, ptr %.sroa.576.56.copyload.i, align 8, !tbaa !11
   %21 = fsub double %19, %20
-  %22 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i, i64 %16
+  %22 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i, i64 %16
   %23 = load double, ptr %22, align 8, !tbaa !11
-  %24 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i, i64 %18
+  %24 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i, i64 %18
   %25 = load double, ptr %24, align 8, !tbaa !11
   %26 = fsub double %23, %25
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %16, 4
@@ -7510,7 +7510,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %33 = load i64, ptr %32, align 8, !tbaa !4
   %34 = load double, ptr %.sroa.060.0.copyload.i, align 8, !tbaa !11
   %35 = fsub double %34, %20
-  %36 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i, i64 %33
   %37 = load double, ptr %36, align 8, !tbaa !11
   %38 = fsub double %37, %25
   %.idx.i.i.i.i.i.i.i.i.i.i13.i = shl nsw i64 %33, 4
@@ -7536,7 +7536,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %53 = load double, ptr %.sroa.043.0.copyload.i, align 8, !tbaa !11
   %54 = fsub double %53, %20
   %55 = insertelement <2 x double> poison, double %54, i64 0
-  %56 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i, i64 %52
+  %56 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i, i64 %52
   %57 = load double, ptr %56, align 8, !tbaa !11
   %58 = fsub double %57, %25
   %.sroa.080.8.vec.insert94.i = insertelement <2 x double> %55, double %58, i64 1
@@ -7564,7 +7564,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %72 = load i64, ptr %71, align 8, !tbaa !4
   %73 = load double, ptr %.sroa.027.0.copyload.i, align 8, !tbaa !11
   %74 = fsub double %73, %34
-  %75 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i, i64 %72
+  %75 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i, i64 %72
   %76 = load double, ptr %75, align 8, !tbaa !11
   %77 = fsub double %76, %37
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i = shl nsw i64 %72, 4
@@ -7590,7 +7590,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %92 = load double, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !11
   %93 = fsub double %92, %34
   %94 = insertelement <2 x double> poison, double %93, i64 0
-  %95 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i, i64 %91
+  %95 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i, i64 %91
   %96 = load double, ptr %95, align 8, !tbaa !11
   %97 = fsub double %96, %37
   %.sroa.080.8.vec.insert100.i = insertelement <2 x double> %94, double %97, i64 1
@@ -7625,9 +7625,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %113 = load double, ptr %.sroa.072.0.copyload.i95, align 8, !tbaa !11
   %114 = load double, ptr %.sroa.576.56.copyload.i98, align 8, !tbaa !11
   %115 = fsub double %113, %114
-  %116 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i95, i64 %110
+  %116 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i95, i64 %110
   %117 = load double, ptr %116, align 8, !tbaa !11
-  %118 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i98, i64 %112
+  %118 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i98, i64 %112
   %119 = load double, ptr %118, align 8, !tbaa !11
   %120 = fsub double %117, %119
   %.idx.i.i.i.i.i.i.i.i.i.i.i101 = shl nsw i64 %110, 4
@@ -7644,7 +7644,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %127 = load i64, ptr %126, align 8, !tbaa !4
   %128 = load double, ptr %.sroa.060.0.copyload.i103, align 8, !tbaa !11
   %129 = fsub double %128, %114
-  %130 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i103, i64 %127
+  %130 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i103, i64 %127
   %131 = load double, ptr %130, align 8, !tbaa !11
   %132 = fsub double %131, %119
   %.idx.i.i.i.i.i.i.i.i.i.i13.i106 = shl nsw i64 %127, 4
@@ -7670,7 +7670,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %147 = load double, ptr %.sroa.043.0.copyload.i109, align 8, !tbaa !11
   %148 = fsub double %147, %114
   %149 = insertelement <2 x double> poison, double %148, i64 0
-  %150 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i109, i64 %146
+  %150 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i109, i64 %146
   %151 = load double, ptr %150, align 8, !tbaa !11
   %152 = fsub double %151, %119
   %.sroa.080.8.vec.insert94.i112 = insertelement <2 x double> %149, double %152, i64 1
@@ -7698,7 +7698,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %166 = load i64, ptr %165, align 8, !tbaa !4
   %167 = load double, ptr %.sroa.027.0.copyload.i114, align 8, !tbaa !11
   %168 = fsub double %167, %128
-  %169 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i114, i64 %166
+  %169 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i114, i64 %166
   %170 = load double, ptr %169, align 8, !tbaa !11
   %171 = fsub double %170, %131
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i117 = shl nsw i64 %166, 4
@@ -7724,7 +7724,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %186 = load double, ptr %.sroa.0.0.copyload.i120, align 8, !tbaa !11
   %187 = fsub double %186, %128
   %188 = insertelement <2 x double> poison, double %187, i64 0
-  %189 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i120, i64 %185
+  %189 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i120, i64 %185
   %190 = load double, ptr %189, align 8, !tbaa !11
   %191 = fsub double %190, %131
   %.sroa.080.8.vec.insert100.i123 = insertelement <2 x double> %188, double %191, i64 1
@@ -7755,9 +7755,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %205 = load double, ptr %.sroa.072.0.copyload.i127, align 8, !tbaa !11
   %206 = load double, ptr %.sroa.576.56.copyload.i130, align 8, !tbaa !11
   %207 = fsub double %205, %206
-  %208 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i127, i64 %202
+  %208 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i127, i64 %202
   %209 = load double, ptr %208, align 8, !tbaa !11
-  %210 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i130, i64 %204
+  %210 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i130, i64 %204
   %211 = load double, ptr %210, align 8, !tbaa !11
   %212 = fsub double %209, %211
   %.idx.i.i.i.i.i.i.i.i.i.i.i133 = shl nsw i64 %202, 4
@@ -7774,7 +7774,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %219 = load i64, ptr %218, align 8, !tbaa !4
   %220 = load double, ptr %.sroa.060.0.copyload.i135, align 8, !tbaa !11
   %221 = fsub double %220, %206
-  %222 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i135, i64 %219
+  %222 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i135, i64 %219
   %223 = load double, ptr %222, align 8, !tbaa !11
   %224 = fsub double %223, %211
   %.idx.i.i.i.i.i.i.i.i.i.i13.i138 = shl nsw i64 %219, 4
@@ -7800,7 +7800,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %239 = load double, ptr %.sroa.043.0.copyload.i141, align 8, !tbaa !11
   %240 = fsub double %239, %206
   %241 = insertelement <2 x double> poison, double %240, i64 0
-  %242 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i141, i64 %238
+  %242 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i141, i64 %238
   %243 = load double, ptr %242, align 8, !tbaa !11
   %244 = fsub double %243, %211
   %.sroa.080.8.vec.insert94.i144 = insertelement <2 x double> %241, double %244, i64 1
@@ -7828,7 +7828,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %258 = load i64, ptr %257, align 8, !tbaa !4
   %259 = load double, ptr %.sroa.027.0.copyload.i146, align 8, !tbaa !11
   %260 = fsub double %259, %220
-  %261 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i146, i64 %258
+  %261 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i146, i64 %258
   %262 = load double, ptr %261, align 8, !tbaa !11
   %263 = fsub double %262, %223
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i149 = shl nsw i64 %258, 4
@@ -7854,7 +7854,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %278 = load double, ptr %.sroa.0.0.copyload.i152, align 8, !tbaa !11
   %279 = fsub double %278, %220
   %280 = insertelement <2 x double> poison, double %279, i64 0
-  %281 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i152, i64 %277
+  %281 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i152, i64 %277
   %282 = load double, ptr %281, align 8, !tbaa !11
   %283 = fsub double %282, %223
   %.sroa.080.8.vec.insert100.i155 = insertelement <2 x double> %280, double %283, i64 1
@@ -7893,9 +7893,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %301 = load double, ptr %.sroa.072.0.copyload.i159, align 8, !tbaa !11
   %302 = load double, ptr %.sroa.576.56.copyload.i162, align 8, !tbaa !11
   %303 = fsub double %301, %302
-  %304 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i159, i64 %298
+  %304 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i159, i64 %298
   %305 = load double, ptr %304, align 8, !tbaa !11
-  %306 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i162, i64 %300
+  %306 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i162, i64 %300
   %307 = load double, ptr %306, align 8, !tbaa !11
   %308 = fsub double %305, %307
   %.idx.i.i.i.i.i.i.i.i.i.i.i165 = shl nsw i64 %298, 4
@@ -7912,7 +7912,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %315 = load i64, ptr %314, align 8, !tbaa !4
   %316 = load double, ptr %.sroa.060.0.copyload.i167, align 8, !tbaa !11
   %317 = fsub double %316, %302
-  %318 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i167, i64 %315
+  %318 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i167, i64 %315
   %319 = load double, ptr %318, align 8, !tbaa !11
   %320 = fsub double %319, %307
   %.idx.i.i.i.i.i.i.i.i.i.i13.i170 = shl nsw i64 %315, 4
@@ -7938,7 +7938,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %335 = load double, ptr %.sroa.043.0.copyload.i173, align 8, !tbaa !11
   %336 = fsub double %335, %302
   %337 = insertelement <2 x double> poison, double %336, i64 0
-  %338 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i173, i64 %334
+  %338 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i173, i64 %334
   %339 = load double, ptr %338, align 8, !tbaa !11
   %340 = fsub double %339, %307
   %.sroa.080.8.vec.insert94.i176 = insertelement <2 x double> %337, double %340, i64 1
@@ -7966,7 +7966,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %354 = load i64, ptr %353, align 8, !tbaa !4
   %355 = load double, ptr %.sroa.027.0.copyload.i178, align 8, !tbaa !11
   %356 = fsub double %355, %316
-  %357 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i178, i64 %354
+  %357 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i178, i64 %354
   %358 = load double, ptr %357, align 8, !tbaa !11
   %359 = fsub double %358, %319
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i181 = shl nsw i64 %354, 4
@@ -7992,7 +7992,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %374 = load double, ptr %.sroa.0.0.copyload.i184, align 8, !tbaa !11
   %375 = fsub double %374, %316
   %376 = insertelement <2 x double> poison, double %375, i64 0
-  %377 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i184, i64 %373
+  %377 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i184, i64 %373
   %378 = load double, ptr %377, align 8, !tbaa !11
   %379 = fsub double %378, %319
   %.sroa.080.8.vec.insert100.i187 = insertelement <2 x double> %376, double %379, i64 1
@@ -8027,9 +8027,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %395 = load double, ptr %.sroa.072.0.copyload.i191, align 8, !tbaa !11
   %396 = load double, ptr %.sroa.576.56.copyload.i194, align 8, !tbaa !11
   %397 = fsub double %395, %396
-  %398 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i191, i64 %392
+  %398 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i191, i64 %392
   %399 = load double, ptr %398, align 8, !tbaa !11
-  %400 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i194, i64 %394
+  %400 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i194, i64 %394
   %401 = load double, ptr %400, align 8, !tbaa !11
   %402 = fsub double %399, %401
   %.idx.i.i.i.i.i.i.i.i.i.i.i197 = shl nsw i64 %392, 4
@@ -8046,7 +8046,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %409 = load i64, ptr %408, align 8, !tbaa !4
   %410 = load double, ptr %.sroa.060.0.copyload.i199, align 8, !tbaa !11
   %411 = fsub double %410, %396
-  %412 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i199, i64 %409
+  %412 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i199, i64 %409
   %413 = load double, ptr %412, align 8, !tbaa !11
   %414 = fsub double %413, %401
   %.idx.i.i.i.i.i.i.i.i.i.i13.i202 = shl nsw i64 %409, 4
@@ -8072,7 +8072,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %429 = load double, ptr %.sroa.043.0.copyload.i205, align 8, !tbaa !11
   %430 = fsub double %429, %396
   %431 = insertelement <2 x double> poison, double %430, i64 0
-  %432 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i205, i64 %428
+  %432 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i205, i64 %428
   %433 = load double, ptr %432, align 8, !tbaa !11
   %434 = fsub double %433, %401
   %.sroa.080.8.vec.insert94.i208 = insertelement <2 x double> %431, double %434, i64 1
@@ -8100,7 +8100,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %448 = load i64, ptr %447, align 8, !tbaa !4
   %449 = load double, ptr %.sroa.027.0.copyload.i210, align 8, !tbaa !11
   %450 = fsub double %449, %410
-  %451 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i210, i64 %448
+  %451 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i210, i64 %448
   %452 = load double, ptr %451, align 8, !tbaa !11
   %453 = fsub double %452, %413
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i213 = shl nsw i64 %448, 4
@@ -8126,7 +8126,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %468 = load double, ptr %.sroa.0.0.copyload.i216, align 8, !tbaa !11
   %469 = fsub double %468, %410
   %470 = insertelement <2 x double> poison, double %469, i64 0
-  %471 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i216, i64 %467
+  %471 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i216, i64 %467
   %472 = load double, ptr %471, align 8, !tbaa !11
   %473 = fsub double %472, %413
   %.sroa.080.8.vec.insert100.i219 = insertelement <2 x double> %470, double %473, i64 1
@@ -8157,9 +8157,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %487 = load double, ptr %.sroa.072.0.copyload.i223, align 8, !tbaa !11
   %488 = load double, ptr %.sroa.576.56.copyload.i226, align 8, !tbaa !11
   %489 = fsub double %487, %488
-  %490 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i223, i64 %484
+  %490 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i223, i64 %484
   %491 = load double, ptr %490, align 8, !tbaa !11
-  %492 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i226, i64 %486
+  %492 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i226, i64 %486
   %493 = load double, ptr %492, align 8, !tbaa !11
   %494 = fsub double %491, %493
   %.idx.i.i.i.i.i.i.i.i.i.i.i229 = shl nsw i64 %484, 4
@@ -8176,7 +8176,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %501 = load i64, ptr %500, align 8, !tbaa !4
   %502 = load double, ptr %.sroa.060.0.copyload.i231, align 8, !tbaa !11
   %503 = fsub double %502, %488
-  %504 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i231, i64 %501
+  %504 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i231, i64 %501
   %505 = load double, ptr %504, align 8, !tbaa !11
   %506 = fsub double %505, %493
   %.idx.i.i.i.i.i.i.i.i.i.i13.i234 = shl nsw i64 %501, 4
@@ -8202,7 +8202,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %521 = load double, ptr %.sroa.043.0.copyload.i237, align 8, !tbaa !11
   %522 = fsub double %521, %488
   %523 = insertelement <2 x double> poison, double %522, i64 0
-  %524 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i237, i64 %520
+  %524 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i237, i64 %520
   %525 = load double, ptr %524, align 8, !tbaa !11
   %526 = fsub double %525, %493
   %.sroa.080.8.vec.insert94.i240 = insertelement <2 x double> %523, double %526, i64 1
@@ -8230,7 +8230,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %540 = load i64, ptr %539, align 8, !tbaa !4
   %541 = load double, ptr %.sroa.027.0.copyload.i242, align 8, !tbaa !11
   %542 = fsub double %541, %502
-  %543 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i242, i64 %540
+  %543 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i242, i64 %540
   %544 = load double, ptr %543, align 8, !tbaa !11
   %545 = fsub double %544, %505
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i245 = shl nsw i64 %540, 4
@@ -8256,7 +8256,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %560 = load double, ptr %.sroa.0.0.copyload.i248, align 8, !tbaa !11
   %561 = fsub double %560, %502
   %562 = insertelement <2 x double> poison, double %561, i64 0
-  %563 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i248, i64 %559
+  %563 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i248, i64 %559
   %564 = load double, ptr %563, align 8, !tbaa !11
   %565 = fsub double %564, %505
   %.sroa.080.8.vec.insert100.i251 = insertelement <2 x double> %562, double %565, i64 1
@@ -8294,9 +8294,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %582 = load double, ptr %.sroa.072.0.copyload.i255, align 8, !tbaa !11
   %583 = load double, ptr %.sroa.576.56.copyload.i258, align 8, !tbaa !11
   %584 = fsub double %582, %583
-  %585 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i255, i64 %579
+  %585 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i255, i64 %579
   %586 = load double, ptr %585, align 8, !tbaa !11
-  %587 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i258, i64 %581
+  %587 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i258, i64 %581
   %588 = load double, ptr %587, align 8, !tbaa !11
   %589 = fsub double %586, %588
   %.idx.i.i.i.i.i.i.i.i.i.i.i261 = shl nsw i64 %579, 4
@@ -8313,7 +8313,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %596 = load i64, ptr %595, align 8, !tbaa !4
   %597 = load double, ptr %.sroa.060.0.copyload.i263, align 8, !tbaa !11
   %598 = fsub double %597, %583
-  %599 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i263, i64 %596
+  %599 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i263, i64 %596
   %600 = load double, ptr %599, align 8, !tbaa !11
   %601 = fsub double %600, %588
   %.idx.i.i.i.i.i.i.i.i.i.i13.i266 = shl nsw i64 %596, 4
@@ -8339,7 +8339,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %616 = load double, ptr %.sroa.043.0.copyload.i269, align 8, !tbaa !11
   %617 = fsub double %616, %583
   %618 = insertelement <2 x double> poison, double %617, i64 0
-  %619 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i269, i64 %615
+  %619 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i269, i64 %615
   %620 = load double, ptr %619, align 8, !tbaa !11
   %621 = fsub double %620, %588
   %.sroa.080.8.vec.insert94.i272 = insertelement <2 x double> %618, double %621, i64 1
@@ -8367,7 +8367,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %635 = load i64, ptr %634, align 8, !tbaa !4
   %636 = load double, ptr %.sroa.027.0.copyload.i274, align 8, !tbaa !11
   %637 = fsub double %636, %597
-  %638 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i274, i64 %635
+  %638 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i274, i64 %635
   %639 = load double, ptr %638, align 8, !tbaa !11
   %640 = fsub double %639, %600
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i277 = shl nsw i64 %635, 4
@@ -8393,7 +8393,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %655 = load double, ptr %.sroa.0.0.copyload.i280, align 8, !tbaa !11
   %656 = fsub double %655, %597
   %657 = insertelement <2 x double> poison, double %656, i64 0
-  %658 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i280, i64 %654
+  %658 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i280, i64 %654
   %659 = load double, ptr %658, align 8, !tbaa !11
   %660 = fsub double %659, %600
   %.sroa.080.8.vec.insert100.i283 = insertelement <2 x double> %657, double %660, i64 1
@@ -8424,9 +8424,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %674 = load double, ptr %.sroa.072.0.copyload.i287, align 8, !tbaa !11
   %675 = load double, ptr %.sroa.576.56.copyload.i290, align 8, !tbaa !11
   %676 = fsub double %674, %675
-  %677 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i287, i64 %671
+  %677 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i287, i64 %671
   %678 = load double, ptr %677, align 8, !tbaa !11
-  %679 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i290, i64 %673
+  %679 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i290, i64 %673
   %680 = load double, ptr %679, align 8, !tbaa !11
   %681 = fsub double %678, %680
   %.idx.i.i.i.i.i.i.i.i.i.i.i293 = shl nsw i64 %671, 4
@@ -8443,7 +8443,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %688 = load i64, ptr %687, align 8, !tbaa !4
   %689 = load double, ptr %.sroa.060.0.copyload.i295, align 8, !tbaa !11
   %690 = fsub double %689, %675
-  %691 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i295, i64 %688
+  %691 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i295, i64 %688
   %692 = load double, ptr %691, align 8, !tbaa !11
   %693 = fsub double %692, %680
   %.idx.i.i.i.i.i.i.i.i.i.i13.i298 = shl nsw i64 %688, 4
@@ -8469,7 +8469,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %708 = load double, ptr %.sroa.043.0.copyload.i301, align 8, !tbaa !11
   %709 = fsub double %708, %675
   %710 = insertelement <2 x double> poison, double %709, i64 0
-  %711 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i301, i64 %707
+  %711 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i301, i64 %707
   %712 = load double, ptr %711, align 8, !tbaa !11
   %713 = fsub double %712, %680
   %.sroa.080.8.vec.insert94.i304 = insertelement <2 x double> %710, double %713, i64 1
@@ -8497,7 +8497,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %727 = load i64, ptr %726, align 8, !tbaa !4
   %728 = load double, ptr %.sroa.027.0.copyload.i306, align 8, !tbaa !11
   %729 = fsub double %728, %689
-  %730 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i306, i64 %727
+  %730 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i306, i64 %727
   %731 = load double, ptr %730, align 8, !tbaa !11
   %732 = fsub double %731, %692
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i309 = shl nsw i64 %727, 4
@@ -8523,7 +8523,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %747 = load double, ptr %.sroa.0.0.copyload.i312, align 8, !tbaa !11
   %748 = fsub double %747, %689
   %749 = insertelement <2 x double> poison, double %748, i64 0
-  %750 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i312, i64 %746
+  %750 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i312, i64 %746
   %751 = load double, ptr %750, align 8, !tbaa !11
   %752 = fsub double %751, %692
   %.sroa.080.8.vec.insert100.i315 = insertelement <2 x double> %749, double %752, i64 1
@@ -8562,9 +8562,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %770 = load double, ptr %.sroa.072.0.copyload.i319, align 8, !tbaa !11
   %771 = load double, ptr %.sroa.576.56.copyload.i322, align 8, !tbaa !11
   %772 = fsub double %770, %771
-  %773 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i319, i64 %767
+  %773 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i319, i64 %767
   %774 = load double, ptr %773, align 8, !tbaa !11
-  %775 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i322, i64 %769
+  %775 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i322, i64 %769
   %776 = load double, ptr %775, align 8, !tbaa !11
   %777 = fsub double %774, %776
   %.idx.i.i.i.i.i.i.i.i.i.i.i325 = shl nsw i64 %767, 4
@@ -8581,7 +8581,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %784 = load i64, ptr %783, align 8, !tbaa !4
   %785 = load double, ptr %.sroa.060.0.copyload.i327, align 8, !tbaa !11
   %786 = fsub double %785, %771
-  %787 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i327, i64 %784
+  %787 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i327, i64 %784
   %788 = load double, ptr %787, align 8, !tbaa !11
   %789 = fsub double %788, %776
   %.idx.i.i.i.i.i.i.i.i.i.i13.i330 = shl nsw i64 %784, 4
@@ -8607,7 +8607,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %804 = load double, ptr %.sroa.043.0.copyload.i333, align 8, !tbaa !11
   %805 = fsub double %804, %771
   %806 = insertelement <2 x double> poison, double %805, i64 0
-  %807 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i333, i64 %803
+  %807 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i333, i64 %803
   %808 = load double, ptr %807, align 8, !tbaa !11
   %809 = fsub double %808, %776
   %.sroa.080.8.vec.insert94.i336 = insertelement <2 x double> %806, double %809, i64 1
@@ -8635,7 +8635,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %823 = load i64, ptr %822, align 8, !tbaa !4
   %824 = load double, ptr %.sroa.027.0.copyload.i338, align 8, !tbaa !11
   %825 = fsub double %824, %785
-  %826 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i338, i64 %823
+  %826 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i338, i64 %823
   %827 = load double, ptr %826, align 8, !tbaa !11
   %828 = fsub double %827, %788
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i341 = shl nsw i64 %823, 4
@@ -8661,7 +8661,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %843 = load double, ptr %.sroa.0.0.copyload.i344, align 8, !tbaa !11
   %844 = fsub double %843, %785
   %845 = insertelement <2 x double> poison, double %844, i64 0
-  %846 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i344, i64 %842
+  %846 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i344, i64 %842
   %847 = load double, ptr %846, align 8, !tbaa !11
   %848 = fsub double %847, %788
   %.sroa.080.8.vec.insert100.i347 = insertelement <2 x double> %845, double %848, i64 1
@@ -8692,9 +8692,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %862 = load double, ptr %.sroa.072.0.copyload.i351, align 8, !tbaa !11
   %863 = load double, ptr %.sroa.576.56.copyload.i354, align 8, !tbaa !11
   %864 = fsub double %862, %863
-  %865 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i351, i64 %859
+  %865 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i351, i64 %859
   %866 = load double, ptr %865, align 8, !tbaa !11
-  %867 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i354, i64 %861
+  %867 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i354, i64 %861
   %868 = load double, ptr %867, align 8, !tbaa !11
   %869 = fsub double %866, %868
   %.idx.i.i.i.i.i.i.i.i.i.i.i357 = shl nsw i64 %859, 4
@@ -8711,7 +8711,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %876 = load i64, ptr %875, align 8, !tbaa !4
   %877 = load double, ptr %.sroa.060.0.copyload.i359, align 8, !tbaa !11
   %878 = fsub double %877, %863
-  %879 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i359, i64 %876
+  %879 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i359, i64 %876
   %880 = load double, ptr %879, align 8, !tbaa !11
   %881 = fsub double %880, %868
   %.idx.i.i.i.i.i.i.i.i.i.i13.i362 = shl nsw i64 %876, 4
@@ -8737,7 +8737,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %896 = load double, ptr %.sroa.043.0.copyload.i365, align 8, !tbaa !11
   %897 = fsub double %896, %863
   %898 = insertelement <2 x double> poison, double %897, i64 0
-  %899 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i365, i64 %895
+  %899 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i365, i64 %895
   %900 = load double, ptr %899, align 8, !tbaa !11
   %901 = fsub double %900, %868
   %.sroa.080.8.vec.insert94.i368 = insertelement <2 x double> %898, double %901, i64 1
@@ -8765,7 +8765,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %915 = load i64, ptr %914, align 8, !tbaa !4
   %916 = load double, ptr %.sroa.027.0.copyload.i370, align 8, !tbaa !11
   %917 = fsub double %916, %877
-  %918 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i370, i64 %915
+  %918 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i370, i64 %915
   %919 = load double, ptr %918, align 8, !tbaa !11
   %920 = fsub double %919, %880
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i373 = shl nsw i64 %915, 4
@@ -8791,7 +8791,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %935 = load double, ptr %.sroa.0.0.copyload.i376, align 8, !tbaa !11
   %936 = fsub double %935, %877
   %937 = insertelement <2 x double> poison, double %936, i64 0
-  %938 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i376, i64 %934
+  %938 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i376, i64 %934
   %939 = load double, ptr %938, align 8, !tbaa !11
   %940 = fsub double %939, %880
   %.sroa.080.8.vec.insert100.i379 = insertelement <2 x double> %937, double %940, i64 1
@@ -8825,9 +8825,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %955 = load double, ptr %.sroa.072.0.copyload.i383, align 8, !tbaa !11
   %956 = load double, ptr %.sroa.576.56.copyload.i386, align 8, !tbaa !11
   %957 = fsub double %955, %956
-  %958 = getelementptr inbounds double, ptr %.sroa.072.0.copyload.i383, i64 %952
+  %958 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload.i383, i64 %952
   %959 = load double, ptr %958, align 8, !tbaa !11
-  %960 = getelementptr inbounds double, ptr %.sroa.576.56.copyload.i386, i64 %954
+  %960 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload.i386, i64 %954
   %961 = load double, ptr %960, align 8, !tbaa !11
   %962 = fsub double %959, %961
   %.idx.i.i.i.i.i.i.i.i.i.i.i389 = shl nsw i64 %952, 4
@@ -8844,7 +8844,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %969 = load i64, ptr %968, align 8, !tbaa !4
   %970 = load double, ptr %.sroa.060.0.copyload.i391, align 8, !tbaa !11
   %971 = fsub double %970, %956
-  %972 = getelementptr inbounds double, ptr %.sroa.060.0.copyload.i391, i64 %969
+  %972 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload.i391, i64 %969
   %973 = load double, ptr %972, align 8, !tbaa !11
   %974 = fsub double %973, %961
   %.idx.i.i.i.i.i.i.i.i.i.i13.i394 = shl nsw i64 %969, 4
@@ -8870,7 +8870,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %989 = load double, ptr %.sroa.043.0.copyload.i397, align 8, !tbaa !11
   %990 = fsub double %989, %956
   %991 = insertelement <2 x double> poison, double %990, i64 0
-  %992 = getelementptr inbounds double, ptr %.sroa.043.0.copyload.i397, i64 %988
+  %992 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload.i397, i64 %988
   %993 = load double, ptr %992, align 8, !tbaa !11
   %994 = fsub double %993, %961
   %.sroa.080.8.vec.insert94.i400 = insertelement <2 x double> %991, double %994, i64 1
@@ -8898,7 +8898,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %1008 = load i64, ptr %1007, align 8, !tbaa !4
   %1009 = load double, ptr %.sroa.027.0.copyload.i402, align 8, !tbaa !11
   %1010 = fsub double %1009, %970
-  %1011 = getelementptr inbounds double, ptr %.sroa.027.0.copyload.i402, i64 %1008
+  %1011 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload.i402, i64 %1008
   %1012 = load double, ptr %1011, align 8, !tbaa !11
   %1013 = fsub double %1012, %973
   %.idx.i.i.i.i.i.i.i.i.i.i.i17.i405 = shl nsw i64 %1008, 4
@@ -8924,7 +8924,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI
   %1028 = load double, ptr %.sroa.0.0.copyload.i408, align 8, !tbaa !11
   %1029 = fsub double %1028, %970
   %1030 = insertelement <2 x double> poison, double %1029, i64 0
-  %1031 = getelementptr inbounds double, ptr %.sroa.0.0.copyload.i408, i64 %1027
+  %1031 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i408, i64 %1027
   %1032 = load double, ptr %1031, align 8, !tbaa !11
   %1033 = fsub double %1032, %973
   %.sroa.080.8.vec.insert100.i411 = insertelement <2 x double> %1030, double %1033, i64 1
@@ -9412,9 +9412,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %15 = load double, ptr %.sroa.0409.0.copyload, align 8, !tbaa !11
   %16 = load double, ptr %.sroa.5413.56.copyload, align 8, !tbaa !11
   %17 = fsub double %15, %16
-  %18 = getelementptr inbounds double, ptr %.sroa.0409.0.copyload, i64 %12
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.0409.0.copyload, i64 %12
   %19 = load double, ptr %18, align 8, !tbaa !11
-  %20 = getelementptr inbounds double, ptr %.sroa.5413.56.copyload, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %.sroa.5413.56.copyload, i64 %14
   %21 = load double, ptr %20, align 8, !tbaa !11
   %22 = fsub double %19, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %12, 4
@@ -9431,7 +9431,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %29 = load i64, ptr %28, align 8, !tbaa !4
   %30 = load double, ptr %.sroa.0401.0.copyload, align 8, !tbaa !11
   %31 = fsub double %30, %16
-  %32 = getelementptr inbounds double, ptr %.sroa.0401.0.copyload, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %.sroa.0401.0.copyload, i64 %29
   %33 = load double, ptr %32, align 8, !tbaa !11
   %34 = fsub double %33, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i79 = shl nsw i64 %29, 4
@@ -9457,7 +9457,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %49 = load double, ptr %.sroa.0390.0.copyload, align 8, !tbaa !11
   %50 = fsub double %49, %16
   %.sroa.0443.0.vec.insert = insertelement <2 x double> poison, double %50, i64 0
-  %51 = getelementptr inbounds double, ptr %.sroa.0390.0.copyload, i64 %48
+  %51 = getelementptr inbounds [8 x i8], ptr %.sroa.0390.0.copyload, i64 %48
   %52 = load double, ptr %51, align 8, !tbaa !11
   %53 = fsub double %52, %21
   %.sroa.0443.8.vec.insert = insertelement <2 x double> %.sroa.0443.0.vec.insert, double %53, i64 1
@@ -9482,7 +9482,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %64 = load i64, ptr %63, align 8, !tbaa !4
   %65 = load double, ptr %.sroa.0382.0.copyload, align 8, !tbaa !11
   %66 = fsub double %65, %16
-  %67 = getelementptr inbounds double, ptr %.sroa.0382.0.copyload, i64 %64
+  %67 = getelementptr inbounds [8 x i8], ptr %.sroa.0382.0.copyload, i64 %64
   %68 = load double, ptr %67, align 8, !tbaa !11
   %69 = fsub double %68, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i83 = shl nsw i64 %64, 4
@@ -9514,7 +9514,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %86 = load i64, ptr %85, align 8, !tbaa !4
   %87 = load double, ptr %.sroa.0371.0.copyload, align 8, !tbaa !11
   %88 = fsub double %87, %16
-  %89 = getelementptr inbounds double, ptr %.sroa.0371.0.copyload, i64 %86
+  %89 = getelementptr inbounds [8 x i8], ptr %.sroa.0371.0.copyload, i64 %86
   %90 = load double, ptr %89, align 8, !tbaa !11
   %91 = fsub double %90, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i85 = shl nsw i64 %86, 4
@@ -9596,9 +9596,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %145 = load double, ptr %.sroa.5336.56.copyload, align 8, !tbaa !11
   %146 = fsub double %144, %145
   %.sroa.0547.0.vec.insert566 = insertelement <2 x double> poison, double %146, i64 0
-  %147 = getelementptr inbounds double, ptr %.sroa.0332.0.copyload, i64 %141
+  %147 = getelementptr inbounds [8 x i8], ptr %.sroa.0332.0.copyload, i64 %141
   %148 = load double, ptr %147, align 8, !tbaa !11
-  %149 = getelementptr inbounds double, ptr %.sroa.5336.56.copyload, i64 %143
+  %149 = getelementptr inbounds [8 x i8], ptr %.sroa.5336.56.copyload, i64 %143
   %150 = load double, ptr %149, align 8, !tbaa !11
   %151 = fsub double %148, %150
   %.sroa.0547.8.vec.insert611 = insertelement <2 x double> %.sroa.0547.0.vec.insert566, double %151, i64 1
@@ -9616,7 +9616,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %159 = load double, ptr %.sroa.5328.56.copyload, align 8, !tbaa !11
   %160 = fsub double %144, %159
   %.sroa.0.0.vec.insert479 = insertelement <2 x double> poison, double %160, i64 0
-  %161 = getelementptr inbounds double, ptr %.sroa.5328.56.copyload, i64 %158
+  %161 = getelementptr inbounds [8 x i8], ptr %.sroa.5328.56.copyload, i64 %158
   %162 = load double, ptr %161, align 8, !tbaa !11
   %163 = fsub double %148, %162
   %.sroa.0.8.vec.insert508 = insertelement <2 x double> %.sroa.0.0.vec.insert479, double %163, i64 1
@@ -9708,9 +9708,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %220 = load double, ptr %.sroa.5282.56.copyload, align 8, !tbaa !11
   %221 = fsub double %219, %220
   %.sroa.0547.0.vec.insert570 = insertelement <2 x double> poison, double %221, i64 0
-  %222 = getelementptr inbounds double, ptr %.sroa.0278.0.copyload, i64 %216
+  %222 = getelementptr inbounds [8 x i8], ptr %.sroa.0278.0.copyload, i64 %216
   %223 = load double, ptr %222, align 8, !tbaa !11
-  %224 = getelementptr inbounds double, ptr %.sroa.5282.56.copyload, i64 %218
+  %224 = getelementptr inbounds [8 x i8], ptr %.sroa.5282.56.copyload, i64 %218
   %225 = load double, ptr %224, align 8, !tbaa !11
   %226 = fsub double %223, %225
   %.sroa.0547.8.vec.insert615 = insertelement <2 x double> %.sroa.0547.0.vec.insert570, double %226, i64 1
@@ -9728,7 +9728,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %234 = load double, ptr %.sroa.5274.56.copyload, align 8, !tbaa !11
   %235 = fsub double %219, %234
   %.sroa.0.0.vec.insert483 = insertelement <2 x double> poison, double %235, i64 0
-  %236 = getelementptr inbounds double, ptr %.sroa.5274.56.copyload, i64 %233
+  %236 = getelementptr inbounds [8 x i8], ptr %.sroa.5274.56.copyload, i64 %233
   %237 = load double, ptr %236, align 8, !tbaa !11
   %238 = fsub double %223, %237
   %.sroa.0.8.vec.insert512 = insertelement <2 x double> %.sroa.0.0.vec.insert483, double %238, i64 1
@@ -9777,7 +9777,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %265 = load i64, ptr %264, align 8, !tbaa !4
   %266 = load double, ptr %.sroa.0252.0.copyload, align 8, !tbaa !11
   %267 = fsub double %266, %16
-  %268 = getelementptr inbounds double, ptr %.sroa.0252.0.copyload, i64 %265
+  %268 = getelementptr inbounds [8 x i8], ptr %.sroa.0252.0.copyload, i64 %265
   %269 = load double, ptr %268, align 8, !tbaa !11
   %270 = fsub double %269, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i109 = shl nsw i64 %265, 4
@@ -9812,7 +9812,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %290 = load i64, ptr %289, align 8, !tbaa !4
   %291 = load double, ptr %.sroa.0241.0.copyload, align 8, !tbaa !11
   %292 = fsub double %291, %16
-  %293 = getelementptr inbounds double, ptr %.sroa.0241.0.copyload, i64 %290
+  %293 = getelementptr inbounds [8 x i8], ptr %.sroa.0241.0.copyload, i64 %290
   %294 = load double, ptr %293, align 8, !tbaa !11
   %295 = fsub double %294, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i111 = shl nsw i64 %290, 4
@@ -9891,9 +9891,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %344 = load double, ptr %.sroa.5206.56.copyload, align 8, !tbaa !11
   %345 = fsub double %343, %344
   %.sroa.0547.0.vec.insert580 = insertelement <2 x double> poison, double %345, i64 0
-  %346 = getelementptr inbounds double, ptr %.sroa.0202.0.copyload, i64 %340
+  %346 = getelementptr inbounds [8 x i8], ptr %.sroa.0202.0.copyload, i64 %340
   %347 = load double, ptr %346, align 8, !tbaa !11
-  %348 = getelementptr inbounds double, ptr %.sroa.5206.56.copyload, i64 %342
+  %348 = getelementptr inbounds [8 x i8], ptr %.sroa.5206.56.copyload, i64 %342
   %349 = load double, ptr %348, align 8, !tbaa !11
   %350 = fsub double %347, %349
   %.sroa.0547.8.vec.insert625 = insertelement <2 x double> %.sroa.0547.0.vec.insert580, double %350, i64 1
@@ -9911,7 +9911,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %358 = load double, ptr %.sroa.5198.56.copyload, align 8, !tbaa !11
   %359 = fsub double %343, %358
   %.sroa.0.0.vec.insert493 = insertelement <2 x double> poison, double %359, i64 0
-  %360 = getelementptr inbounds double, ptr %.sroa.5198.56.copyload, i64 %357
+  %360 = getelementptr inbounds [8 x i8], ptr %.sroa.5198.56.copyload, i64 %357
   %361 = load double, ptr %360, align 8, !tbaa !11
   %362 = fsub double %347, %361
   %.sroa.0.8.vec.insert522 = insertelement <2 x double> %.sroa.0.0.vec.insert493, double %362, i64 1
@@ -10002,9 +10002,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %419 = load double, ptr %.sroa.5153.56.copyload, align 8, !tbaa !11
   %420 = fsub double %418, %419
   %.sroa.0547.0.vec.insert584 = insertelement <2 x double> poison, double %420, i64 0
-  %421 = getelementptr inbounds double, ptr %.sroa.0149.0.copyload, i64 %415
+  %421 = getelementptr inbounds [8 x i8], ptr %.sroa.0149.0.copyload, i64 %415
   %422 = load double, ptr %421, align 8, !tbaa !11
-  %423 = getelementptr inbounds double, ptr %.sroa.5153.56.copyload, i64 %417
+  %423 = getelementptr inbounds [8 x i8], ptr %.sroa.5153.56.copyload, i64 %417
   %424 = load double, ptr %423, align 8, !tbaa !11
   %425 = fsub double %422, %424
   %.sroa.0547.8.vec.insert629 = insertelement <2 x double> %.sroa.0547.0.vec.insert584, double %425, i64 1
@@ -10022,7 +10022,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %433 = load double, ptr %.sroa.5146.56.copyload, align 8, !tbaa !11
   %434 = fsub double %418, %433
   %.sroa.0.0.vec.insert497 = insertelement <2 x double> poison, double %434, i64 0
-  %435 = getelementptr inbounds double, ptr %.sroa.5146.56.copyload, i64 %432
+  %435 = getelementptr inbounds [8 x i8], ptr %.sroa.5146.56.copyload, i64 %432
   %436 = load double, ptr %435, align 8, !tbaa !11
   %437 = fsub double %422, %436
   %.sroa.0.8.vec.insert526 = insertelement <2 x double> %.sroa.0.0.vec.insert497, double %437, i64 1
@@ -10084,9 +10084,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %15 = load double, ptr %.sroa.0409.0.copyload, align 8, !tbaa !11
   %16 = load double, ptr %.sroa.5413.56.copyload, align 8, !tbaa !11
   %17 = fsub double %15, %16
-  %18 = getelementptr inbounds double, ptr %.sroa.0409.0.copyload, i64 %12
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.0409.0.copyload, i64 %12
   %19 = load double, ptr %18, align 8, !tbaa !11
-  %20 = getelementptr inbounds double, ptr %.sroa.5413.56.copyload, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %.sroa.5413.56.copyload, i64 %14
   %21 = load double, ptr %20, align 8, !tbaa !11
   %22 = fsub double %19, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %12, 4
@@ -10103,7 +10103,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %29 = load i64, ptr %28, align 8, !tbaa !4
   %30 = load double, ptr %.sroa.0401.0.copyload, align 8, !tbaa !11
   %31 = fsub double %30, %16
-  %32 = getelementptr inbounds double, ptr %.sroa.0401.0.copyload, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %.sroa.0401.0.copyload, i64 %29
   %33 = load double, ptr %32, align 8, !tbaa !11
   %34 = fsub double %33, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i79 = shl nsw i64 %29, 4
@@ -10129,7 +10129,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %49 = load double, ptr %.sroa.0390.0.copyload, align 8, !tbaa !11
   %50 = fsub double %49, %16
   %.sroa.0443.0.vec.insert = insertelement <2 x double> poison, double %50, i64 0
-  %51 = getelementptr inbounds double, ptr %.sroa.0390.0.copyload, i64 %48
+  %51 = getelementptr inbounds [8 x i8], ptr %.sroa.0390.0.copyload, i64 %48
   %52 = load double, ptr %51, align 8, !tbaa !11
   %53 = fsub double %52, %21
   %.sroa.0443.8.vec.insert = insertelement <2 x double> %.sroa.0443.0.vec.insert, double %53, i64 1
@@ -10154,7 +10154,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %64 = load i64, ptr %63, align 8, !tbaa !4
   %65 = load double, ptr %.sroa.0382.0.copyload, align 8, !tbaa !11
   %66 = fsub double %65, %16
-  %67 = getelementptr inbounds double, ptr %.sroa.0382.0.copyload, i64 %64
+  %67 = getelementptr inbounds [8 x i8], ptr %.sroa.0382.0.copyload, i64 %64
   %68 = load double, ptr %67, align 8, !tbaa !11
   %69 = fsub double %68, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i83 = shl nsw i64 %64, 4
@@ -10186,7 +10186,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %86 = load i64, ptr %85, align 8, !tbaa !4
   %87 = load double, ptr %.sroa.0371.0.copyload, align 8, !tbaa !11
   %88 = fsub double %87, %16
-  %89 = getelementptr inbounds double, ptr %.sroa.0371.0.copyload, i64 %86
+  %89 = getelementptr inbounds [8 x i8], ptr %.sroa.0371.0.copyload, i64 %86
   %90 = load double, ptr %89, align 8, !tbaa !11
   %91 = fsub double %90, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i85 = shl nsw i64 %86, 4
@@ -10268,9 +10268,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %145 = load double, ptr %.sroa.5336.56.copyload, align 8, !tbaa !11
   %146 = fsub double %144, %145
   %.sroa.0547.0.vec.insert566 = insertelement <2 x double> poison, double %146, i64 0
-  %147 = getelementptr inbounds double, ptr %.sroa.0332.0.copyload, i64 %141
+  %147 = getelementptr inbounds [8 x i8], ptr %.sroa.0332.0.copyload, i64 %141
   %148 = load double, ptr %147, align 8, !tbaa !11
-  %149 = getelementptr inbounds double, ptr %.sroa.5336.56.copyload, i64 %143
+  %149 = getelementptr inbounds [8 x i8], ptr %.sroa.5336.56.copyload, i64 %143
   %150 = load double, ptr %149, align 8, !tbaa !11
   %151 = fsub double %148, %150
   %.sroa.0547.8.vec.insert611 = insertelement <2 x double> %.sroa.0547.0.vec.insert566, double %151, i64 1
@@ -10288,7 +10288,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %159 = load double, ptr %.sroa.5328.56.copyload, align 8, !tbaa !11
   %160 = fsub double %144, %159
   %.sroa.0.0.vec.insert479 = insertelement <2 x double> poison, double %160, i64 0
-  %161 = getelementptr inbounds double, ptr %.sroa.5328.56.copyload, i64 %158
+  %161 = getelementptr inbounds [8 x i8], ptr %.sroa.5328.56.copyload, i64 %158
   %162 = load double, ptr %161, align 8, !tbaa !11
   %163 = fsub double %148, %162
   %.sroa.0.8.vec.insert508 = insertelement <2 x double> %.sroa.0.0.vec.insert479, double %163, i64 1
@@ -10380,9 +10380,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %220 = load double, ptr %.sroa.5282.56.copyload, align 8, !tbaa !11
   %221 = fsub double %219, %220
   %.sroa.0547.0.vec.insert570 = insertelement <2 x double> poison, double %221, i64 0
-  %222 = getelementptr inbounds double, ptr %.sroa.0278.0.copyload, i64 %216
+  %222 = getelementptr inbounds [8 x i8], ptr %.sroa.0278.0.copyload, i64 %216
   %223 = load double, ptr %222, align 8, !tbaa !11
-  %224 = getelementptr inbounds double, ptr %.sroa.5282.56.copyload, i64 %218
+  %224 = getelementptr inbounds [8 x i8], ptr %.sroa.5282.56.copyload, i64 %218
   %225 = load double, ptr %224, align 8, !tbaa !11
   %226 = fsub double %223, %225
   %.sroa.0547.8.vec.insert615 = insertelement <2 x double> %.sroa.0547.0.vec.insert570, double %226, i64 1
@@ -10400,7 +10400,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %234 = load double, ptr %.sroa.5274.56.copyload, align 8, !tbaa !11
   %235 = fsub double %219, %234
   %.sroa.0.0.vec.insert483 = insertelement <2 x double> poison, double %235, i64 0
-  %236 = getelementptr inbounds double, ptr %.sroa.5274.56.copyload, i64 %233
+  %236 = getelementptr inbounds [8 x i8], ptr %.sroa.5274.56.copyload, i64 %233
   %237 = load double, ptr %236, align 8, !tbaa !11
   %238 = fsub double %223, %237
   %.sroa.0.8.vec.insert512 = insertelement <2 x double> %.sroa.0.0.vec.insert483, double %238, i64 1
@@ -10449,7 +10449,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %265 = load i64, ptr %264, align 8, !tbaa !4
   %266 = load double, ptr %.sroa.0252.0.copyload, align 8, !tbaa !11
   %267 = fsub double %266, %16
-  %268 = getelementptr inbounds double, ptr %.sroa.0252.0.copyload, i64 %265
+  %268 = getelementptr inbounds [8 x i8], ptr %.sroa.0252.0.copyload, i64 %265
   %269 = load double, ptr %268, align 8, !tbaa !11
   %270 = fsub double %269, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i109 = shl nsw i64 %265, 4
@@ -10484,7 +10484,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %290 = load i64, ptr %289, align 8, !tbaa !4
   %291 = load double, ptr %.sroa.0241.0.copyload, align 8, !tbaa !11
   %292 = fsub double %291, %16
-  %293 = getelementptr inbounds double, ptr %.sroa.0241.0.copyload, i64 %290
+  %293 = getelementptr inbounds [8 x i8], ptr %.sroa.0241.0.copyload, i64 %290
   %294 = load double, ptr %293, align 8, !tbaa !11
   %295 = fsub double %294, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i111 = shl nsw i64 %290, 4
@@ -10563,9 +10563,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %344 = load double, ptr %.sroa.5206.56.copyload, align 8, !tbaa !11
   %345 = fsub double %343, %344
   %.sroa.0547.0.vec.insert580 = insertelement <2 x double> poison, double %345, i64 0
-  %346 = getelementptr inbounds double, ptr %.sroa.0202.0.copyload, i64 %340
+  %346 = getelementptr inbounds [8 x i8], ptr %.sroa.0202.0.copyload, i64 %340
   %347 = load double, ptr %346, align 8, !tbaa !11
-  %348 = getelementptr inbounds double, ptr %.sroa.5206.56.copyload, i64 %342
+  %348 = getelementptr inbounds [8 x i8], ptr %.sroa.5206.56.copyload, i64 %342
   %349 = load double, ptr %348, align 8, !tbaa !11
   %350 = fsub double %347, %349
   %.sroa.0547.8.vec.insert625 = insertelement <2 x double> %.sroa.0547.0.vec.insert580, double %350, i64 1
@@ -10583,7 +10583,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %358 = load double, ptr %.sroa.5198.56.copyload, align 8, !tbaa !11
   %359 = fsub double %343, %358
   %.sroa.0.0.vec.insert493 = insertelement <2 x double> poison, double %359, i64 0
-  %360 = getelementptr inbounds double, ptr %.sroa.5198.56.copyload, i64 %357
+  %360 = getelementptr inbounds [8 x i8], ptr %.sroa.5198.56.copyload, i64 %357
   %361 = load double, ptr %360, align 8, !tbaa !11
   %362 = fsub double %347, %361
   %.sroa.0.8.vec.insert522 = insertelement <2 x double> %.sroa.0.0.vec.insert493, double %362, i64 1
@@ -10674,9 +10674,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %419 = load double, ptr %.sroa.5153.56.copyload, align 8, !tbaa !11
   %420 = fsub double %418, %419
   %.sroa.0547.0.vec.insert584 = insertelement <2 x double> poison, double %420, i64 0
-  %421 = getelementptr inbounds double, ptr %.sroa.0149.0.copyload, i64 %415
+  %421 = getelementptr inbounds [8 x i8], ptr %.sroa.0149.0.copyload, i64 %415
   %422 = load double, ptr %421, align 8, !tbaa !11
-  %423 = getelementptr inbounds double, ptr %.sroa.5153.56.copyload, i64 %417
+  %423 = getelementptr inbounds [8 x i8], ptr %.sroa.5153.56.copyload, i64 %417
   %424 = load double, ptr %423, align 8, !tbaa !11
   %425 = fsub double %422, %424
   %.sroa.0547.8.vec.insert629 = insertelement <2 x double> %.sroa.0547.0.vec.insert584, double %425, i64 1
@@ -10694,7 +10694,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %433 = load double, ptr %.sroa.5146.56.copyload, align 8, !tbaa !11
   %434 = fsub double %418, %433
   %.sroa.0.0.vec.insert497 = insertelement <2 x double> poison, double %434, i64 0
-  %435 = getelementptr inbounds double, ptr %.sroa.5146.56.copyload, i64 %432
+  %435 = getelementptr inbounds [8 x i8], ptr %.sroa.5146.56.copyload, i64 %432
   %436 = load double, ptr %435, align 8, !tbaa !11
   %437 = fsub double %422, %436
   %.sroa.0.8.vec.insert526 = insertelement <2 x double> %.sroa.0.0.vec.insert497, double %437, i64 1
@@ -10756,9 +10756,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %15 = load double, ptr %.sroa.0409.0.copyload, align 8, !tbaa !11
   %16 = load double, ptr %.sroa.5413.56.copyload, align 8, !tbaa !11
   %17 = fsub double %15, %16
-  %18 = getelementptr inbounds double, ptr %.sroa.0409.0.copyload, i64 %12
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.0409.0.copyload, i64 %12
   %19 = load double, ptr %18, align 8, !tbaa !11
-  %20 = getelementptr inbounds double, ptr %.sroa.5413.56.copyload, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %.sroa.5413.56.copyload, i64 %14
   %21 = load double, ptr %20, align 8, !tbaa !11
   %22 = fsub double %19, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %12, 4
@@ -10775,7 +10775,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %29 = load i64, ptr %28, align 8, !tbaa !4
   %30 = load double, ptr %.sroa.0401.0.copyload, align 8, !tbaa !11
   %31 = fsub double %30, %16
-  %32 = getelementptr inbounds double, ptr %.sroa.0401.0.copyload, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %.sroa.0401.0.copyload, i64 %29
   %33 = load double, ptr %32, align 8, !tbaa !11
   %34 = fsub double %33, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i79 = shl nsw i64 %29, 4
@@ -10801,7 +10801,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %49 = load double, ptr %.sroa.0390.0.copyload, align 8, !tbaa !11
   %50 = fsub double %49, %16
   %.sroa.0443.0.vec.insert = insertelement <2 x double> poison, double %50, i64 0
-  %51 = getelementptr inbounds double, ptr %.sroa.0390.0.copyload, i64 %48
+  %51 = getelementptr inbounds [8 x i8], ptr %.sroa.0390.0.copyload, i64 %48
   %52 = load double, ptr %51, align 8, !tbaa !11
   %53 = fsub double %52, %21
   %.sroa.0443.8.vec.insert = insertelement <2 x double> %.sroa.0443.0.vec.insert, double %53, i64 1
@@ -10826,7 +10826,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %64 = load i64, ptr %63, align 8, !tbaa !4
   %65 = load double, ptr %.sroa.0382.0.copyload, align 8, !tbaa !11
   %66 = fsub double %65, %16
-  %67 = getelementptr inbounds double, ptr %.sroa.0382.0.copyload, i64 %64
+  %67 = getelementptr inbounds [8 x i8], ptr %.sroa.0382.0.copyload, i64 %64
   %68 = load double, ptr %67, align 8, !tbaa !11
   %69 = fsub double %68, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i83 = shl nsw i64 %64, 4
@@ -10858,7 +10858,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %86 = load i64, ptr %85, align 8, !tbaa !4
   %87 = load double, ptr %.sroa.0371.0.copyload, align 8, !tbaa !11
   %88 = fsub double %87, %16
-  %89 = getelementptr inbounds double, ptr %.sroa.0371.0.copyload, i64 %86
+  %89 = getelementptr inbounds [8 x i8], ptr %.sroa.0371.0.copyload, i64 %86
   %90 = load double, ptr %89, align 8, !tbaa !11
   %91 = fsub double %90, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i85 = shl nsw i64 %86, 4
@@ -10940,8 +10940,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %145 = load double, ptr %.sroa.0332.0.copyload, align 8, !tbaa !11
   %146 = fsub double %145, %144
   %.sroa.0547.0.vec.insert566 = insertelement <2 x double> poison, double %146, i64 0
-  %147 = getelementptr inbounds double, ptr %.sroa.0332.0.copyload, i64 %141
-  %148 = getelementptr inbounds double, ptr %.sroa.5336.56.copyload, i64 %143
+  %147 = getelementptr inbounds [8 x i8], ptr %.sroa.0332.0.copyload, i64 %141
+  %148 = getelementptr inbounds [8 x i8], ptr %.sroa.5336.56.copyload, i64 %143
   %149 = load double, ptr %148, align 8, !tbaa !11
   %150 = load double, ptr %147, align 8, !tbaa !11
   %151 = fsub double %150, %149
@@ -10960,7 +10960,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %159 = load double, ptr %.sroa.5328.56.copyload, align 8, !tbaa !11
   %160 = fsub double %145, %159
   %.sroa.0.0.vec.insert479 = insertelement <2 x double> poison, double %160, i64 0
-  %161 = getelementptr inbounds double, ptr %.sroa.5328.56.copyload, i64 %158
+  %161 = getelementptr inbounds [8 x i8], ptr %.sroa.5328.56.copyload, i64 %158
   %162 = load double, ptr %161, align 8, !tbaa !11
   %163 = fsub double %150, %162
   %.sroa.0.8.vec.insert508 = insertelement <2 x double> %.sroa.0.0.vec.insert479, double %163, i64 1
@@ -11052,8 +11052,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %220 = load double, ptr %.sroa.0278.0.copyload, align 8, !tbaa !11
   %221 = fsub double %220, %219
   %.sroa.0547.0.vec.insert570 = insertelement <2 x double> poison, double %221, i64 0
-  %222 = getelementptr inbounds double, ptr %.sroa.0278.0.copyload, i64 %216
-  %223 = getelementptr inbounds double, ptr %.sroa.5282.56.copyload, i64 %218
+  %222 = getelementptr inbounds [8 x i8], ptr %.sroa.0278.0.copyload, i64 %216
+  %223 = getelementptr inbounds [8 x i8], ptr %.sroa.5282.56.copyload, i64 %218
   %224 = load double, ptr %223, align 8, !tbaa !11
   %225 = load double, ptr %222, align 8, !tbaa !11
   %226 = fsub double %225, %224
@@ -11072,7 +11072,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %234 = load double, ptr %.sroa.5274.56.copyload, align 8, !tbaa !11
   %235 = fsub double %220, %234
   %.sroa.0.0.vec.insert483 = insertelement <2 x double> poison, double %235, i64 0
-  %236 = getelementptr inbounds double, ptr %.sroa.5274.56.copyload, i64 %233
+  %236 = getelementptr inbounds [8 x i8], ptr %.sroa.5274.56.copyload, i64 %233
   %237 = load double, ptr %236, align 8, !tbaa !11
   %238 = fsub double %225, %237
   %.sroa.0.8.vec.insert512 = insertelement <2 x double> %.sroa.0.0.vec.insert483, double %238, i64 1
@@ -11121,7 +11121,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %265 = load i64, ptr %264, align 8, !tbaa !4
   %266 = load double, ptr %.sroa.0252.0.copyload, align 8, !tbaa !11
   %267 = fsub double %266, %16
-  %268 = getelementptr inbounds double, ptr %.sroa.0252.0.copyload, i64 %265
+  %268 = getelementptr inbounds [8 x i8], ptr %.sroa.0252.0.copyload, i64 %265
   %269 = load double, ptr %268, align 8, !tbaa !11
   %270 = fsub double %269, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i109 = shl nsw i64 %265, 4
@@ -11156,7 +11156,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %290 = load i64, ptr %289, align 8, !tbaa !4
   %291 = load double, ptr %.sroa.0241.0.copyload, align 8, !tbaa !11
   %292 = fsub double %291, %16
-  %293 = getelementptr inbounds double, ptr %.sroa.0241.0.copyload, i64 %290
+  %293 = getelementptr inbounds [8 x i8], ptr %.sroa.0241.0.copyload, i64 %290
   %294 = load double, ptr %293, align 8, !tbaa !11
   %295 = fsub double %294, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i111 = shl nsw i64 %290, 4
@@ -11235,9 +11235,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %344 = load double, ptr %.sroa.5206.56.copyload, align 8, !tbaa !11
   %345 = fsub double %343, %344
   %.sroa.0547.0.vec.insert580 = insertelement <2 x double> poison, double %345, i64 0
-  %346 = getelementptr inbounds double, ptr %.sroa.0202.0.copyload, i64 %340
+  %346 = getelementptr inbounds [8 x i8], ptr %.sroa.0202.0.copyload, i64 %340
   %347 = load double, ptr %346, align 8, !tbaa !11
-  %348 = getelementptr inbounds double, ptr %.sroa.5206.56.copyload, i64 %342
+  %348 = getelementptr inbounds [8 x i8], ptr %.sroa.5206.56.copyload, i64 %342
   %349 = load double, ptr %348, align 8, !tbaa !11
   %350 = fsub double %347, %349
   %.sroa.0547.8.vec.insert625 = insertelement <2 x double> %.sroa.0547.0.vec.insert580, double %350, i64 1
@@ -11255,7 +11255,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %358 = load double, ptr %.sroa.5198.56.copyload, align 8, !tbaa !11
   %359 = fsub double %343, %358
   %.sroa.0.0.vec.insert493 = insertelement <2 x double> poison, double %359, i64 0
-  %360 = getelementptr inbounds double, ptr %.sroa.5198.56.copyload, i64 %357
+  %360 = getelementptr inbounds [8 x i8], ptr %.sroa.5198.56.copyload, i64 %357
   %361 = load double, ptr %360, align 8, !tbaa !11
   %362 = fsub double %347, %361
   %.sroa.0.8.vec.insert522 = insertelement <2 x double> %.sroa.0.0.vec.insert493, double %362, i64 1
@@ -11346,9 +11346,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %419 = load double, ptr %.sroa.5153.56.copyload, align 8, !tbaa !11
   %420 = fsub double %418, %419
   %.sroa.0547.0.vec.insert584 = insertelement <2 x double> poison, double %420, i64 0
-  %421 = getelementptr inbounds double, ptr %.sroa.0149.0.copyload, i64 %415
+  %421 = getelementptr inbounds [8 x i8], ptr %.sroa.0149.0.copyload, i64 %415
   %422 = load double, ptr %421, align 8, !tbaa !11
-  %423 = getelementptr inbounds double, ptr %.sroa.5153.56.copyload, i64 %417
+  %423 = getelementptr inbounds [8 x i8], ptr %.sroa.5153.56.copyload, i64 %417
   %424 = load double, ptr %423, align 8, !tbaa !11
   %425 = fsub double %422, %424
   %.sroa.0547.8.vec.insert629 = insertelement <2 x double> %.sroa.0547.0.vec.insert584, double %425, i64 1
@@ -11366,7 +11366,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %433 = load double, ptr %.sroa.5146.56.copyload, align 8, !tbaa !11
   %434 = fsub double %418, %433
   %.sroa.0.0.vec.insert497 = insertelement <2 x double> poison, double %434, i64 0
-  %435 = getelementptr inbounds double, ptr %.sroa.5146.56.copyload, i64 %432
+  %435 = getelementptr inbounds [8 x i8], ptr %.sroa.5146.56.copyload, i64 %432
   %436 = load double, ptr %435, align 8, !tbaa !11
   %437 = fsub double %422, %436
   %.sroa.0.8.vec.insert526 = insertelement <2 x double> %.sroa.0.0.vec.insert497, double %437, i64 1
@@ -11428,9 +11428,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %15 = load double, ptr %.sroa.0395.0.copyload, align 8, !tbaa !11
   %16 = load double, ptr %.sroa.5399.56.copyload, align 8, !tbaa !11
   %17 = fsub double %15, %16
-  %18 = getelementptr inbounds double, ptr %.sroa.0395.0.copyload, i64 %12
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.0395.0.copyload, i64 %12
   %19 = load double, ptr %18, align 8, !tbaa !11
-  %20 = getelementptr inbounds double, ptr %.sroa.5399.56.copyload, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %.sroa.5399.56.copyload, i64 %14
   %21 = load double, ptr %20, align 8, !tbaa !11
   %22 = fsub double %19, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %12, 4
@@ -11447,7 +11447,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %29 = load i64, ptr %28, align 8, !tbaa !4
   %30 = load double, ptr %.sroa.0387.0.copyload, align 8, !tbaa !11
   %31 = fsub double %30, %16
-  %32 = getelementptr inbounds double, ptr %.sroa.0387.0.copyload, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %.sroa.0387.0.copyload, i64 %29
   %33 = load double, ptr %32, align 8, !tbaa !11
   %34 = fsub double %33, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i79 = shl nsw i64 %29, 4
@@ -11473,7 +11473,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %49 = load double, ptr %.sroa.0376.0.copyload, align 8, !tbaa !11
   %50 = fsub double %49, %16
   %.sroa.0429.0.vec.insert = insertelement <2 x double> poison, double %50, i64 0
-  %51 = getelementptr inbounds double, ptr %.sroa.0376.0.copyload, i64 %48
+  %51 = getelementptr inbounds [8 x i8], ptr %.sroa.0376.0.copyload, i64 %48
   %52 = load double, ptr %51, align 8, !tbaa !11
   %53 = fsub double %52, %21
   %.sroa.0429.8.vec.insert = insertelement <2 x double> %.sroa.0429.0.vec.insert, double %53, i64 1
@@ -11498,7 +11498,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %64 = load i64, ptr %63, align 8, !tbaa !4
   %65 = load double, ptr %.sroa.0368.0.copyload, align 8, !tbaa !11
   %66 = fsub double %65, %16
-  %67 = getelementptr inbounds double, ptr %.sroa.0368.0.copyload, i64 %64
+  %67 = getelementptr inbounds [8 x i8], ptr %.sroa.0368.0.copyload, i64 %64
   %68 = load double, ptr %67, align 8, !tbaa !11
   %69 = fsub double %68, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i83 = shl nsw i64 %64, 4
@@ -11607,9 +11607,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %144 = load double, ptr %.sroa.5325.56.copyload, align 8, !tbaa !11
   %145 = fsub double %143, %144
   %.sroa.0533.0.vec.insert552 = insertelement <2 x double> poison, double %145, i64 0
-  %146 = getelementptr inbounds double, ptr %.sroa.0321.0.copyload, i64 %140
+  %146 = getelementptr inbounds [8 x i8], ptr %.sroa.0321.0.copyload, i64 %140
   %147 = load double, ptr %146, align 8, !tbaa !11
-  %148 = getelementptr inbounds double, ptr %.sroa.5325.56.copyload, i64 %142
+  %148 = getelementptr inbounds [8 x i8], ptr %.sroa.5325.56.copyload, i64 %142
   %149 = load double, ptr %148, align 8, !tbaa !11
   %150 = fsub double %147, %149
   %.sroa.0533.8.vec.insert597 = insertelement <2 x double> %.sroa.0533.0.vec.insert552, double %150, i64 1
@@ -11627,7 +11627,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %158 = load double, ptr %.sroa.5317.56.copyload, align 8, !tbaa !11
   %159 = fsub double %143, %158
   %.sroa.0.0.vec.insert465 = insertelement <2 x double> poison, double %159, i64 0
-  %160 = getelementptr inbounds double, ptr %.sroa.5317.56.copyload, i64 %157
+  %160 = getelementptr inbounds [8 x i8], ptr %.sroa.5317.56.copyload, i64 %157
   %161 = load double, ptr %160, align 8, !tbaa !11
   %162 = fsub double %147, %161
   %.sroa.0.8.vec.insert494 = insertelement <2 x double> %.sroa.0.0.vec.insert465, double %162, i64 1
@@ -11719,9 +11719,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %219 = load double, ptr %.sroa.5273.56.copyload, align 8, !tbaa !11
   %220 = fsub double %218, %219
   %.sroa.0533.0.vec.insert556 = insertelement <2 x double> poison, double %220, i64 0
-  %221 = getelementptr inbounds double, ptr %.sroa.0269.0.copyload, i64 %215
+  %221 = getelementptr inbounds [8 x i8], ptr %.sroa.0269.0.copyload, i64 %215
   %222 = load double, ptr %221, align 8, !tbaa !11
-  %223 = getelementptr inbounds double, ptr %.sroa.5273.56.copyload, i64 %217
+  %223 = getelementptr inbounds [8 x i8], ptr %.sroa.5273.56.copyload, i64 %217
   %224 = load double, ptr %223, align 8, !tbaa !11
   %225 = fsub double %222, %224
   %.sroa.0533.8.vec.insert601 = insertelement <2 x double> %.sroa.0533.0.vec.insert556, double %225, i64 1
@@ -11739,7 +11739,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %233 = load double, ptr %.sroa.5265.56.copyload, align 8, !tbaa !11
   %234 = fsub double %218, %233
   %.sroa.0.0.vec.insert469 = insertelement <2 x double> poison, double %234, i64 0
-  %235 = getelementptr inbounds double, ptr %.sroa.5265.56.copyload, i64 %232
+  %235 = getelementptr inbounds [8 x i8], ptr %.sroa.5265.56.copyload, i64 %232
   %236 = load double, ptr %235, align 8, !tbaa !11
   %237 = fsub double %222, %236
   %.sroa.0.8.vec.insert498 = insertelement <2 x double> %.sroa.0.0.vec.insert469, double %237, i64 1
@@ -11818,7 +11818,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %288 = load i64, ptr %287, align 8, !tbaa !4
   %289 = load double, ptr %.sroa.0235.0.copyload, align 8, !tbaa !11
   %290 = fsub double %289, %16
-  %291 = getelementptr inbounds double, ptr %.sroa.0235.0.copyload, i64 %288
+  %291 = getelementptr inbounds [8 x i8], ptr %.sroa.0235.0.copyload, i64 %288
   %292 = load double, ptr %291, align 8, !tbaa !11
   %293 = fsub double %292, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i108 = shl nsw i64 %288, 4
@@ -11897,9 +11897,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %342 = load double, ptr %.sroa.5200.56.copyload, align 8, !tbaa !11
   %343 = fsub double %341, %342
   %.sroa.0533.0.vec.insert566 = insertelement <2 x double> poison, double %343, i64 0
-  %344 = getelementptr inbounds double, ptr %.sroa.0196.0.copyload, i64 %338
+  %344 = getelementptr inbounds [8 x i8], ptr %.sroa.0196.0.copyload, i64 %338
   %345 = load double, ptr %344, align 8, !tbaa !11
-  %346 = getelementptr inbounds double, ptr %.sroa.5200.56.copyload, i64 %340
+  %346 = getelementptr inbounds [8 x i8], ptr %.sroa.5200.56.copyload, i64 %340
   %347 = load double, ptr %346, align 8, !tbaa !11
   %348 = fsub double %345, %347
   %.sroa.0533.8.vec.insert611 = insertelement <2 x double> %.sroa.0533.0.vec.insert566, double %348, i64 1
@@ -11917,7 +11917,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %356 = load double, ptr %.sroa.5192.56.copyload, align 8, !tbaa !11
   %357 = fsub double %341, %356
   %.sroa.0.0.vec.insert479 = insertelement <2 x double> poison, double %357, i64 0
-  %358 = getelementptr inbounds double, ptr %.sroa.5192.56.copyload, i64 %355
+  %358 = getelementptr inbounds [8 x i8], ptr %.sroa.5192.56.copyload, i64 %355
   %359 = load double, ptr %358, align 8, !tbaa !11
   %360 = fsub double %345, %359
   %.sroa.0.8.vec.insert508 = insertelement <2 x double> %.sroa.0.0.vec.insert479, double %360, i64 1
@@ -12008,9 +12008,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %417 = load double, ptr %.sroa.5149.56.copyload, align 8, !tbaa !11
   %418 = fsub double %416, %417
   %.sroa.0533.0.vec.insert570 = insertelement <2 x double> poison, double %418, i64 0
-  %419 = getelementptr inbounds double, ptr %.sroa.0145.0.copyload, i64 %413
+  %419 = getelementptr inbounds [8 x i8], ptr %.sroa.0145.0.copyload, i64 %413
   %420 = load double, ptr %419, align 8, !tbaa !11
-  %421 = getelementptr inbounds double, ptr %.sroa.5149.56.copyload, i64 %415
+  %421 = getelementptr inbounds [8 x i8], ptr %.sroa.5149.56.copyload, i64 %415
   %422 = load double, ptr %421, align 8, !tbaa !11
   %423 = fsub double %420, %422
   %.sroa.0533.8.vec.insert615 = insertelement <2 x double> %.sroa.0533.0.vec.insert570, double %423, i64 1
@@ -12028,7 +12028,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %431 = load double, ptr %.sroa.5142.56.copyload, align 8, !tbaa !11
   %432 = fsub double %416, %431
   %.sroa.0.0.vec.insert483 = insertelement <2 x double> poison, double %432, i64 0
-  %433 = getelementptr inbounds double, ptr %.sroa.5142.56.copyload, i64 %430
+  %433 = getelementptr inbounds [8 x i8], ptr %.sroa.5142.56.copyload, i64 %430
   %434 = load double, ptr %433, align 8, !tbaa !11
   %435 = fsub double %420, %434
   %.sroa.0.8.vec.insert512 = insertelement <2 x double> %.sroa.0.0.vec.insert483, double %435, i64 1
@@ -12090,9 +12090,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %15 = load double, ptr %.sroa.0399.0.copyload, align 8, !tbaa !11
   %16 = load double, ptr %.sroa.5403.56.copyload, align 8, !tbaa !11
   %17 = fsub double %15, %16
-  %18 = getelementptr inbounds double, ptr %.sroa.0399.0.copyload, i64 %12
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.0399.0.copyload, i64 %12
   %19 = load double, ptr %18, align 8, !tbaa !11
-  %20 = getelementptr inbounds double, ptr %.sroa.5403.56.copyload, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %.sroa.5403.56.copyload, i64 %14
   %21 = load double, ptr %20, align 8, !tbaa !11
   %22 = fsub double %19, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %12, 4
@@ -12130,7 +12130,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %48 = load double, ptr %.sroa.0383.0.copyload, align 8, !tbaa !11
   %49 = fsub double %48, %16
   %.sroa.0433.0.vec.insert = insertelement <2 x double> poison, double %49, i64 0
-  %50 = getelementptr inbounds double, ptr %.sroa.0383.0.copyload, i64 %47
+  %50 = getelementptr inbounds [8 x i8], ptr %.sroa.0383.0.copyload, i64 %47
   %51 = load double, ptr %50, align 8, !tbaa !11
   %52 = fsub double %51, %21
   %.sroa.0433.8.vec.insert = insertelement <2 x double> %.sroa.0433.0.vec.insert, double %52, i64 1
@@ -12155,7 +12155,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %63 = load i64, ptr %62, align 8, !tbaa !4
   %64 = load double, ptr %.sroa.0375.0.copyload, align 8, !tbaa !11
   %65 = fsub double %64, %16
-  %66 = getelementptr inbounds double, ptr %.sroa.0375.0.copyload, i64 %63
+  %66 = getelementptr inbounds [8 x i8], ptr %.sroa.0375.0.copyload, i64 %63
   %67 = load double, ptr %66, align 8, !tbaa !11
   %68 = fsub double %67, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i82 = shl nsw i64 %63, 4
@@ -12187,7 +12187,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %85 = load i64, ptr %84, align 8, !tbaa !4
   %86 = load double, ptr %.sroa.0364.0.copyload, align 8, !tbaa !11
   %87 = fsub double %86, %16
-  %88 = getelementptr inbounds double, ptr %.sroa.0364.0.copyload, i64 %85
+  %88 = getelementptr inbounds [8 x i8], ptr %.sroa.0364.0.copyload, i64 %85
   %89 = load double, ptr %88, align 8, !tbaa !11
   %90 = fsub double %89, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i84 = shl nsw i64 %85, 4
@@ -12269,9 +12269,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %144 = load double, ptr %.sroa.5329.56.copyload, align 8, !tbaa !11
   %145 = fsub double %143, %144
   %.sroa.0537.0.vec.insert556 = insertelement <2 x double> poison, double %145, i64 0
-  %146 = getelementptr inbounds double, ptr %.sroa.0325.0.copyload, i64 %140
+  %146 = getelementptr inbounds [8 x i8], ptr %.sroa.0325.0.copyload, i64 %140
   %147 = load double, ptr %146, align 8, !tbaa !11
-  %148 = getelementptr inbounds double, ptr %.sroa.5329.56.copyload, i64 %142
+  %148 = getelementptr inbounds [8 x i8], ptr %.sroa.5329.56.copyload, i64 %142
   %149 = load double, ptr %148, align 8, !tbaa !11
   %150 = fsub double %147, %149
   %.sroa.0537.8.vec.insert601 = insertelement <2 x double> %.sroa.0537.0.vec.insert556, double %150, i64 1
@@ -12374,9 +12374,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %215 = load double, ptr %.sroa.5277.56.copyload, align 8, !tbaa !11
   %216 = fsub double %214, %215
   %.sroa.0537.0.vec.insert560 = insertelement <2 x double> poison, double %216, i64 0
-  %217 = getelementptr inbounds double, ptr %.sroa.0273.0.copyload, i64 %211
+  %217 = getelementptr inbounds [8 x i8], ptr %.sroa.0273.0.copyload, i64 %211
   %218 = load double, ptr %217, align 8, !tbaa !11
-  %219 = getelementptr inbounds double, ptr %.sroa.5277.56.copyload, i64 %213
+  %219 = getelementptr inbounds [8 x i8], ptr %.sroa.5277.56.copyload, i64 %213
   %220 = load double, ptr %219, align 8, !tbaa !11
   %221 = fsub double %218, %220
   %.sroa.0537.8.vec.insert605 = insertelement <2 x double> %.sroa.0537.0.vec.insert560, double %221, i64 1
@@ -12436,7 +12436,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %256 = load i64, ptr %255, align 8, !tbaa !4
   %257 = load double, ptr %.sroa.0249.0.copyload, align 8, !tbaa !11
   %258 = fsub double %257, %16
-  %259 = getelementptr inbounds double, ptr %.sroa.0249.0.copyload, i64 %256
+  %259 = getelementptr inbounds [8 x i8], ptr %.sroa.0249.0.copyload, i64 %256
   %260 = load double, ptr %259, align 8, !tbaa !11
   %261 = fsub double %260, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i106 = shl nsw i64 %256, 4
@@ -12471,7 +12471,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %281 = load i64, ptr %280, align 8, !tbaa !4
   %282 = load double, ptr %.sroa.0238.0.copyload, align 8, !tbaa !11
   %283 = fsub double %282, %16
-  %284 = getelementptr inbounds double, ptr %.sroa.0238.0.copyload, i64 %281
+  %284 = getelementptr inbounds [8 x i8], ptr %.sroa.0238.0.copyload, i64 %281
   %285 = load double, ptr %284, align 8, !tbaa !11
   %286 = fsub double %285, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i108 = shl nsw i64 %281, 4
@@ -12550,9 +12550,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %335 = load double, ptr %.sroa.5203.56.copyload, align 8, !tbaa !11
   %336 = fsub double %334, %335
   %.sroa.0537.0.vec.insert570 = insertelement <2 x double> poison, double %336, i64 0
-  %337 = getelementptr inbounds double, ptr %.sroa.0199.0.copyload, i64 %331
+  %337 = getelementptr inbounds [8 x i8], ptr %.sroa.0199.0.copyload, i64 %331
   %338 = load double, ptr %337, align 8, !tbaa !11
-  %339 = getelementptr inbounds double, ptr %.sroa.5203.56.copyload, i64 %333
+  %339 = getelementptr inbounds [8 x i8], ptr %.sroa.5203.56.copyload, i64 %333
   %340 = load double, ptr %339, align 8, !tbaa !11
   %341 = fsub double %338, %340
   %.sroa.0537.8.vec.insert615 = insertelement <2 x double> %.sroa.0537.0.vec.insert570, double %341, i64 1
@@ -12570,7 +12570,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %349 = load double, ptr %.sroa.5195.56.copyload, align 8, !tbaa !11
   %350 = fsub double %334, %349
   %.sroa.0.0.vec.insert483 = insertelement <2 x double> poison, double %350, i64 0
-  %351 = getelementptr inbounds double, ptr %.sroa.5195.56.copyload, i64 %348
+  %351 = getelementptr inbounds [8 x i8], ptr %.sroa.5195.56.copyload, i64 %348
   %352 = load double, ptr %351, align 8, !tbaa !11
   %353 = fsub double %338, %352
   %.sroa.0.8.vec.insert512 = insertelement <2 x double> %.sroa.0.0.vec.insert483, double %353, i64 1
@@ -12661,9 +12661,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %410 = load double, ptr %.sroa.5150.56.copyload, align 8, !tbaa !11
   %411 = fsub double %409, %410
   %.sroa.0537.0.vec.insert574 = insertelement <2 x double> poison, double %411, i64 0
-  %412 = getelementptr inbounds double, ptr %.sroa.0146.0.copyload, i64 %406
+  %412 = getelementptr inbounds [8 x i8], ptr %.sroa.0146.0.copyload, i64 %406
   %413 = load double, ptr %412, align 8, !tbaa !11
-  %414 = getelementptr inbounds double, ptr %.sroa.5150.56.copyload, i64 %408
+  %414 = getelementptr inbounds [8 x i8], ptr %.sroa.5150.56.copyload, i64 %408
   %415 = load double, ptr %414, align 8, !tbaa !11
   %416 = fsub double %413, %415
   %.sroa.0537.8.vec.insert619 = insertelement <2 x double> %.sroa.0537.0.vec.insert574, double %416, i64 1
@@ -12681,7 +12681,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %424 = load double, ptr %.sroa.5143.56.copyload, align 8, !tbaa !11
   %425 = fsub double %409, %424
   %.sroa.0.0.vec.insert487 = insertelement <2 x double> poison, double %425, i64 0
-  %426 = getelementptr inbounds double, ptr %.sroa.5143.56.copyload, i64 %423
+  %426 = getelementptr inbounds [8 x i8], ptr %.sroa.5143.56.copyload, i64 %423
   %427 = load double, ptr %426, align 8, !tbaa !11
   %428 = fsub double %413, %427
   %.sroa.0.8.vec.insert516 = insertelement <2 x double> %.sroa.0.0.vec.insert487, double %428, i64 1
@@ -12743,9 +12743,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %15 = load double, ptr %.sroa.0345.0.copyload, align 8, !tbaa !11
   %16 = load double, ptr %.sroa.5349.56.copyload, align 8, !tbaa !11
   %17 = fsub double %15, %16
-  %18 = getelementptr inbounds double, ptr %.sroa.0345.0.copyload, i64 %12
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.0345.0.copyload, i64 %12
   %19 = load double, ptr %18, align 8, !tbaa !11
-  %20 = getelementptr inbounds double, ptr %.sroa.5349.56.copyload, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %.sroa.5349.56.copyload, i64 %14
   %21 = load double, ptr %20, align 8, !tbaa !11
   %22 = fsub double %19, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %12, 4
@@ -12762,7 +12762,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %29 = load i64, ptr %28, align 8, !tbaa !4
   %30 = load double, ptr %.sroa.0337.0.copyload, align 8, !tbaa !11
   %31 = fsub double %30, %16
-  %32 = getelementptr inbounds double, ptr %.sroa.0337.0.copyload, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %.sroa.0337.0.copyload, i64 %29
   %33 = load double, ptr %32, align 8, !tbaa !11
   %34 = fsub double %33, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i79 = shl nsw i64 %29, 4
@@ -12808,7 +12808,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %63 = load i64, ptr %62, align 8, !tbaa !4
   %64 = load double, ptr %.sroa.0321.0.copyload, align 8, !tbaa !11
   %65 = fsub double %64, %16
-  %66 = getelementptr inbounds double, ptr %.sroa.0321.0.copyload, i64 %63
+  %66 = getelementptr inbounds [8 x i8], ptr %.sroa.0321.0.copyload, i64 %63
   %67 = load double, ptr %66, align 8, !tbaa !11
   %68 = fsub double %67, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i82 = shl nsw i64 %63, 4
@@ -12840,7 +12840,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %85 = load i64, ptr %84, align 8, !tbaa !4
   %86 = load double, ptr %.sroa.0310.0.copyload, align 8, !tbaa !11
   %87 = fsub double %86, %16
-  %88 = getelementptr inbounds double, ptr %.sroa.0310.0.copyload, i64 %85
+  %88 = getelementptr inbounds [8 x i8], ptr %.sroa.0310.0.copyload, i64 %85
   %89 = load double, ptr %88, align 8, !tbaa !11
   %90 = fsub double %89, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i84 = shl nsw i64 %85, 4
@@ -12918,7 +12918,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %142 = load double, ptr %47, align 8, !tbaa !11
   %143 = fsub double %142, %141
   %.sroa.0483.0.vec.insert506 = insertelement <2 x double> poison, double %143, i64 0
-  %144 = getelementptr inbounds double, ptr %.sroa.4277.8.copyload, i64 %140
+  %144 = getelementptr inbounds [8 x i8], ptr %.sroa.4277.8.copyload, i64 %140
   %145 = load double, ptr %144, align 8, !tbaa !11
   %146 = load double, ptr %50, align 8, !tbaa !11
   %147 = fsub double %146, %145
@@ -12935,7 +12935,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %154 = load double, ptr %.sroa.4272.8.copyload, align 8, !tbaa !11
   %155 = fsub double %142, %154
   %.sroa.0.0.vec.insert415 = insertelement <2 x double> poison, double %155, i64 0
-  %156 = getelementptr inbounds double, ptr %.sroa.4272.8.copyload, i64 %153
+  %156 = getelementptr inbounds [8 x i8], ptr %.sroa.4272.8.copyload, i64 %153
   %157 = load double, ptr %156, align 8, !tbaa !11
   %158 = fsub double %146, %157
   %.sroa.0.8.vec.insert444 = insertelement <2 x double> %.sroa.0.0.vec.insert415, double %158, i64 1
@@ -13015,7 +13015,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %211 = fsub double %210, %209
   %.sroa.0483.0.vec.insert510 = insertelement <2 x double> poison, double %211, i64 0
   %212 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  %213 = getelementptr inbounds double, ptr %.sroa.4241.8.copyload, i64 %208
+  %213 = getelementptr inbounds [8 x i8], ptr %.sroa.4241.8.copyload, i64 %208
   %214 = load double, ptr %213, align 8, !tbaa !11
   %215 = load double, ptr %212, align 8, !tbaa !11
   %216 = fsub double %215, %214
@@ -13033,7 +13033,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %224 = load double, ptr %.sroa.4236.8.copyload, align 8, !tbaa !11
   %225 = fsub double %210, %224
   %.sroa.0.0.vec.insert419 = insertelement <2 x double> poison, double %225, i64 0
-  %226 = getelementptr inbounds double, ptr %.sroa.4236.8.copyload, i64 %223
+  %226 = getelementptr inbounds [8 x i8], ptr %.sroa.4236.8.copyload, i64 %223
   %227 = load double, ptr %226, align 8, !tbaa !11
   %228 = fsub double %215, %227
   %.sroa.0.8.vec.insert448 = insertelement <2 x double> %.sroa.0.0.vec.insert419, double %228, i64 1
@@ -13077,7 +13077,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %253 = load i64, ptr %252, align 8, !tbaa !4
   %254 = load double, ptr %.sroa.0220.0.copyload, align 8, !tbaa !11
   %255 = fsub double %254, %16
-  %256 = getelementptr inbounds double, ptr %.sroa.0220.0.copyload, i64 %253
+  %256 = getelementptr inbounds [8 x i8], ptr %.sroa.0220.0.copyload, i64 %253
   %257 = load double, ptr %256, align 8, !tbaa !11
   %258 = fsub double %257, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i98 = shl nsw i64 %253, 4
@@ -13112,7 +13112,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %278 = load i64, ptr %277, align 8, !tbaa !4
   %279 = load double, ptr %.sroa.0209.0.copyload, align 8, !tbaa !11
   %280 = fsub double %279, %16
-  %281 = getelementptr inbounds double, ptr %.sroa.0209.0.copyload, i64 %278
+  %281 = getelementptr inbounds [8 x i8], ptr %.sroa.0209.0.copyload, i64 %278
   %282 = load double, ptr %281, align 8, !tbaa !11
   %283 = fsub double %282, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i100 = shl nsw i64 %278, 4
@@ -13187,7 +13187,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %330 = load double, ptr %47, align 8, !tbaa !11
   %331 = fsub double %329, %330
   %.sroa.0483.0.vec.insert520 = insertelement <2 x double> poison, double %331, i64 0
-  %332 = getelementptr inbounds double, ptr %.sroa.0174.0.copyload, i64 %328
+  %332 = getelementptr inbounds [8 x i8], ptr %.sroa.0174.0.copyload, i64 %328
   %333 = load double, ptr %332, align 8, !tbaa !11
   %334 = load double, ptr %50, align 8, !tbaa !11
   %335 = fsub double %333, %334
@@ -13204,7 +13204,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %342 = load double, ptr %.sroa.5170.56.copyload, align 8, !tbaa !11
   %343 = fsub double %329, %342
   %.sroa.0.0.vec.insert429 = insertelement <2 x double> poison, double %343, i64 0
-  %344 = getelementptr inbounds double, ptr %.sroa.5170.56.copyload, i64 %341
+  %344 = getelementptr inbounds [8 x i8], ptr %.sroa.5170.56.copyload, i64 %341
   %345 = load double, ptr %344, align 8, !tbaa !11
   %346 = fsub double %333, %345
   %.sroa.0.8.vec.insert458 = insertelement <2 x double> %.sroa.0.0.vec.insert429, double %346, i64 1
@@ -13287,7 +13287,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %400 = load double, ptr %398, align 8, !tbaa !11
   %401 = fsub double %399, %400
   %.sroa.0483.0.vec.insert524 = insertelement <2 x double> poison, double %401, i64 0
-  %402 = getelementptr inbounds double, ptr %.sroa.0132.0.copyload, i64 %397
+  %402 = getelementptr inbounds [8 x i8], ptr %.sroa.0132.0.copyload, i64 %397
   %403 = load double, ptr %402, align 8, !tbaa !11
   %404 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %405 = load double, ptr %404, align 8, !tbaa !11
@@ -13306,7 +13306,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %414 = load double, ptr %.sroa.5129.56.copyload, align 8, !tbaa !11
   %415 = fsub double %399, %414
   %.sroa.0.0.vec.insert433 = insertelement <2 x double> poison, double %415, i64 0
-  %416 = getelementptr inbounds double, ptr %.sroa.5129.56.copyload, i64 %413
+  %416 = getelementptr inbounds [8 x i8], ptr %.sroa.5129.56.copyload, i64 %413
   %417 = load double, ptr %416, align 8, !tbaa !11
   %418 = fsub double %403, %417
   %.sroa.0.8.vec.insert462 = insertelement <2 x double> %.sroa.0.0.vec.insert433, double %418, i64 1
@@ -13368,8 +13368,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %15 = load double, ptr %.sroa.0395.0.copyload, align 8, !tbaa !11
   %16 = load double, ptr %.sroa.5399.56.copyload, align 8, !tbaa !11
   %17 = fsub double %15, %16
-  %18 = getelementptr inbounds double, ptr %.sroa.0395.0.copyload, i64 %12
-  %19 = getelementptr inbounds double, ptr %.sroa.5399.56.copyload, i64 %14
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.0395.0.copyload, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %.sroa.5399.56.copyload, i64 %14
   %20 = load double, ptr %18, align 8, !tbaa !11
   %21 = load double, ptr %19, align 8, !tbaa !11
   %22 = fsub double %20, %21
@@ -13387,7 +13387,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %29 = load i64, ptr %28, align 8, !tbaa !4
   %30 = load double, ptr %.sroa.0387.0.copyload, align 8, !tbaa !11
   %31 = fsub double %30, %16
-  %32 = getelementptr inbounds double, ptr %.sroa.0387.0.copyload, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %.sroa.0387.0.copyload, i64 %29
   %33 = load double, ptr %32, align 8, !tbaa !11
   %34 = fsub double %33, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i79 = shl nsw i64 %29, 4
@@ -13413,7 +13413,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %49 = load double, ptr %.sroa.0376.0.copyload, align 8, !tbaa !11
   %50 = fsub double %49, %16
   %.sroa.0429.0.vec.insert = insertelement <2 x double> poison, double %50, i64 0
-  %51 = getelementptr inbounds double, ptr %.sroa.0376.0.copyload, i64 %48
+  %51 = getelementptr inbounds [8 x i8], ptr %.sroa.0376.0.copyload, i64 %48
   %52 = load double, ptr %51, align 8, !tbaa !11
   %53 = fsub double %52, %21
   %.sroa.0429.8.vec.insert = insertelement <2 x double> %.sroa.0429.0.vec.insert, double %53, i64 1
@@ -13438,7 +13438,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %64 = load i64, ptr %63, align 8, !tbaa !4
   %65 = load double, ptr %.sroa.0368.0.copyload, align 8, !tbaa !11
   %66 = fsub double %65, %16
-  %67 = getelementptr inbounds double, ptr %.sroa.0368.0.copyload, i64 %64
+  %67 = getelementptr inbounds [8 x i8], ptr %.sroa.0368.0.copyload, i64 %64
   %68 = load double, ptr %67, align 8, !tbaa !11
   %69 = fsub double %68, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i83 = shl nsw i64 %64, 4
@@ -13546,8 +13546,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %143 = load double, ptr %.sroa.5325.56.copyload, align 8, !tbaa !11
   %144 = fsub double %142, %143
   %.sroa.0533.0.vec.insert552 = insertelement <2 x double> poison, double %144, i64 0
-  %145 = getelementptr inbounds double, ptr %.sroa.0321.0.copyload, i64 %139
-  %146 = getelementptr inbounds double, ptr %.sroa.5325.56.copyload, i64 %141
+  %145 = getelementptr inbounds [8 x i8], ptr %.sroa.0321.0.copyload, i64 %139
+  %146 = getelementptr inbounds [8 x i8], ptr %.sroa.5325.56.copyload, i64 %141
   %147 = load double, ptr %145, align 8, !tbaa !11
   %148 = load double, ptr %146, align 8, !tbaa !11
   %149 = fsub double %147, %148
@@ -13566,7 +13566,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %157 = load double, ptr %.sroa.5317.56.copyload, align 8, !tbaa !11
   %158 = fsub double %142, %157
   %.sroa.0.0.vec.insert465 = insertelement <2 x double> poison, double %158, i64 0
-  %159 = getelementptr inbounds double, ptr %.sroa.5317.56.copyload, i64 %156
+  %159 = getelementptr inbounds [8 x i8], ptr %.sroa.5317.56.copyload, i64 %156
   %160 = load double, ptr %159, align 8, !tbaa !11
   %161 = fsub double %147, %160
   %.sroa.0.8.vec.insert494 = insertelement <2 x double> %.sroa.0.0.vec.insert465, double %161, i64 1
@@ -13658,8 +13658,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %218 = load double, ptr %.sroa.5273.56.copyload, align 8, !tbaa !11
   %219 = fsub double %217, %218
   %.sroa.0533.0.vec.insert556 = insertelement <2 x double> poison, double %219, i64 0
-  %220 = getelementptr inbounds double, ptr %.sroa.0269.0.copyload, i64 %214
-  %221 = getelementptr inbounds double, ptr %.sroa.5273.56.copyload, i64 %216
+  %220 = getelementptr inbounds [8 x i8], ptr %.sroa.0269.0.copyload, i64 %214
+  %221 = getelementptr inbounds [8 x i8], ptr %.sroa.5273.56.copyload, i64 %216
   %222 = load double, ptr %220, align 8, !tbaa !11
   %223 = load double, ptr %221, align 8, !tbaa !11
   %224 = fsub double %222, %223
@@ -13678,7 +13678,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %232 = load double, ptr %.sroa.5265.56.copyload, align 8, !tbaa !11
   %233 = fsub double %217, %232
   %.sroa.0.0.vec.insert469 = insertelement <2 x double> poison, double %233, i64 0
-  %234 = getelementptr inbounds double, ptr %.sroa.5265.56.copyload, i64 %231
+  %234 = getelementptr inbounds [8 x i8], ptr %.sroa.5265.56.copyload, i64 %231
   %235 = load double, ptr %234, align 8, !tbaa !11
   %236 = fsub double %222, %235
   %.sroa.0.8.vec.insert498 = insertelement <2 x double> %.sroa.0.0.vec.insert469, double %236, i64 1
@@ -13756,7 +13756,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %286 = load i64, ptr %285, align 8, !tbaa !4
   %287 = load double, ptr %.sroa.0235.0.copyload, align 8, !tbaa !11
   %288 = fsub double %287, %16
-  %289 = getelementptr inbounds double, ptr %.sroa.0235.0.copyload, i64 %286
+  %289 = getelementptr inbounds [8 x i8], ptr %.sroa.0235.0.copyload, i64 %286
   %290 = load double, ptr %289, align 8, !tbaa !11
   %291 = fsub double %290, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i108 = shl nsw i64 %286, 4
@@ -13835,8 +13835,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %340 = load double, ptr %.sroa.5200.56.copyload, align 8, !tbaa !11
   %341 = fsub double %339, %340
   %.sroa.0533.0.vec.insert566 = insertelement <2 x double> poison, double %341, i64 0
-  %342 = getelementptr inbounds double, ptr %.sroa.0196.0.copyload, i64 %336
-  %343 = getelementptr inbounds double, ptr %.sroa.5200.56.copyload, i64 %338
+  %342 = getelementptr inbounds [8 x i8], ptr %.sroa.0196.0.copyload, i64 %336
+  %343 = getelementptr inbounds [8 x i8], ptr %.sroa.5200.56.copyload, i64 %338
   %344 = load double, ptr %342, align 8, !tbaa !11
   %345 = load double, ptr %343, align 8, !tbaa !11
   %346 = fsub double %344, %345
@@ -13855,7 +13855,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %354 = load double, ptr %.sroa.5192.56.copyload, align 8, !tbaa !11
   %355 = fsub double %339, %354
   %.sroa.0.0.vec.insert479 = insertelement <2 x double> poison, double %355, i64 0
-  %356 = getelementptr inbounds double, ptr %.sroa.5192.56.copyload, i64 %353
+  %356 = getelementptr inbounds [8 x i8], ptr %.sroa.5192.56.copyload, i64 %353
   %357 = load double, ptr %356, align 8, !tbaa !11
   %358 = fsub double %344, %357
   %.sroa.0.8.vec.insert508 = insertelement <2 x double> %.sroa.0.0.vec.insert479, double %358, i64 1
@@ -13946,8 +13946,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %415 = load double, ptr %.sroa.5149.56.copyload, align 8, !tbaa !11
   %416 = fsub double %414, %415
   %.sroa.0533.0.vec.insert570 = insertelement <2 x double> poison, double %416, i64 0
-  %417 = getelementptr inbounds double, ptr %.sroa.0145.0.copyload, i64 %411
-  %418 = getelementptr inbounds double, ptr %.sroa.5149.56.copyload, i64 %413
+  %417 = getelementptr inbounds [8 x i8], ptr %.sroa.0145.0.copyload, i64 %411
+  %418 = getelementptr inbounds [8 x i8], ptr %.sroa.5149.56.copyload, i64 %413
   %419 = load double, ptr %417, align 8, !tbaa !11
   %420 = load double, ptr %418, align 8, !tbaa !11
   %421 = fsub double %419, %420
@@ -13966,7 +13966,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %429 = load double, ptr %.sroa.5142.56.copyload, align 8, !tbaa !11
   %430 = fsub double %414, %429
   %.sroa.0.0.vec.insert483 = insertelement <2 x double> poison, double %430, i64 0
-  %431 = getelementptr inbounds double, ptr %.sroa.5142.56.copyload, i64 %428
+  %431 = getelementptr inbounds [8 x i8], ptr %.sroa.5142.56.copyload, i64 %428
   %432 = load double, ptr %431, align 8, !tbaa !11
   %433 = fsub double %419, %432
   %.sroa.0.8.vec.insert512 = insertelement <2 x double> %.sroa.0.0.vec.insert483, double %433, i64 1
@@ -14028,8 +14028,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %15 = load double, ptr %.sroa.0399.0.copyload, align 8, !tbaa !11
   %16 = load double, ptr %.sroa.5403.56.copyload, align 8, !tbaa !11
   %17 = fsub double %15, %16
-  %18 = getelementptr inbounds double, ptr %.sroa.0399.0.copyload, i64 %12
-  %19 = getelementptr inbounds double, ptr %.sroa.5403.56.copyload, i64 %14
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.0399.0.copyload, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %.sroa.5403.56.copyload, i64 %14
   %20 = load double, ptr %18, align 8, !tbaa !11
   %21 = load double, ptr %19, align 8, !tbaa !11
   %22 = fsub double %20, %21
@@ -14067,7 +14067,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %47 = load double, ptr %.sroa.0383.0.copyload, align 8, !tbaa !11
   %48 = fsub double %47, %16
   %.sroa.0433.0.vec.insert = insertelement <2 x double> poison, double %48, i64 0
-  %49 = getelementptr inbounds double, ptr %.sroa.0383.0.copyload, i64 %46
+  %49 = getelementptr inbounds [8 x i8], ptr %.sroa.0383.0.copyload, i64 %46
   %50 = load double, ptr %49, align 8, !tbaa !11
   %51 = fsub double %50, %21
   %.sroa.0433.8.vec.insert = insertelement <2 x double> %.sroa.0433.0.vec.insert, double %51, i64 1
@@ -14092,7 +14092,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %62 = load i64, ptr %61, align 8, !tbaa !4
   %63 = load double, ptr %.sroa.0375.0.copyload, align 8, !tbaa !11
   %64 = fsub double %63, %16
-  %65 = getelementptr inbounds double, ptr %.sroa.0375.0.copyload, i64 %62
+  %65 = getelementptr inbounds [8 x i8], ptr %.sroa.0375.0.copyload, i64 %62
   %66 = load double, ptr %65, align 8, !tbaa !11
   %67 = fsub double %66, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i82 = shl nsw i64 %62, 4
@@ -14124,7 +14124,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %84 = load i64, ptr %83, align 8, !tbaa !4
   %85 = load double, ptr %.sroa.0364.0.copyload, align 8, !tbaa !11
   %86 = fsub double %85, %16
-  %87 = getelementptr inbounds double, ptr %.sroa.0364.0.copyload, i64 %84
+  %87 = getelementptr inbounds [8 x i8], ptr %.sroa.0364.0.copyload, i64 %84
   %88 = load double, ptr %87, align 8, !tbaa !11
   %89 = fsub double %88, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i84 = shl nsw i64 %84, 4
@@ -14206,8 +14206,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %143 = load double, ptr %.sroa.5329.56.copyload, align 8, !tbaa !11
   %144 = fsub double %142, %143
   %.sroa.0537.0.vec.insert556 = insertelement <2 x double> poison, double %144, i64 0
-  %145 = getelementptr inbounds double, ptr %.sroa.0325.0.copyload, i64 %139
-  %146 = getelementptr inbounds double, ptr %.sroa.5329.56.copyload, i64 %141
+  %145 = getelementptr inbounds [8 x i8], ptr %.sroa.0325.0.copyload, i64 %139
+  %146 = getelementptr inbounds [8 x i8], ptr %.sroa.5329.56.copyload, i64 %141
   %147 = load double, ptr %145, align 8, !tbaa !11
   %148 = load double, ptr %146, align 8, !tbaa !11
   %149 = fsub double %147, %148
@@ -14311,8 +14311,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %214 = load double, ptr %.sroa.5277.56.copyload, align 8, !tbaa !11
   %215 = fsub double %213, %214
   %.sroa.0537.0.vec.insert560 = insertelement <2 x double> poison, double %215, i64 0
-  %216 = getelementptr inbounds double, ptr %.sroa.0273.0.copyload, i64 %210
-  %217 = getelementptr inbounds double, ptr %.sroa.5277.56.copyload, i64 %212
+  %216 = getelementptr inbounds [8 x i8], ptr %.sroa.0273.0.copyload, i64 %210
+  %217 = getelementptr inbounds [8 x i8], ptr %.sroa.5277.56.copyload, i64 %212
   %218 = load double, ptr %216, align 8, !tbaa !11
   %219 = load double, ptr %217, align 8, !tbaa !11
   %220 = fsub double %218, %219
@@ -14373,7 +14373,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %255 = load i64, ptr %254, align 8, !tbaa !4
   %256 = load double, ptr %.sroa.0249.0.copyload, align 8, !tbaa !11
   %257 = fsub double %256, %16
-  %258 = getelementptr inbounds double, ptr %.sroa.0249.0.copyload, i64 %255
+  %258 = getelementptr inbounds [8 x i8], ptr %.sroa.0249.0.copyload, i64 %255
   %259 = load double, ptr %258, align 8, !tbaa !11
   %260 = fsub double %259, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i106 = shl nsw i64 %255, 4
@@ -14408,7 +14408,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %280 = load i64, ptr %279, align 8, !tbaa !4
   %281 = load double, ptr %.sroa.0238.0.copyload, align 8, !tbaa !11
   %282 = fsub double %281, %16
-  %283 = getelementptr inbounds double, ptr %.sroa.0238.0.copyload, i64 %280
+  %283 = getelementptr inbounds [8 x i8], ptr %.sroa.0238.0.copyload, i64 %280
   %284 = load double, ptr %283, align 8, !tbaa !11
   %285 = fsub double %284, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i108 = shl nsw i64 %280, 4
@@ -14487,8 +14487,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %334 = load double, ptr %.sroa.5203.56.copyload, align 8, !tbaa !11
   %335 = fsub double %333, %334
   %.sroa.0537.0.vec.insert570 = insertelement <2 x double> poison, double %335, i64 0
-  %336 = getelementptr inbounds double, ptr %.sroa.0199.0.copyload, i64 %330
-  %337 = getelementptr inbounds double, ptr %.sroa.5203.56.copyload, i64 %332
+  %336 = getelementptr inbounds [8 x i8], ptr %.sroa.0199.0.copyload, i64 %330
+  %337 = getelementptr inbounds [8 x i8], ptr %.sroa.5203.56.copyload, i64 %332
   %338 = load double, ptr %336, align 8, !tbaa !11
   %339 = load double, ptr %337, align 8, !tbaa !11
   %340 = fsub double %338, %339
@@ -14507,7 +14507,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %348 = load double, ptr %.sroa.5195.56.copyload, align 8, !tbaa !11
   %349 = fsub double %333, %348
   %.sroa.0.0.vec.insert483 = insertelement <2 x double> poison, double %349, i64 0
-  %350 = getelementptr inbounds double, ptr %.sroa.5195.56.copyload, i64 %347
+  %350 = getelementptr inbounds [8 x i8], ptr %.sroa.5195.56.copyload, i64 %347
   %351 = load double, ptr %350, align 8, !tbaa !11
   %352 = fsub double %338, %351
   %.sroa.0.8.vec.insert512 = insertelement <2 x double> %.sroa.0.0.vec.insert483, double %352, i64 1
@@ -14598,8 +14598,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %409 = load double, ptr %.sroa.5150.56.copyload, align 8, !tbaa !11
   %410 = fsub double %408, %409
   %.sroa.0537.0.vec.insert574 = insertelement <2 x double> poison, double %410, i64 0
-  %411 = getelementptr inbounds double, ptr %.sroa.0146.0.copyload, i64 %405
-  %412 = getelementptr inbounds double, ptr %.sroa.5150.56.copyload, i64 %407
+  %411 = getelementptr inbounds [8 x i8], ptr %.sroa.0146.0.copyload, i64 %405
+  %412 = getelementptr inbounds [8 x i8], ptr %.sroa.5150.56.copyload, i64 %407
   %413 = load double, ptr %411, align 8, !tbaa !11
   %414 = load double, ptr %412, align 8, !tbaa !11
   %415 = fsub double %413, %414
@@ -14618,7 +14618,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %423 = load double, ptr %.sroa.5143.56.copyload, align 8, !tbaa !11
   %424 = fsub double %408, %423
   %.sroa.0.0.vec.insert487 = insertelement <2 x double> poison, double %424, i64 0
-  %425 = getelementptr inbounds double, ptr %.sroa.5143.56.copyload, i64 %422
+  %425 = getelementptr inbounds [8 x i8], ptr %.sroa.5143.56.copyload, i64 %422
   %426 = load double, ptr %425, align 8, !tbaa !11
   %427 = fsub double %413, %426
   %.sroa.0.8.vec.insert516 = insertelement <2 x double> %.sroa.0.0.vec.insert487, double %427, i64 1
@@ -14680,8 +14680,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %15 = load double, ptr %.sroa.0345.0.copyload, align 8, !tbaa !11
   %16 = load double, ptr %.sroa.5349.56.copyload, align 8, !tbaa !11
   %17 = fsub double %15, %16
-  %18 = getelementptr inbounds double, ptr %.sroa.0345.0.copyload, i64 %12
-  %19 = getelementptr inbounds double, ptr %.sroa.5349.56.copyload, i64 %14
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.0345.0.copyload, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr %.sroa.5349.56.copyload, i64 %14
   %20 = load double, ptr %18, align 8, !tbaa !11
   %21 = load double, ptr %19, align 8, !tbaa !11
   %22 = fsub double %20, %21
@@ -14699,7 +14699,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %29 = load i64, ptr %28, align 8, !tbaa !4
   %30 = load double, ptr %.sroa.0337.0.copyload, align 8, !tbaa !11
   %31 = fsub double %30, %16
-  %32 = getelementptr inbounds double, ptr %.sroa.0337.0.copyload, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %.sroa.0337.0.copyload, i64 %29
   %33 = load double, ptr %32, align 8, !tbaa !11
   %34 = fsub double %33, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i79 = shl nsw i64 %29, 4
@@ -14744,7 +14744,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %62 = load i64, ptr %61, align 8, !tbaa !4
   %63 = load double, ptr %.sroa.0321.0.copyload, align 8, !tbaa !11
   %64 = fsub double %63, %16
-  %65 = getelementptr inbounds double, ptr %.sroa.0321.0.copyload, i64 %62
+  %65 = getelementptr inbounds [8 x i8], ptr %.sroa.0321.0.copyload, i64 %62
   %66 = load double, ptr %65, align 8, !tbaa !11
   %67 = fsub double %66, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i82 = shl nsw i64 %62, 4
@@ -14776,7 +14776,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %84 = load i64, ptr %83, align 8, !tbaa !4
   %85 = load double, ptr %.sroa.0310.0.copyload, align 8, !tbaa !11
   %86 = fsub double %85, %16
-  %87 = getelementptr inbounds double, ptr %.sroa.0310.0.copyload, i64 %84
+  %87 = getelementptr inbounds [8 x i8], ptr %.sroa.0310.0.copyload, i64 %84
   %88 = load double, ptr %87, align 8, !tbaa !11
   %89 = fsub double %88, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i84 = shl nsw i64 %84, 4
@@ -14854,7 +14854,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %141 = load double, ptr %.sroa.4277.8.copyload, align 8, !tbaa !11
   %142 = fsub double %140, %141
   %.sroa.0483.0.vec.insert506 = insertelement <2 x double> poison, double %142, i64 0
-  %143 = getelementptr inbounds double, ptr %.sroa.4277.8.copyload, i64 %139
+  %143 = getelementptr inbounds [8 x i8], ptr %.sroa.4277.8.copyload, i64 %139
   %144 = load double, ptr %49, align 8, !tbaa !11
   %145 = load double, ptr %143, align 8, !tbaa !11
   %146 = fsub double %144, %145
@@ -14871,7 +14871,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %153 = load double, ptr %.sroa.4272.8.copyload, align 8, !tbaa !11
   %154 = fsub double %140, %153
   %.sroa.0.0.vec.insert415 = insertelement <2 x double> poison, double %154, i64 0
-  %155 = getelementptr inbounds double, ptr %.sroa.4272.8.copyload, i64 %152
+  %155 = getelementptr inbounds [8 x i8], ptr %.sroa.4272.8.copyload, i64 %152
   %156 = load double, ptr %155, align 8, !tbaa !11
   %157 = fsub double %144, %156
   %.sroa.0.8.vec.insert444 = insertelement <2 x double> %.sroa.0.0.vec.insert415, double %157, i64 1
@@ -14949,7 +14949,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %208 = load double, ptr %.sroa.4241.8.copyload, align 8, !tbaa !11
   %209 = fsub double %207, %208
   %.sroa.0483.0.vec.insert510 = insertelement <2 x double> poison, double %209, i64 0
-  %210 = getelementptr inbounds double, ptr %.sroa.4241.8.copyload, i64 %206
+  %210 = getelementptr inbounds [8 x i8], ptr %.sroa.4241.8.copyload, i64 %206
   %211 = load double, ptr %49, align 8, !tbaa !11
   %212 = load double, ptr %210, align 8, !tbaa !11
   %213 = fsub double %211, %212
@@ -14966,7 +14966,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %220 = load double, ptr %.sroa.4236.8.copyload, align 8, !tbaa !11
   %221 = fsub double %207, %220
   %.sroa.0.0.vec.insert419 = insertelement <2 x double> poison, double %221, i64 0
-  %222 = getelementptr inbounds double, ptr %.sroa.4236.8.copyload, i64 %219
+  %222 = getelementptr inbounds [8 x i8], ptr %.sroa.4236.8.copyload, i64 %219
   %223 = load double, ptr %222, align 8, !tbaa !11
   %224 = fsub double %211, %223
   %.sroa.0.8.vec.insert448 = insertelement <2 x double> %.sroa.0.0.vec.insert419, double %224, i64 1
@@ -15010,7 +15010,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %249 = load i64, ptr %248, align 8, !tbaa !4
   %250 = load double, ptr %.sroa.0220.0.copyload, align 8, !tbaa !11
   %251 = fsub double %250, %16
-  %252 = getelementptr inbounds double, ptr %.sroa.0220.0.copyload, i64 %249
+  %252 = getelementptr inbounds [8 x i8], ptr %.sroa.0220.0.copyload, i64 %249
   %253 = load double, ptr %252, align 8, !tbaa !11
   %254 = fsub double %253, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i98 = shl nsw i64 %249, 4
@@ -15045,7 +15045,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %274 = load i64, ptr %273, align 8, !tbaa !4
   %275 = load double, ptr %.sroa.0209.0.copyload, align 8, !tbaa !11
   %276 = fsub double %275, %16
-  %277 = getelementptr inbounds double, ptr %.sroa.0209.0.copyload, i64 %274
+  %277 = getelementptr inbounds [8 x i8], ptr %.sroa.0209.0.copyload, i64 %274
   %278 = load double, ptr %277, align 8, !tbaa !11
   %279 = fsub double %278, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i100 = shl nsw i64 %274, 4
@@ -15120,7 +15120,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %326 = load double, ptr %3, align 8, !tbaa !11
   %327 = fsub double %325, %326
   %.sroa.0483.0.vec.insert520 = insertelement <2 x double> poison, double %327, i64 0
-  %328 = getelementptr inbounds double, ptr %.sroa.0174.0.copyload, i64 %324
+  %328 = getelementptr inbounds [8 x i8], ptr %.sroa.0174.0.copyload, i64 %324
   %329 = load double, ptr %328, align 8, !tbaa !11
   %330 = load double, ptr %49, align 8, !tbaa !11
   %331 = fsub double %329, %330
@@ -15137,7 +15137,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %338 = load double, ptr %.sroa.5170.56.copyload, align 8, !tbaa !11
   %339 = fsub double %325, %338
   %.sroa.0.0.vec.insert429 = insertelement <2 x double> poison, double %339, i64 0
-  %340 = getelementptr inbounds double, ptr %.sroa.5170.56.copyload, i64 %337
+  %340 = getelementptr inbounds [8 x i8], ptr %.sroa.5170.56.copyload, i64 %337
   %341 = load double, ptr %340, align 8, !tbaa !11
   %342 = fsub double %329, %341
   %.sroa.0.8.vec.insert458 = insertelement <2 x double> %.sroa.0.0.vec.insert429, double %342, i64 1
@@ -15219,7 +15219,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %395 = load double, ptr %3, align 8, !tbaa !11
   %396 = fsub double %394, %395
   %.sroa.0483.0.vec.insert524 = insertelement <2 x double> poison, double %396, i64 0
-  %397 = getelementptr inbounds double, ptr %.sroa.0132.0.copyload, i64 %393
+  %397 = getelementptr inbounds [8 x i8], ptr %.sroa.0132.0.copyload, i64 %393
   %398 = load double, ptr %397, align 8, !tbaa !11
   %399 = load double, ptr %49, align 8, !tbaa !11
   %400 = fsub double %398, %399
@@ -15236,7 +15236,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %407 = load double, ptr %.sroa.5129.56.copyload, align 8, !tbaa !11
   %408 = fsub double %394, %407
   %.sroa.0.0.vec.insert433 = insertelement <2 x double> poison, double %408, i64 0
-  %409 = getelementptr inbounds double, ptr %.sroa.5129.56.copyload, i64 %406
+  %409 = getelementptr inbounds [8 x i8], ptr %.sroa.5129.56.copyload, i64 %406
   %410 = load double, ptr %409, align 8, !tbaa !11
   %411 = fsub double %398, %410
   %.sroa.0.8.vec.insert462 = insertelement <2 x double> %.sroa.0.0.vec.insert433, double %411, i64 1
@@ -15298,9 +15298,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %15 = load double, ptr %.sroa.0409.0.copyload, align 8, !tbaa !11
   %16 = load double, ptr %.sroa.5413.56.copyload, align 8, !tbaa !11
   %17 = fsub double %15, %16
-  %18 = getelementptr inbounds double, ptr %.sroa.0409.0.copyload, i64 %12
+  %18 = getelementptr inbounds [8 x i8], ptr %.sroa.0409.0.copyload, i64 %12
   %19 = load double, ptr %18, align 8, !tbaa !11
-  %20 = getelementptr inbounds double, ptr %.sroa.5413.56.copyload, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %.sroa.5413.56.copyload, i64 %14
   %21 = load double, ptr %20, align 8, !tbaa !11
   %22 = fsub double %19, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %12, 4
@@ -15317,7 +15317,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %29 = load i64, ptr %28, align 8, !tbaa !4
   %30 = load double, ptr %.sroa.0401.0.copyload, align 8, !tbaa !11
   %31 = fsub double %30, %16
-  %32 = getelementptr inbounds double, ptr %.sroa.0401.0.copyload, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %.sroa.0401.0.copyload, i64 %29
   %33 = load double, ptr %32, align 8, !tbaa !11
   %34 = fsub double %33, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i79 = shl nsw i64 %29, 4
@@ -15343,7 +15343,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %49 = load double, ptr %.sroa.0390.0.copyload, align 8, !tbaa !11
   %50 = fsub double %49, %16
   %.sroa.0443.0.vec.insert = insertelement <2 x double> poison, double %50, i64 0
-  %51 = getelementptr inbounds double, ptr %.sroa.0390.0.copyload, i64 %48
+  %51 = getelementptr inbounds [8 x i8], ptr %.sroa.0390.0.copyload, i64 %48
   %52 = load double, ptr %51, align 8, !tbaa !11
   %53 = fsub double %52, %21
   %.sroa.0443.8.vec.insert = insertelement <2 x double> %.sroa.0443.0.vec.insert, double %53, i64 1
@@ -15368,7 +15368,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %64 = load i64, ptr %63, align 8, !tbaa !4
   %65 = load double, ptr %.sroa.0382.0.copyload, align 8, !tbaa !11
   %66 = fsub double %65, %16
-  %67 = getelementptr inbounds double, ptr %.sroa.0382.0.copyload, i64 %64
+  %67 = getelementptr inbounds [8 x i8], ptr %.sroa.0382.0.copyload, i64 %64
   %68 = load double, ptr %67, align 8, !tbaa !11
   %69 = fsub double %68, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i83 = shl nsw i64 %64, 4
@@ -15400,7 +15400,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %86 = load i64, ptr %85, align 8, !tbaa !4
   %87 = load double, ptr %.sroa.0371.0.copyload, align 8, !tbaa !11
   %88 = fsub double %87, %16
-  %89 = getelementptr inbounds double, ptr %.sroa.0371.0.copyload, i64 %86
+  %89 = getelementptr inbounds [8 x i8], ptr %.sroa.0371.0.copyload, i64 %86
   %90 = load double, ptr %89, align 8, !tbaa !11
   %91 = fsub double %90, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i85 = shl nsw i64 %86, 4
@@ -15482,9 +15482,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %145 = load double, ptr %.sroa.5336.56.copyload, align 8, !tbaa !11
   %146 = fsub double %144, %145
   %.sroa.0547.0.vec.insert566 = insertelement <2 x double> poison, double %146, i64 0
-  %147 = getelementptr inbounds double, ptr %.sroa.0332.0.copyload, i64 %141
+  %147 = getelementptr inbounds [8 x i8], ptr %.sroa.0332.0.copyload, i64 %141
   %148 = load double, ptr %147, align 8, !tbaa !11
-  %149 = getelementptr inbounds double, ptr %.sroa.5336.56.copyload, i64 %143
+  %149 = getelementptr inbounds [8 x i8], ptr %.sroa.5336.56.copyload, i64 %143
   %150 = load double, ptr %149, align 8, !tbaa !11
   %151 = fsub double %148, %150
   %.sroa.0547.8.vec.insert611 = insertelement <2 x double> %.sroa.0547.0.vec.insert566, double %151, i64 1
@@ -15502,7 +15502,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %159 = load double, ptr %.sroa.5328.56.copyload, align 8, !tbaa !11
   %160 = fsub double %144, %159
   %.sroa.0.0.vec.insert479 = insertelement <2 x double> poison, double %160, i64 0
-  %161 = getelementptr inbounds double, ptr %.sroa.5328.56.copyload, i64 %158
+  %161 = getelementptr inbounds [8 x i8], ptr %.sroa.5328.56.copyload, i64 %158
   %162 = load double, ptr %161, align 8, !tbaa !11
   %163 = fsub double %148, %162
   %.sroa.0.8.vec.insert508 = insertelement <2 x double> %.sroa.0.0.vec.insert479, double %163, i64 1
@@ -15594,9 +15594,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %220 = load double, ptr %.sroa.5282.56.copyload, align 8, !tbaa !11
   %221 = fsub double %219, %220
   %.sroa.0547.0.vec.insert570 = insertelement <2 x double> poison, double %221, i64 0
-  %222 = getelementptr inbounds double, ptr %.sroa.0278.0.copyload, i64 %216
+  %222 = getelementptr inbounds [8 x i8], ptr %.sroa.0278.0.copyload, i64 %216
   %223 = load double, ptr %222, align 8, !tbaa !11
-  %224 = getelementptr inbounds double, ptr %.sroa.5282.56.copyload, i64 %218
+  %224 = getelementptr inbounds [8 x i8], ptr %.sroa.5282.56.copyload, i64 %218
   %225 = load double, ptr %224, align 8, !tbaa !11
   %226 = fsub double %223, %225
   %.sroa.0547.8.vec.insert615 = insertelement <2 x double> %.sroa.0547.0.vec.insert570, double %226, i64 1
@@ -15614,7 +15614,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %234 = load double, ptr %.sroa.5274.56.copyload, align 8, !tbaa !11
   %235 = fsub double %219, %234
   %.sroa.0.0.vec.insert483 = insertelement <2 x double> poison, double %235, i64 0
-  %236 = getelementptr inbounds double, ptr %.sroa.5274.56.copyload, i64 %233
+  %236 = getelementptr inbounds [8 x i8], ptr %.sroa.5274.56.copyload, i64 %233
   %237 = load double, ptr %236, align 8, !tbaa !11
   %238 = fsub double %223, %237
   %.sroa.0.8.vec.insert512 = insertelement <2 x double> %.sroa.0.0.vec.insert483, double %238, i64 1
@@ -15663,7 +15663,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %265 = load i64, ptr %264, align 8, !tbaa !4
   %266 = load double, ptr %.sroa.0252.0.copyload, align 8, !tbaa !11
   %267 = fsub double %266, %16
-  %268 = getelementptr inbounds double, ptr %.sroa.0252.0.copyload, i64 %265
+  %268 = getelementptr inbounds [8 x i8], ptr %.sroa.0252.0.copyload, i64 %265
   %269 = load double, ptr %268, align 8, !tbaa !11
   %270 = fsub double %269, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i109 = shl nsw i64 %265, 4
@@ -15698,7 +15698,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %290 = load i64, ptr %289, align 8, !tbaa !4
   %291 = load double, ptr %.sroa.0241.0.copyload, align 8, !tbaa !11
   %292 = fsub double %291, %16
-  %293 = getelementptr inbounds double, ptr %.sroa.0241.0.copyload, i64 %290
+  %293 = getelementptr inbounds [8 x i8], ptr %.sroa.0241.0.copyload, i64 %290
   %294 = load double, ptr %293, align 8, !tbaa !11
   %295 = fsub double %294, %21
   %.idx.i.i.i.i.i.i.i.i.i.i.i111 = shl nsw i64 %290, 4
@@ -15777,9 +15777,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %344 = load double, ptr %.sroa.5206.56.copyload, align 8, !tbaa !11
   %345 = fsub double %343, %344
   %.sroa.0547.0.vec.insert580 = insertelement <2 x double> poison, double %345, i64 0
-  %346 = getelementptr inbounds double, ptr %.sroa.0202.0.copyload, i64 %340
+  %346 = getelementptr inbounds [8 x i8], ptr %.sroa.0202.0.copyload, i64 %340
   %347 = load double, ptr %346, align 8, !tbaa !11
-  %348 = getelementptr inbounds double, ptr %.sroa.5206.56.copyload, i64 %342
+  %348 = getelementptr inbounds [8 x i8], ptr %.sroa.5206.56.copyload, i64 %342
   %349 = load double, ptr %348, align 8, !tbaa !11
   %350 = fsub double %347, %349
   %.sroa.0547.8.vec.insert625 = insertelement <2 x double> %.sroa.0547.0.vec.insert580, double %350, i64 1
@@ -15797,7 +15797,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %358 = load double, ptr %.sroa.5198.56.copyload, align 8, !tbaa !11
   %359 = fsub double %343, %358
   %.sroa.0.0.vec.insert493 = insertelement <2 x double> poison, double %359, i64 0
-  %360 = getelementptr inbounds double, ptr %.sroa.5198.56.copyload, i64 %357
+  %360 = getelementptr inbounds [8 x i8], ptr %.sroa.5198.56.copyload, i64 %357
   %361 = load double, ptr %360, align 8, !tbaa !11
   %362 = fsub double %347, %361
   %.sroa.0.8.vec.insert522 = insertelement <2 x double> %.sroa.0.0.vec.insert493, double %362, i64 1
@@ -15888,9 +15888,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %419 = load double, ptr %.sroa.5153.56.copyload, align 8, !tbaa !11
   %420 = fsub double %418, %419
   %.sroa.0547.0.vec.insert584 = insertelement <2 x double> poison, double %420, i64 0
-  %421 = getelementptr inbounds double, ptr %.sroa.0149.0.copyload, i64 %415
+  %421 = getelementptr inbounds [8 x i8], ptr %.sroa.0149.0.copyload, i64 %415
   %422 = load double, ptr %421, align 8, !tbaa !11
-  %423 = getelementptr inbounds double, ptr %.sroa.5153.56.copyload, i64 %417
+  %423 = getelementptr inbounds [8 x i8], ptr %.sroa.5153.56.copyload, i64 %417
   %424 = load double, ptr %423, align 8, !tbaa !11
   %425 = fsub double %422, %424
   %.sroa.0547.8.vec.insert629 = insertelement <2 x double> %.sroa.0547.0.vec.insert584, double %425, i64 1
@@ -15908,7 +15908,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
   %433 = load double, ptr %.sroa.5146.56.copyload, align 8, !tbaa !11
   %434 = fsub double %418, %433
   %.sroa.0.0.vec.insert497 = insertelement <2 x double> poison, double %434, i64 0
-  %435 = getelementptr inbounds double, ptr %.sroa.5146.56.copyload, i64 %432
+  %435 = getelementptr inbounds [8 x i8], ptr %.sroa.5146.56.copyload, i64 %432
   %436 = load double, ptr %435, align 8, !tbaa !11
   %437 = fsub double %422, %436
   %.sroa.0.8.vec.insert526 = insertelement <2 x double> %.sroa.0.0.vec.insert497, double %437, i64 1
@@ -16395,9 +16395,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %11 = load double, ptr %.sroa.072.0.copyload, align 8, !tbaa !11
   %12 = load double, ptr %.sroa.576.56.copyload, align 8, !tbaa !11
   %13 = fsub double %11, %12
-  %14 = getelementptr inbounds double, ptr %.sroa.072.0.copyload, i64 %8
+  %14 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload, i64 %8
   %15 = load double, ptr %14, align 8, !tbaa !11
-  %16 = getelementptr inbounds double, ptr %.sroa.576.56.copyload, i64 %10
+  %16 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload, i64 %10
   %17 = load double, ptr %16, align 8, !tbaa !11
   %18 = fsub double %15, %17
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %8, 4
@@ -16414,7 +16414,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %25 = load i64, ptr %24, align 8, !tbaa !4
   %26 = load double, ptr %.sroa.060.0.copyload, align 8, !tbaa !11
   %27 = fsub double %26, %12
-  %28 = getelementptr inbounds double, ptr %.sroa.060.0.copyload, i64 %25
+  %28 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload, i64 %25
   %29 = load double, ptr %28, align 8, !tbaa !11
   %30 = fsub double %29, %17
   %.idx.i.i.i.i.i.i.i.i.i.i13 = shl nsw i64 %25, 4
@@ -16440,7 +16440,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %45 = load double, ptr %.sroa.043.0.copyload, align 8, !tbaa !11
   %46 = fsub double %45, %12
   %47 = insertelement <2 x double> poison, double %46, i64 0
-  %48 = getelementptr inbounds double, ptr %.sroa.043.0.copyload, i64 %44
+  %48 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload, i64 %44
   %49 = load double, ptr %48, align 8, !tbaa !11
   %50 = fsub double %49, %17
   %.sroa.080.8.vec.insert94 = insertelement <2 x double> %47, double %50, i64 1
@@ -16468,7 +16468,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %64 = load i64, ptr %63, align 8, !tbaa !4
   %65 = load double, ptr %.sroa.027.0.copyload, align 8, !tbaa !11
   %66 = fsub double %65, %26
-  %67 = getelementptr inbounds double, ptr %.sroa.027.0.copyload, i64 %64
+  %67 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload, i64 %64
   %68 = load double, ptr %67, align 8, !tbaa !11
   %69 = fsub double %68, %29
   %.idx.i.i.i.i.i.i.i.i.i.i.i17 = shl nsw i64 %64, 4
@@ -16494,7 +16494,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %84 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !11
   %85 = fsub double %84, %26
   %86 = insertelement <2 x double> poison, double %85, i64 0
-  %87 = getelementptr inbounds double, ptr %.sroa.0.0.copyload, i64 %83
+  %87 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload, i64 %83
   %88 = load double, ptr %87, align 8, !tbaa !11
   %89 = fsub double %88, %29
   %.sroa.080.8.vec.insert100 = insertelement <2 x double> %86, double %89, i64 1
@@ -16531,9 +16531,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %11 = load double, ptr %.sroa.068.0.copyload, align 8, !tbaa !11
   %12 = load double, ptr %.sroa.572.56.copyload, align 8, !tbaa !11
   %13 = fsub double %11, %12
-  %14 = getelementptr inbounds double, ptr %.sroa.068.0.copyload, i64 %8
+  %14 = getelementptr inbounds [8 x i8], ptr %.sroa.068.0.copyload, i64 %8
   %15 = load double, ptr %14, align 8, !tbaa !11
-  %16 = getelementptr inbounds double, ptr %.sroa.572.56.copyload, i64 %10
+  %16 = getelementptr inbounds [8 x i8], ptr %.sroa.572.56.copyload, i64 %10
   %17 = load double, ptr %16, align 8, !tbaa !11
   %18 = fsub double %15, %17
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %8, 4
@@ -16550,7 +16550,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %25 = load i64, ptr %24, align 8, !tbaa !4
   %26 = load double, ptr %.sroa.055.0.copyload, align 8, !tbaa !11
   %27 = fsub double %26, %12
-  %28 = getelementptr inbounds double, ptr %.sroa.055.0.copyload, i64 %25
+  %28 = getelementptr inbounds [8 x i8], ptr %.sroa.055.0.copyload, i64 %25
   %29 = load double, ptr %28, align 8, !tbaa !11
   %30 = fsub double %29, %17
   %.idx.i.i.i.i.i.i.i.i.i.i13 = shl nsw i64 %25, 4
@@ -16599,7 +16599,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %63 = load i64, ptr %62, align 8, !tbaa !4
   %64 = load double, ptr %.sroa.026.0.copyload, align 8, !tbaa !11
   %65 = fsub double %64, %26
-  %66 = getelementptr inbounds double, ptr %.sroa.026.0.copyload, i64 %63
+  %66 = getelementptr inbounds [8 x i8], ptr %.sroa.026.0.copyload, i64 %63
   %67 = load double, ptr %66, align 8, !tbaa !11
   %68 = fsub double %67, %29
   %.idx.i.i.i.i.i.i.i.i.i.i.i16 = shl nsw i64 %63, 4
@@ -16625,7 +16625,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %83 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !11
   %84 = fsub double %83, %26
   %85 = insertelement <2 x double> poison, double %84, i64 0
-  %86 = getelementptr inbounds double, ptr %.sroa.0.0.copyload, i64 %82
+  %86 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload, i64 %82
   %87 = load double, ptr %86, align 8, !tbaa !11
   %88 = fsub double %87, %29
   %.sroa.076.8.vec.insert96 = insertelement <2 x double> %85, double %88, i64 1
@@ -16662,9 +16662,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %11 = load double, ptr %.sroa.072.0.copyload, align 8, !tbaa !11
   %12 = load double, ptr %.sroa.576.56.copyload, align 8, !tbaa !11
   %13 = fsub double %11, %12
-  %14 = getelementptr inbounds double, ptr %.sroa.072.0.copyload, i64 %8
+  %14 = getelementptr inbounds [8 x i8], ptr %.sroa.072.0.copyload, i64 %8
   %15 = load double, ptr %14, align 8, !tbaa !11
-  %16 = getelementptr inbounds double, ptr %.sroa.576.56.copyload, i64 %10
+  %16 = getelementptr inbounds [8 x i8], ptr %.sroa.576.56.copyload, i64 %10
   %17 = load double, ptr %16, align 8, !tbaa !11
   %18 = fsub double %15, %17
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %8, 4
@@ -16681,7 +16681,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %25 = load i64, ptr %24, align 8, !tbaa !4
   %26 = load double, ptr %.sroa.060.0.copyload, align 8, !tbaa !11
   %27 = fsub double %26, %12
-  %28 = getelementptr inbounds double, ptr %.sroa.060.0.copyload, i64 %25
+  %28 = getelementptr inbounds [8 x i8], ptr %.sroa.060.0.copyload, i64 %25
   %29 = load double, ptr %28, align 8, !tbaa !11
   %30 = fsub double %29, %17
   %.idx.i.i.i.i.i.i.i.i.i.i13 = shl nsw i64 %25, 4
@@ -16707,7 +16707,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %45 = load double, ptr %.sroa.043.0.copyload, align 8, !tbaa !11
   %46 = fsub double %45, %12
   %47 = insertelement <2 x double> poison, double %46, i64 0
-  %48 = getelementptr inbounds double, ptr %.sroa.043.0.copyload, i64 %44
+  %48 = getelementptr inbounds [8 x i8], ptr %.sroa.043.0.copyload, i64 %44
   %49 = load double, ptr %48, align 8, !tbaa !11
   %50 = fsub double %49, %17
   %.sroa.080.8.vec.insert94 = insertelement <2 x double> %47, double %50, i64 1
@@ -16735,7 +16735,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %64 = load i64, ptr %63, align 8, !tbaa !4
   %65 = load double, ptr %.sroa.027.0.copyload, align 8, !tbaa !11
   %66 = fsub double %65, %26
-  %67 = getelementptr inbounds double, ptr %.sroa.027.0.copyload, i64 %64
+  %67 = getelementptr inbounds [8 x i8], ptr %.sroa.027.0.copyload, i64 %64
   %68 = load double, ptr %67, align 8, !tbaa !11
   %69 = fsub double %68, %29
   %.idx.i.i.i.i.i.i.i.i.i.i.i17 = shl nsw i64 %64, 4
@@ -16761,7 +16761,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   %84 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !11
   %85 = fsub double %84, %26
   %86 = insertelement <2 x double> poison, double %85, i64 0
-  %87 = getelementptr inbounds double, ptr %.sroa.0.0.copyload, i64 %83
+  %87 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload, i64 %83
   %88 = load double, ptr %87, align 8, !tbaa !11
   %89 = fsub double %88, %29
   %.sroa.080.8.vec.insert100 = insertelement <2 x double> %86, double %89, i64 1

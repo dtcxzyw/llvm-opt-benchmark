@@ -3501,9 +3501,9 @@ define internal fastcc void @_ZN5YosysL9big2constERK10BigIntegerii(ptr dead_on_u
 
 18:                                               ; preds = %18, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %18 ]
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i.i
   %20 = load i64, ptr %19, align 8, !tbaa !60
-  %21 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i
   store i64 %20, ptr %21, align 8, !tbaa !60
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %12
@@ -3562,7 +3562,7 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
 35:                                               ; preds = %.lr.ph31
   %36 = load ptr, ptr %15, align 8, !tbaa !38
   %37 = zext nneg i32 %33 to i64
-  %38 = getelementptr inbounds nuw i64, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !60
   %40 = xor i64 %39, -1
   br label %41
@@ -3598,7 +3598,7 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
 
 55:                                               ; preds = %.lr.ph
   %56 = zext nneg i32 %54 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %14, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !60
   br label %59
 
@@ -4057,9 +4057,9 @@ define void @_ZN5Yosys5RTLIL9const_divERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
 
 44:                                               ; preds = %44, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %44 ]
-  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i.i.i
   %46 = load i64, ptr %45, align 8, !tbaa !60
-  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i.i.i
   store i64 %46, ptr %47, align 8, !tbaa !60
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %38
@@ -4130,9 +4130,9 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %48, %52
 
 73:                                               ; preds = %73, %.lr.ph.i.i.i49
   %indvars.iv.i.i.i50 = phi i64 [ 0, %.lr.ph.i.i.i49 ], [ %indvars.iv.next.i.i.i51, %73 ]
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %indvars.iv.i.i.i50
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.i.i.i50
   %75 = load i64, ptr %74, align 8, !tbaa !60
-  %76 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv.i.i.i50
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i.i.i50
   store i64 %75, ptr %76, align 8, !tbaa !60
   %indvars.iv.next.i.i.i51 = add nuw nsw i64 %indvars.iv.i.i.i50, 1
   %exitcond.not.i.i.i52 = icmp eq i64 %indvars.iv.next.i.i.i51, %67
@@ -4555,9 +4555,9 @@ define void @_ZN5Yosys5RTLIL9const_modERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
 
 43:                                               ; preds = %43, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !60
-  %46 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i.i.i
   store i64 %45, ptr %46, align 8, !tbaa !60
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %37
@@ -4628,9 +4628,9 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %47, %51
 
 72:                                               ; preds = %72, %.lr.ph.i.i.i49
   %indvars.iv.i.i.i50 = phi i64 [ 0, %.lr.ph.i.i.i49 ], [ %indvars.iv.next.i.i.i51, %72 ]
-  %73 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv.i.i.i50
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.i.i.i50
   %74 = load i64, ptr %73, align 8, !tbaa !60
-  %75 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv.i.i.i50
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i.i.i50
   store i64 %74, ptr %75, align 8, !tbaa !60
   %indvars.iv.next.i.i.i51 = add nuw nsw i64 %indvars.iv.i.i.i50, 1
   %exitcond.not.i.i.i52 = icmp eq i64 %indvars.iv.next.i.i.i51, %66
@@ -5059,9 +5059,9 @@ define void @_ZN5Yosys5RTLIL14const_divfloorERKNS0_5ConstES3_bbi(ptr dead_on_unw
 
 51:                                               ; preds = %51, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %51 ]
-  %52 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv.i.i.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i.i.i
   %53 = load i64, ptr %52, align 8, !tbaa !60
-  %54 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i.i.i
   store i64 %53, ptr %54, align 8, !tbaa !60
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %45
@@ -5132,9 +5132,9 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %55, %59
 
 80:                                               ; preds = %80, %.lr.ph.i.i.i61
   %indvars.iv.i.i.i62 = phi i64 [ 0, %.lr.ph.i.i.i61 ], [ %indvars.iv.next.i.i.i63, %80 ]
-  %81 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv.i.i.i62
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv.i.i.i62
   %82 = load i64, ptr %81, align 8, !tbaa !60
-  %83 = getelementptr inbounds nuw i64, ptr %76, i64 %indvars.iv.i.i.i62
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv.i.i.i62
   store i64 %82, ptr %83, align 8, !tbaa !60
   %indvars.iv.next.i.i.i63 = add nuw nsw i64 %indvars.iv.i.i.i62, 1
   %exitcond.not.i.i.i64 = icmp eq i64 %indvars.iv.next.i.i.i63, %74
@@ -5195,9 +5195,9 @@ _ZNK10BigIntegerngEv.exit59:                      ; preds = %80, %.noexc65, %63
 
 105:                                              ; preds = %105, %.lr.ph.i.i.i69
   %indvars.iv.i.i.i70 = phi i64 [ 0, %.lr.ph.i.i.i69 ], [ %indvars.iv.next.i.i.i71, %105 ]
-  %106 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv.i.i.i70
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv.i.i.i70
   %107 = load i64, ptr %106, align 8, !tbaa !60
-  %108 = getelementptr inbounds nuw i64, ptr %104, i64 %indvars.iv.i.i.i70
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv.i.i.i70
   %109 = load i64, ptr %108, align 8, !tbaa !60
   %.not8.i.i.i = icmp eq i64 %107, %109
   %indvars.iv.next.i.i.i71 = add nuw nsw i64 %indvars.iv.i.i.i70, 1
@@ -5729,9 +5729,9 @@ define void @_ZN5Yosys5RTLIL14const_modfloorERKNS0_5ConstES3_bbi(ptr dead_on_unw
 
 46:                                               ; preds = %46, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %46 ]
-  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv.i.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i.i.i
   %48 = load i64, ptr %47, align 8, !tbaa !60
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.i.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i.i.i
   store i64 %48, ptr %49, align 8, !tbaa !60
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %40
@@ -5803,9 +5803,9 @@ _ZN10BigIntegerD2Ev.exit:                         ; preds = %50, %54
 
 76:                                               ; preds = %76, %.lr.ph.i.i.i63
   %indvars.iv.i.i.i64 = phi i64 [ 0, %.lr.ph.i.i.i63 ], [ %indvars.iv.next.i.i.i65, %76 ]
-  %77 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv.i.i.i64
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.i.i.i64
   %78 = load i64, ptr %77, align 8, !tbaa !60
-  %79 = getelementptr inbounds nuw i64, ptr %72, i64 %indvars.iv.i.i.i64
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.i.i.i64
   store i64 %78, ptr %79, align 8, !tbaa !60
   %indvars.iv.next.i.i.i65 = add nuw nsw i64 %indvars.iv.i.i.i64, 1
   %exitcond.not.i.i.i66 = icmp eq i64 %indvars.iv.next.i.i.i65, %70
@@ -5909,9 +5909,9 @@ _ZN10BigIntegerD2Ev.exit74:                       ; preds = %95, %99
 
 115:                                              ; preds = %115, %.lr.ph.i.i.i76
   %indvars.iv.i.i.i77 = phi i64 [ 0, %.lr.ph.i.i.i76 ], [ %indvars.iv.next.i.i.i78, %115 ]
-  %116 = getelementptr inbounds nuw i64, ptr %112, i64 %indvars.iv.i.i.i77
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv.i.i.i77
   %117 = load i64, ptr %116, align 8, !tbaa !60
-  %118 = getelementptr inbounds nuw i64, ptr %114, i64 %indvars.iv.i.i.i77
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv.i.i.i77
   %119 = load i64, ptr %118, align 8, !tbaa !60
   %.not8.i.i.i = icmp eq i64 %117, %119
   %indvars.iv.next.i.i.i78 = add nuw nsw i64 %indvars.iv.i.i.i77, 1
@@ -6323,9 +6323,9 @@ define void @_ZN5Yosys5RTLIL9const_powERKNS0_5ConstES3_bbi(ptr dead_on_unwind no
 
 60:                                               ; preds = %59, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %59 ]
-  %61 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv.i.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i.i.i
   %62 = load i64, ptr %61, align 8, !tbaa !60
-  %63 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv.i.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i.i.i
   %64 = load i64, ptr %63, align 8, !tbaa !60
   %.not8.i.i.i = icmp eq i64 %62, %64
   br i1 %.not8.i.i.i, label %59, label %.critedge
@@ -6461,9 +6461,9 @@ _ZN10BigIntegerD2Ev.exit149:                      ; preds = %95, %_ZN10BigIntege
 
 113:                                              ; preds = %112, %.lr.ph.i.i.i153
   %indvars.iv.i.i.i155 = phi i64 [ 0, %.lr.ph.i.i.i153 ], [ %indvars.iv.next.i.i.i157, %112 ]
-  %114 = getelementptr inbounds nuw i64, ptr %109, i64 %indvars.iv.i.i.i155
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv.i.i.i155
   %115 = load i64, ptr %114, align 8, !tbaa !60
-  %116 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv.i.i.i155
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.i.i.i155
   %117 = load i64, ptr %116, align 8, !tbaa !60
   %.not8.i.i.i156 = icmp eq i64 %115, %117
   br i1 %.not8.i.i.i156, label %112, label %.critedge144
@@ -6775,9 +6775,9 @@ _ZN10BigIntegerD2Ev.exit174:                      ; preds = %213, %208, %206
 
 228:                                              ; preds = %228, %.lr.ph.i.i.i178
   %indvars.iv.i.i.i180 = phi i64 [ 0, %.lr.ph.i.i.i178 ], [ %indvars.iv.next.i.i.i182, %228 ]
-  %229 = getelementptr inbounds nuw i64, ptr %225, i64 %indvars.iv.i.i.i180
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %indvars.iv.i.i.i180
   %230 = load i64, ptr %229, align 8, !tbaa !60
-  %231 = getelementptr inbounds nuw i64, ptr %227, i64 %indvars.iv.i.i.i180
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %indvars.iv.i.i.i180
   %232 = load i64, ptr %231, align 8, !tbaa !60
   %.not8.i.i.i181 = icmp eq i64 %230, %232
   %indvars.iv.next.i.i.i182 = add nuw nsw i64 %indvars.iv.i.i.i180, 1
@@ -6865,9 +6865,9 @@ _ZNK10BigIntegerngEv.exit:                        ; preds = %238
 
 261:                                              ; preds = %260, %.lr.ph.i.i.i189
   %indvars.iv.i.i.i191 = phi i64 [ 0, %.lr.ph.i.i.i189 ], [ %indvars.iv.next.i.i.i193, %260 ]
-  %262 = getelementptr inbounds nuw i64, ptr %257, i64 %indvars.iv.i.i.i191
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %indvars.iv.i.i.i191
   %263 = load i64, ptr %262, align 8, !tbaa !60
-  %264 = getelementptr inbounds nuw i64, ptr %259, i64 %indvars.iv.i.i.i191
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %indvars.iv.i.i.i191
   %265 = load i64, ptr %264, align 8, !tbaa !60
   %.not8.i.i.i192 = icmp eq i64 %263, %265
   br i1 %.not8.i.i.i192, label %260, label %_ZNK10BigIntegereqERKS_.exit195
@@ -7231,9 +7231,9 @@ _ZN10BigIntegerD2Ev.exit215:                      ; preds = %_ZN10BigIntegermLER
 
 386:                                              ; preds = %386, %.lr.ph.i.i.i219
   %indvars.iv.i.i.i221 = phi i64 [ 0, %.lr.ph.i.i.i219 ], [ %indvars.iv.next.i.i.i223, %386 ]
-  %387 = getelementptr inbounds nuw i64, ptr %383, i64 %indvars.iv.i.i.i221
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %383, i64 %indvars.iv.i.i.i221
   %388 = load i64, ptr %387, align 8, !tbaa !60
-  %389 = getelementptr inbounds nuw i64, ptr %385, i64 %indvars.iv.i.i.i221
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %385, i64 %indvars.iv.i.i.i221
   %390 = load i64, ptr %389, align 8, !tbaa !60
   %.not8.i.i.i222 = icmp eq i64 %388, %390
   %indvars.iv.next.i.i.i223 = add nuw nsw i64 %indvars.iv.i.i.i221, 1
@@ -7442,9 +7442,9 @@ _ZN10BigIntegerD2Ev.exit235:                      ; preds = %452, %456
 
 469:                                              ; preds = %469, %.lr.ph.i.i.i239
   %indvars.iv.i.i.i241 = phi i64 [ 0, %.lr.ph.i.i.i239 ], [ %indvars.iv.next.i.i.i243, %469 ]
-  %470 = getelementptr inbounds nuw i64, ptr %467, i64 %indvars.iv.i.i.i241
+  %470 = getelementptr inbounds nuw [8 x i8], ptr %467, i64 %indvars.iv.i.i.i241
   %471 = load i64, ptr %470, align 8, !tbaa !60
-  %472 = getelementptr inbounds nuw i64, ptr %468, i64 %indvars.iv.i.i.i241
+  %472 = getelementptr inbounds nuw [8 x i8], ptr %468, i64 %indvars.iv.i.i.i241
   %473 = load i64, ptr %472, align 8, !tbaa !60
   %.not8.i.i.i242 = icmp eq i64 %471, %473
   %indvars.iv.next.i.i.i243 = add nuw nsw i64 %indvars.iv.i.i.i241, 1

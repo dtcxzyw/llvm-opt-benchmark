@@ -18,10 +18,8 @@ target triple = "x86_64-pc-linux-gnu"
 %class.expr_dependency_translation = type { ptr, %class.ptr_vector }
 %class.ptr_vector = type { %class.vector }
 %class.vector = type { ptr }
-%"class.obj_map<expr, std::pair<rational, bool>>::obj_map_entry" = type { %"struct.obj_map<expr, std::pair<rational, bool>>::key_data" }
 %"struct.obj_map<expr, std::pair<rational, bool>>::key_data" = type { ptr, %"struct.std::pair" }
 %"struct.std::pair" = type <{ %class.rational, i8, [7 x i8] }>
-%"class.obj_map<expr, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry" = type { %"struct.obj_map<expr, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::key_data" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -652,7 +650,7 @@ define hidden noundef ptr @_ZN13bound_manager9translateER11ast_manager(ptr nound
 
 .loopexit156:                                     ; preds = %.lr.ph.i.i.i.i, %18, %2
   %.sroa.0.1.i.i = phi ptr [ %11, %2 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %15, %18 ]
-  %20 = getelementptr inbounds nuw %"class.obj_map<expr, std::pair<rational, bool>>::obj_map_entry", ptr %11, i64 %14
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %14
   %.not150157 = icmp eq ptr %.sroa.0.1.i.i, %20
   br i1 %.not150157, label %._crit_edge, label %.lr.ph
 
@@ -729,7 +727,7 @@ _ZN14core_hashtableIN7obj_mapI4exprSt4pairI8rationalbEE13obj_map_entryE8obj_hash
 
 .loopexit155:                                     ; preds = %.lr.ph.i.i.i.i70, %31, %._crit_edge
   %.sroa.0.1.i.i72 = phi ptr [ %24, %._crit_edge ], [ %.sroa.0.0.i.i71, %.lr.ph.i.i.i.i70 ], [ %28, %31 ]
-  %49 = getelementptr inbounds nuw %"class.obj_map<expr, std::pair<rational, bool>>::obj_map_entry", ptr %24, i64 %27
+  %49 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %27
   %.not151159 = icmp eq ptr %.sroa.0.1.i.i72, %49
   br i1 %.not151159, label %._crit_edge163, label %.lr.ph162
 
@@ -806,7 +804,7 @@ _ZN14core_hashtableIN7obj_mapI4exprSt4pairI8rationalbEE13obj_map_entryE8obj_hash
 
 .loopexit154:                                     ; preds = %.lr.ph.i.i.i.i81, %60, %._crit_edge163
   %.sroa.0.1.i.i83 = phi ptr [ %53, %._crit_edge163 ], [ %.sroa.0.0.i.i82, %.lr.ph.i.i.i.i81 ], [ %57, %60 ]
-  %78 = getelementptr inbounds nuw %"class.obj_map<expr, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %53, i64 %56
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %56
   %.not152164 = icmp eq ptr %.sroa.0.1.i.i83, %78
   br i1 %.not152164, label %._crit_edge168, label %.lr.ph167
 
@@ -898,7 +896,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_d
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i98, %90, %._crit_edge168
   %.sroa.0.1.i.i100 = phi ptr [ %83, %._crit_edge168 ], [ %.sroa.0.0.i.i99, %.lr.ph.i.i.i.i98 ], [ %87, %90 ]
-  %113 = getelementptr inbounds nuw %"class.obj_map<expr, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %83, i64 %86
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %86
   %.not153169 = icmp eq ptr %.sroa.0.1.i.i100, %113
   br i1 %.not153169, label %._crit_edge173, label %.lr.ph172
 
@@ -1061,7 +1059,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %176 = phi ptr [ %.pre.i.i, %.noexc127 ], [ %165, %167 ]
   %177 = getelementptr inbounds i8, ptr %176, i64 -4
   %178 = zext i32 %175 to i64
-  %179 = getelementptr inbounds nuw ptr, ptr %176, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %178
   store ptr %.0.i.i123, ptr %179, align 8, !tbaa !40
   %180 = add i32 %175, 1
   store i32 %180, ptr %177, align 4, !tbaa !39
@@ -1988,7 +1986,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %27
 44:                                               ; preds = %42, %382
   %indvars.iv = phi i64 [ 0, %42 ], [ %indvars.iv.next, %382 ]
   %.033130 = phi ptr [ null, %42 ], [ %.235.ph, %382 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !40
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
@@ -3025,7 +3023,7 @@ define internal fastcc noundef i32 @_ZL9swap_decli(i32 noundef %0) unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL9swap_decli, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZL9swap_decli, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -3601,7 +3599,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %256 = phi ptr [ %.pre.i.i, %.noexc48 ], [ %246, %248 ]
   %257 = getelementptr inbounds i8, ptr %256, i64 -4
   %258 = zext i32 %255 to i64
-  %259 = getelementptr inbounds nuw ptr, ptr %256, i64 %258
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %258
   store ptr %1, ptr %259, align 8, !tbaa !40
   %260 = add i32 %255, 1
   store i32 %260, ptr %257, align 4, !tbaa !39
@@ -4192,7 +4190,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %253 = phi ptr [ %.pre.i.i, %.noexc48 ], [ %243, %245 ]
   %254 = getelementptr inbounds i8, ptr %253, i64 -4
   %255 = zext i32 %252 to i64
-  %256 = getelementptr inbounds nuw ptr, ptr %253, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %255
   store ptr %1, ptr %256, align 8, !tbaa !40
   %257 = add i32 %252, 1
   store i32 %257, ptr %254, align 4, !tbaa !39
@@ -4365,7 +4363,7 @@ define hidden noundef zeroext i1 @_ZNK13bound_manager12inconsistentEv(ptr nounde
 
 _ZNK7obj_mapI4exprSt4pairI8rationalbEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %11, %1
   %.sroa.0.1.i.i = phi ptr [ %4, %1 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %8, %11 ]
-  %13 = getelementptr inbounds nuw %"class.obj_map<expr, std::pair<rational, bool>>::obj_map_entry", ptr %4, i64 %7
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %7
   %.not3240.not = icmp eq ptr %.sroa.0.1.i.i, %13
   br i1 %.not3240.not, label %.loopexit, label %.lr.ph
 
@@ -4677,7 +4675,7 @@ define hidden void @_ZNK13bound_manager7displayERSo(ptr noundef nonnull align 8 
 
 27:                                               ; preds = %23, %20
   %.0.i.i.i.i = phi i64 [ %26, %23 ], [ 0, %20 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %.0.i.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0.i.i.i.i
   %.not = icmp eq ptr %.0, %28
   br i1 %.not, label %29, label %34
 
@@ -5872,7 +5870,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7obj_mapI4exprSt4pairI8rationalbEE9f
   %.idx.i = mul nuw nsw i64 %15, 48
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i
   %17 = zext i32 %11 to i64
-  %18 = getelementptr inbounds nuw %"class.obj_map<expr, std::pair<rational, bool>>::obj_map_entry", ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %14, i64 %17
   %.not34.i = icmp eq i32 %13, %11
   br i1 %.not34.i, label %.preheader.i, label %.lr.ph.i
 
@@ -5986,7 +5984,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprSt4pairI8rat
   %.idx = mul nuw nsw i64 %22, 48
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
-  %25 = getelementptr inbounds nuw %"class.obj_map<expr, std::pair<rational, bool>>::obj_map_entry", ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %24
   %.not62 = icmp eq i32 %20, %15
   br i1 %.not62, label %.preheader, label %.lr.ph
 
@@ -6478,7 +6476,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprSt4pairI8rat
   %.idx = mul nuw nsw i64 %6, 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw %"class.obj_map<expr, std::pair<rational, bool>>::obj_map_entry", ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %8
   %.not38 = icmp eq i32 %1, 0
   br i1 %.not38, label %._crit_edge43, label %.lr.ph42
 
@@ -6725,7 +6723,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprPN18dependen
   %.idx = shl nuw nsw i64 %22, 4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
-  %25 = getelementptr inbounds nuw %"class.obj_map<expr, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %24
   %.not62 = icmp eq i32 %20, %15
   br i1 %.not62, label %.preheader, label %.lr.ph
 
@@ -6859,7 +6857,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_d
   %11 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %13 = getelementptr inbounds nuw %"class.obj_map<expr, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %7, i64 %5
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %9, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE10move_tableEPS9_jSG_j.exit, label %.lr.ph41.i
 

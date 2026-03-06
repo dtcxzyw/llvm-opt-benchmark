@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.casadi::Sparsity" = type { %"class.casadi::SharedObject" }
 %"class.casadi::SharedObject" = type { %"class.casadi::GenericShared" }
 %"class.casadi::GenericShared" = type { ptr }
-%"class.casadi::UniversalNodeOwner" = type <{ ptr, i8, [7 x i8] }>
 %"class.casadi::MX" = type { %"class.casadi::SharedObject" }
 %"class.casadi::Function" = type { %"class.casadi::SharedObject" }
 %"class.casadi::Importer" = type { %"class.casadi::SharedObject" }
@@ -4013,7 +4012,7 @@ define linkonce_odr hidden void @_ZN6casadi17SerializingStream11shared_packINS_8
   %21 = load i64, ptr %20, align 8, !tbaa !102
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !95
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i, label %26
@@ -4096,7 +4095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN6c
   %59 = load i64, ptr %58, align 8, !tbaa !102
   %60 = urem i64 %57, %59
   %61 = load ptr, ptr %0, align 8, !tbaa !95
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8, !tbaa !145
   %.not.i.i.i.i21 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i21, label %.loopexit.i.i, label %64
@@ -4452,7 +4451,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   %53 = load i64, ptr %52, align 8, !tbaa !102
   %54 = urem i64 %51, %53
   %55 = load ptr, ptr %41, align 8, !tbaa !95
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %58
@@ -4619,7 +4618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %101
   unreachable
 
 _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE2atEm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
-  %115 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %109, i64 %106
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %106
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %116 = load ptr, ptr %115, align 8, !tbaa !74
   call void @_ZN6casadi8Sparsity6createEPNS_16SparsityInternalE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %9, ptr noundef %116)
@@ -4977,7 +4976,7 @@ define linkonce_odr hidden void @_ZN6casadi17SerializingStream11shared_packINS_2
   %21 = load i64, ptr %20, align 8, !tbaa !102
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !95
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i, label %26
@@ -5060,7 +5059,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN6c
   %59 = load i64, ptr %58, align 8, !tbaa !102
   %60 = urem i64 %57, %59
   %61 = load ptr, ptr %0, align 8, !tbaa !95
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8, !tbaa !145
   %.not.i.i.i.i21 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i21, label %.loopexit.i.i, label %64
@@ -5406,7 +5405,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %35
   %50 = load i64, ptr %49, align 8, !tbaa !102
   %51 = urem i64 %48, %50
   %52 = load ptr, ptr %38, align 8, !tbaa !95
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %55
@@ -5563,7 +5562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %95,
   unreachable
 
 _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE2atEm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52
-  %109 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %103, i64 %100
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %103, i64 %100
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %110 = load ptr, ptr %109, align 8, !tbaa !74
   call void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %9, ptr noundef %110)
@@ -5901,7 +5900,7 @@ define linkonce_odr hidden void @_ZN6casadi17SerializingStream11shared_packINS_8
   %21 = load i64, ptr %20, align 8, !tbaa !102
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !95
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i, label %26
@@ -5984,7 +5983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN6c
   %59 = load i64, ptr %58, align 8, !tbaa !102
   %60 = urem i64 %57, %59
   %61 = load ptr, ptr %0, align 8, !tbaa !95
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8, !tbaa !145
   %.not.i.i.i.i21 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i21, label %.loopexit.i.i, label %64
@@ -6330,7 +6329,7 @@ _ZN6casadi8FunctionaSERKS0_.exit:                 ; preds = %35
   %50 = load i64, ptr %49, align 8, !tbaa !102
   %51 = urem i64 %48, %50
   %52 = load ptr, ptr %38, align 8, !tbaa !95
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %55
@@ -6487,7 +6486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %95,
   unreachable
 
 _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE2atEm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52
-  %109 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %103, i64 %100
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %103, i64 %100
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %110 = load ptr, ptr %109, align 8, !tbaa !74
   call void @_ZN6casadi8Function6createEPNS_16FunctionInternalE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Function") align 8 %9, ptr noundef %110)
@@ -6825,7 +6824,7 @@ define linkonce_odr hidden void @_ZN6casadi17SerializingStream11shared_packINS_8
   %21 = load i64, ptr %20, align 8, !tbaa !102
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !95
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i, label %26
@@ -6908,7 +6907,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN6c
   %59 = load i64, ptr %58, align 8, !tbaa !102
   %60 = urem i64 %57, %59
   %61 = load ptr, ptr %0, align 8, !tbaa !95
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8, !tbaa !145
   %.not.i.i.i.i21 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i21, label %.loopexit.i.i, label %64
@@ -7264,7 +7263,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   %53 = load i64, ptr %52, align 8, !tbaa !102
   %54 = urem i64 %51, %53
   %55 = load ptr, ptr %41, align 8, !tbaa !95
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %58
@@ -7431,7 +7430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %101
   unreachable
 
 _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE2atEm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
-  %115 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %109, i64 %106
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %106
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %116 = load ptr, ptr %115, align 8, !tbaa !74
   call void @_ZN6casadi8Importer6createEPNS_16ImporterInternalE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Importer") align 8 %9, ptr noundef %116)
@@ -7789,7 +7788,7 @@ define linkonce_odr hidden void @_ZN6casadi17SerializingStream11shared_packINS_3
   %21 = load i64, ptr %20, align 8, !tbaa !102
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !95
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i, label %26
@@ -7872,7 +7871,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN6c
   %59 = load i64, ptr %58, align 8, !tbaa !102
   %60 = urem i64 %57, %59
   %61 = load ptr, ptr %0, align 8, !tbaa !95
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8, !tbaa !145
   %.not.i.i.i.i21 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i21, label %.loopexit.i.i, label %64
@@ -8228,7 +8227,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   %53 = load i64, ptr %52, align 8, !tbaa !102
   %54 = urem i64 %51, %53
   %55 = load ptr, ptr %41, align 8, !tbaa !95
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %58
@@ -8395,7 +8394,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %101
   unreachable
 
 _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE2atEm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
-  %115 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %109, i64 %106
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %106
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %116 = load ptr, ptr %115, align 8, !tbaa !74
   call void @_ZN6casadi3Fmu6createEPNS_11FmuInternalE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Fmu") align 8 %9, ptr noundef %116)
@@ -8753,7 +8752,7 @@ define linkonce_odr hidden void @_ZN6casadi17SerializingStream11shared_packINS_6
   %21 = load i64, ptr %20, align 8, !tbaa !102
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !95
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i, label %26
@@ -8836,7 +8835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN6c
   %59 = load i64, ptr %58, align 8, !tbaa !102
   %60 = urem i64 %57, %59
   %61 = load ptr, ptr %0, align 8, !tbaa !95
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8, !tbaa !145
   %.not.i.i.i.i21 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i21, label %.loopexit.i.i, label %64
@@ -9192,7 +9191,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   %53 = load i64, ptr %52, align 8, !tbaa !102
   %54 = urem i64 %51, %53
   %55 = load ptr, ptr %41, align 8, !tbaa !95
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %58
@@ -9359,7 +9358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %101
   unreachable
 
 _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE2atEm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
-  %115 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %109, i64 %106
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %106
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %116 = load ptr, ptr %115, align 8, !tbaa !74
   call void @_ZN6casadi6Linsol6createEPNS_14LinsolInternalE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Linsol") align 8 %9, ptr noundef %116)
@@ -9717,7 +9716,7 @@ define linkonce_odr hidden void @_ZN6casadi17SerializingStream11shared_packINS_1
   %21 = load i64, ptr %20, align 8, !tbaa !102
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !95
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i, label %26
@@ -9800,7 +9799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN6c
   %59 = load i64, ptr %58, align 8, !tbaa !102
   %60 = urem i64 %57, %59
   %61 = load ptr, ptr %0, align 8, !tbaa !95
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8, !tbaa !145
   %.not.i.i.i.i21 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i21, label %.loopexit.i.i, label %64
@@ -10156,7 +10155,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
   %53 = load i64, ptr %52, align 8, !tbaa !102
   %54 = urem i64 %51, %53
   %55 = load ptr, ptr %41, align 8, !tbaa !95
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %58
@@ -10323,7 +10322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %101
   unreachable
 
 _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE2atEm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
-  %115 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %109, i64 %106
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %106
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %116 = load ptr, ptr %115, align 8, !tbaa !74
   call void @_ZN6casadi11GenericType6createEPNS_20SharedObjectInternalE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::GenericType") align 8 %9, ptr noundef %116)
@@ -10895,7 +10894,7 @@ define linkonce_odr hidden void @_ZN6casadi17SerializingStream11shared_packINS_6
   %21 = load i64, ptr %20, align 8, !tbaa !102
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !95
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i, label %26
@@ -10978,7 +10977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN6c
   %59 = load i64, ptr %58, align 8, !tbaa !102
   %60 = urem i64 %57, %59
   %61 = load ptr, ptr %0, align 8, !tbaa !95
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
   %63 = load ptr, ptr %62, align 8, !tbaa !145
   %.not.i.i.i.i21 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i21, label %.loopexit.i.i, label %64
@@ -11324,7 +11323,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %29,
   %51 = load i64, ptr %50, align 8, !tbaa !102
   %52 = urem i64 %49, %51
   %53 = load ptr, ptr %39, align 8, !tbaa !95
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %52
   %55 = load ptr, ptr %54, align 8, !tbaa !145
   %.not.i.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %56
@@ -11481,7 +11480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %96,
   unreachable
 
 _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE2atEm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51
-  %110 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %104, i64 %101
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %101
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %111 = load ptr, ptr %110, align 8, !tbaa !74
   call void @_ZN6casadi6SXElem6createEPNS_6SXNodeE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %9, ptr noundef %111)
@@ -11814,7 +11813,7 @@ _ZN6casadi19DeserializingStream6unpackERx.exit:   ; preds = %8
 
 32:                                               ; preds = %_ZN6casadi19DeserializingStream6unpackERx.exit
   %33 = sdiv i64 %19, 64
-  %34 = getelementptr inbounds i64, ptr %24, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %24, i64 %33
   %35 = and i64 %19, -9223372036854775745
   %36 = icmp ugt i64 %35, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %36, i64 -8, i64 0
@@ -11855,7 +11854,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %32, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = load ptr, ptr %1, align 8, !tbaa !191
   %50 = lshr i64 %.08, 6
-  %51 = getelementptr inbounds nuw i64, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = and i64 %.08, 63
   %53 = shl nuw i64 1, %52
   br i1 %.not, label %57, label %54
@@ -14120,7 +14119,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
 31:                                               ; preds = %_ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !95
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !145
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -14147,7 +14146,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   %45 = load ptr, ptr %43, align 8, !tbaa !143
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !145
   br label %49
 
@@ -14225,7 +14224,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   %16 = load ptr, ptr %15, align 8, !tbaa !143
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !145
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -14240,7 +14239,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_xESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !145
   br label %29
 
@@ -14379,7 +14378,7 @@ _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
 _ZNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %42
   store ptr %20, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !73
-  %46 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %20, i64 %16
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %46, ptr %41, align 8, !tbaa !86
   ret void
 }
@@ -15373,7 +15372,7 @@ _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
 _ZNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %42
   store ptr %20, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !73
-  %46 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %20, i64 %16
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %46, ptr %41, align 8, !tbaa !86
   ret void
 }
@@ -15492,7 +15491,7 @@ _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
 _ZNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %42
   store ptr %20, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !73
-  %46 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %20, i64 %16
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %46, ptr %41, align 8, !tbaa !86
   ret void
 }
@@ -15611,7 +15610,7 @@ _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
 _ZNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %42
   store ptr %20, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !73
-  %46 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %20, i64 %16
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %46, ptr %41, align 8, !tbaa !86
   ret void
 }
@@ -15727,7 +15726,7 @@ _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
 _ZNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %42
   store ptr %20, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !73
-  %46 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %20, i64 %16
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %46, ptr %41, align 8, !tbaa !86
   ret void
 }
@@ -15855,7 +15854,7 @@ _ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
 _ZNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %42
   store ptr %20, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !73
-  %46 = getelementptr inbounds nuw %"class.casadi::UniversalNodeOwner", ptr %20, i64 %16
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %46, ptr %41, align 8, !tbaa !86
   ret void
 }
@@ -15911,7 +15910,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 63
   %36 = sdiv i64 %33, 64
-  %37 = getelementptr inbounds i64, ptr %16, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %16, i64 %36
   %38 = and i64 %33, -9223372036854775745
   %39 = icmp ugt i64 %38, -9223372036854775808
   %storemerge.idx.i.i.i = select i1 %39, i64 -8, i64 0
@@ -16066,7 +16065,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_b
   %107 = add nsw i64 %3, %106
   %108 = sdiv i64 %107, 64
   %109 = load ptr, ptr %15, align 8, !tbaa !191
-  %110 = getelementptr inbounds i64, ptr %109, i64 %108
+  %110 = getelementptr inbounds [8 x i8], ptr %109, i64 %108
   %111 = and i64 %107, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i = select i1 %112, i64 -8, i64 0
@@ -16327,13 +16326,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 3
   %233 = sub nsw i64 0, %232
-  %234 = getelementptr inbounds i64, ptr %228, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %228, i64 %233
   tail call void @_ZdlPvm(ptr noundef %234, i64 noundef %231) #27
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %227
   %235 = lshr i64 %123, 6
-  %236 = getelementptr inbounds nuw i64, ptr %126, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %235
   store ptr %236, ptr %8, align 8, !tbaa !292
   store ptr %126, ptr %0, align 8
   %.sroa.5138.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %0, i64 8

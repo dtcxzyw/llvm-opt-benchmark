@@ -526,7 +526,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %18 = load ptr, ptr %17, align 8, !noalias !77, !nonnull !3, !noundef !3
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %20 = load i64, ptr %19, align 8, !noalias !77, !noundef !3
-  %21 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %18, i64 %20
   %22 = call noundef align 8 dereferenceable(48) ptr @"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$7entries17h55c4e9719fbb8c63E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %18, ptr noundef nonnull %21), !noalias !81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !77
@@ -1241,7 +1241,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %7 = add i64 %6, %.sroa.05.026.i
   %8 = icmp ult i64 %7, %1
   call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %7
   %10 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9), !noalias !125
   %11 = extractvalue { i32, i32 } %10, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !125
@@ -1259,7 +1259,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %14, %.lr.ph.i ]
   %17 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %18 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %19 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %18), !noalias !125
   %20 = extractvalue { i32, i32 } %19, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !125
@@ -1293,7 +1293,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %5 = add i64 %4, %.sroa.05.026.i
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %5
   %8 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !noalias !128
   %9 = extractvalue { i32, i32 } %8, 0
   %10 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %2), !noalias !128
@@ -1308,7 +1308,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !128
   %18 = extractvalue { i32, i32 } %17, 0
   %19 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %2), !noalias !128
@@ -1362,7 +1362,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
 
 "_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i": ; preds = %._crit_edge.i.thread10, %._crit_edge.i
   %.sroa.05.0.lcssa.i13 = phi i64 [ %33, %._crit_edge.i.thread10 ], [ 0, %._crit_edge.i ]
-  %15 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i13
+  %15 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i13
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !131, !nonnull !3, !noundef !3
   %18 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated93_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..WithItem$GT$5range17ha94cdf2d7ff16625E"(ptr noundef nonnull align 8 %17), !noalias !131
@@ -1381,7 +1381,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %25 = add i64 %24, %.sroa.05.030.i
   %26 = icmp ult i64 %25, %1
   tail call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %25
+  %27 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %25
   %28 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated93_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..WithItem$GT$5range17ha94cdf2d7ff16625E"(ptr noundef nonnull align 8 %8), !noalias !131
   %29 = extractvalue { i32, i32 } %28, 0
   %30 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %27), !noalias !131
@@ -1442,7 +1442,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %.._crit_edge.i_crit_edge ], [ %34, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hfcb2e56e7815e336E.exit28.i" ]
   %11 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.03.0.i.i.i = select i1 %.pre-phi, ptr %13, ptr null
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1472,7 +1472,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %24 = add i64 %23, %.sroa.05.030.i
   %25 = icmp ult i64 %24, %1
   tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %24
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %24
   %27 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26), !noalias !137
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -1531,7 +1531,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %6 = add i64 %5, %.sroa.05.026.i
   %7 = icmp ult i64 %6, %1
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %6
   %9 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !noalias !141
   %10 = extractvalue { i32, i32 } %9, 0
   %.not.i = icmp ult i32 %10, %4
@@ -1545,7 +1545,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %.._crit_edge.i_crit_edge ], [ %11, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !141
   %18 = extractvalue { i32, i32 } %17, 0
   %19 = icmp ult i32 %18, %14
@@ -1574,7 +1574,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %4 = add i64 %3, %.sroa.05.024.i
   %5 = icmp ult i64 %4, %1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %4
   %7 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6)
   %8 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %7)
   %9 = select i1 %8, i64 %4, i64 %.sroa.05.024.i, !unpredictable !3
@@ -1586,7 +1586,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %2 ], [ %9, %.lr.ph.i ]
   %12 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %14 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %13)
   %15 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %14)
   %16 = zext i1 %15 to i64
@@ -1614,7 +1614,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %4 = add i64 %3, %.sroa.05.024.i
   %5 = icmp ult i64 %4, %1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %4
   %7 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6)
   %8 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %7)
   %9 = select i1 %8, i64 %4, i64 %.sroa.05.024.i, !unpredictable !3
@@ -1626,7 +1626,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %2 ], [ %9, %.lr.ph.i ]
   %12 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %14 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %13)
   %15 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %14)
   %16 = zext i1 %15 to i64
@@ -1655,7 +1655,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %24, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17h66cd10116da9fe7fE.exit28.i" ]
   %5 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %7 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6), !noalias !144
   %8 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %7), !noalias !144
   br i1 %8, label %"_ZN189_$LT$ruff_python_formatter..pattern..pattern_match_mapping..FormatPatternMatchMapping$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..PatternMatchMapping$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h4b179c86ddc5cd03E.exit.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17h66cd10116da9fe7fE.exit.i"
@@ -1676,7 +1676,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %15 = add i64 %14, %.sroa.05.029.i
   %16 = icmp ult i64 %15, %1
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %15
   %18 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %17), !noalias !144
   %19 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %18), !noalias !144
   br i1 %19, label %"_ZN189_$LT$ruff_python_formatter..pattern..pattern_match_mapping..FormatPatternMatchMapping$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..PatternMatchMapping$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h4b179c86ddc5cd03E.exit.i25.i", label %23
@@ -1723,7 +1723,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %4 = add i64 %3, %.sroa.05.024.i
   %5 = icmp ult i64 %4, %1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %4
   %7 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6)
   %8 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %7)
   %9 = select i1 %8, i64 %4, i64 %.sroa.05.024.i, !unpredictable !3
@@ -1735,7 +1735,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %2 ], [ %9, %.lr.ph.i ]
   %12 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %14 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %13)
   %15 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %14)
   %16 = zext i1 %15 to i64
@@ -1763,7 +1763,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %4 = add i64 %3, %.sroa.05.024.i
   %5 = icmp ult i64 %4, %1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %4
   %7 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6)
   %8 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %7)
   %9 = select i1 %8, i64 %4, i64 %.sroa.05.024.i, !unpredictable !3
@@ -1775,7 +1775,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %2 ], [ %9, %.lr.ph.i ]
   %12 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %14 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %13)
   %15 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %14)
   %16 = zext i1 %15 to i64
@@ -1803,7 +1803,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %5 = add i64 %4, %.sroa.05.026.i
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %5
   %8 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !noalias !147
   %9 = extractvalue { i32, i32 } %8, 0
   %10 = tail call { i32, i32 } @"_ZN109_$LT$ruff_python_formatter..expression..expr_dict..KeyValuePair$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h2751660d57387493E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !147
@@ -1818,7 +1818,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !147
   %18 = extractvalue { i32, i32 } %17, 0
   %19 = tail call { i32, i32 } @"_ZN109_$LT$ruff_python_formatter..expression..expr_dict..KeyValuePair$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h2751660d57387493E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2), !noalias !147
@@ -1849,7 +1849,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %5 = add i64 %4, %.sroa.05.026.i
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %5
   %8 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !noalias !150
   %9 = extractvalue { i32, i32 } %8, 1
   %10 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %2), !noalias !150
@@ -1864,7 +1864,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !150
   %18 = extractvalue { i32, i32 } %17, 1
   %19 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %2), !noalias !150
@@ -1895,7 +1895,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %5 = add i64 %4, %.sroa.05.026.i
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %5
   %8 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !noalias !153
   %9 = extractvalue { i32, i32 } %8, 0
   %10 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %2), !noalias !153
@@ -1910,7 +1910,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !153
   %18 = extractvalue { i32, i32 } %17, 0
   %19 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %2), !noalias !153
@@ -1941,7 +1941,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %4 = add i64 %3, %.sroa.05.024.i
   %5 = icmp ult i64 %4, %1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %4
   %7 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6)
   %8 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %7)
   %9 = select i1 %8, i64 %4, i64 %.sroa.05.024.i, !unpredictable !3
@@ -1953,7 +1953,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %2 ], [ %9, %.lr.ph.i ]
   %12 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %14 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %13)
   %15 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %14)
   %16 = zext i1 %15 to i64
@@ -1989,7 +1989,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %6 = add i64 %5, %.sroa.05.026.i
   %7 = icmp ult i64 %6, %1
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %6
   %9 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !noalias !156
   %10 = extractvalue { i32, i32 } %9, 1
   %.not.i = icmp ult i32 %10, %4
@@ -2003,7 +2003,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %.._crit_edge.i_crit_edge ], [ %11, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !156
   %18 = extractvalue { i32, i32 } %17, 1
   %19 = icmp ult i32 %18, %14
@@ -2032,7 +2032,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %4 = add i64 %3, %.sroa.05.024.i
   %5 = icmp ult i64 %4, %1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %4
   %7 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6)
   %8 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %7)
   %9 = select i1 %8, i64 %4, i64 %.sroa.05.024.i, !unpredictable !3
@@ -2044,7 +2044,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %2 ], [ %9, %.lr.ph.i ]
   %12 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %14 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %13)
   %15 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %14)
   %16 = zext i1 %15 to i64
@@ -2080,7 +2080,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %6 = add i64 %5, %.sroa.05.026.i
   %7 = icmp ult i64 %6, %1
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %6
   %9 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !noalias !159
   %10 = extractvalue { i32, i32 } %9, 0
   %.not.i = icmp ult i32 %10, %4
@@ -2094,7 +2094,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %.._crit_edge.i_crit_edge ], [ %11, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !159
   %18 = extractvalue { i32, i32 } %17, 0
   %19 = icmp ult i32 %18, %14
@@ -2133,7 +2133,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %8 = add i64 %7, %.sroa.05.026.i
   %9 = icmp ult i64 %8, %1
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %8
+  %10 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %8
   %11 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %10), !noalias !162
   %12 = extractvalue { i32, i32 } %11, 0
   %.not.i = icmp ult i32 %12, %5
@@ -2147,7 +2147,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %.._crit_edge.i_crit_edge ], [ %13, %6 ]
   %17 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %18 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %19 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %18), !noalias !162
   %20 = extractvalue { i32, i32 } %19, 0
   %21 = icmp ult i32 %20, %16
@@ -2184,7 +2184,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %6 = add i64 %5, %.sroa.05.026.i
   %7 = icmp ult i64 %6, %1
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %6
   %9 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !noalias !165
   %10 = extractvalue { i32, i32 } %9, 1
   %.not.i = icmp ult i32 %10, %4
@@ -2198,7 +2198,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %.._crit_edge.i_crit_edge ], [ %11, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !165
   %18 = extractvalue { i32, i32 } %17, 1
   %19 = icmp ult i32 %18, %14
@@ -2227,7 +2227,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %4 = add i64 %3, %.sroa.05.024.i
   %5 = icmp ult i64 %4, %1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %4
   %7 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6)
   %8 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %7)
   %9 = select i1 %8, i64 %4, i64 %.sroa.05.024.i, !unpredictable !3
@@ -2239,7 +2239,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %2 ], [ %9, %.lr.ph.i ]
   %12 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %14 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %13)
   %15 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %14)
   %16 = zext i1 %15 to i64
@@ -2267,7 +2267,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %5 = add i64 %4, %.sroa.05.026.i
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %5
   %8 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !noalias !168
   %9 = extractvalue { i32, i32 } %8, 1
   %10 = tail call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !168
@@ -2282,7 +2282,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !168
   %18 = extractvalue { i32, i32 } %17, 1
   %19 = tail call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !168
@@ -2313,7 +2313,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %5 = add i64 %4, %.sroa.05.026.i
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %5
   %8 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !noalias !171
   %9 = extractvalue { i32, i32 } %8, 0
   %10 = tail call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !171
@@ -2328,7 +2328,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !171
   %18 = extractvalue { i32, i32 } %17, 0
   %19 = tail call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !171
@@ -2359,7 +2359,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %5 = add i64 %4, %.sroa.05.026.i
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %5
   %8 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !noalias !174
   %9 = extractvalue { i32, i32 } %8, 0
   %10 = tail call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !174
@@ -2374,7 +2374,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !174
   %18 = extractvalue { i32, i32 } %17, 0
   %19 = tail call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !174
@@ -2405,7 +2405,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %4 = add i64 %3, %.sroa.05.024.i
   %5 = icmp ult i64 %4, %1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %4
   %7 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6)
   %8 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %7)
   %9 = select i1 %8, i64 %4, i64 %.sroa.05.024.i, !unpredictable !3
@@ -2417,7 +2417,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %2 ], [ %9, %.lr.ph.i ]
   %12 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %14 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %13)
   %15 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %14)
   %16 = zext i1 %15 to i64
@@ -2445,7 +2445,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %5 = add i64 %4, %.sroa.05.026.i
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %5
   %8 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !noalias !177
   %9 = extractvalue { i32, i32 } %8, 0
   %10 = tail call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !177
@@ -2460,7 +2460,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !177
   %18 = extractvalue { i32, i32 } %17, 0
   %19 = tail call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !177
@@ -2491,7 +2491,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %5 = add i64 %4, %.sroa.05.026.i
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %5
   %8 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !noalias !180
   %9 = extractvalue { i32, i32 } %8, 1
   %10 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameters$GT$5range17h9b0c6d050dd07aa9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %2), !noalias !180
@@ -2506,7 +2506,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !180
   %18 = extractvalue { i32, i32 } %17, 1
   %19 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameters$GT$5range17h9b0c6d050dd07aa9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %2), !noalias !180
@@ -2537,7 +2537,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %5 = add i64 %4, %.sroa.05.027.i
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %5
   %8 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !noalias !183
   %9 = extractvalue { i32, i32 } %8, 1
   %10 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0f2bd1b6fc512939E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2), !noalias !183
@@ -2552,7 +2552,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !183
   %18 = extractvalue { i32, i32 } %17, 1
   %19 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0f2bd1b6fc512939E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %2), !noalias !183
@@ -2583,7 +2583,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %4 = add i64 %3, %.sroa.05.024.i
   %5 = icmp ult i64 %4, %1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %4
   %7 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6)
   %8 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %7)
   %9 = select i1 %8, i64 %4, i64 %.sroa.05.024.i, !unpredictable !3
@@ -2595,7 +2595,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %2 ], [ %9, %.lr.ph.i ]
   %12 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %14 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %13)
   %15 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %14)
   %16 = zext i1 %15 to i64
@@ -2623,7 +2623,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %4 = add i64 %3, %.sroa.05.024.i
   %5 = icmp ult i64 %4, %1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %4
   %7 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6)
   %8 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %7)
   %9 = select i1 %8, i64 %4, i64 %.sroa.05.024.i, !unpredictable !3
@@ -2635,7 +2635,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %2 ], [ %9, %.lr.ph.i ]
   %12 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %14 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %13)
   %15 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %14)
   %16 = zext i1 %15 to i64
@@ -2663,7 +2663,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %5 = add i64 %4, %.sroa.05.026.i
   %6 = icmp ult i64 %5, %1
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %5
   %8 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7), !noalias !186
   %9 = extractvalue { i32, i32 } %8, 1
   %10 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %2), !noalias !186
@@ -2678,7 +2678,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i ]
   %15 = icmp ult i64 %.sroa.05.0.lcssa.i, %1
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.05.0.lcssa.i
   %17 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16), !noalias !186
   %18 = extractvalue { i32, i32 } %17, 1
   %19 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %2), !noalias !186
@@ -2736,10 +2736,10 @@ define internal noundef zeroext i1 @"_ZN66_$LT$ruff_python_ast..PySourceType$u20
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !190, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN66_$LT$ruff_python_ast..PySourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcd5b49829d230872E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN66_$LT$ruff_python_ast..PySourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcd5b49829d230872E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN66_$LT$ruff_python_ast..PySourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcd5b49829d230872E.137", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN66_$LT$ruff_python_ast..PySourceType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcd5b49829d230872E.137", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -2761,10 +2761,10 @@ define internal noundef zeroext i1 @"_ZN89_$LT$ruff_formatter..printer..printer_
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !190, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_formatter..printer..printer_options..LineEnding$u20$as$u20$core..fmt..Debug$GT$3fmt17h5338b6e2da8ab976E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_formatter..printer..printer_options..LineEnding$u20$as$u20$core..fmt..Debug$GT$3fmt17h5338b6e2da8ab976E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$ruff_formatter..printer..printer_options..LineEnding$u20$as$u20$core..fmt..Debug$GT$3fmt17h5338b6e2da8ab976E.138", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_formatter..printer..printer_options..LineEnding$u20$as$u20$core..fmt..Debug$GT$3fmt17h5338b6e2da8ab976E.138", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -4937,12 +4937,12 @@ define hidden void @_ZN21ruff_python_formatter8comments8Comments16leading_traili
   %13 = load ptr, ptr %6, align 8, !nonnull !3, !align !82, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %18 = load ptr, ptr %17, align 8, !nonnull !3, !align !82, !noundef !3
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load i64, ptr %19, align 8, !noundef !3
-  %21 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [12 x i8], ptr %18, i64 %20
   store ptr %13, ptr %0, align 8, !alias.scope !409
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %22, align 8, !alias.scope !409
@@ -4976,12 +4976,12 @@ define hidden void @_ZN21ruff_python_formatter8comments8Comments16leading_traili
   %14 = load ptr, ptr %5, align 8, !nonnull !3, !align !82, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !82, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %21 = load i64, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [12 x i8], ptr %19, i64 %21
   store ptr %14, ptr %0, align 8, !alias.scope !417
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %17, ptr %23, align 8, !alias.scope !417
@@ -8225,10 +8225,10 @@ define internal noundef zeroext i1 @"_ZN79_$LT$ruff_python_formatter..options..Q
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !190, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN79_$LT$ruff_python_formatter..options..QuoteStyle$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a768ed193132e3cE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN79_$LT$ruff_python_formatter..options..QuoteStyle$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a768ed193132e3cE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN79_$LT$ruff_python_formatter..options..QuoteStyle$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a768ed193132e3cE.139", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN79_$LT$ruff_python_formatter..options..QuoteStyle$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a768ed193132e3cE.139", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

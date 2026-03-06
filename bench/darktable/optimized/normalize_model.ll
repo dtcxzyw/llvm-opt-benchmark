@@ -486,7 +486,7 @@ thread-pre-split356.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader395:                                    ; preds = %120, %123
   %indvars.iv487 = phi i64 [ %indvars.iv.next488, %123 ], [ 0, %120 ]
-  %124 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw18GetNormalizedModelEvE6unique, i64 %indvars.iv487
+  %124 = getelementptr inbounds nuw [32 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE6unique, i64 %indvars.iv487
   %125 = load i64, ptr %124, align 16, !tbaa !83
   %126 = icmp eq i64 %122, %125
   br i1 %126, label %127, label %123
@@ -543,7 +543,7 @@ thread-pre-split356.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader397:                                    ; preds = %143, %147
   %indvars.iv483 = phi i64 [ %indvars.iv.next484, %147 ], [ 0, %143 ]
-  %148 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw18GetNormalizedModelEvE6unique, i64 %indvars.iv483
+  %148 = getelementptr inbounds nuw [32 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE6unique, i64 %indvars.iv483
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %149, ptr noundef nonnull dereferenceable(1) %142) #9
   %.not224 = icmp eq i32 %150, 0
@@ -1163,7 +1163,7 @@ thread-pre-split356.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader391:                                    ; preds = %370, %373
   %indvars.iv495 = phi i64 [ %indvars.iv.next496, %373 ], [ 0, %370 ]
-  %374 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw18GetNormalizedModelEvE7sonique, i64 %indvars.iv495
+  %374 = getelementptr inbounds nuw [32 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE7sonique, i64 %indvars.iv495
   %375 = load i64, ptr %374, align 16, !tbaa !83
   %376 = icmp eq i64 %372, %375
   br i1 %376, label %377, label %373
@@ -1273,7 +1273,7 @@ thread-pre-split356.thread:                       ; preds = %77, %58, %58, %58, 
 
 415:                                              ; preds = %412, %421
   %indvars.iv491 = phi i64 [ 0, %412 ], [ %indvars.iv.next492, %421 ]
-  %416 = getelementptr inbounds nuw ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE15KodakMonochrome, i64 %indvars.iv491
+  %416 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE15KodakMonochrome, i64 %indvars.iv491
   %417 = load ptr, ptr %416, align 8, !tbaa !88
   %418 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %417) #9
   %419 = tail call i32 @strncmp(ptr noundef nonnull %117, ptr noundef nonnull %417, i64 noundef %418) #9
@@ -1660,7 +1660,7 @@ thread-pre-split356.thread:                       ; preds = %77, %58, %58, %58, 
 
 528:                                              ; preds = %526, %527
   %indvars.iv499 = phi i64 [ 0, %526 ], [ %indvars.iv.next500, %527 ]
-  %529 = getelementptr inbounds nuw %struct.anon.0, ptr @_ZZN6LibRaw18GetNormalizedModelEvE12Kodak_mounts, i64 %indvars.iv499
+  %529 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE12Kodak_mounts, i64 %indvars.iv499
   %530 = load ptr, ptr %529, align 16, !tbaa !106
   %531 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %530) #9
   %532 = tail call i32 @strncmp(ptr noundef nonnull %116, ptr noundef nonnull %530, i64 noundef %531) #9
@@ -2064,7 +2064,7 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 
 12:                                               ; preds = %.preheader37, %.loopexit34
   %indvars.iv49 = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next50, %.loopexit34 ]
-  %13 = getelementptr inbounds nuw [5 x float], ptr %11, i64 %indvars.iv49
+  %13 = getelementptr inbounds nuw [20 x i8], ptr %11, i64 %indvars.iv49
   %14 = load float, ptr %13, align 4, !tbaa !113
   %15 = fcmp reassoc nsz arcp contract afn une float %14, 0.000000e+00
   br i1 %15, label %16, label %.critedge
@@ -2076,10 +2076,10 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 .preheader33:                                     ; preds = %16, %.preheader33
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.preheader33 ], [ 0, %16 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %18 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.next46
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next46
   %19 = load float, ptr %18, align 4, !tbaa !113
   %20 = fptosi float %19 to i32
-  %21 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv45
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv45
   store i32 %20, ptr %21, align 4, !tbaa !112
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 4
   br i1 %exitcond48.not, label %.loopexit34, label %.preheader33, !llvm.loop !114
@@ -2091,10 +2091,10 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 .preheader35:                                     ; preds = %22, %.preheader35
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader35 ], [ 0, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next
   %25 = load float, ptr %24, align 4, !tbaa !113
   %26 = fptosi float %25 to i32
-  %27 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !112
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit34, label %.preheader35, !llvm.loop !115
@@ -2117,9 +2117,9 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 
 .preheader32:                                     ; preds = %.critedge.thread62, %.preheader32
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.preheader32 ], [ 0, %.critedge.thread62 ]
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv53
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv53
   %32 = load i32, ptr %31, align 4, !tbaa !112
-  %33 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv53
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv53
   store i32 %32, ptr %33, align 4, !tbaa !112
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4
@@ -2139,9 +2139,9 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 
 .preheader:                                       ; preds = %36, %.preheader
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.preheader ], [ 0, %36 ]
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv57
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv57
   %40 = load i32, ptr %39, align 4, !tbaa !112
-  %41 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv57
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv57
   store i32 %40, ptr %41, align 4, !tbaa !112
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4

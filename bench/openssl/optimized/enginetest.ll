@@ -400,14 +400,14 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
   %127 = trunc nuw nsw i64 %indvars.iv to i32
   %128 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.51, i32 noundef %127) #8
   %129 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i32 noundef 151) #8
-  %130 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store ptr %129, ptr %130, align 8, !tbaa !6
   %131 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.52, i32 noundef %127) #8
   %132 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i32 noundef 153) #8
-  %133 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %132, ptr %133, align 8, !tbaa !6
   %134 = call ptr @ENGINE_new() #8
-  %135 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %134, ptr %135, align 8, !tbaa !11
   %136 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 154, ptr noundef nonnull @.str.53, ptr noundef %134) #8
   %.not87 = icmp eq i32 %136, 0
@@ -431,7 +431,7 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
 
 .preheader91:                                     ; preds = %125, %157
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %157 ], [ 0, %125 ]
-  %147 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv105
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv105
   %148 = load ptr, ptr %147, align 8, !tbaa !11
   %149 = call i32 @ENGINE_add(ptr noundef %148) #8
   %150 = icmp ne i32 %149, 0
@@ -478,10 +478,10 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.preheader ], [ 0, %.preheader.preheader ]
-  %167 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv109
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv109
   %168 = load ptr, ptr %167, align 8, !tbaa !6
   call void @CRYPTO_free(ptr noundef %168, ptr noundef nonnull @.str.14, i32 noundef 175) #8
-  %169 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv109
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv109
   %170 = load ptr, ptr %169, align 8, !tbaa !6
   call void @CRYPTO_free(ptr noundef %170, ptr noundef nonnull @.str.14, i32 noundef 176) #8
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
@@ -501,7 +501,7 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
 
 175:                                              ; preds = %.loopexit, %175
   %indvars.iv113 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next114, %175 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv113
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv113
   %177 = load ptr, ptr %176, align 8, !tbaa !11
   %178 = call i32 @ENGINE_free(ptr noundef %177) #8
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1

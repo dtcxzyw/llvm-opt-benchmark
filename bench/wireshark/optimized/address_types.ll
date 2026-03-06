@@ -86,7 +86,7 @@ define i32 @address_type_dissector_register(ptr noundef %0, ptr noundef %1, ptr 
   %10 = load i32, ptr @num_dissector_addr_type, align 4
   %11 = add i32 %10, 14
   %12 = sext i32 %10 to i64
-  %13 = getelementptr %struct._address_type_t, ptr @dissector_type_addresses, i64 %12
+  %13 = getelementptr [80 x i8], ptr @dissector_type_addresses, i64 %12
   store i32 %11, ptr %13, align 16
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %14, align 8
@@ -107,7 +107,7 @@ define i32 @address_type_dissector_register(ptr noundef %0, ptr noundef %1, ptr 
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr %8, ptr %22, align 8
   %23 = sext i32 %11 to i64
-  %24 = getelementptr ptr, ptr @type_list, i64 %23
+  %24 = getelementptr [8 x i8], ptr @type_list, i64 %23
   store ptr %13, ptr %24, align 8
   %25 = add i32 %10, 1
   store i32 %25, ptr @num_dissector_addr_type, align 4
@@ -833,7 +833,7 @@ define internal range(i32 4, 22) i32 @numeric_addr_str_len(ptr noundef readonly 
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.numeric_addr_str_len, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.numeric_addr_str_len, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -866,7 +866,7 @@ define internal noundef i32 @mctp_len() #4 {
 define ptr @address_to_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %1, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr ptr, ptr @type_list, i64 %4
+  %5 = getelementptr [8 x i8], ptr @type_list, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %address_type_get_length.exit.thread, label %address_type_get_length.exit
@@ -892,7 +892,7 @@ address_type_get_length.exit.thread:              ; preds = %2, %address_type_ge
 16:                                               ; preds = %12
   %17 = load i32, ptr %1, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr ptr, ptr @type_list, i64 %18
+  %19 = getelementptr [8 x i8], ptr @type_list, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
@@ -928,7 +928,7 @@ define void @address_to_str_buf(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr ptr, ptr @type_list, i64 %8
+  %9 = getelementptr [8 x i8], ptr @type_list, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
@@ -961,7 +961,7 @@ define i32 @address_to_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr ptr, ptr @type_list, i64 %8
+  %9 = getelementptr [8 x i8], ptr @type_list, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %24, label %12
@@ -995,7 +995,7 @@ define i32 @address_to_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 define ptr @address_to_name(ptr noundef %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %3 = sext i32 %2 to i64
-  %4 = getelementptr ptr, ptr @type_list, i64 %3
+  %4 = getelementptr [8 x i8], ptr @type_list, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %16, label %7
@@ -1028,7 +1028,7 @@ define ptr @address_to_name(ptr noundef %0) local_unnamed_addr #5 {
 define ptr @address_to_display(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %1, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr ptr, ptr @type_list, i64 %4
+  %5 = getelementptr [8 x i8], ptr @type_list, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %address_to_name.exit.thread, label %8
@@ -1082,7 +1082,7 @@ address_to_name.exit.thread:                      ; preds = %12, %address_to_nam
 25:                                               ; preds = %23
   %26 = load i32, ptr %1, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr ptr, ptr @type_list, i64 %27
+  %28 = getelementptr [8 x i8], ptr @type_list, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %35, label %31
@@ -1113,7 +1113,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #6
 define ptr @address_with_resolution_to_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %1, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr ptr, ptr @type_list, i64 %4
+  %5 = getelementptr [8 x i8], ptr @type_list, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -1176,7 +1176,7 @@ address_type_get_length.exit.i:                   ; preds = %10, %20, %27, %16, 
 34:                                               ; preds = %address_type_get_length.exit.i
   %35 = load i32, ptr %1, align 8
   %36 = sext i32 %35 to i64
-  %37 = getelementptr ptr, ptr @type_list, i64 %36
+  %37 = getelementptr [8 x i8], ptr @type_list, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %44, label %40
@@ -1214,7 +1214,7 @@ address_type_get_length.exit.i:                   ; preds = %10, %20, %27, %16, 
 59:                                               ; preds = %.thread29
   %60 = load i32, ptr %1, align 8
   %61 = sext i32 %60 to i64
-  %62 = getelementptr ptr, ptr @type_list, i64 %61
+  %62 = getelementptr [8 x i8], ptr @type_list, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %66
@@ -1286,7 +1286,7 @@ address_to_str.exit:                              ; preds = %90, %85, %81, %79, 
 define hidden ptr @address_type_column_filter_string(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr ptr, ptr @type_list, i64 %4
+  %5 = getelementptr [8 x i8], ptr @type_list, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8
@@ -1311,7 +1311,7 @@ define ptr @tvb_address_to_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %5 = alloca %struct._address, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = sext i32 %2 to i64
-  %7 = getelementptr ptr, ptr @type_list, i64 %6
+  %7 = getelementptr [8 x i8], ptr @type_list, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %address_to_str.exit, label %10
@@ -1369,7 +1369,7 @@ address_type_get_length.exit.thread.i:            ; preds = %address_type_get_le
 31:                                               ; preds = %27
   %32 = load i32, ptr %5, align 8
   %33 = sext i32 %32 to i64
-  %34 = getelementptr ptr, ptr @type_list, i64 %33
+  %34 = getelementptr [8 x i8], ptr @type_list, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %41, label %37
@@ -1418,7 +1418,7 @@ set_address_tvb.exit:                             ; preds = %5, %.split.i
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %10, align 8
   %11 = sext i32 %2 to i64
-  %12 = getelementptr ptr, ptr @type_list, i64 %11
+  %12 = getelementptr [8 x i8], ptr @type_list, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %address_type_get_length.exit.thread.i, label %address_type_get_length.exit.i
@@ -1444,7 +1444,7 @@ address_type_get_length.exit.thread.i:            ; preds = %address_type_get_le
 23:                                               ; preds = %19
   %24 = load i32, ptr %6, align 8
   %25 = sext i32 %24 to i64
-  %26 = getelementptr ptr, ptr @type_list, i64 %25
+  %26 = getelementptr [8 x i8], ptr @type_list, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %33, label %29
@@ -1473,7 +1473,7 @@ define ptr @tvb_address_with_resolution_to_str(ptr noundef %0, ptr noundef %1, i
   %5 = alloca %struct._address, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = sext i32 %2 to i64
-  %7 = getelementptr ptr, ptr @type_list, i64 %6
+  %7 = getelementptr [8 x i8], ptr @type_list, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %22, label %10

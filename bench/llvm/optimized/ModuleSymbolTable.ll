@@ -19,12 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.17" = type { %"class.llvm::ilist_iterator.18" }
 %"class.llvm::ilist_iterator.18" = type { ptr }
 %class.anon = type { ptr }
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.101" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.101" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.102" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.102" = type { %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
 %"class.llvm::function_ref" = type { ptr, i64 }
 %class.anon.104 = type { ptr }
 %"class.llvm::Triple" = type { %"class.std::__cxx11::basic_string", i32, i32, i32, i32, i32, i32 }
@@ -206,7 +200,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SMLoc" = type { ptr }
 %"class.llvm::DiagnosticInfoSrcMgr" = type { %"class.llvm::DiagnosticInfo.base", ptr, %"class.llvm::StringRef", i8, i64 }
 %"class.llvm::DiagnosticInfo.base" = type <{ ptr, i32, i8 }>
-%"struct.std::pair.412" = type { ptr, i64 }
 
 $_ZN4llvm9SourceMgr18AddNewSourceBufferESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EENS_5SMLocE = comdat any
 
@@ -460,7 +453,7 @@ _ZNSt6vectorIN4llvm12PointerUnionIJPNS0_11GlobalValueEPSt4pairINSt7__cxx1112basi
 _ZNSt6vectorIN4llvm12PointerUnionIJPNS0_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i: ; preds = %88, %_ZNSt6vectorIN4llvm12PointerUnionIJPNS0_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit22.i.i.i
   store ptr %82, ptr %22, align 8, !tbaa !47
   store ptr %87, ptr %23, align 8, !tbaa !45
-  %89 = getelementptr inbounds nuw %"class.llvm::PointerUnion", ptr %82, i64 %80
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %80
   store ptr %89, ptr %24, align 8, !tbaa !46
   br label %_ZNSt6vectorIN4llvm12PointerUnionIJPNS0_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEESaISD_EE9push_backEOSD_.exit
 
@@ -1394,7 +1387,7 @@ _ZN4llvm9MapVectorIPKNS_8MCSymbolESt6vectorINS_9StringRefESaIS5_EENS_8DenseMapIS
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %41 ]
   %35 = load ptr, ptr %27, align 8, !tbaa !355
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8, !tbaa !356
   %magicptr.i = ptrtoint ptr %37 to i64
   switch i64 %magicptr.i, label %38 [
@@ -1718,7 +1711,7 @@ _ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit: ; preds = %.l
 _ZNSt12_Vector_baseIN4llvm9SourceMgr9SrcBufferESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit, %29
   store ptr %20, ptr %0, align 8, !tbaa !331
   store ptr %.0.lcssa.i.i.i.i.i23, ptr %4, align 8, !tbaa !327
-  %33 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %20, i64 %16
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %33, ptr %28, align 8, !tbaa !330
   ret void
 }
@@ -2120,7 +2113,7 @@ _ZNSt6vectorIN4llvm12PointerUnionIJPNS0_11GlobalValueEPSt4pairINSt7__cxx1112basi
 _ZNSt6vectorIN4llvm12PointerUnionIJPNS0_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i.i.i: ; preds = %84, %_ZNSt6vectorIN4llvm12PointerUnionIJPNS0_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit22.i.i.i.i
   store ptr %78, ptr %8, align 8, !tbaa !47
   store ptr %83, ptr %58, align 8, !tbaa !45
-  %85 = getelementptr inbounds nuw %"class.llvm::PointerUnion", ptr %78, i64 %76
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %85, ptr %60, align 8, !tbaa !46
   br label %_ZNSt6vectorIN4llvm12PointerUnionIJPNS0_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEESaISD_EE9push_backEOSD_.exit.i
 
@@ -2171,7 +2164,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !342
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.412", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -2212,7 +2205,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !342
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !343
@@ -2273,7 +2266,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_14RecordStreamer5Stat
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN4llvm12function_refIFvRNS_14RecordStreamerEEE11callback_fnIZNS_17ModuleSymbolTable17CollectAsmSymbolsERKNS_6ModuleENS0_IFvNS_9StringRefENS_6object14BasicSymbolRef5FlagsEEEEE3$_0EEvlS2_", i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @"switch.table._ZN4llvm12function_refIFvRNS_14RecordStreamerEEE11callback_fnIZNS_17ModuleSymbolTable17CollectAsmSymbolsERKNS_6ModuleENS0_IFvNS_9StringRefENS_6object14BasicSymbolRef5FlagsEEEEE3$_0EEvlS2_", i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %13
 

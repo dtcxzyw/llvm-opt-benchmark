@@ -3248,7 +3248,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 %indvars.iv
   %147 = load i8, ptr %146, align 1, !tbaa !16
   %148 = sext i8 %147 to i64
-  %149 = getelementptr inbounds i16, ptr %145, i64 %148
+  %149 = getelementptr inbounds [2 x i8], ptr %145, i64 %148
   %150 = load i16, ptr %149, align 2, !tbaa !26
   %151 = and i16 %150, 16384
   %.not96 = icmp eq i16 %151, 0

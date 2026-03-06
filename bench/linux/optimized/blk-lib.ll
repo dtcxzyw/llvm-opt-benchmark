@@ -18,12 +18,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_blkdev_issue
 %union.anon.3 = type { i64 }
 %struct.blk_plug = type { ptr, ptr, i16, i16, i8, i8, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
-%struct.page = type { i64, %union.anon.4, %union.anon.12, %struct.atomic_t, [8 x i8] }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { %union.anon.6, ptr, %union.anon.8, i64 }
-%union.anon.6 = type { %struct.list_head }
-%union.anon.8 = type { i64 }
-%union.anon.12 = type { %struct.atomic_t }
 
 @.str = private unnamed_addr constant [16 x i8] c"block/blk-lib.c\00", align 1
 @__blkdev_issue_discard._rs = internal global %struct.ratelimit_state { %struct.raw_spinlock zeroinitializer, i32 5000, i32 10, i32 0, i32 0, i64 0, i64 0 }, align 8
@@ -431,7 +425,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__blkdev_issue_zero_pages(p
   %43 = load i64, ptr @phys_base, align 8
   %44 = add i64 %43, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
   %45 = lshr i64 %44, 12
-  %46 = getelementptr %struct.page, ptr %42, i64 %45
+  %46 = getelementptr [64 x i8], ptr %42, i64 %45
   %47 = tail call i32 @bio_add_page(ptr noundef %33, ptr noundef %46, i32 noundef %40, i32 noundef 0) #6
   %48 = ashr i32 %47, 9
   %49 = sext i32 %48 to i64
@@ -471,7 +465,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__blkdev_issue_zero_pages(p
   %74 = load i64, ptr @page_offset_base, align 8
   %75 = sub i64 add (i64 sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648), i64 -2147483648), %74
   %76 = lshr i64 %75, 12
-  %77 = getelementptr %struct.page, ptr %73, i64 %76
+  %77 = getelementptr [64 x i8], ptr %73, i64 %76
   %78 = tail call i32 @bio_add_page(ptr noundef %64, ptr noundef %77, i32 noundef %71, i32 noundef 0) #6
   %79 = ashr i32 %78, 9
   %80 = sext i32 %79 to i64

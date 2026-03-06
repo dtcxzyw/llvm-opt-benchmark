@@ -416,7 +416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %75,
 ._crit_edge.i.i41:                                ; preds = %._crit_edge.i.i41.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47
   %81 = phi ptr [ %67, %._crit_edge.i.i41.lr.ph ], [ %92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ]
   %.0173 = phi i64 [ 0, %._crit_edge.i.i41.lr.ph ], [ %90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %.0173
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.0173
   %83 = load ptr, ptr %82, align 8, !tbaa !53
   store ptr %68, ptr %6, align 8, !tbaa !46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %68, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
@@ -887,7 +887,7 @@ define dso_local void @_ZN9OutputMgr15OutputPtrResetsERSoRKSt6vectorIPK8Variable
 12:                                               ; preds = %.lr.ph, %48
   %13 = phi ptr [ %8, %.lr.ph ], [ %51, %48 ]
   %.029 = phi i64 [ 0, %.lr.ph ], [ %49, %48 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.029
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.029
   %15 = load ptr, ptr %14, align 8, !tbaa !53
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load i8, ptr %16, align 8, !tbaa !59, !range !74, !noundef !75
@@ -2175,7 +2175,7 @@ define dso_local void @_ZN9OutputMgr12OutputHeaderEiPPcm(ptr noundef nonnull ali
 .preheader:                                       ; preds = %.preheader.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %indvars.iv172 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next173, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.34, i64 noundef 1)
-  %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv172
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv172
   %17 = load ptr, ptr %16, align 8, !tbaa !78
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %18, label %26
@@ -2438,7 +2438,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit76: ; preds = %14
 .preheader167:                                    ; preds = %.preheader167.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51
   %indvars.iv = phi i64 [ 1, %.preheader167.preheader ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51 ]
   %154 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.34, i64 noundef 1)
-  %155 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %156 = load ptr, ptr %155, align 8, !tbaa !78
   %.not.i50 = icmp eq ptr %156, null
   br i1 %.not.i50, label %157, label %165

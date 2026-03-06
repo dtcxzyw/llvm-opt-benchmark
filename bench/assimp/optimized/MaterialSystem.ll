@@ -153,7 +153,7 @@ define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr noundef readonly captures
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %18
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %18 ], [ 0, %.lr.ph.split.us ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv79
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv79
   %12 = load ptr, ptr %11, align 8
   %.not.us.us = icmp eq ptr %12, null
   br i1 %.not.us.us, label %18, label %13
@@ -172,7 +172,7 @@ define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr noundef readonly captures
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %30
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %30 ], [ 0, %.lr.ph.split.us ]
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv74
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv74
   %20 = load ptr, ptr %19, align 8
   %.not.us = icmp eq ptr %20, null
   br i1 %.not.us, label %30, label %21
@@ -200,7 +200,7 @@ define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr noundef readonly captures
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %42
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %42 ], [ 0, %.lr.ph.split ]
-  %31 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv69
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv69
   %32 = load ptr, ptr %31, align 8
   %.not.us42 = icmp eq ptr %32, null
   br i1 %.not.us42, label %42, label %33
@@ -225,7 +225,7 @@ define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr noundef readonly captures
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph.split ]
-  %43 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %58, label %45
@@ -316,9 +316,9 @@ define range(i32 -1, 1) i32 @aiGetMaterialFloatArray(ptr noundef readonly captur
 23:                                               ; preds = %.lr.ph96, %23
   %indvars.iv110 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next111, %23 ]
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv110
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv110
   %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv110
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv110
   store float %26, ptr %27, align 4
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
@@ -356,10 +356,10 @@ define range(i32 -1, 1) i32 @aiGetMaterialFloatArray(ptr noundef readonly captur
 37:                                               ; preds = %.lr.ph92, %37
   %indvars.iv105 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next106, %37 ]
   %38 = load ptr, ptr %36, align 8
-  %39 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv105
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv105
   %40 = load double, ptr %39, align 8
   %41 = fptrunc double %40 to float
-  %42 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv105
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv105
   store float %41, ptr %42, align 4
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
@@ -397,10 +397,10 @@ define range(i32 -1, 1) i32 @aiGetMaterialFloatArray(ptr noundef readonly captur
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %53 = load ptr, ptr %51, align 8
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   %56 = sitofp i32 %55 to float
-  %57 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store float %56, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -448,7 +448,7 @@ define range(i32 -1, 1) i32 @aiGetMaterialFloatArray(ptr noundef readonly captur
 
 74:                                               ; preds = %.lr.ph100, %.lr.ph100
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %75 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.next116
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next116
   %76 = tail call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %70, ptr noundef nonnull align 4 dereferenceable(4) %75, i1 noundef zeroext true)
   %77 = icmp eq i64 %indvars.iv.next116, %69
   br i1 %77, label %.critedge, label %.lr.ph100, !llvm.loop !8
@@ -640,7 +640,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %68 = uitofp i64 %67 to double
   %69 = load i32, ptr %6, align 4
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
   %72 = load double, ptr %71, align 8
   %73 = fmul double %72, %68
   %74 = fptrunc double %73 to float
@@ -856,10 +856,10 @@ define hidden noundef range(i32 -1, 1) i32 @_Z24aiGetMaterialDoubleArrayPK10aiMa
 23:                                               ; preds = %.lr.ph96, %23
   %indvars.iv110 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next111, %23 ]
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv110
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv110
   %26 = load float, ptr %25, align 4
   %27 = fpext float %26 to double
-  %28 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv110
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv110
   store double %27, ptr %28, align 8
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
@@ -897,11 +897,11 @@ define hidden noundef range(i32 -1, 1) i32 @_Z24aiGetMaterialDoubleArrayPK10aiMa
 38:                                               ; preds = %.lr.ph92, %38
   %indvars.iv105 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next106, %38 ]
   %39 = load ptr, ptr %37, align 8
-  %40 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv105
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv105
   %41 = load double, ptr %40, align 8
   %42 = fptrunc double %41 to float
   %43 = fpext float %42 to double
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv105
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv105
   store double %43, ptr %44, align 8
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
@@ -939,11 +939,11 @@ define hidden noundef range(i32 -1, 1) i32 @_Z24aiGetMaterialDoubleArrayPK10aiMa
 54:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %55 = load ptr, ptr %53, align 8
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4
   %58 = sitofp i32 %57 to float
   %59 = fpext float %58 to double
-  %60 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store double %59, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -991,7 +991,7 @@ define hidden noundef range(i32 -1, 1) i32 @_Z24aiGetMaterialDoubleArrayPK10aiMa
 
 77:                                               ; preds = %.lr.ph100, %.lr.ph100
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %78 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.next116
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next116
   %79 = tail call noundef ptr @_ZN6Assimp17fast_atoreal_moveId17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %73, ptr noundef nonnull align 8 dereferenceable(8) %78, i1 noundef zeroext true)
   %80 = icmp eq i64 %indvars.iv.next116, %72
   br i1 %80, label %.critedge, label %.lr.ph100, !llvm.loop !12
@@ -1183,7 +1183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %68 = uitofp i64 %67 to double
   %69 = load i32, ptr %6, align 4
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
   %72 = load double, ptr %71, align 8
   %73 = fmul double %72, %68
   %74 = fadd double %.025, %73
@@ -1308,9 +1308,9 @@ define range(i32 -1, 1) i32 @aiGetMaterialIntegerArray(ptr noundef readonly capt
 29:                                               ; preds = %.lr.ph81, %29
   %indvars.iv86 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next87, %29 ]
   %30 = load ptr, ptr %23, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv86
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv86
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv86
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv86
   store i32 %32, ptr %33, align 4
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
@@ -1351,10 +1351,10 @@ define range(i32 -1, 1) i32 @aiGetMaterialIntegerArray(ptr noundef readonly capt
 43:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %44 = load ptr, ptr %42, align 8
-  %45 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %46 = load float, ptr %45, align 4
   %47 = fptosi float %46 to i32
-  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %47, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1442,7 +1442,7 @@ define range(i32 -1, 1) i32 @aiGetMaterialIntegerArray(ptr noundef readonly capt
 _ZN6Assimp8strtol10EPKcPS1_.exit:                 ; preds = %._crit_edge.i.i, %77, %79
   %.0.i = phi i32 [ %78, %77 ], [ %.0.lcssa.i.i, %79 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %81 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv91
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv91
   store i32 %.0.i, ptr %81, align 4
   %82 = icmp eq i64 %indvars.iv91, %58
   br i1 %82, label %.critedge, label %83
@@ -1765,7 +1765,7 @@ define i32 @aiGetMaterialTextureCount(ptr noundef readonly captures(none) %0, i3
 6:                                                ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.01415 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %21, label %9
@@ -1931,7 +1931,7 @@ define void @_ZN10aiMaterialD2Ev(ptr noundef nonnull align 8 captures(none) dere
   %4 = phi i32 [ %15, %14 ], [ %3, %1 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -1987,7 +1987,7 @@ define void @_ZN10aiMaterial5ClearEv(ptr noundef nonnull align 8 captures(none) 
   %4 = phi i32 [ %15, %14 ], [ %3, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -2040,7 +2040,7 @@ define void @_ZNK10aiMaterial7GetNameEv(ptr dead_on_unwind noalias writable writ
 
 .lr.ph.split.split.i:                             ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %21 ], [ 0, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %21, label %9
@@ -2113,7 +2113,7 @@ define noundef range(i32 -1, 1) i32 @_ZN10aiMaterial14RemovePropertyEPKcjj(ptr n
 
 8:                                                ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %38, label %11
@@ -2159,9 +2159,9 @@ _ZN18aiMaterialPropertyD2Ev.exit:                 ; preds = %22, %27
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %.lr.ph32 ], [ %indvars.iv, %_ZN18aiMaterialPropertyD2Ev.exit ]
   %31 = load ptr, ptr %0, align 8
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.next40
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.next40
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv39
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv39
   store ptr %33, ptr %34, align 8
   %35 = load i32, ptr %5, align 8
   %36 = zext i32 %35 to i64
@@ -2216,7 +2216,7 @@ define noundef range(i32 -3, 1) i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcj
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.preheader ]
   %.03351 = phi i32 [ %.134, %41 ], [ -1, %.preheader ]
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %.not47 = icmp eq ptr %23, null
   br i1 %.not47, label %41, label %24
@@ -2277,7 +2277,7 @@ _ZN18aiMaterialPropertyD2Ev.exit:                 ; preds = %35, %39
 50:                                               ; preds = %45
   %51 = load ptr, ptr %0, align 8
   %52 = zext i32 %.033.lcssa to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   store ptr %12, ptr %53, align 8
   br label %_ZNSt10unique_ptrI18aiMaterialPropertySt14default_deleteIS0_EED2Ev.exit
 
@@ -2348,7 +2348,7 @@ _ZN18aiMaterialPropertyD2Ev.exit:                 ; preds = %35, %39
   %84 = add i32 %82, 1
   store i32 %84, ptr %10, align 8
   %85 = zext i32 %82 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %83, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %85
   store ptr %12, ptr %86, align 8
   br label %_ZNSt10unique_ptrI18aiMaterialPropertySt14default_deleteIS0_EED2Ev.exit
 
@@ -2445,7 +2445,7 @@ define hidden noundef i32 @_ZN6Assimp19ComputeMaterialHashEPK10aiMaterialb(ptr n
 6:                                                ; preds = %.lr.ph, %199
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %199 ]
   %.070 = phi i32 [ 1503, %.lr.ph ], [ %.1, %199 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %199, label %9
@@ -2758,10 +2758,10 @@ define void @_ZN10aiMaterial16CopyPropertyListEPS_PKS_(ptr noundef captures(none
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   store ptr %20, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2792,7 +2792,7 @@ define void @_ZN10aiMaterial16CopyPropertyListEPS_PKS_(ptr noundef captures(none
   %.06574.us = phi i32 [ %54, %_ZN8aiStringaSERKS_.exit.us ], [ %4, %.lr.ph.us.preheader ]
   %27 = load ptr, ptr %1, align 8
   %28 = zext i32 %.06574.us to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 1028
@@ -2841,7 +2841,7 @@ _ZN8aiStringaSERKS_.exit.us:                      ; preds = %34, %._crit_edge.us
   %indvars.iv80 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next81, %_ZNK8aiStringeqERKS_.exit.thread.us ]
   %.172.us = phi i32 [ %.06574.us, %.lr.ph.us ], [ %.2.us, %_ZNK8aiStringeqERKS_.exit.thread.us ]
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv80
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv80
   %60 = load ptr, ptr %59, align 8
   %.not.us = icmp eq ptr %60, null
   br i1 %.not.us, label %_ZNK8aiStringeqERKS_.exit.thread.us, label %61
@@ -2886,8 +2886,8 @@ _ZNK8aiStringeqERKS_.exit.us:                     ; preds = %61
 _ZN18aiMaterialPropertyD2Ev.exit.us:              ; preds = %82, %78
   tail call void @_ZdlPvm(ptr noundef nonnull %60, i64 noundef 1056) #27
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv80
-  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv80
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv80
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv80
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = trunc nuw i64 %indvars.iv80 to i32
   %88 = sub i32 %.172.us, %87
@@ -2914,7 +2914,7 @@ _ZNK8aiStringeqERKS_.exit.thread.us:              ; preds = %_ZN18aiMaterialProp
   store ptr null, ptr %95, align 8
   %96 = load ptr, ptr %0, align 8
   %97 = zext i32 %.2.us to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %97
   store ptr %93, ptr %98, align 8
   %99 = icmp eq ptr %93, %30
   br i1 %99, label %_ZN8aiStringaSERKS_.exit.us, label %34
@@ -2925,7 +2925,7 @@ _ZNK8aiStringeqERKS_.exit.thread.us:              ; preds = %_ZN18aiMaterialProp
 .lr.ph76.split:                                   ; preds = %.lr.ph76, %_ZN8aiStringaSERKS_.exit
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %_ZN8aiStringaSERKS_.exit ], [ 0, %.lr.ph76 ]
   %100 = load ptr, ptr %1, align 8
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv85
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv85
   %102 = load ptr, ptr %101, align 8
   %103 = tail call noalias noundef nonnull dereferenceable(1056) ptr @_Znwm(i64 noundef 1056) #28
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 1040
@@ -2934,7 +2934,7 @@ _ZNK8aiStringeqERKS_.exit.thread.us:              ; preds = %_ZN18aiMaterialProp
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 1048
   store ptr null, ptr %105, align 8
   %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv85
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv85
   store ptr %103, ptr %107, align 8
   %108 = icmp eq ptr %103, %102
   br i1 %108, label %_ZN8aiStringaSERKS_.exit, label %109

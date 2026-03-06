@@ -20,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec.3" }
 %"class.cv::Vec.3" = type { %"class.cv::Matx.4" }
 %"class.cv::Matx.4" = type { [4 x double] }
-%"class.cv::Vec" = type { %"class.cv::Matx" }
-%"class.cv::Matx" = type { [4 x i32] }
 
 @.str = private unnamed_addr constant [7 x i8] c"Source\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"Detected Lines\00", align 1
@@ -290,7 +288,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %56,
   store i64 0, ptr %82, align 8
   store i32 50397184, ptr %16, align 8, !tbaa !29
   store ptr %6, ptr %81, align 8, !tbaa !31
-  %96 = getelementptr inbounds nuw %"class.cv::Vec", ptr %95, i64 %.0130
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %.0130
   %97 = load i64, ptr %96, align 4
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %99 = load i64, ptr %98, align 4

@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/tzparser.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.tzEntry = type { ptr, ptr, i32, i8, i32, ptr }
-
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [15 x i8] c"TZParserMemory\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"out of memory\00", align 1
@@ -109,7 +107,7 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   %19 = phi i8 [ %12, %.lr.ph ], [ %17, %15 ]
   %.056163 = phi ptr [ %0, %.lr.ph ], [ %16, %15 ]
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %14, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 1024
   %.not75 = icmp eq i16 %23, 0
@@ -235,7 +233,7 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   %77 = phi i8 [ %69, %.lr.ph166 ], [ %84, %82 ]
   %.059165 = phi ptr [ %10, %.lr.ph166 ], [ %83, %82 ]
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw i16, ptr %71, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = and i16 %80, 8192
   %.not71 = icmp eq i16 %81, 0
@@ -340,7 +338,7 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   %114 = load ptr, ptr %70, align 8
   %115 = load i8, ptr %112, align 1
   %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds nuw i16, ptr %114, i64 %116
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %114, i64 %116
   %118 = load i16, ptr %117, align 2
   %.fr48.i = freeze i16 %118
   %119 = and i16 %.fr48.i, 2048
@@ -468,7 +466,7 @@ validateTzEntry.exit:                             ; preds = %142, %149
   %159 = add i32 %.05877.i, %.05578.i
   %160 = ashr i32 %159, 1
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds %struct.tzEntry, ptr %157, i64 %161
+  %162 = getelementptr inbounds [40 x i8], ptr %157, i64 %161
   %163 = load ptr, ptr %162, align 8
   %164 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(1) %163) #11
   %165 = icmp slt i32 %164, 0
@@ -569,7 +567,7 @@ addToArray.exit.thread:                           ; preds = %.thread.i
 210:                                              ; preds = %204, %._crit_edge.i
   %211 = phi ptr [ %209, %204 ], [ %157, %._crit_edge.i ]
   %212 = sext i32 %.055.lcssa.i to i64
-  %213 = getelementptr inbounds %struct.tzEntry, ptr %211, i64 %212
+  %213 = getelementptr inbounds [40 x i8], ptr %211, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 40
   %215 = sub i32 %.053.ph130173, %.055.lcssa.i
   %216 = sext i32 %215 to i64

@@ -81,10 +81,10 @@ define noundef i32 @write_image(ptr noundef readonly captures(none) %0, ptr noun
 
 32:                                               ; preds = %.preheader, %32
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw i16, ptr %.133, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %.133, i64 %indvars.iv
   %34 = load i16, ptr %33, align 2, !tbaa !12
   %rev = tail call i16 @llvm.bswap.i16(i16 %34)
-  %35 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv
   store i16 %rev, ptr %35, align 2, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

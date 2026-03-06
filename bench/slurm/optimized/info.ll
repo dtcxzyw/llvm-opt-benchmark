@@ -96,14 +96,14 @@ define dso_local noundef i32 @node_attr_put(ptr noundef %0, ptr noundef %1) loca
   %19 = load i32, ptr @na_cnt, align 4
   %20 = shl nsw i32 %19, 1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   store ptr %17, ptr %22, align 8
   %23 = tail call ptr @slurm_xstrdup(ptr noundef %1) #5
   %24 = load ptr, ptr @node_attr, align 8
   %25 = load i32, ptr @na_cnt, align 4
   %26 = shl nsw i32 %25, 1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr ptr, ptr %24, i64 %27
+  %28 = getelementptr [8 x i8], ptr %24, i64 %27
   %29 = getelementptr i8, ptr %28, i64 8
   store ptr %23, ptr %29, align 8
   %30 = add nsw i32 %25, 1
@@ -249,7 +249,7 @@ define dso_local ptr @node_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %5 ]
   %12 = load ptr, ptr @node_attr, align 8
   %13 = shl nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @slurm_xstrcmp(ptr noundef %0, ptr noundef %15) #5
   %.not = icmp eq i32 %16, 0
@@ -257,7 +257,7 @@ define dso_local ptr @node_attr_get(ptr noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %.lr.ph
   %18 = load ptr, ptr @node_attr, align 8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %13
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %13
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   br label %.loopexit

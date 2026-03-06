@@ -139,8 +139,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %34
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %42, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %45 = getelementptr inbounds float, ptr %40, i64 %.05.i.i.i.i.i.i.i.i.i
-  %46 = getelementptr inbounds float, ptr %35, i64 %.05.i.i.i.i.i.i.i.i.i
+  %45 = getelementptr inbounds [4 x i8], ptr %40, i64 %.05.i.i.i.i.i.i.i.i.i
+  %46 = getelementptr inbounds [4 x i8], ptr %35, i64 %.05.i.i.i.i.i.i.i.i.i
   %47 = load float, ptr %46, align 4, !tbaa !25
   store float %47, ptr %45, align 4, !tbaa !25
   %48 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
@@ -149,8 +149,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %34
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %38, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %52, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %38 ]
-  %49 = getelementptr inbounds nuw float, ptr %40, i64 %.011.i.i.i.i.i.i.i.i
-  %50 = getelementptr inbounds nuw float, ptr %35, i64 %.011.i.i.i.i.i.i.i.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %.011.i.i.i.i.i.i.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %.011.i.i.i.i.i.i.i.i
   %51 = load <4 x float>, ptr %50, align 16, !tbaa !28
   store <4 x float> %51, ptr %49, align 16, !tbaa !28
   %52 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 4
@@ -258,7 +258,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %18, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i.i.i ], [ 0, %18 ]
-  %22 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i.i.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.05.i.i.i.i.i
   %23 = tail call i32 @rand() #11
   %24 = sitofp i32 %23 to float
   %25 = fmul nnan float %24, 2.000000e+00
@@ -427,11 +427,11 @@ thread-pre-split.i.i.i.i:                         ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %._crit_edge.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i ], [ %31, %._crit_edge.i.i.i.i.i ]
-  %34 = getelementptr inbounds float, ptr %29, i64 %.05.i.i.i.i.i.i
-  %35 = getelementptr inbounds float, ptr %14, i64 %.05.i.i.i.i.i.i
-  %36 = getelementptr inbounds float, ptr %17, i64 %.05.i.i.i.i.i.i
-  %37 = getelementptr inbounds float, ptr %20, i64 %.05.i.i.i.i.i.i
-  %38 = getelementptr inbounds float, ptr %22, i64 %.05.i.i.i.i.i.i
+  %34 = getelementptr inbounds [4 x i8], ptr %29, i64 %.05.i.i.i.i.i.i
+  %35 = getelementptr inbounds [4 x i8], ptr %14, i64 %.05.i.i.i.i.i.i
+  %36 = getelementptr inbounds [4 x i8], ptr %17, i64 %.05.i.i.i.i.i.i
+  %37 = getelementptr inbounds [4 x i8], ptr %20, i64 %.05.i.i.i.i.i.i
+  %38 = getelementptr inbounds [4 x i8], ptr %22, i64 %.05.i.i.i.i.i.i
   %39 = load float, ptr %37, align 4, !tbaa !25
   %40 = load float, ptr %38, align 4, !tbaa !25
   %41 = fsub float %39, %40
@@ -446,14 +446,14 @@ thread-pre-split.i.i.i.i:                         ; preds = %_ZN5Eigen15PlainObj
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %27, %.lr.ph.i.i.i.i.i
   %.011.i.i.i.i.i = phi i64 [ %59, %.lr.ph.i.i.i.i.i ], [ 0, %27 ]
-  %47 = getelementptr inbounds nuw float, ptr %29, i64 %.011.i.i.i.i.i
-  %48 = getelementptr inbounds nuw float, ptr %14, i64 %.011.i.i.i.i.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.011.i.i.i.i.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.011.i.i.i.i.i
   %49 = load <4 x float>, ptr %48, align 16, !tbaa !28
-  %50 = getelementptr inbounds nuw float, ptr %17, i64 %.011.i.i.i.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.011.i.i.i.i.i
   %51 = load <4 x float>, ptr %50, align 16, !tbaa !28
-  %52 = getelementptr inbounds nuw float, ptr %20, i64 %.011.i.i.i.i.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.011.i.i.i.i.i
   %53 = load <4 x float>, ptr %52, align 16, !tbaa !28
-  %54 = getelementptr inbounds nuw float, ptr %22, i64 %.011.i.i.i.i.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.011.i.i.i.i.i
   %55 = load <4 x float>, ptr %54, align 16, !tbaa !28
   %56 = fsub <4 x float> %53, %55
   %57 = fmul <4 x float> %51, %56

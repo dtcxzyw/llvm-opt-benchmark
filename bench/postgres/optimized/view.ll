@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
-%union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @.str = private unnamed_addr constant [33 x i8] c"unexpected parse analysis result\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"view.c\00", align 1
@@ -144,7 +141,7 @@ define dso_local { i64, i32 } @DefineView(ptr noundef captures(none) %0, ptr nou
 57:                                               ; preds = %.lr.ph132, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next, %57 ]
   %.065126130 = phi i1 [ false, %.lr.ph132 ], [ %.1, %57 ]
-  %58 = getelementptr inbounds nuw %union.ListCell, ptr %56, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
@@ -197,7 +194,7 @@ define dso_local { i64, i32 } @DefineView(ptr noundef captures(none) %0, ptr nou
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %100 ], [ 0, %.lr.ph135 ]
   %.066134141 = phi ptr [ %.2.ph, %100 ], [ %.val, %.lr.ph135 ]
   %82 = load ptr, ptr %78, align 8
-  %83 = getelementptr inbounds nuw %union.ListCell, ptr %82, i64 %indvars.iv167
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv167
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 42
   %86 = load i8, ptr %85, align 2, !range !4, !noundef !5
@@ -218,7 +215,7 @@ define dso_local { i64, i32 } @DefineView(ptr noundef captures(none) %0, ptr nou
   %.val90 = load ptr, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.066134141, i64 8
   %98 = sext i32 %.val89 to i64
-  %99 = getelementptr inbounds %union.ListCell, ptr %.val90, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %.val90, i64 %98
   %.not96 = icmp ult ptr %97, %99
   br i1 %.not96, label %._crit_edge170, label %.critedge87.thread
 
@@ -308,7 +305,7 @@ define dso_local { i64, i32 } @DefineView(ptr noundef captures(none) %0, ptr nou
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %177 ], [ 0, %.lr.ph.i ]
   %.0119124.i = phi ptr [ %.1.i, %177 ], [ null, %.lr.ph.i ]
   %142 = load ptr, ptr %138, align 8
-  %143 = getelementptr inbounds nuw %union.ListCell, ptr %142, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv.i
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 42
   %146 = load i8, ptr %145, align 2, !range !4, !noundef !5
@@ -426,8 +423,8 @@ define dso_local { i64, i32 } @DefineView(ptr noundef captures(none) %0, ptr nou
 
 214:                                              ; preds = %213, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %213 ]
-  %215 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %204, i64 %indvars.iv.i.i
-  %216 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %208, i64 %indvars.iv.i.i
+  %215 = getelementptr inbounds nuw [100 x i8], ptr %204, i64 %indvars.iv.i.i
+  %216 = getelementptr inbounds nuw [100 x i8], ptr %208, i64 %indvars.iv.i.i
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 91
   %218 = load i8, ptr %217, align 1, !range !4, !noundef !5
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 91
@@ -551,7 +548,7 @@ list_length.exit.thread.i:                        ; preds = %checkViewColumns.ex
 
 284:                                              ; preds = %.lr.ph143.i
   %285 = load ptr, ptr %277, align 8
-  %286 = getelementptr inbounds nuw %union.ListCell, ptr %285, i64 %indvars.iv163.i
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %indvars.iv163.i
   %287 = call noundef ptr @palloc0(i64 noundef 48) #5
   store i32 148, ptr %287, align 4
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 4

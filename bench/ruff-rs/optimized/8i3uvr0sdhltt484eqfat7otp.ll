@@ -375,7 +375,7 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE.exit": ; preds = %142, %136
   %143 = load ptr, ptr %25, align 8, !alias.scope !44, !nonnull !7, !noundef !7
-  %144 = getelementptr inbounds nuw { i32, i32 }, ptr %143, i64 %139
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %139
   store i32 %137, ptr %144, align 4
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
   store i32 %138, ptr %145, align 4
@@ -418,7 +418,7 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
 
 163:                                              ; preds = %.critedge47, %156
   %164 = load ptr, ptr %23, align 8, !alias.scope !48, !nonnull !7, !noundef !7
-  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %153
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %153
   store i32 %.sroa.08.1.ph, ptr %165, align 4
   %166 = add i64 %153, 1
   store i64 %166, ptr %24, align 8, !alias.scope !48
@@ -583,7 +583,7 @@ define noundef zeroext i1 @_ZN17ruff_python_index7indexer7Indexer15is_continuati
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %4 ], [ %18, %.lr.ph.i ]
   %10 = icmp ult i64 %.sroa.05.0.lcssa.i, %9
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %.sroa.05.0.lcssa.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.sroa.05.0.lcssa.i
   %.val23.i = load i32, ptr %11, align 4, !alias.scope !51, !noalias !54, !noundef !7
   %12 = icmp eq i32 %.val23.i, %5
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h4cafb369c0f7381aE.exit"
@@ -595,7 +595,7 @@ define noundef zeroext i1 @_ZN17ruff_python_index7indexer7Indexer15is_continuati
   %14 = add i64 %13, %.sroa.05.027.i
   %15 = icmp ult i64 %14, %9
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %14
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %14
   %.val25.i = load i32, ptr %16, align 4, !alias.scope !51, !noalias !54, !noundef !7
   %17 = icmp ugt i32 %.val25.i, %5
   %18 = select i1 %17, i64 %.sroa.05.027.i, i64 %14, !unpredictable !7
@@ -661,7 +661,7 @@ define internal fastcc { i32, i32 } @_ZN17ruff_python_index7indexer7Indexer17fin
   %23 = add i64 %22, %.sroa.05.027.i.i
   %24 = icmp ult i64 %23, %.16.val
   call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds nuw i32, ptr %.8.val, i64 %23
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.8.val, i64 %23
   %.val25.i.i = load i32, ptr %25, align 4, !alias.scope !59, !noalias !62, !noundef !7
   %26 = icmp ugt i32 %.val25.i.i, %21
   %27 = select i1 %26, i64 %.sroa.05.027.i.i, i64 %23, !unpredictable !7
@@ -673,7 +673,7 @@ _ZN17ruff_python_index7indexer7Indexer15is_continuation17hd309d1042f2f7c88E.exit
   %.sroa.05.0.lcssa.i.i = phi i64 [ 0, %.thread ], [ %27, %.lr.ph.i.i ]
   %30 = icmp ult i64 %.sroa.05.0.lcssa.i.i, %.16.val
   call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw i32, ptr %.8.val, i64 %.sroa.05.0.lcssa.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.8.val, i64 %.sroa.05.0.lcssa.i.i
   %.val23.i.i = load i32, ptr %31, align 4, !alias.scope !59, !noalias !62, !noundef !7
   %32 = icmp eq i32 %.val23.i.i, %21
   br i1 %32, label %33, label %_ZN17ruff_python_index7indexer7Indexer15is_continuation17hd309d1042f2f7c88E.exit.thread

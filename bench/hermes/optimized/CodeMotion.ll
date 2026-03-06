@@ -23,8 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::SmallDenseMap" = type { i32, i32, %"struct.llvh::AlignedCharArrayUnion.8" }
 %"struct.llvh::AlignedCharArrayUnion.8" = type { %"struct.llvh::AlignedCharArray.9" }
 %"struct.llvh::AlignedCharArray.9" = type { [256 x i8] }
-%"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -105,7 +103,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 
 _ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %lor.lhs.false.i
   %retval.sroa.0.1.i.i.i = phi ptr [ %4, %lor.lhs.false.i ], [ %add.ptr.i.i.i.i.i.i13, %while.body.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
-  %add.ptr.i.i.i.i5.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i.i.i.i.i.i
+  %add.ptr.i.i.i.i5.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i.i.i.i.i.i
   %cmp.i.i.not3.i.i.i.i = icmp eq ptr %retval.sroa.0.1.i.i.i, %add.ptr.i.i.i.i5.i.i
   br i1 %cmp.i.i.not3.i.i.i.i, label %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit, label %while.body.i.i.i.i
 
@@ -171,7 +169,7 @@ while.body.i.i.i.i49.i:                           ; preds = %land.rhs.i.i.i.i22.
 
 _ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i27.i: ; preds = %while.body.i.i.i.i49.i, %land.rhs.i.i.i.i22.i, %lor.lhs.false5.i
   %retval.sroa.0.1.i.i28.i = phi ptr [ %14, %lor.lhs.false5.i ], [ %add.ptr.i.i.i.i.i20.i, %while.body.i.i.i.i49.i ], [ %retval.sroa.0.0.i.i23.i, %land.rhs.i.i.i.i22.i ]
-  %add.ptr.i.i.i.i5.i29.i = getelementptr inbounds nuw ptr, ptr %14, i64 %conv.i.i.i.i.i18.i
+  %add.ptr.i.i.i.i5.i29.i = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %conv.i.i.i.i.i18.i
   %cmp.i.i.not3.i.i.i30.i = icmp eq ptr %retval.sroa.0.1.i.i28.i, %add.ptr.i.i.i.i5.i29.i
   br i1 %cmp.i.i.not3.i.i.i30.i, label %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit, label %while.body.i.i.i31.i
 
@@ -364,7 +362,7 @@ if.end.i.i.i.i:                                   ; preds = %for.body22
   %sub.i.i.i.i = add i32 %cond.i.i18.i.i.i.i, -1
   %BucketNo.023.i.i.i.i = and i32 %sub.i.i.i.i, %xor.i.i.i.i.i.i
   %idx.ext24.i.i.i.i = zext nneg i32 %BucketNo.023.i.i.i.i to i64
-  %add.ptr25.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %cond.i.i.i.i.i.i, i64 %idx.ext24.i.i.i.i
+  %add.ptr25.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %cond.i.i.i.i.i.i, i64 %idx.ext24.i.i.i.i
   %57 = load ptr, ptr %add.ptr25.i.i.i.i, align 8
   %cmp.i26.i.i.i.i = icmp eq ptr %53, %57
   br i1 %cmp.i26.i.i.i.i, label %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.thread.i, label %if.end9.i.i.i.i
@@ -381,7 +379,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %add.i.i.i.i = add i32 %ProbeAmt.028.i.i.i.i, %BucketNo.029.i.i.i.i
   %BucketNo.0.i.i.i.i = and i32 %add.i.i.i.i, %sub.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %cond.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %cond.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i
   %59 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %53, %59
   br i1 %cmp.i.i.i.i.i, label %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i.thread, label %if.end9.i.i.i.i, !llvm.loop !9

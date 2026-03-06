@@ -1337,12 +1337,12 @@ define dso_local i32 @drm_mode_setcrtc(ptr noundef %0, ptr noundef %1, ptr nound
 .preheader:                                       ; preds = %157, %181
   %160 = phi i32 [ %185, %181 ], [ 0, %157 ]
   %161 = sext i32 %160 to i64
-  %162 = getelementptr ptr, ptr %155, i64 %161
+  %162 = getelementptr [8 x i8], ptr %155, i64 %161
   store ptr null, ptr %162, align 8
   %163 = load i64, ptr %1, align 8
   %164 = inttoptr i64 %163 to ptr
   %165 = call i64 @llvm.read_register.i64(metadata !0)
-  %166 = getelementptr i32, ptr %164, i64 %161
+  %166 = getelementptr [4 x i8], ptr %164, i64 %161
   %167 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %166, i64 4, i64 %165) #11, !srcloc !57
   %168 = extractvalue { ptr, i32, i64 } %167, 0
   %169 = extractvalue { ptr, i32, i64 } %167, 2
@@ -1457,7 +1457,7 @@ define dso_local i32 @drm_mode_setcrtc(ptr noundef %0, ptr noundef %1, ptr nound
 
 238:                                              ; preds = %245, %236
   %239 = phi i64 [ 0, %236 ], [ %246, %245 ]
-  %240 = getelementptr ptr, ptr %232, i64 %239
+  %240 = getelementptr [8 x i8], ptr %232, i64 %239
   %241 = load ptr, ptr %240, align 8
   %242 = icmp eq ptr %241, null
   br i1 %242, label %245, label %243

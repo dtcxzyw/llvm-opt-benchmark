@@ -11951,8 +11951,8 @@ define linkonce_odr dso_local void @_ZN11flatbuffers4rust13RustGenerator12SetNam
 
 37:                                               ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %.038132 = phi i64 [ 0, %.lr.ph ], [ %50, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %35, i64 %.038132
-  %39 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %36, i64 %.038132
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.038132
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.038132
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !142
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -11995,7 +11995,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %55 = load ptr, ptr %11, align 8, !tbaa !200
   %56 = add i64 %.037136, -1
   %57 = load ptr, ptr %55, align 8, !tbaa !196
-  %58 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 %56
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.99, ptr noundef nonnull align 8 dereferenceable(32) %58)
   invoke void @_ZN11flatbuffers10CodeWriterpLENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(477) %52, ptr noundef nonnull %4)
           to label %59 unwind label %65
@@ -12111,7 +12111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %98,
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %103 = load ptr, ptr %1, align 8, !tbaa !196
-  %104 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %103, i64 %.0139
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %103, i64 %.0139
   %105 = load i32, ptr %89, align 4, !tbaa !261, !noalias !423
   %106 = load ptr, ptr %88, align 8, !tbaa !11, !noalias !423
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 160
@@ -34342,7 +34342,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers4rust13RustGenerator18GetEnu
 
 11:                                               ; preds = %3
   %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers4rust13RustGenerator18GetEnumTypeForDeclB5cxx11ERKNS_4TypeEE9ctypename, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers4rust13RustGenerator18GetEnumTypeForDeclB5cxx11ERKNS_4TypeEE9ctypename, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !550
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %0, align 8, !tbaa !4
@@ -37360,13 +37360,13 @@ define internal fastcc noundef range(i32 0, 20) i32 @_ZN11flatbuffers12_GLOBAL__
 
 switch.lookup:                                    ; preds = %11
   %61 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE, i64 %61
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %63
 
 switch.lookup20:                                  ; preds = %26
   %62 = zext nneg i32 %39 to i64
-  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE.58, i64 %62
+  %switch.gep21 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE.58, i64 %62
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   br label %63
 
@@ -38877,8 +38877,8 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers4rust13RustGenerator29GetRe
   br i1 %exitcond.not, label %.critedge, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %.02366
-  %35 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %.02366
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.02366
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %.02366
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !142
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -39005,7 +39005,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %.074 = phi i64 [ %.023.lcssa114, %.lr.ph75 ], [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %100 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %99, i64 %.074
+  %100 = getelementptr inbounds nuw [32 x i8], ptr %99, i64 %.074
   %101 = load i32, ptr %59, align 4, !tbaa !261, !noalias !665
   %102 = load ptr, ptr %58, align 8, !tbaa !11, !noalias !665
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 160
@@ -46240,7 +46240,7 @@ _ZNK11flatbuffers4rust13RustGenerator15WrapInNameSpaceB5cxx11ERKNS_10DefinitionE
 26:                                               ; preds = %3
   %27 = load i32, ptr %2, align 8, !tbaa !549
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4rust13RustGenerator12GetTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4rust13RustGenerator12GetTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !550
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %31, ptr %0, align 8, !tbaa !4
@@ -55843,7 +55843,7 @@ define linkonce_odr dso_local void @_ZZN11flatbuffers4rust13RustGenerator8GenTab
 
 switch.lookup:                                    ; preds = %13
   %20 = zext nneg i32 %18 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZZN11flatbuffers4rust13RustGenerator8GenTableERKNS_9StructDefEENKUlRKNS_8FieldDefEE0_clES7_, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZZN11flatbuffers4rust13RustGenerator8GenTableERKNS_9StructDefEENKUlRKNS_8FieldDefEE0_clES7_, i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN11flatbuffers6SizeOfENS_8BaseTypeE.exit
 
@@ -82786,7 +82786,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !196
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !197
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !199
   ret void
 }

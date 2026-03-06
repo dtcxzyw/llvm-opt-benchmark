@@ -44,10 +44,10 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli28BrotliSharedDictionaryAt
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   store i64 %2, ptr %12, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %11
   store ptr %3, ptr %14, align 8, !tbaa !19
   %15 = add nuw nsw i32 %7, 1
   store i32 %15, ptr %0, align 8, !tbaa !16

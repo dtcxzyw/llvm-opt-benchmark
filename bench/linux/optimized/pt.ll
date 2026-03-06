@@ -40,15 +40,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.pcpu_hot = type { %union.anon.20 }
 %union.anon.20 = type { %struct.anon.21, [16 x i8] }
 %struct.anon.21 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.topa_entry = type { i64 }
-%struct.dev_ext_attribute = type { %struct.device_attribute, ptr }
-%struct.page = type { i64, %union.anon.22, %union.anon.30, %struct.atomic_t, [8 x i8] }
-%union.anon.22 = type { %struct.anon.23 }
-%struct.anon.23 = type { %union.anon.24, ptr, %union.anon.26, i64 }
-%union.anon.24 = type { %struct.list_head }
-%union.anon.26 = type { i64 }
-%union.anon.30 = type { %struct.atomic_t }
-%struct.perf_addr_filter_range = type { i64, i64 }
 
 @pt_caps = internal unnamed_addr constant [18 x %struct.pt_cap_desc] [%struct.pt_cap_desc { ptr @.str, i32 0, i8 0, i32 -1 }, %struct.pt_cap_desc { ptr @.str.1, i32 0, i8 1, i32 1 }, %struct.pt_cap_desc { ptr @.str.2, i32 0, i8 1, i32 2 }, %struct.pt_cap_desc { ptr @.str.3, i32 0, i8 1, i32 4 }, %struct.pt_cap_desc { ptr @.str.4, i32 0, i8 1, i32 8 }, %struct.pt_cap_desc { ptr @.str.5, i32 0, i8 1, i32 16 }, %struct.pt_cap_desc { ptr @.str.6, i32 0, i8 1, i32 32 }, %struct.pt_cap_desc { ptr @.str.7, i32 0, i8 1, i32 128 }, %struct.pt_cap_desc { ptr @.str.8, i32 0, i8 1, i32 256 }, %struct.pt_cap_desc { ptr @.str.9, i32 0, i8 2, i32 1 }, %struct.pt_cap_desc { ptr @.str.10, i32 0, i8 2, i32 2 }, %struct.pt_cap_desc { ptr @.str.11, i32 0, i8 2, i32 4 }, %struct.pt_cap_desc { ptr @.str.12, i32 0, i8 2, i32 8 }, %struct.pt_cap_desc { ptr @.str.13, i32 0, i8 2, i32 -2147483648 }, %struct.pt_cap_desc { ptr @.str.14, i32 1, i8 0, i32 7 }, %struct.pt_cap_desc { ptr @.str.15, i32 1, i8 0, i32 -65536 }, %struct.pt_cap_desc { ptr @.str.16, i32 1, i8 1, i32 65535 }, %struct.pt_cap_desc { ptr @.str.17, i32 1, i8 1, i32 -65536 }], align 16
 @__UNIQUE_ID___addressable_intel_pt_validate_cap377 = internal global ptr @intel_pt_validate_cap, section ".discard.addressable", align 8
@@ -156,7 +147,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
 define dso_local i32 @intel_pt_validate_cap(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr %struct.pt_cap_desc, ptr @pt_caps, i64 %3
+  %4 = getelementptr [24 x i8], ptr @pt_caps, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = shl i32 %6, 2
@@ -165,7 +156,7 @@ define dso_local i32 @intel_pt_validate_cap(ptr noundef readonly captures(none) 
   %10 = zext i8 %9 to i32
   %11 = add i32 %7, %10
   %12 = zext i32 %11 to i64
-  %13 = getelementptr i32, ptr %0, i64 %12
+  %13 = getelementptr [4 x i8], ptr %0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load i32, ptr %15, align 8
@@ -180,7 +171,7 @@ define dso_local i32 @intel_pt_validate_cap(ptr noundef readonly captures(none) 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
 define dso_local i32 @intel_pt_validate_hw_cap(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr %struct.pt_cap_desc, ptr @pt_caps, i64 %2
+  %3 = getelementptr [24 x i8], ptr @pt_caps, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = shl i32 %5, 2
@@ -189,7 +180,7 @@ define dso_local i32 @intel_pt_validate_hw_cap(i32 noundef %0) #0 align 16 {
   %9 = zext i8 %8 to i32
   %10 = add i32 %6, %9
   %11 = zext i32 %10 to i64
-  %12 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @pt_pmu, i64 304), i64 %11
+  %12 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @pt_pmu, i64 304), i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i32, ptr %14, align 8
@@ -350,7 +341,7 @@ define dso_local void @intel_pt_interrupt() local_unnamed_addr #1 align 16 {
 91:                                               ; preds = %91, %89
   %92 = phi i64 [ 0, %89 ], [ %102, %91 ]
   %93 = phi i64 [ %84, %89 ], [ %101, %91 ]
-  %94 = getelementptr %struct.topa_entry, ptr %90, i64 %92
+  %94 = getelementptr [8 x i8], ptr %90, i64 %92
   %95 = load i64, ptr %94, align 8
   %96 = trunc i64 %95 to i32
   %97 = lshr i32 %96, 6
@@ -451,7 +442,7 @@ define dso_local void @intel_pt_interrupt() local_unnamed_addr #1 align 16 {
   %166 = getelementptr inbounds nuw i8, ptr %130, i64 40
   store i32 %165, ptr %166, align 8
   %167 = zext nneg i32 %165 to i64
-  %168 = getelementptr %struct.topa_entry, ptr %160, i64 %167
+  %168 = getelementptr [8 x i8], ptr %160, i64 %167
   %169 = load i64, ptr %168, align 8
   %170 = trunc i64 %169 to i32
   %171 = lshr i32 %170, 6
@@ -591,7 +582,7 @@ define internal fastcc void @pt_handle_status(ptr noundef %0) unnamed_addr #1 al
 
 47:                                               ; preds = %45, %41
   %48 = phi i64 [ %44, %41 ], [ %46, %45 ]
-  %49 = getelementptr %struct.topa_entry, ptr %40, i64 %48
+  %49 = getelementptr [8 x i8], ptr %40, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = trunc i64 %50 to i32
   %52 = lshr i32 %51, 6
@@ -640,7 +631,7 @@ define internal fastcc void @pt_handle_status(ptr noundef %0) unnamed_addr #1 al
 
 81:                                               ; preds = %79, %75
   %82 = phi i64 [ %78, %75 ], [ %80, %79 ]
-  %83 = getelementptr %struct.topa_entry, ptr %74, i64 %82
+  %83 = getelementptr [8 x i8], ptr %74, i64 %82
   %84 = load i64, ptr %83, align 8
   %85 = trunc i64 %84 to i32
   %86 = lshr i32 %85, 6
@@ -668,7 +659,7 @@ define internal fastcc void @pt_handle_status(ptr noundef %0) unnamed_addr #1 al
 
 .thread2:                                         ; preds = %95, %99
   %.sink = phi i64 [ %98, %95 ], [ %100, %99 ]
-  %101 = getelementptr %struct.topa_entry, ptr %74, i64 %.sink
+  %101 = getelementptr [8 x i8], ptr %74, i64 %.sink
   %102 = load i64, ptr %101, align 8
   %103 = and i64 %102, 281474976706560
   %104 = load i64, ptr @page_offset_base, align 8
@@ -770,7 +761,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pt_buffer_reset_markers(pt
 
 27:                                               ; preds = %25, %21
   %28 = phi i64 [ %24, %21 ], [ %26, %25 ]
-  %29 = getelementptr %struct.topa_entry, ptr %20, i64 %28
+  %29 = getelementptr [8 x i8], ptr %20, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = trunc i64 %30 to i32
   %32 = lshr i32 %31, 6
@@ -867,7 +858,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pt_buffer_reset_markers(pt
   %97 = load i32, ptr %96, align 8
   %98 = add i32 %97, -1
   %99 = sext i32 %98 to i64
-  %100 = getelementptr %struct.topa_entry, ptr %95, i64 %99
+  %100 = getelementptr [8 x i8], ptr %95, i64 %99
   br label %101
 
 101:                                              ; preds = %86, %84
@@ -919,7 +910,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pt_buffer_reset_markers(pt
   %133 = load i32, ptr %132, align 8
   %134 = add i32 %133, -1
   %135 = sext i32 %134 to i64
-  %136 = getelementptr %struct.topa_entry, ptr %131, i64 %135
+  %136 = getelementptr [8 x i8], ptr %131, i64 %135
   br label %137
 
 137:                                              ; preds = %122, %120
@@ -1271,7 +1262,7 @@ define internal void @pt_event_stop(ptr noundef %0, i32 noundef %1) #1 align 16 
 98:                                               ; preds = %98, %96
   %99 = phi i64 [ 0, %96 ], [ %109, %98 ]
   %100 = phi i64 [ %91, %96 ], [ %108, %98 ]
-  %101 = getelementptr %struct.topa_entry, ptr %97, i64 %99
+  %101 = getelementptr [8 x i8], ptr %97, i64 %99
   %102 = load i64, ptr %101, align 8
   %103 = trunc i64 %102 to i32
   %104 = lshr i32 %103, 6
@@ -1554,13 +1545,13 @@ define internal fastcc ptr @pt_topa_entry_for_page(ptr noundef nonnull readonly 
   %59 = and i32 %58, 15
   %60 = lshr i32 %55, %59
   %61 = zext i32 %60 to i64
-  %62 = getelementptr %struct.topa_entry, ptr %29, i64 %61
+  %62 = getelementptr [8 x i8], ptr %29, i64 %61
   br label %80
 
 63:                                               ; preds = %77, %51
   %64 = phi i64 [ %52, %51 ], [ %78, %77 ]
   %65 = phi i32 [ %46, %51 ], [ %72, %77 ]
-  %66 = getelementptr %struct.topa_entry, ptr %29, i64 %64
+  %66 = getelementptr [8 x i8], ptr %29, i64 %64
   %67 = load i64, ptr %66, align 8
   %68 = trunc i64 %67 to i32
   %69 = lshr i32 %68, 6
@@ -1572,7 +1563,7 @@ define internal fastcc ptr @pt_topa_entry_for_page(ptr noundef nonnull readonly 
 
 74:                                               ; preds = %63
   %75 = and i64 %64, 4294967295
-  %76 = getelementptr %struct.topa_entry, ptr %29, i64 %75
+  %76 = getelementptr [8 x i8], ptr %29, i64 %75
   br label %80
 
 77:                                               ; preds = %63
@@ -1716,8 +1707,8 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
 
 .preheader:                                       ; preds = %51, %.preheader
   %55 = phi i64 [ %64, %.preheader ], [ 0, %51 ]
-  %56 = getelementptr %struct.dev_ext_attribute, ptr %53, i64 %55
-  %57 = getelementptr %struct.pt_cap_desc, ptr @pt_caps, i64 %55
+  %56 = getelementptr [40 x i8], ptr %53, i64 %55
+  %57 = getelementptr [24 x i8], ptr @pt_caps, i64 %55
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %56, align 8
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -1727,7 +1718,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
   %61 = inttoptr i64 %55 to ptr
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr %61, ptr %62, align 8
-  %63 = getelementptr ptr, ptr %49, i64 %55
+  %63 = getelementptr [8 x i8], ptr %49, i64 %55
   store ptr %56, ptr %63, align 8
   %64 = add nuw nsw i64 %55, 1
   %65 = icmp eq i64 %64, 18
@@ -1903,7 +1894,7 @@ define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr noundef capture
 
 105:                                              ; preds = %101
   %106 = sext i32 %103 to i64
-  %107 = getelementptr i64, ptr @__per_cpu_offset, i64 %106
+  %107 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %106
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, ptrtoint (ptr @numa_node to i64)
   %110 = inttoptr i64 %109 to ptr
@@ -2044,7 +2035,7 @@ define internal void @pt_event_start(ptr noundef %0, i32 %1) #1 align 16 {
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %39, ptr %40, align 8
   %41 = zext nneg i32 %39 to i64
-  %42 = getelementptr %struct.topa_entry, ptr %34, i64 %41
+  %42 = getelementptr [8 x i8], ptr %34, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = trunc i64 %43 to i32
   %45 = lshr i32 %44, 6
@@ -2118,15 +2109,15 @@ define internal void @pt_event_start(ptr noundef %0, i32 %1) #1 align 16 {
 84:                                               ; preds = %118, %82
   %85 = phi i64 [ 0, %82 ], [ %126, %118 ]
   %86 = phi i64 [ 0, %82 ], [ %125, %118 ]
-  %87 = getelementptr %struct.pt_filter, ptr %74, i64 %85
-  %88 = getelementptr %struct.pt_filter, ptr %83, i64 %85
+  %87 = getelementptr [24 x i8], ptr %74, i64 %85
+  %88 = getelementptr [24 x i8], ptr %83, i64 %85
   %89 = load i64, ptr %88, align 8
   %90 = load i64, ptr %87, align 8
   %91 = icmp eq i64 %89, %90
   br i1 %91, label %102, label %92
 
 92:                                               ; preds = %84
-  %93 = getelementptr %struct.pt_address_range, ptr @pt_address_ranges, i64 %85
+  %93 = getelementptr [24 x i8], ptr @pt_address_ranges, i64 %85
   %94 = load i64, ptr %93, align 8
   %95 = trunc i64 %94 to i32
   %96 = trunc i64 %90 to i32
@@ -2154,7 +2145,7 @@ define internal void @pt_event_start(ptr noundef %0, i32 %1) #1 align 16 {
   br i1 %107, label %118, label %108
 
 108:                                              ; preds = %102
-  %.split = getelementptr %struct.pt_address_range, ptr @pt_address_ranges, i64 %85
+  %.split = getelementptr [24 x i8], ptr @pt_address_ranges, i64 %85
   %109 = getelementptr i8, ptr %.split, i64 8
   %110 = load i64, ptr %109, align 8
   %111 = trunc i64 %110 to i32
@@ -2177,7 +2168,7 @@ define internal void @pt_event_start(ptr noundef %0, i32 %1) #1 align 16 {
 118:                                              ; preds = %116, %102
   %119 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %120 = load i64, ptr %119, align 8
-  %.split5 = getelementptr %struct.pt_address_range, ptr @pt_address_ranges, i64 %85
+  %.split5 = getelementptr [24 x i8], ptr @pt_address_ranges, i64 %85
   %121 = getelementptr i8, ptr %.split5, i64 16
   %122 = load i32, ptr %121, align 8
   %123 = zext nneg i32 %122 to i64
@@ -2418,7 +2409,7 @@ define internal i64 @pt_event_snapshot_aux(ptr noundef %0, ptr noundef %1, i64 n
 97:                                               ; preds = %97, %95
   %98 = phi i64 [ 0, %95 ], [ %108, %97 ]
   %99 = phi i64 [ %90, %95 ], [ %107, %97 ]
-  %100 = getelementptr %struct.topa_entry, ptr %96, i64 %98
+  %100 = getelementptr [8 x i8], ptr %96, i64 %98
   %101 = load i64, ptr %100, align 8
   %102 = trunc i64 %101 to i32
   %103 = lshr i32 %102, 6
@@ -2546,7 +2537,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr noundef readonly captures(n
 18:                                               ; preds = %16, %14
   %19 = phi i32 [ %17, %16 ], [ %7, %14 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
+  %21 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, ptrtoint (ptr @numa_node to i64)
   %24 = inttoptr i64 %23 to ptr
@@ -2578,7 +2569,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr noundef readonly captures(n
   %43 = select i1 %39, i64 %40, i64 %42
   %44 = add i64 %38, %43
   %45 = lshr i64 %44, 12
-  %46 = getelementptr %struct.page, ptr %35, i64 %45
+  %46 = getelementptr [64 x i8], ptr %35, i64 %45
   br i1 %3, label %47, label %69
 
 47:                                               ; preds = %29
@@ -2740,7 +2731,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr noundef readonly captures(n
   %151 = load i64, ptr @vmemmap_base, align 8
   %152 = inttoptr i64 %151 to ptr
   %153 = load ptr, ptr %31, align 8
-  %154 = getelementptr ptr, ptr %153, i64 %149
+  %154 = getelementptr [8 x i8], ptr %153, i64 %149
   %155 = load ptr, ptr %154, align 8
   %156 = ptrtoint ptr %155 to i64
   %157 = add i64 %156, 2147483648
@@ -2751,7 +2742,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr noundef readonly captures(n
   %162 = select i1 %158, i64 %159, i64 %161
   %163 = add i64 %157, %162
   %164 = lshr i64 %163, 12
-  %165 = getelementptr %struct.page, ptr %152, i64 %164
+  %165 = getelementptr [64 x i8], ptr %152, i64 %164
   %166 = load volatile i64, ptr %165, align 8
   %167 = and i64 %166, 32768
   %168 = icmp eq i64 %167, 0
@@ -2894,7 +2885,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr noundef readonly captures(n
   %261 = getelementptr i8, ptr %253, i64 -4056
   %narrow = tail call i32 @llvm.usub.sat.i32(i32 %257, i32 1)
   %.idx = sext i32 %narrow to i64
-  %262 = getelementptr %struct.topa_entry, ptr %261, i64 %.idx
+  %262 = getelementptr [8 x i8], ptr %261, i64 %.idx
   %263 = load i64, ptr %262, align 8
   %264 = trunc i64 %263 to i32
   %265 = lshr i32 %264, 6
@@ -2913,7 +2904,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr noundef readonly captures(n
   %273 = sub i64 %272, %271
   %274 = getelementptr i8, ptr %253, i64 -4056
   %275 = sext i32 %257 to i64
-  %276 = getelementptr %struct.topa_entry, ptr %274, i64 %275
+  %276 = getelementptr [8 x i8], ptr %274, i64 %275
   %277 = load i64, ptr %276, align 8
   %278 = shl i64 %273, 6
   %279 = and i64 %278, 281474976706560
@@ -2922,7 +2913,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr noundef readonly captures(n
   store i64 %281, ptr %276, align 8
   %282 = load i32, ptr %256, align 8
   %283 = sext i32 %282 to i64
-  %284 = getelementptr %struct.topa_entry, ptr %274, i64 %283
+  %284 = getelementptr [8 x i8], ptr %274, i64 %283
   %285 = load i64, ptr %284, align 8
   %286 = shl i32 %174, 6
   %287 = and i32 %286, 960
@@ -2943,13 +2934,13 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr noundef readonly captures(n
 297:                                              ; preds = %293
   %298 = load i32, ptr %256, align 8
   %299 = sext i32 %298 to i64
-  %300 = getelementptr %struct.topa_entry, ptr %274, i64 %299
+  %300 = getelementptr [8 x i8], ptr %274, i64 %299
   %301 = load i64, ptr %300, align 8
   %302 = or i64 %301, 4
   store i64 %302, ptr %300, align 8
   %303 = load i32, ptr %256, align 8
   %304 = sext i32 %303 to i64
-  %305 = getelementptr %struct.topa_entry, ptr %274, i64 %304
+  %305 = getelementptr [8 x i8], ptr %274, i64 %304
   %306 = load i64, ptr %305, align 8
   %307 = or i64 %306, 16
   store i64 %307, ptr %305, align 8
@@ -3015,7 +3006,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr noundef readonly captures(n
   %349 = getelementptr inbounds nuw i8, ptr %347, i64 32
   %350 = load i32, ptr %349, align 8
   %351 = sext i32 %350 to i64
-  %352 = getelementptr %struct.topa_entry, ptr %348, i64 %351
+  %352 = getelementptr [8 x i8], ptr %348, i64 %351
   %353 = load i64, ptr %352, align 8
   %354 = and i64 %346, 281474976706560
   %355 = and i64 %353, -281474976706561
@@ -3026,7 +3017,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr noundef readonly captures(n
   %359 = getelementptr inbounds nuw i8, ptr %357, i64 32
   %360 = load i32, ptr %359, align 8
   %361 = sext i32 %360 to i64
-  %362 = getelementptr %struct.topa_entry, ptr %358, i64 %361
+  %362 = getelementptr [8 x i8], ptr %358, i64 %361
   %363 = load i64, ptr %362, align 8
   %364 = or i64 %363, 1
   store i64 %364, ptr %362, align 8
@@ -3092,14 +3083,14 @@ define internal void @pt_event_addr_filters_sync(ptr noundef readonly captures(a
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ne ptr %18, null
   %.phi.trans.insert = sext i32 %16 to i64
-  %.phi.trans.insert3 = getelementptr %struct.perf_addr_filter_range, ptr %8, i64 %.phi.trans.insert
+  %.phi.trans.insert3 = getelementptr [16 x i8], ptr %8, i64 %.phi.trans.insert
   %.pre = load i64, ptr %.phi.trans.insert3, align 8
   %20 = icmp eq i64 %.pre, 0
   %or.cond = select i1 %19, i1 %20, i1 false
   br i1 %or.cond, label %48, label %.preheader._crit_edge
 
 .preheader._crit_edge:                            ; preds = %.preheader
-  %21 = getelementptr %struct.perf_addr_filter_range, ptr %8, i64 %.phi.trans.insert
+  %21 = getelementptr [16 x i8], ptr %8, i64 %.phi.trans.insert
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = sub i64 0, %23
@@ -3131,7 +3122,7 @@ define internal void @pt_event_addr_filters_sync(ptr noundef readonly captures(a
 48:                                               ; preds = %.preheader, %.preheader._crit_edge
   %49 = phi i64 [ %46, %.preheader._crit_edge ], [ 0, %.preheader ]
   %50 = phi i64 [ %47, %.preheader._crit_edge ], [ 0, %.preheader ]
-  %51 = getelementptr %struct.pt_filter, ptr %10, i64 %.phi.trans.insert
+  %51 = getelementptr [24 x i8], ptr %10, i64 %.phi.trans.insert
   store i64 %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %49, ptr %52, align 8
@@ -3198,7 +3189,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @pt_cap_show(ptr 
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr %struct.pt_cap_desc, ptr @pt_caps, i64 %7
+  %8 = getelementptr [24 x i8], ptr @pt_caps, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = shl i32 %10, 2
@@ -3207,7 +3198,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @pt_cap_show(ptr 
   %14 = zext i8 %13 to i32
   %15 = add i32 %11, %14
   %16 = zext i32 %15 to i64
-  %17 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @pt_pmu, i64 304), i64 %16
+  %17 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @pt_pmu, i64 304), i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = load i32, ptr %19, align 8

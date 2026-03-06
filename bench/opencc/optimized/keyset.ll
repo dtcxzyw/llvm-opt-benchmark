@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
-%"class.marisa::scoped_array.2" = type { ptr }
-%"class.marisa::scoped_array.1" = type { ptr }
-%"class.marisa::Key" = type { ptr, i32, %"union.marisa::Key::Union" }
-%"union.marisa::Key::Union" = type { i32 }
 %"class.marisa::scoped_array.0" = type { ptr }
 %"class.marisa::Keyset" = type { %"class.marisa::scoped_array", i64, i64, %"class.marisa::scoped_array", i64, i64, %"class.marisa::scoped_array.0", i64, i64, ptr, i64, i64, i64 }
 %"class.marisa::scoped_array" = type { ptr }
@@ -123,7 +119,7 @@ define void @_ZN6marisa6Keyset9push_backERKNS_3KeyE(ptr noundef nonnull align 8 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !21
   %19 = load ptr, ptr %16, align 8, !tbaa !3
-  %20 = getelementptr %"class.marisa::scoped_array.2", ptr %19, i64 %18
+  %20 = getelementptr [8 x i8], ptr %19, i64 %18
   %21 = getelementptr i8, ptr %20, i64 -8
   %22 = load ptr, ptr %21, align 8, !tbaa !9
   br label %_ZN6marisa6Keyset7reserveEm.exit
@@ -162,10 +158,10 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %15, %28
   %36 = load i64, ptr %6, align 8, !tbaa !15
   %37 = lshr i64 %36, 8
   %38 = load ptr, ptr %35, align 8, !tbaa !24
-  %39 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %37
   %40 = and i64 %36, 255
   %41 = load ptr, ptr %39, align 8, !tbaa !25
-  %42 = getelementptr inbounds nuw %"class.marisa::Key", ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %40
   store ptr %.0.i, ptr %42, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 %.lcssa14, ptr %43, align 8, !tbaa !12
@@ -220,7 +216,7 @@ define noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr noundef nonnull align 8 capt
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i64, ptr %14, align 8, !tbaa !21
   %16 = load ptr, ptr %13, align 8, !tbaa !3
-  %17 = getelementptr %"class.marisa::scoped_array.2", ptr %16, i64 %15
+  %17 = getelementptr [8 x i8], ptr %16, i64 %15
   %18 = getelementptr i8, ptr %17, i64 -8
   %19 = load ptr, ptr %18, align 8, !tbaa !9
   br label %31
@@ -294,7 +290,7 @@ define void @_ZN6marisa6Keyset9push_backERKNS_3KeyEc(ptr noundef nonnull align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i64, ptr %25, align 8, !tbaa !21
   %27 = load ptr, ptr %24, align 8, !tbaa !3
-  %28 = getelementptr %"class.marisa::scoped_array.2", ptr %27, i64 %26
+  %28 = getelementptr [8 x i8], ptr %27, i64 %26
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load ptr, ptr %29, align 8, !tbaa !9
   br label %_ZN6marisa6Keyset7reserveEm.exit
@@ -334,10 +330,10 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %23, %35
   %44 = load i64, ptr %4, align 8, !tbaa !15
   %45 = lshr i64 %44, 8
   %46 = load ptr, ptr %43, align 8, !tbaa !24
-  %47 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = and i64 %44, 255
   %49 = load ptr, ptr %47, align 8, !tbaa !25
-  %50 = getelementptr inbounds nuw %"class.marisa::Key", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %48
   %51 = load i32, ptr %19, align 8, !tbaa !12
   store ptr %.0.i, ptr %50, align 8, !tbaa !28
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -477,8 +473,8 @@ _ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit: ; preds = %._crit_edge, %.lo
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
   %.021 = phi i64 [ %48, %.lr.ph ], [ 0, %.loopexit ]
-  %44 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %.pre, i64 %.021
-  %45 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %20, i64 %.021
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.021
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.021
   %46 = load ptr, ptr %44, align 8, !tbaa !45
   %47 = load ptr, ptr %45, align 8, !tbaa !45
   store ptr %47, ptr %44, align 8, !tbaa !45
@@ -505,7 +501,7 @@ _ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit: ; preds = %._crit_edge, %.lo
   %55 = add i64 %54, 1
   store i64 %55, ptr %3, align 8, !tbaa !20
   %56 = load ptr, ptr %53, align 8, !tbaa !24
-  %57 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %56, i64 %54
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %54
   %58 = load ptr, ptr %57, align 8, !tbaa !45
   store ptr %51, ptr %57, align 8, !tbaa !45
   %59 = icmp eq ptr %58, null
@@ -631,7 +627,7 @@ _ZN6marisa6Keyset7reserveEm.exit.thread:          ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load i64, ptr %32, align 8, !tbaa !21
   %34 = load ptr, ptr %31, align 8, !tbaa !3
-  %35 = getelementptr %"class.marisa::scoped_array.2", ptr %34, i64 %33
+  %35 = getelementptr [8 x i8], ptr %34, i64 %33
   %36 = getelementptr i8, ptr %35, i64 -8
   %37 = load ptr, ptr %36, align 8, !tbaa !9
   br label %.lr.ph.preheader
@@ -673,10 +669,10 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %38
   %51 = load i64, ptr %22, align 8, !tbaa !15
   %52 = lshr i64 %51, 8
   %53 = load ptr, ptr %50, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %52
   %55 = and i64 %51, 255
   %56 = load ptr, ptr %54, align 8, !tbaa !25
-  %57 = getelementptr inbounds nuw %"class.marisa::Key", ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %55
   store ptr %.0.i24, ptr %57, align 8, !tbaa !28
   %58 = trunc nuw i64 %2 to i32
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -1103,8 +1099,8 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %._crit_edge, %.loop
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
   %.019 = phi i64 [ %49, %.lr.ph ], [ 0, %.loopexit ]
-  %45 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %.pre, i64 %.019
-  %46 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %21, i64 %.019
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.019
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.019
   %47 = load ptr, ptr %45, align 8, !tbaa !51
   %48 = load ptr, ptr %46, align 8, !tbaa !51
   store ptr %48, ptr %45, align 8, !tbaa !51
@@ -1144,7 +1140,7 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %._crit_edge, %.loop
   %63 = add i64 %62, 1
   store i64 %63, ptr %4, align 8, !tbaa !21
   %64 = load ptr, ptr %61, align 8, !tbaa !3
-  %65 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %64, i64 %62
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %62
   %66 = load ptr, ptr %65, align 8, !tbaa !51
   store ptr %52, ptr %65, align 8, !tbaa !51
   %67 = icmp eq ptr %66, null
@@ -1272,8 +1268,8 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %._crit_edge, %.loop
 
 45:                                               ; preds = %.lr.ph, %45
   %.018 = phi i64 [ 0, %.lr.ph ], [ %50, %45 ]
-  %46 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %22, i64 %.018
-  %47 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %20, i64 %.018
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.018
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.018
   %48 = load ptr, ptr %46, align 8, !tbaa !51
   %49 = load ptr, ptr %47, align 8, !tbaa !51
   store ptr %49, ptr %46, align 8, !tbaa !51
@@ -1285,7 +1281,7 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %._crit_edge, %.loop
 51:                                               ; preds = %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit, %1
   %52 = phi i64 [ %.pre, %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit ], [ %4, %1 ]
   %53 = load ptr, ptr %0, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %52
   %55 = load ptr, ptr %54, align 8, !tbaa !9
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %_ZN6marisa12scoped_arrayIcED2Ev.exit
@@ -1312,7 +1308,7 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %._crit_edge, %.loop
 ._ZN6marisa12scoped_arrayIcED2Ev.exit_crit_edge:  ; preds = %57
   store ptr %58, ptr %54, align 8, !tbaa !51
   %.pre20 = load ptr, ptr %0, align 8, !tbaa !3
-  %.phi.trans.insert = getelementptr inbounds nuw %"class.marisa::scoped_array.2", ptr %.pre20, i64 %52
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre20, i64 %52
   %.pre21 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !9
   br label %_ZN6marisa12scoped_arrayIcED2Ev.exit
 

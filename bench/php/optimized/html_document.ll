@@ -530,7 +530,7 @@ lxb_encoding_decode_buf_add_to.exit.i.i:          ; preds = %99
   %107 = load i64, ptr %58, align 8, !tbaa !97
   %108 = load i64, ptr %54, align 8, !tbaa !122
   %109 = load ptr, ptr %55, align 8, !tbaa !93
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %108
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %108
   %111 = shl i64 %107, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %110, ptr nonnull readonly align 4 %106, i64 %111, i1 false)
   %112 = load i64, ptr %54, align 8, !tbaa !122
@@ -550,7 +550,7 @@ lxb_encoding_decode_finish.exit.i:                ; preds = %lxb_encoding_decode
 114:                                              ; preds = %lxb_encoding_decode_finish.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %53, ptr %3, align 8, !tbaa !123
-  %115 = getelementptr inbounds nuw i32, ptr %53, i64 %.val.i
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %.val.i
   %116 = load ptr, ptr %43, align 8, !tbaa !81
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !124
@@ -605,7 +605,7 @@ lxb_encoding_encode_finish.exit.i:                ; preds = %124, %120
 
 switch.lookup:                                    ; preds = %140
   %142 = zext nneg i32 %136 to i64
-  %143 = getelementptr ptr, ptr @switch.table.zim_Dom_HTMLDocument_createFromString, i64 %142
+  %143 = getelementptr [8 x i8], ptr @switch.table.zim_Dom_HTMLDocument_createFromString, i64 %142
   %switch.gep = getelementptr i8, ptr %143, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
@@ -722,7 +722,7 @@ define internal void @dom_lexbor_libxml2_bridge_tokenizer_error_reporter(ptr nou
   %.03150.i = phi i64 [ %25, %.lr.ph.i ], [ %14, %.preheader46.i ]
   %.03249.i = phi i64 [ %.133.i, %.lr.ph.i ], [ %12, %.preheader46.i ]
   %.03648.i = phi i64 [ %.137.i, %.lr.ph.i ], [ %11, %.preheader46.i ]
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %.03150.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.03150.i
   %21 = load i32, ptr %20, align 4, !tbaa !134
   %22 = icmp eq i32 %21, 10
   %23 = add i64 %.03648.i, 1
@@ -765,7 +765,7 @@ dom_find_line_and_column_using_cache.exit:        ; preds = %.lr.ph.i, %26, %.pr
 
 switch.lookup:                                    ; preds = %dom_find_line_and_column_using_cache.exit
   %36 = zext nneg i32 %34 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dom_lexbor_libxml2_bridge_tokenizer_error_reporter, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dom_lexbor_libxml2_bridge_tokenizer_error_reporter, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dom_lexbor_tokenizer_error_code_to_string.exit
 
@@ -807,7 +807,7 @@ define internal void @dom_lexbor_libxml2_bridge_tree_error_reporter(ptr noundef 
 
 switch.lookup:                                    ; preds = %21
   %22 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dom_lexbor_libxml2_bridge_tree_error_reporter.6, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dom_lexbor_libxml2_bridge_tree_error_reporter.6, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dom_lexbor_tree_error_code_to_string.exit
 
@@ -821,7 +821,7 @@ dom_lexbor_tree_error_code_to_string.exit:        ; preds = %21, %switch.lookup
 
 switch.lookup22:                                  ; preds = %23
   %24 = zext nneg i32 %19 to i64
-  %switch.gep23 = getelementptr inbounds nuw ptr, ptr @switch.table.dom_lexbor_libxml2_bridge_tree_error_reporter.6, i64 %24
+  %switch.gep23 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dom_lexbor_libxml2_bridge_tree_error_reporter.6, i64 %24
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   br label %dom_lexbor_tree_error_code_to_string.exit21
 
@@ -1199,7 +1199,7 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread65.i, %._cri
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %90, ptr %10, align 8, !tbaa !123
   %.val.i = load i64, ptr %91, align 8, !tbaa !122
-  %103 = getelementptr inbounds nuw i32, ptr %90, i64 %.val.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %.val.i
   br label %104
 
 104:                                              ; preds = %144, %98
@@ -1260,7 +1260,7 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread65.i, %._cri
   %.03150.i.i.i = phi i64 [ %137, %.lr.ph.i.i.i ], [ %126, %.preheader46.i.i.i ]
   %.03249.i.i.i = phi i64 [ %.133.i.i.i, %.lr.ph.i.i.i ], [ %124, %.preheader46.i.i.i ]
   %.03648.i.i.i = phi i64 [ %.137.i.i.i, %.lr.ph.i.i.i ], [ %123, %.preheader46.i.i.i ]
-  %132 = getelementptr inbounds nuw i32, ptr %128, i64 %.03150.i.i.i
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %.03150.i.i.i
   %133 = load i32, ptr %132, align 4, !tbaa !134
   %134 = icmp eq i32 %133, 10
   %135 = add i64 %.03648.i.i.i, 1
@@ -1851,7 +1851,7 @@ lxb_encoding_decode_buf_add_to.exit.i.i:          ; preds = %136
   %144 = load i64, ptr %64, align 8, !tbaa !97
   %145 = load i64, ptr %60, align 8, !tbaa !122
   %146 = load ptr, ptr %61, align 8, !tbaa !93
-  %147 = getelementptr inbounds nuw i32, ptr %146, i64 %145
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %145
   %148 = shl i64 %144, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %147, ptr nonnull readonly align 4 %143, i64 %148, i1 false)
   %149 = load i64, ptr %60, align 8, !tbaa !122
@@ -1871,7 +1871,7 @@ lxb_encoding_decode_finish.exit.i:                ; preds = %lxb_encoding_decode
 151:                                              ; preds = %lxb_encoding_decode_finish.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %59, ptr %3, align 8, !tbaa !123
-  %152 = getelementptr inbounds nuw i32, ptr %59, i64 %.val.i
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %.val.i
   %153 = load ptr, ptr %49, align 8, !tbaa !81
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !124
@@ -2374,7 +2374,7 @@ lxb_encoding_encode_init.exit:                    ; preds = %lxb_encoding_data_b
 
 lxb_encoding_decode_buf_add_to.exit.i:            ; preds = %58
   %64 = load ptr, ptr %24, align 8, !tbaa !93
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %60
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %60
   %66 = shl i64 %59, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %65, ptr nonnull readonly align 4 %56, i64 %66, i1 false)
   %67 = load i64, ptr %23, align 8, !tbaa !122
@@ -2396,7 +2396,7 @@ lxb_encoding_decode_finish.exit:                  ; preds = %lxb_encoding_decode
   store ptr %7, ptr %10, align 8, !tbaa !123
   %70 = getelementptr inbounds nuw i8, ptr %.0.i2, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !124
-  %72 = getelementptr inbounds nuw i32, ptr %7, i64 %.val
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.val
   %73 = call i32 %71(ptr noundef nonnull %4, ptr noundef nonnull %10, ptr noundef nonnull %72) #10
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %75 = load ptr, ptr %74, align 8, !tbaa !193
@@ -3717,7 +3717,7 @@ define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef n
   %.03150.i = phi i64 [ %38, %.lr.ph.i ], [ %27, %.preheader46.i ]
   %.03249.i = phi i64 [ %.133.i, %.lr.ph.i ], [ %25, %.preheader46.i ]
   %.03648.i = phi i64 [ %.137.i, %.lr.ph.i ], [ %24, %.preheader46.i ]
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %.03150.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.03150.i
   %34 = load i32, ptr %33, align 4, !tbaa !134
   %35 = icmp eq i32 %34, 10
   %36 = add i64 %.03648.i, 1
@@ -4002,7 +4002,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len(ptr noundef 
   %17 = load ptr, ptr %7, align 8, !tbaa !197
   %18 = getelementptr i8, ptr %17, i64 24
   %.val = load i64, ptr %18, align 8, !tbaa !122
-  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %.val
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.val
   %.pre21 = load ptr, ptr %9, align 8, !tbaa !196
   br label %20
 
@@ -4073,7 +4073,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string(ptr noundef read
   %17 = load ptr, ptr %7, align 8, !tbaa !197
   %18 = getelementptr i8, ptr %17, i64 24
   %.val.i = load i64, ptr %18, align 8, !tbaa !122
-  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %.val.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.val.i
   %.pre21.i = load ptr, ptr %9, align 8, !tbaa !196
   br label %20
 

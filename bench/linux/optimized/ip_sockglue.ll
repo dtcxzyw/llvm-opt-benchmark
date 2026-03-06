@@ -4445,7 +4445,7 @@ define internal fastcc i32 @set_mcast_msfilter(ptr noundef %0, i32 noundef %1, i
 
 23:                                               ; preds = %27, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %20 ]
-  %24 = getelementptr %struct.__kernel_sockaddr_storage, ptr %5, i64 %indvars.iv
+  %24 = getelementptr [128 x i8], ptr %5, i64 %indvars.iv
   %25 = load i16, ptr %24, align 4
   %26 = icmp eq i16 %25, 2
   br i1 %26, label %27, label %.loopexit
@@ -4453,7 +4453,7 @@ define internal fastcc i32 @set_mcast_msfilter(ptr noundef %0, i32 noundef %1, i
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr i32, ptr %21, i64 %indvars.iv
+  %30 = getelementptr [4 x i8], ptr %21, i64 %indvars.iv
   store i32 %29, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = icmp eq i64 %indvars.iv.next, %22

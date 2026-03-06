@@ -33,8 +33,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.dmi_system_id = type { ptr, ptr, [4 x %struct.dmi_strmatch], ptr }
 %struct.dmi_strmatch = type { i8, [79 x i8] }
 %struct.acpi_buffer = type { i64, ptr }
-%union.acpi_object = type { %struct.anon.9 }
-%struct.anon.9 = type { i32, i32, i64, i32 }
 %struct.power_supply_config = type { ptr, ptr, ptr, ptr, ptr, i64 }
 
 @__UNIQUE_ID_author411 = internal constant [32 x i8] c"battery.author=Paul Diefenbaugh\00", section ".modinfo", align 1
@@ -997,8 +995,8 @@ define internal fastcc range(i32 -19, 1) i32 @acpi_battery_get_info(ptr noundef 
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr %48, align 8
-  %56 = getelementptr %union.acpi_object, ptr %55, i64 %50
-  %57 = getelementptr %struct.acpi_offsets, ptr getelementptr inbounds nuw (i8, ptr @extended_info_offsets, i64 16), i64 %50
+  %56 = getelementptr [24 x i8], ptr %55, i64 %50
+  %57 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @extended_info_offsets, i64 16), i64 %50
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i8, ptr %58, align 8
   %60 = icmp eq i8 %59, 0
@@ -1078,8 +1076,8 @@ define internal fastcc range(i32 -19, 1) i32 @acpi_battery_get_info(ptr noundef 
 
 101:                                              ; preds = %96
   %102 = load ptr, ptr %95, align 8
-  %103 = getelementptr %union.acpi_object, ptr %102, i64 %97
-  %104 = getelementptr %struct.acpi_offsets, ptr @extended_info_offsets, i64 %97
+  %103 = getelementptr [24 x i8], ptr %102, i64 %97
+  %104 = getelementptr [16 x i8], ptr @extended_info_offsets, i64 %97
   %105 = and i64 %97, 1152921504606846960
   %106 = icmp eq i64 %105, 0
   %107 = load i64, ptr %104, align 16
@@ -1155,8 +1153,8 @@ define internal fastcc range(i32 -19, 1) i32 @acpi_battery_get_info(ptr noundef 
 
 146:                                              ; preds = %141
   %147 = load ptr, ptr %140, align 8
-  %148 = getelementptr %union.acpi_object, ptr %147, i64 %142
-  %149 = getelementptr %struct.acpi_offsets, ptr @info_offsets, i64 %142
+  %148 = getelementptr [24 x i8], ptr %147, i64 %142
+  %149 = getelementptr [16 x i8], ptr @info_offsets, i64 %142
   %150 = icmp samesign ult i64 %142, 9
   %151 = load i64, ptr %149, align 16
   %152 = getelementptr i8, ptr %0, i64 %151
@@ -1415,8 +1413,8 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_battery_get_state(ptr
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr %38, align 8
-  %46 = getelementptr %union.acpi_object, ptr %45, i64 %40
-  %47 = getelementptr %struct.acpi_offsets, ptr @state_offsets, i64 %40
+  %46 = getelementptr [24 x i8], ptr %45, i64 %40
+  %47 = getelementptr [16 x i8], ptr @state_offsets, i64 %40
   %48 = load i64, ptr %47, align 16
   %49 = getelementptr i8, ptr %0, i64 %48
   %50 = load i32, ptr %46, align 8

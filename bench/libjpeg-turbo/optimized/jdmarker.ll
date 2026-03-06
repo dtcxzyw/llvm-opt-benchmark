@@ -286,9 +286,9 @@ define void @jinit_marker_reader(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr @skip_variable, ptr %14, align 8, !tbaa !55
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 0, ptr %15, align 4, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -811,7 +811,7 @@ get_soi.exit:                                     ; preds = %90, %98
   br i1 %226, label %227, label %230
 
 227:                                              ; preds = %.lr.ph.i
-  %228 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv.i
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv.i
   %229 = load ptr, ptr %228, align 8, !tbaa !55
   %.not186.i = icmp eq ptr %229, null
   br i1 %.not186.i, label %.loopexit.i, label %230
@@ -836,7 +836,7 @@ get_soi.exit:                                     ; preds = %90, %98
 
 .loopexit.i:                                      ; preds = %227, %._crit_edge.i
   %.0169189.i = phi ptr [ %.0169.lcssa.i, %._crit_edge.i ], [ %.0169194.i, %227 ]
-  %237 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv220.i
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv220.i
   store ptr %.0169189.i, ptr %237, align 8, !tbaa !55
   %238 = lshr i32 %219, 4
   %239 = getelementptr inbounds nuw i8, ptr %.0169189.i, i64 20
@@ -863,7 +863,7 @@ get_soi.exit:                                     ; preds = %90, %98
 
 .lr.ph197.i:                                      ; preds = %.loopexit.i, %260
   %indvars.iv215.i = phi i64 [ %indvars.iv.next216.i, %260 ], [ 0, %.loopexit.i ]
-  %251 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv215.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv215.i
   %252 = load ptr, ptr %251, align 8, !tbaa !55
   %253 = icmp eq ptr %252, %.0169189.i
   br i1 %253, label %254, label %260
@@ -1482,7 +1482,7 @@ get_dac.exit:                                     ; preds = %._crit_edge.i66, %4
 
 577:                                              ; preds = %571, %568
   %578 = zext nneg i32 %569 to i64
-  %579 = getelementptr inbounds nuw ptr, ptr %25, i64 %578
+  %579 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %578
   br label %591
 
 580:                                              ; preds = %._crit_edge.i87
@@ -1502,7 +1502,7 @@ get_dac.exit:                                     ; preds = %._crit_edge.i66, %4
 
 588:                                              ; preds = %582, %580
   %589 = zext i8 %464 to i64
-  %590 = getelementptr inbounds nuw ptr, ptr %26, i64 %589
+  %590 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %589
   br label %591
 
 591:                                              ; preds = %588, %577
@@ -1662,7 +1662,7 @@ get_dht.exit:                                     ; preds = %._crit_edge181.i, %
 
 667:                                              ; preds = %661, %647
   %668 = zext nneg i32 %651 to i64
-  %669 = getelementptr inbounds nuw ptr, ptr %8, i64 %668
+  %669 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %668
   %670 = load ptr, ptr %669, align 8, !tbaa !55
   %671 = icmp eq ptr %670, null
   br i1 %671, label %672, label %674
@@ -1702,10 +1702,10 @@ get_dht.exit:                                     ; preds = %._crit_edge181.i, %
   %.8.us.i = phi i64 [ %682, %680 ], [ %.4159.us.i, %.split.us.i ]
   %684 = load i8, ptr %.8128.us.i, align 1, !tbaa !34
   %685 = zext i8 %684 to i16
-  %686 = getelementptr inbounds nuw i32, ptr @jpeg_natural_order, i64 %indvars.iv174.i
+  %686 = getelementptr inbounds nuw [4 x i8], ptr @jpeg_natural_order, i64 %indvars.iv174.i
   %687 = load i32, ptr %686, align 4, !tbaa !56
   %688 = sext i32 %687 to i64
-  %689 = getelementptr inbounds i16, ptr %675, i64 %688
+  %689 = getelementptr inbounds [2 x i8], ptr %675, i64 %688
   store i16 %685, ptr %689, align 2, !tbaa !96
   %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
   %.4.us.i = add i64 %.8.us.i, -1
@@ -1759,10 +1759,10 @@ get_dht.exit:                                     ; preds = %._crit_edge181.i, %
   %711 = load i8, ptr %.6126.i, align 1, !tbaa !34
   %712 = zext i8 %711 to i16
   %713 = or disjoint i16 %702, %712
-  %714 = getelementptr inbounds nuw i32, ptr @jpeg_natural_order, i64 %indvars.iv.i95
+  %714 = getelementptr inbounds nuw [4 x i8], ptr @jpeg_natural_order, i64 %indvars.iv.i95
   %715 = load i32, ptr %714, align 4, !tbaa !56
   %716 = sext i32 %715 to i64
-  %717 = getelementptr inbounds i16, ptr %675, i64 %716
+  %717 = getelementptr inbounds [2 x i8], ptr %675, i64 %716
   store i16 %713, ptr %717, align 2, !tbaa !96
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i95, 1
   %.4.i99 = add i64 %.6.i97, -1
@@ -1783,7 +1783,7 @@ get_dht.exit:                                     ; preds = %._crit_edge181.i, %
   %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %.preheader.i102 ], [ 0, %.split162.us.i ]
   %722 = load ptr, ptr %0, align 8, !tbaa !30
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 44
-  %724 = getelementptr inbounds nuw i16, ptr %675, i64 %indvars.iv178.i
+  %724 = getelementptr inbounds nuw [2 x i8], ptr %675, i64 %indvars.iv178.i
   %725 = load i16, ptr %724, align 2, !tbaa !96
   %726 = zext i16 %725 to i32
   store i32 %726, ptr %723, align 4, !tbaa !56
@@ -1981,7 +1981,7 @@ get_dri.exit:                                     ; preds = %808, %819
 833:                                              ; preds = %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88
   %834 = load ptr, ptr %5, align 8, !tbaa !41
   %835 = zext nneg i32 %89 to i64
-  %836 = getelementptr ptr, ptr %834, i64 %835
+  %836 = getelementptr [8 x i8], ptr %834, i64 %835
   %837 = getelementptr i8, ptr %836, i64 -1744
   %838 = load ptr, ptr %837, align 8, !tbaa !55
   %839 = tail call i32 %838(ptr noundef nonnull %0) #7
@@ -2535,10 +2535,10 @@ define void @jpeg_save_markers(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %28 = add nsw i32 %1, -224
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store ptr %.04348, ptr %30, align 8, !tbaa !55
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 180
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %29
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %29
   store i32 %.14249, ptr %32, align 4, !tbaa !56
   br label %39
 
@@ -2628,7 +2628,7 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   %46 = icmp eq i32 %45, 254
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %48 = sext i32 %45 to i64
-  %49 = getelementptr i32, ptr %3, i64 %48
+  %49 = getelementptr [4 x i8], ptr %3, i64 %48
   %50 = getelementptr i8, ptr %49, i64 -716
   %.0.in = select i1 %46, ptr %47, ptr %50
   %.0 = load i32, ptr %.0.in, align 4, !tbaa !56
@@ -2941,7 +2941,7 @@ define void @jpeg_set_marker_processor(ptr noundef %0, i32 noundef %1, ptr nound
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr ptr, ptr %5, i64 %12
+  %13 = getelementptr [8 x i8], ptr %5, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1744
   store ptr %2, ptr %14, align 8, !tbaa !55
   br label %21

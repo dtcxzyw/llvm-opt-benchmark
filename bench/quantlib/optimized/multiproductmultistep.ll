@@ -28,7 +28,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { i64, i64 }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -265,7 +264,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %do.end
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   store ptr %call5.i.i.i.i2.i.i34, ptr %evolutionTimes, align 8, !tbaa !6
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i34, i64 %sub
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i34, i64 %sub
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %evolutionTimes, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !11
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i34, align 8, !tbaa !17
@@ -304,7 +303,7 @@ for.inc.preheader.i.i.i.i.i:                      ; preds = %invoke.cont33, %_ZN
 
 call5.i.i.i.i2.i.i.noexc42:                       ; preds = %for.inc.preheader.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i43, ptr %relevanceRates, align 8, !tbaa !19
-  %add.ptr.i.i.i38 = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i2.i.i43, i64 %sub
+  %add.ptr.i.i.i38 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i2.i.i43, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i43, i8 0, i64 %mul.i.i.i.i.i.i37, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i43, i64 %mul.i.i.i.i.i.i37
   %_M_finish.i.i7.i39 = getelementptr inbounds nuw i8, ptr %relevanceRates, i64 8
@@ -331,12 +330,12 @@ lpad37:                                           ; preds = %for.inc.preheader.i
 
 invoke.cont48:                                    ; preds = %call5.i.i.i.i2.i.i.noexc42, %invoke.cont48
   %storemerge104 = phi i64 [ %add, %invoke.cont48 ], [ 0, %call5.i.i.i.i2.i.i.noexc42 ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %4, i64 %storemerge104
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %storemerge104
   %27 = load double, ptr %add.ptr.i, align 8, !tbaa !17
-  %add.ptr.i44 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i34, i64 %storemerge104
+  %add.ptr.i44 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i34, i64 %storemerge104
   store double %27, ptr %add.ptr.i44, align 8, !tbaa !17
   %add = add nuw i64 %storemerge104, 1
-  %add.ptr.i45 = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i2.i.i43, i64 %storemerge104
+  %add.ptr.i45 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i2.i.i43, i64 %storemerge104
   store i64 %storemerge104, ptr %add.ptr.i45, align 8, !tbaa !23
   %second3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i45, i64 8
   store i64 %add, ptr %second3.i, align 8, !tbaa !25
@@ -885,7 +884,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorImSaImE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %sub, 3
   %call5.i.i.i.i2.i.i5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #20
   store ptr %call5.i.i.i.i2.i.i5, ptr %agg.result, align 8, !tbaa !28
-  %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i5, i64 %sub
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i5, i64 %sub
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !30
   store i64 0, ptr %call5.i.i.i.i2.i.i5, align 8, !tbaa !32
@@ -913,7 +912,7 @@ for.body.lr.ph:                                   ; preds = %if.end.i.i.i.i.i.i.
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.07 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
   %add = add nuw i64 %i.07, 1
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i5, i64 %i.07
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i5, i64 %i.07
   store i64 %add, ptr %add.ptr.i, align 8, !tbaa !32
   %exitcond.not = icmp eq i64 %add, %sub
   br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !48

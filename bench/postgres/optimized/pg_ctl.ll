@@ -539,7 +539,7 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
 
 123:                                              ; preds = %120
   %124 = sext i32 %121 to i64
-  %125 = getelementptr inbounds ptr, ptr %1, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %1, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull dereferenceable(5) @.str.25) #18
   %128 = icmp eq i32 %127, 0
@@ -639,14 +639,14 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
   %170 = add nsw i32 %121, 1
   store i32 %170, ptr @optind, align 4
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds ptr, ptr %1, i64 %171
+  %172 = getelementptr inbounds [8 x i8], ptr %1, i64 %171
   %173 = load ptr, ptr %172, align 8
   call fastcc void @set_sig(ptr noundef %173)
   %174 = load i32, ptr @optind, align 4
   %175 = add i32 %174, 1
   store i32 %175, ptr @optind, align 4
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %1, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %1, i64 %176
   %178 = load ptr, ptr %177, align 8
   %179 = call i64 @strtol(ptr noundef nonnull captures(none) %178, ptr noundef null, i32 noundef 10) #17
   %180 = trunc i64 %179 to i32
@@ -676,7 +676,7 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
 189:                                              ; preds = %186
   %190 = load ptr, ptr @progname, align 8
   %191 = sext i32 %187 to i64
-  %192 = getelementptr inbounds ptr, ptr %1, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %1, i64 %191
   %193 = load ptr, ptr %192, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.37, ptr noundef %190, ptr noundef %193)
   call fastcc void @do_advice()
@@ -1203,7 +1203,7 @@ postmaster_is_alive.exit18:                       ; preds = %20
   %35 = add i32 %.07.i, 1
   tail call void @free(ptr noundef nonnull %34) #17
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %28, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %28, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not5.i = icmp eq ptr %38, null
   br i1 %.not5.i, label %free_readfile.exit, label %.lr.ph.i, !llvm.loop !7
@@ -1320,7 +1320,7 @@ thread-pre-split:                                 ; preds = %10, %8
   %39 = add i32 %.07.i.i, 1
   tail call void @free(ptr noundef nonnull %38) #17
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %18, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %18, i64 %40
   %42 = load ptr, ptr %41, align 8
   %.not5.i.i = icmp eq ptr %42, null
   br i1 %.not5.i.i, label %free_readfile.exit.i, label %.lr.ph.i.i, !llvm.loop !7
@@ -1515,7 +1515,7 @@ print_msg.exit:                                   ; preds = %93, %94
   %127 = add i32 %.07.i.i11, 1
   call void @free(ptr noundef nonnull %126) #17
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds ptr, ptr %102, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %102, i64 %128
   %130 = load ptr, ptr %129, align 8
   %.not5.i.i12 = icmp eq ptr %130, null
   br i1 %.not5.i.i12, label %.loopexit, label %.lr.ph.i.i10, !llvm.loop !7
@@ -1535,7 +1535,7 @@ print_msg.exit:                                   ; preds = %93, %94
   %134 = add i32 %.07.i35.i, 1
   call void @free(ptr noundef nonnull %133) #17
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds ptr, ptr %102, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %102, i64 %135
   %137 = load ptr, ptr %136, align 8
   %.not5.i36.i = icmp eq ptr %137, null
   br i1 %.not5.i36.i, label %._crit_edge.i37.i, label %.lr.ph.i34.i, !llvm.loop !7
@@ -2569,7 +2569,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
   store i8 0, ptr %56, align 1
   %57 = add i32 %.05271, 1
   %58 = sext i32 %.05271 to i64
-  %59 = getelementptr inbounds ptr, ptr %34, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %34, i64 %58
   store ptr %45, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %35, i64 1
   br label %61
@@ -2587,7 +2587,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
 
 ._crit_edge74:                                    ; preds = %._crit_edge74.loopexit, %._crit_edge
   %.052.lcssa = phi i64 [ 0, %._crit_edge ], [ %62, %._crit_edge74.loopexit ]
-  %63 = getelementptr inbounds ptr, ptr %34, i64 %.052.lcssa
+  %63 = getelementptr inbounds [8 x i8], ptr %34, i64 %.052.lcssa
   store ptr null, ptr %63, align 8
   tail call void @free(ptr noundef %20) #17
   br label %64

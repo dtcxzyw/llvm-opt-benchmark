@@ -52,9 +52,9 @@ define void @_Z3gcd11BigUnsignedS_(ptr dead_on_unwind noalias writable writeonly
 
 19:                                               ; preds = %19, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %19 ]
-  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i.i
   %21 = load i64, ptr %20, align 8, !tbaa !15
-  %22 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   store i64 %21, ptr %22, align 8, !tbaa !15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %13
@@ -117,9 +117,9 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %23, %27
 
 41:                                               ; preds = %41, %.lr.ph.i.i2
   %indvars.iv.i.i3 = phi i64 [ 0, %.lr.ph.i.i2 ], [ %indvars.iv.next.i.i4, %41 ]
-  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i.i3
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i.i3
   %43 = load i64, ptr %42, align 8, !tbaa !15
-  %44 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i.i3
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i.i3
   store i64 %43, ptr %44, align 8, !tbaa !15
   %indvars.iv.next.i.i4 = add nuw nsw i64 %indvars.iv.i.i3, 1
   %exitcond.not.i.i5 = icmp eq i64 %indvars.iv.next.i.i4, %35
@@ -637,9 +637,9 @@ define void @_Z6modinvRK10BigIntegerRK11BigUnsigned(ptr dead_on_unwind noalias w
 
 26:                                               ; preds = %26, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %26 ]
-  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !15
-  %29 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i.i.i
   store i64 %28, ptr %29, align 8, !tbaa !15
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %20
@@ -670,9 +670,9 @@ _ZN10BigIntegerC2ERKS_.exit:                      ; preds = %26, %.noexc
 
 40:                                               ; preds = %40, %.lr.ph.i.i.i21
   %indvars.iv.i.i.i22 = phi i64 [ 0, %.lr.ph.i.i.i21 ], [ %indvars.iv.next.i.i.i23, %40 ]
-  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv.i.i.i22
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i.i.i22
   %42 = load i64, ptr %41, align 8, !tbaa !15
-  %43 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv.i.i.i22
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i.i.i22
   store i64 %42, ptr %43, align 8, !tbaa !15
   %indvars.iv.next.i.i.i23 = add nuw nsw i64 %indvars.iv.i.i.i22, 1
   %exitcond.not.i.i.i24 = icmp eq i64 %indvars.iv.next.i.i.i23, %34
@@ -735,9 +735,9 @@ _ZN10BigIntegerD2Ev.exit26:                       ; preds = %_ZN10BigIntegerD2Ev
 
 65:                                               ; preds = %65, %.lr.ph.i.i.i28
   %indvars.iv.i.i.i29 = phi i64 [ 0, %.lr.ph.i.i.i28 ], [ %indvars.iv.next.i.i.i30, %65 ]
-  %66 = getelementptr inbounds nuw i64, ptr %62, i64 %indvars.iv.i.i.i29
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv.i.i.i29
   %67 = load i64, ptr %66, align 8, !tbaa !15
-  %68 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv.i.i.i29
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i.i.i29
   %69 = load i64, ptr %68, align 8, !tbaa !15
   %.not8.i.i.i = icmp eq i64 %67, %69
   %indvars.iv.next.i.i.i30 = add nuw nsw i64 %indvars.iv.i.i.i29, 1
@@ -786,9 +786,9 @@ _ZN10BigIntegerD2Ev.exit32:                       ; preds = %_ZNK10BigIntegereqE
 
 85:                                               ; preds = %85, %.lr.ph.i.i.i34
   %indvars.iv.i.i.i35 = phi i64 [ 0, %.lr.ph.i.i.i34 ], [ %indvars.iv.next.i.i.i36, %85 ]
-  %86 = getelementptr inbounds nuw i64, ptr %84, i64 %indvars.iv.i.i.i35
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i.i.i35
   %87 = load i64, ptr %86, align 8, !tbaa !15
-  %88 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv.i.i.i35
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv.i.i.i35
   store i64 %87, ptr %88, align 8, !tbaa !15
   %indvars.iv.next.i.i.i36 = add nuw nsw i64 %indvars.iv.i.i.i35, 1
   %exitcond.not.i.i.i37 = icmp eq i64 %indvars.iv.next.i.i.i36, %79
@@ -821,9 +821,9 @@ _ZN10BigIntegerD2Ev.exit32:                       ; preds = %_ZNK10BigIntegereqE
 
 .lr.ph.i.i:                                       ; preds = %.noexc40, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.noexc40 ]
-  %98 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv.i.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.i.i
   %99 = load i64, ptr %98, align 8, !tbaa !15
-  %100 = getelementptr inbounds nuw i64, ptr %96, i64 %indvars.iv.i.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv.i.i
   store i64 %99, ptr %100, align 8, !tbaa !15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %94
@@ -1110,9 +1110,9 @@ define void @_Z6modexpRK10BigIntegerRK11BigUnsignedS4_(ptr dead_on_unwind noalia
 
 20:                                               ; preds = %20, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %20 ]
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i.i
   %22 = load i64, ptr %21, align 8, !tbaa !15
-  %23 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i.i.i
   store i64 %22, ptr %23, align 8, !tbaa !15
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %14
@@ -1145,9 +1145,9 @@ define void @_Z6modexpRK10BigIntegerRK11BigUnsignedS4_(ptr dead_on_unwind noalia
 
 .lr.ph.i.i:                                       ; preds = %.noexc19, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.noexc19 ]
-  %33 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.i.i
   %34 = load i64, ptr %33, align 8, !tbaa !15
-  %35 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i.i
   store i64 %34, ptr %35, align 8, !tbaa !15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %29
@@ -1247,7 +1247,7 @@ _ZN15NumberlikeArrayImED2Ev.exit4.i:              ; preds = %59, %55
 63:                                               ; preds = %60
   %64 = load ptr, ptr %43, align 8, !tbaa !14
   %65 = zext nneg i32 %61 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !15
   br label %68
 

@@ -17,12 +17,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.VkImageSubresourceRange = type { i32, i32, i32, i32, i32 }
 %struct.VkSamplerYcbcrConversionCreateInfo = type { i32, ptr, i32, i32, i32, %struct.VkComponentMapping, i32, i32, i32, i32 }
 %struct.VkSamplerCreateInfo = type { i32, ptr, i32, i32, i32, i32, i32, i32, i32, float, i32, float, i32, i32, float, float, i32, i32 }
-%struct.VkMemoryType = type { i32, i32 }
 %struct.VkImageMemoryBarrier = type { i32, ptr, i32, i32, i32, i32, i32, i32, ptr, %struct.VkImageSubresourceRange }
 %struct.VkBufferImageCopy = type { i64, i32, i32, %struct.VkImageSubresourceLayers, %struct.VkOffset3D, %struct.VkExtent3D }
 %struct.VkImageSubresourceLayers = type { i32, i32, i32, i32 }
 %struct.VkOffset3D = type { i32, i32, i32 }
-%struct.SDL_FPoint = type { float, float }
 %struct.VkRenderPassBeginInfo = type { i32, ptr, ptr, ptr, %struct.VkRect2D, i32, ptr }
 %struct.VkRect2D = type { %struct.VkOffset2D, %struct.VkExtent2D }
 %struct.VkOffset2D = type { i32, i32 }
@@ -33,7 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.VULKAN_DrawStateCache = type { ptr }
 %struct.SDL_FColor = type { float, float, float, float }
 %struct.VULKAN_Buffer = type { ptr, ptr, i64, ptr }
-%struct.VULKAN_VertexPositionColor = type { [2 x float], [2 x float], %struct.SDL_FColor }
 %struct.VkSubmitInfo = type { i32, ptr, i32, ptr, ptr, i32, ptr, i32, ptr }
 %struct.VkPresentInfoKHR = type { i32, ptr, i32, ptr, i32, ptr, ptr, ptr }
 %struct.VkInstanceCreateInfo = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr }
@@ -46,7 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.VkSwapchainCreateInfoKHR = type { i32, ptr, i32, ptr, i32, i32, i32, %struct.VkExtent2D, i32, i32, i32, i32, ptr, i32, i32, i32, i32, ptr }
 %struct.VkCommandBufferAllocateInfo = type { i32, ptr, ptr, i32, i32 }
 %struct.VkFenceCreateInfo = type { i32, ptr, i32 }
-%struct.VkSurfaceFormatKHR = type { i32, i32 }
 %struct.VkDescriptorSetLayoutCreateInfo = type { i32, ptr, i32, i32, ptr }
 %struct.VkDescriptorSetLayoutBinding = type { i32, i32, i32, i32, ptr }
 %struct.VkPipelineLayoutCreateInfo = type { i32, ptr, i32, i32, ptr, i32, ptr }
@@ -74,7 +70,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.VkPipelineColorBlendStateCreateInfo = type { i32, ptr, i32, i32, i32, i32, ptr, [4 x float] }
 %struct.VkGraphicsPipelineCreateInfo = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32 }
 %struct.VkPipelineColorBlendAttachmentState = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.VULKAN_PipelineState = type { i32, %struct.VULKAN_PixelShaderConstants, i32, i32, i32, ptr, ptr, ptr }
 %struct.VkDescriptorSetAllocateInfo = type { i32, ptr, ptr, i32, ptr }
 %struct.VkDescriptorImageInfo = type { ptr, ptr, i32 }
 %struct.VkDescriptorBufferInfo = type { ptr, i64, i64 }
@@ -83,9 +78,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.VkDescriptorPoolCreateInfo = type { i32, ptr, i32, i32, i32, ptr }
 %union.SDL_Event = type { %struct.SDL_MouseWheelEvent, [72 x i8] }
 %struct.SDL_MouseWheelEvent = type { i32, i32, i64, i32, i32, float, float, i32, float, float, i32, i32 }
-%struct.VkExtensionProperties = type { [256 x i8], i32 }
-%struct.VkLayerProperties = type { [256 x i8], i32, i32, [256 x i8] }
-%struct.VkQueueFamilyProperties = type { i32, i32, i32, %struct.VkExtent3D }
 %struct.VkSemaphoreCreateInfo = type { i32, ptr, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"vulkan\00", align 1
@@ -1113,7 +1105,7 @@ VULKAN_DestroyImage.exit.i:                       ; preds = %179, %176, %173
   br i1 %.not.i76.i, label %204, label %200
 
 200:                                              ; preds = %196
-  %201 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %195, i64 %indvars.iv.i.i
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv.i.i
   %202 = load i32, ptr %201, align 4
   %203 = icmp eq i32 %202, 1
   br i1 %203, label %.loopexit.i.i, label %204
@@ -2118,7 +2110,7 @@ define internal noundef zeroext i1 @VULKAN_QueueDrawPoints(ptr noundef %0, ptr n
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.02426.us = phi ptr [ %24, %.lr.ph.split.us ], [ %8, %.lr.ph ]
-  %14 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %2, i64 %indvars.iv30
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv30
   %15 = load float, ptr %14, align 4
   %16 = fadd float %15, 5.000000e-01
   store float %16, ptr %.02426.us, align 4
@@ -2142,7 +2134,7 @@ define internal noundef zeroext i1 @VULKAN_QueueDrawPoints(ptr noundef %0, ptr n
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.02426 = phi ptr [ %35, %.lr.ph.split ], [ %8, %.lr.ph ]
-  %25 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %26 = load float, ptr %25, align 4
   %27 = fadd float %26, 5.000000e-01
   store float %27, ptr %.02426, align 4
@@ -2238,13 +2230,13 @@ define internal noundef zeroext i1 @VULKAN_QueueGeometry(ptr noundef %0, ptr nou
   br label %58
 
 51:                                               ; preds = %.lr.ph.split.us.split.us
-  %52 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv94
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv94
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   br label %58
 
 55:                                               ; preds = %.lr.ph.split.us.split.us
-  %56 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv94
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv94
   %57 = load i32, ptr %56, align 4
   br label %58
 
@@ -2293,13 +2285,13 @@ define internal noundef zeroext i1 @VULKAN_QueueGeometry(ptr noundef %0, ptr nou
   br label %87
 
 80:                                               ; preds = %.lr.ph.split.us.split
-  %81 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv89
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv89
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
   br label %87
 
 84:                                               ; preds = %.lr.ph.split.us.split
-  %85 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv89
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv89
   %86 = load i32, ptr %85, align 4
   br label %87
 
@@ -2350,13 +2342,13 @@ define internal noundef zeroext i1 @VULKAN_QueueGeometry(ptr noundef %0, ptr nou
   br label %116
 
 109:                                              ; preds = %.lr.ph.split.split.us
-  %110 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv84
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv84
   %111 = load i16, ptr %110, align 2
   %112 = zext i16 %111 to i32
   br label %116
 
 113:                                              ; preds = %.lr.ph.split.split.us
-  %114 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv84
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv84
   %115 = load i32, ptr %114, align 4
   br label %116
 
@@ -2407,12 +2399,12 @@ define internal noundef zeroext i1 @VULKAN_QueueGeometry(ptr noundef %0, ptr nou
   ]
 
 142:                                              ; preds = %.lr.ph.split.split
-  %143 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %144 = load i32, ptr %143, align 4
   br label %153
 
 145:                                              ; preds = %.lr.ph.split.split
-  %146 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %147 = load i16, ptr %146, align 2
   %148 = zext i16 %147 to i32
   br label %153
@@ -2571,7 +2563,7 @@ VULKAN_GetRotationForCurrentRenderTarget.exit:    ; preds = %4, %19
 54:                                               ; preds = %50, %46
   %55 = getelementptr inbounds nuw i8, ptr %.val, i64 1880
   %56 = sext i32 %44 to i64
-  %57 = getelementptr inbounds %struct.VULKAN_Buffer, ptr %55, i64 %56
+  %57 = getelementptr inbounds [32 x i8], ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i64, ptr %58, align 8
   %60 = icmp ugt i64 %3, %59
@@ -2813,7 +2805,7 @@ VULKAN_CreateVertexBuffer.exit.i:                 ; preds = %74, %72
   %196 = getelementptr inbounds nuw i8, ptr %.val101, i64 10440
   %197 = load i32, ptr %196, align 8
   %198 = zext i32 %197 to i64
-  %199 = getelementptr inbounds nuw ptr, ptr %195, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %198
   br label %200
 
 200:                                              ; preds = %193, %191
@@ -2893,7 +2885,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %200, %206
   call void %231(ptr noundef %.val103.val, i32 noundef %232, i32 noundef 1, i32 noundef %233, i32 noundef 0) #7
   %234 = load float, ptr %227, align 4
   %235 = add i64 %224, -1
-  %236 = getelementptr inbounds nuw %struct.VULKAN_VertexPositionColor, ptr %227, i64 %235
+  %236 = getelementptr inbounds nuw [32 x i8], ptr %227, i64 %235
   %237 = load float, ptr %236, align 4
   %238 = fcmp une float %234, %237
   br i1 %238, label %245, label %239
@@ -3049,9 +3041,9 @@ VULKAN_SetupShaderConstants.exit.i:               ; preds = %311, %303
   %323 = icmp eq i32 %318, 2
   %324 = select i1 %323, i64 4, i64 0
   %325 = getelementptr inbounds nuw i8, ptr %261, i64 10240
-  %326 = getelementptr inbounds nuw ptr, ptr %325, i64 %322
-  %327 = getelementptr inbounds nuw ptr, ptr %326, i64 %320
-  %328 = getelementptr inbounds nuw ptr, ptr %327, i64 %324
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %322
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %320
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %327, i64 %324
   %329 = load ptr, ptr %328, align 8
   %.not.i42.i = icmp eq ptr %329, null
   br i1 %.not.i42.i, label %330, label %VULKAN_GetSampler.exit.thread2.i
@@ -3178,7 +3170,7 @@ VULKAN_RecordPipelineImageBarrier.exit.i:         ; preds = %348
   %373 = getelementptr inbounds nuw i8, ptr %261, i64 10440
   %374 = load i32, ptr %373, align 8
   %375 = zext i32 %374 to i64
-  %376 = getelementptr inbounds nuw ptr, ptr %372, i64 %375
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 %375
   br label %VULKAN_BeginRenderPass.exit.i
 
 VULKAN_BeginRenderPass.exit.i:                    ; preds = %370, %368
@@ -3302,10 +3294,10 @@ define internal ptr @VULKAN_RenderReadPixels(ptr noundef readonly captures(none)
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 10440
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 10408
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %27
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %27
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 10368
   br label %33
 
@@ -3580,14 +3572,14 @@ define internal noundef zeroext i1 @VULKAN_AddVulkanRenderSemaphores(ptr noundef
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 10448
   %34 = load ptr, ptr %33, align 8
   %35 = zext i32 %32 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   store i32 %1, ptr %36, align 4
   %37 = inttoptr i64 %2 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 10456
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %8, align 8
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %41
   store ptr %37, ptr %42, align 8
   %43 = load i32, ptr %8, align 8
   %44 = add i32 %43, 1
@@ -3629,7 +3621,7 @@ define internal noundef zeroext i1 @VULKAN_AddVulkanRenderSemaphores(ptr noundef
   %63 = phi ptr [ %58, %59 ], [ %53, %46 ]
   %64 = inttoptr i64 %3 to ptr
   %65 = zext i32 %62 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %65
   store ptr %64, ptr %66, align 8
   %67 = load i32, ptr %47, align 8
   %68 = add i32 %67, 1
@@ -3674,11 +3666,11 @@ define internal zeroext i1 @VULKAN_RenderPresent(ptr noundef %0) #0 {
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 10440
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 10408
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %22
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %22
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 1808
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
@@ -3731,7 +3723,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 1680
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %51, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %54
   %56 = call i32 %48(ptr noundef %49, i32 noundef 1, ptr noundef %55) #7
   %.not91 = icmp eq i32 %56, 0
   br i1 %.not91, label %64, label %57
@@ -3776,13 +3768,13 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 10456
   %75 = load ptr, ptr %74, align 8
   %76 = zext i32 %66 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %76
   store ptr %68, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 10448
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr %65, align 8
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %81
   store i32 65536, ptr %82, align 4
   br label %83
 
@@ -3829,12 +3821,12 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %104 = load ptr, ptr %103, align 8
   %105 = load i32, ptr %52, align 8
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %104, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 10472
   %110 = load ptr, ptr %109, align 8
   %111 = zext i32 %99 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %111
   store ptr %108, ptr %112, align 8
   %113 = load ptr, ptr %109, align 8
   store i32 0, ptr %98, align 8
@@ -3849,7 +3841,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %117 = load ptr, ptr %116, align 8
   %118 = load i32, ptr %52, align 8
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw ptr, ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %119
   br label %121
 
 121:                                              ; preds = %114, %100
@@ -3861,7 +3853,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 1616
   %125 = load ptr, ptr %124, align 8
   %126 = load ptr, ptr %50, align 8
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %.pre-phi
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %.pre-phi
   %128 = load ptr, ptr %127, align 8
   %129 = call i32 %123(ptr noundef %125, i32 noundef 1, ptr noundef nonnull %4, ptr noundef %128) #7
   switch i32 %129, label %134 [
@@ -3905,7 +3897,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %145 = load ptr, ptr %144, align 8
   %146 = load i32, ptr %52, align 8
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw ptr, ptr %145, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %148, ptr %149, align 8
   %150 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3952,7 +3944,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %15, %30
   %172 = load ptr, ptr %8, align 8
   %173 = load ptr, ptr %50, align 8
   %174 = zext i32 %170 to i64
-  %175 = getelementptr inbounds nuw ptr, ptr %173, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %174
   %176 = call i32 %171(ptr noundef %172, i32 noundef 1, ptr noundef %175, i32 noundef 1, i64 noundef -1) #7
   switch i32 %176, label %181 [
     i32 0, label %188
@@ -4185,7 +4177,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %74, %76
 90:                                               ; preds = %86, %97
   %91 = phi i1 [ true, %86 ], [ false, %97 ]
   %indvars.iv = phi i64 [ 0, %86 ], [ 1, %97 ]
-  %92 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8
   %.not52 = icmp eq ptr %93, null
   br i1 %.not52, label %97, label %94
@@ -4414,9 +4406,9 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %65 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   store ptr %66, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4424,7 +4416,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
 
 68:                                               ; preds = %._crit_edge
   %69 = zext i32 %62 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %61, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %69
   store ptr @.str.55, ptr %70, align 8
   %71 = add i32 %62, 1
   store i32 %71, ptr %56, align 8
@@ -4438,7 +4430,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
 
 76:                                               ; preds = %72
   %77 = zext i32 %73 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %61, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %77
   store ptr @.str.57, ptr %78, align 8
   %79 = add i32 %73, 1
   store i32 %79, ptr %56, align 8
@@ -5001,7 +4993,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   call void @VULKAN_GetVertexShader(i32 noundef %339, ptr noundef nonnull %333, ptr noundef nonnull %334) #7
   %340 = load ptr, ptr @vkCreateShaderModule, align 8
   %341 = load ptr, ptr %256, align 8
-  %342 = getelementptr inbounds nuw ptr, ptr %335, i64 %indvars.iv221
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %indvars.iv221
   %343 = call i32 %340(ptr noundef %341, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %342) #7
   %.not193 = icmp eq i32 %343, 0
   br i1 %.not193, label %346, label %344
@@ -5015,7 +5007,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   call void @VULKAN_GetPixelShader(i32 noundef %339, ptr noundef nonnull %333, ptr noundef nonnull %334) #7
   %347 = load ptr, ptr @vkCreateShaderModule, align 8
   %348 = load ptr, ptr %256, align 8
-  %349 = getelementptr inbounds nuw ptr, ptr %336, i64 %indvars.iv221
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %indvars.iv221
   %350 = call i32 %347(ptr noundef %348, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %349) #7
   %.not194 = icmp eq i32 %350, 0
   br i1 %.not194, label %353, label %351
@@ -5173,7 +5165,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %43 = load ptr, ptr @vkDestroyImageView, align 8
   %44 = load ptr, ptr %40, align 8
   %45 = load ptr, ptr %36, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   call void %43(ptr noundef %44, ptr noundef %47, ptr noundef null) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5212,7 +5204,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %59 = phi i32 [ %55, %.lr.ph71 ], [ %67, %66 ]
   %indvars.iv162 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next163, %66 ]
   %60 = load ptr, ptr %52, align 8
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv162
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv162
   %62 = load ptr, ptr %61, align 8
   %.not517.i = icmp eq ptr %62, null
   br i1 %.not517.i, label %66, label %63
@@ -5283,7 +5275,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %91 = phi i32 [ %87, %.lr.ph74 ], [ %99, %98 ]
   %indvars.iv165 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next166, %98 ]
   %92 = load ptr, ptr %84, align 8
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv165
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv165
   %94 = load ptr, ptr %93, align 8
   %.not516.i = icmp eq ptr %94, null
   br i1 %.not516.i, label %98, label %95
@@ -5322,7 +5314,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 .preheader57:                                     ; preds = %.preheader57.lr.ph, %._crit_edge78
   %indvars.iv171 = phi i64 [ 0, %.preheader57.lr.ph ], [ %indvars.iv.next172, %._crit_edge78 ]
   %109 = load ptr, ptr %107, align 8
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv171
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv171
   %111 = load i32, ptr %110, align 4
   %.not139 = icmp eq i32 %111, 0
   br i1 %.not139, label %._crit_edge78, label %.lr.ph77
@@ -5343,7 +5335,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 
 ._crit_edge78:                                    ; preds = %130, %.preheader57
   %115 = load ptr, ptr %103, align 8
-  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv171
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %indvars.iv171
   %117 = load ptr, ptr %116, align 8
   call void @SDL_free_REAL(ptr noundef %117) #7
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
@@ -5356,9 +5348,9 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %121 = phi ptr [ %131, %130 ], [ %109, %.preheader57 ]
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %130 ], [ 0, %.preheader57 ]
   %122 = load ptr, ptr %103, align 8
-  %123 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv171
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv171
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv168
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv168
   %126 = load ptr, ptr %125, align 8
   %.not515.i = icmp eq ptr %126, null
   br i1 %.not515.i, label %130, label %127
@@ -5373,7 +5365,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 130:                                              ; preds = %127, %.lr.ph77
   %131 = phi ptr [ %.pre231, %127 ], [ %121, %.lr.ph77 ]
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %indvars.iv171
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %indvars.iv171
   %133 = load i32, ptr %132, align 4
   %134 = zext i32 %133 to i64
   %135 = icmp samesign ult i64 %indvars.iv.next169, %134
@@ -5409,7 +5401,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %144 = phi i32 [ %140, %.lr.ph82 ], [ %152, %151 ]
   %indvars.iv174 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next175, %151 ]
   %145 = load ptr, ptr %137, align 8
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv174
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv174
   %147 = load ptr, ptr %146, align 8
   %.not514.i = icmp eq ptr %147, null
   br i1 %.not514.i, label %151, label %148
@@ -5458,7 +5450,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
   %163 = phi i32 [ %159, %.lr.ph85 ], [ %171, %170 ]
   %indvars.iv177 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next178, %170 ]
   %164 = load ptr, ptr %156, align 8
-  %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv177
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %indvars.iv177
   %166 = load ptr, ptr %165, align 8
   %.not513.i = icmp eq ptr %166, null
   br i1 %.not513.i, label %170, label %167
@@ -5509,7 +5501,7 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 
 181:                                              ; preds = %VULKAN_DestroyBuffer.exit11
   %182 = load ptr, ptr %175, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv183
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv183
   %184 = load ptr, ptr %183, align 8
   call void @SDL_free_REAL(ptr noundef %184) #7
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
@@ -5521,9 +5513,9 @@ define internal fastcc i32 @VULKAN_CreateWindowSizeDependentResources(ptr nounde
 188:                                              ; preds = %.preheader53, %VULKAN_DestroyBuffer.exit11
   %indvars.iv180 = phi i64 [ 0, %.preheader53 ], [ %indvars.iv.next181, %VULKAN_DestroyBuffer.exit11 ]
   %189 = load ptr, ptr %175, align 8
-  %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv183
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %indvars.iv183
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %191, i64 %indvars.iv180
+  %192 = getelementptr inbounds nuw [32 x i8], ptr %191, i64 %indvars.iv180
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
   %.not.i9 = icmp eq ptr %194, null
@@ -5573,7 +5565,7 @@ VULKAN_DestroyBuffer.exit11:                      ; preds = %198, %200
 .preheader51:                                     ; preds = %.preheader51.lr.ph, %._crit_edge92
   %indvars.iv189 = phi i64 [ 0, %.preheader51.lr.ph ], [ %indvars.iv.next190, %._crit_edge92 ]
   %210 = load ptr, ptr %208, align 8
-  %211 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv189
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %indvars.iv189
   %212 = load i32, ptr %211, align 4
   %.not144 = icmp eq i32 %212, 0
   br i1 %.not144, label %._crit_edge92, label %.lr.ph91
@@ -5594,7 +5586,7 @@ VULKAN_DestroyBuffer.exit11:                      ; preds = %198, %200
 
 ._crit_edge92:                                    ; preds = %VULKAN_DestroyBuffer.exit, %.preheader51
   %216 = load ptr, ptr %204, align 8
-  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %indvars.iv189
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %indvars.iv189
   %218 = load ptr, ptr %217, align 8
   call void @SDL_free_REAL(ptr noundef %218) #7
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
@@ -5606,9 +5598,9 @@ VULKAN_DestroyBuffer.exit11:                      ; preds = %198, %200
 .lr.ph91:                                         ; preds = %.preheader51, %VULKAN_DestroyBuffer.exit
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %VULKAN_DestroyBuffer.exit ], [ 0, %.preheader51 ]
   %222 = load ptr, ptr %204, align 8
-  %223 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv189
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %indvars.iv189
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %224, i64 %indvars.iv186
+  %225 = getelementptr inbounds nuw [32 x i8], ptr %224, i64 %indvars.iv186
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
   %227 = load ptr, ptr %226, align 8
   %.not.i8 = icmp eq ptr %227, null
@@ -5636,7 +5628,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %231, %233
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %225, i8 0, i64 32, i1 false)
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %236 = load ptr, ptr %208, align 8
-  %237 = getelementptr inbounds nuw i32, ptr %236, i64 %indvars.iv189
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %236, i64 %indvars.iv189
   %238 = load i32, ptr %237, align 4
   %239 = zext i32 %238 to i64
   %240 = icmp samesign ult i64 %indvars.iv.next187, %239
@@ -5715,7 +5707,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %231, %233
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %284
   %indvars.iv192 = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next193, %284 ]
-  %275 = getelementptr inbounds nuw %struct.VkSurfaceFormatKHR, ptr %256, i64 %indvars.iv192
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %indvars.iv192
   %276 = load i32, ptr %275, align 4
   %277 = icmp eq i32 %276, %.0438.i
   br i1 %277, label %278, label %284
@@ -5880,7 +5872,7 @@ thread-pre-split:                                 ; preds = %299, %305
 .lr.ph104:                                        ; preds = %.lr.ph104.preheader, %351
   %indvars.iv201 = phi i64 [ 0, %.lr.ph104.preheader ], [ %indvars.iv.next202, %351 ]
   %.4423.i102 = phi i32 [ 2, %.lr.ph104.preheader ], [ %.6425.i, %351 ]
-  %346 = getelementptr inbounds nuw i32, ptr %330, i64 %indvars.iv201
+  %346 = getelementptr inbounds nuw [4 x i8], ptr %330, i64 %indvars.iv201
   %347 = load i32, ptr %346, align 4
   switch i32 %347, label %348 [
     i32 0, label %.sink.split.sink.split
@@ -5909,7 +5901,7 @@ thread-pre-split:                                 ; preds = %299, %305
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %352
   %indvars.iv196 = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next197, %352 ]
-  %353 = getelementptr inbounds nuw i32, ptr %330, i64 %indvars.iv196
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %330, i64 %indvars.iv196
   %354 = load i32, ptr %353, align 4
   %355 = icmp eq i32 %354, 3
   br i1 %355, label %.sink.split.sink.split, label %352
@@ -6110,13 +6102,13 @@ thread-pre-split:                                 ; preds = %299, %305
 451:                                              ; preds = %.lr.ph111, %466
   %indvars.iv206 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next207, %466 ]
   %452 = load ptr, ptr %401, align 8
-  %453 = getelementptr inbounds nuw ptr, ptr %452, i64 %indvars.iv206
+  %453 = getelementptr inbounds nuw [8 x i8], ptr %452, i64 %indvars.iv206
   %454 = load ptr, ptr %453, align 8
   store ptr %454, ptr %450, align 8
   %455 = load ptr, ptr @vkCreateImageView, align 8
   %456 = load ptr, ptr %385, align 8
   %457 = load ptr, ptr %36, align 8
-  %458 = getelementptr inbounds nuw ptr, ptr %457, i64 %indvars.iv206
+  %458 = getelementptr inbounds nuw [8 x i8], ptr %457, i64 %indvars.iv206
   %459 = call i32 %455(ptr noundef %456, ptr noundef nonnull %4, ptr noundef null, ptr noundef %458) #7
   %.not503.i = icmp eq i32 %459, 0
   br i1 %.not503.i, label %466, label %460
@@ -6140,7 +6132,7 @@ thread-pre-split:                                 ; preds = %299, %305
 
 466:                                              ; preds = %451
   %467 = load ptr, ptr %444, align 8
-  %468 = getelementptr inbounds nuw i32, ptr %467, i64 %indvars.iv206
+  %468 = getelementptr inbounds nuw [4 x i8], ptr %467, i64 %indvars.iv206
   store i32 0, ptr %468, align 4
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %469 = load i32, ptr %406, align 4
@@ -6213,7 +6205,7 @@ thread-pre-split:                                 ; preds = %299, %305
   %497 = load ptr, ptr @vkCreateFence, align 8
   %498 = load ptr, ptr %385, align 8
   %499 = load ptr, ptr %52, align 8
-  %500 = getelementptr inbounds nuw ptr, ptr %499, i64 %indvars.iv209
+  %500 = getelementptr inbounds nuw [8 x i8], ptr %499, i64 %indvars.iv209
   %501 = call i32 %497(ptr noundef %498, ptr noundef nonnull %6, ptr noundef null, ptr noundef %500) #7
   %.not506.i = icmp eq i32 %501, 0
   br i1 %.not506.i, label %508, label %502
@@ -6261,7 +6253,7 @@ thread-pre-split:                                 ; preds = %299, %305
 521:                                              ; preds = %.preheader, %528
   %522 = phi i1 [ true, %.preheader ], [ false, %528 ]
   %indvars.iv212 = phi i64 [ 0, %.preheader ], [ 1, %528 ]
-  %523 = getelementptr inbounds nuw ptr, ptr %495, i64 %indvars.iv212
+  %523 = getelementptr inbounds nuw [8 x i8], ptr %495, i64 %indvars.iv212
   %524 = load ptr, ptr %523, align 8
   %.not512.i = icmp eq ptr %524, null
   br i1 %.not512.i, label %528, label %525
@@ -6309,16 +6301,16 @@ thread-pre-split:                                 ; preds = %299, %305
 .lr.ph120:                                        ; preds = %536, %.lr.ph120
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %.lr.ph120 ], [ 0, %536 ]
   %545 = load ptr, ptr %543, align 8
-  %546 = getelementptr inbounds nuw i32, ptr %545, i64 %indvars.iv215
+  %546 = getelementptr inbounds nuw [4 x i8], ptr %545, i64 %indvars.iv215
   store i32 1, ptr %546, align 4
   %547 = call noalias dereferenceable_or_null(8) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 8) #12
   %548 = load ptr, ptr %103, align 8
-  %549 = getelementptr inbounds nuw ptr, ptr %548, i64 %indvars.iv215
+  %549 = getelementptr inbounds nuw [8 x i8], ptr %548, i64 %indvars.iv215
   store ptr %547, ptr %549, align 8
   %.val520.i = load ptr, ptr %385, align 8
   %550 = call fastcc ptr @VULKAN_AllocateDescriptorPool(ptr %.val520.i)
   %551 = load ptr, ptr %103, align 8
-  %552 = getelementptr inbounds nuw ptr, ptr %551, i64 %indvars.iv215
+  %552 = getelementptr inbounds nuw [8 x i8], ptr %551, i64 %indvars.iv215
   %553 = load ptr, ptr %552, align 8
   store ptr %550, ptr %553, align 8
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -6355,10 +6347,10 @@ thread-pre-split:                                 ; preds = %299, %305
   %.val521.i = load ptr, ptr %385, align 8
   %566 = call fastcc ptr @VULKAN_CreateSemaphore(ptr %.val521.i)
   %567 = load ptr, ptr %137, align 8
-  %568 = getelementptr inbounds nuw ptr, ptr %567, i64 %indvars.iv218
+  %568 = getelementptr inbounds nuw [8 x i8], ptr %567, i64 %indvars.iv218
   store ptr %566, ptr %568, align 8
   %569 = load ptr, ptr %137, align 8
-  %570 = getelementptr inbounds nuw ptr, ptr %569, i64 %indvars.iv218
+  %570 = getelementptr inbounds nuw [8 x i8], ptr %569, i64 %indvars.iv218
   %571 = load ptr, ptr %570, align 8
   %572 = icmp eq ptr %571, null
   br i1 %572, label %573, label %574
@@ -6371,10 +6363,10 @@ thread-pre-split:                                 ; preds = %299, %305
   %.val522.i = load ptr, ptr %385, align 8
   %575 = call fastcc ptr @VULKAN_CreateSemaphore(ptr %.val522.i)
   %576 = load ptr, ptr %156, align 8
-  %577 = getelementptr inbounds nuw ptr, ptr %576, i64 %indvars.iv218
+  %577 = getelementptr inbounds nuw [8 x i8], ptr %576, i64 %indvars.iv218
   store ptr %575, ptr %577, align 8
   %578 = load ptr, ptr %156, align 8
-  %579 = getelementptr inbounds nuw ptr, ptr %578, i64 %indvars.iv218
+  %579 = getelementptr inbounds nuw [8 x i8], ptr %578, i64 %indvars.iv218
   %580 = load ptr, ptr %579, align 8
   %581 = icmp eq ptr %580, null
   br i1 %581, label %582, label %563
@@ -6420,7 +6412,7 @@ thread-pre-split:                                 ; preds = %299, %305
   %indvars.iv221 = phi i64 [ %indvars.iv.next222, %.lr.ph130 ], [ 0, %._crit_edge127 ]
   %600 = call noalias dereferenceable_or_null(1024) ptr @SDL_calloc_REAL(i64 noundef 32, i64 noundef 32) #12
   %601 = load ptr, ptr %175, align 8
-  %602 = getelementptr inbounds nuw ptr, ptr %601, i64 %indvars.iv221
+  %602 = getelementptr inbounds nuw [8 x i8], ptr %601, i64 %indvars.iv221
   store ptr %600, ptr %602, align 8
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %603 = load i32, ptr %406, align 4
@@ -6438,14 +6430,14 @@ thread-pre-split:                                 ; preds = %299, %305
 .lr.ph135:                                        ; preds = %._crit_edge131, %606
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %606 ], [ 0, %._crit_edge131 ]
   %609 = load ptr, ptr %598, align 8
-  %610 = getelementptr inbounds nuw i32, ptr %609, i64 %indvars.iv224
+  %610 = getelementptr inbounds nuw [4 x i8], ptr %609, i64 %indvars.iv224
   store i32 1, ptr %610, align 4
   %611 = call noalias dereferenceable_or_null(32) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 32) #12
   %612 = load ptr, ptr %204, align 8
-  %613 = getelementptr inbounds nuw ptr, ptr %612, i64 %indvars.iv224
+  %613 = getelementptr inbounds nuw [8 x i8], ptr %612, i64 %indvars.iv224
   store ptr %611, ptr %613, align 8
   %614 = load ptr, ptr %204, align 8
-  %615 = getelementptr inbounds nuw ptr, ptr %614, i64 %indvars.iv224
+  %615 = getelementptr inbounds nuw [8 x i8], ptr %614, i64 %indvars.iv224
   %616 = load ptr, ptr %615, align 8
   %617 = call fastcc i32 @VULKAN_AllocateBuffer(ptr noundef nonnull %20, i64 noundef 65536, i32 noundef 16, ptr noundef %616)
   %.not510.i = icmp eq i32 %617, 0
@@ -6777,11 +6769,11 @@ define internal fastcc i32 @VULKAN_CreateFramebuffersAndRenderPasses(ptr readonl
 
 71:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %72, ptr %69, align 8
   %73 = load ptr, ptr @vkCreateFramebuffer, align 8
   %74 = load ptr, ptr %39, align 8
-  %75 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %76 = call i32 %73(ptr noundef %74, ptr noundef nonnull %13, ptr noundef null, ptr noundef %75) #7
   %.not41 = icmp eq i32 %76, 0
   br i1 %.not41, label %70, label %77
@@ -6928,14 +6920,14 @@ VULKAN_VkFormatGetNumPlanes.exit:                 ; preds = %VULKAN_GetBytesPerP
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 10200
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %34
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %34
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %36 to i64
-  %42 = getelementptr inbounds %struct.VULKAN_Buffer, ptr %40, i64 %41
+  %42 = getelementptr inbounds [32 x i8], ptr %40, i64 %41
   %43 = tail call fastcc i32 @VULKAN_AllocateBuffer(ptr noundef %0, i64 noundef %26, i32 noundef 1, ptr noundef %42)
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %44, label %121
@@ -7085,14 +7077,14 @@ VULKAN_RecordPipelineImageBarrier.exit66:         ; preds = %VULKAN_RecordPipeli
   %106 = load ptr, ptr %30, align 8
   %107 = load i32, ptr %32, align 8
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = add nsw i32 %110, 1
   store i32 %111, ptr %109, align 4
   %112 = load ptr, ptr %30, align 8
   %113 = load i32, ptr %32, align 8
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw i32, ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %114
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %116, 32
   br i1 %117, label %118, label %120
@@ -7124,7 +7116,7 @@ define internal fastcc void @VULKAN_EnsureCommandBuffer(ptr noundef captures(non
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %4, align 8
   tail call fastcc void @VULKAN_ResetCommandList(ptr noundef nonnull %0)
@@ -7133,7 +7125,7 @@ define internal fastcc void @VULKAN_EnsureCommandBuffer(ptr noundef captures(non
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %45
@@ -7141,7 +7133,7 @@ define internal fastcc void @VULKAN_EnsureCommandBuffer(ptr noundef captures(non
 23:                                               ; preds = %7
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 10392
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %19
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %19
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   %29 = load ptr, ptr %28, align 8
@@ -7189,7 +7181,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %23, %30
 45:                                               ; preds = %7
   %46 = load i32, ptr %10, align 8
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %47
   %49 = load i32, ptr %48, align 4
   %.not = icmp eq i32 %49, 2
   br i1 %.not, label %73, label %50
@@ -7197,7 +7189,7 @@ VULKAN_RecordPipelineImageBarrier.exit:           ; preds = %23, %30
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 10392
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %19
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %19
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   %56 = load ptr, ptr %55, align 8
@@ -7311,7 +7303,7 @@ define internal fastcc i32 @VULKAN_AllocateBuffer(ptr noundef readonly captures(
   br i1 %.not.i, label %39, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %30, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 7
   br i1 %38, label %.loopexit.i, label %39
@@ -7330,7 +7322,7 @@ define internal fastcc i32 @VULKAN_AllocateBuffer(ptr noundef readonly captures(
   br i1 %.not26.i, label %.critedge.i, label %43
 
 43:                                               ; preds = %.lr.ph33.i
-  %44 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %30, i64 %indvars.iv41.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv41.i
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 6
   %47 = icmp eq i32 %46, 6
@@ -7589,13 +7581,13 @@ define internal fastcc i32 @VULKAN_IssueBatch(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %21 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   store ptr %23, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 10448
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %20, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %36
   store i32 65536, ptr %37, align 4
   br label %38
 
@@ -7656,7 +7648,7 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
   %9 = load ptr, ptr %7, align 8
   %10 = load i32, ptr %8, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -7693,7 +7685,7 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %8, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph34, label %._crit_edge35
@@ -7709,16 +7701,16 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
   %38 = load ptr, ptr @vkResetDescriptorPool, align 8
   %39 = load ptr, ptr %14, align 8
   %40 = load ptr, ptr %15, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %37
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %37
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 %38(ptr noundef %39, ptr noundef %44, i32 noundef 0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load ptr, ptr %7, align 8
   %47 = load i32, ptr %8, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
   %52 = icmp samesign ult i64 %indvars.iv.next, %51
@@ -7727,7 +7719,7 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
 ._crit_edge35:                                    ; preds = %VULKAN_DestroyBuffer.exit, %._crit_edge
   %.lcssa31 = phi i64 [ %30, %._crit_edge ], [ %72, %VULKAN_DestroyBuffer.exit ]
   %.lcssa30 = phi ptr [ %28, %._crit_edge ], [ %70, %VULKAN_DestroyBuffer.exit ]
-  %53 = getelementptr inbounds nuw i32, ptr %.lcssa30, i64 %.lcssa31
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.lcssa30, i64 %.lcssa31
   store i32 0, ptr %53, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -7736,9 +7728,9 @@ define internal fastcc void @VULKAN_ResetCommandList(ptr noundef captures(none) 
   %indvars.iv39 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next40, %VULKAN_DestroyBuffer.exit ]
   %55 = phi i64 [ %30, %.lr.ph34 ], [ %72, %VULKAN_DestroyBuffer.exit ]
   %56 = load ptr, ptr %34, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %55
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %58, i64 %indvars.iv39
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %indvars.iv39
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not.i = icmp eq ptr %61, null
@@ -7768,7 +7760,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %65, %67
   %70 = load ptr, ptr %27, align 8
   %71 = load i32, ptr %8, align 8
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %70, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next40, %75
@@ -7888,7 +7880,7 @@ define internal fastcc void @VULKAN_SetDrawState(ptr noundef %0, ptr noundef non
   %62 = getelementptr inbounds nuw i8, ptr %38, i64 10440
   %63 = load i32, ptr %62, align 8
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %64
   br label %66
 
 66:                                               ; preds = %59, %57
@@ -7983,7 +7975,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
 
 106:                                              ; preds = %.lr.ph, %130
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
-  %107 = getelementptr inbounds nuw %struct.VULKAN_PipelineState, ptr %105, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [88 x i8], ptr %105, i64 %indvars.iv
   %108 = load i32, ptr %107, align 8
   %109 = icmp eq i32 %108, %2
   br i1 %109, label %110, label %130
@@ -8066,7 +8058,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
   %138 = getelementptr inbounds nuw i8, ptr %28, i64 96
   store ptr %22, ptr %138, align 8
   %139 = zext i32 %2 to i64
-  %invariant.gep.i = getelementptr inbounds nuw ptr, ptr %.val163, i64 %139
+  %invariant.gep.i = getelementptr inbounds nuw [8 x i8], ptr %.val163, i64 %139
   br label %204
 
 140:                                              ; preds = %204
@@ -8157,7 +8149,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
 
 switch.lookup:                                    ; preds = %140
   %175 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %175
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.VULKAN_SetDrawState.18, i64 %175
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %GetBlendFactor.exit.i
 
@@ -8171,7 +8163,7 @@ GetBlendFactor.exit.i:                            ; preds = %140, %switch.lookup
 
 switch.lookup3:                                   ; preds = %GetBlendFactor.exit.i
   %178 = zext nneg i32 %switch.tableidx2 to i64
-  %switch.gep4 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %178
+  %switch.gep4 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.VULKAN_SetDrawState.18, i64 %178
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   br label %GetBlendFactor.exit60.i
 
@@ -8192,7 +8184,7 @@ GetBlendFactor.exit60.i:                          ; preds = %GetBlendFactor.exit
 
 switch.lookup7:                                   ; preds = %GetBlendFactor.exit60.i
   %185 = zext nneg i32 %switch.tableidx6 to i64
-  %switch.gep8 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %185
+  %switch.gep8 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.VULKAN_SetDrawState.18, i64 %185
   %switch.load9 = load i32, ptr %switch.gep8, align 4
   br label %GetBlendFactor.exit62.i
 
@@ -8207,7 +8199,7 @@ GetBlendFactor.exit62.i:                          ; preds = %GetBlendFactor.exit
 
 switch.lookup11:                                  ; preds = %GetBlendFactor.exit62.i
   %189 = zext nneg i32 %switch.tableidx10 to i64
-  %switch.gep12 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %189
+  %switch.gep12 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.VULKAN_SetDrawState.18, i64 %189
   %switch.load13 = load i32, ptr %switch.gep12, align 4
   br label %GetBlendFactor.exit64.i
 
@@ -8306,38 +8298,38 @@ GetBlendFactor.exit64.i:                          ; preds = %GetBlendFactor.exit
 228:                                              ; preds = %218
   %229 = load i32, ptr %221, align 8
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %230
+  %231 = getelementptr inbounds [88 x i8], ptr %226, i64 %230
   store i32 %2, ptr %231, align 8
   %232 = load i32, ptr %221, align 8
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %233
+  %234 = getelementptr inbounds [88 x i8], ptr %226, i64 %233
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 52
   store i32 %40, ptr %235, align 4
   %236 = load i32, ptr %221, align 8
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %237
+  %238 = getelementptr inbounds [88 x i8], ptr %226, i64 %237
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 56
   store i32 %6, ptr %239, align 8
   %240 = load i32, ptr %221, align 8
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %241
+  %242 = getelementptr inbounds [88 x i8], ptr %226, i64 %241
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 60
   store i32 %42, ptr %243, align 4
   %244 = load ptr, ptr %16, align 8
   %245 = load i32, ptr %221, align 8
   %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %246
+  %247 = getelementptr inbounds [88 x i8], ptr %226, i64 %246
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 80
   store ptr %244, ptr %248, align 8
   %249 = load i32, ptr %221, align 8
   %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %250
+  %251 = getelementptr inbounds [88 x i8], ptr %226, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 72
   store ptr %4, ptr %252, align 8
   %253 = load ptr, ptr %199, align 8
   %254 = load i32, ptr %221, align 8
   %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %255
+  %256 = getelementptr inbounds [88 x i8], ptr %226, i64 %255
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 64
   store ptr %253, ptr %257, align 8
   store ptr %226, ptr %219, align 8
@@ -8345,7 +8337,7 @@ GetBlendFactor.exit64.i:                          ; preds = %GetBlendFactor.exit
   %259 = add nsw i32 %258, 1
   store i32 %259, ptr %221, align 8
   %260 = sext i32 %258 to i64
-  %261 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %260
+  %261 = getelementptr inbounds [88 x i8], ptr %226, i64 %260
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -8645,12 +8637,12 @@ VULKAN_UpdateClipRect.exit:                       ; preds = %353, %359
   %387 = getelementptr inbounds nuw i8, ptr %38, i64 1680
   %388 = load i32, ptr %387, align 8
   %389 = zext i32 %388 to i64
-  %390 = getelementptr inbounds nuw ptr, ptr %386, i64 %389
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %386, i64 %389
   %391 = load ptr, ptr %390, align 8
   %392 = getelementptr inbounds nuw i8, ptr %38, i64 10232
   %393 = load i32, ptr %392, align 8
   %394 = zext i32 %393 to i64
-  %395 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %391, i64 %394
+  %395 = getelementptr inbounds nuw [32 x i8], ptr %391, i64 %394
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %397 = load ptr, ptr %396, align 8
   %398 = getelementptr inbounds nuw i8, ptr %38, i64 10236
@@ -8699,7 +8691,7 @@ thread-pre-split12:                               ; preds = %400
   %421 = load ptr, ptr %420, align 8
   %422 = load i32, ptr %387, align 8
   %423 = zext i32 %422 to i64
-  %424 = getelementptr inbounds nuw i32, ptr %421, i64 %423
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %421, i64 %423
   %425 = load i32, ptr %424, align 4
   %.not160 = icmp ult i32 %419, %425
   br i1 %.not160, label %.thread16, label %426
@@ -8714,17 +8706,17 @@ thread-pre-split12:                               ; preds = %400
   %429 = load ptr, ptr %420, align 8
   %430 = load i32, ptr %387, align 8
   %431 = zext i32 %430 to i64
-  %432 = getelementptr inbounds nuw i32, ptr %429, i64 %431
+  %432 = getelementptr inbounds nuw [4 x i8], ptr %429, i64 %431
   %433 = load i32, ptr %432, align 4
   %434 = add i32 %433, 1
   store i32 %434, ptr %432, align 4
   %435 = load ptr, ptr %385, align 8
   %436 = load i32, ptr %387, align 8
   %437 = zext i32 %436 to i64
-  %438 = getelementptr inbounds nuw ptr, ptr %435, i64 %437
+  %438 = getelementptr inbounds nuw [8 x i8], ptr %435, i64 %437
   %439 = load ptr, ptr %438, align 8
   %440 = load ptr, ptr %420, align 8
-  %441 = getelementptr inbounds nuw i32, ptr %440, i64 %437
+  %441 = getelementptr inbounds nuw [4 x i8], ptr %440, i64 %437
   %442 = load i32, ptr %441, align 4
   %443 = zext i32 %442 to i64
   %444 = shl nuw nsw i64 %443, 5
@@ -8732,16 +8724,16 @@ thread-pre-split12:                               ; preds = %400
   %446 = load ptr, ptr %420, align 8
   %447 = load i32, ptr %387, align 8
   %448 = zext i32 %447 to i64
-  %449 = getelementptr inbounds nuw i32, ptr %446, i64 %448
+  %449 = getelementptr inbounds nuw [4 x i8], ptr %446, i64 %448
   %450 = load i32, ptr %449, align 4
   %451 = add i32 %450, -1
   %452 = zext i32 %451 to i64
-  %453 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %445, i64 %452
+  %453 = getelementptr inbounds nuw [32 x i8], ptr %445, i64 %452
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %453, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
   %454 = load ptr, ptr %385, align 8
   %455 = load i32, ptr %387, align 8
   %456 = zext i32 %455 to i64
-  %457 = getelementptr inbounds nuw ptr, ptr %454, i64 %456
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %454, i64 %456
   store ptr %445, ptr %457, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %.pre = load i32, ptr %387, align 8
@@ -8753,10 +8745,10 @@ thread-pre-split12:                               ; preds = %400
   store i32 %419, ptr %392, align 8
   store i32 0, ptr %398, align 4
   %458 = load ptr, ptr %385, align 8
-  %459 = getelementptr inbounds nuw ptr, ptr %458, i64 %.pre-phi
+  %459 = getelementptr inbounds nuw [8 x i8], ptr %458, i64 %.pre-phi
   %460 = load ptr, ptr %459, align 8
   %461 = zext i32 %419 to i64
-  %462 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %460, i64 %461
+  %462 = getelementptr inbounds nuw [32 x i8], ptr %460, i64 %461
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %464 = load ptr, ptr %463, align 8
   br label %466
@@ -8774,11 +8766,11 @@ thread-pre-split12:                               ; preds = %400
   %469 = load ptr, ptr %385, align 8
   %470 = load i32, ptr %387, align 8
   %471 = zext i32 %470 to i64
-  %472 = getelementptr inbounds nuw ptr, ptr %469, i64 %471
+  %472 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %471
   %473 = load ptr, ptr %472, align 8
   %474 = load i32, ptr %392, align 8
   %475 = zext i32 %474 to i64
-  %476 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %473, i64 %475
+  %476 = getelementptr inbounds nuw [32 x i8], ptr %473, i64 %475
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 24
   %478 = load ptr, ptr %477, align 8
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 %.2138
@@ -8814,7 +8806,7 @@ thread-pre-split12:                               ; preds = %400
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @VULKAN_CreateVertexBuffer(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  %5 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
@@ -8867,10 +8859,10 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly ca
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 1680
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %16 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 32, i1 false)
@@ -8911,17 +8903,17 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly ca
   %40 = add i32 %16, 1
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 10312
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %.pre-phi
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.pre-phi
   %44 = load i32, ptr %43, align 4
   %45 = icmp ult i32 %40, %44
   br i1 %45, label %46, label %60
 
 46:                                               ; preds = %.thread
   %47 = load ptr, ptr %17, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.pre-phi
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.pre-phi
   %49 = load ptr, ptr %48, align 8
   %50 = zext i32 %40 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %28, align 8
   %53 = load ptr, ptr @vkAllocateDescriptorSets, align 8
@@ -8950,17 +8942,17 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly ca
   %65 = load ptr, ptr %41, align 8
   %66 = load i32, ptr %19, align 8
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, 1
   store i32 %70, ptr %68, align 4
   %71 = load ptr, ptr %17, align 8
   %72 = load i32, ptr %19, align 8
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %41, align 8
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %73
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %73
   %78 = load i32, ptr %77, align 4
   %79 = zext i32 %78 to i64
   %80 = shl nuw nsw i64 %79, 3
@@ -8968,16 +8960,16 @@ define internal fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef readonly ca
   %82 = load ptr, ptr %41, align 8
   %83 = load i32, ptr %19, align 8
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %82, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = add i32 %86, -1
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %81, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %88
   store ptr %62, ptr %89, align 8
   %90 = load ptr, ptr %17, align 8
   %91 = load i32, ptr %19, align 8
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw ptr, ptr %90, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %92
   store ptr %81, ptr %93, align 8
   store i32 %40, ptr %15, align 8
   store i32 0, ptr %30, align 4
@@ -9184,7 +9176,7 @@ define internal fastcc void @VULKAN_AcquireNextSwapchainImage(ptr noundef %0) un
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1680
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 10440
   %18 = tail call i32 %5(ptr noundef %7, ptr noundef %9, i64 noundef -1, ptr noundef %16, ptr noundef null, ptr noundef nonnull %17) #7
@@ -9218,7 +9210,7 @@ define internal fastcc void @VULKAN_AcquireNextSwapchainImage(ptr noundef %0) un
   %29 = load ptr, ptr %10, align 8
   %30 = load i32, ptr %12, align 8
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %31
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %4, align 8
   br label %34
@@ -9353,7 +9345,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   %45 = phi i32 [ %41, %.lr.ph327 ], [ %55, %54 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph327 ], [ %indvars.iv.next, %54 ]
   %46 = load ptr, ptr %38, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
   %.not302 = icmp eq ptr %48, null
   br i1 %.not302, label %54, label %49
@@ -9363,7 +9355,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   %51 = load ptr, ptr %42, align 8
   tail call void %50(ptr noundef %51, ptr noundef nonnull %48, ptr noundef null) #7
   %52 = load ptr, ptr %38, align 8
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   store ptr null, ptr %53, align 8
   %.pre = load i32, ptr %40, align 4
   br label %54
@@ -9405,7 +9397,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   %66 = phi i32 [ %62, %.lr.ph330 ], [ %74, %73 ]
   %indvars.iv375 = phi i64 [ 0, %.lr.ph330 ], [ %indvars.iv.next376, %73 ]
   %67 = load ptr, ptr %59, align 8
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv375
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv375
   %69 = load ptr, ptr %68, align 8
   %.not301 = icmp eq ptr %69, null
   br i1 %.not301, label %73, label %70
@@ -9465,7 +9457,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
   %89 = phi i32 [ %85, %.lr.ph333 ], [ %97, %96 ]
   %indvars.iv378 = phi i64 [ 0, %.lr.ph333 ], [ %indvars.iv.next379, %96 ]
   %90 = load ptr, ptr %82, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv378
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv378
   %92 = load ptr, ptr %91, align 8
   %.not300 = icmp eq ptr %92, null
   br i1 %.not300, label %96, label %93
@@ -9495,7 +9487,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 
 104:                                              ; preds = %100, %110
   %indvars.iv381 = phi i64 [ 0, %100 ], [ %indvars.iv.next382, %110 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv381
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv381
   %106 = load ptr, ptr %105, align 8
   %.not299 = icmp eq ptr %106, null
   br i1 %.not299, label %110, label %107
@@ -9519,7 +9511,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 
 113:                                              ; preds = %.preheader316, %VULKAN_DestroyBuffer.exit
   %indvars.iv384 = phi i64 [ 0, %.preheader316 ], [ %indvars.iv.next385, %VULKAN_DestroyBuffer.exit ]
-  %114 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %103, i64 %indvars.iv384
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %103, i64 %indvars.iv384
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, null
@@ -9564,7 +9556,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 130:                                              ; preds = %111, %137
   %131 = phi i1 [ true, %111 ], [ false, %137 ]
   %indvars.iv388 = phi i64 [ 0, %111 ], [ 1, %137 ]
-  %132 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv388
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv388
   %133 = load ptr, ptr %132, align 8
   %.not298 = icmp eq ptr %133, null
   br i1 %.not298, label %137, label %134
@@ -9593,7 +9585,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %139 = phi i32 [ %147, %146 ], [ %129, %.preheader315 ]
   %indvars.iv391 = phi i64 [ %indvars.iv.next392, %146 ], [ 0, %.preheader315 ]
   %140 = load ptr, ptr %126, align 8
-  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv391
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv391
   %142 = load ptr, ptr %141, align 8
   %.not297 = icmp eq ptr %142, null
   br i1 %.not297, label %146, label %143
@@ -9638,7 +9630,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %156 = phi i32 [ %164, %163 ], [ %154, %.preheader314 ]
   %indvars.iv394 = phi i64 [ %indvars.iv.next395, %163 ], [ 0, %.preheader314 ]
   %157 = load ptr, ptr %151, align 8
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv394
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv394
   %159 = load ptr, ptr %158, align 8
   %.not296 = icmp eq ptr %159, null
   br i1 %.not296, label %163, label %160
@@ -9712,7 +9704,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 .preheader312:                                    ; preds = %.preheader312.lr.ph, %._crit_edge346
   %indvars.iv400 = phi i64 [ 0, %.preheader312.lr.ph ], [ %indvars.iv.next401, %._crit_edge346 ]
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds nuw i32, ptr %192, i64 %indvars.iv400
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %indvars.iv400
   %194 = load i32, ptr %193, align 4
   %.not370 = icmp eq i32 %194, 0
   br i1 %.not370, label %._crit_edge346, label %.lr.ph345
@@ -9733,7 +9725,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 
 ._crit_edge346:                                   ; preds = %213, %.preheader312
   %198 = load ptr, ptr %187, align 8
-  %199 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv400
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %indvars.iv400
   %200 = load ptr, ptr %199, align 8
   tail call void @SDL_free_REAL(ptr noundef %200) #7
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
@@ -9746,9 +9738,9 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %204 = phi ptr [ %214, %213 ], [ %192, %.preheader312 ]
   %indvars.iv397 = phi i64 [ %indvars.iv.next398, %213 ], [ 0, %.preheader312 ]
   %205 = load ptr, ptr %187, align 8
-  %206 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv400
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %indvars.iv400
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds nuw ptr, ptr %207, i64 %indvars.iv397
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %indvars.iv397
   %209 = load ptr, ptr %208, align 8
   %.not295 = icmp eq ptr %209, null
   br i1 %.not295, label %213, label %210
@@ -9763,7 +9755,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 213:                                              ; preds = %.lr.ph345, %210
   %214 = phi ptr [ %204, %.lr.ph345 ], [ %.pre431, %210 ]
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
-  %215 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv400
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %indvars.iv400
   %216 = load i32, ptr %215, align 4
   %217 = zext i32 %216 to i64
   %218 = icmp samesign ult i64 %indvars.iv.next398, %217
@@ -9782,7 +9774,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 
 225:                                              ; preds = %219, %237
   %indvars.iv403 = phi i64 [ 0, %219 ], [ %indvars.iv.next404, %237 ]
-  %226 = getelementptr inbounds nuw ptr, ptr %220, i64 %indvars.iv403
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %indvars.iv403
   %227 = load ptr, ptr %226, align 8
   %.not293 = icmp eq ptr %227, null
   br i1 %.not293, label %231, label %228
@@ -9795,7 +9787,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   br label %231
 
 231:                                              ; preds = %228, %225
-  %232 = getelementptr inbounds nuw ptr, ptr %221, i64 %indvars.iv403
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %indvars.iv403
   %233 = load ptr, ptr %232, align 8
   %.not294 = icmp eq ptr %233, null
   br i1 %.not294, label %237, label %234
@@ -9868,7 +9860,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   %260 = load ptr, ptr @vkDestroyPipeline, align 8
   %261 = load ptr, ptr %102, align 8
   %262 = load ptr, ptr %251, align 8
-  %263 = getelementptr inbounds nuw %struct.VULKAN_PipelineState, ptr %262, i64 %indvars.iv407
+  %263 = getelementptr inbounds nuw [88 x i8], ptr %262, i64 %indvars.iv407
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 80
   %265 = load ptr, ptr %264, align 8
   tail call void %260(ptr noundef %261, ptr noundef %265, ptr noundef null) #7
@@ -9881,7 +9873,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 .preheader310:                                    ; preds = %.preheader310.lr.ph, %._crit_edge356
   %indvars.iv413 = phi i64 [ 0, %.preheader310.lr.ph ], [ %indvars.iv.next414, %._crit_edge356 ]
   %269 = load ptr, ptr %254, align 8
-  %270 = getelementptr inbounds nuw i32, ptr %269, i64 %indvars.iv413
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %269, i64 %indvars.iv413
   %271 = load i32, ptr %270, align 4
   %272 = icmp sgt i32 %271, 0
   br i1 %272, label %.lr.ph355, label %._crit_edge356
@@ -9898,7 +9890,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 
 ._crit_edge356:                                   ; preds = %VULKAN_DestroyBuffer.exit305, %.preheader310
   %276 = load ptr, ptr %258, align 8
-  %277 = getelementptr inbounds nuw ptr, ptr %276, i64 %indvars.iv413
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %indvars.iv413
   %278 = load ptr, ptr %277, align 8
   tail call void @SDL_free_REAL(ptr noundef %278) #7
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
@@ -9910,9 +9902,9 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 .lr.ph355:                                        ; preds = %.preheader310, %VULKAN_DestroyBuffer.exit305
   %indvars.iv410 = phi i64 [ %indvars.iv.next411, %VULKAN_DestroyBuffer.exit305 ], [ 0, %.preheader310 ]
   %282 = load ptr, ptr %258, align 8
-  %283 = getelementptr inbounds nuw ptr, ptr %282, i64 %indvars.iv413
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %indvars.iv413
   %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %284, i64 %indvars.iv410
+  %285 = getelementptr inbounds nuw [32 x i8], ptr %284, i64 %indvars.iv410
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
   %287 = load ptr, ptr %286, align 8
   %.not.i303 = icmp eq ptr %287, null
@@ -9940,7 +9932,7 @@ VULKAN_DestroyBuffer.exit305:                     ; preds = %291, %293
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %285, i8 0, i64 32, i1 false)
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %296 = load ptr, ptr %254, align 8
-  %297 = getelementptr inbounds nuw i32, ptr %296, i64 %indvars.iv413
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %296, i64 %indvars.iv413
   %298 = load i32, ptr %297, align 4
   %299 = sext i32 %298 to i64
   %300 = icmp slt i64 %indvars.iv.next411, %299
@@ -9965,7 +9957,7 @@ VULKAN_DestroyBuffer.exit305:                     ; preds = %291, %293
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge361
   %indvars.iv419 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next420, %._crit_edge361 ]
   %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds nuw i32, ptr %307, i64 %indvars.iv419
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %indvars.iv419
   %309 = load i32, ptr %308, align 4
   %.not373 = icmp eq i32 %309, 0
   br i1 %.not373, label %._crit_edge361, label %.lr.ph360
@@ -9986,7 +9978,7 @@ VULKAN_DestroyBuffer.exit305:                     ; preds = %291, %293
 
 ._crit_edge361:                                   ; preds = %VULKAN_DestroyBuffer.exit308, %.preheader
   %313 = load ptr, ptr %302, align 8
-  %314 = getelementptr inbounds nuw ptr, ptr %313, i64 %indvars.iv419
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %indvars.iv419
   %315 = load ptr, ptr %314, align 8
   tail call void @SDL_free_REAL(ptr noundef %315) #7
   %indvars.iv.next420 = add nuw nsw i64 %indvars.iv419, 1
@@ -9998,9 +9990,9 @@ VULKAN_DestroyBuffer.exit305:                     ; preds = %291, %293
 .lr.ph360:                                        ; preds = %.preheader, %VULKAN_DestroyBuffer.exit308
   %indvars.iv416 = phi i64 [ %indvars.iv.next417, %VULKAN_DestroyBuffer.exit308 ], [ 0, %.preheader ]
   %319 = load ptr, ptr %302, align 8
-  %320 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv419
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %indvars.iv419
   %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %321, i64 %indvars.iv416
+  %322 = getelementptr inbounds nuw [32 x i8], ptr %321, i64 %indvars.iv416
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %324 = load ptr, ptr %323, align 8
   %.not.i306 = icmp eq ptr %324, null
@@ -10028,7 +10020,7 @@ VULKAN_DestroyBuffer.exit308:                     ; preds = %328, %330
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %322, i8 0, i64 32, i1 false)
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %333 = load ptr, ptr %306, align 8
-  %334 = getelementptr inbounds nuw i32, ptr %333, i64 %indvars.iv419
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %333, i64 %indvars.iv419
   %335 = load i32, ptr %334, align 4
   %336 = zext i32 %335 to i64
   %337 = icmp samesign ult i64 %indvars.iv.next417, %336
@@ -10174,7 +10166,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_InstanceExtensionFound(ptr nou
 
 .lr.ph:                                           ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.preheader ]
-  %30 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %16, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [260 x i8], ptr %16, i64 %indvars.iv
   %31 = call i32 @SDL_strcmp_REAL(ptr noundef %30, ptr noundef %0) #7
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %27
@@ -10226,7 +10218,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_ValidationLayersFound() unname
 
 .lr.ph:                                           ; preds = %5, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %5 ]
-  %15 = getelementptr inbounds nuw %struct.VkLayerProperties, ptr %7, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [520 x i8], ptr %7, i64 %indvars.iv
   %16 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.52, ptr noundef %15) #7
   %.not8 = icmp eq i32 %16, 0
   br i1 %.not8, label %._crit_edge, label %11
@@ -10342,7 +10334,7 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   store i32 0, ptr %3, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %49 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv240
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv240
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr @vkGetPhysicalDeviceProperties, align 8
   call void %51(ptr noundef %50, ptr noundef nonnull %42) #7
@@ -10395,7 +10387,7 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
   %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %72 = getelementptr inbounds nuw %struct.VkQueueFamilyProperties, ptr %.3112, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %.3112, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, 0
@@ -10565,7 +10557,7 @@ define internal fastcc i32 @VULKAN_FindPhysicalDevice(ptr noundef %0) unnamed_ad
 
 .lr.ph200:                                        ; preds = %.preheader, %137
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %137 ], [ 0, %.preheader ]
-  %141 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %.3105, i64 %indvars.iv237
+  %141 = getelementptr inbounds nuw [260 x i8], ptr %.3105, i64 %indvars.iv237
   %142 = call i32 @SDL_strcmp_REAL(ptr noundef %141, ptr noundef nonnull @.str.47) #7
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %.critedge, label %137
@@ -10695,7 +10687,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_DeviceExtensionsFound(ptr noun
 
 .lr.ph:                                           ; preds = %.preheader2, %.preheaderthread-pre-split
   %indvars.iv132 = phi i64 [ %indvars.iv.next14, %.preheaderthread-pre-split ], [ 0, %.preheader2 ]
-  %29 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @VULKAN_CreateDeviceResources.deviceExtensionNames, i64 8), i64 %indvars.iv132
+  %29 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @VULKAN_CreateDeviceResources.deviceExtensionNames, i64 8), i64 %indvars.iv132
   %30 = load ptr, ptr %29, align 8
   br label %35
 
@@ -10708,7 +10700,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_DeviceExtensionsFound(ptr noun
 
 35:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %36 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %18, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [260 x i8], ptr %18, i64 %indvars.iv
   %37 = call i32 @SDL_strcmp_REAL(ptr noundef %36, ptr noundef %30) #7
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %._crit_edge, label %31

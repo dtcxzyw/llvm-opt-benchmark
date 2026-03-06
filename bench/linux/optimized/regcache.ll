@@ -23,7 +23,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_regcache_reg
 %union.anon.8 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
 %struct.reg_default = type { i32, i32 }
-%struct.reg_sequence = type { i32, i32, i32 }
 
 @.str = private unnamed_addr constant [43 x i8] c"No cache used with register defaults set!\0A\00", align 1
 @.str.1 = private unnamed_addr constant [47 x i8] c"Register defaults are set without the number!\0A\00", align 1
@@ -146,7 +145,7 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr noundef readonly capture
 37:                                               ; preds = %34, %.thread
   %38 = phi i32 [ 0, %.thread ], [ %35, %34 ]
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.reg_default, ptr %7, i64 %39
+  %40 = getelementptr [8 x i8], ptr %7, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = urem i32 %41, %30
   %43 = icmp eq i32 %42, 0
@@ -154,7 +153,7 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr noundef readonly capture
 
 44:                                               ; preds = %51, %.loopexit10
   %45 = phi i64 [ %52, %51 ], [ 0, %.loopexit10 ]
-  %46 = getelementptr ptr, ptr @cache_types, i64 %45
+  %46 = getelementptr [8 x i8], ptr @cache_types, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8
@@ -466,13 +465,13 @@ define internal fastcc i32 @regcache_hw_init(ptr noundef %0) unnamed_addr #0 ali
   br label %103
 
 95:                                               ; preds = %90
-  %96 = getelementptr i16, ptr %79, i64 %70
+  %96 = getelementptr [2 x i8], ptr %79, i64 %70
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i32
   br label %103
 
 99:                                               ; preds = %90
-  %100 = getelementptr i32, ptr %79, i64 %70
+  %100 = getelementptr [4 x i8], ptr %79, i64 %70
   %101 = load i32, ptr %100, align 4
   br label %103
 
@@ -502,11 +501,11 @@ define internal fastcc i32 @regcache_hw_init(ptr noundef %0) unnamed_addr #0 ali
 .thread12:                                        ; preds = %105, %103
   %111 = load ptr, ptr %38, align 8
   %112 = sext i32 %71 to i64
-  %113 = getelementptr %struct.reg_default, ptr %111, i64 %112
+  %113 = getelementptr [8 x i8], ptr %111, i64 %112
   store i32 %74, ptr %113, align 4
   %114 = load i32, ptr %2, align 4
   %115 = load ptr, ptr %38, align 8
-  %.split = getelementptr %struct.reg_default, ptr %115, i64 %112
+  %.split = getelementptr [8 x i8], ptr %115, i64 %112
   %116 = getelementptr i8, ptr %.split, i64 4
   store i32 %114, ptr %116, align 4
   %117 = add i32 %71, 1
@@ -739,7 +738,7 @@ define dso_local noundef zeroext i1 @regcache_reg_needs_sync(ptr noundef %0, i32
 26:                                               ; preds = %19
   %27 = lshr exact i64 %23, 3
   %28 = and i64 %27, 2147483647
-  %.split = getelementptr %struct.reg_default, ptr %20, i64 %28
+  %.split = getelementptr [8 x i8], ptr %20, i64 %28
   %29 = getelementptr i8, ptr %.split, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %2
@@ -885,7 +884,7 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
   %52 = phi i32 [ 0, %49 ], [ %70, %69 ]
   %53 = load ptr, ptr %50, align 8
   %54 = zext i32 %52 to i64
-  %55 = getelementptr %struct.reg_sequence, ptr %53, i64 %54
+  %55 = getelementptr [12 x i8], ptr %53, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %58 = load i32, ptr %57, align 4
@@ -897,7 +896,7 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %50, align 8
-  %65 = getelementptr %struct.reg_sequence, ptr %64, i64 %54
+  %65 = getelementptr [12 x i8], ptr %64, i64 %54
   %66 = load i32, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %68 = load i32, ptr %67, align 4
@@ -1119,7 +1118,7 @@ define internal fastcc i32 @regcache_default_sync(ptr noundef %0, i32 noundef %1
 41:                                               ; preds = %34
   %42 = lshr exact i64 %38, 3
   %43 = and i64 %42, 2147483647
-  %.split = getelementptr %struct.reg_default, ptr %35, i64 %43
+  %.split = getelementptr [8 x i8], ptr %35, i64 %43
   %44 = getelementptr i8, ptr %.split, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %23
@@ -1601,13 +1600,13 @@ define dso_local void @regcache_set_val(ptr noundef readonly captures(none) %0, 
 19:                                               ; preds = %14
   %20 = trunc i32 %3 to i16
   %21 = zext i32 %2 to i64
-  %22 = getelementptr i16, ptr %1, i64 %21
+  %22 = getelementptr [2 x i8], ptr %1, i64 %21
   store i16 %20, ptr %22, align 2
   br label %27
 
 23:                                               ; preds = %14
   %24 = zext i32 %2 to i64
-  %25 = getelementptr i32, ptr %1, i64 %24
+  %25 = getelementptr [4 x i8], ptr %1, i64 %24
   store i32 %3, ptr %25, align 4
   br label %27
 
@@ -1656,14 +1655,14 @@ define dso_local i32 @regcache_get_val(ptr noundef readonly captures(none) %0, p
 
 22:                                               ; preds = %16
   %23 = zext i32 %2 to i64
-  %24 = getelementptr i16, ptr %1, i64 %23
+  %24 = getelementptr [2 x i8], ptr %1, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
   br label %32
 
 27:                                               ; preds = %16
   %28 = zext i32 %2 to i64
-  %29 = getelementptr i32, ptr %1, i64 %28
+  %29 = getelementptr [4 x i8], ptr %1, i64 %28
   %30 = load i32, ptr %29, align 4
   br label %32
 
@@ -1731,7 +1730,7 @@ define dso_local i32 @regcache_sync_val(ptr noundef %0, i32 noundef %1, i32 noun
 26:                                               ; preds = %19
   %27 = lshr exact i64 %23, 3
   %28 = and i64 %27, 2147483647
-  %.split = getelementptr %struct.reg_default, ptr %20, i64 %28
+  %.split = getelementptr [8 x i8], ptr %20, i64 %28
   %29 = getelementptr i8, ptr %.split, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %2
@@ -1867,13 +1866,13 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   br label %82
 
 74:                                               ; preds = %69
-  %75 = getelementptr i16, ptr %1, i64 %31
+  %75 = getelementptr [2 x i8], ptr %1, i64 %31
   %76 = load i16, ptr %75, align 2
   %77 = zext i16 %76 to i32
   br label %82
 
 78:                                               ; preds = %69
-  %79 = getelementptr i32, ptr %1, i64 %31
+  %79 = getelementptr [4 x i8], ptr %1, i64 %31
   %80 = load i32, ptr %79, align 4
   br label %82
 
@@ -1920,7 +1919,7 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
 101:                                              ; preds = %94
   %102 = lshr exact i64 %98, 3
   %103 = and i64 %102, 2147483647
-  %.split = getelementptr %struct.reg_default, ptr %95, i64 %103
+  %.split = getelementptr [8 x i8], ptr %95, i64 %103
   %104 = getelementptr i8, ptr %.split, i64 4
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %105, %83
@@ -2090,12 +2089,12 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 203:                                              ; preds = %202
-  %204 = getelementptr i32, ptr %1, i64 %187
+  %204 = getelementptr [4 x i8], ptr %1, i64 %187
   %205 = load i32, ptr %204, align 4
   br label %214
 
 206:                                              ; preds = %202
-  %207 = getelementptr i16, ptr %1, i64 %187
+  %207 = getelementptr [2 x i8], ptr %1, i64 %187
   %208 = load i16, ptr %207, align 2
   %209 = zext i16 %208 to i32
   br label %214
@@ -2160,13 +2159,13 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   br label %252
 
 245:                                              ; preds = %240
-  %246 = getelementptr i16, ptr %1, i64 %221
+  %246 = getelementptr [2 x i8], ptr %1, i64 %221
   %247 = load i16, ptr %246, align 2
   %248 = zext i16 %247 to i32
   br label %252
 
 249:                                              ; preds = %240
-  %250 = getelementptr i32, ptr %1, i64 %221
+  %250 = getelementptr [4 x i8], ptr %1, i64 %221
   %251 = load i32, ptr %250, align 4
   br label %252
 

@@ -166,7 +166,7 @@ define internal void @evsig_cb(i32 noundef %0, i16 signext %1, ptr noundef %2) #
 
 14:                                               ; preds = %.lr.ph
   %15 = zext nneg i8 %12 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -193,7 +193,7 @@ define internal void @evsig_cb(i32 noundef %0, i16 signext %1, ptr noundef %2) #
 
 25:                                               ; preds = %.preheader42, %30
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %30 ], [ 0, %.preheader42 ]
-  %26 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv34
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv34
   %27 = load i32, ptr %26, align 4
   %.not29 = icmp eq i32 %27, 0
   br i1 %.not29, label %30, label %28
@@ -332,10 +332,10 @@ evsig_ensure_saved_.exit:                         ; preds = %11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   store ptr %26, ptr %30, align 8
   %31 = load ptr, ptr %27, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %29
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %36
@@ -353,7 +353,7 @@ evsig_ensure_saved_.exit:                         ; preds = %11
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = call i32 @sigfillset(ptr noundef nonnull %39) #8
   %41 = load ptr, ptr %27, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %29
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %29
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 @sigaction(i32 noundef %1, ptr noundef nonnull %4, ptr noundef %43) #8
   %45 = icmp eq i32 %44, -1
@@ -362,11 +362,11 @@ evsig_ensure_saved_.exit:                         ; preds = %11
 46:                                               ; preds = %36
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.4) #8
   %47 = load ptr, ptr %27, align 8
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %29
+  %48 = getelementptr inbounds [8 x i8], ptr %47, i64 %29
   %49 = load ptr, ptr %48, align 8
   call void @event_mm_free_(ptr noundef %49) #8
   %50 = load ptr, ptr %27, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %29
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %29
   store ptr null, ptr %51, align 8
   br label %52
 
@@ -395,7 +395,7 @@ define hidden range(i32 -1, 1) i32 @evsig_restore_handler_(ptr noundef readonly 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %9, align 8
   %11 = tail call i32 @sigaction(i32 noundef %1, ptr noundef %10, ptr noundef null) #8
@@ -444,7 +444,7 @@ define hidden void @evsig_dealloc_(ptr noundef %0) local_unnamed_addr #0 {
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %.not32 = icmp eq ptr %17, null
   br i1 %.not32, label %23, label %18
@@ -747,7 +747,7 @@ define internal range(i32 -1, 1) i32 @evsig_del(ptr noundef captures(none) %0, i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   store ptr null, ptr %30, align 8
   %32 = tail call i32 @sigaction(i32 noundef %1, ptr noundef %31, ptr noundef null) #8

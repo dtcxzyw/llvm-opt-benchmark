@@ -535,7 +535,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory7strings9InferInfo6is
   %12 = icmp eq i32 %11, 2
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %14 = zext i1 %12 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !39, !noalias !57
   %17 = load i64, ptr %16, align 8, !noalias !57
   %18 = lshr i64 %17, 40

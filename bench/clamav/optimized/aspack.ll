@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ASPK = type { i32, i32, [58 x i32], [4 x %struct.DICT_HELPER], ptr, ptr, ptr, [4 x [24 x i32]], [4 x [24 x i32]], i32, [758 x i8], [19 x i8] }
 %struct.DICT_HELPER = type { ptr, ptr, i32 }
-%struct.cli_exe_section = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [43 x i8] c"Aspack: Attempting to unpack Aspack 2.12.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [51 x i8] c"Aspack: Attempting to unpack Aspack >2.12, <2.42.\0A\00", align 1
@@ -45,22 +44,22 @@ define range(i32 0, 2) i32 @unaspack(ptr noundef %0, i32 noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %8
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.unaspack, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.unaspack, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep457 = getelementptr inbounds nuw i64, ptr @switch.table.unaspack.1, i64 %15
+  %switch.gep457 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.unaspack.1, i64 %15
   %switch.load458 = load i64, ptr %switch.gep457, align 8
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep459 = getelementptr inbounds nuw i32, ptr @switch.table.unaspack.2, i64 %16
+  %switch.gep459 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.unaspack.2, i64 %16
   %switch.load460 = load i32, ptr %switch.gep459, align 4
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep461 = getelementptr inbounds nuw i32, ptr @switch.table.unaspack.3, i64 %17
+  %switch.gep461 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.unaspack.3, i64 %17
   %switch.load462 = load i32, ptr %switch.gep461, align 4
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep463 = getelementptr inbounds nuw i32, ptr @switch.table.unaspack.4, i64 %18
+  %switch.gep463 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.unaspack.4, i64 %18
   %switch.load464 = load i32, ptr %switch.gep463, align 4
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep465 = getelementptr inbounds nuw i64, ptr @switch.table.unaspack.5, i64 %19
+  %switch.gep465 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.unaspack.5, i64 %19
   %switch.load466 = load i64, ptr %switch.gep465, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %switch.load) #11
   %20 = zext i32 %4 to i64
@@ -118,7 +117,7 @@ switch.lookup:                                    ; preds = %8
 50:                                               ; preds = %25, %62
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %62 ]
   %.0175248 = phi i32 [ 0, %25 ], [ %.1176, %62 ]
-  %51 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   store i32 %.0175248, ptr %51, align 4, !tbaa !16
   %52 = trunc nuw nsw i64 %indvars.iv to i32
   %53 = add i32 %49, %52
@@ -360,7 +359,7 @@ switch.lookup:                                    ; preds = %8
   %.promoted276 = phi i32 [ %168, %.loopexit121.i.i ], [ %.pr.i99.i.pre.i, %._crit_edge.i ]
   %.079.i.i = phi i32 [ %167, %.loopexit121.i.i ], [ %131, %._crit_edge.i ]
   %170 = zext nneg i32 %129 to i64
-  %171 = getelementptr inbounds nuw i32, ptr %48, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !16
   %173 = getelementptr inbounds nuw i8, ptr %73, i64 %170
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 56
@@ -486,7 +485,7 @@ switch.lookup:                                    ; preds = %8
 
 233:                                              ; preds = %231
   %234 = zext nneg i32 %.077.i.i to i64
-  %235 = getelementptr inbounds nuw i32, ptr %9, i64 %234
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %234
   %236 = load i32, ptr %235, align 4, !tbaa !16
   %.not92.i.i = icmp eq i32 %.077.i.i, 0
   br i1 %.not92.i.i, label %241, label %237
@@ -638,14 +637,14 @@ decomp_block.exit.thread:                         ; preds = %106, %decomp_block.
   %287 = zext i16 %3 to i32
   %288 = add nsw i32 %287, -2
   %289 = zext nneg i32 %288 to i64
-  %290 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %289
+  %290 = getelementptr inbounds nuw [36 x i8], ptr %2, i64 %289
   %291 = load i32, ptr %290, align 4, !tbaa !22
   %292 = icmp eq i32 %4, %291
   br i1 %292, label %293, label %299
 
 293:                                              ; preds = %286
   %294 = zext i16 %3 to i64
-  %295 = getelementptr %struct.cli_exe_section, ptr %2, i64 %294
+  %295 = getelementptr [36 x i8], ptr %2, i64 %294
   %296 = getelementptr i8, ptr %295, i64 -24
   %297 = load i32, ptr %296, align 4, !tbaa !24
   %.not204 = icmp eq i32 %297, 0
@@ -678,7 +677,7 @@ decomp_block.exit.thread:                         ; preds = %106, %decomp_block.
 
 .lr.ph304:                                        ; preds = %.lr.ph304.preheader, %.lr.ph304
   %indvars.iv350 = phi i64 [ 0, %.lr.ph304.preheader ], [ %indvars.iv.next351, %.lr.ph304 ]
-  %307 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %302, i64 %indvars.iv350
+  %307 = getelementptr inbounds nuw [36 x i8], ptr %302, i64 %indvars.iv350
   %308 = load i32, ptr %307, align 4, !tbaa !22
   %309 = getelementptr inbounds nuw i8, ptr %307, i64 8
   store i32 %308, ptr %309, align 4, !tbaa !25
@@ -1164,13 +1163,13 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %7 = zext nneg i8 %2 to i64
-  %8 = getelementptr inbounds nuw [24 x i32], ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %10 = getelementptr inbounds nuw [24 x i32], ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %12 = getelementptr inbounds nuw %struct.DICT_HELPER, ptr %11, i64 %7
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !12
   %.not135 = icmp eq i32 %14, 0
@@ -1189,7 +1188,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nounde
 
 18:                                               ; preds = %.lr.ph
   %19 = zext nneg i8 %16 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !16
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 4, !tbaa !16
@@ -1209,7 +1208,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nounde
   %.093126 = phi i32 [ 23, %._crit_edge ], [ %59, %58 ]
   %.094125 = phi i32 [ 0, %._crit_edge ], [ %.195, %58 ]
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %25 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next142
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next142
   %26 = load i32, ptr %25, align 4, !tbaa !16
   %27 = shl i32 %26, %.093126
   %28 = add i32 %27, %.092127
@@ -1217,16 +1216,16 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nounde
   br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next142
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.next142
   store i32 %28, ptr %31, align 4, !tbaa !16
-  %32 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv141
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv141
   %33 = load i32, ptr %32, align 4, !tbaa !16
-  %34 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv141
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv141
   %35 = load i32, ptr %34, align 4, !tbaa !16
   %36 = add i32 %35, %33
-  %37 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next142
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next142
   store i32 %36, ptr %37, align 4, !tbaa !16
-  %38 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next142
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.next142
   store i32 %36, ptr %38, align 4, !tbaa !16
   %39 = icmp samesign ugt i32 %.093126, 15
   br i1 %39, label %40, label %58
@@ -1291,7 +1290,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nounde
 
 67:                                               ; preds = %65
   %68 = zext nneg i8 %64 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %5, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !16
   %.not110 = icmp ult i32 %70, %62
   br i1 %.not110, label %71, label %.critedge
@@ -1299,12 +1298,12 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nounde
 71:                                               ; preds = %67
   %72 = load ptr, ptr %12, align 8, !tbaa !3
   %73 = zext i32 %70 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %73
   %75 = trunc nuw i64 %indvars.iv145 to i32
   store i32 %75, ptr %74, align 4, !tbaa !16
   %76 = load i8, ptr %63, align 1, !tbaa !17
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %5, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !16
   %80 = add i32 %79, 1
   store i32 %80, ptr %78, align 4, !tbaa !16
@@ -1329,9 +1328,9 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nounde
 define internal fastcc i32 @getdec(ptr noundef nonnull captures(none) %0, i8 noundef zeroext range(i8 0, 4) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %5 = zext nneg i8 %1 to i64
-  %6 = getelementptr inbounds nuw [24 x i32], ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [96 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %8 = getelementptr inbounds nuw [24 x i32], ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [96 x i8], ptr %7, i64 %5
   store i32 1, ptr %2, align 4, !tbaa !16
   %.pr.i = load i32, ptr %0, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -1383,7 +1382,7 @@ define internal fastcc i32 @getdec(ptr noundef nonnull captures(none) %0, i8 nou
 
 34:                                               ; preds = %.loopexit
   %35 = lshr i32 %30, 16
-  %36 = getelementptr inbounds nuw %struct.DICT_HELPER, ptr %0, i64 %5
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %5
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 248
   %38 = load ptr, ptr %37, align 8, !tbaa !11
   %39 = zext nneg i32 %35 to i64
@@ -1437,17 +1436,17 @@ define internal fastcc i32 @getdec(ptr noundef nonnull captures(none) %0, i8 nou
   %69 = add nuw nsw i32 %26, %68
   store i32 %69, ptr %0, align 8, !tbaa !20
   %70 = zext nneg i8 %.045 to i64
-  %71 = getelementptr i32, ptr %6, i64 %70
+  %71 = getelementptr [4 x i8], ptr %6, i64 %70
   %72 = getelementptr i8, ptr %71, i64 -4
   %73 = load i32, ptr %72, align 4, !tbaa !16
   %74 = sub i32 %30, %73
   %75 = sub nuw nsw i32 24, %68
   %76 = lshr i32 %74, %75
-  %77 = getelementptr inbounds nuw i32, ptr %8, i64 %70
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %70
   %78 = load i32, ptr %77, align 4, !tbaa !16
   %79 = add i32 %76, %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %81 = getelementptr inbounds nuw %struct.DICT_HELPER, ptr %80, i64 %5
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %80, i64 %5
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8, !tbaa !12
   %.not50 = icmp ult i32 %79, %83
@@ -1456,7 +1455,7 @@ define internal fastcc i32 @getdec(ptr noundef nonnull captures(none) %0, i8 nou
 84:                                               ; preds = %67
   %85 = load ptr, ptr %81, align 8, !tbaa !3
   %86 = zext i32 %79 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !16
   store i32 0, ptr %2, align 4, !tbaa !16
   br label %readstream.exit

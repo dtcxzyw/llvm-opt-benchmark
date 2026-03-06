@@ -1451,9 +1451,9 @@ define hidden noundef i32 @_sodium_blake2b_compress_ref(ptr noundef captures(non
 
 1388:                                             ; preds = %.preheader.preheader, %1388
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %1388 ]
-  %1389 = getelementptr i64, ptr %0, i64 %indvars.iv
+  %1389 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %1390 = load i64, ptr %1389, align 1
-  %1391 = getelementptr i64, ptr %2, i64 %indvars.iv
+  %1391 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %1392 = load i64, ptr %1391, align 8
   %1393 = xor i64 %1392, %1390
   %1394 = getelementptr i8, ptr %1391, i64 64

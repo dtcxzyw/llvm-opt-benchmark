@@ -28,11 +28,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_key_false = type { %struct.static_key }
 %struct.static_call_key = type { ptr, %union.anon.36 }
 %union.anon.36 = type { i64 }
-%struct.page_counter = type { %struct.atomic64_t, [56 x i8], %struct.cacheline_padding, i64, %struct.atomic64_t, %struct.atomic64_t, i64, %struct.atomic64_t, %struct.atomic64_t, i64, i64, %struct.cacheline_padding, i64, i64, i64, i64, ptr, [24 x i8] }
-%struct.cacheline_padding = type { [0 x i8] }
-%struct.cgroup_file = type { ptr, i64, %struct.timer_list }
-%struct.timer_list = type { %struct.hlist_node, i64, ptr, i32 }
-%struct.hlist_node = type { ptr, ptr }
 
 @hstates = external dso_local global [2 x %struct.hstate], align 16
 @hugetlb_max_hstate = external dso_local local_unnamed_addr global i32, section ".data..read_mostly", align 4
@@ -168,26 +163,26 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__hugetlb_cgroup_charge_cg
   %47 = sext i32 %0 to i64
   %.v.v = select i1 %3, i64 640, i64 256
   %.v = getelementptr inbounds nuw i8, ptr %45, i64 %.v.v
-  %48 = getelementptr %struct.page_counter, ptr %.v, i64 %47
+  %48 = getelementptr [192 x i8], ptr %.v, i64 %47
   %49 = call zeroext i1 @page_counter_try_charge(ptr noundef %48, i64 noundef %1, ptr noundef nonnull %5) #9
   br i1 %49, label %88, label %50
 
 50:                                               ; preds = %.loopexit
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 1040
-  %52 = getelementptr [1 x %struct.atomic64_t], ptr %51, i64 %47
+  %52 = getelementptr [8 x i8], ptr %51, i64 %47
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %52, ptr elementtype(i64) %52) #9, !srcloc !17
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 1168
-  %54 = getelementptr %struct.cgroup_file, ptr %53, i64 %47
+  %54 = getelementptr [56 x i8], ptr %53, i64 %47
   call void @cgroup_file_notify(ptr noundef %54) #9
   br label %55
 
 55:                                               ; preds = %55, %50
   %56 = phi ptr [ %45, %50 ], [ %62, %55 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1024
-  %58 = getelementptr [1 x %struct.atomic64_t], ptr %57, i64 %47
+  %58 = getelementptr [8 x i8], ptr %57, i64 %47
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %58, ptr elementtype(i64) %58) #9, !srcloc !17
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 1056
-  %60 = getelementptr %struct.cgroup_file, ptr %59, i64 %47
+  %60 = getelementptr [56 x i8], ptr %59, i64 %47
   call void @cgroup_file_notify(ptr noundef %60) #9
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 192
   %62 = load ptr, ptr %61, align 64
@@ -304,10 +299,10 @@ define dso_local void @hugetlb_cgroup_commit_charge(i32 noundef %0, i64 noundef 
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1280
   %10 = load i64, ptr %3, align 16
   %11 = lshr i64 %10, 58
-  %12 = getelementptr ptr, ptr %9, i64 %11
+  %12 = getelementptr [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %0 to i64
-  %15 = getelementptr i64, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %1
   store volatile i64 %17, ptr %15, align 8
@@ -350,14 +345,14 @@ define dso_local void @hugetlb_cgroup_uncharge_folio(i32 noundef %0, i64 noundef
   store ptr null, ptr %5, align 8
   %9 = sext i32 %0 to i64
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 256
-  %11 = getelementptr %struct.page_counter, ptr %10, i64 %9
+  %11 = getelementptr [192 x i8], ptr %10, i64 %9
   tail call void @page_counter_uncharge(ptr noundef %11, i64 noundef %1) #9
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 1280
   %13 = load i64, ptr %2, align 16
   %14 = lshr i64 %13, 58
-  %15 = getelementptr ptr, ptr %12, i64 %14
+  %15 = getelementptr [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr i64, ptr %16, i64 %9
+  %17 = getelementptr [8 x i8], ptr %16, i64 %9
   %18 = load i64, ptr %17, align 8
   %19 = sub i64 %18, %1
   store volatile i64 %19, ptr %17, align 8
@@ -382,7 +377,7 @@ define dso_local void @hugetlb_cgroup_uncharge_folio_rsvd(i32 noundef %0, i64 no
   store ptr null, ptr %5, align 16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 640
   %10 = sext i32 %0 to i64
-  %11 = getelementptr %struct.page_counter, ptr %9, i64 %10
+  %11 = getelementptr [192 x i8], ptr %9, i64 %10
   tail call void @page_counter_uncharge(ptr noundef %11, i64 noundef %1) #9
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 84
   %13 = load i32, ptr %12, align 4
@@ -439,7 +434,7 @@ define dso_local void @hugetlb_cgroup_uncharge_cgroup(i32 noundef %0, i64 nounde
 6:                                                ; preds = %4
   %7 = sext i32 %0 to i64
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %9 = getelementptr %struct.page_counter, ptr %8, i64 %7
+  %9 = getelementptr [192 x i8], ptr %8, i64 %7
   tail call void @page_counter_uncharge(ptr noundef %9, i64 noundef %1) #9
   br label %.thread
 
@@ -459,7 +454,7 @@ define dso_local void @hugetlb_cgroup_uncharge_cgroup_rsvd(i32 noundef %0, i64 n
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %8 = sext i32 %0 to i64
-  %9 = getelementptr %struct.page_counter, ptr %7, i64 %8
+  %9 = getelementptr [192 x i8], ptr %7, i64 %8
   tail call void @page_counter_uncharge(ptr noundef %9, i64 noundef %1) #9
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %11 = load i32, ptr %10, align 4
@@ -664,7 +659,7 @@ define dso_local void @hugetlb_cgroup_uncharge_file_region(ptr noundef readonly 
 define dso_local void @hugetlb_cgroup_file_init() local_unnamed_addr #2 section ".init.text" align 16 {
   %1 = load i32, ptr @hugetlb_max_hstate, align 4
   %2 = sext i32 %1 to i64
-  %3 = getelementptr %struct.hstate, ptr @hstates, i64 %2
+  %3 = getelementptr [6088 x i8], ptr @hstates, i64 %2
   %4 = icmp ugt ptr %3, @hstates
   br i1 %4, label %.preheader, label %.loopexit
 
@@ -679,7 +674,7 @@ define dso_local void @hugetlb_cgroup_file_init() local_unnamed_addr #2 section 
   %10 = getelementptr i8, ptr %5, i64 6088
   %11 = load i32, ptr @hugetlb_max_hstate, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr %struct.hstate, ptr @hstates, i64 %12
+  %13 = getelementptr [6088 x i8], ptr @hstates, i64 %12
   %14 = icmp ult ptr %10, %13
   br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !22
 
@@ -782,7 +777,7 @@ define internal ptr @hugetlb_cgroup_css_alloc(ptr noundef %0) #0 align 16 {
   %26 = select i1 %25, i32 -1, i32 %21
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %28 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_node_trace(ptr noundef %27, i32 noundef 3520, i32 noundef %26, i64 noundef 16) #14
-  %29 = getelementptr ptr, ptr %19, i64 %22
+  %29 = getelementptr [8 x i8], ptr %19, i64 %22
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
   br i1 %30, label %80, label %31
@@ -816,19 +811,19 @@ define internal ptr @hugetlb_cgroup_css_alloc(ptr noundef %0) #0 align 16 {
 .thread.split.us:                                 ; preds = %.thread, %.thread.split.us
   %48 = phi i1 [ false, %.thread.split.us ], [ true, %.thread ]
   %49 = phi i64 [ 1, %.thread.split.us ], [ 0, %.thread ]
-  %50 = getelementptr %struct.page_counter, ptr %46, i64 %49
+  %50 = getelementptr [192 x i8], ptr %46, i64 %49
   store volatile i64 0, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 152
   store i64 2251799813685247, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 160
   store ptr null, ptr %52, align 32
-  %53 = getelementptr %struct.page_counter, ptr %47, i64 %49
+  %53 = getelementptr [192 x i8], ptr %47, i64 %49
   store volatile i64 0, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 152
   store i64 2251799813685247, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 160
   store ptr null, ptr %55, align 32
-  %.split.us = getelementptr %struct.hstate, ptr @hstates, i64 %49
+  %.split.us = getelementptr [6088 x i8], ptr @hstates, i64 %49
   %56 = getelementptr i8, ptr %.split.us, i64 40
   %57 = load i32, ptr %56, align 8
   %58 = shl nsw i32 -1, %57
@@ -841,21 +836,21 @@ define internal ptr @hugetlb_cgroup_css_alloc(ptr noundef %0) #0 align 16 {
 .thread.split:                                    ; preds = %.thread, %.thread.split
   %63 = phi i1 [ false, %.thread.split ], [ true, %.thread ]
   %64 = phi i64 [ 1, %.thread.split ], [ 0, %.thread ]
-  %65 = getelementptr %struct.page_counter, ptr %44, i64 %64
-  %66 = getelementptr %struct.page_counter, ptr %45, i64 %64
-  %67 = getelementptr %struct.page_counter, ptr %46, i64 %64
+  %65 = getelementptr [192 x i8], ptr %44, i64 %64
+  %66 = getelementptr [192 x i8], ptr %45, i64 %64
+  %67 = getelementptr [192 x i8], ptr %46, i64 %64
   store volatile i64 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 152
   store i64 2251799813685247, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 160
   store ptr %65, ptr %69, align 32
-  %70 = getelementptr %struct.page_counter, ptr %47, i64 %64
+  %70 = getelementptr [192 x i8], ptr %47, i64 %64
   store volatile i64 0, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 152
   store i64 2251799813685247, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 160
   store ptr %66, ptr %72, align 32
-  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %64
+  %.split = getelementptr [6088 x i8], ptr @hstates, i64 %64
   %73 = getelementptr i8, ptr %.split, i64 40
   %74 = load i32, ptr %73, align 8
   %75 = shl nsw i32 -1, %74
@@ -879,7 +874,7 @@ define internal ptr @hugetlb_cgroup_css_alloc(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %83, %99
   %87 = phi i32 [ %101, %99 ], [ %85, %83 ]
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr ptr, ptr %19, i64 %88
+  %89 = getelementptr [8 x i8], ptr %19, i64 %88
   %90 = load ptr, ptr %89, align 8
   tail call void @kfree(ptr noundef %90) #9
   %91 = icmp eq i32 %87, 63
@@ -919,7 +914,7 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
 4:                                                ; preds = %.loopexit9, %1
   %5 = phi i32 [ %80, %.loopexit9 ], [ %.pre, %1 ]
   %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct.hstate, ptr @hstates, i64 %6
+  %7 = getelementptr [6088 x i8], ptr @hstates, i64 %6
   %8 = icmp ugt ptr %7, @hstates
   br i1 %8, label %.preheader10, label %.loopexit11
 
@@ -937,7 +932,7 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
   %16 = sdiv exact i64 %15, 6088
   %17 = shl i64 %16, 32
   %18 = ashr exact i64 %17, 32
-  %19 = getelementptr %struct.page_counter, ptr %3, i64 %18
+  %19 = getelementptr [192 x i8], ptr %3, i64 %18
   br label %20
 
 20:                                               ; preds = %71, %13
@@ -1011,7 +1006,7 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
 65:                                               ; preds = %62
   %66 = load ptr, ptr @root_h_cgroup, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 256
-  %68 = getelementptr %struct.page_counter, ptr %67, i64 %18
+  %68 = getelementptr [192 x i8], ptr %67, i64 %18
   tail call void @page_counter_charge(ptr noundef %68, i64 noundef %63) #9
   br label %69
 
@@ -1031,7 +1026,7 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
   %74 = getelementptr i8, ptr %9, i64 6088
   %75 = load i32, ptr @hugetlb_max_hstate, align 4
   %76 = sext i32 %75 to i64
-  %77 = getelementptr %struct.hstate, ptr @hstates, i64 %76
+  %77 = getelementptr [6088 x i8], ptr @hstates, i64 %76
   %78 = icmp ult ptr %74, %77
   br i1 %78, label %.preheader10, label %.loopexit11, !llvm.loop !29
 
@@ -1039,7 +1034,7 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
   %79 = tail call i32 @__SCT__cond_resched() #9
   %80 = load i32, ptr @hugetlb_max_hstate, align 4
   %81 = sext i32 %80 to i64
-  %82 = getelementptr %struct.hstate, ptr @hstates, i64 %81
+  %82 = getelementptr [6088 x i8], ptr @hstates, i64 %81
   %83 = icmp ugt ptr %82, @hstates
   br i1 %83, label %84, label %.critedge
 
@@ -1060,7 +1055,7 @@ define internal void @hugetlb_cgroup_css_offline(ptr noundef %0) #0 align 16 {
   %93 = sdiv exact i64 %92, 6088
   %94 = shl i64 %93, 32
   %95 = ashr exact i64 %94, 32
-  %96 = getelementptr %struct.page_counter, ptr %3, i64 %95
+  %96 = getelementptr [192 x i8], ptr %3, i64 %95
   %97 = load volatile i64, ptr %96, align 8
   %98 = icmp eq i64 %97, 0
   br i1 %98, label %.preheader, label %.loopexit9, !llvm.loop !30
@@ -1091,7 +1086,7 @@ define internal void @hugetlb_cgroup_css_free(ptr noundef %0) #0 align 16 {
 10:                                               ; preds = %23, %8
   %11 = phi i32 [ %6, %8 ], [ %25, %23 ]
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr ptr, ptr %9, i64 %12
+  %13 = getelementptr [8 x i8], ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8
   tail call void @kfree(ptr noundef %14) #9
   %15 = icmp eq i32 %11, 63
@@ -1138,7 +1133,7 @@ define internal fastcc void @__hugetlb_cgroup_file_dfl_init(i32 noundef %0) unna
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !6
   %3 = sext i32 %0 to i64
-  %4 = getelementptr %struct.hstate, ptr @hstates, i64 %3
+  %4 = getelementptr [6088 x i8], ptr @hstates, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = zext nneg i32 %6 to i64
@@ -1249,7 +1244,7 @@ define internal fastcc void @__hugetlb_cgroup_file_legacy_init(i32 noundef %0) u
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !6
   %3 = sext i32 %0 to i64
-  %4 = getelementptr %struct.hstate, ptr @hstates, i64 %3
+  %4 = getelementptr [6088 x i8], ptr @hstates, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = zext nneg i32 %6 to i64
@@ -1379,7 +1374,7 @@ define internal noundef i32 @hugetlb_cgroup_read_u64_max(ptr noundef %0, ptr rea
   %10 = load i64, ptr %9, align 8
   %11 = lshr i64 %10, 16
   %12 = and i64 %11, 65535
-  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %12
+  %.split = getelementptr [6088 x i8], ptr @hstates, i64 %12
   %13 = getelementptr i8, ptr %.split, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = shl nsw i32 -1, %14
@@ -1397,7 +1392,7 @@ define internal noundef i32 @hugetlb_cgroup_read_u64_max(ptr noundef %0, ptr rea
 18:                                               ; preds = %17, %2
   %19 = phi i64 [ 256, %2 ], [ 640, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 %19
-  %21 = getelementptr %struct.page_counter, ptr %20, i64 %12
+  %21 = getelementptr [192 x i8], ptr %20, i64 %12
   %22 = load volatile i64, ptr %21, align 8
   %23 = shl i64 %22, 12
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i64 noundef %23) #9
@@ -1409,7 +1404,7 @@ define internal noundef i32 @hugetlb_cgroup_read_u64_max(ptr noundef %0, ptr rea
 25:                                               ; preds = %24, %2
   %26 = phi i64 [ 256, %2 ], [ 640, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 %26
-  %.split1 = getelementptr %struct.page_counter, ptr %27, i64 %12
+  %.split1 = getelementptr [192 x i8], ptr %27, i64 %12
   %28 = getelementptr i8, ptr %.split1, i64 152
   %29 = load i64, ptr %28, align 8
   %30 = sext i32 %15 to i64
@@ -1454,7 +1449,7 @@ define internal noundef i32 @hugetlb_events_show(ptr noundef %0, ptr readnone ca
   %11 = lshr i64 %10, 16
   %12 = and i64 %11, 65535
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 1024
-  %14 = getelementptr [1 x %struct.atomic64_t], ptr %13, i64 %12
+  %14 = getelementptr [8 x i8], ptr %13, i64 %12
   %15 = load volatile i64, ptr %14, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %15) #9
   ret i32 0
@@ -1473,7 +1468,7 @@ define internal noundef i32 @hugetlb_events_local_show(ptr noundef %0, ptr readn
   %11 = lshr i64 %10, 16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 1040
   %13 = and i64 %11, 65535
-  %14 = getelementptr [1 x %struct.atomic64_t], ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load volatile i64, ptr %14, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %15) #9
   ret i32 0
@@ -1515,9 +1510,9 @@ define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr r
   %26 = phi i32 [ %20, %22 ], [ %43, %41 ]
   %27 = phi i64 [ 0, %22 ], [ %33, %41 ]
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr ptr, ptr %23, i64 %28
+  %29 = getelementptr [8 x i8], ptr %23, i64 %28
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr i64, ptr %30, i64 %24
+  %31 = getelementptr [8 x i8], ptr %30, i64 %24
   %32 = load volatile i64, ptr %31, align 8
   %33 = add i64 %32, %27
   %34 = icmp eq i32 %26, 63
@@ -1562,9 +1557,9 @@ define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr r
 56:                                               ; preds = %72, %53
   %57 = phi i32 [ %51, %53 ], [ %74, %72 ]
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr ptr, ptr %54, i64 %58
+  %59 = getelementptr [8 x i8], ptr %54, i64 %58
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr i64, ptr %60, i64 %55
+  %61 = getelementptr [8 x i8], ptr %60, i64 %55
   %62 = load volatile i64, ptr %61, align 8
   %63 = shl i64 %62, 12
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %57, i64 noundef %63) #9
@@ -1594,7 +1589,7 @@ define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr r
   %77 = phi ptr [ @.str.18, %.thread14 ], [ @.str.19, %2 ]
   %78 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %79 = zext nneg i32 %11 to i64
-  %80 = getelementptr %struct.page_counter, ptr %78, i64 %79
+  %80 = getelementptr [192 x i8], ptr %78, i64 %79
   %81 = load volatile i64, ptr %80, align 8
   %82 = shl i64 %81, 12
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %77, i64 noundef %82) #9
@@ -1623,9 +1618,9 @@ define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr r
   %95 = phi i64 [ 0, %92 ], [ %102, %94 ]
   %96 = phi ptr [ %90, %92 ], [ %103, %94 ]
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1280
-  %98 = getelementptr ptr, ptr %97, i64 %93
+  %98 = getelementptr [8 x i8], ptr %97, i64 %93
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr i64, ptr %99, i64 %79
+  %100 = getelementptr [8 x i8], ptr %99, i64 %79
   %101 = load volatile i64, ptr %100, align 8
   %102 = add i64 %101, %95
   %103 = tail call ptr @css_next_descendant_pre(ptr noundef nonnull %96, ptr noundef %14) #9
@@ -1704,7 +1699,7 @@ define internal fastcc i64 @hugetlb_cgroup_write(ptr noundef %0, ptr noundef %1,
   %21 = lshr i64 %20, 16
   %22 = load i64, ptr %5, align 8
   %23 = and i64 %21, 65535
-  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %23
+  %.split = getelementptr [6088 x i8], ptr @hstates, i64 %23
   %24 = getelementptr i8, ptr %.split, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = shl nsw i32 -1, %25
@@ -1725,7 +1720,7 @@ define internal fastcc i64 @hugetlb_cgroup_write(ptr noundef %0, ptr noundef %1,
   %.v.v = phi i64 [ 256, %15 ], [ 640, %31 ]
   call void @mutex_lock(ptr noundef nonnull @hugetlb_limit_mutex) #9
   %.v = getelementptr inbounds nuw i8, ptr %6, i64 %.v.v
-  %33 = getelementptr %struct.page_counter, ptr %.v, i64 %23
+  %33 = getelementptr [192 x i8], ptr %.v, i64 %23
   %34 = load i64, ptr %5, align 8
   %35 = call i32 @page_counter_set_max(ptr noundef %33, i64 noundef %34) #9
   %.fr = freeze i32 %35
@@ -1769,9 +1764,9 @@ define internal i64 @hugetlb_cgroup_read_u64(ptr noundef %0, ptr noundef readonl
   %5 = load i64, ptr %4, align 8
   %6 = lshr i64 %5, 16
   %7 = and i64 %6, 65535
-  %8 = getelementptr %struct.page_counter, ptr %3, i64 %7
+  %8 = getelementptr [192 x i8], ptr %3, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %10 = getelementptr %struct.page_counter, ptr %9, i64 %7
+  %10 = getelementptr [192 x i8], ptr %9, i64 %7
   %11 = trunc i64 %5 to i16
   switch i16 %11, label %40 [
     i16 0, label %12
@@ -1855,9 +1850,9 @@ define internal noundef i64 @hugetlb_cgroup_reset(ptr noundef %0, ptr readnone c
   %11 = load i64, ptr %10, align 8
   %12 = lshr i64 %11, 16
   %13 = and i64 %12, 65535
-  %14 = getelementptr %struct.page_counter, ptr %6, i64 %13
+  %14 = getelementptr [192 x i8], ptr %6, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 640
-  %16 = getelementptr %struct.page_counter, ptr %15, i64 %13
+  %16 = getelementptr [192 x i8], ptr %15, i64 %13
   %17 = trunc i64 %11 to i16
   switch i16 %17, label %28 [
     i16 4, label %18

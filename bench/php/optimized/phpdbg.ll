@@ -1188,17 +1188,17 @@ define internal fastcc void @phpdbg_oplog_fill_executable(ptr noundef readonly c
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !122
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct._zend_op, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !123
   %13 = lshr i32 %12, 14
   %.lobit = and i32 %13, 1
   %14 = zext nneg i32 %.lobit to i64
-  %15 = getelementptr inbounds nuw %struct._zend_op, ptr %10, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = load i32, ptr %16, align 8, !tbaa !124
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct._zend_op, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2063,7 +2063,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.3190 = phi ptr [ %54, %53 ], [ %56, %55 ]
   %58 = load ptr, ptr %4, align 8, !tbaa !57
   %59 = call noalias ptr @strdup(ptr noundef %58) #27
-  %60 = getelementptr inbounds nuw ptr, ptr %.3190, i64 %.1192
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.3190, i64 %.1192
   store ptr %59, ptr %60, align 8, !tbaa !57
   br label %89
 
@@ -2169,7 +2169,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 98:                                               ; preds = %97
   %99 = sext i32 %95 to i64
-  %100 = getelementptr inbounds ptr, ptr %1, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %1, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !57
   %char0 = load i8, ptr %101, align 1
   %.not300 = icmp eq i8 %char0, 0
@@ -2211,7 +2211,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %108, %.preheader
   %.0264377 = phi i64 [ %115, %.preheader ], [ 0, %108 ]
-  %111 = getelementptr inbounds nuw ptr, ptr %.1188, i64 %.0264377
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.1188, i64 %.0264377
   %112 = load ptr, ptr %111, align 8, !tbaa !57
   %113 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %112) #30
   call void @php_ini_builder_unquoted(ptr noundef nonnull %3, ptr noundef nonnull @.str.25, i64 noundef 14, ptr noundef nonnull %112, i64 noundef %113) #27
@@ -2448,11 +2448,11 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
   %193 = add i32 %192, -1
   %194 = add i32 %193, %191
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds ptr, ptr %1, i64 %195
+  %196 = getelementptr inbounds [8 x i8], ptr %1, i64 %195
   %197 = load ptr, ptr %196, align 8, !tbaa !57
   %198 = call noalias ptr @_estrdup(ptr noundef %197) #27
   %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 144), align 8, !tbaa !220
-  %200 = getelementptr inbounds ptr, ptr %199, i64 %indvars.iv
+  %200 = getelementptr inbounds [8 x i8], ptr %199, i64 %indvars.iv
   store ptr %198, ptr %200, align 8, !tbaa !57
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not309 = icmp eq i64 %indvars.iv.next, 0
@@ -2904,7 +2904,7 @@ phpdbg_welcome.exit:                              ; preds = %248, %245, %238, %2
   %indvars.iv389 = phi i64 [ %384, %.lr.ph382.preheader ], [ %indvars.iv.next390, %.lr.ph382 ]
   %indvars.iv.next390 = add nsw i64 %indvars.iv389, -1
   %385 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 144), align 8, !tbaa !220
-  %386 = getelementptr inbounds ptr, ptr %385, i64 %indvars.iv.next390
+  %386 = getelementptr inbounds [8 x i8], ptr %385, i64 %indvars.iv.next390
   %387 = load ptr, ptr %386, align 8, !tbaa !57
   call void @_efree(ptr noundef %387) #27
   %.not325 = icmp eq i64 %indvars.iv.next390, 0

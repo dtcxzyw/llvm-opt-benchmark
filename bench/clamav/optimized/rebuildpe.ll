@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/rebuildpe.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cli_exe_section = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [329 x i8] c"MZ\90\00\02\00\00\00\04\00\0F\00\FF\FF\00\00\B0\00\00\00\00\00\00\00@\00\1A\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\D0\00\00\00\0E\1F\B4\09\BA\0D\00\CD!\B4L\CD!This file was created by ClamAV for internal use and should not be run.\0D\0AClamAV - A GPL virus scanner - http://www.clamav.net\0D\0A$\00\00\00PE\00\00L\01\FF\FFCLAM\00\00\00\00\00\00\00\00\E0\00\83\8F\0B\01\00\00\00\10\00\00\00\10\00\00\00\00\00\00\FF\FF\FF\FF\00\10\00\00\00\10\00\00\FF\FF\FF\FF\00\10\00\00\00\02\00\00\01\00\00\00\00\00\00\00\03\00\0A\00\00\00\00\00\00\10\00\00\00\04\00\00\00\00\00\00\02\00\00\00\00\00\10\00\00\10\00\00\00\00\10\00\00\10\00\00\00\00\00\00\10\00\00\00\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"empty\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c".clam%.2d\00", align 1
@@ -74,7 +72,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
 .lr.ph234:                                        ; preds = %.lr.ph234.preheader, %.lr.ph234
   %indvars.iv248 = phi i64 [ 0, %.lr.ph234.preheader ], [ %indvars.iv.next249, %.lr.ph234 ]
   %.0203233 = phi i32 [ 0, %.lr.ph234.preheader ], [ %45, %.lr.ph234 ]
-  %38 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv248
+  %38 = getelementptr inbounds nuw [36 x i8], ptr %1, i64 %indvars.iv248
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !8
   %41 = and i32 %40, 511
@@ -90,7 +88,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.2231 = phi i32 [ 0, %.lr.ph.preheader ], [ %59, %.lr.ph ]
-  %46 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [36 x i8], ptr %1, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %48 = load i32, ptr %47, align 4, !tbaa !8
   %49 = udiv i32 %48, %8
@@ -195,7 +193,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   br label %99
 
 99:                                               ; preds = %97, %.lr.ph240.split.us
-  %100 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv258
+  %100 = getelementptr inbounds nuw [36 x i8], ptr %1, i64 %indvars.iv258
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i32, ptr %101, align 4, !tbaa !16
   %103 = getelementptr inbounds nuw i8, ptr %.1211236.us, i64 8
@@ -255,7 +253,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   br label %133
 
 133:                                              ; preds = %131, %.lr.ph240.split
-  %134 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv253
+  %134 = getelementptr inbounds nuw [36 x i8], ptr %1, i64 %indvars.iv253
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %136 = load i32, ptr %135, align 4, !tbaa !16
   %137 = udiv i32 %136, %8

@@ -474,13 +474,13 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
 .preheader129.us.us:                              ; preds = %.preheader129.us.us.preheader, %._crit_edge151.us.us
   %104 = phi i32 [ %113, %._crit_edge151.us.us ], [ %100, %.preheader129.us.us.preheader ]
   %.3153.us.us = phi ptr [ %112, %._crit_edge151.us.us ], [ %99, %.preheader129.us.us.preheader ]
-  %105 = getelementptr inbounds nuw i16, ptr %.3153.us.us, i64 %63
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %.3153.us.us, i64 %63
   %.pre188 = load i16, ptr %105, align 2, !tbaa !21
   br label %108
 
 106:                                              ; preds = %..preheader_crit_edge.us.us, %106
   %indvars.iv183 = phi i64 [ %103, %..preheader_crit_edge.us.us ], [ %indvars.iv.next184, %106 ]
-  %107 = getelementptr inbounds i16, ptr %.3153.us.us, i64 %indvars.iv183
+  %107 = getelementptr inbounds [2 x i8], ptr %.3153.us.us, i64 %indvars.iv183
   store i16 %.pre189, ptr %107, align 2, !tbaa !21
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
   %lftr.wideiv185 = trunc i64 %indvars.iv.next184 to i32
@@ -489,14 +489,14 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
 
 108:                                              ; preds = %.preheader129.us.us, %108
   %indvars.iv177 = phi i64 [ 0, %.preheader129.us.us ], [ %indvars.iv.next178, %108 ]
-  %109 = getelementptr inbounds nuw i16, ptr %.3153.us.us, i64 %indvars.iv177
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %.3153.us.us, i64 %indvars.iv177
   store i16 %.pre188, ptr %109, align 2, !tbaa !21
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count181
   br i1 %exitcond182.not, label %..preheader_crit_edge.us.us, label %108, !llvm.loop !24
 
 ..preheader_crit_edge.us.us:                      ; preds = %108
-  %110 = getelementptr i16, ptr %.3153.us.us, i64 %103
+  %110 = getelementptr [2 x i8], ptr %.3153.us.us, i64 %103
   %111 = getelementptr i8, ptr %110, i64 -2
   %.pre189 = load i16, ptr %111, align 2, !tbaa !21
   br label %106
@@ -510,14 +510,14 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
 .preheader129.us:                                 ; preds = %.preheader129.lr.ph.split.us, %._crit_edge151.us
   %114 = phi i32 [ %120, %._crit_edge151.us ], [ %100, %.preheader129.lr.ph.split.us ]
   %.3153.us = phi ptr [ %119, %._crit_edge151.us ], [ %99, %.preheader129.lr.ph.split.us ]
-  %115 = getelementptr i16, ptr %.3153.us, i64 %103
+  %115 = getelementptr [2 x i8], ptr %.3153.us, i64 %103
   %116 = getelementptr i8, ptr %115, i64 -2
   %.pre187 = load i16, ptr %116, align 2, !tbaa !21
   br label %117
 
 117:                                              ; preds = %.preheader129.us, %117
   %indvars.iv174 = phi i64 [ %103, %.preheader129.us ], [ %indvars.iv.next175, %117 ]
-  %118 = getelementptr inbounds i16, ptr %.3153.us, i64 %indvars.iv174
+  %118 = getelementptr inbounds [2 x i8], ptr %.3153.us, i64 %indvars.iv174
   store i16 %.pre187, ptr %118, align 2, !tbaa !21
   %indvars.iv.next175 = add nsw i64 %indvars.iv174, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next175 to i32
@@ -541,13 +541,13 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
 .preheader129.us154:                              ; preds = %.preheader129.us154.preheader, %..preheader_crit_edge.us160
   %121 = phi i32 [ %126, %..preheader_crit_edge.us160 ], [ %100, %.preheader129.us154.preheader ]
   %.3153.us155 = phi ptr [ %125, %..preheader_crit_edge.us160 ], [ %99, %.preheader129.us154.preheader ]
-  %122 = getelementptr inbounds nuw i16, ptr %.3153.us155, i64 %63
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %.3153.us155, i64 %63
   %.pre = load i16, ptr %122, align 2, !tbaa !21
   br label %123
 
 123:                                              ; preds = %.preheader129.us154, %123
   %indvars.iv = phi i64 [ 0, %.preheader129.us154 ], [ %indvars.iv.next, %123 ]
-  %124 = getelementptr inbounds nuw i16, ptr %.3153.us155, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %.3153.us155, i64 %indvars.iv
   store i16 %.pre, ptr %124, align 2, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

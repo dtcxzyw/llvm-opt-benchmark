@@ -6,14 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.RVMapDesc = type { i8, i8, [256 x i8], [256 x i8] }
 %struct.IVIPicConfig = type { i16, i16, i16, i16, i16, i16, i8, i8 }
-%struct.IVIPlaneDesc = type { i16, i16, i8, ptr }
-%struct.IVIBandDesc = type { i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, ptr, [4 x ptr], i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, %struct.IVIHuffTab, i32, [122 x i8], i32, ptr, i32, ptr, ptr, i32, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
-%struct.IVIHuffTab = type { i32, ptr, %struct.IVIHuffDesc, %struct.VLC }
-%struct.IVIHuffDesc = type { i32, [16 x i8] }
-%struct.VLC = type { i32, ptr, i32, i32 }
-%struct.VLCElem = type { %union.anon.1 }
-%union.anon.1 = type { %struct.anon }
-%struct.anon = type { i16, i16 }
 
 @.str = private unnamed_addr constant [7 x i8] c"indeo5\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"Intel Indeo Video Interactive 5\00", align 1
@@ -514,7 +506,7 @@ ivi_pic_config_cmp.exit.thread.i:                 ; preds = %224, %ivi_pic_confi
   br i1 %.not243.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader218.i
-  %235 = getelementptr inbounds nuw %struct.IVIPlaneDesc, ptr %0, i64 %indvars.iv260.i
+  %235 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv260.i
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 4728
   %237 = load ptr, ptr %236, align 8, !tbaa !78
   %238 = load ptr, ptr %0, align 8, !tbaa !59
@@ -546,7 +538,7 @@ ivi_pic_config_cmp.exit.thread.i:                 ; preds = %224, %ivi_pic_confi
 250:                                              ; preds = %245, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %245 ]
   %251 = phi i32 [ %.promoted.i, %.lr.ph.i ], [ %370, %245 ]
-  %252 = getelementptr inbounds nuw %struct.IVIBandDesc, ptr %237, i64 %indvars.iv.i
+  %252 = getelementptr inbounds nuw [456 x i8], ptr %237, i64 %indvars.iv.i
   %253 = lshr i32 %251, 3
   %254 = zext nneg i32 %253 to i64
   %255 = getelementptr inbounds nuw i8, ptr %238, i64 %254
@@ -739,10 +731,10 @@ ivi_pic_config_cmp.exit.thread.i:                 ; preds = %224, %ivi_pic_confi
 
 349:                                              ; preds = %346
   %350 = zext nneg i32 %.0173.i to i64
-  %351 = getelementptr inbounds nuw [64 x i16], ptr @ivi5_base_quant_8x8_intra, i64 %350
+  %351 = getelementptr inbounds nuw [128 x i8], ptr @ivi5_base_quant_8x8_intra, i64 %350
   %352 = getelementptr inbounds nuw i8, ptr %252, i64 424
   store ptr %351, ptr %352, align 8, !tbaa !94
-  %353 = getelementptr inbounds nuw [64 x i16], ptr @ivi5_base_quant_8x8_inter, i64 %350
+  %353 = getelementptr inbounds nuw [128 x i8], ptr @ivi5_base_quant_8x8_inter, i64 %350
   %354 = getelementptr inbounds nuw i8, ptr %252, i64 432
   store ptr %353, ptr %354, align 8, !tbaa !95
   %355 = getelementptr inbounds nuw [24 x i8], ptr @ivi5_scale_quant_8x8_intra, i64 %350
@@ -789,8 +781,8 @@ ivi_pic_config_cmp.exit.thread.i:                 ; preds = %224, %ivi_pic_confi
 
 376:                                              ; preds = %376, %.lr.ph240.i
   %indvars.iv263.i = phi i64 [ 0, %.lr.ph240.i ], [ %indvars.iv.next264.i, %376 ]
-  %377 = getelementptr inbounds nuw %struct.IVIBandDesc, ptr %242, i64 %indvars.iv263.i
-  %378 = getelementptr inbounds nuw %struct.IVIBandDesc, ptr %244, i64 %indvars.iv263.i
+  %377 = getelementptr inbounds nuw [456 x i8], ptr %242, i64 %indvars.iv263.i
+  %378 = getelementptr inbounds nuw [456 x i8], ptr %244, i64 %indvars.iv263.i
   %379 = getelementptr inbounds nuw i8, ptr %377, i64 8
   %380 = load i32, ptr %379, align 8, !tbaa !99
   %381 = getelementptr inbounds nuw i8, ptr %378, i64 8
@@ -1621,7 +1613,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   %109 = lshr i32 %107, %108
   %110 = and i32 %109, 8191
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw %struct.VLCElem, ptr %103, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 2
   %114 = load i16, ptr %113, align 2, !tbaa !60
   %115 = sext i16 %114 to i32
@@ -1792,7 +1784,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   %220 = lshr i32 %218, %219
   %221 = and i32 %220, 8191
   %222 = zext nneg i32 %221 to i64
-  %223 = getelementptr inbounds nuw %struct.VLCElem, ptr %214, i64 %222
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 2
   %225 = load i16, ptr %224, align 2, !tbaa !60
   %226 = sext i16 %225 to i32
@@ -1836,7 +1828,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   %249 = lshr i32 %247, %248
   %250 = and i32 %249, 8191
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr inbounds nuw %struct.VLCElem, ptr %243, i64 %251
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %243, i64 %251
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 2
   %254 = load i16, ptr %253, align 2, !tbaa !60
   %255 = sext i16 %254 to i32
@@ -1857,7 +1849,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   %269 = lshr i32 %267, %268
   %270 = and i32 %269, 8191
   %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds nuw %struct.VLCElem, ptr %243, i64 %271
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %243, i64 %271
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 2
   %274 = load i16, ptr %273, align 2, !tbaa !60
   %275 = sext i16 %274 to i32

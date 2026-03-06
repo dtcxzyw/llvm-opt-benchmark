@@ -17,9 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_iop_splittoning_params_t = type { float, float, float, float, float, float }
 %struct._GdkRGBA = type { double, double, double, double }
 %struct.dt_iop_module_section_t = type { i32, ptr, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"split-toning\00", align 1
 @.str.1 = private unnamed_addr constant [113 x i8] c"use two specific colors for shadows and highlights and\0Acreate a linear toning effect between them up to a pivot.\00", align 1
@@ -288,7 +285,7 @@ rgb2hsl.exit.lr.ph:                               ; preds = %14
 
 rgb2hsl.exit:                                     ; preds = %rgb2hsl.exit.lr.ph, %248
   %indvars.iv = phi i64 [ 0, %rgb2hsl.exit.lr.ph ], [ %indvars.iv.next, %248 ]
-  %85 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %86 = load float, ptr %85, align 16, !tbaa !84
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %88 = load float, ptr %87, align 4, !tbaa !84
@@ -420,7 +417,7 @@ hsl2rgb.exit:                                     ; preds = %99, %hue2rgb.exit38
   br label %156
 
 154:                                              ; preds = %167
-  %155 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %.val = load <4 x float>, ptr %8, align 16, !tbaa !85
   store <4 x float> %.val, ptr %155, align 16, !tbaa !85, !alias.scope !86, !nontemporal !89
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -429,9 +426,9 @@ hsl2rgb.exit:                                     ; preds = %99, %hue2rgb.exit38
 
 156:                                              ; preds = %152, %167
   %.094123 = phi i64 [ 0, %152 ], [ %170, %167 ]
-  %gep122 = getelementptr inbounds nuw float, ptr %85, i64 %.094123
+  %gep122 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %.094123
   %157 = load float, ptr %gep122, align 4, !tbaa !84
-  %158 = getelementptr inbounds nuw float, ptr %7, i64 %.094123
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.094123
   %159 = load float, ptr %158, align 4, !tbaa !84
   %160 = fsub reassoc nsz arcp contract afn float %159, %157
   %161 = fmul reassoc nsz arcp contract afn float %160, %153
@@ -448,7 +445,7 @@ hsl2rgb.exit:                                     ; preds = %99, %hue2rgb.exit38
 
 167:                                              ; preds = %156, %166, %164
   %168 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %164 ], [ %162, %166 ], [ 0.000000e+00, %156 ]
-  %169 = getelementptr inbounds nuw float, ptr %8, i64 %.094123
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.094123
   store float %168, ptr %169, align 4, !tbaa !84
   %170 = add nuw nsw i64 %.094123, 1
   %exitcond127.not = icmp eq i64 %170, 4
@@ -575,7 +572,7 @@ hsl2rgb.exit112:                                  ; preds = %174, %hue2rgb.exit3
   br label %231
 
 229:                                              ; preds = %242
-  %230 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %.val102 = load <4 x float>, ptr %10, align 16, !tbaa !85
   store <4 x float> %.val102, ptr %230, align 16, !tbaa !85, !alias.scope !90, !nontemporal !89
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -584,9 +581,9 @@ hsl2rgb.exit112:                                  ; preds = %174, %hue2rgb.exit3
 
 231:                                              ; preds = %227, %242
   %.0120 = phi i64 [ 0, %227 ], [ %245, %242 ]
-  %gep = getelementptr inbounds nuw float, ptr %85, i64 %.0120
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %.0120
   %232 = load float, ptr %gep, align 4, !tbaa !84
-  %233 = getelementptr inbounds nuw float, ptr %9, i64 %.0120
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.0120
   %234 = load float, ptr %233, align 4, !tbaa !84
   %235 = fsub reassoc nsz arcp contract afn float %234, %232
   %236 = fmul reassoc nsz arcp contract afn float %235, %228
@@ -603,14 +600,14 @@ hsl2rgb.exit112:                                  ; preds = %174, %hue2rgb.exit3
 
 242:                                              ; preds = %231, %241, %239
   %243 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %239 ], [ %237, %241 ], [ 0.000000e+00, %231 ]
-  %244 = getelementptr inbounds nuw float, ptr %10, i64 %.0120
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.0120
   store float %243, ptr %244, align 4, !tbaa !84
   %245 = add nuw nsw i64 %.0120, 1
   %exitcond.not = icmp eq i64 %245, 4
   br i1 %exitcond.not, label %229, label %231
 
 246:                                              ; preds = %171
-  %247 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %.val103 = load <4 x float>, ptr %85, align 16, !tbaa !85
   store <4 x float> %.val103, ptr %247, align 16, !tbaa !85, !alias.scope !93, !nontemporal !89
   br label %248
@@ -1997,7 +1994,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

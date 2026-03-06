@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i64 }
 %"struct.google::protobuf::internal::ArenaImpl::ThreadCache" = type { i64, i64, ptr, [40 x i8] }
-%"struct.google::protobuf::internal::SerialArena::CleanupNode" = type { ptr, ptr }
 %"class.google::protobuf::internal::LogMessage" = type { i32, ptr, i32, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -329,7 +328,7 @@ define void @_ZN6google8protobuf8internal9ArenaImplD2Ev(ptr noundef nonnull read
 
 .lr.ph.i.i.i:                                     ; preds = %13, %.noexc
   %.01219.i.i.i = phi i64 [ %21, %.noexc ], [ %.013.i.i.i, %13 ]
-  %17 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i.i.i, i64 %.01219.i.i.i
+  %17 = getelementptr [16 x i8], ptr %.014.i.i.i, i64 %.01219.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !57
   %20 = load ptr, ptr %17, align 8, !tbaa !59
@@ -486,7 +485,7 @@ define void @_ZN6google8protobuf8internal9ArenaImpl11CleanupListEv(ptr noundef n
 
 .lr.ph.i.i:                                       ; preds = %13, %.lr.ph.i.i
   %.01219.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ %.013.i.i, %13 ]
-  %17 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i.i, i64 %.01219.i.i
+  %17 = getelementptr [16 x i8], ptr %.014.i.i, i64 %.01219.i.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !57
   %20 = load ptr, ptr %17, align 8, !tbaa !59
@@ -590,7 +589,7 @@ define noundef i64 @_ZN6google8protobuf8internal9ArenaImpl5ResetEv(ptr noundef n
 
 .lr.ph.i.i.i:                                     ; preds = %25, %.lr.ph.i.i.i
   %.01219.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i ], [ %.013.i.i.i, %25 ]
-  %29 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i.i.i, i64 %.01219.i.i.i
+  %29 = getelementptr [16 x i8], ptr %.014.i.i.i, i64 %.01219.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !57
   %32 = load ptr, ptr %29, align 8, !tbaa !59
@@ -1451,7 +1450,7 @@ define void @_ZN6google8protobuf8internal11SerialArena11CleanupListEv(ptr nounde
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %.01219.i = phi i64 [ %20, %.lr.ph.i ], [ %.013.i, %12 ]
-  %16 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014.i, i64 %.01219.i
+  %16 = getelementptr [16 x i8], ptr %.014.i, i64 %.01219.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !57
   %19 = load ptr, ptr %16, align 8, !tbaa !59
@@ -1495,7 +1494,7 @@ define void @_ZN6google8protobuf8internal11SerialArena19CleanupListFallbackEv(pt
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %.01219 = phi i64 [ %19, %.lr.ph ], [ %.013, %11 ]
-  %15 = getelementptr %"struct.google::protobuf::internal::SerialArena::CleanupNode", ptr %.014, i64 %.01219
+  %15 = getelementptr [16 x i8], ptr %.014, i64 %.01219
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !57
   %18 = load ptr, ptr %15, align 8, !tbaa !59

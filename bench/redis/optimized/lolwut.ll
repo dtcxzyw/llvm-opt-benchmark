@@ -409,13 +409,13 @@ lwDrawLine.exit.preheader:                        ; preds = %21
   %24 = tail call double @llvm.fmuladd.f64(double %23, double %15, double %16)
   %25 = tail call double @llvm.round.f64(double %24)
   %26 = fptosi double %25 to i32
-  %27 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !10
   %28 = tail call double @cos(double noundef %22) #15, !tbaa !10
   %29 = tail call double @llvm.fmuladd.f64(double %28, double %15, double %17)
   %30 = tail call double @llvm.round.f64(double %29)
   %31 = fptosi double %30 to i32
-  %32 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %31, ptr %32, align 4, !tbaa !10
   %33 = fadd double %22, 0x3FF921FB54442D18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -433,15 +433,15 @@ lwDrawLine.exit.loopexit:                         ; preds = %lwDrawPixel.exit.i
 
 35:                                               ; preds = %lwDrawLine.exit.preheader, %lwDrawLine.exit.loopexit
   %indvars.iv27 = phi i64 [ 0, %lwDrawLine.exit.preheader ], [ %indvars.iv.next28, %lwDrawLine.exit.loopexit ]
-  %36 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv27
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv27
   %37 = load i32, ptr %36, align 4, !tbaa !10
-  %38 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv27
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv27
   %39 = load i32, ptr %38, align 4, !tbaa !10
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %40 = and i64 %indvars.iv.next28, 3
-  %41 = getelementptr inbounds nuw i32, ptr %7, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !10
-  %43 = getelementptr inbounds nuw i32, ptr %8, i64 %40
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %40
   %44 = load i32, ptr %43, align 4, !tbaa !10
   %45 = sub nsw i32 %42, %37
   %46 = tail call i32 @llvm.abs.i32(i32 %45, i1 true)

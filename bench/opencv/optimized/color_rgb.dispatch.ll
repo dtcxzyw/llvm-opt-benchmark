@@ -929,10 +929,10 @@ define hidden void @_ZN2cv3hal12cpu_baseline12cvtBGRtoGrayEPKhmPhmiiiib(ptr noun
 
 27:                                               ; preds = %27, %24
   %indvars.iv.i = phi i64 [ 0, %24 ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr @__const.RGB2Gray.coeffs0.31, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @__const.RGB2Gray.coeffs0.31, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4, !tbaa !85
   %30 = trunc i32 %29 to i16
-  %31 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %indvars.iv.i
   store i16 %30, ptr %31, align 2, !tbaa !83
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1056,10 +1056,10 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIhEC2EiiPKi.exit: ; preds = %36
 
 72:                                               ; preds = %72, %69
   %indvars.iv.i33 = phi i64 [ 0, %69 ], [ %indvars.iv.next.i34, %72 ]
-  %73 = getelementptr inbounds nuw i32, ptr @__const.RGB2Gray.coeffs0.31, i64 %indvars.iv.i33
+  %73 = getelementptr inbounds nuw [4 x i8], ptr @__const.RGB2Gray.coeffs0.31, i64 %indvars.iv.i33
   %74 = load i32, ptr %73, align 4, !tbaa !85
   %75 = trunc i32 %74 to i16
-  %76 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv.i33
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv.i33
   store i16 %75, ptr %76, align 2, !tbaa !83
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 3
@@ -4916,19 +4916,19 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %40 = load i16, ptr %39, align 2, !tbaa !83
   %41 = getelementptr inbounds nuw i8, ptr %.028.us.us.i.us.us.us, i64 4
   %42 = load i16, ptr %41, align 2, !tbaa !83
-  %43 = getelementptr inbounds i16, ptr %.02427.us.us.i.us.us.us, i64 %31
+  %43 = getelementptr inbounds [2 x i8], ptr %.02427.us.us.i.us.us.us, i64 %31
   store i16 %38, ptr %43, align 2, !tbaa !83
   %44 = getelementptr inbounds nuw i8, ptr %.02427.us.us.i.us.us.us, i64 2
   store i16 %40, ptr %44, align 2, !tbaa !83
-  %45 = getelementptr inbounds i16, ptr %.02427.us.us.i.us.us.us, i64 %33
+  %45 = getelementptr inbounds [2 x i8], ptr %.02427.us.us.i.us.us.us, i64 %33
   store i16 %42, ptr %45, align 2, !tbaa !83
   %46 = getelementptr inbounds nuw i8, ptr %.028.us.us.i.us.us.us, i64 6
   %47 = load i16, ptr %46, align 2, !tbaa !83
   %48 = getelementptr inbounds nuw i8, ptr %.02427.us.us.i.us.us.us, i64 6
   store i16 %47, ptr %48, align 2, !tbaa !83
   %49 = add nuw nsw i32 %.02526.us.us.i.us.us.us, 1
-  %50 = getelementptr inbounds nuw i16, ptr %.028.us.us.i.us.us.us, i64 %35
-  %51 = getelementptr inbounds nuw i16, ptr %.02427.us.us.i.us.us.us, i64 %36
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.028.us.us.i.us.us.us, i64 %35
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.02427.us.us.i.us.us.us, i64 %36
   %exitcond33.not.i.us.us.us = icmp eq i32 %49, %22
   br i1 %exitcond33.not.i.us.us.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBItEclEPKtPti.exit.loopexit.us.us.us, label %.lr.ph.split.us.split.us.i.us.us.us, !llvm.loop !309
 
@@ -4954,17 +4954,17 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBItEclEPKtPti.exit.loopexit.us.us.
   %57 = load i16, ptr %56, align 2, !tbaa !83
   %58 = getelementptr inbounds nuw i8, ptr %.028.us.i.us.us, i64 4
   %59 = load i16, ptr %58, align 2, !tbaa !83
-  %60 = getelementptr inbounds i16, ptr %.02427.us.i.us.us, i64 %31
+  %60 = getelementptr inbounds [2 x i8], ptr %.02427.us.i.us.us, i64 %31
   store i16 %55, ptr %60, align 2, !tbaa !83
   %61 = getelementptr inbounds nuw i8, ptr %.02427.us.i.us.us, i64 2
   store i16 %57, ptr %61, align 2, !tbaa !83
-  %62 = getelementptr inbounds i16, ptr %.02427.us.i.us.us, i64 %33
+  %62 = getelementptr inbounds [2 x i8], ptr %.02427.us.i.us.us, i64 %33
   store i16 %59, ptr %62, align 2, !tbaa !83
   %63 = getelementptr inbounds nuw i8, ptr %.02427.us.i.us.us, i64 6
   store i16 -1, ptr %63, align 2, !tbaa !83
   %64 = add nuw nsw i32 %.02526.us.i.us.us, 1
-  %65 = getelementptr inbounds i16, ptr %.028.us.i.us.us, i64 %35
-  %66 = getelementptr inbounds nuw i16, ptr %.02427.us.i.us.us, i64 %36
+  %65 = getelementptr inbounds [2 x i8], ptr %.028.us.i.us.us, i64 %35
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.02427.us.i.us.us, i64 %36
   %exitcond32.not.i.us.us = icmp eq i32 %64, %22
   br i1 %exitcond32.not.i.us.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBItEclEPKtPti.exit.loopexit14.us.us, label %.lr.ph.split.us.split.i.us.us, !llvm.loop !309
 
@@ -4990,15 +4990,15 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBItEclEPKtPti.exit.loopexit14.us.u
   %72 = load i16, ptr %71, align 2, !tbaa !83
   %73 = getelementptr inbounds nuw i8, ptr %.028.i.us, i64 4
   %74 = load i16, ptr %73, align 2, !tbaa !83
-  %75 = getelementptr inbounds i16, ptr %.02427.i.us, i64 %31
+  %75 = getelementptr inbounds [2 x i8], ptr %.02427.i.us, i64 %31
   store i16 %70, ptr %75, align 2, !tbaa !83
   %76 = getelementptr inbounds nuw i8, ptr %.02427.i.us, i64 2
   store i16 %72, ptr %76, align 2, !tbaa !83
-  %77 = getelementptr inbounds i16, ptr %.02427.i.us, i64 %33
+  %77 = getelementptr inbounds [2 x i8], ptr %.02427.i.us, i64 %33
   store i16 %74, ptr %77, align 2, !tbaa !83
   %78 = add nuw nsw i32 %.02526.i.us, 1
-  %79 = getelementptr inbounds i16, ptr %.028.i.us, i64 %35
-  %80 = getelementptr inbounds i16, ptr %.02427.i.us, i64 %36
+  %79 = getelementptr inbounds [2 x i8], ptr %.028.i.us, i64 %35
+  %80 = getelementptr inbounds [2 x i8], ptr %.02427.i.us, i64 %36
   %exitcond.not.i.us = icmp eq i32 %78, %22
   br i1 %exitcond.not.i.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBItEclEPKtPti.exit.loopexit15.us, label %.lr.ph.split.i.us, !llvm.loop !309
 
@@ -5103,19 +5103,19 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %40 = load float, ptr %39, align 4, !tbaa !109
   %41 = getelementptr inbounds nuw i8, ptr %.028.us.us.i.us.us.us, i64 8
   %42 = load float, ptr %41, align 4, !tbaa !109
-  %43 = getelementptr inbounds float, ptr %.02427.us.us.i.us.us.us, i64 %31
+  %43 = getelementptr inbounds [4 x i8], ptr %.02427.us.us.i.us.us.us, i64 %31
   store float %38, ptr %43, align 4, !tbaa !109
   %44 = getelementptr inbounds nuw i8, ptr %.02427.us.us.i.us.us.us, i64 4
   store float %40, ptr %44, align 4, !tbaa !109
-  %45 = getelementptr inbounds float, ptr %.02427.us.us.i.us.us.us, i64 %33
+  %45 = getelementptr inbounds [4 x i8], ptr %.02427.us.us.i.us.us.us, i64 %33
   store float %42, ptr %45, align 4, !tbaa !109
   %46 = getelementptr inbounds nuw i8, ptr %.028.us.us.i.us.us.us, i64 12
   %47 = load float, ptr %46, align 4, !tbaa !109
   %48 = getelementptr inbounds nuw i8, ptr %.02427.us.us.i.us.us.us, i64 12
   store float %47, ptr %48, align 4, !tbaa !109
   %49 = add nuw nsw i32 %.02526.us.us.i.us.us.us, 1
-  %50 = getelementptr inbounds nuw float, ptr %.028.us.us.i.us.us.us, i64 %35
-  %51 = getelementptr inbounds nuw float, ptr %.02427.us.us.i.us.us.us, i64 %36
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.028.us.us.i.us.us.us, i64 %35
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.02427.us.us.i.us.us.us, i64 %36
   %exitcond33.not.i.us.us.us = icmp eq i32 %49, %22
   br i1 %exitcond33.not.i.us.us.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBIfEclEPKfPfi.exit.loopexit.us.us.us, label %.lr.ph.split.us.split.us.i.us.us.us, !llvm.loop !311
 
@@ -5141,17 +5141,17 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBIfEclEPKfPfi.exit.loopexit.us.us.
   %57 = load float, ptr %56, align 4, !tbaa !109
   %58 = getelementptr inbounds nuw i8, ptr %.028.us.i.us.us, i64 8
   %59 = load float, ptr %58, align 4, !tbaa !109
-  %60 = getelementptr inbounds float, ptr %.02427.us.i.us.us, i64 %31
+  %60 = getelementptr inbounds [4 x i8], ptr %.02427.us.i.us.us, i64 %31
   store float %55, ptr %60, align 4, !tbaa !109
   %61 = getelementptr inbounds nuw i8, ptr %.02427.us.i.us.us, i64 4
   store float %57, ptr %61, align 4, !tbaa !109
-  %62 = getelementptr inbounds float, ptr %.02427.us.i.us.us, i64 %33
+  %62 = getelementptr inbounds [4 x i8], ptr %.02427.us.i.us.us, i64 %33
   store float %59, ptr %62, align 4, !tbaa !109
   %63 = getelementptr inbounds nuw i8, ptr %.02427.us.i.us.us, i64 12
   store float 1.000000e+00, ptr %63, align 4, !tbaa !109
   %64 = add nuw nsw i32 %.02526.us.i.us.us, 1
-  %65 = getelementptr inbounds float, ptr %.028.us.i.us.us, i64 %35
-  %66 = getelementptr inbounds nuw float, ptr %.02427.us.i.us.us, i64 %36
+  %65 = getelementptr inbounds [4 x i8], ptr %.028.us.i.us.us, i64 %35
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.02427.us.i.us.us, i64 %36
   %exitcond32.not.i.us.us = icmp eq i32 %64, %22
   br i1 %exitcond32.not.i.us.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBIfEclEPKfPfi.exit.loopexit14.us.us, label %.lr.ph.split.us.split.i.us.us, !llvm.loop !311
 
@@ -5177,15 +5177,15 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBIfEclEPKfPfi.exit.loopexit14.us.u
   %72 = load float, ptr %71, align 4, !tbaa !109
   %73 = getelementptr inbounds nuw i8, ptr %.028.i.us, i64 8
   %74 = load float, ptr %73, align 4, !tbaa !109
-  %75 = getelementptr inbounds float, ptr %.02427.i.us, i64 %31
+  %75 = getelementptr inbounds [4 x i8], ptr %.02427.i.us, i64 %31
   store float %70, ptr %75, align 4, !tbaa !109
   %76 = getelementptr inbounds nuw i8, ptr %.02427.i.us, i64 4
   store float %72, ptr %76, align 4, !tbaa !109
-  %77 = getelementptr inbounds float, ptr %.02427.i.us, i64 %33
+  %77 = getelementptr inbounds [4 x i8], ptr %.02427.i.us, i64 %33
   store float %74, ptr %77, align 4, !tbaa !109
   %78 = add nuw nsw i32 %.02526.i.us, 1
-  %79 = getelementptr inbounds float, ptr %.028.i.us, i64 %35
-  %80 = getelementptr inbounds float, ptr %.02427.i.us, i64 %36
+  %79 = getelementptr inbounds [4 x i8], ptr %.028.i.us, i64 %35
+  %80 = getelementptr inbounds [4 x i8], ptr %.02427.i.us, i64 %36
   %exitcond.not.i.us = icmp eq i32 %78, %22
   br i1 %exitcond.not.i.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBIfEclEPKfPfi.exit.loopexit15.us, label %.lr.ph.split.i.us, !llvm.loop !311
 
@@ -5885,7 +5885,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %53 = trunc i32 %52 to i16
   store i16 %53, ptr %.01720.i.us, align 2, !tbaa !83
   %54 = add nuw nsw i32 %.01819.i.us, 1
-  %55 = getelementptr inbounds i16, ptr %.021.i.us, i64 %30
+  %55 = getelementptr inbounds [2 x i8], ptr %.021.i.us, i64 %30
   %56 = getelementptr inbounds nuw i8, ptr %.01720.i.us, i64 2
   %exitcond.not.i.us = icmp eq i32 %54, %22
   br i1 %exitcond.not.i.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayItEclEPKtPti.exit.loopexit.us, label %37, !llvm.loop !321
@@ -5989,7 +5989,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %42 = call float @llvm.fmuladd.f32(float %41, float %33, float %39)
   store float %42, ptr %.01316.i.us, align 4, !tbaa !109
   %43 = add nuw nsw i32 %.01415.i.us, 1
-  %44 = getelementptr inbounds float, ptr %.017.i.us, i64 %30
+  %44 = getelementptr inbounds [4 x i8], ptr %.017.i.us, i64 %30
   %45 = getelementptr inbounds nuw i8, ptr %.01316.i.us, i64 4
   %exitcond.not.i.us = icmp eq i32 %43, %24
   br i1 %exitcond.not.i.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEclEPKfPfi.exit.loopexit.us, label %34, !llvm.loop !324
@@ -6213,7 +6213,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   store i16 -1, ptr %31, align 2, !tbaa !83
   %32 = add nuw nsw i32 %.0132.us.i.us.us, 1
   %33 = getelementptr inbounds nuw i8, ptr %.03.us.i.us.us, i64 2
-  %34 = getelementptr inbounds nuw i16, ptr %.0141.us.i.us.us, i64 %27
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %.0141.us.i.us.us, i64 %27
   %exitcond5.not.i.us.us = icmp eq i32 %32, %22
   br i1 %exitcond5.not.i.us.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit.loopexit.us.us, label %.lr.ph.split.us.i.us.us, !llvm.loop !329
 
@@ -6242,7 +6242,7 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit.loopexit.us.us
   store i16 %38, ptr %.0141.i.us, align 2, !tbaa !83
   %41 = add nuw nsw i32 %.0132.i.us, 1
   %42 = getelementptr inbounds nuw i8, ptr %.03.i.us, i64 2
-  %43 = getelementptr inbounds i16, ptr %.0141.i.us, i64 %27
+  %43 = getelementptr inbounds [2 x i8], ptr %.0141.i.us, i64 %27
   %exitcond.not.i.us = icmp eq i32 %41, %22
   br i1 %exitcond.not.i.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit.loopexit12.us, label %.lr.ph.split.i.us, !llvm.loop !329
 
@@ -6340,7 +6340,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   store float 1.000000e+00, ptr %31, align 4, !tbaa !109
   %32 = add nuw nsw i32 %.0132.us.i.us.us, 1
   %33 = getelementptr inbounds nuw i8, ptr %.03.us.i.us.us, i64 4
-  %34 = getelementptr inbounds nuw float, ptr %.0141.us.i.us.us, i64 %27
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.0141.us.i.us.us, i64 %27
   %exitcond5.not.i.us.us = icmp eq i32 %32, %22
   br i1 %exitcond5.not.i.us.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit.loopexit.us.us, label %.lr.ph.split.us.i.us.us, !llvm.loop !331
 
@@ -6369,7 +6369,7 @@ _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit.loopexit.us.us
   store float %38, ptr %.0141.i.us, align 4, !tbaa !109
   %41 = add nuw nsw i32 %.0132.i.us, 1
   %42 = getelementptr inbounds nuw i8, ptr %.03.i.us, i64 4
-  %43 = getelementptr inbounds float, ptr %.0141.i.us, i64 %27
+  %43 = getelementptr inbounds [4 x i8], ptr %.0141.i.us, i64 %27
   %exitcond.not.i.us = icmp eq i32 %41, %22
   br i1 %exitcond.not.i.us, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEclEPKfPfi.exit.loopexit12.us, label %.lr.ph.split.i.us, !llvm.loop !331
 

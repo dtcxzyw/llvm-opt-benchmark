@@ -8,10 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
-%"class.nla::monic" = type <{ %"class.nla::mon_eq", %class.svector, i8, [3 x i8], i32, i8, i8, [6 x i8] }>
-%"class.nla::mon_eq" = type { i32, %class.svector }
-%class.svector = type { %class.vector.16 }
-%class.vector.16 = type { ptr }
 %"class.nla::new_lemma" = type { ptr, ptr }
 %"class.nla::ineq" = type { i32, [4 x i8], %"class.lp::lar_term", %class.rational }
 %"class.lp::lar_term" = type { %class.u_map, i32, [4 x i8] }
@@ -19,10 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.map.83 = type { %class.table2map.84 }
 %class.table2map.84 = type { %class.core_hashtable.85 }
 %class.core_hashtable.85 = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"struct.lp::numeric_pair" = type { %class.rational, %class.rational }
 %struct._key_data = type { i32, %class.rational }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
 
 $_ZN8rationalD2Ev = comdat any
 
@@ -125,17 +118,17 @@ define hidden void @_ZN3nla8monotone18monotonicity_lemmaEv(ptr noundef nonnull a
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 296
   %12 = load ptr, ptr %11, align 8, !tbaa !39
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 4544
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 4552
   %18 = load ptr, ptr %17, align 8, !tbaa !39
   %19 = zext i32 %15 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !40
   %22 = load ptr, ptr %16, align 8, !tbaa !41
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.nla::monic", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %23
   tail call void @_ZN3nla8monotone18monotonicity_lemmaERKNS_5monicE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(34) %24)
   %25 = add nuw i32 %.08, 1
   %exitcond.not = icmp eq i32 %25, %5
@@ -637,7 +630,7 @@ _ZNK6vectorIjLb0EjE3endEv.exit:                   ; preds = %15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 536
   %39 = load ptr, ptr %38, align 8, !tbaa !197
   %40 = zext i32 %34 to i64
-  %41 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [64 x i8], ptr %39, i64 %40
   store i32 0, ptr %5, align 8, !tbaa !49
   %42 = load i8, ptr %26, align 4
   %43 = and i8 %42, -4
@@ -930,7 +923,7 @@ _ZNK6vectorIjLb0EjE3endEv.exit:                   ; preds = %16
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 536
   %40 = load ptr, ptr %39, align 8, !tbaa !197
   %41 = zext i32 %35 to i64
-  %42 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 %41
   store i32 0, ptr %5, align 8, !tbaa !49
   %43 = load i8, ptr %27, align 4
   %44 = and i8 %43, -4
@@ -1914,7 +1907,7 @@ define linkonce_odr hidden noundef ptr @_ZNK9table2mapI17default_map_entryIj8rat
   %.idx.i = mul nuw nsw i64 %13, 48
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %15 = zext i32 %9 to i64
-  %16 = getelementptr inbounds nuw %class.default_map_entry, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %15
   %.not30.i = icmp eq i32 %11, %9
   br i1 %.not30.i, label %.preheader.i, label %.lr.ph.i
 
@@ -2110,7 +2103,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %20, 48
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %22 = zext i32 %15 to i64
-  %23 = getelementptr inbounds nuw %class.default_map_entry, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %22
   %.not63 = icmp eq i32 %18, %15
   br i1 %.not63, label %.preheader, label %.lr.ph
 
@@ -2616,7 +2609,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %6, 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %8
   %.not38 = icmp eq i32 %1, 0
   br i1 %.not38, label %._crit_edge43, label %.lr.ph42
 
@@ -2987,7 +2980,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %9, 48
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw %class.default_map_entry, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %11
   %.not39 = icmp eq i32 %7, %5
   br i1 %.not39, label %.preheader, label %.lr.ph
 

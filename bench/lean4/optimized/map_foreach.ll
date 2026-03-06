@@ -72,7 +72,7 @@ define hidden void @_ZN4lean15hashmap_foreachEP11lean_objectRKSt8functionIFvS1_S
 
 11:                                               ; preds = %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %27, %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %.06.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.06.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !8
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i1
@@ -138,7 +138,7 @@ define hidden void @_ZN4lean12smap_foreachEP11lean_objectRKSt8functionIFvS1_S1_E
 
 14:                                               ; preds = %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i, %.lr.ph.i.i.i
   %.06.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %30, %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i ]
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06.i.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.06.i.i.i
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i1
@@ -217,7 +217,7 @@ define noundef nonnull ptr @lean_smap_foreach_test(ptr noundef readonly captures
 
 14:                                               ; preds = %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i.i, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %30, %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i.i ]
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %.06.i.i.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.06.i.i.i.i
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i1
@@ -401,7 +401,7 @@ define linkonce_odr hidden void @_ZN4lean19phashmap_visitor_fn10visit_nodeEP11le
 
 14:                                               ; preds = %.lr.ph, %_ZN4lean19phashmap_visitor_fn11visit_entryEP11lean_object.exit
   %.0.i9 = phi i64 [ 0, %.lr.ph ], [ %39, %_ZN4lean19phashmap_visitor_fn11visit_entryEP11lean_object.exit ]
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %.0.i9
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0.i9
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i1
@@ -476,9 +476,9 @@ _ZN4lean19phashmap_visitor_fn11visit_entryEP11lean_object.exit: ; preds = %_ZL12
 45:                                               ; preds = %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i, %.lr.ph.i
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %56, %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i ]
   %46 = load ptr, ptr %0, align 8, !tbaa !20
-  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %.08.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.08.i
   %48 = load ptr, ptr %47, align 8, !tbaa !8
-  %49 = getelementptr inbounds nuw ptr, ptr %44, i64 %.08.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.08.i
   %50 = load ptr, ptr %49, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

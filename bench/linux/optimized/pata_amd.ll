@@ -126,7 +126,7 @@ define internal i32 @amd_init_one(ptr noundef %0, ptr noundef readonly captures(
   %20 = icmp ugt i8 %19, 7
   %21 = select i1 %20, i32 2, i32 1
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr %struct.ata_port_info, ptr @amd_init_one.info, i64 %22
+  %23 = getelementptr [48 x i8], ptr @amd_init_one.info, i64 %22
   store ptr %23, ptr %4, align 16
   br label %39
 
@@ -146,14 +146,14 @@ define internal i32 @amd_init_one(ptr noundef %0, ptr noundef readonly captures(
 .thread3:                                         ; preds = %24, %28
   %.ph = phi i32 [ %32, %28 ], [ 5, %24 ]
   %33 = zext nneg i32 %.ph to i64
-  %34 = getelementptr %struct.ata_port_info, ptr @amd_init_one.info, i64 %33
+  %34 = getelementptr [48 x i8], ptr @amd_init_one.info, i64 %33
   store ptr %34, ptr %4, align 16
   br label %42
 
 35:                                               ; preds = %16
   %sext = shl i64 %8, 32
   %36 = ashr exact i64 %sext, 32
-  %37 = getelementptr %struct.ata_port_info, ptr @amd_init_one.info, i64 %36
+  %37 = getelementptr [48 x i8], ptr @amd_init_one.info, i64 %36
   store ptr %37, ptr %4, align 16
   %38 = icmp slt i32 %9, 3
   br i1 %38, label %39, label %42
@@ -617,7 +617,7 @@ define internal i32 @amd_pre_reset(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr %struct.pci_bits, ptr @amd_pre_reset.amd_enable_bits, i64 %11
+  %12 = getelementptr [24 x i8], ptr @amd_pre_reset.amd_enable_bits, i64 %11
   %13 = tail call i32 @pci_test_config_bits(ptr noundef %8, ptr noundef %12) #8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %15
@@ -694,7 +694,7 @@ define internal range(i32 1, 3) i32 @amd_cable_detect(ptr noundef readonly captu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr i32, ptr @amd_cable_detect.bitmask, i64 %13
+  %14 = getelementptr [4 x i8], ptr @amd_cable_detect.bitmask, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, %10
   %17 = icmp eq i32 %16, 0
@@ -772,7 +772,7 @@ define internal i32 @nv_mode_filter(ptr noundef %0, i32 noundef %1) #2 align 16 
 24:                                               ; preds = %2
   %25 = and i32 %21, 7
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr i32, ptr @nv_mode_filter.udma_mask_map, i64 %26
+  %27 = getelementptr [4 x i8], ptr @nv_mode_filter.udma_mask_map, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = tail call i32 @ata_pack_xfermask(i32 noundef 0, i32 noundef 0, i32 noundef %28) #8
   br label %30
@@ -826,7 +826,7 @@ define internal i32 @nv_pre_reset(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr %struct.pci_bits, ptr @nv_pre_reset.nv_enable_bits, i64 %11
+  %12 = getelementptr [24 x i8], ptr @nv_pre_reset.nv_enable_bits, i64 %11
   %13 = tail call i32 @pci_test_config_bits(ptr noundef %8, ptr noundef %12) #8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %15

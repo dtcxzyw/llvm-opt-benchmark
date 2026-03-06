@@ -1021,27 +1021,27 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   br label %331
 
 123:                                              ; preds = %97
-  %124 = getelementptr inbounds i16, ptr %100, i64 %102
+  %124 = getelementptr inbounds [2 x i8], ptr %100, i64 %102
   %.not.i259 = icmp ult i32 %105, 65536
   %125 = sext i1 %isnotneg.i260 to i16
   %126 = trunc nuw i32 %105 to i16
   %.0.i261 = select i1 %.not.i259, i16 %126, i16 %125
-  %127 = getelementptr inbounds nuw i16, ptr %124, i64 %107
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %107
   store i16 %.0.i261, ptr %127, align 2, !tbaa !77
   %128 = load i8, ptr %52, align 1, !tbaa !76
   %129 = zext i8 %128 to i64
-  %130 = getelementptr inbounds nuw i16, ptr %124, i64 %129
+  %130 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %129
   store i16 %.0.i264, ptr %130, align 2, !tbaa !77
   %131 = load i8, ptr %53, align 1, !tbaa !76
   %132 = zext i8 %131 to i64
-  %133 = getelementptr inbounds nuw i16, ptr %124, i64 %132
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %132
   store i16 %.0.i267, ptr %133, align 2, !tbaa !77
   br i1 %54, label %134, label %331
 
 134:                                              ; preds = %123
   %135 = load i8, ptr %55, align 1, !tbaa !76
   %136 = zext i8 %135 to i64
-  %137 = getelementptr inbounds nuw i16, ptr %124, i64 %136
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %136
   store i16 %50, ptr %137, align 2, !tbaa !77
   br label %331
 
@@ -1102,7 +1102,7 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %175 = sext i32 %174 to i64
   %176 = getelementptr inbounds i8, ptr %172, i64 %175
   %177 = sext i32 %.2323 to i64
-  %178 = getelementptr inbounds i16, ptr %176, i64 %177
+  %178 = getelementptr inbounds [2 x i8], ptr %176, i64 %177
   %179 = uitofp nneg i32 %.0324 to float
   %180 = fmul nsz float %42, %179
   %181 = fptosi float %180 to i32
@@ -1115,14 +1115,14 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %187 = mul nsw i32 %186, %.2247322
   %188 = sext i32 %187 to i64
   %189 = getelementptr inbounds i8, ptr %185, i64 %188
-  %190 = getelementptr inbounds i16, ptr %189, i64 %177
+  %190 = getelementptr inbounds [2 x i8], ptr %189, i64 %177
   store i16 %89, ptr %190, align 2, !tbaa !77
   %191 = load ptr, ptr %46, align 8, !tbaa !69
   %192 = load i32, ptr %47, align 4, !tbaa !70
   %193 = mul nsw i32 %192, %.2247322
   %194 = sext i32 %193 to i64
   %195 = getelementptr inbounds i8, ptr %191, i64 %194
-  %196 = getelementptr inbounds i16, ptr %195, i64 %177
+  %196 = getelementptr inbounds [2 x i8], ptr %195, i64 %177
   store i16 %69, ptr %196, align 2, !tbaa !77
   br i1 %48, label %197, label %331
 
@@ -1131,7 +1131,7 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %199 = sext i32 %.2247322 to i64
   %200 = mul nsw i64 %199, %15
   %201 = getelementptr inbounds i8, ptr %198, i64 %200
-  %202 = getelementptr inbounds i16, ptr %201, i64 %177
+  %202 = getelementptr inbounds [2 x i8], ptr %201, i64 %177
   store i16 %50, ptr %202, align 2, !tbaa !77
   br label %331
 
@@ -1142,7 +1142,7 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i8, ptr %204, i64 %207
   %209 = sext i32 %.2323 to i64
-  %210 = getelementptr inbounds i16, ptr %208, i64 %209
+  %210 = getelementptr inbounds [2 x i8], ptr %208, i64 %209
   %211 = uitofp nneg i32 %.0324 to float
   %212 = fmul nsz float %42, %211
   %213 = fptosi float %212 to i32
@@ -1155,14 +1155,14 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %219 = mul nsw i32 %218, %.2247322
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds i8, ptr %217, i64 %220
-  %222 = getelementptr inbounds i16, ptr %221, i64 %209
+  %222 = getelementptr inbounds [2 x i8], ptr %221, i64 %209
   store i16 %87, ptr %222, align 2, !tbaa !77
   %223 = load ptr, ptr %46, align 8, !tbaa !69
   %224 = load i32, ptr %47, align 4, !tbaa !70
   %225 = mul nsw i32 %224, %.2247322
   %226 = sext i32 %225 to i64
   %227 = getelementptr inbounds i8, ptr %223, i64 %226
-  %228 = getelementptr inbounds i16, ptr %227, i64 %209
+  %228 = getelementptr inbounds [2 x i8], ptr %227, i64 %209
   store i16 %67, ptr %228, align 2, !tbaa !77
   br i1 %48, label %229, label %331
 
@@ -1171,7 +1171,7 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %231 = sext i32 %.2247322 to i64
   %232 = mul nsw i64 %231, %15
   %233 = getelementptr inbounds i8, ptr %230, i64 %232
-  %234 = getelementptr inbounds i16, ptr %233, i64 %209
+  %234 = getelementptr inbounds [2 x i8], ptr %233, i64 %209
   store i16 %50, ptr %234, align 2, !tbaa !77
   br label %331
 
@@ -1182,7 +1182,7 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %239 = sext i32 %238 to i64
   %240 = getelementptr inbounds i8, ptr %236, i64 %239
   %241 = sext i32 %.2323 to i64
-  %242 = getelementptr inbounds i16, ptr %240, i64 %241
+  %242 = getelementptr inbounds [2 x i8], ptr %240, i64 %241
   %243 = uitofp nneg i32 %.0324 to float
   %244 = fmul nsz float %42, %243
   %245 = fptosi float %244 to i32
@@ -1195,14 +1195,14 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %251 = mul nsw i32 %250, %.2247322
   %252 = sext i32 %251 to i64
   %253 = getelementptr inbounds i8, ptr %249, i64 %252
-  %254 = getelementptr inbounds i16, ptr %253, i64 %241
+  %254 = getelementptr inbounds [2 x i8], ptr %253, i64 %241
   store i16 %85, ptr %254, align 2, !tbaa !77
   %255 = load ptr, ptr %46, align 8, !tbaa !69
   %256 = load i32, ptr %47, align 4, !tbaa !70
   %257 = mul nsw i32 %256, %.2247322
   %258 = sext i32 %257 to i64
   %259 = getelementptr inbounds i8, ptr %255, i64 %258
-  %260 = getelementptr inbounds i16, ptr %259, i64 %241
+  %260 = getelementptr inbounds [2 x i8], ptr %259, i64 %241
   store i16 %65, ptr %260, align 2, !tbaa !77
   br i1 %48, label %261, label %331
 
@@ -1211,7 +1211,7 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %263 = sext i32 %.2247322 to i64
   %264 = mul nsw i64 %263, %15
   %265 = getelementptr inbounds i8, ptr %262, i64 %264
-  %266 = getelementptr inbounds i16, ptr %265, i64 %241
+  %266 = getelementptr inbounds [2 x i8], ptr %265, i64 %241
   store i16 %50, ptr %266, align 2, !tbaa !77
   br label %331
 
@@ -1222,7 +1222,7 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %271 = sext i32 %270 to i64
   %272 = getelementptr inbounds i8, ptr %268, i64 %271
   %273 = sext i32 %.2323 to i64
-  %274 = getelementptr inbounds i16, ptr %272, i64 %273
+  %274 = getelementptr inbounds [2 x i8], ptr %272, i64 %273
   %275 = uitofp nneg i32 %.0324 to float
   %276 = fmul nsz float %42, %275
   %277 = fptosi float %276 to i32
@@ -1235,14 +1235,14 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %283 = mul nsw i32 %282, %.2247322
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds i8, ptr %281, i64 %284
-  %286 = getelementptr inbounds i16, ptr %285, i64 %273
+  %286 = getelementptr inbounds [2 x i8], ptr %285, i64 %273
   store i16 %83, ptr %286, align 2, !tbaa !77
   %287 = load ptr, ptr %46, align 8, !tbaa !69
   %288 = load i32, ptr %47, align 4, !tbaa !70
   %289 = mul nsw i32 %288, %.2247322
   %290 = sext i32 %289 to i64
   %291 = getelementptr inbounds i8, ptr %287, i64 %290
-  %292 = getelementptr inbounds i16, ptr %291, i64 %273
+  %292 = getelementptr inbounds [2 x i8], ptr %291, i64 %273
   store i16 %63, ptr %292, align 2, !tbaa !77
   br i1 %48, label %293, label %331
 
@@ -1251,7 +1251,7 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %295 = sext i32 %.2247322 to i64
   %296 = mul nsw i64 %295, %15
   %297 = getelementptr inbounds i8, ptr %294, i64 %296
-  %298 = getelementptr inbounds i16, ptr %297, i64 %273
+  %298 = getelementptr inbounds [2 x i8], ptr %297, i64 %273
   store i16 %50, ptr %298, align 2, !tbaa !77
   br label %331
 
@@ -1262,7 +1262,7 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %303 = sext i32 %302 to i64
   %304 = getelementptr inbounds i8, ptr %300, i64 %303
   %305 = sext i32 %.2323 to i64
-  %306 = getelementptr inbounds i16, ptr %304, i64 %305
+  %306 = getelementptr inbounds [2 x i8], ptr %304, i64 %305
   %307 = uitofp nneg i32 %.0324 to float
   %308 = fmul nsz float %42, %307
   %309 = fptosi float %308 to i32
@@ -1275,14 +1275,14 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %315 = mul nsw i32 %314, %.2247322
   %316 = sext i32 %315 to i64
   %317 = getelementptr inbounds i8, ptr %313, i64 %316
-  %318 = getelementptr inbounds i16, ptr %317, i64 %305
+  %318 = getelementptr inbounds [2 x i8], ptr %317, i64 %305
   store i16 %81, ptr %318, align 2, !tbaa !77
   %319 = load ptr, ptr %46, align 8, !tbaa !69
   %320 = load i32, ptr %47, align 4, !tbaa !70
   %321 = mul nsw i32 %320, %.2247322
   %322 = sext i32 %321 to i64
   %323 = getelementptr inbounds i8, ptr %319, i64 %322
-  %324 = getelementptr inbounds i16, ptr %323, i64 %305
+  %324 = getelementptr inbounds [2 x i8], ptr %323, i64 %305
   store i16 %61, ptr %324, align 2, !tbaa !77
   br i1 %48, label %325, label %331
 
@@ -1291,7 +1291,7 @@ define internal void @haldclutsrc_fill_picture(ptr noundef readonly captures(non
   %327 = sext i32 %.2247322 to i64
   %328 = mul nsw i64 %327, %15
   %329 = getelementptr inbounds i8, ptr %326, i64 %328
-  %330 = getelementptr inbounds i16, ptr %329, i64 %305
+  %330 = getelementptr inbounds [2 x i8], ptr %329, i64 %305
   store i16 %50, ptr %330, align 2, !tbaa !77
   br label %331
 
@@ -1653,7 +1653,7 @@ draw_rectangle.exit.preheader.i:                  ; preds = %174
   br i1 %.not.i, label %draw_rectangle.exit18.i, label %182
 
 182:                                              ; preds = %178
-  %183 = getelementptr inbounds nuw %struct.segments, ptr @__const.draw_digit.segments, i64 %indvars.iv.i
+  %183 = getelementptr inbounds nuw [16 x i8], ptr @__const.draw_digit.segments, i64 %indvars.iv.i
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 12
   %185 = load i32, ptr %184, align 4, !tbaa !92
   %186 = mul nsw i32 %185, %122
@@ -2654,7 +2654,7 @@ define internal fastcc void @rgbtest_put_pixel(ptr noundef readonly captures(non
   %24 = mul nsw i64 %14, %23
   %25 = getelementptr inbounds i8, ptr %12, i64 %24
   %26 = sext i32 %2 to i64
-  %27 = getelementptr inbounds i16, ptr %25, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %25, i64 %26
   store i16 %22, ptr %27, align 2, !tbaa !77
   br label %336
 
@@ -2670,7 +2670,7 @@ define internal fastcc void @rgbtest_put_pixel(ptr noundef readonly captures(non
   %37 = mul nsw i64 %14, %36
   %38 = getelementptr inbounds i8, ptr %12, i64 %37
   %39 = sext i32 %2 to i64
-  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %38, i64 %39
   store i16 %35, ptr %40, align 2, !tbaa !77
   br label %336
 
@@ -2687,7 +2687,7 @@ define internal fastcc void @rgbtest_put_pixel(ptr noundef readonly captures(non
   %51 = mul nsw i64 %14, %50
   %52 = getelementptr inbounds i8, ptr %12, i64 %51
   %53 = sext i32 %2 to i64
-  %54 = getelementptr inbounds i16, ptr %52, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr %52, i64 %53
   store i16 %49, ptr %54, align 2, !tbaa !77
   br label %336
 
@@ -2704,7 +2704,7 @@ define internal fastcc void @rgbtest_put_pixel(ptr noundef readonly captures(non
   %65 = mul nsw i64 %14, %64
   %66 = getelementptr inbounds i8, ptr %12, i64 %65
   %67 = sext i32 %2 to i64
-  %68 = getelementptr inbounds i16, ptr %66, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %66, i64 %67
   store i16 %63, ptr %68, align 2, !tbaa !77
   br label %336
 
@@ -2721,7 +2721,7 @@ define internal fastcc void @rgbtest_put_pixel(ptr noundef readonly captures(non
   %79 = mul nsw i64 %14, %78
   %80 = getelementptr inbounds i8, ptr %12, i64 %79
   %81 = sext i32 %2 to i64
-  %82 = getelementptr inbounds i16, ptr %80, i64 %81
+  %82 = getelementptr inbounds [2 x i8], ptr %80, i64 %81
   store i16 %77, ptr %82, align 2, !tbaa !77
   br label %336
 
@@ -2738,7 +2738,7 @@ define internal fastcc void @rgbtest_put_pixel(ptr noundef readonly captures(non
   %93 = mul nsw i64 %14, %92
   %94 = getelementptr inbounds i8, ptr %12, i64 %93
   %95 = sext i32 %2 to i64
-  %96 = getelementptr inbounds i16, ptr %94, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr %94, i64 %95
   store i16 %91, ptr %96, align 2, !tbaa !77
   br label %336
 
@@ -3629,7 +3629,7 @@ define internal fastcc void @draw_bar(ptr noundef readonly captures(none) %0, pt
   %35 = phi ptr [ %27, %.lr.ph113 ], [ %64, %._crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !76
-  %38 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !70
   %40 = sext i32 %39 to i64
   %41 = trunc i64 %indvars.iv to i32
@@ -3676,7 +3676,7 @@ define internal fastcc void @draw_bar(ptr noundef readonly captures(none) %0, pt
 
 ._crit_edge:                                      ; preds = %.lr.ph, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %63 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next
   %64 = load ptr, ptr %63, align 8, !tbaa !69
   %.not106 = icmp eq ptr %64, null
   br i1 %.not106, label %._crit_edge114, label %34, !llvm.loop !121
@@ -4323,11 +4323,11 @@ define internal void @colorspectrum_fill_picture(ptr noundef readonly captures(n
   %93 = fmul nsz float %91, %92
   %94 = fmul nsz float %52, %93
   %95 = tail call nsz noundef float @llvm.fmuladd.f32(float %51, float %50, float %94)
-  %96 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store float %85, ptr %96, align 4, !tbaa !134
-  %97 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   store float %90, ptr %97, align 4, !tbaa !134
-  %98 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   store float %95, ptr %98, align 4, !tbaa !134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4418,7 +4418,7 @@ define internal void @colorchart_fill_picture(ptr noundef readonly captures(none
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 108
   %8 = load i32, ptr %7, align 4, !tbaa !133
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.ColorChartPreset, ptr @colorchart_presets, i64 %9
+  %10 = getelementptr inbounds [16 x i8], ptr @colorchart_presets, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !57
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -4561,7 +4561,7 @@ define internal range(i32 -22, 1) i32 @zoneplate_config_props(ptr noundef captur
   %51 = fmul nsz float %50, %28
   %52 = tail call i64 @llvm.lrint.i64.f32(float %51)
   %53 = trunc i64 %52 to i16
-  %54 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv
   store i16 %53, ptr %54, align 2, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4589,7 +4589,7 @@ define internal range(i32 -22, 1) i32 @zoneplate_config_props(ptr noundef captur
 
 switch.lookup:                                    ; preds = %.loopexit
   %60 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.zoneplate_config_props, i64 %60
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.zoneplate_config_props, i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -4925,15 +4925,15 @@ define internal noundef i32 @zoneplate_fill_slice_9(ptr noundef readonly capture
   %85 = load ptr, ptr %1, align 8, !tbaa !69
   %86 = sext i32 %29 to i64
   %87 = mul nsw i64 %36, %86
-  %88 = getelementptr inbounds i16, ptr %85, i64 %87
+  %88 = getelementptr inbounds [2 x i8], ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !69
   %91 = mul nsw i64 %40, %86
-  %92 = getelementptr inbounds i16, ptr %90, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !69
   %95 = mul nsw i64 %44, %86
-  %96 = getelementptr inbounds i16, ptr %94, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr %94, i64 %95
   %97 = mul nsw i32 %29, %22
   %98 = mul i32 %60, %29
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -4981,21 +4981,21 @@ define internal noundef i32 @zoneplate_fill_slice_9(ptr noundef readonly capture
   %119 = add nsw i32 %117, %53
   %120 = and i32 %117, %27
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw i16, ptr %56, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !77
-  %124 = getelementptr inbounds nuw i16, ptr %.0157.us, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %.0157.us, i64 %indvars.iv
   store i16 %123, ptr %124, align 2, !tbaa !77
   %125 = and i32 %118, %27
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i16, ptr %56, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !77
-  %129 = getelementptr inbounds nuw i16, ptr %.0131156.us, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %.0131156.us, i64 %indvars.iv
   store i16 %128, ptr %129, align 2, !tbaa !77
   %130 = and i32 %119, %27
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw i16, ptr %56, i64 %131
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %131
   %133 = load i16, ptr %132, align 2, !tbaa !77
-  %134 = getelementptr inbounds nuw i16, ptr %.0132155.us, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %.0132155.us, i64 %indvars.iv
   store i16 %133, ptr %134, align 2, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %135 = add nsw i32 %.0133150.us, 1
@@ -5003,9 +5003,9 @@ define internal noundef i32 @zoneplate_fill_slice_9(ptr noundef readonly capture
   br i1 %exitcond.not, label %._crit_edge.us, label %106, !llvm.loop !164
 
 ._crit_edge.us:                                   ; preds = %106
-  %136 = getelementptr inbounds nuw i16, ptr %.0157.us, i64 %36
-  %137 = getelementptr inbounds nuw i16, ptr %.0131156.us, i64 %40
-  %138 = getelementptr inbounds nuw i16, ptr %.0132155.us, i64 %44
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %.0157.us, i64 %36
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %.0131156.us, i64 %40
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %.0132155.us, i64 %44
   %139 = add nsw i32 %.0139153.us, 1
   %140 = add nsw i32 %.0138154.us, 1
   %exitcond163.not = icmp eq i32 %139, %32
@@ -5108,15 +5108,15 @@ define internal noundef i32 @zoneplate_fill_slice_10(ptr noundef readonly captur
   %85 = load ptr, ptr %1, align 8, !tbaa !69
   %86 = sext i32 %29 to i64
   %87 = mul nsw i64 %36, %86
-  %88 = getelementptr inbounds i16, ptr %85, i64 %87
+  %88 = getelementptr inbounds [2 x i8], ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !69
   %91 = mul nsw i64 %40, %86
-  %92 = getelementptr inbounds i16, ptr %90, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !69
   %95 = mul nsw i64 %44, %86
-  %96 = getelementptr inbounds i16, ptr %94, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr %94, i64 %95
   %97 = mul nsw i32 %29, %22
   %98 = mul i32 %60, %29
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -5164,21 +5164,21 @@ define internal noundef i32 @zoneplate_fill_slice_10(ptr noundef readonly captur
   %119 = add nsw i32 %117, %53
   %120 = and i32 %117, %27
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw i16, ptr %56, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !77
-  %124 = getelementptr inbounds nuw i16, ptr %.0157.us, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %.0157.us, i64 %indvars.iv
   store i16 %123, ptr %124, align 2, !tbaa !77
   %125 = and i32 %118, %27
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i16, ptr %56, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !77
-  %129 = getelementptr inbounds nuw i16, ptr %.0131156.us, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %.0131156.us, i64 %indvars.iv
   store i16 %128, ptr %129, align 2, !tbaa !77
   %130 = and i32 %119, %27
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw i16, ptr %56, i64 %131
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %131
   %133 = load i16, ptr %132, align 2, !tbaa !77
-  %134 = getelementptr inbounds nuw i16, ptr %.0132155.us, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %.0132155.us, i64 %indvars.iv
   store i16 %133, ptr %134, align 2, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %135 = add nsw i32 %.0133150.us, 1
@@ -5186,9 +5186,9 @@ define internal noundef i32 @zoneplate_fill_slice_10(ptr noundef readonly captur
   br i1 %exitcond.not, label %._crit_edge.us, label %106, !llvm.loop !166
 
 ._crit_edge.us:                                   ; preds = %106
-  %136 = getelementptr inbounds nuw i16, ptr %.0157.us, i64 %36
-  %137 = getelementptr inbounds nuw i16, ptr %.0131156.us, i64 %40
-  %138 = getelementptr inbounds nuw i16, ptr %.0132155.us, i64 %44
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %.0157.us, i64 %36
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %.0131156.us, i64 %40
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %.0132155.us, i64 %44
   %139 = add nsw i32 %.0139153.us, 1
   %140 = add nsw i32 %.0138154.us, 1
   %exitcond163.not = icmp eq i32 %139, %32
@@ -5291,15 +5291,15 @@ define internal noundef i32 @zoneplate_fill_slice_12(ptr noundef readonly captur
   %85 = load ptr, ptr %1, align 8, !tbaa !69
   %86 = sext i32 %29 to i64
   %87 = mul nsw i64 %36, %86
-  %88 = getelementptr inbounds i16, ptr %85, i64 %87
+  %88 = getelementptr inbounds [2 x i8], ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !69
   %91 = mul nsw i64 %40, %86
-  %92 = getelementptr inbounds i16, ptr %90, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !69
   %95 = mul nsw i64 %44, %86
-  %96 = getelementptr inbounds i16, ptr %94, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr %94, i64 %95
   %97 = mul nsw i32 %29, %22
   %98 = mul i32 %60, %29
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -5347,21 +5347,21 @@ define internal noundef i32 @zoneplate_fill_slice_12(ptr noundef readonly captur
   %119 = add nsw i32 %117, %53
   %120 = and i32 %117, %27
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw i16, ptr %56, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !77
-  %124 = getelementptr inbounds nuw i16, ptr %.0157.us, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %.0157.us, i64 %indvars.iv
   store i16 %123, ptr %124, align 2, !tbaa !77
   %125 = and i32 %118, %27
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i16, ptr %56, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !77
-  %129 = getelementptr inbounds nuw i16, ptr %.0131156.us, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %.0131156.us, i64 %indvars.iv
   store i16 %128, ptr %129, align 2, !tbaa !77
   %130 = and i32 %119, %27
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw i16, ptr %56, i64 %131
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %131
   %133 = load i16, ptr %132, align 2, !tbaa !77
-  %134 = getelementptr inbounds nuw i16, ptr %.0132155.us, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %.0132155.us, i64 %indvars.iv
   store i16 %133, ptr %134, align 2, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %135 = add nsw i32 %.0133150.us, 1
@@ -5369,9 +5369,9 @@ define internal noundef i32 @zoneplate_fill_slice_12(ptr noundef readonly captur
   br i1 %exitcond.not, label %._crit_edge.us, label %106, !llvm.loop !168
 
 ._crit_edge.us:                                   ; preds = %106
-  %136 = getelementptr inbounds nuw i16, ptr %.0157.us, i64 %36
-  %137 = getelementptr inbounds nuw i16, ptr %.0131156.us, i64 %40
-  %138 = getelementptr inbounds nuw i16, ptr %.0132155.us, i64 %44
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %.0157.us, i64 %36
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %.0131156.us, i64 %40
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %.0132155.us, i64 %44
   %139 = add nsw i32 %.0139153.us, 1
   %140 = add nsw i32 %.0138154.us, 1
   %exitcond163.not = icmp eq i32 %139, %32
@@ -5474,15 +5474,15 @@ define internal noundef i32 @zoneplate_fill_slice_14(ptr noundef readonly captur
   %85 = load ptr, ptr %1, align 8, !tbaa !69
   %86 = sext i32 %29 to i64
   %87 = mul nsw i64 %36, %86
-  %88 = getelementptr inbounds i16, ptr %85, i64 %87
+  %88 = getelementptr inbounds [2 x i8], ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !69
   %91 = mul nsw i64 %40, %86
-  %92 = getelementptr inbounds i16, ptr %90, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !69
   %95 = mul nsw i64 %44, %86
-  %96 = getelementptr inbounds i16, ptr %94, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr %94, i64 %95
   %97 = mul nsw i32 %29, %22
   %98 = mul i32 %60, %29
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -5530,21 +5530,21 @@ define internal noundef i32 @zoneplate_fill_slice_14(ptr noundef readonly captur
   %119 = add nsw i32 %117, %53
   %120 = and i32 %117, %27
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw i16, ptr %56, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !77
-  %124 = getelementptr inbounds nuw i16, ptr %.0157.us, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %.0157.us, i64 %indvars.iv
   store i16 %123, ptr %124, align 2, !tbaa !77
   %125 = and i32 %118, %27
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i16, ptr %56, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !77
-  %129 = getelementptr inbounds nuw i16, ptr %.0131156.us, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %.0131156.us, i64 %indvars.iv
   store i16 %128, ptr %129, align 2, !tbaa !77
   %130 = and i32 %119, %27
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw i16, ptr %56, i64 %131
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %131
   %133 = load i16, ptr %132, align 2, !tbaa !77
-  %134 = getelementptr inbounds nuw i16, ptr %.0132155.us, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %.0132155.us, i64 %indvars.iv
   store i16 %133, ptr %134, align 2, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %135 = add nsw i32 %.0133150.us, 1
@@ -5552,9 +5552,9 @@ define internal noundef i32 @zoneplate_fill_slice_14(ptr noundef readonly captur
   br i1 %exitcond.not, label %._crit_edge.us, label %106, !llvm.loop !170
 
 ._crit_edge.us:                                   ; preds = %106
-  %136 = getelementptr inbounds nuw i16, ptr %.0157.us, i64 %36
-  %137 = getelementptr inbounds nuw i16, ptr %.0131156.us, i64 %40
-  %138 = getelementptr inbounds nuw i16, ptr %.0132155.us, i64 %44
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %.0157.us, i64 %36
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %.0131156.us, i64 %40
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %.0132155.us, i64 %44
   %139 = add nsw i32 %.0139153.us, 1
   %140 = add nsw i32 %.0138154.us, 1
   %exitcond163.not = icmp eq i32 %139, %32
@@ -5657,15 +5657,15 @@ define internal noundef i32 @zoneplate_fill_slice_16(ptr noundef readonly captur
   %85 = load ptr, ptr %1, align 8, !tbaa !69
   %86 = sext i32 %29 to i64
   %87 = mul nsw i64 %36, %86
-  %88 = getelementptr inbounds i16, ptr %85, i64 %87
+  %88 = getelementptr inbounds [2 x i8], ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !69
   %91 = mul nsw i64 %40, %86
-  %92 = getelementptr inbounds i16, ptr %90, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !69
   %95 = mul nsw i64 %44, %86
-  %96 = getelementptr inbounds i16, ptr %94, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr %94, i64 %95
   %97 = mul nsw i32 %29, %22
   %98 = mul i32 %60, %29
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -5713,21 +5713,21 @@ define internal noundef i32 @zoneplate_fill_slice_16(ptr noundef readonly captur
   %119 = add nsw i32 %117, %53
   %120 = and i32 %117, %27
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw i16, ptr %56, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !77
-  %124 = getelementptr inbounds nuw i16, ptr %.0157.us, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %.0157.us, i64 %indvars.iv
   store i16 %123, ptr %124, align 2, !tbaa !77
   %125 = and i32 %118, %27
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i16, ptr %56, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !77
-  %129 = getelementptr inbounds nuw i16, ptr %.0131156.us, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %.0131156.us, i64 %indvars.iv
   store i16 %128, ptr %129, align 2, !tbaa !77
   %130 = and i32 %119, %27
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw i16, ptr %56, i64 %131
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %131
   %133 = load i16, ptr %132, align 2, !tbaa !77
-  %134 = getelementptr inbounds nuw i16, ptr %.0132155.us, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %.0132155.us, i64 %indvars.iv
   store i16 %133, ptr %134, align 2, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %135 = add nsw i32 %.0133150.us, 1
@@ -5735,9 +5735,9 @@ define internal noundef i32 @zoneplate_fill_slice_16(ptr noundef readonly captur
   br i1 %exitcond.not, label %._crit_edge.us, label %106, !llvm.loop !172
 
 ._crit_edge.us:                                   ; preds = %106
-  %136 = getelementptr inbounds nuw i16, ptr %.0157.us, i64 %36
-  %137 = getelementptr inbounds nuw i16, ptr %.0131156.us, i64 %40
-  %138 = getelementptr inbounds nuw i16, ptr %.0132155.us, i64 %44
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %.0157.us, i64 %36
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %.0131156.us, i64 %40
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %.0132155.us, i64 %44
   %139 = add nsw i32 %.0139153.us, 1
   %140 = add nsw i32 %.0138154.us, 1
   %exitcond163.not = icmp eq i32 %139, %32

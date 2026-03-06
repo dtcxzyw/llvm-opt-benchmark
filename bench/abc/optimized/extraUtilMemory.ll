@@ -81,7 +81,7 @@ define void @Extra_MmFixedStop(ptr noundef captures(address_is_null) %0) local_u
   %7 = phi i32 [ %15, %14 ], [ %4, %.preheader ]
   %8 = phi ptr [ %16, %14 ], [ %.pre, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %.not17 = icmp eq ptr %10, null
   br i1 %.not17, label %14, label %11
@@ -89,7 +89,7 @@ define void @Extra_MmFixedStop(ptr noundef captures(address_is_null) %0) local_u
 11:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %10) #16
   %12 = load ptr, ptr %6, align 8, !tbaa !13
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr null, ptr %13, align 8, !tbaa !19
   %.pre20 = load i32, ptr %3, align 8, !tbaa !12
   br label %14
@@ -200,7 +200,7 @@ define noundef ptr @Extra_MmFixedEntryFetch(ptr noundef captures(none) %0) local
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %8, align 8, !tbaa !12
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   store ptr %31, ptr %46, align 8, !tbaa !19
   %47 = load i32, ptr %4, align 4, !tbaa !22
   %48 = add nsw i32 %47, %28
@@ -258,7 +258,7 @@ define void @Extra_MmFixedRestart(ptr noundef captures(none) %0) local_unnamed_a
   %6 = phi i32 [ %14, %13 ], [ %3, %1 ]
   %7 = phi ptr [ %15, %13 ], [ %.pre, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 1, %1 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %13, label %10
@@ -266,7 +266,7 @@ define void @Extra_MmFixedRestart(ptr noundef captures(none) %0) local_unnamed_a
 10:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %9) #16
   %11 = load ptr, ptr %5, align 8, !tbaa !13
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr null, ptr %12, align 8, !tbaa !19
   %.pre39 = load i32, ptr %2, align 8, !tbaa !12
   br label %13
@@ -380,7 +380,7 @@ define void @Extra_MmFlexStop(ptr noundef captures(address_is_null) %0) local_un
   %7 = phi i32 [ %15, %14 ], [ %4, %.preheader ]
   %8 = phi ptr [ %16, %14 ], [ %.pre, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %.not17 = icmp eq ptr %10, null
   br i1 %.not17, label %14, label %11
@@ -388,7 +388,7 @@ define void @Extra_MmFlexStop(ptr noundef captures(address_is_null) %0) local_un
 11:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %10) #16
   %12 = load ptr, ptr %6, align 8, !tbaa !30
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr null, ptr %13, align 8, !tbaa !19
   %.pre20 = load i32, ptr %3, align 8, !tbaa !31
   br label %14
@@ -493,7 +493,7 @@ define ptr @Extra_MmFlexEntryFetch(ptr noundef captures(none) %0, i32 noundef %1
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %13, align 8, !tbaa !31
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   store ptr %39, ptr %50, align 8, !tbaa !19
   %.pre = load ptr, ptr %3, align 8, !tbaa !36
   %.pre35 = sext i32 %1 to i64
@@ -560,7 +560,7 @@ Extra_MmFixedStart.exit:                          ; preds = %Extra_MmFixedStart.
   store i32 0, ptr %17, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 52
   store i32 0, ptr %18, align 4, !tbaa !15
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %calloc.i, ptr %19, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -593,7 +593,7 @@ Extra_MmFixedStart.exit:                          ; preds = %Extra_MmFixedStart.
 
 28:                                               ; preds = %._crit_edge, %28
   %indvars.iv45 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next46, %28 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv45
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv45
   store ptr %20, ptr %29, align 8, !tbaa !42
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 5
@@ -608,7 +608,7 @@ Extra_MmFixedStart.exit:                          ; preds = %Extra_MmFixedStart.
   br i1 %.not37.not, label %.lr.ph, label %._crit_edge40
 
 .lr.ph:                                           ; preds = %.lr.ph42
-  %33 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv53
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv53
   %34 = load ptr, ptr %33, align 8, !tbaa !42
   %35 = or disjoint i32 %31, 1
   %36 = sext i32 %35 to i64
@@ -617,7 +617,7 @@ Extra_MmFixedStart.exit:                          ; preds = %Extra_MmFixedStart.
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv49 = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next50, %38 ]
-  %39 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv49
+  %39 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv49
   store ptr %34, ptr %39, align 8, !tbaa !42
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next50 to i32
@@ -647,7 +647,7 @@ define void @Extra_MmStepStop(ptr noundef captures(none) %0) local_unnamed_addr 
   %6 = phi i32 [ %2, %.lr.ph ], [ %29, %Extra_MmFixedStop.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Extra_MmFixedStop.exit ]
   %7 = load ptr, ptr %4, align 8, !tbaa !41
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   %10 = icmp eq ptr %9, null
   br i1 %10, label %Extra_MmFixedStop.exit, label %.preheader.i
@@ -664,7 +664,7 @@ define void @Extra_MmStepStop(ptr noundef captures(none) %0) local_unnamed_addr 
   %15 = phi i32 [ %23, %22 ], [ %12, %.preheader.i ]
   %16 = phi ptr [ %24, %22 ], [ %.pre.i, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %.preheader.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.not17.i = icmp eq ptr %18, null
   br i1 %.not17.i, label %22, label %19
@@ -672,7 +672,7 @@ define void @Extra_MmStepStop(ptr noundef captures(none) %0) local_unnamed_addr 
 19:                                               ; preds = %.lr.ph.i
   tail call void @free(ptr noundef nonnull %18) #16
   %20 = load ptr, ptr %14, align 8, !tbaa !13
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   store ptr null, ptr %21, align 8, !tbaa !19
   %.pre20.i = load i32, ptr %11, align 8, !tbaa !12
   br label %22
@@ -722,7 +722,7 @@ Extra_MmFixedStop.exit:                           ; preds = %5, %28
   %37 = phi i32 [ %45, %44 ], [ %35, %.preheader ]
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %44 ], [ 0, %.preheader ]
   %38 = load ptr, ptr %32, align 8, !tbaa !51
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv38
   %40 = load ptr, ptr %39, align 8, !tbaa !53
   %.not32 = icmp eq ptr %40, null
   br i1 %.not32, label %44, label %41
@@ -730,7 +730,7 @@ Extra_MmFixedStop.exit:                           ; preds = %5, %28
 41:                                               ; preds = %.lr.ph35
   tail call void @free(ptr noundef nonnull %40) #16
   %42 = load ptr, ptr %32, align 8, !tbaa !51
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv38
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv38
   store ptr null, ptr %43, align 8, !tbaa !53
   %.pre41 = load i32, ptr %34, align 4, !tbaa !52
   br label %44
@@ -839,10 +839,10 @@ define ptr @Extra_MmStepEntryFetch(ptr noundef captures(none) %0, i32 noundef %1
   %34 = add nsw i32 %29, 1
   store i32 %34, ptr %9, align 4, !tbaa !52
   %35 = sext i32 %29 to i64
-  %36 = getelementptr inbounds ptr, ptr %30, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %30, i64 %35
   store ptr %32, ptr %36, align 8, !tbaa !53
   %37 = load ptr, ptr %33, align 8, !tbaa !51
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %35
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %35
   %39 = load ptr, ptr %38, align 8, !tbaa !53
   br label %47
 
@@ -850,7 +850,7 @@ define ptr @Extra_MmStepEntryFetch(ptr noundef captures(none) %0, i32 noundef %1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !46
   %43 = sext i32 %1 to i64
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %45)
   br label %47
@@ -875,7 +875,7 @@ define void @Extra_MmStepEntryRecycle(ptr noundef readonly captures(none) %0, pt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !46
   %12 = sext i32 %2 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !17
@@ -906,7 +906,7 @@ define i32 @Extra_MmStepReadMemUsage(ptr noundef readonly captures(none) %0) loc
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.08 = phi i32 [ 0, %.lr.ph ], [ %11, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %10 = load i32, ptr %9, align 4, !tbaa !15

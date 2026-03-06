@@ -3,7 +3,6 @@ source_filename = "bench/llvm/original/RecordStreamer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"struct.std::pair.300" = type <{ ptr, i32, [4 x i8] }>
 %"struct.std::pair.313" = type <{ %"class.llvm::DenseMapIterator", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator" = type { ptr, ptr }
@@ -38,6 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::ilist_iterator.258" = type { ptr }
 %"struct.std::_Head_base.260" = type { %"class.llvm::ilist_iterator.261" }
 %"class.llvm::ilist_iterator.261" = type { ptr }
+%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.79" }
 %"class.llvm::SmallVector.79" = type { %"class.llvm::SmallVectorImpl.80", %"struct.llvm::SmallVectorStorage.84" }
 %"struct.llvm::SmallVectorStorage.84" = type { [128 x i8] }
@@ -70,8 +70,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.20 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.20 = type { i64, [8 x i8] }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.base", [4 x i8] }
-%"struct.std::pair.base" = type <{ ptr, i32 }>
 
 $_ZN4llvm9MapVectorIPKNS_8MCSymbolESt6vectorINS_9StringRefESaIS5_EENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S7_ELj0EEEEixERKS3_ = comdat any
 
@@ -217,7 +215,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %2, %7
 
 switch.lookup:                                    ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit
   %18 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %15, align 4, !tbaa !13
   br label %19
@@ -412,7 +410,7 @@ define dso_local ptr @_ZN4llvm14RecordStreamer3endEv(ptr noundef nonnull readonl
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load i32, ptr %4, align 8, !tbaa !28
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   ret ptr %7
 }
 
@@ -451,7 +449,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %8, %3
 
 switch.lookup:                                    ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i
   %19 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %16, align 4, !tbaa !13
   br label %_ZN4llvm14RecordStreamer11markDefinedERKNS_8MCSymbolE.exit
@@ -499,7 +497,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %8, %3
 
 switch.lookup:                                    ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i
   %19 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %16, align 4, !tbaa !13
   br label %_ZN4llvm14RecordStreamer11markDefinedERKNS_8MCSymbolE.exit
@@ -641,7 +639,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %11, %6
 
 switch.lookup:                                    ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i
   %22 = zext nneg i32 %20 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %22
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %19, align 4, !tbaa !13
   br label %_ZN4llvm14RecordStreamer11markDefinedERKNS_8MCSymbolE.exit
@@ -684,7 +682,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %9, %4
 
 switch.lookup:                                    ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i
   %20 = zext nneg i32 %18 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %20
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %17, align 4, !tbaa !13
   br label %_ZN4llvm14RecordStreamer11markDefinedERKNS_8MCSymbolE.exit
@@ -725,7 +723,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %2, %7
 
 21:                                               ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit
   %22 = load ptr, ptr %3, align 8
-  %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %22, i64 %18
+  %.sroa.0.0.i.i = getelementptr inbounds [8 x i8], ptr %22, i64 %18
   %23 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !31
@@ -809,7 +807,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ;
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %33, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %28, ptr %8, align 8, !tbaa !42
   store ptr %32, ptr %9, align 8, !tbaa !35
-  %34 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %26
   store ptr %34, ptr %11, align 8, !tbaa !38
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit
 
@@ -860,7 +858,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_8MCSymbolESt6vectorINS_9StringRefESaIS6_EEELb0EE9push_backEOS9_.exit, label %24, !prof !68
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre3.i, i64 %20
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %20
   %26 = icmp uge ptr %5, %.pre3.i
   %27 = icmp ult ptr %5, %25
   %spec.select.i.i.i.i.i = and i1 %26, %27
@@ -896,7 +894,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_8MCSymbolESt6vectorINS_9StringRef
   %.016.i.i.i = phi ptr [ %5, %13 ], [ %33, %28 ], [ %5, %.critedge.i.i.i ]
   %39 = load i32, ptr %18, align 8, !tbaa !25
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %40
   store ptr %37, ptr %41, align 8, !tbaa !63
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
@@ -934,7 +932,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit:  ; preds = %49, %_ZN4llvm23Smal
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = zext i32 %57 to i64
   %60 = load ptr, ptr %58, align 8, !tbaa !23
-  %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %60, i64 %59
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -948,7 +946,7 @@ define dso_local { ptr, ptr } @_ZN4llvm14RecordStreamer13symverAliasesEv(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %5 = load i32, ptr %4, align 8, !tbaa !25
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %6
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %3, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %7, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -1239,7 +1237,7 @@ _ZN4llvm11SmallVectorIcLj64EED2Ev.exit:           ; preds = %._crit_edge144, %12
 .lr.ph.i:                                         ; preds = %144, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %144 ]
   %138 = load ptr, ptr %4, align 8, !tbaa !27
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv.i
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv.i
   %140 = load ptr, ptr %139, align 8, !tbaa !11
   %magicptr.i = ptrtoint ptr %140 to i64
   switch i64 %magicptr.i, label %141 [
@@ -1295,7 +1293,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %151, %146
 
 _ZN4llvm14RecordStreamer14getSymbolStateEPKNS_8MCSymbolE.exit: ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i
   %164 = load ptr, ptr %60, align 8
-  %.sroa.0.0.i.i.i = getelementptr inbounds ptr, ptr %164, i64 %161
+  %.sroa.0.0.i.i.i = getelementptr inbounds [8 x i8], ptr %164, i64 %161
   %165 = load ptr, ptr %.sroa.0.0.i.i.i, align 8, !tbaa !11
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load i32, ptr %166, align 8, !tbaa !31
@@ -1315,7 +1313,7 @@ _ZN4llvm14RecordStreamer14getSymbolStateEPKNS_8MCSymbolE.exit: ; preds = %_ZNK4l
 
 switch.lookup:                                    ; preds = %_ZN4llvm14RecordStreamer14getSymbolStateEPKNS_8MCSymbolE.exit
   %169 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv, i64 %169
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv, i64 %169
   %switch.load = load i32, ptr %switch.gep, align 4
   %.off = add nsw i32 %167, -2
   %switch = icmp ult i32 %.off, 3
@@ -1373,7 +1371,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit69:              ; preds = %181, %184
 
 195:                                              ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit69
   %196 = load ptr, ptr %4, align 8
-  %.sroa.0.0.i.i70 = getelementptr inbounds ptr, ptr %196, i64 %194
+  %.sroa.0.0.i.i70 = getelementptr inbounds [8 x i8], ptr %196, i64 %194
   %197 = load ptr, ptr %.sroa.0.0.i.i70, align 8, !tbaa !11
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8, !tbaa !130
@@ -1403,7 +1401,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit69:              ; preds = %181, %184
 
 switch.lookup173:                                 ; preds = %207
   %209 = zext nneg i32 %switch.tableidx172 to i64
-  %switch.gep174 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.1, i64 %209
+  %switch.gep174 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.1, i64 %209
   %switch.load175 = load i32, ptr %switch.gep174, align 4
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
@@ -1538,7 +1536,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit.i78:            ; preds = %245, %241
   %251 = call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr %.sroa.0.0.i.i79, i64 %.sroa.4.0.i.i80, i32 noundef %250) #16
   %252 = load ptr, ptr %60, align 8, !tbaa !27
   %253 = zext i32 %251 to i64
-  %254 = getelementptr inbounds nuw ptr, ptr %252, i64 %253
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %253
   %255 = load ptr, ptr %254, align 8, !tbaa !11
   %magicptr.i81 = ptrtoint ptr %255 to i64
   switch i64 %magicptr.i81, label %.preheader.i.i.i [
@@ -1590,7 +1588,7 @@ _ZN4llvm14StringMapEntryINS_14RecordStreamer5StateEE6createINS_15MallocAllocator
   %270 = call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %60, i32 noundef %251) #16
   %271 = load ptr, ptr %60, align 8, !tbaa !27
   %272 = zext i32 %270 to i64
-  %273 = getelementptr inbounds nuw ptr, ptr %271, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %272
   br label %.preheader.i.i23.i
 
 .preheader.i.i23.i:                               ; preds = %.critedge.i.i.i25.i, %_ZN4llvm14StringMapEntryINS_14RecordStreamer5StateEE6createINS_15MallocAllocatorEJEEEPS3_NS_9StringRefERT_DpOT0_.exit.i
@@ -1619,7 +1617,7 @@ _ZN4llvm9StringMapINS_14RecordStreamer5StateENS_15MallocAllocatorEE21try_emplace
 
 switch.lookup177:                                 ; preds = %_ZN4llvm9StringMapINS_14RecordStreamer5StateENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS2_EEbENS_9StringRefEjDpOT_.exit
   %280 = zext nneg i32 %278 to i64
-  %switch.gep181 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %280
+  %switch.gep181 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %280
   %switch.load182 = load i32, ptr %switch.gep181, align 4
   store i32 %switch.load182, ptr %277, align 4, !tbaa !13
   br label %_ZN4llvm14RecordStreamer11markDefinedERKNS_8MCSymbolE.exit
@@ -1755,7 +1753,7 @@ _ZN4llvm9MapVectorIPKNS_8MCSymbolESt6vectorINS_9StringRefESaIS5_EENS_8DenseMapIS
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %41 ]
   %35 = load ptr, ptr %27, align 8, !tbaa !27
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8, !tbaa !11
   %magicptr.i = ptrtoint ptr %37 to i64
   switch i64 %magicptr.i, label %38 [
@@ -2231,7 +2229,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINS_14RecordStreamer5S
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #16
   %6 = load ptr, ptr %0, align 8, !tbaa !27
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2285,7 +2283,7 @@ _ZN4llvm14StringMapEntryINS_14RecordStreamer5StateEE6createINS_15MallocAllocator
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #16
   %27 = load ptr, ptr %0, align 8, !tbaa !27
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryINS_14RecordStreamer5StateEE6createINS_15MallocAllocatorEJEEEPS3_NS_9StringRefERT_DpOT0_.exit
@@ -2336,7 +2334,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSym
   %17 = add i32 %8, -1
   %.02944.i = and i32 %16, %17
   %18 = zext nneg i32 %.02944.i to i64
-  %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !33
   %21 = icmp eq ptr %11, %20
   br i1 %21, label %.loopexit, label %.lr.ph.i, !prof !159
@@ -2364,7 +2362,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSym
   %31 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %31, %17
   %32 = zext i32 %.029.i to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !33
   %35 = icmp eq ptr %11, %34
   br i1 %35, label %.loopexit, label %.lr.ph.i, !prof !160, !llvm.loop !161
@@ -2436,7 +2434,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS4_vEENS_6
   %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
   %65 = zext i32 %.sink32 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %.sink30, i64 %65
   store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2463,7 +2461,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !159
@@ -2491,7 +2489,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !33
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !160, !llvm.loop !161
@@ -2598,7 +2596,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS4_vEENS_6
   %47 = add i32 %41, -1
   %.02944.i.i = and i32 %47, %46
   %48 = zext nneg i32 %.02944.i.i to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !33
   %51 = icmp eq ptr %39, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i15.i, !prof !159
@@ -2626,7 +2624,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS4_vEENS_6
   %61 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %61, %47
   %62 = zext i32 %.029.i.i to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !33
   %65 = icmp eq ptr %39, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i15.i, !prof !160, !llvm.loop !161
@@ -2885,7 +2883,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPKNS_11GlobalValueENS
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #16
   %6 = load ptr, ptr %0, align 8, !tbaa !27
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2939,7 +2937,7 @@ _ZN4llvm14StringMapEntryIPKNS_11GlobalValueEE6createINS_15MallocAllocatorEJEEEPS
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #16
   %27 = load ptr, ptr %0, align 8, !tbaa !27
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIPKNS_11GlobalValueEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit

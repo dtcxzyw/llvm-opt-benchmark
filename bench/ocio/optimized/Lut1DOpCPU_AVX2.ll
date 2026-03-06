@@ -309,7 +309,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %indvars.iv = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next, %.lr.ph97 ]
   %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %231, %.lr.ph97 ]
   %220 = load float, ptr %.194, align 4, !tbaa !11
-  %221 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float %220, ptr %221, align 16, !tbaa !11
   %222 = getelementptr inbounds nuw i8, ptr %.194, i64 4
   %223 = load float, ptr %222, align 4, !tbaa !11
@@ -631,7 +631,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %indvars.iv = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next, %.lr.ph97 ]
   %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %251, %.lr.ph97 ]
   %240 = load float, ptr %.194, align 4, !tbaa !11
-  %241 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float %240, ptr %241, align 16, !tbaa !11
   %242 = getelementptr inbounds nuw i8, ptr %.194, i64 4
   %243 = load float, ptr %242, align 4, !tbaa !11
@@ -658,7 +658,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv107 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next108, %.lr.ph103 ]
   %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %264, %.lr.ph103 ]
-  %253 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv107
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv107
   %254 = load i16, ptr %253, align 8, !tbaa !17
   store i16 %254, ptr %.151100, align 2, !tbaa !17
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 2
@@ -953,7 +953,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %indvars.iv = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next, %.lr.ph97 ]
   %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %251, %.lr.ph97 ]
   %240 = load float, ptr %.194, align 4, !tbaa !11
-  %241 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float %240, ptr %241, align 16, !tbaa !11
   %242 = getelementptr inbounds nuw i8, ptr %.194, i64 4
   %243 = load float, ptr %242, align 4, !tbaa !11
@@ -980,7 +980,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv107 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next108, %.lr.ph103 ]
   %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %264, %.lr.ph103 ]
-  %253 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv107
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv107
   %254 = load i16, ptr %253, align 8, !tbaa !17
   store i16 %254, ptr %.151100, align 2, !tbaa !17
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 2
@@ -1275,7 +1275,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %indvars.iv = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next, %.lr.ph97 ]
   %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %251, %.lr.ph97 ]
   %240 = load float, ptr %.194, align 4, !tbaa !11
-  %241 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float %240, ptr %241, align 16, !tbaa !11
   %242 = getelementptr inbounds nuw i8, ptr %.194, i64 4
   %243 = load float, ptr %242, align 4, !tbaa !11
@@ -1302,7 +1302,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv107 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next108, %.lr.ph103 ]
   %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %264, %.lr.ph103 ]
-  %253 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv107
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv107
   %254 = load i16, ptr %253, align 8, !tbaa !17
   store i16 %254, ptr %.151100, align 2, !tbaa !17
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 2
@@ -1525,7 +1525,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %indvars.iv = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next, %.lr.ph97 ]
   %.194 = phi ptr [ %.049.lcssa, %.lr.ph97.preheader ], [ %177, %.lr.ph97 ]
   %166 = load float, ptr %.194, align 4, !tbaa !11
-  %167 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float %166, ptr %167, align 16, !tbaa !11
   %168 = getelementptr inbounds nuw i8, ptr %.194, i64 4
   %169 = load float, ptr %168, align 4, !tbaa !11
@@ -1552,7 +1552,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv107 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next108, %.lr.ph103 ]
   %.151100 = phi ptr [ %.050.lcssa, %.lr.ph103.preheader ], [ %190, %.lr.ph103 ]
-  %179 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %9, i64 %indvars.iv107
+  %179 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv107
   %180 = load i16, ptr %179, align 8, !tbaa !17
   store i16 %180, ptr %.151100, align 2, !tbaa !17
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 2
@@ -1761,7 +1761,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   %indvars.iv = phi i64 [ 0, %.lr.ph93.preheader ], [ %indvars.iv.next, %.lr.ph93 ]
   %.190 = phi ptr [ %.047.lcssa, %.lr.ph93.preheader ], [ %161, %.lr.ph93 ]
   %150 = load float, ptr %.190, align 4, !tbaa !11
-  %151 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float %150, ptr %151, align 16, !tbaa !11
   %152 = getelementptr inbounds nuw i8, ptr %.190, i64 4
   %153 = load float, ptr %152, align 4, !tbaa !11
@@ -1788,7 +1788,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
   %indvars.iv103 = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next104, %.lr.ph99 ]
   %.14996 = phi ptr [ %.048.lcssa, %.lr.ph99.preheader ], [ %174, %.lr.ph99 ]
-  %163 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv103
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv103
   %164 = load float, ptr %163, align 16, !tbaa !11
   store float %164, ptr %.14996, align 4, !tbaa !11
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 4

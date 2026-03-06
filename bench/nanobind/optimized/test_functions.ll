@@ -208,7 +208,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.nanobind::detail::tuple.707" = type { %"struct.nanobind::detail::type_caster.708" }
 %"struct.nanobind::detail::type_caster.708" = type { %struct.numeric_string }
 %struct.numeric_string = type { i64 }
-%"struct.std::pair.709" = type { %"class.nanobind::tuple", %"class.nanobind::object" }
 
 $_ZN14example_policy5callsE = comdat any
 
@@ -6140,7 +6139,7 @@ _ZN8nanobind6detail9call_initILNS_9rv_policyE1EiEEvPP7_objectS4_RmS6_mOT0_.exit2
 48:                                               ; preds = %45, %43
   store ptr null, ptr %11, align 8, !tbaa !44
   %49 = add i64 %.05758, 1
-  %50 = getelementptr inbounds nuw ptr, ptr %25, i64 %.05758
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.05758
   store ptr %44, ptr %50, align 8, !tbaa !158
   %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #31
   call void @_ZN8nanobind6detail8accessorINS0_8num_itemEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #31
@@ -6169,7 +6168,7 @@ _ZN8nanobind6detail9call_initILNS_9rv_policyE1ENS0_10args_proxyEEEvPP7_objectS5_
   br i1 %.not.i60, label %_ZN8nanobind6detail9call_initILNS_9rv_policyE1ENS0_12kwargs_proxyEEEvPP7_objectS5_RmS7_mOT0_.exit, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %_ZN8nanobind6detail9call_initILNS_9rv_policyE1ENS0_10args_proxyEEEvPP7_objectS5_RmS7_mOT0_.exit
-  %57 = getelementptr ptr, ptr %25, i64 %14
+  %57 = getelementptr [8 x i8], ptr %25, i64 %14
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
   br label %59
 
@@ -6183,10 +6182,10 @@ _ZN8nanobind6detail9call_initILNS_9rv_policyE1ENS0_10args_proxyEEEvPP7_objectS5_
   %64 = load i64, ptr %63, align 8, !tbaa !59
   %65 = add nsw i64 %64, 1
   store i64 %65, ptr %63, align 8, !tbaa !59
-  %66 = getelementptr ptr, ptr %57, i64 %.061
+  %66 = getelementptr [8 x i8], ptr %57, i64 %.061
   store ptr %63, ptr %66, align 8, !tbaa !158
   %67 = add i64 %.061, 1
-  %68 = getelementptr inbounds nuw ptr, ptr %58, i64 %.061
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.061
   store ptr %60, ptr %68, align 8, !tbaa !158
   %69 = load ptr, ptr %5, align 8, !tbaa !44
   %70 = call i32 @PyDict_Next(ptr noundef %69, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9) #28
@@ -6201,13 +6200,13 @@ _ZN8nanobind6detail9call_initILNS_9rv_policyE1ENS0_12kwargs_proxyEEEvPP7_objectS
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !44
   store ptr null, ptr %71, align 8, !tbaa !44
-  %73 = getelementptr ptr, ptr %25, i64 %14
-  %74 = getelementptr ptr, ptr %73, i64 %.0.lcssa
+  %73 = getelementptr [8 x i8], ptr %25, i64 %14
+  %74 = getelementptr [8 x i8], ptr %73, i64 %.0.lcssa
   store ptr %72, ptr %74, align 8, !tbaa !158
   %75 = load ptr, ptr %6, align 8, !tbaa !134
   %76 = call ptr @PyUnicode_InternFromString(ptr noundef %75) #28
   %77 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.0.lcssa
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.0.lcssa
   store ptr %76, ptr %78, align 8, !tbaa !158
   %79 = load ptr, ptr %1, align 8, !tbaa !44
   %.not.i.i = icmp eq ptr %79, null
@@ -6321,7 +6320,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %22 = phi i32 [ %28, %.noexc5 ], [ 0, %14 ]
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !225
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %.053.i
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %.053.i
   %26 = load ptr, ptr %25, align 8, !tbaa !158
   %27 = invoke noundef i32 @_ZN8nanobind6detail9cast_implILb1EiEET0_NS_6handleE(ptr %26) #28
           to label %.noexc5 unwind label %.loopexit
@@ -6411,7 +6410,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN8
   %7 = load ptr, ptr %3, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !225
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %6
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %6
   %11 = load ptr, ptr %10, align 8, !tbaa !158
   %12 = load i64, ptr %7, align 8, !tbaa !59
   %13 = add nsw i64 %12, 1
@@ -6577,7 +6576,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nano
   %.03.i = phi i32 [ %21, %.noexc ], [ 0, %12 ]
   %.062.i = phi i64 [ %22, %.noexc ], [ 0, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %.062.i
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %.062.i
   %19 = load ptr, ptr %18, align 8, !tbaa !158
   %20 = invoke noundef i32 @_ZN8nanobind6detail9cast_implILb1EiEET0_NS_6handleE(ptr %19) #28
           to label %.noexc unwind label %33
@@ -13217,7 +13216,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nano
   %16 = zext i32 %14 to i64
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !231
-  %19 = getelementptr ptr, ptr %18, i64 %16
+  %19 = getelementptr [8 x i8], ptr %18, i64 %16
   %20 = getelementptr i8, ptr %19, i64 -8
   %21 = load ptr, ptr %20, align 8, !tbaa !158
   store ptr %21, ptr %1, align 8, !tbaa !158
@@ -13240,7 +13239,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nano
   %31 = zext i32 %29 to i64
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !231
-  %34 = getelementptr ptr, ptr %33, i64 %31
+  %34 = getelementptr [8 x i8], ptr %33, i64 %31
   %35 = getelementptr i8, ptr %34, i64 -8
   %36 = load ptr, ptr %35, align 8, !tbaa !158
   store ptr %36, ptr %23, align 8, !tbaa !158
@@ -13331,7 +13330,7 @@ define linkonce_odr hidden void @_ZN14example_policy7precallEPP7_objectmPN8nanob
 
 10:                                               ; preds = %.lr.ph, %36
   %.02330 = phi i64 [ 0, %.lr.ph ], [ %41, %36 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %.02330
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.02330
   %12 = load ptr, ptr %11, align 8, !tbaa !158
   %13 = getelementptr i8, ptr %12, i64 8
   %.val = load ptr, ptr %13, align 8, !tbaa !180
@@ -13391,7 +13390,7 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit: ; preds = %25, %29
   %32 = add i32 %30, 1
   store i32 %32, ptr %2, align 8, !tbaa !228
   %33 = zext i32 %30 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %33
   store ptr %26, ptr %34, align 8, !tbaa !158
   %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -13570,7 +13569,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt4pairIN8nanobind5tupleENS1_6obje
 _ZNSt12_Vector_baseISt4pairIN8nanobind5tupleENS1_6objectEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %4, %21
   store ptr %12, ptr %0, align 8, !tbaa !3
   store ptr %19, ptr %7, align 8, !tbaa !9
-  %25 = getelementptr inbounds nuw %"struct.std::pair.709", ptr %12, i64 %5
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %5
   store ptr %25, ptr %20, align 8, !tbaa !10
   ret void
 }
@@ -13783,7 +13782,7 @@ _ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit: ; preds = %3
 
 .lr.ph:                                           ; preds = %22, %23
   %.06 = phi i64 [ %24, %23 ], [ 0, %22 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %0, i64 %.06
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.06
   %26 = load ptr, ptr %25, align 8, !tbaa !158
   %27 = call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %26, ptr noundef nonnull @.str.152) #28
   %28 = icmp eq i32 %27, 0
@@ -13898,7 +13897,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11list_casterISt6vectorISt4pa
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !225
   %23 = add nuw nsw i64 %.025, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %.025
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.025
   store ptr %16, ptr %24, align 8, !tbaa !158
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
   %.not21 = icmp eq ptr %25, %15

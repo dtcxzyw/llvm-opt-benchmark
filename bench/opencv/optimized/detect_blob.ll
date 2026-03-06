@@ -663,7 +663,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIhLi3EEES3_SaIS2_EET0_T_S6_S5_
   br label %.noexc137
 
 .noexc137:                                        ; preds = %233, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIhLi3EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38.i
-  %234 = getelementptr inbounds nuw %"class.cv::Vec", ptr %225, i64 %223
+  %234 = getelementptr inbounds nuw [3 x i8], ptr %225, i64 %223
   br label %_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader.i.i, %.noexc137
@@ -5465,7 +5465,7 @@ _ZNSt12__shared_ptrIN2cv18SimpleBlobDetectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   %1741 = and i32 %.0201326, 65535
   %1742 = zext nneg i32 %1741 to i64
-  %1743 = getelementptr inbounds nuw %"class.cv::Vec", ptr %.sroa.0454.1, i64 %1742
+  %1743 = getelementptr inbounds nuw [3 x i8], ptr %.sroa.0454.1, i64 %1742
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, i8 0, i64 32, i1 false), !tbaa !279
   br label %1744
 
@@ -5474,7 +5474,7 @@ _ZNSt12__shared_ptrIN2cv18SimpleBlobDetectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   %1745 = getelementptr inbounds nuw i8, ptr %1743, i64 %indvars.iv.i
   %1746 = load i8, ptr %1745, align 1, !tbaa !13
   %1747 = uitofp i8 %1746 to double
-  %1748 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv.i
+  %1748 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i
   store double %1747, ptr %1748, align 8, !tbaa !279
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -6629,7 +6629,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !304
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !45
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !48
   ret void
 }

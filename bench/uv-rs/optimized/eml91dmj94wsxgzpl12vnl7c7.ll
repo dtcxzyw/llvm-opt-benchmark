@@ -54,7 +54,7 @@ define hidden { ptr, ptr } @"_ZN123_$LT$alloc..collections..btree..map..Iter$LT$
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.05.i.i, i64 368
   %25 = icmp ult i16 %22, 12
   tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %27 = load ptr, ptr %26, align 8, !noalias !11, !nonnull !3, !noundef !3
   %28 = add i64 %.sroa.03.06.i.i, -1
   %29 = icmp eq i64 %28, 0
@@ -136,7 +136,7 @@ define hidden { ptr, ptr } @"_ZN123_$LT$alloc..collections..btree..map..Iter$LT$
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i.i, i64 368
   %49 = icmp ult i64 %.sroa.6.0.lcssa.i.i.i, 13
   tail call void @llvm.assume(i1 %49)
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %45
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %45
   %51 = load ptr, ptr %50, align 8, !noalias !24, !nonnull !3, !noundef !3
   %52 = add i64 %.sroa.5.0.lcssa.i.i.i, -1
   %53 = icmp eq i64 %52, 0
@@ -151,7 +151,7 @@ define hidden { ptr, ptr } @"_ZN123_$LT$alloc..collections..btree..map..Iter$LT$
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.04.05.i.i.i.i, i64 368
   %58 = icmp ult i16 %55, 12
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %60 = load ptr, ptr %59, align 8, !noalias !33, !nonnull !3, !noundef !3
   %61 = add i64 %.sroa.03.06.i.i.i.i, -1
   %62 = icmp eq i64 %61, 0
@@ -193,7 +193,7 @@ _ZN5alloc11collections5btree3mem7replace17hfb3d102e83e1aed6E.llvm.86350209215510
   %.sink.i.i.i = phi i64 [ %65, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h5318bce55f58fdf9E.llvm.6644963499448254028.exit.i.i.i" ], [ %45, %.loopexit.i.i ]
   %69 = icmp ult i64 %.sroa.6.0.lcssa.i.i.i, 12
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw { [4 x i64] }, ptr %.sroa.0.0.lcssa.i.i.i, i64 %45
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.lcssa.i.i.i, i64 %45
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i.i, i64 364
   store ptr %.sroa.04.0.lcssa.i.sink.i.i.i, ptr %12, align 8, !alias.scope !14
   store i64 0, ptr %.sroa.28.0..sroa_idx.i, align 8, !alias.scope !14
@@ -708,7 +708,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17hfb3d102e8
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i, i64 368
   %17 = icmp ult i64 %.sroa.6.0.lcssa.i.i, 13
   tail call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %13
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %13
   %19 = load ptr, ptr %18, align 8, !noalias !105, !nonnull !3, !noundef !3
   %20 = add i64 %.sroa.5.0.lcssa.i.i, -1
   %21 = icmp eq i64 %20, 0
@@ -723,7 +723,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17hfb3d102e8
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.05.i.i.i, i64 368
   %26 = icmp ult i16 %23, 12
   tail call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %24
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
   %28 = load ptr, ptr %27, align 8, !noalias !114, !nonnull !3, !noundef !3
   %29 = add i64 %.sroa.03.06.i.i.i, -1
   %30 = icmp eq i64 %29, 0
@@ -756,7 +756,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17hfb3d102e8
   %.sink.i.i = phi i64 [ %33, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h5318bce55f58fdf9E.llvm.6644963499448254028.exit.i.i" ], [ %13, %.loopexit.i ]
   %36 = icmp ult i64 %.sroa.6.0.lcssa.i.i, 12
   tail call void @llvm.assume(i1 %36)
-  %37 = getelementptr inbounds nuw { [4 x i64] }, ptr %.sroa.0.0.lcssa.i.i, i64 %13
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.lcssa.i.i, i64 %13
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i, i64 364
   store ptr %.sroa.04.0.lcssa.i.sink.i.i, ptr %0, align 8
   store i64 0, ptr %.sroa.28.0..sroa_idx, align 8
@@ -844,7 +844,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i, i64 368
   %22 = icmp ult i64 %.sroa.6.0.lcssa.i, 13
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %18
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %18
   %24 = load ptr, ptr %23, align 8, !noalias !123, !nonnull !3, !noundef !3
   %25 = add i64 %.sroa.5.0.lcssa.i, -1
   %26 = icmp eq i64 %25, 0
@@ -859,7 +859,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.04.05.i.i, i64 368
   %31 = icmp ult i16 %28, 12
   tail call void @llvm.assume(i1 %31)
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %29
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %29
   %33 = load ptr, ptr %32, align 8, !noalias !132, !nonnull !3, !noundef !3
   %34 = add i64 %.sroa.03.06.i.i, -1
   %35 = icmp eq i64 %34, 0
@@ -877,7 +877,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sink.i = phi i64 [ %38, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h5318bce55f58fdf9E.llvm.6644963499448254028.exit.i" ], [ %18, %.loopexit ]
   %39 = icmp ult i64 %.sroa.6.0.lcssa.i, 12
   tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw { [4 x i64] }, ptr %.sroa.0.0.lcssa.i, i64 %18
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.lcssa.i, i64 %18
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i, i64 364
   store ptr %.sroa.04.0.lcssa.i.sink.i, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

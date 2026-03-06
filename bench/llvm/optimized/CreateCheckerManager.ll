@@ -2198,7 +2198,7 @@ _ZN4llvm11SmallVectorISt4pairINS_9StringRefEN5clang4ento13CmdLineOptionEELj0EED2
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %33 ]
   %27 = load ptr, ptr %19, align 8, !tbaa !637
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8, !tbaa !638
   %magicptr.i = ptrtoint ptr %29 to i64
   switch i64 %magicptr.i, label %30 [

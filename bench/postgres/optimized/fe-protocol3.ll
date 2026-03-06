@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.PQExpBufferData = type { ptr, i64, i64 }
-%struct.pgresParamDesc = type { i32 }
-%struct.pgDataValue = type { i32, ptr }
-%struct.pgresAttDesc = type { ptr, i32, i32, i32, i32, i32, i32 }
-%struct.PQArgBlock = type { i32, i32, %union.anon }
-%union.anon = type { ptr }
 
 @.str = private unnamed_addr constant [51 x i8] c"message type 0x%02x arrived from server while idle\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"out of memory\00", align 1
@@ -639,7 +634,7 @@ getParameterStatus.exit209:                       ; preds = %152
 220:                                              ; preds = %218
   %221 = load i32, ptr %5, align 4
   %222 = load ptr, ptr %203, align 8
-  %223 = getelementptr inbounds nuw %struct.pgresParamDesc, ptr %222, i64 %indvars.iv.i
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %indvars.iv.i
   store i32 %221, ptr %223, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -738,7 +733,7 @@ getParameterStatus.exit209:                       ; preds = %152
 
 254:                                              ; preds = %252
   %255 = load i32, ptr %4, align 4
-  %256 = getelementptr inbounds nuw %struct.pgDataValue, ptr %.032.i, i64 %indvars.iv.i215
+  %256 = getelementptr inbounds nuw [16 x i8], ptr %.032.i, i64 %indvars.iv.i215
   store i32 %255, ptr %256, align 8
   %257 = load ptr, ptr %23, align 8
   %258 = load i32, ptr %12, align 8
@@ -1416,10 +1411,10 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   %66 = load ptr, ptr %43, align 8
   %67 = call ptr @pqResultStrdup(ptr noundef nonnull %.087117, ptr noundef %66) #16
   %68 = load ptr, ptr %44, align 8
-  %69 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %68, i64 %indvars.iv
   store ptr %67, ptr %69, align 8
   %70 = load ptr, ptr %44, align 8
-  %71 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [32 x i8], ptr %70, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %.not110 = icmp eq ptr %72, null
   br i1 %.not110, label %106, label %73
@@ -1430,27 +1425,27 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   store i32 %74, ptr %75, align 8
   %76 = load i32, ptr %4, align 4
   %77 = load ptr, ptr %44, align 8
-  %78 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %77, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 12
   store i32 %76, ptr %79, align 4
   %80 = load i32, ptr %8, align 4
   %81 = load ptr, ptr %44, align 8
-  %82 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %indvars.iv
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store i32 %80, ptr %83, align 8
   %84 = load i32, ptr %5, align 4
   %85 = load ptr, ptr %44, align 8
-  %86 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %85, i64 %indvars.iv
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 20
   store i32 %84, ptr %87, align 4
   %88 = load i32, ptr %6, align 4
   %89 = load ptr, ptr %44, align 8
-  %90 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %89, i64 %indvars.iv
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store i32 %88, ptr %91, align 8
   %92 = load i32, ptr %7, align 4
   %93 = load ptr, ptr %44, align 8
-  %94 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %93, i64 %indvars.iv
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 28
   store i32 %92, ptr %95, align 4
   %96 = load i32, ptr %8, align 4
@@ -1611,7 +1606,7 @@ define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 no
   %sext = shl i32 %39, 16
   %40 = ashr exact i32 %sext, 16
   %41 = load ptr, ptr %34, align 8
-  %42 = getelementptr inbounds nuw %struct.pgresAttDesc, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 %40, ptr %43, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1819,9 +1814,9 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.0148210.i = phi i32 [ %.2150.i, %102 ], [ 0, %70 ]
   %.0154209.i = phi i32 [ %.3157.i, %102 ], [ 0, %70 ]
   %75 = sext i32 %.0213.i to i64
-  %76 = getelementptr inbounds i32, ptr %65, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %65, i64 %75
   store i32 %.0137212.i, ptr %76, align 4
-  %77 = getelementptr inbounds i32, ptr %68, i64 %75
+  %77 = getelementptr inbounds [4 x i8], ptr %68, i64 %75
   store i32 %.0154209.i, ptr %77, align 4
   %78 = icmp eq i8 %73, 9
   br i1 %78, label %79, label %80
@@ -1849,7 +1844,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
 86:                                               ; preds = %84
   %87 = add i32 %.0213.i, -1
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %65, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %65, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i8, ptr %59, i64 %91
@@ -1896,9 +1891,9 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.0137199.i = phi i32 [ 0, %70 ], [ %.3.i, %102 ]
   %.0197.i = phi i32 [ 0, %70 ], [ %103, %102 ]
   %107 = sext i32 %.0197.i to i64
-  %108 = getelementptr inbounds i32, ptr %65, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %65, i64 %107
   store i32 %.0137199.i, ptr %108, align 4
-  %109 = getelementptr inbounds i32, ptr %68, i64 %107
+  %109 = getelementptr inbounds [4 x i8], ptr %68, i64 %107
   store i32 %.0154207.i, ptr %109, align 4
   br label %.loopexit246.i
 
@@ -1913,7 +1908,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
 111:                                              ; preds = %.loopexit246.i
   %112 = zext nneg i32 %.0196.i to i64
   %113 = sext i32 %.0148204.i to i64
-  %114 = getelementptr inbounds i32, ptr %68, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %68, i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = sub i32 %110, %115
   %117 = icmp sgt i32 %116, 60
@@ -1922,7 +1917,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
 118:                                              ; preds = %111
   %119 = add i32 %115, 60
   %120 = zext nneg i32 %58 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %68, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %122, 10
   %.not168.i = icmp slt i32 %119, %123
@@ -1931,7 +1926,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
 .preheader193.i:                                  ; preds = %118, %.preheader193.i
   %.5.i = phi i32 [ %129, %.preheader193.i ], [ %.0196.i, %118 ]
   %124 = sext i32 %.5.i to i64
-  %125 = getelementptr inbounds i32, ptr %68, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %68, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = sub i32 %126, %115
   %128 = icmp sgt i32 %127, 60
@@ -1942,7 +1937,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.6.i = phi i32 [ %134, %.preheader192.i ], [ %.0196.i, %118 ]
   %.1134.i = phi i1 [ true, %.preheader192.i ], [ false, %118 ]
   %130 = sext i32 %.6.i to i64
-  %131 = getelementptr inbounds i32, ptr %68, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %68, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = icmp slt i32 %123, %132
   %134 = add i32 %.6.i, -1
@@ -1952,7 +1947,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.5153.i = phi i32 [ %140, %.preheader.i ], [ %.0148204.i, %.preheader192.i ]
   %.1136.i = phi i1 [ true, %.preheader.i ], [ false, %.preheader192.i ]
   %135 = sext i32 %.5153.i to i64
-  %136 = getelementptr inbounds i32, ptr %68, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %68, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = sub i32 %132, %137
   %139 = icmp sgt i32 %138, 60
@@ -1965,7 +1960,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.4152.i = phi i32 [ %.5153.i, %.preheader.i ], [ %.0148204.i, %111 ], [ %.0148204.i, %.preheader193.i ]
   %.0135.i = phi i1 [ %.1136.i, %.preheader.i ], [ false, %111 ], [ false, %.preheader193.i ]
   %.0133.i = phi i1 [ %.1134.i, %.preheader.i ], [ false, %111 ], [ true, %.preheader193.i ]
-  %142 = getelementptr inbounds i32, ptr %65, i64 %.pre-phi.i
+  %142 = getelementptr inbounds [4 x i8], ptr %65, i64 %.pre-phi.i
   %143 = load i32, ptr %142, align 4
   %144 = sext i32 %143 to i64
   %145 = getelementptr inbounds i8, ptr %59, i64 %144
@@ -2008,7 +2003,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
 ._crit_edge.i:                                    ; preds = %.lr.ph220.i, %150
   %.4158.lcssa.i = phi i32 [ 0, %150 ], [ %158, %.lr.ph220.i ]
   %166 = sext i32 %.4152.i to i64
-  %167 = getelementptr inbounds i32, ptr %65, i64 %166
+  %167 = getelementptr inbounds [4 x i8], ptr %65, i64 %166
   %168 = load i32, ptr %167, align 4
   %169 = sext i32 %168 to i64
   %170 = getelementptr inbounds i8, ptr %59, i64 %169
@@ -2022,7 +2017,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
 172:                                              ; preds = %171, %._crit_edge.i
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 10) #16
   %173 = zext nneg i32 %58 to i64
-  %174 = getelementptr inbounds nuw i32, ptr %68, i64 %173
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %173
   %175 = load i32, ptr %174, align 4
   %176 = sub i32 %.4158.lcssa.i, %141
   %177 = add i32 %176, %175
@@ -2875,7 +2870,7 @@ define ptr @pqFunctionCall3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
-  %25 = getelementptr inbounds nuw %struct.PQArgBlock, ptr %5, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %26 = load i32, ptr %25, align 8
   %27 = tail call i32 @pqPutInt(i32 noundef %26, i64 noundef 4, ptr noundef %0) #16
   %.not126 = icmp eq i32 %27, 0

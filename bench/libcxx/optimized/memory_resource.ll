@@ -3,8 +3,6 @@ source_filename = "bench/libcxx/original/memory_resource.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::__1::pmr::unsynchronized_pool_resource::__fixed_pool" = type { ptr, ptr }
-
 $_ZNSt3__13pmr25monotonic_buffer_resourceD2Ev = comdat any
 
 $_ZNSt3__13pmr25monotonic_buffer_resourceD0Ev = comdat any
@@ -397,7 +395,7 @@ _ZNSt3__13pmr28unsynchronized_pool_resource12__adhoc_pool13__release_ptrEPNS0_15
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool13__release_ptrEPNS0_15memory_resourceE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool13__release_ptrEPNS0_15memory_resourceE.exit ]
   %32 = load ptr, ptr %18, align 8, !tbaa !34
-  %33 = getelementptr inbounds nuw %"class.std::__1::pmr::unsynchronized_pool_resource::__fixed_pool", ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %3, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr null, ptr %35, align 8, !tbaa !35
@@ -507,7 +505,7 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; pre
 .loopexit:                                        ; preds = %.lr.ph.preheader, %33, %29
   %44 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %41, %33 ], [ %31, %29 ]
   %45 = zext nneg i32 %13 to i64
-  %46 = getelementptr inbounds nuw %"class.std::__1::pmr::unsynchronized_pool_resource::__fixed_pool", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !35
   %.not.i = icmp eq ptr %48, null
@@ -666,7 +664,7 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; pre
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !34
   %40 = zext nneg i32 %14 to i64
-  %41 = getelementptr inbounds nuw %"class.std::__1::pmr::unsynchronized_pool_resource::__fixed_pool", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !35
   store ptr %43, ptr %1, align 8, !tbaa !46

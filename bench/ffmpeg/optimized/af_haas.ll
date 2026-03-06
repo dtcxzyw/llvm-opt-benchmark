@@ -193,7 +193,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.1 = phi nsz double [ %.06772, %51 ], [ %54, %53 ], [ %57, %55 ], [ %63, %58 ], [ %69, %64 ]
   %71 = fmul nsz double %13, %.1
   %72 = zext i32 %52 to i64
-  %73 = getelementptr inbounds nuw double, ptr %21, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %72
   store double %71, ptr %73, align 8, !tbaa !51
   %74 = add i32 %52, %40
   %75 = sub i32 %74, %49
@@ -203,12 +203,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %79 = fneg nsz double %71
   %.2 = select nsz i1 %.not71, double %71, double %79
   %80 = zext i32 %76 to i64
-  %81 = getelementptr inbounds nuw double, ptr %21, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %80
   %82 = load double, ptr %81, align 8, !tbaa !51
   %83 = load double, ptr %44, align 8, !tbaa !52
   %84 = fmul nsz double %82, %83
   %85 = zext i32 %78 to i64
-  %86 = getelementptr inbounds nuw double, ptr %21, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %85
   %87 = load double, ptr %86, align 8, !tbaa !51
   %88 = fmul nsz double %83, %87
   %89 = load double, ptr %45, align 8, !tbaa !51

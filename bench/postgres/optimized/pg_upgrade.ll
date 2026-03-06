@@ -10,10 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.OSInfo = type { ptr, ptr, i8, ptr, i32, ptr, i32, ptr }
 %struct.LogOpts = type { ptr, i8, i8, ptr, ptr, ptr, ptr, i8 }
 %struct.timeval = type { i64, i64 }
-%struct.DbInfo = type { i32, ptr, [1024 x i8], %struct.RelInfoArr, %struct.LogicalSlotInfoArr }
-%struct.RelInfoArr = type { ptr, i32 }
-%struct.LogicalSlotInfoArr = type { i32, ptr }
-%struct.LogicalSlotInfo = type { ptr, ptr, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [22 x i8] c"pg_upgrade_server.log\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"pg_upgrade_utility.log\00", align 1
@@ -600,7 +596,7 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i7 ], [ %indvars.iv.next.i, %264 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %251 = getelementptr inbounds nuw %struct.DbInfo, ptr %249, i64 %indvars.iv.i
+  %251 = getelementptr inbounds nuw [1072 x i8], ptr %249, i64 %indvars.iv.i
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load ptr, ptr %252, align 8
   %254 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %253, ptr noundef nonnull dereferenceable(10) @.str.28) #11
@@ -644,7 +640,7 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
   %indvars.iv36.i = phi i64 [ 0, %.lr.ph31.preheader.i ], [ %indvars.iv.next37.i, %291 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %269 = getelementptr inbounds nuw %struct.DbInfo, ptr %268, i64 %indvars.iv36.i
+  %269 = getelementptr inbounds nuw [1072 x i8], ptr %268, i64 %indvars.iv36.i
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load ptr, ptr %270, align 8
   %272 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %271, ptr noundef nonnull dereferenceable(10) @.str.28) #11
@@ -748,7 +744,7 @@ create_new_objects.exit:                          ; preds = %297, %300
   %316 = phi i32 [ %314, %.lr.ph31.preheader.i10 ], [ %351, %350 ]
   %317 = phi ptr [ %.pre37.i, %.lr.ph31.preheader.i10 ], [ %352, %350 ]
   %indvars.iv34.i = phi i64 [ 0, %.lr.ph31.preheader.i10 ], [ %indvars.iv.next35.i, %350 ]
-  %318 = getelementptr inbounds nuw %struct.DbInfo, ptr %317, i64 %indvars.iv34.i
+  %318 = getelementptr inbounds nuw [1072 x i8], ptr %317, i64 %indvars.iv34.i
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 1056
   %320 = load i32, ptr %319, align 8
   %321 = icmp eq i32 %320, 0
@@ -779,7 +775,7 @@ create_new_objects.exit:                          ; preds = %297, %300
 331:                                              ; preds = %331, %.lr.ph.i13
   %indvars.iv.i14 = phi i64 [ 0, %.lr.ph.i13 ], [ %indvars.iv.next.i15, %331 ]
   %332 = load ptr, ptr %330, align 8
-  %333 = getelementptr inbounds nuw %struct.LogicalSlotInfo, ptr %332, i64 %indvars.iv.i14
+  %333 = getelementptr inbounds nuw [24 x i8], ptr %332, i64 %indvars.iv.i14
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %326, ptr noundef nonnull @.str.85) #9
   %334 = load ptr, ptr %333, align 8
   call void @appendStringLiteralConn(ptr noundef %326, ptr noundef %334, ptr noundef %325) #9

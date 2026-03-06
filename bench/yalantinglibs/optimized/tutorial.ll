@@ -37,11 +37,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" }
 %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.tutorial::Person" = type { %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<tutorial::Person::PhoneNumber, std::allocator<tutorial::Person::PhoneNumber>>::_Vector_impl" }
-%"struct.std::_Vector_base<tutorial::Person::PhoneNumber, std::allocator<tutorial::Person::PhoneNumber>>::_Vector_impl" = type { %"struct.std::_Vector_base<tutorial::Person::PhoneNumber, std::allocator<tutorial::Person::PhoneNumber>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<tutorial::Person::PhoneNumber, std::allocator<tutorial::Person::PhoneNumber>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev = comdat any
 
@@ -389,7 +384,7 @@ for.body29:                                       ; preds = %if.end, %sw.epilog
 
 switch.lookup:                                    ; preds = %for.body29
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z11list_peopleRKN8tutorial11AddressBookE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z11list_peopleRKN8tutorial11AddressBookE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %switch.load)
   br label %sw.epilog
@@ -1199,7 +1194,7 @@ _ZNSt12_Vector_baseIN8tutorial6Person11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i34, ptr %_M_finish.i.i, align 8
-  %add.ptr26 = getelementptr inbounds nuw %"struct.tutorial::Person::PhoneNumber", ptr %cond.i17, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [40 x i8], ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -1564,7 +1559,7 @@ _ZNSt12_Vector_baseIN8tutorial6PersonESaIS1_EE13_M_deallocateEPS1_m.exit: ; pred
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.tutorial::Person", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [96 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

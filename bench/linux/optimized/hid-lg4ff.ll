@@ -303,7 +303,7 @@ define dso_local i32 @lg4ff_init(ptr noundef %0) local_unnamed_addr #0 align 16 
 
 36:                                               ; preds = %41, %30
   %37 = phi i64 [ 1, %30 ], [ %42, %41 ]
-  %38 = getelementptr %struct.lg4ff_alternate_mode, ptr @lg4ff_alternate_modes, i64 %37
+  %38 = getelementptr [24 x i8], ptr @lg4ff_alternate_modes, i64 %37
   %39 = load i16, ptr %38, align 8
   %40 = icmp eq i16 %39, %35
   br i1 %40, label %44, label %41
@@ -330,7 +330,7 @@ define dso_local i32 @lg4ff_init(ptr noundef %0) local_unnamed_addr #0 align 16 
 
 53:                                               ; preds = %50, %47
   %54 = phi i64 [ 0, %47 ], [ %51, %50 ]
-  %55 = getelementptr ptr, ptr @lg4ff_main_checklist, i64 %54
+  %55 = getelementptr [8 x i8], ptr @lg4ff_main_checklist, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, %49
@@ -408,7 +408,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 
 88:                                               ; preds = %93, %.thread28
   %89 = phi i64 [ 0, %.thread28 ], [ %94, %93 ]
-  %90 = getelementptr %struct.lg4ff_wheel, ptr @lg4ff_devices, i64 %89
+  %90 = getelementptr [32 x i8], ptr @lg4ff_devices, i64 %89
   %91 = load i32, ptr %90, align 16
   %92 = icmp eq i32 %87, %91
   br i1 %92, label %96, label %93
@@ -432,7 +432,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 
 .preheader:                                       ; preds = %99, %104
   %100 = phi i64 [ %105, %104 ], [ 0, %99 ]
-  %101 = getelementptr %struct.lg4ff_multimode_wheel, ptr @lg4ff_multimode_wheels, i64 %100
+  %101 = getelementptr [24 x i8], ptr @lg4ff_multimode_wheels, i64 %100
   %102 = load i16, ptr %101, align 8
   %103 = icmp eq i16 %.ph33, %102
   br i1 %103, label %107, label %104
@@ -471,7 +471,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %118, i64 %122) #15, !srcloc !12
   %123 = add i32 %121, 1
   %124 = sext i32 %123 to i64
-  %125 = getelementptr i16, ptr %114, i64 %124
+  %125 = getelementptr [2 x i8], ptr %114, i64 %124
   %126 = load i16, ptr %125, align 2
   %127 = icmp sgt i16 %126, -1
   br i1 %127, label %119, label %.loopexit39, !llvm.loop !13
@@ -495,7 +495,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 
 134:                                              ; preds = %131
   %135 = sext i32 %112 to i64
-  %136 = getelementptr %struct.lg4ff_multimode_wheel, ptr @lg4ff_multimode_wheels, i64 %135
+  %136 = getelementptr [24 x i8], ptr @lg4ff_multimode_wheels, i64 %135
   %137 = icmp eq ptr %136, null
   br i1 %137, label %.thread37, label %138
 
@@ -679,7 +679,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   store ptr @lg4ff_led_get_brightness, ptr %233, align 8
   %234 = getelementptr inbounds nuw i8, ptr %218, i64 32
   store ptr @lg4ff_led_set_brightness, ptr %234, align 8
-  %235 = getelementptr ptr, ptr %202, i64 %215
+  %235 = getelementptr [8 x i8], ptr %202, i64 %215
   store ptr %218, ptr %235, align 8
   %236 = tail call i32 @led_classdev_register_ext(ptr noundef nonnull %5, ptr noundef nonnull %218, ptr noundef null) #15
   %237 = icmp eq i32 %236, 0
@@ -693,7 +693,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 
 241:                                              ; preds = %247, %238
   %242 = phi i64 [ 0, %238 ], [ %248, %247 ]
-  %243 = getelementptr ptr, ptr %202, i64 %242
+  %243 = getelementptr [8 x i8], ptr %202, i64 %242
   %244 = load ptr, ptr %243, align 8
   store ptr null, ptr %243, align 8
   %245 = icmp eq ptr %244, null
@@ -1079,7 +1079,7 @@ define internal range(i32 0, 256) i32 @lg4ff_led_get_brightness(ptr noundef read
 
 17:                                               ; preds = %31, %14
   %18 = phi i64 [ 0, %14 ], [ %32, %31 ]
-  %19 = getelementptr ptr, ptr %15, i64 %18
+  %19 = getelementptr [8 x i8], ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %22, label %31
@@ -1137,7 +1137,7 @@ define internal void @lg4ff_led_set_brightness(ptr noundef readonly captures(add
 
 19:                                               ; preds = %85, %16
   %20 = phi i64 [ 0, %16 ], [ %86, %85 ]
-  %21 = getelementptr ptr, ptr %17, i64 %20
+  %21 = getelementptr [8 x i8], ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %0
   br i1 %23, label %24, label %85
@@ -1302,7 +1302,7 @@ define dso_local noundef range(i32 -1, 1) i32 @lg4ff_deinit(ptr noundef %0) loca
 
 20:                                               ; preds = %26, %17
   %21 = phi i64 [ 0, %17 ], [ %27, %26 ]
-  %22 = getelementptr ptr, ptr %19, i64 %21
+  %22 = getelementptr [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
   store ptr null, ptr %22, align 8
   %24 = icmp eq ptr %23, null
@@ -1387,7 +1387,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @lg4ff_switch_compatibility
   %32 = getelementptr i8, ptr %29, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
-  %35 = getelementptr i32, ptr %20, i64 %31
+  %35 = getelementptr [4 x i8], ptr %20, i64 %31
   store i32 %34, ptr %35, align 4
   %36 = add nuw nsw i64 %31, 1
   %37 = icmp eq i64 %36, 7
@@ -1839,7 +1839,7 @@ define internal range(i64 -2147483648, 2147487742) i64 @lg4ff_alternate_modes_sh
 27:                                               ; preds = %19
   %28 = getelementptr i8, ptr %2, i64 %21
   %29 = sub nuw nsw i64 4096, %21
-  %30 = getelementptr %struct.lg4ff_alternate_mode, ptr @lg4ff_alternate_modes, i64 %20
+  %30 = getelementptr [24 x i8], ptr @lg4ff_alternate_modes, i64 %20
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i16, ptr %30, align 8
@@ -1970,7 +1970,7 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr rea
   br i1 %43, label %56, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr %struct.lg4ff_alternate_mode, ptr @lg4ff_alternate_modes, i64 %40
+  %45 = getelementptr [24 x i8], ptr @lg4ff_alternate_modes, i64 %40
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @strcmp(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %16) #15
@@ -2028,7 +2028,7 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr rea
 78:                                               ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %80 = load ptr, ptr %79, align 8
-  %.split = getelementptr %struct.lg4ff_alternate_mode, ptr @lg4ff_alternate_modes, i64 %54
+  %.split = getelementptr [24 x i8], ptr @lg4ff_alternate_modes, i64 %54
   %81 = getelementptr i8, ptr %.split, i64 16
   %82 = load ptr, ptr %81, align 8
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %80, ptr noundef %82) #14

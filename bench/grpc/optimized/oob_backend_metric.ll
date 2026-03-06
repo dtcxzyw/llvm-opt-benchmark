@@ -57,12 +57,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %"class.absl::lts_20240722::Status" = type { i64 }
 %"class.grpc_core::DebugLocation" = type { i8 }
-%"class.std::unique_ptr.133" = type { %"struct.std::__uniq_ptr_data.134" }
-%"struct.std::__uniq_ptr_data.134" = type { %"class.std::__uniq_ptr_impl.135" }
-%"class.std::__uniq_ptr_impl.135" = type { %"class.std::tuple.136" }
-%"class.std::tuple.136" = type { %"struct.std::_Tuple_impl.137" }
-%"struct.std::_Tuple_impl.137" = type { %"struct.std::_Head_base.140" }
-%"struct.std::_Head_base.140" = type { ptr }
 
 $_ZNSt10unique_ptrIN9grpc_core12OrcaProducer22OrcaStreamEventHandlerESt14default_deleteIS2_EED2Ev = comdat any
 
@@ -1951,7 +1945,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !199
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !196
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !200
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -2881,7 +2875,7 @@ _ZNSt6vectorISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EE11_S_reloca
 _ZNSt6vectorISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EE17_M_realloc_insertIJRPcEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %24, ptr %4, align 8, !tbaa !249
   store ptr %29, ptr %5, align 8, !tbaa !252
-  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.133", ptr %24, i64 %22
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %31, ptr %7, align 8, !tbaa !254
   br label %_ZNSt6vectorISt10unique_ptrIcN9grpc_core17DefaultDeleteCharEESaIS3_EE12emplace_backIJRPcEEERS3_DpOT_.exit
 

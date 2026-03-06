@@ -460,7 +460,7 @@ define internal zeroext i1 @_5views_dump_finish(ptr noundef %0, ptr noundef %1, 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr i32, ptr @wtap_encap, i64 %15
+  %16 = getelementptr [4 x i8], ptr @wtap_encap, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %17, ptr %18, align 4

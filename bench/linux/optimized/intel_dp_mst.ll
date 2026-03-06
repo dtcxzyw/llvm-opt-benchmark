@@ -8,9 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.drm_connector_funcs = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.drm_connector_helper_funcs = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.drm_encoder_funcs = type { ptr, ptr, ptr, ptr, ptr }
-%struct.__drm_private_objs_state = type { ptr, ptr, ptr, ptr }
-%struct.__drm_connnectors_state = type { ptr, ptr, ptr, ptr, ptr }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.drm_dp_desc = type { %struct.drm_dp_dpcd_ident, i32 }
 %struct.drm_dp_dpcd_ident = type { [3 x i8], [6 x i8], i8, i8, i8 }
 %struct.drm_connector_list_iter = type { ptr, ptr }
@@ -79,7 +76,7 @@ define dso_local i32 @intel_dp_mst_atomic_check_link(ptr noundef %0, ptr noundef
   %14 = phi i32 [ %5, %7 ], [ %168, %167 ]
   %15 = phi i64 [ 0, %7 ], [ %169, %167 ]
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr %struct.__drm_private_objs_state, ptr %16, i64 %15
+  %17 = getelementptr [32 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8
@@ -98,7 +95,7 @@ define dso_local i32 @intel_dp_mst_atomic_check_link(ptr noundef %0, ptr noundef
   %28 = phi i64 [ %61, %59 ], [ 0, %22 ]
   %29 = phi i8 [ %60, %59 ], [ 0, %22 ]
   %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr %struct.__drm_connnectors_state, ptr %30, i64 %28
+  %31 = getelementptr [40 x i8], ptr %30, i64 %28
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %59, label %34
@@ -177,7 +174,7 @@ define dso_local i32 @intel_dp_mst_atomic_check_link(ptr noundef %0, ptr noundef
   %82 = getelementptr i8, ptr %72, i64 128
   %83 = load i32, ptr %82, align 8
   %84 = zext i32 %83 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %81, i64 %84
+  %.split = getelementptr [56 x i8], ptr %81, i64 %84
   %85 = getelementptr i8, ptr %.split, i64 24
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
@@ -256,7 +253,7 @@ define dso_local i32 @intel_dp_mst_atomic_check_link(ptr noundef %0, ptr noundef
   %125 = phi i64 [ %158, %156 ], [ 0, %121 ]
   %126 = phi i8 [ %157, %156 ], [ 0, %121 ]
   %127 = load ptr, ptr %11, align 8
-  %128 = getelementptr %struct.__drm_connnectors_state, ptr %127, i64 %125
+  %128 = getelementptr [40 x i8], ptr %127, i64 %125
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %129, null
   br i1 %130, label %156, label %131
@@ -452,7 +449,7 @@ define dso_local i32 @intel_dp_mst_encoder_init(ptr noundef %0, i32 noundef %1) 
   br label %70
 
 70:                                               ; preds = %43, %38
-  %71 = getelementptr ptr, ptr %30, i64 %32
+  %71 = getelementptr [8 x i8], ptr %30, i64 %32
   store ptr %41, ptr %71, align 8
   br label %72
 
@@ -554,7 +551,7 @@ define dso_local i32 @intel_dp_mst_add_topology_state_for_crtc(ptr noundef %0, p
 9:                                                ; preds = %.thread, %6
   %10 = phi i64 [ 0, %6 ], [ %38, %.thread ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr %struct.__drm_connnectors_state, ptr %11, i64 %10
+  %12 = getelementptr [40 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
@@ -613,7 +610,7 @@ define dso_local noundef zeroext i1 @intel_dp_mst_crtc_needs_modeset(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
@@ -636,7 +633,7 @@ define dso_local noundef zeroext i1 @intel_dp_mst_crtc_needs_modeset(ptr noundef
 
 22:                                               ; preds = %38, %18
   %23 = phi i64 [ 0, %18 ], [ %39, %38 ]
-  %24 = getelementptr %struct.__drm_connnectors_state, ptr %20, i64 %23
+  %24 = getelementptr [40 x i8], ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %38, label %27
@@ -668,7 +665,7 @@ define dso_local noundef zeroext i1 @intel_dp_mst_crtc_needs_modeset(ptr noundef
 
 42:                                               ; preds = %.thread13, %.thread
   %43 = phi i64 [ 0, %.thread ], [ %80, %.thread13 ]
-  %44 = getelementptr %struct.__drm_connnectors_state, ptr %20, i64 %43
+  %44 = getelementptr [40 x i8], ptr %20, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread13, label %47
@@ -692,7 +689,7 @@ define dso_local noundef zeroext i1 @intel_dp_mst_crtc_needs_modeset(ptr noundef
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 144
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
-  %.split9 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %61
+  %.split9 = getelementptr [56 x i8], ptr %4, i64 %61
   %62 = getelementptr i8, ptr %.split9, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 10
@@ -879,7 +876,7 @@ define internal ptr @intel_dp_add_mst_connector(ptr noundef %0, ptr noundef %1, 
   br i1 %74, label %80, label %75
 
 75:                                               ; preds = %68
-  %76 = getelementptr ptr, ptr %67, i64 %69
+  %76 = getelementptr [8 x i8], ptr %67, i64 %69
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 @drm_connector_attach_encoder(ptr noundef nonnull %9, ptr noundef %77) #12
   %79 = icmp eq i32 %78, 0
@@ -1275,7 +1272,7 @@ define internal ptr @intel_mst_atomic_best_encoder(ptr noundef readonly captures
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %4 to i64
-  %.split = getelementptr %struct.__drm_connnectors_state, ptr %10, i64 %11
+  %.split = getelementptr [40 x i8], ptr %10, i64 %11
   %12 = getelementptr i8, ptr %.split, i64 24
   %13 = load ptr, ptr %12, align 8
   br label %14
@@ -1290,7 +1287,7 @@ define internal ptr @intel_mst_atomic_best_encoder(ptr noundef readonly captures
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 1648
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr ptr, ptr %20, i64 %23
+  %24 = getelementptr [8 x i8], ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8
   ret ptr %25
 }
@@ -1845,7 +1842,7 @@ define internal noundef i32 @intel_dp_mst_compute_config_late(ptr noundef readon
 23:                                               ; preds = %56, %18
   %24 = phi i64 [ 0, %18 ], [ %58, %56 ]
   %25 = phi i8 [ 0, %18 ], [ %57, %56 ]
-  %26 = getelementptr %struct.__drm_connnectors_state, ptr %20, i64 %24
+  %26 = getelementptr [40 x i8], ptr %20, i64 %24
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %56, label %29
@@ -1869,7 +1866,7 @@ define internal noundef i32 @intel_dp_mst_compute_config_late(ptr noundef readon
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 144
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %40, i64 %43
+  %.split = getelementptr [56 x i8], ptr %40, i64 %43
   %44 = getelementptr i8, ptr %.split, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 336
@@ -2003,7 +2000,7 @@ define internal void @intel_mst_post_disable_dp(ptr noundef %0, ptr noundef %1, 
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %53 = load i32, ptr %52, align 8
   %54 = sext i32 %53 to i64
-  %55 = getelementptr i32, ptr %51, i64 %54
+  %55 = getelementptr [4 x i8], ptr %51, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %51, align 4
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -2357,7 +2354,7 @@ define internal void @intel_mst_enable_dp(ptr noundef %0, ptr noundef %1, ptr no
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %59 = sext i32 %12 to i64
-  %60 = getelementptr i32, ptr %58, i64 %59
+  %60 = getelementptr [4 x i8], ptr %58, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = load i32, ptr %58, align 4
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 32

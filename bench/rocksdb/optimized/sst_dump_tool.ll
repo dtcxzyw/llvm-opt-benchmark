@@ -156,7 +156,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.132" = type { ptr }
 %"class.std::shared_ptr.133" = type { %"class.std::__shared_ptr.134" }
 %"class.std::__shared_ptr.134" = type { ptr, %"class.std::__shared_count" }
-%"struct.std::pair" = type { i8, ptr }
 %"class.rocksdb::IOStatus" = type { %"class.rocksdb::Status" }
 %"class.std::function.164" = type { %"class.std::_Function_base", ptr }
 
@@ -851,7 +850,7 @@ define noundef range(i32 -1, 2) i32 @_ZN7rocksdb11SSTDumpTool3RunEiPKPKcNS_7Opti
   %.03222009 = phi i8 [ 0, %.lr.ph ], [ %.1323, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
   %.03242008 = phi i1 [ false, %.lr.ph ], [ %.1325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
   %.03262007 = phi i8 [ 0, %.lr.ph ], [ %.1327, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
-  %156 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %157 = load ptr, ptr %156, align 8, !tbaa !24
   %158 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %157, ptr noundef nonnull dereferenceable(11) @.str.50, i64 noundef 10) #28
   %159 = icmp eq i32 %158, 0
@@ -1431,7 +1430,7 @@ _ZNSt6vectorISt4pairIN7rocksdb15CompressionTypeEPKcESaIS5_EE11_S_relocateEPS5_S8
 _ZNSt6vectorISt4pairIN7rocksdb15CompressionTypeEPKcESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %389, %_ZNSt6vectorISt4pairIN7rocksdb15CompressionTypeEPKcESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i
   store ptr %384, ptr %27, align 8, !tbaa !20
   store ptr %388, ptr %152, align 8, !tbaa !42
-  %390 = getelementptr inbounds nuw %"struct.std::pair", ptr %384, i64 %382
+  %390 = getelementptr inbounds nuw [16 x i8], ptr %384, i64 %382
   store ptr %390, ptr %153, align 8, !tbaa !23
   br label %_ZNSt6vectorISt4pairIN7rocksdb15CompressionTypeEPKcESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit.backedge
 
@@ -3227,7 +3226,7 @@ _ZN7rocksdb6StatusD2Ev.exit613:                   ; preds = %_ZNKSt14default_del
   %.02982056 = phi i64 [ 0, %.lr.ph2065 ], [ %.2300, %1598 ]
   %.03042055 = phi i64 [ 0, %.lr.ph2065 ], [ %.2306, %1598 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
-  %1061 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1060, i64 %.01842061
+  %1061 = getelementptr inbounds nuw [32 x i8], ptr %1060, i64 %.01842061
   store ptr %973, ptr %82, align 8, !tbaa !11
   %1062 = load ptr, ptr %1061, align 8, !tbaa !16
   %1063 = getelementptr inbounds nuw i8, ptr %1061, i64 8
@@ -10124,7 +10123,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit37, %74
   store ptr %23, ptr %0, align 8, !tbaa !130
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !132
-  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %78, ptr %73, align 8, !tbaa !153
   ret void
 
@@ -10350,7 +10349,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !130
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !132
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !153
   ret void
 

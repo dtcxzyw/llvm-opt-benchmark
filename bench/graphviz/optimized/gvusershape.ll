@@ -3,7 +3,6 @@ source_filename = "bench/graphviz/original/gvusershape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.knowntype_t = type { ptr, i64, i32, ptr }
 %struct.agxbuf = type { %union.anon.1 }
 %union.anon.1 = type { %struct.anon }
 %struct.anon = type { ptr, i64, i64, [7 x i8], i8 }
@@ -326,7 +325,7 @@ freeUsershape.exit.i:                             ; preds = %48, %46
 
 .preheader59.i.i:                                 ; preds = %53, %80
   %.03361.i.i = phi i64 [ %81, %80 ], [ 0, %53 ]
-  %56 = getelementptr inbounds nuw %struct.knowntype_t, ptr @knowntypes, i64 %.03361.i.i
+  %56 = getelementptr inbounds nuw [32 x i8], ptr @knowntypes, i64 %.03361.i.i
   %57 = load ptr, ptr %56, align 16, !tbaa !57
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !59

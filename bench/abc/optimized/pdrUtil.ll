@@ -55,7 +55,7 @@ define noalias noundef ptr @Pdr_SetCreate(ptr noundef readonly captures(none) %0
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %19 = phi i64 [ 0, %.lr.ph ], [ %25, %18 ]
-  %20 = getelementptr inbounds nuw i32, ptr %.val35, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.val35, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !17
   %22 = srem i32 %21, 63
   %23 = zext nneg i32 %22 to i64
@@ -86,10 +86,10 @@ define noalias noundef ptr @Pdr_SetCreate(ptr noundef readonly captures(none) %0
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.i ]
   %.024.i = phi i32 [ %29, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv29.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv29.i
   %31 = load i32, ptr %30, align 4, !tbaa !17
   %32 = sext i32 %.024.i to i64
-  %33 = getelementptr inbounds i32, ptr %27, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %27, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !17
   %35 = icmp slt i32 %31, %34
   %36 = trunc nuw nsw i64 %indvars.iv29.i to i32
@@ -100,10 +100,10 @@ define noalias noundef ptr @Pdr_SetCreate(ptr noundef readonly captures(none) %0
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %37 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv32.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv32.i
   %38 = load i32, ptr %37, align 4, !tbaa !17
   %39 = sext i32 %spec.select.i to i64
-  %40 = getelementptr inbounds i32, ptr %27, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %27, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !17
   store i32 %41, ptr %37, align 4, !tbaa !17
   store i32 %38, ptr %40, align 4, !tbaa !17
@@ -134,9 +134,9 @@ Vec_IntSelectSort.exit:                           ; preds = %2, %Vec_IntSelectSo
   %49 = load i32, ptr %10, align 8, !tbaa !10
   %50 = sext i32 %49 to i64
   %51 = sub nsw i64 %indvars.iv42, %50
-  %52 = getelementptr inbounds i32, ptr %.val36, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %.val36, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !17
-  %54 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv42
+  %54 = getelementptr inbounds [4 x i8], ptr %47, i64 %indvars.iv42
   store i32 %53, ptr %54, align 4, !tbaa !17
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, 1
   %55 = load i32, ptr %11, align 4, !tbaa !13
@@ -189,11 +189,11 @@ define noalias noundef ptr @Pdr_SetCreateFrom(ptr noundef readonly captures(none
   br i1 %23, label %35, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !17
   %27 = add nsw i32 %.023, 1
   %28 = sext i32 %.023 to i64
-  %29 = getelementptr inbounds i32, ptr %18, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %18, i64 %28
   store i32 %26, ptr %29, align 4, !tbaa !17
   %.not = icmp slt i64 %indvars.iv, %19
   br i1 %.not, label %30, label %35
@@ -249,7 +249,7 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr noundef readonly captures(no
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = phi i64 [ 0, %.lr.ph ], [ %28, %21 ]
-  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = srem i32 %24, 63
@@ -283,10 +283,10 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr noundef readonly captures(no
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.i ]
   %.024.i = phi i32 [ %35, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv29.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv29.i
   %37 = load i32, ptr %36, align 4, !tbaa !17
   %38 = sext i32 %.024.i to i64
-  %39 = getelementptr inbounds i32, ptr %33, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %33, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !17
   %41 = icmp slt i32 %37, %40
   %42 = trunc nuw nsw i64 %indvars.iv29.i to i32
@@ -297,10 +297,10 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr noundef readonly captures(no
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %43 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv32.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv32.i
   %44 = load i32, ptr %43, align 4, !tbaa !17
   %45 = sext i32 %spec.select.i to i64
-  %46 = getelementptr inbounds i32, ptr %33, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %33, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !17
   store i32 %47, ptr %43, align 4, !tbaa !17
   store i32 %44, ptr %46, align 4, !tbaa !17
@@ -425,7 +425,7 @@ define void @Pdr_SetPrint(ptr noundef captures(none) %0, ptr noundef readonly ca
 
 16:                                               ; preds = %.lr.ph48, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %26 ]
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !17
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %26, label %20
@@ -464,7 +464,7 @@ define void @Pdr_SetPrint(ptr noundef captures(none) %0, ptr noundef readonly ca
 30:                                               ; preds = %.lr.ph52, %39
   %indvars.iv57 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next58, %39 ]
   %.051 = phi i32 [ 0, %.lr.ph52 ], [ %.1, %39 ]
-  %31 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv57
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.val42, i64 %indvars.iv57
   %32 = load i32, ptr %31, align 4, !tbaa !17
   %.not40 = icmp eq i32 %32, 0
   br i1 %.not40, label %39, label %33
@@ -521,7 +521,7 @@ define void @ZPdr_SetPrint(ptr noundef readonly captures(none) %0) local_unnamed
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -593,10 +593,10 @@ Vec_IntAlloc.exit:                                ; preds = %3, %11
 
 31:                                               ; preds = %27
   %32 = sext i32 %.04074 to i64
-  %33 = getelementptr inbounds i32, ptr %22, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %22, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !17
   %35 = sext i32 %.03975 to i64
-  %36 = getelementptr inbounds i32, ptr %23, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %23, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !17
   %38 = icmp sgt i32 %34, %37
   br i1 %38, label %39, label %52
@@ -607,7 +607,7 @@ Vec_IntAlloc.exit:                                ; preds = %3, %11
   %42 = tail call i32 %40(i32 noundef %37, i32 noundef %41) #31
   %43 = load ptr, ptr %26, align 8, !tbaa !34
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %43, i64 %44
   %.013.i = load ptr, ptr %45, align 8, !tbaa !35
   %.not14.i = icmp eq ptr %.013.i, null
   br i1 %.not14.i, label %.loopexit, label %.lr.ph.i
@@ -651,7 +651,7 @@ Vec_IntFree.exit:                                 ; preds = %Hash_IntExists.exit
   %57 = tail call i32 %55(i32 noundef %34, i32 noundef %56) #31
   %58 = load ptr, ptr %26, align 8, !tbaa !34
   %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   %.013.i53 = load ptr, ptr %60, align 8, !tbaa !35
   %.not14.i54 = icmp eq ptr %.013.i53, null
   br i1 %.not14.i54, label %.loopexit73, label %.lr.ph.i55
@@ -734,7 +734,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %86 = add nsw i32 %68, 1
   store i32 %86, ptr %10, align 4, !tbaa !3
   %87 = sext i32 %68 to i64
-  %88 = getelementptr inbounds i32, ptr %.pre.i79, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %.pre.i79, i64 %87
   store i32 %34, ptr %88, align 4, !tbaa !17
   %89 = add nsw i32 %.04074, 1
   %90 = add nsw i32 %.03975, 1
@@ -804,7 +804,7 @@ define void @Pdr_SetPrintStr(ptr noundef captures(none) %0, ptr noundef readonly
 
 16:                                               ; preds = %.lr.ph67, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %26 ]
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !17
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %26, label %20
@@ -843,7 +843,7 @@ define void @Pdr_SetPrintStr(ptr noundef captures(none) %0, ptr noundef readonly
 30:                                               ; preds = %.lr.ph71, %39
   %indvars.iv76 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next77, %39 ]
   %.170 = phi i32 [ 0, %.lr.ph71 ], [ %.2, %39 ]
-  %31 = getelementptr inbounds nuw i32, ptr %.val47, i64 %indvars.iv76
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.val47, i64 %indvars.iv76
   %32 = load i32, ptr %31, align 4, !tbaa !17
   %.not45 = icmp eq i32 %32, 0
   br i1 %.not45, label %39, label %33
@@ -1256,7 +1256,7 @@ define range(i32 0, 2) i32 @Pdr_SetIsInit(ptr noundef readonly captures(none) %0
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !17
   %12 = and i32 %11, 1
   %13 = icmp eq i32 %12, 0
@@ -1297,9 +1297,9 @@ define range(i32 -1, 2) i32 @Pdr_SetCompare(ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %.critedge, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !17
-  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !17
   %18 = icmp sgt i32 %15, %17
   br i1 %18, label %.loopexit, label %19
@@ -1706,11 +1706,11 @@ Saig_ObjIsLo.exit:                                ; preds = %17
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %30, align 8, !tbaa !10
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds i32, ptr %29, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %29, i64 %33
   store i32 %28, ptr %34, align 4, !tbaa !17
   %35 = load i32, ptr %30, align 8, !tbaa !10
   %36 = sext i32 %35 to i64
-  %37 = getelementptr i32, ptr %29, i64 %36
+  %37 = getelementptr [4 x i8], ptr %29, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -4
   %39 = load i32, ptr %38, align 4, !tbaa !17
   %40 = srem i32 %39, 63

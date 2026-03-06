@@ -63,7 +63,7 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 .preheader160:                                    ; preds = %3, %.preheader160
   %.0141 = phi i64 [ %18, %.preheader160 ], [ 1, %3 ]
-  %14 = getelementptr inbounds nuw i64, ptr %10, i64 %.0141
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0141
   %15 = load i64, ptr %14, align 8, !tbaa !10
   %16 = add i64 %15, 1
   store i64 %16, ptr %14, align 8, !tbaa !10
@@ -392,7 +392,7 @@ define range(i32 0, 2) i32 @WHIRLPOOL_Final(ptr noundef writeonly captures(addre
 42:                                               ; preds = %39, %50
   %.053 = phi ptr [ %40, %39 ], [ %47, %50 ]
   %.03952 = phi i64 [ 0, %39 ], [ %51, %50 ]
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %.03952
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.03952
   %44 = load i64, ptr %43, align 8, !tbaa !10
   br label %45
 
@@ -530,7 +530,7 @@ WHIRLPOOL_Update.exit:                            ; preds = %._crit_edge.i, %9
 50:                                               ; preds = %58, %47
   %.053.i = phi ptr [ %48, %47 ], [ %55, %58 ]
   %.03952.i = phi i64 [ 0, %47 ], [ %59, %58 ]
-  %51 = getelementptr inbounds nuw i64, ptr %49, i64 %.03952.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.03952.i
   %52 = load i64, ptr %51, align 8, !tbaa !10
   br label %53
 

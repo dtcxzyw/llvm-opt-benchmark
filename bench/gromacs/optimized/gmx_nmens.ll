@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ThreeFry2x64Fast" = type { %"class.gmx::ThreeFry2x64General.base", [4 x i8] }
 %"class.gmx::ThreeFry2x64General.base" = type <{ %"struct.std::array", %"struct.std::array", %"struct.std::array", i32 }>
 %"struct.std::array" = type { [2 x i64] }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
 %"class.gmx::InternalError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr" }
 %"class.std::exception" = type { ptr }
@@ -413,14 +412,14 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit:          ; preds = %98
 
 110:                                              ; preds = %.lr.ph166, %110
   %indvars.iv206 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next207, %110 ]
-  %111 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv206
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv206
   %112 = load i32, ptr %111, align 4, !tbaa !4
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds %struct.t_atom, ptr %108, i64 %113
+  %114 = getelementptr inbounds [36 x i8], ptr %108, i64 %113
   %115 = load float, ptr %114, align 4, !tbaa !44
   %116 = call noundef float @sqrtf(float noundef %115) #20, !tbaa !4
   %117 = fdiv float 1.000000e+00, %116
-  %118 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv206
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv206
   store float %117, ptr %118, align 4, !tbaa !49
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %119 = trunc nuw nsw i64 %indvars.iv.next207 to i32
@@ -430,7 +429,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit:          ; preds = %98
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %120 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv
   store float 1.000000e+00, ptr %120, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -475,7 +474,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
   %135 = add nsw i32 %storemerge93168, -1
   %136 = add i32 %135, %134
   %137 = sext i32 %storemerge93168 to i64
-  %138 = getelementptr inbounds i32, ptr %133, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %133, i64 %137
   store i32 %136, ptr %138, align 4, !tbaa !4
   %139 = load i32, ptr %21, align 4, !tbaa !4
   %140 = add nsw i32 %139, 1
@@ -496,7 +495,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
           to label %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit unwind label %.loopexit149
 
 _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit:        ; preds = %142
-  %145 = getelementptr inbounds i32, ptr %144, i64 %indvars.iv.next212
+  %145 = getelementptr inbounds [4 x i8], ptr %144, i64 %indvars.iv.next212
   %146 = call i32 (ptr, ...) @__isoc99_scanf(ptr noundef nonnull @.str.30, ptr noundef %145)
   %.not89 = icmp eq i32 %146, 1
   br i1 %.not89, label %155, label %147
@@ -578,14 +577,14 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit113.preheader: ; preds = %.loopexit148
 
 .lr.ph171:                                        ; preds = %.preheader147
   %168 = sext i32 %storemerge95172 to i64
-  %169 = getelementptr inbounds i32, ptr %.0, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %.0, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !4
   %wide.trip.count217 = zext nneg i32 %166 to i64
   br label %171
 
 171:                                              ; preds = %.lr.ph171, %174
   %indvars.iv214 = phi i64 [ 0, %.lr.ph171 ], [ %indvars.iv.next215, %174 ]
-  %172 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv214
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv214
   %173 = load i32, ptr %172, align 4, !tbaa !4
   %.not109 = icmp eq i32 %173, %170
   br i1 %.not109, label %175, label %174
@@ -597,7 +596,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit113.preheader: ; preds = %.loopexit148
 
 175:                                              ; preds = %171
   %176 = and i64 %indvars.iv214, 4294967295
-  %177 = getelementptr inbounds nuw i32, ptr %163, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !4
   %179 = icmp eq i32 %178, %170
   br i1 %179, label %180, label %.critedge
@@ -605,13 +604,13 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit113.preheader: ; preds = %.loopexit148
 180:                                              ; preds = %175
   %181 = trunc nuw nsw i64 %indvars.iv214 to i32
   %182 = sext i32 %.077173 to i64
-  %183 = getelementptr inbounds i32, ptr %161, i64 %182
+  %183 = getelementptr inbounds [4 x i8], ptr %161, i64 %182
   store i32 %181, ptr %183, align 4, !tbaa !4
   %184 = load i32, ptr %21, align 4, !tbaa !4
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds i32, ptr %.0, i64 %185
+  %186 = getelementptr inbounds [4 x i8], ptr %.0, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !4
-  %188 = getelementptr inbounds i32, ptr %.0, i64 %182
+  %188 = getelementptr inbounds [4 x i8], ptr %.0, i64 %182
   store i32 %187, ptr %188, align 4, !tbaa !4
   %189 = add nsw i32 %.077173, 1
   %.pre = load i32, ptr %21, align 4, !tbaa !4
@@ -836,8 +835,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit122:       ; preds = %_ZNSt10filesystem7_
 
 311:                                              ; preds = %.lr.ph177, %311
   %indvars.iv219 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next220, %311 ]
-  %312 = getelementptr inbounds nuw [3 x float], ptr %308, i64 %indvars.iv219
-  %313 = getelementptr inbounds nuw [3 x float], ptr %286, i64 %indvars.iv219
+  %312 = getelementptr inbounds nuw [12 x i8], ptr %308, i64 %indvars.iv219
+  %313 = getelementptr inbounds nuw [12 x i8], ptr %286, i64 %indvars.iv219
   %314 = load float, ptr %312, align 4, !tbaa !49
   store float %314, ptr %313, align 4, !tbaa !49
   %315 = getelementptr inbounds nuw i8, ptr %312, i64 4
@@ -902,15 +901,15 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit122:       ; preds = %_ZNSt10filesystem7_
 328:                                              ; preds = %.lr.ph185, %._crit_edge
   %indvars.iv233 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next234, %._crit_edge ]
   %.173183 = phi i32 [ %.072191, %.lr.ph185 ], [ %351, %._crit_edge ]
-  %329 = getelementptr inbounds nuw i32, ptr %161, i64 %indvars.iv233
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %indvars.iv233
   %330 = load i32, ptr %329, align 4, !tbaa !4
   %331 = load float, ptr @_ZZ9gmx_nmensiPPcE4temp, align 4, !tbaa !49
   %332 = fpext float %331 to double
   %333 = fmul double %332, 0x3F998AC26C586BA4
-  %334 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv233
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %indvars.iv233
   %335 = load i32, ptr %334, align 4, !tbaa !4
   %336 = sext i32 %335 to i64
-  %337 = getelementptr inbounds float, ptr %309, i64 %336
+  %337 = getelementptr inbounds [4 x i8], ptr %309, i64 %336
   %338 = load float, ptr %337, align 4, !tbaa !49
   %339 = fpext float %338 to double
   %340 = fdiv double %333, %339
@@ -939,24 +938,24 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit122:       ; preds = %_ZNSt10filesystem7_
 
 .preheader.lr.ph:                                 ; preds = %328
   %356 = sext i32 %330 to i64
-  %357 = getelementptr inbounds ptr, ptr %310, i64 %356
+  %357 = getelementptr inbounds [8 x i8], ptr %310, i64 %356
   %358 = load ptr, ptr %357, align 8, !tbaa !66
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %370
   %indvars.iv228 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next229, %370 ]
-  %359 = getelementptr inbounds nuw [3 x float], ptr %358, i64 %indvars.iv228
-  %360 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv228
-  %361 = getelementptr inbounds nuw [3 x float], ptr %286, i64 %indvars.iv228
+  %359 = getelementptr inbounds nuw [12 x i8], ptr %358, i64 %indvars.iv228
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv228
+  %361 = getelementptr inbounds nuw [12 x i8], ptr %286, i64 %indvars.iv228
   br label %362
 
 362:                                              ; preds = %.preheader, %362
   %indvars.iv224 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next225, %362 ]
-  %363 = getelementptr inbounds nuw float, ptr %359, i64 %indvars.iv224
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %359, i64 %indvars.iv224
   %364 = load float, ptr %363, align 4, !tbaa !49
   %365 = fmul float %355, %364
   %366 = load float, ptr %360, align 4, !tbaa !49
-  %367 = getelementptr inbounds nuw float, ptr %361, i64 %indvars.iv224
+  %367 = getelementptr inbounds nuw [4 x i8], ptr %361, i64 %indvars.iv224
   %368 = load float, ptr %367, align 4, !tbaa !49
   %369 = call float @llvm.fmuladd.f32(float %365, float %366, float %368)
   store float %369, ptr %367, align 4, !tbaa !49
@@ -978,11 +977,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit122:       ; preds = %_ZNSt10filesystem7_
 
 371:                                              ; preds = %.lr.ph188, %371
   %indvars.iv238 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next239, %371 ]
-  %372 = getelementptr inbounds nuw [3 x float], ptr %286, i64 %indvars.iv238
-  %373 = getelementptr inbounds nuw i32, ptr %.pre243, i64 %indvars.iv238
+  %372 = getelementptr inbounds nuw [12 x i8], ptr %286, i64 %indvars.iv238
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %.pre243, i64 %indvars.iv238
   %374 = load i32, ptr %373, align 4, !tbaa !4
   %375 = sext i32 %374 to i64
-  %376 = getelementptr inbounds [3 x float], ptr %289, i64 %375
+  %376 = getelementptr inbounds [12 x i8], ptr %289, i64 %375
   %377 = load float, ptr %372, align 4, !tbaa !49
   store float %377, ptr %376, align 4, !tbaa !49
   %378 = getelementptr inbounds nuw i8, ptr %372, i64 4
@@ -1934,7 +1933,7 @@ define linkonce_odr noundef i64 @_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv(pt
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.phi.trans.insert1 = zext nneg i32 %3 to i64
-  %.phi.trans.insert2 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert, i64 %.phi.trans.insert1
+  %.phi.trans.insert2 = getelementptr inbounds nuw [8 x i8], ptr %.phi.trans.insert, i64 %.phi.trans.insert1
   %.pre = load i64, ptr %.phi.trans.insert2, align 8, !tbaa !60
   %5 = add nuw nsw i32 %3, 1
   br label %64

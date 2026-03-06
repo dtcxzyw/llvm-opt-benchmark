@@ -159,7 +159,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %exitcond187.not, label %._crit_edge.split.us.us.us.split.us.us, label %69, !llvm.loop !42
 
 ._crit_edge.split.us.us.us.split.us.us:           ; preds = %69
-  %80 = getelementptr inbounds i32, ptr %.2.us.us.us.us.us, i64 %56
+  %80 = getelementptr inbounds [4 x i8], ptr %.2.us.us.us.us.us, i64 %56
   %81 = getelementptr inbounds i8, ptr %.074121.us.us.us, i64 %59
   %82 = getelementptr inbounds i8, ptr %.073125.us.us.us, i64 %62
   %83 = getelementptr inbounds i8, ptr %.072129.us.us.us, i64 %65
@@ -203,7 +203,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %exitcond185.not, label %._crit_edge.split.us.us.us.split, label %85, !llvm.loop !42
 
 ._crit_edge.split.us.us.us.split:                 ; preds = %85
-  %97 = getelementptr inbounds i32, ptr %.2.us.us.us, i64 %56
+  %97 = getelementptr inbounds [4 x i8], ptr %.2.us.us.us, i64 %56
   %98 = getelementptr inbounds i8, ptr %.074121.us.us, i64 %59
   %99 = getelementptr inbounds i8, ptr %.073125.us.us, i64 %62
   %100 = getelementptr inbounds i8, ptr %.072129.us.us, i64 %65
@@ -249,7 +249,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %exitcond183.not, label %._crit_edge.split.split.us.split.us.us.us.us, label %102, !llvm.loop !42
 
 ._crit_edge.split.split.us.split.us.us.us.us:     ; preds = %102
-  %113 = getelementptr inbounds i32, ptr %.2.us93.us.us.us.us, i64 %56
+  %113 = getelementptr inbounds [4 x i8], ptr %.2.us93.us.us.us.us, i64 %56
   %114 = getelementptr inbounds i8, ptr %.074121.us.us167.us, i64 %59
   %115 = getelementptr inbounds i8, ptr %.073125.us.us166.us, i64 %62
   %116 = getelementptr inbounds i8, ptr %.072129.us.us165.us, i64 %65
@@ -295,7 +295,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %exitcond181.not, label %._crit_edge.split.split.split.us.us.us, label %118, !llvm.loop !42
 
 ._crit_edge.split.split.split.us.us.us:           ; preds = %118
-  %129 = getelementptr inbounds i32, ptr %.2.us110.us.us, i64 %56
+  %129 = getelementptr inbounds [4 x i8], ptr %.2.us110.us.us, i64 %56
   %130 = getelementptr inbounds i8, ptr %.074121.us.us173, i64 %59
   %131 = getelementptr inbounds i8, ptr %.073125.us.us172, i64 %62
   %132 = getelementptr inbounds i8, ptr %.072129.us.us171, i64 %65
@@ -339,7 +339,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %exitcond.not, label %._crit_edge.split.split.split.us144, label %134, !llvm.loop !42
 
 ._crit_edge.split.split.split.us144:              ; preds = %134
-  %146 = getelementptr inbounds i32, ptr %.2.us140, i64 %56
+  %146 = getelementptr inbounds [4 x i8], ptr %.2.us140, i64 %56
   %147 = getelementptr inbounds i8, ptr %.074121.us, i64 %59
   %148 = getelementptr inbounds i8, ptr %.073125.us, i64 %62
   %149 = getelementptr inbounds i8, ptr %.072129.us, i64 %65

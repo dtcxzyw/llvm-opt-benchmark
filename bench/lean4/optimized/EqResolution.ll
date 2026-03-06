@@ -2651,7 +2651,7 @@ declare ptr @lean_array_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -4937,7 +4937,7 @@ lean_dec.exit349:                                 ; preds = %66, %65, %63, %lean
   %.0234632 = phi i64 [ %5, %.lr.ph ], [ %827, %lean_dec.exit342 ]
   %.0237631 = phi ptr [ %6, %.lr.ph ], [ %811, %lean_dec.exit342 ]
   %.0240630 = phi ptr [ %11, %.lr.ph ], [ %.2262.ph, %lean_dec.exit342 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %13, i64 %.0234632
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0234632
   %72 = load ptr, ptr %71, align 8, !tbaa !9
   %73 = ptrtoint ptr %72 to i64
   %74 = trunc i64 %73 to i1
@@ -7018,7 +7018,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Meta_T
   %.04285 = phi i64 [ %1, %.lr.ph ], [ %.2, %lean_dec.exit ]
   %.04484 = phi ptr [ %3, %.lr.ph ], [ %.246, %lean_dec.exit ]
   %.04783 = phi ptr [ %8, %.lr.ph ], [ %.249, %lean_dec.exit ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04285
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04285
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i1
@@ -7281,7 +7281,7 @@ define ptr @l_Array_anyMUnsafe_any___at___private_Lean_Meta_Tactic_Grind_EqResol
 10:                                               ; preds = %.lr.ph, %126
   %.05097 = phi i64 [ %1, %.lr.ph ], [ %127, %126 ]
   %.05396 = phi ptr [ %7, %.lr.ph ], [ %62, %126 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %.05097
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.05097
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i1

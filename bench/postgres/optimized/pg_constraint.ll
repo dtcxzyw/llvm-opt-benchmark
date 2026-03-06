@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ObjectAddress = type { i32, i32, i32 }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 
 @object_access_hook = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [5 x i8] c"%s%d\00", align 1
@@ -78,10 +77,10 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
 
 49:                                               ; preds = %45, %49
   %indvars.iv = phi i64 [ 0, %45 ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   %51 = load i16, ptr %50, align 2
   %52 = sext i16 %51 to i64
-  %53 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   store i64 %52, ptr %53, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %46
@@ -104,10 +103,10 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
 
 62:                                               ; preds = %58, %62
   %indvars.iv240 = phi i64 [ 0, %58 ], [ %indvars.iv.next241, %62 ]
-  %63 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv240
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv240
   %64 = load i16, ptr %63, align 2
   %65 = sext i16 %64 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv240
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv240
   store i64 %65, ptr %66, align 8
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next241, %59
@@ -119,10 +118,10 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv245 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next246, %.lr.ph ]
-  %68 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv245
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv245
   %69 = load i32, ptr %68, align 4
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv245
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv245
   store i64 %70, ptr %71, align 8
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond249.not = icmp eq i64 %indvars.iv.next246, %59
@@ -135,10 +134,10 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
 
 .lr.ph224:                                        ; preds = %.lr.ph224.preheader, %.lr.ph224
   %indvars.iv250 = phi i64 [ 0, %.lr.ph224.preheader ], [ %indvars.iv.next251, %.lr.ph224 ]
-  %73 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv250
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv250
   %74 = load i32, ptr %73, align 4
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv250
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv250
   store i64 %75, ptr %76, align 8
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count253
@@ -151,10 +150,10 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
 
 .lr.ph228:                                        ; preds = %.lr.ph228.preheader, %.lr.ph228
   %indvars.iv255 = phi i64 [ 0, %.lr.ph228.preheader ], [ %indvars.iv.next256, %.lr.ph228 ]
-  %78 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv255
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv255
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv255
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv255
   store i64 %80, ptr %81, align 8
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next256, %wide.trip.count259
@@ -171,10 +170,10 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
 
 .preheader218:                                    ; preds = %.preheader218.preheader, %.preheader218
   %indvars.iv261 = phi i64 [ 0, %.preheader218.preheader ], [ %indvars.iv.next262, %.preheader218 ]
-  %84 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv261
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv261
   %85 = load i16, ptr %84, align 2
   %86 = sext i16 %85 to i64
-  %87 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv261
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv261
   store i64 %86, ptr %87, align 8
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count264
@@ -205,10 +204,10 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
 
 .lr.ph233:                                        ; preds = %.lr.ph233.preheader, %.lr.ph233
   %indvars.iv266 = phi i64 [ 0, %.lr.ph233.preheader ], [ %indvars.iv.next267, %.lr.ph233 ]
-  %95 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv266
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv266
   %96 = load i32, ptr %95, align 4
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv266
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv266
   store i64 %97, ptr %98, align 8
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count269
@@ -433,7 +432,7 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   %indvars.iv274 = phi i64 [ 0, %.preheader216 ], [ %indvars.iv.next275, %201 ]
   store i32 1259, ptr %38, align 4
   store i32 %8, ptr %199, align 4
-  %202 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv274
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv274
   %203 = load i16, ptr %202, align 2
   %204 = sext i16 %203 to i32
   store i32 %204, ptr %200, align 4
@@ -491,7 +490,7 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   %indvars.iv279 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next280, %217 ]
   store i32 1259, ptr %40, align 4
   store i32 %14, ptr %215, align 4
-  %218 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv279
+  %218 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv279
   %219 = load i16, ptr %218, align 2
   %220 = sext i16 %219 to i32
   store i32 %220, ptr %216, align 4
@@ -544,11 +543,11 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
 
 234:                                              ; preds = %231, %246
   %indvars.iv284 = phi i64 [ 0, %231 ], [ %indvars.iv.next285, %246 ]
-  %235 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv284
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv284
   %236 = load i32, ptr %235, align 4
   store i32 %236, ptr %233, align 4
   call void @add_exact_object_address(ptr noundef nonnull %42, ptr noundef %213) #12
-  %237 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv284
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv284
   %238 = load i32, ptr %237, align 4
   %239 = load i32, ptr %235, align 4
   %.not214 = icmp eq i32 %238, %239
@@ -562,7 +561,7 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
 
 241:                                              ; preds = %240, %234
   %242 = phi i32 [ %.pre, %240 ], [ %238, %234 ]
-  %243 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv284
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv284
   %244 = load i32, ptr %243, align 4
   %.not215 = icmp eq i32 %244, %242
   br i1 %.not215, label %246, label %245
@@ -743,7 +742,7 @@ define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr n
 
 25:                                               ; preds = %.lr.ph32, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next, %24 ]
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %20) #13
   %29 = icmp eq i32 %28, 0
@@ -1862,7 +1861,7 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.241 = phi ptr [ null, %.lr.ph.preheader ], [ %50, %.lr.ph ]
-  %46 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv
   %47 = load i16, ptr %46, align 2
   %48 = sext i16 %47 to i32
   %49 = add nsw i32 %48, 7
@@ -2208,7 +2207,7 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
   %indvars.iv = phi i64 [ 0, %.lr.ph55.preheader ], [ %indvars.iv.next, %.lr.ph55 ]
   %.353 = phi ptr [ null, %.lr.ph55.preheader ], [ %61, %.lr.ph55 ]
-  %57 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv
   %58 = load i16, ptr %57, align 2
   %59 = sext i16 %58 to i32
   %60 = add nsw i32 %59, 7
@@ -2647,7 +2646,7 @@ define dso_local noundef zeroext i1 @check_functional_grouping(i32 noundef %0, i
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.lr.ph ]
   %.0192529 = phi ptr [ %.1, %34 ], [ null, %.lr.ph ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 6

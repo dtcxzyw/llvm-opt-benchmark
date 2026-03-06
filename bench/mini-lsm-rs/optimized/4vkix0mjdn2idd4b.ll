@@ -1913,7 +1913,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 18:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha341a7cc5f5a581bE.exit"
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %20 = getelementptr inbounds { { i64 }, {} }, ptr %19, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %20, i8 noundef 2)
   %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
@@ -2015,7 +2015,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 
 22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf186c5c4a2198724E.exit"
   %23 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %24 = getelementptr inbounds { { i64 }, {} }, ptr %23, i64 %19
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %19
   br label %26
 
 25:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf186c5c4a2198724E.exit"
@@ -2180,7 +2180,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 18:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc585b0a1f8aafc83E.exit"
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %20 = getelementptr inbounds { { i64 }, {} }, ptr %19, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %20, i8 noundef 2)
   %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
@@ -2274,7 +2274,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 18:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha25eaa536384432cE.exit"
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %20 = getelementptr inbounds { { i64 }, {} }, ptr %19, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %20, i8 noundef 2)
   %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
@@ -2376,7 +2376,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 
 22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e4867b95738b4c4E.exit"
   %23 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %24 = getelementptr inbounds { { i64 }, {} }, ptr %23, i64 %19
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %19
   br label %26
 
 25:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e4867b95738b4c4E.exit"
@@ -2546,7 +2546,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 
 19:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he216ffd146526c7fE.exit"
   %20 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %21 = getelementptr inbounds { { i64 }, {} }, ptr %20, i64 %16
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %16
   br label %23
 
 22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he216ffd146526c7fE.exit"
@@ -2684,7 +2684,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 22:                                               ; preds = %.lr.ph152
   %23 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %24 = getelementptr inbounds { { i64 }, {} }, ptr %23, i64 %19
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %19
   %25 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %24, i8 noundef 2)
   %26 = and i64 %25, 1
   %27 = icmp eq i64 %26, 0
@@ -2930,7 +2930,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 18:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd9aa434773a31eE.exit"
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %20 = getelementptr inbounds { { i64 }, {} }, ptr %19, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %20, i8 noundef 2)
   %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
@@ -3019,7 +3019,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66c5f30f60942d0aE.exit"
   %17 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %18 = getelementptr inbounds { { i64 }, {} }, ptr %17, i64 %13
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %13
   br label %20
 
 19:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66c5f30f60942d0aE.exit"
@@ -3130,7 +3130,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h127779db2311b5dbE.exit"
   %17 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %18 = getelementptr inbounds { { i64 }, {} }, ptr %17, i64 %13
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %13
   br label %20
 
 19:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h127779db2311b5dbE.exit"
@@ -3246,7 +3246,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 18:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hba6d4f09002b0ca5E.exit"
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %20 = getelementptr inbounds { { i64 }, {} }, ptr %19, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %20, i8 noundef 2)
   %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
@@ -3335,7 +3335,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f5e69d1c8ec361dE.exit"
   %17 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %18 = getelementptr inbounds { { i64 }, {} }, ptr %17, i64 %13
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %13
   br label %20
 
 19:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f5e69d1c8ec361dE.exit"
@@ -3442,7 +3442,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 18:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88bd1e29c1d15a33E.exit"
   %19 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %20 = getelementptr inbounds { { i64 }, {} }, ptr %19, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %14
   %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %20, i8 noundef 2)
   %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
@@ -3531,7 +3531,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd0cba1460c7c33e4E.exit"
   %17 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %18 = getelementptr inbounds { { i64 }, {} }, ptr %17, i64 %13
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %13
   br label %20
 
 19:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd0cba1460c7c33e4E.exit"
@@ -3679,7 +3679,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 44:                                               ; preds = %.lr.ph853
   %45 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %46 = getelementptr inbounds { { i64 }, {} }, ptr %45, i64 %41
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %41
   %47 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %46, i8 noundef 2)
   %48 = and i64 %47, 1
   %49 = icmp eq i64 %48, 0
@@ -4434,7 +4434,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
 
 23:                                               ; preds = %.lr.ph165
   %24 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %25 = getelementptr inbounds { { i64 }, {} }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %20
   %26 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %25, i8 noundef 2)
   %27 = and i64 %26, 1
   %28 = icmp eq i64 %27, 0
@@ -4683,7 +4683,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41cf3de3f93e46adE.exit"
   %17 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %18 = getelementptr inbounds { { i64 }, {} }, ptr %17, i64 %13
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %13
   br label %20
 
 19:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41cf3de3f93e46adE.exit"
@@ -4805,7 +4805,7 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 
 19:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19a80c082302bc78E.exit"
   %20 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
-  %21 = getelementptr inbounds { { i64 }, {} }, ptr %20, i64 %16
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %16
   br label %23
 
 22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19a80c082302bc78E.exit"
@@ -5449,7 +5449,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   %16 = phi i64 [ %8, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha341a7cc5f5a581bE.exit.i.preheader" ], [ %13, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha341a7cc5f5a581bE.exit.ithread-pre-split" ]
   %17 = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha341a7cc5f5a581bE.exit.i.preheader" ], [ %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha341a7cc5f5a581bE.exit.ithread-pre-split" ]
   %18 = load ptr, ptr %0, align 8, !noalias !1754, !nonnull !14, !align !764, !noundef !14
-  %19 = getelementptr inbounds { { i64 }, {} }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %16
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %19, i8 noundef 2), !noalias !1754
   %21 = and i64 %20, 1
   %22 = icmp eq i64 %21, 0
@@ -5542,7 +5542,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   %16 = phi i64 [ %8, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha25eaa536384432cE.exit.i.preheader" ], [ %13, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha25eaa536384432cE.exit.ithread-pre-split" ]
   %17 = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha25eaa536384432cE.exit.i.preheader" ], [ %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha25eaa536384432cE.exit.ithread-pre-split" ]
   %18 = load ptr, ptr %0, align 8, !noalias !1801, !nonnull !14, !align !764, !noundef !14
-  %19 = getelementptr inbounds { { i64 }, {} }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %16
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %19, i8 noundef 2), !noalias !1801
   %21 = and i64 %20, 1
   %22 = icmp eq i64 %21, 0
@@ -5635,7 +5635,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   %16 = phi i64 [ %8, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc585b0a1f8aafc83E.exit.i.preheader" ], [ %13, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc585b0a1f8aafc83E.exit.ithread-pre-split" ]
   %17 = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc585b0a1f8aafc83E.exit.i.preheader" ], [ %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc585b0a1f8aafc83E.exit.ithread-pre-split" ]
   %18 = load ptr, ptr %0, align 8, !noalias !1847, !nonnull !14, !align !764, !noundef !14
-  %19 = getelementptr inbounds { { i64 }, {} }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %16
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %19, i8 noundef 2), !noalias !1847
   %21 = and i64 %20, 1
   %22 = icmp eq i64 %21, 0
@@ -5728,7 +5728,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   %16 = phi i64 [ %8, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88bd1e29c1d15a33E.exit.i.preheader" ], [ %13, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88bd1e29c1d15a33E.exit.ithread-pre-split" ]
   %17 = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88bd1e29c1d15a33E.exit.i.preheader" ], [ %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88bd1e29c1d15a33E.exit.ithread-pre-split" ]
   %18 = load ptr, ptr %0, align 8, !noalias !1893, !nonnull !14, !align !764, !noundef !14
-  %19 = getelementptr inbounds { { i64 }, {} }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %16
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %19, i8 noundef 2), !noalias !1893
   %21 = and i64 %20, 1
   %22 = icmp eq i64 %21, 0
@@ -5813,7 +5813,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   %16 = phi i64 [ %8, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hba6d4f09002b0ca5E.exit.i.preheader" ], [ %13, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hba6d4f09002b0ca5E.exit.ithread-pre-split" ]
   %17 = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hba6d4f09002b0ca5E.exit.i.preheader" ], [ %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hba6d4f09002b0ca5E.exit.ithread-pre-split" ]
   %18 = load ptr, ptr %0, align 8, !noalias !1933, !nonnull !14, !align !764, !noundef !14
-  %19 = getelementptr inbounds { { i64 }, {} }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %16
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %19, i8 noundef 2), !noalias !1933
   %21 = and i64 %20, 1
   %22 = icmp eq i64 %21, 0
@@ -5898,7 +5898,7 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$3g
   %16 = phi i64 [ %8, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd9aa434773a31eE.exit.i.preheader" ], [ %13, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd9aa434773a31eE.exit.ithread-pre-split" ]
   %17 = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd9aa434773a31eE.exit.i.preheader" ], [ %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd9aa434773a31eE.exit.ithread-pre-split" ]
   %18 = load ptr, ptr %0, align 8, !noalias !1973, !nonnull !14, !align !764, !noundef !14
-  %19 = getelementptr inbounds { { i64 }, {} }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %16
   %20 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5ee0336b73f9ab5bE.llvm.18092150996463083177(ptr noundef nonnull align 8 %19, i8 noundef 2), !noalias !1973
   %21 = and i64 %20, 1
   %22 = icmp eq i64 %21, 0
@@ -6233,7 +6233,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %82, %_ZN3
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
-  %103 = getelementptr inbounds { { i64 }, {} }, ptr %102, i64 %.sroa.6.1
+  %103 = getelementptr inbounds [8 x i8], ptr %102, i64 %.sroa.6.1
   br label %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$12load_consume17h360dffb0efcb816fE.exit56"
 
 .invoke:                                          ; preds = %97, %.lr.ph.split.i, %.lr.ph.split.us.i
@@ -6299,7 +6299,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %82, %_ZN3
 
 .split.us.us.i:                                   ; preds = %.lr.ph.split.us.i
   %131 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
-  %132 = getelementptr inbounds { { i64 }, {} }, ptr %131, i64 %130
+  %132 = getelementptr inbounds [8 x i8], ptr %131, i64 %130
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hf10d1dc54e4fb0d4E.exit.i.us.us.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hf10d1dc54e4fb0d4E.exit.i.us.us.i": ; preds = %.noexc59, %.split.us.us.i
@@ -6384,7 +6384,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %82, %_ZN3
 
 .split.i:                                         ; preds = %.lr.ph.split.i
   %161 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
-  %162 = getelementptr inbounds { { i64 }, {} }, ptr %161, i64 %160
+  %162 = getelementptr inbounds [8 x i8], ptr %161, i64 %160
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hf10d1dc54e4fb0d4E.exit.i.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hf10d1dc54e4fb0d4E.exit.i.i": ; preds = %.noexc62, %.split.i
@@ -6983,7 +6983,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %82, %_ZN3
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
-  %103 = getelementptr inbounds { { i64 }, {} }, ptr %102, i64 %.sroa.6.1
+  %103 = getelementptr inbounds [8 x i8], ptr %102, i64 %.sroa.6.1
   br label %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$12load_consume17hae97eb62aa88e2edE.exit56"
 
 .invoke:                                          ; preds = %97, %.lr.ph.split.i, %.lr.ph.split.us.i
@@ -7048,7 +7048,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %82, %_ZN3
 
 .split.us.us.i:                                   ; preds = %.lr.ph.split.us.i
   %130 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
-  %131 = getelementptr inbounds { { i64 }, {} }, ptr %130, i64 %129
+  %131 = getelementptr inbounds [8 x i8], ptr %130, i64 %129
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hd59e855491896af4E.exit.i.us.us.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hd59e855491896af4E.exit.i.us.us.i": ; preds = %.noexc59, %.split.us.us.i
@@ -7124,7 +7124,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %82, %_ZN3
 
 .split.i:                                         ; preds = %.lr.ph.split.i
   %158 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
-  %159 = getelementptr inbounds { { i64 }, {} }, ptr %158, i64 %157
+  %159 = getelementptr inbounds [8 x i8], ptr %158, i64 %157
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hd59e855491896af4E.exit.i.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hd59e855491896af4E.exit.i.i": ; preds = %.noexc62, %.split.i
@@ -7714,7 +7714,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %82, %_ZN3
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
-  %103 = getelementptr inbounds { { i64 }, {} }, ptr %102, i64 %.sroa.6.1
+  %103 = getelementptr inbounds [8 x i8], ptr %102, i64 %.sroa.6.1
   br label %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$12load_consume17h1beecdcaf9d6d4c1E.exit56"
 
 .invoke:                                          ; preds = %97, %.lr.ph.split.i, %.lr.ph.split.us.i
@@ -7779,7 +7779,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %82, %_ZN3
 
 .split.us.us.i:                                   ; preds = %.lr.ph.split.us.i
   %130 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
-  %131 = getelementptr inbounds { { i64 }, {} }, ptr %130, i64 %129
+  %131 = getelementptr inbounds [8 x i8], ptr %130, i64 %129
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h6c4d94f773ddfcaaE.exit.i.us.us.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h6c4d94f773ddfcaaE.exit.i.us.us.i": ; preds = %.noexc59, %.split.us.us.i
@@ -7855,7 +7855,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %82, %_ZN3
 
 .split.i:                                         ; preds = %.lr.ph.split.i
   %158 = load ptr, ptr %.01516.i, align 8, !nonnull !14, !align !764, !noundef !14
-  %159 = getelementptr inbounds { { i64 }, {} }, ptr %158, i64 %157
+  %159 = getelementptr inbounds [8 x i8], ptr %158, i64 %157
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h6c4d94f773ddfcaaE.exit.i.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h6c4d94f773ddfcaaE.exit.i.i": ; preds = %.noexc62, %.split.i

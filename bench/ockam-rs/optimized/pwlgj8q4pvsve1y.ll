@@ -5336,7 +5336,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
 1929:                                             ; preds = %1926
   call void @llvm.lifetime.start.p0(ptr nonnull %76), !noalias !603
   store <2 x i64> <i64 240, i64 8>, ptr %76, align 16, !noalias !603
-  %1930 = getelementptr inbounds nuw i64, ptr %76, i64 %1927
+  %1930 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %1927
   %1931 = load i64, ptr %1930, align 8, !noalias !603, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr nonnull align 8 %78, i64 %1931, i1 false), !noalias !603
   call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !603
@@ -21587,7 +21587,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.exit.i328: ; preds = %2081
   %2111 = load ptr, ptr %2089, align 8, !alias.scope !2856, !nonnull !4, !noundef !4
   %2112 = getelementptr inbounds nuw i8, ptr %2089, i64 16
   %2113 = load i64, ptr %2112, align 8, !alias.scope !2856, !noundef !4
-  %2114 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %2111, i64 %2113
+  %2114 = getelementptr inbounds [24 x i8], ptr %2111, i64 %2113
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h6487b0a58630d79bE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2108, ptr noundef nonnull %2111, ptr noundef nonnull %2114)
           to label %"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17h034368b846cf8059E.exit.i" unwind label %2115
 

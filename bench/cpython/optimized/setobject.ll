@@ -1112,7 +1112,7 @@ define internal ptr @setiter_iternext(ptr noundef captures(none) %0) #0 {
 
 .lr.ph:                                           ; preds = %12, %.critedge2
   %.03241 = phi i64 [ %23, %.critedge2 ], [ %14, %12 ]
-  %19 = getelementptr %struct.setentry, ptr %16, i64 %.03241
+  %19 = getelementptr [16 x i8], ptr %16, i64 %.03241
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = icmp eq ptr %20, null
   %22 = icmp eq ptr %20, @_dummy_struct
@@ -1219,7 +1219,7 @@ set_contains_key.exit.thread:                     ; preds = %_PyObject_HashFast.
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i64, ptr %18, align 8, !tbaa !23
-  %20 = getelementptr %struct.setentry, ptr %17, i64 %19
+  %20 = getelementptr [16 x i8], ptr %17, i64 %19
   %.not24.i = icmp ugt ptr %17, %20
   br i1 %.not24.i, label %frozenset_hash_impl.exit, label %.lr.ph.i
 
@@ -1530,7 +1530,7 @@ define internal i32 @set_traverse(ptr noundef readonly captures(none) %0, ptr no
   %.val32 = phi i64 [ %.val22, %.lr.ph.preheader.i.lr.ph ], [ %.val.pre, %._crit_edge31 ]
   %.01324 = phi i64 [ 0, %.lr.ph.preheader.i.lr.ph ], [ %14, %._crit_edge31 ]
   %.val12 = load ptr, ptr %5, align 8, !tbaa !22
-  %6 = getelementptr %struct.setentry, ptr %.val12, i64 %.01324
+  %6 = getelementptr [16 x i8], ptr %.val12, i64 %.01324
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge2.i, %.lr.ph.preheader.i
@@ -2181,7 +2181,7 @@ define internal i64 @frozenset_hash(ptr noundef captures(none) %0) #2 {
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8, !tbaa !23
-  %9 = getelementptr %struct.setentry, ptr %6, i64 %8
+  %9 = getelementptr [16 x i8], ptr %6, i64 %8
   %.not24.i = icmp ugt ptr %6, %9
   br i1 %.not24.i, label %frozenset_hash_impl.exit, label %.lr.ph.i
 
@@ -3042,7 +3042,7 @@ define dso_local range(i32 -1, 2) i32 @_PySet_NextEntry(ptr noundef readonly cap
 .lr.ph.preheader.i:                               ; preds = %11
   %14 = getelementptr i8, ptr %0, i64 40
   %.val15 = load ptr, ptr %14, align 8, !tbaa !22
-  %15 = getelementptr %struct.setentry, ptr %.val15, i64 %13
+  %15 = getelementptr [16 x i8], ptr %.val15, i64 %13
   br label %.lr.ph.i
 
 set_next.exit.thread:                             ; preds = %.critedge2.i, %11
@@ -3113,7 +3113,7 @@ define dso_local range(i32 -1, 2) i32 @_PySet_NextEntryRef(ptr noundef readonly 
 .lr.ph.preheader.i:                               ; preds = %11
   %14 = getelementptr i8, ptr %0, i64 40
   %.val15 = load ptr, ptr %14, align 8, !tbaa !22
-  %15 = getelementptr %struct.setentry, ptr %.val15, i64 %13
+  %15 = getelementptr [16 x i8], ptr %.val15, i64 %13
   br label %.lr.ph.i
 
 set_next.exit.thread:                             ; preds = %.critedge2.i, %11
@@ -3182,7 +3182,7 @@ define dso_local ptr @PySet_Pop(ptr noundef captures(none) %0) local_unnamed_add
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !23
-  %12 = getelementptr %struct.setentry, ptr %8, i64 %11
+  %12 = getelementptr [16 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !16
   %15 = icmp eq i64 %14, 0
@@ -3191,7 +3191,7 @@ define dso_local ptr @PySet_Pop(ptr noundef captures(none) %0) local_unnamed_add
 .preheader.i.i:                                   ; preds = %6
   %16 = load i64, ptr %9, align 8, !tbaa !136
   %17 = and i64 %16, %11
-  %18 = getelementptr %struct.setentry, ptr %8, i64 %17
+  %18 = getelementptr [16 x i8], ptr %8, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = icmp eq ptr %19, null
   %21 = icmp eq ptr %19, @_dummy_struct
@@ -3242,7 +3242,7 @@ define internal ptr @set_pop(ptr noundef captures(none) %0, ptr readnone capture
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8, !tbaa !23
-  %8 = getelementptr %struct.setentry, ptr %4, i64 %7
+  %8 = getelementptr [16 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !16
   %11 = icmp eq i64 %10, 0
@@ -3251,7 +3251,7 @@ define internal ptr @set_pop(ptr noundef captures(none) %0, ptr readnone capture
 .preheader.i:                                     ; preds = %2
   %12 = load i64, ptr %5, align 8, !tbaa !136
   %13 = and i64 %12, %7
-  %14 = getelementptr %struct.setentry, ptr %4, i64 %13
+  %14 = getelementptr [16 x i8], ptr %4, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !24
   %16 = icmp eq ptr %15, null
   %17 = icmp eq ptr %15, @_dummy_struct
@@ -3532,7 +3532,7 @@ tailrecurse:                                      ; preds = %tailrecurse.loopexi
   %.053 = phi i64 [ %2, %tailrecurse ], [ %76, %75 ]
   %.049 = phi i64 [ %10, %tailrecurse ], [ %.251, %75 ]
   %.048 = phi i64 [ %11, %tailrecurse ], [ %80, %75 ]
-  %14 = getelementptr %struct.setentry, ptr %13, i64 %.048
+  %14 = getelementptr [16 x i8], ptr %13, i64 %.048
   %15 = add i64 %.048, 9
   %.not = icmp ugt i64 %15, %.049
   %16 = select i1 %.not, i32 0, i32 9
@@ -4499,7 +4499,7 @@ make_new_set_basetype.exit:                       ; preds = %18, %22
   %.val102161 = phi i64 [ %.val102158, %.lr.ph.preheader.i.lr.ph ], [ %.val102, %Py_DECREF.exit72 ]
   %.0124160 = phi i64 [ 0, %.lr.ph.preheader.i.lr.ph ], [ %43, %Py_DECREF.exit72 ]
   %.val103 = load ptr, ptr %38, align 8, !tbaa !22
-  %39 = getelementptr %struct.setentry, ptr %.val103, i64 %.0124160
+  %39 = getelementptr [16 x i8], ptr %.val103, i64 %.0124160
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge2.i, %.lr.ph.preheader.i
@@ -4627,7 +4627,7 @@ Py_DECREF.exit72:                                 ; preds = %79, %81, %84
   %.val100157 = phi i64 [ %.val102158, %.lr.ph.preheader.i108.lr.ph ], [ %.val100, %Py_DECREF.exit ]
   %.1156 = phi i64 [ 0, %.lr.ph.preheader.i108.lr.ph ], [ %89, %Py_DECREF.exit ]
   %.val101 = load ptr, ptr %37, align 8, !tbaa !22
-  %85 = getelementptr %struct.setentry, ptr %.val101, i64 %.1156
+  %85 = getelementptr [16 x i8], ptr %.val101, i64 %.1156
   br label %.lr.ph.i109
 
 .lr.ph.i109:                                      ; preds = %.critedge2.i114, %.lr.ph.preheader.i108
@@ -4891,7 +4891,7 @@ Py_INCREF.exit90:                                 ; preds = %3, %6
   %.067 = phi i64 [ %15, %14 ], [ %.3, %82 ]
   %.066 = phi i64 [ %16, %14 ], [ %87, %82 ]
   %.064 = phi ptr [ null, %14 ], [ %.2, %82 ]
-  %19 = getelementptr %struct.setentry, ptr %18, i64 %.066
+  %19 = getelementptr [16 x i8], ptr %18, i64 %.066
   %20 = add i64 %.066, 9
   %.not = icmp ugt i64 %20, %.067
   %21 = select i1 %.not, i32 0, i32 9
@@ -5276,7 +5276,7 @@ Py_INCREF.exit80:                                 ; preds = %48, %45, %42
   %.040.val117 = phi i64 [ %.040.val114, %.lr.ph.preheader.i.lr.ph ], [ %.040.val, %Py_DECREF.exit70 ]
   %.096116 = phi i64 [ 0, %.lr.ph.preheader.i.lr.ph ], [ %56, %Py_DECREF.exit70 ]
   %.040.val86 = load ptr, ptr %51, align 8, !tbaa !22
-  %52 = getelementptr %struct.setentry, ptr %.040.val86, i64 %.096116
+  %52 = getelementptr [16 x i8], ptr %.040.val86, i64 %.096116
   br label %.lr.ph.i88
 
 .lr.ph.i88:                                       ; preds = %.critedge2.i, %.lr.ph.preheader.i
@@ -5714,7 +5714,7 @@ _Py_NewRef.exit79:                                ; preds = %65, %68
   %70 = getelementptr inbounds nuw i8, ptr %.190, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !34
   %.01928.i = and i64 %71, %32
-  %72 = getelementptr %struct.setentry, ptr %25, i64 %.01928.i
+  %72 = getelementptr [16 x i8], ptr %25, i64 %.01928.i
   %73 = load ptr, ptr %72, align 8, !tbaa !24
   %74 = icmp eq ptr %73, null
   br i1 %74, label %set_insert_clean.exit, label %.lr.ph.i
@@ -5746,7 +5746,7 @@ _Py_NewRef.exit79:                                ; preds = %65, %68
   %84 = add i64 %83, 1
   %85 = add i64 %84, %82
   %.019.i = and i64 %85, %32
-  %86 = getelementptr %struct.setentry, ptr %25, i64 %.019.i
+  %86 = getelementptr [16 x i8], ptr %25, i64 %.019.i
   %87 = load ptr, ptr %86, align 8, !tbaa !24
   %88 = icmp eq ptr %87, null
   br i1 %88, label %set_insert_clean.exit, label %.lr.ph.i
@@ -5768,7 +5768,7 @@ set_insert_clean.exit:                            ; preds = %.loopexit.i, %.preh
   %94 = phi i64 [ %105, %104 ], [ %30, %.preheader81 ]
   %.286 = phi i64 [ %106, %104 ], [ 0, %.preheader81 ]
   %95 = load ptr, ptr %26, align 8, !tbaa !22
-  %96 = getelementptr %struct.setentry, ptr %95, i64 %.286
+  %96 = getelementptr [16 x i8], ptr %95, i64 %.286
   %97 = load ptr, ptr %96, align 8, !tbaa !24
   %98 = icmp ne ptr %97, null
   %99 = icmp ne ptr %97, @_dummy_struct
@@ -5864,7 +5864,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_table_resize(ptr noundef %0, i6
   br i1 %35, label %.preheader, label %61
 
 .preheader:                                       ; preds = %28
-  %36 = getelementptr %struct.setentry, ptr %.052, i64 %5
+  %36 = getelementptr [16 x i8], ptr %.052, i64 %5
   %.not6792 = icmp ugt ptr %.052, %36
   br i1 %.not6792, label %.loopexit, label %.lr.ph94
 
@@ -5878,7 +5878,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_table_resize(ptr noundef %0, i6
   %39 = getelementptr inbounds nuw i8, ptr %.05493, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !34
   %.01928.i = and i64 %40, %30
-  %41 = getelementptr %struct.setentry, ptr %.053, i64 %.01928.i
+  %41 = getelementptr [16 x i8], ptr %.053, i64 %.01928.i
   %42 = load ptr, ptr %41, align 8, !tbaa !24
   %43 = icmp eq ptr %42, null
   br i1 %43, label %set_insert_clean.exit, label %.lr.ph.i
@@ -5910,7 +5910,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_table_resize(ptr noundef %0, i6
   %53 = add i64 %52, 1
   %54 = add i64 %53, %51
   %.019.i = and i64 %54, %30
-  %55 = getelementptr %struct.setentry, ptr %.053, i64 %.019.i
+  %55 = getelementptr [16 x i8], ptr %.053, i64 %.019.i
   %56 = load ptr, ptr %55, align 8, !tbaa !24
   %57 = icmp eq ptr %56, null
   br i1 %57, label %set_insert_clean.exit, label %.lr.ph.i
@@ -5929,7 +5929,7 @@ set_insert_clean.exit:                            ; preds = %.loopexit.i, %.preh
 
 61:                                               ; preds = %28
   store i64 %34, ptr %31, align 8, !tbaa !36
-  %62 = getelementptr %struct.setentry, ptr %.052, i64 %5
+  %62 = getelementptr [16 x i8], ptr %.052, i64 %5
   %.not6490 = icmp ugt ptr %.052, %62
   br i1 %.not6490, label %.loopexit, label %.lr.ph
 
@@ -5945,7 +5945,7 @@ set_insert_clean.exit:                            ; preds = %.loopexit.i, %.preh
   %65 = getelementptr inbounds nuw i8, ptr %.191, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !34
   %.01928.i69 = and i64 %66, %30
-  %67 = getelementptr %struct.setentry, ptr %.053, i64 %.01928.i69
+  %67 = getelementptr [16 x i8], ptr %.053, i64 %.01928.i69
   %68 = load ptr, ptr %67, align 8, !tbaa !24
   %69 = icmp eq ptr %68, null
   br i1 %69, label %set_insert_clean.exit81, label %.lr.ph.i70
@@ -5977,7 +5977,7 @@ set_insert_clean.exit:                            ; preds = %.loopexit.i, %.preh
   %79 = add i64 %78, 1
   %80 = add i64 %79, %77
   %.019.i79 = and i64 %80, %30
-  %81 = getelementptr %struct.setentry, ptr %.053, i64 %.019.i79
+  %81 = getelementptr [16 x i8], ptr %.053, i64 %.019.i79
   %82 = load ptr, ptr %81, align 8, !tbaa !24
   %83 = icmp eq ptr %82, null
   br i1 %83, label %set_insert_clean.exit81, label %.lr.ph.i70
@@ -6140,7 +6140,7 @@ make_new_set_basetype.exit:                       ; preds = %29, %30
   %spec.select.val156 = phi i64 [ %spec.select.val153, %.lr.ph.preheader.i.lr.ph ], [ %spec.select.val, %Py_DECREF.exit91 ]
   %.0133155 = phi i64 [ 0, %.lr.ph.preheader.i.lr.ph ], [ %59, %Py_DECREF.exit91 ]
   %spec.select.val120 = load ptr, ptr %54, align 8, !tbaa !22
-  %55 = getelementptr %struct.setentry, ptr %spec.select.val120, i64 %.0133155
+  %55 = getelementptr [16 x i8], ptr %spec.select.val120, i64 %.0133155
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge2.i, %.lr.ph.preheader.i
@@ -6564,7 +6564,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_symmetric_difference_update_set
   %.val41 = phi i64 [ %.val38, %.lr.ph.preheader.i.lr.ph ], [ %.val, %Py_DECREF.exit ]
   %.02540 = phi i64 [ 0, %.lr.ph.preheader.i.lr.ph ], [ %10, %Py_DECREF.exit ]
   %.val22 = load ptr, ptr %4, align 8, !tbaa !22
-  %6 = getelementptr %struct.setentry, ptr %.val22, i64 %.02540
+  %6 = getelementptr [16 x i8], ptr %.val22, i64 %.02540
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge2.i, %.lr.ph.preheader.i
@@ -7265,7 +7265,7 @@ Py_DECREF.exit30.i:                               ; preds = %19, %16, %11
 
 .lr.ph.preheader.i.i:                             ; preds = %28
   %.val40.i = load ptr, ptr %27, align 8, !tbaa !22
-  %29 = getelementptr %struct.setentry, ptr %.val40.i, i64 %.0.i
+  %29 = getelementptr [16 x i8], ptr %.val40.i, i64 %.0.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge2.i.i, %.lr.ph.preheader.i.i
@@ -7603,7 +7603,7 @@ set_discard_key.exit.i:                           ; preds = %_PyObject_HashFast.
   %30 = load ptr, ptr %29, align 8, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i64, ptr %31, align 8, !tbaa !23
-  %33 = getelementptr %struct.setentry, ptr %30, i64 %32
+  %33 = getelementptr [16 x i8], ptr %30, i64 %32
   %.not24.i.i = icmp ugt ptr %30, %33
   br i1 %.not24.i.i, label %frozenset_hash_impl.exit.i, label %.lr.ph.i.i
 
@@ -7758,7 +7758,7 @@ make_new_set_basetype.exit.i.i.i:                 ; preds = %9, %5
 
 .critedge.i:                                      ; preds = %.preheader.i, %35
   %.01821.i = phi i64 [ %36, %35 ], [ 1, %.preheader.i ]
-  %37 = getelementptr ptr, ptr %1, i64 %.01821.i
+  %37 = getelementptr [8 x i8], ptr %1, i64 %.01821.i
   %38 = load ptr, ptr %37, align 8, !tbaa !20
   %39 = tail call fastcc i32 @set_difference_update_internal(ptr noundef nonnull %32, ptr noundef %38)
   %.not.i = icmp eq i32 %39, 0
@@ -7797,7 +7797,7 @@ define internal noundef ptr @set_difference_update(ptr noundef %0, ptr noundef r
 
 .lr.ph.i:                                         ; preds = %3, %5
   %.01011.i = phi i64 [ %6, %5 ], [ 0, %3 ]
-  %7 = getelementptr ptr, ptr %1, i64 %.01011.i
+  %7 = getelementptr [8 x i8], ptr %1, i64 %.01011.i
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = tail call fastcc i32 @set_difference_update_internal(ptr noundef %0, ptr noundef %8)
   %.not.i = icmp eq i32 %9, 0
@@ -7956,7 +7956,7 @@ define internal ptr @set_isdisjoint(ptr noundef readonly captures(address) %0, p
 
 .lr.ph.preheader.i.i:                             ; preds = %15
   %spec.select.val61.i = load ptr, ptr %14, align 8, !tbaa !22
-  %16 = getelementptr %struct.setentry, ptr %spec.select.val61.i, i64 %.068.i
+  %16 = getelementptr [16 x i8], ptr %spec.select.val61.i, i64 %.068.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge2.i.i, %.lr.ph.preheader.i.i
@@ -8292,7 +8292,7 @@ set_discard_key.exit.i:                           ; preds = %_PyObject_HashFast.
   %31 = load ptr, ptr %30, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load i64, ptr %32, align 8, !tbaa !23
-  %34 = getelementptr %struct.setentry, ptr %31, i64 %33
+  %34 = getelementptr [16 x i8], ptr %31, i64 %33
   %.not24.i.i = icmp ugt ptr %31, %34
   br i1 %.not24.i.i, label %frozenset_hash_impl.exit.i, label %.lr.ph.i.i
 
@@ -8473,7 +8473,7 @@ set_copy.exit.preheader.i:                        ; preds = %17
 
 35:                                               ; preds = %set_copy.exit.i, %.lr.ph.i
   %.023.i = phi i64 [ 0, %.lr.ph.i ], [ %75, %set_copy.exit.i ]
-  %36 = getelementptr ptr, ptr %1, i64 %.023.i
+  %36 = getelementptr [8 x i8], ptr %1, i64 %.023.i
   %37 = load ptr, ptr %36, align 8, !tbaa !20
   %38 = icmp eq ptr %0, %37
   br i1 %38, label %set_copy.exit.i, label %39
@@ -8604,7 +8604,7 @@ define internal noundef ptr @set_update(ptr noundef %0, ptr noundef readonly cap
 
 12:                                               ; preds = %set_update_internal.exit.thread.i, %.lr.ph.i
   %.0918.i = phi i64 [ 0, %.lr.ph.i ], [ %47, %set_update_internal.exit.thread.i ]
-  %13 = getelementptr ptr, ptr %1, i64 %.0918.i
+  %13 = getelementptr [8 x i8], ptr %1, i64 %.0918.i
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = getelementptr i8, ptr %14, i64 8
   %.val25.i.i = load ptr, ptr %15, align 8, !tbaa !29
@@ -8787,7 +8787,7 @@ _Py_NewRef.exit:                                  ; preds = %31, %34
 .lr.ph:                                           ; preds = %_Py_NewRef.exit, %37
   %.01525 = phi i64 [ %38, %37 ], [ 0, %_Py_NewRef.exit ]
   %.02024 = phi ptr [ %41, %37 ], [ %0, %_Py_NewRef.exit ]
-  %39 = getelementptr ptr, ptr %1, i64 %.01525
+  %39 = getelementptr [8 x i8], ptr %1, i64 %.01525
   %40 = load ptr, ptr %39, align 8, !tbaa !20
   %41 = tail call fastcc ptr @set_intersection(ptr noundef nonnull %.02024, ptr noundef %40)
   %.not = icmp eq ptr %41, null

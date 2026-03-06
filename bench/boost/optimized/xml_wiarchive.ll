@@ -749,7 +749,7 @@ define internal fastcc void @_ZN5boost7archive12_GLOBAL__N_111copy_to_ptrEPcRKNS
   %10 = load ptr, ptr %1, align 8, !tbaa !47
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !44
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %12
   %14 = ptrtoint ptr %13 to i64
   store i64 %14, ptr %4, align 8, !tbaa !81
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -846,7 +846,7 @@ define weak_odr void @_ZN5boost7archive18xml_wiarchive_implINS0_13xml_wiarchiveE
   %24 = load ptr, ptr %3, align 8, !tbaa !47
   %25 = load i64, ptr %6, align 8, !tbaa !44
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr align 4 %24, i64 %25, i1 false)
-  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %25
   store i32 0, ptr %26, align 4, !tbaa !48
   %27 = icmp eq ptr %24, %5
   br i1 %27, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i
@@ -967,7 +967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %33, i8 0, i64 17, i1 false)
   %34 = load ptr, ptr %3, align 8, !tbaa !47
   %35 = load i64, ptr %8, align 8, !tbaa !44
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   %37 = ptrtoint ptr %36 to i64
   store i64 %37, ptr %6, align 8, !tbaa !81
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8

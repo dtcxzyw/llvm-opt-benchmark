@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cvc5::internal::NodeTemplate.87" = type { ptr }
 %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, std::vector<cvc5::internal::NodeTemplate<true>>>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, std::vector<cvc5::internal::NodeTemplate<true>>>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Auto_node" = type { ptr, ptr }
-%"struct.std::pair.199" = type { i64, %"class.cvc5::internal::NodeTemplate" }
 %"struct.std::pair.201" = type { %"struct.std::pair.188", %"class.cvc5::internal::NodeTemplate" }
 %"struct.std::pair.188" = type { i64, ptr }
 
@@ -166,7 +165,7 @@ define hidden void @_ZN4cvc58internal12OracleCaller12getOracleForERKNS0_12NodeTe
   %27 = icmp eq i32 %26, 2
   %spec.select.i.i = select i1 %27, i64 3, i64 2
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %spec.select.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %spec.select.i.i
   %30 = load ptr, ptr %29, align 8, !tbaa !105, !noalias !102
   store ptr %30, ptr %5, align 8, !tbaa !18, !alias.scope !102
   %31 = load i64, ptr %30, align 8, !noalias !102
@@ -210,7 +209,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %36, %42, %44
   %53 = icmp eq i32 %52, 2
   %54 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %55 = zext i1 %53 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !105, !noalias !108
   store ptr %57, ptr %4, align 8, !tbaa !18, !alias.scope !108
   %58 = load i64, ptr %57, align 8, !noalias !108
@@ -630,7 +629,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
   %40 = load i64, ptr %39, align 8
   %41 = lshr i64 %40, 32
   %42 = and i64 %41, 67108863
-  %43 = getelementptr inbounds nuw ptr, ptr %38, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %44 = ptrtoint ptr %43 to i64
   %45 = ptrtoint ptr %spec.select.i.i51 to i64
@@ -1320,7 +1319,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal12OracleCaller16isOracleFunct
   %22 = load i64, ptr %21, align 8, !tbaa !154, !noalias !149
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !155, !noalias !149
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8, !tbaa !156, !noalias !149
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory26OracleInterfaceAttributeIdES2_EEEEbRKT_.exit, label %27
@@ -1422,7 +1421,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal12OracleCaller19isOracleFunct
   %30 = load i64, ptr %29, align 8, !tbaa !154, !noalias !162
   %31 = urem i64 %28, %30
   %32 = load ptr, ptr %26, align 8, !tbaa !155, !noalias !162
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !156, !noalias !162
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit, label %35
@@ -1571,7 +1570,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %81, %87, %89
   %110 = load i64, ptr %109, align 8, !tbaa !154, !noalias !165
   %111 = urem i64 %108, %110
   %112 = load ptr, ptr %106, align 8, !tbaa !155, !noalias !165
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %111
   %114 = load ptr, ptr %113, align 8, !tbaa !156, !noalias !165
   %.not.i.i.i.i.i.i.i.i.i.i6 = icmp eq ptr %114, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i6, label %_ZN4cvc58internal12OracleCaller16isOracleFunctionENS0_12NodeTemplateILb1EEE.exit19, label %115
@@ -2911,7 +2910,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemp
   %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemplateILb1EEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i.i ], [ %38, %.critedge.i.i ]
   %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemplateILb1EEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i.i ], [ %.sroa.038.049.i.i, %.critedge.i.i ]
   %48 = lshr i64 %.013.i.i.i, 1
-  %49 = getelementptr inbounds nuw %"struct.std::pair.199", ptr %.sroa.011.012.i.i.i, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i.i.i, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !187
   %51 = icmp ult i64 %50, %1
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -2936,7 +2935,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemp
   %.013.i28.i.i = phi i64 [ %.1.i33.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemplateILb1EEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i27.i.i ], [ %58, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemplateILb1EEEESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valIZNKS4_4expr4attr8AttrHashIS6_E5IdMap4findEmEUlRS8_SL_E_EEET_SO_SO_RKT0_T1_.exit.i.i ]
   %.sroa.011.012.i29.i.i = phi ptr [ %.sroa.011.1.i32.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemplateILb1EEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i27.i.i ], [ %56, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemplateILb1EEEESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valIZNKS4_4expr4attr8AttrHashIS6_E5IdMap4findEmEUlRS8_SL_E_EEET_SO_SO_RKT0_T1_.exit.i.i ]
   %60 = lshr i64 %.013.i28.i.i, 1
-  %61 = getelementptr inbounds nuw %"struct.std::pair.199", ptr %.sroa.011.012.i29.i.i, i64 %60
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i29.i.i, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !187
   %63 = icmp ult i64 %1, %62
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -3061,7 +3060,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal4expr4attr16AttributeManager1
   %21 = load i64, ptr %20, align 8, !tbaa !154, !noalias !192
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %17, align 8, !tbaa !155, !noalias !192
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !156, !noalias !192
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %26

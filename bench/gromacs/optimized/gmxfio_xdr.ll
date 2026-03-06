@@ -732,7 +732,7 @@ define internal fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputT
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(127) @.str.2, i8 noundef zeroext 2)
   %33 = zext nneg i32 %3 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValueToString15InputOutputType.ioTypeNames, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValueToString15InputOutputType.ioTypeNames, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !48
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 120, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.22, ptr noundef %35, ptr noundef %5, i32 noundef %6) #14
           to label %36 unwind label %37
@@ -1099,10 +1099,10 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
 
 .preheader:                                       ; preds = %190, %.preheader
   %indvars.iv262 = phi i64 [ %indvars.iv.next263, %.preheader ], [ 0, %190 ]
-  %194 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv262
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv262
   %195 = load float, ptr %194, align 4, !tbaa !41
   %196 = fpext float %195 to double
-  %197 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv262
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv262
   store double %196, ptr %197, align 8, !tbaa !43
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next263, 3
@@ -1114,10 +1114,10 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
 
 199:                                              ; preds = %.loopexit227, %199
   %indvars.iv265 = phi i64 [ 0, %.loopexit227 ], [ %indvars.iv.next266, %199 ]
-  %200 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv265
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv265
   %201 = load double, ptr %200, align 8, !tbaa !43
   %202 = fptrunc double %201 to float
-  %203 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv265
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv265
   store float %202, ptr %203, align 4, !tbaa !41
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next266, 3
@@ -1148,7 +1148,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
 211:                                              ; preds = %.lr.ph, %211
   %.0157241 = phi i64 [ 0, %.lr.ph ], [ %214, %211 ]
   %.0158240 = phi ptr [ null, %.lr.ph ], [ %spec.select, %211 ]
-  %212 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %.0157241
+  %212 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %.0157241
   %spec.select = select i1 %.not174, ptr %.0158240, ptr %212
   %213 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef nonnull %0, ptr noundef %spec.select, i64 noundef 1, i32 noundef 11, ptr noundef %4, ptr noundef %5, i32 noundef %6)
   %214 = add nuw i64 %.0157241, 1
@@ -1163,7 +1163,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   br i1 %218, label %222, label %219
 
 219:                                              ; preds = %.preheader233.split
-  %220 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %221 = load i32, ptr %220, align 4, !tbaa !39
   store i32 %221, ptr %13, align 4, !tbaa !39
   br label %222
@@ -1172,7 +1172,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   %223 = load ptr, ptr %23, align 8, !tbaa !35
   %224 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %223, ptr noundef nonnull %13)
   %225 = load i32, ptr %13, align 4, !tbaa !39
-  %226 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %225, ptr %226, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %227 = icmp samesign ult i64 %indvars.iv, 2
@@ -2012,7 +2012,7 @@ define noundef zeroext i1 @_Z17gmx_fio_ndoe_realP8t_fileioPfiPKcS3_i(ptr noundef
   br i1 %.01213, label %8, label %11
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %10 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %0, ptr noundef %9, i64 noundef 1, i32 noundef 0, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   br label %11
 
@@ -2075,7 +2075,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   br i1 %.01214, label %18, label %29
 
 18:                                               ; preds = %.lr.ph.split
-  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !41
   %20 = load ptr, ptr %9, align 8, !tbaa !35
@@ -2163,7 +2163,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   br i1 %.01214, label %18, label %29
 
 18:                                               ; preds = %.lr.ph.split
-  %19 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store double 0.000000e+00, ptr %7, align 8, !tbaa !43
   %20 = load ptr, ptr %9, align 8, !tbaa !35
@@ -2343,7 +2343,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   br i1 %.01214, label %18, label %29
 
 18:                                               ; preds = %.lr.ph.split
-  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = load ptr, ptr %9, align 8, !tbaa !35
   %.not.i = icmp eq ptr %20, null
@@ -2429,7 +2429,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   br i1 %.01214, label %18, label %29
 
 18:                                               ; preds = %.lr.ph.split
-  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = load ptr, ptr %9, align 8, !tbaa !35
   %.not.i = icmp eq ptr %20, null
@@ -2569,7 +2569,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   br i1 %.01214, label %18, label %29
 
 18:                                               ; preds = %.lr.ph.split
-  %19 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = load ptr, ptr %9, align 8, !tbaa !35
   %.not.i = icmp eq ptr %20, null
@@ -2634,7 +2634,7 @@ define noundef zeroext i1 @_Z17gmx_fio_ndoe_ivecP8t_fileioPA3_iiPKcS4_i(ptr noun
   br i1 %.01213, label %8, label %11
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw [3 x i32], ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv
   %10 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %0, ptr noundef %9, i64 noundef 1, i32 noundef 13, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   br label %11
 
@@ -2666,7 +2666,7 @@ define noundef zeroext i1 @_Z19gmx_fio_ndoe_stringP8t_fileioPPciPKcS4_i(ptr noun
   br i1 %.01213, label %8, label %11
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %10 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %0, ptr noundef %9, i64 noundef 1, i32 noundef 14, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   br label %11
 

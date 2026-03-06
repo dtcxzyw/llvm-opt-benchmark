@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct.FCOSRegisterDef = type { i32, i32, ptr, ptr, i32, i32, i32, i32, i32, ptr }
 %struct.FCOSConvKey = type { i32 }
 
 @proto_register_FiveCoRAP.hf = internal global [84 x %struct.hf_register_info] zeroinitializer, align 16
@@ -230,7 +229,7 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   %5 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %4, ptr noundef nonnull @.str)
   %6 = tail call ptr @wmem_epan_scope()
   %7 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %6, ptr noundef nonnull @.str)
-  %8 = getelementptr %struct.FCOSRegisterDef, ptr @registers_def, i64 %indvars.iv
+  %8 = getelementptr [56 x i8], ptr @registers_def, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef nonnull @.str.1, ptr noundef %10)
@@ -274,7 +273,7 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
 
 35:                                               ; preds = %25
   %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
+  %37 = getelementptr [80 x i8], ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
   %38 = getelementptr i8, ptr %37, i64 1920
   store ptr %28, ptr %38, align 16
   %.sroa.428.0..sroa_idx = getelementptr i8, ptr %37, i64 1928
@@ -324,7 +323,7 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   br label %55
 
 46:                                               ; preds = %25
-  %47 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
+  %47 = getelementptr [80 x i8], ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
   %48 = getelementptr i8, ptr %47, i64 1920
   store ptr %28, ptr %48, align 16
   %.sroa.42.0..sroa_idx = getelementptr i8, ptr %47, i64 1928
@@ -369,10 +368,10 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   br label %55
 
 55:                                               ; preds = %35, %46
-  %56 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
-  %57 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
-  %58 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
-  %59 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
+  %56 = getelementptr [80 x i8], ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
+  %57 = getelementptr [80 x i8], ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
+  %58 = getelementptr [80 x i8], ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
+  %59 = getelementptr [80 x i8], ptr @proto_register_FiveCoRAP.hf, i64 %indvars.iv
   %.sroa.1223.0..sroa_idx = getelementptr i8, ptr %59, i64 4380
   store i32 0, ptr %.sroa.1223.0..sroa_idx, align 4
   %.sroa.1324.0..sroa_idx = getelementptr i8, ptr %58, i64 4384
@@ -387,20 +386,20 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %55, %.preheader
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.preheader ], [ 0, %55 ]
-  %60 = getelementptr i32, ptr @ett_fiveco, i64 %indvars.iv110
+  %60 = getelementptr [4 x i8], ptr @ett_fiveco, i64 %indvars.iv110
   %.idx = mul i64 %indvars.iv110, 40
   %61 = getelementptr i8, ptr @proto_register_FiveCoRAP.ett, i64 %.idx
   store ptr %60, ptr %61, align 8
-  %62 = getelementptr i32, ptr @ett_fiveco_data, i64 %indvars.iv110
+  %62 = getelementptr [4 x i8], ptr @ett_fiveco_data, i64 %indvars.iv110
   %63 = getelementptr i8, ptr %61, i64 8
   store ptr %62, ptr %63, align 8
-  %64 = getelementptr i32, ptr @ett_fiveco_easyip, i64 %indvars.iv110
+  %64 = getelementptr [4 x i8], ptr @ett_fiveco_easyip, i64 %indvars.iv110
   %65 = getelementptr i8, ptr %61, i64 16
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr i32, ptr @ett_fiveco_sub, i64 %indvars.iv110
+  %66 = getelementptr [4 x i8], ptr @ett_fiveco_sub, i64 %indvars.iv110
   %67 = getelementptr i8, ptr %61, i64 24
   store ptr %66, ptr %67, align 8
-  %68 = getelementptr i32, ptr @ett_fiveco_sub_details, i64 %indvars.iv110
+  %68 = getelementptr [4 x i8], ptr @ett_fiveco_sub_details, i64 %indvars.iv110
   %69 = getelementptr i8, ptr %61, i64 32
   store ptr %68, ptr %69, align 8
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
@@ -803,7 +802,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %55, ptr noundef nonnull @.str.148, i32 noundef %56, i32 noundef %57, i32 noundef %.1.i)
   %58 = load i32, ptr %6, align 4
   %59 = zext i32 %58 to i64
-  %60 = getelementptr i32, ptr @ett_fiveco, i64 %59
+  %60 = getelementptr [4 x i8], ptr @ett_fiveco, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = tail call ptr @proto_item_add_subtree(ptr noundef %55, i32 noundef %61)
   %63 = load i32, ptr @hf_fiveco_dest_addr, align 4
@@ -818,7 +817,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
 67:                                               ; preds = %66, %53
   %68 = load i32, ptr %6, align 4
   %69 = zext i32 %68 to i64
-  %70 = getelementptr i32, ptr %3, i64 %69
+  %70 = getelementptr [4 x i8], ptr %3, i64 %69
   %71 = load i32, ptr %70, align 4
   %.not358 = icmp eq i32 %71, 0
   br i1 %.not358, label %75, label %72
@@ -834,7 +833,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
 75:                                               ; preds = %72, %67
   %.pre-phi = phi i64 [ %.pre469, %72 ], [ %69, %67 ]
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %77 = getelementptr i32, ptr %76, i64 %.pre-phi
+  %77 = getelementptr [4 x i8], ptr %76, i64 %.pre-phi
   %78 = load i32, ptr %77, align 4
   %.not359 = icmp eq i32 %78, 0
   br i1 %.not359, label %91, label %79
@@ -868,7 +867,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %95, ptr noundef nonnull @.str.153, i32 noundef %.1.i)
   %96 = load i32, ptr %6, align 4
   %97 = zext i32 %96 to i64
-  %98 = getelementptr i32, ptr @ett_fiveco_data, i64 %97
+  %98 = getelementptr [4 x i8], ptr @ett_fiveco_data, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = tail call ptr @proto_item_add_subtree(ptr noundef %95, i32 noundef %99)
   %101 = icmp ult i32 %28, %42
@@ -905,7 +904,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
 
 114:                                              ; preds = %107
   %115 = zext nneg i8 %110 to i64
-  %116 = getelementptr %struct.FCOSRegisterDef, ptr @registers_def, i64 %115
+  %116 = getelementptr [56 x i8], ptr @registers_def, i64 %115
   %117 = load i32, ptr %116, align 8
   %118 = zext nneg i8 %108 to i32
   %119 = icmp eq i32 %117, %118
@@ -955,13 +954,13 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   %137 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %136, i32 noundef -2147483648)
   %138 = load i32, ptr %6, align 4
   %139 = zext i32 %138 to i64
-  %140 = getelementptr i32, ptr %.sink519, i64 %139
+  %140 = getelementptr [4 x i8], ptr %.sink519, i64 %139
   store i32 %137, ptr %140, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %134
   %141 = zext nneg i8 %131 to i64
-  %142 = getelementptr %struct.FCOSRegisterDef, ptr @registers_def, i64 %141
+  %142 = getelementptr [56 x i8], ptr @registers_def, i64 %141
   %143 = load i32, ptr %142, align 8
   %144 = zext nneg i8 %129 to i32
   %145 = icmp eq i32 %143, %144
@@ -1036,7 +1035,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
 
 178:                                              ; preds = %173
   %179 = zext nneg i8 %176 to i64
-  %180 = getelementptr %struct.FCOSRegisterDef, ptr @registers_def, i64 %179
+  %180 = getelementptr [56 x i8], ptr @registers_def, i64 %179
   %181 = load i32, ptr %180, align 8
   %182 = zext nneg i8 %174 to i32
   %183 = icmp eq i32 %181, %182
@@ -1177,7 +1176,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %253, ptr noundef nonnull @.str.162, ptr noundef %259, ptr noundef %256)
   %260 = load i32, ptr %6, align 4
   %261 = zext i32 %260 to i64
-  %262 = getelementptr i32, ptr @ett_fiveco_easyip, i64 %261
+  %262 = getelementptr [4 x i8], ptr @ett_fiveco_easyip, i64 %261
   %263 = load i32, ptr %262, align 4
   %264 = tail call ptr @proto_item_add_subtree(ptr noundef %253, i32 noundef %263)
   %265 = load i32, ptr @hf_fiveco_ext_easyip_version, align 4
@@ -1299,7 +1298,7 @@ get_data_size.exit376:                            ; preds = %309, %316
   %329 = add nuw nsw i32 %326, 1
   store i32 %329, ptr %6, align 4
   %330 = zext nneg i32 %329 to i64
-  %331 = getelementptr i32, ptr @ett_fiveco_sub_details, i64 %330
+  %331 = getelementptr [4 x i8], ptr @ett_fiveco_sub_details, i64 %330
   %332 = load i32, ptr %331, align 4
   %333 = tail call ptr @proto_item_add_subtree(ptr noundef %.0342, i32 noundef %332)
   %334 = load i32, ptr @hf_fiveco_routing_interface, align 4
@@ -1323,7 +1322,7 @@ get_data_size.exit376:                            ; preds = %309, %316
   %346 = add i32 %.0395, %.0338432
   %347 = load i32, ptr %6, align 4
   %348 = zext i32 %347 to i64
-  %349 = getelementptr i32, ptr @ett_fiveco_sub, i64 %348
+  %349 = getelementptr [4 x i8], ptr @ett_fiveco_sub, i64 %348
   %350 = load i32, ptr %349, align 4
   %351 = tail call ptr @proto_item_add_subtree(ptr noundef %.0342, i32 noundef %350)
   %352 = tail call fastcc i32 @dissect_frame(ptr noundef %0, ptr noundef %1, ptr noundef %351, ptr noundef %3, i32 noundef %346, i32 noundef %5, ptr noundef %6)

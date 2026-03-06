@@ -3,7 +3,6 @@ source_filename = "bench/abseil-cpp/original/elf_mem_image.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Elf64_Sym = type { i32, i8, i8, i16, i64, i64 }
 %"class.absl::debugging_internal::ElfMemImage::SymbolIterator" = type { %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", i32, ptr }
 %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo" = type { ptr, ptr, ptr, ptr }
 
@@ -304,25 +303,25 @@ _ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi.exit: ; preds = %_ZNK4absl1
 
 113:                                              ; preds = %112
   %114 = add nsw i64 %indvars.iv111, -1
-  %115 = getelementptr inbounds nuw i32, ptr %110, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !35
   %.not81 = icmp eq i32 %116, 0
   br i1 %.not81, label %112, label %117, !llvm.loop !36
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds nuw i32, ptr %110, i64 %111
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %111
   %119 = getelementptr inbounds nuw i8, ptr %.060.lcssa, i64 4
   %120 = load i32, ptr %119, align 4, !tbaa !35
   %121 = zext i32 %120 to i64
   %122 = sub nsw i64 0, %121
-  %123 = getelementptr inbounds i32, ptr %118, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %118, i64 %122
   br label %124
 
 124:                                              ; preds = %124, %117
   %.3 = phi i32 [ %116, %117 ], [ %125, %124 ]
   %125 = add i32 %.3, 1
   %126 = zext i32 %.3 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %123, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !35
   %129 = and i32 %128, 1
   %130 = icmp eq i32 %129, 0
@@ -359,7 +358,7 @@ define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDyns
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %9
   ret ptr %10
 }
 
@@ -378,7 +377,7 @@ define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVers
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !30
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %9
   ret ptr %10
 }
 
@@ -818,10 +817,10 @@ _ZNK4absl18debugging_internal11ElfMemImage9GetVersymEj.exit: ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !28
   %20 = zext i32 %14 to i64
-  %21 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !30
-  %24 = getelementptr inbounds nuw i16, ptr %23, i64 %20
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %20
   %25 = icmp eq ptr %19, null
   %26 = icmp eq ptr %23, null
   %.not32 = or i1 %25, %26

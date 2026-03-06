@@ -38717,8 +38717,8 @@ define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
   %32 = icmp eq i8 %10, 1
   %33 = zext i8 %10 to i64
-  %34 = getelementptr ptr, ptr @categories, i64 %33
-  %35 = getelementptr i32, ptr @global_categories_version, i64 %33
+  %34 = getelementptr [8 x i8], ptr @categories, i64 %33
+  %35 = getelementptr [4 x i8], ptr @global_categories_version, i64 %33
   br label %36
 
 36:                                               ; preds = %asterix_message_length.exit.thread.i.i, %.lr.ph.i.i
@@ -38730,7 +38730,7 @@ define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef
 38:                                               ; preds = %36
   %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_categories_version, i64 4), align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr ptr, ptr @I001all, i64 %40
+  %41 = getelementptr [8 x i8], ptr @I001all, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
@@ -38822,7 +38822,7 @@ asterix_field_exists.exit.thread.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %81
   %.1.i.i.i = phi i32 [ %84, %81 ], [ %.02540.i.i.i, %asterix_field_exists.exit.i.i.i ], [ %.02540.i.i.i, %.lr.ph.i.i.i.i ]
   %85 = add i32 %.02639.i.i.i, 1
   %86 = sext i32 %85 to i64
-  %87 = getelementptr ptr, ptr %46, i64 %86
+  %87 = getelementptr [8 x i8], ptr %46, i64 %86
   %88 = load ptr, ptr %87, align 8
   %.not31.i.i.i = icmp eq ptr %88, null
   br i1 %.not31.i.i.i, label %asterix_get_active_uap.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
@@ -38836,9 +38836,9 @@ asterix_get_active_uap.exit.i.i:                  ; preds = %asterix_field_exist
 90:                                               ; preds = %asterix_get_active_uap.exit.i.i
   %91 = load i32, ptr %35, align 4
   %92 = sext i32 %91 to i64
-  %93 = getelementptr ptr, ptr %89, i64 %92
+  %93 = getelementptr [8 x i8], ptr %89, i64 %92
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr ptr, ptr %94, i64 %.0.i.i.i
+  %95 = getelementptr [8 x i8], ptr %94, i64 %.0.i.i.i
   %96 = load ptr, ptr %95, align 8
   %.not24.i.i.i = icmp eq ptr %96, null
   br i1 %.not24.i.i.i, label %dissect_asterix_data_block.exit.i, label %97
@@ -38913,7 +38913,7 @@ asterix_field_exists.exit.thread.i56.i.i:         ; preds = %.lr.ph.i.i49.i.i, %
   %.1.i57.i.i = phi i32 [ %128, %124 ], [ %.02033.i.i.i, %asterix_field_exists.exit.i53.i.i ], [ %.02033.i.i.i, %.lr.ph.i.i49.i.i ]
   %129 = add i32 %.02132.i.i.i, 1
   %130 = sext i32 %129 to i64
-  %131 = getelementptr ptr, ptr %96, i64 %130
+  %131 = getelementptr [8 x i8], ptr %96, i64 %130
   %132 = load ptr, ptr %131, align 8
   %.not25.i.i.i = icmp eq ptr %132, null
   br i1 %.not25.i.i.i, label %asterix_message_length.exit.i.i, label %.lr.ph.i47.i.i, !llvm.loop !10
@@ -38948,9 +38948,9 @@ asterix_message_length.exit.thread.i.i:           ; preds = %141
   %149 = tail call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %148, ptr noundef %0, i32 noundef %37, i32 noundef %147, i32 noundef 0)
   %150 = load i32, ptr %35, align 4
   %151 = sext i32 %150 to i64
-  %152 = getelementptr ptr, ptr %89, i64 %151
+  %152 = getelementptr [8 x i8], ptr %89, i64 %151
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr ptr, ptr %153, i64 %.0.i.i.i
+  %154 = getelementptr [8 x i8], ptr %153, i64 %.0.i.i.i
   %155 = load ptr, ptr %154, align 8
   %156 = tail call fastcc i32 @dissect_asterix_fields(ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef %138, ptr noundef %155)
   %157 = add i32 %147, %.04264.i.i
@@ -39112,7 +39112,7 @@ asterix_field_exists.exit27.i:                    ; preds = %40, %.lr.ph.i
 
 50:                                               ; preds = %asterix_field_exists.exit27.i
   %51 = add i32 %.137.i, %2
-  %52 = getelementptr ptr, ptr %4, i64 %indvars.iv45.i
+  %52 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv45.i
   %53 = load ptr, ptr %52, align 8
   %54 = tail call fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %51, ptr noundef %53)
   %55 = add i32 %54, %.137.i
@@ -39247,7 +39247,7 @@ asterix_field_offset.exit.thread:                 ; preds = %.lr.ph.i.i, %.lr.ph
   %.1114 = phi i32 [ %60, %125 ], [ %60, %asterix_fspec_len.exit ], [ %60, %._crit_edge ], [ %.0113133, %asterix_field_offset.exit ], [ %.0113133, %asterix_field_exists.exit.i ], [ %60, %._crit_edge.thread ], [ %60, %.lr.ph131 ], [ %.0113133, %.lr.ph.i.i ]
   %127 = add i32 %.0111134, 1
   %128 = zext i32 %127 to i64
-  %129 = getelementptr ptr, ptr %4, i64 %128
+  %129 = getelementptr [8 x i8], ptr %4, i64 %128
   %130 = load ptr, ptr %129, align 8
   %.not = icmp eq ptr %130, null
   br i1 %.not, label %.loopexit, label %.lr.ph135, !llvm.loop !16
@@ -39340,7 +39340,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
   %41 = and i8 %40, 1
   %.not63 = icmp eq i8 %41, 0
   %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr ptr, ptr %42, i64 %30
+  %43 = getelementptr [8 x i8], ptr %42, i64 %30
   %44 = load ptr, ptr %43, align 8
   %45 = load i16, ptr %44, align 8
   %46 = zext i16 %45 to i32
@@ -39352,7 +39352,7 @@ define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1,
   %50 = phi i32 [ %36, %.thread ], [ %47, %37 ]
   %51 = add i8 %.15180, 1
   %52 = zext i8 %51 to i64
-  %53 = getelementptr ptr, ptr %49, i64 %52
+  %53 = getelementptr [8 x i8], ptr %49, i64 %52
   %54 = load ptr, ptr %53, align 8
   %.not62 = icmp eq ptr %54, null
   br i1 %.not62, label %._crit_edge.loopexit, label %.lr.ph82, !llvm.loop !18
@@ -39440,7 +39440,7 @@ asterix_field_exists.exit.thread:                 ; preds = %.lr.ph.i, %asterix_
   %.4 = phi i32 [ %94, %90 ], [ %.35673, %asterix_field_exists.exit ], [ %.35673, %.lr.ph.i ]
   %95 = add i8 %.374, 1
   %96 = zext i8 %95 to i64
-  %97 = getelementptr ptr, ptr %71, i64 %96
+  %97 = getelementptr [8 x i8], ptr %71, i64 %96
   %98 = load ptr, ptr %97, align 8
   %.not60 = icmp eq ptr %98, null
   br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !21
@@ -39474,7 +39474,7 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
   %15 = zext i16 %14 to i32
   %16 = tail call i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %13, i32 noundef %15, i32 noundef 0)
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr ptr, ptr %17, i64 %12
+  %18 = getelementptr [8 x i8], ptr %17, i64 %12
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
@@ -39543,7 +39543,7 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
   %.095 = phi i32 [ %24, %34 ], [ %spec.select110, %44 ], [ %24, %39 ]
   %.094 = phi i32 [ %30, %34 ], [ %spec.select111, %44 ], [ %30, %39 ]
   %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr ptr, ptr %54, i64 %12
+  %55 = getelementptr [8 x i8], ptr %54, i64 %12
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8
@@ -39554,13 +39554,13 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
 .backedge:                                        ; preds = %.lr.ph, %80, %82, %155, %133, %84, %22, %53
   %.097117.be = add i32 %.097117129, 1
   %.be = load ptr, ptr %6, align 8
-  %.pn.in.in.in = getelementptr ptr, ptr %.be, i64 %12
+  %.pn.in.in.in = getelementptr [8 x i8], ptr %.be, i64 %12
   %.pn.in.in = load ptr, ptr %.pn.in.in.in, align 8
   %.pn.in = load i16, ptr %.pn.in.in, align 8
   %.pn = zext i16 %.pn.in to i32
   %.096118.be = add i32 %.096118128, %.pn
   %61 = sext i32 %.097117.be to i64
-  %62 = getelementptr ptr, ptr %.be, i64 %61
+  %62 = getelementptr [8 x i8], ptr %.be, i64 %61
   %63 = load ptr, ptr %62, align 8
   %.not104 = icmp eq ptr %63, null
   br i1 %.not104, label %.critedge, label %.lr.ph, !llvm.loop !22
@@ -39642,7 +39642,7 @@ twos_complement.exit:                             ; preds = %69, %64, %22
   %124 = sext i8 %123 to i32
   %125 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %85, ptr noundef nonnull @.str.15924, i32 noundef %90, i32 noundef %95, i32 noundef %100, i32 noundef %105, i32 noundef %110, i32 noundef %115, i32 noundef %120, i32 noundef %124)
   %126 = load ptr, ptr %6, align 8
-  %127 = getelementptr ptr, ptr %126, i64 %12
+  %127 = getelementptr [8 x i8], ptr %126, i64 %12
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = load ptr, ptr %129, align 8
@@ -39660,7 +39660,7 @@ twos_complement.exit:                             ; preds = %69, %64, %22
   %139 = load i32, ptr @proto_asterix, align 4
   tail call void @p_add_proto_data(ptr noundef %138, ptr noundef %1, i32 noundef %139, i32 noundef 21150, ptr noundef %135)
   %140 = load ptr, ptr %6, align 8
-  %141 = getelementptr ptr, ptr %140, i64 %12
+  %141 = getelementptr [8 x i8], ptr %140, i64 %12
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8
@@ -39686,7 +39686,7 @@ twos_complement.exit:                             ; preds = %69, %64, %22
 155:                                              ; preds = %147, %151, %154
   %.0 = phi double [ 1.000000e-03, %154 ], [ 0x3F10000000000000, %151 ], [ 0x3F10000000000000, %147 ]
   %156 = load ptr, ptr %6, align 8
-  %157 = getelementptr ptr, ptr %156, i64 %12
+  %157 = getelementptr [8 x i8], ptr %156, i64 %12
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %160 = load ptr, ptr %159, align 8

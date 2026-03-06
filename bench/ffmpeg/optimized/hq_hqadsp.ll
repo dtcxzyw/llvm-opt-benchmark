@@ -110,7 +110,7 @@ define internal void @hq_idct_put(ptr noundef writeonly captures(none) %0, i32 n
 
 .preheader21:                                     ; preds = %4, %.preheader21
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.preheader21 ], [ 0, %4 ]
-  %82 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv28
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv28
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 80
   %84 = load i16, ptr %83, align 2, !tbaa !9
   %85 = sext i16 %84 to i32
@@ -224,7 +224,7 @@ define internal void @hq_idct_put(ptr noundef writeonly captures(none) %0, i32 n
 
 175:                                              ; preds = %.preheader, %175
   %indvars.iv32 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next33, %175 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv32
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv32
   %176 = load i16, ptr %gep, align 2, !tbaa !9
   %177 = icmp ugt i16 %176, 255
   %isnotneg.i = icmp sgt i16 %176, -1

@@ -7,17 +7,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hwloc__xml_import_state_s = type { ptr, ptr, [32 x i8] }
 %struct.hwloc_xml_backend_data_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, i8, i8, i8 }
 %struct.hwloc__xml_export_state_s = type { ptr, ptr, ptr, ptr, ptr, ptr, [48 x i8] }
-%struct.hwloc_internal_memattr_s = type { ptr, i64, i32, i32, ptr }
-%struct.hwloc_internal_memattr_target_s = type { ptr, i32, i32, i64, i64, i32, ptr }
-%struct.hwloc_internal_memattr_initiator_s = type { %struct.hwloc_internal_location_s, i64 }
+%struct.hwloc__xml_export_data_s = type { i32 }
 %struct.hwloc_internal_location_s = type { i32, %union.anon.1 }
 %union.anon.1 = type { %struct.anon.2 }
 %struct.anon.2 = type { ptr, i64, i32 }
-%struct.hwloc_internal_cpukind_s = type { ptr, i32, i32, i64, %struct.hwloc_infos_s }
 %struct.hwloc_infos_s = type { ptr, i32, i32 }
-%struct.hwloc_info_s = type { ptr, ptr }
-%struct.hwloc_memory_page_type_s = type { i64, i64 }
-%struct.hwloc__xml_export_data_s = type { i32 }
 
 @hwloc__xml_verbose.checked = internal unnamed_addr global i1 false, align 4
 @hwloc__xml_verbose.verbose = internal unnamed_addr global i32 0, align 4
@@ -2280,7 +2274,7 @@ hwloc__xml_v2export_support.exit:                 ; preds = %636, %652
 
 673:                                              ; preds = %671
   %674 = load ptr, ptr %664, align 8, !tbaa !109
-  %675 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_s, ptr %674, i64 %indvars.iv28.i
+  %675 = getelementptr inbounds nuw [32 x i8], ptr %674, i64 %indvars.iv28.i
   %676 = icmp samesign ult i64 %indvars.iv28.i, 8
   br i1 %676, label %677, label %680
 
@@ -2313,7 +2307,7 @@ hwloc__xml_v2export_support.exit:                 ; preds = %636, %652
 691:                                              ; preds = %hwloc__xml_export_memattr_target.exit.i, %.lr.ph.i21
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i21 ], [ %indvars.iv.next.i, %hwloc__xml_export_memattr_target.exit.i ]
   %692 = load ptr, ptr %690, align 8, !tbaa !115
-  %693 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_target_s, ptr %692, i64 %indvars.iv.i
+  %693 = getelementptr inbounds nuw [48 x i8], ptr %692, i64 %indvars.iv.i
   %.val.i = load i64, ptr %684, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2336,7 +2330,7 @@ hwloc__xml_v2export_support.exit:                 ; preds = %636, %652
 700:                                              ; preds = %733, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %733 ]
   %701 = load ptr, ptr %697, align 8, !tbaa !120
-  %702 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_initiator_s, ptr %701, i64 %indvars.iv.i.i
+  %702 = getelementptr inbounds nuw [40 x i8], ptr %701, i64 %indvars.iv.i.i
   %703 = load ptr, ptr %667, align 8, !tbaa !66
   call void %703(ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull @.str.127) #23
   %704 = load ptr, ptr %668, align 8, !tbaa !70
@@ -2466,7 +2460,7 @@ hwloc__xml_export_memattrs.exit:                  ; preds = %757, %661
 770:                                              ; preds = %._crit_edge.i28, %.lr.ph20.i
   %indvars.iv25.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next26.i, %._crit_edge.i28 ]
   %771 = load ptr, ptr %763, align 8, !tbaa !132
-  %772 = getelementptr inbounds nuw %struct.hwloc_internal_cpukind_s, ptr %771, i64 %indvars.iv25.i
+  %772 = getelementptr inbounds nuw [40 x i8], ptr %771, i64 %indvars.iv25.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %773 = load ptr, ptr %764, align 8, !tbaa !66
@@ -2504,7 +2498,7 @@ hwloc__xml_export_memattrs.exit:                  ; preds = %757, %661
 788:                                              ; preds = %hwloc__xml_export_info_attr.exit.i, %.lr.ph.i25
   %indvars.iv.i26 = phi i64 [ 0, %.lr.ph.i25 ], [ %indvars.iv.next.i27, %hwloc__xml_export_info_attr.exit.i ]
   %789 = load ptr, ptr %787, align 8, !tbaa !137
-  %790 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %789, i64 %indvars.iv.i26
+  %790 = getelementptr inbounds nuw [16 x i8], ptr %789, i64 %indvars.iv.i26
   %791 = load ptr, ptr %790, align 8, !tbaa !138
   %792 = getelementptr inbounds nuw i8, ptr %790, i64 8
   %793 = load ptr, ptr %792, align 8, !tbaa !140
@@ -2646,7 +2640,7 @@ hwloc__xml_export_cpukinds.exit:                  ; preds = %._crit_edge.i28, %h
 835:                                              ; preds = %835, %.lr.ph.i30
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i32, %835 ]
   %836 = load ptr, ptr %834, align 8, !tbaa !145
-  %837 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %836, i64 %indvars.iv.i31
+  %837 = getelementptr inbounds nuw [16 x i8], ptr %836, i64 %indvars.iv.i31
   %838 = load ptr, ptr %837, align 8, !tbaa !138
   %839 = getelementptr inbounds nuw i8, ptr %837, i64 8
   %840 = load ptr, ptr %839, align 8, !tbaa !140
@@ -2942,7 +2936,7 @@ hwloc__xml_export_safestrdup.exit245.thread._crit_edge.i: ; preds = %hwloc__xml_
   %125 = load ptr, ptr %110, align 8, !tbaa !161
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !27
-  %128 = getelementptr inbounds nuw %struct.hwloc_memory_page_type_s, ptr %127, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %indvars.iv.i
   %129 = load i64, ptr %128, align 8, !tbaa !162
   %130 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.11, i64 noundef %129) #23
   %131 = load ptr, ptr %121, align 8, !tbaa !70
@@ -2950,7 +2944,7 @@ hwloc__xml_export_safestrdup.exit245.thread._crit_edge.i: ; preds = %hwloc__xml_
   %132 = load ptr, ptr %110, align 8, !tbaa !161
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8, !tbaa !27
-  %135 = getelementptr inbounds nuw %struct.hwloc_memory_page_type_s, ptr %134, i64 %indvars.iv.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %indvars.iv.i
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load i64, ptr %136, align 8, !tbaa !164
   %138 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.11, i64 noundef %137) #23
@@ -3239,7 +3233,7 @@ hwloc__xml_export_safestrdup.exit245.thread._crit_edge.i: ; preds = %hwloc__xml_
 315:                                              ; preds = %315, %.lr.ph257.i
   %indvars.iv265.i = phi i64 [ 0, %.lr.ph257.i ], [ %indvars.iv.next266.i, %315 ]
   %316 = load ptr, ptr %314, align 8, !tbaa !167
-  %317 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %316, i64 %indvars.iv265.i
+  %317 = getelementptr inbounds nuw [16 x i8], ptr %316, i64 %indvars.iv265.i
   %318 = load ptr, ptr %317, align 8, !tbaa !138
   %319 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %320 = load ptr, ptr %319, align 8, !tbaa !140
@@ -3272,7 +3266,7 @@ hwloc__xml_export_safestrdup.exit245.thread._crit_edge.i: ; preds = %hwloc__xml_
 330:                                              ; preds = %330, %.lr.ph259.i
   %indvars.iv268.i = phi i64 [ 0, %.lr.ph259.i ], [ %indvars.iv.next269.i, %330 ]
   %331 = load ptr, ptr %329, align 8, !tbaa !145
-  %332 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %331, i64 %indvars.iv268.i
+  %332 = getelementptr inbounds nuw [16 x i8], ptr %331, i64 %indvars.iv268.i
   %333 = load ptr, ptr %332, align 8, !tbaa !138
   %334 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %335 = load ptr, ptr %334, align 8, !tbaa !140
@@ -3311,7 +3305,7 @@ hwloc__xml_export_safestrdup.exit245.thread._crit_edge.i: ; preds = %hwloc__xml_
 
 348:                                              ; preds = %347, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %347 ]
-  %349 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %346, i64 %indvars.iv.i.i.i
+  %349 = getelementptr inbounds nuw [16 x i8], ptr %346, i64 %indvars.iv.i.i.i
   %350 = load ptr, ptr %349, align 8, !tbaa !138
   %351 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %350, ptr noundef nonnull readonly dereferenceable(8) @.str.69) #24
   %.not.not.i.i.i = icmp eq i32 %351, 0
@@ -4601,7 +4595,7 @@ define internal fastcc ptr @hwloc_obj_get_info_by_name(ptr noundef readonly capt
 
 8:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %6, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !138
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %1) #24
   %.not.not.i = icmp eq i32 %11, 0
@@ -4741,7 +4735,7 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 %.07897
   %70 = load ptr, ptr %46, align 8, !tbaa !197
   %71 = zext i32 %68 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !175
   %74 = load i32, ptr %73, align 8, !tbaa !147
   %75 = call ptr @hwloc_obj_type_string(i32 noundef %74) #27
@@ -4788,7 +4782,7 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 %.075100
   %95 = load ptr, ptr %60, align 8, !tbaa !200
   %96 = zext i32 %93 to i64
-  %97 = getelementptr inbounds nuw i64, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %96
   %98 = load i64, ptr %97, align 8, !tbaa !201
   %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %94, ptr noundef nonnull dereferenceable(1) @.str.88, i64 noundef %98) #23
   %100 = sext i32 %99 to i64
@@ -4844,7 +4838,7 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 %.072104
   %123 = load ptr, ptr %113, align 8, !tbaa !204
   %124 = zext i32 %121 to i64
-  %125 = getelementptr inbounds nuw i64, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %124
   %126 = load i64, ptr %125, align 8, !tbaa !201
   %127 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %122, ptr noundef nonnull dereferenceable(1) @.str.88, i64 noundef %126) #23
   %128 = sext i32 %127 to i64
@@ -6565,7 +6559,7 @@ hwloc__xml_import_support.exit:                   ; preds = %644, %647, %335, %3
 
 706:                                              ; preds = %.lr.ph219, %.tail.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next, %.tail.thread ]
-  %707 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %705, i64 %indvars.iv
+  %707 = getelementptr inbounds nuw [16 x i8], ptr %705, i64 %indvars.iv
   %708 = load ptr, ptr %707, align 8, !tbaa !138
   %709 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %708, ptr noundef nonnull dereferenceable(8) @.str.69) #24
   %.not163 = icmp eq i32 %709, 0
@@ -8915,7 +8909,7 @@ hwloc__xml_verbose.exit347:                       ; preds = %903, %909
 
 1004:                                             ; preds = %1003, %.lr.ph.i.i349
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i349 ], [ %indvars.iv.next.i.i, %1003 ]
-  %1005 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %1002, i64 %indvars.iv.i.i
+  %1005 = getelementptr inbounds nuw [16 x i8], ptr %1002, i64 %indvars.iv.i.i
   %1006 = load ptr, ptr %1005, align 8, !tbaa !138
   %1007 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1006, ptr noundef nonnull readonly dereferenceable(8) @.str.69) #24
   %.not.not.i.i = icmp eq i32 %1007, 0
@@ -10260,7 +10254,7 @@ hwloc__xml_verbose.exit288:                       ; preds = %264, %270
   %282 = getelementptr inbounds nuw i8, ptr %273, i64 1
   %283 = load i32, ptr %16, align 4, !tbaa !3
   %284 = zext i32 %.3186 to i64
-  %285 = getelementptr inbounds nuw i32, ptr %.0159, i64 %284
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %.0159, i64 %284
   store i32 %283, ptr %285, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %286
@@ -10275,7 +10269,7 @@ hwloc__xml_verbose.exit288:                       ; preds = %264, %270
 290:                                              ; preds = %286
   %291 = add i32 %.3186, 1
   %292 = zext i32 %.3186 to i64
-  %293 = getelementptr inbounds nuw i64, ptr %122, i64 %292
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %292
   store i64 %287, ptr %293, align 8, !tbaa !201
   %294 = load i8, ptr %288, align 1, !tbaa !27
   %.not240 = icmp ne i8 %294, 32
@@ -10331,7 +10325,7 @@ hwloc__xml_verbose.exit288:                       ; preds = %264, %270
   %.4181408 = phi i32 [ %315, %320 ], [ %.0177416, %308 ]
   %315 = add i32 %.4181408, 1
   %316 = zext i32 %.4181408 to i64
-  %317 = getelementptr inbounds nuw i64, ptr %126, i64 %316
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %316
   store i64 %314, ptr %317, align 8, !tbaa !201
   %318 = load i8, ptr %313, align 1, !tbaa !27
   %.not233 = icmp ne i8 %318, 32
@@ -11058,7 +11052,7 @@ hwloc___xml_import_info.exit:                     ; preds = %select.unfold.i, %1
   store ptr %59, ptr %54, align 8, !tbaa !245
   store i32 %56, ptr %52, align 8, !tbaa !244
   %61 = zext i32 %53 to i64
-  %62 = getelementptr inbounds nuw %struct.hwloc_memory_page_type_s, ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %61
   store i64 %.124, ptr %62, align 8, !tbaa !162
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %.127, ptr %63, align 8, !tbaa !164
@@ -11187,7 +11181,7 @@ define internal fastcc void @hwloc__xml_import_report_outoforder(ptr noundef %0,
 
 20:                                               ; preds = %19, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %19 ]
-  %21 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %18, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !138
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(13) @.str.217) #24
   %.not.not.i.i = icmp eq i32 %23, 0
@@ -11209,7 +11203,7 @@ define internal fastcc void @hwloc__xml_import_report_outoforder(ptr noundef %0,
 
 27:                                               ; preds = %26, %.lr.ph.i.i27
   %indvars.iv.i.i29 = phi i64 [ 0, %.lr.ph.i.i27 ], [ %indvars.iv.next.i.i31, %26 ]
-  %28 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %18, i64 %indvars.iv.i.i29
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv.i.i29
   %29 = load ptr, ptr %28, align 8, !tbaa !138
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(12) @.str.218) #24
   %.not.not.i.i30 = icmp eq i32 %30, 0

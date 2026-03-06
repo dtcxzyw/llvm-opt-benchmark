@@ -3,11 +3,6 @@ source_filename = "bench/openusd/original/blockd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.macroblockd_plane = type { i8, i32, i32, %struct.buf_2d, [2 x %struct.buf_2d], ptr, ptr, [8 x [2 x i16]], ptr, i8, i8, [8 x [19 x ptr]], [8 x [19 x ptr]] }
-%struct.buf_2d = type { ptr, ptr, i32, i32, i32 }
-%struct.WienerInfo = type { [8 x i16], [8 x i16] }
-%struct.SgrprojInfo = type { i32, [2 x i32] }
-
 @tx_size_wide_unit = internal unnamed_addr constant [19 x i32] [i32 1, i32 2, i32 4, i32 8, i32 16, i32 1, i32 2, i32 2, i32 4, i32 4, i32 8, i32 8, i32 16, i32 1, i32 4, i32 2, i32 8, i32 4, i32 16], align 16
 @tx_size_high_unit = internal unnamed_addr constant [19 x i32] [i32 1, i32 2, i32 4, i32 8, i32 16, i32 2, i32 1, i32 4, i32 2, i32 8, i32 4, i32 16, i32 8, i32 4, i32 1, i32 8, i32 2, i32 16, i32 4], align 16
 @mi_size_wide = internal unnamed_addr constant [22 x i8] c"\01\01\02\02\02\04\04\04\08\08\08\10\10\10  \01\04\02\08\04\10", align 16
@@ -57,9 +52,9 @@ define hidden void @av1_set_entropy_contexts(ptr noundef readonly captures(none)
   %15 = sext i32 %7 to i64
   %16 = getelementptr inbounds i8, ptr %14, i64 %15
   %17 = zext i8 %4 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @tx_size_wide_unit, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @tx_size_wide_unit, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds nuw i32, ptr @tx_size_high_unit, i64 %17
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @tx_size_high_unit, i64 %17
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.thread48, label %23
@@ -81,7 +76,7 @@ define hidden void @av1_set_entropy_contexts(ptr noundef readonly captures(none)
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = sext i32 %2 to i64
-  %32 = getelementptr %struct.macroblockd_plane, ptr %0, i64 %31
+  %32 = getelementptr [2608 x i8], ptr %0, i64 %31
   %33 = getelementptr i8, ptr %32, i64 20
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, 3
@@ -117,7 +112,7 @@ max_block_high.exit:                              ; preds = %49
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = sext i32 %2 to i64
-  %58 = getelementptr %struct.macroblockd_plane, ptr %0, i64 %57
+  %58 = getelementptr [2608 x i8], ptr %0, i64 %57
   %59 = getelementptr i8, ptr %58, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = add nsw i32 %60, 3
@@ -162,14 +157,14 @@ define hidden void @av1_reset_entropy_context(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = zext i8 %1 to i64
-  %12 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @ss_size_lookup, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @ss_size_lookup, i64 %11
   %13 = add nuw nsw i32 %9, 1
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [2608 x i8], ptr %10, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -224,7 +219,7 @@ define hidden void @av1_reset_loop_restoration(ptr noundef writeonly captures(no
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.WienerInfo, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i16 3, ptr %8, align 16
   store i16 3, ptr %7, align 16
@@ -252,7 +247,7 @@ define hidden void @av1_reset_loop_restoration(ptr noundef writeonly captures(no
   store i16 3, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i16 3, ptr %20, align 4
-  %21 = getelementptr inbounds nuw %struct.SgrprojInfo, ptr %5, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 -32, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -288,7 +283,7 @@ define hidden void @av1_setup_block_planes(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = icmp ne i64 %indvars.iv, 0
   %12 = zext i1 %11 to i8
-  %13 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2608 x i8], ptr %6, i64 %indvars.iv
   store i8 %12, ptr %13, align 16
   %.not = icmp eq i64 %indvars.iv, 0
   %14 = select i1 %.not, i32 0, i32 %1
@@ -303,7 +298,7 @@ define hidden void @av1_setup_block_planes(ptr noundef writeonly captures(none) 
 
 18:                                               ; preds = %.lr.ph23, %18
   %indvars.iv25 = phi i64 [ %9, %.lr.ph23 ], [ %indvars.iv.next26, %18 ]
-  %19 = getelementptr inbounds %struct.macroblockd_plane, ptr %8, i64 %indvars.iv25
+  %19 = getelementptr inbounds [2608 x i8], ptr %8, i64 %indvars.iv25
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 1, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8

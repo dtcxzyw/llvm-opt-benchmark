@@ -837,7 +837,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPN
   %79 = load ptr, ptr %7, align 8, !tbaa !109
   %80 = load i32, ptr %8, align 8, !tbaa !99
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %81
   %83 = ptrtoint ptr %25 to i64
   store i64 %83, ptr %82, align 8
   %84 = load i32, ptr %8, align 8, !tbaa !99
@@ -1015,7 +1015,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %16 = zext i32 %10 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !109
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 13
   %21 = load i8, ptr %20, align 1, !tbaa !107
@@ -1123,7 +1123,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   %75 = zext i8 %74 to i64
   %76 = load i32, ptr %2, align 4, !tbaa !77
   %77 = lshr i32 %76, 3
-  %.split5 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ArchTraits", ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %75
+  %.split5 = getelementptr inbounds nuw [216 x i8], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %75
   %78 = getelementptr inbounds nuw i8, ptr %.split5, i64 148
   %79 = and i32 %77, 31
   %80 = zext nneg i32 %79 to i64
@@ -1313,7 +1313,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler12setStackSizeEj
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %18 = zext i32 %5 to i64
   %19 = load ptr, ptr %17, align 8, !tbaa !109
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !42
   %22 = icmp eq i32 %2, 0
   br i1 %22, label %25, label %23
@@ -1377,7 +1377,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newConstEPNS0_
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %15 = zext nneg i32 %2 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %24
@@ -1444,7 +1444,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012BaseCompiler6renameERKNS0_7BaseRegE
   %12 = add i32 %8, -256
   %13 = zext i32 %12 to i64
   %14 = load ptr, ptr %11, align 8, !tbaa !109
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   %17 = icmp eq ptr %16, null
   br i1 %17, label %59, label %18
@@ -1704,7 +1704,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1012BaseCompiler17newJumpAnnotat
   %19 = load ptr, ptr %3, align 8, !tbaa !109
   %20 = load i32, ptr %10, align 8, !tbaa !99
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = ptrtoint ptr %12 to i64
   store i64 %23, ptr %22, align 8
   %24 = load i32, ptr %10, align 8, !tbaa !99
@@ -1728,10 +1728,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler8onAttachEPNS0_1
   %7 = zext i8 %6 to i64
   %8 = and i8 %6, 1
   %9 = xor i8 %8, 7
-  %.split = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ArchTraits", ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %7
+  %.split = getelementptr inbounds nuw [216 x i8], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %.split, i64 20
   %11 = zext nneg i8 %9 to i64
-  %12 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !98
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %13, ptr %14, align 8, !tbaa !98

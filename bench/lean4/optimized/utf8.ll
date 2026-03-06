@@ -881,7 +881,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   %.pre5 = phi i64 [ %.pre5.pre, %34 ], [ %.pre56, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i ]
   store ptr %29, ptr %1, align 8, !tbaa !39
   store ptr %33, ptr %6, align 8, !tbaa !35
-  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %27
   store ptr %35, ptr %7, align 8, !tbaa !38
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 

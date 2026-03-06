@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hashmap_entry = type { ptr, i32 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 %struct.strvec = type { ptr, i64, i64 }
-%struct.subprocess_capability = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"status=\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"subprocess\00", align 1
@@ -278,7 +277,7 @@ define dso_local range(i32 0, 2) i32 @subprocess_handshake(ptr noundef readonly 
 
 15:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next.i
   %17 = load i32, ptr %16, align 4, !tbaa !30
   %.not39.i = icmp eq i32 %17, 0
   br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
@@ -389,7 +388,7 @@ skip_prefix.exit52.i:                             ; preds = %44, %49, %41
 
 59:                                               ; preds = %.lr.ph69.i
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
-  %60 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next75.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next75.i
   %61 = load i32, ptr %60, align 4, !tbaa !30
   %.not46.i = icmp eq i32 %61, 0
   br i1 %.not46.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !34
@@ -416,7 +415,7 @@ handshake_version.exit.thread:                    ; preds = %13, %21, %25, %skip
 
 67:                                               ; preds = %.lr.ph.i9
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
-  %68 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %4, i64 %indvars.iv.next.i11
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.next.i11
   %69 = load ptr, ptr %68, align 8, !tbaa !35
   %.not.i12 = icmp eq ptr %69, null
   br i1 %.not.i12, label %._crit_edge.i13, label %.lr.ph.i9, !llvm.loop !37
@@ -467,7 +466,7 @@ handshake_version.exit.thread:                    ; preds = %13, %21, %25, %skip
 
 skip_prefix.exit.us.i:                            ; preds = %.lr.ph45.us.i, %86
   %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %86 ], [ 1, %.lr.ph45.us.i ]
-  %84 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %4, i64 %indvars.iv68.i
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv68.i
   %85 = load ptr, ptr %84, align 8, !tbaa !35
   %.not28.us.i = icmp eq ptr %85, null
   br i1 %.not28.us.i, label %skip_prefix.exit.preheader._crit_edge.i, label %86, !llvm.loop !39
@@ -521,7 +520,7 @@ skip_prefix.exit.preheader.i:                     ; preds = %93
 
 skip_prefix.exit.i18:                             ; preds = %.lr.ph45.i
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %100 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %4, i64 %indvars.iv.next64.i
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.next64.i
   %101 = load ptr, ptr %100, align 8, !tbaa !35
   %.not28.i = icmp eq ptr %101, null
   br i1 %.not28.i, label %skip_prefix.exit.preheader._crit_edge.i, label %.lr.ph45.i, !llvm.loop !39
@@ -534,7 +533,7 @@ skip_prefix.exit.i18:                             ; preds = %.lr.ph45.i
   br i1 %.not29.i, label %.critedge.i, label %skip_prefix.exit.i18
 
 .critedge.i:                                      ; preds = %.lr.ph45.i
-  %104 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %4, i64 %indvars.iv63.i
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv63.i
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8, !tbaa !40
   %107 = load i32, ptr %5, align 4, !tbaa !30

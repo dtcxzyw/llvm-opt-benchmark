@@ -47,11 +47,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.49" = type { %"class.llvm::SmallVectorBase.44" }
 %"struct.llvm::SmallVectorStorage.50" = type { [32 x i8] }
 %"class.llvm::ArrayRef.53" = type { ptr, i64 }
-%"struct.std::pair" = type { i32, i32 }
 %"class.llvm::WithColor" = type <{ ptr, i32, [4 x i8] }>
+%"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"class.llvm::SMFixIt" = type { %"class.llvm::SMRange", %"class.std::__cxx11::basic_string" }
 %"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
-%"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"struct.__gnu_cxx::__ops::_Iter_less_val" = type { i8 }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_ = comdat any
@@ -282,7 +281,7 @@ _ZN4llvm11SmallStringILj64EEC2ENS_9StringRefE.exit: ; preds = %_ZN4llvm15SmallVe
 
 57:                                               ; preds = %51
   %58 = load ptr, ptr %29, align 8, !tbaa !34
-  %59 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !22
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !26
@@ -597,7 +596,7 @@ define dso_local noundef i32 @_ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5S
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %12 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %5, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !47
@@ -709,7 +708,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEElEvRT_T0_.exit.
   %.013.i.i.i.i12 = phi i64 [ %.1.i.i.i.i16, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEElEvRT_T0_.exit.i.i.i.i ], [ %53, %37 ]
   %.sroa.011.012.i.i.i.i13 = phi ptr [ %.sroa.011.1.i.i.i.i15, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEElEvRT_T0_.exit.i.i.i.i ], [ %47, %37 ]
   %55 = lshr i64 %.013.i.i.i.i12, 1
-  %56 = getelementptr inbounds nuw i16, ptr %.sroa.011.012.i.i.i.i13, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.011.012.i.i.i.i13, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !54
   %58 = icmp ult i16 %57, %46
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 2
@@ -758,7 +757,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElEvRT_T0_.exit.
   %.013.i.i.i.i19 = phi i64 [ %.1.i.i.i.i24, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElEvRT_T0_.exit.i.i.i.i ], [ %82, %68 ]
   %.sroa.011.012.i.i.i.i20 = phi ptr [ %.sroa.011.1.i.i.i.i23, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElEvRT_T0_.exit.i.i.i.i ], [ %76, %68 ]
   %84 = lshr i64 %.013.i.i.i.i19, 1
-  %85 = getelementptr inbounds nuw i32, ptr %.sroa.011.012.i.i.i.i20, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.011.012.i.i.i.i20, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !35
   %87 = icmp ult i32 %86, %75
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 4
@@ -800,7 +799,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.
   %.013.i.i.i.i27 = phi i64 [ %.1.i.i.i.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.i.i.i.i ], [ %107, %94 ]
   %.sroa.011.012.i.i.i.i28 = phi ptr [ %.sroa.011.1.i.i.i.i31, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElEvRT_T0_.exit.i.i.i.i ], [ %101, %94 ]
   %109 = lshr i64 %.013.i.i.i.i27, 1
-  %110 = getelementptr inbounds nuw i64, ptr %.sroa.011.012.i.i.i.i28, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i.i.i.i28, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !45
   %112 = icmp ult i64 %111, %100
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -901,7 +900,7 @@ define dso_local noundef ptr @_ZNK4llvm9SourceMgr9SrcBuffer23getPointerForLineNu
 53:                                               ; preds = %43
   %54 = add i32 %spec.select.i15, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i16, ptr %47, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !54
   %58 = zext i16 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %41, i64 %58
@@ -936,7 +935,7 @@ define dso_local noundef ptr @_ZNK4llvm9SourceMgr9SrcBuffer23getPointerForLineNu
 79:                                               ; preds = %69
   %80 = add i32 %spec.select.i15, -1
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %73, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !35
   %84 = zext i32 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %68, i64 %84
@@ -965,7 +964,7 @@ define dso_local noundef ptr @_ZNK4llvm9SourceMgr9SrcBuffer23getPointerForLineNu
 102:                                              ; preds = %92
   %103 = add i32 %spec.select.i15, -1
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i64, ptr %96, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !45
   %107 = getelementptr inbounds nuw i8, ptr %91, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 1
@@ -1059,7 +1058,7 @@ define dso_local i64 @_ZNK4llvm9SourceMgr16getLineAndColumnENS_5SMLocEj(ptr noun
 
 .lr.ph.i:                                         ; preds = %5, %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %5 ]
-  %13 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %.pre, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !47
@@ -1086,7 +1085,7 @@ _ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %20, %21
   %.0 = phi i32 [ %2, %3 ], [ %23, %21 ], [ 0, %5 ], [ 0, %20 ]
   %24 = add i32 %.0, -1
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %.pre, i64 %25
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %25
   %27 = tail call noundef i32 @_ZNK4llvm9SourceMgr9SrcBuffer13getLineNumberEPKc(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef %1)
   %28 = load ptr, ptr %26, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -1135,7 +1134,7 @@ define dso_local void @_ZNK4llvm9SourceMgr28getFormattedLocationNoOffsetB5cxx11E
 
 .lr.ph.i:                                         ; preds = %4, %31
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %31 ], [ 0, %4 ]
-  %24 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %18, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !47
@@ -1163,7 +1162,7 @@ _ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %31, %4,
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %36 = add i32 %35, -1
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %18, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !3
   %40 = load ptr, ptr %39, align 8, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -1288,7 +1287,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
 
 .lr.ph.i.i.i:                                     ; preds = %79, %93
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %93 ], [ 0, %79 ]
-  %86 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %.pre.i.i, i64 %indvars.iv.i.i.i
+  %86 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i.i
   %87 = load ptr, ptr %86, align 8, !tbaa !3
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !47
@@ -1315,7 +1314,7 @@ _ZNK4llvm9SourceMgr14FindLineNumberENS_5SMLocEj.exit: ; preds = %93, %_ZStplIcSt
   %.0.i.i = phi i32 [ %35, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit ], [ %96, %94 ], [ 0, %79 ], [ 0, %93 ]
   %97 = add i32 %.0.i.i, -1
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %.pre.i.i, i64 %98
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i, i64 %98
   %100 = call noundef i32 @_ZNK4llvm9SourceMgr9SrcBuffer13getLineNumberEPKc(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef %2)
   %101 = load ptr, ptr %99, align 8, !tbaa !3
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
@@ -1589,7 +1588,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.ex
 
 .lr.ph.i.i.i32:                                   ; preds = %213, %227
   %indvars.iv.i.i.i33 = phi i64 [ %indvars.iv.next.i.i.i36, %227 ], [ 0, %213 ]
-  %220 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %.pre.i.i29, i64 %indvars.iv.i.i.i33
+  %220 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i29, i64 %indvars.iv.i.i.i33
   %221 = load ptr, ptr %220, align 8, !tbaa !3
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %223 = load ptr, ptr %222, align 8, !tbaa !47
@@ -1616,7 +1615,7 @@ _ZNK4llvm9SourceMgr14FindLineNumberENS_5SMLocEj.exit38: ; preds = %227, %_ZStplI
   %.0.i.i30 = phi i32 [ %35, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_.exit27 ], [ %230, %228 ], [ 0, %213 ], [ 0, %227 ]
   %231 = add i32 %.0.i.i30, -1
   %232 = zext i32 %231 to i64
-  %233 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %.pre.i.i29, i64 %232
+  %233 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i29, i64 %232
   %234 = call noundef i32 @_ZNK4llvm9SourceMgr9SrcBuffer13getLineNumberEPKc(ptr noundef nonnull align 8 dereferenceable(24) %233, ptr noundef %2)
   %235 = load ptr, ptr %233, align 8, !tbaa !3
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
@@ -1902,7 +1901,7 @@ define dso_local ptr @_ZN4llvm9SourceMgr23FindLocForLineAndColumnEjjj(ptr nounde
   %6 = add i32 %1, -1
   %7 = zext i32 %6 to i64
   %8 = load ptr, ptr %0, align 8, !tbaa !14
-  %9 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %7
   %10 = tail call noundef ptr @_ZNK4llvm9SourceMgr9SrcBuffer23getPointerForLineNumberEj(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %2)
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %22, label %11
@@ -1962,7 +1961,7 @@ define dso_local void @_ZNK4llvm9SourceMgr17PrintIncludeStackENS_5SMLocERNS_11ra
 
 .lr.ph.i:                                         ; preds = %6, %22
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %6 ]
-  %15 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %9, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !47
@@ -1989,7 +1988,7 @@ _ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %22, %6,
   %26 = phi i32 [ %25, %23 ], [ 0, %6 ], [ 0, %22 ]
   %27 = add i32 %26, -1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %9, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %.sroa.02.0.copyload = load ptr, ptr %30, align 8, !tbaa !8
   tail call void @_ZNK4llvm9SourceMgr17PrintIncludeStackENS_5SMLocERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %.sroa.02.0.copyload, ptr noundef nonnull align 8 dereferenceable(48) %2)
@@ -2017,7 +2016,7 @@ _ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %22, %6,
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %39, %41
   %.0.i.i = phi ptr [ %40, %39 ], [ %2, %41 ]
   %44 = load ptr, ptr %0, align 8, !tbaa !14
-  %45 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %44, i64 %28
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %28
   %46 = load ptr, ptr %45, align 8, !tbaa !3
   %47 = load ptr, ptr %46, align 8, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -2090,7 +2089,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %71, %73
 
 .lr.ph.i.i.i:                                     ; preds = %77, %91
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %91 ], [ 0, %77 ]
-  %84 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %.pre.i.i, i64 %indvars.iv.i.i.i
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i.i
   %85 = load ptr, ptr %84, align 8, !tbaa !3
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !47
@@ -2117,7 +2116,7 @@ _ZNK4llvm9SourceMgr14FindLineNumberENS_5SMLocEj.exit: ; preds = %91, %_ZN4llvm11
   %.0.i.i12 = phi i32 [ %26, %_ZN4llvm11raw_ostreamlsEPKc.exit11 ], [ %94, %92 ], [ 0, %77 ], [ 0, %91 ]
   %95 = add i32 %.0.i.i12, -1
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %.pre.i.i, i64 %96
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i, i64 %96
   %98 = tail call noundef i32 @_ZNK4llvm9SourceMgr9SrcBuffer13getLineNumberEPKc(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull %1)
   %99 = load ptr, ptr %97, align 8, !tbaa !3
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -2191,7 +2190,7 @@ define dso_local void @_ZNK4llvm9SourceMgr10GetMessageENS_5SMLocENS0_8DiagKindER
 
 .lr.ph.i:                                         ; preds = %18, %34
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %18 ]
-  %27 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %21, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !47
@@ -2218,7 +2217,7 @@ _ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %34, %18
   %38 = phi i32 [ %37, %35 ], [ 0, %18 ], [ 0, %34 ]
   %39 = add i32 %38, -1
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %21, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !3
   %43 = load ptr, ptr %42, align 8, !tbaa !15
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -2307,7 +2306,7 @@ _ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %34, %18
 
 .lr.ph.i.i:                                       ; preds = %70, %84
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %84 ], [ 0, %70 ]
-  %77 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %.pre.i, i64 %indvars.iv.i.i
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i, i64 %indvars.iv.i.i
   %78 = load ptr, ptr %77, align 8, !tbaa !3
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !47
@@ -2334,7 +2333,7 @@ _ZNK4llvm9SourceMgr16getLineAndColumnENS_5SMLocEj.exit: ; preds = %84, %._crit_e
   %.0.i = phi i32 [ %38, %._crit_edge ], [ %87, %85 ], [ 0, %70 ], [ 0, %84 ]
   %88 = add i32 %.0.i, -1
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %.pre.i, i64 %89
+  %90 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i, i64 %89
   %91 = call noundef i32 @_ZNK4llvm9SourceMgr9SrcBuffer13getLineNumberEPKc(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull %2)
   %92 = load ptr, ptr %90, align 8, !tbaa !3
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -2392,7 +2391,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjjELb1EE9push_backES2_.exit: ; preds =
   %116 = phi i32 [ %111, %104 ], [ %.pre.i53, %113 ]
   %117 = load ptr, ptr %10, align 8, !tbaa !114
   %118 = zext i32 %116 to i64
-  %119 = getelementptr inbounds nuw %"struct.std::pair", ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %118
   store i64 %.sroa.057.0.insert.insert, ptr %119, align 1
   %120 = load i32, ptr %16, align 8, !tbaa !116
   %121 = add i32 %120, 1
@@ -2490,7 +2489,7 @@ define dso_local void @_ZNK4llvm9SourceMgr12PrintMessageERNS_11raw_ostreamERKNS_
 
 .lr.ph.i:                                         ; preds = %12, %28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %12 ]
-  %21 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %15, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !47
@@ -2514,7 +2513,7 @@ define dso_local void @_ZNK4llvm9SourceMgr12PrintMessageERNS_11raw_ostreamERKNS_
 
 _ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit: ; preds = %28, %12, %29
   %31 = phi i64 [ %30, %29 ], [ 4294967295, %12 ], [ 4294967295, %28 ]
-  %32 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %15, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %33, align 8, !tbaa !8
   tail call void @_ZNK4llvm9SourceMgr17PrintIncludeStackENS_5SMLocERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(48) %1)
@@ -3386,7 +3385,7 @@ define dso_local void @_ZNK4llvm9SourceMgr12PrintMessageERNS_11raw_ostreamENS_5S
 
 .lr.ph.i.i:                                       ; preds = %17, %33
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %33 ], [ 0, %17 ]
-  %26 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %20, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !47
@@ -3410,7 +3409,7 @@ define dso_local void @_ZNK4llvm9SourceMgr12PrintMessageERNS_11raw_ostreamENS_5S
 
 _ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE.exit.i: ; preds = %33, %34, %17
   %36 = phi i64 [ %35, %34 ], [ 4294967295, %17 ], [ 4294967295, %33 ]
-  %37 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %20, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %38, align 8, !tbaa !8
   call void @_ZNK4llvm9SourceMgr17PrintIncludeStackENS_5SMLocERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(48) %1)
@@ -3774,7 +3773,7 @@ _ZN4llvm15SmallVectorImplINS_7SMFixItEE7reserveEm.exit.i.i: ; preds = %_ZNK4llvm
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZN4llvm15SmallVectorImplINS_7SMFixItEE7reserveEm.exit.i.i, %_ZN4llvm15SmallVectorImplINS_7SMFixItEE7reserveEm.exit.i.thread.i
   %96 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplINS_7SMFixItEE7reserveEm.exit.i.thread.i ], [ %91, %_ZN4llvm15SmallVectorImplINS_7SMFixItEE7reserveEm.exit.i.i ]
   %.pre-phi.i5.i = phi i64 [ %.pre9.i.i, %_ZN4llvm15SmallVectorImplINS_7SMFixItEE7reserveEm.exit.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplINS_7SMFixItEE7reserveEm.exit.i.i ]
-  %97 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %96, i64 %.pre-phi.i5.i
+  %97 = getelementptr inbounds nuw [48 x i8], ptr %96, i64 %.pre-phi.i5.i
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN4llvm7SMFixItEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i
@@ -4112,7 +4111,7 @@ _ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit: ; preds = %.l
 _ZNSt12_Vector_baseIN4llvm9SourceMgr9SrcBufferESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit, %29
   store ptr %20, ptr %0, align 8, !tbaa !14
   store ptr %.0.lcssa.i.i.i.i.i23, ptr %4, align 8, !tbaa !10
-  %33 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %20, i64 %16
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %33, ptr %28, align 8, !tbaa !13
   ret void
 }
@@ -4365,7 +4364,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i: ; preds = %41, %_ZN
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i: ; preds = %43, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i
   store ptr %38, ptr %5, align 8, !tbaa !68
   store ptr %42, ptr %13, align 8, !tbaa !66
-  %44 = getelementptr inbounds nuw i16, ptr %38, i64 %36
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %36
   store ptr %44, ptr %14, align 8, !tbaa !189
   br label %_ZNSt6vectorItSaItEE9push_backEOt.exit
 
@@ -4474,7 +4473,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %41, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %43, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %38, ptr %5, align 8, !tbaa !71
   store ptr %42, ptr %13, align 8, !tbaa !69
-  %44 = getelementptr inbounds nuw i32, ptr %38, i64 %36
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %36
   store ptr %44, ptr %14, align 8, !tbaa !191
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -4582,7 +4581,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %40, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %42, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %37, ptr %5, align 8, !tbaa !74
   store ptr %41, ptr %13, align 8, !tbaa !72
-  %43 = getelementptr inbounds nuw i64, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %14, align 8, !tbaa !193
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -4757,7 +4756,7 @@ _ZSt14__partial_sortIPN4llvm7SMFixItEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S
 19:                                               ; preds = %11
   %20 = add nsw i64 %.01215, -1
   %21 = udiv i64 %12, 96
-  %22 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %21
   %23 = getelementptr inbounds i8, ptr %.016, i64 -48
   tail call void @_ZSt22__move_median_to_firstIPN4llvm7SMFixItEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_S6_T0_(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %22, ptr noundef nonnull %23)
   %24 = tail call noundef ptr @_ZSt21__unguarded_partitionIPN4llvm7SMFixItEN9__gnu_cxx5__ops15_Iter_less_iterEET_S6_S6_S6_T0_(ptr noundef nonnull %10, ptr noundef %.016, ptr noundef %0)
@@ -4796,7 +4795,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN4llvm7SMFixItEN9__gnu_cxx5__ops15_
 20:                                               ; preds = %_ZN4llvm7SMFixItD2Ev.exit18, %11
   %.012 = phi i64 [ %13, %11 ], [ %44, %_ZN4llvm7SMFixItD2Ev.exit18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %21 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %0, i64 %.012
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %.012
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 16, i1 false), !tbaa.struct !180
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !22
@@ -5050,8 +5049,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIPN4llvm7SMFixItElS1_N9__gnu_cxx5__
   %.039 = phi i64 [ %spec.select, %_ZN4llvm7SMFixItaSEOS0_.exit ], [ %1, %4 ]
   %10 = shl i64 %.039, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.llvm::SMFixIt", ptr %0, i64 %11
-  %13 = getelementptr %"class.llvm::SMFixIt", ptr %0, i64 %10
+  %12 = getelementptr inbounds [48 x i8], ptr %0, i64 %11
+  %13 = getelementptr [48 x i8], ptr %0, i64 %10
   %14 = getelementptr i8, ptr %13, i64 48
   %15 = load ptr, ptr %12, align 8, !tbaa !161
   %16 = load ptr, ptr %14, align 8, !tbaa !161
@@ -5108,8 +5107,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4llvm7SMFixItES5_EEbT_T0_.exit: ; pred
   %.0.i.i = phi i1 [ %18, %17 ], [ %25, %24 ], [ %38, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i ]
   %39 = or disjoint i64 %10, 1
   %spec.select = select i1 %.0.i.i, i64 %39, i64 %11
-  %40 = getelementptr inbounds %"class.llvm::SMFixIt", ptr %0, i64 %spec.select
-  %41 = getelementptr inbounds %"class.llvm::SMFixIt", ptr %0, i64 %.039
+  %40 = getelementptr inbounds [48 x i8], ptr %0, i64 %spec.select
+  %41 = getelementptr inbounds [48 x i8], ptr %0, i64 %.039
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %40, i64 16, i1 false), !tbaa.struct !180
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -5214,8 +5213,8 @@ _ZN4llvm7SMFixItaSEOS0_.exit:                     ; preds = %50, %_ZNSt7__cxx111
 82:                                               ; preds = %78
   %83 = shl nsw i64 %.0.lcssa, 1
   %84 = or disjoint i64 %83, 1
-  %85 = getelementptr inbounds %"class.llvm::SMFixIt", ptr %0, i64 %84
-  %86 = getelementptr inbounds %"class.llvm::SMFixIt", ptr %0, i64 %.0.lcssa
+  %85 = getelementptr inbounds [48 x i8], ptr %0, i64 %84
+  %86 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull align 8 dereferenceable(48) %85, i64 16, i1 false), !tbaa.struct !180
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
@@ -5373,7 +5372,7 @@ define linkonce_odr void @_ZSt11__push_heapIPN4llvm7SMFixItElS1_N9__gnu_cxx5__op
   %.01326 = phi i64 [ %1, %.lr.ph ], [ %.027, %_ZN4llvm7SMFixItaSEOS0_.exit ]
   %.027.in = add nsw i64 %.01326, -1
   %.027 = sdiv i64 %.027.in, 2
-  %11 = getelementptr inbounds %"class.llvm::SMFixIt", ptr %0, i64 %.027
+  %11 = getelementptr inbounds [48 x i8], ptr %0, i64 %.027
   %12 = load ptr, ptr %11, align 8, !tbaa !161
   %13 = load ptr, ptr %3, align 8, !tbaa !161
   %.not.i.i = icmp eq ptr %12, %13
@@ -5423,7 +5422,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvm7SMFixItES4_EEbT_RT0_.exit: ; pred
   br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i, %14, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvm7SMFixItES4_EEbT_RT0_.exit
-  %33 = getelementptr inbounds %"class.llvm::SMFixIt", ptr %0, i64 %.01326
+  %33 = getelementptr inbounds [48 x i8], ptr %0, i64 %.01326
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 16, i1 false), !tbaa.struct !180
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -5515,7 +5514,7 @@ _ZN4llvm7SMFixItaSEOS0_.exit:                     ; preds = %42, %_ZNSt7__cxx111
 
 .critedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvm7SMFixItES4_EEbT_RT0_.exit, %_ZN4llvm7SMFixItaSEOS0_.exit, %14, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i, %5
   %.013.lcssa = phi i64 [ %1, %5 ], [ %.01326, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i ], [ %.01326, %14 ], [ %.027, %_ZN4llvm7SMFixItaSEOS0_.exit ], [ %.01326, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN4llvm7SMFixItES4_EEbT_RT0_.exit ]
-  %68 = getelementptr inbounds %"class.llvm::SMFixIt", ptr %0, i64 %.013.lcssa
+  %68 = getelementptr inbounds [48 x i8], ptr %0, i64 %.013.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 16, i1 false), !tbaa.struct !180
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16

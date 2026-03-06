@@ -8,12 +8,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%"class.zmq::tcp_address_mask_t" = type { %"union.zmq::ip_addr_t", i32 }
+%"class.zmq::tcp_address_t" = type <{ %"union.zmq::ip_addr_t", %"union.zmq::ip_addr_t", i8, [3 x i8] }>
 %"union.zmq::ip_addr_t" = type { %struct.sockaddr_in6 }
 %struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
 %struct.in6_addr = type { %union.anon.30 }
 %union.anon.30 = type { [4 x i32] }
-%"class.zmq::tcp_address_t" = type <{ %"union.zmq::ip_addr_t", %"union.zmq::ip_addr_t", i8, [3 x i8] }>
 
 $_ZN3zmq19endpoint_uri_pair_tD2Ev = comdat any
 
@@ -266,7 +265,7 @@ define noundef i32 @_ZN3zmq14tcp_listener_t6acceptEv(ptr noundef nonnull readonl
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %.02541 = phi i64 [ %35, %34 ], [ 0, %.lr.ph.preheader ]
   %36 = load ptr, ptr %25, align 8, !tbaa !79
-  %37 = getelementptr inbounds nuw %"class.zmq::tcp_address_mask_t", ptr %36, i64 %.02541
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.02541
   %38 = load i32, ptr %3, align 4, !tbaa !75
   %39 = call noundef zeroext i1 @_ZNK3zmq18tcp_address_mask_t13match_addressEPK8sockaddrj(ptr noundef nonnull align 4 dereferenceable(32) %37, ptr noundef nonnull %2, i32 noundef %38)
   br i1 %39, label %.critedge39, label %34

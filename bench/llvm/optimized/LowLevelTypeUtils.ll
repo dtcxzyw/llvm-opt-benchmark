@@ -579,7 +579,7 @@ define dso_local range(i64 1, -4278190080) i64 @_ZN4llvm12getLLTForMVTENS_3MVTE(
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = zext i16 %0 to i64
-  %7 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %6
+  %7 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %7, i64 -8
@@ -595,7 +595,7 @@ define dso_local range(i64 1, -4278190080) i64 @_ZN4llvm12getLLTForMVTENS_3MVTE(
 
 11:                                               ; preds = %1
   %12 = zext nneg i16 %0 to i64
-  %13 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %12
+  %13 = getelementptr [2 x i8], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -2
   %15 = load i16, ptr %14, align 2, !tbaa !23
   %16 = add nsw i16 %0, -138
@@ -604,11 +604,11 @@ define dso_local range(i64 1, -4278190080) i64 @_ZN4llvm12getLLTForMVTENS_3MVTE(
   %.sroa.0.0.insert.ext.i.i = zext i16 %15 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %17 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %12
+  %17 = getelementptr [2 x i8], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %12
   %18 = getelementptr i8, ptr %17, i64 -2
   %19 = load i16, ptr %18, align 2, !tbaa !25
   %20 = zext i16 %19 to i64
-  %21 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %20
+  %21 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -16
   %.sroa.0.0.copyload.i8 = load i64, ptr %22, align 16
   %.sroa.2.0..sroa_idx.i9 = getelementptr i8, ptr %21, i64 -8

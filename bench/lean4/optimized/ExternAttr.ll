@@ -2130,7 +2130,7 @@ lean_dec.exit163:                                 ; preds = %19, %18, %16, %._cr
   %.0119282 = phi i64 [ %4, %.lr.ph ], [ %368, %lean_dec.exit152 ]
   %.0122281 = phi ptr [ %5, %.lr.ph ], [ %350, %lean_dec.exit152 ]
   %.0125280 = phi ptr [ %8, %.lr.ph ], [ %.4142, %lean_dec.exit152 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0119282
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0119282
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i1
@@ -13364,7 +13364,7 @@ declare ptr @l_Lean_Meta_forallTelescopeReducing___at_Lean_Meta_getParamNames___
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1

@@ -1953,7 +1953,7 @@ define hidden void @"_ZN181_$LT$uv_install_wheel..record.._..$LT$impl$u20$serde.
   br i1 %55, label %56, label %.invoke764
 
 56:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i.i.i.i"
-  %57 = getelementptr inbounds i64, ptr %48, i64 %39
+  %57 = getelementptr inbounds [8 x i8], ptr %48, i64 %39
   %58 = load i64, ptr %57, align 8, !noalias !176, !noundef !3
   %59 = add nuw i64 %39, 1
   store i64 %59, ptr %19, align 8, !alias.scope !173, !noalias !174
@@ -2126,7 +2126,7 @@ define hidden void @"_ZN181_$LT$uv_install_wheel..record.._..$LT$impl$u20$serde.
   br i1 %140, label %141, label %.invoke764
 
 141:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i.i.i.i.i.i.i"
-  %142 = getelementptr inbounds i64, ptr %136, i64 %126
+  %142 = getelementptr inbounds [8 x i8], ptr %136, i64 %126
   %143 = load i64, ptr %142, align 8, !noalias !224, !noundef !3
   %144 = add nuw i64 %126, 1
   store i64 %144, ptr %32, align 8, !alias.scope !223, !noalias !211
@@ -3781,7 +3781,7 @@ define hidden void @"_ZN220_$LT$uv_distribution_types..dependency_metadata.._..$
   br i1 %122, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17had02793f1345128fE.exit.i", label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.sroa.0190.0, i64 %.sroa.0.0.i.i
+  %124 = getelementptr inbounds [360 x i8], ptr %.sroa.0190.0, i64 %.sroa.0.0.i.i
   %125 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h10875cc8d66c3cb9E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %124)
           to label %121 unwind label %128
@@ -3797,7 +3797,7 @@ define hidden void @"_ZN220_$LT$uv_distribution_types..dependency_metadata.._..$
   br label %126
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.sroa.0190.0, i64 %.sroa.0.1.i.i
+  %131 = getelementptr inbounds [360 x i8], ptr %.sroa.0190.0, i64 %.sroa.0.1.i.i
   %132 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h10875cc8d66c3cb9E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %131) #21
           to label %126 unwind label %133
@@ -3922,7 +3922,7 @@ define hidden void @_ZN3csv12deserializer25deserialize_string_record17h449aba7e1
   br i1 %.not.i, label %_ZN3csv11byte_record10ByteRecord8as_slice17he619d90130ae8046E.exit, label %15
 
 15:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i"
-  %16 = getelementptr i64, ptr %10, i64 %8
+  %16 = getelementptr [8 x i8], ptr %10, i64 %8
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !noundef !3
   %19 = getelementptr inbounds nuw i8, ptr %.val27, i64 48
@@ -3959,7 +3959,7 @@ _ZN3csv11byte_record10ByteRecord8as_slice17he619d90130ae8046E.exit: ; preds = %"
   br i1 %.not.i30, label %_ZN3csv11byte_record10ByteRecord8as_slice17he619d90130ae8046E.exit33, label %33
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i29"
-  %34 = getelementptr i64, ptr %28, i64 %26
+  %34 = getelementptr [8 x i8], ptr %28, i64 %26
   %35 = getelementptr i8, ptr %34, i64 -8
   %36 = load i64, ptr %35, align 8, !noundef !3
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -4252,10 +4252,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !567, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !599, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7afa0affb59f8f1eE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7afa0affb59f8f1eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7afa0affb59f8f1eE.34", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7afa0affb59f8f1eE.34", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -5000,7 +5000,7 @@ define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$
   br i1 %2, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17had02793f1345128fE.exit", label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.0.val, i64 %.sroa.0.0.i
+  %4 = getelementptr inbounds [360 x i8], ptr %.0.val, i64 %.sroa.0.0.i
   %5 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h10875cc8d66c3cb9E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %4)
           to label %1 unwind label %8
@@ -5016,7 +5016,7 @@ define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$
   br label %6
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.0.val, i64 %.sroa.0.1.i
+  %11 = getelementptr inbounds [360 x i8], ptr %.0.val, i64 %.sroa.0.1.i
   %12 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h10875cc8d66c3cb9E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %11) #21
           to label %6 unwind label %13
@@ -10823,7 +10823,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i.i.i.i"
-  %38 = getelementptr inbounds i64, ptr %31, i64 %18
+  %38 = getelementptr inbounds [8 x i8], ptr %31, i64 %18
   %39 = load i64, ptr %38, align 8, !noalias !2069, !noundef !3
   %40 = add nuw i64 %18, 1
   store i64 %40, ptr %17, align 8, !alias.scope !2068, !noalias !2063
@@ -10940,7 +10940,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
   br i1 %85, label %86, label %99
 
 86:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i.i.i.i.i.i.i"
-  %87 = getelementptr inbounds i64, ptr %80, i64 %67
+  %87 = getelementptr inbounds [8 x i8], ptr %80, i64 %67
   %88 = load i64, ptr %87, align 8, !noalias !2106, !noundef !3
   %89 = add nuw i64 %67, 1
   store i64 %89, ptr %66, align 8, !alias.scope !2105, !noalias !2098
@@ -11291,7 +11291,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
   br i1 %35, label %36, label %47
 
 36:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i.i.i.i"
-  %37 = getelementptr inbounds i64, ptr %30, i64 %17
+  %37 = getelementptr inbounds [8 x i8], ptr %30, i64 %17
   %38 = load i64, ptr %37, align 8, !noalias !2162, !noundef !3
   %39 = add nuw i64 %17, 1
   store i64 %39, ptr %16, align 8, !alias.scope !2161, !noalias !2156
@@ -11488,7 +11488,7 @@ define hidden void @"_ZN81_$LT$csv..deserializer..DeStringRecord$u20$as$u20$csv.
   br i1 %24, label %25, label %38
 
 25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i"
-  %26 = getelementptr inbounds i64, ptr %19, i64 %6
+  %26 = getelementptr inbounds [8 x i8], ptr %19, i64 %6
   %27 = load i64, ptr %26, align 8, !noalias !2189, !noundef !3
   %28 = add nuw i64 %6, 1
   store i64 %28, ptr %5, align 8, !alias.scope !2189
@@ -11599,7 +11599,7 @@ define internal fastcc { ptr, i64 } @"_ZN81_$LT$csv..deserializer..DeStringRecor
   br i1 %23, label %24, label %39
 
 24:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i.i.i.i"
-  %25 = getelementptr inbounds i64, ptr %18, i64 %6
+  %25 = getelementptr inbounds [8 x i8], ptr %18, i64 %6
   %26 = load i64, ptr %25, align 8, !noalias !2213, !noundef !3
   %27 = add nuw i64 %6, 1
   store i64 %27, ptr %5, align 8, !alias.scope !2212, !noalias !2198
@@ -12713,7 +12713,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br i1 %25, label %26, label %39
 
 26:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i.i"
-  %27 = getelementptr inbounds i64, ptr %20, i64 %7
+  %27 = getelementptr inbounds [8 x i8], ptr %20, i64 %7
   %28 = load i64, ptr %27, align 8, !noalias !2292, !noundef !3
   %29 = add nuw i64 %7, 1
   store i64 %29, ptr %6, align 8, !alias.scope !2291, !noalias !2286

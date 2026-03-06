@@ -169,7 +169,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i.i.i
 58:                                               ; preds = %58, %.preheader.us.i.i
   %.09.us.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %63, %58 ]
   %gep.us.i.i = getelementptr i8, ptr %invariant.gep.us.i.i, i64 %.09.us.i.i
-  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %.09.us.i.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %.09.us.i.i
   %60 = load i32, ptr %59, align 4, !tbaa !43
   %61 = sext i32 %60 to i64
   %gep11.us.i.i = getelementptr i8, ptr %invariant.gep10.us.i.i, i64 %61

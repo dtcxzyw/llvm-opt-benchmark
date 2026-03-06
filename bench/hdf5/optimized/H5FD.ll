@@ -646,7 +646,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5FDregister(ptr noundef readonl
 
 86:                                               ; preds = %.preheader, %85
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %85 ]
-  %87 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !12
   %89 = add i32 %88, -7
   %or.cond = icmp ult i32 %89, -8

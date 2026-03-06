@@ -299,7 +299,7 @@ define dso_local void @_Z17b2CollidePolygonsP16btManifoldResultPK12btBox2dShapeR
   %19 = getelementptr inbounds nuw i8, ptr %.361, i64 160
   %20 = getelementptr inbounds nuw i8, ptr %.360, i64 160
   %21 = sext i32 %.050 to i64
-  %22 = getelementptr inbounds %class.btVector3, ptr %19, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %19, i64 %21
   %23 = load float, ptr %22, align 4, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load float, ptr %24, align 4, !tbaa !40
@@ -329,7 +329,7 @@ define dso_local void @_Z17b2CollidePolygonsP16btManifoldResultPK12btBox2dShapeR
   %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %46 ]
   %.050.i = phi i32 [ 0, %16 ], [ %.1.i, %46 ]
   %.03049.i = phi float [ 0x43ABC16D60000000, %16 ], [ %.131.i, %46 ]
-  %47 = getelementptr inbounds nuw %class.btVector3, ptr %20, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv.i
   %48 = load float, ptr %47, align 4, !tbaa !40
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %50 = load float, ptr %49, align 4, !tbaa !40
@@ -352,21 +352,21 @@ _ZL16FindIncidentEdgeP10ClipVertexPK12btBox2dShapeRK11btTransformiS3_S6_.exit: ;
   %60 = icmp samesign ult i32 %.1.i, 3
   %61 = select i1 %60, i32 %59, i32 0
   %62 = zext nneg i32 %.1.i to i64
-  %63 = getelementptr inbounds nuw %class.btVector3, ptr %58, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %62
   %64 = load float, ptr %63, align 4, !tbaa !40
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %66 = load float, ptr %65, align 4, !tbaa !40
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %68 = load float, ptr %67, align 4, !tbaa !40
   %69 = zext nneg i32 %61 to i64
-  %70 = getelementptr inbounds nuw %class.btVector3, ptr %58, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !40
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %73 = load float, ptr %72, align 4, !tbaa !40
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %75 = load float, ptr %74, align 4, !tbaa !40
   %76 = getelementptr inbounds nuw i8, ptr %.361, i64 96
-  %77 = getelementptr %class.btVector3, ptr %76, i64 %21
+  %77 = getelementptr [16 x i8], ptr %76, i64 %21
   %.sroa.0183.0.copyload = load <2 x float>, ptr %77, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.sroa.12.0.copyload = load <2 x float>, ptr %.sroa.12.0..sroa_idx, align 4, !tbaa !43
@@ -508,7 +508,7 @@ _ZL16FindIncidentEdgeP10ClipVertexPK12btBox2dShapeRK11btTransformiS3_S6_.exit: ;
 178:                                              ; preds = %176
   %179 = add nuw nsw i32 %.0.i, 1
   %180 = zext nneg i32 %.0.i to i64
-  %181 = getelementptr inbounds nuw %struct.ClipVertex, ptr %8, i64 %180
+  %181 = getelementptr inbounds nuw [20 x i8], ptr %8, i64 %180
   store <2 x float> %.sroa.0.4.vec.insert.i3.i.i41.i, ptr %181, align 4
   %.sroa.18.20..sroa_idx = getelementptr inbounds nuw i8, ptr %181, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i4.i.i42.i, ptr %.sroa.18.20..sroa_idx, align 4, !tbaa !43
@@ -536,7 +536,7 @@ _ZL16FindIncidentEdgeP10ClipVertexPK12btBox2dShapeRK11btTransformiS3_S6_.exit: ;
   %.sroa.0.4.vec.insert.i33.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i32.i, float %195, i64 1
   %.sroa.3.12.vec.insert.i34.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %196, i64 0
   %197 = zext nneg i32 %.1.i80 to i64
-  %198 = getelementptr inbounds nuw %struct.ClipVertex, ptr %8, i64 %197
+  %198 = getelementptr inbounds nuw [20 x i8], ptr %8, i64 %197
   store <2 x float> %.sroa.0.4.vec.insert.i33.i, ptr %198, align 4
   %.sroa.4.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i34.i, ptr %.sroa.4.0..sroa_idx.i81, align 4, !tbaa !43
@@ -578,7 +578,7 @@ _ZL17ClipSegmentToLineP10ClipVertexS0_RK9btVector3f.exit: ; preds = %182, %185
 220:                                              ; preds = %218
   %221 = add nuw nsw i32 %.0.i82, 1
   %222 = zext nneg i32 %.0.i82 to i64
-  %223 = getelementptr inbounds nuw %struct.ClipVertex, ptr %9, i64 %222
+  %223 = getelementptr inbounds nuw [20 x i8], ptr %9, i64 %222
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %223, ptr noundef nonnull readonly align 4 dereferenceable(20) %83, i64 20, i1 false), !tbaa.struct !44
   br label %224
 
@@ -604,7 +604,7 @@ _ZL17ClipSegmentToLineP10ClipVertexS0_RK9btVector3f.exit: ; preds = %182, %185
   %.sroa.0.4.vec.insert.i33.i86 = insertelement <2 x float> %.sroa.0.0.vec.insert.i32.i85, float %237, i64 1
   %.sroa.3.12.vec.insert.i34.i87 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %238, i64 0
   %239 = zext nneg i32 %.1.i83 to i64
-  %240 = getelementptr inbounds nuw %struct.ClipVertex, ptr %9, i64 %239
+  %240 = getelementptr inbounds nuw [20 x i8], ptr %9, i64 %239
   store <2 x float> %.sroa.0.4.vec.insert.i33.i86, ptr %240, align 4
   %.sroa.4.0..sroa_idx.i88 = getelementptr inbounds nuw i8, ptr %240, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i34.i87, ptr %.sroa.4.0..sroa_idx.i88, align 4, !tbaa !43
@@ -643,7 +643,7 @@ _ZL17ClipSegmentToLineP10ClipVertexS0_RK9btVector3f.exit91: ; preds = %224, %227
 252:                                              ; preds = %.lr.ph, %269
   %253 = phi i32 [ %246, %.lr.ph ], [ %270, %269 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %269 ]
-  %254 = getelementptr inbounds nuw %struct.ClipVertex, ptr %9, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw [20 x i8], ptr %9, i64 %indvars.iv
   %255 = load float, ptr %254, align 4, !tbaa !40
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 4
   %257 = load float, ptr %256, align 4, !tbaa !40
@@ -797,7 +797,7 @@ define internal fastcc noundef float @_ZL17FindMaxSeparationPiPK12btBox2dShapeRK
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %101 ]
   %.019.i = phi float [ 0xC7EFFFFFE0000000, %5 ], [ %.1.i, %101 ]
   %.01218.i = phi i32 [ -1, %5 ], [ %.113.i, %101 ]
-  %102 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i
   %103 = load float, ptr %102, align 4, !tbaa !40
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %105 = load float, ptr %104, align 4, !tbaa !40
@@ -941,8 +941,8 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
 
 27:                                               ; preds = %27, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i.i.i
   %30 = load ptr, ptr %29, align 8, !tbaa !57
   store ptr %30, ptr %28, align 8, !tbaa !57
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -983,7 +983,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !56
   %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   store ptr %36, ptr %41, align 8, !tbaa !57
   %42 = add nsw i32 %37, 1
   store i32 %42, ptr %9, align 4, !tbaa !51
@@ -1000,7 +1000,7 @@ define internal fastcc noundef float @_ZL14EdgeSeparationPK12btBox2dShapeRK11btT
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds %class.btVector3, ptr %6, i64 %8
+  %9 = getelementptr inbounds [16 x i8], ptr %6, i64 %8
   %10 = load float, ptr %1, align 4, !tbaa !40
   %11 = load float, ptr %9, align 4, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1064,7 +1064,7 @@ define internal fastcc noundef float @_ZL14EdgeSeparationPK12btBox2dShapeRK11btT
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %67 ]
   %.019.i = phi float [ 0x47EFFFFFE0000000, %5 ], [ %.1.i, %67 ]
   %.01218.i = phi i32 [ -1, %5 ], [ %.113.i, %67 ]
-  %68 = getelementptr inbounds nuw %class.btVector3, ptr %7, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv.i
   %69 = load float, ptr %68, align 4, !tbaa !40
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load float, ptr %70, align 4, !tbaa !40
@@ -1084,7 +1084,7 @@ define internal fastcc noundef float @_ZL14EdgeSeparationPK12btBox2dShapeRK11btT
 79:                                               ; preds = %67
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %81 = sext i32 %.113.i to i64
-  %82 = getelementptr inbounds %class.btVector3, ptr %80, i64 %8
+  %82 = getelementptr inbounds [16 x i8], ptr %80, i64 %8
   %83 = load float, ptr %82, align 4, !tbaa !40
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %85 = load float, ptr %84, align 4, !tbaa !40
@@ -1108,7 +1108,7 @@ define internal fastcc noundef float @_ZL14EdgeSeparationPK12btBox2dShapeRK11btT
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %104 = load float, ptr %103, align 4, !tbaa !40
   %105 = fadd float %96, %104
-  %106 = getelementptr inbounds %class.btVector3, ptr %7, i64 %81
+  %106 = getelementptr inbounds [16 x i8], ptr %7, i64 %81
   %107 = load float, ptr %106, align 4, !tbaa !40
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %109 = load float, ptr %108, align 4, !tbaa !40

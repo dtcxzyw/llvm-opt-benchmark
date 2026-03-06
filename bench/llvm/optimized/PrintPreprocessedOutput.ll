@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::PresumedLoc" = type { ptr, %"class.clang::FileID", i32, i32, %"class.clang::SourceLocation" }
 %"class.clang::FileID" = type { i32 }
 %"class.clang::SourceLocation" = type { i32 }
-%"struct.std::pair.297" = type { ptr, ptr }
 %"class.llvm::SmallString.304" = type { %"class.llvm::SmallVector.305" }
 %"class.llvm::SmallVector.305" = type { %"class.llvm::SmallVectorImpl.157", %"struct.llvm::SmallVectorStorage.306" }
 %"class.llvm::SmallVectorImpl.157" = type { %"class.llvm::SmallVectorTemplateBase.158" }
@@ -276,7 +275,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang14IdentifierInfoEPNS2_9MacroI
   %53 = phi i32 [ %48, %_ZN5clang14MacroDirective12getMacroInfoEv.exit.i ], [ %.pre.i.i, %50 ]
   %54 = load ptr, ptr %10, align 8, !tbaa !3
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw %"struct.std::pair.297", ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %55
   store ptr %47, ptr %56, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %.0.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -321,7 +320,7 @@ _ZN4llvm16DenseMapIteratorIPKN5clang14IdentifierInfoENS1_12Preprocessor10MacroSt
 66:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %.lr.ph33.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next.i, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %67 = load ptr, ptr %10, align 8, !tbaa !3
-  %68 = getelementptr inbounds nuw %"struct.std::pair.297", ptr %67, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv.i
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !33
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 36
@@ -3698,7 +3697,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %98, %96, %83, %81, 
   %.034.i = phi ptr [ %.sroa.0.0.copyload, %.lr.ph.i ], [ %156, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %106 = load i8, ptr %.034.i, align 1, !tbaa !42
   %107 = zext i8 %106 to i64
-  %108 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %107
+  %108 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !419
   %110 = and i16 %109, 1004
   %.not32.i = icmp eq i16 %110, 0

@@ -1426,8 +1426,8 @@ define dso_local noundef range(i32 -1, 2) i32 @cred_fscmp(ptr noundef readonly c
 
 46:                                               ; preds = %44, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %41 ]
-  %47 = getelementptr %struct.kgid_t, ptr %39, i64 %indvars.iv
-  %48 = getelementptr %struct.kgid_t, ptr %42, i64 %indvars.iv
+  %47 = getelementptr [4 x i8], ptr %39, i64 %indvars.iv
+  %48 = getelementptr [4 x i8], ptr %42, i64 %indvars.iv
   %49 = load i32, ptr %47, align 4
   %50 = load i32, ptr %48, align 4
   %51 = icmp ult i32 %49, %50

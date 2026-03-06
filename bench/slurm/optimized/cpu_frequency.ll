@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.cpu_freq_data = type { i8, i8, i8, [64 x i32], [24 x i8], [24 x i8], i32, i32, i32, i32, i32, i32 }
 
 @slurmd_spooldir = internal global ptr null, align 8
 @.str = private unnamed_addr constant [37 x i8] c"/sys/devices/system/cpu/cpu0/cpufreq\00", align 1
@@ -226,39 +225,39 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
 .lr.ph:                                           ; preds = %28, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %28 ]
   %33 = load ptr, ptr @cpufreq, align 8
-  %34 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [332 x i8], ptr %33, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 260
   store i8 0, ptr %35, align 4
   %36 = load ptr, ptr @cpufreq, align 8
-  %37 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [332 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 284
   store i8 0, ptr %38, align 4
   %39 = load ptr, ptr @cpufreq, align 8
-  %40 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [332 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 308
   store i32 -2, ptr %41, align 4
   %42 = load ptr, ptr @cpufreq, align 8
-  %43 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [332 x i8], ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 312
   store i32 -2, ptr %44, align 4
   %45 = load ptr, ptr @cpufreq, align 8
-  %46 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [332 x i8], ptr %45, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 316
   store i32 -2, ptr %47, align 4
   %48 = load ptr, ptr @cpufreq, align 8
-  %49 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [332 x i8], ptr %48, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 320
   store i32 -2, ptr %50, align 4
   %51 = load ptr, ptr @cpufreq, align 8
-  %52 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [332 x i8], ptr %51, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 324
   store i32 -2, ptr %53, align 4
   %54 = load ptr, ptr @cpufreq, align 8
-  %55 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [332 x i8], ptr %54, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 328
   store i32 -2, ptr %56, align 4
   %57 = load ptr, ptr @cpufreq, align 8
-  %58 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [332 x i8], ptr %57, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 2
   store i8 0, ptr %59, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -307,7 +306,7 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr @cpufreq, align 8
-  %83 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %82, i64 %indvars.iv68
+  %83 = getelementptr inbounds nuw [332 x i8], ptr %82, i64 %indvars.iv68
   %84 = load i8, ptr %83, align 4
   %85 = or i8 %84, 1
   store i8 %85, ptr %83, align 4
@@ -336,7 +335,7 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
 
 96:                                               ; preds = %94
   %97 = load ptr, ptr @cpufreq, align 8
-  %98 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %97, i64 %indvars.iv68
+  %98 = getelementptr inbounds nuw [332 x i8], ptr %97, i64 %indvars.iv68
   %99 = load i8, ptr %98, align 4
   %100 = or i8 %99, 2
   store i8 %100, ptr %98, align 4
@@ -365,7 +364,7 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
 
 111:                                              ; preds = %109
   %112 = load ptr, ptr @cpufreq, align 8
-  %113 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %112, i64 %indvars.iv68
+  %113 = getelementptr inbounds nuw [332 x i8], ptr %112, i64 %indvars.iv68
   %114 = load i8, ptr %113, align 4
   %115 = or i8 %114, 4
   store i8 %115, ptr %113, align 4
@@ -394,7 +393,7 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
 
 126:                                              ; preds = %124
   %127 = load ptr, ptr @cpufreq, align 8
-  %128 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %127, i64 %indvars.iv68
+  %128 = getelementptr inbounds nuw [332 x i8], ptr %127, i64 %indvars.iv68
   %129 = load i8, ptr %128, align 4
   %130 = or i8 %129, 8
   store i8 %130, ptr %128, align 4
@@ -423,7 +422,7 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
 
 141:                                              ; preds = %139
   %142 = load ptr, ptr @cpufreq, align 8
-  %143 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %142, i64 %indvars.iv68
+  %143 = getelementptr inbounds nuw [332 x i8], ptr %142, i64 %indvars.iv68
   %144 = load i8, ptr %143, align 4
   %145 = or i8 %144, 16
   store i8 %145, ptr %143, align 4
@@ -452,7 +451,7 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
 
 156:                                              ; preds = %154
   %157 = load ptr, ptr @cpufreq, align 8
-  %158 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %157, i64 %indvars.iv68
+  %158 = getelementptr inbounds nuw [332 x i8], ptr %157, i64 %indvars.iv68
   %159 = load i8, ptr %158, align 4
   %160 = or i8 %159, 32
   store i8 %160, ptr %158, align 4
@@ -504,9 +503,9 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
   %185 = mul i32 %182, %184
   %186 = add i32 %185, %175
   %187 = load ptr, ptr @cpufreq, align 8
-  %188 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %187, i64 %indvars.iv68
+  %188 = getelementptr inbounds nuw [332 x i8], ptr %187, i64 %indvars.iv68
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
-  %190 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv.i.i
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %indvars.iv.i.i
   store i32 %186, ptr %190, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 63
@@ -514,11 +513,11 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
 
 191:                                              ; preds = %183
   %192 = load ptr, ptr @cpufreq, align 8
-  %193 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %192, i64 %indvars.iv68
+  %193 = getelementptr inbounds nuw [332 x i8], ptr %192, i64 %indvars.iv68
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 256
   store i32 %178, ptr %194, align 4
   %195 = load ptr, ptr @cpufreq, align 8
-  %196 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %195, i64 %indvars.iv68
+  %196 = getelementptr inbounds nuw [332 x i8], ptr %195, i64 %indvars.iv68
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 1
   store i8 64, ptr %197, align 1
   br label %_cpu_freq_cpu_avail.exit
@@ -538,13 +537,13 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
   br i1 %.not41.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader29.i
-  %201 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %.pre58.i, i64 %indvars.iv68
+  %201 = getelementptr inbounds nuw [332 x i8], ptr %.pre58.i, i64 %indvars.iv68
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 4
   br label %203
 
 203:                                              ; preds = %216, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %216 ]
-  %204 = getelementptr inbounds nuw i32, ptr %202, i64 %indvars.iv.i
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %indvars.iv.i
   %205 = load i32, ptr %204, align 4
   %206 = icmp ult i32 %.pre56.i, %205
   br i1 %206, label %.preheader.i, label %216
@@ -563,9 +562,9 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
 .lr.ph38.i:                                       ; preds = %.lr.ph38.i, %.lr.ph38.preheader.i
   %indvars.iv51.i = phi i64 [ %indvars.iv49.i, %.lr.ph38.preheader.i ], [ %indvars.iv.next52.i, %.lr.ph38.i ]
   %210 = load ptr, ptr @cpufreq, align 8
-  %211 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %210, i64 %indvars.iv68
+  %211 = getelementptr inbounds nuw [332 x i8], ptr %210, i64 %indvars.iv68
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
-  %213 = getelementptr inbounds i32, ptr %212, i64 %indvars.iv51.i
+  %213 = getelementptr inbounds [4 x i8], ptr %212, i64 %indvars.iv51.i
   %214 = load i32, ptr %213, align 4
   %215 = getelementptr i8, ptr %213, i64 4
   store i32 %214, ptr %215, align 4
@@ -587,10 +586,10 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
   %217 = phi ptr [ %.pre58.i, %.preheader.i ], [ %.pre57.i, %.loopexit.loopexit.i ], [ %.pre58.i, %.preheader29.i ], [ %.pre58.i, %216 ]
   %218 = phi i32 [ %.pre56.i, %.preheader.i ], [ %.pre.i, %.loopexit.loopexit.i ], [ %.pre56.i, %.preheader29.i ], [ %.pre56.i, %216 ]
   %.02533.i = phi i32 [ %207, %.preheader.i ], [ %207, %.loopexit.loopexit.i ], [ 0, %.preheader29.i ], [ %198, %216 ]
-  %219 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %217, i64 %indvars.iv68
+  %219 = getelementptr inbounds nuw [332 x i8], ptr %217, i64 %indvars.iv68
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
   %221 = zext nneg i32 %.02533.i to i64
-  %222 = getelementptr inbounds nuw i32, ptr %220, i64 %221
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %221
   store i32 %218, ptr %222, align 4
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next50.i, 63
@@ -599,7 +598,7 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
 223:                                              ; preds = %.preheader31.i
   %224 = trunc i64 %indvars.iv49.i to i8
   %225 = load ptr, ptr @cpufreq, align 8
-  %226 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %225, i64 %indvars.iv68
+  %226 = getelementptr inbounds nuw [332 x i8], ptr %225, i64 %indvars.iv68
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 1
   store i8 %224, ptr %227, align 1
   %228 = call i32 @fclose(ptr noundef nonnull %172)
@@ -607,7 +606,7 @@ define dso_local void @cpu_freq_init(ptr noundef readonly captures(none) %0) loc
 
 229:                                              ; preds = %.loopexit.i
   %230 = load ptr, ptr @cpufreq, align 8
-  %231 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %230, i64 %indvars.iv68
+  %231 = getelementptr inbounds nuw [332 x i8], ptr %230, i64 %indvars.iv68
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 1
   store i8 63, ptr %232, align 1
   %233 = call i32 @fclose(ptr noundef nonnull %172)
@@ -647,7 +646,7 @@ _cpu_freq_cpu_avail.exit:                         ; preds = %191, %223, %229
 244:                                              ; preds = %.lr.ph55
   %245 = load ptr, ptr @cpufreq, align 8
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 4
-  %247 = getelementptr inbounds nuw i32, ptr %246, i64 %indvars.iv65
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %246, i64 %indvars.iv65
   %248 = load i32, ptr %247, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.19, i32 noundef %248) #10
   br label %249
@@ -1559,7 +1558,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr noundef captures(none) %0,
 .thread:                                          ; preds = %2, %10
   %13 = load ptr, ptr @cpufreq, align 8
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds %struct.cpu_freq_data, ptr %13, i64 %14
+  %15 = getelementptr inbounds [332 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i8, ptr %16, align 2, !range !24, !noundef !25
   %18 = trunc nuw i8 %17 to i1
@@ -1601,7 +1600,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr noundef captures(none) %0,
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @cpufreq, align 8
-  %31 = getelementptr inbounds %struct.cpu_freq_data, ptr %30, i64 %14
+  %31 = getelementptr inbounds [332 x i8], ptr %30, i64 %14
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 308
   store i32 %27, ptr %32, align 4
   %33 = tail call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef range(i32 -2147483648, 65535) %1, ptr noundef nonnull @.str.47)
@@ -1610,7 +1609,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr noundef captures(none) %0,
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr @cpufreq, align 8
-  %37 = getelementptr inbounds %struct.cpu_freq_data, ptr %36, i64 %14
+  %37 = getelementptr inbounds [332 x i8], ptr %36, i64 %14
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 316
   store i32 %33, ptr %38, align 4
   %39 = tail call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef range(i32 -2147483648, 65535) %1, ptr noundef nonnull @.str.46)
@@ -1619,7 +1618,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr noundef captures(none) %0,
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr @cpufreq, align 8
-  %43 = getelementptr inbounds %struct.cpu_freq_data, ptr %42, i64 %14
+  %43 = getelementptr inbounds [332 x i8], ptr %42, i64 %14
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 324
   store i32 %39, ptr %44, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1655,12 +1654,12 @@ define internal fastcc void @_cpu_freq_setup_data(ptr noundef captures(none) %0,
 
 62:                                               ; preds = %56
   %63 = load ptr, ptr @cpufreq, align 8
-  %64 = getelementptr inbounds %struct.cpu_freq_data, ptr %63, i64 %14
+  %64 = getelementptr inbounds [332 x i8], ptr %63, i64 %14
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 260
   %66 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %4) #10
   %67 = call i32 @fclose(ptr noundef nonnull %46)
   %68 = load ptr, ptr @cpufreq, align 8
-  %69 = getelementptr inbounds %struct.cpu_freq_data, ptr %68, i64 %14
+  %69 = getelementptr inbounds [332 x i8], ptr %68, i64 %14
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 260
   %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #11
   %72 = trunc i64 %71 to i32
@@ -1689,7 +1688,7 @@ _cpu_freq_get_cur_gov.exit.i:                     ; preds = %59, %53, %48
   %82 = phi ptr [ %.pre.i, %80 ], [ %68, %74 ], [ %68, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %83 = getelementptr inbounds %struct.cpu_freq_data, ptr %82, i64 %14
+  %83 = getelementptr inbounds [332 x i8], ptr %82, i64 %14
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 2
   store i8 1, ptr %84, align 2
   br label %_cpu_freq_current_state.exit
@@ -1716,7 +1715,7 @@ _cpu_freq_current_state.exit:                     ; preds = %81, %.thread
 92:                                               ; preds = %91
   %93 = call i32 @_cpu_freq_freqspec_num(i32 noundef %90, i32 noundef %1)
   %94 = load ptr, ptr @cpufreq, align 8
-  %95 = getelementptr inbounds %struct.cpu_freq_data, ptr %94, i64 %14
+  %95 = getelementptr inbounds [332 x i8], ptr %94, i64 %14
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 312
   store i32 %93, ptr %96, align 4
   br label %_cpu_freq_govspec_string.exit55
@@ -1732,7 +1731,7 @@ _cpu_freq_current_state.exit:                     ; preds = %81, %.thread
 
 100:                                              ; preds = %91, %.thread63, %97
   %101 = load ptr, ptr @cpufreq, align 8
-  %102 = getelementptr inbounds %struct.cpu_freq_data, ptr %101, i64 %14
+  %102 = getelementptr inbounds [332 x i8], ptr %101, i64 %14
   %103 = load i8, ptr %102, align 4
   %104 = and i8 %103, 16
   %.not15.i = icmp eq i8 %104, 0
@@ -1752,15 +1751,15 @@ _cpu_freq_govspec_string.exit:                    ; preds = %100, %105
 110:                                              ; preds = %_cpu_freq_govspec_string.exit
   %111 = call i32 @_cpu_freq_freqspec_num(i32 noundef %108, i32 noundef %1)
   %112 = load ptr, ptr @cpufreq, align 8
-  %113 = getelementptr inbounds %struct.cpu_freq_data, ptr %112, i64 %14
+  %113 = getelementptr inbounds [332 x i8], ptr %112, i64 %14
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 312
   store i32 %111, ptr %114, align 4
   %115 = load ptr, ptr @cpufreq, align 8
-  %116 = getelementptr inbounds %struct.cpu_freq_data, ptr %115, i64 %14
+  %116 = getelementptr inbounds [332 x i8], ptr %115, i64 %14
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 320
   store i32 %111, ptr %117, align 4
   %118 = load ptr, ptr @cpufreq, align 8
-  %119 = getelementptr inbounds %struct.cpu_freq_data, ptr %118, i64 %14
+  %119 = getelementptr inbounds [332 x i8], ptr %118, i64 %14
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 328
   store i32 %111, ptr %120, align 4
   br label %_cpu_freq_current_state.exit.thread
@@ -1774,13 +1773,13 @@ _cpu_freq_govspec_string.exit:                    ; preds = %100, %105
 124:                                              ; preds = %121
   %125 = call i32 @_cpu_freq_freqspec_num(i32 noundef %86, i32 noundef %1)
   %126 = load ptr, ptr @cpufreq, align 8
-  %127 = getelementptr inbounds %struct.cpu_freq_data, ptr %126, i64 %14
+  %127 = getelementptr inbounds [332 x i8], ptr %126, i64 %14
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 320
   store i32 %125, ptr %128, align 4
   %129 = load i32, ptr %122, align 8
   %130 = call i32 @_cpu_freq_freqspec_num(i32 noundef %129, i32 noundef %1)
   %131 = load ptr, ptr @cpufreq, align 8
-  %132 = getelementptr inbounds %struct.cpu_freq_data, ptr %131, i64 %14
+  %132 = getelementptr inbounds [332 x i8], ptr %131, i64 %14
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 328
   store i32 %130, ptr %133, align 4
   %.pr60.pre = load i32, ptr %7, align 4
@@ -1808,7 +1807,7 @@ thread-pre-split59:                               ; preds = %124, %121, %97
 
 138:                                              ; preds = %137
   %139 = load ptr, ptr @cpufreq, align 8
-  %140 = getelementptr inbounds %struct.cpu_freq_data, ptr %139, i64 %14
+  %140 = getelementptr inbounds [332 x i8], ptr %139, i64 %14
   %141 = load i8, ptr %140, align 4
   %142 = and i8 %141, 1
   %.not19.i = icmp eq i8 %142, 0
@@ -1821,7 +1820,7 @@ thread-pre-split59:                               ; preds = %124, %121, %97
 
 145:                                              ; preds = %137
   %146 = load ptr, ptr @cpufreq, align 8
-  %147 = getelementptr inbounds %struct.cpu_freq_data, ptr %146, i64 %14
+  %147 = getelementptr inbounds [332 x i8], ptr %146, i64 %14
   %148 = load i8, ptr %147, align 4
   %149 = and i8 %148, 2
   %.not18.i = icmp eq i8 %149, 0
@@ -1834,7 +1833,7 @@ thread-pre-split59:                               ; preds = %124, %121, %97
 
 152:                                              ; preds = %137
   %153 = load ptr, ptr @cpufreq, align 8
-  %154 = getelementptr inbounds %struct.cpu_freq_data, ptr %153, i64 %14
+  %154 = getelementptr inbounds [332 x i8], ptr %153, i64 %14
   %155 = load i8, ptr %154, align 4
   %156 = and i8 %155, 4
   %.not17.i = icmp eq i8 %156, 0
@@ -1847,7 +1846,7 @@ thread-pre-split59:                               ; preds = %124, %121, %97
 
 159:                                              ; preds = %137
   %160 = load ptr, ptr @cpufreq, align 8
-  %161 = getelementptr inbounds %struct.cpu_freq_data, ptr %160, i64 %14
+  %161 = getelementptr inbounds [332 x i8], ptr %160, i64 %14
   %162 = load i8, ptr %161, align 4
   %163 = and i8 %162, 8
   %.not16.i = icmp eq i8 %163, 0
@@ -1860,7 +1859,7 @@ thread-pre-split59:                               ; preds = %124, %121, %97
 
 166:                                              ; preds = %137
   %167 = load ptr, ptr @cpufreq, align 8
-  %168 = getelementptr inbounds %struct.cpu_freq_data, ptr %167, i64 %14
+  %168 = getelementptr inbounds [332 x i8], ptr %167, i64 %14
   %169 = load i8, ptr %168, align 4
   %170 = and i8 %169, 16
   %.not15.i54 = icmp eq i8 %170, 0
@@ -1873,7 +1872,7 @@ thread-pre-split59:                               ; preds = %124, %121, %97
 
 173:                                              ; preds = %137
   %174 = load ptr, ptr @cpufreq, align 8
-  %175 = getelementptr inbounds %struct.cpu_freq_data, ptr %174, i64 %14
+  %175 = getelementptr inbounds [332 x i8], ptr %174, i64 %14
   %176 = load i8, ptr %175, align 4
   %177 = and i8 %176, 32
   %.not.i = icmp eq i8 %177, 0
@@ -1886,7 +1885,7 @@ thread-pre-split59:                               ; preds = %124, %121, %97
 
 _cpu_freq_govspec_string.exit55:                  ; preds = %178, %173, %171, %166, %164, %159, %157, %152, %150, %145, %143, %138, %137, %.thread61, %thread-pre-split59, %92
   %180 = load ptr, ptr @cpufreq, align 8
-  %181 = getelementptr inbounds %struct.cpu_freq_data, ptr %180, i64 %14
+  %181 = getelementptr inbounds [332 x i8], ptr %180, i64 %14
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 312
   %183 = load i32, ptr %182, align 4
   %.not53 = icmp eq i32 %183, -2
@@ -1902,7 +1901,7 @@ _cpu_freq_govspec_string.exit55:                  ; preds = %178, %173, %171, %1
   %189 = getelementptr inbounds nuw i8, ptr %181, i64 320
   store i32 %183, ptr %189, align 4
   %.pre = load ptr, ptr @cpufreq, align 8
-  %.phi.trans.insert = getelementptr inbounds %struct.cpu_freq_data, ptr %.pre, i64 %14
+  %.phi.trans.insert = getelementptr inbounds [332 x i8], ptr %.pre, i64 %14
   %.phi.trans.insert69 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 312
   %.pre70 = load i32, ptr %.phi.trans.insert69, align 4
   br label %190
@@ -1910,7 +1909,7 @@ _cpu_freq_govspec_string.exit55:                  ; preds = %178, %173, %171, %1
 190:                                              ; preds = %188, %184
   %191 = phi i32 [ %.pre70, %188 ], [ %183, %184 ]
   %192 = phi ptr [ %.pre, %188 ], [ %180, %184 ]
-  %193 = getelementptr inbounds %struct.cpu_freq_data, ptr %192, i64 %14
+  %193 = getelementptr inbounds [332 x i8], ptr %192, i64 %14
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 324
   %195 = load i32, ptr %194, align 4
   %196 = icmp ugt i32 %191, %195
@@ -1939,7 +1938,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
 .lr.ph:                                           ; preds = %1, %150
   %indvars.iv = phi i64 [ %indvars.iv.next, %150 ], [ 0, %1 ]
   %7 = load ptr, ptr @cpufreq, align 8
-  %8 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [332 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 312
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, -2
@@ -1976,7 +1975,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %.pre87, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [332 x i8], ptr %.pre87, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 316
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 308
@@ -1991,7 +1990,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
 
 40:                                               ; preds = %27, %30, %24
   %41 = phi ptr [ %.pre87, %27 ], [ %.pre, %30 ], [ %7, %24 ]
-  %42 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [332 x i8], ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 328
   %44 = load i32, ptr %43, align 4
   %.not74 = icmp eq i32 %44, -2
@@ -2016,7 +2015,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr @cpufreq, align 8
-  %58 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [332 x i8], ptr %57, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 284
   %60 = load i8, ptr %59, align 4
   %61 = icmp eq i8 %60, 0
@@ -2039,7 +2038,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
 
 68:                                               ; preds = %._crit_edge, %40
   %69 = phi ptr [ %.pre88, %._crit_edge ], [ %41, %40 ]
-  %70 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [332 x i8], ptr %69, i64 %indvars.iv
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 320
   %72 = load i32, ptr %71, align 4
   %.not75 = icmp eq i32 %72, -2
@@ -2064,7 +2063,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr @cpufreq, align 8
-  %86 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [332 x i8], ptr %85, i64 %indvars.iv
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 284
   %88 = load i8, ptr %87, align 4
   %89 = icmp eq i8 %88, 0
@@ -2087,7 +2086,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
 
 96:                                               ; preds = %._crit_edge89, %68
   %97 = phi ptr [ %.pre90, %._crit_edge89 ], [ %69, %68 ]
-  %98 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [332 x i8], ptr %97, i64 %indvars.iv
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 312
   %100 = load i32, ptr %99, align 4
   %.not76 = icmp eq i32 %100, -2
@@ -2107,7 +2106,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
 
 ._crit_edge95:                                    ; preds = %101, %104
   %107 = load ptr, ptr @cpufreq, align 8
-  %108 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [332 x i8], ptr %107, i64 %indvars.iv
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 312
   %110 = load i32, ptr %109, align 4
   %111 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %.pre96, i32 noundef %110, ptr noundef nonnull @.str.45)
@@ -2120,7 +2119,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
 
 113:                                              ; preds = %._crit_edge91, %96
   %114 = phi ptr [ %.pre92, %._crit_edge91 ], [ %97, %96 ]
-  %115 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %114, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [332 x i8], ptr %114, i64 %indvars.iv
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 284
   %117 = load i8, ptr %116, align 4
   %.not78 = icmp eq i8 %117, 0
@@ -2140,7 +2139,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
 
 125:                                              ; preds = %122
   %126 = load ptr, ptr @cpufreq, align 8
-  %127 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %126, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [332 x i8], ptr %126, i64 %indvars.iv
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 320
   %129 = load i32, ptr %128, align 4
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 328
@@ -2149,7 +2148,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
   %133 = load i32, ptr %132, align 4
   %134 = call i32 @cpu_freq_debug(ptr noundef null, ptr noundef null, ptr noundef nonnull %2, i32 noundef 100, i32 noundef -2, i32 noundef %129, i32 noundef %131, i32 noundef %133)
   %135 = load ptr, ptr @cpufreq, align 8
-  %136 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %135, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [332 x i8], ptr %135, i64 %indvars.iv
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 284
   %138 = load i8, ptr %137, align 4
   %.not80 = icmp eq i8 %138, 0
@@ -2162,7 +2161,7 @@ define dso_local void @cpu_freq_set(ptr noundef readonly captures(none) %0) loca
 
 142:                                              ; preds = %141
   %143 = load ptr, ptr @cpufreq, align 8
-  %144 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %143, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [332 x i8], ptr %143, i64 %indvars.iv
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 284
   %146 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.48, i32 noundef %146, ptr noundef nonnull %2, ptr noundef nonnull %145) #10
@@ -2341,7 +2340,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %79 = tail call ptr @__ctype_b_loc() #12
   %80 = load ptr, ptr %79, align 8
   %81 = sext i8 %78 to i64
-  %82 = getelementptr inbounds i16, ptr %80, i64 %81
+  %82 = getelementptr inbounds [2 x i8], ptr %80, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = and i16 %83, 2048
   %.not5815.i = icmp eq i16 %84, 0
@@ -2358,7 +2357,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %90 = getelementptr inbounds nuw i8, ptr %.117.i, i64 1
   %91 = load i8, ptr %90, align 1
   %92 = sext i8 %91 to i64
-  %93 = getelementptr inbounds i16, ptr %80, i64 %92
+  %93 = getelementptr inbounds [2 x i8], ptr %80, i64 %92
   %94 = load i16, ptr %93, align 2
   %95 = and i16 %94, 2048
   %.not58.i = icmp eq i16 %95, 0
@@ -2382,7 +2381,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %.32.i = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %102 = load i8, ptr %.32.i, align 1
   %103 = sext i8 %102 to i64
-  %104 = getelementptr inbounds i16, ptr %101, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr %101, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = and i16 %105, 2048
   %.not3.i = icmp eq i16 %106, 0
@@ -2394,7 +2393,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %.27.i = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %109 = load i8, ptr %.27.i, align 1
   %110 = sext i8 %109 to i64
-  %111 = getelementptr inbounds i16, ptr %108, i64 %110
+  %111 = getelementptr inbounds [2 x i8], ptr %108, i64 %110
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 2048
   %.not568.i = icmp eq i16 %113, 0
@@ -2411,7 +2410,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %.2.i = getelementptr inbounds nuw i8, ptr %.210.i, i64 1
   %119 = load i8, ptr %.2.i, align 1
   %120 = sext i8 %119 to i64
-  %121 = getelementptr inbounds i16, ptr %108, i64 %120
+  %121 = getelementptr inbounds [2 x i8], ptr %108, i64 %120
   %122 = load i16, ptr %121, align 2
   %123 = and i16 %122, 2048
   %.not56.i = icmp eq i16 %123, 0
@@ -2428,7 +2427,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %.3.i = getelementptr inbounds nuw i8, ptr %.35.i, i64 1
   %129 = load i8, ptr %.3.i, align 1
   %130 = sext i8 %129 to i64
-  %131 = getelementptr inbounds i16, ptr %101, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr %101, i64 %130
   %132 = load i16, ptr %131, align 2
   %133 = and i16 %132, 2048
   %.not.i = icmp eq i16 %133, 0
@@ -2501,7 +2500,7 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
 
 4:                                                ; preds = %2
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.cpu_freq_data, ptr %3, i64 %5
+  %6 = getelementptr inbounds [332 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %8 = load i8, ptr %7, align 1
   %.not56 = icmp eq i8 %8, 0
@@ -2539,7 +2538,7 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
   %22 = lshr i64 %21, 1
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %24 = and i64 %22, 2147483647
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4
   br label %.loopexit
 
@@ -2557,7 +2556,7 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
   %34 = add nuw nsw i64 %33, 4294967294
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %36 = and i64 %34, 4294967295
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4
   br label %.loopexit
 
@@ -2566,7 +2565,7 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
   %41 = add nuw nsw i64 %40, 4294967295
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %43 = and i64 %41, 4294967295
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   %45 = load i32, ptr %44, align 4
   br label %.loopexit
 
@@ -2579,7 +2578,7 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
 50:                                               ; preds = %46
   %51 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, i32 noundef %0, i32 noundef %48) #10
   %52 = load ptr, ptr @cpufreq, align 8
-  %53 = getelementptr inbounds %struct.cpu_freq_data, ptr %52, i64 %5
+  %53 = getelementptr inbounds [332 x i8], ptr %52, i64 %5
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   br label %.loopexit
@@ -2588,7 +2587,7 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
   %57 = zext i8 %8 to i64
   %58 = add nuw nsw i64 %57, 4294967295
   %59 = and i64 %58, 4294967295
-  %60 = getelementptr inbounds nuw i32, ptr %47, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp ult i32 %61, %0
   br i1 %62, label %63, label %.preheader
@@ -2600,11 +2599,11 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
 63:                                               ; preds = %56
   %64 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, i32 noundef %0, i32 noundef %61) #10
   %65 = load ptr, ptr @cpufreq, align 8
-  %66 = getelementptr inbounds %struct.cpu_freq_data, ptr %65, i64 %5
+  %66 = getelementptr inbounds [332 x i8], ptr %65, i64 %5
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
-  %70 = getelementptr i32, ptr %66, i64 %69
+  %70 = getelementptr [4 x i8], ptr %66, i64 %69
   %71 = load i32, ptr %70, align 4
   br label %.loopexit
 
@@ -2620,7 +2619,7 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
 
 76:                                               ; preds = %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.next
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.next
   %78 = load i32, ptr %77, align 4
   %79 = icmp ult i32 %0, %78
   br i1 %79, label %80, label %72, !llvm.loop !31
@@ -2632,18 +2631,18 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
 
 83:                                               ; preds = %80
   %84 = load ptr, ptr @cpufreq, align 8
-  %85 = getelementptr inbounds %struct.cpu_freq_data, ptr %84, i64 %5
+  %85 = getelementptr inbounds [332 x i8], ptr %84, i64 %5
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.next
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.next
   %88 = load i32, ptr %87, align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.43, i32 noundef %0, i32 noundef %88) #10
   br label %89
 
 89:                                               ; preds = %83, %80
   %90 = load ptr, ptr @cpufreq, align 8
-  %91 = getelementptr inbounds %struct.cpu_freq_data, ptr %90, i64 %5
+  %91 = getelementptr inbounds [332 x i8], ptr %90, i64 %5
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv.next
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.next
   %94 = load i32, ptr %93, align 4
   br label %.loopexit
 
@@ -2937,7 +2936,7 @@ define dso_local void @cpu_freq_reset(ptr noundef readonly captures(none) %0) lo
 10:                                               ; preds = %.lr.ph69, %199
   %indvars.iv = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next, %199 ]
   %11 = load ptr, ptr @cpufreq, align 8
-  %12 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [332 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 312
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -2
@@ -3208,7 +3207,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %121, %60, %44,
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %126 = load ptr, ptr @cpufreq, align 8
-  %127 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %126, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [332 x i8], ptr %126, i64 %indvars.iv
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 312
   %129 = load i32, ptr %128, align 4
   %.not = icmp eq i32 %129, -2
@@ -3221,7 +3220,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %121, %60, %44,
 
 133:                                              ; preds = %130
   %134 = load ptr, ptr @cpufreq, align 8
-  %135 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %134, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [332 x i8], ptr %134, i64 %indvars.iv
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 308
   %137 = load i32, ptr %136, align 4
   %138 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %40, i32 noundef %137, ptr noundef nonnull @.str.45)
@@ -3230,7 +3229,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %121, %60, %44,
 
 140:                                              ; preds = %133
   %141 = load ptr, ptr @cpufreq, align 8
-  %142 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [332 x i8], ptr %141, i64 %indvars.iv
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 284
   store i8 117, ptr %143, align 4
   %.pre = load ptr, ptr @cpufreq, align 8
@@ -3238,7 +3237,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %121, %60, %44,
 
 144:                                              ; preds = %140, %125
   %145 = phi ptr [ %.pre, %140 ], [ %126, %125 ]
-  %146 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %145, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [332 x i8], ptr %145, i64 %indvars.iv
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 328
   %148 = load i32, ptr %147, align 4
   %.not40 = icmp eq i32 %148, -2
@@ -3257,7 +3256,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %121, %60, %44,
 
 154:                                              ; preds = %._crit_edge, %144
   %155 = phi ptr [ %.pre88, %._crit_edge ], [ %145, %144 ]
-  %156 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %155, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [332 x i8], ptr %155, i64 %indvars.iv
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 320
   %158 = load i32, ptr %157, align 4
   %.not41 = icmp eq i32 %158, -2
@@ -3276,7 +3275,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %121, %60, %44,
 
 164:                                              ; preds = %._crit_edge89, %154
   %165 = phi ptr [ %.pre90, %._crit_edge89 ], [ %155, %154 ]
-  %166 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %165, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw [332 x i8], ptr %165, i64 %indvars.iv
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 284
   %168 = load i8, ptr %167, align 4
   %.not42 = icmp eq i8 %168, 0
@@ -3296,7 +3295,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %121, %60, %44,
 
 176:                                              ; preds = %173
   %177 = load ptr, ptr @cpufreq, align 8
-  %178 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %177, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw [332 x i8], ptr %177, i64 %indvars.iv
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 316
   %180 = load i32, ptr %179, align 4
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 324
@@ -3305,7 +3304,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %121, %60, %44,
   %184 = load i32, ptr %183, align 4
   %185 = call i32 @cpu_freq_debug(ptr noundef null, ptr noundef null, ptr noundef nonnull %4, i32 noundef 100, i32 noundef -2, i32 noundef %180, i32 noundef %182, i32 noundef %184)
   %186 = load ptr, ptr @cpufreq, align 8
-  %187 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %186, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw [332 x i8], ptr %186, i64 %indvars.iv
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 284
   %189 = load i8, ptr %188, align 4
   %.not44 = icmp eq i8 %189, 0
@@ -3318,7 +3317,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %121, %60, %44,
 
 193:                                              ; preds = %192
   %194 = load ptr, ptr @cpufreq, align 8
-  %195 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %194, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [332 x i8], ptr %194, i64 %indvars.iv
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 260
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.50, i32 noundef %40, ptr noundef nonnull %4, ptr noundef nonnull %196) #10
   br label %199

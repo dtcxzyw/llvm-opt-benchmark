@@ -95,7 +95,7 @@ X509_PURPOSE_get_by_id.exit:                      ; preds = %16
 26:                                               ; preds = %.thread19, %24
   %.0.i161821 = phi i32 [ %13, %.thread19 ], [ %20, %24 ]
   %27 = zext nneg i32 %.0.i161821 to i64
-  %28 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %27
+  %28 = getelementptr inbounds nuw [48 x i8], ptr @xstandard, i64 %27
   br label %X509_PURPOSE_get0.exit
 
 29:                                               ; preds = %24
@@ -682,7 +682,7 @@ define hidden ptr @X509_PURPOSE_get0(i32 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %6
+  %7 = getelementptr inbounds nuw [48 x i8], ptr @xstandard, i64 %6
   br label %13
 
 8:                                                ; preds = %3
@@ -799,7 +799,7 @@ X509_PURPOSE_get_count.exit:                      ; preds = %2, %4
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [48 x i8], ptr @xstandard, i64 %indvars.iv
   br label %X509_PURPOSE_get0.exit
 
 13:                                               ; preds = %9
@@ -900,7 +900,7 @@ X509_PURPOSE_get_by_id.exit:                      ; preds = %14
 29:                                               ; preds = %.thread63, %27
   %.0.i606265 = phi i32 [ %11, %.thread63 ], [ %18, %27 ]
   %30 = zext nneg i32 %.0.i606265 to i64
-  %31 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %30
+  %31 = getelementptr inbounds nuw [48 x i8], ptr @xstandard, i64 %30
   br label %X509_PURPOSE_get0.exit
 
 32:                                               ; preds = %27
@@ -1110,7 +1110,7 @@ define hidden void @X509_PURPOSE_cleanup() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %xptable_free.exit
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %xptable_free.exit ]
-  %3 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [48 x i8], ptr @xstandard, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !79
   %6 = and i32 %5, 1

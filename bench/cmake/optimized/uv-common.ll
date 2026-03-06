@@ -18,12 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.5 = type { ptr, ptr, ptr, i32 }
 %struct.uv__io_s = type { ptr, [2 x ptr], [2 x ptr], i32, i32, i32 }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.uv_buf_t = type { ptr, i64 }
-%struct.uv_dirent_s = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.uv_env_item_s = type { ptr, ptr }
-%struct.uv_cpu_info_s = type { ptr, i32, %struct.uv_cpu_times_s }
-%struct.uv_cpu_times_s = type { i64, i64, i64, i64, i64 }
 
 @uv__allocator.0 = internal unnamed_addr global ptr @malloc, align 8
 @uv__allocator.1 = internal unnamed_addr global ptr @realloc, align 8
@@ -390,7 +385,7 @@ define dso_local range(i64 -1, 313) i64 @uv_handle_size(i32 noundef %0) local_un
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_handle_size, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv_handle_size, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -407,7 +402,7 @@ define dso_local range(i64 -1, 1321) i64 @uv_req_size(i32 noundef %0) local_unna
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_req_size, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv_req_size, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -2583,7 +2578,7 @@ uv_default_loop.exit:                             ; preds = %7, %5, %3
 
 switch.lookup:                                    ; preds = %.lr.ph.split.us
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.uv__print_handles.1, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv__print_handles.1, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %15
 
@@ -2635,7 +2630,7 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
 
 switch.lookup34:                                  ; preds = %41
   %45 = zext nneg i32 %switch.tableidx33 to i64
-  %switch.gep35 = getelementptr inbounds nuw ptr, ptr @switch.table.uv__print_handles.1, i64 %45
+  %switch.gep35 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv__print_handles.1, i64 %45
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   br label %46
 
@@ -2764,7 +2759,7 @@ define dso_local i64 @uv__count_bufs(ptr noundef readonly captures(none) %0, i32
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.08 = phi i64 [ 0, %.lr.ph.preheader ], [ %6, %.lr.ph ]
-  %3 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !58
   %6 = add i64 %5, %.08
@@ -2858,7 +2853,7 @@ define dso_local void @uv__fs_scandir_cleanup(ptr noundef captures(none) %0) loc
 .lr.ph:                                           ; preds = %._crit_edge15, %.lr.ph
   %12 = phi i32 [ %17, %.lr.ph ], [ %9, %._crit_edge15 ]
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %4, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !74
   tail call void @free(ptr noundef %15) #26
   %16 = load i32, ptr %2, align 4, !tbaa !10
@@ -2909,7 +2904,7 @@ define dso_local i32 @uv_fs_scandir_next(ptr noundef captures(none) %0, ptr noun
 14:                                               ; preds = %11
   %15 = add i32 %13, -1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !74
   tail call void @free(ptr noundef %18) #26
   %.pre = load i32, ptr %12, align 4, !tbaa !10
@@ -2932,7 +2927,7 @@ define dso_local i32 @uv_fs_scandir_next(ptr noundef captures(none) %0, ptr noun
   %26 = add i32 %21, 1
   store i32 %26, ptr %12, align 4, !tbaa !10
   %27 = zext i32 %21 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %10, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !74
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 19
   store ptr %30, ptr %1, align 8, !tbaa !77
@@ -2944,7 +2939,7 @@ define dso_local i32 @uv_fs_scandir_next(ptr noundef captures(none) %0, ptr noun
 
 switch.lookup:                                    ; preds = %25
   %34 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.uv__fs_get_dirent_type, i64 %34
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.uv__fs_get_dirent_type, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %uv__fs_get_dirent_type.exit
 
@@ -2969,7 +2964,7 @@ define dso_local range(i32 0, 8) i32 @uv__fs_get_dirent_type(ptr noundef readonl
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.uv__fs_get_dirent_type, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.uv__fs_get_dirent_type, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -3004,7 +2999,7 @@ define dso_local void @uv__fs_readdir_cleanup(ptr noundef captures(none) %0) loc
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !77
   %15 = load ptr, ptr @uv__allocator.3, align 8, !tbaa !12
   tail call void %15(ptr noundef %14) #26
@@ -3227,7 +3222,7 @@ define dso_local void @uv_os_free_environ(ptr noundef %0, i32 noundef %1) local_
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.uv_env_item_s, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !90
   %8 = load ptr, ptr @uv__allocator.3, align 8, !tbaa !12
   tail call void %8(ptr noundef %7) #26
@@ -3257,7 +3252,7 @@ define dso_local void @uv_free_cpu_info(ptr noundef %0, i32 noundef %1) local_un
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !93
   %8 = load ptr, ptr @uv__allocator.3, align 8, !tbaa !12
   tail call void %8(ptr noundef %7) #26

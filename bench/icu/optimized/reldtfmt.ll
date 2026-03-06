@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::ConstChar16Ptr" = type { ptr }
 %"struct.icu_77::(anonymous namespace)::RelDateFmtDataSink" = type <{ %"class.icu_77::ResourceSink", ptr, i32, [4 x i8] }>
 %"class.icu_77::ResourceSink" = type { %"class.icu_77::UObject" }
-%"struct.icu_77::URelativeString" = type { i32, i32, ptr }
 %"class.icu_77::FieldPosition" = type <{ %"class.icu_77::UObject", i32, i32, i32, [4 x i8] }>
 %"class.icu_77::Locale" = type <{ %"class.icu_77::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_77::ResourceTable" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
@@ -648,7 +647,7 @@ define void @_ZN6icu_7718RelativeDateFormat9loadDatesER10UErrorCode(ptr noundef 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %72 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %65, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv.i
   store i32 0, ptr %72, align 8, !tbaa !53
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr null, ptr %73, align 8, !tbaa !55
@@ -1012,7 +1011,7 @@ _ZN6icu_7718RelativeDateFormat13dayDifferenceERNS_8CalendarER10UErrorCode.exit: 
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %44 = load ptr, ptr %43, align 8, !tbaa !31
   %45 = zext nneg i32 %37 to i64
-  %46 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %45
   %47 = load i32, ptr %46, align 8, !tbaa !53
   %48 = icmp eq i32 %47, %31
   br i1 %48, label %49, label %_ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread
@@ -1421,7 +1420,7 @@ define noundef ptr @_ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErro
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %15 = load ptr, ptr %14, align 8, !tbaa !31
   %16 = zext nneg i32 %8 to i64
-  %17 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !53
   %19 = icmp eq i32 %18, %1
   br i1 %19, label %20, label %26
@@ -1520,7 +1519,7 @@ define void @_ZNK6icu_7718RelativeDateFormat5parseERKNS_13UnicodeStringERNS_8Cal
 43:                                               ; preds = %.lr.ph151, %70
   %indvars.iv167 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next168, %70 ]
   %44 = load ptr, ptr %41, align 8, !tbaa !31
-  %45 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %44, i64 %indvars.iv167
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %indvars.iv167
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !55
   %.not115 = icmp eq ptr %47, null
@@ -1539,7 +1538,7 @@ define void @_ZNK6icu_7718RelativeDateFormat5parseERKNS_13UnicodeStringERNS_8Cal
   %54 = tail call noundef double @_ZN6icu_778Calendar6getNowEv()
   call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %2, double noundef %54, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %55 = load ptr, ptr %41, align 8, !tbaa !31
-  %56 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %55, i64 %indvars.iv167
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv167
   %57 = load i32, ptr %56, align 8, !tbaa !53
   %58 = load ptr, ptr %2, align 8, !tbaa !3
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
@@ -1555,7 +1554,7 @@ define void @_ZNK6icu_7718RelativeDateFormat5parseERKNS_13UnicodeStringERNS_8Cal
 
 64:                                               ; preds = %53
   %65 = load ptr, ptr %41, align 8, !tbaa !31
-  %66 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %65, i64 %indvars.iv167
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv167
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !56
   %69 = add nsw i32 %68, %.fr153
@@ -1616,7 +1615,7 @@ define void @_ZNK6icu_7718RelativeDateFormat5parseERKNS_13UnicodeStringERNS_8Cal
   %93 = phi i32 [ %104, %103 ], [ %88, %.lr.ph ]
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %103 ], [ 0, %.lr.ph ]
   %94 = load ptr, ptr %90, align 8, !tbaa !31
-  %95 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %94, i64 %indvars.iv164
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %indvars.iv164
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !55
   %.not104.us = icmp eq ptr %97, null
@@ -1658,7 +1657,7 @@ _ZNK6icu_7713UnicodeString7indexOfEPKDsii.exit.us._crit_edge: ; preds = %_ZNK6ic
   %108 = phi i32 [ %171, %170 ], [ %88, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %170 ], [ 0, %.lr.ph ]
   %109 = load ptr, ptr %90, align 8, !tbaa !31
-  %110 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %109, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %indvars.iv
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !55
   %.not104 = icmp eq ptr %112, null
@@ -1709,7 +1708,7 @@ _ZNK6icu_7713UnicodeString7indexOfEPKDsii.exit._crit_edge: ; preds = %_ZNK6icu_7
 
 _ZN6icu_778Calendar7setTimeEdR10UErrorCode.exit:  ; preds = %129
   %130 = load ptr, ptr %90, align 8, !tbaa !31
-  %131 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %130, i64 %.us-phi149
+  %131 = getelementptr inbounds nuw [16 x i8], ptr %130, i64 %.us-phi149
   %132 = load i32, ptr %131, align 8, !tbaa !53
   %133 = load ptr, ptr %126, align 8, !tbaa !3
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 56
@@ -1753,7 +1752,7 @@ _ZN6icu_778Calendar7setTimeEdR10UErrorCode.exit:  ; preds = %129
 
 154:                                              ; preds = %148
   %155 = load ptr, ptr %90, align 8, !tbaa !31
-  %156 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %155, i64 %.us-phi149
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %.us-phi149
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
   %158 = load i32, ptr %157, align 4, !tbaa !56
   %159 = load i16, ptr %122, align 8, !tbaa !37
@@ -2386,7 +2385,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_118RelDateFmtDataSink3putEPKcRNS_13
 23:                                               ; preds = %15
   %24 = load ptr, ptr %14, align 8, !tbaa !49
   %25 = zext nneg i32 %19 to i64
-  %26 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !55
   %29 = icmp eq ptr %28, null
@@ -2399,7 +2398,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_118RelDateFmtDataSink3putEPKcRNS_13
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %35 = load ptr, ptr %14, align 8, !tbaa !49
-  %36 = getelementptr inbounds nuw %"struct.icu_77::URelativeString", ptr %35, i64 %25
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %25
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %34, ptr %37, align 8, !tbaa !55
   %38 = load i32, ptr %8, align 4, !tbaa !44

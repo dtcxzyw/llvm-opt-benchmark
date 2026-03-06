@@ -438,7 +438,7 @@ define internal range(i32 -16, 1) i32 @nxmq_file_poll(ptr noundef readonly captu
 
 13:                                               ; preds = %.preheader, %12
   %indvars.iv40 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next41, %12 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv40
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv40
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %19, label %12
@@ -449,7 +449,7 @@ define internal range(i32 -16, 1) i32 @nxmq_file_poll(ptr noundef readonly captu
   br label %.loopexit
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv40
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv40
   store ptr %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %20, ptr %21, align 8
@@ -482,13 +482,13 @@ define internal range(i32 -16, 1) i32 @nxmq_file_poll(ptr noundef readonly captu
 
 34:                                               ; preds = %.preheader28, %33
   %indvars.iv = phi i64 [ 0, %.preheader28 ], [ %indvars.iv.next, %33 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %1, %36
   br i1 %37, label %38, label %33
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   store ptr null, ptr %39, align 8
   store ptr null, ptr %30, align 8
   br label %.loopexit

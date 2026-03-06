@@ -445,7 +445,7 @@ _ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %77, %
 _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %79, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %74, ptr %0, align 8, !tbaa !35
   store ptr %78, ptr %55, align 8, !tbaa !59
-  %80 = getelementptr inbounds nuw ptr, ptr %74, i64 %72
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %72
   store ptr %80, ptr %56, align 8, !tbaa !36
   br label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
 
@@ -630,7 +630,7 @@ _ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; preds = %39,
 _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %41, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 56), align 8, !tbaa !35
   store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 64), align 8, !tbaa !59
-  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %34
   store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 72), align 8, !tbaa !36
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit
 
@@ -880,7 +880,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZNSt10lock_guardIN
 
 19:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %20 = load ptr, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, align 8
-  %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %20, i64 %18
+  %.sroa.0.0.i.i = getelementptr inbounds [8 x i8], ptr %20, i64 %18
   %21 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !64
@@ -1099,7 +1099,7 @@ define internal void @_ZN12_GLOBAL__N_17GlobalsD2Ev(ptr noundef nonnull align 8 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %17 ]
   %11 = load ptr, ptr %0, align 8, !tbaa !109
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   %magicptr.i = ptrtoint ptr %13 to i64
   switch i64 %magicptr.i, label %14 [
@@ -1169,7 +1169,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPvNS_15MallocAllocato
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #15
   %6 = load ptr, ptr %0, align 8, !tbaa !109
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !56
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -1223,7 +1223,7 @@ _ZN4llvm14StringMapEntryIPvE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefER
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #15
   %27 = load ptr, ptr %0, align 8, !tbaa !109
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIPvE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit

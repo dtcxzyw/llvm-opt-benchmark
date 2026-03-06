@@ -67,8 +67,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.76" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::shared_ptr<arrow::Array>, std::allocator<std::shared_ptr<arrow::Array>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.285" = type { %"class.std::__shared_ptr.286" }
-%"class.std::__shared_ptr.286" = type { ptr, %"class.std::__shared_count" }
 %"class.arrow::Result.95" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage.98" }
 %"class.arrow::internal::AlignedStorage.98" = type { [16 x i8] }
 %"class.std::vector.99" = type { %"struct.std::_Vector_base.100" }
@@ -146,26 +144,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__weak_ptr.308" = type { ptr, %"class.std::__weak_count" }
 %"class.std::__weak_count" = type { ptr }
 %"class.arrow::BooleanBuilder" = type { %"class.arrow::ArrayBuilder", %"class.arrow::TypedBufferBuilder" }
-%"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<short>::Payload>::Entry" = type { i64, %"struct.arrow::internal::ScalarMemoTable<short>::Payload" }
-%"struct.arrow::internal::ScalarMemoTable<short>::Payload" = type { i16, i32 }
-%"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned short>::Payload>::Entry" = type { i64, %"struct.arrow::internal::ScalarMemoTable<unsigned short>::Payload" }
-%"struct.arrow::internal::ScalarMemoTable<unsigned short>::Payload" = type { i16, i32 }
-%"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry" = type { i64, %"struct.arrow::internal::ScalarMemoTable<int>::Payload" }
-%"struct.arrow::internal::ScalarMemoTable<int>::Payload" = type { i32, i32 }
-%"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned int>::Payload>::Entry" = type { i64, %"struct.arrow::internal::ScalarMemoTable<unsigned int>::Payload" }
-%"struct.arrow::internal::ScalarMemoTable<unsigned int>::Payload" = type { i32, i32 }
-%"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry" = type { i64, %"struct.arrow::internal::ScalarMemoTable<long>::Payload" }
-%"struct.arrow::internal::ScalarMemoTable<long>::Payload" = type { i64, i32 }
-%"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned long>::Payload>::Entry" = type { i64, %"struct.arrow::internal::ScalarMemoTable<unsigned long>::Payload" }
-%"struct.arrow::internal::ScalarMemoTable<unsigned long>::Payload" = type { i64, i32 }
-%"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<float>::Payload>::Entry" = type { i64, %"struct.arrow::internal::ScalarMemoTable<float>::Payload" }
-%"struct.arrow::internal::ScalarMemoTable<float>::Payload" = type { float, i32 }
-%"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<double>::Payload>::Entry" = type { i64, %"struct.arrow::internal::ScalarMemoTable<double>::Payload" }
-%"struct.arrow::internal::ScalarMemoTable<double>::Payload" = type { double, i32 }
 %class.anon.470 = type { i8 }
 %class.anon.472 = type { i8 }
-%"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::BinaryBuilder>::Payload>::Entry" = type { i64, %"struct.arrow::internal::BinaryMemoTable<arrow::BinaryBuilder>::Payload" }
-%"struct.arrow::internal::BinaryMemoTable<arrow::BinaryBuilder>::Payload" = type { i32 }
 %"class.arrow::BinaryViewBuilder" = type { %"class.arrow::ArrayBuilder", %"class.arrow::TypedBufferBuilder.481", %"class.arrow::internal::StringHeapBuilder" }
 %"class.arrow::TypedBufferBuilder.481" = type { %"class.arrow::BufferBuilder" }
 %"class.arrow::internal::StringHeapBuilder" = type { ptr, i64, i64, %"class.std::vector.482", i32, ptr, i64 }
@@ -179,14 +159,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.493 = type { ptr }
 %class.anon.502 = type { i8 }
 %class.anon.504 = type { i8 }
-%"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::LargeBinaryBuilder>::Payload>::Entry" = type { i64, %"struct.arrow::internal::BinaryMemoTable<arrow::LargeBinaryBuilder>::Payload" }
-%"struct.arrow::internal::BinaryMemoTable<arrow::LargeBinaryBuilder>::Payload" = type { i32 }
-%"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::MonthDayNanoIntervalType::MonthDayNanos>::Payload>::Entry" = type { i64, %"struct.arrow::internal::ScalarMemoTable<arrow::MonthDayNanoIntervalType::MonthDayNanos>::Payload" }
-%"struct.arrow::internal::ScalarMemoTable<arrow::MonthDayNanoIntervalType::MonthDayNanos>::Payload" = type { %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", i32 }
-%"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos" = type { i32, i32, i64 }
-%"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::DayTimeIntervalType::DayMilliseconds>::Payload>::Entry" = type <{ i64, %"struct.arrow::internal::ScalarMemoTable<arrow::DayTimeIntervalType::DayMilliseconds>::Payload", [4 x i8] }>
-%"struct.arrow::internal::ScalarMemoTable<arrow::DayTimeIntervalType::DayMilliseconds>::Payload" = type { %"struct.arrow::DayTimeIntervalType::DayMilliseconds", i32 }
-%"struct.arrow::DayTimeIntervalType::DayMilliseconds" = type { i32, i32 }
 
 $_ZN5arrow18TypedChunkLocationIiEC5Eii = comdat any
 
@@ -1749,8 +1721,8 @@ define noundef i64 @_ZNK5arrow15DictionaryArray13GetValueIndexEl(ptr noundef non
 26:                                               ; preds = %2, %2
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %28 = load i64, ptr %27, align 8, !tbaa !66
-  %29 = getelementptr i16, ptr %11, i64 %28
-  %30 = getelementptr i16, ptr %29, i64 %1
+  %29 = getelementptr [2 x i8], ptr %11, i64 %28
+  %30 = getelementptr [2 x i8], ptr %29, i64 %1
   %31 = load i16, ptr %30, align 2, !tbaa !84
   %32 = zext i16 %31 to i64
   br label %69
@@ -1758,8 +1730,8 @@ define noundef i64 @_ZNK5arrow15DictionaryArray13GetValueIndexEl(ptr noundef non
 33:                                               ; preds = %2, %2
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %35 = load i64, ptr %34, align 8, !tbaa !66
-  %36 = getelementptr i32, ptr %11, i64 %35
-  %37 = getelementptr i32, ptr %36, i64 %1
+  %36 = getelementptr [4 x i8], ptr %11, i64 %35
+  %37 = getelementptr [4 x i8], ptr %36, i64 %1
   %38 = load i32, ptr %37, align 4, !tbaa !85
   %39 = zext i32 %38 to i64
   br label %69
@@ -1767,8 +1739,8 @@ define noundef i64 @_ZNK5arrow15DictionaryArray13GetValueIndexEl(ptr noundef non
 40:                                               ; preds = %2, %2
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %42 = load i64, ptr %41, align 8, !tbaa !66
-  %43 = getelementptr i64, ptr %11, i64 %42
-  %44 = getelementptr i64, ptr %43, i64 %1
+  %43 = getelementptr [8 x i8], ptr %11, i64 %42
+  %44 = getelementptr [8 x i8], ptr %43, i64 %1
   %45 = load i64, ptr %44, align 8, !tbaa !86
   br label %69
 
@@ -3703,7 +3675,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %28, %30, %34
 
 .lr.ph.i:                                         ; preds = %50, %52
   %.079.i = phi i64 [ %53, %52 ], [ 0, %50 ]
-  %54 = getelementptr inbounds nuw i32, ptr %4, i64 %.079.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.079.i
   %55 = load i32, ptr %54, align 4, !tbaa !85
   %56 = sext i32 %55 to i64
   %.not.i75 = icmp eq i64 %.079.i, %56
@@ -12061,7 +12033,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4
   %36 = shl nuw nsw i64 %34, 4
   %37 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #27
   store ptr %37, ptr %5, align 8, !tbaa !845
-  %38 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %37, i64 %34
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %34
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %37, i8 0, i64 %36, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %37, i64 %36
   br label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EEC2EmRKS4_.exit.thread.i
@@ -12334,7 +12306,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.ex
 
 .noexc47:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i42
   store ptr %149, ptr %9, align 8, !tbaa !844
-  %150 = getelementptr inbounds nuw %"class.std::shared_ptr.7", ptr %149, i64 %145
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %145
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %149, i8 0, i64 %148, i1 false)
   %scevgep.i.i.i.i.i43 = getelementptr i8, ptr %149, i64 %148
   br label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2EmRKS4_.exit.thread.i
@@ -12955,7 +12927,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4
   %.val1.i = load ptr, ptr %.sroa.09.014.i, align 8, !tbaa !32
   %103 = getelementptr i8, ptr %.val1.i, i64 64
   %.val1.val.i = load ptr, ptr %103, align 8, !tbaa !845
-  %104 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %.val1.val.i, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %.val1.val.i, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !32, !noalias !866
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !107, !noalias !866
@@ -13045,7 +13017,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5arrow9ArrayDataE
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 48
   %143 = load ptr, ptr %142, align 8, !tbaa !864
-  %144 = getelementptr inbounds nuw %"class.std::shared_ptr.285", ptr %143, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %143, i64 %indvars.iv
   %145 = load ptr, ptr %144, align 8, !tbaa !870
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 56
   %147 = load ptr, ptr %146, align 8, !tbaa !47
@@ -13160,12 +13132,12 @@ _ZN5arrow6ResultIbED2Ev.exit133.thread:           ; preds = %186
   %191 = phi ptr [ %227, %_ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit ], [ %190, %.preheader ]
   %.080276 = phi i64 [ %225, %_ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit ], [ 0, %.preheader ]
   %192 = load ptr, ptr %6, align 8, !tbaa !845
-  %193 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %192, i64 %.080276
-  %194 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %191, i64 %.080276
+  %193 = getelementptr inbounds nuw [16 x i8], ptr %192, i64 %.080276
+  %194 = getelementptr inbounds nuw [16 x i8], ptr %191, i64 %.080276
   %195 = load ptr, ptr %194, align 8, !tbaa !32
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 64
   %197 = load ptr, ptr %196, align 8, !tbaa !845
-  %198 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %197, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [16 x i8], ptr %197, i64 %indvars.iv
   %199 = load ptr, ptr %193, align 8, !tbaa !32
   %200 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %201 = load ptr, ptr %200, align 8, !tbaa !107
@@ -13596,7 +13568,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17_S_check_init_lenEmRKS4_.e
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %375 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %374, i64 %.067283
+  %375 = getelementptr inbounds nuw [16 x i8], ptr %374, i64 %.067283
   %376 = load ptr, ptr %375, align 8, !tbaa !32
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 88
   invoke void @_ZN5arrow9MakeArrayERKSt10shared_ptrINS_9ArrayDataEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.7") align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %377)
@@ -13605,7 +13577,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17_S_check_init_lenEmRKS4_.e
 378:                                              ; preds = %373
   %379 = load ptr, ptr %14, align 8, !tbaa !44
   %380 = load ptr, ptr %11, align 8, !tbaa !38
-  %381 = getelementptr inbounds nuw %"class.std::shared_ptr.21", ptr %380, i64 %.067283
+  %381 = getelementptr inbounds nuw [16 x i8], ptr %380, i64 %.067283
   %382 = load ptr, ptr %355, align 8, !tbaa !87
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 24
   %384 = load ptr, ptr %383, align 8
@@ -13799,11 +13771,11 @@ _ZN5arrow6StatusD2Ev.exit179:                     ; preds = %_ZN5arrow6StatusD2E
   %460 = phi ptr [ %447, %.lr.ph287 ], [ %454, %451 ]
   %.066286 = phi i64 [ 0, %.lr.ph287 ], [ %452, %451 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %461 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %460, i64 %.066286
+  %461 = getelementptr inbounds nuw [16 x i8], ptr %460, i64 %.066286
   %462 = load ptr, ptr %15, align 8, !tbaa !44
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %464 = load ptr, ptr %11, align 8, !tbaa !38
-  %465 = getelementptr inbounds nuw %"class.std::shared_ptr.21", ptr %464, i64 %.066286
+  %465 = getelementptr inbounds nuw [16 x i8], ptr %464, i64 %.066286
   %466 = load ptr, ptr %465, align 8, !tbaa !41
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 9
   %468 = load i8, ptr %467, align 1, !tbaa !111, !range !119, !noundef !120
@@ -13835,7 +13807,7 @@ _ZN5arrow6StatusD2Ev.exit179:                     ; preds = %_ZN5arrow6StatusD2E
   %482 = load ptr, ptr %449, align 8, !tbaa !107, !noalias !888
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %448, i8 0, i64 16, i1 false)
   %483 = load ptr, ptr %3, align 8, !tbaa !845
-  %484 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %483, i64 %.066286
+  %484 = getelementptr inbounds nuw [16 x i8], ptr %483, i64 %.066286
   store ptr %481, ptr %484, align 8, !tbaa !108
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 8
   %486 = load ptr, ptr %485, align 8, !tbaa !107
@@ -13894,7 +13866,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
 
 509:                                              ; preds = %_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %510 = load ptr, ptr %3, align 8, !tbaa !845
-  %511 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %510, i64 %.066286
+  %511 = getelementptr inbounds nuw [16 x i8], ptr %510, i64 %.066286
   %512 = load ptr, ptr %511, align 8, !tbaa !32
   store ptr %508, ptr %512, align 8, !tbaa !47
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 8
@@ -18176,7 +18148,7 @@ _ZNK5arrow9ArrayData9GetValuesIaEEPKT_i.exit.i.i: ; preds = %371, %366
 404:                                              ; preds = %400
   %.cmp.us.i.i = icmp samesign ugt i8 %402, 63
   %405 = zext i1 %.cmp.us.i.i to i64
-  %406 = getelementptr inbounds nuw i64, ptr %384, i64 %405
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %384, i64 %405
   %407 = and i8 %402, 63
   %408 = zext nneg i8 %407 to i64
   %409 = shl nuw i64 1, %408
@@ -18299,7 +18271,7 @@ _ZN5arrow6Status10IndexErrorIJRA56_KcRaRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.us.
 460:                                              ; preds = %454
   %.cmp.i.i = icmp samesign ugt i8 %456, 63
   %461 = zext i1 %.cmp.i.i to i64
-  %462 = getelementptr inbounds nuw i64, ptr %384, i64 %461
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %384, i64 %461
   %463 = and i8 %456, 63
   %464 = zext nneg i8 %463 to i64
   %465 = shl nuw i64 1, %464
@@ -18593,7 +18565,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit176.i.i: ; pre
   %.044284.i.i = phi i32 [ 0, %.lr.ph286.i.i ], [ %.145.i.i, %606 ]
   %579 = lshr i64 %indvars.iv.i.i, 6
   %.sext.i.i = and i64 %579, 3
-  %580 = getelementptr inbounds nuw i64, ptr %384, i64 %.sext.i.i
+  %580 = getelementptr inbounds nuw [8 x i8], ptr %384, i64 %.sext.i.i
   %581 = and i64 %indvars.iv.i.i, 63
   %582 = shl nuw i64 1, %581
   %583 = load i64, ptr %580, align 8, !tbaa !86
@@ -18632,7 +18604,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit176.i.i: ; pre
 606:                                              ; preds = %585, %578
   %.044284.sink.i.i = phi i32 [ %.044284.i.i, %585 ], [ -1, %578 ]
   %.145.i.i = phi i32 [ %605, %585 ], [ %.044284.i.i, %578 ]
-  %607 = getelementptr inbounds nuw i32, ptr %574, i64 %indvars.iv.i.i
+  %607 = getelementptr inbounds nuw [4 x i8], ptr %574, i64 %indvars.iv.i.i
   store i32 %.044284.sink.i.i, ptr %607, align 4, !tbaa !85
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -19815,7 +19787,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_i.exit.i.i: ; preds = %1040, %1035
 1072:                                             ; preds = %1069
   %1073 = lshr i8 %1071, 6
   %.zext.us.i.i = zext nneg i8 %1073 to i64
-  %1074 = getelementptr inbounds nuw i64, ptr %1053, i64 %.zext.us.i.i
+  %1074 = getelementptr inbounds nuw [8 x i8], ptr %1053, i64 %.zext.us.i.i
   %1075 = and i8 %1071, 63
   %1076 = zext nneg i8 %1075 to i64
   %1077 = shl nuw i64 1, %1076
@@ -19936,7 +19908,7 @@ _ZN5arrow6Status10IndexErrorIJRA56_KcRhRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.us.
 1127:                                             ; preds = %1122
   %1128 = lshr i8 %1124, 6
   %.zext.i.i = zext nneg i8 %1128 to i64
-  %1129 = getelementptr inbounds nuw i64, ptr %1053, i64 %.zext.i.i
+  %1129 = getelementptr inbounds nuw [8 x i8], ptr %1053, i64 %.zext.i.i
   %1130 = and i8 %1124, 63
   %1131 = zext nneg i8 %1130 to i64
   %1132 = shl nuw i64 1, %1131
@@ -20230,7 +20202,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit175.i.i: ; pre
   %.044285.i.i = phi i32 [ 0, %.lr.ph287.i.i ], [ %.145.i.i105, %1273 ]
   %1246 = lshr i64 %indvars.iv.i.i103, 6
   %.zext273.i.i = and i64 %1246, 3
-  %1247 = getelementptr inbounds nuw i64, ptr %1053, i64 %.zext273.i.i
+  %1247 = getelementptr inbounds nuw [8 x i8], ptr %1053, i64 %.zext273.i.i
   %1248 = and i64 %indvars.iv.i.i103, 63
   %1249 = shl nuw i64 1, %1248
   %1250 = load i64, ptr %1247, align 8, !tbaa !86
@@ -20269,7 +20241,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit175.i.i: ; pre
 1273:                                             ; preds = %1252, %1245
   %.044285.sink.i.i = phi i32 [ %.044285.i.i, %1252 ], [ -1, %1245 ]
   %.145.i.i105 = phi i32 [ %1272, %1252 ], [ %.044285.i.i, %1245 ]
-  %1274 = getelementptr inbounds nuw i32, ptr %1241, i64 %indvars.iv.i.i103
+  %1274 = getelementptr inbounds nuw [4 x i8], ptr %1241, i64 %indvars.iv.i.i103
   store i32 %.044285.sink.i.i, ptr %1274, align 4, !tbaa !85
   %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i103, 1
   %exitcond.not.i.i107 = icmp eq i64 %indvars.iv.next.i.i106, %1242
@@ -21396,7 +21368,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit.i.i235: ; preds = %1700, %
   %1713 = getelementptr inbounds nuw i8, ptr %1706, i64 16
   %1714 = load ptr, ptr %1713, align 8
   %1715 = select i1 %1712, ptr %1714, ptr null, !prof !95
-  %1716 = getelementptr inbounds i16, ptr %1715, i64 %1709
+  %1716 = getelementptr inbounds [2 x i8], ptr %1715, i64 %1709
   br label %_ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i.i
 
 _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i.i: ; preds = %1707, %1702
@@ -21439,7 +21411,7 @@ _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i.i: ; preds = %1707, %1702
 
 1736:                                             ; preds = %1725
   call void @llvm.lifetime.start.p0(ptr nonnull %128), !noalias !1090
-  %1737 = getelementptr inbounds nuw i16, ptr %.0.i.i.i.i163, i64 %1726
+  %1737 = getelementptr inbounds nuw [2 x i8], ptr %.0.i.i.i.i163, i64 %1726
   %1738 = load i16, ptr %1737, align 2, !tbaa !84
   store i16 %1738, ptr %128, align 2, !tbaa !84, !noalias !1090
   %1739 = icmp sgt i16 %1738, -1
@@ -21450,7 +21422,7 @@ _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i.i: ; preds = %1707, %1702
 1740:                                             ; preds = %1736
   %1741 = lshr i16 %1738, 6
   %.zext.us.i.i212 = zext nneg i16 %1741 to i64
-  %1742 = getelementptr inbounds nuw i64, ptr %1720, i64 %.zext.us.i.i212
+  %1742 = getelementptr inbounds nuw [8 x i8], ptr %1720, i64 %.zext.us.i.i212
   %1743 = and i16 %1738, 63
   %1744 = zext nneg i16 %1743 to i64
   %1745 = shl nuw i64 1, %1744
@@ -21552,7 +21524,7 @@ _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i.i: ; preds = %1707, %1702
 1791:                                             ; preds = %1788, %1783, %.noexc138.i.i222, %.noexc137.i.i223, %1760
   %.pre296345.i.i = phi i64 [ %storemerge284.i.i, %1760 ], [ %storemerge284.i.i, %1788 ], [ %.pre296.pre.i.i, %1783 ], [ %storemerge284.i.i, %.noexc138.i.i222 ], [ %storemerge284.i.i, %.noexc137.i.i223 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %128), !noalias !1090
-  %1792 = getelementptr inbounds i16, ptr %.0.i.i.i.i163, i64 %.pre296345.i.i
+  %1792 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i.i163, i64 %.pre296345.i.i
   %1793 = load i16, ptr %1792, align 2, !tbaa !84
   store i16 %1793, ptr %128, align 2, !tbaa !84, !noalias !1090
   %1794 = icmp sgt i16 %1793, -1
@@ -21611,7 +21583,7 @@ _ZN5arrow6Status10IndexErrorIJRA56_KcRsRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
 1810:                                             ; preds = %1791
   %1811 = lshr i16 %1793, 6
   %.zext.i.i220 = zext nneg i16 %1811 to i64
-  %1812 = getelementptr inbounds nuw i64, ptr %1720, i64 %.zext.i.i220
+  %1812 = getelementptr inbounds nuw [8 x i8], ptr %1720, i64 %.zext.i.i220
   %1813 = and i16 %1793, 63
   %1814 = zext nneg i16 %1813 to i64
   %1815 = shl nuw i64 1, %1814
@@ -21910,7 +21882,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit178.i.i: ; pre
   %.044288.i.i = phi i32 [ 0, %.lr.ph290.i.i ], [ %.145.i.i196, %1957 ]
   %1930 = lshr i64 %indvars.iv.i.i194, 6
   %.sext.i.i195 = and i64 %1930, 1023
-  %1931 = getelementptr inbounds nuw i64, ptr %1720, i64 %.sext.i.i195
+  %1931 = getelementptr inbounds nuw [8 x i8], ptr %1720, i64 %.sext.i.i195
   %1932 = and i64 %indvars.iv.i.i194, 63
   %1933 = shl nuw i64 1, %1932
   %1934 = load i64, ptr %1931, align 8, !tbaa !86
@@ -21949,7 +21921,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit178.i.i: ; pre
 1957:                                             ; preds = %1936, %1929
   %.044288.sink.i.i = phi i32 [ %.044288.i.i, %1936 ], [ -1, %1929 ]
   %.145.i.i196 = phi i32 [ %1956, %1936 ], [ %.044288.i.i, %1929 ]
-  %1958 = getelementptr inbounds nuw i32, ptr %1925, i64 %indvars.iv.i.i194
+  %1958 = getelementptr inbounds nuw [4 x i8], ptr %1925, i64 %indvars.iv.i.i194
   store i32 %.044288.sink.i.i, ptr %1958, align 4, !tbaa !85
   %indvars.iv.next.i.i197 = add nuw nsw i64 %indvars.iv.i.i194, 1
   %exitcond.not.i.i198 = icmp eq i64 %indvars.iv.next.i.i197, %wide.trip.count.i.i193
@@ -23076,7 +23048,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit.i.i356: ; preds = %2384, %
   %2397 = getelementptr inbounds nuw i8, ptr %2390, i64 16
   %2398 = load ptr, ptr %2397, align 8
   %2399 = select i1 %2396, ptr %2398, ptr null, !prof !95
-  %2400 = getelementptr inbounds i16, ptr %2399, i64 %2393
+  %2400 = getelementptr inbounds [2 x i8], ptr %2399, i64 %2393
   br label %_ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i.i
 
 _ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i.i: ; preds = %2391, %2386
@@ -23119,7 +23091,7 @@ _ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i.i: ; preds = %2391, %2386
 
 2420:                                             ; preds = %2409
   call void @llvm.lifetime.start.p0(ptr nonnull %105), !noalias !1162
-  %2421 = getelementptr inbounds nuw i16, ptr %.0.i.i.i.i267, i64 %2410
+  %2421 = getelementptr inbounds nuw [2 x i8], ptr %.0.i.i.i.i267, i64 %2410
   %2422 = load i16, ptr %2421, align 2, !tbaa !84
   store i16 %2422, ptr %105, align 2, !tbaa !84, !noalias !1162
   %.not.us.i.i319 = icmp ult i16 %2422, %2407
@@ -23128,7 +23100,7 @@ _ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i.i: ; preds = %2391, %2386
 2423:                                             ; preds = %2420
   %2424 = lshr i16 %2422, 6
   %.zext.us.i.i329 = zext nneg i16 %2424 to i64
-  %2425 = getelementptr inbounds nuw i64, ptr %2404, i64 %.zext.us.i.i329
+  %2425 = getelementptr inbounds nuw [8 x i8], ptr %2404, i64 %.zext.us.i.i329
   %2426 = and i16 %2422, 63
   %2427 = zext nneg i16 %2426 to i64
   %2428 = shl nuw i64 1, %2427
@@ -23230,7 +23202,7 @@ _ZNK5arrow9ArrayData9GetValuesItEEPKT_i.exit.i.i: ; preds = %2391, %2386
 2474:                                             ; preds = %2471, %2466, %.noexc137.i.i343, %.noexc136.i.i344, %2443
   %.pre297346.i.i = phi i64 [ %storemerge284.i.i335, %2443 ], [ %storemerge284.i.i335, %2471 ], [ %.pre297.pre.i.i, %2466 ], [ %storemerge284.i.i335, %.noexc137.i.i343 ], [ %storemerge284.i.i335, %.noexc136.i.i344 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %105), !noalias !1162
-  %2475 = getelementptr inbounds i16, ptr %.0.i.i.i.i267, i64 %.pre297346.i.i
+  %2475 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i.i267, i64 %.pre297346.i.i
   %2476 = load i16, ptr %2475, align 2, !tbaa !84
   store i16 %2476, ptr %105, align 2, !tbaa !84, !noalias !1162
   %.not.i.i339 = icmp ult i16 %2476, %2407
@@ -23287,7 +23259,7 @@ _ZN5arrow6Status10IndexErrorIJRA56_KcRtRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
 2492:                                             ; preds = %2474
   %2493 = lshr i16 %2476, 6
   %.zext.i.i340 = zext nneg i16 %2493 to i64
-  %2494 = getelementptr inbounds nuw i64, ptr %2404, i64 %.zext.i.i340
+  %2494 = getelementptr inbounds nuw [8 x i8], ptr %2404, i64 %.zext.i.i340
   %2495 = and i16 %2476, 63
   %2496 = zext nneg i16 %2495 to i64
   %2497 = shl nuw i64 1, %2496
@@ -23586,7 +23558,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit177.i.i: ; pre
   %.044288.i.i285 = phi i32 [ 0, %.lr.ph290.i.i283 ], [ %.145.i.i288, %2639 ]
   %2612 = lshr i64 %indvars.iv.i.i284, 6
   %.zext276.i.i = and i64 %2612, 1023
-  %2613 = getelementptr inbounds nuw i64, ptr %2404, i64 %.zext276.i.i
+  %2613 = getelementptr inbounds nuw [8 x i8], ptr %2404, i64 %.zext276.i.i
   %2614 = and i64 %indvars.iv.i.i284, 63
   %2615 = shl nuw i64 1, %2614
   %2616 = load i64, ptr %2613, align 8, !tbaa !86
@@ -23625,7 +23597,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit177.i.i: ; pre
 2639:                                             ; preds = %2618, %2611
   %.044288.sink.i.i287 = phi i32 [ %.044288.i.i285, %2618 ], [ -1, %2611 ]
   %.145.i.i288 = phi i32 [ %2638, %2618 ], [ %.044288.i.i285, %2611 ]
-  %2640 = getelementptr inbounds nuw i32, ptr %2607, i64 %indvars.iv.i.i284
+  %2640 = getelementptr inbounds nuw [4 x i8], ptr %2607, i64 %indvars.iv.i.i284
   store i32 %.044288.sink.i.i287, ptr %2640, align 4, !tbaa !85
   %indvars.iv.next.i.i289 = add nuw nsw i64 %indvars.iv.i.i284, 1
   %exitcond.not.i.i290 = icmp eq i64 %indvars.iv.next.i.i289, %2608
@@ -24752,7 +24724,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit.i.i537: ; preds = %3066, %
   %3079 = getelementptr inbounds nuw i8, ptr %3072, i64 16
   %3080 = load ptr, ptr %3079, align 8
   %3081 = select i1 %3078, ptr %3080, ptr null, !prof !95
-  %3082 = getelementptr inbounds i32, ptr %3081, i64 %3075
+  %3082 = getelementptr inbounds [4 x i8], ptr %3081, i64 %3075
   br label %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i
 
 _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i: ; preds = %3073, %3068
@@ -24795,7 +24767,7 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i: ; preds = %3073, %3068
 
 3102:                                             ; preds = %3091
   call void @llvm.lifetime.start.p0(ptr nonnull %82), !noalias !1234
-  %3103 = getelementptr inbounds nuw i32, ptr %.0.i.i.i.i388, i64 %3092
+  %3103 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.i388, i64 %3092
   %3104 = load i32, ptr %3103, align 4, !tbaa !85
   store i32 %3104, ptr %82, align 4, !tbaa !85, !noalias !1234
   %3105 = icmp sgt i32 %3104, -1
@@ -24806,7 +24778,7 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i: ; preds = %3073, %3068
 3106:                                             ; preds = %3102
   %3107 = lshr i32 %3104, 6
   %.zext.us.i.i502 = zext nneg i32 %3107 to i64
-  %3108 = getelementptr inbounds nuw i64, ptr %3086, i64 %.zext.us.i.i502
+  %3108 = getelementptr inbounds nuw [8 x i8], ptr %3086, i64 %.zext.us.i.i502
   %3109 = and i32 %3104, 63
   %3110 = zext nneg i32 %3109 to i64
   %3111 = shl nuw i64 1, %3110
@@ -24908,7 +24880,7 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i.i: ; preds = %3073, %3068
 3157:                                             ; preds = %3154, %3149, %.noexc138.i.i522, %.noexc137.i.i523, %3126
   %.pre297346.i.i517 = phi i64 [ %storemerge285.i.i, %3126 ], [ %storemerge285.i.i, %3154 ], [ %.pre297.pre.i.i525, %3149 ], [ %storemerge285.i.i, %.noexc138.i.i522 ], [ %storemerge285.i.i, %.noexc137.i.i523 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %82), !noalias !1234
-  %3158 = getelementptr inbounds i32, ptr %.0.i.i.i.i388, i64 %.pre297346.i.i517
+  %3158 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i.i388, i64 %.pre297346.i.i517
   %3159 = load i32, ptr %3158, align 4, !tbaa !85
   store i32 %3159, ptr %82, align 4, !tbaa !85, !noalias !1234
   %3160 = icmp sgt i32 %3159, -1
@@ -24967,7 +24939,7 @@ _ZN5arrow6Status10IndexErrorIJRA56_KcRiRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
 3176:                                             ; preds = %3157
   %3177 = lshr i32 %3159, 6
   %.zext.i.i520 = zext nneg i32 %3177 to i64
-  %3178 = getelementptr inbounds nuw i64, ptr %3086, i64 %.zext.i.i520
+  %3178 = getelementptr inbounds nuw [8 x i8], ptr %3086, i64 %.zext.i.i520
   %3179 = and i32 %3159, 63
   %3180 = zext nneg i32 %3179 to i64
   %3181 = shl nuw i64 1, %3180
@@ -25266,7 +25238,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit178.i.i426: ; 
   %.044289.i.i = phi i32 [ 0, %.lr.ph291.i.i ], [ %.145.i.i477, %3323 ]
   %3296 = lshr i64 %indvars.iv.i.i475, 6
   %.zext277.i.i = and i64 %3296, 67108863
-  %3297 = getelementptr inbounds nuw i64, ptr %3086, i64 %.zext277.i.i
+  %3297 = getelementptr inbounds nuw [8 x i8], ptr %3086, i64 %.zext277.i.i
   %3298 = and i64 %indvars.iv.i.i475, 63
   %3299 = shl nuw i64 1, %3298
   %3300 = load i64, ptr %3297, align 8, !tbaa !86
@@ -25305,7 +25277,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit178.i.i426: ; 
 3323:                                             ; preds = %3302, %3295
   %.044289.sink.i.i = phi i32 [ %.044289.i.i, %3302 ], [ -1, %3295 ]
   %.145.i.i477 = phi i32 [ %3322, %3302 ], [ %.044289.i.i, %3295 ]
-  %3324 = getelementptr inbounds nuw i32, ptr %3291, i64 %indvars.iv.i.i475
+  %3324 = getelementptr inbounds nuw [4 x i8], ptr %3291, i64 %indvars.iv.i.i475
   store i32 %.044289.sink.i.i, ptr %3324, align 4, !tbaa !85
   %indvars.iv.next.i.i478 = add nuw nsw i64 %indvars.iv.i.i475, 1
   %exitcond.not.i.i479 = icmp eq i64 %indvars.iv.next.i.i478, %wide.trip.count.i.i474
@@ -26432,7 +26404,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit.i.i729: ; preds = %3750, %
   %3763 = getelementptr inbounds nuw i8, ptr %3756, i64 16
   %3764 = load ptr, ptr %3763, align 8
   %3765 = select i1 %3762, ptr %3764, ptr null, !prof !95
-  %3766 = getelementptr inbounds i32, ptr %3765, i64 %3759
+  %3766 = getelementptr inbounds [4 x i8], ptr %3765, i64 %3759
   br label %_ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit.i.i
 
 _ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit.i.i: ; preds = %3757, %3752
@@ -26475,7 +26447,7 @@ _ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit.i.i: ; preds = %3757, %3752
 
 3786:                                             ; preds = %3775
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !1306
-  %3787 = getelementptr inbounds nuw i32, ptr %.0.i.i.i.i569, i64 %3776
+  %3787 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.i569, i64 %3776
   %3788 = load i32, ptr %3787, align 4, !tbaa !85
   store i32 %3788, ptr %59, align 4, !tbaa !85, !noalias !1306
   %.not.us.i.i678 = icmp ult i32 %3788, %3771
@@ -26484,7 +26456,7 @@ _ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit.i.i: ; preds = %3757, %3752
 3789:                                             ; preds = %3786
   %3790 = lshr i32 %3788, 6
   %.zext.us.i.i690 = zext nneg i32 %3790 to i64
-  %3791 = getelementptr inbounds nuw i64, ptr %3770, i64 %.zext.us.i.i690
+  %3791 = getelementptr inbounds nuw [8 x i8], ptr %3770, i64 %.zext.us.i.i690
   %3792 = and i32 %3788, 63
   %3793 = zext nneg i32 %3792 to i64
   %3794 = shl nuw i64 1, %3793
@@ -26586,7 +26558,7 @@ _ZNK5arrow9ArrayData9GetValuesIjEEPKT_i.exit.i.i: ; preds = %3757, %3752
 3840:                                             ; preds = %3837, %3832, %.noexc137.i.i714, %.noexc136.i.i715, %3809
   %.pre297346.i.i709 = phi i64 [ %storemerge284.i.i704, %3809 ], [ %storemerge284.i.i704, %3837 ], [ %.pre297.pre.i.i717, %3832 ], [ %storemerge284.i.i704, %.noexc137.i.i714 ], [ %storemerge284.i.i704, %.noexc136.i.i715 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !1306
-  %3841 = getelementptr inbounds i32, ptr %.0.i.i.i.i569, i64 %.pre297346.i.i709
+  %3841 = getelementptr inbounds [4 x i8], ptr %.0.i.i.i.i569, i64 %.pre297346.i.i709
   %3842 = load i32, ptr %3841, align 4, !tbaa !85
   store i32 %3842, ptr %59, align 4, !tbaa !85, !noalias !1306
   %.not.i.i710 = icmp ult i32 %3842, %3771
@@ -26643,7 +26615,7 @@ _ZN5arrow6Status10IndexErrorIJRA56_KcRjRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
 3858:                                             ; preds = %3840
   %3859 = lshr i32 %3842, 6
   %.zext.i.i711 = zext nneg i32 %3859 to i64
-  %3860 = getelementptr inbounds nuw i64, ptr %3770, i64 %.zext.i.i711
+  %3860 = getelementptr inbounds nuw [8 x i8], ptr %3770, i64 %.zext.i.i711
   %3861 = and i32 %3842, 63
   %3862 = zext nneg i32 %3861 to i64
   %3863 = shl nuw i64 1, %3862
@@ -26942,7 +26914,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit177.i.i608: ; 
   %.044288.i.i613 = phi i32 [ 0, %.lr.ph290.i.i610 ], [ %.145.i.i617, %4004 ]
   %3977 = lshr i64 %indvars.iv.i.i612, 6
   %.zext276.i.i614 = and i64 %3977, 67108863
-  %3978 = getelementptr inbounds nuw i64, ptr %3770, i64 %.zext276.i.i614
+  %3978 = getelementptr inbounds nuw [8 x i8], ptr %3770, i64 %.zext276.i.i614
   %3979 = and i64 %indvars.iv.i.i612, 63
   %3980 = shl nuw i64 1, %3979
   %3981 = load i64, ptr %3978, align 8, !tbaa !86
@@ -26981,7 +26953,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit177.i.i608: ; 
 4004:                                             ; preds = %3983, %3976
   %.044288.sink.i.i616 = phi i32 [ %.044288.i.i613, %3983 ], [ -1, %3976 ]
   %.145.i.i617 = phi i32 [ %4003, %3983 ], [ %.044288.i.i613, %3976 ]
-  %4005 = getelementptr inbounds nuw i32, ptr %3973, i64 %indvars.iv.i.i612
+  %4005 = getelementptr inbounds nuw [4 x i8], ptr %3973, i64 %indvars.iv.i.i612
   store i32 %.044288.sink.i.i616, ptr %4005, align 4, !tbaa !85
   %indvars.iv.next.i.i618 = add nuw nsw i64 %indvars.iv.i.i612, 1
   %exitcond.not.i.i619 = icmp eq i64 %indvars.iv.next.i.i618, %wide.trip.count.i.i611
@@ -28108,7 +28080,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit.i.i891: ; preds = %4431, %
   %4444 = getelementptr inbounds nuw i8, ptr %4437, i64 16
   %4445 = load ptr, ptr %4444, align 8
   %4446 = select i1 %4443, ptr %4445, ptr null, !prof !95
-  %4447 = getelementptr inbounds i64, ptr %4446, i64 %4440
+  %4447 = getelementptr inbounds [8 x i8], ptr %4446, i64 %4440
   br label %_ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i
 
 _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i: ; preds = %4438, %4433
@@ -28197,7 +28169,7 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i.i: ; preds = %4438, %4433
 4488:                                             ; preds = %4485, %4480, %.noexc138.i.i878, %.noexc137.i.i879, %4457
   %.pre333.i.i = phi i64 [ %storemerge283.i.i, %4457 ], [ %storemerge283.i.i, %4485 ], [ %.pre.pre.i.i, %4480 ], [ %storemerge283.i.i, %.noexc138.i.i878 ], [ %storemerge283.i.i, %.noexc137.i.i879 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !1378
-  %4489 = getelementptr inbounds i64, ptr %.0.i.i.i.i761, i64 %.pre333.i.i
+  %4489 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i761, i64 %.pre333.i.i
   %4490 = load i64, ptr %4489, align 8, !tbaa !86
   store i64 %4490, ptr %36, align 8, !tbaa !86, !noalias !1378
   %4491 = icmp sgt i64 %4490, -1
@@ -28255,7 +28227,7 @@ _ZN5arrow6Status10IndexErrorIJRA56_KcRlRA16_S2_S5_RA20_S2_S5_EEES0_DpOT_.exit.i.
 
 4508:                                             ; preds = %4488
   %4509 = lshr i64 %4490, 6
-  %4510 = getelementptr inbounds nuw i64, ptr %4451, i64 %4509
+  %4510 = getelementptr inbounds nuw [8 x i8], ptr %4451, i64 %4509
   %4511 = and i64 %4490, 63
   %4512 = shl nuw i64 1, %4511
   %4513 = load i64, ptr %4510, align 8, !tbaa !86
@@ -28551,7 +28523,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit178.i.i798: ; 
   %.043286.i.i = phi i64 [ 0, %.lr.ph287.i.i844 ], [ %4656, %4654 ]
   %.044285.i.i845 = phi i32 [ 0, %.lr.ph287.i.i844 ], [ %.145.i.i847, %4654 ]
   %4628 = lshr i64 %.043286.i.i, 6
-  %4629 = getelementptr inbounds nuw i64, ptr %4451, i64 %4628
+  %4629 = getelementptr inbounds nuw [8 x i8], ptr %4451, i64 %4628
   %4630 = and i64 %.043286.i.i, 63
   %4631 = shl nuw i64 1, %4630
   %4632 = load i64, ptr %4629, align 8, !tbaa !86
@@ -28589,7 +28561,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit178.i.i798: ; 
 4654:                                             ; preds = %4634, %4627
   %.044285.sink.i.i846 = phi i32 [ %.044285.i.i845, %4634 ], [ -1, %4627 ]
   %.145.i.i847 = phi i32 [ %4653, %4634 ], [ %.044285.i.i845, %4627 ]
-  %4655 = getelementptr inbounds nuw i32, ptr %4623, i64 %.043286.i.i
+  %4655 = getelementptr inbounds nuw [4 x i8], ptr %4623, i64 %.043286.i.i
   store i32 %.044285.sink.i.i846, ptr %4655, align 4, !tbaa !85
   %4656 = add nuw nsw i64 %.043286.i.i, 1
   %exitcond.not.i.i848 = icmp eq i64 %4656, %4262
@@ -29716,7 +29688,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit.i.i1053: ; preds = %5082, 
   %5095 = getelementptr inbounds nuw i8, ptr %5088, i64 16
   %5096 = load ptr, ptr %5095, align 8
   %5097 = select i1 %5094, ptr %5096, ptr null, !prof !95
-  %5098 = getelementptr inbounds i64, ptr %5097, i64 %5091
+  %5098 = getelementptr inbounds [8 x i8], ptr %5097, i64 %5091
   br label %_ZNK5arrow9ArrayData9GetValuesImEEPKT_i.exit.i.i
 
 _ZNK5arrow9ArrayData9GetValuesImEEPKT_i.exit.i.i: ; preds = %5089, %5084
@@ -29805,7 +29777,7 @@ _ZNK5arrow9ArrayData9GetValuesImEEPKT_i.exit.i.i: ; preds = %5089, %5084
 5139:                                             ; preds = %5136, %5131, %.noexc137.i.i1039, %.noexc136.i.i1040, %5108
   %.pre330.i.i = phi i64 [ %storemerge282.i.i, %5108 ], [ %storemerge282.i.i, %5136 ], [ %.pre.pre.i.i1041, %5131 ], [ %storemerge282.i.i, %.noexc137.i.i1039 ], [ %storemerge282.i.i, %.noexc136.i.i1040 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1449
-  %5140 = getelementptr inbounds i64, ptr %.0.i.i.i.i923, i64 %.pre330.i.i
+  %5140 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i923, i64 %.pre330.i.i
   %5141 = load i64, ptr %5140, align 8, !tbaa !86
   store i64 %5141, ptr %13, align 8, !tbaa !86, !noalias !1449
   %.not.i.i1018 = icmp ult i64 %5141, %4913
@@ -29861,7 +29833,7 @@ _ZN5arrow6Status10IndexErrorIJRA56_KcRmRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
 
 5158:                                             ; preds = %5139
   %5159 = sdiv i64 %5141, 64
-  %5160 = getelementptr inbounds i64, ptr %5102, i64 %5159
+  %5160 = getelementptr inbounds [8 x i8], ptr %5102, i64 %5159
   %5161 = and i64 %5141, -9223372036854775745
   %5162 = icmp ugt i64 %5161, -9223372036854775808
   %storemerge.idx.i.i.i.i.i141.i.i = select i1 %5162, i64 -8, i64 0
@@ -30157,7 +30129,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit177.i.i960: ; 
   %.043285.i.i = phi i64 [ 0, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit177.i.i960 ], [ %5310, %5308 ]
   %.044284.i.i961 = phi i32 [ 0, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit177.i.i960 ], [ %.145.i.i964, %5308 ]
   %5280 = sdiv i64 %.043285.i.i, 64
-  %5281 = getelementptr inbounds i64, ptr %5102, i64 %5280
+  %5281 = getelementptr inbounds [8 x i8], ptr %5102, i64 %5280
   %5282 = and i64 %.043285.i.i, -9223372036854775745
   %5283 = icmp ugt i64 %5282, -9223372036854775808
   %storemerge.idx.i.i.i.i.i178.i.i = select i1 %5283, i64 -8, i64 0
@@ -30199,7 +30171,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit177.i.i960: ; 
 5308:                                             ; preds = %5288, %5279
   %.044284.sink.i.i963 = phi i32 [ %.044284.i.i961, %5288 ], [ -1, %5279 ]
   %.145.i.i964 = phi i32 [ %5307, %5288 ], [ %.044284.i.i961, %5279 ]
-  %5309 = getelementptr inbounds nuw i32, ptr %5275, i64 %.043285.i.i
+  %5309 = getelementptr inbounds nuw [4 x i8], ptr %5275, i64 %.043285.i.i
   store i32 %.044284.sink.i.i963, ptr %5309, align 4, !tbaa !85
   %5310 = add nuw i64 %.043285.i.i, 1
   %exitcond.not.i.i965 = icmp eq i64 %5310, %4913
@@ -31445,7 +31417,7 @@ define linkonce_odr void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull al
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #28
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36949,7 +36921,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 1
-  %25 = getelementptr i16, ptr %19, i64 %24
+  %25 = getelementptr [2 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 2 %25, i8 0, i64 %22, i1 false), !tbaa !84
   br label %_ZN5arrow18TypedBufferBuilderIsvE12UnsafeAppendEls.exit
 
@@ -37075,7 +37047,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 1
-  %25 = getelementptr i16, ptr %19, i64 %24
+  %25 = getelementptr [2 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 2 %25, i8 0, i64 %22, i1 false), !tbaa !84
   br label %_ZN5arrow18TypedBufferBuilderIsvE12UnsafeAppendEls.exit
 
@@ -37095,8 +37067,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_9Int16TypeEE16AppendArray
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !1582
-  %11 = getelementptr inbounds i16, ptr %10, i64 %7
-  %12 = getelementptr inbounds i16, ptr %11, i64 %3
+  %11 = getelementptr inbounds [2 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [2 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !1582
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_9Int16TypeEE12AppendValuesEPKslPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)
@@ -38562,7 +38534,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 1
-  %25 = getelementptr i16, ptr %19, i64 %24
+  %25 = getelementptr [2 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 2 %25, i8 0, i64 %22, i1 false), !tbaa !84
   br label %_ZN5arrow18TypedBufferBuilderItvE12UnsafeAppendElt.exit
 
@@ -38688,7 +38660,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 1
-  %25 = getelementptr i16, ptr %19, i64 %24
+  %25 = getelementptr [2 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 2 %25, i8 0, i64 %22, i1 false), !tbaa !84
   br label %_ZN5arrow18TypedBufferBuilderItvE12UnsafeAppendElt.exit
 
@@ -38708,8 +38680,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_10UInt16TypeEE16AppendArr
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !1582
-  %11 = getelementptr inbounds i16, ptr %10, i64 %7
-  %12 = getelementptr inbounds i16, ptr %11, i64 %3
+  %11 = getelementptr inbounds [2 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [2 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !1582
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_10UInt16TypeEE12AppendValuesEPKtlPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)
@@ -40174,7 +40146,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 2
-  %25 = getelementptr i32, ptr %19, i64 %24
+  %25 = getelementptr [4 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %22, i1 false), !tbaa !85
   br label %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit
 
@@ -40300,7 +40272,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 2
-  %25 = getelementptr i32, ptr %19, i64 %24
+  %25 = getelementptr [4 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %22, i1 false), !tbaa !85
   br label %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit
 
@@ -40320,8 +40292,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_9Int32TypeEE16AppendArray
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !1582
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
-  %12 = getelementptr inbounds i32, ptr %11, i64 %3
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !1582
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_9Int32TypeEE12AppendValuesEPKilPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)
@@ -41785,7 +41757,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 2
-  %25 = getelementptr i32, ptr %19, i64 %24
+  %25 = getelementptr [4 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %22, i1 false), !tbaa !85
   br label %_ZN5arrow18TypedBufferBuilderIjvE12UnsafeAppendElj.exit
 
@@ -41911,7 +41883,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 2
-  %25 = getelementptr i32, ptr %19, i64 %24
+  %25 = getelementptr [4 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %22, i1 false), !tbaa !85
   br label %_ZN5arrow18TypedBufferBuilderIjvE12UnsafeAppendElj.exit
 
@@ -41931,8 +41903,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_10UInt32TypeEE16AppendArr
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !1582
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
-  %12 = getelementptr inbounds i32, ptr %11, i64 %3
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !1582
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_10UInt32TypeEE12AppendValuesEPKjlPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)
@@ -43395,7 +43367,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 3
-  %25 = getelementptr i64, ptr %19, i64 %24
+  %25 = getelementptr [8 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false), !tbaa !86
   br label %_ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit
 
@@ -43521,7 +43493,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 3
-  %25 = getelementptr i64, ptr %19, i64 %24
+  %25 = getelementptr [8 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false), !tbaa !86
   br label %_ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit
 
@@ -43541,8 +43513,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_9Int64TypeEE16AppendArray
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !1582
-  %11 = getelementptr inbounds i64, ptr %10, i64 %7
-  %12 = getelementptr inbounds i64, ptr %11, i64 %3
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !1582
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_9Int64TypeEE12AppendValuesEPKllPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)
@@ -45005,7 +44977,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 3
-  %25 = getelementptr i64, ptr %19, i64 %24
+  %25 = getelementptr [8 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false), !tbaa !86
   br label %_ZN5arrow18TypedBufferBuilderImvE12UnsafeAppendElm.exit
 
@@ -45131,7 +45103,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 3
-  %25 = getelementptr i64, ptr %19, i64 %24
+  %25 = getelementptr [8 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false), !tbaa !86
   br label %_ZN5arrow18TypedBufferBuilderImvE12UnsafeAppendElm.exit
 
@@ -45151,8 +45123,8 @@ define linkonce_odr void @_ZN5arrow14NumericBuilderINS_10UInt64TypeEE16AppendArr
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !1582
-  %11 = getelementptr inbounds i64, ptr %10, i64 %7
-  %12 = getelementptr inbounds i64, ptr %11, i64 %3
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %3
   %13 = load ptr, ptr %8, align 8, !tbaa !1582
   %14 = add nsw i64 %7, %3
   tail call void @_ZN5arrow14NumericBuilderINS_10UInt64TypeEE12AppendValuesEPKmlPKhl(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %12, i64 noundef %4, ptr noundef %13, i64 noundef %14)
@@ -46712,7 +46684,7 @@ define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11Boolea
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
   %12 = sub nsw i64 0, %11
-  %13 = getelementptr inbounds i64, ptr %7, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %7, i64 %12
   tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %10) #28
   store ptr null, ptr %3, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -46796,7 +46768,7 @@ define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11Boolea
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
   %12 = sub nsw i64 0, %11
-  %13 = getelementptr inbounds i64, ptr %7, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %7, i64 %12
   tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %10) #28
   store ptr null, ptr %3, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -47093,10 +47065,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %107 = and i8 %106, 7
   %108 = lshr i8 %105, %107
   %109 = trunc i8 %108 to i1
-  %110 = getelementptr inbounds nuw i32, ptr %87, i64 %.039103
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %.039103
   %.mask = and i8 %108, 1
   %111 = zext nneg i8 %.mask to i64
-  %112 = getelementptr inbounds nuw i32, ptr %92, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !85, !noalias !2270
   %114 = icmp eq i32 %113, -1
   br i1 %114, label %115, label %_ZN5arrow6StatusD2Ev.exit72
@@ -47333,7 +47305,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit78: ; preds = 
   %210 = trunc i8 %209 to i1
   %.mask101 = and i8 %209, 1
   %211 = zext nneg i8 %.mask101 to i64
-  %212 = getelementptr inbounds nuw i32, ptr %66, i64 %211
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %211
   %213 = load i32, ptr %212, align 4, !tbaa !85, !noalias !2279
   %214 = icmp eq i32 %213, -1
   br i1 %214, label %215, label %_ZN5arrow6StatusD2Ev.exit88
@@ -48685,7 +48657,7 @@ define linkonce_odr void @_ZN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTab
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #28
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -48717,7 +48689,7 @@ define linkonce_odr void @_ZN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTab
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #28
   br label %_ZN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEED2Ev.exit
 
@@ -48829,7 +48801,7 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %38 = sub i64 %37, %10
   %39 = ashr exact i64 %38, 3
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds i64, ptr %36, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %36, i64 %40
   tail call void @_ZdlPvm(ptr noundef %41, i64 noundef %38) #28
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
@@ -48840,7 +48812,7 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZNSt6vectorIbSaIb
   store ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, ptr %8, align 8
   store i32 %.sroa.55.0.lcssa.i.i.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %42 = lshr i64 %3, 6
-  %43 = getelementptr inbounds nuw i64, ptr %6, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %43, ptr %44, align 8, !tbaa !259
   ret void
@@ -48948,7 +48920,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %12
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 63
   %24 = lshr i64 %21, 6
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %24
   br label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i
 
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
@@ -49200,13 +49172,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
 136:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %137 = ashr exact i64 %60, 3
   %138 = sub nsw i64 0, %137
-  %139 = getelementptr inbounds i64, ptr %8, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %8, i64 %138
   tail call void @_ZdlPvm(ptr noundef %139, i64 noundef %60) #28
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %136
   %140 = lshr i64 %70, 6
-  %141 = getelementptr inbounds nuw i64, ptr %73, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %140
   store ptr %141, ptr %7, align 8, !tbaa !259
   store ptr %73, ptr %0, align 8
   %.sroa.588.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -49378,7 +49350,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %.noexc
 93:                                               ; preds = %46
   %94 = load ptr, ptr %24, align 8, !tbaa !257
   %95 = lshr i64 %.016, 6
-  %96 = getelementptr inbounds nuw i64, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %95
   %97 = and i64 %.016, 63
   %98 = shl nuw i64 1, %97
   %99 = load i64, ptr %96, align 8, !tbaa !86
@@ -50524,9 +50496,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %97 = load ptr, ptr %90, align 8, !tbaa !2376
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 %.039109
   %99 = load i8, ptr %98, align 1, !tbaa !83
-  %100 = getelementptr inbounds nuw i32, ptr %86, i64 %.039109
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %.039109
   %101 = zext i8 %99 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %91, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !85, !noalias !2378
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %105, label %_ZN5arrow6StatusD2Ev.exit73
@@ -50774,7 +50746,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit80: ; preds = 
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 %.037111
   %192 = load i8, ptr %191, align 1, !tbaa !83
   %193 = zext i8 %192 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %66, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !85, !noalias !2387
   %196 = icmp eq i32 %195, -1
   br i1 %196, label %197, label %_ZN5arrow6StatusD2Ev.exit95
@@ -53348,9 +53320,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %97 = load ptr, ptr %90, align 8, !tbaa !2457
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 %.039109
   %99 = load i8, ptr %98, align 1, !tbaa !83
-  %100 = getelementptr inbounds nuw i32, ptr %86, i64 %.039109
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %.039109
   %101 = zext i8 %99 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %91, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !85, !noalias !2459
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %105, label %_ZN5arrow6StatusD2Ev.exit73
@@ -53598,7 +53570,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit80: ; preds = 
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 %.037111
   %192 = load i8, ptr %191, align 1, !tbaa !83
   %193 = zext i8 %192 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %66, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !85, !noalias !2468
   %196 = icmp eq i32 %195, -1
   br i1 %196, label %197, label %_ZN5arrow6StatusD2Ev.exit95
@@ -56241,9 +56213,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039120 = phi i64 [ 0, %.lr.ph ], [ %137, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !2536
-  %101 = getelementptr inbounds nuw i16, ptr %100, i64 %.039120
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %.039120
   %102 = load i16, ptr %101, align 2, !tbaa !84
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039120
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039120
   %104 = sext i16 %102 to i64
   %105 = mul i64 %104, -7046029288634856825
   %106 = call noundef i64 @llvm.bswap.i64(i64 %105)
@@ -56259,7 +56231,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %108
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %112 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<short>::Payload>::Entry", ptr %107, i64 %storemerge.i.i.i.i
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %storemerge.i.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !2544, !noalias !2539
   %114 = icmp eq i64 %113, %110
   br i1 %114, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIsS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKsPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIsS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKsPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -56479,7 +56451,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 193:                                              ; preds = %.lr.ph123, %_ZN5arrow6StatusD2Ev.exit101
   %.037122 = phi i64 [ 0, %.lr.ph123 ], [ %225, %_ZN5arrow6StatusD2Ev.exit101 ]
   %194 = load ptr, ptr %68, align 8, !tbaa !2536
-  %195 = getelementptr inbounds nuw i16, ptr %194, i64 %.037122
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %194, i64 %.037122
   %196 = load i16, ptr %195, align 2, !tbaa !84
   %197 = sext i16 %196 to i64
   %198 = mul i64 %197, -7046029288634856825
@@ -56496,7 +56468,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %201
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %205 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<short>::Payload>::Entry", ptr %200, i64 %storemerge.i.i.i.i82
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %200, i64 %storemerge.i.i.i.i82
   %206 = load i64, ptr %205, align 8, !tbaa !2544, !noalias !2560
   %207 = icmp eq i64 %206, %203
   br i1 %207, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIsS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKsPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i96, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIsS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKsPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -58127,7 +58099,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<short>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !2544
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -58135,7 +58107,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !320
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<short>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !2544
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -58147,14 +58119,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<short>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !2544
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !2623
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<short>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !2624
   %.pre = load i64, ptr %1, align 8, !tbaa !311
   br label %47
@@ -58373,7 +58345,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIsNS0_9HashTableEE10CopyValuesEiPsENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZZNK5arrow8internal15ScalarMemoTableIsNS0_9HashTableEE10CopyValuesEiPsENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<short>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.06.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !2544
   %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIsNS0_9HashTableEE10CopyValuesEiPsENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %45
@@ -58389,7 +58361,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load i16, ptr %51, align 8, !tbaa !2633
   %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %53
   store i16 %52, ptr %54, align 2, !tbaa !84
   br label %_ZZNK5arrow8internal15ScalarMemoTableIsNS0_9HashTableEE10CopyValuesEiPsENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
 
@@ -58411,7 +58383,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIsS1_E7PayloadEE12VisitEntrie
 
 61:                                               ; preds = %58
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %37, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %62
   store i16 0, ptr %63, align 2, !tbaa !84
   br label %_ZNK5arrow8internal15ScalarMemoTableIsNS0_9HashTableEE10CopyValuesEiPs.exit
 
@@ -59567,9 +59539,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039120 = phi i64 [ 0, %.lr.ph ], [ %137, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !2661
-  %101 = getelementptr inbounds nuw i16, ptr %100, i64 %.039120
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %.039120
   %102 = load i16, ptr %101, align 2, !tbaa !84
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039120
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039120
   %104 = zext i16 %102 to i64
   %105 = mul i64 %104, -7046029288634856825
   %106 = call noundef i64 @llvm.bswap.i64(i64 %105)
@@ -59585,7 +59557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %108
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %112 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned short>::Payload>::Entry", ptr %107, i64 %storemerge.i.i.i.i
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %storemerge.i.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !2668, !noalias !2663
   %114 = icmp eq i64 %113, %110
   br i1 %114, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKtPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKtPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -59804,7 +59776,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 193:                                              ; preds = %.lr.ph123, %_ZN5arrow6StatusD2Ev.exit101
   %.037122 = phi i64 [ 0, %.lr.ph123 ], [ %225, %_ZN5arrow6StatusD2Ev.exit101 ]
   %194 = load ptr, ptr %68, align 8, !tbaa !2661
-  %195 = getelementptr inbounds nuw i16, ptr %194, i64 %.037122
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %194, i64 %.037122
   %196 = load i16, ptr %195, align 2, !tbaa !84
   %197 = zext i16 %196 to i64
   %198 = mul i64 %197, -7046029288634856825
@@ -59821,7 +59793,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %201
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %205 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned short>::Payload>::Entry", ptr %200, i64 %storemerge.i.i.i.i82
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %200, i64 %storemerge.i.i.i.i82
   %206 = load i64, ptr %205, align 8, !tbaa !2668, !noalias !2684
   %207 = icmp eq i64 %206, %203
   br i1 %207, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKtPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i96, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKtPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -61448,7 +61420,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned short>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !2668
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -61456,7 +61428,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !343
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned short>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !2668
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -61468,14 +61440,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned short>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !2668
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !2747
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned short>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !2624
   %.pre = load i64, ptr %1, align 8, !tbaa !334
   br label %47
@@ -61694,7 +61666,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableItNS0_9HashTableEE10CopyValuesEiPtENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZZNK5arrow8internal15ScalarMemoTableItNS0_9HashTableEE10CopyValuesEiPtENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned short>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.06.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !2668
   %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableItNS0_9HashTableEE10CopyValuesEiPtENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %45
@@ -61710,7 +61682,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load i16, ptr %51, align 8, !tbaa !2756
   %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %53
   store i16 %52, ptr %54, align 2, !tbaa !84
   br label %_ZZNK5arrow8internal15ScalarMemoTableItNS0_9HashTableEE10CopyValuesEiPtENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
 
@@ -61732,7 +61704,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12VisitEntrie
 
 61:                                               ; preds = %58
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %37, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %62
   store i16 0, ptr %63, align 2, !tbaa !84
   br label %_ZNK5arrow8internal15ScalarMemoTableItNS0_9HashTableEE10CopyValuesEiPt.exit
 
@@ -62991,9 +62963,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039120 = phi i64 [ 0, %.lr.ph ], [ %137, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !2784
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %.039120
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.039120
   %102 = load i32, ptr %101, align 4, !tbaa !85
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039120
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039120
   %104 = sext i32 %102 to i64
   %105 = mul i64 %104, -7046029288634856825
   %106 = call noundef i64 @llvm.bswap.i64(i64 %105)
@@ -63009,7 +62981,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %108
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %112 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %107, i64 %storemerge.i.i.i.i
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %storemerge.i.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !2792, !noalias !2787
   %114 = icmp eq i64 %113, %110
   br i1 %114, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -63229,7 +63201,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 193:                                              ; preds = %.lr.ph123, %_ZN5arrow6StatusD2Ev.exit101
   %.037122 = phi i64 [ 0, %.lr.ph123 ], [ %225, %_ZN5arrow6StatusD2Ev.exit101 ]
   %194 = load ptr, ptr %68, align 8, !tbaa !2784
-  %195 = getelementptr inbounds nuw i32, ptr %194, i64 %.037122
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %.037122
   %196 = load i32, ptr %195, align 4, !tbaa !85
   %197 = sext i32 %196 to i64
   %198 = mul i64 %197, -7046029288634856825
@@ -63246,7 +63218,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %201
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %205 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %200, i64 %storemerge.i.i.i.i82
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %200, i64 %storemerge.i.i.i.i82
   %206 = load i64, ptr %205, align 8, !tbaa !2792, !noalias !2808
   %207 = icmp eq i64 %206, %203
   br i1 %207, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i96, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -64874,7 +64846,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !2792
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -64882,7 +64854,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !366
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !2792
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -64894,14 +64866,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !2792
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !2871
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !2872
   %.pre = load i64, ptr %1, align 8, !tbaa !357
   br label %47
@@ -65120,7 +65092,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.06.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !2792
   %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %45
@@ -65136,7 +65108,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !2881
   %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !85
   br label %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
 
@@ -65158,7 +65130,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntrie
 
 61:                                               ; preds = %58
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %37, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %62
   store i32 0, ptr %63, align 4, !tbaa !85
   br label %_ZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPi.exit
 
@@ -66417,9 +66389,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039120 = phi i64 [ 0, %.lr.ph ], [ %137, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !2909
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %.039120
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.039120
   %102 = load i32, ptr %101, align 4, !tbaa !85
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039120
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039120
   %104 = zext i32 %102 to i64
   %105 = mul i64 %104, -7046029288634856825
   %106 = call noundef i64 @llvm.bswap.i64(i64 %105)
@@ -66435,7 +66407,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %108
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %112 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned int>::Payload>::Entry", ptr %107, i64 %storemerge.i.i.i.i
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %storemerge.i.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !2916, !noalias !2911
   %114 = icmp eq i64 %113, %110
   br i1 %114, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIjS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKjPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIjS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKjPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -66654,7 +66626,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 193:                                              ; preds = %.lr.ph123, %_ZN5arrow6StatusD2Ev.exit101
   %.037122 = phi i64 [ 0, %.lr.ph123 ], [ %225, %_ZN5arrow6StatusD2Ev.exit101 ]
   %194 = load ptr, ptr %68, align 8, !tbaa !2909
-  %195 = getelementptr inbounds nuw i32, ptr %194, i64 %.037122
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %.037122
   %196 = load i32, ptr %195, align 4, !tbaa !85
   %197 = zext i32 %196 to i64
   %198 = mul i64 %197, -7046029288634856825
@@ -66671,7 +66643,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %201
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %205 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned int>::Payload>::Entry", ptr %200, i64 %storemerge.i.i.i.i82
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %200, i64 %storemerge.i.i.i.i82
   %206 = load i64, ptr %205, align 8, !tbaa !2916, !noalias !2932
   %207 = icmp eq i64 %206, %203
   br i1 %207, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIjS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKjPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i96, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIjS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKjPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -68298,7 +68270,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned int>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !2916
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -68306,7 +68278,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !389
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned int>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !2916
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -68318,14 +68290,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned int>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !2916
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !2995
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned int>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !2872
   %.pre = load i64, ptr %1, align 8, !tbaa !380
   br label %47
@@ -68544,7 +68516,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIjNS0_9HashTableEE10CopyValuesEiPjENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZZNK5arrow8internal15ScalarMemoTableIjNS0_9HashTableEE10CopyValuesEiPjENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned int>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.06.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !2916
   %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIjNS0_9HashTableEE10CopyValuesEiPjENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %45
@@ -68560,7 +68532,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !3004
   %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !85
   br label %_ZZNK5arrow8internal15ScalarMemoTableIjNS0_9HashTableEE10CopyValuesEiPjENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
 
@@ -68582,7 +68554,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIjS1_E7PayloadEE12VisitEntrie
 
 61:                                               ; preds = %58
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %37, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %62
   store i32 0, ptr %63, align 4, !tbaa !85
   br label %_ZNK5arrow8internal15ScalarMemoTableIjNS0_9HashTableEE10CopyValuesEiPj.exit
 
@@ -69738,9 +69710,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039117 = phi i64 [ 0, %.lr.ph ], [ %136, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !3032
-  %101 = getelementptr inbounds nuw i64, ptr %100, i64 %.039117
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.039117
   %102 = load i64, ptr %101, align 8, !tbaa !86
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039117
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039117
   %104 = mul i64 %102, -7046029288634856825
   %105 = call noundef i64 @llvm.bswap.i64(i64 %104)
   %106 = load ptr, ptr %96, align 8, !tbaa !412, !noalias !3034
@@ -69755,7 +69727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %107
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %111 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %106, i64 %storemerge.i.i.i.i
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %storemerge.i.i.i.i
   %112 = load i64, ptr %111, align 8, !tbaa !3039, !noalias !3034
   %113 = icmp eq i64 %112, %109
   br i1 %113, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -69973,7 +69945,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 192:                                              ; preds = %.lr.ph120, %_ZN5arrow6StatusD2Ev.exit98
   %.037119 = phi i64 [ 0, %.lr.ph120 ], [ %223, %_ZN5arrow6StatusD2Ev.exit98 ]
   %193 = load ptr, ptr %68, align 8, !tbaa !3032
-  %194 = getelementptr inbounds nuw i64, ptr %193, i64 %.037119
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %.037119
   %195 = load i64, ptr %194, align 8, !tbaa !86
   %196 = mul i64 %195, -7046029288634856825
   %197 = call noundef i64 @llvm.bswap.i64(i64 %196)
@@ -69989,7 +69961,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %199
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %203 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %198, i64 %storemerge.i.i.i.i82
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %198, i64 %storemerge.i.i.i.i82
   %204 = load i64, ptr %203, align 8, !tbaa !3039, !noalias !3055
   %205 = icmp eq i64 %204, %201
   br i1 %205, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i93, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -71615,7 +71587,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !3039
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -71623,7 +71595,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !412
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !3039
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -71635,14 +71607,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !3039
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !3118
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !tbaa.struct !3119
   %.pre = load i64, ptr %1, align 8, !tbaa !403
   br label %47
@@ -71862,7 +71834,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %43 = phi i64 [ %39, %.lr.ph.i.i ], [ %56, %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %57, %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %44 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %.06.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !3039
   %.not.i.i = icmp eq i64 %45, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %46
@@ -71878,7 +71850,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !3128
   %54 = zext nneg i32 %49 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %37, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %54
   store i64 %53, ptr %55, align 8, !tbaa !86
   %.pre.i.i = load i64, ptr %38, align 8, !tbaa !403
   br label %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
@@ -71902,7 +71874,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntrie
 
 64:                                               ; preds = %61
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %37, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %65
   store i64 0, ptr %66, align 8, !tbaa !86
   br label %_ZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPl.exit
 
@@ -73161,9 +73133,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039117 = phi i64 [ 0, %.lr.ph ], [ %136, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !3156
-  %101 = getelementptr inbounds nuw i64, ptr %100, i64 %.039117
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.039117
   %102 = load i64, ptr %101, align 8, !tbaa !86
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039117
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039117
   %104 = mul i64 %102, -7046029288634856825
   %105 = call noundef i64 @llvm.bswap.i64(i64 %104)
   %106 = load ptr, ptr %96, align 8, !tbaa !435, !noalias !3158
@@ -73178,7 +73150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %107
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %111 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned long>::Payload>::Entry", ptr %106, i64 %storemerge.i.i.i.i
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %storemerge.i.i.i.i
   %112 = load i64, ptr %111, align 8, !tbaa !3163, !noalias !3158
   %113 = icmp eq i64 %112, %109
   br i1 %113, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableImS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKmPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableImS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKmPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -73396,7 +73368,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 192:                                              ; preds = %.lr.ph120, %_ZN5arrow6StatusD2Ev.exit98
   %.037119 = phi i64 [ 0, %.lr.ph120 ], [ %223, %_ZN5arrow6StatusD2Ev.exit98 ]
   %193 = load ptr, ptr %68, align 8, !tbaa !3156
-  %194 = getelementptr inbounds nuw i64, ptr %193, i64 %.037119
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %.037119
   %195 = load i64, ptr %194, align 8, !tbaa !86
   %196 = mul i64 %195, -7046029288634856825
   %197 = call noundef i64 @llvm.bswap.i64(i64 %196)
@@ -73412,7 +73384,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %199
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %203 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned long>::Payload>::Entry", ptr %198, i64 %storemerge.i.i.i.i82
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %198, i64 %storemerge.i.i.i.i82
   %204 = load i64, ptr %203, align 8, !tbaa !3163, !noalias !3179
   %205 = icmp eq i64 %204, %201
   br i1 %205, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableImS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKmPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i93, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableImS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKmPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -75038,7 +75010,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned long>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !3163
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -75046,7 +75018,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !435
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned long>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !3163
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -75058,14 +75030,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned long>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !3163
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !3242
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned long>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !tbaa.struct !3119
   %.pre = load i64, ptr %1, align 8, !tbaa !426
   br label %47
@@ -75285,7 +75257,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableImNS0_9HashTableEE10CopyValuesEiPmENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %43 = phi i64 [ %39, %.lr.ph.i.i ], [ %56, %_ZZNK5arrow8internal15ScalarMemoTableImNS0_9HashTableEE10CopyValuesEiPmENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %57, %_ZZNK5arrow8internal15ScalarMemoTableImNS0_9HashTableEE10CopyValuesEiPmENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %44 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned long>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %.06.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !3163
   %.not.i.i = icmp eq i64 %45, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableImNS0_9HashTableEE10CopyValuesEiPmENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %46
@@ -75301,7 +75273,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !3251
   %54 = zext nneg i32 %49 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %37, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %54
   store i64 %53, ptr %55, align 8, !tbaa !86
   %.pre.i.i = load i64, ptr %38, align 8, !tbaa !426
   br label %_ZZNK5arrow8internal15ScalarMemoTableImNS0_9HashTableEE10CopyValuesEiPmENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
@@ -75325,7 +75297,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableImS1_E7PayloadEE12VisitEntrie
 
 64:                                               ; preds = %61
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %37, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %65
   store i64 0, ptr %66, align 8, !tbaa !86
   br label %_ZNK5arrow8internal15ScalarMemoTableImNS0_9HashTableEE10CopyValuesEiPm.exit
 
@@ -76481,9 +76453,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039120 = phi i64 [ 0, %.lr.ph ], [ %137, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !3279
-  %101 = getelementptr inbounds nuw i16, ptr %100, i64 %.039120
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %.039120
   %102 = load i16, ptr %101, align 2, !tbaa !84
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039120
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039120
   %104 = zext i16 %102 to i64
   %105 = mul i64 %104, -7046029288634856825
   %106 = call noundef i64 @llvm.bswap.i64(i64 %105)
@@ -76499,7 +76471,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %108
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %112 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned short>::Payload>::Entry", ptr %107, i64 %storemerge.i.i.i.i
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %storemerge.i.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !2668, !noalias !3281
   %114 = icmp eq i64 %113, %110
   br i1 %114, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKtPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKtPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -76718,7 +76690,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 193:                                              ; preds = %.lr.ph123, %_ZN5arrow6StatusD2Ev.exit101
   %.037122 = phi i64 [ 0, %.lr.ph123 ], [ %225, %_ZN5arrow6StatusD2Ev.exit101 ]
   %194 = load ptr, ptr %68, align 8, !tbaa !3279
-  %195 = getelementptr inbounds nuw i16, ptr %194, i64 %.037122
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %194, i64 %.037122
   %196 = load i16, ptr %195, align 2, !tbaa !84
   %197 = zext i16 %196 to i64
   %198 = mul i64 %197, -7046029288634856825
@@ -76735,7 +76707,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %201
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %205 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned short>::Payload>::Entry", ptr %200, i64 %storemerge.i.i.i.i82
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %200, i64 %storemerge.i.i.i.i82
   %206 = load i64, ptr %205, align 8, !tbaa !2668, !noalias !3296
   %207 = icmp eq i64 %206, %203
   br i1 %207, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKtPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i96, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKtPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -78175,7 +78147,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableItNS0_9HashTableEE10CopyValuesEiPtENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZZNK5arrow8internal15ScalarMemoTableItNS0_9HashTableEE10CopyValuesEiPtENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<unsigned short>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.06.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !2668
   %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableItNS0_9HashTableEE10CopyValuesEiPtENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %45
@@ -78191,7 +78163,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load i16, ptr %51, align 8, !tbaa !2756
   %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %53
   store i16 %52, ptr %54, align 2, !tbaa !84
   br label %_ZZNK5arrow8internal15ScalarMemoTableItNS0_9HashTableEE10CopyValuesEiPtENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
 
@@ -78213,7 +78185,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12VisitEntrie
 
 61:                                               ; preds = %58
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %37, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %62
   store i16 0, ptr %63, align 2, !tbaa !84
   br label %_ZNK5arrow8internal15ScalarMemoTableItNS0_9HashTableEE10CopyValuesEiPt.exit
 
@@ -79242,9 +79214,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039118 = phi i64 [ 0, %.lr.ph ], [ %142, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !3366
-  %101 = getelementptr inbounds nuw float, ptr %100, i64 %.039118
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.039118
   %102 = load float, ptr %101, align 4, !tbaa !3369
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039118
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039118
   %.0.copyload.i.i.i.i.cast.i.i = bitcast float %102 to i32
   %104 = zext i32 %.0.copyload.i.i.i.i.cast.i.i to i64
   %105 = mul i64 %104, -7046029288634856825
@@ -79265,7 +79237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %111
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %116 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<float>::Payload>::Entry", ptr %110, i64 %storemerge.i.i.i.i
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %storemerge.i.i.i.i
   %117 = load i64, ptr %116, align 8, !tbaa !3376, !noalias !3371
   %118 = icmp eq i64 %117, %113
   br i1 %118, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIfS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKfPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIfS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKfPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -79485,7 +79457,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 198:                                              ; preds = %.lr.ph121, %_ZN5arrow6StatusD2Ev.exit100
   %.037120 = phi i64 [ 0, %.lr.ph121 ], [ %235, %_ZN5arrow6StatusD2Ev.exit100 ]
   %199 = load ptr, ptr %68, align 8, !tbaa !3366
-  %200 = getelementptr inbounds nuw float, ptr %199, i64 %.037120
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %.037120
   %201 = load float, ptr %200, align 4, !tbaa !3369
   %.0.copyload.i.i.i.i.cast.i.i80 = bitcast float %201 to i32
   %202 = zext i32 %.0.copyload.i.i.i.i.cast.i.i80 to i64
@@ -79507,7 +79479,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i83 = and i64 %.pn.i.i.i.i81, %209
   %.0.in.i.i.i.i84 = lshr i64 %.0.in.in.i.i.i.i82, 5
   %.0.i.i.i.i85 = add nuw nsw i64 %.0.in.i.i.i.i84, 1
-  %214 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<float>::Payload>::Entry", ptr %208, i64 %storemerge.i.i.i.i83
+  %214 = getelementptr inbounds nuw [16 x i8], ptr %208, i64 %storemerge.i.i.i.i83
   %215 = load i64, ptr %214, align 8, !tbaa !3376, !noalias !3392
   %216 = icmp eq i64 %215, %211
   br i1 %216, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIfS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKfPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i94, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIfS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKfPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i86
@@ -81239,9 +81211,9 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit:          ; preds = %5, %60
 
 126:                                              ; preds = %120, %126
   %.0.i51 = phi i64 [ 0, %120 ], [ %142, %126 ]
-  %127 = getelementptr inbounds nuw <2 x i64>, ptr %122, i64 %.0.i51
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %.0.i51
   %128 = load <2 x i64>, ptr %127, align 1, !tbaa !83, !noalias !3441
-  %129 = getelementptr inbounds nuw <2 x i64>, ptr %125, i64 %.0.i51
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 %.0.i51
   %130 = load <2 x i64>, ptr %129, align 8, !tbaa !83, !noalias !3441
   %131 = xor <2 x i64> %130, %128
   %132 = bitcast <2 x i64> %131 to <4 x i32>
@@ -81251,7 +81223,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit:          ; preds = %5, %60
   %135 = bitcast <4 x i32> %.inner to <2 x i64>
   %136 = mul nuw <2 x i64> %133, %135
   %137 = shufflevector <2 x i64> %128, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %138 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i51
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.0.i51
   %139 = load <2 x i64>, ptr %138, align 16, !tbaa !83, !alias.scope !3441, !noalias !3444
   %140 = add <2 x i64> %139, %137
   %141 = add <2 x i64> %140, %136
@@ -81271,10 +81243,10 @@ _ZL20XXH3_accumulate_sse2PmPKhS1_m.exit39.i:      ; preds = %_ZL24XXH3_accumulat
 
 144:                                              ; preds = %_ZL20XXH3_accumulate_sse2PmPKhS1_m.exit39.i, %144
   %.0.i40.i3 = phi i64 [ 0, %_ZL20XXH3_accumulate_sse2PmPKhS1_m.exit39.i ], [ %159, %144 ]
-  %145 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i40.i3
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.0.i40.i3
   %146 = load <2 x i64>, ptr %145, align 16, !tbaa !83, !alias.scope !3452, !noalias !3455
   %147 = lshr <2 x i64> %146, splat (i64 47)
-  %148 = getelementptr inbounds nuw <2 x i64>, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 72), i64 %.0.i40.i3
+  %148 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 72), i64 %.0.i40.i3
   %149 = load <2 x i64>, ptr %148, align 8, !tbaa !83, !noalias !3449
   %150 = xor <2 x i64> %149, %147
   %151 = xor <2 x i64> %150, %146
@@ -81317,9 +81289,9 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %144
 
 170:                                              ; preds = %.lr.ph8, %170
   %.0.i65 = phi i64 [ 0, %.lr.ph8 ], [ %186, %170 ]
-  %171 = getelementptr inbounds nuw <2 x i64>, ptr %166, i64 %.0.i65
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %166, i64 %.0.i65
   %172 = load <2 x i64>, ptr %171, align 1, !tbaa !83, !noalias !3461
-  %173 = getelementptr inbounds nuw <2 x i64>, ptr %169, i64 %.0.i65
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %.0.i65
   %174 = load <2 x i64>, ptr %173, align 8, !tbaa !83, !noalias !3461
   %175 = xor <2 x i64> %174, %172
   %176 = bitcast <2 x i64> %175 to <4 x i32>
@@ -81329,7 +81301,7 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %144
   %179 = bitcast <4 x i32> %.inner1 to <2 x i64>
   %180 = mul nuw <2 x i64> %177, %179
   %181 = shufflevector <2 x i64> %172, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %182 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i65
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.0.i65
   %183 = load <2 x i64>, ptr %182, align 16, !tbaa !83, !alias.scope !3461, !noalias !3464
   %184 = add <2 x i64> %183, %181
   %185 = add <2 x i64> %184, %180
@@ -81351,9 +81323,9 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds =
 
 190:                                              ; preds = %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, %190
   %.0.i89 = phi i64 [ 0, %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit ], [ %206, %190 ]
-  %191 = getelementptr inbounds nuw <2 x i64>, ptr %189, i64 %.0.i89
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %189, i64 %.0.i89
   %192 = load <2 x i64>, ptr %191, align 1, !tbaa !83, !noalias !3467
-  %193 = getelementptr inbounds nuw <2 x i64>, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 65), i64 %.0.i89
+  %193 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 65), i64 %.0.i89
   %194 = load <2 x i64>, ptr %193, align 1, !tbaa !83, !noalias !3467
   %195 = xor <2 x i64> %194, %192
   %196 = bitcast <2 x i64> %195 to <4 x i32>
@@ -81363,7 +81335,7 @@ _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds =
   %199 = bitcast <4 x i32> %.inner2 to <2 x i64>
   %200 = mul nuw <2 x i64> %197, %199
   %201 = shufflevector <2 x i64> %192, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %202 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i89
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.0.i89
   %203 = load <2 x i64>, ptr %202, align 16, !tbaa !83, !alias.scope !3467, !noalias !3470
   %204 = add <2 x i64> %203, %201
   %205 = add <2 x i64> %204, %200
@@ -81599,7 +81571,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<float>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !3376
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -81607,7 +81579,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !472
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<float>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !3376
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -81619,14 +81591,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<float>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !3376
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !3505
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<float>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !3506
   %.pre = load i64, ptr %1, align 8, !tbaa !463
   br label %47
@@ -81845,7 +81817,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIfNS0_9HashTableEE10CopyValuesEiPfENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZZNK5arrow8internal15ScalarMemoTableIfNS0_9HashTableEE10CopyValuesEiPfENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<float>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.06.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !3376
   %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIfNS0_9HashTableEE10CopyValuesEiPfENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %45
@@ -81861,7 +81833,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load float, ptr %51, align 8, !tbaa !3515
   %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr inbounds nuw float, ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %53
   store float %52, ptr %54, align 4, !tbaa !3369
   br label %_ZZNK5arrow8internal15ScalarMemoTableIfNS0_9HashTableEE10CopyValuesEiPfENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
 
@@ -81883,7 +81855,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIfS1_E7PayloadEE12VisitEntrie
 
 61:                                               ; preds = %58
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw float, ptr %37, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %62
   store float 0.000000e+00, ptr %63, align 4, !tbaa !3369
   br label %_ZNK5arrow8internal15ScalarMemoTableIfNS0_9HashTableEE10CopyValuesEiPf.exit
 
@@ -83039,9 +83011,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039118 = phi i64 [ 0, %.lr.ph ], [ %144, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !3543
-  %101 = getelementptr inbounds nuw double, ptr %100, i64 %.039118
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.039118
   %102 = load double, ptr %101, align 8, !tbaa !3546
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039118
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039118
   %104 = bitcast double %102 to i64
   %105 = lshr i64 %104, 32
   %106 = mul i64 %105, -7046029288634856825
@@ -83063,7 +83035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %113
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %118 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<double>::Payload>::Entry", ptr %112, i64 %storemerge.i.i.i.i
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %112, i64 %storemerge.i.i.i.i
   %119 = load i64, ptr %118, align 8, !tbaa !3552, !noalias !3547
   %120 = icmp eq i64 %119, %115
   br i1 %120, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIdS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKdPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIdS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKdPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -83283,7 +83255,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 200:                                              ; preds = %.lr.ph121, %_ZN5arrow6StatusD2Ev.exit99
   %.037120 = phi i64 [ 0, %.lr.ph121 ], [ %239, %_ZN5arrow6StatusD2Ev.exit99 ]
   %201 = load ptr, ptr %68, align 8, !tbaa !3543
-  %202 = getelementptr inbounds nuw double, ptr %201, i64 %.037120
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %.037120
   %203 = load double, ptr %202, align 8, !tbaa !3546
   %204 = bitcast double %203 to i64
   %205 = lshr i64 %204, 32
@@ -83306,7 +83278,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %213
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %218 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<double>::Payload>::Entry", ptr %212, i64 %storemerge.i.i.i.i82
+  %218 = getelementptr inbounds nuw [24 x i8], ptr %212, i64 %storemerge.i.i.i.i82
   %219 = load i64, ptr %218, align 8, !tbaa !3552, !noalias !3568
   %220 = icmp eq i64 %219, %215
   br i1 %220, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIdS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKdPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i93, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIdS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKdPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -84934,7 +84906,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<double>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !3552
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -84942,7 +84914,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !495
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<double>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !3552
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -84954,14 +84926,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<double>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !3552
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !3631
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<double>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !tbaa.struct !3632
   %.pre = load i64, ptr %1, align 8, !tbaa !486
   br label %47
@@ -85180,7 +85152,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIdNS0_9HashTableEE10CopyValuesEiPdENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZZNK5arrow8internal15ScalarMemoTableIdNS0_9HashTableEE10CopyValuesEiPdENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<double>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %.06.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !3552
   %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIdNS0_9HashTableEE10CopyValuesEiPdENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %45
@@ -85196,7 +85168,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load double, ptr %51, align 8, !tbaa !3641
   %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr inbounds nuw double, ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %53
   store double %52, ptr %54, align 8, !tbaa !3546
   br label %_ZZNK5arrow8internal15ScalarMemoTableIdNS0_9HashTableEE10CopyValuesEiPdENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
 
@@ -85218,7 +85190,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIdS1_E7PayloadEE12VisitEntrie
 
 61:                                               ; preds = %58
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw double, ptr %37, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %62
   store double 0.000000e+00, ptr %63, align 8, !tbaa !3546
   br label %_ZNK5arrow8internal15ScalarMemoTableIdNS0_9HashTableEE10CopyValuesEiPd.exit
 
@@ -86436,7 +86408,7 @@ _ZN5arrow6StatusD2Ev.exit84.lr.ph:                ; preds = %.preheader
   %.049100 = phi i64 [ 0, %.lr.ph ], [ %107, %106 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %112 = load ptr, ptr %104, align 8, !tbaa !3689
-  %113 = getelementptr inbounds nuw i32, ptr %112, i64 %.049100
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %.049100
   %114 = load i32, ptr %113, align 4, !tbaa !85
   %115 = load ptr, ptr %105, align 8, !tbaa !3691
   %116 = sext i32 %114 to i64
@@ -86444,7 +86416,7 @@ _ZN5arrow6StatusD2Ev.exit84.lr.ph:                ; preds = %.preheader
   %118 = getelementptr i8, ptr %113, i64 4
   %119 = load i32, ptr %118, align 4, !tbaa !85
   %120 = sub nsw i32 %119, %114
-  %121 = getelementptr inbounds nuw i32, ptr %99, i64 %.049100
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.049100
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3692
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !3692
   invoke void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEE11GetOrInsertIZNS3_11GetOrInsertEPKviPiEUliE_ZNS3_11GetOrInsertES6_iS7_EUliE0_EENS_6StatusES6_iOT_OT0_S7_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %15, ptr noundef nonnull align 8 dereferenceable(356) %103, ptr noundef %117, i32 noundef %120, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %121)
@@ -86611,7 +86583,7 @@ _ZN5arrow6StatusD2Ev.exit84:                      ; preds = %_ZN5arrow6StatusD2E
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %178 = load ptr, ptr %73, align 8, !tbaa !3689
-  %179 = getelementptr inbounds nuw i32, ptr %178, i64 %.044102
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %.044102
   %180 = load i32, ptr %179, align 4, !tbaa !85
   %181 = load ptr, ptr %74, align 8, !tbaa !3691
   %182 = sext i32 %180 to i64
@@ -89000,11 +88972,11 @@ define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE16Append
   %14 = load i64, ptr %13, align 8, !tbaa !1581
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !1582
-  %17 = getelementptr inbounds i32, ptr %16, i64 %14
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %14
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !1582
-  %20 = getelementptr i32, ptr %17, i64 %3
-  %21 = getelementptr i32, ptr %20, i64 %4
+  %20 = getelementptr [4 x i8], ptr %17, i64 %3
+  %21 = getelementptr [4 x i8], ptr %20, i64 %4
   %22 = load i32, ptr %21, align 4, !tbaa !85
   %23 = load i32, ptr %20, align 4, !tbaa !85
   %24 = sub nsw i32 %22, %23
@@ -89147,7 +89119,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
 
 70:                                               ; preds = %._crit_edge49, %59
   %71 = phi i64 [ %.pre, %._crit_edge49 ], [ %.pre50, %59 ]
-  %72 = getelementptr i32, ptr %20, i64 %.03448
+  %72 = getelementptr [4 x i8], ptr %20, i64 %.03448
   %73 = load i32, ptr %72, align 4, !tbaa !85
   %74 = getelementptr i8, ptr %72, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !85
@@ -90254,7 +90226,7 @@ _ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit.thread: ; preds = %16, %_
   %storemerge.i.i.i = and i64 %.pn.i.i.i, %60
   %.0.in.i.i.i = lshr i64 %.0.in.in.i.i.i, 5
   %.0.i.i.i = add nuw nsw i64 %.0.in.i.i.i, 1
-  %72 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::BinaryBuilder>::Payload>::Entry", ptr %59, i64 %storemerge.i.i.i
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %storemerge.i.i.i
   %73 = load i64, ptr %72, align 8, !tbaa !3861
   %74 = icmp eq i64 %73, %58
   br i1 %74, label %75, label %92
@@ -90263,7 +90235,7 @@ _ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit.thread: ; preds = %16, %_
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %77 = load i32, ptr %76, align 4, !tbaa !3864
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i32, ptr %65, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %65, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !85
   %81 = icmp eq i64 %67, %78
   br i1 %81, label %_ZNK5arrow17BaseBinaryBuilderINS_10BinaryTypeEE7GetViewEl.exit.i.i.i.i.i, label %82
@@ -90578,7 +90550,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::BinaryBuilder>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !3861
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -90586,7 +90558,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !3745
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::BinaryBuilder>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !3861
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -90598,14 +90570,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::BinaryBuilder>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !3861
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !3916
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::BinaryBuilder>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !3917
   %.pre = load i64, ptr %1, align 8, !tbaa !3736
   br label %47
@@ -90814,7 +90786,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_10StringTypeEv
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %29
-  %50 = getelementptr inbounds i32, ptr %44, i64 %45
+  %50 = getelementptr inbounds [4 x i8], ptr %44, i64 %45
   %51 = load i32, ptr %50, align 4, !tbaa !85
   br label %52
 
@@ -90833,7 +90805,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_10StringTypeEv
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc45
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc45 ], [ %45, %.noexc ]
   %.017.i = phi ptr [ %66, %.noexc45 ], [ %41, %.noexc ]
-  %59 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv.i
+  %59 = getelementptr inbounds [4 x i8], ptr %44, i64 %indvars.iv.i
   %60 = load i32, ptr %59, align 4, !tbaa !85
   %61 = sub nsw i32 %60, %53
   store i32 %61, ptr %.017.i, align 4, !tbaa !85
@@ -90909,7 +90881,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_10StringTypeEv
   %93 = load ptr, ptr %92, align 8
   %94 = select i1 %91, ptr %93, ptr null, !prof !95
   %95 = load ptr, ptr %43, align 8, !tbaa !309
-  %96 = getelementptr inbounds i32, ptr %95, i64 %45
+  %96 = getelementptr inbounds [4 x i8], ptr %95, i64 %45
   %97 = load i32, ptr %96, align 4, !tbaa !85
   %98 = load i64, ptr %69, align 8, !tbaa !993
   %99 = sext i32 %97 to i64
@@ -92108,7 +92080,7 @@ _ZN5arrow6StatusD2Ev.exit82.lr.ph:                ; preds = %.preheader
 109:                                              ; preds = %107
   %110 = extractvalue { i64, ptr } %108, 0
   %111 = extractvalue { i64, ptr } %108, 1
-  %112 = getelementptr inbounds nuw i32, ptr %97, i64 %.04998
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %.04998
   %113 = trunc i64 %110 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3961
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !3961
@@ -94061,7 +94033,7 @@ define linkonce_odr void @_ZNK5arrow8internal15BinaryMemoTableINS_13BinaryBuilde
 14:                                               ; preds = %.lr.ph, %_ZZN5arrow8internal16DictionaryTraitsINS_14StringViewTypeEvE22GetDictionaryArrayDataEPNS_10MemoryPoolERKSt10shared_ptrINS_8DataTypeEERKNS0_15BinaryMemoTableINS_13BinaryBuilderEEElENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESJ_.exit
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %_ZZN5arrow8internal16DictionaryTraitsINS_14StringViewTypeEvE22GetDictionaryArrayDataEPNS_10MemoryPoolERKSt10shared_ptrINS_8DataTypeEERKNS0_15BinaryMemoTableINS_13BinaryBuilderEEElENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESJ_.exit ]
   %15 = load ptr, ptr %9, align 8, !tbaa !309
-  %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds [4 x i8], ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !85
   %18 = load i64, ptr %10, align 8, !tbaa !1533
   %19 = add nsw i64 %18, -1
@@ -94671,7 +94643,7 @@ _ZN5arrow6StatusD2Ev.exit84.lr.ph:                ; preds = %.preheader
   %.049100 = phi i64 [ 0, %.lr.ph ], [ %107, %106 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %112 = load ptr, ptr %104, align 8, !tbaa !3689
-  %113 = getelementptr inbounds nuw i32, ptr %112, i64 %.049100
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %.049100
   %114 = load i32, ptr %113, align 4, !tbaa !85
   %115 = load ptr, ptr %105, align 8, !tbaa !3691
   %116 = sext i32 %114 to i64
@@ -94679,7 +94651,7 @@ _ZN5arrow6StatusD2Ev.exit84.lr.ph:                ; preds = %.preheader
   %118 = getelementptr i8, ptr %113, i64 4
   %119 = load i32, ptr %118, align 4, !tbaa !85
   %120 = sub nsw i32 %119, %114
-  %121 = getelementptr inbounds nuw i32, ptr %99, i64 %.049100
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.049100
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !4059
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4059
   invoke void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEE11GetOrInsertIZNS3_11GetOrInsertEPKviPiEUliE_ZNS3_11GetOrInsertES6_iS7_EUliE0_EENS_6StatusES6_iOT_OT0_S7_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %15, ptr noundef nonnull align 8 dereferenceable(356) %103, ptr noundef %117, i32 noundef %120, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %121)
@@ -94846,7 +94818,7 @@ _ZN5arrow6StatusD2Ev.exit84:                      ; preds = %_ZN5arrow6StatusD2E
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %178 = load ptr, ptr %73, align 8, !tbaa !3689
-  %179 = getelementptr inbounds nuw i32, ptr %178, i64 %.044102
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %.044102
   %180 = load i32, ptr %179, align 4, !tbaa !85
   %181 = load ptr, ptr %74, align 8, !tbaa !3691
   %182 = sext i32 %180 to i64
@@ -96244,7 +96216,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_10BinaryTypeEv
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %29
-  %50 = getelementptr inbounds i32, ptr %44, i64 %45
+  %50 = getelementptr inbounds [4 x i8], ptr %44, i64 %45
   %51 = load i32, ptr %50, align 4, !tbaa !85
   br label %52
 
@@ -96263,7 +96235,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_10BinaryTypeEv
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc45
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc45 ], [ %45, %.noexc ]
   %.017.i = phi ptr [ %66, %.noexc45 ], [ %41, %.noexc ]
-  %59 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv.i
+  %59 = getelementptr inbounds [4 x i8], ptr %44, i64 %indvars.iv.i
   %60 = load i32, ptr %59, align 4, !tbaa !85
   %61 = sub nsw i32 %60, %53
   store i32 %61, ptr %.017.i, align 4, !tbaa !85
@@ -96339,7 +96311,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_10BinaryTypeEv
   %93 = load ptr, ptr %92, align 8
   %94 = select i1 %91, ptr %93, ptr null, !prof !95
   %95 = load ptr, ptr %43, align 8, !tbaa !309
-  %96 = getelementptr inbounds i32, ptr %95, i64 %45
+  %96 = getelementptr inbounds [4 x i8], ptr %95, i64 %45
   %97 = load i32, ptr %96, align 4, !tbaa !85
   %98 = load i64, ptr %69, align 8, !tbaa !993
   %99 = sext i32 %97 to i64
@@ -97308,7 +97280,7 @@ _ZN5arrow6StatusD2Ev.exit82.lr.ph:                ; preds = %.preheader
 109:                                              ; preds = %107
   %110 = extractvalue { i64, ptr } %108, 0
   %111 = extractvalue { i64, ptr } %108, 1
-  %112 = getelementptr inbounds nuw i32, ptr %97, i64 %.04998
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %.04998
   %113 = trunc i64 %110 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !4135
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4135
@@ -99197,7 +99169,7 @@ define linkonce_odr void @_ZNK5arrow8internal15BinaryMemoTableINS_13BinaryBuilde
 14:                                               ; preds = %.lr.ph, %_ZZN5arrow8internal16DictionaryTraitsINS_14BinaryViewTypeEvE22GetDictionaryArrayDataEPNS_10MemoryPoolERKSt10shared_ptrINS_8DataTypeEERKNS0_15BinaryMemoTableINS_13BinaryBuilderEEElENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESJ_.exit
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %_ZZN5arrow8internal16DictionaryTraitsINS_14BinaryViewTypeEvE22GetDictionaryArrayDataEPNS_10MemoryPoolERKSt10shared_ptrINS_8DataTypeEERKNS0_15BinaryMemoTableINS_13BinaryBuilderEEElENKUlSt17basic_string_viewIcSt11char_traitsIcEEE_clESJ_.exit ]
   %15 = load ptr, ptr %9, align 8, !tbaa !309
-  %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds [4 x i8], ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !85
   %18 = load i64, ptr %10, align 8, !tbaa !1533
   %19 = add nsw i64 %18, -1
@@ -99812,14 +99784,14 @@ _ZN5arrow6StatusD2Ev.exit84.lr.ph:                ; preds = %.preheader
   %.049100 = phi i64 [ 0, %.lr.ph ], [ %107, %106 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %112 = load ptr, ptr %104, align 8, !tbaa !4224
-  %113 = getelementptr inbounds nuw i64, ptr %112, i64 %.049100
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.049100
   %114 = load i64, ptr %113, align 8, !tbaa !86
   %115 = load ptr, ptr %105, align 8, !tbaa !4226
   %116 = getelementptr inbounds i8, ptr %115, i64 %114
   %117 = getelementptr i8, ptr %113, i64 8
   %118 = load i64, ptr %117, align 8, !tbaa !86
   %119 = sub nsw i64 %118, %114
-  %120 = getelementptr inbounds nuw i32, ptr %99, i64 %.049100
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.049100
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !4227
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4227
   invoke void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEE11GetOrInsertIZNS3_11GetOrInsertEPKvlPiEUliE_ZNS3_11GetOrInsertES6_lS7_EUliE0_EENS_6StatusES6_lOT_OT0_S7_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %15, ptr noundef nonnull align 8 dereferenceable(356) %103, ptr noundef %116, i64 noundef %119, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %120)
@@ -99986,7 +99958,7 @@ _ZN5arrow6StatusD2Ev.exit84:                      ; preds = %_ZN5arrow6StatusD2E
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %177 = load ptr, ptr %73, align 8, !tbaa !4224
-  %178 = getelementptr inbounds nuw i64, ptr %177, i64 %.044102
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %.044102
   %179 = load i64, ptr %178, align 8, !tbaa !86
   %180 = load ptr, ptr %74, align 8, !tbaa !4226
   %181 = getelementptr inbounds i8, ptr %180, i64 %179
@@ -102370,11 +102342,11 @@ define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE16A
   %14 = load i64, ptr %13, align 8, !tbaa !1581
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !1582
-  %17 = getelementptr inbounds i64, ptr %16, i64 %14
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %14
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !1582
-  %20 = getelementptr i64, ptr %17, i64 %3
-  %21 = getelementptr i64, ptr %20, i64 %4
+  %20 = getelementptr [8 x i8], ptr %17, i64 %3
+  %21 = getelementptr [8 x i8], ptr %20, i64 %4
   %22 = load i64, ptr %21, align 8, !tbaa !86
   %23 = load i64, ptr %20, align 8, !tbaa !86
   %24 = sub nsw i64 %22, %23
@@ -102490,7 +102462,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.03448.us = phi i64 [ %87, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %57 = getelementptr i64, ptr %20, i64 %.03448.us
+  %57 = getelementptr [8 x i8], ptr %20, i64 %.03448.us
   %58 = load i64, ptr %57, align 8, !tbaa !86
   %59 = getelementptr i8, ptr %57, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !86
@@ -102550,7 +102522,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %97, label %98, label %129
 
 98:                                               ; preds = %.lr.ph.split
-  %99 = getelementptr i64, ptr %20, i64 %.03448
+  %99 = getelementptr [8 x i8], ptr %20, i64 %.03448
   %100 = load i64, ptr %99, align 8, !tbaa !86
   %101 = getelementptr i8, ptr %99, i64 8
   %102 = load i64, ptr %101, align 8, !tbaa !86
@@ -103569,7 +103541,7 @@ _ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit.thread: ; preds = %16, %_
   %storemerge.i.i.i = and i64 %.pn.i.i.i, %62
   %.0.in.i.i.i = lshr i64 %.0.in.in.i.i.i, 5
   %.0.i.i.i = add nuw nsw i64 %.0.in.i.i.i, 1
-  %72 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::LargeBinaryBuilder>::Payload>::Entry", ptr %61, i64 %storemerge.i.i.i
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %storemerge.i.i.i
   %73 = load i64, ptr %72, align 8, !tbaa !4393
   %74 = icmp eq i64 %73, %60
   br i1 %74, label %75, label %88
@@ -103578,7 +103550,7 @@ _ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl.exit.thread: ; preds = %16, %_
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %77 = load i32, ptr %76, align 4, !tbaa !4396
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i64, ptr %67, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %67, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !86
   %81 = icmp eq i64 %69, %78
   %82 = getelementptr i8, ptr %79, i64 8
@@ -103883,7 +103855,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::LargeBinaryBuilder>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !4393
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -103891,7 +103863,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !4280
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::LargeBinaryBuilder>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !4393
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -103903,14 +103875,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::LargeBinaryBuilder>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !4393
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !4448
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::BinaryMemoTable<arrow::LargeBinaryBuilder>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !3917
   %.pre = load i64, ptr %1, align 8, !tbaa !4271
   br label %47
@@ -104119,7 +104091,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_15LargeStringT
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %29
-  %50 = getelementptr inbounds i64, ptr %44, i64 %45
+  %50 = getelementptr inbounds [8 x i8], ptr %44, i64 %45
   %51 = load i64, ptr %50, align 8, !tbaa !86
   br label %52
 
@@ -104138,7 +104110,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_15LargeStringT
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc45
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc45 ], [ %45, %.noexc ]
   %.017.i = phi ptr [ %66, %.noexc45 ], [ %41, %.noexc ]
-  %59 = getelementptr inbounds i64, ptr %44, i64 %indvars.iv.i
+  %59 = getelementptr inbounds [8 x i8], ptr %44, i64 %indvars.iv.i
   %60 = load i64, ptr %59, align 8, !tbaa !86
   %61 = sub nsw i64 %60, %53
   store i64 %61, ptr %.017.i, align 8, !tbaa !86
@@ -104214,7 +104186,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_15LargeStringT
   %93 = load ptr, ptr %92, align 8
   %94 = select i1 %91, ptr %93, ptr null, !prof !95
   %95 = load ptr, ptr %43, align 8, !tbaa !309
-  %96 = getelementptr inbounds i64, ptr %95, i64 %45
+  %96 = getelementptr inbounds [8 x i8], ptr %95, i64 %45
   %97 = load i64, ptr %96, align 8, !tbaa !86
   %98 = load i64, ptr %69, align 8, !tbaa !993
   %99 = sub i64 %98, %97
@@ -105411,14 +105383,14 @@ _ZN5arrow6StatusD2Ev.exit84.lr.ph:                ; preds = %.preheader
   %.049100 = phi i64 [ 0, %.lr.ph ], [ %107, %106 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %112 = load ptr, ptr %104, align 8, !tbaa !4224
-  %113 = getelementptr inbounds nuw i64, ptr %112, i64 %.049100
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.049100
   %114 = load i64, ptr %113, align 8, !tbaa !86
   %115 = load ptr, ptr %105, align 8, !tbaa !4226
   %116 = getelementptr inbounds i8, ptr %115, i64 %114
   %117 = getelementptr i8, ptr %113, i64 8
   %118 = load i64, ptr %117, align 8, !tbaa !86
   %119 = sub nsw i64 %118, %114
-  %120 = getelementptr inbounds nuw i32, ptr %99, i64 %.049100
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.049100
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !4492
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4492
   invoke void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEE11GetOrInsertIZNS3_11GetOrInsertEPKvlPiEUliE_ZNS3_11GetOrInsertES6_lS7_EUliE0_EENS_6StatusES6_lOT_OT0_S7_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %15, ptr noundef nonnull align 8 dereferenceable(356) %103, ptr noundef %116, i64 noundef %119, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %120)
@@ -105585,7 +105557,7 @@ _ZN5arrow6StatusD2Ev.exit84:                      ; preds = %_ZN5arrow6StatusD2E
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %177 = load ptr, ptr %73, align 8, !tbaa !4224
-  %178 = getelementptr inbounds nuw i64, ptr %177, i64 %.044102
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %.044102
   %179 = load i64, ptr %178, align 8, !tbaa !86
   %180 = load ptr, ptr %74, align 8, !tbaa !4226
   %181 = getelementptr inbounds i8, ptr %180, i64 %179
@@ -106982,7 +106954,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_15LargeBinaryT
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %29
-  %50 = getelementptr inbounds i64, ptr %44, i64 %45
+  %50 = getelementptr inbounds [8 x i8], ptr %44, i64 %45
   %51 = load i64, ptr %50, align 8, !tbaa !86
   br label %52
 
@@ -107001,7 +106973,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_15LargeBinaryT
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc45
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc45 ], [ %45, %.noexc ]
   %.017.i = phi ptr [ %66, %.noexc45 ], [ %41, %.noexc ]
-  %59 = getelementptr inbounds i64, ptr %44, i64 %indvars.iv.i
+  %59 = getelementptr inbounds [8 x i8], ptr %44, i64 %indvars.iv.i
   %60 = load i64, ptr %59, align 8, !tbaa !86
   %61 = sub nsw i64 %60, %53
   store i64 %61, ptr %.017.i, align 8, !tbaa !86
@@ -107077,7 +107049,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_15LargeBinaryT
   %93 = load ptr, ptr %92, align 8
   %94 = select i1 %91, ptr %93, ptr null, !prof !95
   %95 = load ptr, ptr %43, align 8, !tbaa !309
-  %96 = getelementptr inbounds i64, ptr %95, i64 %45
+  %96 = getelementptr inbounds [8 x i8], ptr %95, i64 %45
   %97 = load i64, ptr %96, align 8, !tbaa !86
   %98 = load i64, ptr %69, align 8, !tbaa !993
   %99 = sub i64 %98, %97
@@ -108048,7 +108020,7 @@ _ZN5arrow6StatusD2Ev.exit84.lr.ph:                ; preds = %.preheader
   %114 = sext i32 %113 to i64
   %115 = mul nsw i64 %.049100, %114
   %116 = getelementptr inbounds i8, ptr %112, i64 %115
-  %117 = getelementptr inbounds nuw i32, ptr %99, i64 %.049100
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.049100
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !4571
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4571
   invoke void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEE11GetOrInsertIZNS3_11GetOrInsertEPKviPiEUliE_ZNS3_11GetOrInsertES6_iS7_EUliE0_EENS_6StatusES6_iOT_OT0_S7_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %15, ptr noundef nonnull align 8 dereferenceable(356) %105, ptr noundef %116, i32 noundef %113, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %117)
@@ -109640,7 +109612,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_19FixedSizeBin
   %69 = load ptr, ptr %68, align 8, !tbaa !309
   %70 = getelementptr inbounds i8, ptr %69, i64 %59
   %71 = sext i32 %52 to i64
-  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %55, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !85
   %74 = sub nsw i32 %73, %58
   %75 = icmp sgt i32 %74, 0
@@ -110641,9 +110613,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039117 = phi i64 [ 0, %.lr.ph ], [ %136, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !4639
-  %101 = getelementptr inbounds nuw i64, ptr %100, i64 %.039117
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.039117
   %102 = load i64, ptr %101, align 8, !tbaa !86
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039117
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039117
   %104 = mul i64 %102, -7046029288634856825
   %105 = call noundef i64 @llvm.bswap.i64(i64 %104)
   %106 = load ptr, ptr %96, align 8, !tbaa !412, !noalias !4641
@@ -110658,7 +110630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %107
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %111 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %106, i64 %storemerge.i.i.i.i
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %storemerge.i.i.i.i
   %112 = load i64, ptr %111, align 8, !tbaa !3039, !noalias !4641
   %113 = icmp eq i64 %112, %109
   br i1 %113, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -110876,7 +110848,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 192:                                              ; preds = %.lr.ph120, %_ZN5arrow6StatusD2Ev.exit98
   %.037119 = phi i64 [ 0, %.lr.ph120 ], [ %223, %_ZN5arrow6StatusD2Ev.exit98 ]
   %193 = load ptr, ptr %68, align 8, !tbaa !4639
-  %194 = getelementptr inbounds nuw i64, ptr %193, i64 %.037119
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %.037119
   %195 = load i64, ptr %194, align 8, !tbaa !86
   %196 = mul i64 %195, -7046029288634856825
   %197 = call noundef i64 @llvm.bswap.i64(i64 %196)
@@ -110892,7 +110864,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %199
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %203 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %198, i64 %storemerge.i.i.i.i82
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %198, i64 %storemerge.i.i.i.i82
   %204 = load i64, ptr %203, align 8, !tbaa !3039, !noalias !4656
   %205 = icmp eq i64 %204, %201
   br i1 %205, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i93, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -112332,7 +112304,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %43 = phi i64 [ %39, %.lr.ph.i.i ], [ %56, %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %57, %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %44 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %.06.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !3039
   %.not.i.i = icmp eq i64 %45, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %46
@@ -112348,7 +112320,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !3128
   %54 = zext nneg i32 %49 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %37, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %54
   store i64 %53, ptr %55, align 8, !tbaa !86
   %.pre.i.i = load i64, ptr %38, align 8, !tbaa !403
   br label %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
@@ -112372,7 +112344,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntrie
 
 64:                                               ; preds = %61
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %37, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %65
   store i64 0, ptr %66, align 8, !tbaa !86
   br label %_ZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPl.exit
 
@@ -113401,9 +113373,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039120 = phi i64 [ 0, %.lr.ph ], [ %137, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !4726
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %.039120
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.039120
   %102 = load i32, ptr %101, align 4, !tbaa !85
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039120
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039120
   %104 = sext i32 %102 to i64
   %105 = mul i64 %104, -7046029288634856825
   %106 = call noundef i64 @llvm.bswap.i64(i64 %105)
@@ -113419,7 +113391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %108
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %112 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %107, i64 %storemerge.i.i.i.i
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %storemerge.i.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !2792, !noalias !4728
   %114 = icmp eq i64 %113, %110
   br i1 %114, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -113639,7 +113611,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 193:                                              ; preds = %.lr.ph123, %_ZN5arrow6StatusD2Ev.exit101
   %.037122 = phi i64 [ 0, %.lr.ph123 ], [ %225, %_ZN5arrow6StatusD2Ev.exit101 ]
   %194 = load ptr, ptr %68, align 8, !tbaa !4726
-  %195 = getelementptr inbounds nuw i32, ptr %194, i64 %.037122
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %.037122
   %196 = load i32, ptr %195, align 4, !tbaa !85
   %197 = sext i32 %196 to i64
   %198 = mul i64 %197, -7046029288634856825
@@ -113656,7 +113628,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %201
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %205 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %200, i64 %storemerge.i.i.i.i82
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %200, i64 %storemerge.i.i.i.i82
   %206 = load i64, ptr %205, align 8, !tbaa !2792, !noalias !4743
   %207 = icmp eq i64 %206, %203
   br i1 %207, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i96, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -115097,7 +115069,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.06.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !2792
   %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %45
@@ -115113,7 +115085,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !2881
   %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !85
   br label %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
 
@@ -115135,7 +115107,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntrie
 
 61:                                               ; preds = %58
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %37, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %62
   store i32 0, ptr %63, align 4, !tbaa !85
   br label %_ZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPi.exit
 
@@ -116164,9 +116136,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039117 = phi i64 [ 0, %.lr.ph ], [ %136, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !4813
-  %101 = getelementptr inbounds nuw i64, ptr %100, i64 %.039117
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.039117
   %102 = load i64, ptr %101, align 8, !tbaa !86
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039117
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039117
   %104 = mul i64 %102, -7046029288634856825
   %105 = call noundef i64 @llvm.bswap.i64(i64 %104)
   %106 = load ptr, ptr %96, align 8, !tbaa !412, !noalias !4815
@@ -116181,7 +116153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %107
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %111 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %106, i64 %storemerge.i.i.i.i
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %storemerge.i.i.i.i
   %112 = load i64, ptr %111, align 8, !tbaa !3039, !noalias !4815
   %113 = icmp eq i64 %112, %109
   br i1 %113, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -116399,7 +116371,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 192:                                              ; preds = %.lr.ph120, %_ZN5arrow6StatusD2Ev.exit98
   %.037119 = phi i64 [ 0, %.lr.ph120 ], [ %223, %_ZN5arrow6StatusD2Ev.exit98 ]
   %193 = load ptr, ptr %68, align 8, !tbaa !4813
-  %194 = getelementptr inbounds nuw i64, ptr %193, i64 %.037119
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %.037119
   %195 = load i64, ptr %194, align 8, !tbaa !86
   %196 = mul i64 %195, -7046029288634856825
   %197 = call noundef i64 @llvm.bswap.i64(i64 %196)
@@ -116415,7 +116387,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %199
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %203 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %198, i64 %storemerge.i.i.i.i82
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %198, i64 %storemerge.i.i.i.i82
   %204 = load i64, ptr %203, align 8, !tbaa !3039, !noalias !4830
   %205 = icmp eq i64 %204, %201
   br i1 %205, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i93, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -117855,7 +117827,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %43 = phi i64 [ %39, %.lr.ph.i.i ], [ %56, %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %57, %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %44 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %.06.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !3039
   %.not.i.i = icmp eq i64 %45, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %46
@@ -117871,7 +117843,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !3128
   %54 = zext nneg i32 %49 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %37, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %54
   store i64 %53, ptr %55, align 8, !tbaa !86
   %.pre.i.i = load i64, ptr %38, align 8, !tbaa !403
   br label %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
@@ -117895,7 +117867,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntrie
 
 64:                                               ; preds = %61
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %37, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %65
   store i64 0, ptr %66, align 8, !tbaa !86
   br label %_ZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPl.exit
 
@@ -118924,9 +118896,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039117 = phi i64 [ 0, %.lr.ph ], [ %136, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !4900
-  %101 = getelementptr inbounds nuw i64, ptr %100, i64 %.039117
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.039117
   %102 = load i64, ptr %101, align 8, !tbaa !86
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039117
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039117
   %104 = mul i64 %102, -7046029288634856825
   %105 = call noundef i64 @llvm.bswap.i64(i64 %104)
   %106 = load ptr, ptr %96, align 8, !tbaa !412, !noalias !4902
@@ -118941,7 +118913,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %107
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %111 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %106, i64 %storemerge.i.i.i.i
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %storemerge.i.i.i.i
   %112 = load i64, ptr %111, align 8, !tbaa !3039, !noalias !4902
   %113 = icmp eq i64 %112, %109
   br i1 %113, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -119159,7 +119131,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 192:                                              ; preds = %.lr.ph120, %_ZN5arrow6StatusD2Ev.exit98
   %.037119 = phi i64 [ 0, %.lr.ph120 ], [ %223, %_ZN5arrow6StatusD2Ev.exit98 ]
   %193 = load ptr, ptr %68, align 8, !tbaa !4900
-  %194 = getelementptr inbounds nuw i64, ptr %193, i64 %.037119
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %.037119
   %195 = load i64, ptr %194, align 8, !tbaa !86
   %196 = mul i64 %195, -7046029288634856825
   %197 = call noundef i64 @llvm.bswap.i64(i64 %196)
@@ -119175,7 +119147,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %199
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %203 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %198, i64 %storemerge.i.i.i.i82
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %198, i64 %storemerge.i.i.i.i82
   %204 = load i64, ptr %203, align 8, !tbaa !3039, !noalias !4917
   %205 = icmp eq i64 %204, %201
   br i1 %205, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i93, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -120615,7 +120587,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %43 = phi i64 [ %39, %.lr.ph.i.i ], [ %56, %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %57, %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %44 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %.06.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !3039
   %.not.i.i = icmp eq i64 %45, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %46
@@ -120631,7 +120603,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !3128
   %54 = zext nneg i32 %49 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %37, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %54
   store i64 %53, ptr %55, align 8, !tbaa !86
   %.pre.i.i = load i64, ptr %38, align 8, !tbaa !403
   br label %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
@@ -120655,7 +120627,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntrie
 
 64:                                               ; preds = %61
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %37, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %65
   store i64 0, ptr %66, align 8, !tbaa !86
   br label %_ZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPl.exit
 
@@ -121684,9 +121656,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039120 = phi i64 [ 0, %.lr.ph ], [ %137, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !4987
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %.039120
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.039120
   %102 = load i32, ptr %101, align 4, !tbaa !85
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039120
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039120
   %104 = sext i32 %102 to i64
   %105 = mul i64 %104, -7046029288634856825
   %106 = call noundef i64 @llvm.bswap.i64(i64 %105)
@@ -121702,7 +121674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %108
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %112 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %107, i64 %storemerge.i.i.i.i
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %storemerge.i.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !2792, !noalias !4989
   %114 = icmp eq i64 %113, %110
   br i1 %114, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -121922,7 +121894,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 193:                                              ; preds = %.lr.ph123, %_ZN5arrow6StatusD2Ev.exit101
   %.037122 = phi i64 [ 0, %.lr.ph123 ], [ %225, %_ZN5arrow6StatusD2Ev.exit101 ]
   %194 = load ptr, ptr %68, align 8, !tbaa !4987
-  %195 = getelementptr inbounds nuw i32, ptr %194, i64 %.037122
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %.037122
   %196 = load i32, ptr %195, align 4, !tbaa !85
   %197 = sext i32 %196 to i64
   %198 = mul i64 %197, -7046029288634856825
@@ -121939,7 +121911,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %201
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %205 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %200, i64 %storemerge.i.i.i.i82
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %200, i64 %storemerge.i.i.i.i82
   %206 = load i64, ptr %205, align 8, !tbaa !2792, !noalias !5004
   %207 = icmp eq i64 %206, %203
   br i1 %207, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i96, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -123380,7 +123352,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.06.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !2792
   %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %45
@@ -123396,7 +123368,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !2881
   %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !85
   br label %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
 
@@ -123418,7 +123390,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntrie
 
 61:                                               ; preds = %58
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %37, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %62
   store i32 0, ptr %63, align 4, !tbaa !85
   br label %_ZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPi.exit
 
@@ -124447,9 +124419,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039117 = phi i64 [ 0, %.lr.ph ], [ %136, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !5074
-  %101 = getelementptr inbounds nuw i64, ptr %100, i64 %.039117
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.039117
   %102 = load i64, ptr %101, align 8, !tbaa !86
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039117
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039117
   %104 = mul i64 %102, -7046029288634856825
   %105 = call noundef i64 @llvm.bswap.i64(i64 %104)
   %106 = load ptr, ptr %96, align 8, !tbaa !412, !noalias !5076
@@ -124464,7 +124436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %107
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %111 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %106, i64 %storemerge.i.i.i.i
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %storemerge.i.i.i.i
   %112 = load i64, ptr %111, align 8, !tbaa !3039, !noalias !5076
   %113 = icmp eq i64 %112, %109
   br i1 %113, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -124682,7 +124654,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 192:                                              ; preds = %.lr.ph120, %_ZN5arrow6StatusD2Ev.exit98
   %.037119 = phi i64 [ 0, %.lr.ph120 ], [ %223, %_ZN5arrow6StatusD2Ev.exit98 ]
   %193 = load ptr, ptr %68, align 8, !tbaa !5074
-  %194 = getelementptr inbounds nuw i64, ptr %193, i64 %.037119
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %.037119
   %195 = load i64, ptr %194, align 8, !tbaa !86
   %196 = mul i64 %195, -7046029288634856825
   %197 = call noundef i64 @llvm.bswap.i64(i64 %196)
@@ -124698,7 +124670,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %199
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %203 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %198, i64 %storemerge.i.i.i.i82
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %198, i64 %storemerge.i.i.i.i82
   %204 = load i64, ptr %203, align 8, !tbaa !3039, !noalias !5091
   %205 = icmp eq i64 %204, %201
   br i1 %205, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i93, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKlPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -126138,7 +126110,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %43 = phi i64 [ %39, %.lr.ph.i.i ], [ %56, %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %57, %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %44 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<long>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %.06.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !3039
   %.not.i.i = icmp eq i64 %45, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %46
@@ -126154,7 +126126,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !3128
   %54 = zext nneg i32 %49 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %37, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %54
   store i64 %53, ptr %55, align 8, !tbaa !86
   %.pre.i.i = load i64, ptr %38, align 8, !tbaa !403
   br label %_ZZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPlENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
@@ -126178,7 +126150,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntrie
 
 64:                                               ; preds = %61
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %37, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %65
   store i64 0, ptr %66, align 8, !tbaa !86
   br label %_ZNK5arrow8internal15ScalarMemoTableIlNS0_9HashTableEE10CopyValuesEiPl.exit
 
@@ -127210,7 +127182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 _ZNK5arrow25MonthDayNanoIntervalArray7GetViewEl.exit: ; preds = %97
   %99 = extractvalue { i64, i64 } %98, 0
   %100 = extractvalue { i64, i64 } %98, 1
-  %101 = getelementptr inbounds nuw i32, ptr %88, i64 %.039125
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.039125
   %102 = mul i64 %100, -7046029288634856825
   %103 = mul i64 %99, -4417276706812531889
   %104 = xor i64 %102, %103
@@ -127228,7 +127200,7 @@ _ZNK5arrow25MonthDayNanoIntervalArray7GetViewEl.exit: ; preds = %97
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %108
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %112 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::MonthDayNanoIntervalType::MonthDayNanos>::Payload>::Entry", ptr %107, i64 %storemerge.i.i.i.i
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %107, i64 %storemerge.i.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !5166, !noalias !5161
   %114 = icmp eq i64 %113, %110
   br i1 %114, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosES1_E7PayloadEE12CompareEntryILNS7_11CompareKindE0ERZNS5_11GetOrInsertIZNS5_11GetOrInsertERKS4_PiEUliE_ZNS5_11GetOrInsertESC_SD_EUliE0_EENS_6StatusESC_OT_OT0_SD_EUlPKS6_E_EEbmPKNS7_5EntryESK_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosES1_E7PayloadEE12CompareEntryILNS7_11CompareKindE0ERZNS5_11GetOrInsertIZNS5_11GetOrInsertERKS4_PiEUliE_ZNS5_11GetOrInsertESC_SD_EUliE0_EENS_6StatusESC_OT_OT0_SD_EUlPKS6_E_EEbmPKNS7_5EntryESK_.exit.thread.i.i.i.i
@@ -127471,7 +127443,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit80: ; preds = 
   %storemerge.i.i.i.i87 = and i64 %.pn.i.i.i.i85, %202
   %.0.in.i.i.i.i88 = lshr i64 %.0.in.in.i.i.i.i86, 5
   %.0.i.i.i.i89 = add nuw nsw i64 %.0.in.i.i.i.i88, 1
-  %206 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::MonthDayNanoIntervalType::MonthDayNanos>::Payload>::Entry", ptr %201, i64 %storemerge.i.i.i.i87
+  %206 = getelementptr inbounds nuw [32 x i8], ptr %201, i64 %storemerge.i.i.i.i87
   %207 = load i64, ptr %206, align 8, !tbaa !5166, !noalias !5182
   %208 = icmp eq i64 %207, %204
   br i1 %208, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosES1_E7PayloadEE12CompareEntryILNS7_11CompareKindE0ERZNS5_11GetOrInsertIZNS5_11GetOrInsertERKS4_PiEUliE_ZNS5_11GetOrInsertESC_SD_EUliE0_EENS_6StatusESC_OT_OT0_SD_EUlPKS6_E_EEbmPKNS7_5EntryESK_.exit.i.i.i.i98, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosES1_E7PayloadEE12CompareEntryILNS7_11CompareKindE0ERZNS5_11GetOrInsertIZNS5_11GetOrInsertERKS4_PiEUliE_ZNS5_11GetOrInsertESC_SD_EUliE0_EENS_6StatusESC_OT_OT0_SD_EUlPKS6_E_EEbmPKNS7_5EntryESK_.exit.thread.i.i.i.i90
@@ -129103,7 +129075,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::MonthDayNanoIntervalType::MonthDayNanos>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !5166
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -129111,7 +129083,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !680
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::MonthDayNanoIntervalType::MonthDayNanos>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !5166
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -129123,14 +129095,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::MonthDayNanoIntervalType::MonthDayNanos>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !5166
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !5245
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::MonthDayNanoIntervalType::MonthDayNanos>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !5246
   %.pre = load i64, ptr %1, align 8, !tbaa !671
   br label %47
@@ -129352,7 +129324,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %42 = phi i64 [ %39, %.lr.ph.i.i ], [ %55, %_ZZNK5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEE10CopyValuesEiPS3_ENKUlPKNS4_INS5_7PayloadEE5EntryEE_clESB_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %56, %_ZZNK5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEE10CopyValuesEiPS3_ENKUlPKNS4_INS5_7PayloadEE5EntryEE_clESB_.exit.i.i ]
   %43 = load ptr, ptr %40, align 8, !tbaa !680
-  %44 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::MonthDayNanoIntervalType::MonthDayNanos>::Payload>::Entry", ptr %43, i64 %.06.i.i
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %.06.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !5166
   %.not.i.i = icmp eq i64 %45, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEE10CopyValuesEiPS3_ENKUlPKNS4_INS5_7PayloadEE5EntryEE_clESB_.exit.i.i, label %46
@@ -129367,7 +129339,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %53 = zext nneg i32 %49 to i64
-  %54 = getelementptr inbounds nuw %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !5255
   %.pre.i.i = load i64, ptr %38, align 8, !tbaa !671
   br label %_ZZNK5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEE10CopyValuesEiPS3_ENKUlPKNS4_INS5_7PayloadEE5EntryEE_clESB_.exit.i.i
@@ -129391,7 +129363,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_24MonthDayNanoIntervalTyp
 
 63:                                               ; preds = %60
   %64 = zext nneg i32 %61 to i64
-  %65 = getelementptr inbounds nuw %"struct.arrow::MonthDayNanoIntervalType::MonthDayNanos", ptr %37, i64 %64
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   br label %_ZNK5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEE10CopyValuesEiPS3_.exit
 
@@ -130547,9 +130519,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
 99:                                               ; preds = %.lr.ph, %_ZN5arrow6StatusD2Ev.exit73
   %.039120 = phi i64 [ 0, %.lr.ph ], [ %137, %_ZN5arrow6StatusD2Ev.exit73 ]
   %100 = load ptr, ptr %94, align 8, !tbaa !5283
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %.039120
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.039120
   %102 = load i32, ptr %101, align 4, !tbaa !85
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %.039120
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.039120
   %104 = sext i32 %102 to i64
   %105 = mul i64 %104, -7046029288634856825
   %106 = call noundef i64 @llvm.bswap.i64(i64 %105)
@@ -130565,7 +130537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %108
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %112 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %107, i64 %storemerge.i.i.i.i
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %storemerge.i.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !2792, !noalias !5285
   %114 = icmp eq i64 %113, %110
   br i1 %114, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i
@@ -130785,7 +130757,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
 193:                                              ; preds = %.lr.ph123, %_ZN5arrow6StatusD2Ev.exit101
   %.037122 = phi i64 [ 0, %.lr.ph123 ], [ %225, %_ZN5arrow6StatusD2Ev.exit101 ]
   %194 = load ptr, ptr %68, align 8, !tbaa !5283
-  %195 = getelementptr inbounds nuw i32, ptr %194, i64 %.037122
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %.037122
   %196 = load i32, ptr %195, align 4, !tbaa !85
   %197 = sext i32 %196 to i64
   %198 = mul i64 %197, -7046029288634856825
@@ -130802,7 +130774,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit79: ; preds = 
   %storemerge.i.i.i.i82 = and i64 %.pn.i.i.i.i80, %201
   %.0.in.i.i.i.i83 = lshr i64 %.0.in.in.i.i.i.i81, 5
   %.0.i.i.i.i84 = add nuw nsw i64 %.0.in.i.i.i.i83, 1
-  %205 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %200, i64 %storemerge.i.i.i.i82
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %200, i64 %storemerge.i.i.i.i82
   %206 = load i64, ptr %205, align 8, !tbaa !2792, !noalias !5300
   %207 = icmp eq i64 %206, %203
   br i1 %207, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.i.i.i.i96, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12CompareEntryILNS5_11CompareKindE0ERZNS3_11GetOrInsertIZNS3_11GetOrInsertERKiPiEUliE_ZNS3_11GetOrInsertESA_SB_EUliE0_EENS_6StatusESA_OT_OT0_SB_EUlPKS4_E_EEbmPKNS5_5EntryESI_.exit.thread.i.i.i.i85
@@ -132243,7 +132215,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 
 42:                                               ; preds = %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, %.lr.ph.i.i
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %55, %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i ]
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<int>::Payload>::Entry", ptr %41, i64 %.06.i.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.06.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !2792
   %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i, label %45
@@ -132259,7 +132231,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !2881
   %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !85
   br label %_ZZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPiENKUlPKNS2_INS3_7PayloadEE5EntryEE_clES9_.exit.i.i
 
@@ -132281,7 +132253,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntrie
 
 61:                                               ; preds = %58
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %37, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %62
   store i32 0, ptr %63, align 4, !tbaa !85
   br label %_ZNK5arrow8internal15ScalarMemoTableIiNS0_9HashTableEE10CopyValuesEiPi.exit
 
@@ -133311,7 +133283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %.bo
           to label %_ZNK5arrow20DayTimeIntervalArray7GetViewEl.exit unwind label %134
 
 _ZNK5arrow20DayTimeIntervalArray7GetViewEl.exit:  ; preds = %97
-  %99 = getelementptr inbounds nuw i32, ptr %88, i64 %.039119
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.039119
   %100 = lshr i64 %98, 32
   %101 = mul i64 %100, -7046029288634856825
   %102 = and i64 %98, 4294967295
@@ -133331,7 +133303,7 @@ _ZNK5arrow20DayTimeIntervalArray7GetViewEl.exit:  ; preds = %97
   %storemerge.i.i.i.i = and i64 %.pn.i.i.i.i, %108
   %.0.in.i.i.i.i = lshr i64 %.0.in.in.i.i.i.i, 5
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %112 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::DayTimeIntervalType::DayMilliseconds>::Payload>::Entry", ptr %107, i64 %storemerge.i.i.i.i
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %storemerge.i.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !5375, !noalias !5370
   %114 = icmp eq i64 %113, %110
   br i1 %114, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsES1_E7PayloadEE12CompareEntryILNS7_11CompareKindE0ERZNS5_11GetOrInsertIZNS5_11GetOrInsertERKS4_PiEUliE_ZNS5_11GetOrInsertESC_SD_EUliE0_EENS_6StatusESC_OT_OT0_SD_EUlPKS6_E_EEbmPKNS7_5EntryESK_.exit.i.i.i.i, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsES1_E7PayloadEE12CompareEntryILNS7_11CompareKindE0ERZNS5_11GetOrInsertIZNS5_11GetOrInsertERKS4_PiEUliE_ZNS5_11GetOrInsertESC_SD_EUliE0_EENS_6StatusESC_OT_OT0_SD_EUlPKS6_E_EEbmPKNS7_5EntryESK_.exit.thread.i.i.i.i
@@ -133568,7 +133540,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit80: ; preds = 
   %storemerge.i.i.i.i83 = and i64 %.pn.i.i.i.i81, %202
   %.0.in.i.i.i.i84 = lshr i64 %.0.in.in.i.i.i.i82, 5
   %.0.i.i.i.i85 = add nuw nsw i64 %.0.in.i.i.i.i84, 1
-  %206 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::DayTimeIntervalType::DayMilliseconds>::Payload>::Entry", ptr %201, i64 %storemerge.i.i.i.i83
+  %206 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %storemerge.i.i.i.i83
   %207 = load i64, ptr %206, align 8, !tbaa !5375, !noalias !5391
   %208 = icmp eq i64 %207, %204
   br i1 %208, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsES1_E7PayloadEE12CompareEntryILNS7_11CompareKindE0ERZNS5_11GetOrInsertIZNS5_11GetOrInsertERKS4_PiEUliE_ZNS5_11GetOrInsertESC_SD_EUliE0_EENS_6StatusESC_OT_OT0_SD_EUlPKS6_E_EEbmPKNS7_5EntryESK_.exit.i.i.i.i94, label %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsES1_E7PayloadEE12CompareEntryILNS7_11CompareKindE0ERZNS5_11GetOrInsertIZNS5_11GetOrInsertERKS4_PiEUliE_ZNS5_11GetOrInsertESC_SD_EUliE0_EENS_6StatusESC_OT_OT0_SD_EUlPKS6_E_EEbmPKNS7_5EntryESK_.exit.thread.i.i.i.i86
@@ -135194,7 +135166,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 .lr.ph:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit31, %47
   %34 = phi i64 [ %48, %47 ], [ %32, %_ZN5arrow6StatusD2Ev.exit31 ]
   %.02533 = phi i64 [ %49, %47 ], [ 0, %_ZN5arrow6StatusD2Ev.exit31 ]
-  %35 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::DayTimeIntervalType::DayMilliseconds>::Payload>::Entry", ptr %9, i64 %.02533
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %.02533
   %36 = load i64, ptr %35, align 8, !tbaa !5375
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %47, label %37
@@ -135202,7 +135174,7 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %8, align 8, !tbaa !717
   %storemerge17.i = and i64 %36, %7
-  %39 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::DayTimeIntervalType::DayMilliseconds>::Payload>::Entry", ptr %38, i64 %storemerge17.i
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge17.i
   %40 = load i64, ptr %39, align 8, !tbaa !5375
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i
@@ -135214,14 +135186,14 @@ _ZN5arrow6StatusD2Ev.exit31:                      ; preds = %.noexc
   %.0.i = add nuw nsw i64 %.0.in.i, 1
   %42 = add i64 %.0.i, %storemerge19.i
   %storemerge.i = and i64 %42, %7
-  %43 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::DayTimeIntervalType::DayMilliseconds>::Payload>::Entry", ptr %38, i64 %storemerge.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge.i
   %44 = load i64, ptr %43, align 8, !tbaa !5375
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.lr.ph.i, !llvm.loop !5454
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %storemerge.lcssa.i = phi i64 [ %storemerge17.i, %37 ], [ %storemerge.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::DayTimeIntervalType::DayMilliseconds>::Payload>::Entry", ptr %38, i64 %storemerge.lcssa.i
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %storemerge.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, ptr noundef nonnull align 8 dereferenceable(20) %35, i64 20, i1 false), !tbaa.struct !5455
   %.pre = load i64, ptr %1, align 8, !tbaa !708
   br label %47
@@ -135443,7 +135415,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %42 = phi i64 [ %39, %.lr.ph.i.i ], [ %56, %_ZZNK5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEE10CopyValuesEiPS3_ENKUlPKNS4_INS5_7PayloadEE5EntryEE_clESB_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %57, %_ZZNK5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEE10CopyValuesEiPS3_ENKUlPKNS4_INS5_7PayloadEE5EntryEE_clESB_.exit.i.i ]
   %43 = load ptr, ptr %40, align 8, !tbaa !717
-  %44 = getelementptr inbounds nuw %"struct.arrow::internal::HashTable<arrow::internal::ScalarMemoTable<arrow::DayTimeIntervalType::DayMilliseconds>::Payload>::Entry", ptr %43, i64 %.06.i.i
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %.06.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !5375
   %.not.i.i = icmp eq i64 %45, 0
   br i1 %.not.i.i, label %_ZZNK5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEE10CopyValuesEiPS3_ENKUlPKNS4_INS5_7PayloadEE5EntryEE_clESB_.exit.i.i, label %46
@@ -135458,7 +135430,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %53 = zext nneg i32 %49 to i64
-  %54 = getelementptr inbounds nuw %"struct.arrow::DayTimeIntervalType::DayMilliseconds", ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %53
   %55 = load i64, ptr %52, align 8
   store i64 %55, ptr %54, align 4
   %.pre.i.i = load i64, ptr %38, align 8, !tbaa !708
@@ -135483,7 +135455,7 @@ _ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableINS_19DayTimeIntervalType15Da
 
 64:                                               ; preds = %61
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw %"struct.arrow::DayTimeIntervalType::DayMilliseconds", ptr %37, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %65
   store i64 0, ptr %66, align 4
   br label %_ZNK5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEE10CopyValuesEiPS3_.exit
 
@@ -136559,7 +136531,7 @@ _ZN5arrow6StatusD2Ev.exit84.lr.ph:                ; preds = %.preheader
   %114 = sext i32 %113 to i64
   %115 = mul nsw i64 %.049100, %114
   %116 = getelementptr inbounds i8, ptr %112, i64 %115
-  %117 = getelementptr inbounds nuw i32, ptr %99, i64 %.049100
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.049100
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !5492
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5492
   invoke void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEE11GetOrInsertIZNS3_11GetOrInsertEPKviPiEUliE_ZNS3_11GetOrInsertES6_iS7_EUliE0_EENS_6StatusES6_iOT_OT0_S7_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %15, ptr noundef nonnull align 8 dereferenceable(356) %105, ptr noundef %116, i32 noundef %113, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %117)
@@ -138151,7 +138123,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_13Decimal32Typ
   %69 = load ptr, ptr %68, align 8, !tbaa !309
   %70 = getelementptr inbounds i8, ptr %69, i64 %59
   %71 = sext i32 %52 to i64
-  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %55, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !85
   %74 = sub nsw i32 %73, %58
   %75 = icmp sgt i32 %74, 0
@@ -139072,7 +139044,7 @@ _ZN5arrow6StatusD2Ev.exit84.lr.ph:                ; preds = %.preheader
   %114 = sext i32 %113 to i64
   %115 = mul nsw i64 %.049100, %114
   %116 = getelementptr inbounds i8, ptr %112, i64 %115
-  %117 = getelementptr inbounds nuw i32, ptr %99, i64 %.049100
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.049100
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !5561
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5561
   invoke void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEE11GetOrInsertIZNS3_11GetOrInsertEPKviPiEUliE_ZNS3_11GetOrInsertES6_iS7_EUliE0_EENS_6StatusES6_iOT_OT0_S7_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %15, ptr noundef nonnull align 8 dereferenceable(356) %105, ptr noundef %116, i32 noundef %113, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %117)
@@ -140664,7 +140636,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_13Decimal64Typ
   %69 = load ptr, ptr %68, align 8, !tbaa !309
   %70 = getelementptr inbounds i8, ptr %69, i64 %59
   %71 = sext i32 %52 to i64
-  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %55, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !85
   %74 = sub nsw i32 %73, %58
   %75 = icmp sgt i32 %74, 0
@@ -141585,7 +141557,7 @@ _ZN5arrow6StatusD2Ev.exit84.lr.ph:                ; preds = %.preheader
   %114 = sext i32 %113 to i64
   %115 = mul nsw i64 %.049100, %114
   %116 = getelementptr inbounds i8, ptr %112, i64 %115
-  %117 = getelementptr inbounds nuw i32, ptr %99, i64 %.049100
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.049100
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !5630
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5630
   invoke void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEE11GetOrInsertIZNS3_11GetOrInsertEPKviPiEUliE_ZNS3_11GetOrInsertES6_iS7_EUliE0_EENS_6StatusES6_iOT_OT0_S7_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %15, ptr noundef nonnull align 8 dereferenceable(356) %105, ptr noundef %116, i32 noundef %113, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %117)
@@ -143177,7 +143149,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_14Decimal128Ty
   %69 = load ptr, ptr %68, align 8, !tbaa !309
   %70 = getelementptr inbounds i8, ptr %69, i64 %59
   %71 = sext i32 %52 to i64
-  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %55, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !85
   %74 = sub nsw i32 %73, %58
   %75 = icmp sgt i32 %74, 0
@@ -144098,7 +144070,7 @@ _ZN5arrow6StatusD2Ev.exit84.lr.ph:                ; preds = %.preheader
   %114 = sext i32 %113 to i64
   %115 = mul nsw i64 %.049100, %114
   %116 = getelementptr inbounds i8, ptr %112, i64 %115
-  %117 = getelementptr inbounds nuw i32, ptr %99, i64 %.049100
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.049100
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !5699
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5699
   invoke void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEE11GetOrInsertIZNS3_11GetOrInsertEPKviPiEUliE_ZNS3_11GetOrInsertES6_iS7_EUliE0_EENS_6StatusES6_iOT_OT0_S7_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %15, ptr noundef nonnull align 8 dereferenceable(356) %105, ptr noundef %116, i32 noundef %113, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %117)
@@ -145690,7 +145662,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_14Decimal256Ty
   %69 = load ptr, ptr %68, align 8, !tbaa !309
   %70 = getelementptr inbounds i8, ptr %69, i64 %59
   %71 = sext i32 %52 to i64
-  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %55, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !85
   %74 = sub nsw i32 %73, %58
   %75 = icmp sgt i32 %74, 0

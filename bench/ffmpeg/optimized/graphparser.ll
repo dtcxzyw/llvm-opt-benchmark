@@ -377,7 +377,7 @@ filter_parse.exit.thread.i:                       ; preds = %.lr.ph.i, %.loopexi
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.09.i.i = phi i64 [ %106, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %104 = load ptr, ptr %38, align 8, !tbaa !50
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %.09.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %.09.i.i
   call fastcc void @filter_params_free(ptr noundef %105)
   %106 = add nuw i64 %.09.i.i, 1
   %107 = load i64, ptr %40, align 8, !tbaa !47
@@ -421,7 +421,7 @@ chain_parse.exit.thread:                          ; preds = %.lr.ph, %._crit_edg
 .lr.ph.i27:                                       ; preds = %.preheader.i26, %.lr.ph.i27
   %.09.i = phi i64 [ %119, %.lr.ph.i27 ], [ 0, %.preheader.i26 ]
   %117 = load ptr, ptr %114, align 8, !tbaa !50
-  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %.09.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.09.i
   call fastcc void @filter_params_free(ptr noundef %118)
   %119 = add nuw i64 %.09.i, 1
   %120 = load i64, ptr %115, align 8, !tbaa !47
@@ -505,7 +505,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply(ptr noundef r
   %18 = phi i64 [ %15, %.lr.ph31.i ], [ %41, %._crit_edge.i ]
   %.029.i = phi i64 [ 0, %.lr.ph31.i ], [ %42, %._crit_edge.i ]
   %19 = load ptr, ptr %16, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.029.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.029.i
   %21 = load ptr, ptr %20, align 8, !tbaa !35
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !47
@@ -516,7 +516,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply(ptr noundef r
   %24 = phi i64 [ %38, %37 ], [ %23, %17 ]
   %.02028.i = phi i64 [ %39, %37 ], [ 0, %17 ]
   %25 = load ptr, ptr %21, align 8, !tbaa !50
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.02028.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.02028.i
   %27 = load ptr, ptr %26, align 8, !tbaa !37
   %28 = load ptr, ptr %27, align 8, !tbaa !53
   %.not.i = icmp eq ptr %28, null
@@ -571,7 +571,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply(ptr noundef r
   %49 = phi i64 [ %46, %.lr.ph57.i ], [ %75, %._crit_edge.i29 ]
   %.02456.i = phi i64 [ 0, %.lr.ph57.i ], [ %76, %._crit_edge.i29 ]
   %50 = load ptr, ptr %47, align 8, !tbaa !52
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.02456.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.02456.i
   %52 = load ptr, ptr %51, align 8, !tbaa !35
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !47
@@ -582,7 +582,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply(ptr noundef r
   %55 = phi i64 [ %72, %71 ], [ %54, %48 ]
   %.02555.i = phi i64 [ %73, %71 ], [ 0, %48 ]
   %56 = load ptr, ptr %52, align 8, !tbaa !50
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.02555.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.02555.i
   %58 = load ptr, ptr %57, align 8, !tbaa !37
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !39
@@ -676,7 +676,7 @@ define void @avfilter_graph_segment_free(ptr noundef %0) local_unnamed_addr #0 {
   %9 = phi i64 [ %4, %.lr.ph ], [ %51, %chain_free.exit ]
   %.014 = phi i64 [ 0, %.lr.ph ], [ %52, %chain_free.exit ]
   %10 = load ptr, ptr %5, align 8, !tbaa !52
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.014
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.014
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %chain_free.exit, label %.preheader.i
@@ -697,7 +697,7 @@ define void @avfilter_graph_segment_free(ptr noundef %0) local_unnamed_addr #0 {
   %15 = phi i64 [ %48, %filter_params_free.exit ], [ %14, %.preheader.i ]
   %.09.i = phi i64 [ %49, %filter_params_free.exit ], [ 0, %.preheader.i ]
   %16 = load ptr, ptr %12, align 8, !tbaa !50
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.09.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.09.i
   %18 = load ptr, ptr %17, align 8, !tbaa !37
   %.not.i10 = icmp eq ptr %18, null
   br i1 %.not.i10, label %filter_params_free.exit, label %.preheader.i11
@@ -728,7 +728,7 @@ define void @avfilter_graph_segment_free(ptr noundef %0) local_unnamed_addr #0 {
   %27 = phi i32 [ %20, %.lr.ph.i12 ], [ %32, %pad_params_free.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i12 ], [ %indvars.iv.next.i, %pad_params_free.exit.i ]
   %28 = load ptr, ptr %21, align 8, !tbaa !73
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8, !tbaa !74
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %pad_params_free.exit.i, label %31
@@ -763,7 +763,7 @@ pad_params_free.exit.i:                           ; preds = %31, %26
   %40 = phi i32 [ %24, %.lr.ph24.i ], [ %45, %pad_params_free.exit20.i ]
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph24.i ], [ %indvars.iv.next30.i, %pad_params_free.exit20.i ]
   %41 = load ptr, ptr %25, align 8, !tbaa !77
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv29.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv29.i
   %43 = load ptr, ptr %42, align 8, !tbaa !74
   %.not.i19.i = icmp eq ptr %43, null
   br i1 %.not.i19.i, label %pad_params_free.exit20.i, label %44
@@ -1203,7 +1203,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_create_filters(ptr 
   %.05099 = phi i64 [ 0, %.lr.ph101 ], [ %.151.lcssa, %._crit_edge ]
   %.05998 = phi i64 [ 0, %.lr.ph101 ], [ %66, %._crit_edge ]
   %20 = load ptr, ptr %17, align 8, !tbaa !52
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.05998
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.05998
   %22 = load ptr, ptr %21, align 8, !tbaa !35
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !47
@@ -1214,7 +1214,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_create_filters(ptr 
   %.15196 = phi i64 [ %.353, %61 ], [ %.05099, %18 ]
   %.05895 = phi i64 [ %62, %61 ], [ 0, %18 ]
   %25 = load ptr, ptr %22, align 8, !tbaa !50
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.05895
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.05895
   %27 = load ptr, ptr %26, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !39
@@ -1351,7 +1351,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply_opts(ptr noun
   %.02973 = phi i32 [ 0, %.lr.ph74 ], [ %.231.lcssa, %._crit_edge ]
   %.03572 = phi i64 [ 0, %.lr.ph74 ], [ %36, %._crit_edge ]
   %8 = load ptr, ptr %5, align 8, !tbaa !52
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.03572
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.03572
   %10 = load ptr, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !47
@@ -1363,7 +1363,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply_opts(ptr noun
   %.02870 = phi i64 [ %33, %31 ], [ 0, %6 ]
   %.23169 = phi i32 [ %.433.ph, %31 ], [ %.02973, %6 ]
   %14 = load ptr, ptr %10, align 8, !tbaa !50
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.02870
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.02870
   %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !39
@@ -1450,7 +1450,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_init(ptr noundef re
   %7 = phi i64 [ %4, %.lr.ph57 ], [ %33, %._crit_edge ]
   %.02456 = phi i64 [ 0, %.lr.ph57 ], [ %34, %._crit_edge ]
   %8 = load ptr, ptr %5, align 8, !tbaa !52
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02456
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.02456
   %10 = load ptr, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !47
@@ -1461,7 +1461,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_init(ptr noundef re
   %13 = phi i64 [ %30, %29 ], [ %12, %6 ]
   %.02555 = phi i64 [ %31, %29 ], [ 0, %6 ]
   %14 = load ptr, ptr %10, align 8, !tbaa !50
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.02555
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.02555
   %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !39
@@ -1540,7 +1540,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_link(ptr noundef re
   %11 = phi i64 [ %8, %.lr.ph192 ], [ %242, %._crit_edge ]
   %.037191 = phi i64 [ 0, %.lr.ph192 ], [ %243, %._crit_edge ]
   %12 = load ptr, ptr %9, align 8, !tbaa !52
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.037191
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.037191
   %14 = load ptr, ptr %13, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !47
@@ -1550,7 +1550,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_link(ptr noundef re
 .lr.ph:                                           ; preds = %10, %link_outputs.exit
   %.035190 = phi i64 [ %239, %link_outputs.exit ], [ 0, %10 ]
   %17 = load ptr, ptr %14, align 8, !tbaa !50
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.035190
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.035190
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !39
@@ -1569,10 +1569,10 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_link(ptr noundef re
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %9, align 8, !tbaa !52
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.037191
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.037191
   %28 = load ptr, ptr %27, align 8, !tbaa !35
   %29 = load ptr, ptr %28, align 8, !tbaa !50
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.035190
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.035190
   %31 = load ptr, ptr %30, align 8, !tbaa !37
   %32 = load ptr, ptr %31, align 8, !tbaa !53
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -1608,18 +1608,18 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_link(ptr noundef re
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %39, align 8, !tbaa !73
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8, !tbaa !74
   %53 = load ptr, ptr %52, align 8, !tbaa !96
   %54 = load ptr, ptr %38, align 8, !tbaa !98
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.i
   %56 = load ptr, ptr %55, align 8, !tbaa !99
   %.not.i = icmp eq ptr %56, null
   br i1 %.not.i, label %60, label %inout_add.exit.thread.i
 
 .thread.i:                                        ; preds = %45
   %57 = load ptr, ptr %38, align 8, !tbaa !98
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8, !tbaa !99
   %.not63.i = icmp eq ptr %59, null
   br i1 %.not63.i, label %.split.i, label %inout_add.exit.thread.i
@@ -1671,7 +1671,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_link(ptr noundef re
 74:                                               ; preds = %._crit_edge.i.i, %.lr.ph80.i.i
   %.04778.i.i = phi i64 [ %.037191, %.lr.ph80.i.i ], [ %101, %._crit_edge.i.i ]
   %.04877.i.i = phi i64 [ %.035190, %.lr.ph80.i.i ], [ 0, %._crit_edge.i.i ]
-  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %.04778.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.04778.i.i
   %76 = load ptr, ptr %75, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !47
@@ -1684,7 +1684,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_link(ptr noundef re
 
 81:                                               ; preds = %.loopexit.i.i, %.lr.ph76.i.i
   %.14975.i.i = phi i64 [ %.04877.i.i, %.lr.ph76.i.i ], [ %100, %.loopexit.i.i ]
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %.14975.i.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %.14975.i.i
   %83 = load ptr, ptr %82, align 8, !tbaa !37
   %.in.i.i = getelementptr inbounds nuw i8, ptr %83, i64 48
   %84 = load ptr, ptr %.in.i.i, align 8, !tbaa !102
@@ -1709,13 +1709,13 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_link(ptr noundef re
 
 .lr.ph.i.i:                                       ; preds = %99, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %99 ]
-  %91 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv.i.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv.i.i
   %92 = load ptr, ptr %91, align 8, !tbaa !99
   %.not57.i.i = icmp eq ptr %92, null
   br i1 %.not57.i.i, label %93, label %99
 
 93:                                               ; preds = %.lr.ph.i.i
-  %94 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i.i
   %95 = load ptr, ptr %94, align 8, !tbaa !74
   %96 = load ptr, ptr %95, align 8, !tbaa !96
   %.not58.i.i = icmp eq ptr %96, null
@@ -1814,10 +1814,10 @@ inout_add.exit.thread.i:                          ; preds = %inout_add.exit.i, %
 
 link_inputs.exit.loopexit:                        ; preds = %inout_add.exit.thread.i
   %.pre = load ptr, ptr %9, align 8, !tbaa !52
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.037191
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.037191
   %.pre263 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
   %.pre264 = load ptr, ptr %.pre263, align 8, !tbaa !50
-  %.phi.trans.insert265 = getelementptr inbounds nuw ptr, ptr %.pre264, i64 %.035190
+  %.phi.trans.insert265 = getelementptr inbounds nuw [8 x i8], ptr %.pre264, i64 %.035190
   %.pre266 = load ptr, ptr %.phi.trans.insert265, align 8, !tbaa !37
   %.pre267 = load ptr, ptr %.pre266, align 8, !tbaa !53
   br label %link_inputs.exit
@@ -1860,18 +1860,18 @@ link_inputs.exit:                                 ; preds = %link_inputs.exit.lo
 
 142:                                              ; preds = %138
   %143 = load ptr, ptr %131, align 8, !tbaa !77
-  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv160.i
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv160.i
   %145 = load ptr, ptr %144, align 8, !tbaa !74
   %146 = load ptr, ptr %145, align 8, !tbaa !96
   %147 = load ptr, ptr %130, align 8, !tbaa !109
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv160.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %indvars.iv160.i
   %149 = load ptr, ptr %148, align 8, !tbaa !99
   %.not.i65 = icmp eq ptr %149, null
   br i1 %.not.i65, label %153, label %236
 
 .thread.i48:                                      ; preds = %138
   %150 = load ptr, ptr %130, align 8, !tbaa !109
-  %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv160.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv160.i
   %152 = load ptr, ptr %151, align 8, !tbaa !99
   %.not93.i = icmp eq ptr %152, null
   br i1 %.not93.i, label %.thread94.split.preheader.i, label %236
@@ -1892,7 +1892,7 @@ link_inputs.exit:                                 ; preds = %link_inputs.exit.lo
 158:                                              ; preds = %._crit_edge.i.i69, %.lr.ph80.i.i66
   %.04778.i.i67 = phi i64 [ %.037191, %.lr.ph80.i.i66 ], [ %185, %._crit_edge.i.i69 ]
   %.04877.i.i68 = phi i64 [ %.035190, %.lr.ph80.i.i66 ], [ 0, %._crit_edge.i.i69 ]
-  %159 = getelementptr inbounds nuw ptr, ptr %157, i64 %.04778.i.i67
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %.04778.i.i67
   %160 = load ptr, ptr %159, align 8, !tbaa !35
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i64, ptr %161, align 8, !tbaa !47
@@ -1905,7 +1905,7 @@ link_inputs.exit:                                 ; preds = %link_inputs.exit.lo
 
 165:                                              ; preds = %.loopexit.i.i86, %.lr.ph76.i.i71
   %.14975.i.i72 = phi i64 [ %.04877.i.i68, %.lr.ph76.i.i71 ], [ %184, %.loopexit.i.i86 ]
-  %166 = getelementptr inbounds nuw ptr, ptr %164, i64 %.14975.i.i72
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %.14975.i.i72
   %167 = load ptr, ptr %166, align 8, !tbaa !37
   %.in.i.i73 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %168 = load ptr, ptr %.in.i.i73, align 8, !tbaa !102
@@ -1930,13 +1930,13 @@ link_inputs.exit:                                 ; preds = %link_inputs.exit.lo
 
 .lr.ph.i.i81:                                     ; preds = %183, %.lr.ph.preheader.i.i79
   %indvars.iv.i.i82 = phi i64 [ 0, %.lr.ph.preheader.i.i79 ], [ %indvars.iv.next.i.i84, %183 ]
-  %175 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv.i.i82
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv.i.i82
   %176 = load ptr, ptr %175, align 8, !tbaa !99
   %.not57.i.i83 = icmp eq ptr %176, null
   br i1 %.not57.i.i83, label %177, label %183
 
 177:                                              ; preds = %.lr.ph.i.i81
-  %178 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv.i.i82
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %indvars.iv.i.i82
   %179 = load ptr, ptr %178, align 8, !tbaa !74
   %180 = load ptr, ptr %179, align 8, !tbaa !96
   %.not58.i.i88 = icmp eq ptr %180, null
@@ -1981,7 +1981,7 @@ find_linklabel.exit.i90:                          ; preds = %181
 
 192:                                              ; preds = %.thread94.split.i
   %193 = load ptr, ptr %124, align 8, !tbaa !50
-  %194 = getelementptr inbounds nuw ptr, ptr %193, i64 %.069.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %.069.i
   %195 = load ptr, ptr %194, align 8, !tbaa !37
   %196 = load ptr, ptr %195, align 8, !tbaa !53
   %.not86.i = icmp eq ptr %196, null
@@ -2003,7 +2003,7 @@ find_linklabel.exit.i90:                          ; preds = %181
 
 203:                                              ; preds = %219, %.lr.ph.i62
   %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.i62 ], [ %indvars.iv.next.i64, %219 ]
-  %204 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv.i63
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %indvars.iv.i63
   %205 = load ptr, ptr %204, align 8, !tbaa !99
   %.not87.i = icmp eq ptr %205, null
   br i1 %.not87.i, label %206, label %219
@@ -2016,7 +2016,7 @@ find_linklabel.exit.i90:                          ; preds = %181
 
 209:                                              ; preds = %206
   %210 = load ptr, ptr %202, align 8, !tbaa !73
-  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv.i63
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv.i63
   %212 = load ptr, ptr %211, align 8, !tbaa !74
   %213 = load ptr, ptr %212, align 8, !tbaa !96
   %.not89.i = icmp eq ptr %213, null
@@ -2230,7 +2230,7 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
   %42 = phi i64 [ %39, %.lr.ph31.i ], [ %65, %._crit_edge.i ]
   %.029.i = phi i64 [ 0, %.lr.ph31.i ], [ %66, %._crit_edge.i ]
   %43 = load ptr, ptr %40, align 8, !tbaa !52
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.029.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.029.i
   %45 = load ptr, ptr %44, align 8, !tbaa !35
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !47
@@ -2241,7 +2241,7 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
   %48 = phi i64 [ %62, %61 ], [ %47, %41 ]
   %.02028.i = phi i64 [ %63, %61 ], [ 0, %41 ]
   %49 = load ptr, ptr %45, align 8, !tbaa !50
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %.02028.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.02028.i
   %51 = load ptr, ptr %50, align 8, !tbaa !37
   %52 = load ptr, ptr %51, align 8, !tbaa !53
   %.not.i = icmp eq ptr %52, null
@@ -2296,7 +2296,7 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
   %73 = phi i64 [ %70, %.lr.ph57.i ], [ %99, %._crit_edge.i85 ]
   %.02456.i = phi i64 [ 0, %.lr.ph57.i ], [ %100, %._crit_edge.i85 ]
   %74 = load ptr, ptr %71, align 8, !tbaa !52
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %.02456.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.02456.i
   %76 = load ptr, ptr %75, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !47
@@ -2307,7 +2307,7 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
   %79 = phi i64 [ %96, %95 ], [ %78, %72 ]
   %.02555.i = phi i64 [ %97, %95 ], [ 0, %72 ]
   %80 = load ptr, ptr %76, align 8, !tbaa !50
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %.02555.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %.02555.i
   %82 = load ptr, ptr %81, align 8, !tbaa !37
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !39
@@ -2396,13 +2396,13 @@ avfilter_graph_segment_init.exit:                 ; preds = %._crit_edge.i85, %6
   %120 = phi i64 [ %.pre216, %._crit_edge213 ], [ %102, %112 ], [ %102, %avfilter_graph_segment_init.exit ]
   %121 = phi ptr [ %.pre214, %._crit_edge213 ], [ %104, %112 ], [ %104, %avfilter_graph_segment_init.exit ]
   %122 = phi ptr [ %.pre, %._crit_edge213 ], [ %29, %112 ], [ %29, %avfilter_graph_segment_init.exit ]
-  %123 = getelementptr ptr, ptr %121, i64 %120
+  %123 = getelementptr [8 x i8], ptr %121, i64 %120
   %124 = getelementptr i8, ptr %123, i64 -8
   %125 = load ptr, ptr %124, align 8, !tbaa !35
   %126 = load ptr, ptr %125, align 8, !tbaa !50
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load i64, ptr %127, align 8, !tbaa !47
-  %129 = getelementptr ptr, ptr %126, i64 %128
+  %129 = getelementptr [8 x i8], ptr %126, i64 %128
   %130 = getelementptr i8, ptr %129, i64 -8
   %131 = load ptr, ptr %130, align 8, !tbaa !37
   %132 = load ptr, ptr %131, align 8, !tbaa !53
@@ -2918,7 +2918,7 @@ pad_params_free.exit:                             ; preds = %28, %parse_link_nam
   %37 = phi i32 [ %42, %pad_params_free.exit22 ], [ %34, %pad_params_free.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %pad_params_free.exit22 ], [ 0, %pad_params_free.exit ]
   %38 = load ptr, ptr %6, align 8, !tbaa !102
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !74
   %.not.i21 = icmp eq ptr %40, null
   br i1 %.not.i21, label %pad_params_free.exit22, label %41
@@ -2978,7 +2978,7 @@ define internal fastcc void @filter_params_free(ptr noundef %0) unnamed_addr #0 
   %11 = phi i32 [ %4, %.lr.ph ], [ %16, %pad_params_free.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pad_params_free.exit ]
   %12 = load ptr, ptr %5, align 8, !tbaa !73
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !74
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %pad_params_free.exit, label %15
@@ -3012,7 +3012,7 @@ pad_params_free.exit:                             ; preds = %10, %15
   %24 = phi i32 [ %8, %.lr.ph24 ], [ %29, %pad_params_free.exit20 ]
   %indvars.iv29 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next30, %pad_params_free.exit20 ]
   %25 = load ptr, ptr %9, align 8, !tbaa !77
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv29
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv29
   %27 = load ptr, ptr %26, align 8, !tbaa !74
   %.not.i19 = icmp eq ptr %27, null
   br i1 %.not.i19, label %pad_params_free.exit20, label %28

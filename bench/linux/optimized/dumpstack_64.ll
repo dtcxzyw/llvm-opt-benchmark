@@ -50,7 +50,7 @@ define dso_local ptr @stack_type_name(i32 noundef %0) local_unnamed_addr #0 alig
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr ptr, ptr @exception_stack_names, i64 %9
+  %10 = getelementptr [8 x i8], ptr @exception_stack_names, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -93,7 +93,7 @@ define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef 
   br i1 %.not, label %24, label %44
 
 24:                                               ; preds = %18
-  %25 = getelementptr %struct.estack_pages, ptr @estack_pages, i64 %21
+  %25 = getelementptr [8 x i8], ptr @estack_pages, i64 %21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i16, ptr %26, align 4
   %28 = load i32, ptr %25, align 8

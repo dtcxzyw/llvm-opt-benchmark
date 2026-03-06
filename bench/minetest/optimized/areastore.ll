@@ -413,7 +413,7 @@ _ZNSt12_Vector_baseI4AreaSaIS0_EE11_M_allocateEm.exit.i: ; preds = %if.end
 invoke.cont15.lr.ph:                              ; preds = %_ZNSt12_Vector_baseI4AreaSaIS0_EE11_M_allocateEm.exit.i
   store ptr %call5.i.i.i.i107, ptr %areas, align 8, !tbaa !60
   store ptr %call5.i.i.i.i107, ptr %_M_finish.i154191, align 8, !tbaa !62
-  %add.ptr21.i = getelementptr inbounds nuw %struct.Area, ptr %call5.i.i.i.i107, i64 %conv9
+  %add.ptr21.i = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i.i107, i64 %conv9
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !63
   %minedge.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   %data.i = getelementptr inbounds nuw i8, ptr %a, i64 16
@@ -1258,7 +1258,7 @@ for.body.lr.ph:                                   ; preds = %if.then
 for.body:                                         ; preds = %if.end, %for.body.lr.ph
   %i.068 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
   %5 = load ptr, ptr %call4, align 8, !tbaa !84
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %i.068
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %5, i64 %i.068
   %6 = load ptr, ptr %add.ptr.i, align 8, !tbaa !45
   %minedge = getelementptr inbounds nuw i8, ptr %6, i64 4
   %7 = load i16, ptr %minedge, align 4, !tbaa !85
@@ -1358,7 +1358,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP4Area
 _ZNSt6vectorIP4AreaSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP4AreaSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr %result, align 8, !tbaa !84
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i65, align 8, !tbaa !82
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !91
   br label %if.end
 
@@ -1834,7 +1834,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP4Area
 _ZNSt6vectorIP4AreaSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP4AreaSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_areas, align 8, !tbaa !84
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !82
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !91
   br label %_ZNSt6vectorIP4AreaSaIS1_EE9push_backEOS1_.exit
 
@@ -2164,7 +2164,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP4Area
 _ZNSt6vectorIP4AreaSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP4AreaSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr %result, align 8, !tbaa !84
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i46, align 8, !tbaa !82
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !91
   br label %if.end
 
@@ -2290,7 +2290,7 @@ if.then.i39.i.i.us:                               ; preds = %_ZNSt6vectorIP4Area
 _ZNSt6vectorIP4AreaSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.us: ; preds = %if.then.i39.i.i.us, %_ZNSt6vectorIP4AreaSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.us
   store ptr %call5.i.i.i.i.i.us, ptr %result, align 8, !tbaa !84
   store ptr %incdec.ptr.i.i.us, ptr %_M_finish.i90, align 8, !tbaa !82
-  %add.ptr19.i.i.us = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.us, i64 %cond.i.i.i.us
+  %add.ptr19.i.i.us = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.us, i64 %cond.i.i.i.us
   store ptr %add.ptr19.i.i.us, ptr %_M_end_of_storage.i, align 8, !tbaa !91
   br label %if.end.us
 
@@ -2397,7 +2397,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP4Area
 _ZNSt6vectorIP4AreaSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP4AreaSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr %result, align 8, !tbaa !84
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i90, align 8, !tbaa !82
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !91
   br label %if.end
 
@@ -2574,7 +2574,7 @@ _ZNSt12_Vector_baseIP4AreaSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %if.th
   store ptr %call5.i.i.i.i, ptr %m_areas, align 8, !tbaa !84
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i32.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8, !tbaa !82
-  %add.ptr21.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i, i64 %count
+  %add.ptr21.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i, i64 %count
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !91
   br label %_ZNSt6vectorIP4AreaSaIS1_EE7reserveEm.exit
 
@@ -2970,7 +2970,7 @@ _ZNSt12_Vector_baseI4AreaSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %if.then.
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !60
   store ptr %__cur.0.lcssa.i.i.i48, ptr %_M_finish.i.i, align 8, !tbaa !62
-  %add.ptr19 = getelementptr inbounds nuw %struct.Area, ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !63
   ret void
 }

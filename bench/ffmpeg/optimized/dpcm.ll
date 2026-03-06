@@ -82,7 +82,7 @@ define internal range(i32 -22, 1) i32 @dpcm_decode_init(ptr noundef %0) #0 {
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.preheader ], [ 0, %8 ]
   %15 = mul nuw nsw i64 %indvars.iv98, %indvars.iv98
   %16 = trunc i64 %15 to i16
-  %17 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv98
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv98
   store i16 %16, ptr %17, align 2, !tbaa !35
   %18 = sub nsw i16 0, %16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 256
@@ -126,7 +126,7 @@ define internal range(i32 -22, 1) i32 @dpcm_decode_init(ptr noundef %0) #0 {
   %30 = icmp slt i64 %indvars.iv94, 0
   %31 = sub i16 0, %29
   %32 = select i1 %30, i16 %31, i16 %29
-  %33 = getelementptr i16, ptr %3, i64 %indvars.iv94
+  %33 = getelementptr [2 x i8], ptr %3, i64 %indvars.iv94
   %34 = getelementptr i8, ptr %33, i64 256
   store i16 %32, ptr %34, align 2, !tbaa !35
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
@@ -140,7 +140,7 @@ define internal range(i32 -22, 1) i32 @dpcm_decode_init(ptr noundef %0) #0 {
   %36 = mul nsw i32 %35, %indvars92
   %37 = sdiv i32 %36, 64
   %38 = trunc i32 %37 to i16
-  %39 = getelementptr i16, ptr %3, i64 %indvars.iv90
+  %39 = getelementptr [2 x i8], ptr %3, i64 %indvars.iv90
   %40 = getelementptr i8, ptr %39, i64 256
   store i16 %38, ptr %40, align 2, !tbaa !35
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, 1
@@ -393,11 +393,11 @@ bytestream2_init.exit:                            ; preds = %4
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.1298, i64 1
   %75 = load i8, ptr %.sroa.0.1298, align 1, !tbaa !47
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %10, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %76
   %78 = load i16, ptr %77, align 2, !tbaa !35
   %79 = sext i16 %78 to i32
   %80 = sext i32 %.0190300 to i64
-  %81 = getelementptr inbounds i32, ptr %5, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %5, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !28
   %83 = add nsw i32 %82, %79
   %84 = tail call i32 @llvm.smax.i32(i32 %83, i32 -32768)
@@ -433,7 +433,7 @@ bytestream2_init.exit:                            ; preds = %4
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.2287, i64 2
   %95 = load i16, ptr %.sroa.0.2287, align 1, !tbaa !47
   %96 = sext i16 %95 to i32
-  %97 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv313
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv313
   store i32 %96, ptr %97, align 4, !tbaa !28
   %98 = getelementptr inbounds nuw i8, ptr %.1193288, i64 2
   store i16 %95, ptr %.1193288, align 2, !tbaa !35
@@ -448,11 +448,11 @@ bytestream2_init.exit:                            ; preds = %4
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.3294, i64 1
   %100 = load i8, ptr %.sroa.0.3294, align 1, !tbaa !47
   %101 = zext i8 %100 to i64
-  %102 = getelementptr inbounds nuw i16, ptr @interplay_delta_table, i64 %101
+  %102 = getelementptr inbounds nuw [2 x i8], ptr @interplay_delta_table, i64 %101
   %103 = load i16, ptr %102, align 2, !tbaa !35
   %104 = sext i16 %103 to i32
   %105 = sext i32 %.2296 to i64
-  %106 = getelementptr inbounds i32, ptr %5, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %5, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !28
   %108 = add nsw i32 %107, %104
   %109 = tail call i32 @llvm.smax.i32(i32 %108, i32 -32768)
@@ -482,7 +482,7 @@ bytestream2_init.exit:                            ; preds = %4
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.4280, i64 2
   %118 = load i16, ptr %.sroa.0.4280, align 1, !tbaa !47
   %119 = sext i16 %118 to i32
-  %120 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %119, ptr %120, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -505,7 +505,7 @@ bytestream2_init.exit:                            ; preds = %4
 
 126:                                              ; preds = %.lr.ph286
   %127 = sext i32 %.4285 to i64
-  %128 = getelementptr inbounds i32, ptr %6, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %6, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !28
   %130 = add nsw i32 %129, 1
   store i32 %130, ptr %128, align 4, !tbaa !28
@@ -514,7 +514,7 @@ bytestream2_init.exit:                            ; preds = %4
 131:                                              ; preds = %.lr.ph286
   %132 = shl nuw nsw i32 %124, 1
   %133 = sext i32 %.4285 to i64
-  %134 = getelementptr inbounds i32, ptr %6, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %6, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !28
   %136 = sub nsw i32 %135, %132
   store i32 %136, ptr %134, align 4, !tbaa !28
@@ -526,12 +526,12 @@ bytestream2_init.exit:                            ; preds = %4
   %139 = shl nuw i32 %123, 24
   %140 = ashr exact i32 %139, 16
   %141 = and i32 %140, -1024
-  %142 = getelementptr inbounds i32, ptr %6, i64 %.pre-phi323
+  %142 = getelementptr inbounds [4 x i8], ptr %6, i64 %.pre-phi323
   %143 = tail call i32 @llvm.smax.i32(i32 %138, i32 0)
   %144 = tail call i32 @llvm.umin.i32(i32 %143, i32 31)
   store i32 %144, ptr %142, align 4, !tbaa !28
   %145 = ashr i32 %141, %144
-  %146 = getelementptr inbounds i32, ptr %5, i64 %.pre-phi323
+  %146 = getelementptr inbounds [4 x i8], ptr %5, i64 %.pre-phi323
   %147 = load i32, ptr %146, align 4, !tbaa !28
   %148 = add nsw i32 %145, %147
   %149 = tail call i32 @llvm.smax.i32(i32 %148, i32 -32768)
@@ -563,7 +563,7 @@ bytestream2_init.exit:                            ; preds = %4
   %159 = getelementptr inbounds nuw i8, ptr %10, i64 528
   %160 = getelementptr inbounds nuw i8, ptr %10, i64 512
   %161 = sext i32 %13 to i64
-  %162 = getelementptr inbounds i32, ptr %160, i64 %161
+  %162 = getelementptr inbounds [4 x i8], ptr %160, i64 %161
   br label %163
 
 163:                                              ; preds = %.lr.ph275, %163
@@ -621,11 +621,11 @@ bytestream2_init.exit:                            ; preds = %4
 195:                                              ; preds = %192
   %196 = and i8 %194, 127
   %197 = zext nneg i8 %196 to i64
-  %198 = getelementptr inbounds nuw i16, ptr @sol_table_16, i64 %197
+  %198 = getelementptr inbounds nuw [2 x i8], ptr @sol_table_16, i64 %197
   %199 = load i16, ptr %198, align 2, !tbaa !35
   %200 = sext i16 %199 to i32
   %201 = sext i32 %.5278 to i64
-  %202 = getelementptr inbounds i32, ptr %157, i64 %201
+  %202 = getelementptr inbounds [4 x i8], ptr %157, i64 %201
   %203 = load i32, ptr %202, align 4, !tbaa !28
   %204 = sub nsw i32 %203, %200
   store i32 %204, ptr %202, align 4, !tbaa !28
@@ -633,11 +633,11 @@ bytestream2_init.exit:                            ; preds = %4
 
 205:                                              ; preds = %192
   %206 = zext nneg i8 %194 to i64
-  %207 = getelementptr inbounds nuw i16, ptr @sol_table_16, i64 %206
+  %207 = getelementptr inbounds nuw [2 x i8], ptr @sol_table_16, i64 %206
   %208 = load i16, ptr %207, align 2, !tbaa !35
   %209 = sext i16 %208 to i32
   %210 = sext i32 %.5278 to i64
-  %211 = getelementptr inbounds i32, ptr %157, i64 %210
+  %211 = getelementptr inbounds [4 x i8], ptr %157, i64 %210
   %212 = load i32, ptr %211, align 4, !tbaa !28
   %213 = add nsw i32 %212, %209
   store i32 %213, ptr %211, align 4, !tbaa !28
@@ -646,7 +646,7 @@ bytestream2_init.exit:                            ; preds = %4
 214:                                              ; preds = %205, %195
   %215 = phi i32 [ %213, %205 ], [ %204, %195 ]
   %.pre-phi322 = phi i64 [ %210, %205 ], [ %201, %195 ]
-  %216 = getelementptr inbounds i32, ptr %157, i64 %.pre-phi322
+  %216 = getelementptr inbounds [4 x i8], ptr %157, i64 %.pre-phi322
   %217 = tail call i32 @llvm.smax.i32(i32 %215, i32 -32768)
   %218 = tail call i32 @llvm.smin.i32(i32 %217, i32 32767)
   %.0.i215 = trunc nsw i32 %218 to i16
@@ -670,7 +670,7 @@ bytestream2_init.exit:                            ; preds = %4
   %226 = and i8 %225, 1
   %.not207 = icmp eq i8 %226, 0
   %227 = sext i32 %.6271 to i64
-  %228 = getelementptr inbounds i32, ptr %222, i64 %227
+  %228 = getelementptr inbounds [4 x i8], ptr %222, i64 %227
   br i1 %.not207, label %229, label %._crit_edge318
 
 ._crit_edge318:                                   ; preds = %223
@@ -684,11 +684,11 @@ bytestream2_init.exit:                            ; preds = %4
 230:                                              ; preds = %._crit_edge318, %229
   %231 = phi i32 [ %.pre320, %._crit_edge318 ], [ 0, %229 ]
   %232 = sext i8 %225 to i64
-  %233 = getelementptr i16, ptr %10, i64 %232
+  %233 = getelementptr [2 x i8], ptr %10, i64 %232
   %234 = getelementptr i8, ptr %233, i64 256
   %235 = load i16, ptr %234, align 2, !tbaa !35
   %236 = sext i16 %235 to i32
-  %237 = getelementptr inbounds i32, ptr %222, i64 %227
+  %237 = getelementptr inbounds [4 x i8], ptr %222, i64 %227
   %238 = add nsw i32 %231, %236
   %239 = tail call i32 @llvm.smax.i32(i32 %238, i32 -32768)
   %240 = tail call i32 @llvm.smin.i32(i32 %239, i32 32767)
@@ -707,11 +707,11 @@ bytestream2_init.exit:                            ; preds = %4
   %245 = getelementptr inbounds nuw i8, ptr %.sroa.0.9265, i64 1
   %246 = load i8, ptr %.sroa.0.9265, align 1, !tbaa !47
   %247 = zext i8 %246 to i64
-  %248 = getelementptr inbounds nuw i16, ptr %10, i64 %247
+  %248 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %247
   %249 = load i16, ptr %248, align 2, !tbaa !35
   %250 = sext i16 %249 to i32
   %251 = zext nneg i32 %.0191267 to i64
-  %252 = getelementptr inbounds nuw i32, ptr %57, i64 %251
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %251
   %253 = load i32, ptr %252, align 4, !tbaa !28
   %254 = add i32 %253, %250
   store i32 %254, ptr %252, align 4, !tbaa !28
@@ -731,13 +731,13 @@ bytestream2_init.exit:                            ; preds = %4
   %262 = and i8 %261, 127
   %263 = tail call i8 @llvm.umin.i8(i8 %262, i8 95)
   %264 = zext nneg i8 %263 to i64
-  %265 = getelementptr inbounds nuw i32, ptr @derf_steps, i64 %264
+  %265 = getelementptr inbounds nuw [4 x i8], ptr @derf_steps, i64 %264
   %266 = load i32, ptr %265, align 4, !tbaa !28
   %267 = sub nsw i32 0, %266
   %.not206245 = icmp slt i8 %261, 0
   %268 = select i1 %.not206245, i32 %267, i32 %266
   %269 = sext i32 %.0189263 to i64
-  %270 = getelementptr inbounds i32, ptr %56, i64 %269
+  %270 = getelementptr inbounds [4 x i8], ptr %56, i64 %269
   %271 = load i32, ptr %270, align 4, !tbaa !28
   %272 = add nsw i32 %271, %268
   %273 = tail call i32 @llvm.smax.i32(i32 %272, i32 -32768)
@@ -764,19 +764,19 @@ bytestream2_init.exit:                            ; preds = %4
   %283 = shl i32 %282, 25
   %284 = ashr exact i32 %283, 16
   %285 = sext i32 %.0186260 to i64
-  %286 = getelementptr inbounds i32, ptr %54, i64 %285
+  %286 = getelementptr inbounds [4 x i8], ptr %54, i64 %285
   store i32 %284, ptr %286, align 4, !tbaa !28
   br label %300
 
 287:                                              ; preds = %278
   %288 = load i32, ptr %55, align 8, !tbaa !48
   %289 = zext nneg i8 %280 to i64
-  %290 = getelementptr inbounds nuw i16, ptr @wady_table, i64 %289
+  %290 = getelementptr inbounds nuw [2 x i8], ptr @wady_table, i64 %289
   %291 = load i16, ptr %290, align 2, !tbaa !35
   %292 = sext i16 %291 to i32
   %293 = mul i32 %288, %292
   %294 = sext i32 %.0186260 to i64
-  %295 = getelementptr inbounds i32, ptr %54, i64 %294
+  %295 = getelementptr inbounds [4 x i8], ptr %54, i64 %294
   %296 = load i32, ptr %295, align 4, !tbaa !28
   %297 = add i32 %293, %296
   store i32 %297, ptr %295, align 4, !tbaa !28

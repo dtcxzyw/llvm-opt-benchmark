@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogDecorators = type { i32 }
 %union.JfrNativeSettings = type { [164 x %struct.jfrNativeEventSetting] }
 %struct.jfrNativeEventSetting = type { i64, i64, i8, i8, i8, [5 x i8] }
-%struct.InterfaceEntry = type { ptr, i64, i64, i64, i8 }
 %class.JfrCheckpointWriter = type <{ %class.EventWriterHost.base, [7 x i8], %class.TimeInstant, i64, i32, i32, i8, [7 x i8] }>
 %class.EventWriterHost.base = type { %class.WriterHost.base }
 %class.WriterHost.base = type <{ %class.AcquireReleaseMemoryWriterHost, i8 }>
@@ -132,7 +131,7 @@ define hidden void @_ZN21JfrNetworkUtilization7destroyEv() local_unnamed_addr #0
   %4 = phi ptr [ %9, %.lr.ph ], [ %1, %.preheader ]
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw %struct.InterfaceEntry, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %8) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -288,7 +287,7 @@ _ZL14get_interfacesv.exit.i:                      ; preds = %50, %39
   %60 = add nsw i32 %59, 1
   %61 = srem i32 %60, %52
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds %struct.InterfaceEntry, ptr %55, i64 %62
+  %63 = getelementptr inbounds [40 x i8], ptr %55, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(1) %.pre.i) #15
   %66 = icmp eq i32 %65, 0
@@ -338,7 +337,7 @@ _ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i: ; pr
   %93 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = sext i32 %91 to i64
-  %96 = getelementptr inbounds %struct.InterfaceEntry, ptr %94, i64 %95
+  %96 = getelementptr inbounds [40 x i8], ptr %94, i64 %95
   store ptr %70, ptr %96, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 %73, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -349,7 +348,7 @@ _ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i: ; pr
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %96, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %97 = load ptr, ptr %93, align 8
-  %98 = getelementptr inbounds %struct.InterfaceEntry, ptr %97, i64 %95
+  %98 = getelementptr inbounds [40 x i8], ptr %97, i64 %95
   br label %_ZL9get_entryPK16NetworkInterface.exit
 
 .loopexit.i:                                      ; preds = %58
@@ -771,9 +770,9 @@ _ZN13GrowableArrayI14InterfaceEntryE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw %struct.InterfaceEntry, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw %struct.InterfaceEntry, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %0, align 8
@@ -789,7 +788,7 @@ _ZN13GrowableArrayI14InterfaceEntryE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %34 = getelementptr inbounds nuw %struct.InterfaceEntry, ptr %.0.i, i64 %indvars.iv20
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %.0.i, i64 %indvars.iv20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 40, i1 false)
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %35 = load i32, ptr %3, align 4
@@ -1225,7 +1224,7 @@ define linkonce_odr hidden void @_ZN23JfrNetworkInterfaceName11on_rotationEv(ptr
   %7 = phi i32 [ %3, %.lr.ph ], [ %15, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %struct.InterfaceEntry, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
@@ -2469,8 +2468,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI14InterfaceEntr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds nuw %struct.InterfaceEntry, ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw %struct.InterfaceEntry, ptr %8, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %26, i64 40, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

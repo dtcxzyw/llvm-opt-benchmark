@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.OSSL_PARAM_BUF = type { ptr, ptr, i64, i64 }
-%union.OSSL_PARAM_ALIGNED_BLOCK = type { double }
 
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/params_dup.c\00", align 1
 @__func__.OSSL_PARAM_dup = private unnamed_addr constant [15 x i8] c"OSSL_PARAM_dup\00", align 1
@@ -73,7 +72,7 @@ define ptr @OSSL_PARAM_dup(ptr noundef readonly captures(address_is_null) %0) lo
   %20 = add i64 %.034.us.i, %19
   %21 = lshr i64 %20, 3
   %22 = sext i32 %9 to i64
-  %23 = getelementptr inbounds %struct.OSSL_PARAM_BUF, ptr %2, i64 %22
+  %23 = getelementptr inbounds [32 x i8], ptr %2, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i64, ptr %24, align 16, !tbaa !14
   %26 = add i64 %21, %25
@@ -139,7 +138,7 @@ ossl_param_buf_alloc.exit11:                      ; preds = %42
   %54 = tail call i32 @CRYPTO_secure_allocated(ptr noundef %53) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.051.us52.i, ptr noundef nonnull align 8 dereferenceable(40) %.03649.us53.i, i64 40, i1 false), !tbaa.struct !19
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.OSSL_PARAM_BUF, ptr %2, i64 %55
+  %56 = getelementptr inbounds [32 x i8], ptr %2, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !18
   %59 = getelementptr inbounds nuw i8, ptr %.051.us52.i, i64 16
@@ -172,7 +171,7 @@ ossl_param_buf_alloc.exit11:                      ; preds = %42
 .thread45.us.i:                                   ; preds = %72, %63
   %75 = phi i64 [ %71, %63 ], [ 1, %72 ]
   %76 = getelementptr inbounds nuw i8, ptr %.051.us52.i, i64 40
-  %77 = getelementptr inbounds nuw %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %58, i64 %75
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %75
   store ptr %77, ptr %57, align 8, !tbaa !18
   %78 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 40
   %79 = load ptr, ptr %78, align 8, !tbaa !3
@@ -230,7 +229,7 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   %.15687 = phi i64 [ %9, %.lr.ph ], [ 0, %.preheader81 ]
   %.05986 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader81 ]
   %9 = add nuw nsw i64 %.15687, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %.15687
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.15687
   store ptr %.05986, ptr %10, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %.05986, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !3
@@ -241,7 +240,7 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
 
 .loopexit82:                                      ; preds = %.lr.ph, %.preheader81, %7
   %.055 = phi i64 [ 0, %7 ], [ 0, %.preheader81 ], [ %9, %.lr.ph ]
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %.055
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.055
   store ptr null, ptr %16, align 8, !tbaa !24
   br i1 %6, label %.loopexit80, label %.preheader79
 
@@ -254,7 +253,7 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   %.189 = phi i64 [ %18, %.lr.ph90 ], [ 0, %.preheader79 ]
   %.16088 = phi ptr [ %20, %.lr.ph90 ], [ %1, %.preheader79 ]
   %18 = add nuw nsw i64 %.189, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %.189
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.189
   store ptr %.16088, ptr %19, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %.16088, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !3
@@ -265,7 +264,7 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
 
 .loopexit80:                                      ; preds = %.lr.ph90, %.preheader79, %.loopexit82
   %.054 = phi i64 [ 0, %.loopexit82 ], [ 0, %.preheader79 ], [ %18, %.lr.ph90 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %4, i64 %.054
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.054
   store ptr null, ptr %25, align 8, !tbaa !24
   %26 = or i64 %.054, %.055
   %or.cond3 = icmp eq i64 %26, 0

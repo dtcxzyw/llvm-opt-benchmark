@@ -40,7 +40,7 @@ define hidden ptr @get_args_as_string(i32 noundef %0, ptr noundef readonly captu
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02326 = phi i32 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  %6 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @strlen(ptr noundef %7) #10
   %9 = trunc i64 %8 to i32
@@ -63,7 +63,7 @@ define hidden ptr @get_args_as_string(i32 noundef %0, ptr noundef readonly captu
   %16 = tail call noalias ptr @g_malloc(i64 noundef %15) #11
   store i8 0, ptr %16, align 1
   %17 = sext i32 %2 to i64
-  %18 = getelementptr ptr, ptr %1, i64 %17
+  %18 = getelementptr [8 x i8], ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @g_strlcat(ptr noundef %16, ptr noundef %19, i64 noundef %15)
   %21 = add nsw i32 %2, 1
@@ -74,7 +74,7 @@ define hidden ptr @get_args_as_string(i32 noundef %0, ptr noundef readonly captu
   %23 = phi i32 [ %29, %.lr.ph29 ], [ %21, %14 ]
   %24 = tail call i64 @g_strlcat(ptr noundef %16, ptr noundef nonnull @.str.1, i64 noundef %15)
   %25 = sext i32 %23 to i64
-  %26 = getelementptr ptr, ptr %1, i64 %25
+  %26 = getelementptr [8 x i8], ptr %1, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i64 @g_strlcat(ptr noundef %16, ptr noundef %27, i64 noundef %15)
   %29 = add i32 %23, 1

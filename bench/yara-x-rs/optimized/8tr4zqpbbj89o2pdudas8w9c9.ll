@@ -1920,7 +1920,7 @@ define noundef zeroext i1 @"_ZN79_$LT$yara_x_proto..yara..FieldOptions$u20$as$u2
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [112 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %"_ZN75_$LT$yara_x_proto..yara..AclEntry$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hedd2ac1e5bf12c36E.exit", %1
@@ -2284,7 +2284,7 @@ define align 8 ptr @"_ZN79_$LT$yara_x_proto..yara..FieldOptions$u20$as$u20$proto
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [112 x i8], ptr %19, i64 %21
   br label %23
 
 23:                                               ; preds = %25, %17
@@ -3200,7 +3200,7 @@ define align 8 ptr @"_ZN75_$LT$yara_x_proto..yara..AclEntry$u20$as$u20$protobuf.
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %24
   br label %26
 
 26:                                               ; preds = %28, %20
@@ -3225,7 +3225,7 @@ define align 8 ptr @"_ZN75_$LT$yara_x_proto..yara..AclEntry$u20$as$u20$protobuf.
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %38
   br label %40
 
 40:                                               ; preds = %42, %34

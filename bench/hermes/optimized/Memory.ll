@@ -47,7 +47,7 @@ init.end:                                         ; preds = %init, %init.check, 
   %3 = add i32 %PFlags, -16777216
   %4 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 8)
   %5 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %tobool2.not = icmp eq ptr %NearBlock, null
   br i1 %tobool2.not, label %if.end12.thread, label %cond.end
@@ -195,7 +195,7 @@ if.end5:                                          ; preds = %if.end
   %4 = add i32 %Flags, -16777216
   %5 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 8)
   %6 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = load i64, ptr @_ZZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize, align 8
   %idx.neg = sub nsw i64 0, %7

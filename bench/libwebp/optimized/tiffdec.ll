@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.MyData = type { ptr, i64, i64 }
-%struct.anon = type { i32, i64 }
 
 @.str = private unnamed_addr constant [7 x i8] c"Memory\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"r\00", align 1
@@ -342,7 +341,7 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
 173:                                              ; preds = %.critedge.i, %172
   %.not.i = phi i1 [ false, %172 ], [ true, %.critedge.i ]
   %indvars.iv.i = phi i64 [ 0, %172 ], [ 1, %.critedge.i ]
-  %174 = getelementptr inbounds nuw %struct.anon, ptr @kTIFFMetadataMap, i64 %indvars.iv.i
+  %174 = getelementptr inbounds nuw [16 x i8], ptr @kTIFFMetadataMap, i64 %indvars.iv.i
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

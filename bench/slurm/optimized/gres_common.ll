@@ -631,7 +631,7 @@ define dso_local noundef zeroext i1 @gres_common_prep_set_env(ptr noundef %0, pt
 
 20:                                               ; preds = %17
   %21 = sext i32 %2 to i64
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not53 = icmp eq ptr %23, null
   br i1 %.not53, label %.thread.thread, label %24
@@ -644,7 +644,7 @@ define dso_local noundef zeroext i1 @gres_common_prep_set_env(ptr noundef %0, pt
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %18, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %21
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %21
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i64 @slurm_bit_fls(ptr noundef %31) #6
   %33 = trunc i64 %32 to i32
@@ -668,7 +668,7 @@ define dso_local noundef zeroext i1 @gres_common_prep_set_env(ptr noundef %0, pt
   %.068 = phi ptr [ @.str, %.lr.ph ], [ %.1, %51 ]
   %storemerge67 = phi i32 [ %26, %.lr.ph ], [ %53, %51 ]
   %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %34
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %34
   %38 = load ptr, ptr %37, align 8
   %39 = sext i32 %storemerge67 to i64
   %40 = call i32 @slurm_bit_test(ptr noundef %38, i64 noundef %39) #6

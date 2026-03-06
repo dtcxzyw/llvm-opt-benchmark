@@ -90,7 +90,7 @@ define dso_local range(i32 0, 3) i32 @psql_yylex(ptr noundef %0, ptr noundef ini
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not740 = icmp eq ptr %28, null
   br i1 %.not740, label %35, label %53
@@ -134,7 +134,7 @@ define dso_local range(i32 0, 3) i32 @psql_yylex(ptr noundef %0, ptr noundef ini
 
 44:                                               ; preds = %39
   %45 = load i64, ptr %36, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %46, i8 0, i64 64, i1 false)
   store i64 %40, ptr %36, align 8
   %.pre = load ptr, ptr %11, align 8
@@ -146,11 +146,11 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %32, %35, %44
   %49 = load ptr, ptr %22, align 8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   store ptr %48, ptr %52, align 8
   %.pre2139 = load ptr, ptr %22, align 8
   %.pre2140 = load i64, ptr %50, align 8
-  %.phi.trans.insert2141 = getelementptr inbounds nuw ptr, ptr %.pre2139, i64 %.pre2140
+  %.phi.trans.insert2141 = getelementptr inbounds nuw [8 x i8], ptr %.pre2139, i64 %.pre2140
   %.pre2142 = load ptr, ptr %.phi.trans.insert2141, align 8
   br label %53
 
@@ -158,7 +158,7 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %32, %35, %44
   %54 = phi ptr [ %.pre2142, %psql_yyensure_buffer_stack.exit ], [ %28, %24 ]
   %55 = phi i64 [ %.pre2140, %psql_yyensure_buffer_stack.exit ], [ %26, %24 ]
   %56 = phi ptr [ %.pre2139, %psql_yyensure_buffer_stack.exit ], [ %23, %24 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %55
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 28
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -237,13 +237,13 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %.1697 = phi ptr [ %.0696, %.loopexit ], [ %124, %112 ]
   %.1 = phi i32 [ %.0695, %.loopexit ], [ %122, %112 ]
   %113 = sext i32 %.1 to i64
-  %114 = getelementptr inbounds [44 x i16], ptr @yy_nxt, i64 %113
+  %114 = getelementptr inbounds [88 x i8], ptr @yy_nxt, i64 %113
   %115 = load i8, ptr %.1697, align 1
   %116 = zext i8 %115 to i64
   %117 = getelementptr inbounds nuw i8, ptr @yy_ec, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds nuw i16, ptr %114, i64 %119
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %114, i64 %119
   %121 = load i16, ptr %120, align 2
   %122 = sext i16 %121 to i32
   %123 = icmp sgt i16 %121, 0
@@ -259,7 +259,7 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %.2698 = phi ptr [ %.1697, %125 ], [ %.2698.be, %.loopexit1400.backedge ]
   %.2 = phi i32 [ %126, %125 ], [ %.2.be, %.loopexit1400.backedge ]
   %127 = sext i32 %.2 to i64
-  %128 = getelementptr inbounds i16, ptr @yy_accept, i64 %127
+  %128 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = sext i16 %129 to i32
   store ptr %.1703, ptr %81, align 8
@@ -4539,7 +4539,7 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2158, %2164
   store i8 %2171, ptr %.2698, align 1
   %2172 = load ptr, ptr %83, align 8
   %2173 = load i64, ptr %84, align 8
-  %2174 = getelementptr inbounds nuw ptr, ptr %2172, i64 %2173
+  %2174 = getelementptr inbounds nuw [8 x i8], ptr %2172, i64 %2173
   %2175 = load ptr, ptr %2174, align 8
   %2176 = getelementptr inbounds nuw i8, ptr %2175, i64 56
   %2177 = load i32, ptr %2176, align 8
@@ -4555,13 +4555,13 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2158, %2164
   store ptr %2182, ptr %2183, align 8
   %2184 = load ptr, ptr %83, align 8
   %2185 = load i64, ptr %84, align 8
-  %2186 = getelementptr inbounds nuw ptr, ptr %2184, i64 %2185
+  %2186 = getelementptr inbounds nuw [8 x i8], ptr %2184, i64 %2185
   %2187 = load ptr, ptr %2186, align 8
   %2188 = getelementptr inbounds nuw i8, ptr %2187, i64 56
   store i32 1, ptr %2188, align 8
   %.pre2143 = load ptr, ptr %83, align 8
   %.pre2144 = load i64, ptr %84, align 8
-  %.phi.trans.insert2145 = getelementptr inbounds nuw ptr, ptr %.pre2143, i64 %.pre2144
+  %.phi.trans.insert2145 = getelementptr inbounds nuw [8 x i8], ptr %.pre2143, i64 %.pre2144
   %.pre2146 = load ptr, ptr %.phi.trans.insert2145, align 8
   br label %2189
 
@@ -4596,7 +4596,7 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2158, %2164
   %.011.i = phi i32 [ %2222, %2218 ], [ %2208, %2199 ]
   %.0910.i = phi ptr [ %2223, %2218 ], [ %2205, %2199 ]
   %2210 = sext i32 %.011.i to i64
-  %2211 = getelementptr inbounds [44 x i16], ptr @yy_nxt, i64 %2210
+  %2211 = getelementptr inbounds [88 x i8], ptr @yy_nxt, i64 %2210
   %2212 = load i8, ptr %.0910.i, align 1
   %.not.i1360 = icmp eq i8 %2212, 0
   br i1 %.not.i1360, label %2218, label %2213
@@ -4610,7 +4610,7 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2158, %2164
 
 2218:                                             ; preds = %2213, %.lr.ph.i1359
   %2219 = phi i64 [ %2217, %2213 ], [ 1, %.lr.ph.i1359 ]
-  %2220 = getelementptr inbounds nuw i16, ptr %2211, i64 %2219
+  %2220 = getelementptr inbounds nuw [2 x i8], ptr %2211, i64 %2219
   %2221 = load i16, ptr %2220, align 2
   %2222 = sext i16 %2221 to i32
   %2223 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 1
@@ -4620,7 +4620,7 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2158, %2164
 yy_get_previous_state.exit:                       ; preds = %2218, %2199
   %.0.lcssa.i = phi i32 [ %2208, %2199 ], [ %2222, %2218 ]
   %2224 = sext i32 %.0.lcssa.i to i64
-  %2225 = getelementptr inbounds [44 x i16], ptr @yy_nxt, i64 %2224
+  %2225 = getelementptr inbounds [88 x i8], ptr @yy_nxt, i64 %2224
   %2226 = getelementptr inbounds nuw i8, ptr %2225, i64 2
   %2227 = load i16, ptr %2226, align 2
   %.not742 = icmp slt i16 %2227, 1
@@ -4691,7 +4691,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i1368
   %.pre.i = load ptr, ptr %83, align 8
   %.pre180.i = load i64, ptr %84, align 8
-  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.pre180.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.pre180.i
   %.pre181.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i
 
@@ -4705,7 +4705,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   br i1 %2261, label %2262, label %2264
 
 2262:                                             ; preds = %._crit_edge.i
-  %2263 = getelementptr inbounds nuw ptr, ptr %2258, i64 %2257
+  %2263 = getelementptr inbounds nuw [8 x i8], ptr %2258, i64 %2257
   store i32 0, ptr %85, align 4
   br label %2367
 
@@ -4771,7 +4771,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   store ptr %2290, ptr %79, align 8
   %2291 = load ptr, ptr %83, align 8
   %2292 = load i64, ptr %84, align 8
-  %2293 = getelementptr inbounds nuw ptr, ptr %2291, i64 %2292
+  %2293 = getelementptr inbounds nuw [8 x i8], ptr %2291, i64 %2292
   %2294 = load ptr, ptr %2293, align 8
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %2294, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
@@ -4807,7 +4807,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   %2305 = trunc i32 %2303 to i8
   %2306 = load ptr, ptr %83, align 8
   %2307 = load i64, ptr %84, align 8
-  %2308 = getelementptr inbounds nuw ptr, ptr %2306, i64 %2307
+  %2308 = getelementptr inbounds nuw [8 x i8], ptr %2306, i64 %2307
   %2309 = load ptr, ptr %2308, align 8
   %2310 = getelementptr inbounds nuw i8, ptr %2309, i64 8
   %2311 = load ptr, ptr %2310, align 8
@@ -4832,7 +4832,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
 .thread154.i:                                     ; preds = %.critedge.i
   %2315 = load ptr, ptr %83, align 8
   %2316 = load i64, ptr %84, align 8
-  %2317 = getelementptr inbounds nuw ptr, ptr %2315, i64 %2316
+  %2317 = getelementptr inbounds nuw [8 x i8], ptr %2315, i64 %2316
   %2318 = load ptr, ptr %2317, align 8
   %2319 = getelementptr inbounds nuw i8, ptr %2318, i64 8
   %2320 = load ptr, ptr %2319, align 8
@@ -4866,7 +4866,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   %2333 = zext nneg i32 %2297 to i64
   %2334 = load ptr, ptr %83, align 8
   %2335 = load i64, ptr %84, align 8
-  %2336 = getelementptr inbounds nuw ptr, ptr %2334, i64 %2335
+  %2336 = getelementptr inbounds nuw [8 x i8], ptr %2334, i64 %2335
   %2337 = load ptr, ptr %2336, align 8
   %2338 = getelementptr inbounds nuw i8, ptr %2337, i64 8
   %2339 = load ptr, ptr %2338, align 8
@@ -4899,7 +4899,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   tail call void @clearerr(ptr noundef %2351) #28
   %2352 = load ptr, ptr %83, align 8
   %2353 = load i64, ptr %84, align 8
-  %2354 = getelementptr inbounds nuw ptr, ptr %2352, i64 %2353
+  %2354 = getelementptr inbounds nuw [8 x i8], ptr %2352, i64 %2353
   %2355 = load ptr, ptr %2354, align 8
   %2356 = getelementptr inbounds nuw i8, ptr %2355, i64 8
   %2357 = load ptr, ptr %2356, align 8
@@ -4915,7 +4915,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   %2363 = phi i32 [ %.1156.i, %2329 ], [ %2343, %2330 ], [ 0, %.lr.ph172.i ], [ %2361, %2350 ]
   %2364 = load ptr, ptr %83, align 8
   %2365 = load i64, ptr %84, align 8
-  %2366 = getelementptr inbounds nuw ptr, ptr %2364, i64 %2365
+  %2366 = getelementptr inbounds nuw [8 x i8], ptr %2364, i64 %2365
   br label %2367
 
 2367:                                             ; preds = %.critedge2.i, %2262
@@ -4940,7 +4940,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
 2375:                                             ; preds = %2371
   %2376 = load ptr, ptr %83, align 8
   %2377 = load i64, ptr %84, align 8
-  %2378 = getelementptr inbounds nuw ptr, ptr %2376, i64 %2377
+  %2378 = getelementptr inbounds nuw [8 x i8], ptr %2376, i64 %2377
   %2379 = load ptr, ptr %2378, align 8
   %2380 = getelementptr inbounds nuw i8, ptr %2379, i64 56
   store i32 2, ptr %2380, align 8
@@ -4952,7 +4952,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   %2383 = add i32 %2382, %2250
   %2384 = load ptr, ptr %83, align 8
   %2385 = load i64, ptr %84, align 8
-  %2386 = getelementptr inbounds nuw ptr, ptr %2384, i64 %2385
+  %2386 = getelementptr inbounds nuw [8 x i8], ptr %2384, i64 %2385
   %2387 = load ptr, ptr %2386, align 8
   %2388 = getelementptr inbounds nuw i8, ptr %2387, i64 24
   %2389 = load i32, ptr %2388, align 8
@@ -4968,13 +4968,13 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   %2397 = tail call noalias noundef ptr @realloc(ptr noundef %2395, i64 noundef %2396) #27
   %2398 = load ptr, ptr %83, align 8
   %2399 = load i64, ptr %84, align 8
-  %2400 = getelementptr inbounds nuw ptr, ptr %2398, i64 %2399
+  %2400 = getelementptr inbounds nuw [8 x i8], ptr %2398, i64 %2399
   %2401 = load ptr, ptr %2400, align 8
   %2402 = getelementptr inbounds nuw i8, ptr %2401, i64 8
   store ptr %2397, ptr %2402, align 8
   %2403 = load ptr, ptr %83, align 8
   %2404 = load i64, ptr %84, align 8
-  %2405 = getelementptr inbounds nuw ptr, ptr %2403, i64 %2404
+  %2405 = getelementptr inbounds nuw [8 x i8], ptr %2403, i64 %2404
   %2406 = load ptr, ptr %2405, align 8
   %2407 = getelementptr inbounds nuw i8, ptr %2406, i64 8
   %2408 = load ptr, ptr %2407, align 8
@@ -5000,7 +5000,7 @@ yy_get_next_buffer.exit:                          ; preds = %2381, %2410
   %2413 = phi i64 [ %.pre185.i, %2410 ], [ %2385, %2381 ]
   %2414 = phi ptr [ %.pre184.i, %2410 ], [ %2384, %2381 ]
   store i32 %.pre-phi.i, ptr %85, align 4
-  %2415 = getelementptr inbounds nuw ptr, ptr %2414, i64 %2413
+  %2415 = getelementptr inbounds nuw [8 x i8], ptr %2414, i64 %2413
   %2416 = load ptr, ptr %2415, align 8
   %2417 = getelementptr inbounds nuw i8, ptr %2416, i64 8
   %2418 = load ptr, ptr %2417, align 8
@@ -5009,7 +5009,7 @@ yy_get_next_buffer.exit:                          ; preds = %2381, %2410
   store i8 0, ptr %2420, align 1
   %2421 = load ptr, ptr %83, align 8
   %2422 = load i64, ptr %84, align 8
-  %2423 = getelementptr inbounds nuw ptr, ptr %2421, i64 %2422
+  %2423 = getelementptr inbounds nuw [8 x i8], ptr %2421, i64 %2422
   %2424 = load ptr, ptr %2423, align 8
   %2425 = getelementptr inbounds nuw i8, ptr %2424, i64 8
   %2426 = load ptr, ptr %2425, align 8
@@ -5020,7 +5020,7 @@ yy_get_next_buffer.exit:                          ; preds = %2381, %2410
   store i8 0, ptr %2430, align 1
   %2431 = load ptr, ptr %83, align 8
   %2432 = load i64, ptr %84, align 8
-  %2433 = getelementptr inbounds nuw ptr, ptr %2431, i64 %2432
+  %2433 = getelementptr inbounds nuw [8 x i8], ptr %2431, i64 %2432
   %2434 = load ptr, ptr %2433, align 8
   %2435 = getelementptr inbounds nuw i8, ptr %2434, i64 8
   %2436 = load ptr, ptr %2435, align 8
@@ -5032,7 +5032,7 @@ yy_get_next_buffer.exit:                          ; preds = %2381, %2410
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1396_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %2437 = getelementptr inbounds nuw ptr, ptr %2431, i64 %2432
+  %2437 = getelementptr inbounds nuw [8 x i8], ptr %2431, i64 %2432
   %.pre2147 = load ptr, ptr %2437, align 8
   %.phi.trans.insert2148 = getelementptr inbounds nuw i8, ptr %.pre2147, i64 8
   %.pre2149 = load ptr, ptr %.phi.trans.insert2148, align 8
@@ -5057,7 +5057,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1396_crit_edge: ; preds = 
   %.011.i1373 = phi i32 [ %2460, %2456 ], [ %2446, %2438 ]
   %.0910.i1374 = phi ptr [ %2461, %2456 ], [ %2436, %2438 ]
   %2448 = sext i32 %.011.i1373 to i64
-  %2449 = getelementptr inbounds [44 x i16], ptr @yy_nxt, i64 %2448
+  %2449 = getelementptr inbounds [88 x i8], ptr @yy_nxt, i64 %2448
   %2450 = load i8, ptr %.0910.i1374, align 1
   %.not.i1375 = icmp eq i8 %2450, 0
   br i1 %.not.i1375, label %2456, label %2451
@@ -5071,7 +5071,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1396_crit_edge: ; preds = 
 
 2456:                                             ; preds = %2451, %.lr.ph.i1372
   %2457 = phi i64 [ %2455, %2451 ], [ 1, %.lr.ph.i1372 ]
-  %2458 = getelementptr inbounds nuw i16, ptr %2449, i64 %2457
+  %2458 = getelementptr inbounds nuw [2 x i8], ptr %2449, i64 %2457
   %2459 = load i16, ptr %2458, align 2
   %2460 = sext i16 %2459 to i32
   %2461 = getelementptr inbounds nuw i8, ptr %.0910.i1374, i64 1
@@ -5092,7 +5092,7 @@ yy_get_next_buffer.exit.thread1396:               ; preds = %2244, %yy_get_next_
   %.011.i1381 = phi i32 [ %2479, %2475 ], [ %2465, %yy_get_next_buffer.exit.thread1396 ]
   %.0910.i1382 = phi ptr [ %2480, %2475 ], [ %2462, %yy_get_next_buffer.exit.thread1396 ]
   %2467 = sext i32 %.011.i1381 to i64
-  %2468 = getelementptr inbounds [44 x i16], ptr @yy_nxt, i64 %2467
+  %2468 = getelementptr inbounds [88 x i8], ptr @yy_nxt, i64 %2467
   %2469 = load i8, ptr %.0910.i1382, align 1
   %.not.i1383 = icmp eq i8 %2469, 0
   br i1 %.not.i1383, label %2475, label %2470
@@ -5106,7 +5106,7 @@ yy_get_next_buffer.exit.thread1396:               ; preds = %2244, %yy_get_next_
 
 2475:                                             ; preds = %2470, %.lr.ph.i1380
   %2476 = phi i64 [ %2474, %2470 ], [ 1, %.lr.ph.i1380 ]
-  %2477 = getelementptr inbounds nuw i16, ptr %2468, i64 %2476
+  %2477 = getelementptr inbounds nuw [2 x i8], ptr %2468, i64 %2476
   %2478 = load i16, ptr %2477, align 2
   %2479 = sext i16 %2478 to i32
   %2480 = getelementptr inbounds nuw i8, ptr %.0910.i1382, i64 1
@@ -5184,7 +5184,7 @@ define dso_local nonnull ptr @psql_yy_create_buffer(ptr noundef %0, i32 noundef 
 24:                                               ; preds = %13
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %4, %28
   br i1 %29, label %30, label %45
@@ -5222,7 +5222,7 @@ psql_yy_flush_buffer.exit.i:                      ; preds = %13
   store i32 1, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %23, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %4, %50
   br i1 %51, label %psql_yy_init_buffer.exit, label %.critedge.i
@@ -5725,7 +5725,7 @@ define dso_local void @psqlscan_pop_buffer_stack(ptr noundef captures(none) %0) 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %6, %15
   br i1 %16, label %17, label %.critedge.i
@@ -5837,7 +5837,7 @@ define dso_local void @psql_yyrestart(ptr noundef %0, ptr noundef captures(none)
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
   br i1 %.not16, label %16, label %.thread
@@ -5881,7 +5881,7 @@ define dso_local void @psql_yyrestart(ptr noundef %0, ptr noundef captures(none)
 
 25:                                               ; preds = %20
   %26 = load i64, ptr %17, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, i8 0, i64 64, i1 false)
   store i64 %21, ptr %17, align 8
   br label %28
@@ -5893,7 +5893,7 @@ define dso_local void @psql_yyrestart(ptr noundef %0, ptr noundef captures(none)
   %32 = load ptr, ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %34
   store ptr %31, ptr %35, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
@@ -5908,7 +5908,7 @@ define dso_local void @psql_yyrestart(ptr noundef %0, ptr noundef captures(none)
   %38 = phi ptr [ %.pre, %28 ], [ %4, %5 ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @__errno_location() #30
   %44 = load i32, ptr %43, align 4
@@ -5937,7 +5937,7 @@ define dso_local void @psql_yyrestart(ptr noundef %0, ptr noundef captures(none)
 
 56:                                               ; preds = %45
   %57 = load i64, ptr %39, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %42, %59
   br i1 %60, label %61, label %psql_yy_flush_buffer.exit.i
@@ -5977,7 +5977,7 @@ psql_yy_flush_buffer.exit.i:                      ; preds = %.thread19, %61, %56
 80:                                               ; preds = %psql_yy_flush_buffer.exit.i
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds nuw ptr, ptr %79, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %77, %84
   br i1 %85, label %psql_yy_init_buffer.exit, label %.critedge.i
@@ -5996,7 +5996,7 @@ psql_yy_init_buffer.exit:                         ; preds = %80, %.critedge.i
   %89 = load ptr, ptr %3, align 8
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds nuw ptr, ptr %89, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 28
   %95 = load i32, ptr %94, align 4
@@ -6067,7 +6067,7 @@ define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr noundef capt
 
 22:                                               ; preds = %17
   %23 = load i64, ptr %14, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, i8 0, i64 64, i1 false)
   store i64 %18, ptr %14, align 8
   br label %.thread
@@ -6076,7 +6076,7 @@ define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr noundef capt
   %25 = phi ptr [ %6, %8 ], [ %4, %11 ], [ %20, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %0
   br i1 %30, label %73, label %31
@@ -6094,7 +6094,7 @@ define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr noundef capt
   %37 = load ptr, ptr %35, align 8
   %38 = load ptr, ptr %3, align 8
   %39 = load i64, ptr %26, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
@@ -6102,7 +6102,7 @@ define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr noundef capt
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %3, align 8
   %46 = load i64, ptr %26, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
@@ -6113,11 +6113,11 @@ define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr noundef capt
   %51 = phi ptr [ %25, %31 ], [ %.pre, %32 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %53
   store ptr %0, ptr %54, align 8
   %55 = load ptr, ptr %3, align 8
   %56 = load i64, ptr %52, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
@@ -6165,7 +6165,7 @@ define dso_local void @psql_yy_delete_buffer(ptr noundef captures(address) %0, p
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %.critedge
@@ -6229,7 +6229,7 @@ define dso_local void @psql_yy_flush_buffer(ptr noundef captures(address) %0, pt
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %.critedge
@@ -6311,7 +6311,7 @@ define dso_local void @psql_yypush_buffer_state(ptr noundef %0, ptr noundef capt
 
 24:                                               ; preds = %19
   %25 = load i64, ptr %16, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 64, i1 false)
   store i64 %20, ptr %16, align 8
   %.pre = load i64, ptr %14, align 8
@@ -6321,7 +6321,7 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %24
   %27 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %24 ]
   %28 = phi ptr [ %8, %10 ], [ %6, %13 ], [ %22, %24 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %31 = load ptr, ptr %30, align 8
   %.not25 = icmp eq ptr %31, null
   br i1 %.not25, label %.thread, label %32
@@ -6335,7 +6335,7 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %24
   %37 = load ptr, ptr %35, align 8
   %38 = load ptr, ptr %5, align 8
   %39 = load i64, ptr %29, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
@@ -6343,13 +6343,13 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %24
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %5, align 8
   %46 = load i64, ptr %29, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.pre30 = load i64, ptr %29, align 8
-  %.phi.trans.insert31 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %.pre30
+  %.phi.trans.insert31 = getelementptr inbounds nuw [8 x i8], ptr %.pr.pre, i64 %.pre30
   %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8
   %50 = icmp eq ptr %.pre32, null
   br i1 %50, label %.thread, label %51
@@ -6362,11 +6362,11 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %24
 .thread:                                          ; preds = %psql_yyensure_buffer_stack.exit, %51, %32
   %.pr40 = phi ptr [ %.pr.pre, %51 ], [ %.pr.pre, %32 ], [ %28, %psql_yyensure_buffer_stack.exit ]
   %53 = phi i64 [ %52, %51 ], [ %.pre30, %32 ], [ %27, %psql_yyensure_buffer_stack.exit ]
-  %54 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.pr40, i64 %53
   store ptr %0, ptr %54, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = load i64, ptr %29, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
@@ -6404,7 +6404,7 @@ define dso_local void @psql_yypop_buffer_state(ptr noundef captures(none) %0) lo
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
   br i1 %.not20, label %41, label %.critedge.i
@@ -6426,7 +6426,7 @@ psql_yy_delete_buffer.exit:                       ; preds = %.critedge.i, %11
   tail call void @free(ptr noundef nonnull %8) #28
   %14 = load ptr, ptr %2, align 8
   %15 = load i64, ptr %5, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   store ptr null, ptr %16, align 8
   %17 = load i64, ptr %5, align 8
   %.not21 = icmp eq i64 %17, 0
@@ -6444,7 +6444,7 @@ psql_yy_delete_buffer.exit:                       ; preds = %.critedge.i, %11
   br i1 %.not22, label %41, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %25 = load ptr, ptr %24, align 8
   %.not23 = icmp eq ptr %25, null
   br i1 %.not23, label %41, label %26
@@ -6652,7 +6652,7 @@ define dso_local i32 @psql_yyget_lineno(ptr noundef readonly captures(none) %0) 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -6677,7 +6677,7 @@ define dso_local i32 @psql_yyget_column(ptr noundef readonly captures(none) %0) 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -6736,7 +6736,7 @@ define dso_local void @psql_yyset_lineno(i32 noundef %0, ptr noundef readonly ca
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -6761,7 +6761,7 @@ define dso_local void @psql_yyset_column(i32 noundef %0, ptr noundef readonly ca
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -6889,7 +6889,7 @@ define dso_local noundef i32 @psql_yylex_destroy(ptr noundef captures(none) %0) 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %2, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %.critedge.i
@@ -6913,7 +6913,7 @@ psql_yy_delete_buffer.exit:                       ; preds = %.critedge.i, %19
   tail call void @free(ptr noundef nonnull %15) #28
   %22 = load ptr, ptr %3, align 8
   %23 = load i64, ptr %2, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   store ptr null, ptr %24, align 8
   %25 = load ptr, ptr %3, align 8
   %.not.i23 = icmp eq ptr %25, null
@@ -6921,7 +6921,7 @@ psql_yy_delete_buffer.exit:                       ; preds = %.critedge.i, %19
 
 26:                                               ; preds = %psql_yy_delete_buffer.exit
   %27 = load i64, ptr %2, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %psql_yypop_buffer_state.exit, label %.critedge.i.i
@@ -6943,7 +6943,7 @@ psql_yy_delete_buffer.exit.i:                     ; preds = %32, %.critedge.i.i
   tail call void @free(ptr noundef nonnull %29) #28
   %35 = load ptr, ptr %3, align 8
   %36 = load i64, ptr %2, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   store ptr null, ptr %37, align 8
   %38 = load i64, ptr %2, align 8
   %.not21.i = icmp eq i64 %38, 0
@@ -6961,7 +6961,7 @@ psql_yy_delete_buffer.exit.i:                     ; preds = %32, %.critedge.i.i
   br i1 %.not22.i, label %.critedge, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %42
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %42
   %46 = load ptr, ptr %45, align 8
   %.not23.i = icmp eq ptr %46, null
   br i1 %.not23.i, label %psql_yypop_buffer_state.exit, label %47
@@ -6986,7 +6986,7 @@ psql_yy_delete_buffer.exit.i:                     ; preds = %32, %.critedge.i.i
 psql_yypop_buffer_state.exit:                     ; preds = %26, %44, %47
   %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.critedge, label %.critedge.i, !llvm.loop !17
@@ -7114,7 +7114,7 @@ define dso_local void @psql_scan_destroy(ptr noundef captures(none) %0) local_un
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %6, %15
   br i1 %16, label %17, label %.critedge.i.i
@@ -7208,7 +7208,7 @@ define dso_local void @psql_scan_finish(ptr noundef captures(none) %0) local_unn
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %6, %15
   br i1 %16, label %17, label %.critedge.i

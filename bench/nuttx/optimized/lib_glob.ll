@@ -169,7 +169,7 @@ append.exit.thread:                               ; preds = %31
 .lr.ph103:                                        ; preds = %.preheader, %.lr.ph103
   %.061102 = phi i64 [ %62, %.lr.ph103 ], [ 0, %.preheader ]
   %60 = load ptr, ptr %58, align 8
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %.061102
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %.061102
   store ptr null, ptr %61, align 8
   %62 = add nuw i64 %.061102, 1
   %exitcond.not = icmp eq i64 %62, %13
@@ -186,8 +186,8 @@ append.exit.thread:                               ; preds = %31
   %65 = load ptr, ptr %.in, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %63, align 8
-  %68 = getelementptr ptr, ptr %67, i64 %.064
-  %69 = getelementptr ptr, ptr %68, i64 %.162106
+  %68 = getelementptr [8 x i8], ptr %67, i64 %.064
+  %69 = getelementptr [8 x i8], ptr %68, i64 %.162106
   store ptr %66, ptr %69, align 8
   %70 = add nuw i64 %.162106, 1
   %exitcond114.not = icmp eq i64 %70, %.1
@@ -195,8 +195,8 @@ append.exit.thread:                               ; preds = %31
 
 71:                                               ; preds = %64
   %72 = load ptr, ptr %63, align 8
-  %73 = getelementptr ptr, ptr %72, i64 %.064
-  %74 = getelementptr ptr, ptr %73, i64 %.1
+  %73 = getelementptr [8 x i8], ptr %72, i64 %.064
+  %74 = getelementptr [8 x i8], ptr %73, i64 %.1
   store ptr null, ptr %74, align 8
   %75 = load i64, ptr %3, align 8
   %76 = add i64 %75, %.1
@@ -207,7 +207,7 @@ append.exit.thread:                               ; preds = %31
 
 78:                                               ; preds = %71
   %79 = load ptr, ptr %63, align 8
-  %80 = getelementptr inbounds ptr, ptr %79, i64 %.064
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %.064
   call void @qsort(ptr noundef %80, i64 noundef %.1, i64 noundef 8, ptr noundef nonnull @sort) #14
   br label %freelist.exit
 
@@ -675,8 +675,8 @@ define void @globfree(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %.08 = phi i64 [ 0, %.lr.ph ], [ %12, %5 ]
   %6 = load ptr, ptr %3, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr ptr, ptr %6, i64 %7
-  %9 = getelementptr ptr, ptr %8, i64 %.08
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
+  %9 = getelementptr [8 x i8], ptr %8, i64 %.08
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   tail call void @free(ptr noundef nonnull %11)

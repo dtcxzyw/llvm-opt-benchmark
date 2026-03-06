@@ -3880,7 +3880,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @Mini_Subchannel_all
   %26 = tail call ptr @proto_tree_add_bits_item(ptr noundef %11, i32 noundef %25, ptr noundef %3, i32 noundef %17, i32 noundef 2, i32 noundef 0)
   %27 = add i32 %4, 14
   %28 = zext nneg i32 %24 to i64
-  %29 = getelementptr i32, ptr @__const.Mini_Subchannel_allocation_IE.m_table, i64 %28
+  %29 = getelementptr [4 x i8], ptr @__const.Mini_Subchannel_allocation_IE.m_table, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr @hf_ulmap_mini_subcha_alloc_duration, align 4
   %32 = tail call ptr @proto_tree_add_bits_item(ptr noundef %11, i32 noundef %31, ptr noundef %3, i32 noundef %27, i32 noundef 6, i32 noundef 0)

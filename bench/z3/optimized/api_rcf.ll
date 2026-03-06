@@ -894,7 +894,7 @@ define i32 @Z3_rcf_mk_roots(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 16:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !172
   store ptr %18, ptr %6, align 8
   %19 = invoke noundef zeroext i1 @_ZN11realclosure7manager7is_zeroERKNS_3numE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -946,7 +946,7 @@ define i32 @Z3_rcf_mk_roots(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %38 = phi ptr [ %.pre.i, %.noexc ], [ %27, %29 ]
   %39 = getelementptr inbounds i8, ptr %38, i64 -4
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds nuw %"class.realclosure::num", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   %42 = ptrtoint ptr %26 to i64
   store i64 %42, ptr %41, align 8, !tbaa !166
   %43 = add i32 %37, 1
@@ -1026,9 +1026,9 @@ _ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit65: ; preds = %55
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv92 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next93, %.lr.ph85 ]
-  %63 = getelementptr inbounds nuw %"class.realclosure::num", ptr %56, i64 %indvars.iv92
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv92
   %.sroa.0.0.copyload = load ptr, ptr %63, align 8, !tbaa !166
-  %64 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv92
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv92
   store ptr %.sroa.0.0.copyload, ptr %64, align 8, !tbaa !172
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
@@ -1036,7 +1036,7 @@ _ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit65: ; preds = %55
 
 .lr.ph88:                                         ; preds = %.lr.ph88.preheader, %68
   %indvars.iv97 = phi i64 [ 0, %.lr.ph88.preheader ], [ %indvars.iv.next98, %68 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %.053, i64 %indvars.iv97
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.053, i64 %indvars.iv97
   %66 = load ptr, ptr %65, align 8, !tbaa !172
   %67 = trunc nuw i64 %indvars.iv97 to i32
   invoke void @_Z5SetAOPvjj(ptr noundef %66, i32 noundef 3, i32 noundef %67)

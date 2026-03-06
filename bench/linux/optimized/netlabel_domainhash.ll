@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.qspinlock = type { %union.anon.0 }
 %union.anon.0 = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
-%struct.list_head = type { ptr, ptr }
 
 @netlbl_domhsh_lock = internal global %struct.spinlock zeroinitializer, align 4
 @netlbl_domhsh = internal global ptr null, align 8
@@ -54,7 +53,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_init(i32 noundef %
 .preheader:                                       ; preds = %7, %.preheader
   %15 = phi i64 [ %19, %.preheader ], [ 0, %7 ]
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr %struct.list_head, ptr %16, i64 %15
+  %17 = getelementptr [16 x i8], ptr %16, i64 %15
   store volatile ptr %17, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store volatile ptr %17, ptr %18, align 8
@@ -304,7 +303,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %124 = load volatile ptr, ptr @netlbl_domhsh, align 8
   %125 = load ptr, ptr %124, align 8
   %126 = zext i32 %123 to i64
-  %127 = getelementptr %struct.list_head, ptr %125, i64 %126
+  %127 = getelementptr [16 x i8], ptr %125, i64 %126
   %128 = load volatile ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, %127
   br i1 %129, label %.thread106.thread109, label %130
@@ -422,7 +421,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %193 = load volatile ptr, ptr @netlbl_domhsh, align 8
   %194 = load ptr, ptr %193, align 8
   %195 = zext i32 %191 to i64
-  %196 = getelementptr %struct.list_head, ptr %194, i64 %195
+  %196 = getelementptr [16 x i8], ptr %194, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load ptr, ptr %197, align 8
   store ptr %196, ptr %192, align 8
@@ -909,7 +908,7 @@ define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly captur
   %23 = load volatile ptr, ptr @netlbl_domhsh, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr %struct.list_head, ptr %24, i64 %25
+  %26 = getelementptr [16 x i8], ptr %24, i64 %25
   %27 = load volatile ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %26
   br i1 %28, label %.thread, label %.preheader
@@ -1513,7 +1512,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af4(ptr noun
   %25 = load volatile ptr, ptr @netlbl_domhsh, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = zext i32 %24 to i64
-  %28 = getelementptr %struct.list_head, ptr %26, i64 %27
+  %28 = getelementptr [16 x i8], ptr %26, i64 %27
   %29 = load volatile ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %28
   br i1 %30, label %.thread, label %.preheader18
@@ -1685,7 +1684,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af6(ptr noun
   %25 = load volatile ptr, ptr @netlbl_domhsh, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = zext i32 %24 to i64
-  %28 = getelementptr %struct.list_head, ptr %26, i64 %27
+  %28 = getelementptr [16 x i8], ptr %26, i64 %27
   %29 = load volatile ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %28
   br i1 %30, label %.thread, label %.preheader18
@@ -1859,7 +1858,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove(ptr noundef
   %25 = load volatile ptr, ptr @netlbl_domhsh, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = zext i32 %24 to i64
-  %28 = getelementptr %struct.list_head, ptr %26, i64 %27
+  %28 = getelementptr [16 x i8], ptr %26, i64 %27
   %29 = load volatile ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %28
   br i1 %30, label %.loopexit10, label %.preheader9
@@ -1952,7 +1951,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove(ptr noundef
   %79 = load volatile ptr, ptr @netlbl_domhsh, align 8
   %80 = load ptr, ptr %79, align 8
   %81 = zext i32 %78 to i64
-  %82 = getelementptr %struct.list_head, ptr %80, i64 %81
+  %82 = getelementptr [16 x i8], ptr %80, i64 %81
   %83 = load volatile ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, %82
   br i1 %84, label %.loopexit, label %.preheader
@@ -2167,7 +2166,7 @@ define dso_local i32 @netlbl_domhsh_walk(ptr noundef captures(none) %0, ptr noun
   %14 = phi i32 [ -2, %10 ], [ %39, %.loopexit ]
   %15 = load volatile ptr, ptr @netlbl_domhsh, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr %struct.list_head, ptr %16, i64 %13
+  %17 = getelementptr [16 x i8], ptr %16, i64 %13
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %17
   br i1 %19, label %.loopexit, label %.preheader

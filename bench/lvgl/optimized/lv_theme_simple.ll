@@ -99,7 +99,7 @@ define void @lv_theme_simple_deinit() local_unnamed_addr #1 {
 
 8:                                                ; preds = %6, %8
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.lv_style_t, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   tail call void @lv_style_reset(ptr noundef nonnull %9) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10

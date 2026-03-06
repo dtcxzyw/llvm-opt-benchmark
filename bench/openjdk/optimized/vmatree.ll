@@ -307,8 +307,8 @@ _ZN7VMATree18PositionComparator3cmpEmm.exit._ZN26GrowableArrayWithAllocatorIPN5T
 
 .lr.ph.i.i.i.i:                                   ; preds = %100, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %100 ]
-  %119 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv.i.i.i.i
-  %120 = getelementptr inbounds nuw ptr, ptr %.sroa.16.145.i, i64 %indvars.iv.i.i.i.i
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv.i.i.i.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.16.145.i, i64 %indvars.iv.i.i.i.i
   %121 = load ptr, ptr %120, align 8
   store ptr %121, ptr %119, align 8
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -327,7 +327,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %.pre-phi.i = phi i32 [ %.pre64.i, %_ZN7VMATree18PositionComparator3cmpEmm.exit._ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit_crit_edge.i ], [ %102, %.preheader.i.i.i.i ], [ %102, %122 ]
   %.sroa.10.2.i = phi i32 [ %.sroa.10.144.i, %_ZN7VMATree18PositionComparator3cmpEmm.exit._ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit_crit_edge.i ], [ %.0.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.0.i.i.i.i.i, %122 ]
   %.sroa.16.2.i = phi ptr [ %.sroa.16.145.i, %_ZN7VMATree18PositionComparator3cmpEmm.exit._ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit_crit_edge.i ], [ %108, %.preheader.i.i.i.i ], [ %108, %122 ]
-  %123 = getelementptr inbounds ptr, ptr %.sroa.16.2.i, i64 %indvars.iv.i
+  %123 = getelementptr inbounds [8 x i8], ptr %.sroa.16.2.i, i64 %indvars.iv.i
   store ptr %.046.i, ptr %123, align 8
   br i1 %.not30.i, label %_ZN7VMATree18PositionComparator3cmpEmm.exit11.i, label %124
 
@@ -343,7 +343,7 @@ _ZN7VMATree18PositionComparator3cmpEmm.exit11.i:  ; preds = %124, %_ZN26Growable
   %.sroa.16.3.i = phi ptr [ %.sroa.16.054.i, %.preheader.i ], [ %.sroa.16.2.i, %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit.i ], [ %.sroa.16.2.i, %124 ]
   %127 = add nsw i32 %.sroa.0.2.i, -1
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds ptr, ptr %.sroa.16.3.i, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %.sroa.16.3.i, i64 %128
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load i64, ptr %131, align 8
@@ -488,7 +488,7 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit70.thread: ; preds = %"_ZN5TreapImN7VM
 
 185:                                              ; preds = %182
   %186 = zext i8 %.sroa.8.0 to i64
-  %187 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %0, i64 %186
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %186
   switch i8 %.sroa.5.0, label %.thread [
     i8 0, label %188
     i8 1, label %193
@@ -543,7 +543,7 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit70.thread: ; preds = %"_ZN5TreapImN7VM
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72._crit_edge ]
   %.sroa.0.0115 = phi i64 [ %.sroa.0.0113, %.lr.ph ], [ %.sroa.0.0.pre, %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72._crit_edge ]
   %209 = load ptr, ptr %203, align 8
-  %210 = getelementptr inbounds nuw %"struct.VMATree::AddressState", ptr %209, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw [24 x i8], ptr %209, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %210, i64 24, i1 false)
   %211 = call { ptr, ptr } @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE5splitEPNS4_9TreapNodeERKmNS4_9SplitModeE(ptr noundef %208, ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 1)
   %212 = extractvalue { ptr, ptr } %211, 0
@@ -566,7 +566,7 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
   store ptr %220, ptr %28, align 8
   %221 = load i8, ptr %206, align 1
   %222 = zext i8 %221 to i64
-  %223 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %0, i64 %222
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %222
   %224 = load i8, ptr %205, align 8
   %.sroa.0.0.pre = load i64, ptr %14, align 8
   switch i8 %224, label %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72._crit_edge [
@@ -619,7 +619,7 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
 
 238:                                              ; preds = %237
   %239 = zext i8 %.sroa.13.0.copyload to i64
-  %240 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %0, i64 %239
+  %240 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %239
   %241 = load i64, ptr %10, align 8
   %.neg45 = sub i64 %.sroa.0.0.pre, %241
   %242 = load i64, ptr %240, align 8
@@ -629,7 +629,7 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
 
 244:                                              ; preds = %237
   %245 = zext i8 %.sroa.13.0.copyload to i64
-  %246 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %0, i64 %245
+  %246 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %245
   %247 = load i64, ptr %10, align 8
   %.neg43 = sub i64 %.sroa.0.0.pre, %247
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 8
@@ -646,7 +646,7 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
   %254 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %255 = load i8, ptr %254, align 4
   %256 = zext i8 %255 to i64
-  %257 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %0, i64 %256
+  %257 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %256
   switch i8 %4, label %271 [
     i8 0, label %258
     i8 1, label %263
@@ -957,9 +957,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN7VMATre
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw %"struct.VMATree::AddressState", ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds nuw %"struct.VMATree::AddressState", ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %27 = load i32, ptr %0, align 8
@@ -975,7 +975,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN7VMATre
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %32 = getelementptr inbounds nuw %"struct.VMATree::AddressState", ptr %15, i64 %indvars.iv20.i.i
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv20.i.i
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   %33 = load i32, ptr %4, align 4
@@ -998,7 +998,7 @@ _ZN26GrowableArrayWithAllocatorIN7VMATree12AddressStateE18GrowableArrayCHeapIS1_
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %0, align 8
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds %"struct.VMATree::AddressState", ptr %38, i64 %41
+  %42 = getelementptr inbounds [24 x i8], ptr %38, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret i32 %39
 }

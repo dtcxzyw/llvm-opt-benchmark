@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.cvid_strip = type { i16, i16, i16, i16, i16, [256 x [12 x i8]], [256 x [12 x i8]] }
 
 @.str = private unnamed_addr constant [8 x i8] c"cinepak\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"Cinepak\00", align 1
@@ -290,7 +289,7 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
 149:                                              ; preds = %145
   %150 = load i8, ptr %146, align 1, !tbaa !45
   %151 = zext i8 %150 to i16
-  %152 = getelementptr inbounds nuw %struct.cvid_strip, ptr %140, i64 %indvars.iv.i
+  %152 = getelementptr inbounds nuw [6154 x i8], ptr %140, i64 %indvars.iv.i
   store i16 %151, ptr %152, align 2, !tbaa !52
   %153 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %154 = load i16, ptr %153, align 1, !tbaa !45

@@ -201,7 +201,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
 
 55:                                               ; preds = %53
   %56 = sext i32 %.0366591 to i64
-  %57 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %.1, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i8, ptr %58, align 8, !tbaa !4
   %60 = icmp eq i8 %59, 6
@@ -259,7 +259,7 @@ try_convert_to_string.exit.thread:                ; preds = %55, %try_convert_to
   %.1367 = phi i32 [ %.0366591, %50 ], [ %.0366591, %48 ], [ %70, %69 ], [ %76, %71 ]
   %81 = getelementptr inbounds nuw i8, ptr %24, i64 %.0372590
   store i8 %28, ptr %81, align 1, !tbaa !4
-  %82 = getelementptr inbounds nuw i32, ptr %25, i64 %.0372590
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.0372590
   store i32 %.2425, ptr %82, align 4, !tbaa !14
   %83 = add i64 %.0372590, 1
   %84 = icmp ult i64 %.1365, %17
@@ -286,7 +286,7 @@ try_convert_to_string.exit.thread:                ; preds = %55, %try_convert_to
   %.0390602 = phi i32 [ %spec.select473, %183 ], [ 0, %88 ]
   %89 = getelementptr inbounds nuw i8, ptr %24, i64 %.4604
   %90 = load i8, ptr %89, align 1, !tbaa !4
-  %91 = getelementptr inbounds nuw i32, ptr %25, i64 %.4604
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.4604
   %92 = load i32, ptr %91, align 4, !tbaa !14
   switch i8 %90, label %183 [
     i8 104, label %93
@@ -540,7 +540,7 @@ try_convert_to_string.exit.thread:                ; preds = %55, %try_convert_to
   %194 = getelementptr inbounds nuw i8, ptr %24, i64 %.5690
   %195 = load i8, ptr %194, align 1, !tbaa !4
   %196 = sext i8 %195 to i32
-  %197 = getelementptr inbounds nuw i32, ptr %25, i64 %.5690
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.5690
   %198 = load i32, ptr %197, align 4, !tbaa !14
   switch i8 %195, label %zend_tmp_string_release.exit [
     i8 64, label %485
@@ -633,7 +633,7 @@ try_convert_to_string.exit.thread:                ; preds = %55, %try_convert_to
   %216 = sext i32 %215 to i64
   %217 = add nsw i32 %.4370689, 1
   %218 = sext i32 %.4370689 to i64
-  %219 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %218
+  %219 = getelementptr inbounds [16 x i8], ptr %.1, i64 %218
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %221 = load i8, ptr %220, align 8, !tbaa !4
   %222 = icmp eq i8 %221, 6
@@ -692,7 +692,7 @@ zval_get_tmp_string.exit:                         ; preds = %223, %225
   %250 = select i1 %249, i32 0, i32 4
   %251 = add nsw i32 %.4370689, 1
   %252 = sext i32 %.4370689 to i64
-  %253 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %252
+  %253 = getelementptr inbounds [16 x i8], ptr %.1, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %255 = load i8, ptr %254, align 8, !tbaa !4
   %256 = icmp eq i8 %255, 6
@@ -841,7 +841,7 @@ zval_get_tmp_string.exit478:                      ; preds = %257, %259
   %.2407673 = phi i32 [ %198, %.lr.ph677.preheader ], [ %315, %.lr.ph677 ]
   %315 = add nsw i32 %.2407673, -1
   %indvars.iv.next784 = add nsw i64 %indvars.iv783, 1
-  %316 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv783
+  %316 = getelementptr inbounds [16 x i8], ptr %.1, i64 %indvars.iv783
   %317 = getelementptr inbounds i8, ptr %192, i64 %indvars.iv785
   call void @convert_to_long(ptr noundef %316) #12
   %318 = load i8, ptr %316, align 1, !tbaa !4
@@ -870,7 +870,7 @@ zval_get_tmp_string.exit478:                      ; preds = %257, %259
   %indvars.iv772 = phi i64 [ %324, %.lr.ph657.preheader ], [ %indvars.iv.next773, %php_pack.exit493 ]
   %indvars.iv770 = phi i64 [ %323, %.lr.ph657.preheader ], [ %indvars.iv.next771, %php_pack.exit493 ]
   %.3408653 = phi i32 [ %198, %.lr.ph657.preheader ], [ %335, %php_pack.exit493 ]
-  %325 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv770
+  %325 = getelementptr inbounds [16 x i8], ptr %.1, i64 %indvars.iv770
   %326 = getelementptr inbounds i8, ptr %192, i64 %indvars.iv772
   call void @convert_to_long(ptr noundef %325) #12
   br label %327
@@ -878,7 +878,7 @@ zval_get_tmp_string.exit478:                      ; preds = %257, %259
 327:                                              ; preds = %327, %.lr.ph657
   %.010.i490 = phi ptr [ %326, %.lr.ph657 ], [ %333, %327 ]
   %.089.i491 = phi i64 [ 0, %.lr.ph657 ], [ %334, %327 ]
-  %328 = getelementptr inbounds nuw i32, ptr %.0397, i64 %.089.i491
+  %328 = getelementptr inbounds nuw [4 x i8], ptr %.0397, i64 %.089.i491
   %329 = load i32, ptr %328, align 4, !tbaa !14
   %330 = sext i32 %329 to i64
   %331 = getelementptr inbounds i8, ptr %325, i64 %330
@@ -908,7 +908,7 @@ php_pack.exit493:                                 ; preds = %327
   %indvars.iv777 = phi i64 [ %339, %.lr.ph664.preheader ], [ %indvars.iv.next778, %php_pack.exit497 ]
   %.9382661 = phi i32 [ %.3376688, %.lr.ph664.preheader ], [ %352, %php_pack.exit497 ]
   %.4409660 = phi i32 [ %198, %.lr.ph664.preheader ], [ %351, %php_pack.exit497 ]
-  %340 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv777
+  %340 = getelementptr inbounds [16 x i8], ptr %.1, i64 %indvars.iv777
   %341 = sext i32 %.9382661 to i64
   %342 = getelementptr inbounds i8, ptr %192, i64 %341
   call void @convert_to_long(ptr noundef %340) #12
@@ -917,7 +917,7 @@ php_pack.exit493:                                 ; preds = %327
 343:                                              ; preds = %343, %.lr.ph664
   %.010.i494 = phi ptr [ %342, %.lr.ph664 ], [ %349, %343 ]
   %.089.i495 = phi i64 [ 0, %.lr.ph664 ], [ %350, %343 ]
-  %344 = getelementptr inbounds nuw i32, ptr @int_map, i64 %.089.i495
+  %344 = getelementptr inbounds nuw [4 x i8], ptr @int_map, i64 %.089.i495
   %345 = load i32, ptr %344, align 4, !tbaa !14
   %346 = sext i32 %345 to i64
   %347 = getelementptr inbounds i8, ptr %340, i64 %346
@@ -955,7 +955,7 @@ php_pack.exit497:                                 ; preds = %343
   %indvars.iv765 = phi i64 [ %358, %.lr.ph650.preheader ], [ %indvars.iv.next766, %php_pack.exit501 ]
   %indvars.iv763 = phi i64 [ %357, %.lr.ph650.preheader ], [ %indvars.iv.next764, %php_pack.exit501 ]
   %.5410646 = phi i32 [ %198, %.lr.ph650.preheader ], [ %369, %php_pack.exit501 ]
-  %359 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv763
+  %359 = getelementptr inbounds [16 x i8], ptr %.1, i64 %indvars.iv763
   %360 = getelementptr inbounds i8, ptr %192, i64 %indvars.iv765
   call void @convert_to_long(ptr noundef %359) #12
   br label %361
@@ -963,7 +963,7 @@ php_pack.exit497:                                 ; preds = %343
 361:                                              ; preds = %361, %.lr.ph650
   %.010.i498 = phi ptr [ %360, %.lr.ph650 ], [ %367, %361 ]
   %.089.i499 = phi i64 [ 0, %.lr.ph650 ], [ %368, %361 ]
-  %362 = getelementptr inbounds nuw i32, ptr %.0396, i64 %.089.i499
+  %362 = getelementptr inbounds nuw [4 x i8], ptr %.0396, i64 %.089.i499
   %363 = load i32, ptr %362, align 4, !tbaa !14
   %364 = sext i32 %363 to i64
   %365 = getelementptr inbounds i8, ptr %359, i64 %364
@@ -1001,7 +1001,7 @@ php_pack.exit501:                                 ; preds = %361
   %indvars.iv743 = phi i64 [ %375, %.lr.ph613.preheader ], [ %indvars.iv.next744, %php_pack.exit505 ]
   %indvars.iv = phi i64 [ %374, %.lr.ph613.preheader ], [ %indvars.iv.next, %php_pack.exit505 ]
   %.6411609 = phi i32 [ %198, %.lr.ph613.preheader ], [ %386, %php_pack.exit505 ]
-  %376 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv
+  %376 = getelementptr inbounds [16 x i8], ptr %.1, i64 %indvars.iv
   %377 = getelementptr inbounds i8, ptr %192, i64 %indvars.iv743
   call void @convert_to_long(ptr noundef %376) #12
   br label %378
@@ -1009,7 +1009,7 @@ php_pack.exit501:                                 ; preds = %361
 378:                                              ; preds = %378, %.lr.ph613
   %.010.i502 = phi ptr [ %377, %.lr.ph613 ], [ %384, %378 ]
   %.089.i503 = phi i64 [ 0, %.lr.ph613 ], [ %385, %378 ]
-  %379 = getelementptr inbounds nuw i32, ptr %.0395, i64 %.089.i503
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %.0395, i64 %.089.i503
   %380 = load i32, ptr %379, align 4, !tbaa !14
   %381 = sext i32 %380 to i64
   %382 = getelementptr inbounds i8, ptr %376, i64 %381
@@ -1033,7 +1033,7 @@ php_pack.exit505:                                 ; preds = %378
   %.7412640 = phi i32 [ %198, %.lr.ph643.preheader ], [ %388, %zval_get_double.exit ]
   %388 = add nsw i32 %.7412640, -1
   %indvars.iv.next761 = add nsw i64 %indvars.iv760, 1
-  %389 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv760
+  %389 = getelementptr inbounds [16 x i8], ptr %.1, i64 %indvars.iv760
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %391 = load i8, ptr %390, align 8, !tbaa !4
   %392 = icmp eq i8 %391, 5
@@ -1063,7 +1063,7 @@ zval_get_double.exit:                             ; preds = %393, %395
   %.8413634 = phi i32 [ %198, %.lr.ph637.preheader ], [ %403, %zval_get_double.exit481 ]
   %403 = add nsw i32 %.8413634, -1
   %indvars.iv.next758 = add nsw i64 %indvars.iv757, 1
-  %404 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv757
+  %404 = getelementptr inbounds [16 x i8], ptr %.1, i64 %indvars.iv757
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
   %406 = load i8, ptr %405, align 8, !tbaa !4
   %407 = icmp eq i8 %406, 5
@@ -1093,7 +1093,7 @@ zval_get_double.exit481:                          ; preds = %408, %410
   %.9414628 = phi i32 [ %198, %.lr.ph631.preheader ], [ %418, %zval_get_double.exit482 ]
   %418 = add nsw i32 %.9414628, -1
   %indvars.iv.next755 = add nsw i64 %indvars.iv754, 1
-  %419 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv754
+  %419 = getelementptr inbounds [16 x i8], ptr %.1, i64 %indvars.iv754
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
   %421 = load i8, ptr %420, align 8, !tbaa !4
   %422 = icmp eq i8 %421, 5
@@ -1125,7 +1125,7 @@ zval_get_double.exit482:                          ; preds = %423, %425
   %.10415622 = phi i32 [ %198, %.lr.ph625.preheader ], [ %435, %zval_get_double.exit483 ]
   %435 = add nsw i32 %.10415622, -1
   %indvars.iv.next752 = add nsw i64 %indvars.iv751, 1
-  %436 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv751
+  %436 = getelementptr inbounds [16 x i8], ptr %.1, i64 %indvars.iv751
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %438 = load i8, ptr %437, align 8, !tbaa !4
   %439 = icmp eq i8 %438, 5
@@ -1154,7 +1154,7 @@ zval_get_double.exit483:                          ; preds = %440, %442
   %.11416616 = phi i32 [ %198, %.lr.ph619.preheader ], [ %449, %zval_get_double.exit484 ]
   %449 = add nsw i32 %.11416616, -1
   %indvars.iv.next749 = add nsw i64 %indvars.iv748, 1
-  %450 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv748
+  %450 = getelementptr inbounds [16 x i8], ptr %.1, i64 %indvars.iv748
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 8
   %452 = load i8, ptr %451, align 8, !tbaa !4
   %453 = icmp eq i8 %452, 5
@@ -1183,7 +1183,7 @@ zval_get_double.exit484:                          ; preds = %454, %456
   %.12417667 = phi i32 [ %198, %.lr.ph670.preheader ], [ %463, %zval_get_double.exit485 ]
   %463 = add nsw i32 %.12417667, -1
   %indvars.iv.next781 = add nsw i64 %indvars.iv780, 1
-  %464 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv780
+  %464 = getelementptr inbounds [16 x i8], ptr %.1, i64 %indvars.iv780
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
   %466 = load i8, ptr %465, align 8, !tbaa !4
   %467 = icmp eq i8 %466, 5
@@ -1696,7 +1696,7 @@ zend_string_init.exit:                            ; preds = %145
 152:                                              ; preds = %145
   %153 = load i8, ptr %.1733, align 1, !tbaa !4
   %154 = zext i8 %153 to i64
-  %155 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !19
   br label %zend_string_init_fast.exit
 
@@ -2671,7 +2671,7 @@ define hidden noundef i32 @zm_startup_pack(i32 noundef %0, i32 noundef %1) local
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr @int_map, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @int_map, i64 %indvars.iv
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %5, ptr %4, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

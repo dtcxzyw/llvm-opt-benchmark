@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/norms.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.icu_77::CompositionPair" = type { i32, i32 }
-%"struct.icu_77::Norm" = type { ptr, ptr, i32, i32, i32, ptr, i8, i8, i8, i8, i8, i8, i32, i32, ptr }
 %"class.icu_77::IcuToolErrorCode" = type { %"class.icu_77::ErrorCode.base", ptr }
 %"class.icu_77::ErrorCode.base" = type <{ ptr, i32 }>
 
@@ -57,7 +55,7 @@ define dso_local void @_ZN6icu_7723BuilderReorderingBuffer6appendEih(ptr noundef
 
 10:                                               ; preds = %8
   %11 = sext i32 %7 to i64
-  %12 = getelementptr i32, ptr %0, i64 %11
+  %12 = getelementptr [4 x i8], ptr %0, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !9
   %15 = trunc i32 %14 to i8
@@ -86,7 +84,7 @@ define dso_local void @_ZN6icu_7723BuilderReorderingBuffer6appendEih(ptr noundef
   %27 = add nsw i32 %23, 1
   store i32 %27, ptr %26, align 4, !tbaa !4
   %28 = sext i32 %23 to i64
-  %29 = getelementptr inbounds i32, ptr %0, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %0, i64 %28
   store i32 %25, ptr %29, align 4, !tbaa !9
   br label %50
 
@@ -97,7 +95,7 @@ define dso_local void @_ZN6icu_7723BuilderReorderingBuffer6appendEih(ptr noundef
   br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
+  %33 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv.next
   %34 = load i32, ptr %33, align 4, !tbaa !9
   %35 = trunc i32 %34 to i8
   %36 = icmp ult i8 %2, %35
@@ -116,7 +114,7 @@ define dso_local void @_ZN6icu_7723BuilderReorderingBuffer6appendEih(ptr noundef
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge
   %40 = shl i32 %1, 8
   %41 = or disjoint i32 %40, %4
-  %42 = getelementptr inbounds i32, ptr %0, i64 %39
+  %42 = getelementptr inbounds [4 x i8], ptr %0, i64 %39
   store i32 %41, ptr %42, align 4, !tbaa !9
   %43 = load i32, ptr %6, align 4, !tbaa !4
   %44 = add nsw i32 %43, 1
@@ -127,7 +125,7 @@ define dso_local void @_ZN6icu_7723BuilderReorderingBuffer6appendEih(ptr noundef
 
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.lr.ph ], [ %11, %.critedge ]
-  %46 = getelementptr i32, ptr %0, i64 %indvars.iv27
+  %46 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv27
   %47 = getelementptr i8, ptr %46, i64 -4
   %48 = load i32, ptr %47, align 4, !tbaa !9
   store i32 %48, ptr %46, align 4, !tbaa !9
@@ -158,7 +156,7 @@ define dso_local void @_ZNK6icu_7723BuilderReorderingBuffer8toStringERNS_13Unico
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !9
   %12 = ashr i32 %11, 8
   %13 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %12)
@@ -193,7 +191,7 @@ _ZNK6icu_774Norm19getCompositionPairsERi.exit:    ; preds = %2
 
 .lr.ph:                                           ; preds = %15, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %12 = getelementptr inbounds nuw %"struct.icu_77::CompositionPair", ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !30
   %14 = icmp eq i32 %1, %13
   br i1 %14, label %17, label %15
@@ -206,7 +204,7 @@ _ZNK6icu_774Norm19getCompositionPairsERi.exit:    ; preds = %2
   br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds nuw %"struct.icu_77::CompositionPair", ptr %9, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !33
   br label %.loopexit
@@ -321,7 +319,7 @@ define dso_local void @_ZN6icu_775NormsD2Ev(ptr noundef nonnull align 8 derefere
 11:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %12 = load ptr, ptr %9, align 8, !tbaa !48
-  %13 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !50
   %15 = icmp eq ptr %14, null
   br i1 %15, label %20, label %16
@@ -336,7 +334,7 @@ define dso_local void @_ZN6icu_775NormsD2Ev(ptr noundef nonnull align 8 derefere
 
 20:                                               ; preds = %16, %11
   %21 = phi ptr [ %.pre, %16 ], [ %12, %11 ]
-  %22 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !53
   %25 = icmp eq ptr %24, null
@@ -352,7 +350,7 @@ define dso_local void @_ZN6icu_775NormsD2Ev(ptr noundef nonnull align 8 derefere
 
 30:                                               ; preds = %26, %20
   %31 = phi ptr [ %.pre11, %26 ], [ %21, %20 ]
-  %32 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [64 x i8], ptr %31, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !17
   %35 = icmp eq ptr %34, null
@@ -415,7 +413,7 @@ define dso_local noundef ptr @_ZN6icu_775Norms7getNormEi(ptr noundef nonnull rea
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %9
   %.0 = select i1 %6, ptr null, ptr %10
   ret ptr %.0
 }
@@ -431,7 +429,7 @@ define dso_local noundef ptr @_ZNK6icu_775Norms7getNormEi(ptr noundef nonnull re
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %9
   %.0 = select i1 %6, ptr null, ptr %10
   ret ptr %.0
 }
@@ -444,7 +442,7 @@ define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_775No
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = tail call i32 @umutablecptrie_get_77(ptr noundef %6, i32 noundef %1)
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %8
   ret ptr %9
 }
 
@@ -461,7 +459,7 @@ define dso_local noundef ptr @_ZN6icu_775Norms10createNormEi(ptr noundef nonnull
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %9 = load ptr, ptr %8, align 8, !tbaa !48
   %10 = zext i32 %6 to i64
-  %11 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %10
   br label %30
 
 12:                                               ; preds = %2
@@ -554,7 +552,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
   %.032 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN6icu_7723BuilderReorderingBuffer6appendEih.exit ]
   %27 = add nsw i32 %.032, 1
   %28 = sext i32 %.032 to i64
-  %29 = getelementptr inbounds i16, ptr %.0.i, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !60
   %31 = zext i16 %30 to i32
   %32 = and i32 %31, 64512
@@ -565,7 +563,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
 
 34:                                               ; preds = %26
   %35 = sext i32 %27 to i64
-  %36 = getelementptr inbounds i16, ptr %.0.i, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !60
   %38 = zext i16 %37 to i32
   %39 = and i32 %38, 64512
@@ -586,7 +584,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
   %48 = load ptr, ptr %22, align 8, !tbaa !34
   %49 = tail call i32 @umutablecptrie_get_77(ptr noundef %48, i32 noundef %.121)
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %47, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i8, ptr %52, align 8, !tbaa !62
   %54 = zext i8 %53 to i32
@@ -600,7 +598,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
 
 59:                                               ; preds = %57
   %60 = sext i32 %56 to i64
-  %61 = getelementptr i32, ptr %2, i64 %60
+  %61 = getelementptr [4 x i8], ptr %2, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -4
   %63 = load i32, ptr %62, align 4, !tbaa !9
   %64 = trunc i32 %63 to i8
@@ -626,7 +624,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
   %73 = add nsw i32 %70, 1
   store i32 %73, ptr %23, align 4, !tbaa !4
   %74 = sext i32 %70 to i64
-  %75 = getelementptr inbounds i32, ptr %2, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %2, i64 %74
   store i32 %72, ptr %75, align 4, !tbaa !9
   br label %_ZN6icu_7723BuilderReorderingBuffer6appendEih.exit
 
@@ -637,7 +635,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
   br i1 %77, label %78, label %.critedge.i
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
+  %79 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i
   %80 = load i32, ptr %79, align 4, !tbaa !9
   %81 = trunc i32 %80 to i8
   %82 = icmp ult i8 %53, %81
@@ -656,7 +654,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.critedge.i
   %86 = shl i32 %.121, 8
   %87 = or disjoint i32 %86, %54
-  %88 = getelementptr inbounds i32, ptr %2, i64 %85
+  %88 = getelementptr inbounds [4 x i8], ptr %2, i64 %85
   store i32 %87, ptr %88, align 4, !tbaa !9
   %89 = load i32, ptr %23, align 4, !tbaa !4
   %90 = add nsw i32 %89, 1
@@ -666,7 +664,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.i
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %.lr.ph.i ], [ %60, %.critedge.i ]
-  %91 = getelementptr i32, ptr %2, i64 %indvars.iv27.i
+  %91 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv27.i
   %92 = getelementptr i8, ptr %91, i64 -4
   %93 = load i32, ptr %92, align 4, !tbaa !9
   store i32 %93, ptr %91, align 4, !tbaa !9
@@ -698,7 +696,7 @@ _ZN6icu_7723BuilderReorderingBuffer6appendEih.exit: ; preds = %69, %._crit_edge.
 
 .lr.ph.i28:                                       ; preds = %98, %.lr.ph.i28
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %.lr.ph.i28 ], [ 0, %98 ]
-  %105 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i29
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i29
   %106 = load i32, ptr %105, align 4, !tbaa !9
   %107 = ashr i32 %106, 8
   %108 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %107)
@@ -747,13 +745,13 @@ _ZNK6icu_774Norm19getCompositionPairsERi.exit:    ; preds = %8
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %"struct.icu_77::CompositionPair", ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !30
   %22 = load ptr, ptr %17, align 8, !tbaa !48
   %23 = load ptr, ptr %18, align 8, !tbaa !34
   %24 = tail call i32 @umutablecptrie_get_77(ptr noundef %23, i32 noundef %21)
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i8, ptr %27, align 8, !tbaa !62
   %29 = icmp ult i8 %2, %28
@@ -791,7 +789,7 @@ define dso_local void @_ZN6icu_775Norms10enumRangesERNS0_10EnumeratorE(ptr nound
 12:                                               ; preds = %9
   %13 = load ptr, ptr %8, align 8, !tbaa !48
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %1, align 8, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
@@ -875,7 +873,7 @@ define dso_local void @_ZN6icu_7718CompositionBuilder12rangeHandlerEiiRNS_4NormE
   %39 = load ptr, ptr %38, align 8, !tbaa !34
   %40 = tail call i32 @umutablecptrie_get_77(ptr noundef %39, i32 noundef %23)
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %37, i64 %41
+  %42 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load i8, ptr %43, align 8, !tbaa !62
   %.not56 = icmp eq i8 %44, 0
@@ -949,7 +947,7 @@ _ZNK6icu_774Norm19getCompositionPairsERi.exit:    ; preds = %58
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %88 ]
-  %77 = getelementptr inbounds nuw %"struct.icu_77::CompositionPair", ptr %75, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4, !tbaa !30
   %79 = icmp eq i32 %33, %78
   br i1 %79, label %80, label %86
@@ -1086,7 +1084,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %16, %18
   %.085136 = phi i32 [ 0, %.lr.ph ], [ %.287, %187 ]
   %35 = add nsw i32 %.085136, 1
   %36 = sext i32 %.085136 to i64
-  %37 = getelementptr inbounds i16, ptr %.0.i, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !60
   %39 = zext i16 %38 to i32
   %40 = and i32 %39, 64512
@@ -1097,7 +1095,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %16, %18
 
 42:                                               ; preds = %34
   %43 = sext i32 %35 to i64
-  %44 = getelementptr inbounds i16, ptr %.0.i, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !60
   %46 = zext i16 %45 to i32
   %47 = and i32 %46, 64512
@@ -1134,7 +1132,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %16, %18
   %64 = load ptr, ptr %63, align 8, !tbaa !34
   %65 = call i32 @umutablecptrie_get_77(ptr noundef %64, i32 noundef %.193)
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %62, i64 %66
+  %67 = getelementptr inbounds nuw [64 x i8], ptr %62, i64 %66
   %68 = load i32, ptr %6, align 8, !tbaa !66
   %69 = icmp eq i32 %68, 2
   %70 = icmp eq i32 %.085136, 0
@@ -1190,7 +1188,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %16, %18
   %96 = load ptr, ptr %95, align 8, !tbaa !34
   %97 = call i32 @umutablecptrie_get_77(ptr noundef %96, i32 noundef %92)
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %94, i64 %98
+  %99 = getelementptr inbounds nuw [64 x i8], ptr %94, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
   %101 = load i8, ptr %100, align 8, !tbaa !62
   %102 = load ptr, ptr %67, align 8, !tbaa !50
@@ -1211,7 +1209,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %16, %18
   %117 = load ptr, ptr %116, align 8, !tbaa !34
   %118 = call i32 @umutablecptrie_get_77(ptr noundef %117, i32 noundef %112)
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %115, i64 %119
+  %120 = getelementptr inbounds nuw [64 x i8], ptr %115, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
   %122 = load i8, ptr %121, align 8, !tbaa !62
   %123 = icmp ugt i8 %122, %101

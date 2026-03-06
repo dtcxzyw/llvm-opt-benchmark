@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<StringPiece, std::allocator<StringPiece>>::_Vector_impl" }
 %"struct.std::_Vector_base<StringPiece, std::allocator<StringPiece>>::_Vector_impl" = type { %"struct.std::_Vector_base<StringPiece, std::allocator<StringPiece>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<StringPiece, std::allocator<StringPiece>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.StringPiece = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -60,7 +59,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_bas
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8, !tbaa !9
   store ptr %16, ptr %17, align 8, !tbaa !13
-  %18 = getelementptr inbounds nuw %struct.StringPiece, ptr %16, i64 %13
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %13
   store ptr %18, ptr %14, align 8, !tbaa !14
   %19 = ptrtoint ptr %5 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -240,7 +239,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i: ; p
 _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %86, %_ZNSt6vectorI11StringPieceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i
   store ptr %81, ptr %0, align 8, !tbaa !9
   store ptr %85, ptr %20, align 8, !tbaa !13
-  %87 = getelementptr inbounds nuw %struct.StringPiece, ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %79
   store ptr %87, ptr %14, align 8, !tbaa !14
   br label %119
 
@@ -318,7 +317,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__nor
   tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %100) #12
   store ptr %109, ptr %0, align 8, !tbaa !9
   store ptr %113, ptr %20, align 8, !tbaa !13
-  %114 = getelementptr inbounds nuw %struct.StringPiece, ptr %109, i64 %107
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %107
   store ptr %114, ptr %14, align 8, !tbaa !14
   br label %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backEOS0_.exit
 
@@ -396,7 +395,7 @@ define dso_local void @_Z15JoinStringPieceB5cxx11RKSt6vectorI11StringPieceSaIS0_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.02035 = phi i64 [ %21, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.02134 = phi i64 [ %20, %.lr.ph ], [ %14, %.lr.ph.preheader ]
-  %17 = getelementptr inbounds nuw %struct.StringPiece, ptr %4, i64 %.02035
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.02035
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !35
   %20 = add i64 %19, %.02134
@@ -450,7 +449,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %27
   store i8 0, ptr %39, align 1, !tbaa !4
   %40 = load ptr, ptr %1, align 8, !tbaa !9
-  %41 = getelementptr inbounds nuw %struct.StringPiece, ptr %40, i64 %.036
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %.036
   br label %.split
 
 .loopexit33:                                      ; preds = %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i

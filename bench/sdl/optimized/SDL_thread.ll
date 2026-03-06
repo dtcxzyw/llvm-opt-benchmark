@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.SDL_AtomicInt = type { i32 }
 %struct.SDL_error = type { i32, ptr, i64, ptr, ptr }
-%struct.anon = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [26 x i8] c"Parameter '%s' is invalid\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"id\00", align 1
@@ -55,7 +54,7 @@ define hidden ptr @SDL_GetTLS_REAL(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %10
   %13 = zext nneg i32 %6 to i64
-  %14 = getelementptr %struct.anon, ptr %7, i64 %13
+  %14 = getelementptr [16 x i8], ptr %7, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load ptr, ptr %15, align 8
   br label %17
@@ -147,7 +146,7 @@ define hidden zeroext i1 @SDL_SetTLS_REAL(ptr noundef %0, ptr noundef %1, ptr no
 39:                                               ; preds = %37, %17
   %.035 = phi ptr [ %24, %37 ], [ %16, %17 ]
   %40 = sext i32 %.037.in to i64
-  %41 = getelementptr %struct.anon, ptr %.035, i64 %40
+  %41 = getelementptr [16 x i8], ptr %.035, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -8
   store ptr %1, ptr %42, align 8
   store ptr %2, ptr %41, align 8
@@ -187,7 +186,7 @@ define hidden void @SDL_CleanupTLS_REAL() local_unnamed_addr #0 {
 5:                                                ; preds = %.lr.ph, %12
   %6 = phi i32 [ %2, %.lr.ph ], [ %13, %12 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %7 = getelementptr inbounds nuw %struct.anon, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not12 = icmp eq ptr %9, null
@@ -234,7 +233,7 @@ define hidden void @SDL_QuitTLSData() local_unnamed_addr #0 {
 5:                                                ; preds = %12, %.lr.ph.i
   %6 = phi i32 [ %2, %.lr.ph.i ], [ %13, %12 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %7 = getelementptr inbounds nuw %struct.anon, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not12.i = icmp eq ptr %9, null
@@ -478,7 +477,7 @@ define hidden ptr @SDL_GetErrBuf(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %8
   %11 = zext nneg i32 %4 to i64
-  %12 = getelementptr %struct.anon, ptr %5, i64 %11
+  %12 = getelementptr [16 x i8], ptr %5, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load ptr, ptr %13, align 8
   br label %SDL_GetTLS_REAL.exit
@@ -580,7 +579,7 @@ define hidden void @SDL_RunThread(ptr noundef initializes((0, 8), (16, 20)) %0) 
 15:                                               ; preds = %22, %.lr.ph.i
   %16 = phi i32 [ %12, %.lr.ph.i ], [ %23, %22 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
-  %17 = getelementptr inbounds nuw %struct.anon, ptr %14, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not12.i = icmp eq ptr %19, null

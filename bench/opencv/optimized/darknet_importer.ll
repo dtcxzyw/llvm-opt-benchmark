@@ -1201,7 +1201,7 @@ _ZNSt12_Vector_baseIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8Blob
   store ptr %70, ptr %48, align 8, !tbaa !90
   %91 = getelementptr inbounds nuw i8, ptr %70, i64 %68
   store ptr %91, ptr %50, align 8, !tbaa !93
-  %92 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %70, i64 %57
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %70, i64 %57
   store ptr %92, ptr %61, align 8, !tbaa !96
   br label %_ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESaIS5_EE7reserveEm.exit
 
@@ -1499,7 +1499,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3d
   unreachable
 
 _ZNKSt6vectorIN2cv3dnn7darknet14LayerParameterESaIS3_EE2atEm.exit.i: ; preds = %191
-  %199 = getelementptr inbounds nuw %"class.cv::dnn::darknet::LayerParameter", ptr %193, i64 %indvars.iv509
+  %199 = getelementptr inbounds nuw [224 x i8], ptr %193, i64 %indvars.iv509
   invoke void @_ZN2cv3dnn7darknet14LayerParameterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(224) %22, ptr noundef nonnull align 8 dereferenceable(224) %199)
           to label %_ZNK2cv3dnn7darknet12NetParameter5layerEi.exit unwind label %.loopexit198
 
@@ -1740,7 +1740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %25
   unreachable
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.i: ; preds = %.lr.ph
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %267, i64 %indvars.iv
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %267, i64 %indvars.iv
   store ptr %156, ptr %27, align 8, !tbaa !16, !alias.scope !130
   %271 = load ptr, ptr %270, align 8, !tbaa !3
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 8
@@ -1846,7 +1846,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us ], [ %306, %.lr.ph.i ]
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, -1
-  %308 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %.val, i64 %indvars.iv.next.i.us
+  %308 = getelementptr inbounds nuw [40 x i8], ptr %.val, i64 %indvars.iv.next.i.us
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
   %310 = load i64, ptr %309, align 8, !tbaa !11
   %311 = icmp eq i64 %310, 0
@@ -1859,7 +1859,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i ], [ %306, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %313 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %.val, i64 %indvars.iv.next.i
+  %313 = getelementptr inbounds nuw [40 x i8], ptr %.val, i64 %indvars.iv.next.i
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load i64, ptr %314, align 8, !tbaa !11
   %316 = icmp eq i64 %315, %.fr428
@@ -1928,7 +1928,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22.i: ; preds = %_
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %317, %.lr.ph.i.split.us
   %.us-phi = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.split.us ], [ %indvars.iv.next.i, %317 ]
   %333 = and i64 %.us-phi, 4294967295
-  %334 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %.val, i64 %333
+  %334 = getelementptr inbounds nuw [40 x i8], ptr %.val, i64 %333
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 32
   %336 = load i32, ptr %335, align 8, !tbaa !112
   %337 = getelementptr inbounds nuw i8, ptr %334, i64 36
@@ -2167,7 +2167,7 @@ _ZNK2cv3dnn7darknet14LayerParameter3topB5cxx11Ei.exit.i: ; preds = %382, %380, %
 .lr.ph.i156.split.us:                             ; preds = %.lr.ph.i156, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159.us
   %indvars.iv.i157.us = phi i64 [ %indvars.iv.next.i158.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159.us ], [ %392, %.lr.ph.i156 ]
   %indvars.iv.next.i158.us = add nsw i64 %indvars.iv.i157.us, -1
-  %394 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %.val.i155, i64 %indvars.iv.next.i158.us
+  %394 = getelementptr inbounds nuw [40 x i8], ptr %.val.i155, i64 %indvars.iv.next.i158.us
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
   %396 = load i64, ptr %395, align 8, !tbaa !11
   %397 = icmp eq i64 %396, 0
@@ -2187,7 +2187,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 .lr.ph.i156.split:                                ; preds = %.lr.ph.i156, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159
   %indvars.iv.i157 = phi i64 [ %indvars.iv.next.i158, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159 ], [ %392, %.lr.ph.i156 ]
   %indvars.iv.next.i158 = add nsw i64 %indvars.iv.i157, -1
-  %399 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %.val.i155, i64 %indvars.iv.next.i158
+  %399 = getelementptr inbounds nuw [40 x i8], ptr %.val.i155, i64 %indvars.iv.next.i158
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 8
   %401 = load i64, ptr %400, align 8, !tbaa !11
   %402 = icmp eq i64 %401, %.pre66.i.fr
@@ -2578,7 +2578,7 @@ _ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESa
 _ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit30.i.i.i, %531
   store ptr %498, ptr %48, align 8, !tbaa !90
   store ptr %530, ptr %50, align 8, !tbaa !93
-  %532 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %498, i64 %494
+  %532 = getelementptr inbounds nuw [40 x i8], ptr %498, i64 %494
   store ptr %532, ptr %61, align 8, !tbaa !96
   %.pre513 = load ptr, ptr %10, align 8, !tbaa !3
   %533 = icmp eq ptr %.pre513, %164
@@ -3730,7 +3730,7 @@ _ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESa
 _ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %78, %_ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit30.i.i
   store ptr %41, ptr %0, align 8, !tbaa !90
   store ptr %77, ptr %3, align 8, !tbaa !93
-  %79 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %41, i64 %37
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %41, i64 %37
   store ptr %79, ptr %5, align 8, !tbaa !96
   br label %_ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESaIS5_EE12emplace_backIJS5_EEEvDpOT_.exit
 
@@ -4721,9 +4721,9 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
 
 19:                                               ; preds = %19, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %19 ]
-  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %.06.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.06.i
   %21 = load i64, ptr %20, align 8, !tbaa !126
-  %22 = getelementptr inbounds nuw i64, ptr %17, i64 %.06.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.06.i
   store i64 %21, ptr %22, align 8, !tbaa !126
   %23 = add nuw i64 %.06.i, 1
   %24 = load i64, ptr %10, align 8, !tbaa !199
@@ -4764,7 +4764,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
 .noexc.i:                                         ; preds = %37
   store i64 %36, ptr %42, align 16
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %43, i64 %36
+  %44 = getelementptr inbounds [32 x i8], ptr %43, i64 %36
   br label %45
 
 45:                                               ; preds = %45, %.noexc.i
@@ -4797,9 +4797,9 @@ _ZN2cv10AutoBufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EE8all
 .lr.ph.i14:                                       ; preds = %.lr.ph.i14.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i
   %.020.i = phi i64 [ %56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i ], [ 0, %.lr.ph.i14.preheader ]
   %52 = load ptr, ptr %31, align 8, !tbaa !171
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %52, i64 %.020.i
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %.020.i
   %54 = load ptr, ptr %29, align 8, !tbaa !171
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %54, i64 %.020.i
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %.020.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %53)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i unwind label %59
 
@@ -4855,9 +4855,9 @@ _ZN2cv10AutoBufferIdLm1EE8allocateEm.exit.i:      ; preds = %62
 
 76:                                               ; preds = %76, %.lr.ph.i17
   %.06.i18 = phi i64 [ 0, %.lr.ph.i17 ], [ %80, %76 ]
-  %77 = getelementptr inbounds nuw double, ptr %75, i64 %.06.i18
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.06.i18
   %78 = load double, ptr %77, align 8, !tbaa !203
-  %79 = getelementptr inbounds nuw double, ptr %74, i64 %.06.i18
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.06.i18
   store double %78, ptr %79, align 8, !tbaa !203
   %80 = add nuw i64 %.06.i18, 1
   %exitcond.not.i = icmp eq i64 %80, %69

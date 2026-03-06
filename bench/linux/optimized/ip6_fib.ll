@@ -731,7 +731,7 @@ define dso_local void @fib6_metric_set(ptr noundef captures(address_is_null) %0,
   %16 = phi ptr [ %11, %13 ], [ %7, %5 ]
   %17 = add i32 %1, -1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr i32, ptr %16, i64 %18
+  %19 = getelementptr [4 x i8], ptr %16, i64 %18
   store i32 %2, ptr %19, align 4
   br label %20
 
@@ -1059,7 +1059,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %122 = shl nuw i32 1, %121
   %123 = lshr i32 %48, 5
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr i32, ptr %26, i64 %124
+  %125 = getelementptr [4 x i8], ptr %26, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = and i32 %126, %122
   %128 = icmp eq i32 %127, 0
@@ -1130,9 +1130,9 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 159:                                              ; preds = %158, %156
   %160 = phi i1 [ true, %156 ], [ false, %158 ]
   %161 = phi i64 [ 0, %156 ], [ 1, %158 ]
-  %162 = getelementptr i64, ptr %26, i64 %161
+  %162 = getelementptr [8 x i8], ptr %26, i64 %161
   %163 = load i64, ptr %162, align 8
-  %164 = getelementptr i64, ptr %.lcssa127, i64 %161
+  %164 = getelementptr [8 x i8], ptr %.lcssa127, i64 %161
   %165 = load i64, ptr %164, align 8
   %166 = icmp eq i64 %165, %163
   br i1 %166, label %158, label %167
@@ -1246,7 +1246,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %234 = shl nuw i32 1, %233
   %235 = ashr i32 %176, 5
   %236 = sext i32 %235 to i64
-  %237 = getelementptr i32, ptr %26, i64 %236
+  %237 = getelementptr [4 x i8], ptr %26, i64 %236
   %238 = load i32, ptr %237, align 4
   %239 = and i32 %238, %234
   %240 = icmp eq i32 %239, 0
@@ -1287,7 +1287,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %257 = shl nuw i32 1, %256
   %258 = ashr i32 %28, 5
   %259 = sext i32 %258 to i64
-  %260 = getelementptr i32, ptr %.lcssa127, i64 %259
+  %260 = getelementptr [4 x i8], ptr %.lcssa127, i64 %259
   %261 = load i32, ptr %260, align 4
   %262 = and i32 %261, %257
   %263 = icmp eq i32 %262, 0
@@ -2551,7 +2551,7 @@ define dso_local ptr @fib6_node_lookup(ptr noundef %0, ptr noundef readonly capt
   %11 = shl nuw i32 1, %10
   %12 = lshr i32 %8, 5
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr i32, ptr %1, i64 %13
+  %14 = getelementptr [4 x i8], ptr %1, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %11, %15
   %17 = icmp eq i32 %16, 0
@@ -2737,7 +2737,7 @@ define dso_local ptr @fib6_locate(ptr noundef %0, ptr noundef readonly captures(
   %65 = shl nuw i32 1, %64
   %66 = lshr i32 %16, 5
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr i32, ptr %1, i64 %67
+  %68 = getelementptr [4 x i8], ptr %1, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, %65
   %71 = icmp eq i32 %70, 0
@@ -4464,7 +4464,7 @@ define internal fastcc void @__fib6_drop_pcpu_from(ptr noundef readonly captures
   %16 = load ptr, ptr %3, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %12, 63
-  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
+  %19 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %17
   %22 = inttoptr i64 %21 to ptr

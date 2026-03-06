@@ -102,9 +102,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.136" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::Usd_LinearInterpolator.137" = type { %"class.pxrInternal_v0_24__pxrReserved__::Usd_InterpolatorBase", ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::Usd_HeldInterpolator" = type { %"class.pxrInternal_v0_24__pxrReserved__::Usd_InterpolatorBase", ptr }
-%"class.std::shared_ptr.140" = type { %"class.std::__shared_ptr.141" }
-%"class.std::__shared_ptr.141" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"struct.pxrInternal_v0_24__pxrReserved__::VtValue::_HoldAside" = type { %"union.std::aligned_storage<8, 8>::type", ptr }
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr" = type { ptr }
@@ -4262,7 +4259,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %163
   %166 = and i32 %162, 255
   %167 = lshr i32 %162, 8
   %168 = zext nneg i32 %166 to i64
-  %169 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %168
   %170 = load ptr, ptr %169, align 8, !noalias !4
   %171 = mul nuw nsw i32 %167, 24
   %172 = zext nneg i32 %171 to i64
@@ -4297,7 +4294,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %163
   %189 = and i32 %187, 255
   %190 = lshr i32 %187, 8
   %191 = zext nneg i32 %189 to i64
-  %192 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %191
   %193 = load ptr, ptr %192, align 8, !noalias !4
   %194 = mul nuw nsw i32 %190, 24
   %195 = zext nneg i32 %194 to i64
@@ -4341,7 +4338,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit: ; preds = %.inv
   %211 = and i32 %209, 255
   %212 = lshr i32 %209, 8
   %213 = zext nneg i32 %211 to i64
-  %214 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %213
+  %214 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %213
   %215 = load ptr, ptr %214, align 8
   %216 = mul nuw nsw i32 %212, 24
   %217 = zext nneg i32 %216 to i64
@@ -6677,7 +6674,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit: ; preds
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 96
   %123 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %121, double noundef %4)
   %124 = load ptr, ptr %122, align 8
-  %125 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %124, i64 %123
+  %125 = getelementptr inbounds [16 x i8], ptr %124, i64 %123
   %126 = load ptr, ptr %125, align 8
   %127 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtValueEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %126, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %119)
   br i1 %127, label %_ZN32pxrInternal_v0_24__pxrReserved__20Usd_HeldInterpolatorINS_7VtValueEE11InterpolateERKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEddd.exit, label %128
@@ -6767,7 +6764,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %168
   %171 = and i32 %167, 255
   %172 = lshr i32 %167, 8
   %173 = zext nneg i32 %171 to i64
-  %174 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %173
+  %174 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %173
   %175 = load ptr, ptr %174, align 8, !noalias !8
   %176 = mul nuw nsw i32 %172, 24
   %177 = zext nneg i32 %176 to i64
@@ -6802,7 +6799,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %168
   %194 = and i32 %192, 255
   %195 = lshr i32 %192, 8
   %196 = zext nneg i32 %194 to i64
-  %197 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %196
   %198 = load ptr, ptr %197, align 8, !noalias !8
   %199 = mul nuw nsw i32 %195, 24
   %200 = zext nneg i32 %199 to i64
@@ -6846,7 +6843,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit: ; preds = %.inv
   %216 = and i32 %214, 255
   %217 = lshr i32 %214, 8
   %218 = zext nneg i32 %216 to i64
-  %219 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %218
+  %219 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %218
   %220 = load ptr, ptr %219, align 8
   %221 = mul nuw nsw i32 %217, 24
   %222 = zext nneg i32 %221 to i64
@@ -9078,7 +9075,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr 
   %4 = and i32 %2, 255
   %5 = lshr i32 %2, 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = mul nuw nsw i32 %5, 24
   %10 = zext nneg i32 %9 to i64
@@ -12653,7 +12650,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20U
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %11 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %7, double noundef %4)
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %12, i64 %11
+  %13 = getelementptr inbounds [16 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtValueEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %14, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %0, ptr noundef %9)
   br i1 %15, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet15QueryTimeSampleINS_7VtValueEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit, label %16
@@ -12870,7 +12867,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer14GetFieldTypeidERKNS_7SdfPathERK
   %29 = and i32 %27, 255
   %30 = lshr i32 %27, 8
   %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = mul nuw nsw i32 %30, 24
   %35 = zext nneg i32 %34 to i64
@@ -13010,7 +13007,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %20 = and i32 %18, 255
   %21 = lshr i32 %18, 8
   %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = mul nuw nsw i32 %21, 24
   %26 = zext nneg i32 %25 to i64
@@ -13564,7 +13561,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_8pxr_half4halfEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_8pxr_half4halfEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -13617,7 +13614,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_8pxr_half4halfEEEb
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_8pxr_half4halfEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_8pxr_half4halfEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread._ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_8pxr_half4halfEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread_crit_edge, label %45
@@ -13675,12 +13672,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_8pxr_half4halfEEEb
   %67 = fdiv double %65, %66
   %68 = fsub double 1.000000e+00, %67
   %69 = zext i16 %64 to i64
-  %70 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %69
   %71 = load float, ptr %70, align 4
   %72 = fpext float %71 to double
   %73 = load i16, ptr %8, align 2
   %74 = zext i16 %73 to i64
-  %75 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %74
   %76 = load float, ptr %75, align 4
   %77 = fpext float %76 to double
   %78 = fmul double %67, %77
@@ -13698,7 +13695,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_8pxr_half4halfEEEb
 86:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_8pxr_half4halfEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread
   %87 = lshr i32 %81, 23
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %88
   %90 = load i16, ptr %89, align 2
   %.not.i.i.i = icmp eq i16 %90, 0
   br i1 %.not.i.i.i, label %100, label %91
@@ -13805,7 +13802,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -14252,11 +14249,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_8pxr_half4halfEEEb
   %48 = fdiv double %46, %47
   %49 = fsub double 1.000000e+00, %48
   %50 = zext i16 %.pre to i64
-  %51 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %50
   %52 = load float, ptr %51, align 4
   %53 = fpext float %52 to double
   %54 = zext i16 %45 to i64
-  %55 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %54
   %56 = load float, ptr %55, align 4
   %57 = fpext float %56 to double
   %58 = fmul double %48, %57
@@ -14274,7 +14271,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_8pxr_half4halfEEEb
 66:                                               ; preds = %44
   %67 = lshr i32 %61, 23
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %68
+  %69 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %68
   %70 = load i16, ptr %69, align 2
   %.not.i.i.i = icmp eq i16 %70, 0
   br i1 %.not.i.i.i, label %80, label %71
@@ -14344,11 +14341,11 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_8pxr_half4halfES3_NS0_14_LocalTypeInfoIS3_EEE6_EqualERKNSt15aligned_storageILm8ELm8EE4typeESB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 8
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   ret i1 %11
@@ -14358,11 +14355,11 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_8pxr_half4halfES3_NS0_14_LocalTypeInfoIS3_EEE9_EqualPtrERKNSt15aligned_storageILm8ELm8EE4typeEPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   ret i1 %11
@@ -14492,7 +14489,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_8pxr_half4halfEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc31 unwind label %.loopexit.split-lp
@@ -14572,7 +14569,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_8pxr_h
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_8pxr_half4halfEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %44, i64 %42
+  %45 = getelementptr inbounds [16 x i8], ptr %44, i64 %42
   %46 = load ptr, ptr %45, align 8
   %47 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_8pxr_half4halfEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %46, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc35 unwind label %.loopexit.split-lp
@@ -14696,16 +14693,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_8pxr_h
 
 98:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpINS_8pxr_half4halfEEET_dRKS3_S5_.exit
   %.02657 = phi i64 [ 0, %.lr.ph ], [ %136, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpINS_8pxr_half4halfEEET_dRKS3_S5_.exit ]
-  %99 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %88, i64 %.02657
-  %100 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %90, i64 %.02657
+  %99 = getelementptr inbounds [2 x i8], ptr %88, i64 %.02657
+  %100 = getelementptr inbounds [2 x i8], ptr %90, i64 %.02657
   %101 = load i16, ptr %99, align 2
   %102 = zext i16 %101 to i64
-  %103 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %102
   %104 = load float, ptr %103, align 4
   %105 = fpext float %104 to double
   %106 = load i16, ptr %100, align 2
   %107 = zext i16 %106 to i64
-  %108 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %107
   %109 = load float, ptr %108, align 4
   %110 = fpext float %109 to double
   %111 = fmul double %78, %110
@@ -14723,7 +14720,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_8pxr_h
 119:                                              ; preds = %98
   %120 = lshr i32 %114, 23
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %121
   %123 = load i16, ptr %122, align 2
   %.not.i.i.i = icmp eq i16 %123, 0
   br i1 %.not.i.i.i, label %133, label %124
@@ -14745,7 +14742,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_8pxr_h
 
 _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpINS_8pxr_half4halfEEET_dRKS3_S5_.exit: ; preds = %124, %116, %133
   %.sink.i.i.i = phi i16 [ %132, %124 ], [ %118, %116 ], [ %134, %133 ]
-  %135 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %93, i64 %.02657
+  %135 = getelementptr inbounds [2 x i8], ptr %93, i64 %.02657
   store i16 %.sink.i.i.i, ptr %135, align 2
   %136 = add nuw i64 %.02657, 1
   %.not29 = icmp eq i64 %136, %96
@@ -14850,7 +14847,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -15464,16 +15461,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 72:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpINS_8pxr_half4halfEEET_dRKS3_S5_.exit
   %.02642 = phi i64 [ 0, %.lr.ph ], [ %110, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpINS_8pxr_half4halfEEET_dRKS3_S5_.exit ]
-  %73 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %62, i64 %.02642
-  %74 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %64, i64 %.02642
+  %73 = getelementptr inbounds [2 x i8], ptr %62, i64 %.02642
+  %74 = getelementptr inbounds [2 x i8], ptr %64, i64 %.02642
   %75 = load i16, ptr %73, align 2
   %76 = zext i16 %75 to i64
-  %77 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %76
   %78 = load float, ptr %77, align 4
   %79 = fpext float %78 to double
   %80 = load i16, ptr %74, align 2
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %81
   %83 = load float, ptr %82, align 4
   %84 = fpext float %83 to double
   %85 = fmul double %52, %84
@@ -15491,7 +15488,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 93:                                               ; preds = %72
   %94 = lshr i32 %88, 23
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %95
   %97 = load i16, ptr %96, align 2
   %.not.i.i.i = icmp eq i16 %97, 0
   br i1 %.not.i.i.i, label %107, label %98
@@ -15513,7 +15510,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpINS_8pxr_half4halfEEET_dRKS3_S5_.exit: ; preds = %98, %90, %107
   %.sink.i.i.i = phi i16 [ %106, %98 ], [ %92, %90 ], [ %108, %107 ]
-  %109 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %67, i64 %.02642
+  %109 = getelementptr inbounds [2 x i8], ptr %67, i64 %.02642
   store i16 %.sink.i.i.i, ptr %109, align 2
   %110 = add nuw i64 %.02642, 1
   %.not29 = icmp eq i64 %110, %70
@@ -15825,7 +15822,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleIfEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleIfEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -15878,7 +15875,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleIfEEbRKSt10shared_ptrI
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleIfEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleIfEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread._ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleIfEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread_crit_edge, label %45
@@ -16026,7 +16023,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -16650,7 +16647,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayIfEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc31 unwind label %41
@@ -16725,7 +16722,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIfEEEEbRKS
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIfEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %46, i64 %44
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 %44
   %48 = load ptr, ptr %47, align 8
   %49 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayIfEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %48, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc35 unwind label %41
@@ -16858,8 +16855,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIfEEEEbRKS
 
 105:                                              ; preds = %.lr.ph, %105
   %.02554 = phi i64 [ 0, %.lr.ph ], [ %116, %105 ]
-  %106 = getelementptr inbounds float, ptr %95, i64 %.02554
-  %107 = getelementptr inbounds float, ptr %97, i64 %.02554
+  %106 = getelementptr inbounds [4 x i8], ptr %95, i64 %.02554
+  %107 = getelementptr inbounds [4 x i8], ptr %97, i64 %.02554
   %108 = load float, ptr %106, align 4
   %109 = fpext float %108 to double
   %110 = load float, ptr %107, align 4
@@ -16867,7 +16864,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIfEEEEbRKS
   %112 = fmul double %80, %111
   %113 = call double @llvm.fmuladd.f64(double %104, double %109, double %112)
   %114 = fptrunc double %113 to float
-  %115 = getelementptr inbounds float, ptr %100, i64 %.02554
+  %115 = getelementptr inbounds [4 x i8], ptr %100, i64 %.02554
   store float %114, ptr %115, align 4
   %116 = add nuw i64 %.02554, 1
   %.not29 = icmp eq i64 %116, %103
@@ -16972,7 +16969,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -17586,8 +17583,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 78:                                               ; preds = %.lr.ph, %78
   %.02540 = phi i64 [ 0, %.lr.ph ], [ %89, %78 ]
-  %79 = getelementptr inbounds float, ptr %68, i64 %.02540
-  %80 = getelementptr inbounds float, ptr %70, i64 %.02540
+  %79 = getelementptr inbounds [4 x i8], ptr %68, i64 %.02540
+  %80 = getelementptr inbounds [4 x i8], ptr %70, i64 %.02540
   %81 = load float, ptr %79, align 4
   %82 = fpext float %81 to double
   %83 = load float, ptr %80, align 4
@@ -17595,7 +17592,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
   %85 = fmul double %53, %84
   %86 = call double @llvm.fmuladd.f64(double %77, double %82, double %85)
   %87 = fptrunc double %86 to float
-  %88 = getelementptr inbounds float, ptr %73, i64 %.02540
+  %88 = getelementptr inbounds [4 x i8], ptr %73, i64 %.02540
   store float %87, ptr %88, align 4
   %89 = add nuw i64 %.02540, 1
   %.not29 = icmp eq i64 %89, %76
@@ -17908,7 +17905,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleIdEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleIdEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -17961,7 +17958,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleIdEEbRKSt10shared_ptrI
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleIdEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleIdEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread._ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleIdEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread_crit_edge, label %45
@@ -18106,7 +18103,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -18726,7 +18723,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayIdEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc31 unwind label %41
@@ -18801,7 +18798,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIdEEEEbRKS
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIdEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %46, i64 %44
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 %44
   %48 = load ptr, ptr %47, align 8
   %49 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayIdEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %48, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc35 unwind label %41
@@ -18934,13 +18931,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayIdEEEEbRKS
 
 105:                                              ; preds = %.lr.ph, %105
   %.02554 = phi i64 [ 0, %.lr.ph ], [ %113, %105 ]
-  %106 = getelementptr inbounds double, ptr %95, i64 %.02554
-  %107 = getelementptr inbounds double, ptr %97, i64 %.02554
+  %106 = getelementptr inbounds [8 x i8], ptr %95, i64 %.02554
+  %107 = getelementptr inbounds [8 x i8], ptr %97, i64 %.02554
   %108 = load double, ptr %106, align 8
   %109 = load double, ptr %107, align 8
   %110 = fmul double %80, %109
   %111 = call noundef double @llvm.fmuladd.f64(double %104, double %108, double %110)
-  %112 = getelementptr inbounds double, ptr %100, i64 %.02554
+  %112 = getelementptr inbounds [8 x i8], ptr %100, i64 %.02554
   store double %111, ptr %112, align 8
   %113 = add nuw i64 %.02554, 1
   %.not29 = icmp eq i64 %113, %103
@@ -19045,7 +19042,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -19659,13 +19656,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 78:                                               ; preds = %.lr.ph, %78
   %.02540 = phi i64 [ 0, %.lr.ph ], [ %86, %78 ]
-  %79 = getelementptr inbounds double, ptr %68, i64 %.02540
-  %80 = getelementptr inbounds double, ptr %70, i64 %.02540
+  %79 = getelementptr inbounds [8 x i8], ptr %68, i64 %.02540
+  %80 = getelementptr inbounds [8 x i8], ptr %70, i64 %.02540
   %81 = load double, ptr %79, align 8
   %82 = load double, ptr %80, align 8
   %83 = fmul double %53, %82
   %84 = call noundef double @llvm.fmuladd.f64(double %77, double %81, double %83)
-  %85 = getelementptr inbounds double, ptr %73, i64 %.02540
+  %85 = getelementptr inbounds [8 x i8], ptr %73, i64 %.02540
   store double %84, ptr %85, align 8
   %86 = add nuw i64 %.02540, 1
   %.not29 = icmp eq i64 %86, %76
@@ -19979,7 +19976,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_11SdfTimeCodeEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_11SdfTimeCodeEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -20032,7 +20029,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_11SdfTimeCodeEEEbR
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_11SdfTimeCodeEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_11SdfTimeCodeEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %45
@@ -20174,7 +20171,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -20838,7 +20835,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %21, i64 %19
+  %22 = getelementptr inbounds [16 x i8], ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
   %24 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_11SdfTimeCodeEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %23, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %14, ptr noundef nonnull %12)
           to label %.noexc31 unwind label %43
@@ -20909,7 +20906,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_11SdfT
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_11SdfTimeCodeEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %48, i64 %46
+  %49 = getelementptr inbounds [16 x i8], ptr %48, i64 %46
   %50 = load ptr, ptr %49, align 8
   %51 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_11SdfTimeCodeEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %50, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %15, ptr noundef nonnull %13)
           to label %.noexc35 unwind label %43
@@ -21063,14 +21060,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_11SdfT
 
 115:                                              ; preds = %.lr.ph, %115
   %.02664 = phi i64 [ 0, %.lr.ph ], [ %124, %115 ]
-  %116 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %105, i64 %.02664
-  %117 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %107, i64 %.02664
+  %116 = getelementptr inbounds [8 x i8], ptr %105, i64 %.02664
+  %117 = getelementptr inbounds [8 x i8], ptr %107, i64 %.02664
   %118 = load double, ptr %116, align 8
   %119 = fmul double %114, %118
   %120 = load double, ptr %117, align 8
   %121 = fmul double %84, %120
   %122 = fadd double %119, %121
-  %123 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %111, i64 %.02664
+  %123 = getelementptr inbounds [8 x i8], ptr %111, i64 %.02664
   store double %122, ptr %123, align 8
   %124 = add nuw i64 %.02664, 1
   %.not29 = icmp eq i64 %124, %113
@@ -21403,7 +21400,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -22164,8 +22161,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.ex
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i46, %53, %48
   %.1 = phi ptr [ %36, %48 ], [ %54, %53 ], [ %54, %.lr.ph.i.i.i.i46 ]
-  %59 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %.1, i64 %1
-  %60 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %.1, i64 %4
+  %59 = getelementptr inbounds [8 x i8], ptr %.1, i64 %1
+  %60 = getelementptr inbounds [8 x i8], ptr %.1, i64 %4
   %61 = load ptr, ptr %2, align 8
   %.pre.i.i.i.i50 = load i64, ptr %61, align 8
   br label %.lr.ph.i.i.i.i51
@@ -22200,8 +22197,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyE
   br i1 %34, label %.lr.ph.preheader.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit
 
 .lr.ph.preheader.i.i.i.i63:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit61
-  %70 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %65, i64 %1
-  %71 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %65, i64 %4
+  %70 = getelementptr inbounds [8 x i8], ptr %65, i64 %1
+  %71 = getelementptr inbounds [8 x i8], ptr %65, i64 %4
   %72 = load ptr, ptr %2, align 8
   %.pre.i.i.i.i64 = load i64, ptr %72, align 8
   br label %.lr.ph.i.i.i.i65
@@ -22674,14 +22671,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 88:                                               ; preds = %.lr.ph, %88
   %.02648 = phi i64 [ 0, %.lr.ph ], [ %97, %88 ]
-  %89 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %78, i64 %.02648
-  %90 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %80, i64 %.02648
+  %89 = getelementptr inbounds [8 x i8], ptr %78, i64 %.02648
+  %90 = getelementptr inbounds [8 x i8], ptr %80, i64 %.02648
   %91 = load double, ptr %89, align 8
   %92 = fmul double %87, %91
   %93 = load double, ptr %90, align 8
   %94 = fmul double %57, %93
   %95 = fadd double %92, %94
-  %96 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %84, i64 %.02648
+  %96 = getelementptr inbounds [8 x i8], ptr %84, i64 %.02648
   store double %95, ptr %96, align 8
   %97 = add nuw i64 %.02648, 1
   %.not29 = icmp eq i64 %97, %86
@@ -23303,7 +23300,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %17, double noundef %4)
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %20, i64 %19
+  %21 = getelementptr inbounds [16 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_10GfMatrix2dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %22, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %12, ptr noundef nonnull %10)
   br i1 %23, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_10GfMatrix2dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %24
@@ -23356,7 +23353,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_10GfMatrix2dEEEbRK
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %42, double noundef %5)
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %45, i64 %44
+  %46 = getelementptr inbounds [16 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_10GfMatrix2dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %47, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %13, ptr noundef nonnull %11)
   br i1 %48, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_10GfMatrix2dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %49
@@ -23505,7 +23502,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -24285,7 +24282,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %21, i64 %19
+  %22 = getelementptr inbounds [16 x i8], ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
   %24 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_10GfMatrix2dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %23, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %12, ptr noundef nonnull %10)
           to label %.noexc31 unwind label %.loopexit.split-lp
@@ -24365,7 +24362,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix2dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %48, i64 %46
+  %49 = getelementptr inbounds [16 x i8], ptr %48, i64 %46
   %50 = load ptr, ptr %49, align 8
   %51 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_10GfMatrix2dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %50, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %13, ptr noundef nonnull %11)
           to label %.noexc35 unwind label %.loopexit.split-lp
@@ -24489,7 +24486,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
 
 102:                                              ; preds = %.lr.ph, %108
   %.02558 = phi i64 [ 0, %.lr.ph ], [ %110, %108 ]
-  %103 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %92, i64 %.02558
+  %103 = getelementptr inbounds [32 x i8], ptr %92, i64 %.02558
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !159
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %103, i64 32, i1 false), !noalias !167
@@ -24497,7 +24494,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
           to label %.noexc38 unwind label %.loopexit56
 
 .noexc38:                                         ; preds = %102
-  %105 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %94, i64 %.02558
+  %105 = getelementptr inbounds [32 x i8], ptr %94, i64 %.02558
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %104, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !162
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !170
@@ -24513,7 +24510,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
 
 108:                                              ; preds = %.noexc39
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !159
-  %109 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %97, i64 %.02558
+  %109 = getelementptr inbounds [32 x i8], ptr %97, i64 %.02558
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %110 = add nuw i64 %.02558, 1
   %.not29 = icmp eq i64 %110, %100
@@ -24618,7 +24615,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -25236,7 +25233,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 76:                                               ; preds = %.lr.ph, %82
   %.02544 = phi i64 [ 0, %.lr.ph ], [ %84, %82 ]
-  %77 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %66, i64 %.02544
+  %77 = getelementptr inbounds [32 x i8], ptr %66, i64 %.02544
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !187
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %77, i64 32, i1 false), !noalias !195
@@ -25244,7 +25241,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
           to label %.noexc37 unwind label %.loopexit42
 
 .noexc37:                                         ; preds = %76
-  %79 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %68, i64 %.02544
+  %79 = getelementptr inbounds [32 x i8], ptr %68, i64 %.02544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %78, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !190
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !198
@@ -25260,7 +25257,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 82:                                               ; preds = %.noexc38
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !187
-  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %71, i64 %.02544
+  %83 = getelementptr inbounds [32 x i8], ptr %71, i64 %.02544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
   %84 = add nuw i64 %.02544, 1
   %.not29 = icmp eq i64 %84, %74
@@ -25661,7 +25658,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %17, double noundef %4)
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %20, i64 %19
+  %21 = getelementptr inbounds [16 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_10GfMatrix3dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %22, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %12, ptr noundef nonnull %10)
   br i1 %23, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_10GfMatrix3dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %24
@@ -25714,7 +25711,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_10GfMatrix3dEEEbRK
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %42, double noundef %5)
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %45, i64 %44
+  %46 = getelementptr inbounds [16 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_10GfMatrix3dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %47, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %13, ptr noundef nonnull %11)
   br i1 %48, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_10GfMatrix3dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %49
@@ -25863,7 +25860,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -26817,7 +26814,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %21, i64 %19
+  %22 = getelementptr inbounds [16 x i8], ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
   %24 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_10GfMatrix3dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %23, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %12, ptr noundef nonnull %10)
           to label %.noexc31 unwind label %.loopexit.split-lp
@@ -26897,7 +26894,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix3dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %48, i64 %46
+  %49 = getelementptr inbounds [16 x i8], ptr %48, i64 %46
   %50 = load ptr, ptr %49, align 8
   %51 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_10GfMatrix3dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %50, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %13, ptr noundef nonnull %11)
           to label %.noexc35 unwind label %.loopexit.split-lp
@@ -27021,7 +27018,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
 
 102:                                              ; preds = %.lr.ph, %108
   %.02558 = phi i64 [ 0, %.lr.ph ], [ %110, %108 ]
-  %103 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %92, i64 %.02558
+  %103 = getelementptr inbounds [72 x i8], ptr %92, i64 %.02558
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !264
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !267
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %103, i64 72, i1 false), !noalias !272
@@ -27029,7 +27026,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
           to label %.noexc38 unwind label %.loopexit56
 
 .noexc38:                                         ; preds = %102
-  %105 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %94, i64 %.02558
+  %105 = getelementptr inbounds [72 x i8], ptr %94, i64 %.02558
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %104, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !267
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !275
@@ -27045,7 +27042,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
 
 108:                                              ; preds = %.noexc39
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !264
-  %109 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %97, i64 %.02558
+  %109 = getelementptr inbounds [72 x i8], ptr %97, i64 %.02558
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(72) %14, i64 72, i1 false)
   %110 = add nuw i64 %.02558, 1
   %.not29 = icmp eq i64 %110, %100
@@ -27150,7 +27147,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -27768,7 +27765,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 76:                                               ; preds = %.lr.ph, %82
   %.02544 = phi i64 [ 0, %.lr.ph ], [ %84, %82 ]
-  %77 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %66, i64 %.02544
+  %77 = getelementptr inbounds [72 x i8], ptr %66, i64 %.02544
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !292
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !295
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %77, i64 72, i1 false), !noalias !300
@@ -27776,7 +27773,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
           to label %.noexc37 unwind label %.loopexit42
 
 .noexc37:                                         ; preds = %76
-  %79 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %68, i64 %.02544
+  %79 = getelementptr inbounds [72 x i8], ptr %68, i64 %.02544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(72) %78, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !295
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !303
@@ -27792,7 +27789,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 82:                                               ; preds = %.noexc38
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !292
-  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %71, i64 %.02544
+  %83 = getelementptr inbounds [72 x i8], ptr %71, i64 %.02544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(72) %16, i64 72, i1 false)
   %84 = add nuw i64 %.02544, 1
   %.not29 = icmp eq i64 %84, %74
@@ -28109,7 +28106,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %17, double noundef %4)
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %20, i64 %19
+  %21 = getelementptr inbounds [16 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_10GfMatrix4dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %22, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %12, ptr noundef nonnull %10)
   br i1 %23, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_10GfMatrix4dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %24
@@ -28162,7 +28159,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_10GfMatrix4dEEEbRK
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %42, double noundef %5)
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %45, i64 %44
+  %46 = getelementptr inbounds [16 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_10GfMatrix4dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %47, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %13, ptr noundef nonnull %11)
   br i1 %48, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_10GfMatrix4dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %49
@@ -28311,7 +28308,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -29183,7 +29180,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %21, i64 %19
+  %22 = getelementptr inbounds [16 x i8], ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
   %24 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_10GfMatrix4dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %23, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %12, ptr noundef nonnull %10)
           to label %.noexc31 unwind label %.loopexit.split-lp
@@ -29263,7 +29260,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMatrix4dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %48, i64 %46
+  %49 = getelementptr inbounds [16 x i8], ptr %48, i64 %46
   %50 = load ptr, ptr %49, align 8
   %51 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_10GfMatrix4dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %50, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %13, ptr noundef nonnull %11)
           to label %.noexc35 unwind label %.loopexit.split-lp
@@ -29387,7 +29384,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
 
 102:                                              ; preds = %.lr.ph, %108
   %.02558 = phi i64 [ 0, %.lr.ph ], [ %110, %108 ]
-  %103 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %92, i64 %.02558
+  %103 = getelementptr inbounds [128 x i8], ptr %92, i64 %.02558
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !369
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !372
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(128) %103, i64 128, i1 false), !noalias !377
@@ -29395,7 +29392,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
           to label %.noexc38 unwind label %.loopexit56
 
 .noexc38:                                         ; preds = %102
-  %105 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %94, i64 %.02558
+  %105 = getelementptr inbounds [128 x i8], ptr %94, i64 %.02558
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef nonnull align 8 dereferenceable(128) %104, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !372
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !380
@@ -29411,7 +29408,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_10GfMa
 
 108:                                              ; preds = %.noexc39
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !369
-  %109 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %97, i64 %.02558
+  %109 = getelementptr inbounds [128 x i8], ptr %97, i64 %.02558
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %109, ptr noundef nonnull align 8 dereferenceable(128) %14, i64 128, i1 false)
   %110 = add nuw i64 %.02558, 1
   %.not29 = icmp eq i64 %110, %100
@@ -29516,7 +29513,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -30134,7 +30131,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 76:                                               ; preds = %.lr.ph, %82
   %.02544 = phi i64 [ 0, %.lr.ph ], [ %84, %82 ]
-  %77 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %66, i64 %.02544
+  %77 = getelementptr inbounds [128 x i8], ptr %66, i64 %.02544
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !397
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(128) %77, i64 128, i1 false), !noalias !405
@@ -30142,7 +30139,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
           to label %.noexc37 unwind label %.loopexit42
 
 .noexc37:                                         ; preds = %76
-  %79 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %68, i64 %.02544
+  %79 = getelementptr inbounds [128 x i8], ptr %68, i64 %.02544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(128) %78, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !400
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !408
@@ -30158,7 +30155,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 82:                                               ; preds = %.noexc38
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !397
-  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %71, i64 %.02544
+  %83 = getelementptr inbounds [128 x i8], ptr %71, i64 %.02544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %83, ptr noundef nonnull align 8 dereferenceable(128) %16, i64 128, i1 false)
   %84 = add nuw i64 %.02544, 1
   %.not29 = icmp eq i64 %84, %74
@@ -30526,7 +30523,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec2dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -30579,7 +30576,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2dEEEbRKSt10
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec2dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %45
@@ -30729,7 +30726,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -31495,7 +31492,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec2dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc31 unwind label %41
@@ -31570,7 +31567,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %46, i64 %44
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 %44
   %48 = load ptr, ptr %47, align 8
   %49 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec2dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %48, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc35 unwind label %41
@@ -31703,8 +31700,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 
 105:                                              ; preds = %.lr.ph, %105
   %.02754 = phi i64 [ 0, %.lr.ph ], [ %115, %105 ]
-  %106 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %95, i64 %.02754
-  %107 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %97, i64 %.02754
+  %106 = getelementptr inbounds [16 x i8], ptr %95, i64 %.02754
+  %107 = getelementptr inbounds [16 x i8], ptr %97, i64 %.02754
   %.sroa.0.0.copyload2.i.i.i.i = load double, ptr %106, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.sroa.4.0.copyload.i.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
@@ -31717,7 +31714,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   %111 = fmul double %80, %.sroa.4.0.copyload.i.i6.i.i
   %112 = fadd double %108, %110
   %113 = fadd double %109, %111
-  %114 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %100, i64 %.02754
+  %114 = getelementptr inbounds [16 x i8], ptr %100, i64 %.02754
   store double %112, ptr %114, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %114, i64 8
   store double %113, ptr %.sroa.2.0..sroa_idx, align 8
@@ -31824,7 +31821,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -32438,8 +32435,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 78:                                               ; preds = %.lr.ph, %78
   %.02740 = phi i64 [ 0, %.lr.ph ], [ %88, %78 ]
-  %79 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %68, i64 %.02740
-  %80 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %70, i64 %.02740
+  %79 = getelementptr inbounds [16 x i8], ptr %68, i64 %.02740
+  %80 = getelementptr inbounds [16 x i8], ptr %70, i64 %.02740
   %.sroa.0.0.copyload2.i.i.i.i = load double, ptr %79, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.4.0.copyload.i.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
@@ -32452,7 +32449,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
   %84 = fmul double %53, %.sroa.4.0.copyload.i.i6.i.i
   %85 = fadd double %81, %83
   %86 = fadd double %82, %84
-  %87 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %73, i64 %.02740
+  %87 = getelementptr inbounds [16 x i8], ptr %73, i64 %.02740
   store double %85, ptr %87, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 8
   store double %86, ptr %.sroa.2.0..sroa_idx, align 8
@@ -32778,7 +32775,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec2fEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2fEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -32831,7 +32828,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2fEEEbRKSt10
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec2fEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2fEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %45
@@ -32990,7 +32987,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -33648,7 +33645,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec2fEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc31 unwind label %41
@@ -33723,7 +33720,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %46, i64 %44
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 %44
   %48 = load ptr, ptr %47, align 8
   %49 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec2fEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %48, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc35 unwind label %41
@@ -33856,8 +33853,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 
 105:                                              ; preds = %.lr.ph, %105
   %.02654 = phi i64 [ 0, %.lr.ph ], [ %125, %105 ]
-  %106 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %95, i64 %.02654
-  %107 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %97, i64 %.02654
+  %106 = getelementptr inbounds [8 x i8], ptr %95, i64 %.02654
+  %107 = getelementptr inbounds [8 x i8], ptr %97, i64 %.02654
   %108 = load <2 x float>, ptr %106, align 4
   %.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %108, i64 0
   %109 = fpext float %.sroa.0.0.vec.extract.i.i.i.i to double
@@ -33880,7 +33877,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %122, i64 0
   %123 = fadd float %114, %121
   %.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i, float %123, i64 1
-  %124 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %100, i64 %.02654
+  %124 = getelementptr inbounds [8 x i8], ptr %100, i64 %.02654
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %124, align 4
   %125 = add nuw i64 %.02654, 1
   %.not29 = icmp eq i64 %125, %103
@@ -33985,7 +33982,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -34599,8 +34596,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 78:                                               ; preds = %.lr.ph, %78
   %.02640 = phi i64 [ 0, %.lr.ph ], [ %98, %78 ]
-  %79 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %68, i64 %.02640
-  %80 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %70, i64 %.02640
+  %79 = getelementptr inbounds [8 x i8], ptr %68, i64 %.02640
+  %80 = getelementptr inbounds [8 x i8], ptr %70, i64 %.02640
   %81 = load <2 x float>, ptr %79, align 4
   %.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %81, i64 0
   %82 = fpext float %.sroa.0.0.vec.extract.i.i.i.i to double
@@ -34623,7 +34620,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
   %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %95, i64 0
   %96 = fadd float %87, %94
   %.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i, float %96, i64 1
-  %97 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %73, i64 %.02640
+  %97 = getelementptr inbounds [8 x i8], ptr %73, i64 %.02640
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %97, align 4
   %98 = add nuw i64 %.02640, 1
   %.not29 = icmp eq i64 %98, %76
@@ -34951,7 +34948,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %15, double noundef %4)
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %18, i64 %17
+  %19 = getelementptr inbounds [16 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec2hEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %20, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %11, ptr noundef nonnull %9)
   br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2hEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %22
@@ -35004,7 +35001,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2hEEEbRKSt10
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %42 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %40, double noundef %5)
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %43, i64 %42
+  %44 = getelementptr inbounds [16 x i8], ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec2hEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %45, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %10)
   br i1 %46, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2hEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread._ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2hEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread_crit_edge, label %47
@@ -35068,7 +35065,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2hEEEbRKSt10
   %71 = fptrunc double %70 to float
   %72 = and i32 %66, 65535
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %73
   %75 = load float, ptr %74, align 4
   %76 = fmul float %75, %71
   %77 = bitcast float %76 to i32
@@ -35083,7 +35080,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2hEEEbRKSt10
 82:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2hEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread
   %83 = lshr i32 %77, 23
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %84
   %86 = load i16, ptr %85, align 2
   %.not.i.i.i.i21 = icmp eq i16 %86, 0
   br i1 %.not.i.i.i.i21, label %96, label %87
@@ -35105,7 +35102,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2hEEEbRKSt10
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i22: ; preds = %96, %87, %79
   %.sink.i.i.i.i23 = phi i16 [ %95, %87 ], [ %97, %96 ], [ %81, %79 ]
-  %98 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc.i20
+  %98 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc.i20
   %99 = load float, ptr %98, align 4
   %100 = fmul float %99, %71
   %101 = bitcast float %100 to i32
@@ -35120,7 +35117,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i22: ; preds = %9
 106:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i22
   %107 = lshr i32 %101, 23
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %108
+  %109 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %108
   %110 = load i16, ptr %109, align 2
   %.not.i.i3.i.i24 = icmp eq i16 %110, 0
   br i1 %.not.i.i3.i.i24, label %120, label %111
@@ -35153,7 +35150,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd.exit30: ; preds = %103, %111,
   %123 = fptrunc double %69 to float
   %124 = and i32 %122, 65535
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %125
   %127 = load float, ptr %126, align 4
   %128 = fmul float %127, %123
   %129 = bitcast float %128 to i32
@@ -35168,7 +35165,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd.exit30: ; preds = %103, %111,
 134:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd.exit30
   %135 = lshr i32 %129, 23
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %136
+  %137 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %136
   %138 = load i16, ptr %137, align 2
   %.not.i.i.i.i = icmp eq i16 %138, 0
   br i1 %.not.i.i.i.i, label %148, label %139
@@ -35190,7 +35187,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd.exit30: ; preds = %103, %111,
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i: ; preds = %148, %139, %131
   %.sink.i.i.i.i = phi i16 [ %147, %139 ], [ %149, %148 ], [ %133, %131 ]
-  %150 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc.i
+  %150 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc.i
   %151 = load float, ptr %150, align 4
   %152 = fmul float %151, %123
   %153 = bitcast float %152 to i32
@@ -35205,7 +35202,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i: ; preds = %148
 158:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i
   %159 = lshr i32 %153, 23
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %160
+  %161 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %160
   %162 = load i16, ptr %161, align 2
   %.not.i.i3.i.i = icmp eq i16 %162, 0
   br i1 %.not.i.i3.i.i, label %172, label %163
@@ -35320,7 +35317,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -35667,10 +35664,10 @@ define linkonce_odr i32 @_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec2hES
   %.sroa.01.0.copyload.i = load i16, ptr %1, align 2
   %4 = and i32 %3, 65535
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %5
   %7 = load float, ptr %6, align 4
   %8 = zext i16 %.sroa.01.0.copyload.i to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fadd float %7, %10
   %12 = bitcast float %11 to i32
@@ -35685,7 +35682,7 @@ define linkonce_odr i32 @_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec2hES
 17:                                               ; preds = %2
   %18 = lshr i32 %12, 23
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %19
   %21 = load i16, ptr %20, align 2
   %.not.i.i.i = icmp eq i16 %21, 0
   br i1 %.not.i.i.i, label %31, label %22
@@ -35709,10 +35706,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit.i: ; preds = %31,
   %.sink.i.i.i = phi i16 [ %30, %22 ], [ %32, %31 ], [ %16, %14 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.sroa.0.0.copyload.i = load i16, ptr %33, align 2
-  %34 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc
   %35 = load float, ptr %34, align 4
   %36 = zext i16 %.sroa.0.0.copyload.i to i64
-  %37 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %36
   %38 = load float, ptr %37, align 4
   %39 = fadd float %35, %38
   %40 = bitcast float %39 to i32
@@ -35727,7 +35724,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit.i: ; preds = %31,
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit.i
   %46 = lshr i32 %40, 23
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %47
   %49 = load i16, ptr %48, align 2
   %.not.i.i4.i = icmp eq i16 %49, 0
   br i1 %.not.i.i4.i, label %59, label %50
@@ -35764,7 +35761,7 @@ define linkonce_odr i32 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd(ptr 
   %4 = fptrunc double %1 to float
   %5 = and i32 %3, 65535
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %6
   %8 = load float, ptr %7, align 4
   %9 = fmul float %8, %4
   %10 = bitcast float %9 to i32
@@ -35779,7 +35776,7 @@ define linkonce_odr i32 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd(ptr 
 15:                                               ; preds = %2
   %16 = lshr i32 %10, 23
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %17
   %19 = load i16, ptr %18, align 2
   %.not.i.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i.i, label %29, label %20
@@ -35801,7 +35798,7 @@ define linkonce_odr i32 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd(ptr 
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i: ; preds = %29, %20, %12
   %.sink.i.i.i = phi i16 [ %28, %20 ], [ %30, %29 ], [ %14, %12 ]
-  %31 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc
   %32 = load float, ptr %31, align 4
   %33 = fmul float %32, %4
   %34 = bitcast float %33 to i32
@@ -35816,7 +35813,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i: ; preds = %29, %
 39:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i
   %40 = lshr i32 %34, 23
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %41
   %43 = load i16, ptr %42, align 2
   %.not.i.i3.i = icmp eq i16 %43, 0
   br i1 %.not.i.i3.i, label %53, label %44
@@ -35949,7 +35946,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2hEEEbRKNS_8
   %51 = fptrunc double %50 to float
   %52 = and i32 %.pre, 65535
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %53
   %55 = load float, ptr %54, align 4
   %56 = fmul float %55, %51
   %57 = bitcast float %56 to i32
@@ -35964,7 +35961,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2hEEEbRKNS_8
 62:                                               ; preds = %46
   %63 = lshr i32 %57, 23
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %64
+  %65 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %64
   %66 = load i16, ptr %65, align 2
   %.not.i.i.i.i17 = icmp eq i16 %66, 0
   br i1 %.not.i.i.i.i17, label %76, label %67
@@ -35986,7 +35983,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec2hEEEbRKNS_8
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i18: ; preds = %76, %67, %59
   %.sink.i.i.i.i19 = phi i16 [ %75, %67 ], [ %77, %76 ], [ %61, %59 ]
-  %78 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc.i16
+  %78 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc.i16
   %79 = load float, ptr %78, align 4
   %80 = fmul float %79, %51
   %81 = bitcast float %80 to i32
@@ -36001,7 +35998,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i18: ; preds = %7
 86:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i18
   %87 = lshr i32 %81, 23
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %88
   %90 = load i16, ptr %89, align 2
   %.not.i.i3.i.i20 = icmp eq i16 %90, 0
   br i1 %.not.i.i3.i.i20, label %100, label %91
@@ -36034,7 +36031,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd.exit26: ; preds = %83, %91, %
   %103 = fptrunc double %49 to float
   %104 = and i32 %102, 65535
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %105
   %107 = load float, ptr %106, align 4
   %108 = fmul float %107, %103
   %109 = bitcast float %108 to i32
@@ -36049,7 +36046,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd.exit26: ; preds = %83, %91, %
 114:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd.exit26
   %115 = lshr i32 %109, 23
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %116
+  %117 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %116
   %118 = load i16, ptr %117, align 2
   %.not.i.i.i.i = icmp eq i16 %118, 0
   br i1 %.not.i.i.i.i, label %128, label %119
@@ -36071,7 +36068,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd.exit26: ; preds = %83, %91, %
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i: ; preds = %128, %119, %111
   %.sink.i.i.i.i = phi i16 [ %127, %119 ], [ %129, %128 ], [ %113, %111 ]
-  %130 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc.i
+  %130 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %.sroa.4.0.extract.trunc.i
   %131 = load float, ptr %130, align 4
   %132 = fmul float %131, %103
   %133 = bitcast float %132 to i32
@@ -36086,7 +36083,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i: ; preds = %128
 138:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit.i.i
   %139 = lshr i32 %133, 23
   %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %140
+  %141 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %140
   %142 = load i16, ptr %141, align 2
   %.not.i.i3.i.i = icmp eq i16 %142, 0
   br i1 %.not.i.i3.i.i, label %152, label %143
@@ -36172,11 +36169,11 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec2hES2_NS0_14_LocalTypeInfoIS2_EEE6_EqualERKNSt15aligned_storageILm8ELm8EE4typeESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 8
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec2hEvE5EqualERKS2_S5_.exit
@@ -36185,12 +36182,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec2hEvE5EqualERKS2_S5_.exit
@@ -36204,11 +36201,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec2hEvE5Equal
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec2hES2_NS0_14_LocalTypeInfoIS2_EEE9_EqualPtrERKNSt15aligned_storageILm8ELm8EE4typeEPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec2hEvE5EqualERKS2_S5_.exit
@@ -36217,12 +36214,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec2hEvE5EqualERKS2_S5_.exit
@@ -36357,7 +36354,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %19, i64 %17
+  %20 = getelementptr inbounds [16 x i8], ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
   %22 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec2hEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %21, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %11, ptr noundef nonnull %9)
           to label %.noexc31 unwind label %.loopexit.split-lp
@@ -36437,7 +36434,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec2hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %46, i64 %44
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 %44
   %48 = load ptr, ptr %47, align 8
   %49 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec2hEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %48, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %10)
           to label %.noexc35 unwind label %.loopexit.split-lp
@@ -36561,14 +36558,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 
 100:                                              ; preds = %.lr.ph, %106
   %.02658 = phi i64 [ 0, %.lr.ph ], [ %108, %106 ]
-  %101 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %90, i64 %.02658
+  %101 = getelementptr inbounds [4 x i8], ptr %90, i64 %.02658
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %102 = invoke i32 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd(ptr noundef nonnull align 2 dereferenceable(4) %101, double noundef %99)
           to label %.noexc38 unwind label %.loopexit56
 
 .noexc38:                                         ; preds = %100
-  %103 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %92, i64 %.02658
+  %103 = getelementptr inbounds [4 x i8], ptr %92, i64 %.02658
   store i32 %102, ptr %7, align 4
   %104 = invoke i32 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd(ptr noundef nonnull align 2 dereferenceable(4) %103, double noundef %80)
           to label %.noexc39 unwind label %.loopexit56
@@ -36581,7 +36578,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 106:                                              ; preds = %.noexc39
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %107 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %95, i64 %.02658
+  %107 = getelementptr inbounds [4 x i8], ptr %95, i64 %.02658
   store i32 %105, ptr %107, align 2
   %108 = add nuw i64 %.02658, 1
   %.not29 = icmp eq i64 %108, %98
@@ -36686,7 +36683,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -37302,14 +37299,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 74:                                               ; preds = %.lr.ph, %80
   %.02644 = phi i64 [ 0, %.lr.ph ], [ %82, %80 ]
-  %75 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %64, i64 %.02644
+  %75 = getelementptr inbounds [4 x i8], ptr %64, i64 %.02644
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %76 = invoke i32 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd(ptr noundef nonnull align 2 dereferenceable(4) %75, double noundef %73)
           to label %.noexc37 unwind label %.loopexit42
 
 .noexc37:                                         ; preds = %74
-  %77 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %66, i64 %.02644
+  %77 = getelementptr inbounds [4 x i8], ptr %66, i64 %.02644
   store i32 %76, ptr %7, align 4
   %78 = invoke i32 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2hmlEd(ptr noundef nonnull align 2 dereferenceable(4) %77, double noundef %54)
           to label %.noexc38 unwind label %.loopexit42
@@ -37322,7 +37319,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 80:                                               ; preds = %.noexc38
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %81 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %69, i64 %.02644
+  %81 = getelementptr inbounds [4 x i8], ptr %69, i64 %.02644
   store i32 %79, ptr %81, align 2
   %82 = add nuw i64 %.02644, 1
   %.not29 = icmp eq i64 %82, %72
@@ -37642,7 +37639,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec3dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec3dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -37695,7 +37692,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec3dEEEbRKSt10
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec3dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec3dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %45
@@ -37854,7 +37851,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -38664,7 +38661,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec3dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc31 unwind label %41
@@ -38739,7 +38736,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %46, i64 %44
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 %44
   %48 = load ptr, ptr %47, align 8
   %49 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec3dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %48, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc35 unwind label %41
@@ -38872,8 +38869,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 
 105:                                              ; preds = %.lr.ph, %105
   %.02554 = phi i64 [ 0, %.lr.ph ], [ %118, %105 ]
-  %106 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %95, i64 %.02554
-  %107 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %97, i64 %.02554
+  %106 = getelementptr inbounds [24 x i8], ptr %95, i64 %.02554
+  %107 = getelementptr inbounds [24 x i8], ptr %97, i64 %.02554
   %.sroa.0.0.copyload.i.i.i.i = load double, ptr %106, align 8, !noalias !544
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.sroa.4.0.copyload.i.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !544
@@ -38893,7 +38890,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   %114 = fadd double %108, %111
   %115 = fadd double %109, %112
   %116 = fadd double %110, %113
-  %117 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %100, i64 %.02554
+  %117 = getelementptr inbounds [24 x i8], ptr %100, i64 %.02554
   store double %114, ptr %117, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 8
   store double %115, ptr %.sroa.2.0..sroa_idx, align 8
@@ -39002,7 +38999,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -39616,8 +39613,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 78:                                               ; preds = %.lr.ph, %78
   %.02541 = phi i64 [ 0, %.lr.ph ], [ %91, %78 ]
-  %79 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %68, i64 %.02541
-  %80 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %70, i64 %.02541
+  %79 = getelementptr inbounds [24 x i8], ptr %68, i64 %.02541
+  %80 = getelementptr inbounds [24 x i8], ptr %70, i64 %.02541
   %.sroa.0.0.copyload.i.i.i.i = load double, ptr %79, align 8, !noalias !568
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.4.0.copyload.i.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !568
@@ -39637,7 +39634,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
   %87 = fadd double %81, %84
   %88 = fadd double %82, %85
   %89 = fadd double %83, %86
-  %90 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %73, i64 %.02541
+  %90 = getelementptr inbounds [24 x i8], ptr %73, i64 %.02541
   store double %87, ptr %90, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 8
   store double %88, ptr %.sroa.2.0..sroa_idx, align 8
@@ -40028,7 +40025,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec3fEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec3fEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -40081,7 +40078,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec3fEEEbRKSt10
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec3fEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec3fEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit16.thread, label %45
@@ -40252,7 +40249,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -41080,7 +41077,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc33 unwind label %41
@@ -41155,7 +41152,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 .noexc36:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %46, i64 %44
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 %44
   %48 = load ptr, ptr %47, align 8
   %49 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %48, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc37 unwind label %41
@@ -41288,8 +41285,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 
 105:                                              ; preds = %.lr.ph, %105
   %.02956 = phi i64 [ 0, %.lr.ph ], [ %130, %105 ]
-  %106 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %95, i64 %.02956
-  %107 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %97, i64 %.02956
+  %106 = getelementptr inbounds [12 x i8], ptr %95, i64 %.02956
+  %107 = getelementptr inbounds [12 x i8], ptr %97, i64 %.02956
   %.sroa.0.0.copyload.i.i.i.i = load <2 x float>, ptr %106, align 4
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.sroa.6.0.copyload.i.i.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 4
@@ -41323,7 +41320,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   %127 = fadd float %113, %122
   %.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i, float %127, i64 1
   %128 = fadd float %116, %125
-  %129 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %100, i64 %.02956
+  %129 = getelementptr inbounds [12 x i8], ptr %100, i64 %.02956
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %129, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 8
   store float %128, ptr %.sroa.22.0..sroa_idx, align 4
@@ -41430,7 +41427,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -42044,8 +42041,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i35: ; p
 
 78:                                               ; preds = %.lr.ph, %78
   %.02942 = phi i64 [ 0, %.lr.ph ], [ %103, %78 ]
-  %79 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %68, i64 %.02942
-  %80 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %70, i64 %.02942
+  %79 = getelementptr inbounds [12 x i8], ptr %68, i64 %.02942
+  %80 = getelementptr inbounds [12 x i8], ptr %70, i64 %.02942
   %.sroa.0.0.copyload.i.i.i.i = load <2 x float>, ptr %79, align 4
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.6.0.copyload.i.i.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 4
@@ -42079,7 +42076,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i35: ; p
   %100 = fadd float %86, %95
   %.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i, float %100, i64 1
   %101 = fadd float %89, %98
-  %102 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %73, i64 %.02942
+  %102 = getelementptr inbounds [12 x i8], ptr %73, i64 %.02942
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %102, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 8
   store float %101, ptr %.sroa.22.0..sroa_idx, align 4
@@ -42475,7 +42472,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %17, double noundef %4)
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %20, i64 %19
+  %21 = getelementptr inbounds [16 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec3hEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %22, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %11)
   br i1 %23, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec3hEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %24
@@ -42528,7 +42525,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec3hEEEbRKSt10
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %42, double noundef %5)
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %45, i64 %44
+  %46 = getelementptr inbounds [16 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec3hEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %47, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %14, ptr noundef nonnull %12)
   br i1 %48, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec3hEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %49
@@ -42682,7 +42679,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -43025,10 +43022,10 @@ define linkonce_odr noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInte
   %.sroa.02.0.copyload = load i16, ptr %1, align 2
   %3 = load i16, ptr %0, align 2
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = zext i16 %.sroa.02.0.copyload to i64
-  %8 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %7
   %9 = load float, ptr %8, align 4
   %10 = fadd float %6, %9
   %11 = bitcast float %10 to i32
@@ -43043,7 +43040,7 @@ define linkonce_odr noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInte
 16:                                               ; preds = %2
   %17 = lshr i32 %11, 23
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %18
   %20 = load i16, ptr %19, align 2
   %.not.i.i = icmp eq i16 %20, 0
   br i1 %.not.i.i, label %30, label %21
@@ -43071,10 +43068,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit: ; preds = %13, %
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %35
   %37 = load float, ptr %36, align 4
   %38 = zext i16 %.sroa.01.0.copyload to i64
-  %39 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %38
   %40 = load float, ptr %39, align 4
   %41 = fadd float %37, %40
   %42 = bitcast float %41 to i32
@@ -43089,7 +43086,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit: ; preds = %13, %
 47:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit
   %48 = lshr i32 %42, 23
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %49
   %51 = load i16, ptr %50, align 2
   %.not.i.i6 = icmp eq i16 %51, 0
   br i1 %.not.i.i6, label %61, label %52
@@ -43117,10 +43114,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit8: ; preds = %44, 
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i64
-  %67 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %66
   %68 = load float, ptr %67, align 4
   %69 = zext i16 %.sroa.0.0.copyload to i64
-  %70 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %69
   %71 = load float, ptr %70, align 4
   %72 = fadd float %68, %71
   %73 = bitcast float %72 to i32
@@ -43135,7 +43132,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit8: ; preds = %44, 
 78:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit8
   %79 = lshr i32 %73, 23
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %80
   %82 = load i16, ptr %81, align 2
   %.not.i.i9 = icmp eq i16 %82, 0
   br i1 %.not.i.i9, label %92, label %83
@@ -43166,7 +43163,7 @@ define linkonce_odr noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInte
   %3 = fptrunc double %1 to float
   %4 = load i16, ptr %0, align 2
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %5
   %7 = load float, ptr %6, align 4
   %8 = fmul float %7, %3
   %9 = bitcast float %8 to i32
@@ -43181,7 +43178,7 @@ define linkonce_odr noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInte
 14:                                               ; preds = %2
   %15 = lshr i32 %9, 23
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %16
   %18 = load i16, ptr %17, align 2
   %.not.i.i = icmp eq i16 %18, 0
   br i1 %.not.i.i, label %28, label %19
@@ -43207,7 +43204,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit: ; preds = %11, %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
   %34 = load float, ptr %33, align 4
   %35 = fmul float %34, %3
   %36 = bitcast float %35 to i32
@@ -43222,7 +43219,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit: ; preds = %11, %19
 41:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit
   %42 = lshr i32 %36, 23
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %43
   %45 = load i16, ptr %44, align 2
   %.not.i.i4 = icmp eq i16 %45, 0
   br i1 %.not.i.i4, label %55, label %46
@@ -43248,7 +43245,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit6: ; preds = %38, %4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %58 = load i16, ptr %57, align 2
   %59 = zext i16 %58 to i64
-  %60 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %59
   %61 = load float, ptr %60, align 4
   %62 = fmul float %61, %3
   %63 = bitcast float %62 to i32
@@ -43263,7 +43260,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit6: ; preds = %38, %4
 68:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit6
   %69 = lshr i32 %63, 23
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %70
   %72 = load i16, ptr %71, align 2
   %.not.i.i7 = icmp eq i16 %72, 0
   br i1 %.not.i.i7, label %82, label %73
@@ -43467,11 +43464,11 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec3hES2_NS0_14_LocalTypeInfoIS2_EEE6_EqualERKNSt15aligned_storageILm8ELm8EE4typeESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 8
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -43480,12 +43477,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br i1 %23, label %24, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -43494,12 +43491,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i16, ptr %25, align 4
   %27 = zext i16 %26 to i64
-  %28 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i16, ptr %30, align 4
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
   %34 = load float, ptr %33, align 4
   %35 = fcmp oeq float %29, %34
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -43513,11 +43510,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5Equal
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec3hES2_NS0_14_LocalTypeInfoIS2_EEE9_EqualPtrERKNSt15aligned_storageILm8ELm8EE4typeEPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -43526,12 +43523,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br i1 %23, label %24, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -43540,12 +43537,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i16, ptr %25, align 4
   %27 = zext i16 %26 to i64
-  %28 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
   %34 = load float, ptr %33, align 4
   %35 = fcmp oeq float %29, %34
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -43680,7 +43677,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %21, i64 %19
+  %22 = getelementptr inbounds [16 x i8], ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
   %24 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec3hEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %23, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %11)
           to label %.noexc31 unwind label %.loopexit.split-lp
@@ -43760,7 +43757,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec3hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %48, i64 %46
+  %49 = getelementptr inbounds [16 x i8], ptr %48, i64 %46
   %50 = load ptr, ptr %49, align 8
   %51 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec3hEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %50, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %14, ptr noundef nonnull %12)
           to label %.noexc35 unwind label %.loopexit.split-lp
@@ -43884,7 +43881,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 
 102:                                              ; preds = %.lr.ph, %108
   %.02658 = phi i64 [ 0, %.lr.ph ], [ %110, %108 ]
-  %103 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %92, i64 %.02658
+  %103 = getelementptr inbounds [6 x i8], ptr %92, i64 %.02658
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %9, ptr noundef nonnull align 2 dereferenceable(6) %103, i64 6, i1 false)
@@ -43892,7 +43889,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
           to label %.noexc38 unwind label %.loopexit56
 
 .noexc38:                                         ; preds = %102
-  %105 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %94, i64 %.02658
+  %105 = getelementptr inbounds [6 x i8], ptr %94, i64 %.02658
   %.sroa.0.0.copyload.i.i.i.i = load i48, ptr %104, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -43913,7 +43910,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   %.sroa.0.0.copyload.i.i.i = load i48, ptr %107, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %109 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %97, i64 %.02658
+  %109 = getelementptr inbounds [6 x i8], ptr %97, i64 %.02658
   store i48 %.sroa.0.0.copyload.i.i.i, ptr %109, align 2
   %110 = add nuw i64 %.02658, 1
   %.not29 = icmp eq i64 %110, %100
@@ -44018,7 +44015,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -44636,7 +44633,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 76:                                               ; preds = %.lr.ph, %82
   %.02644 = phi i64 [ 0, %.lr.ph ], [ %84, %82 ]
-  %77 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %66, i64 %.02644
+  %77 = getelementptr inbounds [6 x i8], ptr %66, i64 %.02644
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %9, ptr noundef nonnull align 2 dereferenceable(6) %77, i64 6, i1 false)
@@ -44644,7 +44641,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
           to label %.noexc37 unwind label %.loopexit42
 
 .noexc37:                                         ; preds = %76
-  %79 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %68, i64 %.02644
+  %79 = getelementptr inbounds [6 x i8], ptr %68, i64 %.02644
   %.sroa.0.0.copyload.i.i.i.i = load i48, ptr %78, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -44665,7 +44662,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
   %.sroa.0.0.copyload.i.i.i = load i48, ptr %81, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %71, i64 %.02644
+  %83 = getelementptr inbounds [6 x i8], ptr %71, i64 %.02644
   store i48 %.sroa.0.0.copyload.i.i.i, ptr %83, align 2
   %84 = add nuw i64 %.02644, 1
   %.not29 = icmp eq i64 %84, %74
@@ -44993,7 +44990,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec4dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec4dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -45046,7 +45043,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec4dEEEbRKSt10
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec4dEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec4dEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %45
@@ -45214,7 +45211,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -46059,7 +46056,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec4dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc31 unwind label %41
@@ -46134,7 +46131,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4dEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %46, i64 %44
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 %44
   %48 = load ptr, ptr %47, align 8
   %49 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec4dEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %48, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc35 unwind label %41
@@ -46267,8 +46264,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 
 105:                                              ; preds = %.lr.ph, %105
   %.02554 = phi i64 [ 0, %.lr.ph ], [ %121, %105 ]
-  %106 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %95, i64 %.02554
-  %107 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %97, i64 %.02554
+  %106 = getelementptr inbounds [32 x i8], ptr %95, i64 %.02554
+  %107 = getelementptr inbounds [32 x i8], ptr %97, i64 %.02554
   %.sroa.0.0.copyload.i.i.i.i = load double, ptr %106, align 8, !noalias !687
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.sroa.4.0.copyload.i.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !687
@@ -46295,7 +46292,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   %117 = fadd double %109, %113
   %118 = fadd double %110, %114
   %119 = fadd double %111, %115
-  %120 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %100, i64 %.02554
+  %120 = getelementptr inbounds [32 x i8], ptr %100, i64 %.02554
   store double %116, ptr %120, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 8
   store double %117, ptr %.sroa.2.0..sroa_idx, align 8
@@ -46406,7 +46403,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -47020,8 +47017,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 78:                                               ; preds = %.lr.ph, %78
   %.02541 = phi i64 [ 0, %.lr.ph ], [ %94, %78 ]
-  %79 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %68, i64 %.02541
-  %80 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %70, i64 %.02541
+  %79 = getelementptr inbounds [32 x i8], ptr %68, i64 %.02541
+  %80 = getelementptr inbounds [32 x i8], ptr %70, i64 %.02541
   %.sroa.0.0.copyload.i.i.i.i = load double, ptr %79, align 8, !noalias !711
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.4.0.copyload.i.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !711
@@ -47048,7 +47045,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
   %90 = fadd double %82, %86
   %91 = fadd double %83, %87
   %92 = fadd double %84, %88
-  %93 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %73, i64 %.02541
+  %93 = getelementptr inbounds [32 x i8], ptr %73, i64 %.02541
   store double %89, ptr %93, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 8
   store double %90, ptr %.sroa.2.0..sroa_idx, align 8
@@ -47451,7 +47448,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec4fEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec4fEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -47504,7 +47501,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec4fEEEbRKSt10
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec4fEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec4fEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %45
@@ -47688,7 +47685,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -48556,7 +48553,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec4fEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc31 unwind label %41
@@ -48631,7 +48628,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4fEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %46, i64 %44
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 %44
   %48 = load ptr, ptr %47, align 8
   %49 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec4fEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %48, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc35 unwind label %41
@@ -48764,8 +48761,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 
 105:                                              ; preds = %.lr.ph, %105
   %.02754 = phi i64 [ 0, %.lr.ph ], [ %137, %105 ]
-  %106 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %95, i64 %.02754
-  %107 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %97, i64 %.02754
+  %106 = getelementptr inbounds [16 x i8], ptr %95, i64 %.02754
+  %107 = getelementptr inbounds [16 x i8], ptr %97, i64 %.02754
   %.sroa.0.0.copyload4.i.i.i.i = load <2 x float>, ptr %106, align 4
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.sroa.6.0.copyload.i.i.i.i = load <2 x float>, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 4
@@ -48812,7 +48809,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   %.sroa.6.8.vec.insert.i.i.i = insertelement <2 x float> poison, float %134, i64 0
   %135 = fadd float %119, %131
   %.sroa.6.12.vec.insert.i.i.i = insertelement <2 x float> %.sroa.6.8.vec.insert.i.i.i, float %135, i64 1
-  %136 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %100, i64 %.02754
+  %136 = getelementptr inbounds [16 x i8], ptr %100, i64 %.02754
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %136, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 8
   store <2 x float> %.sroa.6.12.vec.insert.i.i.i, ptr %.sroa.2.0..sroa_idx, align 4
@@ -48919,7 +48916,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -49533,8 +49530,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 78:                                               ; preds = %.lr.ph, %78
   %.02740 = phi i64 [ 0, %.lr.ph ], [ %110, %78 ]
-  %79 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %68, i64 %.02740
-  %80 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %70, i64 %.02740
+  %79 = getelementptr inbounds [16 x i8], ptr %68, i64 %.02740
+  %80 = getelementptr inbounds [16 x i8], ptr %70, i64 %.02740
   %.sroa.0.0.copyload4.i.i.i.i = load <2 x float>, ptr %79, align 4
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.6.0.copyload.i.i.i.i = load <2 x float>, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 4
@@ -49581,7 +49578,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
   %.sroa.6.8.vec.insert.i.i.i = insertelement <2 x float> poison, float %107, i64 0
   %108 = fadd float %92, %104
   %.sroa.6.12.vec.insert.i.i.i = insertelement <2 x float> %.sroa.6.8.vec.insert.i.i.i, float %108, i64 1
-  %109 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %73, i64 %.02740
+  %109 = getelementptr inbounds [16 x i8], ptr %73, i64 %.02740
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %109, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 8
   store <2 x float> %.sroa.6.12.vec.insert.i.i.i, ptr %.sroa.2.0..sroa_idx, align 4
@@ -49988,7 +49985,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %17, double noundef %4)
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %20, i64 %19
+  %21 = getelementptr inbounds [16 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec4hEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %22, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %11)
   br i1 %23, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec4hEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %24
@@ -50041,7 +50038,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec4hEEEbRKSt10
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %42, double noundef %5)
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %45, i64 %44
+  %46 = getelementptr inbounds [16 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfVec4hEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %47, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %14, ptr noundef nonnull %12)
   br i1 %48, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec4hEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread._ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfVec4hEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread_crit_edge, label %49
@@ -50202,7 +50199,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -50546,10 +50543,10 @@ define linkonce_odr noundef nonnull align 2 dereferenceable(8) ptr @_ZN32pxrInte
   %.sroa.03.0.copyload = load i16, ptr %1, align 2
   %3 = load i16, ptr %0, align 2
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = zext i16 %.sroa.03.0.copyload to i64
-  %8 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %7
   %9 = load float, ptr %8, align 4
   %10 = fadd float %6, %9
   %11 = bitcast float %10 to i32
@@ -50564,7 +50561,7 @@ define linkonce_odr noundef nonnull align 2 dereferenceable(8) ptr @_ZN32pxrInte
 16:                                               ; preds = %2
   %17 = lshr i32 %11, 23
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %18
   %20 = load i16, ptr %19, align 2
   %.not.i.i = icmp eq i16 %20, 0
   br i1 %.not.i.i, label %30, label %21
@@ -50592,10 +50589,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit: ; preds = %13, %
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %35
   %37 = load float, ptr %36, align 4
   %38 = zext i16 %.sroa.02.0.copyload to i64
-  %39 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %38
   %40 = load float, ptr %39, align 4
   %41 = fadd float %37, %40
   %42 = bitcast float %41 to i32
@@ -50610,7 +50607,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit: ; preds = %13, %
 47:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit
   %48 = lshr i32 %42, 23
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %49
   %51 = load i16, ptr %50, align 2
   %.not.i.i8 = icmp eq i16 %51, 0
   br i1 %.not.i.i8, label %61, label %52
@@ -50638,10 +50635,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit10: ; preds = %44,
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i64
-  %67 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %66
   %68 = load float, ptr %67, align 4
   %69 = zext i16 %.sroa.01.0.copyload to i64
-  %70 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %69
   %71 = load float, ptr %70, align 4
   %72 = fadd float %68, %71
   %73 = bitcast float %72 to i32
@@ -50656,7 +50653,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit10: ; preds = %44,
 78:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit10
   %79 = lshr i32 %73, 23
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %80
   %82 = load i16, ptr %81, align 2
   %.not.i.i11 = icmp eq i16 %82, 0
   br i1 %.not.i.i11, label %92, label %83
@@ -50684,10 +50681,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit13: ; preds = %75,
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %97
   %99 = load float, ptr %98, align 4
   %100 = zext i16 %.sroa.0.0.copyload to i64
-  %101 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %100
   %102 = load float, ptr %101, align 4
   %103 = fadd float %99, %102
   %104 = bitcast float %103 to i32
@@ -50702,7 +50699,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit13: ; preds = %75,
 109:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfpLES1_.exit13
   %110 = lshr i32 %104, 23
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %111
+  %112 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %111
   %113 = load i16, ptr %112, align 2
   %.not.i.i14 = icmp eq i16 %113, 0
   br i1 %.not.i.i14, label %123, label %114
@@ -50733,7 +50730,7 @@ define linkonce_odr noundef nonnull align 2 dereferenceable(8) ptr @_ZN32pxrInte
   %3 = fptrunc double %1 to float
   %4 = load i16, ptr %0, align 2
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %5
   %7 = load float, ptr %6, align 4
   %8 = fmul float %7, %3
   %9 = bitcast float %8 to i32
@@ -50748,7 +50745,7 @@ define linkonce_odr noundef nonnull align 2 dereferenceable(8) ptr @_ZN32pxrInte
 14:                                               ; preds = %2
   %15 = lshr i32 %9, 23
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %16
   %18 = load i16, ptr %17, align 2
   %.not.i.i = icmp eq i16 %18, 0
   br i1 %.not.i.i, label %28, label %19
@@ -50774,7 +50771,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit: ; preds = %11, %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
   %34 = load float, ptr %33, align 4
   %35 = fmul float %34, %3
   %36 = bitcast float %35 to i32
@@ -50789,7 +50786,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit: ; preds = %11, %19
 41:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit
   %42 = lshr i32 %36, 23
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %43
   %45 = load i16, ptr %44, align 2
   %.not.i.i5 = icmp eq i16 %45, 0
   br i1 %.not.i.i5, label %55, label %46
@@ -50815,7 +50812,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit7: ; preds = %38, %4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %58 = load i16, ptr %57, align 2
   %59 = zext i16 %58 to i64
-  %60 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %59
   %61 = load float, ptr %60, align 4
   %62 = fmul float %61, %3
   %63 = bitcast float %62 to i32
@@ -50830,7 +50827,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit7: ; preds = %38, %4
 68:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit7
   %69 = lshr i32 %63, 23
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %70
   %72 = load i16, ptr %71, align 2
   %.not.i.i8 = icmp eq i16 %72, 0
   br i1 %.not.i.i8, label %82, label %73
@@ -50856,7 +50853,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit10: ; preds = %65, %
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i64
-  %87 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %86
   %88 = load float, ptr %87, align 4
   %89 = fmul float %88, %3
   %90 = bitcast float %89 to i32
@@ -50871,7 +50868,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit10: ; preds = %65, %
 95:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfmLEf.exit10
   %96 = lshr i32 %90, 23
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %97
+  %98 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %97
   %99 = load i16, ptr %98, align 2
   %.not.i.i11 = icmp eq i16 %99, 0
   br i1 %.not.i.i11, label %109, label %100
@@ -51087,11 +51084,11 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec4hES2_NS0_14_LocalTypeInfoIS2_EEE6_EqualERKNSt15aligned_storageILm8ELm8EE4typeESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 8
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -51100,12 +51097,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br i1 %23, label %24, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -51114,12 +51111,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i16, ptr %25, align 4
   %27 = zext i16 %26 to i64
-  %28 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i16, ptr %30, align 4
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
   %34 = load float, ptr %33, align 4
   %35 = fcmp oeq float %29, %34
   br i1 %35, label %36, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -51128,12 +51125,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %39
   %41 = load float, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i64
-  %45 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %44
   %46 = load float, ptr %45, align 4
   %47 = fcmp oeq float %41, %46
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -51147,11 +51144,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5Equal
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec4hES2_NS0_14_LocalTypeInfoIS2_EEE9_EqualPtrERKNSt15aligned_storageILm8ELm8EE4typeEPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -51160,12 +51157,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br i1 %23, label %24, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -51174,12 +51171,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i16, ptr %25, align 4
   %27 = zext i16 %26 to i64
-  %28 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
   %34 = load float, ptr %33, align 4
   %35 = fcmp oeq float %29, %34
   br i1 %35, label %36, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -51188,12 +51185,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %39
   %41 = load float, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i64
-  %45 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %44
   %46 = load float, ptr %45, align 4
   %47 = fcmp oeq float %41, %46
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -51330,7 +51327,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %21, i64 %19
+  %22 = getelementptr inbounds [16 x i8], ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
   %24 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec4hEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %23, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %13, ptr noundef nonnull %11)
           to label %.noexc31 unwind label %.loopexit.split-lp
@@ -51410,7 +51407,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec4hEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %48, i64 %46
+  %49 = getelementptr inbounds [16 x i8], ptr %48, i64 %46
   %50 = load ptr, ptr %49, align 8
   %51 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfVec4hEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %50, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %14, ptr noundef nonnull %12)
           to label %.noexc35 unwind label %.loopexit.split-lp
@@ -51534,7 +51531,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
 
 102:                                              ; preds = %.lr.ph, %110
   %.02658 = phi i64 [ 0, %.lr.ph ], [ %112, %110 ]
-  %103 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %92, i64 %.02658
+  %103 = getelementptr inbounds [8 x i8], ptr %92, i64 %.02658
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %104 = load i64, ptr %103, align 2
@@ -51543,7 +51540,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
           to label %.noexc38 unwind label %.loopexit56
 
 .noexc38:                                         ; preds = %102
-  %106 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %94, i64 %.02658
+  %106 = getelementptr inbounds [8 x i8], ptr %94, i64 %.02658
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %105, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -51565,7 +51562,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfVec
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %109, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %111 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %97, i64 %.02658
+  %111 = getelementptr inbounds [8 x i8], ptr %97, i64 %.02658
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %111, align 2
   %112 = add nuw i64 %.02658, 1
   %.not29 = icmp eq i64 %112, %100
@@ -51670,7 +51667,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -52288,7 +52285,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 76:                                               ; preds = %.lr.ph, %84
   %.02644 = phi i64 [ 0, %.lr.ph ], [ %86, %84 ]
-  %77 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %66, i64 %.02644
+  %77 = getelementptr inbounds [8 x i8], ptr %66, i64 %.02644
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %78 = load i64, ptr %77, align 2
@@ -52297,7 +52294,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
           to label %.noexc37 unwind label %.loopexit42
 
 .noexc37:                                         ; preds = %76
-  %80 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %68, i64 %.02644
+  %80 = getelementptr inbounds [8 x i8], ptr %68, i64 %.02644
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %79, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -52319,7 +52316,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %83, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %85 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %71, i64 %.02644
+  %85 = getelementptr inbounds [8 x i8], ptr %71, i64 %.02644
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %85, align 2
   %86 = add nuw i64 %.02644, 1
   %.not29 = icmp eq i64 %86, %74
@@ -52709,7 +52706,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %14, double noundef %4)
   %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %16
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfQuatdEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %20, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfQuatdEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %21
@@ -52762,7 +52759,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfQuatdEEEbRKSt10
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %39, double noundef %5)
   %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %42, i64 %41
+  %43 = getelementptr inbounds [16 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfQuatdEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %44, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %45, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfQuatdEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %46
@@ -52898,7 +52895,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -53715,7 +53712,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %18, i64 %16
+  %19 = getelementptr inbounds [16 x i8], ptr %18, i64 %16
   %20 = load ptr, ptr %19, align 8
   %21 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfQuatdEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %20, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc31 unwind label %.loopexit.split-lp
@@ -53795,7 +53792,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQua
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuatdEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %45, i64 %43
+  %46 = getelementptr inbounds [16 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8
   %48 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfQuatdEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %47, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc35 unwind label %.loopexit.split-lp
@@ -53915,13 +53912,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQua
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit
   %.02556 = phi i64 [ %101, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit ], [ 0, %.preheader ]
-  %98 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %89, i64 %.02556
-  %99 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %91, i64 %.02556
+  %98 = getelementptr inbounds [32 x i8], ptr %89, i64 %.02556
+  %99 = getelementptr inbounds [32 x i8], ptr %91, i64 %.02556
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfQuatdES2_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %11, double noundef %79, ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %99)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit unwind label %.loopexit54
 
 _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit: ; preds = %.lr.ph
-  %100 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %94, i64 %.02556
+  %100 = getelementptr inbounds [32 x i8], ptr %94, i64 %.02556
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   %101 = add nuw i64 %.02556, 1
   %.not29 = icmp eq i64 %101, %97
@@ -54026,7 +54023,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -54637,13 +54634,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit
   %.02542 = phi i64 [ %75, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %63, i64 %.02542
-  %73 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %65, i64 %.02542
+  %72 = getelementptr inbounds [32 x i8], ptr %63, i64 %.02542
+  %73 = getelementptr inbounds [32 x i8], ptr %65, i64 %.02542
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfQuatdES2_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %13, double noundef %53, ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %73)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit unwind label %.loopexit40
 
 _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatdES2_.exit: ; preds = %.lr.ph
-  %74 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %68, i64 %.02542
+  %74 = getelementptr inbounds [32 x i8], ptr %68, i64 %.02542
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   %75 = add nuw i64 %.02542, 1
   %.not29 = icmp eq i64 %75, %71
@@ -55042,7 +55039,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfQuatfEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfQuatfEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -55095,7 +55092,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfQuatfEEEbRKSt10
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfQuatfEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfQuatfEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %45
@@ -55235,7 +55232,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -56061,7 +56058,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfQuatfEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc31 unwind label %.loopexit.split-lp
@@ -56141,7 +56138,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQua
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuatfEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %44, i64 %42
+  %45 = getelementptr inbounds [16 x i8], ptr %44, i64 %42
   %46 = load ptr, ptr %45, align 8
   %47 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfQuatfEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %46, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc35 unwind label %.loopexit.split-lp
@@ -56261,15 +56258,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQua
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit
   %.02756 = phi i64 [ %103, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit ], [ 0, %.preheader ]
-  %97 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %88, i64 %.02756
-  %98 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %90, i64 %.02756
+  %97 = getelementptr inbounds [16 x i8], ptr %88, i64 %.02756
+  %98 = getelementptr inbounds [16 x i8], ptr %90, i64 %.02756
   %99 = invoke { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfQuatfES2_(double noundef %78, ptr noundef nonnull align 4 dereferenceable(16) %97, ptr noundef nonnull align 4 dereferenceable(16) %98)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit unwind label %.loopexit54
 
 _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit: ; preds = %.lr.ph
   %100 = extractvalue { <2 x float>, <2 x float> } %99, 0
   %101 = extractvalue { <2 x float>, <2 x float> } %99, 1
-  %102 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %93, i64 %.02756
+  %102 = getelementptr inbounds [16 x i8], ptr %93, i64 %.02756
   store <2 x float> %100, ptr %102, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 8
   store <2 x float> %101, ptr %.sroa.2.0..sroa_idx, align 4
@@ -56376,7 +56373,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -56986,15 +56983,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit
   %.02742 = phi i64 [ %77, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit ], [ 0, %.preheader ]
-  %71 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %62, i64 %.02742
-  %72 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %64, i64 %.02742
+  %71 = getelementptr inbounds [16 x i8], ptr %62, i64 %.02742
+  %72 = getelementptr inbounds [16 x i8], ptr %64, i64 %.02742
   %73 = invoke { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfQuatfES2_(double noundef %52, ptr noundef nonnull align 4 dereferenceable(16) %71, ptr noundef nonnull align 4 dereferenceable(16) %72)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit unwind label %.loopexit40
 
 _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuatfES2_.exit: ; preds = %.lr.ph
   %74 = extractvalue { <2 x float>, <2 x float> } %73, 0
   %75 = extractvalue { <2 x float>, <2 x float> } %73, 1
-  %76 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %67, i64 %.02742
+  %76 = getelementptr inbounds [16 x i8], ptr %67, i64 %.02742
   store <2 x float> %74, ptr %76, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
   store <2 x float> %75, ptr %.sroa.2.0..sroa_idx, align 4
@@ -57399,7 +57396,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %13, double noundef %4)
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %16, i64 %15
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfQuathEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfQuathEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread, label %20
@@ -57452,7 +57449,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfQuathEEEbRKSt10
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_FindClipIndexForTimeEd(ptr noundef nonnull align 8 dereferenceable(121) %38, double noundef %5)
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %41, i64 %40
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7GfQuathEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7GfQuathEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit14.thread, label %45
@@ -57589,7 +57586,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -58100,12 +58097,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %3, align 2
   %4 = zext i16 %.sroa.0.0.copyload.i.i.i.i to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %.sroa.0.0.copyload.i3.i.i.i = load i16, ptr %7, align 2
   %8 = zext i16 %.sroa.0.0.copyload.i3.i.i.i to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -58113,11 +58110,11 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 12:                                               ; preds = %2
   %13 = load i16, ptr %0, align 8
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %14
   %16 = load float, ptr %15, align 4
   %17 = load i16, ptr %1, align 8
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %18
   %20 = load float, ptr %19, align 4
   %21 = fcmp oeq float %16, %20
   br i1 %21, label %22, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -58126,12 +58123,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %25
   %27 = load float, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i64
-  %31 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %30
   %32 = load float, ptr %31, align 4
   %33 = fcmp oeq float %27, %32
   br i1 %33, label %34, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -58140,12 +58137,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i64
-  %38 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %37
   %39 = load float, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %41 = load i16, ptr %40, align 4
   %42 = zext i16 %41 to i64
-  %43 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %42
   %44 = load float, ptr %43, align 4
   %45 = fcmp oeq float %39, %44
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -58160,12 +58157,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %3, align 2
   %4 = zext i16 %.sroa.0.0.copyload.i.i.i.i to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %.sroa.0.0.copyload.i3.i.i.i = load i16, ptr %7, align 2
   %8 = zext i16 %.sroa.0.0.copyload.i3.i.i.i to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -58173,11 +58170,11 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 12:                                               ; preds = %2
   %13 = load i16, ptr %0, align 8
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %14
   %16 = load float, ptr %15, align 4
   %17 = load i16, ptr %1, align 2
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %18
   %20 = load float, ptr %19, align 4
   %21 = fcmp oeq float %16, %20
   br i1 %21, label %22, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -58186,12 +58183,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %25
   %27 = load float, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i64
-  %31 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %30
   %32 = load float, ptr %31, align 4
   %33 = fcmp oeq float %27, %32
   br i1 %33, label %34, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -58200,12 +58197,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i64
-  %38 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %37
   %39 = load float, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i64
-  %43 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %42
   %44 = load float, ptr %43, align 4
   %45 = fcmp oeq float %39, %44
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -58338,7 +58335,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22U
 .noexc:                                           ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfQuathEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
           to label %.noexc31 unwind label %.loopexit.split-lp
@@ -58418,7 +58415,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQua
 .noexc34:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQuathEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit.thread
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %"class.std::shared_ptr.140", ptr %44, i64 %42
+  %45 = getelementptr inbounds [16 x i8], ptr %44, i64 %42
   %46 = load ptr, ptr %45, align 8
   %47 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip15QueryTimeSampleINS_7VtArrayINS_7GfQuathEEEEEbRKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_(ptr noundef nonnull align 8 dereferenceable(208) %46, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %8)
           to label %.noexc35 unwind label %.loopexit.split-lp
@@ -58538,13 +58535,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_7GfQua
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit
   %.02656 = phi i64 [ %101, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit ], [ 0, %.preheader ]
-  %97 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %88, i64 %.02656
-  %98 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %90, i64 %.02656
+  %97 = getelementptr inbounds [8 x i8], ptr %88, i64 %.02656
+  %98 = getelementptr inbounds [8 x i8], ptr %90, i64 %.02656
   %99 = invoke i64 @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfQuathES2_(double noundef %78, ptr noundef nonnull align 2 dereferenceable(8) %97, ptr noundef nonnull align 2 dereferenceable(8) %98)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit unwind label %.loopexit54
 
 _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit: ; preds = %.lr.ph
-  %100 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %93, i64 %.02656
+  %100 = getelementptr inbounds [8 x i8], ptr %93, i64 %.02656
   store i64 %99, ptr %100, align 2
   %101 = add nuw i64 %.02656, 1
   %.not29 = icmp eq i64 %101, %96
@@ -58649,7 +58646,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8U
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %33, 24
   %38 = zext nneg i32 %37 to i64
@@ -59259,13 +59256,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit.i33: ; p
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit
   %.02642 = phi i64 [ %75, %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit ], [ 0, %.preheader ]
-  %71 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %62, i64 %.02642
-  %72 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %64, i64 %.02642
+  %71 = getelementptr inbounds [8 x i8], ptr %62, i64 %.02642
+  %72 = getelementptr inbounds [8 x i8], ptr %64, i64 %.02642
   %73 = invoke i64 @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfQuathES2_(double noundef %52, ptr noundef nonnull align 2 dereferenceable(8) %71, ptr noundef nonnull align 2 dereferenceable(8) %72)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit unwind label %.loopexit40
 
 _ZN32pxrInternal_v0_24__pxrReserved__8Usd_LerpEdRKNS_7GfQuathES2_.exit: ; preds = %.lr.ph
-  %74 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %67, i64 %.02642
+  %74 = getelementptr inbounds [8 x i8], ptr %67, i64 %.02642
   store i64 %73, ptr %74, align 2
   %75 = add nuw i64 %.02642, 1
   %.not29 = icmp eq i64 %75, %70

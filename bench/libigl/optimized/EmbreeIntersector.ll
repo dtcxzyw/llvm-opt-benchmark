@@ -23,12 +23,9 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.igl::embree::EmbreeIntersector::Vertex" = type { float, float, float, float }
-%"struct.igl::embree::EmbreeIntersector::Triangle" = type { i32, i32, i32 }
 %struct.RTCRayHit = type { %struct.RTCRay, %struct.RTCHit }
 %struct.RTCRay = type { float, float, float, float, float, float, float, float, float, i32, i32, i32 }
 %struct.RTCHit = type { float, float, float, float, float, i32, i32, [1 x i32], [1 x i32], [12 x i8] }
-%"struct.igl::Hit" = type { i32, i32, float, float, float }
 
 $__clang_call_terminate = comdat any
 
@@ -279,14 +276,14 @@ define dso_local void @_ZN3igl6embree17EmbreeIntersector4initERKSt6vectorIPKN5Ei
   store i32 %47, ptr %37, align 8, !tbaa !7
   tail call void @rtcReleaseGeometry(ptr noundef %45)
   %48 = load ptr, ptr %1, align 8, !tbaa !24
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv72
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv72
   %50 = load ptr, ptr %49, align 8, !tbaa !22
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !47
   %53 = tail call ptr @rtcSetNewGeometryBuffer(ptr noundef %45, i32 noundef 1, i32 noundef 0, i32 noundef 36867, i64 noundef 16, i64 noundef %52)
   store ptr %53, ptr %38, align 8, !tbaa !51
   %54 = load ptr, ptr %1, align 8, !tbaa !24
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv72
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv72
   %56 = load ptr, ptr %55, align 8, !tbaa !22
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !47
@@ -302,14 +299,14 @@ define dso_local void @_ZN3igl6embree17EmbreeIntersector4initERKSt6vectorIPKN5Ei
 
 ._crit_edge:                                      ; preds = %76, %43
   %62 = load ptr, ptr %2, align 8, !tbaa !32
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv72
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv72
   %64 = load ptr, ptr %63, align 8, !tbaa !30
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !53
   %67 = tail call ptr @rtcSetNewGeometryBuffer(ptr noundef %45, i32 noundef 0, i32 noundef 0, i32 noundef 20483, i64 noundef 12, i64 noundef %66)
   store ptr %67, ptr %39, align 8, !tbaa !55
   %68 = load ptr, ptr %2, align 8, !tbaa !32
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv72
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv72
   %70 = load ptr, ptr %69, align 8, !tbaa !30
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !53
@@ -325,11 +322,11 @@ define dso_local void @_ZN3igl6embree17EmbreeIntersector4initERKSt6vectorIPKN5Ei
 
 76:                                               ; preds = %.lr.ph, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr float, ptr %61, i64 %indvars.iv
+  %77 = getelementptr [4 x i8], ptr %61, i64 %indvars.iv
   %78 = load float, ptr %77, align 4, !tbaa !57
-  %79 = getelementptr inbounds nuw %"struct.igl::embree::EmbreeIntersector::Vertex", ptr %53, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %indvars.iv
   store float %78, ptr %79, align 4, !tbaa !59
-  %80 = getelementptr float, ptr %77, i64 %58
+  %80 = getelementptr [4 x i8], ptr %77, i64 %58
   %81 = load float, ptr %80, align 4, !tbaa !57
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store float %81, ptr %82, align 4, !tbaa !61
@@ -343,7 +340,7 @@ define dso_local void @_ZN3igl6embree17EmbreeIntersector4initERKSt6vectorIPKN5Ei
 
 ._crit_edge61:                                    ; preds = %96, %._crit_edge
   %86 = load ptr, ptr %3, align 8, !tbaa !38
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv72
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv72
   %88 = load i32, ptr %87, align 4, !tbaa !37
   tail call void @rtcSetGeometryMask(ptr noundef %45, i32 noundef %88)
   tail call void @rtcCommitGeometry(ptr noundef %45)
@@ -360,11 +357,11 @@ define dso_local void @_ZN3igl6embree17EmbreeIntersector4initERKSt6vectorIPKN5Ei
 
 96:                                               ; preds = %.lr.ph60, %96
   %indvars.iv67 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next68, %96 ]
-  %97 = getelementptr i32, ptr %75, i64 %indvars.iv67
+  %97 = getelementptr [4 x i8], ptr %75, i64 %indvars.iv67
   %98 = load i32, ptr %97, align 4, !tbaa !37
-  %99 = getelementptr inbounds nuw %"struct.igl::embree::EmbreeIntersector::Triangle", ptr %67, i64 %indvars.iv67
+  %99 = getelementptr inbounds nuw [12 x i8], ptr %67, i64 %indvars.iv67
   store i32 %98, ptr %99, align 4, !tbaa !66
-  %100 = getelementptr i32, ptr %97, i64 %72
+  %100 = getelementptr [4 x i8], ptr %97, i64 %72
   %101 = load i32, ptr %100, align 4, !tbaa !37
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i32 %101, ptr %102, align 4, !tbaa !68
@@ -1180,7 +1177,7 @@ _ZNSt6vectorIN3igl3HitIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; pre
 _ZNSt6vectorIN3igl3HitIfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %93, %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %88, ptr %3, align 8, !tbaa !125
   store ptr %92, ptr %11, align 8, !tbaa !128
-  %94 = getelementptr inbounds nuw %"struct.igl::Hit", ptr %88, i64 %86
+  %94 = getelementptr inbounds nuw [20 x i8], ptr %88, i64 %86
   store ptr %94, ptr %44, align 8, !tbaa !132
   br label %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit
 

@@ -1103,7 +1103,7 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
   %37 = and i32 %.01925, 15
   %38 = ashr i32 %.01925, 4
   %39 = zext nneg i32 %.02024 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %39
   %41 = mul nuw nsw i64 %39, %31
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 %41
   %.not.i.not = icmp eq i32 %37, 0
@@ -1115,7 +1115,7 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next34.i, %._crit_edge.us.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv33.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv33.i
   %45 = load i32, ptr %44, align 4, !tbaa !41
   %46 = mul nsw i32 %45, %1
   %47 = sext i32 %46 to i64

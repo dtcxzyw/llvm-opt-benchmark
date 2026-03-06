@@ -546,7 +546,7 @@ define internal void @atkbd_receive_byte(ptr noundef %0, i8 noundef zeroext %1) 
 
 .preheader5:                                      ; preds = %26, %40
   %32 = phi i64 [ %41, %40 ], [ 0, %26 ]
-  %33 = getelementptr i32, ptr @xl_table, i64 %32
+  %33 = getelementptr [4 x i8], ptr @xl_table, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, %29
   br i1 %35, label %36, label %40
@@ -588,7 +588,7 @@ define internal void @atkbd_receive_byte(ptr noundef %0, i8 noundef zeroext %1) 
 
 .preheader:                                       ; preds = %50, %65
   %54 = phi i64 [ %66, %65 ], [ 0, %50 ]
-  %55 = getelementptr i32, ptr @xl_table, i64 %54
+  %55 = getelementptr [4 x i8], ptr @xl_table, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = xor i32 %56, %7
   %58 = and i32 %57, 127
@@ -707,7 +707,7 @@ define internal void @atkbd_receive_byte(ptr noundef %0, i8 noundef zeroext %1) 
 116:                                              ; preds = %112, %108
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 210
   %118 = zext i32 %110 to i64
-  %119 = getelementptr i16, ptr %117, i64 %118
+  %119 = getelementptr [2 x i8], ptr %117, i64 %118
   %120 = load i16, ptr %119, align 2
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 1314
   %122 = load i8, ptr %121, align 2, !range !5, !noundef !6
@@ -996,7 +996,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @atkbd_probe(ptr noundef non
   br i1 %20, label %.thread, label %21, !llvm.loop !18
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr ptr, ptr @atkbd_is_portable_device.chassis_types, i64 %19
+  %22 = getelementptr [8 x i8], ptr @atkbd_is_portable_device.chassis_types, i64 %19
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @dmi_match(i32 noundef 19, ptr noundef %23) #17
   br i1 %24, label %25, label %.preheader, !llvm.loop !18
@@ -1214,12 +1214,12 @@ define internal fastcc void @atkbd_set_keycode_table(ptr noundef initializes((21
 
 19:                                               ; preds = %18, %19
   %20 = phi i64 [ %27, %19 ], [ 0, %18 ]
-  %21 = getelementptr i32, ptr %12, i64 %20
+  %21 = getelementptr [4 x i8], ptr %12, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = lshr i32 %22, 16
   %24 = zext nneg i32 %23 to i64
   %25 = trunc i32 %22 to i16
-  %26 = getelementptr i16, ptr %2, i64 %24
+  %26 = getelementptr [2 x i8], ptr %2, i64 %24
   store i16 %25, ptr %26, align 2
   %27 = add nuw nsw i64 %20, 1
   %28 = icmp eq i64 %27, %10
@@ -1241,16 +1241,16 @@ define internal fastcc void @atkbd_set_keycode_table(ptr noundef initializes((21
 
 36:                                               ; preds = %.loopexit5, %34
   %37 = phi i64 [ 0, %34 ], [ %62, %.loopexit5 ]
-  %38 = getelementptr i16, ptr @atkbd_unxlate_table, i64 %37
+  %38 = getelementptr [2 x i8], ptr @atkbd_unxlate_table, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i64
-  %41 = getelementptr i16, ptr @atkbd_set2_keycode, i64 %40
+  %41 = getelementptr [2 x i8], ptr @atkbd_set2_keycode, i64 %40
   %42 = load i16, ptr %41, align 2
-  %43 = getelementptr i16, ptr %2, i64 %37
+  %43 = getelementptr [2 x i8], ptr %2, i64 %37
   store i16 %42, ptr %43, align 2
   %44 = or i16 %39, 128
   %45 = zext i16 %44 to i64
-  %46 = getelementptr i16, ptr @atkbd_set2_keycode, i64 %45
+  %46 = getelementptr [2 x i8], ptr @atkbd_set2_keycode, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = getelementptr i8, ptr %43, i64 256
   store i16 %47, ptr %48, align 2
@@ -1260,7 +1260,7 @@ define internal fastcc void @atkbd_set_keycode_table(ptr noundef initializes((21
 
 .preheader4:                                      ; preds = %36, %59
   %51 = phi i64 [ %60, %59 ], [ 0, %36 ]
-  %52 = getelementptr %struct.anon.3, ptr @atkbd_scroll_keys, i64 %51
+  %52 = getelementptr [4 x i8], ptr @atkbd_scroll_keys, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 2
   %54 = load i8, ptr %53, align 2
   %55 = zext i8 %54 to i16
@@ -1301,12 +1301,12 @@ define internal fastcc void @atkbd_set_keycode_table(ptr noundef initializes((21
 
 .preheader:                                       ; preds = %69, %.preheader
   %73 = phi i64 [ %80, %.preheader ], [ 0, %69 ]
-  %74 = getelementptr %struct.anon.3, ptr @atkbd_scroll_keys, i64 %73
+  %74 = getelementptr [4 x i8], ptr @atkbd_scroll_keys, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
   %76 = load i8, ptr %75, align 2
   %77 = load i16, ptr %74, align 4
   %78 = zext i8 %76 to i64
-  %79 = getelementptr i16, ptr %2, i64 %78
+  %79 = getelementptr [2 x i8], ptr %2, i64 %78
   store i16 %77, ptr %79, align 2
   %80 = add nuw nsw i64 %73, 1
   %81 = icmp eq i64 %80, 7
@@ -1321,7 +1321,7 @@ define internal fastcc void @atkbd_set_keycode_table(ptr noundef initializes((21
   %87 = icmp eq i8 %86, 1
   %88 = select i1 %84, i64 242, i64 370
   %89 = select i1 %87, i64 498, i64 %88
-  %90 = getelementptr i16, ptr %2, i64 %89
+  %90 = getelementptr [2 x i8], ptr %2, i64 %89
   store i16 122, ptr %90, align 2
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %89) #17, !srcloc !14
   %91 = load i8, ptr %82, align 8
@@ -1330,7 +1330,7 @@ define internal fastcc void @atkbd_set_keycode_table(ptr noundef initializes((21
   %94 = load i8, ptr %85, align 8
   %95 = icmp eq i8 %94, 1
   %96 = select i1 %95, i64 497, i64 %93
-  %97 = getelementptr i16, ptr %2, i64 %96
+  %97 = getelementptr [2 x i8], ptr %2, i64 %96
   store i16 123, ptr %97, align 2
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %96) #17, !srcloc !14
   %98 = load ptr, ptr @atkbd_platform_fixup, align 8
@@ -1482,7 +1482,7 @@ define internal fastcc void @atkbd_set_device_attrs(ptr noundef %0) unnamed_addr
 
 83:                                               ; preds = %91, %77
   %84 = phi i64 [ 0, %77 ], [ %92, %91 ]
-  %85 = getelementptr i16, ptr %78, i64 %84
+  %85 = getelementptr [2 x i8], ptr %78, i64 %84
   %86 = load i16, ptr %85, align 2
   switch i16 %86, label %87 [
     i16 0, label %91
@@ -1704,7 +1704,7 @@ define internal fastcc void @atkbd_set_repeat_rate(ptr noundef %0) unnamed_addr 
 
 43:                                               ; preds = %49, %1
   %44 = phi i64 [ 0, %1 ], [ %50, %49 ]
-  %45 = getelementptr i16, ptr %2, i64 %44
+  %45 = getelementptr [2 x i8], ptr %2, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = sext i16 %46 to i32
   %48 = icmp sgt i32 %42, %47
@@ -1730,7 +1730,7 @@ define internal fastcc void @atkbd_set_repeat_rate(ptr noundef %0) unnamed_addr 
 
 59:                                               ; preds = %65, %.loopexit2
   %60 = phi i64 [ 0, %.loopexit2 ], [ %66, %65 ]
-  %61 = getelementptr i16, ptr %3, i64 %60
+  %61 = getelementptr [2 x i8], ptr %3, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = sext i16 %62 to i32
   %64 = icmp sgt i32 %58, %63
@@ -2715,7 +2715,7 @@ define internal void @atkbd_apply_forced_release_keylist(ptr noundef %0, ptr nou
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10, i64 %14) #17, !srcloc !14
   %15 = add i32 %13, 1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr i32, ptr %1, i64 %16
+  %17 = getelementptr [4 x i8], ptr %1, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %.loopexit, label %11, !llvm.loop !29

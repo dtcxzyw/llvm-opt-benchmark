@@ -1999,7 +1999,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ripemd160_self_test(i32 noundef %0) l
 
 .split.us:                                        ; preds = %1, %23
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %23 ], [ 0, %1 ]
-  %10 = getelementptr inbounds nuw i64, ptr @ripemd160_test_strlen, i64 %indvars.iv30
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @ripemd160_test_strlen, i64 %indvars.iv30
   %11 = load i64, ptr %10, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %2, i8 0, i64 92, i1 false)
@@ -2056,7 +2056,7 @@ mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw nsw i64 %indvars.iv.next to i32
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %24)
-  %26 = getelementptr inbounds nuw i64, ptr @ripemd160_test_strlen, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @ripemd160_test_strlen, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %2, i8 0, i64 92, i1 false)

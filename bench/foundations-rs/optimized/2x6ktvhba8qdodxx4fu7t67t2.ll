@@ -1942,12 +1942,12 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @"_ZN113_$LT$prom
   %26 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %28 = load i64, ptr %27, align 8, !noundef !3
-  %29 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, { { { { ptr, ptr } } } } }, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [112 x i8], ptr %26, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %31 = load ptr, ptr %30, align 8, !nonnull !3, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %33 = load i64, ptr %32, align 8, !noundef !3
-  %34 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [96 x i8], ptr %31, i64 %33
   store ptr %26, ptr %2, align 8
   store ptr %29, ptr %10, align 8
   store ptr %31, ptr %11, align 8
@@ -2064,12 +2064,12 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @"_ZN113_$LT$prom
   %26 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %28 = load i64, ptr %27, align 8, !noundef !3
-  %29 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [112 x i8], ptr %26, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %31 = load ptr, ptr %30, align 8, !nonnull !3, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %33 = load i64, ptr %32, align 8, !noundef !3
-  %34 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [96 x i8], ptr %31, i64 %33
   store ptr %26, ptr %2, align 8
   store ptr %29, ptr %10, align 8
   store ptr %31, ptr %11, align 8
@@ -15586,7 +15586,7 @@ define internal { ptr, ptr } @_ZN4core3ops8function6FnOnce9call_once17h01cceb0af
 120:                                              ; preds = %111, %103
   %121 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %122 = load ptr, ptr %121, align 8, !alias.scope !916, !noalias !919, !nonnull !3, !noundef !3
-  %123 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %122, i64 %108
+  %123 = getelementptr inbounds nuw [112 x i8], ptr %122, i64 %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %123, ptr noundef nonnull align 8 dereferenceable(112) %5, i64 112, i1 false), !noalias !900
   %124 = add i64 %108, 1
   store i64 %124, ptr %107, align 8, !alias.scope !916, !noalias !919
@@ -16429,7 +16429,7 @@ define internal { i64, ptr } @_ZN4slog10Serializer10emit_error17he7d8e204f553281
   %33 = add i64 %.sroa.01.0.i.i.i.i.i, %32
   %34 = and i64 %33, %25
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %26, i64 %35
+  %36 = getelementptr inbounds [24 x i8], ptr %26, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -24
   %38 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37), !noalias !1028
   br i1 %38, label %"_ZN116_$LT$foundations..telemetry..log..field_filtering..FieldFilteringSerializer$LT$F$GT$$u20$as$u20$slog..Serializer$GT$14emit_arguments17h26da0de6bc70302cE.exit", label %42, !prof !219
@@ -16976,7 +16976,7 @@ define internal { i64, ptr } @_ZN4slog10Serializer9emit_i12817h26548b1b6d60bc1cE
   %31 = add i64 %.sroa.01.0.i.i.i.i.i, %30
   %32 = and i64 %31, %23
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %24, i64 %33
+  %34 = getelementptr inbounds [24 x i8], ptr %24, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -24
   %36 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35), !noalias !1061
   br i1 %36, label %"_ZN116_$LT$foundations..telemetry..log..field_filtering..FieldFilteringSerializer$LT$F$GT$$u20$as$u20$slog..Serializer$GT$14emit_arguments17h26da0de6bc70302cE.exit", label %40, !prof !219
@@ -17169,7 +17169,7 @@ define internal { i64, ptr } @_ZN4slog10Serializer9emit_u12817h0448f6f5e61efbb9E
   %31 = add i64 %.sroa.01.0.i.i.i.i.i, %30
   %32 = and i64 %31, %23
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %24, i64 %33
+  %34 = getelementptr inbounds [24 x i8], ptr %24, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -24
   %36 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35), !noalias !1094
   br i1 %36, label %"_ZN116_$LT$foundations..telemetry..log..field_filtering..FieldFilteringSerializer$LT$F$GT$$u20$as$u20$slog..Serializer$GT$14emit_arguments17h26da0de6bc70302cE.exit", label %40, !prof !219
@@ -19388,10 +19388,10 @@ define internal noundef zeroext i1 @"_ZN64_$LT$h2..proto..error..Initiator$u20$a
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !66, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$h2..proto..error..Initiator$u20$as$u20$core..fmt..Debug$GT$3fmt17h9f9aa44e54e70b3aE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$h2..proto..error..Initiator$u20$as$u20$core..fmt..Debug$GT$3fmt17h9f9aa44e54e70b3aE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$h2..proto..error..Initiator$u20$as$u20$core..fmt..Debug$GT$3fmt17h9f9aa44e54e70b3aE.117", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$h2..proto..error..Initiator$u20$as$u20$core..fmt..Debug$GT$3fmt17h9f9aa44e54e70b3aE.117", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -21623,7 +21623,7 @@ define void @_ZN11foundations9telemetry7testing20TestTelemetryContext6traces17ha
   call void @llvm.experimental.noalias.scope.decl(metadata !1187)
   %80 = load ptr, ptr %27, align 8, !alias.scope !1187, !noalias !1190, !nonnull !3, !noundef !3
   %81 = load i64, ptr %28, align 8, !alias.scope !1187, !noalias !1190, !noundef !3
-  %82 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [64 x i8], ptr %80, i64 %81
   br label %83
 
 83:                                               ; preds = %86, %79
@@ -21719,7 +21719,7 @@ define void @_ZN11foundations9telemetry7testing20TestTelemetryContext6traces17ha
 _ZN11foundations9telemetry7tracing7testing12add_raw_span17ha289fd0e53fddbe4E.exit.i: ; preds = %101, %96
   %110 = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 -16
   %111 = load ptr, ptr %110, align 8, !alias.scope !1200, !noalias !1203, !nonnull !3, !noundef !3
-  %112 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, i64 }, i64, i8, [7 x i8] }, { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %111, i64 %98
+  %112 = getelementptr inbounds nuw [208 x i8], ptr %111, i64 %98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %112, ptr noundef nonnull align 8 dereferenceable(208) %9, i64 208, i1 false), !noalias !1196
   %113 = add i64 %98, 1
   store i64 %113, ptr %97, align 8, !alias.scope !1200, !noalias !1203
@@ -21804,7 +21804,7 @@ _ZN11foundations9telemetry7tracing7testing12add_raw_span17ha289fd0e53fddbe4E.exi
   %144 = add i64 %.sroa.01.0.i.i.i.i, %143
   %145 = and i64 %144, %136
   %146 = sub nsw i64 0, %145
-  %147 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %137, i64 %146
+  %147 = getelementptr inbounds [40 x i8], ptr %137, i64 %146
   %148 = getelementptr inbounds i8, ptr %147, i64 -40
   %149 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h1cb6fc0a6ab135c3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @anon.a050844006ed878c94dea3ed76d4dc70.13, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %148)
           to label %.noexc17 unwind label %.loopexit
@@ -21834,7 +21834,7 @@ _ZN11foundations9telemetry7tracing7testing12add_raw_span17ha289fd0e53fddbe4E.exi
   %160 = load ptr, ptr %159, align 8, !noalias !1176, !nonnull !3, !noundef !3
   %161 = getelementptr inbounds i8, ptr %147, i64 -8
   %162 = load i64, ptr %161, align 8, !noalias !1176, !noundef !3
-  %163 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, i64 }, i64, i8, [7 x i8] }, { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %160, i64 %162
+  %163 = getelementptr inbounds nuw [208 x i8], ptr %160, i64 %162
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1228
   store ptr %160, ptr %5, align 8, !alias.scope !1235, !noalias !1239
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -22477,7 +22477,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1272
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -22610,7 +22610,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1291
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -22693,7 +22693,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1310
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -22826,7 +22826,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1329
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -22909,7 +22909,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1348
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -23017,7 +23017,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1367
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -23125,7 +23125,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1386
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -23258,7 +23258,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1405
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -23341,7 +23341,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1424
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -23449,7 +23449,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1443
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -23557,7 +23557,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1462
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -23665,7 +23665,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1481
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -23773,7 +23773,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1500
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -23906,7 +23906,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1519
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -24014,7 +24014,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !1538
   br i1 %29, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %33, !prof !219
@@ -24097,7 +24097,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %25 = add i64 %.sroa.01.0.i.i.i.i, %24
   %26 = and i64 %25, %17
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %18, i64 %27
+  %28 = getelementptr inbounds [24 x i8], ptr %18, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -24
   %30 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29), !noalias !1557
   br i1 %30, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %34, !prof !219
@@ -24230,7 +24230,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %23 = add i64 %.sroa.01.0.i.i.i.i, %22
   %24 = and i64 %23, %15
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %16, i64 %25
+  %26 = getelementptr inbounds [24 x i8], ptr %16, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -24
   %28 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27), !noalias !1576
   br i1 %28, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %32, !prof !219
@@ -24313,7 +24313,7 @@ define internal { i64, ptr } @"_ZN116_$LT$foundations..telemetry..log..field_fil
   %23 = add i64 %.sroa.01.0.i.i.i.i, %22
   %24 = and i64 %23, %15
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %16, i64 %25
+  %26 = getelementptr inbounds [24 x i8], ptr %16, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -24
   %28 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h96497c816b5c3e20E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27), !noalias !1595
   br i1 %28, label %"_ZN133_$LT$foundations..telemetry..log..field_redact..FieldRedactFilter$u20$as$u20$foundations..telemetry..log..field_filtering..Filter$GT$6filter17h0a7bf63d92928fb9E.exit", label %32, !prof !219
@@ -24392,7 +24392,7 @@ define hidden noalias noundef nonnull ptr @_ZN11foundations9telemetry3log12field
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1598, !noalias !1601
   %6 = icmp ult i64 %.sroa.5.0.copyload.i, 384307168202282326
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   %8 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1603
@@ -25699,7 +25699,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hc2bb0d0c453db9f3E
 
 126:                                              ; preds = %117, %113
   %127 = load ptr, ptr %.sroa.45.0..sroa_idx.i, align 8, !alias.scope !1737, !noalias !1740, !nonnull !3, !noundef !3
-  %128 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, { { { { ptr, ptr } } } } }, ptr %127, i64 %114
+  %128 = getelementptr inbounds nuw [112 x i8], ptr %127, i64 %114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %128, ptr noundef nonnull align 8 dereferenceable(112) %7, i64 112, i1 false), !noalias !1743
   %129 = add i64 %114, 1
   store i64 %129, ptr %.sroa.56.0..sroa_idx.i, align 8, !alias.scope !1737, !noalias !1740
@@ -26176,7 +26176,7 @@ define void @_ZN11foundations9telemetry7metrics8internal10Registries18add_extra_
 22:                                               ; preds = %15, %9
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %24 = load ptr, ptr %23, align 8, !alias.scope !1748, !noalias !1751, !nonnull !3, !noundef !3
-  %25 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %24, i64 %12
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %12
   store ptr %1, ptr %25, align 8, !noalias !1751
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %2, ptr %26, align 8, !noalias !1751
@@ -26345,7 +26345,7 @@ define internal fastcc { ptr, ptr } @_ZN11foundations9telemetry7metrics8internal
 35:                                               ; preds = %28, %23
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %37 = load ptr, ptr %36, align 8, !alias.scope !1781, !noalias !1784, !nonnull !3, !noundef !3
-  %38 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %37, i64 %25
+  %38 = getelementptr inbounds nuw [48 x i8], ptr %37, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 48, i1 false), !noalias !1787
   %39 = add i64 %25, 1
   store i64 %39, ptr %24, align 8, !alias.scope !1781, !noalias !1784
@@ -26432,7 +26432,7 @@ define internal fastcc { ptr, ptr } @_ZN11foundations9telemetry7metrics8internal
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcae5add981ca074aE.exit.i.i.i.i": ; preds = %57, %51
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %63 = load ptr, ptr %62, align 8, !alias.scope !1789, !noalias !1794, !nonnull !3, !noundef !3
-  %64 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %63, i64 %54
+  %64 = getelementptr inbounds nuw [96 x i8], ptr %63, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %64, ptr noundef nonnull align 8 dereferenceable(96) %15, i64 96, i1 false), !noalias !1779
   %65 = add i64 %54, 1
   store i64 %65, ptr %53, align 8, !alias.scope !1789, !noalias !1794
@@ -26464,7 +26464,7 @@ define internal fastcc { ptr, ptr } @_ZN11foundations9telemetry7metrics8internal
 
 73:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcae5add981ca074aE.exit.i.i.i.i"
   %74 = load ptr, ptr %62, align 8, !alias.scope !1797, !noalias !1798, !nonnull !3, !noundef !3
-  %75 = getelementptr { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %74, i64 %65
+  %75 = getelementptr [96 x i8], ptr %74, i64 %65
   %76 = getelementptr i8, ptr %75, i64 -96
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1777
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1777
@@ -26613,7 +26613,7 @@ define internal fastcc { ptr, ptr } @_ZN11foundations9telemetry7metrics8internal
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcae5add981ca074aE.exit.i.i.i": ; preds = %111, %105
   %116 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 56
   %117 = load ptr, ptr %116, align 8, !alias.scope !1815, !noalias !1820, !nonnull !3, !noundef !3
-  %118 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %117, i64 %108
+  %118 = getelementptr inbounds nuw [96 x i8], ptr %117, i64 %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %118, ptr noundef nonnull align 8 dereferenceable(96) %11, i64 96, i1 false), !noalias !1805
   %119 = add i64 %108, 1
   store i64 %119, ptr %107, align 8, !alias.scope !1815, !noalias !1820
@@ -26665,7 +26665,7 @@ define internal fastcc { ptr, ptr } @_ZN11foundations9telemetry7metrics8internal
 
 "_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$3map17h507956ce3ea1ea3bE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcae5add981ca074aE.exit.i.i.i"
   %130 = load ptr, ptr %116, align 8, !alias.scope !1824, !noalias !1825, !nonnull !3, !noundef !3
-  %131 = getelementptr { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %130, i64 %119
+  %131 = getelementptr [96 x i8], ptr %130, i64 %119
   %132 = getelementptr i8, ptr %131, i64 -96
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1802
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1802
@@ -26944,13 +26944,13 @@ define noundef align 8 dereferenceable_or_null(128) ptr @"_ZN118_$LT$foundations
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = icmp ult i64 %3, 1152921504606846977
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %6
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %6
   %13 = load ptr, ptr %12, align 8, !nonnull !3, !align !108, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %17 = load i64, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [128 x i8], ptr %15, i64 %17
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hceb028c83bdb7d51E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %15, ptr noundef nonnull %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a050844006ed878c94dea3ed76d4dc70.298)
   br label %19
 
@@ -27049,7 +27049,7 @@ define hidden void @_ZN11foundations9telemetry7tracing7testing16create_test_span
   %44 = add i64 %.sroa.01.0.i.i.i, %43
   %45 = and i64 %44, %36
   %46 = sub nsw i64 0, %45
-  %47 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %37, i64 %46
+  %47 = getelementptr inbounds [40 x i8], ptr %37, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -40
   %49 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h1cb6fc0a6ab135c3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %48)
           to label %.noexc17 unwind label %.loopexit
@@ -27094,7 +27094,7 @@ define hidden void @_ZN11foundations9telemetry7tracing7testing16create_test_span
   %61 = load ptr, ptr %60, align 8, !nonnull !3, !noundef !3
   %62 = getelementptr inbounds i8, ptr %47, i64 -8
   %63 = load i64, ptr %62, align 8, !noundef !3
-  %64 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, i64 }, i64, i8, [7 x i8] }, { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [208 x i8], ptr %61, i64 %63
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1847
   store ptr %61, ptr %6, align 8, !alias.scope !1854, !noalias !1858
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -27138,7 +27138,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %"
   %.val = load ptr, ptr %75, align 8, !nonnull !3, !noundef !3
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val14 = load i64, ptr %76, align 8, !noundef !3
-  %77 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, i32, [1 x i32] } } } }, ptr %.val, i64 %.val14
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %.val, i64 %.val14
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1859
   store ptr %.val, ptr %5, align 8, !alias.scope !1868, !noalias !1872
   %.sroa.4.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -27184,7 +27184,7 @@ _ZN11foundations9telemetry7tracing7testing9span_logs17hecccbb359f76bcc1E.exit: ;
   %.val15 = load ptr, ptr %89, align 8, !nonnull !3, !noundef !3
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val16 = load i64, ptr %90, align 8, !noundef !3
-  %91 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.val15, i64 %.val16
+  %91 = getelementptr inbounds nuw [48 x i8], ptr %.val15, i64 %.val16
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7dcc256b7bd50b82E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull %.val15, ptr noundef nonnull %91, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a050844006ed878c94dea3ed76d4dc70.180)
           to label %_ZN11foundations9telemetry7tracing7testing9span_tags17h1bbbe3a78b81a79eE.exit unwind label %113
 
@@ -27636,7 +27636,7 @@ common.resume:                                    ; preds = %32, %16
   %26 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %28 = load i64, ptr %27, align 8, !noundef !3
-  %29 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %31 = load i64, ptr %30, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1905
@@ -27826,7 +27826,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hc2bb0d0c453db9f3E
   %37 = add i64 %.sroa.01.0.i.i.i.i.i.i, %36
   %38 = and i64 %37, %29
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds { { { { ptr, i64 } } }, ptr }, ptr %30, i64 %39
+  %40 = getelementptr inbounds [24 x i8], ptr %30, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 -24
   %42 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h752bfcffe95ee386E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41)
           to label %.noexc3.i.i unwind label %.loopexit.i.i, !noalias !1935
@@ -27988,7 +27988,7 @@ common.resume:                                    ; preds = %128, %123, %52, %56
   %95 = add i64 %.sroa.01.0.i.i.i.i.i24.i, %94
   %96 = and i64 %95, %87
   %97 = sub nsw i64 0, %96
-  %98 = getelementptr inbounds { { { { ptr, i64 } } }, ptr }, ptr %88, i64 %97
+  %98 = getelementptr inbounds [24 x i8], ptr %88, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 -24
   %100 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h752bfcffe95ee386E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %99)
           to label %.noexc1.i.i unwind label %.loopexit.i29.i, !noalias !1918

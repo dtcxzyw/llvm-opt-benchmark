@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.nameData = type { [64 x i8] }
 %struct.ObjectAddress = type { i32, i32, i32 }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [34 x i8] c"unrecognized rename stmt type: %d\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"alter.c\00", align 1
@@ -487,7 +486,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %222 = ptrtoint ptr %3 to i64
   %223 = add nsw i32 %72, -1
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds i64, ptr %211, i64 %224
+  %225 = getelementptr inbounds [8 x i8], ptr %211, i64 %224
   store i64 %222, ptr %225, align 8
   %226 = getelementptr inbounds i8, ptr %221, i64 %224
   store i8 1, ptr %226, align 1
@@ -974,7 +973,7 @@ define internal fastcc i32 @AlterObjectNamespace_internal(ptr noundef %0, i32 no
   %118 = zext i32 %2 to i64
   %119 = add nsw i32 %25, -1
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds i64, ptr %107, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %107, i64 %120
   store i64 %118, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %117, i64 %120
   store i8 1, ptr %122, align 1
@@ -1329,7 +1328,7 @@ define dso_local void @AlterObjectOwner_internal(i32 noundef %0, i32 noundef %1,
   %65 = zext i32 %2 to i64
   %66 = add nsw i32 %23, -1
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i64, ptr %62, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %62, i64 %67
   store i64 %65, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %64, i64 %67
   store i8 1, ptr %69, align 1
@@ -1351,7 +1350,7 @@ define dso_local void @AlterObjectOwner_internal(i32 noundef %0, i32 noundef %1,
   %80 = ptrtoint ptr %79 to i64
   %81 = add nsw i32 %70, -1
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i64, ptr %62, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %62, i64 %82
   store i64 %80, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %64, i64 %82
   store i8 1, ptr %84, align 1
@@ -1431,7 +1430,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %struct.CompactAttribute, ptr %2, i64 %20
+  %21 = getelementptr [16 x i8], ptr %2, i64 %20
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, -1

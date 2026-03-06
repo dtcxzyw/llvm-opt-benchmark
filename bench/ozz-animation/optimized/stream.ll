@@ -174,7 +174,7 @@ define dso_local noundef i32 @_ZN3ozz2io4File4SeekEiNS0_6Stream6OriginE(ptr noun
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = sext i32 %1 to i64
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw i32, ptr @__const._ZN3ozz2io4File4SeekEiNS0_6Stream6OriginE.origins, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3ozz2io4File4SeekEiNS0_6Stream6OriginE.origins, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !12
   %12 = tail call i32 @fseek(ptr noundef %7, i64 noundef %8, i32 noundef %11)
   br label %13

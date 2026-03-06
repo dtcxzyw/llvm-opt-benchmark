@@ -446,7 +446,7 @@ define void @"_ZN87_$LT$grep_printer..hyperlink..HyperlinkFormat$u20$as$u20$core
   unreachable
 
 "_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i.i": ; preds = %23
-  %26 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %21
+  %26 = getelementptr inbounds nuw [32 x i8], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !noalias !59, !nonnull !5, !align !62, !noundef !5
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -608,7 +608,7 @@ default.unreachable:                              ; preds = %.thread95
 
 79:                                               ; preds = %.thread95.thread
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
-  %80 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val.i, i64 %.val16.i
+  %80 = getelementptr inbounds [24 x i8], ptr %.val.i, i64 %.val16.i
   br label %81
 
 81:                                               ; preds = %84, %79
@@ -819,7 +819,7 @@ _ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thr
 
 .noexc86:                                         ; preds = %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread27.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !122
-  %142 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val.i, i64 %.val16.i
+  %142 = getelementptr inbounds [24 x i8], ptr %.val.i, i64 %.val16.i
   store ptr %.val.i, ptr %7, align 8, !noalias !122
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %142, ptr %143, align 8, !noalias !122
@@ -1059,7 +1059,7 @@ define noundef zeroext i1 @"_ZN79_$LT$grep_printer..hyperlink..HyperlinkFormat$u
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = getelementptr inbounds { i64, [2 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %4, i64 %6
   br label %8
 
 8:                                                ; preds = %9, %2
@@ -1500,7 +1500,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %9, %
   %.not.i = icmp eq i64 %46, 0
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8, !alias.scope !209, !noalias !212, !nonnull !5
-  %49 = getelementptr { i64, [2 x i64] }, ptr %48, i64 %46
+  %49 = getelementptr [24 x i8], ptr %48, i64 %46
   %50 = getelementptr i8, ptr %49, i64 -24
   %.not1112.i = icmp eq ptr %50, null
   %.not11.i = select i1 %.not.i, i1 true, i1 %.not1112.i
@@ -1580,7 +1580,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %9, %
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcc0929be5fa369f6E.exit.i": ; preds = %._crit_edge.i.i, %69
   %81 = phi ptr [ %.pre.i, %._crit_edge.i.i ], [ %48, %69 ]
   %82 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %46, %69 ]
-  %83 = getelementptr inbounds { i64, [2 x i64] }, ptr %81, i64 %82
+  %83 = getelementptr inbounds [24 x i8], ptr %81, i64 %82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !212
   %84 = load i64, ptr %45, align 8, !alias.scope !225, !noalias !228, !noundef !5
   %85 = add i64 %84, 1
@@ -1679,7 +1679,7 @@ define internal fastcc void @_ZN12grep_printer9hyperlink13FormatBuilder10append_
   %26 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %17, %15 ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !250, !noalias !253, !nonnull !5, !noundef !5
-  %29 = getelementptr inbounds { i64, [2 x i64] }, ptr %28, i64 %26
+  %29 = getelementptr inbounds [24 x i8], ptr %28, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %30 = load i64, ptr %16, align 8, !alias.scope !250, !noalias !253, !noundef !5
   %31 = add i64 %30, 1

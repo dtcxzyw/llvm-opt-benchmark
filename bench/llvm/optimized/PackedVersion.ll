@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [48 x i8] }
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::SmallVector.0" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.1" }
 %"struct.llvm::SmallVectorStorage.1" = type { [80 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -93,7 +92,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm5MachO13PackedVersion7parse32ENS_9S
   %.01321 = phi i32 [ %35, %29 ], [ 1, %19 ]
   %22 = zext i32 %.01321 to i64
   %23 = load ptr, ptr %4, align 8, !tbaa !8
-  %24 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %22
   %.sroa.0.0.copyload = load ptr, ptr %24, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !15
@@ -214,7 +213,7 @@ define dso_local range(i16 0, 258) i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 8, %22 ]
   %.162 = phi i8 [ %.2, %41 ], [ %.0, %22 ]
   %30 = load ptr, ptr %4, align 8, !tbaa !8
-  %31 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %30, i64 %indvars.iv67
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv67
   %.sroa.0.0.copyload = load ptr, ptr %31, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !15

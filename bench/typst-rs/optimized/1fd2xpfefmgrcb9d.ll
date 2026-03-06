@@ -6908,7 +6908,7 @@ _ZN10ttf_parser6tables4cmap8Subtable11glyph_index17h29cd81520ce026a6E.exit.i: ; 
   %.sroa.0.0.copyload.i7 = load ptr, ptr %139, align 8, !noalias !1101, !nonnull !4, !noundef !4
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.42.0.copyload.i = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !1101
-  %140 = getelementptr inbounds { [2 x i64] }, ptr %.sroa.0.0.copyload.i7, i64 %.sroa.42.0.copyload.i
+  %140 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.copyload.i7, i64 %.sroa.42.0.copyload.i
   %141 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false), !noalias !1106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %140, ptr noundef nonnull align 8 dereferenceable(15) %5, i64 15, i1 false)
@@ -7059,7 +7059,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.15772558698018558306.exi
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h12528ff24623ee8cE.exit": ; preds = %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.15772558698018558306.exit, %75
   %76 = phi i64 [ %.pre.i, %75 ], [ %72, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.15772558698018558306.exit ]
   %77 = load ptr, ptr %35, align 8, !alias.scope !1117, !nonnull !4, !noundef !4
-  %78 = getelementptr inbounds i32, ptr %77, i64 %76
+  %78 = getelementptr inbounds [4 x i8], ptr %77, i64 %76
   store i32 %64, ptr %78, align 4
   %79 = load i64, ptr %34, align 8, !alias.scope !1117, !noundef !4
   %80 = add i64 %79, 1
@@ -7189,7 +7189,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.15772558698018558306.exi
   %136 = load ptr, ptr %135, align 8, !nonnull !4, !noundef !4
   %137 = getelementptr inbounds nuw i8, ptr %.sroa.0.0278, i64 40
   %138 = load i64, ptr %137, align 8, !noundef !4
-  %139 = getelementptr inbounds { { { { { [2 x i64] } } }, i8, [7 x i8] }, i64 }, ptr %136, i64 %138
+  %139 = getelementptr inbounds [32 x i8], ptr %136, i64 %138
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1120
   store ptr %136, ptr %11, align 8, !noalias !1124
   store ptr %139, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1124

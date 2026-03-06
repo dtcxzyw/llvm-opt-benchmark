@@ -436,7 +436,7 @@ define dso_local range(i32 0, 2) i32 @slurm_verify_cpu_bind(ptr noundef %0, ptr 
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %14, align 1
   %18 = sext i8 %17 to i64
-  %19 = getelementptr inbounds i16, ptr %16, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %16, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 2048
   %.not.i70 = icmp eq i16 %21, 0
@@ -446,7 +446,7 @@ define dso_local range(i32 0, 2) i32 @slurm_verify_cpu_bind(ptr noundef %0, ptr 
   %.0.i = phi ptr [ %27, %.preheader.i ], [ %14, %13 ]
   %22 = load i8, ptr %.0.i, align 1
   %23 = sext i8 %22 to i64
-  %24 = getelementptr inbounds i16, ptr %16, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %16, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 4096
   %.not7.i = icmp eq i16 %26, 0
@@ -937,7 +937,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %23 = phi i8 [ %16, %.lr.ph ], [ %21, %19 ]
   %24 = sext i8 %23 to i64
-  %25 = getelementptr inbounds i16, ptr %18, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %18, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 2048
   %.not72 = icmp eq i16 %27, 0
@@ -1217,7 +1217,7 @@ define dso_local i32 @slurm_verify_mem_bind(ptr noundef %0, ptr noundef %1, ptr 
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %14, align 1
   %18 = sext i8 %17 to i64
-  %19 = getelementptr inbounds i16, ptr %16, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %16, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 2048
   %.not.i = icmp eq i16 %21, 0
@@ -1227,7 +1227,7 @@ define dso_local i32 @slurm_verify_mem_bind(ptr noundef %0, ptr noundef %1, ptr 
   %.0.i = phi ptr [ %27, %.preheader.i ], [ %14, %13 ]
   %22 = load i8, ptr %.0.i, align 1
   %23 = sext i8 %22 to i64
-  %24 = getelementptr inbounds i16, ptr %16, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %16, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 4096
   %.not7.i = icmp eq i16 %26, 0

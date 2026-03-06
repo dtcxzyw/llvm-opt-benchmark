@@ -304,7 +304,7 @@ define hidden void @HIDAPI_SetDeviceSerial(ptr noundef captures(none) %0, ptr no
 17:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %20) #9
   %.not.i = icmp eq ptr %21, null
@@ -507,7 +507,7 @@ HIDAPI_JoystickInstanceIsUnique.exit:             ; preds = %2
 26:                                               ; preds = %.lr.ph41, %90
   %indvars.iv46 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next47, %90 ]
   %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv46
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv46
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, %1
   br i1 %30, label %31, label %90
@@ -533,13 +533,13 @@ HIDAPI_JoystickInstanceIsUnique.exit:             ; preds = %2
 
 38:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv.i
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, %1
   br i1 %41, label %42, label %55
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv.i
   %44 = trunc nuw nsw i64 %indvars.iv.i to i32
   %45 = xor i32 %44, -1
   %46 = add nsw i32 %35, %45
@@ -572,7 +572,7 @@ HIDAPI_DelJoystickInstanceFromDevice.exit:        ; preds = %55, %34, %42, %53
 .lr.ph:                                           ; preds = %HIDAPI_DelJoystickInstanceFromDevice.exit, %HIDAPI_DelJoystickInstanceFromDevice.exit30
   %indvars.iv = phi i64 [ %indvars.iv.next, %HIDAPI_DelJoystickInstanceFromDevice.exit30 ], [ 0, %HIDAPI_DelJoystickInstanceFromDevice.exit ]
   %58 = load ptr, ptr %25, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 140
   %62 = load i32, ptr %61, align 4
@@ -587,13 +587,13 @@ HIDAPI_DelJoystickInstanceFromDevice.exit:        ; preds = %55, %34, %42, %53
 
 66:                                               ; preds = %83, %.lr.ph.i25
   %indvars.iv.i27 = phi i64 [ 0, %.lr.ph.i25 ], [ %indvars.iv.next.i28, %83 ]
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i27
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv.i27
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, %1
   br i1 %69, label %70, label %83
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i27
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv.i27
   %72 = trunc nuw nsw i64 %indvars.iv.i27 to i32
   %73 = xor i32 %72, -1
   %74 = add nsw i32 %62, %73
@@ -665,7 +665,7 @@ define hidden noundef zeroext i1 @HIDAPI_JoystickConnected(ptr noundef captures(
   %8 = phi i32 [ %4, %.lr.ph31 ], [ %20, %._crit_edge ]
   %indvars.iv37 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next38, %._crit_edge ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv37
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv37
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 140
   %13 = load i32, ptr %12, align 4
@@ -681,7 +681,7 @@ define hidden noundef zeroext i1 @HIDAPI_JoystickConnected(ptr noundef captures(
   %indvars.iv = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv.next
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %indvars.iv.next
   %19 = load i32, ptr %18, align 4
   tail call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %11, i32 noundef %19)
   %.not24 = icmp eq i64 %indvars.iv.next, 0
@@ -717,7 +717,7 @@ define hidden noundef zeroext i1 @HIDAPI_JoystickConnected(ptr noundef captures(
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %26, align 4
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds i32, ptr %31, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %31, i64 %35
   store i32 %23, ptr %36, align 4
   br label %HIDAPI_AddJoystickInstanceToDevice.exit
 
@@ -733,7 +733,7 @@ HIDAPI_AddJoystickInstanceToDevice.exit:          ; preds = %._crit_edge32, %32
 40:                                               ; preds = %.lr.ph34, %HIDAPI_AddJoystickInstanceToDevice.exit26
   %indvars.iv40 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next41, %HIDAPI_AddJoystickInstanceToDevice.exit26 ]
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv40
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 144
   %45 = load ptr, ptr %44, align 8
@@ -752,7 +752,7 @@ HIDAPI_AddJoystickInstanceToDevice.exit:          ; preds = %._crit_edge32, %32
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %46, align 4
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds i32, ptr %51, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %51, i64 %55
   store i32 %23, ptr %56, align 4
   br label %HIDAPI_AddJoystickInstanceToDevice.exit26
 
@@ -873,7 +873,7 @@ define hidden void @HIDAPI_UpdateDeviceProperties(ptr noundef %0) local_unnamed_
 7:                                                ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %10) #9
   %.not = icmp eq ptr %11, null
@@ -978,7 +978,7 @@ define internal zeroext i1 @HIDAPI_JoystickInit() #0 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @SDL_HIDAPI_drivers, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @SDL_HIDAPI_drivers, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -1020,7 +1020,7 @@ define internal fastcc void @HIDAPI_UpdateDeviceList() unnamed_addr #0 {
 
 6:                                                ; preds = %17, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %17 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @SDL_HIDAPI_drivers, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @SDL_HIDAPI_drivers, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
@@ -1239,7 +1239,7 @@ HIDAPI_ConvertString.exit.i:                      ; preds = %79, %wcstrcmp.exit.
 88:                                               ; preds = %100, %.lr.ph.i14.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i14.i ], [ %indvars.iv.next.i.i, %100 ]
   %89 = load ptr, ptr %87, align 8
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i.i
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i.i
   %91 = load i32, ptr %90, align 4
   %92 = tail call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %91) #9
   %.not.i15.i = icmp eq ptr %92, null
@@ -1361,7 +1361,7 @@ HIDAPI_SetDeviceSerialW.exit:                     ; preds = %.preheader.i, %100,
 145:                                              ; preds = %.lr.ph96, %145
   %indvars.iv = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next, %145 ]
   %146 = load ptr, ptr %144, align 8
-  %147 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %indvars.iv
   %148 = load ptr, ptr %147, align 8
   tail call fastcc void @HIDAPI_DelDevice(ptr noundef %148)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1572,7 +1572,7 @@ define hidden noundef zeroext i1 @HIDAPI_IsDevicePresent(i16 noundef zeroext %0,
 
 8:                                                ; preds = %.critedge.i, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %.critedge.i ]
-  %9 = getelementptr inbounds nuw ptr, ptr @SDL_HIDAPI_drivers, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @SDL_HIDAPI_drivers, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i8, ptr %11, align 8, !range !6, !noundef !7
@@ -2201,7 +2201,7 @@ define internal i32 @HIDAPI_JoystickGetDevicePlayerIndex(i32 noundef %0) #0 {
   %20 = getelementptr inbounds nuw i8, ptr %.027.i, i64 144
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %.01526.i to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %26 = load ptr, ptr %25, align 8
@@ -2261,7 +2261,7 @@ define internal void @HIDAPI_JoystickSetDevicePlayerIndex(i32 noundef %0, i32 no
   %21 = getelementptr inbounds nuw i8, ptr %.027.i, i64 144
   %22 = load ptr, ptr %21, align 8
   %23 = sext i32 %.01526.i to i64
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %27 = load ptr, ptr %26, align 8
@@ -2368,7 +2368,7 @@ define internal i32 @HIDAPI_JoystickGetDeviceInstanceID(i32 noundef %0) #0 {
   %16 = getelementptr inbounds nuw i8, ptr %.027.i, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %.01526.i to i64
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4
   br label %HIDAPI_GetDeviceByIndex.exit
 
@@ -2442,7 +2442,7 @@ HIDAPI_GetDeviceByIndex.exit.thread:              ; preds = %18, %2
   %23 = getelementptr inbounds nuw i8, ptr %.027.i, i64 144
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %.01526.i to i64
-  %26 = getelementptr inbounds i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %24, i64 %25
   %27 = load i32, ptr %26, align 4
   tail call void @SDL_AssertJoysticksLocked() #9
   %28 = load ptr, ptr %21, align 8
@@ -2770,7 +2770,7 @@ define internal void @HIDAPI_JoystickQuit() #0 {
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @HIDAPI_DelDevice(ptr noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2791,7 +2791,7 @@ define internal void @HIDAPI_JoystickQuit() #0 {
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.preheader ], [ 0, %.preheader.preheader ]
-  %17 = getelementptr inbounds nuw ptr, ptr @SDL_HIDAPI_drivers, i64 %indvars.iv24
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @SDL_HIDAPI_drivers, i64 %indvars.iv24
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
@@ -3093,7 +3093,7 @@ HIDAPI_ConvertString.exit134:                     ; preds = %HIDAPI_ConvertStrin
 
 131:                                              ; preds = %130, %.preheader35.i
   %indvars.iv.i = phi i64 [ 0, %.preheader35.i ], [ %indvars.iv.next.i, %130 ]
-  %132 = getelementptr inbounds nuw i32, ptr @SDL_GetJoystickGameControllerProtocol.SUPPORTED_VENDORS, i64 %indvars.iv.i
+  %132 = getelementptr inbounds nuw [4 x i8], ptr @SDL_GetJoystickGameControllerProtocol.SUPPORTED_VENDORS, i64 %indvars.iv.i
   %133 = load i32, ptr %132, align 4
   %.not.i135.not.not = icmp ne i32 %133, %129
   br i1 %.not.i135.not.not, label %130, label %.loopexit36.i
@@ -3120,7 +3120,7 @@ HIDAPI_ConvertString.exit134:                     ; preds = %HIDAPI_ConvertStrin
 
 142:                                              ; preds = %141, %.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next41.i, %141 ]
-  %143 = getelementptr inbounds nuw i32, ptr @SDL_GetJoystickGameControllerProtocol.SUPPORTED_VENDORS.23, i64 %indvars.iv40.i
+  %143 = getelementptr inbounds nuw [4 x i8], ptr @SDL_GetJoystickGameControllerProtocol.SUPPORTED_VENDORS.23, i64 %indvars.iv40.i
   %144 = load i32, ptr %143, align 4
   %145 = icmp eq i32 %144, %140
   br i1 %145, label %SDL_GetJoystickGameControllerProtocol.exit, label %141
@@ -3151,7 +3151,7 @@ SDL_GetJoystickGameControllerProtocol.exit:       ; preds = %142, %.loopexit.i, 
 
 153:                                              ; preds = %150, %153
   %indvars.iv = phi i64 [ 0, %150 ], [ %indvars.iv.next, %153 ]
-  %154 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 160
   store ptr %8, ptr %156, align 8
@@ -3337,7 +3337,7 @@ define internal fastcc void @HIDAPI_DelDevice(ptr noundef %0) unnamed_addr #0 {
 60:                                               ; preds = %.lr.ph60, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next, %60 ]
   %61 = load ptr, ptr %57, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 160
   store ptr null, ptr %64, align 8
@@ -3430,7 +3430,7 @@ define internal fastcc void @HIDAPI_SetupDeviceDriver(ptr noundef nonnull %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %25 = load ptr, ptr %24, align 8
@@ -3499,7 +3499,7 @@ define internal fastcc void @HIDAPI_SetupDeviceDriver(ptr noundef nonnull %0, pt
 
 58:                                               ; preds = %77, %52
   %indvars.iv.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i, %77 ]
-  %59 = getelementptr inbounds nuw ptr, ptr @SDL_HIDAPI_drivers, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @SDL_HIDAPI_drivers, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i8, ptr %61, align 8, !range !6, !noundef !7
@@ -3590,7 +3590,7 @@ switch.lookup.preheader:                          ; preds = %98, %103
 
 switch.lookup:                                    ; preds = %switch.lookup.preheader, %125
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i53, %125 ], [ 0, %switch.lookup.preheader ]
-  %107 = getelementptr inbounds nuw ptr, ptr @SDL_HIDAPI_drivers, i64 %indvars.iv.i52
+  %107 = getelementptr inbounds nuw [8 x i8], ptr @SDL_HIDAPI_drivers, i64 %indvars.iv.i52
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load i8, ptr %109, align 8, !range !6, !noundef !7

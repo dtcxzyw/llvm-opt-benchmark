@@ -115,7 +115,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   tail call void @console_lock() #9
   %3 = load i32, ptr @fg_console, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr %struct.vc, ptr @vc_cons, i64 %4
+  %5 = getelementptr [40 x i8], ptr @vc_cons, i64 %4
   %6 = load ptr, ptr %5, align 8
   tail call void @poke_blanked_console() #9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -337,7 +337,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
 150:                                              ; preds = %.split.split.us
   %151 = lshr i32 %148, 5
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr i32, ptr @inwordLut, i64 %152
+  %153 = getelementptr [4 x i8], ptr @inwordLut, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = and i32 %148, 31
   %156 = shl nuw i32 1, %155
@@ -368,7 +368,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   %171 = zext nneg i16 %168 to i32
   %172 = lshr i32 %171, 5
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr i32, ptr @inwordLut, i64 %173
+  %174 = getelementptr [4 x i8], ptr @inwordLut, i64 %173
   %175 = load i32, ptr %174, align 4
   %176 = and i32 %171, 31
   %177 = shl nuw i32 1, %176
@@ -486,7 +486,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
 236:                                              ; preds = %233
   %237 = lshr i32 %234, 5
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr i32, ptr @inwordLut, i64 %238
+  %239 = getelementptr [4 x i8], ptr @inwordLut, i64 %238
   %240 = load i32, ptr %239, align 4
   %241 = and i32 %234, 31
   %242 = shl nuw i32 1, %241

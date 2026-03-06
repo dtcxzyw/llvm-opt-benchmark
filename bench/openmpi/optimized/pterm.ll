@@ -238,7 +238,7 @@ pmix_obj_run_constructors.exit149:                ; preds = %.lr.ph.i146, %31
 
 55:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %57 = load ptr, ptr %56, align 8, !tbaa !22
   %.not118 = icmp eq ptr %57, null
   br i1 %.not118, label %.loopexit, label %.lr.ph, !llvm.loop !23
@@ -251,7 +251,7 @@ pmix_obj_run_constructors.exit149:                ; preds = %.lr.ph.i146, %31
   br i1 %60, label %61, label %55
 
 61:                                               ; preds = %.lr.ph
-  %62 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !22
   br label %.loopexit
@@ -1158,7 +1158,7 @@ define internal void @evhandler(i64 %0, i32 %1, ptr readnone captures(none) %2, 
   %.03553 = phi i64 [ %37, %36 ], [ 0, %9 ]
   %.13752 = phi i32 [ %.238, %36 ], [ 0, %9 ]
   %.14051 = phi ptr [ %.241, %36 ], [ null, %9 ]
-  %11 = getelementptr inbounds nuw %struct.pmix_info, ptr %3, i64 %.03553
+  %11 = getelementptr inbounds nuw [552 x i8], ptr %3, i64 %.03553
   %12 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(21) @.str.44, i64 noundef 511) #17
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18

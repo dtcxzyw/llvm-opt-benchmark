@@ -3,9 +3,6 @@ source_filename = "bench/wireshark/original/tap-endpoints.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._endpoint_item_t = type { ptr, %struct._address, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8 }
-%struct._address = type { i32, i32, ptr, ptr }
-
 @.str = private unnamed_addr constant [35 x i8] c"Couldn't register endpoint tap: %s\00", align 1
 @.str.3 = private unnamed_addr constant [5 x i8] c"SCTP\00", align 1
 @.str.4 = private unnamed_addr constant [82 x i8] c"================================================================================\0A\00", align 1
@@ -149,7 +146,7 @@ sub_175:                                          ; preds = %sub_0
 28:                                               ; preds = %.lr.ph85.us, %28
   %indvars.iv106 = phi i64 [ 0, %.lr.ph85.us ], [ %indvars.iv.next107, %28 ]
   %.07983.us = phi i64 [ 0, %.lr.ph85.us ], [ %.1.us90, %28 ]
-  %29 = getelementptr %struct._endpoint_item_t, ptr %41, i64 %indvars.iv106
+  %29 = getelementptr [112 x i8], ptr %41, i64 %indvars.iv106
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 48
@@ -195,7 +192,7 @@ sub_175:                                          ; preds = %sub_0
 
 48:                                               ; preds = %.lr.ph88.us
   %49 = load ptr, ptr %43, align 8
-  %50 = getelementptr %struct._endpoint_item_t, ptr %49, i64 %indvars.iv111
+  %50 = getelementptr [112 x i8], ptr %49, i64 %indvars.iv111
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 48
@@ -249,7 +246,7 @@ sub_175:                                          ; preds = %sub_0
 77:                                               ; preds = %.lr.ph85, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next, %77 ]
   %.07983 = phi i64 [ 0, %.lr.ph85 ], [ %.1, %77 ]
-  %78 = getelementptr %struct._endpoint_item_t, ptr %76, i64 %indvars.iv
+  %78 = getelementptr [112 x i8], ptr %76, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %80 = load i64, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 48
@@ -278,7 +275,7 @@ sub_175:                                          ; preds = %sub_0
 
 92:                                               ; preds = %.lr.ph88
   %93 = load ptr, ptr %87, align 8
-  %94 = getelementptr %struct._endpoint_item_t, ptr %93, i64 %indvars.iv103
+  %94 = getelementptr [112 x i8], ptr %93, i64 %indvars.iv103
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %96 = load i64, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 48

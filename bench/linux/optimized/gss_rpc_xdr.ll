@@ -3,7 +3,6 @@ source_filename = "bench/linux/original/gss_rpc_xdr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.kgid_t = type { i32 }
 %struct.gssx_name_attr = type { %struct.xdr_netobj, %struct.xdr_netobj, %struct.gssx_option_array }
 %struct.xdr_netobj = type { i32, ptr }
 %struct.gssx_option_array = type { i32, ptr }
@@ -1018,7 +1017,7 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
   %84 = load ptr, ptr %28, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = sext i32 %77 to i64
-  %87 = getelementptr %struct.kgid_t, ptr %85, i64 %86
+  %87 = getelementptr [4 x i8], ptr %85, i64 %86
   store i32 %81, ptr %87, align 4
   %88 = add nuw i32 %77, 1
   %89 = icmp eq i32 %88, %67

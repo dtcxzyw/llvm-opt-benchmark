@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.cv::Range" = type { i32, i32 }
 %"class.cv::cuda::GpuMat" = type { i32, i32, i32, i64, ptr, ptr, ptr, ptr, ptr }
 %"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<cv::Range, std::allocator<cv::Range>>::_Vector_impl" }
@@ -437,7 +436,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %31
 .noexc18:                                         ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %35 = shl nuw nsw i64 %33, 3
   %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #21
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %33
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %33
   store i64 0, ptr %36, align 8, !tbaa !40
   %38 = getelementptr i8, ptr %36, i64 8
   %39 = add nsw i64 %33, -1
@@ -506,12 +505,12 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %46, %_ZNSt6vectorIm
 68:                                               ; preds = %.lr.ph, %68
   %store_forwarded = phi i64 [ %load_initial, %.lr.ph ], [ %73, %68 ]
   %indvars.iv = phi i64 [ %64, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %69 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !16
   %72 = sext i32 %71 to i64
   %73 = mul i64 %store_forwarded, %72
-  %74 = getelementptr inbounds nuw i64, ptr %62, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   store i64 %73, ptr %74, align 8, !tbaa !40
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
@@ -615,7 +614,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   %.pre = phi i32 [ %.pre.pre, %122 ], [ %.pre31, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %117, ptr %76, align 8, !tbaa !18
   store ptr %121, ptr %78, align 8, !tbaa !45
-  %123 = getelementptr inbounds nuw i64, ptr %117, i64 %115
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %115
   store ptr %123, ptr %79, align 8, !tbaa !46
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -832,7 +831,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
 
 40:                                               ; preds = %.lr.ph, %.critedge32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge32 ]
-  %41 = getelementptr inbounds nuw %"class.cv::Range", ptr %12, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %42 = load i64, ptr %41, align 4
   %.sroa.055.0.extract.trunc = trunc i64 %42 to i32
   %.sroa.656.0.extract.shift = lshr i64 %42, 32
@@ -849,7 +848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
   br i1 %or.cond, label %49, label %.critedge34
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !16
   %.not = icmp slt i32 %51, %.sroa.656.0.extract.trunc
   br i1 %.not, label %.critedge34, label %.critedge32
@@ -907,7 +906,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %56,
   %66 = phi i32 [ %32, %.lr.ph60 ], [ %86, %.critedge ]
   %indvars.iv64 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next65, %.critedge ]
   %67 = phi i64 [ %.promoted, %.lr.ph60 ], [ %87, %.critedge ]
-  %68 = getelementptr inbounds nuw %"class.cv::Range", ptr %34, i64 %indvars.iv64
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv64
   %69 = load i64, ptr %68, align 4
   %.sroa.051.0.extract.trunc = trunc i64 %69 to i32
   %.sroa.8.0.extract.shift = lshr i64 %69, 32
@@ -918,7 +917,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %56,
   br i1 %.not6.i, label %72, label %.critedge
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv64
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv64
   %74 = load i32, ptr %73, align 4, !tbaa !16
   %75 = icmp ne i32 %.sroa.051.0.extract.trunc, 0
   %76 = icmp ne i32 %74, %.sroa.8.0.extract.trunc
@@ -928,7 +927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %56,
 77:                                               ; preds = %72
   %sext = shl i64 %69, 32
   %78 = ashr exact i64 %sext, 32
-  %79 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv64
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv64
   %80 = load i64, ptr %79, align 8, !tbaa !40
   %81 = mul i64 %80, %78
   %82 = add i64 %67, %81
@@ -1258,7 +1257,7 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds
 _ZNSt6vectorIN2cv5RangeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorIN2cv5RangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %54, ptr %8, align 8, !tbaa !54
   store ptr %59, ptr %40, align 8, !tbaa !51
-  %61 = getelementptr inbounds nuw %"class.cv::Range", ptr %54, i64 %52
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %52
   store ptr %61, ptr %39, align 8, !tbaa !59
   br label %_ZNSt6vectorIN2cv5RangeESaIS1_EE9push_backERKS1_.exit
 
@@ -1340,7 +1339,7 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds
 
 _ZNSt6vectorIN2cv5RangeESaIS1_EE17_M_realloc_insertIJRiiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %89, %_ZNSt6vectorIN2cv5RangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %88, ptr %33, align 8, !tbaa !51
-  %90 = getelementptr inbounds nuw %"class.cv::Range", ptr %82, i64 %80
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %80
   store ptr %90, ptr %34, align 8, !tbaa !59
   br label %_ZNSt6vectorIN2cv5RangeESaIS1_EE12emplace_backIJRiiEEEvDpOT_.exit
 
@@ -1436,7 +1435,7 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i36: ; pre
 _ZNSt6vectorIN2cv5RangeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i39: ; preds = %120, %_ZNSt6vectorIN2cv5RangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i36
   store ptr %114, ptr %8, align 8, !tbaa !54
   store ptr %119, ptr %96, align 8, !tbaa !51
-  %121 = getelementptr inbounds nuw %"class.cv::Range", ptr %114, i64 %112
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %112
   store ptr %121, ptr %95, align 8, !tbaa !59
   br label %_ZNSt6vectorIN2cv5RangeESaIS1_EE9push_backERKS1_.exit42
 
@@ -1531,7 +1530,7 @@ define void @_ZNK2cv4cuda8GpuMatND18createGpuMatHeaderEv(ptr dead_on_unwind noal
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %.val4, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.val4, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4, !tbaa !16
   %13 = icmp slt i32 %12, 2
   br i1 %13, label %10, label %14
@@ -1572,10 +1571,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %
   %24 = add nsw i32 %23, -2
   %25 = sext i32 %24 to i64
   %26 = load ptr, ptr %21, align 8, !tbaa !21
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %25
   %28 = load i32, ptr %27, align 4, !tbaa !16
   %29 = sext i32 %23 to i64
-  %30 = getelementptr i32, ptr %26, i64 %29
+  %30 = getelementptr [4 x i8], ptr %26, i64 %29
   %31 = getelementptr i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4, !tbaa !16
   %33 = load i32, ptr %1, align 8, !tbaa !47
@@ -1587,7 +1586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !18
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %25
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %25
   %43 = load i64, ptr %42, align 8, !tbaa !40
   call void @_ZN2cv4cuda6GpuMatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %28, i32 noundef %32, i32 noundef %34, ptr noundef %39, i64 noundef %43)
   ret void

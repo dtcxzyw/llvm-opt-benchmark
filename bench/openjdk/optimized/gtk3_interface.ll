@@ -4051,7 +4051,7 @@ dl_symbol.exit106.i:                              ; preds = %dl_symbol.exit.i
 
 88:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv.next.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv.next.i
   %90 = load ptr, ptr %89, align 8
   %.not102.i = icmp eq ptr %90, null
   br i1 %.not102.i, label %update_supported_actions.exit, label %.lr.ph.i, !llvm.loop !8
@@ -4455,7 +4455,7 @@ gtk3_get_arrow.exit:                              ; preds = %10, %13
 
 switch.lookup:                                    ; preds = %82
   %84 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.gtk3_paint_background, i64 %84
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.gtk3_paint_background, i64 %84
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_gtk_flags.exit
 
@@ -4501,7 +4501,7 @@ define internal void @gtk3_paint_box(i32 noundef %0, i32 noundef %1, i32 noundef
   %switch.tableidx = add i32 %1, -1
   %27 = icmp ult i32 %switch.tableidx, 6
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.gtk3_paint_background, i64 %28
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.gtk3_paint_background, i64 %28
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %gtk3_set_direction.exit66, %10
@@ -4623,7 +4623,7 @@ define internal void @gtk3_paint_box_gap(i32 noundef %0, i32 noundef %1, i32 nou
 
 switch.lookup:                                    ; preds = %11
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.gtk3_paint_background, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.gtk3_paint_background, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_gtk_flags.exit
 
@@ -4678,7 +4678,7 @@ define internal void @gtk3_paint_expander(i32 noundef %0, i32 noundef %1, ptr no
 
 switch.lookup:                                    ; preds = %8
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.gtk3_paint_background, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.gtk3_paint_background, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_gtk_flags.exit
 
@@ -4753,7 +4753,7 @@ define internal void @gtk3_paint_extension(i32 noundef %0, i32 noundef %1, i32 %
 
 switch.lookup:                                    ; preds = %17
   %19 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.gtk3_paint_extension, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gtk3_paint_extension, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %20(ptr noundef %12, ptr noundef nonnull %switch.load) #19
@@ -4815,7 +4815,7 @@ define internal void @gtk3_paint_flat_box(i32 noundef %0, i32 noundef %1, i32 %2
 
 switch.lookup:                                    ; preds = %23
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.gtk3_paint_background, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.gtk3_paint_background, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_gtk_flags.exit
 
@@ -5102,7 +5102,7 @@ gtk3_set_direction.exit:                          ; preds = %12, %17
 
 switch.lookup:                                    ; preds = %24
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.gtk3_paint_background, i64 %26
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.gtk3_paint_background, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_gtk_flags.exit
 
@@ -5160,7 +5160,7 @@ define internal void @gtk3_paint_slider(i32 noundef %0, i32 noundef %1, i32 %2, 
 
 switch.lookup:                                    ; preds = %10
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.gtk3_paint_background, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.gtk3_paint_background, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_gtk_flags.exit
 
@@ -5209,7 +5209,7 @@ define internal void @gtk3_paint_background(i32 noundef %0, i32 noundef %1, i32 
 
 switch.lookup:                                    ; preds = %6
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.gtk3_paint_background, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.gtk3_paint_background, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_gtk_flags.exit
 
@@ -5577,7 +5577,7 @@ define internal i32 @gtk3_get_color_for_state(ptr readnone captures(none) %0, i3
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.gtk3_get_color_for_state, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.gtk3_get_color_for_state, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %gtk3_get_state_flags.exit
 
@@ -6276,7 +6276,7 @@ define internal zeroext range(i8 0, 2) i8 @gtk3_get_icon_data(ptr noundef %0, i3
 
 switch.lookup:                                    ; preds = %8
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.gtk3_get_icon_data, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.gtk3_get_icon_data, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %12
 
@@ -6481,7 +6481,7 @@ define internal noundef i32 @gtk3_get_drawable_data(ptr noundef %0, ptr noundef 
   %102 = or disjoint i32 %101, %100
   %103 = or disjoint i32 %102, -16777216
   %104 = sext i32 %90 to i64
-  %105 = getelementptr inbounds i32, ptr %73, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %73, i64 %104
   store i32 %103, ptr %105, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7104,7 +7104,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   %.1 = phi i32 [ %214, %213 ], [ %219, %218 ], [ %.0119134, %223 ], [ %.0119134, %228 ], [ %.0119134, %233 ], [ %.0119134, %230 ]
   %238 = add i32 %.0135, 1
   %239 = zext i32 %238 to i64
-  %240 = getelementptr inbounds nuw ptr, ptr %208, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %239
   %241 = load ptr, ptr %240, align 8
   %.not128 = icmp eq ptr %241, null
   br i1 %.not128, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17

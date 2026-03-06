@@ -3,10 +3,6 @@ source_filename = "bench/abc/original/decFactor.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Dec_Node_t_ = type { %struct.Dec_Edge_t_, %struct.Dec_Edge_t_, %union.anon, i32 }
-%struct.Dec_Edge_t_ = type { i32 }
-%union.anon = type { ptr }
-
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @Abc_SopIsConst0(ptr noundef %0) #8
@@ -101,7 +97,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   %45 = lshr i32 -1, %44
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %47 = zext nneg i32 %31 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   store i32 %45, ptr %48, align 4, !tbaa !24
   %49 = shl i32 %30, 2
   %50 = and i32 %49, 67108860
@@ -136,7 +132,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   %60 = xor i32 %59, -1
   %61 = lshr i64 %indvars.iv.i, 4
   %62 = and i64 %61, 268435455
-  %63 = getelementptr inbounds nuw i32, ptr %52, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !24
   %65 = and i32 %64, %60
   store i32 %65, ptr %63, align 4, !tbaa !24
@@ -300,7 +296,7 @@ Vec_IntPush.exit.i:                               ; preds = %38, %Vec_IntGrow.ex
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %14, align 4, !tbaa !36
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds i32, ptr %40, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %40, i64 %43
   store i32 %16, ptr %44, align 4, !tbaa !24
   %.0.i = load ptr, ptr %.018.i, align 8, !tbaa !39
   %.not.i = icmp eq ptr %.0.i, null
@@ -392,7 +388,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %62, %83
   %87 = add nsw i32 %85, 1
   store i32 %87, ptr %68, align 8, !tbaa !29
   %88 = sext i32 %85 to i64
-  %89 = getelementptr inbounds %struct.Dec_Node_t_, ptr %86, i64 %88
+  %89 = getelementptr inbounds [24 x i8], ptr %86, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   store i32 %63, ptr %89, align 8, !tbaa !16
@@ -461,7 +457,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %107, %122
   %126 = add nsw i32 %124, 1
   store i32 %126, ptr %68, align 8, !tbaa !29
   %127 = sext i32 %124 to i64
-  %128 = getelementptr inbounds %struct.Dec_Node_t_, ptr %125, i64 %127
+  %128 = getelementptr inbounds [24 x i8], ptr %125, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, i8 0, i64 16, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 4
@@ -576,7 +572,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %3, %30
   %34 = add nsw i32 %32, 1
   store i32 %34, ptr %15, align 8, !tbaa !29
   %35 = sext i32 %32 to i64
-  %36 = getelementptr inbounds %struct.Dec_Node_t_, ptr %33, i64 %35
+  %36 = getelementptr inbounds [24 x i8], ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store i32 %11, ptr %36, align 8, !tbaa !16
@@ -645,7 +641,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %54, %69
   %73 = add nsw i32 %71, 1
   store i32 %73, ptr %15, align 8, !tbaa !29
   %74 = sext i32 %71 to i64
-  %75 = getelementptr inbounds %struct.Dec_Node_t_, ptr %72, i64 %74
+  %75 = getelementptr inbounds [24 x i8], ptr %72, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 4
@@ -699,7 +695,7 @@ define internal fastcc i32 @Dec_FactorTrivialCube(ptr noundef %0, ptr noundef re
   %.015 = phi i32 [ 0, %.lr.ph ], [ %50, %48 ]
   %12 = lshr i32 %.015, 5
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !24
   %16 = and i32 %.015, 31
   %17 = shl nuw i32 1, %16
@@ -768,7 +764,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %5, align 4, !tbaa !36
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds i32, ptr %43, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %43, i64 %46
   store i32 %.015, ptr %47, align 4, !tbaa !24
   %.pre = load i32, ptr %6, align 8, !tbaa !43
   br label %48
@@ -805,7 +801,7 @@ define internal fastcc i32 @Dec_FactorTrivialTree_rec(ptr noundef %0, ptr nounde
   %9 = sub nsw i32 %2, %8
   %10 = tail call fastcc i32 @Dec_FactorTrivialTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef %3)
   %11 = sext i32 %8 to i64
-  %12 = getelementptr inbounds %struct.Dec_Edge_t_, ptr %1, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %1, i64 %11
   %13 = tail call fastcc i32 @Dec_FactorTrivialTree_rec(ptr noundef %0, ptr noundef %12, i32 noundef %9, i32 noundef %3)
   %.not = icmp eq i32 %3, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -852,7 +848,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %21, %30
   %34 = add nsw i32 %32, 1
   store i32 %34, ptr %14, align 8, !tbaa !29
   %35 = sext i32 %32 to i64
-  %36 = getelementptr inbounds %struct.Dec_Node_t_, ptr %33, i64 %35
+  %36 = getelementptr inbounds [24 x i8], ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -910,7 +906,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %53, %62
   %66 = add nsw i32 %64, 1
   store i32 %66, ptr %14, align 8, !tbaa !29
   %67 = sext i32 %64 to i64
-  %68 = getelementptr inbounds %struct.Dec_Node_t_, ptr %65, i64 %67
+  %68 = getelementptr inbounds [24 x i8], ptr %65, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
   store i32 %10, ptr %68, align 8, !tbaa !16

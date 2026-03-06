@@ -916,11 +916,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._ts = type { ptr, ptr, ptr, i64, %struct.anon.1, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, ptr, i64, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem, ptr, i64, ptr, ptr }
 %struct.anon.1 = type { i32 }
 %struct._err_stackitem = type { ptr, ptr }
-%union._Py_CODEUNIT = type { i16 }
 %struct._Py_LocalMonitors = type { [11 x i8] }
 %struct._line_offsets = type { i32, i32, i32, %struct._opaque }
 %struct._opaque = type { i32, ptr, ptr }
-%struct._PyMonitoringState = type { i8, i8 }
 
 @PyBaseObject_Type = external global %struct._typeobject, align 8
 @_PyInstrumentation_DISABLE = hidden global { { %struct.anon }, ptr } { { %struct.anon } { %struct.anon { i32 -1073741824, i32 128 } }, ptr @PyBaseObject_Type }, align 8
@@ -1020,7 +1018,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 1, 257) i32 @_PyInstruction_GetLength(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = sext i32 %1 to i64
-  %5 = getelementptr %union._Py_CODEUNIT, ptr %3, i64 %4
+  %5 = getelementptr [2 x i8], ptr %3, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !4
   %.sroa.7.0.extract.shift.i = lshr i16 %6, 8
   %7 = and i16 %6, 255
@@ -1044,7 +1042,7 @@ define hidden range(i32 1, 257) i32 @_PyInstruction_GetLength(ptr noundef readon
   %15 = load ptr, ptr %14, align 8, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = zext nneg i16 %.sroa.7.0.extract.shift.i to i64
-  %18 = getelementptr ptr, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load i8, ptr %20, align 8, !tbaa !19
@@ -1109,7 +1107,7 @@ _Py_GetBaseCodeUnit.exit:                         ; preds = %_Py_GetBaseCodeUnit
 define hidden i16 @_Py_GetBaseCodeUnit(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = sext i32 %1 to i64
-  %5 = getelementptr %union._Py_CODEUNIT, ptr %3, i64 %4
+  %5 = getelementptr [2 x i8], ptr %3, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !4
   %.sroa.7.0.extract.shift = lshr i16 %6, 8
   %.sroa.7.0.extract.trunc = trunc nuw i16 %.sroa.7.0.extract.shift to i8
@@ -1136,7 +1134,7 @@ define hidden i16 @_Py_GetBaseCodeUnit(ptr noundef readonly captures(none) %0, i
   %17 = load ptr, ptr %16, align 8, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = zext nneg i16 %.sroa.7.0.extract.shift to i64
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i8, ptr %22, align 8, !tbaa !19
@@ -1291,7 +1289,7 @@ get_tools_for_instruction.exit:                   ; preds = %33, %36, %40
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 208
-  %50 = getelementptr %union._Py_CODEUNIT, ptr %49, i64 %47
+  %50 = getelementptr [2 x i8], ptr %49, i64 %47
   %51 = getelementptr i8, ptr %50, i64 2
   br label %.lr.ph.split.us
 
@@ -1452,13 +1450,13 @@ most_significant_bit.exit:                        ; preds = %123, %130
 140:                                              ; preds = %138
   %141 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
   %142 = zext nneg i32 %2 to i64
-  %143 = getelementptr ptr, ptr @event_names, i64 %142
+  %143 = getelementptr [8 x i8], ptr @event_names, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !49
   %145 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %141, ptr noundef nonnull @.str.10, ptr noundef %144) #12
   %146 = getelementptr inbounds nuw i8, ptr %25, i64 223048
   %147 = sext i32 %.0.i64 to i64
-  %148 = getelementptr [19 x ptr], ptr %146, i64 %147
-  %149 = getelementptr ptr, ptr %148, i64 %142
+  %148 = getelementptr [152 x i8], ptr %146, i64 %147
+  %149 = getelementptr [8 x i8], ptr %148, i64 %142
   %150 = load ptr, ptr %149, align 8, !tbaa !46
   %.not57 = icmp eq ptr %150, null
   br i1 %.not57, label %Py_DECREF.exit.thread, label %151
@@ -1788,7 +1786,7 @@ _Py_Instrumentation_GetLine.exit109:              ; preds = %get_line_delta.exit
 68:                                               ; preds = %_Py_Instrumentation_GetLine.exit109
   %sext = shl i64 %44, 31
   %69 = ashr i64 %sext, 32
-  %70 = getelementptr %union._Py_CODEUNIT, ptr %7, i64 %69
+  %70 = getelementptr [2 x i8], ptr %7, i64 %69
   %71 = load i8, ptr %70, align 2, !tbaa !33
   switch i8 %71, label %Py_DECREF.exit [
     i8 -10, label %72
@@ -1915,7 +1913,7 @@ Py_DECREF.exit97:                                 ; preds = %Py_INCREF.exit, %11
   store ptr %124, ptr %128, align 16, !tbaa !46
   %sext115 = shl i64 %10, 31
   %129 = ashr i64 %sext115, 32
-  %130 = getelementptr %union._Py_CODEUNIT, ptr %7, i64 %129
+  %130 = getelementptr [2 x i8], ptr %7, i64 %129
   %131 = getelementptr i8, ptr %130, i64 2
   br label %132
 
@@ -2070,9 +2068,9 @@ Py_DECREF.exit:                                   ; preds = %68, %201, %198, %19
 define internal fastcc range(i32 -1, 2) i32 @call_one_instrument(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -9223372036854775808, -9223372036854775800) %3, i8 noundef signext %4, i32 noundef %5) unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 223048
   %8 = sext i8 %4 to i64
-  %9 = getelementptr [19 x ptr], ptr %7, i64 %8
+  %9 = getelementptr [152 x i8], ptr %7, i64 %8
   %10 = sext i32 %5 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !46
   %13 = icmp eq ptr %12, null
   br i1 %13, label %43, label %14
@@ -2209,7 +2207,7 @@ define hidden range(i32 -1, 256) i32 @_Py_call_instrumentation_instruction(ptr n
   br i1 %.not4150, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39
-  %42 = getelementptr %union._Py_CODEUNIT, ptr %6, i64 %14
+  %42 = getelementptr [2 x i8], ptr %6, i64 %14
   %43 = getelementptr i8, ptr %42, i64 2
   br label %44
 
@@ -2382,7 +2380,7 @@ define hidden range(i32 -1, 1) i32 @_PyMonitoring_SetEvents(i32 noundef %0, i32 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 224264
   %10 = sext i32 %0 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !46
   %13 = icmp eq ptr %12, null
   br i1 %13, label %check_tool.exit, label %16
@@ -2623,7 +2621,7 @@ define hidden range(i32 -1, 1) i32 @_PyMonitoring_SetLocalEvents(ptr noundef %0,
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 224264
   %21 = sext i32 %1 to i64
-  %22 = getelementptr ptr, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !46
   %24 = icmp eq ptr %23, null
   br i1 %24, label %check_tool.exit, label %27
@@ -2667,10 +2665,10 @@ allocate_instrumentation_data.exit:               ; preds = %31
   %42 = phi ptr [ %.pre, %34 ], [ %29, %27 ]
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 224328
   %44 = sext i32 %1 to i64
-  %45 = getelementptr i64, ptr %43, i64 %44
+  %45 = getelementptr [8 x i8], ptr %43, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !86
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %48 = getelementptr i64, ptr %47, i64 %44
+  %48 = getelementptr [8 x i8], ptr %47, i64 %44
   store i64 %46, ptr %48, align 8, !tbaa !86
   %49 = shl nuw i32 1, %1
   br label %50
@@ -2864,9 +2862,9 @@ multiple_tools.exit.i:                            ; preds = %58
   %indvars.iv162.i = phi i64 [ 0, %41 ], [ %indvars.iv.next163.i, %.loopexit128.i ]
   %69 = load ptr, ptr %28, align 8, !tbaa !26
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %71 = getelementptr i64, ptr %70, i64 %indvars.iv162.i
+  %71 = getelementptr [8 x i8], ptr %70, i64 %indvars.iv162.i
   %72 = load i64, ptr %71, align 8, !tbaa !86
-  %73 = getelementptr i64, ptr %43, i64 %indvars.iv162.i
+  %73 = getelementptr [8 x i8], ptr %43, i64 %indvars.iv162.i
   %74 = load i64, ptr %73, align 8, !tbaa !86
   %.not98.i = icmp eq i64 %72, %74
   br i1 %.not98.i, label %.loopexit128.i, label %.preheader127.i
@@ -2920,7 +2918,7 @@ multiple_tools.exit.i:                            ; preds = %58
 95:                                               ; preds = %opcode_has_event.exit.thread.i.i, %.lr.ph.i.i
   %.03034.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %154, %opcode_has_event.exit.thread.i.i ]
   %96 = sext i32 %.03034.i.i to i64
-  %97 = getelementptr %union._Py_CODEUNIT, ptr %94, i64 %96
+  %97 = getelementptr [2 x i8], ptr %94, i64 %96
   %98 = load i8, ptr %97, align 2, !tbaa !33
   %99 = icmp eq i8 %98, -2
   br i1 %99, label %100, label %111
@@ -3067,7 +3065,7 @@ initialize_tools.exit.i:                          ; preds = %initialize_tools.ex
   %176 = call i32 @_PyCode_CheckLineNumber(i32 noundef %175, ptr noundef nonnull %19) #12
   %spec.select.i = call i32 @llvm.smax.i32(i32 %176, i32 %.087143.i)
   %177 = sext i32 %.086144.i to i64
-  %178 = getelementptr %union._Py_CODEUNIT, ptr %169, i64 %177
+  %178 = getelementptr [2 x i8], ptr %169, i64 %177
   %179 = load i16, ptr %178, align 2, !tbaa !4
   %.sroa.7.0.extract.shift.i.i.i = lshr i16 %179, 8
   %180 = and i16 %179, 255
@@ -3090,7 +3088,7 @@ initialize_tools.exit.i:                          ; preds = %initialize_tools.ex
   %187 = load ptr, ptr %170, align 8, !tbaa !8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = zext nneg i16 %.sroa.7.0.extract.shift.i.i.i to i64
-  %190 = getelementptr ptr, ptr %188, i64 %189
+  %190 = getelementptr [8 x i8], ptr %188, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !17
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 32
   %193 = load i8, ptr %192, align 8, !tbaa !19
@@ -3207,7 +3205,7 @@ _PyInstruction_GetLength.exit.i:                  ; preds = %_Py_GetBaseCodeUnit
   %.0227.i.i = phi i32 [ -1, %.lr.ph229.i.i ], [ %.1.i.i, %._crit_edge.i.i ]
   %.0100226.i.i = phi i32 [ 0, %.lr.ph229.i.i ], [ %395, %._crit_edge.i.i ]
   %255 = sext i32 %.0100226.i.i to i64
-  %256 = getelementptr %union._Py_CODEUNIT, ptr %246, i64 %255
+  %256 = getelementptr [2 x i8], ptr %246, i64 %255
   %257 = load i16, ptr %256, align 2, !tbaa !4
   %.sroa.7.0.extract.shift.i.i110.i = lshr i16 %257, 8
   %258 = and i16 %257, 255
@@ -3230,7 +3228,7 @@ _PyInstruction_GetLength.exit.i:                  ; preds = %_Py_GetBaseCodeUnit
   %265 = load ptr, ptr %247, align 8, !tbaa !8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %267 = zext nneg i16 %.sroa.7.0.extract.shift.i.i110.i to i64
-  %268 = getelementptr ptr, ptr %266, i64 %267
+  %268 = getelementptr [8 x i8], ptr %266, i64 %267
   %269 = load ptr, ptr %268, align 8, !tbaa !17
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   %271 = load i8, ptr %270, align 8, !tbaa !19
@@ -3344,7 +3342,7 @@ set_line_delta.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %comp
   %332 = load ptr, ptr %247, align 8, !tbaa !8
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = zext nneg i16 %.sroa.7.0.extract.shift.i.i.i.i to i64
-  %335 = getelementptr ptr, ptr %333, i64 %334
+  %335 = getelementptr [8 x i8], ptr %333, i64 %334
   %336 = load ptr, ptr %335, align 8, !tbaa !17
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 32
   %338 = load i8, ptr %337, align 8, !tbaa !19
@@ -3517,7 +3515,7 @@ set_line_delta.exit118.i.i:                       ; preds = %.lr.ph.i114.i.i, %.
 427:                                              ; preds = %662, %.lr.ph243.i.i
   %.0103241.i.i = phi i32 [ %249, %.lr.ph243.i.i ], [ %587, %662 ]
   %428 = sext i32 %.0103241.i.i to i64
-  %429 = getelementptr %union._Py_CODEUNIT, ptr %251, i64 %428
+  %429 = getelementptr [2 x i8], ptr %251, i64 %428
   %430 = load i16, ptr %429, align 2, !tbaa !4
   %.sroa.7.0.extract.shift.i119.i.i = lshr i16 %430, 8
   %.sroa.7.0.extract.trunc.i120.i.i = trunc nuw i16 %.sroa.7.0.extract.shift.i119.i.i to i8
@@ -3543,7 +3541,7 @@ set_line_delta.exit118.i.i:                       ; preds = %.lr.ph.i114.i.i, %.
   %440 = load ptr, ptr %252, align 8, !tbaa !8
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 8
   %442 = zext nneg i16 %.sroa.7.0.extract.shift.i119.i.i to i64
-  %443 = getelementptr ptr, ptr %441, i64 %442
+  %443 = getelementptr [8 x i8], ptr %441, i64 %442
   %444 = load ptr, ptr %443, align 8, !tbaa !17
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 32
   %446 = load i8, ptr %445, align 8, !tbaa !19
@@ -3614,7 +3612,7 @@ _Py_GetBaseCodeUnit.exit131.i.i:                  ; preds = %477, %473, %439, %4
   %482 = or disjoint i32 %481, %.sroa.6.0.i.i
   %483 = add i32 %.1104234.i.i, 1
   %484 = sext i32 %483 to i64
-  %485 = getelementptr %union._Py_CODEUNIT, ptr %251, i64 %484
+  %485 = getelementptr [2 x i8], ptr %251, i64 %484
   %486 = load i16, ptr %485, align 2, !tbaa !4
   %.sroa.7.0.extract.shift.i132.i.i = lshr i16 %486, 8
   %.sroa.7.0.extract.trunc.i133.i.i = trunc nuw i16 %.sroa.7.0.extract.shift.i132.i.i to i8
@@ -3640,7 +3638,7 @@ _Py_GetBaseCodeUnit.exit131.i.i:                  ; preds = %477, %473, %439, %4
   %496 = load ptr, ptr %252, align 8, !tbaa !8
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 8
   %498 = zext nneg i16 %.sroa.7.0.extract.shift.i132.i.i to i64
-  %499 = getelementptr ptr, ptr %497, i64 %498
+  %499 = getelementptr [8 x i8], ptr %497, i64 %498
   %500 = load ptr, ptr %499, align 8, !tbaa !17
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 32
   %502 = load i8, ptr %501, align 8, !tbaa !19
@@ -3736,7 +3734,7 @@ _Py_GetBaseCodeUnit.exit144.i.i:                  ; preds = %533, %529, %495, %4
   %547 = load ptr, ptr %252, align 8, !tbaa !8
   %548 = getelementptr inbounds nuw i8, ptr %547, i64 8
   %549 = zext nneg i16 %.sroa.7.0.extract.shift.i.i145.pre-phi.i.i to i64
-  %550 = getelementptr ptr, ptr %548, i64 %549
+  %550 = getelementptr [8 x i8], ptr %548, i64 %549
   %551 = load ptr, ptr %550, align 8, !tbaa !17
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 32
   %553 = load i8, ptr %552, align 8, !tbaa !19
@@ -3854,7 +3852,7 @@ get_line_delta.exit.i.i:                          ; preds = %.lr.ph.i154.i.i, %5
 
 613:                                              ; preds = %get_line_delta.exit.i.i
   %614 = sext i32 %.0106.i.i to i64
-  %615 = getelementptr %union._Py_CODEUNIT, ptr %251, i64 %614
+  %615 = getelementptr [2 x i8], ptr %251, i64 %614
   %616 = load i16, ptr %615, align 2, !tbaa !4
   %.sroa.7.0.extract.shift.i158.i.i = lshr i16 %616, 8
   %617 = and i16 %616, 255
@@ -3877,7 +3875,7 @@ get_line_delta.exit.i.i:                          ; preds = %.lr.ph.i154.i.i, %5
   %624 = load ptr, ptr %252, align 8, !tbaa !8
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 8
   %626 = zext nneg i16 %.sroa.7.0.extract.shift.i158.i.i to i64
-  %627 = getelementptr ptr, ptr %625, i64 %626
+  %627 = getelementptr [8 x i8], ptr %625, i64 %626
   %628 = load ptr, ptr %627, align 8, !tbaa !17
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 32
   %630 = load i8, ptr %629, align 8, !tbaa !19
@@ -4016,7 +4014,7 @@ parse_varint.exit196.i.i:                         ; preds = %.lr.ph.i190.i.i, %p
   %695 = phi ptr [ %.07.lcssa.i186.i.i, %parse_varint.exit188.i.i ], [ %.079.i192.i.i, %.lr.ph.i190.i.i ]
   %696 = getelementptr i8, ptr %695, i64 2
   %697 = sext i32 %.0.lcssa.i187.i.i to i64
-  %698 = getelementptr %union._Py_CODEUNIT, ptr %424, i64 %697
+  %698 = getelementptr [2 x i8], ptr %424, i64 %697
   %699 = load i16, ptr %698, align 2, !tbaa !4
   %.sroa.7.0.extract.shift.i197.i.i = lshr i16 %699, 8
   %700 = and i16 %699, 255
@@ -4039,7 +4037,7 @@ parse_varint.exit196.i.i:                         ; preds = %.lr.ph.i190.i.i, %p
   %707 = load ptr, ptr %425, align 8, !tbaa !8
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 8
   %709 = zext nneg i16 %.sroa.7.0.extract.shift.i197.i.i to i64
-  %710 = getelementptr ptr, ptr %708, i64 %709
+  %710 = getelementptr [8 x i8], ptr %708, i64 %709
   %711 = load ptr, ptr %710, align 8, !tbaa !17
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 32
   %713 = load i8, ptr %712, align 8, !tbaa !19
@@ -4212,7 +4210,7 @@ initialize_line_tools.exit.i:                     ; preds = %.lr.ph.preheader.i1
 
 798:                                              ; preds = %798, %.lr.ph146.i
   %indvars.iv166.i = phi i64 [ 0, %.lr.ph146.i ], [ %indvars.iv.next167.i, %798 ]
-  %799 = getelementptr %union._Py_CODEUNIT, ptr %795, i64 %indvars.iv166.i
+  %799 = getelementptr [2 x i8], ptr %795, i64 %indvars.iv166.i
   %800 = load i8, ptr %799, align 2, !tbaa !33
   %801 = zext i8 %800 to i64
   %802 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %801
@@ -4483,7 +4481,7 @@ monitors_are_empty.exit196:                       ; preds = %866
 879:                                              ; preds = %.lr.ph, %_PyInstruction_GetLength.exit
   %.0138336 = phi i32 [ %871, %.lr.ph ], [ %1091, %_PyInstruction_GetLength.exit ]
   %880 = sext i32 %.0138336 to i64
-  %881 = getelementptr %union._Py_CODEUNIT, ptr %873, i64 %880
+  %881 = getelementptr [2 x i8], ptr %873, i64 %880
   %882 = load i16, ptr %881, align 2
   %.sroa.7.0.extract.shift.i = lshr i16 %882, 8
   %.sroa.7.0.extract.trunc.i = trunc nuw i16 %.sroa.7.0.extract.shift.i to i8
@@ -4509,7 +4507,7 @@ monitors_are_empty.exit196:                       ; preds = %866
   %893 = load ptr, ptr %874, align 8, !tbaa !8
   %894 = getelementptr inbounds nuw i8, ptr %893, i64 8
   %895 = zext nneg i16 %.sroa.7.0.extract.shift.i to i64
-  %896 = getelementptr ptr, ptr %894, i64 %895
+  %896 = getelementptr [8 x i8], ptr %894, i64 %895
   %897 = load ptr, ptr %896, align 8, !tbaa !17
   %898 = getelementptr inbounds nuw i8, ptr %897, i64 32
   %899 = load i8, ptr %898, align 8, !tbaa !19
@@ -4786,7 +4784,7 @@ add_tools.exit:                                   ; preds = %_Py_GetBaseCodeUnit
   %1051 = load ptr, ptr %874, align 8, !tbaa !8
   %1052 = getelementptr inbounds nuw i8, ptr %1051, i64 8
   %1053 = zext nneg i16 %.sroa.7.0.extract.shift.i.i to i64
-  %1054 = getelementptr ptr, ptr %1052, i64 %1053
+  %1054 = getelementptr [8 x i8], ptr %1052, i64 %1053
   %1055 = load ptr, ptr %1054, align 8, !tbaa !17
   %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 32
   %1057 = load i8, ptr %1056, align 8, !tbaa !19
@@ -4901,7 +4899,7 @@ _PyInstruction_GetLength.exit:                    ; preds = %1080, %_Py_GetBaseC
 
 1125:                                             ; preds = %._crit_edge.i217, %1114
   %.pre-phi.i215 = phi i64 [ %.pre.i218, %._crit_edge.i217 ], [ %1115, %1114 ]
-  %1126 = getelementptr %union._Py_CODEUNIT, ptr %1101, i64 %.pre-phi.i215
+  %1126 = getelementptr [2 x i8], ptr %1101, i64 %.pre-phi.i215
   %1127 = load i8, ptr %1126, align 2, !tbaa !33
   %.not.i.i216 = icmp eq i8 %1127, -2
   br i1 %.not.i.i216, label %1128, label %remove_line_tools.exit
@@ -4942,7 +4940,7 @@ _PyInstruction_GetLength.exit:                    ; preds = %1080, %_Py_GetBaseC
 
 remove_line_tools.exit:                           ; preds = %1148, %1144, %1125, %1120, %1114, %1103
   %1150 = sext i32 %.0142337 to i64
-  %1151 = getelementptr %union._Py_CODEUNIT, ptr %1101, i64 %1150
+  %1151 = getelementptr [2 x i8], ptr %1101, i64 %1150
   %1152 = load i16, ptr %1151, align 2, !tbaa !4
   %.sroa.7.0.extract.shift.i.i219 = lshr i16 %1152, 8
   %1153 = and i16 %1152, 255
@@ -4965,7 +4963,7 @@ remove_line_tools.exit:                           ; preds = %1148, %1144, %1125,
   %1160 = load ptr, ptr %1102, align 8, !tbaa !8
   %1161 = getelementptr inbounds nuw i8, ptr %1160, i64 8
   %1162 = zext nneg i16 %.sroa.7.0.extract.shift.i.i219 to i64
-  %1163 = getelementptr ptr, ptr %1161, i64 %1162
+  %1163 = getelementptr [8 x i8], ptr %1161, i64 %1162
   %1164 = load ptr, ptr %1163, align 8, !tbaa !17
   %1165 = getelementptr inbounds nuw i8, ptr %1164, i64 32
   %1166 = load i8, ptr %1165, align 8, !tbaa !19
@@ -5043,7 +5041,7 @@ _PyInstruction_GetLength.exit227:                 ; preds = %1189, %_Py_GetBaseC
 1208:                                             ; preds = %.lr.ph342, %_PyInstruction_GetLength.exit249
   %.0143340 = phi i32 [ %1203, %.lr.ph342 ], [ %.1144, %_PyInstruction_GetLength.exit249 ]
   %1209 = sext i32 %.0143340 to i64
-  %1210 = getelementptr %union._Py_CODEUNIT, ptr %1205, i64 %1209
+  %1210 = getelementptr [2 x i8], ptr %1205, i64 %1209
   %1211 = load i16, ptr %1210, align 2
   %.sroa.7.0.extract.shift.i228 = lshr i16 %1211, 8
   %1212 = and i16 %1211, 255
@@ -5066,7 +5064,7 @@ _PyInstruction_GetLength.exit227:                 ; preds = %1189, %_Py_GetBaseC
   %1220 = load ptr, ptr %1206, align 8, !tbaa !8
   %1221 = getelementptr inbounds nuw i8, ptr %1220, i64 8
   %1222 = zext nneg i16 %.sroa.7.0.extract.shift.i228 to i64
-  %1223 = getelementptr ptr, ptr %1221, i64 %1222
+  %1223 = getelementptr [8 x i8], ptr %1221, i64 %1222
   %1224 = load ptr, ptr %1223, align 8, !tbaa !17
   %1225 = getelementptr inbounds nuw i8, ptr %1224, i64 32
   %1226 = load i8, ptr %1225, align 8, !tbaa !19
@@ -5140,7 +5138,7 @@ _Py_GetBaseCodeUnit.exit240:                      ; preds = %_Py_GetBaseCodeUnit
   %1261 = load ptr, ptr %1206, align 8, !tbaa !8
   %1262 = getelementptr inbounds nuw i8, ptr %1261, i64 8
   %1263 = zext nneg i16 %.sroa.7.0.extract.shift.i228 to i64
-  %1264 = getelementptr ptr, ptr %1262, i64 %1263
+  %1264 = getelementptr [8 x i8], ptr %1262, i64 %1263
   %1265 = load ptr, ptr %1264, align 8, !tbaa !17
   %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 32
   %1267 = load i8, ptr %1266, align 8, !tbaa !19
@@ -5276,7 +5274,7 @@ remove_per_instruction_tools.exit:                ; preds = %1298, %1303, %1320,
   %1339 = load ptr, ptr %1206, align 8, !tbaa !8
   %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 8
   %1341 = zext nneg i16 %.sroa.7.0.extract.shift.i.i256 to i64
-  %1342 = getelementptr ptr, ptr %1340, i64 %1341
+  %1342 = getelementptr [8 x i8], ptr %1340, i64 %1341
   %1343 = load ptr, ptr %1342, align 8, !tbaa !17
   %1344 = getelementptr inbounds nuw i8, ptr %1343, i64 32
   %1345 = load i8, ptr %1344, align 8, !tbaa !19
@@ -5389,7 +5387,7 @@ _PyInstruction_GetLength.exit249:                 ; preds = %_PyInstruction_GetL
   br label %._crit_edge.i267
 
 ._crit_edge.i267:                                 ; preds = %1399, %1395
-  %1403 = getelementptr %union._Py_CODEUNIT, ptr %1386, i64 %.pre.i266
+  %1403 = getelementptr [2 x i8], ptr %1386, i64 %.pre.i266
   %1404 = load i8, ptr %1403, align 1, !tbaa !33
   %1405 = icmp eq i8 %1404, -2
   br i1 %1405, label %add_line_tools.exit, label %1406
@@ -5413,7 +5411,7 @@ _PyInstruction_GetLength.exit249:                 ; preds = %_PyInstruction_GetL
 
 add_line_tools.exit:                              ; preds = %.add_line_tools.exit_crit_edge, %1406, %._crit_edge.i267
   %.pre-phi = phi i64 [ %.pre373, %.add_line_tools.exit_crit_edge ], [ %.pre.i266, %1406 ], [ %.pre.i266, %._crit_edge.i267 ]
-  %1419 = getelementptr %union._Py_CODEUNIT, ptr %1386, i64 %.pre-phi
+  %1419 = getelementptr [2 x i8], ptr %1386, i64 %.pre-phi
   %1420 = load i16, ptr %1419, align 2, !tbaa !4
   %.sroa.7.0.extract.shift.i.i268 = lshr i16 %1420, 8
   %1421 = and i16 %1420, 255
@@ -5436,7 +5434,7 @@ add_line_tools.exit:                              ; preds = %.add_line_tools.exi
   %1428 = load ptr, ptr %1387, align 8, !tbaa !8
   %1429 = getelementptr inbounds nuw i8, ptr %1428, i64 8
   %1430 = zext nneg i16 %.sroa.7.0.extract.shift.i.i268 to i64
-  %1431 = getelementptr ptr, ptr %1429, i64 %1430
+  %1431 = getelementptr [8 x i8], ptr %1429, i64 %1430
   %1432 = load ptr, ptr %1431, align 8, !tbaa !17
   %1433 = getelementptr inbounds nuw i8, ptr %1432, i64 32
   %1434 = load i8, ptr %1433, align 8, !tbaa !19
@@ -5513,7 +5511,7 @@ _PyInstruction_GetLength.exit276:                 ; preds = %1457, %_Py_GetBaseC
 1475:                                             ; preds = %.lr.ph348, %_PyInstruction_GetLength.exit298
   %.0139346 = phi i32 [ %1471, %.lr.ph348 ], [ %.1, %_PyInstruction_GetLength.exit298 ]
   %1476 = sext i32 %.0139346 to i64
-  %1477 = getelementptr %union._Py_CODEUNIT, ptr %1473, i64 %1476
+  %1477 = getelementptr [2 x i8], ptr %1473, i64 %1476
   %1478 = load i16, ptr %1477, align 2
   %.sroa.7.0.extract.shift.i277 = lshr i16 %1478, 8
   %1479 = and i16 %1478, 255
@@ -5536,7 +5534,7 @@ _PyInstruction_GetLength.exit276:                 ; preds = %1457, %_Py_GetBaseC
   %1487 = load ptr, ptr %1474, align 8, !tbaa !8
   %1488 = getelementptr inbounds nuw i8, ptr %1487, i64 8
   %1489 = zext nneg i16 %.sroa.7.0.extract.shift.i277 to i64
-  %1490 = getelementptr ptr, ptr %1488, i64 %1489
+  %1490 = getelementptr [8 x i8], ptr %1488, i64 %1489
   %1491 = load ptr, ptr %1490, align 8, !tbaa !17
   %1492 = getelementptr inbounds nuw i8, ptr %1491, i64 32
   %1493 = load i8, ptr %1492, align 8, !tbaa !19
@@ -5610,7 +5608,7 @@ _Py_GetBaseCodeUnit.exit289:                      ; preds = %_Py_GetBaseCodeUnit
   %1528 = load ptr, ptr %1474, align 8, !tbaa !8
   %1529 = getelementptr inbounds nuw i8, ptr %1528, i64 8
   %1530 = zext nneg i16 %.sroa.7.0.extract.shift.i277 to i64
-  %1531 = getelementptr ptr, ptr %1529, i64 %1530
+  %1531 = getelementptr [8 x i8], ptr %1529, i64 %1530
   %1532 = load ptr, ptr %1531, align 8, !tbaa !17
   %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 32
   %1534 = load i8, ptr %1533, align 8, !tbaa !19
@@ -5739,7 +5737,7 @@ add_per_instruction_tools.exit:                   ; preds = %1582, %1590
   %1602 = load ptr, ptr %1474, align 8, !tbaa !8
   %1603 = getelementptr inbounds nuw i8, ptr %1602, i64 8
   %1604 = zext nneg i16 %.sroa.7.0.extract.shift.i.i303 to i64
-  %1605 = getelementptr ptr, ptr %1603, i64 %1604
+  %1605 = getelementptr [8 x i8], ptr %1603, i64 %1604
   %1606 = load ptr, ptr %1605, align 8, !tbaa !17
   %1607 = getelementptr inbounds nuw i8, ptr %1606, i64 32
   %1608 = load i8, ptr %1607, align 8, !tbaa !19
@@ -5824,7 +5822,7 @@ define hidden range(i32 -1, 1) i32 @_PyMonitoring_GetLocalEvents(ptr noundef rea
   %9 = load ptr, ptr %8, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 224264
   %11 = sext i32 %1 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = icmp eq ptr %13, null
   br i1 %14, label %check_tool.exit, label %17
@@ -5896,7 +5894,7 @@ define hidden range(i32 -1, 1) i32 @_PyMonitoring_ClearToolId(i32 noundef %0) lo
   br i1 %11, label %15, label %31
 
 15:                                               ; preds = %10
-  %16 = getelementptr [19 x ptr], ptr %14, i64 %6
+  %16 = getelementptr [152 x i8], ptr %14, i64 %6
   %17 = getelementptr i8, ptr %16, i64 223120
   %18 = atomicrmw xchg ptr %17, i64 0 seq_cst, align 8
   %19 = inttoptr i64 %18 to ptr
@@ -5922,14 +5920,14 @@ Py_XDECREF.exit.i:                                ; preds = %25, %22, %20, %15
   %26 = load ptr, ptr %2, align 8, !tbaa !76
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !47
-  %29 = getelementptr [19 x ptr], ptr %28, i64 %6
+  %29 = getelementptr [152 x i8], ptr %28, i64 %6
   %30 = getelementptr i8, ptr %29, i64 223112
   br label %35
 
 31:                                               ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 223048
-  %33 = getelementptr [19 x ptr], ptr %32, i64 %6
-  %34 = getelementptr ptr, ptr %33, i64 %indvars.iv
+  %33 = getelementptr [152 x i8], ptr %32, i64 %6
+  %34 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv
   br label %35
 
 35:                                               ; preds = %31, %Py_XDECREF.exit.i
@@ -6009,7 +6007,7 @@ _PyMonitoring_RegisterCallback.exit:              ; preds = %56, %53, %51, %35
 65:                                               ; preds = %57
   %66 = zext i32 %60 to i64
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 224328
-  %68 = getelementptr i64, ptr %67, i64 %6
+  %68 = getelementptr [8 x i8], ptr %67, i64 %6
   store i64 %66, ptr %68, align 8, !tbaa !86
   %69 = load ptr, ptr %2, align 8, !tbaa !76
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -6141,7 +6139,7 @@ make_branch_handler.exit35:                       ; preds = %22, %26
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !47
   %43 = sext i32 %0 to i64
-  %44 = getelementptr [19 x ptr], ptr %42, i64 %43
+  %44 = getelementptr [152 x i8], ptr %42, i64 %43
   %45 = getelementptr i8, ptr %44, i64 223120
   %46 = atomicrmw xchg ptr %45, i64 %.024 seq_cst, align 8
   %47 = inttoptr i64 %46 to ptr
@@ -6167,7 +6165,7 @@ Py_XDECREF.exit:                                  ; preds = %38, %48, %50, %53
   %54 = load ptr, ptr %39, align 8, !tbaa !76
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !47
-  %57 = getelementptr [19 x ptr], ptr %56, i64 %43
+  %57 = getelementptr [152 x i8], ptr %56, i64 %43
   %58 = getelementptr i8, ptr %57, i64 223112
   %59 = atomicrmw xchg ptr %58, i64 %.025 seq_cst, align 8
   br label %77
@@ -6192,9 +6190,9 @@ _Py_XNewRef.exit:                                 ; preds = %60, %61, %64
   %69 = load ptr, ptr %68, align 8, !tbaa !47
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 223048
   %71 = sext i32 %0 to i64
-  %72 = getelementptr [19 x ptr], ptr %70, i64 %71
+  %72 = getelementptr [152 x i8], ptr %70, i64 %71
   %73 = sext i32 %1 to i64
-  %74 = getelementptr ptr, ptr %72, i64 %73
+  %74 = getelementptr [8 x i8], ptr %72, i64 %73
   %75 = ptrtoint ptr %2 to i64
   %76 = atomicrmw xchg ptr %74, i64 %75 seq_cst, align 8
   br label %77
@@ -6293,7 +6291,7 @@ Py_DECREF.exit55:                                 ; preds = %10, %13, %16
 
 .preheader:                                       ; preds = %Py_DECREF.exit55, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %Py_DECREF.exit55 ]
-  %18 = getelementptr ptr, ptr @event_names, i64 %indvars.iv
+  %18 = getelementptr [8 x i8], ptr @event_names, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !49
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = shl nuw nsw i32 1, %20
@@ -6467,7 +6465,7 @@ define dso_local noundef i32 @PyMonitoring_EnterScope(ptr noundef writeonly capt
   %20 = zext i8 %19 to i64
   %21 = getelementptr i8, ptr %14, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !33
-  %23 = getelementptr %struct._PyMonitoringState, ptr %0, i64 %.01415
+  %23 = getelementptr [2 x i8], ptr %0, i64 %.01415
   store i8 %22, ptr %23, align 1, !tbaa !188
   %24 = add nuw nsw i64 %.01415, 1
   %exitcond.not = icmp eq i64 %24, %3
@@ -6694,13 +6692,13 @@ most_significant_bit.exit:                        ; preds = %52, %59
 69:                                               ; preds = %67
   %70 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
   %71 = zext nneg i32 %5 to i64
-  %72 = getelementptr ptr, ptr @event_names, i64 %71
+  %72 = getelementptr [8 x i8], ptr @event_names, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !49
   %74 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %70, ptr noundef nonnull @.str.10, ptr noundef %73) #12
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 223048
   %76 = sext i32 %.0.i to i64
-  %77 = getelementptr [19 x ptr], ptr %75, i64 %76
-  %78 = getelementptr ptr, ptr %77, i64 %71
+  %77 = getelementptr [152 x i8], ptr %75, i64 %76
+  %78 = getelementptr [8 x i8], ptr %77, i64 %71
   %79 = load ptr, ptr %78, align 8, !tbaa !46
   %.not50 = icmp eq ptr %79, null
   br i1 %.not50, label %.critedge, label %80
@@ -8071,7 +8069,7 @@ check_valid_tool.exit.i:                          ; preds = %.split
   %24 = load ptr, ptr %23, align 8, !tbaa !47
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 224264
   %26 = zext nneg i32 %8 to i64
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %28, null
   br i1 %.not9.i, label %32, label %29
@@ -8132,7 +8130,7 @@ check_valid_tool.exit.i:                          ; preds = %.split
   %11 = load ptr, ptr %10, align 8, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 224264
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !46
   %.not4.i = icmp eq ptr %15, null
   br i1 %.not4.i, label %19, label %16
@@ -8182,7 +8180,7 @@ check_valid_tool.exit.i:                          ; preds = %.split
   %11 = load ptr, ptr %10, align 8, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 224264
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !46
   %.not11.i = icmp eq ptr %15, null
   br i1 %.not11.i, label %monitoring_free_tool_id_impl.exit, label %16
@@ -8250,7 +8248,7 @@ check_valid_tool.exit.i:                          ; preds = %.split
   %11 = load ptr, ptr %10, align 8, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 224264
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !46
   %16 = icmp eq ptr %15, null
   br i1 %16, label %monitoring_get_tool_impl.exit, label %17
@@ -8762,7 +8760,7 @@ define internal ptr @monitoring__all_events(ptr readnone captures(none) %0, ptr 
 14:                                               ; preds = %10
   %15 = zext i8 %12 to i64
   %16 = tail call ptr @PyLong_FromLong(i64 noundef %15) #12
-  %17 = getelementptr ptr, ptr @event_names, i64 %indvars.iv.i
+  %17 = getelementptr [8 x i8], ptr @event_names, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !49
   %19 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %7, ptr noundef %18, ptr noundef %16) #12
   %20 = load i32, ptr %16, align 8, !tbaa !33
@@ -8958,7 +8956,7 @@ define internal ptr @branch_handler(ptr noundef readonly captures(none) %0, ptr 
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %13 = sdiv i32 %11, 2
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %union._Py_CODEUNIT, ptr %12, i64 %14
+  %15 = getelementptr [2 x i8], ptr %12, i64 %14
   %.sroa.0.0.copyload = load i8, ptr %15, align 2
   %16 = icmp ugt i8 %.sroa.0.0.copyload, -22
   br i1 %16, label %17, label %remove_tools.exit
@@ -9057,7 +9055,7 @@ define internal ptr @branchesiter_next(ptr noundef captures(none) %0) #1 {
   %13 = phi i64 [ %7, %.lr.ph ], [ %95, %94 ]
   %.02945 = phi i32 [ %3, %.lr.ph ], [ %70, %94 ]
   %.03144 = phi i32 [ 0, %.lr.ph ], [ %.233, %94 ]
-  %14 = getelementptr %union._Py_CODEUNIT, ptr %9, i64 %13
+  %14 = getelementptr [2 x i8], ptr %9, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !4
   %.sroa.7.0.extract.shift.i = lshr i16 %15, 8
   %.sroa.7.0.extract.trunc.i = trunc nuw i16 %.sroa.7.0.extract.shift.i to i8
@@ -9083,7 +9081,7 @@ define internal ptr @branchesiter_next(ptr noundef captures(none) %0) #1 {
   %25 = load ptr, ptr %11, align 8, !tbaa !8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = zext nneg i16 %.sroa.7.0.extract.shift.i to i64
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !17
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i8, ptr %30, align 8, !tbaa !19

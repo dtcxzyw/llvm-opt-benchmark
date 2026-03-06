@@ -580,7 +580,7 @@ define dso_local void @lapic_online() local_unnamed_addr #0 align 16 {
 
 19:                                               ; preds = %15, %11, %6, %2
   %20 = phi i64 [ %18, %15 ], [ 0, %6 ], [ 0, %2 ], [ 0, %11 ]
-  %21 = getelementptr ptr, ptr @vector_irq, i64 %3
+  %21 = getelementptr [8 x i8], ptr @vector_irq, i64 %3
   tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %21, i64 %20, ptr elementtype(ptr) %21) #15, !srcloc !20
   %22 = add nuw nsw i64 %3, 1
   %23 = icmp eq i64 %22, 256
@@ -766,7 +766,7 @@ define dso_local void @vector_schedule_cleanup(ptr noundef %0) local_unnamed_add
   br i1 %14, label %35, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
+  %16 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %11
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @vector_cleanup to i64)
   %19 = inttoptr i64 %18 to ptr
@@ -829,7 +829,7 @@ define internal fastcc void @__vector_schedule_cleanup(ptr noundef %0) unnamed_a
   br i1 %10, label %31, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %7
+  %12 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %7
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, ptrtoint (ptr @vector_cleanup to i64)
   %15 = inttoptr i64 %14 to ptr
@@ -990,12 +990,12 @@ define internal fastcc void @free_moved_vector(ptr noundef captures(none) %0) un
   %33 = load ptr, ptr @vector_matrix, align 8
   tail call void @irq_matrix_free(ptr noundef %33, i32 noundef %5, i32 noundef %3, i1 noundef zeroext %9) #15
   %34 = zext i32 %5 to i64
-  %35 = getelementptr i64, ptr @__per_cpu_offset, i64 %34
+  %35 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, ptrtoint (ptr @vector_irq to i64)
   %38 = inttoptr i64 %37 to ptr
   %39 = zext i32 %3 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   store ptr null, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1387,12 +1387,12 @@ define internal i32 @x86_vector_alloc_irqs(ptr noundef %0, i32 noundef %1, i32 n
   store i32 %101, ptr %96, align 8
   %102 = and i32 %89, 63
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %103
+  %104 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %103
   %105 = getelementptr i8, ptr %104, i64 8
   %106 = lshr i32 %89, 6
   %107 = zext nneg i32 %106 to i64
   %108 = sub nsw i64 0, %107
-  %109 = getelementptr i64, ptr %105, i64 %108
+  %109 = getelementptr [8 x i8], ptr %105, i64 %108
   %110 = load ptr, ptr %27, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %112 = load i64, ptr %109, align 8
@@ -1817,7 +1817,7 @@ define internal range(i32 -2147483648, 1) i32 @x86_vector_activate(ptr readnone 
 
 56:                                               ; preds = %49
   %57 = sext i32 %54 to i64
-  %58 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %57
+  %58 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = load i64, ptr %52, align 8
   %61 = and i64 %60, %59
@@ -1840,7 +1840,7 @@ define internal range(i32 -2147483648, 1) i32 @x86_vector_activate(ptr readnone 
 
 71:                                               ; preds = %70
   %72 = sext i32 %54 to i64
-  %73 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %72
+  %73 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %72
   %74 = tail call fastcc i32 @assign_vector_locked(ptr noundef %1, ptr noundef %73), !range !62
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %171, label %76
@@ -1938,7 +1938,7 @@ define internal range(i32 -2147483648, 1) i32 @x86_vector_activate(ptr readnone 
 
 126:                                              ; preds = %120
   %127 = sext i32 %124 to i64
-  %128 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %127
+  %128 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %127
   %129 = load i64, ptr %128, align 8
   %130 = load i64, ptr %122, align 8
   %131 = and i64 %130, %129
@@ -1961,7 +1961,7 @@ define internal range(i32 -2147483648, 1) i32 @x86_vector_activate(ptr readnone 
 
 141:                                              ; preds = %140
   %142 = sext i32 %124 to i64
-  %143 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %142
+  %143 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %142
   %144 = tail call fastcc i32 @assign_vector_locked(ptr noundef %1, ptr noundef %143), !range !62
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %.thread, label %146
@@ -2566,12 +2566,12 @@ define internal fastcc void @apic_update_vector(ptr noundef readonly captures(ad
   store i32 %1, ptr %21, align 8
   store i32 %2, ptr %23, align 8
   %68 = zext i32 %2 to i64
-  %69 = getelementptr i64, ptr @__per_cpu_offset, i64 %68
+  %69 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, ptrtoint (ptr @vector_irq to i64)
   %72 = inttoptr i64 %71 to ptr
   %73 = zext nneg i32 %1 to i64
-  %74 = getelementptr ptr, ptr %72, i64 %73
+  %74 = getelementptr [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   %77 = icmp ugt ptr %75, inttoptr (i64 -4096 to ptr)
@@ -2616,12 +2616,12 @@ define internal fastcc void @apic_update_irq_cfg(ptr noundef readonly captures(a
   store i32 %18, ptr %13, align 8
   %19 = and i32 %2, 63
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %20
+  %21 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %20
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = lshr i32 %2, 6
   %24 = zext nneg i32 %23 to i64
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr i64, ptr %22, i64 %25
+  %26 = getelementptr [8 x i8], ptr %22, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -2792,12 +2792,12 @@ define internal fastcc void @clear_irq_vector(ptr noundef readonly captures(addr
 49:                                               ; preds = %46, %42, %29, %20
   %50 = load i32, ptr %23, align 8
   %51 = zext i32 %50 to i64
-  %52 = getelementptr i64, ptr @__per_cpu_offset, i64 %51
+  %52 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, ptrtoint (ptr @vector_irq to i64)
   %55 = inttoptr i64 %54 to ptr
   %56 = zext i32 %18 to i64
-  %57 = getelementptr ptr, ptr %55, i64 %56
+  %57 = getelementptr [8 x i8], ptr %55, i64 %56
   store ptr inttoptr (i64 -1 to ptr), ptr %57, align 8
   %58 = load ptr, ptr @vector_matrix, align 8
   %59 = load i32, ptr %23, align 8
@@ -2810,12 +2810,12 @@ define internal fastcc void @clear_irq_vector(ptr noundef readonly captures(addr
 62:                                               ; preds = %49
   %63 = load i32, ptr %27, align 4
   %64 = zext i32 %63 to i64
-  %65 = getelementptr i64, ptr @__per_cpu_offset, i64 %64
+  %65 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, ptrtoint (ptr @vector_irq to i64)
   %68 = inttoptr i64 %67 to ptr
   %69 = zext i32 %60 to i64
-  %70 = getelementptr ptr, ptr %68, i64 %69
+  %70 = getelementptr [8 x i8], ptr %68, i64 %69
   store ptr inttoptr (i64 -1 to ptr), ptr %70, align 8
   %71 = load ptr, ptr @vector_matrix, align 8
   %72 = load i32, ptr %27, align 4

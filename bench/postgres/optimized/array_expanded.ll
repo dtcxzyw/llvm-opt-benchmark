@@ -83,7 +83,7 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef c
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %43, ptr %44, align 8
   %45 = sext i32 %36 to i64
-  %46 = getelementptr inbounds i32, ptr %43, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %43, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -488,7 +488,7 @@ define internal i64 @EA_get_flat_size(ptr noundef captures(none) %0) #0 {
 
 33:                                               ; preds = %28
   %34 = icmp eq i16 %29, -1
-  %35 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8
   %37 = inttoptr i64 %36 to ptr
   br i1 %34, label %38, label %60

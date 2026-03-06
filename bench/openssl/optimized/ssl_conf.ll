@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ssl_flag_tbl = type { ptr, i32, i32, i64 }
-%struct.ssl_switch_tbl = type { i64, i32 }
-%struct.cert_pkey_st = type { ptr, ptr, ptr, ptr, i64 }
-%struct.protocol_versions = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [26 x i8] c"../openssl/ssl/ssl_conf.c\00", align 1
 @__func__.SSL_CONF_cmd = private unnamed_addr constant [13 x i8] c"SSL_CONF_cmd\00", align 1
@@ -313,7 +310,7 @@ ssl_conf_cmd_allowed.exit.thread.i:               ; preds = %55, %52, %50, %ssl_
   br label %ctrl_switch_option.exit
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw %struct.ssl_switch_tbl, ptr @ssl_cmd_switches, i64 %67
+  %71 = getelementptr inbounds nuw [16 x i8], ptr @ssl_cmd_switches, i64 %67
   %72 = load i64, ptr %71, align 16, !tbaa !28
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %74 = load ptr, ptr %73, align 8, !tbaa !30
@@ -468,7 +465,7 @@ define range(i32 -3, 3) i32 @SSL_CONF_cmd_argv(ptr noundef %0, ptr noundef captu
 25:                                               ; preds = %18
   %26 = load ptr, ptr %2, align 8, !tbaa !36
   %27 = zext nneg i32 %23 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   store ptr %28, ptr %2, align 8, !tbaa !36
   br i1 %.not, label %.thread29, label %29
 
@@ -716,14 +713,14 @@ define range(i32 0, 2) i32 @SSL_CONF_CTX_finish(ptr noundef captures(none) %0) l
   %28 = phi i64 [ %23, %.lr.ph ], [ %50, %.critedge ]
   %.03362 = phi i64 [ 0, %.lr.ph ], [ %51, %.critedge ]
   %29 = load ptr, ptr %24, align 8, !tbaa !50
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.03362
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.03362
   %31 = load ptr, ptr %30, align 8, !tbaa !37
   %.not52 = icmp eq ptr %31, null
   br i1 %.not52, label %.critedge, label %32
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %25, align 8, !tbaa !51
-  %34 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %33, i64 %.03362
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %.03362
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !58
   %37 = icmp eq ptr %36, null
@@ -874,7 +871,7 @@ define void @SSL_CONF_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %6, %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %10, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !50
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.07.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.07.i
   %9 = load ptr, ptr %8, align 8, !tbaa !37
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 1092) #7
   %10 = add nuw i64 %.07.i, 1
@@ -976,7 +973,7 @@ define void @SSL_CONF_CTX_set_ssl(ptr noundef captures(none) initializes((24, 40
 8:                                                ; preds = %8, %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !50
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.07.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.07.i
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 1092) #7
   %12 = add nuw i64 %.07.i, 1
@@ -1068,7 +1065,7 @@ define void @SSL_CONF_CTX_set_ssl_ctx(ptr noundef captures(none) initializes((24
 8:                                                ; preds = %8, %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !50
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.07.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.07.i
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 1092) #7
   %12 = add nuw i64 %.07.i, 1
@@ -1412,7 +1409,7 @@ define internal i32 @cmd_MinProtocol(ptr noundef readonly captures(none) %0, ptr
 
 17:                                               ; preds = %15, %14
   %.067.i.i = phi i64 [ 0, %14 ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw %struct.protocol_versions, ptr @protocol_from_string.versions, i64 %.067.i.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @protocol_from_string.versions, i64 %.067.i.i
   %19 = load ptr, ptr %18, align 16, !tbaa !134
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %1) #8
   %21 = icmp eq i32 %20, 0
@@ -1465,7 +1462,7 @@ define internal i32 @cmd_MaxProtocol(ptr noundef readonly captures(none) %0, ptr
 
 17:                                               ; preds = %15, %14
   %.067.i.i = phi i64 [ 0, %14 ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw %struct.protocol_versions, ptr @protocol_from_string.versions, i64 %.067.i.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @protocol_from_string.versions, i64 %.067.i.i
   %19 = load ptr, ptr %18, align 16, !tbaa !134
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %1) #8
   %21 = icmp eq i32 %20, 0
@@ -1597,7 +1594,7 @@ define internal range(i32 0, 2) i32 @cmd_Certificate(ptr noundef readonly captur
 41:                                               ; preds = %31
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !50
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %38
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %38
   %45 = load ptr, ptr %44, align 8, !tbaa !37
   tail call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 466) #7
   %46 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 467) #7

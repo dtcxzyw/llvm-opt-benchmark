@@ -2149,7 +2149,7 @@ define dso_local range(i32 0, 2) i32 @gladLoadGL() local_unnamed_addr #0 {
 4:                                                ; preds = %3, %0
   %5 = phi i1 [ true, %0 ], [ false, %3 ]
   %indvars.iv.i = phi i64 [ 0, %0 ], [ 1, %3 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @open_gl.NAMES, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @open_gl.NAMES, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   %8 = tail call ptr @dlopen(ptr noundef %7, i32 noundef 258) #8
   store ptr %8, ptr @libGL, align 8, !tbaa !11
@@ -2210,7 +2210,7 @@ get_proc.exit6321:                                ; preds = %13
 
 .preheader.i.i:                                   ; preds = %21, %24
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %21 ]
-  %25 = getelementptr inbounds nuw ptr, ptr @__const.find_coreGL.prefixes, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @__const.find_coreGL.prefixes, i64 %indvars.iv.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !6
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #9
   %28 = tail call i32 @strncmp(ptr noundef nonnull %23, ptr noundef nonnull %26, i64 noundef %27) #9
@@ -33050,7 +33050,7 @@ thread-pre-split.i.i.i:                           ; preds = %8556
 
 8574:                                             ; preds = %8573, %.lr.ph.i.i.i
   %8575 = load ptr, ptr @exts_i, align 8, !tbaa !18
-  %8576 = getelementptr inbounds nuw ptr, ptr %8575, i64 %indvars.iv.i.i.i
+  %8576 = getelementptr inbounds nuw [8 x i8], ptr %8575, i64 %indvars.iv.i.i.i
   store ptr %8572, ptr %8576, align 8, !tbaa !6
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %8577 = load i32, ptr @num_exts_i, align 4, !tbaa !16
@@ -33078,7 +33078,7 @@ thread-pre-split.i.i.i:                           ; preds = %8556
 
 .lr.ph.i3.i.i:                                    ; preds = %.preheader.i2.i.i, %.lr.ph.i3.i.i
   %indvars.iv.i4.i.i = phi i64 [ %indvars.iv.next.i5.i.i, %.lr.ph.i3.i.i ], [ 0, %.preheader.i2.i.i ]
-  %8585 = getelementptr inbounds nuw ptr, ptr %8583, i64 %indvars.iv.i4.i.i
+  %8585 = getelementptr inbounds nuw [8 x i8], ptr %8583, i64 %indvars.iv.i4.i.i
   %8586 = load ptr, ptr %8585, align 8, !tbaa !6
   call void @free(ptr noundef %8586) #8
   %indvars.iv.next.i5.i.i = add nuw nsw i64 %indvars.iv.i4.i.i, 1
@@ -33158,7 +33158,7 @@ define dso_local range(i32 0, 2) i32 @gladLoadGLLoader(ptr noundef readonly %0) 
 
 .preheader.i:                                     ; preds = %9, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %9 ]
-  %13 = getelementptr inbounds nuw ptr, ptr @__const.find_coreGL.prefixes, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @__const.find_coreGL.prefixes, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !6
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #9
   %16 = tail call i32 @strncmp(ptr noundef nonnull %11, ptr noundef nonnull %14, i64 noundef %15) #9
@@ -35570,7 +35570,7 @@ thread-pre-split.i.i:                             ; preds = %1154
 
 1172:                                             ; preds = %1171, %.lr.ph.i.i
   %1173 = load ptr, ptr @exts_i, align 8, !tbaa !18
-  %1174 = getelementptr inbounds nuw ptr, ptr %1173, i64 %indvars.iv.i.i
+  %1174 = getelementptr inbounds nuw [8 x i8], ptr %1173, i64 %indvars.iv.i.i
   store ptr %1170, ptr %1174, align 8, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %1175 = load i32, ptr @num_exts_i, align 4, !tbaa !16
@@ -35598,7 +35598,7 @@ thread-pre-split.i.i:                             ; preds = %1154
 
 .lr.ph.i3.i:                                      ; preds = %.preheader.i2.i, %.lr.ph.i3.i
   %indvars.iv.i4.i = phi i64 [ %indvars.iv.next.i5.i, %.lr.ph.i3.i ], [ 0, %.preheader.i2.i ]
-  %1183 = getelementptr inbounds nuw ptr, ptr %1181, i64 %indvars.iv.i4.i
+  %1183 = getelementptr inbounds nuw [8 x i8], ptr %1181, i64 %indvars.iv.i4.i
   %1184 = load ptr, ptr %1183, align 8, !tbaa !6
   call void @free(ptr noundef %1184) #8
   %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i4.i, 1

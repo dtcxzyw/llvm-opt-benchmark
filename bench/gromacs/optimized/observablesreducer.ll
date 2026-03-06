@@ -3,12 +3,12 @@ source_filename = "bench/gromacs/original/observablesreducer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"struct.gmx::ObservablesReducerBuilder::Impl::Subscription" = type { i32, %"class.std::function.29", %"class.std::function" }
+%"class.std::function.29" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.gmx::ObservablesReducerBuilder::Impl::Subscription" = type { i32, %"class.std::function.29", %"class.std::function" }
-%"class.std::function.29" = type { %"class.std::_Function_base", ptr }
+%"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.gmx::ObservablesReducer" = type { %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -373,7 +373,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZSt4fillIN9__gnu_c
   %28 = load i32, ptr %.sroa.06.010, align 4, !tbaa !48
   %29 = sext i32 %28 to i64
   %30 = load ptr, ptr %27, align 8, !tbaa !13
-  %31 = getelementptr inbounds nuw %"class.std::function", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -995,7 +995,7 @@ _ZNSt6vectorIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE11_S_re
 _ZNSt12_Vector_baseIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27, %83
   store ptr %20, ptr %0, align 8, !tbaa !59
   store ptr %.0.lcssa.i.i.i26, ptr %4, align 8, !tbaa !62
-  %87 = getelementptr inbounds nuw %"struct.gmx::ObservablesReducerBuilder::Impl::Subscription", ptr %20, i64 %16
+  %87 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %87, ptr %82, align 8, !tbaa !64
   ret void
 }
@@ -1054,7 +1054,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %"_ZSt10accumul
 .noexc30:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %23 = shl nuw nsw i64 %21, 3
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #21
-  %25 = getelementptr inbounds nuw double, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %21
   store double 0.000000e+00, ptr %24, align 8, !tbaa !45
   %26 = getelementptr i8, ptr %24, i64 8
   %27 = add nsw i64 %21, -1
@@ -1101,7 +1101,7 @@ _ZNSt12_Vector_baseISt8functionIFvlEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; pre
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %39, ptr %4, align 8, !tbaa !13
   store ptr %39, ptr %40, align 8, !tbaa !16
-  %41 = getelementptr inbounds nuw %"class.std::function", ptr %39, i64 %33
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %33
   store ptr %41, ptr %37, align 8, !tbaa !21
   br label %_ZNSt6vectorISt8functionIFvlEESaIS2_EE7reserveEm.exit
 
@@ -1342,8 +1342,8 @@ _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.ex
   store ptr @"_ZNSt17_Function_handlerIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEZNS0_25ObservablesReducerBuilder5buildEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %94, align 8, !tbaa !17
   %125 = load i32, ptr %.sroa.056.085, align 8, !tbaa !70
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds double, ptr %.sroa.066.2, i64 %.02387
-  %128 = getelementptr inbounds double, ptr %127, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %.sroa.066.2, i64 %.02387
+  %128 = getelementptr inbounds [8 x i8], ptr %127, i64 %126
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %127, ptr %3, align 8
   store ptr %128, ptr %96, align 8
@@ -1617,7 +1617,7 @@ _ZNSt6vectorISt8functionIFvlEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35: ; pre
 _ZNSt12_Vector_baseISt8functionIFvlEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvlEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !13
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !16
-  %64 = getelementptr inbounds nuw %"class.std::function", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !21
   ret void
 
@@ -1726,7 +1726,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i.i: ; preds = %31
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %33, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i.i
   store ptr %28, ptr %8, align 8, !tbaa !9
   store ptr %32, ptr %9, align 8, !tbaa !47
-  %34 = getelementptr inbounds nuw i32, ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %26
   store ptr %34, ptr %11, align 8, !tbaa !12
   br label %"_ZSt10__invoke_rIN3gmx24ObservablesReducerStatusERZNS0_25ObservablesReducerBuilder5buildEvE3$_0JNS0_20ReductionRequirementEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 

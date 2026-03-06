@@ -342,9 +342,9 @@ default.unreachable1:                             ; preds = %1
 define { ptr, i64 } @_ZN12uv_git_types9reference12GitReference8kind_str17h18899867a3ef7126E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !41, !noundef !10
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12uv_git_types9reference12GitReference8kind_str17h18899867a3ef7126E, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_git_types9reference12GitReference8kind_str17h18899867a3ef7126E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12uv_git_types9reference12GitReference8kind_str17h18899867a3ef7126E.5, i64 %1
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12uv_git_types9reference12GitReference8kind_str17h18899867a3ef7126E.5, i64 %1
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1

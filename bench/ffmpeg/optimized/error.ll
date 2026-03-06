@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/error.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.error_entry = type { i32, ptr, ptr }
-
 @.str = private unnamed_addr constant [25 x i8] c"Error number %d occurred\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"BSF_NOT_FOUND\00", align 1
 @.str.2 = private unnamed_addr constant [27 x i8] c"Bitstream filter not found\00", align 1
@@ -76,7 +74,7 @@ define range(i32 -2147483647, -2147483648) i32 @av_strerror(i32 noundef %0, ptr 
 
 5:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw %struct.error_entry, ptr @error_entries, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [24 x i8], ptr @error_entries, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %4

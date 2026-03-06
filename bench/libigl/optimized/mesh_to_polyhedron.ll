@@ -211,8 +211,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal18mesh_to_pol
   %26 = phi i64 [ %14, %.lr.ph ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = load ptr, ptr %0, align 8, !tbaa !38
-  %28 = getelementptr double, ptr %27, i64 %indvars.iv
-  %29 = getelementptr double, ptr %28, i64 %26
+  %28 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv
+  %29 = getelementptr [8 x i8], ptr %28, i64 %26
   %.idx = shl i64 %26, 4
   %30 = getelementptr i8, ptr %28, i64 %.idx
   %31 = load double, ptr %28, align 8, !tbaa !39, !noalias !41
@@ -276,7 +276,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal18mesh_to_pol
 55:                                               ; preds = %.noexc36
   %56 = load i64, ptr %18, align 8, !tbaa !49
   %57 = load ptr, ptr %21, align 8, !tbaa !52
-  %58 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %58, align 8, !tbaa !53
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i.i, align 8, !tbaa !54
   %.sroa.01.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !55
@@ -296,8 +296,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal18mesh_to_pol
   %63 = load ptr, ptr %1, align 8, !tbaa !57
   %64 = load i64, ptr %12, align 8, !tbaa !34
   %65 = mul nsw i64 %64, %indvars.iv46
-  %66 = getelementptr i32, ptr %63, i64 %indvars.iv49
-  %67 = getelementptr i32, ptr %66, i64 %65
+  %66 = getelementptr [4 x i8], ptr %63, i64 %indvars.iv49
+  %67 = getelementptr [4 x i8], ptr %66, i64 %65
   %68 = load i32, ptr %67, align 4, !tbaa !58
   %69 = sext i32 %68 to i64
   invoke void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE19add_vertex_to_facetEm(ptr noundef nonnull align 8 dereferenceable(178) %5, i64 noundef %69)
@@ -539,7 +539,7 @@ _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_
   store ptr %47, ptr %23, align 8, !tbaa !52
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 %45
   store ptr %52, ptr %25, align 8, !tbaa !84
-  %53 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %47, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %1
   store ptr %53, ptr %26, align 8, !tbaa !72
   br label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit
 
@@ -645,7 +645,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_l
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i: ; preds = %90, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i
-  %91 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %84, i64 %82
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE9push_backERKSK_.exit.i.i
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE9push_backERKSK_.exit.i.i: ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i, %70
@@ -768,7 +768,7 @@ _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_
   store ptr %127, ptr %99, align 8, !tbaa !52
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 %125
   store ptr %132, ptr %101, align 8, !tbaa !84
-  %133 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %127, i64 %112
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %112
   store ptr %133, ptr %102, align 8, !tbaa !72
   br label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit29
 
@@ -804,9 +804,9 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   %.sroa.04.011.i.i = phi ptr [ %.sroa.04.08.i.i, %.lr.ph.i.i ], [ %.sroa.04.0.i.i, %143 ]
   %.010.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %146, %143 ]
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.04.011.i.i, align 8, !tbaa !54
-  %144 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %141, i64 %.010.i.i
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %.010.i.i
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %144, align 8, !tbaa !54
-  %145 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %142, i64 %.010.i.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %.010.i.i
   %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %145, align 8, !tbaa !53
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %.sroa.0.0.copyload.i.i.i.i.i.i, align 8, !tbaa !54
   %146 = add i64 %.010.i.i, 1
@@ -1047,7 +1047,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_l
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i.i: ; preds = %116, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i.i
   store ptr %109, ptr %88, align 8, !tbaa !52
   store ptr %115, ptr %89, align 8, !tbaa !84
-  %117 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %109, i64 %107
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %107
   store ptr %117, ptr %91, align 8, !tbaa !72
   br label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE9push_backERKSK_.exit
 
@@ -1120,7 +1120,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_realloc_insertIJRKSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i.i.i: ; preds = %144, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i.i.i
   store ptr %138, ptr %118, align 8, !tbaa !70
   store ptr %143, ptr %119, align 8, !tbaa !91
-  %145 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %138, i64 %136
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %136
   store ptr %145, ptr %121, align 8, !tbaa !71
   br label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE28push_back_vertex_to_edge_mapENS_8internal22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EEmEEEEEESaISJ_EEE.exit
 
@@ -1531,7 +1531,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit56:     ; preds = %9, %_ZSt4endlIcSt11
   %125 = load i64, ptr %124, align 8, !tbaa !150
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %127 = load ptr, ptr %126, align 8, !tbaa !52
-  %128 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %127, i64 %125
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %125
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %128, align 8, !tbaa !53
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i, align 8, !tbaa !54
   %129 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, null
@@ -1861,7 +1861,7 @@ _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit106:  ; preds = %244, %_ZN4CGAL32Pol
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %.sroa.0.0.copyload.i108 = load ptr, ptr %274, align 8, !tbaa !53
   %275 = load i64, ptr %124, align 8, !tbaa !150
-  %276 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %272, i64 %275
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %275
   %.sroa.0.0.copyload.i.i = load ptr, ptr %276, align 8, !tbaa !53
   %277 = icmp eq ptr %.sroa.0.0.copyload.i108, %.sroa.0.0.copyload.i.i
   br i1 %277, label %278, label %282
@@ -1869,7 +1869,7 @@ _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit106:  ; preds = %244, %_ZN4CGAL32Pol
 278:                                              ; preds = %.critedge53
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %280 = load ptr, ptr %279, align 8, !tbaa !70
-  %281 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %280, i64 %275
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %275
   store ptr %273, ptr %281, align 8, !tbaa !54
   store ptr %273, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !54
   br label %282
@@ -2191,9 +2191,9 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
 
 _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE13_M_deallocateEPSI_m.exit37.i: ; preds = %34, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !70
-  %36 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %29, i64 %12
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %12
   store ptr %36, ptr %3, align 8, !tbaa !91
-  %37 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %28, i64 %26
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %37, ptr %13, align 8, !tbaa !71
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_default_appendEm.exit
 
@@ -2202,7 +2202,7 @@ _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_
   br i1 %39, label %40, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %5, i64 %1
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %41
   br i1 %.not.i4, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_EvT_SK_RSaIT0_E.exit.i
 
@@ -2273,7 +2273,7 @@ define linkonce_odr dso_local ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !52
-  %8 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !53
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i, align 8, !tbaa !54
   %.not272 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, null
@@ -2422,7 +2422,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit25:     ; preds = %15, %_ZSt4endlIcSt1
   br label %.thread
 
 .critedge:                                        ; preds = %9, %12
-  %88 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %7, i64 %2
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %2
   %.sroa.0.0.copyload.i.i = load ptr, ptr %88, align 8, !tbaa !53
   br label %89
 
@@ -2689,7 +2689,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit54:     ; preds = %205, %209
   %.sroa.0.0.copyload.i58 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !54
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %226 = load ptr, ptr %225, align 8, !tbaa !70
-  %227 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %226, i64 %2
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %2
   store ptr %.sroa.0.0.copyload.i58, ptr %227, align 8, !tbaa !54
   store ptr %.sroa.0.0.copyload.i58, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !54
   br label %.thread
@@ -2900,7 +2900,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit72:     ; preds = %233, %_ZSt4endlIcSt
   %.sroa.010.0.copyload = load ptr, ptr %334, align 8, !tbaa !55
   %335 = getelementptr inbounds nuw i8, ptr %319, i64 32
   store ptr %.sroa.010.0.copyload, ptr %335, align 8, !tbaa !55
-  %336 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %7, i64 %2
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %2
   %.sroa.0.0.copyload.i.i74 = load ptr, ptr %336, align 8, !tbaa !53
   %337 = getelementptr inbounds nuw i8, ptr %319, i64 24
   store ptr %.sroa.0.0.copyload.i.i74, ptr %337, align 8, !tbaa !53

@@ -135,7 +135,7 @@ define internal range(i32 -1163346256, 1) i32 @mmf_read_header(ptr noundef %0) #
 
 mmf_rate.exit:                                    ; preds = %16
   %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr @mmf_rates, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @mmf_rates, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !28
   %25 = tail call i32 @avio_r8(ptr noundef %5) #4
   %26 = tail call i32 @avio_r8(ptr noundef %5) #4
@@ -263,7 +263,7 @@ define internal range(i32 -22, 1) i32 @mmf_write_header(ptr noundef %0) #1 {
 
 17:                                               ; preds = %21, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %21 ]
-  %18 = getelementptr inbounds nuw i32, ptr @mmf_rates, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @mmf_rates, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !28
   %20 = icmp eq i32 %19, %16
   br i1 %20, label %mmf_rate_code.exit, label %21

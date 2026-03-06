@@ -7,9 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5FL_seq_head_t = type { %struct.H5FL_blk_head_t, i64 }
 %struct.H5FL_blk_head_t = type { i8, i32, i32, i64, ptr, ptr }
 %struct.H5FL_reg_head_t = type { i8, i32, i32, ptr, i64, ptr }
-%struct.H5FS_section_class_t = type { i32, i64, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5FS_hdr_cache_ud_t = type { ptr, i16, ptr, ptr, i64 }
-%struct.H5FS_bin_t = type { i64, i64, i64, ptr }
 %struct.H5FS_sinfo_cache_ud_t = type { ptr, ptr }
 
 @H5FS_init_g = local_unnamed_addr global i8 0, align 1
@@ -207,7 +205,7 @@ define ptr @H5FS_create(ptr noundef %0, ptr noundef writeonly captures(address_i
   %78 = phi i16 [ %75, %.lr.ph.i ], [ %87, %86 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %86 ]
   %79 = load ptr, ptr %76, align 8, !tbaa !44
-  %80 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %79, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [136 x i8], ptr %79, i64 %indvars.iv.i
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load ptr, ptr %81, align 8, !tbaa !45
   %.not17.i = icmp eq ptr %82, null
@@ -305,8 +303,8 @@ define ptr @H5FS__new(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readon
 
 29:                                               ; preds = %.preheader, %44
   %.04757 = phi i64 [ 0, %.preheader ], [ %45, %44 ]
-  %30 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %22, i64 %.04757
-  %31 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04757
+  %30 = getelementptr inbounds nuw [136 x i8], ptr %22, i64 %.04757
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.04757
   %32 = load ptr, ptr %31, align 8, !tbaa !49
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %30, ptr noundef nonnull align 8 dereferenceable(136) %32, i64 136, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -417,7 +415,7 @@ define range(i32 -1, 1) i32 @H5FS__hdr_dest(ptr noundef %0) local_unnamed_addr #
   %12 = phi i16 [ %9, %.lr.ph ], [ %25, %24 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !44
-  %14 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [136 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !45
   %.not17 = icmp eq ptr %16, null
@@ -1015,7 +1013,7 @@ define range(i32 -1, 1) i32 @H5FS__sinfo_dest(ptr noundef %0) local_unnamed_addr
   %10 = phi i32 [ %21, %20 ], [ %9, %.preheader ]
   %11 = phi ptr [ %22, %20 ], [ %.pre28, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
-  %12 = getelementptr inbounds nuw %struct.H5FS_bin_t, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !76
   %.not23 = icmp eq ptr %14, null
@@ -1024,7 +1022,7 @@ define range(i32 -1, 1) i32 @H5FS__sinfo_dest(ptr noundef %0) local_unnamed_addr
 15:                                               ; preds = %.lr.ph
   %16 = tail call i32 @H5SL_destroy(ptr noundef nonnull %14, ptr noundef nonnull @H5FS__sinfo_free_node_cb, ptr noundef nonnull %0) #6
   %17 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !75
-  %18 = getelementptr inbounds nuw %struct.H5FS_bin_t, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr null, ptr %19, align 8, !tbaa !76
   %.pre27 = load i32, ptr %8, align 4, !tbaa !74
@@ -1133,7 +1131,7 @@ define range(i32 -1, 1) i32 @H5FS__decr(ptr noundef %0) local_unnamed_addr #0 {
   %27 = phi i16 [ %24, %.lr.ph.i ], [ %36, %35 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
   %28 = load ptr, ptr %25, align 8, !tbaa !44
-  %29 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [136 x i8], ptr %28, i64 %indvars.iv.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !45
   %.not17.i = icmp eq ptr %31, null
@@ -1797,7 +1795,7 @@ define internal noundef i32 @H5FS__sinfo_free_sect_cb(ptr noundef %0, ptr readno
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !86
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [136 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %20 = load ptr, ptr %19, align 8, !tbaa !88
   %21 = tail call i32 %20(ptr noundef %0) #6

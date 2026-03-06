@@ -124,340 +124,340 @@ define void @ff_h264qpel_init(ptr noundef writeonly initializes((0, 896)) %0, i3
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep560 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.1, i64 %5
+  %switch.gep560 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.1, i64 %5
   %switch.load561 = load ptr, ptr %switch.gep560, align 8
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep562 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.2, i64 %6
+  %switch.gep562 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.2, i64 %6
   %switch.load563 = load ptr, ptr %switch.gep562, align 8
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep564 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.3, i64 %7
+  %switch.gep564 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.3, i64 %7
   %switch.load565 = load ptr, ptr %switch.gep564, align 8
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep566 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.4, i64 %8
+  %switch.gep566 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.4, i64 %8
   %switch.load567 = load ptr, ptr %switch.gep566, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep568 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.5, i64 %9
+  %switch.gep568 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.5, i64 %9
   %switch.load569 = load ptr, ptr %switch.gep568, align 8
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep570 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.6, i64 %10
+  %switch.gep570 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.6, i64 %10
   %switch.load571 = load ptr, ptr %switch.gep570, align 8
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep572 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.7, i64 %11
+  %switch.gep572 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.7, i64 %11
   %switch.load573 = load ptr, ptr %switch.gep572, align 8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep574 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.8, i64 %12
+  %switch.gep574 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.8, i64 %12
   %switch.load575 = load ptr, ptr %switch.gep574, align 8
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep576 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.9, i64 %13
+  %switch.gep576 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.9, i64 %13
   %switch.load577 = load ptr, ptr %switch.gep576, align 8
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep578 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.10, i64 %14
+  %switch.gep578 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.10, i64 %14
   %switch.load579 = load ptr, ptr %switch.gep578, align 8
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep580 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.11, i64 %15
+  %switch.gep580 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.11, i64 %15
   %switch.load581 = load ptr, ptr %switch.gep580, align 8
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep582 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.12, i64 %16
+  %switch.gep582 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.12, i64 %16
   %switch.load583 = load ptr, ptr %switch.gep582, align 8
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep584 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.13, i64 %17
+  %switch.gep584 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.13, i64 %17
   %switch.load585 = load ptr, ptr %switch.gep584, align 8
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep586 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.14, i64 %18
+  %switch.gep586 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.14, i64 %18
   %switch.load587 = load ptr, ptr %switch.gep586, align 8
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep588 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.15, i64 %19
+  %switch.gep588 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.15, i64 %19
   %switch.load589 = load ptr, ptr %switch.gep588, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep590 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.16, i64 %20
+  %switch.gep590 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.16, i64 %20
   %switch.load591 = load ptr, ptr %switch.gep590, align 8
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep592 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.17, i64 %21
+  %switch.gep592 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.17, i64 %21
   %switch.load593 = load ptr, ptr %switch.gep592, align 8
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep594 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.18, i64 %22
+  %switch.gep594 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.18, i64 %22
   %switch.load595 = load ptr, ptr %switch.gep594, align 8
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep596 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.19, i64 %23
+  %switch.gep596 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.19, i64 %23
   %switch.load597 = load ptr, ptr %switch.gep596, align 8
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep598 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.20, i64 %24
+  %switch.gep598 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.20, i64 %24
   %switch.load599 = load ptr, ptr %switch.gep598, align 8
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep600 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.21, i64 %25
+  %switch.gep600 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.21, i64 %25
   %switch.load601 = load ptr, ptr %switch.gep600, align 8
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep602 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.22, i64 %26
+  %switch.gep602 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.22, i64 %26
   %switch.load603 = load ptr, ptr %switch.gep602, align 8
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep604 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.23, i64 %27
+  %switch.gep604 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.23, i64 %27
   %switch.load605 = load ptr, ptr %switch.gep604, align 8
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep606 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.24, i64 %28
+  %switch.gep606 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.24, i64 %28
   %switch.load607 = load ptr, ptr %switch.gep606, align 8
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep608 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.25, i64 %29
+  %switch.gep608 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.25, i64 %29
   %switch.load609 = load ptr, ptr %switch.gep608, align 8
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep610 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.26, i64 %30
+  %switch.gep610 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.26, i64 %30
   %switch.load611 = load ptr, ptr %switch.gep610, align 8
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep612 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.27, i64 %31
+  %switch.gep612 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.27, i64 %31
   %switch.load613 = load ptr, ptr %switch.gep612, align 8
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep614 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.28, i64 %32
+  %switch.gep614 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.28, i64 %32
   %switch.load615 = load ptr, ptr %switch.gep614, align 8
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep616 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.29, i64 %33
+  %switch.gep616 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.29, i64 %33
   %switch.load617 = load ptr, ptr %switch.gep616, align 8
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep618 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.30, i64 %34
+  %switch.gep618 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.30, i64 %34
   %switch.load619 = load ptr, ptr %switch.gep618, align 8
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep620 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.31, i64 %35
+  %switch.gep620 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.31, i64 %35
   %switch.load621 = load ptr, ptr %switch.gep620, align 8
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep622 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.32, i64 %36
+  %switch.gep622 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.32, i64 %36
   %switch.load623 = load ptr, ptr %switch.gep622, align 8
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep624 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.33, i64 %37
+  %switch.gep624 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.33, i64 %37
   %switch.load625 = load ptr, ptr %switch.gep624, align 8
   %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep626 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.34, i64 %38
+  %switch.gep626 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.34, i64 %38
   %switch.load627 = load ptr, ptr %switch.gep626, align 8
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep628 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.35, i64 %39
+  %switch.gep628 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.35, i64 %39
   %switch.load629 = load ptr, ptr %switch.gep628, align 8
   %40 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep630 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.36, i64 %40
+  %switch.gep630 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.36, i64 %40
   %switch.load631 = load ptr, ptr %switch.gep630, align 8
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep632 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.37, i64 %41
+  %switch.gep632 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.37, i64 %41
   %switch.load633 = load ptr, ptr %switch.gep632, align 8
   %42 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep634 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.38, i64 %42
+  %switch.gep634 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.38, i64 %42
   %switch.load635 = load ptr, ptr %switch.gep634, align 8
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep636 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.39, i64 %43
+  %switch.gep636 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.39, i64 %43
   %switch.load637 = load ptr, ptr %switch.gep636, align 8
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep638 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.40, i64 %44
+  %switch.gep638 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.40, i64 %44
   %switch.load639 = load ptr, ptr %switch.gep638, align 8
   %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep640 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.41, i64 %45
+  %switch.gep640 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.41, i64 %45
   %switch.load641 = load ptr, ptr %switch.gep640, align 8
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep642 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.42, i64 %46
+  %switch.gep642 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.42, i64 %46
   %switch.load643 = load ptr, ptr %switch.gep642, align 8
   %47 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep644 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.43, i64 %47
+  %switch.gep644 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.43, i64 %47
   %switch.load645 = load ptr, ptr %switch.gep644, align 8
   %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep646 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.44, i64 %48
+  %switch.gep646 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.44, i64 %48
   %switch.load647 = load ptr, ptr %switch.gep646, align 8
   %49 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep648 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.45, i64 %49
+  %switch.gep648 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.45, i64 %49
   %switch.load649 = load ptr, ptr %switch.gep648, align 8
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep650 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.46, i64 %50
+  %switch.gep650 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.46, i64 %50
   %switch.load651 = load ptr, ptr %switch.gep650, align 8
   %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep652 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.47, i64 %51
+  %switch.gep652 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.47, i64 %51
   %switch.load653 = load ptr, ptr %switch.gep652, align 8
   %52 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep654 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.48, i64 %52
+  %switch.gep654 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.48, i64 %52
   %switch.load655 = load ptr, ptr %switch.gep654, align 8
   %53 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep656 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.49, i64 %53
+  %switch.gep656 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.49, i64 %53
   %switch.load657 = load ptr, ptr %switch.gep656, align 8
   %54 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep658 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.50, i64 %54
+  %switch.gep658 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.50, i64 %54
   %switch.load659 = load ptr, ptr %switch.gep658, align 8
   %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep660 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.51, i64 %55
+  %switch.gep660 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.51, i64 %55
   %switch.load661 = load ptr, ptr %switch.gep660, align 8
   %56 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep662 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.52, i64 %56
+  %switch.gep662 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.52, i64 %56
   %switch.load663 = load ptr, ptr %switch.gep662, align 8
   %57 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep664 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.53, i64 %57
+  %switch.gep664 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.53, i64 %57
   %switch.load665 = load ptr, ptr %switch.gep664, align 8
   %58 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep666 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.54, i64 %58
+  %switch.gep666 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.54, i64 %58
   %switch.load667 = load ptr, ptr %switch.gep666, align 8
   %59 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep668 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.55, i64 %59
+  %switch.gep668 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.55, i64 %59
   %switch.load669 = load ptr, ptr %switch.gep668, align 8
   %60 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep670 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.56, i64 %60
+  %switch.gep670 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.56, i64 %60
   %switch.load671 = load ptr, ptr %switch.gep670, align 8
   %61 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep672 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.57, i64 %61
+  %switch.gep672 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.57, i64 %61
   %switch.load673 = load ptr, ptr %switch.gep672, align 8
   %62 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep674 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.58, i64 %62
+  %switch.gep674 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.58, i64 %62
   %switch.load675 = load ptr, ptr %switch.gep674, align 8
   %63 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep676 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.59, i64 %63
+  %switch.gep676 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.59, i64 %63
   %switch.load677 = load ptr, ptr %switch.gep676, align 8
   %64 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep678 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.60, i64 %64
+  %switch.gep678 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.60, i64 %64
   %switch.load679 = load ptr, ptr %switch.gep678, align 8
   %65 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep680 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.61, i64 %65
+  %switch.gep680 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.61, i64 %65
   %switch.load681 = load ptr, ptr %switch.gep680, align 8
   %66 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep682 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.62, i64 %66
+  %switch.gep682 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.62, i64 %66
   %switch.load683 = load ptr, ptr %switch.gep682, align 8
   %67 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep684 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.63, i64 %67
+  %switch.gep684 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.63, i64 %67
   %switch.load685 = load ptr, ptr %switch.gep684, align 8
   %68 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep686 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.64, i64 %68
+  %switch.gep686 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.64, i64 %68
   %switch.load687 = load ptr, ptr %switch.gep686, align 8
   %69 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep688 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.65, i64 %69
+  %switch.gep688 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.65, i64 %69
   %switch.load689 = load ptr, ptr %switch.gep688, align 8
   %70 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep690 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.66, i64 %70
+  %switch.gep690 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.66, i64 %70
   %switch.load691 = load ptr, ptr %switch.gep690, align 8
   %71 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep692 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.67, i64 %71
+  %switch.gep692 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.67, i64 %71
   %switch.load693 = load ptr, ptr %switch.gep692, align 8
   %72 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep694 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.68, i64 %72
+  %switch.gep694 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.68, i64 %72
   %switch.load695 = load ptr, ptr %switch.gep694, align 8
   %73 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep696 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.69, i64 %73
+  %switch.gep696 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.69, i64 %73
   %switch.load697 = load ptr, ptr %switch.gep696, align 8
   %74 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep698 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.70, i64 %74
+  %switch.gep698 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.70, i64 %74
   %switch.load699 = load ptr, ptr %switch.gep698, align 8
   %75 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep700 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.71, i64 %75
+  %switch.gep700 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.71, i64 %75
   %switch.load701 = load ptr, ptr %switch.gep700, align 8
   %76 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep702 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.72, i64 %76
+  %switch.gep702 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.72, i64 %76
   %switch.load703 = load ptr, ptr %switch.gep702, align 8
   %77 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep704 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.73, i64 %77
+  %switch.gep704 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.73, i64 %77
   %switch.load705 = load ptr, ptr %switch.gep704, align 8
   %78 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep706 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.74, i64 %78
+  %switch.gep706 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.74, i64 %78
   %switch.load707 = load ptr, ptr %switch.gep706, align 8
   %79 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep708 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.75, i64 %79
+  %switch.gep708 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.75, i64 %79
   %switch.load709 = load ptr, ptr %switch.gep708, align 8
   %80 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep710 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.76, i64 %80
+  %switch.gep710 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.76, i64 %80
   %switch.load711 = load ptr, ptr %switch.gep710, align 8
   %81 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep712 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.77, i64 %81
+  %switch.gep712 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.77, i64 %81
   %switch.load713 = load ptr, ptr %switch.gep712, align 8
   %82 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep714 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.78, i64 %82
+  %switch.gep714 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.78, i64 %82
   %switch.load715 = load ptr, ptr %switch.gep714, align 8
   %83 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep716 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.79, i64 %83
+  %switch.gep716 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.79, i64 %83
   %switch.load717 = load ptr, ptr %switch.gep716, align 8
   %84 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep718 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.80, i64 %84
+  %switch.gep718 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.80, i64 %84
   %switch.load719 = load ptr, ptr %switch.gep718, align 8
   %85 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep720 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.81, i64 %85
+  %switch.gep720 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.81, i64 %85
   %switch.load721 = load ptr, ptr %switch.gep720, align 8
   %86 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep722 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.82, i64 %86
+  %switch.gep722 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.82, i64 %86
   %switch.load723 = load ptr, ptr %switch.gep722, align 8
   %87 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep724 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.83, i64 %87
+  %switch.gep724 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.83, i64 %87
   %switch.load725 = load ptr, ptr %switch.gep724, align 8
   %88 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep726 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.84, i64 %88
+  %switch.gep726 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.84, i64 %88
   %switch.load727 = load ptr, ptr %switch.gep726, align 8
   %89 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep728 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.85, i64 %89
+  %switch.gep728 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.85, i64 %89
   %switch.load729 = load ptr, ptr %switch.gep728, align 8
   %90 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep730 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.86, i64 %90
+  %switch.gep730 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.86, i64 %90
   %switch.load731 = load ptr, ptr %switch.gep730, align 8
   %91 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep732 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.87, i64 %91
+  %switch.gep732 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.87, i64 %91
   %switch.load733 = load ptr, ptr %switch.gep732, align 8
   %92 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep734 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.88, i64 %92
+  %switch.gep734 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.88, i64 %92
   %switch.load735 = load ptr, ptr %switch.gep734, align 8
   %93 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep736 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.89, i64 %93
+  %switch.gep736 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.89, i64 %93
   %switch.load737 = load ptr, ptr %switch.gep736, align 8
   %94 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep738 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.90, i64 %94
+  %switch.gep738 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.90, i64 %94
   %switch.load739 = load ptr, ptr %switch.gep738, align 8
   %95 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep740 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.91, i64 %95
+  %switch.gep740 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.91, i64 %95
   %switch.load741 = load ptr, ptr %switch.gep740, align 8
   %96 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep742 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.92, i64 %96
+  %switch.gep742 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.92, i64 %96
   %switch.load743 = load ptr, ptr %switch.gep742, align 8
   %97 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep744 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.93, i64 %97
+  %switch.gep744 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.93, i64 %97
   %switch.load745 = load ptr, ptr %switch.gep744, align 8
   %98 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep746 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.94, i64 %98
+  %switch.gep746 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.94, i64 %98
   %switch.load747 = load ptr, ptr %switch.gep746, align 8
   %99 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep748 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.95, i64 %99
+  %switch.gep748 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.95, i64 %99
   %switch.load749 = load ptr, ptr %switch.gep748, align 8
   %100 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep750 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.96, i64 %100
+  %switch.gep750 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.96, i64 %100
   %switch.load751 = load ptr, ptr %switch.gep750, align 8
   %101 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep752 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.97, i64 %101
+  %switch.gep752 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.97, i64 %101
   %switch.load753 = load ptr, ptr %switch.gep752, align 8
   %102 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep754 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.98, i64 %102
+  %switch.gep754 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.98, i64 %102
   %switch.load755 = load ptr, ptr %switch.gep754, align 8
   %103 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep756 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.99, i64 %103
+  %switch.gep756 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.99, i64 %103
   %switch.load757 = load ptr, ptr %switch.gep756, align 8
   %104 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep758 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.100, i64 %104
+  %switch.gep758 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.100, i64 %104
   %switch.load759 = load ptr, ptr %switch.gep758, align 8
   %105 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep760 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.101, i64 %105
+  %switch.gep760 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.101, i64 %105
   %switch.load761 = load ptr, ptr %switch.gep760, align 8
   %106 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep762 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.102, i64 %106
+  %switch.gep762 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.102, i64 %106
   %switch.load763 = load ptr, ptr %switch.gep762, align 8
   %107 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep764 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.103, i64 %107
+  %switch.gep764 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.103, i64 %107
   %switch.load765 = load ptr, ptr %switch.gep764, align 8
   %108 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep766 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.104, i64 %108
+  %switch.gep766 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.104, i64 %108
   %switch.load767 = load ptr, ptr %switch.gep766, align 8
   %109 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep768 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.105, i64 %109
+  %switch.gep768 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.105, i64 %109
   %switch.load769 = load ptr, ptr %switch.gep768, align 8
   %110 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep770 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.106, i64 %110
+  %switch.gep770 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.106, i64 %110
   %switch.load771 = load ptr, ptr %switch.gep770, align 8
   %111 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep772 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.107, i64 %111
+  %switch.gep772 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.107, i64 %111
   %switch.load773 = load ptr, ptr %switch.gep772, align 8
   %112 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep774 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.108, i64 %112
+  %switch.gep774 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.108, i64 %112
   %switch.load775 = load ptr, ptr %switch.gep774, align 8
   %113 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep776 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.109, i64 %113
+  %switch.gep776 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.109, i64 %113
   %switch.load777 = load ptr, ptr %switch.gep776, align 8
   %114 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep778 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.110, i64 %114
+  %switch.gep778 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.110, i64 %114
   %switch.load779 = load ptr, ptr %switch.gep778, align 8
   %115 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep780 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_h264qpel_init.111, i64 %115
+  %switch.gep780 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_h264qpel_init.111, i64 %115
   %switch.load781 = load ptr, ptr %switch.gep780, align 8
   br label %116
 
@@ -13256,7 +13256,7 @@ define internal void @put_h264_qpel2_mc10_9_c(ptr noundef writeonly captures(non
   %52 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %51, ptr %52, align 2, !tbaa !100, !noalias !377
   %53 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %54 = getelementptr inbounds i16, ptr %.031.i, i64 %7
+  %54 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %7
   br i1 %9, label %8, label %put_h264_qpel2_h_lowpass_9.exit, !llvm.loop !380
 
 put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %8
@@ -13346,8 +13346,8 @@ define internal void @put_h264_qpel2_mc20_9_c(ptr noundef writeonly captures(non
   %50 = trunc nuw nsw i32 %49 to i16
   %51 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %50, ptr %51, align 2, !tbaa !100, !noalias !382
-  %52 = getelementptr inbounds i16, ptr %.02330.i, i64 %6
-  %53 = getelementptr inbounds i16, ptr %.031.i, i64 %6
+  %52 = getelementptr inbounds [2 x i8], ptr %.02330.i, i64 %6
+  %53 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %6
   br i1 %8, label %7, label %put_h264_qpel2_h_lowpass_9.exit, !llvm.loop !380
 
 put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %7
@@ -13416,7 +13416,7 @@ define internal void @put_h264_qpel2_mc30_9_c(ptr noundef writeonly captures(non
   %52 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %51, ptr %52, align 2, !tbaa !100, !noalias !385
   %53 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %54 = getelementptr inbounds i16, ptr %.031.i, i64 %7
+  %54 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %7
   br i1 %9, label %8, label %put_h264_qpel2_h_lowpass_9.exit, !llvm.loop !380
 
 put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %8
@@ -13623,7 +13623,7 @@ define internal void @put_h264_qpel2_mc11_9_c(ptr noundef writeonly captures(non
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !396
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_9.exit, !llvm.loop !380
 
 put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %10
@@ -13797,7 +13797,7 @@ define internal void @put_h264_qpel2_mc21_9_c(ptr noundef writeonly captures(non
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !405
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_9.exit, !llvm.loop !380
 
 put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %10
@@ -13897,7 +13897,7 @@ define internal void @put_h264_qpel2_mc31_9_c(ptr noundef writeonly captures(non
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !408
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_9.exit, !llvm.loop !380
 
 put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %10
@@ -14086,7 +14086,7 @@ copy_block2_9.exit:                               ; preds = %7
   %57 = tail call i32 @llvm.smax.i32(i32 %56, i32 0)
   %58 = tail call i32 @llvm.umin.i32(i32 %57, i32 511)
   %59 = trunc nuw nsw i32 %58 to i16
-  %60 = getelementptr inbounds i16, ptr %.03744.i, i64 %15
+  %60 = getelementptr inbounds [2 x i8], ptr %.03744.i, i64 %15
   store i16 %59, ptr %60, align 2, !tbaa !100, !noalias !420
   %61 = getelementptr inbounds nuw i8, ptr %.03744.i, i64 2
   %62 = getelementptr inbounds nuw i8, ptr %.03843.i, i64 2
@@ -14528,7 +14528,7 @@ define internal void @put_h264_qpel2_mc13_9_c(ptr noundef writeonly captures(non
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !441
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_9.exit, !llvm.loop !380
 
 put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %11
@@ -14703,7 +14703,7 @@ define internal void @put_h264_qpel2_mc23_9_c(ptr noundef writeonly captures(non
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !450
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_9.exit, !llvm.loop !380
 
 put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %11
@@ -14804,7 +14804,7 @@ define internal void @put_h264_qpel2_mc33_9_c(ptr noundef writeonly captures(non
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !453
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_9.exit, !llvm.loop !380
 
 put_h264_qpel2_h_lowpass_9.exit:                  ; preds = %11
@@ -18048,8 +18048,8 @@ define internal void @avg_h264_qpel4_mc20_9_c(ptr noundef captures(none) %0, ptr
   %97 = lshr i32 %96, 1
   %98 = trunc nuw i32 %97 to i16
   store i16 %98, ptr %79, align 2, !tbaa !100, !noalias !520
-  %99 = getelementptr inbounds i16, ptr %.04156.i.lver.orig, i64 %5
-  %100 = getelementptr inbounds i16, ptr %.057.i.lver.orig, i64 %5
+  %99 = getelementptr inbounds [2 x i8], ptr %.04156.i.lver.orig, i64 %5
+  %100 = getelementptr inbounds [2 x i8], ptr %.057.i.lver.orig, i64 %5
   %101 = add nuw nsw i32 %.04255.i.lver.orig, 1
   %exitcond.not.i.lver.orig = icmp eq i32 %101, 4
   br i1 %exitcond.not.i.lver.orig, label %avg_h264_qpel4_h_lowpass_9.exit, label %.ph.lver.orig, !llvm.loop !523
@@ -18164,8 +18164,8 @@ define internal void @avg_h264_qpel4_mc20_9_c(ptr noundef captures(none) %0, ptr
   %193 = lshr i32 %192, 1
   %194 = trunc nuw i32 %193 to i16
   store i16 %194, ptr %175, align 2, !tbaa !100, !noalias !520
-  %195 = getelementptr inbounds nuw i16, ptr %.04156.i, i64 %5
-  %196 = getelementptr inbounds nuw i16, ptr %.057.i, i64 %5
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %.04156.i, i64 %5
+  %196 = getelementptr inbounds nuw [2 x i8], ptr %.057.i, i64 %5
   %197 = add nuw nsw i32 %.04255.i, 1
   %exitcond.not.i = icmp eq i32 %197, 4
   br i1 %exitcond.not.i, label %avg_h264_qpel4_h_lowpass_9.exit, label %102, !llvm.loop !523
@@ -18538,7 +18538,7 @@ copy_block4_9.exit:                               ; preds = %7
   %60 = lshr i32 %59, 1
   %61 = trunc nuw i32 %60 to i16
   store i16 %61, ptr %.06580.i, align 2, !tbaa !100, !noalias !536
-  %62 = getelementptr inbounds i16, ptr %.06580.i, i64 %15
+  %62 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %15
   %63 = load i16, ptr %62, align 2, !tbaa !100, !noalias !536
   %64 = zext i16 %63 to i32
   %65 = add nuw nsw i32 %33, %30
@@ -18557,7 +18557,7 @@ copy_block4_9.exit:                               ; preds = %7
   %77 = lshr i32 %76, 1
   %78 = trunc nuw i32 %77 to i16
   store i16 %78, ptr %62, align 2, !tbaa !100, !noalias !536
-  %79 = getelementptr inbounds i16, ptr %.06580.i, i64 %16
+  %79 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %16
   %80 = load i16, ptr %79, align 2, !tbaa !100, !noalias !536
   %81 = zext i16 %80 to i32
   %82 = add nuw nsw i32 %36, %33
@@ -18576,7 +18576,7 @@ copy_block4_9.exit:                               ; preds = %7
   %94 = lshr i32 %93, 1
   %95 = trunc nuw i32 %94 to i16
   store i16 %95, ptr %79, align 2, !tbaa !100, !noalias !536
-  %96 = getelementptr inbounds i16, ptr %.06580.i, i64 %18
+  %96 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %18
   %97 = load i16, ptr %96, align 2, !tbaa !100, !noalias !536
   %98 = zext i16 %97 to i32
   %99 = add nuw nsw i32 %39, %36
@@ -18686,7 +18686,7 @@ define internal void @avg_h264_qpel4_mc22_9_c(ptr noundef captures(none) %0, ptr
   %sext = ashr exact i64 %7, 32
   %8 = and i64 %sext, -2
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %1, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %1, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -18747,7 +18747,7 @@ define internal void @avg_h264_qpel4_mc22_9_c(ptr noundef captures(none) %0, ptr
   %56 = getelementptr inbounds nuw i8, ptr %.0125.i, i64 6
   store i16 %55, ptr %56, align 2, !tbaa !100, !noalias !543
   %57 = getelementptr inbounds nuw i8, ptr %.0125.i, i64 16
-  %58 = getelementptr inbounds i16, ptr %.0106123.i, i64 %11
+  %58 = getelementptr inbounds [2 x i8], ptr %.0106123.i, i64 %11
   %59 = add nuw nsw i32 %.0103124.i, 1
   %exitcond.not.i = icmp eq i32 %59, 9
   br i1 %exitcond.not.i, label %60, label %12, !llvm.loop !546
@@ -18806,7 +18806,7 @@ define internal void @avg_h264_qpel4_mc22_9_c(ptr noundef captures(none) %0, ptr
   %105 = lshr i32 %104, 1
   %106 = trunc nuw i32 %105 to i16
   store i16 %106, ptr %.0105126.i, align 2, !tbaa !100, !noalias !543
-  %107 = getelementptr inbounds i16, ptr %.0105126.i, i64 %11
+  %107 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %11
   %108 = load i16, ptr %107, align 2, !tbaa !100, !noalias !543
   %109 = zext i16 %108 to i32
   %110 = add nsw i32 %78, %75
@@ -18825,7 +18825,7 @@ define internal void @avg_h264_qpel4_mc22_9_c(ptr noundef captures(none) %0, ptr
   %122 = lshr i32 %121, 1
   %123 = trunc nuw i32 %122 to i16
   store i16 %123, ptr %107, align 2, !tbaa !100, !noalias !543
-  %124 = getelementptr inbounds i16, ptr %.0105126.i, i64 %8
+  %124 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %8
   %125 = load i16, ptr %124, align 2, !tbaa !100, !noalias !543
   %126 = zext i16 %125 to i32
   %127 = add nsw i32 %81, %78
@@ -18844,7 +18844,7 @@ define internal void @avg_h264_qpel4_mc22_9_c(ptr noundef captures(none) %0, ptr
   %139 = lshr i32 %138, 1
   %140 = trunc nuw i32 %139 to i16
   store i16 %140, ptr %124, align 2, !tbaa !100, !noalias !543
-  %141 = getelementptr inbounds i16, ptr %.0105126.i, i64 %63
+  %141 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %63
   %142 = load i16, ptr %141, align 2, !tbaa !100, !noalias !543
   %143 = zext i16 %142 to i32
   %144 = add nsw i32 %84, %81
@@ -22457,7 +22457,7 @@ define internal void @put_h264_qpel2_mc10_10_c(ptr noundef writeonly captures(no
   %52 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %51, ptr %52, align 2, !tbaa !100, !noalias !649
   %53 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %54 = getelementptr inbounds i16, ptr %.031.i, i64 %7
+  %54 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %7
   br i1 %9, label %8, label %put_h264_qpel2_h_lowpass_10.exit, !llvm.loop !652
 
 put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %8
@@ -22547,8 +22547,8 @@ define internal void @put_h264_qpel2_mc20_10_c(ptr noundef writeonly captures(no
   %50 = trunc nuw nsw i32 %49 to i16
   %51 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %50, ptr %51, align 2, !tbaa !100, !noalias !654
-  %52 = getelementptr inbounds i16, ptr %.02330.i, i64 %6
-  %53 = getelementptr inbounds i16, ptr %.031.i, i64 %6
+  %52 = getelementptr inbounds [2 x i8], ptr %.02330.i, i64 %6
+  %53 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %6
   br i1 %8, label %7, label %put_h264_qpel2_h_lowpass_10.exit, !llvm.loop !652
 
 put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %7
@@ -22617,7 +22617,7 @@ define internal void @put_h264_qpel2_mc30_10_c(ptr noundef writeonly captures(no
   %52 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %51, ptr %52, align 2, !tbaa !100, !noalias !657
   %53 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %54 = getelementptr inbounds i16, ptr %.031.i, i64 %7
+  %54 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %7
   br i1 %9, label %8, label %put_h264_qpel2_h_lowpass_10.exit, !llvm.loop !652
 
 put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %8
@@ -22824,7 +22824,7 @@ define internal void @put_h264_qpel2_mc11_10_c(ptr noundef writeonly captures(no
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !668
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_10.exit, !llvm.loop !652
 
 put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %10
@@ -22998,7 +22998,7 @@ define internal void @put_h264_qpel2_mc21_10_c(ptr noundef writeonly captures(no
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !677
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_10.exit, !llvm.loop !652
 
 put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %10
@@ -23098,7 +23098,7 @@ define internal void @put_h264_qpel2_mc31_10_c(ptr noundef writeonly captures(no
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !680
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_10.exit, !llvm.loop !652
 
 put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %10
@@ -23287,7 +23287,7 @@ copy_block2_10.exit:                              ; preds = %7
   %57 = tail call i32 @llvm.smax.i32(i32 %56, i32 0)
   %58 = tail call i32 @llvm.umin.i32(i32 %57, i32 1023)
   %59 = trunc nuw nsw i32 %58 to i16
-  %60 = getelementptr inbounds i16, ptr %.03744.i, i64 %15
+  %60 = getelementptr inbounds [2 x i8], ptr %.03744.i, i64 %15
   store i16 %59, ptr %60, align 2, !tbaa !100, !noalias !692
   %61 = getelementptr inbounds nuw i8, ptr %.03744.i, i64 2
   %62 = getelementptr inbounds nuw i8, ptr %.03843.i, i64 2
@@ -23729,7 +23729,7 @@ define internal void @put_h264_qpel2_mc13_10_c(ptr noundef writeonly captures(no
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !713
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_10.exit, !llvm.loop !652
 
 put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %11
@@ -23904,7 +23904,7 @@ define internal void @put_h264_qpel2_mc23_10_c(ptr noundef writeonly captures(no
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !722
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_10.exit, !llvm.loop !652
 
 put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %11
@@ -24005,7 +24005,7 @@ define internal void @put_h264_qpel2_mc33_10_c(ptr noundef writeonly captures(no
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !725
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_10.exit, !llvm.loop !652
 
 put_h264_qpel2_h_lowpass_10.exit:                 ; preds = %11
@@ -27249,8 +27249,8 @@ define internal void @avg_h264_qpel4_mc20_10_c(ptr noundef captures(none) %0, pt
   %97 = lshr i32 %96, 1
   %98 = trunc nuw i32 %97 to i16
   store i16 %98, ptr %79, align 2, !tbaa !100, !noalias !792
-  %99 = getelementptr inbounds i16, ptr %.04156.i.lver.orig, i64 %5
-  %100 = getelementptr inbounds i16, ptr %.057.i.lver.orig, i64 %5
+  %99 = getelementptr inbounds [2 x i8], ptr %.04156.i.lver.orig, i64 %5
+  %100 = getelementptr inbounds [2 x i8], ptr %.057.i.lver.orig, i64 %5
   %101 = add nuw nsw i32 %.04255.i.lver.orig, 1
   %exitcond.not.i.lver.orig = icmp eq i32 %101, 4
   br i1 %exitcond.not.i.lver.orig, label %avg_h264_qpel4_h_lowpass_10.exit, label %.ph.lver.orig, !llvm.loop !795
@@ -27365,8 +27365,8 @@ define internal void @avg_h264_qpel4_mc20_10_c(ptr noundef captures(none) %0, pt
   %193 = lshr i32 %192, 1
   %194 = trunc nuw i32 %193 to i16
   store i16 %194, ptr %175, align 2, !tbaa !100, !noalias !792
-  %195 = getelementptr inbounds nuw i16, ptr %.04156.i, i64 %5
-  %196 = getelementptr inbounds nuw i16, ptr %.057.i, i64 %5
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %.04156.i, i64 %5
+  %196 = getelementptr inbounds nuw [2 x i8], ptr %.057.i, i64 %5
   %197 = add nuw nsw i32 %.04255.i, 1
   %exitcond.not.i = icmp eq i32 %197, 4
   br i1 %exitcond.not.i, label %avg_h264_qpel4_h_lowpass_10.exit, label %102, !llvm.loop !795
@@ -27739,7 +27739,7 @@ copy_block4_10.exit:                              ; preds = %7
   %60 = lshr i32 %59, 1
   %61 = trunc nuw i32 %60 to i16
   store i16 %61, ptr %.06580.i, align 2, !tbaa !100, !noalias !808
-  %62 = getelementptr inbounds i16, ptr %.06580.i, i64 %15
+  %62 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %15
   %63 = load i16, ptr %62, align 2, !tbaa !100, !noalias !808
   %64 = zext i16 %63 to i32
   %65 = add nuw nsw i32 %33, %30
@@ -27758,7 +27758,7 @@ copy_block4_10.exit:                              ; preds = %7
   %77 = lshr i32 %76, 1
   %78 = trunc nuw i32 %77 to i16
   store i16 %78, ptr %62, align 2, !tbaa !100, !noalias !808
-  %79 = getelementptr inbounds i16, ptr %.06580.i, i64 %16
+  %79 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %16
   %80 = load i16, ptr %79, align 2, !tbaa !100, !noalias !808
   %81 = zext i16 %80 to i32
   %82 = add nuw nsw i32 %36, %33
@@ -27777,7 +27777,7 @@ copy_block4_10.exit:                              ; preds = %7
   %94 = lshr i32 %93, 1
   %95 = trunc nuw i32 %94 to i16
   store i16 %95, ptr %79, align 2, !tbaa !100, !noalias !808
-  %96 = getelementptr inbounds i16, ptr %.06580.i, i64 %18
+  %96 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %18
   %97 = load i16, ptr %96, align 2, !tbaa !100, !noalias !808
   %98 = zext i16 %97 to i32
   %99 = add nuw nsw i32 %39, %36
@@ -27887,7 +27887,7 @@ define internal void @avg_h264_qpel4_mc22_10_c(ptr noundef captures(none) %0, pt
   %sext = ashr exact i64 %7, 32
   %8 = and i64 %sext, -2
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %1, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %1, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -27952,7 +27952,7 @@ define internal void @avg_h264_qpel4_mc22_10_c(ptr noundef captures(none) %0, pt
   %60 = getelementptr inbounds nuw i8, ptr %.0125.i, i64 6
   store i16 %59, ptr %60, align 2, !tbaa !100, !noalias !815
   %61 = getelementptr inbounds nuw i8, ptr %.0125.i, i64 16
-  %62 = getelementptr inbounds i16, ptr %.0106123.i, i64 %11
+  %62 = getelementptr inbounds [2 x i8], ptr %.0106123.i, i64 %11
   %63 = add nuw nsw i32 %.0103124.i, 1
   %exitcond.not.i = icmp eq i32 %63, 9
   br i1 %exitcond.not.i, label %64, label %12, !llvm.loop !818
@@ -28018,7 +28018,7 @@ define internal void @avg_h264_qpel4_mc22_10_c(ptr noundef captures(none) %0, pt
   %116 = lshr i32 %115, 1
   %117 = trunc nuw i32 %116 to i16
   store i16 %117, ptr %.0105126.i, align 2, !tbaa !100, !noalias !815
-  %118 = getelementptr inbounds i16, ptr %.0105126.i, i64 %11
+  %118 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %11
   %119 = load i16, ptr %118, align 2, !tbaa !100, !noalias !815
   %120 = zext i16 %119 to i32
   %121 = add nsw i32 %86, %82
@@ -28037,7 +28037,7 @@ define internal void @avg_h264_qpel4_mc22_10_c(ptr noundef captures(none) %0, pt
   %133 = lshr i32 %132, 1
   %134 = trunc nuw i32 %133 to i16
   store i16 %134, ptr %118, align 2, !tbaa !100, !noalias !815
-  %135 = getelementptr inbounds i16, ptr %.0105126.i, i64 %8
+  %135 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %8
   %136 = load i16, ptr %135, align 2, !tbaa !100, !noalias !815
   %137 = zext i16 %136 to i32
   %138 = add nsw i32 %90, %86
@@ -28056,7 +28056,7 @@ define internal void @avg_h264_qpel4_mc22_10_c(ptr noundef captures(none) %0, pt
   %150 = lshr i32 %149, 1
   %151 = trunc nuw i32 %150 to i16
   store i16 %151, ptr %135, align 2, !tbaa !100, !noalias !815
-  %152 = getelementptr inbounds i16, ptr %.0105126.i, i64 %67
+  %152 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %67
   %153 = load i16, ptr %152, align 2, !tbaa !100, !noalias !815
   %154 = zext i16 %153 to i32
   %155 = add nsw i32 %94, %90
@@ -31669,7 +31669,7 @@ define internal void @put_h264_qpel2_mc10_12_c(ptr noundef writeonly captures(no
   %52 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %51, ptr %52, align 2, !tbaa !100, !noalias !921
   %53 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %54 = getelementptr inbounds i16, ptr %.031.i, i64 %7
+  %54 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %7
   br i1 %9, label %8, label %put_h264_qpel2_h_lowpass_12.exit, !llvm.loop !924
 
 put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %8
@@ -31759,8 +31759,8 @@ define internal void @put_h264_qpel2_mc20_12_c(ptr noundef writeonly captures(no
   %50 = trunc nuw nsw i32 %49 to i16
   %51 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %50, ptr %51, align 2, !tbaa !100, !noalias !926
-  %52 = getelementptr inbounds i16, ptr %.02330.i, i64 %6
-  %53 = getelementptr inbounds i16, ptr %.031.i, i64 %6
+  %52 = getelementptr inbounds [2 x i8], ptr %.02330.i, i64 %6
+  %53 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %6
   br i1 %8, label %7, label %put_h264_qpel2_h_lowpass_12.exit, !llvm.loop !924
 
 put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %7
@@ -31829,7 +31829,7 @@ define internal void @put_h264_qpel2_mc30_12_c(ptr noundef writeonly captures(no
   %52 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %51, ptr %52, align 2, !tbaa !100, !noalias !929
   %53 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %54 = getelementptr inbounds i16, ptr %.031.i, i64 %7
+  %54 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %7
   br i1 %9, label %8, label %put_h264_qpel2_h_lowpass_12.exit, !llvm.loop !924
 
 put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %8
@@ -32036,7 +32036,7 @@ define internal void @put_h264_qpel2_mc11_12_c(ptr noundef writeonly captures(no
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !940
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_12.exit, !llvm.loop !924
 
 put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %10
@@ -32210,7 +32210,7 @@ define internal void @put_h264_qpel2_mc21_12_c(ptr noundef writeonly captures(no
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !949
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_12.exit, !llvm.loop !924
 
 put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %10
@@ -32310,7 +32310,7 @@ define internal void @put_h264_qpel2_mc31_12_c(ptr noundef writeonly captures(no
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !952
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_12.exit, !llvm.loop !924
 
 put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %10
@@ -32499,7 +32499,7 @@ copy_block2_12.exit:                              ; preds = %7
   %57 = tail call i32 @llvm.smax.i32(i32 %56, i32 0)
   %58 = tail call i32 @llvm.umin.i32(i32 %57, i32 4095)
   %59 = trunc nuw nsw i32 %58 to i16
-  %60 = getelementptr inbounds i16, ptr %.03744.i, i64 %15
+  %60 = getelementptr inbounds [2 x i8], ptr %.03744.i, i64 %15
   store i16 %59, ptr %60, align 2, !tbaa !100, !noalias !964
   %61 = getelementptr inbounds nuw i8, ptr %.03744.i, i64 2
   %62 = getelementptr inbounds nuw i8, ptr %.03843.i, i64 2
@@ -32941,7 +32941,7 @@ define internal void @put_h264_qpel2_mc13_12_c(ptr noundef writeonly captures(no
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !985
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_12.exit, !llvm.loop !924
 
 put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %11
@@ -33116,7 +33116,7 @@ define internal void @put_h264_qpel2_mc23_12_c(ptr noundef writeonly captures(no
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !994
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_12.exit, !llvm.loop !924
 
 put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %11
@@ -33217,7 +33217,7 @@ define internal void @put_h264_qpel2_mc33_12_c(ptr noundef writeonly captures(no
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !997
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_12.exit, !llvm.loop !924
 
 put_h264_qpel2_h_lowpass_12.exit:                 ; preds = %11
@@ -36461,8 +36461,8 @@ define internal void @avg_h264_qpel4_mc20_12_c(ptr noundef captures(none) %0, pt
   %97 = lshr i32 %96, 1
   %98 = trunc nuw i32 %97 to i16
   store i16 %98, ptr %79, align 2, !tbaa !100, !noalias !1064
-  %99 = getelementptr inbounds i16, ptr %.04156.i.lver.orig, i64 %5
-  %100 = getelementptr inbounds i16, ptr %.057.i.lver.orig, i64 %5
+  %99 = getelementptr inbounds [2 x i8], ptr %.04156.i.lver.orig, i64 %5
+  %100 = getelementptr inbounds [2 x i8], ptr %.057.i.lver.orig, i64 %5
   %101 = add nuw nsw i32 %.04255.i.lver.orig, 1
   %exitcond.not.i.lver.orig = icmp eq i32 %101, 4
   br i1 %exitcond.not.i.lver.orig, label %avg_h264_qpel4_h_lowpass_12.exit, label %.ph.lver.orig, !llvm.loop !1067
@@ -36577,8 +36577,8 @@ define internal void @avg_h264_qpel4_mc20_12_c(ptr noundef captures(none) %0, pt
   %193 = lshr i32 %192, 1
   %194 = trunc nuw i32 %193 to i16
   store i16 %194, ptr %175, align 2, !tbaa !100, !noalias !1064
-  %195 = getelementptr inbounds nuw i16, ptr %.04156.i, i64 %5
-  %196 = getelementptr inbounds nuw i16, ptr %.057.i, i64 %5
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %.04156.i, i64 %5
+  %196 = getelementptr inbounds nuw [2 x i8], ptr %.057.i, i64 %5
   %197 = add nuw nsw i32 %.04255.i, 1
   %exitcond.not.i = icmp eq i32 %197, 4
   br i1 %exitcond.not.i, label %avg_h264_qpel4_h_lowpass_12.exit, label %102, !llvm.loop !1067
@@ -36951,7 +36951,7 @@ copy_block4_12.exit:                              ; preds = %7
   %60 = lshr i32 %59, 1
   %61 = trunc nuw i32 %60 to i16
   store i16 %61, ptr %.06580.i, align 2, !tbaa !100, !noalias !1080
-  %62 = getelementptr inbounds i16, ptr %.06580.i, i64 %15
+  %62 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %15
   %63 = load i16, ptr %62, align 2, !tbaa !100, !noalias !1080
   %64 = zext i16 %63 to i32
   %65 = add nuw nsw i32 %33, %30
@@ -36970,7 +36970,7 @@ copy_block4_12.exit:                              ; preds = %7
   %77 = lshr i32 %76, 1
   %78 = trunc nuw i32 %77 to i16
   store i16 %78, ptr %62, align 2, !tbaa !100, !noalias !1080
-  %79 = getelementptr inbounds i16, ptr %.06580.i, i64 %16
+  %79 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %16
   %80 = load i16, ptr %79, align 2, !tbaa !100, !noalias !1080
   %81 = zext i16 %80 to i32
   %82 = add nuw nsw i32 %36, %33
@@ -36989,7 +36989,7 @@ copy_block4_12.exit:                              ; preds = %7
   %94 = lshr i32 %93, 1
   %95 = trunc nuw i32 %94 to i16
   store i16 %95, ptr %79, align 2, !tbaa !100, !noalias !1080
-  %96 = getelementptr inbounds i16, ptr %.06580.i, i64 %18
+  %96 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %18
   %97 = load i16, ptr %96, align 2, !tbaa !100, !noalias !1080
   %98 = zext i16 %97 to i32
   %99 = add nuw nsw i32 %39, %36
@@ -37099,7 +37099,7 @@ define internal void @avg_h264_qpel4_mc22_12_c(ptr noundef captures(none) %0, pt
   %sext = ashr exact i64 %7, 32
   %8 = and i64 %sext, -2
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %1, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %1, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -37169,7 +37169,7 @@ define internal void @avg_h264_qpel4_mc22_12_c(ptr noundef captures(none) %0, pt
   %65 = getelementptr inbounds nuw i8, ptr %.0125.i, i64 12
   store i32 %64, ptr %65, align 4, !tbaa !9, !noalias !1087
   %66 = getelementptr inbounds nuw i8, ptr %.0125.i, i64 32
-  %67 = getelementptr inbounds i16, ptr %.0106123.i, i64 %11
+  %67 = getelementptr inbounds [2 x i8], ptr %.0106123.i, i64 %11
   %68 = add nuw nsw i32 %.0103124.i, 1
   %exitcond.not.i = icmp eq i32 %68, 9
   br i1 %exitcond.not.i, label %69, label %12, !llvm.loop !1090
@@ -37219,7 +37219,7 @@ define internal void @avg_h264_qpel4_mc22_12_c(ptr noundef captures(none) %0, pt
   %105 = lshr i32 %104, 1
   %106 = trunc nuw i32 %105 to i16
   store i16 %106, ptr %.0105126.i, align 2, !tbaa !100, !noalias !1087
-  %107 = getelementptr inbounds i16, ptr %.0105126.i, i64 %11
+  %107 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %11
   %108 = load i16, ptr %107, align 2, !tbaa !100, !noalias !1087
   %109 = zext i16 %108 to i32
   %110 = add nsw i32 %82, %80
@@ -37238,7 +37238,7 @@ define internal void @avg_h264_qpel4_mc22_12_c(ptr noundef captures(none) %0, pt
   %122 = lshr i32 %121, 1
   %123 = trunc nuw i32 %122 to i16
   store i16 %123, ptr %107, align 2, !tbaa !100, !noalias !1087
-  %124 = getelementptr inbounds i16, ptr %.0105126.i, i64 %8
+  %124 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %8
   %125 = load i16, ptr %124, align 2, !tbaa !100, !noalias !1087
   %126 = zext i16 %125 to i32
   %127 = add nsw i32 %84, %82
@@ -37257,7 +37257,7 @@ define internal void @avg_h264_qpel4_mc22_12_c(ptr noundef captures(none) %0, pt
   %139 = lshr i32 %138, 1
   %140 = trunc nuw i32 %139 to i16
   store i16 %140, ptr %124, align 2, !tbaa !100, !noalias !1087
-  %141 = getelementptr inbounds i16, ptr %.0105126.i, i64 %72
+  %141 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %72
   %142 = load i16, ptr %141, align 2, !tbaa !100, !noalias !1087
   %143 = zext i16 %142 to i32
   %144 = add nsw i32 %86, %84
@@ -40870,7 +40870,7 @@ define internal void @put_h264_qpel2_mc10_14_c(ptr noundef writeonly captures(no
   %52 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %51, ptr %52, align 2, !tbaa !100, !noalias !1193
   %53 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %54 = getelementptr inbounds i16, ptr %.031.i, i64 %7
+  %54 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %7
   br i1 %9, label %8, label %put_h264_qpel2_h_lowpass_14.exit, !llvm.loop !1196
 
 put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %8
@@ -40960,8 +40960,8 @@ define internal void @put_h264_qpel2_mc20_14_c(ptr noundef writeonly captures(no
   %50 = trunc nuw nsw i32 %49 to i16
   %51 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %50, ptr %51, align 2, !tbaa !100, !noalias !1198
-  %52 = getelementptr inbounds i16, ptr %.02330.i, i64 %6
-  %53 = getelementptr inbounds i16, ptr %.031.i, i64 %6
+  %52 = getelementptr inbounds [2 x i8], ptr %.02330.i, i64 %6
+  %53 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %6
   br i1 %8, label %7, label %put_h264_qpel2_h_lowpass_14.exit, !llvm.loop !1196
 
 put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %7
@@ -41030,7 +41030,7 @@ define internal void @put_h264_qpel2_mc30_14_c(ptr noundef writeonly captures(no
   %52 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %51, ptr %52, align 2, !tbaa !100, !noalias !1201
   %53 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %54 = getelementptr inbounds i16, ptr %.031.i, i64 %7
+  %54 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %7
   br i1 %9, label %8, label %put_h264_qpel2_h_lowpass_14.exit, !llvm.loop !1196
 
 put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %8
@@ -41237,7 +41237,7 @@ define internal void @put_h264_qpel2_mc11_14_c(ptr noundef writeonly captures(no
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !1212
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_14.exit, !llvm.loop !1196
 
 put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %10
@@ -41411,7 +41411,7 @@ define internal void @put_h264_qpel2_mc21_14_c(ptr noundef writeonly captures(no
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !1221
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_14.exit, !llvm.loop !1196
 
 put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %10
@@ -41511,7 +41511,7 @@ define internal void @put_h264_qpel2_mc31_14_c(ptr noundef writeonly captures(no
   %54 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %53, ptr %54, align 2, !tbaa !100, !noalias !1224
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %56 = getelementptr inbounds i16, ptr %.031.i, i64 %9
+  %56 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %9
   br i1 %11, label %10, label %put_h264_qpel2_h_lowpass_14.exit, !llvm.loop !1196
 
 put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %10
@@ -41700,7 +41700,7 @@ copy_block2_14.exit:                              ; preds = %7
   %57 = tail call i32 @llvm.smax.i32(i32 %56, i32 0)
   %58 = tail call i32 @llvm.umin.i32(i32 %57, i32 16383)
   %59 = trunc nuw nsw i32 %58 to i16
-  %60 = getelementptr inbounds i16, ptr %.03744.i, i64 %15
+  %60 = getelementptr inbounds [2 x i8], ptr %.03744.i, i64 %15
   store i16 %59, ptr %60, align 2, !tbaa !100, !noalias !1236
   %61 = getelementptr inbounds nuw i8, ptr %.03744.i, i64 2
   %62 = getelementptr inbounds nuw i8, ptr %.03843.i, i64 2
@@ -42142,7 +42142,7 @@ define internal void @put_h264_qpel2_mc13_14_c(ptr noundef writeonly captures(no
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !1257
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_14.exit, !llvm.loop !1196
 
 put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %11
@@ -42317,7 +42317,7 @@ define internal void @put_h264_qpel2_mc23_14_c(ptr noundef writeonly captures(no
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !1266
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_14.exit, !llvm.loop !1196
 
 put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %11
@@ -42418,7 +42418,7 @@ define internal void @put_h264_qpel2_mc33_14_c(ptr noundef writeonly captures(no
   %55 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 2
   store i16 %54, ptr %55, align 2, !tbaa !100, !noalias !1269
   %56 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
-  %57 = getelementptr inbounds i16, ptr %.031.i, i64 %10
+  %57 = getelementptr inbounds [2 x i8], ptr %.031.i, i64 %10
   br i1 %12, label %11, label %put_h264_qpel2_h_lowpass_14.exit, !llvm.loop !1196
 
 put_h264_qpel2_h_lowpass_14.exit:                 ; preds = %11
@@ -45662,8 +45662,8 @@ define internal void @avg_h264_qpel4_mc20_14_c(ptr noundef captures(none) %0, pt
   %97 = lshr i32 %96, 1
   %98 = trunc nuw i32 %97 to i16
   store i16 %98, ptr %79, align 2, !tbaa !100, !noalias !1336
-  %99 = getelementptr inbounds i16, ptr %.04156.i.lver.orig, i64 %5
-  %100 = getelementptr inbounds i16, ptr %.057.i.lver.orig, i64 %5
+  %99 = getelementptr inbounds [2 x i8], ptr %.04156.i.lver.orig, i64 %5
+  %100 = getelementptr inbounds [2 x i8], ptr %.057.i.lver.orig, i64 %5
   %101 = add nuw nsw i32 %.04255.i.lver.orig, 1
   %exitcond.not.i.lver.orig = icmp eq i32 %101, 4
   br i1 %exitcond.not.i.lver.orig, label %avg_h264_qpel4_h_lowpass_14.exit, label %.ph.lver.orig, !llvm.loop !1339
@@ -45778,8 +45778,8 @@ define internal void @avg_h264_qpel4_mc20_14_c(ptr noundef captures(none) %0, pt
   %193 = lshr i32 %192, 1
   %194 = trunc nuw i32 %193 to i16
   store i16 %194, ptr %175, align 2, !tbaa !100, !noalias !1336
-  %195 = getelementptr inbounds nuw i16, ptr %.04156.i, i64 %5
-  %196 = getelementptr inbounds nuw i16, ptr %.057.i, i64 %5
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %.04156.i, i64 %5
+  %196 = getelementptr inbounds nuw [2 x i8], ptr %.057.i, i64 %5
   %197 = add nuw nsw i32 %.04255.i, 1
   %exitcond.not.i = icmp eq i32 %197, 4
   br i1 %exitcond.not.i, label %avg_h264_qpel4_h_lowpass_14.exit, label %102, !llvm.loop !1339
@@ -46152,7 +46152,7 @@ copy_block4_14.exit:                              ; preds = %7
   %60 = lshr i32 %59, 1
   %61 = trunc nuw i32 %60 to i16
   store i16 %61, ptr %.06580.i, align 2, !tbaa !100, !noalias !1352
-  %62 = getelementptr inbounds i16, ptr %.06580.i, i64 %15
+  %62 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %15
   %63 = load i16, ptr %62, align 2, !tbaa !100, !noalias !1352
   %64 = zext i16 %63 to i32
   %65 = add nuw nsw i32 %33, %30
@@ -46171,7 +46171,7 @@ copy_block4_14.exit:                              ; preds = %7
   %77 = lshr i32 %76, 1
   %78 = trunc nuw i32 %77 to i16
   store i16 %78, ptr %62, align 2, !tbaa !100, !noalias !1352
-  %79 = getelementptr inbounds i16, ptr %.06580.i, i64 %16
+  %79 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %16
   %80 = load i16, ptr %79, align 2, !tbaa !100, !noalias !1352
   %81 = zext i16 %80 to i32
   %82 = add nuw nsw i32 %36, %33
@@ -46190,7 +46190,7 @@ copy_block4_14.exit:                              ; preds = %7
   %94 = lshr i32 %93, 1
   %95 = trunc nuw i32 %94 to i16
   store i16 %95, ptr %79, align 2, !tbaa !100, !noalias !1352
-  %96 = getelementptr inbounds i16, ptr %.06580.i, i64 %18
+  %96 = getelementptr inbounds [2 x i8], ptr %.06580.i, i64 %18
   %97 = load i16, ptr %96, align 2, !tbaa !100, !noalias !1352
   %98 = zext i16 %97 to i32
   %99 = add nuw nsw i32 %39, %36
@@ -46300,7 +46300,7 @@ define internal void @avg_h264_qpel4_mc22_14_c(ptr noundef captures(none) %0, pt
   %sext = ashr exact i64 %7, 32
   %8 = and i64 %sext, -2
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %1, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %1, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -46370,7 +46370,7 @@ define internal void @avg_h264_qpel4_mc22_14_c(ptr noundef captures(none) %0, pt
   %65 = getelementptr inbounds nuw i8, ptr %.0125.i, i64 12
   store i32 %64, ptr %65, align 4, !tbaa !9, !noalias !1359
   %66 = getelementptr inbounds nuw i8, ptr %.0125.i, i64 32
-  %67 = getelementptr inbounds i16, ptr %.0106123.i, i64 %11
+  %67 = getelementptr inbounds [2 x i8], ptr %.0106123.i, i64 %11
   %68 = add nuw nsw i32 %.0103124.i, 1
   %exitcond.not.i = icmp eq i32 %68, 9
   br i1 %exitcond.not.i, label %69, label %12, !llvm.loop !1362
@@ -46420,7 +46420,7 @@ define internal void @avg_h264_qpel4_mc22_14_c(ptr noundef captures(none) %0, pt
   %105 = lshr i32 %104, 1
   %106 = trunc nuw i32 %105 to i16
   store i16 %106, ptr %.0105126.i, align 2, !tbaa !100, !noalias !1359
-  %107 = getelementptr inbounds i16, ptr %.0105126.i, i64 %11
+  %107 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %11
   %108 = load i16, ptr %107, align 2, !tbaa !100, !noalias !1359
   %109 = zext i16 %108 to i32
   %110 = add nsw i32 %82, %80
@@ -46439,7 +46439,7 @@ define internal void @avg_h264_qpel4_mc22_14_c(ptr noundef captures(none) %0, pt
   %122 = lshr i32 %121, 1
   %123 = trunc nuw i32 %122 to i16
   store i16 %123, ptr %107, align 2, !tbaa !100, !noalias !1359
-  %124 = getelementptr inbounds i16, ptr %.0105126.i, i64 %8
+  %124 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %8
   %125 = load i16, ptr %124, align 2, !tbaa !100, !noalias !1359
   %126 = zext i16 %125 to i32
   %127 = add nsw i32 %84, %82
@@ -46458,7 +46458,7 @@ define internal void @avg_h264_qpel4_mc22_14_c(ptr noundef captures(none) %0, pt
   %139 = lshr i32 %138, 1
   %140 = trunc nuw i32 %139 to i16
   store i16 %140, ptr %124, align 2, !tbaa !100, !noalias !1359
-  %141 = getelementptr inbounds i16, ptr %.0105126.i, i64 %72
+  %141 = getelementptr inbounds [2 x i8], ptr %.0105126.i, i64 %72
   %142 = load i16, ptr %141, align 2, !tbaa !100, !noalias !1359
   %143 = zext i16 %142 to i32
   %144 = add nsw i32 %86, %84
@@ -47324,7 +47324,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_8(ptr noundef writeonly c
   %105 = add nsw i16 %104, %102
   %106 = getelementptr inbounds nuw i8, ptr %.0198, i64 14
   store i16 %105, ptr %106, align 2, !tbaa !100
-  %107 = getelementptr inbounds nuw i16, ptr %.0198, i64 %11
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %.0198, i64 %11
   %108 = getelementptr inbounds i8, ptr %.0166196, i64 %12
   %109 = add nuw nsw i32 %.0163197, 1
   %exitcond.not = icmp eq i32 %109, 13
@@ -47334,7 +47334,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_8(ptr noundef writeonly c
   %111 = mul nuw nsw i32 %4, 11
   %112 = zext nneg i32 %111 to i64
   %113 = sub nsw i64 0, %112
-  %114 = getelementptr inbounds i16, ptr %107, i64 %113
+  %114 = getelementptr inbounds [2 x i8], ptr %107, i64 %113
   %115 = mul nsw i32 %4, -2
   %116 = sext i32 %115 to i64
   %117 = sub nsw i32 0, %4
@@ -47376,42 +47376,42 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_8(ptr noundef writeonly c
   %.1201 = phi ptr [ %114, %110 ], [ %282, %150 ]
   %.1164200 = phi i32 [ 0, %110 ], [ %283, %150 ]
   %.0165199 = phi ptr [ %0, %110 ], [ %281, %150 ]
-  %151 = getelementptr inbounds i16, ptr %.1201, i64 %116
+  %151 = getelementptr inbounds [2 x i8], ptr %.1201, i64 %116
   %152 = load i16, ptr %151, align 2, !tbaa !100
   %153 = sext i16 %152 to i32
-  %154 = getelementptr inbounds i16, ptr %.1201, i64 %118
+  %154 = getelementptr inbounds [2 x i8], ptr %.1201, i64 %118
   %155 = load i16, ptr %154, align 2, !tbaa !100
   %156 = sext i16 %155 to i32
   %157 = load i16, ptr %.1201, align 2, !tbaa !100
   %158 = sext i16 %157 to i32
-  %159 = getelementptr inbounds nuw i16, ptr %.1201, i64 %11
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %.1201, i64 %11
   %160 = load i16, ptr %159, align 2, !tbaa !100
   %161 = sext i16 %160 to i32
-  %162 = getelementptr inbounds nuw i16, ptr %.1201, i64 %120
+  %162 = getelementptr inbounds nuw [2 x i8], ptr %.1201, i64 %120
   %163 = load i16, ptr %162, align 2, !tbaa !100
   %164 = sext i16 %163 to i32
-  %165 = getelementptr inbounds nuw i16, ptr %.1201, i64 %122
+  %165 = getelementptr inbounds nuw [2 x i8], ptr %.1201, i64 %122
   %166 = load i16, ptr %165, align 2, !tbaa !100
   %167 = sext i16 %166 to i32
-  %168 = getelementptr inbounds nuw i16, ptr %.1201, i64 %124
+  %168 = getelementptr inbounds nuw [2 x i8], ptr %.1201, i64 %124
   %169 = load i16, ptr %168, align 2, !tbaa !100
   %170 = sext i16 %169 to i32
-  %171 = getelementptr inbounds nuw i16, ptr %.1201, i64 %126
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %.1201, i64 %126
   %172 = load i16, ptr %171, align 2, !tbaa !100
   %173 = sext i16 %172 to i32
-  %174 = getelementptr inbounds nuw i16, ptr %.1201, i64 %128
+  %174 = getelementptr inbounds nuw [2 x i8], ptr %.1201, i64 %128
   %175 = load i16, ptr %174, align 2, !tbaa !100
   %176 = sext i16 %175 to i32
-  %177 = getelementptr inbounds nuw i16, ptr %.1201, i64 %130
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %.1201, i64 %130
   %178 = load i16, ptr %177, align 2, !tbaa !100
   %179 = sext i16 %178 to i32
-  %180 = getelementptr inbounds nuw i16, ptr %.1201, i64 %132
+  %180 = getelementptr inbounds nuw [2 x i8], ptr %.1201, i64 %132
   %181 = load i16, ptr %180, align 2, !tbaa !100
   %182 = sext i16 %181 to i32
-  %183 = getelementptr inbounds nuw i16, ptr %.1201, i64 %134
+  %183 = getelementptr inbounds nuw [2 x i8], ptr %.1201, i64 %134
   %184 = load i16, ptr %183, align 2, !tbaa !100
   %185 = sext i16 %184 to i32
-  %186 = getelementptr inbounds nuw i16, ptr %.1201, i64 %136
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %.1201, i64 %136
   %187 = load i16, ptr %186, align 2, !tbaa !100
   %188 = sext i16 %187 to i32
   %189 = add nsw i32 %161, %158
@@ -48955,7 +48955,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_8(ptr noundef captures(no
   %105 = add nsw i16 %104, %102
   %106 = getelementptr inbounds nuw i8, ptr %.0214, i64 14
   store i16 %105, ptr %106, align 2, !tbaa !100
-  %107 = getelementptr inbounds nuw i16, ptr %.0214, i64 %11
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %.0214, i64 %11
   %108 = getelementptr inbounds i8, ptr %.0182212, i64 %12
   %109 = add nuw nsw i32 %.0179213, 1
   %exitcond.not = icmp eq i32 %109, 13
@@ -48965,7 +48965,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_8(ptr noundef captures(no
   %111 = mul nuw nsw i32 %4, 11
   %112 = zext nneg i32 %111 to i64
   %113 = sub nsw i64 0, %112
-  %114 = getelementptr inbounds i16, ptr %107, i64 %113
+  %114 = getelementptr inbounds [2 x i8], ptr %107, i64 %113
   %115 = mul nsw i32 %4, -2
   %116 = sext i32 %115 to i64
   %117 = sub nsw i32 0, %4
@@ -49007,42 +49007,42 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_8(ptr noundef captures(no
   %.1217 = phi ptr [ %114, %110 ], [ %338, %150 ]
   %.1180216 = phi i32 [ 0, %110 ], [ %339, %150 ]
   %.0181215 = phi ptr [ %0, %110 ], [ %337, %150 ]
-  %151 = getelementptr inbounds i16, ptr %.1217, i64 %116
+  %151 = getelementptr inbounds [2 x i8], ptr %.1217, i64 %116
   %152 = load i16, ptr %151, align 2, !tbaa !100
   %153 = sext i16 %152 to i32
-  %154 = getelementptr inbounds i16, ptr %.1217, i64 %118
+  %154 = getelementptr inbounds [2 x i8], ptr %.1217, i64 %118
   %155 = load i16, ptr %154, align 2, !tbaa !100
   %156 = sext i16 %155 to i32
   %157 = load i16, ptr %.1217, align 2, !tbaa !100
   %158 = sext i16 %157 to i32
-  %159 = getelementptr inbounds nuw i16, ptr %.1217, i64 %11
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %.1217, i64 %11
   %160 = load i16, ptr %159, align 2, !tbaa !100
   %161 = sext i16 %160 to i32
-  %162 = getelementptr inbounds nuw i16, ptr %.1217, i64 %120
+  %162 = getelementptr inbounds nuw [2 x i8], ptr %.1217, i64 %120
   %163 = load i16, ptr %162, align 2, !tbaa !100
   %164 = sext i16 %163 to i32
-  %165 = getelementptr inbounds nuw i16, ptr %.1217, i64 %122
+  %165 = getelementptr inbounds nuw [2 x i8], ptr %.1217, i64 %122
   %166 = load i16, ptr %165, align 2, !tbaa !100
   %167 = sext i16 %166 to i32
-  %168 = getelementptr inbounds nuw i16, ptr %.1217, i64 %124
+  %168 = getelementptr inbounds nuw [2 x i8], ptr %.1217, i64 %124
   %169 = load i16, ptr %168, align 2, !tbaa !100
   %170 = sext i16 %169 to i32
-  %171 = getelementptr inbounds nuw i16, ptr %.1217, i64 %126
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %.1217, i64 %126
   %172 = load i16, ptr %171, align 2, !tbaa !100
   %173 = sext i16 %172 to i32
-  %174 = getelementptr inbounds nuw i16, ptr %.1217, i64 %128
+  %174 = getelementptr inbounds nuw [2 x i8], ptr %.1217, i64 %128
   %175 = load i16, ptr %174, align 2, !tbaa !100
   %176 = sext i16 %175 to i32
-  %177 = getelementptr inbounds nuw i16, ptr %.1217, i64 %130
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %.1217, i64 %130
   %178 = load i16, ptr %177, align 2, !tbaa !100
   %179 = sext i16 %178 to i32
-  %180 = getelementptr inbounds nuw i16, ptr %.1217, i64 %132
+  %180 = getelementptr inbounds nuw [2 x i8], ptr %.1217, i64 %132
   %181 = load i16, ptr %180, align 2, !tbaa !100
   %182 = sext i16 %181 to i32
-  %183 = getelementptr inbounds nuw i16, ptr %.1217, i64 %134
+  %183 = getelementptr inbounds nuw [2 x i8], ptr %.1217, i64 %134
   %184 = load i16, ptr %183, align 2, !tbaa !100
   %185 = sext i16 %184 to i32
-  %186 = getelementptr inbounds nuw i16, ptr %.1217, i64 %136
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %.1217, i64 %136
   %187 = load i16, ptr %186, align 2, !tbaa !100
   %188 = sext i16 %187 to i32
   %189 = load i8, ptr %.0181215, align 1, !tbaa !8
@@ -49393,8 +49393,8 @@ define internal fastcc void @put_h264_qpel8_h_lowpass_9(ptr noundef writeonly ca
   %138 = trunc nuw nsw i32 %137 to i16
   %139 = getelementptr inbounds nuw i8, ptr %.06596, i64 14
   store i16 %138, ptr %139, align 2, !tbaa !100
-  %140 = getelementptr inbounds i16, ptr %.06596, i64 %7
-  %141 = getelementptr inbounds i16, ptr %.097, i64 %8
+  %140 = getelementptr inbounds [2 x i8], ptr %.06596, i64 %7
+  %141 = getelementptr inbounds [2 x i8], ptr %.097, i64 %8
   %142 = add nuw nsw i32 %.06695, 1
   %exitcond.not = icmp eq i32 %142, 8
   br i1 %exitcond.not, label %143, label %9, !llvm.loop !1390
@@ -49449,42 +49449,42 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_9(ptr noundef writeonly ca
   %.0129 = phi i32 [ 0, %4 ], [ %176, %43 ]
   %.097128 = phi ptr [ %0, %4 ], [ %174, %43 ]
   %.098127 = phi ptr [ %1, %4 ], [ %175, %43 ]
-  %44 = getelementptr inbounds i16, ptr %.098127, i64 %8
+  %44 = getelementptr inbounds [2 x i8], ptr %.098127, i64 %8
   %45 = load i16, ptr %44, align 2, !tbaa !100
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i16, ptr %.098127, i64 %10
+  %47 = getelementptr inbounds [2 x i8], ptr %.098127, i64 %10
   %48 = load i16, ptr %47, align 2, !tbaa !100
   %49 = zext i16 %48 to i32
   %50 = load i16, ptr %.098127, align 2, !tbaa !100
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i16, ptr %.098127, i64 %11
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %11
   %53 = load i16, ptr %52, align 2, !tbaa !100
   %54 = zext i16 %53 to i32
-  %55 = getelementptr inbounds nuw i16, ptr %.098127, i64 %13
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %13
   %56 = load i16, ptr %55, align 2, !tbaa !100
   %57 = zext i16 %56 to i32
-  %58 = getelementptr inbounds nuw i16, ptr %.098127, i64 %15
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %15
   %59 = load i16, ptr %58, align 2, !tbaa !100
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw i16, ptr %.098127, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %17
   %62 = load i16, ptr %61, align 2, !tbaa !100
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i16, ptr %.098127, i64 %19
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %19
   %65 = load i16, ptr %64, align 2, !tbaa !100
   %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds nuw i16, ptr %.098127, i64 %21
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %21
   %68 = load i16, ptr %67, align 2, !tbaa !100
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i16, ptr %.098127, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %23
   %71 = load i16, ptr %70, align 2, !tbaa !100
   %72 = zext i16 %71 to i32
-  %73 = getelementptr inbounds nuw i16, ptr %.098127, i64 %25
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %25
   %74 = load i16, ptr %73, align 2, !tbaa !100
   %75 = zext i16 %74 to i32
-  %76 = getelementptr inbounds nuw i16, ptr %.098127, i64 %27
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %27
   %77 = load i16, ptr %76, align 2, !tbaa !100
   %78 = zext i16 %77 to i32
-  %79 = getelementptr inbounds nuw i16, ptr %.098127, i64 %29
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %29
   %80 = load i16, ptr %79, align 2, !tbaa !100
   %81 = zext i16 %80 to i32
   %82 = add nuw nsw i32 %54, %51
@@ -49512,7 +49512,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_9(ptr noundef writeonly ca
   %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 511)
   %103 = trunc nuw nsw i32 %102 to i16
-  %104 = getelementptr inbounds i16, ptr %.097128, i64 %30
+  %104 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %30
   store i16 %103, ptr %104, align 2, !tbaa !100
   %105 = add nuw nsw i32 %60, %57
   %106 = mul nuw nsw i32 %105, 20
@@ -49526,7 +49526,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_9(ptr noundef writeonly ca
   %113 = tail call i32 @llvm.smax.i32(i32 %112, i32 0)
   %114 = tail call i32 @llvm.umin.i32(i32 %113, i32 511)
   %115 = trunc nuw nsw i32 %114 to i16
-  %116 = getelementptr inbounds i16, ptr %.097128, i64 %32
+  %116 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %32
   store i16 %115, ptr %116, align 2, !tbaa !100
   %117 = add nuw nsw i32 %63, %60
   %118 = mul nuw nsw i32 %117, 20
@@ -49540,7 +49540,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_9(ptr noundef writeonly ca
   %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 511)
   %127 = trunc nuw nsw i32 %126 to i16
-  %128 = getelementptr inbounds i16, ptr %.097128, i64 %34
+  %128 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %34
   store i16 %127, ptr %128, align 2, !tbaa !100
   %129 = add nuw nsw i32 %66, %63
   %130 = mul nuw nsw i32 %129, 20
@@ -49554,7 +49554,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_9(ptr noundef writeonly ca
   %137 = tail call i32 @llvm.smax.i32(i32 %136, i32 0)
   %138 = tail call i32 @llvm.umin.i32(i32 %137, i32 511)
   %139 = trunc nuw nsw i32 %138 to i16
-  %140 = getelementptr inbounds i16, ptr %.097128, i64 %36
+  %140 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %36
   store i16 %139, ptr %140, align 2, !tbaa !100
   %141 = add nuw nsw i32 %69, %66
   %142 = mul nuw nsw i32 %141, 20
@@ -49567,7 +49567,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_9(ptr noundef writeonly ca
   %148 = tail call i32 @llvm.smax.i32(i32 %147, i32 0)
   %149 = tail call i32 @llvm.umin.i32(i32 %148, i32 511)
   %150 = trunc nuw nsw i32 %149 to i16
-  %151 = getelementptr inbounds i16, ptr %.097128, i64 %38
+  %151 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %38
   store i16 %150, ptr %151, align 2, !tbaa !100
   %152 = add nuw nsw i32 %72, %69
   %153 = mul nuw nsw i32 %152, 20
@@ -49580,7 +49580,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_9(ptr noundef writeonly ca
   %159 = tail call i32 @llvm.smax.i32(i32 %158, i32 0)
   %160 = tail call i32 @llvm.umin.i32(i32 %159, i32 511)
   %161 = trunc nuw nsw i32 %160 to i16
-  %162 = getelementptr inbounds i16, ptr %.097128, i64 %40
+  %162 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %40
   store i16 %161, ptr %162, align 2, !tbaa !100
   %163 = add nuw nsw i32 %75, %72
   %164 = mul nuw nsw i32 %163, 20
@@ -49593,7 +49593,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_9(ptr noundef writeonly ca
   %170 = tail call i32 @llvm.smax.i32(i32 %169, i32 0)
   %171 = tail call i32 @llvm.umin.i32(i32 %170, i32 511)
   %172 = trunc nuw nsw i32 %171 to i16
-  %173 = getelementptr inbounds i16, ptr %.097128, i64 %42
+  %173 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %42
   store i16 %172, ptr %173, align 2, !tbaa !100
   %174 = getelementptr inbounds nuw i8, ptr %.097128, i64 2
   %175 = getelementptr inbounds nuw i8, ptr %.098127, i64 2
@@ -49611,7 +49611,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef writeonly c
   %8 = and i32 %5, -2
   %9 = sext i32 %8 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i16, ptr %2, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %2, i64 %10
   %12 = zext nneg i32 %4 to i64
   %13 = sext i32 %7 to i64
   br label %14
@@ -49716,8 +49716,8 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef writeonly c
   %93 = add i16 %92, %90
   %94 = getelementptr inbounds nuw i8, ptr %.0205, i64 14
   store i16 %93, ptr %94, align 2, !tbaa !100
-  %95 = getelementptr inbounds nuw i16, ptr %.0205, i64 %12
-  %96 = getelementptr inbounds i16, ptr %.0166203, i64 %13
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %.0205, i64 %12
+  %96 = getelementptr inbounds [2 x i8], ptr %.0166203, i64 %13
   %97 = add nuw nsw i32 %.0163204, 1
   %exitcond.not = icmp eq i32 %97, 13
   br i1 %exitcond.not, label %98, label %14, !llvm.loop !1392
@@ -49727,7 +49727,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef writeonly c
   %100 = mul nuw nsw i32 %4, 11
   %101 = zext nneg i32 %100 to i64
   %102 = sub nsw i64 0, %101
-  %103 = getelementptr inbounds i16, ptr %95, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %95, i64 %102
   %104 = mul nsw i32 %4, -2
   %105 = sext i32 %104 to i64
   %106 = sub nsw i32 0, %4
@@ -49769,42 +49769,42 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef writeonly c
   %.1208 = phi ptr [ %103, %98 ], [ %271, %139 ]
   %.1164207 = phi i32 [ 0, %98 ], [ %272, %139 ]
   %.0165206 = phi ptr [ %0, %98 ], [ %270, %139 ]
-  %140 = getelementptr inbounds i16, ptr %.1208, i64 %105
+  %140 = getelementptr inbounds [2 x i8], ptr %.1208, i64 %105
   %141 = load i16, ptr %140, align 2, !tbaa !100
   %142 = sext i16 %141 to i32
-  %143 = getelementptr inbounds i16, ptr %.1208, i64 %107
+  %143 = getelementptr inbounds [2 x i8], ptr %.1208, i64 %107
   %144 = load i16, ptr %143, align 2, !tbaa !100
   %145 = sext i16 %144 to i32
   %146 = load i16, ptr %.1208, align 2, !tbaa !100
   %147 = sext i16 %146 to i32
-  %148 = getelementptr inbounds nuw i16, ptr %.1208, i64 %12
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %12
   %149 = load i16, ptr %148, align 2, !tbaa !100
   %150 = sext i16 %149 to i32
-  %151 = getelementptr inbounds nuw i16, ptr %.1208, i64 %109
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %109
   %152 = load i16, ptr %151, align 2, !tbaa !100
   %153 = sext i16 %152 to i32
-  %154 = getelementptr inbounds nuw i16, ptr %.1208, i64 %111
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %111
   %155 = load i16, ptr %154, align 2, !tbaa !100
   %156 = sext i16 %155 to i32
-  %157 = getelementptr inbounds nuw i16, ptr %.1208, i64 %113
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %113
   %158 = load i16, ptr %157, align 2, !tbaa !100
   %159 = sext i16 %158 to i32
-  %160 = getelementptr inbounds nuw i16, ptr %.1208, i64 %115
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %115
   %161 = load i16, ptr %160, align 2, !tbaa !100
   %162 = sext i16 %161 to i32
-  %163 = getelementptr inbounds nuw i16, ptr %.1208, i64 %117
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %117
   %164 = load i16, ptr %163, align 2, !tbaa !100
   %165 = sext i16 %164 to i32
-  %166 = getelementptr inbounds nuw i16, ptr %.1208, i64 %119
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %119
   %167 = load i16, ptr %166, align 2, !tbaa !100
   %168 = sext i16 %167 to i32
-  %169 = getelementptr inbounds nuw i16, ptr %.1208, i64 %121
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %121
   %170 = load i16, ptr %169, align 2, !tbaa !100
   %171 = sext i16 %170 to i32
-  %172 = getelementptr inbounds nuw i16, ptr %.1208, i64 %123
+  %172 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %123
   %173 = load i16, ptr %172, align 2, !tbaa !100
   %174 = sext i16 %173 to i32
-  %175 = getelementptr inbounds nuw i16, ptr %.1208, i64 %125
+  %175 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %125
   %176 = load i16, ptr %175, align 2, !tbaa !100
   %177 = sext i16 %176 to i32
   %178 = add nsw i32 %150, %147
@@ -49832,7 +49832,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef writeonly c
   %197 = tail call i32 @llvm.smax.i32(i32 %196, i32 0)
   %198 = tail call i32 @llvm.umin.i32(i32 %197, i32 511)
   %199 = trunc nuw nsw i32 %198 to i16
-  %200 = getelementptr inbounds i16, ptr %.0165206, i64 %126
+  %200 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %126
   store i16 %199, ptr %200, align 2, !tbaa !100
   %201 = add nsw i32 %156, %153
   %202 = mul nsw i32 %201, 20
@@ -49846,7 +49846,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef writeonly c
   %209 = tail call i32 @llvm.smax.i32(i32 %208, i32 0)
   %210 = tail call i32 @llvm.umin.i32(i32 %209, i32 511)
   %211 = trunc nuw nsw i32 %210 to i16
-  %212 = getelementptr inbounds i16, ptr %.0165206, i64 %128
+  %212 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %128
   store i16 %211, ptr %212, align 2, !tbaa !100
   %213 = add nsw i32 %159, %156
   %214 = mul nsw i32 %213, 20
@@ -49860,7 +49860,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef writeonly c
   %221 = tail call i32 @llvm.smax.i32(i32 %220, i32 0)
   %222 = tail call i32 @llvm.umin.i32(i32 %221, i32 511)
   %223 = trunc nuw nsw i32 %222 to i16
-  %224 = getelementptr inbounds i16, ptr %.0165206, i64 %130
+  %224 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %130
   store i16 %223, ptr %224, align 2, !tbaa !100
   %225 = add nsw i32 %162, %159
   %226 = mul nsw i32 %225, 20
@@ -49874,7 +49874,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef writeonly c
   %233 = tail call i32 @llvm.smax.i32(i32 %232, i32 0)
   %234 = tail call i32 @llvm.umin.i32(i32 %233, i32 511)
   %235 = trunc nuw nsw i32 %234 to i16
-  %236 = getelementptr inbounds i16, ptr %.0165206, i64 %132
+  %236 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %132
   store i16 %235, ptr %236, align 2, !tbaa !100
   %237 = add nsw i32 %165, %162
   %238 = mul nsw i32 %237, 20
@@ -49887,7 +49887,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef writeonly c
   %244 = tail call i32 @llvm.smax.i32(i32 %243, i32 0)
   %245 = tail call i32 @llvm.umin.i32(i32 %244, i32 511)
   %246 = trunc nuw nsw i32 %245 to i16
-  %247 = getelementptr inbounds i16, ptr %.0165206, i64 %134
+  %247 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %134
   store i16 %246, ptr %247, align 2, !tbaa !100
   %248 = add nsw i32 %168, %165
   %249 = mul nsw i32 %248, 20
@@ -49900,7 +49900,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef writeonly c
   %255 = tail call i32 @llvm.smax.i32(i32 %254, i32 0)
   %256 = tail call i32 @llvm.umin.i32(i32 %255, i32 511)
   %257 = trunc nuw nsw i32 %256 to i16
-  %258 = getelementptr inbounds i16, ptr %.0165206, i64 %136
+  %258 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %136
   store i16 %257, ptr %258, align 2, !tbaa !100
   %259 = add nsw i32 %171, %168
   %260 = mul nsw i32 %259, 20
@@ -49913,7 +49913,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_9(ptr noundef writeonly c
   %266 = tail call i32 @llvm.smax.i32(i32 %265, i32 0)
   %267 = tail call i32 @llvm.umin.i32(i32 %266, i32 511)
   %268 = trunc nuw nsw i32 %267 to i16
-  %269 = getelementptr inbounds i16, ptr %.0165206, i64 %138
+  %269 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %138
   store i16 %268, ptr %269, align 2, !tbaa !100
   %270 = getelementptr inbounds nuw i8, ptr %.0165206, i64 2
   %271 = getelementptr inbounds nuw i8, ptr %.1208, i64 2
@@ -50018,8 +50018,8 @@ define internal fastcc void @put_h264_qpel4_h_lowpass_9(ptr noundef writeonly ca
   %81 = trunc nuw nsw i32 %80 to i16
   %82 = getelementptr inbounds nuw i8, ptr %.03752, i64 6
   store i16 %81, ptr %82, align 2, !tbaa !100
-  %83 = getelementptr inbounds i16, ptr %.03752, i64 %7
-  %84 = getelementptr inbounds i16, ptr %.053, i64 %8
+  %83 = getelementptr inbounds [2 x i8], ptr %.03752, i64 %7
+  %84 = getelementptr inbounds [2 x i8], ptr %.053, i64 %8
   %85 = add nuw nsw i32 %.03851, 1
   %exitcond.not = icmp eq i32 %85, 4
   br i1 %exitcond.not, label %86, label %9, !llvm.loop !1394
@@ -50093,7 +50093,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_9(ptr noundef writeonly ca
   %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
   %57 = tail call i32 @llvm.umin.i32(i32 %56, i32 511)
   %58 = trunc nuw nsw i32 %57 to i16
-  %59 = getelementptr inbounds i16, ptr %.05772, i64 %5
+  %59 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %5
   store i16 %58, ptr %59, align 2, !tbaa !100
   %60 = add nuw nsw i32 %27, %24
   %61 = mul nuw nsw i32 %60, 20
@@ -50107,7 +50107,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_9(ptr noundef writeonly ca
   %68 = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
   %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 511)
   %70 = trunc nuw nsw i32 %69 to i16
-  %71 = getelementptr inbounds i16, ptr %.05772, i64 %7
+  %71 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %7
   store i16 %70, ptr %71, align 2, !tbaa !100
   %72 = add nuw nsw i32 %30, %27
   %73 = mul nuw nsw i32 %72, 20
@@ -50121,7 +50121,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_9(ptr noundef writeonly ca
   %80 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
   %81 = tail call i32 @llvm.umin.i32(i32 %80, i32 511)
   %82 = trunc nuw nsw i32 %81 to i16
-  %83 = getelementptr inbounds i16, ptr %.05772, i64 %9
+  %83 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %9
   store i16 %82, ptr %83, align 2, !tbaa !100
   %84 = getelementptr inbounds nuw i8, ptr %.05772, i64 2
   %85 = getelementptr inbounds nuw i8, ptr %.05871, i64 2
@@ -50139,7 +50139,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_9(ptr noundef writeonly c
   %7 = and i32 %4, -2
   %8 = sext i32 %7 to i64
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %2, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %2, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -50200,7 +50200,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_9(ptr noundef writeonly c
   %56 = getelementptr inbounds nuw i8, ptr %.0117, i64 6
   store i16 %55, ptr %56, align 2, !tbaa !100
   %57 = getelementptr inbounds nuw i8, ptr %.0117, i64 16
-  %58 = getelementptr inbounds i16, ptr %.098115, i64 %11
+  %58 = getelementptr inbounds [2 x i8], ptr %.098115, i64 %11
   %59 = add nuw nsw i32 %.095116, 1
   %exitcond.not = icmp eq i32 %59, 9
   br i1 %exitcond.not, label %60, label %12, !llvm.loop !1396
@@ -50270,7 +50270,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_9(ptr noundef writeonly c
   %114 = tail call i32 @llvm.smax.i32(i32 %113, i32 0)
   %115 = tail call i32 @llvm.umin.i32(i32 %114, i32 511)
   %116 = trunc nuw nsw i32 %115 to i16
-  %117 = getelementptr inbounds i16, ptr %.097118, i64 %63
+  %117 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %63
   store i16 %116, ptr %117, align 2, !tbaa !100
   %118 = add nsw i32 %85, %82
   %119 = mul nsw i32 %118, 20
@@ -50284,7 +50284,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_9(ptr noundef writeonly c
   %126 = tail call i32 @llvm.smax.i32(i32 %125, i32 0)
   %127 = tail call i32 @llvm.umin.i32(i32 %126, i32 511)
   %128 = trunc nuw nsw i32 %127 to i16
-  %129 = getelementptr inbounds i16, ptr %.097118, i64 %65
+  %129 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %65
   store i16 %128, ptr %129, align 2, !tbaa !100
   %130 = add nsw i32 %88, %85
   %131 = mul nsw i32 %130, 20
@@ -50298,7 +50298,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_9(ptr noundef writeonly c
   %138 = tail call i32 @llvm.smax.i32(i32 %137, i32 0)
   %139 = tail call i32 @llvm.umin.i32(i32 %138, i32 511)
   %140 = trunc nuw nsw i32 %139 to i16
-  %141 = getelementptr inbounds i16, ptr %.097118, i64 %67
+  %141 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %67
   store i16 %140, ptr %141, align 2, !tbaa !100
   %142 = getelementptr inbounds nuw i8, ptr %.097118, i64 2
   %143 = getelementptr inbounds nuw i8, ptr %.1120, i64 2
@@ -50316,7 +50316,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_9(ptr noundef writeonly c
   %7 = and i32 %4, -2
   %8 = sext i32 %7 to i64
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %2, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %2, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -50355,7 +50355,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_9(ptr noundef writeonly c
   %38 = getelementptr inbounds nuw i8, ptr %.073, i64 2
   store i16 %37, ptr %38, align 2, !tbaa !100
   %39 = getelementptr inbounds nuw i8, ptr %.073, i64 8
-  %40 = getelementptr inbounds i16, ptr %.06471, i64 %11
+  %40 = getelementptr inbounds [2 x i8], ptr %.06471, i64 %11
   %41 = add nuw nsw i32 %.06172, 1
   %exitcond.not = icmp eq i32 %41, 7
   br i1 %exitcond.not, label %42, label %12, !llvm.loop !1398
@@ -50415,7 +50415,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_9(ptr noundef writeonly c
   %87 = tail call i32 @llvm.smax.i32(i32 %86, i32 0)
   %88 = tail call i32 @llvm.umin.i32(i32 %87, i32 511)
   %89 = trunc nuw nsw i32 %88 to i16
-  %90 = getelementptr inbounds i16, ptr %.06374, i64 %45
+  %90 = getelementptr inbounds [2 x i8], ptr %.06374, i64 %45
   store i16 %89, ptr %90, align 2, !tbaa !100
   %91 = getelementptr inbounds nuw i8, ptr %.06374, i64 2
   %92 = getelementptr inbounds nuw i8, ptr %.176, i64 2
@@ -50627,8 +50627,8 @@ define internal fastcc void @avg_h264_qpel8_h_lowpass_9(ptr noundef captures(non
   %177 = lshr i32 %176, 1
   %178 = trunc nuw i32 %177 to i16
   store i16 %178, ptr %160, align 2, !tbaa !100
-  %179 = getelementptr inbounds i16, ptr %.073104.lver.orig, i64 %6
-  %180 = getelementptr inbounds i16, ptr %.0105.lver.orig, i64 %7
+  %179 = getelementptr inbounds [2 x i8], ptr %.073104.lver.orig, i64 %6
+  %180 = getelementptr inbounds [2 x i8], ptr %.0105.lver.orig, i64 %7
   %181 = add nuw nsw i32 %.074103.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %181, 8
   br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !1400
@@ -50828,8 +50828,8 @@ define internal fastcc void @avg_h264_qpel8_h_lowpass_9(ptr noundef captures(non
   %350 = lshr i32 %349, 1
   %351 = trunc nuw i32 %350 to i16
   store i16 %351, ptr %333, align 2, !tbaa !100
-  %352 = getelementptr inbounds nuw i16, ptr %.073104, i64 %6
-  %353 = getelementptr inbounds nuw i16, ptr %.0105, i64 %7
+  %352 = getelementptr inbounds nuw [2 x i8], ptr %.073104, i64 %6
+  %353 = getelementptr inbounds nuw [2 x i8], ptr %.0105, i64 %7
   %354 = add nuw nsw i32 %.074103, 1
   %exitcond.not = icmp eq i32 %354, 8
   br i1 %exitcond.not, label %.loopexit, label %182, !llvm.loop !1400
@@ -50884,42 +50884,42 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_9(ptr noundef captures(non
   %.0145 = phi i32 [ 0, %4 ], [ %216, %43 ]
   %.0113144 = phi ptr [ %0, %4 ], [ %214, %43 ]
   %.0114143 = phi ptr [ %1, %4 ], [ %215, %43 ]
-  %44 = getelementptr inbounds i16, ptr %.0114143, i64 %8
+  %44 = getelementptr inbounds [2 x i8], ptr %.0114143, i64 %8
   %45 = load i16, ptr %44, align 2, !tbaa !100
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i16, ptr %.0114143, i64 %10
+  %47 = getelementptr inbounds [2 x i8], ptr %.0114143, i64 %10
   %48 = load i16, ptr %47, align 2, !tbaa !100
   %49 = zext i16 %48 to i32
   %50 = load i16, ptr %.0114143, align 2, !tbaa !100
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %11
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %11
   %53 = load i16, ptr %52, align 2, !tbaa !100
   %54 = zext i16 %53 to i32
-  %55 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %13
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %13
   %56 = load i16, ptr %55, align 2, !tbaa !100
   %57 = zext i16 %56 to i32
-  %58 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %15
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %15
   %59 = load i16, ptr %58, align 2, !tbaa !100
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %17
   %62 = load i16, ptr %61, align 2, !tbaa !100
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %19
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %19
   %65 = load i16, ptr %64, align 2, !tbaa !100
   %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %21
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %21
   %68 = load i16, ptr %67, align 2, !tbaa !100
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %23
   %71 = load i16, ptr %70, align 2, !tbaa !100
   %72 = zext i16 %71 to i32
-  %73 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %25
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %25
   %74 = load i16, ptr %73, align 2, !tbaa !100
   %75 = zext i16 %74 to i32
-  %76 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %27
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %27
   %77 = load i16, ptr %76, align 2, !tbaa !100
   %78 = zext i16 %77 to i32
-  %79 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %29
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %29
   %80 = load i16, ptr %79, align 2, !tbaa !100
   %81 = zext i16 %80 to i32
   %82 = load i16, ptr %.0113144, align 2, !tbaa !100
@@ -50940,7 +50940,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_9(ptr noundef captures(non
   %96 = lshr i32 %95, 1
   %97 = trunc nuw i32 %96 to i16
   store i16 %97, ptr %.0113144, align 2, !tbaa !100
-  %98 = getelementptr inbounds i16, ptr %.0113144, i64 %30
+  %98 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %30
   %99 = load i16, ptr %98, align 2, !tbaa !100
   %100 = zext i16 %99 to i32
   %101 = add nuw nsw i32 %57, %54
@@ -50959,7 +50959,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_9(ptr noundef captures(non
   %113 = lshr i32 %112, 1
   %114 = trunc nuw i32 %113 to i16
   store i16 %114, ptr %98, align 2, !tbaa !100
-  %115 = getelementptr inbounds i16, ptr %.0113144, i64 %32
+  %115 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %32
   %116 = load i16, ptr %115, align 2, !tbaa !100
   %117 = zext i16 %116 to i32
   %118 = add nuw nsw i32 %60, %57
@@ -50978,7 +50978,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_9(ptr noundef captures(non
   %130 = lshr i32 %129, 1
   %131 = trunc nuw i32 %130 to i16
   store i16 %131, ptr %115, align 2, !tbaa !100
-  %132 = getelementptr inbounds i16, ptr %.0113144, i64 %34
+  %132 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %34
   %133 = load i16, ptr %132, align 2, !tbaa !100
   %134 = zext i16 %133 to i32
   %135 = add nuw nsw i32 %63, %60
@@ -50997,7 +50997,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_9(ptr noundef captures(non
   %147 = lshr i32 %146, 1
   %148 = trunc nuw i32 %147 to i16
   store i16 %148, ptr %132, align 2, !tbaa !100
-  %149 = getelementptr inbounds i16, ptr %.0113144, i64 %36
+  %149 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %36
   %150 = load i16, ptr %149, align 2, !tbaa !100
   %151 = zext i16 %150 to i32
   %152 = add nuw nsw i32 %66, %63
@@ -51016,7 +51016,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_9(ptr noundef captures(non
   %164 = lshr i32 %163, 1
   %165 = trunc nuw i32 %164 to i16
   store i16 %165, ptr %149, align 2, !tbaa !100
-  %166 = getelementptr inbounds i16, ptr %.0113144, i64 %38
+  %166 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %38
   %167 = load i16, ptr %166, align 2, !tbaa !100
   %168 = zext i16 %167 to i32
   %169 = add nuw nsw i32 %69, %66
@@ -51034,7 +51034,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_9(ptr noundef captures(non
   %180 = lshr i32 %179, 1
   %181 = trunc nuw i32 %180 to i16
   store i16 %181, ptr %166, align 2, !tbaa !100
-  %182 = getelementptr inbounds i16, ptr %.0113144, i64 %40
+  %182 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %40
   %183 = load i16, ptr %182, align 2, !tbaa !100
   %184 = zext i16 %183 to i32
   %185 = add nuw nsw i32 %72, %69
@@ -51052,7 +51052,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_9(ptr noundef captures(non
   %196 = lshr i32 %195, 1
   %197 = trunc nuw i32 %196 to i16
   store i16 %197, ptr %182, align 2, !tbaa !100
-  %198 = getelementptr inbounds i16, ptr %.0113144, i64 %42
+  %198 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %42
   %199 = load i16, ptr %198, align 2, !tbaa !100
   %200 = zext i16 %199 to i32
   %201 = add nuw nsw i32 %75, %72
@@ -51086,7 +51086,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef captures(no
   %8 = and i32 %5, -2
   %9 = sext i32 %8 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i16, ptr %2, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %2, i64 %10
   %12 = zext nneg i32 %4 to i64
   %13 = sext i32 %7 to i64
   br label %14
@@ -51191,8 +51191,8 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef captures(no
   %93 = add i16 %92, %90
   %94 = getelementptr inbounds nuw i8, ptr %.0221, i64 14
   store i16 %93, ptr %94, align 2, !tbaa !100
-  %95 = getelementptr inbounds nuw i16, ptr %.0221, i64 %12
-  %96 = getelementptr inbounds i16, ptr %.0182219, i64 %13
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %.0221, i64 %12
+  %96 = getelementptr inbounds [2 x i8], ptr %.0182219, i64 %13
   %97 = add nuw nsw i32 %.0179220, 1
   %exitcond.not = icmp eq i32 %97, 13
   br i1 %exitcond.not, label %98, label %14, !llvm.loop !1402
@@ -51202,7 +51202,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef captures(no
   %100 = mul nuw nsw i32 %4, 11
   %101 = zext nneg i32 %100 to i64
   %102 = sub nsw i64 0, %101
-  %103 = getelementptr inbounds i16, ptr %95, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %95, i64 %102
   %104 = mul nsw i32 %4, -2
   %105 = sext i32 %104 to i64
   %106 = sub nsw i32 0, %4
@@ -51244,42 +51244,42 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef captures(no
   %.1224 = phi ptr [ %103, %98 ], [ %311, %139 ]
   %.1180223 = phi i32 [ 0, %98 ], [ %312, %139 ]
   %.0181222 = phi ptr [ %0, %98 ], [ %310, %139 ]
-  %140 = getelementptr inbounds i16, ptr %.1224, i64 %105
+  %140 = getelementptr inbounds [2 x i8], ptr %.1224, i64 %105
   %141 = load i16, ptr %140, align 2, !tbaa !100
   %142 = sext i16 %141 to i32
-  %143 = getelementptr inbounds i16, ptr %.1224, i64 %107
+  %143 = getelementptr inbounds [2 x i8], ptr %.1224, i64 %107
   %144 = load i16, ptr %143, align 2, !tbaa !100
   %145 = sext i16 %144 to i32
   %146 = load i16, ptr %.1224, align 2, !tbaa !100
   %147 = sext i16 %146 to i32
-  %148 = getelementptr inbounds nuw i16, ptr %.1224, i64 %12
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %12
   %149 = load i16, ptr %148, align 2, !tbaa !100
   %150 = sext i16 %149 to i32
-  %151 = getelementptr inbounds nuw i16, ptr %.1224, i64 %109
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %109
   %152 = load i16, ptr %151, align 2, !tbaa !100
   %153 = sext i16 %152 to i32
-  %154 = getelementptr inbounds nuw i16, ptr %.1224, i64 %111
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %111
   %155 = load i16, ptr %154, align 2, !tbaa !100
   %156 = sext i16 %155 to i32
-  %157 = getelementptr inbounds nuw i16, ptr %.1224, i64 %113
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %113
   %158 = load i16, ptr %157, align 2, !tbaa !100
   %159 = sext i16 %158 to i32
-  %160 = getelementptr inbounds nuw i16, ptr %.1224, i64 %115
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %115
   %161 = load i16, ptr %160, align 2, !tbaa !100
   %162 = sext i16 %161 to i32
-  %163 = getelementptr inbounds nuw i16, ptr %.1224, i64 %117
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %117
   %164 = load i16, ptr %163, align 2, !tbaa !100
   %165 = sext i16 %164 to i32
-  %166 = getelementptr inbounds nuw i16, ptr %.1224, i64 %119
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %119
   %167 = load i16, ptr %166, align 2, !tbaa !100
   %168 = sext i16 %167 to i32
-  %169 = getelementptr inbounds nuw i16, ptr %.1224, i64 %121
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %121
   %170 = load i16, ptr %169, align 2, !tbaa !100
   %171 = sext i16 %170 to i32
-  %172 = getelementptr inbounds nuw i16, ptr %.1224, i64 %123
+  %172 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %123
   %173 = load i16, ptr %172, align 2, !tbaa !100
   %174 = sext i16 %173 to i32
-  %175 = getelementptr inbounds nuw i16, ptr %.1224, i64 %125
+  %175 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %125
   %176 = load i16, ptr %175, align 2, !tbaa !100
   %177 = sext i16 %176 to i32
   %178 = load i16, ptr %.0181222, align 2, !tbaa !100
@@ -51300,7 +51300,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef captures(no
   %192 = lshr i32 %191, 1
   %193 = trunc nuw i32 %192 to i16
   store i16 %193, ptr %.0181222, align 2, !tbaa !100
-  %194 = getelementptr inbounds i16, ptr %.0181222, i64 %126
+  %194 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %126
   %195 = load i16, ptr %194, align 2, !tbaa !100
   %196 = zext i16 %195 to i32
   %197 = add nsw i32 %153, %150
@@ -51319,7 +51319,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef captures(no
   %209 = lshr i32 %208, 1
   %210 = trunc nuw i32 %209 to i16
   store i16 %210, ptr %194, align 2, !tbaa !100
-  %211 = getelementptr inbounds i16, ptr %.0181222, i64 %128
+  %211 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %128
   %212 = load i16, ptr %211, align 2, !tbaa !100
   %213 = zext i16 %212 to i32
   %214 = add nsw i32 %156, %153
@@ -51338,7 +51338,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef captures(no
   %226 = lshr i32 %225, 1
   %227 = trunc nuw i32 %226 to i16
   store i16 %227, ptr %211, align 2, !tbaa !100
-  %228 = getelementptr inbounds i16, ptr %.0181222, i64 %130
+  %228 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %130
   %229 = load i16, ptr %228, align 2, !tbaa !100
   %230 = zext i16 %229 to i32
   %231 = add nsw i32 %159, %156
@@ -51357,7 +51357,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef captures(no
   %243 = lshr i32 %242, 1
   %244 = trunc nuw i32 %243 to i16
   store i16 %244, ptr %228, align 2, !tbaa !100
-  %245 = getelementptr inbounds i16, ptr %.0181222, i64 %132
+  %245 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %132
   %246 = load i16, ptr %245, align 2, !tbaa !100
   %247 = zext i16 %246 to i32
   %248 = add nsw i32 %162, %159
@@ -51376,7 +51376,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef captures(no
   %260 = lshr i32 %259, 1
   %261 = trunc nuw i32 %260 to i16
   store i16 %261, ptr %245, align 2, !tbaa !100
-  %262 = getelementptr inbounds i16, ptr %.0181222, i64 %134
+  %262 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %134
   %263 = load i16, ptr %262, align 2, !tbaa !100
   %264 = zext i16 %263 to i32
   %265 = add nsw i32 %165, %162
@@ -51394,7 +51394,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef captures(no
   %276 = lshr i32 %275, 1
   %277 = trunc nuw i32 %276 to i16
   store i16 %277, ptr %262, align 2, !tbaa !100
-  %278 = getelementptr inbounds i16, ptr %.0181222, i64 %136
+  %278 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %136
   %279 = load i16, ptr %278, align 2, !tbaa !100
   %280 = zext i16 %279 to i32
   %281 = add nsw i32 %168, %165
@@ -51412,7 +51412,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_9(ptr noundef captures(no
   %292 = lshr i32 %291, 1
   %293 = trunc nuw i32 %292 to i16
   store i16 %293, ptr %278, align 2, !tbaa !100
-  %294 = getelementptr inbounds i16, ptr %.0181222, i64 %138
+  %294 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %138
   %295 = load i16, ptr %294, align 2, !tbaa !100
   %296 = zext i16 %295 to i32
   %297 = add nsw i32 %171, %168
@@ -51598,8 +51598,8 @@ define internal fastcc void @put_h264_qpel8_h_lowpass_10(ptr noundef writeonly c
   %138 = trunc nuw nsw i32 %137 to i16
   %139 = getelementptr inbounds nuw i8, ptr %.06596, i64 14
   store i16 %138, ptr %139, align 2, !tbaa !100
-  %140 = getelementptr inbounds i16, ptr %.06596, i64 %7
-  %141 = getelementptr inbounds i16, ptr %.097, i64 %8
+  %140 = getelementptr inbounds [2 x i8], ptr %.06596, i64 %7
+  %141 = getelementptr inbounds [2 x i8], ptr %.097, i64 %8
   %142 = add nuw nsw i32 %.06695, 1
   %exitcond.not = icmp eq i32 %142, 8
   br i1 %exitcond.not, label %143, label %9, !llvm.loop !1404
@@ -51654,42 +51654,42 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_10(ptr noundef writeonly c
   %.0129 = phi i32 [ 0, %4 ], [ %176, %43 ]
   %.097128 = phi ptr [ %0, %4 ], [ %174, %43 ]
   %.098127 = phi ptr [ %1, %4 ], [ %175, %43 ]
-  %44 = getelementptr inbounds i16, ptr %.098127, i64 %8
+  %44 = getelementptr inbounds [2 x i8], ptr %.098127, i64 %8
   %45 = load i16, ptr %44, align 2, !tbaa !100
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i16, ptr %.098127, i64 %10
+  %47 = getelementptr inbounds [2 x i8], ptr %.098127, i64 %10
   %48 = load i16, ptr %47, align 2, !tbaa !100
   %49 = zext i16 %48 to i32
   %50 = load i16, ptr %.098127, align 2, !tbaa !100
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i16, ptr %.098127, i64 %11
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %11
   %53 = load i16, ptr %52, align 2, !tbaa !100
   %54 = zext i16 %53 to i32
-  %55 = getelementptr inbounds nuw i16, ptr %.098127, i64 %13
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %13
   %56 = load i16, ptr %55, align 2, !tbaa !100
   %57 = zext i16 %56 to i32
-  %58 = getelementptr inbounds nuw i16, ptr %.098127, i64 %15
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %15
   %59 = load i16, ptr %58, align 2, !tbaa !100
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw i16, ptr %.098127, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %17
   %62 = load i16, ptr %61, align 2, !tbaa !100
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i16, ptr %.098127, i64 %19
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %19
   %65 = load i16, ptr %64, align 2, !tbaa !100
   %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds nuw i16, ptr %.098127, i64 %21
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %21
   %68 = load i16, ptr %67, align 2, !tbaa !100
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i16, ptr %.098127, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %23
   %71 = load i16, ptr %70, align 2, !tbaa !100
   %72 = zext i16 %71 to i32
-  %73 = getelementptr inbounds nuw i16, ptr %.098127, i64 %25
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %25
   %74 = load i16, ptr %73, align 2, !tbaa !100
   %75 = zext i16 %74 to i32
-  %76 = getelementptr inbounds nuw i16, ptr %.098127, i64 %27
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %27
   %77 = load i16, ptr %76, align 2, !tbaa !100
   %78 = zext i16 %77 to i32
-  %79 = getelementptr inbounds nuw i16, ptr %.098127, i64 %29
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %29
   %80 = load i16, ptr %79, align 2, !tbaa !100
   %81 = zext i16 %80 to i32
   %82 = add nuw nsw i32 %54, %51
@@ -51717,7 +51717,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_10(ptr noundef writeonly c
   %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 1023)
   %103 = trunc nuw nsw i32 %102 to i16
-  %104 = getelementptr inbounds i16, ptr %.097128, i64 %30
+  %104 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %30
   store i16 %103, ptr %104, align 2, !tbaa !100
   %105 = add nuw nsw i32 %60, %57
   %106 = mul nuw nsw i32 %105, 20
@@ -51731,7 +51731,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_10(ptr noundef writeonly c
   %113 = tail call i32 @llvm.smax.i32(i32 %112, i32 0)
   %114 = tail call i32 @llvm.umin.i32(i32 %113, i32 1023)
   %115 = trunc nuw nsw i32 %114 to i16
-  %116 = getelementptr inbounds i16, ptr %.097128, i64 %32
+  %116 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %32
   store i16 %115, ptr %116, align 2, !tbaa !100
   %117 = add nuw nsw i32 %63, %60
   %118 = mul nuw nsw i32 %117, 20
@@ -51745,7 +51745,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_10(ptr noundef writeonly c
   %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 1023)
   %127 = trunc nuw nsw i32 %126 to i16
-  %128 = getelementptr inbounds i16, ptr %.097128, i64 %34
+  %128 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %34
   store i16 %127, ptr %128, align 2, !tbaa !100
   %129 = add nuw nsw i32 %66, %63
   %130 = mul nuw nsw i32 %129, 20
@@ -51759,7 +51759,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_10(ptr noundef writeonly c
   %137 = tail call i32 @llvm.smax.i32(i32 %136, i32 0)
   %138 = tail call i32 @llvm.umin.i32(i32 %137, i32 1023)
   %139 = trunc nuw nsw i32 %138 to i16
-  %140 = getelementptr inbounds i16, ptr %.097128, i64 %36
+  %140 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %36
   store i16 %139, ptr %140, align 2, !tbaa !100
   %141 = add nuw nsw i32 %69, %66
   %142 = mul nuw nsw i32 %141, 20
@@ -51772,7 +51772,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_10(ptr noundef writeonly c
   %148 = tail call i32 @llvm.smax.i32(i32 %147, i32 0)
   %149 = tail call i32 @llvm.umin.i32(i32 %148, i32 1023)
   %150 = trunc nuw nsw i32 %149 to i16
-  %151 = getelementptr inbounds i16, ptr %.097128, i64 %38
+  %151 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %38
   store i16 %150, ptr %151, align 2, !tbaa !100
   %152 = add nuw nsw i32 %72, %69
   %153 = mul nuw nsw i32 %152, 20
@@ -51785,7 +51785,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_10(ptr noundef writeonly c
   %159 = tail call i32 @llvm.smax.i32(i32 %158, i32 0)
   %160 = tail call i32 @llvm.umin.i32(i32 %159, i32 1023)
   %161 = trunc nuw nsw i32 %160 to i16
-  %162 = getelementptr inbounds i16, ptr %.097128, i64 %40
+  %162 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %40
   store i16 %161, ptr %162, align 2, !tbaa !100
   %163 = add nuw nsw i32 %75, %72
   %164 = mul nuw nsw i32 %163, 20
@@ -51798,7 +51798,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_10(ptr noundef writeonly c
   %170 = tail call i32 @llvm.smax.i32(i32 %169, i32 0)
   %171 = tail call i32 @llvm.umin.i32(i32 %170, i32 1023)
   %172 = trunc nuw nsw i32 %171 to i16
-  %173 = getelementptr inbounds i16, ptr %.097128, i64 %42
+  %173 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %42
   store i16 %172, ptr %173, align 2, !tbaa !100
   %174 = getelementptr inbounds nuw i8, ptr %.097128, i64 2
   %175 = getelementptr inbounds nuw i8, ptr %.098127, i64 2
@@ -51816,7 +51816,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef writeonly 
   %8 = and i32 %5, -2
   %9 = sext i32 %8 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i16, ptr %2, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %2, i64 %10
   %12 = zext nneg i32 %4 to i64
   %13 = sext i32 %7 to i64
   br label %14
@@ -51926,8 +51926,8 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef writeonly 
   %98 = add i16 %97, %95
   %99 = getelementptr inbounds nuw i8, ptr %.0205, i64 14
   store i16 %98, ptr %99, align 2, !tbaa !100
-  %100 = getelementptr inbounds nuw i16, ptr %.0205, i64 %12
-  %101 = getelementptr inbounds i16, ptr %.0166203, i64 %13
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %.0205, i64 %12
+  %101 = getelementptr inbounds [2 x i8], ptr %.0166203, i64 %13
   %102 = add nuw nsw i32 %.0163204, 1
   %exitcond.not = icmp eq i32 %102, 13
   br i1 %exitcond.not, label %103, label %14, !llvm.loop !1406
@@ -51937,7 +51937,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef writeonly 
   %105 = mul nuw nsw i32 %4, 11
   %106 = zext nneg i32 %105 to i64
   %107 = sub nsw i64 0, %106
-  %108 = getelementptr inbounds i16, ptr %100, i64 %107
+  %108 = getelementptr inbounds [2 x i8], ptr %100, i64 %107
   %109 = mul nsw i32 %4, -2
   %110 = sext i32 %109 to i64
   %111 = sub nsw i32 0, %4
@@ -51979,53 +51979,53 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef writeonly 
   %.1208 = phi ptr [ %108, %103 ], [ %289, %144 ]
   %.1164207 = phi i32 [ 0, %103 ], [ %290, %144 ]
   %.0165206 = phi ptr [ %0, %103 ], [ %288, %144 ]
-  %145 = getelementptr inbounds i16, ptr %.1208, i64 %110
+  %145 = getelementptr inbounds [2 x i8], ptr %.1208, i64 %110
   %146 = load i16, ptr %145, align 2, !tbaa !100
   %147 = sext i16 %146 to i32
-  %148 = getelementptr inbounds i16, ptr %.1208, i64 %112
+  %148 = getelementptr inbounds [2 x i8], ptr %.1208, i64 %112
   %149 = load i16, ptr %148, align 2, !tbaa !100
   %150 = sext i16 %149 to i32
   %151 = add nsw i32 %150, 10230
   %152 = load i16, ptr %.1208, align 2, !tbaa !100
   %153 = sext i16 %152 to i32
   %154 = add nsw i32 %153, 10230
-  %155 = getelementptr inbounds nuw i16, ptr %.1208, i64 %12
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %12
   %156 = load i16, ptr %155, align 2, !tbaa !100
   %157 = sext i16 %156 to i32
   %158 = add nsw i32 %157, 10230
-  %159 = getelementptr inbounds nuw i16, ptr %.1208, i64 %114
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %114
   %160 = load i16, ptr %159, align 2, !tbaa !100
   %161 = sext i16 %160 to i32
   %162 = add nsw i32 %161, 10230
-  %163 = getelementptr inbounds nuw i16, ptr %.1208, i64 %116
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %116
   %164 = load i16, ptr %163, align 2, !tbaa !100
   %165 = sext i16 %164 to i32
   %166 = add nsw i32 %165, 10230
-  %167 = getelementptr inbounds nuw i16, ptr %.1208, i64 %118
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %118
   %168 = load i16, ptr %167, align 2, !tbaa !100
   %169 = sext i16 %168 to i32
   %170 = add nsw i32 %169, 10230
-  %171 = getelementptr inbounds nuw i16, ptr %.1208, i64 %120
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %120
   %172 = load i16, ptr %171, align 2, !tbaa !100
   %173 = sext i16 %172 to i32
   %174 = add nsw i32 %173, 10230
-  %175 = getelementptr inbounds nuw i16, ptr %.1208, i64 %122
+  %175 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %122
   %176 = load i16, ptr %175, align 2, !tbaa !100
   %177 = sext i16 %176 to i32
   %178 = add nsw i32 %177, 10230
-  %179 = getelementptr inbounds nuw i16, ptr %.1208, i64 %124
+  %179 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %124
   %180 = load i16, ptr %179, align 2, !tbaa !100
   %181 = sext i16 %180 to i32
   %182 = add nsw i32 %181, 10230
-  %183 = getelementptr inbounds nuw i16, ptr %.1208, i64 %126
+  %183 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %126
   %184 = load i16, ptr %183, align 2, !tbaa !100
   %185 = sext i16 %184 to i32
   %186 = add nsw i32 %185, 10230
-  %187 = getelementptr inbounds nuw i16, ptr %.1208, i64 %128
+  %187 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %128
   %188 = load i16, ptr %187, align 2, !tbaa !100
   %189 = sext i16 %188 to i32
   %190 = add nsw i32 %189, 10230
-  %191 = getelementptr inbounds nuw i16, ptr %.1208, i64 %130
+  %191 = getelementptr inbounds nuw [2 x i8], ptr %.1208, i64 %130
   %192 = load i16, ptr %191, align 2, !tbaa !100
   %193 = sext i16 %192 to i32
   %194 = add nsw i32 %158, %154
@@ -52053,7 +52053,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef writeonly 
   %213 = tail call i32 @llvm.smax.i32(i32 %212, i32 0)
   %214 = tail call i32 @llvm.umin.i32(i32 %213, i32 1023)
   %215 = trunc nuw nsw i32 %214 to i16
-  %216 = getelementptr inbounds i16, ptr %.0165206, i64 %131
+  %216 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %131
   store i16 %215, ptr %216, align 2, !tbaa !100
   %217 = add nsw i32 %166, %162
   %218 = mul nsw i32 %217, 20
@@ -52067,7 +52067,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef writeonly 
   %225 = tail call i32 @llvm.smax.i32(i32 %224, i32 0)
   %226 = tail call i32 @llvm.umin.i32(i32 %225, i32 1023)
   %227 = trunc nuw nsw i32 %226 to i16
-  %228 = getelementptr inbounds i16, ptr %.0165206, i64 %133
+  %228 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %133
   store i16 %227, ptr %228, align 2, !tbaa !100
   %229 = add nsw i32 %170, %166
   %230 = mul nsw i32 %229, 20
@@ -52081,7 +52081,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef writeonly 
   %237 = tail call i32 @llvm.smax.i32(i32 %236, i32 0)
   %238 = tail call i32 @llvm.umin.i32(i32 %237, i32 1023)
   %239 = trunc nuw nsw i32 %238 to i16
-  %240 = getelementptr inbounds i16, ptr %.0165206, i64 %135
+  %240 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %135
   store i16 %239, ptr %240, align 2, !tbaa !100
   %241 = add nsw i32 %174, %170
   %242 = mul nsw i32 %241, 20
@@ -52095,7 +52095,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef writeonly 
   %249 = tail call i32 @llvm.smax.i32(i32 %248, i32 0)
   %250 = tail call i32 @llvm.umin.i32(i32 %249, i32 1023)
   %251 = trunc nuw nsw i32 %250 to i16
-  %252 = getelementptr inbounds i16, ptr %.0165206, i64 %137
+  %252 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %137
   store i16 %251, ptr %252, align 2, !tbaa !100
   %253 = add nsw i32 %178, %174
   %254 = mul nsw i32 %253, 20
@@ -52109,7 +52109,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef writeonly 
   %261 = tail call i32 @llvm.smax.i32(i32 %260, i32 0)
   %262 = tail call i32 @llvm.umin.i32(i32 %261, i32 1023)
   %263 = trunc nuw nsw i32 %262 to i16
-  %264 = getelementptr inbounds i16, ptr %.0165206, i64 %139
+  %264 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %139
   store i16 %263, ptr %264, align 2, !tbaa !100
   %265 = add nsw i32 %182, %178
   %266 = mul nsw i32 %265, 20
@@ -52122,7 +52122,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef writeonly 
   %272 = tail call i32 @llvm.smax.i32(i32 %271, i32 0)
   %273 = tail call i32 @llvm.umin.i32(i32 %272, i32 1023)
   %274 = trunc nuw nsw i32 %273 to i16
-  %275 = getelementptr inbounds i16, ptr %.0165206, i64 %141
+  %275 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %141
   store i16 %274, ptr %275, align 2, !tbaa !100
   %276 = add nsw i32 %186, %182
   %277 = mul nsw i32 %276, 20
@@ -52136,7 +52136,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_10(ptr noundef writeonly 
   %284 = tail call i32 @llvm.smax.i32(i32 %283, i32 0)
   %285 = tail call i32 @llvm.umin.i32(i32 %284, i32 1023)
   %286 = trunc nuw nsw i32 %285 to i16
-  %287 = getelementptr inbounds i16, ptr %.0165206, i64 %143
+  %287 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %143
   store i16 %286, ptr %287, align 2, !tbaa !100
   %288 = getelementptr inbounds nuw i8, ptr %.0165206, i64 2
   %289 = getelementptr inbounds nuw i8, ptr %.1208, i64 2
@@ -52241,8 +52241,8 @@ define internal fastcc void @put_h264_qpel4_h_lowpass_10(ptr noundef writeonly c
   %81 = trunc nuw nsw i32 %80 to i16
   %82 = getelementptr inbounds nuw i8, ptr %.03752, i64 6
   store i16 %81, ptr %82, align 2, !tbaa !100
-  %83 = getelementptr inbounds i16, ptr %.03752, i64 %7
-  %84 = getelementptr inbounds i16, ptr %.053, i64 %8
+  %83 = getelementptr inbounds [2 x i8], ptr %.03752, i64 %7
+  %84 = getelementptr inbounds [2 x i8], ptr %.053, i64 %8
   %85 = add nuw nsw i32 %.03851, 1
   %exitcond.not = icmp eq i32 %85, 4
   br i1 %exitcond.not, label %86, label %9, !llvm.loop !1408
@@ -52316,7 +52316,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_10(ptr noundef writeonly c
   %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
   %57 = tail call i32 @llvm.umin.i32(i32 %56, i32 1023)
   %58 = trunc nuw nsw i32 %57 to i16
-  %59 = getelementptr inbounds i16, ptr %.05772, i64 %5
+  %59 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %5
   store i16 %58, ptr %59, align 2, !tbaa !100
   %60 = add nuw nsw i32 %27, %24
   %61 = mul nuw nsw i32 %60, 20
@@ -52330,7 +52330,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_10(ptr noundef writeonly c
   %68 = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
   %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 1023)
   %70 = trunc nuw nsw i32 %69 to i16
-  %71 = getelementptr inbounds i16, ptr %.05772, i64 %7
+  %71 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %7
   store i16 %70, ptr %71, align 2, !tbaa !100
   %72 = add nuw nsw i32 %30, %27
   %73 = mul nuw nsw i32 %72, 20
@@ -52344,7 +52344,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_10(ptr noundef writeonly c
   %80 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
   %81 = tail call i32 @llvm.umin.i32(i32 %80, i32 1023)
   %82 = trunc nuw nsw i32 %81 to i16
-  %83 = getelementptr inbounds i16, ptr %.05772, i64 %9
+  %83 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %9
   store i16 %82, ptr %83, align 2, !tbaa !100
   %84 = getelementptr inbounds nuw i8, ptr %.05772, i64 2
   %85 = getelementptr inbounds nuw i8, ptr %.05871, i64 2
@@ -52362,7 +52362,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_10(ptr noundef writeonly 
   %7 = and i32 %4, -2
   %8 = sext i32 %7 to i64
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %2, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %2, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -52427,7 +52427,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_10(ptr noundef writeonly 
   %60 = getelementptr inbounds nuw i8, ptr %.0117, i64 6
   store i16 %59, ptr %60, align 2, !tbaa !100
   %61 = getelementptr inbounds nuw i8, ptr %.0117, i64 16
-  %62 = getelementptr inbounds i16, ptr %.098115, i64 %11
+  %62 = getelementptr inbounds [2 x i8], ptr %.098115, i64 %11
   %63 = add nuw nsw i32 %.095116, 1
   %exitcond.not = icmp eq i32 %63, 9
   br i1 %exitcond.not, label %64, label %12, !llvm.loop !1410
@@ -52504,7 +52504,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_10(ptr noundef writeonly 
   %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 1023)
   %127 = trunc nuw nsw i32 %126 to i16
-  %128 = getelementptr inbounds i16, ptr %.097118, i64 %67
+  %128 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %67
   store i16 %127, ptr %128, align 2, !tbaa !100
   %129 = add nsw i32 %94, %90
   %130 = mul nsw i32 %129, 20
@@ -52518,7 +52518,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_10(ptr noundef writeonly 
   %137 = tail call i32 @llvm.smax.i32(i32 %136, i32 0)
   %138 = tail call i32 @llvm.umin.i32(i32 %137, i32 1023)
   %139 = trunc nuw nsw i32 %138 to i16
-  %140 = getelementptr inbounds i16, ptr %.097118, i64 %69
+  %140 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %69
   store i16 %139, ptr %140, align 2, !tbaa !100
   %141 = add nsw i32 %98, %94
   %142 = mul nsw i32 %141, 20
@@ -52532,7 +52532,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_10(ptr noundef writeonly 
   %149 = tail call i32 @llvm.smax.i32(i32 %148, i32 0)
   %150 = tail call i32 @llvm.umin.i32(i32 %149, i32 1023)
   %151 = trunc nuw nsw i32 %150 to i16
-  %152 = getelementptr inbounds i16, ptr %.097118, i64 %71
+  %152 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %71
   store i16 %151, ptr %152, align 2, !tbaa !100
   %153 = getelementptr inbounds nuw i8, ptr %.097118, i64 2
   %154 = getelementptr inbounds nuw i8, ptr %.1120, i64 2
@@ -52550,7 +52550,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_10(ptr noundef writeonly 
   %7 = and i32 %4, -2
   %8 = sext i32 %7 to i64
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %2, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %2, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -52591,7 +52591,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_10(ptr noundef writeonly 
   %40 = getelementptr inbounds nuw i8, ptr %.073, i64 2
   store i16 %39, ptr %40, align 2, !tbaa !100
   %41 = getelementptr inbounds nuw i8, ptr %.073, i64 8
-  %42 = getelementptr inbounds i16, ptr %.06471, i64 %11
+  %42 = getelementptr inbounds [2 x i8], ptr %.06471, i64 %11
   %43 = add nuw nsw i32 %.06172, 1
   %exitcond.not = icmp eq i32 %43, 7
   br i1 %exitcond.not, label %44, label %12, !llvm.loop !1412
@@ -52656,7 +52656,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_10(ptr noundef writeonly 
   %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
   %95 = tail call i32 @llvm.umin.i32(i32 %94, i32 1023)
   %96 = trunc nuw nsw i32 %95 to i16
-  %97 = getelementptr inbounds i16, ptr %.06374, i64 %47
+  %97 = getelementptr inbounds [2 x i8], ptr %.06374, i64 %47
   store i16 %96, ptr %97, align 2, !tbaa !100
   %98 = getelementptr inbounds nuw i8, ptr %.06374, i64 2
   %99 = getelementptr inbounds nuw i8, ptr %.176, i64 2
@@ -52868,8 +52868,8 @@ define internal fastcc void @avg_h264_qpel8_h_lowpass_10(ptr noundef captures(no
   %177 = lshr i32 %176, 1
   %178 = trunc nuw i32 %177 to i16
   store i16 %178, ptr %160, align 2, !tbaa !100
-  %179 = getelementptr inbounds i16, ptr %.073104.lver.orig, i64 %6
-  %180 = getelementptr inbounds i16, ptr %.0105.lver.orig, i64 %7
+  %179 = getelementptr inbounds [2 x i8], ptr %.073104.lver.orig, i64 %6
+  %180 = getelementptr inbounds [2 x i8], ptr %.0105.lver.orig, i64 %7
   %181 = add nuw nsw i32 %.074103.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %181, 8
   br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !1414
@@ -53069,8 +53069,8 @@ define internal fastcc void @avg_h264_qpel8_h_lowpass_10(ptr noundef captures(no
   %350 = lshr i32 %349, 1
   %351 = trunc nuw i32 %350 to i16
   store i16 %351, ptr %333, align 2, !tbaa !100
-  %352 = getelementptr inbounds nuw i16, ptr %.073104, i64 %6
-  %353 = getelementptr inbounds nuw i16, ptr %.0105, i64 %7
+  %352 = getelementptr inbounds nuw [2 x i8], ptr %.073104, i64 %6
+  %353 = getelementptr inbounds nuw [2 x i8], ptr %.0105, i64 %7
   %354 = add nuw nsw i32 %.074103, 1
   %exitcond.not = icmp eq i32 %354, 8
   br i1 %exitcond.not, label %.loopexit, label %182, !llvm.loop !1414
@@ -53125,42 +53125,42 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_10(ptr noundef captures(no
   %.0145 = phi i32 [ 0, %4 ], [ %216, %43 ]
   %.0113144 = phi ptr [ %0, %4 ], [ %214, %43 ]
   %.0114143 = phi ptr [ %1, %4 ], [ %215, %43 ]
-  %44 = getelementptr inbounds i16, ptr %.0114143, i64 %8
+  %44 = getelementptr inbounds [2 x i8], ptr %.0114143, i64 %8
   %45 = load i16, ptr %44, align 2, !tbaa !100
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i16, ptr %.0114143, i64 %10
+  %47 = getelementptr inbounds [2 x i8], ptr %.0114143, i64 %10
   %48 = load i16, ptr %47, align 2, !tbaa !100
   %49 = zext i16 %48 to i32
   %50 = load i16, ptr %.0114143, align 2, !tbaa !100
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %11
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %11
   %53 = load i16, ptr %52, align 2, !tbaa !100
   %54 = zext i16 %53 to i32
-  %55 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %13
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %13
   %56 = load i16, ptr %55, align 2, !tbaa !100
   %57 = zext i16 %56 to i32
-  %58 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %15
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %15
   %59 = load i16, ptr %58, align 2, !tbaa !100
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %17
   %62 = load i16, ptr %61, align 2, !tbaa !100
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %19
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %19
   %65 = load i16, ptr %64, align 2, !tbaa !100
   %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %21
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %21
   %68 = load i16, ptr %67, align 2, !tbaa !100
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %23
   %71 = load i16, ptr %70, align 2, !tbaa !100
   %72 = zext i16 %71 to i32
-  %73 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %25
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %25
   %74 = load i16, ptr %73, align 2, !tbaa !100
   %75 = zext i16 %74 to i32
-  %76 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %27
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %27
   %77 = load i16, ptr %76, align 2, !tbaa !100
   %78 = zext i16 %77 to i32
-  %79 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %29
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %29
   %80 = load i16, ptr %79, align 2, !tbaa !100
   %81 = zext i16 %80 to i32
   %82 = load i16, ptr %.0113144, align 2, !tbaa !100
@@ -53181,7 +53181,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_10(ptr noundef captures(no
   %96 = lshr i32 %95, 1
   %97 = trunc nuw i32 %96 to i16
   store i16 %97, ptr %.0113144, align 2, !tbaa !100
-  %98 = getelementptr inbounds i16, ptr %.0113144, i64 %30
+  %98 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %30
   %99 = load i16, ptr %98, align 2, !tbaa !100
   %100 = zext i16 %99 to i32
   %101 = add nuw nsw i32 %57, %54
@@ -53200,7 +53200,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_10(ptr noundef captures(no
   %113 = lshr i32 %112, 1
   %114 = trunc nuw i32 %113 to i16
   store i16 %114, ptr %98, align 2, !tbaa !100
-  %115 = getelementptr inbounds i16, ptr %.0113144, i64 %32
+  %115 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %32
   %116 = load i16, ptr %115, align 2, !tbaa !100
   %117 = zext i16 %116 to i32
   %118 = add nuw nsw i32 %60, %57
@@ -53219,7 +53219,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_10(ptr noundef captures(no
   %130 = lshr i32 %129, 1
   %131 = trunc nuw i32 %130 to i16
   store i16 %131, ptr %115, align 2, !tbaa !100
-  %132 = getelementptr inbounds i16, ptr %.0113144, i64 %34
+  %132 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %34
   %133 = load i16, ptr %132, align 2, !tbaa !100
   %134 = zext i16 %133 to i32
   %135 = add nuw nsw i32 %63, %60
@@ -53238,7 +53238,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_10(ptr noundef captures(no
   %147 = lshr i32 %146, 1
   %148 = trunc nuw i32 %147 to i16
   store i16 %148, ptr %132, align 2, !tbaa !100
-  %149 = getelementptr inbounds i16, ptr %.0113144, i64 %36
+  %149 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %36
   %150 = load i16, ptr %149, align 2, !tbaa !100
   %151 = zext i16 %150 to i32
   %152 = add nuw nsw i32 %66, %63
@@ -53257,7 +53257,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_10(ptr noundef captures(no
   %164 = lshr i32 %163, 1
   %165 = trunc nuw i32 %164 to i16
   store i16 %165, ptr %149, align 2, !tbaa !100
-  %166 = getelementptr inbounds i16, ptr %.0113144, i64 %38
+  %166 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %38
   %167 = load i16, ptr %166, align 2, !tbaa !100
   %168 = zext i16 %167 to i32
   %169 = add nuw nsw i32 %69, %66
@@ -53275,7 +53275,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_10(ptr noundef captures(no
   %180 = lshr i32 %179, 1
   %181 = trunc nuw i32 %180 to i16
   store i16 %181, ptr %166, align 2, !tbaa !100
-  %182 = getelementptr inbounds i16, ptr %.0113144, i64 %40
+  %182 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %40
   %183 = load i16, ptr %182, align 2, !tbaa !100
   %184 = zext i16 %183 to i32
   %185 = add nuw nsw i32 %72, %69
@@ -53293,7 +53293,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_10(ptr noundef captures(no
   %196 = lshr i32 %195, 1
   %197 = trunc nuw i32 %196 to i16
   store i16 %197, ptr %182, align 2, !tbaa !100
-  %198 = getelementptr inbounds i16, ptr %.0113144, i64 %42
+  %198 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %42
   %199 = load i16, ptr %198, align 2, !tbaa !100
   %200 = zext i16 %199 to i32
   %201 = add nuw nsw i32 %75, %72
@@ -53327,7 +53327,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef captures(n
   %8 = and i32 %5, -2
   %9 = sext i32 %8 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i16, ptr %2, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %2, i64 %10
   %12 = zext nneg i32 %4 to i64
   %13 = sext i32 %7 to i64
   br label %14
@@ -53437,8 +53437,8 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef captures(n
   %98 = add i16 %97, %95
   %99 = getelementptr inbounds nuw i8, ptr %.0221, i64 14
   store i16 %98, ptr %99, align 2, !tbaa !100
-  %100 = getelementptr inbounds nuw i16, ptr %.0221, i64 %12
-  %101 = getelementptr inbounds i16, ptr %.0182219, i64 %13
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %.0221, i64 %12
+  %101 = getelementptr inbounds [2 x i8], ptr %.0182219, i64 %13
   %102 = add nuw nsw i32 %.0179220, 1
   %exitcond.not = icmp eq i32 %102, 13
   br i1 %exitcond.not, label %103, label %14, !llvm.loop !1416
@@ -53448,7 +53448,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef captures(n
   %105 = mul nuw nsw i32 %4, 11
   %106 = zext nneg i32 %105 to i64
   %107 = sub nsw i64 0, %106
-  %108 = getelementptr inbounds i16, ptr %100, i64 %107
+  %108 = getelementptr inbounds [2 x i8], ptr %100, i64 %107
   %109 = mul nsw i32 %4, -2
   %110 = sext i32 %109 to i64
   %111 = sub nsw i32 0, %4
@@ -53490,53 +53490,53 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef captures(n
   %.1224 = phi ptr [ %108, %103 ], [ %329, %144 ]
   %.1180223 = phi i32 [ 0, %103 ], [ %330, %144 ]
   %.0181222 = phi ptr [ %0, %103 ], [ %328, %144 ]
-  %145 = getelementptr inbounds i16, ptr %.1224, i64 %110
+  %145 = getelementptr inbounds [2 x i8], ptr %.1224, i64 %110
   %146 = load i16, ptr %145, align 2, !tbaa !100
   %147 = sext i16 %146 to i32
-  %148 = getelementptr inbounds i16, ptr %.1224, i64 %112
+  %148 = getelementptr inbounds [2 x i8], ptr %.1224, i64 %112
   %149 = load i16, ptr %148, align 2, !tbaa !100
   %150 = sext i16 %149 to i32
   %151 = add nsw i32 %150, 10230
   %152 = load i16, ptr %.1224, align 2, !tbaa !100
   %153 = sext i16 %152 to i32
   %154 = add nsw i32 %153, 10230
-  %155 = getelementptr inbounds nuw i16, ptr %.1224, i64 %12
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %12
   %156 = load i16, ptr %155, align 2, !tbaa !100
   %157 = sext i16 %156 to i32
   %158 = add nsw i32 %157, 10230
-  %159 = getelementptr inbounds nuw i16, ptr %.1224, i64 %114
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %114
   %160 = load i16, ptr %159, align 2, !tbaa !100
   %161 = sext i16 %160 to i32
   %162 = add nsw i32 %161, 10230
-  %163 = getelementptr inbounds nuw i16, ptr %.1224, i64 %116
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %116
   %164 = load i16, ptr %163, align 2, !tbaa !100
   %165 = sext i16 %164 to i32
   %166 = add nsw i32 %165, 10230
-  %167 = getelementptr inbounds nuw i16, ptr %.1224, i64 %118
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %118
   %168 = load i16, ptr %167, align 2, !tbaa !100
   %169 = sext i16 %168 to i32
   %170 = add nsw i32 %169, 10230
-  %171 = getelementptr inbounds nuw i16, ptr %.1224, i64 %120
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %120
   %172 = load i16, ptr %171, align 2, !tbaa !100
   %173 = sext i16 %172 to i32
   %174 = add nsw i32 %173, 10230
-  %175 = getelementptr inbounds nuw i16, ptr %.1224, i64 %122
+  %175 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %122
   %176 = load i16, ptr %175, align 2, !tbaa !100
   %177 = sext i16 %176 to i32
   %178 = add nsw i32 %177, 10230
-  %179 = getelementptr inbounds nuw i16, ptr %.1224, i64 %124
+  %179 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %124
   %180 = load i16, ptr %179, align 2, !tbaa !100
   %181 = sext i16 %180 to i32
   %182 = add nsw i32 %181, 10230
-  %183 = getelementptr inbounds nuw i16, ptr %.1224, i64 %126
+  %183 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %126
   %184 = load i16, ptr %183, align 2, !tbaa !100
   %185 = sext i16 %184 to i32
   %186 = add nsw i32 %185, 10230
-  %187 = getelementptr inbounds nuw i16, ptr %.1224, i64 %128
+  %187 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %128
   %188 = load i16, ptr %187, align 2, !tbaa !100
   %189 = sext i16 %188 to i32
   %190 = add nsw i32 %189, 10230
-  %191 = getelementptr inbounds nuw i16, ptr %.1224, i64 %130
+  %191 = getelementptr inbounds nuw [2 x i8], ptr %.1224, i64 %130
   %192 = load i16, ptr %191, align 2, !tbaa !100
   %193 = sext i16 %192 to i32
   %194 = load i16, ptr %.0181222, align 2, !tbaa !100
@@ -53557,7 +53557,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef captures(n
   %208 = lshr i32 %207, 1
   %209 = trunc nuw i32 %208 to i16
   store i16 %209, ptr %.0181222, align 2, !tbaa !100
-  %210 = getelementptr inbounds i16, ptr %.0181222, i64 %131
+  %210 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %131
   %211 = load i16, ptr %210, align 2, !tbaa !100
   %212 = zext i16 %211 to i32
   %213 = add nsw i32 %162, %158
@@ -53576,7 +53576,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef captures(n
   %225 = lshr i32 %224, 1
   %226 = trunc nuw i32 %225 to i16
   store i16 %226, ptr %210, align 2, !tbaa !100
-  %227 = getelementptr inbounds i16, ptr %.0181222, i64 %133
+  %227 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %133
   %228 = load i16, ptr %227, align 2, !tbaa !100
   %229 = zext i16 %228 to i32
   %230 = add nsw i32 %166, %162
@@ -53595,7 +53595,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef captures(n
   %242 = lshr i32 %241, 1
   %243 = trunc nuw i32 %242 to i16
   store i16 %243, ptr %227, align 2, !tbaa !100
-  %244 = getelementptr inbounds i16, ptr %.0181222, i64 %135
+  %244 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %135
   %245 = load i16, ptr %244, align 2, !tbaa !100
   %246 = zext i16 %245 to i32
   %247 = add nsw i32 %170, %166
@@ -53614,7 +53614,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef captures(n
   %259 = lshr i32 %258, 1
   %260 = trunc nuw i32 %259 to i16
   store i16 %260, ptr %244, align 2, !tbaa !100
-  %261 = getelementptr inbounds i16, ptr %.0181222, i64 %137
+  %261 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %137
   %262 = load i16, ptr %261, align 2, !tbaa !100
   %263 = zext i16 %262 to i32
   %264 = add nsw i32 %174, %170
@@ -53633,7 +53633,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef captures(n
   %276 = lshr i32 %275, 1
   %277 = trunc nuw i32 %276 to i16
   store i16 %277, ptr %261, align 2, !tbaa !100
-  %278 = getelementptr inbounds i16, ptr %.0181222, i64 %139
+  %278 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %139
   %279 = load i16, ptr %278, align 2, !tbaa !100
   %280 = zext i16 %279 to i32
   %281 = add nsw i32 %178, %174
@@ -53652,7 +53652,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef captures(n
   %293 = lshr i32 %292, 1
   %294 = trunc nuw i32 %293 to i16
   store i16 %294, ptr %278, align 2, !tbaa !100
-  %295 = getelementptr inbounds i16, ptr %.0181222, i64 %141
+  %295 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %141
   %296 = load i16, ptr %295, align 2, !tbaa !100
   %297 = zext i16 %296 to i32
   %298 = add nsw i32 %182, %178
@@ -53670,7 +53670,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_10(ptr noundef captures(n
   %309 = lshr i32 %308, 1
   %310 = trunc nuw i32 %309 to i16
   store i16 %310, ptr %295, align 2, !tbaa !100
-  %311 = getelementptr inbounds i16, ptr %.0181222, i64 %143
+  %311 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %143
   %312 = load i16, ptr %311, align 2, !tbaa !100
   %313 = zext i16 %312 to i32
   %314 = add nsw i32 %186, %182
@@ -53857,8 +53857,8 @@ define internal fastcc void @put_h264_qpel8_h_lowpass_12(ptr noundef writeonly c
   %138 = trunc nuw nsw i32 %137 to i16
   %139 = getelementptr inbounds nuw i8, ptr %.06596, i64 14
   store i16 %138, ptr %139, align 2, !tbaa !100
-  %140 = getelementptr inbounds i16, ptr %.06596, i64 %7
-  %141 = getelementptr inbounds i16, ptr %.097, i64 %8
+  %140 = getelementptr inbounds [2 x i8], ptr %.06596, i64 %7
+  %141 = getelementptr inbounds [2 x i8], ptr %.097, i64 %8
   %142 = add nuw nsw i32 %.06695, 1
   %exitcond.not = icmp eq i32 %142, 8
   br i1 %exitcond.not, label %143, label %9, !llvm.loop !1418
@@ -53913,42 +53913,42 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_12(ptr noundef writeonly c
   %.0129 = phi i32 [ 0, %4 ], [ %176, %43 ]
   %.097128 = phi ptr [ %0, %4 ], [ %174, %43 ]
   %.098127 = phi ptr [ %1, %4 ], [ %175, %43 ]
-  %44 = getelementptr inbounds i16, ptr %.098127, i64 %8
+  %44 = getelementptr inbounds [2 x i8], ptr %.098127, i64 %8
   %45 = load i16, ptr %44, align 2, !tbaa !100
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i16, ptr %.098127, i64 %10
+  %47 = getelementptr inbounds [2 x i8], ptr %.098127, i64 %10
   %48 = load i16, ptr %47, align 2, !tbaa !100
   %49 = zext i16 %48 to i32
   %50 = load i16, ptr %.098127, align 2, !tbaa !100
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i16, ptr %.098127, i64 %11
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %11
   %53 = load i16, ptr %52, align 2, !tbaa !100
   %54 = zext i16 %53 to i32
-  %55 = getelementptr inbounds nuw i16, ptr %.098127, i64 %13
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %13
   %56 = load i16, ptr %55, align 2, !tbaa !100
   %57 = zext i16 %56 to i32
-  %58 = getelementptr inbounds nuw i16, ptr %.098127, i64 %15
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %15
   %59 = load i16, ptr %58, align 2, !tbaa !100
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw i16, ptr %.098127, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %17
   %62 = load i16, ptr %61, align 2, !tbaa !100
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i16, ptr %.098127, i64 %19
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %19
   %65 = load i16, ptr %64, align 2, !tbaa !100
   %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds nuw i16, ptr %.098127, i64 %21
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %21
   %68 = load i16, ptr %67, align 2, !tbaa !100
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i16, ptr %.098127, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %23
   %71 = load i16, ptr %70, align 2, !tbaa !100
   %72 = zext i16 %71 to i32
-  %73 = getelementptr inbounds nuw i16, ptr %.098127, i64 %25
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %25
   %74 = load i16, ptr %73, align 2, !tbaa !100
   %75 = zext i16 %74 to i32
-  %76 = getelementptr inbounds nuw i16, ptr %.098127, i64 %27
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %27
   %77 = load i16, ptr %76, align 2, !tbaa !100
   %78 = zext i16 %77 to i32
-  %79 = getelementptr inbounds nuw i16, ptr %.098127, i64 %29
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %29
   %80 = load i16, ptr %79, align 2, !tbaa !100
   %81 = zext i16 %80 to i32
   %82 = add nuw nsw i32 %54, %51
@@ -53976,7 +53976,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_12(ptr noundef writeonly c
   %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 4095)
   %103 = trunc nuw nsw i32 %102 to i16
-  %104 = getelementptr inbounds i16, ptr %.097128, i64 %30
+  %104 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %30
   store i16 %103, ptr %104, align 2, !tbaa !100
   %105 = add nuw nsw i32 %60, %57
   %106 = mul nuw nsw i32 %105, 20
@@ -53990,7 +53990,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_12(ptr noundef writeonly c
   %113 = tail call i32 @llvm.smax.i32(i32 %112, i32 0)
   %114 = tail call i32 @llvm.umin.i32(i32 %113, i32 4095)
   %115 = trunc nuw nsw i32 %114 to i16
-  %116 = getelementptr inbounds i16, ptr %.097128, i64 %32
+  %116 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %32
   store i16 %115, ptr %116, align 2, !tbaa !100
   %117 = add nuw nsw i32 %63, %60
   %118 = mul nuw nsw i32 %117, 20
@@ -54004,7 +54004,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_12(ptr noundef writeonly c
   %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 4095)
   %127 = trunc nuw nsw i32 %126 to i16
-  %128 = getelementptr inbounds i16, ptr %.097128, i64 %34
+  %128 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %34
   store i16 %127, ptr %128, align 2, !tbaa !100
   %129 = add nuw nsw i32 %66, %63
   %130 = mul nuw nsw i32 %129, 20
@@ -54018,7 +54018,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_12(ptr noundef writeonly c
   %137 = tail call i32 @llvm.smax.i32(i32 %136, i32 0)
   %138 = tail call i32 @llvm.umin.i32(i32 %137, i32 4095)
   %139 = trunc nuw nsw i32 %138 to i16
-  %140 = getelementptr inbounds i16, ptr %.097128, i64 %36
+  %140 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %36
   store i16 %139, ptr %140, align 2, !tbaa !100
   %141 = add nuw nsw i32 %69, %66
   %142 = mul nuw nsw i32 %141, 20
@@ -54031,7 +54031,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_12(ptr noundef writeonly c
   %148 = tail call i32 @llvm.smax.i32(i32 %147, i32 0)
   %149 = tail call i32 @llvm.umin.i32(i32 %148, i32 4095)
   %150 = trunc nuw nsw i32 %149 to i16
-  %151 = getelementptr inbounds i16, ptr %.097128, i64 %38
+  %151 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %38
   store i16 %150, ptr %151, align 2, !tbaa !100
   %152 = add nuw nsw i32 %72, %69
   %153 = mul nuw nsw i32 %152, 20
@@ -54044,7 +54044,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_12(ptr noundef writeonly c
   %159 = tail call i32 @llvm.smax.i32(i32 %158, i32 0)
   %160 = tail call i32 @llvm.umin.i32(i32 %159, i32 4095)
   %161 = trunc nuw nsw i32 %160 to i16
-  %162 = getelementptr inbounds i16, ptr %.097128, i64 %40
+  %162 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %40
   store i16 %161, ptr %162, align 2, !tbaa !100
   %163 = add nuw nsw i32 %75, %72
   %164 = mul nuw nsw i32 %163, 20
@@ -54057,7 +54057,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_12(ptr noundef writeonly c
   %170 = tail call i32 @llvm.smax.i32(i32 %169, i32 0)
   %171 = tail call i32 @llvm.umin.i32(i32 %170, i32 4095)
   %172 = trunc nuw nsw i32 %171 to i16
-  %173 = getelementptr inbounds i16, ptr %.097128, i64 %42
+  %173 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %42
   store i16 %172, ptr %173, align 2, !tbaa !100
   %174 = getelementptr inbounds nuw i8, ptr %.097128, i64 2
   %175 = getelementptr inbounds nuw i8, ptr %.098127, i64 2
@@ -54075,7 +54075,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef writeonly 
   %8 = and i32 %5, -2
   %9 = sext i32 %8 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i16, ptr %2, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %2, i64 %10
   %12 = zext nneg i32 %4 to i64
   %13 = sext i32 %7 to i64
   br label %14
@@ -54193,8 +54193,8 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef writeonly 
   %106 = add nsw i32 %105, %103
   %107 = getelementptr inbounds nuw i8, ptr %.0205, i64 28
   store i32 %106, ptr %107, align 4, !tbaa !9
-  %108 = getelementptr inbounds nuw i32, ptr %.0205, i64 %12
-  %109 = getelementptr inbounds i16, ptr %.0166203, i64 %13
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.0205, i64 %12
+  %109 = getelementptr inbounds [2 x i8], ptr %.0166203, i64 %13
   %110 = add nuw nsw i32 %.0163204, 1
   %exitcond.not = icmp eq i32 %110, 13
   br i1 %exitcond.not, label %111, label %14, !llvm.loop !1420
@@ -54204,7 +54204,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef writeonly 
   %113 = mul nuw nsw i32 %4, 11
   %114 = zext nneg i32 %113 to i64
   %115 = sub nsw i64 0, %114
-  %116 = getelementptr inbounds i32, ptr %108, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %108, i64 %115
   %117 = mul nsw i32 %4, -2
   %118 = sext i32 %117 to i64
   %119 = sub nsw i32 0, %4
@@ -54246,30 +54246,30 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef writeonly 
   %.1208 = phi ptr [ %116, %111 ], [ %271, %152 ]
   %.1164207 = phi i32 [ 0, %111 ], [ %272, %152 ]
   %.0165206 = phi ptr [ %0, %111 ], [ %270, %152 ]
-  %153 = getelementptr inbounds i32, ptr %.1208, i64 %118
+  %153 = getelementptr inbounds [4 x i8], ptr %.1208, i64 %118
   %154 = load i32, ptr %153, align 4, !tbaa !9
-  %155 = getelementptr inbounds i32, ptr %.1208, i64 %120
+  %155 = getelementptr inbounds [4 x i8], ptr %.1208, i64 %120
   %156 = load i32, ptr %155, align 4, !tbaa !9
   %157 = load i32, ptr %.1208, align 4, !tbaa !9
-  %158 = getelementptr inbounds nuw i32, ptr %.1208, i64 %12
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %12
   %159 = load i32, ptr %158, align 4, !tbaa !9
-  %160 = getelementptr inbounds nuw i32, ptr %.1208, i64 %122
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %122
   %161 = load i32, ptr %160, align 4, !tbaa !9
-  %162 = getelementptr inbounds nuw i32, ptr %.1208, i64 %124
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %124
   %163 = load i32, ptr %162, align 4, !tbaa !9
-  %164 = getelementptr inbounds nuw i32, ptr %.1208, i64 %126
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %126
   %165 = load i32, ptr %164, align 4, !tbaa !9
-  %166 = getelementptr inbounds nuw i32, ptr %.1208, i64 %128
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %128
   %167 = load i32, ptr %166, align 4, !tbaa !9
-  %168 = getelementptr inbounds nuw i32, ptr %.1208, i64 %130
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %130
   %169 = load i32, ptr %168, align 4, !tbaa !9
-  %170 = getelementptr inbounds nuw i32, ptr %.1208, i64 %132
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %132
   %171 = load i32, ptr %170, align 4, !tbaa !9
-  %172 = getelementptr inbounds nuw i32, ptr %.1208, i64 %134
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %134
   %173 = load i32, ptr %172, align 4, !tbaa !9
-  %174 = getelementptr inbounds nuw i32, ptr %.1208, i64 %136
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %136
   %175 = load i32, ptr %174, align 4, !tbaa !9
-  %176 = getelementptr inbounds nuw i32, ptr %.1208, i64 %138
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %138
   %177 = load i32, ptr %176, align 4, !tbaa !9
   %178 = add nsw i32 %159, %157
   %179 = mul nsw i32 %178, 20
@@ -54296,7 +54296,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef writeonly 
   %197 = tail call i32 @llvm.smax.i32(i32 %196, i32 0)
   %198 = tail call i32 @llvm.umin.i32(i32 %197, i32 4095)
   %199 = trunc nuw nsw i32 %198 to i16
-  %200 = getelementptr inbounds i16, ptr %.0165206, i64 %139
+  %200 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %139
   store i16 %199, ptr %200, align 2, !tbaa !100
   %201 = add nsw i32 %163, %161
   %202 = mul nsw i32 %201, 20
@@ -54310,7 +54310,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef writeonly 
   %209 = tail call i32 @llvm.smax.i32(i32 %208, i32 0)
   %210 = tail call i32 @llvm.umin.i32(i32 %209, i32 4095)
   %211 = trunc nuw nsw i32 %210 to i16
-  %212 = getelementptr inbounds i16, ptr %.0165206, i64 %141
+  %212 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %141
   store i16 %211, ptr %212, align 2, !tbaa !100
   %213 = add nsw i32 %165, %163
   %214 = mul nsw i32 %213, 20
@@ -54324,7 +54324,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef writeonly 
   %221 = tail call i32 @llvm.smax.i32(i32 %220, i32 0)
   %222 = tail call i32 @llvm.umin.i32(i32 %221, i32 4095)
   %223 = trunc nuw nsw i32 %222 to i16
-  %224 = getelementptr inbounds i16, ptr %.0165206, i64 %143
+  %224 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %143
   store i16 %223, ptr %224, align 2, !tbaa !100
   %225 = add nsw i32 %167, %165
   %226 = mul nsw i32 %225, 20
@@ -54338,7 +54338,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef writeonly 
   %233 = tail call i32 @llvm.smax.i32(i32 %232, i32 0)
   %234 = tail call i32 @llvm.umin.i32(i32 %233, i32 4095)
   %235 = trunc nuw nsw i32 %234 to i16
-  %236 = getelementptr inbounds i16, ptr %.0165206, i64 %145
+  %236 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %145
   store i16 %235, ptr %236, align 2, !tbaa !100
   %237 = add nsw i32 %169, %167
   %238 = mul nsw i32 %237, 20
@@ -54351,7 +54351,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef writeonly 
   %244 = tail call i32 @llvm.smax.i32(i32 %243, i32 0)
   %245 = tail call i32 @llvm.umin.i32(i32 %244, i32 4095)
   %246 = trunc nuw nsw i32 %245 to i16
-  %247 = getelementptr inbounds i16, ptr %.0165206, i64 %147
+  %247 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %147
   store i16 %246, ptr %247, align 2, !tbaa !100
   %248 = add nsw i32 %171, %169
   %249 = mul nsw i32 %248, 20
@@ -54364,7 +54364,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef writeonly 
   %255 = tail call i32 @llvm.smax.i32(i32 %254, i32 0)
   %256 = tail call i32 @llvm.umin.i32(i32 %255, i32 4095)
   %257 = trunc nuw nsw i32 %256 to i16
-  %258 = getelementptr inbounds i16, ptr %.0165206, i64 %149
+  %258 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %149
   store i16 %257, ptr %258, align 2, !tbaa !100
   %259 = add nsw i32 %173, %171
   %260 = mul nsw i32 %259, 20
@@ -54377,7 +54377,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_12(ptr noundef writeonly 
   %266 = tail call i32 @llvm.smax.i32(i32 %265, i32 0)
   %267 = tail call i32 @llvm.umin.i32(i32 %266, i32 4095)
   %268 = trunc nuw nsw i32 %267 to i16
-  %269 = getelementptr inbounds i16, ptr %.0165206, i64 %151
+  %269 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %151
   store i16 %268, ptr %269, align 2, !tbaa !100
   %270 = getelementptr inbounds nuw i8, ptr %.0165206, i64 2
   %271 = getelementptr inbounds nuw i8, ptr %.1208, i64 4
@@ -54482,8 +54482,8 @@ define internal fastcc void @put_h264_qpel4_h_lowpass_12(ptr noundef writeonly c
   %81 = trunc nuw nsw i32 %80 to i16
   %82 = getelementptr inbounds nuw i8, ptr %.03752, i64 6
   store i16 %81, ptr %82, align 2, !tbaa !100
-  %83 = getelementptr inbounds i16, ptr %.03752, i64 %7
-  %84 = getelementptr inbounds i16, ptr %.053, i64 %8
+  %83 = getelementptr inbounds [2 x i8], ptr %.03752, i64 %7
+  %84 = getelementptr inbounds [2 x i8], ptr %.053, i64 %8
   %85 = add nuw nsw i32 %.03851, 1
   %exitcond.not = icmp eq i32 %85, 4
   br i1 %exitcond.not, label %86, label %9, !llvm.loop !1422
@@ -54557,7 +54557,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_12(ptr noundef writeonly c
   %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
   %57 = tail call i32 @llvm.umin.i32(i32 %56, i32 4095)
   %58 = trunc nuw nsw i32 %57 to i16
-  %59 = getelementptr inbounds i16, ptr %.05772, i64 %5
+  %59 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %5
   store i16 %58, ptr %59, align 2, !tbaa !100
   %60 = add nuw nsw i32 %27, %24
   %61 = mul nuw nsw i32 %60, 20
@@ -54571,7 +54571,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_12(ptr noundef writeonly c
   %68 = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
   %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 4095)
   %70 = trunc nuw nsw i32 %69 to i16
-  %71 = getelementptr inbounds i16, ptr %.05772, i64 %7
+  %71 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %7
   store i16 %70, ptr %71, align 2, !tbaa !100
   %72 = add nuw nsw i32 %30, %27
   %73 = mul nuw nsw i32 %72, 20
@@ -54585,7 +54585,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_12(ptr noundef writeonly c
   %80 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
   %81 = tail call i32 @llvm.umin.i32(i32 %80, i32 4095)
   %82 = trunc nuw nsw i32 %81 to i16
-  %83 = getelementptr inbounds i16, ptr %.05772, i64 %9
+  %83 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %9
   store i16 %82, ptr %83, align 2, !tbaa !100
   %84 = getelementptr inbounds nuw i8, ptr %.05772, i64 2
   %85 = getelementptr inbounds nuw i8, ptr %.05871, i64 2
@@ -54603,7 +54603,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_12(ptr noundef writeonly 
   %7 = and i32 %4, -2
   %8 = sext i32 %7 to i64
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %2, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %2, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -54673,7 +54673,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_12(ptr noundef writeonly 
   %65 = getelementptr inbounds nuw i8, ptr %.0117, i64 12
   store i32 %64, ptr %65, align 4, !tbaa !9
   %66 = getelementptr inbounds nuw i8, ptr %.0117, i64 32
-  %67 = getelementptr inbounds i16, ptr %.098115, i64 %11
+  %67 = getelementptr inbounds [2 x i8], ptr %.098115, i64 %11
   %68 = add nuw nsw i32 %.095116, 1
   %exitcond.not = icmp eq i32 %68, 9
   br i1 %exitcond.not, label %69, label %12, !llvm.loop !1424
@@ -54734,7 +54734,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_12(ptr noundef writeonly 
   %114 = tail call i32 @llvm.smax.i32(i32 %113, i32 0)
   %115 = tail call i32 @llvm.umin.i32(i32 %114, i32 4095)
   %116 = trunc nuw nsw i32 %115 to i16
-  %117 = getelementptr inbounds i16, ptr %.097118, i64 %72
+  %117 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %72
   store i16 %116, ptr %117, align 2, !tbaa !100
   %118 = add nsw i32 %88, %86
   %119 = mul nsw i32 %118, 20
@@ -54748,7 +54748,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_12(ptr noundef writeonly 
   %126 = tail call i32 @llvm.smax.i32(i32 %125, i32 0)
   %127 = tail call i32 @llvm.umin.i32(i32 %126, i32 4095)
   %128 = trunc nuw nsw i32 %127 to i16
-  %129 = getelementptr inbounds i16, ptr %.097118, i64 %74
+  %129 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %74
   store i16 %128, ptr %129, align 2, !tbaa !100
   %130 = add nsw i32 %90, %88
   %131 = mul nsw i32 %130, 20
@@ -54762,7 +54762,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_12(ptr noundef writeonly 
   %138 = tail call i32 @llvm.smax.i32(i32 %137, i32 0)
   %139 = tail call i32 @llvm.umin.i32(i32 %138, i32 4095)
   %140 = trunc nuw nsw i32 %139 to i16
-  %141 = getelementptr inbounds i16, ptr %.097118, i64 %76
+  %141 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %76
   store i16 %140, ptr %141, align 2, !tbaa !100
   %142 = getelementptr inbounds nuw i8, ptr %.097118, i64 2
   %143 = getelementptr inbounds nuw i8, ptr %.1120, i64 4
@@ -54780,7 +54780,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_12(ptr noundef writeonly 
   %7 = and i32 %4, -2
   %8 = sext i32 %7 to i64
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %2, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %2, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -54826,7 +54826,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_12(ptr noundef writeonly 
   %45 = getelementptr inbounds nuw i8, ptr %.073, i64 4
   store i32 %44, ptr %45, align 4, !tbaa !9
   %46 = getelementptr inbounds nuw i8, ptr %.073, i64 16
-  %47 = getelementptr inbounds i16, ptr %.06471, i64 %11
+  %47 = getelementptr inbounds [2 x i8], ptr %.06471, i64 %11
   %48 = add nuw nsw i32 %.06172, 1
   %exitcond.not = icmp eq i32 %48, 7
   br i1 %exitcond.not, label %49, label %12, !llvm.loop !1426
@@ -54879,7 +54879,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_12(ptr noundef writeonly 
   %87 = tail call i32 @llvm.smax.i32(i32 %86, i32 0)
   %88 = tail call i32 @llvm.umin.i32(i32 %87, i32 4095)
   %89 = trunc nuw nsw i32 %88 to i16
-  %90 = getelementptr inbounds i16, ptr %.06374, i64 %52
+  %90 = getelementptr inbounds [2 x i8], ptr %.06374, i64 %52
   store i16 %89, ptr %90, align 2, !tbaa !100
   %91 = getelementptr inbounds nuw i8, ptr %.06374, i64 2
   %92 = getelementptr inbounds nuw i8, ptr %.176, i64 4
@@ -55091,8 +55091,8 @@ define internal fastcc void @avg_h264_qpel8_h_lowpass_12(ptr noundef captures(no
   %177 = lshr i32 %176, 1
   %178 = trunc nuw i32 %177 to i16
   store i16 %178, ptr %160, align 2, !tbaa !100
-  %179 = getelementptr inbounds i16, ptr %.073104.lver.orig, i64 %6
-  %180 = getelementptr inbounds i16, ptr %.0105.lver.orig, i64 %7
+  %179 = getelementptr inbounds [2 x i8], ptr %.073104.lver.orig, i64 %6
+  %180 = getelementptr inbounds [2 x i8], ptr %.0105.lver.orig, i64 %7
   %181 = add nuw nsw i32 %.074103.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %181, 8
   br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !1428
@@ -55292,8 +55292,8 @@ define internal fastcc void @avg_h264_qpel8_h_lowpass_12(ptr noundef captures(no
   %350 = lshr i32 %349, 1
   %351 = trunc nuw i32 %350 to i16
   store i16 %351, ptr %333, align 2, !tbaa !100
-  %352 = getelementptr inbounds nuw i16, ptr %.073104, i64 %6
-  %353 = getelementptr inbounds nuw i16, ptr %.0105, i64 %7
+  %352 = getelementptr inbounds nuw [2 x i8], ptr %.073104, i64 %6
+  %353 = getelementptr inbounds nuw [2 x i8], ptr %.0105, i64 %7
   %354 = add nuw nsw i32 %.074103, 1
   %exitcond.not = icmp eq i32 %354, 8
   br i1 %exitcond.not, label %.loopexit, label %182, !llvm.loop !1428
@@ -55348,42 +55348,42 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_12(ptr noundef captures(no
   %.0145 = phi i32 [ 0, %4 ], [ %216, %43 ]
   %.0113144 = phi ptr [ %0, %4 ], [ %214, %43 ]
   %.0114143 = phi ptr [ %1, %4 ], [ %215, %43 ]
-  %44 = getelementptr inbounds i16, ptr %.0114143, i64 %8
+  %44 = getelementptr inbounds [2 x i8], ptr %.0114143, i64 %8
   %45 = load i16, ptr %44, align 2, !tbaa !100
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i16, ptr %.0114143, i64 %10
+  %47 = getelementptr inbounds [2 x i8], ptr %.0114143, i64 %10
   %48 = load i16, ptr %47, align 2, !tbaa !100
   %49 = zext i16 %48 to i32
   %50 = load i16, ptr %.0114143, align 2, !tbaa !100
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %11
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %11
   %53 = load i16, ptr %52, align 2, !tbaa !100
   %54 = zext i16 %53 to i32
-  %55 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %13
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %13
   %56 = load i16, ptr %55, align 2, !tbaa !100
   %57 = zext i16 %56 to i32
-  %58 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %15
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %15
   %59 = load i16, ptr %58, align 2, !tbaa !100
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %17
   %62 = load i16, ptr %61, align 2, !tbaa !100
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %19
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %19
   %65 = load i16, ptr %64, align 2, !tbaa !100
   %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %21
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %21
   %68 = load i16, ptr %67, align 2, !tbaa !100
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %23
   %71 = load i16, ptr %70, align 2, !tbaa !100
   %72 = zext i16 %71 to i32
-  %73 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %25
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %25
   %74 = load i16, ptr %73, align 2, !tbaa !100
   %75 = zext i16 %74 to i32
-  %76 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %27
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %27
   %77 = load i16, ptr %76, align 2, !tbaa !100
   %78 = zext i16 %77 to i32
-  %79 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %29
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %29
   %80 = load i16, ptr %79, align 2, !tbaa !100
   %81 = zext i16 %80 to i32
   %82 = load i16, ptr %.0113144, align 2, !tbaa !100
@@ -55404,7 +55404,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_12(ptr noundef captures(no
   %96 = lshr i32 %95, 1
   %97 = trunc nuw i32 %96 to i16
   store i16 %97, ptr %.0113144, align 2, !tbaa !100
-  %98 = getelementptr inbounds i16, ptr %.0113144, i64 %30
+  %98 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %30
   %99 = load i16, ptr %98, align 2, !tbaa !100
   %100 = zext i16 %99 to i32
   %101 = add nuw nsw i32 %57, %54
@@ -55423,7 +55423,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_12(ptr noundef captures(no
   %113 = lshr i32 %112, 1
   %114 = trunc nuw i32 %113 to i16
   store i16 %114, ptr %98, align 2, !tbaa !100
-  %115 = getelementptr inbounds i16, ptr %.0113144, i64 %32
+  %115 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %32
   %116 = load i16, ptr %115, align 2, !tbaa !100
   %117 = zext i16 %116 to i32
   %118 = add nuw nsw i32 %60, %57
@@ -55442,7 +55442,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_12(ptr noundef captures(no
   %130 = lshr i32 %129, 1
   %131 = trunc nuw i32 %130 to i16
   store i16 %131, ptr %115, align 2, !tbaa !100
-  %132 = getelementptr inbounds i16, ptr %.0113144, i64 %34
+  %132 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %34
   %133 = load i16, ptr %132, align 2, !tbaa !100
   %134 = zext i16 %133 to i32
   %135 = add nuw nsw i32 %63, %60
@@ -55461,7 +55461,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_12(ptr noundef captures(no
   %147 = lshr i32 %146, 1
   %148 = trunc nuw i32 %147 to i16
   store i16 %148, ptr %132, align 2, !tbaa !100
-  %149 = getelementptr inbounds i16, ptr %.0113144, i64 %36
+  %149 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %36
   %150 = load i16, ptr %149, align 2, !tbaa !100
   %151 = zext i16 %150 to i32
   %152 = add nuw nsw i32 %66, %63
@@ -55480,7 +55480,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_12(ptr noundef captures(no
   %164 = lshr i32 %163, 1
   %165 = trunc nuw i32 %164 to i16
   store i16 %165, ptr %149, align 2, !tbaa !100
-  %166 = getelementptr inbounds i16, ptr %.0113144, i64 %38
+  %166 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %38
   %167 = load i16, ptr %166, align 2, !tbaa !100
   %168 = zext i16 %167 to i32
   %169 = add nuw nsw i32 %69, %66
@@ -55498,7 +55498,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_12(ptr noundef captures(no
   %180 = lshr i32 %179, 1
   %181 = trunc nuw i32 %180 to i16
   store i16 %181, ptr %166, align 2, !tbaa !100
-  %182 = getelementptr inbounds i16, ptr %.0113144, i64 %40
+  %182 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %40
   %183 = load i16, ptr %182, align 2, !tbaa !100
   %184 = zext i16 %183 to i32
   %185 = add nuw nsw i32 %72, %69
@@ -55516,7 +55516,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_12(ptr noundef captures(no
   %196 = lshr i32 %195, 1
   %197 = trunc nuw i32 %196 to i16
   store i16 %197, ptr %182, align 2, !tbaa !100
-  %198 = getelementptr inbounds i16, ptr %.0113144, i64 %42
+  %198 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %42
   %199 = load i16, ptr %198, align 2, !tbaa !100
   %200 = zext i16 %199 to i32
   %201 = add nuw nsw i32 %75, %72
@@ -55550,7 +55550,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef captures(n
   %8 = and i32 %5, -2
   %9 = sext i32 %8 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i16, ptr %2, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %2, i64 %10
   %12 = zext nneg i32 %4 to i64
   %13 = sext i32 %7 to i64
   br label %14
@@ -55668,8 +55668,8 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef captures(n
   %106 = add nsw i32 %105, %103
   %107 = getelementptr inbounds nuw i8, ptr %.0221, i64 28
   store i32 %106, ptr %107, align 4, !tbaa !9
-  %108 = getelementptr inbounds nuw i32, ptr %.0221, i64 %12
-  %109 = getelementptr inbounds i16, ptr %.0182219, i64 %13
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.0221, i64 %12
+  %109 = getelementptr inbounds [2 x i8], ptr %.0182219, i64 %13
   %110 = add nuw nsw i32 %.0179220, 1
   %exitcond.not = icmp eq i32 %110, 13
   br i1 %exitcond.not, label %111, label %14, !llvm.loop !1430
@@ -55679,7 +55679,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef captures(n
   %113 = mul nuw nsw i32 %4, 11
   %114 = zext nneg i32 %113 to i64
   %115 = sub nsw i64 0, %114
-  %116 = getelementptr inbounds i32, ptr %108, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %108, i64 %115
   %117 = mul nsw i32 %4, -2
   %118 = sext i32 %117 to i64
   %119 = sub nsw i32 0, %4
@@ -55721,30 +55721,30 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef captures(n
   %.1224 = phi ptr [ %116, %111 ], [ %311, %152 ]
   %.1180223 = phi i32 [ 0, %111 ], [ %312, %152 ]
   %.0181222 = phi ptr [ %0, %111 ], [ %310, %152 ]
-  %153 = getelementptr inbounds i32, ptr %.1224, i64 %118
+  %153 = getelementptr inbounds [4 x i8], ptr %.1224, i64 %118
   %154 = load i32, ptr %153, align 4, !tbaa !9
-  %155 = getelementptr inbounds i32, ptr %.1224, i64 %120
+  %155 = getelementptr inbounds [4 x i8], ptr %.1224, i64 %120
   %156 = load i32, ptr %155, align 4, !tbaa !9
   %157 = load i32, ptr %.1224, align 4, !tbaa !9
-  %158 = getelementptr inbounds nuw i32, ptr %.1224, i64 %12
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %12
   %159 = load i32, ptr %158, align 4, !tbaa !9
-  %160 = getelementptr inbounds nuw i32, ptr %.1224, i64 %122
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %122
   %161 = load i32, ptr %160, align 4, !tbaa !9
-  %162 = getelementptr inbounds nuw i32, ptr %.1224, i64 %124
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %124
   %163 = load i32, ptr %162, align 4, !tbaa !9
-  %164 = getelementptr inbounds nuw i32, ptr %.1224, i64 %126
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %126
   %165 = load i32, ptr %164, align 4, !tbaa !9
-  %166 = getelementptr inbounds nuw i32, ptr %.1224, i64 %128
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %128
   %167 = load i32, ptr %166, align 4, !tbaa !9
-  %168 = getelementptr inbounds nuw i32, ptr %.1224, i64 %130
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %130
   %169 = load i32, ptr %168, align 4, !tbaa !9
-  %170 = getelementptr inbounds nuw i32, ptr %.1224, i64 %132
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %132
   %171 = load i32, ptr %170, align 4, !tbaa !9
-  %172 = getelementptr inbounds nuw i32, ptr %.1224, i64 %134
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %134
   %173 = load i32, ptr %172, align 4, !tbaa !9
-  %174 = getelementptr inbounds nuw i32, ptr %.1224, i64 %136
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %136
   %175 = load i32, ptr %174, align 4, !tbaa !9
-  %176 = getelementptr inbounds nuw i32, ptr %.1224, i64 %138
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %138
   %177 = load i32, ptr %176, align 4, !tbaa !9
   %178 = load i16, ptr %.0181222, align 2, !tbaa !100
   %179 = zext i16 %178 to i32
@@ -55764,7 +55764,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef captures(n
   %192 = lshr i32 %191, 1
   %193 = trunc nuw i32 %192 to i16
   store i16 %193, ptr %.0181222, align 2, !tbaa !100
-  %194 = getelementptr inbounds i16, ptr %.0181222, i64 %139
+  %194 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %139
   %195 = load i16, ptr %194, align 2, !tbaa !100
   %196 = zext i16 %195 to i32
   %197 = add nsw i32 %161, %159
@@ -55783,7 +55783,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef captures(n
   %209 = lshr i32 %208, 1
   %210 = trunc nuw i32 %209 to i16
   store i16 %210, ptr %194, align 2, !tbaa !100
-  %211 = getelementptr inbounds i16, ptr %.0181222, i64 %141
+  %211 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %141
   %212 = load i16, ptr %211, align 2, !tbaa !100
   %213 = zext i16 %212 to i32
   %214 = add nsw i32 %163, %161
@@ -55802,7 +55802,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef captures(n
   %226 = lshr i32 %225, 1
   %227 = trunc nuw i32 %226 to i16
   store i16 %227, ptr %211, align 2, !tbaa !100
-  %228 = getelementptr inbounds i16, ptr %.0181222, i64 %143
+  %228 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %143
   %229 = load i16, ptr %228, align 2, !tbaa !100
   %230 = zext i16 %229 to i32
   %231 = add nsw i32 %165, %163
@@ -55821,7 +55821,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef captures(n
   %243 = lshr i32 %242, 1
   %244 = trunc nuw i32 %243 to i16
   store i16 %244, ptr %228, align 2, !tbaa !100
-  %245 = getelementptr inbounds i16, ptr %.0181222, i64 %145
+  %245 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %145
   %246 = load i16, ptr %245, align 2, !tbaa !100
   %247 = zext i16 %246 to i32
   %248 = add nsw i32 %167, %165
@@ -55840,7 +55840,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef captures(n
   %260 = lshr i32 %259, 1
   %261 = trunc nuw i32 %260 to i16
   store i16 %261, ptr %245, align 2, !tbaa !100
-  %262 = getelementptr inbounds i16, ptr %.0181222, i64 %147
+  %262 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %147
   %263 = load i16, ptr %262, align 2, !tbaa !100
   %264 = zext i16 %263 to i32
   %265 = add nsw i32 %169, %167
@@ -55858,7 +55858,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef captures(n
   %276 = lshr i32 %275, 1
   %277 = trunc nuw i32 %276 to i16
   store i16 %277, ptr %262, align 2, !tbaa !100
-  %278 = getelementptr inbounds i16, ptr %.0181222, i64 %149
+  %278 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %149
   %279 = load i16, ptr %278, align 2, !tbaa !100
   %280 = zext i16 %279 to i32
   %281 = add nsw i32 %171, %169
@@ -55876,7 +55876,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_12(ptr noundef captures(n
   %292 = lshr i32 %291, 1
   %293 = trunc nuw i32 %292 to i16
   store i16 %293, ptr %278, align 2, !tbaa !100
-  %294 = getelementptr inbounds i16, ptr %.0181222, i64 %151
+  %294 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %151
   %295 = load i16, ptr %294, align 2, !tbaa !100
   %296 = zext i16 %295 to i32
   %297 = add nsw i32 %173, %171
@@ -56062,8 +56062,8 @@ define internal fastcc void @put_h264_qpel8_h_lowpass_14(ptr noundef writeonly c
   %138 = trunc nuw nsw i32 %137 to i16
   %139 = getelementptr inbounds nuw i8, ptr %.06596, i64 14
   store i16 %138, ptr %139, align 2, !tbaa !100
-  %140 = getelementptr inbounds i16, ptr %.06596, i64 %7
-  %141 = getelementptr inbounds i16, ptr %.097, i64 %8
+  %140 = getelementptr inbounds [2 x i8], ptr %.06596, i64 %7
+  %141 = getelementptr inbounds [2 x i8], ptr %.097, i64 %8
   %142 = add nuw nsw i32 %.06695, 1
   %exitcond.not = icmp eq i32 %142, 8
   br i1 %exitcond.not, label %143, label %9, !llvm.loop !1432
@@ -56118,42 +56118,42 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_14(ptr noundef writeonly c
   %.0129 = phi i32 [ 0, %4 ], [ %176, %43 ]
   %.097128 = phi ptr [ %0, %4 ], [ %174, %43 ]
   %.098127 = phi ptr [ %1, %4 ], [ %175, %43 ]
-  %44 = getelementptr inbounds i16, ptr %.098127, i64 %8
+  %44 = getelementptr inbounds [2 x i8], ptr %.098127, i64 %8
   %45 = load i16, ptr %44, align 2, !tbaa !100
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i16, ptr %.098127, i64 %10
+  %47 = getelementptr inbounds [2 x i8], ptr %.098127, i64 %10
   %48 = load i16, ptr %47, align 2, !tbaa !100
   %49 = zext i16 %48 to i32
   %50 = load i16, ptr %.098127, align 2, !tbaa !100
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i16, ptr %.098127, i64 %11
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %11
   %53 = load i16, ptr %52, align 2, !tbaa !100
   %54 = zext i16 %53 to i32
-  %55 = getelementptr inbounds nuw i16, ptr %.098127, i64 %13
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %13
   %56 = load i16, ptr %55, align 2, !tbaa !100
   %57 = zext i16 %56 to i32
-  %58 = getelementptr inbounds nuw i16, ptr %.098127, i64 %15
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %15
   %59 = load i16, ptr %58, align 2, !tbaa !100
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw i16, ptr %.098127, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %17
   %62 = load i16, ptr %61, align 2, !tbaa !100
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i16, ptr %.098127, i64 %19
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %19
   %65 = load i16, ptr %64, align 2, !tbaa !100
   %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds nuw i16, ptr %.098127, i64 %21
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %21
   %68 = load i16, ptr %67, align 2, !tbaa !100
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i16, ptr %.098127, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %23
   %71 = load i16, ptr %70, align 2, !tbaa !100
   %72 = zext i16 %71 to i32
-  %73 = getelementptr inbounds nuw i16, ptr %.098127, i64 %25
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %25
   %74 = load i16, ptr %73, align 2, !tbaa !100
   %75 = zext i16 %74 to i32
-  %76 = getelementptr inbounds nuw i16, ptr %.098127, i64 %27
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %27
   %77 = load i16, ptr %76, align 2, !tbaa !100
   %78 = zext i16 %77 to i32
-  %79 = getelementptr inbounds nuw i16, ptr %.098127, i64 %29
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %.098127, i64 %29
   %80 = load i16, ptr %79, align 2, !tbaa !100
   %81 = zext i16 %80 to i32
   %82 = add nuw nsw i32 %54, %51
@@ -56181,7 +56181,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_14(ptr noundef writeonly c
   %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 16383)
   %103 = trunc nuw nsw i32 %102 to i16
-  %104 = getelementptr inbounds i16, ptr %.097128, i64 %30
+  %104 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %30
   store i16 %103, ptr %104, align 2, !tbaa !100
   %105 = add nuw nsw i32 %60, %57
   %106 = mul nuw nsw i32 %105, 20
@@ -56195,7 +56195,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_14(ptr noundef writeonly c
   %113 = tail call i32 @llvm.smax.i32(i32 %112, i32 0)
   %114 = tail call i32 @llvm.umin.i32(i32 %113, i32 16383)
   %115 = trunc nuw nsw i32 %114 to i16
-  %116 = getelementptr inbounds i16, ptr %.097128, i64 %32
+  %116 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %32
   store i16 %115, ptr %116, align 2, !tbaa !100
   %117 = add nuw nsw i32 %63, %60
   %118 = mul nuw nsw i32 %117, 20
@@ -56209,7 +56209,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_14(ptr noundef writeonly c
   %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 16383)
   %127 = trunc nuw nsw i32 %126 to i16
-  %128 = getelementptr inbounds i16, ptr %.097128, i64 %34
+  %128 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %34
   store i16 %127, ptr %128, align 2, !tbaa !100
   %129 = add nuw nsw i32 %66, %63
   %130 = mul nuw nsw i32 %129, 20
@@ -56223,7 +56223,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_14(ptr noundef writeonly c
   %137 = tail call i32 @llvm.smax.i32(i32 %136, i32 0)
   %138 = tail call i32 @llvm.umin.i32(i32 %137, i32 16383)
   %139 = trunc nuw nsw i32 %138 to i16
-  %140 = getelementptr inbounds i16, ptr %.097128, i64 %36
+  %140 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %36
   store i16 %139, ptr %140, align 2, !tbaa !100
   %141 = add nuw nsw i32 %69, %66
   %142 = mul nuw nsw i32 %141, 20
@@ -56236,7 +56236,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_14(ptr noundef writeonly c
   %148 = tail call i32 @llvm.smax.i32(i32 %147, i32 0)
   %149 = tail call i32 @llvm.umin.i32(i32 %148, i32 16383)
   %150 = trunc nuw nsw i32 %149 to i16
-  %151 = getelementptr inbounds i16, ptr %.097128, i64 %38
+  %151 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %38
   store i16 %150, ptr %151, align 2, !tbaa !100
   %152 = add nuw nsw i32 %72, %69
   %153 = mul nuw nsw i32 %152, 20
@@ -56249,7 +56249,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_14(ptr noundef writeonly c
   %159 = tail call i32 @llvm.smax.i32(i32 %158, i32 0)
   %160 = tail call i32 @llvm.umin.i32(i32 %159, i32 16383)
   %161 = trunc nuw nsw i32 %160 to i16
-  %162 = getelementptr inbounds i16, ptr %.097128, i64 %40
+  %162 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %40
   store i16 %161, ptr %162, align 2, !tbaa !100
   %163 = add nuw nsw i32 %75, %72
   %164 = mul nuw nsw i32 %163, 20
@@ -56262,7 +56262,7 @@ define internal fastcc void @put_h264_qpel8_v_lowpass_14(ptr noundef writeonly c
   %170 = tail call i32 @llvm.smax.i32(i32 %169, i32 0)
   %171 = tail call i32 @llvm.umin.i32(i32 %170, i32 16383)
   %172 = trunc nuw nsw i32 %171 to i16
-  %173 = getelementptr inbounds i16, ptr %.097128, i64 %42
+  %173 = getelementptr inbounds [2 x i8], ptr %.097128, i64 %42
   store i16 %172, ptr %173, align 2, !tbaa !100
   %174 = getelementptr inbounds nuw i8, ptr %.097128, i64 2
   %175 = getelementptr inbounds nuw i8, ptr %.098127, i64 2
@@ -56280,7 +56280,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef writeonly 
   %8 = and i32 %5, -2
   %9 = sext i32 %8 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i16, ptr %2, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %2, i64 %10
   %12 = zext nneg i32 %4 to i64
   %13 = sext i32 %7 to i64
   br label %14
@@ -56398,8 +56398,8 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef writeonly 
   %106 = add nsw i32 %105, %103
   %107 = getelementptr inbounds nuw i8, ptr %.0205, i64 28
   store i32 %106, ptr %107, align 4, !tbaa !9
-  %108 = getelementptr inbounds nuw i32, ptr %.0205, i64 %12
-  %109 = getelementptr inbounds i16, ptr %.0166203, i64 %13
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.0205, i64 %12
+  %109 = getelementptr inbounds [2 x i8], ptr %.0166203, i64 %13
   %110 = add nuw nsw i32 %.0163204, 1
   %exitcond.not = icmp eq i32 %110, 13
   br i1 %exitcond.not, label %111, label %14, !llvm.loop !1434
@@ -56409,7 +56409,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef writeonly 
   %113 = mul nuw nsw i32 %4, 11
   %114 = zext nneg i32 %113 to i64
   %115 = sub nsw i64 0, %114
-  %116 = getelementptr inbounds i32, ptr %108, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %108, i64 %115
   %117 = mul nsw i32 %4, -2
   %118 = sext i32 %117 to i64
   %119 = sub nsw i32 0, %4
@@ -56451,30 +56451,30 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef writeonly 
   %.1208 = phi ptr [ %116, %111 ], [ %271, %152 ]
   %.1164207 = phi i32 [ 0, %111 ], [ %272, %152 ]
   %.0165206 = phi ptr [ %0, %111 ], [ %270, %152 ]
-  %153 = getelementptr inbounds i32, ptr %.1208, i64 %118
+  %153 = getelementptr inbounds [4 x i8], ptr %.1208, i64 %118
   %154 = load i32, ptr %153, align 4, !tbaa !9
-  %155 = getelementptr inbounds i32, ptr %.1208, i64 %120
+  %155 = getelementptr inbounds [4 x i8], ptr %.1208, i64 %120
   %156 = load i32, ptr %155, align 4, !tbaa !9
   %157 = load i32, ptr %.1208, align 4, !tbaa !9
-  %158 = getelementptr inbounds nuw i32, ptr %.1208, i64 %12
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %12
   %159 = load i32, ptr %158, align 4, !tbaa !9
-  %160 = getelementptr inbounds nuw i32, ptr %.1208, i64 %122
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %122
   %161 = load i32, ptr %160, align 4, !tbaa !9
-  %162 = getelementptr inbounds nuw i32, ptr %.1208, i64 %124
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %124
   %163 = load i32, ptr %162, align 4, !tbaa !9
-  %164 = getelementptr inbounds nuw i32, ptr %.1208, i64 %126
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %126
   %165 = load i32, ptr %164, align 4, !tbaa !9
-  %166 = getelementptr inbounds nuw i32, ptr %.1208, i64 %128
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %128
   %167 = load i32, ptr %166, align 4, !tbaa !9
-  %168 = getelementptr inbounds nuw i32, ptr %.1208, i64 %130
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %130
   %169 = load i32, ptr %168, align 4, !tbaa !9
-  %170 = getelementptr inbounds nuw i32, ptr %.1208, i64 %132
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %132
   %171 = load i32, ptr %170, align 4, !tbaa !9
-  %172 = getelementptr inbounds nuw i32, ptr %.1208, i64 %134
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %134
   %173 = load i32, ptr %172, align 4, !tbaa !9
-  %174 = getelementptr inbounds nuw i32, ptr %.1208, i64 %136
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %136
   %175 = load i32, ptr %174, align 4, !tbaa !9
-  %176 = getelementptr inbounds nuw i32, ptr %.1208, i64 %138
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %.1208, i64 %138
   %177 = load i32, ptr %176, align 4, !tbaa !9
   %178 = add nsw i32 %159, %157
   %179 = mul nsw i32 %178, 20
@@ -56501,7 +56501,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef writeonly 
   %197 = tail call i32 @llvm.smax.i32(i32 %196, i32 0)
   %198 = tail call i32 @llvm.umin.i32(i32 %197, i32 16383)
   %199 = trunc nuw nsw i32 %198 to i16
-  %200 = getelementptr inbounds i16, ptr %.0165206, i64 %139
+  %200 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %139
   store i16 %199, ptr %200, align 2, !tbaa !100
   %201 = add nsw i32 %163, %161
   %202 = mul nsw i32 %201, 20
@@ -56515,7 +56515,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef writeonly 
   %209 = tail call i32 @llvm.smax.i32(i32 %208, i32 0)
   %210 = tail call i32 @llvm.umin.i32(i32 %209, i32 16383)
   %211 = trunc nuw nsw i32 %210 to i16
-  %212 = getelementptr inbounds i16, ptr %.0165206, i64 %141
+  %212 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %141
   store i16 %211, ptr %212, align 2, !tbaa !100
   %213 = add nsw i32 %165, %163
   %214 = mul nsw i32 %213, 20
@@ -56529,7 +56529,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef writeonly 
   %221 = tail call i32 @llvm.smax.i32(i32 %220, i32 0)
   %222 = tail call i32 @llvm.umin.i32(i32 %221, i32 16383)
   %223 = trunc nuw nsw i32 %222 to i16
-  %224 = getelementptr inbounds i16, ptr %.0165206, i64 %143
+  %224 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %143
   store i16 %223, ptr %224, align 2, !tbaa !100
   %225 = add nsw i32 %167, %165
   %226 = mul nsw i32 %225, 20
@@ -56543,7 +56543,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef writeonly 
   %233 = tail call i32 @llvm.smax.i32(i32 %232, i32 0)
   %234 = tail call i32 @llvm.umin.i32(i32 %233, i32 16383)
   %235 = trunc nuw nsw i32 %234 to i16
-  %236 = getelementptr inbounds i16, ptr %.0165206, i64 %145
+  %236 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %145
   store i16 %235, ptr %236, align 2, !tbaa !100
   %237 = add nsw i32 %169, %167
   %238 = mul nsw i32 %237, 20
@@ -56556,7 +56556,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef writeonly 
   %244 = tail call i32 @llvm.smax.i32(i32 %243, i32 0)
   %245 = tail call i32 @llvm.umin.i32(i32 %244, i32 16383)
   %246 = trunc nuw nsw i32 %245 to i16
-  %247 = getelementptr inbounds i16, ptr %.0165206, i64 %147
+  %247 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %147
   store i16 %246, ptr %247, align 2, !tbaa !100
   %248 = add nsw i32 %171, %169
   %249 = mul nsw i32 %248, 20
@@ -56569,7 +56569,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef writeonly 
   %255 = tail call i32 @llvm.smax.i32(i32 %254, i32 0)
   %256 = tail call i32 @llvm.umin.i32(i32 %255, i32 16383)
   %257 = trunc nuw nsw i32 %256 to i16
-  %258 = getelementptr inbounds i16, ptr %.0165206, i64 %149
+  %258 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %149
   store i16 %257, ptr %258, align 2, !tbaa !100
   %259 = add nsw i32 %173, %171
   %260 = mul nsw i32 %259, 20
@@ -56582,7 +56582,7 @@ define internal fastcc void @put_h264_qpel8_hv_lowpass_14(ptr noundef writeonly 
   %266 = tail call i32 @llvm.smax.i32(i32 %265, i32 0)
   %267 = tail call i32 @llvm.umin.i32(i32 %266, i32 16383)
   %268 = trunc nuw nsw i32 %267 to i16
-  %269 = getelementptr inbounds i16, ptr %.0165206, i64 %151
+  %269 = getelementptr inbounds [2 x i8], ptr %.0165206, i64 %151
   store i16 %268, ptr %269, align 2, !tbaa !100
   %270 = getelementptr inbounds nuw i8, ptr %.0165206, i64 2
   %271 = getelementptr inbounds nuw i8, ptr %.1208, i64 4
@@ -56687,8 +56687,8 @@ define internal fastcc void @put_h264_qpel4_h_lowpass_14(ptr noundef writeonly c
   %81 = trunc nuw nsw i32 %80 to i16
   %82 = getelementptr inbounds nuw i8, ptr %.03752, i64 6
   store i16 %81, ptr %82, align 2, !tbaa !100
-  %83 = getelementptr inbounds i16, ptr %.03752, i64 %7
-  %84 = getelementptr inbounds i16, ptr %.053, i64 %8
+  %83 = getelementptr inbounds [2 x i8], ptr %.03752, i64 %7
+  %84 = getelementptr inbounds [2 x i8], ptr %.053, i64 %8
   %85 = add nuw nsw i32 %.03851, 1
   %exitcond.not = icmp eq i32 %85, 4
   br i1 %exitcond.not, label %86, label %9, !llvm.loop !1436
@@ -56762,7 +56762,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_14(ptr noundef writeonly c
   %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
   %57 = tail call i32 @llvm.umin.i32(i32 %56, i32 16383)
   %58 = trunc nuw nsw i32 %57 to i16
-  %59 = getelementptr inbounds i16, ptr %.05772, i64 %5
+  %59 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %5
   store i16 %58, ptr %59, align 2, !tbaa !100
   %60 = add nuw nsw i32 %27, %24
   %61 = mul nuw nsw i32 %60, 20
@@ -56776,7 +56776,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_14(ptr noundef writeonly c
   %68 = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
   %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 16383)
   %70 = trunc nuw nsw i32 %69 to i16
-  %71 = getelementptr inbounds i16, ptr %.05772, i64 %7
+  %71 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %7
   store i16 %70, ptr %71, align 2, !tbaa !100
   %72 = add nuw nsw i32 %30, %27
   %73 = mul nuw nsw i32 %72, 20
@@ -56790,7 +56790,7 @@ define internal fastcc void @put_h264_qpel4_v_lowpass_14(ptr noundef writeonly c
   %80 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
   %81 = tail call i32 @llvm.umin.i32(i32 %80, i32 16383)
   %82 = trunc nuw nsw i32 %81 to i16
-  %83 = getelementptr inbounds i16, ptr %.05772, i64 %9
+  %83 = getelementptr inbounds [2 x i8], ptr %.05772, i64 %9
   store i16 %82, ptr %83, align 2, !tbaa !100
   %84 = getelementptr inbounds nuw i8, ptr %.05772, i64 2
   %85 = getelementptr inbounds nuw i8, ptr %.05871, i64 2
@@ -56808,7 +56808,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_14(ptr noundef writeonly 
   %7 = and i32 %4, -2
   %8 = sext i32 %7 to i64
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %2, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %2, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -56878,7 +56878,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_14(ptr noundef writeonly 
   %65 = getelementptr inbounds nuw i8, ptr %.0117, i64 12
   store i32 %64, ptr %65, align 4, !tbaa !9
   %66 = getelementptr inbounds nuw i8, ptr %.0117, i64 32
-  %67 = getelementptr inbounds i16, ptr %.098115, i64 %11
+  %67 = getelementptr inbounds [2 x i8], ptr %.098115, i64 %11
   %68 = add nuw nsw i32 %.095116, 1
   %exitcond.not = icmp eq i32 %68, 9
   br i1 %exitcond.not, label %69, label %12, !llvm.loop !1438
@@ -56939,7 +56939,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_14(ptr noundef writeonly 
   %114 = tail call i32 @llvm.smax.i32(i32 %113, i32 0)
   %115 = tail call i32 @llvm.umin.i32(i32 %114, i32 16383)
   %116 = trunc nuw nsw i32 %115 to i16
-  %117 = getelementptr inbounds i16, ptr %.097118, i64 %72
+  %117 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %72
   store i16 %116, ptr %117, align 2, !tbaa !100
   %118 = add nsw i32 %88, %86
   %119 = mul nsw i32 %118, 20
@@ -56953,7 +56953,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_14(ptr noundef writeonly 
   %126 = tail call i32 @llvm.smax.i32(i32 %125, i32 0)
   %127 = tail call i32 @llvm.umin.i32(i32 %126, i32 16383)
   %128 = trunc nuw nsw i32 %127 to i16
-  %129 = getelementptr inbounds i16, ptr %.097118, i64 %74
+  %129 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %74
   store i16 %128, ptr %129, align 2, !tbaa !100
   %130 = add nsw i32 %90, %88
   %131 = mul nsw i32 %130, 20
@@ -56967,7 +56967,7 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_14(ptr noundef writeonly 
   %138 = tail call i32 @llvm.smax.i32(i32 %137, i32 0)
   %139 = tail call i32 @llvm.umin.i32(i32 %138, i32 16383)
   %140 = trunc nuw nsw i32 %139 to i16
-  %141 = getelementptr inbounds i16, ptr %.097118, i64 %76
+  %141 = getelementptr inbounds [2 x i8], ptr %.097118, i64 %76
   store i16 %140, ptr %141, align 2, !tbaa !100
   %142 = getelementptr inbounds nuw i8, ptr %.097118, i64 2
   %143 = getelementptr inbounds nuw i8, ptr %.1120, i64 4
@@ -56985,7 +56985,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_14(ptr noundef writeonly 
   %7 = and i32 %4, -2
   %8 = sext i32 %7 to i64
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds i16, ptr %2, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %2, i64 %9
   %11 = sext i32 %6 to i64
   br label %12
 
@@ -57031,7 +57031,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_14(ptr noundef writeonly 
   %45 = getelementptr inbounds nuw i8, ptr %.073, i64 4
   store i32 %44, ptr %45, align 4, !tbaa !9
   %46 = getelementptr inbounds nuw i8, ptr %.073, i64 16
-  %47 = getelementptr inbounds i16, ptr %.06471, i64 %11
+  %47 = getelementptr inbounds [2 x i8], ptr %.06471, i64 %11
   %48 = add nuw nsw i32 %.06172, 1
   %exitcond.not = icmp eq i32 %48, 7
   br i1 %exitcond.not, label %49, label %12, !llvm.loop !1440
@@ -57084,7 +57084,7 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_14(ptr noundef writeonly 
   %87 = tail call i32 @llvm.smax.i32(i32 %86, i32 0)
   %88 = tail call i32 @llvm.umin.i32(i32 %87, i32 16383)
   %89 = trunc nuw nsw i32 %88 to i16
-  %90 = getelementptr inbounds i16, ptr %.06374, i64 %52
+  %90 = getelementptr inbounds [2 x i8], ptr %.06374, i64 %52
   store i16 %89, ptr %90, align 2, !tbaa !100
   %91 = getelementptr inbounds nuw i8, ptr %.06374, i64 2
   %92 = getelementptr inbounds nuw i8, ptr %.176, i64 4
@@ -57296,8 +57296,8 @@ define internal fastcc void @avg_h264_qpel8_h_lowpass_14(ptr noundef captures(no
   %177 = lshr i32 %176, 1
   %178 = trunc nuw i32 %177 to i16
   store i16 %178, ptr %160, align 2, !tbaa !100
-  %179 = getelementptr inbounds i16, ptr %.073104.lver.orig, i64 %6
-  %180 = getelementptr inbounds i16, ptr %.0105.lver.orig, i64 %7
+  %179 = getelementptr inbounds [2 x i8], ptr %.073104.lver.orig, i64 %6
+  %180 = getelementptr inbounds [2 x i8], ptr %.0105.lver.orig, i64 %7
   %181 = add nuw nsw i32 %.074103.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %181, 8
   br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !1442
@@ -57497,8 +57497,8 @@ define internal fastcc void @avg_h264_qpel8_h_lowpass_14(ptr noundef captures(no
   %350 = lshr i32 %349, 1
   %351 = trunc nuw i32 %350 to i16
   store i16 %351, ptr %333, align 2, !tbaa !100
-  %352 = getelementptr inbounds nuw i16, ptr %.073104, i64 %6
-  %353 = getelementptr inbounds nuw i16, ptr %.0105, i64 %7
+  %352 = getelementptr inbounds nuw [2 x i8], ptr %.073104, i64 %6
+  %353 = getelementptr inbounds nuw [2 x i8], ptr %.0105, i64 %7
   %354 = add nuw nsw i32 %.074103, 1
   %exitcond.not = icmp eq i32 %354, 8
   br i1 %exitcond.not, label %.loopexit, label %182, !llvm.loop !1442
@@ -57553,42 +57553,42 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_14(ptr noundef captures(no
   %.0145 = phi i32 [ 0, %4 ], [ %216, %43 ]
   %.0113144 = phi ptr [ %0, %4 ], [ %214, %43 ]
   %.0114143 = phi ptr [ %1, %4 ], [ %215, %43 ]
-  %44 = getelementptr inbounds i16, ptr %.0114143, i64 %8
+  %44 = getelementptr inbounds [2 x i8], ptr %.0114143, i64 %8
   %45 = load i16, ptr %44, align 2, !tbaa !100
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i16, ptr %.0114143, i64 %10
+  %47 = getelementptr inbounds [2 x i8], ptr %.0114143, i64 %10
   %48 = load i16, ptr %47, align 2, !tbaa !100
   %49 = zext i16 %48 to i32
   %50 = load i16, ptr %.0114143, align 2, !tbaa !100
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %11
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %11
   %53 = load i16, ptr %52, align 2, !tbaa !100
   %54 = zext i16 %53 to i32
-  %55 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %13
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %13
   %56 = load i16, ptr %55, align 2, !tbaa !100
   %57 = zext i16 %56 to i32
-  %58 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %15
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %15
   %59 = load i16, ptr %58, align 2, !tbaa !100
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %17
   %62 = load i16, ptr %61, align 2, !tbaa !100
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %19
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %19
   %65 = load i16, ptr %64, align 2, !tbaa !100
   %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %21
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %21
   %68 = load i16, ptr %67, align 2, !tbaa !100
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %23
   %71 = load i16, ptr %70, align 2, !tbaa !100
   %72 = zext i16 %71 to i32
-  %73 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %25
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %25
   %74 = load i16, ptr %73, align 2, !tbaa !100
   %75 = zext i16 %74 to i32
-  %76 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %27
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %27
   %77 = load i16, ptr %76, align 2, !tbaa !100
   %78 = zext i16 %77 to i32
-  %79 = getelementptr inbounds nuw i16, ptr %.0114143, i64 %29
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %.0114143, i64 %29
   %80 = load i16, ptr %79, align 2, !tbaa !100
   %81 = zext i16 %80 to i32
   %82 = load i16, ptr %.0113144, align 2, !tbaa !100
@@ -57609,7 +57609,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_14(ptr noundef captures(no
   %96 = lshr i32 %95, 1
   %97 = trunc nuw i32 %96 to i16
   store i16 %97, ptr %.0113144, align 2, !tbaa !100
-  %98 = getelementptr inbounds i16, ptr %.0113144, i64 %30
+  %98 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %30
   %99 = load i16, ptr %98, align 2, !tbaa !100
   %100 = zext i16 %99 to i32
   %101 = add nuw nsw i32 %57, %54
@@ -57628,7 +57628,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_14(ptr noundef captures(no
   %113 = lshr i32 %112, 1
   %114 = trunc nuw i32 %113 to i16
   store i16 %114, ptr %98, align 2, !tbaa !100
-  %115 = getelementptr inbounds i16, ptr %.0113144, i64 %32
+  %115 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %32
   %116 = load i16, ptr %115, align 2, !tbaa !100
   %117 = zext i16 %116 to i32
   %118 = add nuw nsw i32 %60, %57
@@ -57647,7 +57647,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_14(ptr noundef captures(no
   %130 = lshr i32 %129, 1
   %131 = trunc nuw i32 %130 to i16
   store i16 %131, ptr %115, align 2, !tbaa !100
-  %132 = getelementptr inbounds i16, ptr %.0113144, i64 %34
+  %132 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %34
   %133 = load i16, ptr %132, align 2, !tbaa !100
   %134 = zext i16 %133 to i32
   %135 = add nuw nsw i32 %63, %60
@@ -57666,7 +57666,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_14(ptr noundef captures(no
   %147 = lshr i32 %146, 1
   %148 = trunc nuw i32 %147 to i16
   store i16 %148, ptr %132, align 2, !tbaa !100
-  %149 = getelementptr inbounds i16, ptr %.0113144, i64 %36
+  %149 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %36
   %150 = load i16, ptr %149, align 2, !tbaa !100
   %151 = zext i16 %150 to i32
   %152 = add nuw nsw i32 %66, %63
@@ -57685,7 +57685,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_14(ptr noundef captures(no
   %164 = lshr i32 %163, 1
   %165 = trunc nuw i32 %164 to i16
   store i16 %165, ptr %149, align 2, !tbaa !100
-  %166 = getelementptr inbounds i16, ptr %.0113144, i64 %38
+  %166 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %38
   %167 = load i16, ptr %166, align 2, !tbaa !100
   %168 = zext i16 %167 to i32
   %169 = add nuw nsw i32 %69, %66
@@ -57703,7 +57703,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_14(ptr noundef captures(no
   %180 = lshr i32 %179, 1
   %181 = trunc nuw i32 %180 to i16
   store i16 %181, ptr %166, align 2, !tbaa !100
-  %182 = getelementptr inbounds i16, ptr %.0113144, i64 %40
+  %182 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %40
   %183 = load i16, ptr %182, align 2, !tbaa !100
   %184 = zext i16 %183 to i32
   %185 = add nuw nsw i32 %72, %69
@@ -57721,7 +57721,7 @@ define internal fastcc void @avg_h264_qpel8_v_lowpass_14(ptr noundef captures(no
   %196 = lshr i32 %195, 1
   %197 = trunc nuw i32 %196 to i16
   store i16 %197, ptr %182, align 2, !tbaa !100
-  %198 = getelementptr inbounds i16, ptr %.0113144, i64 %42
+  %198 = getelementptr inbounds [2 x i8], ptr %.0113144, i64 %42
   %199 = load i16, ptr %198, align 2, !tbaa !100
   %200 = zext i16 %199 to i32
   %201 = add nuw nsw i32 %75, %72
@@ -57755,7 +57755,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   %8 = and i32 %5, -2
   %9 = sext i32 %8 to i64
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i16, ptr %2, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %2, i64 %10
   %12 = zext nneg i32 %4 to i64
   %13 = sext i32 %7 to i64
   br label %14
@@ -57873,8 +57873,8 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   %106 = add nsw i32 %105, %103
   %107 = getelementptr inbounds nuw i8, ptr %.0221, i64 28
   store i32 %106, ptr %107, align 4, !tbaa !9
-  %108 = getelementptr inbounds nuw i32, ptr %.0221, i64 %12
-  %109 = getelementptr inbounds i16, ptr %.0182219, i64 %13
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.0221, i64 %12
+  %109 = getelementptr inbounds [2 x i8], ptr %.0182219, i64 %13
   %110 = add nuw nsw i32 %.0179220, 1
   %exitcond.not = icmp eq i32 %110, 13
   br i1 %exitcond.not, label %111, label %14, !llvm.loop !1444
@@ -57884,7 +57884,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   %113 = mul nuw nsw i32 %4, 11
   %114 = zext nneg i32 %113 to i64
   %115 = sub nsw i64 0, %114
-  %116 = getelementptr inbounds i32, ptr %108, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %108, i64 %115
   %117 = mul nsw i32 %4, -2
   %118 = sext i32 %117 to i64
   %119 = sub nsw i32 0, %4
@@ -57926,30 +57926,30 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   %.1224 = phi ptr [ %116, %111 ], [ %311, %152 ]
   %.1180223 = phi i32 [ 0, %111 ], [ %312, %152 ]
   %.0181222 = phi ptr [ %0, %111 ], [ %310, %152 ]
-  %153 = getelementptr inbounds i32, ptr %.1224, i64 %118
+  %153 = getelementptr inbounds [4 x i8], ptr %.1224, i64 %118
   %154 = load i32, ptr %153, align 4, !tbaa !9
-  %155 = getelementptr inbounds i32, ptr %.1224, i64 %120
+  %155 = getelementptr inbounds [4 x i8], ptr %.1224, i64 %120
   %156 = load i32, ptr %155, align 4, !tbaa !9
   %157 = load i32, ptr %.1224, align 4, !tbaa !9
-  %158 = getelementptr inbounds nuw i32, ptr %.1224, i64 %12
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %12
   %159 = load i32, ptr %158, align 4, !tbaa !9
-  %160 = getelementptr inbounds nuw i32, ptr %.1224, i64 %122
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %122
   %161 = load i32, ptr %160, align 4, !tbaa !9
-  %162 = getelementptr inbounds nuw i32, ptr %.1224, i64 %124
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %124
   %163 = load i32, ptr %162, align 4, !tbaa !9
-  %164 = getelementptr inbounds nuw i32, ptr %.1224, i64 %126
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %126
   %165 = load i32, ptr %164, align 4, !tbaa !9
-  %166 = getelementptr inbounds nuw i32, ptr %.1224, i64 %128
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %128
   %167 = load i32, ptr %166, align 4, !tbaa !9
-  %168 = getelementptr inbounds nuw i32, ptr %.1224, i64 %130
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %130
   %169 = load i32, ptr %168, align 4, !tbaa !9
-  %170 = getelementptr inbounds nuw i32, ptr %.1224, i64 %132
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %132
   %171 = load i32, ptr %170, align 4, !tbaa !9
-  %172 = getelementptr inbounds nuw i32, ptr %.1224, i64 %134
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %134
   %173 = load i32, ptr %172, align 4, !tbaa !9
-  %174 = getelementptr inbounds nuw i32, ptr %.1224, i64 %136
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %136
   %175 = load i32, ptr %174, align 4, !tbaa !9
-  %176 = getelementptr inbounds nuw i32, ptr %.1224, i64 %138
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %.1224, i64 %138
   %177 = load i32, ptr %176, align 4, !tbaa !9
   %178 = load i16, ptr %.0181222, align 2, !tbaa !100
   %179 = zext i16 %178 to i32
@@ -57969,7 +57969,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   %192 = lshr i32 %191, 1
   %193 = trunc nuw i32 %192 to i16
   store i16 %193, ptr %.0181222, align 2, !tbaa !100
-  %194 = getelementptr inbounds i16, ptr %.0181222, i64 %139
+  %194 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %139
   %195 = load i16, ptr %194, align 2, !tbaa !100
   %196 = zext i16 %195 to i32
   %197 = add nsw i32 %161, %159
@@ -57988,7 +57988,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   %209 = lshr i32 %208, 1
   %210 = trunc nuw i32 %209 to i16
   store i16 %210, ptr %194, align 2, !tbaa !100
-  %211 = getelementptr inbounds i16, ptr %.0181222, i64 %141
+  %211 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %141
   %212 = load i16, ptr %211, align 2, !tbaa !100
   %213 = zext i16 %212 to i32
   %214 = add nsw i32 %163, %161
@@ -58007,7 +58007,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   %226 = lshr i32 %225, 1
   %227 = trunc nuw i32 %226 to i16
   store i16 %227, ptr %211, align 2, !tbaa !100
-  %228 = getelementptr inbounds i16, ptr %.0181222, i64 %143
+  %228 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %143
   %229 = load i16, ptr %228, align 2, !tbaa !100
   %230 = zext i16 %229 to i32
   %231 = add nsw i32 %165, %163
@@ -58026,7 +58026,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   %243 = lshr i32 %242, 1
   %244 = trunc nuw i32 %243 to i16
   store i16 %244, ptr %228, align 2, !tbaa !100
-  %245 = getelementptr inbounds i16, ptr %.0181222, i64 %145
+  %245 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %145
   %246 = load i16, ptr %245, align 2, !tbaa !100
   %247 = zext i16 %246 to i32
   %248 = add nsw i32 %167, %165
@@ -58045,7 +58045,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   %260 = lshr i32 %259, 1
   %261 = trunc nuw i32 %260 to i16
   store i16 %261, ptr %245, align 2, !tbaa !100
-  %262 = getelementptr inbounds i16, ptr %.0181222, i64 %147
+  %262 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %147
   %263 = load i16, ptr %262, align 2, !tbaa !100
   %264 = zext i16 %263 to i32
   %265 = add nsw i32 %169, %167
@@ -58063,7 +58063,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   %276 = lshr i32 %275, 1
   %277 = trunc nuw i32 %276 to i16
   store i16 %277, ptr %262, align 2, !tbaa !100
-  %278 = getelementptr inbounds i16, ptr %.0181222, i64 %149
+  %278 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %149
   %279 = load i16, ptr %278, align 2, !tbaa !100
   %280 = zext i16 %279 to i32
   %281 = add nsw i32 %171, %169
@@ -58081,7 +58081,7 @@ define internal fastcc void @avg_h264_qpel8_hv_lowpass_14(ptr noundef captures(n
   %292 = lshr i32 %291, 1
   %293 = trunc nuw i32 %292 to i16
   store i16 %293, ptr %278, align 2, !tbaa !100
-  %294 = getelementptr inbounds i16, ptr %.0181222, i64 %151
+  %294 = getelementptr inbounds [2 x i8], ptr %.0181222, i64 %151
   %295 = load i16, ptr %294, align 2, !tbaa !100
   %296 = zext i16 %295 to i32
   %297 = add nsw i32 %173, %171

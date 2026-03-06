@@ -2284,9 +2284,9 @@ define internal fastcc void @dissect_u3v_register(i64 noundef %0, ptr noundef %1
   br i1 %or.cond, label %switch.lookup, label %96
 
 switch.lookup:                                    ; preds = %90
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_u3v_register, i64 %92
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_u3v_register, i64 %92
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_u3v_register.7, i64 %92
+  %switch.gep1 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_u3v_register.7, i64 %92
   %switch.load2 = load i32, ptr %switch.gep1, align 4
   %94 = load i32, ptr %switch.load, align 4
   %95 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %94, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load2, i32 noundef -2147483648)
@@ -2310,9 +2310,9 @@ switch.lookup:                                    ; preds = %90
   br i1 %or.cond12, label %switch.lookup4, label %106
 
 switch.lookup4:                                   ; preds = %100
-  %switch.gep8 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_u3v_register.8, i64 %102
+  %switch.gep8 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_u3v_register.8, i64 %102
   %switch.load9 = load ptr, ptr %switch.gep8, align 8
-  %switch.gep10 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_u3v_register.9, i64 %102
+  %switch.gep10 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_u3v_register.9, i64 %102
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   %104 = load i32, ptr %switch.load9, align 4
   %105 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %104, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load11, i32 noundef -2147483648)

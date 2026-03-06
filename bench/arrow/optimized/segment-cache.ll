@@ -71,7 +71,7 @@ _mi_os_numa_node.exit.thread:                     ; preds = %10, %_mi_os_numa_no
   %storemerge = phi i8 [ 1, %25 ], [ 0, %27 ]
   store i8 %storemerge, ptr %3, align 1, !tbaa !9
   %30 = load i64, ptr %9, align 8, !tbaa !5
-  %31 = getelementptr inbounds nuw %struct.mi_cache_slot_s, ptr @cache, i64 %30
+  %31 = getelementptr inbounds nuw [288 x i8], ptr @cache, i64 %30
   %32 = load ptr, ptr %31, align 32, !tbaa !13
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !17
@@ -147,7 +147,7 @@ define internal fastcc void @mi_segment_cache_purge(i1 noundef zeroext %0, ptr n
   %.03755.us = phi i64 [ %34, %.thread.us ], [ 0, %.split.us.preheader ]
   %19 = icmp ugt i64 %.03656.us, 1023
   %spec.store.select.us = select i1 %19, i64 0, i64 %.03656.us
-  %20 = getelementptr inbounds nuw %struct.mi_cache_slot_s, ptr @cache, i64 %spec.store.select.us
+  %20 = getelementptr inbounds nuw [288 x i8], ptr @cache, i64 %spec.store.select.us
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 280
   %22 = load atomic i64, ptr %21 monotonic, align 8
   %.not42.us = icmp eq i64 %22, 0
@@ -189,7 +189,7 @@ define internal fastcc void @mi_segment_cache_purge(i1 noundef zeroext %0, ptr n
   %.03755 = phi i64 [ %54, %.thread ], [ 0, %.split.preheader ]
   %36 = icmp ugt i64 %.03656, 1023
   %spec.store.select = select i1 %36, i64 0, i64 %.03656
-  %37 = getelementptr inbounds nuw %struct.mi_cache_slot_s, ptr @cache, i64 %spec.store.select
+  %37 = getelementptr inbounds nuw [288 x i8], ptr @cache, i64 %spec.store.select
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 280
   %39 = load atomic i64, ptr %38 monotonic, align 8
   %.not42 = icmp ne i64 %39, 0
@@ -287,7 +287,7 @@ _mi_os_numa_node.exit.thread:                     ; preds = %13, %_mi_os_numa_no
 
 27:                                               ; preds = %_mi_os_numa_node.exit.thread
   %28 = load i64, ptr %9, align 8, !tbaa !5
-  %29 = getelementptr inbounds nuw %struct.mi_cache_slot_s, ptr @cache, i64 %28
+  %29 = getelementptr inbounds nuw [288 x i8], ptr @cache, i64 %28
   store ptr %0, ptr %29, align 32, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %2, ptr %30, align 8, !tbaa !17
@@ -303,7 +303,7 @@ _mi_os_numa_node.exit.thread:                     ; preds = %13, %_mi_os_numa_no
 
 35:                                               ; preds = %35, %27
   %.057.i = phi i64 [ 0, %27 ], [ %38, %35 ]
-  %36 = getelementptr inbounds nuw i64, ptr %3, i64 %.057.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.057.i
   %37 = load i64, ptr %36, align 8, !tbaa !5
   %.not.i42 = icmp eq i64 %37, 0
   %38 = add nuw nsw i64 %.057.i, 1
@@ -367,7 +367,7 @@ define internal fastcc void @mi_commit_mask_decommit(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %5, %3
   %.057.i = phi i64 [ 0, %3 ], [ %8, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %0, i64 %.057.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.057.i
   %7 = load i64, ptr %6, align 8, !tbaa !5
   %.not.i = icmp eq i64 %7, 0
   %8 = add nuw nsw i64 %.057.i, 1
@@ -380,7 +380,7 @@ mi_commit_mask_is_empty.exit:                     ; preds = %5
 
 .preheader:                                       ; preds = %mi_commit_mask_is_empty.exit, %.preheader
   %.057.i15 = phi i64 [ %11, %.preheader ], [ 0, %mi_commit_mask_is_empty.exit ]
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %.057.i15
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.057.i15
   %10 = load i64, ptr %9, align 8, !tbaa !5
   %.not.i16 = icmp eq i64 %10, -1
   %11 = add nuw nsw i64 %.057.i15, 1
@@ -439,7 +439,7 @@ define hidden void @_mi_segment_map_allocated_at(ptr noundef %0) local_unnamed_a
 7:                                                ; preds = %1
   %8 = lshr i64 %3, 26
   %9 = and i64 %8, 63
-  %10 = getelementptr inbounds nuw i64, ptr @mi_segment_map, i64 %4
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @mi_segment_map, i64 %4
   %11 = load atomic i64, ptr %10 monotonic, align 8
   %12 = shl nuw i64 1, %9
   br label %13
@@ -468,7 +468,7 @@ define hidden void @_mi_segment_map_freed_at(ptr noundef %0) local_unnamed_addr 
 7:                                                ; preds = %1
   %8 = lshr i64 %3, 26
   %9 = and i64 %8, 63
-  %10 = getelementptr inbounds nuw i64, ptr @mi_segment_map, i64 %4
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @mi_segment_map, i64 %4
   %11 = load atomic i64, ptr %10 monotonic, align 8
   %12 = shl nuw i64 1, %9
   %13 = xor i64 %12, -1
@@ -501,7 +501,7 @@ define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_add
   %10 = lshr i64 %2, 32
   %.sink.i.i.i = select i1 %7, i64 0, i64 %9
   %.0.i.i.i = select i1 %7, i64 5120, i64 %10
-  %11 = getelementptr inbounds nuw i64, ptr @mi_segment_map, i64 %.0.i.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @mi_segment_map, i64 %.0.i.i.i
   %12 = load atomic i64, ptr %11 monotonic, align 8
   %13 = shl nuw i64 1, %.sink.i.i.i
   %14 = and i64 %12, %13
@@ -525,7 +525,7 @@ define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_add
 .preheader.i.i:                                   ; preds = %20, %.preheader.i.i
   %.140.i.i = phi i64 [ %22, %.preheader.i.i ], [ %.0.i.i.i, %20 ]
   %22 = add nsw i64 %.140.i.i, -1
-  %23 = getelementptr inbounds nuw i64, ptr @mi_segment_map, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @mi_segment_map, i64 %22
   %24 = load atomic i64, ptr %23 monotonic, align 8
   %25 = icmp ne i64 %24, 0
   %26 = icmp ne i64 %22, 0

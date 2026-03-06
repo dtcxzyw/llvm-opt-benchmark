@@ -12,29 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.13" = type { %"class.std::_Rb_tree.14" }
 %"class.std::_Rb_tree.14" = type { %"struct.std::_Rb_tree<gmx::AwhOutputEntryType, std::pair<const gmx::AwhOutputEntryType, int>, std::_Select1st<std::pair<const gmx::AwhOutputEntryType, int>>, std::less<gmx::AwhOutputEntryType>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<gmx::AwhOutputEntryType, std::pair<const gmx::AwhOutputEntryType, int>, std::_Select1st<std::pair<const gmx::AwhOutputEntryType, int>>, std::less<gmx::AwhOutputEntryType>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.gmx::DimParams" = type { %"class.std::variant", double }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized" }
-%"struct.std::__detail::__variant::_Uninitialized" = type { %"struct.gmx::DimParams::PullDimParams" }
-%"struct.gmx::DimParams::PullDimParams" = type { double, double, double }
-%"class.gmx::AwhEnergyBlock" = type { i32, float, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::GridPoint" = type { [4 x double], [4 x i32], %"class.std::vector.50" }
-%"class.std::vector.50" = type { %"struct.std::_Vector_base.51" }
-%"struct.std::_Vector_base.51" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::PointState" = type { double, double, double, double, double, double, double, i64, double, double, double, double }
-%struct.t_enxsubblock = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32 }
 %"struct.std::less" = type { i8 }
 %"class.std::allocator.0" = type { i8 }
 
@@ -321,7 +298,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %9 = shl nuw nsw i64 %7, 2
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #21
   store ptr %10, ptr %6, align 8, !tbaa !36
-  %11 = getelementptr inbounds nuw float, ptr %10, i64 %7
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %11, ptr %12, align 8, !tbaa !37
   store float 0.000000e+00, ptr %10, align 4, !tbaa !38
@@ -652,7 +629,7 @@ _ZNSt8_Rb_treeIN3gmx18AwhOutputEntryTypeESt4pairIKS1_iESt10_Select1stIS4_ESt4les
 
 130:                                              ; preds = %129
   %.val.i = load ptr, ptr %1, align 8, !tbaa !47
-  %131 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %.val.i, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [40 x i8], ptr %.val.i, i64 %indvars.iv
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load double, ptr %132, align 8, !tbaa !67
   %134 = fdiv double 1.000000e+00, %133
@@ -802,7 +779,7 @@ _ZNSt6vectorIN3gmx14AwhEnergyBlockESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i
 .noexc27:                                         ; preds = %188, %_ZNSt6vectorIN3gmx14AwhEnergyBlockESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i
   store ptr %172, ptr %0, align 8, !tbaa !82
   store ptr %187, ptr %21, align 8, !tbaa !77
-  %202 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %172, i64 %170
+  %202 = getelementptr inbounds nuw [32 x i8], ptr %172, i64 %170
   store ptr %202, ptr %22, align 8, !tbaa !80
   br label %_ZNSt6vectorIN3gmx14AwhEnergyBlockESaIS1_EE12emplace_backIJRiRKNS0_13NormalizationEfEEERS1_DpOT_.exit
 
@@ -1260,7 +1237,7 @@ _ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit: ; preds = 
   %17 = load i32, ptr %16, align 4, !tbaa !66
   %18 = sext i32 %17 to i64
   %19 = load ptr, ptr %0, align 8, !tbaa !82
-  %20 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !36
   switch i32 %2, label %42 [
@@ -1299,7 +1276,7 @@ _ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit: ; preds = 
 .sink.split:                                      ; preds = %23, %31, %39
   %.sroa.3.0.copyload.sink = phi double [ %.sroa.3.0.copyload, %39 ], [ %38, %31 ], [ %30, %23 ]
   %40 = fptrunc double %.sroa.3.0.copyload.sink to float
-  %41 = getelementptr inbounds float, ptr %22, i64 %1
+  %41 = getelementptr inbounds [4 x i8], ptr %22, i64 %1
   store float %40, ptr %41, align 4, !tbaa !38
   br label %42
 
@@ -1408,7 +1385,7 @@ _ZNK3gmx15CorrelationGrid10tensorSizeEv.exit:     ; preds = %_ZNK3gmx4Bias20forc
   %45 = sext i32 %2 to i64
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %47 = load ptr, ptr %46, align 8, !tbaa !100
-  %48 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %47, i64 %45
+  %48 = getelementptr inbounds nuw [72 x i8], ptr %47, i64 %45
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !44
   %51 = load ptr, ptr %3, align 8, !tbaa !47
@@ -1429,13 +1406,13 @@ _ZNK3gmx15CorrelationGrid10tensorSizeEv.exit:     ; preds = %_ZNK3gmx4Bias20forc
 60:                                               ; preds = %.lr.ph104, %60
   %indvars.iv109 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next110, %60 ]
   %indvars.iv107 = phi i64 [ %59, %.lr.ph104 ], [ %indvars.iv.next108, %60 ]
-  %61 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv109
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv109
   %62 = load double, ptr %61, align 8, !tbaa !99
   %63 = fptrunc double %62 to float
-  %64 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %58, i64 %indvars.iv107
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %indvars.iv107
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !36
-  %67 = getelementptr inbounds float, ptr %66, i64 %45
+  %67 = getelementptr inbounds [4 x i8], ptr %66, i64 %45
   store float %63, ptr %67, align 4, !tbaa !38
   %indvars.iv.next108 = add nsw i64 %indvars.iv107, 1
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
@@ -1446,14 +1423,14 @@ _ZNK3gmx15CorrelationGrid10tensorSizeEv.exit:     ; preds = %_ZNK3gmx4Bias20forc
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %70 = sext i32 %2 to i64
   %71 = load ptr, ptr %69, align 8, !tbaa !62
-  %72 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [96 x i8], ptr %71, i64 %70
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load double, ptr %73, align 8, !tbaa !104
   %75 = fcmp ogt double %74, 0.000000e+00
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds float, ptr %4, i64 %70
+  %77 = getelementptr inbounds [4 x i8], ptr %4, i64 %70
   %78 = load float, ptr %77, align 4, !tbaa !38
   br label %79
 
@@ -1461,10 +1438,10 @@ _ZNK3gmx15CorrelationGrid10tensorSizeEv.exit:     ; preds = %_ZNK3gmx4Bias20forc
   %80 = phi float [ %78, %76 ], [ 0.000000e+00, %68 ]
   %81 = sext i32 %19 to i64
   %82 = load ptr, ptr %0, align 8, !tbaa !82
-  %83 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %82, i64 %81
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !36
-  %86 = getelementptr inbounds float, ptr %85, i64 %70
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %70
   store float %80, ptr %86, align 4, !tbaa !38
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
@@ -1472,7 +1449,7 @@ _ZNK3gmx15CorrelationGrid10tensorSizeEv.exit:     ; preds = %_ZNK3gmx4Bias20forc
   %88 = sext i32 %2 to i64
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %90 = load ptr, ptr %89, align 8, !tbaa !62
-  %91 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %90, i64 %88
+  %91 = getelementptr inbounds nuw [96 x i8], ptr %90, i64 %88
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load double, ptr %92, align 8, !tbaa !104
   %94 = fcmp ogt double %93, 0.000000e+00
@@ -1482,7 +1459,7 @@ _ZNK3gmx15CorrelationGrid10tensorSizeEv.exit:     ; preds = %_ZNK3gmx4Bias20forc
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !100
-  %99 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %98, i64 %88
+  %99 = getelementptr inbounds nuw [72 x i8], ptr %98, i64 %88
   %100 = load ptr, ptr %3, align 8, !tbaa !47
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !44
@@ -1498,10 +1475,10 @@ _ZNK3gmx15CorrelationGrid10tensorSizeEv.exit:     ; preds = %_ZNK3gmx4Bias20forc
   %110 = phi float [ %108, %95 ], [ 0.000000e+00, %87 ]
   %111 = sext i32 %19 to i64
   %112 = load ptr, ptr %0, align 8, !tbaa !82
-  %113 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8, !tbaa !36
-  %116 = getelementptr inbounds float, ptr %115, i64 %88
+  %116 = getelementptr inbounds [4 x i8], ptr %115, i64 %88
   store float %110, ptr %116, align 4, !tbaa !38
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
@@ -1509,16 +1486,16 @@ _ZNK3gmx15CorrelationGrid10tensorSizeEv.exit:     ; preds = %_ZNK3gmx4Bias20forc
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %119 = sext i32 %2 to i64
   %120 = load ptr, ptr %118, align 8, !tbaa !62
-  %121 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [96 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 80
   %123 = load double, ptr %122, align 8, !tbaa !106
   %124 = fptrunc double %123 to float
   %125 = sext i32 %19 to i64
   %126 = load ptr, ptr %0, align 8, !tbaa !82
-  %127 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %126, i64 %125
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %126, i64 %125
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8, !tbaa !36
-  %130 = getelementptr inbounds float, ptr %129, i64 %119
+  %130 = getelementptr inbounds [4 x i8], ptr %129, i64 %119
   store float %124, ptr %130, align 4, !tbaa !38
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
@@ -1526,16 +1503,16 @@ _ZNK3gmx15CorrelationGrid10tensorSizeEv.exit:     ; preds = %_ZNK3gmx4Bias20forc
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %133 = sext i32 %2 to i64
   %134 = load ptr, ptr %132, align 8, !tbaa !62
-  %135 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %134, i64 %133
+  %135 = getelementptr inbounds nuw [96 x i8], ptr %134, i64 %133
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
   %137 = load double, ptr %136, align 8, !tbaa !107
   %138 = fptrunc double %137 to float
   %139 = sext i32 %19 to i64
   %140 = load ptr, ptr %0, align 8, !tbaa !82
-  %141 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %140, i64 %139
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %140, i64 %139
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !36
-  %144 = getelementptr inbounds float, ptr %143, i64 %133
+  %144 = getelementptr inbounds [4 x i8], ptr %143, i64 %133
   store float %138, ptr %144, align 4, !tbaa !38
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
@@ -1543,16 +1520,16 @@ _ZNK3gmx15CorrelationGrid10tensorSizeEv.exit:     ; preds = %_ZNK3gmx4Bias20forc
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %147 = sext i32 %2 to i64
   %148 = load ptr, ptr %146, align 8, !tbaa !62
-  %149 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %148, i64 %147
+  %149 = getelementptr inbounds nuw [96 x i8], ptr %148, i64 %147
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load double, ptr %150, align 8, !tbaa !104
   %152 = fptrunc double %151 to float
   %153 = sext i32 %19 to i64
   %154 = load ptr, ptr %0, align 8, !tbaa !82
-  %155 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %154, i64 %153
+  %155 = getelementptr inbounds nuw [32 x i8], ptr %154, i64 %153
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8, !tbaa !36
-  %158 = getelementptr inbounds float, ptr %157, i64 %147
+  %158 = getelementptr inbounds [4 x i8], ptr %157, i64 %147
   store float %152, ptr %158, align 4, !tbaa !38
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
@@ -1590,12 +1567,12 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %159, %170
 175:                                              ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
   %176 = sext i32 %19 to i64
   %177 = load ptr, ptr %0, align 8, !tbaa !82
-  %178 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %177, i64 %176
+  %178 = getelementptr inbounds nuw [32 x i8], ptr %177, i64 %176
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !36
   %181 = fptrunc double %174 to float
   %182 = sext i32 %2 to i64
-  %183 = getelementptr inbounds float, ptr %180, i64 %182
+  %183 = getelementptr inbounds [4 x i8], ptr %180, i64 %182
   store float %181, ptr %183, align 4, !tbaa !38
   %.not.i.i.i = icmp eq ptr %172, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %184
@@ -1623,10 +1600,10 @@ _ZNSt6vectorIdSaIdEED2Ev.exit74:                  ; preds = %185, %187
   %189 = tail call noundef double @_ZNK3gmx9BiasState38getSharedCorrelationTensorTimeIntegralEii(ptr noundef nonnull align 8 dereferenceable(240) %40, i32 noundef %2, i32 noundef %.0101)
   %190 = fptrunc double %189 to float
   %191 = load ptr, ptr %0, align 8, !tbaa !82
-  %192 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %191, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [32 x i8], ptr %191, i64 %indvars.iv
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !36
-  %195 = getelementptr inbounds float, ptr %194, i64 %41
+  %195 = getelementptr inbounds [4 x i8], ptr %194, i64 %41
   store float %190, ptr %195, align 4, !tbaa !38
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %196 = add nuw nsw i32 %.0101, 1
@@ -1690,7 +1667,7 @@ _ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit: ; preds = 
   %15 = load i32, ptr %14, align 4, !tbaa !66
   %16 = sext i32 %15 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !82
-  %18 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -1730,7 +1707,7 @@ _ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i.us: ; pre
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.sink.split.i.us ], [ 0, %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.split.us ]
   %43 = load i32, ptr %42, align 4, !tbaa !66
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %29, i64 %44
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !36
   %48 = trunc nuw nsw i64 %indvars.iv67 to i32
@@ -1751,7 +1728,7 @@ _ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i.us: ; pre
 .sink.split.i.us:                                 ; preds = %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i.us, %52, %49
   %.sroa.3.0.copyload.sink.i.us = phi double [ %41, %52 ], [ %51, %49 ], [ %.sroa.3.0.copyload.i, %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i.us ]
   %53 = fptrunc double %.sroa.3.0.copyload.sink.i.us to float
-  %54 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv67
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv67
   store float %53, ptr %54, align 4, !tbaa !38
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 3
@@ -1800,7 +1777,7 @@ _ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i: ; preds 
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 36
   %67 = load i32, ptr %66, align 4, !tbaa !66
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %29, i64 %68
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !36
   %72 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1821,7 +1798,7 @@ _ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i: ; preds 
 .sink.split.i:                                    ; preds = %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i, %76, %73
   %.sroa.3.0.copyload.sink.i = phi double [ %.sroa.3.0.copyload.i, %76 ], [ %75, %73 ], [ %41, %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i ]
   %77 = fptrunc double %.sroa.3.0.copyload.sink.i to float
-  %78 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv
   store float %77, ptr %78, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1963,14 +1940,14 @@ _ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit: ; preds = %86, 
 .lr.ph27.i:                                       ; preds = %.preheader15.i, %137
   %.03726.i = phi float [ %.1.i, %137 ], [ 0x47EFFFFFE0000000, %.preheader15.i ]
   %.03925.i = phi i64 [ %138, %137 ], [ 0, %.preheader15.i ]
-  %128 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %.val, i64 %.03925.i
+  %128 = getelementptr inbounds nuw [96 x i8], ptr %.val, i64 %.03925.i
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load double, ptr %129, align 8, !tbaa !104
   %131 = fcmp ogt double %130, 0.000000e+00
   br i1 %131, label %132, label %137
 
 132:                                              ; preds = %.lr.ph27.i
-  %133 = getelementptr inbounds nuw float, ptr %113, i64 %.03925.i
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %.03925.i
   %134 = load float, ptr %133, align 4, !tbaa !38
   %135 = fcmp olt float %134, %.03726.i
   br i1 %135, label %136, label %137
@@ -1986,14 +1963,14 @@ _ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit: ; preds = %86, 
 
 .lr.ph31.i:                                       ; preds = %137, %147
   %.04030.i = phi i64 [ %148, %147 ], [ 0, %137 ]
-  %139 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %.val, i64 %.04030.i
+  %139 = getelementptr inbounds nuw [96 x i8], ptr %.val, i64 %.04030.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %141 = load double, ptr %140, align 8, !tbaa !104
   %142 = fcmp ogt double %141, 0.000000e+00
   br i1 %142, label %143, label %147
 
 143:                                              ; preds = %.lr.ph31.i
-  %144 = getelementptr inbounds nuw float, ptr %113, i64 %.04030.i
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %.04030.i
   %145 = load float, ptr %144, align 4, !tbaa !38
   %146 = fsub float %145, %.1.i
   store float %146, ptr %144, align 4, !tbaa !38
@@ -2069,10 +2046,10 @@ define noundef i32 @_ZN3gmx10BiasWriter22writeToEnergySubblocksERKNS_4BiasEP13t_
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.015 = phi i64 [ %25, %.lr.ph ], [ 0, %3 ]
-  %12 = getelementptr inbounds nuw %struct.t_enxsubblock, ptr %2, i64 %.015
+  %12 = getelementptr inbounds nuw [80 x i8], ptr %2, i64 %.015
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %13, align 4, !tbaa !115
-  %14 = getelementptr inbounds nuw %"class.gmx::AwhEnergyBlock", ptr %6, i64 %.015
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.015
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16

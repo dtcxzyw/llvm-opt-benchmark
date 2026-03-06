@@ -20,7 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.facebook::velox::ByteRange" = type { ptr, i32, i32 }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
 %"struct.facebook::velox::StringView" = type { i32, [4 x i8], %union.anon.5 }
@@ -827,7 +826,7 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %total.06 = phi i64 [ %add, %for.body ], [ 0, %for.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %0, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %size = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %2 = load i32, ptr %size, align 8
   %conv7 = sext i32 %2 to i64
@@ -1075,7 +1074,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN8face
 _ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %ranges_27, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -1883,7 +1882,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %5 = phi ptr [ %0, %for.body.lr.ph ], [ %15, %if.end ]
   %sub = add nsw i64 %sub.ptr.div.i33, -1
   %cmp5 = icmp eq i64 %sub, %indvars.iv
-  %add.ptr.i = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %5, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %size = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %cond.in = select i1 %cmp5, ptr %lastRangeEnd_, ptr %size
   %cond = load i32, ptr %cond.in, align 8
@@ -1928,7 +1927,7 @@ if.end.loopexit:                                  ; preds = %for.body.i
 if.end:                                           ; preds = %if.end.loopexit, %for.body, %if.then, %cond.end13
   %11 = phi ptr [ %5, %for.body ], [ %5, %cond.end13 ], [ %5, %if.then ], [ %.pre, %if.end.loopexit ]
   %cond1425 = phi i32 [ %cond, %for.body ], [ %div.i, %cond.end13 ], [ %div.i, %if.then ], [ %div.i, %if.end.loopexit ]
-  %add.ptr.i16 = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %11, i64 %indvars.iv
+  %add.ptr.i16 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   %12 = load ptr, ptr %add.ptr.i16, align 8
   %conv28 = sext i32 %cond1425 to i64
   %vtable = load ptr, ptr %out, align 8
@@ -3037,7 +3036,7 @@ if.then3:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.then3
   %idxprom.i = sext i32 %div to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %partialWordFunc.coerce0, i64 %idxprom.i
   %2 = load i64, ptr %arrayidx.i, align 8
   %or.i = or i64 %2, %and7
   store i64 %or.i, ptr %arrayidx.i, align 8
@@ -3046,7 +3045,7 @@ if.then.i:                                        ; preds = %if.then3
 if.else.i:                                        ; preds = %if.then3
   %not.i = xor i64 %and7, -1
   %idxprom2.i = sext i32 %div to i64
-  %arrayidx3.i = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds [8 x i8], ptr %partialWordFunc.coerce0, i64 %idxprom2.i
   %3 = load i64, ptr %arrayidx3.i, align 8
   %and4.i = and i64 %3, %not.i
   store i64 %and4.i, ptr %arrayidx3.i, align 8
@@ -3070,7 +3069,7 @@ if.then10:                                        ; preds = %if.end8
 
 if.then.i37:                                      ; preds = %if.then10
   %idxprom.i38 = sext i32 %div11 to i64
-  %arrayidx.i39 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom.i38
+  %arrayidx.i39 = getelementptr inbounds [8 x i8], ptr %partialWordFunc.coerce0, i64 %idxprom.i38
   %4 = load i64, ptr %arrayidx.i39, align 8
   %or.i40 = or i64 %4, %shl.i30
   store i64 %or.i40, ptr %arrayidx.i39, align 8
@@ -3079,7 +3078,7 @@ if.then.i37:                                      ; preds = %if.then10
 if.else.i32:                                      ; preds = %if.then10
   %not.i33 = xor i64 %shl.i30, -1
   %idxprom2.i34 = sext i32 %div11 to i64
-  %arrayidx3.i35 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom2.i34
+  %arrayidx3.i35 = getelementptr inbounds [8 x i8], ptr %partialWordFunc.coerce0, i64 %idxprom2.i34
   %5 = load i64, ptr %arrayidx3.i35, align 8
   %and4.i36 = and i64 %5, %not.i33
   store i64 %and4.i36, ptr %arrayidx3.i35, align 8
@@ -3101,7 +3100,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.067 = phi i32 [ %mul.i, %for.body.lr.ph ], [ %add68, %for.body ]
   %div16 = sdiv i32 %i.067, 64
   %idxprom.i42 = sext i32 %div16 to i64
-  %arrayidx.i43 = getelementptr inbounds i64, ptr %fullWordFunc.coerce0, i64 %idxprom.i42
+  %arrayidx.i43 = getelementptr inbounds [8 x i8], ptr %fullWordFunc.coerce0, i64 %idxprom.i42
   store i64 %cond.i, ptr %arrayidx.i43, align 8
   %add = add nsw i32 %add68, 64
   %cmp15.not = icmp sgt i32 %add, %1
@@ -3122,7 +3121,7 @@ if.then19:                                        ; preds = %for.end
 if.then.i53:                                      ; preds = %if.then19
   %sub.i46 = xor i64 %notmask.i45, -1
   %idxprom.i54 = sext i32 %div20 to i64
-  %arrayidx.i55 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom.i54
+  %arrayidx.i55 = getelementptr inbounds [8 x i8], ptr %partialWordFunc.coerce0, i64 %idxprom.i54
   %8 = load i64, ptr %arrayidx.i55, align 8
   %or.i56 = or i64 %8, %sub.i46
   store i64 %or.i56, ptr %arrayidx.i55, align 8
@@ -3130,7 +3129,7 @@ if.then.i53:                                      ; preds = %if.then19
 
 if.else.i48:                                      ; preds = %if.then19
   %idxprom2.i50 = sext i32 %div20 to i64
-  %arrayidx3.i51 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom2.i50
+  %arrayidx3.i51 = getelementptr inbounds [8 x i8], ptr %partialWordFunc.coerce0, i64 %idxprom2.i50
   %9 = load i64, ptr %arrayidx3.i51, align 8
   %and4.i52 = and i64 %9, %notmask.i45
   store i64 %and4.i52, ptr %arrayidx3.i51, align 8

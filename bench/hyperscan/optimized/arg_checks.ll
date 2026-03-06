@@ -1672,7 +1672,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %78, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %73, ptr %0, align 8
   store ptr %77, ptr %5, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   store ptr %79, ptr %55, align 8
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -8207,7 +8207,7 @@ define internal void @_ZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMMode
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %77 = getelementptr inbounds nuw i32, ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 %.046255
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 %.046255
   %78 = load i32, ptr %77, align 4
   %79 = or i32 %78, 2
   %80 = call i32 @hs_compile(ptr noundef nonnull @.str.305, i32 noundef 256, i32 noundef %79, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -8416,7 +8416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i78: ; preds 
   br i1 %144, label %.critedge62.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %142
-  %145 = getelementptr inbounds nuw i32, ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 %.026257
+  %145 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 %.026257
   %146 = load i32, ptr %145, align 4
   br label %147
 
@@ -8426,7 +8426,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i78: ; preds 
   store ptr null, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
-  %148 = getelementptr inbounds nuw i32, ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 %.0256
+  %148 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 %.0256
   %149 = load i32, ptr %148, align 4
   %150 = or i32 %149, %146
   %151 = or i32 %150, 2
@@ -118652,7 +118652,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8
-  %79 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %79, ptr %78, align 8
   ret void
 }
@@ -119674,7 +119674,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEE8TestInfoEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %628, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exit.i.i.i.i.i.i
   store ptr %609, ptr %584, align 8
   store ptr %627, ptr %586, align 8
-  %629 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.164", ptr %609, i64 %607
+  %629 = getelementptr inbounds nuw [16 x i8], ptr %609, i64 %607
   store ptr %629, ptr %588, align 8
   br label %__cxx_global_var_init.283.exit
 

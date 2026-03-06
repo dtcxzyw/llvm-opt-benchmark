@@ -382,7 +382,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17373186565492141581.exit
 74:                                               ; preds = %71
   %75 = getelementptr i8, ptr %.val55, i64 32
   %.val13.i = load ptr, ptr %75, align 8, !noalias !24, !nonnull !5, !noundef !5
-  %76 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val13.i, i64 %69
+  %76 = getelementptr inbounds [24 x i8], ptr %.val13.i, i64 %69
   %77 = load i64, ptr %76, align 8, !range !39, !noalias !24, !noundef !5
   %trunc.i15.i = trunc nuw i64 %77 to i1
   br i1 %trunc.i15.i, label %87, label %78
@@ -540,7 +540,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17373186565492141581.exit
 145:                                              ; preds = %131
   %146 = getelementptr inbounds nuw i8, ptr %.val55, i64 32
   %147 = load ptr, ptr %146, align 8, !alias.scope !55, !noalias !60, !nonnull !5, !noundef !5
-  %148 = getelementptr inbounds { i64, [2 x i64] }, ptr %147, i64 %125
+  %148 = getelementptr inbounds [24 x i8], ptr %147, i64 %125
   %149 = load i64, ptr %148, align 8, !range !39, !noalias !75, !noundef !5
   %trunc.i19.i = trunc nuw i64 %149 to i1
   br i1 %trunc.i19.i, label %150, label %"_ZN4core3ptr91drop_in_place$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h6efa98fad0fffe8aE.llvm.17373186565492141581.exit.i.i"
@@ -571,7 +571,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17373186565492141581.exit
 156:                                              ; preds = %136, %133
   %157 = getelementptr inbounds nuw i8, ptr %.val55, i64 32
   %158 = load ptr, ptr %157, align 8, !alias.scope !61, !noalias !64, !nonnull !5, !noundef !5
-  %159 = getelementptr inbounds { i64, [2 x i64] }, ptr %158, i64 %125
+  %159 = getelementptr inbounds [24 x i8], ptr %158, i64 %125
   store i64 1, ptr %159, align 8, !noalias !60
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %159, i64 8
   store ptr %122, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !60
@@ -886,9 +886,9 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17373186565492141581.exit
   %259 = extractvalue { i64, i64 } %250, 1
   store i64 %258, ptr %248, align 8, !alias.scope !117, !noalias !120
   %260 = load ptr, ptr %.sroa.515.0..sroa_idx16, align 8, !alias.scope !117, !noalias !120, !nonnull !5, !noundef !5
-  %261 = getelementptr inbounds { i64, [2 x i64] }, ptr %260, i64 %258
+  %261 = getelementptr inbounds [24 x i8], ptr %260, i64 %258
   %262 = sub i64 %249, %259
-  %263 = getelementptr inbounds { i64, [2 x i64] }, ptr %260, i64 %259
+  %263 = getelementptr inbounds [24 x i8], ptr %260, i64 %259
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -7361,7 +7361,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$10try_remove17h0e8ba5efcd2d9b0bE.llv
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds { i64, [2 x i64] }, ptr %9, i64 %2
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8, !noundef !5
   %.sroa.01.0.copyload = load i64, ptr %10, align 8
@@ -7407,7 +7407,7 @@ define hidden { ptr, ptr } @"_ZN4slab13Slab$LT$T$GT$6remove17h0c78b78459450503E"
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !880, !noalias !883, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds { i64, [2 x i64] }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8, !alias.scope !880, !noalias !883, !noundef !5
   %.sroa.01.0.copyload.i = load i64, ptr %10, align 8, !noalias !885

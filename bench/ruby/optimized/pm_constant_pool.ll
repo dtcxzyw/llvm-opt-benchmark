@@ -3,9 +3,6 @@ source_filename = "bench/ruby/original/pm_constant_pool.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pm_constant_t = type { ptr, i64 }
-%struct.pm_constant_pool_bucket_t = type { i32, i32 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define hidden void @pm_constant_id_list_init(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -81,7 +78,7 @@ define hidden noundef zeroext i1 @pm_constant_id_list_append(ptr noundef capture
   %16 = phi ptr [ %.pre, %._crit_edge ], [ %12, %._crit_edge13 ]
   %17 = add i64 %15, 1
   store i64 %17, ptr %0, align 8, !tbaa !14
-  %18 = getelementptr i32, ptr %16, i64 %15
+  %18 = getelementptr [4 x i8], ptr %16, i64 %15
   store i32 %1, ptr %18, align 4, !tbaa !16
   br label %19
 
@@ -97,7 +94,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 define hidden void @pm_constant_id_list_insert(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !7
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   store i32 %2, ptr %6, align 4, !tbaa !16
   %7 = load i64, ptr %0, align 8, !tbaa !14
   %8 = add i64 %7, 1
@@ -118,7 +115,7 @@ define hidden noundef zeroext i1 @pm_constant_id_list_includes(ptr noundef reado
 
 6:                                                ; preds = %6, %.lr.ph
   %.0710 = phi i64 [ 0, %.lr.ph ], [ %10, %6 ]
-  %7 = getelementptr i32, ptr %5, i64 %.0710
+  %7 = getelementptr [4 x i8], ptr %5, i64 %.0710
   %8 = load i32, ptr %7, align 4, !tbaa !16
   %9 = icmp eq i32 %8, %1
   %10 = add nuw i64 %.0710, 1
@@ -203,7 +200,7 @@ define hidden ptr @pm_constant_pool_id_to_constant(ptr noundef readonly captures
   %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = add i32 %1, -1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr %struct.pm_constant_t, ptr %4, i64 %6
+  %7 = getelementptr [16 x i8], ptr %4, i64 %6
   ret ptr %7
 }
 
@@ -232,7 +229,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
   %13 = load ptr, ptr %0, align 8, !tbaa !20
   %.02028 = and i32 %.07.lcssa.i, %6
   %14 = zext i32 %.02028 to i64
-  %15 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 1073741823
   %.not29 = icmp eq i32 %17, 0
@@ -247,7 +244,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
   %21 = phi i32 [ %17, %.lr.ph ], [ %36, %31 ]
   %.02030 = phi i32 [ %.02028, %.lr.ph ], [ %.020, %31 ]
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr %struct.pm_constant_t, ptr %19, i64 %22
+  %23 = getelementptr [16 x i8], ptr %19, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load i64, ptr %24, align 8, !tbaa !27
   %26 = icmp eq i64 %25, %2
@@ -264,7 +261,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
   %32 = add i32 %.02030, 1
   %.020 = and i32 %32, %6
   %33 = zext i32 %.020 to i64
-  %34 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %13, i64 %33
+  %34 = getelementptr [8 x i8], ptr %13, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 1073741823
   %.not = icmp eq i32 %36, 0
@@ -321,7 +318,7 @@ define internal fastcc i32 @pm_constant_pool_insert(ptr noundef captures(none) %
 
 22:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %23 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %21, i64 %indvars.iv.i
+  %23 = getelementptr [8 x i8], ptr %21, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 1073741823
   %.not.i = icmp eq i32 %25, 0
@@ -336,7 +333,7 @@ define internal fastcc i32 @pm_constant_pool_insert(ptr noundef captures(none) %
   %.pn.i = phi i32 [ %28, %26 ], [ %34, %29 ]
   %.0.i = and i32 %.pn.i, %15
   %30 = zext i32 %.0.i to i64
-  %31 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %17, i64 %30
+  %31 = getelementptr [8 x i8], ptr %17, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 1073741823
   %.not38.i = icmp eq i32 %33, 0
@@ -344,7 +341,7 @@ define internal fastcc i32 @pm_constant_pool_insert(ptr noundef captures(none) %
   br i1 %.not38.i, label %35, label %29, !llvm.loop !34
 
 35:                                               ; preds = %29
-  %36 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %17, i64 %30
+  %36 = getelementptr [8 x i8], ptr %17, i64 %30
   %37 = load i64, ptr %23, align 4
   store i64 %37, ptr %36, align 4
   br label %38
@@ -389,7 +386,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i48, %44
   %51 = load ptr, ptr %0, align 8, !tbaa !20
   %.04166 = and i32 %.07.lcssa.i, %.pre-phi
   %52 = zext i32 %.04166 to i64
-  %53 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %51, i64 %52
+  %53 = getelementptr [8 x i8], ptr %51, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 1073741823
   %.not4667 = icmp eq i32 %55, 0
@@ -406,7 +403,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i48, %44
   %61 = phi i64 [ %52, %.lr.ph ], [ %85, %83 ]
   %.04168 = phi i32 [ %.04166, %.lr.ph ], [ %.041, %83 ]
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr %struct.pm_constant_t, ptr %57, i64 %62
+  %63 = getelementptr [16 x i8], ptr %57, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -8
   %65 = load i64, ptr %64, align 8, !tbaa !27
   %66 = icmp eq i64 %65, %2
@@ -421,7 +418,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i48, %44
 
 71:                                               ; preds = %67
   %72 = getelementptr i8, ptr %63, i64 -16
-  %73 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %51, i64 %61
+  %73 = getelementptr [8 x i8], ptr %51, i64 %61
   %74 = icmp eq i32 %3, 1
   br i1 %74, label %75, label %76
 
@@ -452,7 +449,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i48, %44
   %84 = add i32 %.04168, 1
   %.041 = and i32 %84, %.pre-phi
   %85 = zext i32 %.041 to i64
-  %86 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %51, i64 %85
+  %86 = getelementptr [8 x i8], ptr %51, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 1073741823
   %.not46 = icmp eq i32 %88, 0
@@ -460,7 +457,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i48, %44
 
 ._crit_edge:                                      ; preds = %83, %pm_constant_pool_hash.exit
   %.lcssa65 = phi i64 [ %52, %pm_constant_pool_hash.exit ], [ %85, %83 ]
-  %89 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %51, i64 %.lcssa65
+  %89 = getelementptr [8 x i8], ptr %51, i64 %.lcssa65
   %90 = load i32, ptr %5, align 8, !tbaa !23
   %91 = add i32 %90, 1
   store i32 %91, ptr %5, align 8, !tbaa !23
@@ -473,7 +470,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i48, %44
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !22
   %97 = zext i32 %90 to i64
-  %98 = getelementptr %struct.pm_constant_t, ptr %96, i64 %97
+  %98 = getelementptr [16 x i8], ptr %96, i64 %97
   store ptr %1, ptr %98, align 8, !tbaa !37
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !38
@@ -516,7 +513,7 @@ define hidden void @pm_constant_pool_free(ptr noundef readonly captures(none) %0
   %7 = phi i32 [ %3, %.lr.ph ], [ %20, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %8 = load ptr, ptr %0, align 8, !tbaa !20
-  %9 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 1073741823
   %.not = icmp ne i32 %11, 0
@@ -528,7 +525,7 @@ define hidden void @pm_constant_pool_free(ptr noundef readonly captures(none) %0
 13:                                               ; preds = %6
   %14 = load ptr, ptr %4, align 8, !tbaa !22
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr %struct.pm_constant_t, ptr %14, i64 %15
+  %16 = getelementptr [16 x i8], ptr %14, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -16
   %18 = load ptr, ptr %17, align 8, !tbaa !30
   tail call void @free(ptr noundef %18) #20

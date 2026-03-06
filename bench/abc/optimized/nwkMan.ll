@@ -253,7 +253,7 @@ define void @Nwk_ManPrintLutSizes(ptr noundef readonly captures(none) %0, ptr no
 
 9:                                                ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val14, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val14, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = icmp eq ptr %11, null
   br i1 %12, label %22, label %13
@@ -269,7 +269,7 @@ define void @Nwk_ManPrintLutSizes(ptr noundef readonly captures(none) %0, ptr no
   %17 = getelementptr i8, ptr %11, i64 60
   %.val16 = load i32, ptr %17, align 4, !tbaa !29
   %18 = sext i32 %.val16 to i64
-  %19 = getelementptr inbounds i32, ptr %3, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %3, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !35
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 4, !tbaa !35
@@ -289,7 +289,7 @@ define void @Nwk_ManPrintLutSizes(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph21:                                         ; preds = %.critedge, %.lr.ph21
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.lr.ph21 ], [ 0, %.critedge ]
-  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv23
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv23
   %27 = load i32, ptr %26, align 4, !tbaa !35
   %28 = trunc nuw nsw i64 %indvars.iv23 to i32
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28, i32 noundef %27)
@@ -461,7 +461,7 @@ define float @Nwl_ManComputeTotalSwitching(ptr noundef %0) local_unnamed_addr #0
 11:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.01621 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %30 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val19, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = icmp eq ptr %13, null
   br i1 %14, label %30, label %15
@@ -482,7 +482,7 @@ define float @Nwl_ManComputeTotalSwitching(ptr noundef %0) local_unnamed_addr #0
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %25 = load i32, ptr %24, align 4, !tbaa !52
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds float, ptr %5, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %5, i64 %26
   %28 = load float, ptr %27, align 4, !tbaa !55
   %29 = tail call float @llvm.fmuladd.f32(float %23, float %28, float %.01621)
   br label %30
@@ -621,7 +621,7 @@ Nwk_FileNameGeneric.exit:                         ; preds = %20, %Abc_UtilStrsav
 
 59:                                               ; preds = %72, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %.val14.i, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i, i64 %indvars.iv.i
   %61 = load ptr, ptr %60, align 8, !tbaa !28
   %62 = icmp eq ptr %61, null
   br i1 %62, label %72, label %63
@@ -637,7 +637,7 @@ Nwk_FileNameGeneric.exit:                         ; preds = %20, %Abc_UtilStrsav
   %67 = getelementptr i8, ptr %61, i64 60
   %.val16.i = load i32, ptr %67, align 4, !tbaa !29
   %68 = sext i32 %.val16.i to i64
-  %69 = getelementptr inbounds i32, ptr %7, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %7, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !35
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %69, align 4, !tbaa !35
@@ -657,7 +657,7 @@ Nwk_FileNameGeneric.exit:                         ; preds = %20, %Abc_UtilStrsav
 
 .lr.ph21.i:                                       ; preds = %.critedge.i, %.lr.ph21.i
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %.lr.ph21.i ], [ 0, %.critedge.i ]
-  %76 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv23.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv23.i
   %77 = load i32, ptr %76, align 4, !tbaa !35
   %78 = trunc nuw nsw i64 %indvars.iv23.i to i32
   %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %78, i32 noundef %77)

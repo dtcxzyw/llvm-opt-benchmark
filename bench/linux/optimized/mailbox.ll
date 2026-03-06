@@ -27,11 +27,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_devm_mbox_co
 %struct.optimistic_spin_queue = type { %struct.atomic_t }
 %struct.list_head = type { ptr, ptr }
 %struct.lock_class_key = type {}
-%struct.mbox_chan = type { ptr, i32, ptr, %struct.completion, ptr, i32, i32, [20 x ptr], %struct.spinlock, ptr }
-%struct.completion = type { i32, %struct.swait_queue_head }
-%struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
-%struct.spinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.raw_spinlock }
 
 @__UNIQUE_ID___addressable_mbox_chan_received_data311 = internal global ptr @mbox_chan_received_data, section ".discard.addressable", align 8
 @.str = private unnamed_addr constant [36 x i8] c"Controller can't run the TX ticker\0A\00", align 1
@@ -244,7 +239,7 @@ define dso_local i32 @mbox_send_message(ptr noundef %0, ptr noundef %1) #0 align
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = sext i32 %16 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   store ptr %1, ptr %19, align 8
   %20 = load i32, ptr %11, align 8
   %21 = add i32 %20, 1
@@ -349,7 +344,7 @@ define internal fastcc void @msg_submit(ptr noundef %0) unnamed_addr #0 align 16
   %17 = select i1 %14, i32 %16, i32 %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = zext i32 %17 to i64
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -703,7 +698,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mbox_controller_register(ptr nou
 35:                                               ; preds = %35, %33
   %36 = phi i64 [ 0, %33 ], [ %42, %35 ]
   %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr %struct.mbox_chan, ptr %37, i64 %36
+  %38 = getelementptr [248 x i8], ptr %37, i64 %36
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr null, ptr %39, align 8
   store ptr %0, ptr %38, align 8
@@ -766,7 +761,7 @@ define internal noundef range(i32 0, 2) i32 @txdone_hrtimer(ptr noundef %0) #0 a
 8:                                                ; preds = %.outer, %44
   %9 = phi i64 [ %45, %44 ], [ %.ph, %.outer ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr %struct.mbox_chan, ptr %10, i64 %9
+  %11 = getelementptr [248 x i8], ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
@@ -882,7 +877,7 @@ define internal ptr @of_mbox_index_xlate(ptr noundef readonly captures(none) %0,
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %4 to i64
-  %12 = getelementptr %struct.mbox_chan, ptr %10, i64 %11
+  %12 = getelementptr [248 x i8], ptr %10, i64 %11
   br label %13
 
 13:                                               ; preds = %8, %2
@@ -919,7 +914,7 @@ define dso_local void @mbox_controller_unregister(ptr noundef %0) #0 align 16 {
   %15 = phi i32 [ %10, %12 ], [ %48, %47 ]
   %16 = phi i64 [ 0, %12 ], [ %49, %47 ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr %struct.mbox_chan, ptr %17, i64 %16
+  %18 = getelementptr [248 x i8], ptr %17, i64 %16
   %19 = icmp eq ptr %18, null
   br i1 %19, label %47, label %20
 

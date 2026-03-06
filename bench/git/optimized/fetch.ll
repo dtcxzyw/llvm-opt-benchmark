@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.check_connected_options = type { i32, ptr, ptr, i32, i32, ptr, i8, ptr }
 
 @__const.cmd_fetch.config = private unnamed_addr constant %struct.fetch_config { i32 0, i32 0, i32 -1, i32 -1, i32 1, i32 1, i32 1, i32 -1 }, align 4
@@ -1321,7 +1320,7 @@ define dso_local i32 @cmd_fetch(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %495 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %495 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %496 = load ptr, ptr %495, align 8, !tbaa !4
   %497 = call ptr @transport_anonymize_url(ptr noundef %496) #20
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @default_rla, ptr noundef nonnull @.str.94, ptr noundef %497) #20
@@ -1650,7 +1649,7 @@ _.exit:                                           ; preds = %595, %597
 
 635:                                              ; preds = %.lr.ph182, %654
   %indvars.iv199 = phi i64 [ 0, %.lr.ph182 ], [ %indvars.iv.next200, %654 ]
-  %636 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv199
+  %636 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv199
   %637 = load ptr, ptr %636, align 8, !tbaa !4
   %638 = load i64, ptr %633, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
@@ -1677,7 +1676,7 @@ _.exit:                                           ; preds = %595, %597
   br label %654
 
 650:                                              ; preds = %643
-  %651 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv199
+  %651 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv199
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %652 = call fastcc ptr @_(ptr noundef nonnull @.str.111)
   %653 = load ptr, ptr %651, align 8, !tbaa !4
@@ -1818,7 +1817,7 @@ add_remote_or_group.exit128:                      ; preds = %add_remote_or_group
   %709 = phi i32 [ %.sroa.4.0184, %.lr.ph.i ], [ %719, %718 ]
   %710 = lshr i32 %709, 4
   %711 = zext nneg i32 %710 to i64
-  %712 = getelementptr inbounds nuw i32, ptr %707, i64 %711
+  %712 = getelementptr inbounds nuw [4 x i8], ptr %707, i64 %711
   %713 = load i32, ptr %712, align 4, !tbaa !9
   %714 = shl i32 %709, 1
   %715 = and i32 %714, 30
@@ -1839,7 +1838,7 @@ oidset_iter_next.exit:                            ; preds = %708
 
 721:                                              ; preds = %oidset_iter_next.exit
   %722 = zext i32 %709 to i64
-  %723 = getelementptr inbounds nuw %struct.object_id, ptr %720, i64 %722
+  %723 = getelementptr inbounds nuw [36 x i8], ptr %720, i64 %722
   %724 = add i32 %709, 1
   %725 = call ptr @oid_to_hex(ptr noundef nonnull %723) #20
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %725)
@@ -1993,7 +1992,7 @@ fetch_one_setup_partial.exit:                     ; preds = %736, %740, %749, %7
 .lr.ph.i136:                                      ; preds = %785, %800
   %.067.i = phi i32 [ %801, %800 ], [ 0, %785 ]
   %787 = sext i32 %.067.i to i64
-  %788 = getelementptr inbounds ptr, ptr %.064, i64 %787
+  %788 = getelementptr inbounds [8 x i8], ptr %.064, i64 %787
   %789 = load ptr, ptr %788, align 8, !tbaa !4
   %790 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %789, ptr noundef nonnull dereferenceable(4) @.str.171) #22
   %.not46.i = icmp eq i32 %790, 0
@@ -2011,7 +2010,7 @@ fetch_one_setup_partial.exit:                     ; preds = %736, %740, %749, %7
 
 795:                                              ; preds = %791
   %796 = sext i32 %792 to i64
-  %797 = getelementptr inbounds ptr, ptr %.064, i64 %796
+  %797 = getelementptr inbounds [8 x i8], ptr %.064, i64 %796
   %798 = load ptr, ptr %797, align 8, !tbaa !4
   call void (ptr, ptr, ...) @refspec_appendf(ptr noundef nonnull %35, ptr noundef nonnull @.str.173, ptr noundef %798, ptr noundef %798) #20
   br label %800
@@ -2160,7 +2159,7 @@ truncate_fetch_head.exit.i.i:                     ; preds = %841, %839
 
 853:                                              ; preds = %852, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %852 ]
-  %854 = getelementptr inbounds nuw %struct.refspec_item, ptr %851, i64 %indvars.iv.i.i
+  %854 = getelementptr inbounds nuw [32 x i8], ptr %851, i64 %indvars.iv.i.i
   %855 = load i8, ptr %854, align 8
   %856 = and i8 %855, 8
   %.not123.i.i = icmp eq i8 %856, 0
@@ -2207,7 +2206,7 @@ truncate_fetch_head.exit.i.i:                     ; preds = %841, %839
 877:                                              ; preds = %877, %.lr.ph262.i.i
   %indvars.iv276.i.i = phi i64 [ 0, %.lr.ph262.i.i ], [ %indvars.iv.next277.i.i, %877 ]
   %878 = load ptr, ptr %876, align 8, !tbaa !113
-  %879 = getelementptr inbounds nuw ptr, ptr %878, i64 %indvars.iv276.i.i
+  %879 = getelementptr inbounds nuw [8 x i8], ptr %878, i64 %indvars.iv276.i.i
   %880 = load ptr, ptr %879, align 8, !tbaa !114
   %881 = getelementptr inbounds nuw i8, ptr %880, i64 8
   %882 = load ptr, ptr %881, align 8, !tbaa !115
@@ -2272,7 +2271,7 @@ truncate_fetch_head.exit.i.i:                     ; preds = %841, %839
 
 907:                                              ; preds = %906, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %906 ]
-  %908 = getelementptr inbounds nuw %struct.refspec_item, ptr %905, i64 %indvars.iv.i.i.i
+  %908 = getelementptr inbounds nuw [32 x i8], ptr %905, i64 %indvars.iv.i.i.i
   %909 = getelementptr inbounds nuw i8, ptr %908, i64 16
   %910 = load ptr, ptr %909, align 8, !tbaa !121
   %.not13.i.i.i = icmp eq ptr %910, null
@@ -2340,10 +2339,10 @@ truncate_fetch_head.exit.i.i:                     ; preds = %841, %839
   %.2209.i.i = phi i32 [ %825, %.lr.ph.preheader.i.i.i ], [ %.3210.i.i, %933 ]
   %924 = phi ptr [ %.pre.i157.i.i, %.lr.ph.preheader.i.i.i ], [ %927, %933 ]
   %indvars.iv.i159.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i160.i.i, %933 ]
-  %925 = getelementptr inbounds nuw %struct.refspec_item, ptr %924, i64 %indvars.iv.i159.i.i
+  %925 = getelementptr inbounds nuw [32 x i8], ptr %924, i64 %indvars.iv.i159.i.i
   %926 = call i32 @get_fetch_map(ptr noundef %.0104.i.i, ptr noundef %925, ptr noundef nonnull %24, i32 noundef 0) #20
   %927 = load ptr, ptr %35, align 8, !tbaa !106
-  %928 = getelementptr inbounds nuw %struct.refspec_item, ptr %927, i64 %indvars.iv.i159.i.i
+  %928 = getelementptr inbounds nuw [32 x i8], ptr %927, i64 %indvars.iv.i159.i.i
   %929 = getelementptr inbounds nuw i8, ptr %928, i64 16
   %930 = load ptr, ptr %929, align 8, !tbaa !121
   %.not118.i.i.i = icmp eq ptr %930, null
@@ -2385,7 +2384,7 @@ truncate_fetch_head.exit.i.i:                     ; preds = %841, %839
   %indvars.iv150.i.i.i = phi i64 [ %indvars.iv.next151.i.i.i, %.lr.ph130.i.i.i ], [ 0, %._crit_edge.i.i.i ]
   %943 = load ptr, ptr %23, align 8, !tbaa !122
   %944 = load ptr, ptr %.083.i.i.i, align 8, !tbaa !106
-  %945 = getelementptr inbounds nuw %struct.refspec_item, ptr %944, i64 %indvars.iv150.i.i.i
+  %945 = getelementptr inbounds nuw [32 x i8], ptr %944, i64 %indvars.iv150.i.i.i
   %946 = call i32 @get_fetch_map(ptr noundef %943, ptr noundef %945, ptr noundef nonnull %26, i32 noundef 1) #20
   %indvars.iv.next151.i.i.i = add nuw nsw i64 %indvars.iv150.i.i.i, 1
   %947 = load i32, ptr %940, align 4, !tbaa !105
@@ -2440,10 +2439,10 @@ truncate_fetch_head.exit.i.i:                     ; preds = %841, %839
   %.6.i.i = phi i32 [ %825, %.lr.ph133.i.i.i ], [ %.7.i.i, %989 ]
   %971 = phi ptr [ %.pre156.i.i.i, %.lr.ph133.i.i.i ], [ %974, %989 ]
   %indvars.iv153.i.i.i = phi i64 [ 0, %.lr.ph133.i.i.i ], [ %indvars.iv.next154.i.i.i, %989 ]
-  %972 = getelementptr inbounds nuw %struct.refspec_item, ptr %971, i64 %indvars.iv153.i.i.i
+  %972 = getelementptr inbounds nuw [32 x i8], ptr %971, i64 %indvars.iv153.i.i.i
   %973 = call i32 @get_fetch_map(ptr noundef %.0104.i.i, ptr noundef %972, ptr noundef nonnull %24, i32 noundef 0) #20
   %974 = load ptr, ptr %957, align 8, !tbaa !129
-  %975 = getelementptr inbounds nuw %struct.refspec_item, ptr %974, i64 %indvars.iv153.i.i.i
+  %975 = getelementptr inbounds nuw [32 x i8], ptr %974, i64 %indvars.iv153.i.i.i
   %976 = getelementptr inbounds nuw i8, ptr %975, i64 16
   %977 = load ptr, ptr %976, align 8, !tbaa !121
   %.not102.i.i.i = icmp eq ptr %977, null
@@ -2540,7 +2539,7 @@ truncate_fetch_head.exit.i.i:                     ; preds = %841, %839
 .critedge.i.i.i.i:                                ; preds = %1005
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
   %1011 = load ptr, ptr %1000, align 8, !tbaa !113
-  %1012 = getelementptr inbounds nuw ptr, ptr %1011, i64 %indvars.iv.i.i.i.i
+  %1012 = getelementptr inbounds nuw [8 x i8], ptr %1011, i64 %indvars.iv.i.i.i.i
   %1013 = load ptr, ptr %1012, align 8, !tbaa !114
   %1014 = getelementptr inbounds nuw i8, ptr %1013, i64 8
   %1015 = load ptr, ptr %1014, align 8, !tbaa !115
@@ -3812,7 +3811,7 @@ truncate_fetch_head.exit.i:                       ; preds = %1477, %1475
 .lr.ph.i140:                                      ; preds = %1481, %.lr.ph.i140
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i140 ], [ 0, %1481 ]
   %1483 = load ptr, ptr @server_options, align 8, !tbaa !52
-  %1484 = getelementptr inbounds nuw %struct.string_list_item, ptr %1483, i64 %indvars.iv.i
+  %1484 = getelementptr inbounds nuw [16 x i8], ptr %1483, i64 %indvars.iv.i
   %1485 = load ptr, ptr %1484, align 8, !tbaa !53
   %1486 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %5, ptr noundef nonnull @.str.261, ptr noundef %1485) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3879,7 +3878,7 @@ truncate_fetch_head.exit.i:                       ; preds = %1477, %1475
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph44.i ], [ %indvars.iv.next48.i, %1532 ]
   %.12741.i = phi i32 [ 0, %.lr.ph44.i ], [ %.2.i, %1532 ]
   %1510 = load ptr, ptr %42, align 8, !tbaa !52
-  %1511 = getelementptr inbounds nuw %struct.string_list_item, ptr %1510, i64 %indvars.iv47.i
+  %1511 = getelementptr inbounds nuw [16 x i8], ptr %1510, i64 %indvars.iv47.i
   %1512 = load ptr, ptr %1511, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) @__const.fetch_multiple.cmd, i64 120, i1 false)
@@ -4770,7 +4769,7 @@ set_option.exit76:                                ; preds = %_.exit.i74, %154, %
 169:                                              ; preds = %194, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %194 ]
   %170 = load ptr, ptr @negotiation_tip, align 8, !tbaa !52
-  %171 = getelementptr inbounds nuw %struct.string_list_item, ptr %170, i64 %indvars.iv.i
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %170, i64 %indvars.iv.i
   %172 = load ptr, ptr %171, align 8, !tbaa !53
   %173 = call ptr @strpbrk(ptr noundef readonly %172, ptr noundef nonnull @.str.168) #22
   %.not.i77 = icmp eq ptr %173, null
@@ -6409,7 +6408,7 @@ ends_with.exit.thread:                            ; preds = %24, %ends_with.exit
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %76 = load ptr, ptr %11, align 8, !tbaa !52
   %77 = load i64, ptr %74, align 8, !tbaa !49
-  %78 = getelementptr inbounds nuw %struct.string_list_item, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %77
   %79 = icmp ult ptr %73, %78
   br i1 %79, label %.lr.ph87, label %.critedge
 
@@ -6457,7 +6456,7 @@ ends_with.exit.thread:                            ; preds = %24, %ends_with.exit
   %99 = getelementptr inbounds nuw i8, ptr %.07586, i64 16
   %100 = load ptr, ptr %11, align 8, !tbaa !52
   %101 = load i64, ptr %74, align 8, !tbaa !49
-  %102 = getelementptr inbounds nuw %struct.string_list_item, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %101
   %103 = icmp ult ptr %99, %102
   br i1 %103, label %.lr.ph87, label %.critedge
 
@@ -6515,7 +6514,7 @@ define internal fastcc void @filter_prefetch_refspec(ptr noundef nonnull capture
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.report_set_head.buf_prefix, i64 24, i1 false)
   %8 = load ptr, ptr %0, align 8, !tbaa !106
   %9 = sext i32 %.03144 to i64
-  %10 = getelementptr inbounds %struct.refspec_item, ptr %8, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr %8, i64 %9
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 16
   %.not34 = icmp eq i8 %12, 0
@@ -6541,14 +6540,14 @@ define internal fastcc void @filter_prefetch_refspec(ptr noundef nonnull capture
   br i1 %.not37, label %._crit_edge48, label %22
 
 ._crit_edge48:                                    ; preds = %19
-  %.phi.trans.insert = getelementptr inbounds %struct.refspec_item, ptr %.pre51, i64 %9
+  %.phi.trans.insert = getelementptr inbounds [32 x i8], ptr %.pre51, i64 %9
   %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 16
   %.pre50 = load ptr, ptr %.phi.trans.insert49, align 8, !tbaa !121
   br label %38
 
 22:                                               ; preds = %19, %13
   %23 = phi ptr [ %.pre51, %19 ], [ %8, %13 ]
-  %24 = getelementptr inbounds %struct.refspec_item, ptr %23, i64 %9
+  %24 = getelementptr inbounds [32 x i8], ptr %23, i64 %9
   call void @refspec_item_clear(ptr noundef %24) #20
   %.041 = add nsw i32 %.03144, 1
   %25 = load i32, ptr %4, align 4, !tbaa !105
@@ -6564,8 +6563,8 @@ define internal fastcc void @filter_prefetch_refspec(ptr noundef nonnull capture
   %.0.in42 = phi i32 [ %.03144, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %28 = load ptr, ptr %0, align 8, !tbaa !106
   %29 = sext i32 %.0.in42 to i64
-  %30 = getelementptr inbounds %struct.refspec_item, ptr %28, i64 %29
-  %31 = getelementptr inbounds %struct.refspec_item, ptr %28, i64 %indvars.iv
+  %30 = getelementptr inbounds [32 x i8], ptr %28, i64 %29
+  %31 = getelementptr inbounds [32 x i8], ptr %28, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false), !tbaa.struct !221
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %4, align 4, !tbaa !105
@@ -6610,7 +6609,7 @@ skip_prefix.exit:                                 ; preds = %42, %43
   call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull %.038, i64 noundef %48) #20
   %49 = call ptr @strbuf_detach(ptr noundef nonnull %2, ptr noundef null) #20
   %50 = load ptr, ptr %0, align 8, !tbaa !106
-  %51 = getelementptr inbounds %struct.refspec_item, ptr %50, i64 %9
+  %51 = getelementptr inbounds [32 x i8], ptr %50, i64 %9
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %49, ptr %52, align 8, !tbaa !121
   %53 = load i8, ptr %51, align 8
@@ -7200,7 +7199,7 @@ define internal range(i32 0, 2) i32 @fetch_next_remote(ptr noundef %0, ptr readn
   %15 = load ptr, ptr %11, align 8, !tbaa !52
   %16 = add nuw nsw i32 %6, 1
   store i32 %16, ptr %5, align 8, !tbaa !167
-  %17 = getelementptr inbounds nuw %struct.string_list_item, ptr %15, i64 %9
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %9
   %18 = load ptr, ptr %17, align 8, !tbaa !53
   store ptr %18, ptr %3, align 8, !tbaa !227
   %19 = load ptr, ptr %2, align 8, !tbaa !163

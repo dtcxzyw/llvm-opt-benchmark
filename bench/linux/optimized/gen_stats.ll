@@ -190,7 +190,7 @@ define dso_local void @gnet_stats_add_basic(ptr noundef %0, ptr noundef %1, ptr 
 
 27:                                               ; preds = %23
   %28 = and i64 %24, 63
-  %29 = getelementptr i64, ptr @__per_cpu_offset, i64 %28
+  %29 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %15
   %32 = inttoptr i64 %31 to ptr
@@ -263,7 +263,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @___gnet_stats_copy_basic(pt
 
 22:                                               ; preds = %18
   %23 = and i64 %19, 63
-  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
+  %24 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %10
   %27 = inttoptr i64 %26 to ptr
@@ -496,7 +496,7 @@ define dso_local void @gnet_stats_add_queue(ptr noundef captures(none) %0, ptr n
 
 21:                                               ; preds = %17
   %22 = and i64 %18, 63
-  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
+  %23 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %6
   %26 = inttoptr i64 %25 to ptr
@@ -601,7 +601,7 @@ define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_queue(ptr noundef
 
 28:                                               ; preds = %24
   %29 = and i64 %25, 63
-  %30 = getelementptr i64, ptr @__per_cpu_offset, i64 %29
+  %30 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, %9
   %33 = inttoptr i64 %32 to ptr

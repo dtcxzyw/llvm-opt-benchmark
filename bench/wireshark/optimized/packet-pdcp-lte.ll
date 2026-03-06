@@ -11,10 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.1 = type { ptr, ptr, ptr }
 %struct.ueid_frame_t = type { i32, i16 }
 %struct.pdcp_result_hash_key = type { i32, i32 }
-%struct.key_entry_t = type { i32, ptr, [16 x i8], i8, i32 }
 %struct.pdu_security_settings_t = type { i32, i32, ptr, ptr, i8, i8, i32, i8, i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.uat_ue_keys_record_t = type { i32, ptr, ptr, ptr, [16 x i8], i8, [16 x i8], i8, [16 x i8], i8 }
 
 @pdcp_security_key_hash = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [24 x i8] c"%s: (RRC Ciphering Key)\00", align 1
@@ -482,7 +480,7 @@ define hidden void @set_pdcp_lte_rrc_ciphering_key(i16 noundef zeroext %0, ptr n
   %20 = add i32 %16, 1
   store i32 %20, ptr %.0, align 8
   %21 = zext i32 %16 to i64
-  %22 = getelementptr %struct.key_entry_t, ptr %19, i64 %21
+  %22 = getelementptr [40 x i8], ptr %19, i64 %21
   store i32 0, ptr %22, align 8
   %23 = tail call noalias ptr @g_strdup(ptr noundef %1)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -715,7 +713,7 @@ define hidden void @set_pdcp_lte_rrc_integrity_key(i16 noundef zeroext %0, ptr n
   %20 = add i32 %16, 1
   store i32 %20, ptr %.0, align 8
   %21 = zext i32 %16 to i64
-  %22 = getelementptr %struct.key_entry_t, ptr %19, i64 %21
+  %22 = getelementptr [40 x i8], ptr %19, i64 %21
   store i32 1, ptr %22, align 8
   %23 = tail call noalias ptr @g_strdup(ptr noundef %1)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -769,7 +767,7 @@ define hidden void @set_pdcp_lte_up_ciphering_key(i16 noundef zeroext %0, ptr no
   %20 = add i32 %16, 1
   store i32 %20, ptr %.0, align 8
   %21 = zext i32 %16 to i64
-  %22 = getelementptr %struct.key_entry_t, ptr %19, i64 %21
+  %22 = getelementptr [40 x i8], ptr %19, i64 %21
   store i32 2, ptr %22, align 8
   %23 = tail call noalias ptr @g_strdup(ptr noundef %1)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -4094,7 +4092,7 @@ proto_item_set_generated.exit157:                 ; preds = %108, %115, %118
 
 149:                                              ; preds = %181, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %148, %.lr.ph.i ], [ %indvars.iv.next.i, %181 ]
-  %150 = getelementptr %struct.key_entry_t, ptr %131, i64 %indvars.iv.i
+  %150 = getelementptr [40 x i8], ptr %131, i64 %indvars.iv.i
   %151 = getelementptr i8, ptr %150, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = icmp ugt i32 %126, %152
@@ -4171,7 +4169,7 @@ proto_item_set_generated.exit157:                 ; preds = %108, %115, %118
 
 184:                                              ; preds = %183, %.lr.ph51.i
   %indvars.iv57.i = phi i64 [ 0, %.lr.ph51.i ], [ %indvars.iv.next58.i, %183 ]
-  %185 = getelementptr %struct.uat_ue_keys_record_t, ptr %133, i64 %indvars.iv57.i
+  %185 = getelementptr [88 x i8], ptr %133, i64 %indvars.iv57.i
   %186 = load i32, ptr %185, align 8
   %187 = icmp eq i32 %186, %128
   br i1 %187, label %look_up_keys_record.exit, label %183

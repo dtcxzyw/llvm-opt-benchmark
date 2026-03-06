@@ -286,7 +286,7 @@ define internal fastcc noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12wr
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %.val.i.i = load ptr, ptr %10, align 8, !alias.scope !60, !noalias !63, !nonnull !15, !noundef !15
   %.not.i.i = icmp eq i64 %6, 0
-  %11 = getelementptr i64, ptr %.val.i.i, i64 %6
+  %11 = getelementptr [8 x i8], ptr %.val.i.i, i64 %6
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = icmp eq ptr %12, null
   %.not7.i.i = or i1 %.not.i.i, %13
@@ -340,7 +340,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit.i: ; preds = %"_ZN81_$L
   br i1 %35, label %36, label %45, !prof !83
 
 36:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc4f148022b2f004fE.exit.i"
-  %37 = getelementptr inbounds i64, ptr %.val.i, i64 %.sroa.8.090
+  %37 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %.sroa.8.090
   %38 = load i64, ptr %37, align 8, !noalias !75, !noundef !15
   %39 = add nuw i64 %.sroa.8.090, 1
   %.val4.i = load ptr, ptr %18, align 8, !noalias !75, !nonnull !15, !noundef !15
@@ -870,7 +870,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$17write_byte_
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc4f148022b2f004fE.exit.i": ; preds = %2
   %.val.i = load ptr, ptr %7, align 8, !alias.scope !247, !nonnull !15, !noundef !15
   %.not.i = icmp eq i64 %9, 0
-  %13 = getelementptr i64, ptr %.val.i, i64 %9
+  %13 = getelementptr [8 x i8], ptr %.val.i, i64 %9
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = icmp eq ptr %14, null
   %.not7.i = or i1 %.not.i, %15
@@ -956,7 +956,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   br i1 %49, label %50, label %59, !prof !83
 
 50:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc4f148022b2f004fE.exit.i43"
-  %51 = getelementptr inbounds i64, ptr %.val.i42, i64 %.sroa.8.0191
+  %51 = getelementptr inbounds [8 x i8], ptr %.val.i42, i64 %.sroa.8.0191
   %52 = load i64, ptr %51, align 8, !noalias !268, !noundef !15
   %53 = add nuw i64 %.sroa.8.0191, 1
   %.val4.i = load ptr, ptr %6, align 8, !noalias !268, !nonnull !15, !noundef !15
@@ -1828,10 +1828,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !15, !align !464, !noundef !15
   %.val = load i8, ptr %2, align 1, !range !319, !noundef !15
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0461476d523e8f31E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0461476d523e8f31E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0461476d523e8f31E.15", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0461476d523e8f31E.15", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -2107,7 +2107,7 @@ define hidden noundef i128 @_ZN4core5error5Error7type_id17hcd3e0f44bdd90767E(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, ptr } @"_ZN4core5slice4iter87_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$$u5b$T$u5d$$GT$9into_iter17hc369b20ba396d67cE.llvm.14933412330345768097"(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %0, i64 %1
+  %3 = getelementptr inbounds [24 x i8], ptr %0, i64 %1
   %4 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %5 = insertvalue { ptr, ptr } %4, ptr %3, 1
   ret { ptr, ptr } %5

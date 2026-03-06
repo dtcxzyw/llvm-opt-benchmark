@@ -705,7 +705,7 @@ define internal i32 @newseg(ptr noundef %0, ptr noundef readonly captures(none) 
 49:                                               ; preds = %46
   %50 = load i32, ptr @default_hstate_idx, align 4
   %51 = zext i32 %50 to i64
-  %52 = getelementptr %struct.hstate, ptr @hstates, i64 %51
+  %52 = getelementptr [6088 x i8], ptr @hstates, i64 %51
   br label %57
 
 53:                                               ; preds = %46

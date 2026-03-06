@@ -119,7 +119,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::pair<unsigned long, grpc_core::RefCountedPtr<grpc_core::LoadBalancingPolicy::SubchannelPicker>>, std::allocator<std::pair<unsigned long, grpc_core::RefCountedPtr<grpc_core::LoadBalancingPolicy::SubchannelPicker>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned long, grpc_core::RefCountedPtr<grpc_core::LoadBalancingPolicy::SubchannelPicker>>, std::allocator<std::pair<unsigned long, grpc_core::RefCountedPtr<grpc_core::LoadBalancingPolicy::SubchannelPicker>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<unsigned long, grpc_core::RefCountedPtr<grpc_core::LoadBalancingPolicy::SubchannelPicker>>, std::allocator<std::pair<unsigned long, grpc_core::RefCountedPtr<grpc_core::LoadBalancingPolicy::SubchannelPicker>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
-%"struct.std::pair.388" = type { i64, %"class.grpc_core::RefCountedPtr.207" }
 %"class.grpc_core::ExecCtx" = type { ptr, %struct.grpc_closure_list, %"struct.grpc_core::ExecCtx::CombinerData", i64, %"class.std::optional.252", ptr }
 %struct.grpc_closure_list = type { ptr, ptr }
 %"struct.grpc_core::ExecCtx::CombinerData" = type { ptr, ptr }
@@ -769,7 +768,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !21
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !18
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !22
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -7687,7 +7686,7 @@ _ZNSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16Subc
 .noexc145:                                        ; preds = %150, %_ZNSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16SubchannelPickerEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit33.i
   store ptr %140, ptr %8, align 8, !tbaa !298
   store ptr %149, ptr %36, align 8, !tbaa !293
-  %151 = getelementptr inbounds nuw %"struct.std::pair.388", ptr %140, i64 %138
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %138
   store ptr %151, ptr %37, align 8, !tbaa !295
   br label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev.exit
 
@@ -7808,7 +7807,7 @@ _ZNSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16Subc
 .noexc150:                                        ; preds = %198, %_ZNSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16SubchannelPickerEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit33.i234
   store ptr %188, ptr %9, align 8, !tbaa !298
   store ptr %197, ptr %34, align 8, !tbaa !293
-  %199 = getelementptr inbounds nuw %"struct.std::pair.388", ptr %188, i64 %186
+  %199 = getelementptr inbounds nuw [16 x i8], ptr %188, i64 %186
   store ptr %199, ptr %35, align 8, !tbaa !295
   br label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev.exit
 
@@ -11072,7 +11071,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !136
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !137
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !139
   ret void
 }
@@ -11466,7 +11465,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit2.i:     ; preds = %21
   %.02230 = phi i64 [ %.123, %42 ], [ 0, %"_ZZN9grpc_core12_GLOBAL__N_116WeightedTargetLb14WeightedPicker4PickENS_19LoadBalancingPolicy8PickArgsEENK3$_0clEv.exit" ]
   %34 = add i64 %.02031, %.02230
   %35 = lshr i64 %34, 1
-  %36 = getelementptr inbounds nuw %"struct.std::pair.388", ptr %28, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !296
   %38 = icmp ugt i64 %37, %16
   br i1 %38, label %42, label %39
@@ -11484,7 +11483,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit2.i:     ; preds = %21
 
 .loopexit:                                        ; preds = %42, %39, %"_ZZN9grpc_core12_GLOBAL__N_116WeightedTargetLb14WeightedPicker4PickENS_19LoadBalancingPolicy8PickArgsEENK3$_0clEv.exit"
   %44 = phi i64 [ 0, %"_ZZN9grpc_core12_GLOBAL__N_116WeightedTargetLb14WeightedPicker4PickENS_19LoadBalancingPolicy8PickArgsEENK3$_0clEv.exit" ], [ %.123, %42 ], [ %41, %39 ]
-  %45 = getelementptr inbounds nuw %"struct.std::pair.388", ptr %28, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !296
   %.not.not = icmp ugt i64 %46, %16
   br i1 %.not.not, label %.critedge, label %47, !prof !356
@@ -11526,9 +11525,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engine
   %.022.i.i = phi i64 [ 60, %2 ], [ %26, %9 ]
   %10 = add nsw i64 %.022.i.i, -4
   %11 = lshr exact i64 %10, 1
-  %12 = getelementptr i32, ptr %3, i64 %.022.i.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %.022.i.i
   %13 = getelementptr i8, ptr %12, i64 -20
-  %14 = getelementptr i32, ptr %3, i64 %11
+  %14 = getelementptr [4 x i8], ptr %3, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %13, align 4, !tbaa !30
   %17 = load i32, ptr %15, align 4, !tbaa !30
@@ -11547,7 +11546,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engine
   store i32 %25, ptr %22, align 4, !tbaa !30
   store i32 %24, ptr %23, align 4, !tbaa !30
   %26 = add nsw i64 %.022.i.i, -8
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   %28 = getelementptr i8, ptr %14, i64 -16
   %29 = load i32, ptr %27, align 16, !tbaa !30
   %30 = load i32, ptr %28, align 8, !tbaa !30
@@ -11622,7 +11621,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURB
   %18 = load i64, ptr %7, align 8, !tbaa !388
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !388
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !58
   %22 = add i64 %.sroa.2.0.copyload.i, 1
   %23 = and i64 %22, %.sroa.2.0.copyload.i
@@ -11700,7 +11699,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImE8GenerateINS1_17Nonse
   %17 = load i64, ptr %6, align 8, !tbaa !388
   %18 = add i64 %17, 1
   store i64 %18, ptr %6, align 8, !tbaa !388
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !58
   ret i64 %20
 }

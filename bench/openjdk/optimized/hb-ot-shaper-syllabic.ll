@@ -3,8 +3,6 @@ source_filename = "bench/openjdk/original/hb-ot-shaper-syllabic.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.hb_glyph_info_t = type { i32, i32, i32, %union._hb_var_int_t, %union._hb_var_int_t }
-%union._hb_var_int_t = type { i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 $_ZN11hb_buffer_t7messageEP9hb_font_tPKcz = comdat any
@@ -103,7 +101,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %23, %32
 53:                                               ; preds = %49
   %54 = load ptr, ptr %45, align 8
   %55 = zext i32 %50 to i64
-  %56 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [20 x i8], ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 15
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
@@ -129,7 +127,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %23, %32
 70:                                               ; preds = %.lr.ph
   %71 = load ptr, ptr %45, align 8
   %72 = zext i32 %67 to i64
-  %73 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [20 x i8], ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 15
   %75 = load i8, ptr %74, align 1
   %76 = icmp eq i8 %58, %75
@@ -165,11 +163,11 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %23, %32
 91:                                               ; preds = %89
   %92 = load ptr, ptr %45, align 8
   %93 = zext i32 %.pre74 to i64
-  %94 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [20 x i8], ptr %92, i64 %93
   %95 = load ptr, ptr %47, align 8
   %96 = load i32, ptr %48, align 4
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [20 x i8], ptr %95, i64 %97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %98, ptr noundef nonnull align 4 dereferenceable(20) %94, i64 20, i1 false)
   %.pre.i = load i32, ptr %48, align 4
   %.pre73.pre = load i32, ptr %41, align 4
@@ -202,7 +200,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit:              ; preds = %89, %102
   %110 = load ptr, ptr %47, align 8
   %111 = load i32, ptr %48, align 4
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %110, i64 %112
+  %113 = getelementptr inbounds nuw [20 x i8], ptr %110, i64 %112
   store i32 %40, ptr %113, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 %66, ptr %.sroa.2.0..sroa_idx, align 4
@@ -246,11 +244,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit:              ; preds = %89, %102
   %126 = load ptr, ptr %45, align 8
   %127 = load i32, ptr %41, align 4
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %126, i64 %128
+  %129 = getelementptr inbounds nuw [20 x i8], ptr %126, i64 %128
   %130 = load ptr, ptr %47, align 8
   %131 = load i32, ptr %48, align 4
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %130, i64 %132
+  %133 = getelementptr inbounds nuw [20 x i8], ptr %130, i64 %132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %133, ptr noundef nonnull align 4 dereferenceable(20) %129, i64 20, i1 false)
   %.pre.i56 = load i32, ptr %48, align 4
   %.pre.pre = load i32, ptr %41, align 4

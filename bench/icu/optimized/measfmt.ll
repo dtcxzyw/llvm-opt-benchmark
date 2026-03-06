@@ -51,7 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.13 = type { ptr }
 %"class.icu_77::number::Scale" = type <{ i32, [4 x i8], ptr, i32, [4 x i8] }>
 %"class.icu_77::number::impl::StringProp" = type { ptr, i16, i32 }
-%"class.icu_77::Measure" = type { %"class.icu_77::UObject", %"class.icu_77::Formattable", ptr }
 %"class.icu_77::number::FormattedNumber" = type <{ %"class.icu_77::FormattedValue", ptr, i32, [4 x i8] }>
 %"class.icu_77::FieldPosition" = type <{ %"class.icu_77::UObject", i32, i32, i32, [4 x i8] }>
 %"class.icu_77::LocalArray" = type { %"class.icu_77::LocalPointerBase.16" }
@@ -631,7 +630,7 @@ define void @_ZN6icu_7722MeasureFormatCacheDataC2Ev(ptr noundef nonnull writeonl
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 4, ptr %8, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -655,7 +654,7 @@ define void @_ZN6icu_7722MeasureFormatCacheDataD2Ev(ptr noundef nonnull align 8 
 
 7:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11
@@ -908,13 +907,13 @@ _ZN6icu_7722MeasureFormatCacheData26adoptNumericDateFormattersEPNS_21NumericDate
           to label %64 unwind label %78
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i32, ptr @_ZZNK6icu_7714LocaleCacheKeyINS_22MeasureFormatCacheDataEE12createObjectEPKvR10UErrorCodeE14currencyStyles, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr @_ZZNK6icu_7714LocaleCacheKeyINS_22MeasureFormatCacheDataEE12createObjectEPKvR10UErrorCodeE14currencyStyles, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !39
   %67 = invoke noundef ptr @_ZN6icu_7712NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %9, i32 noundef %66, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %68 unwind label %80
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !30
   %71 = icmp eq ptr %70, null
   br i1 %71, label %_ZN6icu_7722MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit, label %72
@@ -1263,7 +1262,7 @@ _ZN6icu_7712SharedObject7copyPtrINS_17SharedPluralRulesEEEvPKT_RS5_.exit: ; pred
   %52 = phi i32 [ %.pre, %47 ], [ %2, %42 ]
   %..i = tail call noundef range(i32 -2147483648, 3) i32 @llvm.smin.i32(i32 %52, i32 2)
   %53 = zext i32 %..i to i64
-  %54 = getelementptr inbounds nuw i32, ptr @_ZZN6icu_7713MeasureFormat17initMeasureFormatERKNS_6LocaleE19UMeasureFormatWidthPNS_12NumberFormatER10UErrorCodeE10listWidths, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6icu_7713MeasureFormat17initMeasureFormatERKNS_6LocaleE19UMeasureFormatWidthPNS_12NumberFormatER10UErrorCodeE10listWidths, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !51
   %56 = invoke noundef ptr @_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %1, i32 noundef 2, i32 noundef %55, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %57 unwind label %23
@@ -1824,7 +1823,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureForm
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %..i.i = call noundef range(i32 -2147483648, 3) i32 @llvm.smin.i32(i32 %31, i32 2)
   %33 = zext i32 %..i.i to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %36 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 128) #19
@@ -1923,7 +1922,7 @@ _ZNK6icu_7713MeasureFormat9getLocaleER10UErrorCode.exit: ; preds = %66
 
 switch.lookup:                                    ; preds = %_ZNK6icu_7713MeasureFormat9getLocaleER10UErrorCode.exit
   %70 = zext nneg i32 %68 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7713MeasureFormat18getUnitDisplayNameERKNS_11MeasureUnitER10UErrorCode, i64 %70
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK6icu_7713MeasureFormat18getUnitDisplayNameERKNS_11MeasureUnitER10UErrorCode, i64 %70
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN6icu_77L12getUnitWidthE19UMeasureFormatWidth.exit
 
@@ -2075,7 +2074,7 @@ _ZN6icu_776number4impl20UFormattedNumberDataC2Ev.exit: ; preds = %95
 
 switch.lookup115:                                 ; preds = %110
   %114 = zext nneg i32 %112 to i64
-  %switch.gep116 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7713MeasureFormat18getUnitDisplayNameERKNS_11MeasureUnitER10UErrorCode, i64 %114
+  %switch.gep116 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK6icu_7713MeasureFormat18getUnitDisplayNameERKNS_11MeasureUnitER10UErrorCode, i64 %114
   %switch.load117 = load i32, ptr %switch.gep116, align 4
   br label %_ZN6icu_77L12getUnitWidthE19UMeasureFormatWidth.exit96
 
@@ -2297,7 +2296,7 @@ _ZN6icu_776number4impl20UFormattedNumberDataC2Ev.exit: ; preds = %24
 
 switch.lookup:                                    ; preds = %43
   %47 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7713MeasureFormat18getUnitDisplayNameERKNS_11MeasureUnitER10UErrorCode, i64 %47
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK6icu_7713MeasureFormat18getUnitDisplayNameERKNS_11MeasureUnitER10UErrorCode, i64 %47
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN6icu_77L12getUnitWidthE19UMeasureFormatWidth.exit
 
@@ -2527,7 +2526,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureForm
 33:                                               ; preds = %79, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %79 ]
   %.0327.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %79 ]
-  %34 = getelementptr inbounds nuw %"class.icu_77::Measure", ptr %1, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %indvars.iv.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
   %36 = load ptr, ptr %35, align 8, !tbaa !60
   %37 = invoke noundef ptr @_ZNK6icu_7711MeasureUnit7getTypeEv(ptr noundef nonnull align 8 dereferenceable(19) %36)
@@ -2771,8 +2770,8 @@ _ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread: ; 
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %.0.in = select i1 %130, ptr %132, ptr %129
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !30
-  %133 = getelementptr inbounds nuw %"class.icu_77::Measure", ptr %1, i64 %indvars.iv
-  %134 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr77.ptr, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [64 x i8], ptr %.ptr77.ptr, i64 %indvars.iv
   %135 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureFormat13formatMeasureERKNS_7MeasureERKNS_12NumberFormatERNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(128) %133, ptr noundef nonnull align 8 dereferenceable(60) %.0, ptr noundef nonnull align 8 dereferenceable(64) %134, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3033,7 +3032,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %108
   %117 = load ptr, ptr %103, align 8
   %118 = select i1 %.not.i.i.i, ptr %117, ptr %102
   %119 = sext i32 %.096157 to i64
-  %120 = getelementptr inbounds i16, ptr %118, i64 %119
+  %120 = getelementptr inbounds [2 x i8], ptr %118, i64 %119
   %121 = load i16, ptr %120, align 2, !tbaa !95
   switch i16 %121, label %.thread150 [
     i16 72, label %.thread145
@@ -3078,7 +3077,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %108
 
 135:                                              ; preds = %133
   %136 = sext i32 %131 to i64
-  %137 = getelementptr inbounds i16, ptr %118, i64 %136
+  %137 = getelementptr inbounds [2 x i8], ptr %118, i64 %136
   %138 = load i16, ptr %137, align 2, !tbaa !95
   br label %_ZNK6icu_7713UnicodeStringixEi.exit136
 
@@ -3183,7 +3182,7 @@ _ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UEr
 
 _ZNK6icu_7713UnicodeStringixEi.exit139:           ; preds = %164
   %168 = sext i32 %165 to i64
-  %169 = getelementptr inbounds i16, ptr %118, i64 %168
+  %169 = getelementptr inbounds [2 x i8], ptr %118, i64 %168
   %170 = load i16, ptr %169, align 2, !tbaa !95
   %171 = icmp eq i16 %170, 39
   br i1 %171, label %172, label %_ZNK6icu_7713UnicodeStringixEi.exit139.thread
@@ -3381,8 +3380,8 @@ _ZN6icu_7710LocalArrayINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit: ; preds = 
   %.0.in = select i1 %46, ptr %48, ptr %45
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !30
   %49 = icmp eq i32 %.04892, -1
-  %50 = getelementptr inbounds nuw %"class.icu_77::Measure", ptr %1, i64 %indvars.iv
-  %51 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %38, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %38, i64 %indvars.iv
   br i1 %49, label %54, label %63
 
 52:                                               ; preds = %63, %54
@@ -3525,7 +3524,7 @@ define void @_ZNK6icu_7713MeasureFormat18getUnitDisplayNameERKNS_11MeasureUnitER
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7713MeasureFormat18getUnitDisplayNameERKNS_11MeasureUnitER10UErrorCode, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK6icu_7713MeasureFormat18getUnitDisplayNameERKNS_11MeasureUnitER10UErrorCode, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN6icu_77L12getUnitWidthE19UMeasureFormatWidth.exit
 
@@ -4075,7 +4074,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit36: ; preds = %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %75 ]
-  %71 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %indvars.iv
   %72 = load i16, ptr %71, align 2, !tbaa !95
   %73 = icmp eq i16 %72, 104
   br i1 %73, label %74, label %75

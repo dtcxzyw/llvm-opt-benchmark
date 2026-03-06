@@ -1826,13 +1826,13 @@ define internal fastcc ptr @unix_create1(ptr noundef %0, ptr noundef %1, i32 nou
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %26, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr %struct.spinlock, ptr %46, i64 %48
+  %49 = getelementptr [4 x i8], ptr %46, i64 %48
   tail call void @_raw_spin_lock(ptr noundef %49) #19
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %26, align 8
   %53 = zext i32 %52 to i64
-  %54 = getelementptr %struct.hlist_head, ptr %51, i64 %53
+  %54 = getelementptr [8 x i8], ptr %51, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %56 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %55, i32 1, ptr nonnull elementtype(i32) %55) #19, !srcloc !6
   %57 = icmp eq i32 %56, 0
@@ -1868,7 +1868,7 @@ define internal fastcc ptr @unix_create1(ptr noundef %0, ptr noundef %1, i32 nou
   %72 = load ptr, ptr %45, align 8
   %73 = load i32, ptr %26, align 8
   %74 = zext i32 %73 to i64
-  %75 = getelementptr %struct.spinlock, ptr %72, i64 %74
+  %75 = getelementptr [4 x i8], ptr %72, i64 %74
   tail call void @_raw_spin_unlock(ptr noundef %75) #19
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %77 = load ptr, ptr %76, align 8
@@ -1878,7 +1878,7 @@ define internal fastcc ptr @unix_create1(ptr noundef %0, ptr noundef %1, i32 nou
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 208
   %82 = load i32, ptr %81, align 8
   %83 = zext i32 %82 to i64
-  %84 = getelementptr i32, ptr %80, i64 %83
+  %84 = getelementptr [4 x i8], ptr %80, i64 %83
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %84, ptr elementtype(i32) %84) #19, !srcloc !26
   br label %88
 
@@ -2149,7 +2149,7 @@ define internal i32 @unix_bind(ptr noundef readonly captures(none) %0, ptr nound
   %150 = getelementptr inbounds nuw i8, ptr %113, i64 552
   %151 = load ptr, ptr %150, align 8
   %152 = zext nneg i32 %149 to i64
-  %153 = getelementptr %struct.spinlock, ptr %151, i64 %152
+  %153 = getelementptr [4 x i8], ptr %151, i64 %152
   tail call void @_raw_spin_lock(ptr noundef %153) #19
   br label %154
 
@@ -2158,13 +2158,13 @@ define internal i32 @unix_bind(ptr noundef readonly captures(none) %0, ptr nound
   %156 = phi i32 [ %148, %147 ], [ %111, %145 ]
   %157 = load ptr, ptr %155, align 8
   %158 = zext i32 %156 to i64
-  %159 = getelementptr %struct.spinlock, ptr %157, i64 %158
+  %159 = getelementptr [4 x i8], ptr %157, i64 %158
   tail call void @_raw_spin_lock(ptr noundef %159) #19
   %160 = load i32, ptr %119, align 4
   %161 = getelementptr inbounds nuw i8, ptr %113, i64 560
   %162 = load ptr, ptr %161, align 8
   %163 = zext nneg i32 %143 to i64
-  %164 = getelementptr %struct.hlist_head, ptr %162, i64 %163
+  %164 = getelementptr [8 x i8], ptr %162, i64 %163
   %165 = load ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, null
   %167 = getelementptr i8, ptr %165, i64 -104
@@ -2205,13 +2205,13 @@ define internal i32 @unix_bind(ptr noundef readonly captures(none) %0, ptr nound
   %190 = getelementptr inbounds nuw i8, ptr %113, i64 552
   %191 = load ptr, ptr %190, align 8
   %192 = zext i32 %111 to i64
-  %193 = getelementptr %struct.spinlock, ptr %191, i64 %192
+  %193 = getelementptr [4 x i8], ptr %191, i64 %192
   tail call void @_raw_spin_unlock(ptr noundef %193) #19
   br i1 %144, label %197, label %194
 
 194:                                              ; preds = %.thread22
   %195 = load ptr, ptr %190, align 8
-  %196 = getelementptr %struct.spinlock, ptr %195, i64 %163
+  %196 = getelementptr [4 x i8], ptr %195, i64 %163
   tail call void @_raw_spin_unlock(ptr noundef %196) #19
   br label %197
 
@@ -2223,13 +2223,13 @@ define internal i32 @unix_bind(ptr noundef readonly captures(none) %0, ptr nound
   %199 = getelementptr inbounds nuw i8, ptr %113, i64 552
   %200 = load ptr, ptr %199, align 8
   %201 = zext i32 %111 to i64
-  %202 = getelementptr %struct.spinlock, ptr %200, i64 %201
+  %202 = getelementptr [4 x i8], ptr %200, i64 %201
   tail call void @_raw_spin_unlock(ptr noundef %202) #19
   br i1 %144, label %206, label %203
 
 203:                                              ; preds = %198
   %204 = load ptr, ptr %199, align 8
-  %205 = getelementptr %struct.spinlock, ptr %204, i64 %163
+  %205 = getelementptr [4 x i8], ptr %204, i64 %163
   tail call void @_raw_spin_unlock(ptr noundef %205) #19
   br label %206
 
@@ -3982,7 +3982,7 @@ define internal fastcc void @unix_release_sock(ptr noundef %0, i32 noundef range
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr %struct.spinlock, ptr %7, i64 %10
+  %11 = getelementptr [4 x i8], ptr %7, i64 %10
   tail call void @_raw_spin_lock(ptr noundef %11) #19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load ptr, ptr %12, align 8
@@ -4027,7 +4027,7 @@ define internal fastcc void @unix_release_sock(ptr noundef %0, i32 noundef range
   %31 = load ptr, ptr %6, align 8
   %32 = load i32, ptr %8, align 8
   %33 = zext i32 %32 to i64
-  %34 = getelementptr %struct.spinlock, ptr %31, i64 %33
+  %34 = getelementptr [4 x i8], ptr %31, i64 %33
   tail call void @_raw_spin_unlock(ptr noundef %34) #19
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -4038,7 +4038,7 @@ define internal fastcc void @unix_release_sock(ptr noundef %0, i32 noundef range
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %8, align 8
   %41 = zext i32 %40 to i64
-  %42 = getelementptr %struct.spinlock, ptr @bsd_socket_locks, i64 %41
+  %42 = getelementptr [4 x i8], ptr @bsd_socket_locks, i64 %41
   tail call void @_raw_spin_lock(ptr noundef %42) #19
   %43 = load ptr, ptr %39, align 8
   %44 = load ptr, ptr %35, align 8
@@ -4054,7 +4054,7 @@ define internal fastcc void @unix_release_sock(ptr noundef %0, i32 noundef range
 48:                                               ; preds = %46, %38
   %49 = load i32, ptr %8, align 8
   %50 = zext i32 %49 to i64
-  %51 = getelementptr %struct.spinlock, ptr @bsd_socket_locks, i64 %50
+  %51 = getelementptr [4 x i8], ptr @bsd_socket_locks, i64 %50
   tail call void @_raw_spin_unlock(ptr noundef %51) #19
   store ptr null, ptr %35, align 8
   br label %52
@@ -4381,7 +4381,7 @@ define internal fastcc i32 @unix_autobind(ptr noundef %0) unnamed_addr #0 align 
 
 47:                                               ; preds = %27
   %48 = load ptr, ptr %24, align 8
-  %49 = getelementptr %struct.spinlock, ptr %48, i64 %25
+  %49 = getelementptr [4 x i8], ptr %48, i64 %25
   br label %59
 
 50:                                               ; preds = %27
@@ -4389,11 +4389,11 @@ define internal fastcc i32 @unix_autobind(ptr noundef %0) unnamed_addr #0 align 
   %52 = tail call i32 @llvm.umin.i32(i32 %3, i32 %45)
   %53 = load ptr, ptr %24, align 8
   %54 = zext nneg i32 %52 to i64
-  %55 = getelementptr %struct.spinlock, ptr %53, i64 %54
+  %55 = getelementptr [4 x i8], ptr %53, i64 %54
   tail call void @_raw_spin_lock(ptr noundef %55) #19
   %56 = load ptr, ptr %24, align 8
   %57 = zext i32 %51 to i64
-  %58 = getelementptr %struct.spinlock, ptr %56, i64 %57
+  %58 = getelementptr [4 x i8], ptr %56, i64 %57
   br label %59
 
 59:                                               ; preds = %50, %47
@@ -4402,7 +4402,7 @@ define internal fastcc i32 @unix_autobind(ptr noundef %0) unnamed_addr #0 align 
   %61 = load i32, ptr %18, align 4
   %62 = load ptr, ptr %26, align 8
   %63 = zext nneg i32 %45 to i64
-  %64 = getelementptr %struct.hlist_head, ptr %62, i64 %63
+  %64 = getelementptr [8 x i8], ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   %67 = getelementptr i8, ptr %65, i64 -104
@@ -4443,14 +4443,14 @@ define internal fastcc i32 @unix_autobind(ptr noundef %0) unnamed_addr #0 align 
 
 91:                                               ; preds = %90
   %92 = load ptr, ptr %24, align 8
-  %93 = getelementptr %struct.spinlock, ptr %92, i64 %25
+  %93 = getelementptr [4 x i8], ptr %92, i64 %25
   tail call void @_raw_spin_unlock(ptr noundef %93) #19
   br label %94
 
 94:                                               ; preds = %91, %90
   %95 = phi i64 [ %63, %91 ], [ %25, %90 ]
   %96 = load ptr, ptr %24, align 8
-  %97 = getelementptr %struct.spinlock, ptr %96, i64 %95
+  %97 = getelementptr [4 x i8], ptr %96, i64 %95
   tail call void @_raw_spin_unlock(ptr noundef %97) #19
   %98 = tail call i32 @__SCT__cond_resched() #19
   %99 = icmp eq i32 %30, %21
@@ -4477,13 +4477,13 @@ define internal fastcc i32 @unix_autobind(ptr noundef %0) unnamed_addr #0 align 
 .loopexit:                                        ; preds = %59, %83
   tail call fastcc void @__unix_set_addr_hash(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %15, i32 noundef %45)
   %107 = load ptr, ptr %24, align 8
-  %108 = getelementptr %struct.spinlock, ptr %107, i64 %25
+  %108 = getelementptr [4 x i8], ptr %107, i64 %25
   tail call void @_raw_spin_unlock(ptr noundef %108) #19
   br i1 %46, label %.thread10, label %109
 
 109:                                              ; preds = %.loopexit
   %110 = load ptr, ptr %24, align 8
-  %111 = getelementptr %struct.spinlock, ptr %110, i64 %63
+  %111 = getelementptr [4 x i8], ptr %110, i64 %63
   tail call void @_raw_spin_unlock(ptr noundef %111) #19
   br label %.thread10
 
@@ -4521,7 +4521,7 @@ define internal fastcc void @unix_table_double_lock(ptr noundef readonly capture
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr %struct.spinlock, ptr %11, i64 %12
+  %13 = getelementptr [4 x i8], ptr %11, i64 %12
   tail call void @_raw_spin_lock(ptr noundef %13) #19
   br label %14
 
@@ -4530,7 +4530,7 @@ define internal fastcc void @unix_table_double_lock(ptr noundef readonly capture
   %16 = phi i32 [ %1, %5 ], [ %8, %7 ]
   %17 = load ptr, ptr %15, align 8
   %18 = zext i32 %16 to i64
-  %19 = getelementptr %struct.spinlock, ptr %17, i64 %18
+  %19 = getelementptr [4 x i8], ptr %17, i64 %18
   tail call void @_raw_spin_lock(ptr noundef %19) #19
   ret void
 }
@@ -4541,14 +4541,14 @@ define internal fastcc void @unix_table_double_unlock(ptr noundef readonly captu
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
-  %8 = getelementptr %struct.spinlock, ptr %6, i64 %7
+  %8 = getelementptr [4 x i8], ptr %6, i64 %7
   tail call void @_raw_spin_unlock(ptr noundef %8) #19
   br i1 %4, label %13, label %9
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %5, align 8
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr %struct.spinlock, ptr %10, i64 %11
+  %12 = getelementptr [4 x i8], ptr %10, i64 %11
   tail call void @_raw_spin_unlock(ptr noundef %12) #19
   br label %13
 
@@ -4606,7 +4606,7 @@ define internal fastcc void @__unix_set_addr_hash(ptr noundef readonly captures(
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %3 to i64
-  %29 = getelementptr %struct.hlist_head, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %31 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %30, i32 1, ptr nonnull elementtype(i32) %30) #19, !srcloc !6
   %32 = icmp eq i32 %31, 0
@@ -4673,11 +4673,11 @@ define internal fastcc void @unix_insert_bsd_socket(ptr noundef %0) unnamed_addr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr %struct.spinlock, ptr @bsd_socket_locks, i64 %4
+  %5 = getelementptr [4 x i8], ptr @bsd_socket_locks, i64 %4
   tail call void @_raw_spin_lock(ptr noundef %5) #19
   %6 = load i32, ptr %2, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.hlist_head, ptr @bsd_socket_buckets, i64 %7
+  %8 = getelementptr [8 x i8], ptr @bsd_socket_buckets, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %8, align 8
   store volatile ptr %10, ptr %9, align 8
@@ -4695,7 +4695,7 @@ define internal fastcc void @unix_insert_bsd_socket(ptr noundef %0) unnamed_addr
   store volatile ptr %8, ptr %15, align 8
   %16 = load i32, ptr %2, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr %struct.spinlock, ptr @bsd_socket_locks, i64 %17
+  %18 = getelementptr [4 x i8], ptr @bsd_socket_locks, i64 %17
   tail call void @_raw_spin_unlock(ptr noundef %18) #19
   ret void
 }
@@ -4760,9 +4760,9 @@ define internal fastcc ptr @unix_find_other(ptr noundef readonly captures(none) 
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 255
-  %36 = getelementptr %struct.spinlock, ptr @bsd_socket_locks, i64 %35
+  %36 = getelementptr [4 x i8], ptr @bsd_socket_locks, i64 %35
   call void @_raw_spin_lock(ptr noundef %36) #19
-  %37 = getelementptr %struct.hlist_head, ptr @bsd_socket_buckets, i64 %35
+  %37 = getelementptr [8 x i8], ptr @bsd_socket_buckets, i64 %35
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   %40 = getelementptr i8, ptr %38, i64 -24
@@ -4875,11 +4875,11 @@ define internal fastcc ptr @unix_find_other(ptr noundef readonly captures(none) 
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %101 = load ptr, ptr %100, align 8
   %102 = zext nneg i32 %99 to i64
-  %103 = getelementptr %struct.spinlock, ptr %101, i64 %102
+  %103 = getelementptr [4 x i8], ptr %101, i64 %102
   tail call void @_raw_spin_lock(ptr noundef %103) #19
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr %struct.hlist_head, ptr %105, i64 %102
+  %106 = getelementptr [8 x i8], ptr %105, i64 %102
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, null
   %109 = getelementptr i8, ptr %107, i64 -104
@@ -4934,7 +4934,7 @@ define internal fastcc ptr @unix_find_other(ptr noundef readonly captures(none) 
 
 142:                                              ; preds = %140, %136
   %143 = load ptr, ptr %100, align 8
-  %144 = getelementptr %struct.spinlock, ptr %143, i64 %102
+  %144 = getelementptr [4 x i8], ptr %143, i64 %102
   tail call void @_raw_spin_unlock(ptr noundef %144) #19
   %145 = getelementptr inbounds nuw i8, ptr %115, i64 760
   %146 = load ptr, ptr %145, align 8
@@ -4943,7 +4943,7 @@ define internal fastcc ptr @unix_find_other(ptr noundef readonly captures(none) 
 
 .loopexit:                                        ; preds = %125, %88
   %148 = load ptr, ptr %100, align 8
-  %149 = getelementptr %struct.spinlock, ptr %148, i64 %102
+  %149 = getelementptr [4 x i8], ptr %148, i64 %102
   tail call void @_raw_spin_unlock(ptr noundef %149) #19
   br label %152
 
@@ -7117,7 +7117,7 @@ define internal void @unix_sock_destructor(ptr noundef %0) #0 align 16 {
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 208
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr i32, ptr %26, i64 %29
+  %30 = getelementptr [4 x i8], ptr %26, i64 %29
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30, ptr elementtype(i32) %30) #19, !srcloc !60
   br label %31
 
@@ -7192,10 +7192,10 @@ define internal noundef range(i32 -12, 1) i32 @unix_net_init(ptr noundef initial
 .preheader:                                       ; preds = %14, %.preheader
   %18 = phi i64 [ %23, %.preheader ], [ 0, %14 ]
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr %struct.spinlock, ptr %19, i64 %18
+  %20 = getelementptr [4 x i8], ptr %19, i64 %18
   store i32 0, ptr %20, align 4
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr %struct.hlist_head, ptr %21, i64 %18
+  %22 = getelementptr [8 x i8], ptr %21, i64 %18
   store ptr null, ptr %22, align 8
   %23 = add nuw nsw i64 %18, 1
   %24 = icmp eq i64 %23, 512
@@ -7271,7 +7271,7 @@ define internal ptr @unix_seq_start(ptr noundef readonly captures(none) %0, ptr 
 13:                                               ; preds = %.loopexit8, %9
   %14 = phi i64 [ %6, %9 ], [ %43, %.loopexit8 ]
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr %struct.spinlock, ptr %15, i64 %14
+  %16 = getelementptr [4 x i8], ptr %15, i64 %14
   tail call void @_raw_spin_lock(ptr noundef %16) #19
   %17 = load i64, ptr %1, align 8
   %18 = and i64 %17, 18014398509481983
@@ -7280,7 +7280,7 @@ define internal ptr @unix_seq_start(ptr noundef readonly captures(none) %0, ptr 
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 560
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr %struct.hlist_head, ptr %23, i64 %19
+  %24 = getelementptr [8 x i8], ptr %23, i64 %19
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   %27 = getelementptr i8, ptr %25, i64 -104
@@ -7306,7 +7306,7 @@ define internal ptr @unix_seq_start(ptr noundef readonly captures(none) %0, ptr 
 
 .loopexit8:                                       ; preds = %34, %13
   %41 = load ptr, ptr %12, align 8
-  %42 = getelementptr %struct.spinlock, ptr %41, i64 %14
+  %42 = getelementptr [4 x i8], ptr %41, i64 %14
   tail call void @_raw_spin_unlock(ptr noundef %42) #19
   %43 = add nuw nsw i64 %14, 1
   %44 = shl nuw i64 %43, 54
@@ -7334,7 +7334,7 @@ define internal void @unix_seq_stop(ptr noundef readonly captures(none) %0, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr %struct.spinlock, ptr %9, i64 %12
+  %13 = getelementptr [4 x i8], ptr %9, i64 %12
   tail call void @_raw_spin_unlock(ptr noundef %13) #19
   br label %14
 
@@ -7365,7 +7365,7 @@ define internal ptr @unix_seq_next(ptr noundef readonly captures(none) %0, ptr n
 15:                                               ; preds = %.loopexit19, %11
   %16 = phi i64 [ %8, %11 ], [ %45, %.loopexit19 ]
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr %struct.spinlock, ptr %17, i64 %16
+  %18 = getelementptr [4 x i8], ptr %17, i64 %16
   tail call void @_raw_spin_lock(ptr noundef %18) #19
   %19 = load i64, ptr %2, align 8
   %20 = and i64 %19, 18014398509481983
@@ -7374,7 +7374,7 @@ define internal ptr @unix_seq_next(ptr noundef readonly captures(none) %0, ptr n
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 560
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr %struct.hlist_head, ptr %25, i64 %21
+  %26 = getelementptr [8 x i8], ptr %25, i64 %21
   %27 = load volatile ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   %29 = getelementptr i8, ptr %27, i64 -104
@@ -7400,7 +7400,7 @@ define internal ptr @unix_seq_next(ptr noundef readonly captures(none) %0, ptr n
 
 .loopexit19:                                      ; preds = %36, %15
   %43 = load ptr, ptr %14, align 8
-  %44 = getelementptr %struct.spinlock, ptr %43, i64 %16
+  %44 = getelementptr [4 x i8], ptr %43, i64 %16
   tail call void @_raw_spin_unlock(ptr noundef %44) #19
   %45 = add nuw nsw i64 %16, 1
   %46 = shl nuw i64 %45, 54
@@ -7425,7 +7425,7 @@ define internal ptr @unix_seq_next(ptr noundef readonly captures(none) %0, ptr n
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 552
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr %struct.spinlock, ptr %62, i64 %57
+  %63 = getelementptr [4 x i8], ptr %62, i64 %57
   tail call void @_raw_spin_unlock(ptr noundef %63) #19
   %64 = and i64 %5, -18014398509481984
   %65 = add i64 %64, 18014398509481985
@@ -7443,7 +7443,7 @@ define internal ptr @unix_seq_next(ptr noundef readonly captures(none) %0, ptr n
 72:                                               ; preds = %.loopexit23, %68
   %73 = phi i64 [ %66, %68 ], [ %102, %.loopexit23 ]
   %74 = load ptr, ptr %71, align 8
-  %75 = getelementptr %struct.spinlock, ptr %74, i64 %73
+  %75 = getelementptr [4 x i8], ptr %74, i64 %73
   tail call void @_raw_spin_lock(ptr noundef %75) #19
   %76 = load i64, ptr %2, align 8
   %77 = and i64 %76, 18014398509481983
@@ -7452,7 +7452,7 @@ define internal ptr @unix_seq_next(ptr noundef readonly captures(none) %0, ptr n
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 560
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr %struct.hlist_head, ptr %82, i64 %78
+  %83 = getelementptr [8 x i8], ptr %82, i64 %78
   %84 = load volatile ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   %86 = getelementptr i8, ptr %84, i64 -104
@@ -7478,7 +7478,7 @@ define internal ptr @unix_seq_next(ptr noundef readonly captures(none) %0, ptr n
 
 .loopexit23:                                      ; preds = %93, %72
   %100 = load ptr, ptr %71, align 8
-  %101 = getelementptr %struct.spinlock, ptr %100, i64 %73
+  %101 = getelementptr [4 x i8], ptr %100, i64 %73
   tail call void @_raw_spin_unlock(ptr noundef %101) #19
   %102 = add nuw nsw i64 %73, 1
   %103 = shl nuw i64 %102, 54

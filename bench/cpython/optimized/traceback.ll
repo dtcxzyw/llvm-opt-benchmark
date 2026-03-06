@@ -1726,7 +1726,7 @@ _PyUnicode_DATA.exit.i174:                        ; preds = %46, %44
 
 _PyUnicode_DATA.exit17.i167:                      ; preds = %54, %52
   %.0.i15.i168 = phi ptr [ %.0.i.i14.i166, %52 ], [ %.val4.i16.i170, %54 ]
-  %56 = getelementptr i16, ptr %.0.i15.i168, i64 %42
+  %56 = getelementptr [2 x i8], ptr %.0.i15.i168, i64 %42
   %57 = load i16, ptr %56, align 2, !tbaa !54
   %58 = zext i16 %57 to i32
   br label %PyUnicode_READ_CHAR.exit183
@@ -1748,7 +1748,7 @@ _PyUnicode_DATA.exit17.i167:                      ; preds = %54, %52
 
 _PyUnicode_DATA.exit25.i180:                      ; preds = %62, %60
   %.0.i23.i181 = phi ptr [ %.0.i.i22.i179, %60 ], [ %.val4.i24.i182, %62 ]
-  %64 = getelementptr i32, ptr %.0.i23.i181, i64 %42
+  %64 = getelementptr [4 x i8], ptr %.0.i23.i181, i64 %42
   %65 = load i32, ptr %64, align 4, !tbaa !55
   br label %PyUnicode_READ_CHAR.exit183
 
@@ -2310,7 +2310,7 @@ PyUnicode_READ.exit.us:                           ; preds = %.lr.ph208, %269
 PyUnicode_READ.exit.us222:                        ; preds = %.lr.ph208, %276
   %273 = phi i64 [ %278, %276 ], [ 0, %.lr.ph208 ]
   %.177207.us221 = phi i32 [ %277, %276 ], [ 0, %.lr.ph208 ]
-  %274 = getelementptr i16, ptr %.0.i196, i64 %273
+  %274 = getelementptr [2 x i8], ptr %.0.i196, i64 %273
   %275 = load i16, ptr %274, align 2, !tbaa !54
   switch i16 %275, label %PyUnicode_READ.exit._crit_edge [
     i16 32, label %276
@@ -2327,7 +2327,7 @@ PyUnicode_READ.exit.us222:                        ; preds = %.lr.ph208, %276
 PyUnicode_READ.exit:                              ; preds = %.lr.ph208, %283
   %280 = phi i64 [ %285, %283 ], [ 0, %.lr.ph208 ]
   %.177207 = phi i32 [ %284, %283 ], [ 0, %.lr.ph208 ]
-  %281 = getelementptr i32, ptr %.0.i196, i64 %280
+  %281 = getelementptr [4 x i8], ptr %.0.i196, i64 %280
   %282 = load i32, ptr %281, align 4, !tbaa !55
   switch i32 %282, label %PyUnicode_READ.exit._crit_edge [
     i32 32, label %283
@@ -3020,13 +3020,13 @@ define hidden void @_Py_DumpASCII(i32 noundef %0, ptr noundef %1) local_unnamed_
   br label %PyUnicode_READ.exit
 
 52:                                               ; preds = %47
-  %53 = getelementptr i16, ptr %.052100119, i64 %.181
+  %53 = getelementptr [2 x i8], ptr %.052100119, i64 %.181
   %54 = load i16, ptr %53, align 2, !tbaa !54
   %55 = zext i16 %54 to i32
   br label %PyUnicode_READ.exit
 
 56:                                               ; preds = %47
-  %57 = getelementptr i32, ptr %.052100119, i64 %.181
+  %57 = getelementptr [4 x i8], ptr %.052100119, i64 %.181
   %58 = load i32, ptr %57, align 4, !tbaa !55
   br label %PyUnicode_READ.exit
 

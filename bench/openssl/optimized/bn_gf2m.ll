@@ -55,12 +55,12 @@ define range(i32 0, 2) i32 @BN_GF2m_add(ptr noundef %0, ptr noundef readonly cap
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8, !tbaa !11
-  %27 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8, !tbaa !11
   %29 = xor i64 %28, %26
-  %30 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   store i64 %29, ptr %30, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -68,9 +68,9 @@ define range(i32 0, 2) i32 @BN_GF2m_add(ptr noundef %0, ptr noundef readonly cap
 
 31:                                               ; preds = %.lr.ph35, %31
   %indvars.iv39 = phi i64 [ %23, %.lr.ph35 ], [ %indvars.iv.next40, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv39
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv39
   %33 = load i64, ptr %32, align 8, !tbaa !11
-  %34 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv39
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv39
   store i64 %33, ptr %34, align 8, !tbaa !11
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
@@ -130,9 +130,9 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !11
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store i64 %18, ptr %19, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -178,9 +178,9 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
 
 .lr.ph127.split.us.split.us.us:                   ; preds = %.lr.ph127.lr.ph, %.split.us.us
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.split.us.us ], [ %35, %.lr.ph127.lr.ph ]
-  %38 = getelementptr inbounds i64, ptr %24, i64 %indvars.iv186
+  %38 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv186
   %39 = sub nsw i64 %indvars.iv186, %36
-  %40 = getelementptr inbounds i64, ptr %24, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %24, i64 %39
   %41 = load i64, ptr %38, align 8, !tbaa !11
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %.split.us.us, label %.lr.ph142.us
@@ -200,7 +200,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   %49 = lshr i64 %43, %48
   %50 = add i32 %.neg.us.us.us, %70
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i64, ptr %24, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %24, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !11
   %54 = xor i64 %53, %49
   store i64 %54, ptr %52, align 8, !tbaa !11
@@ -219,7 +219,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
 
 62:                                               ; preds = %55, %44
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %63 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next184
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next184
   %64 = load i32, ptr %63, align 4, !tbaa !16
   %.not117.us.us.us = icmp eq i32 %64, 0
   br i1 %.not117.us.us.us, label %._crit_edge126.us.us.us, label %44, !llvm.loop !19
@@ -253,9 +253,9 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
 
 .lr.ph127:                                        ; preds = %.lr.ph127.lr.ph, %.split
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.split ], [ %35, %.lr.ph127.lr.ph ]
-  %76 = getelementptr inbounds i64, ptr %24, i64 %indvars.iv180
+  %76 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv180
   %77 = sub nsw i64 %indvars.iv180, %36
-  %78 = getelementptr inbounds i64, ptr %24, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %24, i64 %77
   %79 = getelementptr i8, ptr %78, i64 -8
   %80 = trunc nsw i64 %indvars.iv180 to i32
   %81 = load i64, ptr %76, align 8, !tbaa !11
@@ -278,7 +278,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
 .preheader:                                       ; preds = %..preheader_crit_edge, %.preheader.loopexit174, %.preheader.loopexit
   %.pre-phi = phi i64 [ %.pre194, %..preheader_crit_edge ], [ %36, %.preheader.loopexit174 ], [ %36, %.preheader.loopexit ]
   %.1.ph.lcssa = phi i32 [ %27, %..preheader_crit_edge ], [ %85, %.preheader.loopexit174 ], [ %84, %.preheader.loopexit ]
-  %86 = getelementptr inbounds i64, ptr %24, i64 %.pre-phi
+  %86 = getelementptr inbounds [8 x i8], ptr %24, i64 %.pre-phi
   %87 = icmp eq i32 %.1.ph.lcssa, %25
   br i1 %87, label %.lr.ph165, label %._crit_edge166
 
@@ -344,7 +344,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   %119 = zext nneg i32 %118 to i64
   %120 = shl i64 %110, %119
   %121 = sext i32 %117 to i64
-  %122 = getelementptr inbounds i64, ptr %24, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %24, i64 %121
   %123 = load i64, ptr %122, align 8, !tbaa !11
   %124 = xor i64 %123, %120
   store i64 %124, ptr %122, align 8, !tbaa !11
@@ -367,7 +367,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
 
 133:                                              ; preds = %129, %125, %115
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %134 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next190
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next190
   %135 = load i32, ptr %134, align 4, !tbaa !16
   %.not114.us = icmp eq i32 %135, 0
   br i1 %.not114.us, label %..loopexit_crit_edge.us, label %115, !llvm.loop !20
@@ -398,7 +398,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   %145 = lshr i64 %140, %144
   %146 = add i32 %.neg, %80
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds i64, ptr %24, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %24, i64 %147
   %149 = load i64, ptr %148, align 8, !tbaa !11
   %150 = xor i64 %149, %145
   store i64 %150, ptr %148, align 8, !tbaa !11
@@ -417,7 +417,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
 
 158:                                              ; preds = %.lr.ph125, %151
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %159 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next178
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next178
   %160 = load i32, ptr %159, align 4, !tbaa !16
   %.not117 = icmp eq i32 %160, 0
   br i1 %.not117, label %._crit_edge126, label %.lr.ph125, !llvm.loop !19
@@ -469,7 +469,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod(ptr noundef %0, ptr noundef readonly cap
   %indvars.iv.i = phi i64 [ %11, %.lr.ph.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.02637.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %13 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.next.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next.i
   %14 = load i64, ptr %13, align 8, !tbaa !11
   %.not30.i = icmp eq i64 %14, 0
   br i1 %.not30.i, label %.loopexit.i, label %.preheader.i
@@ -494,7 +494,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod(ptr noundef %0, ptr noundef readonly cap
 20:                                               ; preds = %18
   %21 = add nuw nsw i32 %.02732.i, %15
   %22 = sext i32 %.234.i to i64
-  %23 = getelementptr inbounds i32, ptr %4, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %4, i64 %22
   store i32 %21, ptr %23, align 4, !tbaa !16
   br label %24
 
@@ -528,7 +528,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod(ptr noundef %0, ptr noundef readonly cap
 BN_GF2m_poly2arr.exit:                            ; preds = %31, %._crit_edge.i, %6
   %.026.lcssa43.i9 = phi i32 [ %.1.i, %31 ], [ 0, %6 ], [ %.1.i, %._crit_edge.i ]
   %35 = sext i32 %.026.lcssa43.i9 to i64
-  %36 = getelementptr inbounds i32, ptr %4, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %4, i64 %35
   store i32 -1, ptr %36, align 4, !tbaa !16
   %37 = icmp eq i32 %.026.lcssa43.i9, -1
   br i1 %37, label %BN_GF2m_poly2arr.exit.thread, label %38
@@ -570,7 +570,7 @@ define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_poly2arr(ptr noundef %0,
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
   %.02637 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %12 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next
   %13 = load i64, ptr %12, align 8, !tbaa !11
   %.not30 = icmp eq i64 %13, 0
   br i1 %.not30, label %.loopexit, label %.preheader
@@ -595,7 +595,7 @@ define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_poly2arr(ptr noundef %0,
 19:                                               ; preds = %17
   %20 = add nuw nsw i32 %.02732, %14
   %21 = sext i32 %.234 to i64
-  %22 = getelementptr inbounds i32, ptr %1, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %1, i64 %21
   store i32 %20, ptr %22, align 4, !tbaa !16
   br label %23
 
@@ -631,7 +631,7 @@ define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_poly2arr(ptr noundef %0,
 
 34:                                               ; preds = %._crit_edge.thread
   %35 = sext i32 %.026.lcssa43 to i64
-  %36 = getelementptr inbounds i32, ptr %1, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %1, i64 %35
   store i32 -1, ptr %36, align 4, !tbaa !16
   br label %37
 
@@ -700,7 +700,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_mul_arr(ptr noundef %0, ptr noundef read
   %29 = phi i32 [ %68, %._crit_edge ], [ %27, %.preheader ]
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %._crit_edge ], [ 0, %.preheader ]
   %30 = load ptr, ptr %2, align 8, !tbaa !10
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv79
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv79
   %32 = load i64, ptr %31, align 8, !tbaa !11
   %33 = or disjoint i64 %indvars.iv79, 1
   %34 = zext i32 %29 to i64
@@ -708,7 +708,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_mul_arr(ptr noundef %0, ptr noundef read
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %.lr.ph72
-  %37 = getelementptr inbounds nuw i64, ptr %30, i64 %33
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %33
   %38 = load i64, ptr %37, align 8, !tbaa !11
   br label %39
 
@@ -722,7 +722,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_mul_arr(ptr noundef %0, ptr noundef read
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %64 ], [ 0, %39 ]
   %43 = phi i32 [ %65, %64 ], [ %41, %39 ]
   %44 = load ptr, ptr %1, align 8, !tbaa !10
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv76
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv76
   %46 = load i64, ptr %45, align 8, !tbaa !11
   %47 = or disjoint i64 %indvars.iv76, 1
   %48 = zext i32 %43 to i64
@@ -730,7 +730,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_mul_arr(ptr noundef %0, ptr noundef read
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %.lr.ph70
-  %51 = getelementptr inbounds nuw i64, ptr %44, i64 %47
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %47
   %52 = load i64, ptr %51, align 8, !tbaa !11
   br label %53
 
@@ -738,15 +738,15 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_mul_arr(ptr noundef %0, ptr noundef read
   %54 = phi i64 [ %52, %50 ], [ 0, %.lr.ph70 ]
   call void @bn_GF2m_mul_2x2(ptr noundef nonnull %6, i64 noundef %54, i64 noundef %46, i64 noundef %40, i64 noundef %32) #5
   %55 = load ptr, ptr %11, align 8, !tbaa !10
-  %56 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv76
-  %57 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv79
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv76
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv79
   br label %58
 
 58:                                               ; preds = %53, %58
   %indvars.iv = phi i64 [ 0, %53 ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %60 = load i64, ptr %59, align 8, !tbaa !11
-  %61 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !11
   %63 = xor i64 %62, %60
   store i64 %63, ptr %61, align 8, !tbaa !11
@@ -817,7 +817,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_sqr_arr(ptr noundef %0, ptr noundef read
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next
   %20 = load i64, ptr %19, align 8, !tbaa !11
   %21 = lshr i64 %20, 60
   %22 = shl nuw nsw i64 %21, 3
@@ -1083,7 +1083,7 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_mul(ptr noundef %0, 
   %indvars.iv.i = phi i64 [ %19, %.lr.ph.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.02637.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %21 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.next.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.next.i
   %22 = load i64, ptr %21, align 8, !tbaa !11
   %.not30.i = icmp eq i64 %22, 0
   br i1 %.not30.i, label %.loopexit.i, label %.preheader.i
@@ -1108,7 +1108,7 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_mul(ptr noundef %0, 
 27:                                               ; preds = %26
   %28 = add nuw nsw i32 %.02732.i, %23
   %29 = sext i32 %.234.i to i64
-  %30 = getelementptr inbounds i32, ptr %10, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %10, i64 %29
   store i32 %28, ptr %30, align 4, !tbaa !16
   br label %31
 
@@ -1148,7 +1148,7 @@ BN_GF2m_poly2arr.exit.thread28:                   ; preds = %._crit_edge.thread.
 
 BN_GF2m_poly2arr.exit:                            ; preds = %._crit_edge.thread.i
   %42 = sext i32 %.026.lcssa43.i to i64
-  %43 = getelementptr inbounds i32, ptr %10, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %10, i64 %42
   store i32 -1, ptr %43, align 4, !tbaa !16
   %44 = add nsw i32 %.026.lcssa43.i, 1
   %.not = icmp eq i32 %44, 0
@@ -1211,7 +1211,7 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_sqr(ptr noundef %0, 
   %indvars.iv.i = phi i64 [ %18, %.lr.ph.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.02637.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i
   %21 = load i64, ptr %20, align 8, !tbaa !11
   %.not30.i = icmp eq i64 %21, 0
   br i1 %.not30.i, label %.loopexit.i, label %.preheader.i
@@ -1236,7 +1236,7 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_sqr(ptr noundef %0, 
 26:                                               ; preds = %25
   %27 = add nuw nsw i32 %.02732.i, %22
   %28 = sext i32 %.234.i to i64
-  %29 = getelementptr inbounds i32, ptr %9, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %9, i64 %28
   store i32 %27, ptr %29, align 4, !tbaa !16
   br label %30
 
@@ -1276,7 +1276,7 @@ BN_GF2m_poly2arr.exit.thread27:                   ; preds = %._crit_edge.thread.
 
 BN_GF2m_poly2arr.exit:                            ; preds = %._crit_edge.thread.i
   %41 = sext i32 %.026.lcssa43.i to i64
-  %42 = getelementptr inbounds i32, ptr %9, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %9, i64 %41
   store i32 -1, ptr %42, align 4, !tbaa !16
   %43 = add nsw i32 %.026.lcssa43.i, 1
   %.not = icmp eq i32 %43, 0
@@ -1472,19 +1472,19 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %0, ptr noundef readonly
   %.0132186.i = phi i64 [ %84, %.lr.ph188.i ], [ %74, %67 ]
   %.0135185.i = phi i64 [ %76, %.lr.ph188.i ], [ %65, %67 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %75 = getelementptr inbounds nuw i64, ptr %.0142.i, i64 %indvars.iv.next.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.0142.i, i64 %indvars.iv.next.i
   %76 = load i64, ptr %75, align 8, !tbaa !11
   %77 = tail call i64 @llvm.fshl.i64(i64 %76, i64 %.0135185.i, i64 63)
-  %78 = getelementptr inbounds nuw i64, ptr %.0142.i, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.0142.i, i64 %indvars.iv.i
   store i64 %77, ptr %78, align 8, !tbaa !11
-  %79 = getelementptr inbounds nuw i64, ptr %.0140.i, i64 %indvars.iv.next.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %.0140.i, i64 %indvars.iv.next.i
   %80 = load i64, ptr %79, align 8, !tbaa !11
-  %81 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv.next.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.next.i
   %82 = load i64, ptr %81, align 8, !tbaa !11
   %83 = and i64 %82, %70
   %84 = xor i64 %83, %80
   %85 = tail call i64 @llvm.fshl.i64(i64 %84, i64 %.0132186.i, i64 63)
-  %86 = getelementptr inbounds nuw i64, ptr %.0140.i, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %.0140.i, i64 %indvars.iv.i
   store i64 %85, ptr %86, align 8, !tbaa !11
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge189.i, label %.lr.ph188.i, !llvm.loop !28
@@ -1494,10 +1494,10 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %0, ptr noundef readonly
   %.0135.lcssa.i = phi i64 [ %65, %67 ], [ %76, %.lr.ph188.i ]
   %.0132.lcssa.i = phi i64 [ %74, %67 ], [ %84, %.lr.ph188.i ]
   %87 = lshr i64 %.0135.lcssa.i, 1
-  %88 = getelementptr inbounds nuw i64, ptr %.0142.i, i64 %.3154.lcssa.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %.0142.i, i64 %.3154.lcssa.i
   store i64 %87, ptr %88, align 8, !tbaa !11
   %89 = lshr i64 %.0132.lcssa.i, 1
-  %90 = getelementptr inbounds nuw i64, ptr %.0140.i, i64 %.3154.lcssa.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %.0140.i, i64 %.3154.lcssa.i
   store i64 %89, ptr %90, align 8, !tbaa !11
   %91 = add nsw i32 %.1149193.i, -1
   %.not164.i = icmp eq i32 %91, 0
@@ -1540,15 +1540,15 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %0, ptr noundef readonly
 
 .lr.ph199.i:                                      ; preds = %100, %.lr.ph199.i
   %indvars.iv214.i = phi i64 [ %indvars.iv.next215.i, %.lr.ph199.i ], [ 0, %100 ]
-  %101 = getelementptr inbounds nuw i64, ptr %.1139.i, i64 %indvars.iv214.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %.1139.i, i64 %indvars.iv214.i
   %102 = load i64, ptr %101, align 8, !tbaa !11
-  %103 = getelementptr inbounds nuw i64, ptr %.1143.i, i64 %indvars.iv214.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.1143.i, i64 %indvars.iv214.i
   %104 = load i64, ptr %103, align 8, !tbaa !11
   %105 = xor i64 %104, %102
   store i64 %105, ptr %103, align 8, !tbaa !11
-  %106 = getelementptr inbounds nuw i64, ptr %.1137.i, i64 %indvars.iv214.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %.1137.i, i64 %indvars.iv214.i
   %107 = load i64, ptr %106, align 8, !tbaa !11
-  %108 = getelementptr inbounds nuw i64, ptr %.1141.i, i64 %indvars.iv214.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %.1141.i, i64 %indvars.iv214.i
   %109 = load i64, ptr %108, align 8, !tbaa !11
   %110 = xor i64 %109, %107
   store i64 %110, ptr %108, align 8, !tbaa !11
@@ -1568,7 +1568,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv(ptr noundef %0, ptr noundef readonly
 
 116:                                              ; preds = %116, %112
   %indvars.iv219.i = phi i64 [ %indvars.iv.next220.i, %116 ], [ %115, %112 ]
-  %117 = getelementptr inbounds i64, ptr %.1143.i, i64 %indvars.iv219.i
+  %117 = getelementptr inbounds [8 x i8], ptr %.1143.i, i64 %indvars.iv219.i
   %118 = load i64, ptr %117, align 8, !tbaa !11
   %119 = icmp eq i64 %118, 0
   %120 = icmp ne i64 %indvars.iv219.i, 0
@@ -1629,7 +1629,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_inv_arr(ptr noundef %0, ptr noundef read
 
 9:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next.i
   %11 = load i32, ptr %10, align 4, !tbaa !16
   %.not.i = icmp eq i32 %11, -1
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !32
@@ -1660,7 +1660,7 @@ define range(i32 0, 2) i32 @BN_GF2m_arr2poly(ptr noundef readonly captures(none)
 
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next
   %6 = load i32, ptr %5, align 4, !tbaa !16
   %.not = icmp eq i32 %6, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
@@ -1716,7 +1716,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_div_arr(ptr noundef %0, ptr noundef read
 
 10:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i
   %12 = load i32, ptr %11, align 4, !tbaa !16
   %.not.i = icmp eq i32 %12, -1
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !32
@@ -1872,7 +1872,7 @@ define i32 @BN_GF2m_mod_exp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %indvars.iv.i = phi i64 [ %19, %.lr.ph.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.02637.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %21 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.next.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.next.i
   %22 = load i64, ptr %21, align 8, !tbaa !11
   %.not30.i = icmp eq i64 %22, 0
   br i1 %.not30.i, label %.loopexit.i, label %.preheader.i
@@ -1897,7 +1897,7 @@ define i32 @BN_GF2m_mod_exp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 27:                                               ; preds = %26
   %28 = add nuw nsw i32 %.02732.i, %23
   %29 = sext i32 %.234.i to i64
-  %30 = getelementptr inbounds i32, ptr %10, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %10, i64 %29
   store i32 %28, ptr %30, align 4, !tbaa !16
   br label %31
 
@@ -1937,7 +1937,7 @@ BN_GF2m_poly2arr.exit.thread28:                   ; preds = %._crit_edge.thread.
 
 BN_GF2m_poly2arr.exit:                            ; preds = %._crit_edge.thread.i
   %42 = sext i32 %.026.lcssa43.i to i64
-  %43 = getelementptr inbounds i32, ptr %10, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %10, i64 %42
   store i32 -1, ptr %43, align 4, !tbaa !16
   %44 = add nsw i32 %.026.lcssa43.i, 1
   %.not = icmp eq i32 %44, 0
@@ -2033,7 +2033,7 @@ define i32 @BN_GF2m_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %indvars.iv.i = phi i64 [ %18, %.lr.ph.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.02637.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i
   %21 = load i64, ptr %20, align 8, !tbaa !11
   %.not30.i = icmp eq i64 %21, 0
   br i1 %.not30.i, label %.loopexit.i, label %.preheader.i
@@ -2058,7 +2058,7 @@ define i32 @BN_GF2m_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 26:                                               ; preds = %25
   %27 = add nuw nsw i32 %.02732.i, %22
   %28 = sext i32 %.234.i to i64
-  %29 = getelementptr inbounds i32, ptr %9, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %9, i64 %28
   store i32 %27, ptr %29, align 4, !tbaa !16
   br label %30
 
@@ -2098,7 +2098,7 @@ BN_GF2m_poly2arr.exit.thread30:                   ; preds = %._crit_edge.thread.
 
 BN_GF2m_poly2arr.exit:                            ; preds = %._crit_edge.thread.i
   %41 = sext i32 %.026.lcssa43.i to i64
-  %42 = getelementptr inbounds i32, ptr %9, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %9, i64 %41
   store i32 -1, ptr %42, align 4, !tbaa !16
   %43 = add nsw i32 %.026.lcssa43.i, 1
   %.not = icmp eq i32 %43, 0
@@ -2255,12 +2255,12 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %0, ptr nound
 
 49:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
-  %50 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i
   %51 = load i64, ptr %50, align 8, !tbaa !11
-  %52 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   %53 = load i64, ptr %52, align 8, !tbaa !11
   %54 = xor i64 %53, %51
-  %55 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   store i64 %54, ptr %55, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2268,9 +2268,9 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %0, ptr nound
 
 56:                                               ; preds = %56, %.lr.ph35.i
   %indvars.iv39.i = phi i64 [ %48, %.lr.ph35.i ], [ %indvars.iv.next40.i, %56 ]
-  %57 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv39.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv39.i
   %58 = load i64, ptr %57, align 8, !tbaa !11
-  %59 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv39.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv39.i
   store i64 %58, ptr %59, align 8, !tbaa !11
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
@@ -2380,12 +2380,12 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %0, ptr nound
 
 106:                                              ; preds = %106, %.lr.ph.i119
   %indvars.iv.i121 = phi i64 [ 0, %.lr.ph.i119 ], [ %indvars.iv.next.i122, %106 ]
-  %107 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv.i121
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv.i121
   %108 = load i64, ptr %107, align 8, !tbaa !11
-  %109 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv.i121
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv.i121
   %110 = load i64, ptr %109, align 8, !tbaa !11
   %111 = xor i64 %110, %108
-  %112 = getelementptr inbounds nuw i64, ptr %100, i64 %indvars.iv.i121
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv.i121
   store i64 %111, ptr %112, align 8, !tbaa !11
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i121, 1
   %exitcond.not.i123 = icmp eq i64 %indvars.iv.next.i122, %wide.trip.count.i120
@@ -2393,9 +2393,9 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %0, ptr nound
 
 113:                                              ; preds = %113, %.lr.ph35.i114
   %indvars.iv39.i116 = phi i64 [ %105, %.lr.ph35.i114 ], [ %indvars.iv.next40.i117, %113 ]
-  %114 = getelementptr inbounds nuw i64, ptr %103, i64 %indvars.iv39.i116
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv39.i116
   %115 = load i64, ptr %114, align 8, !tbaa !11
-  %116 = getelementptr inbounds nuw i64, ptr %104, i64 %indvars.iv39.i116
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv39.i116
   store i64 %115, ptr %116, align 8, !tbaa !11
   %indvars.iv.next40.i117 = add nuw nsw i64 %indvars.iv39.i116, 1
   %exitcond43.not.i118 = icmp eq i64 %indvars.iv.next40.i117, %wide.trip.count42.i115
@@ -2443,12 +2443,12 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %0, ptr nound
 
 135:                                              ; preds = %135, %.lr.ph.i137
   %indvars.iv.i139 = phi i64 [ 0, %.lr.ph.i137 ], [ %indvars.iv.next.i140, %135 ]
-  %136 = getelementptr inbounds nuw i64, ptr %127, i64 %indvars.iv.i139
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i139
   %137 = load i64, ptr %136, align 8, !tbaa !11
-  %138 = getelementptr inbounds nuw i64, ptr %128, i64 %indvars.iv.i139
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv.i139
   %139 = load i64, ptr %138, align 8, !tbaa !11
   %140 = xor i64 %139, %137
-  %141 = getelementptr inbounds nuw i64, ptr %129, i64 %indvars.iv.i139
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv.i139
   store i64 %140, ptr %141, align 8, !tbaa !11
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i139, 1
   %exitcond.not.i141 = icmp eq i64 %indvars.iv.next.i140, %wide.trip.count.i138
@@ -2456,9 +2456,9 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %0, ptr nound
 
 142:                                              ; preds = %142, %.lr.ph35.i132
   %indvars.iv39.i134 = phi i64 [ %134, %.lr.ph35.i132 ], [ %indvars.iv.next40.i135, %142 ]
-  %143 = getelementptr inbounds nuw i64, ptr %132, i64 %indvars.iv39.i134
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv39.i134
   %144 = load i64, ptr %143, align 8, !tbaa !11
-  %145 = getelementptr inbounds nuw i64, ptr %133, i64 %indvars.iv39.i134
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv39.i134
   store i64 %144, ptr %145, align 8, !tbaa !11
   %indvars.iv.next40.i135 = add nuw nsw i64 %indvars.iv39.i134, 1
   %exitcond43.not.i136 = icmp eq i64 %indvars.iv.next40.i135, %wide.trip.count42.i133
@@ -2560,7 +2560,7 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_solve_quad(ptr nound
   %indvars.iv.i = phi i64 [ %18, %.lr.ph.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.02637.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i
   %21 = load i64, ptr %20, align 8, !tbaa !11
   %.not30.i = icmp eq i64 %21, 0
   br i1 %.not30.i, label %.loopexit.i, label %.preheader.i
@@ -2585,7 +2585,7 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_solve_quad(ptr nound
 26:                                               ; preds = %25
   %27 = add nuw nsw i32 %.02732.i, %22
   %28 = sext i32 %.234.i to i64
-  %29 = getelementptr inbounds i32, ptr %9, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %9, i64 %28
   store i32 %27, ptr %29, align 4, !tbaa !16
   br label %30
 
@@ -2625,7 +2625,7 @@ BN_GF2m_poly2arr.exit.thread25:                   ; preds = %._crit_edge.thread.
 
 BN_GF2m_poly2arr.exit:                            ; preds = %._crit_edge.thread.i
   %41 = sext i32 %.026.lcssa43.i to i64
-  %42 = getelementptr inbounds i32, ptr %9, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %9, i64 %41
   store i32 -1, ptr %42, align 4, !tbaa !16
   %43 = add nsw i32 %.026.lcssa43.i, 1
   %.not = icmp eq i32 %43, 0

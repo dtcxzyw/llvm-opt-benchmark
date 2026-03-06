@@ -266,10 +266,10 @@ define hidden noundef i32 @_Pypegen_tokenizer_error(ptr noundef %0) local_unname
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 732
   %14 = add i32 %11, -1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr i32, ptr %13, i64 %15
+  %16 = getelementptr [4 x i8], ptr %13, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 1532
-  %19 = getelementptr i32, ptr %18, i64 %15
+  %19 = getelementptr [4 x i8], ptr %18, i64 %15
   %20 = load i32, ptr %19, align 4, !tbaa !25
   %21 = sext i32 %17 to i64
   %22 = sext i32 %20 to i64
@@ -418,7 +418,7 @@ define hidden noalias noundef ptr @_PyPegen_raise_error(ptr noundef %0, ptr noun
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %.in, align 8, !tbaa !32
   %37 = sext i32 %35 to i64
-  %38 = getelementptr ptr, ptr %36, i64 %37
+  %38 = getelementptr [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !33
   br label %40
 
@@ -1028,10 +1028,10 @@ define hidden void @_Pypegen_set_syntax_error(ptr noundef %0, ptr noundef readon
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 732
   %32 = add i32 %29, -1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr i32, ptr %31, i64 %33
+  %34 = getelementptr [4 x i8], ptr %31, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 1532
-  %37 = getelementptr i32, ptr %36, i64 %33
+  %37 = getelementptr [4 x i8], ptr %36, i64 %33
   %38 = load i32, ptr %37, align 4, !tbaa !25
   %39 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !4
   %40 = sext i32 %35 to i64
@@ -1111,7 +1111,7 @@ define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(p
   %16 = load i32, ptr %15, align 4, !tbaa !29
   %17 = add i32 %16, -1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr ptr, ptr %14, i64 %18
+  %19 = getelementptr [8 x i8], ptr %14, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !33
   br label %21
 
@@ -1147,14 +1147,14 @@ define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(p
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 732
   %36 = add i32 %33, -1
   %37 = sext i32 %36 to i64
-  %38 = getelementptr i32, ptr %35, i64 %37
+  %38 = getelementptr [4 x i8], ptr %35, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !25
   %40 = icmp sgt i32 %24, %39
   br i1 %40, label %41, label %.loopexit
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 1532
-  %43 = getelementptr i32, ptr %42, i64 %37
+  %43 = getelementptr [4 x i8], ptr %42, i64 %37
   %44 = load i32, ptr %43, align 4, !tbaa !25
   %45 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !4
   %46 = sext i32 %39 to i64

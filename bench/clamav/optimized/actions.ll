@@ -548,7 +548,7 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr noundef nonnull rea
 .preheader:                                       ; preds = %17, %35
   %.162 = phi i32 [ %.2, %35 ], [ %13, %17 ]
   %.03261 = phi i64 [ %36, %35 ], [ 0, %17 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %3, i64 %.03261
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.03261
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   %char0 = load i8, ptr %23, align 1
   %24 = icmp eq i8 %char0, 0

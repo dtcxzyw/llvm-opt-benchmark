@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem" = type { i8, i64, %"struct.absl::str_format_internal::UnboundConversion" }
 
 $_ZN4absl19str_format_internal17ParseFormatStringINS0_16ParsedFormatBase20ParsedFormatConsumerEEEbSt17basic_string_viewIcSt11char_traitsIcEET_ = comdat any
 
@@ -297,7 +296,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal1
 34:                                               ; preds = %32
   %35 = load i8, ptr %33, align 1, !tbaa !12
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %36
   %.sroa.0.0.copyload.i = load i8, ptr %37, align 1, !tbaa !12
   %38 = icmp sgt i8 %.sroa.0.0.copyload.i, -1
   br i1 %38, label %39, label %46
@@ -420,7 +419,7 @@ define dso_local noundef zeroext i1 @_ZNK4absl19str_format_internal16ParsedForma
   br i1 %31, label %.thread, label %.noexc
 
 .noexc:                                           ; preds = %28
-  %32 = getelementptr i64, ptr %2, i64 %30
+  %32 = getelementptr [8 x i8], ptr %2, i64 %30
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load i64, ptr %33, align 8, !tbaa !61
   %35 = and i64 %34, 1
@@ -464,7 +463,7 @@ define dso_local noundef zeroext i1 @_ZNK4absl19str_format_internal16ParsedForma
   br i1 %48, label %.thread49, label %.noexc29
 
 .noexc29:                                         ; preds = %45
-  %49 = getelementptr i64, ptr %2, i64 %47
+  %49 = getelementptr [8 x i8], ptr %2, i64 %47
   %50 = getelementptr i8, ptr %49, i64 -8
   %51 = load i64, ptr %50, align 8, !tbaa !61
   %52 = and i64 %51, 1
@@ -508,7 +507,7 @@ _ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionC
   br i1 %63, label %.thread52, label %64
 
 64:                                               ; preds = %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
-  %65 = getelementptr i64, ptr %2, i64 %62
+  %65 = getelementptr [8 x i8], ptr %2, i64 %62
   %66 = getelementptr i8, ptr %65, i64 -8
   %67 = load i64, ptr %66, align 8, !tbaa !61
   %68 = invoke noundef i64 @_ZN4absl19str_format_internal29FormatConversionCharToConvIntEc(i8 noundef signext %.0.i32)
@@ -692,7 +691,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit: ; preds = %.lr.ph.i
   %.1225 = phi ptr [ %28, %.lr.ph ], [ %44, %43 ]
   %.1155224 = phi i8 [ %29, %.lr.ph ], [ %45, %43 ]
   %34 = zext i8 %.1155224 to i64
-  %35 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %34
   %.sroa.0.0.copyload.i = load i8, ptr %35, align 1, !tbaa !12
   %36 = and i8 %.sroa.0.0.copyload.i, -32
   %37 = icmp eq i8 %36, -64
@@ -975,7 +974,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
   %.0154 = phi i8 [ %.9163, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit98 ], [ %153, %151 ], [ %106, %154 ], [ %.4158, %97 ], [ %29, %27 ], [ %.1155.lcssa, %._crit_edge ]
   %.0152 = phi ptr [ %.10, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit98 ], [ %152, %151 ], [ %105, %154 ], [ %.4, %97 ], [ %28, %27 ], [ %.1.lcssa, %._crit_edge ]
   %156 = zext i8 %.0154 to i64
-  %157 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %156
   %.sroa.0.0.copyload.i108 = load i8, ptr %157, align 1, !tbaa !12
   %158 = icmp eq i8 %.0154, 118
   br i1 %158, label %159, label %.critedge
@@ -1047,7 +1046,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
   %.5159 = phi i8 [ %180, %178 ], [ %189, %187 ], [ %170, %190 ]
   %.6 = phi ptr [ %179, %178 ], [ %188, %187 ], [ %169, %190 ]
   %194 = zext i8 %.5159 to i64
-  %195 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %194
+  %195 = getelementptr inbounds nuw i8, ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %194
   %.sroa.0.0.copyload.i109 = load i8, ptr %195, align 1, !tbaa !12
   %196 = icmp ne i8 %.5159, 118
   %197 = icmp sgt i8 %.sroa.0.0.copyload.i109, -1
@@ -1102,7 +1101,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl19str_format_internal17Consum
   %.1112187 = phi ptr [ %8, %.lr.ph ], [ %24, %23 ]
   %.1118186 = phi i8 [ %9, %.lr.ph ], [ %25, %23 ]
   %14 = zext i8 %.1118186 to i64
-  %15 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %14
   %.sroa.0.0.copyload.i = load i8, ptr %15, align 1, !tbaa !12
   %16 = and i8 %.sroa.0.0.copyload.i, -32
   %17 = icmp eq i8 %16, -64
@@ -1206,7 +1205,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit: ; preds = %.lr.ph.i
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %.011.lcssa.i.ph, ptr %54, align 4, !tbaa !35
   %55 = zext nneg i8 %.6123.ph to i64
-  %56 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %55
   %.sroa.0.0.copyload.i81169 = load i8, ptr %56, align 1, !tbaa !12
   br label %.critedge
 
@@ -1321,7 +1320,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80: ; preds = %.lr.ph.i
   %.0117 = phi i8 [ %.7124, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80 ], [ %101, %99 ], [ %77, %106 ], [ %.4121, %68 ], [ %9, %7 ], [ %.1118.lcssa, %._crit_edge ]
   %.0111 = phi ptr [ %.9, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80 ], [ %100, %99 ], [ %76, %106 ], [ %.4, %68 ], [ %8, %7 ], [ %.1112.lcssa, %._crit_edge ]
   %108 = zext i8 %.0117 to i64
-  %109 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %108
   %.sroa.0.0.copyload.i81 = load i8, ptr %109, align 1, !tbaa !12
   %110 = icmp eq i8 %.0117, 118
   br i1 %110, label %111, label %.critedge
@@ -1393,7 +1392,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80: ; preds = %.lr.ph.i
   %.5122 = phi i8 [ %130, %128 ], [ %139, %137 ], [ %122, %140 ]
   %.7115 = phi ptr [ %129, %128 ], [ %138, %137 ], [ %121, %140 ]
   %144 = zext i8 %.5122 to i64
-  %145 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %144
   %.sroa.0.0.copyload.i82 = load i8, ptr %145, align 1, !tbaa !12
   %146 = icmp ne i8 %.5122, 118
   %147 = icmp sgt i8 %.sroa.0.0.copyload.i82, -1
@@ -1530,7 +1529,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail
   %10 = load i64, ptr %9, align 8, !tbaa !54
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !47
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !75
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -1667,7 +1666,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
 31:                                               ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !47
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !75
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -1694,7 +1693,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %45 = load i32, ptr %43, align 4, !tbaa !4
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !75
   br label %49
 
@@ -1787,7 +1786,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %16 = load i32, ptr %15, align 8, !tbaa !4
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !75
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -1802,7 +1801,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !75
   br label %29
 
@@ -1967,7 +1966,7 @@ _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3
 _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %49, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %44, ptr %16, align 8, !tbaa !31
   store ptr %48, ptr %18, align 8, !tbaa !91
-  %50 = getelementptr inbounds nuw %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %42
   store ptr %50, ptr %28, align 8, !tbaa !32
   br label %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE9push_backEOS3_.exit
 
@@ -2065,7 +2064,7 @@ _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3
 _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %41, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %36, ptr %15, align 8, !tbaa !31
   store ptr %40, ptr %16, align 8, !tbaa !91
-  %42 = getelementptr inbounds nuw %"struct.absl::str_format_internal::ParsedFormatBase::ConversionItem", ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %34
   store ptr %42, ptr %18, align 8, !tbaa !32
   br label %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EE9push_backEOS3_.exit
 

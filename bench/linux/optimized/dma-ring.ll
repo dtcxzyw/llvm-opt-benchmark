@@ -3,8 +3,6 @@ source_filename = "bench/linux/original/dma-ring.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mei_dma_dscr = type { ptr, i64, i64 }
-
 @.str = private unnamed_addr constant [28 x i8] c"drivers/misc/mei/dma-ring.c\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -14,7 +12,7 @@ define dso_local void @mei_dmam_ring_free(ptr noundef captures(none) %0) local_u
 
 3:                                                ; preds = %14, %1
   %4 = phi i64 [ 0, %1 ], [ %15, %14 ]
-  %5 = getelementptr %struct.mei_dma_dscr, ptr %2, i64 %4
+  %5 = getelementptr [24 x i8], ptr %2, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8
@@ -50,7 +48,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mei_dmam_ring_alloc(ptr noundef 
 
 5:                                                ; preds = %.critedge, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %.critedge ]
-  %7 = getelementptr %struct.mei_dma_dscr, ptr %2, i64 %6
+  %7 = getelementptr [24 x i8], ptr %2, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
@@ -85,7 +83,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mei_dmam_ring_alloc(ptr noundef 
 
 .preheader:                                       ; preds = %.preheader.preheader, %31
   %21 = phi i64 [ %32, %31 ], [ 0, %.preheader.preheader ]
-  %22 = getelementptr %struct.mei_dma_dscr, ptr %2, i64 %21
+  %22 = getelementptr [24 x i8], ptr %2, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %31, label %25

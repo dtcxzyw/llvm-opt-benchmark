@@ -1482,7 +1482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20
   br i1 %48, label %49, label %_ZN19OpenColorIO_v2_5dev6ArrayTIfE6resizeEmm.exit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw float, ptr %39, i64 %36
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %36
   %.not.i.i.i = icmp eq ptr %38, %50
   br i1 %.not.i.i.i, label %_ZN19OpenColorIO_v2_5dev6ArrayTIfE6resizeEmm.exit, label %51
 
@@ -1540,7 +1540,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev6ArrayTIfE6resizeEmm(pt
   br i1 %22, label %23, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw float, ptr %13, i64 %10
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %10
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %25
 
@@ -1648,7 +1648,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArray5scaleEf(pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.09 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %13 = getelementptr inbounds nuw float, ptr %8, i64 %.09
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.09
   %14 = load float, ptr %13, align 4, !tbaa !92
   %15 = fmul float %1, %14
   store float %15, ptr %13, align 4, !tbaa !92
@@ -3141,7 +3141,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData5scaleEf(ptr noundef no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.07.i = phi i64 [ %16, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %13 = getelementptr inbounds nuw float, ptr %8, i64 %.07.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.07.i
   %14 = load float, ptr %13, align 4, !tbaa !92
   %15 = fmul float %1, %14
   store float %15, ptr %13, align 4, !tbaa !92
@@ -3167,7 +3167,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev6ArrayTIfE14setDoubleVa
   %4 = fptrunc double %2 to float
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !81
-  %7 = getelementptr inbounds nuw float, ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %1
   store float %4, ptr %7, align 4, !tbaa !92
   ret void
 }
@@ -3176,7 +3176,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev6ArrayTIfE14setDoubleVa
 define linkonce_odr hidden noundef double @_ZN19OpenColorIO_v2_5dev6ArrayTIfE14getDoubleValueEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #5 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !81
-  %5 = getelementptr inbounds nuw float, ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %1
   %6 = load float, ptr %5, align 4, !tbaa !92
   %7 = fpext float %6 to double
   ret double %7
@@ -3767,9 +3767,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !81
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !99
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !95
   br label %41
 

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.FFPsyModel = type { ptr, ptr, ptr, ptr, ptr }
-%struct.FFPsyChannelGroup = type { [20 x ptr], i8, [128 x i8] }
-%struct.FFPsyChannel = type { [128 x %struct.FFPsyBand], float }
-%struct.FFPsyBand = type { i32, float, float, float }
 
 @ff_aac_psy_model = external constant %struct.FFPsyModel, align 8
 
@@ -74,7 +71,7 @@ define i32 @ff_psy_init(ptr noundef initializes((0, 8), (16, 32), (36, 56)) %0, 
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv66
   %38 = load i8, ptr %37, align 1, !tbaa !41
   %39 = add i8 %38, 1
-  %40 = getelementptr inbounds nuw %struct.FFPsyChannelGroup, ptr %35, i64 %indvars.iv66
+  %40 = getelementptr inbounds nuw [296 x i8], ptr %35, i64 %indvars.iv66
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 160
   store i8 %39, ptr %41, align 8, !tbaa !42
   %.not60 = icmp eq i8 %39, 0
@@ -91,8 +88,8 @@ define i32 @ff_psy_init(ptr noundef initializes((0, 8), (16, 32), (36, 56)) %0, 
   %indvars.iv = phi i64 [ %43, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %44 = load ptr, ptr %12, align 8, !tbaa !35
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %45 = getelementptr inbounds %struct.FFPsyChannel, ptr %44, i64 %indvars.iv
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv61
+  %45 = getelementptr inbounds [2052 x i8], ptr %44, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv61
   store ptr %45, ptr %46, align 8, !tbaa !44
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
@@ -187,7 +184,7 @@ define ptr @ff_psy_find_group(ptr noundef readonly captures(none) %0, i32 nounde
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %.09 = phi i32 [ %7, %.lr.ph ], [ 0, %2 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = getelementptr inbounds nuw %struct.FFPsyChannelGroup, ptr %.pre, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [296 x i8], ptr %.pre, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %5 = load i8, ptr %4, align 8, !tbaa !42
   %6 = zext i8 %5 to i32
@@ -201,7 +198,7 @@ define ptr @ff_psy_find_group(ptr noundef readonly captures(none) %0, i32 nounde
 
 ._crit_edge:                                      ; preds = %2, %._crit_edge.loopexit
   %.06.lcssa = phi i64 [ %8, %._crit_edge.loopexit ], [ 0, %2 ]
-  %9 = getelementptr %struct.FFPsyChannelGroup, ptr %.pre, i64 %.06.lcssa
+  %9 = getelementptr [296 x i8], ptr %.pre, i64 %.06.lcssa
   %10 = getelementptr i8, ptr %9, i64 -296
   ret ptr %10
 }
@@ -278,7 +275,7 @@ define ptr @ff_psy_preprocess_init(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %36 = tail call ptr @ff_iir_filter_init_state(i32 noundef 4) #5
   %37 = load ptr, ptr %31, align 8, !tbaa !61
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store ptr %36, ptr %38, align 8, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %27, align 4, !tbaa !18
@@ -330,11 +327,11 @@ define void @ff_psy_preprocess(ptr noundef readonly captures(none) %0, ptr nound
   %14 = load ptr, ptr %7, align 8, !tbaa !66
   %15 = load ptr, ptr %11, align 8, !tbaa !60
   %16 = load ptr, ptr %8, align 8, !tbaa !61
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !62
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !67
-  %21 = getelementptr inbounds float, ptr %20, i64 %12
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %12
   tail call void %14(ptr noundef %15, ptr noundef %18, i32 noundef %6, ptr noundef %21, i64 noundef 1, ptr noundef %21, i64 noundef 1) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -363,7 +360,7 @@ define void @ff_psy_preprocess_end(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %9 = load ptr, ptr %3, align 8, !tbaa !61
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   tail call void @ff_iir_filter_free_statep(ptr noundef %10) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load ptr, ptr %0, align 8, !tbaa !54

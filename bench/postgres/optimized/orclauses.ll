@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SpecialJoinInfo = type { i32, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, i8, i8, i8, ptr, ptr }
-%union.ListCell = type { ptr }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unnamed_addr #0 {
@@ -22,7 +21,7 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
   %8 = phi i32 [ %4, %.lr.ph32 ], [ %60, %.critedge ]
   %indvars.iv34 = phi i64 [ 1, %.lr.ph32 ], [ %indvars.iv.next35, %.critedge ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv34
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv34
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.critedge, label %13
@@ -52,7 +51,7 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
 .lr.ph42:                                         ; preds = %.lr.ph, %consider_new_or_clause.exit
   %indvars.iv41 = phi i64 [ %indvars.iv.next, %consider_new_or_clause.exit ], [ 0, %.lr.ph ]
   %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv41
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv41
   %28 = load ptr, ptr %27, align 8
   %29 = call zeroext i1 @restriction_is_or_clause(ptr noundef %28) #4
   br i1 %29, label %30, label %consider_new_or_clause.exit
@@ -150,7 +149,7 @@ define internal fastcc ptr @extract_or_clause(ptr noundef readonly captures(none
   %.04497117 = phi ptr [ %.246, %79 ], [ null, %.lr.ph98 ]
   %indvars.iv103116 = phi i64 [ %indvars.iv.next104, %79 ], [ 0, %.lr.ph98 ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv103116
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv103116
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %is_andclause.exit.thread, label %15
@@ -183,7 +182,7 @@ is_andclause.exit:                                ; preds = %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %is_safe_restriction_clause_for.exit.thread ], [ 0, %.lr.ph ]
   %.0528894 = phi ptr [ %.254, %is_safe_restriction_clause_for.exit.thread ], [ null, %.lr.ph ]
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @restriction_is_or_clause(ptr noundef %30) #4
   br i1 %31, label %32, label %34

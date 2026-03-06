@@ -863,7 +863,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i.i: ; preds = %_ZNSt12_Vect
   %223 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %222, ptr %20, align 8, !tbaa !63
   store ptr %222, ptr %223, align 8, !tbaa !66
-  %224 = getelementptr inbounds nuw float, ptr %222, i64 %216
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %216
   store ptr %224, ptr %220, align 8, !tbaa !67
   br label %_ZNSt6vectorIfSaIfEE7reserveEm.exit.i
 
@@ -1118,7 +1118,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre88.i = phi i64 [ %.pre88.pre.i, %323 ], [ %.pre8891.i, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i ]
   store ptr %318, ptr %20, align 8, !tbaa !63
   store ptr %322, ptr %234, align 8, !tbaa !66
-  %324 = getelementptr inbounds nuw float, ptr %318, i64 %316
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %318, i64 %316
   store ptr %324, ptr %220, align 8, !tbaa !67
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i
 
@@ -2002,7 +2002,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %90
   store ptr %20, ptr %0, align 8, !tbaa !122
   store ptr %.0.lcssa.i.i.i.i39, ptr %4, align 8, !tbaa !23
-  %94 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %20, i64 %16
+  %94 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %94, ptr %89, align 8, !tbaa !26
   ret void
 

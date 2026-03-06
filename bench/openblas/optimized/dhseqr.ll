@@ -41,7 +41,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %23 = load i32, ptr %6, align 4, !tbaa !3
   %narrow = xor i32 %23, -1
   %24 = sext i32 %narrow to i64
-  %25 = getelementptr inbounds double, ptr %5, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %5, i64 %24
   %26 = getelementptr inbounds i8, ptr %7, i64 -8
   %27 = getelementptr inbounds i8, ptr %8, i64 -8
   %28 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #5
@@ -176,11 +176,11 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %89 = trunc nuw nsw i64 %indvars.iv to i32
   %90 = mul i32 %87, %89
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds double, ptr %25, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %25, i64 %91
   %93 = load double, ptr %92, align 8, !tbaa !7
-  %94 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   store double %93, ptr %94, align 8, !tbaa !7
-  %95 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store double 0.000000e+00, ptr %95, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -203,11 +203,11 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %99 = trunc nsw i64 %indvars.iv.next314 to i32
   %100 = mul i32 %96, %99
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds double, ptr %25, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %25, i64 %101
   %103 = load double, ptr %102, align 8, !tbaa !7
-  %104 = getelementptr double, ptr %7, i64 %indvars.iv313
+  %104 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv313
   store double %103, ptr %104, align 8, !tbaa !7
-  %105 = getelementptr double, ptr %8, i64 %indvars.iv313
+  %105 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv313
   store double 0.000000e+00, ptr %105, align 8, !tbaa !7
   %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
   br i1 %exitcond317.not, label %._crit_edge297, label %98, !llvm.loop !11
@@ -231,12 +231,12 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %112 = add i32 %23, 1
   %113 = mul i32 %108, %112
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds double, ptr %25, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %25, i64 %114
   %116 = load double, ptr %115, align 8, !tbaa !7
   %117 = sext i32 %108 to i64
-  %118 = getelementptr inbounds double, ptr %26, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %26, i64 %117
   store double %116, ptr %118, align 8, !tbaa !7
-  %119 = getelementptr inbounds double, ptr %27, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %27, i64 %117
   store double 0.000000e+00, ptr %119, align 8, !tbaa !7
   br label %175
 
@@ -319,13 +319,13 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %148 = mul nsw i32 %146, 49
   %149 = add nsw i32 %147, %148
   %150 = sext i32 %149 to i64
-  %151 = getelementptr double, ptr %22, i64 %150
+  %151 = getelementptr [8 x i8], ptr %22, i64 %150
   %152 = getelementptr i8, ptr %151, i64 -400
   store double 0.000000e+00, ptr %152, align 8, !tbaa !7
   %153 = sub nsw i32 49, %146
   store i32 %153, ptr %15, align 4, !tbaa !3
   %154 = sext i32 %148 to i64
-  %155 = getelementptr inbounds double, ptr %22, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %22, i64 %154
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull @c__49, ptr noundef nonnull %15, ptr noundef nonnull @c_b11, ptr noundef nonnull @c_b11, ptr noundef nonnull %155, ptr noundef nonnull @c__49) #5
   call void @dlaqr0_(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c__49, ptr noundef nonnull %3, ptr noundef nonnull %18, ptr noundef nonnull %22, ptr noundef nonnull @c__49, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %19, ptr noundef nonnull @c__49, ptr noundef nonnull %13) #5
   %156 = load i32, ptr %20, align 4, !tbaa !3
@@ -361,7 +361,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %166, ptr %15, align 4, !tbaa !3
   store i32 %166, ptr %16, align 4, !tbaa !3
   %167 = sext i32 %23 to i64
-  %168 = getelementptr double, ptr %25, i64 %167
+  %168 = getelementptr [8 x i8], ptr %25, i64 %167
   %169 = getelementptr i8, ptr %168, i64 24
   call void @dlaset_(ptr noundef nonnull @.str.7, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b11, ptr noundef nonnull @c_b11, ptr noundef %169, ptr noundef nonnull %6) #5
   br label %.thread286

@@ -2005,7 +2005,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i24.i: ; preds = %
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA11_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %89, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i24.i
   %.pre89.i = phi i64 [ %.pre89.pre.i, %89 ], [ %72, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i24.i ]
-  %90 = getelementptr inbounds nuw ptr, ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   br label %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA11_S0_EEERS1_DpOT_.exit.i
 
 _ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA11_S0_EEERS1_DpOT_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA11_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA19_S0_EEERS1_DpOT_.exit.i
@@ -2078,7 +2078,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i32.i: ; preds = %
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA12_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA12_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %113, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i32.i
-  %114 = getelementptr inbounds nuw ptr, ptr %109, i64 %107
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %107
   br label %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA12_S0_EEERS1_DpOT_.exit.i
 
 _ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA12_S0_EEERS1_DpOT_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA12_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %95
@@ -2134,7 +2134,7 @@ _ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i37.i: ; preds = %118
 _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i40.i: ; preds = %133, %.noexc43.i
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.054.1, i64 noundef %121) #25, !noalias !462
-  %135 = getelementptr inbounds nuw ptr, ptr %130, i64 %128
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %128
   br label %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA10_S0_EEERS1_DpOT_.exit.i
 
 _ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA10_S0_EEERS1_DpOT_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i40.i, %116
@@ -2189,7 +2189,7 @@ _ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i45.i: ; preds = %139
 _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i48.i: ; preds = %154, %.noexc51.i
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.054.2, i64 noundef %142) #25, !noalias !462
-  %156 = getelementptr inbounds nuw ptr, ptr %151, i64 %149
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %149
   br label %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA13_S0_EEERS1_DpOT_.exit.i
 
 _ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA13_S0_EEERS1_DpOT_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i48.i, %137, %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA11_S0_EEERS1_DpOT_.exit.i
@@ -2262,7 +2262,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i56.i: ; preds = %
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA7_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA7_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %179, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i56.i
-  %180 = getelementptr inbounds nuw ptr, ptr %175, i64 %173
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %173
   br label %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA7_S0_EEERS1_DpOT_.exit.i
 
 _ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA7_S0_EEERS1_DpOT_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA7_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %161
@@ -2318,7 +2318,7 @@ _ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i61.i: ; preds = %184
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA9_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i66.i: ; preds = %199, %.noexc68.i
   %200 = getelementptr inbounds nuw i8, ptr %197, i64 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.054.4, i64 noundef %187) #25, !noalias !462
-  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %194
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %194
   br label %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA9_S0_EEERS1_DpOT_.exit69.i
 
 _ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA9_S0_EEERS1_DpOT_.exit69.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA9_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i66.i, %182
@@ -2373,7 +2373,7 @@ _ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i71.i: ; preds = %205
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA18_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %220, %.noexc77.i
   %221 = getelementptr inbounds nuw i8, ptr %218, i64 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.054.5, i64 noundef %208) #25, !noalias !462
-  %222 = getelementptr inbounds nuw ptr, ptr %217, i64 %215
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %215
   br label %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA18_S0_EEERS1_DpOT_.exit.i
 
 _ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA18_S0_EEERS1_DpOT_.exit.i: ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA18_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %203, %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA13_S0_EEERS1_DpOT_.exit.i
@@ -2448,7 +2448,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i82.i: ; preds = %
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA7_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i84.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA7_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i84.i: ; preds = %246, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i82.i
-  %247 = getelementptr inbounds nuw ptr, ptr %241, i64 %239
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %239
   br label %248
 
 248:                                              ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRA7_S0_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i84.i, %226, %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA18_S0_EEERS1_DpOT_.exit.thread.i, %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJRA18_S0_EEERS1_DpOT_.exit.i
@@ -3076,7 +3076,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !472
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !473
   br label %43
 
@@ -3337,7 +3337,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %18
   %32 = add i32 %14, -1
   store i32 %32, ptr %13, align 8, !tbaa !472
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !473
   store i8 0, ptr %35, align 8, !tbaa !482
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 424
@@ -3406,7 +3406,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixIt
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit, label %9, !prof !81
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -3431,7 +3431,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGet
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !475
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %22, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i, i64 21, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24

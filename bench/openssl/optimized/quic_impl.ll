@@ -3180,7 +3180,7 @@ define range(i32 1, 9) i32 @ossl_quic_want(ptr noundef %0) local_unnamed_addr #0
 
 switch.lookup:                                    ; preds = %4
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ossl_quic_want, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ossl_quic_want, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %error_to_want.exit
 
@@ -8874,7 +8874,7 @@ define internal fastcc range(i32 0, 2) i32 @expect_quic_as(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %23
   %26 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.expect_quic_as, i64 %26
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.expect_quic_as, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %wrong_type.exit
 
@@ -9656,7 +9656,7 @@ quic_mutation_allowed.exit:                       ; preds = %10
 
 switch.lookup:                                    ; preds = %17
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.quic_handshake_wait, i64 %22
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.quic_handshake_wait, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %tls_wants_non_io_retry.exit
 

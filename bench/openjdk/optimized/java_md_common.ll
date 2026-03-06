@@ -401,7 +401,7 @@ match_noeq.exit.i:                                ; preds = %11
 
 21:                                               ; preds = %match_noeq.exit.i
   %22 = add nuw nsw i64 %.031.i, 1
-  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not14.i = icmp eq ptr %24, null
   br i1 %.not14.i, label %borrowed_unsetenv.exit, label %.preheader.i, !llvm.loop !11
@@ -410,12 +410,12 @@ match_noeq.exit.thread.i:                         ; preds = %match_noeq.exit.thr
   %25 = phi ptr [ %30, %match_noeq.exit.thread.i ], [ %8, %match_noeq.exit.thread.i.preheader ]
   %.1.i = phi i64 [ %26, %match_noeq.exit.thread.i ], [ %.031.i, %match_noeq.exit.thread.i.preheader ]
   %26 = add nuw nsw i64 %.1.i, 1
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %.1.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.1.i
   store ptr %28, ptr %29, align 8
   %30 = load ptr, ptr @environ, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %26
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %26
   %32 = load ptr, ptr %31, align 8
   %.not16.i = icmp eq ptr %32, null
   br i1 %.not16.i, label %borrowed_unsetenv.exit, label %match_noeq.exit.thread.i, !llvm.loop !12

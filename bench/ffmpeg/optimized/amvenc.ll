@@ -697,7 +697,7 @@ define internal fastcc void @amv_write_packet_internal(ptr noundef %0, ptr nound
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %32 = load i32, ptr %5, align 4, !tbaa !51
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i64, ptr %31, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %31, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !57
   %36 = add nsw i64 %35, %30
   store i64 %36, ptr %34, align 8, !tbaa !57

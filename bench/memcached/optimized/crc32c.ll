@@ -85,19 +85,19 @@ define internal i32 @crc32c_hw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
 
 28:                                               ; preds = %22
   %29 = and i64 %24, 255
-  %30 = getelementptr inbounds nuw i32, ptr @crc32c_long, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_long, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !14
   %32 = lshr i64 %24, 8
   %33 = and i64 %32, 255
-  %34 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 1024), i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 1024), i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !14
   %36 = lshr i64 %24, 16
   %37 = and i64 %36, 255
-  %38 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 2048), i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 2048), i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !14
   %40 = lshr i64 %24, 24
   %41 = and i64 %40, 255
-  %42 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 3072), i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 3072), i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !14
   %44 = trunc i64 %25 to i32
   %45 = xor i32 %31, %44
@@ -106,23 +106,23 @@ define internal i32 @crc32c_hw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
   %48 = xor i32 %47, %43
   %49 = and i32 %48, 255
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i32, ptr @crc32c_long, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_long, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !14
   %53 = lshr i32 %48, 8
   %54 = and i32 %53, 255
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 1024), i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 1024), i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !14
   %58 = xor i32 %57, %52
   %59 = lshr i32 %48, 16
   %60 = and i32 %59, 255
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 2048), i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 2048), i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !14
   %64 = xor i32 %58, %63
   %65 = lshr i32 %48, 24
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 3072), i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_long, i64 3072), i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !14
   %69 = xor i32 %64, %68
   %70 = zext i32 %69 to i64
@@ -154,19 +154,19 @@ define internal i32 @crc32c_hw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
 
 81:                                               ; preds = %75
   %82 = and i64 %77, 255
-  %83 = getelementptr inbounds nuw i32, ptr @crc32c_short, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_short, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !14
   %85 = lshr i64 %77, 8
   %86 = and i64 %85, 255
-  %87 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 1024), i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 1024), i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !14
   %89 = lshr i64 %77, 16
   %90 = and i64 %89, 255
-  %91 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 2048), i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 2048), i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !14
   %93 = lshr i64 %77, 24
   %94 = and i64 %93, 255
-  %95 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 3072), i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 3072), i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !14
   %97 = trunc i64 %78 to i32
   %98 = xor i32 %84, %97
@@ -175,23 +175,23 @@ define internal i32 @crc32c_hw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
   %101 = xor i32 %100, %96
   %102 = and i32 %101, 255
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw i32, ptr @crc32c_short, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_short, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !14
   %106 = lshr i32 %101, 8
   %107 = and i32 %106, 255
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 1024), i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 1024), i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !14
   %111 = xor i32 %110, %105
   %112 = lshr i32 %101, 16
   %113 = and i32 %112, 255
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 2048), i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 2048), i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !14
   %117 = xor i32 %111, %116
   %118 = lshr i32 %101, 24
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 3072), i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_short, i64 3072), i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !14
   %122 = xor i32 %117, %121
   %123 = zext i32 %122 to i64
@@ -268,7 +268,7 @@ define dso_local i32 @crc32c_sw_little(i32 noundef %0, ptr noundef %1, i64 nound
   %.034.tr = trunc i32 %.03441 to i8
   %.narrow38 = xor i8 %12, %.034.tr
   %13 = zext i8 %.narrow38 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @crc32c_table_little, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_table_little, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = lshr i32 %.03441, 8
   %17 = xor i32 %15, %16
@@ -295,40 +295,40 @@ define dso_local i32 @crc32c_sw_little(i32 noundef %0, ptr noundef %1, i64 nound
   %25 = load i64, ptr %.2, align 8, !tbaa !26
   %26 = xor i64 %25, %.0
   %27 = and i64 %26, 255
-  %28 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 7168), i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 7168), i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !14
   %30 = lshr i64 %26, 8
   %31 = and i64 %30, 255
-  %32 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 6144), i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 6144), i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !14
   %34 = xor i32 %33, %29
   %35 = lshr i64 %26, 16
   %36 = and i64 %35, 255
-  %37 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 5120), i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 5120), i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !14
   %39 = xor i32 %34, %38
   %40 = lshr i64 %26, 24
   %41 = and i64 %40, 255
-  %42 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 4096), i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 4096), i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !14
   %44 = xor i32 %39, %43
   %45 = lshr i64 %25, 32
   %46 = and i64 %45, 255
-  %47 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 3072), i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 3072), i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !14
   %49 = xor i32 %44, %48
   %50 = lshr i64 %25, 40
   %51 = and i64 %50, 255
-  %52 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 2048), i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 2048), i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !14
   %54 = xor i32 %49, %53
   %55 = lshr i64 %25, 48
   %56 = and i64 %55, 255
-  %57 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 1024), i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_little, i64 1024), i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !14
   %59 = xor i32 %54, %58
   %60 = lshr i64 %25, 56
-  %61 = getelementptr inbounds nuw i32, ptr @crc32c_table_little, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_table_little, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !14
   %63 = xor i32 %59, %62
   %64 = getelementptr inbounds nuw i8, ptr %.2, i64 8
@@ -352,7 +352,7 @@ define dso_local i32 @crc32c_sw_little(i32 noundef %0, ptr noundef %1, i64 nound
   %.236.tr = trunc i32 %.23647 to i8
   %.narrow = xor i8 %68, %.236.tr
   %69 = zext i8 %.narrow to i64
-  %70 = getelementptr inbounds nuw i32, ptr @crc32c_table_little, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_table_little, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !14
   %72 = lshr i32 %.23647, 8
   %73 = xor i32 %71, %72
@@ -415,7 +415,7 @@ define internal void @crc32c_init_sw_little() #3 {
   %32 = lshr i32 %30, 1
   %33 = xor i32 %32, -2097792136
   %34 = select i1 %.not48, i32 %32, i32 %33
-  %35 = getelementptr inbounds nuw i32, ptr @crc32c_table_little, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_table_little, i64 %indvars.iv
   store i32 %34, ptr %35, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -426,7 +426,7 @@ define internal void @crc32c_init_sw_little() #3 {
 
 .preheader:                                       ; preds = %1, %39
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %39 ], [ 0, %1 ]
-  %37 = getelementptr inbounds nuw i32, ptr @crc32c_table_little, i64 %indvars.iv58
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_table_little, i64 %indvars.iv58
   %38 = load i32, ptr %37, align 4, !tbaa !14
   br label %40
 
@@ -440,11 +440,11 @@ define internal void @crc32c_init_sw_little() #3 {
   %.03950 = phi i32 [ %38, %.preheader ], [ %46, %40 ]
   %41 = and i32 %.03950, 255
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr @crc32c_table_little, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_table_little, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !14
   %45 = lshr i32 %.03950, 8
   %46 = xor i32 %44, %45
-  %gep = getelementptr inbounds nuw [256 x i32], ptr %37, i64 %indvars.iv54
+  %gep = getelementptr inbounds nuw [1024 x i8], ptr %37, i64 %indvars.iv54
   store i32 %46, ptr %gep, align 4, !tbaa !14
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 8
@@ -471,7 +471,7 @@ define dso_local i32 @crc32c_sw_big(i32 noundef %0, ptr noundef %1, i64 noundef 
   %.034.tr = trunc i32 %.03441 to i8
   %.narrow38 = xor i8 %12, %.034.tr
   %13 = zext i8 %.narrow38 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @crc32c_table_big_byte, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_table_big_byte, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = lshr i32 %.03441, 8
   %17 = xor i32 %15, %16
@@ -502,40 +502,40 @@ define dso_local i32 @crc32c_sw_big(i32 noundef %0, ptr noundef %1, i64 noundef 
   %29 = load i64, ptr %.2, align 8, !tbaa !26
   %30 = xor i64 %29, %.0
   %31 = and i64 %30, 255
-  %32 = getelementptr inbounds nuw i64, ptr @crc32c_table_big, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @crc32c_table_big, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !26
   %34 = lshr i64 %30, 8
   %35 = and i64 %34, 255
-  %36 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 2048), i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 2048), i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !26
   %38 = xor i64 %37, %33
   %39 = lshr i64 %30, 16
   %40 = and i64 %39, 255
-  %41 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 4096), i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 4096), i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !26
   %43 = xor i64 %38, %42
   %44 = lshr i64 %30, 24
   %45 = and i64 %44, 255
-  %46 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 6144), i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 6144), i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !26
   %48 = xor i64 %43, %47
   %49 = lshr i64 %30, 32
   %50 = and i64 %49, 255
-  %51 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 8192), i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 8192), i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !26
   %53 = xor i64 %48, %52
   %54 = lshr i64 %30, 40
   %55 = and i64 %54, 255
-  %56 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 10240), i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 10240), i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !26
   %58 = xor i64 %53, %57
   %59 = lshr i64 %30, 48
   %60 = and i64 %59, 255
-  %61 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 12288), i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 12288), i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !26
   %63 = xor i64 %58, %62
   %64 = lshr i64 %30, 56
-  %65 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 14336), i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @crc32c_table_big, i64 14336), i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !26
   %67 = xor i64 %63, %66
   %68 = getelementptr inbounds nuw i8, ptr %.2, i64 8
@@ -564,7 +564,7 @@ define dso_local i32 @crc32c_sw_big(i32 noundef %0, ptr noundef %1, i64 noundef 
   %.236.tr = trunc i32 %.23647 to i8
   %.narrow = xor i8 %76, %.236.tr
   %77 = zext i8 %.narrow to i64
-  %78 = getelementptr inbounds nuw i32, ptr @crc32c_table_big_byte, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_table_big_byte, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !14
   %80 = lshr i32 %.23647, 8
   %81 = xor i32 %79, %80
@@ -625,7 +625,7 @@ define internal void @crc32c_init_sw_big() #3 {
   %32 = lshr i32 %30, 1
   %33 = xor i32 %32, -2097792136
   %34 = select i1 %.not50, i32 %32, i32 %33
-  %35 = getelementptr inbounds nuw i32, ptr @crc32c_table_big_byte, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_table_big_byte, i64 %indvars.iv
   store i32 %34, ptr %35, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -636,11 +636,11 @@ define internal void @crc32c_init_sw_big() #3 {
 
 .preheader:                                       ; preds = %1, %42
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %42 ], [ 0, %1 ]
-  %37 = getelementptr inbounds nuw i32, ptr @crc32c_table_big_byte, i64 %indvars.iv60
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_table_big_byte, i64 %indvars.iv60
   %38 = load i32, ptr %37, align 4, !tbaa !14
   %39 = zext i32 %38 to i64
   %40 = tail call i64 @llvm.bswap.i64(i64 %39)
-  %41 = getelementptr inbounds nuw i64, ptr @crc32c_table_big, i64 %indvars.iv60
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @crc32c_table_big, i64 %indvars.iv60
   store i64 %40, ptr %41, align 8, !tbaa !26
   br label %43
 
@@ -654,13 +654,13 @@ define internal void @crc32c_init_sw_big() #3 {
   %.04152 = phi i32 [ %38, %.preheader ], [ %49, %43 ]
   %44 = and i32 %.04152, 255
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr @crc32c_table_big_byte, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @crc32c_table_big_byte, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !14
   %48 = lshr i32 %.04152, 8
   %49 = xor i32 %47, %48
   %50 = zext i32 %49 to i64
   %51 = tail call i64 @llvm.bswap.i64(i64 %50)
-  %gep = getelementptr inbounds nuw [256 x i64], ptr %41, i64 %indvars.iv56
+  %gep = getelementptr inbounds nuw [2048 x i8], ptr %41, i64 %indvars.iv56
   store i64 %51, ptr %gep, align 8, !tbaa !26
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 8
@@ -688,7 +688,7 @@ define internal fastcc void @crc32c_zeros(ptr noundef writeonly captures(none) %
 
 .preheader66.i:                                   ; preds = %25, %gf2_matrix_times.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %gf2_matrix_times.exit.i.i ], [ 0, %25 ]
-  %5 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i
   %6 = load i32, ptr %5, align 4, !tbaa !14
   %.not9.i.i.i = icmp eq i32 %6, 0
   br i1 %.not9.i.i.i, label %gf2_matrix_times.exit.i.i, label %.lr.ph.i.i.i
@@ -715,7 +715,7 @@ define internal fastcc void @crc32c_zeros(ptr noundef writeonly captures(none) %
 
 gf2_matrix_times.exit.i.i:                        ; preds = %11, %.preheader66.i
   %.0.lcssa.i.i.i = phi i32 [ 0, %.preheader66.i ], [ %.1.i.i.i, %11 ]
-  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i
   store i32 %.0.lcssa.i.i.i, ptr %14, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
@@ -723,7 +723,7 @@ gf2_matrix_times.exit.i.i:                        ; preds = %11, %.preheader66.i
 
 gf2_matrix_square.exit.i:                         ; preds = %gf2_matrix_times.exit.i.i, %gf2_matrix_times.exit.i31.i
   %indvars.iv.i22.i = phi i64 [ %indvars.iv.next.i33.i, %gf2_matrix_times.exit.i31.i ], [ 0, %gf2_matrix_times.exit.i.i ]
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i22.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i22.i
   %16 = load i32, ptr %15, align 4, !tbaa !14
   %.not9.i.i23.i = icmp eq i32 %16, 0
   br i1 %.not9.i.i23.i, label %gf2_matrix_times.exit.i31.i, label %.lr.ph.i.i24.i
@@ -750,7 +750,7 @@ gf2_matrix_square.exit.i:                         ; preds = %gf2_matrix_times.ex
 
 gf2_matrix_times.exit.i31.i:                      ; preds = %21, %gf2_matrix_square.exit.i
   %.0.lcssa.i.i32.i = phi i32 [ 0, %gf2_matrix_square.exit.i ], [ %.1.i.i29.i, %21 ]
-  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i22.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i22.i
   store i32 %.0.lcssa.i.i32.i, ptr %24, align 4, !tbaa !14
   %indvars.iv.next.i33.i = add nuw nsw i64 %indvars.iv.i22.i, 1
   %exitcond.not.i34.i = icmp eq i64 %indvars.iv.next.i33.i, 32
@@ -759,7 +759,7 @@ gf2_matrix_times.exit.i31.i:                      ; preds = %21, %gf2_matrix_squ
 25:                                               ; preds = %25, %2
   %indvars.iv.i = phi i64 [ 1, %2 ], [ %indvars.iv.next.i, %25 ]
   %.01867.i = phi i32 [ 1, %2 ], [ %27, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %.01867.i, ptr %26, align 4, !tbaa !14
   %27 = shl i32 %.01867.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -772,7 +772,7 @@ gf2_matrix_square.exit35.i:                       ; preds = %gf2_matrix_times.ex
 
 28:                                               ; preds = %gf2_matrix_times.exit.i45.i, %gf2_matrix_square.exit35.i
   %indvars.iv.i36.i = phi i64 [ 0, %gf2_matrix_square.exit35.i ], [ %indvars.iv.next.i47.i, %gf2_matrix_times.exit.i45.i ]
-  %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i36.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i36.i
   %30 = load i32, ptr %29, align 4, !tbaa !14
   %.not9.i.i37.i = icmp eq i32 %30, 0
   br i1 %.not9.i.i37.i, label %gf2_matrix_times.exit.i45.i, label %.lr.ph.i.i38.i
@@ -799,7 +799,7 @@ gf2_matrix_square.exit35.i:                       ; preds = %gf2_matrix_times.ex
 
 gf2_matrix_times.exit.i45.i:                      ; preds = %35, %28
   %.0.lcssa.i.i46.i = phi i32 [ 0, %28 ], [ %.1.i.i43.i, %35 ]
-  %38 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i36.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i36.i
   store i32 %.0.lcssa.i.i46.i, ptr %38, align 4, !tbaa !14
   %indvars.iv.next.i47.i = add nuw nsw i64 %indvars.iv.i36.i, 1
   %exitcond.not.i48.i = icmp eq i64 %indvars.iv.next.i47.i, 32
@@ -811,7 +811,7 @@ gf2_matrix_square.exit49.i:                       ; preds = %gf2_matrix_times.ex
 
 .preheader64.i:                                   ; preds = %gf2_matrix_square.exit49.i, %gf2_matrix_times.exit.i59.i
   %indvars.iv.i50.i = phi i64 [ %indvars.iv.next.i61.i, %gf2_matrix_times.exit.i59.i ], [ 0, %gf2_matrix_square.exit49.i ]
-  %40 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i50.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i50.i
   %41 = load i32, ptr %40, align 4, !tbaa !14
   %.not9.i.i51.i = icmp eq i32 %41, 0
   br i1 %.not9.i.i51.i, label %gf2_matrix_times.exit.i59.i, label %.lr.ph.i.i52.i
@@ -838,7 +838,7 @@ gf2_matrix_square.exit49.i:                       ; preds = %gf2_matrix_times.ex
 
 gf2_matrix_times.exit.i59.i:                      ; preds = %46, %.preheader64.i
   %.0.lcssa.i.i60.i = phi i32 [ 0, %.preheader64.i ], [ %.1.i.i57.i, %46 ]
-  %49 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i50.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i50.i
   store i32 %.0.lcssa.i.i60.i, ptr %49, align 4, !tbaa !14
   %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i50.i, 1
   %exitcond.not.i62.i = icmp eq i64 %indvars.iv.next.i61.i, 32
@@ -900,7 +900,7 @@ gf2_matrix_times.exit34.thread:                   ; preds = %55
   br i1 %.not.i14, label %gf2_matrix_times.exit, label %.lr.ph.i, !llvm.loop !39
 
 gf2_matrix_times.exit:                            ; preds = %61
-  %64 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %.1.i, ptr %64, align 4, !tbaa !14
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %65 = shl i32 %indvars.iv.tr, 8
@@ -927,7 +927,7 @@ gf2_matrix_times.exit:                            ; preds = %61
   br i1 %.not.i22, label %gf2_matrix_times.exit24, label %.lr.ph.i16, !llvm.loop !39
 
 gf2_matrix_times.exit24:                          ; preds = %70
-  %73 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   store i32 %.1.i21, ptr %73, align 4, !tbaa !14
   %indvars.iv.tr65 = trunc i64 %indvars.iv to i32
   %74 = shl i32 %indvars.iv.tr65, 16
@@ -954,7 +954,7 @@ gf2_matrix_times.exit24:                          ; preds = %70
   br i1 %.not.i32, label %gf2_matrix_times.exit34, label %.lr.ph.i26, !llvm.loop !39
 
 gf2_matrix_times.exit34:                          ; preds = %79
-  %82 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   store i32 %.1.i31, ptr %82, align 4, !tbaa !14
   %indvars.iv.tr66 = trunc i64 %indvars.iv to i32
   %83 = shl i32 %indvars.iv.tr66, 24
@@ -982,7 +982,7 @@ gf2_matrix_times.exit34:                          ; preds = %79
 
 gf2_matrix_times.exit44:                          ; preds = %88, %gf2_matrix_times.exit34.thread
   %.0.lcssa.i43 = phi i32 [ 0, %gf2_matrix_times.exit34.thread ], [ %.1.i41, %88 ]
-  %91 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   store i32 %.0.lcssa.i43, ptr %91, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

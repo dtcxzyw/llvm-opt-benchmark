@@ -95,7 +95,7 @@ define dso_local void @SDLTest_TextWindowDisplay(ptr noundef readonly captures(n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.014 = phi float [ %7, %.lr.ph ], [ %22, %17 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %14
@@ -167,7 +167,7 @@ define dso_local void @SDLTest_TextWindowAddTextWithLength(ptr noundef captures(
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not61 = icmp eq ptr %17, null
   br i1 %.not61, label %.thread, label %18
@@ -182,7 +182,7 @@ define dso_local void @SDLTest_TextWindowAddTextWithLength(ptr noundef captures(
 ._crit_edge:                                      ; preds = %18
   %.pre78 = load ptr, ptr %11, align 8
   %.phi.trans.insert80 = sext i32 %.pre83 to i64
-  %.phi.trans.insert81 = getelementptr inbounds ptr, ptr %.pre78, i64 %.phi.trans.insert80
+  %.phi.trans.insert81 = getelementptr inbounds [8 x i8], ptr %.pre78, i64 %.phi.trans.insert80
   %.pre82 = load ptr, ptr %.phi.trans.insert81, align 8
   br label %46
 
@@ -199,7 +199,7 @@ define dso_local void @SDLTest_TextWindowAddTextWithLength(ptr noundef captures(
   %.not74 = icmp eq i64 %19, 1
   %.pre = load ptr, ptr %11, align 8
   %.phi.trans.insert = sext i32 %.pre83 to i64
-  %.phi.trans.insert76 = getelementptr inbounds ptr, ptr %.pre, i64 %.phi.trans.insert
+  %.phi.trans.insert76 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %.phi.trans.insert
   %.pre77 = load ptr, ptr %.phi.trans.insert76, align 8
   br i1 %.not74, label %.critedge, label %.lr.ph
 
@@ -231,13 +231,13 @@ define dso_local void @SDLTest_TextWindowAddTextWithLength(ptr noundef captures(
 35:                                               ; preds = %.thread68
   %36 = load ptr, ptr %11, align 8
   %37 = zext nneg i32 %33 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   tail call void @SDL_free(ptr noundef %39) #8
   %40 = load ptr, ptr %11, align 8
   %41 = load i32, ptr %13, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %40, i64 %42
   store ptr null, ptr %43, align 8
   %44 = load i32, ptr %13, align 8
   %45 = add nsw i32 %44, -1
@@ -261,7 +261,7 @@ define dso_local void @SDLTest_TextWindowAddTextWithLength(ptr noundef captures(
   %54 = load ptr, ptr %11, align 8
   %55 = load i32, ptr %13, align 8
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %54, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %54, i64 %56
   store ptr %50, ptr %57, align 8
   br i1 %.052, label %58, label %79
 
@@ -287,7 +287,7 @@ define dso_local void @SDLTest_TextWindowAddTextWithLength(ptr noundef captures(
   %73 = load ptr, ptr %11, align 8
   %74 = load i32, ptr %13, align 8
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %73, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %73, i64 %75
   store ptr null, ptr %76, align 8
   br label %79
 
@@ -326,7 +326,7 @@ define dso_local void @SDLTest_TextWindowClear(ptr noundef captures(none) %0) lo
   %7 = phi i32 [ %3, %.lr.ph ], [ %15, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
@@ -334,7 +334,7 @@ define dso_local void @SDLTest_TextWindowClear(ptr noundef captures(none) %0) lo
 11:                                               ; preds = %6
   tail call void @SDL_free(ptr noundef nonnull %10) #8
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr null, ptr %13, align 8
   %.pre = load i32, ptr %2, align 4
   br label %14
@@ -371,7 +371,7 @@ define dso_local void @SDLTest_TextWindowDestroy(ptr noundef %0) local_unnamed_a
   %8 = phi i32 [ %4, %.lr.ph.i ], [ %16, %15 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %15, label %12
@@ -379,7 +379,7 @@ define dso_local void @SDLTest_TextWindowDestroy(ptr noundef %0) local_unnamed_a
 12:                                               ; preds = %7
   tail call void @SDL_free(ptr noundef nonnull %11) #8
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   store ptr null, ptr %14, align 8
   %.pre.i = load i32, ptr %3, align 4
   br label %15

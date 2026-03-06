@@ -1590,7 +1590,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !249
   %42 = urem i64 %37, %41
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   store ptr %38, ptr %43, align 8, !tbaa !282
   %.02837 = load ptr, ptr %19, align 8, !tbaa !250
   %.not3038 = icmp eq ptr %.02837, null
@@ -1643,7 +1643,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %60 = load i64, ptr %40, align 8, !tbaa !249
   %61 = urem i64 %59, %60
   %62 = load ptr, ptr %0, align 8, !tbaa !248
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !282
   %.not32 = icmp eq ptr %64, null
   br i1 %.not32, label %65, label %70
@@ -1900,7 +1900,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKiSt13unordered_mapINSt7_
   %30 = load i32, ptr %27, align 4, !tbaa !294
   %31 = sext i32 %30 to i64
   %32 = urem i64 %31, %29
-  %33 = getelementptr inbounds nuw ptr, ptr %26, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %32
   store ptr %24, ptr %33, align 8, !tbaa !282
   br label %_ZNSt10_HashtableIiSt4pairIKiSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_IS8_iSt4hashIS8_ESt8equal_toIS8_ESaIS0_IKS8_iEEESA_SC_SaIS0_ISD_SG_EEEESaISK_ENSt8__detail10_Select1stESB_IiES9_IiENSM_18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyENSM_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_update_bbeginEPNSM_10_Hash_nodeISK_Lb0EEE.exit
 
@@ -1929,7 +1929,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKiSt13unordered_mapINSt7_
   %42 = sext i32 %41 to i64
   %43 = urem i64 %42, %40
   %44 = load ptr, ptr %0, align 8, !tbaa !284
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8, !tbaa !282
   %.not32 = icmp eq ptr %46, null
   br i1 %.not32, label %47, label %52
@@ -2185,7 +2185,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !301
   %42 = urem i64 %37, %41
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   store ptr %38, ptr %43, align 8, !tbaa !282
   %.02837 = load ptr, ptr %19, align 8, !tbaa !250
   %.not3038 = icmp eq ptr %.02837, null
@@ -2238,7 +2238,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %60 = load i64, ptr %40, align 8, !tbaa !301
   %61 = urem i64 %59, %60
   %62 = load ptr, ptr %0, align 8, !tbaa !300
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !282
   %.not32 = icmp eq ptr %64, null
   br i1 %.not32, label %65, label %70
@@ -2491,7 +2491,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !311
   %32 = urem i64 %27, %31
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %32
   store ptr %28, ptr %33, align 8, !tbaa !282
   %.02834 = load ptr, ptr %19, align 8, !tbaa !250
   %.not3035 = icmp eq ptr %.02834, null
@@ -2514,7 +2514,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %40 = load i64, ptr %30, align 8, !tbaa !311
   %41 = urem i64 %39, %40
   %42 = load ptr, ptr %0, align 8, !tbaa !309
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !282
   %.not32 = icmp eq ptr %44, null
   br i1 %.not32, label %45, label %50
@@ -7352,7 +7352,7 @@ define linkonce_odr void @_ZN5nblib8TopologyC2EOS0_(ptr noundef nonnull align 8 
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 96
   %73 = load i64, ptr %72, align 8, !tbaa !280
   %74 = urem i64 %73, %54
-  %75 = getelementptr inbounds nuw ptr, ptr %70, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %74
   store ptr %55, ptr %75, align 8, !tbaa !282
   br label %_ZN5nblib17ParticleSequencerC2EOS0_.exit
 

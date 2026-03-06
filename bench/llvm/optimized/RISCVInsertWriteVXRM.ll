@@ -14,8 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::DebugLoc" = type { %"class.llvm::TypedTrackingMDRef" }
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
-%"struct.(anonymous namespace)::BlockData" = type { %"class.(anonymous namespace)::VXRMInfo", %"class.(anonymous namespace)::VXRMInfo", %"class.(anonymous namespace)::VXRMInfo", %"class.(anonymous namespace)::VXRMInfo", %"class.(anonymous namespace)::VXRMInfo", %"class.(anonymous namespace)::VXRMInfo", i8 }
-%"class.(anonymous namespace)::VXRMInfo" = type { i8, i8 }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -470,9 +468,9 @@ _ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.exit.i.i: ; preds = %57, %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
   store ptr %52, ptr %24, align 8, !tbaa !44
-  %59 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %53, i64 %41
+  %59 = getelementptr inbounds nuw [13 x i8], ptr %53, i64 %41
   store ptr %59, ptr %34, align 8, !tbaa !304
-  %60 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %52, i64 %50
+  %60 = getelementptr inbounds nuw [13 x i8], ptr %52, i64 %50
   store ptr %60, ptr %42, align 8, !tbaa !47
   br label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit
 
@@ -481,7 +479,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.exit
   br i1 %62, label %63, label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val.i, i64 %33
+  %64 = getelementptr inbounds nuw [13 x i8], ptr %.val.i, i64 %33
   %.not.i9.i = icmp eq ptr %.val4.i, %64
   br i1 %.not.i9.i, label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit, label %65
 
@@ -522,7 +520,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit: ; preds = %_ZSt27
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0123, i64 24
   %73 = load i32, ptr %72, align 8, !tbaa !314
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val30, i64 %74
+  %75 = getelementptr inbounds nuw [13 x i8], ptr %.val30, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0123, i64 56
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0123, i64 48
   %.sroa.02.010.i = load ptr, ptr %76, align 8, !tbaa !360
@@ -577,7 +575,7 @@ _ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i:   ; preds = %92, %92
 
 _ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread.i: ; preds = %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i, %92
   %100 = zext nneg i32 %90 to i64
-  %101 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.pre.i, i64 %100
+  %101 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load i64, ptr %102, align 8, !tbaa !306
   %.val26.i = load i8, ptr %78, align 1, !tbaa !377
@@ -734,7 +732,7 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit: ; 
   %159 = load i32, ptr %158, align 8, !tbaa !314
   %160 = sext i32 %159 to i64
   %.val = load ptr, ptr %24, align 8, !tbaa !44
-  %161 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val, i64 %160
+  %161 = getelementptr inbounds nuw [13 x i8], ptr %.val, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 12
   store i8 1, ptr %162, align 1, !tbaa !385
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0126, i64 8
@@ -784,7 +782,7 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE3popEv.exit: ; pred
   %181 = load i32, ptr %180, align 8, !tbaa !314
   %182 = sext i32 %181 to i64
   %.val29.i = load ptr, ptr %24, align 8, !tbaa !44
-  %183 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val29.i, i64 %182
+  %183 = getelementptr inbounds nuw [13 x i8], ptr %.val29.i, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 12
   store i8 0, ptr %184, align 1, !tbaa !385
   %185 = getelementptr inbounds nuw i8, ptr %169, i64 72
@@ -808,7 +806,7 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE3popEv.exit: ; pred
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %193 = load i32, ptr %192, align 8, !tbaa !314
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val29.i, i64 %194
+  %195 = getelementptr inbounds nuw [13 x i8], ptr %.val29.i, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 6
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 7
   %.val7.i.i = load i8, ptr %197, align 1, !tbaa !377
@@ -942,7 +940,7 @@ _ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_1
   %228 = load i32, ptr %227, align 8, !tbaa !314
   %229 = sext i32 %228 to i64
   %.val27.i38 = load ptr, ptr %24, align 8, !tbaa !44
-  %230 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val27.i38, i64 %229
+  %230 = getelementptr inbounds nuw [13 x i8], ptr %.val27.i38, i64 %229
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 12
   %232 = load i8, ptr %231, align 1, !tbaa !385, !range !288, !noundef !289
   %233 = trunc nuw i8 %232 to i1
@@ -1022,7 +1020,7 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit43: 
   %260 = load i32, ptr %259, align 8, !tbaa !314
   %261 = sext i32 %260 to i64
   %.val29 = load ptr, ptr %24, align 8, !tbaa !44
-  %262 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val29, i64 %261
+  %262 = getelementptr inbounds nuw [13 x i8], ptr %.val29, i64 %261
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 12
   store i8 1, ptr %263, align 1, !tbaa !385
   %.sroa.096.0 = load ptr, ptr %.sroa.096.0133, align 8, !tbaa !387
@@ -1077,7 +1075,7 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE3popEv.exit46: ; pr
   %286 = load i32, ptr %285, align 8, !tbaa !314
   %287 = sext i32 %286 to i64
   %.val34.i47 = load ptr, ptr %24, align 8, !tbaa !44
-  %288 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val34.i47, i64 %287
+  %288 = getelementptr inbounds nuw [13 x i8], ptr %.val34.i47, i64 %287
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 12
   store i8 0, ptr %289, align 1, !tbaa !385
   %290 = getelementptr inbounds nuw i8, ptr %274, i64 120
@@ -1104,7 +1102,7 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE3popEv.exit46: ; pr
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 24
   %301 = load i32, ptr %300, align 8, !tbaa !314
   %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val34.i47, i64 %302
+  %303 = getelementptr inbounds nuw [13 x i8], ptr %.val34.i47, i64 %302
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
   %305 = getelementptr inbounds nuw i8, ptr %303, i64 9
   %.val10.i.us.i = load i8, ptr %305, align 1, !tbaa !377
@@ -1176,7 +1174,7 @@ _ZNK12_GLOBAL__N_18VXRMInfo20intersectAnticipatedERKS0_.exit.us.i: ; preds = %31
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 24
   %319 = load i32, ptr %318, align 8, !tbaa !314
   %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val34.i47, i64 %320
+  %321 = getelementptr inbounds nuw [13 x i8], ptr %.val34.i47, i64 %320
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %323 = getelementptr inbounds nuw i8, ptr %321, i64 9
   %.val7.i.i51 = load i8, ptr %323, align 1, !tbaa !377
@@ -1311,7 +1309,7 @@ _ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i56: ; preds = %_ZNK12_GLOBAL__N
   %353 = load i32, ptr %352, align 8, !tbaa !314
   %354 = sext i32 %353 to i64
   %.val31.i57 = load ptr, ptr %24, align 8, !tbaa !44
-  %355 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val31.i57, i64 %354
+  %355 = getelementptr inbounds nuw [13 x i8], ptr %.val31.i57, i64 %354
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 12
   %357 = load i8, ptr %356, align 1, !tbaa !385, !range !288, !noundef !289
   %358 = trunc nuw i8 %357 to i1
@@ -1360,7 +1358,7 @@ _ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeAnticipatedERKN4llvm15MachineFun
   %374 = load i32, ptr %373, align 8, !tbaa !314
   %375 = sext i32 %374 to i64
   %.val53.i = load ptr, ptr %24, align 8, !tbaa !44
-  %376 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val53.i, i64 %375
+  %376 = getelementptr inbounds nuw [13 x i8], ptr %.val53.i, i64 %375
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 4
   %378 = getelementptr inbounds nuw i8, ptr %376, i64 8
   %379 = getelementptr i8, ptr %376, i64 9
@@ -1393,7 +1391,7 @@ _ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeAnticipatedERKN4llvm15MachineFun
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 24
   %393 = load i32, ptr %392, align 8, !tbaa !314
   %394 = sext i32 %393 to i64
-  %395 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BlockData", ptr %.val.i90, i64 %394
+  %395 = getelementptr inbounds nuw [13 x i8], ptr %.val.i90, i64 %394
   %396 = getelementptr i8, ptr %395, i64 7
   %.val57.i = load i8, ptr %396, align 1, !tbaa !377
   %397 = icmp eq i8 %.val57.i, 1
@@ -1488,7 +1486,7 @@ _ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i84: ; preds = %422, %422
 
 _ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread.i85: ; preds = %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i84, %422
   %430 = zext nneg i32 %420 to i64
-  %431 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.pre.i83, i64 %430
+  %431 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i83, i64 %430
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 16
   %433 = load i64, ptr %432, align 8, !tbaa !306
   %434 = trunc i64 %433 to i32
@@ -1847,9 +1845,9 @@ define linkonce_odr void @_ZNSt5dequeIPKN4llvm17MachineBasicBlockESaIS3_EE17_M_r
   %19 = load ptr, ptr %0, align 8, !tbaa !33
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -1868,12 +1866,12 @@ define linkonce_odr void @_ZNSt5dequeIPKN4llvm17MachineBasicBlockESaIS3_EE17_M_r
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPKN4llvm17MachineBasicBlockES5_ET0_T_S7_S6_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPKN4llvm17MachineBasicBlockES5_ET0_T_S7_S6_.exit
 
@@ -1901,9 +1899,9 @@ _ZNSt11_Deque_baseIPKN4llvm17MachineBasicBlockESaIS3_EE15_M_allocate_mapEm.exit:
   %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #16
   %49 = sub i64 %41, %13
   %50 = lshr i64 %49, 1
-  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %50
   %52 = select i1 %2, i64 %1, i64 0
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %54, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPKN4llvm17MachineBasicBlockES5_ET0_T_S7_S6_.exit26, label %55
@@ -1931,7 +1929,7 @@ _ZSt4copyIPPPKN4llvm17MachineBasicBlockES5_ET0_T_S7_S6_.exit: ; preds = %32, %31
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 512
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %62, ptr %63, align 8, !tbaa !37
-  %64 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
   store ptr %65, ptr %4, align 8, !tbaa !35
   %66 = load ptr, ptr %65, align 8, !tbaa !34

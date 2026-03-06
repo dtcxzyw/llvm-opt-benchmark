@@ -325,7 +325,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13
   %23 = load ptr, ptr %22, align 8, !tbaa !13
   %24 = lshr i32 %1, 6
   %.zext = zext nneg i32 %24 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %.zext
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.zext
   %26 = and i32 %1, 63
   %27 = zext nneg i32 %26 to i64
   %28 = shl nuw i64 1, %27
@@ -353,7 +353,7 @@ _ZN4cvc58internal9LogicInfo12isTrueTheoryENS0_6theory8TheoryIdE.exit: ; preds = 
   %37 = load i64, ptr %36, align 8, !tbaa !9
   %38 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %37, ptr noundef nonnull @.str, i64 noundef 0)
   %39 = load ptr, ptr %22, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.zext
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.zext
   %41 = load i64, ptr %40, align 8, !tbaa !39
   %42 = or i64 %41, %28
   store i64 %42, ptr %40, align 8, !tbaa !39
@@ -386,7 +386,7 @@ define linkonce_odr hidden void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef non
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #22
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -634,7 +634,7 @@ sub_1:                                            ; preds = %sub_0
   %36 = load ptr, ptr %25, align 8, !tbaa !13
   %37 = lshr i32 %35, 6
   %.zext = zext nneg i32 %37 to i64
-  %38 = getelementptr inbounds nuw i64, ptr %36, i64 %.zext
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.zext
   %39 = and i32 %35, 63
   %40 = zext nneg i32 %39 to i64
   %41 = shl nuw i64 1, %40
@@ -1676,7 +1676,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13
   %23 = load ptr, ptr %22, align 8, !tbaa !13
   %24 = lshr i32 %1, 6
   %.zext = zext nneg i32 %24 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %.zext
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.zext
   %26 = and i32 %1, 63
   %27 = zext nneg i32 %26 to i64
   %28 = shl nuw i64 1, %27
@@ -1912,7 +1912,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds i64, ptr %32, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %32, i64 %37
   call void @_ZdlPvm(ptr noundef %38, i64 noundef %35) #22
   store ptr null, ptr %28, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -2109,7 +2109,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i: ; preds = %
   %61 = sub i64 %59, %60
   %62 = ashr exact i64 %61, 3
   %63 = sub nsw i64 0, %62
-  %64 = getelementptr inbounds i64, ptr %58, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %58, i64 %63
   call void @_ZdlPvm(ptr noundef %64, i64 noundef %61) #22
   store ptr null, ptr %54, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2229,13 +2229,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18
   %30 = load ptr, ptr %26, align 8, !tbaa !13
   %31 = lshr i32 %29, 6
   %.zext = zext nneg i32 %31 to i64
-  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %.zext
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.zext
   %33 = and i32 %29, 63
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw i64 1, %34
   %36 = load i64, ptr %32, align 8, !tbaa !39
   %37 = load ptr, ptr %27, align 8, !tbaa !13
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %.zext
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.zext
   %39 = load i64, ptr %38, align 8, !tbaa !39
   %40 = xor i64 %39, %36
   %41 = and i64 %40, %35
@@ -2395,7 +2395,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9LogicInfoD2Ev(ptr noundef non
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2500,7 +2500,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 3
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds i64, ptr %29, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %29, i64 %34
   call void @_ZdlPvm(ptr noundef %35, i64 noundef %32) #22
   store ptr null, ptr %25, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -3359,7 +3359,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18
   %30 = load ptr, ptr %26, align 8, !tbaa !13
   %31 = lshr i32 %29, 6
   %.zext = zext nneg i32 %31 to i64
-  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %.zext
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.zext
   %33 = and i32 %29, 63
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw i64 1, %34
@@ -3370,7 +3370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %27, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.zext
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.zext
   %41 = load i64, ptr %40, align 8, !tbaa !39
   %42 = and i64 %41, %35
   %.not76 = icmp eq i64 %42, 0
@@ -3609,7 +3609,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18
   %30 = load ptr, ptr %26, align 8, !tbaa !13
   %31 = lshr i32 %29, 6
   %.zext = zext nneg i32 %31 to i64
-  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %.zext
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.zext
   %33 = and i32 %29, 63
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw i64 1, %34
@@ -3620,7 +3620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %27, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.zext
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.zext
   %41 = load i64, ptr %40, align 8, !tbaa !39
   %42 = and i64 %41, %35
   %.not75 = icmp eq i64 %42, 0
@@ -4455,7 +4455,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %283 = sub i64 %281, %282
   %284 = ashr exact i64 %283, 3
   %285 = sub nsw i64 0, %284
-  %286 = getelementptr inbounds i64, ptr %280, i64 %285
+  %286 = getelementptr inbounds [8 x i8], ptr %280, i64 %285
   call void @_ZdlPvm(ptr noundef %286, i64 noundef %283) #22
   store ptr null, ptr %276, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -4932,7 +4932,7 @@ define void @_ZN4cvc58internal9LogicInfo20checkDuplicateTheoryENS0_6theory8Theor
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = lshr i32 %1, 6
   %.zext = zext nneg i32 %8 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %.zext
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.zext
   %10 = and i32 %1, 63
   %11 = zext nneg i32 %10 to i64
   %12 = shl nuw i64 1, %11
@@ -5936,7 +5936,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i: ; preds = %
   %60 = sub i64 %58, %59
   %61 = ashr exact i64 %60, 3
   %62 = sub nsw i64 0, %61
-  %63 = getelementptr inbounds i64, ptr %57, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %57, i64 %62
   call void @_ZdlPvm(ptr noundef %63, i64 noundef %60) #22
   store ptr null, ptr %53, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6045,7 +6045,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13
   %23 = load ptr, ptr %22, align 8, !tbaa !13
   %24 = lshr i32 %1, 6
   %.zext = zext nneg i32 %24 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %.zext
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.zext
   %26 = and i32 %1, 63
   %27 = zext nneg i32 %26 to i64
   %28 = shl nuw i64 1, %27
@@ -6077,7 +6077,7 @@ _ZN4cvc58internal9LogicInfo12isTrueTheoryENS0_6theory8TheoryIdE.exit: ; preds = 
   %37 = load i64, ptr %36, align 8, !tbaa !9
   %38 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %37, ptr noundef nonnull @.str, i64 noundef 0)
   %39 = load ptr, ptr %22, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.zext
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.zext
   %41 = xor i64 %28, -1
   %42 = load i64, ptr %40, align 8, !tbaa !39
   %43 = and i64 %42, %41
@@ -6508,12 +6508,12 @@ define linkonce_odr hidden void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnul
 
 .noexc:                                           ; preds = %18
   %23 = lshr i64 %19, 6
-  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   store ptr %24, ptr %6, align 8, !tbaa !18
   store ptr %22, ptr %0, align 8
   store i32 0, ptr %3, align 8
   %25 = sdiv i64 %17, 64
-  %26 = getelementptr inbounds i64, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = and i64 %17, -9223372036854775745
   %28 = icmp ugt i64 %27, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %28, i64 -8, i64 0

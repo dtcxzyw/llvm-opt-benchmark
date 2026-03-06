@@ -47,7 +47,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader159
-  %3 = getelementptr inbounds nuw [7 x %struct.VLC], ptr @ff_dca_vlc_quant_index, i64 %indvars.iv189
+  %3 = getelementptr inbounds nuw [168 x i8], ptr @ff_dca_vlc_quant_index, i64 %indvars.iv189
   %4 = getelementptr inbounds nuw [7 x i8], ptr @bitalloc_maxbits, i64 %indvars.iv189
   %5 = getelementptr inbounds nuw i8, ptr @ff_dca_bitalloc_sizes, i64 %indvars.iv189
   %6 = load i8, ptr %5, align 1, !tbaa !4
@@ -71,8 +71,8 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %.1161 = phi i32 [ %.0145165, %.lr.ph ], [ %26, %12 ]
   %.1147160 = phi ptr [ %.0146164, %.lr.ph ], [ %27, %12 ]
   %13 = zext i32 %.1161 to i64
-  %14 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %13
-  %15 = getelementptr inbounds nuw %struct.VLC, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %13
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %14, ptr %16, align 8, !tbaa !9
   %17 = sub i32 30218, %.1161
@@ -96,8 +96,8 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %.2168 = phi i32 [ %41, %.preheader158 ], [ %.1.lcssa, %._crit_edge ]
   %.2148167 = phi ptr [ %42, %.preheader158 ], [ %.1147.lcssa, %._crit_edge ]
   %28 = zext i32 %.2168 to i64
-  %29 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %28
-  %30 = getelementptr inbounds nuw %struct.VLC, ptr @ff_dca_vlc_bit_allocation, i64 %indvars.iv193
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %28
+  %30 = getelementptr inbounds nuw [24 x i8], ptr @ff_dca_vlc_bit_allocation, i64 %indvars.iv193
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %29, ptr %31, align 8, !tbaa !9
   %32 = sub i32 30218, %.2168
@@ -121,8 +121,8 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %.3171 = phi i32 [ %53, %.preheader157 ], [ %41, %.preheader158 ]
   %.3149170 = phi ptr [ %54, %.preheader157 ], [ %42, %.preheader158 ]
   %43 = zext i32 %.3171 to i64
-  %44 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %43
-  %45 = getelementptr inbounds nuw %struct.VLC, ptr @ff_dca_vlc_scale_factor, i64 %indvars.iv197
+  %44 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %43
+  %45 = getelementptr inbounds nuw [24 x i8], ptr @ff_dca_vlc_scale_factor, i64 %indvars.iv197
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %44, ptr %46, align 8, !tbaa !9
   %47 = sub i32 30218, %.3171
@@ -143,8 +143,8 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %.4174 = phi i32 [ %65, %.preheader156 ], [ %53, %.preheader157 ]
   %.4150173 = phi ptr [ %66, %.preheader156 ], [ %54, %.preheader157 ]
   %55 = zext i32 %.4174 to i64
-  %56 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %55
-  %57 = getelementptr inbounds nuw %struct.VLC, ptr @ff_dca_vlc_transition_mode, i64 %indvars.iv201
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %55
+  %57 = getelementptr inbounds nuw [24 x i8], ptr @ff_dca_vlc_transition_mode, i64 %indvars.iv201
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %56, ptr %58, align 8, !tbaa !9
   %59 = sub i32 30218, %.4174
@@ -162,7 +162,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
 
 67:                                               ; preds = %.preheader
   %68 = zext i32 %166 to i64
-  %69 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %68
   store ptr %69, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_tnl_scf, i64 8), align 8, !tbaa !9
   %70 = sub i32 30218, %166
   store i32 %70, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_tnl_scf, i64 20), align 4, !tbaa !14
@@ -172,7 +172,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %74 = add i32 %73, %166
   %75 = getelementptr inbounds nuw i8, ptr %168, i64 40
   %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %76
   store ptr %77, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_damp, i64 8), align 8, !tbaa !9
   %78 = sub i32 30218, %74
   store i32 %78, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_damp, i64 20), align 4, !tbaa !14
@@ -182,7 +182,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %82 = add i32 %81, %74
   %83 = getelementptr inbounds nuw i8, ptr %168, i64 54
   %84 = zext i32 %82 to i64
-  %85 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %84
   store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_dph, i64 8), align 8, !tbaa !9
   %86 = sub i32 30218, %82
   store i32 %86, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_dph, i64 20), align 4, !tbaa !14
@@ -192,7 +192,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %90 = add i32 %89, %82
   %91 = getelementptr inbounds nuw i8, ptr %168, i64 72
   %92 = zext i32 %90 to i64
-  %93 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %92
   store ptr %93, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_fst_rsd_amp, i64 8), align 8, !tbaa !9
   %94 = sub i32 30218, %90
   store i32 %94, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_fst_rsd_amp, i64 20), align 4, !tbaa !14
@@ -202,7 +202,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %98 = add i32 %97, %90
   %99 = getelementptr inbounds nuw i8, ptr %168, i64 120
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %100
   store ptr %101, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_apprx, i64 8), align 8, !tbaa !9
   %102 = sub i32 30218, %98
   store i32 %102, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_apprx, i64 20), align 4, !tbaa !14
@@ -212,7 +212,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %106 = add i32 %105, %98
   %107 = getelementptr inbounds nuw i8, ptr %168, i64 132
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %108
   store ptr %109, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_amp, i64 8), align 8, !tbaa !9
   %110 = sub i32 30218, %106
   store i32 %110, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_amp, i64 20), align 4, !tbaa !14
@@ -222,7 +222,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %114 = add i32 %113, %106
   %115 = getelementptr inbounds nuw i8, ptr %168, i64 198
   %116 = zext i32 %114 to i64
-  %117 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %116
   store ptr %117, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_avg_g3, i64 8), align 8, !tbaa !9
   %118 = sub i32 30218, %114
   store i32 %118, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_avg_g3, i64 20), align 4, !tbaa !14
@@ -232,7 +232,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %122 = add i32 %121, %114
   %123 = getelementptr inbounds nuw i8, ptr %168, i64 234
   %124 = zext i32 %122 to i64
-  %125 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %124
   store ptr %125, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_st_grid, i64 8), align 8, !tbaa !9
   %126 = sub i32 30218, %122
   store i32 %126, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_st_grid, i64 20), align 4, !tbaa !14
@@ -242,7 +242,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %130 = add i32 %129, %122
   %131 = getelementptr inbounds nuw i8, ptr %168, i64 278
   %132 = zext i32 %130 to i64
-  %133 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %132
   store ptr %133, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_2, i64 8), align 8, !tbaa !9
   %134 = sub i32 30218, %130
   store i32 %134, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_2, i64 20), align 4, !tbaa !14
@@ -252,7 +252,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %138 = add i32 %137, %130
   %139 = getelementptr inbounds nuw i8, ptr %168, i64 318
   %140 = zext i32 %138 to i64
-  %141 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %140
   store ptr %141, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_3, i64 8), align 8, !tbaa !9
   %142 = sub i32 30218, %138
   store i32 %142, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_3, i64 20), align 4, !tbaa !14
@@ -262,7 +262,7 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %146 = add i32 %145, %138
   %147 = getelementptr inbounds nuw i8, ptr %168, i64 344
   %148 = zext i32 %146 to i64
-  %149 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %148
   store ptr %149, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd, i64 8), align 8, !tbaa !9
   %150 = sub i32 30218, %146
   store i32 %150, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd, i64 20), align 4, !tbaa !14
@@ -275,8 +275,8 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   %.5177 = phi i32 [ %166, %.preheader ], [ %65, %.preheader156 ]
   %.5151176 = phi ptr [ %168, %.preheader ], [ %66, %.preheader156 ]
   %153 = zext i32 %.5177 to i64
-  %154 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dca_init_vlcs.dca_table, i64 %153
-  %155 = getelementptr inbounds nuw %struct.VLC, ptr @ff_dca_vlc_tnl_grp, i64 %indvars.iv205
+  %154 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_init_vlcs.dca_table, i64 %153
+  %155 = getelementptr inbounds nuw [24 x i8], ptr @ff_dca_vlc_tnl_grp, i64 %indvars.iv205
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store ptr %154, ptr %156, align 8, !tbaa !9
   %157 = sub i32 30218, %.5177

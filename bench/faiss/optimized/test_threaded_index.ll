@@ -44,12 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.30" = type { %"struct.std::_Tuple_impl.31" }
 %"struct.std::_Tuple_impl.31" = type { %"struct.std::_Head_base.34" }
 %"struct.std::_Head_base.34" = type { ptr }
-%"class.std::unique_ptr.6" = type { %"struct.std::__uniq_ptr_data.7" }
-%"struct.std::__uniq_ptr_data.7" = type { %"class.std::__uniq_ptr_impl.8" }
-%"class.std::__uniq_ptr_impl.8" = type { %"class.std::tuple.9" }
-%"class.std::tuple.9" = type { %"struct.std::_Tuple_impl.10" }
-%"struct.std::_Tuple_impl.10" = type { %"struct.std::_Head_base.13" }
-%"struct.std::_Head_base.13" = type { ptr }
 %"class.faiss::IndexReplicasTemplate" = type { %"class.faiss::ThreadedIndex.base.95", [7 x i8] }
 %"class.faiss::ThreadedIndex.base.95" = type <{ %"struct.faiss::Index.base", i8, [3 x i8], %"class.std::vector.90", i8 }>
 %"class.std::vector.90" = type { %"struct.std::_Vector_base.91" }
@@ -534,7 +528,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %73, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit28.i.i
-  %74 = getelementptr inbounds nuw %"class.std::unique_ptr.6", ptr %69, i64 %67
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit
 
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, %55
@@ -1369,7 +1363,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %67, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit28.i.i
-  %68 = getelementptr inbounds nuw %"class.std::unique_ptr.6", ptr %63, i64 %61
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %61
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit
 
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, %49
@@ -2042,7 +2036,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %68
           to label %.noexc136 unwind label %.loopexit434
 
 .noexc136:                                        ; preds = %74
-  %77 = getelementptr inbounds nuw float, ptr %76, i64 %71
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %71
   store float 0.000000e+00, ptr %76, align 4, !tbaa !78
   %78 = add nsw i64 %71, -1
   %79 = icmp eq i64 %78, 0
@@ -2143,7 +2137,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %110, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit28.i.i
-  %111 = getelementptr inbounds nuw %"class.std::unique_ptr.6", ptr %106, i64 %104
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %104
   %.val120.pre = load ptr, ptr %.0.lcssa.i.i.i.i.i, align 8, !tbaa !26
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit
 
@@ -2203,7 +2197,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i139: ; preds = %_ZNSt6vecto
           to label %.noexc146 unwind label %.loopexit439
 
 .noexc146:                                        ; preds = %121
-  %124 = getelementptr inbounds nuw float, ptr %123, i64 %118
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %118
   store float 0.000000e+00, ptr %123, align 4, !tbaa !78
   %125 = add nsw i64 %118, -1
   %126 = icmp eq i64 %125, 0
@@ -2221,7 +2215,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i141: ; preds = %.noexc146
           to label %.noexc152 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit259.thread
 
 .noexc152:                                        ; preds = %128
-  %131 = getelementptr inbounds nuw i64, ptr %130, i64 %118
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %118
   store i64 0, ptr %130, align 8, !tbaa !85
   br i1 %126, label %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
@@ -2281,7 +2275,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit259.thread:          ; preds = %128
 .lr.ph:                                           ; preds = %.preheader433, %_ZN7testing15AssertionResultD2Ev.exit174
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit174 ], [ 0, %.preheader433 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %141 = getelementptr inbounds nuw %"class.std::unique_ptr.6", ptr %.sroa.0396.3, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0396.3, i64 %indvars.iv
   %.val121 = load ptr, ptr %141, align 8, !tbaa !26
   %142 = getelementptr inbounds nuw i8, ptr %.val121, i64 40
   %143 = load i64, ptr %142, align 8, !tbaa !85, !noalias !86
@@ -2801,7 +2795,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   %296 = udiv i64 %295, %137
   store i64 %296, ptr %26, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %297 = getelementptr inbounds nuw %"class.std::unique_ptr.6", ptr %.sroa.0396.3, i64 %indvars.iv1963
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0396.3, i64 %indvars.iv1963
   %.val124 = load ptr, ptr %297, align 8, !tbaa !26
   %298 = getelementptr inbounds nuw i8, ptr %.val124, i64 40
   %299 = load i64, ptr %298, align 8, !tbaa !85, !noalias !104
@@ -3428,7 +3422,7 @@ _ZN7testing15AssertionResultD2Ev.exit227:         ; preds = %479, %_ZNKSt14defau
   %490 = load i32, ptr %17, align 4, !tbaa !77
   %491 = sext i32 %490 to i64
   %492 = mul i64 %489, %491
-  %493 = getelementptr inbounds nuw float, ptr %.sroa.0381.0405, i64 %492
+  %493 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0381.0405, i64 %492
   store ptr %493, ptr %38, align 8, !tbaa !94
   %494 = load ptr, ptr %487, align 8, !tbaa !94, !noalias !128
   %495 = icmp eq ptr %494, %493
@@ -3645,7 +3639,7 @@ _ZN7testing15AssertionResultD2Ev.exit242:         ; preds = %546, %_ZNKSt14defau
   %557 = load i32, ptr %17, align 4, !tbaa !77
   %558 = sext i32 %557 to i64
   %559 = mul i64 %556, %558
-  %560 = getelementptr inbounds nuw i64, ptr %.sroa.0375.0, i64 %559
+  %560 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0375.0, i64 %559
   store ptr %560, ptr %42, align 8, !tbaa !136
   %561 = load ptr, ptr %554, align 8, !tbaa !136, !noalias !137
   %562 = icmp eq ptr %561, %560
@@ -4070,7 +4064,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %68
           to label %.noexc141 unwind label %.loopexit437
 
 .noexc141:                                        ; preds = %74
-  %77 = getelementptr inbounds nuw float, ptr %76, i64 %71
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %71
   store float 0.000000e+00, ptr %76, align 4, !tbaa !78
   %78 = add nsw i64 %71, -1
   %79 = icmp eq i64 %78, 0
@@ -4171,7 +4165,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %110, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit28.i.i
-  %111 = getelementptr inbounds nuw %"class.std::unique_ptr.6", ptr %106, i64 %104
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %104
   %.val121.pre = load ptr, ptr %.0.lcssa.i.i.i.i.i, align 8, !tbaa !26
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEERS5_DpOT_.exit
 
@@ -4231,7 +4225,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i144: ; preds = %_ZNSt6vecto
           to label %.noexc151 unwind label %.loopexit442
 
 .noexc151:                                        ; preds = %121
-  %124 = getelementptr inbounds nuw float, ptr %123, i64 %118
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %118
   store float 0.000000e+00, ptr %123, align 4, !tbaa !78
   %125 = add nsw i64 %118, -1
   %126 = icmp eq i64 %125, 0
@@ -4249,7 +4243,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i146: ; preds = %.noexc151
           to label %.noexc157 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit264.thread
 
 .noexc157:                                        ; preds = %128
-  %131 = getelementptr inbounds nuw i64, ptr %130, i64 %118
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %118
   store i64 0, ptr %130, align 8, !tbaa !85
   br i1 %126, label %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
@@ -4314,7 +4308,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit264.thread:          ; preds = %128
   %143 = udiv i64 %142, %137
   store i64 %143, ptr %19, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %144 = getelementptr inbounds nuw %"class.std::unique_ptr.6", ptr %.sroa.0399.3, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0399.3, i64 %indvars.iv
   %.val122 = load ptr, ptr %144, align 8, !tbaa !26
   %145 = getelementptr inbounds nuw i8, ptr %.val122, i64 40
   %146 = load i64, ptr %145, align 8, !tbaa !85, !noalias !152
@@ -4837,7 +4831,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_19MockIndexESt14default_deleteIS2_EESa
 .lr.ph1220:                                       ; preds = %.preheader, %_ZN7testing15AssertionResultD2Ev.exit262
   %indvars.iv1966 = phi i64 [ %indvars.iv.next1967, %_ZN7testing15AssertionResultD2Ev.exit262 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %299 = getelementptr inbounds nuw %"class.std::unique_ptr.6", ptr %.sroa.0399.3, i64 %indvars.iv1966
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0399.3, i64 %indvars.iv1966
   %.val125 = load ptr, ptr %299, align 8, !tbaa !26
   %300 = getelementptr inbounds nuw i8, ptr %.val125, i64 40
   %301 = load i64, ptr %300, align 8, !tbaa !85, !noalias !169
@@ -5466,7 +5460,7 @@ _ZN7testing15AssertionResultD2Ev.exit232:         ; preds = %480, %_ZNKSt14defau
   %494 = load i32, ptr %16, align 4, !tbaa !77
   %495 = mul nsw i32 %493, %494
   %496 = sext i32 %495 to i64
-  %497 = getelementptr inbounds float, ptr %490, i64 %496
+  %497 = getelementptr inbounds [4 x i8], ptr %490, i64 %496
   store ptr %497, ptr %38, align 8, !tbaa !94
   %498 = load ptr, ptr %488, align 8, !tbaa !94, !noalias !194
   %499 = icmp eq ptr %498, %497
@@ -5686,7 +5680,7 @@ _ZN7testing15AssertionResultD2Ev.exit247:         ; preds = %550, %_ZNKSt14defau
   %563 = load i32, ptr %16, align 4, !tbaa !77
   %564 = mul nsw i32 %562, %563
   %565 = sext i32 %564 to i64
-  %566 = getelementptr inbounds i64, ptr %560, i64 %565
+  %566 = getelementptr inbounds [8 x i8], ptr %560, i64 %565
   store ptr %566, ptr %42, align 8, !tbaa !136
   %567 = load ptr, ptr %558, align 8, !tbaa !136, !noalias !203
   %568 = icmp eq ptr %567, %566
@@ -6518,7 +6512,7 @@ _ZNSt6vectorISt4pairIPN12_GLOBAL__N_19MockIndexESt10unique_ptrIN5faiss12WorkerTh
 _ZNSt6vectorISt4pairIPN12_GLOBAL__N_19MockIndexESt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS6_EEESaISA_EE12emplace_backIJSA_EEERSA_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIPN12_GLOBAL__N_19MockIndexESt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS6_EEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit26.i.i, %132
   store ptr %122, ptr %8, align 8, !tbaa !237
   store ptr %131, ptr %9, align 8, !tbaa !231
-  %133 = getelementptr inbounds nuw %"struct.std::pair", ptr %122, i64 %120
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %120
   store ptr %133, ptr %105, align 8, !tbaa !236
   br label %_ZNSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EED2Ev.exit
 
@@ -6634,7 +6628,7 @@ define internal fastcc void @_ZN5faiss13ThreadedIndexIN12_GLOBAL__N_19MockIndexE
 38:                                               ; preds = %78, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
   %39 = phi ptr [ %.pre103, %.lr.ph.i ], [ %80, %78 ]
-  %40 = getelementptr inbounds nuw %"class.std::future", ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %40, ptr %5, align 8, !tbaa !248
   %41 = invoke noundef nonnull align 8 dereferenceable(18) ptr @_ZNKSt14__basic_futureIbE13_M_get_resultEv(ptr noundef nonnull align 8 dereferenceable(16) %40)
@@ -6843,7 +6837,7 @@ _ZSt8_DestroyIPSt4pairIiNSt15__exception_ptr13exception_ptrEES3_EvT_S5_RSaIT0_E.
 115:                                              ; preds = %.lr.ph95, %_ZZN5faiss13ThreadedIndexIN12_GLOBAL__N_19MockIndexEE10runOnIndexESt8functionIFviPS2_EEENUlvE_D2Ev.exit
   %indvars.iv99 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next100, %_ZZN5faiss13ThreadedIndexIN12_GLOBAL__N_19MockIndexEE10runOnIndexESt8functionIFviPS2_EEENUlvE_D2Ev.exit ]
   %.val93 = phi ptr [ %.val90, %.lr.ph95 ], [ %.val, %_ZZN5faiss13ThreadedIndexIN12_GLOBAL__N_19MockIndexEE10runOnIndexESt8functionIFviPS2_EEENUlvE_D2Ev.exit ]
-  %116 = getelementptr inbounds nuw %"struct.std::pair", ptr %.val93, i64 %indvars.iv99
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %.val93, i64 %indvars.iv99
   %117 = load ptr, ptr %116, align 8, !tbaa !222
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -7201,7 +7195,7 @@ _ZNSt6vectorISt6futureIbESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPSt6f
 246:                                              ; preds = %.lr.ph, %265
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %265 ]
   %.val3289 = phi ptr [ %.val3286, %.lr.ph ], [ %.val32, %265 ]
-  %247 = getelementptr inbounds nuw %"struct.std::pair", ptr %.val3289, i64 %indvars.iv
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %.val3289, i64 %indvars.iv
   %248 = load ptr, ptr %247, align 8, !tbaa !222
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -8515,7 +8509,7 @@ _ZNSt6vectorISt6futureIbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = 
 _ZNSt12_Vector_baseISt6futureIbESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt6futureIbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !247
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !244
-  %44 = getelementptr inbounds nuw %"class.std::future", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !280
   ret void
 }
@@ -8927,7 +8921,7 @@ _ZNSt6vectorISt4pairIiNSt15__exception_ptr13exception_ptrEESaIS3_EE11_S_relocate
 _ZNSt12_Vector_baseISt4pairIiNSt15__exception_ptr13exception_ptrEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt4pairIiNSt15__exception_ptr13exception_ptrEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !267
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !270
-  %44 = getelementptr inbounds nuw %"struct.std::pair.65", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !272
   ret void
 }
@@ -9577,7 +9571,7 @@ _ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14defaul
 _ZNSt12_Vector_baseISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !356
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !351
-  %44 = getelementptr inbounds nuw %"struct.std::pair.106", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !355
   ret void
 }
@@ -10409,7 +10403,7 @@ define linkonce_odr dso_local void @_ZN5faiss13ThreadedIndexINS_5IndexEE10runOnI
 31:                                               ; preds = %.lr.ph74, %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit
   %indvars.iv78 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next79, %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit ]
   %32 = phi ptr [ %19, %.lr.ph74 ], [ %104, %_ZZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8functionIFviPS1_EEENUlvE_D2Ev.exit ]
-  %33 = getelementptr inbounds nuw %"struct.std::pair.106", ptr %32, i64 %indvars.iv78
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv78
   %34 = load ptr, ptr %33, align 8, !tbaa !343
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -10772,7 +10766,7 @@ _ZNSt6vectorISt6futureIbESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPSt6f
 173:                                              ; preds = %.lr.ph, %193
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %193 ]
   %174 = phi ptr [ %169, %.lr.ph ], [ %195, %193 ]
-  %175 = getelementptr inbounds nuw %"struct.std::pair.106", ptr %174, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %indvars.iv
   %176 = load ptr, ptr %175, align 8, !tbaa !343
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -10978,7 +10972,7 @@ define linkonce_odr dso_local void @_ZN5faiss13ThreadedIndexINS_5IndexEE20waitAn
 10:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %11 = phi ptr [ %8, %.lr.ph ], [ %52, %50 ]
-  %12 = getelementptr inbounds nuw %"class.std::future", ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %12, ptr %2, align 8, !tbaa !248
   %13 = invoke noundef nonnull align 8 dereferenceable(18) ptr @_ZNKSt14__basic_futureIbE13_M_get_resultEv(ptr noundef nonnull align 8 dereferenceable(16) %12)

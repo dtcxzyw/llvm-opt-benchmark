@@ -191,7 +191,7 @@ define dso_local range(i32 0, 2) i32 @authfile_check(ptr noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %2, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw %struct.auth_entry, ptr @main_auth_entries, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [32 x i8], ptr @main_auth_entries, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !16
   %9 = icmp eq i64 %3, %8

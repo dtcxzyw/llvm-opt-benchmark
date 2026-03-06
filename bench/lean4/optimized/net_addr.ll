@@ -54,7 +54,7 @@ define hidden void @_ZN4lean25lean_ipv4_addr_to_in_addrEP11lean_objectP7in_addr(
 6:                                                ; preds = %2, %_ZN4lean10array_ugetEP11lean_objectm.exit
   %7 = phi i32 [ 0, %2 ], [ %25, %_ZN4lean10array_ugetEP11lean_objectm.exit ]
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZN4lean10array_ugetEP11lean_objectm.exit ]
-  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -105,7 +105,7 @@ define hidden void @_ZN4lean26lean_ipv6_addr_to_in6_addrEP11lean_objectP8in6_add
 
 5:                                                ; preds = %2, %_ZN4lean10array_ugetEP11lean_objectm.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZN4lean10array_ugetEP11lean_objectm.exit ]
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i1
@@ -158,7 +158,7 @@ define hidden void @_ZN4lean31lean_ip_addr_to_in_addr_storageEP11lean_objectPiPN
 9:                                                ; preds = %_ZN4lean10array_ugetEP11lean_objectm.exit.i, %7
   %10 = phi i32 [ 0, %7 ], [ %28, %_ZN4lean10array_ugetEP11lean_objectm.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %_ZN4lean10array_ugetEP11lean_objectm.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !8
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i1
@@ -209,7 +209,7 @@ _ZN4lean25lean_ipv4_addr_to_in_addrEP11lean_objectP7in_addr.exit: ; preds = %_ZN
 
 32:                                               ; preds = %_ZN4lean10array_ugetEP11lean_objectm.exit.i12, %30
   %indvars.iv.i9 = phi i64 [ 0, %30 ], [ %indvars.iv.next.i13, %_ZN4lean10array_ugetEP11lean_objectm.exit.i12 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i9
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i9
   %34 = load ptr, ptr %33, align 8, !tbaa !8
   %35 = ptrtoint ptr %34 to i64
   %36 = trunc i64 %35 to i1
@@ -265,7 +265,7 @@ define hidden void @_ZN4lean17lean_ip_addr_ntopEP11lean_objectPcm(ptr noundef re
 .preheader:                                       ; preds = %3, %_ZN4lean10array_ugetEP11lean_objectm.exit.i.i
   %9 = phi i32 [ %26, %_ZN4lean10array_ugetEP11lean_objectm.exit.i.i ], [ 0, %3 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4lean10array_ugetEP11lean_objectm.exit.i.i ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !8
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i1
@@ -309,7 +309,7 @@ _ZN4lean25lean_ipv4_addr_to_in_addrEP11lean_objectP7in_addr.exit.i: ; preds = %_
 
 .preheader6:                                      ; preds = %3, %_ZN4lean10array_ugetEP11lean_objectm.exit.i12.i
   %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i13.i, %_ZN4lean10array_ugetEP11lean_objectm.exit.i12.i ], [ 0, %3 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i9.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i9.i
   %29 = load ptr, ptr %28, align 8, !tbaa !8
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -404,7 +404,7 @@ define hidden void @_ZN4lean39lean_socket_address_to_sockaddr_storageEP11lean_ob
 11:                                               ; preds = %_ZN4lean10array_ugetEP11lean_objectm.exit.i, %9
   %12 = phi i32 [ 0, %9 ], [ %30, %_ZN4lean10array_ugetEP11lean_objectm.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %_ZN4lean10array_ugetEP11lean_objectm.exit.i ]
-  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !8
   %15 = ptrtoint ptr %14 to i64
   %16 = trunc i64 %15 to i1
@@ -455,7 +455,7 @@ _ZN4lean25lean_ipv4_addr_to_in_addrEP11lean_objectP7in_addr.exit: ; preds = %_ZN
 
 34:                                               ; preds = %_ZN4lean10array_ugetEP11lean_objectm.exit.i22, %32
   %indvars.iv.i19 = phi i64 [ 0, %32 ], [ %indvars.iv.next.i23, %_ZN4lean10array_ugetEP11lean_objectm.exit.i22 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i19
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i19
   %36 = load ptr, ptr %35, align 8, !tbaa !8
   %37 = ptrtoint ptr %36 to i64
   %38 = trunc i64 %37 to i1
@@ -958,7 +958,7 @@ define ptr @lean_uv_ntop_v4(ptr noundef readonly captures(none) %0) local_unname
 5:                                                ; preds = %_ZN4lean10array_ugetEP11lean_objectm.exit.i, %1
   %6 = phi i32 [ 0, %1 ], [ %23, %_ZN4lean10array_ugetEP11lean_objectm.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %_ZN4lean10array_ugetEP11lean_objectm.exit.i ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !8
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -1096,7 +1096,7 @@ define ptr @lean_uv_ntop_v6(ptr noundef readonly captures(none) %0) local_unname
 
 5:                                                ; preds = %_ZN4lean10array_ugetEP11lean_objectm.exit.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %_ZN4lean10array_ugetEP11lean_objectm.exit.i ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i1
@@ -1230,7 +1230,7 @@ define noalias noundef nonnull ptr @lean_uv_interface_addresses(ptr noundef read
   %.02025 = phi ptr [ %17, %.lr.ph ], [ %.1, %75 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %2, align 8, !tbaa !39
-  %40 = getelementptr inbounds nuw %struct.uv_interface_address_s, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [80 x i8], ptr %39, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %40, i64 80, i1 false), !tbaa.struct !41
   %41 = load i16, ptr %26, align 4, !tbaa !23
   switch i16 %41, label %75 [

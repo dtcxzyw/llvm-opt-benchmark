@@ -314,7 +314,7 @@ _ZN3gmx19MrcDensityMapHeaderD2Ev.exit:            ; preds = %44, %_ZN3gmx19MrcDe
   br i1 %77, label %78, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw float, ptr %68, i64 %64
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %64
   %.not.i.i = icmp eq ptr %67, %79
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %80
 
@@ -753,9 +753,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !41
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !38
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !43
   br label %41
 

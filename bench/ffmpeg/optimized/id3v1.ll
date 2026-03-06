@@ -510,7 +510,7 @@ get_string.exit73.i:                              ; preds = %106, %104
 123:                                              ; preds = %119
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %125 = zext i8 %121 to i64
-  %126 = getelementptr inbounds nuw ptr, ptr @ff_id3v1_genre_str, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr @ff_id3v1_genre_str, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !29
   %128 = call i32 @av_dict_set(ptr noundef nonnull %124, ptr noundef nonnull @.str.198, ptr noundef %127, i32 noundef 0) #3
   br label %parse_tag.exit

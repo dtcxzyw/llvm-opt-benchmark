@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.slurm_submit_ops = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [11 x i8] c"job_submit\00", align 1
@@ -105,15 +104,15 @@ define dso_local range(i32 -1, 1) i32 @job_submit_g_init(i1 noundef zeroext %0) 
   %36 = load ptr, ptr @ops, align 8
   %37 = load i32, ptr @g_context_cnt, align 4
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.slurm_submit_ops, ptr %36, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %36, i64 %38
   %40 = call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %35, ptr noundef %39, ptr noundef nonnull @syms, i64 noundef 16) #9
   %41 = load ptr, ptr @g_context, align 8
   %42 = load i32, ptr @g_context_cnt, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %41, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %41, i64 %43
   store ptr %40, ptr %44, align 8
   %45 = load ptr, ptr @g_context, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %43
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %43
   %47 = load ptr, ptr %46, align 8
   %.not16 = icmp eq ptr %47, null
   br i1 %.not16, label %52, label %48
@@ -149,7 +148,7 @@ define dso_local range(i32 -1, 1) i32 @job_submit_g_init(i1 noundef zeroext %0) 
   %57 = phi i32 [ %55, %.lr.ph.preheader.i ], [ %64, %63 ]
   %58 = phi ptr [ %.pre24.i, %.lr.ph.preheader.i ], [ %65, %63 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %63 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %.not18.i = icmp eq ptr %60, null
   br i1 %.not18.i, label %63, label %61
@@ -255,7 +254,7 @@ define dso_local i32 @job_submit_g_fini(i1 noundef zeroext %0) local_unnamed_add
   %10 = phi ptr [ %.pre24, %.lr.ph.preheader ], [ %17, %15 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
   %.121 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %15 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not18 = icmp eq ptr %12, null
   br i1 %.not18, label %15, label %13
@@ -340,7 +339,7 @@ define dso_local i32 @job_submit_g_submit(ptr noundef initializes((628, 632)) %0
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.slurm_submit_ops, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -416,7 +415,7 @@ define dso_local i32 @job_submit_g_modify(ptr noundef initializes((628, 632)) %0
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds nuw %struct.slurm_submit_ops, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #9

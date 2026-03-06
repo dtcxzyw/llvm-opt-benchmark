@@ -197,7 +197,7 @@ define dso_local i32 @ext4_ext_migrate(ptr noundef %0) local_unnamed_addr #0 ali
   %132 = phi i64 [ 0, %120 ], [ %154, %151 ]
   %133 = phi i64 [ 0, %120 ], [ %155, %151 ]
   %134 = phi i64 [ 0, %120 ], [ %156, %151 ]
-  %135 = getelementptr i32, ptr %98, i64 %134
+  %135 = getelementptr [4 x i8], ptr %98, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %.sink.split, label %138
@@ -406,7 +406,7 @@ define internal fastcc i32 @update_ind_extent_range(ptr noundef %0, ptr noundef 
 24:                                               ; preds = %52, %19
   %25 = phi i64 [ 0, %19 ], [ %54, %52 ]
   %26 = phi i32 [ 0, %19 ], [ %53, %52 ]
-  %27 = getelementptr i32, ptr %17, i64 %25
+  %27 = getelementptr [4 x i8], ptr %17, i64 %25
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %49, label %30
@@ -505,7 +505,7 @@ define internal fastcc i32 @update_dind_extent_range(ptr noundef %0, ptr noundef
 22:                                               ; preds = %35, %19
   %23 = phi i64 [ 0, %19 ], [ %37, %35 ]
   %24 = phi i32 [ 0, %19 ], [ %36, %35 ]
-  %25 = getelementptr i32, ptr %17, i64 %23
+  %25 = getelementptr [4 x i8], ptr %17, i64 %23
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %32, label %28
@@ -570,7 +570,7 @@ define internal fastcc i32 @update_tind_extent_range(ptr noundef %0, ptr noundef
 23:                                               ; preds = %71, %19
   %24 = phi i64 [ 0, %19 ], [ %73, %71 ]
   %25 = phi i32 [ 0, %19 ], [ %72, %71 ]
-  %26 = getelementptr i32, ptr %17, i64 %24
+  %26 = getelementptr [4 x i8], ptr %17, i64 %24
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %68, label %29
@@ -603,7 +603,7 @@ define internal fastcc i32 @update_tind_extent_range(ptr noundef %0, ptr noundef
 46:                                               ; preds = %59, %44
   %47 = phi i64 [ 0, %44 ], [ %61, %59 ]
   %48 = phi i32 [ 0, %44 ], [ %60, %59 ]
-  %49 = getelementptr i32, ptr %42, i64 %47
+  %49 = getelementptr [4 x i8], ptr %42, i64 %47
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %56, label %52
@@ -894,7 +894,7 @@ define internal fastcc i32 @ext4_ext_swap_inode_data(ptr noundef %0, ptr noundef
 .preheader:                                       ; preds = %72, %86
   %76 = phi i64 [ %88, %86 ], [ 0, %72 ]
   %77 = phi i32 [ %87, %86 ], [ 0, %72 ]
-  %78 = getelementptr i32, ptr %74, i64 %76
+  %78 = getelementptr [4 x i8], ptr %74, i64 %76
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %86, label %81
@@ -1132,7 +1132,7 @@ define dso_local i32 @ext4_ind_migrate(ptr noundef %0) local_unnamed_addr #0 ali
   %93 = phi i64 [ %90, %89 ], [ %97, %92 ]
   %94 = phi i32 [ %86, %89 ], [ %95, %92 ]
   %95 = add i32 %94, 1
-  %96 = getelementptr i32, ptr %8, i64 %93
+  %96 = getelementptr [4 x i8], ptr %8, i64 %93
   store i32 %94, ptr %96, align 4
   %97 = add nuw nsw i64 %93, 1
   %98 = trunc i64 %97 to i32
@@ -1343,7 +1343,7 @@ define internal fastcc i32 @free_dind_blocks(ptr noundef %0, ptr noundef %1, i32
 .split.us:                                        ; preds = %19, %36
   %22 = phi i64 [ %38, %36 ], [ 0, %19 ]
   %23 = phi i32 [ %37, %36 ], [ 0, %19 ]
-  %24 = getelementptr i32, ptr %17, i64 %22
+  %24 = getelementptr [4 x i8], ptr %17, i64 %22
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %36, label %27
@@ -1371,7 +1371,7 @@ define internal fastcc i32 @free_dind_blocks(ptr noundef %0, ptr noundef %1, i32
 .split:                                           ; preds = %19, %61
   %40 = phi i64 [ %63, %61 ], [ 0, %19 ]
   %41 = phi i32 [ %62, %61 ], [ 0, %19 ]
-  %42 = getelementptr i32, ptr %17, i64 %40
+  %42 = getelementptr [4 x i8], ptr %17, i64 %40
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %61, label %45

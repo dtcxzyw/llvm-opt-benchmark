@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ht_key_header_st = type { i64, ptr }
 %struct.fuzzer_key_st = type { %struct.ht_key_header_st, %struct.anon }
 %struct.anon = type { i16 }
-%struct.fuzzer_value_st = type { i64, i64 }
 
 @__const.FuzzerInitialize.fuzz_conf = private unnamed_addr constant %struct.ht_config_st { ptr null, ptr @fuzz_free_cb, ptr null, i64 0, i32 1, i32 0 }, align 8
 @.str = private unnamed_addr constant [28 x i8] c"../openssl/fuzz/hashtable.c\00", align 1
@@ -142,7 +141,7 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef readonly c
 20:                                               ; preds = %12
   %21 = load ptr, ptr @prediction_table, align 8, !tbaa !4
   %22 = zext i16 %15 to i64
-  %23 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %22
   store i16 %15, ptr %17, align 8, !tbaa !27
   %24 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
   call void @ossl_ht_write_lock(ptr noundef %24) #8
@@ -216,7 +215,7 @@ ossl_ht_fz_FUZZER_VALUE_insert.exit50:            ; preds = %20
 49:                                               ; preds = %12
   %50 = load ptr, ptr @prediction_table, align 8, !tbaa !4
   %51 = zext i16 %15 to i64
-  %52 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %51
   store i16 %15, ptr %17, align 8, !tbaa !27
   %53 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
   call void @ossl_ht_write_lock(ptr noundef %53) #8
@@ -255,7 +254,7 @@ ossl_ht_fz_FUZZER_VALUE_insert.exit50:            ; preds = %20
 68:                                               ; preds = %12
   %69 = load ptr, ptr @prediction_table, align 8, !tbaa !4
   %70 = zext i16 %15 to i64
-  %71 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %70
   store i16 %15, ptr %17, align 8, !tbaa !27
   %72 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
   call void @ossl_ht_read_lock(ptr noundef %72) #8
@@ -345,7 +344,7 @@ ossl_ht_fz_FUZZER_VALUE_get.exit:                 ; preds = %68, %78, %81
 
 110:                                              ; preds = %102, %108
   %.03758 = phi i64 [ 0, %102 ], [ %109, %108 ]
-  %111 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %107, i64 %.03758
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %.03758
   %112 = load i64, ptr %111, align 8, !tbaa !18
   %113 = and i64 %112, 1
   %114 = icmp eq i64 %113, 0
@@ -363,7 +362,7 @@ ossl_ht_fz_FUZZER_VALUE_get.exit:                 ; preds = %68, %78, %81
   store i1 false, ptr @valfound, align 4
   %119 = load ptr, ptr @prediction_table, align 8, !tbaa !4
   %120 = zext i16 %15 to i64
-  %121 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %119, i64 %120
   %122 = load i64, ptr %121, align 8, !tbaa !18
   %123 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
   call void @ossl_ht_foreach_until(ptr noundef %123, ptr noundef nonnull @table_iterator, ptr noundef nonnull %7) #8
@@ -383,7 +382,7 @@ ossl_ht_fz_FUZZER_VALUE_get.exit:                 ; preds = %68, %78, %81
 129:                                              ; preds = %12
   %130 = load ptr, ptr @prediction_table, align 8, !tbaa !4
   %131 = zext i16 %15 to i64
-  %132 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %130, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !18
   %spec.store.select2 = and i64 %133, 1
   %134 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
@@ -456,7 +455,7 @@ ossl_ht_fz_FUZZER_VALUE_from_value.exit:          ; preds = %5
 9:                                                ; preds = %ossl_ht_fz_FUZZER_VALUE_from_value.exit
   %10 = load ptr, ptr @prediction_table, align 8, !tbaa !4
   %11 = zext i16 %3 to i64
-  %12 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = icmp eq ptr %8, %12
   br i1 %13, label %14, label %ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread
 
@@ -491,7 +490,7 @@ ossl_ht_fz_FUZZER_VALUE_from_value.exit:          ; preds = %5
 9:                                                ; preds = %ossl_ht_fz_FUZZER_VALUE_from_value.exit
   %10 = load ptr, ptr @prediction_table, align 8, !tbaa !4
   %11 = zext i16 %3 to i64
-  %12 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = icmp eq ptr %8, %12
   br i1 %13, label %14, label %ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread
 

@@ -597,7 +597,7 @@ _ZNSolsEPFRSoS_E.exit44:                          ; preds = %.noexc72
   %143 = load i64, ptr %38, align 8
   %144 = lshr i64 %143, 32
   %145 = and i64 %144, 67108863
-  %146 = getelementptr inbounds nuw ptr, ptr %97, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %145
   %.not21 = icmp eq ptr %142, %146
   br i1 %.not21, label %._crit_edge, label %120, !llvm.loop !58
 
@@ -690,13 +690,13 @@ declare void @_ZN4cvc58internal4kind8metakind25nodeValueConstantToStreamERSoPKNS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden ptr @_ZN4cvc58internal4exprplElNS1_9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEE(i64 noundef %0, ptr readnone captures(ret: address, provenance) %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds ptr, ptr %1, i64 %0
+  %3 = getelementptr inbounds [8 x i8], ptr %1, i64 %0
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden ptr @_ZN4cvc58internal4exprplElNS1_9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEE(i64 noundef %0, ptr readnone captures(ret: address, provenance) %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds ptr, ptr %1, i64 %0
+  %3 = getelementptr inbounds [8 x i8], ptr %1, i64 %0
   ret ptr %3
 }
 
@@ -831,7 +831,7 @@ _ZNSt6vectorIPN4cvc58internal4expr9NodeValueESaIS4_EE11_S_relocateEPS4_S7_S7_RS5
 _ZNSt6vectorIPN4cvc58internal4expr9NodeValueESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIPN4cvc58internal4expr9NodeValueESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %24, ptr %4, align 8, !tbaa !66
   store ptr %28, ptr %5, align 8, !tbaa !62
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr %7, align 8, !tbaa !65
   br label %_ZN4cvc58internal11NodeManager20markRefCountMaxedOutEPNS0_4expr9NodeValueE.exit
 
@@ -921,7 +921,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPN4cvc58internal4expr9
   %11 = load i64, ptr %10, align 8, !tbaa !76
   %12 = urem i64 %9, %11
   %13 = load ptr, ptr %0, align 8, !tbaa !77
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !78
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %.critedge, label %34
@@ -1070,7 +1070,7 @@ _ZNSt10_HashtableIPN4cvc58internal4expr9NodeValueES4_SaIS4_ENSt8__detail9_Identi
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %2, ptr %32, align 8, !tbaa !81
   %33 = load ptr, ptr %0, align 8, !tbaa !77
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !78
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -1096,7 +1096,7 @@ _ZNSt10_HashtableIPN4cvc58internal4expr9NodeValueES4_SaIS4_ENSt8__detail9_Identi
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !81
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !78
   br label %49
 
@@ -1164,7 +1164,7 @@ _ZNSt10_HashtableIPN4cvc58internal4expr9NodeValueES4_SaIS4_ENSt8__detail9_Identi
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !81
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !78
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -1179,7 +1179,7 @@ _ZNSt10_HashtableIPN4cvc58internal4expr9NodeValueES4_SaIS4_ENSt8__detail9_Identi
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !78
   br label %28
 

@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.rcHeightfieldLayer = type { [3 x float], [3 x float], float, float, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.rcContour = type { ptr, i32, ptr, i32, i16, i8 }
-%struct.rcCompactCell = type { i32 }
-%struct.rcCompactSpan = type { i16, i16, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -303,7 +299,7 @@ define void @_ZN21rcHeightfieldLayerSetD2Ev(ptr noundef nonnull readonly align 8
 .lr.ph:                                           ; preds = %1, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw %struct.rcHeightfieldLayer, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [88 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   invoke void @_Z6rcFreePv(ptr noundef %8)
@@ -311,7 +307,7 @@ define void @_ZN21rcHeightfieldLayerSetD2Ev(ptr noundef nonnull readonly align 8
 
 9:                                                ; preds = %.lr.ph
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds nuw %struct.rcHeightfieldLayer, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   invoke void @_Z6rcFreePv(ptr noundef %13)
@@ -319,7 +315,7 @@ define void @_ZN21rcHeightfieldLayerSetD2Ev(ptr noundef nonnull readonly align 8
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds nuw %struct.rcHeightfieldLayer, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8
   invoke void @_Z6rcFreePv(ptr noundef %18)
@@ -394,14 +390,14 @@ define void @_ZN12rcContourSetD2Ev(ptr noundef nonnull readonly align 8 captures
 .lr.ph:                                           ; preds = %1, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw %struct.rcContour, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   invoke void @_Z6rcFreePv(ptr noundef %7)
           to label %8 unwind label %.loopexit
 
 8:                                                ; preds = %.lr.ph
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw %struct.rcContour, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   invoke void @_Z6rcFreePv(ptr noundef %12)
@@ -709,17 +705,17 @@ define void @_Z23rcMarkWalkableTrianglesP9rcContextfPKfiPKiiPh(ptr noundef readn
   %13 = load i32, ptr %12, align 4
   %14 = mul nsw i32 %13, 3
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds float, ptr %2, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %2, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = mul nsw i32 %18, 3
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds float, ptr %2, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %2, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = mul nsw i32 %23, 3
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds float, ptr %2, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %2, i64 %25
   %27 = load float, ptr %21, align 4
   %28 = load float, ptr %16, align 4
   %29 = fsub float %27, %28
@@ -797,17 +793,17 @@ define void @_Z26rcClearUnwalkableTrianglesP9rcContextfPKfiPKiiPh(ptr noundef re
   %13 = load i32, ptr %12, align 4
   %14 = mul nsw i32 %13, 3
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds float, ptr %2, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %2, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = mul nsw i32 %18, 3
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds float, ptr %2, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %2, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = mul nsw i32 %23, 3
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds float, ptr %2, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %2, i64 %25
   %27 = load float, ptr %21, align 4
   %28 = load float, ptr %16, align 4
   %29 = fsub float %27, %28
@@ -881,7 +877,7 @@ define noundef i32 @_Z25rcGetHeightFieldSpanCountP9rcContextRK13rcHeightfield(pt
 10:                                               ; preds = %.lr.ph21, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next, %._crit_edge ]
   %.01218 = phi i32 [ 0, %.lr.ph21 ], [ %.1.lcssa, %._crit_edge ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %.014 = load ptr, ptr %11, align 8
   %.not15 = icmp eq ptr %.014, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph
@@ -951,7 +947,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %14
 25:                                               ; preds = %._crit_edge.i, %.lr.ph21.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph21.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %.01218.i = phi i32 [ 0, %.lr.ph21.i ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %.014.i = load ptr, ptr %26, align 8
   %.not15.i = icmp eq ptr %.014.i, null
   br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1121,8 +1117,8 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %indvars.iv241 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next242, %._crit_edge.us ]
   %.1166218.us = phi i32 [ %.0165223.us, %.preheader.us ], [ %.2167.lcssa.us, %._crit_edge.us ]
   %100 = load ptr, ptr %68, align 8
-  %101 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %100, i64 %indvars.iv241
-  %102 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %101, i64 %97
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv241
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %97
   %103 = load i32, ptr %102, align 4
   %104 = lshr i32 %103, 24
   %.not226 = icmp eq i32 %104, 0
@@ -1147,7 +1143,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %indvars.iv238 = phi i64 [ %108, %.lr.ph215.us.preheader ], [ %indvars.iv.next239, %114 ]
   %.2167214.us = phi i32 [ %.1166218.us, %.lr.ph215.us.preheader ], [ %.4.us, %114 ]
   %111 = load ptr, ptr %85, align 8
-  %112 = getelementptr inbounds nuw %struct.rcCompactSpan, ptr %111, i64 %indvars.iv238
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv238
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %.pre = load i32, ptr %113, align 4
   br label %116
@@ -1169,10 +1165,10 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %123 = and i32 %120, 16777215
   %124 = or i32 %117, %123
   store i32 %124, ptr %113, align 4
-  %125 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 %indvars.iv234
+  %125 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 %indvars.iv234
   %126 = load i32, ptr %125, align 4
   %127 = add nsw i32 %126, %110
-  %128 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 %indvars.iv234
+  %128 = getelementptr inbounds nuw [4 x i8], ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 %indvars.iv234
   %129 = load i32, ptr %128, align 4
   %130 = add nsw i32 %129, %98
   %131 = icmp ult i32 %127, %18
@@ -1185,7 +1181,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %135 = mul nsw i32 %130, %18
   %136 = add nuw nsw i32 %135, %127
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %134, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %137
   %139 = load i32, ptr %138, align 4
   %140 = lshr i32 %139, 24
   %.not227 = icmp eq i32 %140, 0
@@ -1194,7 +1190,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 141:                                              ; preds = %.lr.ph210.us, %168
   %indvars.iv231 = phi i64 [ %178, %.lr.ph210.us ], [ %indvars.iv.next232, %168 ]
   %.5208.us = phi i32 [ %.3168212.us, %.lr.ph210.us ], [ %.6.us, %168 ]
-  %142 = getelementptr inbounds nuw %struct.rcCompactSpan, ptr %172, i64 %indvars.iv231
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv231
   %143 = load i16, ptr %142, align 4
   %144 = tail call noundef i16 @llvm.umax.i16(i16 %173, i16 %143)
   %145 = zext i16 %144 to i32
@@ -1269,14 +1265,14 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit202 ]
   %.0161207 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit202 ]
   %182 = load ptr, ptr %93, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv
   %184 = load ptr, ptr %183, align 8
   %185 = icmp eq ptr %184, null
   br i1 %185, label %.loopexit202, label %186
 
 186:                                              ; preds = %181
   %187 = load ptr, ptr %68, align 8
-  %188 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %187, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %indvars.iv
   %189 = and i32 %.0161207, 16777215
   store i32 %189, ptr %188, align 4
   br label %190
@@ -1306,13 +1302,13 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %202 = trunc nuw nsw i32 %194 to i16
   %203 = load ptr, ptr %85, align 8
   %204 = sext i32 %.2205 to i64
-  %205 = getelementptr inbounds %struct.rcCompactSpan, ptr %203, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %203, i64 %204
   store i16 %202, ptr %205, align 4
   %206 = sub nsw i32 %201, %194
   %207 = tail call i32 @llvm.smax.i32(i32 %206, i32 0)
   %208 = tail call i32 @llvm.umin.i32(i32 %207, i32 255)
   %209 = load ptr, ptr %85, align 8
-  %210 = getelementptr inbounds %struct.rcCompactSpan, ptr %209, i64 %204
+  %210 = getelementptr inbounds [8 x i8], ptr %209, i64 %204
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 4
   %212 = load i32, ptr %211, align 4
   %213 = shl nuw i32 %208, 24

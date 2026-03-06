@@ -64,7 +64,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.171" = type { %"struct.std::_Vector_base<irr::SJoystickInfo, std::allocator<irr::SJoystickInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<irr::SJoystickInfo, std::allocator<irr::SJoystickInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::SJoystickInfo, std::allocator<irr::SJoystickInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<irr::SJoystickInfo, std::allocator<irr::SJoystickInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.irr::SJoystickInfo" = type <{ i8, [7 x i8], %"class.irr::core::string", i32, i32, i32, [4 x i8] }>
 %"class.irr::core::string" = type { %"class.std::__cxx11::basic_string" }
 %"class.std::basic_ifstream" = type { %"class.std::basic_istream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -90,7 +89,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl" }
 %"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.WorldSpec = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.irr::video::SExposedVideoData" = type { %union.anon.181 }
 %union.anon.181 = type { %"struct.irr::video::SExposedVideoData::SOpenGLLinux" }
 %"struct.irr::video::SExposedVideoData::SOpenGLLinux" = type { ptr, ptr, i64, i64 }
@@ -3372,7 +3370,7 @@ _ZNSt12_Vector_baseIN3irr13SJoystickInfoESaIS1_EE13_M_deallocateEPS1_m.exit.i: ;
   store ptr %call9.i70, ptr %joystick_infos, align 8, !tbaa !182
   %add.ptr.i = getelementptr inbounds i8, ptr %call9.i70, i64 %sub.ptr.sub.i36.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i67, align 8, !tbaa !181
-  %add.ptr26.i = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %call9.i70, i64 %conv
+  %add.ptr26.i = getelementptr inbounds nuw [56 x i8], ptr %call9.i70, i64 %conv
   store ptr %add.ptr26.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !183
   %.pre = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !181
   %.pre169 = load ptr, ptr %infos, align 8, !tbaa !182
@@ -3433,7 +3431,7 @@ lpad28:                                           ; preds = %if.else.i
 for.body:                                         ; preds = %for.inc, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %39 = phi ptr [ %32, %for.body.lr.ph ], [ %49, %for.inc ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %39, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [56 x i8], ptr %39, i64 %indvars.iv
   %40 = load ptr, ptr %_M_finish.i, align 8, !tbaa !25
   %41 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !183
   %cmp.not.i = icmp eq ptr %40, %41
@@ -5223,7 +5221,7 @@ land.lhs.true:                                    ; preds = %invoke.cont142
 
 if.then147:                                       ; preds = %land.lhs.true
   %conv148 = zext nneg i32 %132 to i64
-  %add.ptr.i709 = getelementptr inbounds nuw %struct.WorldSpec, ptr %134, i64 %conv148
+  %add.ptr.i709 = getelementptr inbounds nuw [96 x i8], ptr %134, i64 %conv148
   %world_spec150 = getelementptr inbounds nuw i8, ptr %start_data, i64 432
   %call153 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN9WorldSpecaSERKS_(ptr noundef nonnull align 8 dereferenceable(96) %world_spec150, ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i709)
           to label %if.end154 unwind label %lpad151
@@ -8859,7 +8857,7 @@ if.then.i:                                        ; preds = %if.end9
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load i64, ptr %add.ptr.i.i.i, align 8, !tbaa !280
   %rem.i.i.i.i = urem i64 %13, %10
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %rem.i.i.i.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %9, i64 %rem.i.i.i.i
   store ptr %_M_before_begin.i, ptr %arrayidx.i, align 8, !tbaa !25
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_update_bbeginEv.exit
 
@@ -9175,7 +9173,7 @@ _ZNSt12_Vector_baseIN3irr13SJoystickInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; p
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !182
   store ptr %call.i.i.i.i54, ptr %_M_finish.i.i, align 8, !tbaa !181
-  %add.ptr29 = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr29 = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8, !tbaa !183
   ret void
 

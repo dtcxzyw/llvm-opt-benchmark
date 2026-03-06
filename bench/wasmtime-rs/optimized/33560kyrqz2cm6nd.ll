@@ -41,9 +41,9 @@ define zeroext i1 @"_ZN4core3cmp5impls86_$LT$impl$u20$core..cmp..PartialOrd$LT$$
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc76310b769592b34E"(ptr align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = lshr i64 %1, 1
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [16 x i8], ptr %0, i64 %1
   %5 = sub nsw i64 0, %3
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h88fed72019ea2952E"(ptr align 8 %0, i64 %3, ptr align 8 %6, i64 %3, i64 %3)
   ret void
 }
@@ -51,9 +51,9 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc76310b769
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17heb56d0f4de77d858E"(ptr align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = lshr i64 %1, 1
-  %4 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [24 x i8], ptr %0, i64 %1
   %5 = sub nsw i64 0, %3
-  %6 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %4, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr %4, i64 %5
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hb488165124cd8fa8E"(ptr align 8 %0, i64 %3, ptr align 8 %6, i64 %3, i64 %3)
   ret void
 }
@@ -134,7 +134,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 16:                                               ; preds = %3
   %17 = extractvalue { ptr, i64 } %14, 0
   %18 = extractvalue { ptr, i64 } %14, 1
-  %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
+  %19 = getelementptr inbounds [24 x i8], ptr %1, i64 %2
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   store ptr %1, ptr %5, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -180,7 +180,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   unreachable
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds { [3 x i64] }, ptr %17, i64 %25
+  %34 = getelementptr inbounds [24 x i8], ptr %17, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %35 = icmp eq i64 %.pr, 0

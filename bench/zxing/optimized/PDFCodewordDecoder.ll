@@ -52,7 +52,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i: ; preds = %.l
   %11 = fdiv float %10, 1.700000e+01
   %12 = fadd float %7, %11
   %13 = sext i32 %.026.i to i64
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !6, !noalias !3
   %16 = add nsw i32 %15, %.01924.i
   %17 = sitofp i32 %16 to float
@@ -72,7 +72,7 @@ _ZNSt5arrayIiLm8EE4fillERKi.exit.i:               ; preds = %._ZNSt5arrayIiLm8EE
   %.pre-phi.i = phi i64 [ %.pre.i, %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i ], [ %13, %8 ]
   %.120.i = phi i32 [ %16, %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i ], [ %.01924.i, %8 ]
   %.1.i = phi i32 [ %20, %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i ], [ %.026.i, %8 ]
-  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %.pre-phi.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.pre-phi.i
   %23 = load i32, ptr %22, align 4, !tbaa !6, !alias.scope !3
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4, !tbaa !6, !alias.scope !3
@@ -86,7 +86,7 @@ _ZNSt5arrayIiLm8EE4fillERKi.exit.i:               ; preds = %._ZNSt5arrayIiLm8EE
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %._crit_edge.i.i
   %.0713.i.i = phi i64 [ %31, %._crit_edge.i.i ], [ 0, %.preheader.i.i.preheader ]
   %.0912.i.i = phi i32 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader.i.i.preheader ]
-  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %.0713.i.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.0713.i.i
   %27 = load i32, ptr %26, align 4, !tbaa !6
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -125,7 +125,7 @@ _ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZSt7advanceIPKtlEv
   %.017.i.i.i.i = phi ptr [ @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, %38 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i ]
   %.01116.i.i.i.i = phi i64 [ 2787, %38 ], [ %.112.i.i.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i ]
   %40 = lshr i64 %.01116.i.i.i.i, 1
-  %41 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i.i, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !15
   %43 = zext i16 %42 to i32
   %44 = icmp samesign ugt i32 %39, %43
@@ -214,11 +214,11 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %
 
 75:                                               ; preds = %75, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %75 ]
-  %76 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %77 = load i32, ptr %76, align 4, !tbaa !6
   %78 = sitofp i32 %77 to float
   %79 = fdiv float %78, %72
-  %80 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   store float %79, ptr %80, align 4, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i, 8
@@ -241,15 +241,15 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %
   %.02942.i = phi float [ %.1.i12, %105 ], [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ]
   %.03341.i = phi i64 [ %106, %105 ], [ 0, %.lr.ph.preheader.i ]
   %.03440.i = phi i32 [ %.135.i, %105 ], [ -1, %.lr.ph.preheader.i ]
-  %87 = getelementptr inbounds nuw %"struct.std::array.1", ptr %82, i64 %.03341.i
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %82, i64 %.03341.i
   br label %88
 
 88:                                               ; preds = %88, %.lr.ph.i
   %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %88 ], [ 0, %.lr.ph.i ]
   %.03038.i = phi float [ %94, %88 ], [ 0.000000e+00, %.lr.ph.i ]
-  %89 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv46.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv46.i
   %90 = load float, ptr %89, align 4, !tbaa !19
-  %91 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv46.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv46.i
   %92 = load float, ptr %91, align 4, !tbaa !19
   %93 = fsub float %90, %92
   %94 = tail call float @llvm.fmuladd.f32(float %93, float %93, float %.03038.i)
@@ -303,7 +303,7 @@ _ZSt7advanceIPKtlEvRT_T0_.exit.i.i:               ; preds = %_ZSt7advanceIPKtlEv
   %.017.i.i = phi ptr [ @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, %3 ], [ %.1.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i ]
   %.01116.i.i = phi i64 [ 2787, %3 ], [ %.112.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i ]
   %5 = lshr i64 %.01116.i.i, 1
-  %6 = getelementptr inbounds nuw i16, ptr %.017.i.i, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !15
   %8 = zext i16 %7 to i32
   %9 = icmp samesign ugt i32 %4, %8
@@ -368,12 +368,12 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
 
 3:                                                ; preds = %2, %12
   %indvars.iv14 = phi i64 [ 0, %2 ], [ %indvars.iv.next15, %12 ]
-  %4 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 %indvars.iv14
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 %indvars.iv14
   %5 = load i16, ptr %4, align 2, !tbaa !15
   %6 = zext i16 %5 to i32
   %7 = or disjoint i32 %6, 65536
   %8 = and i32 %6, 1
-  %9 = getelementptr inbounds nuw %"struct.std::array.1", ptr %0, i64 %indvars.iv14
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv14
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %._crit_edge
@@ -408,7 +408,7 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
   %.lcssa = phi i32 [ %10, %.preheader ], [ %15, %._crit_edge.loopexit ]
   %18 = fdiv float %.0.lcssa, 1.700000e+01
   %19 = sub nuw nsw i64 7, %indvars.iv
-  %20 = getelementptr inbounds nuw float, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %19
   store float %18, ptr %20, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

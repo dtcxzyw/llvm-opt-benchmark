@@ -31,7 +31,7 @@ define dso_local void @clear_alloc_state(ptr noundef captures(none) %0) local_un
   store i32 %8, ptr %2, align 8, !tbaa !4
   %9 = load ptr, ptr %5, align 8, !tbaa !10
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   tail call void @free(ptr noundef %12) #8
   %13 = load i32, ptr %2, align 8, !tbaa !4
@@ -108,7 +108,7 @@ st_mult.exit.i:                                   ; preds = %14
   %30 = add nsw i32 %27, 1
   store i32 %30, ptr %10, align 8, !tbaa !4
   %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   store ptr %29, ptr %32, align 8, !tbaa !11
   %.pre31.i = load i32, ptr %5, align 8, !tbaa !42
   br label %alloc_node.exit
@@ -186,7 +186,7 @@ st_mult.exit.i:                                   ; preds = %14
   %30 = add nsw i32 %27, 1
   store i32 %30, ptr %10, align 8, !tbaa !4
   %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   store ptr %29, ptr %32, align 8, !tbaa !11
   %.pre31.i = load i32, ptr %5, align 8, !tbaa !42
   br label %alloc_node.exit
@@ -264,7 +264,7 @@ st_mult.exit.i:                                   ; preds = %14
   %30 = add nsw i32 %27, 1
   store i32 %30, ptr %10, align 8, !tbaa !4
   %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   store ptr %29, ptr %32, align 8, !tbaa !11
   %.pre31.i = load i32, ptr %5, align 8, !tbaa !42
   br label %alloc_node.exit
@@ -342,7 +342,7 @@ st_mult.exit.i:                                   ; preds = %14
   %30 = add nsw i32 %27, 1
   store i32 %30, ptr %10, align 8, !tbaa !4
   %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   store ptr %29, ptr %32, align 8, !tbaa !11
   %.pre31.i = load i32, ptr %5, align 8, !tbaa !42
   br label %alloc_node.exit
@@ -432,7 +432,7 @@ st_mult.exit.i:                                   ; preds = %14
   %30 = add nsw i32 %27, 1
   store i32 %30, ptr %10, align 8, !tbaa !4
   %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   store ptr %29, ptr %32, align 8, !tbaa !11
   %.pre31.i = load i32, ptr %5, align 8, !tbaa !42
   br label %alloc_node.exit

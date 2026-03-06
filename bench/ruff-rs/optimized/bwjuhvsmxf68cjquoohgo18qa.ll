@@ -86,7 +86,7 @@ define hidden void @"_ZN4core3ptr107drop_in_place$LT$core..array..iter..IntoIter
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr62drop_in_place$LT$ruff_python_semantic..model..ImportedName$GT$17h9419560349289da1E.exit.i.i"
   %.sroa.0.010.i.i = phi i64 [ %7, %"_ZN4core3ptr62drop_in_place$LT$ruff_python_semantic..model..ImportedName$GT$17h9419560349289da1E.exit.i.i" ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, i32 }, i32, i8, [3 x i8] }, ptr %3, i64 %.sroa.0.010.i.i
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %.sroa.0.010.i.i
   %7 = add nuw i64 %.sroa.0.010.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
@@ -320,7 +320,7 @@ define hidden void @"_ZN4core3ptr141drop_in_place$LT$ruff_index..vec..IndexVec$L
   br i1 %5, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf63e2a39c8ebd46fE.exit.i", label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %.val.i, i64 %.sroa.0.0.i.i.i
+  %7 = getelementptr inbounds nuw [96 x i8], ptr %.val.i, i64 %.sroa.0.0.i.i.i
   %8 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr64drop_in_place$LT$ruff_python_semantic..cfg..graph..BlockData$GT$17hd6b73466ab9c9735E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %7)
           to label %4 unwind label %11, !noalias !59
@@ -336,7 +336,7 @@ define hidden void @"_ZN4core3ptr141drop_in_place$LT$ruff_index..vec..IndexVec$L
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw { { ptr, i64 }, { { { [2 x i64] }, i64 }, { { [2 x i64] }, i64 } }, { { [2 x i64] }, i64 }, i8, [7 x i8] }, ptr %.val.i, i64 %.sroa.0.1.i.i.i
+  %14 = getelementptr inbounds nuw [96 x i8], ptr %.val.i, i64 %.sroa.0.1.i.i.i
   %15 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr64drop_in_place$LT$ruff_python_semantic..cfg..graph..BlockData$GT$17hd6b73466ab9c9735E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %14) #28
           to label %9 unwind label %16, !noalias !59
@@ -386,7 +386,7 @@ define hidden void @"_ZN4core3ptr145drop_in_place$LT$alloc..vec..Vec$LT$$LP$ruff
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr122drop_in_place$LT$$LP$ruff_python_semantic..cfg..graph..BlockId$C$ruff_python_semantic..cfg..visualize..MermaidEdge$RP$$GT$17hd33227e981be1d0dE.exit.i.i"
   %.sroa.0.011.i.i = phi i64 [ %6, %"_ZN4core3ptr122drop_in_place$LT$$LP$ruff_python_semantic..cfg..graph..BlockId$C$ruff_python_semantic..cfg..visualize..MermaidEdge$RP$$GT$17hd33227e981be1d0dE.exit.i.i" ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw { i32, [1 x i32], { { { { { i64, ptr, {} }, {} }, i64 } }, i8, [7 x i8] } }, ptr %.val, i64 %.sroa.0.011.i.i
+  %5 = getelementptr inbounds nuw [40 x i8], ptr %.val, i64 %.sroa.0.011.i.i
   %6 = add nuw i64 %.sroa.0.011.i.i, 1
   %7 = getelementptr i8, ptr %5, i64 8
   %.val8.i.i = load i64, ptr %7, align 8, !range !19, !alias.scope !65, !noundef !3
@@ -441,7 +441,7 @@ define hidden void @"_ZN4core3ptr161drop_in_place$LT$alloc..vec..into_iter..Into
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr122drop_in_place$LT$$LP$ruff_python_semantic..cfg..graph..BlockId$C$ruff_python_semantic..cfg..visualize..MermaidEdge$RP$$GT$17hd33227e981be1d0dE.exit.i.i"
   %.sroa.0.011.i.i = phi i64 [ %11, %"_ZN4core3ptr122drop_in_place$LT$$LP$ruff_python_semantic..cfg..graph..BlockId$C$ruff_python_semantic..cfg..visualize..MermaidEdge$RP$$GT$17hd33227e981be1d0dE.exit.i.i" ], [ 0, %1 ]
-  %10 = getelementptr inbounds nuw { i32, [1 x i32], { { { { { i64, ptr, {} }, {} }, i64 } }, i8, [7 x i8] } }, ptr %3, i64 %.sroa.0.011.i.i
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %.sroa.0.011.i.i
   %11 = add nuw i64 %.sroa.0.011.i.i, 1
   %12 = getelementptr i8, ptr %10, i64 8
   %.val8.i.i = load i64, ptr %12, align 8, !range !19, !alias.scope !85, !noalias !79, !noundef !3
@@ -530,7 +530,7 @@ define hidden void @"_ZN4core3ptr364drop_in_place$LT$core..iter..adapters..map..
 
 .lr.ph.i.i.i:                                     ; preds = %1, %"_ZN4core3ptr122drop_in_place$LT$$LP$ruff_python_semantic..cfg..graph..BlockId$C$ruff_python_semantic..cfg..visualize..MermaidEdge$RP$$GT$17hd33227e981be1d0dE.exit.i.i.i"
   %.sroa.0.011.i.i.i = phi i64 [ %11, %"_ZN4core3ptr122drop_in_place$LT$$LP$ruff_python_semantic..cfg..graph..BlockId$C$ruff_python_semantic..cfg..visualize..MermaidEdge$RP$$GT$17hd33227e981be1d0dE.exit.i.i.i" ], [ 0, %1 ]
-  %10 = getelementptr inbounds nuw { i32, [1 x i32], { { { { { i64, ptr, {} }, {} }, i64 } }, i8, [7 x i8] } }, ptr %3, i64 %.sroa.0.011.i.i.i
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %.sroa.0.011.i.i.i
   %11 = add nuw i64 %.sroa.0.011.i.i.i, 1
   %12 = getelementptr i8, ptr %10, i64 8
   %.val8.i.i.i = load i64, ptr %12, align 8, !range !19, !alias.scope !109, !noalias !105, !noundef !3
@@ -668,7 +668,7 @@ define hidden void @"_ZN4core3ptr542drop_in_place$LT$core..iter..adapters..chain
 
 .lr.ph.i.i.i.i:                                   ; preds = %4, %"_ZN4core3ptr62drop_in_place$LT$ruff_python_semantic..model..ImportedName$GT$17h9419560349289da1E.exit.i.i.i.i"
   %.sroa.0.010.i.i.i.i = phi i64 [ %11, %"_ZN4core3ptr62drop_in_place$LT$ruff_python_semantic..model..ImportedName$GT$17h9419560349289da1E.exit.i.i.i.i" ], [ 0, %4 ]
-  %10 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, i32 }, i32, i8, [3 x i8] }, ptr %7, i64 %.sroa.0.010.i.i.i.i
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %.sroa.0.010.i.i.i.i
   %11 = add nuw i64 %.sroa.0.010.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
@@ -765,7 +765,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$ruff_python_semantic..scope.
   br i1 %4, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h649c65fbe9961e50E.exit.i.i", label %5
 
 5:                                                ; preds = %"_ZN4core3ptr55drop_in_place$LT$ruff_python_semantic..scope..Scope$GT$17h5b39be796c97a2e0E.exit.i.i.i.i"
-  %6 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i8, [15 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, i32, i32, i8, [7 x i8] }, ptr %.val.i.i, i64 %.sroa.0.0.i.i.i.i
+  %6 = getelementptr inbounds nuw [120 x i8], ptr %.val.i.i, i64 %.sroa.0.0.i.i.i.i
   %7 = add i64 %.sroa.0.0.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   %.val.i.i.i.i.i = load i64, ptr %6, align 8, !alias.scope !167, !noalias !163
@@ -818,7 +818,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$ruff_python_semantic..scope.
   br label %20
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i8, [15 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, i32, i32, i8, [7 x i8] }, ptr %.val.i.i, i64 %.sroa.0.1.i.i.i.i
+  %25 = getelementptr inbounds nuw [120 x i8], ptr %.val.i.i, i64 %.sroa.0.1.i.i.i.i
   %26 = add i64 %.sroa.0.1.i.i.i.i, 1
   invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$ruff_python_semantic..scope..Scope$GT$17h5b39be796c97a2e0E"(ptr noalias noundef align 8 dereferenceable(120) %25) #28
           to label %20 unwind label %27, !noalias !163
@@ -1098,7 +1098,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$ruff_python_semantic..bindin
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.sroa.0.07.i.i.i.i = phi i64 [ %6, %.lr.ph.i.i.i.i ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [5 x i32] }, { i32, i32 }, i32, i32, i16, i8, i8, [4 x i8] }, ptr %.val.i.i, i64 %.sroa.0.07.i.i.i.i
+  %5 = getelementptr inbounds nuw [72 x i8], ptr %.val.i.i, i64 %.sroa.0.07.i.i.i.i
   %6 = add nuw i64 %.sroa.0.07.i.i.i.i, 1
   tail call void @"_ZN4core3ptr59drop_in_place$LT$ruff_python_semantic..binding..Binding$GT$17h33efda61505eb0e4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %5), !noalias !261
   %7 = icmp eq i64 %6, %.val1.i.i
@@ -1347,7 +1347,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$ruff_python_semantic..global
   br i1 %4, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h834c3966ba373d09E.exit.i.i", label %5
 
 5:                                                ; preds = %"_ZN4core3ptr59drop_in_place$LT$ruff_python_semantic..globals..Globals$GT$17h5720245758fd44f4E.exit.i.i.i.i"
-  %6 = getelementptr inbounds nuw { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %.val.i.i, i64 %.sroa.0.0.i.i.i.i
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %.val.i.i, i64 %.sroa.0.0.i.i.i.i
   %7 = add i64 %.sroa.0.0.i.i.i.i, 1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hc5d66f8068dfa82aE(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 24, i64 noundef 16)
@@ -1364,7 +1364,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$ruff_python_semantic..global
   br label %"_ZN4core3ptr59drop_in_place$LT$ruff_python_semantic..globals..Globals$GT$17h5720245758fd44f4E.exit7.i.i.i.i"
 
 12:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$ruff_python_semantic..globals..Globals$GT$17h5720245758fd44f4E.exit7.i.i.i.i"
-  %13 = getelementptr inbounds nuw { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %.val.i.i, i64 %.sroa.0.1.i.i.i.i
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %.val.i.i, i64 %.sroa.0.1.i.i.i.i
   %14 = add i64 %.sroa.0.1.i.i.i.i, 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hc5d66f8068dfa82aE(ptr noalias noundef nonnull align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef 24, i64 noundef 16)
@@ -1415,7 +1415,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..st
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbf440a4b900fc55eE.exit.i.i"
   %.sroa.0.010.i.i = phi i64 [ %6, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbf440a4b900fc55eE.exit.i.i" ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val, i64 %.sroa.0.010.i.i
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %.sroa.0.010.i.i
   %6 = add nuw i64 %.sroa.0.010.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !321)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !324)
@@ -1688,7 +1688,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$ruff_pyth
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr62drop_in_place$LT$ruff_python_semantic..model..ImportedName$GT$17h9419560349289da1E.exit.i.i"
   %.sroa.0.010.i.i = phi i64 [ %6, %"_ZN4core3ptr62drop_in_place$LT$ruff_python_semantic..model..ImportedName$GT$17h9419560349289da1E.exit.i.i" ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, i32 }, i32, i8, [3 x i8] }, ptr %.val, i64 %.sroa.0.010.i.i
+  %5 = getelementptr inbounds nuw [40 x i8], ptr %.val, i64 %.sroa.0.010.i.i
   %6 = add nuw i64 %.sroa.0.010.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !362)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !365)
@@ -3085,7 +3085,7 @@ define noundef i32 @_ZN20ruff_python_semantic5scope5Scope3get17hdc6daa926d0186f0
   %22 = add i64 %.sroa.01.0.i.i.i, %21
   %23 = and i64 %22, %14
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr %15, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %15, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -24
   %27 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h26bfc44a5d85eb65E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26), !noalias !501
   br i1 %27, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h411c70f966805af0E.exit", label %31, !prof !504
@@ -3173,7 +3173,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic5scope5Scope3has17haba48d3a8
   %22 = add i64 %.sroa.01.0.i.i.i, %21
   %23 = and i64 %22, %14
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr %15, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %15, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -24
   %27 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h26bfc44a5d85eb65E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26), !noalias !522
   br i1 %27, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h411c70f966805af0E.exit", label %31, !prof !504
@@ -3254,7 +3254,7 @@ define { ptr, i32 } @_ZN20ruff_python_semantic5scope5Scope7get_all17hda811dacf4e
   %22 = add i64 %.sroa.01.0.i.i.i, %21
   %23 = and i64 %22, %14
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr %15, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %15, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -24
   %27 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h26bfc44a5d85eb65E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26), !noalias !541
   br i1 %27, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h411c70f966805af0E.exit", label %31, !prof !504
@@ -3343,7 +3343,7 @@ define noundef i32 @_ZN20ruff_python_semantic5scope5Scope16shadowed_binding17h81
   %22 = add i64 %.sroa.01.0.i.i.i, %21
   %23 = and i64 %22, %14
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { i32, i32 }, ptr %15, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %15, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -8
   %27 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h7e2e712e530b22a4E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26), !noalias !560
   br i1 %27, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb497e0fe6e002c1cE.exit", label %31, !prof !504
@@ -3455,7 +3455,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %9
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h66ef5dbebe2426f3E.exit": ; preds = %._crit_edge.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h9b9c9e20cf6466b5E.exit.i"
   %28 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %27, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h9b9c9e20cf6466b5E.exit.i" ]
-  %29 = getelementptr inbounds nuw { { ptr, [1 x i64] }, i32, [1 x i32] }, ptr %28, i64 %6
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !563
   %30 = add i64 %6, 1
   store i64 %30, ptr %5, align 8, !alias.scope !563, !noalias !566
@@ -3656,7 +3656,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
   %34 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hc93fd7774e0249c4E.exit.i.i" ]
   %35 = trunc nuw i64 %8 to i32
   %36 = add nuw i32 %35, 1
-  %37 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i8, [15 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, i32, i32, i8, [7 x i8] }, ptr %34, i64 %8
+  %37 = getelementptr inbounds nuw [120 x i8], ptr %34, i64 %8
   store i64 0, ptr %37, align 8, !noalias !588
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.5.0..sroa_idx2, align 8, !noalias !588
@@ -3699,7 +3699,7 @@ define { ptr, ptr } @_ZN20ruff_python_semantic5scope6Scopes9ancestors17h490c86bc
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !614, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i8, [15 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, i32, i32, i8, [7 x i8] }, ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [120 x i8], ptr %10, i64 %6
   %12 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %13 = insertvalue { ptr, ptr } %12, ptr %11, 1
   ret { ptr, ptr } %13

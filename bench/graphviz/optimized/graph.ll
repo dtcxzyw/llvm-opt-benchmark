@@ -193,7 +193,7 @@ define i64 @agnextseq(ptr noundef readonly captures(none) %0, i32 noundef %1) lo
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i64, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !36
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !36

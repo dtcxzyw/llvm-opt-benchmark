@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.anon.36 = type { i64, i32, i32 }
 %struct.drm_connector_list_iter = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [37 x i8] c"digital hpd on [ENCODER:%d:%s] - %s\0A\00", align 1
@@ -401,7 +400,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   br i1 %154, label %.thread9, label %155
 
 155:                                              ; preds = %152
-  %156 = getelementptr %struct.anon.36, ptr %68, i64 %123
+  %156 = getelementptr [16 x i8], ptr %68, i64 %123
   %157 = load i64, ptr %156, align 8
   %158 = load i32, ptr %70, align 4
   %159 = icmp eq i32 %158, 0
@@ -412,7 +411,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %161 = trunc i64 %125 to i32
   %162 = or i32 %160, %161
   store i32 %162, ptr %69, align 8
-  %163 = getelementptr %struct.anon.36, ptr %68, i64 %123
+  %163 = getelementptr [16 x i8], ptr %68, i64 %123
   %164 = load i64, ptr %163, align 8
   %165 = load i32, ptr %70, align 4
   %166 = icmp eq i32 %165, 0
@@ -448,7 +447,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   br i1 %184, label %._crit_edge, label %185
 
 ._crit_edge:                                      ; preds = %180
-  %.phi.trans.insert = getelementptr %struct.anon.36, ptr %68, i64 %123
+  %.phi.trans.insert = getelementptr [16 x i8], ptr %68, i64 %123
   %.phi.trans.insert40 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre = load i32, ptr %.phi.trans.insert40, align 8
   br label %187
@@ -460,7 +459,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
 
 187:                                              ; preds = %._crit_edge, %185
   %188 = phi i32 [ %.pre, %._crit_edge ], [ 0, %185 ]
-  %189 = getelementptr %struct.anon.36, ptr %68, i64 %123
+  %189 = getelementptr [16 x i8], ptr %68, i64 %123
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = add i32 %188, %175
   store i32 %191, ptr %190, align 8
@@ -568,7 +567,7 @@ define dso_local void @intel_hpd_init(ptr noundef %0) local_unnamed_addr #1 alig
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 1, %5 ], [ %12, %7 ]
-  %9 = getelementptr %struct.anon.36, ptr %6, i64 %8
+  %9 = getelementptr [16 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 12

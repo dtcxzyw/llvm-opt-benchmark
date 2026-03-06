@@ -3,8 +3,6 @@ source_filename = "bench/llvm/original/PPCTargetParser.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::StringRef" = type { ptr, i64 }
-
 $_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18growAndEmplaceBackIJRKNS_13StringLiteralEEEERS1_DpOT_ = comdat any
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
@@ -279,7 +277,7 @@ define dso_local void @_ZN4llvm3PPC16fillValidCPUListERNS_15SmallVectorImplINS_9
 10:                                               ; preds = %5
   %11 = zext i32 %6 to i64
   %12 = load ptr, ptr %0, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) %.0.ptr, i64 16, i1 false), !tbaa.struct !12
   %14 = load i32, ptr %2, align 8, !tbaa !3
   %15 = add i32 %14, 1
@@ -316,7 +314,7 @@ define dso_local void @_ZN4llvm3PPC20fillValidTuneCPUListERNS_15SmallVectorImplI
 10:                                               ; preds = %5
   %11 = zext i32 %6 to i64
   %12 = load ptr, ptr %0, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) %.0.ptr, i64 16, i1 false), !tbaa.struct !12
   %14 = load i32, ptr %2, align 8, !tbaa !3
   %15 = add i32 %14, 1
@@ -475,7 +473,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %11 = phi i32 [ %4, %2 ], [ %.pre.i, %7 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !11
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %13
   store ptr %.sroa.0.0.copyload, ptr %14, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -484,7 +482,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   store i32 %16, ptr %3, align 8, !tbaa !3
   %17 = load ptr, ptr %0, align 8, !tbaa !11
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -16
   ret ptr %20
 }

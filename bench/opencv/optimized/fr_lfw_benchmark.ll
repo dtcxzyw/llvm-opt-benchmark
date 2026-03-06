@@ -17,9 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::MatStep" = type { ptr, [2 x i64] }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"struct.cv::Ptr.8" = type { %"class.std::shared_ptr.9" }
-%"class.std::shared_ptr.9" = type { %"class.std::__shared_ptr.10" }
-%"class.std::__shared_ptr.10" = type { ptr, %"class.std::__shared_count" }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_ = comdat any
 
@@ -451,7 +448,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %.b
 
 180:                                              ; preds = %177
   %181 = load ptr, ptr %179, align 8, !tbaa !32
-  %182 = getelementptr inbounds nuw %"struct.cv::Ptr.8", ptr %181, i64 %160
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %181, i64 %160
   %183 = load ptr, ptr %182, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -671,7 +668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233: ; preds = %21
   %.0115553 = phi i32 [ %323, %317 ], [ 0, %.preheader348 ]
   %.2121552 = phi i32 [ %.3122, %317 ], [ %.0119556, %.preheader348 ]
   %.2125551 = phi double [ %.3126, %317 ], [ %.0123555, %.preheader348 ]
-  %259 = getelementptr inbounds nuw %"struct.cv::Ptr.8", ptr %257, i64 %258
+  %259 = getelementptr inbounds nuw [16 x i8], ptr %257, i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -1053,7 +1050,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i: ; preds = %375, %.n
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %376, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i
-  %377 = getelementptr inbounds nuw double, ptr %372, i64 %370
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 %370
   %.pre = load double, ptr %373, align 8, !tbaa !58
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
 
@@ -1068,7 +1065,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS
   %.0105560 = phi i32 [ %448, %440 ], [ 0, %.preheader355 ]
   %.0106559 = phi i32 [ %.1107, %440 ], [ 0, %.preheader355 ]
   %.0108558 = phi i32 [ %.1109, %440 ], [ 0, %.preheader355 ]
-  %382 = getelementptr inbounds nuw %"struct.cv::Ptr.8", ptr %380, i64 %381
+  %382 = getelementptr inbounds nuw [16 x i8], ptr %380, i64 %381
   %383 = load ptr, ptr %382, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)

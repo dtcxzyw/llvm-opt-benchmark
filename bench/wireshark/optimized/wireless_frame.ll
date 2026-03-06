@@ -1873,7 +1873,7 @@ _ZN13WirelessFrame10startTimerEi.exit:            ; preds = %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
   %88 = load ptr, ptr %13, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr ptr, ptr %89, i64 %indvars.iv
+  %90 = getelementptr [8 x i8], ptr %89, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %92 = load ptr, ptr %16, align 8
@@ -1999,7 +1999,7 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %118, %_ZN17QArrayDa
   %indvars.iv105 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next106, %185 ]
   %133 = load ptr, ptr %13, align 8
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr ptr, ptr %134, i64 %indvars.iv105
+  %135 = getelementptr [8 x i8], ptr %134, i64 %indvars.iv105
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %16, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 40
@@ -2628,7 +2628,7 @@ define void @_ZN13WirelessFrame16getInterfaceInfoEv(ptr noundef readonly align 8
   %indvars.iv267 = phi i64 [ 0, %.lr.ph262 ], [ %indvars.iv.next268, %451 ]
   %99 = phi ptr [ %57, %.lr.ph262 ], [ %452, %451 ]
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr ptr, ptr %100, i64 %indvars.iv267
+  %101 = getelementptr [8 x i8], ptr %100, i64 %indvars.iv267
   %102 = load ptr, ptr %101, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %103 = load ptr, ptr %102, align 8
@@ -2729,7 +2729,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %105, %_ZN17QArrayDa
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7QStringD2Ev.exit143 ], [ 0, %.preheader ]
   %135 = phi ptr [ %233, %_ZN7QStringD2Ev.exit143 ], [ %123, %.preheader ]
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr i32, ptr %136, i64 %indvars.iv
+  %137 = getelementptr [4 x i8], ptr %136, i64 %indvars.iv
   %138 = load i32, ptr %137, align 4
   %139 = uitofp i32 %138 to double
   %140 = fdiv double %139, 1.000000e+03

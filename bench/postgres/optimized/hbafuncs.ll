@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/hbafuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @HbaFileName = external local_unnamed_addr global ptr, align 8
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [19 x i8] c"hba parser context\00", align 1
@@ -100,7 +98,7 @@ define dso_local noundef i64 @pg_hba_file_rules(ptr noundef %0) local_unnamed_ad
   %.02126.i7 = phi i32 [ %spec.select.i, %fill_hba_line.exit.i ], [ 0, %.lr.ph.i ]
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i, %fill_hba_line.exit.i ], [ 0, %.lr.ph.i ]
   %41 = load ptr, ptr %21, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv.i6
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i6
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
@@ -155,7 +153,7 @@ define dso_local noundef i64 @pg_hba_file_rules(ptr noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %64
   %68 = zext nneg i32 %66 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pg_hba_file_rules, i64 %68
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.pg_hba_file_rules, i64 %68
   %switch.load = load ptr, ptr %switch.gep, align 8
   %69 = call ptr @cstring_to_text(ptr noundef nonnull %switch.load) #4
   %70 = ptrtoint ptr %69 to i64
@@ -186,7 +184,7 @@ switch.lookup:                                    ; preds = %64
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %77 ]
   %.078118.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %82, %77 ]
   %78 = load ptr, ptr %76, align 8
-  %79 = getelementptr inbounds nuw %union.ListCell, ptr %78, i64 %indvars.iv.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.i.i
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %80, align 8
   %82 = call ptr @lappend(ptr noundef %.078118.i.i, ptr noundef %81) #4
@@ -227,7 +225,7 @@ switch.lookup:                                    ; preds = %64
   %indvars.iv127.i.i = phi i64 [ 0, %.lr.ph123.i.i ], [ %indvars.iv.next128.i.i, %94 ]
   %.074121.i.i = phi ptr [ null, %.lr.ph123.i.i ], [ %99, %94 ]
   %95 = load ptr, ptr %93, align 8
-  %96 = getelementptr inbounds nuw %union.ListCell, ptr %95, i64 %indvars.iv127.i.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv127.i.i
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
   %99 = call ptr @lappend(ptr noundef %.074121.i.i, ptr noundef %98) #4
@@ -386,7 +384,7 @@ switch.lookup:                                    ; preds = %64
   %167 = ptrtoint ptr %166 to i64
   %168 = add nuw nsw i32 %.1.i.i.i, 1
   %169 = zext nneg i32 %.1.i.i.i to i64
-  %170 = getelementptr inbounds nuw i64, ptr %2, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %169
   store i64 %167, ptr %170, align 8
   br label %171
 
@@ -403,7 +401,7 @@ switch.lookup:                                    ; preds = %64
   %177 = ptrtoint ptr %176 to i64
   %178 = add nuw nsw i32 %.0.i.i.i, 1
   %179 = zext nneg i32 %.0.i.i.i to i64
-  %180 = getelementptr inbounds nuw i64, ptr %2, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %179
   store i64 %177, ptr %180, align 8
   br label %181
 
@@ -422,7 +420,7 @@ switch.lookup:                                    ; preds = %64
   %189 = ptrtoint ptr %188 to i64
   %190 = add nuw nsw i32 %.2.i.i.i, 1
   %191 = zext nneg i32 %.2.i.i.i to i64
-  %192 = getelementptr inbounds nuw i64, ptr %2, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %191
   store i64 %189, ptr %192, align 8
   br label %193
 
@@ -439,7 +437,7 @@ switch.lookup:                                    ; preds = %64
   %199 = ptrtoint ptr %198 to i64
   %200 = add nuw nsw i32 %.3.i.i.i, 1
   %201 = zext nneg i32 %.3.i.i.i to i64
-  %202 = getelementptr inbounds nuw i64, ptr %2, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %201
   store i64 %199, ptr %202, align 8
   br label %203
 
@@ -461,7 +459,7 @@ switch.lookup:                                    ; preds = %64
   %212 = ptrtoint ptr %211 to i64
   %213 = add nuw nsw i32 %.4.i.i.i, 1
   %214 = zext nneg i32 %.4.i.i.i to i64
-  %215 = getelementptr inbounds nuw i64, ptr %2, i64 %214
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %214
   store i64 %212, ptr %215, align 8
   br label %216
 
@@ -478,7 +476,7 @@ switch.lookup:                                    ; preds = %64
   %222 = ptrtoint ptr %221 to i64
   %223 = add nuw nsw i32 %.6.i.i.i, 1
   %224 = zext nneg i32 %.6.i.i.i to i64
-  %225 = getelementptr inbounds nuw i64, ptr %2, i64 %224
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %224
   store i64 %222, ptr %225, align 8
   br label %226
 
@@ -495,7 +493,7 @@ switch.lookup:                                    ; preds = %64
   %232 = ptrtoint ptr %231 to i64
   %233 = add nuw nsw i32 %.7.i.i.i, 1
   %234 = zext nneg i32 %.7.i.i.i to i64
-  %235 = getelementptr inbounds nuw i64, ptr %2, i64 %234
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %234
   store i64 %232, ptr %235, align 8
   br label %236
 
@@ -511,7 +509,7 @@ switch.lookup:                                    ; preds = %64
   %242 = ptrtoint ptr %241 to i64
   %243 = add nuw nsw i32 %.8.i.i.i, 1
   %244 = zext nneg i32 %.8.i.i.i to i64
-  %245 = getelementptr inbounds nuw i64, ptr %2, i64 %244
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %244
   store i64 %242, ptr %245, align 8
   br label %246
 
@@ -528,7 +526,7 @@ switch.lookup:                                    ; preds = %64
   %252 = ptrtoint ptr %251 to i64
   %253 = add nuw nsw i32 %.9.i.i.i, 1
   %254 = zext nneg i32 %.9.i.i.i to i64
-  %255 = getelementptr inbounds nuw i64, ptr %2, i64 %254
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %254
   store i64 %252, ptr %255, align 8
   br label %256
 
@@ -545,7 +543,7 @@ switch.lookup:                                    ; preds = %64
   %262 = ptrtoint ptr %261 to i64
   %263 = add nuw nsw i32 %.10.i.i.i, 1
   %264 = zext nneg i32 %.10.i.i.i to i64
-  %265 = getelementptr inbounds nuw i64, ptr %2, i64 %264
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %264
   store i64 %262, ptr %265, align 8
   br label %266
 
@@ -562,7 +560,7 @@ switch.lookup:                                    ; preds = %64
   %272 = ptrtoint ptr %271 to i64
   %273 = add nuw nsw i32 %.11.i.i.i, 1
   %274 = zext nneg i32 %.11.i.i.i to i64
-  %275 = getelementptr inbounds nuw i64, ptr %2, i64 %274
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %274
   store i64 %272, ptr %275, align 8
   br label %276
 
@@ -579,7 +577,7 @@ switch.lookup:                                    ; preds = %64
   %282 = ptrtoint ptr %281 to i64
   %283 = add nuw nsw i32 %.12.i.i.i, 1
   %284 = zext nneg i32 %.12.i.i.i to i64
-  %285 = getelementptr inbounds nuw i64, ptr %2, i64 %284
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %284
   store i64 %282, ptr %285, align 8
   br label %286
 
@@ -596,7 +594,7 @@ switch.lookup:                                    ; preds = %64
   %292 = ptrtoint ptr %291 to i64
   %293 = add nuw nsw i32 %.13.i.i.i, 1
   %294 = zext nneg i32 %.13.i.i.i to i64
-  %295 = getelementptr inbounds nuw i64, ptr %2, i64 %294
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %294
   store i64 %292, ptr %295, align 8
   br label %296
 
@@ -613,7 +611,7 @@ switch.lookup:                                    ; preds = %64
   %302 = ptrtoint ptr %301 to i64
   %303 = add nuw nsw i32 %.14.i.i.i, 1
   %304 = zext nneg i32 %.14.i.i.i to i64
-  %305 = getelementptr inbounds nuw i64, ptr %2, i64 %304
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %304
   store i64 %302, ptr %305, align 8
   br label %306
 
@@ -630,7 +628,7 @@ switch.lookup:                                    ; preds = %64
   %312 = ptrtoint ptr %311 to i64
   %313 = add nuw nsw i32 %.15.i.i.i, 1
   %314 = zext nneg i32 %.15.i.i.i to i64
-  %315 = getelementptr inbounds nuw i64, ptr %2, i64 %314
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %314
   store i64 %312, ptr %315, align 8
   br label %316
 
@@ -647,7 +645,7 @@ switch.lookup:                                    ; preds = %64
   %322 = ptrtoint ptr %321 to i64
   %323 = add nuw nsw i32 %.16.i.i.i, 1
   %324 = zext nneg i32 %.16.i.i.i to i64
-  %325 = getelementptr inbounds nuw i64, ptr %2, i64 %324
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %324
   store i64 %322, ptr %325, align 8
   br label %thread-pre-split.i.i.i
 
@@ -674,7 +672,7 @@ thread-pre-split.i.i.i:                           ; preds = %319, %316
   %335 = ptrtoint ptr %334 to i64
   %336 = add nuw nsw i32 %.5.i.i.i, 1
   %337 = zext nneg i32 %.5.i.i.i to i64
-  %338 = getelementptr inbounds nuw i64, ptr %2, i64 %337
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %337
   store i64 %335, ptr %338, align 8
   br label %339
 
@@ -691,7 +689,7 @@ thread-pre-split.i.i.i:                           ; preds = %319, %316
   %345 = ptrtoint ptr %344 to i64
   %346 = add nuw nsw i32 %.18.i.i.i, 1
   %347 = zext nneg i32 %.18.i.i.i to i64
-  %348 = getelementptr inbounds nuw i64, ptr %2, i64 %347
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %347
   store i64 %345, ptr %348, align 8
   br label %349
 
@@ -708,7 +706,7 @@ thread-pre-split.i.i.i:                           ; preds = %319, %316
   %355 = ptrtoint ptr %354 to i64
   %356 = add nuw nsw i32 %.19.i.i.i, 1
   %357 = zext nneg i32 %.19.i.i.i to i64
-  %358 = getelementptr inbounds nuw i64, ptr %2, i64 %357
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %357
   store i64 %355, ptr %358, align 8
   br label %359
 
@@ -725,7 +723,7 @@ thread-pre-split.i.i.i:                           ; preds = %319, %316
   %364 = ptrtoint ptr %363 to i64
   %365 = add nuw nsw i32 %.20.i.i.i, 1
   %366 = zext nneg i32 %.20.i.i.i to i64
-  %367 = getelementptr inbounds nuw i64, ptr %2, i64 %366
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %366
   store i64 %364, ptr %367, align 8
   br label %get_hba_options.exit.i.i
 
@@ -840,7 +838,7 @@ define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnam
   %.02125.i6 = phi i32 [ %spec.select.i, %fill_ident_line.exit.i ], [ 0, %.lr.ph.i ]
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i, %fill_ident_line.exit.i ], [ 0, %.lr.ph.i ]
   %30 = load ptr, ptr %19, align 8
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv.i5
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i5
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load ptr, ptr %33, align 8

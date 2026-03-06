@@ -3,10 +3,6 @@ source_filename = "bench/postgres/original/inherit.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-
 @.str = private unnamed_addr constant [7 x i8] c"ctid%u\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"wholerow%u\00", align 1
 @.str.2 = private unnamed_addr constant [11 x i8] c"tableoid%u\00", align 1
@@ -45,7 +41,7 @@ define dso_local void @expand_inherited_rtentry(ptr noundef %0, ptr noundef %1, 
 .lr.ph132:                                        ; preds = %.lr.ph129, %36
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %36 ], [ 0, %.lr.ph129 ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv134
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv134
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
@@ -57,7 +53,7 @@ define dso_local void @expand_inherited_rtentry(ptr noundef %0, ptr noundef %1, 
 26:                                               ; preds = %.lr.ph132
   %27 = load ptr, ptr %16, align 8
   %28 = zext i32 %23 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @build_simple_rel(ptr noundef %0, i32 noundef %23, ptr noundef %1) #6
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -135,7 +131,7 @@ list_length.exit:                                 ; preds = %69
 .lr.ph:                                           ; preds = %list_length.exit, %96
   %indvars.iv146 = phi i64 [ %indvars.iv.next, %96 ], [ 0, %list_length.exit ]
   %76 = load ptr, ptr %73, align 8
-  %77 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv146
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv146
   %78 = load i32, ptr %77, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -249,7 +245,7 @@ list_length.exit119:                              ; preds = %105, %114
   %132 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr %130, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %134
   br label %147
 
 136:                                              ; preds = %128
@@ -263,7 +259,7 @@ list_length.exit119:                              ; preds = %105, %114
   %144 = getelementptr i8, ptr %140, i64 16
   %.val = load ptr, ptr %144, align 8
   %145 = sext i32 %143 to i64
-  %146 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %145
+  %146 = getelementptr inbounds [8 x i8], ptr %.val, i64 %145
   br label %147
 
 147:                                              ; preds = %136, %131
@@ -410,7 +406,7 @@ define internal fastcc void @expand_partitioned_rtentry(ptr noundef %0, ptr noun
   %44 = phi i32 [ %38, %.lr.ph ], [ %91, %90 ]
   %45 = load ptr, ptr %40, align 8
   %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -449,7 +445,7 @@ define internal fastcc void @expand_partitioned_rtentry(ptr noundef %0, ptr noun
   %68 = load i32, ptr %10, align 4
   %69 = tail call ptr @build_simple_rel(ptr noundef %0, i32 noundef %68, ptr noundef nonnull %1) #6
   %70 = load ptr, ptr %37, align 8
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %46
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %46
   store ptr %69, ptr %71, align 8
   %72 = load ptr, ptr %41, align 8
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -465,7 +461,7 @@ define internal fastcc void @expand_partitioned_rtentry(ptr noundef %0, ptr noun
 80:                                               ; preds = %67
   %81 = load ptr, ptr %42, align 8
   %82 = zext i32 %68 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = load ptr, ptr %85, align 8
@@ -572,7 +568,7 @@ list_length.exit:                                 ; preds = %8, %27
   %52 = shl nsw i64 %51, 4
   %53 = getelementptr i8, ptr %40, i64 %52
   %54 = getelementptr i8, ptr %53, i64 24
-  %55 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %54, i64 %indvars.iv112
+  %55 = getelementptr inbounds nuw [100 x i8], ptr %54, i64 %indvars.iv112
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 91
   %57 = load i8, ptr %56, align 1, !range !4, !noundef !5
   %58 = trunc nuw i8 %57 to i1
@@ -600,11 +596,11 @@ list_length.exit:                                 ; preds = %8, %27
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %73 = load ptr, ptr %72, align 8
   %74 = zext i32 %30 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %74
   store ptr %13, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %74
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %74
   store ptr %31, ptr %78, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %141, label %111
@@ -617,7 +613,7 @@ list_length.exit:                                 ; preds = %8, %27
   %81 = shl nsw i64 %80, 4
   %82 = getelementptr i8, ptr %40, i64 %81
   %83 = getelementptr i8, ptr %82, i64 24
-  %84 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [100 x i8], ptr %83, i64 %indvars.iv
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 91
   %86 = load i8, ptr %85, align 1, !range !4, !noundef !5
   %87 = trunc nuw i8 %86 to i1
@@ -625,7 +621,7 @@ list_length.exit:                                 ; preds = %8, %27
 
 88:                                               ; preds = %.lr.ph.split
   %89 = load ptr, ptr %47, align 8
-  %90 = getelementptr inbounds nuw i16, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 %indvars.iv
   %91 = load i16, ptr %90, align 2
   %92 = icmp slt i16 %91, 1
   br i1 %92, label %.critedge, label %list_length.exit106
@@ -639,7 +635,7 @@ list_length.exit106:                              ; preds = %88
 96:                                               ; preds = %list_length.exit106
   %.val = load ptr, ptr %49, align 8
   %97 = zext nneg i16 %91 to i64
-  %98 = getelementptr %union.ListCell, ptr %.val, i64 %97
+  %98 = getelementptr [8 x i8], ptr %.val, i64 %97
   %99 = getelementptr i8, ptr %98, i64 -8
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -763,7 +759,7 @@ define dso_local ptr @get_rel_all_updated_cols(ptr noundef %0, ptr noundef reado
 
 9:                                                ; preds = %2
   %10 = zext i32 %6 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   br label %19
 
 12:                                               ; preds = %2
@@ -773,7 +769,7 @@ define dso_local ptr @get_rel_all_updated_cols(ptr noundef %0, ptr noundef reado
   %16 = getelementptr i8, ptr %14, i64 16
   %.val = load ptr, ptr %16, align 8
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.val, i64 %17
   br label %19
 
 19:                                               ; preds = %12, %9
@@ -839,7 +835,7 @@ define internal fastcc ptr @translate_col_privs_multilevel(ptr noundef readonly 
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -877,7 +873,7 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %.081180244 = phi ptr [ %.283, %.critedge122 ], [ null, %.lr.ph181 ]
   %indvars.iv217243 = phi i64 [ %indvars.iv.next218, %.critedge122 ], [ 0, %.lr.ph181 ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv217243
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv217243
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -924,7 +920,7 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %.391163173 = phi i32 [ %.593.ph, %63 ], [ %.088179245, %.lr.ph ]
   %.384164172 = phi ptr [ %.586.ph, %63 ], [ %.081180244, %.lr.ph ]
   %41 = load ptr, ptr %34, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = call zeroext i1 @contain_vars_of_level(ptr noundef %43, i32 noundef 0) #6
   br i1 %44, label %.thread, label %45
@@ -1003,7 +999,7 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %.795210 = phi i32 [ %.088.lcssa, %.lr.ph212 ], [ %.896.lcssa, %.critedge126 ]
   %indvars227 = trunc i64 %indvars.iv223 to i32
   %77 = load ptr, ptr %74, align 8
-  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv223
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv223
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %.not119 = icmp eq ptr %79, null
@@ -1020,7 +1016,7 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %indvars.iv220 = phi i64 [ %indvars.iv.next221, %.lr.ph203 ], [ 0, %.lr.ph191 ]
   %.8189201 = phi ptr [ %89, %.lr.ph203 ], [ %.7211, %.lr.ph191 ]
   %85 = load ptr, ptr %81, align 8
-  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv220
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv220
   %87 = load ptr, ptr %86, align 8
   %88 = call ptr @make_restrictinfo(ptr noundef %0, ptr noundef %87, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %indvars227, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %89 = call ptr @lappend(ptr noundef %.8189201, ptr noundef %88) #6
@@ -1142,7 +1138,7 @@ define internal fastcc ptr @translate_col_privs(ptr noundef %0, ptr noundef read
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %27 ], [ 0, %.lr.ph.split.us.split ]
   %.230.us48 = phi ptr [ %.3.us, %27 ], [ %.1, %.lr.ph.split.us.split ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv57
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv57
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %27, label %21
@@ -1171,7 +1167,7 @@ define internal fastcc ptr @translate_col_privs(ptr noundef %0, ptr noundef read
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.lr.ph.split.split ]
   %.23042 = phi ptr [ %.3, %44 ], [ %.1, %.lr.ph.split.split ]
   %31 = load ptr, ptr %13, align 8
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = icmp eq ptr %33, null

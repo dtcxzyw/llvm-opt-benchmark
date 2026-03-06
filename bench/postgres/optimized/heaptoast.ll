@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ToastAttrInfo = type { ptr, i32, i8, i8 }
 %struct.ToastTupleContext = type { ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
@@ -134,7 +131,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   %49 = shl nsw i64 %48, 4
   %50 = getelementptr i8, ptr %13, i64 %49
   %51 = zext nneg i32 %44 to i64
-  %52 = getelementptr %struct.FormData_pg_attribute, ptr %50, i64 %51
+  %52 = getelementptr [100 x i8], ptr %50, i64 %51
   %53 = getelementptr i8, ptr %52, i64 108
   %54 = load i8, ptr %53, align 4
   %55 = icmp eq i8 %54, 120
@@ -145,7 +142,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   br label %62
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %9, i64 %51
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %51
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %60 = load i8, ptr %59, align 4
   %61 = or i8 %60, 32
@@ -153,7 +150,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   br label %62
 
 62:                                               ; preds = %57, %56
-  %63 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %9, i64 %51
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %51
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
@@ -361,14 +358,14 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   br i1 %11, label %27, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %15 = load i16, ptr %14, align 4
   %16 = icmp eq i16 %15, -1
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
   %21 = load i8, ptr %20, align 1
@@ -449,7 +446,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %.lr.ph40
-  %70 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv43
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv43
   %71 = load i64, ptr %70, align 8
   %72 = inttoptr i64 %71 to ptr
   call void @pfree(ptr noundef %72) #8
@@ -517,14 +514,14 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   br i1 %18, label %36, label %19
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %22 = load i16, ptr %21, align 4
   %23 = icmp eq i16 %22, -1
   br i1 %23, label %24, label %36
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %27 = inttoptr i64 %26 to ptr
   %28 = load i8, ptr %27, align 1
@@ -608,7 +605,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %.lr.ph61
-  %69 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv63
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv63
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
   call void @pfree(ptr noundef %71) #8
@@ -660,14 +657,14 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   br i1 %13, label %31, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %17 = load i16, ptr %16, align 4
   %18 = icmp eq i16 %17, -1
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8
   %22 = inttoptr i64 %21 to ptr
   %23 = load i8, ptr %22, align 1
@@ -680,7 +677,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   store i64 %27, ptr %20, align 8
   %28 = add i32 %.02325, 1
   %29 = sext i32 %.02325 to i64
-  %30 = getelementptr inbounds ptr, ptr %5, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %5, i64 %29
   store ptr %26, ptr %30, align 8
   br label %31
 
@@ -701,7 +698,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
 
 .lr.ph29:                                         ; preds = %.lr.ph29.preheader, %.lr.ph29
   %indvars.iv32 = phi i64 [ 0, %.lr.ph29.preheader ], [ %indvars.iv.next33, %.lr.ph29 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv32
   %35 = load ptr, ptr %34, align 8
   call void @pfree(ptr noundef %35) #8
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
@@ -770,7 +767,7 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %.080 = phi i32 [ 3, %35 ], [ 2, %34 ], [ 1, %6 ]
   %39 = load ptr, ptr %7, align 8
   %40 = sext i32 %16 to i64
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr @get_toast_snapshot() #8
   %44 = call ptr @systable_beginscan_ordered(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %43, i32 noundef %.080, ptr noundef nonnull %8) #8

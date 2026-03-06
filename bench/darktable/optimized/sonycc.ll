@@ -5,15 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.BitPumpJpeg = type <{ %struct.BitPump, ptr, i32, i32, i64, i32, i8, [3 x i8] }>
 %struct.BitPump = type { ptr }
-%struct.HuffTable = type <{ [17 x i32], [256 x i32], [256 x i32], i8, i8, [2 x i8], i32, [4 x i8], %"class.std::vector.10", %"class.std::vector.15", i8, [7 x i8] }>
-%"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
-%"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
-%"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
@@ -108,15 +99,15 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   %32 = load i32, ptr %31, align 4, !tbaa !32
   %33 = zext i32 %32 to i64
   %34 = load ptr, ptr %28, align 8, !tbaa !34
-  %35 = getelementptr inbounds nuw %struct.HuffTable, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [2184 x i8], ptr %34, i64 %33
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !32
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.HuffTable, ptr %34, i64 %38
+  %39 = getelementptr inbounds nuw [2184 x i8], ptr %34, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %41 = load i32, ptr %40, align 4, !tbaa !32
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %struct.HuffTable, ptr %34, i64 %42
+  %43 = getelementptr inbounds nuw [2184 x i8], ptr %34, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 2176
   %45 = load i8, ptr %44, align 8, !tbaa !35, !range !47, !noundef !48
   %46 = trunc nuw i8 %45 to i1
@@ -189,27 +180,27 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   store i16 %91, ptr %96, align 2, !tbaa !61
   %97 = trunc i32 %79 to i16
   %98 = zext i32 %2 to i64
-  %99 = getelementptr inbounds nuw i16, ptr %86, i64 %98
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %98
   store i16 %97, ptr %99, align 2, !tbaa !61
   %100 = add nuw i32 %2, 1
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw i16, ptr %86, i64 %101
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %101
   store i16 %89, ptr %102, align 2, !tbaa !61
   %103 = add i32 %2, 2
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i16, ptr %86, i64 %104
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %104
   store i16 %91, ptr %105, align 2, !tbaa !61
   %106 = trunc i32 %81 to i16
   %107 = zext i32 %87 to i64
-  %108 = getelementptr inbounds nuw i16, ptr %86, i64 %107
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %107
   store i16 %106, ptr %108, align 2, !tbaa !61
   %109 = add i32 %2, 4
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw i16, ptr %86, i64 %110
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %110
   store i16 %89, ptr %111, align 2, !tbaa !61
   %112 = add i32 %2, 5
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw i16, ptr %86, i64 %113
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %113
   store i16 %91, ptr %114, align 2, !tbaa !61
   %.not135 = icmp eq i32 %3, 0
   br i1 %.not135, label %._crit_edge134, label %.lr.ph133
@@ -263,7 +254,7 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   %142 = add i32 %141, -3
   %143 = add i32 %131, %.092130
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw i16, ptr %86, i64 %144
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %144
   %146 = load i16, ptr %145, align 2, !tbaa !61
   %147 = zext i16 %146 to i32
   %148 = add i32 %141, -2
@@ -276,13 +267,13 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   %.pn100.in = phi i32 [ %148, %140 ], [ %134, %138 ]
   %.pn101.in = phi i32 [ %149, %140 ], [ %135, %138 ]
   %.pn101 = zext i32 %.pn101.in to i64
-  %.088.in.in = getelementptr inbounds nuw i16, ptr %86, i64 %.pn101
+  %.088.in.in = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %.pn101
   %.088.in = load i16, ptr %.088.in.in, align 2, !tbaa !61
   %.pn100 = zext i32 %.pn100.in to i64
-  %.089.in.in = getelementptr inbounds nuw i16, ptr %86, i64 %.pn100
+  %.089.in.in = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %.pn100
   %.089.in = load i16, ptr %.089.in.in, align 2, !tbaa !61
   %.pn = zext i32 %.pn.in to i64
-  %.091.in.in = getelementptr inbounds nuw i16, ptr %86, i64 %.pn
+  %.091.in.in = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %.pn
   %.091.in = load i16, ptr %.091.in.in, align 2, !tbaa !61
   %.091 = zext i16 %.091.in to i32
   %151 = load i8, ptr %115, align 1, !tbaa !65, !range !47, !noundef !48
@@ -295,7 +286,7 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor21decode_sony_ljpeg_4
   %156 = call noundef i32 %155(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
   %157 = zext i32 %156 to i64
   %158 = load ptr, ptr %116, align 8, !tbaa !66
-  %159 = getelementptr inbounds nuw i64, ptr %158, i64 %157
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %157
   %160 = load i64, ptr %159, align 8, !tbaa !67
   %161 = and i64 %160, 4294967296
   %.not.i = icmp eq i64 %161, 0
@@ -350,7 +341,7 @@ _ZN9HuffTable6decodeER7BitPump.exit:              ; preds = %170, %172, %177, %.
   %190 = call noundef i32 %189(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
   %191 = zext i32 %190 to i64
   %192 = load ptr, ptr %116, align 8, !tbaa !66
-  %193 = getelementptr inbounds nuw i64, ptr %192, i64 %191
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %191
   %194 = load i64, ptr %193, align 8, !tbaa !67
   %195 = and i64 %194, 4294967296
   %.not.i105 = icmp eq i64 %195, 0
@@ -406,7 +397,7 @@ _ZN9HuffTable6decodeER7BitPump.exit109:           ; preds = %204, %206, %211, %.
   %225 = call noundef i32 %224(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
   %226 = zext i32 %225 to i64
   %227 = load ptr, ptr %116, align 8, !tbaa !66
-  %228 = getelementptr inbounds nuw i64, ptr %227, i64 %226
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %226
   %229 = load i64, ptr %228, align 8, !tbaa !67
   %230 = and i64 %229, 4294967296
   %.not.i110 = icmp eq i64 %230, 0
@@ -461,7 +452,7 @@ _ZN9HuffTable6decodeER7BitPump.exit114:           ; preds = %239, %241, %246, %.
   %259 = call noundef i32 %258(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
   %260 = zext i32 %259 to i64
   %261 = load ptr, ptr %116, align 8, !tbaa !66
-  %262 = getelementptr inbounds nuw i64, ptr %261, i64 %260
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %260
   %263 = load i64, ptr %262, align 8, !tbaa !67
   %264 = and i64 %263, 4294967296
   %.not.i115 = icmp eq i64 %264, 0
@@ -516,7 +507,7 @@ _ZN9HuffTable6decodeER7BitPump.exit119:           ; preds = %273, %275, %280, %.
   %293 = call noundef i32 %292(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
   %294 = zext i32 %293 to i64
   %295 = load ptr, ptr %119, align 8, !tbaa !66
-  %296 = getelementptr inbounds nuw i64, ptr %295, i64 %294
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %294
   %297 = load i64, ptr %296, align 8, !tbaa !67
   %298 = and i64 %297, 4294967296
   %.not.i120 = icmp eq i64 %298, 0
@@ -569,7 +560,7 @@ _ZN9HuffTable6decodeER7BitPump.exit124:           ; preds = %307, %309, %314, %.
   %325 = call noundef i32 %324(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
   %326 = zext i32 %325 to i64
   %327 = load ptr, ptr %122, align 8, !tbaa !66
-  %328 = getelementptr inbounds nuw i64, ptr %327, i64 %326
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %327, i64 %326
   %329 = load i64, ptr %328, align 8, !tbaa !67
   %330 = and i64 %329, 4294967296
   %.not.i125 = icmp eq i64 %330, 0
@@ -618,53 +609,53 @@ _ZN9HuffTable6decodeER7BitPump.exit129:           ; preds = %339, %341, %346, %.
   %355 = add i32 %354, 3
   %356 = trunc i32 %184 to i16
   %357 = zext i32 %352 to i64
-  %358 = getelementptr inbounds nuw i16, ptr %86, i64 %357
+  %358 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %357
   store i16 %356, ptr %358, align 2, !tbaa !61
   %359 = add i16 %.0.i122, %.089.in
   %360 = or disjoint i32 %352, 1
   %361 = zext i32 %360 to i64
-  %362 = getelementptr inbounds nuw i16, ptr %86, i64 %361
+  %362 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %361
   store i16 %359, ptr %362, align 2, !tbaa !61
   %363 = add i16 %.0.i127, %.088.in
   %364 = add i32 %352, 2
   %365 = zext i32 %364 to i64
-  %366 = getelementptr inbounds nuw i16, ptr %86, i64 %365
+  %366 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %365
   store i16 %363, ptr %366, align 2, !tbaa !61
   %367 = trunc i32 %218 to i16
   %368 = zext i32 %353 to i64
-  %369 = getelementptr inbounds nuw i16, ptr %86, i64 %368
+  %369 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %368
   store i16 %367, ptr %369, align 2, !tbaa !61
   %370 = add i32 %352, 4
   %371 = zext i32 %370 to i64
-  %372 = getelementptr inbounds nuw i16, ptr %86, i64 %371
+  %372 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %371
   store i16 %359, ptr %372, align 2, !tbaa !61
   %373 = add i32 %352, 5
   %374 = zext i32 %373 to i64
-  %375 = getelementptr inbounds nuw i16, ptr %86, i64 %374
+  %375 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %374
   store i16 %363, ptr %375, align 2, !tbaa !61
   %376 = trunc i32 %253 to i16
   %377 = zext i32 %354 to i64
-  %378 = getelementptr inbounds nuw i16, ptr %86, i64 %377
+  %378 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %377
   store i16 %376, ptr %378, align 2, !tbaa !61
   %379 = add i32 %354, 1
   %380 = zext i32 %379 to i64
-  %381 = getelementptr inbounds nuw i16, ptr %86, i64 %380
+  %381 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %380
   store i16 %359, ptr %381, align 2, !tbaa !61
   %382 = add i32 %354, 2
   %383 = zext i32 %382 to i64
-  %384 = getelementptr inbounds nuw i16, ptr %86, i64 %383
+  %384 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %383
   store i16 %363, ptr %384, align 2, !tbaa !61
   %385 = trunc i32 %287 to i16
   %386 = zext i32 %355 to i64
-  %387 = getelementptr inbounds nuw i16, ptr %86, i64 %386
+  %387 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %386
   store i16 %385, ptr %387, align 2, !tbaa !61
   %388 = add i32 %354, 4
   %389 = zext i32 %388 to i64
-  %390 = getelementptr inbounds nuw i16, ptr %86, i64 %389
+  %390 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %389
   store i16 %359, ptr %390, align 2, !tbaa !61
   %391 = add i32 %354, 5
   %392 = zext i32 %391 to i64
-  %393 = getelementptr inbounds nuw i16, ptr %86, i64 %392
+  %393 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %392
   store i16 %363, ptr %393, align 2, !tbaa !61
   %394 = add i32 %.092130, 6
   %395 = icmp ult i32 %394, %2
@@ -689,7 +680,7 @@ define linkonce_odr noundef i32 @_ZN9HuffTable6decodeER7BitPump(ptr noundef nonn
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef 13)
   %11 = zext i32 %10 to i64
   %12 = load ptr, ptr %7, align 8, !tbaa !66
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load i64, ptr %13, align 8, !tbaa !67
   %15 = and i64 %14, 4294967296
   %.not = icmp eq i64 %15, 0
@@ -901,7 +892,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc91
 
 67:                                               ; preds = %.lr.ph
   %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw i64, ptr %49, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   store i64 %68, ptr %69, align 8, !tbaa !134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = icmp samesign ult i64 %indvars.iv.next, %60
@@ -970,9 +961,9 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
           to label %95 unwind label %.loopexit185
 
 95:                                               ; preds = %.lr.ph193
-  %96 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv202
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv202
   store i32 %94, ptr %96, align 4, !tbaa !136
-  %97 = getelementptr inbounds nuw i64, ptr %49, i64 %indvars.iv202
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv202
   %98 = load i64, ptr %97, align 8, !tbaa !134
   %99 = zext i32 %94 to i64
   %100 = add nsw i64 %98, %99
@@ -1062,7 +1053,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.
 134:                                              ; preds = %.lr.ph196, %_ZN24LibRaw_LjpegDecompressorD2Ev.exit
   %indvars.iv209 = phi i64 [ 0, %.lr.ph196 ], [ %indvars.iv.next210, %_ZN24LibRaw_LjpegDecompressorD2Ev.exit ]
   %135 = load ptr, ptr %9, align 8, !tbaa !133
-  %136 = getelementptr inbounds nuw i64, ptr %49, i64 %indvars.iv209
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv209
   %137 = load i64, ptr %136, align 8, !tbaa !134
   %138 = load ptr, ptr %135, align 8, !tbaa !49
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 32
@@ -1072,7 +1063,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.
 
 142:                                              ; preds = %134
   %143 = load ptr, ptr %9, align 8, !tbaa !133
-  %144 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv209
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv209
   %145 = load i32, ptr %144, align 4, !tbaa !136
   %146 = zext i32 %145 to i64
   %147 = load ptr, ptr %143, align 8, !tbaa !49
@@ -1228,9 +1219,9 @@ _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit36.i: ; preds = %200, %_ZNSt6
   %.pre219.pre-phi = phi i32 [ %.pre220, %200 ], [ %168, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit.i ]
   %.pre216 = phi i32 [ %.pre216.pre, %200 ], [ %167, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit.i ]
   store ptr %193, ptr %2, align 8, !tbaa !30
-  %202 = getelementptr inbounds nuw i16, ptr %194, i64 %179
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %194, i64 %179
   store ptr %202, ptr %116, align 8, !tbaa !27
-  %203 = getelementptr inbounds nuw i16, ptr %193, i64 %191
+  %203 = getelementptr inbounds nuw [2 x i8], ptr %193, i64 %191
   store ptr %203, ptr %117, align 8, !tbaa !146
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
@@ -1330,7 +1321,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
   %249 = sub i32 %smax127.i, %232
   %wide.trip.count128.i = zext i32 %249 to i64
   %wide.trip.count130.i = zext nneg i32 %231 to i64
-  %invariant.gep.i = getelementptr [4 x i16], ptr %225, i64 %245
+  %invariant.gep.i = getelementptr [8 x i8], ptr %225, i64 %245
   %wide.trip.count.i = zext i32 %246 to i64
   %wide.trip.count122.i = zext nneg i32 %233 to i64
   br label %.lr.ph106.split.us.i
@@ -1343,7 +1334,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
 .lr.ph.us.i:                                      ; preds = %.lr.ph106.split.us.i
   %250 = add nsw i64 %indvars.iv124.i, %247
   %251 = mul nsw i64 %250, %248
-  %gep.i = getelementptr [4 x i16], ptr %invariant.gep.i, i64 %251
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %251
   %252 = trunc i64 %indvars.iv124.i to i32
   %253 = mul i32 %233, %252
   %254 = zext i32 %253 to i64
@@ -1365,7 +1356,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
   %.idx.i = mul nuw nsw i64 %258, 6
   %259 = getelementptr inbounds nuw i8, ptr %235, i64 %.idx.i
   %260 = load i16, ptr %259, align 2, !tbaa !61
-  %261 = getelementptr inbounds nuw [4 x i16], ptr %gep.i, i64 %indvars.iv.i
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %gep.i, i64 %indvars.iv.i
   store i16 %260, ptr %261, align 2, !tbaa !61
   %262 = srem i32 %255, %240
   %263 = icmp eq i32 %262, 0
@@ -1414,7 +1405,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
   %284 = sub i32 %smax138.i, %232
   %wide.trip.count139.i = zext i32 %284 to i64
   %wide.trip.count141.i = zext nneg i32 %231 to i64
-  %invariant.gep149.i = getelementptr [4 x i16], ptr %225, i64 %281
+  %invariant.gep149.i = getelementptr [8 x i8], ptr %225, i64 %281
   %invariant.op.i = sub nsw i64 %282, %281
   %invariant.smin.i = call i64 @llvm.smin.i64(i64 %280, i64 %invariant.op.i)
   %smax = call i64 @llvm.smax.i64(i64 %invariant.smin.i, i64 1)
@@ -1428,7 +1419,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
 .lr.ph.us113.i:                                   ; preds = %.lr.ph111.split.us.i
   %285 = add nsw i64 %indvars.iv135.i, %283
   %286 = mul nsw i64 %285, %282
-  %gep150.i = getelementptr [4 x i16], ptr %invariant.gep149.i, i64 %286
+  %gep150.i = getelementptr [8 x i8], ptr %invariant.gep149.i, i64 %286
   %287 = trunc i64 %indvars.iv135.i to i32
   %288 = mul i32 %233, %287
   %289 = zext i32 %288 to i64
@@ -1440,7 +1431,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
   %.idx147.i = mul nuw nsw i64 %291, 6
   %292 = getelementptr inbounds nuw i8, ptr %235, i64 %.idx147.i
   %293 = load i16, ptr %292, align 2, !tbaa !61
-  %294 = getelementptr inbounds nuw [4 x i16], ptr %gep150.i, i64 %indvars.iv132.i
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %gep150.i, i64 %indvars.iv132.i
   store i16 %293, ptr %294, align 2, !tbaa !61
   %295 = getelementptr i8, ptr %292, i64 2
   %296 = load i16, ptr %295, align 2, !tbaa !61
@@ -1488,7 +1479,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
   %318 = sub i32 %smax138.i104, %306
   %wide.trip.count139.i105 = zext i32 %318 to i64
   %wide.trip.count141.i106 = zext nneg i32 %305 to i64
-  %invariant.gep149.i107 = getelementptr [4 x i16], ptr %225, i64 %315
+  %invariant.gep149.i107 = getelementptr [8 x i8], ptr %225, i64 %315
   %invariant.op.i108 = sub nsw i64 %316, %315
   %invariant.smin.i109 = call i64 @llvm.smin.i64(i64 %314, i64 %invariant.op.i108)
   %smax205 = call i64 @llvm.smax.i64(i64 %invariant.smin.i109, i64 1)
@@ -1502,7 +1493,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
 .lr.ph.us113.i113:                                ; preds = %.lr.ph111.split.us.i110
   %319 = add nsw i64 %indvars.iv135.i111, %317
   %320 = mul nsw i64 %319, %316
-  %gep150.i114 = getelementptr [4 x i16], ptr %invariant.gep149.i107, i64 %320
+  %gep150.i114 = getelementptr [8 x i8], ptr %invariant.gep149.i107, i64 %320
   %321 = trunc i64 %indvars.iv135.i111 to i32
   %322 = mul i32 %307, %321
   %323 = zext i32 %322 to i64
@@ -1514,7 +1505,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
   %.idx147.i116 = mul nuw nsw i64 %325, 6
   %326 = getelementptr inbounds nuw i8, ptr %309, i64 %.idx147.i116
   %327 = load i16, ptr %326, align 2, !tbaa !61
-  %328 = getelementptr inbounds nuw [4 x i16], ptr %gep150.i114, i64 %indvars.iv132.i115
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %gep150.i114, i64 %indvars.iv132.i115
   store i16 %327, ptr %328, align 2, !tbaa !61
   %329 = getelementptr i8, ptr %326, i64 2
   %330 = load i16, ptr %329, align 2, !tbaa !61
@@ -1564,7 +1555,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
   %354 = sub i32 %smax.i124, %342
   %wide.trip.count.i125 = zext i32 %354 to i64
   %wide.trip.count64.i = zext nneg i32 %341 to i64
-  %invariant.gep.i126 = getelementptr [4 x i16], ptr %337, i64 %351
+  %invariant.gep.i126 = getelementptr [8 x i8], ptr %337, i64 %351
   %invariant.op.i127 = sub nsw i64 %352, %351
   %invariant.smin.i128 = call i64 @llvm.smin.i64(i64 %350, i64 %invariant.op.i127)
   %smax207 = call i64 @llvm.smax.i64(i64 %invariant.smin.i128, i64 1)
@@ -1578,7 +1569,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
 .lr.ph.us.i130:                                   ; preds = %.lr.ph56.split.us.i
   %355 = add nsw i64 %indvars.iv61.i, %353
   %356 = mul nsw i64 %355, %352
-  %gep.i131 = getelementptr [4 x i16], ptr %invariant.gep.i126, i64 %356
+  %gep.i131 = getelementptr [8 x i8], ptr %invariant.gep.i126, i64 %356
   %357 = trunc i64 %indvars.iv61.i to i32
   %358 = mul i32 %343, %357
   %359 = zext i32 %358 to i64
@@ -1623,7 +1614,7 @@ _ZL9_lim16bitf.exit.us.i:                         ; preds = %384, %382, %360
   %.0.i.us.i = phi nsz float [ %376, %382 ], [ 6.553500e+04, %384 ], [ 0.000000e+00, %360 ]
   %385 = fptoui float %.0.i.us.i to i32
   %386 = trunc i32 %385 to i16
-  %387 = getelementptr inbounds nuw [4 x i16], ptr %gep.i131, i64 %indvars.iv.i132
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %gep.i131, i64 %indvars.iv.i132
   store i16 %386, ptr %387, align 2, !tbaa !61
   %388 = fcmp reassoc nsz arcp contract afn olt float %378, 0.000000e+00
   br i1 %388, label %_ZL9_lim16bitf.exit48.us.i, label %389
@@ -2123,7 +2114,7 @@ define linkonce_odr noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr nound
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2128
   %9 = zext i32 %7 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !155
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !136
   %13 = lshr i32 %12, 16
   %14 = and i32 %13, 255

@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.___itt_group_alias = type { ptr, i32 }
 %struct.___itt_id = type { i64, i64, i64 }
 %union.pthread_mutexattr_t = type { i32 }
-%struct.___itt_context_metadata = type { i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @__itt_detach_ptr__3_0 = global ptr @_ZL21__itt_detach_init_3_0v, align 8
@@ -6120,7 +6119,7 @@ define internal void @_ZL47__itt_bind_context_metadata_to_counter_init_3_0P14___
 
 .lr.ph172:                                        ; preds = %53, %.thread
   %.0131171 = phi i64 [ %102, %.thread ], [ 0, %53 ]
-  %55 = getelementptr inbounds nuw %struct.___itt_context_metadata, ptr %2, i64 %.0131171
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.0131171
   %56 = load i32, ptr %55, align 8, !tbaa !82
   %.0132167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 192), align 8, !tbaa !85
   %.not153168 = icmp eq ptr %.0132167, null
@@ -6407,7 +6406,7 @@ define void @__itt_fini_ittlib() local_unnamed_addr #0 {
   store ptr %52, ptr %54, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !101
-  %56 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %55, i64 %indvars.iv.next.i
+  %56 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %indvars.iv.next.i
   %57 = load ptr, ptr %56, align 8, !tbaa !102
   %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %_ZL26__itt_nullify_all_pointersv.exit, label %.lr.ph.i, !llvm.loop !107
@@ -6765,7 +6764,7 @@ _ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i:             ; preds = %103, %98, %.loopexi
 
 114:                                              ; preds = %113, %_ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i ], [ %indvars.iv.next.i, %113 ]
-  %115 = getelementptr inbounds nuw %struct.___itt_group_list, ptr @_ZL10group_list, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw [16 x i8], ptr @_ZL10group_list, i64 %indvars.iv.i
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !118
   %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %117) #19
@@ -6797,7 +6796,7 @@ _ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i:             ; preds = %103, %98, %.loopexi
   ]
 
 124:                                              ; preds = %.preheader.i
-  %125 = getelementptr inbounds nuw %struct.___itt_group_list, ptr @_ZL10group_list, i64 %indvars.iv92.i
+  %125 = getelementptr inbounds nuw [16 x i8], ptr @_ZL10group_list, i64 %indvars.iv92.i
   %126 = load i32, ptr %125, align 16, !tbaa !120
   %127 = and i64 %indvars.iv92.i, 2147483640
   %128 = icmp ne i64 %127, 8
@@ -6860,7 +6859,7 @@ _ZL17__itt_get_env_varPKc.exit.i:                 ; preds = %_ZL17__itt_get_env_
   br label %_ZL16__itt_get_groupsv.exit
 
 153:                                              ; preds = %141, %_ZL17__itt_get_env_varPKc.exit.i
-  %154 = getelementptr inbounds nuw %struct.___itt_group_alias, ptr @_ZL11group_alias, i64 %indvars.iv95.i
+  %154 = getelementptr inbounds nuw [16 x i8], ptr @_ZL11group_alias, i64 %indvars.iv95.i
   br i1 %.not36.i, label %_ZL16__itt_get_groupsv.exit, label %_ZL17__itt_get_env_varPKc.exit.i, !llvm.loop !126
 
 _ZL16__itt_get_groupsv.exit:                      ; preds = %153, %132, %143
@@ -6923,12 +6922,12 @@ _ZL16__itt_get_groupsv.exit:                      ; preds = %153, %132, %143
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 96), align 8, !tbaa !100
   %177 = call ptr @dlsym(ptr noundef %176, ptr noundef nonnull %171) #18
   %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !101
-  %179 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %178, i64 %indvars.iv
+  %179 = getelementptr inbounds nuw [40 x i8], ptr %178, i64 %indvars.iv
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !106
   store ptr %177, ptr %181, align 8, !tbaa !21
   %182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !101
-  %183 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %182, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw [40 x i8], ptr %182, i64 %indvars.iv
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load ptr, ptr %184, align 8, !tbaa !106
   %186 = load ptr, ptr %185, align 8, !tbaa !21
@@ -6940,7 +6939,7 @@ _ZL16__itt_get_groupsv.exit:                      ; preds = %153, %132, %143
   %190 = load ptr, ptr %189, align 8, !tbaa !105
   store ptr %190, ptr %185, align 8, !tbaa !21
   %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !101
-  %192 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %191, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [40 x i8], ptr %191, i64 %indvars.iv
   %193 = load ptr, ptr %192, align 8, !tbaa !102
   call void (i32, ...) @_ZL18__itt_report_erroriz(i32 noundef 2, ptr noundef %.063, ptr noundef %193)
   br label %199
@@ -6956,7 +6955,7 @@ _ZL16__itt_get_groupsv.exit:                      ; preds = %153, %132, %143
 199:                                              ; preds = %194, %188, %175
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !101
-  %201 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %200, i64 %indvars.iv.next
+  %201 = getelementptr inbounds nuw [40 x i8], ptr %200, i64 %indvars.iv.next
   %202 = load ptr, ptr %201, align 8, !tbaa !102
   %.not82 = icmp eq ptr %202, null
   br i1 %.not82, label %._crit_edge, label %.lr.ph119, !llvm.loop !129
@@ -7011,7 +7010,7 @@ default.unreachable170:                           ; preds = %165
   store ptr %220, ptr %222, align 8, !tbaa !21
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
   %223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !101
-  %224 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %223, i64 %indvars.iv.next.i88
+  %224 = getelementptr inbounds nuw [40 x i8], ptr %223, i64 %indvars.iv.next.i88
   %225 = load ptr, ptr %224, align 8, !tbaa !102
   %.not.i = icmp eq ptr %225, null
   br i1 %.not.i, label %_ZL26__itt_nullify_all_pointersv.exit, label %.lr.ph.i, !llvm.loop !107
@@ -7038,7 +7037,7 @@ _ZL26__itt_nullify_all_pointersv.exit:            ; preds = %.lr.ph.i, %215
   store ptr %232, ptr %234, align 8, !tbaa !21
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !101
-  %236 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %235, i64 %indvars.iv.next.i92
+  %236 = getelementptr inbounds nuw [40 x i8], ptr %235, i64 %indvars.iv.next.i92
   %237 = load ptr, ptr %236, align 8, !tbaa !102
   %.not.i93 = icmp eq ptr %237, null
   br i1 %.not.i93, label %_ZL26__itt_nullify_all_pointersv.exit94, label %.lr.ph.i90, !llvm.loop !107
@@ -7064,7 +7063,7 @@ _ZL26__itt_nullify_all_pointersv.exit94:          ; preds = %.lr.ph.i90, %227, %
 
 .lr.ph123:                                        ; preds = %241, %254
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %254 ], [ 0, %241 ]
-  %244 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %242, i64 %indvars.iv146
+  %244 = getelementptr inbounds nuw [40 x i8], ptr %242, i64 %indvars.iv146
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %246 = load ptr, ptr %245, align 8, !tbaa !106
   %247 = load ptr, ptr %246, align 8, !tbaa !21
@@ -7082,7 +7081,7 @@ _ZL26__itt_nullify_all_pointersv.exit94:          ; preds = %.lr.ph.i90, %227, %
 
 254:                                              ; preds = %.lr.ph123, %250
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %255 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %242, i64 %indvars.iv.next147
+  %255 = getelementptr inbounds nuw [40 x i8], ptr %242, i64 %indvars.iv.next147
   %256 = load ptr, ptr %255, align 8, !tbaa !102
   %.not84 = icmp eq ptr %256, null
   br i1 %.not84, label %._crit_edge124, label %.lr.ph123, !llvm.loop !130

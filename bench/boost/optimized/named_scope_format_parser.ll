@@ -2374,10 +2374,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i: ; pred
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i, %.noexc
   %98 = phi ptr [ %.pre.i, %.noexc ], [ %90, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i ]
-  %99 = getelementptr inbounds nuw i32, ptr %98, i64 %87
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %87
   store i32 37, ptr %99, align 4, !tbaa !48, !noalias !41
   store i64 %89, ptr %20, align 8, !tbaa !46, !noalias !41
-  %100 = getelementptr inbounds nuw i32, ptr %98, i64 %89
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %89
   store i32 0, ptr %100, align 4, !tbaa !48, !noalias !41
   br label %396
 
@@ -3221,10 +3221,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i93: ; pr
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit96: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i93, %.noexc95
   %393 = phi ptr [ %.pre.i94, %.noexc95 ], [ %385, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i93 ]
-  %394 = getelementptr inbounds nuw i32, ptr %393, i64 %383
+  %394 = getelementptr inbounds nuw [4 x i8], ptr %393, i64 %383
   store i32 37, ptr %394, align 4, !tbaa !48, !noalias !41
   store i64 %384, ptr %20, align 8, !tbaa !46, !noalias !41
-  %395 = getelementptr inbounds nuw i32, ptr %393, i64 %384
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %393, i64 %384
   store i32 0, ptr %395, align 4, !tbaa !48, !noalias !41
   br label %._crit_edge
 
@@ -3659,7 +3659,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %50
   store ptr %22, ptr %0, align 8, !tbaa !39
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !25
-  %54 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function", ptr %22, i64 %16
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %54, ptr %49, align 8, !tbaa !27
   ret void
 
@@ -4434,7 +4434,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %36
   store ptr %22, ptr %0, align 8, !tbaa !39
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !25
-  %40 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function", ptr %22, i64 %16
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %40, ptr %35, align 8, !tbaa !27
   ret void
 
@@ -4630,7 +4630,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %38
   store ptr %22, ptr %0, align 8, !tbaa !39
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !25
-  %42 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function", ptr %22, i64 %16
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %42, ptr %37, align 8, !tbaa !27
   ret void
 
@@ -4873,7 +4873,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %36
   store ptr %22, ptr %0, align 8, !tbaa !39
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !25
-  %40 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function", ptr %22, i64 %16
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %40, ptr %35, align 8, !tbaa !27
   ret void
 
@@ -5066,7 +5066,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %36
   store ptr %22, ptr %0, align 8, !tbaa !39
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !25
-  %40 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function", ptr %22, i64 %16
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %40, ptr %35, align 8, !tbaa !27
   ret void
 
@@ -5277,7 +5277,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIcSt11char_traitsIcESaIcEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %36
   store ptr %22, ptr %0, align 8, !tbaa !39
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !25
-  %40 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function", ptr %22, i64 %16
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %40, ptr %35, align 8, !tbaa !27
   ret void
 
@@ -5998,7 +5998,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %51
   store ptr %22, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !52
-  %55 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function.119", ptr %22, i64 %16
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %55, ptr %50, align 8, !tbaa !54
   ret void
 
@@ -6126,7 +6126,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14light_fu
   %23 = phi i64 [ %15, %._crit_edge.i.i.i.i ], [ %15, %17 ], [ %.pre6.i.i.i.i, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %23, ptr %24, align 8, !tbaa !46
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 0, ptr %25, align 4, !tbaa !48
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %3
@@ -6670,7 +6670,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %36
   store ptr %22, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !52
-  %40 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function.119", ptr %22, i64 %16
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %40, ptr %35, align 8, !tbaa !54
   ret void
 
@@ -7215,7 +7215,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %38
   store ptr %22, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !52
-  %42 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function.119", ptr %22, i64 %16
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %42, ptr %37, align 8, !tbaa !54
   ret void
 
@@ -7576,7 +7576,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %36
   store ptr %22, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !52
-  %40 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function.119", ptr %22, i64 %16
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %40, ptr %35, align 8, !tbaa !54
   ret void
 
@@ -7769,7 +7769,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %36
   store ptr %22, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !52
-  %40 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function.119", ptr %22, i64 %16
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %40, ptr %35, align 8, !tbaa !54
   ret void
 
@@ -7979,7 +7979,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatt
 _ZNSt12_Vector_baseIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14light_functionIFvRNS2_24basic_formatting_ostreamIwSt11char_traitsIwESaIwEEERKNS2_10attributes17named_scope_entryEEEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit32, %36
   store ptr %22, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !52
-  %40 = getelementptr inbounds nuw %"class.boost::log::v2_mt_posix::aux::light_function.119", ptr %22, i64 %16
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %40, ptr %35, align 8, !tbaa !54
   ret void
 

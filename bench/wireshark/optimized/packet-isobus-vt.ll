@@ -1437,7 +1437,7 @@ vt_getline.exit.i:                                ; preds = %.split9.i
   %15 = call i64 @g_ascii_strtoll(ptr noundef %14, ptr noundef null, i32 noundef 10)
   %16 = trunc i64 %15 to i32
   %17 = zext i16 %.013.i to i64
-  %18 = getelementptr %struct._value_string, ptr @object_id_strings, i64 %17
+  %18 = getelementptr [16 x i8], ptr @object_id_strings, i64 %17
   store i32 %16, ptr %18, align 16
   %19 = call ptr @wmem_epan_scope()
   %20 = getelementptr i8, ptr %13, i64 8
@@ -1467,7 +1467,7 @@ vt_getline.exit12.i:                              ; preds = %.split.i
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %vt_getline.exit.i, %.split9.i
   %.0.lcssa.i = phi i64 [ 0, %vt_getline.exit.i ], [ %32, %._crit_edge.loopexit.i ], [ 0, %.split9.i ]
   %33 = call i32 @fclose(ptr noundef nonnull %3)
-  %34 = getelementptr %struct._value_string, ptr @object_id_strings, i64 %.0.lcssa.i
+  %34 = getelementptr [16 x i8], ptr @object_id_strings, i64 %.0.lcssa.i
   store i32 0, ptr %34, align 16
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr null, ptr %35, align 8

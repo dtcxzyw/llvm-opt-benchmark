@@ -481,7 +481,7 @@ define range(i32 0, 2) i32 @EVP_PBE_get(ptr noundef writeonly captures(address_i
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw %struct.evp_pbe_st, ptr @builtin_pbe, i64 %2
+  %6 = getelementptr inbounds nuw [32 x i8], ptr @builtin_pbe, i64 %2
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %7
 

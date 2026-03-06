@@ -292,7 +292,7 @@ _ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE
 _ZN5clang4ento17ConstraintManager13AssumeStackTy4pushEPKNS0_12ProgramStateE.exit.i: ; preds = %64, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.thread.i
   %.pre-phi.i = phi i64 [ %23, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.thread.i ], [ %.pre61.i, %64 ]
   %67 = phi ptr [ %20, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.thread.i ], [ %.pre.i, %64 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %.pre-phi.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.pre-phi.i
   %69 = ptrtoint ptr %13 to i64
   store i64 %69, ptr %68, align 1, !noalias !35
   %70 = load i32, ptr %21, align 8, !tbaa !42, !noalias !35
@@ -641,7 +641,7 @@ _ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE
 _ZN5clang4ento17ConstraintManager13AssumeStackTy4pushEPKNS0_12ProgramStateE.exit.i: ; preds = %66, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.thread.i
   %.pre-phi.i = phi i64 [ %25, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.thread.i ], [ %.pre61.i, %66 ]
   %69 = phi ptr [ %22, %_ZNK5clang4ento17ConstraintManager13AssumeStackTy8containsEPKNS0_12ProgramStateE.exit.thread.i ], [ %.pre.i, %66 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %.pre-phi.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.pre-phi.i
   %71 = ptrtoint ptr %15 to i64
   store i64 %71, ptr %70, align 1, !noalias !58
   %72 = load i32, ptr %23, align 8, !tbaa !42, !noalias !58

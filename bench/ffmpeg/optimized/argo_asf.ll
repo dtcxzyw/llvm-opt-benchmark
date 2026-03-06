@@ -459,7 +459,7 @@ define internal i32 @argo_asf_seek(ptr noundef readonly captures(none) %0, i32 n
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !65
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %21 = load i32, ptr %20, align 4, !tbaa !76

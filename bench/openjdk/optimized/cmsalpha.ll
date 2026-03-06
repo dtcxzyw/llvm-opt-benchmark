@@ -114,9 +114,9 @@ _cmsGetFormatterAlpha.exit.thread:                ; preds = %FormatterPos.exit22
 
 _cmsGetFormatterAlpha.exit:                       ; preds = %FormatterPos.exit22.i
   %51 = zext nneg i32 %.0.i.i to i64
-  %52 = getelementptr inbounds nuw [6 x ptr], ptr @_cmsGetFormatterAlpha.FormattersAlpha, i64 %51
+  %52 = getelementptr inbounds nuw [48 x i8], ptr @_cmsGetFormatterAlpha.FormattersAlpha, i64 %51
   %53 = zext nneg i32 %.0.i18.i to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.loopexit, label %57
@@ -202,11 +202,11 @@ _cmsGetFormatterAlpha.exit:                       ; preds = %FormatterPos.exit22
 
 86:                                               ; preds = %.lr.ph94.us, %86
   %indvars.iv144 = phi i64 [ 0, %.lr.ph94.us ], [ %indvars.iv.next145, %86 ]
-  %87 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv144
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv144
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, %125
   store i32 %89, ptr %87, align 4
-  %90 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv144
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv144
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %91, %126
   store i32 %92, ptr %90, align 4
@@ -216,25 +216,25 @@ _cmsGetFormatterAlpha.exit:                       ; preds = %FormatterPos.exit22
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
-  %93 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4
   %95 = zext i32 %94 to i64
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 %95
-  %97 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4
   %99 = zext i32 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 %99
-  %101 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr %100, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 %104
-  %106 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 %108
-  %110 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %109, ptr %110, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -246,17 +246,17 @@ _cmsGetFormatterAlpha.exit:                       ; preds = %FormatterPos.exit22
 
 111:                                              ; preds = %111, %.preheader84.us.us
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %111 ], [ 0, %.preheader84.us.us ]
-  %112 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv138
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv138
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv138
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv138
   %115 = load ptr, ptr %114, align 8
   tail call void %55(ptr noundef %113, ptr noundef %115) #11
-  %116 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv138
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv138
   %117 = load i32, ptr %116, align 4
   %118 = zext i32 %117 to i64
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 %118
   store ptr %119, ptr %114, align 8
-  %120 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv138
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv138
   %121 = load i32, ptr %120, align 4
   %122 = zext i32 %121 to i64
   %123 = getelementptr inbounds nuw i8, ptr %113, i64 %122
@@ -286,11 +286,11 @@ _cmsGetFormatterAlpha.exit:                       ; preds = %FormatterPos.exit22
 
 ..preheader86_crit_edge.us107.us:                 ; preds = %135, %..preheader86_crit_edge.us107.us
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %..preheader86_crit_edge.us107.us ], [ 0, %135 ]
-  %129 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv155
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv155
   %130 = load i32, ptr %129, align 4
   %131 = add i32 %130, %127
   store i32 %131, ptr %129, align 4
-  %132 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv155
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv155
   %133 = load i32, ptr %132, align 4
   %134 = add i32 %133, %128
   store i32 %134, ptr %132, align 4
@@ -300,25 +300,25 @@ _cmsGetFormatterAlpha.exit:                       ; preds = %FormatterPos.exit22
 
 135:                                              ; preds = %.preheader87.us101.us, %135
   %indvars.iv150 = phi i64 [ 0, %.preheader87.us101.us ], [ %indvars.iv.next151, %135 ]
-  %136 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv150
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv150
   %137 = load i32, ptr %136, align 4
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 %138
-  %140 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv150
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv150
   %141 = load i32, ptr %140, align 4
   %142 = zext i32 %141 to i64
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 %142
-  %144 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv150
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv150
   store ptr %143, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv150
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv150
   %146 = load i32, ptr %145, align 4
   %147 = zext i32 %146 to i64
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 %147
-  %149 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv150
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv150
   %150 = load i32, ptr %149, align 4
   %151 = zext i32 %150 to i64
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 %151
-  %153 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv150
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv150
   store ptr %152, ptr %153, align 8
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
@@ -372,7 +372,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
 
 .lr.ph54.split.us.i:                              ; preds = %.lr.ph54.i, %.lr.ph54.split.us.i
   %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %.lr.ph54.split.us.i ], [ 0, %.lr.ph54.i ]
-  %19 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv76.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv76.i
   %20 = trunc nuw nsw i64 %indvars.iv76.i to i32
   store i32 %20, ptr %19, align 4
   %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
@@ -381,7 +381,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %..i.i8, ptr %21, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -392,7 +392,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
   %22 = trunc nuw nsw i64 %indvars.iv71.i to i32
   %23 = xor i32 %22, -1
   %24 = add nsw i32 %12, %23
-  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv71.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv71.i
   store i32 %24, ptr %25, align 4
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count79.i
@@ -421,7 +421,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
 
 ._crit_edge58.i:                                  ; preds = %.lr.ph57.preheader.i, %27
   %.pre-phi.i = phi i64 [ %30, %.lr.ph57.preheader.i ], [ 0, %27 ]
-  %32 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.pre-phi.i
   store i32 %28, ptr %32, align 4
   br label %.lr.ph61.i.preheader
 
@@ -441,7 +441,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
 
 .lr.ph61.i:                                       ; preds = %.lr.ph61.i.preheader, %.lr.ph61.i
   %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %.lr.ph61.i ], [ 0, %.lr.ph61.i.preheader ]
-  %39 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv84.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv84.i
   %40 = load i32, ptr %39, align 4
   %41 = mul i32 %40, %1
   store i32 %41, ptr %39, align 4
@@ -478,7 +478,7 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
 
 .lr.ph58.split.us.i:                              ; preds = %.lr.ph58.i, %.lr.ph58.split.us.i
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %.lr.ph58.split.us.i ], [ 0, %.lr.ph58.i ]
-  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv80.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv80.i
   %48 = trunc nuw nsw i64 %indvars.iv80.i to i32
   store i32 %48, ptr %47, align 4
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
@@ -487,7 +487,7 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i10
   %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.preheader.i10 ], [ %indvars.iv.next.i14, %.lr.ph.i12 ]
-  %49 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i13
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i13
   store i32 %43, ptr %49, align 4
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, %wide.trip.count.i11
@@ -498,7 +498,7 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
   %50 = trunc nuw nsw i64 %indvars.iv75.i to i32
   %51 = xor i32 %50, -1
   %52 = add nsw i32 %12, %51
-  %53 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv75.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv75.i
   store i32 %52, ptr %53, align 4
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %wide.trip.count83.i
@@ -518,7 +518,7 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
   %59 = zext nneg i32 %58 to i64
   %60 = shl nuw nsw i64 %59, 2
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 4 %scevgep.i19, i64 %60, i1 false)
-  %61 = getelementptr inbounds nuw i32, ptr %5, i64 %59
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %59
   store i32 %57, ptr %61, align 4
   br label %62
 
@@ -528,7 +528,7 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
 
 .lr.ph64.i:                                       ; preds = %62, %.lr.ph64.i
   %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.lr.ph64.i ], [ 0, %62 ]
-  %64 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv88.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv88.i
   %65 = load i32, ptr %64, align 4
   %66 = mul i32 %65, %..i.i8
   store i32 %66, ptr %64, align 4

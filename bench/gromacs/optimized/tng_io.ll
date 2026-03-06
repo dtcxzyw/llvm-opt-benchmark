@@ -3,16 +3,9 @@ source_filename = "bench/gromacs/original/tng_io.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.tng_molecule = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr }
-%struct.tng_chain = type { ptr, i64, ptr, i64, ptr }
-%struct.tng_residue = type { ptr, i64, ptr, i64, i64 }
-%struct.tng_atom = type { ptr, i64, ptr, ptr }
-%struct.tng_bond = type { i64, i64 }
-%struct.tng_particle_mapping = type { i64, i64, ptr }
-%struct.tng_data = type { i64, ptr, i8, i8, i64, i64, i64, i64, i64, i64, double, ptr, ptr }
 %struct.md5_state_s = type { [2 x i32], [4 x i32], [64 x i8] }
 %struct.tng_trajectory_frame_set = type { i64, ptr, i64, i64, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, double, i32, ptr, i32, ptr }
-%union.data_values = type { double }
+%struct.tng_data = type { i64, ptr, i8, i8, i64, i64, i64, i64, i64, i64, double, ptr, ptr }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [45 x i8] c"TNG library: Cannot allocate memory. %s: %d\0A\00", align 1
@@ -298,7 +291,7 @@ define range(i32 0, 3) i32 @tng_molecule_add(ptr noundef captures(none) %0, ptr 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %8 = load ptr, ptr %7, align 8, !tbaa !28
-  %9 = getelementptr %struct.tng_molecule, ptr %8, i64 %5
+  %9 = getelementptr [88 x i8], ptr %8, i64 %5
   %10 = getelementptr i8, ptr %9, i64 -88
   %11 = load i64, ptr %10, align 8, !tbaa !29
   %12 = add nsw i64 %11, 1
@@ -353,7 +346,7 @@ define range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr noundef captures(none) %0,
   store ptr %11, ptr %5, align 8, !tbaa !28
   store ptr %22, ptr %17, align 8, !tbaa !34
   %27 = load i64, ptr %7, align 8, !tbaa !19
-  %28 = getelementptr inbounds %struct.tng_molecule, ptr %11, i64 %27
+  %28 = getelementptr inbounds [88 x i8], ptr %11, i64 %27
   store ptr %28, ptr %3, align 8, !tbaa !35
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 1, ptr %29, align 8, !tbaa !36
@@ -384,7 +377,7 @@ tng_molecule_name_set.exit:                       ; preds = %36, %39
   %41 = phi ptr [ %.pre33, %36 ], [ %28, %39 ]
   %42 = phi i64 [ %.pre32, %36 ], [ %27, %39 ]
   %43 = phi ptr [ %.pre, %36 ], [ %22, %39 ]
-  %44 = getelementptr inbounds i64, ptr %43, i64 %42
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %42
   store i64 0, ptr %44, align 8, !tbaa !38
   store i64 %2, ptr %41, align 8, !tbaa !29
   %45 = load i64, ptr %7, align 8, !tbaa !19
@@ -459,7 +452,7 @@ define range(i32 0, 3) i32 @tng_molecule_existing_add(ptr noundef captures(none)
   br i1 %.not, label %._crit_edge, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr %struct.tng_molecule, ptr %.pre, i64 %4
+  %6 = getelementptr [88 x i8], ptr %.pre, i64 %4
   %7 = getelementptr i8, ptr %6, i64 -88
   %8 = load i64, ptr %7, align 8, !tbaa !29
   %9 = add nsw i64 %8, 1
@@ -506,14 +499,14 @@ define range(i32 0, 3) i32 @tng_molecule_existing_add(ptr noundef captures(none)
   store ptr %13, ptr %10, align 8, !tbaa !28
   store ptr %24, ptr %19, align 8, !tbaa !34
   %31 = load i64, ptr %3, align 8, !tbaa !19
-  %32 = getelementptr inbounds %struct.tng_molecule, ptr %13, i64 %31
+  %32 = getelementptr inbounds [88 x i8], ptr %13, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr noundef nonnull align 8 dereferenceable(88) %30, i64 88, i1 false), !tbaa.struct !39
-  %33 = getelementptr inbounds i64, ptr %24, i64 %31
+  %33 = getelementptr inbounds [8 x i8], ptr %24, i64 %31
   store i64 0, ptr %33, align 8, !tbaa !38
   %34 = load ptr, ptr %1, align 8, !tbaa !35
   tail call void @free(ptr noundef %34) #28
   %35 = load i64, ptr %3, align 8, !tbaa !19
-  %36 = getelementptr inbounds %struct.tng_molecule, ptr %13, i64 %35
+  %36 = getelementptr inbounds [88 x i8], ptr %13, i64 %35
   store ptr %36, ptr %1, align 8, !tbaa !35
   store i64 %.032, ptr %36, align 8, !tbaa !29
   %37 = add nsw i64 %35, 1
@@ -559,7 +552,7 @@ define range(i32 0, 2) i32 @tng_molecule_cnt_get(ptr noundef readonly captures(n
 
 9:                                                ; preds = %.lr.ph, %12
   %.01115 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
-  %10 = getelementptr inbounds nuw %struct.tng_molecule, ptr %8, i64 %.01115
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %8, i64 %.01115
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %14, label %12
 
@@ -571,7 +564,7 @@ define range(i32 0, 2) i32 @tng_molecule_cnt_get(ptr noundef readonly captures(n
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %16 = load ptr, ptr %15, align 8, !tbaa !34
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %.01115
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01115
   %18 = load i64, ptr %17, align 8, !tbaa !38
   store i64 %18, ptr %2, align 8, !tbaa !38
   br label %.thread
@@ -595,7 +588,7 @@ define range(i32 0, 2) i32 @tng_molecule_cnt_set(ptr noundef captures(none) %0, 
 
 9:                                                ; preds = %.lr.ph, %12
   %.02933 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
-  %10 = getelementptr inbounds nuw %struct.tng_molecule, ptr %8, i64 %.02933
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %8, i64 %.02933
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %16, label %12
 
@@ -619,7 +612,7 @@ define range(i32 0, 2) i32 @tng_molecule_cnt_set(ptr noundef captures(none) %0, 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %23 = load ptr, ptr %22, align 8, !tbaa !34
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %.02933
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.02933
   %25 = load i64, ptr %24, align 8, !tbaa !38
   store i64 %2, ptr %24, align 8, !tbaa !38
   %26 = sub nsw i64 %2, %25
@@ -634,7 +627,7 @@ define range(i32 0, 2) i32 @tng_molecule_cnt_set(ptr noundef captures(none) %0, 
 32:                                               ; preds = %16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %34 = load ptr, ptr %33, align 8, !tbaa !50
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %.02933
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02933
   %36 = load i64, ptr %35, align 8, !tbaa !38
   store i64 %2, ptr %35, align 8, !tbaa !38
   %37 = sub nsw i64 %2, %36
@@ -667,7 +660,7 @@ define range(i32 0, 2) i32 @tng_molecule_find(ptr noundef readonly captures(none
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %19
   %.01417.us = phi i64 [ %.014.us, %19 ], [ %.01416, %.lr.ph ]
   %10 = load ptr, ptr %8, align 8, !tbaa !28
-  %11 = getelementptr inbounds nuw %struct.tng_molecule, ptr %10, i64 %.01417.us
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %.01417.us
   store ptr %11, ptr %3, align 8, !tbaa !35
   %12 = load i8, ptr %1, align 1, !tbaa !13
   %13 = icmp eq i8 %12, 0
@@ -688,7 +681,7 @@ define range(i32 0, 2) i32 @tng_molecule_find(ptr noundef readonly captures(none
 .lr.ph.split:                                     ; preds = %.lr.ph, %33
   %.01417 = phi i64 [ %.014, %33 ], [ %.01416, %.lr.ph ]
   %21 = load ptr, ptr %8, align 8, !tbaa !28
-  %22 = getelementptr inbounds nuw %struct.tng_molecule, ptr %21, i64 %.01417
+  %22 = getelementptr inbounds nuw [88 x i8], ptr %21, i64 %.01417
   store ptr %22, ptr %3, align 8, !tbaa !35
   %23 = load i8, ptr %1, align 1, !tbaa !13
   %24 = icmp eq i8 %23, 0
@@ -733,7 +726,7 @@ define range(i32 0, 2) i32 @tng_molecule_of_index_get(ptr noundef readonly captu
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %8 = load ptr, ptr %7, align 8, !tbaa !28
-  %9 = getelementptr inbounds %struct.tng_molecule, ptr %8, i64 %1
+  %9 = getelementptr inbounds [88 x i8], ptr %8, i64 %1
   br label %10
 
 10:                                               ; preds = %3, %6
@@ -765,7 +758,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captur
 11:                                               ; preds = %.lr.ph, %11
   %.083126 = phi i64 [ 0, %.lr.ph ], [ %15, %11 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !28
-  %13 = getelementptr inbounds nuw %struct.tng_molecule, ptr %12, i64 %.083126
+  %13 = getelementptr inbounds nuw [88 x i8], ptr %12, i64 %.083126
   %14 = tail call i32 @tng_molecule_destroy(ptr nonnull poison, ptr noundef %13)
   %15 = add nuw nsw i64 %.083126, 1
   %16 = load i64, ptr %7, align 8, !tbaa !19
@@ -830,7 +823,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captur
 47:                                               ; preds = %.lr.ph143, %187
   %.184141 = phi i64 [ 0, %.lr.ph143 ], [ %188, %187 ]
   %48 = load ptr, ptr %42, align 8, !tbaa !28
-  %49 = getelementptr inbounds nuw %struct.tng_molecule, ptr %48, i64 %.184141
+  %49 = getelementptr inbounds nuw [88 x i8], ptr %48, i64 %.184141
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !37
   %52 = load i64, ptr %49, align 8, !tbaa !29
@@ -862,7 +855,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captur
 67:                                               ; preds = %.lr.ph135, %._crit_edge132
   %.082133 = phi i64 [ 0, %.lr.ph135 ], [ %121, %._crit_edge132 ]
   %68 = load ptr, ptr %65, align 8, !tbaa !55
-  %69 = getelementptr inbounds nuw %struct.tng_chain, ptr %68, i64 %.082133
+  %69 = getelementptr inbounds nuw [40 x i8], ptr %68, i64 %.082133
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !56
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -890,7 +883,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captur
 83:                                               ; preds = %.lr.ph131, %._crit_edge129
   %.081130 = phi i64 [ 0, %.lr.ph131 ], [ %118, %._crit_edge129 ]
   %84 = load ptr, ptr %78, align 8, !tbaa !60
-  %85 = getelementptr inbounds nuw %struct.tng_residue, ptr %84, i64 %.081130
+  %85 = getelementptr inbounds nuw [40 x i8], ptr %84, i64 %.081130
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !61
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -925,8 +918,8 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captur
   %.080127 = phi i64 [ 0, %.lr.ph128 ], [ %100, %99 ]
   %104 = load ptr, ptr %66, align 8, !tbaa !66
   %105 = load i64, ptr %94, align 8, !tbaa !67
-  %106 = getelementptr %struct.tng_atom, ptr %104, i64 %105
-  %107 = getelementptr %struct.tng_atom, ptr %106, i64 %.080127
+  %106 = getelementptr [32 x i8], ptr %104, i64 %105
+  %107 = getelementptr [32 x i8], ptr %106, i64 %.080127
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load ptr, ptr %108, align 8, !tbaa !12
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 16
@@ -992,9 +985,9 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captur
 142:                                              ; preds = %.lr.ph139, %142
   %.1137 = phi i64 [ 0, %.lr.ph139 ], [ %147, %142 ]
   %143 = load ptr, ptr %129, align 8, !tbaa !72
-  %144 = getelementptr inbounds nuw %struct.tng_bond, ptr %143, i64 %.1137
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %143, i64 %.1137
   %145 = load ptr, ptr %141, align 8, !tbaa !72
-  %146 = getelementptr inbounds nuw %struct.tng_bond, ptr %145, i64 %.1137
+  %146 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 %.1137
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull align 8 dereferenceable(16) %146, i64 16, i1 false), !tbaa.struct !73
   %147 = add nuw nsw i64 %.1137, 1
   %148 = load i64, ptr %124, align 8, !tbaa !71
@@ -1003,7 +996,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captur
 
 .loopexit103:                                     ; preds = %142, %138, %._crit_edge136
   %150 = load ptr, ptr %43, align 8, !tbaa !34
-  %151 = getelementptr inbounds nuw i64, ptr %150, i64 %.184141
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %.184141
   %152 = load i64, ptr %151, align 8, !tbaa !38
   %153 = load i64, ptr %7, align 8, !tbaa !19
   %154 = icmp sgt i64 %153, 0
@@ -1015,7 +1008,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captur
 
 156:                                              ; preds = %159, %.lr.ph.i
   %.02933.i = phi i64 [ 0, %.lr.ph.i ], [ %160, %159 ]
-  %157 = getelementptr inbounds nuw %struct.tng_molecule, ptr %155, i64 %.02933.i
+  %157 = getelementptr inbounds nuw [88 x i8], ptr %155, i64 %.02933.i
   %158 = icmp eq ptr %157, %60
   br i1 %158, label %161, label %159
 
@@ -1032,7 +1025,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captur
 
 165:                                              ; preds = %161
   %166 = load ptr, ptr %30, align 8, !tbaa !34
-  %167 = getelementptr inbounds nuw i64, ptr %166, i64 %.02933.i
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %.02933.i
   %168 = load i64, ptr %167, align 8, !tbaa !38
   store i64 %152, ptr %167, align 8, !tbaa !38
   %169 = sub nsw i64 %152, %168
@@ -1045,7 +1038,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captur
 
 174:                                              ; preds = %161
   %175 = load ptr, ptr %45, align 8, !tbaa !50
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %.02933.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.02933.i
   %177 = load i64, ptr %176, align 8, !tbaa !38
   store i64 %152, ptr %176, align 8, !tbaa !38
   %178 = sub nsw i64 %152, %177
@@ -1106,7 +1099,7 @@ define noundef i32 @tng_molecule_destroy(ptr readnone captures(none) %0, ptr nou
   %12 = phi i64 [ %22, %21 ], [ %10, %.preheader52 ]
   %13 = phi ptr [ %23, %21 ], [ %8, %.preheader52 ]
   %.053 = phi i64 [ %24, %21 ], [ 0, %.preheader52 ]
-  %14 = getelementptr inbounds nuw %struct.tng_chain, ptr %13, i64 %.053
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %.053
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !56
   %.not50 = icmp eq ptr %16, null
@@ -1115,7 +1108,7 @@ define noundef i32 @tng_molecule_destroy(ptr readnone captures(none) %0, ptr nou
 17:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %16) #28
   %18 = load ptr, ptr %7, align 8, !tbaa !55
-  %19 = getelementptr inbounds nuw %struct.tng_chain, ptr %18, i64 %.053
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %.053
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr null, ptr %20, align 8, !tbaa !56
   %.pre = load i64, ptr %9, align 8, !tbaa !54
@@ -1152,7 +1145,7 @@ define noundef i32 @tng_molecule_destroy(ptr readnone captures(none) %0, ptr nou
   %34 = phi i64 [ %44, %43 ], [ %32, %.preheader51 ]
   %35 = phi ptr [ %45, %43 ], [ %30, %.preheader51 ]
   %.154 = phi i64 [ %46, %43 ], [ 0, %.preheader51 ]
-  %36 = getelementptr inbounds nuw %struct.tng_residue, ptr %35, i64 %.154
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %.154
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !61
   %.not49 = icmp eq ptr %38, null
@@ -1161,7 +1154,7 @@ define noundef i32 @tng_molecule_destroy(ptr readnone captures(none) %0, ptr nou
 39:                                               ; preds = %.lr.ph55
   tail call void @free(ptr noundef nonnull %38) #28
   %40 = load ptr, ptr %29, align 8, !tbaa !77
-  %41 = getelementptr inbounds nuw %struct.tng_residue, ptr %40, i64 %.154
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %.154
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr null, ptr %42, align 8, !tbaa !61
   %.pre60 = load i64, ptr %31, align 8, !tbaa !78
@@ -1197,7 +1190,7 @@ define noundef i32 @tng_molecule_destroy(ptr readnone captures(none) %0, ptr nou
 .lr.ph58:                                         ; preds = %.preheader, %tng_atom_destroy.exit
   %.257 = phi i64 [ %65, %tng_atom_destroy.exit ], [ 0, %.preheader ]
   %56 = load ptr, ptr %51, align 8, !tbaa !66
-  %57 = getelementptr inbounds nuw %struct.tng_atom, ptr %56, i64 %.257
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %56, i64 %.257
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !12
   %.not.i = icmp eq ptr %59, null
@@ -1277,7 +1270,7 @@ define range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr readnone captures(no
 .thread.i:                                        ; preds = %5
   store ptr %12, ptr %6, align 8, !tbaa !55
   %17 = load i64, ptr %8, align 8, !tbaa !54
-  %18 = getelementptr inbounds %struct.tng_chain, ptr %12, i64 %17
+  %18 = getelementptr inbounds [40 x i8], ptr %12, i64 %17
   store ptr %18, ptr %4, align 8, !tbaa !41
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #29
@@ -1400,8 +1393,8 @@ define range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr readnone captures(non
   %45 = phi i64 [ %34, %37 ], [ %34, %35 ], [ 0, %31 ], [ %43, %42 ]
   %46 = phi i64 [ %.pre63, %37 ], [ %.pre63, %35 ], [ %.pre63, %31 ], [ %.pre62, %42 ]
   %.1 = phi i64 [ %.049, %37 ], [ %.049, %35 ], [ %.049, %31 ], [ %43, %42 ]
-  %47 = getelementptr %struct.tng_residue, ptr %25, i64 %.1
-  %48 = getelementptr %struct.tng_residue, ptr %47, i64 %46
+  %47 = getelementptr [40 x i8], ptr %25, i64 %.1
+  %48 = getelementptr [40 x i8], ptr %47, i64 %46
   store ptr %48, ptr %4, align 8, !tbaa !11
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %50 = load i64, ptr %49, align 8, !tbaa !54
@@ -1417,8 +1410,8 @@ define range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr readnone captures(non
 55:                                               ; preds = %55, %.lr.ph.i
   %.02.i = phi i64 [ 0, %.lr.ph.i ], [ %61, %55 ]
   %.091.i = phi i64 [ 0, %.lr.ph.i ], [ %62, %55 ]
-  %56 = getelementptr inbounds nuw %struct.tng_chain, ptr %53, i64 %.091.i
-  %57 = getelementptr inbounds %struct.tng_residue, ptr %54, i64 %.02.i
+  %56 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %.091.i
+  %57 = getelementptr inbounds [40 x i8], ptr %54, i64 %.02.i
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr %57, ptr %58, align 8, !tbaa !60
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -1440,7 +1433,7 @@ tng_molecule_chains_residue_pointers_update.exit: ; preds = %55, %44
 66:                                               ; preds = %._crit_edge.i, %.lr.ph5.i
   %.03.i = phi i64 [ 0, %.lr.ph5.i ], [ %74, %._crit_edge.i ]
   %.0152.i = phi i64 [ 0, %.lr.ph5.i ], [ %75, %._crit_edge.i ]
-  %67 = getelementptr inbounds nuw %struct.tng_residue, ptr %64, i64 %.0152.i
+  %67 = getelementptr inbounds nuw [40 x i8], ptr %64, i64 %.0152.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load i64, ptr %68, align 8, !tbaa !64
   %70 = icmp sgt i64 %69, 0
@@ -1448,12 +1441,12 @@ tng_molecule_chains_residue_pointers_update.exit: ; preds = %55, %44
 
 .lr.ph.i60:                                       ; preds = %66
   %71 = load ptr, ptr %65, align 8, !tbaa !66
-  %invariant.gep.i = getelementptr %struct.tng_atom, ptr %71, i64 %.03.i
+  %invariant.gep.i = getelementptr [32 x i8], ptr %71, i64 %.03.i
   br label %72
 
 72:                                               ; preds = %72, %.lr.ph.i60
   %.0141.i = phi i64 [ 0, %.lr.ph.i60 ], [ %73, %72 ]
-  %gep.i = getelementptr %struct.tng_atom, ptr %invariant.gep.i, i64 %.0141.i
+  %gep.i = getelementptr [32 x i8], ptr %invariant.gep.i, i64 %.0141.i
   store ptr %67, ptr %gep.i, align 8, !tbaa !3
   %73 = add nuw nsw i64 %.0141.i, 1
   %exitcond.not.i61 = icmp eq i64 %73, %69
@@ -1546,7 +1539,7 @@ define range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr readnone captures(none
 .thread.i:                                        ; preds = %._crit_edge
   store ptr %20, ptr %15, align 8, !tbaa !66
   %25 = load i64, ptr %17, align 8, !tbaa !48
-  %26 = getelementptr inbounds %struct.tng_atom, ptr %20, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %20, i64 %25
   store ptr %26, ptr %5, align 8, !tbaa !42
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 0, ptr %27, align 8
@@ -1642,7 +1635,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_of_index_get(ptr noundef readnone
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !55
-  %10 = getelementptr inbounds %struct.tng_chain, ptr %9, i64 %2
+  %10 = getelementptr inbounds [40 x i8], ptr %9, i64 %2
   br label %11
 
 11:                                               ; preds = %4, %7
@@ -1670,7 +1663,7 @@ define range(i32 0, 2) i32 @tng_molecule_residue_of_index_get(ptr noundef readno
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !77
-  %10 = getelementptr inbounds %struct.tng_residue, ptr %9, i64 %2
+  %10 = getelementptr inbounds [40 x i8], ptr %9, i64 %2
   br label %11
 
 11:                                               ; preds = %4, %7
@@ -1698,7 +1691,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_of_index_get(ptr noundef readnone 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !66
-  %10 = getelementptr inbounds %struct.tng_atom, ptr %9, i64 %2
+  %10 = getelementptr inbounds [32 x i8], ptr %9, i64 %2
   br label %11
 
 11:                                               ; preds = %4, %7
@@ -1724,7 +1717,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr noundef readnone capture
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %20
   %.01417.us = phi i64 [ %.014.us, %20 ], [ %.01416, %.lr.ph ]
   %11 = load ptr, ptr %9, align 8, !tbaa !55
-  %12 = getelementptr inbounds nuw %struct.tng_chain, ptr %11, i64 %.01417.us
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %.01417.us
   store ptr %12, ptr %4, align 8, !tbaa !41
   %13 = load i8, ptr %2, align 1, !tbaa !13
   %14 = icmp eq i8 %13, 0
@@ -1745,7 +1738,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr noundef readnone capture
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.01417 = phi i64 [ %.014, %35 ], [ %.01416, %.lr.ph ]
   %22 = load ptr, ptr %9, align 8, !tbaa !55
-  %23 = getelementptr inbounds nuw %struct.tng_chain, ptr %22, i64 %.01417
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %.01417
   store ptr %23, ptr %4, align 8, !tbaa !41
   %24 = load i8, ptr %2, align 1, !tbaa !13
   %25 = icmp eq i8 %24, 0
@@ -1788,7 +1781,7 @@ define range(i32 0, 3) i32 @tng_molecule_chain_add(ptr noundef readnone captures
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !55
-  %10 = getelementptr %struct.tng_chain, ptr %9, i64 %6
+  %10 = getelementptr [40 x i8], ptr %9, i64 %6
   %11 = getelementptr i8, ptr %10, i64 -32
   %12 = load i64, ptr %11, align 8, !tbaa !58
   %13 = add nsw i64 %12, 1
@@ -1864,7 +1857,7 @@ define range(i32 0, 3) i32 @tng_molecule_bond_add(ptr noundef readnone captures(
 17:                                               ; preds = %5
   store ptr %12, ptr %6, align 8, !tbaa !72
   %18 = load i64, ptr %8, align 8, !tbaa !71
-  %19 = getelementptr inbounds %struct.tng_bond, ptr %12, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %12, i64 %18
   store ptr %19, ptr %4, align 8, !tbaa !43
   store i64 %2, ptr %19, align 8, !tbaa !87
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -1894,7 +1887,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr noundef readnone captures
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %20
   %.01417.us = phi i64 [ %.014.us, %20 ], [ %.01416, %.lr.ph ]
   %11 = load ptr, ptr %9, align 8, !tbaa !66
-  %12 = getelementptr inbounds nuw %struct.tng_atom, ptr %11, i64 %.01417.us
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %.01417.us
   store ptr %12, ptr %4, align 8, !tbaa !42
   %13 = load i8, ptr %2, align 1, !tbaa !13
   %14 = icmp eq i8 %13, 0
@@ -1915,7 +1908,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr noundef readnone captures
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.01417 = phi i64 [ %.014, %35 ], [ %.01416, %.lr.ph ]
   %22 = load ptr, ptr %9, align 8, !tbaa !66
-  %23 = getelementptr inbounds nuw %struct.tng_atom, ptr %22, i64 %.01417
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %.01417
   store ptr %23, ptr %4, align 8, !tbaa !42
   %24 = load i8, ptr %2, align 1, !tbaa !13
   %25 = icmp eq i8 %24, 0
@@ -1983,7 +1976,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_of_index_get(ptr noundef readnone 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !60
-  %10 = getelementptr inbounds %struct.tng_residue, ptr %9, i64 %2
+  %10 = getelementptr inbounds [40 x i8], ptr %9, i64 %2
   br label %11
 
 11:                                               ; preds = %4, %7
@@ -2009,7 +2002,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_find(ptr noundef readnone captures
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %20
   %.01417.us = phi i64 [ %.014.us, %20 ], [ %.01416, %.lr.ph ]
   %11 = load ptr, ptr %9, align 8, !tbaa !60
-  %12 = getelementptr inbounds nuw %struct.tng_residue, ptr %11, i64 %.01417.us
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %.01417.us
   store ptr %12, ptr %4, align 8, !tbaa !11
   %13 = load i8, ptr %2, align 1, !tbaa !13
   %14 = icmp eq i8 %13, 0
@@ -2030,7 +2023,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_find(ptr noundef readnone captures
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.01417 = phi i64 [ %.014, %35 ], [ %.01416, %.lr.ph ]
   %22 = load ptr, ptr %9, align 8, !tbaa !60
-  %23 = getelementptr inbounds nuw %struct.tng_residue, ptr %22, i64 %.01417
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %.01417
   store ptr %23, ptr %4, align 8, !tbaa !11
   %24 = load i8, ptr %2, align 1, !tbaa !13
   %25 = icmp eq i8 %24, 0
@@ -2073,7 +2066,7 @@ define range(i32 0, 3) i32 @tng_chain_residue_add(ptr noundef readnone captures(
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !60
-  %10 = getelementptr %struct.tng_residue, ptr %9, i64 %6
+  %10 = getelementptr [40 x i8], ptr %9, i64 %6
   %11 = getelementptr i8, ptr %10, i64 -32
   %12 = load i64, ptr %11, align 8, !tbaa !63
   %13 = add nsw i64 %12, 1
@@ -2174,7 +2167,7 @@ define range(i32 0, 2) i32 @tng_residue_atom_of_index_get(ptr noundef readnone c
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !66
-  %18 = getelementptr inbounds %struct.tng_atom, ptr %17, i64 %12
+  %18 = getelementptr inbounds [32 x i8], ptr %17, i64 %12
   br label %19
 
 19:                                               ; preds = %7, %4, %15
@@ -2196,7 +2189,7 @@ define range(i32 0, 3) i32 @tng_residue_atom_add(ptr readnone captures(none) %0,
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !66
-  %13 = getelementptr %struct.tng_atom, ptr %12, i64 %9
+  %13 = getelementptr [32 x i8], ptr %12, i64 %9
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8, !tbaa !68
   %16 = add nsw i64 %15, 1
@@ -2279,10 +2272,10 @@ define range(i32 0, 2) i32 @tng_molecule_name_of_particle_nr_get(ptr noundef rea
 14:                                               ; preds = %.lr.ph, %12
   %.02231 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
   %.02330 = phi i64 [ 0, %.lr.ph ], [ %21, %12 ]
-  %15 = getelementptr inbounds nuw %struct.tng_molecule, ptr %11, i64 %.02231
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %.02231
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i64, ptr %16, align 8, !tbaa !48
-  %18 = getelementptr inbounds nuw i64, ptr %storemerge.i, i64 %.02231
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.02231
   %19 = load i64, ptr %18, align 8, !tbaa !38
   %20 = mul nsw i64 %19, %17
   %21 = add nsw i64 %20, %.02330
@@ -2353,10 +2346,10 @@ define range(i32 0, 2) i32 @tng_molecule_id_of_particle_nr_get(ptr noundef reado
 13:                                               ; preds = %.lr.ph, %11
   %.01726 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
   %.01825 = phi i64 [ 0, %.lr.ph ], [ %20, %11 ]
-  %14 = getelementptr inbounds nuw %struct.tng_molecule, ptr %10, i64 %.01726
+  %14 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %.01726
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !48
-  %17 = getelementptr inbounds nuw i64, ptr %storemerge.i, i64 %.01726
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.01726
   %18 = load i64, ptr %17, align 8, !tbaa !38
   %19 = mul nsw i64 %18, %16
   %20 = add nsw i64 %19, %.01825
@@ -2399,8 +2392,8 @@ define range(i32 0, 3) i32 @tng_molsystem_bonds_get(ptr noundef readonly capture
 14:                                               ; preds = %.lr.ph, %14
   %15 = phi i64 [ 0, %.lr.ph ], [ %22, %14 ]
   %.05159 = phi i64 [ 0, %.lr.ph ], [ %23, %14 ]
-  %16 = getelementptr inbounds nuw %struct.tng_molecule, ptr %13, i64 %.05159
-  %17 = getelementptr inbounds nuw i64, ptr %storemerge.i, i64 %.05159
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %13, i64 %.05159
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.05159
   %18 = load i64, ptr %17, align 8, !tbaa !38
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !71
@@ -2456,13 +2449,13 @@ define range(i32 0, 3) i32 @tng_molsystem_bonds_get(ptr noundef readonly capture
   %.04673 = phi i64 [ 0, %.lr.ph74 ], [ %.1.lcssa, %._crit_edge67 ]
   %.04772 = phi i64 [ 0, %.lr.ph74 ], [ %.148.lcssa, %._crit_edge67 ]
   %.15271 = phi i64 [ 0, %.lr.ph74 ], [ %78, %._crit_edge67 ]
-  %44 = getelementptr inbounds nuw i64, ptr %storemerge.i, i64 %.15271
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.15271
   %45 = load i64, ptr %44, align 8, !tbaa !38
   %46 = icmp sgt i64 %45, 0
   br i1 %46, label %.preheader.lr.ph, label %._crit_edge67
 
 .preheader.lr.ph:                                 ; preds = %42
-  %47 = getelementptr inbounds nuw %struct.tng_molecule, ptr %37, i64 %.15271
+  %47 = getelementptr inbounds nuw [88 x i8], ptr %37, i64 %.15271
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 80
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -2492,16 +2485,16 @@ define range(i32 0, 3) i32 @tng_molsystem_bonds_get(ptr noundef readonly capture
 60:                                               ; preds = %.lr.ph62, %60
   %.261 = phi i64 [ %.14865, %.lr.ph62 ], [ %68, %60 ]
   %.04960 = phi i64 [ 0, %.lr.ph62 ], [ %70, %60 ]
-  %61 = getelementptr inbounds nuw %struct.tng_bond, ptr %58, i64 %.04960
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %.04960
   %62 = load i64, ptr %61, align 8, !tbaa !87
   %63 = add nsw i64 %62, %.166
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !89
   %66 = add nsw i64 %65, %.166
-  %67 = getelementptr inbounds i64, ptr %59, i64 %.261
+  %67 = getelementptr inbounds [8 x i8], ptr %59, i64 %.261
   store i64 %63, ptr %67, align 8, !tbaa !38
   %68 = add nsw i64 %.261, 1
-  %69 = getelementptr inbounds i64, ptr %34, i64 %.261
+  %69 = getelementptr inbounds [8 x i8], ptr %34, i64 %.261
   store i64 %66, ptr %69, align 8, !tbaa !38
   %70 = add nuw nsw i64 %.04960, 1
   %71 = load i64, ptr %48, align 8, !tbaa !71
@@ -2564,10 +2557,10 @@ define range(i32 0, 2) i32 @tng_chain_name_of_particle_nr_get(ptr noundef readon
 14:                                               ; preds = %.lr.ph, %12
   %.02842 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
   %.02941 = phi i64 [ 0, %.lr.ph ], [ %21, %12 ]
-  %15 = getelementptr inbounds nuw %struct.tng_molecule, ptr %11, i64 %.02842
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %.02842
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i64, ptr %16, align 8, !tbaa !48
-  %18 = getelementptr inbounds nuw i64, ptr %storemerge.i, i64 %.02842
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.02842
   %19 = load i64, ptr %18, align 8, !tbaa !38
   %20 = mul nsw i64 %19, %17
   %21 = add nsw i64 %20, %.02941
@@ -2578,7 +2571,7 @@ define range(i32 0, 2) i32 @tng_chain_name_of_particle_nr_get(ptr noundef readon
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %24 = load ptr, ptr %23, align 8, !tbaa !66
   %25 = srem i64 %1, %17
-  %26 = getelementptr inbounds %struct.tng_atom, ptr %24, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %.not36 = icmp eq ptr %27, null
   br i1 %.not36, label %.critedge, label %28
@@ -2641,10 +2634,10 @@ define range(i32 0, 2) i32 @tng_residue_name_of_particle_nr_get(ptr noundef read
 14:                                               ; preds = %.lr.ph, %12
   %.02739 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
   %.02838 = phi i64 [ 0, %.lr.ph ], [ %21, %12 ]
-  %15 = getelementptr inbounds nuw %struct.tng_molecule, ptr %11, i64 %.02739
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %.02739
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i64, ptr %16, align 8, !tbaa !48
-  %18 = getelementptr inbounds nuw i64, ptr %storemerge.i, i64 %.02739
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.02739
   %19 = load i64, ptr %18, align 8, !tbaa !38
   %20 = mul nsw i64 %19, %17
   %21 = add nsw i64 %20, %.02838
@@ -2655,7 +2648,7 @@ define range(i32 0, 2) i32 @tng_residue_name_of_particle_nr_get(ptr noundef read
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %24 = load ptr, ptr %23, align 8, !tbaa !66
   %25 = srem i64 %1, %17
-  %26 = getelementptr inbounds %struct.tng_atom, ptr %24, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %.not34 = icmp eq ptr %27, null
   br i1 %.not34, label %.critedge, label %28
@@ -2712,10 +2705,10 @@ define range(i32 0, 2) i32 @tng_residue_id_of_particle_nr_get(ptr noundef readon
 13:                                               ; preds = %.lr.ph, %11
   %.02234 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
   %.02333 = phi i64 [ 0, %.lr.ph ], [ %20, %11 ]
-  %14 = getelementptr inbounds nuw %struct.tng_molecule, ptr %10, i64 %.02234
+  %14 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %.02234
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !48
-  %17 = getelementptr inbounds nuw i64, ptr %storemerge.i, i64 %.02234
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.02234
   %18 = load i64, ptr %17, align 8, !tbaa !38
   %19 = mul nsw i64 %18, %16
   %20 = add nsw i64 %19, %.02333
@@ -2726,7 +2719,7 @@ define range(i32 0, 2) i32 @tng_residue_id_of_particle_nr_get(ptr noundef readon
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %23 = load ptr, ptr %22, align 8, !tbaa !66
   %24 = srem i64 %1, %16
-  %25 = getelementptr inbounds %struct.tng_atom, ptr %23, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !3
   %.not29 = icmp eq ptr %26, null
   br i1 %.not29, label %.critedge, label %27
@@ -2768,10 +2761,10 @@ define range(i32 0, 2) i32 @tng_global_residue_id_of_particle_nr_get(ptr noundef
   %.03148 = phi i64 [ 0, %.lr.ph ], [ %23, %19 ]
   %.03247 = phi i64 [ 0, %.lr.ph ], [ %24, %19 ]
   %.03346 = phi i64 [ 0, %.lr.ph ], [ %18, %19 ]
-  %12 = getelementptr inbounds nuw %struct.tng_molecule, ptr %10, i64 %.03247
+  %12 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %.03247
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i64, ptr %13, align 8, !tbaa !48
-  %15 = getelementptr inbounds nuw i64, ptr %storemerge.i, i64 %.03247
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.03247
   %16 = load i64, ptr %15, align 8, !tbaa !38
   %17 = mul nsw i64 %16, %14
   %18 = add nsw i64 %17, %.03346
@@ -2791,7 +2784,7 @@ define range(i32 0, 2) i32 @tng_global_residue_id_of_particle_nr_get(ptr noundef
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %27 = load ptr, ptr %26, align 8, !tbaa !66
   %28 = srem i64 %1, %14
-  %29 = getelementptr inbounds %struct.tng_atom, ptr %27, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %.not40 = icmp eq ptr %30, null
   br i1 %.not40, label %.critedge, label %31
@@ -2844,10 +2837,10 @@ define range(i32 0, 2) i32 @tng_atom_name_of_particle_nr_get(ptr noundef readonl
 14:                                               ; preds = %.lr.ph, %12
   %.02636 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
   %.02735 = phi i64 [ 0, %.lr.ph ], [ %21, %12 ]
-  %15 = getelementptr inbounds nuw %struct.tng_molecule, ptr %11, i64 %.02636
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %.02636
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i64, ptr %16, align 8, !tbaa !48
-  %18 = getelementptr inbounds nuw i64, ptr %storemerge.i, i64 %.02636
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.02636
   %19 = load i64, ptr %18, align 8, !tbaa !38
   %20 = mul nsw i64 %19, %17
   %21 = add nsw i64 %20, %.02735
@@ -2858,7 +2851,7 @@ define range(i32 0, 2) i32 @tng_atom_name_of_particle_nr_get(ptr noundef readonl
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %24 = load ptr, ptr %23, align 8, !tbaa !66
   %25 = srem i64 %1, %17
-  %26 = getelementptr inbounds %struct.tng_atom, ptr %24, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !12
   %29 = add nsw i32 %3, -1
@@ -2908,10 +2901,10 @@ define range(i32 0, 2) i32 @tng_atom_type_of_particle_nr_get(ptr noundef readonl
 14:                                               ; preds = %.lr.ph, %12
   %.02636 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
   %.02735 = phi i64 [ 0, %.lr.ph ], [ %21, %12 ]
-  %15 = getelementptr inbounds nuw %struct.tng_molecule, ptr %11, i64 %.02636
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %.02636
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i64, ptr %16, align 8, !tbaa !48
-  %18 = getelementptr inbounds nuw i64, ptr %storemerge.i, i64 %.02636
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.02636
   %19 = load i64, ptr %18, align 8, !tbaa !38
   %20 = mul nsw i64 %19, %17
   %21 = add nsw i64 %20, %.02735
@@ -2922,7 +2915,7 @@ define range(i32 0, 2) i32 @tng_atom_type_of_particle_nr_get(ptr noundef readonl
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %24 = load ptr, ptr %23, align 8, !tbaa !66
   %25 = srem i64 %1, %17
-  %26 = getelementptr inbounds %struct.tng_atom, ptr %24, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !16
   %29 = add nsw i32 %3, -1
@@ -2962,7 +2955,7 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr noundef captures(none) 
 
 13:                                               ; preds = %.lr.ph, %11
   %.05775 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
-  %14 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %9, i64 %.05775
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %.05775
   %15 = load i64, ptr %14, align 8, !tbaa !109
   %.not67 = icmp slt i64 %1, %15
   br i1 %.not67, label %24, label %16
@@ -3040,7 +3033,7 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr noundef captures(none) 
 55:                                               ; preds = %._crit_edge
   store ptr %50, ptr %48, align 8, !tbaa !107
   %56 = load i64, ptr %5, align 8, !tbaa !106
-  %57 = getelementptr %struct.tng_particle_mapping, ptr %50, i64 %56
+  %57 = getelementptr [24 x i8], ptr %50, i64 %56
   %58 = getelementptr i8, ptr %57, i64 -24
   store i64 %1, ptr %58, align 8, !tbaa !109
   %59 = getelementptr i8, ptr %57, i64 -16
@@ -3063,13 +3056,13 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr noundef captures(none) 
 
 .lr.ph77:                                         ; preds = %.preheader, %.lr.ph77
   %.176 = phi i64 [ %74, %.lr.ph77 ], [ 0, %.preheader ]
-  %67 = getelementptr inbounds nuw i64, ptr %3, i64 %.176
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.176
   %68 = load i64, ptr %67, align 8, !tbaa !38
   %69 = load i64, ptr %5, align 8, !tbaa !106
-  %70 = getelementptr %struct.tng_particle_mapping, ptr %50, i64 %69
+  %70 = getelementptr [24 x i8], ptr %50, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -8
   %72 = load ptr, ptr %71, align 8, !tbaa !112
-  %73 = getelementptr inbounds nuw i64, ptr %72, i64 %.176
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.176
   store i64 %68, ptr %73, align 8, !tbaa !38
   %74 = add nuw nsw i64 %.176, 1
   %exitcond78.not = icmp eq i64 %74, %2
@@ -3101,7 +3094,7 @@ define noundef i32 @tng_frame_set_particle_mapping_free(ptr noundef captures(non
   %8 = phi i64 [ %15, %14 ], [ %3, %.preheader ]
   %.016 = phi i64 [ %16, %14 ], [ 0, %.preheader ]
   %9 = load ptr, ptr %5, align 8, !tbaa !107
-  %10 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %9, i64 %.016
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %.016
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !112
   %.not15 = icmp eq ptr %12, null
@@ -3415,7 +3408,7 @@ define noundef i32 @tng_trajectory_destroy(ptr noundef captures(none) %0) local_
   %70 = phi i64 [ %77, %76 ], [ %65, %.preheader.i ]
   %.016.i = phi i64 [ %78, %76 ], [ 0, %.preheader.i ]
   %71 = load ptr, ptr %67, align 8, !tbaa !107
-  %72 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %71, i64 %.016.i
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %71, i64 %.016.i
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !112
   %.not15.i = icmp eq ptr %74, null
@@ -3480,7 +3473,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 93:                                               ; preds = %.lr.ph, %189
   %94 = phi ptr [ %88, %.lr.ph ], [ %190, %189 ]
   %.0312413 = phi i64 [ 0, %.lr.ph ], [ %191, %189 ]
-  %95 = getelementptr inbounds nuw %struct.tng_data, ptr %94, i64 %.0312413
+  %95 = getelementptr inbounds nuw [96 x i8], ptr %94, i64 %.0312413
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 80
   %97 = load ptr, ptr %96, align 8, !tbaa !151
   %.not391 = icmp eq ptr %97, null
@@ -3489,14 +3482,14 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 98:                                               ; preds = %93
   tail call void @free(ptr noundef nonnull %97) #28
   %99 = load ptr, ptr %87, align 8, !tbaa !125
-  %100 = getelementptr inbounds nuw %struct.tng_data, ptr %99, i64 %.0312413
+  %100 = getelementptr inbounds nuw [96 x i8], ptr %99, i64 %.0312413
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 80
   store ptr null, ptr %101, align 8, !tbaa !151
   br label %102
 
 102:                                              ; preds = %98, %93
   %103 = phi ptr [ %99, %98 ], [ %94, %93 ]
-  %104 = getelementptr inbounds nuw %struct.tng_data, ptr %103, i64 %.0312413
+  %104 = getelementptr inbounds nuw [96 x i8], ptr %103, i64 %.0312413
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 88
   %106 = load ptr, ptr %105, align 8, !tbaa !157
   %.not392 = icmp eq ptr %106, null
@@ -3520,11 +3513,11 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .lr.ph411.split.us:                               ; preds = %.lr.ph411, %141
   %112 = phi ptr [ %142, %141 ], [ %103, %.lr.ph411 ]
   %.0318410.us = phi i64 [ %143, %141 ], [ 0, %.lr.ph411 ]
-  %113 = getelementptr inbounds nuw %struct.tng_data, ptr %112, i64 %.0312413
+  %113 = getelementptr inbounds nuw [96 x i8], ptr %112, i64 %.0312413
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 88
   %115 = load ptr, ptr %114, align 8, !tbaa !157
   %116 = load ptr, ptr %115, align 8, !tbaa !159
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %.0318410.us
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %.0318410.us
   %118 = load ptr, ptr %117, align 8, !tbaa !161
   %.not395.us = icmp eq ptr %118, null
   br i1 %.not395.us, label %141, label %.preheader404.us
@@ -3532,13 +3525,13 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .preheader404.us:                                 ; preds = %.lr.ph411.split.us, %137
   %119 = phi ptr [ %139, %137 ], [ %112, %.lr.ph411.split.us ]
   %.0315409.us = phi i64 [ %140, %137 ], [ 0, %.lr.ph411.split.us ]
-  %120 = getelementptr inbounds nuw %struct.tng_data, ptr %119, i64 %.0312413
+  %120 = getelementptr inbounds nuw [96 x i8], ptr %119, i64 %.0312413
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 88
   %122 = load ptr, ptr %121, align 8, !tbaa !157
   %123 = load ptr, ptr %122, align 8, !tbaa !159
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %.0318410.us
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %.0318410.us
   %125 = load ptr, ptr %124, align 8, !tbaa !161
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %.0315409.us
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %.0315409.us
   %127 = load ptr, ptr %126, align 8, !tbaa !40
   %.not396.us = icmp eq ptr %127, null
   br i1 %.not396.us, label %137, label %128
@@ -3546,13 +3539,13 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 128:                                              ; preds = %.preheader404.us
   tail call void @free(ptr noundef nonnull %127) #28
   %129 = load ptr, ptr %87, align 8, !tbaa !125
-  %130 = getelementptr inbounds nuw %struct.tng_data, ptr %129, i64 %.0312413
+  %130 = getelementptr inbounds nuw [96 x i8], ptr %129, i64 %.0312413
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 88
   %132 = load ptr, ptr %131, align 8, !tbaa !157
   %133 = load ptr, ptr %132, align 8, !tbaa !159
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %.0318410.us
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %.0318410.us
   %135 = load ptr, ptr %134, align 8, !tbaa !161
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %.0315409.us
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %.0315409.us
   store ptr null, ptr %136, align 8, !tbaa !40
   br label %137
 
@@ -3572,22 +3565,22 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 ._crit_edge.us:                                   ; preds = %137
   tail call void @free(ptr noundef nonnull %138) #28
   %144 = load ptr, ptr %87, align 8, !tbaa !125
-  %145 = getelementptr inbounds nuw %struct.tng_data, ptr %144, i64 %.0312413
+  %145 = getelementptr inbounds nuw [96 x i8], ptr %144, i64 %.0312413
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 88
   %147 = load ptr, ptr %146, align 8, !tbaa !157
   %148 = load ptr, ptr %147, align 8, !tbaa !159
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %.0318410.us
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %.0318410.us
   store ptr null, ptr %149, align 8, !tbaa !161
   br label %141
 
 .lr.ph411.split:                                  ; preds = %.lr.ph411, %163
   %150 = phi ptr [ %164, %163 ], [ %103, %.lr.ph411 ]
   %.0318410 = phi i64 [ %165, %163 ], [ 0, %.lr.ph411 ]
-  %151 = getelementptr inbounds nuw %struct.tng_data, ptr %150, i64 %.0312413
+  %151 = getelementptr inbounds nuw [96 x i8], ptr %150, i64 %.0312413
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 88
   %153 = load ptr, ptr %152, align 8, !tbaa !157
   %154 = load ptr, ptr %153, align 8, !tbaa !159
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %.0318410
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %.0318410
   %156 = load ptr, ptr %155, align 8, !tbaa !161
   %.not395 = icmp eq ptr %156, null
   br i1 %.not395, label %163, label %.preheader404
@@ -3595,11 +3588,11 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .preheader404:                                    ; preds = %.lr.ph411.split
   tail call void @free(ptr noundef nonnull %156) #28
   %157 = load ptr, ptr %87, align 8, !tbaa !125
-  %158 = getelementptr inbounds nuw %struct.tng_data, ptr %157, i64 %.0312413
+  %158 = getelementptr inbounds nuw [96 x i8], ptr %157, i64 %.0312413
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 88
   %160 = load ptr, ptr %159, align 8, !tbaa !157
   %161 = load ptr, ptr %160, align 8, !tbaa !159
-  %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %.0318410
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.0318410
   store ptr null, ptr %162, align 8, !tbaa !161
   br label %163
 
@@ -3611,13 +3604,13 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 
 ._crit_edge412:                                   ; preds = %163, %141, %.preheader405
   %166 = phi ptr [ %142, %141 ], [ %103, %.preheader405 ], [ %164, %163 ]
-  %167 = getelementptr inbounds nuw %struct.tng_data, ptr %166, i64 %.0312413
+  %167 = getelementptr inbounds nuw [96 x i8], ptr %166, i64 %.0312413
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 88
   %169 = load ptr, ptr %168, align 8, !tbaa !157
   %170 = load ptr, ptr %169, align 8, !tbaa !159
   tail call void @free(ptr noundef %170) #28
   %171 = load ptr, ptr %87, align 8, !tbaa !125
-  %172 = getelementptr inbounds nuw %struct.tng_data, ptr %171, i64 %.0312413
+  %172 = getelementptr inbounds nuw [96 x i8], ptr %171, i64 %.0312413
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 88
   %174 = load ptr, ptr %173, align 8, !tbaa !157
   store ptr null, ptr %174, align 8, !tbaa !159
@@ -3627,14 +3620,14 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %176 = phi ptr [ %174, %._crit_edge412 ], [ %106, %107 ]
   tail call void @free(ptr noundef nonnull %176) #28
   %177 = load ptr, ptr %87, align 8, !tbaa !125
-  %178 = getelementptr inbounds nuw %struct.tng_data, ptr %177, i64 %.0312413
+  %178 = getelementptr inbounds nuw [96 x i8], ptr %177, i64 %.0312413
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 88
   store ptr null, ptr %179, align 8, !tbaa !157
   br label %180
 
 180:                                              ; preds = %175, %102
   %181 = phi ptr [ %177, %175 ], [ %103, %102 ]
-  %182 = getelementptr inbounds nuw %struct.tng_data, ptr %181, i64 %.0312413
+  %182 = getelementptr inbounds nuw [96 x i8], ptr %181, i64 %.0312413
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load ptr, ptr %183, align 8, !tbaa !165
   %.not394 = icmp eq ptr %184, null
@@ -3643,7 +3636,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 185:                                              ; preds = %180
   tail call void @free(ptr noundef nonnull %184) #28
   %186 = load ptr, ptr %87, align 8, !tbaa !125
-  %187 = getelementptr inbounds nuw %struct.tng_data, ptr %186, i64 %.0312413
+  %187 = getelementptr inbounds nuw [96 x i8], ptr %186, i64 %.0312413
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store ptr null, ptr %188, align 8, !tbaa !165
   br label %189
@@ -3677,7 +3670,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .lr.ph421:                                        ; preds = %.preheader403, %264
   %202 = phi ptr [ %265, %264 ], [ %198, %.preheader403 ]
   %.1420 = phi i64 [ %266, %264 ], [ 0, %.preheader403 ]
-  %203 = getelementptr inbounds nuw %struct.tng_data, ptr %202, i64 %.1420
+  %203 = getelementptr inbounds nuw [96 x i8], ptr %202, i64 %.1420
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 80
   %205 = load ptr, ptr %204, align 8, !tbaa !151
   %.not386 = icmp eq ptr %205, null
@@ -3686,14 +3679,14 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 206:                                              ; preds = %.lr.ph421
   tail call void @free(ptr noundef nonnull %205) #28
   %207 = load ptr, ptr %197, align 8, !tbaa !167
-  %208 = getelementptr inbounds nuw %struct.tng_data, ptr %207, i64 %.1420
+  %208 = getelementptr inbounds nuw [96 x i8], ptr %207, i64 %.1420
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 80
   store ptr null, ptr %209, align 8, !tbaa !151
   br label %210
 
 210:                                              ; preds = %206, %.lr.ph421
   %211 = phi ptr [ %207, %206 ], [ %202, %.lr.ph421 ]
-  %212 = getelementptr inbounds nuw %struct.tng_data, ptr %211, i64 %.1420
+  %212 = getelementptr inbounds nuw [96 x i8], ptr %211, i64 %.1420
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 88
   %214 = load ptr, ptr %213, align 8, !tbaa !157
   %.not387 = icmp eq ptr %214, null
@@ -3714,12 +3707,12 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .lr.ph418:                                        ; preds = %.preheader402, %237
   %221 = phi ptr [ %238, %237 ], [ %211, %.preheader402 ]
   %.1319417 = phi i64 [ %239, %237 ], [ 0, %.preheader402 ]
-  %222 = getelementptr inbounds nuw %struct.tng_data, ptr %221, i64 %.1420
+  %222 = getelementptr inbounds nuw [96 x i8], ptr %221, i64 %.1420
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 88
   %224 = load ptr, ptr %223, align 8, !tbaa !157
   %225 = load ptr, ptr %224, align 8, !tbaa !159
   %226 = load ptr, ptr %225, align 8, !tbaa !161
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %.1319417
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %.1319417
   %228 = load ptr, ptr %227, align 8, !tbaa !40
   %.not390 = icmp eq ptr %228, null
   br i1 %.not390, label %237, label %229
@@ -3727,12 +3720,12 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 229:                                              ; preds = %.lr.ph418
   tail call void @free(ptr noundef nonnull %228) #28
   %230 = load ptr, ptr %197, align 8, !tbaa !167
-  %231 = getelementptr inbounds nuw %struct.tng_data, ptr %230, i64 %.1420
+  %231 = getelementptr inbounds nuw [96 x i8], ptr %230, i64 %.1420
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 88
   %233 = load ptr, ptr %232, align 8, !tbaa !157
   %234 = load ptr, ptr %233, align 8, !tbaa !159
   %235 = load ptr, ptr %234, align 8, !tbaa !161
-  %236 = getelementptr inbounds nuw ptr, ptr %235, i64 %.1319417
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %.1319417
   store ptr null, ptr %236, align 8, !tbaa !40
   br label %237
 
@@ -3747,7 +3740,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %240 = phi ptr [ %219, %.preheader402 ], [ %.pre487, %237 ]
   tail call void @free(ptr noundef nonnull %240) #28
   %241 = load ptr, ptr %197, align 8, !tbaa !167
-  %242 = getelementptr inbounds nuw %struct.tng_data, ptr %241, i64 %.1420
+  %242 = getelementptr inbounds nuw [96 x i8], ptr %241, i64 %.1420
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 88
   %244 = load ptr, ptr %243, align 8, !tbaa !157
   %245 = load ptr, ptr %244, align 8, !tbaa !159
@@ -3758,19 +3751,19 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %247 = phi ptr [ %245, %._crit_edge419 ], [ %218, %215 ]
   tail call void @free(ptr noundef nonnull %247) #28
   %248 = load ptr, ptr %197, align 8, !tbaa !167
-  %249 = getelementptr inbounds nuw %struct.tng_data, ptr %248, i64 %.1420
+  %249 = getelementptr inbounds nuw [96 x i8], ptr %248, i64 %.1420
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 88
   %251 = load ptr, ptr %250, align 8, !tbaa !157
   tail call void @free(ptr noundef %251) #28
   %252 = load ptr, ptr %197, align 8, !tbaa !167
-  %253 = getelementptr inbounds nuw %struct.tng_data, ptr %252, i64 %.1420
+  %253 = getelementptr inbounds nuw [96 x i8], ptr %252, i64 %.1420
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 88
   store ptr null, ptr %254, align 8, !tbaa !157
   br label %255
 
 255:                                              ; preds = %246, %210
   %256 = phi ptr [ %252, %246 ], [ %211, %210 ]
-  %257 = getelementptr inbounds nuw %struct.tng_data, ptr %256, i64 %.1420
+  %257 = getelementptr inbounds nuw [96 x i8], ptr %256, i64 %.1420
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = load ptr, ptr %258, align 8, !tbaa !165
   %.not389 = icmp eq ptr %259, null
@@ -3779,7 +3772,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 260:                                              ; preds = %255
   tail call void @free(ptr noundef nonnull %259) #28
   %261 = load ptr, ptr %197, align 8, !tbaa !167
-  %262 = getelementptr inbounds nuw %struct.tng_data, ptr %261, i64 %.1420
+  %262 = getelementptr inbounds nuw [96 x i8], ptr %261, i64 %.1420
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   store ptr null, ptr %263, align 8, !tbaa !165
   br label %264
@@ -3843,7 +3836,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 288:                                              ; preds = %.lr.ph447, %439
   %289 = phi ptr [ %283, %.lr.ph447 ], [ %440, %439 ]
   %.2443 = phi i64 [ 0, %.lr.ph447 ], [ %441, %439 ]
-  %290 = getelementptr inbounds nuw %struct.tng_data, ptr %289, i64 %.2443
+  %290 = getelementptr inbounds nuw [96 x i8], ptr %289, i64 %.2443
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 80
   %292 = load ptr, ptr %291, align 8, !tbaa !151
   %.not380 = icmp eq ptr %292, null
@@ -3852,14 +3845,14 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 293:                                              ; preds = %288
   tail call void @free(ptr noundef nonnull %292) #28
   %294 = load ptr, ptr %282, align 8, !tbaa !131
-  %295 = getelementptr inbounds nuw %struct.tng_data, ptr %294, i64 %.2443
+  %295 = getelementptr inbounds nuw [96 x i8], ptr %294, i64 %.2443
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 80
   store ptr null, ptr %296, align 8, !tbaa !151
   br label %297
 
 297:                                              ; preds = %293, %288
   %298 = phi ptr [ %294, %293 ], [ %289, %288 ]
-  %299 = getelementptr inbounds nuw %struct.tng_data, ptr %298, i64 %.2443
+  %299 = getelementptr inbounds nuw [96 x i8], ptr %298, i64 %.2443
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 88
   %301 = load ptr, ptr %300, align 8, !tbaa !157
   %.not381 = icmp eq ptr %301, null
@@ -3884,10 +3877,10 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .lr.ph434.split.us.split.us:                      ; preds = %.lr.ph434.split.us, %315
   %309 = phi ptr [ %316, %315 ], [ %298, %.lr.ph434.split.us ]
   %.2320430.us.us = phi i64 [ %317, %315 ], [ 0, %.lr.ph434.split.us ]
-  %310 = getelementptr inbounds nuw %struct.tng_data, ptr %309, i64 %.2443
+  %310 = getelementptr inbounds nuw [96 x i8], ptr %309, i64 %.2443
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 88
   %312 = load ptr, ptr %311, align 8, !tbaa !157
-  %313 = getelementptr inbounds nuw ptr, ptr %312, i64 %.2320430.us.us
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %.2320430.us.us
   %314 = load ptr, ptr %313, align 8, !tbaa !159
   %.not383.us.us = icmp eq ptr %314, null
   br i1 %.not383.us.us, label %315, label %.preheader400.us.us
@@ -3895,7 +3888,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 315:                                              ; preds = %._crit_edge428.split.us.us.us, %.lr.ph434.split.us.split.us
   %316 = phi ptr [ %365, %._crit_edge428.split.us.us.us ], [ %309, %.lr.ph434.split.us.split.us ]
   %317 = add nuw nsw i64 %.2320430.us.us, 1
-  %318 = getelementptr inbounds nuw %struct.tng_data, ptr %316, i64 %.2443
+  %318 = getelementptr inbounds nuw [96 x i8], ptr %316, i64 %.2443
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 32
   %320 = load i64, ptr %319, align 8, !tbaa !172
   %321 = icmp slt i64 %317, %320
@@ -3904,12 +3897,12 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .preheader400.us.us:                              ; preds = %.lr.ph434.split.us.split.us, %354
   %322 = phi ptr [ %356, %354 ], [ %309, %.lr.ph434.split.us.split.us ]
   %.1316426.us.us.us = phi i64 [ %357, %354 ], [ 0, %.lr.ph434.split.us.split.us ]
-  %323 = getelementptr inbounds nuw %struct.tng_data, ptr %322, i64 %.2443
+  %323 = getelementptr inbounds nuw [96 x i8], ptr %322, i64 %.2443
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 88
   %325 = load ptr, ptr %324, align 8, !tbaa !157
-  %326 = getelementptr inbounds nuw ptr, ptr %325, i64 %.2320430.us.us
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %.2320430.us.us
   %327 = load ptr, ptr %326, align 8, !tbaa !159
-  %328 = getelementptr inbounds nuw ptr, ptr %327, i64 %.1316426.us.us.us
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %327, i64 %.1316426.us.us.us
   %329 = load ptr, ptr %328, align 8, !tbaa !161
   %.not384.us.us.us = icmp eq ptr %329, null
   br i1 %.not384.us.us.us, label %354, label %.preheader399.us.us.us
@@ -3917,14 +3910,14 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .preheader399.us.us.us:                           ; preds = %.preheader400.us.us, %350
   %330 = phi ptr [ %352, %350 ], [ %322, %.preheader400.us.us ]
   %.0314423.us.us.us = phi i64 [ %353, %350 ], [ 0, %.preheader400.us.us ]
-  %331 = getelementptr inbounds nuw %struct.tng_data, ptr %330, i64 %.2443
+  %331 = getelementptr inbounds nuw [96 x i8], ptr %330, i64 %.2443
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 88
   %333 = load ptr, ptr %332, align 8, !tbaa !157
-  %334 = getelementptr inbounds nuw ptr, ptr %333, i64 %.2320430.us.us
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %.2320430.us.us
   %335 = load ptr, ptr %334, align 8, !tbaa !159
-  %336 = getelementptr inbounds nuw ptr, ptr %335, i64 %.1316426.us.us.us
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %.1316426.us.us.us
   %337 = load ptr, ptr %336, align 8, !tbaa !161
-  %338 = getelementptr inbounds nuw ptr, ptr %337, i64 %.0314423.us.us.us
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %337, i64 %.0314423.us.us.us
   %339 = load ptr, ptr %338, align 8, !tbaa !40
   %.not385.us.us.us = icmp eq ptr %339, null
   br i1 %.not385.us.us.us, label %350, label %340
@@ -3932,14 +3925,14 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 340:                                              ; preds = %.preheader399.us.us.us
   tail call void @free(ptr noundef nonnull %339) #28
   %341 = load ptr, ptr %282, align 8, !tbaa !131
-  %342 = getelementptr inbounds nuw %struct.tng_data, ptr %341, i64 %.2443
+  %342 = getelementptr inbounds nuw [96 x i8], ptr %341, i64 %.2443
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 88
   %344 = load ptr, ptr %343, align 8, !tbaa !157
-  %345 = getelementptr inbounds nuw ptr, ptr %344, i64 %.2320430.us.us
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %344, i64 %.2320430.us.us
   %346 = load ptr, ptr %345, align 8, !tbaa !159
-  %347 = getelementptr inbounds nuw ptr, ptr %346, i64 %.1316426.us.us.us
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %.1316426.us.us.us
   %348 = load ptr, ptr %347, align 8, !tbaa !161
-  %349 = getelementptr inbounds nuw ptr, ptr %348, i64 %.0314423.us.us.us
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %.0314423.us.us.us
   store ptr null, ptr %349, align 8, !tbaa !40
   br label %350
 
@@ -3960,32 +3953,32 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 ._crit_edge425.us.us.us:                          ; preds = %350
   tail call void @free(ptr noundef nonnull %351) #28
   %358 = load ptr, ptr %282, align 8, !tbaa !131
-  %359 = getelementptr inbounds nuw %struct.tng_data, ptr %358, i64 %.2443
+  %359 = getelementptr inbounds nuw [96 x i8], ptr %358, i64 %.2443
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 88
   %361 = load ptr, ptr %360, align 8, !tbaa !157
-  %362 = getelementptr inbounds nuw ptr, ptr %361, i64 %.2320430.us.us
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %361, i64 %.2320430.us.us
   %363 = load ptr, ptr %362, align 8, !tbaa !159
-  %364 = getelementptr inbounds nuw ptr, ptr %363, i64 %.1316426.us.us.us
+  %364 = getelementptr inbounds nuw [8 x i8], ptr %363, i64 %.1316426.us.us.us
   store ptr null, ptr %364, align 8, !tbaa !161
   br label %354
 
 ._crit_edge428.split.us.us.us:                    ; preds = %354
   tail call void @free(ptr noundef nonnull %355) #28
   %365 = load ptr, ptr %282, align 8, !tbaa !131
-  %366 = getelementptr inbounds nuw %struct.tng_data, ptr %365, i64 %.2443
+  %366 = getelementptr inbounds nuw [96 x i8], ptr %365, i64 %.2443
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 88
   %368 = load ptr, ptr %367, align 8, !tbaa !157
-  %369 = getelementptr inbounds nuw ptr, ptr %368, i64 %.2320430.us.us
+  %369 = getelementptr inbounds nuw [8 x i8], ptr %368, i64 %.2320430.us.us
   store ptr null, ptr %369, align 8, !tbaa !159
   br label %315
 
 .lr.ph434.split.us.split:                         ; preds = %.lr.ph434.split.us, %388
   %370 = phi ptr [ %389, %388 ], [ %298, %.lr.ph434.split.us ]
   %.2320430.us = phi i64 [ %390, %388 ], [ 0, %.lr.ph434.split.us ]
-  %371 = getelementptr inbounds nuw %struct.tng_data, ptr %370, i64 %.2443
+  %371 = getelementptr inbounds nuw [96 x i8], ptr %370, i64 %.2443
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 88
   %373 = load ptr, ptr %372, align 8, !tbaa !157
-  %374 = getelementptr inbounds nuw ptr, ptr %373, i64 %.2320430.us
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %.2320430.us
   %375 = load ptr, ptr %374, align 8, !tbaa !159
   %.not383.us = icmp eq ptr %375, null
   br i1 %.not383.us, label %388, label %.preheader400.us
@@ -3993,12 +3986,12 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .preheader400.us:                                 ; preds = %.lr.ph434.split.us.split, %384
   %376 = phi ptr [ %386, %384 ], [ %370, %.lr.ph434.split.us.split ]
   %.1316426.us436 = phi i64 [ %387, %384 ], [ 0, %.lr.ph434.split.us.split ]
-  %377 = getelementptr inbounds nuw %struct.tng_data, ptr %376, i64 %.2443
+  %377 = getelementptr inbounds nuw [96 x i8], ptr %376, i64 %.2443
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 88
   %379 = load ptr, ptr %378, align 8, !tbaa !157
-  %380 = getelementptr inbounds nuw ptr, ptr %379, i64 %.2320430.us
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %379, i64 %.2320430.us
   %381 = load ptr, ptr %380, align 8, !tbaa !159
-  %382 = getelementptr inbounds nuw ptr, ptr %381, i64 %.1316426.us436
+  %382 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %.1316426.us436
   %383 = load ptr, ptr %382, align 8, !tbaa !161
   %.not384.us437 = icmp eq ptr %383, null
   br i1 %.not384.us437, label %384, label %.preheader399.us438
@@ -4013,7 +4006,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 388:                                              ; preds = %._crit_edge428.split.us439, %.lr.ph434.split.us.split
   %389 = phi ptr [ %402, %._crit_edge428.split.us439 ], [ %370, %.lr.ph434.split.us.split ]
   %390 = add nuw nsw i64 %.2320430.us, 1
-  %391 = getelementptr inbounds nuw %struct.tng_data, ptr %389, i64 %.2443
+  %391 = getelementptr inbounds nuw [96 x i8], ptr %389, i64 %.2443
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 32
   %393 = load i64, ptr %392, align 8, !tbaa !172
   %394 = icmp slt i64 %390, %393
@@ -4022,32 +4015,32 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .preheader399.us438:                              ; preds = %.preheader400.us
   tail call void @free(ptr noundef nonnull %383) #28
   %395 = load ptr, ptr %282, align 8, !tbaa !131
-  %396 = getelementptr inbounds nuw %struct.tng_data, ptr %395, i64 %.2443
+  %396 = getelementptr inbounds nuw [96 x i8], ptr %395, i64 %.2443
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 88
   %398 = load ptr, ptr %397, align 8, !tbaa !157
-  %399 = getelementptr inbounds nuw ptr, ptr %398, i64 %.2320430.us
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %398, i64 %.2320430.us
   %400 = load ptr, ptr %399, align 8, !tbaa !159
-  %401 = getelementptr inbounds nuw ptr, ptr %400, i64 %.1316426.us436
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %400, i64 %.1316426.us436
   store ptr null, ptr %401, align 8, !tbaa !161
   br label %384
 
 ._crit_edge428.split.us439:                       ; preds = %384
   tail call void @free(ptr noundef nonnull %385) #28
   %402 = load ptr, ptr %282, align 8, !tbaa !131
-  %403 = getelementptr inbounds nuw %struct.tng_data, ptr %402, i64 %.2443
+  %403 = getelementptr inbounds nuw [96 x i8], ptr %402, i64 %.2443
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 88
   %405 = load ptr, ptr %404, align 8, !tbaa !157
-  %406 = getelementptr inbounds nuw ptr, ptr %405, i64 %.2320430.us
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %405, i64 %.2320430.us
   store ptr null, ptr %406, align 8, !tbaa !159
   br label %388
 
 .lr.ph434.split:                                  ; preds = %.lr.ph434, %418
   %407 = phi ptr [ %419, %418 ], [ %298, %.lr.ph434 ]
   %.2320430 = phi i64 [ %420, %418 ], [ 0, %.lr.ph434 ]
-  %408 = getelementptr inbounds nuw %struct.tng_data, ptr %407, i64 %.2443
+  %408 = getelementptr inbounds nuw [96 x i8], ptr %407, i64 %.2443
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 88
   %410 = load ptr, ptr %409, align 8, !tbaa !157
-  %411 = getelementptr inbounds nuw ptr, ptr %410, i64 %.2320430
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %410, i64 %.2320430
   %412 = load ptr, ptr %411, align 8, !tbaa !159
   %.not383 = icmp eq ptr %412, null
   br i1 %.not383, label %418, label %.preheader400
@@ -4055,17 +4048,17 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .preheader400:                                    ; preds = %.lr.ph434.split
   tail call void @free(ptr noundef nonnull %412) #28
   %413 = load ptr, ptr %282, align 8, !tbaa !131
-  %414 = getelementptr inbounds nuw %struct.tng_data, ptr %413, i64 %.2443
+  %414 = getelementptr inbounds nuw [96 x i8], ptr %413, i64 %.2443
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 88
   %416 = load ptr, ptr %415, align 8, !tbaa !157
-  %417 = getelementptr inbounds nuw ptr, ptr %416, i64 %.2320430
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %416, i64 %.2320430
   store ptr null, ptr %417, align 8, !tbaa !159
   br label %418
 
 418:                                              ; preds = %.lr.ph434.split, %.preheader400
   %419 = phi ptr [ %407, %.lr.ph434.split ], [ %413, %.preheader400 ]
   %420 = add nuw nsw i64 %.2320430, 1
-  %421 = getelementptr inbounds nuw %struct.tng_data, ptr %419, i64 %.2443
+  %421 = getelementptr inbounds nuw [96 x i8], ptr %419, i64 %.2443
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 32
   %423 = load i64, ptr %422, align 8, !tbaa !172
   %424 = icmp slt i64 %420, %423
@@ -4077,14 +4070,14 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %426 = load ptr, ptr %425, align 8, !tbaa !157
   tail call void @free(ptr noundef %426) #28
   %427 = load ptr, ptr %282, align 8, !tbaa !131
-  %428 = getelementptr inbounds nuw %struct.tng_data, ptr %427, i64 %.2443
+  %428 = getelementptr inbounds nuw [96 x i8], ptr %427, i64 %.2443
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 88
   store ptr null, ptr %429, align 8, !tbaa !157
   br label %430
 
 430:                                              ; preds = %._crit_edge435, %297
   %431 = phi ptr [ %427, %._crit_edge435 ], [ %298, %297 ]
-  %432 = getelementptr inbounds nuw %struct.tng_data, ptr %431, i64 %.2443
+  %432 = getelementptr inbounds nuw [96 x i8], ptr %431, i64 %.2443
   %433 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %434 = load ptr, ptr %433, align 8, !tbaa !165
   %.not382 = icmp eq ptr %434, null
@@ -4093,7 +4086,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 435:                                              ; preds = %430
   tail call void @free(ptr noundef nonnull %434) #28
   %436 = load ptr, ptr %282, align 8, !tbaa !131
-  %437 = getelementptr inbounds nuw %struct.tng_data, ptr %436, i64 %.2443
+  %437 = getelementptr inbounds nuw [96 x i8], ptr %436, i64 %.2443
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 8
   store ptr null, ptr %438, align 8, !tbaa !165
   br label %439
@@ -4127,7 +4120,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .lr.ph462:                                        ; preds = %.preheader398, %542
   %452 = phi ptr [ %543, %542 ], [ %448, %.preheader398 ]
   %.3459 = phi i64 [ %544, %542 ], [ 0, %.preheader398 ]
-  %453 = getelementptr inbounds nuw %struct.tng_data, ptr %452, i64 %.3459
+  %453 = getelementptr inbounds nuw [96 x i8], ptr %452, i64 %.3459
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 80
   %455 = load ptr, ptr %454, align 8, !tbaa !151
   %.not375 = icmp eq ptr %455, null
@@ -4136,14 +4129,14 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 456:                                              ; preds = %.lr.ph462
   tail call void @free(ptr noundef nonnull %455) #28
   %457 = load ptr, ptr %447, align 8, !tbaa !132
-  %458 = getelementptr inbounds nuw %struct.tng_data, ptr %457, i64 %.3459
+  %458 = getelementptr inbounds nuw [96 x i8], ptr %457, i64 %.3459
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 80
   store ptr null, ptr %459, align 8, !tbaa !151
   br label %460
 
 460:                                              ; preds = %456, %.lr.ph462
   %461 = phi ptr [ %457, %456 ], [ %452, %.lr.ph462 ]
-  %462 = getelementptr inbounds nuw %struct.tng_data, ptr %461, i64 %.3459
+  %462 = getelementptr inbounds nuw [96 x i8], ptr %461, i64 %.3459
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 88
   %464 = load ptr, ptr %463, align 8, !tbaa !157
   %.not376 = icmp eq ptr %464, null
@@ -4165,10 +4158,10 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .lr.ph454.split.us:                               ; preds = %.lr.ph454, %498
   %472 = phi ptr [ %499, %498 ], [ %461, %.lr.ph454 ]
   %.3321452.us = phi i64 [ %500, %498 ], [ 0, %.lr.ph454 ]
-  %473 = getelementptr inbounds nuw %struct.tng_data, ptr %472, i64 %.3459
+  %473 = getelementptr inbounds nuw [96 x i8], ptr %472, i64 %.3459
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 88
   %475 = load ptr, ptr %474, align 8, !tbaa !157
-  %476 = getelementptr inbounds nuw ptr, ptr %475, i64 %.3321452.us
+  %476 = getelementptr inbounds nuw [8 x i8], ptr %475, i64 %.3321452.us
   %477 = load ptr, ptr %476, align 8, !tbaa !159
   %.not378.us = icmp eq ptr %477, null
   br i1 %.not378.us, label %498, label %.preheader397.us
@@ -4176,12 +4169,12 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .preheader397.us:                                 ; preds = %.lr.ph454.split.us, %494
   %478 = phi ptr [ %496, %494 ], [ %472, %.lr.ph454.split.us ]
   %.2317449.us = phi i64 [ %497, %494 ], [ 0, %.lr.ph454.split.us ]
-  %479 = getelementptr inbounds nuw %struct.tng_data, ptr %478, i64 %.3459
+  %479 = getelementptr inbounds nuw [96 x i8], ptr %478, i64 %.3459
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 88
   %481 = load ptr, ptr %480, align 8, !tbaa !157
-  %482 = getelementptr inbounds nuw ptr, ptr %481, i64 %.3321452.us
+  %482 = getelementptr inbounds nuw [8 x i8], ptr %481, i64 %.3321452.us
   %483 = load ptr, ptr %482, align 8, !tbaa !159
-  %484 = getelementptr inbounds nuw ptr, ptr %483, i64 %.2317449.us
+  %484 = getelementptr inbounds nuw [8 x i8], ptr %483, i64 %.2317449.us
   %485 = load ptr, ptr %484, align 8, !tbaa !161
   %.not379.us = icmp eq ptr %485, null
   br i1 %.not379.us, label %494, label %486
@@ -4189,12 +4182,12 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 486:                                              ; preds = %.preheader397.us
   tail call void @free(ptr noundef nonnull %485) #28
   %487 = load ptr, ptr %447, align 8, !tbaa !132
-  %488 = getelementptr inbounds nuw %struct.tng_data, ptr %487, i64 %.3459
+  %488 = getelementptr inbounds nuw [96 x i8], ptr %487, i64 %.3459
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 88
   %490 = load ptr, ptr %489, align 8, !tbaa !157
-  %491 = getelementptr inbounds nuw ptr, ptr %490, i64 %.3321452.us
+  %491 = getelementptr inbounds nuw [8 x i8], ptr %490, i64 %.3321452.us
   %492 = load ptr, ptr %491, align 8, !tbaa !159
-  %493 = getelementptr inbounds nuw ptr, ptr %492, i64 %.2317449.us
+  %493 = getelementptr inbounds nuw [8 x i8], ptr %492, i64 %.2317449.us
   store ptr null, ptr %493, align 8, !tbaa !161
   br label %494
 
@@ -4208,7 +4201,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 498:                                              ; preds = %._crit_edge451.us, %.lr.ph454.split.us
   %499 = phi ptr [ %505, %._crit_edge451.us ], [ %472, %.lr.ph454.split.us ]
   %500 = add nuw nsw i64 %.3321452.us, 1
-  %501 = getelementptr inbounds nuw %struct.tng_data, ptr %499, i64 %.3459
+  %501 = getelementptr inbounds nuw [96 x i8], ptr %499, i64 %.3459
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 32
   %503 = load i64, ptr %502, align 8, !tbaa !172
   %504 = icmp slt i64 %500, %503
@@ -4217,20 +4210,20 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 ._crit_edge451.us:                                ; preds = %494
   tail call void @free(ptr noundef nonnull %495) #28
   %505 = load ptr, ptr %447, align 8, !tbaa !132
-  %506 = getelementptr inbounds nuw %struct.tng_data, ptr %505, i64 %.3459
+  %506 = getelementptr inbounds nuw [96 x i8], ptr %505, i64 %.3459
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 88
   %508 = load ptr, ptr %507, align 8, !tbaa !157
-  %509 = getelementptr inbounds nuw ptr, ptr %508, i64 %.3321452.us
+  %509 = getelementptr inbounds nuw [8 x i8], ptr %508, i64 %.3321452.us
   store ptr null, ptr %509, align 8, !tbaa !159
   br label %498
 
 .lr.ph454.split:                                  ; preds = %.lr.ph454, %521
   %510 = phi ptr [ %522, %521 ], [ %461, %.lr.ph454 ]
   %.3321452 = phi i64 [ %523, %521 ], [ 0, %.lr.ph454 ]
-  %511 = getelementptr inbounds nuw %struct.tng_data, ptr %510, i64 %.3459
+  %511 = getelementptr inbounds nuw [96 x i8], ptr %510, i64 %.3459
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 88
   %513 = load ptr, ptr %512, align 8, !tbaa !157
-  %514 = getelementptr inbounds nuw ptr, ptr %513, i64 %.3321452
+  %514 = getelementptr inbounds nuw [8 x i8], ptr %513, i64 %.3321452
   %515 = load ptr, ptr %514, align 8, !tbaa !159
   %.not378 = icmp eq ptr %515, null
   br i1 %.not378, label %521, label %.preheader397
@@ -4238,17 +4231,17 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .preheader397:                                    ; preds = %.lr.ph454.split
   tail call void @free(ptr noundef nonnull %515) #28
   %516 = load ptr, ptr %447, align 8, !tbaa !132
-  %517 = getelementptr inbounds nuw %struct.tng_data, ptr %516, i64 %.3459
+  %517 = getelementptr inbounds nuw [96 x i8], ptr %516, i64 %.3459
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 88
   %519 = load ptr, ptr %518, align 8, !tbaa !157
-  %520 = getelementptr inbounds nuw ptr, ptr %519, i64 %.3321452
+  %520 = getelementptr inbounds nuw [8 x i8], ptr %519, i64 %.3321452
   store ptr null, ptr %520, align 8, !tbaa !159
   br label %521
 
 521:                                              ; preds = %.lr.ph454.split, %.preheader397
   %522 = phi ptr [ %510, %.lr.ph454.split ], [ %516, %.preheader397 ]
   %523 = add nuw nsw i64 %.3321452, 1
-  %524 = getelementptr inbounds nuw %struct.tng_data, ptr %522, i64 %.3459
+  %524 = getelementptr inbounds nuw [96 x i8], ptr %522, i64 %.3459
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 32
   %526 = load i64, ptr %525, align 8, !tbaa !172
   %527 = icmp slt i64 %523, %526
@@ -4260,14 +4253,14 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %529 = load ptr, ptr %528, align 8, !tbaa !157
   tail call void @free(ptr noundef %529) #28
   %530 = load ptr, ptr %447, align 8, !tbaa !132
-  %531 = getelementptr inbounds nuw %struct.tng_data, ptr %530, i64 %.3459
+  %531 = getelementptr inbounds nuw [96 x i8], ptr %530, i64 %.3459
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 88
   store ptr null, ptr %532, align 8, !tbaa !157
   br label %533
 
 533:                                              ; preds = %._crit_edge455, %460
   %534 = phi ptr [ %530, %._crit_edge455 ], [ %461, %460 ]
-  %535 = getelementptr inbounds nuw %struct.tng_data, ptr %534, i64 %.3459
+  %535 = getelementptr inbounds nuw [96 x i8], ptr %534, i64 %.3459
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 8
   %537 = load ptr, ptr %536, align 8, !tbaa !165
   %.not377 = icmp eq ptr %537, null
@@ -4276,7 +4269,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 538:                                              ; preds = %533
   tail call void @free(ptr noundef nonnull %537) #28
   %539 = load ptr, ptr %447, align 8, !tbaa !132
-  %540 = getelementptr inbounds nuw %struct.tng_data, ptr %539, i64 %.3459
+  %540 = getelementptr inbounds nuw [96 x i8], ptr %539, i64 %.3459
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 8
   store ptr null, ptr %541, align 8, !tbaa !165
   br label %542
@@ -4314,7 +4307,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 .lr.ph465:                                        ; preds = %.preheader, %.lr.ph465
   %.4464 = phi i64 [ %560, %.lr.ph465 ], [ 0, %.preheader ]
   %557 = load ptr, ptr %552, align 8, !tbaa !28
-  %558 = getelementptr inbounds nuw %struct.tng_molecule, ptr %557, i64 %.4464
+  %558 = getelementptr inbounds nuw [88 x i8], ptr %557, i64 %.4464
   %559 = tail call i32 @tng_molecule_destroy(ptr nonnull poison, ptr noundef %558)
   %560 = add nuw nsw i64 %.4464, 1
   %561 = load i64, ptr %554, align 8, !tbaa !19
@@ -6195,7 +6188,7 @@ tng_file_output_numerical.exit83.i:               ; preds = %118
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %143
   %.068106.us.i = phi i64 [ %144, %143 ], [ 0, %.lr.ph.i ]
   %131 = load ptr, ptr %130, align 8, !tbaa !150
-  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %.068106.us.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %.068106.us.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %133 = load i64, ptr %132, align 8, !tbaa !38
   store i64 %133, ptr %13, align 8, !tbaa !38
@@ -6229,7 +6222,7 @@ tng_file_output_numerical.exit83.i:               ; preds = %118
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %159
   %.068106.i = phi i64 [ %160, %159 ], [ 0, %.lr.ph.i ]
   %147 = load ptr, ptr %130, align 8, !tbaa !150
-  %148 = getelementptr inbounds nuw i64, ptr %147, i64 %.068106.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %.068106.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %149 = load i64, ptr %148, align 8, !tbaa !38
   store i64 %149, ptr %13, align 8, !tbaa !38
@@ -6599,7 +6592,7 @@ tng_frame_set_block_write.exit:                   ; preds = %265
 301:                                              ; preds = %.lr.ph, %301
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %301 ]
   %302 = load ptr, ptr %286, align 8, !tbaa !132
-  %303 = getelementptr inbounds nuw %struct.tng_data, ptr %302, i64 %indvars.iv
+  %303 = getelementptr inbounds nuw [96 x i8], ptr %302, i64 %indvars.iv
   %304 = load i64, ptr %303, align 8, !tbaa !204
   store i64 %304, ptr %73, align 8, !tbaa !183
   %305 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef %indvars.iv, i32 noundef 0, ptr noundef null, i8 noundef signext %1)
@@ -6640,7 +6633,7 @@ tng_frame_set_block_write.exit:                   ; preds = %265
   %indvars.iv138 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next139, %.loopexit114 ]
   store i64 3, ptr %73, align 8, !tbaa !183
   %321 = load ptr, ptr %311, align 8, !tbaa !107
-  %322 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %321, i64 %indvars.iv138
+  %322 = getelementptr inbounds nuw [24 x i8], ptr %321, i64 %indvars.iv138
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %324 = load i64, ptr %323, align 8, !tbaa !111
   %325 = icmp sgt i64 %324, 0
@@ -6821,7 +6814,7 @@ tng_file_output_numerical.exit70.i:               ; preds = %388
 .lr.ph.split.us.i75:                              ; preds = %.lr.ph.i73, %412
   %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %412 ], [ 0, %.lr.ph.i73 ]
   %400 = load ptr, ptr %399, align 8, !tbaa !112
-  %401 = getelementptr inbounds nuw i64, ptr %400, i64 %indvars.iv85.i
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %400, i64 %indvars.iv85.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %402 = load i64, ptr %401, align 8, !tbaa !38
   store i64 %402, ptr %7, align 8, !tbaa !38
@@ -6856,7 +6849,7 @@ tng_file_output_numerical.exit70.i:               ; preds = %388
 .lr.ph.split.i74:                                 ; preds = %.lr.ph.i73, %427
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %427 ], [ 0, %.lr.ph.i73 ]
   %415 = load ptr, ptr %399, align 8, !tbaa !112
-  %416 = getelementptr inbounds nuw i64, ptr %415, i64 %indvars.iv.i
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %415, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %417 = load i64, ptr %416, align 8, !tbaa !38
   store i64 %417, ptr %7, align 8, !tbaa !38
@@ -6953,11 +6946,11 @@ tng_trajectory_mapping_block_write.exit:          ; preds = %330, %335, %346, %3
 .lr.ph124:                                        ; preds = %tng_trajectory_mapping_block_write.exit, %.lr.ph124
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %.lr.ph124 ], [ 0, %tng_trajectory_mapping_block_write.exit ]
   %462 = load ptr, ptr %315, align 8, !tbaa !131
-  %463 = getelementptr inbounds nuw %struct.tng_data, ptr %462, i64 %indvars.iv135
+  %463 = getelementptr inbounds nuw [96 x i8], ptr %462, i64 %indvars.iv135
   %464 = load i64, ptr %463, align 8, !tbaa !204
   store i64 %464, ptr %73, align 8, !tbaa !183
   %465 = load ptr, ptr %311, align 8, !tbaa !107
-  %466 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %465, i64 %indvars.iv138
+  %466 = getelementptr inbounds nuw [24 x i8], ptr %465, i64 %indvars.iv138
   %467 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef %indvars.iv135, i32 noundef 1, ptr noundef %466, i8 noundef signext %1)
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %468 = load i32, ptr %314, align 8, !tbaa !129
@@ -6974,7 +6967,7 @@ tng_trajectory_mapping_block_write.exit:          ; preds = %330, %335, %346, %3
 473:                                              ; preds = %.lr.ph128, %473
   %indvars.iv141 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next142, %473 ]
   %474 = load ptr, ptr %319, align 8, !tbaa !131
-  %475 = getelementptr inbounds nuw %struct.tng_data, ptr %474, i64 %indvars.iv141
+  %475 = getelementptr inbounds nuw [96 x i8], ptr %474, i64 %indvars.iv141
   %476 = load i64, ptr %475, align 8, !tbaa !204
   store i64 %476, ptr %73, align 8, !tbaa !183
   %477 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef %indvars.iv141, i32 noundef 1, ptr noundef null, i8 noundef signext %1)
@@ -7638,7 +7631,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr noundef captures(
 .lr.ph.split.us.i:                                ; preds = %20, %.lr.ph.i
   %.01417.us.i.in = phi i64 [ %.01417.us.i, %20 ], [ %11, %.lr.ph.i ]
   %.01417.us.i = add nsw i64 %.01417.us.i.in, -1
-  %15 = getelementptr inbounds nuw %struct.tng_molecule, ptr %14, i64 %.01417.us.i
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %14, i64 %.01417.us.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !37
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(17) @.str.15, ptr noundef nonnull dereferenceable(1) %17) #29
@@ -7667,7 +7660,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr noundef captures(
 28:                                               ; preds = %.lr.ph.i42
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %30 = load ptr, ptr %29, align 8, !tbaa !34
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %.01115.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.01115.i
   %32 = load i64, ptr %31, align 8, !tbaa !38
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %34 = load i64, ptr %33, align 8, !tbaa !48
@@ -7703,7 +7696,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr noundef captures(
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i64, ptr %30, i64 %.02933.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02933.i
   %50 = load i64, ptr %49, align 8, !tbaa !38
   store i64 0, ptr %49, align 8, !tbaa !38
   %51 = load i64, ptr %33, align 8, !tbaa !48
@@ -7716,7 +7709,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr noundef captures(
 55:                                               ; preds = %44
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %57 = load ptr, ptr %56, align 8, !tbaa !50
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %.02933.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.02933.i
   %59 = load i64, ptr %58, align 8, !tbaa !38
   store i64 0, ptr %58, align 8, !tbaa !38
   %60 = load i64, ptr %33, align 8, !tbaa !48
@@ -7751,7 +7744,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr noundef captures(
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %78 = load ptr, ptr %77, align 8, !tbaa !28
-  %79 = getelementptr %struct.tng_molecule, ptr %78, i64 %11
+  %79 = getelementptr [88 x i8], ptr %78, i64 %11
   %80 = getelementptr i8, ptr %79, i64 -88
   %81 = load i64, ptr %80, align 8, !tbaa !29
   %82 = add nsw i64 %81, 1
@@ -7773,7 +7766,7 @@ tng_molecule_add.exit:                            ; preds = %75, %76
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 56
   %90 = load ptr, ptr %89, align 8, !tbaa !55
-  %91 = getelementptr %struct.tng_chain, ptr %90, i64 %87
+  %91 = getelementptr [40 x i8], ptr %90, i64 %87
   %92 = getelementptr i8, ptr %91, i64 -32
   %93 = load i64, ptr %92, align 8, !tbaa !58
   %94 = add nsw i64 %93, 1
@@ -7795,7 +7788,7 @@ tng_molecule_chain_add.exit:                      ; preds = %84, %88
 100:                                              ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %102 = load ptr, ptr %101, align 8, !tbaa !60
-  %103 = getelementptr %struct.tng_residue, ptr %102, i64 %99
+  %103 = getelementptr [40 x i8], ptr %102, i64 %99
   %104 = getelementptr i8, ptr %103, i64 -32
   %105 = load i64, ptr %104, align 8, !tbaa !63
   %106 = add nsw i64 %105, 1
@@ -7850,7 +7843,7 @@ tng_chain_residue_add.exit:                       ; preds = %96, %100
 
 129:                                              ; preds = %132, %.lr.ph.i53
   %.02933.i54 = phi i64 [ 0, %.lr.ph.i53 ], [ %133, %132 ]
-  %130 = getelementptr inbounds nuw %struct.tng_molecule, ptr %128, i64 %.02933.i54
+  %130 = getelementptr inbounds nuw [88 x i8], ptr %128, i64 %.02933.i54
   %131 = icmp eq ptr %130, %125
   br i1 %131, label %136, label %132
 
@@ -7874,7 +7867,7 @@ tng_chain_residue_add.exit:                       ; preds = %96, %100
 141:                                              ; preds = %136
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %143 = load ptr, ptr %142, align 8, !tbaa !34
-  %144 = getelementptr inbounds nuw i64, ptr %143, i64 %.02933.i54
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %.02933.i54
   %145 = load i64, ptr %144, align 8, !tbaa !38
   store i64 %.1, ptr %144, align 8, !tbaa !38
   %146 = sub nsw i64 %.1, %145
@@ -7888,7 +7881,7 @@ tng_chain_residue_add.exit:                       ; preds = %96, %100
 151:                                              ; preds = %136
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %153 = load ptr, ptr %152, align 8, !tbaa !50
-  %154 = getelementptr inbounds nuw i64, ptr %153, i64 %.02933.i54
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %.02933.i54
   %155 = load i64, ptr %154, align 8, !tbaa !38
   store i64 %.1, ptr %154, align 8, !tbaa !38
   %156 = sub nsw i64 %.1, %155
@@ -7957,7 +7950,7 @@ define range(i32 0, 2) i32 @tng_num_molecules_get(ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.012 = phi i64 [ %12, %.lr.ph ], [ 0, %.preheader ]
   %.0811 = phi i64 [ %11, %.lr.ph ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw i64, ptr %storemerge.i, i64 %.012
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.012
   %10 = load i64, ptr %9, align 8, !tbaa !38
   %11 = add nsw i64 %10, %.0811
   %12 = add nuw nsw i64 %.012, 1
@@ -8485,7 +8478,7 @@ define range(i32 0, 3) i32 @tng_block_read_next(ptr noundef %0, ptr noundef read
   %43 = phi i64 [ %50, %49 ], [ %38, %.preheader.i.i ]
   %.016.i.i = phi i64 [ %51, %49 ], [ 0, %.preheader.i.i ]
   %44 = load ptr, ptr %40, align 8, !tbaa !107
-  %45 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %44, i64 %.016.i.i
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %.016.i.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !112
   %.not15.i.i = icmp eq ptr %47, null
@@ -8632,7 +8625,7 @@ tng_file_input_numerical.exit87.thread.i:         ; preds = %tng_file_input_nume
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %tng_file_input_numerical.exit94.thread.us.i
   %105 = phi ptr [ %120, %tng_file_input_numerical.exit94.thread.us.i ], [ %102, %.lr.ph.i ]
   %.075131.us.i = phi i64 [ %126, %tng_file_input_numerical.exit94.thread.us.i ], [ 0, %.lr.ph.i ]
-  %106 = getelementptr inbounds nuw i64, ptr %105, i64 %.075131.us.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %.075131.us.i
   %107 = load ptr, ptr %31, align 8, !tbaa !137
   %108 = call i64 @fread(ptr noundef %106, i64 noundef 8, i64 noundef 1, ptr noundef %107)
   %109 = icmp eq i64 %108, 0
@@ -8656,11 +8649,11 @@ tng_file_input_numerical.exit94.us.i:             ; preds = %112
 
 tng_file_input_numerical.exit94.thread.us.i:      ; preds = %tng_file_input_numerical.exit94.us.i, %112, %110
   %116 = load ptr, ptr %104, align 8, !tbaa !28
-  %117 = getelementptr inbounds nuw %struct.tng_molecule, ptr %116, i64 %.075131.us.i
+  %117 = getelementptr inbounds nuw [88 x i8], ptr %116, i64 %.075131.us.i
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 32
   %119 = load i64, ptr %118, align 8, !tbaa !48
   %120 = load ptr, ptr %92, align 8, !tbaa !150
-  %121 = getelementptr inbounds nuw i64, ptr %120, i64 %.075131.us.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %.075131.us.i
   %122 = load i64, ptr %121, align 8, !tbaa !38
   %123 = mul nsw i64 %122, %119
   %124 = load i64, ptr %91, align 8, !tbaa !222
@@ -8674,7 +8667,7 @@ tng_file_input_numerical.exit94.thread.us.i:      ; preds = %tng_file_input_nume
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %tng_file_input_numerical.exit94.thread.i
   %129 = phi ptr [ %146, %tng_file_input_numerical.exit94.thread.i ], [ %102, %.lr.ph.i ]
   %.075131.i = phi i64 [ %152, %tng_file_input_numerical.exit94.thread.i ], [ 0, %.lr.ph.i ]
-  %130 = getelementptr inbounds nuw i64, ptr %129, i64 %.075131.i
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %.075131.i
   %131 = load ptr, ptr %31, align 8, !tbaa !137
   %132 = call i64 @fread(ptr noundef %130, i64 noundef 8, i64 noundef 1, ptr noundef %131)
   %133 = icmp eq i64 %132, 0
@@ -8702,11 +8695,11 @@ tng_file_input_numerical.exit94.i:                ; preds = %138
 
 tng_file_input_numerical.exit94.thread.i:         ; preds = %tng_file_input_numerical.exit94.i, %138, %136
   %142 = load ptr, ptr %104, align 8, !tbaa !28
-  %143 = getelementptr inbounds nuw %struct.tng_molecule, ptr %142, i64 %.075131.i
+  %143 = getelementptr inbounds nuw [88 x i8], ptr %142, i64 %.075131.i
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 32
   %145 = load i64, ptr %144, align 8, !tbaa !48
   %146 = load ptr, ptr %92, align 8, !tbaa !150
-  %147 = getelementptr inbounds nuw i64, ptr %146, i64 %.075131.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %.075131.i
   %148 = load i64, ptr %147, align 8, !tbaa !38
   %149 = mul nsw i64 %148, %145
   %150 = load i64, ptr %91, align 8, !tbaa !222
@@ -9279,7 +9272,7 @@ tng_general_info_block_read.exit:                 ; preds = %tng_file_input_nume
 .lr.ph.i37:                                       ; preds = %.preheader370.i, %.lr.ph.i37
   %.0211388.i = phi i64 [ %408, %.lr.ph.i37 ], [ 0, %.preheader370.i ]
   %405 = load ptr, ptr %400, align 8, !tbaa !28
-  %406 = getelementptr inbounds nuw %struct.tng_molecule, ptr %405, i64 %.0211388.i
+  %406 = getelementptr inbounds nuw [88 x i8], ptr %405, i64 %.0211388.i
   %407 = tail call i32 @tng_molecule_destroy(ptr nonnull poison, ptr noundef %406)
   %408 = add nuw nsw i64 %.0211388.i, 1
   %409 = load i64, ptr %402, align 8, !tbaa !19
@@ -9407,7 +9400,7 @@ tng_file_input_numerical.exit.thread.i33:         ; preds = %tng_file_input_nume
 461:                                              ; preds = %.loopexit.i35, %.lr.ph425.i
   %.1212423.i = phi i64 [ 0, %.lr.ph425.i ], [ %816, %.loopexit.i35 ]
   %462 = load ptr, ptr %400, align 8, !tbaa !28
-  %463 = getelementptr inbounds nuw %struct.tng_molecule, ptr %462, i64 %.1212423.i
+  %463 = getelementptr inbounds nuw [88 x i8], ptr %462, i64 %.1212423.i
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 48
   store ptr null, ptr %464, align 8, !tbaa !37
   %465 = load ptr, ptr %397, align 8, !tbaa !137
@@ -9484,7 +9477,7 @@ tng_file_input_numerical.exit260.thread.i:        ; preds = %tng_file_input_nume
 
 493:                                              ; preds = %tng_file_input_numerical.exit260.thread.i
   %494 = load ptr, ptr %460, align 8, !tbaa !34
-  %495 = getelementptr inbounds nuw i64, ptr %494, i64 %.1212423.i
+  %495 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %.1212423.i
   %496 = load ptr, ptr %397, align 8, !tbaa !137
   %497 = call i64 @fread(ptr noundef %495, i64 noundef 8, i64 noundef 1, ptr noundef %496)
   %498 = icmp eq i64 %497, 0
@@ -9622,7 +9615,7 @@ tng_file_input_numerical.exit288.i:               ; preds = %547
 tng_file_input_numerical.exit288.thread.i:        ; preds = %tng_file_input_numerical.exit288.i, %547, %545
   %551 = load i64, ptr %537, align 8, !tbaa !48
   %552 = load ptr, ptr %460, align 8, !tbaa !34
-  %553 = getelementptr inbounds nuw i64, ptr %552, i64 %.1212423.i
+  %553 = getelementptr inbounds nuw [8 x i8], ptr %552, i64 %.1212423.i
   %554 = load i64, ptr %553, align 8, !tbaa !38
   %555 = mul nsw i64 %554, %551
   %556 = load i64, ptr %436, align 8, !tbaa !49
@@ -10100,7 +10093,7 @@ tng_file_input_numerical.exit301.thread.i:        ; preds = %tng_file_input_nume
   %763 = shl i64 %760, 4
   %764 = call noalias ptr @malloc(i64 noundef %763) #30
   %765 = load ptr, ptr %400, align 8, !tbaa !28
-  %766 = getelementptr inbounds nuw %struct.tng_molecule, ptr %765, i64 %.1212423.i
+  %766 = getelementptr inbounds nuw [88 x i8], ptr %765, i64 %.1212423.i
   %767 = getelementptr inbounds nuw i8, ptr %766, i64 80
   store ptr %764, ptr %767, align 8, !tbaa !72
   %768 = getelementptr inbounds nuw i8, ptr %463, i64 80
@@ -10386,7 +10379,7 @@ tng_molecules_block_read.exit:                    ; preds = %394, %tng_file_inpu
 
 .lr.ph32.i.i.i:                                   ; preds = %892, %.lr.ph32.i.preheader.i.i
   %.02431.i.i.i = phi i64 [ %893, %892 ], [ 0, %.lr.ph32.i.preheader.i.i ]
-  %894 = getelementptr inbounds nuw %struct.tng_data, ptr %891, i64 %.02431.i.i.i
+  %894 = getelementptr inbounds nuw [96 x i8], ptr %891, i64 %.02431.i.i.i
   %895 = load i64, ptr %894, align 8, !tbaa !204
   %896 = icmp eq i64 %895, %871
   br i1 %896, label %tng_particle_data_find.exit.i.i, label %892
@@ -10398,7 +10391,7 @@ tng_molecules_block_read.exit:                    ; preds = %394, %tng_file_inpu
 
 .lr.ph.i.i.i:                                     ; preds = %.critedge.i.i.i, %.lr.ph.i.preheader.i.i
   %.129.i.i.i = phi i64 [ %897, %.critedge.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %898 = getelementptr inbounds nuw %struct.tng_data, ptr %884, i64 %.129.i.i.i
+  %898 = getelementptr inbounds nuw [96 x i8], ptr %884, i64 %.129.i.i.i
   %899 = load i64, ptr %898, align 8, !tbaa !204
   %900 = icmp eq i64 %899, %871
   br i1 %900, label %tng_particle_data_find.exit.i.i, label %.critedge.i.i.i
@@ -10459,7 +10452,7 @@ tng_molecules_block_read.exit:                    ; preds = %394, %tng_file_inpu
 
 930:                                              ; preds = %922, %.lr.ph47.i.i.i
   %.03446.i.i.i = phi i64 [ 0, %.lr.ph47.i.i.i ], [ %923, %922 ]
-  %931 = getelementptr inbounds nuw %struct.tng_data, ptr %921, i64 %.03446.i.i.i
+  %931 = getelementptr inbounds nuw [96 x i8], ptr %921, i64 %.03446.i.i.i
   %932 = load i64, ptr %931, align 8, !tbaa !204
   %933 = icmp eq i64 %932, %902
   br i1 %933, label %tng_particle_data_find.exit.i.i, label %922
@@ -10471,7 +10464,7 @@ tng_molecules_block_read.exit:                    ; preds = %394, %tng_file_inpu
 
 .lr.ph49.i.i.i:                                   ; preds = %.critedge38.i.i.i, %.lr.ph49.i.preheader.i.i
   %.148.i.i.i = phi i64 [ %934, %.critedge38.i.i.i ], [ 0, %.lr.ph49.i.preheader.i.i ]
-  %935 = getelementptr inbounds nuw %struct.tng_data, ptr %929, i64 %.148.i.i.i
+  %935 = getelementptr inbounds nuw [96 x i8], ptr %929, i64 %.148.i.i.i
   %936 = load i64, ptr %935, align 8, !tbaa !204
   %937 = icmp eq i64 %936, %902
   br i1 %937, label %tng_particle_data_find.exit.i.i, label %.critedge38.i.i.i
@@ -10483,7 +10476,7 @@ tng_molecules_block_read.exit:                    ; preds = %394, %tng_file_inpu
 
 .lr.ph.i223.i.i:                                  ; preds = %.critedge.i224.i.i, %.lr.ph.i223.preheader.i.i
   %.243.i.i.i = phi i64 [ %938, %.critedge.i224.i.i ], [ 0, %.lr.ph.i223.preheader.i.i ]
-  %939 = getelementptr inbounds nuw %struct.tng_data, ptr %915, i64 %.243.i.i.i
+  %939 = getelementptr inbounds nuw [96 x i8], ptr %915, i64 %.243.i.i.i
   %940 = load i64, ptr %939, align 8, !tbaa !204
   %941 = icmp eq i64 %940, %902
   br i1 %941, label %tng_particle_data_find.exit.i.i, label %.critedge.i224.i.i
@@ -10549,7 +10542,7 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
   %959 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i
   %960 = load i32, ptr %959, align 8, !tbaa !17
   %961 = sext i32 %960 to i64
-  %962 = getelementptr %struct.tng_data, ptr %958, i64 %961
+  %962 = getelementptr [96 x i8], ptr %958, i64 %961
   %963 = getelementptr i8, ptr %962, i64 -96
   %964 = load i64, ptr %26, align 8, !tbaa !183
   store i64 %964, ptr %963, align 8, !tbaa !204
@@ -10874,14 +10867,14 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   %.0169336.us.us.i.i = phi i64 [ %1128, %._crit_edge332.split.us.us.us.i.i ], [ 0, %.lr.ph337.split.us.i.i ]
   %.0177335.us.us.i.i = phi i64 [ %1124, %._crit_edge332.split.us.us.us.i.i ], [ 0, %.lr.ph337.split.us.i.i ]
   %1107 = load ptr, ptr %1104, align 8, !tbaa !157
-  %1108 = getelementptr inbounds nuw ptr, ptr %1107, i64 %.0169336.us.us.i.i
+  %1108 = getelementptr inbounds nuw [8 x i8], ptr %1107, i64 %.0169336.us.us.i.i
   %1109 = load ptr, ptr %1108, align 8, !tbaa !159
   br label %.lr.ph327.us.us.us.i.i
 
 .lr.ph327.us.us.us.i.i:                           ; preds = %._crit_edge.us.us.us.i.i, %.lr.ph331.us.us.i.i
   %.0172329.us.us.us.i.i = phi i64 [ %857, %.lr.ph331.us.us.i.i ], [ %1126, %._crit_edge.us.us.us.i.i ]
   %.1178328.us.us.us.i.i = phi i64 [ %.0177335.us.us.i.i, %.lr.ph331.us.us.i.i ], [ %1124, %._crit_edge.us.us.us.i.i ]
-  %1110 = getelementptr inbounds ptr, ptr %1109, i64 %.0172329.us.us.us.i.i
+  %1110 = getelementptr inbounds [8 x i8], ptr %1109, i64 %.0172329.us.us.us.i.i
   %1111 = load ptr, ptr %1110, align 8, !tbaa !161
   br label %1112
 
@@ -10892,7 +10885,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   %1114 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1113) #29
   %1115 = add i64 %1114, 1
   %1116 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %1115, i64 1024)
-  %1117 = getelementptr inbounds nuw ptr, ptr %1111, i64 %.0181325.us.us.us.i.i
+  %1117 = getelementptr inbounds nuw [8 x i8], ptr %1111, i64 %.0181325.us.us.us.i.i
   %1118 = load ptr, ptr %1117, align 8, !tbaa !40
   %.not217.us.us.us.i.i = icmp eq ptr %1118, null
   br i1 %.not217.us.us.us.i.i, label %1120, label %1119
@@ -10946,9 +10939,9 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   %1135 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %1134, i64 1024)
   %1136 = load ptr, ptr %1130, align 8, !tbaa !157
   %1137 = load ptr, ptr %1136, align 8, !tbaa !159
-  %1138 = getelementptr inbounds nuw ptr, ptr %1137, i64 %.1170346.us.i.i
+  %1138 = getelementptr inbounds nuw [8 x i8], ptr %1137, i64 %.1170346.us.i.i
   %1139 = load ptr, ptr %1138, align 8, !tbaa !161
-  %1140 = getelementptr inbounds nuw ptr, ptr %1139, i64 %.1173342.us.i.i
+  %1140 = getelementptr inbounds nuw [8 x i8], ptr %1139, i64 %.1173342.us.i.i
   %1141 = load ptr, ptr %1140, align 8, !tbaa !40
   %.not214.us.i.i = icmp eq ptr %1141, null
   br i1 %.not214.us.i.i, label %1143, label %1142
@@ -10957,14 +10950,14 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   call void @free(ptr noundef nonnull %1141) #28
   %.pre.i.i42 = load ptr, ptr %1130, align 8, !tbaa !157
   %.pre377.i.i = load ptr, ptr %.pre.i.i42, align 8, !tbaa !159
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw ptr, ptr %.pre377.i.i, i64 %.1170346.us.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre377.i.i, i64 %.1170346.us.i.i
   %.pre378.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !161
   br label %1143
 
 1143:                                             ; preds = %1142, %1131
   %1144 = phi ptr [ %.pre378.i.i, %1142 ], [ %1139, %1131 ]
   %1145 = call noalias ptr @malloc(i64 noundef %1135) #30
-  %1146 = getelementptr inbounds nuw ptr, ptr %1144, i64 %.1173342.us.i.i
+  %1146 = getelementptr inbounds nuw [8 x i8], ptr %1144, i64 %.1173342.us.i.i
   store ptr %1145, ptr %1146, align 8, !tbaa !40
   %.not215.us.i.i = icmp eq ptr %1145, null
   br i1 %.not215.us.i.i, label %.split.us347.i.i, label %1147
@@ -13166,7 +13159,7 @@ tng_block_header_len_calculate.exit94:            ; preds = %120, %124
   %.073210 = phi i64 [ %134, %.lr.ph ], [ %198, %tng_data_block_len_calculate.exit ]
   %.lcssa201.lcssa206208 = phi i64 [ %133, %.lr.ph ], [ %.lcssa201.lcssa207, %tng_data_block_len_calculate.exit ]
   %146 = load ptr, ptr %105, align 8, !tbaa !187
-  %147 = getelementptr inbounds nuw %struct.tng_data, ptr %145, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [96 x i8], ptr %145, i64 %indvars.iv
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8, !tbaa !165
   %150 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(1) %149) #28
@@ -13201,7 +13194,7 @@ tng_block_header_len_calculate.exit98:            ; preds = %154, %158
   %.lcssa201.lcssa205 = phi i64 [ %.lcssa201.lcssa206208, %154 ], [ %163, %158 ]
   %164 = add nsw i64 %.lcssa201.lcssa205, %.073210
   %165 = load ptr, ptr %138, align 8, !tbaa !167
-  %166 = getelementptr inbounds nuw %struct.tng_data, ptr %165, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw [96 x i8], ptr %165, i64 %indvars.iv
   %167 = icmp eq ptr %165, null
   br i1 %167, label %tng_data_block_len_calculate.exit, label %168
 
@@ -13237,7 +13230,7 @@ tng_block_header_len_calculate.exit98:            ; preds = %154, %158
 .lr.ph.i99:                                       ; preds = %.lr.ph.i99, %.lr.ph16.split.i.preheader
   %185 = phi i64 [ %190, %.lr.ph.i99 ], [ %spec.select, %.lr.ph16.split.i.preheader ]
   %.114.i = phi i64 [ %191, %.lr.ph.i99 ], [ 0, %.lr.ph16.split.i.preheader ]
-  %186 = getelementptr inbounds nuw ptr, ptr %184, i64 %.114.i
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %.114.i
   %187 = load ptr, ptr %186, align 8, !tbaa !40
   %188 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %187) #29
   %189 = add i64 %185, 1
@@ -13270,7 +13263,7 @@ tng_data_block_len_calculate.exit:                ; preds = %.lr.ph.i99, %tng_bl
   %.1222 = phi i64 [ %.073.lcssa, %.lr.ph223 ], [ %261, %tng_data_block_len_calculate.exit108 ]
   %.lcssa212.lcssa.lcssa218220 = phi i64 [ %.lcssa201.lcssa206.lcssa, %.lr.ph223 ], [ %.lcssa212.lcssa.lcssa219, %tng_data_block_len_calculate.exit108 ]
   %204 = load ptr, ptr %105, align 8, !tbaa !187
-  %205 = getelementptr inbounds nuw %struct.tng_data, ptr %203, i64 %indvars.iv257
+  %205 = getelementptr inbounds nuw [96 x i8], ptr %203, i64 %indvars.iv257
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %207 = load ptr, ptr %206, align 8, !tbaa !165
   %208 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(1) %207) #28
@@ -13305,7 +13298,7 @@ tng_block_header_len_calculate.exit103:           ; preds = %212, %216
   %.lcssa212.lcssa.lcssa217 = phi i64 [ %.lcssa212.lcssa.lcssa218220, %212 ], [ %221, %216 ]
   %222 = add nsw i64 %.lcssa212.lcssa.lcssa217, %.1222
   %223 = load ptr, ptr %142, align 8, !tbaa !125
-  %224 = getelementptr inbounds nuw %struct.tng_data, ptr %223, i64 %indvars.iv257
+  %224 = getelementptr inbounds nuw [96 x i8], ptr %223, i64 %indvars.iv257
   %225 = load i64, ptr %143, align 8, !tbaa !49
   %226 = icmp eq ptr %223, null
   br i1 %226, label %tng_data_block_len_calculate.exit108, label %227
@@ -13345,7 +13338,7 @@ tng_block_header_len_calculate.exit103:           ; preds = %212, %216
 .lr.ph7.split.us13.i:                             ; preds = %.lr.ph7.us.i.preheader, %._crit_edge.us.i
   %.lcssa212213 = phi i64 [ %252, %._crit_edge.us.i ], [ %spec.select231, %.lr.ph7.us.i.preheader ]
   %.0505.us11.i = phi i64 [ %246, %._crit_edge.us.i ], [ 0, %.lr.ph7.us.i.preheader ]
-  %244 = getelementptr inbounds nuw ptr, ptr %243, i64 %.0505.us11.i
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %.0505.us11.i
   %245 = load ptr, ptr %244, align 8, !tbaa !161
   br label %.lr.ph.us.i
 
@@ -13357,7 +13350,7 @@ tng_block_header_len_calculate.exit103:           ; preds = %212, %216
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph7.split.us13.i
   %247 = phi i64 [ %252, %.lr.ph.us.i ], [ %.lcssa212213, %.lr.ph7.split.us13.i ]
   %.0494.us.i = phi i64 [ %253, %.lr.ph.us.i ], [ 0, %.lr.ph7.split.us13.i ]
-  %248 = getelementptr inbounds nuw ptr, ptr %245, i64 %.0494.us.i
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %.0494.us.i
   %249 = load ptr, ptr %248, align 8, !tbaa !40
   %250 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %249) #29
   %251 = add i64 %247, 1
@@ -14835,7 +14828,7 @@ tng_file_output_numerical.exit.i:                 ; preds = %884, %883
 889:                                              ; preds = %._crit_edge228.i, %.lr.ph230.i
   %.0116229.i = phi i64 [ 0, %.lr.ph230.i ], [ %1162, %._crit_edge228.i ]
   %890 = load ptr, ptr %887, align 8, !tbaa !28
-  %891 = getelementptr inbounds nuw %struct.tng_molecule, ptr %890, i64 %.0116229.i
+  %891 = getelementptr inbounds nuw [88 x i8], ptr %890, i64 %.0116229.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %892 = load i64, ptr %891, align 8, !tbaa !38
   store i64 %892, ptr %13, align 8, !tbaa !38
@@ -14943,7 +14936,7 @@ tng_file_output_numerical.exit150.i:              ; preds = %927
 
 936:                                              ; preds = %934
   %937 = load ptr, ptr %888, align 8, !tbaa !34
-  %938 = getelementptr inbounds nuw i64, ptr %937, i64 %.0116229.i
+  %938 = getelementptr inbounds nuw [8 x i8], ptr %937, i64 %.0116229.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %939 = load i64, ptr %938, align 8, !tbaa !38
   store i64 %939, ptr %11, align 8, !tbaa !38
@@ -15243,7 +15236,7 @@ tng_chain_data_write.exit.i:                      ; preds = %1049, %tng_file_out
   %1060 = load ptr, ptr %1006, align 8, !tbaa !66
   %1061 = getelementptr inbounds nuw i8, ptr %.0112217.i, i64 32
   %1062 = load i64, ptr %1061, align 8, !tbaa !67
-  %1063 = getelementptr inbounds %struct.tng_atom, ptr %1060, i64 %1062
+  %1063 = getelementptr inbounds [32 x i8], ptr %1060, i64 %1062
   br label %.lr.ph214.i
 
 .lr.ph214.i:                                      ; preds = %.lr.ph214.i, %.lr.ph214.preheader.i
@@ -15294,7 +15287,7 @@ tng_chain_data_write.exit.i:                      ; preds = %1049, %tng_file_out
   %1086 = load ptr, ptr %1081, align 8, !tbaa !66
   %1087 = getelementptr inbounds nuw i8, ptr %.1113208.i, i64 32
   %1088 = load i64, ptr %1087, align 8, !tbaa !67
-  %1089 = getelementptr inbounds %struct.tng_atom, ptr %1086, i64 %1088
+  %1089 = getelementptr inbounds [32 x i8], ptr %1086, i64 %1088
   br label %.lr.ph206.i
 
 .lr.ph206.i:                                      ; preds = %.lr.ph206.i, %.lr.ph206.preheader.i
@@ -15590,7 +15583,7 @@ tng_block_init.exit141:                           ; preds = %1197, %1200
 1215:                                             ; preds = %.lr.ph227, %1215
   %indvars.iv260 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next261, %1215 ]
   %1216 = load ptr, ptr %1208, align 8, !tbaa !167
-  %1217 = getelementptr inbounds nuw %struct.tng_data, ptr %1216, i64 %indvars.iv260
+  %1217 = getelementptr inbounds nuw [96 x i8], ptr %1216, i64 %indvars.iv260
   %1218 = load i64, ptr %1217, align 8, !tbaa !204
   store i64 %1218, ptr %1209, align 8, !tbaa !183
   %1219 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef %1196, i64 noundef %indvars.iv260, i32 noundef 0, ptr noundef null, i8 noundef signext %1)
@@ -15603,7 +15596,7 @@ tng_block_init.exit141:                           ; preds = %1197, %1200
 1223:                                             ; preds = %.lr.ph229, %1223
   %indvars.iv263 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next264, %1223 ]
   %1224 = load ptr, ptr %1213, align 8, !tbaa !125
-  %1225 = getelementptr inbounds nuw %struct.tng_data, ptr %1224, i64 %indvars.iv263
+  %1225 = getelementptr inbounds nuw [96 x i8], ptr %1224, i64 %indvars.iv263
   %1226 = load i64, ptr %1225, align 8, !tbaa !204
   store i64 %1226, ptr %1214, align 8, !tbaa !183
   %1227 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef %1196, i64 noundef %indvars.iv263, i32 noundef 1, ptr noundef null, i8 noundef signext %1)
@@ -15930,7 +15923,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
 8:                                                ; preds = %.lr.ph113, %._crit_edge110
   %9 = phi i64 [ 0, %.lr.ph113 ], [ %127, %._crit_edge110 ]
   %.069111 = phi i64 [ 0, %.lr.ph113 ], [ %128, %._crit_edge110 ]
-  %10 = getelementptr inbounds nuw %struct.tng_molecule, ptr %7, i64 %.069111
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %7, i64 %.069111
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   %.not76 = icmp eq ptr %12, null
@@ -16400,7 +16393,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %37 = load ptr, ptr %36, align 8, !tbaa !131
-  %38 = getelementptr inbounds %struct.tng_data, ptr %37, i64 %2
+  %38 = getelementptr inbounds [96 x i8], ptr %37, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i64, ptr %39, align 8, !tbaa !246
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -16417,7 +16410,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
 48:                                               ; preds = %34
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %50 = load ptr, ptr %49, align 8, !tbaa !125
-  %51 = getelementptr inbounds %struct.tng_data, ptr %50, i64 %2
+  %51 = getelementptr inbounds [96 x i8], ptr %50, i64 %2
   br label %70
 
 52:                                               ; preds = %33
@@ -16426,7 +16419,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %55 = load ptr, ptr %54, align 8, !tbaa !132
-  %56 = getelementptr inbounds %struct.tng_data, ptr %55, i64 %2
+  %56 = getelementptr inbounds [96 x i8], ptr %55, i64 %2
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load i64, ptr %57, align 8, !tbaa !246
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -16443,7 +16436,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
 66:                                               ; preds = %52
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %68 = load ptr, ptr %67, align 8, !tbaa !167
-  %69 = getelementptr inbounds %struct.tng_data, ptr %68, i64 %2
+  %69 = getelementptr inbounds [96 x i8], ptr %68, i64 %2
   br label %70
 
 70:                                               ; preds = %62, %66, %44, %48
@@ -16629,7 +16622,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
   %160 = phi i64 [ %181, %._crit_edge8.us.i ], [ %158, %.lr.ph10.split.us.i ]
   %161 = phi i64 [ %182, %._crit_edge8.us.i ], [ %158, %.lr.ph10.split.us.i ]
   %.0519.us.i = phi i64 [ %183, %._crit_edge8.us.i ], [ 0, %.lr.ph10.split.us.i ]
-  %162 = getelementptr inbounds nuw ptr, ptr %154, i64 %.0519.us.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %.0519.us.i
   %163 = load ptr, ptr %162, align 8, !tbaa !159
   %164 = icmp sgt i64 %161, 0
   br i1 %164, label %.lr.ph7.split.us13.i, label %._crit_edge8.us.i
@@ -16638,7 +16631,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
   %.pre.i = phi i64 [ %.pre.i412, %._crit_edge.us.i ], [ %.pre.i414, %.lr.ph7.us.i ]
   %165 = phi i64 [ %169, %._crit_edge.us.i ], [ %160, %.lr.ph7.us.i ]
   %.0505.us11.i = phi i64 [ %170, %._crit_edge.us.i ], [ %137, %.lr.ph7.us.i ]
-  %166 = getelementptr inbounds ptr, ptr %163, i64 %.0505.us11.i
+  %166 = getelementptr inbounds [8 x i8], ptr %163, i64 %.0505.us11.i
   %167 = load ptr, ptr %166, align 8, !tbaa !161
   %168 = icmp sgt i64 %165, 0
   br i1 %168, label %.lr.ph.us.i, label %._crit_edge.us.i
@@ -16653,7 +16646,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
 .lr.ph.us.i:                                      ; preds = %.lr.ph7.split.us13.i, %.lr.ph.us.i
   %172 = phi i64 [ %177, %.lr.ph.us.i ], [ %.pre.i, %.lr.ph7.split.us13.i ]
   %.0494.us.i = phi i64 [ %178, %.lr.ph.us.i ], [ 0, %.lr.ph7.split.us13.i ]
-  %173 = getelementptr inbounds nuw ptr, ptr %167, i64 %.0494.us.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %.0494.us.i
   %174 = load ptr, ptr %173, align 8, !tbaa !40
   %175 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %174) #29
   %176 = add i64 %172, 1
@@ -16729,7 +16722,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
   %.pre23.i = phi i64 [ %.pre23.i415, %._crit_edge.i ], [ %204, %.lr.ph16.i ]
   %213 = phi i64 [ %226, %._crit_edge.i ], [ %211, %.lr.ph16.i ]
   %.15215.i = phi i64 [ %227, %._crit_edge.i ], [ 0, %.lr.ph16.i ]
-  %214 = getelementptr inbounds nuw ptr, ptr %209, i64 %.15215.i
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %.15215.i
   %215 = load ptr, ptr %214, align 8, !tbaa !161
   %216 = icmp sgt i64 %213, 0
   br i1 %216, label %.lr.ph.i, label %._crit_edge.i
@@ -16737,7 +16730,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
 .lr.ph.i:                                         ; preds = %.lr.ph16.split.i, %.lr.ph.i
   %217 = phi i64 [ %222, %.lr.ph.i ], [ %.pre23.i, %.lr.ph16.split.i ]
   %.114.i = phi i64 [ %223, %.lr.ph.i ], [ 0, %.lr.ph16.split.i ]
-  %218 = getelementptr inbounds nuw ptr, ptr %215, i64 %.114.i
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %.114.i
   %219 = load ptr, ptr %218, align 8, !tbaa !40
   %220 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %219) #29
   %221 = add i64 %217, 1
@@ -17027,7 +17020,7 @@ tng_file_output_numerical.exit336:                ; preds = %294
   %348 = phi i64 [ %378, %._crit_edge381 ], [ %.pre418, %.lr.ph384.preheader ]
   %.0257383 = phi i64 [ %379, %._crit_edge381 ], [ 0, %.lr.ph384.preheader ]
   %349 = load ptr, ptr %338, align 8, !tbaa !157
-  %350 = getelementptr inbounds nuw ptr, ptr %349, i64 %.0257383
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %349, i64 %.0257383
   %351 = load ptr, ptr %350, align 8, !tbaa !159
   %352 = icmp sgt i64 %347, 0
   br i1 %352, label %.lr.ph380, label %._crit_edge381
@@ -17042,7 +17035,7 @@ tng_file_output_numerical.exit336:                ; preds = %294
   %356 = phi i64 [ %370, %._crit_edge ], [ %346, %.lr.ph380 ]
   %357 = phi i64 [ %371, %._crit_edge ], [ %353, %.lr.ph380 ]
   %.0258378 = phi i64 [ %372, %._crit_edge ], [ %348, %.lr.ph380 ]
-  %358 = getelementptr inbounds ptr, ptr %351, i64 %.0258378
+  %358 = getelementptr inbounds [8 x i8], ptr %351, i64 %.0258378
   %359 = load ptr, ptr %358, align 8, !tbaa !161
   %360 = icmp sgt i64 %357, 0
   br i1 %360, label %.lr.ph377, label %._crit_edge
@@ -17055,7 +17048,7 @@ tng_file_output_numerical.exit336:                ; preds = %294
 
 .lr.ph377:                                        ; preds = %.lr.ph380.split, %361
   %.0261376 = phi i64 [ %362, %361 ], [ 0, %.lr.ph380.split ]
-  %365 = getelementptr inbounds nuw ptr, ptr %359, i64 %.0261376
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %.0261376
   %366 = load ptr, ptr %365, align 8, !tbaa !40
   %.val = load ptr, ptr %19, align 8, !tbaa !138
   %367 = call fastcc i32 @tng_fwritestr(ptr %.val, ptr noundef %366, i8 noundef signext %5, ptr noundef nonnull %15, i32 noundef 5633)
@@ -17101,9 +17094,9 @@ tng_file_output_numerical.exit336:                ; preds = %294
   %.1259385 = phi i64 [ %383, %382 ], [ 0, %.preheader ]
   %386 = load ptr, ptr %338, align 8, !tbaa !157
   %387 = load ptr, ptr %386, align 8, !tbaa !159
-  %388 = getelementptr inbounds nuw ptr, ptr %387, i64 %.1389
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %387, i64 %.1389
   %389 = load ptr, ptr %388, align 8, !tbaa !161
-  %390 = getelementptr inbounds nuw ptr, ptr %389, i64 %.1259385
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %.1259385
   %391 = load ptr, ptr %390, align 8, !tbaa !40
   %.val315 = load ptr, ptr %19, align 8, !tbaa !138
   %392 = call fastcc i32 @tng_fwritestr(ptr %.val315, ptr noundef %391, i8 noundef signext %5, ptr noundef nonnull %15, i32 noundef 5648)
@@ -17560,7 +17553,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_trajectory_mapping_block_read(pt
 22:                                               ; preds = %8
   store ptr %17, ptr %14, align 8, !tbaa !107
   %23 = load i64, ptr %6, align 8, !tbaa !106
-  %24 = getelementptr %struct.tng_particle_mapping, ptr %17, i64 %23
+  %24 = getelementptr [24 x i8], ptr %17, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = icmp eq i8 %2, 1
   br i1 %26, label %27, label %.thread
@@ -17666,7 +17659,7 @@ tng_file_input_numerical.exit60.thread:           ; preds = %53, %51, %tng_file_
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %tng_file_input_numerical.exit67.thread.us
   %.04683.us = phi i64 [ %78, %tng_file_input_numerical.exit67.thread.us ], [ 0, %.lr.ph ]
   %67 = load ptr, ptr %60, align 8, !tbaa !112
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %.04683.us
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.04683.us
   %69 = load ptr, ptr %9, align 8, !tbaa !137
   %70 = call i64 @fread(ptr noundef %68, i64 noundef 8, i64 noundef 1, ptr noundef %69)
   %71 = icmp eq i64 %70, 0
@@ -17697,7 +17690,7 @@ tng_file_input_numerical.exit67.thread.us:        ; preds = %tng_file_input_nume
 .lr.ph.split:                                     ; preds = %.lr.ph, %tng_file_input_numerical.exit67.thread
   %.04683 = phi i64 [ %94, %tng_file_input_numerical.exit67.thread ], [ 0, %.lr.ph ]
   %81 = load ptr, ptr %60, align 8, !tbaa !112
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %.04683
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.04683
   %83 = load ptr, ptr %9, align 8, !tbaa !137
   %84 = call i64 @fread(ptr noundef %82, i64 noundef 8, i64 noundef 1, ptr noundef %83)
   %85 = icmp eq i64 %84, 0
@@ -19928,7 +19921,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef c
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %35
   %.02431.i = phi i64 [ %36, %35 ], [ 0, %.lr.ph32.i.preheader ]
-  %37 = getelementptr inbounds nuw %struct.tng_data, ptr %34, i64 %.02431.i
+  %37 = getelementptr inbounds nuw [96 x i8], ptr %34, i64 %.02431.i
   %38 = load i64, ptr %37, align 8, !tbaa !204
   %39 = icmp eq i64 %38, %1
   br i1 %39, label %tng_particle_data_find.exit, label %35
@@ -19940,7 +19933,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef c
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %40, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %41 = getelementptr inbounds nuw %struct.tng_data, ptr %27, i64 %.129.i
+  %41 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %.129.i
   %42 = load i64, ptr %41, align 8, !tbaa !204
   %43 = icmp eq i64 %42, %1
   br i1 %43, label %tng_particle_data_find.exit, label %.critedge.i
@@ -19997,7 +19990,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef c
 
 69:                                               ; preds = %61, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %62, %61 ]
-  %70 = getelementptr inbounds nuw %struct.tng_data, ptr %60, i64 %.03446.i
+  %70 = getelementptr inbounds nuw [96 x i8], ptr %60, i64 %.03446.i
   %71 = load i64, ptr %70, align 8, !tbaa !204
   %72 = icmp eq i64 %71, %1
   br i1 %72, label %tng_particle_data_find.exit, label %61
@@ -20009,7 +20002,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef c
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %73, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %74 = getelementptr inbounds nuw %struct.tng_data, ptr %68, i64 %.148.i
+  %74 = getelementptr inbounds nuw [96 x i8], ptr %68, i64 %.148.i
   %75 = load i64, ptr %74, align 8, !tbaa !204
   %76 = icmp eq i64 %75, %1
   br i1 %76, label %tng_particle_data_find.exit, label %.critedge38.i
@@ -20021,7 +20014,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef c
 
 .lr.ph.i170:                                      ; preds = %.lr.ph.i170.preheader, %.critedge.i171
   %.243.i = phi i64 [ %77, %.critedge.i171 ], [ 0, %.lr.ph.i170.preheader ]
-  %78 = getelementptr inbounds nuw %struct.tng_data, ptr %54, i64 %.243.i
+  %78 = getelementptr inbounds nuw [96 x i8], ptr %54, i64 %.243.i
   %79 = load i64, ptr %78, align 8, !tbaa !204
   %80 = icmp eq i64 %79, %1
   br i1 %80, label %tng_particle_data_find.exit, label %.critedge.i171
@@ -20064,7 +20057,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef c
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %94 = load i32, ptr %93, align 8, !tbaa !17
   %95 = sext i32 %94 to i64
-  %96 = getelementptr %struct.tng_data, ptr %92, i64 %95
+  %96 = getelementptr [96 x i8], ptr %92, i64 %95
   %97 = getelementptr i8, ptr %96, i64 -96
   store i64 %1, ptr %97, align 8, !tbaa !204
   %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
@@ -20242,14 +20235,14 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge238.split.us.us.us ], [ 0, %.lr.ph ]
   %.0133242.us.us = phi ptr [ %187, %._crit_edge238.split.us.us.us ], [ %12, %.lr.ph ]
   %171 = load ptr, ptr %167, align 8, !tbaa !157
-  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %indvars.iv
   %173 = load ptr, ptr %172, align 8, !tbaa !159
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.lr.ph237.us.us
   %.1134235.us.us.us = phi ptr [ %.0133242.us.us, %.lr.ph237.us.us ], [ %187, %._crit_edge.us.us.us ]
   %.0141234.us.us.us = phi i64 [ %9, %.lr.ph237.us.us ], [ %189, %._crit_edge.us.us.us ]
-  %174 = getelementptr inbounds ptr, ptr %173, i64 %.0141234.us.us.us
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %.0141234.us.us.us
   %175 = load ptr, ptr %174, align 8, !tbaa !161
   br label %176
 
@@ -20259,7 +20252,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %177 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2135233.us.us.us) #29
   %178 = add i64 %177, 1
   %179 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %178, i64 1024)
-  %180 = getelementptr inbounds nuw ptr, ptr %175, i64 %.0140232.us.us.us
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.0140232.us.us.us
   %181 = load ptr, ptr %180, align 8, !tbaa !40
   %.not166.us.us.us = icmp eq ptr %181, null
   br i1 %.not166.us.us.us, label %183, label %182
@@ -20304,7 +20297,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %.3251.us = phi ptr [ %208, %._crit_edge.us ], [ %12, %.lr.ph252 ]
   %193 = load ptr, ptr %191, align 8, !tbaa !157
   %194 = load ptr, ptr %193, align 8, !tbaa !159
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv283
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %indvars.iv283
   %196 = load ptr, ptr %195, align 8, !tbaa !161
   br label %197
 
@@ -20314,7 +20307,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %198 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4247.us) #29
   %199 = add i64 %198, 1
   %200 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %199, i64 1024)
-  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %.1142246.us
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %.1142246.us
   %202 = load ptr, ptr %201, align 8, !tbaa !40
   %.not162.us = icmp eq ptr %202, null
   br i1 %.not162.us, label %204, label %203
@@ -20416,7 +20409,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 19:                                               ; preds = %.lr.ph, %11
   %.060124 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
-  %20 = getelementptr inbounds nuw %struct.tng_data, ptr %10, i64 %.060124
+  %20 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 %.060124
   %21 = load i64, ptr %20, align 8, !tbaa !204
   %22 = icmp eq i64 %21, %1
   br i1 %22, label %tng_data_find.exit91.thread.sink.split, label %11
@@ -20428,7 +20421,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 25:                                               ; preds = %.lr.ph127, %23
   %.1126 = phi i64 [ 0, %.lr.ph127 ], [ %24, %23 ]
-  %26 = getelementptr inbounds nuw %struct.tng_data, ptr %18, i64 %.1126
+  %26 = getelementptr inbounds nuw [96 x i8], ptr %18, i64 %.1126
   %27 = load i64, ptr %26, align 8, !tbaa !204
   %28 = icmp eq i64 %27, %1
   br i1 %28, label %tng_data_find.exit91.thread.sink.split, label %23
@@ -20472,7 +20465,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %45
   %.02431.i = phi i64 [ %46, %45 ], [ 0, %.lr.ph32.i.preheader ]
-  %47 = getelementptr inbounds nuw %struct.tng_data, ptr %44, i64 %.02431.i
+  %47 = getelementptr inbounds nuw [96 x i8], ptr %44, i64 %.02431.i
   %48 = load i64, ptr %47, align 8, !tbaa !204
   %49 = icmp eq i64 %48, %1
   br i1 %49, label %.critedge, label %45
@@ -20484,7 +20477,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %50, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %51 = getelementptr inbounds nuw %struct.tng_data, ptr %37, i64 %.129.i
+  %51 = getelementptr inbounds nuw [96 x i8], ptr %37, i64 %.129.i
   %52 = load i64, ptr %51, align 8, !tbaa !204
   %53 = icmp eq i64 %52, %1
   br i1 %53, label %.critedge, label %.critedge.i
@@ -20533,7 +20526,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 67:                                               ; preds = %63, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %64, %63 ]
-  %68 = getelementptr inbounds nuw %struct.tng_data, ptr %62, i64 %.03446.i
+  %68 = getelementptr inbounds nuw [96 x i8], ptr %62, i64 %.03446.i
   %69 = load i64, ptr %68, align 8, !tbaa !204
   %70 = icmp eq i64 %69, %1
   br i1 %70, label %.critedge63, label %63
@@ -20545,7 +20538,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %71, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %72 = getelementptr inbounds nuw %struct.tng_data, ptr %66, i64 %.148.i
+  %72 = getelementptr inbounds nuw [96 x i8], ptr %66, i64 %.148.i
   %73 = load i64, ptr %72, align 8, !tbaa !204
   %74 = icmp eq i64 %73, %1
   br i1 %74, label %.critedge63, label %.critedge38.i
@@ -20557,7 +20550,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 .lr.ph.i65:                                       ; preds = %.lr.ph.i65.preheader, %.critedge.i66
   %.243.i = phi i64 [ %75, %.critedge.i66 ], [ 0, %.lr.ph.i65.preheader ]
-  %76 = getelementptr inbounds nuw %struct.tng_data, ptr %56, i64 %.243.i
+  %76 = getelementptr inbounds nuw [96 x i8], ptr %56, i64 %.243.i
   %77 = load i64, ptr %76, align 8, !tbaa !204
   %78 = icmp eq i64 %77, %1
   br i1 %78, label %.critedge63, label %.critedge.i66
@@ -20608,7 +20601,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 .lr.ph32.i73:                                     ; preds = %.lr.ph32.i73.preheader, %99
   %.02431.i74 = phi i64 [ %100, %99 ], [ 0, %.lr.ph32.i73.preheader ]
-  %101 = getelementptr inbounds nuw %struct.tng_data, ptr %98, i64 %.02431.i74
+  %101 = getelementptr inbounds nuw [96 x i8], ptr %98, i64 %.02431.i74
   %102 = load i64, ptr %101, align 8, !tbaa !204
   %103 = icmp eq i64 %102, %1
   br i1 %103, label %.critedge, label %99
@@ -20620,7 +20613,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 .lr.ph.i69:                                       ; preds = %.lr.ph.i69.preheader, %.critedge.i71
   %.129.i70 = phi i64 [ %104, %.critedge.i71 ], [ 0, %.lr.ph.i69.preheader ]
-  %105 = getelementptr inbounds nuw %struct.tng_data, ptr %91, i64 %.129.i70
+  %105 = getelementptr inbounds nuw [96 x i8], ptr %91, i64 %.129.i70
   %106 = load i64, ptr %105, align 8, !tbaa !204
   %107 = icmp eq i64 %106, %1
   br i1 %107, label %.critedge, label %.critedge.i71
@@ -20675,7 +20668,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 127:                                              ; preds = %120, %.lr.ph47.i88
   %.03446.i89 = phi i64 [ 0, %.lr.ph47.i88 ], [ %121, %120 ]
-  %128 = getelementptr inbounds nuw %struct.tng_data, ptr %119, i64 %.03446.i89
+  %128 = getelementptr inbounds nuw [96 x i8], ptr %119, i64 %.03446.i89
   %129 = load i64, ptr %128, align 8, !tbaa !204
   %130 = icmp eq i64 %129, %1
   br i1 %130, label %.critedge63, label %120
@@ -20687,7 +20680,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 .lr.ph49.i84:                                     ; preds = %.lr.ph49.i84.preheader, %.critedge38.i86
   %.148.i85 = phi i64 [ %131, %.critedge38.i86 ], [ 0, %.lr.ph49.i84.preheader ]
-  %132 = getelementptr inbounds nuw %struct.tng_data, ptr %126, i64 %.148.i85
+  %132 = getelementptr inbounds nuw [96 x i8], ptr %126, i64 %.148.i85
   %133 = load i64, ptr %132, align 8, !tbaa !204
   %134 = icmp eq i64 %133, %1
   br i1 %134, label %.critedge63, label %.critedge38.i86
@@ -20699,7 +20692,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 .lr.ph.i78:                                       ; preds = %.lr.ph.i78.preheader, %.critedge.i80
   %.243.i79 = phi i64 [ %135, %.critedge.i80 ], [ 0, %.lr.ph.i78.preheader ]
-  %136 = getelementptr inbounds nuw %struct.tng_data, ptr %113, i64 %.243.i79
+  %136 = getelementptr inbounds nuw [96 x i8], ptr %113, i64 %.243.i79
   %137 = load i64, ptr %136, align 8, !tbaa !204
   %138 = icmp eq i64 %137, %1
   br i1 %138, label %.critedge63, label %.critedge.i80
@@ -20723,7 +20716,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 147:                                              ; preds = %.lr.ph133, %145
   %.2132 = phi i64 [ 0, %.lr.ph133 ], [ %146, %145 ]
-  %148 = getelementptr inbounds nuw %struct.tng_data, ptr %144, i64 %.2132
+  %148 = getelementptr inbounds nuw [96 x i8], ptr %144, i64 %.2132
   %149 = load i64, ptr %148, align 8, !tbaa !204
   %150 = icmp eq i64 %149, %1
   br i1 %150, label %tng_data_find.exit91.thread.sink.split, label %145
@@ -20747,7 +20740,7 @@ define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef 
 
 159:                                              ; preds = %.lr.ph131, %157
   %.3130 = phi i64 [ 0, %.lr.ph131 ], [ %158, %157 ]
-  %160 = getelementptr inbounds nuw %struct.tng_data, ptr %156, i64 %.3130
+  %160 = getelementptr inbounds nuw [96 x i8], ptr %156, i64 %.3130
   %161 = load i64, ptr %160, align 8, !tbaa !204
   %162 = icmp eq i64 %161, %1
   br i1 %162, label %tng_data_find.exit91.thread.sink.split, label %157
@@ -20805,7 +20798,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_particle_data_find(ptr noundef r
 .lr.ph32:                                         ; preds = %16, %22
   %.02431 = phi i64 [ %23, %22 ], [ 0, %16 ]
   %24 = load ptr, ptr %17, align 8, !tbaa !131
-  %25 = getelementptr inbounds nuw %struct.tng_data, ptr %24, i64 %.02431
+  %25 = getelementptr inbounds nuw [96 x i8], ptr %24, i64 %.02431
   store ptr %25, ptr %2, align 8, !tbaa !215
   %26 = load i64, ptr %25, align 8, !tbaa !204
   %27 = icmp eq i64 %26, %1
@@ -20819,7 +20812,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_particle_data_find(ptr noundef r
 .lr.ph:                                           ; preds = %.critedge.preheader, %.critedge
   %.129 = phi i64 [ %28, %.critedge ], [ 0, %.critedge.preheader ]
   %29 = load ptr, ptr %11, align 8, !tbaa !125
-  %30 = getelementptr inbounds nuw %struct.tng_data, ptr %29, i64 %.129
+  %30 = getelementptr inbounds nuw [96 x i8], ptr %29, i64 %.129
   store ptr %30, ptr %2, align 8, !tbaa !215
   %31 = load i64, ptr %30, align 8, !tbaa !204
   %32 = icmp eq i64 %31, %1
@@ -20878,7 +20871,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_data_find(ptr noundef readonly c
 28:                                               ; preds = %.lr.ph47, %21
   %.03446 = phi i64 [ 0, %.lr.ph47 ], [ %22, %21 ]
   %29 = load ptr, ptr %20, align 8, !tbaa !132
-  %30 = getelementptr inbounds nuw %struct.tng_data, ptr %29, i64 %.03446
+  %30 = getelementptr inbounds nuw [96 x i8], ptr %29, i64 %.03446
   store ptr %30, ptr %2, align 8, !tbaa !215
   %31 = load i64, ptr %30, align 8, !tbaa !204
   %32 = icmp eq i64 %31, %1
@@ -20892,7 +20885,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_data_find(ptr noundef readonly c
 .lr.ph49:                                         ; preds = %.critedge38.preheader, %.critedge38
   %.148 = phi i64 [ %33, %.critedge38 ], [ 0, %.critedge38.preheader ]
   %34 = load ptr, ptr %23, align 8, !tbaa !167
-  %35 = getelementptr inbounds nuw %struct.tng_data, ptr %34, i64 %.148
+  %35 = getelementptr inbounds nuw [96 x i8], ptr %34, i64 %.148
   store ptr %35, ptr %2, align 8, !tbaa !215
   %36 = load i64, ptr %35, align 8, !tbaa !204
   %37 = icmp eq i64 %36, %1
@@ -20906,7 +20899,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_data_find(ptr noundef readonly c
 .lr.ph:                                           ; preds = %.critedge.preheader, %.critedge
   %.243 = phi i64 [ %38, %.critedge ], [ 0, %.critedge.preheader ]
   %39 = load ptr, ptr %11, align 8, !tbaa !167
-  %40 = getelementptr inbounds nuw %struct.tng_data, ptr %39, i64 %.243
+  %40 = getelementptr inbounds nuw [96 x i8], ptr %39, i64 %.243
   store ptr %40, ptr %2, align 8, !tbaa !215
   %41 = load i64, ptr %40, align 8, !tbaa !204
   %42 = icmp eq i64 %41, %1
@@ -20949,7 +20942,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 18:                                               ; preds = %.lr.ph, %10
   %.088 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
-  %19 = getelementptr inbounds nuw %struct.tng_data, ptr %9, i64 %.088
+  %19 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %.088
   %20 = load i64, ptr %19, align 8, !tbaa !204
   %21 = icmp eq i64 %20, %1
   br i1 %21, label %tng_data_find.exit63.thread.sink.split, label %10
@@ -20961,7 +20954,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 24:                                               ; preds = %.lr.ph91, %22
   %.190 = phi i64 [ 0, %.lr.ph91 ], [ %23, %22 ]
-  %25 = getelementptr inbounds nuw %struct.tng_data, ptr %17, i64 %.190
+  %25 = getelementptr inbounds nuw [96 x i8], ptr %17, i64 %.190
   %26 = load i64, ptr %25, align 8, !tbaa !204
   %27 = icmp eq i64 %26, %1
   br i1 %27, label %tng_data_find.exit63.thread.sink.split, label %22
@@ -21005,7 +20998,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %44
   %.02431.i = phi i64 [ %45, %44 ], [ 0, %.lr.ph32.i.preheader ]
-  %46 = getelementptr inbounds nuw %struct.tng_data, ptr %43, i64 %.02431.i
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02431.i
   %47 = load i64, ptr %46, align 8, !tbaa !204
   %48 = icmp eq i64 %47, %1
   br i1 %48, label %tng_data_find.exit63.thread.sink.split, label %44
@@ -21017,7 +21010,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %49, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %50 = getelementptr inbounds nuw %struct.tng_data, ptr %36, i64 %.129.i
+  %50 = getelementptr inbounds nuw [96 x i8], ptr %36, i64 %.129.i
   %51 = load i64, ptr %50, align 8, !tbaa !204
   %52 = icmp eq i64 %51, %1
   br i1 %52, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i
@@ -21066,7 +21059,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 66:                                               ; preds = %62, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %63, %62 ]
-  %67 = getelementptr inbounds nuw %struct.tng_data, ptr %61, i64 %.03446.i
+  %67 = getelementptr inbounds nuw [96 x i8], ptr %61, i64 %.03446.i
   %68 = load i64, ptr %67, align 8, !tbaa !204
   %69 = icmp eq i64 %68, %1
   br i1 %69, label %tng_data_find.exit63.thread.sink.split, label %62
@@ -21078,7 +21071,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %70, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %71 = getelementptr inbounds nuw %struct.tng_data, ptr %65, i64 %.148.i
+  %71 = getelementptr inbounds nuw [96 x i8], ptr %65, i64 %.148.i
   %72 = load i64, ptr %71, align 8, !tbaa !204
   %73 = icmp eq i64 %72, %1
   br i1 %73, label %tng_data_find.exit63.thread.sink.split, label %.critedge38.i
@@ -21090,7 +21083,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 .lr.ph.i37:                                       ; preds = %.lr.ph.i37.preheader, %.critedge.i38
   %.243.i = phi i64 [ %74, %.critedge.i38 ], [ 0, %.lr.ph.i37.preheader ]
-  %75 = getelementptr inbounds nuw %struct.tng_data, ptr %55, i64 %.243.i
+  %75 = getelementptr inbounds nuw [96 x i8], ptr %55, i64 %.243.i
   %76 = load i64, ptr %75, align 8, !tbaa !204
   %77 = icmp eq i64 %76, %1
   br i1 %77, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i38
@@ -21141,7 +21134,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 .lr.ph32.i45:                                     ; preds = %.lr.ph32.i45.preheader, %98
   %.02431.i46 = phi i64 [ %99, %98 ], [ 0, %.lr.ph32.i45.preheader ]
-  %100 = getelementptr inbounds nuw %struct.tng_data, ptr %97, i64 %.02431.i46
+  %100 = getelementptr inbounds nuw [96 x i8], ptr %97, i64 %.02431.i46
   %101 = load i64, ptr %100, align 8, !tbaa !204
   %102 = icmp eq i64 %101, %1
   br i1 %102, label %tng_data_find.exit63.thread.sink.split, label %98
@@ -21153,7 +21146,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 .lr.ph.i41:                                       ; preds = %.lr.ph.i41.preheader, %.critedge.i43
   %.129.i42 = phi i64 [ %103, %.critedge.i43 ], [ 0, %.lr.ph.i41.preheader ]
-  %104 = getelementptr inbounds nuw %struct.tng_data, ptr %90, i64 %.129.i42
+  %104 = getelementptr inbounds nuw [96 x i8], ptr %90, i64 %.129.i42
   %105 = load i64, ptr %104, align 8, !tbaa !204
   %106 = icmp eq i64 %105, %1
   br i1 %106, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i43
@@ -21208,7 +21201,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 126:                                              ; preds = %119, %.lr.ph47.i60
   %.03446.i61 = phi i64 [ 0, %.lr.ph47.i60 ], [ %120, %119 ]
-  %127 = getelementptr inbounds nuw %struct.tng_data, ptr %118, i64 %.03446.i61
+  %127 = getelementptr inbounds nuw [96 x i8], ptr %118, i64 %.03446.i61
   %128 = load i64, ptr %127, align 8, !tbaa !204
   %129 = icmp eq i64 %128, %1
   br i1 %129, label %tng_data_find.exit63.thread.sink.split, label %119
@@ -21220,7 +21213,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 .lr.ph49.i56:                                     ; preds = %.lr.ph49.i56.preheader, %.critedge38.i58
   %.148.i57 = phi i64 [ %130, %.critedge38.i58 ], [ 0, %.lr.ph49.i56.preheader ]
-  %131 = getelementptr inbounds nuw %struct.tng_data, ptr %125, i64 %.148.i57
+  %131 = getelementptr inbounds nuw [96 x i8], ptr %125, i64 %.148.i57
   %132 = load i64, ptr %131, align 8, !tbaa !204
   %133 = icmp eq i64 %132, %1
   br i1 %133, label %tng_data_find.exit63.thread.sink.split, label %.critedge38.i58
@@ -21232,7 +21225,7 @@ define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 no
 
 .lr.ph.i50:                                       ; preds = %.lr.ph.i50.preheader, %.critedge.i52
   %.243.i51 = phi i64 [ %134, %.critedge.i52 ], [ 0, %.lr.ph.i50.preheader ]
-  %135 = getelementptr inbounds nuw %struct.tng_data, ptr %112, i64 %.243.i51
+  %135 = getelementptr inbounds nuw [96 x i8], ptr %112, i64 %.243.i51
   %136 = load i64, ptr %135, align 8, !tbaa !204
   %137 = icmp eq i64 %136, %1
   br i1 %137, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i52
@@ -21279,7 +21272,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 18:                                               ; preds = %.lr.ph, %10
   %.0128 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
-  %19 = getelementptr inbounds nuw %struct.tng_data, ptr %9, i64 %.0128
+  %19 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %.0128
   %20 = load i64, ptr %19, align 8, !tbaa !204
   %21 = icmp eq i64 %20, %1
   br i1 %21, label %tng_data_find.exit63.thread.sink.split, label %10
@@ -21291,7 +21284,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 24:                                               ; preds = %.lr.ph131, %22
   %.1130 = phi i64 [ 0, %.lr.ph131 ], [ %23, %22 ]
-  %25 = getelementptr inbounds nuw %struct.tng_data, ptr %17, i64 %.1130
+  %25 = getelementptr inbounds nuw [96 x i8], ptr %17, i64 %.1130
   %26 = load i64, ptr %25, align 8, !tbaa !204
   %27 = icmp eq i64 %26, %1
   br i1 %27, label %tng_data_find.exit63.thread.sink.split, label %22
@@ -21335,7 +21328,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %44
   %.02431.i = phi i64 [ %45, %44 ], [ 0, %.lr.ph32.i.preheader ]
-  %46 = getelementptr inbounds nuw %struct.tng_data, ptr %43, i64 %.02431.i
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02431.i
   %47 = load i64, ptr %46, align 8, !tbaa !204
   %48 = icmp eq i64 %47, %1
   br i1 %48, label %tng_data_find.exit63.thread.sink.split, label %44
@@ -21347,7 +21340,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %49, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %50 = getelementptr inbounds nuw %struct.tng_data, ptr %36, i64 %.129.i
+  %50 = getelementptr inbounds nuw [96 x i8], ptr %36, i64 %.129.i
   %51 = load i64, ptr %50, align 8, !tbaa !204
   %52 = icmp eq i64 %51, %1
   br i1 %52, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i
@@ -21396,7 +21389,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 66:                                               ; preds = %62, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %63, %62 ]
-  %67 = getelementptr inbounds nuw %struct.tng_data, ptr %61, i64 %.03446.i
+  %67 = getelementptr inbounds nuw [96 x i8], ptr %61, i64 %.03446.i
   %68 = load i64, ptr %67, align 8, !tbaa !204
   %69 = icmp eq i64 %68, %1
   br i1 %69, label %tng_data_find.exit63.thread.sink.split, label %62
@@ -21408,7 +21401,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %70, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %71 = getelementptr inbounds nuw %struct.tng_data, ptr %65, i64 %.148.i
+  %71 = getelementptr inbounds nuw [96 x i8], ptr %65, i64 %.148.i
   %72 = load i64, ptr %71, align 8, !tbaa !204
   %73 = icmp eq i64 %72, %1
   br i1 %73, label %tng_data_find.exit63.thread.sink.split, label %.critedge38.i
@@ -21420,7 +21413,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 .lr.ph.i37:                                       ; preds = %.lr.ph.i37.preheader, %.critedge.i38
   %.243.i = phi i64 [ %74, %.critedge.i38 ], [ 0, %.lr.ph.i37.preheader ]
-  %75 = getelementptr inbounds nuw %struct.tng_data, ptr %55, i64 %.243.i
+  %75 = getelementptr inbounds nuw [96 x i8], ptr %55, i64 %.243.i
   %76 = load i64, ptr %75, align 8, !tbaa !204
   %77 = icmp eq i64 %76, %1
   br i1 %77, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i38
@@ -21471,7 +21464,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 .lr.ph32.i45:                                     ; preds = %.lr.ph32.i45.preheader, %98
   %.02431.i46 = phi i64 [ %99, %98 ], [ 0, %.lr.ph32.i45.preheader ]
-  %100 = getelementptr inbounds nuw %struct.tng_data, ptr %97, i64 %.02431.i46
+  %100 = getelementptr inbounds nuw [96 x i8], ptr %97, i64 %.02431.i46
   %101 = load i64, ptr %100, align 8, !tbaa !204
   %102 = icmp eq i64 %101, %1
   br i1 %102, label %tng_data_find.exit63.thread.sink.split, label %98
@@ -21483,7 +21476,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 .lr.ph.i41:                                       ; preds = %.lr.ph.i41.preheader, %.critedge.i43
   %.129.i42 = phi i64 [ %103, %.critedge.i43 ], [ 0, %.lr.ph.i41.preheader ]
-  %104 = getelementptr inbounds nuw %struct.tng_data, ptr %90, i64 %.129.i42
+  %104 = getelementptr inbounds nuw [96 x i8], ptr %90, i64 %.129.i42
   %105 = load i64, ptr %104, align 8, !tbaa !204
   %106 = icmp eq i64 %105, %1
   br i1 %106, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i43
@@ -21538,7 +21531,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 126:                                              ; preds = %119, %.lr.ph47.i60
   %.03446.i61 = phi i64 [ 0, %.lr.ph47.i60 ], [ %120, %119 ]
-  %127 = getelementptr inbounds nuw %struct.tng_data, ptr %118, i64 %.03446.i61
+  %127 = getelementptr inbounds nuw [96 x i8], ptr %118, i64 %.03446.i61
   %128 = load i64, ptr %127, align 8, !tbaa !204
   %129 = icmp eq i64 %128, %1
   br i1 %129, label %tng_data_find.exit63.thread.sink.split, label %119
@@ -21550,7 +21543,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 .lr.ph49.i56:                                     ; preds = %.lr.ph49.i56.preheader, %.critedge38.i58
   %.148.i57 = phi i64 [ %130, %.critedge38.i58 ], [ 0, %.lr.ph49.i56.preheader ]
-  %131 = getelementptr inbounds nuw %struct.tng_data, ptr %125, i64 %.148.i57
+  %131 = getelementptr inbounds nuw [96 x i8], ptr %125, i64 %.148.i57
   %132 = load i64, ptr %131, align 8, !tbaa !204
   %133 = icmp eq i64 %132, %1
   br i1 %133, label %tng_data_find.exit63.thread.sink.split, label %.critedge38.i58
@@ -21562,7 +21555,7 @@ define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef 
 
 .lr.ph.i50:                                       ; preds = %.lr.ph.i50.preheader, %.critedge.i52
   %.243.i51 = phi i64 [ %134, %.critedge.i52 ], [ 0, %.lr.ph.i50.preheader ]
-  %135 = getelementptr inbounds nuw %struct.tng_data, ptr %112, i64 %.243.i51
+  %135 = getelementptr inbounds nuw [96 x i8], ptr %112, i64 %.243.i51
   %136 = load i64, ptr %135, align 8, !tbaa !204
   %137 = icmp eq i64 %136, %1
   br i1 %137, label %tng_data_find.exit63.thread.sink.split, label %.critedge.i52
@@ -22466,7 +22459,7 @@ tng_block_destroy.exit348:                        ; preds = %136, %151
 181:                                              ; preds = %176
   %182 = load ptr, ptr %166, align 8, !tbaa !107
   %183 = load i64, ptr %49, align 8, !tbaa !106
-  %184 = getelementptr %struct.tng_particle_mapping, ptr %182, i64 %183
+  %184 = getelementptr [24 x i8], ptr %182, i64 %183
   %185 = getelementptr i8, ptr %184, i64 -24
   %186 = load i64, ptr %185, align 8, !tbaa !109
   %.not331 = icmp slt i64 %4, %186
@@ -22949,7 +22942,7 @@ tng_file_input_numerical.exit380:                 ; preds = %316
 
 switch.lookup:                                    ; preds = %366
   %372 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.tng_frame_gen_data_write, i64 %372
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tng_frame_gen_data_write, i64 %372
   %switch.load = load i64, ptr %switch.gep, align 8
   %373 = load i64, ptr %323, align 8, !tbaa !158
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -23001,7 +22994,7 @@ switch.lookup:                                    ; preds = %366
 .lr.ph410:                                        ; preds = %398, %408
   %.0282409 = phi i64 [ %409, %408 ], [ 0, %398 ]
   %402 = load ptr, ptr %396, align 8, !tbaa !200
-  %403 = getelementptr inbounds nuw i64, ptr %400, i64 %.0282409
+  %403 = getelementptr inbounds nuw [8 x i8], ptr %400, i64 %.0282409
   %404 = call i32 %402(ptr noundef nonnull %0, ptr noundef %403) #28
   %.not330 = icmp eq i32 %404, 0
   br i1 %.not330, label %408, label %405
@@ -23042,7 +23035,7 @@ switch.lookup:                                    ; preds = %366
 .lr.ph413:                                        ; preds = %417, %427
   %.1283411 = phi i64 [ %428, %427 ], [ 0, %417 ]
   %421 = load ptr, ptr %415, align 8, !tbaa !199
-  %422 = getelementptr inbounds nuw i32, ptr %419, i64 %.1283411
+  %422 = getelementptr inbounds nuw [4 x i8], ptr %419, i64 %.1283411
   %423 = call i32 %421(ptr noundef nonnull %0, ptr noundef %422) #28
   %.not327 = icmp eq i32 %423, 0
   br i1 %.not327, label %427, label %424
@@ -23141,7 +23134,7 @@ define noundef i32 @tng_data_values_free(ptr readnone captures(none) %0, ptr nou
 
 .lr.ph31.split.us.split.us:                       ; preds = %.lr.ph31.split.us, %19
   %.02330.us.us = phi i64 [ %20, %19 ], [ 0, %.lr.ph31.split.us ]
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %.02330.us.us
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02330.us.us
   %10 = load ptr, ptr %9, align 8, !tbaa !338
   %.not26.us.us = icmp eq ptr %10, null
   br i1 %.not26.us.us, label %19, label %.preheader.us.us
@@ -23149,7 +23142,7 @@ define noundef i32 @tng_data_values_free(ptr readnone captures(none) %0, ptr nou
 .preheader.us.us:                                 ; preds = %.lr.ph31.split.us.split.us, %17
   %.029.us.us = phi i64 [ %18, %17 ], [ 0, %.lr.ph31.split.us.split.us ]
   %11 = load ptr, ptr %9, align 8, !tbaa !338
-  %12 = getelementptr inbounds nuw %union.data_values, ptr %11, i64 %.029.us.us
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.029.us.us
   %13 = load ptr, ptr %12, align 8, !tbaa !13
   %.not27.us.us = icmp eq ptr %13, null
   br i1 %.not27.us.us, label %17, label %14
@@ -23157,7 +23150,7 @@ define noundef i32 @tng_data_values_free(ptr readnone captures(none) %0, ptr nou
 14:                                               ; preds = %.preheader.us.us
   tail call void @free(ptr noundef nonnull %13) #28
   %15 = load ptr, ptr %9, align 8, !tbaa !338
-  %16 = getelementptr inbounds nuw %union.data_values, ptr %15, i64 %.029.us.us
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.029.us.us
   store ptr null, ptr %16, align 8, !tbaa !13
   br label %17
 
@@ -23179,7 +23172,7 @@ define noundef i32 @tng_data_values_free(ptr readnone captures(none) %0, ptr nou
 
 .lr.ph31.split.us.split:                          ; preds = %.lr.ph31.split.us, %24
   %.02330.us = phi i64 [ %25, %24 ], [ 0, %.lr.ph31.split.us ]
-  %22 = getelementptr inbounds nuw ptr, ptr %1, i64 %.02330.us
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02330.us
   %23 = load ptr, ptr %22, align 8, !tbaa !338
   %.not26.us = icmp eq ptr %23, null
   br i1 %.not26.us, label %24, label %.preheader.us
@@ -23196,7 +23189,7 @@ define noundef i32 @tng_data_values_free(ptr readnone captures(none) %0, ptr nou
 
 .lr.ph31.split:                                   ; preds = %.lr.ph31, %29
   %.02330 = phi i64 [ %30, %29 ], [ 0, %.lr.ph31 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %.02330
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02330
   %27 = load ptr, ptr %26, align 8, !tbaa !338
   %.not26 = icmp eq ptr %27, null
   br i1 %.not26, label %29, label %28
@@ -23242,7 +23235,7 @@ define noundef i32 @tng_particle_data_values_free(ptr readnone captures(none) %0
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %13
   %.03647.us.us.us = phi i64 [ %14, %13 ], [ 0, %.lr.ph.split.us.split.us ]
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %.03647.us.us.us
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03647.us.us.us
   %12 = load ptr, ptr %11, align 8, !tbaa !342
   %.not39.us.us.us = icmp eq ptr %12, null
   br i1 %.not39.us.us.us, label %13, label %.preheader.us.us.us.us.us
@@ -23259,9 +23252,9 @@ define noundef i32 @tng_particle_data_values_free(ptr readnone captures(none) %0
 15:                                               ; preds = %26, %.preheader.us.us.us.us.us
   %.043.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us ], [ %27, %26 ]
   %16 = load ptr, ptr %11, align 8, !tbaa !342
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.03544.us.us.us.us.us
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.03544.us.us.us.us.us
   %18 = load ptr, ptr %17, align 8, !tbaa !338
-  %19 = getelementptr inbounds nuw %union.data_values, ptr %18, i64 %.043.us.us.us.us.us
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.043.us.us.us.us.us
   %20 = load ptr, ptr %19, align 8, !tbaa !13
   %.not40.us.us.us.us.us = icmp eq ptr %20, null
   br i1 %.not40.us.us.us.us.us, label %26, label %21
@@ -23269,9 +23262,9 @@ define noundef i32 @tng_particle_data_values_free(ptr readnone captures(none) %0
 21:                                               ; preds = %15
   tail call void @free(ptr noundef nonnull %20) #28
   %22 = load ptr, ptr %11, align 8, !tbaa !342
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.03544.us.us.us.us.us
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.03544.us.us.us.us.us
   %24 = load ptr, ptr %23, align 8, !tbaa !338
-  %25 = getelementptr inbounds nuw %union.data_values, ptr %24, i64 %.043.us.us.us.us.us
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.043.us.us.us.us.us
   store ptr null, ptr %25, align 8, !tbaa !13
   br label %26
 
@@ -23282,11 +23275,11 @@ define noundef i32 @tng_particle_data_values_free(ptr readnone captures(none) %0
 
 ..loopexit_crit_edge.us.us.us.us.us:              ; preds = %26
   %28 = load ptr, ptr %11, align 8, !tbaa !342
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.03544.us.us.us.us.us
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.03544.us.us.us.us.us
   %30 = load ptr, ptr %29, align 8, !tbaa !338
   tail call void @free(ptr noundef %30) #28
   %31 = load ptr, ptr %11, align 8, !tbaa !342
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.03544.us.us.us.us.us
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.03544.us.us.us.us.us
   store ptr null, ptr %32, align 8, !tbaa !338
   %33 = add nuw nsw i64 %.03544.us.us.us.us.us, 1
   %exitcond64.not = icmp eq i64 %33, %3
@@ -23299,7 +23292,7 @@ define noundef i32 @tng_particle_data_values_free(ptr readnone captures(none) %0
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %36
   %.03647.us.us = phi i64 [ %37, %36 ], [ 0, %.lr.ph.split.us.split.us ]
-  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %.03647.us.us
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03647.us.us
   %35 = load ptr, ptr %34, align 8, !tbaa !342
   %.not39.us.us = icmp eq ptr %35, null
   br i1 %.not39.us.us, label %36, label %.preheader.us.us52.us
@@ -23312,11 +23305,11 @@ define noundef i32 @tng_particle_data_values_free(ptr readnone captures(none) %0
 .preheader.us.us52.us:                            ; preds = %.lr.ph.split.us.split.us.split, %.preheader.us.us52.us
   %38 = phi ptr [ %41, %.preheader.us.us52.us ], [ %35, %.lr.ph.split.us.split.us.split ]
   %.03544.us.us53.us = phi i64 [ %43, %.preheader.us.us52.us ], [ 0, %.lr.ph.split.us.split.us.split ]
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.03544.us.us53.us
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.03544.us.us53.us
   %40 = load ptr, ptr %39, align 8, !tbaa !338
   tail call void @free(ptr noundef %40) #28
   %41 = load ptr, ptr %34, align 8, !tbaa !342
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.03544.us.us53.us
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.03544.us.us53.us
   store ptr null, ptr %42, align 8, !tbaa !338
   %43 = add nuw nsw i64 %.03544.us.us53.us, 1
   %exitcond61.not = icmp eq i64 %43, %3
@@ -23329,7 +23322,7 @@ define noundef i32 @tng_particle_data_values_free(ptr readnone captures(none) %0
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %52
   %.03647.us = phi i64 [ %53, %52 ], [ 0, %.lr.ph.split.us ]
-  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %.03647.us
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03647.us
   %45 = load ptr, ptr %44, align 8, !tbaa !342
   %.not39.us = icmp eq ptr %45, null
   br i1 %.not39.us, label %52, label %.preheader41.us
@@ -23337,11 +23330,11 @@ define noundef i32 @tng_particle_data_values_free(ptr readnone captures(none) %0
 .preheader41.us:                                  ; preds = %.lr.ph.split.us.split, %.preheader41.us
   %46 = phi ptr [ %49, %.preheader41.us ], [ %45, %.lr.ph.split.us.split ]
   %.03544.us49 = phi i64 [ %51, %.preheader41.us ], [ 0, %.lr.ph.split.us.split ]
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.03544.us49
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.03544.us49
   %48 = load ptr, ptr %47, align 8, !tbaa !338
   tail call void @free(ptr noundef %48) #28
   %49 = load ptr, ptr %44, align 8, !tbaa !342
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %.03544.us49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.03544.us49
   store ptr null, ptr %50, align 8, !tbaa !338
   %51 = add nuw nsw i64 %.03544.us49, 1
   %exitcond59.not = icmp eq i64 %51, %3
@@ -23359,7 +23352,7 @@ define noundef i32 @tng_particle_data_values_free(ptr readnone captures(none) %0
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %56
   %.03647 = phi i64 [ %57, %56 ], [ 0, %.lr.ph ]
-  %54 = getelementptr inbounds nuw ptr, ptr %1, i64 %.03647
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03647
   %55 = load ptr, ptr %54, align 8, !tbaa !342
   %.not39 = icmp eq ptr %55, null
   br i1 %.not39, label %56, label %.preheader41
@@ -23439,7 +23432,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_get(ptr noundef %0, i64
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %31
   %.02431.i = phi i64 [ %32, %31 ], [ 0, %.lr.ph32.i.preheader ]
-  %33 = getelementptr inbounds nuw %struct.tng_data, ptr %30, i64 %.02431.i
+  %33 = getelementptr inbounds nuw [96 x i8], ptr %30, i64 %.02431.i
   %34 = load i64, ptr %33, align 8, !tbaa !204
   %35 = icmp eq i64 %34, %1
   br i1 %35, label %.loopexit346, label %31
@@ -23451,7 +23444,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_get(ptr noundef %0, i64
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %36, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %37 = getelementptr inbounds nuw %struct.tng_data, ptr %23, i64 %.129.i
+  %37 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %.129.i
   %38 = load i64, ptr %37, align 8, !tbaa !204
   %39 = icmp eq i64 %38, %1
   br i1 %39, label %.loopexit346, label %.critedge.i
@@ -23508,7 +23501,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_get(ptr noundef %0, i64
 
 65:                                               ; preds = %57, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %58, %57 ]
-  %66 = getelementptr inbounds nuw %struct.tng_data, ptr %56, i64 %.03446.i
+  %66 = getelementptr inbounds nuw [96 x i8], ptr %56, i64 %.03446.i
   %67 = load i64, ptr %66, align 8, !tbaa !204
   %68 = icmp eq i64 %67, %1
   br i1 %68, label %.loopexit346, label %57
@@ -23520,7 +23513,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_get(ptr noundef %0, i64
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %69, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %70 = getelementptr inbounds nuw %struct.tng_data, ptr %64, i64 %.148.i
+  %70 = getelementptr inbounds nuw [96 x i8], ptr %64, i64 %.148.i
   %71 = load i64, ptr %70, align 8, !tbaa !204
   %72 = icmp eq i64 %71, %1
   br i1 %72, label %.loopexit346, label %.critedge38.i
@@ -23532,7 +23525,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_get(ptr noundef %0, i64
 
 .lr.ph.i252:                                      ; preds = %.lr.ph.i252.preheader, %.critedge.i253
   %.243.i = phi i64 [ %73, %.critedge.i253 ], [ 0, %.lr.ph.i252.preheader ]
-  %74 = getelementptr inbounds nuw %struct.tng_data, ptr %50, i64 %.243.i
+  %74 = getelementptr inbounds nuw [96 x i8], ptr %50, i64 %.243.i
   %75 = load i64, ptr %74, align 8, !tbaa !204
   %76 = icmp eq i64 %75, %1
   br i1 %76, label %.loopexit346, label %.critedge.i253
@@ -23694,7 +23687,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %121
 
 141:                                              ; preds = %.lr.ph395, %139
   %.0214394 = phi i64 [ 0, %.lr.ph395 ], [ %140, %139 ]
-  %142 = getelementptr inbounds nuw %struct.tng_data, ptr %132, i64 %.0214394
+  %142 = getelementptr inbounds nuw [96 x i8], ptr %132, i64 %.0214394
   %143 = load i64, ptr %142, align 8, !tbaa !204
   %144 = icmp eq i64 %143, %1
   br i1 %144, label %.thread316, label %139
@@ -23706,7 +23699,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %121
 
 147:                                              ; preds = %.lr.ph397, %145
   %.1215396 = phi i64 [ 0, %.lr.ph397 ], [ %146, %145 ]
-  %148 = getelementptr inbounds nuw %struct.tng_data, ptr %138, i64 %.1215396
+  %148 = getelementptr inbounds nuw [96 x i8], ptr %138, i64 %.1215396
   %149 = load i64, ptr %148, align 8, !tbaa !204
   %150 = icmp eq i64 %149, %1
   br i1 %150, label %.loopexit346, label %145
@@ -23834,7 +23827,7 @@ thread-pre-split:                                 ; preds = %167
 
 197:                                              ; preds = %211, %.preheader.i
   %.02126.i = phi i64 [ 0, %.preheader.i ], [ %212, %211 ]
-  %198 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %196, i64 %.02126.i
+  %198 = getelementptr inbounds nuw [24 x i8], ptr %196, i64 %.02126.i
   %199 = load i64, ptr %198, align 8, !tbaa !109
   %200 = icmp slt i64 %.0223414, %199
   br i1 %200, label %211, label %201
@@ -23850,7 +23843,7 @@ thread-pre-split:                                 ; preds = %167
   %206 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %207 = load ptr, ptr %206, align 8, !tbaa !112
   %208 = sub nsw i64 %.0223414, %199
-  %209 = getelementptr inbounds i64, ptr %207, i64 %208
+  %209 = getelementptr inbounds [8 x i8], ptr %207, i64 %208
   %210 = load i64, ptr %209, align 8, !tbaa !38
   br label %tng_particle_mapping_get_real_particle.exit
 
@@ -23867,35 +23860,35 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %211, %.lr.ph415, %2
 .lr.ph412:                                        ; preds = %tng_particle_mapping_get_real_particle.exit, %.lr.ph412
   %.0219411 = phi i64 [ %245, %.lr.ph412 ], [ 0, %tng_particle_mapping_get_real_particle.exit ]
   %214 = load ptr, ptr %184, align 8, !tbaa !157
-  %215 = getelementptr inbounds nuw ptr, ptr %214, i64 %.2216417
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %.2216417
   %216 = load ptr, ptr %215, align 8, !tbaa !159
-  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %.0223414
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %.0223414
   %218 = load ptr, ptr %217, align 8, !tbaa !161
-  %219 = getelementptr inbounds nuw ptr, ptr %218, i64 %.0219411
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %.0219411
   %220 = load ptr, ptr %219, align 8, !tbaa !40
   %221 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %220) #29
   %222 = add i64 %221, 1
   %223 = tail call noalias ptr @malloc(i64 noundef %222) #30
   %224 = load ptr, ptr %3, align 8, !tbaa !347
-  %225 = getelementptr inbounds nuw ptr, ptr %224, i64 %.2216417
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %.2216417
   %226 = load ptr, ptr %225, align 8, !tbaa !342
-  %227 = getelementptr inbounds ptr, ptr %226, i64 %.sink.i
+  %227 = getelementptr inbounds [8 x i8], ptr %226, i64 %.sink.i
   %228 = load ptr, ptr %227, align 8, !tbaa !338
-  %229 = getelementptr inbounds nuw %union.data_values, ptr %228, i64 %.0219411
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %.0219411
   store ptr %223, ptr %229, align 8, !tbaa !13
   %230 = load ptr, ptr %3, align 8, !tbaa !347
-  %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %.2216417
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %.2216417
   %232 = load ptr, ptr %231, align 8, !tbaa !342
-  %233 = getelementptr inbounds ptr, ptr %232, i64 %.sink.i
+  %233 = getelementptr inbounds [8 x i8], ptr %232, i64 %.sink.i
   %234 = load ptr, ptr %233, align 8, !tbaa !338
-  %235 = getelementptr inbounds nuw %union.data_values, ptr %234, i64 %.0219411
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %.0219411
   %236 = load ptr, ptr %235, align 8, !tbaa !13
   %237 = load ptr, ptr %184, align 8, !tbaa !157
-  %238 = getelementptr inbounds nuw ptr, ptr %237, i64 %.2216417
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %.2216417
   %239 = load ptr, ptr %238, align 8, !tbaa !159
-  %240 = getelementptr inbounds nuw ptr, ptr %239, i64 %.0223414
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %.0223414
   %241 = load ptr, ptr %240, align 8, !tbaa !161
-  %242 = getelementptr inbounds nuw ptr, ptr %241, i64 %.0219411
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %.0219411
   %243 = load ptr, ptr %242, align 8, !tbaa !40
   %244 = tail call ptr @strncpy(ptr noundef %236, ptr noundef %243, i64 noundef %222) #28
   %245 = add nuw nsw i64 %.0219411, 1
@@ -23954,7 +23947,7 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %211, %.lr.ph415, %2
 
 270:                                              ; preds = %284, %.preheader.i259
   %.02126.i260 = phi i64 [ 0, %.preheader.i259 ], [ %285, %284 ]
-  %271 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %269, i64 %.02126.i260
+  %271 = getelementptr inbounds nuw [24 x i8], ptr %269, i64 %.02126.i260
   %272 = load i64, ptr %271, align 8, !tbaa !109
   %273 = icmp slt i64 %.1224407, %272
   br i1 %273, label %284, label %274
@@ -23970,7 +23963,7 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %211, %.lr.ph415, %2
   %279 = getelementptr inbounds nuw i8, ptr %271, i64 16
   %280 = load ptr, ptr %279, align 8, !tbaa !112
   %281 = sub nsw i64 %.1224407, %272
-  %282 = getelementptr inbounds i64, ptr %280, i64 %281
+  %282 = getelementptr inbounds [8 x i8], ptr %280, i64 %281
   %283 = load i64, ptr %282, align 8, !tbaa !38
   br label %tng_particle_mapping_get_real_particle.exit265
 
@@ -23996,11 +23989,11 @@ tng_particle_mapping_get_real_particle.exit265:   ; preds = %284, %264, %278
   %294 = load i32, ptr %293, align 4, !tbaa !17
   %295 = sext i32 %294 to i64
   %296 = load ptr, ptr %3, align 8, !tbaa !347
-  %297 = getelementptr inbounds nuw ptr, ptr %296, i64 %.3410
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %296, i64 %.3410
   %298 = load ptr, ptr %297, align 8, !tbaa !342
-  %299 = getelementptr inbounds ptr, ptr %298, i64 %.sink.i263
+  %299 = getelementptr inbounds [8 x i8], ptr %298, i64 %.sink.i263
   %300 = load ptr, ptr %299, align 8, !tbaa !338
-  %301 = getelementptr inbounds nuw %union.data_values, ptr %300, i64 %.1220404
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %300, i64 %.1220404
   store i64 %295, ptr %301, align 8, !tbaa !13
   %302 = add nuw nsw i64 %.1220404, 1
   %303 = load i64, ptr %6, align 8, !tbaa !38
@@ -24058,7 +24051,7 @@ tng_particle_mapping_get_real_particle.exit265:   ; preds = %284, %264, %278
 
 327:                                              ; preds = %341, %.preheader.i266
   %.02126.i267 = phi i64 [ 0, %.preheader.i266 ], [ %342, %341 ]
-  %328 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %326, i64 %.02126.i267
+  %328 = getelementptr inbounds nuw [24 x i8], ptr %326, i64 %.02126.i267
   %329 = load i64, ptr %328, align 8, !tbaa !109
   %330 = icmp slt i64 %.2225400, %329
   br i1 %330, label %341, label %331
@@ -24074,7 +24067,7 @@ tng_particle_mapping_get_real_particle.exit265:   ; preds = %284, %264, %278
   %336 = getelementptr inbounds nuw i8, ptr %328, i64 16
   %337 = load ptr, ptr %336, align 8, !tbaa !112
   %338 = sub nsw i64 %.2225400, %329
-  %339 = getelementptr inbounds i64, ptr %337, i64 %338
+  %339 = getelementptr inbounds [8 x i8], ptr %337, i64 %338
   %340 = load i64, ptr %339, align 8, !tbaa !38
   br label %tng_particle_mapping_get_real_particle.exit272
 
@@ -24099,11 +24092,11 @@ tng_particle_mapping_get_real_particle.exit272:   ; preds = %341, %321, %335
   %350 = getelementptr inbounds i8, ptr %345, i64 %349
   %351 = load float, ptr %350, align 4, !tbaa !307
   %352 = load ptr, ptr %3, align 8, !tbaa !347
-  %353 = getelementptr inbounds nuw ptr, ptr %352, i64 %.4403
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %.4403
   %354 = load ptr, ptr %353, align 8, !tbaa !342
-  %355 = getelementptr inbounds ptr, ptr %354, i64 %.sink.i270
+  %355 = getelementptr inbounds [8 x i8], ptr %354, i64 %.sink.i270
   %356 = load ptr, ptr %355, align 8, !tbaa !338
-  %357 = getelementptr inbounds nuw %union.data_values, ptr %356, i64 %.2221398
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %.2221398
   store float %351, ptr %357, align 8, !tbaa !13
   %358 = add nuw nsw i64 %.2221398, 1
   %359 = load i64, ptr %6, align 8, !tbaa !38
@@ -24161,7 +24154,7 @@ tng_particle_mapping_get_real_particle.exit272:   ; preds = %341, %321, %335
 
 383:                                              ; preds = %397, %.preheader.i273
   %.02126.i274 = phi i64 [ 0, %.preheader.i273 ], [ %398, %397 ]
-  %384 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %382, i64 %.02126.i274
+  %384 = getelementptr inbounds nuw [24 x i8], ptr %382, i64 %.02126.i274
   %385 = load i64, ptr %384, align 8, !tbaa !109
   %386 = icmp slt i64 %.3226421, %385
   br i1 %386, label %397, label %387
@@ -24177,7 +24170,7 @@ tng_particle_mapping_get_real_particle.exit272:   ; preds = %341, %321, %335
   %392 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %393 = load ptr, ptr %392, align 8, !tbaa !112
   %394 = sub nsw i64 %.3226421, %385
-  %395 = getelementptr inbounds i64, ptr %393, i64 %394
+  %395 = getelementptr inbounds [8 x i8], ptr %393, i64 %394
   %396 = load i64, ptr %395, align 8, !tbaa !38
   br label %tng_particle_mapping_get_real_particle.exit279
 
@@ -24202,11 +24195,11 @@ tng_particle_mapping_get_real_particle.exit279:   ; preds = %397, %377, %391
   %406 = getelementptr inbounds i8, ptr %401, i64 %405
   %407 = load double, ptr %406, align 8, !tbaa !201
   %408 = load ptr, ptr %3, align 8, !tbaa !347
-  %409 = getelementptr inbounds nuw ptr, ptr %408, i64 %.5424
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %408, i64 %.5424
   %410 = load ptr, ptr %409, align 8, !tbaa !342
-  %411 = getelementptr inbounds ptr, ptr %410, i64 %.sink.i277
+  %411 = getelementptr inbounds [8 x i8], ptr %410, i64 %.sink.i277
   %412 = load ptr, ptr %411, align 8, !tbaa !338
-  %413 = getelementptr inbounds nuw %union.data_values, ptr %412, i64 %.3222418
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %412, i64 %.3222418
   store double %407, ptr %413, align 8, !tbaa !13
   %414 = add nuw nsw i64 %.3222418, 1
   %415 = load i64, ptr %6, align 8, !tbaa !38
@@ -24306,30 +24299,30 @@ thread-pre-split321:                              ; preds = %430
   %.4227433 = phi i64 [ %472, %.lr.ph434 ], [ 0, %.preheader324 ]
   %445 = load ptr, ptr %440, align 8, !tbaa !157
   %446 = load ptr, ptr %445, align 8, !tbaa !159
-  %447 = getelementptr inbounds nuw ptr, ptr %446, i64 %.6436
+  %447 = getelementptr inbounds nuw [8 x i8], ptr %446, i64 %.6436
   %448 = load ptr, ptr %447, align 8, !tbaa !161
-  %449 = getelementptr inbounds nuw ptr, ptr %448, i64 %.4227433
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %448, i64 %.4227433
   %450 = load ptr, ptr %449, align 8, !tbaa !40
   %451 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %450) #29
   %452 = add i64 %451, 1
   %453 = tail call noalias ptr @malloc(i64 noundef %452) #30
   %454 = load ptr, ptr %3, align 8, !tbaa !347
   %455 = load ptr, ptr %454, align 8, !tbaa !342
-  %456 = getelementptr inbounds nuw ptr, ptr %455, i64 %.6436
+  %456 = getelementptr inbounds nuw [8 x i8], ptr %455, i64 %.6436
   %457 = load ptr, ptr %456, align 8, !tbaa !338
-  %458 = getelementptr inbounds nuw %union.data_values, ptr %457, i64 %.4227433
+  %458 = getelementptr inbounds nuw [8 x i8], ptr %457, i64 %.4227433
   store ptr %453, ptr %458, align 8, !tbaa !13
   %459 = load ptr, ptr %3, align 8, !tbaa !347
   %460 = load ptr, ptr %459, align 8, !tbaa !342
-  %461 = getelementptr inbounds nuw ptr, ptr %460, i64 %.6436
+  %461 = getelementptr inbounds nuw [8 x i8], ptr %460, i64 %.6436
   %462 = load ptr, ptr %461, align 8, !tbaa !338
-  %463 = getelementptr inbounds nuw %union.data_values, ptr %462, i64 %.4227433
+  %463 = getelementptr inbounds nuw [8 x i8], ptr %462, i64 %.4227433
   %464 = load ptr, ptr %463, align 8, !tbaa !13
   %465 = load ptr, ptr %440, align 8, !tbaa !157
   %466 = load ptr, ptr %465, align 8, !tbaa !159
-  %467 = getelementptr inbounds nuw ptr, ptr %466, i64 %.6436
+  %467 = getelementptr inbounds nuw [8 x i8], ptr %466, i64 %.6436
   %468 = load ptr, ptr %467, align 8, !tbaa !161
-  %469 = getelementptr inbounds nuw ptr, ptr %468, i64 %.4227433
+  %469 = getelementptr inbounds nuw [8 x i8], ptr %468, i64 %.4227433
   %470 = load ptr, ptr %469, align 8, !tbaa !40
   %471 = tail call ptr @strncpy(ptr noundef %464, ptr noundef %470, i64 noundef %452) #28
   %472 = add nuw nsw i64 %.4227433, 1
@@ -24367,9 +24360,9 @@ thread-pre-split321:                              ; preds = %430
   %489 = sext i32 %488 to i64
   %490 = load ptr, ptr %3, align 8, !tbaa !347
   %491 = load ptr, ptr %490, align 8, !tbaa !342
-  %492 = getelementptr inbounds nuw ptr, ptr %491, i64 %.7432
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %.7432
   %493 = load ptr, ptr %492, align 8, !tbaa !338
-  %494 = getelementptr inbounds nuw %union.data_values, ptr %493, i64 %.5228429
+  %494 = getelementptr inbounds nuw [8 x i8], ptr %493, i64 %.5228429
   store i64 %489, ptr %494, align 8, !tbaa !13
   %495 = add nuw nsw i64 %.5228429, 1
   %496 = load i64, ptr %6, align 8, !tbaa !38
@@ -24405,9 +24398,9 @@ thread-pre-split321:                              ; preds = %430
   %511 = load float, ptr %510, align 4, !tbaa !307
   %512 = load ptr, ptr %3, align 8, !tbaa !347
   %513 = load ptr, ptr %512, align 8, !tbaa !342
-  %514 = getelementptr inbounds nuw ptr, ptr %513, i64 %.8428
+  %514 = getelementptr inbounds nuw [8 x i8], ptr %513, i64 %.8428
   %515 = load ptr, ptr %514, align 8, !tbaa !338
-  %516 = getelementptr inbounds nuw %union.data_values, ptr %515, i64 %.6229425
+  %516 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %.6229425
   store float %511, ptr %516, align 8, !tbaa !13
   %517 = add nuw nsw i64 %.6229425, 1
   %518 = load i64, ptr %6, align 8, !tbaa !38
@@ -24443,9 +24436,9 @@ thread-pre-split321:                              ; preds = %430
   %533 = load double, ptr %532, align 8, !tbaa !201
   %534 = load ptr, ptr %3, align 8, !tbaa !347
   %535 = load ptr, ptr %534, align 8, !tbaa !342
-  %536 = getelementptr inbounds nuw ptr, ptr %535, i64 %.9440
+  %536 = getelementptr inbounds nuw [8 x i8], ptr %535, i64 %.9440
   %537 = load ptr, ptr %536, align 8, !tbaa !338
-  %538 = getelementptr inbounds nuw %union.data_values, ptr %537, i64 %.7230437
+  %538 = getelementptr inbounds nuw [8 x i8], ptr %537, i64 %.7230437
   store double %533, ptr %538, align 8, !tbaa !13
   %539 = add nuw nsw i64 %.7230437, 1
   %540 = load i64, ptr %6, align 8, !tbaa !38
@@ -24533,7 +24526,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_get(ptr noundef 
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %32
   %.02431.i = phi i64 [ %33, %32 ], [ 0, %.lr.ph32.i.preheader ]
-  %34 = getelementptr inbounds nuw %struct.tng_data, ptr %31, i64 %.02431.i
+  %34 = getelementptr inbounds nuw [96 x i8], ptr %31, i64 %.02431.i
   %35 = load i64, ptr %34, align 8, !tbaa !204
   %36 = icmp eq i64 %35, %1
   br i1 %36, label %tng_particle_data_find.exit, label %32
@@ -24545,7 +24538,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_get(ptr noundef 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %37, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %38 = getelementptr inbounds nuw %struct.tng_data, ptr %24, i64 %.129.i
+  %38 = getelementptr inbounds nuw [96 x i8], ptr %24, i64 %.129.i
   %39 = load i64, ptr %38, align 8, !tbaa !204
   %40 = icmp eq i64 %39, %1
   br i1 %40, label %tng_particle_data_find.exit, label %.critedge.i
@@ -24602,7 +24595,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_get(ptr noundef 
 
 66:                                               ; preds = %58, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %59, %58 ]
-  %67 = getelementptr inbounds nuw %struct.tng_data, ptr %57, i64 %.03446.i
+  %67 = getelementptr inbounds nuw [96 x i8], ptr %57, i64 %.03446.i
   %68 = load i64, ptr %67, align 8, !tbaa !204
   %69 = icmp eq i64 %68, %1
   br i1 %69, label %tng_particle_data_find.exit, label %58
@@ -24614,7 +24607,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_get(ptr noundef 
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %70, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %71 = getelementptr inbounds nuw %struct.tng_data, ptr %65, i64 %.148.i
+  %71 = getelementptr inbounds nuw [96 x i8], ptr %65, i64 %.148.i
   %72 = load i64, ptr %71, align 8, !tbaa !204
   %73 = icmp eq i64 %72, %1
   br i1 %73, label %tng_particle_data_find.exit, label %.critedge38.i
@@ -24626,7 +24619,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_get(ptr noundef 
 
 .lr.ph.i111:                                      ; preds = %.lr.ph.i111.preheader, %.critedge.i112
   %.243.i = phi i64 [ %74, %.critedge.i112 ], [ 0, %.lr.ph.i111.preheader ]
-  %75 = getelementptr inbounds nuw %struct.tng_data, ptr %51, i64 %.243.i
+  %75 = getelementptr inbounds nuw [96 x i8], ptr %51, i64 %.243.i
   %76 = load i64, ptr %75, align 8, !tbaa !204
   %77 = icmp eq i64 %76, %1
   br i1 %77, label %tng_particle_data_find.exit, label %.critedge.i112
@@ -24773,7 +24766,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %122
 
 134:                                              ; preds = %.lr.ph170, %132
   %.086169 = phi i64 [ 0, %.lr.ph170 ], [ %133, %132 ]
-  %135 = getelementptr inbounds nuw %struct.tng_data, ptr %128, i64 %.086169
+  %135 = getelementptr inbounds nuw [96 x i8], ptr %128, i64 %.086169
   %136 = load i64, ptr %135, align 8, !tbaa !204
   %137 = icmp eq i64 %136, %1
   br i1 %137, label %tng_particle_data_find.exit, label %132
@@ -24909,7 +24902,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 201:                                              ; preds = %215, %.preheader.i
   %.02126.i = phi i64 [ 0, %.preheader.i ], [ %216, %215 ]
-  %202 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %200, i64 %.02126.i
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %200, i64 %.02126.i
   %203 = load i64, ptr %202, align 8, !tbaa !109
   %204 = icmp slt i64 %.090171, %203
   br i1 %204, label %215, label %205
@@ -24925,7 +24918,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %210 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %211 = load ptr, ptr %210, align 8, !tbaa !112
   %212 = sub nsw i64 %.090171, %203
-  %213 = getelementptr inbounds i64, ptr %211, i64 %212
+  %213 = getelementptr inbounds [8 x i8], ptr %211, i64 %212
   %214 = load i64, ptr %213, align 8, !tbaa !38
   br label %tng_particle_mapping_get_real_particle.exit
 
@@ -25178,7 +25171,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %72
 88:                                               ; preds = %87
   %89 = add nsw i64 %.0256, -1
   %90 = load ptr, ptr %86, align 8, !tbaa !131
-  %91 = getelementptr inbounds %struct.tng_data, ptr %90, i64 %89
+  %91 = getelementptr inbounds [96 x i8], ptr %90, i64 %89
   %92 = load i64, ptr %91, align 8, !tbaa !204
   %93 = icmp eq i64 %92, %1
   br i1 %93, label %100, label %87, !llvm.loop !379
@@ -25190,7 +25183,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %72
 
 96:                                               ; preds = %.lr.ph437, %94
   %.1257436 = phi i64 [ 0, %.lr.ph437 ], [ %95, %94 ]
-  %97 = getelementptr inbounds nuw %struct.tng_data, ptr %83, i64 %.1257436
+  %97 = getelementptr inbounds nuw [96 x i8], ptr %83, i64 %.1257436
   %98 = load i64, ptr %97, align 8, !tbaa !204
   %99 = icmp eq i64 %98, %1
   br i1 %99, label %.thread365, label %94
@@ -25410,7 +25403,7 @@ tng_frame_set_read_next.exit:                     ; preds = %192
 
 206:                                              ; preds = %220, %.preheader.i
   %.02126.i = phi i64 [ 0, %.preheader.i ], [ %221, %220 ]
-  %207 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %205, i64 %.02126.i
+  %207 = getelementptr inbounds nuw [24 x i8], ptr %205, i64 %.02126.i
   %208 = load i64, ptr %207, align 8, !tbaa !109
   %209 = icmp slt i64 %.0262465, %208
   br i1 %209, label %220, label %210
@@ -25426,7 +25419,7 @@ tng_frame_set_read_next.exit:                     ; preds = %192
   %215 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %216 = load ptr, ptr %215, align 8, !tbaa !112
   %217 = sub nsw i64 %.0262465, %208
-  %218 = getelementptr inbounds i64, ptr %216, i64 %217
+  %218 = getelementptr inbounds [8 x i8], ptr %216, i64 %217
   %219 = load i64, ptr %218, align 8, !tbaa !38
   br label %tng_particle_mapping_get_real_particle.exit
 
@@ -25444,35 +25437,35 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %220, %.lr.ph466, %2
 .lr.ph463:                                        ; preds = %tng_particle_mapping_get_real_particle.exit, %.lr.ph463
   %.0279462 = phi i64 [ %255, %.lr.ph463 ], [ 0, %tng_particle_mapping_get_real_particle.exit ]
   %224 = load ptr, ptr %167, align 8, !tbaa !157
-  %225 = getelementptr inbounds ptr, ptr %224, i64 %.1270
+  %225 = getelementptr inbounds [8 x i8], ptr %224, i64 %.1270
   %226 = load ptr, ptr %225, align 8, !tbaa !159
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %.0262465
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %.0262465
   %228 = load ptr, ptr %227, align 8, !tbaa !161
-  %229 = getelementptr inbounds nuw ptr, ptr %228, i64 %.0279462
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %.0279462
   %230 = load ptr, ptr %229, align 8, !tbaa !40
   %231 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %230) #29
   %232 = add i64 %231, 1
   %233 = tail call noalias ptr @malloc(i64 noundef %232) #30
   %234 = load ptr, ptr %6, align 8, !tbaa !347
-  %235 = getelementptr inbounds nuw ptr, ptr %234, i64 %.2471
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %.2471
   %236 = load ptr, ptr %235, align 8, !tbaa !342
-  %237 = getelementptr inbounds ptr, ptr %236, i64 %.sink.i
+  %237 = getelementptr inbounds [8 x i8], ptr %236, i64 %.sink.i
   %238 = load ptr, ptr %237, align 8, !tbaa !338
-  %239 = getelementptr inbounds nuw %union.data_values, ptr %238, i64 %.0279462
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %.0279462
   store ptr %233, ptr %239, align 8, !tbaa !13
   %240 = load ptr, ptr %6, align 8, !tbaa !347
-  %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %.2471
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %.2471
   %242 = load ptr, ptr %241, align 8, !tbaa !342
-  %243 = getelementptr inbounds ptr, ptr %242, i64 %.sink.i
+  %243 = getelementptr inbounds [8 x i8], ptr %242, i64 %.sink.i
   %244 = load ptr, ptr %243, align 8, !tbaa !338
-  %245 = getelementptr inbounds nuw %union.data_values, ptr %244, i64 %.0279462
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %.0279462
   %246 = load ptr, ptr %245, align 8, !tbaa !13
   %247 = load ptr, ptr %167, align 8, !tbaa !157
-  %248 = getelementptr inbounds ptr, ptr %247, i64 %.1270
+  %248 = getelementptr inbounds [8 x i8], ptr %247, i64 %.1270
   %249 = load ptr, ptr %248, align 8, !tbaa !159
-  %250 = getelementptr inbounds nuw ptr, ptr %249, i64 %.0262465
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %.0262465
   %251 = load ptr, ptr %250, align 8, !tbaa !161
-  %252 = getelementptr inbounds nuw ptr, ptr %251, i64 %.0279462
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %.0279462
   %253 = load ptr, ptr %252, align 8, !tbaa !40
   %254 = tail call ptr @strncpy(ptr noundef %246, ptr noundef %253, i64 noundef %232) #28
   %255 = add nuw nsw i64 %.0279462, 1
@@ -25494,30 +25487,30 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %220, %.lr.ph466, %2
   %.1263467 = phi i64 [ %288, %.lr.ph468 ], [ 0, %.preheader383 ]
   %261 = load ptr, ptr %167, align 8, !tbaa !157
   %262 = load ptr, ptr %261, align 8, !tbaa !159
-  %263 = getelementptr inbounds ptr, ptr %262, i64 %.1270
+  %263 = getelementptr inbounds [8 x i8], ptr %262, i64 %.1270
   %264 = load ptr, ptr %263, align 8, !tbaa !161
-  %265 = getelementptr inbounds nuw ptr, ptr %264, i64 %.1263467
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %.1263467
   %266 = load ptr, ptr %265, align 8, !tbaa !40
   %267 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %266) #29
   %268 = add i64 %267, 1
   %269 = tail call noalias ptr @malloc(i64 noundef %268) #30
   %270 = load ptr, ptr %6, align 8, !tbaa !347
   %271 = load ptr, ptr %270, align 8, !tbaa !342
-  %272 = getelementptr inbounds nuw ptr, ptr %271, i64 %.2471
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %.2471
   %273 = load ptr, ptr %272, align 8, !tbaa !338
-  %274 = getelementptr inbounds nuw %union.data_values, ptr %273, i64 %.1263467
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %.1263467
   store ptr %269, ptr %274, align 8, !tbaa !13
   %275 = load ptr, ptr %6, align 8, !tbaa !347
   %276 = load ptr, ptr %275, align 8, !tbaa !342
-  %277 = getelementptr inbounds nuw ptr, ptr %276, i64 %.2471
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %.2471
   %278 = load ptr, ptr %277, align 8, !tbaa !338
-  %279 = getelementptr inbounds nuw %union.data_values, ptr %278, i64 %.1263467
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %.1263467
   %280 = load ptr, ptr %279, align 8, !tbaa !13
   %281 = load ptr, ptr %167, align 8, !tbaa !157
   %282 = load ptr, ptr %281, align 8, !tbaa !159
-  %283 = getelementptr inbounds ptr, ptr %282, i64 %.1270
+  %283 = getelementptr inbounds [8 x i8], ptr %282, i64 %.1270
   %284 = load ptr, ptr %283, align 8, !tbaa !161
-  %285 = getelementptr inbounds nuw ptr, ptr %284, i64 %.1263467
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %.1263467
   %286 = load ptr, ptr %285, align 8, !tbaa !40
   %287 = tail call ptr @strncpy(ptr noundef %280, ptr noundef %286, i64 noundef %268) #28
   %288 = add nuw nsw i64 %.1263467, 1
@@ -25604,7 +25597,7 @@ tng_frame_set_read_next.exit323:                  ; preds = %306
 
 323:                                              ; preds = %337, %.preheader.i324
   %.02126.i325 = phi i64 [ 0, %.preheader.i324 ], [ %338, %337 ]
-  %324 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %322, i64 %.02126.i325
+  %324 = getelementptr inbounds nuw [24 x i8], ptr %322, i64 %.02126.i325
   %325 = load i64, ptr %324, align 8, !tbaa !109
   %326 = icmp slt i64 %.2264452, %325
   br i1 %326, label %337, label %327
@@ -25620,7 +25613,7 @@ tng_frame_set_read_next.exit323:                  ; preds = %306
   %332 = getelementptr inbounds nuw i8, ptr %324, i64 16
   %333 = load ptr, ptr %332, align 8, !tbaa !112
   %334 = sub nsw i64 %.2264452, %325
-  %335 = getelementptr inbounds i64, ptr %333, i64 %334
+  %335 = getelementptr inbounds [8 x i8], ptr %333, i64 %334
   %336 = load i64, ptr %335, align 8, !tbaa !38
   br label %tng_particle_mapping_get_real_particle.exit330
 
@@ -25647,11 +25640,11 @@ tng_particle_mapping_get_real_particle.exit330:   ; preds = %337, %318, %331
   %348 = load i32, ptr %347, align 4, !tbaa !17
   %349 = sext i32 %348 to i64
   %350 = load ptr, ptr %6, align 8, !tbaa !347
-  %351 = getelementptr inbounds nuw ptr, ptr %350, i64 %.3459
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %350, i64 %.3459
   %352 = load ptr, ptr %351, align 8, !tbaa !342
-  %353 = getelementptr inbounds ptr, ptr %352, i64 %.sink.i328
+  %353 = getelementptr inbounds [8 x i8], ptr %352, i64 %.sink.i328
   %354 = load ptr, ptr %353, align 8, !tbaa !338
-  %355 = getelementptr inbounds nuw %union.data_values, ptr %354, i64 %.1280449
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %354, i64 %.1280449
   store i64 %349, ptr %355, align 8, !tbaa !13
   %356 = add nuw nsw i64 %.1280449, 1
   %357 = load i64, ptr %8, align 8, !tbaa !38
@@ -25682,9 +25675,9 @@ tng_particle_mapping_get_real_particle.exit330:   ; preds = %337, %318, %331
   %369 = sext i32 %368 to i64
   %370 = load ptr, ptr %6, align 8, !tbaa !347
   %371 = load ptr, ptr %370, align 8, !tbaa !342
-  %372 = getelementptr inbounds nuw ptr, ptr %371, i64 %.3459
+  %372 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %.3459
   %373 = load ptr, ptr %372, align 8, !tbaa !338
-  %374 = getelementptr inbounds nuw %union.data_values, ptr %373, i64 %.3265455
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %.3265455
   store i64 %369, ptr %374, align 8, !tbaa !13
   %375 = add nuw nsw i64 %.3265455, 1
   %376 = load i64, ptr %8, align 8, !tbaa !38
@@ -25770,7 +25763,7 @@ tng_frame_set_read_next.exit334:                  ; preds = %392
 
 409:                                              ; preds = %423, %.preheader.i335
   %.02126.i336 = phi i64 [ 0, %.preheader.i335 ], [ %424, %423 ]
-  %410 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %408, i64 %.02126.i336
+  %410 = getelementptr inbounds nuw [24 x i8], ptr %408, i64 %.02126.i336
   %411 = load i64, ptr %410, align 8, !tbaa !109
   %412 = icmp slt i64 %.4266440, %411
   br i1 %412, label %423, label %413
@@ -25786,7 +25779,7 @@ tng_frame_set_read_next.exit334:                  ; preds = %392
   %418 = getelementptr inbounds nuw i8, ptr %410, i64 16
   %419 = load ptr, ptr %418, align 8, !tbaa !112
   %420 = sub nsw i64 %.4266440, %411
-  %421 = getelementptr inbounds i64, ptr %419, i64 %420
+  %421 = getelementptr inbounds [8 x i8], ptr %419, i64 %420
   %422 = load i64, ptr %421, align 8, !tbaa !38
   br label %tng_particle_mapping_get_real_particle.exit341
 
@@ -25812,11 +25805,11 @@ tng_particle_mapping_get_real_particle.exit341:   ; preds = %423, %404, %417
   %433 = getelementptr inbounds i8, ptr %428, i64 %432
   %434 = load float, ptr %433, align 4, !tbaa !307
   %435 = load ptr, ptr %6, align 8, !tbaa !347
-  %436 = getelementptr inbounds nuw ptr, ptr %435, i64 %.4446
+  %436 = getelementptr inbounds nuw [8 x i8], ptr %435, i64 %.4446
   %437 = load ptr, ptr %436, align 8, !tbaa !342
-  %438 = getelementptr inbounds ptr, ptr %437, i64 %.sink.i339
+  %438 = getelementptr inbounds [8 x i8], ptr %437, i64 %.sink.i339
   %439 = load ptr, ptr %438, align 8, !tbaa !338
-  %440 = getelementptr inbounds nuw %union.data_values, ptr %439, i64 %.2281438
+  %440 = getelementptr inbounds nuw [8 x i8], ptr %439, i64 %.2281438
   store float %434, ptr %440, align 8, !tbaa !13
   %441 = add nuw nsw i64 %.2281438, 1
   %442 = load i64, ptr %8, align 8, !tbaa !38
@@ -25842,9 +25835,9 @@ tng_particle_mapping_get_real_particle.exit341:   ; preds = %423, %404, %417
   %452 = load float, ptr %451, align 4, !tbaa !307
   %453 = load ptr, ptr %6, align 8, !tbaa !347
   %454 = load ptr, ptr %453, align 8, !tbaa !342
-  %455 = getelementptr inbounds nuw ptr, ptr %454, i64 %.4446
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %454, i64 %.4446
   %456 = load ptr, ptr %455, align 8, !tbaa !338
-  %457 = getelementptr inbounds nuw %union.data_values, ptr %456, i64 %.5267442
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %456, i64 %.5267442
   store float %452, ptr %457, align 8, !tbaa !13
   %458 = add nuw nsw i64 %.5267442, 1
   %459 = load i64, ptr %8, align 8, !tbaa !38
@@ -25930,7 +25923,7 @@ tng_frame_set_read_next.exit345:                  ; preds = %476
 
 493:                                              ; preds = %507, %.preheader.i346
   %.02126.i347 = phi i64 [ 0, %.preheader.i346 ], [ %508, %507 ]
-  %494 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %492, i64 %.02126.i347
+  %494 = getelementptr inbounds nuw [24 x i8], ptr %492, i64 %.02126.i347
   %495 = load i64, ptr %494, align 8, !tbaa !109
   %496 = icmp slt i64 %.6477, %495
   br i1 %496, label %507, label %497
@@ -25946,7 +25939,7 @@ tng_frame_set_read_next.exit345:                  ; preds = %476
   %502 = getelementptr inbounds nuw i8, ptr %494, i64 16
   %503 = load ptr, ptr %502, align 8, !tbaa !112
   %504 = sub nsw i64 %.6477, %495
-  %505 = getelementptr inbounds i64, ptr %503, i64 %504
+  %505 = getelementptr inbounds [8 x i8], ptr %503, i64 %504
   %506 = load i64, ptr %505, align 8, !tbaa !38
   br label %tng_particle_mapping_get_real_particle.exit352
 
@@ -25972,11 +25965,11 @@ tng_particle_mapping_get_real_particle.exit352:   ; preds = %507, %488, %501
   %517 = getelementptr inbounds i8, ptr %512, i64 %516
   %518 = load double, ptr %517, align 8, !tbaa !201
   %519 = load ptr, ptr %6, align 8, !tbaa !347
-  %520 = getelementptr inbounds nuw ptr, ptr %519, i64 %.5483
+  %520 = getelementptr inbounds nuw [8 x i8], ptr %519, i64 %.5483
   %521 = load ptr, ptr %520, align 8, !tbaa !342
-  %522 = getelementptr inbounds ptr, ptr %521, i64 %.sink.i350
+  %522 = getelementptr inbounds [8 x i8], ptr %521, i64 %.sink.i350
   %523 = load ptr, ptr %522, align 8, !tbaa !338
-  %524 = getelementptr inbounds nuw %union.data_values, ptr %523, i64 %.3282474
+  %524 = getelementptr inbounds nuw [8 x i8], ptr %523, i64 %.3282474
   store double %518, ptr %524, align 8, !tbaa !13
   %525 = add nuw nsw i64 %.3282474, 1
   %526 = load i64, ptr %8, align 8, !tbaa !38
@@ -26002,9 +25995,9 @@ tng_particle_mapping_get_real_particle.exit352:   ; preds = %507, %488, %501
   %536 = load double, ptr %535, align 8, !tbaa !201
   %537 = load ptr, ptr %6, align 8, !tbaa !347
   %538 = load ptr, ptr %537, align 8, !tbaa !342
-  %539 = getelementptr inbounds nuw ptr, ptr %538, i64 %.5483
+  %539 = getelementptr inbounds nuw [8 x i8], ptr %538, i64 %.5483
   %540 = load ptr, ptr %539, align 8, !tbaa !338
-  %541 = getelementptr inbounds nuw %union.data_values, ptr %540, i64 %.7479
+  %541 = getelementptr inbounds nuw [8 x i8], ptr %540, i64 %.7479
   store double %536, ptr %541, align 8, !tbaa !13
   %542 = add nuw nsw i64 %.7479, 1
   %543 = load i64, ptr %8, align 8, !tbaa !38
@@ -26120,7 +26113,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %54
   %.02431.i = phi i64 [ %55, %54 ], [ 0, %.lr.ph32.i.preheader ]
-  %56 = getelementptr inbounds nuw %struct.tng_data, ptr %51, i64 %.02431.i
+  %56 = getelementptr inbounds nuw [96 x i8], ptr %51, i64 %.02431.i
   %57 = load i64, ptr %56, align 8, !tbaa !204
   %58 = icmp eq i64 %57, %1
   br i1 %58, label %tng_particle_data_find.exit, label %54
@@ -26132,7 +26125,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %59, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %60 = getelementptr inbounds nuw %struct.tng_data, ptr %42, i64 %.129.i
+  %60 = getelementptr inbounds nuw [96 x i8], ptr %42, i64 %.129.i
   %61 = load i64, ptr %60, align 8, !tbaa !204
   %62 = icmp eq i64 %61, %1
   br i1 %62, label %tng_particle_data_find.exit, label %.critedge.i
@@ -26195,7 +26188,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr
 
 92:                                               ; preds = %82, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %83, %82 ]
-  %93 = getelementptr inbounds nuw %struct.tng_data, ptr %81, i64 %.03446.i
+  %93 = getelementptr inbounds nuw [96 x i8], ptr %81, i64 %.03446.i
   %94 = load i64, ptr %93, align 8, !tbaa !204
   %95 = icmp eq i64 %94, %1
   br i1 %95, label %tng_particle_data_find.exit, label %82
@@ -26207,7 +26200,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %96, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %97 = getelementptr inbounds nuw %struct.tng_data, ptr %89, i64 %.148.i
+  %97 = getelementptr inbounds nuw [96 x i8], ptr %89, i64 %.148.i
   %98 = load i64, ptr %97, align 8, !tbaa !204
   %99 = icmp eq i64 %98, %1
   br i1 %99, label %tng_particle_data_find.exit, label %.critedge38.i
@@ -26219,7 +26212,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr
 
 .lr.ph.i222:                                      ; preds = %.lr.ph.i222.preheader, %.critedge.i223
   %.243.i = phi i64 [ %100, %.critedge.i223 ], [ 0, %.lr.ph.i222.preheader ]
-  %101 = getelementptr inbounds nuw %struct.tng_data, ptr %73, i64 %.243.i
+  %101 = getelementptr inbounds nuw [96 x i8], ptr %73, i64 %.243.i
   %102 = load i64, ptr %101, align 8, !tbaa !204
   %103 = icmp eq i64 %102, %1
   br i1 %103, label %tng_particle_data_find.exit, label %.critedge.i223
@@ -26440,7 +26433,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %171
 
 .lr.ph32.i231:                                    ; preds = %.lr.ph32.i231.preheader, %197
   %.02431.i232 = phi i64 [ %198, %197 ], [ 0, %.lr.ph32.i231.preheader ]
-  %199 = getelementptr inbounds nuw %struct.tng_data, ptr %196, i64 %.02431.i232
+  %199 = getelementptr inbounds nuw [96 x i8], ptr %196, i64 %.02431.i232
   %200 = load i64, ptr %199, align 8, !tbaa !204
   %201 = icmp eq i64 %200, %1
   br i1 %201, label %tng_particle_data_find.exit234, label %197
@@ -26452,7 +26445,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %171
 
 .lr.ph.i227:                                      ; preds = %.lr.ph.i227.preheader, %.critedge.i229
   %.129.i228 = phi i64 [ %202, %.critedge.i229 ], [ 0, %.lr.ph.i227.preheader ]
-  %203 = getelementptr inbounds nuw %struct.tng_data, ptr %189, i64 %.129.i228
+  %203 = getelementptr inbounds nuw [96 x i8], ptr %189, i64 %.129.i228
   %204 = load i64, ptr %203, align 8, !tbaa !204
   %205 = icmp eq i64 %204, %1
   br i1 %205, label %tng_particle_data_find.exit234, label %.critedge.i229
@@ -26509,7 +26502,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %171
 
 231:                                              ; preds = %223, %.lr.ph47.i246
   %.03446.i247 = phi i64 [ 0, %.lr.ph47.i246 ], [ %224, %223 ]
-  %232 = getelementptr inbounds nuw %struct.tng_data, ptr %222, i64 %.03446.i247
+  %232 = getelementptr inbounds nuw [96 x i8], ptr %222, i64 %.03446.i247
   %233 = load i64, ptr %232, align 8, !tbaa !204
   %234 = icmp eq i64 %233, %1
   br i1 %234, label %tng_particle_data_find.exit234, label %223
@@ -26521,7 +26514,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %171
 
 .lr.ph49.i242:                                    ; preds = %.lr.ph49.i242.preheader, %.critedge38.i244
   %.148.i243 = phi i64 [ %235, %.critedge38.i244 ], [ 0, %.lr.ph49.i242.preheader ]
-  %236 = getelementptr inbounds nuw %struct.tng_data, ptr %230, i64 %.148.i243
+  %236 = getelementptr inbounds nuw [96 x i8], ptr %230, i64 %.148.i243
   %237 = load i64, ptr %236, align 8, !tbaa !204
   %238 = icmp eq i64 %237, %1
   br i1 %238, label %tng_particle_data_find.exit234, label %.critedge38.i244
@@ -26533,7 +26526,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %171
 
 .lr.ph.i236:                                      ; preds = %.lr.ph.i236.preheader, %.critedge.i238
   %.243.i237 = phi i64 [ %239, %.critedge.i238 ], [ 0, %.lr.ph.i236.preheader ]
-  %240 = getelementptr inbounds nuw %struct.tng_data, ptr %216, i64 %.243.i237
+  %240 = getelementptr inbounds nuw [96 x i8], ptr %216, i64 %.243.i237
   %241 = load i64, ptr %240, align 8, !tbaa !204
   %242 = icmp eq i64 %241, %1
   br i1 %242, label %tng_particle_data_find.exit234, label %.critedge.i238
@@ -26796,7 +26789,7 @@ tng_frame_set_read_next.exit.thread:              ; preds = %tng_frame_set_read_
 
 .lr.ph32.i257:                                    ; preds = %.lr.ph32.i257.preheader, %372
   %.02431.i258 = phi i64 [ %373, %372 ], [ 0, %.lr.ph32.i257.preheader ]
-  %374 = getelementptr inbounds nuw %struct.tng_data, ptr %371, i64 %.02431.i258
+  %374 = getelementptr inbounds nuw [96 x i8], ptr %371, i64 %.02431.i258
   %375 = load i64, ptr %374, align 8, !tbaa !204
   %376 = icmp eq i64 %375, %1
   br i1 %376, label %tng_particle_data_find.exit260, label %372
@@ -26808,7 +26801,7 @@ tng_frame_set_read_next.exit.thread:              ; preds = %tng_frame_set_read_
 
 .lr.ph.i253:                                      ; preds = %.lr.ph.i253.preheader, %.critedge.i255
   %.129.i254 = phi i64 [ %377, %.critedge.i255 ], [ 0, %.lr.ph.i253.preheader ]
-  %378 = getelementptr inbounds nuw %struct.tng_data, ptr %366, i64 %.129.i254
+  %378 = getelementptr inbounds nuw [96 x i8], ptr %366, i64 %.129.i254
   %379 = load i64, ptr %378, align 8, !tbaa !204
   %380 = icmp eq i64 %379, %1
   br i1 %380, label %tng_particle_data_find.exit260, label %.critedge.i255
@@ -26858,7 +26851,7 @@ tng_frame_set_read_next.exit.thread:              ; preds = %tng_frame_set_read_
 
 399:                                              ; preds = %393, %.lr.ph47.i272
   %.03446.i273 = phi i64 [ 0, %.lr.ph47.i272 ], [ %394, %393 ]
-  %400 = getelementptr inbounds nuw %struct.tng_data, ptr %392, i64 %.03446.i273
+  %400 = getelementptr inbounds nuw [96 x i8], ptr %392, i64 %.03446.i273
   %401 = load i64, ptr %400, align 8, !tbaa !204
   %402 = icmp eq i64 %401, %1
   br i1 %402, label %tng_particle_data_find.exit260, label %393
@@ -26870,7 +26863,7 @@ tng_frame_set_read_next.exit.thread:              ; preds = %tng_frame_set_read_
 
 .lr.ph49.i268:                                    ; preds = %.lr.ph49.i268.preheader, %.critedge38.i270
   %.148.i269 = phi i64 [ %403, %.critedge38.i270 ], [ 0, %.lr.ph49.i268.preheader ]
-  %404 = getelementptr inbounds nuw %struct.tng_data, ptr %398, i64 %.148.i269
+  %404 = getelementptr inbounds nuw [96 x i8], ptr %398, i64 %.148.i269
   %405 = load i64, ptr %404, align 8, !tbaa !204
   %406 = icmp eq i64 %405, %1
   br i1 %406, label %tng_particle_data_find.exit260, label %.critedge38.i270
@@ -26882,7 +26875,7 @@ tng_frame_set_read_next.exit.thread:              ; preds = %tng_frame_set_read_
 
 .lr.ph.i262:                                      ; preds = %.lr.ph.i262.preheader, %.critedge.i264
   %.243.i263 = phi i64 [ %407, %.critedge.i264 ], [ 0, %.lr.ph.i262.preheader ]
-  %408 = getelementptr inbounds nuw %struct.tng_data, ptr %388, i64 %.243.i263
+  %408 = getelementptr inbounds nuw [96 x i8], ptr %388, i64 %.243.i263
   %409 = load i64, ptr %408, align 8, !tbaa !204
   %410 = icmp eq i64 %409, %1
   br i1 %410, label %tng_particle_data_find.exit260, label %.critedge.i264
@@ -27075,7 +27068,7 @@ thread-pre-split:                                 ; preds = %8
 
 37:                                               ; preds = %29, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %30, %29 ]
-  %38 = getelementptr inbounds nuw %struct.tng_data, ptr %28, i64 %.03446.i
+  %38 = getelementptr inbounds nuw [96 x i8], ptr %28, i64 %.03446.i
   %39 = load i64, ptr %38, align 8, !tbaa !204
   %40 = icmp eq i64 %39, %1
   br i1 %40, label %.sink.split, label %29
@@ -27087,7 +27080,7 @@ thread-pre-split:                                 ; preds = %8
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %41, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %42 = getelementptr inbounds nuw %struct.tng_data, ptr %36, i64 %.148.i
+  %42 = getelementptr inbounds nuw [96 x i8], ptr %36, i64 %.148.i
   %43 = load i64, ptr %42, align 8, !tbaa !204
   %44 = icmp eq i64 %43, %1
   br i1 %44, label %.sink.split, label %.critedge38.i
@@ -27099,7 +27092,7 @@ thread-pre-split:                                 ; preds = %8
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.243.i = phi i64 [ %45, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %46 = getelementptr inbounds nuw %struct.tng_data, ptr %22, i64 %.243.i
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %22, i64 %.243.i
   %47 = load i64, ptr %46, align 8, !tbaa !204
   %48 = icmp eq i64 %47, %1
   br i1 %48, label %.sink.split, label %.critedge.i
@@ -27144,7 +27137,7 @@ thread-pre-split:                                 ; preds = %8
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %63
   %.02431.i = phi i64 [ %64, %63 ], [ 0, %.lr.ph32.i.preheader ]
-  %65 = getelementptr inbounds nuw %struct.tng_data, ptr %62, i64 %.02431.i
+  %65 = getelementptr inbounds nuw [96 x i8], ptr %62, i64 %.02431.i
   %66 = load i64, ptr %65, align 8, !tbaa !204
   %67 = icmp eq i64 %66, %1
   br i1 %67, label %.critedge54, label %63
@@ -27156,7 +27149,7 @@ thread-pre-split:                                 ; preds = %8
 
 .lr.ph.i56:                                       ; preds = %.lr.ph.i56.preheader, %.critedge.i57
   %.129.i = phi i64 [ %68, %.critedge.i57 ], [ 0, %.lr.ph.i56.preheader ]
-  %69 = getelementptr inbounds nuw %struct.tng_data, ptr %55, i64 %.129.i
+  %69 = getelementptr inbounds nuw [96 x i8], ptr %55, i64 %.129.i
   %70 = load i64, ptr %69, align 8, !tbaa !204
   %71 = icmp eq i64 %70, %1
   br i1 %71, label %.critedge54, label %.critedge.i57
@@ -27249,7 +27242,7 @@ thread-pre-split:                                 ; preds = %8
 
 113:                                              ; preds = %105, %.lr.ph47.i70
   %.03446.i71 = phi i64 [ 0, %.lr.ph47.i70 ], [ %106, %105 ]
-  %114 = getelementptr inbounds nuw %struct.tng_data, ptr %104, i64 %.03446.i71
+  %114 = getelementptr inbounds nuw [96 x i8], ptr %104, i64 %.03446.i71
   %115 = load i64, ptr %114, align 8, !tbaa !204
   %116 = icmp eq i64 %115, %1
   br i1 %116, label %.sink.split, label %105
@@ -27261,7 +27254,7 @@ thread-pre-split:                                 ; preds = %8
 
 .lr.ph49.i66:                                     ; preds = %.lr.ph49.i66.preheader, %.critedge38.i68
   %.148.i67 = phi i64 [ %117, %.critedge38.i68 ], [ 0, %.lr.ph49.i66.preheader ]
-  %118 = getelementptr inbounds nuw %struct.tng_data, ptr %112, i64 %.148.i67
+  %118 = getelementptr inbounds nuw [96 x i8], ptr %112, i64 %.148.i67
   %119 = load i64, ptr %118, align 8, !tbaa !204
   %120 = icmp eq i64 %119, %1
   br i1 %120, label %.sink.split, label %.critedge38.i68
@@ -27273,7 +27266,7 @@ thread-pre-split:                                 ; preds = %8
 
 .lr.ph.i60:                                       ; preds = %.lr.ph.i60.preheader, %.critedge.i62
   %.243.i61 = phi i64 [ %121, %.critedge.i62 ], [ 0, %.lr.ph.i60.preheader ]
-  %122 = getelementptr inbounds nuw %struct.tng_data, ptr %98, i64 %.243.i61
+  %122 = getelementptr inbounds nuw [96 x i8], ptr %98, i64 %.243.i61
   %123 = load i64, ptr %122, align 8, !tbaa !204
   %124 = icmp eq i64 %123, %1
   br i1 %124, label %.sink.split, label %.critedge.i62
@@ -27318,7 +27311,7 @@ thread-pre-split:                                 ; preds = %8
 
 .lr.ph32.i79:                                     ; preds = %.lr.ph32.i79.preheader, %139
   %.02431.i80 = phi i64 [ %140, %139 ], [ 0, %.lr.ph32.i79.preheader ]
-  %141 = getelementptr inbounds nuw %struct.tng_data, ptr %138, i64 %.02431.i80
+  %141 = getelementptr inbounds nuw [96 x i8], ptr %138, i64 %.02431.i80
   %142 = load i64, ptr %141, align 8, !tbaa !204
   %143 = icmp eq i64 %142, %1
   br i1 %143, label %.critedge54, label %139
@@ -27330,7 +27323,7 @@ thread-pre-split:                                 ; preds = %8
 
 .lr.ph.i75:                                       ; preds = %.lr.ph.i75.preheader, %.critedge.i77
   %.129.i76 = phi i64 [ %144, %.critedge.i77 ], [ 0, %.lr.ph.i75.preheader ]
-  %145 = getelementptr inbounds nuw %struct.tng_data, ptr %131, i64 %.129.i76
+  %145 = getelementptr inbounds nuw [96 x i8], ptr %131, i64 %.129.i76
   %146 = load i64, ptr %145, align 8, !tbaa !204
   %147 = icmp eq i64 %146, %1
   br i1 %147, label %.critedge54, label %.critedge.i77
@@ -27617,7 +27610,7 @@ define noundef i32 @tng_util_molecule_particles_get(ptr noundef readnone capture
 21:                                               ; preds = %.lr.ph, %21
   %.050 = phi i64 [ 0, %.lr.ph ], [ %78, %21 ]
   %22 = load ptr, ptr %20, align 8, !tbaa !66
-  %23 = getelementptr inbounds nuw %struct.tng_atom, ptr %22, i64 %.050
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %.050
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %25 = load ptr, ptr %24, align 8, !tbaa !85
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -27625,9 +27618,9 @@ define noundef i32 @tng_util_molecule_particles_get(ptr noundef readnone capture
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #29
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #30
   %30 = load ptr, ptr %3, align 8, !tbaa !161
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.050
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.050
   store ptr %29, ptr %31, align 8, !tbaa !40
-  %32 = getelementptr inbounds nuw ptr, ptr %3, i64 %.050
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.050
   %33 = load ptr, ptr %32, align 8, !tbaa !161
   %34 = load ptr, ptr %33, align 8, !tbaa !40
   %35 = load ptr, ptr %26, align 8, !tbaa !12
@@ -27637,9 +27630,9 @@ define noundef i32 @tng_util_molecule_particles_get(ptr noundef readnone capture
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #29
   %40 = tail call noalias ptr @malloc(i64 noundef %39) #30
   %41 = load ptr, ptr %4, align 8, !tbaa !161
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.050
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.050
   store ptr %40, ptr %42, align 8, !tbaa !40
-  %43 = getelementptr inbounds nuw ptr, ptr %4, i64 %.050
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.050
   %44 = load ptr, ptr %43, align 8, !tbaa !161
   %45 = load ptr, ptr %44, align 8, !tbaa !40
   %46 = load ptr, ptr %37, align 8, !tbaa !16
@@ -27649,9 +27642,9 @@ define noundef i32 @tng_util_molecule_particles_get(ptr noundef readnone capture
   %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #29
   %51 = tail call noalias ptr @malloc(i64 noundef %50) #30
   %52 = load ptr, ptr %5, align 8, !tbaa !161
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %.050
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.050
   store ptr %51, ptr %53, align 8, !tbaa !40
-  %54 = getelementptr inbounds nuw ptr, ptr %5, i64 %.050
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.050
   %55 = load ptr, ptr %54, align 8, !tbaa !161
   %56 = load ptr, ptr %55, align 8, !tbaa !40
   %57 = load ptr, ptr %48, align 8, !tbaa !61
@@ -27661,9 +27654,9 @@ define noundef i32 @tng_util_molecule_particles_get(ptr noundef readnone capture
   %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #29
   %62 = tail call noalias ptr @malloc(i64 noundef %61) #30
   %63 = load ptr, ptr %7, align 8, !tbaa !161
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %.050
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.050
   store ptr %62, ptr %64, align 8, !tbaa !40
-  %65 = getelementptr inbounds nuw ptr, ptr %7, i64 %.050
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.050
   %66 = load ptr, ptr %65, align 8, !tbaa !161
   %67 = load ptr, ptr %66, align 8, !tbaa !40
   %68 = load ptr, ptr %59, align 8, !tbaa !56
@@ -27671,12 +27664,12 @@ define noundef i32 @tng_util_molecule_particles_get(ptr noundef readnone capture
   %70 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !63
   %72 = load ptr, ptr %6, align 8, !tbaa !92
-  %73 = getelementptr inbounds nuw i64, ptr %72, i64 %.050
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.050
   store i64 %71, ptr %73, align 8, !tbaa !38
   %74 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !58
   %76 = load ptr, ptr %8, align 8, !tbaa !92
-  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %.050
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.050
   store i64 %75, ptr %77, align 8, !tbaa !38
   %78 = add nuw nsw i64 %.050, 1
   %79 = load i64, ptr %2, align 8, !tbaa !38
@@ -27710,9 +27703,9 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr noundef readnone
 
 18:                                               ; preds = %.lr.ph, %16
   %.076 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %7, i64 %.076
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.076
   %20 = load ptr, ptr %19, align 8, !tbaa !40
-  %21 = getelementptr inbounds nuw i64, ptr %8, i64 %.076
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.076
   %22 = load i64, ptr %21, align 8, !tbaa !38
   %23 = load i64, ptr %14, align 8, !tbaa !54
   %24 = icmp sgt i64 %23, 0
@@ -27731,7 +27724,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr noundef readnone
 
 .lr.ph.split.i.us:                                ; preds = %.lr.ph.split.i.preheader, %33
   %.01417.i.us = phi i64 [ %.014.i.us, %33 ], [ %.01416.i, %.lr.ph.split.i.preheader ]
-  %29 = getelementptr inbounds nuw %struct.tng_chain, ptr %26, i64 %.01417.i.us
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %.01417.i.us
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !58
   %32 = icmp eq i64 %22, %31
@@ -27746,12 +27739,12 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr noundef readnone
   br i1 %28, label %.lr.ph.split.us.i.preheader.split.us, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i.preheader.split.us:             ; preds = %.lr.ph.split.us.i.preheader
-  %35 = getelementptr inbounds nuw %struct.tng_chain, ptr %26, i64 %.01416.i
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %.01416.i
   br label %tng_molecule_chain_find.exit.thread.loopexit
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %41
   %.01417.us.i = phi i64 [ %.014.us.i, %41 ], [ %.01416.i, %.lr.ph.split.us.i.preheader ]
-  %36 = getelementptr inbounds nuw %struct.tng_chain, ptr %26, i64 %.01417.us.i
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %.01417.us.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !56
   %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %38) #29
@@ -27765,7 +27758,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr noundef readnone
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %52
   %.01417.i = phi i64 [ %.014.i, %52 ], [ %.01416.i, %.lr.ph.split.i.preheader ]
-  %43 = getelementptr inbounds nuw %struct.tng_chain, ptr %26, i64 %.01417.i
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %.01417.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !56
   %46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %45) #29
@@ -27790,7 +27783,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr noundef readnone
 
 54:                                               ; preds = %.loopexit61
   %55 = load ptr, ptr %15, align 8, !tbaa !55
-  %56 = getelementptr %struct.tng_chain, ptr %55, i64 %23
+  %56 = getelementptr [40 x i8], ptr %55, i64 %23
   %57 = getelementptr i8, ptr %56, i64 -32
   %58 = load i64, ptr %57, align 8, !tbaa !58
   %59 = add nsw i64 %58, 1
@@ -27818,9 +27811,9 @@ tng_molecule_chain_find.exit.thread.loopexit62:   ; preds = %48, %.lr.ph.split.i
 
 tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_add.exit.tng_molecule_chain_find.exit.thread_crit_edge, %tng_molecule_chain_find.exit.thread.loopexit62, %tng_molecule_chain_find.exit.thread.loopexit
   %61 = phi ptr [ %.pre, %tng_molecule_chain_add.exit.tng_molecule_chain_find.exit.thread_crit_edge ], [ %.us-phi, %tng_molecule_chain_find.exit.thread.loopexit62 ], [ %.us-phi68, %tng_molecule_chain_find.exit.thread.loopexit ]
-  %62 = getelementptr inbounds nuw ptr, ptr %5, i64 %.076
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.076
   %63 = load ptr, ptr %62, align 8, !tbaa !40
-  %64 = getelementptr inbounds nuw i64, ptr %6, i64 %.076
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.076
   %65 = load i64, ptr %64, align 8, !tbaa !38
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %67 = load i64, ptr %66, align 8, !tbaa !59
@@ -27841,7 +27834,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
 
 .lr.ph.split.i45.us:                              ; preds = %.lr.ph.split.i45.preheader, %78
   %.01417.i46.us = phi i64 [ %.014.i47.us, %78 ], [ %.01416.i44, %.lr.ph.split.i45.preheader ]
-  %74 = getelementptr inbounds nuw %struct.tng_residue, ptr %71, i64 %.01417.i46.us
+  %74 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %.01417.i46.us
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i64, ptr %75, align 8, !tbaa !63
   %77 = icmp eq i64 %65, %76
@@ -27856,12 +27849,12 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
   br i1 %73, label %.lr.ph.split.us.i48.preheader.split.us, label %.lr.ph.split.us.i48
 
 .lr.ph.split.us.i48.preheader.split.us:           ; preds = %.lr.ph.split.us.i48.preheader
-  %80 = getelementptr inbounds nuw %struct.tng_residue, ptr %71, i64 %.01416.i44
+  %80 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %.01416.i44
   br label %tng_chain_residue_find.exit.thread.loopexit
 
 .lr.ph.split.us.i48:                              ; preds = %.lr.ph.split.us.i48.preheader, %86
   %.01417.us.i49 = phi i64 [ %.014.us.i50, %86 ], [ %.01416.i44, %.lr.ph.split.us.i48.preheader ]
-  %81 = getelementptr inbounds nuw %struct.tng_residue, ptr %71, i64 %.01417.us.i49
+  %81 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %.01417.us.i49
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !61
   %84 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %83) #29
@@ -27875,7 +27868,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
 
 .lr.ph.split.i45:                                 ; preds = %.lr.ph.split.i45.preheader, %97
   %.01417.i46 = phi i64 [ %.014.i47, %97 ], [ %.01416.i44, %.lr.ph.split.i45.preheader ]
-  %88 = getelementptr inbounds nuw %struct.tng_residue, ptr %71, i64 %.01417.i46
+  %88 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %.01417.i46
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !61
   %91 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %90) #29
@@ -27901,7 +27894,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
 99:                                               ; preds = %.loopexit
   %100 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %101 = load ptr, ptr %100, align 8, !tbaa !60
-  %102 = getelementptr %struct.tng_residue, ptr %101, i64 %67
+  %102 = getelementptr [40 x i8], ptr %101, i64 %67
   %103 = getelementptr i8, ptr %102, i64 -32
   %104 = load i64, ptr %103, align 8, !tbaa !63
   %105 = add nsw i64 %104, 1
@@ -27929,9 +27922,9 @@ tng_chain_residue_find.exit.thread.loopexit59:    ; preds = %93, %.lr.ph.split.i
 
 tng_chain_residue_find.exit.thread:               ; preds = %tng_chain_residue_add.exit.tng_chain_residue_find.exit.thread_crit_edge, %tng_chain_residue_find.exit.thread.loopexit59, %tng_chain_residue_find.exit.thread.loopexit
   %107 = phi ptr [ %.pre99, %tng_chain_residue_add.exit.tng_chain_residue_find.exit.thread_crit_edge ], [ %.us-phi71, %tng_chain_residue_find.exit.thread.loopexit59 ], [ %.us-phi75, %tng_chain_residue_find.exit.thread.loopexit ]
-  %108 = getelementptr inbounds nuw ptr, ptr %3, i64 %.076
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.076
   %109 = load ptr, ptr %108, align 8, !tbaa !40
-  %110 = getelementptr inbounds nuw ptr, ptr %4, i64 %.076
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.076
   %111 = load ptr, ptr %110, align 8, !tbaa !40
   %112 = load ptr, ptr %107, align 8, !tbaa !85
   %113 = load ptr, ptr %112, align 8, !tbaa !81
@@ -27943,7 +27936,7 @@ tng_chain_residue_find.exit.thread:               ; preds = %tng_chain_residue_a
 116:                                              ; preds = %tng_chain_residue_find.exit.thread
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 72
   %118 = load ptr, ptr %117, align 8, !tbaa !66
-  %119 = getelementptr %struct.tng_atom, ptr %118, i64 %115
+  %119 = getelementptr [32 x i8], ptr %118, i64 %115
   %120 = getelementptr i8, ptr %119, i64 -24
   %121 = load i64, ptr %120, align 8, !tbaa !68
   %122 = add nsw i64 %121, 1
@@ -28140,7 +28133,7 @@ define range(i32 0, 3) i32 @tng_util_particle_data_next_frame_read(ptr noundef %
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %27
   %.02431.i = phi i64 [ %28, %27 ], [ 0, %.lr.ph32.i.preheader ]
-  %29 = getelementptr inbounds nuw %struct.tng_data, ptr %26, i64 %.02431.i
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %26, i64 %.02431.i
   %30 = load i64, ptr %29, align 8, !tbaa !204
   %31 = icmp eq i64 %30, %1
   br i1 %31, label %tng_particle_data_find.exit, label %27
@@ -28152,7 +28145,7 @@ define range(i32 0, 3) i32 @tng_util_particle_data_next_frame_read(ptr noundef %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %32, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %33 = getelementptr inbounds nuw %struct.tng_data, ptr %19, i64 %.129.i
+  %33 = getelementptr inbounds nuw [96 x i8], ptr %19, i64 %.129.i
   %34 = load i64, ptr %33, align 8, !tbaa !204
   %35 = icmp eq i64 %34, %1
   br i1 %35, label %tng_particle_data_find.exit, label %.critedge.i
@@ -28225,7 +28218,7 @@ define range(i32 0, 3) i32 @tng_util_particle_data_next_frame_read(ptr noundef %
 
 .lr.ph32.i107:                                    ; preds = %.lr.ph32.i107.preheader, %68
   %.02431.i108 = phi i64 [ %69, %68 ], [ 0, %.lr.ph32.i107.preheader ]
-  %70 = getelementptr inbounds nuw %struct.tng_data, ptr %67, i64 %.02431.i108
+  %70 = getelementptr inbounds nuw [96 x i8], ptr %67, i64 %.02431.i108
   %71 = load i64, ptr %70, align 8, !tbaa !204
   %72 = icmp eq i64 %71, %1
   br i1 %72, label %tng_particle_data_find.exit, label %68
@@ -28237,7 +28230,7 @@ define range(i32 0, 3) i32 @tng_util_particle_data_next_frame_read(ptr noundef %
 
 .lr.ph.i103:                                      ; preds = %.lr.ph.i103.preheader, %.critedge.i105
   %.129.i104 = phi i64 [ %73, %.critedge.i105 ], [ 0, %.lr.ph.i103.preheader ]
-  %74 = getelementptr inbounds nuw %struct.tng_data, ptr %60, i64 %.129.i104
+  %74 = getelementptr inbounds nuw [96 x i8], ptr %60, i64 %.129.i104
   %75 = load i64, ptr %74, align 8, !tbaa !204
   %76 = icmp eq i64 %75, %1
   br i1 %76, label %tng_particle_data_find.exit, label %.critedge.i105
@@ -28488,7 +28481,7 @@ define range(i32 0, 3) i32 @tng_util_non_particle_data_next_frame_read(ptr nound
 
 34:                                               ; preds = %26, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %27, %26 ]
-  %35 = getelementptr inbounds nuw %struct.tng_data, ptr %25, i64 %.03446.i
+  %35 = getelementptr inbounds nuw [96 x i8], ptr %25, i64 %.03446.i
   %36 = load i64, ptr %35, align 8, !tbaa !204
   %37 = icmp eq i64 %36, %1
   br i1 %37, label %tng_data_find.exit, label %26
@@ -28500,7 +28493,7 @@ define range(i32 0, 3) i32 @tng_util_non_particle_data_next_frame_read(ptr nound
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %38, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %39 = getelementptr inbounds nuw %struct.tng_data, ptr %33, i64 %.148.i
+  %39 = getelementptr inbounds nuw [96 x i8], ptr %33, i64 %.148.i
   %40 = load i64, ptr %39, align 8, !tbaa !204
   %41 = icmp eq i64 %40, %1
   br i1 %41, label %tng_data_find.exit, label %.critedge38.i
@@ -28512,7 +28505,7 @@ define range(i32 0, 3) i32 @tng_util_non_particle_data_next_frame_read(ptr nound
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.243.i = phi i64 [ %42, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %43 = getelementptr inbounds nuw %struct.tng_data, ptr %19, i64 %.243.i
+  %43 = getelementptr inbounds nuw [96 x i8], ptr %19, i64 %.243.i
   %44 = load i64, ptr %43, align 8, !tbaa !204
   %45 = icmp eq i64 %44, %1
   br i1 %45, label %tng_data_find.exit, label %.critedge.i
@@ -28597,7 +28590,7 @@ define range(i32 0, 3) i32 @tng_util_non_particle_data_next_frame_read(ptr nound
 
 85:                                               ; preds = %77, %.lr.ph47.i112
   %.03446.i113 = phi i64 [ 0, %.lr.ph47.i112 ], [ %78, %77 ]
-  %86 = getelementptr inbounds nuw %struct.tng_data, ptr %76, i64 %.03446.i113
+  %86 = getelementptr inbounds nuw [96 x i8], ptr %76, i64 %.03446.i113
   %87 = load i64, ptr %86, align 8, !tbaa !204
   %88 = icmp eq i64 %87, %1
   br i1 %88, label %tng_data_find.exit, label %77
@@ -28609,7 +28602,7 @@ define range(i32 0, 3) i32 @tng_util_non_particle_data_next_frame_read(ptr nound
 
 .lr.ph49.i108:                                    ; preds = %.lr.ph49.i108.preheader, %.critedge38.i110
   %.148.i109 = phi i64 [ %89, %.critedge38.i110 ], [ 0, %.lr.ph49.i108.preheader ]
-  %90 = getelementptr inbounds nuw %struct.tng_data, ptr %84, i64 %.148.i109
+  %90 = getelementptr inbounds nuw [96 x i8], ptr %84, i64 %.148.i109
   %91 = load i64, ptr %90, align 8, !tbaa !204
   %92 = icmp eq i64 %91, %1
   br i1 %92, label %tng_data_find.exit, label %.critedge38.i110
@@ -28621,7 +28614,7 @@ define range(i32 0, 3) i32 @tng_util_non_particle_data_next_frame_read(ptr nound
 
 .lr.ph.i102:                                      ; preds = %.lr.ph.i102.preheader, %.critedge.i104
   %.243.i103 = phi i64 [ %93, %.critedge.i104 ], [ 0, %.lr.ph.i102.preheader ]
-  %94 = getelementptr inbounds nuw %struct.tng_data, ptr %70, i64 %.243.i103
+  %94 = getelementptr inbounds nuw [96 x i8], ptr %70, i64 %.243.i103
   %95 = load i64, ptr %94, align 8, !tbaa !204
   %96 = icmp eq i64 %95, %1
   br i1 %96, label %tng_data_find.exit, label %.critedge.i104
@@ -28977,7 +28970,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write_interval_set(ptr noundef %0, 
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %54
   %.02431.i = phi i64 [ %55, %54 ], [ 0, %.lr.ph32.i.preheader ]
-  %56 = getelementptr inbounds nuw %struct.tng_data, ptr %53, i64 %.02431.i
+  %56 = getelementptr inbounds nuw [96 x i8], ptr %53, i64 %.02431.i
   %57 = load i64, ptr %56, align 8, !tbaa !204
   %58 = icmp eq i64 %57, %3
   br i1 %58, label %tng_particle_data_find.exit, label %54
@@ -28989,7 +28982,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write_interval_set(ptr noundef %0, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %59, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %60 = getelementptr inbounds nuw %struct.tng_data, ptr %46, i64 %.129.i
+  %60 = getelementptr inbounds nuw [96 x i8], ptr %46, i64 %.129.i
   %61 = load i64, ptr %60, align 8, !tbaa !204
   %62 = icmp eq i64 %61, %3
   br i1 %62, label %tng_particle_data_find.exit, label %.critedge.i
@@ -29011,7 +29004,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write_interval_set(ptr noundef %0, 
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %72 = load i32, ptr %71, align 8, !tbaa !129
   %73 = sext i32 %72 to i64
-  %74 = getelementptr %struct.tng_data, ptr %70, i64 %73
+  %74 = getelementptr [96 x i8], ptr %70, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -96
   %76 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef %75, i64 noundef %.0, i64 noundef %1, i64 noundef %storemerge.i, i64 noundef %2)
   %.not87 = icmp eq i32 %76, 0
@@ -29095,7 +29088,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 115:                                              ; preds = %107, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %108, %107 ]
-  %116 = getelementptr inbounds nuw %struct.tng_data, ptr %106, i64 %.03446.i
+  %116 = getelementptr inbounds nuw [96 x i8], ptr %106, i64 %.03446.i
   %117 = load i64, ptr %116, align 8, !tbaa !204
   %118 = icmp eq i64 %117, %3
   br i1 %118, label %tng_data_find.exit, label %107
@@ -29107,7 +29100,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %119, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %120 = getelementptr inbounds nuw %struct.tng_data, ptr %114, i64 %.148.i
+  %120 = getelementptr inbounds nuw [96 x i8], ptr %114, i64 %.148.i
   %121 = load i64, ptr %120, align 8, !tbaa !204
   %122 = icmp eq i64 %121, %3
   br i1 %122, label %tng_data_find.exit, label %.critedge38.i
@@ -29119,7 +29112,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .lr.ph.i89:                                       ; preds = %.lr.ph.i89.preheader, %.critedge.i90
   %.243.i = phi i64 [ %123, %.critedge.i90 ], [ 0, %.lr.ph.i89.preheader ]
-  %124 = getelementptr inbounds nuw %struct.tng_data, ptr %100, i64 %.243.i
+  %124 = getelementptr inbounds nuw [96 x i8], ptr %100, i64 %.243.i
   %125 = load i64, ptr %124, align 8, !tbaa !204
   %126 = icmp eq i64 %125, %3
   br i1 %126, label %tng_data_find.exit, label %.critedge.i90
@@ -29141,7 +29134,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %136 = load i32, ptr %135, align 8, !tbaa !130
   %137 = sext i32 %136 to i64
-  %138 = getelementptr %struct.tng_data, ptr %134, i64 %137
+  %138 = getelementptr [96 x i8], ptr %134, i64 %137
   %139 = getelementptr i8, ptr %138, i64 -96
   %140 = tail call fastcc i32 @tng_allocate_data_mem(ptr noundef %139, i64 noundef %.0, i64 noundef %1, i64 noundef %2)
   %.not82 = icmp eq i32 %140, 0
@@ -29211,9 +29204,9 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 
 ._crit_edge.us:                                   ; preds = %35, %.preheader2.us
   %20 = load ptr, ptr %9, align 8, !tbaa !157
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.0808.us
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0808.us
   %22 = load ptr, ptr %21, align 8, !tbaa !159
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.0786.us
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0786.us
   %24 = load ptr, ptr %23, align 8, !tbaa !161
   tail call void @free(ptr noundef %24) #28
   %25 = add nuw nsw i64 %.0786.us, 1
@@ -29224,11 +29217,11 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
   %26 = phi i64 [ %36, %35 ], [ %39, %.preheader2.us ]
   %.0775.us = phi i64 [ %37, %35 ], [ 0, %.preheader2.us ]
   %27 = load ptr, ptr %9, align 8, !tbaa !157
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.0808.us
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0808.us
   %29 = load ptr, ptr %28, align 8, !tbaa !159
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.0786.us
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0786.us
   %31 = load ptr, ptr %30, align 8, !tbaa !161
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.0775.us
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.0775.us
   %33 = load ptr, ptr %32, align 8, !tbaa !40
   %.not91.us = icmp eq ptr %33, null
   br i1 %.not91.us, label %35, label %34
@@ -29252,7 +29245,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 
 ._crit_edge7.us:                                  ; preds = %._crit_edge.us
   %41 = load ptr, ptr %9, align 8, !tbaa !157
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.0808.us
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.0808.us
   %43 = load ptr, ptr %42, align 8, !tbaa !159
   tail call void @free(ptr noundef %43) #28
   %44 = add nuw nsw i64 %.0808.us, 1
@@ -29263,7 +29256,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 .preheader3:                                      ; preds = %.preheader3.lr.ph, %.preheader3
   %.0808 = phi i64 [ %50, %.preheader3 ], [ 0, %.preheader3.lr.ph ]
   %47 = load ptr, ptr %9, align 8, !tbaa !157
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.0808
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.0808
   %49 = load ptr, ptr %48, align 8, !tbaa !159
   tail call void @free(ptr noundef %49) #28
   %50 = add nuw nsw i64 %.0808, 1
@@ -29315,7 +29308,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %._crit_edge13.split.us.us.us
   %.18117.us.us = phi i64 [ %76, %._crit_edge13.split.us.us.us ], [ 0, %.lr.ph.split.us ]
   %72 = tail call noalias ptr @malloc(i64 noundef %68) #30
-  %73 = getelementptr inbounds nuw ptr, ptr %67, i64 %.18117.us.us
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.18117.us.us
   store ptr %72, ptr %73, align 8, !tbaa !159
   %.not89.us.us = icmp eq ptr %72, null
   br i1 %.not89.us.us, label %.split24.us, label %.preheader1.us.us
@@ -29323,7 +29316,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 .preheader1.us.us:                                ; preds = %.lr.ph.split.us.split.us, %.preheader.us.us.us.preheader
   %.17911.us.us.us = phi i64 [ %75, %.preheader.us.us.us.preheader ], [ 0, %.lr.ph.split.us.split.us ]
   %calloc = tail call ptr @calloc(i64 1, i64 %70)
-  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %.17911.us.us.us
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.17911.us.us.us
   store ptr %calloc, ptr %74, align 8, !tbaa !161
   %.not90.us.us.us = icmp eq ptr %calloc, null
   br i1 %.not90.us.us.us, label %.split.us, label %.preheader.us.us.us.preheader
@@ -29341,7 +29334,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %._crit_edge13.split.us21
   %.18117.us = phi i64 [ %82, %._crit_edge13.split.us21 ], [ 0, %.lr.ph.split.us ]
   %77 = tail call noalias ptr @malloc(i64 noundef %68) #30
-  %78 = getelementptr inbounds nuw ptr, ptr %67, i64 %.18117.us
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.18117.us
   store ptr %77, ptr %78, align 8, !tbaa !159
   %.not89.us = icmp eq ptr %77, null
   br i1 %.not89.us, label %.split24.us, label %.preheader1.us
@@ -29349,7 +29342,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 .preheader1.us:                                   ; preds = %.lr.ph.split.us.split, %.preheader.us20
   %.17911.us18 = phi i64 [ %81, %.preheader.us20 ], [ 0, %.lr.ph.split.us.split ]
   %79 = tail call noalias ptr @malloc(i64 noundef %70) #30
-  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %.17911.us18
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.17911.us18
   store ptr %79, ptr %80, align 8, !tbaa !161
   %.not90.us19 = icmp eq ptr %79, null
   br i1 %.not90.us19, label %.split.us, label %.preheader.us20
@@ -29367,7 +29360,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 .lr.ph.split:                                     ; preds = %.lr.ph, %.preheader1
   %.18117 = phi i64 [ %85, %.preheader1 ], [ 0, %.lr.ph ]
   %83 = tail call noalias ptr @malloc(i64 noundef %68) #30
-  %84 = getelementptr inbounds nuw ptr, ptr %67, i64 %.18117
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.18117
   store ptr %83, ptr %84, align 8, !tbaa !159
   %.not89 = icmp eq ptr %83, null
   br i1 %.not89, label %.split24.us, label %.preheader1
@@ -29461,9 +29454,9 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr noundef ca
   %20 = phi i64 [ %33, %32 ], [ %18, %.preheader1 ]
   %21 = phi ptr [ %34, %32 ], [ %.pre, %.preheader1 ]
   %.0633 = phi i64 [ %35, %32 ], [ 0, %.preheader1 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.0644
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0644
   %23 = load ptr, ptr %22, align 8, !tbaa !161
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.0633
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0633
   %25 = load ptr, ptr %24, align 8, !tbaa !40
   %.not73 = icmp eq ptr %25, null
   br i1 %.not73, label %32, label %26
@@ -29472,9 +29465,9 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr noundef ca
   tail call void @free(ptr noundef nonnull %25) #28
   %27 = load ptr, ptr %7, align 8, !tbaa !157
   %28 = load ptr, ptr %27, align 8, !tbaa !159
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.0644
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0644
   %30 = load ptr, ptr %29, align 8, !tbaa !161
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.0633
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0633
   store ptr null, ptr %31, align 8, !tbaa !40
   %.pre16 = load i64, ptr %16, align 8, !tbaa !158
   br label %32
@@ -29488,12 +29481,12 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr noundef ca
 
 ._crit_edge:                                      ; preds = %32, %.preheader1
   %37 = phi ptr [ %.pre, %.preheader1 ], [ %34, %32 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.0644
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0644
   %39 = load ptr, ptr %38, align 8, !tbaa !161
   tail call void @free(ptr noundef %39) #28
   %40 = load ptr, ptr %7, align 8, !tbaa !157
   %41 = load ptr, ptr %40, align 8, !tbaa !159
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.0644
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.0644
   store ptr null, ptr %42, align 8, !tbaa !161
   %43 = add nuw nsw i64 %.0644, 1
   %44 = load i64, ptr %13, align 8, !tbaa !172
@@ -29543,7 +29536,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr noundef ca
 .lr.ph12.split.us:                                ; preds = %.lr.ph12, %.preheader.us.preheader
   %.16510.us = phi i64 [ %66, %.preheader.us.preheader ], [ 0, %.lr.ph12 ]
   %calloc = tail call ptr @calloc(i64 1, i64 %63)
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %.16510.us
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.16510.us
   store ptr %calloc, ptr %65, align 8, !tbaa !161
   %.not72.us = icmp eq ptr %calloc, null
   br i1 %.not72.us, label %.split.us, label %.preheader.us.preheader
@@ -29556,7 +29549,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr noundef ca
 .lr.ph12.split:                                   ; preds = %.lr.ph12, %.preheader
   %.16510 = phi i64 [ %69, %.preheader ], [ 0, %.lr.ph12 ]
   %67 = tail call noalias ptr @malloc(i64 noundef %63) #30
-  %68 = getelementptr inbounds nuw ptr, ptr %62, i64 %.16510
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.16510
   store ptr %67, ptr %68, align 8, !tbaa !161
   %.not72 = icmp eq ptr %67, null
   br i1 %.not72, label %.split.us, label %.preheader
@@ -29692,7 +29685,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write_interval_double_set(ptr nound
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %54
   %.02431.i = phi i64 [ %55, %54 ], [ 0, %.lr.ph32.i.preheader ]
-  %56 = getelementptr inbounds nuw %struct.tng_data, ptr %53, i64 %.02431.i
+  %56 = getelementptr inbounds nuw [96 x i8], ptr %53, i64 %.02431.i
   %57 = load i64, ptr %56, align 8, !tbaa !204
   %58 = icmp eq i64 %57, %3
   br i1 %58, label %tng_particle_data_find.exit, label %54
@@ -29704,7 +29697,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write_interval_double_set(ptr nound
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %59, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %60 = getelementptr inbounds nuw %struct.tng_data, ptr %46, i64 %.129.i
+  %60 = getelementptr inbounds nuw [96 x i8], ptr %46, i64 %.129.i
   %61 = load i64, ptr %60, align 8, !tbaa !204
   %62 = icmp eq i64 %61, %3
   br i1 %62, label %tng_particle_data_find.exit, label %.critedge.i
@@ -29726,7 +29719,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write_interval_double_set(ptr nound
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %72 = load i32, ptr %71, align 8, !tbaa !129
   %73 = sext i32 %72 to i64
-  %74 = getelementptr %struct.tng_data, ptr %70, i64 %73
+  %74 = getelementptr [96 x i8], ptr %70, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -96
   %76 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef %75, i64 noundef %.0, i64 noundef %1, i64 noundef %storemerge.i, i64 noundef %2)
   %.not67 = icmp eq i32 %76, 0
@@ -29798,7 +29791,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 109:                                              ; preds = %101, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %102, %101 ]
-  %110 = getelementptr inbounds nuw %struct.tng_data, ptr %100, i64 %.03446.i
+  %110 = getelementptr inbounds nuw [96 x i8], ptr %100, i64 %.03446.i
   %111 = load i64, ptr %110, align 8, !tbaa !204
   %112 = icmp eq i64 %111, %3
   br i1 %112, label %tng_data_find.exit, label %101
@@ -29810,7 +29803,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %113, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %114 = getelementptr inbounds nuw %struct.tng_data, ptr %108, i64 %.148.i
+  %114 = getelementptr inbounds nuw [96 x i8], ptr %108, i64 %.148.i
   %115 = load i64, ptr %114, align 8, !tbaa !204
   %116 = icmp eq i64 %115, %3
   br i1 %116, label %tng_data_find.exit, label %.critedge38.i
@@ -29822,7 +29815,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .lr.ph.i69:                                       ; preds = %.lr.ph.i69.preheader, %.critedge.i70
   %.243.i = phi i64 [ %117, %.critedge.i70 ], [ 0, %.lr.ph.i69.preheader ]
-  %118 = getelementptr inbounds nuw %struct.tng_data, ptr %94, i64 %.243.i
+  %118 = getelementptr inbounds nuw [96 x i8], ptr %94, i64 %.243.i
   %119 = load i64, ptr %118, align 8, !tbaa !204
   %120 = icmp eq i64 %119, %3
   br i1 %120, label %tng_data_find.exit, label %.critedge.i70
@@ -29844,7 +29837,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %130 = load i32, ptr %129, align 8, !tbaa !130
   %131 = sext i32 %130 to i64
-  %132 = getelementptr %struct.tng_data, ptr %128, i64 %131
+  %132 = getelementptr [96 x i8], ptr %128, i64 %131
   %133 = getelementptr i8, ptr %132, i64 -96
   %134 = tail call fastcc i32 @tng_allocate_data_mem(ptr noundef %133, i64 noundef %.0, i64 noundef %1, i64 noundef %2)
   %.not64 = icmp eq i32 %134, 0
@@ -30096,7 +30089,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %80
   %.02431.i = phi i64 [ %81, %80 ], [ 0, %.lr.ph32.i.preheader ]
-  %82 = getelementptr inbounds nuw %struct.tng_data, ptr %79, i64 %.02431.i
+  %82 = getelementptr inbounds nuw [96 x i8], ptr %79, i64 %.02431.i
   %83 = load i64, ptr %82, align 8, !tbaa !204
   %84 = icmp eq i64 %83, %4
   br i1 %84, label %tng_particle_data_find.exit, label %80
@@ -30108,7 +30101,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %85, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %86 = getelementptr inbounds nuw %struct.tng_data, ptr %72, i64 %.129.i
+  %86 = getelementptr inbounds nuw [96 x i8], ptr %72, i64 %.129.i
   %87 = load i64, ptr %86, align 8, !tbaa !204
   %88 = icmp eq i64 %87, %4
   br i1 %88, label %tng_particle_data_find.exit, label %.critedge.i
@@ -30132,7 +30125,7 @@ define range(i32 0, 3) i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 %.264
   %98 = load i32, ptr %97, align 8, !tbaa !17
   %99 = sext i32 %98 to i64
-  %100 = getelementptr %struct.tng_data, ptr %96, i64 %99
+  %100 = getelementptr [96 x i8], ptr %96, i64 %99
   %storemerge154 = getelementptr i8, ptr %100, i64 -96
   %101 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef %storemerge154, i64 noundef %.0124, i64 noundef %.0123, i64 noundef %.0176, i64 noundef %3)
   %.not156 = icmp eq i32 %101, 0
@@ -30263,7 +30256,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 167:                                              ; preds = %159, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %160, %159 ]
-  %168 = getelementptr inbounds nuw %struct.tng_data, ptr %158, i64 %.03446.i
+  %168 = getelementptr inbounds nuw [96 x i8], ptr %158, i64 %.03446.i
   %169 = load i64, ptr %168, align 8, !tbaa !204
   %170 = icmp eq i64 %169, %4
   br i1 %170, label %tng_data_find.exit, label %159
@@ -30275,7 +30268,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %171, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %172 = getelementptr inbounds nuw %struct.tng_data, ptr %166, i64 %.148.i
+  %172 = getelementptr inbounds nuw [96 x i8], ptr %166, i64 %.148.i
   %173 = load i64, ptr %172, align 8, !tbaa !204
   %174 = icmp eq i64 %173, %4
   br i1 %174, label %tng_data_find.exit, label %.critedge38.i
@@ -30287,7 +30280,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .lr.ph.i160:                                      ; preds = %.lr.ph.i160.preheader, %.critedge.i161
   %.243.i = phi i64 [ %175, %.critedge.i161 ], [ 0, %.lr.ph.i160.preheader ]
-  %176 = getelementptr inbounds nuw %struct.tng_data, ptr %152, i64 %.243.i
+  %176 = getelementptr inbounds nuw [96 x i8], ptr %152, i64 %.243.i
   %177 = load i64, ptr %176, align 8, !tbaa !204
   %178 = icmp eq i64 %177, %4
   br i1 %178, label %tng_data_find.exit, label %.critedge.i161
@@ -30311,7 +30304,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 %.266
   %188 = load i32, ptr %187, align 8, !tbaa !17
   %189 = sext i32 %188 to i64
-  %190 = getelementptr %struct.tng_data, ptr %186, i64 %189
+  %190 = getelementptr [96 x i8], ptr %186, i64 %189
   %storemerge = getelementptr i8, ptr %190, i64 -96
   %191 = tail call fastcc i32 @tng_allocate_data_mem(ptr noundef %storemerge, i64 noundef %.0124, i64 noundef %.0123, i64 noundef %3)
   %.not147 = icmp eq i32 %191, 0
@@ -30534,7 +30527,7 @@ define range(i32 0, 3) i32 @tng_util_generic_double_write(ptr noundef %0, i64 no
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %80
   %.02431.i = phi i64 [ %81, %80 ], [ 0, %.lr.ph32.i.preheader ]
-  %82 = getelementptr inbounds nuw %struct.tng_data, ptr %79, i64 %.02431.i
+  %82 = getelementptr inbounds nuw [96 x i8], ptr %79, i64 %.02431.i
   %83 = load i64, ptr %82, align 8, !tbaa !204
   %84 = icmp eq i64 %83, %4
   br i1 %84, label %tng_particle_data_find.exit, label %80
@@ -30546,7 +30539,7 @@ define range(i32 0, 3) i32 @tng_util_generic_double_write(ptr noundef %0, i64 no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %85, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %86 = getelementptr inbounds nuw %struct.tng_data, ptr %72, i64 %.129.i
+  %86 = getelementptr inbounds nuw [96 x i8], ptr %72, i64 %.129.i
   %87 = load i64, ptr %86, align 8, !tbaa !204
   %88 = icmp eq i64 %87, %4
   br i1 %88, label %tng_particle_data_find.exit, label %.critedge.i
@@ -30570,7 +30563,7 @@ define range(i32 0, 3) i32 @tng_util_generic_double_write(ptr noundef %0, i64 no
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 %.264
   %98 = load i32, ptr %97, align 8, !tbaa !17
   %99 = sext i32 %98 to i64
-  %100 = getelementptr %struct.tng_data, ptr %96, i64 %99
+  %100 = getelementptr [96 x i8], ptr %96, i64 %99
   %storemerge154 = getelementptr i8, ptr %100, i64 -96
   %101 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef %storemerge154, i64 noundef %.0124, i64 noundef %.0123, i64 noundef %.0176, i64 noundef %3)
   %.not156 = icmp eq i32 %101, 0
@@ -30701,7 +30694,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 167:                                              ; preds = %159, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %160, %159 ]
-  %168 = getelementptr inbounds nuw %struct.tng_data, ptr %158, i64 %.03446.i
+  %168 = getelementptr inbounds nuw [96 x i8], ptr %158, i64 %.03446.i
   %169 = load i64, ptr %168, align 8, !tbaa !204
   %170 = icmp eq i64 %169, %4
   br i1 %170, label %tng_data_find.exit, label %159
@@ -30713,7 +30706,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %171, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %172 = getelementptr inbounds nuw %struct.tng_data, ptr %166, i64 %.148.i
+  %172 = getelementptr inbounds nuw [96 x i8], ptr %166, i64 %.148.i
   %173 = load i64, ptr %172, align 8, !tbaa !204
   %174 = icmp eq i64 %173, %4
   br i1 %174, label %tng_data_find.exit, label %.critedge38.i
@@ -30725,7 +30718,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .lr.ph.i160:                                      ; preds = %.lr.ph.i160.preheader, %.critedge.i161
   %.243.i = phi i64 [ %175, %.critedge.i161 ], [ 0, %.lr.ph.i160.preheader ]
-  %176 = getelementptr inbounds nuw %struct.tng_data, ptr %152, i64 %.243.i
+  %176 = getelementptr inbounds nuw [96 x i8], ptr %152, i64 %.243.i
   %177 = load i64, ptr %176, align 8, !tbaa !204
   %178 = icmp eq i64 %177, %4
   br i1 %178, label %tng_data_find.exit, label %.critedge.i161
@@ -30749,7 +30742,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 %.266
   %188 = load i32, ptr %187, align 8, !tbaa !17
   %189 = sext i32 %188 to i64
-  %190 = getelementptr %struct.tng_data, ptr %186, i64 %189
+  %190 = getelementptr [96 x i8], ptr %186, i64 %189
   %storemerge = getelementptr i8, ptr %190, i64 -96
   %191 = tail call fastcc i32 @tng_allocate_data_mem(ptr noundef %storemerge, i64 noundef %.0124, i64 noundef %.0123, i64 noundef %3)
   %.not147 = icmp eq i32 %191, 0
@@ -31282,7 +31275,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %25
   %.02431.i = phi i64 [ %26, %25 ], [ 0, %.lr.ph32.i.preheader ]
-  %27 = getelementptr inbounds nuw %struct.tng_data, ptr %24, i64 %.02431.i
+  %27 = getelementptr inbounds nuw [96 x i8], ptr %24, i64 %.02431.i
   %28 = load i64, ptr %27, align 8, !tbaa !204
   %29 = icmp eq i64 %28, %1
   br i1 %29, label %tng_particle_data_find.exit, label %25
@@ -31294,7 +31287,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %30, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %31 = getelementptr inbounds nuw %struct.tng_data, ptr %17, i64 %.129.i
+  %31 = getelementptr inbounds nuw [96 x i8], ptr %17, i64 %.129.i
   %32 = load i64, ptr %31, align 8, !tbaa !204
   %33 = icmp eq i64 %32, %1
   br i1 %33, label %tng_particle_data_find.exit, label %.critedge.i
@@ -31351,7 +31344,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
 
 55:                                               ; preds = %47, %.lr.ph47.i
   %.03446.i = phi i64 [ 0, %.lr.ph47.i ], [ %48, %47 ]
-  %56 = getelementptr inbounds nuw %struct.tng_data, ptr %46, i64 %.03446.i
+  %56 = getelementptr inbounds nuw [96 x i8], ptr %46, i64 %.03446.i
   %57 = load i64, ptr %56, align 8, !tbaa !204
   %58 = icmp eq i64 %57, %1
   br i1 %58, label %tng_particle_data_find.exit, label %47
@@ -31363,7 +31356,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %59, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
-  %60 = getelementptr inbounds nuw %struct.tng_data, ptr %54, i64 %.148.i
+  %60 = getelementptr inbounds nuw [96 x i8], ptr %54, i64 %.148.i
   %61 = load i64, ptr %60, align 8, !tbaa !204
   %62 = icmp eq i64 %61, %1
   br i1 %62, label %tng_particle_data_find.exit, label %.critedge38.i
@@ -31375,7 +31368,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
 
 .lr.ph.i52:                                       ; preds = %.lr.ph.i52.preheader, %.critedge.i53
   %.243.i = phi i64 [ %63, %.critedge.i53 ], [ 0, %.lr.ph.i52.preheader ]
-  %64 = getelementptr inbounds nuw %struct.tng_data, ptr %40, i64 %.243.i
+  %64 = getelementptr inbounds nuw [96 x i8], ptr %40, i64 %.243.i
   %65 = load i64, ptr %64, align 8, !tbaa !204
   %66 = icmp eq i64 %65, %1
   br i1 %66, label %tng_particle_data_find.exit, label %.critedge.i53
@@ -31427,7 +31420,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
 
 .lr.ph32.i60:                                     ; preds = %.lr.ph32.i60.preheader, %88
   %.02431.i61 = phi i64 [ %89, %88 ], [ 0, %.lr.ph32.i60.preheader ]
-  %90 = getelementptr inbounds nuw %struct.tng_data, ptr %87, i64 %.02431.i61
+  %90 = getelementptr inbounds nuw [96 x i8], ptr %87, i64 %.02431.i61
   %91 = load i64, ptr %90, align 8, !tbaa !204
   %92 = icmp eq i64 %91, %1
   br i1 %92, label %tng_particle_data_find.exit, label %88
@@ -31439,7 +31432,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
 
 .lr.ph.i56:                                       ; preds = %.lr.ph.i56.preheader, %.critedge.i58
   %.129.i57 = phi i64 [ %93, %.critedge.i58 ], [ 0, %.lr.ph.i56.preheader ]
-  %94 = getelementptr inbounds nuw %struct.tng_data, ptr %80, i64 %.129.i57
+  %94 = getelementptr inbounds nuw [96 x i8], ptr %80, i64 %.129.i57
   %95 = load i64, ptr %94, align 8, !tbaa !204
   %96 = icmp eq i64 %95, %1
   br i1 %96, label %tng_particle_data_find.exit, label %.critedge.i58
@@ -31496,7 +31489,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
 
 118:                                              ; preds = %110, %.lr.ph47.i75
   %.03446.i76 = phi i64 [ 0, %.lr.ph47.i75 ], [ %111, %110 ]
-  %119 = getelementptr inbounds nuw %struct.tng_data, ptr %109, i64 %.03446.i76
+  %119 = getelementptr inbounds nuw [96 x i8], ptr %109, i64 %.03446.i76
   %120 = load i64, ptr %119, align 8, !tbaa !204
   %121 = icmp eq i64 %120, %1
   br i1 %121, label %tng_particle_data_find.exit, label %110
@@ -31508,7 +31501,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
 
 .lr.ph49.i71:                                     ; preds = %.lr.ph49.i71.preheader, %.critedge38.i73
   %.148.i72 = phi i64 [ %122, %.critedge38.i73 ], [ 0, %.lr.ph49.i71.preheader ]
-  %123 = getelementptr inbounds nuw %struct.tng_data, ptr %117, i64 %.148.i72
+  %123 = getelementptr inbounds nuw [96 x i8], ptr %117, i64 %.148.i72
   %124 = load i64, ptr %123, align 8, !tbaa !204
   %125 = icmp eq i64 %124, %1
   br i1 %125, label %tng_particle_data_find.exit, label %.critedge38.i73
@@ -31520,7 +31513,7 @@ define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %
 
 .lr.ph.i65:                                       ; preds = %.lr.ph.i65.preheader, %.critedge.i67
   %.243.i66 = phi i64 [ %126, %.critedge.i67 ], [ 0, %.lr.ph.i65.preheader ]
-  %127 = getelementptr inbounds nuw %struct.tng_data, ptr %103, i64 %.243.i66
+  %127 = getelementptr inbounds nuw [96 x i8], ptr %103, i64 %.243.i66
   %128 = load i64, ptr %127, align 8, !tbaa !204
   %129 = icmp eq i64 %128, %1
   br i1 %129, label %tng_particle_data_find.exit, label %.critedge.i67
@@ -31815,7 +31808,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
   %.0161251 = phi i64 [ -1, %.lr.ph252 ], [ %.1162, %.critedge222 ]
   %.0167250 = phi i64 [ 0, %.lr.ph252 ], [ %167, %.critedge222 ]
   %110 = load ptr, ptr %98, align 8, !tbaa !131
-  %111 = getelementptr inbounds nuw %struct.tng_data, ptr %110, i64 %.0167250
+  %111 = getelementptr inbounds nuw [96 x i8], ptr %110, i64 %.0167250
   %112 = load i64, ptr %111, align 8, !tbaa !204
   br i1 %99, label %.preheader233, label %.loopexit234
 
@@ -31826,7 +31819,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
 
 .preheader233:                                    ; preds = %109, %113
   %.0165249 = phi i64 [ %114, %113 ], [ 0, %109 ]
-  %115 = getelementptr inbounds nuw i64, ptr %3, i64 %.0165249
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0165249
   %116 = load i64, ptr %115, align 8, !tbaa !38
   %117 = icmp eq i64 %112, %116
   br i1 %117, label %.loopexit234, label %113
@@ -31934,7 +31927,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
 162:                                              ; preds = %153, %161
   %163 = phi i64 [ %storemerge218, %153 ], [ %.pre265, %161 ]
   %164 = phi ptr [ %.pre264, %153 ], [ %156, %161 ]
-  %165 = getelementptr i64, ptr %164, i64 %163
+  %165 = getelementptr [8 x i8], ptr %164, i64 %163
   %166 = getelementptr i8, ptr %165, i64 -8
   store i64 %112, ptr %166, align 8, !tbaa !38
   br label %.critedge222
@@ -31951,7 +31944,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
   %.2256 = phi i64 [ %.0161.lcssa, %.lr.ph257 ], [ %.3, %.critedge225 ]
   %.1168255 = phi i64 [ 0, %.lr.ph257 ], [ %229, %.critedge225 ]
   %172 = load ptr, ptr %105, align 8, !tbaa !132
-  %173 = getelementptr inbounds nuw %struct.tng_data, ptr %172, i64 %.1168255
+  %173 = getelementptr inbounds nuw [96 x i8], ptr %172, i64 %.1168255
   %174 = load i64, ptr %173, align 8, !tbaa !204
   br i1 %106, label %.preheader, label %.loopexit
 
@@ -31962,7 +31955,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
 
 .preheader:                                       ; preds = %171, %175
   %.1166254 = phi i64 [ %176, %175 ], [ 0, %171 ]
-  %177 = getelementptr inbounds nuw i64, ptr %3, i64 %.1166254
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.1166254
   %178 = load i64, ptr %177, align 8, !tbaa !38
   %179 = icmp eq i64 %174, %178
   br i1 %179, label %.loopexit, label %175
@@ -32070,7 +32063,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
 224:                                              ; preds = %215, %223
   %225 = phi i64 [ %storemerge, %215 ], [ %.pre270, %223 ]
   %226 = phi ptr [ %.pre269, %215 ], [ %218, %223 ]
-  %227 = getelementptr i64, ptr %226, i64 %225
+  %227 = getelementptr [8 x i8], ptr %226, i64 %225
   %228 = getelementptr i8, ptr %227, i64 -8
   store i64 %174, ptr %228, align 8, !tbaa !38
   br label %.critedge225
@@ -33699,7 +33692,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr n
 .lr.ph55.split.us:                                ; preds = %.lr.ph55, %._crit_edge.us
   %.04354.us = phi i64 [ %26, %._crit_edge.us ], [ 0, %.lr.ph55 ]
   %20 = tail call noalias ptr @malloc(i64 noundef %17) #30
-  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %.04354.us
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.04354.us
   store ptr %20, ptr %21, align 8, !tbaa !342
   %.not50.us = icmp eq ptr %20, null
   br i1 %.not50.us, label %.split.us, label %.preheader.us
@@ -33712,7 +33705,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr n
 .preheader.us:                                    ; preds = %.lr.ph55.split.us, %22
   %.04253.us = phi i64 [ %23, %22 ], [ 0, %.lr.ph55.split.us ]
   %24 = tail call noalias ptr @malloc(i64 noundef %19) #30
-  %25 = getelementptr inbounds nuw ptr, ptr %20, i64 %.04253.us
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.04253.us
   store ptr %24, ptr %25, align 8, !tbaa !338
   %.not51.us = icmp eq ptr %24, null
   br i1 %.not51.us, label %.split57.us, label %22
@@ -33730,7 +33723,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr n
 .lr.ph55.split:                                   ; preds = %.lr.ph55, %.preheader
   %.04354 = phi i64 [ %32, %.preheader ], [ 0, %.lr.ph55 ]
   %30 = tail call noalias ptr @malloc(i64 noundef %17) #30
-  %31 = getelementptr inbounds nuw ptr, ptr %15, i64 %.04354
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.04354
   store ptr %30, ptr %31, align 8, !tbaa !342
   %.not50 = icmp eq ptr %30, null
   br i1 %.not50, label %.split.us, label %.preheader
@@ -33801,7 +33794,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_values_alloc(ptr noundef re
 21:                                               ; preds = %.lr.ph, %19
   %.02330 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
   %22 = tail call noalias ptr @malloc(i64 noundef %15) #30
-  %23 = getelementptr inbounds nuw ptr, ptr %14, i64 %.02330
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.02330
   store ptr %22, ptr %23, align 8, !tbaa !338
   %.not29 = icmp eq ptr %22, null
   br i1 %.not29, label %24, label %19

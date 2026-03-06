@@ -3,9 +3,6 @@ source_filename = "bench/luajit/original/buildvm_asm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.BuildSym = type { ptr, i32 }
-%struct.BuildReloc = type { i32, i32, i32 }
-
 @.str = private unnamed_addr constant [26 x i8] c"\09.file \22buildvm_%s.dasc\22\0A\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"\09.text\0A\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c".Lbegin:\0A\00", align 1
@@ -66,7 +63,7 @@ define dso_local void @emit_asm(ptr noundef readonly captures(none) %0) local_un
 
 switch.lookup:                                    ; preds = %1
   %12 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.emit_asm, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.emit_asm, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = load ptr, ptr %2, align 8, !tbaa !4
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull %switch.load, i32 noundef 4) #4
@@ -128,11 +125,11 @@ emit_asm_label.exit:                              ; preds = %emit_asm_align.exit
   %indvars.iv91 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next92, %emit_asm_bytes.exit78 ]
   %.06187 = phi i32 [ 0, %.lr.ph89 ], [ %.1.lcssa, %emit_asm_bytes.exit78 ]
   %43 = load ptr, ptr %37, align 8, !tbaa !21
-  %44 = getelementptr inbounds nuw %struct.BuildSym, ptr %43, i64 %indvars.iv91
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv91
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !22
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %47 = getelementptr inbounds nuw %struct.BuildSym, ptr %43, i64 %indvars.iv.next92
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv.next92
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !22
   %50 = load ptr, ptr %44, align 8, !tbaa !24
@@ -175,7 +172,7 @@ emit_asm_label.exit68:                            ; preds = %42, %52, %56, %63
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %emit_asm_reloc.exit
   %indvars.iv = phi i64 [ %68, %.lr.ph.preheader ], [ %indvars.iv.next, %emit_asm_reloc.exit ]
   %.06281 = phi i32 [ %46, %.lr.ph.preheader ], [ %200, %emit_asm_reloc.exit ]
-  %69 = getelementptr inbounds %struct.BuildReloc, ptr %39, i64 %indvars.iv
+  %69 = getelementptr inbounds [12 x i8], ptr %39, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !26
   %.not66 = icmp sgt i32 %70, %49
   br i1 %.not66, label %.critedge.loopexit, label %71
@@ -202,7 +199,7 @@ emit_asm_label.exit68:                            ; preds = %42, %52, %56, %63
   %82 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !31
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %81, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %81, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !32
   %87 = add nsw i32 %72, -1
   %88 = icmp slt i32 %72, 1
@@ -241,7 +238,7 @@ emit_asm_label.exit68:                            ; preds = %42, %52, %56, %63
 105:                                              ; preds = %99
   %106 = and i8 %92, 127
   %107 = zext nneg i8 %106 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr @jccnames, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr @jccnames, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !32
   %110 = add nsw i32 %72, -2
   br label %114
@@ -394,7 +391,7 @@ emit_asm_bytes.exit:                              ; preds = %._crit_edge.i, %172
   %177 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %178 = load i32, ptr %177, align 4, !tbaa !31
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds ptr, ptr %176, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %176, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !32
   %182 = load i32, ptr %9, align 8, !tbaa !18
   switch i32 %182, label %197 [

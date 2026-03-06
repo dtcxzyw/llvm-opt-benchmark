@@ -95,7 +95,7 @@ define dso_local ptr @get_options(ptr noundef %0, i32 noundef %1, ptr noundef ca
   %9 = phi i32 [ 1, %.lr.ph ], [ %.be, %.backedge ]
   %10 = select i1 %5, i32 0, i32 %9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr i32, ptr %2, i64 %11
+  %12 = getelementptr [4 x i8], ptr %2, i64 %11
   %13 = load ptr, ptr %4, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread12.loopexit, label %15

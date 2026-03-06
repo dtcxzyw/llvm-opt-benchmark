@@ -236,7 +236,7 @@ define internal fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$na
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !7, !noundef !7
-  %7 = getelementptr inbounds double, ptr %.sroa.4.0.copyload, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %.sroa.4.0.copyload, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !29
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !33
   store ptr %.sroa.4.0.copyload, ptr %2, align 8, !alias.scope !40, !noalias !44
@@ -347,8 +347,8 @@ define internal fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..ar
 
 _ZN8nalgebra4base11blas_uninit12axcpy_uninit17h0a46891e761624d3E.exit.us.i: ; preds = %.noexc, %.split.split.split.us.i
   %.sroa.07.0.i17.us.i = phi i64 [ 1, %.split.split.split.us.i ], [ %15, %.noexc ]
-  %12 = getelementptr double, ptr %.val, i64 %.sroa.07.0.i17.us.i
-  %13 = getelementptr double, ptr %.8.val, i64 %.sroa.07.0.i17.us.i
+  %12 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.07.0.i17.us.i
+  %13 = getelementptr [8 x i8], ptr %.8.val, i64 %.sroa.07.0.i17.us.i
   %14 = load double, ptr %13, align 8, !alias.scope !65, !noundef !7
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   invoke void @_ZN8nalgebra4base11blas_uninit11array_axcpy17h9e6d1785a9c70677E(ptr noalias noundef nonnull align 8 %3, i64 noundef 1, double noundef 1.000000e+00, ptr noalias noundef nonnull readonly align 8 %12, i64 noundef 1, double noundef %14, double noundef 1.000000e+00, i64 noundef 1, i64 noundef 1, i64 noundef 1)
@@ -471,7 +471,7 @@ define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..a
 .noexc15.us.us:                                   ; preds = %.noexc9.us.us
   %10 = add nuw i64 %.sroa.016.0.i20.us.us, 1
   %.val63.us.us = load ptr, ptr %.sroa.2.0..sroa_idx.phi.trans.insert, align 8, !nonnull !7, !noundef !7
-  %11 = getelementptr double, ptr %.val63.us.us, i64 %.sroa.016.0.i20.us.us
+  %11 = getelementptr [8 x i8], ptr %.val63.us.us, i64 %.sroa.016.0.i20.us.us
   store double 0.000000e+00, ptr %11, align 8, !alias.scope !80
   %exitcond30.not = icmp eq i64 %10, %.val59
   br i1 %exitcond30.not, label %_ZN8nalgebra4base11blas_uninit11gemm_uninit17h4d4cb16ce8b489d0E.exit, label %.noexc9.us.us
@@ -484,13 +484,13 @@ define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..a
 
 .noexc10.us:                                      ; preds = %.noexc9.us
   %.val63.us = load ptr, ptr %.sroa.2.0..sroa_idx.phi.trans.insert, align 8, !nonnull !7, !noundef !7
-  %13 = getelementptr double, ptr %.val63.us, i64 %.sroa.016.0.i20.us
+  %13 = getelementptr [8 x i8], ptr %.val63.us, i64 %.sroa.016.0.i20.us
   %exitcond27.not = icmp eq i64 %.sroa.016.0.i20.us, %.val55
   br i1 %exitcond27.not, label %.noexc15.invoke, label %.noexc15.us
 
 .noexc15.us:                                      ; preds = %.noexc10.us
   %14 = mul i64 %.sroa.016.0.i20.us, %.24.val.fr
-  %15 = getelementptr double, ptr %.val10.i, i64 %14
+  %15 = getelementptr [8 x i8], ptr %.val10.i, i64 %14
   %16 = load double, ptr %15, align 8, !alias.scope !85, !noundef !7
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
@@ -508,8 +508,8 @@ define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..a
 
 19:                                               ; preds = %.noexc29.us
   %20 = add i64 %.sroa.07.0.i.us, 1
-  %21 = getelementptr double, ptr %.8.val, i64 %.sroa.07.0.i.us
-  %22 = getelementptr double, ptr %15, i64 %.sroa.07.0.i.us
+  %21 = getelementptr [8 x i8], ptr %.8.val, i64 %.sroa.07.0.i.us
+  %22 = getelementptr [8 x i8], ptr %15, i64 %.sroa.07.0.i.us
   %23 = load double, ptr %22, align 8, !alias.scope !99, !noundef !7
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
@@ -752,12 +752,12 @@ common.resume:                                    ; preds = %65, %58, %26, %32
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
   %.sroa.019.040.i = phi i64 [ %47, %.lr.ph.i ], [ 0, %41 ]
   %47 = add nuw i64 %.sroa.019.040.i, 1
-  %48 = getelementptr inbounds double, ptr %.val38.i, i64 %.sroa.019.040.i
-  %49 = getelementptr inbounds double, ptr %.val36.i, i64 %.sroa.019.040.i
+  %48 = getelementptr inbounds [8 x i8], ptr %.val38.i, i64 %.sroa.019.040.i
+  %49 = getelementptr inbounds [8 x i8], ptr %.val36.i, i64 %.sroa.019.040.i
   %50 = load double, ptr %49, align 8, !alias.scope !137, !noalias !133, !noundef !7
   %51 = icmp ult i64 %.sroa.019.040.i, %.val35.i
   call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds double, ptr %.val34.i, i64 %.sroa.019.040.i
+  %52 = getelementptr inbounds [8 x i8], ptr %.val34.i, i64 %.sroa.019.040.i
   %53 = load double, ptr %52, align 8, !alias.scope !140, !noalias !133, !noundef !7
   %54 = fsub double %50, %53
   store double %54, ptr %48, align 8, !alias.scope !143, !noalias !133
@@ -849,8 +849,8 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
 .loopexit.i:                                      ; preds = %.loopexit.i, %.lr.ph.i
   %.sroa.03.06.i = phi i64 [ 0, %.lr.ph.i ], [ %8, %.loopexit.i ]
   %8 = add nuw i64 %.sroa.03.06.i, 1
-  %9 = getelementptr double, ptr %.val4, i64 %.sroa.03.06.i
-  %10 = getelementptr double, ptr %.8.val, i64 %.sroa.03.06.i
+  %9 = getelementptr [8 x i8], ptr %.val4, i64 %.sroa.03.06.i
+  %10 = getelementptr [8 x i8], ptr %.8.val, i64 %.sroa.03.06.i
   %11 = load double, ptr %10, align 8, !alias.scope !155, !noundef !7
   store double %11, ptr %9, align 8, !alias.scope !158
   %exitcond.not.i = icmp eq i64 %8, %.24.val
@@ -1007,8 +1007,8 @@ define internal fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$i
   %.sroa.0.09.i = phi double [ 1.000000e+00, %.lr.ph.i ], [ %38, %32 ]
   %33 = add nuw i64 %.sroa.04.010.i, 1
   %34 = mul i64 %.sroa.04.010.i, %25
-  %35 = getelementptr double, ptr %30, i64 %34
-  %36 = getelementptr double, ptr %35, i64 %.sroa.04.010.i
+  %35 = getelementptr [8 x i8], ptr %30, i64 %34
+  %36 = getelementptr [8 x i8], ptr %35, i64 %.sroa.04.010.i
   %37 = load double, ptr %36, align 8, !alias.scope !207, !noalias !190, !noundef !7
   %38 = fmul double %.sroa.0.09.i, %37
   %exitcond.not.i = icmp eq i64 %33, %25
@@ -1161,7 +1161,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal3n
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !7, !noundef !7
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %12 = getelementptr inbounds double, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %12 = getelementptr inbounds [8 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !265
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !269
   store ptr %.sroa.4.0.copyload, ptr %4, align 8, !alias.scope !276, !noalias !280
@@ -1490,16 +1490,16 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
 .lr.ph.us.i.i:                                    ; preds = %.lr.ph19.i.i, %..loopexit_crit_edge.us.i.i
   %.sroa.03.018.us.i.i = phi i64 [ %87, %..loopexit_crit_edge.us.i.i ], [ 0, %.lr.ph19.i.i ]
   %80 = mul i64 %.sroa.03.018.us.i.i, %.val.i.i.i35
-  %81 = getelementptr double, ptr %.sroa.2.0.copyload.pre.i, i64 %80
-  %invariant.gep.us.i.i = getelementptr double, ptr %.val14.i.i, i64 %.sroa.03.018.us.i.i
+  %81 = getelementptr [8 x i8], ptr %.sroa.2.0.copyload.pre.i, i64 %80
+  %invariant.gep.us.i.i = getelementptr [8 x i8], ptr %.val14.i.i, i64 %.sroa.03.018.us.i.i
   br label %82
 
 82:                                               ; preds = %82, %.lr.ph.us.i.i
   %.sroa.05.017.us.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %83, %82 ]
   %83 = add nuw i64 %.sroa.05.017.us.i.i, 1
-  %84 = getelementptr double, ptr %81, i64 %.sroa.05.017.us.i.i
+  %84 = getelementptr [8 x i8], ptr %81, i64 %.sroa.05.017.us.i.i
   %85 = mul i64 %.sroa.05.017.us.i.i, %.val1.i.i.i34
-  %gep.us.i.i = getelementptr double, ptr %invariant.gep.us.i.i, i64 %85
+  %gep.us.i.i = getelementptr [8 x i8], ptr %invariant.gep.us.i.i, i64 %85
   %86 = load double, ptr %gep.us.i.i, align 8, !alias.scope !359, !noalias !362, !noundef !7
   store double %86, ptr %84, align 8, !alias.scope !363, !noalias !362
   %exitcond.not.i.i49 = icmp eq i64 %83, %.val.i.i.i35
@@ -1593,10 +1593,10 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   %109 = load ptr, ptr %.sroa.4.0..sroa_idx2.i, align 8, !alias.scope !380, !noalias !385, !nonnull !7, !noundef !7
   %110 = icmp eq i64 %.sroa.3.0.copyload.i, 0
   %.sroa.0.0.idx.i.i = select i1 %110, i64 0, i64 %.val.i.i.i35
-  %.sroa.0.0.i.i = getelementptr inbounds double, ptr %109, i64 %.sroa.0.0.idx.i.i
+  %.sroa.0.0.i.i = getelementptr inbounds [8 x i8], ptr %109, i64 %.sroa.0.0.idx.i.i
   %111 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %112 = load ptr, ptr %111, align 8, !alias.scope !387, !noalias !392, !nonnull !7, !noundef !7
-  %.sroa.0.0.i8.i = getelementptr inbounds double, ptr %112, i64 %.sroa.0.0.idx.i.i
+  %.sroa.0.0.i8.i = getelementptr inbounds [8 x i8], ptr %112, i64 %.sroa.0.0.idx.i.i
   br label %113
 
 113:                                              ; preds = %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha00ba673ba276083E.exit14.i.i.i.i", %108
@@ -1612,20 +1612,20 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
 
 "_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha00ba673ba276083E.exit14.i.i.i.i": ; preds = %113
   %122 = icmp eq ptr %120, %117
-  %123 = getelementptr inbounds double, ptr %116, i64 %.val.i.i.i35
+  %123 = getelementptr inbounds [8 x i8], ptr %116, i64 %.val.i.i.i35
   %124 = select i1 %122, ptr %123, ptr %120
   %125 = add i64 %119, -1
   %126 = icmp eq i64 %125, 0
   %.idx.i = select i1 %126, i64 0, i64 8
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx.i
-  %128 = getelementptr double, ptr %120, i64 %.val.i.i.i35
+  %128 = getelementptr [8 x i8], ptr %120, i64 %.val.i.i.i35
   %129 = select i1 %122, ptr %128, ptr %117
   %130 = select i1 %122, ptr %123, ptr %116
   %131 = icmp eq ptr %118, %115
-  %132 = getelementptr inbounds double, ptr %114, i64 %.val.i.i.i35
+  %132 = getelementptr inbounds [8 x i8], ptr %114, i64 %.val.i.i.i35
   %133 = select i1 %131, ptr %132, ptr %118
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx.i
-  %135 = getelementptr double, ptr %118, i64 %.val.i.i.i35
+  %135 = getelementptr [8 x i8], ptr %118, i64 %.val.i.i.i35
   %136 = select i1 %131, ptr %135, ptr %115
   %137 = select i1 %131, ptr %132, ptr %114
   %.val.i.i = load double, ptr %124, align 8, !noalias !394, !noundef !7
@@ -1731,7 +1731,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   %179 = load i64, ptr %26, align 8, !alias.scope !441, !noalias !446, !noundef !7
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %181 = load ptr, ptr %180, align 8, !alias.scope !448, !noalias !446, !nonnull !7, !noundef !7
-  %182 = getelementptr inbounds double, ptr %181, i64 %179
+  %182 = getelementptr inbounds [8 x i8], ptr %181, i64 %179
   br label %183
 
 183:                                              ; preds = %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i", %178
@@ -1744,13 +1744,13 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
 
 "_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i": ; preds = %183
   %189 = icmp eq ptr %186, %185
-  %190 = getelementptr inbounds double, ptr %184, i64 %179
+  %190 = getelementptr inbounds [8 x i8], ptr %184, i64 %179
   %191 = select i1 %189, ptr %190, ptr %186
   %192 = add i64 %187, -1
   %193 = icmp eq i64 %192, 0
   %.idx = select i1 %193, i64 0, i64 8
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 %.idx
-  %195 = getelementptr double, ptr %186, i64 %179
+  %195 = getelementptr [8 x i8], ptr %186, i64 %179
   %196 = select i1 %189, ptr %195, ptr %185
   %197 = select i1 %189, ptr %190, ptr %184
   %.val.i62 = load double, ptr %191, align 8, !noalias !451, !noundef !7
@@ -1764,7 +1764,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   %203 = load ptr, ptr %28, align 8, !alias.scope !461, !noalias !459, !nonnull !7, !noundef !7
   %204 = icmp eq i64 %202, 0
   %.sroa.0.0.idx.i = select i1 %204, i64 0, i64 %200
-  %.sroa.0.0.i63 = getelementptr inbounds double, ptr %203, i64 %.sroa.0.0.idx.i
+  %.sroa.0.0.i63 = getelementptr inbounds [8 x i8], ptr %203, i64 %.sroa.0.0.idx.i
   br label %205
 
 205:                                              ; preds = %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha00ba673ba276083E.exit.i", %199
@@ -1777,13 +1777,13 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
 
 "_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha00ba673ba276083E.exit.i": ; preds = %205
   %211 = icmp eq ptr %208, %207
-  %212 = getelementptr inbounds double, ptr %206, i64 %200
+  %212 = getelementptr inbounds [8 x i8], ptr %206, i64 %200
   %213 = select i1 %211, ptr %212, ptr %208
   %214 = add i64 %209, -1
   %215 = icmp eq i64 %214, 0
   %.idx101 = select i1 %215, i64 0, i64 8
   %216 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx101
-  %217 = getelementptr double, ptr %208, i64 %200
+  %217 = getelementptr [8 x i8], ptr %208, i64 %200
   %218 = select i1 %211, ptr %217, ptr %207
   %219 = select i1 %211, ptr %212, ptr %206
   %.val.i70 = load double, ptr %213, align 8, !noalias !464, !noundef !7
@@ -2132,18 +2132,18 @@ define { i64, double } @_ZN6statrs12distribution19multivariate_normal18Multivari
 .lr.ph.us.i.i:                                    ; preds = %.noexc, %..loopexit_crit_edge.us.i.i
   %.sroa.07.032.us.i.i = phi i64 [ %36, %..loopexit_crit_edge.us.i.i ], [ 0, %.noexc ]
   %26 = mul i64 %.sroa.07.032.us.i.i, %.val1.i.i
-  %27 = getelementptr double, ptr %19, i64 %26
+  %27 = getelementptr [8 x i8], ptr %19, i64 %26
   %28 = mul i64 %.sroa.07.032.us.i.i, %.sroa.7.0.copyload.i.i
-  %29 = getelementptr double, ptr %.sroa.4.0.copyload.i.i, i64 %28
+  %29 = getelementptr [8 x i8], ptr %.sroa.4.0.copyload.i.i, i64 %28
   br label %30
 
 30:                                               ; preds = %30, %.lr.ph.us.i.i
   %.sroa.09.031.us.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %31, %30 ]
   %31 = add nuw i64 %.sroa.09.031.us.i.i, 1
-  %32 = getelementptr double, ptr %27, i64 %.sroa.09.031.us.i.i
+  %32 = getelementptr [8 x i8], ptr %27, i64 %.sroa.09.031.us.i.i
   %33 = load double, ptr %32, align 8, !alias.scope !558, !noalias !554, !noundef !7
   %34 = fmul double %33, 0x403114580B45D474
-  %35 = getelementptr double, ptr %29, i64 %.sroa.09.031.us.i.i
+  %35 = getelementptr [8 x i8], ptr %29, i64 %.sroa.09.031.us.i.i
   store double %34, ptr %35, align 8, !noalias !554
   %exitcond.not.i.i = icmp eq i64 %31, %.val1.i.i
   br i1 %exitcond.not.i.i, label %..loopexit_crit_edge.us.i.i, label %30
@@ -2499,7 +2499,7 @@ define void @"_ZN383_$LT$statrs..distribution..multivariate_normal..Multivariate
   br i1 %28, label %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.thread", label %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.preheader"
 
 "_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.preheader": ; preds = %24
-  %29 = getelementptr inbounds double, ptr %25, i64 %.val.i
+  %29 = getelementptr inbounds [8 x i8], ptr %25, i64 %.val.i
   br label %39
 
 "_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.thread": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heac3a3de80e8fdbbE.exit", %24
@@ -2531,8 +2531,8 @@ define void @"_ZN383_$LT$statrs..distribution..multivariate_normal..Multivariate
   %.sroa.011.037 = phi ptr [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heac3a3de80e8fdbbE.exit" ], [ %25, %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.preheader" ]
   %40 = add i64 %.sroa.12.040, -1
   %41 = icmp eq ptr %.sroa.011.037, %.sroa.9.039
-  %42 = getelementptr double, ptr %.sroa.011.037, i64 %.val.i
-  %43 = getelementptr inbounds double, ptr %.sroa.6.038, i64 %.val.i
+  %42 = getelementptr [8 x i8], ptr %.sroa.011.037, i64 %.val.i
+  %43 = getelementptr inbounds [8 x i8], ptr %.sroa.6.038, i64 %.val.i
   %.sroa.011.1 = select i1 %41, ptr %43, ptr %.sroa.011.037
   %.sroa.6.1 = select i1 %41, ptr %43, ptr %.sroa.6.038
   %.sroa.9.1 = select i1 %41, ptr %42, ptr %.sroa.9.039
@@ -2551,7 +2551,7 @@ define void @"_ZN383_$LT$statrs..distribution..multivariate_normal..Multivariate
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heac3a3de80e8fdbbE.exit": ; preds = %49, %39
   %50 = load ptr, ptr %10, align 8, !alias.scope !630, !nonnull !7, !noundef !7
-  %51 = getelementptr inbounds double, ptr %50, i64 %46
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %46
   store double %45, ptr %51, align 8
   %52 = add i64 %46, 1
   store i64 %52, ptr %11, align 8, !alias.scope !630
@@ -2563,7 +2563,7 @@ define void @"_ZN383_$LT$statrs..distribution..multivariate_normal..Multivariate
   %.sroa.014.0.copyload = load i64, ptr %9, align 8
   %.sroa.415.0.copyload = load ptr, ptr %10, align 8, !nonnull !7, !noundef !7
   %.sroa.516.0.copyload = load i64, ptr %11, align 8
-  %53 = getelementptr inbounds double, ptr %.sroa.415.0.copyload, i64 %.sroa.516.0.copyload
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.415.0.copyload, i64 %.sroa.516.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !633
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !640
   store ptr %.sroa.415.0.copyload, ptr %3, align 8, !alias.scope !647, !noalias !651

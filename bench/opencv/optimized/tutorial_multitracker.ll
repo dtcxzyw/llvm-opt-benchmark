@@ -47,8 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Rect_.21" = type { i32, i32, i32, i32 }
-%"class.cv::Rect_" = type { double, double, double, double }
 %"struct.cv::Ptr.22" = type { %"class.std::shared_ptr.23" }
 %"class.std::shared_ptr.23" = type { %"class.std::__shared_ptr.24" }
 %"class.std::__shared_ptr.24" = type { ptr, %"class.std::__shared_count" }
@@ -540,7 +538,7 @@ _ZNSt6vectorIN2cv3PtrINS0_6legacy8tracking7TrackerEEESaIS5_EE11_S_relocateEPS5_S
 .noexc80:                                         ; preds = %164, %_ZNSt6vectorIN2cv3PtrINS0_6legacy8tracking7TrackerEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %152, ptr %12, align 8, !tbaa !55
   store ptr %163, ptr %100, align 8, !tbaa !52
-  %165 = getelementptr inbounds nuw %"struct.cv::Ptr.17", ptr %152, i64 %150
+  %165 = getelementptr inbounds nuw [16 x i8], ptr %152, i64 %150
   store ptr %165, ptr %101, align 8, !tbaa !56
   br label %_ZNSt6vectorIN2cv3PtrINS0_6legacy8tracking7TrackerEEESaIS5_EE9push_backEOS5_.exit
 
@@ -596,7 +594,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %184, %182
 188:                                              ; preds = %187, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %172, %_ZNSt6vectorIN2cv3PtrINS0_6legacy8tracking7TrackerEEESaIS5_EE9push_backEOS5_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %189 = load ptr, ptr %9, align 8, !tbaa !51
-  %190 = getelementptr inbounds nuw %"class.cv::Rect_.21", ptr %189, i64 %.017211
+  %190 = getelementptr inbounds nuw [16 x i8], ptr %189, i64 %.017211
   %191 = load i32, ptr %190, align 4, !tbaa !76, !noalias !78
   %192 = sitofp i32 %191 to double
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 4
@@ -681,7 +679,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; 
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %219, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   %.pre = phi ptr [ %.pre.pre, %219 ], [ %189, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i ]
-  %220 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %215, i64 %213
+  %220 = getelementptr inbounds nuw [32 x i8], ptr %215, i64 %213
   br label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %202
@@ -1013,7 +1011,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit101:  ; preds = %305, %307, %310
 
 332:                                              ; preds = %330
   %333 = load ptr, ptr %331, align 8, !tbaa !96
-  %334 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %333, i64 %315
+  %334 = getelementptr inbounds nuw [32 x i8], ptr %333, i64 %315
   %335 = load <2 x double>, ptr %334, align 8
   %336 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %335)
   %337 = getelementptr inbounds nuw i8, ptr %334, i64 8

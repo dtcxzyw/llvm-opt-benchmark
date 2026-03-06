@@ -114,7 +114,7 @@ define hidden void @sttype_cleanup() local_unnamed_addr #2 {
 define hidden void @sttype_register(ptr noundef %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
-  %4 = getelementptr ptr, ptr @type_list, i64 %3
+  %4 = getelementptr [8 x i8], ptr @type_list, i64 %3
   store ptr %0, ptr %4, align 8
   ret void
 }
@@ -126,7 +126,7 @@ define noundef nonnull ptr @sttype_name(i32 noundef %0) local_unnamed_addr #2 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sprint_node, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sprint_node, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -142,7 +142,7 @@ define noundef nonnull ptr @stnode_op_name(i32 noundef %0) local_unnamed_addr #2
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.stnode_op_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.stnode_op_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -220,7 +220,7 @@ define void @stnode_init(ptr noundef writeonly captures(none) initializes((0, 58
 
 13:                                               ; preds = %6
   %14 = zext i32 %1 to i64
-  %15 = getelementptr ptr, ptr @type_list, i64 %14
+  %15 = getelementptr [8 x i8], ptr @type_list, i64 %14
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -303,7 +303,7 @@ stnode_clear.exit:                                ; preds = %3, %11, %14, %17
 
 25:                                               ; preds = %stnode_clear.exit
   %26 = zext i32 %1 to i64
-  %27 = getelementptr ptr, ptr @type_list, i64 %26
+  %27 = getelementptr [8 x i8], ptr @type_list, i64 %26
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -333,7 +333,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @stnode_mutate(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr ptr, ptr @type_list, i64 %3
+  %4 = getelementptr [8 x i8], ptr @type_list, i64 %3
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -361,7 +361,7 @@ define noalias noundef ptr @stnode_new(i32 noundef %0, ptr noundef %1, ptr nound
 
 13:                                               ; preds = %5
   %14 = zext i32 %0 to i64
-  %15 = getelementptr ptr, ptr @type_list, i64 %14
+  %15 = getelementptr [8 x i8], ptr @type_list, i64 %14
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -407,7 +407,7 @@ define noalias noundef ptr @stnode_new_empty(i32 noundef %0) local_unnamed_addr 
 
 8:                                                ; preds = %1
   %9 = zext i32 %0 to i64
-  %10 = getelementptr ptr, ptr @type_list, i64 %9
+  %10 = getelementptr [8 x i8], ptr @type_list, i64 %9
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -529,7 +529,7 @@ define noundef nonnull ptr @stnode_type_name(ptr noundef readonly captures(none)
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sprint_node, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sprint_node, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sttype_name.exit
 
@@ -715,7 +715,7 @@ stnode_type_id.exit.i:                            ; preds = %22
 
 switch.lookup:                                    ; preds = %25
   %28 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sprint_node, i64 %28
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sprint_node, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %stnode_type_name.exit.i
 
@@ -787,7 +787,7 @@ define internal fastcc ptr @sprint_node(ptr noundef nonnull captures(none) %0) u
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sprint_node, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sprint_node, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %stnode_type_name.exit
 

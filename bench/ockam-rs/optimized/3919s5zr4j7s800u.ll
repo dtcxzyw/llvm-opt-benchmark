@@ -2295,7 +2295,7 @@ define void @_ZN11hello_ockam7project16get_field_as_str17h6d3543d4b9d8fee4E(ptr 
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !463
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !463
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 632
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %.sroa.3.0.copyload.i.i
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %.sroa.3.0.copyload.i.i
   %23 = load ptr, ptr %22, align 8, !noalias !465, !nonnull !9, !noundef !9
   %24 = add i64 %.sroa.2.0.copyload.i.i, -1
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h2753d0257ec09b86E.llvm.11973172088018111598"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noundef nonnull %23, i64 noundef %24, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !460
@@ -2317,7 +2317,7 @@ define void @_ZN11hello_ockam7project16get_field_as_str17h6d3543d4b9d8fee4E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !459
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !459
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !459
-  %27 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.4.sroa.0.0.copyload12.i, i64 %.sroa.4.sroa.5.0.copyload15.i
+  %27 = getelementptr inbounds [32 x i8], ptr %.sroa.4.sroa.0.0.copyload12.i, i64 %.sroa.4.sroa.5.0.copyload15.i
   %28 = tail call { ptr, i64 } @_ZN10serde_json5value5Value6as_str17hd783a2d79b644dd7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27)
   %.fca.0.extract = extractvalue { ptr, i64 } %28, 0
   %29 = icmp eq ptr %.fca.0.extract, null

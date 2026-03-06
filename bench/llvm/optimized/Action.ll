@@ -172,7 +172,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local noundef nonnull ptr @_ZN5clang6driver6Action12getClassNameENS1_11ActionClassE(i32 noundef %0) local_unnamed_addr #2 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang6driver6Action12getClassNameENS1_11ActionClassE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang6driver6Action12getClassNameENS1_11ActionClassE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -885,16 +885,16 @@ _ZN4llvm9all_equalIRKNS_11SmallVectorIN5clang6driver6Action11OffloadKindELj3EEEE
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %62 = load ptr, ptr %6, align 8, !tbaa !24
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !26
   %65 = load ptr, ptr %40, align 8, !tbaa !24
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !60
   %68 = load ptr, ptr %41, align 8, !tbaa !24
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !47
   %71 = load ptr, ptr %26, align 8, !tbaa !24
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !63
   tail call void @_ZN5clang6driver6Action26propagateDeviceOffloadInfoENS1_11OffloadKindEPKcPKNS0_9ToolChainE(ptr noundef nonnull align 8 dereferenceable(88) %64, i32 noundef %67, ptr noundef %70, ptr noundef %73)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1003,7 +1003,7 @@ _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EEC2ERKS6_.exit: ; preds = %
 47:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %48 = load ptr, ptr %2, align 8, !tbaa !24
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !26
   %.not27 = icmp eq ptr %50, null
   br i1 %.not27, label %79, label %51
@@ -1025,20 +1025,20 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exi
   %57 = phi i32 [ %52, %51 ], [ %.pre.i28, %54 ]
   %58 = load ptr, ptr %9, align 8, !tbaa !24
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %59
   %61 = ptrtoint ptr %50 to i64
   store i64 %61, ptr %60, align 1
   %62 = load i32, ptr %11, align 8, !tbaa !25
   %63 = add i32 %62, 1
   store i32 %63, ptr %11, align 8, !tbaa !25
   %64 = load ptr, ptr %43, align 8, !tbaa !24
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !60
   %67 = load ptr, ptr %44, align 8, !tbaa !24
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !47
   %70 = load ptr, ptr %22, align 8, !tbaa !24
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !63
   tail call void @_ZN5clang6driver6Action26propagateDeviceOffloadInfoENS1_11OffloadKindEPKcPKNS0_9ToolChainE(ptr noundef nonnull align 8 dereferenceable(88) %50, i32 noundef %66, ptr noundef %69, ptr noundef %72)
   %73 = load i32, ptr %41, align 8, !tbaa !25
@@ -1047,7 +1047,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exi
 
 75:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit
   %76 = load ptr, ptr %22, align 8, !tbaa !24
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !63
   store ptr %78, ptr %45, align 8, !tbaa !23
   br label %79
@@ -1349,7 +1349,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exi
   %14 = phi i32 [ %7, %5 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !24
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = ptrtoint ptr %1 to i64
   store i64 %18, ptr %17, align 1
   %19 = load i32, ptr %6, align 8, !tbaa !25
@@ -1375,7 +1375,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_
   %30 = phi i32 [ %23, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit ], [ %.pre.i5, %26 ]
   %31 = load ptr, ptr %21, align 8, !tbaa !24
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = ptrtoint ptr %2 to i64
   store i64 %34, ptr %33, align 1
   %35 = load i32, ptr %22, align 8, !tbaa !25
@@ -1401,7 +1401,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %_ZN4ll
   %46 = phi i32 [ %39, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_.exit ], [ %.pre.i7, %42 ]
   %47 = load ptr, ptr %37, align 8, !tbaa !24
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = ptrtoint ptr %3 to i64
   store i64 %50, ptr %49, align 1
   %51 = load i32, ptr %38, align 8, !tbaa !25
@@ -1427,7 +1427,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6Action11OffloadKindELb1EE9push_
   %62 = phi i32 [ %55, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit ], [ %.pre.i9, %58 ]
   %63 = load ptr, ptr %53, align 8, !tbaa !24
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %4, ptr %65, align 1
   %66 = load i32, ptr %54, align 8, !tbaa !25
   %67 = add i32 %66, 1
@@ -1457,7 +1457,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exi
   %15 = phi i32 [ %8, %5 ], [ %.pre.i, %11 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !24
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = ptrtoint ptr %1 to i64
   store i64 %19, ptr %18, align 1
   %20 = load i32, ptr %7, align 8, !tbaa !25
@@ -1483,7 +1483,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_
   %31 = phi i32 [ %24, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit ], [ %.pre.i14, %27 ]
   %32 = load ptr, ptr %22, align 8, !tbaa !24
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = ptrtoint ptr %2 to i64
   store i64 %35, ptr %34, align 1
   %36 = load i32, ptr %23, align 8, !tbaa !25
@@ -1509,7 +1509,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %_ZN4ll
   %47 = phi i32 [ %40, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_.exit ], [ %.pre.i16, %43 ]
   %48 = load ptr, ptr %38, align 8, !tbaa !24
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %3 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %39, align 8, !tbaa !25
@@ -1558,7 +1558,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6Action11OffloadKindELb1EE9push_
   %71 = phi i32 [ %66, %65 ], [ %.pre.i18, %68 ]
   %72 = load ptr, ptr %57, align 8, !tbaa !24
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %73
   store i32 %63, ptr %74, align 1
   %75 = load i32, ptr %58, align 8, !tbaa !25
   %76 = add i32 %75, 1
@@ -2327,7 +2327,7 @@ define dso_local void @_ZN5clang6driver24OffloadBundlingJobActionC2ERN4llvm11Sma
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !25
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12

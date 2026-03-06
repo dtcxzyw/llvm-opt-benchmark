@@ -99,12 +99,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"class.duckdb::BinaryDeserializer" = type <{ %"class.duckdb::Deserializer", ptr, i64, i8, i8, i16, [4 x i8] }>
 %"class.duckdb::Deserializer" = type { ptr, i8, %"struct.duckdb::SerializationData" }
-%"class.std::reference_wrapper" = type { ptr }
-%"class.std::reference_wrapper.136" = type { ptr }
-%"class.std::reference_wrapper.148" = type { ptr }
-%"class.std::reference_wrapper.163" = type { ptr }
-%"class.std::reference_wrapper.175" = type { ptr }
-%"class.std::reference_wrapper.187" = type { ptr }
 
 $_ZNK6duckdb12SQLStatement4CastINS_15SelectStatementEEERKT_v = comdat any
 
@@ -1514,7 +1508,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb13ClientContextEESaIS3_EE15_M_a
   store ptr %7, ptr %0, align 8, !tbaa !153
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -1606,7 +1600,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb13ClientContextEESaIS3_EE15_M_c
   store ptr %46, ptr %47, align 8, !tbaa !162
   store ptr %37, ptr %35, align 8, !tbaa !163
   %48 = and i64 %1, 63
-  %49 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !164
   ret void
 
@@ -1642,7 +1636,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb16DatabaseInstanceEESaIS3_EE15_
   store ptr %7, ptr %0, align 8, !tbaa !148
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -1734,7 +1728,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb16DatabaseInstanceEESaIS3_EE15_
   store ptr %46, ptr %47, align 8, !tbaa !169
   store ptr %37, ptr %35, align 8, !tbaa !170
   %48 = and i64 %1, 63
-  %49 = getelementptr inbounds nuw %"class.std::reference_wrapper.136", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !171
   ret void
 
@@ -1763,7 +1757,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb7CatalogEESaIS3_EE15_M_allocate
   store ptr %7, ptr %0, align 8, !tbaa !143
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -1855,7 +1849,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb7CatalogEESaIS3_EE15_M_create_n
   store ptr %46, ptr %47, align 8, !tbaa !176
   store ptr %37, ptr %35, align 8, !tbaa !177
   %48 = and i64 %1, 63
-  %49 = getelementptr inbounds nuw %"class.std::reference_wrapper.148", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !178
   ret void
 
@@ -1884,7 +1878,7 @@ _ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !138
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -1976,7 +1970,7 @@ _ZNSt11_Deque_baseImSaImEE15_M_create_nodesEPPmS3_.exit: ; preds = %_ZNSt11_Dequ
   store ptr %46, ptr %47, align 8, !tbaa !183
   store ptr %37, ptr %35, align 8, !tbaa !184
   %48 = and i64 %1, 63
-  %49 = getelementptr inbounds nuw i64, ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !185
   ret void
 
@@ -2005,7 +1999,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperISt13unordered_mapINSt7__cxx1112basic_st
   store ptr %7, ptr %0, align 8, !tbaa !133
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -2097,7 +2091,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperISt13unordered_mapINSt7__cxx1112basic_st
   store ptr %46, ptr %47, align 8, !tbaa !190
   store ptr %37, ptr %35, align 8, !tbaa !191
   %48 = and i64 %1, 63
-  %49 = getelementptr inbounds nuw %"class.std::reference_wrapper.163", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !192
   ret void
 
@@ -2126,7 +2120,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb11LogicalTypeEESaIS4_EE15_M_al
   store ptr %7, ptr %0, align 8, !tbaa !127
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -2218,7 +2212,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb11LogicalTypeEESaIS4_EE15_M_cr
   store ptr %46, ptr %47, align 8, !tbaa !197
   store ptr %37, ptr %35, align 8, !tbaa !198
   %48 = and i64 %1, 63
-  %49 = getelementptr inbounds nuw %"class.std::reference_wrapper.175", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !199
   ret void
 
@@ -2247,7 +2241,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb15CompressionInfoEESaIS4_EE15_
   store ptr %7, ptr %0, align 8, !tbaa !201
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -2339,7 +2333,7 @@ _ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb15CompressionInfoEESaIS4_EE15_
   store ptr %46, ptr %47, align 8, !tbaa !207
   store ptr %37, ptr %35, align 8, !tbaa !208
   %48 = and i64 %1, 63
-  %49 = getelementptr inbounds nuw %"class.std::reference_wrapper.187", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !209
   ret void
 

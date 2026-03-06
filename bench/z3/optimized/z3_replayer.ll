@@ -13,8 +13,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.z3_replayer::imp::value" = type { i32, %union.anon.18 }
-%union.anon.18 = type { i64 }
+%struct._key_data = type { i64, ptr }
+%"class.std::allocator" = type { i8 }
+%"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
+%"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
+%"class.std::basic_istream.base" = type { ptr, i64 }
+%"class.std::basic_ostream.base" = type { ptr }
+%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
+%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %class.svector.13 = type { %class.vector.14 }
 %class.vector.14 = type { ptr }
 %class.svector.11 = type { %class.vector.12 }
@@ -23,16 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.vector.16 = type { ptr }
 %class.ptr_vector = type { %class.vector.17 }
 %class.vector.17 = type { ptr }
-%struct._key_data = type { i64, ptr }
-%"class.std::allocator" = type { i8 }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
-%"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
-%"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
-%"class.std::basic_istream.base" = type { ptr, i64 }
-%"class.std::basic_ostream.base" = type { ptr }
-%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
-%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -481,7 +477,7 @@ define hidden noundef zeroext i1 @_ZNK11z3_replayer8get_boolEj(ptr noundef nonnu
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = and i64 %9, 4294967295
@@ -496,7 +492,7 @@ define hidden noundef i32 @_ZNK11z3_replayer7get_intEj(ptr noundef nonnull reado
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = trunc i64 %9 to i32
@@ -510,7 +506,7 @@ define hidden noundef i32 @_ZNK11z3_replayer8get_uintEj(ptr noundef nonnull read
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = trunc i64 %9 to i32
@@ -524,7 +520,7 @@ define hidden noundef i64 @_ZNK11z3_replayer9get_int64Ej(ptr noundef nonnull rea
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !3
   ret i64 %9
@@ -537,7 +533,7 @@ define hidden noundef i64 @_ZNK11z3_replayer10get_uint64Ej(ptr noundef nonnull r
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !3
   ret i64 %9
@@ -559,7 +555,7 @@ _ZNK6vectorIN11z3_replayer3imp5valueELb0EjE4sizeEv.exit.i: ; preds = %2
 
 9:                                                ; preds = %_ZNK6vectorIN11z3_replayer3imp5valueELb0EjE4sizeEv.exit.i
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !71
   %.not3.i = icmp eq i32 %12, 10
   br i1 %.not3.i, label %_ZNK11z3_replayer3imp9get_floatEj.exit, label %_ZNK6vectorIN11z3_replayer3imp5valueELb0EjE4sizeEv.exit.thread.i
@@ -581,7 +577,7 @@ define hidden noundef double @_ZNK11z3_replayer10get_doubleEj(ptr noundef nonnul
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !3
   ret double %9
@@ -594,7 +590,7 @@ define hidden noundef ptr @_ZNK11z3_replayer7get_strEj(ptr noundef nonnull reado
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   ret ptr %9
@@ -607,7 +603,7 @@ define hidden noundef ptr @_ZNK11z3_replayer10get_symbolEj(ptr noundef nonnull r
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   ret ptr %9
@@ -620,7 +616,7 @@ define hidden noundef ptr @_ZNK11z3_replayer7get_objEj(ptr noundef nonnull reado
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   ret ptr %9
@@ -633,13 +629,13 @@ define hidden noundef ptr @_ZNK11z3_replayer14get_uint_arrayEj(ptr noundef nonnu
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %11 = load ptr, ptr %10, align 8, !tbaa !74
   %12 = and i64 %9, 4294967295
-  %13 = getelementptr inbounds nuw %class.svector.13, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !75
   ret ptr %14
 }
@@ -651,13 +647,13 @@ define hidden noundef ptr @_ZNK11z3_replayer13get_int_arrayEj(ptr noundef nonnul
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %11 = load ptr, ptr %10, align 8, !tbaa !78
   %12 = and i64 %9, 4294967295
-  %13 = getelementptr inbounds nuw %class.svector.11, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !79
   ret ptr %14
 }
@@ -669,13 +665,13 @@ define hidden noundef ptr @_ZNK11z3_replayer14get_bool_arrayEj(ptr noundef nonnu
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %11 = load ptr, ptr %10, align 8, !tbaa !74
   %12 = and i64 %9, 4294967295
-  %13 = getelementptr inbounds nuw %class.svector.13, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !75
   ret ptr %14
 }
@@ -687,13 +683,13 @@ define hidden noundef ptr @_ZNK11z3_replayer16get_symbol_arrayEj(ptr noundef non
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %11 = load ptr, ptr %10, align 8, !tbaa !81
   %12 = and i64 %9, 4294967295
-  %13 = getelementptr inbounds nuw %class.svector.15, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !82
   ret ptr %14
 }
@@ -705,13 +701,13 @@ define hidden noundef ptr @_ZNK11z3_replayer13get_obj_arrayEj(ptr noundef nonnul
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %11 = load ptr, ptr %10, align 8, !tbaa !85
   %12 = and i64 %9, 4294967295
-  %13 = getelementptr inbounds nuw %class.ptr_vector, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !86
   ret ptr %14
 }
@@ -723,7 +719,7 @@ define hidden noundef nonnull ptr @_ZN11z3_replayer12get_int_addrEj(ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   ret ptr %8
 }
@@ -735,7 +731,7 @@ define hidden noundef nonnull ptr @_ZN11z3_replayer14get_int64_addrEj(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   ret ptr %8
 }
@@ -747,7 +743,7 @@ define hidden noundef nonnull ptr @_ZN11z3_replayer13get_uint_addrEj(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   ret ptr %8
 }
@@ -759,7 +755,7 @@ define hidden noundef nonnull ptr @_ZN11z3_replayer15get_uint64_addrEj(ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   ret ptr %8
 }
@@ -771,7 +767,7 @@ define hidden noundef nonnull ptr @_ZN11z3_replayer12get_str_addrEj(ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   ret ptr %8
 }
@@ -783,7 +779,7 @@ define hidden noundef nonnull ptr @_ZN11z3_replayer12get_obj_addrEj(ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   ret ptr %8
 }
@@ -852,7 +848,7 @@ _ZNK6vectorIPFvR11z3_replayerELb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK
 .lr.ph.preheader.i.i:                             ; preds = %18
   %20 = zext i32 %7 to i64
   %21 = zext i32 %.0.i17.i.i.ph to i64
-  %22 = getelementptr ptr, ptr %13, i64 %21
+  %22 = getelementptr [8 x i8], ptr %13, i64 %21
   %23 = sub nsw i64 %20, %21
   %24 = shl nsw i64 %23, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 %24, i1 false), !tbaa !91
@@ -962,10 +958,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %60,
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN6vectorIPFvR11z3_replayerELb0EjE7reserveEjRKS3_.exit
   %66 = load ptr, ptr %6, align 8, !tbaa !89
   %67 = zext i32 %1 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   store ptr %2, ptr %68, align 8, !tbaa !91
   %69 = load ptr, ptr %25, align 8, !tbaa !93
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %69, i64 %67
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %69, i64 %67
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !14
   %73 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
@@ -1259,7 +1255,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit: ; preds = %117, 
   %124 = phi i32 [ %.pre2.i, %123 ], [ %119, %117 ]
   %125 = phi ptr [ %.pre.i65, %123 ], [ %115, %117 ]
   %126 = zext i32 %124 to i64
-  %127 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 %126
   store i32 5, ptr %127, align 8, !tbaa !119
   %.sroa.4180.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 8
   store ptr null, ptr %.sroa.4180.0..sroa_idx, align 8, !tbaa !3
@@ -1280,7 +1276,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit: ; preds = %117, 
   %.idx.i.i.i = mul nuw nsw i64 %138, 24
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx.i.i.i
   %140 = zext i32 %134 to i64
-  %141 = getelementptr inbounds nuw %class.default_map_entry, ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [24 x i8], ptr %137, i64 %140
   %.not30.i.i.i = icmp eq i32 %136, %134
   br i1 %.not30.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -1436,7 +1432,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit70: ; preds = %192
   %199 = phi i32 [ %.pre2.i69, %198 ], [ %194, %192 ]
   %200 = phi ptr [ %.pre.i67, %198 ], [ %190, %192 ]
   %201 = zext i32 %199 to i64
-  %202 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %200, i64 %201
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %200, i64 %201
   store i32 5, ptr %202, align 8, !tbaa !119
   %.sroa.4177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %202, i64 8
   store ptr %189, ptr %.sroa.4177.0..sroa_idx, align 8, !tbaa !3
@@ -1495,7 +1491,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit76: ; preds = %216
   %223 = phi i32 [ %.pre2.i75, %222 ], [ %218, %216 ]
   %224 = phi ptr [ %.pre.i73, %222 ], [ %214, %216 ]
   %225 = zext i32 %223 to i64
-  %226 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw [16 x i8], ptr %224, i64 %225
   store i32 3, ptr %226, align 8, !tbaa !119
   %.sroa.4174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 8
   store ptr %213, ptr %.sroa.4174.0..sroa_idx, align 8, !tbaa !3
@@ -1535,7 +1531,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit80: ; preds = %237
   %244 = phi i32 [ %.pre2.i79, %243 ], [ %239, %237 ]
   %245 = phi ptr [ %.pre.i77, %243 ], [ %235, %237 ]
   %246 = zext i32 %244 to i64
-  %247 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %245, i64 %246
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %245, i64 %246
   store i32 4, ptr %247, align 8, !tbaa !119
   %.sroa.4171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %247, i64 8
   store ptr %234, ptr %.sroa.4171.0..sroa_idx, align 8, !tbaa !3
@@ -1593,7 +1589,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit86: ; preds = %262
   %269 = phi i32 [ %.pre2.i85, %268 ], [ %264, %262 ]
   %270 = phi ptr [ %.pre.i83, %268 ], [ %260, %262 ]
   %271 = zext i32 %269 to i64
-  %272 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw [16 x i8], ptr %270, i64 %271
   store i32 4, ptr %272, align 8, !tbaa !119
   %.sroa.4168.0..sroa_idx = getelementptr inbounds nuw i8, ptr %272, i64 8
   store ptr %259, ptr %.sroa.4168.0..sroa_idx, align 8, !tbaa !3
@@ -1653,7 +1649,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit92: ; preds = %289
   %296 = phi i32 [ %.pre2.i91, %295 ], [ %291, %289 ]
   %297 = phi ptr [ %.pre.i89, %295 ], [ %287, %289 ]
   %298 = zext i32 %296 to i64
-  %299 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %297, i64 %298
+  %299 = getelementptr inbounds nuw [16 x i8], ptr %297, i64 %298
   store i32 4, ptr %299, align 8, !tbaa !119
   %.sroa.4164.0..sroa_idx = getelementptr inbounds nuw i8, ptr %299, i64 8
   store ptr %286, ptr %.sroa.4164.0..sroa_idx, align 8, !tbaa !3
@@ -1709,7 +1705,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit98: ; preds = %312
   %319 = phi i32 [ %.pre2.i97, %318 ], [ %314, %312 ]
   %320 = phi ptr [ %.pre.i95, %318 ], [ %310, %312 ]
   %321 = zext i32 %319 to i64
-  %322 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %320, i64 %321
+  %322 = getelementptr inbounds nuw [16 x i8], ptr %320, i64 %321
   store i32 0, ptr %322, align 8, !tbaa !119
   %.sroa.4161.0..sroa_idx = getelementptr inbounds nuw i8, ptr %322, i64 8
   store i64 %309, ptr %.sroa.4161.0..sroa_idx, align 8, !tbaa !3
@@ -1765,7 +1761,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit104: ; preds = %33
   %342 = phi i32 [ %.pre2.i103, %341 ], [ %337, %335 ]
   %343 = phi ptr [ %.pre.i101, %341 ], [ %333, %335 ]
   %344 = zext i32 %342 to i64
-  %345 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %343, i64 %344
+  %345 = getelementptr inbounds nuw [16 x i8], ptr %343, i64 %344
   store i32 1, ptr %345, align 8, !tbaa !119
   %.sroa.4158.0..sroa_idx = getelementptr inbounds nuw i8, ptr %345, i64 8
   store i64 %332, ptr %.sroa.4158.0..sroa_idx, align 8, !tbaa !3
@@ -1821,7 +1817,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit110: ; preds = %35
   %365 = phi i32 [ %.pre2.i109, %364 ], [ %360, %358 ]
   %366 = phi ptr [ %.pre.i107, %364 ], [ %356, %358 ]
   %367 = zext i32 %365 to i64
-  %368 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %366, i64 %367
+  %368 = getelementptr inbounds nuw [16 x i8], ptr %366, i64 %367
   store i32 10, ptr %368, align 8, !tbaa !119
   %.sroa.4155.0..sroa_idx = getelementptr inbounds nuw i8, ptr %368, i64 8
   store float %355, ptr %.sroa.4155.0..sroa_idx, align 8
@@ -1877,7 +1873,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit116: ; preds = %38
   %388 = phi i32 [ %.pre2.i115, %387 ], [ %383, %381 ]
   %389 = phi ptr [ %.pre.i113, %387 ], [ %379, %381 ]
   %390 = zext i32 %388 to i64
-  %391 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %389, i64 %390
+  %391 = getelementptr inbounds nuw [16 x i8], ptr %389, i64 %390
   store i32 2, ptr %391, align 8, !tbaa !119
   %.sroa.4152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %391, i64 8
   store double %378, ptr %.sroa.4152.0..sroa_idx, align 8, !tbaa !3
@@ -2039,7 +2035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125.thread: ; pred
 
 443:                                              ; preds = %_ZNK6vectorIPFvR11z3_replayerELb0EjE4sizeEv.exit
   %444 = and i64 %413, 4294967295
-  %445 = getelementptr inbounds nuw ptr, ptr %414, i64 %444
+  %445 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %444
   %446 = load ptr, ptr %445, align 8, !tbaa !91
   %447 = load ptr, ptr %0, align 8, !tbaa !130
   invoke void %446(ptr noundef nonnull align 8 dereferenceable(8) %447)
@@ -2203,7 +2199,7 @@ _ZN11z3_replayer3imp10skip_blankEv.exit131:       ; preds = %496
   call void @_ZNK11z3_replayer3imp9check_argEjNS0_10value_kindE(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %505, i32 noundef 5)
   %506 = load ptr, ptr %17, align 8, !tbaa !69
   %507 = and i64 %504, 4294967295
-  %508 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %506, i64 %507
+  %508 = getelementptr inbounds nuw [16 x i8], ptr %506, i64 %507
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %510 = load i64, ptr %20, align 8, !tbaa !135
@@ -2265,7 +2261,7 @@ _ZN11z3_replayer3imp10skip_blankEv.exit135:       ; preds = %517
   call void @_ZNK11z3_replayer3imp9check_argEjNS0_10value_kindE(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %526, i32 noundef 9)
   %527 = load ptr, ptr %17, align 8, !tbaa !69
   %528 = and i64 %525, 4294967295
-  %529 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %527, i64 %528
+  %529 = getelementptr inbounds nuw [16 x i8], ptr %527, i64 %528
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 8
   %531 = load i64, ptr %530, align 8, !tbaa !3
   %532 = load ptr, ptr %18, align 8, !tbaa !85
@@ -2294,12 +2290,12 @@ _ZN11z3_replayer3imp10skip_blankEv.exit135:       ; preds = %517
 
 _ZN11z3_replayer3imp10skip_blankEv.exit137:       ; preds = %533
   %541 = and i64 %531, 4294967295
-  %542 = getelementptr inbounds nuw %class.ptr_vector, ptr %532, i64 %541
+  %542 = getelementptr inbounds nuw [8 x i8], ptr %532, i64 %541
   call void @_ZN11z3_replayer3imp11read_uint64Ev(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %543 = load i64, ptr %16, align 8, !tbaa !126
   %544 = load ptr, ptr %542, align 8, !tbaa !86
   %545 = and i64 %543, 4294967295
-  %546 = getelementptr inbounds nuw ptr, ptr %544, i64 %545
+  %546 = getelementptr inbounds nuw [8 x i8], ptr %544, i64 %545
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %547 = load i64, ptr %20, align 8, !tbaa !135
   store i64 %547, ptr %2, align 8, !tbaa !120
@@ -3019,7 +3015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 
 37:                                               ; preds = %_ZNK6vectorIN11z3_replayer3imp5valueELb0EjE4sizeEv.exit
   %38 = zext i32 %1 to i64
-  %39 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %9, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %38
   %40 = load i32, ptr %39, align 8, !tbaa !71
   %.not18 = icmp eq i32 %40, %2
   br i1 %.not18, label %85, label %41
@@ -3053,7 +3049,7 @@ _ZNSolsEj.exit:                                   ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26: ; preds = %_ZNSolsEj.exit
   %51 = load ptr, ptr %8, align 8, !tbaa !69
-  %52 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %51, i64 %38
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %38
   %53 = load i32, ptr %52, align 8, !tbaa !71
   %54 = invoke noundef ptr @_ZNK11z3_replayer3imp11kind2stringENS0_10value_kindE(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %53)
           to label %55 unwind label %74
@@ -3170,7 +3166,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11z3_replayer3imp11kind2stringENS0_1
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK11z3_replayer3imp11kind2stringENS0_10value_kindE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK11z3_replayer3imp11kind2stringENS0_10value_kindE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -3497,7 +3493,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !93
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !92
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !94
   ret void
 }
@@ -5078,7 +5074,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv = phi i64 [ %48, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
-  %52 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %15, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %53 = load i32, ptr %52, align 8, !tbaa !71
   %.not = icmp eq i32 %53, %2
   br i1 %.not, label %50, label %54
@@ -5192,12 +5188,12 @@ _ZN6vectorI7svectorIjjELb1EjE4backEv.exit:        ; preds = %83, %.noexc
   %91 = phi ptr [ %.pre.i, %.noexc ], [ %81, %83 ]
   %92 = getelementptr inbounds i8, ptr %91, i64 -4
   %93 = zext i32 %90 to i64
-  %94 = getelementptr inbounds nuw %class.svector.13, ptr %91, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %93
   store ptr null, ptr %94, align 8, !tbaa !159
   %95 = add i32 %90, 1
   store i32 %95, ptr %92, align 4, !tbaa !70
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %96 = getelementptr inbounds nuw %class.svector.13, ptr %91, i64 %93
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %93
   br i1 %.not155, label %.loopexit, label %.lr.ph154.preheader
 
 .lr.ph154.preheader:                              ; preds = %_ZN6vectorI7svectorIjjELb1EjE4backEv.exit
@@ -5217,7 +5213,7 @@ _ZN6vectorI7svectorIjjELb1EjE4backEv.exit:        ; preds = %83, %.noexc
   %101 = phi ptr [ %.pre179, %.lr.ph154.preheader ], [ %115, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
   %indvars.iv173 = phi i64 [ %97, %.lr.ph154.preheader ], [ %indvars.iv.next174, %_ZN6vectorIjLb0EjE9push_backEOj.exit ]
   %102 = load ptr, ptr %14, align 8, !tbaa !69
-  %103 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %102, i64 %indvars.iv173
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %indvars.iv173
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load i64, ptr %104, align 8, !tbaa !3
   %106 = trunc i64 %105 to i32
@@ -5244,7 +5240,7 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %108, %114
   %116 = phi i32 [ %.pre2.i84, %114 ], [ %110, %108 ]
   %117 = getelementptr inbounds i8, ptr %115, i64 -4
   %118 = zext i32 %116 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %115, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %118
   store i32 %106, ptr %119, align 4, !tbaa !70
   %120 = add i32 %116, 1
   store i32 %120, ptr %117, align 4, !tbaa !70
@@ -5290,12 +5286,12 @@ _ZN6vectorI7svectorIijELb1EjE4backEv.exit:        ; preds = %126, %.noexc89
   %134 = phi ptr [ %.pre.i86, %.noexc89 ], [ %124, %126 ]
   %135 = getelementptr inbounds i8, ptr %134, i64 -4
   %136 = zext i32 %133 to i64
-  %137 = getelementptr inbounds nuw %class.svector.11, ptr %134, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %136
   store ptr null, ptr %137, align 8, !tbaa !159
   %138 = add i32 %133, 1
   store i32 %138, ptr %135, align 4, !tbaa !70
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %139 = getelementptr inbounds nuw %class.svector.11, ptr %134, i64 %136
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %136
   br i1 %.not155, label %.loopexit, label %.lr.ph152.preheader
 
 .lr.ph152.preheader:                              ; preds = %_ZN6vectorI7svectorIijELb1EjE4backEv.exit
@@ -5315,7 +5311,7 @@ _ZN6vectorI7svectorIijELb1EjE4backEv.exit:        ; preds = %126, %.noexc89
   %144 = phi ptr [ %.pre178, %.lr.ph152.preheader ], [ %158, %_ZN6vectorIiLb0EjE9push_backEOi.exit ]
   %indvars.iv170 = phi i64 [ %140, %.lr.ph152.preheader ], [ %indvars.iv.next171, %_ZN6vectorIiLb0EjE9push_backEOi.exit ]
   %145 = load ptr, ptr %14, align 8, !tbaa !69
-  %146 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %145, i64 %indvars.iv170
+  %146 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 %indvars.iv170
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i64, ptr %147, align 8, !tbaa !3
   %149 = trunc i64 %148 to i32
@@ -5342,7 +5338,7 @@ _ZN6vectorIiLb0EjE9push_backEOi.exit:             ; preds = %151, %157
   %159 = phi i32 [ %.pre2.i94, %157 ], [ %153, %151 ]
   %160 = getelementptr inbounds i8, ptr %158, i64 -4
   %161 = zext i32 %159 to i64
-  %162 = getelementptr inbounds nuw i32, ptr %158, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %161
   store i32 %149, ptr %162, align 4, !tbaa !70
   %163 = add i32 %159, 1
   store i32 %163, ptr %160, align 4, !tbaa !70
@@ -5388,12 +5384,12 @@ _ZN6vectorI7svectorIP10_Z3_symboljELb1EjE4backEv.exit: ; preds = %169, %.noexc99
   %177 = phi ptr [ %.pre.i96, %.noexc99 ], [ %167, %169 ]
   %178 = getelementptr inbounds i8, ptr %177, i64 -4
   %179 = zext i32 %176 to i64
-  %180 = getelementptr inbounds nuw %class.svector.15, ptr %177, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %179
   store ptr null, ptr %180, align 8, !tbaa !162
   %181 = add i32 %176, 1
   store i32 %181, ptr %178, align 4, !tbaa !70
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %182 = getelementptr inbounds nuw %class.svector.15, ptr %177, i64 %179
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %179
   br i1 %.not155, label %.loopexit, label %.lr.ph150.preheader
 
 .lr.ph150.preheader:                              ; preds = %_ZN6vectorI7svectorIP10_Z3_symboljELb1EjE4backEv.exit
@@ -5413,7 +5409,7 @@ _ZN6vectorI7svectorIP10_Z3_symboljELb1EjE4backEv.exit: ; preds = %169, %.noexc99
   %187 = phi ptr [ %.pre177, %.lr.ph150.preheader ], [ %200, %_ZN6vectorIP10_Z3_symbolLb0EjE9push_backEOS1_.exit ]
   %indvars.iv167 = phi i64 [ %183, %.lr.ph150.preheader ], [ %indvars.iv.next168, %_ZN6vectorIP10_Z3_symbolLb0EjE9push_backEOS1_.exit ]
   %188 = load ptr, ptr %14, align 8, !tbaa !69
-  %189 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %188, i64 %indvars.iv167
+  %189 = getelementptr inbounds nuw [16 x i8], ptr %188, i64 %indvars.iv167
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8, !tbaa !3
   %192 = icmp eq ptr %187, null
@@ -5439,7 +5435,7 @@ _ZN6vectorIP10_Z3_symbolLb0EjE9push_backEOS1_.exit: ; preds = %193, %199
   %201 = phi i32 [ %.pre2.i104, %199 ], [ %195, %193 ]
   %202 = getelementptr inbounds i8, ptr %200, i64 -4
   %203 = zext i32 %201 to i64
-  %204 = getelementptr inbounds nuw ptr, ptr %200, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %203
   store ptr %191, ptr %204, align 8, !tbaa !163
   %205 = add i32 %201, 1
   store i32 %205, ptr %202, align 4, !tbaa !70
@@ -5485,12 +5481,12 @@ _ZN6vectorI10ptr_vectorIvELb1EjE4backEv.exit:     ; preds = %211, %.noexc109
   %219 = phi ptr [ %.pre.i106, %.noexc109 ], [ %209, %211 ]
   %220 = getelementptr inbounds i8, ptr %219, i64 -4
   %221 = zext i32 %218 to i64
-  %222 = getelementptr inbounds nuw %class.ptr_vector, ptr %219, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %221
   store ptr null, ptr %222, align 8, !tbaa !166
   %223 = add i32 %218, 1
   store i32 %223, ptr %220, align 4, !tbaa !70
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %224 = getelementptr inbounds nuw %class.ptr_vector, ptr %219, i64 %221
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %221
   br i1 %.not155, label %.loopexit, label %.lr.ph148.preheader
 
 .lr.ph148.preheader:                              ; preds = %_ZN6vectorI10ptr_vectorIvELb1EjE4backEv.exit
@@ -5510,7 +5506,7 @@ _ZN6vectorI10ptr_vectorIvELb1EjE4backEv.exit:     ; preds = %211, %.noexc109
   %229 = phi ptr [ %.pre176, %.lr.ph148.preheader ], [ %246, %_ZN6vectorIPvLb0EjE9push_backERKS0_.exit ]
   %indvars.iv164 = phi i64 [ %225, %.lr.ph148.preheader ], [ %indvars.iv.next165, %_ZN6vectorIPvLb0EjE9push_backERKS0_.exit ]
   %230 = load ptr, ptr %14, align 8, !tbaa !69
-  %231 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %230, i64 %indvars.iv164
+  %231 = getelementptr inbounds nuw [16 x i8], ptr %230, i64 %indvars.iv164
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %233 = icmp eq ptr %229, null
   br i1 %233, label %240, label %234
@@ -5534,7 +5530,7 @@ _ZN6vectorIPvLb0EjE9push_backERKS0_.exit:         ; preds = %234, %240
   %241 = phi i32 [ %.pre2.i114, %240 ], [ %236, %234 ]
   %242 = phi ptr [ %.pre.i112, %240 ], [ %229, %234 ]
   %243 = zext i32 %241 to i64
-  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %243
   %245 = load ptr, ptr %232, align 8, !tbaa !91
   store ptr %245, ptr %244, align 8, !tbaa !91
   %246 = load ptr, ptr %224, align 8, !tbaa !86
@@ -5644,7 +5640,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit: ; preds = %277, 
   %283 = phi ptr [ %.pre.i120, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE6shrinkEj.exit.thread ], [ %276, %277 ]
   %.061 = zext i32 %.061.in to i64
   %284 = zext i32 %282 to i64
-  %285 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %283, i64 %284
+  %285 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %284
   store i32 %.064, ptr %285, align 8, !tbaa !119
   %.sroa.4123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i64 %.061, ptr %.sroa.4123.0..sroa_idx, align 8, !tbaa !3
@@ -7800,7 +7796,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryImPvEN9t
   %.idx = mul nuw nsw i64 %21, 24
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %23 = zext i32 %15 to i64
-  %24 = getelementptr inbounds nuw %class.default_map_entry, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %23
   %.not63 = icmp eq i32 %19, %15
   br i1 %.not63, label %.preheader, label %.lr.ph
 
@@ -7959,7 +7955,7 @@ _ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_
   %14 = zext i32 %12 to i64
   %.idx.i = mul nuw nsw i64 %14, 24
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %16 = getelementptr inbounds nuw %class.default_map_entry, ptr %7, i64 %5
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE10move_tableEPS2_jSA_j.exit, label %.lr.ph41.i
 

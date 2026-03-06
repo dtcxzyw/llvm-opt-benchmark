@@ -5128,7 +5128,7 @@ _ZNSt12_Vector_baseIN5vcpkg11PackageSpecESaIS1_EE13_M_deallocateEPS1_m.exit: ; p
   store ptr %19, ptr %0, align 8, !tbaa !121
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %44, ptr %14, align 8, !tbaa !81
-  %45 = getelementptr inbounds nuw %"struct.vcpkg::PackageSpec", ptr %19, i64 %1
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %1
   store ptr %45, ptr %6, align 8, !tbaa !83
   br label %46
 
@@ -5330,7 +5330,7 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26: ;
 _ZNSt12_Vector_baseIN5vcpkg11PackageSpecESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, %78
   store ptr %22, ptr %0, align 8, !tbaa !121
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !81
-  %82 = getelementptr inbounds nuw %"struct.vcpkg::PackageSpec", ptr %22, i64 %16
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %82, ptr %77, align 8, !tbaa !83
   ret void
 }
@@ -5577,7 +5577,7 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36: ;
 _ZNSt12_Vector_baseIN5vcpkg11PackageSpecESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %82
   store ptr %23, ptr %0, align 8, !tbaa !121
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !81
-  %86 = getelementptr inbounds nuw %"struct.vcpkg::PackageSpec", ptr %23, i64 %17
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %86, ptr %81, align 8, !tbaa !83
   ret void
 
@@ -5670,7 +5670,7 @@ define linkonce_odr dso_local ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = sdiv i64 %5, 80
-  %7 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %0, i64 %6
+  %7 = getelementptr inbounds [40 x i8], ptr %0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds i8, ptr %1, i64 -40
   %10 = tail call noundef zeroext i1 @_ZNK5vcpkg11PackageSpecltERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %7)
@@ -5749,7 +5749,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
 20:                                               ; preds = %_ZN5vcpkg11PackageSpecD2Ev.exit15, %11
   %.010 = phi i64 [ %13, %11 ], [ %46, %_ZN5vcpkg11PackageSpecD2Ev.exit15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %21 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %0, i64 %.010
+  %21 = getelementptr inbounds [40 x i8], ptr %0, i64 %.010
   %22 = load ptr, ptr %21, align 8, !tbaa !52
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = icmp eq ptr %22, %23
@@ -6069,13 +6069,13 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %.047 = phi i64 [ %spec.select, %_ZN5vcpkg11PackageSpecaSEOS0_.exit ], [ %1, %4 ]
   %10 = shl i64 %.047, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %0, i64 %11
+  %12 = getelementptr inbounds [40 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %0, i64 %13
+  %14 = getelementptr inbounds [40 x i8], ptr %0, i64 %13
   %15 = tail call noundef zeroext i1 @_ZNK5vcpkg11PackageSpecltERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %14)
   %spec.select = select i1 %15, i64 %13, i64 %11
-  %16 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %0, i64 %spec.select
-  %17 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %0, i64 %.047
+  %16 = getelementptr inbounds [40 x i8], ptr %0, i64 %spec.select
+  %17 = getelementptr inbounds [40 x i8], ptr %0, i64 %.047
   %18 = load ptr, ptr %17, align 8, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = icmp eq ptr %18, %19
@@ -6181,8 +6181,8 @@ _ZN5vcpkg11PackageSpecaSEOS0_.exit:               ; preds = %24, %_ZNSt7__cxx111
 59:                                               ; preds = %55
   %60 = shl nsw i64 %.0.lcssa, 1
   %61 = or disjoint i64 %60, 1
-  %62 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %0, i64 %61
-  %63 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %0, i64 %.0.lcssa
+  %62 = getelementptr inbounds [40 x i8], ptr %0, i64 %61
+  %63 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa
   %64 = load ptr, ptr %63, align 8, !tbaa !52
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %66 = icmp eq ptr %64, %65
@@ -6356,12 +6356,12 @@ define linkonce_odr dso_local void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iter
   %.027 = phi i64 [ %.0928, %_ZN5vcpkg11PackageSpecaSEOS0_.exit ], [ %1, %5 ]
   %.0928.in = add nsw i64 %.027, -1
   %.0928 = sdiv i64 %.0928.in, 2
-  %7 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %0, i64 %.0928
+  %7 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0928
   %8 = tail call noundef zeroext i1 @_ZNK5vcpkg11PackageSpecltERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %3)
   br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %0, i64 %.027
+  %10 = getelementptr inbounds [40 x i8], ptr %0, i64 %.027
   %11 = load ptr, ptr %10, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = icmp eq ptr %11, %12
@@ -6454,7 +6454,7 @@ _ZN5vcpkg11PackageSpecaSEOS0_.exit:               ; preds = %17, %_ZNSt7__cxx111
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN5vcpkg11PackageSpecaSEOS0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0928, %_ZN5vcpkg11PackageSpecaSEOS0_.exit ], [ %.027, %.lr.ph ]
-  %46 = getelementptr inbounds %"struct.vcpkg::PackageSpec", ptr %0, i64 %.0.lcssa
+  %46 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa
   %47 = load ptr, ptr %46, align 8, !tbaa !52
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = icmp eq ptr %47, %48

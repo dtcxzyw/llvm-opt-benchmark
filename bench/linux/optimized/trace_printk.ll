@@ -238,7 +238,7 @@ define internal ptr @t_start(ptr readnone captures(none) %0, ptr noundef readonl
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = getelementptr ptr, ptr @__start___trace_bprintk_fmt, i64 %3
+  %8 = getelementptr [8 x i8], ptr @__start___trace_bprintk_fmt, i64 %3
   br label %.loopexit
 
 9:                                                ; preds = %2
@@ -253,7 +253,7 @@ define internal ptr @t_start(ptr readnone captures(none) %0, ptr noundef readonl
 
 17:                                               ; preds = %9
   %18 = sub nsw i64 %3, %5
-  %19 = getelementptr ptr, ptr @__start___tracepoint_str, i64 %18
+  %19 = getelementptr [8 x i8], ptr @__start___tracepoint_str, i64 %18
   br label %.loopexit
 
 20:                                               ; preds = %9
@@ -300,7 +300,7 @@ define internal ptr @t_next(ptr readnone captures(none) %0, ptr noundef readonly
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
-  %10 = getelementptr ptr, ptr @__start___trace_bprintk_fmt, i64 %5
+  %10 = getelementptr [8 x i8], ptr @__start___trace_bprintk_fmt, i64 %5
   br label %.loopexit
 
 11:                                               ; preds = %3
@@ -315,7 +315,7 @@ define internal ptr @t_next(ptr readnone captures(none) %0, ptr noundef readonly
 
 19:                                               ; preds = %11
   %20 = sub nsw i64 %5, %7
-  %21 = getelementptr ptr, ptr @__start___tracepoint_str, i64 %20
+  %21 = getelementptr [8 x i8], ptr @__start___tracepoint_str, i64 %20
   br label %.loopexit
 
 22:                                               ; preds = %11
@@ -446,7 +446,7 @@ define internal noundef i32 @module_trace_bprintk_format_notify(ptr readnone cap
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1024
   %11 = load ptr, ptr %10, align 64
   %12 = zext i32 %5 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   tail call void @trace_printk_init_buffers() #13
   tail call void @mutex_lock(ptr noundef nonnull @btrace_mutex) #13
   %14 = icmp ult ptr %11, %13

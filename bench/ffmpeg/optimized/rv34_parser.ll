@@ -72,7 +72,7 @@ define internal noundef i32 @rv34_parse(ptr noundef captures(none) %0, ptr nound
 
 42:                                               ; preds = %27, %.critedge, %26
   %43 = zext nneg i32 %.038 to i64
-  %44 = getelementptr inbounds nuw i32, ptr @rv_to_av_frame_type, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr @rv_to_av_frame_type, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !35
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %45, ptr %46, align 8, !tbaa !36

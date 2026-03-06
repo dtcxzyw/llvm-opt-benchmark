@@ -97,7 +97,7 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex(ptr noundef %0, ptr 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i64, ptr %24, align 8, !tbaa !21
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !22
   %.not288 = icmp eq ptr %27, null
   br i1 %.not288, label %34, label %59
@@ -141,7 +141,7 @@ define dso_local range(i32 0, 2) i32 @cmListFileLexer_yylex(ptr noundef %0, ptr 
 
 43:                                               ; preds = %38
   %44 = load i64, ptr %35, align 8, !tbaa !24
-  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, i8 0, i64 64, i1 false)
   store i64 %39, ptr %35, align 8, !tbaa !24
   %.pre = load ptr, ptr %10, align 8, !tbaa !17
@@ -177,7 +177,7 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
   %55 = load ptr, ptr %21, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = load i64, ptr %56, align 8, !tbaa !21
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   store ptr %47, ptr %58, align 8, !tbaa !22
   br label %59
 
@@ -245,7 +245,7 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
   %99 = getelementptr inbounds nuw i8, ptr @yy_ec, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !35
   %101 = sext i32 %.1 to i64
-  %102 = getelementptr inbounds i16, ptr @yy_accept, i64 %101
+  %102 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %101
   %103 = load i16, ptr %102, align 2, !tbaa !37
   %.not289 = icmp eq i16 %103, 0
   br i1 %.not289, label %105, label %104
@@ -256,12 +256,12 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
   br label %105
 
 105:                                              ; preds = %104, %96
-  %106 = getelementptr inbounds i16, ptr @yy_base, i64 %101
+  %106 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %101
   %107 = load i16, ptr %106, align 2, !tbaa !37
   %108 = sext i16 %107 to i64
   %109 = zext i8 %100 to i64
   %110 = add nsw i64 %108, %109
-  %111 = getelementptr inbounds i16, ptr @yy_chk, i64 %110
+  %111 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %110
   %112 = load i16, ptr %111, align 2, !tbaa !37
   %113 = sext i16 %112 to i32
   %.not290638 = icmp eq i32 %.1, %113
@@ -271,7 +271,7 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
   %114 = phi i64 [ %127, %122 ], [ %109, %105 ]
   %115 = phi i64 [ %123, %122 ], [ %101, %105 ]
   %.0265639 = phi i8 [ %.1266, %122 ], [ %100, %105 ]
-  %116 = getelementptr inbounds i16, ptr @yy_def, i64 %115
+  %116 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !37
   %118 = icmp sgt i16 %117, 78
   br i1 %118, label %119, label %122
@@ -284,24 +284,24 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
 122:                                              ; preds = %119, %.lr.ph
   %.1266 = phi i8 [ %121, %119 ], [ %.0265639, %.lr.ph ]
   %123 = sext i16 %117 to i64
-  %124 = getelementptr inbounds i16, ptr @yy_base, i64 %123
+  %124 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !37
   %126 = sext i16 %125 to i64
   %127 = zext i8 %.1266 to i64
   %128 = add nsw i64 %126, %127
-  %129 = getelementptr inbounds i16, ptr @yy_chk, i64 %128
+  %129 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %128
   %130 = load i16, ptr %129, align 2, !tbaa !37
   %.not290 = icmp eq i16 %117, %130
   br i1 %.not290, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %122, %105
   %.lcssa = phi i64 [ %110, %105 ], [ %128, %122 ]
-  %131 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa
+  %131 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa
   %132 = load i16, ptr %131, align 2, !tbaa !37
   %133 = sext i16 %132 to i32
   %134 = getelementptr inbounds nuw i8, ptr %.1268, i64 1
   %135 = sext i16 %132 to i64
-  %136 = getelementptr inbounds i16, ptr @yy_base, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !37
   %.not291 = icmp eq i16 %137, 298
   br i1 %.not291, label %.preheader454.outer, label %96, !llvm.loop !43
@@ -323,7 +323,7 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
   %.2269 = phi ptr [ %177, %175 ], [ %.2269.ph, %.preheader454.outer ]
   %.3 = phi i32 [ %178, %175 ], [ %.3.ph, %.preheader454.outer ]
   %139 = sext i32 %.3 to i64
-  %140 = getelementptr inbounds i16, ptr @yy_accept, i64 %139
+  %140 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %139
   %141 = load i16, ptr %140, align 2, !tbaa !37
   %142 = icmp eq i16 %141, 0
   br i1 %142, label %143, label %149
@@ -332,7 +332,7 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
   %144 = load ptr, ptr %76, align 8, !tbaa !40
   %145 = load i32, ptr %75, align 8, !tbaa !39
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds i16, ptr @yy_accept, i64 %146
+  %147 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %146
   %148 = load i16, ptr %147, align 2, !tbaa !37
   br label %149
 
@@ -379,7 +379,7 @@ cmListFileLexer_yy_create_buffer.exit:            ; preds = %49
 165:                                              ; preds = %161
   %166 = load ptr, ptr %79, align 8, !tbaa !20
   %167 = load i64, ptr %80, align 8, !tbaa !21
-  %168 = getelementptr inbounds nuw ptr, ptr %166, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !22
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 44
   %171 = load i32, ptr %170, align 4, !tbaa !45
@@ -1563,7 +1563,7 @@ cmListFileLexerSetToken.exit400:                  ; preds = %670, %674
   store i8 %677, ptr %.3270, align 1, !tbaa !35
   %678 = load ptr, ptr %79, align 8, !tbaa !20
   %679 = load i64, ptr %80, align 8, !tbaa !21
-  %680 = getelementptr inbounds nuw ptr, ptr %678, i64 %679
+  %680 = getelementptr inbounds nuw [8 x i8], ptr %678, i64 %679
   %681 = load ptr, ptr %680, align 8, !tbaa !22
   %682 = getelementptr inbounds nuw i8, ptr %681, i64 56
   %683 = load i32, ptr %682, align 8, !tbaa !61
@@ -1625,7 +1625,7 @@ cmListFileLexerSetToken.exit400:                  ; preds = %670, %674
 713:                                              ; preds = %709, %.lr.ph31.i
   %714 = phi i8 [ %712, %709 ], [ 16, %.lr.ph31.i ]
   %715 = sext i32 %.02129.i to i64
-  %716 = getelementptr inbounds i16, ptr @yy_accept, i64 %715
+  %716 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %715
   %717 = load i16, ptr %716, align 2, !tbaa !37
   %.not24.i402 = icmp eq i16 %717, 0
   br i1 %.not24.i402, label %719, label %718
@@ -1636,12 +1636,12 @@ cmListFileLexerSetToken.exit400:                  ; preds = %670, %674
   br label %719
 
 719:                                              ; preds = %718, %713
-  %720 = getelementptr inbounds i16, ptr @yy_base, i64 %715
+  %720 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %715
   %721 = load i16, ptr %720, align 2, !tbaa !37
   %722 = sext i16 %721 to i64
   %723 = zext i8 %714 to i64
   %724 = add nsw i64 %722, %723
-  %725 = getelementptr inbounds i16, ptr @yy_chk, i64 %724
+  %725 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %724
   %726 = load i16, ptr %725, align 2, !tbaa !37
   %727 = sext i16 %726 to i32
   %.not2526.i = icmp eq i32 %.02129.i, %727
@@ -1651,7 +1651,7 @@ cmListFileLexerSetToken.exit400:                  ; preds = %670, %674
   %728 = phi i64 [ %741, %736 ], [ %723, %719 ]
   %729 = phi i64 [ %737, %736 ], [ %715, %719 ]
   %.027.i = phi i8 [ %.1.i, %736 ], [ %714, %719 ]
-  %730 = getelementptr inbounds i16, ptr @yy_def, i64 %729
+  %730 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %729
   %731 = load i16, ptr %730, align 2, !tbaa !37
   %732 = icmp sgt i16 %731, 78
   br i1 %732, label %733, label %736
@@ -1664,19 +1664,19 @@ cmListFileLexerSetToken.exit400:                  ; preds = %670, %674
 736:                                              ; preds = %733, %.lr.ph.i
   %.1.i = phi i8 [ %735, %733 ], [ %.027.i, %.lr.ph.i ]
   %737 = sext i16 %731 to i64
-  %738 = getelementptr inbounds i16, ptr @yy_base, i64 %737
+  %738 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %737
   %739 = load i16, ptr %738, align 2, !tbaa !37
   %740 = sext i16 %739 to i64
   %741 = zext i8 %.1.i to i64
   %742 = add nsw i64 %740, %741
-  %743 = getelementptr inbounds i16, ptr @yy_chk, i64 %742
+  %743 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %742
   %744 = load i16, ptr %743, align 2, !tbaa !37
   %.not25.i403 = icmp eq i16 %731, %744
   br i1 %.not25.i403, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !62
 
 ._crit_edge.i:                                    ; preds = %736, %719
   %.lcssa.i = phi i64 [ %724, %719 ], [ %742, %736 ]
-  %745 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i
+  %745 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i
   %746 = load i16, ptr %745, align 2, !tbaa !37
   %747 = sext i16 %746 to i32
   %748 = getelementptr inbounds nuw i8, ptr %.02328.i, i64 1
@@ -1686,7 +1686,7 @@ cmListFileLexerSetToken.exit400:                  ; preds = %670, %674
 yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %697
   %.021.lcssa.i = phi i32 [ %706, %697 ], [ %747, %._crit_edge.i ]
   %749 = sext i32 %.021.lcssa.i to i64
-  %750 = getelementptr inbounds i16, ptr @yy_accept, i64 %749
+  %750 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %749
   %751 = load i16, ptr %750, align 2, !tbaa !37
   %.not.i404 = icmp eq i16 %751, 0
   br i1 %.not.i404, label %753, label %752
@@ -1697,11 +1697,11 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %697
   br label %753
 
 753:                                              ; preds = %752, %yy_get_previous_state.exit
-  %754 = getelementptr inbounds i16, ptr @yy_base, i64 %749
+  %754 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %749
   %755 = load i16, ptr %754, align 2, !tbaa !37
   %756 = sext i16 %755 to i64
   %757 = add nsw i64 %756, 16
-  %758 = getelementptr inbounds i16, ptr @yy_chk, i64 %757
+  %758 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %757
   %759 = load i16, ptr %758, align 2, !tbaa !37
   %760 = sext i16 %759 to i32
   %.not1819.i = icmp eq i32 %.021.lcssa.i, %760
@@ -1711,7 +1711,7 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %697
   %761 = phi i64 [ %774, %769 ], [ 16, %753 ]
   %762 = phi i64 [ %770, %769 ], [ %749, %753 ]
   %.020.i = phi i8 [ %.1.i406, %769 ], [ 16, %753 ]
-  %763 = getelementptr inbounds i16, ptr @yy_def, i64 %762
+  %763 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %762
   %764 = load i16, ptr %763, align 2, !tbaa !37
   %765 = icmp sgt i16 %764, 78
   br i1 %765, label %766, label %769
@@ -1724,19 +1724,19 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %697
 769:                                              ; preds = %766, %.lr.ph.i405
   %.1.i406 = phi i8 [ %768, %766 ], [ %.020.i, %.lr.ph.i405 ]
   %770 = sext i16 %764 to i64
-  %771 = getelementptr inbounds i16, ptr @yy_base, i64 %770
+  %771 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %770
   %772 = load i16, ptr %771, align 2, !tbaa !37
   %773 = sext i16 %772 to i64
   %774 = zext i8 %.1.i406 to i64
   %775 = add nsw i64 %773, %774
-  %776 = getelementptr inbounds i16, ptr @yy_chk, i64 %775
+  %776 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %775
   %777 = load i16, ptr %776, align 2, !tbaa !37
   %.not18.i = icmp eq i16 %764, %777
   br i1 %.not18.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i405, !llvm.loop !64
 
 yy_try_NUL_trans.exit:                            ; preds = %769, %753
   %.lcssa.i408 = phi i64 [ %757, %753 ], [ %775, %769 ]
-  %778 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i408
+  %778 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i408
   %779 = load i16, ptr %778, align 2, !tbaa !37
   %780 = icmp eq i16 %779, 78
   %.not295449 = icmp eq i64 %.lcssa.i408, 0
@@ -1800,7 +1800,7 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i413
   %.pre.i415 = load ptr, ptr %79, align 8, !tbaa !20
   %.pre134.i = load i64, ptr %80, align 8, !tbaa !21
-  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre.i415, i64 %.pre134.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %.pre.i415, i64 %.pre134.i
   %.pre135.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre135.i, i64 56
   %.pre739 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !61
@@ -1875,7 +1875,7 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   store ptr %836, ptr %72, align 8, !tbaa !32
   %837 = load ptr, ptr %79, align 8, !tbaa !20
   %838 = load i64, ptr %80, align 8, !tbaa !21
-  %839 = getelementptr inbounds nuw ptr, ptr %837, i64 %838
+  %839 = getelementptr inbounds nuw [8 x i8], ptr %837, i64 %838
   %840 = load ptr, ptr %839, align 8, !tbaa !22
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %840, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8, !tbaa !25
@@ -1988,7 +1988,7 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
 
 .thread157.i:                                     ; preds = %885, %._crit_edge129.i
   store i32 0, ptr %81, align 4, !tbaa !30
-  %896 = getelementptr inbounds nuw ptr, ptr %843, i64 %842
+  %896 = getelementptr inbounds nuw [8 x i8], ptr %843, i64 %842
   %897 = load ptr, ptr %896, align 8, !tbaa !22
   br label %.sink.split.i
 
@@ -1997,7 +1997,7 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   store i32 %.045.i.i, ptr %81, align 4, !tbaa !30
   %899 = load ptr, ptr %79, align 8, !tbaa !20
   %900 = load i64, ptr %80, align 8, !tbaa !21
-  %901 = getelementptr inbounds nuw ptr, ptr %899, i64 %900
+  %901 = getelementptr inbounds nuw [8 x i8], ptr %899, i64 %900
   %902 = load ptr, ptr %901, align 8, !tbaa !22
   %903 = getelementptr inbounds nuw i8, ptr %902, i64 28
   store i32 %.045.i.i, ptr %903, align 4, !tbaa !29
@@ -2021,7 +2021,7 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   %.pre137.i = load i32, ptr %81, align 4, !tbaa !30
   %.pre138.i = load ptr, ptr %79, align 8, !tbaa !20
   %.pre139.i = load i64, ptr %80, align 8, !tbaa !21
-  %.phi.trans.insert140.i = getelementptr inbounds nuw ptr, ptr %.pre138.i, i64 %.pre139.i
+  %.phi.trans.insert140.i = getelementptr inbounds nuw [8 x i8], ptr %.pre138.i, i64 %.pre139.i
   %.pre141.i = load ptr, ptr %.phi.trans.insert140.i, align 8, !tbaa !22
   br label %913
 
@@ -2054,7 +2054,7 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   %926 = tail call noalias noundef ptr @realloc(ptr noundef %924, i64 noundef %925) #31
   %927 = load ptr, ptr %79, align 8, !tbaa !20
   %928 = load i64, ptr %80, align 8, !tbaa !21
-  %929 = getelementptr inbounds nuw ptr, ptr %927, i64 %928
+  %929 = getelementptr inbounds nuw [8 x i8], ptr %927, i64 %928
   %930 = load ptr, ptr %929, align 8, !tbaa !22
   %931 = getelementptr inbounds nuw i8, ptr %930, i64 8
   store ptr %926, ptr %931, align 8, !tbaa !27
@@ -2082,7 +2082,7 @@ yy_get_next_buffer.exit:                          ; preds = %._crit_edge143.i, %
   store i8 0, ptr %938, align 1, !tbaa !35
   %939 = load ptr, ptr %79, align 8, !tbaa !20
   %940 = load i64, ptr %80, align 8, !tbaa !21
-  %941 = getelementptr inbounds nuw ptr, ptr %939, i64 %940
+  %941 = getelementptr inbounds nuw [8 x i8], ptr %939, i64 %940
   %942 = load ptr, ptr %941, align 8, !tbaa !22
   %943 = getelementptr inbounds nuw i8, ptr %942, i64 8
   %944 = load ptr, ptr %943, align 8, !tbaa !27
@@ -2093,7 +2093,7 @@ yy_get_next_buffer.exit:                          ; preds = %._crit_edge143.i, %
   store i8 0, ptr %948, align 1, !tbaa !35
   %949 = load ptr, ptr %79, align 8, !tbaa !20
   %950 = load i64, ptr %80, align 8, !tbaa !21
-  %951 = getelementptr inbounds nuw ptr, ptr %949, i64 %950
+  %951 = getelementptr inbounds nuw [8 x i8], ptr %949, i64 %950
   %952 = load ptr, ptr %951, align 8, !tbaa !22
   %953 = getelementptr inbounds nuw i8, ptr %952, i64 8
   %954 = load ptr, ptr %953, align 8, !tbaa !27
@@ -2139,7 +2139,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread447_crit_edge: ; preds = %
 970:                                              ; preds = %966, %.lr.ph31.i417
   %971 = phi i8 [ %969, %966 ], [ 16, %.lr.ph31.i417 ]
   %972 = sext i32 %.02129.i418 to i64
-  %973 = getelementptr inbounds i16, ptr @yy_accept, i64 %972
+  %973 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %972
   %974 = load i16, ptr %973, align 2, !tbaa !37
   %.not24.i421 = icmp eq i16 %974, 0
   br i1 %.not24.i421, label %976, label %975
@@ -2150,12 +2150,12 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread447_crit_edge: ; preds = %
   br label %976
 
 976:                                              ; preds = %975, %970
-  %977 = getelementptr inbounds i16, ptr @yy_base, i64 %972
+  %977 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %972
   %978 = load i16, ptr %977, align 2, !tbaa !37
   %979 = sext i16 %978 to i64
   %980 = zext i8 %971 to i64
   %981 = add nsw i64 %979, %980
-  %982 = getelementptr inbounds i16, ptr @yy_chk, i64 %981
+  %982 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %981
   %983 = load i16, ptr %982, align 2, !tbaa !37
   %984 = sext i16 %983 to i32
   %.not2526.i422 = icmp eq i32 %.02129.i418, %984
@@ -2165,7 +2165,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread447_crit_edge: ; preds = %
   %985 = phi i64 [ %998, %993 ], [ %980, %976 ]
   %986 = phi i64 [ %994, %993 ], [ %972, %976 ]
   %.027.i424 = phi i8 [ %.1.i425, %993 ], [ %971, %976 ]
-  %987 = getelementptr inbounds i16, ptr @yy_def, i64 %986
+  %987 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %986
   %988 = load i16, ptr %987, align 2, !tbaa !37
   %989 = icmp sgt i16 %988, 78
   br i1 %989, label %990, label %993
@@ -2178,19 +2178,19 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread447_crit_edge: ; preds = %
 993:                                              ; preds = %990, %.lr.ph.i423
   %.1.i425 = phi i8 [ %992, %990 ], [ %.027.i424, %.lr.ph.i423 ]
   %994 = sext i16 %988 to i64
-  %995 = getelementptr inbounds i16, ptr @yy_base, i64 %994
+  %995 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %994
   %996 = load i16, ptr %995, align 2, !tbaa !37
   %997 = sext i16 %996 to i64
   %998 = zext i8 %.1.i425 to i64
   %999 = add nsw i64 %997, %998
-  %1000 = getelementptr inbounds i16, ptr @yy_chk, i64 %999
+  %1000 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %999
   %1001 = load i16, ptr %1000, align 2, !tbaa !37
   %.not25.i426 = icmp eq i16 %988, %1001
   br i1 %.not25.i426, label %._crit_edge.i427, label %.lr.ph.i423, !llvm.loop !62
 
 ._crit_edge.i427:                                 ; preds = %993, %976
   %.lcssa.i428 = phi i64 [ %981, %976 ], [ %999, %993 ]
-  %1002 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i428
+  %1002 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i428
   %1003 = load i16, ptr %1002, align 2, !tbaa !37
   %1004 = sext i16 %1003 to i32
   %1005 = getelementptr inbounds nuw i8, ptr %.02328.i419, i64 1
@@ -2223,7 +2223,7 @@ yy_get_next_buffer.exit.thread447:                ; preds = %795, %yy_get_next_b
 1016:                                             ; preds = %1012, %.lr.ph31.i432
   %1017 = phi i8 [ %1015, %1012 ], [ 16, %.lr.ph31.i432 ]
   %1018 = sext i32 %.02129.i433 to i64
-  %1019 = getelementptr inbounds i16, ptr @yy_accept, i64 %1018
+  %1019 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %1018
   %1020 = load i16, ptr %1019, align 2, !tbaa !37
   %.not24.i436 = icmp eq i16 %1020, 0
   br i1 %.not24.i436, label %1022, label %1021
@@ -2234,12 +2234,12 @@ yy_get_next_buffer.exit.thread447:                ; preds = %795, %yy_get_next_b
   br label %1022
 
 1022:                                             ; preds = %1021, %1016
-  %1023 = getelementptr inbounds i16, ptr @yy_base, i64 %1018
+  %1023 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %1018
   %1024 = load i16, ptr %1023, align 2, !tbaa !37
   %1025 = sext i16 %1024 to i64
   %1026 = zext i8 %1017 to i64
   %1027 = add nsw i64 %1025, %1026
-  %1028 = getelementptr inbounds i16, ptr @yy_chk, i64 %1027
+  %1028 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %1027
   %1029 = load i16, ptr %1028, align 2, !tbaa !37
   %1030 = sext i16 %1029 to i32
   %.not2526.i437 = icmp eq i32 %.02129.i433, %1030
@@ -2249,7 +2249,7 @@ yy_get_next_buffer.exit.thread447:                ; preds = %795, %yy_get_next_b
   %1031 = phi i64 [ %1044, %1039 ], [ %1026, %1022 ]
   %1032 = phi i64 [ %1040, %1039 ], [ %1018, %1022 ]
   %.027.i439 = phi i8 [ %.1.i440, %1039 ], [ %1017, %1022 ]
-  %1033 = getelementptr inbounds i16, ptr @yy_def, i64 %1032
+  %1033 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %1032
   %1034 = load i16, ptr %1033, align 2, !tbaa !37
   %1035 = icmp sgt i16 %1034, 78
   br i1 %1035, label %1036, label %1039
@@ -2262,19 +2262,19 @@ yy_get_next_buffer.exit.thread447:                ; preds = %795, %yy_get_next_b
 1039:                                             ; preds = %1036, %.lr.ph.i438
   %.1.i440 = phi i8 [ %1038, %1036 ], [ %.027.i439, %.lr.ph.i438 ]
   %1040 = sext i16 %1034 to i64
-  %1041 = getelementptr inbounds i16, ptr @yy_base, i64 %1040
+  %1041 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %1040
   %1042 = load i16, ptr %1041, align 2, !tbaa !37
   %1043 = sext i16 %1042 to i64
   %1044 = zext i8 %.1.i440 to i64
   %1045 = add nsw i64 %1043, %1044
-  %1046 = getelementptr inbounds i16, ptr @yy_chk, i64 %1045
+  %1046 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %1045
   %1047 = load i16, ptr %1046, align 2, !tbaa !37
   %.not25.i441 = icmp eq i16 %1034, %1047
   br i1 %.not25.i441, label %._crit_edge.i442, label %.lr.ph.i438, !llvm.loop !62
 
 ._crit_edge.i442:                                 ; preds = %1039, %1022
   %.lcssa.i443 = phi i64 [ %1027, %1022 ], [ %1045, %1039 ]
-  %1048 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i443
+  %1048 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i443
   %1049 = load i16, ptr %1048, align 2, !tbaa !37
   %1050 = sext i16 %1049 to i32
   %1051 = getelementptr inbounds nuw i8, ptr %.02328.i434, i64 1
@@ -2356,7 +2356,7 @@ define dso_local void @cmListFileLexer_yyrestart(ptr noundef %0, ptr noundef cap
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !21
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   %.not16 = icmp eq ptr %9, null
   br i1 %.not16, label %16, label %42
@@ -2400,7 +2400,7 @@ define dso_local void @cmListFileLexer_yyrestart(ptr noundef %0, ptr noundef cap
 
 25:                                               ; preds = %20
   %26 = load i64, ptr %17, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, i8 0, i64 64, i1 false)
   store i64 %21, ptr %17, align 8, !tbaa !24
   br label %cmListFileLexer_yyensure_buffer_stack.exit
@@ -2436,7 +2436,7 @@ cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %13, %16, %25
   %38 = load ptr, ptr %3, align 8, !tbaa !20
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8, !tbaa !21
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   store ptr %30, ptr %41, align 8, !tbaa !22
   br label %42
 
@@ -2446,7 +2446,7 @@ cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %13, %16, %25
   %44 = load ptr, ptr %3, align 8, !tbaa !20
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !21
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   %50 = load i32, ptr %49, align 4, !tbaa !29
@@ -2504,7 +2504,7 @@ cmListFileLexer_yy_flush_buffer.exit.thread24:    ; preds = %6
 19:                                               ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !21
-  %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !22
   %24 = icmp eq ptr %0, %23
   br i1 %24, label %25, label %cmListFileLexer_yy_flush_buffer.exit.thread
@@ -2547,7 +2547,7 @@ cmListFileLexer_yy_flush_buffer.exit:             ; preds = %3
   %40 = phi ptr [ %17, %cmListFileLexer_yy_flush_buffer.exit.thread ], [ %.pre, %cmListFileLexer_yy_flush_buffer.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %42 = load i64, ptr %41, align 8, !tbaa !21
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !22
   %45 = icmp eq ptr %0, %44
   br i1 %45, label %48, label %.critedge
@@ -2626,7 +2626,7 @@ define dso_local void @cmListFileLexer_yy_switch_to_buffer(ptr noundef %0, ptr n
 
 22:                                               ; preds = %17
   %23 = load i64, ptr %14, align 8, !tbaa !24
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, i8 0, i64 64, i1 false)
   store i64 %18, ptr %14, align 8, !tbaa !24
   br label %.thread
@@ -2635,7 +2635,7 @@ define dso_local void @cmListFileLexer_yy_switch_to_buffer(ptr noundef %0, ptr n
   %25 = phi ptr [ %6, %8 ], [ %4, %11 ], [ %20, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8, !tbaa !21
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !22
   %30 = icmp eq ptr %29, %0
   br i1 %30, label %62, label %31
@@ -2653,7 +2653,7 @@ define dso_local void @cmListFileLexer_yy_switch_to_buffer(ptr noundef %0, ptr n
   %37 = load ptr, ptr %35, align 8, !tbaa !32
   %38 = load ptr, ptr %3, align 8, !tbaa !20
   %39 = load i64, ptr %26, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8, !tbaa !31
@@ -2666,7 +2666,7 @@ define dso_local void @cmListFileLexer_yy_switch_to_buffer(ptr noundef %0, ptr n
 46:                                               ; preds = %32, %31
   %47 = phi i64 [ %27, %31 ], [ %39, %32 ]
   %48 = phi ptr [ %25, %31 ], [ %38, %32 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   store ptr %0, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %51 = load i32, ptr %50, align 4, !tbaa !29
@@ -2712,7 +2712,7 @@ define dso_local void @cmListFileLexer_yy_delete_buffer(ptr noundef captures(add
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !21
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %.critedge
@@ -2776,7 +2776,7 @@ define dso_local void @cmListFileLexer_yy_flush_buffer(ptr noundef captures(addr
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8, !tbaa !21
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !22
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %.critedge
@@ -2856,7 +2856,7 @@ define dso_local void @cmListFileLexer_yypush_buffer_state(ptr noundef %0, ptr n
 
 24:                                               ; preds = %19
   %25 = load i64, ptr %16, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 64, i1 false)
   store i64 %20, ptr %16, align 8, !tbaa !24
   %.pre = load i64, ptr %14, align 8, !tbaa !21
@@ -2865,7 +2865,7 @@ define dso_local void @cmListFileLexer_yypush_buffer_state(ptr noundef %0, ptr n
 cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %10, %13, %24
   %27 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %24 ]
   %28 = phi ptr [ %8, %10 ], [ %6, %13 ], [ %22, %24 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !22
   %.not25 = icmp eq ptr %30, null
   br i1 %.not25, label %.thread, label %31
@@ -2880,7 +2880,7 @@ cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %10, %13, %24
   %37 = load ptr, ptr %35, align 8, !tbaa !32
   %38 = load ptr, ptr %5, align 8, !tbaa !20
   %39 = load i64, ptr %32, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8, !tbaa !31
@@ -2895,7 +2895,7 @@ cmListFileLexer_yyensure_buffer_stack.exit:       ; preds = %10, %13, %24
 .thread:                                          ; preds = %cmListFileLexer_yyensure_buffer_stack.exit, %31
   %.pr37 = phi ptr [ %38, %31 ], [ %28, %cmListFileLexer_yyensure_buffer_stack.exit ]
   %47 = phi i64 [ %46, %31 ], [ %27, %cmListFileLexer_yyensure_buffer_stack.exit ]
-  %48 = getelementptr inbounds nuw ptr, ptr %.pr37, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.pr37, i64 %47
   store ptr %0, ptr %48, align 8, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %50 = load i32, ptr %49, align 4, !tbaa !29
@@ -2931,7 +2931,7 @@ define dso_local void @cmListFileLexer_yypop_buffer_state(ptr noundef captures(n
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !21
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   %.not20 = icmp eq ptr %8, null
   br i1 %.not20, label %.thread, label %.critedge.i
@@ -2953,7 +2953,7 @@ cmListFileLexer_yy_delete_buffer.exit:            ; preds = %.critedge.i, %11
   tail call void @free(ptr noundef nonnull %8) #32
   %14 = load ptr, ptr %2, align 8, !tbaa !20
   %15 = load i64, ptr %5, align 8, !tbaa !21
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   store ptr null, ptr %16, align 8, !tbaa !22
   %.not21 = icmp eq i64 %15, 0
   br i1 %.not21, label %.thread, label %17
@@ -2961,7 +2961,7 @@ cmListFileLexer_yy_delete_buffer.exit:            ; preds = %.critedge.i, %11
 17:                                               ; preds = %cmListFileLexer_yy_delete_buffer.exit
   %18 = add i64 %15, -1
   store i64 %18, ptr %5, align 8, !tbaa !21
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %14, i64 %18
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %18
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !22
   %.not23 = icmp eq ptr %.pre, null
   br i1 %.not23, label %.thread, label %19
@@ -3148,7 +3148,7 @@ define dso_local i32 @cmListFileLexer_yyget_lineno(ptr noundef readonly captures
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !21
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -3173,7 +3173,7 @@ define dso_local i32 @cmListFileLexer_yyget_column(ptr noundef readonly captures
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !21
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -3232,7 +3232,7 @@ define dso_local void @cmListFileLexer_yyset_lineno(i32 noundef %0, ptr noundef 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !21
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -3257,7 +3257,7 @@ define dso_local void @cmListFileLexer_yyset_column(i32 noundef %0, ptr noundef 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !21
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -3368,13 +3368,13 @@ define dso_local noundef i32 @cmListFileLexer_yylex_destroy(ptr noundef captures
 
 .lr.ph.preheader:                                 ; preds = %1
   %.pre = load i64, ptr %2, align 8, !tbaa !21
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %4, i64 %.pre
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.pre
   %.pre30 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !22
   %5 = icmp eq ptr %.pre30, null
   br i1 %5, label %.critedge, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.preheader
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.pre
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.pre
   store ptr null, ptr %6, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %.pre30, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !28
@@ -3391,7 +3391,7 @@ cmListFileLexer_yypop_buffer_state.exit:          ; preds = %.critedge.i, %9
   tail call void @free(ptr noundef nonnull %.pre30) #32
   %12 = load ptr, ptr %3, align 8, !tbaa !20
   %13 = load i64, ptr %2, align 8, !tbaa !21
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   store ptr null, ptr %14, align 8, !tbaa !22
   br label %.critedge
 
@@ -3633,7 +3633,7 @@ cmListFileLexerSetToken.exit:                     ; preds = %1, %10
 
 .lr.ph.preheader.i:                               ; preds = %18
   %.pre.i = load i64, ptr %21, align 8, !tbaa !21
-  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %23, i64 %.pre.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.pre.i
   %.pre30.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !22
   %24 = icmp eq ptr %.pre30.i, null
   br i1 %24, label %cmListFileLexer_yylex_destroy.exit, label %.critedge.i.i.lr.ph
@@ -3655,7 +3655,7 @@ cmListFileLexer_yypop_buffer_state.exit.i.us:     ; preds = %27, %.critedge.i.i.
   tail call void @free(ptr noundef nonnull %.pre30.i) #32
   %30 = load ptr, ptr %22, align 8, !tbaa !20
   %31 = load i64, ptr %21, align 8, !tbaa !21
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   store ptr null, ptr %32, align 8, !tbaa !22
   br label %cmListFileLexer_yylex_destroy.exit
 
@@ -3831,7 +3831,7 @@ define dso_local noundef nonnull ptr @cmListFileLexer_GetTypeAsString(ptr nounde
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cmListFileLexer_GetTypeAsString, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cmListFileLexer_GetTypeAsString, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

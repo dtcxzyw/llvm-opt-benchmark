@@ -123,7 +123,7 @@ define void @_ZN9grpc_core21StaticStrideScheduler4MakeEN4absl12lts_202407224Span
 .lr.ph156.preheader:                              ; preds = %24
   %45 = shl nuw nsw i64 %2, 1
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #15
-  %47 = getelementptr inbounds nuw i16, ptr %46, i64 %2
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %2
   br label %.lr.ph156
 
 ._crit_edge157:                                   ; preds = %_ZNSt6vectorItSaItEE9push_backERKt.exit
@@ -139,7 +139,7 @@ define void @_ZN9grpc_core21StaticStrideScheduler4MakeEN4absl12lts_202407224Span
   %.sroa.072.0154 = phi ptr [ %.sroa.072.2, %_ZNSt6vectorItSaItEE9push_backERKt.exit ], [ %46, %.lr.ph156.preheader ]
   %.sroa.15.0153 = phi ptr [ %.sroa.15.1, %_ZNSt6vectorItSaItEE9push_backERKt.exit ], [ %46, %.lr.ph156.preheader ]
   %.sroa.25.0152 = phi ptr [ %.sroa.25.2, %_ZNSt6vectorItSaItEE9push_backERKt.exit ], [ %47, %.lr.ph156.preheader ]
-  %52 = getelementptr inbounds nuw float, ptr %1, i64 %.032155
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.032155
   %53 = load float, ptr %52, align 4, !tbaa !8
   %54 = fcmp oeq float %53, 0.000000e+00
   br i1 %54, label %55, label %76
@@ -193,7 +193,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i: ; preds = %58
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i: ; preds = %73, %.noexc46
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 2
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.072.0154, i64 noundef %61) #16
-  %75 = getelementptr inbounds nuw i16, ptr %70, i64 %68
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %68
   br label %_ZNSt6vectorItSaItEE9push_backERKt.exit
 
 .loopexit122:                                     ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i
@@ -263,7 +263,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i50: ; preds = %84
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i55: ; preds = %99, %.noexc57
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 2
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.072.0154, i64 noundef %87) #16
-  %101 = getelementptr inbounds nuw i16, ptr %96, i64 %94
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %94
   br label %_ZNSt6vectorItSaItEE9push_backERKt.exit
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i50
@@ -500,7 +500,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZNK9grpc_core21StaticStrideSchedul
   %14 = ashr exact i64 %13, 1
   %15 = urem i64 %8, %14
   %16 = udiv i64 %8, %14
-  %17 = getelementptr inbounds nuw i16, ptr %10, i64 %15
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %15
   %18 = load i16, ptr %17, align 2, !tbaa !13
   %19 = zext i16 %18 to i64
   %20 = mul nuw nsw i64 %16, %19

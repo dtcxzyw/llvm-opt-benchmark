@@ -233,7 +233,7 @@ define dso_local { ptr, i64 } @_ZN4llvm17AArch64BuildAttrs24getFeatureAndBitsTag
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm17AArch64BuildAttrs24getFeatureAndBitsTagsStrEj, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm17AArch64BuildAttrs24getFeatureAndBitsTagsStrEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

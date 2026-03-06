@@ -11,16 +11,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%struct.wallcc_t = type { i32, i64, i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"struct.std::array.28" = type { [106 x double] }
 %"struct.gmx::EnumerationArray.29" = type { [60 x double] }
 %"struct.std::array.31" = type { [3600 x double] }
 %"class.gmx::LogEntryWriter" = type { %"struct.gmx::LogEntry" }
 %"struct.gmx::LogEntry" = type <{ %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%struct.gmx_kernel_timing_data_t = type <{ double, i32, [4 x i8] }>
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 
 $_ZNSt10unique_ptrI13gmx_wallcycleSt14default_deleteIS0_EED2Ev = comdat any
 
@@ -475,9 +473,9 @@ _ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.
 
 _ZNSt12_Vector_baseI8wallcc_tSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI8wallcc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !64
-  %33 = getelementptr inbounds nuw %struct.wallcc_t, ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !63
-  %34 = getelementptr inbounds nuw %struct.wallcc_t, ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !65
   br label %35
 
@@ -772,7 +770,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !66
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !67
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !75
   ret void
 
@@ -821,7 +819,7 @@ define void @_ZN13gmx_wallcycle9checkStopE16WallCycleCounter(ptr noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z13wallcycle_getP13gmx_wallcycle16WallCycleCounterPiPd(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #13 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.wallcc_t, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %5
   %7 = load i32, ptr %6, align 8, !tbaa !13
   store i32 %7, ptr %2, align 4, !tbaa !77
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -863,7 +861,7 @@ define void @_Z19wallcycle_reset_allP13gmx_wallcycle(ptr noundef captures(addres
 
 .preheader:                                       ; preds = %3, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %3 ]
-  %11 = getelementptr inbounds nuw %struct.wallcc_t, ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   store i32 0, ptr %11, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %12, align 8, !tbaa !17
@@ -916,7 +914,7 @@ define void @_Z30wallcycle_scale_by_num_threadsP13gmx_wallcyclebii(ptr noundef c
   %14 = icmp eq i64 %indvars.iv50, 0
   %or.cond = and i1 %1, %14
   %or.cond33 = or i1 %13, %or.cond
-  %15 = getelementptr inbounds nuw %struct.wallcc_t, ptr %0, i64 %indvars.iv50
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv50
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !17
   br i1 %or.cond33, label %18, label %27
@@ -936,7 +934,7 @@ define void @_Z30wallcycle_scale_by_num_threadsP13gmx_wallcyclebii(ptr noundef c
 
 23:                                               ; preds = %.preheader, %23
   %indvars.iv46 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next47, %23 ]
-  %gep58 = getelementptr inbounds nuw %struct.wallcc_t, ptr %invariant.gep57, i64 %indvars.iv46
+  %gep58 = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep57, i64 %indvars.iv46
   %24 = getelementptr inbounds nuw i8, ptr %gep58, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !17
   %26 = mul i64 %25, %9
@@ -960,7 +958,7 @@ define void @_Z30wallcycle_scale_by_num_threadsP13gmx_wallcyclebii(ptr noundef c
 
 32:                                               ; preds = %.preheader37, %32
   %indvars.iv = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next, %32 ]
-  %gep = getelementptr inbounds nuw %struct.wallcc_t, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !17
   %35 = mul i64 %34, %6
@@ -1105,15 +1103,15 @@ _ZL15subtract_cyclesRN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EE
 
 _ZL15subtract_cyclesRN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EEES1_S1_.exit69: ; preds = %_ZL15subtract_cyclesRN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EEES1_S1_.exit69.preheader, %_ZL15subtract_cyclesRN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EEES1_S1_.exit69
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL15subtract_cyclesRN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EEES1_S1_.exit69 ], [ 0, %_ZL15subtract_cyclesRN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EEES1_S1_.exit69.preheader ]
-  %67 = getelementptr inbounds nuw %struct.wallcc_t, ptr %2, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv
   %68 = load i32, ptr %67, align 8, !tbaa !13
   %69 = sitofp i32 %68 to double
-  %70 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store double %69, ptr %70, align 8, !tbaa !100
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !17
   %73 = uitofp i64 %72 to double
-  %74 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store double %73, ptr %74, align 8, !tbaa !100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 60
@@ -1150,11 +1148,11 @@ _ZL15subtract_cyclesRN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EE
 
 96:                                               ; preds = %75, %96
   %indvars.iv94 = phi i64 [ 0, %75 ], [ %indvars.iv.next95, %96 ]
-  %97 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv94
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv94
   %98 = load double, ptr %97, align 8, !tbaa !100
   %99 = call double @llvm.rint.f64(double %98)
   %100 = fptosi double %99 to i32
-  %101 = getelementptr inbounds nuw %struct.wallcc_t, ptr %2, i64 %indvars.iv94
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv94
   store i32 %100, ptr %101, align 8, !tbaa !13
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %.not82 = icmp eq i64 %indvars.iv.next95, 60
@@ -1173,11 +1171,11 @@ _ZL15subtract_cyclesRN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EE
 
 107:                                              ; preds = %102, %107
   %indvars.iv97 = phi i64 [ 0, %102 ], [ %indvars.iv.next98, %107 ]
-  %108 = getelementptr inbounds nuw %struct.wallcc_t, ptr %92, i64 %indvars.iv97
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %92, i64 %indvars.iv97
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load i64, ptr %109, align 8, !tbaa !17
   %111 = uitofp i64 %110 to double
-  %112 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv97
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv97
   store double %111, ptr %112, align 8, !tbaa !100
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next98, 3600
@@ -1190,10 +1188,10 @@ _ZL15subtract_cyclesRN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EE
 
 114:                                              ; preds = %103, %114
   %indvars.iv100 = phi i64 [ 0, %103 ], [ %indvars.iv.next101, %114 ]
-  %115 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv100
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv100
   %116 = load double, ptr %115, align 8, !tbaa !100
   %117 = fptoui double %116 to i64
-  %118 = getelementptr inbounds nuw %struct.wallcc_t, ptr %106, i64 %indvars.iv100
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %indvars.iv100
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i64 %117, ptr %119, align 8, !tbaa !17
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -1452,18 +1450,18 @@ _ZL12print_headerP8_IO_FILEiiii.exit:             ; preds = %103, %105, %113, %1
 
 .preheader492.us.us.us:                           ; preds = %.preheader493.split.us.split.us, %.split.us.us.split.us.us.split.us.us
   %indvars.iv559 = phi i64 [ %indvars.iv.next560, %.split.us.us.split.us.us.split.us.us ], [ 0, %.preheader493.split.us.split.us ]
-  %138 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv559
+  %138 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv559
   %139 = load ptr, ptr %138, align 8, !tbaa !124
   %.idx657 = mul nuw nsw i64 %indvars.iv559, 1440
   br label %140
 
 140:                                              ; preds = %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us.us.us, %.preheader492.us.us.us
   %indvars.iv556 = phi i64 [ %indvars.iv.next557, %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us.us.us ], [ 0, %.preheader492.us.us.us ]
-  %141 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv556
+  %141 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv556
   %142 = load ptr, ptr %141, align 8, !tbaa !124
   %143 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 20, ptr noundef nonnull @.str.12, ptr noundef %139, ptr noundef %142) #27
   %144 = load ptr, ptr %130, align 8, !tbaa !64
-  %145 = getelementptr inbounds nuw %struct.wallcc_t, ptr %144, i64 %indvars.iv556
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %144, i64 %indvars.iv556
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 %.idx657
   %147 = load i32, ptr %146, align 8, !tbaa !13
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
@@ -1514,18 +1512,18 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us.us.us: ; preds = %158, %14
 
 .preheader492.us.us:                              ; preds = %.preheader493.split.us.split.us, %.split.us.us.split.us.us.split
   %indvars.iv553 = phi i64 [ %indvars.iv.next554, %.split.us.us.split.us.us.split ], [ 0, %.preheader493.split.us.split.us ]
-  %162 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv553
+  %162 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv553
   %163 = load ptr, ptr %162, align 8, !tbaa !124
   %.idx656 = mul nuw nsw i64 %indvars.iv553, 1440
   br label %164
 
 164:                                              ; preds = %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us, %.preheader492.us.us
   %indvars.iv550 = phi i64 [ %indvars.iv.next551, %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us ], [ 0, %.preheader492.us.us ]
-  %165 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv550
+  %165 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv550
   %166 = load ptr, ptr %165, align 8, !tbaa !124
   %167 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 20, ptr noundef nonnull @.str.12, ptr noundef %163, ptr noundef %166) #27
   %168 = load ptr, ptr %130, align 8, !tbaa !64
-  %169 = getelementptr inbounds nuw %struct.wallcc_t, ptr %168, i64 %indvars.iv550
+  %169 = getelementptr inbounds nuw [24 x i8], ptr %168, i64 %indvars.iv550
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx656
   %171 = load i32, ptr %170, align 8, !tbaa !13
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -1574,18 +1572,18 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us: ; preds = %180, %164
 
 .preheader492.us:                                 ; preds = %.preheader493.split.us, %.split.us.us.split
   %indvars.iv547 = phi i64 [ %indvars.iv.next548, %.split.us.us.split ], [ 0, %.preheader493.split.us ]
-  %184 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv547
+  %184 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv547
   %185 = load ptr, ptr %184, align 8, !tbaa !124
   %.idx655 = mul nuw nsw i64 %indvars.iv547, 1440
   br label %186
 
 186:                                              ; preds = %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us, %.preheader492.us
   %indvars.iv544 = phi i64 [ %indvars.iv.next545, %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us ], [ 0, %.preheader492.us ]
-  %187 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv544
+  %187 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv544
   %188 = load ptr, ptr %187, align 8, !tbaa !124
   %189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 20, ptr noundef nonnull @.str.12, ptr noundef %185, ptr noundef %188) #27
   %190 = load ptr, ptr %130, align 8, !tbaa !64
-  %191 = getelementptr inbounds nuw %struct.wallcc_t, ptr %190, i64 %indvars.iv544
+  %191 = getelementptr inbounds nuw [24 x i8], ptr %190, i64 %indvars.iv544
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 %.idx655
   %193 = load i32, ptr %192, align 8, !tbaa !13
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 8
@@ -1652,13 +1650,13 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us:  ; preds = %206, %186
 
 218:                                              ; preds = %214
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %219 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv
+  %219 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv
   %220 = load ptr, ptr %219, align 8, !tbaa !124
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr noundef nonnull @.str.11, ptr noundef %220)
   %221 = load ptr, ptr %24, align 8, !tbaa !68
-  %222 = getelementptr inbounds nuw %struct.wallcc_t, ptr %7, i64 %indvars.iv
+  %222 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %223 = load i32, ptr %222, align 8, !tbaa !13
-  %224 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %225 = load double, ptr %224, align 8, !tbaa !100
   call fastcc void @_ZL12print_cyclesP8_IO_FILEdPKciiidd(ptr noundef %0, double noundef %96, ptr noundef %221, i32 noundef %3, i32 noundef %5, i32 noundef %223, double noundef %225, double noundef %.fr)
   %226 = load ptr, ptr %24, align 8, !tbaa !68
@@ -1676,11 +1674,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %218, 
   br label %252
 
 230:                                              ; preds = %214
-  %231 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv
+  %231 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv
   %232 = load ptr, ptr %231, align 8, !tbaa !124
   %233 = add nsw i64 %indvars.iv, -12
   %or.cond475 = icmp ult i64 %233, 5
-  %234 = getelementptr inbounds nuw %struct.wallcc_t, ptr %7, i64 %indvars.iv
+  %234 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %235 = load i32, ptr %234, align 8, !tbaa !13
   %236 = icmp sgt i32 %235, 0
   %or.cond667 = select i1 %or.cond475, i1 %236, i1 false
@@ -1697,13 +1695,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %218, 
   br i1 %244, label %245, label %._crit_edge
 
 245:                                              ; preds = %237
-  %246 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %239, i64 %233
+  %246 = getelementptr inbounds nuw [32 x i8], ptr %239, i64 %233
   %247 = load ptr, ptr %246, align 8, !tbaa !68
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %230, %237, %245
   %.0296 = phi ptr [ %247, %245 ], [ %232, %230 ], [ %232, %237 ]
-  %248 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %249 = load double, ptr %248, align 8, !tbaa !100
   call fastcc void @_ZL12print_cyclesP8_IO_FILEdPKciiidd(ptr noundef %0, double noundef %93, ptr noundef %.0296, i32 noundef %34, i32 noundef %4, i32 noundef %235, double noundef %249, double noundef %.fr)
   %250 = load double, ptr %248, align 8, !tbaa !100
@@ -1718,7 +1716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %218, 
 
 .preheader492:                                    ; preds = %.preheader493, %.split
   %indvars.iv541 = phi i64 [ %indvars.iv.next542, %.split ], [ 0, %.preheader493 ]
-  %253 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv541
+  %253 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv541
   %254 = load ptr, ptr %253, align 8, !tbaa !124
   %.idx = mul nuw nsw i64 %indvars.iv541, 1440
   br label %255
@@ -1730,11 +1728,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %218, 
 
 255:                                              ; preds = %.preheader492, %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit
   %indvars.iv538 = phi i64 [ 0, %.preheader492 ], [ %indvars.iv.next539, %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit ]
-  %256 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv538
+  %256 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %indvars.iv538
   %257 = load ptr, ptr %256, align 8, !tbaa !124
   %258 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 20, ptr noundef nonnull @.str.12, ptr noundef %254, ptr noundef %257) #27
   %259 = load ptr, ptr %130, align 8, !tbaa !64
-  %260 = getelementptr inbounds nuw %struct.wallcc_t, ptr %259, i64 %indvars.iv538
+  %260 = getelementptr inbounds nuw [24 x i8], ptr %259, i64 %indvars.iv538
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 %.idx
   %262 = load i32, ptr %261, align 8, !tbaa !13
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 8
@@ -1874,7 +1872,7 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit340:     ; preds = %_ZL12print_cyclesP8
   br i1 %320, label %321, label %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit
 
 321:                                              ; preds = %317
-  %322 = getelementptr inbounds nuw %struct.wallcc_t, ptr %7, i64 %indvars.iv562
+  %322 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv562
   %323 = load i32, ptr %322, align 8, !tbaa !13
   %324 = icmp sgt i32 %323, 0
   br i1 %324, label %325, label %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit
@@ -1937,7 +1935,7 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   br label %_ZNSt6vectorI16WallCycleCounterSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorI16WallCycleCounterSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %347, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  %348 = getelementptr inbounds nuw i32, ptr %341, i64 %339
+  %348 = getelementptr inbounds nuw [4 x i8], ptr %341, i64 %339
   br label %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit
 
 .loopexit491:                                     ; preds = %_ZNKSt6vectorI16WallCycleCounterSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1977,11 +1975,11 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit: ; preds = %326, %_Z
   %.sroa.0427.0514 = phi ptr [ %.sroa.0436.1, %350 ], [ %365, %356 ]
   %357 = load i32, ptr %.sroa.0427.0514, align 4, !tbaa !126
   %358 = sext i32 %357 to i64
-  %359 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %358
+  %359 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 %358
   %360 = load ptr, ptr %359, align 8, !tbaa !124
-  %361 = getelementptr inbounds nuw %struct.wallcc_t, ptr %7, i64 %358
+  %361 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %358
   %362 = load i32, ptr %361, align 8, !tbaa !13
-  %363 = getelementptr inbounds nuw double, ptr %8, i64 %358
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %358
   %364 = load double, ptr %363, align 8, !tbaa !100
   call fastcc void @_ZL12print_cyclesP8_IO_FILEdPKciiidd(ptr noundef %0, double noundef %97, ptr noundef %360, i32 noundef %353, i32 noundef %5, i32 noundef %362, double noundef %364, double noundef %.fr)
   %365 = getelementptr inbounds nuw i8, ptr %.sroa.0427.0514, i64 4
@@ -2017,7 +2015,7 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %367, %366, %311
 .preheader489:                                    ; preds = %374, %.preheader489
   %indvars.iv565 = phi i64 [ %indvars.iv.next566, %.preheader489 ], [ 0, %374 ]
   %.1299516 = phi double [ %377, %.preheader489 ], [ 0.000000e+00, %374 ]
-  %375 = getelementptr inbounds nuw %struct.gmx_kernel_timing_data_t, ptr %10, i64 %indvars.iv565
+  %375 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv565
   %376 = load double, ptr %375, align 8, !tbaa !128
   %377 = fadd double %.1299516, %376
   %indvars.iv.next566 = add nuw nsw i64 %indvars.iv565, 1
@@ -2045,7 +2043,7 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %367, %366, %311
   %388 = phi i1 [ true, %378 ], [ false, %400 ]
   %indvars.iv571 = phi i64 [ 0, %378 ], [ 1, %400 ]
   %.2300519 = phi double [ %387, %378 ], [ %405, %400 ]
-  %389 = getelementptr inbounds nuw [2 x %struct.gmx_kernel_timing_data_t], ptr %9, i64 %indvars.iv571
+  %389 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv571
   br label %401
 
 390:                                              ; preds = %400
@@ -2067,7 +2065,7 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %367, %366, %311
   %402 = phi i1 [ true, %.preheader488 ], [ false, %401 ]
   %indvars.iv568 = phi i64 [ 0, %.preheader488 ], [ 1, %401 ]
   %.3301517 = phi double [ %.2300519, %.preheader488 ], [ %405, %401 ]
-  %403 = getelementptr inbounds nuw %struct.gmx_kernel_timing_data_t, ptr %389, i64 %indvars.iv568
+  %403 = getelementptr inbounds nuw [16 x i8], ptr %389, i64 %indvars.iv568
   %404 = load double, ptr %403, align 8, !tbaa !128
   %405 = fadd double %.3301517, %404
   br i1 %402, label %401, label %400, !llvm.loop !136
@@ -2097,8 +2095,8 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %367, %366, %311
 .preheader487:                                    ; preds = %411, %428
   %421 = phi i1 [ true, %411 ], [ false, %428 ]
   %indvars.iv577 = phi i64 [ 0, %411 ], [ 1, %428 ]
-  %422 = getelementptr inbounds nuw [2 x %struct.gmx_kernel_timing_data_t], ptr %9, i64 %indvars.iv577
-  %423 = getelementptr inbounds nuw [2 x ptr], ptr @__const._Z15wallcycle_printP8_IO_FILERKN3gmx8MDLoggerEiiiidP13gmx_wallcycleRKSt5arrayIdLm106EEPK25gmx_wallclock_gpu_nbnxn_tPK23gmx_wallclock_gpu_pme_t.k_log_str, i64 %indvars.iv577
+  %422 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv577
+  %423 = getelementptr inbounds nuw [16 x i8], ptr @__const._Z15wallcycle_printP8_IO_FILERKN3gmx8MDLoggerEiiiidP13gmx_wallcycleRKSt5arrayIdLm106EEPK25gmx_wallclock_gpu_nbnxn_tPK23gmx_wallclock_gpu_pme_t.k_log_str, i64 %indvars.iv577
   br label %429
 
 424:                                              ; preds = %428
@@ -2113,14 +2111,14 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %367, %366, %311
 429:                                              ; preds = %.preheader487, %438
   %430 = phi i1 [ true, %.preheader487 ], [ false, %438 ]
   %indvars.iv574 = phi i64 [ 0, %.preheader487 ], [ 1, %438 ]
-  %431 = getelementptr inbounds nuw %struct.gmx_kernel_timing_data_t, ptr %422, i64 %indvars.iv574
+  %431 = getelementptr inbounds nuw [16 x i8], ptr %422, i64 %indvars.iv574
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 8
   %433 = load i32, ptr %432, align 8, !tbaa !140
   %.not321 = icmp eq i32 %433, 0
   br i1 %.not321, label %438, label %434
 
 434:                                              ; preds = %429
-  %435 = getelementptr inbounds nuw ptr, ptr %423, i64 %indvars.iv574
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %423, i64 %indvars.iv574
   %436 = load ptr, ptr %435, align 8, !tbaa !124
   %437 = load double, ptr %431, align 8, !tbaa !128
   call fastcc void @_ZL14print_gputimesP8_IO_FILEPKcidd(ptr noundef %0, ptr noundef %436, i32 noundef %433, double noundef %437, double noundef %393)
@@ -2131,14 +2129,14 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %367, %366, %311
 
 .preheader:                                       ; preds = %424, %446
   %indvars.iv580 = phi i64 [ %indvars.iv.next581, %446 ], [ 0, %424 ]
-  %439 = getelementptr inbounds nuw %struct.gmx_kernel_timing_data_t, ptr %10, i64 %indvars.iv580
+  %439 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv580
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 8
   %441 = load i32, ptr %440, align 8, !tbaa !140
   %.not320 = icmp eq i32 %441, 0
   br i1 %.not320, label %446, label %442
 
 442:                                              ; preds = %.preheader
-  %443 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValuetoString8PmeStage.pmeStageNames, i64 %indvars.iv580
+  %443 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValuetoString8PmeStage.pmeStageNames, i64 %indvars.iv580
   %444 = load ptr, ptr %443, align 8, !tbaa !124
   %445 = load double, ptr %439, align 8, !tbaa !128
   call fastcc void @_ZL14print_gputimesP8_IO_FILEPKcidd(ptr noundef %0, ptr noundef %444, i32 noundef %441, double noundef %445, double noundef %393)

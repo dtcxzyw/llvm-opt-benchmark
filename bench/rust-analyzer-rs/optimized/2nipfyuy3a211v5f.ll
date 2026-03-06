@@ -30,7 +30,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   %.val5.i = load ptr, ptr %.promoted.i, align 8, !noalias !18, !nonnull !19, !align !20, !noundef !19
   %5 = getelementptr i8, ptr %.promoted.i, i64 8
   %.val6.i = load i64, ptr %5, align 8, !noalias !18, !noundef !19
-  %6 = getelementptr inbounds { i32, i32 }, ptr %.val5.i, i64 %.val6.i
+  %6 = getelementptr inbounds [8 x i8], ptr %.val5.i, i64 %.val6.i
   store ptr %.val5.i, ptr %2, align 8, !alias.scope !21, !noalias !18
   store ptr %6, ptr %4, align 8, !alias.scope !21, !noalias !18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
@@ -166,7 +166,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.val5 = load ptr, ptr %.promoted, align 8, !nonnull !19, !align !20, !noundef !19
   %5 = getelementptr i8, ptr %.promoted, i64 8
   %.val6 = load i64, ptr %5, align 8, !noundef !19
-  %6 = getelementptr inbounds { i32, i32 }, ptr %.val5, i64 %.val6
+  %6 = getelementptr inbounds [8 x i8], ptr %.val5, i64 %.val6
   store ptr %.val5, ptr %.val4, align 8, !alias.scope !58
   store ptr %6, ptr %4, align 8, !alias.scope !58
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)

@@ -644,7 +644,7 @@ entry:
   %0 = load i64, ptr %mnPtrArraySize.i.i, align 8
   %sub.i.i.i = add i64 %0, -1
   %div79.i.i.i = lshr i64 %sub.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i.i, i64 %div79.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i.i.i, i64 %div79.i.i.i
   %call.i.i.i10.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 256, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i10.i.i.i, ptr %add.ptr.i.i.i, align 8
   %mItEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -721,7 +721,7 @@ entry:
   %7 = load i64, ptr %mnPtrArraySize.i, align 8
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i.i, i64 %div79.i.i
   %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
   %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
@@ -755,7 +755,7 @@ _ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit: ; preds = %while.body.i
   %mpEnd.i14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i13.i.i, ptr %mpEnd.i14.i.i, align 8
   %rem.i.i = and i64 %add11.i.i, 63
-  %add.ptr15.i.i = getelementptr inbounds nuw i32, ptr %9, i64 %rem.i.i
+  %add.ptr15.i.i = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %rem.i.i
   store ptr %add.ptr15.i.i, ptr %mItEnd.i7, align 8
   %10 = load ptr, ptr %mItBegin.i, align 8
   %11 = load ptr, ptr %mItEnd.i, align 8
@@ -824,7 +824,7 @@ entry:
   %0 = load i64, ptr %mnPtrArraySize.i.i, align 8
   %sub.i.i.i = add i64 %0, -1
   %div79.i.i.i = lshr i64 %sub.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i.i, i64 %div79.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i.i.i, i64 %div79.i.i.i
   %call.i.i.i10.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 256, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i10.i.i.i, ptr %add.ptr.i.i.i, align 8
   %mItEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -897,7 +897,7 @@ entry:
   %0 = load i64, ptr %mnPtrArraySize.i.i, align 8
   %sub.i.i.i = add i64 %0, -1
   %div79.i.i.i = lshr i64 %sub.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i.i, i64 %div79.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i.i.i, i64 %div79.i.i.i
   %call.i.i.i10.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 256, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i10.i.i.i, ptr %add.ptr.i.i.i, align 8
   %mItEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1412,7 +1412,7 @@ entry:
   %0 = load i64, ptr %mnPtrArraySize.i.i, align 8
   %sub.i.i.i = add i64 %0, -1
   %div79.i.i.i = lshr i64 %sub.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
   %call.i6.i.i10.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 256, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i6.i.i10.i.i.i, ptr %add.ptr.i.i.i, align 8
   %mItEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1489,7 +1489,7 @@ entry:
   %7 = load i64, ptr %mnPtrArraySize.i, align 8
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i6.i.i.i.i, i64 %div79.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i6.i.i.i.i, i64 %div79.i.i
   %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
   %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
@@ -1523,7 +1523,7 @@ _ZN5eastl9DequeBaseI7Align64NS_9allocatorELj4EEC2EmRKS2_.exit: ; preds = %while.
   %mpEnd.i14.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i13.i.i, ptr %mpEnd.i14.i.i, align 8
   %rem.i.i = and i64 %add11.i.i, 3
-  %add.ptr15.i.i = getelementptr inbounds nuw %struct.Align64, ptr %9, i64 %rem.i.i
+  %add.ptr15.i.i = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %rem.i.i
   store ptr %add.ptr15.i.i, ptr %mItEnd.i7, align 8
   %10 = load ptr, ptr %mItBegin.i, align 8
   %11 = load ptr, ptr %mItEnd.i, align 8
@@ -1591,7 +1591,7 @@ entry:
   %0 = load i64, ptr %mnPtrArraySize.i.i, align 8
   %sub.i.i.i = add i64 %0, -1
   %div79.i.i.i = lshr i64 %sub.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
   %call.i6.i.i10.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 256, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i6.i.i10.i.i.i, ptr %add.ptr.i.i.i, align 8
   %mItEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1665,7 +1665,7 @@ entry:
   %0 = load i64, ptr %mnPtrArraySize.i.i, align 8
   %sub.i.i.i = add i64 %0, -1
   %div79.i.i.i = lshr i64 %sub.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
   %call.i6.i.i10.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 256, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i6.i.i10.i.i.i, ptr %add.ptr.i.i.i, align 8
   %mItEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2718,7 +2718,7 @@ if.then.i:                                        ; preds = %entry
 do.body.i:                                        ; preds = %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i, %if.then.i
   %parentPosition.0.i = phi i64 [ %add.i, %if.then.i ], [ %dec.i, %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i ]
   %dec.i = add nsw i64 %parentPosition.0.i, -1
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %5, i64 %dec.i
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %dec.i
   %7 = load i32, ptr %add.ptr.i, align 4
   %childPosition.0.in20.i.i.i = shl nuw nsw i64 %dec.i, 1
   %childPosition.021.i.i.i = add nuw nsw i64 %childPosition.0.in20.i.i.i, 2
@@ -2729,17 +2729,17 @@ for.body.i.i.i:                                   ; preds = %do.body.i, %for.bod
   %childPosition.025.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ %childPosition.021.i.i.i, %do.body.i ]
   %childPosition.0.in24.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ %childPosition.0.in20.i.i.i, %do.body.i ]
   %position.addr.023.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ %dec.i, %do.body.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %5, i64 %childPosition.025.i.i.i
-  %8 = getelementptr i32, ptr %5, i64 %childPosition.0.in24.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %childPosition.025.i.i.i
+  %8 = getelementptr [4 x i8], ptr %5, i64 %childPosition.0.in24.i.i.i
   %add.ptr1.i.i.i = getelementptr i8, ptr %8, i64 4
   %9 = load i32, ptr %add.ptr.i.i.i, align 4
   %10 = load i32, ptr %add.ptr1.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i32 %9, %10
   %dec.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, i64 %dec.i.i.i, i64 %childPosition.025.i.i.i
-  %add.ptr2.i.i.i = getelementptr inbounds i32, ptr %5, i64 %spec.select.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %spec.select.i.i.i
   %11 = load i32, ptr %add.ptr2.i.i.i, align 4
-  %add.ptr4.i.i.i = getelementptr inbounds i32, ptr %5, i64 %position.addr.023.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %position.addr.023.i.i.i
   store i32 %11, ptr %add.ptr4.i.i.i, align 4
   %childPosition.0.in.i.i.i = shl nsw i64 %spec.select.i.i.i, 1
   %childPosition.0.i.i.i = add nsw i64 %childPosition.0.in.i.i.i, 2
@@ -2755,9 +2755,9 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %do
 
 if.then8.i.i.i:                                   ; preds = %for.end.i.i.i
   %sub9.i.i.i = or disjoint i64 %childPosition.0.in.lcssa.i.i.i, 1
-  %add.ptr10.i.i.i = getelementptr inbounds i32, ptr %5, i64 %sub9.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %sub9.i.i.i
   %12 = load i32, ptr %add.ptr10.i.i.i, align 4
-  %add.ptr12.i.i.i = getelementptr inbounds i32, ptr %5, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr12.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %position.addr.0.lcssa.i.i.i
   store i32 %12, ptr %add.ptr12.i.i.i, align 4
   br label %if.end14.i.i.i
 
@@ -2770,20 +2770,20 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end14.i.i.i, %fo
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end14.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %parentPosition.015.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %parentPosition.015.i.i.i.i.i
   %13 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp slt i32 %13, %7
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %position.addr.014.i.i.i.i.i
   store i32 %13, ptr %add.ptr3.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i = icmp slt i64 %parentPosition.015.i.i.i.i.i, %parentPosition.0.i
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !44
 
 _ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i: ; preds = %for.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end14.i.i.i
   %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i, %if.end14.i.i.i ], [ %position.addr.014.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i = getelementptr inbounds i32, ptr %5, i64 %position.addr.0.lcssa.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %position.addr.0.lcssa.i.i.i.i.i
   store i32 %7, ptr %add.ptr7.i.i.i.i.i, align 4
   %cmp2.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp2.not.i, label %invoke.cont, label %do.body.i, !llvm.loop !45
@@ -2850,7 +2850,7 @@ if.then.i:                                        ; preds = %_ZN5eastl6vectorIiN
 do.body.i:                                        ; preds = %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i, %if.then.i
   %parentPosition.0.i = phi i64 [ %add.i, %if.then.i ], [ %dec.i, %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i ]
   %dec.i = add nsw i64 %parentPosition.0.i, -1
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %4, i64 %dec.i
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %dec.i
   %5 = load i32, ptr %add.ptr.i, align 4
   %childPosition.0.in20.i.i.i = shl nuw nsw i64 %dec.i, 1
   %childPosition.021.i.i.i = add nuw nsw i64 %childPosition.0.in20.i.i.i, 2
@@ -2861,17 +2861,17 @@ for.body.i.i.i:                                   ; preds = %do.body.i, %for.bod
   %childPosition.025.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ %childPosition.021.i.i.i, %do.body.i ]
   %childPosition.0.in24.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ %childPosition.0.in20.i.i.i, %do.body.i ]
   %position.addr.023.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ %dec.i, %do.body.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %4, i64 %childPosition.025.i.i.i
-  %6 = getelementptr i32, ptr %4, i64 %childPosition.0.in24.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %childPosition.025.i.i.i
+  %6 = getelementptr [4 x i8], ptr %4, i64 %childPosition.0.in24.i.i.i
   %add.ptr1.i.i.i = getelementptr i8, ptr %6, i64 4
   %7 = load i32, ptr %add.ptr.i.i.i, align 4
   %8 = load i32, ptr %add.ptr1.i.i.i, align 4
   %cmp.i.i.i.i1 = icmp slt i32 %7, %8
   %dec.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i1, i64 %dec.i.i.i, i64 %childPosition.025.i.i.i
-  %add.ptr2.i.i.i = getelementptr inbounds i32, ptr %4, i64 %spec.select.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %spec.select.i.i.i
   %9 = load i32, ptr %add.ptr2.i.i.i, align 4
-  %add.ptr4.i.i.i = getelementptr inbounds i32, ptr %4, i64 %position.addr.023.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %position.addr.023.i.i.i
   store i32 %9, ptr %add.ptr4.i.i.i, align 4
   %childPosition.0.in.i.i.i = shl nsw i64 %spec.select.i.i.i, 1
   %childPosition.0.i.i.i = add nsw i64 %childPosition.0.in.i.i.i, 2
@@ -2887,9 +2887,9 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %do
 
 if.then8.i.i.i:                                   ; preds = %for.end.i.i.i
   %sub9.i.i.i = or disjoint i64 %childPosition.0.in.lcssa.i.i.i, 1
-  %add.ptr10.i.i.i = getelementptr inbounds i32, ptr %4, i64 %sub9.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %sub9.i.i.i
   %10 = load i32, ptr %add.ptr10.i.i.i, align 4
-  %add.ptr12.i.i.i = getelementptr inbounds i32, ptr %4, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr12.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %position.addr.0.lcssa.i.i.i
   store i32 %10, ptr %add.ptr12.i.i.i, align 4
   br label %if.end14.i.i.i
 
@@ -2902,20 +2902,20 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end14.i.i.i, %fo
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end14.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %parentPosition.015.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %parentPosition.015.i.i.i.i.i
   %11 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp slt i32 %11, %5
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %position.addr.014.i.i.i.i.i
   store i32 %11, ptr %add.ptr3.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i = icmp slt i64 %parentPosition.015.i.i.i.i.i, %parentPosition.0.i
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !44
 
 _ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i: ; preds = %for.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end14.i.i.i
   %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i, %if.end14.i.i.i ], [ %position.addr.014.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i = getelementptr inbounds i32, ptr %4, i64 %position.addr.0.lcssa.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %position.addr.0.lcssa.i.i.i.i.i
   store i32 %5, ptr %add.ptr7.i.i.i.i.i, align 4
   %cmp2.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp2.not.i, label %invoke.cont, label %do.body.i, !llvm.loop !45
@@ -2928,7 +2928,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl11adjust_h
 define weak_odr dso_local void @_ZN5eastl14priority_queueIiNS_6vectorIiNS_9allocatorEEENS_4lessIiEEEC2ESt16initializer_listIiERKS5_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %compare) unnamed_addr #0 comdat($_ZN5eastl14priority_queueIiNS_6vectorIiNS_9allocatorEEENS_4lessIiEEEC5ESt16initializer_listIiERKS5_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   invoke void @_ZN5eastl6vectorIiNS_9allocatorEE20DoInsertFromIteratorIPKiEEvS5_T_S6_NS_26bidirectional_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef null, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2952,7 +2952,7 @@ if.then.i:                                        ; preds = %invoke.cont
 do.body.i:                                        ; preds = %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i, %if.then.i
   %parentPosition.0.i = phi i64 [ %add.i, %if.then.i ], [ %dec.i, %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i ]
   %dec.i = add nsw i64 %parentPosition.0.i, -1
-  %add.ptr.i6 = getelementptr inbounds nuw i32, ptr %0, i64 %dec.i
+  %add.ptr.i6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %dec.i
   %2 = load i32, ptr %add.ptr.i6, align 4
   %childPosition.0.in20.i.i.i = shl nuw nsw i64 %dec.i, 1
   %childPosition.021.i.i.i = add nuw nsw i64 %childPosition.0.in20.i.i.i, 2
@@ -2963,17 +2963,17 @@ for.body.i.i.i:                                   ; preds = %do.body.i, %for.bod
   %childPosition.025.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ %childPosition.021.i.i.i, %do.body.i ]
   %childPosition.0.in24.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ %childPosition.0.in20.i.i.i, %do.body.i ]
   %position.addr.023.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ %dec.i, %do.body.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %0, i64 %childPosition.025.i.i.i
-  %3 = getelementptr i32, ptr %0, i64 %childPosition.0.in24.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %childPosition.025.i.i.i
+  %3 = getelementptr [4 x i8], ptr %0, i64 %childPosition.0.in24.i.i.i
   %add.ptr1.i.i.i = getelementptr i8, ptr %3, i64 4
   %4 = load i32, ptr %add.ptr.i.i.i, align 4
   %5 = load i32, ptr %add.ptr1.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i32 %4, %5
   %dec.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, i64 %dec.i.i.i, i64 %childPosition.025.i.i.i
-  %add.ptr2.i.i.i = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i
   %6 = load i32, ptr %add.ptr2.i.i.i, align 4
-  %add.ptr4.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.023.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.023.i.i.i
   store i32 %6, ptr %add.ptr4.i.i.i, align 4
   %childPosition.0.in.i.i.i = shl nsw i64 %spec.select.i.i.i, 1
   %childPosition.0.i.i.i = add nsw i64 %childPosition.0.in.i.i.i, 2
@@ -2989,9 +2989,9 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %do
 
 if.then8.i.i.i:                                   ; preds = %for.end.i.i.i
   %sub9.i.i.i = or disjoint i64 %childPosition.0.in.lcssa.i.i.i, 1
-  %add.ptr10.i.i.i = getelementptr inbounds i32, ptr %0, i64 %sub9.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %sub9.i.i.i
   %7 = load i32, ptr %add.ptr10.i.i.i, align 4
-  %add.ptr12.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr12.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i
   store i32 %7, ptr %add.ptr12.i.i.i, align 4
   br label %if.end14.i.i.i
 
@@ -3004,20 +3004,20 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end14.i.i.i, %fo
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end14.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %parentPosition.015.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %parentPosition.015.i.i.i.i.i
   %8 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp slt i32 %8, %2
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %position.addr.014.i.i.i.i.i
   store i32 %8, ptr %add.ptr3.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i = icmp slt i64 %parentPosition.015.i.i.i.i.i, %parentPosition.0.i
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !44
 
 _ZN5eastl11adjust_heapIPiliNS_4lessIiEEEEvT_T0_S5_S5_OT1_T2_.exit.i: ; preds = %for.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end14.i.i.i
   %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i, %if.end14.i.i.i ], [ %position.addr.014.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
   store i32 %2, ptr %add.ptr7.i.i.i.i.i, align 4
   %cmp2.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp2.not.i, label %invoke.cont12, label %do.body.i, !llvm.loop !45
@@ -3138,7 +3138,7 @@ _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i: ; pred
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
   store ptr %retval.0.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i.i, align 8
   br label %_ZN5eastl6vectorIiNS_9allocatorEE9push_backERKi.exit
 
@@ -3159,20 +3159,20 @@ land.rhs.i.i.i:                                   ; preds = %_ZN5eastl6vectorIiN
   %position.addr.014.i.i.i = phi i64 [ %parentPosition.015.i.i.i, %for.body.i.i.i ], [ %sub.i, %_ZN5eastl6vectorIiNS_9allocatorEE9push_backERKi.exit ]
   %parentPosition.015.in.i.i.i = add nsw i64 %position.addr.014.i.i.i, -1
   %parentPosition.015.i.i.i = lshr i64 %parentPosition.015.in.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %11, i64 %parentPosition.015.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %parentPosition.015.i.i.i
   %13 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i32 %13, %12
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i, label %_ZN5eastl9push_heapIPiNS_4lessIiEEEEvT_S4_T0_.exit
 
 for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds i32, ptr %11, i64 %position.addr.014.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds [4 x i8], ptr %11, i64 %position.addr.014.i.i.i
   store i32 %13, ptr %add.ptr3.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i64 %parentPosition.015.i.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZN5eastl9push_heapIPiNS_4lessIiEEEEvT_S4_T0_.exit, label %land.rhs.i.i.i, !llvm.loop !46
 
 _ZN5eastl9push_heapIPiNS_4lessIiEEEEvT_S4_T0_.exit: ; preds = %land.rhs.i.i.i, %for.body.i.i.i, %_ZN5eastl6vectorIiNS_9allocatorEE9push_backERKi.exit
   %position.addr.0.lcssa.i.i.i = phi i64 [ %sub.i, %_ZN5eastl6vectorIiNS_9allocatorEE9push_backERKi.exit ], [ %position.addr.014.i.i.i, %land.rhs.i.i.i ], [ 0, %for.body.i.i.i ]
-  %add.ptr7.i.i.i = getelementptr inbounds i32, ptr %11, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr7.i.i.i = getelementptr inbounds [4 x i8], ptr %11, i64 %position.addr.0.lcssa.i.i.i
   store i32 %12, ptr %add.ptr7.i.i.i, align 4
   ret void
 }
@@ -3245,7 +3245,7 @@ _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i: ; preds 
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
   store ptr %retval.0.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i.i, align 8
   br label %_ZN5eastl6vectorIiNS_9allocatorEE9push_backEOi.exit
 
@@ -3266,20 +3266,20 @@ land.rhs.i.i.i:                                   ; preds = %_ZN5eastl6vectorIiN
   %position.addr.014.i.i.i = phi i64 [ %parentPosition.015.i.i.i, %for.body.i.i.i ], [ %sub.i, %_ZN5eastl6vectorIiNS_9allocatorEE9push_backEOi.exit ]
   %parentPosition.015.in.i.i.i = add nsw i64 %position.addr.014.i.i.i, -1
   %parentPosition.015.i.i.i = lshr i64 %parentPosition.015.in.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %11, i64 %parentPosition.015.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %parentPosition.015.i.i.i
   %13 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i32 %13, %12
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i, label %_ZN5eastl9push_heapIPiNS_4lessIiEEEEvT_S4_T0_.exit
 
 for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds i32, ptr %11, i64 %position.addr.014.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds [4 x i8], ptr %11, i64 %position.addr.014.i.i.i
   store i32 %13, ptr %add.ptr3.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i64 %parentPosition.015.i.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZN5eastl9push_heapIPiNS_4lessIiEEEEvT_S4_T0_.exit, label %land.rhs.i.i.i, !llvm.loop !46
 
 _ZN5eastl9push_heapIPiNS_4lessIiEEEEvT_S4_T0_.exit: ; preds = %land.rhs.i.i.i, %for.body.i.i.i, %_ZN5eastl6vectorIiNS_9allocatorEE9push_backEOi.exit
   %position.addr.0.lcssa.i.i.i = phi i64 [ %sub.i, %_ZN5eastl6vectorIiNS_9allocatorEE9push_backEOi.exit ], [ %position.addr.014.i.i.i, %land.rhs.i.i.i ], [ 0, %for.body.i.i.i ]
-  %add.ptr7.i.i.i = getelementptr inbounds i32, ptr %11, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr7.i.i.i = getelementptr inbounds [4 x i8], ptr %11, i64 %position.addr.0.lcssa.i.i.i
   store i32 %12, ptr %add.ptr7.i.i.i, align 4
   ret void
 }
@@ -3306,17 +3306,17 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   %childPosition.025.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ 2, %entry ]
   %childPosition.0.in24.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ 0, %entry ]
   %position.addr.023.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ 0, %entry ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %0, i64 %childPosition.025.i.i.i
-  %4 = getelementptr i32, ptr %0, i64 %childPosition.0.in24.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %childPosition.025.i.i.i
+  %4 = getelementptr [4 x i8], ptr %0, i64 %childPosition.0.in24.i.i.i
   %add.ptr1.i.i.i = getelementptr i8, ptr %4, i64 4
   %5 = load i32, ptr %add.ptr.i.i.i, align 4
   %6 = load i32, ptr %add.ptr1.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i32 %5, %6
   %dec.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, i64 %dec.i.i.i, i64 %childPosition.025.i.i.i
-  %add.ptr2.i.i.i = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i
   %7 = load i32, ptr %add.ptr2.i.i.i, align 4
-  %add.ptr4.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.023.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.023.i.i.i
   store i32 %7, ptr %add.ptr4.i.i.i, align 4
   %childPosition.0.in.i.i.i = shl nsw i64 %spec.select.i.i.i, 1
   %childPosition.0.i.i.i = add nsw i64 %childPosition.0.in.i.i.i, 2
@@ -3335,9 +3335,9 @@ for.end.i.i.i.thread:                             ; preds = %entry
 if.end14.i.i.thread.i:                            ; preds = %for.end.i.i.i.thread, %for.end.i.i.i
   %childPosition.0.in.lcssa.i.i.i8 = phi i64 [ 1, %for.end.i.i.i.thread ], [ %8, %for.end.i.i.i ]
   %position.addr.0.lcssa.i.i.i7 = phi i64 [ 0, %for.end.i.i.i.thread ], [ %spec.select.i.i.i, %for.end.i.i.i ]
-  %add.ptr10.i.i.i = getelementptr inbounds i32, ptr %0, i64 %childPosition.0.in.lcssa.i.i.i8
+  %add.ptr10.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %childPosition.0.in.lcssa.i.i.i8
   %9 = load i32, ptr %add.ptr10.i.i.i, align 4
-  %add.ptr12.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.0.lcssa.i.i.i7
+  %add.ptr12.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i7
   store i32 %9, ptr %add.ptr12.i.i.i, align 4
   br label %land.rhs.i.i.i.i.i.preheader
 
@@ -3349,20 +3349,20 @@ land.rhs.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i.
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.014.i.i.i.i.i.ph, %land.rhs.i.i.i.i.i.preheader ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %parentPosition.015.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %parentPosition.015.i.i.i.i.i
   %10 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp slt i32 %10, %2
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl8pop_heapIPiNS_4lessIiEEEEvT_S4_T0_.exit
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %position.addr.014.i.i.i.i.i
   store i32 %10, ptr %add.ptr3.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i = icmp eq i64 %parentPosition.015.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl8pop_heapIPiNS_4lessIiEEEEvT_S4_T0_.exit, label %land.rhs.i.i.i.i.i, !llvm.loop !44
 
 _ZN5eastl8pop_heapIPiNS_4lessIiEEEEvT_S4_T0_.exit: ; preds = %land.rhs.i.i.i.i.i, %for.body.i.i.i.i.i, %for.end.i.i.i.thread
   %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ 0, %for.end.i.i.i.thread ], [ %position.addr.014.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
   store i32 %2, ptr %add.ptr7.i.i.i.i.i, align 4
   %11 = load ptr, ptr %mpEnd.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 -4
@@ -3395,17 +3395,17 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %childPosition.025.i.i.i.i = phi i64 [ %childPosition.0.i.i.i.i, %for.body.i.i.i.i ], [ 2, %entry ]
   %childPosition.0.in24.i.i.i.i = phi i64 [ %childPosition.0.in.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
   %position.addr.023.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %childPosition.025.i.i.i.i
-  %6 = getelementptr i32, ptr %2, i64 %childPosition.0.in24.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %childPosition.025.i.i.i.i
+  %6 = getelementptr [4 x i8], ptr %2, i64 %childPosition.0.in24.i.i.i.i
   %add.ptr1.i.i.i.i = getelementptr i8, ptr %6, i64 4
   %7 = load i32, ptr %add.ptr.i.i.i.i, align 4
   %8 = load i32, ptr %add.ptr1.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp slt i32 %7, %8
   %dec.i.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i.i, 1
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %dec.i.i.i.i, i64 %childPosition.025.i.i.i.i
-  %add.ptr2.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %spec.select.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %spec.select.i.i.i.i
   %9 = load i32, ptr %add.ptr2.i.i.i.i, align 4
-  %add.ptr4.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %position.addr.023.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %position.addr.023.i.i.i.i
   store i32 %9, ptr %add.ptr4.i.i.i.i, align 4
   %childPosition.0.in.i.i.i.i = shl nsw i64 %spec.select.i.i.i.i, 1
   %childPosition.0.i.i.i.i = add nsw i64 %childPosition.0.in.i.i.i.i, 2
@@ -3424,9 +3424,9 @@ for.end.i.i.i.thread.i:                           ; preds = %entry
 if.end14.i.i.thread.i.i:                          ; preds = %for.end.i.i.i.thread.i, %for.end.i.i.i.i
   %childPosition.0.in.lcssa.i.i.i8.i = phi i64 [ 1, %for.end.i.i.i.thread.i ], [ %10, %for.end.i.i.i.i ]
   %position.addr.0.lcssa.i.i.i7.i = phi i64 [ 0, %for.end.i.i.i.thread.i ], [ %spec.select.i.i.i.i, %for.end.i.i.i.i ]
-  %add.ptr10.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %childPosition.0.in.lcssa.i.i.i8.i
+  %add.ptr10.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %childPosition.0.in.lcssa.i.i.i8.i
   %11 = load i32, ptr %add.ptr10.i.i.i.i, align 4
-  %add.ptr12.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %position.addr.0.lcssa.i.i.i7.i
+  %add.ptr12.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %position.addr.0.lcssa.i.i.i7.i
   store i32 %11, ptr %add.ptr12.i.i.i.i, align 4
   br label %land.rhs.i.i.i.i.i.i.preheader
 
@@ -3438,20 +3438,20 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i.
   %position.addr.014.i.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %position.addr.014.i.i.i.i.i.i.ph, %land.rhs.i.i.i.i.i.i.preheader ]
   %parentPosition.015.in.i.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %parentPosition.015.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %parentPosition.015.i.i.i.i.i.i
   %12 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i = icmp slt i32 %12, %4
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN5eastl14priority_queueIiNS_6vectorIiNS_9allocatorEEENS_4lessIiEEE3popEv.exit
 
 for.body.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %position.addr.014.i.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %position.addr.014.i.i.i.i.i.i
   store i32 %12, ptr %add.ptr3.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i.i = icmp eq i64 %parentPosition.015.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.not.i.i, label %_ZN5eastl14priority_queueIiNS_6vectorIiNS_9allocatorEEENS_4lessIiEEE3popEv.exit, label %land.rhs.i.i.i.i.i.i, !llvm.loop !44
 
 _ZN5eastl14priority_queueIiNS_6vectorIiNS_9allocatorEEENS_4lessIiEEE3popEv.exit: ; preds = %land.rhs.i.i.i.i.i.i, %for.body.i.i.i.i.i.i, %for.end.i.i.i.thread.i
   %position.addr.0.lcssa.i.i.i.i.i.i = phi i64 [ 0, %for.end.i.i.i.thread.i ], [ 0, %for.body.i.i.i.i.i.i ], [ %position.addr.014.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %position.addr.0.lcssa.i.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %position.addr.0.lcssa.i.i.i.i.i.i
   store i32 %4, ptr %add.ptr7.i.i.i.i.i.i, align 4
   %13 = load ptr, ptr %mpEnd.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 -4
@@ -3472,7 +3472,7 @@ entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -4
   %2 = load i32, ptr %add.ptr1.i.i, align 4
-  %add.ptr2.i.i = getelementptr inbounds i32, ptr %0, i64 %n
+  %add.ptr2.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %n
   %3 = load i32, ptr %add.ptr2.i.i, align 4
   store i32 %3, ptr %add.ptr1.i.i, align 4
   %sub.i.i = add nsw i64 %sub.ptr.div.i, -1
@@ -3485,17 +3485,17 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %childPosition.025.i.i.i.i = phi i64 [ %childPosition.0.i.i.i.i, %for.body.i.i.i.i ], [ %childPosition.021.i.i.i.i, %entry ]
   %childPosition.0.in24.i.i.i.i = phi i64 [ %childPosition.0.in.i.i.i.i, %for.body.i.i.i.i ], [ %childPosition.0.in20.i.i.i.i, %entry ]
   %position.addr.023.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %for.body.i.i.i.i ], [ %n, %entry ]
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %childPosition.025.i.i.i.i
-  %4 = getelementptr i32, ptr %0, i64 %childPosition.0.in24.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %childPosition.025.i.i.i.i
+  %4 = getelementptr [4 x i8], ptr %0, i64 %childPosition.0.in24.i.i.i.i
   %add.ptr1.i.i.i.i = getelementptr i8, ptr %4, i64 4
   %5 = load i32, ptr %add.ptr.i.i.i.i, align 4
   %6 = load i32, ptr %add.ptr1.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp slt i32 %5, %6
   %dec.i.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i.i, 1
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %dec.i.i.i.i, i64 %childPosition.025.i.i.i.i
-  %add.ptr2.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %7 = load i32, ptr %add.ptr2.i.i.i.i, align 4
-  %add.ptr4.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.023.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.023.i.i.i.i
   store i32 %7, ptr %add.ptr4.i.i.i.i, align 4
   %childPosition.0.in.i.i.i.i = shl nsw i64 %spec.select.i.i.i.i, 1
   %childPosition.0.i.i.i.i = add nsw i64 %childPosition.0.in.i.i.i.i, 2
@@ -3511,9 +3511,9 @@ for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i, %
 
 if.then8.i.i.i.i:                                 ; preds = %for.end.i.i.i.i
   %sub9.i.i.i.i = or disjoint i64 %childPosition.0.in.lcssa.i.i.i.i, 1
-  %add.ptr10.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %sub9.i.i.i.i
+  %add.ptr10.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %sub9.i.i.i.i
   %8 = load i32, ptr %add.ptr10.i.i.i.i, align 4
-  %add.ptr12.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.0.lcssa.i.i.i.i
+  %add.ptr12.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i.i
   store i32 %8, ptr %add.ptr12.i.i.i.i, align 4
   br label %if.end14.i.i.i.i
 
@@ -3526,20 +3526,20 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end14.i.i.i.i, %
   %position.addr.014.i.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %position.addr.1.i.i.i.i, %if.end14.i.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %parentPosition.015.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %parentPosition.015.i.i.i.i.i.i
   %9 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i = icmp slt i32 %9, %2
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN5eastl11remove_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %position.addr.014.i.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %position.addr.014.i.i.i.i.i.i
   store i32 %9, ptr %add.ptr3.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i.i = icmp eq i64 %parentPosition.015.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.not.i.i, label %_ZN5eastl11remove_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !46
 
 _ZN5eastl11remove_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit.i: ; preds = %for.body.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i, %if.end14.i.i.i.i
   %position.addr.0.lcssa.i.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i.i, %if.end14.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.i ], [ %position.addr.014.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i.i
   store i32 %2, ptr %add.ptr7.i.i.i.i.i.i, align 4
   %10 = load i32, ptr %add.ptr1.i.i, align 4
   %cmp13.i.i.i = icmp sgt i64 %sub.ptr.div.i, 1
@@ -3549,20 +3549,20 @@ land.rhs.i.i.i:                                   ; preds = %_ZN5eastl11remove_h
   %position.addr.014.i.i.i = phi i64 [ %parentPosition.015.i.i.i, %for.body.i.i.i ], [ %sub.i.i, %_ZN5eastl11remove_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit.i ]
   %parentPosition.015.in.i.i.i = add nsw i64 %position.addr.014.i.i.i, -1
   %parentPosition.015.i.i.i = lshr i64 %parentPosition.015.in.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %parentPosition.015.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %parentPosition.015.i.i.i
   %11 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i5.i = icmp slt i32 %11, %10
   br i1 %cmp.i.i.i5.i, label %for.body.i.i.i, label %_ZN5eastl11change_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit
 
 for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %position.addr.014.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %position.addr.014.i.i.i
   store i32 %11, ptr %add.ptr3.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i64 %parentPosition.015.i.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZN5eastl11change_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit, label %land.rhs.i.i.i, !llvm.loop !46
 
 _ZN5eastl11change_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit: ; preds = %land.rhs.i.i.i, %for.body.i.i.i, %_ZN5eastl11remove_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit.i
   %position.addr.0.lcssa.i.i.i = phi i64 [ %sub.i.i, %_ZN5eastl11remove_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit.i ], [ %position.addr.014.i.i.i, %land.rhs.i.i.i ], [ 0, %for.body.i.i.i ]
-  %add.ptr7.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr7.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i
   store i32 %10, ptr %add.ptr7.i.i.i, align 4
   ret void
 }
@@ -3580,7 +3580,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %2 = load i32, ptr %add.ptr1.i, align 4
-  %add.ptr2.i = getelementptr inbounds i32, ptr %0, i64 %n
+  %add.ptr2.i = getelementptr inbounds [4 x i8], ptr %0, i64 %n
   %3 = load i32, ptr %add.ptr2.i, align 4
   store i32 %3, ptr %add.ptr1.i, align 4
   %sub.i = add nsw i64 %sub.ptr.div.i, -1
@@ -3593,17 +3593,17 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   %childPosition.025.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ %childPosition.021.i.i.i, %entry ]
   %childPosition.0.in24.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ %childPosition.0.in20.i.i.i, %entry ]
   %position.addr.023.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ %n, %entry ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %0, i64 %childPosition.025.i.i.i
-  %4 = getelementptr i32, ptr %0, i64 %childPosition.0.in24.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %childPosition.025.i.i.i
+  %4 = getelementptr [4 x i8], ptr %0, i64 %childPosition.0.in24.i.i.i
   %add.ptr1.i.i.i = getelementptr i8, ptr %4, i64 4
   %5 = load i32, ptr %add.ptr.i.i.i, align 4
   %6 = load i32, ptr %add.ptr1.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i32 %5, %6
   %dec.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, i64 %dec.i.i.i, i64 %childPosition.025.i.i.i
-  %add.ptr2.i.i.i = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i
   %7 = load i32, ptr %add.ptr2.i.i.i, align 4
-  %add.ptr4.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.023.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.023.i.i.i
   store i32 %7, ptr %add.ptr4.i.i.i, align 4
   %childPosition.0.in.i.i.i = shl nsw i64 %spec.select.i.i.i, 1
   %childPosition.0.i.i.i = add nsw i64 %childPosition.0.in.i.i.i, 2
@@ -3619,9 +3619,9 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %en
 
 if.then8.i.i.i:                                   ; preds = %for.end.i.i.i
   %sub9.i.i.i = or disjoint i64 %childPosition.0.in.lcssa.i.i.i, 1
-  %add.ptr10.i.i.i = getelementptr inbounds i32, ptr %0, i64 %sub9.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %sub9.i.i.i
   %8 = load i32, ptr %add.ptr10.i.i.i, align 4
-  %add.ptr12.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr12.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i
   store i32 %8, ptr %add.ptr12.i.i.i, align 4
   br label %if.end14.i.i.i
 
@@ -3634,20 +3634,20 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end14.i.i.i, %fo
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end14.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %parentPosition.015.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %parentPosition.015.i.i.i.i.i
   %9 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp slt i32 %9, %2
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl11remove_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %position.addr.014.i.i.i.i.i
   store i32 %9, ptr %add.ptr3.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i = icmp eq i64 %parentPosition.015.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl11remove_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit, label %land.rhs.i.i.i.i.i, !llvm.loop !46
 
 _ZN5eastl11remove_heapIPimNS_4lessIiEEEEvT_T0_S5_T1_.exit: ; preds = %land.rhs.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end14.i.i.i
   %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i, %if.end14.i.i.i ], [ %position.addr.014.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
   store i32 %2, ptr %add.ptr7.i.i.i.i.i, align 4
   %10 = load ptr, ptr %mpEnd.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 -4
@@ -3718,7 +3718,7 @@ for.body.i.i:                                     ; preds = %land.rhs, %if.end.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %idx.ext.i.i = zext nneg i32 %counter.011.i.i to i64
-  %add.ptr1.i.i = getelementptr inbounds nuw i32, ptr %first.addr.010.i.i, i64 %idx.ext.i.i
+  %add.ptr1.i.i = getelementptr inbounds nuw [4 x i8], ptr %first.addr.010.i.i, i64 %idx.ext.i.i
   %xor.i.i = xor i32 %counter.011.i.i, 1
   %child.0.i.i = getelementptr inbounds nuw i8, ptr %child.012.i.i, i64 4
   %cmp.i.i = icmp ult ptr %child.0.i.i, %0
@@ -3747,7 +3747,7 @@ entry:
   %0 = load i64, ptr %mnPtrArraySize.i.i, align 8
   %sub.i.i.i = add i64 %0, -1
   %div79.i.i.i = lshr i64 %sub.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
   %call.i6.i.i10.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 256, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i6.i.i10.i.i.i, ptr %add.ptr.i.i.i, align 8
   %mItEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3785,7 +3785,7 @@ entry:
   %0 = load i64, ptr %mnPtrArraySize.i.i, align 8
   %sub.i.i.i = add i64 %0, -1
   %div79.i.i.i = lshr i64 %sub.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
   %call.i6.i.i10.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 256, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i6.i.i10.i.i.i, ptr %add.ptr.i.i.i, align 8
   %mItEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3825,7 +3825,7 @@ entry:
   %0 = load i64, ptr %mnPtrArraySize.i.i, align 8
   %sub.i.i.i = add i64 %0, -1
   %div79.i.i.i = lshr i64 %sub.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
   %call.i6.i.i10.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 256, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i6.i.i10.i.i.i, ptr %add.ptr.i.i.i, align 8
   %mItEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3965,18 +3965,18 @@ if.then.split:                                    ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.split
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.Align64, ptr %5, i64 %shr
+  %add.ptr.i.i = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %shr
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
 if.else.i.i:                                      ; preds = %if.then.split
   %add3.i.i = add nsw i64 %add.i.i, 16777216
   %div.i.i = sdiv i64 %add3.i.i, 4
   %sub.i.i = add nsw i64 %div.i.i, -4194304
-  %add.ptr4.i.i = getelementptr inbounds ptr, ptr %1, i64 %sub.i.i
+  %add.ptr4.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %sub.i.i
   %7 = load ptr, ptr %add.ptr4.i.i, align 8, !noalias !55
   %mul.i.i = shl nsw i64 %sub.i.i, 2
   %sub6.i.i = sub nsw i64 %add.i.i, %mul.i.i
-  %add.ptr7.i.i = getelementptr inbounds %struct.Align64, ptr %7, i64 %sub6.i.i
+  %add.ptr7.i.i = getelementptr inbounds [64 x i8], ptr %7, i64 %sub6.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -4012,7 +4012,7 @@ do.body.split:                                    ; preds = %do.body.split.lr.ph
   br i1 %cmp.i.i22, label %if.then.i.i39, label %if.else.i.i23
 
 if.then.i.i39:                                    ; preds = %do.body.split
-  %add.ptr.i.i41 = getelementptr inbounds nuw %struct.Align64, ptr %9, i64 %dec8
+  %add.ptr.i.i41 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %dec8
   %.pre43.pre = load ptr, ptr %mpCurrentArrayPtr1.i, align 8
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit42
 
@@ -4021,11 +4021,11 @@ if.else.i.i23:                                    ; preds = %do.body.split
   %add3.i.i24 = add nsw i64 %add.i.i21, 16777216
   %div.i.i25 = sdiv i64 %add3.i.i24, 4
   %sub.i.i26 = add nsw i64 %div.i.i25, -4194304
-  %add.ptr4.i.i27 = getelementptr inbounds ptr, ptr %11, i64 %sub.i.i26
+  %add.ptr4.i.i27 = getelementptr inbounds [8 x i8], ptr %11, i64 %sub.i.i26
   %12 = load ptr, ptr %add.ptr4.i.i27, align 8, !noalias !59
   %mul.i.i29 = shl nsw i64 %sub.i.i26, 2
   %sub6.i.i30 = sub nsw i64 %add.i.i21, %mul.i.i29
-  %add.ptr7.i.i31 = getelementptr inbounds %struct.Align64, ptr %12, i64 %sub6.i.i30
+  %add.ptr7.i.i31 = getelementptr inbounds [64 x i8], ptr %12, i64 %sub6.i.i30
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit42
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit42: ; preds = %if.then.i.i39, %if.else.i.i23
@@ -4120,7 +4120,7 @@ entry:
   %0 = load i64, ptr %mnPtrArraySize.i.i, align 8
   %sub.i.i.i = add i64 %0, -1
   %div79.i.i.i = lshr i64 %sub.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i6.i.i.i.i.i, i64 %div79.i.i.i
   %call.i6.i.i10.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 256, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i6.i.i10.i.i.i, ptr %add.ptr.i.i.i, align 8
   %mItEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -4142,7 +4142,7 @@ entry:
   %mpEnd.i14.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i13.i.i.i, ptr %mpEnd.i14.i.i.i, align 8
   store ptr %2, ptr %mItEnd.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [64 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %last.addr.i)
@@ -4372,11 +4372,11 @@ if.else.i.i:                                      ; preds = %entry
   %add3.i.i = add nsw i64 %sub.ptr.div.i.i, 16777215
   %div.i.i = sdiv i64 %add3.i.i, 4
   %sub.i.i = add nsw i64 %div.i.i, -4194304
-  %add.ptr4.i.i = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i
+  %add.ptr4.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i
   %3 = load ptr, ptr %add.ptr4.i.i, align 8, !noalias !83
   %mul.i.i = shl nsw i64 %sub.i.i, 2
   %sub6.i.i = sub nsw i64 %add.i.i, %mul.i.i
-  %add.ptr7.i.i = getelementptr inbounds %struct.Align64, ptr %3, i64 %sub6.i.i
+  %add.ptr7.i.i = getelementptr inbounds [64 x i8], ptr %3, i64 %sub6.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -4416,7 +4416,7 @@ land.rhs.i.i:                                     ; preds = %_ZNK5eastl13DequeIt
   br i1 %cmp.i.i.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i: ; preds = %land.rhs.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %struct.Align64, ptr %4, i64 %parentPosition.099.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %parentPosition.099.i.i
   %8 = load i32, ptr %add.ptr.i.i.i.i, align 64
   %cmp.i.i8.i.i = icmp slt i32 %8, %tempBottom.sroa.0.0.copyload
   br i1 %cmp.i.i8.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i, label %for.end.i.i
@@ -4425,11 +4425,11 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i: ; preds = %
   %add3.i.i.i.i = add nsw i64 %add.i.i.i.i, 16777216
   %div.i.i.i.i = sdiv i64 %add3.i.i.i.i, 4
   %sub.i.i.i.i = add nsw i64 %div.i.i.i.i, -4194304
-  %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %sub.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds [8 x i8], ptr %6, i64 %sub.i.i.i.i
   %9 = load ptr, ptr %add.ptr4.i.i.i.i, align 8, !noalias !86
   %mul.i.i.i.i = shl nsw i64 %sub.i.i.i.i, 2
   %sub6.i.i.i.i = sub nsw i64 %add.i.i.i.i, %mul.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %struct.Align64, ptr %9, i64 %sub6.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds [64 x i8], ptr %9, i64 %sub6.i.i.i.i
   %10 = load i32, ptr %add.ptr7.i.i.i.i, align 64
   %cmp.i.i894.i.i = icmp slt i32 %10, %tempBottom.sroa.0.0.copyload
   br i1 %cmp.i.i894.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i, label %for.end.i.i
@@ -4441,18 +4441,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i: ; preds = %_ZNK5
   br i1 %cmp.i.i44.i.i, label %if.then.i.i61.i.i, label %if.else.i.i45.i.i
 
 if.then.i.i61.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
-  %add.ptr.i.i63.i.i = getelementptr inbounds %struct.Align64, ptr %4, i64 %position.addr.098.i.i
+  %add.ptr.i.i63.i.i = getelementptr inbounds [64 x i8], ptr %4, i64 %position.addr.098.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 if.else.i.i45.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
   %add3.i.i46.i.i = add nsw i64 %add.i.i43.i.i, 16777216
   %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.i, 4
   %sub.i.i48.i.i = add nsw i64 %div.i.i47.i.i, -4194304
-  %add.ptr4.i.i49.i.i = getelementptr inbounds ptr, ptr %6, i64 %sub.i.i48.i.i
+  %add.ptr4.i.i49.i.i = getelementptr inbounds [8 x i8], ptr %6, i64 %sub.i.i48.i.i
   %12 = load ptr, ptr %add.ptr4.i.i49.i.i, align 8, !noalias !89
   %mul.i.i51.i.i = shl nsw i64 %sub.i.i48.i.i, 2
   %sub6.i.i52.i.i = sub nsw i64 %add.i.i43.i.i, %mul.i.i51.i.i
-  %add.ptr7.i.i53.i.i = getelementptr inbounds %struct.Align64, ptr %12, i64 %sub6.i.i52.i.i
+  %add.ptr7.i.i53.i.i = getelementptr inbounds [64 x i8], ptr %12, i64 %sub6.i.i52.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i: ; preds = %if.else.i.i45.i.i, %if.then.i.i61.i.i
@@ -4468,18 +4468,18 @@ for.end.i.i:                                      ; preds = %_ZNK5eastl13DequeIt
   br i1 %cmp.i.i72.i.i, label %if.then.i.i89.i.i, label %if.else.i.i73.i.i
 
 if.then.i.i89.i.i:                                ; preds = %for.end.i.i
-  %add.ptr.i.i91.i.i = getelementptr inbounds %struct.Align64, ptr %4, i64 %position.addr.0.lcssa.i.i
+  %add.ptr.i.i91.i.i = getelementptr inbounds [64 x i8], ptr %4, i64 %position.addr.0.lcssa.i.i
   br label %_ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElS2_NS_4lessIS2_EEEEvT_T0_S9_RKT1_T2_.exit
 
 if.else.i.i73.i.i:                                ; preds = %for.end.i.i
   %add3.i.i74.i.i = add nsw i64 %add.i.i71.i.i, 16777216
   %div.i.i75.i.i = sdiv i64 %add3.i.i74.i.i, 4
   %sub.i.i76.i.i = add nsw i64 %div.i.i75.i.i, -4194304
-  %add.ptr4.i.i77.i.i = getelementptr inbounds ptr, ptr %6, i64 %sub.i.i76.i.i
+  %add.ptr4.i.i77.i.i = getelementptr inbounds [8 x i8], ptr %6, i64 %sub.i.i76.i.i
   %13 = load ptr, ptr %add.ptr4.i.i77.i.i, align 8, !noalias !93
   %mul.i.i79.i.i = shl nsw i64 %sub.i.i76.i.i, 2
   %sub6.i.i80.i.i = sub nsw i64 %add.i.i71.i.i, %mul.i.i79.i.i
-  %add.ptr7.i.i81.i.i = getelementptr inbounds %struct.Align64, ptr %13, i64 %sub6.i.i80.i.i
+  %add.ptr7.i.i81.i.i = getelementptr inbounds [64 x i8], ptr %13, i64 %sub6.i.i80.i.i
   br label %_ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElS2_NS_4lessIS2_EEEEvT_T0_S9_RKT1_T2_.exit
 
 _ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElS2_NS_4lessIS2_EEEEvT_T0_S9_RKT1_T2_.exit: ; preds = %if.then.i.i89.i.i, %if.else.i.i73.i.i
@@ -4622,11 +4622,11 @@ if.else.i.i9.i:                                   ; preds = %entry
   %add3.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, 16777215
   %div.i.i.i = sdiv i64 %add3.i.i.i, 4
   %sub.i.i.i = add nsw i64 %div.i.i.i, -4194304
-  %add.ptr4.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %sub.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [8 x i8], ptr %6, i64 %sub.i.i.i
   %7 = load ptr, ptr %add.ptr4.i.i.i, align 8, !noalias !108
   %mul.i.i.i = shl nsw i64 %sub.i.i.i, 2
   %sub6.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
-  %add.ptr7.i.i.i = getelementptr inbounds %struct.Align64, ptr %7, i64 %sub6.i.i.i
+  %add.ptr7.i.i.i = getelementptr inbounds [64 x i8], ptr %7, i64 %sub6.i.i.i
   br label %_ZN5eastl8pop_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEENS_4lessIS2_EEEEvT_S8_T0_.exit
 
 _ZN5eastl8pop_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEENS_4lessIS2_EEEEvT_S8_T0_.exit: ; preds = %if.then.i.i25.i, %if.else.i.i9.i
@@ -4776,18 +4776,18 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %struct.Align64, ptr %4, i64 %heapSize
+  %add.ptr.i.i = getelementptr inbounds [64 x i8], ptr %4, i64 %heapSize
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
 if.else.i.i:                                      ; preds = %entry
   %add3.i.i = add nsw i64 %add.i.i, 16777216
   %div.i.i = sdiv i64 %add3.i.i, 4
   %sub.i.i = add nsw i64 %div.i.i, -4194304
-  %add.ptr4.i.i = getelementptr inbounds ptr, ptr %6, i64 %sub.i.i
+  %add.ptr4.i.i = getelementptr inbounds [8 x i8], ptr %6, i64 %sub.i.i
   %7 = load ptr, ptr %add.ptr4.i.i, align 8, !noalias !114
   %mul.i.i = shl nsw i64 %sub.i.i, 2
   %sub6.i.i = sub nsw i64 %add.i.i, %mul.i.i
-  %add.ptr7.i.i = getelementptr inbounds %struct.Align64, ptr %7, i64 %sub6.i.i
+  %add.ptr7.i.i = getelementptr inbounds [64 x i8], ptr %7, i64 %sub6.i.i
   %.pre = ptrtoint ptr %7 to i64
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
@@ -4810,11 +4810,11 @@ if.else.i.i11:                                    ; preds = %_ZNK5eastl13DequeIt
   %add3.i.i12 = add nsw i64 %sub.ptr.div.i.i8, 16777215
   %div.i.i13 = sdiv i64 %add3.i.i12, 4
   %sub.i.i14 = add nsw i64 %div.i.i13, -4194304
-  %add.ptr4.i.i15 = getelementptr inbounds ptr, ptr %ref.tmp.sroa.11.0.i, i64 %sub.i.i14
+  %add.ptr4.i.i15 = getelementptr inbounds [8 x i8], ptr %ref.tmp.sroa.11.0.i, i64 %sub.i.i14
   %8 = load ptr, ptr %add.ptr4.i.i15, align 8, !noalias !117
   %mul.i.i17 = shl nsw i64 %sub.i.i14, 2
   %sub6.i.i18 = sub nsw i64 %add.i.i9, %mul.i.i17
-  %add.ptr7.i.i19 = getelementptr inbounds %struct.Align64, ptr %8, i64 %sub6.i.i18
+  %add.ptr7.i.i19 = getelementptr inbounds [64 x i8], ptr %8, i64 %sub6.i.i18
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit: ; preds = %if.then.i.i27, %if.else.i.i11
@@ -4833,7 +4833,7 @@ land.rhs.i.i:                                     ; preds = %_ZNK5eastl13DequeIt
   br i1 %cmp.i.i.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i: ; preds = %land.rhs.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %struct.Align64, ptr %4, i64 %parentPosition.099.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %parentPosition.099.i.i
   %9 = load i32, ptr %add.ptr.i.i.i.i, align 64
   %cmp.i.i8.i.i = icmp slt i32 %9, %tempBottom.sroa.0.0.copyload
   br i1 %cmp.i.i8.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i, label %for.end.i.i
@@ -4842,11 +4842,11 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i: ; preds = %
   %add3.i.i.i.i = add nsw i64 %add.i.i.i.i, 16777216
   %div.i.i.i.i = sdiv i64 %add3.i.i.i.i, 4
   %sub.i.i.i.i = add nsw i64 %div.i.i.i.i, -4194304
-  %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %sub.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds [8 x i8], ptr %6, i64 %sub.i.i.i.i
   %10 = load ptr, ptr %add.ptr4.i.i.i.i, align 8, !noalias !120
   %mul.i.i.i.i = shl nsw i64 %sub.i.i.i.i, 2
   %sub6.i.i.i.i = sub nsw i64 %add.i.i.i.i, %mul.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %struct.Align64, ptr %10, i64 %sub6.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds [64 x i8], ptr %10, i64 %sub6.i.i.i.i
   %11 = load i32, ptr %add.ptr7.i.i.i.i, align 64
   %cmp.i.i894.i.i = icmp slt i32 %11, %tempBottom.sroa.0.0.copyload
   br i1 %cmp.i.i894.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i, label %for.end.i.i
@@ -4858,18 +4858,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i: ; preds = %_ZNK5
   br i1 %cmp.i.i44.i.i, label %if.then.i.i61.i.i, label %if.else.i.i45.i.i
 
 if.then.i.i61.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
-  %add.ptr.i.i63.i.i = getelementptr inbounds nuw %struct.Align64, ptr %4, i64 %position.addr.098.i.i
+  %add.ptr.i.i63.i.i = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %position.addr.098.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 if.else.i.i45.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
   %add3.i.i46.i.i = add nsw i64 %add.i.i43.i.i, 16777216
   %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.i, 4
   %sub.i.i48.i.i = add nsw i64 %div.i.i47.i.i, -4194304
-  %add.ptr4.i.i49.i.i = getelementptr inbounds ptr, ptr %6, i64 %sub.i.i48.i.i
+  %add.ptr4.i.i49.i.i = getelementptr inbounds [8 x i8], ptr %6, i64 %sub.i.i48.i.i
   %13 = load ptr, ptr %add.ptr4.i.i49.i.i, align 8, !noalias !123
   %mul.i.i51.i.i = shl nsw i64 %sub.i.i48.i.i, 2
   %sub6.i.i52.i.i = sub nsw i64 %add.i.i43.i.i, %mul.i.i51.i.i
-  %add.ptr7.i.i53.i.i = getelementptr inbounds %struct.Align64, ptr %13, i64 %sub6.i.i52.i.i
+  %add.ptr7.i.i53.i.i = getelementptr inbounds [64 x i8], ptr %13, i64 %sub6.i.i52.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i: ; preds = %if.else.i.i45.i.i, %if.then.i.i61.i.i
@@ -4885,18 +4885,18 @@ for.end.i.i:                                      ; preds = %_ZNK5eastl13DequeIt
   br i1 %cmp.i.i72.i.i, label %if.then.i.i89.i.i, label %if.else.i.i73.i.i
 
 if.then.i.i89.i.i:                                ; preds = %for.end.i.i
-  %add.ptr.i.i91.i.i = getelementptr inbounds %struct.Align64, ptr %4, i64 %position.addr.0.lcssa.i.i
+  %add.ptr.i.i91.i.i = getelementptr inbounds [64 x i8], ptr %4, i64 %position.addr.0.lcssa.i.i
   br label %_ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElS2_NS_4lessIS2_EEEEvT_T0_S9_RKT1_T2_.exit
 
 if.else.i.i73.i.i:                                ; preds = %for.end.i.i
   %add3.i.i74.i.i = add nsw i64 %add.i.i71.i.i, 16777216
   %div.i.i75.i.i = sdiv i64 %add3.i.i74.i.i, 4
   %sub.i.i76.i.i = add nsw i64 %div.i.i75.i.i, -4194304
-  %add.ptr4.i.i77.i.i = getelementptr inbounds ptr, ptr %6, i64 %sub.i.i76.i.i
+  %add.ptr4.i.i77.i.i = getelementptr inbounds [8 x i8], ptr %6, i64 %sub.i.i76.i.i
   %14 = load ptr, ptr %add.ptr4.i.i77.i.i, align 8, !noalias !126
   %mul.i.i79.i.i = shl nsw i64 %sub.i.i76.i.i, 2
   %sub6.i.i80.i.i = sub nsw i64 %add.i.i71.i.i, %mul.i.i79.i.i
-  %add.ptr7.i.i81.i.i = getelementptr inbounds %struct.Align64, ptr %14, i64 %sub6.i.i80.i.i
+  %add.ptr7.i.i81.i.i = getelementptr inbounds [64 x i8], ptr %14, i64 %sub6.i.i80.i.i
   br label %_ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElS2_NS_4lessIS2_EEEEvT_T0_S9_RKT1_T2_.exit
 
 _ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElS2_NS_4lessIS2_EEEEvT_T0_S9_RKT1_T2_.exit: ; preds = %if.then.i.i89.i.i, %if.else.i.i73.i.i
@@ -4997,18 +4997,18 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %struct.Align64, ptr %0, i64 %heapSize
+  %add.ptr.i.i = getelementptr inbounds [64 x i8], ptr %0, i64 %heapSize
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
 if.else.i.i:                                      ; preds = %entry
   %add3.i.i = add nsw i64 %add.i.i, 16777216
   %div.i.i = sdiv i64 %add3.i.i, 4
   %sub.i.i = add nsw i64 %div.i.i, -4194304
-  %add.ptr4.i.i = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i
+  %add.ptr4.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i
   %3 = load ptr, ptr %add.ptr4.i.i, align 8, !noalias !132
   %mul.i.i = shl nsw i64 %sub.i.i, 2
   %sub6.i.i = sub nsw i64 %add.i.i, %mul.i.i
-  %add.ptr7.i.i = getelementptr inbounds %struct.Align64, ptr %3, i64 %sub6.i.i
+  %add.ptr7.i.i = getelementptr inbounds [64 x i8], ptr %3, i64 %sub6.i.i
   %.pre = ptrtoint ptr %3 to i64
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
@@ -5031,11 +5031,11 @@ if.else.i.i12:                                    ; preds = %_ZNK5eastl13DequeIt
   %add3.i.i13 = add nsw i64 %sub.ptr.div.i.i9, 16777215
   %div.i.i14 = sdiv i64 %add3.i.i13, 4
   %sub.i.i15 = add nsw i64 %div.i.i14, -4194304
-  %add.ptr4.i.i16 = getelementptr inbounds ptr, ptr %ref.tmp.sroa.11.0.i, i64 %sub.i.i15
+  %add.ptr4.i.i16 = getelementptr inbounds [8 x i8], ptr %ref.tmp.sroa.11.0.i, i64 %sub.i.i15
   %4 = load ptr, ptr %add.ptr4.i.i16, align 8, !noalias !135
   %mul.i.i18 = shl nsw i64 %sub.i.i15, 2
   %sub6.i.i19 = sub nsw i64 %add.i.i10, %mul.i.i18
-  %add.ptr7.i.i20 = getelementptr inbounds %struct.Align64, ptr %4, i64 %sub6.i.i19
+  %add.ptr7.i.i20 = getelementptr inbounds [64 x i8], ptr %4, i64 %sub6.i.i19
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit: ; preds = %if.then.i.i28, %if.else.i.i12
@@ -5046,18 +5046,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit: ; preds = %if.then.i.i
   br i1 %cmp.i.i38, label %if.then.i.i55, label %if.else.i.i39
 
 if.then.i.i55:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit
-  %add.ptr.i.i57 = getelementptr inbounds %struct.Align64, ptr %0, i64 %position
+  %add.ptr.i.i57 = getelementptr inbounds [64 x i8], ptr %0, i64 %position
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit58
 
 if.else.i.i39:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit
   %add3.i.i40 = add nsw i64 %add.i.i37, 16777216
   %div.i.i41 = sdiv i64 %add3.i.i40, 4
   %sub.i.i42 = add nsw i64 %div.i.i41, -4194304
-  %add.ptr4.i.i43 = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i42
+  %add.ptr4.i.i43 = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i42
   %5 = load ptr, ptr %add.ptr4.i.i43, align 8, !noalias !138
   %mul.i.i45 = shl nsw i64 %sub.i.i42, 2
   %sub6.i.i46 = sub nsw i64 %add.i.i37, %mul.i.i45
-  %add.ptr7.i.i47 = getelementptr inbounds %struct.Align64, ptr %5, i64 %sub6.i.i46
+  %add.ptr7.i.i47 = getelementptr inbounds [64 x i8], ptr %5, i64 %sub6.i.i46
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit58
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit58: ; preds = %if.then.i.i55, %if.else.i.i39
@@ -5065,18 +5065,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit58: ; preds = %if.then.i
   br i1 %cmp.i.i, label %if.then.i.i83, label %if.else.i.i67
 
 if.then.i.i83:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit58
-  %add.ptr.i.i85 = getelementptr inbounds %struct.Align64, ptr %0, i64 %heapSize
+  %add.ptr.i.i85 = getelementptr inbounds [64 x i8], ptr %0, i64 %heapSize
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit86
 
 if.else.i.i67:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit58
   %add3.i.i68 = add nsw i64 %add.i.i, 16777216
   %div.i.i69 = sdiv i64 %add3.i.i68, 4
   %sub.i.i70 = add nsw i64 %div.i.i69, -4194304
-  %add.ptr4.i.i71 = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i70
+  %add.ptr4.i.i71 = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i70
   %6 = load ptr, ptr %add.ptr4.i.i71, align 8, !noalias !141
   %mul.i.i73 = shl nsw i64 %sub.i.i70, 2
   %sub6.i.i74 = sub nsw i64 %add.i.i, %mul.i.i73
-  %add.ptr7.i.i75 = getelementptr inbounds %struct.Align64, ptr %6, i64 %sub6.i.i74
+  %add.ptr7.i.i75 = getelementptr inbounds [64 x i8], ptr %6, i64 %sub6.i.i74
   %.pre118 = ptrtoint ptr %6 to i64
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit86
 
@@ -5099,11 +5099,11 @@ if.else.i.i95:                                    ; preds = %_ZNK5eastl13DequeIt
   %add3.i.i96 = add nsw i64 %sub.ptr.div.i.i92, 16777215
   %div.i.i97 = sdiv i64 %add3.i.i96, 4
   %sub.i.i98 = add nsw i64 %div.i.i97, -4194304
-  %add.ptr4.i.i99 = getelementptr inbounds ptr, ptr %ref.tmp.sroa.11.0.i76, i64 %sub.i.i98
+  %add.ptr4.i.i99 = getelementptr inbounds [8 x i8], ptr %ref.tmp.sroa.11.0.i76, i64 %sub.i.i98
   %7 = load ptr, ptr %add.ptr4.i.i99, align 8, !noalias !144
   %mul.i.i101 = shl nsw i64 %sub.i.i98, 2
   %sub6.i.i102 = sub nsw i64 %add.i.i93, %mul.i.i101
-  %add.ptr7.i.i103 = getelementptr inbounds %struct.Align64, ptr %7, i64 %sub6.i.i102
+  %add.ptr7.i.i103 = getelementptr inbounds [64 x i8], ptr %7, i64 %sub6.i.i102
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit114
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit114: ; preds = %if.then.i.i111, %if.else.i.i95
@@ -5242,12 +5242,12 @@ if.else.i.i.i.i:                                  ; preds = %land.rhs
   %add3.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, 16777217
   %div.i.i.i.i = sdiv i64 %add3.i.i.i.i, 4
   %sub.i.i.i.i = add nsw i64 %div.i.i.i.i, -4194304
-  %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %sub.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %sub.i.i.i.i
   %7 = load ptr, ptr %add.ptr4.i.i.i.i, align 8, !noalias !156
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 256
   %mul.i.i.i.i = shl nsw i64 %sub.i.i.i.i, 2
   %sub6.i.i.i.i = sub nsw i64 %add.i.i.i.i, %mul.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %struct.Align64, ptr %7, i64 %sub6.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds [64 x i8], ptr %7, i64 %sub6.i.i.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PKS1_RS2_Lj4EEplEl.exit.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PKS1_RS2_Lj4EEplEl.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
@@ -5284,18 +5284,18 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   br i1 %cmp.i3.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.Align64, ptr %storemerge.i1322.i.i, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [64 x i8], ptr %storemerge.i1322.i.i, i64 %conv.i.i
   br label %_ZN5eastl13DequeIteratorI7Align64PKS1_RS2_Lj4EEpLEl.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
   %add3.i.i.i = add nsw i64 %add.i.i.i, 16777216
   %div.i.i.i = sdiv i64 %add3.i.i.i, 4
   %sub.i.i.i = add nsw i64 %div.i.i.i, -4194304
-  %add.ptr4.i.i.i = getelementptr inbounds ptr, ptr %9, i64 %sub.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [8 x i8], ptr %9, i64 %sub.i.i.i
   %13 = load ptr, ptr %add.ptr4.i.i.i, align 8, !noalias !161
   %mul.i.i.i = shl nsw i64 %sub.i.i.i, 2
   %sub6.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
-  %add.ptr7.i.i.i = getelementptr inbounds %struct.Align64, ptr %13, i64 %sub6.i.i.i
+  %add.ptr7.i.i.i = getelementptr inbounds [64 x i8], ptr %13, i64 %sub6.i.i.i
   br label %_ZN5eastl13DequeIteratorI7Align64PKS1_RS2_Lj4EEpLEl.exit.i.i
 
 _ZN5eastl13DequeIteratorI7Align64PKS1_RS2_Lj4EEpLEl.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -5407,7 +5407,7 @@ do.body:                                          ; preds = %_ZN10TestObjectD2Ev
   %inc.i = phi i64 [ %0, %if.then ], [ %8, %_ZN10TestObjectD2Ev.exit ]
   %parentPosition.0 = phi i64 [ %add, %if.then ], [ %dec, %_ZN10TestObjectD2Ev.exit ]
   %dec = add nsw i64 %parentPosition.0, -1
-  %add.ptr = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %dec
+  %add.ptr = getelementptr inbounds nuw [24 x i8], ptr %first, i64 %dec
   %1 = load i32, ptr %add.ptr, align 8
   store i32 %1, ptr %temp, align 8
   %mbThrowOnCopy3.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
@@ -5619,7 +5619,7 @@ lpad:                                             ; preds = %_ZN5eastl6vectorI10
 define weak_odr dso_local void @_ZN5eastl14priority_queueI10TestObjectNS_6vectorIS1_NS_9allocatorEEENS_4lessIS1_EEEC2ESt16initializer_listIS1_ERKS6_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %compare) unnamed_addr #0 comdat($_ZN5eastl14priority_queueI10TestObjectNS_6vectorIS1_NS_9allocatorEEENS_4lessIS1_EEEC5ESt16initializer_listIS1_ERKS6_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [24 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   invoke void @_ZN5eastl6vectorI10TestObjectNS_9allocatorEE20DoInsertFromIteratorIPKS1_EEvS6_T_S7_NS_26bidirectional_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef null, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -5745,7 +5745,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZN5eastl6vectorI10
   %position.addr.023.i.i.i = phi i64 [ %parentPosition.024.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i ], [ %sub.i, %_ZN5eastl6vectorI10TestObjectNS_9allocatorEE9push_backERKS1_.exit ]
   %parentPosition.024.in.i.i.i = add nsw i64 %position.addr.023.i.i.i, -1
   %parentPosition.024.i.i.i = lshr i64 %parentPosition.024.in.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %11, i64 %parentPosition.024.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %parentPosition.024.i.i.i
   %16 = load i32, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp slt i32 %16, %13
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
@@ -5758,7 +5758,7 @@ for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN10TestObjectaSERKS_.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds %struct.TestObject, ptr %11, i64 %position.addr.023.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds [24 x i8], ptr %11, i64 %position.addr.023.i.i.i
   %18 = load i32, ptr %add.ptr.i.i.i, align 8
   store i32 %18, ptr %add.ptr3.i.i.i, align 8
   %mMagicValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 16
@@ -5781,7 +5781,7 @@ for.end.i.i.i:                                    ; preds = %_ZN10TestObjectaSER
   %21 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i11.i.i.i = add nsw i64 %21, 1
   store i64 %inc.i11.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds %struct.TestObject, ptr %11, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr8.i.i.i = getelementptr inbounds [24 x i8], ptr %11, i64 %position.addr.0.lcssa.i.i.i
   store i32 %13, ptr %add.ptr8.i.i.i, align 8
   %mMagicValue3.i15.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i.i.i, i64 16
   store i32 %15, ptr %mMagicValue3.i15.i.i.i, align 8
@@ -5879,7 +5879,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZN5eastl6vectorI10
   %position.addr.023.i.i.i = phi i64 [ %parentPosition.024.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i ], [ %sub.i, %_ZN5eastl6vectorI10TestObjectNS_9allocatorEE9push_backEOS1_.exit ]
   %parentPosition.024.in.i.i.i = add nsw i64 %position.addr.023.i.i.i, -1
   %parentPosition.024.i.i.i = lshr i64 %parentPosition.024.in.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %8, i64 %parentPosition.024.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %parentPosition.024.i.i.i
   %16 = load i32, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp slt i32 %16, %10
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
@@ -5892,7 +5892,7 @@ for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN10TestObjectaSERKS_.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds %struct.TestObject, ptr %8, i64 %position.addr.023.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds [24 x i8], ptr %8, i64 %position.addr.023.i.i.i
   %18 = load i32, ptr %add.ptr.i.i.i, align 8
   store i32 %18, ptr %add.ptr3.i.i.i, align 8
   %mMagicValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 16
@@ -5915,7 +5915,7 @@ for.end.i.i.i:                                    ; preds = %_ZN10TestObjectaSER
   %21 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i11.i.i.i = add nsw i64 %21, 1
   store i64 %inc.i11.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds %struct.TestObject, ptr %8, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr8.i.i.i = getelementptr inbounds [24 x i8], ptr %8, i64 %position.addr.0.lcssa.i.i.i
   store i32 %10, ptr %add.ptr8.i.i.i, align 8
   %mMagicValue3.i15.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i.i.i, i64 16
   store i32 %12, ptr %mMagicValue3.i15.i.i.i, align 8
@@ -6156,7 +6156,7 @@ entry:
 define linkonce_odr dso_local void @_ZN5eastl11change_heapIP10TestObjectmNS_4lessIS1_EEEEvT_T0_S6_T1_(ptr noundef %first, i64 noundef %heapSize, i64 noundef %position) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN5eastl11remove_heapIP10TestObjectmNS_4lessIS1_EEEEvT_T0_S6_T1_(ptr noundef %first, i64 noundef %heapSize, i64 noundef %position)
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %first, i64 %heapSize
+  %add.ptr = getelementptr inbounds [24 x i8], ptr %first, i64 %heapSize
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 -24
   %0 = load i32, ptr %add.ptr1, align 8
   %mbThrowOnCopy3.i = getelementptr inbounds i8, ptr %add.ptr, i64 -20
@@ -6181,7 +6181,7 @@ land.rhs.i.i:                                     ; preds = %entry, %_ZN10TestOb
   %position.addr.023.i.i = phi i64 [ %parentPosition.024.i.i, %_ZN10TestObjectaSERKS_.exit.i.i ], [ %sub, %entry ]
   %parentPosition.024.in.i.i = add nsw i64 %position.addr.023.i.i, -1
   %parentPosition.024.i.i = lshr i64 %parentPosition.024.in.i.i, 1
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %parentPosition.024.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %first, i64 %parentPosition.024.i.i
   %6 = load i32, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i = icmp slt i32 %6, %0
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %for.end.i.i
@@ -6194,7 +6194,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
   br i1 %cmp.not.i.i.i, label %_ZN10TestObjectaSERKS_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
-  %add.ptr3.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %position.addr.023.i.i
+  %add.ptr3.i.i = getelementptr inbounds nuw [24 x i8], ptr %first, i64 %position.addr.023.i.i
   %8 = load i32, ptr %add.ptr.i.i, align 8
   store i32 %8, ptr %add.ptr3.i.i, align 8
   %mMagicValue.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
@@ -6217,7 +6217,7 @@ for.end.i.i:                                      ; preds = %_ZN10TestObjectaSER
   %11 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i11.i.i = add nsw i64 %11, 1
   store i64 %inc.i11.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %add.ptr8.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.0.lcssa.i.i
+  %add.ptr8.i.i = getelementptr inbounds [24 x i8], ptr %first, i64 %position.addr.0.lcssa.i.i
   store i32 %0, ptr %add.ptr8.i.i, align 8
   %mMagicValue3.i15.i.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i.i, i64 16
   store i32 %2, ptr %mMagicValue3.i15.i.i, align 8
@@ -6439,7 +6439,7 @@ for.body.i.i:                                     ; preds = %land.rhs, %if.end.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %idx.ext.i.i = zext nneg i32 %counter.011.i.i to i64
-  %add.ptr1.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %first.addr.010.i.i, i64 %idx.ext.i.i
+  %add.ptr1.i.i = getelementptr inbounds nuw [24 x i8], ptr %first.addr.010.i.i, i64 %idx.ext.i.i
   %xor.i.i = xor i32 %counter.011.i.i, 1
   %child.0.i.i = getelementptr inbounds nuw i8, ptr %child.012.i.i, i64 24
   %cmp.i.i = icmp ult ptr %child.0.i.i, %0
@@ -6506,7 +6506,7 @@ if.then.i:                                        ; preds = %entry
 do.body.i:                                        ; preds = %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i, %if.then.i
   %parentPosition.0.i = phi i64 [ %add.i, %if.then.i ], [ %dec.i, %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i ]
   %dec.i = add nsw i64 %parentPosition.0.i, -1
-  %add.ptr.i = getelementptr inbounds nuw float, ptr %5, i64 %dec.i
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %dec.i
   %7 = load float, ptr %add.ptr.i, align 4
   %childPosition.0.in20.i.i.i = shl nuw nsw i64 %dec.i, 1
   %childPosition.021.i.i.i = add nuw nsw i64 %childPosition.0.in20.i.i.i, 2
@@ -6517,17 +6517,17 @@ for.body.i.i.i:                                   ; preds = %do.body.i, %for.bod
   %childPosition.025.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ %childPosition.021.i.i.i, %do.body.i ]
   %childPosition.0.in24.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ %childPosition.0.in20.i.i.i, %do.body.i ]
   %position.addr.023.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ %dec.i, %do.body.i ]
-  %add.ptr.i.i.i = getelementptr inbounds float, ptr %5, i64 %childPosition.025.i.i.i
-  %8 = getelementptr float, ptr %5, i64 %childPosition.0.in24.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %childPosition.025.i.i.i
+  %8 = getelementptr [4 x i8], ptr %5, i64 %childPosition.0.in24.i.i.i
   %add.ptr1.i.i.i = getelementptr i8, ptr %8, i64 4
   %9 = load float, ptr %add.ptr.i.i.i, align 4
   %10 = load float, ptr %add.ptr1.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %9, %10
   %dec.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, i64 %dec.i.i.i, i64 %childPosition.025.i.i.i
-  %add.ptr2.i.i.i = getelementptr inbounds float, ptr %5, i64 %spec.select.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %spec.select.i.i.i
   %11 = load float, ptr %add.ptr2.i.i.i, align 4
-  %add.ptr4.i.i.i = getelementptr inbounds float, ptr %5, i64 %position.addr.023.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %position.addr.023.i.i.i
   store float %11, ptr %add.ptr4.i.i.i, align 4
   %childPosition.0.in.i.i.i = shl nsw i64 %spec.select.i.i.i, 1
   %childPosition.0.i.i.i = add nsw i64 %childPosition.0.in.i.i.i, 2
@@ -6543,9 +6543,9 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %do
 
 if.then8.i.i.i:                                   ; preds = %for.end.i.i.i
   %sub9.i.i.i = or disjoint i64 %childPosition.0.in.lcssa.i.i.i, 1
-  %add.ptr10.i.i.i = getelementptr inbounds float, ptr %5, i64 %sub9.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %sub9.i.i.i
   %12 = load float, ptr %add.ptr10.i.i.i, align 4
-  %add.ptr12.i.i.i = getelementptr inbounds float, ptr %5, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr12.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %position.addr.0.lcssa.i.i.i
   store float %12, ptr %add.ptr12.i.i.i, align 4
   br label %if.end14.i.i.i
 
@@ -6558,20 +6558,20 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end14.i.i.i, %fo
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end14.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw float, ptr %5, i64 %parentPosition.015.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %parentPosition.015.i.i.i.i.i
   %13 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = fcmp olt float %13, %7
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw float, ptr %5, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %position.addr.014.i.i.i.i.i
   store float %13, ptr %add.ptr3.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i = icmp slt i64 %parentPosition.015.i.i.i.i.i, %parentPosition.0.i
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !169
 
 _ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i: ; preds = %for.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end14.i.i.i
   %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i, %if.end14.i.i.i ], [ %position.addr.014.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i = getelementptr inbounds float, ptr %5, i64 %position.addr.0.lcssa.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %position.addr.0.lcssa.i.i.i.i.i
   store float %7, ptr %add.ptr7.i.i.i.i.i, align 4
   %cmp2.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp2.not.i, label %invoke.cont, label %do.body.i, !llvm.loop !170
@@ -6638,7 +6638,7 @@ if.then.i:                                        ; preds = %_ZN5eastl6vectorIfN
 do.body.i:                                        ; preds = %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i, %if.then.i
   %parentPosition.0.i = phi i64 [ %add.i, %if.then.i ], [ %dec.i, %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i ]
   %dec.i = add nsw i64 %parentPosition.0.i, -1
-  %add.ptr.i = getelementptr inbounds nuw float, ptr %4, i64 %dec.i
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %dec.i
   %5 = load float, ptr %add.ptr.i, align 4
   %childPosition.0.in20.i.i.i = shl nuw nsw i64 %dec.i, 1
   %childPosition.021.i.i.i = add nuw nsw i64 %childPosition.0.in20.i.i.i, 2
@@ -6649,17 +6649,17 @@ for.body.i.i.i:                                   ; preds = %do.body.i, %for.bod
   %childPosition.025.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ %childPosition.021.i.i.i, %do.body.i ]
   %childPosition.0.in24.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ %childPosition.0.in20.i.i.i, %do.body.i ]
   %position.addr.023.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ %dec.i, %do.body.i ]
-  %add.ptr.i.i.i = getelementptr inbounds float, ptr %4, i64 %childPosition.025.i.i.i
-  %6 = getelementptr float, ptr %4, i64 %childPosition.0.in24.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %childPosition.025.i.i.i
+  %6 = getelementptr [4 x i8], ptr %4, i64 %childPosition.0.in24.i.i.i
   %add.ptr1.i.i.i = getelementptr i8, ptr %6, i64 4
   %7 = load float, ptr %add.ptr.i.i.i, align 4
   %8 = load float, ptr %add.ptr1.i.i.i, align 4
   %cmp.i.i.i.i1 = fcmp olt float %7, %8
   %dec.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i1, i64 %dec.i.i.i, i64 %childPosition.025.i.i.i
-  %add.ptr2.i.i.i = getelementptr inbounds float, ptr %4, i64 %spec.select.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %spec.select.i.i.i
   %9 = load float, ptr %add.ptr2.i.i.i, align 4
-  %add.ptr4.i.i.i = getelementptr inbounds float, ptr %4, i64 %position.addr.023.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %position.addr.023.i.i.i
   store float %9, ptr %add.ptr4.i.i.i, align 4
   %childPosition.0.in.i.i.i = shl nsw i64 %spec.select.i.i.i, 1
   %childPosition.0.i.i.i = add nsw i64 %childPosition.0.in.i.i.i, 2
@@ -6675,9 +6675,9 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %do
 
 if.then8.i.i.i:                                   ; preds = %for.end.i.i.i
   %sub9.i.i.i = or disjoint i64 %childPosition.0.in.lcssa.i.i.i, 1
-  %add.ptr10.i.i.i = getelementptr inbounds float, ptr %4, i64 %sub9.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %sub9.i.i.i
   %10 = load float, ptr %add.ptr10.i.i.i, align 4
-  %add.ptr12.i.i.i = getelementptr inbounds float, ptr %4, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr12.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %position.addr.0.lcssa.i.i.i
   store float %10, ptr %add.ptr12.i.i.i, align 4
   br label %if.end14.i.i.i
 
@@ -6690,20 +6690,20 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end14.i.i.i, %fo
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end14.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw float, ptr %4, i64 %parentPosition.015.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %parentPosition.015.i.i.i.i.i
   %11 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = fcmp olt float %11, %5
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw float, ptr %4, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %position.addr.014.i.i.i.i.i
   store float %11, ptr %add.ptr3.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i = icmp slt i64 %parentPosition.015.i.i.i.i.i, %parentPosition.0.i
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !169
 
 _ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i: ; preds = %for.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end14.i.i.i
   %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i, %if.end14.i.i.i ], [ %position.addr.014.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i = getelementptr inbounds float, ptr %4, i64 %position.addr.0.lcssa.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %position.addr.0.lcssa.i.i.i.i.i
   store float %5, ptr %add.ptr7.i.i.i.i.i, align 4
   %cmp2.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp2.not.i, label %invoke.cont, label %do.body.i, !llvm.loop !170
@@ -6716,7 +6716,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl11adjust_h
 define weak_odr dso_local void @_ZN5eastl14priority_queueIfNS_6vectorIfNS_9allocatorEEENS_4lessIfEEEC2ESt16initializer_listIfERKS5_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %compare) unnamed_addr #0 comdat($_ZN5eastl14priority_queueIfNS_6vectorIfNS_9allocatorEEENS_4lessIfEEEC5ESt16initializer_listIfERKS5_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %add.ptr.i = getelementptr inbounds float, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   invoke void @_ZN5eastl6vectorIfNS_9allocatorEE20DoInsertFromIteratorIPKfEEvS5_T_S6_NS_26bidirectional_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef null, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -6740,7 +6740,7 @@ if.then.i:                                        ; preds = %invoke.cont
 do.body.i:                                        ; preds = %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i, %if.then.i
   %parentPosition.0.i = phi i64 [ %add.i, %if.then.i ], [ %dec.i, %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i ]
   %dec.i = add nsw i64 %parentPosition.0.i, -1
-  %add.ptr.i6 = getelementptr inbounds nuw float, ptr %0, i64 %dec.i
+  %add.ptr.i6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %dec.i
   %2 = load float, ptr %add.ptr.i6, align 4
   %childPosition.0.in20.i.i.i = shl nuw nsw i64 %dec.i, 1
   %childPosition.021.i.i.i = add nuw nsw i64 %childPosition.0.in20.i.i.i, 2
@@ -6751,17 +6751,17 @@ for.body.i.i.i:                                   ; preds = %do.body.i, %for.bod
   %childPosition.025.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ %childPosition.021.i.i.i, %do.body.i ]
   %childPosition.0.in24.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ %childPosition.0.in20.i.i.i, %do.body.i ]
   %position.addr.023.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ %dec.i, %do.body.i ]
-  %add.ptr.i.i.i = getelementptr inbounds float, ptr %0, i64 %childPosition.025.i.i.i
-  %3 = getelementptr float, ptr %0, i64 %childPosition.0.in24.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %childPosition.025.i.i.i
+  %3 = getelementptr [4 x i8], ptr %0, i64 %childPosition.0.in24.i.i.i
   %add.ptr1.i.i.i = getelementptr i8, ptr %3, i64 4
   %4 = load float, ptr %add.ptr.i.i.i, align 4
   %5 = load float, ptr %add.ptr1.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %4, %5
   %dec.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, i64 %dec.i.i.i, i64 %childPosition.025.i.i.i
-  %add.ptr2.i.i.i = getelementptr inbounds float, ptr %0, i64 %spec.select.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i
   %6 = load float, ptr %add.ptr2.i.i.i, align 4
-  %add.ptr4.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.023.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.023.i.i.i
   store float %6, ptr %add.ptr4.i.i.i, align 4
   %childPosition.0.in.i.i.i = shl nsw i64 %spec.select.i.i.i, 1
   %childPosition.0.i.i.i = add nsw i64 %childPosition.0.in.i.i.i, 2
@@ -6777,9 +6777,9 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %do
 
 if.then8.i.i.i:                                   ; preds = %for.end.i.i.i
   %sub9.i.i.i = or disjoint i64 %childPosition.0.in.lcssa.i.i.i, 1
-  %add.ptr10.i.i.i = getelementptr inbounds float, ptr %0, i64 %sub9.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %sub9.i.i.i
   %7 = load float, ptr %add.ptr10.i.i.i, align 4
-  %add.ptr12.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr12.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i
   store float %7, ptr %add.ptr12.i.i.i, align 4
   br label %if.end14.i.i.i
 
@@ -6792,20 +6792,20 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end14.i.i.i, %fo
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end14.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw float, ptr %0, i64 %parentPosition.015.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %parentPosition.015.i.i.i.i.i
   %8 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = fcmp olt float %8, %2
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw float, ptr %0, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %position.addr.014.i.i.i.i.i
   store float %8, ptr %add.ptr3.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i = icmp slt i64 %parentPosition.015.i.i.i.i.i, %parentPosition.0.i
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i, label %land.rhs.i.i.i.i.i, !llvm.loop !169
 
 _ZN5eastl11adjust_heapIPflfNS_4lessIfEEEEvT_T0_S5_S5_OT1_T2_.exit.i: ; preds = %for.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end14.i.i.i
   %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i, %if.end14.i.i.i ], [ %position.addr.014.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
   store float %2, ptr %add.ptr7.i.i.i.i.i, align 4
   %cmp2.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp2.not.i, label %invoke.cont12, label %do.body.i, !llvm.loop !170
@@ -6926,7 +6926,7 @@ _ZN5eastl6vectorIfNS_9allocatorEE16DoInsertValueEndIJRKfEEEvDpOT_.exit.i: ; pred
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
   store ptr %retval.0.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i, align 8
-  %add.ptr.i.i = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i.i, align 8
   br label %_ZN5eastl6vectorIfNS_9allocatorEE9push_backERKf.exit
 
@@ -6947,20 +6947,20 @@ land.rhs.i.i.i:                                   ; preds = %_ZN5eastl6vectorIfN
   %position.addr.014.i.i.i = phi i64 [ %parentPosition.015.i.i.i, %for.body.i.i.i ], [ %sub.i, %_ZN5eastl6vectorIfNS_9allocatorEE9push_backERKf.exit ]
   %parentPosition.015.in.i.i.i = add nsw i64 %position.addr.014.i.i.i, -1
   %parentPosition.015.i.i.i = lshr i64 %parentPosition.015.in.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw float, ptr %11, i64 %parentPosition.015.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %parentPosition.015.i.i.i
   %13 = load float, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %13, %12
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i, label %_ZN5eastl9push_heapIPfNS_4lessIfEEEEvT_S4_T0_.exit
 
 for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds float, ptr %11, i64 %position.addr.014.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds [4 x i8], ptr %11, i64 %position.addr.014.i.i.i
   store float %13, ptr %add.ptr3.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i64 %parentPosition.015.i.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZN5eastl9push_heapIPfNS_4lessIfEEEEvT_S4_T0_.exit, label %land.rhs.i.i.i, !llvm.loop !171
 
 _ZN5eastl9push_heapIPfNS_4lessIfEEEEvT_S4_T0_.exit: ; preds = %land.rhs.i.i.i, %for.body.i.i.i, %_ZN5eastl6vectorIfNS_9allocatorEE9push_backERKf.exit
   %position.addr.0.lcssa.i.i.i = phi i64 [ %sub.i, %_ZN5eastl6vectorIfNS_9allocatorEE9push_backERKf.exit ], [ %position.addr.014.i.i.i, %land.rhs.i.i.i ], [ 0, %for.body.i.i.i ]
-  %add.ptr7.i.i.i = getelementptr inbounds float, ptr %11, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr7.i.i.i = getelementptr inbounds [4 x i8], ptr %11, i64 %position.addr.0.lcssa.i.i.i
   store float %12, ptr %add.ptr7.i.i.i, align 4
   ret void
 }
@@ -7033,7 +7033,7 @@ _ZN5eastl6vectorIfNS_9allocatorEE16DoInsertValueEndIJfEEEvDpOT_.exit.i: ; preds 
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
   store ptr %retval.0.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i, align 8
-  %add.ptr.i.i = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i.i, align 8
   br label %_ZN5eastl6vectorIfNS_9allocatorEE9push_backEOf.exit
 
@@ -7054,20 +7054,20 @@ land.rhs.i.i.i:                                   ; preds = %_ZN5eastl6vectorIfN
   %position.addr.014.i.i.i = phi i64 [ %parentPosition.015.i.i.i, %for.body.i.i.i ], [ %sub.i, %_ZN5eastl6vectorIfNS_9allocatorEE9push_backEOf.exit ]
   %parentPosition.015.in.i.i.i = add nsw i64 %position.addr.014.i.i.i, -1
   %parentPosition.015.i.i.i = lshr i64 %parentPosition.015.in.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw float, ptr %11, i64 %parentPosition.015.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %parentPosition.015.i.i.i
   %13 = load float, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %13, %12
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i, label %_ZN5eastl9push_heapIPfNS_4lessIfEEEEvT_S4_T0_.exit
 
 for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds float, ptr %11, i64 %position.addr.014.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds [4 x i8], ptr %11, i64 %position.addr.014.i.i.i
   store float %13, ptr %add.ptr3.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i64 %parentPosition.015.i.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZN5eastl9push_heapIPfNS_4lessIfEEEEvT_S4_T0_.exit, label %land.rhs.i.i.i, !llvm.loop !171
 
 _ZN5eastl9push_heapIPfNS_4lessIfEEEEvT_S4_T0_.exit: ; preds = %land.rhs.i.i.i, %for.body.i.i.i, %_ZN5eastl6vectorIfNS_9allocatorEE9push_backEOf.exit
   %position.addr.0.lcssa.i.i.i = phi i64 [ %sub.i, %_ZN5eastl6vectorIfNS_9allocatorEE9push_backEOf.exit ], [ %position.addr.014.i.i.i, %land.rhs.i.i.i ], [ 0, %for.body.i.i.i ]
-  %add.ptr7.i.i.i = getelementptr inbounds float, ptr %11, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr7.i.i.i = getelementptr inbounds [4 x i8], ptr %11, i64 %position.addr.0.lcssa.i.i.i
   store float %12, ptr %add.ptr7.i.i.i, align 4
   ret void
 }
@@ -7094,17 +7094,17 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   %childPosition.025.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ 2, %entry ]
   %childPosition.0.in24.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ 0, %entry ]
   %position.addr.023.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ 0, %entry ]
-  %add.ptr.i.i.i = getelementptr inbounds float, ptr %0, i64 %childPosition.025.i.i.i
-  %4 = getelementptr float, ptr %0, i64 %childPosition.0.in24.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %childPosition.025.i.i.i
+  %4 = getelementptr [4 x i8], ptr %0, i64 %childPosition.0.in24.i.i.i
   %add.ptr1.i.i.i = getelementptr i8, ptr %4, i64 4
   %5 = load float, ptr %add.ptr.i.i.i, align 4
   %6 = load float, ptr %add.ptr1.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %5, %6
   %dec.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, i64 %dec.i.i.i, i64 %childPosition.025.i.i.i
-  %add.ptr2.i.i.i = getelementptr inbounds float, ptr %0, i64 %spec.select.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i
   %7 = load float, ptr %add.ptr2.i.i.i, align 4
-  %add.ptr4.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.023.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.023.i.i.i
   store float %7, ptr %add.ptr4.i.i.i, align 4
   %childPosition.0.in.i.i.i = shl nsw i64 %spec.select.i.i.i, 1
   %childPosition.0.i.i.i = add nsw i64 %childPosition.0.in.i.i.i, 2
@@ -7123,9 +7123,9 @@ for.end.i.i.i.thread:                             ; preds = %entry
 if.end14.i.i.thread.i:                            ; preds = %for.end.i.i.i.thread, %for.end.i.i.i
   %childPosition.0.in.lcssa.i.i.i8 = phi i64 [ 1, %for.end.i.i.i.thread ], [ %8, %for.end.i.i.i ]
   %position.addr.0.lcssa.i.i.i7 = phi i64 [ 0, %for.end.i.i.i.thread ], [ %spec.select.i.i.i, %for.end.i.i.i ]
-  %add.ptr10.i.i.i = getelementptr inbounds float, ptr %0, i64 %childPosition.0.in.lcssa.i.i.i8
+  %add.ptr10.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %childPosition.0.in.lcssa.i.i.i8
   %9 = load float, ptr %add.ptr10.i.i.i, align 4
-  %add.ptr12.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.0.lcssa.i.i.i7
+  %add.ptr12.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i7
   store float %9, ptr %add.ptr12.i.i.i, align 4
   br label %land.rhs.i.i.i.i.i.preheader
 
@@ -7137,20 +7137,20 @@ land.rhs.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i.
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.014.i.i.i.i.i.ph, %land.rhs.i.i.i.i.i.preheader ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw float, ptr %0, i64 %parentPosition.015.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %parentPosition.015.i.i.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = fcmp olt float %10, %2
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl8pop_heapIPfNS_4lessIfEEEEvT_S4_T0_.exit
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw float, ptr %0, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %position.addr.014.i.i.i.i.i
   store float %10, ptr %add.ptr3.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i = icmp eq i64 %parentPosition.015.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl8pop_heapIPfNS_4lessIfEEEEvT_S4_T0_.exit, label %land.rhs.i.i.i.i.i, !llvm.loop !169
 
 _ZN5eastl8pop_heapIPfNS_4lessIfEEEEvT_S4_T0_.exit: ; preds = %land.rhs.i.i.i.i.i, %for.body.i.i.i.i.i, %for.end.i.i.i.thread
   %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ 0, %for.end.i.i.i.thread ], [ %position.addr.014.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
   store float %2, ptr %add.ptr7.i.i.i.i.i, align 4
   %11 = load ptr, ptr %mpEnd.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 -4
@@ -7183,17 +7183,17 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %childPosition.025.i.i.i.i = phi i64 [ %childPosition.0.i.i.i.i, %for.body.i.i.i.i ], [ 2, %entry ]
   %childPosition.0.in24.i.i.i.i = phi i64 [ %childPosition.0.in.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
   %position.addr.023.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
-  %add.ptr.i.i.i.i = getelementptr inbounds float, ptr %2, i64 %childPosition.025.i.i.i.i
-  %6 = getelementptr float, ptr %2, i64 %childPosition.0.in24.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %childPosition.025.i.i.i.i
+  %6 = getelementptr [4 x i8], ptr %2, i64 %childPosition.0.in24.i.i.i.i
   %add.ptr1.i.i.i.i = getelementptr i8, ptr %6, i64 4
   %7 = load float, ptr %add.ptr.i.i.i.i, align 4
   %8 = load float, ptr %add.ptr1.i.i.i.i, align 4
   %cmp.i.i.i.i.i = fcmp olt float %7, %8
   %dec.i.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i.i, 1
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %dec.i.i.i.i, i64 %childPosition.025.i.i.i.i
-  %add.ptr2.i.i.i.i = getelementptr inbounds float, ptr %2, i64 %spec.select.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %spec.select.i.i.i.i
   %9 = load float, ptr %add.ptr2.i.i.i.i, align 4
-  %add.ptr4.i.i.i.i = getelementptr inbounds float, ptr %2, i64 %position.addr.023.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %position.addr.023.i.i.i.i
   store float %9, ptr %add.ptr4.i.i.i.i, align 4
   %childPosition.0.in.i.i.i.i = shl nsw i64 %spec.select.i.i.i.i, 1
   %childPosition.0.i.i.i.i = add nsw i64 %childPosition.0.in.i.i.i.i, 2
@@ -7212,9 +7212,9 @@ for.end.i.i.i.thread.i:                           ; preds = %entry
 if.end14.i.i.thread.i.i:                          ; preds = %for.end.i.i.i.thread.i, %for.end.i.i.i.i
   %childPosition.0.in.lcssa.i.i.i8.i = phi i64 [ 1, %for.end.i.i.i.thread.i ], [ %10, %for.end.i.i.i.i ]
   %position.addr.0.lcssa.i.i.i7.i = phi i64 [ 0, %for.end.i.i.i.thread.i ], [ %spec.select.i.i.i.i, %for.end.i.i.i.i ]
-  %add.ptr10.i.i.i.i = getelementptr inbounds float, ptr %2, i64 %childPosition.0.in.lcssa.i.i.i8.i
+  %add.ptr10.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %childPosition.0.in.lcssa.i.i.i8.i
   %11 = load float, ptr %add.ptr10.i.i.i.i, align 4
-  %add.ptr12.i.i.i.i = getelementptr inbounds float, ptr %2, i64 %position.addr.0.lcssa.i.i.i7.i
+  %add.ptr12.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %position.addr.0.lcssa.i.i.i7.i
   store float %11, ptr %add.ptr12.i.i.i.i, align 4
   br label %land.rhs.i.i.i.i.i.i.preheader
 
@@ -7226,20 +7226,20 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i.
   %position.addr.014.i.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %position.addr.014.i.i.i.i.i.i.ph, %land.rhs.i.i.i.i.i.i.preheader ]
   %parentPosition.015.in.i.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw float, ptr %2, i64 %parentPosition.015.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %parentPosition.015.i.i.i.i.i.i
   %12 = load float, ptr %add.ptr.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i = fcmp olt float %12, %4
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN5eastl14priority_queueIfNS_6vectorIfNS_9allocatorEEENS_4lessIfEEE3popEv.exit
 
 for.body.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds nuw float, ptr %2, i64 %position.addr.014.i.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %position.addr.014.i.i.i.i.i.i
   store float %12, ptr %add.ptr3.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i.i = icmp eq i64 %parentPosition.015.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.not.i.i, label %_ZN5eastl14priority_queueIfNS_6vectorIfNS_9allocatorEEENS_4lessIfEEE3popEv.exit, label %land.rhs.i.i.i.i.i.i, !llvm.loop !169
 
 _ZN5eastl14priority_queueIfNS_6vectorIfNS_9allocatorEEENS_4lessIfEEE3popEv.exit: ; preds = %land.rhs.i.i.i.i.i.i, %for.body.i.i.i.i.i.i, %for.end.i.i.i.thread.i
   %position.addr.0.lcssa.i.i.i.i.i.i = phi i64 [ 0, %for.end.i.i.i.thread.i ], [ 0, %for.body.i.i.i.i.i.i ], [ %position.addr.014.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i.i = getelementptr inbounds float, ptr %2, i64 %position.addr.0.lcssa.i.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %position.addr.0.lcssa.i.i.i.i.i.i
   store float %4, ptr %add.ptr7.i.i.i.i.i.i, align 4
   %13 = load ptr, ptr %mpEnd.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 -4
@@ -7260,7 +7260,7 @@ entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -4
   %2 = load float, ptr %add.ptr1.i.i, align 4
-  %add.ptr2.i.i = getelementptr inbounds float, ptr %0, i64 %n
+  %add.ptr2.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %n
   %3 = load float, ptr %add.ptr2.i.i, align 4
   store float %3, ptr %add.ptr1.i.i, align 4
   %sub.i.i = add nsw i64 %sub.ptr.div.i, -1
@@ -7273,17 +7273,17 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %childPosition.025.i.i.i.i = phi i64 [ %childPosition.0.i.i.i.i, %for.body.i.i.i.i ], [ %childPosition.021.i.i.i.i, %entry ]
   %childPosition.0.in24.i.i.i.i = phi i64 [ %childPosition.0.in.i.i.i.i, %for.body.i.i.i.i ], [ %childPosition.0.in20.i.i.i.i, %entry ]
   %position.addr.023.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %for.body.i.i.i.i ], [ %n, %entry ]
-  %add.ptr.i.i.i.i = getelementptr inbounds float, ptr %0, i64 %childPosition.025.i.i.i.i
-  %4 = getelementptr float, ptr %0, i64 %childPosition.0.in24.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %childPosition.025.i.i.i.i
+  %4 = getelementptr [4 x i8], ptr %0, i64 %childPosition.0.in24.i.i.i.i
   %add.ptr1.i.i.i.i = getelementptr i8, ptr %4, i64 4
   %5 = load float, ptr %add.ptr.i.i.i.i, align 4
   %6 = load float, ptr %add.ptr1.i.i.i.i, align 4
   %cmp.i.i.i.i.i = fcmp olt float %5, %6
   %dec.i.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i.i, 1
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %dec.i.i.i.i, i64 %childPosition.025.i.i.i.i
-  %add.ptr2.i.i.i.i = getelementptr inbounds float, ptr %0, i64 %spec.select.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %7 = load float, ptr %add.ptr2.i.i.i.i, align 4
-  %add.ptr4.i.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.023.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.023.i.i.i.i
   store float %7, ptr %add.ptr4.i.i.i.i, align 4
   %childPosition.0.in.i.i.i.i = shl nsw i64 %spec.select.i.i.i.i, 1
   %childPosition.0.i.i.i.i = add nsw i64 %childPosition.0.in.i.i.i.i, 2
@@ -7299,9 +7299,9 @@ for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i, %
 
 if.then8.i.i.i.i:                                 ; preds = %for.end.i.i.i.i
   %sub9.i.i.i.i = or disjoint i64 %childPosition.0.in.lcssa.i.i.i.i, 1
-  %add.ptr10.i.i.i.i = getelementptr inbounds float, ptr %0, i64 %sub9.i.i.i.i
+  %add.ptr10.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %sub9.i.i.i.i
   %8 = load float, ptr %add.ptr10.i.i.i.i, align 4
-  %add.ptr12.i.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.0.lcssa.i.i.i.i
+  %add.ptr12.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i.i
   store float %8, ptr %add.ptr12.i.i.i.i, align 4
   br label %if.end14.i.i.i.i
 
@@ -7314,20 +7314,20 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end14.i.i.i.i, %
   %position.addr.014.i.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %position.addr.1.i.i.i.i, %if.end14.i.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw float, ptr %0, i64 %parentPosition.015.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %parentPosition.015.i.i.i.i.i.i
   %9 = load float, ptr %add.ptr.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i = fcmp olt float %9, %2
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN5eastl11remove_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds nuw float, ptr %0, i64 %position.addr.014.i.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %position.addr.014.i.i.i.i.i.i
   store float %9, ptr %add.ptr3.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i.i = icmp eq i64 %parentPosition.015.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.not.i.i, label %_ZN5eastl11remove_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit.i, label %land.rhs.i.i.i.i.i.i, !llvm.loop !171
 
 _ZN5eastl11remove_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit.i: ; preds = %for.body.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i, %if.end14.i.i.i.i
   %position.addr.0.lcssa.i.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i.i, %if.end14.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.i ], [ %position.addr.014.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i.i
   store float %2, ptr %add.ptr7.i.i.i.i.i.i, align 4
   %10 = load float, ptr %add.ptr1.i.i, align 4
   %cmp13.i.i.i = icmp sgt i64 %sub.ptr.div.i, 1
@@ -7337,20 +7337,20 @@ land.rhs.i.i.i:                                   ; preds = %_ZN5eastl11remove_h
   %position.addr.014.i.i.i = phi i64 [ %parentPosition.015.i.i.i, %for.body.i.i.i ], [ %sub.i.i, %_ZN5eastl11remove_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit.i ]
   %parentPosition.015.in.i.i.i = add nsw i64 %position.addr.014.i.i.i, -1
   %parentPosition.015.i.i.i = lshr i64 %parentPosition.015.in.i.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw float, ptr %0, i64 %parentPosition.015.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %parentPosition.015.i.i.i
   %11 = load float, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i5.i = fcmp olt float %11, %10
   br i1 %cmp.i.i.i5.i, label %for.body.i.i.i, label %_ZN5eastl11change_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit
 
 for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds nuw float, ptr %0, i64 %position.addr.014.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %position.addr.014.i.i.i
   store float %11, ptr %add.ptr3.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i64 %parentPosition.015.i.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZN5eastl11change_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit, label %land.rhs.i.i.i, !llvm.loop !171
 
 _ZN5eastl11change_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit: ; preds = %land.rhs.i.i.i, %for.body.i.i.i, %_ZN5eastl11remove_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit.i
   %position.addr.0.lcssa.i.i.i = phi i64 [ %sub.i.i, %_ZN5eastl11remove_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit.i ], [ %position.addr.014.i.i.i, %land.rhs.i.i.i ], [ 0, %for.body.i.i.i ]
-  %add.ptr7.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr7.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i
   store float %10, ptr %add.ptr7.i.i.i, align 4
   ret void
 }
@@ -7368,7 +7368,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %2 = load float, ptr %add.ptr1.i, align 4
-  %add.ptr2.i = getelementptr inbounds float, ptr %0, i64 %n
+  %add.ptr2.i = getelementptr inbounds [4 x i8], ptr %0, i64 %n
   %3 = load float, ptr %add.ptr2.i, align 4
   store float %3, ptr %add.ptr1.i, align 4
   %sub.i = add nsw i64 %sub.ptr.div.i, -1
@@ -7381,17 +7381,17 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   %childPosition.025.i.i.i = phi i64 [ %childPosition.0.i.i.i, %for.body.i.i.i ], [ %childPosition.021.i.i.i, %entry ]
   %childPosition.0.in24.i.i.i = phi i64 [ %childPosition.0.in.i.i.i, %for.body.i.i.i ], [ %childPosition.0.in20.i.i.i, %entry ]
   %position.addr.023.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ %n, %entry ]
-  %add.ptr.i.i.i = getelementptr inbounds float, ptr %0, i64 %childPosition.025.i.i.i
-  %4 = getelementptr float, ptr %0, i64 %childPosition.0.in24.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %childPosition.025.i.i.i
+  %4 = getelementptr [4 x i8], ptr %0, i64 %childPosition.0.in24.i.i.i
   %add.ptr1.i.i.i = getelementptr i8, ptr %4, i64 4
   %5 = load float, ptr %add.ptr.i.i.i, align 4
   %6 = load float, ptr %add.ptr1.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %5, %6
   %dec.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, i64 %dec.i.i.i, i64 %childPosition.025.i.i.i
-  %add.ptr2.i.i.i = getelementptr inbounds float, ptr %0, i64 %spec.select.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i
   %7 = load float, ptr %add.ptr2.i.i.i, align 4
-  %add.ptr4.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.023.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.023.i.i.i
   store float %7, ptr %add.ptr4.i.i.i, align 4
   %childPosition.0.in.i.i.i = shl nsw i64 %spec.select.i.i.i, 1
   %childPosition.0.i.i.i = add nsw i64 %childPosition.0.in.i.i.i, 2
@@ -7407,9 +7407,9 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %en
 
 if.then8.i.i.i:                                   ; preds = %for.end.i.i.i
   %sub9.i.i.i = or disjoint i64 %childPosition.0.in.lcssa.i.i.i, 1
-  %add.ptr10.i.i.i = getelementptr inbounds float, ptr %0, i64 %sub9.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %sub9.i.i.i
   %8 = load float, ptr %add.ptr10.i.i.i, align 4
-  %add.ptr12.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.0.lcssa.i.i.i
+  %add.ptr12.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i
   store float %8, ptr %add.ptr12.i.i.i, align 4
   br label %if.end14.i.i.i
 
@@ -7422,20 +7422,20 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end14.i.i.i, %fo
   %position.addr.014.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %position.addr.1.i.i.i, %if.end14.i.i.i ]
   %parentPosition.015.in.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw float, ptr %0, i64 %parentPosition.015.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %parentPosition.015.i.i.i.i.i
   %9 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = fcmp olt float %9, %2
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl11remove_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw float, ptr %0, i64 %position.addr.014.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %position.addr.014.i.i.i.i.i
   store float %9, ptr %add.ptr3.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i = icmp eq i64 %parentPosition.015.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.not.i, label %_ZN5eastl11remove_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit, label %land.rhs.i.i.i.i.i, !llvm.loop !171
 
 _ZN5eastl11remove_heapIPfmNS_4lessIfEEEEvT_T0_S5_T1_.exit: ; preds = %land.rhs.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end14.i.i.i
   %position.addr.0.lcssa.i.i.i.i.i = phi i64 [ %position.addr.1.i.i.i, %if.end14.i.i.i ], [ %position.addr.014.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i = getelementptr inbounds float, ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %0, i64 %position.addr.0.lcssa.i.i.i.i.i
   store float %2, ptr %add.ptr7.i.i.i.i.i, align 4
   %10 = load ptr, ptr %mpEnd.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 -4
@@ -7506,7 +7506,7 @@ for.body.i.i:                                     ; preds = %land.rhs, %if.end.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %idx.ext.i.i = zext nneg i32 %counter.011.i.i to i64
-  %add.ptr1.i.i = getelementptr inbounds nuw float, ptr %first.addr.010.i.i, i64 %idx.ext.i.i
+  %add.ptr1.i.i = getelementptr inbounds nuw [4 x i8], ptr %first.addr.010.i.i, i64 %idx.ext.i.i
   %xor.i.i = xor i32 %counter.011.i.i, 1
   %child.0.i.i = getelementptr inbounds nuw i8, ptr %child.012.i.i, i64 4
   %cmp.i.i = icmp ult ptr %child.0.i.i, %0
@@ -7674,7 +7674,7 @@ _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i: ; pred
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
   store ptr %retval.0.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i.i, align 8
   br label %for.inc
 
@@ -7808,7 +7808,7 @@ _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i: ; pred
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
   store ptr %retval.0.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i.i, align 8
   br label %_ZN5eastl6vectorIiNS_9allocatorEE9push_backERKi.exit
 
@@ -7882,7 +7882,7 @@ _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i: ; preds 
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
   store ptr %retval.0.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %mpEnd.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i.i, align 8
   br label %_ZN5eastl6vectorIiNS_9allocatorEE9push_backEOi.exit
 
@@ -10862,7 +10862,7 @@ for.body9.i:                                      ; preds = %for.inc14.i, %invok
           to label %for.inc14.i unwind label %lpad10.loopexit.i
 
 for.inc14.i:                                      ; preds = %for.body9.i
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %347, i64 %j.0950.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %347, i64 %j.0950.i
   %mValue.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i52.i, i64 16
   %348 = load i32, ptr %add.ptr.i.i, align 8
   store i32 %348, ptr %mValue.i.i.i.i25, align 8
@@ -11282,7 +11282,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont83.i, %i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %idx.ext.i.i.i = zext nneg i32 %counter.011.i.i.i to i64
-  %add.ptr1.i.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %first.addr.010.i.i.i, i64 %idx.ext.i.i.i
+  %add.ptr1.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %first.addr.010.i.i.i, i64 %idx.ext.i.i.i
   %xor.i.i.i = xor i32 %counter.011.i.i.i, 1
   %child.0.i.i.i = getelementptr inbounds nuw i8, ptr %child.012.i.i.i, i64 24
   %cmp.i.i186.i = icmp ult ptr %child.0.i.i.i, %432
@@ -11324,7 +11324,7 @@ for.body.i.i.i190.i:                              ; preds = %land.rhs.i.i108, %i
 
 if.end.i.i.i191.i:                                ; preds = %for.body.i.i.i190.i
   %idx.ext.i.i.i.i = zext nneg i32 %counter.011.i.i.i.i to i64
-  %add.ptr1.i.i.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %first.addr.010.i.i.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr1.i.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %first.addr.010.i.i.i.i, i64 %idx.ext.i.i.i.i
   %xor.i.i.i.i = xor i32 %counter.011.i.i.i.i, 1
   %child.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %child.012.i.i.i.i, i64 24
   %cmp.i.i.i192.i = icmp ult ptr %child.0.i.i.i.i, %436
@@ -11449,7 +11449,7 @@ for.body.i.i236.i:                                ; preds = %_ZN10TestObjectD2Ev
 
 if.end.i.i241.i:                                  ; preds = %for.body.i.i236.i
   %idx.ext.i.i242.i = zext nneg i32 %counter.011.i.i238.i to i64
-  %add.ptr1.i.i243.i = getelementptr inbounds nuw %struct.TestObject, ptr %first.addr.010.i.i239.i, i64 %idx.ext.i.i242.i
+  %add.ptr1.i.i243.i = getelementptr inbounds nuw [24 x i8], ptr %first.addr.010.i.i239.i, i64 %idx.ext.i.i242.i
   %xor.i.i244.i = xor i32 %counter.011.i.i238.i, 1
   %child.0.i.i245.i = getelementptr inbounds nuw i8, ptr %child.012.i.i237.i, i64 24
   %cmp.i.i246.i = icmp ult ptr %child.0.i.i245.i, %469
@@ -11599,7 +11599,7 @@ for.body.i.i311.i:                                ; preds = %_ZN10TestObjectD2Ev
 
 if.end.i.i316.i:                                  ; preds = %for.body.i.i311.i
   %idx.ext.i.i317.i = zext nneg i32 %counter.011.i.i313.i to i64
-  %add.ptr1.i.i318.i = getelementptr inbounds nuw %struct.TestObject, ptr %first.addr.010.i.i314.i, i64 %idx.ext.i.i317.i
+  %add.ptr1.i.i318.i = getelementptr inbounds nuw [24 x i8], ptr %first.addr.010.i.i314.i, i64 %idx.ext.i.i317.i
   %xor.i.i319.i = xor i32 %counter.011.i.i313.i, 1
   %child.0.i.i320.i = getelementptr inbounds nuw i8, ptr %child.012.i.i312.i, i64 24
   %cmp.i.i321.i = icmp ult ptr %child.0.i.i320.i, %503
@@ -11698,7 +11698,7 @@ for.body.i.i369.i:                                ; preds = %_ZN10TestObjectD2Ev
 
 if.end.i.i374.i:                                  ; preds = %for.body.i.i369.i
   %idx.ext.i.i375.i = zext nneg i32 %counter.011.i.i371.i to i64
-  %add.ptr1.i.i376.i = getelementptr inbounds nuw %struct.TestObject, ptr %first.addr.010.i.i372.i, i64 %idx.ext.i.i375.i
+  %add.ptr1.i.i376.i = getelementptr inbounds nuw [24 x i8], ptr %first.addr.010.i.i372.i, i64 %idx.ext.i.i375.i
   %xor.i.i377.i = xor i32 %counter.011.i.i371.i, 1
   %child.0.i.i378.i = getelementptr inbounds nuw i8, ptr %child.012.i.i370.i, i64 24
   %cmp.i.i379.i = icmp ult ptr %child.0.i.i378.i, %524
@@ -11798,7 +11798,7 @@ for.body.i.i413.i:                                ; preds = %invoke.cont192.i, %
 
 if.end.i.i418.i:                                  ; preds = %for.body.i.i413.i
   %idx.ext.i.i419.i = zext nneg i32 %counter.011.i.i415.i to i64
-  %add.ptr1.i.i420.i = getelementptr inbounds nuw %struct.TestObject, ptr %first.addr.010.i.i416.i, i64 %idx.ext.i.i419.i
+  %add.ptr1.i.i420.i = getelementptr inbounds nuw [24 x i8], ptr %first.addr.010.i.i416.i, i64 %idx.ext.i.i419.i
   %xor.i.i421.i = xor i32 %counter.011.i.i415.i, 1
   %child.0.i.i422.i = getelementptr inbounds nuw i8, ptr %child.012.i.i414.i, i64 24
   %cmp.i.i423.i = icmp ult ptr %child.0.i.i422.i, %546
@@ -11860,17 +11860,17 @@ for.body.i.i.i.i.i107:                            ; preds = %invoke.cont213.i, %
   %childPosition.025.i.i.i.i.i = phi i64 [ %childPosition.0.i.i.i.i.i, %for.body.i.i.i.i.i107 ], [ 2, %invoke.cont213.i ]
   %childPosition.0.in24.i.i.i.i.i = phi i64 [ %childPosition.0.in.i.i.i.i.i, %for.body.i.i.i.i.i107 ], [ 0, %invoke.cont213.i ]
   %position.addr.023.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i, %for.body.i.i.i.i.i107 ], [ 0, %invoke.cont213.i ]
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %554, i64 %childPosition.025.i.i.i.i.i
-  %558 = getelementptr i32, ptr %554, i64 %childPosition.0.in24.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %554, i64 %childPosition.025.i.i.i.i.i
+  %558 = getelementptr [4 x i8], ptr %554, i64 %childPosition.0.in24.i.i.i.i.i
   %add.ptr1.i.i.i.i.i = getelementptr i8, ptr %558, i64 4
   %559 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %560 = load i32, ptr %add.ptr1.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i438.i = icmp slt i32 %559, %560
   %dec.i.i.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i.i.i, 1
   %spec.select.i.i.i.i.i = select i1 %cmp.i.i.i.i.i438.i, i64 %dec.i.i.i.i.i, i64 %childPosition.025.i.i.i.i.i
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds i32, ptr %554, i64 %spec.select.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %554, i64 %spec.select.i.i.i.i.i
   %561 = load i32, ptr %add.ptr2.i.i.i.i.i, align 4
-  %add.ptr4.i.i.i.i.i = getelementptr inbounds i32, ptr %554, i64 %position.addr.023.i.i.i.i.i
+  %add.ptr4.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %554, i64 %position.addr.023.i.i.i.i.i
   store i32 %561, ptr %add.ptr4.i.i.i.i.i, align 4
   %childPosition.0.in.i.i.i.i.i = shl nsw i64 %spec.select.i.i.i.i.i, 1
   %childPosition.0.i.i.i.i.i = add nsw i64 %childPosition.0.in.i.i.i.i.i, 2
@@ -11889,9 +11889,9 @@ for.end.i.i.i.thread.i.i:                         ; preds = %invoke.cont213.i
 if.end14.i.i.thread.i.i.i:                        ; preds = %for.end.i.i.i.thread.i.i, %for.end.i.i.i.i.i
   %childPosition.0.in.lcssa.i.i.i8.i.i = phi i64 [ 1, %for.end.i.i.i.thread.i.i ], [ %562, %for.end.i.i.i.i.i ]
   %position.addr.0.lcssa.i.i.i7.i.i = phi i64 [ 0, %for.end.i.i.i.thread.i.i ], [ %spec.select.i.i.i.i.i, %for.end.i.i.i.i.i ]
-  %add.ptr10.i.i.i.i.i = getelementptr inbounds i32, ptr %554, i64 %childPosition.0.in.lcssa.i.i.i8.i.i
+  %add.ptr10.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %554, i64 %childPosition.0.in.lcssa.i.i.i8.i.i
   %563 = load i32, ptr %add.ptr10.i.i.i.i.i, align 4
-  %add.ptr12.i.i.i.i.i = getelementptr inbounds i32, ptr %554, i64 %position.addr.0.lcssa.i.i.i7.i.i
+  %add.ptr12.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %554, i64 %position.addr.0.lcssa.i.i.i7.i.i
   store i32 %563, ptr %add.ptr12.i.i.i.i.i, align 4
   br label %land.rhs.i.i.i.i.i.i.i.preheader
 
@@ -11903,20 +11903,20 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.
   %position.addr.014.i.i.i.i.i.i.i = phi i64 [ %parentPosition.015.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %position.addr.014.i.i.i.i.i.i.i.ph, %land.rhs.i.i.i.i.i.i.i.preheader ]
   %parentPosition.015.in.i.i.i.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i.i.i.i, -1
   %parentPosition.015.i.i.i.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %554, i64 %parentPosition.015.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %554, i64 %parentPosition.015.i.i.i.i.i.i.i
   %564 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i.i = icmp slt i32 %564, %556
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %invoke.cont216.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %554, i64 %position.addr.014.i.i.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %554, i64 %position.addr.014.i.i.i.i.i.i.i
   store i32 %564, ptr %add.ptr3.i.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.not.i.i.i = icmp eq i64 %parentPosition.015.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.not.i.i.i, label %invoke.cont216.i, label %land.rhs.i.i.i.i.i.i.i, !llvm.loop !44
 
 invoke.cont216.i:                                 ; preds = %for.body.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i, %for.end.i.i.i.thread.i.i
   %position.addr.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %for.end.i.i.i.thread.i.i ], [ %position.addr.014.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.i.i ]
-  %add.ptr7.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %554, i64 %position.addr.0.lcssa.i.i.i.i.i.i.i
+  %add.ptr7.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %554, i64 %position.addr.0.lcssa.i.i.i.i.i.i.i
   store i32 %556, ptr %add.ptr7.i.i.i.i.i.i.i, align 4
   %565 = load ptr, ptr %mpEnd.i.i427.i, align 8
   %incdec.ptr.i.i437.i = getelementptr inbounds i8, ptr %565, i64 -4
@@ -11946,17 +11946,17 @@ for.body.i.i.i.i469.i:                            ; preds = %invoke.cont219.i, %
   %childPosition.025.i.i.i.i470.i = phi i64 [ %childPosition.0.i.i.i.i481.i, %for.body.i.i.i.i469.i ], [ 2, %invoke.cont219.i ]
   %childPosition.0.in24.i.i.i.i471.i = phi i64 [ %childPosition.0.in.i.i.i.i480.i, %for.body.i.i.i.i469.i ], [ 0, %invoke.cont219.i ]
   %position.addr.023.i.i.i.i472.i = phi i64 [ %spec.select.i.i.i.i477.i, %for.body.i.i.i.i469.i ], [ 0, %invoke.cont219.i ]
-  %add.ptr.i.i.i.i473.i = getelementptr inbounds i32, ptr %568, i64 %childPosition.025.i.i.i.i470.i
-  %572 = getelementptr i32, ptr %568, i64 %childPosition.0.in24.i.i.i.i471.i
+  %add.ptr.i.i.i.i473.i = getelementptr inbounds [4 x i8], ptr %568, i64 %childPosition.025.i.i.i.i470.i
+  %572 = getelementptr [4 x i8], ptr %568, i64 %childPosition.0.in24.i.i.i.i471.i
   %add.ptr1.i.i.i.i474.i = getelementptr i8, ptr %572, i64 4
   %573 = load i32, ptr %add.ptr.i.i.i.i473.i, align 4
   %574 = load i32, ptr %add.ptr1.i.i.i.i474.i, align 4
   %cmp.i.i.i.i.i475.i = icmp slt i32 %573, %574
   %dec.i.i.i.i476.i = or disjoint i64 %childPosition.0.in24.i.i.i.i471.i, 1
   %spec.select.i.i.i.i477.i = select i1 %cmp.i.i.i.i.i475.i, i64 %dec.i.i.i.i476.i, i64 %childPosition.025.i.i.i.i470.i
-  %add.ptr2.i.i.i.i478.i = getelementptr inbounds i32, ptr %568, i64 %spec.select.i.i.i.i477.i
+  %add.ptr2.i.i.i.i478.i = getelementptr inbounds [4 x i8], ptr %568, i64 %spec.select.i.i.i.i477.i
   %575 = load i32, ptr %add.ptr2.i.i.i.i478.i, align 4
-  %add.ptr4.i.i.i.i479.i = getelementptr inbounds i32, ptr %568, i64 %position.addr.023.i.i.i.i472.i
+  %add.ptr4.i.i.i.i479.i = getelementptr inbounds [4 x i8], ptr %568, i64 %position.addr.023.i.i.i.i472.i
   store i32 %575, ptr %add.ptr4.i.i.i.i479.i, align 4
   %childPosition.0.in.i.i.i.i480.i = shl nsw i64 %spec.select.i.i.i.i477.i, 1
   %childPosition.0.i.i.i.i481.i = add nsw i64 %childPosition.0.in.i.i.i.i480.i, 2
@@ -11975,9 +11975,9 @@ for.end.i.i.i.thread.i448.i:                      ; preds = %invoke.cont219.i
 if.end14.i.i.thread.i.i453.i:                     ; preds = %for.end.i.i.i.thread.i448.i, %for.end.i.i.i.i483.i
   %childPosition.0.in.lcssa.i.i.i8.i454.i = phi i64 [ 1, %for.end.i.i.i.thread.i448.i ], [ %576, %for.end.i.i.i.i483.i ]
   %position.addr.0.lcssa.i.i.i7.i455.i = phi i64 [ 0, %for.end.i.i.i.thread.i448.i ], [ %spec.select.i.i.i.i477.i, %for.end.i.i.i.i483.i ]
-  %add.ptr10.i.i.i.i456.i = getelementptr inbounds i32, ptr %568, i64 %childPosition.0.in.lcssa.i.i.i8.i454.i
+  %add.ptr10.i.i.i.i456.i = getelementptr inbounds [4 x i8], ptr %568, i64 %childPosition.0.in.lcssa.i.i.i8.i454.i
   %577 = load i32, ptr %add.ptr10.i.i.i.i456.i, align 4
-  %add.ptr12.i.i.i.i457.i = getelementptr inbounds i32, ptr %568, i64 %position.addr.0.lcssa.i.i.i7.i455.i
+  %add.ptr12.i.i.i.i457.i = getelementptr inbounds [4 x i8], ptr %568, i64 %position.addr.0.lcssa.i.i.i7.i455.i
   store i32 %577, ptr %add.ptr12.i.i.i.i457.i, align 4
   br label %land.rhs.i.i.i.i.i.i460.i.preheader
 
@@ -11989,20 +11989,20 @@ land.rhs.i.i.i.i.i.i460.i:                        ; preds = %land.rhs.i.i.i.i.i.
   %position.addr.014.i.i.i.i.i.i461.i = phi i64 [ %parentPosition.015.i.i.i.i.i.i463.i, %for.body.i.i.i.i.i.i466.i ], [ %position.addr.014.i.i.i.i.i.i461.i.ph, %land.rhs.i.i.i.i.i.i460.i.preheader ]
   %parentPosition.015.in.i.i.i.i.i.i462.i = add nsw i64 %position.addr.014.i.i.i.i.i.i461.i, -1
   %parentPosition.015.i.i.i.i.i.i463.i = lshr i64 %parentPosition.015.in.i.i.i.i.i.i462.i, 1
-  %add.ptr.i.i.i.i.i.i464.i = getelementptr inbounds nuw i32, ptr %568, i64 %parentPosition.015.i.i.i.i.i.i463.i
+  %add.ptr.i.i.i.i.i.i464.i = getelementptr inbounds nuw [4 x i8], ptr %568, i64 %parentPosition.015.i.i.i.i.i.i463.i
   %578 = load i32, ptr %add.ptr.i.i.i.i.i.i464.i, align 4
   %cmp.i.i.i.i.i.i.i465.i = icmp slt i32 %578, %570
   br i1 %cmp.i.i.i.i.i.i.i465.i, label %for.body.i.i.i.i.i.i466.i, label %invoke.cont222.i61
 
 for.body.i.i.i.i.i.i466.i:                        ; preds = %land.rhs.i.i.i.i.i.i460.i
-  %add.ptr3.i.i.i.i.i.i467.i = getelementptr inbounds nuw i32, ptr %568, i64 %position.addr.014.i.i.i.i.i.i461.i
+  %add.ptr3.i.i.i.i.i.i467.i = getelementptr inbounds nuw [4 x i8], ptr %568, i64 %position.addr.014.i.i.i.i.i.i461.i
   store i32 %578, ptr %add.ptr3.i.i.i.i.i.i467.i, align 4
   %cmp.i.i.i.i.not.i.i468.i = icmp eq i64 %parentPosition.015.i.i.i.i.i.i463.i, 0
   br i1 %cmp.i.i.i.i.not.i.i468.i, label %invoke.cont222.i61, label %land.rhs.i.i.i.i.i.i460.i, !llvm.loop !44
 
 invoke.cont222.i61:                               ; preds = %for.body.i.i.i.i.i.i466.i, %land.rhs.i.i.i.i.i.i460.i, %for.end.i.i.i.thread.i448.i
   %position.addr.0.lcssa.i.i.i.i.i.i450.i = phi i64 [ 0, %for.end.i.i.i.thread.i448.i ], [ %position.addr.014.i.i.i.i.i.i461.i, %land.rhs.i.i.i.i.i.i460.i ], [ 0, %for.body.i.i.i.i.i.i466.i ]
-  %add.ptr7.i.i.i.i.i.i451.i = getelementptr inbounds i32, ptr %568, i64 %position.addr.0.lcssa.i.i.i.i.i.i450.i
+  %add.ptr7.i.i.i.i.i.i451.i = getelementptr inbounds [4 x i8], ptr %568, i64 %position.addr.0.lcssa.i.i.i.i.i.i450.i
   store i32 %570, ptr %add.ptr7.i.i.i.i.i.i451.i, align 4
   %579 = load ptr, ptr %mpEnd.i.i427.i, align 8
   %incdec.ptr.i.i452.i = getelementptr inbounds i8, ptr %579, i64 -4
@@ -15461,7 +15461,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i442: ; preds = %_ZN5eastl34unini
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i.i
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i442, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i.i
-  %add.ptr.i.i.i443 = getelementptr inbounds i32, ptr %retval.0.i.i.i.i441, i64 %cond.i.i.i.i437
+  %add.ptr.i.i.i443 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i.i441, i64 %cond.i.i.i.i437
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i.i, %if.then.i.i456
@@ -15593,7 +15593,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i78.i: ; preds = %_ZN5eastl34uninit
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i79.i
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i79.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i78.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i75.i
-  %add.ptr.i.i81.i = getelementptr inbounds i32, ptr %retval.0.i.i.i70.i, i64 %cond.i.i.i63.i
+  %add.ptr.i.i81.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i70.i, i64 %cond.i.i.i63.i
   br label %for.inc50.i
 
 for.inc50.i:                                      ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i79.i, %if.then.i82.i
@@ -15771,7 +15771,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i244.i: ; preds = %_ZN5eastl34unini
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i245.i
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i245.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i244.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i241.i
-  %add.ptr.i.i247.i = getelementptr inbounds i32, ptr %retval.0.i.i.i236.i, i64 %cond.i.i.i229.i
+  %add.ptr.i.i247.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i236.i, i64 %cond.i.i.i229.i
   br label %for.inc97.i
 
 for.inc97.i:                                      ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJRKiEEEvDpOT_.exit.i245.i, %if.then.i248.i
@@ -16213,7 +16213,7 @@ _ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE6DoFreeEPS1_m.exit: ; preds = %
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i, i64 24
   store ptr %retval.0.i, ptr %this, align 8
   store ptr %incdec.ptr, ptr %mpEnd, align 8
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %retval.0.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [24 x i8], ptr %retval.0.i, i64 %cond.i
   store ptr %add.ptr, ptr %mCapacityAllocator.i, align 8
   ret void
 }
@@ -16239,7 +16239,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl9iter_swapIP10TestObjectS2_EEvT_T0_.exit
   %swapIter.08 = phi i64 [ %add, %_ZN5eastl9iter_swapIP10TestObjectS2_EEvT_T0_.exit ], [ 1, %for.body.preheader ]
-  %add.ptr = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %swapIter.08
+  %add.ptr = getelementptr inbounds nuw [24 x i8], ptr %first, i64 %swapIter.08
   %add = add nuw nsw i64 %swapIter.08, 1
   %1 = load i64, ptr %rng, align 8
   %cmp.i.i.i = icmp eq i64 %1, 0
@@ -16252,7 +16252,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %xor.i.i.i = xor i64 %add5.i.i.i, %shr.i.i.i
   store i64 %xor.i.i.i, ptr %rng, align 8
   %rem.i.i = urem i64 %xor.i.i.i, %add
-  %add.ptr2 = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %rem.i.i
+  %add.ptr2 = getelementptr inbounds nuw [24 x i8], ptr %first, i64 %rem.i.i
   %4 = load i32, ptr %add.ptr, align 8
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %5 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
@@ -16352,7 +16352,7 @@ _ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE10DoAllocateEm.exit.i.i.i: ; pr
 
 call.i.i.i.i.i.noexc.i:                           ; preds = %_ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE10DoAllocateEm.exit.i.i.i
   store ptr %call.i.i.i.i.i1.i, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.TestObject, ptr %call.i.i.i.i.i1.i, i64 %inc.i.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i.i.i.i1.i, i64 %inc.i.i.i.i.i
   %mCapacityAllocator.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i, ptr %mCapacityAllocator.i.i.i.i, align 8
   %mpEnd.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -16632,7 +16632,7 @@ for.body.i.i:                                     ; preds = %if.then11, %for.bod
 _ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit: ; preds = %for.body.i.i
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
   %8 = load ptr, ptr %mpEnd, align 8
-  %add.ptr18 = getelementptr inbounds %struct.TestObject, ptr %8, i64 %idx.neg
+  %add.ptr18 = getelementptr inbounds [24 x i8], ptr %8, i64 %idx.neg
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast7
   %cmp4.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
@@ -16772,7 +16772,7 @@ _ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit: ; preds
 for.body.i.i53.preheader:                         ; preds = %_ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit
   %add.ptr26 = getelementptr inbounds i8, ptr %28, i64 %sub.ptr.sub.i.i
   %idx.neg27 = sub nsw i64 0, %sub.ptr.div9
-  %add.ptr28 = getelementptr inbounds %struct.TestObject, ptr %add.ptr26, i64 %idx.neg27
+  %add.ptr28 = getelementptr inbounds [24 x i8], ptr %add.ptr26, i64 %idx.neg27
   br label %for.body.i.i53
 
 for.body.i.i53:                                   ; preds = %for.body.i.i53.preheader, %for.body.i.i53
@@ -17040,7 +17040,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN5eastl8destructI
 _ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE6DoFreeEPS1_m.exit: ; preds = %_ZN5eastl8destructIP10TestObjectEEvT_S3_.exit, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   store ptr %retval.0.i, ptr %this, align 8
   store ptr %retval.sroa.0.0.lcssa.i.i.i142, ptr %mpEnd, align 8
-  %add.ptr60 = getelementptr inbounds %struct.TestObject, ptr %retval.0.i, i64 %cond
+  %add.ptr60 = getelementptr inbounds [24 x i8], ptr %retval.0.i, i64 %cond
   store ptr %add.ptr60, ptr %mCapacityAllocator.i, align 8
   br label %if.end63
 
@@ -17540,7 +17540,7 @@ if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
   %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
-  %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
 
@@ -17555,7 +17555,7 @@ land.lhs.true19:                                  ; preds = %if.else
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
   %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
-  %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
 
@@ -17572,7 +17572,7 @@ if.else32:                                        ; preds = %land.lhs.true19, %i
   %sub.ptr.rhs.cast42 = ptrtoint ptr %5 to i64
   %sub.ptr.sub43 = sub i64 %sub.ptr.lhs.cast41, %sub.ptr.rhs.cast42
   %add.ptr45 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub43
-  %add.ptr47 = getelementptr inbounds ptr, ptr %add.ptr45, i64 %cond
+  %add.ptr47 = getelementptr inbounds [8 x i8], ptr %add.ptr45, i64 %cond
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EE14DoFreePtrArrayEPPim.exit, label %if.end52
 
@@ -17600,7 +17600,7 @@ if.end58:                                         ; preds = %if.then21, %_ZN5eas
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 256
   %mpEnd.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %mpEnd.i, align 8
-  %add.ptr61 = getelementptr inbounds ptr, ptr %pPtrArrayBegin.0, i64 %add
+  %add.ptr61 = getelementptr inbounds [8 x i8], ptr %pPtrArrayBegin.0, i64 %add
   %add.ptr62 = getelementptr inbounds i8, ptr %add.ptr61, i64 -8
   store ptr %add.ptr62, ptr %mpCurrentArrayPtr2, align 8
   %7 = load ptr, ptr %add.ptr62, align 8
@@ -17643,7 +17643,7 @@ if.then:                                          ; preds = %entry
   %div27 = lshr i64 %sub.ptr.div, 1
   %spec.select = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div27)
   %sub15 = sub i64 %sub.ptr.div, %spec.select
-  %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %sub15
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %1, i64 %sub15
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
 
@@ -17658,7 +17658,7 @@ land.lhs.true19:                                  ; preds = %if.else
 if.then21:                                        ; preds = %land.lhs.true19
   %div2226 = lshr i64 %sub9, 1
   %spec.select28 = tail call i64 @llvm.umax.i64(i64 %nAdditionalCapacity, i64 %div2226)
-  %add.ptr29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select28
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr29, ptr align 8 %0, i64 %mul, i1 false)
   br label %if.end58
 
@@ -17675,7 +17675,7 @@ if.else32:                                        ; preds = %land.lhs.true19, %i
   %sub.ptr.rhs.cast42 = ptrtoint ptr %5 to i64
   %sub.ptr.sub43 = sub i64 %sub.ptr.lhs.cast41, %sub.ptr.rhs.cast42
   %add.ptr45 = getelementptr inbounds i8, ptr %call.i6.i.i, i64 %sub.ptr.sub43
-  %add.ptr47 = getelementptr inbounds ptr, ptr %add.ptr45, i64 %cond
+  %add.ptr47 = getelementptr inbounds [8 x i8], ptr %add.ptr45, i64 %cond
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %_ZN5eastl9DequeBaseI7Align64NS_9allocatorELj4EE14DoFreePtrArrayEPPS1_m.exit, label %if.end52
 
@@ -17703,7 +17703,7 @@ if.end58:                                         ; preds = %if.then21, %_ZN5eas
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 256
   %mpEnd.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %mpEnd.i, align 8
-  %add.ptr61 = getelementptr inbounds ptr, ptr %pPtrArrayBegin.0, i64 %add
+  %add.ptr61 = getelementptr inbounds [8 x i8], ptr %pPtrArrayBegin.0, i64 %add
   %add.ptr62 = getelementptr inbounds i8, ptr %add.ptr61, i64 -8
   store ptr %add.ptr62, ptr %mpCurrentArrayPtr2, align 8
   %7 = load ptr, ptr %add.ptr62, align 8
@@ -17856,7 +17856,7 @@ _ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE6DoFreeEPS1_m.exit: ; preds = %
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i, i64 24
   store ptr %retval.0.i, ptr %this, align 8
   store ptr %incdec.ptr, ptr %mpEnd, align 8
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %retval.0.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [24 x i8], ptr %retval.0.i, i64 %cond.i
   store ptr %add.ptr, ptr %mCapacityAllocator.i, align 8
   ret void
 }
@@ -17896,7 +17896,7 @@ if.then11:                                        ; preds = %if.then4
   %gepdiff = sub nsw i64 0, %add.ptr.idx
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr, i64 %gepdiff, i1 false)
   %2 = load ptr, ptr %mpEnd, align 8
-  %add.ptr18 = getelementptr inbounds i32, ptr %2, i64 %idx.neg
+  %add.ptr18 = getelementptr inbounds [4 x i8], ptr %2, i64 %idx.neg
   %cmp.not.i.i.i.i = icmp eq ptr %add.ptr18, %position
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit, label %if.then.i.i.i.i
 
@@ -17905,7 +17905,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then11
   %sub.i.i.i.i = sub i64 %3, %sub.ptr.rhs.cast7
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.i.i.i.i, 2
   %idx.neg.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %2, i64 %idx.neg.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %idx.neg.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i, ptr align 4 %position, i64 %sub.i.i.i.i, i1 false)
   br label %_ZN5eastl4copyIPKiPiEET0_T_S5_S4_.exit
 
@@ -17933,7 +17933,7 @@ _ZN5eastl22uninitialized_copy_ptrIPKiS2_PiEET1_T_T0_S4_.exit: ; preds = %if.else
 if.end.i.i.i.i.i.i38:                             ; preds = %_ZN5eastl22uninitialized_copy_ptrIPKiS2_PiEET1_T_T0_S4_.exit
   %add.ptr26 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i.i
   %idx.neg27 = sub nsw i64 0, %sub.ptr.div9
-  %add.ptr28 = getelementptr inbounds i32, ptr %add.ptr26, i64 %idx.neg27
+  %add.ptr28 = getelementptr inbounds [4 x i8], ptr %add.ptr26, i64 %idx.neg27
   %5 = ptrtoint ptr %4 to i64
   %sub.i.i.i.i.i.i39 = sub i64 %5, %sub.ptr.rhs.cast7
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr28, ptr align 4 %position, i64 %sub.i.i.i.i.i.i39, i1 false)
@@ -17946,7 +17946,7 @@ _ZN5eastl22uninitialized_move_ptrIPiS1_S1_EET1_T_T0_S2_.exit42: ; preds = %_ZN5e
 if.then.i.i.i.i44:                                ; preds = %_ZN5eastl22uninitialized_move_ptrIPiS1_S1_EET1_T_T0_S2_.exit42
   %add.ptr30 = getelementptr inbounds i8, ptr %position, i64 %sub.ptr.sub8
   %idx.neg.i.i.i.i47 = sub nsw i64 0, %sub.ptr.div9
-  %add.ptr.i.i.i.i48 = getelementptr inbounds i32, ptr %add.ptr30, i64 %idx.neg.i.i.i.i47
+  %add.ptr.i.i.i.i48 = getelementptr inbounds [4 x i8], ptr %add.ptr30, i64 %idx.neg.i.i.i.i47
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i48, ptr align 4 %first, i64 %sub.ptr.sub8, i1 false)
   br label %if.end
 
@@ -18018,7 +18018,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN5eastl34uninitia
 _ZN5eastl10VectorBaseIiNS_9allocatorEE6DoFreeEPim.exit: ; preds = %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit64, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   store ptr %retval.0.i, ptr %this, align 8
   store ptr %retval.0.i.i.i.i.i.i.i63, ptr %mpEnd, align 8
-  %add.ptr60 = getelementptr inbounds i32, ptr %retval.0.i, i64 %cond
+  %add.ptr60 = getelementptr inbounds [4 x i8], ptr %retval.0.i, i64 %cond
   store ptr %add.ptr60, ptr %mCapacityAllocator.i, align 8
   br label %if.end63
 
@@ -18055,18 +18055,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %add.ptr.i.i = getelementptr inbounds %struct.Align64, ptr %0, i64 %childPosition.0163
+  %add.ptr.i.i = getelementptr inbounds [64 x i8], ptr %0, i64 %childPosition.0163
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
 if.else.i.i:                                      ; preds = %for.body
   %add3.i.i = add nsw i64 %add.i.i, 16777216
   %div.i.i = sdiv i64 %add3.i.i, 4
   %sub.i.i = add nsw i64 %div.i.i, -4194304
-  %add.ptr4.i.i = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i
+  %add.ptr4.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i
   %3 = load ptr, ptr %add.ptr4.i.i, align 8, !noalias !229
   %mul.i.i = shl nsw i64 %sub.i.i, 2
   %sub6.i.i = sub nsw i64 %add.i.i, %mul.i.i
-  %add.ptr7.i.i = getelementptr inbounds %struct.Align64, ptr %3, i64 %sub6.i.i
+  %add.ptr7.i.i = getelementptr inbounds [64 x i8], ptr %3, i64 %sub6.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -18077,18 +18077,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit: ; preds = %if.then.i.i
   br i1 %cmp.i.i21, label %if.then.i.i38, label %if.else.i.i22
 
 if.then.i.i38:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
-  %add.ptr.i.i40 = getelementptr inbounds %struct.Align64, ptr %0, i64 %sub
+  %add.ptr.i.i40 = getelementptr inbounds [64 x i8], ptr %0, i64 %sub
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41
 
 if.else.i.i22:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
   %add3.i.i23 = add nsw i64 %add.i.i20, 16777216
   %div.i.i24 = sdiv i64 %add3.i.i23, 4
   %sub.i.i25 = add nsw i64 %div.i.i24, -4194304
-  %add.ptr4.i.i26 = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i25
+  %add.ptr4.i.i26 = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i25
   %4 = load ptr, ptr %add.ptr4.i.i26, align 8, !noalias !232
   %mul.i.i28 = shl nsw i64 %sub.i.i25, 2
   %sub6.i.i29 = sub nsw i64 %add.i.i20, %mul.i.i28
-  %add.ptr7.i.i30 = getelementptr inbounds %struct.Align64, ptr %4, i64 %sub6.i.i29
+  %add.ptr7.i.i30 = getelementptr inbounds [64 x i8], ptr %4, i64 %sub6.i.i29
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41: ; preds = %if.then.i.i38, %if.else.i.i22
@@ -18102,18 +18102,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41: ; preds = %if.then.i
   br i1 %cmp.i.i50, label %if.then.i.i67, label %if.else.i.i51
 
 if.then.i.i67:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41
-  %add.ptr.i.i69 = getelementptr inbounds %struct.Align64, ptr %0, i64 %spec.select
+  %add.ptr.i.i69 = getelementptr inbounds [64 x i8], ptr %0, i64 %spec.select
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70
 
 if.else.i.i51:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41
   %add3.i.i52 = add nsw i64 %add.i.i49, 16777216
   %div.i.i53 = sdiv i64 %add3.i.i52, 4
   %sub.i.i54 = add nsw i64 %div.i.i53, -4194304
-  %add.ptr4.i.i55 = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i54
+  %add.ptr4.i.i55 = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i54
   %7 = load ptr, ptr %add.ptr4.i.i55, align 8, !noalias !235
   %mul.i.i57 = shl nsw i64 %sub.i.i54, 2
   %sub6.i.i58 = sub nsw i64 %add.i.i49, %mul.i.i57
-  %add.ptr7.i.i59 = getelementptr inbounds %struct.Align64, ptr %7, i64 %sub6.i.i58
+  %add.ptr7.i.i59 = getelementptr inbounds [64 x i8], ptr %7, i64 %sub6.i.i58
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70: ; preds = %if.then.i.i67, %if.else.i.i51
@@ -18123,18 +18123,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70: ; preds = %if.then.i
   br i1 %cmp.i.i78, label %if.then.i.i95, label %if.else.i.i79
 
 if.then.i.i95:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70
-  %add.ptr.i.i97 = getelementptr inbounds %struct.Align64, ptr %0, i64 %position.addr.0161
+  %add.ptr.i.i97 = getelementptr inbounds [64 x i8], ptr %0, i64 %position.addr.0161
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit98
 
 if.else.i.i79:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70
   %add3.i.i80 = add nsw i64 %add.i.i77, 16777216
   %div.i.i81 = sdiv i64 %add3.i.i80, 4
   %sub.i.i82 = add nsw i64 %div.i.i81, -4194304
-  %add.ptr4.i.i83 = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i82
+  %add.ptr4.i.i83 = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i82
   %8 = load ptr, ptr %add.ptr4.i.i83, align 8, !noalias !238
   %mul.i.i85 = shl nsw i64 %sub.i.i82, 2
   %sub6.i.i86 = sub nsw i64 %add.i.i77, %mul.i.i85
-  %add.ptr7.i.i87 = getelementptr inbounds %struct.Align64, ptr %8, i64 %sub6.i.i86
+  %add.ptr7.i.i87 = getelementptr inbounds [64 x i8], ptr %8, i64 %sub6.i.i86
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit98
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit98: ; preds = %if.then.i.i95, %if.else.i.i79
@@ -18169,18 +18169,18 @@ if.then12:                                        ; preds = %for.end
   br i1 %cmp.i.i106, label %if.then.i.i123, label %if.else.i.i107
 
 if.then.i.i123:                                   ; preds = %if.then12
-  %add.ptr.i.i125 = getelementptr inbounds %struct.Align64, ptr %10, i64 %sub14
+  %add.ptr.i.i125 = getelementptr inbounds [64 x i8], ptr %10, i64 %sub14
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126
 
 if.else.i.i107:                                   ; preds = %if.then12
   %add3.i.i108 = add nsw i64 %add.i.i105, 16777216
   %div.i.i109 = sdiv i64 %add3.i.i108, 4
   %sub.i.i110 = add nsw i64 %div.i.i109, -4194304
-  %add.ptr4.i.i111 = getelementptr inbounds ptr, ptr %12, i64 %sub.i.i110
+  %add.ptr4.i.i111 = getelementptr inbounds [8 x i8], ptr %12, i64 %sub.i.i110
   %13 = load ptr, ptr %add.ptr4.i.i111, align 8, !noalias !242
   %mul.i.i113 = shl nsw i64 %sub.i.i110, 2
   %sub6.i.i114 = sub nsw i64 %add.i.i105, %mul.i.i113
-  %add.ptr7.i.i115 = getelementptr inbounds %struct.Align64, ptr %13, i64 %sub6.i.i114
+  %add.ptr7.i.i115 = getelementptr inbounds [64 x i8], ptr %13, i64 %sub6.i.i114
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126: ; preds = %if.then.i.i123, %if.else.i.i107
@@ -18190,18 +18190,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126: ; preds = %if.then.
   br i1 %cmp.i.i134, label %if.then.i.i151, label %if.else.i.i135
 
 if.then.i.i151:                                   ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126
-  %add.ptr.i.i153 = getelementptr inbounds %struct.Align64, ptr %10, i64 %position.addr.0.lcssa
+  %add.ptr.i.i153 = getelementptr inbounds [64 x i8], ptr %10, i64 %position.addr.0.lcssa
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit154
 
 if.else.i.i135:                                   ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126
   %add3.i.i136 = add nsw i64 %add.i.i133, 16777216
   %div.i.i137 = sdiv i64 %add3.i.i136, 4
   %sub.i.i138 = add nsw i64 %div.i.i137, -4194304
-  %add.ptr4.i.i139 = getelementptr inbounds ptr, ptr %12, i64 %sub.i.i138
+  %add.ptr4.i.i139 = getelementptr inbounds [8 x i8], ptr %12, i64 %sub.i.i138
   %14 = load ptr, ptr %add.ptr4.i.i139, align 8, !noalias !245
   %mul.i.i141 = shl nsw i64 %sub.i.i138, 2
   %sub6.i.i142 = sub nsw i64 %add.i.i133, %mul.i.i141
-  %add.ptr7.i.i143 = getelementptr inbounds %struct.Align64, ptr %14, i64 %sub6.i.i142
+  %add.ptr7.i.i143 = getelementptr inbounds [64 x i8], ptr %14, i64 %sub6.i.i142
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit154
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit154: ; preds = %if.then.i.i151, %if.else.i.i135
@@ -18233,7 +18233,7 @@ land.rhs.i.i:                                     ; preds = %if.end20, %_ZNK5eas
   br i1 %cmp.i.i.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i: ; preds = %land.rhs.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds %struct.Align64, ptr %16, i64 %parentPosition.099.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [64 x i8], ptr %16, i64 %parentPosition.099.i.i
   %19 = load i32, ptr %add.ptr.i.i.i.i, align 64
   %20 = load i32, ptr %value, align 64
   %cmp.i.i8.i.i = icmp slt i32 %19, %20
@@ -18243,11 +18243,11 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i: ; preds = %
   %add3.i.i.i.i = add nsw i64 %add.i.i.i.i, 16777216
   %div.i.i.i.i = sdiv i64 %add3.i.i.i.i, 4
   %sub.i.i.i.i = add nsw i64 %div.i.i.i.i, -4194304
-  %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds [8 x i8], ptr %18, i64 %sub.i.i.i.i
   %21 = load ptr, ptr %add.ptr4.i.i.i.i, align 8, !noalias !248
   %mul.i.i.i.i = shl nsw i64 %sub.i.i.i.i, 2
   %sub6.i.i.i.i = sub nsw i64 %add.i.i.i.i, %mul.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %struct.Align64, ptr %21, i64 %sub6.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds [64 x i8], ptr %21, i64 %sub6.i.i.i.i
   %22 = load i32, ptr %add.ptr7.i.i.i.i, align 64
   %23 = load i32, ptr %value, align 64
   %cmp.i.i894.i.i = icmp slt i32 %22, %23
@@ -18260,18 +18260,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i: ; preds = %_ZNK5
   br i1 %cmp.i.i44.i.i, label %if.then.i.i61.i.i, label %if.else.i.i45.i.i
 
 if.then.i.i61.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
-  %add.ptr.i.i63.i.i = getelementptr inbounds %struct.Align64, ptr %16, i64 %position.addr.098.i.i
+  %add.ptr.i.i63.i.i = getelementptr inbounds [64 x i8], ptr %16, i64 %position.addr.098.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 if.else.i.i45.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
   %add3.i.i46.i.i = add nsw i64 %add.i.i43.i.i, 16777216
   %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.i, 4
   %sub.i.i48.i.i = add nsw i64 %div.i.i47.i.i, -4194304
-  %add.ptr4.i.i49.i.i = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i48.i.i
+  %add.ptr4.i.i49.i.i = getelementptr inbounds [8 x i8], ptr %18, i64 %sub.i.i48.i.i
   %25 = load ptr, ptr %add.ptr4.i.i49.i.i, align 8, !noalias !251
   %mul.i.i51.i.i = shl nsw i64 %sub.i.i48.i.i, 2
   %sub6.i.i52.i.i = sub nsw i64 %add.i.i43.i.i, %mul.i.i51.i.i
-  %add.ptr7.i.i53.i.i = getelementptr inbounds %struct.Align64, ptr %25, i64 %sub6.i.i52.i.i
+  %add.ptr7.i.i53.i.i = getelementptr inbounds [64 x i8], ptr %25, i64 %sub6.i.i52.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i: ; preds = %if.else.i.i45.i.i, %if.then.i.i61.i.i
@@ -18287,18 +18287,18 @@ for.end.i.i:                                      ; preds = %_ZNK5eastl13DequeIt
   br i1 %cmp.i.i72.i.i, label %if.then.i.i89.i.i, label %if.else.i.i73.i.i
 
 if.then.i.i89.i.i:                                ; preds = %for.end.i.i
-  %add.ptr.i.i91.i.i = getelementptr inbounds %struct.Align64, ptr %16, i64 %position.addr.0.lcssa.i.i
+  %add.ptr.i.i91.i.i = getelementptr inbounds [64 x i8], ptr %16, i64 %position.addr.0.lcssa.i.i
   br label %_ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElOS2_NS_4lessIS2_EEEEvT_T0_SA_OT1_T2_.exit
 
 if.else.i.i73.i.i:                                ; preds = %for.end.i.i
   %add3.i.i74.i.i = add nsw i64 %add.i.i71.i.i, 16777216
   %div.i.i75.i.i = sdiv i64 %add3.i.i74.i.i, 4
   %sub.i.i76.i.i = add nsw i64 %div.i.i75.i.i, -4194304
-  %add.ptr4.i.i77.i.i = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i76.i.i
+  %add.ptr4.i.i77.i.i = getelementptr inbounds [8 x i8], ptr %18, i64 %sub.i.i76.i.i
   %26 = load ptr, ptr %add.ptr4.i.i77.i.i, align 8, !noalias !255
   %mul.i.i79.i.i = shl nsw i64 %sub.i.i76.i.i, 2
   %sub6.i.i80.i.i = sub nsw i64 %add.i.i71.i.i, %mul.i.i79.i.i
-  %add.ptr7.i.i81.i.i = getelementptr inbounds %struct.Align64, ptr %26, i64 %sub6.i.i80.i.i
+  %add.ptr7.i.i81.i.i = getelementptr inbounds [64 x i8], ptr %26, i64 %sub6.i.i80.i.i
   br label %_ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElOS2_NS_4lessIS2_EEEEvT_T0_SA_OT1_T2_.exit
 
 _ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElOS2_NS_4lessIS2_EEEEvT_T0_SA_OT1_T2_.exit: ; preds = %if.then.i.i89.i.i, %if.else.i.i73.i.i
@@ -18497,18 +18497,18 @@ if.then20:                                        ; preds = %if.else15
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then20
-  %add.ptr.i.i = getelementptr inbounds %struct.Align64, ptr %28, i64 %add11.i
+  %add.ptr.i.i = getelementptr inbounds [64 x i8], ptr %28, i64 %add11.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
 if.else.i.i:                                      ; preds = %if.then20
   %add3.i.i = add nsw i64 %add.i.i96, 16777216
   %div.i.i = sdiv i64 %add3.i.i, 4
   %sub.i.i97 = add nsw i64 %div.i.i, -4194304
-  %add.ptr4.i.i = getelementptr inbounds ptr, ptr %31, i64 %sub.i.i97
+  %add.ptr4.i.i = getelementptr inbounds [8 x i8], ptr %31, i64 %sub.i.i97
   %32 = load ptr, ptr %add.ptr4.i.i, align 8, !noalias !269
   %mul.i.i99 = shl nsw i64 %sub.i.i97, 2
   %sub6.i.i = sub nsw i64 %add.i.i96, %mul.i.i99
-  %add.ptr7.i.i = getelementptr inbounds %struct.Align64, ptr %32, i64 %sub6.i.i
+  %add.ptr7.i.i = getelementptr inbounds [64 x i8], ptr %32, i64 %sub6.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -18531,12 +18531,12 @@ if.else.i.i109:                                   ; preds = %if.then25
   %add3.i.i110 = add nsw i64 %add.i.i107, 16777216
   %div.i.i111 = sdiv i64 %add3.i.i110, 4
   %sub.i.i112 = add nsw i64 %div.i.i111, -4194304
-  %add.ptr4.i.i113 = getelementptr inbounds ptr, ptr %31, i64 %sub.i.i112
+  %add.ptr4.i.i113 = getelementptr inbounds [8 x i8], ptr %31, i64 %sub.i.i112
   %33 = load ptr, ptr %add.ptr4.i.i113, align 8, !noalias !272
   %add.ptr.i.i.i114 = getelementptr inbounds nuw i8, ptr %33, i64 256
   %mul.i.i115 = shl nsw i64 %sub.i.i112, 2
   %sub6.i.i116 = sub nsw i64 %add.i.i107, %mul.i.i115
-  %add.ptr7.i.i117 = getelementptr inbounds %struct.Align64, ptr %33, i64 %sub6.i.i116
+  %add.ptr7.i.i117 = getelementptr inbounds [64 x i8], ptr %33, i64 %sub6.i.i116
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit128
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit128: ; preds = %if.then.i.i125, %if.else.i.i109
@@ -18835,19 +18835,19 @@ if.else46:                                        ; preds = %if.else15
 
 if.then.i.i300:                                   ; preds = %if.else46
   %sub.i301 = sub nsw i64 0, %sub49
-  %add.ptr.i.i303 = getelementptr inbounds %struct.Align64, ptr %60, i64 %sub.i301
+  %add.ptr.i.i303 = getelementptr inbounds [64 x i8], ptr %60, i64 %sub.i301
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit
 
 if.else.i.i284:                                   ; preds = %if.else46
   %add3.i.i285 = add nsw i64 %add.i.i282, 16777216
   %div.i.i286 = sdiv i64 %add3.i.i285, 4
   %sub.i.i287 = add nsw i64 %div.i.i286, -4194304
-  %add.ptr4.i.i288 = getelementptr inbounds ptr, ptr %63, i64 %sub.i.i287
+  %add.ptr4.i.i288 = getelementptr inbounds [8 x i8], ptr %63, i64 %sub.i.i287
   %64 = load ptr, ptr %add.ptr4.i.i288, align 8, !noalias !321
   %add.ptr.i.i.i289 = getelementptr inbounds nuw i8, ptr %64, i64 256
   %mul.i.i290 = shl nsw i64 %sub.i.i287, 2
   %sub6.i.i291 = sub nsw i64 %add.i.i282, %mul.i.i290
-  %add.ptr7.i.i292 = getelementptr inbounds %struct.Align64, ptr %64, i64 %sub6.i.i291
+  %add.ptr7.i.i292 = getelementptr inbounds [64 x i8], ptr %64, i64 %sub6.i.i291
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit: ; preds = %if.then.i.i300, %if.else.i.i284
@@ -18864,19 +18864,19 @@ if.then53:                                        ; preds = %_ZNK5eastl13DequeIt
 
 if.then.i.i328:                                   ; preds = %if.then53
   %sub.i329 = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr.i.i331 = getelementptr inbounds %struct.Align64, ptr %60, i64 %sub.i329
+  %add.ptr.i.i331 = getelementptr inbounds [64 x i8], ptr %60, i64 %sub.i329
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit332
 
 if.else.i.i312:                                   ; preds = %if.then53
   %add3.i.i313 = add nsw i64 %add.i.i310, 16777216
   %div.i.i314 = sdiv i64 %add3.i.i313, 4
   %sub.i.i315 = add nsw i64 %div.i.i314, -4194304
-  %add.ptr4.i.i316 = getelementptr inbounds ptr, ptr %63, i64 %sub.i.i315
+  %add.ptr4.i.i316 = getelementptr inbounds [8 x i8], ptr %63, i64 %sub.i.i315
   %65 = load ptr, ptr %add.ptr4.i.i316, align 8, !noalias !324
   %add.ptr.i.i.i317 = getelementptr inbounds nuw i8, ptr %65, i64 256
   %mul.i.i318 = shl nsw i64 %sub.i.i315, 2
   %sub6.i.i319 = sub nsw i64 %add.i.i310, %mul.i.i318
-  %add.ptr7.i.i320 = getelementptr inbounds %struct.Align64, ptr %65, i64 %sub6.i.i319
+  %add.ptr7.i.i320 = getelementptr inbounds [64 x i8], ptr %65, i64 %sub6.i.i319
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit332
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit332: ; preds = %if.then.i.i328, %if.else.i.i312
@@ -19026,7 +19026,7 @@ _ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i478: ; preds = %i
 
 if.else68:                                        ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit
   %77 = load ptr, ptr %first, align 8
-  %add.ptr.i.i488 = getelementptr inbounds %struct.Align64, ptr %77, i64 %sub49
+  %add.ptr.i.i488 = getelementptr inbounds [64 x i8], ptr %77, i64 %sub49
   %78 = load ptr, ptr %last, align 8
   %cmp.not6.i.i.i510 = icmp eq ptr %add.ptr.i.i488, %78
   br i1 %cmp.not6.i.i.i510, label %_ZN5eastl18uninitialized_copyIPK7Align64NS_13DequeIteratorIS1_PS1_RS1_Lj4EEEEET0_T_S9_S8_.exit.i, label %for.body.i.i.i511
@@ -19157,19 +19157,19 @@ if.end80:                                         ; preds = %if.end78, %if.end
 
 if.then.i.i624:                                   ; preds = %if.end80
   %90 = load ptr, ptr %mpEnd.i80, align 8, !noalias !372
-  %add.ptr.i.i626 = getelementptr inbounds %struct.Align64, ptr %87, i64 %add11.i
+  %add.ptr.i.i626 = getelementptr inbounds [64 x i8], ptr %87, i64 %add11.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit627
 
 if.else.i.i608:                                   ; preds = %if.end80
   %add3.i.i609 = add nsw i64 %add.i.i606, 16777216
   %div.i.i610 = sdiv i64 %add3.i.i609, 4
   %sub.i.i611 = add nsw i64 %div.i.i610, -4194304
-  %add.ptr4.i.i612 = getelementptr inbounds ptr, ptr %89, i64 %sub.i.i611
+  %add.ptr4.i.i612 = getelementptr inbounds [8 x i8], ptr %89, i64 %sub.i.i611
   %91 = load ptr, ptr %add.ptr4.i.i612, align 8, !noalias !372
   %add.ptr.i.i.i613 = getelementptr inbounds nuw i8, ptr %91, i64 256
   %mul.i.i614 = shl nsw i64 %sub.i.i611, 2
   %sub6.i.i615 = sub nsw i64 %add.i.i606, %mul.i.i614
-  %add.ptr7.i.i616 = getelementptr inbounds %struct.Align64, ptr %91, i64 %sub6.i.i615
+  %add.ptr7.i.i616 = getelementptr inbounds [64 x i8], ptr %91, i64 %sub6.i.i615
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit627
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit627: ; preds = %if.then.i.i624, %if.else.i.i608
@@ -19236,7 +19236,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %call.i6.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 256, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %4 = load ptr, ptr %mpCurrentArrayPtr, align 8
   %sub25 = sub nsw i64 0, %i.049
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %sub25
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %4, i64 %sub25
   store ptr %call.i6.i.i, ptr %arrayidx, align 8
   %inc = add nuw nsw i64 %i.049, 1
   %exitcond50.not = icmp eq i64 %i.049, %div17
@@ -19259,19 +19259,19 @@ if.then.i.i:                                      ; preds = %if.end26
   %sub.i = sub nsw i64 0, %nAdditionalCapacity
   %mpEnd4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %8 = load ptr, ptr %mpEnd4.i.i, align 8, !noalias !376
-  %add.ptr.i.i = getelementptr inbounds %struct.Align64, ptr %5, i64 %sub.i
+  %add.ptr.i.i = getelementptr inbounds [64 x i8], ptr %5, i64 %sub.i
   br label %return
 
 if.else.i.i:                                      ; preds = %if.end26
   %add3.i.i = add nsw i64 %add.i.i, 16777216
   %div.i.i = sdiv i64 %add3.i.i, 4
   %sub.i.i = add nsw i64 %div.i.i, -4194304
-  %add.ptr4.i.i = getelementptr inbounds ptr, ptr %7, i64 %sub.i.i
+  %add.ptr4.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %sub.i.i
   %9 = load ptr, ptr %add.ptr4.i.i, align 8, !noalias !376
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 256
   %mul.i.i = shl nsw i64 %sub.i.i, 2
   %sub6.i.i = sub nsw i64 %add.i.i, %mul.i.i
-  %add.ptr7.i.i = getelementptr inbounds %struct.Align64, ptr %9, i64 %sub6.i.i
+  %add.ptr7.i.i = getelementptr inbounds [64 x i8], ptr %9, i64 %sub6.i.i
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -19294,7 +19294,7 @@ if.then38:                                        ; preds = %if.else
   %12 = load ptr, ptr %this, align 8
   %mnPtrArraySize = getelementptr inbounds nuw i8, ptr %this, i64 8
   %13 = load i64, ptr %mnPtrArraySize, align 8
-  %add.ptr46 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %add.ptr46 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %mpCurrentArrayPtr48 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %14 = load ptr, ptr %mpCurrentArrayPtr48, align 8
   %sub.ptr.lhs.cast49 = ptrtoint ptr %add.ptr46 to i64
@@ -19318,7 +19318,7 @@ for.body70:                                       ; preds = %if.end67, %for.body
   %i44.047 = phi i64 [ %inc76, %for.body70 ], [ 1, %if.end67 ]
   %call.i6.i.i18 = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 256, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %15 = load ptr, ptr %mpCurrentArrayPtr48, align 8
-  %arrayidx74 = getelementptr inbounds nuw ptr, ptr %15, i64 %i44.047
+  %arrayidx74 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %i44.047
   store ptr %call.i6.i.i18, ptr %arrayidx74, align 8
   %inc76 = add nuw nsw i64 %i44.047, 1
   %exitcond.not = icmp eq i64 %i44.047, %div4316
@@ -19340,19 +19340,19 @@ if.end78:                                         ; preds = %for.body70, %if.end
 
 if.then.i.i43:                                    ; preds = %if.end78
   %19 = load ptr, ptr %mpEnd, align 8, !noalias !380
-  %add.ptr.i.i45 = getelementptr inbounds %struct.Align64, ptr %16, i64 %nAdditionalCapacity
+  %add.ptr.i.i45 = getelementptr inbounds [64 x i8], ptr %16, i64 %nAdditionalCapacity
   br label %return
 
 if.else.i.i27:                                    ; preds = %if.end78
   %add3.i.i28 = add nsw i64 %add.i.i25, 16777216
   %div.i.i29 = sdiv i64 %add3.i.i28, 4
   %sub.i.i30 = add nsw i64 %div.i.i29, -4194304
-  %add.ptr4.i.i31 = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i30
+  %add.ptr4.i.i31 = getelementptr inbounds [8 x i8], ptr %18, i64 %sub.i.i30
   %20 = load ptr, ptr %add.ptr4.i.i31, align 8, !noalias !380
   %add.ptr.i.i.i32 = getelementptr inbounds nuw i8, ptr %20, i64 256
   %mul.i.i33 = shl nsw i64 %sub.i.i30, 2
   %sub6.i.i34 = sub nsw i64 %add.i.i25, %mul.i.i33
-  %add.ptr7.i.i35 = getelementptr inbounds %struct.Align64, ptr %20, i64 %sub6.i.i34
+  %add.ptr7.i.i35 = getelementptr inbounds [64 x i8], ptr %20, i64 %sub6.i.i34
   br label %return
 
 return:                                           ; preds = %if.else.i.i27, %if.then.i.i43, %if.else.i.i, %if.then.i.i
@@ -19399,18 +19399,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %add.ptr.i.i = getelementptr inbounds %struct.Align64, ptr %0, i64 %childPosition.0163
+  %add.ptr.i.i = getelementptr inbounds [64 x i8], ptr %0, i64 %childPosition.0163
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
 if.else.i.i:                                      ; preds = %for.body
   %add3.i.i = add nsw i64 %add.i.i, 16777216
   %div.i.i = sdiv i64 %add3.i.i, 4
   %sub.i.i = add nsw i64 %div.i.i, -4194304
-  %add.ptr4.i.i = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i
+  %add.ptr4.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i
   %3 = load ptr, ptr %add.ptr4.i.i, align 8, !noalias !383
   %mul.i.i = shl nsw i64 %sub.i.i, 2
   %sub6.i.i = sub nsw i64 %add.i.i, %mul.i.i
-  %add.ptr7.i.i = getelementptr inbounds %struct.Align64, ptr %3, i64 %sub6.i.i
+  %add.ptr7.i.i = getelementptr inbounds [64 x i8], ptr %3, i64 %sub6.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -19421,18 +19421,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit: ; preds = %if.then.i.i
   br i1 %cmp.i.i21, label %if.then.i.i38, label %if.else.i.i22
 
 if.then.i.i38:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
-  %add.ptr.i.i40 = getelementptr inbounds %struct.Align64, ptr %0, i64 %sub
+  %add.ptr.i.i40 = getelementptr inbounds [64 x i8], ptr %0, i64 %sub
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41
 
 if.else.i.i22:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
   %add3.i.i23 = add nsw i64 %add.i.i20, 16777216
   %div.i.i24 = sdiv i64 %add3.i.i23, 4
   %sub.i.i25 = add nsw i64 %div.i.i24, -4194304
-  %add.ptr4.i.i26 = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i25
+  %add.ptr4.i.i26 = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i25
   %4 = load ptr, ptr %add.ptr4.i.i26, align 8, !noalias !386
   %mul.i.i28 = shl nsw i64 %sub.i.i25, 2
   %sub6.i.i29 = sub nsw i64 %add.i.i20, %mul.i.i28
-  %add.ptr7.i.i30 = getelementptr inbounds %struct.Align64, ptr %4, i64 %sub6.i.i29
+  %add.ptr7.i.i30 = getelementptr inbounds [64 x i8], ptr %4, i64 %sub6.i.i29
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41: ; preds = %if.then.i.i38, %if.else.i.i22
@@ -19446,18 +19446,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41: ; preds = %if.then.i
   br i1 %cmp.i.i50, label %if.then.i.i67, label %if.else.i.i51
 
 if.then.i.i67:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41
-  %add.ptr.i.i69 = getelementptr inbounds %struct.Align64, ptr %0, i64 %spec.select
+  %add.ptr.i.i69 = getelementptr inbounds [64 x i8], ptr %0, i64 %spec.select
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70
 
 if.else.i.i51:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit41
   %add3.i.i52 = add nsw i64 %add.i.i49, 16777216
   %div.i.i53 = sdiv i64 %add3.i.i52, 4
   %sub.i.i54 = add nsw i64 %div.i.i53, -4194304
-  %add.ptr4.i.i55 = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i54
+  %add.ptr4.i.i55 = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i54
   %7 = load ptr, ptr %add.ptr4.i.i55, align 8, !noalias !389
   %mul.i.i57 = shl nsw i64 %sub.i.i54, 2
   %sub6.i.i58 = sub nsw i64 %add.i.i49, %mul.i.i57
-  %add.ptr7.i.i59 = getelementptr inbounds %struct.Align64, ptr %7, i64 %sub6.i.i58
+  %add.ptr7.i.i59 = getelementptr inbounds [64 x i8], ptr %7, i64 %sub6.i.i58
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70: ; preds = %if.then.i.i67, %if.else.i.i51
@@ -19467,18 +19467,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70: ; preds = %if.then.i
   br i1 %cmp.i.i78, label %if.then.i.i95, label %if.else.i.i79
 
 if.then.i.i95:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70
-  %add.ptr.i.i97 = getelementptr inbounds %struct.Align64, ptr %0, i64 %position.addr.0161
+  %add.ptr.i.i97 = getelementptr inbounds [64 x i8], ptr %0, i64 %position.addr.0161
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit98
 
 if.else.i.i79:                                    ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit70
   %add3.i.i80 = add nsw i64 %add.i.i77, 16777216
   %div.i.i81 = sdiv i64 %add3.i.i80, 4
   %sub.i.i82 = add nsw i64 %div.i.i81, -4194304
-  %add.ptr4.i.i83 = getelementptr inbounds ptr, ptr %2, i64 %sub.i.i82
+  %add.ptr4.i.i83 = getelementptr inbounds [8 x i8], ptr %2, i64 %sub.i.i82
   %8 = load ptr, ptr %add.ptr4.i.i83, align 8, !noalias !392
   %mul.i.i85 = shl nsw i64 %sub.i.i82, 2
   %sub6.i.i86 = sub nsw i64 %add.i.i77, %mul.i.i85
-  %add.ptr7.i.i87 = getelementptr inbounds %struct.Align64, ptr %8, i64 %sub6.i.i86
+  %add.ptr7.i.i87 = getelementptr inbounds [64 x i8], ptr %8, i64 %sub6.i.i86
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit98
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit98: ; preds = %if.then.i.i95, %if.else.i.i79
@@ -19513,18 +19513,18 @@ if.then12:                                        ; preds = %for.end
   br i1 %cmp.i.i106, label %if.then.i.i123, label %if.else.i.i107
 
 if.then.i.i123:                                   ; preds = %if.then12
-  %add.ptr.i.i125 = getelementptr inbounds %struct.Align64, ptr %10, i64 %sub14
+  %add.ptr.i.i125 = getelementptr inbounds [64 x i8], ptr %10, i64 %sub14
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126
 
 if.else.i.i107:                                   ; preds = %if.then12
   %add3.i.i108 = add nsw i64 %add.i.i105, 16777216
   %div.i.i109 = sdiv i64 %add3.i.i108, 4
   %sub.i.i110 = add nsw i64 %div.i.i109, -4194304
-  %add.ptr4.i.i111 = getelementptr inbounds ptr, ptr %12, i64 %sub.i.i110
+  %add.ptr4.i.i111 = getelementptr inbounds [8 x i8], ptr %12, i64 %sub.i.i110
   %13 = load ptr, ptr %add.ptr4.i.i111, align 8, !noalias !396
   %mul.i.i113 = shl nsw i64 %sub.i.i110, 2
   %sub6.i.i114 = sub nsw i64 %add.i.i105, %mul.i.i113
-  %add.ptr7.i.i115 = getelementptr inbounds %struct.Align64, ptr %13, i64 %sub6.i.i114
+  %add.ptr7.i.i115 = getelementptr inbounds [64 x i8], ptr %13, i64 %sub6.i.i114
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126: ; preds = %if.then.i.i123, %if.else.i.i107
@@ -19534,18 +19534,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126: ; preds = %if.then.
   br i1 %cmp.i.i134, label %if.then.i.i151, label %if.else.i.i135
 
 if.then.i.i151:                                   ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126
-  %add.ptr.i.i153 = getelementptr inbounds %struct.Align64, ptr %10, i64 %position.addr.0.lcssa
+  %add.ptr.i.i153 = getelementptr inbounds [64 x i8], ptr %10, i64 %position.addr.0.lcssa
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit154
 
 if.else.i.i135:                                   ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit126
   %add3.i.i136 = add nsw i64 %add.i.i133, 16777216
   %div.i.i137 = sdiv i64 %add3.i.i136, 4
   %sub.i.i138 = add nsw i64 %div.i.i137, -4194304
-  %add.ptr4.i.i139 = getelementptr inbounds ptr, ptr %12, i64 %sub.i.i138
+  %add.ptr4.i.i139 = getelementptr inbounds [8 x i8], ptr %12, i64 %sub.i.i138
   %14 = load ptr, ptr %add.ptr4.i.i139, align 8, !noalias !399
   %mul.i.i141 = shl nsw i64 %sub.i.i138, 2
   %sub6.i.i142 = sub nsw i64 %add.i.i133, %mul.i.i141
-  %add.ptr7.i.i143 = getelementptr inbounds %struct.Align64, ptr %14, i64 %sub6.i.i142
+  %add.ptr7.i.i143 = getelementptr inbounds [64 x i8], ptr %14, i64 %sub6.i.i142
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit154
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit154: ; preds = %if.then.i.i151, %if.else.i.i135
@@ -19577,7 +19577,7 @@ land.rhs.i.i:                                     ; preds = %if.end20, %_ZNK5eas
   br i1 %cmp.i.i.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i, label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.i.i: ; preds = %land.rhs.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds %struct.Align64, ptr %16, i64 %parentPosition.099.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [64 x i8], ptr %16, i64 %parentPosition.099.i.i
   %19 = load i32, ptr %add.ptr.i.i.i.i, align 64
   %20 = load i32, ptr %value, align 64
   %cmp.i.i8.i.i = icmp slt i32 %19, %20
@@ -19587,11 +19587,11 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit.thread.i.i: ; preds = %
   %add3.i.i.i.i = add nsw i64 %add.i.i.i.i, 16777216
   %div.i.i.i.i = sdiv i64 %add3.i.i.i.i, 4
   %sub.i.i.i.i = add nsw i64 %div.i.i.i.i, -4194304
-  %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds [8 x i8], ptr %18, i64 %sub.i.i.i.i
   %21 = load ptr, ptr %add.ptr4.i.i.i.i, align 8, !noalias !402
   %mul.i.i.i.i = shl nsw i64 %sub.i.i.i.i, 2
   %sub6.i.i.i.i = sub nsw i64 %add.i.i.i.i, %mul.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds %struct.Align64, ptr %21, i64 %sub6.i.i.i.i
+  %add.ptr7.i.i.i.i = getelementptr inbounds [64 x i8], ptr %21, i64 %sub6.i.i.i.i
   %22 = load i32, ptr %add.ptr7.i.i.i.i, align 64
   %23 = load i32, ptr %value, align 64
   %cmp.i.i894.i.i = icmp slt i32 %22, %23
@@ -19604,18 +19604,18 @@ _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i: ; preds = %_ZNK5
   br i1 %cmp.i.i44.i.i, label %if.then.i.i61.i.i, label %if.else.i.i45.i.i
 
 if.then.i.i61.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
-  %add.ptr.i.i63.i.i = getelementptr inbounds %struct.Align64, ptr %16, i64 %position.addr.098.i.i
+  %add.ptr.i.i63.i.i = getelementptr inbounds [64 x i8], ptr %16, i64 %position.addr.098.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 if.else.i.i45.i.i:                                ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit36.i.i
   %add3.i.i46.i.i = add nsw i64 %add.i.i43.i.i, 16777216
   %div.i.i47.i.i = sdiv i64 %add3.i.i46.i.i, 4
   %sub.i.i48.i.i = add nsw i64 %div.i.i47.i.i, -4194304
-  %add.ptr4.i.i49.i.i = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i48.i.i
+  %add.ptr4.i.i49.i.i = getelementptr inbounds [8 x i8], ptr %18, i64 %sub.i.i48.i.i
   %25 = load ptr, ptr %add.ptr4.i.i49.i.i, align 8, !noalias !405
   %mul.i.i51.i.i = shl nsw i64 %sub.i.i48.i.i, 2
   %sub6.i.i52.i.i = sub nsw i64 %add.i.i43.i.i, %mul.i.i51.i.i
-  %add.ptr7.i.i53.i.i = getelementptr inbounds %struct.Align64, ptr %25, i64 %sub6.i.i52.i.i
+  %add.ptr7.i.i53.i.i = getelementptr inbounds [64 x i8], ptr %25, i64 %sub6.i.i52.i.i
   br label %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i
 
 _ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit64.i.i: ; preds = %if.else.i.i45.i.i, %if.then.i.i61.i.i
@@ -19631,18 +19631,18 @@ for.end.i.i:                                      ; preds = %_ZNK5eastl13DequeIt
   br i1 %cmp.i.i72.i.i, label %if.then.i.i89.i.i, label %if.else.i.i73.i.i
 
 if.then.i.i89.i.i:                                ; preds = %for.end.i.i
-  %add.ptr.i.i91.i.i = getelementptr inbounds %struct.Align64, ptr %16, i64 %position.addr.0.lcssa.i.i
+  %add.ptr.i.i91.i.i = getelementptr inbounds [64 x i8], ptr %16, i64 %position.addr.0.lcssa.i.i
   br label %_ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElRKS2_NS_4lessIS2_EEEEvT_T0_SB_RKT1_T2_.exit
 
 if.else.i.i73.i.i:                                ; preds = %for.end.i.i
   %add3.i.i74.i.i = add nsw i64 %add.i.i71.i.i, 16777216
   %div.i.i75.i.i = sdiv i64 %add3.i.i74.i.i, 4
   %sub.i.i76.i.i = add nsw i64 %div.i.i75.i.i, -4194304
-  %add.ptr4.i.i77.i.i = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i76.i.i
+  %add.ptr4.i.i77.i.i = getelementptr inbounds [8 x i8], ptr %18, i64 %sub.i.i76.i.i
   %26 = load ptr, ptr %add.ptr4.i.i77.i.i, align 8, !noalias !408
   %mul.i.i79.i.i = shl nsw i64 %sub.i.i76.i.i, 2
   %sub6.i.i80.i.i = sub nsw i64 %add.i.i71.i.i, %mul.i.i79.i.i
-  %add.ptr7.i.i81.i.i = getelementptr inbounds %struct.Align64, ptr %26, i64 %sub6.i.i80.i.i
+  %add.ptr7.i.i81.i.i = getelementptr inbounds [64 x i8], ptr %26, i64 %sub6.i.i80.i.i
   br label %_ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElRKS2_NS_4lessIS2_EEEEvT_T0_SB_RKT1_T2_.exit
 
 _ZN5eastl12promote_heapINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEElRKS2_NS_4lessIS2_EEEEvT_T0_SB_RKT1_T2_.exit: ; preds = %if.then.i.i89.i.i, %if.else.i.i73.i.i
@@ -19669,8 +19669,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %childPosition.036 = phi i64 [ %childPosition.0, %_ZN10TestObjectaSEOS_.exit ], [ %childPosition.032, %for.body.preheader ]
   %childPosition.0.in35 = phi i64 [ %childPosition.0.in, %_ZN10TestObjectaSEOS_.exit ], [ %childPosition.0.in31, %for.body.preheader ]
   %position.addr.034 = phi i64 [ %spec.select, %_ZN10TestObjectaSEOS_.exit ], [ %position, %for.body.preheader ]
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %first, i64 %childPosition.036
-  %1 = getelementptr %struct.TestObject, ptr %first, i64 %childPosition.0.in35
+  %add.ptr = getelementptr inbounds [24 x i8], ptr %first, i64 %childPosition.036
+  %1 = getelementptr [24 x i8], ptr %first, i64 %childPosition.0.in35
   %add.ptr1 = getelementptr i8, ptr %1, i64 24
   %2 = load i32, ptr %add.ptr, align 8
   %3 = load i32, ptr %add.ptr1, align 8
@@ -19683,8 +19683,8 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp.not.i, label %_ZN10TestObjectaSEOS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %add.ptr4 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.034
-  %add.ptr2 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds [24 x i8], ptr %first, i64 %position.addr.034
+  %add.ptr2 = getelementptr inbounds [24 x i8], ptr %first, i64 %spec.select
   %4 = load i32, ptr %add.ptr4, align 4
   %5 = load i32, ptr %add.ptr2, align 4
   store i32 %5, ptr %add.ptr4, align 4
@@ -19729,8 +19729,8 @@ if.then9:                                         ; preds = %for.end
   br i1 %cmp.not.i21, label %if.end16, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.then9
-  %add.ptr13 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.0.lcssa
-  %add.ptr11 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %sub10
+  %add.ptr13 = getelementptr inbounds [24 x i8], ptr %first, i64 %position.addr.0.lcssa
+  %add.ptr11 = getelementptr inbounds [24 x i8], ptr %first, i64 %sub10
   %12 = load i32, ptr %add.ptr13, align 4
   %13 = load i32, ptr %add.ptr11, align 4
   store i32 %13, ptr %add.ptr13, align 4
@@ -19760,7 +19760,7 @@ land.rhs.i.i:                                     ; preds = %if.end16, %_ZN10Tes
   %position.addr.024.i.i = phi i64 [ %parentPosition.025.i.i, %_ZN10TestObjectaSEOS_.exit.i.i ], [ %position.addr.1, %if.end16 ]
   %parentPosition.025.in.i.i = add nsw i64 %position.addr.024.i.i, -1
   %parentPosition.025.i.i = ashr i64 %parentPosition.025.in.i.i, 1
-  %add.ptr.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %parentPosition.025.i.i
+  %add.ptr.i.i = getelementptr inbounds [24 x i8], ptr %first, i64 %parentPosition.025.i.i
   %18 = load i32, ptr %add.ptr.i.i, align 8
   %19 = load i32, ptr %value, align 8
   %cmp.i.i.i.i = icmp slt i32 %18, %19
@@ -19774,7 +19774,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
   br i1 %cmp.not.i.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
-  %add.ptr3.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.024.i.i
+  %add.ptr3.i.i = getelementptr inbounds [24 x i8], ptr %first, i64 %position.addr.024.i.i
   %21 = load i32, ptr %add.ptr3.i.i, align 4
   %22 = load i32, ptr %add.ptr.i.i, align 4
   store i32 %22, ptr %add.ptr3.i.i, align 4
@@ -19801,7 +19801,7 @@ _ZN10TestObjectaSEOS_.exit.i.i:                   ; preds = %if.then.i.i.i, %for
 
 for.end.i.i:                                      ; preds = %_ZN10TestObjectaSEOS_.exit.i.i, %land.rhs.i.i, %if.end16
   %position.addr.0.lcssa.i.i = phi i64 [ %position.addr.1, %if.end16 ], [ %parentPosition.025.i.i, %_ZN10TestObjectaSEOS_.exit.i.i ], [ %position.addr.024.i.i, %land.rhs.i.i ]
-  %add.ptr8.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.0.lcssa.i.i
+  %add.ptr8.i.i = getelementptr inbounds [24 x i8], ptr %first, i64 %position.addr.0.lcssa.i.i
   %27 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i11.i.i = add nsw i64 %27, 1
   store i64 %inc.i11.i.i, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
@@ -19900,7 +19900,7 @@ for.body.i.i:                                     ; preds = %if.then11, %for.bod
 _ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit: ; preds = %for.body.i.i
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
   %8 = load ptr, ptr %mpEnd, align 8
-  %add.ptr18 = getelementptr inbounds %struct.TestObject, ptr %8, i64 %idx.neg
+  %add.ptr18 = getelementptr inbounds [24 x i8], ptr %8, i64 %idx.neg
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast7
   %cmp4.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
@@ -20040,7 +20040,7 @@ _ZN5eastl22uninitialized_copy_ptrIPK10TestObjectS3_PS1_EET1_T_T0_S5_.exit: ; pre
 for.body.i.i53.preheader:                         ; preds = %_ZN5eastl22uninitialized_copy_ptrIPK10TestObjectS3_PS1_EET1_T_T0_S5_.exit
   %add.ptr26 = getelementptr inbounds i8, ptr %28, i64 %sub.ptr.sub.i.i
   %idx.neg27 = sub nsw i64 0, %sub.ptr.div9
-  %add.ptr28 = getelementptr inbounds %struct.TestObject, ptr %add.ptr26, i64 %idx.neg27
+  %add.ptr28 = getelementptr inbounds [24 x i8], ptr %add.ptr26, i64 %idx.neg27
   br label %for.body.i.i53
 
 for.body.i.i53:                                   ; preds = %for.body.i.i53.preheader, %for.body.i.i53
@@ -20308,7 +20308,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN5eastl8destructI
 _ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE6DoFreeEPS1_m.exit: ; preds = %_ZN5eastl8destructIP10TestObjectEEvT_S3_.exit, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   store ptr %retval.0.i, ptr %this, align 8
   store ptr %retval.sroa.0.0.lcssa.i.i.i142, ptr %mpEnd, align 8
-  %add.ptr60 = getelementptr inbounds %struct.TestObject, ptr %retval.0.i, i64 %cond
+  %add.ptr60 = getelementptr inbounds [24 x i8], ptr %retval.0.i, i64 %cond
   store ptr %add.ptr60, ptr %mCapacityAllocator.i, align 8
   br label %if.end63
 
@@ -20455,7 +20455,7 @@ _ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE6DoFreeEPS1_m.exit: ; preds = %
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i, i64 24
   store ptr %retval.0.i, ptr %this, align 8
   store ptr %incdec.ptr, ptr %mpEnd, align 8
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %retval.0.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [24 x i8], ptr %retval.0.i, i64 %cond.i
   store ptr %add.ptr, ptr %mCapacityAllocator.i, align 8
   ret void
 }
@@ -20477,8 +20477,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %childPosition.035 = phi i64 [ %childPosition.0, %_ZN10TestObjectaSERKS_.exit ], [ %childPosition.031, %for.body.preheader ]
   %childPosition.0.in34 = phi i64 [ %childPosition.0.in, %_ZN10TestObjectaSERKS_.exit ], [ %childPosition.0.in30, %for.body.preheader ]
   %position.addr.033 = phi i64 [ %spec.select, %_ZN10TestObjectaSERKS_.exit ], [ %position, %for.body.preheader ]
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %first, i64 %childPosition.035
-  %1 = getelementptr %struct.TestObject, ptr %first, i64 %childPosition.0.in34
+  %add.ptr = getelementptr inbounds [24 x i8], ptr %first, i64 %childPosition.035
+  %1 = getelementptr [24 x i8], ptr %first, i64 %childPosition.0.in34
   %add.ptr1 = getelementptr i8, ptr %1, i64 24
   %2 = load i32, ptr %add.ptr, align 8
   %3 = load i32, ptr %add.ptr1, align 8
@@ -20491,8 +20491,8 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %add.ptr4 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.033
-  %add.ptr2 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds [24 x i8], ptr %first, i64 %position.addr.033
+  %add.ptr2 = getelementptr inbounds [24 x i8], ptr %first, i64 %spec.select
   %4 = load i32, ptr %add.ptr2, align 8
   store i32 %4, ptr %add.ptr4, align 8
   %mMagicValue.i = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 16
@@ -20530,8 +20530,8 @@ if.then9:                                         ; preds = %for.end
   br i1 %cmp.not.i21, label %if.end16, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.then9
-  %add.ptr13 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.0.lcssa
-  %add.ptr11 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %sub10
+  %add.ptr13 = getelementptr inbounds [24 x i8], ptr %first, i64 %position.addr.0.lcssa
+  %add.ptr11 = getelementptr inbounds [24 x i8], ptr %first, i64 %sub10
   %9 = load i32, ptr %add.ptr11, align 8
   store i32 %9, ptr %add.ptr13, align 8
   %mMagicValue.i23 = getelementptr inbounds nuw i8, ptr %add.ptr11, i64 16
@@ -20554,7 +20554,7 @@ land.rhs.i.i:                                     ; preds = %if.end16, %_ZN10Tes
   %position.addr.023.i.i = phi i64 [ %parentPosition.024.i.i, %_ZN10TestObjectaSERKS_.exit.i.i ], [ %position.addr.1, %if.end16 ]
   %parentPosition.024.in.i.i = add nsw i64 %position.addr.023.i.i, -1
   %parentPosition.024.i.i = ashr i64 %parentPosition.024.in.i.i, 1
-  %add.ptr.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %parentPosition.024.i.i
+  %add.ptr.i.i = getelementptr inbounds [24 x i8], ptr %first, i64 %parentPosition.024.i.i
   %12 = load i32, ptr %add.ptr.i.i, align 8
   %13 = load i32, ptr %value, align 8
   %cmp.i.i.i.i = icmp slt i32 %12, %13
@@ -20568,7 +20568,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
   br i1 %cmp.not.i.i.i, label %_ZN10TestObjectaSERKS_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
-  %add.ptr3.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.023.i.i
+  %add.ptr3.i.i = getelementptr inbounds [24 x i8], ptr %first, i64 %position.addr.023.i.i
   %15 = load i32, ptr %add.ptr.i.i, align 8
   store i32 %15, ptr %add.ptr3.i.i, align 8
   %mMagicValue.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
@@ -20588,7 +20588,7 @@ _ZN10TestObjectaSERKS_.exit.i.i:                  ; preds = %if.then.i.i.i, %for
 
 for.end.i.i:                                      ; preds = %_ZN10TestObjectaSERKS_.exit.i.i, %land.rhs.i.i, %if.end16
   %position.addr.0.lcssa.i.i = phi i64 [ %position.addr.1, %if.end16 ], [ %parentPosition.024.i.i, %_ZN10TestObjectaSERKS_.exit.i.i ], [ %position.addr.023.i.i, %land.rhs.i.i ]
-  %add.ptr8.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.0.lcssa.i.i
+  %add.ptr8.i.i = getelementptr inbounds [24 x i8], ptr %first, i64 %position.addr.0.lcssa.i.i
   %18 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i11.i.i = add nsw i64 %18, 1
   store i64 %inc.i11.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
@@ -20648,7 +20648,7 @@ if.then11:                                        ; preds = %if.then4
   %gepdiff = sub nsw i64 0, %add.ptr.idx
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr, i64 %gepdiff, i1 false)
   %2 = load ptr, ptr %mpEnd, align 8
-  %add.ptr18 = getelementptr inbounds float, ptr %2, i64 %idx.neg
+  %add.ptr18 = getelementptr inbounds [4 x i8], ptr %2, i64 %idx.neg
   %cmp.not.i.i.i.i = icmp eq ptr %add.ptr18, %position
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl4copyIPKfPfEET0_T_S5_S4_.exit, label %if.then.i.i.i.i
 
@@ -20657,7 +20657,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then11
   %sub.i.i.i.i = sub i64 %3, %sub.ptr.rhs.cast7
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.i.i.i.i, 2
   %idx.neg.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds float, ptr %2, i64 %idx.neg.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %idx.neg.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i, ptr align 4 %position, i64 %sub.i.i.i.i, i1 false)
   br label %_ZN5eastl4copyIPKfPfEET0_T_S5_S4_.exit
 
@@ -20685,7 +20685,7 @@ _ZN5eastl22uninitialized_copy_ptrIPKfS2_PfEET1_T_T0_S4_.exit: ; preds = %if.else
 if.end.i.i.i.i.i.i38:                             ; preds = %_ZN5eastl22uninitialized_copy_ptrIPKfS2_PfEET1_T_T0_S4_.exit
   %add.ptr26 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i.i
   %idx.neg27 = sub nsw i64 0, %sub.ptr.div9
-  %add.ptr28 = getelementptr inbounds float, ptr %add.ptr26, i64 %idx.neg27
+  %add.ptr28 = getelementptr inbounds [4 x i8], ptr %add.ptr26, i64 %idx.neg27
   %5 = ptrtoint ptr %4 to i64
   %sub.i.i.i.i.i.i39 = sub i64 %5, %sub.ptr.rhs.cast7
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr28, ptr align 4 %position, i64 %sub.i.i.i.i.i.i39, i1 false)
@@ -20698,7 +20698,7 @@ _ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit42: ; preds = %_ZN5e
 if.then.i.i.i.i44:                                ; preds = %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit42
   %add.ptr30 = getelementptr inbounds i8, ptr %position, i64 %sub.ptr.sub8
   %idx.neg.i.i.i.i47 = sub nsw i64 0, %sub.ptr.div9
-  %add.ptr.i.i.i.i48 = getelementptr inbounds float, ptr %add.ptr30, i64 %idx.neg.i.i.i.i47
+  %add.ptr.i.i.i.i48 = getelementptr inbounds [4 x i8], ptr %add.ptr30, i64 %idx.neg.i.i.i.i47
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i48, ptr align 4 %first, i64 %sub.ptr.sub8, i1 false)
   br label %if.end
 
@@ -20770,7 +20770,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN5eastl34uninitia
 _ZN5eastl10VectorBaseIfNS_9allocatorEE6DoFreeEPfm.exit: ; preds = %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPfS1_S1_EET1_T_T0_S2_.exit64, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   store ptr %retval.0.i, ptr %this, align 8
   store ptr %retval.0.i.i.i.i.i.i.i63, ptr %mpEnd, align 8
-  %add.ptr60 = getelementptr inbounds float, ptr %retval.0.i, i64 %cond
+  %add.ptr60 = getelementptr inbounds [4 x i8], ptr %retval.0.i, i64 %cond
   store ptr %add.ptr60, ptr %mCapacityAllocator.i, align 8
   br label %if.end63
 

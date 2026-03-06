@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.llvm::AArch64_IMM::ImmInsnModel" = type { i32, i64, i64 }
 %"class.llvm::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.base", [4 x i8] }
-%"struct.std::pair.base" = type <{ i64, i32 }>
 
 $_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_EixEOm = comdat any
 
@@ -202,7 +200,7 @@ _ZN4llvm16isShiftedMask_64Em.exit56.i:            ; preds = %_ZN4llvm16isShifted
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit, label %101, !prof !19
 
 101:                                              ; preds = %77
-  %102 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i, i64 %97
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %97
   %103 = icmp uge ptr %8, %.pre3.i
   %104 = icmp ult ptr %8, %102
   %spec.select.i.i.i.i.i = and i1 %103, %104
@@ -229,7 +227,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i = phi ptr [ %8, %77 ], [ %111, %105 ], [ %8, %.critedge.i.i.i ]
   %114 = load i32, ptr %95, align 8, !tbaa !14
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %117 = load i32, ptr %95, align 8, !tbaa !14
   %118 = add i32 %117, 1
@@ -577,7 +575,7 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit164: ; preds = %254, %26
   br i1 %.not.i.i.not.i165, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit171, label %295, !prof !19
 
 295:                                              ; preds = %.critedge
-  %296 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i166, i64 %291
+  %296 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i166, i64 %291
   %297 = icmp uge ptr %9, %.pre3.i166
   %298 = icmp ult ptr %9, %296
   %spec.select.i.i.i.i.i167 = and i1 %297, %298
@@ -604,7 +602,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i170 = phi ptr [ %9, %.critedge ], [ %305, %299 ], [ %9, %.critedge.i.i.i168 ]
   %308 = load i32, ptr %289, align 8, !tbaa !14
   %309 = zext i32 %308 to i64
-  %310 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %307, i64 %309
+  %310 = getelementptr inbounds nuw [24 x i8], ptr %307, i64 %309
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %310, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i170, i64 24, i1 false)
   %311 = load i32, ptr %289, align 8, !tbaa !14
   %312 = add i32 %311, 1
@@ -628,7 +626,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br i1 %.not.i.i.not.i172, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit178, label %322, !prof !19
 
 322:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit171
-  %323 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i173, i64 %319
+  %323 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i173, i64 %319
   %324 = icmp uge ptr %10, %.pre3.i173
   %325 = icmp ult ptr %10, %323
   %spec.select.i.i.i.i.i174 = and i1 %324, %325
@@ -655,7 +653,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i177 = phi ptr [ %10, %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit171 ], [ %332, %326 ], [ %10, %.critedge.i.i.i175 ]
   %335 = load i32, ptr %289, align 8, !tbaa !14
   %336 = zext i32 %335 to i64
-  %337 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %334, i64 %336
+  %337 = getelementptr inbounds nuw [24 x i8], ptr %334, i64 %336
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %337, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i177, i64 24, i1 false)
   %338 = load i32, ptr %289, align 8, !tbaa !14
   %339 = add i32 %338, 1
@@ -944,7 +942,7 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit25.i: ; preds = %464, %4
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit.i, label %494, !prof !19
 
 494:                                              ; preds = %485
-  %495 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i.i, i64 %490
+  %495 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i.i, i64 %490
   %496 = icmp uge ptr %6, %.pre3.i.i
   %497 = icmp ult ptr %6, %495
   %spec.select.i.i.i.i.i.i = and i1 %496, %497
@@ -971,7 +969,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i.i = phi ptr [ %6, %485 ], [ %504, %498 ], [ %6, %.critedge.i.i.i.i ]
   %507 = load i32, ptr %488, align 8, !tbaa !14
   %508 = zext i32 %507 to i64
-  %509 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %506, i64 %508
+  %509 = getelementptr inbounds nuw [24 x i8], ptr %506, i64 %508
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %509, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i.i, i64 24, i1 false)
   %510 = load i32, ptr %488, align 8, !tbaa !14
   %511 = add i32 %510, 1
@@ -991,7 +989,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br i1 %.not.i.i.not.i26.i, label %_ZL25tryOrrOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmInsnModelEEE.exit, label %517, !prof !19
 
 517:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit.i
-  %518 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i27.i, i64 %514
+  %518 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i27.i, i64 %514
   %519 = icmp uge ptr %7, %.pre3.i27.i
   %520 = icmp ult ptr %7, %518
   %spec.select.i.i.i.i.i28.i = and i1 %519, %520
@@ -1018,7 +1016,7 @@ _ZL25tryOrrOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmIns
   %.016.i.i.i31.i = phi ptr [ %7, %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit.i ], [ %527, %521 ], [ %7, %.critedge.i.i.i29.i ]
   %530 = load i32, ptr %488, align 8, !tbaa !14
   %531 = zext i32 %530 to i64
-  %532 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %529, i64 %531
+  %532 = getelementptr inbounds nuw [24 x i8], ptr %529, i64 %531
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %532, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i31.i, i64 24, i1 false)
   %533 = load i32, ptr %488, align 8, !tbaa !14
   %534 = add i32 %533, 1
@@ -1294,7 +1292,7 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit24.i: ; preds = %656, %6
   br i1 %.not.i.i.not.i.i228, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit.i233, label %686, !prof !19
 
 686:                                              ; preds = %677
-  %687 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i.i229, i64 %682
+  %687 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i.i229, i64 %682
   %688 = icmp uge ptr %4, %.pre3.i.i229
   %689 = icmp ult ptr %4, %687
   %spec.select.i.i.i.i.i.i230 = and i1 %688, %689
@@ -1321,7 +1319,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i.i234 = phi ptr [ %4, %677 ], [ %696, %690 ], [ %4, %.critedge.i.i.i.i231 ]
   %699 = load i32, ptr %680, align 8, !tbaa !14
   %700 = zext i32 %699 to i64
-  %701 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %698, i64 %700
+  %701 = getelementptr inbounds nuw [24 x i8], ptr %698, i64 %700
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %701, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i.i234, i64 24, i1 false)
   %702 = load i32, ptr %680, align 8, !tbaa !14
   %703 = add i32 %702, 1
@@ -1341,7 +1339,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br i1 %.not.i.i.not.i25.i, label %_ZL25tryAndOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmInsnModelEEE.exit, label %709, !prof !19
 
 709:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit.i233
-  %710 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i26.i, i64 %706
+  %710 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i26.i, i64 %706
   %711 = icmp uge ptr %5, %.pre3.i26.i
   %712 = icmp ult ptr %5, %710
   %spec.select.i.i.i.i.i27.i = and i1 %711, %712
@@ -1368,7 +1366,7 @@ _ZL25tryAndOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmIns
   %.016.i.i.i30.i = phi ptr [ %5, %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit.i233 ], [ %719, %713 ], [ %5, %.critedge.i.i.i28.i ]
   %722 = load i32, ptr %680, align 8, !tbaa !14
   %723 = zext i32 %722 to i64
-  %724 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %721, i64 %723
+  %724 = getelementptr inbounds nuw [24 x i8], ptr %721, i64 %723
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %724, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i30.i, i64 24, i1 false)
   %725 = load i32, ptr %680, align 8, !tbaa !14
   %726 = add i32 %725, 1
@@ -1464,7 +1462,7 @@ define internal fastcc void @_ZL18expandMOVImmSimplemjjjRN4llvm15SmallVectorImpl
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit, label %35, !prof !19
 
 35:                                               ; preds = %23
-  %36 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i, i64 %31
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %31
   %37 = icmp uge ptr %6, %.pre3.i
   %38 = icmp ult ptr %6, %36
   %spec.select.i.i.i.i.i = and i1 %37, %38
@@ -1491,7 +1489,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i = phi ptr [ %6, %23 ], [ %45, %39 ], [ %6, %.critedge.i.i.i ]
   %48 = load i32, ptr %29, align 8, !tbaa !14
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %51 = load i32, ptr %29, align 8, !tbaa !14
   %52 = add i32 %51, 1
@@ -1540,7 +1538,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br i1 %.not.i.i.not.i49, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit55, label %75, !prof !19
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i50, i64 %72
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i50, i64 %72
   %77 = icmp uge ptr %7, %.pre3.i50
   %78 = icmp ult ptr %7, %76
   %spec.select.i.i.i.i.i51 = and i1 %77, %78
@@ -1564,7 +1562,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i54 = phi ptr [ %7, %69 ], [ %83, %79 ], [ %7, %.critedge.i.i.i52 ]
   %85 = load i32, ptr %29, align 8, !tbaa !14
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %84, i64 %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i54, i64 24, i1 false)
   %88 = load i32, ptr %29, align 8, !tbaa !14
   %89 = add i32 %88, 1
@@ -1612,7 +1610,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br i1 %.not.i.i.not.i56, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit62, label %105, !prof !19
 
 105:                                              ; preds = %98
-  %106 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i57, i64 %102
+  %106 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i57, i64 %102
   %107 = icmp uge ptr %8, %.pre3.i57
   %108 = icmp ult ptr %8, %106
   %spec.select.i.i.i.i.i58 = and i1 %107, %108
@@ -1639,7 +1637,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i61 = phi ptr [ %8, %98 ], [ %115, %109 ], [ %8, %.critedge.i.i.i59 ]
   %118 = load i32, ptr %29, align 8, !tbaa !14
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i61, i64 24, i1 false)
   %121 = load i32, ptr %29, align 8, !tbaa !14
   %122 = add i32 %121, 1
@@ -1694,7 +1692,7 @@ define internal fastcc noundef zeroext i1 @_ZL25tryEorOfLogicalImmediatesmRN4llv
   %28 = lshr i32 %.145, %27
   %29 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %28, i1 false)
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i64, ptr @_ZZL25tryEorOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmInsnModelEEEE17RepeatedOnesTable, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL25tryEorOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmInsnModelEEEE17RepeatedOnesTable, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !26
   %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %19, i1 false)
   %34 = trunc nuw nsw i64 %33 to i32
@@ -1917,7 +1915,7 @@ _ZN4llvm16isShiftedMask_64Em.exit56.i73:          ; preds = %_ZN4llvm16isShifted
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit, label %169, !prof !19
 
 169:                                              ; preds = %.critedge
-  %170 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i, i64 %165
+  %170 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %165
   %171 = icmp uge ptr %3, %.pre3.i
   %172 = icmp ult ptr %3, %170
   %spec.select.i.i.i.i.i = and i1 %171, %172
@@ -1944,7 +1942,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i = phi ptr [ %3, %.critedge ], [ %179, %173 ], [ %3, %.critedge.i.i.i ]
   %182 = load i32, ptr %163, align 8, !tbaa !14
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %181, i64 %183
+  %184 = getelementptr inbounds nuw [24 x i8], ptr %181, i64 %183
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %184, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %185 = load i32, ptr %163, align 8, !tbaa !14
   %186 = add i32 %185, 1
@@ -1964,7 +1962,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br i1 %.not.i.i.not.i79, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit85, label %192, !prof !19
 
 192:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit
-  %193 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i80, i64 %189
+  %193 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i80, i64 %189
   %194 = icmp uge ptr %4, %.pre3.i80
   %195 = icmp ult ptr %4, %193
   %spec.select.i.i.i.i.i81 = and i1 %194, %195
@@ -1991,7 +1989,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i84 = phi ptr [ %4, %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit ], [ %202, %196 ], [ %4, %.critedge.i.i.i82 ]
   %205 = load i32, ptr %163, align 8, !tbaa !14
   %206 = zext i32 %205 to i64
-  %207 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %204, i64 %206
+  %207 = getelementptr inbounds nuw [24 x i8], ptr %204, i64 %206
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %207, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i84, i64 24, i1 false)
   %208 = load i32, ptr %163, align 8, !tbaa !14
   %209 = add i32 %208, 1
@@ -2038,7 +2036,7 @@ define internal fastcc noundef zeroext i1 @_ZL20tryToreplicateChunksmRN4llvm15Sm
   br i1 %11, label %16, label %18
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %15
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_E5beginEv.exit
 
 18:                                               ; preds = %8
@@ -2061,7 +2059,7 @@ define internal fastcc noundef zeroext i1 @_ZL20tryToreplicateChunksmRN4llvm15Sm
 _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i9.i, %16, %18
   %.pn14.i = phi ptr [ %17, %16 ], [ %12, %18 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %19, %.critedge2.i8.i14.i9.i ]
   %.pn12.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ %19, %.critedge2.i8.i14.i9.i ], [ %19, %.lr.ph.i6.i12.i3.i ]
-  %22 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %12, i64 %15
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %15
   %.not98 = icmp eq ptr %.pn14.i, %22
   br i1 %.not98, label %.critedge53, label %.lr.ph
 
@@ -2202,7 +2200,7 @@ _ZN4llvm16isShiftedMask_64Em.exit56.i.i:          ; preds = %_ZN4llvm16isShifted
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit, label %104, !prof !19
 
 104:                                              ; preds = %81
-  %105 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i, i64 %100
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %100
   %106 = icmp uge ptr %5, %.pre3.i
   %107 = icmp ult ptr %5, %105
   %spec.select.i.i.i.i.i = and i1 %106, %107
@@ -2229,7 +2227,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i = phi ptr [ %5, %81 ], [ %114, %108 ], [ %5, %.critedge.i.i.i ]
   %117 = load i32, ptr %98, align 8, !tbaa !14
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %116, i64 %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %120 = load i32, ptr %98, align 8, !tbaa !14
   %121 = add i32 %120, 1
@@ -2272,7 +2270,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br i1 %.not.i.i.not.i54, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit60, label %135, !prof !19
 
 135:                                              ; preds = %.split.loop.exit149
-  %136 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i55, i64 %132
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i55, i64 %132
   %137 = icmp uge ptr %6, %.pre3.i55
   %138 = icmp ult ptr %6, %136
   %spec.select.i.i.i.i.i56 = and i1 %137, %138
@@ -2299,7 +2297,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i59 = phi ptr [ %6, %.split.loop.exit149 ], [ %145, %139 ], [ %6, %.critedge.i.i.i57 ]
   %148 = load i32, ptr %98, align 8, !tbaa !14
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [24 x i8], ptr %147, i64 %149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %150, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i59, i64 24, i1 false)
   %151 = load i32, ptr %98, align 8, !tbaa !14
   %152 = add i32 %151, 1
@@ -2356,7 +2354,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br i1 %.not.i.i.not.i61, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit67, label %168, !prof !19
 
 168:                                              ; preds = %._crit_edge95
-  %169 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i62, i64 %165
+  %169 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i62, i64 %165
   %170 = icmp uge ptr %7, %.pre3.i62
   %171 = icmp ult ptr %7, %169
   %spec.select.i.i.i.i.i63 = and i1 %170, %171
@@ -2383,7 +2381,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i66 = phi ptr [ %7, %._crit_edge95 ], [ %178, %172 ], [ %7, %.critedge.i.i.i64 ]
   %181 = load i32, ptr %98, align 8, !tbaa !14
   %182 = zext i32 %181 to i64
-  %183 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %180, i64 %182
+  %183 = getelementptr inbounds nuw [24 x i8], ptr %180, i64 %182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %183, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i66, i64 24, i1 false)
   %184 = load i32, ptr %98, align 8, !tbaa !14
   %185 = add i32 %184, 1
@@ -2638,7 +2636,7 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit: ; preds = %.split123.u
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit, label %107, !prof !19
 
 107:                                              ; preds = %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit
-  %108 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i, i64 %103
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %103
   %109 = icmp uge ptr %3, %.pre3.i
   %110 = icmp ult ptr %3, %108
   %spec.select.i.i.i.i.i = and i1 %109, %110
@@ -2665,7 +2663,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i = phi ptr [ %3, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit ], [ %117, %111 ], [ %3, %.critedge.i.i.i ]
   %120 = load i32, ptr %101, align 8, !tbaa !14
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %123 = load i32, ptr %101, align 8, !tbaa !14
   %124 = add i32 %123, 1
@@ -2692,7 +2690,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br i1 %.not.i.i.not.i66, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit72, label %137, !prof !19
 
 137:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit
-  %138 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i67, i64 %134
+  %138 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i67, i64 %134
   %139 = icmp uge ptr %4, %.pre3.i67
   %140 = icmp ult ptr %4, %138
   %spec.select.i.i.i.i.i68 = and i1 %139, %140
@@ -2719,7 +2717,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i71 = phi ptr [ %4, %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit ], [ %147, %141 ], [ %4, %.critedge.i.i.i69 ]
   %150 = load i32, ptr %101, align 8, !tbaa !14
   %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %149, i64 %151
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %149, i64 %151
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %152, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i71, i64 24, i1 false)
   %153 = load i32, ptr %101, align 8, !tbaa !14
   %154 = add i32 %153, 1
@@ -2798,7 +2796,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br i1 %.not.i.i.not.i75, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit81, label %187, !prof !19
 
 187:                                              ; preds = %175
-  %188 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i76, i64 %184
+  %188 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i76, i64 %184
   %189 = icmp uge ptr %5, %.pre3.i76
   %190 = icmp ult ptr %5, %188
   %spec.select.i.i.i.i.i77 = and i1 %189, %190
@@ -2825,7 +2823,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.016.i.i.i80 = phi ptr [ %5, %175 ], [ %197, %191 ], [ %5, %.critedge.i.i.i78 ]
   %200 = load i32, ptr %101, align 8, !tbaa !14
   %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %199, i64 %201
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %199, i64 %201
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %202, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i80, i64 24, i1 false)
   %203 = load i32, ptr %101, align 8, !tbaa !14
   %204 = add i32 %203, 1
@@ -2870,7 +2868,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %14 = add i32 %6, -1
   %15 = and i32 %14, %13
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !26
   %19 = icmp eq i64 %9, %18
   br i1 %19, label %.loopexit, label %.lr.ph.i, !prof !43
@@ -2898,7 +2896,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %29 = add i32 %.02745.i, %.02546.i
   %30 = and i32 %29, %14
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !26
   %34 = icmp eq i64 %9, %33
   br i1 %34, label %.loopexit, label %.lr.ph.i, !prof !44, !llvm.loop !45
@@ -2986,7 +2984,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %14 = add i32 %6, -1
   %15 = and i32 %14, %13
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !26
   %19 = icmp eq i64 %9, %18
   br i1 %19, label %._crit_edge, label %.lr.ph, !prof !43
@@ -3014,7 +3012,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02546, %.02745
   %30 = and i32 %29, %14
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !26
   %34 = icmp eq i64 %9, %33
   br i1 %34, label %._crit_edge, label %.lr.ph, !prof !44, !llvm.loop !45
@@ -3118,7 +3116,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMap
   %47 = add i32 %41, -1
   %48 = and i32 %47, %46
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !26
   %52 = icmp eq i64 %39, %51
   br i1 %52, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_E15LookupBucketForImEEbRKT_RPS6_.exit.i, label %.lr.ph.i13.i, !prof !43
@@ -3146,7 +3144,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMap
   %62 = add i32 %.02745.i.i, %.02546.i.i
   %63 = and i32 %62, %47
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %64
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !26
   %67 = icmp eq i64 %39, %66
   br i1 %67, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_E15LookupBucketForImEEbRKT_RPS6_.exit.i, label %.lr.ph.i13.i, !prof !44, !llvm.loop !45

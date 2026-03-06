@@ -815,7 +815,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   store i8 %19, ptr %26, align 1, !noalias !55
   %27 = load ptr, ptr %4, align 8, !alias.scope !62, !noalias !55, !nonnull !4, !noundef !4
   %28 = sub nsw i64 0, %10
-  %29 = getelementptr inbounds { { i32, i16, i16 }, { { [2 x i64] }, i64 } }, ptr %27, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %27, i64 %28
   %30 = and i8 %17, 1
   %31 = zext nneg i8 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1297,7 +1297,7 @@ define { ptr, ptr } @_ZN5salsa5Cycle16participant_keys17hc14b65eec5b4ec4dE(ptr n
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { i32, i16, i16 }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   %8 = insertvalue { ptr, ptr } poison, ptr %4, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %7, 1
   ret { ptr, ptr } %9
@@ -1326,7 +1326,7 @@ define noundef zeroext i1 @"_ZN78_$LT$salsa..Cycle..debug..UnexpectedCycleDebug$
   %15 = load ptr, ptr %14, align 8, !noalias !107, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load i64, ptr %16, align 8, !noalias !107, !noundef !4
-  %18 = getelementptr inbounds { i32, i16, i16 }, ptr %15, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %15, i64 %17
   store ptr %15, ptr %4, align 8, !noalias !108
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %18, ptr %19, align 8, !noalias !108
@@ -1359,7 +1359,7 @@ define noundef zeroext i1 @"_ZN78_$LT$salsa..Cycle..debug..UnexpectedCycleDebug$
   %29 = load ptr, ptr %28, align 8, !noalias !119, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %31 = load i64, ptr %30, align 8, !noalias !119, !noundef !4
-  %32 = getelementptr inbounds { i32, i16, i16 }, ptr %29, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %29, i64 %31
   store ptr %29, ptr %3, align 8, !noalias !120
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %32, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !120

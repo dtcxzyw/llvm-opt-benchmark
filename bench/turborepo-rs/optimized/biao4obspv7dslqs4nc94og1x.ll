@@ -597,7 +597,7 @@ define void @_RINvXs0_NtNtCslyFhtC9DD08_9itertools8adaptors8coalesceINtB6_10Coal
   %.sroa.019.0.i = phi ptr [ %15, %22 ], [ %34, %_RNCINvXs0_NtNtCslyFhtC9DD08_9itertools8adaptors8coalesceINtB8_10CoalesceByINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNvXsE_B1T_RNtB1T_10RepetitionINtNtB1T_8variance12UnitVarianceNtB30_13InvariantTextE13unit_variance0RB1Q_ENtNtNtNtB1h_4iter6traits8iterator8Iterator4foldINtB30_8VarianceB3t_ENCINvNtNtB4h_8adapters3map8map_foldB45_B4W_B4W_NvYB45_IB2Y_B3t_E13unit_varianceNvYB4W_NtNtNtB1h_3ops5arith3Add3addE0E0B1V_.exit.i ]
   %.sroa.06.0.i = phi i64 [ 0, %22 ], [ %45, %_RNCINvXs0_NtNtCslyFhtC9DD08_9itertools8adaptors8coalesceINtB8_10CoalesceByINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNvXsE_B1T_RNtB1T_10RepetitionINtNtB1T_8variance12UnitVarianceNtB30_13InvariantTextE13unit_variance0RB1Q_ENtNtNtNtB1h_4iter6traits8iterator8Iterator4foldINtB30_8VarianceB3t_ENCINvNtNtB4h_8adapters3map8map_foldB45_B4W_B4W_NvYB45_IB2Y_B3t_E13unit_varianceNvYB4W_NtNtNtB1h_3ops5arith3Add3addE0E0B1V_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !138
-  %31 = getelementptr inbounds { { i64, [5 x i64] }, {} }, ptr %18, i64 %.sroa.06.0.i
+  %31 = getelementptr inbounds [48 x i8], ptr %18, i64 %.sroa.06.0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !138
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !140
@@ -748,7 +748,7 @@ define void @_RINvXs0_NtNtCslyFhtC9DD08_9itertools8adaptors8coalesceINtB6_10Coal
   %.sroa.019.0.i = phi ptr [ %12, %19 ], [ %32, %_RNCINvXs0_NtNtCslyFhtC9DD08_9itertools8adaptors8coalesceINtB8_10CoalesceByINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNvXsE_B1S_RINtB1S_10RepetitionTjjEEINtNtB1S_8variance12UnitVarianceNtB33_13InvariantSizeE13unit_variance0RB1Q_ENtNtNtNtB1h_4iter6traits8iterator8Iterator4foldINtB33_8VarianceB3w_ENCINvNtNtB4k_8adapters3map8map_foldB48_B4Z_B4Z_NvYB48_IB31_B3w_E13unit_varianceNvYB4Z_NtNtNtB1h_3ops5arith3Add3addE0E0B1U_.exit.i ]
   %.sroa.06.0.i = phi i64 [ 0, %19 ], [ %35, %_RNCINvXs0_NtNtCslyFhtC9DD08_9itertools8adaptors8coalesceINtB8_10CoalesceByINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNvXsE_B1S_RINtB1S_10RepetitionTjjEEINtNtB1S_8variance12UnitVarianceNtB33_13InvariantSizeE13unit_variance0RB1Q_ENtNtNtNtB1h_4iter6traits8iterator8Iterator4foldINtB33_8VarianceB3w_ENCINvNtNtB4k_8adapters3map8map_foldB48_B4Z_B4Z_NvYB48_IB31_B3w_E13unit_varianceNvYB4Z_NtNtNtB1h_3ops5arith3Add3addE0E0B1U_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !161
-  %29 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %15, i64 %.sroa.06.0.i
+  %29 = getelementptr inbounds [64 x i8], ptr %15, i64 %.sroa.06.0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !166
   call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantSizeE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.019.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %29), !noalias !171
   %30 = load ptr, ptr %9, align 8, !noalias !166, !noundef !5
@@ -843,7 +843,7 @@ define void @_RINvXs0_NtNtCslyFhtC9DD08_9itertools8adaptors8coalesceINtB6_10Coal
   %.sroa.019.0.i = phi ptr [ %15, %22 ], [ %34, %_RNCINvXs0_NtNtCslyFhtC9DD08_9itertools8adaptors8coalesceINtB8_10CoalesceByINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNvXsE_B1S_RINtB1S_10RepetitionTjjEEINtNtB1S_8variance12UnitVarianceNtB33_13InvariantTextE13unit_variance0RB1Q_ENtNtNtNtB1h_4iter6traits8iterator8Iterator4foldINtB33_8VarianceB3w_ENCINvNtNtB4k_8adapters3map8map_foldB48_B4Z_B4Z_NvYB48_IB31_B3w_E13unit_varianceNvYB4Z_NtNtNtB1h_3ops5arith3Add3addE0E0B1U_.exit.i ]
   %.sroa.06.0.i = phi i64 [ 0, %22 ], [ %45, %_RNCINvXs0_NtNtCslyFhtC9DD08_9itertools8adaptors8coalesceINtB8_10CoalesceByINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNvXsE_B1S_RINtB1S_10RepetitionTjjEEINtNtB1S_8variance12UnitVarianceNtB33_13InvariantTextE13unit_variance0RB1Q_ENtNtNtNtB1h_4iter6traits8iterator8Iterator4foldINtB33_8VarianceB3w_ENCINvNtNtB4k_8adapters3map8map_foldB48_B4Z_B4Z_NvYB48_IB31_B3w_E13unit_varianceNvYB4Z_NtNtNtB1h_3ops5arith3Add3addE0E0B1U_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !199
-  %31 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %18, i64 %.sroa.06.0.i
+  %31 = getelementptr inbounds [64 x i8], ptr %18, i64 %.sroa.06.0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !201
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !199
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !201
@@ -1296,7 +1296,7 @@ common.resume:                                    ; preds = %55, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %26, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !312, !noalias !317, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !323
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !322
@@ -1344,7 +1344,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %54
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8, !alias.scope !325, !noalias !330, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %60, i64 %51
+  %61 = getelementptr inbounds [64 x i8], ptr %60, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !336
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !335
@@ -1459,7 +1459,7 @@ common.resume:                                    ; preds = %55, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %26, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !355, !noalias !360, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !366
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !365
@@ -1507,7 +1507,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %54
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8, !alias.scope !368, !noalias !373, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %60, i64 %51
+  %61 = getelementptr inbounds [64 x i8], ptr %60, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !379
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !378
@@ -1622,7 +1622,7 @@ common.resume:                                    ; preds = %55, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %26, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !398, !noalias !403, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !409
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !408
@@ -1670,7 +1670,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %54
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8, !alias.scope !411, !noalias !416, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %60, i64 %51
+  %61 = getelementptr inbounds [64 x i8], ptr %60, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !422
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !421
@@ -1785,7 +1785,7 @@ common.resume:                                    ; preds = %55, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %26, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !441, !noalias !446, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !452
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !451
@@ -1833,7 +1833,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %54
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8, !alias.scope !454, !noalias !459, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %60, i64 %51
+  %61 = getelementptr inbounds [64 x i8], ptr %60, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !465
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !464
@@ -1948,7 +1948,7 @@ common.resume:                                    ; preds = %55, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %26, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !484, !noalias !489, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !495
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !494
@@ -1996,7 +1996,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %54
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8, !alias.scope !497, !noalias !502, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %60, i64 %51
+  %61 = getelementptr inbounds [64 x i8], ptr %60, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !508
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !507
@@ -2111,7 +2111,7 @@ common.resume:                                    ; preds = %55, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %26, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !527, !noalias !532, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !538
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !537
@@ -2159,7 +2159,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %54
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8, !alias.scope !540, !noalias !545, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %60, i64 %51
+  %61 = getelementptr inbounds [64 x i8], ptr %60, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !551
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !550
@@ -2274,7 +2274,7 @@ common.resume:                                    ; preds = %54, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %27, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !570, !noalias !575, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !581
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !580
@@ -2321,7 +2321,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %53
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !583, !noalias !588, !nonnull !5, !noundef !5
-  %60 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %59, i64 %50
+  %60 = getelementptr inbounds [64 x i8], ptr %59, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !594
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !593
@@ -2436,7 +2436,7 @@ common.resume:                                    ; preds = %54, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %27, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !613, !noalias !618, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !624
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !623
@@ -2483,7 +2483,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %53
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !626, !noalias !631, !nonnull !5, !noundef !5
-  %60 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %59, i64 %50
+  %60 = getelementptr inbounds [64 x i8], ptr %59, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !637
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !636
@@ -2598,7 +2598,7 @@ common.resume:                                    ; preds = %54, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %27, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !656, !noalias !661, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !667
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !666
@@ -2645,7 +2645,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %53
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !669, !noalias !674, !nonnull !5, !noundef !5
-  %60 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %59, i64 %50
+  %60 = getelementptr inbounds [64 x i8], ptr %59, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !680
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !679
@@ -2760,7 +2760,7 @@ common.resume:                                    ; preds = %54, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %27, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !699, !noalias !704, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !710
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !709
@@ -2807,7 +2807,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %53
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !712, !noalias !717, !nonnull !5, !noundef !5
-  %60 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %59, i64 %50
+  %60 = getelementptr inbounds [64 x i8], ptr %59, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !723
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !722
@@ -2922,7 +2922,7 @@ common.resume:                                    ; preds = %54, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %27, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !742, !noalias !747, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !753
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !752
@@ -2969,7 +2969,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %53
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !755, !noalias !760, !nonnull !5, !noundef !5
-  %60 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %59, i64 %50
+  %60 = getelementptr inbounds [64 x i8], ptr %59, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !766
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !765
@@ -3084,7 +3084,7 @@ common.resume:                                    ; preds = %55, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %26, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !785, !noalias !790, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !796
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !795
@@ -3132,7 +3132,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %54
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8, !alias.scope !798, !noalias !803, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %60, i64 %51
+  %61 = getelementptr inbounds [64 x i8], ptr %60, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !809
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !808
@@ -3247,7 +3247,7 @@ common.resume:                                    ; preds = %54, %36
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit: ; preds = %27, %35
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !828, !noalias !833, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %41, i64 %32
+  %42 = getelementptr inbounds [64 x i8], ptr %41, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !839
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i8, align 8, !noalias !838
@@ -3294,7 +3294,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12: ; preds = %45, %53
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !841, !noalias !846, !nonnull !5, !noundef !5
-  %60 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %59, i64 %50
+  %60 = getelementptr inbounds [64 x i8], ptr %59, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !852
   %.sroa.4.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx.i9, align 8, !noalias !851
@@ -3327,7 +3327,7 @@ define hidden void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecTINtCs4DJqE8qduBp
 8:                                                ; preds = %7, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %10, i64 %4
+  %11 = getelementptr inbounds [64 x i8], ptr %10, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %12 = add i64 %4, 1
   store i64 %12, ptr %3, align 8
@@ -4165,7 +4165,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br i1 %39, label %_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBJ_.exit.i, label %40
 
 40:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i
-  %41 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %36, i64 %.sroa.0.0.i.i
+  %41 = getelementptr inbounds [64 x i8], ptr %36, i64 %.sroa.0.0.i.i
   %42 = add i64 %.sroa.0.0.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %41) #19
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i unwind label %44, !noalias !1008
@@ -4181,7 +4181,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
 
 46:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
-  %47 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %36, i64 %.sroa.0.1.i.i
+  %47 = getelementptr inbounds [64 x i8], ptr %36, i64 %.sroa.0.1.i.i
   %48 = add i64 %.sroa.0.1.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %47) #19
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i unwind label %49, !noalias !1008
@@ -4894,7 +4894,7 @@ define void @_RNvXs1_NtCsaPKTPzkFU9s_3nom6branchTNCINvNtB7_5error7contextINtCs4D
 149:                                              ; preds = %144, %139
   %150 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %151 = load ptr, ptr %150, align 8, !alias.scope !1208, !noalias !1213, !nonnull !5, !noundef !5
-  %152 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %151, i64 %141
+  %152 = getelementptr inbounds [64 x i8], ptr %151, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !1218
   %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %152, i64 40
   store i8 2, ptr %.sroa.4.0..sroa_idx3.i, align 8, !noalias !1217
@@ -5532,7 +5532,7 @@ define void @_RNvXs1_NtCsaPKTPzkFU9s_3nom6branchTNCINvNtB7_5error7contextINtCs4D
 149:                                              ; preds = %144, %139
   %150 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %151 = load ptr, ptr %150, align 8, !alias.scope !1346, !noalias !1351, !nonnull !5, !noundef !5
-  %152 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %151, i64 %141
+  %152 = getelementptr inbounds [64 x i8], ptr %151, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !1356
   %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %152, i64 40
   store i8 2, ptr %.sroa.4.0..sroa_idx3.i, align 8, !noalias !1355
@@ -6170,7 +6170,7 @@ define void @_RNvXs1_NtCsaPKTPzkFU9s_3nom6branchTNCINvNtB7_5error7contextINtCs4D
 149:                                              ; preds = %144, %139
   %150 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %151 = load ptr, ptr %150, align 8, !alias.scope !1484, !noalias !1489, !nonnull !5, !noundef !5
-  %152 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %151, i64 %141
+  %152 = getelementptr inbounds [64 x i8], ptr %151, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !1494
   %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %152, i64 40
   store i8 2, ptr %.sroa.4.0..sroa_idx3.i, align 8, !noalias !1493
@@ -6547,10 +6547,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !301, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !1543, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCsaPKTPzkFU9s_3nom5error9ErrorKindNtB5_5Debug3fmtCseG2FYMysgNb_3wax, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCsaPKTPzkFU9s_3nom5error9ErrorKindNtB5_5Debug3fmtCseG2FYMysgNb_3wax, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCsaPKTPzkFU9s_3nom5error9ErrorKindNtB5_5Debug3fmtCseG2FYMysgNb_3wax.20, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCsaPKTPzkFU9s_3nom5error9ErrorKindNtB5_5Debug3fmtCseG2FYMysgNb_3wax.20, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hdb8bda1f756875eeE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -6602,7 +6602,7 @@ define void @_RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qd
 12:                                               ; preds = %4, %9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !1544, !noalias !1547, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %14, i64 %6
+  %15 = getelementptr inbounds [64 x i8], ptr %14, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %.sroa.4.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i8 2, ptr %.sroa.4.0..sroa_idx3, align 8
@@ -6722,7 +6722,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1565, !noalias !1570, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !1576
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !1576
@@ -6780,7 +6780,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1578, !noalias !1583, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !1589
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !1589
@@ -6913,7 +6913,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1607, !noalias !1612, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !1618
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !1618
@@ -6971,7 +6971,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1620, !noalias !1625, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !1631
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !1631
@@ -7104,7 +7104,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1649, !noalias !1654, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !1660
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !1660
@@ -7162,7 +7162,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1662, !noalias !1667, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !1673
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !1673
@@ -7295,7 +7295,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1691, !noalias !1696, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !1702
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !1702
@@ -7353,7 +7353,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1704, !noalias !1709, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !1715
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !1715
@@ -7486,7 +7486,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1733, !noalias !1738, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !1744
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !1744
@@ -7544,7 +7544,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1746, !noalias !1751, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !1757
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !1757
@@ -7677,7 +7677,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1775, !noalias !1780, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !1786
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !1786
@@ -7735,7 +7735,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1788, !noalias !1793, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !1799
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !1799
@@ -7868,7 +7868,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1817, !noalias !1822, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !1828
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !1828
@@ -7926,7 +7926,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1830, !noalias !1835, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !1841
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !1841
@@ -8059,7 +8059,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1859, !noalias !1864, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !1870
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !1870
@@ -8117,7 +8117,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1872, !noalias !1877, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !1883
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !1883
@@ -8250,7 +8250,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1901, !noalias !1906, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !1912
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !1912
@@ -8308,7 +8308,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1914, !noalias !1919, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !1925
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !1925
@@ -8441,7 +8441,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1943, !noalias !1948, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !1954
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !1954
@@ -8499,7 +8499,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1956, !noalias !1961, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !1967
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !1967
@@ -8632,7 +8632,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !1985, !noalias !1990, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !1996
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !1996
@@ -8690,7 +8690,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1998, !noalias !2003, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !2009
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !2009
@@ -8823,7 +8823,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !2027, !noalias !2032, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !2038
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !2038
@@ -8881,7 +8881,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !2040, !noalias !2045, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !2051
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !2051
@@ -9014,7 +9014,7 @@ common.resume.i:                                  ; preds = %46, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %19
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !2069, !noalias !2074, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !2080
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !2080
@@ -9071,7 +9071,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %45, %37
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load ptr, ptr %50, align 8, !alias.scope !2082, !noalias !2087, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %51, i64 %42
+  %52 = getelementptr inbounds [64 x i8], ptr %51, i64 %42
   store ptr %.sroa.0.0.copyload, ptr %52, align 8, !noalias !2093
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !2093
@@ -9204,7 +9204,7 @@ common.resume.i:                                  ; preds = %46, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %19
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !2111, !noalias !2116, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !2122
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !2122
@@ -9261,7 +9261,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %45, %37
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load ptr, ptr %50, align 8, !alias.scope !2124, !noalias !2129, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %51, i64 %42
+  %52 = getelementptr inbounds [64 x i8], ptr %51, i64 %42
   store ptr %.sroa.0.0.copyload, ptr %52, align 8, !noalias !2135
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !2135
@@ -9394,7 +9394,7 @@ common.resume.i:                                  ; preds = %46, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %19
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !2153, !noalias !2158, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !2164
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !2164
@@ -9451,7 +9451,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %45, %37
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load ptr, ptr %50, align 8, !alias.scope !2166, !noalias !2171, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %51, i64 %42
+  %52 = getelementptr inbounds [64 x i8], ptr %51, i64 %42
   store ptr %.sroa.0.0.copyload, ptr %52, align 8, !noalias !2177
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !2177
@@ -9584,7 +9584,7 @@ common.resume.i:                                  ; preds = %46, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %19
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !2195, !noalias !2200, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !2206
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !2206
@@ -9641,7 +9641,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %45, %37
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load ptr, ptr %50, align 8, !alias.scope !2208, !noalias !2213, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %51, i64 %42
+  %52 = getelementptr inbounds [64 x i8], ptr %51, i64 %42
   store ptr %.sroa.0.0.copyload, ptr %52, align 8, !noalias !2219
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !2219
@@ -9774,7 +9774,7 @@ common.resume.i:                                  ; preds = %47, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %18
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !2237, !noalias !2242, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !2248
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !2248
@@ -9832,7 +9832,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %46, %37
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !2250, !noalias !2255, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   store ptr %.sroa.0.0.copyload, ptr %53, align 8, !noalias !2261
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !2261
@@ -10037,7 +10037,7 @@ common.resume.i:                                  ; preds = %46, %28
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %27, %19
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !2279, !noalias !2284, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %33, i64 %24
+  %34 = getelementptr inbounds [64 x i8], ptr %33, i64 %24
   store ptr %.sroa.0.0.copyload, ptr %34, align 8, !noalias !2290
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx5, align 8, !noalias !2290
@@ -10094,7 +10094,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %45, %37
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load ptr, ptr %50, align 8, !alias.scope !2292, !noalias !2297, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %51, i64 %42
+  %52 = getelementptr inbounds [64 x i8], ptr %51, i64 %42
   store ptr %.sroa.0.0.copyload, ptr %52, align 8, !noalias !2303
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !2303
@@ -10232,7 +10232,7 @@ common.resume.i:                                  ; preds = %40, %25
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit.i: ; preds = %24, %19
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !2319, !noalias !2324, !nonnull !5, !noundef !5
-  %31 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %30, i64 %21
+  %31 = getelementptr inbounds [64 x i8], ptr %30, i64 %21
   store ptr %.sroa.0.0.copyload, ptr %31, align 8, !noalias !2330
   %.sroa.6.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx6, align 8, !noalias !2330
@@ -10287,7 +10287,7 @@ _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
 _RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_12ContextErrorBP_E11add_contextB1G_.exit12.i: ; preds = %39, %34
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !2332, !noalias !2337, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %45, i64 %36
+  %46 = getelementptr inbounds [64 x i8], ptr %45, i64 %36
   store ptr %.sroa.0.0.copyload, ptr %46, align 8, !noalias !2343
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx4, align 8, !noalias !2343
@@ -10342,7 +10342,7 @@ define void @_RNvXsb_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qd
 13:                                               ; preds = %5, %10
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !2345, !noalias !2348, !nonnull !5, !noundef !5
-  %16 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i64, i8, [7 x i8] } }, { i8, [23 x i8] } }, ptr %15, i64 %7
+  %16 = getelementptr inbounds [64 x i8], ptr %15, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 8

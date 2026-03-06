@@ -304,10 +304,10 @@ define void @_ZN5folly12SSLExceptionC2ENS_8SSLErrorE(ptr noundef nonnull align 8
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5folly12SSLExceptionC2ENS_8SSLErrorE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5folly12SSLExceptionC2ENS_8SSLErrorE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %1 to i64
-  %switch.gep14 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5folly12SSLExceptionC2ENS_8SSLErrorE.1, i64 %8
+  %switch.gep14 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5folly12SSLExceptionC2ENS_8SSLErrorE.1, i64 %8
   %switch.load15 = load ptr, ptr %switch.gep14, align 8
   %9 = ptrtoint ptr %switch.load to i64
   br label %10

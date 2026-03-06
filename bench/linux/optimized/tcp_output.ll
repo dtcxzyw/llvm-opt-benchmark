@@ -35,13 +35,11 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tcp_rtx_syna
 %struct.timer_list = type { %struct.hlist_node, i64, ptr, i32 }
 %struct.hlist_node = type { ptr, ptr }
 %struct.tracepoint = type { ptr, %struct.static_key, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.tcp_out_options = type { i16, i16, i8, i8, i8, i8, ptr, i32, i32, ptr, %struct.mptcp_out_options }
 %struct.mptcp_out_options = type {}
 %struct.tcp_key = type { %union.anon.62, i32 }
 %union.anon.62 = type { %struct.anon.63 }
 %struct.anon.63 = type { ptr, ptr, i32, i8 }
-%struct.tcp_sack_block = type { i32, i32 }
 %struct.flowi = type { %union.anon.20 }
 %union.anon.20 = type { %struct.flowi6 }
 %struct.flowi6 = type { %struct.flowi_common, %struct.in6_addr, %struct.in6_addr, i32, %union.flowi_uli, i32 }
@@ -471,7 +469,7 @@ define dso_local void @tcp_tasklet_init() local_unnamed_addr #4 section ".init.t
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
+  %13 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @tsq_tasklet to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -1400,7 +1398,7 @@ define internal fastcc noundef i32 @__pskb_trim_head(ptr noundef captures(none) 
   %15 = phi i64 [ 0, %12 ], [ %83, %80 ]
   %16 = phi i32 [ %1, %12 ], [ %82, %80 ]
   %17 = phi i32 [ 0, %12 ], [ %81, %80 ]
-  %18 = getelementptr %struct.bio_vec, ptr %13, i64 %15
+  %18 = getelementptr [16 x i8], ptr %13, i64 %15
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, %16
@@ -1418,7 +1416,7 @@ define internal fastcc noundef i32 @__pskb_trim_head(ptr noundef captures(none) 
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %32 = getelementptr %struct.bio_vec, ptr %31, i64 %15
+  %32 = getelementptr [16 x i8], ptr %31, i64 %15
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load volatile i64, ptr %34, align 8
@@ -1478,7 +1476,7 @@ define internal fastcc noundef i32 @__pskb_trim_head(ptr noundef captures(none) 
 
 67:                                               ; preds = %14
   %68 = sext i32 %17 to i64
-  %69 = getelementptr %struct.bio_vec, ptr %13, i64 %68
+  %69 = getelementptr [16 x i8], ptr %13, i64 %68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %69, ptr noundef align 8 dereferenceable(16) %18, i64 16, i1 false)
   %70 = icmp eq i32 %16, 0
   br i1 %70, label %78, label %71
@@ -1916,7 +1914,7 @@ define dso_local void @tcp_chrono_start(ptr noundef captures(none) %0, i32 nound
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %18 = add nuw nsw i64 %13, 4294967295
   %19 = and i64 %18, 4294967295
-  %20 = getelementptr i32, ptr %17, i64 %19
+  %20 = getelementptr [4 x i8], ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = add i32 %16, %21
   store i32 %22, ptr %20, align 4
@@ -1968,7 +1966,7 @@ define dso_local void @tcp_chrono_stop(ptr noundef %0, i32 noundef %1) local_unn
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %25 = add nuw nsw i64 %20, 4294967295
   %26 = and i64 %25, 4294967295
-  %27 = getelementptr i32, ptr %24, i64 %26
+  %27 = getelementptr [4 x i8], ptr %24, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %23, %28
   store i32 %29, ptr %27, align 4
@@ -2003,7 +2001,7 @@ define dso_local void @tcp_chrono_stop(ptr noundef %0, i32 noundef %1) local_unn
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %49 = add nuw nsw i64 %44, 4294967295
   %50 = and i64 %49, 4294967295
-  %51 = getelementptr i32, ptr %48, i64 %50
+  %51 = getelementptr [4 x i8], ptr %48, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %47, %52
   store i32 %53, ptr %51, align 4
@@ -3671,7 +3669,7 @@ tcp_event_new_data_sent.exit:                     ; preds = %813, %816
   %871 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %872 = add nuw nsw i64 %867, 4294967295
   %873 = and i64 %872, 4294967295
-  %874 = getelementptr i32, ptr %871, i64 %873
+  %874 = getelementptr [4 x i8], ptr %871, i64 %873
   %875 = load i32, ptr %874, align 4
   %876 = add i32 %870, %875
   store i32 %876, ptr %874, align 4
@@ -3948,7 +3946,7 @@ tcp_event_new_data_sent.exit:                     ; preds = %813, %816
   %1054 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %1055 = add nuw nsw i64 %1050, 4294967295
   %1056 = and i64 %1055, 4294967295
-  %1057 = getelementptr i32, ptr %1054, i64 %1056
+  %1057 = getelementptr [4 x i8], ptr %1054, i64 %1056
   %1058 = load i32, ptr %1057, align 4
   %1059 = add i32 %1053, %1058
   store i32 %1059, ptr %1057, align 4
@@ -5612,7 +5610,7 @@ define dso_local void @tcp_xmit_retransmit_queue(ptr noundef %0) local_unnamed_a
   %218 = load ptr, ptr %36, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 432
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr i64, ptr %220, i64 %129
+  %221 = getelementptr [8 x i8], ptr %220, i64 %129
   tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %221, i64 %217, ptr elementtype(i64) %221) #19, !srcloc !98
   %222 = load i8, ptr %64, align 8
   %223 = and i8 %222, 31
@@ -6948,7 +6946,7 @@ define internal fastcc void @tcp_options_write(ptr noundef %0, ptr noundef captu
 .preheader:                                       ; preds = %69, %.preheader
   %83 = phi i64 [ %93, %.preheader ], [ 0, %69 ]
   %84 = phi ptr [ %92, %.preheader ], [ %80, %69 ]
-  %85 = getelementptr %struct.tcp_sack_block, ptr %75, i64 %83
+  %85 = getelementptr [8 x i8], ptr %75, i64 %83
   %86 = load i32, ptr %85, align 4
   %87 = tail call i32 @llvm.bswap.i32(i32 %86)
   %88 = getelementptr i8, ptr %84, i64 4
@@ -9750,7 +9748,7 @@ define dso_local i32 @tcp_write_wakeup(ptr noundef %0, i32 noundef %1) local_unn
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 432
   %99 = load ptr, ptr %98, align 8
   %100 = sext i32 %1 to i64
-  %101 = getelementptr i64, ptr %99, i64 %100
+  %101 = getelementptr [8 x i8], ptr %99, i64 %100
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %101, ptr elementtype(i64) %101) #19, !srcloc !130
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %103 = load i32, ptr %102, align 8
@@ -9794,7 +9792,7 @@ define dso_local i32 @tcp_write_wakeup(ptr noundef %0, i32 noundef %1) local_unn
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 432
   %131 = load ptr, ptr %130, align 8
   %132 = sext i32 %1 to i64
-  %133 = getelementptr i64, ptr %131, i64 %132
+  %133 = getelementptr [8 x i8], ptr %131, i64 %132
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %133, ptr elementtype(i64) %133) #19, !srcloc !130
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %135 = load i32, ptr %134, align 8
@@ -10447,7 +10445,7 @@ define internal fastcc range(i32 -22, 1) i32 @tcp_clone_payload(ptr noundef %0, 
   %125 = zext i32 %124 to i64
   %126 = getelementptr i8, ptr %123, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 48
-  %128 = getelementptr %struct.bio_vec, ptr %127, i64 %122
+  %128 = getelementptr [16 x i8], ptr %127, i64 %122
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load volatile i64, ptr %130, align 8

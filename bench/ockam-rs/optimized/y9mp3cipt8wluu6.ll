@@ -931,9 +931,9 @@ define hidden noundef i64 @"_ZN13crypto_bigint4uint3cmp52_$LT$impl$u20$crypto_bi
 9:                                                ; preds = %2, %9
   %.013 = phi i64 [ 0, %2 ], [ %16, %9 ]
   %.01112 = phi i64 [ 0, %2 ], [ %15, %9 ]
-  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %.013
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013
   %11 = load i64, ptr %10, align 8, !noundef !5
-  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %.013
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.013
   %13 = load i64, ptr %12, align 8, !noundef !5
   %14 = xor i64 %13, %11
   %15 = or i64 %14, %.01112
@@ -952,9 +952,9 @@ define hidden noundef i8 @"_ZN13crypto_bigint4uint3cmp87_$LT$impl$u20$subtle..Co
 4:                                                ; preds = %4, %2
   %.013.i = phi i64 [ 0, %2 ], [ %11, %4 ]
   %.01112.i = phi i64 [ 0, %2 ], [ %10, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %.013.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.i
   %6 = load i64, ptr %5, align 8, !alias.scope !54, !noalias !57, !noundef !5
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.013.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.013.i
   %8 = load i64, ptr %7, align 8, !alias.scope !57, !noalias !54, !noundef !5
   %9 = xor i64 %8, %6
   %10 = or i64 %9, %.01112.i
@@ -984,7 +984,7 @@ define hidden noundef i8 @_ZN13crypto_bigint6traits4Zero7is_zero17h78e1073a1231a
 3:                                                ; preds = %3, %1
   %.013.i.i = phi i64 [ 0, %1 ], [ %7, %3 ]
   %.01112.i.i = phi i64 [ 0, %1 ], [ %6, %3 ]
-  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %.013.i.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.i.i
   %5 = load i64, ptr %4, align 8, !alias.scope !66, !noalias !67, !noundef !5
   %6 = or i64 %5, %.01112.i.i
   %7 = add nuw nsw i64 %.013.i.i, 1

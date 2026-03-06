@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/segafilm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.film_sample = type { i32, i32, i64, i64, i32 }
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
-
 @.str = private unnamed_addr constant [9 x i8] c"film_cpk\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"Sega FILM / CPK\00", align 1
 @ff_segafilm_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null }, i32 0, i32 56, i32 1, [4 x i8] zeroinitializer, ptr @film_probe, ptr @film_read_header, ptr @film_read_packet, ptr @film_read_close, ptr @film_read_seek, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -323,7 +320,7 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
 151:                                              ; preds = %.lr.ph, %163
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %163 ]
   %152 = load ptr, ptr %144, align 8, !tbaa !75
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv
   %154 = load ptr, ptr %153, align 8, !tbaa !76
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %156 = load ptr, ptr %155, align 8, !tbaa !45
@@ -362,7 +359,7 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   %172 = add i32 %171, %12
   %173 = zext i32 %172 to i64
   %174 = load ptr, ptr %7, align 8, !tbaa !28
-  %175 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187
+  %175 = getelementptr inbounds nuw [32 x i8], ptr %174, i64 %indvars.iv187
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store i64 %173, ptr %176, align 8, !tbaa !80
   %177 = load i32, ptr %10, align 4, !tbaa !11
@@ -434,7 +431,7 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
 216:                                              ; preds = %204
   %217 = load ptr, ptr %147, align 8, !tbaa !75
   %218 = sext i32 %205 to i64
-  %219 = getelementptr inbounds ptr, ptr %217, i64 %218
+  %219 = getelementptr inbounds [8 x i8], ptr %217, i64 %218
   %220 = load ptr, ptr %219, align 8, !tbaa !76
   %221 = call i32 @av_add_index_entry(ptr noundef %220, i64 noundef %173, i64 noundef %209, i32 noundef %178, i32 noundef 0, i32 noundef %212) #5
   br label %222
@@ -466,7 +463,7 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   %232 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %233 = load i32, ptr %232, align 4, !tbaa !54
   %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds ptr, ptr %231, i64 %234
+  %235 = getelementptr inbounds [8 x i8], ptr %231, i64 %234
   %236 = load ptr, ptr %235, align 8, !tbaa !76
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 48
   store i64 %.0144.lcssa, ptr %237, align 8, !tbaa !87
@@ -482,7 +479,7 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   %242 = load ptr, ptr %241, align 8, !tbaa !75
   %243 = load i32, ptr %4, align 8, !tbaa !44
   %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds ptr, ptr %242, i64 %244
+  %245 = getelementptr inbounds [8 x i8], ptr %242, i64 %244
   %246 = load ptr, ptr %245, align 8, !tbaa !76
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 48
   store i64 %.0.lcssa, ptr %247, align 8, !tbaa !87
@@ -516,7 +513,7 @@ define internal i32 @film_read_packet(ptr noundef readonly captures(none) %0, pt
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds nuw %struct.film_sample, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %14
   %16 = add nuw i32 %8, 1
   %.not4047 = icmp ult i32 %16, %10
   br i1 %.not4047, label %.lr.ph, label %select.unfold._crit_edge
@@ -528,7 +525,7 @@ define internal i32 @film_read_packet(ptr noundef readonly captures(none) %0, pt
 select.unfold:                                    ; preds = %.lr.ph, %select.unfold
   %.048 = phi i32 [ %16, %.lr.ph ], [ %spec.select46, %select.unfold ]
   %18 = sext i32 %.048 to i64
-  %19 = getelementptr inbounds %struct.film_sample, ptr %13, i64 %18
+  %19 = getelementptr inbounds [32 x i8], ptr %13, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !83
   %.not41 = icmp ne i32 %20, %17
   %21 = zext i1 %.not41 to i32
@@ -603,7 +600,7 @@ define internal i32 @film_read_seek(ptr noundef readonly captures(none) %0, i32 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !75
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !76
   %12 = tail call i32 @av_index_search_timestamp(ptr noundef %11, i64 noundef %2, i32 noundef %3) #5
   %13 = icmp slt i32 %12, 0
@@ -615,7 +612,7 @@ define internal i32 @film_read_seek(ptr noundef readonly captures(none) %0, i32 
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 320
   %18 = load ptr, ptr %17, align 8, !tbaa !94
   %19 = zext nneg i32 %12 to i64
-  %20 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !95
   %22 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef %21, i32 noundef 0) #5
   %23 = icmp slt i64 %22, 0

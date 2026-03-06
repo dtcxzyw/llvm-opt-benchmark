@@ -3,11 +3,6 @@ source_filename = "bench/postgres/original/brin_tuple.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.BrinValues = type { i16, i8, i8, ptr, i64, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [12 x i8] c"brin dtuple\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"unsupported byval length: %d\00", align 1
@@ -52,14 +47,14 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %.0129200 = phi i1 [ false, %.lr.ph201 ], [ %.1130, %.loopexit184 ]
   %.0139198 = phi i32 [ 0, %.lr.ph201 ], [ %.2141, %.loopexit184 ]
   %.0148197 = phi i32 [ 0, %.lr.ph201 ], [ %.1149, %.loopexit184 ]
-  %30 = getelementptr inbounds nuw %struct.BrinValues, ptr %27, i64 %indvars.iv227
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %indvars.iv227
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 3
   %32 = load i8, ptr %31, align 1, !range !4, !noundef !5
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %.preheader183, label %45
 
 .preheader183:                                    ; preds = %29
-  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv227
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv227
   %35 = load ptr, ptr %34, align 8
   %36 = load i16, ptr %35, align 8
   %.not221 = icmp eq i16 %36, 0
@@ -98,7 +93,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   br label %56
 
 56:                                               ; preds = %51, %45
-  %57 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv227
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv227
   %58 = load ptr, ptr %57, align 8
   %59 = load i16, ptr %58, align 8
   %.not220 = icmp eq i16 %59, 0
@@ -114,10 +109,10 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %.3142191 = phi i32 [ %.0139198, %.lr.ph ], [ %.4, %111 ]
   %.2150189 = phi i32 [ %.0148197, %.lr.ph ], [ %.3151, %111 ]
   %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i16, ptr %69, align 8
@@ -164,7 +159,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %92 = shl nsw i64 %91, 4
   %93 = getelementptr i8, ptr %89, i64 %92
   %94 = getelementptr i8, ptr %93, i64 24
-  %95 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %94, i64 %indvars.iv227
+  %95 = getelementptr inbounds nuw [100 x i8], ptr %94, i64 %indvars.iv227
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 68
   %97 = load i32, ptr %96, align 4
   %98 = load i32, ptr %68, align 8
@@ -196,7 +191,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %.1144181 = phi i64 [ %.0143, %107 ], [ %104, %106 ], [ %104, %105 ]
   %108 = add i32 %.2150189, 1
   %109 = sext i32 %.2150189 to i64
-  %110 = getelementptr inbounds i64, ptr %22, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %22, i64 %109
   store i64 %.1144181, ptr %110, align 8
   br label %111
 
@@ -204,7 +199,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %.1144182.sink = phi i64 [ %65, %61 ], [ %.1144181, %.thread ], [ %.0143, %107 ]
   %.3151 = phi i32 [ %.2150189, %61 ], [ %108, %.thread ], [ %.2150189, %107 ]
   %112 = sext i32 %.3142191 to i64
-  %113 = getelementptr inbounds i64, ptr %10, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %10, i64 %112
   store i64 %.1144182.sink, ptr %113, align 8
   %.4 = add i32 %.3142191, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -265,7 +260,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %140 = phi i32 [ %137, %.preheader.lr.ph.i ], [ %154, %._crit_edge.i ]
   %indvars.iv25.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next26.i, %._crit_edge.i ]
   %.01922.i = phi i16 [ 1, %.preheader.lr.ph.i ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %141 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv25.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %indvars.iv25.i
   %142 = load ptr, ptr %141, align 8
   %143 = load i16, ptr %142, align 8
   %.not.i = icmp eq i16 %143, 0
@@ -277,7 +272,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %.120.i = phi i16 [ %145, %.lr.ph.i ], [ %.01922.i, %.preheader.i ]
   %145 = add i16 %.120.i, 1
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %147 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %indvars.iv.i
   %148 = load ptr, ptr %147, align 8
   %149 = load i32, ptr %148, align 8
   tail call void @TupleDescInitEntry(ptr noundef %135, i16 noundef signext %.120.i, ptr noundef null, i32 noundef %149, i32 noundef -1, i32 noundef 0) #10
@@ -340,7 +335,7 @@ brtuple_disk_tupdesc.exit:                        ; preds = %._crit_edge.thread,
   %176 = phi i32 [ %173, %.preheader.lr.ph.i163 ], [ %190, %._crit_edge.i175 ]
   %indvars.iv25.i165 = phi i64 [ 0, %.preheader.lr.ph.i163 ], [ %indvars.iv.next26.i177, %._crit_edge.i175 ]
   %.01922.i166 = phi i16 [ 1, %.preheader.lr.ph.i163 ], [ %.1.lcssa.i176, %._crit_edge.i175 ]
-  %177 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv25.i165
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv25.i165
   %178 = load ptr, ptr %177, align 8
   %179 = load i16, ptr %178, align 8
   %.not.i167 = icmp eq i16 %179, 0
@@ -352,7 +347,7 @@ brtuple_disk_tupdesc.exit:                        ; preds = %._crit_edge.thread,
   %.120.i170 = phi i16 [ %181, %.lr.ph.i168 ], [ %.01922.i166, %.preheader.i164 ]
   %181 = add i16 %.120.i170, 1
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv.i169
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv.i169
   %184 = load ptr, ptr %183, align 8
   %185 = load i32, ptr %184, align 8
   tail call void @TupleDescInitEntry(ptr noundef %171, i16 noundef signext %.120.i170, ptr noundef null, i32 noundef %185, i32 noundef -1, i32 noundef 0) #10
@@ -397,7 +392,7 @@ brtuple_disk_tupdesc.exit178:                     ; preds = %brtuple_disk_tupdes
 
 .lr.ph207:                                        ; preds = %.lr.ph207.preheader, %.lr.ph207
   %indvars.iv229 = phi i64 [ 0, %.lr.ph207.preheader ], [ %indvars.iv.next230, %.lr.ph207 ]
-  %196 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv229
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv229
   %197 = load i64, ptr %196, align 8
   %198 = inttoptr i64 %197 to ptr
   call void @pfree(ptr noundef %198) #10
@@ -442,7 +437,7 @@ brtuple_disk_tupdesc.exit178:                     ; preds = %brtuple_disk_tupdes
   %212 = phi i8 [ %206, %207 ], [ 0, %209 ]
   %.1126 = phi ptr [ %.0125210, %207 ], [ %210, %209 ]
   %.1 = phi i32 [ %208, %207 ], [ 1, %209 ]
-  %213 = getelementptr %struct.BrinValues, ptr %2, i64 %indvars.iv232
+  %213 = getelementptr [40 x i8], ptr %2, i64 %indvars.iv232
   %214 = getelementptr i8, ptr %213, i64 43
   %215 = load i8, ptr %214, align 1, !range !4, !noundef !5
   %216 = trunc nuw i8 %215 to i1
@@ -484,7 +479,7 @@ brtuple_disk_tupdesc.exit178:                     ; preds = %brtuple_disk_tupdes
   %232 = phi i8 [ %226, %227 ], [ 0, %229 ]
   %.3128 = phi ptr [ %.2127217, %227 ], [ %230, %229 ]
   %.3 = phi i32 [ %228, %227 ], [ 1, %229 ]
-  %233 = getelementptr %struct.BrinValues, ptr %2, i64 %indvars.iv235
+  %233 = getelementptr [40 x i8], ptr %2, i64 %indvars.iv235
   %234 = getelementptr i8, ptr %233, i64 42
   %235 = load i8, ptr %234, align 2, !range !4, !noundef !5
   %236 = trunc nuw i8 %235 to i1
@@ -720,7 +715,7 @@ define dso_local ptr @brin_new_memtuple(ptr noundef readonly captures(none) %0) 
   %.029.i = phi ptr [ %39, %.lr.ph.i ], [ %57, %43 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = trunc i64 %indvars.iv.next.i to i16
-  %45 = getelementptr inbounds nuw %struct.BrinValues, ptr %40, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %indvars.iv.i
   store i16 %44, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 3
   store i8 1, ptr %46, align 1
@@ -734,7 +729,7 @@ define dso_local ptr @brin_new_memtuple(ptr noundef readonly captures(none) %0) 
   store ptr null, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %41, ptr %51, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   %53 = load ptr, ptr %52, align 8
   %54 = load i16, ptr %53, align 8
   %55 = zext i16 %54 to i64
@@ -779,7 +774,7 @@ define dso_local noundef ptr @brin_memtuple_initialize(ptr noundef returned %0, 
   %.029 = phi ptr [ %12, %.lr.ph ], [ %30, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = trunc i64 %indvars.iv.next to i16
-  %18 = getelementptr inbounds nuw %struct.BrinValues, ptr %13, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %indvars.iv
   store i16 %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 3
   store i8 1, ptr %19, align 1
@@ -793,7 +788,7 @@ define dso_local noundef ptr @brin_memtuple_initialize(ptr noundef returned %0, 
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %14, ptr %24, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = load i16, ptr %26, align 8
   %28 = zext i16 %27 to i64
@@ -843,7 +838,7 @@ define dso_local ptr @brin_deform_tuple(ptr noundef captures(none) %0, ptr nound
   %.029.i = phi ptr [ %14, %.lr.ph.i ], [ %32, %18 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = trunc i64 %indvars.iv.next.i to i16
-  %20 = getelementptr inbounds nuw %struct.BrinValues, ptr %15, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %indvars.iv.i
   store i16 %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 3
   store i8 1, ptr %21, align 1
@@ -857,7 +852,7 @@ define dso_local ptr @brin_deform_tuple(ptr noundef captures(none) %0, ptr nound
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %16, ptr %26, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
   %29 = load i16, ptr %28, align 8
   %30 = zext i16 %29 to i64
@@ -1004,7 +999,7 @@ brin_memtuple_initialize.exit:                    ; preds = %18, %4
   %120 = phi i32 [ %116, %.preheader.lr.ph.i.i ], [ %135, %._crit_edge.i.i ]
   %indvars.iv25.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next26.i.i, %._crit_edge.i.i ]
   %.01922.i.i = phi i16 [ 1, %.preheader.lr.ph.i.i ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
-  %121 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv25.i.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv25.i.i
   %122 = load ptr, ptr %121, align 8
   %123 = load i16, ptr %122, align 8
   %.not.i78.i = icmp eq i16 %123, 0
@@ -1016,7 +1011,7 @@ brin_memtuple_initialize.exit:                    ; preds = %18, %4
   %.120.i.i = phi i16 [ %125, %.lr.ph.i.i ], [ %.01922.i.i, %.preheader.i.i ]
   %125 = add i16 %.120.i.i, 1
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv.i.i
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv.i.i
   %128 = load ptr, ptr %127, align 8
   %129 = load i32, ptr %128, align 8
   tail call void @TupleDescInitEntry(ptr noundef %114, i16 noundef signext %.120.i.i, ptr noundef null, i32 noundef %129, i32 noundef -1, i32 noundef 0) #10
@@ -1069,7 +1064,7 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
   %148 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv105.i
   %149 = load i8, ptr %148, align 1, !range !4, !noundef !5
   %150 = trunc nuw i8 %149 to i1
-  %151 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv105.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv105.i
   %152 = load ptr, ptr %151, align 8
   %153 = load i16, ptr %152, align 8
   br i1 %150, label %154, label %.preheader.i
@@ -1088,7 +1083,7 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
   %.285.i = phi i64 [ %231, %230 ], [ %.06791.i, %.preheader.i ]
   %.27184.i = phi i32 [ %198, %230 ], [ %.06990.i, %.preheader.i ]
   %157 = sext i32 %.27184.i to i64
-  %158 = getelementptr inbounds %struct.CompactAttribute, ptr %144, i64 %157
+  %158 = getelementptr inbounds [16 x i8], ptr %144, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %160 = load i16, ptr %159, align 4
   %161 = icmp eq i16 %160, -1
@@ -1165,7 +1160,7 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
 fetch_att.exit.i:                                 ; preds = %196, %191, %188, %185, %182
   %.0.i.i = phi i64 [ %184, %182 ], [ %187, %185 ], [ %190, %188 ], [ %192, %191 ], [ %197, %196 ]
   %198 = add i32 %.27184.i, 1
-  %199 = getelementptr inbounds i64, ptr %55, i64 %157
+  %199 = getelementptr inbounds [8 x i8], ptr %55, i64 %157
   store i64 %.0.i.i, ptr %199, align 8
   %200 = load i16, ptr %159, align 4
   %201 = icmp sgt i16 %200, 0
@@ -1267,7 +1262,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   %252 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv97
   %253 = load i8, ptr %252, align 1, !range !4, !noundef !5
   %254 = trunc nuw i8 %253 to i1
-  %255 = getelementptr inbounds nuw ptr, ptr %247, i64 %indvars.iv97
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %indvars.iv97
   %256 = load ptr, ptr %255, align 8
   %257 = load i16, ptr %256, align 8
   br i1 %254, label %260, label %.preheader
@@ -1277,7 +1272,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   br i1 %.not86, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %258 = getelementptr %struct.BrinValues, ptr %41, i64 %indvars.iv97
+  %258 = getelementptr [40 x i8], ptr %41, i64 %indvars.iv97
   %259 = getelementptr i8, ptr %258, i64 48
   br label %263
 
@@ -1292,10 +1287,10 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   %.280 = phi i32 [ %.06383, %.lr.ph ], [ %265, %263 ]
   %265 = add i32 %.280, 1
   %266 = sext i32 %.280 to i64
-  %267 = getelementptr inbounds i64, ptr %55, i64 %266
+  %267 = getelementptr inbounds [8 x i8], ptr %55, i64 %266
   %268 = load i64, ptr %267, align 8
   %269 = getelementptr inbounds nuw i8, ptr %264, i64 16
-  %270 = getelementptr inbounds nuw ptr, ptr %269, i64 %indvars.iv
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %269, i64 %indvars.iv
   %271 = load ptr, ptr %270, align 8
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 10
   %273 = load i8, ptr %272, align 2, !range !4, !noundef !5
@@ -1305,7 +1300,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   %277 = sext i16 %276 to i32
   %278 = tail call i64 @datumCopy(i64 noundef %268, i1 noundef zeroext %274, i32 noundef %277) #10
   %279 = load ptr, ptr %259, align 8
-  %280 = getelementptr inbounds nuw i64, ptr %279, i64 %indvars.iv
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %indvars.iv
   store i64 %278, ptr %280, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %281 = load ptr, ptr %255, align 8
@@ -1323,7 +1318,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   %.2.lcssa = phi i32 [ %.06383, %.preheader ], [ %265, %._crit_edge.loopexit ]
   %286 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv97
   %287 = load i8, ptr %286, align 1, !range !4, !noundef !5
-  %288 = getelementptr inbounds nuw %struct.BrinValues, ptr %248, i64 %indvars.iv97
+  %288 = getelementptr inbounds nuw [40 x i8], ptr %248, i64 %indvars.iv97
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 2
   store i8 %287, ptr %289, align 2
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 3

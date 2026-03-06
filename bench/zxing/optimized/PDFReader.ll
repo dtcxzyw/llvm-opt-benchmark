@@ -57,8 +57,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::array.22" = type { [8 x i32] }
 %"struct.std::array.23" = type { [8 x double] }
 %class.anon = type { i32 }
-%"class.ZXing::Nullable" = type { i8, %"class.ZXing::ResultPoint" }
-%"class.ZXing::ResultPoint" = type { %"struct.ZXing::PointT.15" }
 
 $_ZN5ZXing14FirstOrDefaultITtTpTyESt6vectorJNS_6ResultESaIS2_EEEEDaOT_IJDpT0_EE = comdat any
 
@@ -1598,10 +1596,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
 
 46:                                               ; preds = %45, %41
   %indvars.iv.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i, %45 ]
-  %47 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.i
   %48 = load i16, ptr %47, align 2, !tbaa !130
   %49 = uitofp i16 %48 to double
-  %50 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing6Pdf417L13START_PATTERNE, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5ZXing6Pdf417L13START_PATTERNE, i64 %indvars.iv.i
   %51 = load i16, ptr %50, align 2, !tbaa !130
   %52 = uitofp i16 %51 to double
   %53 = fneg double %52
@@ -1798,7 +1796,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %54 = shl nuw nsw i64 %52, 2
   %55 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #24
   store ptr %55, ptr %0, align 8, !tbaa !52
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %52
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !55
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %55, i8 -1, i64 %54, i1 false), !tbaa !26
@@ -1949,7 +1947,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isWhiteEv.exit.thread: ; preds = %_Z
 
 .lr.ph:                                           ; preds = %.preheader
   %137 = mul nsw i64 %indvars.iv297, %91
-  %invariant.gep = getelementptr i32, ptr %61, i64 %137
+  %invariant.gep = getelementptr [4 x i8], ptr %61, i64 %137
   br label %138
 
 138:                                              ; preds = %.lr.ph, %403
@@ -2161,17 +2159,17 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i63:         ; preds = %.lr.ph.i.i.i.i.i57
 224:                                              ; preds = %224, %_ZNK5ZXing11PatternView3sumEi.exit.i.i63
   %indvars.iv.i.i64 = phi i64 [ 0, %_ZNK5ZXing11PatternView3sumEi.exit.i.i63 ], [ %indvars.iv.next.i.i66, %224 ]
   %.033.i.i65 = phi i32 [ 17, %_ZNK5ZXing11PatternView3sumEi.exit.i.i63 ], [ %235, %224 ]
-  %225 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i.i64
+  %225 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv.i.i64
   %226 = load i16, ptr %225, align 2, !tbaa !130, !noalias !149
   %227 = uitofp i16 %226 to double
   %228 = fdiv double %227, %220
   %229 = fadd double %228, 5.000000e-01
   %230 = fptosi double %229 to i32
-  %231 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i64
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i64
   store i32 %230, ptr %231, align 4, !tbaa !26, !noalias !149
   %232 = sitofp i32 %230 to double
   %233 = fsub double %228, %232
-  %234 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i.i64
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i64
   store double %233, ptr %234, align 8, !tbaa !43, !noalias !149
   %235 = sub nsw i32 %.033.i.i65, %230
   %indvars.iv.next.i.i66 = add nuw nsw i64 %indvars.iv.i.i64, 1
@@ -2256,7 +2254,7 @@ _ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.
 .preheader.i91:                                   ; preds = %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i86, %.preheader.i91
   %indvars.iv.i5.i92 = phi i64 [ %indvars.iv.next.i6.i95, %.preheader.i91 ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i86 ]
   %.0911.i.i93 = phi i32 [ %268, %.preheader.i91 ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i86 ]
-  %261 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i5.i92
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i5.i92
   %262 = load i32, ptr %261, align 4, !tbaa !26
   %263 = shl i32 %.0911.i.i93, %262
   %264 = trunc nuw nsw i64 %indvars.iv.i5.i92 to i32
@@ -2471,17 +2469,17 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
 356:                                              ; preds = %356, %_ZNK5ZXing11PatternView3sumEi.exit.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK5ZXing11PatternView3sumEi.exit.i.i ], [ %indvars.iv.next.i.i, %356 ]
   %.033.i.i = phi i32 [ 17, %_ZNK5ZXing11PatternView3sumEi.exit.i.i ], [ %367, %356 ]
-  %357 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv.i.i
+  %357 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv.i.i
   %358 = load i16, ptr %357, align 2, !tbaa !130, !noalias !157
   %359 = uitofp i16 %358 to double
   %360 = fdiv double %359, %352
   %361 = fadd double %360, 5.000000e-01
   %362 = fptosi double %361 to i32
-  %363 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i.i
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i.i
   store i32 %362, ptr %363, align 4, !tbaa !26, !noalias !157
   %364 = sitofp i32 %362 to double
   %365 = fsub double %360, %364
-  %366 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i.i
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   store double %365, ptr %366, align 8, !tbaa !43, !noalias !157
   %367 = sub nsw i32 %.033.i.i, %362
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2566,7 +2564,7 @@ _ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.
 .preheader.i:                                     ; preds = %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i, %.preheader.i
   %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i6.i, %.preheader.i ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i ]
   %.0911.i.i = phi i32 [ %400, %.preheader.i ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit.i ]
-  %393 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i5.i
+  %393 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i5.i
   %394 = load i32, ptr %393, align 4, !tbaa !26
   %395 = shl i32 %.0911.i.i, %394
   %396 = trunc nuw nsw i64 %indvars.iv.i5.i to i32
@@ -2608,7 +2606,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInEv.exit.thread.i: ; preds = %.no
 
 403:                                              ; preds = %.sink.split, %.noexc41
   %.sroa.3.2.in.i = phi i32 [ %269, %.noexc41 ], [ %.sroa.3.2.in.i.ph, %.sink.split ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %.sroa.3.2.in.i, ptr %gep, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3007,10 +3005,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
 
 51:                                               ; preds = %50, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %50 ]
-  %52 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv.i
   %53 = load i16, ptr %52, align 2, !tbaa !130
   %54 = uitofp i16 %53 to double
-  %55 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing6Pdf417L13START_PATTERNE, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5ZXing6Pdf417L13START_PATTERNE, i64 %indvars.iv.i
   %56 = load i16, ptr %55, align 2, !tbaa !130
   %57 = uitofp i16 %56 to double
   %58 = fneg double %57
@@ -3475,17 +3473,17 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
 19:                                               ; preds = %19, %_ZNK5ZXing11PatternView3sumEi.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZNK5ZXing11PatternView3sumEi.exit.i ], [ %indvars.iv.next.i, %19 ]
   %.033.i = phi i32 [ 17, %_ZNK5ZXing11PatternView3sumEi.exit.i ], [ %30, %19 ]
-  %20 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.i
   %21 = load i16, ptr %20, align 2, !tbaa !130, !noalias !169
   %22 = uitofp i16 %21 to double
   %23 = fdiv double %22, %15
   %24 = fadd double %23, 5.000000e-01
   %25 = fptosi double %24 to i32
-  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %25, ptr %26, align 4, !tbaa !26, !noalias !169
   %27 = sitofp i32 %25 to double
   %28 = fsub double %23, %27
-  %29 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   store double %28, ptr %29, align 8, !tbaa !43, !noalias !169
   %30 = sub nsw i32 %.033.i, %25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3573,7 +3571,7 @@ _ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit:
 .preheader:                                       ; preds = %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit, %.preheader
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i6, %.preheader ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit ]
   %.0911.i = phi i32 [ %67, %.preheader ], [ 0, %_ZN5ZXing17NormalizedPatternILi8ELi17EEESt5arrayIiXT_EERKNS_11PatternViewE.exit ]
-  %60 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i5
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i5
   %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = shl i32 %.0911.i, %61
   %63 = trunc nuw nsw i64 %indvars.iv.i5 to i32
@@ -3666,7 +3664,7 @@ define internal fastcc i64 @"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbb
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !177
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr %"class.ZXing::Nullable", ptr %12, i64 %13
+  %14 = getelementptr [24 x i8], ptr %12, i64 %13
   %15 = load i8, ptr %14, align 8, !tbaa !86, !range !90, !noundef !91
   %16 = trunc nuw i8 %15 to i1
   %17 = icmp samesign ugt i32 %1, 1
@@ -4275,7 +4273,7 @@ _ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit42: ; preds
 _ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit42, %145
   store ptr %22, ptr %0, align 8, !tbaa !121
   store ptr %.0.lcssa.i.i.i41, ptr %6, align 8, !tbaa !112
-  %149 = getelementptr inbounds nuw %"class.ZXing::Result", ptr %22, i64 %18
+  %149 = getelementptr inbounds nuw [216 x i8], ptr %22, i64 %18
   store ptr %149, ptr %144, align 8, !tbaa !114
   ret void
 

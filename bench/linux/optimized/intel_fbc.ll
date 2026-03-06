@@ -16,8 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.lock_class_key = type {}
 %struct.intel_fbc_funcs = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.__drm_planes_state = type { ptr, ptr, ptr, ptr }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [32 x i8] c"Sanitized enable_fbc value: %d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [41 x i8] c"drivers/gpu/drm/i915/display/intel_fbc.c\00", align 1
@@ -126,7 +124,7 @@ define dso_local void @intel_fbc_cleanup(ptr noundef readonly captures(none) %0)
   br i1 %10, label %33, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr ptr, ptr %3, i64 %5
+  %12 = getelementptr [8 x i8], ptr %3, i64 %5
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %33, label %15
@@ -210,7 +208,7 @@ define dso_local zeroext i1 @intel_fbc_pre_update(ptr noundef readonly captures(
   %15 = phi i64 [ 0, %8 ], [ %238, %235 ]
   %16 = phi i8 [ 0, %8 ], [ %237, %235 ]
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr %struct.__drm_planes_state, ptr %17, i64 %15
+  %18 = getelementptr [32 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %235, label %21
@@ -244,14 +242,14 @@ define dso_local zeroext i1 @intel_fbc_pre_update(ptr noundef readonly captures(
   %39 = load ptr, ptr %11, align 8
   %40 = load i32, ptr %12, align 8
   %41 = zext i32 %40 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %39, i64 %41
+  %.split = getelementptr [56 x i8], ptr %39, i64 %41
   %42 = getelementptr i8, ptr %.split, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %9, align 8
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 1228
   %46 = load i32, ptr %45, align 4
   %47 = zext i32 %46 to i64
-  %.split6 = getelementptr %struct.__drm_planes_state, ptr %44, i64 %47
+  %.split6 = getelementptr [32 x i8], ptr %44, i64 %47
   %48 = getelementptr i8, ptr %.split6, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i8, ptr %.split6, i64 24
@@ -555,7 +553,7 @@ define dso_local void @intel_fbc_post_update(ptr noundef readonly captures(none)
   %12 = phi ptr [ %4, %8 ], [ %64, %63 ]
   %13 = phi i64 [ 0, %8 ], [ %65, %63 ]
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr %struct.__drm_planes_state, ptr %14, i64 %13
+  %15 = getelementptr [32 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %63, label %18
@@ -676,7 +674,7 @@ define dso_local void @intel_fbc_invalidate(ptr noundef readonly captures(none) 
   br i1 %11, label %61, label %12
 
 12:                                               ; preds = %.split
-  %13 = getelementptr ptr, ptr %5, i64 %6
+  %13 = getelementptr [8 x i8], ptr %5, i64 %6
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %61, label %16
@@ -795,7 +793,7 @@ define dso_local void @intel_fbc_flush(ptr noundef readonly captures(none) %0, i
   br i1 %11, label %31, label %12
 
 12:                                               ; preds = %.split.us
-  %13 = getelementptr ptr, ptr %5, i64 %6
+  %13 = getelementptr [8 x i8], ptr %5, i64 %6
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %31, label %16
@@ -842,7 +840,7 @@ define dso_local void @intel_fbc_flush(ptr noundef readonly captures(none) %0, i
   br i1 %39, label %96, label %40
 
 40:                                               ; preds = %.split
-  %41 = getelementptr ptr, ptr %5, i64 %34
+  %41 = getelementptr [8 x i8], ptr %5, i64 %34
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %96, label %44
@@ -971,7 +969,7 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %11 = phi i64 [ 0, %7 ], [ %205, %.thread12 ]
   %12 = phi ptr [ %3, %7 ], [ %206, %.thread12 ]
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr %struct.__drm_planes_state, ptr %13, i64 %11
+  %14 = getelementptr [32 x i8], ptr %13, i64 %11
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread12, label %17
@@ -980,7 +978,7 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1228
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %.split = getelementptr %struct.__drm_planes_state, ptr %13, i64 %20
+  %.split = getelementptr [32 x i8], ptr %13, i64 %20
   %21 = getelementptr i8, ptr %.split, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 176
@@ -1017,7 +1015,7 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %.split5 = getelementptr %struct.__drm_crtcs_state, ptr %43, i64 %46
+  %.split5 = getelementptr [56 x i8], ptr %43, i64 %46
   %47 = getelementptr i8, ptr %.split5, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 632
@@ -1467,7 +1465,7 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %10, i64 %13
+  %.split = getelementptr [56 x i8], ptr %10, i64 %13
   %14 = getelementptr i8, ptr %.split, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1479,7 +1477,7 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
   %20 = phi ptr [ %4, %8 ], [ %350, %349 ]
   %21 = phi i64 [ 0, %8 ], [ %351, %349 ]
   %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr %struct.__drm_planes_state, ptr %22, i64 %21
+  %23 = getelementptr [32 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -1528,7 +1526,7 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 1228
   %54 = load i32, ptr %53, align 4
   %55 = zext i32 %54 to i64
-  %.split14 = getelementptr %struct.__drm_planes_state, ptr %52, i64 %55
+  %.split14 = getelementptr [32 x i8], ptr %52, i64 %55
   %56 = getelementptr i8, ptr %.split14, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %29, align 8
@@ -2032,7 +2030,7 @@ define dso_local void @intel_fbc_reset_underrun(ptr noundef readonly captures(no
   br i1 %10, label %32, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr ptr, ptr %3, i64 %5
+  %12 = getelementptr [8 x i8], ptr %3, i64 %5
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %32, label %15
@@ -2094,7 +2092,7 @@ define dso_local void @intel_fbc_handle_fifo_underrun_irq(ptr noundef readonly c
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr ptr, ptr %3, i64 %5
+  %12 = getelementptr [8 x i8], ptr %3, i64 %5
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %25, label %15
@@ -2287,7 +2285,7 @@ define dso_local void @intel_fbc_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %87
 
 87:                                               ; preds = %86, %85, %80, %74, %72, %69, %55
-  %88 = getelementptr ptr, ptr %47, i64 %49
+  %88 = getelementptr [8 x i8], ptr %47, i64 %49
   store ptr %57, ptr %88, align 8
   br label %89
 
@@ -2319,7 +2317,7 @@ define dso_local void @intel_fbc_sanitize(ptr noundef readonly captures(none) %0
   br i1 %10, label %49, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr ptr, ptr %3, i64 %5
+  %12 = getelementptr [8 x i8], ptr %3, i64 %5
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %49, label %15
@@ -3147,7 +3145,7 @@ define internal fastcc void @intel_fbc_update_state(ptr noundef readonly capture
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %.144.val to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %7
+  %.split = getelementptr [56 x i8], ptr %6, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3155,7 +3153,7 @@ define internal fastcc void @intel_fbc_update_state(ptr noundef readonly capture
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1228
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %.split5 = getelementptr %struct.__drm_planes_state, ptr %11, i64 %14
+  %.split5 = getelementptr [32 x i8], ptr %11, i64 %14
   %15 = getelementptr i8, ptr %.split5, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1352
@@ -4138,7 +4136,7 @@ define internal void @i965_fbc_nuke(ptr noundef readonly captures(none) %0) #0 a
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = zext i32 %5 to i64
-  %11 = getelementptr i32, ptr %9, i64 %10
+  %11 = getelementptr [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %9, align 4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -4640,7 +4638,7 @@ define internal void @i8xx_fbc_nuke(ptr noundef readonly captures(none) %0) #0 a
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = zext i32 %5 to i64
-  %11 = getelementptr i32, ptr %9, i64 %10
+  %11 = getelementptr [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %9, align 4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32

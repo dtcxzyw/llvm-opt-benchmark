@@ -45,8 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::ArrayRefIter" = type { ptr }
 %"class.gmx::ArrayRef.287" = type { %"struct.gmx::ArrayRefIter.288", %"struct.gmx::ArrayRefIter.288" }
 %"struct.gmx::ArrayRefIter.288" = type { ptr }
-%"class.gmx::BasicVector.147" = type { [3 x float] }
-%struct.wallcc_t = type { i32, i64, i64 }
 
 $_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE = comdat any
 
@@ -3222,7 +3220,7 @@ define void @_Z32mdoutf_write_to_trajectory_filesP8_IO_FILEPK9t_commrecP10gmx_md
   %126 = load i32, ptr %125, align 8, !tbaa !250
   %127 = sext i32 %126 to i64
   %.not.i = icmp eq ptr %114, null
-  %128 = getelementptr inbounds nuw %"class.gmx::BasicVector.147", ptr %114, i64 %127
+  %128 = getelementptr inbounds nuw [12 x i8], ptr %114, i64 %127
   %spec.select.i = select i1 %.not.i, ptr null, ptr %128
   %129 = ptrtoint ptr %spec.select.i to i64
   br label %130
@@ -3451,10 +3449,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %204, 
   br i1 %243, label %244, label %256
 
 244:                                              ; preds = %239
-  %245 = getelementptr inbounds nuw %"class.gmx::BasicVector.147", ptr %235, i64 %indvars.iv
+  %245 = getelementptr inbounds nuw [12 x i8], ptr %235, i64 %indvars.iv
   %246 = add nsw i32 %.0140197, 1
   %247 = sext i32 %.0140197 to i64
-  %248 = getelementptr inbounds [3 x float], ptr %233, i64 %247
+  %248 = getelementptr inbounds [12 x i8], ptr %233, i64 %247
   %249 = load float, ptr %245, align 4, !tbaa !372
   store float %249, ptr %248, align 4, !tbaa !372
   %250 = getelementptr inbounds nuw i8, ptr %245, i64 4
@@ -3658,7 +3656,7 @@ define void @_Z16mdoutf_tng_closeP10gmx_mdoutf(ptr noundef %0) local_unnamed_add
   %32 = load i32, ptr %31, align 4, !tbaa !397
   %33 = mul nsw i32 %32, 60
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.wallcc_t, ptr %21, i64 %34
+  %35 = getelementptr [24 x i8], ptr %21, i64 %34
   %36 = getelementptr i8, ptr %35, i64 1128
   %37 = load i32, ptr %36, align 8, !tbaa !398
   %38 = add nsw i32 %37, 1

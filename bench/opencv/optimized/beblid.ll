@@ -39,8 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.cv::ParallelLoopBodyLambdaWrapper" = type { %"class.cv::ParallelLoopBody", %"class.std::function" }
 %"class.cv::ParallelLoopBody" = type { ptr }
-%"class.cv::KeyPoint" = type { %"class.cv::Point_", float, float, float, i32, i32 }
-%"class.cv::Point_" = type { float, float }
 
 $_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2IPKS2_vEET_S8_RKS3_ = comdat any
 
@@ -2183,7 +2181,7 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.
   %.070118 = phi i8 [ 0, %.lr.ph120 ], [ %.575, %.loopexit ]
   %46 = load ptr, ptr %36, align 8, !tbaa !139
   %47 = load ptr, ptr %46, align 8, !tbaa !99
-  %48 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [28 x i8], ptr %47, i64 %indvars.iv
   %49 = load float, ptr %37, align 8, !tbaa !70
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load float, ptr %50, align 4, !tbaa !140
@@ -2303,7 +2301,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; pr
 
 128:                                              ; preds = %128, %.lr.ph.i
   %.090.i = phi i64 [ 0, %.lr.ph.i ], [ %175, %128 ]
-  %129 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %122, i64 %.090.i
+  %129 = getelementptr inbounds nuw [24 x i8], ptr %122, i64 %.090.i
   %130 = load i32, ptr %129, align 4, !tbaa !146
   %131 = sitofp i32 %130 to float
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 4
@@ -2314,7 +2312,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; pr
   %137 = fadd float %.084.i, %136
   %138 = fadd float %137, 5.000000e-01
   %139 = fptosi float %138 to i32
-  %140 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %127, i64 %.090.i
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %127, i64 %.090.i
   store i32 %139, ptr %140, align 4, !tbaa !146
   %141 = load i32, ptr %129, align 4, !tbaa !146
   %142 = sitofp i32 %141 to float
@@ -2361,7 +2359,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; pr
 _ZN2cv11xfeatures2dL11rectifyABWLINS0_17ABWLParamsFloatThEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit: ; preds = %128, %120
   %176 = load ptr, ptr %36, align 8, !tbaa !139
   %177 = load ptr, ptr %176, align 8, !tbaa !99
-  %178 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %177, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw [28 x i8], ptr %177, i64 %indvars.iv
   %179 = load ptr, ptr %40, align 8, !tbaa !153
   %180 = load float, ptr %37, align 8, !tbaa !70
   %181 = getelementptr i8, ptr %179, i64 4
@@ -2410,7 +2408,7 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %.171112 = phi i8 [ %.272, %323 ], [ %.070118, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
   %.078111 = phi i64 [ %324, %323 ], [ 0, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
   %209 = load ptr, ptr %3, align 8, !tbaa !37
-  %210 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %209, i64 %.078111
+  %210 = getelementptr inbounds nuw [24 x i8], ptr %209, i64 %.078111
   %211 = load ptr, ptr %41, align 8, !tbaa !154
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 12
   %213 = load i32, ptr %212, align 4, !tbaa !105
@@ -2478,17 +2476,17 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %255 = mul i64 %253, %254
   %256 = getelementptr inbounds nuw i8, ptr %250, i64 %255
   %257 = sext i32 %.0.i87 to i64
-  %258 = getelementptr inbounds i32, ptr %256, i64 %257
+  %258 = getelementptr inbounds [4 x i8], ptr %256, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !132
   %260 = sext i32 %.096.i to i64
-  %261 = getelementptr inbounds i32, ptr %256, i64 %260
+  %261 = getelementptr inbounds [4 x i8], ptr %256, i64 %260
   %262 = load i32, ptr %261, align 4, !tbaa !132
   %263 = sext i32 %.097.i to i64
   %264 = mul i64 %253, %263
   %265 = getelementptr inbounds nuw i8, ptr %250, i64 %264
-  %266 = getelementptr inbounds i32, ptr %265, i64 %257
+  %266 = getelementptr inbounds [4 x i8], ptr %265, i64 %257
   %267 = load i32, ptr %266, align 4, !tbaa !132
-  %268 = getelementptr inbounds i32, ptr %265, i64 %260
+  %268 = getelementptr inbounds [4 x i8], ptr %265, i64 %260
   %269 = load i32, ptr %268, align 4, !tbaa !132
   %270 = add i32 %262, %267
   %271 = sub i32 %259, %270
@@ -2503,17 +2501,17 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %280 = mul i64 %253, %279
   %281 = getelementptr inbounds nuw i8, ptr %250, i64 %280
   %282 = sext i32 %.098.i to i64
-  %283 = getelementptr inbounds i32, ptr %281, i64 %282
+  %283 = getelementptr inbounds [4 x i8], ptr %281, i64 %282
   %284 = load i32, ptr %283, align 4, !tbaa !132
   %285 = sext i32 %.0100.i to i64
-  %286 = getelementptr inbounds i32, ptr %281, i64 %285
+  %286 = getelementptr inbounds [4 x i8], ptr %281, i64 %285
   %287 = load i32, ptr %286, align 4, !tbaa !132
   %288 = sext i32 %.0101.i to i64
   %289 = mul i64 %253, %288
   %290 = getelementptr inbounds nuw i8, ptr %250, i64 %289
-  %291 = getelementptr inbounds i32, ptr %290, i64 %282
+  %291 = getelementptr inbounds [4 x i8], ptr %290, i64 %282
   %292 = load i32, ptr %291, align 4, !tbaa !132
-  %293 = getelementptr inbounds i32, ptr %290, i64 %285
+  %293 = getelementptr inbounds [4 x i8], ptr %290, i64 %285
   %294 = load i32, ptr %293, align 4, !tbaa !132
   %295 = add i32 %287, %292
   %296 = sub i32 %284, %295
@@ -2528,7 +2526,7 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %305 = trunc i64 %.078111 to i32
   %306 = and i32 %305, 7
   %307 = xor i32 %306, 7
-  %308 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %208, i64 %.078111
+  %308 = getelementptr inbounds nuw [24 x i8], ptr %208, i64 %.078111
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 20
   %310 = load float, ptr %309, align 4, !tbaa !155
   %311 = fcmp ole float %304, %310
@@ -2616,35 +2614,35 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %367 = load ptr, ptr %366, align 8, !tbaa !104
   %368 = add nsw i32 %349, %342
   %369 = sext i32 %368 to i64
-  %370 = getelementptr inbounds i32, ptr %367, i64 %369
+  %370 = getelementptr inbounds [4 x i8], ptr %367, i64 %369
   %371 = load i32, ptr %370, align 4, !tbaa !132
   %372 = add nsw i32 %353, %351
   %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds i32, ptr %367, i64 %373
+  %374 = getelementptr inbounds [4 x i8], ptr %367, i64 %373
   %375 = load i32, ptr %374, align 4, !tbaa !132
   %376 = add nsw i32 %349, %351
   %377 = sext i32 %376 to i64
-  %378 = getelementptr inbounds i32, ptr %367, i64 %377
+  %378 = getelementptr inbounds [4 x i8], ptr %367, i64 %377
   %379 = load i32, ptr %378, align 4, !tbaa !132
   %380 = add nsw i32 %353, %342
   %381 = sext i32 %380 to i64
-  %382 = getelementptr inbounds i32, ptr %367, i64 %381
+  %382 = getelementptr inbounds [4 x i8], ptr %367, i64 %381
   %383 = load i32, ptr %382, align 4, !tbaa !132
   %384 = add nsw i32 %360, %356
   %385 = sext i32 %384 to i64
-  %386 = getelementptr inbounds i32, ptr %367, i64 %385
+  %386 = getelementptr inbounds [4 x i8], ptr %367, i64 %385
   %387 = load i32, ptr %386, align 4, !tbaa !132
   %388 = add nsw i32 %363, %361
   %389 = sext i32 %388 to i64
-  %390 = getelementptr inbounds i32, ptr %367, i64 %389
+  %390 = getelementptr inbounds [4 x i8], ptr %367, i64 %389
   %391 = load i32, ptr %390, align 4, !tbaa !132
   %392 = add nsw i32 %360, %361
   %393 = sext i32 %392 to i64
-  %394 = getelementptr inbounds i32, ptr %367, i64 %393
+  %394 = getelementptr inbounds [4 x i8], ptr %367, i64 %393
   %395 = load i32, ptr %394, align 4, !tbaa !132
   %396 = add nsw i32 %363, %356
   %397 = sext i32 %396 to i64
-  %398 = getelementptr inbounds i32, ptr %367, i64 %397
+  %398 = getelementptr inbounds [4 x i8], ptr %367, i64 %397
   %399 = load i32, ptr %398, align 4, !tbaa !132
   %.neg93 = add i32 %375, %371
   %400 = add i32 %379, %383
@@ -2654,7 +2652,7 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %404 = add nsw i32 %403, %395
   %405 = add nsw i32 %404, %399
   %406 = sitofp i32 %405 to float
-  %407 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %334, i64 %.179106
+  %407 = getelementptr inbounds nuw [24 x i8], ptr %334, i64 %.179106
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 20
   %409 = load float, ptr %408, align 4, !tbaa !155
   %410 = mul nsw i32 %365, %365
@@ -2832,9 +2830,9 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE11_S_relocateEPS2_S5_S
 
 _ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !37
-  %43 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %33, i64 %1
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %1
   store ptr %43, ptr %4, align 8, !tbaa !38
-  %44 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %32, i64 %30
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %30
   store ptr %44, ptr %11, align 8, !tbaa !34
   br label %45
 
@@ -3582,7 +3580,7 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.
   %.070118 = phi i8 [ 0, %.lr.ph120 ], [ %.575, %.loopexit ]
   %46 = load ptr, ptr %36, align 8, !tbaa !180
   %47 = load ptr, ptr %46, align 8, !tbaa !99
-  %48 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [28 x i8], ptr %47, i64 %indvars.iv
   %49 = load float, ptr %37, align 8, !tbaa !161
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load float, ptr %50, align 4, !tbaa !140
@@ -3702,7 +3700,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %
 
 128:                                              ; preds = %128, %.lr.ph.i
   %.090.i = phi i64 [ 0, %.lr.ph.i ], [ %175, %128 ]
-  %129 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParams", ptr %122, i64 %.090.i
+  %129 = getelementptr inbounds nuw [24 x i8], ptr %122, i64 %.090.i
   %130 = load i32, ptr %129, align 4, !tbaa !181
   %131 = sitofp i32 %130 to float
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 4
@@ -3713,7 +3711,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %
   %137 = fadd float %.084.i, %136
   %138 = fadd float %137, 5.000000e-01
   %139 = fptosi float %138 to i32
-  %140 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParams", ptr %127, i64 %.090.i
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %127, i64 %.090.i
   store i32 %139, ptr %140, align 4, !tbaa !181
   %141 = load i32, ptr %129, align 4, !tbaa !181
   %142 = sitofp i32 %141 to float
@@ -3760,7 +3758,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %
 _ZN2cv11xfeatures2dL11rectifyABWLINS0_10ABWLParamsEEEvRKSt6vectorIT_SaIS4_EERS6_RKNS_8KeyPointEfRKNS_5Size_IiEE.exit: ; preds = %128, %120
   %176 = load ptr, ptr %36, align 8, !tbaa !180
   %177 = load ptr, ptr %176, align 8, !tbaa !99
-  %178 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %177, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw [28 x i8], ptr %177, i64 %indvars.iv
   %179 = load ptr, ptr %40, align 8, !tbaa !188
   %180 = load float, ptr %37, align 8, !tbaa !161
   %181 = getelementptr i8, ptr %179, i64 4
@@ -3812,7 +3810,7 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %210 = and i32 %209, 7
   %211 = xor i32 %210, 7
   %212 = load ptr, ptr %3, align 8, !tbaa !55
-  %213 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParams", ptr %212, i64 %.078111
+  %213 = getelementptr inbounds nuw [24 x i8], ptr %212, i64 %.078111
   %214 = load ptr, ptr %41, align 8, !tbaa !189
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 12
   %216 = load i32, ptr %215, align 4, !tbaa !105
@@ -3880,17 +3878,17 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %258 = mul i64 %256, %257
   %259 = getelementptr inbounds nuw i8, ptr %253, i64 %258
   %260 = sext i32 %.0.i87 to i64
-  %261 = getelementptr inbounds i32, ptr %259, i64 %260
+  %261 = getelementptr inbounds [4 x i8], ptr %259, i64 %260
   %262 = load i32, ptr %261, align 4, !tbaa !132
   %263 = sext i32 %.096.i to i64
-  %264 = getelementptr inbounds i32, ptr %259, i64 %263
+  %264 = getelementptr inbounds [4 x i8], ptr %259, i64 %263
   %265 = load i32, ptr %264, align 4, !tbaa !132
   %266 = sext i32 %.097.i to i64
   %267 = mul i64 %256, %266
   %268 = getelementptr inbounds nuw i8, ptr %253, i64 %267
-  %269 = getelementptr inbounds i32, ptr %268, i64 %260
+  %269 = getelementptr inbounds [4 x i8], ptr %268, i64 %260
   %270 = load i32, ptr %269, align 4, !tbaa !132
-  %271 = getelementptr inbounds i32, ptr %268, i64 %263
+  %271 = getelementptr inbounds [4 x i8], ptr %268, i64 %263
   %272 = load i32, ptr %271, align 4, !tbaa !132
   %273 = add i32 %265, %270
   %274 = sub i32 %262, %273
@@ -3905,17 +3903,17 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %283 = mul i64 %256, %282
   %284 = getelementptr inbounds nuw i8, ptr %253, i64 %283
   %285 = sext i32 %.098.i to i64
-  %286 = getelementptr inbounds i32, ptr %284, i64 %285
+  %286 = getelementptr inbounds [4 x i8], ptr %284, i64 %285
   %287 = load i32, ptr %286, align 4, !tbaa !132
   %288 = sext i32 %.0100.i to i64
-  %289 = getelementptr inbounds i32, ptr %284, i64 %288
+  %289 = getelementptr inbounds [4 x i8], ptr %284, i64 %288
   %290 = load i32, ptr %289, align 4, !tbaa !132
   %291 = sext i32 %.0101.i to i64
   %292 = mul i64 %256, %291
   %293 = getelementptr inbounds nuw i8, ptr %253, i64 %292
-  %294 = getelementptr inbounds i32, ptr %293, i64 %285
+  %294 = getelementptr inbounds [4 x i8], ptr %293, i64 %285
   %295 = load i32, ptr %294, align 4, !tbaa !132
-  %296 = getelementptr inbounds i32, ptr %293, i64 %288
+  %296 = getelementptr inbounds [4 x i8], ptr %293, i64 %288
   %297 = load i32, ptr %296, align 4, !tbaa !132
   %298 = add i32 %290, %295
   %299 = sub i32 %287, %298
@@ -3927,7 +3925,7 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %305 = sitofp i32 %304 to float
   %306 = fdiv float %301, %305
   %307 = fsub float %281, %306
-  %308 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParams", ptr %208, i64 %.078111
+  %308 = getelementptr inbounds nuw [24 x i8], ptr %208, i64 %.078111
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 20
   %310 = load i32, ptr %309, align 4, !tbaa !190
   %311 = sitofp i32 %310 to float
@@ -4016,35 +4014,35 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %368 = load ptr, ptr %367, align 8, !tbaa !104
   %369 = add nsw i32 %350, %343
   %370 = sext i32 %369 to i64
-  %371 = getelementptr inbounds i32, ptr %368, i64 %370
+  %371 = getelementptr inbounds [4 x i8], ptr %368, i64 %370
   %372 = load i32, ptr %371, align 4, !tbaa !132
   %373 = add nsw i32 %354, %352
   %374 = sext i32 %373 to i64
-  %375 = getelementptr inbounds i32, ptr %368, i64 %374
+  %375 = getelementptr inbounds [4 x i8], ptr %368, i64 %374
   %376 = load i32, ptr %375, align 4, !tbaa !132
   %377 = add nsw i32 %350, %352
   %378 = sext i32 %377 to i64
-  %379 = getelementptr inbounds i32, ptr %368, i64 %378
+  %379 = getelementptr inbounds [4 x i8], ptr %368, i64 %378
   %380 = load i32, ptr %379, align 4, !tbaa !132
   %381 = add nsw i32 %354, %343
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds i32, ptr %368, i64 %382
+  %383 = getelementptr inbounds [4 x i8], ptr %368, i64 %382
   %384 = load i32, ptr %383, align 4, !tbaa !132
   %385 = add nsw i32 %361, %357
   %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds i32, ptr %368, i64 %386
+  %387 = getelementptr inbounds [4 x i8], ptr %368, i64 %386
   %388 = load i32, ptr %387, align 4, !tbaa !132
   %389 = add nsw i32 %364, %362
   %390 = sext i32 %389 to i64
-  %391 = getelementptr inbounds i32, ptr %368, i64 %390
+  %391 = getelementptr inbounds [4 x i8], ptr %368, i64 %390
   %392 = load i32, ptr %391, align 4, !tbaa !132
   %393 = add nsw i32 %361, %362
   %394 = sext i32 %393 to i64
-  %395 = getelementptr inbounds i32, ptr %368, i64 %394
+  %395 = getelementptr inbounds [4 x i8], ptr %368, i64 %394
   %396 = load i32, ptr %395, align 4, !tbaa !132
   %397 = add nsw i32 %364, %357
   %398 = sext i32 %397 to i64
-  %399 = getelementptr inbounds i32, ptr %368, i64 %398
+  %399 = getelementptr inbounds [4 x i8], ptr %368, i64 %398
   %400 = load i32, ptr %399, align 4, !tbaa !132
   %.neg93 = add i32 %376, %372
   %401 = add i32 %380, %384
@@ -4053,7 +4051,7 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %404 = sub i32 %.neg93, %403
   %405 = add nsw i32 %404, %396
   %406 = add nsw i32 %405, %400
-  %407 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParams", ptr %335, i64 %.179106
+  %407 = getelementptr inbounds nuw [24 x i8], ptr %335, i64 %.179106
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 20
   %409 = load i32, ptr %408, align 4, !tbaa !190
   %410 = mul nsw i32 %366, %366
@@ -4221,9 +4219,9 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 
 _ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !55
-  %43 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParams", ptr %33, i64 %1
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %1
   store ptr %43, ptr %4, align 8, !tbaa !56
-  %44 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::ABWLParams", ptr %32, i64 %30
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %30
   store ptr %44, ptr %11, align 8, !tbaa !52
   br label %45
 

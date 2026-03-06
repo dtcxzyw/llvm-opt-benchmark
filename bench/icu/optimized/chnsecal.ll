@@ -137,9 +137,9 @@ define noundef nonnull ptr @_ZNK6icu_7715ChineseCalendar7getTypeEv(ptr nonnull r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK6icu_7715ChineseCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [4 x i32], ptr @_ZN6icu_77L6LIMITSE, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6icu_77L6LIMITSE, i64 %4
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !20
   ret i32 %8
 }
@@ -1539,7 +1539,7 @@ define noundef ptr @_ZNK6icu_7715ChineseCalendar20getTemporalMonthCodeER10UError
 
 11:                                               ; preds = %7
   %12 = sext i32 %8 to i64
-  %13 = getelementptr inbounds ptr, ptr @_ZN6icu_77L23gTemporalLeapMonthCodesE, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @_ZN6icu_77L23gTemporalLeapMonthCodesE, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !35
   br label %17
 
@@ -1584,7 +1584,7 @@ define void @_ZN6icu_7715ChineseCalendar20setTemporalMonthCodeEPKcR10UErrorCode(
 
 .preheader:                                       ; preds = %11, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %11 ]
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L23gTemporalLeapMonthCodesE, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L23gTemporalLeapMonthCodesE, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !35
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %16) #9
   %18 = icmp eq i32 %17, 0

@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/execAmi.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [27 x i8] c"unrecognized node type: %d\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"execAmi.c\00", align 1
 @__func__.ExecReScan = private unnamed_addr constant [11 x i8] c"ExecReScan\00", align 1
@@ -46,7 +44,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph108:                                        ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph ]
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -96,7 +94,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   %40 = phi i32 [ %55, %54 ], [ %28, %.lr.ph110 ]
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %54 ], [ 0, %.lr.ph110 ]
   %41 = load ptr, ptr %27, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv115
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv115
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
@@ -770,7 +768,7 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly captu
 .lr.ph66:                                         ; preds = %.lr.ph57, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.lr.ph57 ]
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @ExecSupportsBackwardScan(ptr noundef %28)
   br i1 %29, label %22, label %.thread

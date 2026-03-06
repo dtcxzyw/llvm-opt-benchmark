@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.quic_conn_id_st = type { i8, [20 x i8] }
 %struct.QUIC_STATELESS_RESET_TOKEN = type { [16 x i8] }
 %struct.PACKET = type { ptr, i64 }
-%struct.ossl_qtx_iovec_st = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [13 x i8] c"connectivity\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"connection_started\00", align 1
@@ -232,7 +231,7 @@ define void @ossl_qlog_event_connectivity_connection_closed(ptr noundef %0, ptr 
   br i1 %15, label %switch.lookup, label %quic_err_to_qlog.exit
 
 switch.lookup:                                    ; preds = %14
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qlog_event_connectivity_connection_closed, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qlog_event_connectivity_connection_closed, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %19
@@ -295,7 +294,7 @@ define void @ossl_qlog_event_recovery_packet_lost(ptr noundef %0, ptr noundef re
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.log_packet, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.log_packet, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %quic_pkt_type_to_qlog.exit
 
@@ -376,7 +375,7 @@ define internal fastcc void @log_packet(ptr noundef %0, ptr noundef %1, i64 noun
 
 switch.lookup:                                    ; preds = %6
   %34 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.log_packet, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.log_packet, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %quic_pkt_type_to_qlog.exit
 
@@ -470,7 +469,7 @@ quic_pkt_type_to_qlog.exit:                       ; preds = %6, %switch.lookup
 83:                                               ; preds = %._crit_edge.i, %.lr.ph47.i
   %.01545.i = phi i64 [ 0, %.lr.ph47.i ], [ %251, %._crit_edge.i ]
   %.02844.i = phi i64 [ 0, %.lr.ph47.i ], [ %.129.lcssa.i, %._crit_edge.i ]
-  %84 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %3, i64 %.01545.i
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.01545.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !29
   %87 = icmp slt i64 %86, 0
@@ -612,11 +611,11 @@ PACKET_buf_init.exit.i:                           ; preds = %83
   %.0125219.i.i.i = phi i64 [ %131, %130 ], [ 0, %119 ]
   call void @ossl_qlog_array_begin(ptr noundef %0, ptr noundef null) #3
   %121 = load ptr, ptr %8, align 8, !tbaa !37
-  %122 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %121, i64 %.0125219.i.i.i
+  %122 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %.0125219.i.i.i
   %123 = load i64, ptr %122, align 8, !tbaa !44
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef null, i64 noundef %123) #3
   %124 = load ptr, ptr %8, align 8, !tbaa !37
-  %125 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %124, i64 %.0125219.i.i.i
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %.0125219.i.i.i
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load i64, ptr %126, align 8, !tbaa !46
   %128 = load i64, ptr %125, align 8, !tbaa !44

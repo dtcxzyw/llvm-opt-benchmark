@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.195" = type { %"class.llvm::SmallVectorTemplateCommon.196" }
 %"class.llvm::SmallVectorTemplateCommon.196" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.197" = type { [32 x i8] }
-%"struct.std::pair" = type { ptr, i64 }
 %"class.clang::TemplateName" = type { %"class.llvm::PointerUnion.617" }
 %"class.llvm::PointerUnion.617" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.618" }
 %"class.llvm::pointer_union_detail::PointerUnionMembers.618" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.619" }
@@ -740,7 +739,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5index15IndexingContext17indexDecl
 15:                                               ; preds = %2
   %16 = load i32, ptr %10, align 8, !tbaa !22
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %17
   br label %_ZN5clang12DeclGroupRef3endEv.exit
 
 _ZN5clang12DeclGroupRef3endEv.exit:               ; preds = %12, %15
@@ -2023,7 +2022,7 @@ _ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread: ; preds = %19, %_ZNK5clang13C
 38:                                               ; preds = %.lr.ph
   %39 = zext i32 %34 to i64
   %40 = load ptr, ptr %3, align 8, !tbaa !46
-  %41 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %39
   store i32 4096, ptr %41, align 8, !tbaa !86
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %33, ptr %42, align 8, !tbaa !88
@@ -2065,7 +2064,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5index14SymbolRelationELb1EE9push_backE
   %54 = phi i32 [ %49, %46 ], [ %.pre.i, %51 ]
   %55 = load ptr, ptr %3, align 8, !tbaa !46
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %56
   store i32 524288, ptr %57, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %48, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -2157,7 +2156,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZNK5clang13CXXMeth
   %109 = load i64, ptr %108, align 8
   %110 = lshr i64 %109, 44
   %111 = and i64 %110, 131071
-  %112 = getelementptr inbounds nuw ptr, ptr %107, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %111
   %.not101165 = icmp eq ptr %106, %112
   br i1 %.not101165, label %.loopexit161, label %.lr.ph167
 
@@ -2199,7 +2198,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZNK5clang13CXXMeth
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 64
   %133 = load i32, ptr %132, align 8, !tbaa !142
   %134 = zext i32 %133 to i64
-  %135 = getelementptr ptr, ptr %131, i64 %134
+  %135 = getelementptr [8 x i8], ptr %131, i64 %134
   %136 = getelementptr i8, ptr %135, i64 -8
   %137 = load ptr, ptr %136, align 8, !tbaa !143
   br label %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit
@@ -3510,7 +3509,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor16handleObjCM
 27:                                               ; preds = %.lr.ph
   %28 = zext i32 %23 to i64
   %29 = load ptr, ptr %5, align 8, !tbaa !46
-  %30 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %28
   store i32 4096, ptr %30, align 8, !tbaa !86
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %22, ptr %31, align 8, !tbaa !88
@@ -3540,7 +3539,7 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE12emplace_backIJjRPKNS1
 39:                                               ; preds = %34
   %40 = zext i32 %35 to i64
   %41 = load ptr, ptr %5, align 8, !tbaa !46
-  %42 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %40
   store i32 65536, ptr %42, align 8, !tbaa !86
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %21, ptr %43, align 8, !tbaa !88
@@ -3591,7 +3590,7 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE12emplace_backIJjRPKNS1
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %69 = load i32, ptr %68, align 8, !tbaa !220
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %67, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %70
   %.sroa.04.0.copyload.i.i = load i32, ptr %71, align 4, !tbaa !14
   br label %_ZNK5clang14ObjCMethodDecl19getSelectorStartLocEv.exit
 
@@ -4168,7 +4167,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5index14SymbolRelationELb1EE9push_backE
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !46
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -4177,7 +4176,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5index14SymbolRelationELb1EE9push_backE
   store i32 %19, ptr %6, align 8, !tbaa !48
   %20 = load ptr, ptr %0, align 8, !tbaa !46
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }
@@ -4205,7 +4204,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5index14SymbolRelationELb1EE9push_backE
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !46
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -4214,7 +4213,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5index14SymbolRelationELb1EE9push_backE
   store i32 %19, ptr %6, align 8, !tbaa !48
   %20 = load ptr, ptr %0, align 8, !tbaa !46
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }
@@ -4381,7 +4380,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !46
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -4422,7 +4421,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !46
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !48
@@ -4747,7 +4746,7 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %47, %51
 87:                                               ; preds = %.thread12
   %88 = zext i32 %83 to i64
   %89 = load ptr, ptr %1, align 8, !tbaa !46
-  %90 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %89, i64 %88
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %88
   %91 = load ptr, ptr %3, align 8, !tbaa !143
   store i32 524288, ptr %90, align 8, !tbaa !86
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -4892,7 +4891,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5index14SymbolRelationELb1EE9push_backE
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !46
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -4901,7 +4900,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5index14SymbolRelationELb1EE9push_backE
   store i32 %19, ptr %6, align 8, !tbaa !48
   %20 = load ptr, ptr %0, align 8, !tbaa !46
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }
@@ -4933,7 +4932,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5index14SymbolRelationELb1EE9push_backE
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !46
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -4942,7 +4941,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5index14SymbolRelationELb1EE9push_backE
   store i32 %19, ptr %6, align 8, !tbaa !48
   %20 = load ptr, ptr %0, align 8, !tbaa !46
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }
@@ -5219,7 +5218,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor23indexTempla
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit: ; preds = %._crit_edge
   %12 = and i32 %10, 536870911
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !280
   %.not44 = icmp eq ptr %15, null
   br i1 %.not44, label %_ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.thread, label %158

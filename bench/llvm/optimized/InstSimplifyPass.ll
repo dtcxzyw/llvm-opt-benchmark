@@ -32,12 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::unique_ptr.166" = type { %"struct.std::__uniq_ptr_data.167" }
-%"struct.std::__uniq_ptr_data.167" = type { %"class.std::__uniq_ptr_impl.168" }
-%"class.std::__uniq_ptr_impl.168" = type { %"class.std::tuple.169" }
-%"class.std::tuple.169" = type { %"struct.std::_Tuple_impl.170" }
-%"struct.std::_Tuple_impl.170" = type { %"struct.std::_Head_base.173" }
-%"struct.std::_Head_base.173" = type { ptr }
 %"class.llvm::AnalysisManager" = type { %"class.llvm::DenseMap.8", %"class.llvm::DenseMap.11", %"class.llvm::DenseMap.14" }
 %"class.llvm::DenseMap.8" = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %"class.llvm::DenseMap.11" = type <{ ptr, i32, i32, i32, [4 x i8] }>
@@ -353,7 +347,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.e
   %75 = zext i32 %71 to i64
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !80
-  %78 = getelementptr inbounds nuw %"class.std::unique_ptr.166", ptr %77, i64 %75
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %75
   %79 = load ptr, ptr %78, align 8, !tbaa !81
   %.not85 = icmp eq ptr %79, null
   br i1 %.not85, label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.thread, label %80
@@ -499,7 +493,7 @@ _ZN4llvm14WeakTrackingVHC2EPNS_5ValueE.exit:      ; preds = %115, %115, %115, %1
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_14WeakTrackingVHELb0EE28reserveForParamAndGetAddressERS1_m.exit.i, label %121, !prof !96
 
 121:                                              ; preds = %_ZN4llvm14WeakTrackingVHC2EPNS_5ValueE.exit
-  %122 = getelementptr inbounds nuw %"class.llvm::WeakTrackingVH", ptr %.pre3.i, i64 %118
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %118
   %123 = icmp uge ptr %6, %.pre3.i
   %124 = icmp ult ptr %6, %122
   %spec.select.i.i.i.i.i = and i1 %123, %124
@@ -523,7 +517,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14WeakTrackingVHELb0EE28reserveForParamAndG
   %.016.i.i.i = phi ptr [ %6, %_ZN4llvm14WeakTrackingVHC2EPNS_5ValueE.exit ], [ %129, %125 ], [ %6, %.critedge.i.i.i ]
   %131 = load i32, ptr %23, align 8, !tbaa !78
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw %"class.llvm::WeakTrackingVH", ptr %130, i64 %132
+  %133 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %132
   store i64 6, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr null, ptr %134, align 8, !tbaa !95
@@ -668,7 +662,7 @@ _ZN4llvm14WeakTrackingVHC2EPNS_5ValueE.exit41:    ; preds = %170, %170, %170, %1
   br i1 %.not.i.i.not.i42, label %_ZN4llvm23SmallVectorTemplateBaseINS_14WeakTrackingVHELb0EE28reserveForParamAndGetAddressERS1_m.exit.i47, label %176, !prof !96
 
 176:                                              ; preds = %_ZN4llvm14WeakTrackingVHC2EPNS_5ValueE.exit41
-  %177 = getelementptr inbounds nuw %"class.llvm::WeakTrackingVH", ptr %.pre3.i43, i64 %173
+  %177 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i43, i64 %173
   %178 = icmp uge ptr %7, %.pre3.i43
   %179 = icmp ult ptr %7, %177
   %spec.select.i.i.i.i.i44 = and i1 %178, %179
@@ -692,7 +686,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14WeakTrackingVHELb0EE28reserveForParamAndG
   %.016.i.i.i48 = phi ptr [ %7, %_ZN4llvm14WeakTrackingVHC2EPNS_5ValueE.exit41 ], [ %184, %180 ], [ %7, %.critedge.i.i.i45 ]
   %186 = load i32, ptr %23, align 8, !tbaa !78
   %187 = zext i32 %186 to i64
-  %188 = getelementptr inbounds nuw %"class.llvm::WeakTrackingVH", ptr %185, i64 %187
+  %188 = getelementptr inbounds nuw [24 x i8], ptr %185, i64 %187
   store i64 6, ptr %188, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store ptr null, ptr %189, align 8, !tbaa !95

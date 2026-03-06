@@ -40,7 +40,7 @@ define hidden void @av1_round_shift_array_c(ptr noundef captures(none) %0, i32 n
 
 14:                                               ; preds = %.lr.ph22, %14
   %indvars.iv25 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next26, %14 ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv25
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv25
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = add nsw i64 %12, %17
@@ -53,7 +53,7 @@ define hidden void @av1_round_shift_array_c(ptr noundef captures(none) %0, i32 n
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = shl i64 %24, %9

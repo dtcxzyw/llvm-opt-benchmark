@@ -3,9 +3,6 @@ source_filename = "bench/hyperscan/original/scratch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.mq = type { ptr, i32, i32, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i8, ptr, ptr, [10 x %struct.mq_item] }
-%struct.mq_item = type { i32, i64, i64 }
-
 @hs_scratch_alloc = external local_unnamed_addr global ptr, align 8
 @hs_scratch_free = external local_unnamed_addr global ptr, align 8
 
@@ -466,7 +463,7 @@ define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly 
   %indvars.iv = phi i64 [ 0, %70 ], [ %indvars.iv.next, %100 ]
   %.0169176 = phi ptr [ %91, %70 ], [ %105, %100 ]
   %101 = load ptr, ptr %90, align 64
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv
   store ptr %.0169176, ptr %102, align 8
   %103 = load i32, ptr %35, align 4
   %104 = zext i32 %103 to i64
@@ -552,7 +549,7 @@ define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly 
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %.lr.ph ], [ 0, %92 ]
   %.1178 = phi ptr [ %155, %.lr.ph ], [ %99, %92 ]
   %153 = load ptr, ptr %97, align 8
-  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv187
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv187
   store ptr %.1178, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %.1178, i64 %30
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
@@ -565,7 +562,7 @@ define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly 
   store ptr %73, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %.0181, i64 344
   %158 = load ptr, ptr %80, align 16
-  %159 = getelementptr inbounds nuw %struct.mq, ptr %158, i64 %26
+  %159 = getelementptr inbounds nuw [344 x i8], ptr %158, i64 %26
   %.not173 = icmp eq ptr %157, %159
   br i1 %.not173, label %.loopexit, label %.lr.ph183
 

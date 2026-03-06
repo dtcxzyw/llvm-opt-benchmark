@@ -226,7 +226,7 @@ define hidden void @proto_reg_handoff_grpc() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr ptr, ptr @__const.proto_reg_handoff_grpc.content_types, i64 %indvars.iv
+  %2 = getelementptr [8 x i8], ptr @__const.proto_reg_handoff_grpc.content_types, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @grpc_handle, align 8
   tail call void @dissector_add_string(ptr noundef nonnull @.str.40, ptr noundef %3, ptr noundef %4)
@@ -238,7 +238,7 @@ define hidden void @proto_reg_handoff_grpc() local_unnamed_addr #0 {
 
 .preheader17:                                     ; preds = %1, %.preheader17
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.preheader17 ], [ 0, %1 ]
-  %6 = getelementptr ptr, ptr @__const.proto_reg_handoff_grpc.content_types_web, i64 %indvars.iv22
+  %6 = getelementptr [8 x i8], ptr @__const.proto_reg_handoff_grpc.content_types_web, i64 %indvars.iv22
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @grpc_web_handle, align 8
   tail call void @dissector_add_string(ptr noundef nonnull @.str.40, ptr noundef %7, ptr noundef %8)
@@ -250,7 +250,7 @@ define hidden void @proto_reg_handoff_grpc() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.preheader17, %.preheader
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 0, %.preheader17 ]
-  %10 = getelementptr ptr, ptr @__const.proto_reg_handoff_grpc.content_types_web_text, i64 %indvars.iv25
+  %10 = getelementptr [8 x i8], ptr @__const.proto_reg_handoff_grpc.content_types_web_text, i64 %indvars.iv25
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @grpc_web_text_handle, align 8
   tail call void @dissector_add_string(ptr noundef nonnull @.str.40, ptr noundef %11, ptr noundef %12)

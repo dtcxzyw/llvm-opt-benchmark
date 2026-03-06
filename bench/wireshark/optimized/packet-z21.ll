@@ -909,7 +909,7 @@ switch.lookup1023:                                ; preds = %42
 .sink.split:                                      ; preds = %42, %switch.lookup1023
   %switch.table.dissect_z21_pdu.1.sink = phi ptr [ @switch.table.dissect_z21_pdu.1, %switch.lookup1023 ], [ @switch.table.dissect_z21_pdu, %42 ]
   %47 = zext nneg i8 %45 to i64
-  %switch.gep1024 = getelementptr inbounds nuw i32, ptr %switch.table.dissect_z21_pdu.1.sink, i64 %47
+  %switch.gep1024 = getelementptr inbounds nuw [4 x i8], ptr %switch.table.dissect_z21_pdu.1.sink, i64 %47
   %switch.load1025 = load i32, ptr %switch.gep1024, align 4
   br label %48
 
@@ -990,7 +990,7 @@ update_command_field.exit:                        ; preds = %32, %48
 
 switch.lookup1026:                                ; preds = %66
   %73 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_z21_pdu.2, i64 %73
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_z21_pdu.2, i64 %73
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %74
 

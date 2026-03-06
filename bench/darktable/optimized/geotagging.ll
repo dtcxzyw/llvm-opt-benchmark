@@ -279,7 +279,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   %32 = zext i1 %.not68.i to i32
   %spec.select.i = add nsw i32 %.05672.i, %32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.next.i
   %34 = load ptr, ptr %33, align 8, !tbaa !18
   %35 = icmp ne ptr %34, null
   %36 = icmp slt i32 %spec.select.i, 2
@@ -295,7 +295,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   br label %.outer.i
 
 39:                                               ; preds = %._crit_edge76.i
-  %40 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.next.i
   %41 = getelementptr i8, ptr %40, i64 -8
   %42 = load ptr, ptr %41, align 8, !tbaa !18
   %43 = call noalias ptr @g_strdup(ptr noundef %42) #16
@@ -612,7 +612,7 @@ _get_image_datetime.exit:                         ; preds = %169
 
 205:                                              ; preds = %194, %205
   %indvars.iv = phi i64 [ 0, %194 ], [ %indvars.iv.next, %205 ]
-  %206 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %207 = load ptr, ptr %206, align 8, !tbaa !85
   %208 = call i64 @g_signal_connect_data(ptr noundef %207, ptr noundef nonnull @.str.23, ptr noundef nonnull @_datetime_entry_changed, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #16
   %209 = load ptr, ptr %206, align 8, !tbaa !85
@@ -794,7 +794,7 @@ define internal fastcc noundef ptr @_gui_init_datetime(ptr noundef %0, ptr nound
   %41 = tail call i64 @gtk_entry_get_type() #17
   %42 = tail call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %41) #16
   tail call void @gtk_entry_set_width_chars(ptr noundef %42, i32 noundef range(i32 0, 5) %39) #16
-  %43 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %40, ptr %43, align 8, !tbaa !85
   %44 = tail call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %41) #16
   tail call void @gtk_entry_set_alignment(ptr noundef %44, float noundef 5.000000e-01) #16
@@ -899,7 +899,7 @@ define internal void @_toggle_lock_button_callback(ptr noundef %0, ptr noundef r
 
 15:                                               ; preds = %2, %15
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !85
   tail call void @gtk_widget_set_sensitive(ptr noundef %17, i32 noundef %6) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1675,7 +1675,7 @@ define internal fastcc void @_display_datetime(ptr noundef readonly captures(non
 
 .lr.ph.split:                                     ; preds = %4, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %4 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = tail call i32 @g_signal_handlers_block_matched(ptr noundef %10, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_datetime_entry_changed, ptr noundef nonnull %3) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1735,7 +1735,7 @@ define internal fastcc void @_display_datetime(ptr noundef readonly captures(non
 
 51:                                               ; preds = %.preheader, %51
   %indvars.iv42 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next43, %51 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv42
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv42
   %53 = load ptr, ptr %52, align 8, !tbaa !85
   %54 = tail call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %8) #16
   tail call void @gtk_entry_set_text(ptr noundef %54, ptr noundef nonnull @.str.44) #16
@@ -1751,7 +1751,7 @@ define internal fastcc void @_display_datetime(ptr noundef readonly captures(non
 
 .lr.ph38.split:                                   ; preds = %.loopexit, %.lr.ph38.split
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph38.split ], [ 0, %.loopexit ]
-  %55 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv46
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv46
   %56 = load ptr, ptr %55, align 8, !tbaa !85
   %57 = call i32 @g_signal_handlers_unblock_matched(ptr noundef %56, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_datetime_entry_changed, ptr noundef nonnull %3) #16
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
@@ -1842,7 +1842,7 @@ define internal fastcc void @_display_offset(i64 noundef %0, i32 noundef range(i
 
 56:                                               ; preds = %.thread, %56
   %indvars.iv = phi i64 [ 2, %.thread ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !85
   %59 = call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef %55) #16
   call void @gtk_entry_set_text(ptr noundef %59, ptr noundef nonnull @.str.44) #16
@@ -2079,7 +2079,7 @@ define internal range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef readnone 
 
 .preheader:                                       ; preds = %6, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %6 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !85
   %13 = icmp eq ptr %0, %12
   br i1 %13, label %.split.loop.exit, label %14

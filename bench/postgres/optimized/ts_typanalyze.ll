@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.LexemeHashKey = type { ptr, i32 }
-%struct.WordEntry = type { i32 }
 
 @default_statistics_target = external local_unnamed_addr global i32, align 4
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -141,7 +140,7 @@ define internal void @compute_tsvector_stats(ptr noundef %0, ptr noundef readonl
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %struct.WordEntry, ptr %60, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %60, i64 %63
   %65 = icmp sgt i32 %62, 0
   br i1 %65, label %.lr.ph, label %._crit_edge
 
@@ -317,7 +316,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %109, %93
 148:                                              ; preds = %.lr.ph188
   %149 = add i32 %.0146184, 1
   %150 = sext i32 %.0146184 to i64
-  %151 = getelementptr inbounds ptr, ptr %142, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %142, i64 %150
   store ptr %144, ptr %151, align 8
   %152 = load i32, ptr %145, align 8
   %.0142. = call i32 @llvm.smin.i32(i32 %.0142185, i32 %152)
@@ -357,7 +356,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %109, %93
   call void @qsort_interruptible(ptr noundef %142, i64 noundef %163, i64 noundef 8, ptr noundef nonnull @trackitem_compare_frequencies_desc, ptr noundef null) #10
   %164 = add i32 %12, -1
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds ptr, ptr %142, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %142, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load i32, ptr %168, align 8
@@ -386,21 +385,21 @@ prune_lexemes_hashtable.exit:                     ; preds = %109, %93
 
 183:                                              ; preds = %172, %183
   %indvars.iv = phi i64 [ 0, %172 ], [ %indvars.iv.next, %183 ]
-  %184 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv
   %185 = load ptr, ptr %184, align 8
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %188 = load i32, ptr %187, align 8
   %189 = call ptr @cstring_to_text_with_len(ptr noundef %186, i32 noundef %188) #10
   %190 = ptrtoint ptr %189 to i64
-  %191 = getelementptr inbounds nuw i64, ptr %178, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv
   store i64 %190, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %193 = load i32, ptr %192, align 8
   %194 = sitofp i32 %193 to double
   %195 = fdiv double %194, %130
   %196 = fptrunc double %195 to float
-  %197 = getelementptr inbounds nuw float, ptr %182, i64 %indvars.iv
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %indvars.iv
   store float %196, ptr %197, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next, %173
@@ -410,7 +409,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %109, %93
   %199 = sitofp i32 %.2144 to double
   %200 = fdiv double %199, %130
   %201 = fptrunc double %200 to float
-  %202 = getelementptr inbounds nuw float, ptr %182, i64 %173
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %173
   store float %201, ptr %202, align 4
   %203 = fdiv double %.0140.lcssa, %130
   %204 = fptrunc double %203 to float

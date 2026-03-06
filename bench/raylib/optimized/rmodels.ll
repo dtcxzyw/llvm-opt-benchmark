@@ -7,91 +7,17 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.m3dpd_t = type { i8, i8 }
 %struct.m3dcd_t = type { i8, [8 x i8] }
 %struct.Vector3 = type { float, float, float }
-%struct.tinyobj_material_t = type { ptr, [3 x float], [3 x float], [3 x float], [3 x float], [3 x float], float, float, float, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.hash_table_entry_t = type { i64, i32, i32, i64, ptr }
 %struct.tinyobj_vertex_index_t = type { i32, i32, i32 }
 %struct.hash_table_t = type { ptr, ptr, i32, i32 }
-%struct.LineInfo = type { i32, i32 }
-%struct.Command = type { float, float, float, float, float, float, float, float, [16 x %struct.tinyobj_vertex_index_t], i32, [16 x i32], i32, ptr, i32, i32, ptr, i32, i32, ptr, i32, i32, ptr, i32, i32 }
-%struct.tinyobj_shape_t = type { ptr, i32, i32 }
 %struct.cgltf_options = type { i32, i64, %struct.cgltf_memory_options, %struct.cgltf_file_options }
 %struct.cgltf_memory_options = type { ptr, ptr, ptr }
 %struct.cgltf_file_options = type { ptr, ptr, ptr }
 %struct.jsmn_parser = type { i64, i32, i32 }
-%struct.jsmntok_t = type { i32, i64, i64, i32, i32 }
-%struct.cgltf_mesh = type { ptr, ptr, i64, ptr, i64, ptr, i64, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_extras = type { i64, i64, ptr }
-%struct.cgltf_primitive = type { i32, ptr, ptr, ptr, i64, ptr, i64, %struct.cgltf_extras, i32, %struct.cgltf_draco_mesh_compression, ptr, i64, i64, ptr }
-%struct.cgltf_draco_mesh_compression = type { ptr, ptr, i64 }
-%struct.cgltf_accessor = type { ptr, i32, i32, i32, i64, i64, i64, ptr, i32, [16 x float], i32, [16 x float], i32, %struct.cgltf_accessor_sparse, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_accessor_sparse = type { i64, ptr, i64, i32, ptr, i64 }
-%struct.cgltf_material = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.cgltf_pbr_metallic_roughness, %struct.cgltf_pbr_specular_glossiness, %struct.cgltf_clearcoat, %struct.cgltf_ior, %struct.cgltf_specular, %struct.cgltf_sheen, %struct.cgltf_transmission, %struct.cgltf_volume, %struct.cgltf_emissive_strength, %struct.cgltf_iridescence, %struct.cgltf_anisotropy, %struct.cgltf_dispersion, %struct.cgltf_texture_view, %struct.cgltf_texture_view, %struct.cgltf_texture_view, [3 x float], i32, float, i32, i32, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_pbr_metallic_roughness = type { %struct.cgltf_texture_view, %struct.cgltf_texture_view, [4 x float], float, float }
-%struct.cgltf_pbr_specular_glossiness = type { %struct.cgltf_texture_view, %struct.cgltf_texture_view, [4 x float], [3 x float], float }
-%struct.cgltf_clearcoat = type { %struct.cgltf_texture_view, %struct.cgltf_texture_view, %struct.cgltf_texture_view, float, float }
-%struct.cgltf_ior = type { float }
-%struct.cgltf_specular = type { %struct.cgltf_texture_view, %struct.cgltf_texture_view, [3 x float], float }
-%struct.cgltf_sheen = type { %struct.cgltf_texture_view, [3 x float], %struct.cgltf_texture_view, float }
-%struct.cgltf_transmission = type { %struct.cgltf_texture_view, float }
-%struct.cgltf_volume = type { %struct.cgltf_texture_view, float, [3 x float], float }
-%struct.cgltf_emissive_strength = type { float }
-%struct.cgltf_iridescence = type { float, %struct.cgltf_texture_view, float, float, float, %struct.cgltf_texture_view }
-%struct.cgltf_anisotropy = type { float, float, %struct.cgltf_texture_view }
-%struct.cgltf_dispersion = type { float }
-%struct.cgltf_texture_view = type { ptr, i32, float, i32, %struct.cgltf_texture_transform }
-%struct.cgltf_texture_transform = type { [2 x float], float, [2 x float], i32, i32 }
-%struct.cgltf_attribute = type { ptr, i32, i32, ptr }
-%struct.cgltf_morph_target = type { ptr, i64 }
-%struct.cgltf_buffer_view = type { ptr, ptr, i64, i64, i64, i32, ptr, i32, %struct.cgltf_meshopt_compression, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_meshopt_compression = type { ptr, i64, i64, i64, i64, i32, i32 }
-%struct.cgltf_material_mapping = type { i64, ptr, %struct.cgltf_extras }
-%struct.cgltf_texture = type { ptr, ptr, ptr, i32, ptr, i32, ptr, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_image = type { ptr, ptr, ptr, ptr, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_sampler = type { ptr, i32, i32, i32, i32, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_buffer = type { ptr, i64, ptr, ptr, i32, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_skin = type { ptr, ptr, i64, ptr, ptr, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_node = type { ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, [3 x float], [4 x float], [3 x float], [16 x float], %struct.cgltf_extras, i32, %struct.cgltf_mesh_gpu_instancing, i64, ptr }
-%struct.cgltf_mesh_gpu_instancing = type { ptr, i64 }
-%struct.cgltf_camera = type { ptr, i32, %union.anon, %struct.cgltf_extras, i64, ptr }
-%union.anon = type { %struct.cgltf_camera_perspective }
-%struct.cgltf_camera_perspective = type { i32, float, float, i32, float, float, %struct.cgltf_extras }
-%struct.cgltf_light = type { ptr, [3 x float], float, i32, float, float, float, %struct.cgltf_extras }
-%struct.cgltf_scene = type { ptr, ptr, i64, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_animation = type { ptr, ptr, i64, ptr, i64, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_animation_sampler = type { ptr, ptr, i32, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_animation_channel = type { ptr, ptr, i32, %struct.cgltf_extras, i64, ptr }
-%struct.cgltf_material_variant = type { ptr, %struct.cgltf_extras }
-%struct.cgltf_extension = type { ptr, ptr }
-%struct.CubeChunk3D = type { ptr, i32 }
-%struct.VoxColor = type { i8, i8, i8, i8 }
 %struct._m3dstbi__zhuffman = type { [512 x i16], [16 x i16], [17 x i32], [16 x i16], [288 x i8], [288 x i16] }
 %struct._m3dstbi__zbuf = type { ptr, ptr, i32, i32, ptr, ptr, ptr, i32, %struct._m3dstbi__zhuffman, %struct._m3dstbi__zhuffman }
 %struct._m3dstbi__context = type { i32, i32, i32, i32, ptr, i32, i32, [128 x i8], ptr, ptr, ptr, ptr }
 %struct._m3dstbi__result_info = type { i32, i32, i32 }
-%struct.m3dtx_t = type { ptr, ptr, i16, i16, i8 }
-%struct.m3di_t = type { ptr, ptr, i32 }
 %struct._m3dstbi__png = type { ptr, ptr, ptr, ptr, i32 }
-%struct.m3dti_t = type { float, float }
-%struct.m3dv_t = type { float, float, float, float, i32, i32 }
-%struct.m3db_t = type { i32, ptr, i32, i32, i32, ptr, [16 x float] }
-%struct.m3ds_t = type { [4 x i32], [4 x float] }
-%struct.m3dm_t = type { ptr, i8, ptr }
-%struct.m3dp_t = type { i8, %union.anon.0 }
-%union.anon.0 = type { i32 }
-%struct.m3df_t = type { i32, [3 x i32], [3 x i32], [3 x i32] }
-%struct.m3dvt_t = type { ptr, i8, i16, i32, i32, i32, i8, ptr }
-%struct.m3dvi_t = type { i16, ptr }
-%struct.m3dvx_t = type { ptr, i32, i32, i32, i32, i32, i32, i8, i8, ptr }
-%struct.m3dh_t = type { ptr, i32, i32, ptr }
-%struct.m3dc_t = type { i16, ptr }
-%struct.m3dl_t = type { ptr, ptr, ptr, i32, i32 }
-%struct.m3da_t = type { ptr, i32, i32, ptr }
-%struct.m3dfr_t = type { i32, i32, ptr }
-%struct.m3dtr_t = type { i32, i32, i32 }
-%struct.m3dw_t = type { i32, float }
-%struct.par_shapes__stackframe = type { i32, [3 x float], [3 x float], ptr, ptr }
-%struct.par_shapes__command = type { ptr, ptr }
-%struct.par_shapes__rule = type { ptr, i32, i32, ptr }
 %struct.Ray = type { %struct.Vector3, %struct.Vector3 }
 %struct.Model = type { %struct.Matrix, i32, i32, ptr, ptr, ptr, i32, ptr, ptr }
 %struct.Matrix = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
@@ -101,28 +27,17 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ArrayVector3 = type { ptr, i32, i32 }
 %struct.ArrayUShort = type { ptr, i32, i32 }
 %struct.ArrayColor = type { ptr, i32, i32 }
+%struct.VoxColor = type { i8, i8, i8, i8 }
 %struct.tinyobj_attrib_t = type { i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.Mesh = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr }
-%struct.IQMMesh = type { i32, i32, i32, i32, i32, i32 }
 %struct.Material = type { %struct.Shader, ptr, [4 x float] }
 %struct.Shader = type { i32, ptr }
-%struct.IQMTriangle = type { [3 x i32] }
-%struct.IQMVertexArray = type { i32, i32, i32, i32, i32 }
-%struct.IQMJoint = type { i32, i32, [3 x float], [4 x float], [3 x float] }
-%struct.BoneInfo = type { [32 x i8], i32 }
-%struct.Transform = type { %struct.Vector3, %struct.Vector4, %struct.Vector3 }
-%struct.Vector4 = type { float, float, float, float }
+%struct.Mesh = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr }
 %struct.BoundingBox = type { %struct.Vector3, %struct.Vector3 }
-%struct.MaterialMap = type { %struct.Texture, %struct.Color, float }
-%struct.Color = type { i8, i8, i8, i8 }
-%struct.float16 = type { [16 x float] }
-%struct.IQMAnim = type { i32, i32, i32, float, i32 }
+%struct.Vector4 = type { float, float, float, float }
+%struct.Transform = type { %struct.Vector3, %struct.Vector4, %struct.Vector3 }
 %struct.ModelAnimation = type { i32, i32, ptr, ptr, [32 x i8] }
-%struct.IQMJoint.2 = type { i32, i32, [3 x float], [4 x float], [3 x float] }
-%struct.IQMPose = type { i32, i32, [10 x float], [10 x float] }
-%struct.Channels = type { ptr, ptr, ptr, i32 }
-%struct.Vector2 = type { float, float }
 %struct.Camera3D = type { %struct.Vector3, %struct.Vector3, %struct.Vector3, float, i32 }
+%struct.Vector2 = type { float, float }
 %struct.RayCollision = type { i8, float, %struct.Vector3, %struct.Vector3 }
 
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -739,7 +654,7 @@ dynamic_fgets.exit:                               ; preds = %35, %25
   %53 = mul nuw nsw i64 %52, 144
   %54 = call noalias noundef ptr @realloc(ptr noundef %.032390, i64 noundef %53) #61
   %55 = zext i32 %.035389 to i64
-  %56 = getelementptr inbounds nuw %struct.tinyobj_material_t, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [144 x i8], ptr %54, i64 %55
   store ptr %.sroa.0.0388, ptr %56, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 8
   store float %.sroa.8.0387, ptr %.sroa.8.0..sroa_idx, align 8
@@ -870,7 +785,7 @@ hash_djb2.exit.i:                                 ; preds = %.lr.ph.i.i71, %74
 .lr.ph.i12.i.preheader:                           ; preds = %hash_djb2.exit.i
   %82 = zext i32 %.val11.i to i64
   %83 = urem i64 %.04.lcssa.i.i, %82
-  %84 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %.val.i, i64 %83
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %.val.i, i64 %83
   br label %.lr.ph.i12.i
 
 .lr.ph.i12.i:                                     ; preds = %.lr.ph.i12.i.preheader, %90
@@ -937,15 +852,15 @@ hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i: ; preds = %hash_t
 
 hash_table_find.exit.us.i.i:                      ; preds = %.lr.ph.i15.i, %hash_table_insert_value.exit.us.i.i
   %indvars.iv39.i.i = phi i64 [ %indvars.iv.next40.i.i, %hash_table_insert_value.exit.us.i.i ], [ 0, %.lr.ph.i15.i ]
-  %109 = getelementptr inbounds nuw i64, ptr %104, i64 %indvars.iv39.i.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv39.i.i
   %110 = load i64, ptr %109, align 8
   %111 = urem i64 %110, %108
-  %112 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr null, i64 %111
+  %112 = getelementptr inbounds nuw [32 x i8], ptr null, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load i64, ptr %113, align 16
   %115 = urem i64 %110, %102
   %116 = trunc nuw i64 %115 to i32
-  %117 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %105, i64 %115
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %115
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i32, ptr %118, align 8
   %.not6.i.us.i.i = icmp eq i32 %119, 0
@@ -962,7 +877,7 @@ hash_table_find.exit.us.i.i:                      ; preds = %.lr.ph.i15.i, %hash
   %123 = urem i32 %122, %100
   %124 = add i32 %.0277.i.us.i.i, 1
   %125 = zext i32 %123 to i64
-  %126 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %105, i64 %125
+  %126 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load i32, ptr %127, align 8
   %.not.i28.us.i.i = icmp eq i32 %128, 0
@@ -999,10 +914,10 @@ hash_table_insert_value.exit.us.i.i:              ; preds = %.lr.ph.i27.us.i.i, 
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.lr.ph.i15.i, %hash_table_insert_value.exit.i.i
   %indvars.iv.i.i73 = phi i64 [ %indvars.iv.next.i.i74, %hash_table_insert_value.exit.i.i ], [ 0, %.lr.ph.i15.i ]
-  %137 = getelementptr inbounds nuw i64, ptr %104, i64 %indvars.iv.i.i73
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv.i.i73
   %138 = load i64, ptr %137, align 8
   %139 = urem i64 %138, %108
-  %140 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %.pre.i.i, i64 %139
+  %140 = getelementptr inbounds nuw [32 x i8], ptr %.pre.i.i, i64 %139
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %146, %.lr.ph.i.preheader.i.i
@@ -1027,7 +942,7 @@ hash_table_find.exit.loopexit.i.i:                ; preds = %143
   %150 = load i64, ptr %149, align 8
   %151 = urem i64 %138, %102
   %152 = trunc nuw i64 %151 to i32
-  %153 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %105, i64 %151
+  %153 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %151
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load i32, ptr %154, align 8
   %.not6.i.i.i = icmp eq i32 %155, 0
@@ -1051,7 +966,7 @@ hash_table_find.exit.loopexit.i.i:                ; preds = %143
   %160 = urem i32 %159, %100
   %161 = add i32 %.0277.i.i.i, 1
   %162 = zext i32 %160 to i64
-  %163 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %105, i64 %162
+  %163 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i32, ptr %164, align 8
   %.not.i28.i.i = icmp eq i32 %165, 0
@@ -1095,7 +1010,7 @@ hash_table_maybe_grow.exit.i:                     ; preds = %._crit_edge.i.i, %h
   %174 = phi i32 [ %95, %hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i ], [ %106, %._crit_edge.i.i ]
   %175 = urem i64 %.04.lcssa.i.i, %.pre-phi.i
   %176 = trunc nuw i64 %175 to i32
-  %177 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %.val.i.i, i64 %175
+  %177 = getelementptr inbounds nuw [32 x i8], ptr %.val.i.i, i64 %175
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = load i32, ptr %178, align 8
   %.not6.i.i16.i = icmp eq i32 %179, 0
@@ -1121,7 +1036,7 @@ hash_table_maybe_grow.exit.i:                     ; preds = %._crit_edge.i.i, %h
   %186 = urem i32 %185, %.val8.i.i
   %187 = add i32 %.0277.i.i18.i, 1
   %188 = zext i32 %186 to i64
-  %189 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %.val.i.i, i64 %188
+  %189 = getelementptr inbounds nuw [32 x i8], ptr %.val.i.i, i64 %188
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load i32, ptr %190, align 8
   %.not.i.i.i = icmp eq i32 %191, 0
@@ -1149,7 +1064,7 @@ hash_table_insert.exit.thread.i:                  ; preds = %196, %._crit_edge.i
   %200 = load ptr, ptr %3, align 8
   %201 = load i32, ptr %24, align 4
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds nuw i64, ptr %200, i64 %202
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %202
   store i64 %.04.lcssa.i.i, ptr %203, align 8
   %204 = load i32, ptr %24, align 4
   %205 = add i32 %204, 1
@@ -1860,7 +1775,7 @@ parseInt.exit:                                    ; preds = %281, %281, %281, %2
   %433 = mul nuw nsw i64 %432, 144
   %434 = call noalias noundef ptr @realloc(ptr noundef %.032293, i64 noundef %433) #61
   %435 = zext i32 %.035295 to i64
-  %436 = getelementptr inbounds nuw %struct.tinyobj_material_t, ptr %434, i64 %435
+  %436 = getelementptr inbounds nuw [144 x i8], ptr %434, i64 %435
   store ptr %.sroa.0.0297, ptr %436, align 8
   %.sroa.8.0..sroa_idx168 = getelementptr inbounds nuw i8, ptr %436, i64 8
   store float %.sroa.8.0299, ptr %.sroa.8.0..sroa_idx168, align 8
@@ -2049,7 +1964,7 @@ is_line_ending.exit.thread:                       ; preds = %.lr.ph, %.lr.ph, %3
 
 50:                                               ; preds = %.lr.ph534, %.lr.ph534, %47
   %51 = zext i32 %.0384530 to i64
-  %52 = getelementptr inbounds nuw %struct.LineInfo, ptr %40, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %51
   store i32 %.0382531, ptr %52, align 4
   %53 = trunc nuw i64 %indvars.iv597 to i32
   %54 = sub i32 %53, %.0382531
@@ -2088,7 +2003,7 @@ is_line_ending.exit444:                           ; preds = %.lr.ph534.is_line_e
 
 67:                                               ; preds = %._crit_edge535
   %68 = zext i32 %.1385 to i64
-  %69 = getelementptr inbounds nuw %struct.LineInfo, ptr %40, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %68
   store i32 %.1383, ptr %69, align 4
   %70 = xor i32 %36, -1
   %71 = add i32 %6, %70
@@ -2122,8 +2037,8 @@ is_line_ending.exit444:                           ; preds = %.lr.ph534.is_line_e
   %.0355543 = phi i32 [ 0, %73 ], [ %.1356, %.thread664 ]
   %.0358542 = phi i32 [ 0, %73 ], [ %.1359, %.thread664 ]
   %.0361540 = phi i32 [ -1, %73 ], [ %.1362, %.thread664 ]
-  %85 = getelementptr inbounds nuw %struct.Command, ptr %75, i64 %indvars.iv605
-  %86 = getelementptr inbounds nuw %struct.LineInfo, ptr %40, i64 %indvars.iv605
+  %85 = getelementptr inbounds nuw [360 x i8], ptr %75, i64 %indvars.iv605
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv605
   %87 = load i32, ptr %86, align 4
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 %88
@@ -2551,7 +2466,7 @@ skip_space_and_cr.exit.i:                         ; preds = %221
   %.sroa.040.0.insert.insert.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i, %.011.lcssa.i.i.i
   store ptr %222, ptr %10, align 8
   %225 = zext i32 %.071.i to i64
-  %226 = getelementptr inbounds nuw %struct.tinyobj_vertex_index_t, ptr %11, i64 %225
+  %226 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %225
   store i64 %.sroa.040.0.insert.insert.i.i, ptr %226, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i32 %.sroa.5.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 4
@@ -2591,22 +2506,22 @@ skip_space_and_cr.exit.i:                         ; preds = %221
   %indvars.iv169.i = phi i64 [ 2, %.lr.ph.i ], [ %indvars.iv.next170.i, %235 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %235 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, i64 12, i1 false)
-  %236 = getelementptr inbounds nuw %struct.tinyobj_vertex_index_t, ptr %11, i64 %indvars.iv169.i
+  %236 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %indvars.iv169.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %236, i64 12, i1 false)
   %237 = trunc nuw i64 %indvars.iv.i to i32
   %238 = mul i32 %237, 3
   %239 = zext i32 %238 to i64
-  %240 = getelementptr inbounds nuw %struct.tinyobj_vertex_index_t, ptr %233, i64 %239
+  %240 = getelementptr inbounds nuw [12 x i8], ptr %233, i64 %239
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %240, ptr noundef nonnull align 16 dereferenceable(12) %11, i64 12, i1 false)
   %241 = add i32 %238, 1
   %242 = zext i32 %241 to i64
-  %243 = getelementptr inbounds nuw %struct.tinyobj_vertex_index_t, ptr %233, i64 %242
+  %243 = getelementptr inbounds nuw [12 x i8], ptr %233, i64 %242
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %243, ptr noundef nonnull align 4 dereferenceable(12) %12, i64 12, i1 false)
   %244 = add i32 %238, 2
   %245 = zext i32 %244 to i64
-  %246 = getelementptr inbounds nuw %struct.tinyobj_vertex_index_t, ptr %233, i64 %245
+  %246 = getelementptr inbounds nuw [12 x i8], ptr %233, i64 %245
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %246, ptr noundef nonnull align 4 dereferenceable(12) %236, i64 12, i1 false)
-  %247 = getelementptr inbounds nuw i32, ptr %234, i64 %indvars.iv.i
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %234, i64 %indvars.iv.i
   store i32 3, ptr %247, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
@@ -3017,7 +2932,7 @@ parseLine.exit:                                   ; preds = %skip_space.exit.i, 
 
 390:                                              ; preds = %388
   %391 = zext nneg i32 %.1362 to i64
-  %392 = getelementptr inbounds nuw %struct.Command, ptr %75, i64 %391
+  %392 = getelementptr inbounds nuw [360 x i8], ptr %75, i64 %391
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 344
   %394 = load ptr, ptr %393, align 8
   %.not412 = icmp eq ptr %394, null
@@ -3118,7 +3033,7 @@ my_strndup.exit:                                  ; preds = %398, %409
   %.0374555 = phi i32 [ 0, %418 ], [ %.1375, %600 ]
   %.0376554 = phi i32 [ 0, %418 ], [ %.1377, %600 ]
   %.0378553 = phi i32 [ 0, %418 ], [ %.1379, %600 ]
-  %445 = getelementptr inbounds nuw %struct.Command, ptr %75, i64 %indvars.iv616
+  %445 = getelementptr inbounds nuw [360 x i8], ptr %75, i64 %indvars.iv616
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 356
   %447 = load i32, ptr %446, align 4
   switch i32 %447, label %600 [
@@ -3181,7 +3096,7 @@ hash_djb2.exit.i:                                 ; preds = %.lr.ph.i.i449, %457
 
 .lr.ph.i3.i.preheader:                            ; preds = %hash_djb2.exit.i
   %470 = urem i64 %.04.lcssa.i.i, %.val437
-  %471 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %.val441, i64 %470
+  %471 = getelementptr inbounds nuw [32 x i8], ptr %.val441, i64 %470
   br label %.lr.ph.i3.i
 
 .lr.ph.i3.i:                                      ; preds = %.lr.ph.i3.i.preheader, %477
@@ -3220,7 +3135,7 @@ hash_table_exists.exit.thread496:                 ; preds = %474
 hash_djb2.exit.i457:                              ; preds = %.lr.ph.i.i453, %hash_table_exists.exit.thread496
   %.04.lcssa.i.i458 = phi i64 [ 5381, %hash_table_exists.exit.thread496 ], [ %484, %.lr.ph.i.i453 ]
   %486 = urem i64 %.04.lcssa.i.i458, %.val437
-  %487 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %.val441, i64 %486
+  %487 = getelementptr inbounds nuw [32 x i8], ptr %.val441, i64 %486
   br label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %hash_djb2.exit.i457, %493
@@ -3256,21 +3171,21 @@ hash_table_exists.exit.thread:                    ; preds = %477, %hash_djb2.exi
   %501 = load ptr, ptr %24, align 8
   %502 = mul i32 %.0378553, 3
   %503 = zext i32 %502 to i64
-  %504 = getelementptr inbounds nuw float, ptr %501, i64 %503
+  %504 = getelementptr inbounds nuw [4 x i8], ptr %501, i64 %503
   store float %500, ptr %504, align 4
   %505 = getelementptr inbounds nuw i8, ptr %445, i64 4
   %506 = load float, ptr %505, align 4
   %507 = load ptr, ptr %24, align 8
   %508 = add i32 %502, 1
   %509 = zext i32 %508 to i64
-  %510 = getelementptr inbounds nuw float, ptr %507, i64 %509
+  %510 = getelementptr inbounds nuw [4 x i8], ptr %507, i64 %509
   store float %506, ptr %510, align 4
   %511 = getelementptr inbounds nuw i8, ptr %445, i64 8
   %512 = load float, ptr %511, align 8
   %513 = load ptr, ptr %24, align 8
   %514 = add i32 %502, 2
   %515 = zext i32 %514 to i64
-  %516 = getelementptr inbounds nuw float, ptr %513, i64 %515
+  %516 = getelementptr inbounds nuw [4 x i8], ptr %513, i64 %515
   store float %512, ptr %516, align 4
   %517 = add i32 %.0378553, 1
   br label %600
@@ -3281,21 +3196,21 @@ hash_table_exists.exit.thread:                    ; preds = %477, %hash_djb2.exi
   %521 = load ptr, ptr %425, align 8
   %522 = mul i32 %.0376554, 3
   %523 = zext i32 %522 to i64
-  %524 = getelementptr inbounds nuw float, ptr %521, i64 %523
+  %524 = getelementptr inbounds nuw [4 x i8], ptr %521, i64 %523
   store float %520, ptr %524, align 4
   %525 = getelementptr inbounds nuw i8, ptr %445, i64 16
   %526 = load float, ptr %525, align 8
   %527 = load ptr, ptr %425, align 8
   %528 = add i32 %522, 1
   %529 = zext i32 %528 to i64
-  %530 = getelementptr inbounds nuw float, ptr %527, i64 %529
+  %530 = getelementptr inbounds nuw [4 x i8], ptr %527, i64 %529
   store float %526, ptr %530, align 4
   %531 = getelementptr inbounds nuw i8, ptr %445, i64 20
   %532 = load float, ptr %531, align 4
   %533 = load ptr, ptr %425, align 8
   %534 = add i32 %522, 2
   %535 = zext i32 %534 to i64
-  %536 = getelementptr inbounds nuw float, ptr %533, i64 %535
+  %536 = getelementptr inbounds nuw [4 x i8], ptr %533, i64 %535
   store float %532, ptr %536, align 4
   %537 = add i32 %.0376554, 1
   br label %600
@@ -3306,14 +3221,14 @@ hash_table_exists.exit.thread:                    ; preds = %477, %hash_djb2.exi
   %541 = load ptr, ptr %430, align 8
   %542 = shl i32 %.0374555, 1
   %543 = zext i32 %542 to i64
-  %544 = getelementptr inbounds nuw float, ptr %541, i64 %543
+  %544 = getelementptr inbounds nuw [4 x i8], ptr %541, i64 %543
   store float %540, ptr %544, align 4
   %545 = getelementptr inbounds nuw i8, ptr %445, i64 28
   %546 = load float, ptr %545, align 4
   %547 = load ptr, ptr %430, align 8
   %548 = or disjoint i32 %542, 1
   %549 = zext i32 %548 to i64
-  %550 = getelementptr inbounds nuw float, ptr %547, i64 %549
+  %550 = getelementptr inbounds nuw [4 x i8], ptr %547, i64 %549
   store float %546, ptr %550, align 4
   %551 = add i32 %.0374555, 1
   br label %600
@@ -3331,7 +3246,7 @@ hash_table_exists.exit.thread:                    ; preds = %477, %hash_djb2.exi
 
 556:                                              ; preds = %.lr.ph548, %556
   %indvars.iv610 = phi i64 [ 0, %.lr.ph548 ], [ %indvars.iv.next611, %556 ]
-  %557 = getelementptr inbounds nuw %struct.tinyobj_vertex_index_t, ptr %450, i64 %indvars.iv610
+  %557 = getelementptr inbounds nuw [12 x i8], ptr %450, i64 %indvars.iv610
   %.sroa.064.0.copyload = load i32, ptr %557, align 4
   %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %557, i64 4
   %.sroa.465.0.copyload = load i32, ptr %.sroa.465.0..sroa_idx, align 4
@@ -3359,14 +3274,14 @@ hash_table_exists.exit.thread:                    ; preds = %477, %hash_djb2.exi
   %571 = trunc nuw i64 %indvars.iv610 to i32
   %572 = add i32 %.0372556, %571
   %573 = zext i32 %572 to i64
-  %574 = getelementptr inbounds nuw %struct.tinyobj_vertex_index_t, ptr %570, i64 %573
+  %574 = getelementptr inbounds nuw [12 x i8], ptr %570, i64 %573
   store i32 %.0.i463, ptr %574, align 4
   %575 = load ptr, ptr %435, align 8
-  %576 = getelementptr inbounds nuw %struct.tinyobj_vertex_index_t, ptr %575, i64 %573
+  %576 = getelementptr inbounds nuw [12 x i8], ptr %575, i64 %573
   %577 = getelementptr inbounds nuw i8, ptr %576, i64 8
   store i32 %.0.i465, ptr %577, align 4
   %578 = load ptr, ptr %435, align 8
-  %579 = getelementptr inbounds nuw %struct.tinyobj_vertex_index_t, ptr %578, i64 %573
+  %579 = getelementptr inbounds nuw [12 x i8], ptr %578, i64 %573
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 4
   store i32 %.0.i467, ptr %580, align 4
   %indvars.iv.next611 = add nuw nsw i64 %indvars.iv610, 1
@@ -3381,12 +3296,12 @@ hash_table_exists.exit.thread:                    ; preds = %477, %hash_djb2.exi
   %586 = trunc nuw i64 %indvars.iv613 to i32
   %587 = add i32 %.0370557, %586
   %588 = zext i32 %587 to i64
-  %589 = getelementptr inbounds nuw i32, ptr %585, i64 %588
+  %589 = getelementptr inbounds nuw [4 x i8], ptr %585, i64 %588
   store i32 %.0367558, ptr %589, align 4
-  %590 = getelementptr inbounds nuw i32, ptr %555, i64 %indvars.iv613
+  %590 = getelementptr inbounds nuw [4 x i8], ptr %555, i64 %indvars.iv613
   %591 = load i32, ptr %590, align 4
   %592 = load ptr, ptr %439, align 8
-  %593 = getelementptr inbounds nuw i32, ptr %592, i64 %588
+  %593 = getelementptr inbounds nuw [4 x i8], ptr %592, i64 %588
   store i32 %591, ptr %593, align 4
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %594 = load i32, ptr %553, align 4
@@ -3419,7 +3334,7 @@ hash_table_exists.exit.thread:                    ; preds = %477, %hash_djb2.exi
 .preheader:                                       ; preds = %600, %.preheader
   %indvars.iv622 = phi i64 [ %indvars.iv.next623, %.preheader ], [ 0, %600 ]
   %.0340561 = phi i32 [ %spec.select433, %.preheader ], [ 0, %600 ]
-  %601 = getelementptr inbounds nuw %struct.Command, ptr %75, i64 %indvars.iv622
+  %601 = getelementptr inbounds nuw [360 x i8], ptr %75, i64 %indvars.iv622
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 356
   %603 = load i32, ptr %602, align 4
   %.off = add i32 %603, -5
@@ -3446,7 +3361,7 @@ hash_table_exists.exit.thread:                    ; preds = %477, %hash_djb2.exi
   %.0333565 = phi ptr [ null, %605 ], [ %.1334, %671 ]
   %.0337564 = phi i32 [ 0, %605 ], [ %.1338, %671 ]
   %.0344562 = phi i32 [ 0, %605 ], [ %spec.select427, %671 ]
-  %611 = getelementptr inbounds nuw %struct.Command, ptr %75, i64 %indvars.iv627
+  %611 = getelementptr inbounds nuw [360 x i8], ptr %75, i64 %indvars.iv627
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 356
   %613 = load i32, ptr %612, align 4
   %.off434 = add i32 %613, -5
@@ -3546,14 +3461,14 @@ my_strndup.exit477:                               ; preds = %643, %647, %658
   %.0.i476 = phi ptr [ null, %647 ], [ null, %643 ], [ %657, %658 ]
   %661 = load ptr, ptr %1, align 8
   %662 = zext i32 %.0337564 to i64
-  %663 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %661, i64 %662
+  %663 = getelementptr inbounds nuw [16 x i8], ptr %661, i64 %662
   store ptr %.0.i476, ptr %663, align 8
   %664 = load ptr, ptr %1, align 8
-  %665 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %664, i64 %662
+  %665 = getelementptr inbounds nuw [16 x i8], ptr %664, i64 %662
   %666 = getelementptr inbounds nuw i8, ptr %665, i64 8
   store i32 %.0326568, ptr %666, align 8
   %667 = load ptr, ptr %1, align 8
-  %668 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %667, i64 %662
+  %668 = getelementptr inbounds nuw [16 x i8], ptr %667, i64 %662
   %669 = getelementptr inbounds nuw i8, ptr %668, i64 12
   store i32 %644, ptr %669, align 4
   %670 = add i32 %.0337564, 1
@@ -3612,14 +3527,14 @@ my_strndup.exit482:                               ; preds = %677, %680, %691
   %.0.i481 = phi ptr [ null, %680 ], [ null, %677 ], [ %690, %691 ]
   %694 = load ptr, ptr %1, align 8
   %695 = zext i32 %.1338 to i64
-  %696 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %694, i64 %695
+  %696 = getelementptr inbounds nuw [16 x i8], ptr %694, i64 %695
   store ptr %.0.i481, ptr %696, align 8
   %697 = load ptr, ptr %1, align 8
-  %698 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %697, i64 %695
+  %698 = getelementptr inbounds nuw [16 x i8], ptr %697, i64 %695
   %699 = getelementptr inbounds nuw i8, ptr %698, i64 8
   store i32 %.1327, ptr %699, align 8
   %700 = load ptr, ptr %1, align 8
-  %701 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %700, i64 %695
+  %701 = getelementptr inbounds nuw [16 x i8], ptr %700, i64 %695
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 12
   store i32 %676, ptr %702, align 4
   %703 = add i32 %.1338, 1
@@ -3749,7 +3664,7 @@ define hidden void @tinyobj_shapes_free(ptr noundef captures(address_is_null) %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %4 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -3786,7 +3701,7 @@ define hidden void @tinyobj_materials_free(ptr noundef captures(address_is_null)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
-  %4 = getelementptr inbounds nuw %struct.tinyobj_material_t, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [144 x i8], ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -4091,7 +4006,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 33:                                               ; preds = %23
   %34 = zext nneg i32 %27 to i64
-  %35 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %22, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %34
   store i32 0, ptr %35, align 8
   %36 = load ptr, ptr %16, align 8
   %37 = load ptr, ptr %18, align 8
@@ -4151,7 +4066,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %64 = phi ptr [ %.pre.i, %.preheader1057.lr.ph.i ], [ %256, %._crit_edge1103.i ]
   %65 = phi ptr [ %.pre.i, %.preheader1057.lr.ph.i ], [ %257, %._crit_edge1103.i ]
   %.07601104.i = phi i64 [ 0, %.preheader1057.lr.ph.i ], [ %258, %._crit_edge1103.i ]
-  %66 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %65, i64 %.07601104.i
+  %66 = getelementptr inbounds nuw [96 x i8], ptr %65, i64 %.07601104.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i64, ptr %67, align 8
   %.not1147.i = icmp eq i64 %68, 0
@@ -4173,10 +4088,10 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %74 = phi ptr [ %249, %._crit_edge1100.i ], [ %64, %.preheader1057.i ]
   %75 = phi ptr [ %249, %._crit_edge1100.i ], [ %65, %.preheader1057.i ]
   %.07581101.i = phi i64 [ %250, %._crit_edge1100.i ], [ 0, %.preheader1057.i ]
-  %76 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %75, i64 %.07601104.i
+  %76 = getelementptr inbounds nuw [96 x i8], ptr %75, i64 %.07601104.i
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %78, i64 %.07581101.i
+  %79 = getelementptr inbounds nuw [144 x i8], ptr %78, i64 %.07581101.i
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %.not.i = icmp eq ptr %81, null
@@ -4190,11 +4105,11 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr %58, align 8
-  %88 = getelementptr %struct.cgltf_accessor, ptr %87, i64 %83
+  %88 = getelementptr [288 x i8], ptr %87, i64 %83
   %89 = getelementptr i8, ptr %88, i64 -288
   store ptr %89, ptr %80, align 8
   %.pre1176.i = load ptr, ptr %56, align 8
-  %.phi.trans.insert.i = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %.pre1176.i, i64 %.07601104.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [96 x i8], ptr %.pre1176.i, i64 %.07601104.i
   %.phi.trans.insert1177.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i, i64 8
   %.pre1178.i = load ptr, ptr %.phi.trans.insert1177.i, align 8
   br label %90
@@ -4202,7 +4117,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 90:                                               ; preds = %86, %.lr.ph1102.i
   %91 = phi ptr [ %.pre1176.i, %86 ], [ %74, %.lr.ph1102.i ]
   %92 = phi ptr [ %.pre1178.i, %86 ], [ %78, %.lr.ph1102.i ]
-  %93 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %92, i64 %.07581101.i
+  %93 = getelementptr inbounds nuw [144 x i8], ptr %92, i64 %.07581101.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
   %.not886.i = icmp eq ptr %95, null
@@ -4216,11 +4131,11 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 100:                                              ; preds = %96
   %101 = load ptr, ptr %60, align 8
-  %102 = getelementptr %struct.cgltf_material, ptr %101, i64 %97
+  %102 = getelementptr [1232 x i8], ptr %101, i64 %97
   %103 = getelementptr i8, ptr %102, i64 -1232
   store ptr %103, ptr %94, align 8
   %.pre1179.i = load ptr, ptr %56, align 8
-  %.phi.trans.insert1180.i = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %.pre1179.i, i64 %.07601104.i
+  %.phi.trans.insert1180.i = getelementptr inbounds nuw [96 x i8], ptr %.pre1179.i, i64 %.07601104.i
   %.phi.trans.insert1181.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert1180.i, i64 8
   %.pre1182.i = load ptr, ptr %.phi.trans.insert1181.i, align 8
   br label %104
@@ -4228,7 +4143,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 104:                                              ; preds = %100, %90
   %105 = phi ptr [ %.pre1179.i, %100 ], [ %91, %90 ]
   %106 = phi ptr [ %.pre1182.i, %100 ], [ %92, %90 ]
-  %107 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %106, i64 %.07581101.i
+  %107 = getelementptr inbounds nuw [144 x i8], ptr %106, i64 %.07581101.i
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %109 = load i64, ptr %108, align 8
   %.not8881085.not.i = icmp eq i64 %109, 0
@@ -4237,7 +4152,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 .preheader1055.i:                                 ; preds = %126, %104
   %110 = phi ptr [ %105, %104 ], [ %131, %126 ]
   %111 = phi ptr [ %106, %104 ], [ %134, %126 ]
-  %112 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %111, i64 %.07581101.i
+  %112 = getelementptr inbounds nuw [144 x i8], ptr %111, i64 %.07581101.i
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 48
   %114 = load i64, ptr %113, align 8
   %.not1148.i = icmp eq i64 %114, 0
@@ -4246,10 +4161,10 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 .lr.ph.i:                                         ; preds = %104, %126
   %115 = phi ptr [ %134, %126 ], [ %106, %104 ]
   %.07571086.i = phi i64 [ %130, %126 ], [ 0, %104 ]
-  %116 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %115, i64 %.07581101.i
+  %116 = getelementptr inbounds nuw [144 x i8], ptr %115, i64 %.07581101.i
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %118, i64 %.07571086.i
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %.07571086.i
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8
   %.not887.i = icmp eq ptr %121, null
@@ -4263,15 +4178,15 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 126:                                              ; preds = %122
   %127 = load ptr, ptr %58, align 8
-  %128 = getelementptr %struct.cgltf_accessor, ptr %127, i64 %123
+  %128 = getelementptr [288 x i8], ptr %127, i64 %123
   %129 = getelementptr i8, ptr %128, i64 -288
   store ptr %129, ptr %120, align 8
   %130 = add nuw i64 %.07571086.i, 1
   %131 = load ptr, ptr %56, align 8
-  %132 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %131, i64 %.07601104.i
+  %132 = getelementptr inbounds nuw [96 x i8], ptr %131, i64 %.07601104.i
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %134, i64 %.07581101.i
+  %135 = getelementptr inbounds nuw [144 x i8], ptr %134, i64 %.07581101.i
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %137 = load i64, ptr %136, align 8
   %.not888.i = icmp ult i64 %130, %137
@@ -4281,10 +4196,10 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %.pre1185.i = phi ptr [ %.pre11851222.i, %._crit_edge.i ], [ %111, %.preheader1055.i ]
   %138 = phi ptr [ %169, %._crit_edge.i ], [ %110, %.preheader1055.i ]
   %.07561090.i = phi i64 [ %170, %._crit_edge.i ], [ 0, %.preheader1055.i ]
-  %139 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %.pre1185.i, i64 %.07581101.i
+  %139 = getelementptr inbounds nuw [144 x i8], ptr %.pre1185.i, i64 %.07581101.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds nuw %struct.cgltf_morph_target, ptr %141, i64 %.07561090.i
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %.07561090.i
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i64, ptr %143, align 8
   %.not8901087.not.i = icmp eq i64 %144, 0
@@ -4294,7 +4209,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %145 = phi ptr [ %166, %154 ], [ %142, %.preheader1050.i ]
   %.07551088.i = phi i64 [ %158, %154 ], [ 0, %.preheader1050.i ]
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %146, i64 %.07551088.i
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %.07551088.i
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %149 = load ptr, ptr %148, align 8
   %.not889.i = icmp eq ptr %149, null
@@ -4308,18 +4223,18 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 154:                                              ; preds = %150
   %155 = load ptr, ptr %58, align 8
-  %156 = getelementptr %struct.cgltf_accessor, ptr %155, i64 %151
+  %156 = getelementptr [288 x i8], ptr %155, i64 %151
   %157 = getelementptr i8, ptr %156, i64 -288
   store ptr %157, ptr %148, align 8
   %158 = add nuw i64 %.07551088.i, 1
   %159 = load ptr, ptr %56, align 8
-  %160 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %159, i64 %.07601104.i
+  %160 = getelementptr inbounds nuw [96 x i8], ptr %159, i64 %.07601104.i
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %162, i64 %.07581101.i
+  %163 = getelementptr inbounds nuw [144 x i8], ptr %162, i64 %.07581101.i
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 40
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds nuw %struct.cgltf_morph_target, ptr %165, i64 %.07561090.i
+  %166 = getelementptr inbounds nuw [16 x i8], ptr %165, i64 %.07561090.i
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load i64, ptr %167, align 8
   %.not890.i = icmp ult i64 %158, %168
@@ -4329,7 +4244,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
   %.pre11851222.i = phi ptr [ %.pre1185.i, %.preheader1050.i ], [ %162, %154 ]
   %169 = phi ptr [ %138, %.preheader1050.i ], [ %159, %154 ]
   %170 = add nuw i64 %.07561090.i, 1
-  %171 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %.pre11851222.i, i64 %.07581101.i
+  %171 = getelementptr inbounds nuw [144 x i8], ptr %.pre11851222.i, i64 %.07581101.i
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 48
   %173 = load i64, ptr %172, align 8
   %174 = icmp ult i64 %170, %173
@@ -4338,7 +4253,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 ._crit_edge1091.i:                                ; preds = %._crit_edge.i, %.preheader1055.i
   %175 = phi ptr [ %110, %.preheader1055.i ], [ %169, %._crit_edge.i ]
   %176 = phi ptr [ %111, %.preheader1055.i ], [ %.pre11851222.i, %._crit_edge.i ]
-  %177 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %176, i64 %.07581101.i
+  %177 = getelementptr inbounds nuw [144 x i8], ptr %176, i64 %.07581101.i
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 80
   %179 = load i32, ptr %178, align 8
   %.not891.i = icmp eq i32 %179, 0
@@ -4358,14 +4273,14 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 187:                                              ; preds = %183
   %188 = load ptr, ptr %62, align 8
-  %189 = getelementptr %struct.cgltf_buffer_view, ptr %188, i64 %184
+  %189 = getelementptr [152 x i8], ptr %188, i64 %184
   %190 = getelementptr i8, ptr %189, i64 -152
   store ptr %190, ptr %181, align 8
   %191 = load ptr, ptr %56, align 8
-  %192 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %191, i64 %.07601104.i
+  %192 = getelementptr inbounds nuw [96 x i8], ptr %191, i64 %.07601104.i
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %194, i64 %.07581101.i
+  %195 = getelementptr inbounds nuw [144 x i8], ptr %194, i64 %.07581101.i
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 104
   %197 = load i64, ptr %196, align 8
   %.not8941092.not.i = icmp eq i64 %197, 0
@@ -4374,10 +4289,10 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 .lr.ph1095.i:                                     ; preds = %187, %209
   %198 = phi ptr [ %217, %209 ], [ %194, %187 ]
   %.07541093.i = phi i64 [ %213, %209 ], [ 0, %187 ]
-  %199 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %198, i64 %.07581101.i
+  %199 = getelementptr inbounds nuw [144 x i8], ptr %198, i64 %.07581101.i
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 96
   %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %201, i64 %.07541093.i
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %201, i64 %.07541093.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load ptr, ptr %203, align 8
   %.not893.i = icmp eq ptr %204, null
@@ -4391,15 +4306,15 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 209:                                              ; preds = %205
   %210 = load ptr, ptr %58, align 8
-  %211 = getelementptr %struct.cgltf_accessor, ptr %210, i64 %206
+  %211 = getelementptr [288 x i8], ptr %210, i64 %206
   %212 = getelementptr i8, ptr %211, i64 -288
   store ptr %212, ptr %203, align 8
   %213 = add nuw i64 %.07541093.i, 1
   %214 = load ptr, ptr %56, align 8
-  %215 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %214, i64 %.07601104.i
+  %215 = getelementptr inbounds nuw [96 x i8], ptr %214, i64 %.07601104.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %217, i64 %.07581101.i
+  %218 = getelementptr inbounds nuw [144 x i8], ptr %217, i64 %.07581101.i
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 104
   %220 = load i64, ptr %219, align 8
   %.not894.i = icmp ult i64 %213, %220
@@ -4408,7 +4323,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 .loopexit1053.i:                                  ; preds = %209, %187, %._crit_edge1091.i
   %221 = phi ptr [ %175, %._crit_edge1091.i ], [ %191, %187 ], [ %214, %209 ]
   %222 = phi ptr [ %176, %._crit_edge1091.i ], [ %194, %187 ], [ %217, %209 ]
-  %223 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %222, i64 %.07581101.i
+  %223 = getelementptr inbounds nuw [144 x i8], ptr %222, i64 %.07581101.i
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 120
   %225 = load i64, ptr %224, align 8
   %.not8961096.not.i = icmp eq i64 %225, 0
@@ -4417,10 +4332,10 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 .lr.ph1099.i:                                     ; preds = %.loopexit1053.i, %237
   %226 = phi ptr [ %245, %237 ], [ %222, %.loopexit1053.i ]
   %.07531097.i = phi i64 [ %241, %237 ], [ 0, %.loopexit1053.i ]
-  %227 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %226, i64 %.07581101.i
+  %227 = getelementptr inbounds nuw [144 x i8], ptr %226, i64 %.07581101.i
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 112
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds nuw %struct.cgltf_material_mapping, ptr %229, i64 %.07531097.i
+  %230 = getelementptr inbounds nuw [40 x i8], ptr %229, i64 %.07531097.i
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load ptr, ptr %231, align 8
   %.not895.i = icmp eq ptr %232, null
@@ -4434,15 +4349,15 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 237:                                              ; preds = %233
   %238 = load ptr, ptr %60, align 8
-  %239 = getelementptr %struct.cgltf_material, ptr %238, i64 %234
+  %239 = getelementptr [1232 x i8], ptr %238, i64 %234
   %240 = getelementptr i8, ptr %239, i64 -1232
   store ptr %240, ptr %231, align 8
   %241 = add nuw i64 %.07531097.i, 1
   %242 = load ptr, ptr %56, align 8
-  %243 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %242, i64 %.07601104.i
+  %243 = getelementptr inbounds nuw [96 x i8], ptr %242, i64 %.07601104.i
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %245, i64 %.07581101.i
+  %246 = getelementptr inbounds nuw [144 x i8], ptr %245, i64 %.07581101.i
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 120
   %248 = load i64, ptr %247, align 8
   %.not896.i = icmp ult i64 %241, %248
@@ -4451,7 +4366,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 ._crit_edge1100.i:                                ; preds = %237, %.loopexit1053.i
   %249 = phi ptr [ %221, %.loopexit1053.i ], [ %242, %237 ]
   %250 = add nuw i64 %.07581101.i, 1
-  %251 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %249, i64 %.07601104.i
+  %251 = getelementptr inbounds nuw [96 x i8], ptr %249, i64 %.07601104.i
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
   %253 = load i64, ptr %252, align 8
   %254 = icmp ult i64 %250, %253
@@ -4486,7 +4401,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 267:                                              ; preds = %340, %.lr.ph1106.i
   %.07521105.i = phi i64 [ 0, %.lr.ph1106.i ], [ %341, %340 ]
   %268 = load ptr, ptr %71, align 8
-  %269 = getelementptr inbounds nuw %struct.cgltf_accessor, ptr %268, i64 %.07521105.i
+  %269 = getelementptr inbounds nuw [288 x i8], ptr %268, i64 %.07521105.i
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 48
   %271 = load ptr, ptr %270, align 8
   %.not897.i = icmp eq ptr %271, null
@@ -4500,7 +4415,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 276:                                              ; preds = %272
   %277 = load ptr, ptr %73, align 8
-  %278 = getelementptr %struct.cgltf_buffer_view, ptr %277, i64 %273
+  %278 = getelementptr [152 x i8], ptr %277, i64 %273
   %279 = getelementptr i8, ptr %278, i64 -152
   store ptr %279, ptr %270, align 8
   %.pre1187.i = load ptr, ptr %71, align 8
@@ -4508,7 +4423,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 280:                                              ; preds = %276, %267
   %281 = phi ptr [ %.pre1187.i, %276 ], [ %268, %267 ]
-  %282 = getelementptr inbounds nuw %struct.cgltf_accessor, ptr %281, i64 %.07521105.i
+  %282 = getelementptr inbounds nuw [288 x i8], ptr %281, i64 %.07521105.i
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 192
   %284 = load i32, ptr %283, align 8
   %.not898.i = icmp eq i32 %284, 0
@@ -4528,11 +4443,11 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 292:                                              ; preds = %288
   %293 = load ptr, ptr %73, align 8
-  %294 = getelementptr %struct.cgltf_buffer_view, ptr %293, i64 %289
+  %294 = getelementptr [152 x i8], ptr %293, i64 %289
   %295 = getelementptr i8, ptr %294, i64 -152
   store ptr %295, ptr %286, align 8
   %296 = load ptr, ptr %71, align 8
-  %297 = getelementptr inbounds nuw %struct.cgltf_accessor, ptr %296, i64 %.07521105.i
+  %297 = getelementptr inbounds nuw [288 x i8], ptr %296, i64 %.07521105.i
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 232
   %299 = load ptr, ptr %298, align 8
   %.not900.i = icmp eq ptr %299, null
@@ -4546,7 +4461,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 304:                                              ; preds = %300
   %305 = load ptr, ptr %73, align 8
-  %306 = getelementptr %struct.cgltf_buffer_view, ptr %305, i64 %301
+  %306 = getelementptr [152 x i8], ptr %305, i64 %301
   %307 = getelementptr i8, ptr %306, i64 -152
   store ptr %307, ptr %298, align 8
   %.pre1188.i = load ptr, ptr %71, align 8
@@ -4554,7 +4469,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 308:                                              ; preds = %304, %280
   %309 = phi ptr [ %.pre1188.i, %304 ], [ %281, %280 ]
-  %310 = getelementptr inbounds nuw %struct.cgltf_accessor, ptr %309, i64 %.07521105.i
+  %310 = getelementptr inbounds nuw [288 x i8], ptr %309, i64 %.07521105.i
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 48
   %312 = load ptr, ptr %311, align 8
   %.not901.i = icmp eq ptr %312, null
@@ -4570,7 +4485,7 @@ define internal fastcc range(i32 0, 10) i32 @cgltf_parse_json(ptr noundef nonnul
 
 317:                                              ; preds = %313, %308
   %318 = phi ptr [ %.pre1189.i, %313 ], [ %309, %308 ]
-  %319 = getelementptr inbounds nuw %struct.cgltf_accessor, ptr %318, i64 %.07521105.i
+  %319 = getelementptr inbounds nuw [288 x i8], ptr %318, i64 %.07521105.i
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 40
   %321 = load i64, ptr %320, align 8
   %322 = icmp eq i64 %321, 0
@@ -4663,7 +4578,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 349:                                              ; preds = %401, %.lr.ph1108.i
   %.07511107.i = phi i64 [ 0, %.lr.ph1108.i ], [ %402, %401 ]
   %350 = load ptr, ptr %262, align 8
-  %351 = getelementptr inbounds nuw %struct.cgltf_texture, ptr %350, i64 %.07511107.i
+  %351 = getelementptr inbounds nuw [96 x i8], ptr %350, i64 %.07511107.i
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %353 = load ptr, ptr %352, align 8
   %.not902.i = icmp eq ptr %353, null
@@ -4677,7 +4592,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 358:                                              ; preds = %354
   %359 = load ptr, ptr %264, align 8
-  %360 = getelementptr %struct.cgltf_image, ptr %359, i64 %355
+  %360 = getelementptr [72 x i8], ptr %359, i64 %355
   %361 = getelementptr i8, ptr %360, i64 -72
   store ptr %361, ptr %352, align 8
   %.pre1190.i = load ptr, ptr %262, align 8
@@ -4685,7 +4600,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 362:                                              ; preds = %358, %349
   %363 = phi ptr [ %.pre1190.i, %358 ], [ %350, %349 ]
-  %364 = getelementptr inbounds nuw %struct.cgltf_texture, ptr %363, i64 %.07511107.i
+  %364 = getelementptr inbounds nuw [96 x i8], ptr %363, i64 %.07511107.i
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 32
   %366 = load ptr, ptr %365, align 8
   %.not903.i = icmp eq ptr %366, null
@@ -4699,7 +4614,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 371:                                              ; preds = %367
   %372 = load ptr, ptr %264, align 8
-  %373 = getelementptr %struct.cgltf_image, ptr %372, i64 %368
+  %373 = getelementptr [72 x i8], ptr %372, i64 %368
   %374 = getelementptr i8, ptr %373, i64 -72
   store ptr %374, ptr %365, align 8
   %.pre1191.i = load ptr, ptr %262, align 8
@@ -4707,7 +4622,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 375:                                              ; preds = %371, %362
   %376 = phi ptr [ %.pre1191.i, %371 ], [ %363, %362 ]
-  %377 = getelementptr inbounds nuw %struct.cgltf_texture, ptr %376, i64 %.07511107.i
+  %377 = getelementptr inbounds nuw [96 x i8], ptr %376, i64 %.07511107.i
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 48
   %379 = load ptr, ptr %378, align 8
   %.not904.i = icmp eq ptr %379, null
@@ -4721,7 +4636,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 384:                                              ; preds = %380
   %385 = load ptr, ptr %264, align 8
-  %386 = getelementptr %struct.cgltf_image, ptr %385, i64 %381
+  %386 = getelementptr [72 x i8], ptr %385, i64 %381
   %387 = getelementptr i8, ptr %386, i64 -72
   store ptr %387, ptr %378, align 8
   %.pre1192.i = load ptr, ptr %262, align 8
@@ -4729,7 +4644,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 388:                                              ; preds = %384, %375
   %389 = phi ptr [ %.pre1192.i, %384 ], [ %376, %375 ]
-  %390 = getelementptr inbounds nuw %struct.cgltf_texture, ptr %389, i64 %.07511107.i
+  %390 = getelementptr inbounds nuw [96 x i8], ptr %389, i64 %.07511107.i
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 16
   %392 = load ptr, ptr %391, align 8
   %.not905.i = icmp eq ptr %392, null
@@ -4743,7 +4658,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 397:                                              ; preds = %393
   %398 = load ptr, ptr %266, align 8
-  %399 = getelementptr %struct.cgltf_sampler, ptr %398, i64 %394
+  %399 = getelementptr [64 x i8], ptr %398, i64 %394
   %400 = getelementptr i8, ptr %399, i64 -64
   store ptr %400, ptr %391, align 8
   br label %401
@@ -4769,7 +4684,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
   %410 = phi i64 [ %345, %.lr.ph1110.i ], [ %424, %423 ]
   %.07501109.i = phi i64 [ 0, %.lr.ph1110.i ], [ %425, %423 ]
   %411 = load ptr, ptr %346, align 8
-  %412 = getelementptr inbounds nuw %struct.cgltf_image, ptr %411, i64 %.07501109.i
+  %412 = getelementptr inbounds nuw [72 x i8], ptr %411, i64 %.07501109.i
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 16
   %414 = load ptr, ptr %413, align 8
   %.not906.i = icmp eq ptr %414, null
@@ -4783,7 +4698,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 419:                                              ; preds = %415
   %420 = load ptr, ptr %348, align 8
-  %421 = getelementptr %struct.cgltf_buffer_view, ptr %420, i64 %416
+  %421 = getelementptr [152 x i8], ptr %420, i64 %416
   %422 = getelementptr i8, ptr %421, i64 -152
   store ptr %422, ptr %413, align 8
   %.pre1193.i = load i64, ptr %344, align 8
@@ -4810,7 +4725,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 432:                                              ; preds = %679, %.lr.ph1112.i
   %.07491111.i = phi i64 [ 0, %.lr.ph1112.i ], [ %680, %679 ]
   %433 = load ptr, ptr %407, align 8
-  %434 = getelementptr inbounds nuw %struct.cgltf_material, ptr %433, i64 %.07491111.i
+  %434 = getelementptr inbounds nuw [1232 x i8], ptr %433, i64 %.07491111.i
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 1016
   %436 = load ptr, ptr %435, align 8
   %.not907.i = icmp eq ptr %436, null
@@ -4824,7 +4739,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 441:                                              ; preds = %437
   %442 = load ptr, ptr %408, align 8
-  %443 = getelementptr %struct.cgltf_texture, ptr %442, i64 %438
+  %443 = getelementptr [96 x i8], ptr %442, i64 %438
   %444 = getelementptr i8, ptr %443, i64 -96
   store ptr %444, ptr %435, align 8
   %.pre1194.i = load ptr, ptr %407, align 8
@@ -4832,7 +4747,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 445:                                              ; preds = %441, %432
   %446 = phi ptr [ %.pre1194.i, %441 ], [ %433, %432 ]
-  %447 = getelementptr inbounds nuw %struct.cgltf_material, ptr %446, i64 %.07491111.i
+  %447 = getelementptr inbounds nuw [1232 x i8], ptr %446, i64 %.07491111.i
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 1112
   %449 = load ptr, ptr %448, align 8
   %.not908.i = icmp eq ptr %449, null
@@ -4846,7 +4761,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 454:                                              ; preds = %450
   %455 = load ptr, ptr %408, align 8
-  %456 = getelementptr %struct.cgltf_texture, ptr %455, i64 %451
+  %456 = getelementptr [96 x i8], ptr %455, i64 %451
   %457 = getelementptr i8, ptr %456, i64 -96
   store ptr %457, ptr %448, align 8
   %.pre1195.i = load ptr, ptr %407, align 8
@@ -4854,7 +4769,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 458:                                              ; preds = %454, %445
   %459 = phi ptr [ %.pre1195.i, %454 ], [ %446, %445 ]
-  %460 = getelementptr inbounds nuw %struct.cgltf_material, ptr %459, i64 %.07491111.i
+  %460 = getelementptr inbounds nuw [1232 x i8], ptr %459, i64 %.07491111.i
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 1064
   %462 = load ptr, ptr %461, align 8
   %.not909.i = icmp eq ptr %462, null
@@ -4868,7 +4783,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 467:                                              ; preds = %463
   %468 = load ptr, ptr %408, align 8
-  %469 = getelementptr %struct.cgltf_texture, ptr %468, i64 %464
+  %469 = getelementptr [96 x i8], ptr %468, i64 %464
   %470 = getelementptr i8, ptr %469, i64 -96
   store ptr %470, ptr %461, align 8
   %.pre1196.i = load ptr, ptr %407, align 8
@@ -4876,7 +4791,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 471:                                              ; preds = %467, %458
   %472 = phi ptr [ %.pre1196.i, %467 ], [ %459, %458 ]
-  %473 = getelementptr inbounds nuw %struct.cgltf_material, ptr %472, i64 %.07491111.i
+  %473 = getelementptr inbounds nuw [1232 x i8], ptr %472, i64 %.07491111.i
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 56
   %475 = load ptr, ptr %474, align 8
   %.not910.i = icmp eq ptr %475, null
@@ -4890,7 +4805,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 480:                                              ; preds = %476
   %481 = load ptr, ptr %408, align 8
-  %482 = getelementptr %struct.cgltf_texture, ptr %481, i64 %477
+  %482 = getelementptr [96 x i8], ptr %481, i64 %477
   %483 = getelementptr i8, ptr %482, i64 -96
   store ptr %483, ptr %474, align 8
   %.pre1197.i = load ptr, ptr %407, align 8
@@ -4898,7 +4813,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 484:                                              ; preds = %480, %471
   %485 = phi ptr [ %.pre1197.i, %480 ], [ %472, %471 ]
-  %486 = getelementptr inbounds nuw %struct.cgltf_material, ptr %485, i64 %.07491111.i
+  %486 = getelementptr inbounds nuw [1232 x i8], ptr %485, i64 %.07491111.i
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 104
   %488 = load ptr, ptr %487, align 8
   %.not911.i = icmp eq ptr %488, null
@@ -4912,7 +4827,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 493:                                              ; preds = %489
   %494 = load ptr, ptr %408, align 8
-  %495 = getelementptr %struct.cgltf_texture, ptr %494, i64 %490
+  %495 = getelementptr [96 x i8], ptr %494, i64 %490
   %496 = getelementptr i8, ptr %495, i64 -96
   store ptr %496, ptr %487, align 8
   %.pre1198.i = load ptr, ptr %407, align 8
@@ -4920,7 +4835,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 497:                                              ; preds = %493, %484
   %498 = phi ptr [ %.pre1198.i, %493 ], [ %485, %484 ]
-  %499 = getelementptr inbounds nuw %struct.cgltf_material, ptr %498, i64 %.07491111.i
+  %499 = getelementptr inbounds nuw [1232 x i8], ptr %498, i64 %.07491111.i
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 176
   %501 = load ptr, ptr %500, align 8
   %.not912.i = icmp eq ptr %501, null
@@ -4934,7 +4849,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 506:                                              ; preds = %502
   %507 = load ptr, ptr %408, align 8
-  %508 = getelementptr %struct.cgltf_texture, ptr %507, i64 %503
+  %508 = getelementptr [96 x i8], ptr %507, i64 %503
   %509 = getelementptr i8, ptr %508, i64 -96
   store ptr %509, ptr %500, align 8
   %.pre1199.i = load ptr, ptr %407, align 8
@@ -4942,7 +4857,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 510:                                              ; preds = %506, %497
   %511 = phi ptr [ %.pre1199.i, %506 ], [ %498, %497 ]
-  %512 = getelementptr inbounds nuw %struct.cgltf_material, ptr %511, i64 %.07491111.i
+  %512 = getelementptr inbounds nuw [1232 x i8], ptr %511, i64 %.07491111.i
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 224
   %514 = load ptr, ptr %513, align 8
   %.not913.i = icmp eq ptr %514, null
@@ -4956,7 +4871,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 519:                                              ; preds = %515
   %520 = load ptr, ptr %408, align 8
-  %521 = getelementptr %struct.cgltf_texture, ptr %520, i64 %516
+  %521 = getelementptr [96 x i8], ptr %520, i64 %516
   %522 = getelementptr i8, ptr %521, i64 -96
   store ptr %522, ptr %513, align 8
   %.pre1200.i = load ptr, ptr %407, align 8
@@ -4964,7 +4879,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 523:                                              ; preds = %519, %510
   %524 = phi ptr [ %.pre1200.i, %519 ], [ %511, %510 ]
-  %525 = getelementptr inbounds nuw %struct.cgltf_material, ptr %524, i64 %.07491111.i
+  %525 = getelementptr inbounds nuw [1232 x i8], ptr %524, i64 %.07491111.i
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 304
   %527 = load ptr, ptr %526, align 8
   %.not914.i = icmp eq ptr %527, null
@@ -4978,7 +4893,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 532:                                              ; preds = %528
   %533 = load ptr, ptr %408, align 8
-  %534 = getelementptr %struct.cgltf_texture, ptr %533, i64 %529
+  %534 = getelementptr [96 x i8], ptr %533, i64 %529
   %535 = getelementptr i8, ptr %534, i64 -96
   store ptr %535, ptr %526, align 8
   %.pre1201.i = load ptr, ptr %407, align 8
@@ -4986,7 +4901,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 536:                                              ; preds = %532, %523
   %537 = phi ptr [ %.pre1201.i, %532 ], [ %524, %523 ]
-  %538 = getelementptr inbounds nuw %struct.cgltf_material, ptr %537, i64 %.07491111.i
+  %538 = getelementptr inbounds nuw [1232 x i8], ptr %537, i64 %.07491111.i
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 352
   %540 = load ptr, ptr %539, align 8
   %.not915.i = icmp eq ptr %540, null
@@ -5000,7 +4915,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 545:                                              ; preds = %541
   %546 = load ptr, ptr %408, align 8
-  %547 = getelementptr %struct.cgltf_texture, ptr %546, i64 %542
+  %547 = getelementptr [96 x i8], ptr %546, i64 %542
   %548 = getelementptr i8, ptr %547, i64 -96
   store ptr %548, ptr %539, align 8
   %.pre1202.i = load ptr, ptr %407, align 8
@@ -5008,7 +4923,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 549:                                              ; preds = %545, %536
   %550 = phi ptr [ %.pre1202.i, %545 ], [ %537, %536 ]
-  %551 = getelementptr inbounds nuw %struct.cgltf_material, ptr %550, i64 %.07491111.i
+  %551 = getelementptr inbounds nuw [1232 x i8], ptr %550, i64 %.07491111.i
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 400
   %553 = load ptr, ptr %552, align 8
   %.not916.i = icmp eq ptr %553, null
@@ -5022,7 +4937,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 558:                                              ; preds = %554
   %559 = load ptr, ptr %408, align 8
-  %560 = getelementptr %struct.cgltf_texture, ptr %559, i64 %555
+  %560 = getelementptr [96 x i8], ptr %559, i64 %555
   %561 = getelementptr i8, ptr %560, i64 -96
   store ptr %561, ptr %552, align 8
   %.pre1203.i = load ptr, ptr %407, align 8
@@ -5030,7 +4945,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 562:                                              ; preds = %558, %549
   %563 = phi ptr [ %.pre1203.i, %558 ], [ %550, %549 ]
-  %564 = getelementptr inbounds nuw %struct.cgltf_material, ptr %563, i64 %.07491111.i
+  %564 = getelementptr inbounds nuw [1232 x i8], ptr %563, i64 %.07491111.i
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 464
   %566 = load ptr, ptr %565, align 8
   %.not917.i = icmp eq ptr %566, null
@@ -5044,7 +4959,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 571:                                              ; preds = %567
   %572 = load ptr, ptr %408, align 8
-  %573 = getelementptr %struct.cgltf_texture, ptr %572, i64 %568
+  %573 = getelementptr [96 x i8], ptr %572, i64 %568
   %574 = getelementptr i8, ptr %573, i64 -96
   store ptr %574, ptr %565, align 8
   %.pre1204.i = load ptr, ptr %407, align 8
@@ -5052,7 +4967,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 575:                                              ; preds = %571, %562
   %576 = phi ptr [ %.pre1204.i, %571 ], [ %563, %562 ]
-  %577 = getelementptr inbounds nuw %struct.cgltf_material, ptr %576, i64 %.07491111.i
+  %577 = getelementptr inbounds nuw [1232 x i8], ptr %576, i64 %.07491111.i
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 512
   %579 = load ptr, ptr %578, align 8
   %.not918.i = icmp eq ptr %579, null
@@ -5066,7 +4981,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 584:                                              ; preds = %580
   %585 = load ptr, ptr %408, align 8
-  %586 = getelementptr %struct.cgltf_texture, ptr %585, i64 %581
+  %586 = getelementptr [96 x i8], ptr %585, i64 %581
   %587 = getelementptr i8, ptr %586, i64 -96
   store ptr %587, ptr %578, align 8
   %.pre1205.i = load ptr, ptr %407, align 8
@@ -5074,7 +4989,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 588:                                              ; preds = %584, %575
   %589 = phi ptr [ %.pre1205.i, %584 ], [ %576, %575 ]
-  %590 = getelementptr inbounds nuw %struct.cgltf_material, ptr %589, i64 %.07491111.i
+  %590 = getelementptr inbounds nuw [1232 x i8], ptr %589, i64 %.07491111.i
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 696
   %592 = load ptr, ptr %591, align 8
   %.not919.i = icmp eq ptr %592, null
@@ -5088,7 +5003,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 597:                                              ; preds = %593
   %598 = load ptr, ptr %408, align 8
-  %599 = getelementptr %struct.cgltf_texture, ptr %598, i64 %594
+  %599 = getelementptr [96 x i8], ptr %598, i64 %594
   %600 = getelementptr i8, ptr %599, i64 -96
   store ptr %600, ptr %591, align 8
   %.pre1206.i = load ptr, ptr %407, align 8
@@ -5096,7 +5011,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 601:                                              ; preds = %597, %588
   %602 = phi ptr [ %.pre1206.i, %597 ], [ %589, %588 ]
-  %603 = getelementptr inbounds nuw %struct.cgltf_material, ptr %602, i64 %.07491111.i
+  %603 = getelementptr inbounds nuw [1232 x i8], ptr %602, i64 %.07491111.i
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 752
   %605 = load ptr, ptr %604, align 8
   %.not920.i = icmp eq ptr %605, null
@@ -5110,7 +5025,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 610:                                              ; preds = %606
   %611 = load ptr, ptr %408, align 8
-  %612 = getelementptr %struct.cgltf_texture, ptr %611, i64 %607
+  %612 = getelementptr [96 x i8], ptr %611, i64 %607
   %613 = getelementptr i8, ptr %612, i64 -96
   store ptr %613, ptr %604, align 8
   %.pre1207.i = load ptr, ptr %407, align 8
@@ -5118,7 +5033,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 614:                                              ; preds = %610, %601
   %615 = phi ptr [ %.pre1207.i, %610 ], [ %602, %601 ]
-  %616 = getelementptr inbounds nuw %struct.cgltf_material, ptr %615, i64 %.07491111.i
+  %616 = getelementptr inbounds nuw [1232 x i8], ptr %615, i64 %.07491111.i
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 576
   %618 = load ptr, ptr %617, align 8
   %.not921.i = icmp eq ptr %618, null
@@ -5132,7 +5047,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 623:                                              ; preds = %619
   %624 = load ptr, ptr %408, align 8
-  %625 = getelementptr %struct.cgltf_texture, ptr %624, i64 %620
+  %625 = getelementptr [96 x i8], ptr %624, i64 %620
   %626 = getelementptr i8, ptr %625, i64 -96
   store ptr %626, ptr %617, align 8
   %.pre1208.i = load ptr, ptr %407, align 8
@@ -5140,7 +5055,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 627:                                              ; preds = %623, %614
   %628 = phi ptr [ %.pre1208.i, %623 ], [ %615, %614 ]
-  %629 = getelementptr inbounds nuw %struct.cgltf_material, ptr %628, i64 %.07491111.i
+  %629 = getelementptr inbounds nuw [1232 x i8], ptr %628, i64 %.07491111.i
   %630 = getelementptr inbounds nuw i8, ptr %629, i64 640
   %631 = load ptr, ptr %630, align 8
   %.not922.i = icmp eq ptr %631, null
@@ -5154,7 +5069,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 636:                                              ; preds = %632
   %637 = load ptr, ptr %408, align 8
-  %638 = getelementptr %struct.cgltf_texture, ptr %637, i64 %633
+  %638 = getelementptr [96 x i8], ptr %637, i64 %633
   %639 = getelementptr i8, ptr %638, i64 -96
   store ptr %639, ptr %630, align 8
   %.pre1209.i = load ptr, ptr %407, align 8
@@ -5162,7 +5077,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 640:                                              ; preds = %636, %627
   %641 = phi ptr [ %.pre1209.i, %636 ], [ %628, %627 ]
-  %642 = getelementptr inbounds nuw %struct.cgltf_material, ptr %641, i64 %.07491111.i
+  %642 = getelementptr inbounds nuw [1232 x i8], ptr %641, i64 %.07491111.i
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 840
   %644 = load ptr, ptr %643, align 8
   %.not923.i = icmp eq ptr %644, null
@@ -5176,7 +5091,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 649:                                              ; preds = %645
   %650 = load ptr, ptr %408, align 8
-  %651 = getelementptr %struct.cgltf_texture, ptr %650, i64 %646
+  %651 = getelementptr [96 x i8], ptr %650, i64 %646
   %652 = getelementptr i8, ptr %651, i64 -96
   store ptr %652, ptr %643, align 8
   %.pre1210.i = load ptr, ptr %407, align 8
@@ -5184,7 +5099,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 653:                                              ; preds = %649, %640
   %654 = phi ptr [ %.pre1210.i, %649 ], [ %641, %640 ]
-  %655 = getelementptr inbounds nuw %struct.cgltf_material, ptr %654, i64 %.07491111.i
+  %655 = getelementptr inbounds nuw [1232 x i8], ptr %654, i64 %.07491111.i
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 904
   %657 = load ptr, ptr %656, align 8
   %.not924.i = icmp eq ptr %657, null
@@ -5198,7 +5113,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 662:                                              ; preds = %658
   %663 = load ptr, ptr %408, align 8
-  %664 = getelementptr %struct.cgltf_texture, ptr %663, i64 %659
+  %664 = getelementptr [96 x i8], ptr %663, i64 %659
   %665 = getelementptr i8, ptr %664, i64 -96
   store ptr %665, ptr %656, align 8
   %.pre1211.i = load ptr, ptr %407, align 8
@@ -5206,7 +5121,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 666:                                              ; preds = %662, %653
   %667 = phi ptr [ %.pre1211.i, %662 ], [ %654, %653 ]
-  %668 = getelementptr inbounds nuw %struct.cgltf_material, ptr %667, i64 %.07491111.i
+  %668 = getelementptr inbounds nuw [1232 x i8], ptr %667, i64 %.07491111.i
   %669 = getelementptr inbounds nuw i8, ptr %668, i64 960
   %670 = load ptr, ptr %669, align 8
   %.not925.i = icmp eq ptr %670, null
@@ -5220,7 +5135,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 675:                                              ; preds = %671
   %676 = load ptr, ptr %408, align 8
-  %677 = getelementptr %struct.cgltf_texture, ptr %676, i64 %672
+  %677 = getelementptr [96 x i8], ptr %676, i64 %672
   %678 = getelementptr i8, ptr %677, i64 -96
   store ptr %678, ptr %669, align 8
   br label %679
@@ -5247,7 +5162,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 689:                                              ; preds = %717, %.lr.ph1114.i
   %.07481113.i = phi i64 [ 0, %.lr.ph1114.i ], [ %718, %717 ]
   %690 = load ptr, ptr %429, align 8
-  %691 = getelementptr inbounds nuw %struct.cgltf_buffer_view, ptr %690, i64 %.07481113.i
+  %691 = getelementptr inbounds nuw [152 x i8], ptr %690, i64 %.07481113.i
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 8
   %693 = load ptr, ptr %692, align 8
   %.not926.i = icmp eq ptr %693, null
@@ -5261,11 +5176,11 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 698:                                              ; preds = %694
   %699 = load ptr, ptr %431, align 8
-  %700 = getelementptr %struct.cgltf_buffer, ptr %699, i64 %695
+  %700 = getelementptr [80 x i8], ptr %699, i64 %695
   %701 = getelementptr i8, ptr %700, i64 -80
   store ptr %701, ptr %692, align 8
   %702 = load ptr, ptr %429, align 8
-  %703 = getelementptr inbounds nuw %struct.cgltf_buffer_view, ptr %702, i64 %.07481113.i
+  %703 = getelementptr inbounds nuw [152 x i8], ptr %702, i64 %.07481113.i
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 56
   %705 = load i32, ptr %704, align 8
   %.not927.i = icmp eq i32 %705, 0
@@ -5285,7 +5200,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 713:                                              ; preds = %709
   %714 = load ptr, ptr %431, align 8
-  %715 = getelementptr %struct.cgltf_buffer, ptr %714, i64 %710
+  %715 = getelementptr [80 x i8], ptr %714, i64 %710
   %716 = getelementptr i8, ptr %715, i64 -80
   store ptr %716, ptr %707, align 8
   br label %717
@@ -5299,7 +5214,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 .preheader1036.i:                                 ; preds = %779, %.preheader1036.lr.ph.i
   %.07471119.i = phi i64 [ 0, %.preheader1036.lr.ph.i ], [ %780, %779 ]
   %721 = load ptr, ptr %685, align 8
-  %722 = getelementptr inbounds nuw %struct.cgltf_skin, ptr %721, i64 %.07471119.i
+  %722 = getelementptr inbounds nuw [80 x i8], ptr %721, i64 %.07471119.i
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 16
   %724 = load i64, ptr %723, align 8
   %.not9301115.not.i = icmp eq i64 %724, 0
@@ -5326,10 +5241,10 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 .lr.ph1117.i:                                     ; preds = %.preheader1036.i, %745
   %735 = phi ptr [ %750, %745 ], [ %721, %.preheader1036.i ]
   %.07461116.i = phi i64 [ %749, %745 ], [ 0, %.preheader1036.i ]
-  %736 = getelementptr inbounds nuw %struct.cgltf_skin, ptr %735, i64 %.07471119.i
+  %736 = getelementptr inbounds nuw [80 x i8], ptr %735, i64 %.07471119.i
   %737 = getelementptr inbounds nuw i8, ptr %736, i64 8
   %738 = load ptr, ptr %737, align 8
-  %739 = getelementptr inbounds nuw ptr, ptr %738, i64 %.07461116.i
+  %739 = getelementptr inbounds nuw [8 x i8], ptr %738, i64 %.07461116.i
   %740 = load ptr, ptr %739, align 8
   %.not929.i = icmp eq ptr %740, null
   br i1 %.not929.i, label %.loopexit, label %741
@@ -5342,12 +5257,12 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 745:                                              ; preds = %741
   %746 = load ptr, ptr %687, align 8
-  %747 = getelementptr %struct.cgltf_node, ptr %746, i64 %742
+  %747 = getelementptr [264 x i8], ptr %746, i64 %742
   %748 = getelementptr i8, ptr %747, i64 -264
   store ptr %748, ptr %739, align 8
   %749 = add nuw i64 %.07461116.i, 1
   %750 = load ptr, ptr %685, align 8
-  %751 = getelementptr inbounds nuw %struct.cgltf_skin, ptr %750, i64 %.07471119.i
+  %751 = getelementptr inbounds nuw [80 x i8], ptr %750, i64 %.07471119.i
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 16
   %753 = load i64, ptr %752, align 8
   %.not930.i = icmp ult i64 %749, %753
@@ -5355,7 +5270,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 ._crit_edge1118.i:                                ; preds = %745, %.preheader1036.i
   %754 = phi ptr [ %721, %.preheader1036.i ], [ %750, %745 ]
-  %755 = getelementptr inbounds nuw %struct.cgltf_skin, ptr %754, i64 %.07471119.i
+  %755 = getelementptr inbounds nuw [80 x i8], ptr %754, i64 %.07471119.i
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 24
   %757 = load ptr, ptr %756, align 8
   %.not931.i = icmp eq ptr %757, null
@@ -5369,7 +5284,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 762:                                              ; preds = %758
   %763 = load ptr, ptr %687, align 8
-  %764 = getelementptr %struct.cgltf_node, ptr %763, i64 %759
+  %764 = getelementptr [264 x i8], ptr %763, i64 %759
   %765 = getelementptr i8, ptr %764, i64 -264
   store ptr %765, ptr %756, align 8
   %.pre1212.i = load ptr, ptr %685, align 8
@@ -5377,7 +5292,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 766:                                              ; preds = %762, %._crit_edge1118.i
   %767 = phi ptr [ %.pre1212.i, %762 ], [ %754, %._crit_edge1118.i ]
-  %768 = getelementptr inbounds nuw %struct.cgltf_skin, ptr %767, i64 %.07471119.i
+  %768 = getelementptr inbounds nuw [80 x i8], ptr %767, i64 %.07471119.i
   %769 = getelementptr inbounds nuw i8, ptr %768, i64 32
   %770 = load ptr, ptr %769, align 8
   %.not932.i = icmp eq ptr %770, null
@@ -5391,7 +5306,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 775:                                              ; preds = %771
   %776 = load ptr, ptr %688, align 8
-  %777 = getelementptr %struct.cgltf_accessor, ptr %776, i64 %772
+  %777 = getelementptr [288 x i8], ptr %776, i64 %772
   %778 = getelementptr i8, ptr %777, i64 -288
   store ptr %778, ptr %769, align 8
   br label %779
@@ -5406,7 +5321,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
   %783 = phi ptr [ %.pre1213.i, %.preheader1032.lr.ph.i ], [ %903, %.loopexit.i ]
   %784 = phi ptr [ %.pre1213.i, %.preheader1032.lr.ph.i ], [ %904, %.loopexit.i ]
   %.07451128.i = phi i64 [ 0, %.preheader1032.lr.ph.i ], [ %905, %.loopexit.i ]
-  %785 = getelementptr inbounds nuw %struct.cgltf_node, ptr %784, i64 %.07451128.i
+  %785 = getelementptr inbounds nuw [264 x i8], ptr %784, i64 %.07451128.i
   %786 = getelementptr inbounds nuw i8, ptr %785, i64 24
   %787 = load i64, ptr %786, align 8
   %.not9351120.not.i = icmp eq i64 %787, 0
@@ -5427,10 +5342,10 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 .lr.ph1122.i:                                     ; preds = %.preheader1032.i, %813
   %792 = phi ptr [ %815, %813 ], [ %784, %.preheader1032.i ]
   %.07441121.i = phi i64 [ %814, %813 ], [ 0, %.preheader1032.i ]
-  %793 = getelementptr inbounds nuw %struct.cgltf_node, ptr %792, i64 %.07451128.i
+  %793 = getelementptr inbounds nuw [264 x i8], ptr %792, i64 %.07451128.i
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 16
   %795 = load ptr, ptr %794, align 8
-  %796 = getelementptr inbounds nuw ptr, ptr %795, i64 %.07441121.i
+  %796 = getelementptr inbounds nuw [8 x i8], ptr %795, i64 %.07441121.i
   %797 = load ptr, ptr %796, align 8
   %.not933.i = icmp eq ptr %797, null
   br i1 %.not933.i, label %.loopexit, label %798
@@ -5442,14 +5357,14 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
   br i1 %801, label %.loopexit, label %802
 
 802:                                              ; preds = %798
-  %803 = getelementptr %struct.cgltf_node, ptr %792, i64 %799
+  %803 = getelementptr [264 x i8], ptr %792, i64 %799
   %804 = getelementptr i8, ptr %803, i64 -264
   store ptr %804, ptr %796, align 8
   %805 = load ptr, ptr %727, align 8
-  %806 = getelementptr inbounds nuw %struct.cgltf_node, ptr %805, i64 %.07451128.i
+  %806 = getelementptr inbounds nuw [264 x i8], ptr %805, i64 %.07451128.i
   %807 = getelementptr inbounds nuw i8, ptr %806, i64 16
   %808 = load ptr, ptr %807, align 8
-  %809 = getelementptr inbounds nuw ptr, ptr %808, i64 %.07441121.i
+  %809 = getelementptr inbounds nuw [8 x i8], ptr %808, i64 %.07441121.i
   %810 = load ptr, ptr %809, align 8
   %811 = getelementptr inbounds nuw i8, ptr %810, i64 8
   %812 = load ptr, ptr %811, align 8
@@ -5460,7 +5375,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
   store ptr %806, ptr %811, align 8
   %814 = add nuw i64 %.07441121.i, 1
   %815 = load ptr, ptr %727, align 8
-  %816 = getelementptr inbounds nuw %struct.cgltf_node, ptr %815, i64 %.07451128.i
+  %816 = getelementptr inbounds nuw [264 x i8], ptr %815, i64 %.07451128.i
   %817 = getelementptr inbounds nuw i8, ptr %816, i64 24
   %818 = load i64, ptr %817, align 8
   %.not935.i = icmp ult i64 %814, %818
@@ -5469,7 +5384,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 ._crit_edge1123.i:                                ; preds = %813, %.preheader1032.i
   %819 = phi ptr [ %783, %.preheader1032.i ], [ %815, %813 ]
   %820 = phi ptr [ %784, %.preheader1032.i ], [ %815, %813 ]
-  %821 = getelementptr inbounds nuw %struct.cgltf_node, ptr %820, i64 %.07451128.i
+  %821 = getelementptr inbounds nuw [264 x i8], ptr %820, i64 %.07451128.i
   %822 = getelementptr inbounds nuw i8, ptr %821, i64 40
   %823 = load ptr, ptr %822, align 8
   %.not936.i = icmp eq ptr %823, null
@@ -5483,7 +5398,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 828:                                              ; preds = %824
   %829 = load ptr, ptr %728, align 8
-  %830 = getelementptr %struct.cgltf_mesh, ptr %829, i64 %825
+  %830 = getelementptr [96 x i8], ptr %829, i64 %825
   %831 = getelementptr i8, ptr %830, i64 -96
   store ptr %831, ptr %822, align 8
   %.pre1214.i = load ptr, ptr %727, align 8
@@ -5492,7 +5407,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 832:                                              ; preds = %828, %._crit_edge1123.i
   %833 = phi ptr [ %.pre1214.i, %828 ], [ %819, %._crit_edge1123.i ]
   %834 = phi ptr [ %.pre1214.i, %828 ], [ %820, %._crit_edge1123.i ]
-  %835 = getelementptr inbounds nuw %struct.cgltf_node, ptr %834, i64 %.07451128.i
+  %835 = getelementptr inbounds nuw [264 x i8], ptr %834, i64 %.07451128.i
   %836 = getelementptr inbounds nuw i8, ptr %835, i64 32
   %837 = load ptr, ptr %836, align 8
   %.not937.i = icmp eq ptr %837, null
@@ -5506,7 +5421,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 842:                                              ; preds = %838
   %843 = load ptr, ptr %729, align 8
-  %844 = getelementptr %struct.cgltf_skin, ptr %843, i64 %839
+  %844 = getelementptr [80 x i8], ptr %843, i64 %839
   %845 = getelementptr i8, ptr %844, i64 -80
   store ptr %845, ptr %836, align 8
   %.pre1215.i = load ptr, ptr %727, align 8
@@ -5515,7 +5430,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 846:                                              ; preds = %842, %832
   %847 = phi ptr [ %.pre1215.i, %842 ], [ %833, %832 ]
   %848 = phi ptr [ %.pre1215.i, %842 ], [ %834, %832 ]
-  %849 = getelementptr inbounds nuw %struct.cgltf_node, ptr %848, i64 %.07451128.i
+  %849 = getelementptr inbounds nuw [264 x i8], ptr %848, i64 %.07451128.i
   %850 = getelementptr inbounds nuw i8, ptr %849, i64 48
   %851 = load ptr, ptr %850, align 8
   %.not938.i = icmp eq ptr %851, null
@@ -5529,7 +5444,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 856:                                              ; preds = %852
   %857 = load ptr, ptr %731, align 8
-  %858 = getelementptr %struct.cgltf_camera, ptr %857, i64 %853
+  %858 = getelementptr [104 x i8], ptr %857, i64 %853
   %859 = getelementptr i8, ptr %858, i64 -104
   store ptr %859, ptr %850, align 8
   %.pre1216.i = load ptr, ptr %727, align 8
@@ -5538,7 +5453,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 860:                                              ; preds = %856, %846
   %861 = phi ptr [ %.pre1216.i, %856 ], [ %847, %846 ]
   %862 = phi ptr [ %.pre1216.i, %856 ], [ %848, %846 ]
-  %863 = getelementptr inbounds nuw %struct.cgltf_node, ptr %862, i64 %.07451128.i
+  %863 = getelementptr inbounds nuw [264 x i8], ptr %862, i64 %.07451128.i
   %864 = getelementptr inbounds nuw i8, ptr %863, i64 56
   %865 = load ptr, ptr %864, align 8
   %.not939.i = icmp eq ptr %865, null
@@ -5552,7 +5467,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 870:                                              ; preds = %866
   %871 = load ptr, ptr %733, align 8
-  %872 = getelementptr %struct.cgltf_light, ptr %871, i64 %867
+  %872 = getelementptr [64 x i8], ptr %871, i64 %867
   %873 = getelementptr i8, ptr %872, i64 -64
   store ptr %873, ptr %864, align 8
   %.pre1217.i = load ptr, ptr %727, align 8
@@ -5561,14 +5476,14 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 874:                                              ; preds = %870, %860
   %875 = phi ptr [ %.pre1217.i, %870 ], [ %861, %860 ]
   %876 = phi ptr [ %.pre1217.i, %870 ], [ %862, %860 ]
-  %877 = getelementptr inbounds nuw %struct.cgltf_node, ptr %876, i64 %.07451128.i
+  %877 = getelementptr inbounds nuw [264 x i8], ptr %876, i64 %.07451128.i
   %878 = getelementptr inbounds nuw i8, ptr %877, i64 224
   %879 = load i32, ptr %878, align 8
   %.not940.i = icmp eq i32 %879, 0
   br i1 %.not940.i, label %.loopexit.i, label %.preheader1030.i
 
 .preheader1030.i:                                 ; preds = %874
-  %880 = getelementptr inbounds nuw %struct.cgltf_node, ptr %875, i64 %.07451128.i
+  %880 = getelementptr inbounds nuw [264 x i8], ptr %875, i64 %.07451128.i
   %881 = getelementptr inbounds nuw i8, ptr %880, i64 240
   %882 = load i64, ptr %881, align 8
   %.not9421125.not.i = icmp eq i64 %882, 0
@@ -5577,10 +5492,10 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 .lr.ph1127.i:                                     ; preds = %.preheader1030.i, %894
   %883 = phi ptr [ %899, %894 ], [ %875, %.preheader1030.i ]
   %.07431126.i = phi i64 [ %898, %894 ], [ 0, %.preheader1030.i ]
-  %884 = getelementptr inbounds nuw %struct.cgltf_node, ptr %883, i64 %.07451128.i
+  %884 = getelementptr inbounds nuw [264 x i8], ptr %883, i64 %.07451128.i
   %885 = getelementptr inbounds nuw i8, ptr %884, i64 232
   %886 = load ptr, ptr %885, align 8
-  %887 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %886, i64 %.07431126.i
+  %887 = getelementptr inbounds nuw [24 x i8], ptr %886, i64 %.07431126.i
   %888 = getelementptr inbounds nuw i8, ptr %887, i64 16
   %889 = load ptr, ptr %888, align 8
   %.not941.i = icmp eq ptr %889, null
@@ -5594,12 +5509,12 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 894:                                              ; preds = %890
   %895 = load ptr, ptr %734, align 8
-  %896 = getelementptr %struct.cgltf_accessor, ptr %895, i64 %891
+  %896 = getelementptr [288 x i8], ptr %895, i64 %891
   %897 = getelementptr i8, ptr %896, i64 -288
   store ptr %897, ptr %888, align 8
   %898 = add nuw i64 %.07431126.i, 1
   %899 = load ptr, ptr %727, align 8
-  %900 = getelementptr inbounds nuw %struct.cgltf_node, ptr %899, i64 %.07451128.i
+  %900 = getelementptr inbounds nuw [264 x i8], ptr %899, i64 %.07451128.i
   %901 = getelementptr inbounds nuw i8, ptr %900, i64 240
   %902 = load i64, ptr %901, align 8
   %.not942.i = icmp ult i64 %898, %902
@@ -5617,7 +5532,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
   %908 = phi i64 [ %789, %.preheader1027.lr.ph.i ], [ %936, %._crit_edge1134.i ]
   %909 = phi ptr [ %.pre1218.i, %.preheader1027.lr.ph.i ], [ %937, %._crit_edge1134.i ]
   %.07421135.i = phi i64 [ 0, %.preheader1027.lr.ph.i ], [ %938, %._crit_edge1134.i ]
-  %910 = getelementptr inbounds nuw %struct.cgltf_scene, ptr %909, i64 %.07421135.i
+  %910 = getelementptr inbounds nuw [64 x i8], ptr %909, i64 %.07421135.i
   %911 = getelementptr inbounds nuw i8, ptr %910, i64 16
   %912 = load i64, ptr %911, align 8
   %.not9451131.not.i = icmp eq i64 %912, 0
@@ -5638,7 +5553,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 .lr.ph1133.i:                                     ; preds = %913, %.lr.ph1133.preheader.i
   %917 = phi ptr [ %931, %913 ], [ %.pre1225.i, %.lr.ph1133.preheader.i ]
   %.07411132.i = phi i64 [ %914, %913 ], [ 0, %.lr.ph1133.preheader.i ]
-  %918 = getelementptr inbounds nuw ptr, ptr %917, i64 %.07411132.i
+  %918 = getelementptr inbounds nuw [8 x i8], ptr %917, i64 %.07411132.i
   %919 = load ptr, ptr %918, align 8
   %.not943.i = icmp eq ptr %919, null
   br i1 %.not943.i, label %.loopexit, label %920
@@ -5651,14 +5566,14 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 924:                                              ; preds = %920
   %925 = load ptr, ptr %791, align 8
-  %926 = getelementptr %struct.cgltf_node, ptr %925, i64 %921
+  %926 = getelementptr [264 x i8], ptr %925, i64 %921
   %927 = getelementptr i8, ptr %926, i64 -264
   store ptr %927, ptr %918, align 8
   %928 = load ptr, ptr %790, align 8
-  %929 = getelementptr inbounds nuw %struct.cgltf_scene, ptr %928, i64 %.07421135.i
+  %929 = getelementptr inbounds nuw [64 x i8], ptr %928, i64 %.07421135.i
   %930 = getelementptr inbounds nuw i8, ptr %929, i64 8
   %931 = load ptr, ptr %930, align 8
-  %932 = getelementptr inbounds nuw ptr, ptr %931, i64 %.07411132.i
+  %932 = getelementptr inbounds nuw [8 x i8], ptr %931, i64 %.07411132.i
   %933 = load ptr, ptr %932, align 8
   %934 = getelementptr inbounds nuw i8, ptr %933, i64 8
   %935 = load ptr, ptr %934, align 8
@@ -5691,7 +5606,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 946:                                              ; preds = %943
   %947 = getelementptr inbounds nuw i8, ptr %38, i64 280
   %948 = load ptr, ptr %947, align 8
-  %949 = getelementptr %struct.cgltf_scene, ptr %948, i64 %944
+  %949 = getelementptr [64 x i8], ptr %948, i64 %944
   %950 = getelementptr i8, ptr %949, i64 -64
   store ptr %950, ptr %941, align 8
   br label %951
@@ -5712,7 +5627,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 .preheader1024.i:                                 ; preds = %._crit_edge1144.i, %.preheader1024.lr.ph.i
   %957 = phi ptr [ %.pre1220.i, %.preheader1024.lr.ph.i ], [ %1035, %._crit_edge1144.i ]
   %.07401145.i = phi i64 [ 0, %.preheader1024.lr.ph.i ], [ %1036, %._crit_edge1144.i ]
-  %958 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %957, i64 %.07401145.i
+  %958 = getelementptr inbounds nuw [80 x i8], ptr %957, i64 %.07401145.i
   %959 = getelementptr inbounds nuw i8, ptr %958, i64 16
   %960 = load i64, ptr %959, align 8
   %.not9491137.not.i = icmp eq i64 %960, 0
@@ -5720,7 +5635,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 .preheader.i:                                     ; preds = %990, %.preheader1024.i
   %961 = phi ptr [ %957, %.preheader1024.i ], [ %995, %990 ]
-  %962 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %961, i64 %.07401145.i
+  %962 = getelementptr inbounds nuw [80 x i8], ptr %961, i64 %.07401145.i
   %963 = getelementptr inbounds nuw i8, ptr %962, i64 32
   %964 = load i64, ptr %963, align 8
   %.not9521141.not.i = icmp eq i64 %964, 0
@@ -5729,10 +5644,10 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 .lr.ph1139.i:                                     ; preds = %.preheader1024.i, %990
   %965 = phi ptr [ %995, %990 ], [ %957, %.preheader1024.i ]
   %.07391138.i = phi i64 [ %994, %990 ], [ 0, %.preheader1024.i ]
-  %966 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %965, i64 %.07401145.i
+  %966 = getelementptr inbounds nuw [80 x i8], ptr %965, i64 %.07401145.i
   %967 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %968 = load ptr, ptr %967, align 8
-  %969 = getelementptr inbounds nuw %struct.cgltf_animation_sampler, ptr %968, i64 %.07391138.i
+  %969 = getelementptr inbounds nuw [64 x i8], ptr %968, i64 %.07391138.i
   %970 = load ptr, ptr %969, align 8
   %.not947.i = icmp eq ptr %970, null
   br i1 %.not947.i, label %.loopexit, label %971
@@ -5745,14 +5660,14 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 975:                                              ; preds = %971
   %976 = load ptr, ptr %955, align 8
-  %977 = getelementptr %struct.cgltf_accessor, ptr %976, i64 %972
+  %977 = getelementptr [288 x i8], ptr %976, i64 %972
   %978 = getelementptr i8, ptr %977, i64 -288
   store ptr %978, ptr %969, align 8
   %979 = load ptr, ptr %954, align 8
-  %980 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %979, i64 %.07401145.i
+  %980 = getelementptr inbounds nuw [80 x i8], ptr %979, i64 %.07401145.i
   %981 = getelementptr inbounds nuw i8, ptr %980, i64 8
   %982 = load ptr, ptr %981, align 8
-  %983 = getelementptr inbounds nuw %struct.cgltf_animation_sampler, ptr %982, i64 %.07391138.i
+  %983 = getelementptr inbounds nuw [64 x i8], ptr %982, i64 %.07391138.i
   %984 = getelementptr inbounds nuw i8, ptr %983, i64 8
   %985 = load ptr, ptr %984, align 8
   %.not948.i = icmp eq ptr %985, null
@@ -5766,12 +5681,12 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 990:                                              ; preds = %986
   %991 = load ptr, ptr %955, align 8
-  %992 = getelementptr %struct.cgltf_accessor, ptr %991, i64 %987
+  %992 = getelementptr [288 x i8], ptr %991, i64 %987
   %993 = getelementptr i8, ptr %992, i64 -288
   store ptr %993, ptr %984, align 8
   %994 = add nuw i64 %.07391138.i, 1
   %995 = load ptr, ptr %954, align 8
-  %996 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %995, i64 %.07401145.i
+  %996 = getelementptr inbounds nuw [80 x i8], ptr %995, i64 %.07401145.i
   %997 = getelementptr inbounds nuw i8, ptr %996, i64 16
   %998 = load i64, ptr %997, align 8
   %.not949.i = icmp ult i64 %994, %998
@@ -5782,7 +5697,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
   %.01142.i = phi i64 [ %1031, %1029 ], [ 0, %.preheader.i ]
   %1000 = getelementptr inbounds nuw i8, ptr %999, i64 24
   %1001 = load ptr, ptr %1000, align 8
-  %1002 = getelementptr inbounds nuw %struct.cgltf_animation_channel, ptr %1001, i64 %.01142.i
+  %1002 = getelementptr inbounds nuw [64 x i8], ptr %1001, i64 %.01142.i
   %1003 = load ptr, ptr %1002, align 8
   %.not950.i = icmp eq ptr %1003, null
   br i1 %.not950.i, label %.loopexit, label %1004
@@ -5797,14 +5712,14 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 1009:                                             ; preds = %1004
   %1010 = getelementptr inbounds nuw i8, ptr %999, i64 8
   %1011 = load ptr, ptr %1010, align 8
-  %1012 = getelementptr %struct.cgltf_animation_sampler, ptr %1011, i64 %1005
+  %1012 = getelementptr [64 x i8], ptr %1011, i64 %1005
   %1013 = getelementptr i8, ptr %1012, i64 -64
   store ptr %1013, ptr %1002, align 8
   %1014 = load ptr, ptr %954, align 8
-  %1015 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %1014, i64 %.07401145.i
+  %1015 = getelementptr inbounds nuw [80 x i8], ptr %1014, i64 %.07401145.i
   %1016 = getelementptr inbounds nuw i8, ptr %1015, i64 24
   %1017 = load ptr, ptr %1016, align 8
-  %1018 = getelementptr inbounds nuw %struct.cgltf_animation_channel, ptr %1017, i64 %.01142.i
+  %1018 = getelementptr inbounds nuw [64 x i8], ptr %1017, i64 %.01142.i
   %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 8
   %1020 = load ptr, ptr %1019, align 8
   %.not951.i = icmp eq ptr %1020, null
@@ -5818,7 +5733,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 
 1025:                                             ; preds = %1021
   %1026 = load ptr, ptr %956, align 8
-  %1027 = getelementptr %struct.cgltf_node, ptr %1026, i64 %1022
+  %1027 = getelementptr [264 x i8], ptr %1026, i64 %1022
   %1028 = getelementptr i8, ptr %1027, i64 -264
   store ptr %1028, ptr %1019, align 8
   %.pre1221.i = load ptr, ptr %954, align 8
@@ -5827,7 +5742,7 @@ cgltf_calc_size.exit.i:                           ; preds = %cgltf_num_component
 1029:                                             ; preds = %1025, %1009
   %1030 = phi ptr [ %1014, %1009 ], [ %.pre1221.i, %1025 ]
   %1031 = add nuw i64 %.01142.i, 1
-  %1032 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %1030, i64 %.07401145.i
+  %1032 = getelementptr inbounds nuw [80 x i8], ptr %1030, i64 %.07401145.i
   %1033 = getelementptr inbounds nuw i8, ptr %1032, i64 32
   %1034 = load i64, ptr %1033, align 8
   %.not952.i = icmp ult i64 %1031, %1034
@@ -6449,7 +6364,7 @@ define hidden i32 @cgltf_load_buffers(ptr noundef %0, ptr noundef readonly captu
 40:                                               ; preds = %.lr.ph, %189
   %.055113 = phi i64 [ 0, %.lr.ph ], [ %190, %189 ]
   %41 = load ptr, ptr %33, align 8
-  %42 = getelementptr inbounds nuw %struct.cgltf_buffer, ptr %41, i64 %.055113
+  %42 = getelementptr inbounds nuw [80 x i8], ptr %41, i64 %.055113
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
   %.not69 = icmp eq ptr %44, null
@@ -6585,7 +6500,7 @@ define hidden i32 @cgltf_load_buffers(ptr noundef %0, ptr noundef readonly captu
 .loopexit:                                        ; preds = %._crit_edge.i, %.preheader62.i
   store ptr %68, ptr %43, align 8
   %101 = load ptr, ptr %33, align 8
-  %102 = getelementptr inbounds nuw %struct.cgltf_buffer, ptr %101, i64 %.055113
+  %102 = getelementptr inbounds nuw [80 x i8], ptr %101, i64 %.055113
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
   store i32 2, ptr %103, align 8
   br label %189
@@ -6754,7 +6669,7 @@ cgltf_load_buffer_file.exit:                      ; preds = %139
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %186 = load ptr, ptr %33, align 8
-  %187 = getelementptr inbounds nuw %struct.cgltf_buffer, ptr %186, i64 %.055113
+  %187 = getelementptr inbounds nuw [80 x i8], ptr %186, i64 %.055113
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 32
   store i32 1, ptr %188, align 8
   br i1 %183, label %189, label %.thread
@@ -6769,7 +6684,7 @@ cgltf_load_buffer_file.exit:                      ; preds = %139
   %.sink = phi i32 [ 1, %cgltf_load_buffer_file.exit.thread ], [ 2, %98 ], [ 2, %62 ]
   %.0.ph = phi i32 [ 8, %cgltf_load_buffer_file.exit.thread ], [ 7, %98 ], [ 8, %62 ]
   %193 = load ptr, ptr %33, align 8
-  %194 = getelementptr inbounds nuw %struct.cgltf_buffer, ptr %193, i64 %.055113
+  %194 = getelementptr inbounds nuw [80 x i8], ptr %193, i64 %.055113
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
   store i32 %.sink, ptr %195, align 8
   br label %.thread
@@ -6810,7 +6725,7 @@ define hidden range(i32 0, 5) i32 @cgltf_validate(ptr noundef readonly captures(
 
 10:                                               ; preds = %.lr.ph, %.thread482
   %.0309609 = phi i64 [ 0, %.lr.ph ], [ %103, %.thread482 ]
-  %11 = getelementptr inbounds nuw %struct.cgltf_accessor, ptr %5, i64 %.0309609
+  %11 = getelementptr inbounds nuw [288 x i8], ptr %5, i64 %.0309609
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
@@ -6918,7 +6833,7 @@ cgltf_calc_size.exit:                             ; preds = %cgltf_component_siz
 
 switch.lookup:                                    ; preds = %50
   %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.cgltf_accessor_unpack_indices, i64 %55
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cgltf_accessor_unpack_indices, i64 %55
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %cgltf_component_size.exit
 
@@ -7000,7 +6915,7 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
 .lr.ph9.i:                                        ; preds = %.preheader1.i, %.lr.ph9.i
   %.28.i = phi i64 [ %94, %.lr.ph9.i ], [ 0, %.preheader1.i ]
   %.0337.i = phi i64 [ %95, %.lr.ph9.i ], [ 0, %.preheader1.i ]
-  %91 = getelementptr inbounds nuw i16, ptr %85, i64 %.0337.i
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %.0337.i
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i64
   %94 = tail call i64 @llvm.umax.i64(i64 %.28.i, i64 %93)
@@ -7011,7 +6926,7 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
 .lr.ph.i:                                         ; preds = %.preheader3.i, %.lr.ph.i
   %.36.i = phi i64 [ %99, %.lr.ph.i ], [ 0, %.preheader3.i ]
   %.0315.i = phi i64 [ %100, %.lr.ph.i ], [ 0, %.preheader3.i ]
-  %96 = getelementptr inbounds nuw i32, ptr %85, i64 %.0315.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %.0315.i
   %97 = load i32, ptr %96, align 4
   %98 = zext i32 %97 to i64
   %99 = tail call i64 @llvm.umax.i64(i64 %.36.i, i64 %98)
@@ -7045,7 +6960,7 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
 
 109:                                              ; preds = %.lr.ph611, %.thread502
   %.0350610 = phi i64 [ 0, %.lr.ph611 ], [ %166, %.thread502 ]
-  %110 = getelementptr inbounds nuw %struct.cgltf_buffer_view, ptr %9, i64 %.0350610
+  %110 = getelementptr inbounds nuw [152 x i8], ptr %9, i64 %.0350610
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
   %.not386 = icmp eq ptr %112, null
@@ -7181,7 +7096,7 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
 
 171:                                              ; preds = %.lr.ph627, %._crit_edge625
   %.0351626 = phi i64 [ 0, %.lr.ph627 ], [ %295, %._crit_edge625 ]
-  %172 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %107, i64 %.0351626
+  %172 = getelementptr inbounds nuw [96 x i8], ptr %107, i64 %.0351626
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %174 = load ptr, ptr %173, align 8
   %.not398 = icmp eq ptr %174, null
@@ -7236,7 +7151,7 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
 
 200:                                              ; preds = %.lr.ph624, %._crit_edge621
   %.0355622 = phi i64 [ 0, %.lr.ph624 ], [ %294, %._crit_edge621 ]
-  %201 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %198, i64 %.0355622
+  %201 = getelementptr inbounds nuw [144 x i8], ptr %198, i64 %.0355622
   %202 = load i32, ptr %201, align 8
   %203 = icmp eq i32 %202, 0
   br i1 %203, label %.thread487, label %204
@@ -7280,7 +7195,7 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
 
 .preheader587:                                    ; preds = %212, %220
   %.0354612 = phi i64 [ %221, %220 ], [ 0, %212 ]
-  %224 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %214, i64 %.0354612
+  %224 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.0354612
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 32
@@ -7290,7 +7205,7 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
 
 .preheader581:                                    ; preds = %.preheader581.lr.ph, %._crit_edge
   %.0353616 = phi i64 [ 0, %.preheader581.lr.ph ], [ %241, %._crit_edge ]
-  %229 = getelementptr inbounds nuw %struct.cgltf_morph_target, ptr %223, i64 %.0353616
+  %229 = getelementptr inbounds nuw [16 x i8], ptr %223, i64 %.0353616
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %231 = load i64, ptr %230, align 8
   %.not408613.not = icmp eq i64 %231, 0
@@ -7307,7 +7222,7 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
 
 235:                                              ; preds = %.lr.ph615, %233
   %.0352614 = phi i64 [ 0, %.lr.ph615 ], [ %234, %233 ]
-  %236 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %232, i64 %.0352614
+  %236 = getelementptr inbounds nuw [24 x i8], ptr %232, i64 %.0352614
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 16
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 32
@@ -7345,7 +7260,7 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
   %250 = getelementptr inbounds nuw i8, ptr %243, i64 40
   %251 = load i64, ptr %250, align 8
   %252 = sext i32 %246 to i64
-  %253 = getelementptr i64, ptr @switch.table.cgltf_validate.28, i64 %252
+  %253 = getelementptr [8 x i8], ptr @switch.table.cgltf_validate.28, i64 %252
   %switch.gep820 = getelementptr i8, ptr %253, i64 -16
   %switch.load821 = load i64, ptr %switch.gep820, align 8
   %.not414 = icmp eq i64 %251, %switch.load821
@@ -7406,7 +7321,7 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
 .lr.ph9.i468:                                     ; preds = %.preheader1.i466, %.lr.ph9.i468
   %.28.i469 = phi i64 [ %277, %.lr.ph9.i468 ], [ 0, %.preheader1.i466 ]
   %.0337.i470 = phi i64 [ %278, %.lr.ph9.i468 ], [ 0, %.preheader1.i466 ]
-  %274 = getelementptr inbounds nuw i16, ptr %268, i64 %.0337.i470
+  %274 = getelementptr inbounds nuw [2 x i8], ptr %268, i64 %.0337.i470
   %275 = load i16, ptr %274, align 2
   %276 = zext i16 %275 to i64
   %277 = tail call i64 @llvm.umax.i64(i64 %.28.i469, i64 %276)
@@ -7417,7 +7332,7 @@ cgltf_component_size.exit:                        ; preds = %50, %switch.lookup
 .lr.ph.i461:                                      ; preds = %.preheader3.i459, %.lr.ph.i461
   %.36.i462 = phi i64 [ %282, %.lr.ph.i461 ], [ 0, %.preheader3.i459 ]
   %.0315.i463 = phi i64 [ %283, %.lr.ph.i461 ], [ 0, %.preheader3.i459 ]
-  %279 = getelementptr inbounds nuw i32, ptr %268, i64 %.0315.i463
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %268, i64 %.0315.i463
   %280 = load i32, ptr %279, align 4
   %281 = zext i32 %280 to i64
   %282 = tail call i64 @llvm.umax.i64(i64 %.36.i462, i64 %281)
@@ -7449,7 +7364,7 @@ cgltf_calc_index_bound.exit478:                   ; preds = %.lr.ph.i461, %.lr.p
 
 291:                                              ; preds = %.lr.ph620, %289
   %.0349619 = phi i64 [ 0, %.lr.ph620 ], [ %290, %289 ]
-  %292 = getelementptr inbounds nuw %struct.cgltf_material_mapping, ptr %287, i64 %.0349619
+  %292 = getelementptr inbounds nuw [40 x i8], ptr %287, i64 %.0349619
   %293 = load i64, ptr %292, align 8
   %.not418 = icmp ult i64 %293, %288
   br i1 %.not418, label %289, label %.thread487
@@ -7471,7 +7386,7 @@ cgltf_calc_index_bound.exit478:                   ; preds = %.lr.ph.i461, %.lr.p
 
 298:                                              ; preds = %.lr.ph630, %.loopexit
   %.0348629 = phi i64 [ 0, %.lr.ph630 ], [ %341, %.loopexit ]
-  %299 = getelementptr inbounds nuw %struct.cgltf_node, ptr %170, i64 %.0348629
+  %299 = getelementptr inbounds nuw [264 x i8], ptr %170, i64 %.0348629
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 64
   %301 = load ptr, ptr %300, align 8
   %.not420 = icmp eq ptr %301, null
@@ -7533,7 +7448,7 @@ cgltf_calc_index_bound.exit478:                   ; preds = %.lr.ph.i461, %.lr.p
 
 335:                                              ; preds = %326, %333
   %.0317628 = phi i64 [ 0, %326 ], [ %334, %333 ]
-  %336 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %328, i64 %.0317628
+  %336 = getelementptr inbounds nuw [24 x i8], ptr %328, i64 %.0317628
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %338 = load ptr, ptr %337, align 8
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 32
@@ -7559,7 +7474,7 @@ cgltf_calc_index_bound.exit478:                   ; preds = %.lr.ph.i461, %.lr.p
 
 346:                                              ; preds = %.lr.ph638, %._crit_edge636
   %.0316637 = phi i64 [ 0, %.lr.ph638 ], [ %365, %._crit_edge636 ]
-  %347 = getelementptr inbounds nuw %struct.cgltf_node, ptr %297, i64 %.0316637
+  %347 = getelementptr inbounds nuw [264 x i8], ptr %297, i64 %.0316637
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
   %349 = load ptr, ptr %348, align 8
   %.not427 = icmp eq ptr %349, null
@@ -7600,7 +7515,7 @@ cgltf_calc_index_bound.exit478:                   ; preds = %.lr.ph.i461, %.lr.p
 
 .preheader573:                                    ; preds = %.preheader573.lr.ph, %._crit_edge642
   %.0313643 = phi i64 [ 0, %.preheader573.lr.ph ], [ %382, %._crit_edge642 ]
-  %366 = getelementptr inbounds nuw %struct.cgltf_scene, ptr %345, i64 %.0313643
+  %366 = getelementptr inbounds nuw [64 x i8], ptr %345, i64 %.0313643
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 16
   %368 = load i64, ptr %367, align 8
   %.not433639.not = icmp eq i64 %368, 0
@@ -7629,7 +7544,7 @@ cgltf_calc_index_bound.exit478:                   ; preds = %.lr.ph.i461, %.lr.p
 
 377:                                              ; preds = %.lr.ph641, %375
   %.0312640 = phi i64 [ 0, %.lr.ph641 ], [ %376, %375 ]
-  %378 = getelementptr inbounds nuw ptr, ptr %370, i64 %.0312640
+  %378 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %.0312640
   %379 = load ptr, ptr %378, align 8
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 8
   %381 = load ptr, ptr %380, align 8
@@ -7643,7 +7558,7 @@ cgltf_calc_index_bound.exit478:                   ; preds = %.lr.ph.i461, %.lr.p
 
 .preheader570:                                    ; preds = %.preheader570.lr.ph, %._crit_edge646
   %.0311647 = phi i64 [ 0, %.preheader570.lr.ph ], [ %427, %._crit_edge646 ]
-  %383 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %374, i64 %.0311647
+  %383 = getelementptr inbounds nuw [80 x i8], ptr %374, i64 %.0311647
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 32
   %385 = load i64, ptr %384, align 8
   %.not662 = icmp eq i64 %385, 0
@@ -7667,7 +7582,7 @@ cgltf_calc_index_bound.exit478:                   ; preds = %.lr.ph.i461, %.lr.p
 
 392:                                              ; preds = %.lr.ph645, %select.unfold
   %.0310644 = phi i64 [ 0, %.lr.ph645 ], [ %426, %select.unfold ]
-  %393 = getelementptr inbounds nuw %struct.cgltf_animation_channel, ptr %387, i64 %.0310644
+  %393 = getelementptr inbounds nuw [64 x i8], ptr %387, i64 %.0310644
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 8
   %395 = load ptr, ptr %394, align 8
   %.not434 = icmp eq ptr %395, null
@@ -7734,7 +7649,7 @@ select.unfold:                                    ; preds = %411, %392
 
 430:                                              ; preds = %.lr.ph649, %428
   %.0648 = phi i64 [ 0, %.lr.ph649 ], [ %429, %428 ]
-  %431 = getelementptr inbounds nuw %struct.cgltf_material_variant, ptr %391, i64 %.0648
+  %431 = getelementptr inbounds nuw [32 x i8], ptr %391, i64 %.0648
   %432 = load ptr, ptr %431, align 8
   %.not438 = icmp eq ptr %432, null
   br i1 %.not438, label %.thread487, label %428
@@ -7815,7 +7730,7 @@ define hidden range(i64 0, 5) i64 @cgltf_component_size(i32 noundef %0) local_un
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.cgltf_accessor_unpack_indices, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cgltf_accessor_unpack_indices, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -7919,7 +7834,7 @@ define hidden void @cgltf_free(ptr noundef %0) local_unnamed_addr #0 {
   %.013.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %2 ]
   %29 = load ptr, ptr %7, align 8
   %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %26, i64 %.013.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %.013.i
   %32 = load ptr, ptr %31, align 8
   tail call void %29(ptr noundef %30, ptr noundef %32) #63
   %33 = load ptr, ptr %7, align 8
@@ -7969,11 +7884,11 @@ cgltf_free_extensions.exit:                       ; preds = %.lr.ph.i, %2
   %52 = load ptr, ptr %7, align 8
   %53 = load ptr, ptr %9, align 8
   %54 = load ptr, ptr %43, align 8
-  %55 = getelementptr inbounds nuw %struct.cgltf_accessor, ptr %54, i64 %.0559732
+  %55 = getelementptr inbounds nuw [288 x i8], ptr %54, i64 %.0559732
   %56 = load ptr, ptr %55, align 8
   tail call void %52(ptr noundef %53, ptr noundef %56) #63
   %57 = load ptr, ptr %43, align 8
-  %58 = getelementptr inbounds nuw %struct.cgltf_accessor, ptr %57, i64 %.0559732
+  %58 = getelementptr inbounds nuw [288 x i8], ptr %57, i64 %.0559732
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 280
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 272
@@ -7985,7 +7900,7 @@ cgltf_free_extensions.exit:                       ; preds = %.lr.ph.i, %2
   %.013.i637 = phi i64 [ %71, %.lr.ph.i636 ], [ 0, %51 ]
   %63 = load ptr, ptr %7, align 8
   %64 = load ptr, ptr %9, align 8
-  %65 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %60, i64 %.013.i637
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %.013.i637
   %66 = load ptr, ptr %65, align 8
   tail call void %63(ptr noundef %64, ptr noundef %66) #63
   %67 = load ptr, ptr %7, align 8
@@ -8002,7 +7917,7 @@ cgltf_free_extensions.exit639:                    ; preds = %.lr.ph.i636, %51
   %73 = load ptr, ptr %9, align 8
   tail call void %72(ptr noundef %73, ptr noundef %60) #63
   %74 = load ptr, ptr %43, align 8
-  %75 = getelementptr inbounds nuw %struct.cgltf_accessor, ptr %74, i64 %.0559732
+  %75 = getelementptr inbounds nuw [288 x i8], ptr %74, i64 %.0559732
   %.val569 = load ptr, ptr %7, align 8
   %.val570 = load ptr, ptr %9, align 8
   %76 = getelementptr i8, ptr %75, i64 264
@@ -8033,18 +7948,18 @@ cgltf_free_extensions.exit639:                    ; preds = %.lr.ph.i636, %51
   %88 = load ptr, ptr %7, align 8
   %89 = load ptr, ptr %9, align 8
   %90 = load ptr, ptr %50, align 8
-  %91 = getelementptr inbounds nuw %struct.cgltf_buffer_view, ptr %90, i64 %.0558733
+  %91 = getelementptr inbounds nuw [152 x i8], ptr %90, i64 %.0558733
   %92 = load ptr, ptr %91, align 8
   tail call void %88(ptr noundef %89, ptr noundef %92) #63
   %93 = load ptr, ptr %7, align 8
   %94 = load ptr, ptr %9, align 8
   %95 = load ptr, ptr %50, align 8
-  %96 = getelementptr inbounds nuw %struct.cgltf_buffer_view, ptr %95, i64 %.0558733
+  %96 = getelementptr inbounds nuw [152 x i8], ptr %95, i64 %.0558733
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = load ptr, ptr %97, align 8
   tail call void %93(ptr noundef %94, ptr noundef %98) #63
   %99 = load ptr, ptr %50, align 8
-  %100 = getelementptr inbounds nuw %struct.cgltf_buffer_view, ptr %99, i64 %.0558733
+  %100 = getelementptr inbounds nuw [152 x i8], ptr %99, i64 %.0558733
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 144
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 136
@@ -8056,7 +7971,7 @@ cgltf_free_extensions.exit639:                    ; preds = %.lr.ph.i636, %51
   %.013.i642 = phi i64 [ %113, %.lr.ph.i641 ], [ 0, %87 ]
   %105 = load ptr, ptr %7, align 8
   %106 = load ptr, ptr %9, align 8
-  %107 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %102, i64 %.013.i642
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %.013.i642
   %108 = load ptr, ptr %107, align 8
   tail call void %105(ptr noundef %106, ptr noundef %108) #63
   %109 = load ptr, ptr %7, align 8
@@ -8073,7 +7988,7 @@ cgltf_free_extensions.exit644:                    ; preds = %.lr.ph.i641, %87
   %115 = load ptr, ptr %9, align 8
   tail call void %114(ptr noundef %115, ptr noundef %102) #63
   %116 = load ptr, ptr %50, align 8
-  %117 = getelementptr inbounds nuw %struct.cgltf_buffer_view, ptr %116, i64 %.0558733
+  %117 = getelementptr inbounds nuw [152 x i8], ptr %116, i64 %.0558733
   %.val572 = load ptr, ptr %7, align 8
   %.val573 = load ptr, ptr %9, align 8
   %118 = getelementptr i8, ptr %117, i64 128
@@ -8104,11 +8019,11 @@ cgltf_free_extensions.exit644:                    ; preds = %.lr.ph.i641, %87
   %130 = load ptr, ptr %7, align 8
   %131 = load ptr, ptr %9, align 8
   %132 = load ptr, ptr %86, align 8
-  %133 = getelementptr inbounds nuw %struct.cgltf_buffer, ptr %132, i64 %.0557737
+  %133 = getelementptr inbounds nuw [80 x i8], ptr %132, i64 %.0557737
   %134 = load ptr, ptr %133, align 8
   tail call void %130(ptr noundef %131, ptr noundef %134) #63
   %135 = load ptr, ptr %86, align 8
-  %136 = getelementptr inbounds nuw %struct.cgltf_buffer, ptr %135, i64 %.0557737
+  %136 = getelementptr inbounds nuw [80 x i8], ptr %135, i64 %.0557737
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %138 = load i32, ptr %137, align 8
   switch i32 %138, label %147 [
@@ -8134,12 +8049,12 @@ cgltf_free_extensions.exit644:                    ; preds = %.lr.ph.i641, %87
   %148 = load ptr, ptr %7, align 8
   %149 = load ptr, ptr %9, align 8
   %150 = load ptr, ptr %86, align 8
-  %151 = getelementptr inbounds nuw %struct.cgltf_buffer, ptr %150, i64 %.0557737
+  %151 = getelementptr inbounds nuw [80 x i8], ptr %150, i64 %.0557737
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load ptr, ptr %152, align 8
   tail call void %148(ptr noundef %149, ptr noundef %153) #63
   %154 = load ptr, ptr %86, align 8
-  %155 = getelementptr inbounds nuw %struct.cgltf_buffer, ptr %154, i64 %.0557737
+  %155 = getelementptr inbounds nuw [80 x i8], ptr %154, i64 %.0557737
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 72
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 64
@@ -8151,7 +8066,7 @@ cgltf_free_extensions.exit644:                    ; preds = %.lr.ph.i641, %87
   %.013.i647 = phi i64 [ %168, %.lr.ph.i646 ], [ 0, %147 ]
   %160 = load ptr, ptr %7, align 8
   %161 = load ptr, ptr %9, align 8
-  %162 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %157, i64 %.013.i647
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %157, i64 %.013.i647
   %163 = load ptr, ptr %162, align 8
   tail call void %160(ptr noundef %161, ptr noundef %163) #63
   %164 = load ptr, ptr %7, align 8
@@ -8168,7 +8083,7 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
   %170 = load ptr, ptr %9, align 8
   tail call void %169(ptr noundef %170, ptr noundef %157) #63
   %171 = load ptr, ptr %86, align 8
-  %172 = getelementptr inbounds nuw %struct.cgltf_buffer, ptr %171, i64 %.0557737
+  %172 = getelementptr inbounds nuw [80 x i8], ptr %171, i64 %.0557737
   %.val575 = load ptr, ptr %7, align 8
   %.val576 = load ptr, ptr %9, align 8
   %173 = getelementptr i8, ptr %172, i64 56
@@ -8199,11 +8114,11 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
   %185 = load ptr, ptr %7, align 8
   %186 = load ptr, ptr %9, align 8
   %187 = load ptr, ptr %128, align 8
-  %188 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %187, i64 %.0556768
+  %188 = getelementptr inbounds nuw [96 x i8], ptr %187, i64 %.0556768
   %189 = load ptr, ptr %188, align 8
   tail call void %185(ptr noundef %186, ptr noundef %189) #63
   %190 = load ptr, ptr %128, align 8
-  %191 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %190, i64 %.0556768
+  %191 = getelementptr inbounds nuw [96 x i8], ptr %190, i64 %.0556768
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %193 = load i64, ptr %192, align 8
   %.not842 = icmp eq i64 %193, 0
@@ -8212,10 +8127,10 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
 .preheader722:                                    ; preds = %184, %cgltf_free_extensions.exit654
   %194 = phi ptr [ %360, %cgltf_free_extensions.exit654 ], [ %190, %184 ]
   %.0555760 = phi i64 [ %359, %cgltf_free_extensions.exit654 ], [ 0, %184 ]
-  %195 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %194, i64 %.0556768
+  %195 = getelementptr inbounds nuw [96 x i8], ptr %194, i64 %.0556768
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %197, i64 %.0555760
+  %198 = getelementptr inbounds nuw [144 x i8], ptr %197, i64 %.0555760
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %200 = load i64, ptr %199, align 8
   %.not843 = icmp eq i64 %200, 0
@@ -8223,7 +8138,7 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
 
 ._crit_edge761:                                   ; preds = %cgltf_free_extensions.exit654, %184
   %201 = phi ptr [ %190, %184 ], [ %360, %cgltf_free_extensions.exit654 ]
-  %202 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %201, i64 %.0556768
+  %202 = getelementptr inbounds nuw [96 x i8], ptr %201, i64 %.0556768
   %203 = load ptr, ptr %7, align 8
   %204 = load ptr, ptr %9, align 8
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 8
@@ -8232,12 +8147,12 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
   %207 = load ptr, ptr %7, align 8
   %208 = load ptr, ptr %9, align 8
   %209 = load ptr, ptr %128, align 8
-  %210 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %209, i64 %.0556768
+  %210 = getelementptr inbounds nuw [96 x i8], ptr %209, i64 %.0556768
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %212 = load ptr, ptr %211, align 8
   tail call void %207(ptr noundef %208, ptr noundef %212) #63
   %213 = load ptr, ptr %128, align 8
-  %214 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %213, i64 %.0556768
+  %214 = getelementptr inbounds nuw [96 x i8], ptr %213, i64 %.0556768
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 48
   %216 = load i64, ptr %215, align 8
   %.not848 = icmp eq i64 %216, 0
@@ -8245,17 +8160,17 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
 
 ._crit_edge743:                                   ; preds = %.lr.ph742, %.preheader722
   %217 = phi ptr [ %197, %.preheader722 ], [ %242, %.lr.ph742 ]
-  %218 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %217, i64 %.0555760
+  %218 = getelementptr inbounds nuw [144 x i8], ptr %217, i64 %.0555760
   %219 = load ptr, ptr %7, align 8
   %220 = load ptr, ptr %9, align 8
   %221 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %222 = load ptr, ptr %221, align 8
   tail call void %219(ptr noundef %220, ptr noundef %222) #63
   %223 = load ptr, ptr %128, align 8
-  %224 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %223, i64 %.0556768
+  %224 = getelementptr inbounds nuw [96 x i8], ptr %223, i64 %.0556768
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %226, i64 %.0555760
+  %227 = getelementptr inbounds nuw [144 x i8], ptr %226, i64 %.0555760
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 48
   %229 = load i64, ptr %228, align 8
   %.not844 = icmp eq i64 %229, 0
@@ -8264,20 +8179,20 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
 .lr.ph742:                                        ; preds = %.preheader722, %.lr.ph742
   %230 = phi ptr [ %242, %.lr.ph742 ], [ %197, %.preheader722 ]
   %.0554741 = phi i64 [ %238, %.lr.ph742 ], [ 0, %.preheader722 ]
-  %231 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %230, i64 %.0555760
+  %231 = getelementptr inbounds nuw [144 x i8], ptr %230, i64 %.0555760
   %232 = load ptr, ptr %7, align 8
   %233 = load ptr, ptr %9, align 8
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 24
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %235, i64 %.0554741
+  %236 = getelementptr inbounds nuw [24 x i8], ptr %235, i64 %.0554741
   %237 = load ptr, ptr %236, align 8
   tail call void %232(ptr noundef %233, ptr noundef %237) #63
   %238 = add nuw i64 %.0554741, 1
   %239 = load ptr, ptr %128, align 8
-  %240 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %239, i64 %.0556768
+  %240 = getelementptr inbounds nuw [96 x i8], ptr %239, i64 %.0556768
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %242, i64 %.0555760
+  %243 = getelementptr inbounds nuw [144 x i8], ptr %242, i64 %.0555760
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 32
   %245 = load i64, ptr %244, align 8
   %246 = icmp ult i64 %238, %245
@@ -8286,10 +8201,10 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
 .preheader720:                                    ; preds = %._crit_edge743, %._crit_edge746
   %247 = phi ptr [ %276, %._crit_edge746 ], [ %226, %._crit_edge743 ]
   %.0553748 = phi i64 [ %272, %._crit_edge746 ], [ 0, %._crit_edge743 ]
-  %248 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %247, i64 %.0555760
+  %248 = getelementptr inbounds nuw [144 x i8], ptr %247, i64 %.0555760
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 40
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds nuw %struct.cgltf_morph_target, ptr %250, i64 %.0553748
+  %251 = getelementptr inbounds nuw [16 x i8], ptr %250, i64 %.0553748
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load i64, ptr %252, align 8
   %.not845 = icmp eq i64 %253, 0
@@ -8297,17 +8212,17 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
 
 ._crit_edge749:                                   ; preds = %._crit_edge746, %._crit_edge743
   %254 = phi ptr [ %226, %._crit_edge743 ], [ %276, %._crit_edge746 ]
-  %255 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %254, i64 %.0555760
+  %255 = getelementptr inbounds nuw [144 x i8], ptr %254, i64 %.0555760
   %256 = load ptr, ptr %7, align 8
   %257 = load ptr, ptr %9, align 8
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 40
   %259 = load ptr, ptr %258, align 8
   tail call void %256(ptr noundef %257, ptr noundef %259) #63
   %260 = load ptr, ptr %128, align 8
-  %261 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %260, i64 %.0556768
+  %261 = getelementptr inbounds nuw [96 x i8], ptr %260, i64 %.0556768
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %263, i64 %.0555760
+  %264 = getelementptr inbounds nuw [144 x i8], ptr %263, i64 %.0555760
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 80
   %266 = load i32, ptr %265, align 8
   %.not566 = icmp eq i32 %266, 0
@@ -8327,10 +8242,10 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
   tail call void %269(ptr noundef %270, ptr noundef %271) #63
   %272 = add nuw i64 %.0553748, 1
   %273 = load ptr, ptr %128, align 8
-  %274 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %273, i64 %.0556768
+  %274 = getelementptr inbounds nuw [96 x i8], ptr %273, i64 %.0556768
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %276, i64 %.0555760
+  %277 = getelementptr inbounds nuw [144 x i8], ptr %276, i64 %.0555760
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 48
   %279 = load i64, ptr %278, align 8
   %280 = icmp ult i64 %272, %279
@@ -8342,18 +8257,18 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
   %282 = load ptr, ptr %7, align 8
   %283 = load ptr, ptr %9, align 8
   %284 = load ptr, ptr %281, align 8
-  %285 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %284, i64 %.0552744
+  %285 = getelementptr inbounds nuw [24 x i8], ptr %284, i64 %.0552744
   %286 = load ptr, ptr %285, align 8
   tail call void %282(ptr noundef %283, ptr noundef %286) #63
   %287 = add nuw i64 %.0552744, 1
   %288 = load ptr, ptr %128, align 8
-  %289 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %288, i64 %.0556768
+  %289 = getelementptr inbounds nuw [96 x i8], ptr %288, i64 %.0556768
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %291 = load ptr, ptr %290, align 8
-  %292 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %291, i64 %.0555760
+  %292 = getelementptr inbounds nuw [144 x i8], ptr %291, i64 %.0555760
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 40
   %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds nuw %struct.cgltf_morph_target, ptr %294, i64 %.0553748
+  %295 = getelementptr inbounds nuw [16 x i8], ptr %294, i64 %.0553748
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %297 = load i64, ptr %296, align 8
   %298 = icmp ult i64 %287, %297
@@ -8361,14 +8276,14 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
 
 ._crit_edge753:                                   ; preds = %.lr.ph752, %.preheader721
   %299 = phi ptr [ %263, %.preheader721 ], [ %317, %.lr.ph752 ]
-  %300 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %299, i64 %.0555760
+  %300 = getelementptr inbounds nuw [144 x i8], ptr %299, i64 %.0555760
   %301 = load ptr, ptr %7, align 8
   %302 = load ptr, ptr %9, align 8
   %303 = getelementptr inbounds nuw i8, ptr %300, i64 96
   %304 = load ptr, ptr %303, align 8
   tail call void %301(ptr noundef %302, ptr noundef %304) #63
   %.pre = load ptr, ptr %128, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %.pre, i64 %.0556768
+  %.phi.trans.insert = getelementptr inbounds nuw [96 x i8], ptr %.pre, i64 %.0556768
   %.phi.trans.insert874 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre875 = load ptr, ptr %.phi.trans.insert874, align 8
   br label %322
@@ -8376,20 +8291,20 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
 .lr.ph752:                                        ; preds = %.preheader721, %.lr.ph752
   %305 = phi ptr [ %317, %.lr.ph752 ], [ %263, %.preheader721 ]
   %.0551751 = phi i64 [ %313, %.lr.ph752 ], [ 0, %.preheader721 ]
-  %306 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %305, i64 %.0555760
+  %306 = getelementptr inbounds nuw [144 x i8], ptr %305, i64 %.0555760
   %307 = load ptr, ptr %7, align 8
   %308 = load ptr, ptr %9, align 8
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 96
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %310, i64 %.0551751
+  %311 = getelementptr inbounds nuw [24 x i8], ptr %310, i64 %.0551751
   %312 = load ptr, ptr %311, align 8
   tail call void %307(ptr noundef %308, ptr noundef %312) #63
   %313 = add nuw i64 %.0551751, 1
   %314 = load ptr, ptr %128, align 8
-  %315 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %314, i64 %.0556768
+  %315 = getelementptr inbounds nuw [96 x i8], ptr %314, i64 %.0556768
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
   %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %317, i64 %.0555760
+  %318 = getelementptr inbounds nuw [144 x i8], ptr %317, i64 %.0555760
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 104
   %320 = load i64, ptr %319, align 8
   %321 = icmp ult i64 %313, %320
@@ -8397,7 +8312,7 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
 
 322:                                              ; preds = %._crit_edge753, %._crit_edge749
   %323 = phi ptr [ %.pre875, %._crit_edge753 ], [ %263, %._crit_edge749 ]
-  %324 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %323, i64 %.0555760
+  %324 = getelementptr inbounds nuw [144 x i8], ptr %323, i64 %.0555760
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 120
   %326 = load i64, ptr %325, align 8
   %.not847 = icmp eq i64 %326, 0
@@ -8405,17 +8320,17 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
 
 ._crit_edge758:                                   ; preds = %.lr.ph757, %322
   %327 = phi ptr [ %323, %322 ], [ %375, %.lr.ph757 ]
-  %328 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %327, i64 %.0555760
+  %328 = getelementptr inbounds nuw [144 x i8], ptr %327, i64 %.0555760
   %329 = load ptr, ptr %7, align 8
   %330 = load ptr, ptr %9, align 8
   %331 = getelementptr inbounds nuw i8, ptr %328, i64 112
   %332 = load ptr, ptr %331, align 8
   tail call void %329(ptr noundef %330, ptr noundef %332) #63
   %333 = load ptr, ptr %128, align 8
-  %334 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %333, i64 %.0556768
+  %334 = getelementptr inbounds nuw [96 x i8], ptr %333, i64 %.0556768
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
   %336 = load ptr, ptr %335, align 8
-  %337 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %336, i64 %.0555760
+  %337 = getelementptr inbounds nuw [144 x i8], ptr %336, i64 %.0555760
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 136
   %339 = load ptr, ptr %338, align 8
   %340 = getelementptr inbounds nuw i8, ptr %337, i64 128
@@ -8427,7 +8342,7 @@ cgltf_free_extensions.exit649:                    ; preds = %.lr.ph.i646, %147
   %.013.i652 = phi i64 [ %350, %.lr.ph.i651 ], [ 0, %._crit_edge758 ]
   %342 = load ptr, ptr %7, align 8
   %343 = load ptr, ptr %9, align 8
-  %344 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %339, i64 %.013.i652
+  %344 = getelementptr inbounds nuw [16 x i8], ptr %339, i64 %.013.i652
   %345 = load ptr, ptr %344, align 8
   tail call void %342(ptr noundef %343, ptr noundef %345) #63
   %346 = load ptr, ptr %7, align 8
@@ -8444,10 +8359,10 @@ cgltf_free_extensions.exit654:                    ; preds = %.lr.ph.i651, %._cri
   %352 = load ptr, ptr %9, align 8
   tail call void %351(ptr noundef %352, ptr noundef %339) #63
   %353 = load ptr, ptr %128, align 8
-  %354 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %353, i64 %.0556768
+  %354 = getelementptr inbounds nuw [96 x i8], ptr %353, i64 %.0556768
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8
-  %357 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %356, i64 %.0555760
+  %357 = getelementptr inbounds nuw [144 x i8], ptr %356, i64 %.0555760
   %.val581 = load ptr, ptr %7, align 8
   %.val582 = load ptr, ptr %9, align 8
   %358 = getelementptr i8, ptr %357, i64 72
@@ -8455,7 +8370,7 @@ cgltf_free_extensions.exit654:                    ; preds = %.lr.ph.i651, %._cri
   tail call void %.val581(ptr noundef %.val582, ptr noundef %.val583) #63
   %359 = add nuw i64 %.0555760, 1
   %360 = load ptr, ptr %128, align 8
-  %361 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %360, i64 %.0556768
+  %361 = getelementptr inbounds nuw [96 x i8], ptr %360, i64 %.0556768
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 16
   %363 = load i64, ptr %362, align 8
   %364 = icmp ult i64 %359, %363
@@ -8464,10 +8379,10 @@ cgltf_free_extensions.exit654:                    ; preds = %.lr.ph.i651, %._cri
 .lr.ph757:                                        ; preds = %322, %.lr.ph757
   %365 = phi ptr [ %375, %.lr.ph757 ], [ %323, %322 ]
   %.0550755 = phi i64 [ %371, %.lr.ph757 ], [ 0, %322 ]
-  %366 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %365, i64 %.0555760
+  %366 = getelementptr inbounds nuw [144 x i8], ptr %365, i64 %.0555760
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 112
   %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr inbounds nuw %struct.cgltf_material_mapping, ptr %368, i64 %.0550755
+  %369 = getelementptr inbounds nuw [40 x i8], ptr %368, i64 %.0550755
   %.val578 = load ptr, ptr %7, align 8
   %.val579 = load ptr, ptr %9, align 8
   %370 = getelementptr i8, ptr %369, i64 32
@@ -8475,10 +8390,10 @@ cgltf_free_extensions.exit654:                    ; preds = %.lr.ph.i651, %._cri
   tail call void %.val578(ptr noundef %.val579, ptr noundef %.val580) #63
   %371 = add nuw i64 %.0550755, 1
   %372 = load ptr, ptr %128, align 8
-  %373 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %372, i64 %.0556768
+  %373 = getelementptr inbounds nuw [96 x i8], ptr %372, i64 %.0556768
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load ptr, ptr %374, align 8
-  %376 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %375, i64 %.0555760
+  %376 = getelementptr inbounds nuw [144 x i8], ptr %375, i64 %.0555760
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 120
   %378 = load i64, ptr %377, align 8
   %379 = icmp ult i64 %371, %378
@@ -8497,7 +8412,7 @@ cgltf_free_extensions.exit654:                    ; preds = %.lr.ph.i651, %._cri
   %.013.i657 = phi i64 [ %392, %.lr.ph.i656 ], [ 0, %._crit_edge766 ]
   %384 = load ptr, ptr %7, align 8
   %385 = load ptr, ptr %9, align 8
-  %386 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %381, i64 %.013.i657
+  %386 = getelementptr inbounds nuw [16 x i8], ptr %381, i64 %.013.i657
   %387 = load ptr, ptr %386, align 8
   tail call void %384(ptr noundef %385, ptr noundef %387) #63
   %388 = load ptr, ptr %7, align 8
@@ -8514,7 +8429,7 @@ cgltf_free_extensions.exit659:                    ; preds = %.lr.ph.i656, %._cri
   %394 = load ptr, ptr %9, align 8
   tail call void %393(ptr noundef %394, ptr noundef %381) #63
   %395 = load ptr, ptr %128, align 8
-  %396 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %395, i64 %.0556768
+  %396 = getelementptr inbounds nuw [96 x i8], ptr %395, i64 %.0556768
   %.val584 = load ptr, ptr %7, align 8
   %.val585 = load ptr, ptr %9, align 8
   %397 = getelementptr i8, ptr %396, i64 72
@@ -8523,7 +8438,7 @@ cgltf_free_extensions.exit659:                    ; preds = %.lr.ph.i656, %._cri
   %398 = load ptr, ptr %7, align 8
   %399 = load ptr, ptr %9, align 8
   %400 = load ptr, ptr %128, align 8
-  %401 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %400, i64 %.0556768
+  %401 = getelementptr inbounds nuw [96 x i8], ptr %400, i64 %.0556768
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 40
   %403 = load ptr, ptr %402, align 8
   tail call void %398(ptr noundef %399, ptr noundef %403) #63
@@ -8535,17 +8450,17 @@ cgltf_free_extensions.exit659:                    ; preds = %.lr.ph.i656, %._cri
 .lr.ph765:                                        ; preds = %._crit_edge761, %.lr.ph765
   %407 = phi ptr [ %416, %.lr.ph765 ], [ %213, %._crit_edge761 ]
   %.0549763 = phi i64 [ %415, %.lr.ph765 ], [ 0, %._crit_edge761 ]
-  %408 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %407, i64 %.0556768
+  %408 = getelementptr inbounds nuw [96 x i8], ptr %407, i64 %.0556768
   %409 = load ptr, ptr %7, align 8
   %410 = load ptr, ptr %9, align 8
   %411 = getelementptr inbounds nuw i8, ptr %408, i64 40
   %412 = load ptr, ptr %411, align 8
-  %413 = getelementptr inbounds nuw ptr, ptr %412, i64 %.0549763
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %412, i64 %.0549763
   %414 = load ptr, ptr %413, align 8
   tail call void %409(ptr noundef %410, ptr noundef %414) #63
   %415 = add nuw i64 %.0549763, 1
   %416 = load ptr, ptr %128, align 8
-  %417 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %416, i64 %.0556768
+  %417 = getelementptr inbounds nuw [96 x i8], ptr %416, i64 %.0556768
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 48
   %419 = load i64, ptr %418, align 8
   %420 = icmp ult i64 %415, %419
@@ -8571,11 +8486,11 @@ cgltf_free_extensions.exit659:                    ; preds = %.lr.ph.i656, %._cri
   %429 = load ptr, ptr %7, align 8
   %430 = load ptr, ptr %9, align 8
   %431 = load ptr, ptr %183, align 8
-  %432 = getelementptr inbounds nuw %struct.cgltf_material, ptr %431, i64 %.0548772
+  %432 = getelementptr inbounds nuw [1232 x i8], ptr %431, i64 %.0548772
   %433 = load ptr, ptr %432, align 8
   tail call void %429(ptr noundef %430, ptr noundef %433) #63
   %434 = load ptr, ptr %183, align 8
-  %435 = getelementptr inbounds nuw %struct.cgltf_material, ptr %434, i64 %.0548772
+  %435 = getelementptr inbounds nuw [1232 x i8], ptr %434, i64 %.0548772
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 1224
   %437 = load ptr, ptr %436, align 8
   %438 = getelementptr inbounds nuw i8, ptr %435, i64 1216
@@ -8587,7 +8502,7 @@ cgltf_free_extensions.exit659:                    ; preds = %.lr.ph.i656, %._cri
   %.013.i662 = phi i64 [ %448, %.lr.ph.i661 ], [ 0, %428 ]
   %440 = load ptr, ptr %7, align 8
   %441 = load ptr, ptr %9, align 8
-  %442 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %437, i64 %.013.i662
+  %442 = getelementptr inbounds nuw [16 x i8], ptr %437, i64 %.013.i662
   %443 = load ptr, ptr %442, align 8
   tail call void %440(ptr noundef %441, ptr noundef %443) #63
   %444 = load ptr, ptr %7, align 8
@@ -8604,7 +8519,7 @@ cgltf_free_extensions.exit664:                    ; preds = %.lr.ph.i661, %428
   %450 = load ptr, ptr %9, align 8
   tail call void %449(ptr noundef %450, ptr noundef %437) #63
   %451 = load ptr, ptr %183, align 8
-  %452 = getelementptr inbounds nuw %struct.cgltf_material, ptr %451, i64 %.0548772
+  %452 = getelementptr inbounds nuw [1232 x i8], ptr %451, i64 %.0548772
   %.val587 = load ptr, ptr %7, align 8
   %.val588 = load ptr, ptr %9, align 8
   %453 = getelementptr i8, ptr %452, i64 1208
@@ -8635,25 +8550,25 @@ cgltf_free_extensions.exit664:                    ; preds = %.lr.ph.i661, %428
   %465 = load ptr, ptr %7, align 8
   %466 = load ptr, ptr %9, align 8
   %467 = load ptr, ptr %427, align 8
-  %468 = getelementptr inbounds nuw %struct.cgltf_image, ptr %467, i64 %.0547776
+  %468 = getelementptr inbounds nuw [72 x i8], ptr %467, i64 %.0547776
   %469 = load ptr, ptr %468, align 8
   tail call void %465(ptr noundef %466, ptr noundef %469) #63
   %470 = load ptr, ptr %7, align 8
   %471 = load ptr, ptr %9, align 8
   %472 = load ptr, ptr %427, align 8
-  %473 = getelementptr inbounds nuw %struct.cgltf_image, ptr %472, i64 %.0547776
+  %473 = getelementptr inbounds nuw [72 x i8], ptr %472, i64 %.0547776
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 8
   %475 = load ptr, ptr %474, align 8
   tail call void %470(ptr noundef %471, ptr noundef %475) #63
   %476 = load ptr, ptr %7, align 8
   %477 = load ptr, ptr %9, align 8
   %478 = load ptr, ptr %427, align 8
-  %479 = getelementptr inbounds nuw %struct.cgltf_image, ptr %478, i64 %.0547776
+  %479 = getelementptr inbounds nuw [72 x i8], ptr %478, i64 %.0547776
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 24
   %481 = load ptr, ptr %480, align 8
   tail call void %476(ptr noundef %477, ptr noundef %481) #63
   %482 = load ptr, ptr %427, align 8
-  %483 = getelementptr inbounds nuw %struct.cgltf_image, ptr %482, i64 %.0547776
+  %483 = getelementptr inbounds nuw [72 x i8], ptr %482, i64 %.0547776
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 64
   %485 = load ptr, ptr %484, align 8
   %486 = getelementptr inbounds nuw i8, ptr %483, i64 56
@@ -8665,7 +8580,7 @@ cgltf_free_extensions.exit664:                    ; preds = %.lr.ph.i661, %428
   %.013.i667 = phi i64 [ %496, %.lr.ph.i666 ], [ 0, %464 ]
   %488 = load ptr, ptr %7, align 8
   %489 = load ptr, ptr %9, align 8
-  %490 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %485, i64 %.013.i667
+  %490 = getelementptr inbounds nuw [16 x i8], ptr %485, i64 %.013.i667
   %491 = load ptr, ptr %490, align 8
   tail call void %488(ptr noundef %489, ptr noundef %491) #63
   %492 = load ptr, ptr %7, align 8
@@ -8682,7 +8597,7 @@ cgltf_free_extensions.exit669:                    ; preds = %.lr.ph.i666, %464
   %498 = load ptr, ptr %9, align 8
   tail call void %497(ptr noundef %498, ptr noundef %485) #63
   %499 = load ptr, ptr %427, align 8
-  %500 = getelementptr inbounds nuw %struct.cgltf_image, ptr %499, i64 %.0547776
+  %500 = getelementptr inbounds nuw [72 x i8], ptr %499, i64 %.0547776
   %.val590 = load ptr, ptr %7, align 8
   %.val591 = load ptr, ptr %9, align 8
   %501 = getelementptr i8, ptr %500, i64 48
@@ -8713,11 +8628,11 @@ cgltf_free_extensions.exit669:                    ; preds = %.lr.ph.i666, %464
   %513 = load ptr, ptr %7, align 8
   %514 = load ptr, ptr %9, align 8
   %515 = load ptr, ptr %463, align 8
-  %516 = getelementptr inbounds nuw %struct.cgltf_texture, ptr %515, i64 %.0546780
+  %516 = getelementptr inbounds nuw [96 x i8], ptr %515, i64 %.0546780
   %517 = load ptr, ptr %516, align 8
   tail call void %513(ptr noundef %514, ptr noundef %517) #63
   %518 = load ptr, ptr %463, align 8
-  %519 = getelementptr inbounds nuw %struct.cgltf_texture, ptr %518, i64 %.0546780
+  %519 = getelementptr inbounds nuw [96 x i8], ptr %518, i64 %.0546780
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 88
   %521 = load ptr, ptr %520, align 8
   %522 = getelementptr inbounds nuw i8, ptr %519, i64 80
@@ -8729,7 +8644,7 @@ cgltf_free_extensions.exit669:                    ; preds = %.lr.ph.i666, %464
   %.013.i672 = phi i64 [ %532, %.lr.ph.i671 ], [ 0, %512 ]
   %524 = load ptr, ptr %7, align 8
   %525 = load ptr, ptr %9, align 8
-  %526 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %521, i64 %.013.i672
+  %526 = getelementptr inbounds nuw [16 x i8], ptr %521, i64 %.013.i672
   %527 = load ptr, ptr %526, align 8
   tail call void %524(ptr noundef %525, ptr noundef %527) #63
   %528 = load ptr, ptr %7, align 8
@@ -8746,7 +8661,7 @@ cgltf_free_extensions.exit674:                    ; preds = %.lr.ph.i671, %512
   %534 = load ptr, ptr %9, align 8
   tail call void %533(ptr noundef %534, ptr noundef %521) #63
   %535 = load ptr, ptr %463, align 8
-  %536 = getelementptr inbounds nuw %struct.cgltf_texture, ptr %535, i64 %.0546780
+  %536 = getelementptr inbounds nuw [96 x i8], ptr %535, i64 %.0546780
   %.val593 = load ptr, ptr %7, align 8
   %.val594 = load ptr, ptr %9, align 8
   %537 = getelementptr i8, ptr %536, i64 72
@@ -8777,11 +8692,11 @@ cgltf_free_extensions.exit674:                    ; preds = %.lr.ph.i671, %512
   %549 = load ptr, ptr %7, align 8
   %550 = load ptr, ptr %9, align 8
   %551 = load ptr, ptr %511, align 8
-  %552 = getelementptr inbounds nuw %struct.cgltf_sampler, ptr %551, i64 %.0545784
+  %552 = getelementptr inbounds nuw [64 x i8], ptr %551, i64 %.0545784
   %553 = load ptr, ptr %552, align 8
   tail call void %549(ptr noundef %550, ptr noundef %553) #63
   %554 = load ptr, ptr %511, align 8
-  %555 = getelementptr inbounds nuw %struct.cgltf_sampler, ptr %554, i64 %.0545784
+  %555 = getelementptr inbounds nuw [64 x i8], ptr %554, i64 %.0545784
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 56
   %557 = load ptr, ptr %556, align 8
   %558 = getelementptr inbounds nuw i8, ptr %555, i64 48
@@ -8793,7 +8708,7 @@ cgltf_free_extensions.exit674:                    ; preds = %.lr.ph.i671, %512
   %.013.i677 = phi i64 [ %568, %.lr.ph.i676 ], [ 0, %548 ]
   %560 = load ptr, ptr %7, align 8
   %561 = load ptr, ptr %9, align 8
-  %562 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %557, i64 %.013.i677
+  %562 = getelementptr inbounds nuw [16 x i8], ptr %557, i64 %.013.i677
   %563 = load ptr, ptr %562, align 8
   tail call void %560(ptr noundef %561, ptr noundef %563) #63
   %564 = load ptr, ptr %7, align 8
@@ -8810,7 +8725,7 @@ cgltf_free_extensions.exit679:                    ; preds = %.lr.ph.i676, %548
   %570 = load ptr, ptr %9, align 8
   tail call void %569(ptr noundef %570, ptr noundef %557) #63
   %571 = load ptr, ptr %511, align 8
-  %572 = getelementptr inbounds nuw %struct.cgltf_sampler, ptr %571, i64 %.0545784
+  %572 = getelementptr inbounds nuw [64 x i8], ptr %571, i64 %.0545784
   %.val596 = load ptr, ptr %7, align 8
   %.val597 = load ptr, ptr %9, align 8
   %573 = getelementptr i8, ptr %572, i64 40
@@ -8841,18 +8756,18 @@ cgltf_free_extensions.exit679:                    ; preds = %.lr.ph.i676, %548
   %585 = load ptr, ptr %7, align 8
   %586 = load ptr, ptr %9, align 8
   %587 = load ptr, ptr %547, align 8
-  %588 = getelementptr inbounds nuw %struct.cgltf_skin, ptr %587, i64 %.0544788
+  %588 = getelementptr inbounds nuw [80 x i8], ptr %587, i64 %.0544788
   %589 = load ptr, ptr %588, align 8
   tail call void %585(ptr noundef %586, ptr noundef %589) #63
   %590 = load ptr, ptr %7, align 8
   %591 = load ptr, ptr %9, align 8
   %592 = load ptr, ptr %547, align 8
-  %593 = getelementptr inbounds nuw %struct.cgltf_skin, ptr %592, i64 %.0544788
+  %593 = getelementptr inbounds nuw [80 x i8], ptr %592, i64 %.0544788
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 8
   %595 = load ptr, ptr %594, align 8
   tail call void %590(ptr noundef %591, ptr noundef %595) #63
   %596 = load ptr, ptr %547, align 8
-  %597 = getelementptr inbounds nuw %struct.cgltf_skin, ptr %596, i64 %.0544788
+  %597 = getelementptr inbounds nuw [80 x i8], ptr %596, i64 %.0544788
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 72
   %599 = load ptr, ptr %598, align 8
   %600 = getelementptr inbounds nuw i8, ptr %597, i64 64
@@ -8864,7 +8779,7 @@ cgltf_free_extensions.exit679:                    ; preds = %.lr.ph.i676, %548
   %.013.i682 = phi i64 [ %610, %.lr.ph.i681 ], [ 0, %584 ]
   %602 = load ptr, ptr %7, align 8
   %603 = load ptr, ptr %9, align 8
-  %604 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %599, i64 %.013.i682
+  %604 = getelementptr inbounds nuw [16 x i8], ptr %599, i64 %.013.i682
   %605 = load ptr, ptr %604, align 8
   tail call void %602(ptr noundef %603, ptr noundef %605) #63
   %606 = load ptr, ptr %7, align 8
@@ -8881,7 +8796,7 @@ cgltf_free_extensions.exit684:                    ; preds = %.lr.ph.i681, %584
   %612 = load ptr, ptr %9, align 8
   tail call void %611(ptr noundef %612, ptr noundef %599) #63
   %613 = load ptr, ptr %547, align 8
-  %614 = getelementptr inbounds nuw %struct.cgltf_skin, ptr %613, i64 %.0544788
+  %614 = getelementptr inbounds nuw [80 x i8], ptr %613, i64 %.0544788
   %.val599 = load ptr, ptr %7, align 8
   %.val600 = load ptr, ptr %9, align 8
   %615 = getelementptr i8, ptr %614, i64 56
@@ -8912,11 +8827,11 @@ cgltf_free_extensions.exit684:                    ; preds = %.lr.ph.i681, %584
   %627 = load ptr, ptr %7, align 8
   %628 = load ptr, ptr %9, align 8
   %629 = load ptr, ptr %583, align 8
-  %630 = getelementptr inbounds nuw %struct.cgltf_camera, ptr %629, i64 %.0543792
+  %630 = getelementptr inbounds nuw [104 x i8], ptr %629, i64 %.0543792
   %631 = load ptr, ptr %630, align 8
   tail call void %627(ptr noundef %628, ptr noundef %631) #63
   %632 = load ptr, ptr %583, align 8
-  %633 = getelementptr inbounds nuw %struct.cgltf_camera, ptr %632, i64 %.0543792
+  %633 = getelementptr inbounds nuw [104 x i8], ptr %632, i64 %.0543792
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 8
   %635 = load i32, ptr %634, align 8
   switch i32 %635, label %638 [
@@ -8938,7 +8853,7 @@ cgltf_free_extensions.exit684:                    ; preds = %.lr.ph.i681, %584
 
 638:                                              ; preds = %.sink.split, %626
   %639 = load ptr, ptr %583, align 8
-  %640 = getelementptr inbounds nuw %struct.cgltf_camera, ptr %639, i64 %.0543792
+  %640 = getelementptr inbounds nuw [104 x i8], ptr %639, i64 %.0543792
   %641 = getelementptr inbounds nuw i8, ptr %640, i64 96
   %642 = load ptr, ptr %641, align 8
   %643 = getelementptr inbounds nuw i8, ptr %640, i64 88
@@ -8950,7 +8865,7 @@ cgltf_free_extensions.exit684:                    ; preds = %.lr.ph.i681, %584
   %.013.i687 = phi i64 [ %653, %.lr.ph.i686 ], [ 0, %638 ]
   %645 = load ptr, ptr %7, align 8
   %646 = load ptr, ptr %9, align 8
-  %647 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %642, i64 %.013.i687
+  %647 = getelementptr inbounds nuw [16 x i8], ptr %642, i64 %.013.i687
   %648 = load ptr, ptr %647, align 8
   tail call void %645(ptr noundef %646, ptr noundef %648) #63
   %649 = load ptr, ptr %7, align 8
@@ -8967,7 +8882,7 @@ cgltf_free_extensions.exit689:                    ; preds = %.lr.ph.i686, %638
   %655 = load ptr, ptr %9, align 8
   tail call void %654(ptr noundef %655, ptr noundef %642) #63
   %656 = load ptr, ptr %583, align 8
-  %657 = getelementptr inbounds nuw %struct.cgltf_camera, ptr %656, i64 %.0543792
+  %657 = getelementptr inbounds nuw [104 x i8], ptr %656, i64 %.0543792
   %.val608 = load ptr, ptr %7, align 8
   %.val609 = load ptr, ptr %9, align 8
   %658 = getelementptr i8, ptr %657, i64 80
@@ -8998,11 +8913,11 @@ cgltf_free_extensions.exit689:                    ; preds = %.lr.ph.i686, %638
   %670 = load ptr, ptr %7, align 8
   %671 = load ptr, ptr %9, align 8
   %672 = load ptr, ptr %625, align 8
-  %673 = getelementptr inbounds nuw %struct.cgltf_light, ptr %672, i64 %.0542796
+  %673 = getelementptr inbounds nuw [64 x i8], ptr %672, i64 %.0542796
   %674 = load ptr, ptr %673, align 8
   tail call void %670(ptr noundef %671, ptr noundef %674) #63
   %675 = load ptr, ptr %625, align 8
-  %676 = getelementptr inbounds nuw %struct.cgltf_light, ptr %675, i64 %.0542796
+  %676 = getelementptr inbounds nuw [64 x i8], ptr %675, i64 %.0542796
   %.val611 = load ptr, ptr %7, align 8
   %.val612 = load ptr, ptr %9, align 8
   %677 = getelementptr i8, ptr %676, i64 56
@@ -9033,25 +8948,25 @@ cgltf_free_extensions.exit689:                    ; preds = %.lr.ph.i686, %638
   %689 = load ptr, ptr %7, align 8
   %690 = load ptr, ptr %9, align 8
   %691 = load ptr, ptr %668, align 8
-  %692 = getelementptr inbounds nuw %struct.cgltf_node, ptr %691, i64 %.0541804
+  %692 = getelementptr inbounds nuw [264 x i8], ptr %691, i64 %.0541804
   %693 = load ptr, ptr %692, align 8
   tail call void %689(ptr noundef %690, ptr noundef %693) #63
   %694 = load ptr, ptr %7, align 8
   %695 = load ptr, ptr %9, align 8
   %696 = load ptr, ptr %668, align 8
-  %697 = getelementptr inbounds nuw %struct.cgltf_node, ptr %696, i64 %.0541804
+  %697 = getelementptr inbounds nuw [264 x i8], ptr %696, i64 %.0541804
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 16
   %699 = load ptr, ptr %698, align 8
   tail call void %694(ptr noundef %695, ptr noundef %699) #63
   %700 = load ptr, ptr %7, align 8
   %701 = load ptr, ptr %9, align 8
   %702 = load ptr, ptr %668, align 8
-  %703 = getelementptr inbounds nuw %struct.cgltf_node, ptr %702, i64 %.0541804
+  %703 = getelementptr inbounds nuw [264 x i8], ptr %702, i64 %.0541804
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 64
   %705 = load ptr, ptr %704, align 8
   tail call void %700(ptr noundef %701, ptr noundef %705) #63
   %706 = load ptr, ptr %668, align 8
-  %707 = getelementptr inbounds nuw %struct.cgltf_node, ptr %706, i64 %.0541804
+  %707 = getelementptr inbounds nuw [264 x i8], ptr %706, i64 %.0541804
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 224
   %709 = load i32, ptr %708, align 8
   %.not565 = icmp eq i32 %709, 0
@@ -9079,12 +8994,12 @@ cgltf_free_extensions.exit689:                    ; preds = %.lr.ph.i686, %638
   %717 = load ptr, ptr %7, align 8
   %718 = load ptr, ptr %9, align 8
   %719 = load ptr, ptr %716, align 8
-  %720 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %719, i64 %.0540800
+  %720 = getelementptr inbounds nuw [24 x i8], ptr %719, i64 %.0540800
   %721 = load ptr, ptr %720, align 8
   tail call void %717(ptr noundef %718, ptr noundef %721) #63
   %722 = add nuw i64 %.0540800, 1
   %723 = load ptr, ptr %668, align 8
-  %724 = getelementptr inbounds nuw %struct.cgltf_node, ptr %723, i64 %.0541804
+  %724 = getelementptr inbounds nuw [264 x i8], ptr %723, i64 %.0541804
   %725 = getelementptr inbounds nuw i8, ptr %724, i64 232
   %726 = getelementptr inbounds nuw i8, ptr %724, i64 240
   %727 = load i64, ptr %726, align 8
@@ -9093,7 +9008,7 @@ cgltf_free_extensions.exit689:                    ; preds = %.lr.ph.i686, %638
 
 729:                                              ; preds = %._crit_edge802, %688
   %730 = phi ptr [ %.pre876, %._crit_edge802 ], [ %706, %688 ]
-  %731 = getelementptr inbounds nuw %struct.cgltf_node, ptr %730, i64 %.0541804
+  %731 = getelementptr inbounds nuw [264 x i8], ptr %730, i64 %.0541804
   %732 = getelementptr inbounds nuw i8, ptr %731, i64 256
   %733 = load ptr, ptr %732, align 8
   %734 = getelementptr inbounds nuw i8, ptr %731, i64 248
@@ -9105,7 +9020,7 @@ cgltf_free_extensions.exit689:                    ; preds = %.lr.ph.i686, %638
   %.013.i692 = phi i64 [ %744, %.lr.ph.i691 ], [ 0, %729 ]
   %736 = load ptr, ptr %7, align 8
   %737 = load ptr, ptr %9, align 8
-  %738 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %733, i64 %.013.i692
+  %738 = getelementptr inbounds nuw [16 x i8], ptr %733, i64 %.013.i692
   %739 = load ptr, ptr %738, align 8
   tail call void %736(ptr noundef %737, ptr noundef %739) #63
   %740 = load ptr, ptr %7, align 8
@@ -9122,7 +9037,7 @@ cgltf_free_extensions.exit694:                    ; preds = %.lr.ph.i691, %729
   %746 = load ptr, ptr %9, align 8
   tail call void %745(ptr noundef %746, ptr noundef %733) #63
   %747 = load ptr, ptr %668, align 8
-  %748 = getelementptr inbounds nuw %struct.cgltf_node, ptr %747, i64 %.0541804
+  %748 = getelementptr inbounds nuw [264 x i8], ptr %747, i64 %.0541804
   %.val614 = load ptr, ptr %7, align 8
   %.val615 = load ptr, ptr %9, align 8
   %749 = getelementptr i8, ptr %748, i64 216
@@ -9153,18 +9068,18 @@ cgltf_free_extensions.exit694:                    ; preds = %.lr.ph.i691, %729
   %761 = load ptr, ptr %7, align 8
   %762 = load ptr, ptr %9, align 8
   %763 = load ptr, ptr %687, align 8
-  %764 = getelementptr inbounds nuw %struct.cgltf_scene, ptr %763, i64 %.0539809
+  %764 = getelementptr inbounds nuw [64 x i8], ptr %763, i64 %.0539809
   %765 = load ptr, ptr %764, align 8
   tail call void %761(ptr noundef %762, ptr noundef %765) #63
   %766 = load ptr, ptr %7, align 8
   %767 = load ptr, ptr %9, align 8
   %768 = load ptr, ptr %687, align 8
-  %769 = getelementptr inbounds nuw %struct.cgltf_scene, ptr %768, i64 %.0539809
+  %769 = getelementptr inbounds nuw [64 x i8], ptr %768, i64 %.0539809
   %770 = getelementptr inbounds nuw i8, ptr %769, i64 8
   %771 = load ptr, ptr %770, align 8
   tail call void %766(ptr noundef %767, ptr noundef %771) #63
   %772 = load ptr, ptr %687, align 8
-  %773 = getelementptr inbounds nuw %struct.cgltf_scene, ptr %772, i64 %.0539809
+  %773 = getelementptr inbounds nuw [64 x i8], ptr %772, i64 %.0539809
   %774 = getelementptr inbounds nuw i8, ptr %773, i64 56
   %775 = load ptr, ptr %774, align 8
   %776 = getelementptr inbounds nuw i8, ptr %773, i64 48
@@ -9176,7 +9091,7 @@ cgltf_free_extensions.exit694:                    ; preds = %.lr.ph.i691, %729
   %.013.i697 = phi i64 [ %786, %.lr.ph.i696 ], [ 0, %760 ]
   %778 = load ptr, ptr %7, align 8
   %779 = load ptr, ptr %9, align 8
-  %780 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %775, i64 %.013.i697
+  %780 = getelementptr inbounds nuw [16 x i8], ptr %775, i64 %.013.i697
   %781 = load ptr, ptr %780, align 8
   tail call void %778(ptr noundef %779, ptr noundef %781) #63
   %782 = load ptr, ptr %7, align 8
@@ -9193,7 +9108,7 @@ cgltf_free_extensions.exit699:                    ; preds = %.lr.ph.i696, %760
   %788 = load ptr, ptr %9, align 8
   tail call void %787(ptr noundef %788, ptr noundef %775) #63
   %789 = load ptr, ptr %687, align 8
-  %790 = getelementptr inbounds nuw %struct.cgltf_scene, ptr %789, i64 %.0539809
+  %790 = getelementptr inbounds nuw [64 x i8], ptr %789, i64 %.0539809
   %.val617 = load ptr, ptr %7, align 8
   %.val618 = load ptr, ptr %9, align 8
   %791 = getelementptr i8, ptr %790, i64 40
@@ -9224,11 +9139,11 @@ cgltf_free_extensions.exit699:                    ; preds = %.lr.ph.i696, %760
   %803 = load ptr, ptr %7, align 8
   %804 = load ptr, ptr %9, align 8
   %805 = load ptr, ptr %759, align 8
-  %806 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %805, i64 %.0538823
+  %806 = getelementptr inbounds nuw [80 x i8], ptr %805, i64 %.0538823
   %807 = load ptr, ptr %806, align 8
   tail call void %803(ptr noundef %804, ptr noundef %807) #63
   %808 = load ptr, ptr %759, align 8
-  %809 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %808, i64 %.0538823
+  %809 = getelementptr inbounds nuw [80 x i8], ptr %808, i64 %.0538823
   %810 = getelementptr inbounds nuw i8, ptr %809, i64 16
   %811 = load i64, ptr %810, align 8
   %.not860 = icmp eq i64 %811, 0
@@ -9236,14 +9151,14 @@ cgltf_free_extensions.exit699:                    ; preds = %.lr.ph.i696, %760
 
 ._crit_edge816:                                   ; preds = %cgltf_free_extensions.exit704, %802
   %812 = phi ptr [ %808, %802 ], [ %849, %cgltf_free_extensions.exit704 ]
-  %813 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %812, i64 %.0538823
+  %813 = getelementptr inbounds nuw [80 x i8], ptr %812, i64 %.0538823
   %814 = load ptr, ptr %7, align 8
   %815 = load ptr, ptr %9, align 8
   %816 = getelementptr inbounds nuw i8, ptr %813, i64 8
   %817 = load ptr, ptr %816, align 8
   tail call void %814(ptr noundef %815, ptr noundef %817) #63
   %818 = load ptr, ptr %759, align 8
-  %819 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %818, i64 %.0538823
+  %819 = getelementptr inbounds nuw [80 x i8], ptr %818, i64 %.0538823
   %820 = getelementptr inbounds nuw i8, ptr %819, i64 32
   %821 = load i64, ptr %820, align 8
   %.not861 = icmp eq i64 %821, 0
@@ -9252,10 +9167,10 @@ cgltf_free_extensions.exit699:                    ; preds = %.lr.ph.i696, %760
 .lr.ph815:                                        ; preds = %802, %cgltf_free_extensions.exit704
   %822 = phi ptr [ %849, %cgltf_free_extensions.exit704 ], [ %808, %802 ]
   %.0537813 = phi i64 [ %848, %cgltf_free_extensions.exit704 ], [ 0, %802 ]
-  %823 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %822, i64 %.0538823
+  %823 = getelementptr inbounds nuw [80 x i8], ptr %822, i64 %.0538823
   %824 = getelementptr inbounds nuw i8, ptr %823, i64 8
   %825 = load ptr, ptr %824, align 8
-  %826 = getelementptr inbounds nuw %struct.cgltf_animation_sampler, ptr %825, i64 %.0537813
+  %826 = getelementptr inbounds nuw [64 x i8], ptr %825, i64 %.0537813
   %827 = getelementptr inbounds nuw i8, ptr %826, i64 56
   %828 = load ptr, ptr %827, align 8
   %829 = getelementptr inbounds nuw i8, ptr %826, i64 48
@@ -9267,7 +9182,7 @@ cgltf_free_extensions.exit699:                    ; preds = %.lr.ph.i696, %760
   %.013.i702 = phi i64 [ %839, %.lr.ph.i701 ], [ 0, %.lr.ph815 ]
   %831 = load ptr, ptr %7, align 8
   %832 = load ptr, ptr %9, align 8
-  %833 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %828, i64 %.013.i702
+  %833 = getelementptr inbounds nuw [16 x i8], ptr %828, i64 %.013.i702
   %834 = load ptr, ptr %833, align 8
   tail call void %831(ptr noundef %832, ptr noundef %834) #63
   %835 = load ptr, ptr %7, align 8
@@ -9284,10 +9199,10 @@ cgltf_free_extensions.exit704:                    ; preds = %.lr.ph.i701, %.lr.p
   %841 = load ptr, ptr %9, align 8
   tail call void %840(ptr noundef %841, ptr noundef %828) #63
   %842 = load ptr, ptr %759, align 8
-  %843 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %842, i64 %.0538823
+  %843 = getelementptr inbounds nuw [80 x i8], ptr %842, i64 %.0538823
   %844 = getelementptr inbounds nuw i8, ptr %843, i64 8
   %845 = load ptr, ptr %844, align 8
-  %846 = getelementptr inbounds nuw %struct.cgltf_animation_sampler, ptr %845, i64 %.0537813
+  %846 = getelementptr inbounds nuw [64 x i8], ptr %845, i64 %.0537813
   %.val620 = load ptr, ptr %7, align 8
   %.val621 = load ptr, ptr %9, align 8
   %847 = getelementptr i8, ptr %846, i64 40
@@ -9295,7 +9210,7 @@ cgltf_free_extensions.exit704:                    ; preds = %.lr.ph.i701, %.lr.p
   tail call void %.val620(ptr noundef %.val621, ptr noundef %.val622) #63
   %848 = add nuw i64 %.0537813, 1
   %849 = load ptr, ptr %759, align 8
-  %850 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %849, i64 %.0538823
+  %850 = getelementptr inbounds nuw [80 x i8], ptr %849, i64 %.0538823
   %851 = getelementptr inbounds nuw i8, ptr %850, i64 16
   %852 = load i64, ptr %851, align 8
   %853 = icmp ult i64 %848, %852
@@ -9303,14 +9218,14 @@ cgltf_free_extensions.exit704:                    ; preds = %.lr.ph.i701, %.lr.p
 
 ._crit_edge821:                                   ; preds = %cgltf_free_extensions.exit714, %._crit_edge816
   %854 = phi ptr [ %818, %._crit_edge816 ], [ %910, %cgltf_free_extensions.exit714 ]
-  %855 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %854, i64 %.0538823
+  %855 = getelementptr inbounds nuw [80 x i8], ptr %854, i64 %.0538823
   %856 = load ptr, ptr %7, align 8
   %857 = load ptr, ptr %9, align 8
   %858 = getelementptr inbounds nuw i8, ptr %855, i64 24
   %859 = load ptr, ptr %858, align 8
   tail call void %856(ptr noundef %857, ptr noundef %859) #63
   %860 = load ptr, ptr %759, align 8
-  %861 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %860, i64 %.0538823
+  %861 = getelementptr inbounds nuw [80 x i8], ptr %860, i64 %.0538823
   %862 = getelementptr inbounds nuw i8, ptr %861, i64 72
   %863 = load ptr, ptr %862, align 8
   %864 = getelementptr inbounds nuw i8, ptr %861, i64 64
@@ -9322,7 +9237,7 @@ cgltf_free_extensions.exit704:                    ; preds = %.lr.ph.i701, %.lr.p
   %.013.i707 = phi i64 [ %874, %.lr.ph.i706 ], [ 0, %._crit_edge821 ]
   %866 = load ptr, ptr %7, align 8
   %867 = load ptr, ptr %9, align 8
-  %868 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %863, i64 %.013.i707
+  %868 = getelementptr inbounds nuw [16 x i8], ptr %863, i64 %.013.i707
   %869 = load ptr, ptr %868, align 8
   tail call void %866(ptr noundef %867, ptr noundef %869) #63
   %870 = load ptr, ptr %7, align 8
@@ -9339,7 +9254,7 @@ cgltf_free_extensions.exit709:                    ; preds = %.lr.ph.i706, %._cri
   %876 = load ptr, ptr %9, align 8
   tail call void %875(ptr noundef %876, ptr noundef %863) #63
   %877 = load ptr, ptr %759, align 8
-  %878 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %877, i64 %.0538823
+  %878 = getelementptr inbounds nuw [80 x i8], ptr %877, i64 %.0538823
   %.val626 = load ptr, ptr %7, align 8
   %.val627 = load ptr, ptr %9, align 8
   %879 = getelementptr i8, ptr %878, i64 56
@@ -9353,10 +9268,10 @@ cgltf_free_extensions.exit709:                    ; preds = %.lr.ph.i706, %._cri
 .lr.ph820:                                        ; preds = %._crit_edge816, %cgltf_free_extensions.exit714
   %883 = phi ptr [ %910, %cgltf_free_extensions.exit714 ], [ %818, %._crit_edge816 ]
   %.0536818 = phi i64 [ %909, %cgltf_free_extensions.exit714 ], [ 0, %._crit_edge816 ]
-  %884 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %883, i64 %.0538823
+  %884 = getelementptr inbounds nuw [80 x i8], ptr %883, i64 %.0538823
   %885 = getelementptr inbounds nuw i8, ptr %884, i64 24
   %886 = load ptr, ptr %885, align 8
-  %887 = getelementptr inbounds nuw %struct.cgltf_animation_channel, ptr %886, i64 %.0536818
+  %887 = getelementptr inbounds nuw [64 x i8], ptr %886, i64 %.0536818
   %888 = getelementptr inbounds nuw i8, ptr %887, i64 56
   %889 = load ptr, ptr %888, align 8
   %890 = getelementptr inbounds nuw i8, ptr %887, i64 48
@@ -9368,7 +9283,7 @@ cgltf_free_extensions.exit709:                    ; preds = %.lr.ph.i706, %._cri
   %.013.i712 = phi i64 [ %900, %.lr.ph.i711 ], [ 0, %.lr.ph820 ]
   %892 = load ptr, ptr %7, align 8
   %893 = load ptr, ptr %9, align 8
-  %894 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %889, i64 %.013.i712
+  %894 = getelementptr inbounds nuw [16 x i8], ptr %889, i64 %.013.i712
   %895 = load ptr, ptr %894, align 8
   tail call void %892(ptr noundef %893, ptr noundef %895) #63
   %896 = load ptr, ptr %7, align 8
@@ -9385,10 +9300,10 @@ cgltf_free_extensions.exit714:                    ; preds = %.lr.ph.i711, %.lr.p
   %902 = load ptr, ptr %9, align 8
   tail call void %901(ptr noundef %902, ptr noundef %889) #63
   %903 = load ptr, ptr %759, align 8
-  %904 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %903, i64 %.0538823
+  %904 = getelementptr inbounds nuw [80 x i8], ptr %903, i64 %.0538823
   %905 = getelementptr inbounds nuw i8, ptr %904, i64 24
   %906 = load ptr, ptr %905, align 8
-  %907 = getelementptr inbounds nuw %struct.cgltf_animation_channel, ptr %906, i64 %.0536818
+  %907 = getelementptr inbounds nuw [64 x i8], ptr %906, i64 %.0536818
   %.val623 = load ptr, ptr %7, align 8
   %.val624 = load ptr, ptr %9, align 8
   %908 = getelementptr i8, ptr %907, i64 40
@@ -9396,7 +9311,7 @@ cgltf_free_extensions.exit714:                    ; preds = %.lr.ph.i711, %.lr.p
   tail call void %.val623(ptr noundef %.val624, ptr noundef %.val625) #63
   %909 = add nuw i64 %.0536818, 1
   %910 = load ptr, ptr %759, align 8
-  %911 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %910, i64 %.0538823
+  %911 = getelementptr inbounds nuw [80 x i8], ptr %910, i64 %.0538823
   %912 = getelementptr inbounds nuw i8, ptr %911, i64 32
   %913 = load i64, ptr %912, align 8
   %914 = icmp ult i64 %909, %913
@@ -9419,7 +9334,7 @@ cgltf_free_extensions.exit714:                    ; preds = %.lr.ph.i711, %.lr.p
   %.013.i717 = phi i64 [ %931, %.lr.ph.i716 ], [ 0, %._crit_edge830 ]
   %923 = load ptr, ptr %7, align 8
   %924 = load ptr, ptr %9, align 8
-  %925 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %920, i64 %.013.i717
+  %925 = getelementptr inbounds nuw [16 x i8], ptr %920, i64 %.013.i717
   %926 = load ptr, ptr %925, align 8
   tail call void %923(ptr noundef %924, ptr noundef %926) #63
   %927 = load ptr, ptr %7, align 8
@@ -9454,11 +9369,11 @@ cgltf_free_extensions.exit719:                    ; preds = %.lr.ph.i716, %._cri
   %939 = load ptr, ptr %7, align 8
   %940 = load ptr, ptr %9, align 8
   %941 = load ptr, ptr %801, align 8
-  %942 = getelementptr inbounds nuw %struct.cgltf_material_variant, ptr %941, i64 %.0535827
+  %942 = getelementptr inbounds nuw [32 x i8], ptr %941, i64 %.0535827
   %943 = load ptr, ptr %942, align 8
   tail call void %939(ptr noundef %940, ptr noundef %943) #63
   %944 = load ptr, ptr %801, align 8
-  %945 = getelementptr inbounds nuw %struct.cgltf_material_variant, ptr %944, i64 %.0535827
+  %945 = getelementptr inbounds nuw [32 x i8], ptr %944, i64 %.0535827
   %.val629 = load ptr, ptr %7, align 8
   %.val630 = load ptr, ptr %9, align 8
   %946 = getelementptr i8, ptr %945, i64 24
@@ -9489,7 +9404,7 @@ cgltf_free_extensions.exit719:                    ; preds = %.lr.ph.i716, %._cri
   %958 = load ptr, ptr %7, align 8
   %959 = load ptr, ptr %9, align 8
   %960 = load ptr, ptr %937, align 8
-  %961 = getelementptr inbounds nuw ptr, ptr %960, i64 %.0534831
+  %961 = getelementptr inbounds nuw [8 x i8], ptr %960, i64 %.0534831
   %962 = load ptr, ptr %961, align 8
   tail call void %958(ptr noundef %959, ptr noundef %962) #63
   %963 = add nuw i64 %.0534831, 1
@@ -9516,7 +9431,7 @@ cgltf_free_extensions.exit719:                    ; preds = %.lr.ph.i716, %._cri
   %975 = load ptr, ptr %7, align 8
   %976 = load ptr, ptr %9, align 8
   %977 = load ptr, ptr %956, align 8
-  %978 = getelementptr inbounds nuw ptr, ptr %977, i64 %.0834
+  %978 = getelementptr inbounds nuw [8 x i8], ptr %977, i64 %.0834
   %979 = load ptr, ptr %978, align 8
   tail call void %975(ptr noundef %976, ptr noundef %979) #63
   %980 = add nuw i64 %.0834, 1
@@ -9887,7 +9802,7 @@ define internal fastcc range(i32 0, 2) i32 @cgltf_element_read_float(ptr noundef
 
 switch.lookup:                                    ; preds = %6
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.cgltf_num_components, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cgltf_num_components, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %cgltf_num_components.exit
 
@@ -10191,7 +10106,7 @@ cgltf_component_read_float.exit226.us:            ; preds = %10, %cgltf_componen
   %191 = shl nuw nsw i64 %.0630.us, 2
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 %191
   %193 = load float, ptr %192, align 4
-  %194 = getelementptr inbounds nuw float, ptr %4, i64 %.0630.us
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0630.us
   store float %193, ptr %194, align 4
   %195 = add nuw nsw i64 %.0630.us, 1
   %exitcond659.not = icmp eq i64 %195, %.0.i
@@ -10245,7 +10160,7 @@ cgltf_component_read_float.exit226.us:            ; preds = %10, %cgltf_componen
 cgltf_component_read_integer.exit.i224.us:        ; preds = %210, %207, %204, %201, %198, %.preheader.split.split.us
   %.0.i.i225.us = phi i64 [ %200, %198 ], [ %212, %210 ], [ %209, %207 ], [ %206, %204 ], [ %203, %201 ], [ 0, %.preheader.split.split.us ]
   %213 = sitofp i64 %.0.i.i225.us to float
-  %214 = getelementptr inbounds nuw float, ptr %4, i64 %.0630.us631
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0630.us631
   store float %213, ptr %214, align 4
   %215 = add nuw nsw i64 %.0630.us631, 1
   %exitcond658.not = icmp eq i64 %215, %.0.i
@@ -10271,7 +10186,7 @@ cgltf_component_read_float.exit226.us635:         ; preds = %.preheader.split.sp
   %219 = load i16, ptr %218, align 2
   %220 = sitofp i16 %219 to float
   %221 = fdiv float %220, 3.276700e+04
-  %222 = getelementptr inbounds nuw float, ptr %4, i64 %.0630.us634
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0630.us634
   store float %221, ptr %222, align 4
   %223 = add nuw nsw i64 %.0630.us634, 1
   %exitcond657.not = icmp eq i64 %223, %.0.i
@@ -10284,7 +10199,7 @@ cgltf_component_read_float.exit226.us639:         ; preds = %.preheader.split.sp
   %226 = load i16, ptr %225, align 2
   %227 = uitofp i16 %226 to float
   %228 = fdiv float %227, 6.553500e+04
-  %229 = getelementptr inbounds nuw float, ptr %4, i64 %.0630.us638
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0630.us638
   store float %228, ptr %229, align 4
   %230 = add nuw nsw i64 %.0630.us638, 1
   %exitcond656.not = icmp eq i64 %230, %.0.i
@@ -10297,7 +10212,7 @@ cgltf_component_read_float.exit226.us643:         ; preds = %.preheader.split.sp
   %233 = load i8, ptr %232, align 1
   %234 = sitofp i8 %233 to float
   %235 = fdiv float %234, 1.270000e+02
-  %236 = getelementptr inbounds nuw float, ptr %4, i64 %.0630.us642
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0630.us642
   store float %235, ptr %236, align 4
   %237 = add nuw nsw i64 %.0630.us642, 1
   %exitcond655.not = icmp eq i64 %237, %.0.i
@@ -10310,7 +10225,7 @@ cgltf_component_read_float.exit226.us647:         ; preds = %.preheader.split.sp
   %240 = load i8, ptr %239, align 1
   %241 = uitofp i8 %240 to float
   %242 = fdiv float %241, 2.550000e+02
-  %243 = getelementptr inbounds nuw float, ptr %4, i64 %.0630.us646
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.0630.us646
   store float %242, ptr %243, align 4
   %244 = add nuw nsw i64 %.0630.us646, 1
   %exitcond.not = icmp eq i64 %244, %.0.i
@@ -10513,7 +10428,7 @@ define hidden i64 @cgltf_accessor_unpack_floats(ptr noundef readonly captures(no
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.cgltf_num_components, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cgltf_num_components, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %cgltf_num_components.exit
 
@@ -10604,7 +10519,7 @@ cgltf_buffer_view_data.exit.thread118:            ; preds = %cgltf_buffer_view_d
 
 53:                                               ; preds = %48
   %54 = add nuw i64 %.093130, 1
-  %55 = getelementptr inbounds nuw float, ptr %.094129, i64 %.0.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.094129, i64 %.0.i
   %56 = load i64, ptr %47, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.092131, i64 %56
   %exitcond.not = icmp eq i64 %54, %umax
@@ -10682,7 +10597,7 @@ cgltf_buffer_view_data.exit114:                   ; preds = %cgltf_buffer_view_d
 
 switch.lookup152:                                 ; preds = %89
   %99 = zext nneg i32 %switch.tableidx151 to i64
-  %switch.gep153 = getelementptr inbounds nuw i64, ptr @switch.table.cgltf_accessor_unpack_indices, i64 %99
+  %switch.gep153 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cgltf_accessor_unpack_indices, i64 %99
   %switch.load154 = load i64, ptr %switch.gep153, align 8
   br label %cgltf_component_size.exit
 
@@ -10727,7 +10642,7 @@ cgltf_component_size.exit:                        ; preds = %89, %switch.lookup1
 cgltf_component_read_index.exit:                  ; preds = %104, %106, %109, %112
   %.0.i116 = phi i64 [ %114, %112 ], [ %108, %106 ], [ %111, %109 ], [ 0, %104 ]
   %115 = mul nuw nsw i64 %.0.i116, %.0.i
-  %116 = getelementptr inbounds nuw float, ptr %1, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %115
   %117 = load i32, ptr %4, align 8
   %118 = load i32, ptr %101, align 8
   %119 = load i32, ptr %102, align 4
@@ -10761,7 +10676,7 @@ define hidden range(i64 1, 17) i64 @cgltf_num_components(i32 noundef %0) local_u
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.cgltf_num_components, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cgltf_num_components, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -10849,7 +10764,7 @@ cgltf_num_components.exit.i:                      ; preds = %35, %34, %33, %cglt
 
 switch.lookup:                                    ; preds = %38
   %40 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.cgltf_accessor_unpack_indices, i64 %40
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cgltf_accessor_unpack_indices, i64 %40
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %cgltf_component_size.exit.i
 
@@ -10869,7 +10784,7 @@ cgltf_component_read_uint.exit.us.i:              ; preds = %cgltf_component_siz
   %42 = getelementptr inbounds nuw i8, ptr %28, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = sext i8 %43 to i32
-  %45 = getelementptr inbounds nuw i32, ptr %2, i64 %.026.us.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.026.us.i
   store i32 %44, ptr %45, align 4
   %46 = add nuw nsw i64 %.026.us.i, 1
   %exitcond51.not.i = icmp eq i64 %46, %.0.i.i
@@ -10881,7 +10796,7 @@ cgltf_component_read_uint.exit.us29.i:            ; preds = %cgltf_component_siz
   %48 = getelementptr inbounds nuw i8, ptr %28, i64 %47
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
-  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %.026.us28.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.026.us28.i
   store i32 %50, ptr %51, align 4
   %52 = add nuw nsw i64 %.026.us28.i, 1
   %exitcond50.not.i = icmp eq i64 %52, %.0.i.i
@@ -10893,7 +10808,7 @@ cgltf_component_read_uint.exit.us33.i:            ; preds = %cgltf_component_siz
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = sext i16 %55 to i32
-  %57 = getelementptr inbounds nuw i32, ptr %2, i64 %.026.us32.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.026.us32.i
   store i32 %56, ptr %57, align 4
   %58 = add nuw nsw i64 %.026.us32.i, 1
   %exitcond49.not.i = icmp eq i64 %58, %.0.i.i
@@ -10905,7 +10820,7 @@ cgltf_component_read_uint.exit.us37.i:            ; preds = %cgltf_component_siz
   %60 = getelementptr inbounds nuw i8, ptr %28, i64 %59
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
-  %63 = getelementptr inbounds nuw i32, ptr %2, i64 %.026.us36.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.026.us36.i
   store i32 %62, ptr %63, align 4
   %64 = add nuw nsw i64 %.026.us36.i, 1
   %exitcond48.not.i = icmp eq i64 %64, %.0.i.i
@@ -10916,7 +10831,7 @@ cgltf_component_read_uint.exit.us41.i:            ; preds = %cgltf_component_siz
   %65 = mul nuw nsw i64 %.026.us40.i, %.0.i21.i
   %66 = getelementptr inbounds nuw i8, ptr %28, i64 %65
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds nuw i32, ptr %2, i64 %.026.us40.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.026.us40.i
   store i32 %67, ptr %68, align 4
   %69 = add nuw nsw i64 %.026.us40.i, 1
   %exitcond.not.i = icmp eq i64 %69, %.0.i.i
@@ -11196,7 +11111,7 @@ define hidden i64 @cgltf_accessor_unpack_indices(ptr noundef readonly captures(n
 
 switch.lookup:                                    ; preds = %8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.cgltf_accessor_unpack_indices, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cgltf_accessor_unpack_indices, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %cgltf_component_size.exit
 
@@ -11302,7 +11217,7 @@ cgltf_buffer_view_data.exit.thread60:             ; preds = %cgltf_buffer_view_d
 
 cgltf_component_read_index.exit:                  ; preds = %44, %46, %48, %51
   %.0.i56 = phi i16 [ %53, %51 ], [ %47, %46 ], [ %50, %48 ], [ 0, %44 ]
-  %54 = getelementptr inbounds nuw i16, ptr %1, i64 %.04468
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.04468
   store i16 %.0.i56, ptr %54, align 2
   %55 = add nuw i64 %.04468, 1
   %56 = load i64, ptr %43, align 8
@@ -11336,7 +11251,7 @@ cgltf_component_read_index.exit:                  ; preds = %44, %46, %48, %51
 
 cgltf_component_read_index.exit58:                ; preds = %58, %60, %63, %65
   %.0.i57 = phi i32 [ %67, %65 ], [ %62, %60 ], [ %64, %63 ], [ 0, %58 ]
-  %68 = getelementptr inbounds nuw i32, ptr %1, i64 %.066
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.066
   store i32 %.0.i57, ptr %68, align 4
   %69 = add nuw i64 %.066, 1
   %70 = load i64, ptr %42, align 8
@@ -11447,10 +11362,10 @@ define hidden range(i32 -3, 1) i32 @Vox_LoadFromMemory(ptr noundef readonly capt
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %60 = load ptr, ptr %21, align 8
-  %61 = getelementptr inbounds nuw %struct.CubeChunk3D, ptr %60, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %indvars.iv.i
   store ptr null, ptr %61, align 8
   %62 = load ptr, ptr %21, align 8
-  %63 = getelementptr inbounds nuw %struct.CubeChunk3D, ptr %62, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv.i
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 0, ptr %64, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -11496,7 +11411,7 @@ define hidden range(i32 -3, 1) i32 @Vox_LoadFromMemory(ptr noundef readonly capt
   %92 = add i32 %91, %90
   %93 = load ptr, ptr %21, align 8
   %94 = sext i32 %92 to i64
-  %95 = getelementptr inbounds %struct.CubeChunk3D, ptr %93, i64 %94
+  %95 = getelementptr inbounds [16 x i8], ptr %93, i64 %94
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %Vox_SetVoxel.exit
@@ -11545,7 +11460,7 @@ Vox_SetVoxel.exit:                                ; preds = %.lr.ph, %98
   %121 = getelementptr inbounds nuw i8, ptr %.3105, i64 4
   %122 = load i8, ptr %119, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %123 = getelementptr inbounds nuw %struct.VoxColor, ptr %17, i64 %indvars.iv.next
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.next
   store i8 %116, ptr %123, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 1
   store i8 %118, ptr %.sroa.4.0..sroa_idx, align 1
@@ -11699,7 +11614,7 @@ Vox_AllocArray.exit:                              ; preds = %.preheader103, %Vox
   %203 = add i32 %202, %201
   %204 = load ptr, ptr %149, align 8
   %205 = sext i32 %203 to i64
-  %206 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %205
+  %206 = getelementptr inbounds [16 x i8], ptr %204, i64 %205
   %207 = load ptr, ptr %206, align 8
   %208 = icmp eq ptr %207, null
   br i1 %208, label %Vox_Build_Voxel.exit, label %Vox_GetVoxel.exit
@@ -11721,7 +11636,7 @@ Vox_GetVoxel.exit:                                ; preds = %196
   %217 = add i32 %216, %197
   %218 = add i32 %217, %201
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %219
+  %220 = getelementptr inbounds [16 x i8], ptr %204, i64 %219
   %221 = load ptr, ptr %220, align 8
   %222 = icmp eq ptr %221, null
   br i1 %222, label %Vox_GetVoxel.exit.i.i, label %223
@@ -11745,7 +11660,7 @@ Vox_GetVoxel.exit.i.i:                            ; preds = %223, %215, %214
   %232 = add i32 %231, %197
   %233 = add i32 %232, %201
   %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %234
+  %235 = getelementptr inbounds [16 x i8], ptr %204, i64 %234
   %236 = load ptr, ptr %235, align 8
   %237 = icmp eq ptr %236, null
   br i1 %237, label %Vox_GetVoxel.exit41.i.i, label %238
@@ -11769,7 +11684,7 @@ Vox_GetVoxel.exit41.i.i:                          ; preds = %238, %230, %Vox_Get
   %247 = add i32 %199, %246
   %248 = add i32 %247, %201
   %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %249
+  %250 = getelementptr inbounds [16 x i8], ptr %204, i64 %249
   %251 = load ptr, ptr %250, align 8
   %252 = icmp eq ptr %251, null
   br i1 %252, label %260, label %253
@@ -11794,7 +11709,7 @@ Vox_GetVoxel.exit41.i.i:                          ; preds = %238, %230, %Vox_Get
   %264 = add i32 %199, %263
   %265 = add i32 %264, %201
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %266
+  %267 = getelementptr inbounds [16 x i8], ptr %204, i64 %266
   %268 = load ptr, ptr %267, align 8
   %269 = icmp eq ptr %268, null
   br i1 %269, label %Vox_GetVoxel.exit53.i.i, label %270
@@ -11818,7 +11733,7 @@ Vox_GetVoxel.exit53.i.i:                          ; preds = %270, %262, %260
   %278 = mul nsw i32 %200, %180
   %279 = add i32 %202, %278
   %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %280
+  %281 = getelementptr inbounds [16 x i8], ptr %204, i64 %280
   %282 = load ptr, ptr %281, align 8
   %283 = icmp eq ptr %282, null
   br i1 %283, label %290, label %284
@@ -11840,7 +11755,7 @@ Vox_GetVoxel.exit53.i.i:                          ; preds = %270, %262, %260
   %292 = mul nsw i32 %200, %185
   %293 = add i32 %202, %292
   %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds %struct.CubeChunk3D, ptr %204, i64 %294
+  %295 = getelementptr inbounds [16 x i8], ptr %204, i64 %294
   %296 = load ptr, ptr %295, align 8
   %297 = icmp eq ptr %296, null
   br i1 %297, label %Vox_CalcFacesVisible.exit.i, label %298
@@ -11886,7 +11801,7 @@ Vox_CalcFacesVisible.exit.i:                      ; preds = %298, %291, %290
 
 .preheader.i:                                     ; preds = %.loopexit.i
   %314 = zext i8 %213 to i64
-  %315 = getelementptr inbounds nuw %struct.VoxColor, ptr %150, i64 %314
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %314
   br label %338
 
 316:                                              ; preds = %.loopexit.i, %311
@@ -11898,23 +11813,23 @@ Vox_CalcFacesVisible.exit.i:                      ; preds = %298, %291, %290
   br i1 %.not.i90, label %.loopexit.i, label %.preheader140.i
 
 .preheader140.i:                                  ; preds = %316
-  %320 = getelementptr inbounds nuw [4 x i32], ptr @fv, i64 %indvars.iv145.i
+  %320 = getelementptr inbounds nuw [16 x i8], ptr @fv, i64 %indvars.iv145.i
   br label %321
 
 321:                                              ; preds = %337, %.preheader140.i
   %indvars.iv.i91 = phi i64 [ 0, %.preheader140.i ], [ %indvars.iv.next.i92, %337 ]
-  %322 = getelementptr inbounds nuw i32, ptr %320, i64 %indvars.iv.i91
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %320, i64 %indvars.iv.i91
   %323 = load i32, ptr %322, align 4
   %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds i32, ptr %5, i64 %324
+  %325 = getelementptr inbounds [4 x i8], ptr %5, i64 %324
   %326 = load i32, ptr %325, align 4
   %327 = icmp eq i32 %326, 0
   br i1 %327, label %328, label %337
 
 328:                                              ; preds = %321
   store i32 1, ptr %325, align 4
-  %329 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %324
-  %330 = getelementptr inbounds %struct.VoxVector3, ptr @SolidVertex, i64 %324
+  %329 = getelementptr inbounds [12 x i8], ptr %4, i64 %324
+  %330 = getelementptr inbounds [12 x i8], ptr @SolidVertex, i64 %324
   %.sroa.06.0.copyload.i.i = load <2 x float>, ptr %330, align 4
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %330, i64 8
   %.sroa.6.0.copyload.i.i = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4
@@ -11952,7 +11867,7 @@ Vox_CalcFacesVisible.exit.i:                      ; preds = %298, %291, %290
   br i1 %342, label %599, label %343
 
 343:                                              ; preds = %338
-  %344 = getelementptr inbounds nuw [4 x i32], ptr @fv, i64 %indvars.iv149.i
+  %344 = getelementptr inbounds nuw [16 x i8], ptr @fv, i64 %indvars.iv149.i
   %345 = load i32, ptr %344, align 16
   %346 = getelementptr inbounds nuw i8, ptr %344, i64 4
   %347 = load i32, ptr %346, align 4
@@ -11962,7 +11877,7 @@ Vox_CalcFacesVisible.exit.i:                      ; preds = %298, %291, %290
   %351 = load i32, ptr %350, align 4
   %352 = load i32, ptr %130, align 8
   %353 = sext i32 %345 to i64
-  %354 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %353
+  %354 = getelementptr inbounds [12 x i8], ptr %4, i64 %353
   %.sroa.017.0.copyload.i = load <2 x float>, ptr %354, align 4
   %.sroa.218.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %354, i64 8
   %.sroa.218.0.copyload.i = load float, ptr %.sroa.218.0..sroa_idx.i, align 4
@@ -11987,12 +11902,12 @@ insertArrayVector3.exit.i:                        ; preds = %357, %343
   %364 = add nsw i32 %362, 1
   store i32 %364, ptr %130, align 8
   %365 = sext i32 %362 to i64
-  %366 = getelementptr inbounds %struct.VoxVector3, ptr %363, i64 %365
+  %366 = getelementptr inbounds [12 x i8], ptr %363, i64 %365
   store <2 x float> %.sroa.017.0.copyload.i, ptr %366, align 4
   %.sroa.29.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %366, i64 8
   store float %.sroa.218.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i.i, align 4
   %367 = sext i32 %347 to i64
-  %368 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %367
+  %368 = getelementptr inbounds [12 x i8], ptr %4, i64 %367
   %.sroa.015.0.copyload.i = load <2 x float>, ptr %368, align 4
   %.sroa.216.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %368, i64 8
   %.sroa.216.0.copyload.i = load float, ptr %.sroa.216.0..sroa_idx.i, align 4
@@ -12018,12 +11933,12 @@ insertArrayVector3.exit88.i:                      ; preds = %372, %insertArrayVe
   %379 = add nsw i32 %377, 1
   store i32 %379, ptr %130, align 8
   %380 = sext i32 %377 to i64
-  %381 = getelementptr inbounds %struct.VoxVector3, ptr %378, i64 %380
+  %381 = getelementptr inbounds [12 x i8], ptr %378, i64 %380
   store <2 x float> %.sroa.015.0.copyload.i, ptr %381, align 4
   %.sroa.29.0..sroa_idx.i86.i = getelementptr inbounds nuw i8, ptr %381, i64 8
   store float %.sroa.216.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i86.i, align 4
   %382 = sext i32 %349 to i64
-  %383 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %382
+  %383 = getelementptr inbounds [12 x i8], ptr %4, i64 %382
   %.sroa.013.0.copyload.i = load <2 x float>, ptr %383, align 4
   %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %383, i64 8
   %.sroa.214.0.copyload.i = load float, ptr %.sroa.214.0..sroa_idx.i, align 4
@@ -12049,12 +11964,12 @@ insertArrayVector3.exit92.i:                      ; preds = %387, %insertArrayVe
   %394 = add nsw i32 %392, 1
   store i32 %394, ptr %130, align 8
   %395 = sext i32 %392 to i64
-  %396 = getelementptr inbounds %struct.VoxVector3, ptr %393, i64 %395
+  %396 = getelementptr inbounds [12 x i8], ptr %393, i64 %395
   store <2 x float> %.sroa.013.0.copyload.i, ptr %396, align 4
   %.sroa.29.0..sroa_idx.i90.i = getelementptr inbounds nuw i8, ptr %396, i64 8
   store float %.sroa.214.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i90.i, align 4
   %397 = sext i32 %351 to i64
-  %398 = getelementptr inbounds %struct.VoxVector3, ptr %4, i64 %397
+  %398 = getelementptr inbounds [12 x i8], ptr %4, i64 %397
   %.sroa.011.0.copyload.i = load <2 x float>, ptr %398, align 4
   %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %398, i64 8
   %.sroa.212.0.copyload.i = load float, ptr %.sroa.212.0..sroa_idx.i, align 4
@@ -12080,11 +11995,11 @@ insertArrayVector3.exit96.i:                      ; preds = %402, %insertArrayVe
   %409 = add nsw i32 %407, 1
   store i32 %409, ptr %130, align 8
   %410 = sext i32 %407 to i64
-  %411 = getelementptr inbounds %struct.VoxVector3, ptr %408, i64 %410
+  %411 = getelementptr inbounds [12 x i8], ptr %408, i64 %410
   store <2 x float> %.sroa.011.0.copyload.i, ptr %411, align 4
   %.sroa.29.0..sroa_idx.i94.i = getelementptr inbounds nuw i8, ptr %411, i64 8
   store float %.sroa.212.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i94.i, align 4
-  %412 = getelementptr inbounds nuw %struct.VoxVector3, ptr @FacesPerSideNormal, i64 %indvars.iv149.i
+  %412 = getelementptr inbounds nuw [12 x i8], ptr @FacesPerSideNormal, i64 %indvars.iv149.i
   %.sroa.09.0.copyload.i = load <2 x float>, ptr %412, align 4
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %412, i64 8
   %.sroa.210.0.copyload.i = load float, ptr %.sroa.210.0..sroa_idx.i, align 4
@@ -12110,7 +12025,7 @@ insertArrayVector3.exit100.i:                     ; preds = %416, %insertArrayVe
   %423 = add nsw i32 %421, 1
   store i32 %423, ptr %134, align 8
   %424 = sext i32 %421 to i64
-  %425 = getelementptr inbounds %struct.VoxVector3, ptr %422, i64 %424
+  %425 = getelementptr inbounds [12 x i8], ptr %422, i64 %424
   store <2 x float> %.sroa.09.0.copyload.i, ptr %425, align 4
   %.sroa.29.0..sroa_idx.i98.i = getelementptr inbounds nuw i8, ptr %425, i64 8
   store float %.sroa.210.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i98.i, align 4
@@ -12136,7 +12051,7 @@ insertArrayVector3.exit104.i:                     ; preds = %429, %insertArrayVe
   %436 = add nsw i32 %434, 1
   store i32 %436, ptr %134, align 8
   %437 = sext i32 %434 to i64
-  %438 = getelementptr inbounds %struct.VoxVector3, ptr %435, i64 %437
+  %438 = getelementptr inbounds [12 x i8], ptr %435, i64 %437
   store <2 x float> %.sroa.09.0.copyload.i, ptr %438, align 4
   %.sroa.29.0..sroa_idx.i102.i = getelementptr inbounds nuw i8, ptr %438, i64 8
   store float %.sroa.210.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i102.i, align 4
@@ -12162,7 +12077,7 @@ insertArrayVector3.exit108.i:                     ; preds = %442, %insertArrayVe
   %449 = add nsw i32 %447, 1
   store i32 %449, ptr %134, align 8
   %450 = sext i32 %447 to i64
-  %451 = getelementptr inbounds %struct.VoxVector3, ptr %448, i64 %450
+  %451 = getelementptr inbounds [12 x i8], ptr %448, i64 %450
   store <2 x float> %.sroa.09.0.copyload.i, ptr %451, align 4
   %.sroa.29.0..sroa_idx.i106.i = getelementptr inbounds nuw i8, ptr %451, i64 8
   store float %.sroa.210.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i106.i, align 4
@@ -12188,7 +12103,7 @@ insertArrayVector3.exit112.i:                     ; preds = %455, %insertArrayVe
   %462 = add nsw i32 %460, 1
   store i32 %462, ptr %134, align 8
   %463 = sext i32 %460 to i64
-  %464 = getelementptr inbounds %struct.VoxVector3, ptr %461, i64 %463
+  %464 = getelementptr inbounds [12 x i8], ptr %461, i64 %463
   store <2 x float> %.sroa.09.0.copyload.i, ptr %464, align 4
   %.sroa.29.0..sroa_idx.i110.i = getelementptr inbounds nuw i8, ptr %464, i64 8
   store float %.sroa.210.0.copyload.i, ptr %.sroa.29.0..sroa_idx.i110.i, align 4
@@ -12215,7 +12130,7 @@ insertArrayColor.exit.i:                          ; preds = %468, %insertArrayVe
   %475 = add nsw i32 %473, 1
   store i32 %475, ptr %142, align 8
   %476 = sext i32 %473 to i64
-  %477 = getelementptr inbounds %struct.VoxColor, ptr %474, i64 %476
+  %477 = getelementptr inbounds [4 x i8], ptr %474, i64 %476
   store i32 %.sroa.0.0.copyload.i, ptr %477, align 1
   %478 = load i32, ptr %142, align 8
   %479 = load i32, ptr %143, align 4
@@ -12239,7 +12154,7 @@ insertArrayColor.exit116.i:                       ; preds = %481, %insertArrayCo
   %488 = add nsw i32 %486, 1
   store i32 %488, ptr %142, align 8
   %489 = sext i32 %486 to i64
-  %490 = getelementptr inbounds %struct.VoxColor, ptr %487, i64 %489
+  %490 = getelementptr inbounds [4 x i8], ptr %487, i64 %489
   store i32 %.sroa.0.0.copyload.i, ptr %490, align 1
   %491 = load i32, ptr %142, align 8
   %492 = load i32, ptr %143, align 4
@@ -12263,7 +12178,7 @@ insertArrayColor.exit119.i:                       ; preds = %494, %insertArrayCo
   %501 = add nsw i32 %499, 1
   store i32 %501, ptr %142, align 8
   %502 = sext i32 %499 to i64
-  %503 = getelementptr inbounds %struct.VoxColor, ptr %500, i64 %502
+  %503 = getelementptr inbounds [4 x i8], ptr %500, i64 %502
   store i32 %.sroa.0.0.copyload.i, ptr %503, align 1
   %504 = load i32, ptr %142, align 8
   %505 = load i32, ptr %143, align 4
@@ -12287,7 +12202,7 @@ insertArrayColor.exit122.i:                       ; preds = %507, %insertArrayCo
   %514 = add nsw i32 %512, 1
   store i32 %514, ptr %142, align 8
   %515 = sext i32 %512 to i64
-  %516 = getelementptr inbounds %struct.VoxColor, ptr %513, i64 %515
+  %516 = getelementptr inbounds [4 x i8], ptr %513, i64 %515
   store i32 %.sroa.0.0.copyload.i, ptr %516, align 1
   %517 = trunc i32 %352 to i16
   %518 = load i32, ptr %138, align 8
@@ -12312,7 +12227,7 @@ insertArrayUShort.exit.i:                         ; preds = %521, %insertArrayCo
   %528 = add nsw i32 %526, 1
   store i32 %528, ptr %138, align 8
   %529 = sext i32 %526 to i64
-  %530 = getelementptr inbounds i16, ptr %527, i64 %529
+  %530 = getelementptr inbounds [2 x i8], ptr %527, i64 %529
   store i16 %517, ptr %530, align 2
   %531 = add i16 %517, 2
   %532 = load i32, ptr %138, align 8
@@ -12337,7 +12252,7 @@ insertArrayUShort.exit127.i:                      ; preds = %535, %insertArrayUS
   %542 = add nsw i32 %540, 1
   store i32 %542, ptr %138, align 8
   %543 = sext i32 %540 to i64
-  %544 = getelementptr inbounds i16, ptr %541, i64 %543
+  %544 = getelementptr inbounds [2 x i8], ptr %541, i64 %543
   store i16 %531, ptr %544, align 2
   %545 = add i16 %517, 1
   %546 = load i32, ptr %138, align 8
@@ -12362,7 +12277,7 @@ insertArrayUShort.exit130.i:                      ; preds = %549, %insertArrayUS
   %556 = add nsw i32 %554, 1
   store i32 %556, ptr %138, align 8
   %557 = sext i32 %554 to i64
-  %558 = getelementptr inbounds i16, ptr %555, i64 %557
+  %558 = getelementptr inbounds [2 x i8], ptr %555, i64 %557
   store i16 %545, ptr %558, align 2
   %559 = load i32, ptr %138, align 8
   %560 = load i32, ptr %139, align 4
@@ -12386,7 +12301,7 @@ insertArrayUShort.exit133.i:                      ; preds = %562, %insertArrayUS
   %569 = add nsw i32 %567, 1
   store i32 %569, ptr %138, align 8
   %570 = sext i32 %567 to i64
-  %571 = getelementptr inbounds i16, ptr %568, i64 %570
+  %571 = getelementptr inbounds [2 x i8], ptr %568, i64 %570
   store i16 %517, ptr %571, align 2
   %572 = add i16 %517, 3
   %573 = load i32, ptr %138, align 8
@@ -12411,7 +12326,7 @@ insertArrayUShort.exit136.i:                      ; preds = %576, %insertArrayUS
   %583 = add nsw i32 %581, 1
   store i32 %583, ptr %138, align 8
   %584 = sext i32 %581 to i64
-  %585 = getelementptr inbounds i16, ptr %582, i64 %584
+  %585 = getelementptr inbounds [2 x i8], ptr %582, i64 %584
   store i16 %572, ptr %585, align 2
   %586 = load i32, ptr %138, align 8
   %587 = load i32, ptr %139, align 4
@@ -12435,7 +12350,7 @@ insertArrayUShort.exit139.i:                      ; preds = %589, %insertArrayUS
   %596 = add nsw i32 %594, 1
   store i32 %596, ptr %138, align 8
   %597 = sext i32 %594 to i64
-  %598 = getelementptr inbounds i16, ptr %595, i64 %597
+  %598 = getelementptr inbounds [2 x i8], ptr %595, i64 %597
   store i16 %531, ptr %598, align 2
   br label %599
 
@@ -12515,7 +12430,7 @@ define hidden void @Vox_FreeArrays(ptr noundef captures(none) %0) local_unnamed_
   %8 = phi i32 [ %15, %14 ], [ %5, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.preheader ]
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds nuw %struct.CubeChunk3D, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not23 = icmp eq ptr %11, null
   br i1 %.not23, label %14, label %12
@@ -13158,7 +13073,7 @@ _m3dstbi__fill_bits.exit.i.i.i.i:                 ; preds = %_m3dstbi__zget8.exi
   %288 = phi i32 [ %269, %267 ], [ %283, %_m3dstbi__zget8.exit.i.i94.i.i.i ]
   %289 = and i32 %288, 511
   %290 = zext nneg i32 %289 to i64
-  %291 = getelementptr inbounds nuw i16, ptr %6, i64 %290
+  %291 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %290
   %292 = load i16, ptr %291, align 2
   %.not.i.i46.i.i = icmp eq i16 %292, 0
   br i1 %.not.i.i46.i.i, label %299, label %293
@@ -13181,7 +13096,7 @@ _m3dstbi__fill_bits.exit.i.i.i.i:                 ; preds = %_m3dstbi__zget8.exi
 
 301:                                              ; preds = %301, %299
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %301 ], [ 10, %299 ]
-  %302 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i.i.i.i.i
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i.i.i.i.i
   %303 = load i32, ptr %302, align 4
   %304 = icmp sgt i32 %303, %300
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -13195,11 +13110,11 @@ _m3dstbi__fill_bits.exit.i.i.i.i:                 ; preds = %_m3dstbi__zget8.exi
   %308 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i to i32
   %309 = sub nsw i32 16, %308
   %310 = lshr i32 %300, %309
-  %311 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv.i.i.i.i.i
+  %311 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv.i.i.i.i.i
   %312 = load i16, ptr %311, align 2
   %313 = zext i16 %312 to i32
   %314 = sub nsw i32 %310, %313
-  %315 = getelementptr inbounds nuw i16, ptr %42, i64 %indvars.iv.i.i.i.i.i
+  %315 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %indvars.iv.i.i.i.i.i
   %316 = load i16, ptr %315, align 2
   %317 = zext i16 %316 to i32
   %318 = add nsw i32 %314, %317
@@ -13208,7 +13123,7 @@ _m3dstbi__fill_bits.exit.i.i.i.i:                 ; preds = %_m3dstbi__zget8.exi
   %320 = sub nsw i32 %287, %308
   store i32 %320, ptr %38, align 8
   %321 = sext i32 %318 to i64
-  %322 = getelementptr inbounds i16, ptr %43, i64 %321
+  %322 = getelementptr inbounds [2 x i8], ptr %43, i64 %321
   %323 = load i16, ptr %322, align 2
   %324 = zext i16 %323 to i32
   br label %_m3dstbi__zhuffman_decode.exit.i.i.i
@@ -13476,7 +13391,7 @@ _m3dstbi__fill_bits.exit.i.i57.i.i:               ; preds = %_m3dstbi__zget8.exi
   %451 = phi i32 [ %.pre.i.i56.i.i, %._m3dstbi__fill_bits.exit_crit_edge.i.i55.i.i ], [ %447, %_m3dstbi__zget8.exit.i.i.i77.i.i ]
   %452 = and i32 %451, 511
   %453 = zext nneg i32 %452 to i64
-  %454 = getelementptr inbounds nuw i16, ptr %44, i64 %453
+  %454 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %453
   %455 = load i16, ptr %454, align 2
   %.not.i.i58.i.i = icmp eq i16 %455, 0
   br i1 %.not.i.i58.i.i, label %462, label %456
@@ -13499,7 +13414,7 @@ _m3dstbi__fill_bits.exit.i.i57.i.i:               ; preds = %_m3dstbi__zget8.exi
 
 464:                                              ; preds = %464, %462
   %indvars.iv.i.i.i72.i.i = phi i64 [ %indvars.iv.next.i.i.i73.i.i, %464 ], [ 10, %462 ]
-  %465 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i.i.i72.i.i
+  %465 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i.i.i72.i.i
   %466 = load i32, ptr %465, align 4
   %467 = icmp sgt i32 %466, %463
   %indvars.iv.next.i.i.i73.i.i = add nuw nsw i64 %indvars.iv.i.i.i72.i.i, 1
@@ -13513,11 +13428,11 @@ _m3dstbi__fill_bits.exit.i.i57.i.i:               ; preds = %_m3dstbi__zget8.exi
   %471 = trunc nuw nsw i64 %indvars.iv.i.i.i72.i.i to i32
   %472 = sub nsw i32 16, %471
   %473 = lshr i32 %463, %472
-  %474 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv.i.i.i72.i.i
+  %474 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv.i.i.i72.i.i
   %475 = load i16, ptr %474, align 2
   %476 = zext i16 %475 to i32
   %477 = sub nsw i32 %473, %476
-  %478 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv.i.i.i72.i.i
+  %478 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %indvars.iv.i.i.i72.i.i
   %479 = load i16, ptr %478, align 2
   %480 = zext i16 %479 to i32
   %481 = add nsw i32 %477, %480
@@ -13526,7 +13441,7 @@ _m3dstbi__fill_bits.exit.i.i57.i.i:               ; preds = %_m3dstbi__zget8.exi
   %483 = sub nsw i32 %450, %471
   store i32 %483, ptr %38, align 8
   %484 = sext i32 %481 to i64
-  %485 = getelementptr inbounds i16, ptr %49, i64 %484
+  %485 = getelementptr inbounds [2 x i8], ptr %49, i64 %484
   %486 = load i16, ptr %485, align 2
   %487 = zext i16 %486 to i32
   br label %_m3dstbi__zhuffman_decode.exit.i59.i.i
@@ -13595,14 +13510,14 @@ _m3dstbi__zhuffman_decode.exit.i59.i.i:           ; preds = %470, %456
 517:                                              ; preds = %515
   %518 = add nsw i32 %.0.i.i61.i.i, -257
   %519 = zext nneg i32 %518 to i64
-  %520 = getelementptr inbounds nuw i32, ptr @_m3dstbi__zlength_base, i64 %519
+  %520 = getelementptr inbounds nuw [4 x i8], ptr @_m3dstbi__zlength_base, i64 %519
   %521 = load i32, ptr %520, align 4
   %522 = add nsw i32 %.0.i.i61.i.i, -285
   %.not.i62.i.i = icmp ult i32 %522, -20
   br i1 %.not.i62.i.i, label %thread-pre-split.i.i.i, label %523
 
 523:                                              ; preds = %517
-  %524 = getelementptr inbounds nuw i32, ptr @_m3dstbi__zlength_extra, i64 %519
+  %524 = getelementptr inbounds nuw [4 x i8], ptr @_m3dstbi__zlength_extra, i64 %519
   %525 = load i32, ptr %524, align 4
   %526 = icmp slt i32 %.pr.i60.i.i, %525
   br i1 %526, label %527, label %_m3dstbi__zreceive.exit.i63.i.i
@@ -13692,7 +13607,7 @@ _m3dstbi__fill_bits.exit.i93.i.i.i:               ; preds = %_m3dstbi__zget8.exi
   %567 = phi i32 [ %.promoted6.i.i101.i.i.i, %thread-pre-split.i.i.i ], [ %563, %_m3dstbi__zget8.exit.i.i103.i66.i.i ]
   %568 = and i32 %567, 511
   %569 = zext nneg i32 %568 to i64
-  %570 = getelementptr inbounds nuw i16, ptr %45, i64 %569
+  %570 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %569
   %571 = load i16, ptr %570, align 2
   %.not.i94.i.i.i = icmp eq i16 %571, 0
   br i1 %.not.i94.i.i.i, label %578, label %572
@@ -13715,7 +13630,7 @@ _m3dstbi__fill_bits.exit.i93.i.i.i:               ; preds = %_m3dstbi__zget8.exi
 
 580:                                              ; preds = %580, %578
   %indvars.iv.i.i98.i.i.i = phi i64 [ %indvars.iv.next.i.i99.i.i.i, %580 ], [ 10, %578 ]
-  %581 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i.i98.i.i.i
+  %581 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i.i98.i.i.i
   %582 = load i32, ptr %581, align 4
   %583 = icmp sgt i32 %582, %579
   %indvars.iv.next.i.i99.i.i.i = add nuw nsw i64 %indvars.iv.i.i98.i.i.i, 1
@@ -13729,11 +13644,11 @@ _m3dstbi__fill_bits.exit.i93.i.i.i:               ; preds = %_m3dstbi__zget8.exi
   %587 = trunc nuw nsw i64 %indvars.iv.i.i98.i.i.i to i32
   %588 = sub nsw i32 16, %587
   %589 = lshr i32 %579, %588
-  %590 = getelementptr inbounds nuw i16, ptr %51, i64 %indvars.iv.i.i98.i.i.i
+  %590 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %indvars.iv.i.i98.i.i.i
   %591 = load i16, ptr %590, align 2
   %592 = zext i16 %591 to i32
   %593 = sub nsw i32 %589, %592
-  %594 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv.i.i98.i.i.i
+  %594 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %indvars.iv.i.i98.i.i.i
   %595 = load i16, ptr %594, align 2
   %596 = zext i16 %595 to i32
   %597 = add nsw i32 %593, %596
@@ -13742,7 +13657,7 @@ _m3dstbi__fill_bits.exit.i93.i.i.i:               ; preds = %_m3dstbi__zget8.exi
   %599 = sub nsw i32 %566, %587
   store i32 %599, ptr %38, align 8
   %600 = sext i32 %597 to i64
-  %601 = getelementptr inbounds i16, ptr %53, i64 %600
+  %601 = getelementptr inbounds [2 x i8], ptr %53, i64 %600
   %602 = load i16, ptr %601, align 2
   %603 = zext i16 %602 to i32
   br label %604
@@ -13752,14 +13667,14 @@ _m3dstbi__fill_bits.exit.i93.i.i.i:               ; preds = %_m3dstbi__zget8.exi
   %605 = phi i32 [ %599, %586 ], [ %576, %572 ]
   %.0.i95.ph.i.i.i = phi i32 [ %603, %586 ], [ %577, %572 ]
   %606 = zext nneg i32 %.0.i95.ph.i.i.i to i64
-  %607 = getelementptr inbounds nuw i32, ptr @_m3dstbi__zdist_base, i64 %606
+  %607 = getelementptr inbounds nuw [4 x i8], ptr @_m3dstbi__zdist_base, i64 %606
   %608 = load i32, ptr %607, align 4
   %609 = add nsw i32 %.0.i95.ph.i.i.i, -30
   %.not71.i.i.i = icmp ult i32 %609, -26
   br i1 %.not71.i.i.i, label %636, label %610
 
 610:                                              ; preds = %604
-  %611 = getelementptr inbounds nuw i32, ptr @_m3dstbi__zdist_extra, i64 %606
+  %611 = getelementptr inbounds nuw [4 x i8], ptr @_m3dstbi__zdist_extra, i64 %606
   %612 = load i32, ptr %611, align 4
   %613 = icmp slt i32 %605, %612
   br i1 %613, label %614, label %_m3dstbi__zreceive.exit116.i.i.i
@@ -14219,7 +14134,7 @@ define hidden i32 @_m3d_gettx(ptr noundef captures(none) %0, ptr noundef readonl
 
 16:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %17 = getelementptr inbounds nuw %struct.m3dtx_t, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %18) #60
   %.not106 = icmp eq i32 %19, 0
@@ -14253,7 +14168,7 @@ define hidden i32 @_m3d_gettx(ptr noundef captures(none) %0, ptr noundef readonl
 
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %25
   %indvars.iv122 = phi i64 [ 0, %.lr.ph116.preheader ], [ %indvars.iv.next123, %25 ]
-  %26 = getelementptr inbounds nuw %struct.m3di_t, ptr %22, i64 %indvars.iv122
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %indvars.iv122
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %27) #60
   %.not97 = icmp eq i32 %28, 0
@@ -14347,7 +14262,7 @@ define hidden i32 @_m3d_gettx(ptr noundef captures(none) %0, ptr noundef readonl
 
 70:                                               ; preds = %56
   %71 = zext i32 %57 to i64
-  %72 = getelementptr inbounds nuw %struct.m3dtx_t, ptr %63, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %71
   store ptr %3, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 18
   store i16 0, ptr %73, align 2
@@ -14401,25 +14316,25 @@ define hidden i32 @_m3d_gettx(ptr noundef captures(none) %0, ptr noundef readonl
   store i32 8, ptr %9, align 4
   %100 = call fastcc ptr @_m3dstbi__png_load(ptr noundef %8, ptr noundef %6, ptr noundef %7, ptr noundef %5, ptr noundef %9)
   %101 = load ptr, ptr %59, align 8
-  %102 = getelementptr inbounds nuw %struct.m3dtx_t, ptr %101, i64 %71
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %71
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %100, ptr %103, align 8
   %104 = load i32, ptr %6, align 4
   %105 = trunc i32 %104 to i16
   %106 = load ptr, ptr %59, align 8
-  %107 = getelementptr inbounds nuw %struct.m3dtx_t, ptr %106, i64 %71
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %106, i64 %71
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i16 %105, ptr %108, align 8
   %109 = load i32, ptr %7, align 4
   %110 = trunc i32 %109 to i16
   %111 = load ptr, ptr %59, align 8
-  %112 = getelementptr inbounds nuw %struct.m3dtx_t, ptr %111, i64 %71
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %111, i64 %71
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 18
   store i16 %110, ptr %113, align 2
   %114 = load i32, ptr %5, align 4
   %115 = trunc i32 %114 to i8
   %116 = load ptr, ptr %59, align 8
-  %117 = getelementptr inbounds nuw %struct.m3dtx_t, ptr %116, i64 %71
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %116, i64 %71
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 20
   store i8 %115, ptr %118, align 4
   br label %119
@@ -14434,7 +14349,7 @@ define hidden i32 @_m3d_gettx(ptr noundef captures(none) %0, ptr noundef readonl
 
 121:                                              ; preds = %119, %120, %70
   %122 = load ptr, ptr %59, align 8
-  %123 = getelementptr inbounds nuw %struct.m3dtx_t, ptr %122, i64 %71
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %122, i64 %71
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
   %.not105 = icmp eq ptr %125, null
@@ -15135,7 +15050,7 @@ _m3dstbi__get16be.exit.i.i:                       ; preds = %313, %_m3dstbi__get
   %319 = phi ptr [ %314, %313 ], [ %310, %_m3dstbi__get8.exit.i303.i.i ]
   %320 = phi ptr [ %314, %313 ], [ %311, %_m3dstbi__get8.exit.i303.i.i ]
   %.0.i2.i.i.i = phi i16 [ %317, %313 ], [ %.0.i.i304.i.i, %_m3dstbi__get8.exit.i303.i.i ]
-  %321 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv783.i.i
+  %321 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv783.i.i
   store i16 %.0.i2.i.i.i, ptr %321, align 2
   %indvars.iv.next784.i.i = add nuw nsw i64 %indvars.iv783.i.i, 1
   %exitcond438.not.i = icmp eq i64 %indvars.iv.next784.i.i, %298
@@ -15333,9 +15248,9 @@ _m3dstbi__malloc_mad3.exit.i.i.i:                 ; preds = %_m3dstbi__mad3sizes
   %.07999.i.i.i = phi i32 [ %390, %_m3dstbi__malloc_mad3.exit.i.i.i ], [ %.382.i.i.i, %469 ]
   %411 = load ptr, ptr %10, align 8
   %412 = load i32, ptr %411, align 8
-  %413 = getelementptr inbounds nuw i32, ptr @__const._m3dstbi__create_png_image.xorig, i64 %indvars.iv106.i.i.i
+  %413 = getelementptr inbounds nuw [4 x i8], ptr @__const._m3dstbi__create_png_image.xorig, i64 %indvars.iv106.i.i.i
   %414 = load i32, ptr %413, align 4
-  %415 = getelementptr inbounds nuw i32, ptr @__const._m3dstbi__create_png_image.xspc, i64 %indvars.iv106.i.i.i
+  %415 = getelementptr inbounds nuw [4 x i8], ptr @__const._m3dstbi__create_png_image.xspc, i64 %indvars.iv106.i.i.i
   %416 = load i32, ptr %415, align 4
   %417 = xor i32 %414, -1
   %418 = add i32 %412, %417
@@ -15343,9 +15258,9 @@ _m3dstbi__malloc_mad3.exit.i.i.i:                 ; preds = %_m3dstbi__mad3sizes
   %420 = udiv i32 %419, %416
   %421 = getelementptr inbounds nuw i8, ptr %411, i64 4
   %422 = load i32, ptr %421, align 4
-  %423 = getelementptr inbounds nuw i32, ptr @__const._m3dstbi__create_png_image.yorig, i64 %indvars.iv106.i.i.i
+  %423 = getelementptr inbounds nuw [4 x i8], ptr @__const._m3dstbi__create_png_image.yorig, i64 %indvars.iv106.i.i.i
   %424 = load i32, ptr %423, align 4
-  %425 = getelementptr inbounds nuw i32, ptr @__const._m3dstbi__create_png_image.yspc, i64 %indvars.iv106.i.i.i
+  %425 = getelementptr inbounds nuw [4 x i8], ptr @__const._m3dstbi__create_png_image.yspc, i64 %indvars.iv106.i.i.i
   %426 = load i32, ptr %425, align 4
   %427 = xor i32 %424, -1
   %428 = add i32 %422, %427
@@ -17083,7 +16998,7 @@ thread-pre-split.thread:                          ; preds = %55, %51, %47, %79, 
 326:                                              ; preds = %318
   %327 = getelementptr inbounds nuw i8, ptr %.019632804, i64 8
   %328 = zext i32 %319 to i64
-  %329 = getelementptr inbounds nuw %struct.m3di_t, ptr %324, i64 %328
+  %329 = getelementptr inbounds nuw [24 x i8], ptr %324, i64 %328
   %330 = load i8, ptr %162, align 4
   switch i8 %330, label %_m3d_getidx.exit.thread [
     i8 1, label %331
@@ -17351,7 +17266,7 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %465 = fdiv float %464, 2.550000e+02
   %466 = load ptr, ptr %366, align 8
   %467 = zext i32 %.019642863 to i64
-  %468 = getelementptr inbounds nuw %struct.m3dti_t, ptr %466, i64 %467
+  %468 = getelementptr inbounds nuw [8 x i8], ptr %466, i64 %467
   store float %465, ptr %468, align 4
   %469 = getelementptr inbounds nuw i8, ptr %.52864, i64 1
   %470 = load i8, ptr %469, align 1
@@ -17365,7 +17280,7 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %476 = fdiv float %475, 6.553500e+04
   %477 = load ptr, ptr %366, align 8
   %478 = zext i32 %.019642863 to i64
-  %479 = getelementptr inbounds nuw %struct.m3dti_t, ptr %477, i64 %478
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %478
   store float %476, ptr %479, align 4
   %480 = getelementptr inbounds nuw i8, ptr %.52864, i64 2
   %481 = load i16, ptr %480, align 2
@@ -17377,7 +17292,7 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %485 = load float, ptr %.52864, align 4
   %486 = load ptr, ptr %366, align 8
   %487 = zext i32 %.019642863 to i64
-  %488 = getelementptr inbounds nuw %struct.m3dti_t, ptr %486, i64 %487
+  %488 = getelementptr inbounds nuw [8 x i8], ptr %486, i64 %487
   store float %485, ptr %488, align 4
   %489 = getelementptr inbounds nuw i8, ptr %.52864, i64 4
   %490 = load float, ptr %489, align 4
@@ -17388,7 +17303,7 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %493 = fptrunc double %492 to float
   %494 = load ptr, ptr %366, align 8
   %495 = zext i32 %.019642863 to i64
-  %496 = getelementptr inbounds nuw %struct.m3dti_t, ptr %494, i64 %495
+  %496 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %495
   store float %493, ptr %496, align 4
   %497 = getelementptr inbounds nuw i8, ptr %.52864, i64 8
   %498 = load double, ptr %497, align 8
@@ -17399,7 +17314,7 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %.sink3480 = phi i64 [ %495, %491 ], [ %487, %484 ], [ %478, %473 ], [ %467, %462 ]
   %.sink = phi float [ %499, %491 ], [ %490, %484 ], [ %483, %473 ], [ %472, %462 ]
   %500 = load ptr, ptr %366, align 8
-  %501 = getelementptr inbounds nuw %struct.m3dti_t, ptr %500, i64 %.sink3480
+  %501 = getelementptr inbounds nuw [8 x i8], ptr %500, i64 %.sink3480
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 4
   store float %.sink, ptr %502, align 4
   br label %503
@@ -17510,14 +17425,14 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %553 = sitofp i8 %552 to float
   %554 = fdiv float %553, 1.270000e+02
   %555 = load ptr, ptr %356, align 8
-  %556 = getelementptr inbounds nuw %struct.m3dv_t, ptr %555, i64 %indvars.iv3118
+  %556 = getelementptr inbounds nuw [24 x i8], ptr %555, i64 %indvars.iv3118
   store float %554, ptr %556, align 4
   %557 = getelementptr inbounds nuw i8, ptr %.62859, i64 1
   %558 = load i8, ptr %557, align 1
   %559 = sitofp i8 %558 to float
   %560 = fdiv float %559, 1.270000e+02
   %561 = load ptr, ptr %356, align 8
-  %562 = getelementptr inbounds nuw %struct.m3dv_t, ptr %561, i64 %indvars.iv3118
+  %562 = getelementptr inbounds nuw [24 x i8], ptr %561, i64 %indvars.iv3118
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 4
   store float %560, ptr %563, align 4
   %564 = getelementptr inbounds nuw i8, ptr %.62859, i64 2
@@ -17525,7 +17440,7 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %566 = sitofp i8 %565 to float
   %567 = fdiv float %566, 1.270000e+02
   %568 = load ptr, ptr %356, align 8
-  %569 = getelementptr inbounds nuw %struct.m3dv_t, ptr %568, i64 %indvars.iv3118
+  %569 = getelementptr inbounds nuw [24 x i8], ptr %568, i64 %indvars.iv3118
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 8
   store float %567, ptr %570, align 4
   %571 = getelementptr inbounds nuw i8, ptr %.62859, i64 3
@@ -17539,14 +17454,14 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %577 = sitofp i16 %576 to float
   %578 = fdiv float %577, 3.276700e+04
   %579 = load ptr, ptr %356, align 8
-  %580 = getelementptr inbounds nuw %struct.m3dv_t, ptr %579, i64 %indvars.iv3118
+  %580 = getelementptr inbounds nuw [24 x i8], ptr %579, i64 %indvars.iv3118
   store float %578, ptr %580, align 4
   %581 = getelementptr inbounds nuw i8, ptr %.62859, i64 2
   %582 = load i16, ptr %581, align 2
   %583 = sitofp i16 %582 to float
   %584 = fdiv float %583, 3.276700e+04
   %585 = load ptr, ptr %356, align 8
-  %586 = getelementptr inbounds nuw %struct.m3dv_t, ptr %585, i64 %indvars.iv3118
+  %586 = getelementptr inbounds nuw [24 x i8], ptr %585, i64 %indvars.iv3118
   %587 = getelementptr inbounds nuw i8, ptr %586, i64 4
   store float %584, ptr %587, align 4
   %588 = getelementptr inbounds nuw i8, ptr %.62859, i64 4
@@ -17554,7 +17469,7 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %590 = sitofp i16 %589 to float
   %591 = fdiv float %590, 3.276700e+04
   %592 = load ptr, ptr %356, align 8
-  %593 = getelementptr inbounds nuw %struct.m3dv_t, ptr %592, i64 %indvars.iv3118
+  %593 = getelementptr inbounds nuw [24 x i8], ptr %592, i64 %indvars.iv3118
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 8
   store float %591, ptr %594, align 4
   %595 = getelementptr inbounds nuw i8, ptr %.62859, i64 6
@@ -17566,18 +17481,18 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
 599:                                              ; preds = %.split14
   %600 = load float, ptr %.62859, align 4
   %601 = load ptr, ptr %356, align 8
-  %602 = getelementptr inbounds nuw %struct.m3dv_t, ptr %601, i64 %indvars.iv3118
+  %602 = getelementptr inbounds nuw [24 x i8], ptr %601, i64 %indvars.iv3118
   store float %600, ptr %602, align 4
   %603 = getelementptr inbounds nuw i8, ptr %.62859, i64 4
   %604 = load float, ptr %603, align 4
   %605 = load ptr, ptr %356, align 8
-  %606 = getelementptr inbounds nuw %struct.m3dv_t, ptr %605, i64 %indvars.iv3118
+  %606 = getelementptr inbounds nuw [24 x i8], ptr %605, i64 %indvars.iv3118
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 4
   store float %604, ptr %607, align 4
   %608 = getelementptr inbounds nuw i8, ptr %.62859, i64 8
   %609 = load float, ptr %608, align 4
   %610 = load ptr, ptr %356, align 8
-  %611 = getelementptr inbounds nuw %struct.m3dv_t, ptr %610, i64 %indvars.iv3118
+  %611 = getelementptr inbounds nuw [24 x i8], ptr %610, i64 %indvars.iv3118
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 8
   store float %609, ptr %612, align 4
   %613 = getelementptr inbounds nuw i8, ptr %.62859, i64 12
@@ -17588,20 +17503,20 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %616 = load double, ptr %.62859, align 8
   %617 = fptrunc double %616 to float
   %618 = load ptr, ptr %356, align 8
-  %619 = getelementptr inbounds nuw %struct.m3dv_t, ptr %618, i64 %indvars.iv3118
+  %619 = getelementptr inbounds nuw [24 x i8], ptr %618, i64 %indvars.iv3118
   store float %617, ptr %619, align 4
   %620 = getelementptr inbounds nuw i8, ptr %.62859, i64 8
   %621 = load double, ptr %620, align 8
   %622 = fptrunc double %621 to float
   %623 = load ptr, ptr %356, align 8
-  %624 = getelementptr inbounds nuw %struct.m3dv_t, ptr %623, i64 %indvars.iv3118
+  %624 = getelementptr inbounds nuw [24 x i8], ptr %623, i64 %indvars.iv3118
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 4
   store float %622, ptr %625, align 4
   %626 = getelementptr inbounds nuw i8, ptr %.62859, i64 16
   %627 = load double, ptr %626, align 8
   %628 = fptrunc double %627 to float
   %629 = load ptr, ptr %356, align 8
-  %630 = getelementptr inbounds nuw %struct.m3dv_t, ptr %629, i64 %indvars.iv3118
+  %630 = getelementptr inbounds nuw [24 x i8], ptr %629, i64 %indvars.iv3118
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 8
   store float %628, ptr %631, align 4
   %632 = getelementptr inbounds nuw i8, ptr %.62859, i64 24
@@ -17613,7 +17528,7 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %.sink3483 = phi float [ %634, %615 ], [ %614, %599 ], [ %598, %575 ], [ %574, %551 ]
   %.sink3482 = phi i64 [ 32, %615 ], [ 16, %599 ], [ 8, %575 ], [ 4, %551 ]
   %635 = load ptr, ptr %356, align 8
-  %636 = getelementptr inbounds nuw %struct.m3dv_t, ptr %635, i64 %indvars.iv3118
+  %636 = getelementptr inbounds nuw [24 x i8], ptr %635, i64 %indvars.iv3118
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 12
   store float %.sink3483, ptr %637, align 4
   %638 = getelementptr inbounds nuw i8, ptr %.62859, i64 %.sink3482
@@ -17636,7 +17551,7 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
 643:                                              ; preds = %641
   %644 = load i8, ptr %.7, align 1
   %645 = zext i8 %644 to i64
-  %646 = getelementptr inbounds nuw i32, ptr %642, i64 %645
+  %646 = getelementptr inbounds nuw [4 x i8], ptr %642, i64 %645
   %647 = load i32, ptr %646, align 4
   br label %.sink.split3487
 
@@ -17648,7 +17563,7 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
 650:                                              ; preds = %648
   %651 = load i16, ptr %.7, align 2
   %652 = zext i16 %651 to i64
-  %653 = getelementptr inbounds nuw i32, ptr %649, i64 %652
+  %653 = getelementptr inbounds nuw [4 x i8], ptr %649, i64 %652
   %654 = load i32, ptr %653, align 4
   br label %.sink.split3487
 
@@ -17660,7 +17575,7 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
   %.sink3489 = phi i32 [ %656, %655 ], [ 0, %641 ], [ %647, %643 ], [ %654, %650 ], [ 0, %648 ]
   %.sink3488 = phi i64 [ 4, %655 ], [ 1, %641 ], [ 1, %643 ], [ 2, %650 ], [ 2, %648 ]
   %657 = load ptr, ptr %356, align 8
-  %658 = getelementptr inbounds nuw %struct.m3dv_t, ptr %657, i64 %indvars.iv3118
+  %658 = getelementptr inbounds nuw [24 x i8], ptr %657, i64 %indvars.iv3118
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 16
   store i32 %.sink3489, ptr %659, align 4
   %660 = getelementptr inbounds nuw i8, ptr %.7, i64 %.sink3488
@@ -17669,12 +17584,12 @@ _m3d_getidx.exit.thread:                          ; preds = %326, %_m3d_getidx.e
 661:                                              ; preds = %.sink.split3487, %639
   %.8 = phi ptr [ %.7, %639 ], [ %660, %.sink.split3487 ]
   %662 = load ptr, ptr %356, align 8
-  %663 = getelementptr inbounds nuw %struct.m3dv_t, ptr %662, i64 %indvars.iv3118
+  %663 = getelementptr inbounds nuw [24 x i8], ptr %662, i64 %indvars.iv3118
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 20
   store i32 -1, ptr %664, align 4
   %665 = load i8, ptr %192, align 1
   %666 = load ptr, ptr %356, align 8
-  %667 = getelementptr inbounds nuw %struct.m3dv_t, ptr %666, i64 %indvars.iv3118
+  %667 = getelementptr inbounds nuw [24 x i8], ptr %666, i64 %indvars.iv3118
   %668 = getelementptr inbounds nuw i8, ptr %667, i64 20
   switch i8 %665, label %_m3d_getidx.exit2325 [
     i8 1, label %669
@@ -17859,7 +17774,7 @@ _m3d_getidx.exit2335:                             ; preds = %_m3d_getidx.exit233
 748:                                              ; preds = %.lr.ph2809
   %749 = load i8, ptr %180, align 1
   %750 = load ptr, ptr %354, align 8
-  %751 = getelementptr inbounds nuw %struct.m3db_t, ptr %750, i64 %indvars.iv
+  %751 = getelementptr inbounds nuw [104 x i8], ptr %750, i64 %indvars.iv
   switch i8 %749, label %_m3d_getidx.exit2340 [
     i8 1, label %752
     i8 2, label %758
@@ -17940,12 +17855,12 @@ _m3d_getidx.exit2345.thread:                      ; preds = %_m3d_getidx.exit234
   %.0.i23442588 = phi ptr [ %782, %783 ], [ %782, %_m3d_getidx.exit2345 ], [ %.0.i2339, %_m3d_getidx.exit2340 ]
   %788 = phi ptr [ %787, %783 ], [ null, %_m3d_getidx.exit2345 ], [ null, %_m3d_getidx.exit2340 ]
   %789 = load ptr, ptr %354, align 8
-  %790 = getelementptr inbounds nuw %struct.m3db_t, ptr %789, i64 %indvars.iv
+  %790 = getelementptr inbounds nuw [104 x i8], ptr %789, i64 %indvars.iv
   %791 = getelementptr inbounds nuw i8, ptr %790, i64 8
   store ptr %788, ptr %791, align 8
   %792 = load i8, ptr %156, align 1
   %793 = load ptr, ptr %354, align 8
-  %794 = getelementptr inbounds nuw %struct.m3db_t, ptr %793, i64 %indvars.iv
+  %794 = getelementptr inbounds nuw [104 x i8], ptr %793, i64 %indvars.iv
   %795 = getelementptr inbounds nuw i8, ptr %794, i64 16
   switch i8 %792, label %_m3d_getidx.exit2350 [
     i8 1, label %796
@@ -17986,7 +17901,7 @@ _m3d_getidx.exit2350:                             ; preds = %_m3d_getidx.exit234
   %811 = phi ptr [ %793, %_m3d_getidx.exit2345.thread ], [ %.pre, %.sink.split.i2346 ]
   %812 = phi i8 [ %792, %_m3d_getidx.exit2345.thread ], [ %.pr2589, %.sink.split.i2346 ]
   %.0.i2349 = phi ptr [ %.0.i23442588, %_m3d_getidx.exit2345.thread ], [ %810, %.sink.split.i2346 ]
-  %813 = getelementptr inbounds nuw %struct.m3db_t, ptr %811, i64 %indvars.iv
+  %813 = getelementptr inbounds nuw [104 x i8], ptr %811, i64 %indvars.iv
   %814 = getelementptr inbounds nuw i8, ptr %813, i64 20
   switch i8 %812, label %_m3d_getidx.exit2355 [
     i8 1, label %815
@@ -18025,11 +17940,11 @@ _m3d_getidx.exit2350:                             ; preds = %_m3d_getidx.exit234
 _m3d_getidx.exit2355:                             ; preds = %_m3d_getidx.exit2350, %.sink.split.i2351
   %830 = phi ptr [ %811, %_m3d_getidx.exit2350 ], [ %.pre3232, %.sink.split.i2351 ]
   %.0.i2354 = phi ptr [ %.0.i2349, %_m3d_getidx.exit2350 ], [ %829, %.sink.split.i2351 ]
-  %831 = getelementptr inbounds nuw %struct.m3db_t, ptr %830, i64 %indvars.iv
+  %831 = getelementptr inbounds nuw [104 x i8], ptr %830, i64 %indvars.iv
   %832 = getelementptr inbounds nuw i8, ptr %831, i64 24
   store i32 0, ptr %832, align 8
   %833 = load ptr, ptr %354, align 8
-  %834 = getelementptr inbounds nuw %struct.m3db_t, ptr %833, i64 %indvars.iv
+  %834 = getelementptr inbounds nuw [104 x i8], ptr %833, i64 %indvars.iv
   %835 = getelementptr inbounds nuw i8, ptr %834, i64 32
   store ptr null, ptr %835, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -18088,13 +18003,13 @@ _m3d_getidx.exit2355..critedge16.loopexit_crit_edge: ; preds = %_m3d_getidx.exit
 .preheader2737:                                   ; preds = %.lr.ph2825, %.preheader2737
   %indvars.iv3085 = phi i64 [ %indvars.iv.next3086, %.preheader2737 ], [ 0, %.lr.ph2825 ]
   %847 = load ptr, ptr %359, align 8
-  %848 = getelementptr inbounds nuw %struct.m3ds_t, ptr %847, i64 %indvars.iv3098
-  %849 = getelementptr inbounds nuw i32, ptr %848, i64 %indvars.iv3085
+  %848 = getelementptr inbounds nuw [32 x i8], ptr %847, i64 %indvars.iv3098
+  %849 = getelementptr inbounds nuw [4 x i8], ptr %848, i64 %indvars.iv3085
   store i32 -1, ptr %849, align 4
   %850 = load ptr, ptr %359, align 8
-  %851 = getelementptr inbounds nuw %struct.m3ds_t, ptr %850, i64 %indvars.iv3098
+  %851 = getelementptr inbounds nuw [32 x i8], ptr %850, i64 %indvars.iv3098
   %852 = getelementptr inbounds nuw i8, ptr %851, i64 16
-  %853 = getelementptr inbounds nuw float, ptr %852, i64 %indvars.iv3085
+  %853 = getelementptr inbounds nuw [4 x i8], ptr %852, i64 %indvars.iv3085
   store float 0.000000e+00, ptr %853, align 4
   %indvars.iv.next3086 = add nuw nsw i64 %indvars.iv3085, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next3086, 4
@@ -18144,18 +18059,18 @@ _m3d_getidx.exit2355..critedge16.loopexit_crit_edge: ; preds = %_m3d_getidx.exit
   %869 = uitofp i8 %861 to float
   %870 = fdiv float %869, 2.550000e+02
   %871 = load ptr, ptr %359, align 8
-  %872 = getelementptr inbounds nuw %struct.m3ds_t, ptr %871, i64 %indvars.iv3098
+  %872 = getelementptr inbounds nuw [32 x i8], ptr %871, i64 %indvars.iv3098
   %873 = getelementptr inbounds nuw i8, ptr %872, i64 16
-  %874 = getelementptr inbounds nuw float, ptr %873, i64 %indvars.iv3089
+  %874 = getelementptr inbounds nuw [4 x i8], ptr %873, i64 %indvars.iv3089
   store float %870, ptr %874, align 4
   %875 = load ptr, ptr %359, align 8
-  %876 = getelementptr inbounds nuw %struct.m3ds_t, ptr %875, i64 %indvars.iv3098
+  %876 = getelementptr inbounds nuw [32 x i8], ptr %875, i64 %indvars.iv3098
   %877 = getelementptr inbounds nuw i8, ptr %876, i64 16
-  %878 = getelementptr inbounds nuw float, ptr %877, i64 %indvars.iv3089
+  %878 = getelementptr inbounds nuw [4 x i8], ptr %877, i64 %indvars.iv3089
   %879 = load float, ptr %878, align 4
   %880 = fadd float %.020632816, %879
   %881 = load i8, ptr %180, align 1
-  %882 = getelementptr inbounds nuw i32, ptr %876, i64 %indvars.iv3089
+  %882 = getelementptr inbounds nuw [4 x i8], ptr %876, i64 %indvars.iv3089
   switch i8 %881, label %_m3d_getidx.exit2360 [
     i8 1, label %883
     i8 2, label %889
@@ -18208,9 +18123,9 @@ _m3d_getidx.exit2360:                             ; preds = %.sink.split.i2356, 
 .preheader2735:                                   ; preds = %._crit_edge, %.preheader2735
   %indvars.iv3093 = phi i64 [ %indvars.iv.next3094, %.preheader2735 ], [ 0, %._crit_edge ]
   %904 = load ptr, ptr %359, align 8
-  %905 = getelementptr inbounds nuw %struct.m3ds_t, ptr %904, i64 %indvars.iv3098
+  %905 = getelementptr inbounds nuw [32 x i8], ptr %904, i64 %indvars.iv3098
   %906 = getelementptr inbounds nuw i8, ptr %905, i64 16
-  %907 = getelementptr inbounds nuw float, ptr %906, i64 %indvars.iv3093
+  %907 = getelementptr inbounds nuw [4 x i8], ptr %906, i64 %indvars.iv3093
   %908 = load float, ptr %907, align 4
   %909 = fdiv float %908, %.12064
   store float %909, ptr %907, align 4
@@ -18337,7 +18252,7 @@ _m3d_getidx.exit2365.thread:                      ; preds = %921, %_m3d_getidx.e
 
 954:                                              ; preds = %.lr.ph2912, %953
   %indvars.iv3153 = phi i64 [ 0, %.lr.ph2912 ], [ %indvars.iv.next3154, %953 ]
-  %955 = getelementptr inbounds nuw %struct.m3dm_t, ptr %952, i64 %indvars.iv3153
+  %955 = getelementptr inbounds nuw [24 x i8], ptr %952, i64 %indvars.iv3153
   %956 = load ptr, ptr %955, align 8
   %957 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %944, ptr noundef nonnull dereferenceable(1) %956) #60
   %.not2232 = icmp eq i32 %957, 0
@@ -18408,7 +18323,7 @@ _m3d_getidx.exit2365.thread:                      ; preds = %921, %_m3d_getidx.e
 981:                                              ; preds = %._crit_edge3288, %977
   %.pre-phi3292 = phi i64 [ %.pre3291, %._crit_edge3288 ], [ %968, %977 ]
   %982 = phi ptr [ %980, %._crit_edge3288 ], [ %966, %977 ]
-  %983 = getelementptr inbounds nuw %struct.m3dm_t, ptr %982, i64 %.pre-phi3292
+  %983 = getelementptr inbounds nuw [24 x i8], ptr %982, i64 %.pre-phi3292
   %984 = getelementptr inbounds nuw i8, ptr %983, i64 8
   store i8 0, ptr %984, align 8
   store ptr %944, ptr %983, align 8
@@ -18434,14 +18349,14 @@ _m3d_getidx.exit2365.thread:                      ; preds = %921, %_m3d_getidx.e
   %994 = load i8, ptr %.142915, align 1
   %995 = load ptr, ptr %989, align 8
   %996 = zext i8 %991 to i64
-  %997 = getelementptr inbounds nuw %struct.m3dp_t, ptr %995, i64 %996
+  %997 = getelementptr inbounds nuw [8 x i8], ptr %995, i64 %996
   store i8 %994, ptr %997, align 4
   %998 = load ptr, ptr %989, align 8
-  %999 = getelementptr inbounds nuw %struct.m3dp_t, ptr %998, i64 %996
+  %999 = getelementptr inbounds nuw [8 x i8], ptr %998, i64 %996
   %1000 = getelementptr inbounds nuw i8, ptr %999, i64 4
   store i32 0, ptr %1000, align 4
   %1001 = load ptr, ptr %989, align 8
-  %1002 = getelementptr inbounds nuw %struct.m3dp_t, ptr %1001, i64 %996
+  %1002 = getelementptr inbounds nuw [8 x i8], ptr %1001, i64 %996
   %1003 = load i8, ptr %1002, align 4
   %1004 = icmp slt i8 %1003, 0
   br i1 %1004, label %.thread2605, label %.preheader2727
@@ -18453,7 +18368,7 @@ _m3d_getidx.exit2365.thread:                      ; preds = %921, %_m3d_getidx.e
 
 .preheader2727:                                   ; preds = %.lr.ph2916, %1005
   %indvars.iv3159 = phi i64 [ %indvars.iv.next3160, %1005 ], [ 0, %.lr.ph2916 ]
-  %1006 = getelementptr inbounds nuw %struct.m3dpd_t, ptr @m3d_propertytypes, i64 %indvars.iv3159
+  %1006 = getelementptr inbounds nuw [2 x i8], ptr @m3d_propertytypes, i64 %indvars.iv3159
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 1
   %1008 = load i8, ptr %1007, align 1
   %1009 = icmp eq i8 %1003, %1008
@@ -18486,7 +18401,7 @@ _m3d_getidx.exit2365.thread:                      ; preds = %921, %_m3d_getidx.e
 1016:                                             ; preds = %1014
   %1017 = load i8, ptr %993, align 1
   %1018 = zext i8 %1017 to i64
-  %1019 = getelementptr inbounds nuw i32, ptr %1015, i64 %1018
+  %1019 = getelementptr inbounds nuw [4 x i8], ptr %1015, i64 %1018
   %1020 = load i32, ptr %1019, align 4
   br label %1021
 
@@ -18505,7 +18420,7 @@ _m3d_getidx.exit2365.thread:                      ; preds = %921, %_m3d_getidx.e
 1027:                                             ; preds = %1025
   %1028 = load i16, ptr %993, align 2
   %1029 = zext i16 %1028 to i64
-  %1030 = getelementptr inbounds nuw i32, ptr %1026, i64 %1029
+  %1030 = getelementptr inbounds nuw [4 x i8], ptr %1026, i64 %1029
   %1031 = load i32, ptr %1030, align 4
   br label %1032
 
@@ -18600,7 +18515,7 @@ _m3d_getidx.exit2370.thread:                      ; preds = %.thread2605, %_m3d_
   %1079 = phi ptr [ %1078, %1074 ], [ null, %_m3d_getidx.exit2370 ], [ null, %.thread2605 ]
   %1080 = call i32 @_m3d_gettx(ptr noundef nonnull %calloc3418, ptr noundef %1, ptr noundef %2, ptr noundef %1079)
   %1081 = load ptr, ptr %989, align 8
-  %1082 = getelementptr inbounds nuw %struct.m3dp_t, ptr %1081, i64 %996
+  %1082 = getelementptr inbounds nuw [8 x i8], ptr %1081, i64 %996
   %1083 = getelementptr inbounds nuw i8, ptr %1082, i64 4
   store i32 %1080, ptr %1083, align 4
   %1084 = load i8, ptr %355, align 1
@@ -18609,7 +18524,7 @@ _m3d_getidx.exit2370.thread:                      ; preds = %.thread2605, %_m3d_
 
 1086:                                             ; preds = %_m3d_getidx.exit2370.thread
   %1087 = load ptr, ptr %989, align 8
-  %1088 = getelementptr inbounds nuw %struct.m3dp_t, ptr %1087, i64 %996
+  %1088 = getelementptr inbounds nuw [8 x i8], ptr %1087, i64 %996
   %1089 = getelementptr inbounds nuw i8, ptr %1088, i64 4
   %1090 = load i32, ptr %1089, align 4
   %1091 = icmp eq i32 %1090, -1
@@ -18778,7 +18693,7 @@ _m3d_getidx.exit2380:                             ; preds = %1136, %1142, %1148
 
 1158:                                             ; preds = %.lr.ph2908, %1162
   %indvars.iv3147 = phi i64 [ 0, %.lr.ph2908 ], [ %indvars.iv.next3148, %1162 ]
-  %1159 = getelementptr inbounds nuw %struct.m3dm_t, ptr %1157, i64 %indvars.iv3147
+  %1159 = getelementptr inbounds nuw [24 x i8], ptr %1157, i64 %indvars.iv3147
   %1160 = load ptr, ptr %1159, align 8
   %1161 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1155, ptr noundef nonnull dereferenceable(1) %1160) #60
   %.not2221 = icmp eq i32 %1161, 0
@@ -18849,10 +18764,10 @@ _m3d_getidx.exit2385.loopexit:                    ; preds = %1158
   %1179 = phi ptr [ %1177, %1173 ], [ %.pre3263, %1169 ]
   %.12039 = phi i32 [ %1174, %1173 ], [ %.02038, %1169 ]
   %1180 = zext i32 %1170 to i64
-  %1181 = getelementptr inbounds nuw %struct.m3df_t, ptr %1179, i64 %1180
+  %1181 = getelementptr inbounds nuw [40 x i8], ptr %1179, i64 %1180
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %1181, i8 -1, i64 40, i1 false)
   %1182 = load ptr, ptr %377, align 8
-  %1183 = getelementptr inbounds nuw %struct.m3df_t, ptr %1182, i64 %1180
+  %1183 = getelementptr inbounds nuw [40 x i8], ptr %1182, i64 %1180
   store i32 %.22548.ph.ph, ptr %1183, align 4
   %1184 = icmp ult ptr %1129, %400
   br i1 %1184, label %.lr.ph2899, label %._crit_edge2900.thread
@@ -18873,9 +18788,9 @@ _m3d_getidx.exit2385.loopexit:                    ; preds = %1158
   %.182897.us = phi ptr [ %.21.us, %1236 ], [ %1129, %.lr.ph2899 ]
   %.320512895.us = phi i8 [ %spec.select.us, %1236 ], [ %.22050, %.lr.ph2899 ]
   %1188 = load i8, ptr %156, align 1
-  %1189 = getelementptr inbounds nuw %struct.m3df_t, ptr %.pre32703285, i64 %1180
+  %1189 = getelementptr inbounds nuw [40 x i8], ptr %.pre32703285, i64 %1180
   %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 4
-  %1191 = getelementptr inbounds nuw i32, ptr %1190, i64 %indvars.iv3145
+  %1191 = getelementptr inbounds nuw [4 x i8], ptr %1190, i64 %indvars.iv3145
   switch i8 %1188, label %_m3d_getidx.exit2390.us [
     i8 1, label %1200
     i8 2, label %1194
@@ -18917,9 +18832,9 @@ _m3d_getidx.exit2390.us:                          ; preds = %.sink.split.i2386.u
 
 1207:                                             ; preds = %_m3d_getidx.exit2390.us
   %1208 = load i8, ptr %156, align 1
-  %1209 = getelementptr inbounds nuw %struct.m3df_t, ptr %.pre3270, i64 %1180
+  %1209 = getelementptr inbounds nuw [40 x i8], ptr %.pre3270, i64 %1180
   %1210 = getelementptr inbounds nuw i8, ptr %1209, i64 16
-  %1211 = getelementptr inbounds nuw i32, ptr %1210, i64 %indvars.iv3145
+  %1211 = getelementptr inbounds nuw [4 x i8], ptr %1210, i64 %indvars.iv3145
   switch i8 %1208, label %_m3d_getidx.exit2400.us [
     i8 1, label %1220
     i8 2, label %1214
@@ -18957,9 +18872,9 @@ _m3d_getidx.exit2390.us:                          ; preds = %.sink.split.i2386.u
 _m3d_getidx.exit2400.us:                          ; preds = %.sink.split.i2396.us, %1207, %_m3d_getidx.exit2390.us
   %.pre32703286 = phi ptr [ %.pre3270, %_m3d_getidx.exit2390.us ], [ %.pre3270, %1207 ], [ %.pre3269, %.sink.split.i2396.us ]
   %.20.us = phi ptr [ %.0.i2389.us, %_m3d_getidx.exit2390.us ], [ %.0.i2389.us, %1207 ], [ %1226, %.sink.split.i2396.us ]
-  %1227 = getelementptr inbounds nuw %struct.m3df_t, ptr %.pre32703286, i64 %1180
+  %1227 = getelementptr inbounds nuw [40 x i8], ptr %.pre32703286, i64 %1180
   %1228 = getelementptr inbounds nuw i8, ptr %1227, i64 16
-  %1229 = getelementptr inbounds nuw i32, ptr %1228, i64 %indvars.iv3145
+  %1229 = getelementptr inbounds nuw [4 x i8], ptr %1228, i64 %indvars.iv3145
   %1230 = load i32, ptr %1229, align 4
   %1231 = icmp eq i32 %1230, -1
   %spec.select.us = select i1 %1231, i8 1, i8 %.320512895.us
@@ -18985,9 +18900,9 @@ _m3d_getidx.exit2400.us:                          ; preds = %.sink.split.i2396.u
   %.182897 = phi ptr [ %.21, %1307 ], [ %1129, %.lr.ph2899 ]
   %.320512895 = phi i8 [ %spec.select, %1307 ], [ %.22050, %.lr.ph2899 ]
   %1240 = load i8, ptr %156, align 1
-  %1241 = getelementptr inbounds nuw %struct.m3df_t, ptr %.pre32673282, i64 %1180
+  %1241 = getelementptr inbounds nuw [40 x i8], ptr %.pre32673282, i64 %1180
   %1242 = getelementptr inbounds nuw i8, ptr %1241, i64 4
-  %1243 = getelementptr inbounds nuw i32, ptr %1242, i64 %indvars.iv3143
+  %1243 = getelementptr inbounds nuw [4 x i8], ptr %1242, i64 %indvars.iv3143
   switch i8 %1240, label %_m3d_getidx.exit2390 [
     i8 1, label %1244
     i8 2, label %1250
@@ -19026,9 +18941,9 @@ _m3d_getidx.exit2390:                             ; preds = %.lr.ph2899.split, %
   %.pre32673281 = phi ptr [ %.pre32673282, %.lr.ph2899.split ], [ %.pre3265, %.sink.split.i2386 ]
   %.0.i2389 = phi ptr [ %.182897, %.lr.ph2899.split ], [ %1258, %.sink.split.i2386 ]
   %1259 = load i8, ptr %174, align 2
-  %1260 = getelementptr inbounds nuw %struct.m3df_t, ptr %.pre32673281, i64 %1180
+  %1260 = getelementptr inbounds nuw [40 x i8], ptr %.pre32673281, i64 %1180
   %1261 = getelementptr inbounds nuw i8, ptr %1260, i64 28
-  %1262 = getelementptr inbounds nuw i32, ptr %1261, i64 %indvars.iv3143
+  %1262 = getelementptr inbounds nuw [4 x i8], ptr %1261, i64 %indvars.iv3143
   switch i8 %1259, label %_m3d_getidx.exit2395 [
     i8 1, label %1263
     i8 2, label %1269
@@ -19070,9 +18985,9 @@ _m3d_getidx.exit2395:                             ; preds = %.sink.split.i2391, 
 
 1278:                                             ; preds = %_m3d_getidx.exit2395
   %1279 = load i8, ptr %156, align 1
-  %1280 = getelementptr inbounds nuw %struct.m3df_t, ptr %.pre3267, i64 %1180
+  %1280 = getelementptr inbounds nuw [40 x i8], ptr %.pre3267, i64 %1180
   %1281 = getelementptr inbounds nuw i8, ptr %1280, i64 16
-  %1282 = getelementptr inbounds nuw i32, ptr %1281, i64 %indvars.iv3143
+  %1282 = getelementptr inbounds nuw [4 x i8], ptr %1281, i64 %indvars.iv3143
   switch i8 %1279, label %_m3d_getidx.exit2400 [
     i8 1, label %1283
     i8 2, label %1289
@@ -19110,9 +19025,9 @@ _m3d_getidx.exit2395:                             ; preds = %.sink.split.i2391, 
 _m3d_getidx.exit2400:                             ; preds = %.sink.split.i2396, %1278, %_m3d_getidx.exit2395
   %.pre32673283 = phi ptr [ %.pre3267, %_m3d_getidx.exit2395 ], [ %.pre3267, %1278 ], [ %.pre3266, %.sink.split.i2396 ]
   %.20 = phi ptr [ %.19, %_m3d_getidx.exit2395 ], [ %.19, %1278 ], [ %1297, %.sink.split.i2396 ]
-  %1298 = getelementptr inbounds nuw %struct.m3df_t, ptr %.pre32673283, i64 %1180
+  %1298 = getelementptr inbounds nuw [40 x i8], ptr %.pre32673283, i64 %1180
   %1299 = getelementptr inbounds nuw i8, ptr %1298, i64 16
-  %1300 = getelementptr inbounds nuw i32, ptr %1299, i64 %indvars.iv3143
+  %1300 = getelementptr inbounds nuw [4 x i8], ptr %1299, i64 %indvars.iv3143
   %1301 = load i32, ptr %1300, align 4
   %1302 = icmp eq i32 %1301, -1
   %spec.select = select i1 %1302, i8 1, i8 %.320512895
@@ -19237,7 +19152,7 @@ _m3d_getidx.exit2400:                             ; preds = %.sink.split.i2396, 
 1355:                                             ; preds = %1353
   %1356 = load i8, ptr %.222853, align 1
   %1357 = zext i8 %1356 to i64
-  %1358 = getelementptr inbounds nuw i32, ptr %1354, i64 %1357
+  %1358 = getelementptr inbounds nuw [4 x i8], ptr %1354, i64 %1357
   %1359 = load i32, ptr %1358, align 4
   br label %.sink.split3493
 
@@ -19249,7 +19164,7 @@ _m3d_getidx.exit2400:                             ; preds = %.sink.split.i2396, 
 1362:                                             ; preds = %1360
   %1363 = load i16, ptr %.222853, align 2
   %1364 = zext i16 %1363 to i64
-  %1365 = getelementptr inbounds nuw i32, ptr %1361, i64 %1364
+  %1365 = getelementptr inbounds nuw [4 x i8], ptr %1361, i64 %1364
   %1366 = load i32, ptr %1365, align 4
   br label %.sink.split3493
 
@@ -19260,7 +19175,7 @@ _m3d_getidx.exit2400:                             ; preds = %.sink.split.i2396, 
 .sink.split3493:                                  ; preds = %1362, %1360, %1355, %1353, %1367
   %.sink3495 = phi i32 [ %1368, %1367 ], [ 0, %1353 ], [ %1359, %1355 ], [ %1366, %1362 ], [ 0, %1360 ]
   %.sink3494 = phi i64 [ 4, %1367 ], [ 1, %1353 ], [ 1, %1355 ], [ 2, %1362 ], [ 2, %1360 ]
-  %1369 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1351, i64 %indvars.iv3114
+  %1369 = getelementptr inbounds nuw [40 x i8], ptr %1351, i64 %indvars.iv3114
   %1370 = getelementptr inbounds nuw i8, ptr %1369, i64 16
   store i32 %.sink3495, ptr %1370, align 8
   %1371 = getelementptr inbounds nuw i8, ptr %.222853, i64 %.sink3494
@@ -19310,7 +19225,7 @@ _m3d_getidx.exit2405:                             ; preds = %1374, %1380, %1386
 .thread2646:                                      ; preds = %..thread2646_crit_edge, %_m3d_getidx.exit2405
   %1389 = phi ptr [ %.pre3236, %_m3d_getidx.exit2405 ], [ %.pre3235, %..thread2646_crit_edge ]
   %.0.i24042644.ph = phi ptr [ %1388, %_m3d_getidx.exit2405 ], [ %.23, %..thread2646_crit_edge ]
-  %1390 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1389, i64 %indvars.iv3114
+  %1390 = getelementptr inbounds nuw [40 x i8], ptr %1389, i64 %indvars.iv3114
   %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 12
   store i32 -1, ptr %1391, align 4
   br label %1401
@@ -19320,11 +19235,11 @@ _m3d_getidx.exit2405:                             ; preds = %1374, %1380, %1386
   %1394 = getelementptr inbounds nuw i8, ptr %1393, i64 16
   %1395 = zext i32 %.sink16.i2402 to i64
   %1396 = getelementptr inbounds nuw i8, ptr %1394, i64 %1395
-  %1397 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %.pre3236, i64 %indvars.iv3114
+  %1397 = getelementptr inbounds nuw [40 x i8], ptr %.pre3236, i64 %indvars.iv3114
   %1398 = getelementptr inbounds nuw i8, ptr %1397, i64 12
   store i32 -1, ptr %1398, align 4
   %1399 = load ptr, ptr %360, align 8
-  %1400 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1399, i64 %indvars.iv3114
+  %1400 = getelementptr inbounds nuw [40 x i8], ptr %1399, i64 %indvars.iv3114
   store ptr %1396, ptr %1400, align 8
   br label %1401
 
@@ -19334,7 +19249,7 @@ _m3d_getidx.exit2405:                             ; preds = %1374, %1380, %1386
   %1403 = load i8, ptr %.0.i240426442649, align 1
   %1404 = and i8 %1403, -65
   %1405 = load ptr, ptr %360, align 8
-  %1406 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1405, i64 %indvars.iv3114
+  %1406 = getelementptr inbounds nuw [40 x i8], ptr %1405, i64 %indvars.iv3114
   %1407 = getelementptr inbounds nuw i8, ptr %1406, i64 8
   store i8 %1404, ptr %1407, align 8
   %1408 = and i8 %1403, 64
@@ -19345,22 +19260,22 @@ _m3d_getidx.exit2405:                             ; preds = %1374, %1380, %1386
   %1413 = zext i8 %1412 to i16
   %1414 = or disjoint i16 %1410, %1413
   %1415 = load ptr, ptr %360, align 8
-  %1416 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1415, i64 %indvars.iv3114
+  %1416 = getelementptr inbounds nuw [40 x i8], ptr %1415, i64 %indvars.iv3114
   %1417 = getelementptr inbounds nuw i8, ptr %1416, i64 10
   store i16 %1414, ptr %1417, align 2
   %1418 = getelementptr inbounds nuw i8, ptr %.0.i240426442649, i64 3
   %1419 = load i8, ptr %1411, align 1
   %1420 = load ptr, ptr %360, align 8
-  %1421 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1420, i64 %indvars.iv3114
+  %1421 = getelementptr inbounds nuw [40 x i8], ptr %1420, i64 %indvars.iv3114
   %1422 = getelementptr inbounds nuw i8, ptr %1421, i64 24
   store i8 %1419, ptr %1422, align 8
   %1423 = load ptr, ptr %360, align 8
-  %1424 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1423, i64 %indvars.iv3114
+  %1424 = getelementptr inbounds nuw [40 x i8], ptr %1423, i64 %indvars.iv3114
   %1425 = getelementptr inbounds nuw i8, ptr %1424, i64 20
   store i32 -1, ptr %1425, align 4
   %1426 = load i8, ptr %192, align 1
   %1427 = load ptr, ptr %360, align 8
-  %1428 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1427, i64 %indvars.iv3114
+  %1428 = getelementptr inbounds nuw [40 x i8], ptr %1427, i64 %indvars.iv3114
   %1429 = getelementptr inbounds nuw i8, ptr %1428, i64 20
   switch i8 %1426, label %_m3d_getidx.exit2410 [
     i8 1, label %1430
@@ -19399,7 +19314,7 @@ _m3d_getidx.exit2405:                             ; preds = %1374, %1380, %1386
 _m3d_getidx.exit2410:                             ; preds = %1401, %.sink.split.i2406
   %1445 = phi ptr [ %1427, %1401 ], [ %.pre3237, %.sink.split.i2406 ]
   %.0.i2409 = phi ptr [ %1418, %1401 ], [ %1444, %.sink.split.i2406 ]
-  %1446 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1445, i64 %indvars.iv3114
+  %1446 = getelementptr inbounds nuw [40 x i8], ptr %1445, i64 %indvars.iv3114
   %1447 = getelementptr inbounds nuw i8, ptr %1446, i64 24
   %1448 = load i8, ptr %1447, align 8
   %.not2213 = icmp eq i8 %1448, 0
@@ -19412,7 +19327,7 @@ _m3d_getidx.exit2410:                             ; preds = %1401, %.sink.split.
   %1453 = getelementptr inbounds nuw i8, ptr %1446, i64 32
   store ptr %1452, ptr %1453, align 8
   %1454 = load ptr, ptr %360, align 8
-  %1455 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1454, i64 %indvars.iv3114
+  %1455 = getelementptr inbounds nuw [40 x i8], ptr %1454, i64 %indvars.iv3114
   %1456 = getelementptr inbounds nuw i8, ptr %1455, i64 32
   %1457 = load ptr, ptr %1456, align 8
   %.not2214 = icmp eq ptr %1457, null
@@ -19425,7 +19340,7 @@ _m3d_getidx.exit2410:                             ; preds = %1401, %.sink.split.
   %1462 = shl nuw nsw i64 %1461, 4
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %1457, i8 0, i64 %1462, i1 false)
   %1463 = load ptr, ptr %360, align 8
-  %1464 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1463, i64 %indvars.iv3114
+  %1464 = getelementptr inbounds nuw [40 x i8], ptr %1463, i64 %indvars.iv3114
   %1465 = getelementptr inbounds nuw i8, ptr %1464, i64 24
   %1466 = load i8, ptr %1465, align 8
   %.not3014 = icmp eq i8 %1466, 0
@@ -19435,23 +19350,23 @@ _m3d_getidx.exit2410:                             ; preds = %1401, %.sink.split.
   %indvars.iv3110 = phi i64 [ %indvars.iv.next3111, %_m3d_getidx.exit2415.thread ], [ 0, %1458 ]
   %1467 = phi ptr [ %1514, %_m3d_getidx.exit2415.thread ], [ %1463, %1458 ]
   %.242848 = phi ptr [ %.0.i24142653, %_m3d_getidx.exit2415.thread ], [ %.0.i2409, %1458 ]
-  %1468 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1467, i64 %indvars.iv3114
+  %1468 = getelementptr inbounds nuw [40 x i8], ptr %1467, i64 %indvars.iv3114
   %1469 = getelementptr inbounds nuw i8, ptr %.242848, i64 1
   %1470 = load i8, ptr %.242848, align 1
   %1471 = zext i8 %1470 to i16
   %1472 = getelementptr inbounds nuw i8, ptr %1468, i64 32
   %1473 = load ptr, ptr %1472, align 8
-  %1474 = getelementptr inbounds nuw %struct.m3dvi_t, ptr %1473, i64 %indvars.iv3110
+  %1474 = getelementptr inbounds nuw [16 x i8], ptr %1473, i64 %indvars.iv3110
   store i16 %1471, ptr %1474, align 8
   %1475 = getelementptr inbounds nuw i8, ptr %.242848, i64 2
   %1476 = load i8, ptr %1469, align 1
   %1477 = zext i8 %1476 to i16
   %1478 = shl nuw i16 %1477, 8
   %1479 = load ptr, ptr %360, align 8
-  %1480 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1479, i64 %indvars.iv3114
+  %1480 = getelementptr inbounds nuw [40 x i8], ptr %1479, i64 %indvars.iv3114
   %1481 = getelementptr inbounds nuw i8, ptr %1480, i64 32
   %1482 = load ptr, ptr %1481, align 8
-  %1483 = getelementptr inbounds nuw %struct.m3dvi_t, ptr %1482, i64 %indvars.iv3110
+  %1483 = getelementptr inbounds nuw [16 x i8], ptr %1482, i64 %indvars.iv3110
   %1484 = load i16, ptr %1483, align 8
   %1485 = or i16 %1484, %1478
   store i16 %1485, ptr %1483, align 8
@@ -19500,15 +19415,15 @@ _m3d_getidx.exit2415.thread:                      ; preds = %.lr.ph2850, %_m3d_g
   %.0.i24142653 = phi ptr [ %1501, %1502 ], [ %1501, %_m3d_getidx.exit2415 ], [ %1475, %.lr.ph2850 ]
   %1507 = phi ptr [ %1506, %1502 ], [ null, %_m3d_getidx.exit2415 ], [ null, %.lr.ph2850 ]
   %1508 = load ptr, ptr %360, align 8
-  %1509 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1508, i64 %indvars.iv3114
+  %1509 = getelementptr inbounds nuw [40 x i8], ptr %1508, i64 %indvars.iv3114
   %1510 = getelementptr inbounds nuw i8, ptr %1509, i64 32
   %1511 = load ptr, ptr %1510, align 8
-  %1512 = getelementptr inbounds nuw %struct.m3dvi_t, ptr %1511, i64 %indvars.iv3110
+  %1512 = getelementptr inbounds nuw [16 x i8], ptr %1511, i64 %indvars.iv3110
   %1513 = getelementptr inbounds nuw i8, ptr %1512, i64 8
   store ptr %1507, ptr %1513, align 8
   %indvars.iv.next3111 = add nuw nsw i64 %indvars.iv3110, 1
   %1514 = load ptr, ptr %360, align 8
-  %1515 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %1514, i64 %indvars.iv3114
+  %1515 = getelementptr inbounds nuw [40 x i8], ptr %1514, i64 %indvars.iv3114
   %1516 = getelementptr inbounds nuw i8, ptr %1515, i64 24
   %1517 = load i8, ptr %1516, align 8
   %1518 = zext i8 %1517 to i64
@@ -19637,7 +19552,7 @@ _m3d_getidx.exit2420.thread:                      ; preds = %1538, %_m3d_getidx.
 
 1578:                                             ; preds = %1571
   %1579 = zext i32 %1572 to i64
-  %1580 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %1577, i64 %1579
+  %1580 = getelementptr inbounds nuw [48 x i8], ptr %1577, i64 %1579
   %1581 = getelementptr inbounds nuw i8, ptr %1580, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1581, i8 0, i64 40, i1 false)
   store ptr %1561, ptr %1580, align 8
@@ -19837,11 +19752,11 @@ _m3d_getidx.exit2425:                             ; preds = %1672, %.sink.split.
   %.020102829 = phi i32 [ %1669, %.lr.ph2831 ], [ %1690, %1689 ]
   %1690 = add nsw i32 %.020102829, -1
   %1691 = load ptr, ptr %362, align 8
-  %1692 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %1691, i64 %1579
+  %1692 = getelementptr inbounds nuw [48 x i8], ptr %1691, i64 %1579
   %1693 = getelementptr inbounds nuw i8, ptr %1692, i64 40
   %1694 = load ptr, ptr %1693, align 8
   %indvars.iv.next3103 = add nuw nsw i64 %indvars.iv3102, 1
-  %1695 = getelementptr inbounds nuw i16, ptr %1694, i64 %indvars.iv3102
+  %1695 = getelementptr inbounds nuw [2 x i8], ptr %1694, i64 %indvars.iv3102
   store i16 %1687, ptr %1695, align 2
   %1696 = icmp ne i32 %1690, 0
   %1697 = icmp samesign ult i64 %indvars.iv.next3103, %1657
@@ -19889,11 +19804,11 @@ _m3d_getidx.exit2430:                             ; preds = %.lr.ph2837, %.sink.
   %.0.i2429 = phi ptr [ %.292836, %.lr.ph2837 ], [ %1712, %.sink.split.i2426 ]
   %1713 = trunc i32 %.92555 to i16
   %1714 = load ptr, ptr %362, align 8
-  %1715 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %1714, i64 %1579
+  %1715 = getelementptr inbounds nuw [48 x i8], ptr %1714, i64 %1579
   %1716 = getelementptr inbounds nuw i8, ptr %1715, i64 40
   %1717 = load ptr, ptr %1716, align 8
   %indvars.iv.next3107 = add nuw nsw i64 %indvars.iv3106, 1
-  %1718 = getelementptr inbounds nuw i16, ptr %1717, i64 %indvars.iv3106
+  %1718 = getelementptr inbounds nuw [2 x i8], ptr %1717, i64 %indvars.iv3106
   store i16 %1713, ptr %1718, align 2
   %1719 = icmp ne i32 %1699, 0
   %1720 = icmp samesign ult i64 %indvars.iv.next3107, %1657
@@ -19994,7 +19909,7 @@ _m3d_getidx.exit2435.thread:                      ; preds = %1737, %_m3d_getidx.
 
 1767:                                             ; preds = %_m3d_getidx.exit2435.thread
   %1768 = zext i32 %1761 to i64
-  %1769 = getelementptr inbounds nuw %struct.m3dh_t, ptr %1766, i64 %1768
+  %1769 = getelementptr inbounds nuw [24 x i8], ptr %1766, i64 %1768
   %1770 = getelementptr inbounds nuw i8, ptr %1769, i64 12
   store i32 0, ptr %1770, align 4
   %1771 = getelementptr inbounds nuw i8, ptr %1769, i64 16
@@ -20081,7 +19996,7 @@ _m3d_getidx.exit2440.thread:                      ; preds = %1767, %1791, %1788,
   %1802 = load i8, ptr %.302893, align 1
   %1803 = zext i8 %1802 to i16
   %1804 = zext i32 %1794 to i64
-  %1805 = getelementptr inbounds nuw %struct.m3dc_t, ptr %1799, i64 %1804
+  %1805 = getelementptr inbounds nuw [16 x i8], ptr %1799, i64 %1804
   store i16 %1803, ptr %1805, align 8
   %.not2192 = icmp sgt i8 %1802, -1
   br i1 %.not2192, label %1813, label %1806
@@ -20109,7 +20024,7 @@ _m3d_getidx.exit2440.thread:                      ; preds = %1767, %1791, %1788,
 
 1817:                                             ; preds = %1813
   %1818 = zext nneg i16 %1814 to i64
-  %1819 = getelementptr inbounds nuw %struct.m3dcd_t, ptr @m3d_commandtypes, i64 %1818
+  %1819 = getelementptr inbounds nuw [9 x i8], ptr @m3d_commandtypes, i64 %1818
   %1820 = load i8, ptr %1819, align 1
   %1821 = zext i8 %1820 to i64
   %1822 = shl nuw nsw i64 %1821, 2
@@ -20153,10 +20068,10 @@ _m3d_getidx.exit2440.thread:                      ; preds = %1767, %1791, %1788,
 
 1835:                                             ; preds = %1826
   %1836 = load ptr, ptr %1771, align 8
-  %1837 = getelementptr inbounds nuw %struct.m3dc_t, ptr %1836, i64 %1804
+  %1837 = getelementptr inbounds nuw [16 x i8], ptr %1836, i64 %1804
   %1838 = getelementptr inbounds nuw i8, ptr %1837, i64 8
   %1839 = load ptr, ptr %1838, align 8
-  %1840 = getelementptr inbounds nuw i32, ptr %1839, i64 %indvars.iv3139
+  %1840 = getelementptr inbounds nuw [4 x i8], ptr %1839, i64 %indvars.iv3139
   store i32 -1, ptr %1840, align 4
   %1841 = load i8, ptr %162, align 4
   switch i8 %1841, label %_m3d_getidx.exit2450 [
@@ -20208,7 +20123,7 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 
 1864:                                             ; preds = %.lr.ph2884, %1875
   %indvars.iv3134 = phi i64 [ 0, %.lr.ph2884 ], [ %indvars.iv.next3135, %1875 ]
-  %1865 = getelementptr inbounds nuw %struct.m3dm_t, ptr %1863, i64 %indvars.iv3134
+  %1865 = getelementptr inbounds nuw [24 x i8], ptr %1863, i64 %indvars.iv3134
   %1866 = load ptr, ptr %1865, align 8
   %1867 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1861, ptr noundef nonnull dereferenceable(1) %1866) #60
   %.not2197 = icmp eq i32 %1867, 0
@@ -20217,10 +20132,10 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 1868:                                             ; preds = %1864
   %1869 = trunc nuw i64 %indvars.iv3134 to i32
   %1870 = load ptr, ptr %1771, align 8
-  %1871 = getelementptr inbounds nuw %struct.m3dc_t, ptr %1870, i64 %1804
+  %1871 = getelementptr inbounds nuw [16 x i8], ptr %1870, i64 %1804
   %1872 = getelementptr inbounds nuw i8, ptr %1871, i64 8
   %1873 = load ptr, ptr %1872, align 8
-  %1874 = getelementptr inbounds nuw i32, ptr %1873, i64 %indvars.iv3139
+  %1874 = getelementptr inbounds nuw [4 x i8], ptr %1873, i64 %indvars.iv3139
   store i32 %1869, ptr %1874, align 4
   br label %.loopexit2726
 
@@ -20232,10 +20147,10 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 .loopexit2726:                                    ; preds = %1875, %1857, %1868
   %.120302755 = phi i32 [ %1869, %1868 ], [ 0, %1857 ], [ %1862, %1875 ]
   %1876 = load ptr, ptr %1771, align 8
-  %1877 = getelementptr inbounds nuw %struct.m3dc_t, ptr %1876, i64 %1804
+  %1877 = getelementptr inbounds nuw [16 x i8], ptr %1876, i64 %1804
   %1878 = getelementptr inbounds nuw i8, ptr %1877, i64 8
   %1879 = load ptr, ptr %1878, align 8
-  %1880 = getelementptr inbounds nuw i32, ptr %1879, i64 %indvars.iv3139
+  %1880 = getelementptr inbounds nuw [4 x i8], ptr %1879, i64 %indvars.iv3139
   %1881 = load i32, ptr %1880, align 4
   %1882 = icmp eq i32 %1881, -1
   br i1 %1882, label %1883, label %_m3d_getidx.exit2450
@@ -20284,10 +20199,10 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 1903:                                             ; preds = %1884, %1900, %1898, %1894, %1890, %.split21
   %.02068 = phi float [ 0.000000e+00, %.split21 ], [ %1893, %1890 ], [ %1897, %1894 ], [ %1899, %1898 ], [ %1902, %1900 ], [ 0.000000e+00, %1884 ]
   %1904 = load ptr, ptr %1771, align 8
-  %1905 = getelementptr inbounds nuw %struct.m3dc_t, ptr %1904, i64 %1804
+  %1905 = getelementptr inbounds nuw [16 x i8], ptr %1904, i64 %1804
   %1906 = getelementptr inbounds nuw i8, ptr %1905, i64 8
   %1907 = load ptr, ptr %1906, align 8
-  %1908 = getelementptr inbounds nuw i32, ptr %1907, i64 %indvars.iv3139
+  %1908 = getelementptr inbounds nuw [4 x i8], ptr %1907, i64 %indvars.iv3139
   store float %.02068, ptr %1908, align 4
   %1909 = load i8, ptr %150, align 2
   %1910 = sext i8 %1909 to i64
@@ -20297,10 +20212,10 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 1912:                                             ; preds = %1826
   %1913 = load i8, ptr %204, align 1
   %1914 = load ptr, ptr %1771, align 8
-  %1915 = getelementptr inbounds nuw %struct.m3dc_t, ptr %1914, i64 %1804
+  %1915 = getelementptr inbounds nuw [16 x i8], ptr %1914, i64 %1804
   %1916 = getelementptr inbounds nuw i8, ptr %1915, i64 8
   %1917 = load ptr, ptr %1916, align 8
-  %1918 = getelementptr inbounds nuw i32, ptr %1917, i64 %indvars.iv3139
+  %1918 = getelementptr inbounds nuw [4 x i8], ptr %1917, i64 %indvars.iv3139
   switch i8 %1913, label %_m3d_getidx.exit2450 [
     i8 1, label %1919
     i8 2, label %1925
@@ -20337,10 +20252,10 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 1934:                                             ; preds = %1826
   %1935 = load i8, ptr %210, align 4
   %1936 = load ptr, ptr %1771, align 8
-  %1937 = getelementptr inbounds nuw %struct.m3dc_t, ptr %1936, i64 %1804
+  %1937 = getelementptr inbounds nuw [16 x i8], ptr %1936, i64 %1804
   %1938 = getelementptr inbounds nuw i8, ptr %1937, i64 8
   %1939 = load ptr, ptr %1938, align 8
-  %1940 = getelementptr inbounds nuw i32, ptr %1939, i64 %indvars.iv3139
+  %1940 = getelementptr inbounds nuw [4 x i8], ptr %1939, i64 %indvars.iv3139
   switch i8 %1935, label %_m3d_getidx.exit2450 [
     i8 1, label %1941
     i8 2, label %1947
@@ -20377,10 +20292,10 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 1956:                                             ; preds = %1826
   %1957 = load i8, ptr %174, align 2
   %1958 = load ptr, ptr %1771, align 8
-  %1959 = getelementptr inbounds nuw %struct.m3dc_t, ptr %1958, i64 %1804
+  %1959 = getelementptr inbounds nuw [16 x i8], ptr %1958, i64 %1804
   %1960 = getelementptr inbounds nuw i8, ptr %1959, i64 8
   %1961 = load ptr, ptr %1960, align 8
-  %1962 = getelementptr inbounds nuw i32, ptr %1961, i64 %indvars.iv3139
+  %1962 = getelementptr inbounds nuw [4 x i8], ptr %1961, i64 %indvars.iv3139
   switch i8 %1957, label %_m3d_getidx.exit2450 [
     i8 1, label %1963
     i8 2, label %1969
@@ -20417,10 +20332,10 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 1978:                                             ; preds = %1826, %1826
   %1979 = load i8, ptr %156, align 1
   %1980 = load ptr, ptr %1771, align 8
-  %1981 = getelementptr inbounds nuw %struct.m3dc_t, ptr %1980, i64 %1804
+  %1981 = getelementptr inbounds nuw [16 x i8], ptr %1980, i64 %1804
   %1982 = getelementptr inbounds nuw i8, ptr %1981, i64 8
   %1983 = load ptr, ptr %1982, align 8
-  %1984 = getelementptr inbounds nuw i32, ptr %1983, i64 %indvars.iv3139
+  %1984 = getelementptr inbounds nuw [4 x i8], ptr %1983, i64 %indvars.iv3139
   switch i8 %1979, label %_m3d_getidx.exit2450 [
     i8 1, label %1985
     i8 2, label %1991
@@ -20456,10 +20371,10 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 
 2000:                                             ; preds = %1826
   %2001 = load ptr, ptr %1771, align 8
-  %2002 = getelementptr inbounds nuw %struct.m3dc_t, ptr %2001, i64 %1804
+  %2002 = getelementptr inbounds nuw [16 x i8], ptr %2001, i64 %1804
   %2003 = getelementptr inbounds nuw i8, ptr %2002, i64 8
   %2004 = load ptr, ptr %2003, align 8
-  %2005 = getelementptr inbounds nuw i32, ptr %2004, i64 %indvars.iv3139
+  %2005 = getelementptr inbounds nuw [4 x i8], ptr %2004, i64 %indvars.iv3139
   %2006 = load i8, ptr %.322889, align 1
   %2007 = icmp ugt i8 %2006, -3
   %2008 = sext i8 %2006 to i32
@@ -20471,10 +20386,10 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 
 2012:                                             ; preds = %1826
   %2013 = load ptr, ptr %1771, align 8
-  %2014 = getelementptr inbounds nuw %struct.m3dc_t, ptr %2013, i64 %1804
+  %2014 = getelementptr inbounds nuw [16 x i8], ptr %2013, i64 %1804
   %2015 = getelementptr inbounds nuw i8, ptr %2014, i64 8
   %2016 = load ptr, ptr %2015, align 8
-  %2017 = getelementptr inbounds nuw i32, ptr %2016, i64 %indvars.iv3139
+  %2017 = getelementptr inbounds nuw [4 x i8], ptr %2016, i64 %indvars.iv3139
   %2018 = load i16, ptr %.322889, align 2
   %2019 = icmp ugt i16 %2018, -3
   %2020 = sext i16 %2018 to i32
@@ -20486,10 +20401,10 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 
 2024:                                             ; preds = %1826
   %2025 = load ptr, ptr %1771, align 8
-  %2026 = getelementptr inbounds nuw %struct.m3dc_t, ptr %2025, i64 %1804
+  %2026 = getelementptr inbounds nuw [16 x i8], ptr %2025, i64 %1804
   %2027 = getelementptr inbounds nuw i8, ptr %2026, i64 8
   %2028 = load ptr, ptr %2027, align 8
-  %2029 = getelementptr inbounds nuw i32, ptr %2028, i64 %indvars.iv3139
+  %2029 = getelementptr inbounds nuw [4 x i8], ptr %2028, i64 %indvars.iv3139
   %2030 = load i32, ptr %.322889, align 4
   store i32 %2030, ptr %2029, align 4
   %2031 = getelementptr inbounds nuw i8, ptr %.322889, i64 4
@@ -20497,17 +20412,17 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 
 2032:                                             ; preds = %1826
   %2033 = load ptr, ptr %1771, align 8
-  %2034 = getelementptr inbounds nuw %struct.m3dc_t, ptr %2033, i64 %1804
+  %2034 = getelementptr inbounds nuw [16 x i8], ptr %2033, i64 %1804
   %2035 = getelementptr inbounds nuw i8, ptr %2034, i64 8
   %2036 = load ptr, ptr %2035, align 8
-  %2037 = getelementptr inbounds nuw i32, ptr %2036, i64 %indvars.iv3139
+  %2037 = getelementptr inbounds nuw [4 x i8], ptr %2036, i64 %indvars.iv3139
   %2038 = load i32, ptr %.322889, align 4
   store i32 %2038, ptr %2037, align 4
   %2039 = load ptr, ptr %1771, align 8
-  %2040 = getelementptr inbounds nuw %struct.m3dc_t, ptr %2039, i64 %1804
+  %2040 = getelementptr inbounds nuw [16 x i8], ptr %2039, i64 %1804
   %2041 = getelementptr inbounds nuw i8, ptr %2040, i64 8
   %2042 = load ptr, ptr %2041, align 8
-  %2043 = getelementptr inbounds nuw i32, ptr %2042, i64 %indvars.iv3139
+  %2043 = getelementptr inbounds nuw [4 x i8], ptr %2042, i64 %indvars.iv3139
   %2044 = load i32, ptr %2043, align 4
   %2045 = add i32 %2044, -1
   %2046 = xor i32 %1827, -1
@@ -20518,11 +20433,11 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
   %2051 = shl nuw nsw i64 %2050, 2
   %2052 = call ptr @realloc(ptr noundef %2042, i64 noundef %2051) #61
   %2053 = load ptr, ptr %1771, align 8
-  %2054 = getelementptr inbounds nuw %struct.m3dc_t, ptr %2053, i64 %1804
+  %2054 = getelementptr inbounds nuw [16 x i8], ptr %2053, i64 %1804
   %2055 = getelementptr inbounds nuw i8, ptr %2054, i64 8
   store ptr %2052, ptr %2055, align 8
   %2056 = load ptr, ptr %1771, align 8
-  %2057 = getelementptr inbounds nuw %struct.m3dc_t, ptr %2056, i64 %1804
+  %2057 = getelementptr inbounds nuw [16 x i8], ptr %2056, i64 %1804
   %2058 = getelementptr inbounds nuw i8, ptr %2057, i64 8
   %2059 = load ptr, ptr %2058, align 8
   %.not2194 = icmp eq ptr %2059, null
@@ -20531,7 +20446,7 @@ _m3d_getidx.exit2445:                             ; preds = %1842, %1848, %1854
 2060:                                             ; preds = %2032
   %2061 = getelementptr inbounds nuw i8, ptr %.322889, i64 4
   %2062 = add nuw nsw i64 %indvars.iv3139, 1
-  %2063 = getelementptr inbounds nuw i32, ptr %2059, i64 %2062
+  %2063 = getelementptr inbounds nuw [4 x i8], ptr %2059, i64 %2062
   %2064 = add i32 %2049, %2046
   %2065 = zext i32 %2064 to i64
   %2066 = shl nuw nsw i64 %2065, 2
@@ -20685,7 +20600,7 @@ thread-pre-split2693:                             ; preds = %2129, %2127, %_m3d_
 2132:                                             ; preds = %2130
   %2133 = load i8, ptr %.0.i24902692, align 1
   %2134 = zext i8 %2133 to i64
-  %2135 = getelementptr inbounds nuw i32, ptr %2131, i64 %2134
+  %2135 = getelementptr inbounds nuw [4 x i8], ptr %2131, i64 %2134
   %2136 = load i32, ptr %2135, align 4
   br label %2137
 
@@ -20702,7 +20617,7 @@ thread-pre-split2693:                             ; preds = %2129, %2127, %_m3d_
 2142:                                             ; preds = %2140
   %2143 = load i16, ptr %.0.i24902692, align 2
   %2144 = zext i16 %2143 to i64
-  %2145 = getelementptr inbounds nuw i32, ptr %2141, i64 %2144
+  %2145 = getelementptr inbounds nuw [4 x i8], ptr %2141, i64 %2144
   %2146 = load i32, ptr %2145, align 4
   br label %2147
 
@@ -20737,7 +20652,7 @@ thread-pre-split2693:                             ; preds = %2129, %2127, %_m3d_
 
 2165:                                             ; preds = %2153
   %2166 = zext i32 %2158 to i64
-  %2167 = getelementptr inbounds nuw %struct.m3dl_t, ptr %2164, i64 %2166
+  %2167 = getelementptr inbounds nuw [32 x i8], ptr %2164, i64 %2166
   %2168 = load i32, ptr %370, align 8
   %2169 = sub i32 %2168, %2158
   %2170 = zext i32 %2169 to i64
@@ -20756,19 +20671,19 @@ thread-pre-split2693:                             ; preds = %2129, %2127, %_m3d_
 
 2176:                                             ; preds = %.lr.ph2880
   %2177 = load ptr, ptr %371, align 8
-  %2178 = getelementptr inbounds nuw %struct.m3dl_t, ptr %2177, i64 %indvars.iv3130
+  %2178 = getelementptr inbounds nuw [32 x i8], ptr %2177, i64 %indvars.iv3130
   store ptr %2103, ptr %2178, align 8
   %2179 = load ptr, ptr %371, align 8
-  %2180 = getelementptr inbounds nuw %struct.m3dl_t, ptr %2179, i64 %indvars.iv3130
+  %2180 = getelementptr inbounds nuw [32 x i8], ptr %2179, i64 %indvars.iv3130
   %2181 = getelementptr inbounds nuw i8, ptr %2180, i64 8
   store ptr %2124, ptr %2181, align 8
   %2182 = load ptr, ptr %371, align 8
-  %2183 = getelementptr inbounds nuw %struct.m3dl_t, ptr %2182, i64 %indvars.iv3130
+  %2183 = getelementptr inbounds nuw [32 x i8], ptr %2182, i64 %indvars.iv3130
   %2184 = getelementptr inbounds nuw i8, ptr %2183, i64 24
   store i32 %.22003, ptr %2184, align 8
   %2185 = load i8, ptr %156, align 1
   %2186 = load ptr, ptr %371, align 8
-  %2187 = getelementptr inbounds nuw %struct.m3dl_t, ptr %2186, i64 %indvars.iv3130
+  %2187 = getelementptr inbounds nuw [32 x i8], ptr %2186, i64 %indvars.iv3130
   %2188 = getelementptr inbounds nuw i8, ptr %2187, i64 28
   switch i8 %2185, label %_m3d_getidx.exit2496 [
     i8 1, label %2189
@@ -20850,7 +20765,7 @@ _m3d_getidx.exit2501.thread:                      ; preds = %_m3d_getidx.exit249
   %.0.i25002698 = phi ptr [ %2219, %2220 ], [ %2219, %_m3d_getidx.exit2501 ], [ %.0.i2495, %_m3d_getidx.exit2496 ]
   %2225 = phi ptr [ %2224, %2220 ], [ null, %_m3d_getidx.exit2501 ], [ null, %_m3d_getidx.exit2496 ]
   %2226 = load ptr, ptr %371, align 8
-  %2227 = getelementptr inbounds nuw %struct.m3dl_t, ptr %2226, i64 %indvars.iv3130
+  %2227 = getelementptr inbounds nuw [32 x i8], ptr %2226, i64 %indvars.iv3130
   %2228 = getelementptr inbounds nuw i8, ptr %2227, i64 16
   store ptr %2225, ptr %2228, align 8
   %indvars.iv.next3131 = add nuw nsw i64 %indvars.iv3130, 1
@@ -20889,7 +20804,7 @@ _m3d_getidx.exit2501.thread:                      ; preds = %_m3d_getidx.exit249
 
 2247:                                             ; preds = %2240
   %2248 = zext i32 %2241 to i64
-  %2249 = getelementptr inbounds nuw %struct.m3da_t, ptr %2246, i64 %2248
+  %2249 = getelementptr inbounds nuw [24 x i8], ptr %2246, i64 %2248
   %2250 = getelementptr inbounds nuw i8, ptr %.019622932, i64 8
   %2251 = load i8, ptr %162, align 4
   switch i8 %2251, label %_m3d_getidx.exit2506.thread [
@@ -20978,20 +20893,20 @@ _m3d_getidx.exit2506.thread:                      ; preds = %2247, %_m3d_getidx.
 
 2295:                                             ; preds = %.lr.ph2875
   %2296 = load i32, ptr %.362873, align 4
-  %2297 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %2291, i64 %indvars.iv3126
+  %2297 = getelementptr inbounds nuw [16 x i8], ptr %2291, i64 %indvars.iv3126
   store i32 %2296, ptr %2297, align 8
   %2298 = getelementptr inbounds nuw i8, ptr %.362873, i64 4
   %2299 = load ptr, ptr %2287, align 8
-  %2300 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %2299, i64 %indvars.iv3126
+  %2300 = getelementptr inbounds nuw [16 x i8], ptr %2299, i64 %indvars.iv3126
   %2301 = getelementptr inbounds nuw i8, ptr %2300, i64 4
   store i32 0, ptr %2301, align 4
   %2302 = load ptr, ptr %2287, align 8
-  %2303 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %2302, i64 %indvars.iv3126
+  %2303 = getelementptr inbounds nuw [16 x i8], ptr %2302, i64 %indvars.iv3126
   %2304 = getelementptr inbounds nuw i8, ptr %2303, i64 8
   store ptr null, ptr %2304, align 8
   %2305 = load i8, ptr %198, align 2
   %2306 = load ptr, ptr %2287, align 8
-  %2307 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %2306, i64 %indvars.iv3126
+  %2307 = getelementptr inbounds nuw [16 x i8], ptr %2306, i64 %indvars.iv3126
   %2308 = getelementptr inbounds nuw i8, ptr %2307, i64 4
   switch i8 %2305, label %_m3d_getidx.exit2511 [
     i8 1, label %2309
@@ -21030,7 +20945,7 @@ _m3d_getidx.exit2506.thread:                      ; preds = %2247, %_m3d_getidx.
 _m3d_getidx.exit2511:                             ; preds = %2295, %.sink.split.i2507
   %2324 = phi ptr [ %2306, %2295 ], [ %.pre3243, %.sink.split.i2507 ]
   %.0.i2510 = phi ptr [ %2298, %2295 ], [ %2323, %.sink.split.i2507 ]
-  %2325 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %2324, i64 %indvars.iv3126
+  %2325 = getelementptr inbounds nuw [16 x i8], ptr %2324, i64 %indvars.iv3126
   %2326 = getelementptr inbounds nuw i8, ptr %2325, i64 4
   %2327 = load i32, ptr %2326, align 4
   %.not2178 = icmp eq i32 %2327, 0
@@ -21043,7 +20958,7 @@ _m3d_getidx.exit2511:                             ; preds = %2295, %.sink.split.
   %2332 = getelementptr inbounds nuw i8, ptr %2325, i64 8
   store ptr %2331, ptr %2332, align 8
   %2333 = load ptr, ptr %2287, align 8
-  %2334 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %2333, i64 %indvars.iv3126
+  %2334 = getelementptr inbounds nuw [16 x i8], ptr %2333, i64 %indvars.iv3126
   %2335 = getelementptr inbounds nuw i8, ptr %2334, i64 4
   %2336 = load i32, ptr %2335, align 4
   %.not3015 = icmp eq i32 %2336, 0
@@ -21053,11 +20968,11 @@ _m3d_getidx.exit2511:                             ; preds = %2295, %.sink.split.
   %2337 = phi ptr [ %2398, %_m3d_getidx.exit2526 ], [ %2333, %2328 ]
   %indvars.iv3122 = phi i64 [ %indvars.iv.next3123, %_m3d_getidx.exit2526 ], [ 0, %2328 ]
   %.372868 = phi ptr [ %.0.i2525, %_m3d_getidx.exit2526 ], [ %.0.i2510, %2328 ]
-  %2338 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %2337, i64 %indvars.iv3126
+  %2338 = getelementptr inbounds nuw [16 x i8], ptr %2337, i64 %indvars.iv3126
   %2339 = load i8, ptr %180, align 1
   %2340 = getelementptr inbounds nuw i8, ptr %2338, i64 8
   %2341 = load ptr, ptr %2340, align 8
-  %2342 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %2341, i64 %indvars.iv3122
+  %2342 = getelementptr inbounds nuw [12 x i8], ptr %2341, i64 %indvars.iv3122
   switch i8 %2339, label %_m3d_getidx.exit2516 [
     i8 1, label %2343
     i8 2, label %2349
@@ -21090,7 +21005,7 @@ _m3d_getidx.exit2511:                             ; preds = %2295, %.sink.split.
   store i32 %.sink16.i2513, ptr %2342, align 4
   %2357 = getelementptr inbounds nuw i8, ptr %.372868, i64 %.sink.i2514
   %.pre3244 = load ptr, ptr %2287, align 8
-  %.phi.trans.insert3245 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %.pre3244, i64 %indvars.iv3126
+  %.phi.trans.insert3245 = getelementptr inbounds nuw [16 x i8], ptr %.pre3244, i64 %indvars.iv3126
   %.phi.trans.insert3246 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert3245, i64 8
   %.pre3247 = load ptr, ptr %.phi.trans.insert3246, align 8
   br label %_m3d_getidx.exit2516
@@ -21100,7 +21015,7 @@ _m3d_getidx.exit2516:                             ; preds = %.lr.ph2870, %.sink.
   %2359 = phi ptr [ %2341, %.lr.ph2870 ], [ %.pre3247, %.sink.split.i2512 ]
   %.0.i2515 = phi ptr [ %.372868, %.lr.ph2870 ], [ %2357, %.sink.split.i2512 ]
   %2360 = load i8, ptr %156, align 1
-  %2361 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %2359, i64 %indvars.iv3122
+  %2361 = getelementptr inbounds nuw [12 x i8], ptr %2359, i64 %indvars.iv3122
   %2362 = getelementptr inbounds nuw i8, ptr %2361, i64 4
   switch i8 %2360, label %_m3d_getidx.exit2521 [
     i8 1, label %2363
@@ -21135,7 +21050,7 @@ _m3d_getidx.exit2516:                             ; preds = %.lr.ph2870, %.sink.
   %2377 = getelementptr inbounds nuw i8, ptr %.0.i2515, i64 %.sink.i2519
   %.pre3248 = load i8, ptr %156, align 1
   %.pre3249 = load ptr, ptr %2287, align 8
-  %.phi.trans.insert3250 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %.pre3249, i64 %indvars.iv3126
+  %.phi.trans.insert3250 = getelementptr inbounds nuw [16 x i8], ptr %.pre3249, i64 %indvars.iv3126
   %.phi.trans.insert3251 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert3250, i64 8
   %.pre3252 = load ptr, ptr %.phi.trans.insert3251, align 8
   br label %_m3d_getidx.exit2521
@@ -21145,7 +21060,7 @@ _m3d_getidx.exit2521:                             ; preds = %_m3d_getidx.exit251
   %2379 = phi ptr [ %2359, %_m3d_getidx.exit2516 ], [ %.pre3252, %.sink.split.i2517 ]
   %2380 = phi i8 [ %2360, %_m3d_getidx.exit2516 ], [ %.pre3248, %.sink.split.i2517 ]
   %.0.i2520 = phi ptr [ %.0.i2515, %_m3d_getidx.exit2516 ], [ %2377, %.sink.split.i2517 ]
-  %2381 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %2379, i64 %indvars.iv3122
+  %2381 = getelementptr inbounds nuw [12 x i8], ptr %2379, i64 %indvars.iv3122
   %2382 = getelementptr inbounds nuw i8, ptr %2381, i64 8
   switch i8 %2380, label %_m3d_getidx.exit2526 [
     i8 1, label %2383
@@ -21185,7 +21100,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %2398 = phi ptr [ %2378, %_m3d_getidx.exit2521 ], [ %.pre3253, %.sink.split.i2522 ]
   %.0.i2525 = phi ptr [ %.0.i2520, %_m3d_getidx.exit2521 ], [ %2397, %.sink.split.i2522 ]
   %indvars.iv.next3123 = add nuw nsw i64 %indvars.iv3122, 1
-  %2399 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %2398, i64 %indvars.iv3126
+  %2399 = getelementptr inbounds nuw [16 x i8], ptr %2398, i64 %indvars.iv3126
   %2400 = getelementptr inbounds nuw i8, ptr %2399, i64 4
   %2401 = load i32, ptr %2400, align 4
   %2402 = zext i32 %2401 to i64
@@ -21213,7 +21128,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2412:                                             ; preds = %.thread2700
   %2413 = zext i32 %2406 to i64
-  %2414 = getelementptr inbounds nuw ptr, ptr %2411, i64 %2413
+  %2414 = getelementptr inbounds nuw [8 x i8], ptr %2411, i64 %2413
   store ptr %.019622932, ptr %2414, align 8
   br label %.backedge.backedge
 
@@ -21246,7 +21161,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2429:                                             ; preds = %2420
   %2430 = zext i32 %2422 to i64
-  %2431 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2428, i64 %2430
+  %2431 = getelementptr inbounds nuw [24 x i8], ptr %2428, i64 %2430
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %2431, i8 0, i64 144, i1 false)
   br label %2432
 
@@ -21256,7 +21171,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %2434 = trunc nuw nsw i64 %indvars.iv3164 to i32
   %2435 = add i32 %2422, %2434
   %2436 = zext i32 %2435 to i64
-  %2437 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2433, i64 %2436
+  %2437 = getelementptr inbounds nuw [24 x i8], ptr %2433, i64 %2436
   %2438 = getelementptr inbounds nuw i8, ptr %2437, i64 20
   store i32 -1, ptr %2438, align 4
   %indvars.iv.next3165 = add nuw nsw i64 %indvars.iv3164, 1
@@ -21265,36 +21180,36 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2439:                                             ; preds = %2432
   %2440 = load ptr, ptr %2424, align 8
-  %2441 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2440, i64 %2430
+  %2441 = getelementptr inbounds nuw [24 x i8], ptr %2440, i64 %2430
   %2442 = getelementptr inbounds nuw i8, ptr %2441, i64 4
   store float -1.000000e+00, ptr %2442, align 4
   %2443 = load ptr, ptr %2424, align 8
   %2444 = add i32 %2422, 1
   %2445 = zext i32 %2444 to i64
-  %2446 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2443, i64 %2445
+  %2446 = getelementptr inbounds nuw [24 x i8], ptr %2443, i64 %2445
   %2447 = getelementptr inbounds nuw i8, ptr %2446, i64 8
   store float -1.000000e+00, ptr %2447, align 4
   %2448 = load ptr, ptr %2424, align 8
   %2449 = add i32 %2422, 2
   %2450 = zext i32 %2449 to i64
-  %2451 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2448, i64 %2450
+  %2451 = getelementptr inbounds nuw [24 x i8], ptr %2448, i64 %2450
   store float -1.000000e+00, ptr %2451, align 4
   %2452 = load ptr, ptr %2424, align 8
   %2453 = add i32 %2422, 3
   %2454 = zext i32 %2453 to i64
-  %2455 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2452, i64 %2454
+  %2455 = getelementptr inbounds nuw [24 x i8], ptr %2452, i64 %2454
   %2456 = getelementptr inbounds nuw i8, ptr %2455, i64 4
   store float 1.000000e+00, ptr %2456, align 4
   %2457 = load ptr, ptr %2424, align 8
   %2458 = add i32 %2422, 4
   %2459 = zext i32 %2458 to i64
-  %2460 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2457, i64 %2459
+  %2460 = getelementptr inbounds nuw [24 x i8], ptr %2457, i64 %2459
   %2461 = getelementptr inbounds nuw i8, ptr %2460, i64 8
   store float 1.000000e+00, ptr %2461, align 4
   %2462 = load ptr, ptr %2424, align 8
   %2463 = add i32 %2422, 5
   %2464 = zext i32 %2463 to i64
-  %2465 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2462, i64 %2464
+  %2465 = getelementptr inbounds nuw [24 x i8], ptr %2462, i64 %2464
   store float 1.000000e+00, ptr %2465, align 4
   %2466 = load i32, ptr %2415, align 8
   %.not3020 = icmp eq i32 %2466, 0
@@ -21313,7 +21228,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %.020592944 = phi i32 [ -2147483647, %.lr.ph2950 ], [ %spec.select2318, %2468 ]
   %.020612943 = phi i32 [ -2147483647, %.lr.ph2950 ], [ %.12062, %2468 ]
   %.020662942 = phi i32 [ -2147483647, %.lr.ph2950 ], [ %.12067, %2468 ]
-  %2469 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2467, i64 %indvars.iv3169
+  %2469 = getelementptr inbounds nuw [48 x i8], ptr %2467, i64 %indvars.iv3169
   %2470 = getelementptr inbounds nuw i8, ptr %2469, i64 8
   %2471 = load i32, ptr %2470, align 8
   %2472 = getelementptr inbounds nuw i8, ptr %2469, i64 20
@@ -21387,7 +21302,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %2509 = phi i32 [ %2466, %.lr.ph2990 ], [ %3246, %._crit_edge2983 ]
   %indvars.iv3191 = phi i64 [ 0, %.lr.ph2990 ], [ %indvars.iv.next3192, %._crit_edge2983 ]
   %2510 = load ptr, ptr %2418, align 8
-  %2511 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2510, i64 %indvars.iv3191
+  %2511 = getelementptr inbounds nuw [48 x i8], ptr %2510, i64 %indvars.iv3191
   %2512 = getelementptr inbounds nuw i8, ptr %2511, i64 20
   %2513 = load i32, ptr %2512, align 4
   %2514 = getelementptr inbounds nuw i8, ptr %2511, i64 28
@@ -21427,11 +21342,11 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %.1419972969.us.us.us = phi i32 [ %.1319962976.us.us.us, %.preheader2722.us.us.us ], [ %3188, %3186 ]
   %.020692967.us.us.us = phi i32 [ 0, %.preheader2722.us.us.us ], [ %3187, %3186 ]
   %2530 = load ptr, ptr %2418, align 8
-  %2531 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2530, i64 %indvars.iv3191
+  %2531 = getelementptr inbounds nuw [48 x i8], ptr %2530, i64 %indvars.iv3191
   %2532 = getelementptr inbounds nuw i8, ptr %2531, i64 40
   %2533 = load ptr, ptr %2532, align 8
   %2534 = zext i32 %.1419972969.us.us.us to i64
-  %2535 = getelementptr inbounds nuw i16, ptr %2533, i64 %2534
+  %2535 = getelementptr inbounds nuw [2 x i8], ptr %2533, i64 %2534
   %2536 = load i16, ptr %2535, align 2
   %2537 = zext i16 %2536 to i32
   %2538 = load i32, ptr %2497, align 8
@@ -21444,7 +21359,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 2541:                                             ; preds = %2540
   %2542 = sub i32 %.1419972969.us.us.us, %2520
   %2543 = zext i32 %2542 to i64
-  %2544 = getelementptr inbounds nuw i16, ptr %2533, i64 %2543
+  %2544 = getelementptr inbounds nuw [2 x i8], ptr %2533, i64 %2543
   %2545 = load i16, ptr %2544, align 2
   %2546 = zext i16 %2545 to i32
   %.not2282.us.us.us = icmp ugt i32 %2538, %2546
@@ -21461,7 +21376,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 2549:                                             ; preds = %2548
   %2550 = sub i32 %.1419972969.us.us.us, %2513
   %2551 = zext i32 %2550 to i64
-  %2552 = getelementptr inbounds nuw i16, ptr %2533, i64 %2551
+  %2552 = getelementptr inbounds nuw [2 x i8], ptr %2533, i64 %2551
   %2553 = load i16, ptr %2552, align 2
   %2554 = zext i16 %2553 to i32
   %.not2284.us.us.us = icmp ugt i32 %2538, %2554
@@ -21483,7 +21398,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 2560:                                             ; preds = %2559
   %2561 = add i32 %.1419972969.us.us.us, -1
   %2562 = zext i32 %2561 to i64
-  %2563 = getelementptr inbounds nuw i16, ptr %2533, i64 %2562
+  %2563 = getelementptr inbounds nuw [2 x i8], ptr %2533, i64 %2562
   %2564 = load i16, ptr %2563, align 2
   %2565 = zext i16 %2564 to i32
   %.not2286.us.us.us = icmp ugt i32 %2538, %2565
@@ -21504,7 +21419,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 2571:                                             ; preds = %2570
   %2572 = add i32 %.1419972969.us.us.us, %2520
   %2573 = zext i32 %2572 to i64
-  %2574 = getelementptr inbounds nuw i16, ptr %2533, i64 %2573
+  %2574 = getelementptr inbounds nuw [2 x i8], ptr %2533, i64 %2573
   %2575 = load i16, ptr %2574, align 2
   %2576 = zext i16 %2575 to i32
   %.not2287.us.us.us = icmp ugt i32 %2538, %2576
@@ -21525,7 +21440,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 2582:                                             ; preds = %2581
   %2583 = add i32 %.1419972969.us.us.us, %2513
   %2584 = zext i32 %2583 to i64
-  %2585 = getelementptr inbounds nuw i16, ptr %2533, i64 %2584
+  %2585 = getelementptr inbounds nuw [2 x i8], ptr %2533, i64 %2584
   %2586 = load i16, ptr %2585, align 2
   %2587 = zext i16 %2586 to i32
   %.not2288.us.us.us = icmp ugt i32 %2538, %2587
@@ -21547,7 +21462,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 2594:                                             ; preds = %2592
   %2595 = add i32 %.1419972969.us.us.us, 1
   %2596 = zext i32 %2595 to i64
-  %2597 = getelementptr inbounds nuw i16, ptr %2533, i64 %2596
+  %2597 = getelementptr inbounds nuw [2 x i8], ptr %2533, i64 %2596
   %2598 = load i16, ptr %2597, align 2
   %2599 = zext i16 %2598 to i32
   %.not2289.us.us.us = icmp ugt i32 %2538, %2599
@@ -21583,7 +21498,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2611:                                             ; preds = %2606
   %2612 = zext i32 %2605 to i64
-  %2613 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2610, i64 %2612
+  %2613 = getelementptr inbounds nuw [24 x i8], ptr %2610, i64 %2612
   %2614 = load i32, ptr %2421, align 8
   %2615 = sub i32 %2614, %2605
   %2616 = zext i32 %2615 to i64
@@ -21599,35 +21514,35 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2620:                                             ; preds = %._crit_edge2962.us.us.us
   %2621 = load ptr, ptr %2418, align 8
-  %2622 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2621, i64 %indvars.iv3191
+  %2622 = getelementptr inbounds nuw [48 x i8], ptr %2621, i64 %indvars.iv3191
   %2623 = getelementptr inbounds nuw i8, ptr %2622, i64 8
   %2624 = load i32, ptr %2623, align 8
   %2625 = add nsw i32 %2624, %.020692967.us.us.us
   %2626 = sitofp i32 %2625 to float
   %2627 = fmul float %2492, %2626
   %2628 = load ptr, ptr %2424, align 8
-  %2629 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2628, i64 %2612
+  %2629 = getelementptr inbounds nuw [24 x i8], ptr %2628, i64 %2612
   store float %2627, ptr %2629, align 4
   %2630 = load ptr, ptr %2418, align 8
-  %2631 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2630, i64 %indvars.iv3191
+  %2631 = getelementptr inbounds nuw [48 x i8], ptr %2630, i64 %indvars.iv3191
   %2632 = getelementptr inbounds nuw i8, ptr %2631, i64 12
   %2633 = load i32, ptr %2632, align 4
   %2634 = add nsw i32 %2633, %.020712980.us.us
   %2635 = sitofp i32 %2634 to float
   %2636 = fmul float %2492, %2635
   %2637 = load ptr, ptr %2424, align 8
-  %2638 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2637, i64 %2612
+  %2638 = getelementptr inbounds nuw [24 x i8], ptr %2637, i64 %2612
   %2639 = getelementptr inbounds nuw i8, ptr %2638, i64 4
   store float %2636, ptr %2639, align 4
   %2640 = load ptr, ptr %2418, align 8
-  %2641 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2640, i64 %indvars.iv3191
+  %2641 = getelementptr inbounds nuw [48 x i8], ptr %2640, i64 %indvars.iv3191
   %2642 = getelementptr inbounds nuw i8, ptr %2641, i64 16
   %2643 = load i32, ptr %2642, align 8
   %2644 = add nsw i32 %2643, %.020722975.us.us.us
   %2645 = sitofp i32 %2644 to float
   %2646 = fmul float %2492, %2645
   %2647 = load ptr, ptr %2424, align 8
-  %2648 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2647, i64 %2612
+  %2648 = getelementptr inbounds nuw [24 x i8], ptr %2647, i64 %2612
   %2649 = getelementptr inbounds nuw i8, ptr %2648, i64 8
   store float %2646, ptr %2649, align 4
   %2650 = add i32 %2605, 1
@@ -21641,7 +21556,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2653:                                             ; preds = %2651
   %2654 = load ptr, ptr %2418, align 8
-  %2655 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2654, i64 %indvars.iv3191
+  %2655 = getelementptr inbounds nuw [48 x i8], ptr %2654, i64 %indvars.iv3191
   %2656 = getelementptr inbounds nuw i8, ptr %2655, i64 8
   %2657 = load i32, ptr %2656, align 8
   %2658 = add nuw nsw i32 %.020692967.us.us.us, 1
@@ -21650,28 +21565,28 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %2661 = fmul float %2492, %2660
   %2662 = load ptr, ptr %2424, align 8
   %2663 = zext i32 %.72017.us.us.us to i64
-  %2664 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2662, i64 %2663
+  %2664 = getelementptr inbounds nuw [24 x i8], ptr %2662, i64 %2663
   store float %2661, ptr %2664, align 4
   %2665 = load ptr, ptr %2418, align 8
-  %2666 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2665, i64 %indvars.iv3191
+  %2666 = getelementptr inbounds nuw [48 x i8], ptr %2665, i64 %indvars.iv3191
   %2667 = getelementptr inbounds nuw i8, ptr %2666, i64 12
   %2668 = load i32, ptr %2667, align 4
   %2669 = add nsw i32 %2668, %.020712980.us.us
   %2670 = sitofp i32 %2669 to float
   %2671 = fmul float %2492, %2670
   %2672 = load ptr, ptr %2424, align 8
-  %2673 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2672, i64 %2663
+  %2673 = getelementptr inbounds nuw [24 x i8], ptr %2672, i64 %2663
   %2674 = getelementptr inbounds nuw i8, ptr %2673, i64 4
   store float %2671, ptr %2674, align 4
   %2675 = load ptr, ptr %2418, align 8
-  %2676 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2675, i64 %indvars.iv3191
+  %2676 = getelementptr inbounds nuw [48 x i8], ptr %2675, i64 %indvars.iv3191
   %2677 = getelementptr inbounds nuw i8, ptr %2676, i64 16
   %2678 = load i32, ptr %2677, align 8
   %2679 = add nsw i32 %2678, %.020722975.us.us.us
   %2680 = sitofp i32 %2679 to float
   %2681 = fmul float %2492, %2680
   %2682 = load ptr, ptr %2424, align 8
-  %2683 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2682, i64 %2663
+  %2683 = getelementptr inbounds nuw [24 x i8], ptr %2682, i64 %2663
   %2684 = getelementptr inbounds nuw i8, ptr %2683, i64 8
   store float %2681, ptr %2684, align 4
   %2685 = add i32 %.72017.us.us.us, 1
@@ -21685,7 +21600,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2688:                                             ; preds = %2686
   %2689 = load ptr, ptr %2418, align 8
-  %2690 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2689, i64 %indvars.iv3191
+  %2690 = getelementptr inbounds nuw [48 x i8], ptr %2689, i64 %indvars.iv3191
   %2691 = getelementptr inbounds nuw i8, ptr %2690, i64 8
   %2692 = load i32, ptr %2691, align 8
   %2693 = add nsw i32 %2692, %.020692967.us.us.us
@@ -21693,28 +21608,28 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %2695 = fmul float %2492, %2694
   %2696 = load ptr, ptr %2424, align 8
   %2697 = zext i32 %.82018.us.us.us to i64
-  %2698 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2696, i64 %2697
+  %2698 = getelementptr inbounds nuw [24 x i8], ptr %2696, i64 %2697
   store float %2695, ptr %2698, align 4
   %2699 = load ptr, ptr %2418, align 8
-  %2700 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2699, i64 %indvars.iv3191
+  %2700 = getelementptr inbounds nuw [48 x i8], ptr %2699, i64 %indvars.iv3191
   %2701 = getelementptr inbounds nuw i8, ptr %2700, i64 12
   %2702 = load i32, ptr %2701, align 4
   %2703 = add nsw i32 %2702, %.020712980.us.us
   %2704 = sitofp i32 %2703 to float
   %2705 = fmul float %2492, %2704
   %2706 = load ptr, ptr %2424, align 8
-  %2707 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2706, i64 %2697
+  %2707 = getelementptr inbounds nuw [24 x i8], ptr %2706, i64 %2697
   %2708 = getelementptr inbounds nuw i8, ptr %2707, i64 4
   store float %2705, ptr %2708, align 4
   %2709 = load ptr, ptr %2418, align 8
-  %2710 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2709, i64 %indvars.iv3191
+  %2710 = getelementptr inbounds nuw [48 x i8], ptr %2709, i64 %indvars.iv3191
   %2711 = getelementptr inbounds nuw i8, ptr %2710, i64 16
   %2712 = load i32, ptr %2711, align 8
   %2713 = add i32 %2528, %2712
   %2714 = sitofp i32 %2713 to float
   %2715 = fmul float %2492, %2714
   %2716 = load ptr, ptr %2424, align 8
-  %2717 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2716, i64 %2697
+  %2717 = getelementptr inbounds nuw [24 x i8], ptr %2716, i64 %2697
   %2718 = getelementptr inbounds nuw i8, ptr %2717, i64 8
   store float %2715, ptr %2718, align 4
   %2719 = add i32 %.82018.us.us.us, 1
@@ -21728,7 +21643,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2722:                                             ; preds = %2720
   %2723 = load ptr, ptr %2418, align 8
-  %2724 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2723, i64 %indvars.iv3191
+  %2724 = getelementptr inbounds nuw [48 x i8], ptr %2723, i64 %indvars.iv3191
   %2725 = getelementptr inbounds nuw i8, ptr %2724, i64 8
   %2726 = load i32, ptr %2725, align 8
   %2727 = add nuw nsw i32 %.020692967.us.us.us, 1
@@ -21737,28 +21652,28 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %2730 = fmul float %2492, %2729
   %2731 = load ptr, ptr %2424, align 8
   %2732 = zext i32 %.92019.us.us.us to i64
-  %2733 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2731, i64 %2732
+  %2733 = getelementptr inbounds nuw [24 x i8], ptr %2731, i64 %2732
   store float %2730, ptr %2733, align 4
   %2734 = load ptr, ptr %2418, align 8
-  %2735 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2734, i64 %indvars.iv3191
+  %2735 = getelementptr inbounds nuw [48 x i8], ptr %2734, i64 %indvars.iv3191
   %2736 = getelementptr inbounds nuw i8, ptr %2735, i64 12
   %2737 = load i32, ptr %2736, align 4
   %2738 = add nsw i32 %2737, %.020712980.us.us
   %2739 = sitofp i32 %2738 to float
   %2740 = fmul float %2492, %2739
   %2741 = load ptr, ptr %2424, align 8
-  %2742 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2741, i64 %2732
+  %2742 = getelementptr inbounds nuw [24 x i8], ptr %2741, i64 %2732
   %2743 = getelementptr inbounds nuw i8, ptr %2742, i64 4
   store float %2740, ptr %2743, align 4
   %2744 = load ptr, ptr %2418, align 8
-  %2745 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2744, i64 %indvars.iv3191
+  %2745 = getelementptr inbounds nuw [48 x i8], ptr %2744, i64 %indvars.iv3191
   %2746 = getelementptr inbounds nuw i8, ptr %2745, i64 16
   %2747 = load i32, ptr %2746, align 8
   %2748 = add i32 %2528, %2747
   %2749 = sitofp i32 %2748 to float
   %2750 = fmul float %2492, %2749
   %2751 = load ptr, ptr %2424, align 8
-  %2752 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2751, i64 %2732
+  %2752 = getelementptr inbounds nuw [24 x i8], ptr %2751, i64 %2732
   %2753 = getelementptr inbounds nuw i8, ptr %2752, i64 8
   store float %2750, ptr %2753, align 4
   %2754 = add i32 %.92019.us.us.us, 1
@@ -21772,7 +21687,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2757:                                             ; preds = %2755
   %2758 = load ptr, ptr %2418, align 8
-  %2759 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2758, i64 %indvars.iv3191
+  %2759 = getelementptr inbounds nuw [48 x i8], ptr %2758, i64 %indvars.iv3191
   %2760 = getelementptr inbounds nuw i8, ptr %2759, i64 8
   %2761 = load i32, ptr %2760, align 8
   %2762 = add nsw i32 %2761, %.020692967.us.us.us
@@ -21780,28 +21695,28 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %2764 = fmul float %2492, %2763
   %2765 = load ptr, ptr %2424, align 8
   %2766 = zext i32 %.102020.us.us.us to i64
-  %2767 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2765, i64 %2766
+  %2767 = getelementptr inbounds nuw [24 x i8], ptr %2765, i64 %2766
   store float %2764, ptr %2767, align 4
   %2768 = load ptr, ptr %2418, align 8
-  %2769 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2768, i64 %indvars.iv3191
+  %2769 = getelementptr inbounds nuw [48 x i8], ptr %2768, i64 %indvars.iv3191
   %2770 = getelementptr inbounds nuw i8, ptr %2769, i64 12
   %2771 = load i32, ptr %2770, align 4
   %2772 = add i32 %2526, %2771
   %2773 = sitofp i32 %2772 to float
   %2774 = fmul float %2492, %2773
   %2775 = load ptr, ptr %2424, align 8
-  %2776 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2775, i64 %2766
+  %2776 = getelementptr inbounds nuw [24 x i8], ptr %2775, i64 %2766
   %2777 = getelementptr inbounds nuw i8, ptr %2776, i64 4
   store float %2774, ptr %2777, align 4
   %2778 = load ptr, ptr %2418, align 8
-  %2779 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2778, i64 %indvars.iv3191
+  %2779 = getelementptr inbounds nuw [48 x i8], ptr %2778, i64 %indvars.iv3191
   %2780 = getelementptr inbounds nuw i8, ptr %2779, i64 16
   %2781 = load i32, ptr %2780, align 8
   %2782 = add nsw i32 %2781, %.020722975.us.us.us
   %2783 = sitofp i32 %2782 to float
   %2784 = fmul float %2492, %2783
   %2785 = load ptr, ptr %2424, align 8
-  %2786 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2785, i64 %2766
+  %2786 = getelementptr inbounds nuw [24 x i8], ptr %2785, i64 %2766
   %2787 = getelementptr inbounds nuw i8, ptr %2786, i64 8
   store float %2784, ptr %2787, align 4
   %2788 = add i32 %.102020.us.us.us, 1
@@ -21815,7 +21730,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2791:                                             ; preds = %2789
   %2792 = load ptr, ptr %2418, align 8
-  %2793 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2792, i64 %indvars.iv3191
+  %2793 = getelementptr inbounds nuw [48 x i8], ptr %2792, i64 %indvars.iv3191
   %2794 = getelementptr inbounds nuw i8, ptr %2793, i64 8
   %2795 = load i32, ptr %2794, align 8
   %2796 = add nuw nsw i32 %.020692967.us.us.us, 1
@@ -21824,28 +21739,28 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %2799 = fmul float %2492, %2798
   %2800 = load ptr, ptr %2424, align 8
   %2801 = zext i32 %.112021.us.us.us to i64
-  %2802 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2800, i64 %2801
+  %2802 = getelementptr inbounds nuw [24 x i8], ptr %2800, i64 %2801
   store float %2799, ptr %2802, align 4
   %2803 = load ptr, ptr %2418, align 8
-  %2804 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2803, i64 %indvars.iv3191
+  %2804 = getelementptr inbounds nuw [48 x i8], ptr %2803, i64 %indvars.iv3191
   %2805 = getelementptr inbounds nuw i8, ptr %2804, i64 12
   %2806 = load i32, ptr %2805, align 4
   %2807 = add i32 %2526, %2806
   %2808 = sitofp i32 %2807 to float
   %2809 = fmul float %2492, %2808
   %2810 = load ptr, ptr %2424, align 8
-  %2811 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2810, i64 %2801
+  %2811 = getelementptr inbounds nuw [24 x i8], ptr %2810, i64 %2801
   %2812 = getelementptr inbounds nuw i8, ptr %2811, i64 4
   store float %2809, ptr %2812, align 4
   %2813 = load ptr, ptr %2418, align 8
-  %2814 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2813, i64 %indvars.iv3191
+  %2814 = getelementptr inbounds nuw [48 x i8], ptr %2813, i64 %indvars.iv3191
   %2815 = getelementptr inbounds nuw i8, ptr %2814, i64 16
   %2816 = load i32, ptr %2815, align 8
   %2817 = add nsw i32 %2816, %.020722975.us.us.us
   %2818 = sitofp i32 %2817 to float
   %2819 = fmul float %2492, %2818
   %2820 = load ptr, ptr %2424, align 8
-  %2821 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2820, i64 %2801
+  %2821 = getelementptr inbounds nuw [24 x i8], ptr %2820, i64 %2801
   %2822 = getelementptr inbounds nuw i8, ptr %2821, i64 8
   store float %2819, ptr %2822, align 4
   %2823 = add i32 %.112021.us.us.us, 1
@@ -21859,7 +21774,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2826:                                             ; preds = %2824
   %2827 = load ptr, ptr %2418, align 8
-  %2828 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2827, i64 %indvars.iv3191
+  %2828 = getelementptr inbounds nuw [48 x i8], ptr %2827, i64 %indvars.iv3191
   %2829 = getelementptr inbounds nuw i8, ptr %2828, i64 8
   %2830 = load i32, ptr %2829, align 8
   %2831 = add nsw i32 %2830, %.020692967.us.us.us
@@ -21867,28 +21782,28 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %2833 = fmul float %2492, %2832
   %2834 = load ptr, ptr %2424, align 8
   %2835 = zext i32 %.122022.us.us.us to i64
-  %2836 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2834, i64 %2835
+  %2836 = getelementptr inbounds nuw [24 x i8], ptr %2834, i64 %2835
   store float %2833, ptr %2836, align 4
   %2837 = load ptr, ptr %2418, align 8
-  %2838 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2837, i64 %indvars.iv3191
+  %2838 = getelementptr inbounds nuw [48 x i8], ptr %2837, i64 %indvars.iv3191
   %2839 = getelementptr inbounds nuw i8, ptr %2838, i64 12
   %2840 = load i32, ptr %2839, align 4
   %2841 = add i32 %2526, %2840
   %2842 = sitofp i32 %2841 to float
   %2843 = fmul float %2492, %2842
   %2844 = load ptr, ptr %2424, align 8
-  %2845 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2844, i64 %2835
+  %2845 = getelementptr inbounds nuw [24 x i8], ptr %2844, i64 %2835
   %2846 = getelementptr inbounds nuw i8, ptr %2845, i64 4
   store float %2843, ptr %2846, align 4
   %2847 = load ptr, ptr %2418, align 8
-  %2848 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2847, i64 %indvars.iv3191
+  %2848 = getelementptr inbounds nuw [48 x i8], ptr %2847, i64 %indvars.iv3191
   %2849 = getelementptr inbounds nuw i8, ptr %2848, i64 16
   %2850 = load i32, ptr %2849, align 8
   %2851 = add i32 %2528, %2850
   %2852 = sitofp i32 %2851 to float
   %2853 = fmul float %2492, %2852
   %2854 = load ptr, ptr %2424, align 8
-  %2855 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2854, i64 %2835
+  %2855 = getelementptr inbounds nuw [24 x i8], ptr %2854, i64 %2835
   %2856 = getelementptr inbounds nuw i8, ptr %2855, i64 8
   store float %2853, ptr %2856, align 4
   %2857 = add i32 %.122022.us.us.us, 1
@@ -21902,7 +21817,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2860:                                             ; preds = %2858
   %2861 = load ptr, ptr %2418, align 8
-  %2862 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2861, i64 %indvars.iv3191
+  %2862 = getelementptr inbounds nuw [48 x i8], ptr %2861, i64 %indvars.iv3191
   %2863 = getelementptr inbounds nuw i8, ptr %2862, i64 8
   %2864 = load i32, ptr %2863, align 8
   %2865 = add nuw nsw i32 %.020692967.us.us.us, 1
@@ -21911,28 +21826,28 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %2868 = fmul float %2492, %2867
   %2869 = load ptr, ptr %2424, align 8
   %2870 = zext i32 %.132023.us.us.us to i64
-  %2871 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2869, i64 %2870
+  %2871 = getelementptr inbounds nuw [24 x i8], ptr %2869, i64 %2870
   store float %2868, ptr %2871, align 4
   %2872 = load ptr, ptr %2418, align 8
-  %2873 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2872, i64 %indvars.iv3191
+  %2873 = getelementptr inbounds nuw [48 x i8], ptr %2872, i64 %indvars.iv3191
   %2874 = getelementptr inbounds nuw i8, ptr %2873, i64 12
   %2875 = load i32, ptr %2874, align 4
   %2876 = add i32 %2526, %2875
   %2877 = sitofp i32 %2876 to float
   %2878 = fmul float %2492, %2877
   %2879 = load ptr, ptr %2424, align 8
-  %2880 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2879, i64 %2870
+  %2880 = getelementptr inbounds nuw [24 x i8], ptr %2879, i64 %2870
   %2881 = getelementptr inbounds nuw i8, ptr %2880, i64 4
   store float %2878, ptr %2881, align 4
   %2882 = load ptr, ptr %2418, align 8
-  %2883 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %2882, i64 %indvars.iv3191
+  %2883 = getelementptr inbounds nuw [48 x i8], ptr %2882, i64 %indvars.iv3191
   %2884 = getelementptr inbounds nuw i8, ptr %2883, i64 16
   %2885 = load i32, ptr %2884, align 8
   %2886 = add i32 %2528, %2885
   %2887 = sitofp i32 %2886 to float
   %2888 = fmul float %2492, %2887
   %2889 = load ptr, ptr %2424, align 8
-  %2890 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2889, i64 %2870
+  %2890 = getelementptr inbounds nuw [24 x i8], ptr %2889, i64 %2870
   %2891 = getelementptr inbounds nuw i8, ptr %2890, i64 8
   store float %2888, ptr %2891, align 4
   br label %2892
@@ -21952,7 +21867,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 2900:                                             ; preds = %2892
   %2901 = zext i32 %2894 to i64
-  %2902 = getelementptr inbounds nuw %struct.m3df_t, ptr %2899, i64 %2901
+  %2902 = getelementptr inbounds nuw [40 x i8], ptr %2899, i64 %2901
   %2903 = zext nneg i32 %2893 to i64
   %2904 = mul nuw nsw i64 %2903, 40
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %2902, i8 -1, i64 %2904, i1 false)
@@ -21968,56 +21883,56 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 2908:                                             ; preds = %._crit_edge2966.us.us.us
   %2909 = load i32, ptr %7, align 16
   %2910 = load ptr, ptr %2500, align 8
-  %2911 = getelementptr inbounds nuw %struct.m3df_t, ptr %2910, i64 %2901
+  %2911 = getelementptr inbounds nuw [40 x i8], ptr %2910, i64 %2901
   %2912 = getelementptr inbounds nuw i8, ptr %2911, i64 4
   store i32 %2909, ptr %2912, align 4
   %2913 = load i32, ptr %2501, align 4
   %2914 = load ptr, ptr %2500, align 8
-  %2915 = getelementptr inbounds nuw %struct.m3df_t, ptr %2914, i64 %2901
+  %2915 = getelementptr inbounds nuw [40 x i8], ptr %2914, i64 %2901
   %2916 = getelementptr inbounds nuw i8, ptr %2915, i64 8
   store i32 %2913, ptr %2916, align 4
   %2917 = load i32, ptr %2502, align 8
   %2918 = load ptr, ptr %2500, align 8
-  %2919 = getelementptr inbounds nuw %struct.m3df_t, ptr %2918, i64 %2901
+  %2919 = getelementptr inbounds nuw [40 x i8], ptr %2918, i64 %2901
   %2920 = getelementptr inbounds nuw i8, ptr %2919, i64 12
   store i32 %2917, ptr %2920, align 4
   %2921 = load ptr, ptr %2500, align 8
   %2922 = add i32 %2894, 1
   %2923 = zext i32 %2922 to i64
-  %2924 = getelementptr inbounds nuw %struct.m3df_t, ptr %2921, i64 %2923
+  %2924 = getelementptr inbounds nuw [40 x i8], ptr %2921, i64 %2923
   %2925 = getelementptr inbounds nuw i8, ptr %2924, i64 4
   store i32 %2917, ptr %2925, align 4
   %2926 = load ptr, ptr %2500, align 8
-  %2927 = getelementptr inbounds nuw %struct.m3df_t, ptr %2926, i64 %2923
+  %2927 = getelementptr inbounds nuw [40 x i8], ptr %2926, i64 %2923
   %2928 = getelementptr inbounds nuw i8, ptr %2927, i64 8
   store i32 %2913, ptr %2928, align 4
   %2929 = load i32, ptr %2503, align 4
   %2930 = load ptr, ptr %2500, align 8
-  %2931 = getelementptr inbounds nuw %struct.m3df_t, ptr %2930, i64 %2923
+  %2931 = getelementptr inbounds nuw [40 x i8], ptr %2930, i64 %2923
   %2932 = getelementptr inbounds nuw i8, ptr %2931, i64 12
   store i32 %2929, ptr %2932, align 4
   %2933 = load ptr, ptr %2500, align 8
-  %2934 = getelementptr inbounds nuw %struct.m3df_t, ptr %2933, i64 %2923
+  %2934 = getelementptr inbounds nuw [40 x i8], ptr %2933, i64 %2923
   %2935 = getelementptr inbounds nuw i8, ptr %2934, i64 24
   store i32 %2422, ptr %2935, align 4
   %2936 = load ptr, ptr %2500, align 8
-  %2937 = getelementptr inbounds nuw %struct.m3df_t, ptr %2936, i64 %2923
+  %2937 = getelementptr inbounds nuw [40 x i8], ptr %2936, i64 %2923
   %2938 = getelementptr inbounds nuw i8, ptr %2937, i64 20
   store i32 %2422, ptr %2938, align 4
   %2939 = load ptr, ptr %2500, align 8
-  %2940 = getelementptr inbounds nuw %struct.m3df_t, ptr %2939, i64 %2923
+  %2940 = getelementptr inbounds nuw [40 x i8], ptr %2939, i64 %2923
   %2941 = getelementptr inbounds nuw i8, ptr %2940, i64 16
   store i32 %2422, ptr %2941, align 4
   %2942 = load ptr, ptr %2500, align 8
-  %2943 = getelementptr inbounds nuw %struct.m3df_t, ptr %2942, i64 %2901
+  %2943 = getelementptr inbounds nuw [40 x i8], ptr %2942, i64 %2901
   %2944 = getelementptr inbounds nuw i8, ptr %2943, i64 24
   store i32 %2422, ptr %2944, align 4
   %2945 = load ptr, ptr %2500, align 8
-  %2946 = getelementptr inbounds nuw %struct.m3df_t, ptr %2945, i64 %2901
+  %2946 = getelementptr inbounds nuw [40 x i8], ptr %2945, i64 %2901
   %2947 = getelementptr inbounds nuw i8, ptr %2946, i64 20
   store i32 %2422, ptr %2947, align 4
   %2948 = load ptr, ptr %2500, align 8
-  %2949 = getelementptr inbounds nuw %struct.m3df_t, ptr %2948, i64 %2901
+  %2949 = getelementptr inbounds nuw [40 x i8], ptr %2948, i64 %2901
   %2950 = getelementptr inbounds nuw i8, ptr %2949, i64 16
   store i32 %2422, ptr %2950, align 4
   %2951 = add i32 %2894, 2
@@ -22033,56 +21948,56 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %2955 = load i32, ptr %7, align 16
   %2956 = load ptr, ptr %2500, align 8
   %2957 = zext i32 %.142024.us.us.us to i64
-  %2958 = getelementptr inbounds nuw %struct.m3df_t, ptr %2956, i64 %2957
+  %2958 = getelementptr inbounds nuw [40 x i8], ptr %2956, i64 %2957
   %2959 = getelementptr inbounds nuw i8, ptr %2958, i64 4
   store i32 %2955, ptr %2959, align 4
   %2960 = load i32, ptr %2504, align 16
   %2961 = load ptr, ptr %2500, align 8
-  %2962 = getelementptr inbounds nuw %struct.m3df_t, ptr %2961, i64 %2957
+  %2962 = getelementptr inbounds nuw [40 x i8], ptr %2961, i64 %2957
   %2963 = getelementptr inbounds nuw i8, ptr %2962, i64 8
   store i32 %2960, ptr %2963, align 4
   %2964 = load i32, ptr %2501, align 4
   %2965 = load ptr, ptr %2500, align 8
-  %2966 = getelementptr inbounds nuw %struct.m3df_t, ptr %2965, i64 %2957
+  %2966 = getelementptr inbounds nuw [40 x i8], ptr %2965, i64 %2957
   %2967 = getelementptr inbounds nuw i8, ptr %2966, i64 12
   store i32 %2964, ptr %2967, align 4
   %2968 = load ptr, ptr %2500, align 8
   %2969 = add i32 %.142024.us.us.us, 1
   %2970 = zext i32 %2969 to i64
-  %2971 = getelementptr inbounds nuw %struct.m3df_t, ptr %2968, i64 %2970
+  %2971 = getelementptr inbounds nuw [40 x i8], ptr %2968, i64 %2970
   %2972 = getelementptr inbounds nuw i8, ptr %2971, i64 4
   store i32 %2964, ptr %2972, align 4
   %2973 = load ptr, ptr %2500, align 8
-  %2974 = getelementptr inbounds nuw %struct.m3df_t, ptr %2973, i64 %2970
+  %2974 = getelementptr inbounds nuw [40 x i8], ptr %2973, i64 %2970
   %2975 = getelementptr inbounds nuw i8, ptr %2974, i64 8
   store i32 %2960, ptr %2975, align 4
   %2976 = load i32, ptr %2505, align 4
   %2977 = load ptr, ptr %2500, align 8
-  %2978 = getelementptr inbounds nuw %struct.m3df_t, ptr %2977, i64 %2970
+  %2978 = getelementptr inbounds nuw [40 x i8], ptr %2977, i64 %2970
   %2979 = getelementptr inbounds nuw i8, ptr %2978, i64 12
   store i32 %2976, ptr %2979, align 4
   %2980 = load ptr, ptr %2500, align 8
-  %2981 = getelementptr inbounds nuw %struct.m3df_t, ptr %2980, i64 %2970
+  %2981 = getelementptr inbounds nuw [40 x i8], ptr %2980, i64 %2970
   %2982 = getelementptr inbounds nuw i8, ptr %2981, i64 24
   store i32 %2444, ptr %2982, align 4
   %2983 = load ptr, ptr %2500, align 8
-  %2984 = getelementptr inbounds nuw %struct.m3df_t, ptr %2983, i64 %2970
+  %2984 = getelementptr inbounds nuw [40 x i8], ptr %2983, i64 %2970
   %2985 = getelementptr inbounds nuw i8, ptr %2984, i64 20
   store i32 %2444, ptr %2985, align 4
   %2986 = load ptr, ptr %2500, align 8
-  %2987 = getelementptr inbounds nuw %struct.m3df_t, ptr %2986, i64 %2970
+  %2987 = getelementptr inbounds nuw [40 x i8], ptr %2986, i64 %2970
   %2988 = getelementptr inbounds nuw i8, ptr %2987, i64 16
   store i32 %2444, ptr %2988, align 4
   %2989 = load ptr, ptr %2500, align 8
-  %2990 = getelementptr inbounds nuw %struct.m3df_t, ptr %2989, i64 %2957
+  %2990 = getelementptr inbounds nuw [40 x i8], ptr %2989, i64 %2957
   %2991 = getelementptr inbounds nuw i8, ptr %2990, i64 24
   store i32 %2444, ptr %2991, align 4
   %2992 = load ptr, ptr %2500, align 8
-  %2993 = getelementptr inbounds nuw %struct.m3df_t, ptr %2992, i64 %2957
+  %2993 = getelementptr inbounds nuw [40 x i8], ptr %2992, i64 %2957
   %2994 = getelementptr inbounds nuw i8, ptr %2993, i64 20
   store i32 %2444, ptr %2994, align 4
   %2995 = load ptr, ptr %2500, align 8
-  %2996 = getelementptr inbounds nuw %struct.m3df_t, ptr %2995, i64 %2957
+  %2996 = getelementptr inbounds nuw [40 x i8], ptr %2995, i64 %2957
   %2997 = getelementptr inbounds nuw i8, ptr %2996, i64 16
   store i32 %2444, ptr %2997, align 4
   %2998 = add i32 %.142024.us.us.us, 2
@@ -22098,56 +22013,56 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %3002 = load i32, ptr %7, align 16
   %3003 = load ptr, ptr %2500, align 8
   %3004 = zext i32 %.152025.us.us.us to i64
-  %3005 = getelementptr inbounds nuw %struct.m3df_t, ptr %3003, i64 %3004
+  %3005 = getelementptr inbounds nuw [40 x i8], ptr %3003, i64 %3004
   %3006 = getelementptr inbounds nuw i8, ptr %3005, i64 4
   store i32 %3002, ptr %3006, align 4
   %3007 = load i32, ptr %2502, align 8
   %3008 = load ptr, ptr %2500, align 8
-  %3009 = getelementptr inbounds nuw %struct.m3df_t, ptr %3008, i64 %3004
+  %3009 = getelementptr inbounds nuw [40 x i8], ptr %3008, i64 %3004
   %3010 = getelementptr inbounds nuw i8, ptr %3009, i64 8
   store i32 %3007, ptr %3010, align 4
   %3011 = load i32, ptr %2504, align 16
   %3012 = load ptr, ptr %2500, align 8
-  %3013 = getelementptr inbounds nuw %struct.m3df_t, ptr %3012, i64 %3004
+  %3013 = getelementptr inbounds nuw [40 x i8], ptr %3012, i64 %3004
   %3014 = getelementptr inbounds nuw i8, ptr %3013, i64 12
   store i32 %3011, ptr %3014, align 4
   %3015 = load ptr, ptr %2500, align 8
   %3016 = add i32 %.152025.us.us.us, 1
   %3017 = zext i32 %3016 to i64
-  %3018 = getelementptr inbounds nuw %struct.m3df_t, ptr %3015, i64 %3017
+  %3018 = getelementptr inbounds nuw [40 x i8], ptr %3015, i64 %3017
   %3019 = getelementptr inbounds nuw i8, ptr %3018, i64 4
   store i32 %3007, ptr %3019, align 4
   %3020 = load i32, ptr %2506, align 8
   %3021 = load ptr, ptr %2500, align 8
-  %3022 = getelementptr inbounds nuw %struct.m3df_t, ptr %3021, i64 %3017
+  %3022 = getelementptr inbounds nuw [40 x i8], ptr %3021, i64 %3017
   %3023 = getelementptr inbounds nuw i8, ptr %3022, i64 8
   store i32 %3020, ptr %3023, align 4
   %3024 = load ptr, ptr %2500, align 8
-  %3025 = getelementptr inbounds nuw %struct.m3df_t, ptr %3024, i64 %3017
+  %3025 = getelementptr inbounds nuw [40 x i8], ptr %3024, i64 %3017
   %3026 = getelementptr inbounds nuw i8, ptr %3025, i64 12
   store i32 %3011, ptr %3026, align 4
   %3027 = load ptr, ptr %2500, align 8
-  %3028 = getelementptr inbounds nuw %struct.m3df_t, ptr %3027, i64 %3017
+  %3028 = getelementptr inbounds nuw [40 x i8], ptr %3027, i64 %3017
   %3029 = getelementptr inbounds nuw i8, ptr %3028, i64 24
   store i32 %2449, ptr %3029, align 4
   %3030 = load ptr, ptr %2500, align 8
-  %3031 = getelementptr inbounds nuw %struct.m3df_t, ptr %3030, i64 %3017
+  %3031 = getelementptr inbounds nuw [40 x i8], ptr %3030, i64 %3017
   %3032 = getelementptr inbounds nuw i8, ptr %3031, i64 20
   store i32 %2449, ptr %3032, align 4
   %3033 = load ptr, ptr %2500, align 8
-  %3034 = getelementptr inbounds nuw %struct.m3df_t, ptr %3033, i64 %3017
+  %3034 = getelementptr inbounds nuw [40 x i8], ptr %3033, i64 %3017
   %3035 = getelementptr inbounds nuw i8, ptr %3034, i64 16
   store i32 %2449, ptr %3035, align 4
   %3036 = load ptr, ptr %2500, align 8
-  %3037 = getelementptr inbounds nuw %struct.m3df_t, ptr %3036, i64 %3004
+  %3037 = getelementptr inbounds nuw [40 x i8], ptr %3036, i64 %3004
   %3038 = getelementptr inbounds nuw i8, ptr %3037, i64 24
   store i32 %2449, ptr %3038, align 4
   %3039 = load ptr, ptr %2500, align 8
-  %3040 = getelementptr inbounds nuw %struct.m3df_t, ptr %3039, i64 %3004
+  %3040 = getelementptr inbounds nuw [40 x i8], ptr %3039, i64 %3004
   %3041 = getelementptr inbounds nuw i8, ptr %3040, i64 20
   store i32 %2449, ptr %3041, align 4
   %3042 = load ptr, ptr %2500, align 8
-  %3043 = getelementptr inbounds nuw %struct.m3df_t, ptr %3042, i64 %3004
+  %3043 = getelementptr inbounds nuw [40 x i8], ptr %3042, i64 %3004
   %3044 = getelementptr inbounds nuw i8, ptr %3043, i64 16
   store i32 %2449, ptr %3044, align 4
   %3045 = add i32 %.152025.us.us.us, 2
@@ -22163,56 +22078,56 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %3049 = load i32, ptr %2504, align 16
   %3050 = load ptr, ptr %2500, align 8
   %3051 = zext i32 %.162026.us.us.us to i64
-  %3052 = getelementptr inbounds nuw %struct.m3df_t, ptr %3050, i64 %3051
+  %3052 = getelementptr inbounds nuw [40 x i8], ptr %3050, i64 %3051
   %3053 = getelementptr inbounds nuw i8, ptr %3052, i64 4
   store i32 %3049, ptr %3053, align 4
   %3054 = load i32, ptr %2506, align 8
   %3055 = load ptr, ptr %2500, align 8
-  %3056 = getelementptr inbounds nuw %struct.m3df_t, ptr %3055, i64 %3051
+  %3056 = getelementptr inbounds nuw [40 x i8], ptr %3055, i64 %3051
   %3057 = getelementptr inbounds nuw i8, ptr %3056, i64 8
   store i32 %3054, ptr %3057, align 4
   %3058 = load i32, ptr %2505, align 4
   %3059 = load ptr, ptr %2500, align 8
-  %3060 = getelementptr inbounds nuw %struct.m3df_t, ptr %3059, i64 %3051
+  %3060 = getelementptr inbounds nuw [40 x i8], ptr %3059, i64 %3051
   %3061 = getelementptr inbounds nuw i8, ptr %3060, i64 12
   store i32 %3058, ptr %3061, align 4
   %3062 = load ptr, ptr %2500, align 8
   %3063 = add i32 %.162026.us.us.us, 1
   %3064 = zext i32 %3063 to i64
-  %3065 = getelementptr inbounds nuw %struct.m3df_t, ptr %3062, i64 %3064
+  %3065 = getelementptr inbounds nuw [40 x i8], ptr %3062, i64 %3064
   %3066 = getelementptr inbounds nuw i8, ptr %3065, i64 4
   store i32 %3058, ptr %3066, align 4
   %3067 = load ptr, ptr %2500, align 8
-  %3068 = getelementptr inbounds nuw %struct.m3df_t, ptr %3067, i64 %3064
+  %3068 = getelementptr inbounds nuw [40 x i8], ptr %3067, i64 %3064
   %3069 = getelementptr inbounds nuw i8, ptr %3068, i64 8
   store i32 %3054, ptr %3069, align 4
   %3070 = load i32, ptr %2507, align 4
   %3071 = load ptr, ptr %2500, align 8
-  %3072 = getelementptr inbounds nuw %struct.m3df_t, ptr %3071, i64 %3064
+  %3072 = getelementptr inbounds nuw [40 x i8], ptr %3071, i64 %3064
   %3073 = getelementptr inbounds nuw i8, ptr %3072, i64 12
   store i32 %3070, ptr %3073, align 4
   %3074 = load ptr, ptr %2500, align 8
-  %3075 = getelementptr inbounds nuw %struct.m3df_t, ptr %3074, i64 %3064
+  %3075 = getelementptr inbounds nuw [40 x i8], ptr %3074, i64 %3064
   %3076 = getelementptr inbounds nuw i8, ptr %3075, i64 24
   store i32 %2453, ptr %3076, align 4
   %3077 = load ptr, ptr %2500, align 8
-  %3078 = getelementptr inbounds nuw %struct.m3df_t, ptr %3077, i64 %3064
+  %3078 = getelementptr inbounds nuw [40 x i8], ptr %3077, i64 %3064
   %3079 = getelementptr inbounds nuw i8, ptr %3078, i64 20
   store i32 %2453, ptr %3079, align 4
   %3080 = load ptr, ptr %2500, align 8
-  %3081 = getelementptr inbounds nuw %struct.m3df_t, ptr %3080, i64 %3064
+  %3081 = getelementptr inbounds nuw [40 x i8], ptr %3080, i64 %3064
   %3082 = getelementptr inbounds nuw i8, ptr %3081, i64 16
   store i32 %2453, ptr %3082, align 4
   %3083 = load ptr, ptr %2500, align 8
-  %3084 = getelementptr inbounds nuw %struct.m3df_t, ptr %3083, i64 %3051
+  %3084 = getelementptr inbounds nuw [40 x i8], ptr %3083, i64 %3051
   %3085 = getelementptr inbounds nuw i8, ptr %3084, i64 24
   store i32 %2453, ptr %3085, align 4
   %3086 = load ptr, ptr %2500, align 8
-  %3087 = getelementptr inbounds nuw %struct.m3df_t, ptr %3086, i64 %3051
+  %3087 = getelementptr inbounds nuw [40 x i8], ptr %3086, i64 %3051
   %3088 = getelementptr inbounds nuw i8, ptr %3087, i64 20
   store i32 %2453, ptr %3088, align 4
   %3089 = load ptr, ptr %2500, align 8
-  %3090 = getelementptr inbounds nuw %struct.m3df_t, ptr %3089, i64 %3051
+  %3090 = getelementptr inbounds nuw [40 x i8], ptr %3089, i64 %3051
   %3091 = getelementptr inbounds nuw i8, ptr %3090, i64 16
   store i32 %2453, ptr %3091, align 4
   %3092 = add i32 %.162026.us.us.us, 2
@@ -22228,56 +22143,56 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %3096 = load i32, ptr %2502, align 8
   %3097 = load ptr, ptr %2500, align 8
   %3098 = zext i32 %.172027.us.us.us to i64
-  %3099 = getelementptr inbounds nuw %struct.m3df_t, ptr %3097, i64 %3098
+  %3099 = getelementptr inbounds nuw [40 x i8], ptr %3097, i64 %3098
   %3100 = getelementptr inbounds nuw i8, ptr %3099, i64 4
   store i32 %3096, ptr %3100, align 4
   %3101 = load i32, ptr %2507, align 4
   %3102 = load ptr, ptr %2500, align 8
-  %3103 = getelementptr inbounds nuw %struct.m3df_t, ptr %3102, i64 %3098
+  %3103 = getelementptr inbounds nuw [40 x i8], ptr %3102, i64 %3098
   %3104 = getelementptr inbounds nuw i8, ptr %3103, i64 8
   store i32 %3101, ptr %3104, align 4
   %3105 = load i32, ptr %2506, align 8
   %3106 = load ptr, ptr %2500, align 8
-  %3107 = getelementptr inbounds nuw %struct.m3df_t, ptr %3106, i64 %3098
+  %3107 = getelementptr inbounds nuw [40 x i8], ptr %3106, i64 %3098
   %3108 = getelementptr inbounds nuw i8, ptr %3107, i64 12
   store i32 %3105, ptr %3108, align 4
   %3109 = load ptr, ptr %2500, align 8
   %3110 = add i32 %.172027.us.us.us, 1
   %3111 = zext i32 %3110 to i64
-  %3112 = getelementptr inbounds nuw %struct.m3df_t, ptr %3109, i64 %3111
+  %3112 = getelementptr inbounds nuw [40 x i8], ptr %3109, i64 %3111
   %3113 = getelementptr inbounds nuw i8, ptr %3112, i64 4
   store i32 %3101, ptr %3113, align 4
   %3114 = load ptr, ptr %2500, align 8
-  %3115 = getelementptr inbounds nuw %struct.m3df_t, ptr %3114, i64 %3111
+  %3115 = getelementptr inbounds nuw [40 x i8], ptr %3114, i64 %3111
   %3116 = getelementptr inbounds nuw i8, ptr %3115, i64 8
   store i32 %3096, ptr %3116, align 4
   %3117 = load i32, ptr %2503, align 4
   %3118 = load ptr, ptr %2500, align 8
-  %3119 = getelementptr inbounds nuw %struct.m3df_t, ptr %3118, i64 %3111
+  %3119 = getelementptr inbounds nuw [40 x i8], ptr %3118, i64 %3111
   %3120 = getelementptr inbounds nuw i8, ptr %3119, i64 12
   store i32 %3117, ptr %3120, align 4
   %3121 = load ptr, ptr %2500, align 8
-  %3122 = getelementptr inbounds nuw %struct.m3df_t, ptr %3121, i64 %3111
+  %3122 = getelementptr inbounds nuw [40 x i8], ptr %3121, i64 %3111
   %3123 = getelementptr inbounds nuw i8, ptr %3122, i64 24
   store i32 %2458, ptr %3123, align 4
   %3124 = load ptr, ptr %2500, align 8
-  %3125 = getelementptr inbounds nuw %struct.m3df_t, ptr %3124, i64 %3111
+  %3125 = getelementptr inbounds nuw [40 x i8], ptr %3124, i64 %3111
   %3126 = getelementptr inbounds nuw i8, ptr %3125, i64 20
   store i32 %2458, ptr %3126, align 4
   %3127 = load ptr, ptr %2500, align 8
-  %3128 = getelementptr inbounds nuw %struct.m3df_t, ptr %3127, i64 %3111
+  %3128 = getelementptr inbounds nuw [40 x i8], ptr %3127, i64 %3111
   %3129 = getelementptr inbounds nuw i8, ptr %3128, i64 16
   store i32 %2458, ptr %3129, align 4
   %3130 = load ptr, ptr %2500, align 8
-  %3131 = getelementptr inbounds nuw %struct.m3df_t, ptr %3130, i64 %3098
+  %3131 = getelementptr inbounds nuw [40 x i8], ptr %3130, i64 %3098
   %3132 = getelementptr inbounds nuw i8, ptr %3131, i64 24
   store i32 %2458, ptr %3132, align 4
   %3133 = load ptr, ptr %2500, align 8
-  %3134 = getelementptr inbounds nuw %struct.m3df_t, ptr %3133, i64 %3098
+  %3134 = getelementptr inbounds nuw [40 x i8], ptr %3133, i64 %3098
   %3135 = getelementptr inbounds nuw i8, ptr %3134, i64 20
   store i32 %2458, ptr %3135, align 4
   %3136 = load ptr, ptr %2500, align 8
-  %3137 = getelementptr inbounds nuw %struct.m3df_t, ptr %3136, i64 %3098
+  %3137 = getelementptr inbounds nuw [40 x i8], ptr %3136, i64 %3098
   %3138 = getelementptr inbounds nuw i8, ptr %3137, i64 16
   store i32 %2458, ptr %3138, align 4
   %3139 = add i32 %.172027.us.us.us, 2
@@ -22293,56 +22208,56 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %3143 = load i32, ptr %2501, align 4
   %3144 = load ptr, ptr %2500, align 8
   %3145 = zext i32 %.182028.us.us.us to i64
-  %3146 = getelementptr inbounds nuw %struct.m3df_t, ptr %3144, i64 %3145
+  %3146 = getelementptr inbounds nuw [40 x i8], ptr %3144, i64 %3145
   %3147 = getelementptr inbounds nuw i8, ptr %3146, i64 4
   store i32 %3143, ptr %3147, align 4
   %3148 = load i32, ptr %2505, align 4
   %3149 = load ptr, ptr %2500, align 8
-  %3150 = getelementptr inbounds nuw %struct.m3df_t, ptr %3149, i64 %3145
+  %3150 = getelementptr inbounds nuw [40 x i8], ptr %3149, i64 %3145
   %3151 = getelementptr inbounds nuw i8, ptr %3150, i64 8
   store i32 %3148, ptr %3151, align 4
   %3152 = load i32, ptr %2507, align 4
   %3153 = load ptr, ptr %2500, align 8
-  %3154 = getelementptr inbounds nuw %struct.m3df_t, ptr %3153, i64 %3145
+  %3154 = getelementptr inbounds nuw [40 x i8], ptr %3153, i64 %3145
   %3155 = getelementptr inbounds nuw i8, ptr %3154, i64 12
   store i32 %3152, ptr %3155, align 4
   %3156 = load ptr, ptr %2500, align 8
   %3157 = add i32 %.182028.us.us.us, 1
   %3158 = zext i32 %3157 to i64
-  %3159 = getelementptr inbounds nuw %struct.m3df_t, ptr %3156, i64 %3158
+  %3159 = getelementptr inbounds nuw [40 x i8], ptr %3156, i64 %3158
   %3160 = getelementptr inbounds nuw i8, ptr %3159, i64 4
   store i32 %3143, ptr %3160, align 4
   %3161 = load ptr, ptr %2500, align 8
-  %3162 = getelementptr inbounds nuw %struct.m3df_t, ptr %3161, i64 %3158
+  %3162 = getelementptr inbounds nuw [40 x i8], ptr %3161, i64 %3158
   %3163 = getelementptr inbounds nuw i8, ptr %3162, i64 8
   store i32 %3152, ptr %3163, align 4
   %3164 = load i32, ptr %2503, align 4
   %3165 = load ptr, ptr %2500, align 8
-  %3166 = getelementptr inbounds nuw %struct.m3df_t, ptr %3165, i64 %3158
+  %3166 = getelementptr inbounds nuw [40 x i8], ptr %3165, i64 %3158
   %3167 = getelementptr inbounds nuw i8, ptr %3166, i64 12
   store i32 %3164, ptr %3167, align 4
   %3168 = load ptr, ptr %2500, align 8
-  %3169 = getelementptr inbounds nuw %struct.m3df_t, ptr %3168, i64 %3158
+  %3169 = getelementptr inbounds nuw [40 x i8], ptr %3168, i64 %3158
   %3170 = getelementptr inbounds nuw i8, ptr %3169, i64 24
   store i32 %2463, ptr %3170, align 4
   %3171 = load ptr, ptr %2500, align 8
-  %3172 = getelementptr inbounds nuw %struct.m3df_t, ptr %3171, i64 %3158
+  %3172 = getelementptr inbounds nuw [40 x i8], ptr %3171, i64 %3158
   %3173 = getelementptr inbounds nuw i8, ptr %3172, i64 20
   store i32 %2463, ptr %3173, align 4
   %3174 = load ptr, ptr %2500, align 8
-  %3175 = getelementptr inbounds nuw %struct.m3df_t, ptr %3174, i64 %3158
+  %3175 = getelementptr inbounds nuw [40 x i8], ptr %3174, i64 %3158
   %3176 = getelementptr inbounds nuw i8, ptr %3175, i64 16
   store i32 %2463, ptr %3176, align 4
   %3177 = load ptr, ptr %2500, align 8
-  %3178 = getelementptr inbounds nuw %struct.m3df_t, ptr %3177, i64 %3145
+  %3178 = getelementptr inbounds nuw [40 x i8], ptr %3177, i64 %3145
   %3179 = getelementptr inbounds nuw i8, ptr %3178, i64 24
   store i32 %2463, ptr %3179, align 4
   %3180 = load ptr, ptr %2500, align 8
-  %3181 = getelementptr inbounds nuw %struct.m3df_t, ptr %3180, i64 %3145
+  %3181 = getelementptr inbounds nuw [40 x i8], ptr %3180, i64 %3145
   %3182 = getelementptr inbounds nuw i8, ptr %3181, i64 20
   store i32 %2463, ptr %3182, align 4
   %3183 = load ptr, ptr %2500, align 8
-  %3184 = getelementptr inbounds nuw %struct.m3df_t, ptr %3183, i64 %3145
+  %3184 = getelementptr inbounds nuw [40 x i8], ptr %3183, i64 %3145
   %3185 = getelementptr inbounds nuw i8, ptr %3184, i64 16
   store i32 %2463, ptr %3185, align 4
   br label %3186
@@ -22357,17 +22272,17 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %indvars.iv3184 = phi i64 [ %indvars.iv.next3185, %.lr.ph2965.us.us.us ], [ %2901, %2900 ]
   %3189 = load ptr, ptr %2498, align 8
   %3190 = load ptr, ptr %2418, align 8
-  %3191 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %3190, i64 %indvars.iv3191
+  %3191 = getelementptr inbounds nuw [48 x i8], ptr %3190, i64 %indvars.iv3191
   %3192 = getelementptr inbounds nuw i8, ptr %3191, i64 40
   %3193 = load ptr, ptr %3192, align 8
-  %3194 = getelementptr inbounds nuw i16, ptr %3193, i64 %2534
+  %3194 = getelementptr inbounds nuw [2 x i8], ptr %3193, i64 %2534
   %3195 = load i16, ptr %3194, align 2
   %3196 = zext i16 %3195 to i64
-  %3197 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %3189, i64 %3196
+  %3197 = getelementptr inbounds nuw [40 x i8], ptr %3189, i64 %3196
   %3198 = getelementptr inbounds nuw i8, ptr %3197, i64 12
   %3199 = load i32, ptr %3198, align 4
   %3200 = load ptr, ptr %2500, align 8
-  %3201 = getelementptr inbounds nuw %struct.m3df_t, ptr %3200, i64 %indvars.iv3184
+  %3201 = getelementptr inbounds nuw [40 x i8], ptr %3200, i64 %indvars.iv3184
   store i32 %3199, ptr %3201, align 4
   %indvars.iv.next3185 = add nuw nsw i64 %indvars.iv3184, 1
   %3202 = load i32, ptr %2499, align 8
@@ -22379,32 +22294,32 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %indvars.iv3180 = phi i64 [ %indvars.iv.next3181, %.lr.ph2961.us.us.us ], [ %2612, %2611 ]
   %3205 = load ptr, ptr %2498, align 8
   %3206 = load ptr, ptr %2418, align 8
-  %3207 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %3206, i64 %indvars.iv3191
+  %3207 = getelementptr inbounds nuw [48 x i8], ptr %3206, i64 %indvars.iv3191
   %3208 = getelementptr inbounds nuw i8, ptr %3207, i64 40
   %3209 = load ptr, ptr %3208, align 8
-  %3210 = getelementptr inbounds nuw i16, ptr %3209, i64 %2534
+  %3210 = getelementptr inbounds nuw [2 x i8], ptr %3209, i64 %2534
   %3211 = load i16, ptr %3210, align 2
   %3212 = zext i16 %3211 to i64
-  %3213 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %3205, i64 %3212
+  %3213 = getelementptr inbounds nuw [40 x i8], ptr %3205, i64 %3212
   %3214 = getelementptr inbounds nuw i8, ptr %3213, i64 20
   %3215 = load i32, ptr %3214, align 4
   %3216 = load ptr, ptr %2424, align 8
-  %3217 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3216, i64 %indvars.iv3180
+  %3217 = getelementptr inbounds nuw [24 x i8], ptr %3216, i64 %indvars.iv3180
   %3218 = getelementptr inbounds nuw i8, ptr %3217, i64 20
   store i32 %3215, ptr %3218, align 4
   %3219 = load ptr, ptr %2498, align 8
   %3220 = load ptr, ptr %2418, align 8
-  %3221 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %3220, i64 %indvars.iv3191
+  %3221 = getelementptr inbounds nuw [48 x i8], ptr %3220, i64 %indvars.iv3191
   %3222 = getelementptr inbounds nuw i8, ptr %3221, i64 40
   %3223 = load ptr, ptr %3222, align 8
-  %3224 = getelementptr inbounds nuw i16, ptr %3223, i64 %2534
+  %3224 = getelementptr inbounds nuw [2 x i8], ptr %3223, i64 %2534
   %3225 = load i16, ptr %3224, align 2
   %3226 = zext i16 %3225 to i64
-  %3227 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %3219, i64 %3226
+  %3227 = getelementptr inbounds nuw [40 x i8], ptr %3219, i64 %3226
   %3228 = getelementptr inbounds nuw i8, ptr %3227, i64 16
   %3229 = load i32, ptr %3228, align 8
   %3230 = load ptr, ptr %2424, align 8
-  %3231 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3230, i64 %indvars.iv3180
+  %3231 = getelementptr inbounds nuw [24 x i8], ptr %3230, i64 %indvars.iv3180
   %3232 = getelementptr inbounds nuw i8, ptr %3231, i64 16
   store i32 %3229, ptr %3232, align 4
   %indvars.iv.next3181 = add nuw nsw i64 %indvars.iv3180, 1
@@ -22424,7 +22339,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 3240:                                             ; preds = %3236
   %3241 = add i32 %3237, 1
   store i32 %3241, ptr %2421, align 8
-  %3242 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv3175
+  %3242 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv3175
   store i32 %3237, ptr %3242, align 4
   br label %3243
 
@@ -22485,7 +22400,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %3264 = phi i32 [ %3250, %.lr.ph2993 ], [ %3346, %3345 ]
   %indvars.iv3195 = phi i64 [ 0, %.lr.ph2993 ], [ %indvars.iv.next3196, %3345 ]
   %3265 = load ptr, ptr %3252, align 8
-  %3266 = getelementptr inbounds nuw %struct.m3df_t, ptr %3265, i64 %indvars.iv3195
+  %3266 = getelementptr inbounds nuw [40 x i8], ptr %3265, i64 %indvars.iv3195
   %3267 = getelementptr inbounds nuw i8, ptr %3266, i64 16
   %3268 = load i32, ptr %3267, align 4
   %3269 = icmp eq i32 %3268, -1
@@ -22496,15 +22411,15 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %3272 = getelementptr inbounds nuw i8, ptr %3266, i64 4
   %3273 = load i32, ptr %3272, align 4
   %3274 = zext i32 %3273 to i64
-  %3275 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3271, i64 %3274
+  %3275 = getelementptr inbounds nuw [24 x i8], ptr %3271, i64 %3274
   %3276 = getelementptr inbounds nuw i8, ptr %3266, i64 8
   %3277 = load i32, ptr %3276, align 4
   %3278 = zext i32 %3277 to i64
-  %3279 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3271, i64 %3278
+  %3279 = getelementptr inbounds nuw [24 x i8], ptr %3271, i64 %3278
   %3280 = getelementptr inbounds nuw i8, ptr %3266, i64 12
   %3281 = load i32, ptr %3280, align 4
   %3282 = zext i32 %3281 to i64
-  %3283 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3271, i64 %3282
+  %3283 = getelementptr inbounds nuw [24 x i8], ptr %3271, i64 %3282
   %3284 = load float, ptr %3279, align 4
   %3285 = load float, ptr %3275, align 4
   %3286 = fsub float %3284, %3285
@@ -22526,7 +22441,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %3302 = getelementptr inbounds nuw i8, ptr %3283, i64 8
   %3303 = load float, ptr %3302, align 4
   %3304 = fsub float %3303, %3295
-  %3305 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3259, i64 %indvars.iv3195
+  %3305 = getelementptr inbounds nuw [24 x i8], ptr %3259, i64 %indvars.iv3195
   %3306 = fneg float %3301
   %3307 = fmul float %3296, %3306
   %3308 = call float @llvm.fmuladd.f32(float %3291, float %3304, float %3307)
@@ -22559,14 +22474,14 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %3332 = add i32 %3273, %3261
   store i32 %3332, ptr %3267, align 4
   %3333 = load ptr, ptr %3252, align 8
-  %3334 = getelementptr inbounds nuw %struct.m3df_t, ptr %3333, i64 %indvars.iv3195
+  %3334 = getelementptr inbounds nuw [40 x i8], ptr %3333, i64 %indvars.iv3195
   %3335 = getelementptr inbounds nuw i8, ptr %3334, i64 8
   %3336 = load i32, ptr %3335, align 4
   %3337 = add i32 %3336, %3261
   %3338 = getelementptr inbounds nuw i8, ptr %3334, i64 20
   store i32 %3337, ptr %3338, align 4
   %3339 = load ptr, ptr %3252, align 8
-  %3340 = getelementptr inbounds nuw %struct.m3df_t, ptr %3339, i64 %indvars.iv3195
+  %3340 = getelementptr inbounds nuw [40 x i8], ptr %3339, i64 %indvars.iv3195
   %3341 = getelementptr inbounds nuw i8, ptr %3340, i64 12
   %3342 = load i32, ptr %3341, align 4
   %3343 = add i32 %3342, %3261
@@ -22601,7 +22516,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 3358:                                             ; preds = %._crit_edge2994
   %3359 = zext i32 %3261 to i64
-  %3360 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3357, i64 %3359
+  %3360 = getelementptr inbounds nuw [24 x i8], ptr %3357, i64 %3359
   %3361 = mul nuw nsw i64 %3359, 24
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %3360, i8 0, i64 %3361, i1 false)
   %3362 = load i32, ptr %3249, align 8
@@ -22610,7 +22525,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 .preheader2721:                                   ; preds = %3358, %3387
   %indvars.iv3204 = phi i64 [ %indvars.iv.next3205, %3387 ], [ 0, %3358 ]
-  %3363 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3259, i64 %indvars.iv3204
+  %3363 = getelementptr inbounds nuw [24 x i8], ptr %3259, i64 %indvars.iv3204
   %3364 = load float, ptr %3363, align 4
   %3365 = getelementptr inbounds nuw i8, ptr %3363, i64 4
   %3366 = load float, ptr %3365, align 4
@@ -22622,13 +22537,13 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %indvars.iv3199 = phi i64 [ 0, %.preheader2721 ], [ %indvars.iv.next3200, %3369 ]
   %3370 = load ptr, ptr %3353, align 8
   %3371 = load ptr, ptr %3252, align 8
-  %3372 = getelementptr inbounds nuw %struct.m3df_t, ptr %3371, i64 %indvars.iv3204
+  %3372 = getelementptr inbounds nuw [40 x i8], ptr %3371, i64 %indvars.iv3204
   %3373 = getelementptr inbounds nuw i8, ptr %3372, i64 4
-  %3374 = getelementptr inbounds nuw i32, ptr %3373, i64 %indvars.iv3199
+  %3374 = getelementptr inbounds nuw [4 x i8], ptr %3373, i64 %indvars.iv3199
   %3375 = load i32, ptr %3374, align 4
   %3376 = add i32 %3375, %3261
   %3377 = zext i32 %3376 to i64
-  %3378 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3370, i64 %3377
+  %3378 = getelementptr inbounds nuw [24 x i8], ptr %3370, i64 %3377
   %3379 = load float, ptr %3378, align 4
   %3380 = fadd float %3364, %3379
   store float %3380, ptr %3378, align 4
@@ -22661,7 +22576,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   br i1 %.not3024, label %._crit_edge3002, label %.lr.ph3001.preheader
 
 .lr.ph3001.preheader:                             ; preds = %._crit_edge2997
-  %3392 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3391, i64 %3359
+  %3392 = getelementptr inbounds nuw [24 x i8], ptr %3391, i64 %3359
   br label %.lr.ph3001
 
 .lr.ph3001:                                       ; preds = %.lr.ph3001.preheader, %.lr.ph3001
@@ -22746,7 +22661,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %3434 = phi i32 [ %3483, %.critedge32 ], [ %3430, %3431 ]
   %indvars.iv3219 = phi i64 [ %indvars.iv.next3220, %.critedge32 ], [ 0, %3431 ]
   %3435 = load ptr, ptr %3432, align 8
-  %3436 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3435, i64 %indvars.iv3219
+  %3436 = getelementptr inbounds nuw [24 x i8], ptr %3435, i64 %indvars.iv3219
   %3437 = getelementptr inbounds nuw i8, ptr %3436, i64 20
   %3438 = load i32, ptr %3437, align 4
   %3439 = load i32, ptr %3423, align 8
@@ -22756,20 +22671,20 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 3441:                                             ; preds = %.lr.ph3008
   %3442 = load ptr, ptr %3426, align 8
   %3443 = zext i32 %3438 to i64
-  %3444 = getelementptr inbounds nuw %struct.m3ds_t, ptr %3442, i64 %3443
+  %3444 = getelementptr inbounds nuw [32 x i8], ptr %3442, i64 %3443
   %3445 = getelementptr inbounds nuw i8, ptr %3444, i64 16
   br label %3446
 
 3446:                                             ; preds = %3441, %3453
   %indvars.iv3209 = phi i64 [ 0, %3441 ], [ %indvars.iv.next3210, %3453 ]
   %.220653003 = phi float [ 0.000000e+00, %3441 ], [ %3454, %3453 ]
-  %3447 = getelementptr inbounds nuw i32, ptr %3444, i64 %indvars.iv3209
+  %3447 = getelementptr inbounds nuw [4 x i8], ptr %3444, i64 %indvars.iv3209
   %3448 = load i32, ptr %3447, align 4
   %.not2278 = icmp eq i32 %3448, -1
   br i1 %.not2278, label %.critedge30, label %3449
 
 3449:                                             ; preds = %3446
-  %3450 = getelementptr inbounds nuw float, ptr %3445, i64 %indvars.iv3209
+  %3450 = getelementptr inbounds nuw [4 x i8], ptr %3445, i64 %indvars.iv3209
   %3451 = load float, ptr %3450, align 4
   %3452 = fcmp ogt float %3451, 0.000000e+00
   br i1 %3452, label %3453, label %.critedge30
@@ -22787,13 +22702,13 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 3456:                                             ; preds = %.critedge30, %3476
   %indvars.iv3214 = phi i64 [ 0, %.critedge30 ], [ %indvars.iv.next3215, %3476 ]
-  %3457 = getelementptr inbounds nuw i32, ptr %3444, i64 %indvars.iv3214
+  %3457 = getelementptr inbounds nuw [4 x i8], ptr %3444, i64 %indvars.iv3214
   %3458 = load i32, ptr %3457, align 4
   %.not2279 = icmp eq i32 %3458, -1
   br i1 %.not2279, label %.critedge32.loopexit, label %3459
 
 3459:                                             ; preds = %3456
-  %3460 = getelementptr inbounds nuw float, ptr %3445, i64 %indvars.iv3214
+  %3460 = getelementptr inbounds nuw [4 x i8], ptr %3445, i64 %indvars.iv3214
   %3461 = load float, ptr %3460, align 4
   %3462 = fcmp ogt float %3461, 0.000000e+00
   br i1 %3462, label %3463, label %.critedge32.loopexit
@@ -22803,7 +22718,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   store float %3464, ptr %3460, align 4
   %3465 = load ptr, ptr %3420, align 8
   %3466 = zext i32 %3458 to i64
-  %3467 = getelementptr inbounds nuw %struct.m3db_t, ptr %3465, i64 %3466
+  %3467 = getelementptr inbounds nuw [104 x i8], ptr %3465, i64 %3466
   %3468 = getelementptr inbounds nuw i8, ptr %3467, i64 24
   %3469 = load i32, ptr %3468, align 8
   %3470 = add i32 %3469, 1
@@ -22819,11 +22734,11 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 
 3476:                                             ; preds = %3463
   %3477 = zext i32 %3469 to i64
-  %3478 = getelementptr inbounds nuw %struct.m3dw_t, ptr %3475, i64 %3477
+  %3478 = getelementptr inbounds nuw [8 x i8], ptr %3475, i64 %3477
   store i32 %3455, ptr %3478, align 4
   %3479 = load float, ptr %3460, align 4
   %3480 = load ptr, ptr %3471, align 8
-  %3481 = getelementptr inbounds nuw %struct.m3dw_t, ptr %3480, i64 %3477
+  %3481 = getelementptr inbounds nuw [8 x i8], ptr %3480, i64 %3477
   %3482 = getelementptr inbounds nuw i8, ptr %3481, i64 4
   store float %3479, ptr %3482, align 4
   %indvars.iv.next3215 = add nuw nsw i64 %indvars.iv3214, 1
@@ -22848,7 +22763,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 .lr.ph3010:                                       ; preds = %.preheader2718, %3516
   %indvars.iv3223 = phi i64 [ %indvars.iv.next3224, %3516 ], [ 0, %.preheader2718 ]
   %3487 = load ptr, ptr %3420, align 8
-  %3488 = getelementptr inbounds nuw %struct.m3db_t, ptr %3487, i64 %indvars.iv3223
+  %3488 = getelementptr inbounds nuw [104 x i8], ptr %3487, i64 %indvars.iv3223
   %3489 = load i32, ptr %3488, align 8
   %3490 = icmp eq i32 %3489, -1
   br i1 %3490, label %3491, label %3502
@@ -22859,11 +22774,11 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %3494 = getelementptr inbounds nuw i8, ptr %3488, i64 16
   %3495 = load i32, ptr %3494, align 8
   %3496 = zext i32 %3495 to i64
-  %3497 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3493, i64 %3496
+  %3497 = getelementptr inbounds nuw [24 x i8], ptr %3493, i64 %3496
   %3498 = getelementptr inbounds nuw i8, ptr %3488, i64 20
   %3499 = load i32, ptr %3498, align 4
   %3500 = zext i32 %3499 to i64
-  %3501 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3493, i64 %3500
+  %3501 = getelementptr inbounds nuw [24 x i8], ptr %3493, i64 %3500
   call void @_m3d_mat(ptr noundef nonnull %3492, ptr noundef %3497, ptr noundef %3501)
   br label %3516
 
@@ -22872,15 +22787,15 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
   %3504 = getelementptr inbounds nuw i8, ptr %3488, i64 16
   %3505 = load i32, ptr %3504, align 8
   %3506 = zext i32 %3505 to i64
-  %3507 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3503, i64 %3506
+  %3507 = getelementptr inbounds nuw [24 x i8], ptr %3503, i64 %3506
   %3508 = getelementptr inbounds nuw i8, ptr %3488, i64 20
   %3509 = load i32, ptr %3508, align 4
   %3510 = zext i32 %3509 to i64
-  %3511 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3503, i64 %3510
+  %3511 = getelementptr inbounds nuw [24 x i8], ptr %3503, i64 %3510
   call void @_m3d_mat(ptr noundef nonnull %8, ptr noundef %3507, ptr noundef %3511)
   %3512 = getelementptr inbounds nuw i8, ptr %3488, i64 40
   %3513 = zext i32 %3489 to i64
-  %3514 = getelementptr inbounds nuw %struct.m3db_t, ptr %3487, i64 %3513
+  %3514 = getelementptr inbounds nuw [104 x i8], ptr %3487, i64 %3513
   %3515 = getelementptr inbounds nuw i8, ptr %3514, i64 40
   call void @_m3d_mul(ptr noundef nonnull %3512, ptr noundef nonnull %3515, ptr noundef nonnull %8)
   br label %3516
@@ -22895,7 +22810,7 @@ _m3d_getidx.exit2526:                             ; preds = %_m3d_getidx.exit252
 .lr.ph3012:                                       ; preds = %.preheader, %.lr.ph3012
   %indvars.iv3227 = phi i64 [ %indvars.iv.next3228, %.lr.ph3012 ], [ 0, %.preheader ]
   %3520 = load ptr, ptr %3420, align 8
-  %3521 = getelementptr inbounds nuw %struct.m3db_t, ptr %3520, i64 %indvars.iv3227
+  %3521 = getelementptr inbounds nuw [104 x i8], ptr %3520, i64 %indvars.iv3227
   %3522 = getelementptr inbounds nuw i8, ptr %3521, i64 40
   call void @_m3d_inv(ptr noundef nonnull %3522)
   %indvars.iv.next3228 = add nuw nsw i64 %indvars.iv3227, 1
@@ -22948,7 +22863,7 @@ define hidden noundef ptr @m3d_frame(ptr noundef captures(address_is_null) %0, i
 
 19:                                               ; preds = %16
   %20 = zext i32 %1 to i64
-  %21 = getelementptr inbounds nuw %struct.m3da_t, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i32, ptr %22, align 4
   %.not75 = icmp ult i32 %2, %23
@@ -22987,17 +22902,17 @@ define hidden noundef ptr @m3d_frame(ptr noundef captures(address_is_null) %0, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %35 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %.063, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %.063, i64 %indvars.iv
   %36 = trunc nuw i64 %indvars.iv to i32
   store i32 %36, ptr %35, align 4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds nuw %struct.m3db_t, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [104 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %40, ptr %41, align 4
   %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds nuw %struct.m3db_t, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [104 x i8], ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -23028,7 +22943,7 @@ define hidden noundef ptr @m3d_frame(ptr noundef captures(address_is_null) %0, i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %56 = load ptr, ptr %55, align 8
   %57 = zext i32 %1 to i64
-  %58 = getelementptr inbounds nuw %struct.m3da_t, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %56, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %60, align 8
@@ -23043,11 +22958,11 @@ define hidden noundef ptr @m3d_frame(ptr noundef captures(address_is_null) %0, i
 64:                                               ; preds = %62, %._crit_edge
   %.185 = phi i32 [ %.060, %62 ], [ %94, %._crit_edge ]
   %65 = load ptr, ptr %63, align 8
-  %66 = getelementptr inbounds nuw %struct.m3da_t, ptr %65, i64 %.pre-phi
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %.pre-phi
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = zext i32 %.185 to i64
-  %70 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
   %.not87 = icmp eq i32 %72, 0
@@ -23060,21 +22975,21 @@ define hidden noundef ptr @m3d_frame(ptr noundef captures(address_is_null) %0, i
 74:                                               ; preds = %.lr.ph84, %74
   %indvars.iv89 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next90, %74 ]
   %75 = load ptr, ptr %73, align 8
-  %76 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %75, i64 %indvars.iv89
+  %76 = getelementptr inbounds nuw [12 x i8], ptr %75, i64 %indvars.iv89
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = load i32, ptr %76, align 4
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %.164, i64 %80
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %.164, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %78, ptr %82, align 4
   %83 = load ptr, ptr %73, align 8
-  %84 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %83, i64 %indvars.iv89
+  %84 = getelementptr inbounds nuw [12 x i8], ptr %83, i64 %indvars.iv89
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 4
   %87 = load i32, ptr %84, align 4
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %.164, i64 %88
+  %89 = getelementptr inbounds nuw [12 x i8], ptr %.164, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 %86, ptr %90, align 4
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
@@ -23135,7 +23050,7 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
 
 20:                                               ; preds = %19, %20
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %struct.m3db_t, ptr %16, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [104 x i8], ptr %16, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   tail call void @_m3d_inv(ptr noundef nonnull %22)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -23161,7 +23076,7 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
 
 31:                                               ; preds = %26
   %32 = zext i32 %1 to i64
-  %33 = getelementptr inbounds nuw %struct.m3da_t, ptr %25, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = urem i32 %2, %35
@@ -23181,7 +23096,7 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
 
 43:                                               ; preds = %._crit_edge
   %44 = zext i32 %64 to i64
-  %45 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %45, align 8
   %.not264 = icmp ugt i32 %46, %36
   br i1 %.not264, label %.critedge, label %.preheader271
@@ -23203,12 +23118,12 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
 
 53:                                               ; preds = %.lr.ph, %53
   %indvars.iv305 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next306, %53 ]
-  %54 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %52, i64 %indvars.iv305
+  %54 = getelementptr inbounds nuw [12 x i8], ptr %52, i64 %indvars.iv305
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %54, align 4
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw %struct.m3db_t, ptr %16, i64 %58
+  %59 = getelementptr inbounds nuw [104 x i8], ptr %16, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i32 %56, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -23263,10 +23178,10 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
 
 .lr.ph283:                                        ; preds = %.preheader, %.lr.ph283
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %.lr.ph283 ], [ 0, %.preheader ]
-  %81 = getelementptr inbounds nuw %struct.m3db_t, ptr %16, i64 %indvars.iv311
+  %81 = getelementptr inbounds nuw [104 x i8], ptr %16, i64 %indvars.iv311
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %80, i64 %indvars.iv311
+  %84 = getelementptr inbounds nuw [12 x i8], ptr %80, i64 %indvars.iv311
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 %83, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 20
@@ -23279,14 +23194,14 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
 
 ._crit_edge284:                                   ; preds = %.lr.ph283, %.preheader
   %89 = load ptr, ptr %24, align 8
-  %90 = getelementptr inbounds nuw %struct.m3da_t, ptr %89, i64 %32
+  %90 = getelementptr inbounds nuw [24 x i8], ptr %89, i64 %32
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 12
   %94 = load i32, ptr %93, align 4
   %95 = urem i32 %.0240.lcssa, %94
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %92, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %96
   %98 = load i32, ptr %97, align 8
   %.not268 = icmp ult i32 %.0239.lcssa, %98
   br i1 %.not268, label %99, label %105
@@ -23314,12 +23229,12 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
 
 111:                                              ; preds = %.lr.ph287, %111
   %indvars.iv316 = phi i64 [ 0, %.lr.ph287 ], [ %indvars.iv.next317, %111 ]
-  %112 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %110, i64 %indvars.iv316
+  %112 = getelementptr inbounds nuw [12 x i8], ptr %110, i64 %indvars.iv316
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = load i32, ptr %112, align 4
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %80, i64 %116
+  %117 = getelementptr inbounds nuw [12 x i8], ptr %80, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   store i32 %114, ptr %118, align 4
   %119 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -23341,10 +23256,10 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
   %indvars.iv321 = phi i64 [ 0, %.lr.ph293.preheader ], [ %indvars.iv.next322, %235 ]
   %.0237290 = phi float [ %106, %.lr.ph293.preheader ], [ %.1238, %235 ]
   %.1241289 = phi i32 [ %122, %.lr.ph293.preheader ], [ %.3243, %235 ]
-  %123 = getelementptr inbounds nuw %struct.m3db_t, ptr %16, i64 %indvars.iv321
+  %123 = getelementptr inbounds nuw [104 x i8], ptr %16, i64 %indvars.iv321
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i32, ptr %124, align 8
-  %126 = getelementptr inbounds nuw %struct.m3dtr_t, ptr %80, i64 %indvars.iv321
+  %126 = getelementptr inbounds nuw [12 x i8], ptr %80, i64 %indvars.iv321
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %128 = load i32, ptr %127, align 4
   %.not269 = icmp eq i32 %125, %128
@@ -23353,11 +23268,11 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
 129:                                              ; preds = %.lr.ph293
   %130 = load ptr, ptr %66, align 8
   %131 = zext i32 %125 to i64
-  %132 = getelementptr inbounds nuw %struct.m3dv_t, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %131
   %133 = zext i32 %128 to i64
-  %134 = getelementptr inbounds nuw %struct.m3dv_t, ptr %130, i64 %133
+  %134 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %133
   %135 = zext i32 %.1241289 to i64
-  %136 = getelementptr inbounds nuw %struct.m3dv_t, ptr %130, i64 %135
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %135
   %137 = load float, ptr %132, align 4
   %138 = load float, ptr %134, align 4
   %139 = fsub float %138, %137
@@ -23395,11 +23310,11 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
 161:                                              ; preds = %156
   %162 = load ptr, ptr %66, align 8
   %163 = zext i32 %158 to i64
-  %164 = getelementptr inbounds nuw %struct.m3dv_t, ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %162, i64 %163
   %165 = zext i32 %160 to i64
-  %166 = getelementptr inbounds nuw %struct.m3dv_t, ptr %162, i64 %165
+  %166 = getelementptr inbounds nuw [24 x i8], ptr %162, i64 %165
   %167 = zext i32 %.2242 to i64
-  %168 = getelementptr inbounds nuw %struct.m3dv_t, ptr %162, i64 %167
+  %168 = getelementptr inbounds nuw [24 x i8], ptr %162, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %164, i64 12
   %170 = load float, ptr %169, align 4
   %171 = getelementptr inbounds nuw i8, ptr %166, i64 12
@@ -23501,7 +23416,7 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
 
 243:                                              ; preds = %.lr.ph297, %272
   %indvars.iv324 = phi i64 [ 0, %.lr.ph297 ], [ %indvars.iv.next325, %272 ]
-  %244 = getelementptr inbounds nuw %struct.m3db_t, ptr %16, i64 %indvars.iv324
+  %244 = getelementptr inbounds nuw [104 x i8], ptr %16, i64 %indvars.iv324
   %245 = load i32, ptr %244, align 8
   %246 = icmp eq i32 %245, -1
   br i1 %246, label %247, label %258
@@ -23512,11 +23427,11 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
   %250 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %251 = load i32, ptr %250, align 8
   %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds nuw %struct.m3dv_t, ptr %249, i64 %252
+  %253 = getelementptr inbounds nuw [24 x i8], ptr %249, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %244, i64 20
   %255 = load i32, ptr %254, align 4
   %256 = zext i32 %255 to i64
-  %257 = getelementptr inbounds nuw %struct.m3dv_t, ptr %249, i64 %256
+  %257 = getelementptr inbounds nuw [24 x i8], ptr %249, i64 %256
   tail call void @_m3d_mat(ptr noundef nonnull %248, ptr noundef %253, ptr noundef %257)
   br label %272
 
@@ -23525,15 +23440,15 @@ define hidden noalias noundef ptr @m3d_pose(ptr noundef captures(address_is_null
   %260 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %261 = load i32, ptr %260, align 8
   %262 = zext i32 %261 to i64
-  %263 = getelementptr inbounds nuw %struct.m3dv_t, ptr %259, i64 %262
+  %263 = getelementptr inbounds nuw [24 x i8], ptr %259, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %244, i64 20
   %265 = load i32, ptr %264, align 4
   %266 = zext i32 %265 to i64
-  %267 = getelementptr inbounds nuw %struct.m3dv_t, ptr %259, i64 %266
+  %267 = getelementptr inbounds nuw [24 x i8], ptr %259, i64 %266
   call void @_m3d_mat(ptr noundef nonnull %4, ptr noundef %263, ptr noundef %267)
   %268 = getelementptr inbounds nuw i8, ptr %244, i64 40
   %269 = zext i32 %245 to i64
-  %270 = getelementptr inbounds nuw %struct.m3db_t, ptr %16, i64 %269
+  %270 = getelementptr inbounds nuw [104 x i8], ptr %16, i64 %269
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 40
   call void @_m3d_mul(ptr noundef nonnull %268, ptr noundef nonnull %271, ptr noundef nonnull %4)
   br label %272
@@ -23592,7 +23507,7 @@ define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unn
   %17 = phi i32 [ %24, %23 ], [ %16, %.preheader150 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader150 ]
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds nuw %struct.m3db_t, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [104 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not142 = icmp eq ptr %21, null
@@ -23665,7 +23580,7 @@ define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unn
   %45 = phi i32 [ %52, %51 ], [ %44, %.preheader149 ]
   %indvars.iv189 = phi i64 [ %indvars.iv.next190, %51 ], [ 0, %.preheader149 ]
   %46 = load ptr, ptr %41, align 8
-  %47 = getelementptr inbounds nuw %struct.m3dvt_t, ptr %46, i64 %indvars.iv189
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %46, i64 %indvars.iv189
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
   %.not141 = icmp eq ptr %49, null
@@ -23708,7 +23623,7 @@ define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unn
   %61 = phi i32 [ %68, %67 ], [ %60, %.preheader148 ]
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %67 ], [ 0, %.preheader148 ]
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds nuw %struct.m3dvx_t, ptr %62, i64 %indvars.iv192
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %62, i64 %indvars.iv192
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8
   %.not140 = icmp eq ptr %65, null
@@ -23751,7 +23666,7 @@ define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unn
   %77 = phi i32 [ %101, %100 ], [ %76, %.preheader147 ]
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %100 ], [ 0, %.preheader147 ]
   %78 = load ptr, ptr %73, align 8
-  %79 = getelementptr inbounds nuw %struct.m3dh_t, ptr %78, i64 %indvars.iv198
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %indvars.iv198
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
   %.not138 = icmp eq ptr %81, null
@@ -23766,10 +23681,10 @@ define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unn
 .lr.ph160:                                        ; preds = %.preheader146, %92
   %84 = phi ptr [ %93, %92 ], [ %78, %.preheader146 ]
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %92 ], [ 0, %.preheader146 ]
-  %85 = getelementptr inbounds nuw %struct.m3dh_t, ptr %84, i64 %indvars.iv198
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %84, i64 %indvars.iv198
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw %struct.m3dc_t, ptr %87, i64 %indvars.iv195
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %indvars.iv195
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   %.not139 = icmp eq ptr %90, null
@@ -23783,7 +23698,7 @@ define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unn
 92:                                               ; preds = %.lr.ph160, %91
   %93 = phi ptr [ %84, %.lr.ph160 ], [ %.pre218, %91 ]
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %94 = getelementptr inbounds nuw %struct.m3dh_t, ptr %93, i64 %indvars.iv198
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %indvars.iv198
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 12
   %96 = load i32, ptr %95, align 4
   %97 = zext i32 %96 to i64
@@ -23839,7 +23754,7 @@ define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unn
   %113 = phi i32 [ %120, %119 ], [ %112, %.preheader145 ]
   %indvars.iv201 = phi i64 [ %indvars.iv.next202, %119 ], [ 0, %.preheader145 ]
   %114 = load ptr, ptr %106, align 8
-  %115 = getelementptr inbounds nuw %struct.m3dm_t, ptr %114, i64 %indvars.iv201
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %114, i64 %indvars.iv201
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8
   %.not129 = icmp eq ptr %117, null
@@ -23882,7 +23797,7 @@ define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unn
   %129 = phi i32 [ %136, %135 ], [ %128, %.preheader144 ]
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %135 ], [ 0, %.preheader144 ]
   %130 = load ptr, ptr %125, align 8
-  %131 = getelementptr inbounds nuw %struct.m3dtx_t, ptr %130, i64 %indvars.iv204
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %indvars.iv204
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
   %.not137 = icmp eq ptr %133, null
@@ -23925,7 +23840,7 @@ define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unn
   %145 = phi i32 [ %169, %168 ], [ %144, %.preheader143 ]
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %168 ], [ 0, %.preheader143 ]
   %146 = load ptr, ptr %141, align 8
-  %147 = getelementptr inbounds nuw %struct.m3da_t, ptr %146, i64 %indvars.iv210
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %indvars.iv210
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %149 = load ptr, ptr %148, align 8
   %.not135 = icmp eq ptr %149, null
@@ -23940,10 +23855,10 @@ define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unn
 .lr.ph172:                                        ; preds = %.preheader, %160
   %152 = phi ptr [ %161, %160 ], [ %146, %.preheader ]
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %160 ], [ 0, %.preheader ]
-  %153 = getelementptr inbounds nuw %struct.m3da_t, ptr %152, i64 %indvars.iv210
+  %153 = getelementptr inbounds nuw [24 x i8], ptr %152, i64 %indvars.iv210
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw %struct.m3dfr_t, ptr %155, i64 %indvars.iv207
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %indvars.iv207
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8
   %.not136 = icmp eq ptr %158, null
@@ -23957,7 +23872,7 @@ define hidden void @m3d_free(ptr noundef captures(address_is_null) %0) local_unn
 160:                                              ; preds = %.lr.ph172, %159
   %161 = phi ptr [ %152, %.lr.ph172 ], [ %.pre226, %159 ]
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %162 = getelementptr inbounds nuw %struct.m3da_t, ptr %161, i64 %indvars.iv210
+  %162 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %indvars.iv210
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 12
   %164 = load i32, ptr %163, align 4
   %165 = zext i32 %164 to i64
@@ -24073,7 +23988,7 @@ define hidden void @par_shapes__compute_welded_normals(ptr noundef captures(none
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %.025 = phi ptr [ %16, %.lr.ph ], [ %38, %25 ]
-  %26 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i64
   %29 = load ptr, ptr %17, align 8
@@ -24227,7 +24142,7 @@ par_shapes_translate.exit:                        ; preds = %.lr.ph.i56, %par_sh
 .lr.ph.i57:                                       ; preds = %par_shapes_translate.exit, %.lr.ph.i57
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i57 ], [ 0, %par_shapes_translate.exit ]
   %82 = trunc i64 %indvars.iv.i to i16
-  %83 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %indvars.iv.i
   store i16 %82, ptr %83, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %84 = load i32, ptr %14, align 8
@@ -24253,10 +24168,10 @@ par_shapes_translate.exit:                        ; preds = %.lr.ph.i56, %par_sh
   %indvars.iv67.i = phi i64 [ 0, %.lr.ph57.i ], [ %indvars.iv.next68.i, %96 ]
   %.05055.i = phi ptr [ %77, %.lr.ph57.i ], [ %110, %96 ]
   %97 = trunc i64 %indvars.iv67.i to i16
-  %98 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv67.i
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %indvars.iv67.i
   %99 = load i16, ptr %98, align 2
   %100 = zext i16 %99 to i64
-  %101 = getelementptr inbounds nuw i16, ptr %80, i64 %100
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %100
   store i16 %97, ptr %101, align 2
   %.idx.i = mul nuw nsw i64 %100, 12
   %102 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx.i
@@ -24282,7 +24197,7 @@ par_shapes_translate.exit:                        ; preds = %.lr.ph.i56, %par_sh
   %111 = getelementptr inbounds nuw i8, ptr %.04760.i, i64 2
   %112 = load i16, ptr %.04760.i, align 2
   %113 = zext i16 %112 to i64
-  %114 = getelementptr inbounds nuw i16, ptr %80, i64 %113
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %113
   %115 = load i16, ptr %114, align 2
   %116 = getelementptr inbounds nuw i8, ptr %.04859.i, i64 2
   store i16 %115, ptr %.04859.i, align 2
@@ -24359,7 +24274,7 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
   %149 = trunc i64 %indvars.iv.i61 to i16
   %150 = add i16 %149, 1
   %151 = sext i32 %147 to i64
-  %152 = getelementptr inbounds i16, ptr %127, i64 %151
+  %152 = getelementptr inbounds [2 x i8], ptr %127, i64 %151
   store i16 %150, ptr %152, align 2
   br label %153
 
@@ -24393,7 +24308,7 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
   %indvars.iv302.i = phi i64 [ 0, %._crit_edge.i65 ], [ %indvars.iv.next303.i, %267 ]
   %.0161253.i = phi ptr [ %.pre308.pre.i, %._crit_edge.i65 ], [ %269, %267 ]
   %.0173252.i = phi i32 [ 0, %._crit_edge.i65 ], [ %.1174.i, %267 ]
-  %166 = getelementptr inbounds nuw i16, ptr %.045, i64 %indvars.iv302.i
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %.045, i64 %indvars.iv302.i
   %167 = load i16, ptr %166, align 2
   %168 = zext i16 %167 to i64
   %.not200.i = icmp eq i64 %indvars.iv302.i, %168
@@ -24432,15 +24347,15 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
 
 183:                                              ; preds = %183, %169
   %indvars.iv279.i = phi i64 [ 0, %169 ], [ %indvars.iv.next280.i, %183 ]
-  %184 = getelementptr inbounds nuw float, ptr %.0161253.i, i64 %indvars.iv279.i
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %.0161253.i, i64 %indvars.iv279.i
   %185 = load float, ptr %184, align 4
   %186 = fsub float %185, %1
   %187 = fptosi float %186 to i32
-  %188 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv279.i
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv279.i
   store i32 %187, ptr %188, align 4
   %189 = fadd float %1, %185
   %190 = fptosi float %189 to i32
-  %191 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv279.i
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv279.i
   store i32 %190, ptr %191, align 4
   %indvars.iv.next280.i = add nuw nsw i64 %indvars.iv279.i, 1
   %exitcond282.not.i = icmp eq i64 %indvars.iv.next280.i, 3
@@ -24484,7 +24399,7 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
   %.2182221.i = phi i32 [ %.1181227.i, %.lr.ph223.i ], [ %.5185.ph.i, %211 ]
   %199 = mul nsw i64 %indvars.iv283.i, 400
   %200 = add nsw i64 %197, %199
-  %201 = getelementptr inbounds i16, ptr %127, i64 %200
+  %201 = getelementptr inbounds [2 x i8], ptr %127, i64 %200
   %202 = load i16, ptr %201, align 2
   %.not207.i = icmp eq i16 %202, 0
   br i1 %.not207.i, label %211, label %203
@@ -24496,7 +24411,7 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
 205:                                              ; preds = %203
   %206 = add nsw i32 %.2182221.i, 1
   %207 = sext i32 %.2182221.i to i64
-  %208 = getelementptr inbounds i32, ptr %4, i64 %207
+  %208 = getelementptr inbounds [4 x i8], ptr %4, i64 %207
   %209 = trunc nsw i64 %200 to i32
   store i32 %209, ptr %208, align 4
   br label %211
@@ -24530,10 +24445,10 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
 212:                                              ; preds = %266, %.lr.ph247.i
   %indvars.iv297.i = phi i64 [ 0, %.lr.ph247.i ], [ %indvars.iv.next298.i, %266 ]
   %.2246.i = phi i32 [ %.0173252.i, %.lr.ph247.i ], [ %.4.i, %266 ]
-  %213 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv297.i
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv297.i
   %214 = load i32, ptr %213, align 4
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds i16, ptr %127, i64 %215
+  %216 = getelementptr inbounds [2 x i8], ptr %127, i64 %215
   %217 = load i16, ptr %216, align 2
   %218 = add i16 %217, -1
   br label %219
@@ -24546,7 +24461,7 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
   br i1 %.not202.i, label %245, label %221
 
 221:                                              ; preds = %219
-  %222 = getelementptr inbounds nuw i16, ptr %.045, i64 %220
+  %222 = getelementptr inbounds nuw [2 x i8], ptr %.045, i64 %220
   %223 = load i16, ptr %222, align 2
   %224 = icmp eq i16 %223, %.0191.i
   br i1 %224, label %225, label %245
@@ -24589,7 +24504,7 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
   %250 = load ptr, ptr %7, align 8
   %251 = mul nuw nsw i32 %247, 3
   %252 = zext nneg i32 %251 to i64
-  %253 = getelementptr inbounds nuw float, ptr %250, i64 %252
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %250, i64 %252
   %254 = load float, ptr %253, align 4
   %255 = fptosi float %254 to i32
   %256 = getelementptr inbounds nuw i8, ptr %253, i64 4
@@ -24648,7 +24563,7 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
   %.0170262.i = phi ptr [ %299, %297 ], [ %154, %._crit_edge257.i ]
   %.0171261.i = phi ptr [ %.1172.i, %297 ], [ %162, %._crit_edge257.i ]
   %.0175260.i = phi ptr [ %.1176.i, %297 ], [ %160, %._crit_edge257.i ]
-  %280 = getelementptr inbounds nuw i16, ptr %.045, i64 %indvars.iv305.i
+  %280 = getelementptr inbounds nuw [2 x i8], ptr %.045, i64 %indvars.iv305.i
   %281 = load i16, ptr %280, align 2
   %282 = zext i16 %281 to i64
   %283 = icmp eq i64 %indvars.iv305.i, %282
@@ -24671,7 +24586,7 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
   br label %297
 
 294:                                              ; preds = %.lr.ph266.i
-  %295 = getelementptr inbounds nuw i16, ptr %162, i64 %282
+  %295 = getelementptr inbounds nuw [2 x i8], ptr %162, i64 %282
   %296 = load i16, ptr %295, align 2
   br label %297
 
@@ -24696,17 +24611,17 @@ par_shapes__sort_points.exit:                     ; preds = %.lr.ph63.i, %._crit
   %.0166268.i = phi ptr [ %326, %323 ], [ %278, %.lr.ph273.preheader.i ]
   %303 = load i16, ptr %.0166268.i, align 2
   %304 = zext i16 %303 to i64
-  %305 = getelementptr inbounds nuw i16, ptr %.045, i64 %304
+  %305 = getelementptr inbounds nuw [2 x i8], ptr %.045, i64 %304
   %306 = load i16, ptr %305, align 2
   %307 = getelementptr inbounds nuw i8, ptr %.0166268.i, i64 2
   %308 = load i16, ptr %307, align 2
   %309 = zext i16 %308 to i64
-  %310 = getelementptr inbounds nuw i16, ptr %.045, i64 %309
+  %310 = getelementptr inbounds nuw [2 x i8], ptr %.045, i64 %309
   %311 = load i16, ptr %310, align 2
   %312 = getelementptr inbounds nuw i8, ptr %.0166268.i, i64 4
   %313 = load i16, ptr %312, align 2
   %314 = zext i16 %313 to i64
-  %315 = getelementptr inbounds nuw i16, ptr %.045, i64 %314
+  %315 = getelementptr inbounds nuw [2 x i8], ptr %.045, i64 %314
   %316 = load i16, ptr %315, align 2
   %.not.i = icmp eq i16 %306, %311
   %.not198.i = icmp eq i16 %306, %316
@@ -24743,7 +24658,7 @@ par_shapes__weld_points.exit:                     ; preds = %323, %._crit_edge26
 .lr.ph:                                           ; preds = %125, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %125 ]
   %328 = trunc i64 %indvars.iv to i16
-  %329 = getelementptr inbounds nuw i16, ptr %.045, i64 %indvars.iv
+  %329 = getelementptr inbounds nuw [2 x i8], ptr %.045, i64 %indvars.iv
   store i16 %328, ptr %329, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %330 = load i32, ptr %65, align 8
@@ -24769,12 +24684,12 @@ par_shapes__weld_points.exit:                     ; preds = %323, %._crit_edge26
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
   %indvars.iv101 = phi i64 [ 0, %.lr.ph90.preheader ], [ %indvars.iv.next102, %.lr.ph90 ]
-  %339 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv101
+  %339 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %indvars.iv101
   %340 = load i16, ptr %339, align 2
   %341 = zext i16 %340 to i64
-  %342 = getelementptr inbounds nuw i16, ptr %.045, i64 %341
+  %342 = getelementptr inbounds nuw [2 x i8], ptr %.045, i64 %341
   %343 = load i16, ptr %342, align 2
-  %344 = getelementptr inbounds nuw i16, ptr %337, i64 %indvars.iv101
+  %344 = getelementptr inbounds nuw [2 x i8], ptr %337, i64 %indvars.iv101
   store i16 %343, ptr %344, align 2
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count
@@ -26515,7 +26430,7 @@ define hidden void @par_shapes_invert(ptr noundef readonly captures(none) %0, i3
   %11 = load ptr, ptr %10, align 8
   %12 = mul nsw i32 %1, 3
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i16, ptr %11, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %11, i64 %13
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
@@ -27128,7 +27043,7 @@ define hidden void @par_shapes_merge(ptr noundef captures(none) %0, ptr noundef 
   %13 = load i32, ptr %3, align 8
   %14 = mul nsw i32 %13, 3
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds float, ptr %12, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %12, i64 %15
   %17 = load ptr, ptr %1, align 8
   %18 = load i32, ptr %5, align 8
   %19 = mul nsw i32 %18, 12
@@ -27156,7 +27071,7 @@ define hidden void @par_shapes_merge(ptr noundef captures(none) %0, ptr noundef 
   %29 = and i32 %4, 65535
   %30 = mul nuw nsw i32 %29, 3
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw float, ptr %26, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %31
   %33 = load i32, ptr %5, align 8
   %34 = mul nsw i32 %33, 12
   %35 = sext i32 %34 to i64
@@ -27188,7 +27103,7 @@ define hidden void @par_shapes_merge(ptr noundef captures(none) %0, ptr noundef 
   %48 = shl i32 %4, 1
   %49 = and i32 %48, 131070
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw float, ptr %45, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %50
   %52 = load i32, ptr %5, align 8
   %53 = shl nsw i32 %52, 3
   %54 = sext i32 %53 to i64
@@ -27218,7 +27133,7 @@ define hidden void @par_shapes_merge(ptr noundef captures(none) %0, ptr noundef 
   %71 = load i32, ptr %56, align 8
   %72 = mul nsw i32 %71, 3
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i16, ptr %66, i64 %73
+  %74 = getelementptr inbounds [2 x i8], ptr %66, i64 %73
   %75 = trunc i32 %4 to i16
   br label %76
 
@@ -27898,11 +27813,11 @@ define hidden void @par_shapes__connect(ptr noundef captures(none) %0, ptr nound
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 %12, i64 %14, i1 false)
   %15 = mul nsw i32 %6, 3
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds float, ptr %11, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %11, i64 %16
   %18 = load ptr, ptr %1, align 8
   %19 = mul nsw i32 %4, 3
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds float, ptr %18, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %18, i64 %20
   %22 = sext i32 %4 to i64
   %23 = mul nsw i64 %22, 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %21, i64 %23, i1 false)
@@ -27929,7 +27844,7 @@ define hidden void @par_shapes__connect(ptr noundef captures(none) %0, ptr nound
 .preheader.us.preheader:                          ; preds = %3
   %39 = mul nsw i32 %25, 3
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i16, ptr %31, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %31, i64 %40
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.preheader.us
@@ -28122,7 +28037,7 @@ define hidden noalias noundef ptr @par_shapes_create_lsystem(ptr noundef readonl
 73:                                               ; preds = %._crit_edge, %.tail261.thread
   %.0155280 = phi i32 [ 0, %._crit_edge ], [ %.1156, %.tail261.thread ]
   %74 = zext nneg i32 %.0155280 to i64
-  %75 = getelementptr inbounds nuw %struct.par_shapes__stackframe, ptr %63, i64 %74
+  %75 = getelementptr inbounds nuw [48 x i8], ptr %63, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 32
@@ -28157,7 +28072,7 @@ define hidden noalias noundef ptr @par_shapes_create_lsystem(ptr noundef readonl
   %97 = add nsw i32 %82, 1
   store i32 %97, ptr %75, align 8
   %98 = sext i32 %82 to i64
-  %99 = getelementptr inbounds %struct.par_shapes__command, ptr %96, i64 %98
+  %99 = getelementptr inbounds [16 x i8], ptr %96, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(6) @.str.22) #60
   %.not164 = icmp eq i32 %101, 0
@@ -28287,7 +28202,7 @@ par_shapes__apply_turtle.exit:                    ; preds = %117, %102
 .lr.ph.i180:                                      ; preds = %174, %190
   %indvars.iv.i181 = phi i64 [ %indvars.iv.next.i182, %190 ], [ 0, %174 ]
   %.02937.i = phi i32 [ %.130.i, %190 ], [ 0, %174 ]
-  %183 = getelementptr inbounds nuw %struct.par_shapes__rule, ptr %18, i64 %indvars.iv.i181
+  %183 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv.i181
   %184 = load ptr, ptr %183, align 8
   %185 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull readonly dereferenceable(1) %178) #60
   %.not36.i = icmp eq i32 %185, 0
@@ -28308,7 +28223,7 @@ par_shapes__apply_turtle.exit:                    ; preds = %117, %102
 191:                                              ; preds = %202, %._crit_edge.i
   %indvars.iv51.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next52.i, %202 ]
   %.02541.i = phi float [ 0.000000e+00, %._crit_edge.i ], [ %.1.i, %202 ]
-  %192 = getelementptr inbounds nuw %struct.par_shapes__rule, ptr %18, i64 %indvars.iv51.i
+  %192 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv51.i
   %193 = load ptr, ptr %192, align 8
   %194 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %193, ptr noundef nonnull readonly dereferenceable(1) %178) #60
   %.not.i = icmp eq i32 %194, 0
@@ -28333,7 +28248,7 @@ par_shapes__pick_rule.exit:                       ; preds = %195, %202
   %spec.select.i = phi ptr [ %192, %195 ], [ %scevgep53.i, %202 ]
   %203 = add nuw nsw i32 %.0155280, 1
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw %struct.par_shapes__stackframe, ptr %63, i64 %204
+  %205 = getelementptr inbounds nuw [48 x i8], ptr %63, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 40
   store ptr %spec.select.i, ptr %206, align 8
   %207 = tail call ptr @par_shapes_clone(ptr noundef %79, ptr noundef null)
@@ -29202,7 +29117,7 @@ par_shapes__normalize3.exit:                      ; preds = %188, %199
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %.lr.ph35
   %indvars.iv40 = phi i64 [ 0, %.lr.ph35.preheader ], [ %indvars.iv.next41, %.lr.ph35 ]
   %209 = trunc i64 %indvars.iv40 to i16
-  %210 = getelementptr inbounds nuw i16, ptr %186, i64 %indvars.iv40
+  %210 = getelementptr inbounds nuw [2 x i8], ptr %186, i64 %indvars.iv40
   store i16 %209, ptr %210, align 2
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
@@ -29243,7 +29158,7 @@ define hidden noundef ptr @par_shapes_create_rock(i32 noundef %0, i32 noundef %1
 allocate_perm.exit.i:                             ; preds = %8, %allocate_perm.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %allocate_perm.exit.i ], [ 0, %8 ]
   %13 = trunc i64 %indvars.iv.i to i16
-  %14 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.i
   store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -29269,15 +29184,15 @@ allocate_perm.exit.i:                             ; preds = %8, %allocate_perm.e
   %26 = ashr exact i64 %sext.i, 31
   %27 = getelementptr inbounds i8, ptr %3, i64 %26
   %28 = load i16, ptr %27, align 2
-  %29 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv49.i
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv49.i
   store i16 %28, ptr %29, align 2
   %30 = sext i16 %28 to i64
   %31 = urem i64 %30, 24
   %32 = trunc nuw nsw i64 %31 to i16
   %33 = mul nuw nsw i16 %32, 3
-  %34 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv49.i
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv49.i
   store i16 %33, ptr %34, align 2
-  %35 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv49.i
   %36 = load i16, ptr %35, align 2
   store i16 %36, ptr %27, align 2
   %indvars.iv.next50.i = add nsw i64 %indvars.iv49.i, -1
@@ -29418,13 +29333,13 @@ define internal fastcc double @par__simplex_noise2(ptr noundef readonly captures
   %.val = load ptr, ptr %0, align 8
   %42 = and i32 %41, 255
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %.val, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = zext i16 %45 to i32
   %47 = add i32 %17, %46
   %48 = and i32 %47, 255
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %.val, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.val, i64 %49
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, 14
   %53 = zext nneg i16 %52 to i64
@@ -29458,13 +29373,13 @@ define internal fastcc double @par__simplex_noise2(ptr noundef readonly captures
   %.val156 = load ptr, ptr %0, align 8
   %76 = and i32 %12, 255
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %.val156, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %.val156, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i32
   %81 = add i32 %75, %80
   %82 = and i32 %81, 255
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %.val156, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %.val156, i64 %83
   %85 = load i16, ptr %84, align 2
   %86 = and i16 %85, 14
   %87 = zext nneg i16 %86 to i64
@@ -29574,13 +29489,13 @@ define internal fastcc double @par__simplex_noise2(ptr noundef readonly captures
   %.val157 = load ptr, ptr %0, align 8
   %150 = and i32 %.0, 255
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw i16, ptr %.val157, i64 %151
+  %152 = getelementptr inbounds nuw [2 x i8], ptr %.val157, i64 %151
   %153 = load i16, ptr %152, align 2
   %154 = zext i16 %153 to i32
   %155 = add i32 %.0131, %154
   %156 = and i32 %155, 255
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw i16, ptr %.val157, i64 %157
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %.val157, i64 %157
   %159 = load i16, ptr %158, align 2
   %160 = and i16 %159, 14
   %161 = zext nneg i16 %160 to i64
@@ -29610,13 +29525,13 @@ define internal fastcc double @par__simplex_noise2(ptr noundef readonly captures
   %.val158 = load ptr, ptr %0, align 8
   %180 = and i32 %.1145, 255
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw i16, ptr %.val158, i64 %181
+  %182 = getelementptr inbounds nuw [2 x i8], ptr %.val158, i64 %181
   %183 = load i16, ptr %182, align 2
   %184 = zext i16 %183 to i32
   %185 = add i32 %.1142, %184
   %186 = and i32 %185, 255
   %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr inbounds nuw i16, ptr %.val158, i64 %187
+  %188 = getelementptr inbounds nuw [2 x i8], ptr %.val158, i64 %187
   %189 = load i16, ptr %188, align 2
   %190 = and i16 %189, 14
   %191 = zext nneg i16 %190 to i64
@@ -29798,7 +29713,7 @@ define void @DrawTriangleStrip3D(ptr noundef readonly captures(none) %0, i32 nou
   %indvars.iv = phi i64 [ 2, %5 ], [ %indvars.iv.next, %7 ]
   %8 = and i64 %indvars.iv, 1
   %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds nuw %struct.Vector3, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %indvars.iv
   %11 = load float, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load float, ptr %12, align 4
@@ -31686,7 +31601,7 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
 
 86:                                               ; preds = %83
   %87 = zext i32 %84 to i64
-  %88 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %69, i64 %87
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i32, ptr %89, align 8, !noalias !7
   br label %91
@@ -31701,7 +31616,7 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   br i1 %.not186.i, label %98, label %94
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i
   %96 = load i32, ptr %95, align 4, !noalias !7
   %.not187.i = icmp ne i32 %96, %.0144216.i
   %97 = zext i1 %.not187.i to i32
@@ -31712,7 +31627,7 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   %.1163.i = phi i32 [ %92, %91 ], [ %.0162213.i, %93 ], [ %spec.select.i, %94 ]
   %.3159.i = phi i32 [ %.2158.i, %91 ], [ %.1157214.i, %93 ], [ %.1157214.i, %94 ]
   %.1136.i = phi i32 [ %84, %91 ], [ %.0135217.i, %93 ], [ %.0135217.i, %94 ]
-  %99 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i
   %100 = load i32, ptr %99, align 4, !noalias !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -31744,7 +31659,7 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
 ._crit_edge227.i:                                 ; preds = %._crit_edge227.loopexit.i, %105
   %.2164.lcssa.i = phi i64 [ 0, %105 ], [ %111, %._crit_edge227.loopexit.i ]
   %.0150.lcssa.i = phi i32 [ 0, %105 ], [ %138, %._crit_edge227.loopexit.i ]
-  %112 = getelementptr inbounds nuw i32, ptr %80, i64 %.2164.lcssa.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.2164.lcssa.i
   store i32 %.0150.lcssa.i, ptr %112, align 4, !noalias !7
   %113 = icmp ult i32 %.0162.lcssa.i, 2147483647
   br i1 %113, label %.lr.ph232.preheader.i, label %._crit_edge233.i
@@ -31771,20 +31686,20 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
 
 119:                                              ; preds = %116
   %120 = zext i32 %117 to i64
-  %121 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %106, i64 %120
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i32, ptr %122, align 8, !noalias !7
   br label %.thread.i
 
 124:                                              ; preds = %114
   %.not183.i = icmp eq i32 %.1145223.i, -1
-  %125 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv265.i
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv265.i
   %126 = load i32, ptr %125, align 4, !noalias !7
   br i1 %.not183.i, label %.thread208.i, label %129
 
 .thread.i:                                        ; preds = %119, %116
   %.7.ph.i = phi i32 [ %59, %116 ], [ %123, %119 ]
-  %127 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv265.i
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv265.i
   %128 = load i32, ptr %127, align 4, !noalias !7
   br label %130
 
@@ -31797,7 +31712,7 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   %.3138207.i = phi i32 [ %117, %.thread.i ], [ %.2137224.i, %129 ]
   %.7205.i = phi i32 [ %.7.ph.i, %.thread.i ], [ %.5161220.i, %129 ]
   %132 = zext i32 %.2164219.i to i64
-  %133 = getelementptr inbounds nuw i32, ptr %80, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %132
   store i32 %.0150221.i, ptr %133, align 4, !noalias !7
   %134 = add i32 %.2164219.i, 1
   br label %.thread208.i
@@ -31808,7 +31723,7 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   %.7204.i = phi i32 [ %.7205.i, %130 ], [ %.5161220.i, %129 ], [ %.5161220.i, %124 ]
   %.3165.i = phi i32 [ %134, %130 ], [ %.2164219.i, %129 ], [ %.2164219.i, %124 ]
   %.1151.i = phi i32 [ 0, %130 ], [ %.0150221.i, %129 ], [ %.0150221.i, %124 ]
-  %136 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv265.i
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv265.i
   %137 = load i32, ptr %136, align 4, !noalias !7
   %138 = add i32 %137, %.1151.i
   %indvars.iv.next266.i = add nuw nsw i64 %indvars.iv265.i, 1
@@ -31821,9 +31736,9 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
 
 .lr.ph232.i:                                      ; preds = %.lr.ph232.i, %.lr.ph232.preheader.i
   %indvars.iv270.i = phi i64 [ 0, %.lr.ph232.preheader.i ], [ %indvars.iv.next271.i, %.lr.ph232.i ]
-  %139 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv270.i
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv270.i
   %140 = load i32, ptr %139, align 4, !noalias !7
-  %141 = getelementptr inbounds nuw %struct.Mesh, ptr %74, i64 %indvars.iv270.i
+  %141 = getelementptr inbounds nuw [120 x i8], ptr %74, i64 %indvars.iv270.i
   store i32 %140, ptr %141, align 8, !noalias !7
   %142 = udiv i32 %140, 3
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 4
@@ -31896,7 +31811,7 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
 
 178:                                              ; preds = %175
   %179 = zext i32 %176 to i64
-  %180 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %160, i64 %179
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %160, i64 %179
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load i32, ptr %181, align 8, !noalias !7
   br label %183
@@ -31905,7 +31820,7 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   %.10.i = phi i32 [ %.9247.i, %173 ], [ %182, %178 ], [ %59, %175 ]
   %.5.i = phi i32 [ %.4251.i, %173 ], [ %176, %178 ], [ %176, %175 ]
   %.not180.i = icmp eq i32 %.2146249.i, -1
-  %.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv290.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %indvars.iv290.i
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !noalias !7
   br i1 %.not180.i, label %._crit_edge301.i, label %184
 
@@ -31924,15 +31839,15 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   %or.cond.i = and i1 %186, %187
   %.0140.i = select i1 %or.cond.i, i32 %.pre.i, i32 0
   %188 = zext i32 %spec.select190.i to i64
-  %189 = getelementptr inbounds nuw i32, ptr %79, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %188
   store i32 %.0140.i, ptr %189, align 4, !noalias !7
-  %190 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv290.i
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %indvars.iv290.i
   %191 = load i32, ptr %190, align 4, !noalias !7
   %192 = icmp sgt i32 %191, 0
   br i1 %192, label %.lr.ph242.i, label %._crit_edge243.i
 
 .lr.ph242.i:                                      ; preds = %._crit_edge301.i
-  %193 = getelementptr inbounds nuw %struct.Mesh, ptr %74, i64 %188
+  %193 = getelementptr inbounds nuw [120 x i8], ptr %74, i64 %188
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 32
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 16
@@ -31951,7 +31866,7 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   %.0139239.i = phi i32 [ 0, %.lr.ph242.i ], [ %248, %245 ]
   %.4154238.i = phi i32 [ %spec.select191.i, %.lr.ph242.i ], [ %247, %245 ]
   %199 = zext i32 %.3240.i to i64
-  %200 = getelementptr inbounds nuw %struct.tinyobj_vertex_index_t, ptr %166, i64 %199
+  %200 = getelementptr inbounds nuw [12 x i8], ptr %166, i64 %199
   %201 = load i32, ptr %200, align 4, !noalias !7
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %203 = load i32, ptr %202, align 4, !noalias !7
@@ -31960,24 +31875,24 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   %206 = mul nsw i32 %201, 3
   %207 = mul i32 %.4154238.i, 3
   %208 = sext i32 %206 to i64
-  %invariant.gep.i = getelementptr float, ptr %168, i64 %208
+  %invariant.gep.i = getelementptr [4 x i8], ptr %168, i64 %208
   br label %211
 
 .preheader212.i:                                  ; preds = %211
   %209 = mul nsw i32 %203, 3
   %210 = sext i32 %209 to i64
-  %invariant.gep322.i = getelementptr float, ptr %170, i64 %210
+  %invariant.gep322.i = getelementptr [4 x i8], ptr %170, i64 %210
   br label %238
 
 211:                                              ; preds = %211, %198
   %indvars.iv275.i = phi i64 [ 0, %198 ], [ %indvars.iv.next276.i, %211 ]
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv275.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv275.i
   %212 = load float, ptr %gep.i, align 4, !noalias !7
   %213 = load ptr, ptr %194, align 8, !noalias !7
   %214 = trunc nuw nsw i64 %indvars.iv275.i to i32
   %215 = add i32 %207, %214
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds nuw float, ptr %213, i64 %216
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %213, i64 %216
   store float %212, ptr %217, align 4, !noalias !7
   %indvars.iv.next276.i = add nuw nsw i64 %indvars.iv275.i, 1
   %exitcond278.not.i = icmp eq i64 %indvars.iv.next276.i, 3
@@ -31987,23 +31902,23 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   %218 = shl nsw i32 %205, 1
   %219 = shl i32 %.4154238.i, 1
   %220 = sext i32 %218 to i64
-  %invariant.gep324.i = getelementptr float, ptr %172, i64 %220
+  %invariant.gep324.i = getelementptr [4 x i8], ptr %172, i64 %220
   %221 = load float, ptr %invariant.gep324.i, align 4, !noalias !7
   %222 = load ptr, ptr %196, align 8, !noalias !7
   %223 = zext i32 %219 to i64
-  %224 = getelementptr inbounds nuw float, ptr %222, i64 %223
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %223
   store float %221, ptr %224, align 4, !noalias !7
   %gep325.i.c = getelementptr i8, ptr %invariant.gep324.i, i64 4
   %225 = load float, ptr %gep325.i.c, align 4, !noalias !7
   %226 = load ptr, ptr %196, align 8, !noalias !7
   %227 = or disjoint i32 %219, 1
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw float, ptr %226, i64 %228
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %228
   store float %225, ptr %229, align 4, !noalias !7
   %230 = load ptr, ptr %196, align 8, !noalias !7
   %231 = or disjoint i32 %219, 1
   %232 = zext i32 %231 to i64
-  %233 = getelementptr inbounds nuw float, ptr %230, i64 %232
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %230, i64 %232
   %234 = load float, ptr %233, align 4, !noalias !7
   %235 = fsub float 1.000000e+00, %234
   store float %235, ptr %233, align 4, !noalias !7
@@ -32013,13 +31928,13 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
 
 238:                                              ; preds = %238, %.preheader212.i
   %indvars.iv279.i = phi i64 [ 0, %.preheader212.i ], [ %indvars.iv.next280.i, %238 ]
-  %gep323.i = getelementptr float, ptr %invariant.gep322.i, i64 %indvars.iv279.i
+  %gep323.i = getelementptr [4 x i8], ptr %invariant.gep322.i, i64 %indvars.iv279.i
   %239 = load float, ptr %gep323.i, align 4, !noalias !7
   %240 = load ptr, ptr %195, align 8, !noalias !7
   %241 = trunc nuw nsw i64 %indvars.iv279.i to i32
   %242 = add i32 %207, %241
   %243 = zext i32 %242 to i64
-  %244 = getelementptr inbounds nuw float, ptr %240, i64 %243
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %240, i64 %243
   store float %239, ptr %244, align 4, !noalias !7
   %indvars.iv.next280.i = add nuw nsw i64 %indvars.iv279.i, 1
   %exitcond282.not.i = icmp eq i64 %indvars.iv.next280.i, 3
@@ -32152,7 +32067,7 @@ tinyobj_attrib_free.exit.i:                       ; preds = %287, %284
 
 .lr.ph.i.i:                                       ; preds = %293, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %293 ]
-  %290 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %288, i64 %indvars.iv.i.i
+  %290 = getelementptr inbounds nuw [16 x i8], ptr %288, i64 %indvars.iv.i.i
   %291 = load ptr, ptr %290, align 8, !noalias !7
   %.not.i193.i = icmp eq ptr %291, null
   br i1 %.not.i193.i, label %293, label %292
@@ -32186,7 +32101,7 @@ tinyobj_shapes_free.exit.i:                       ; preds = %._crit_edge.i.i, %t
 
 .lr.ph257.i:                                      ; preds = %.lr.ph257.i, %.lr.ph257.preheader.i
   %indvars.iv295.i = phi i64 [ 0, %.lr.ph257.preheader.i ], [ %indvars.iv.next296.i, %.lr.ph257.i ]
-  %296 = getelementptr inbounds nuw %struct.Mesh, ptr %74, i64 %indvars.iv295.i
+  %296 = getelementptr inbounds nuw [120 x i8], ptr %74, i64 %indvars.iv295.i
   call void @UploadMesh(ptr noundef %296, i1 noundef zeroext true), !noalias !7
   %indvars.iv.next296.i = add nuw nsw i64 %indvars.iv295.i, 1
   %exitcond299.not.i = icmp eq i64 %indvars.iv.next296.i, %wide.trip.count298.i
@@ -32324,7 +32239,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   %337 = load i32, ptr %326, align 4, !noalias !13
   %338 = zext i32 %337 to i64
   %339 = getelementptr inbounds nuw i8, ptr %302, i64 %338
-  %340 = getelementptr inbounds nuw %struct.IQMMesh, ptr %316, i64 %indvars.iv.i25
+  %340 = getelementptr inbounds nuw [24 x i8], ptr %316, i64 %indvars.iv.i25
   %341 = load i32, ptr %340, align 4, !noalias !13
   %342 = zext i32 %341 to i64
   %343 = getelementptr inbounds nuw i8, ptr %339, i64 %342
@@ -32334,7 +32249,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   %346 = zext i32 %345 to i64
   %347 = getelementptr inbounds nuw i8, ptr %339, i64 %346
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %33, ptr noundef nonnull align 1 dereferenceable(32) %347, i64 32, i1 false), !noalias !13
-  %348 = getelementptr inbounds nuw %struct.Material, ptr %323, i64 %indvars.iv.i25
+  %348 = getelementptr inbounds nuw [40 x i8], ptr %323, i64 %indvars.iv.i25
   %349 = call noalias dereferenceable_or_null(336) ptr @calloc(i64 noundef 12, i64 noundef 28) #66
   %350 = call i32 @rlGetShaderIdDefault() #63, !noalias !16
   %351 = call ptr @rlGetShaderLocsDefault() #63, !noalias !16
@@ -32366,13 +32281,13 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   call void @LoadTexture(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %34, ptr noundef %355) #63, !noalias !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %349, ptr noundef nonnull align 4 dereferenceable(20) %34, i64 20, i1 false), !noalias !13
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !13
-  %356 = getelementptr inbounds nuw i32, ptr %324, i64 %indvars.iv.i25
+  %356 = getelementptr inbounds nuw [4 x i8], ptr %324, i64 %indvars.iv.i25
   %357 = trunc nuw nsw i64 %indvars.iv.i25 to i32
   store i32 %357, ptr %356, align 4, !noalias !13
   call void (i32, ptr, ...) @TraceLog(i32 noundef 2, ptr noundef nonnull @.str.330, ptr noundef %1, ptr noundef nonnull %32, ptr noundef nonnull %33) #63, !noalias !13
   %358 = getelementptr inbounds nuw i8, ptr %340, i64 12
   %359 = load i32, ptr %358, align 4, !noalias !13
-  %360 = getelementptr inbounds nuw %struct.Mesh, ptr %322, i64 %indvars.iv.i25
+  %360 = getelementptr inbounds nuw [120 x i8], ptr %322, i64 %indvars.iv.i25
   store i32 %359, ptr %360, align 8, !noalias !13
   %361 = mul nsw i32 %359, 3
   %362 = sext i32 %361 to i64
@@ -32434,7 +32349,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 
 .lr.ph370.i:                                      ; preds = %._crit_edge.i18, %._crit_edge367.i
   %indvars.iv470.i = phi i64 [ %indvars.iv.next471.i, %._crit_edge367.i ], [ 0, %._crit_edge.i18 ]
-  %398 = getelementptr inbounds nuw %struct.IQMMesh, ptr %316, i64 %indvars.iv470.i
+  %398 = getelementptr inbounds nuw [24 x i8], ptr %316, i64 %indvars.iv470.i
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 16
   %400 = load i32, ptr %399, align 4, !noalias !13
   %401 = getelementptr inbounds nuw i8, ptr %398, i64 20
@@ -32446,7 +32361,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 .lr.ph366.i:                                      ; preds = %.lr.ph370.i
   %405 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %406 = load i32, ptr %405, align 4, !noalias !13
-  %407 = getelementptr inbounds nuw %struct.Mesh, ptr %322, i64 %indvars.iv470.i
+  %407 = getelementptr inbounds nuw [120 x i8], ptr %322, i64 %indvars.iv470.i
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 56
   %409 = zext i32 %400 to i64
   %wide.trip.count468.i = zext i32 %403 to i64
@@ -32460,12 +32375,12 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 410:                                              ; preds = %410, %.lr.ph366.i
   %indvars.iv463.i = phi i64 [ 0, %.lr.ph366.i ], [ %indvars.iv.next464.i, %410 ]
   %indvars.iv461.i = phi i64 [ %409, %.lr.ph366.i ], [ %indvars.iv.next462.i, %410 ]
-  %411 = getelementptr inbounds nuw %struct.IQMTriangle, ptr %331, i64 %indvars.iv461.i
+  %411 = getelementptr inbounds nuw [12 x i8], ptr %331, i64 %indvars.iv461.i
   %412 = load i32, ptr %411, align 4, !noalias !13
   %413 = sub i32 %412, %406
   %414 = trunc i32 %413 to i16
   %415 = load ptr, ptr %408, align 8, !noalias !13
-  %416 = getelementptr inbounds nuw i16, ptr %415, i64 %indvars.iv463.i
+  %416 = getelementptr inbounds nuw [2 x i8], ptr %415, i64 %indvars.iv463.i
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 4
   store i16 %414, ptr %417, align 2, !noalias !13
   %418 = getelementptr inbounds nuw i8, ptr %411, i64 4
@@ -32473,7 +32388,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   %420 = sub i32 %419, %406
   %421 = trunc i32 %420 to i16
   %422 = load ptr, ptr %408, align 8, !noalias !13
-  %423 = getelementptr inbounds nuw i16, ptr %422, i64 %indvars.iv463.i
+  %423 = getelementptr inbounds nuw [2 x i8], ptr %422, i64 %indvars.iv463.i
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 2
   store i16 %421, ptr %424, align 2, !noalias !13
   %425 = getelementptr inbounds nuw i8, ptr %411, i64 8
@@ -32481,7 +32396,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   %427 = sub i32 %426, %406
   %428 = trunc i32 %427 to i16
   %429 = load ptr, ptr %408, align 8, !noalias !13
-  %430 = getelementptr inbounds nuw i16, ptr %429, i64 %indvars.iv463.i
+  %430 = getelementptr inbounds nuw [2 x i8], ptr %429, i64 %indvars.iv463.i
   store i16 %428, ptr %430, align 2, !noalias !13
   %indvars.iv.next464.i = add nuw nsw i64 %indvars.iv463.i, 3
   %indvars.iv.next462.i = add nuw nsw i64 %indvars.iv461.i, 1
@@ -32527,7 +32442,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   %.0341422.i = phi ptr [ null, %.lr.ph428.i ], [ %.1342.i, %.loopexit.i ]
   %.0343421.i = phi ptr [ null, %.lr.ph428.i ], [ %.1344.i, %.loopexit.i ]
   %.0345420.i = phi ptr [ null, %.lr.ph428.i ], [ %.1346.i, %.loopexit.i ]
-  %448 = getelementptr inbounds nuw %struct.IQMVertexArray, ptr %392, i64 %indvars.iv547.i
+  %448 = getelementptr inbounds nuw [20 x i8], ptr %392, i64 %indvars.iv547.i
   %449 = load i32, ptr %448, align 4, !noalias !13
   switch i32 %449, label %.loopexit.i [
     i32 0, label %450
@@ -32556,7 +32471,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 .lr.ph419.i:                                      ; preds = %450, %._crit_edge416.i
   %461 = phi i32 [ %476, %._crit_edge416.i ], [ %460, %450 ]
   %indvars.iv544.i = phi i64 [ %indvars.iv.next545.i, %._crit_edge416.i ], [ 0, %450 ]
-  %462 = getelementptr inbounds nuw %struct.IQMMesh, ptr %316, i64 %indvars.iv544.i
+  %462 = getelementptr inbounds nuw [24 x i8], ptr %316, i64 %indvars.iv544.i
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %464 = load i32, ptr %463, align 4, !noalias !13
   %465 = mul i32 %464, 3
@@ -32568,7 +32483,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   br i1 %470, label %.lr.ph415.i, label %._crit_edge416.i
 
 .lr.ph415.i:                                      ; preds = %.lr.ph419.i
-  %471 = getelementptr inbounds nuw %struct.Mesh, ptr %322, i64 %indvars.iv544.i
+  %471 = getelementptr inbounds nuw [120 x i8], ptr %322, i64 %indvars.iv544.i
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 8
   %473 = getelementptr inbounds nuw i8, ptr %471, i64 64
   %474 = zext i32 %465 to i64
@@ -32590,13 +32505,13 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 479:                                              ; preds = %479, %.lr.ph415.i
   %indvars.iv537.i = phi i64 [ 0, %.lr.ph415.i ], [ %indvars.iv.next538.i, %479 ]
   %indvars.iv535.i = phi i64 [ %474, %.lr.ph415.i ], [ %indvars.iv.next536.i, %479 ]
-  %480 = getelementptr inbounds nuw float, ptr %455, i64 %indvars.iv535.i
+  %480 = getelementptr inbounds nuw [4 x i8], ptr %455, i64 %indvars.iv535.i
   %481 = load float, ptr %480, align 4, !noalias !13
   %482 = load ptr, ptr %472, align 8, !noalias !13
-  %483 = getelementptr inbounds nuw float, ptr %482, i64 %indvars.iv537.i
+  %483 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %indvars.iv537.i
   store float %481, ptr %483, align 4, !noalias !13
   %484 = load ptr, ptr %473, align 8, !noalias !13
-  %485 = getelementptr inbounds nuw float, ptr %484, i64 %indvars.iv537.i
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %484, i64 %indvars.iv537.i
   store float %481, ptr %485, align 4, !noalias !13
   %indvars.iv.next538.i = add nuw nsw i64 %indvars.iv537.i, 1
   %indvars.iv.next536.i = add nuw nsw i64 %indvars.iv535.i, 1
@@ -32621,7 +32536,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 .lr.ph411.i:                                      ; preds = %486, %._crit_edge408.i
   %497 = phi i32 [ %512, %._crit_edge408.i ], [ %496, %486 ]
   %indvars.iv532.i = phi i64 [ %indvars.iv.next533.i, %._crit_edge408.i ], [ 0, %486 ]
-  %498 = getelementptr inbounds nuw %struct.IQMMesh, ptr %316, i64 %indvars.iv532.i
+  %498 = getelementptr inbounds nuw [24 x i8], ptr %316, i64 %indvars.iv532.i
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 8
   %500 = load i32, ptr %499, align 4, !noalias !13
   %501 = mul i32 %500, 3
@@ -32633,7 +32548,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   br i1 %506, label %.lr.ph407.i, label %._crit_edge408.i
 
 .lr.ph407.i:                                      ; preds = %.lr.ph411.i
-  %507 = getelementptr inbounds nuw %struct.Mesh, ptr %322, i64 %indvars.iv532.i
+  %507 = getelementptr inbounds nuw [120 x i8], ptr %322, i64 %indvars.iv532.i
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 32
   %509 = getelementptr inbounds nuw i8, ptr %507, i64 72
   %510 = zext i32 %501 to i64
@@ -32655,13 +32570,13 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 515:                                              ; preds = %515, %.lr.ph407.i
   %indvars.iv525.i = phi i64 [ 0, %.lr.ph407.i ], [ %indvars.iv.next526.i, %515 ]
   %indvars.iv523.i = phi i64 [ %510, %.lr.ph407.i ], [ %indvars.iv.next524.i, %515 ]
-  %516 = getelementptr inbounds nuw float, ptr %491, i64 %indvars.iv523.i
+  %516 = getelementptr inbounds nuw [4 x i8], ptr %491, i64 %indvars.iv523.i
   %517 = load float, ptr %516, align 4, !noalias !13
   %518 = load ptr, ptr %508, align 8, !noalias !13
-  %519 = getelementptr inbounds nuw float, ptr %518, i64 %indvars.iv525.i
+  %519 = getelementptr inbounds nuw [4 x i8], ptr %518, i64 %indvars.iv525.i
   store float %517, ptr %519, align 4, !noalias !13
   %520 = load ptr, ptr %509, align 8, !noalias !13
-  %521 = getelementptr inbounds nuw float, ptr %520, i64 %indvars.iv525.i
+  %521 = getelementptr inbounds nuw [4 x i8], ptr %520, i64 %indvars.iv525.i
   store float %517, ptr %521, align 4, !noalias !13
   %indvars.iv.next526.i = add nuw nsw i64 %indvars.iv525.i, 1
   %indvars.iv.next524.i = add nuw nsw i64 %indvars.iv523.i, 1
@@ -32686,7 +32601,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 .lr.ph403.i:                                      ; preds = %522, %._crit_edge400.i
   %533 = phi i32 [ %547, %._crit_edge400.i ], [ %532, %522 ]
   %indvars.iv520.i = phi i64 [ %indvars.iv.next521.i, %._crit_edge400.i ], [ 0, %522 ]
-  %534 = getelementptr inbounds nuw %struct.IQMMesh, ptr %316, i64 %indvars.iv520.i
+  %534 = getelementptr inbounds nuw [24 x i8], ptr %316, i64 %indvars.iv520.i
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 8
   %536 = load i32, ptr %535, align 4, !noalias !13
   %537 = shl i32 %536, 1
@@ -32698,7 +32613,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   br i1 %542, label %.lr.ph399.i, label %._crit_edge400.i
 
 .lr.ph399.i:                                      ; preds = %.lr.ph403.i
-  %543 = getelementptr inbounds nuw %struct.Mesh, ptr %322, i64 %indvars.iv520.i
+  %543 = getelementptr inbounds nuw [120 x i8], ptr %322, i64 %indvars.iv520.i
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 16
   %545 = zext i32 %537 to i64
   %546 = shl i32 %539, 1
@@ -32719,10 +32634,10 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 550:                                              ; preds = %550, %.lr.ph399.i
   %indvars.iv513.i = phi i64 [ 0, %.lr.ph399.i ], [ %indvars.iv.next514.i, %550 ]
   %indvars.iv511.i = phi i64 [ %545, %.lr.ph399.i ], [ %indvars.iv.next512.i, %550 ]
-  %551 = getelementptr inbounds nuw float, ptr %527, i64 %indvars.iv511.i
+  %551 = getelementptr inbounds nuw [4 x i8], ptr %527, i64 %indvars.iv511.i
   %552 = load float, ptr %551, align 4, !noalias !13
   %553 = load ptr, ptr %544, align 8, !noalias !13
-  %554 = getelementptr inbounds nuw float, ptr %553, i64 %indvars.iv513.i
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %553, i64 %indvars.iv513.i
   store float %552, ptr %554, align 4, !noalias !13
   %indvars.iv.next514.i = add nuw nsw i64 %indvars.iv513.i, 1
   %indvars.iv.next512.i = add nuw nsw i64 %indvars.iv511.i, 1
@@ -32746,7 +32661,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 .lr.ph395.i:                                      ; preds = %555, %._crit_edge392.i
   %565 = phi i32 [ %579, %._crit_edge392.i ], [ %564, %555 ]
   %indvars.iv508.i = phi i64 [ %indvars.iv.next509.i, %._crit_edge392.i ], [ 0, %555 ]
-  %566 = getelementptr inbounds nuw %struct.IQMMesh, ptr %316, i64 %indvars.iv508.i
+  %566 = getelementptr inbounds nuw [24 x i8], ptr %316, i64 %indvars.iv508.i
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 8
   %568 = load i32, ptr %567, align 4, !noalias !13
   %569 = shl i32 %568, 2
@@ -32758,7 +32673,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   br i1 %574, label %.lr.ph391.i, label %._crit_edge392.i
 
 .lr.ph391.i:                                      ; preds = %.lr.ph395.i
-  %575 = getelementptr inbounds nuw %struct.Mesh, ptr %322, i64 %indvars.iv508.i
+  %575 = getelementptr inbounds nuw [120 x i8], ptr %322, i64 %indvars.iv508.i
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 80
   %577 = zext i32 %569 to i64
   %578 = shl i32 %571, 2
@@ -32806,7 +32721,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 .lr.ph387.i:                                      ; preds = %587, %._crit_edge384.i
   %597 = phi i32 [ %611, %._crit_edge384.i ], [ %596, %587 ]
   %indvars.iv496.i = phi i64 [ %indvars.iv.next497.i, %._crit_edge384.i ], [ 0, %587 ]
-  %598 = getelementptr inbounds nuw %struct.IQMMesh, ptr %316, i64 %indvars.iv496.i
+  %598 = getelementptr inbounds nuw [24 x i8], ptr %316, i64 %indvars.iv496.i
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 8
   %600 = load i32, ptr %599, align 4, !noalias !13
   %601 = shl i32 %600, 2
@@ -32818,7 +32733,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   br i1 %606, label %.lr.ph383.i, label %._crit_edge384.i
 
 .lr.ph383.i:                                      ; preds = %.lr.ph387.i
-  %607 = getelementptr inbounds nuw %struct.Mesh, ptr %322, i64 %indvars.iv496.i
+  %607 = getelementptr inbounds nuw [120 x i8], ptr %322, i64 %indvars.iv496.i
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 88
   %609 = zext i32 %601 to i64
   %610 = shl i32 %603, 2
@@ -32844,7 +32759,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   %617 = uitofp i8 %616 to float
   %618 = fdiv float %617, 2.550000e+02
   %619 = load ptr, ptr %608, align 8, !noalias !13
-  %620 = getelementptr inbounds nuw float, ptr %619, i64 %indvars.iv489.i
+  %620 = getelementptr inbounds nuw [4 x i8], ptr %619, i64 %indvars.iv489.i
   store float %618, ptr %620, align 4, !noalias !13
   %indvars.iv.next490.i = add nuw nsw i64 %indvars.iv489.i, 1
   %indvars.iv.next488.i = add nuw nsw i64 %indvars.iv487.i, 1
@@ -32868,14 +32783,14 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 .lr.ph379.i:                                      ; preds = %621, %._crit_edge376.i
   %631 = phi i32 [ %649, %._crit_edge376.i ], [ %630, %621 ]
   %indvars.iv484.i = phi i64 [ %indvars.iv.next485.i, %._crit_edge376.i ], [ 0, %621 ]
-  %632 = getelementptr inbounds nuw %struct.Mesh, ptr %322, i64 %indvars.iv484.i
+  %632 = getelementptr inbounds nuw [120 x i8], ptr %322, i64 %indvars.iv484.i
   %633 = load i32, ptr %632, align 8, !noalias !13
   %634 = shl nsw i32 %633, 2
   %635 = sext i32 %634 to i64
   %636 = call noalias ptr @calloc(i64 noundef %635, i64 noundef 1) #66
   %637 = getelementptr inbounds nuw i8, ptr %632, i64 48
   store ptr %636, ptr %637, align 8, !noalias !13
-  %638 = getelementptr inbounds nuw %struct.IQMMesh, ptr %316, i64 %indvars.iv484.i
+  %638 = getelementptr inbounds nuw [24 x i8], ptr %316, i64 %indvars.iv484.i
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 8
   %640 = load i32, ptr %639, align 4, !noalias !13
   %641 = shl i32 %640, 2
@@ -32940,10 +32855,10 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 
 661:                                              ; preds = %661, %.lr.ph437.i
   %indvars.iv550.i = phi i64 [ 0, %.lr.ph437.i ], [ %indvars.iv.next551.i, %661 ]
-  %662 = getelementptr inbounds nuw %struct.IQMJoint, ptr %435, i64 %indvars.iv550.i
+  %662 = getelementptr inbounds nuw [48 x i8], ptr %435, i64 %indvars.iv550.i
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 4
   %664 = load i32, ptr %663, align 4, !noalias !13
-  %665 = getelementptr inbounds nuw %struct.BoneInfo, ptr %441, i64 %indvars.iv550.i
+  %665 = getelementptr inbounds nuw [36 x i8], ptr %441, i64 %indvars.iv550.i
   %666 = getelementptr inbounds nuw i8, ptr %665, i64 32
   store i32 %664, ptr %666, align 4, !noalias !13
   %667 = load i32, ptr %662, align 4, !noalias !13
@@ -32952,7 +32867,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %665, ptr noundef nonnull align 1 dereferenceable(32) %669, i64 32, i1 false), !noalias !13
   %670 = getelementptr inbounds nuw i8, ptr %662, i64 8
   %671 = load float, ptr %670, align 4, !noalias !13
-  %672 = getelementptr inbounds nuw %struct.Transform, ptr %443, i64 %indvars.iv550.i
+  %672 = getelementptr inbounds nuw [40 x i8], ptr %443, i64 %indvars.iv550.i
   store float %671, ptr %672, align 4, !noalias !13
   %673 = getelementptr inbounds nuw i8, ptr %662, i64 12
   %674 = load float, ptr %673, align 4, !noalias !13
@@ -33012,7 +32927,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 
 700:                                              ; preds = %._crit_edge442.i, %.lr.ph445.i
   %indvars.iv556.i = phi i64 [ 0, %.lr.ph445.i ], [ %indvars.iv.next557.i, %._crit_edge442.i ]
-  %701 = getelementptr inbounds nuw %struct.Mesh, ptr %322, i64 %indvars.iv556.i
+  %701 = getelementptr inbounds nuw [120 x i8], ptr %322, i64 %indvars.iv556.i
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 104
   store i32 %432, ptr %702, align 8, !noalias !13
   %703 = call noalias ptr @calloc(i64 noundef %659, i64 noundef 64) #66
@@ -33028,7 +32943,7 @@ LoadOBJ.exit:                                     ; preds = %45, %298
 .lr.ph441.i:                                      ; preds = %700, %.lr.ph441.i
   %indvars.iv553.i = phi i64 [ %indvars.iv.next554.i, %.lr.ph441.i ], [ 0, %700 ]
   %705 = load ptr, ptr %704, align 8, !noalias !13
-  %706 = getelementptr inbounds nuw %struct.Matrix, ptr %705, i64 %indvars.iv553.i
+  %706 = getelementptr inbounds nuw [64 x i8], ptr %705, i64 %indvars.iv553.i
   store float 1.000000e+00, ptr %706, align 4, !noalias !13
   %.sroa.4.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %706, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx.i19, i8 0, i64 16, i1 false), !noalias !13
@@ -33228,7 +33143,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %777 = phi i64 [ 0, %.lr.ph1256.i ], [ %795, %.loopexit1248.i ]
   %.08251255.i = phi i32 [ 0, %.lr.ph1256.i ], [ %.1.i35, %.loopexit1248.i ]
   %.08291254.i = phi i32 [ 0, %.lr.ph1256.i ], [ %794, %.loopexit1248.i ]
-  %778 = getelementptr inbounds nuw %struct.cgltf_node, ptr %747, i64 %777
+  %778 = getelementptr inbounds nuw [264 x i8], ptr %747, i64 %777
   %779 = getelementptr inbounds nuw i8, ptr %778, i64 40
   %780 = load ptr, ptr %779, align 8, !noalias !19
   %.not973.i = icmp eq ptr %780, null
@@ -33249,7 +33164,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %786 = phi i64 [ 0, %.lr.ph.i33 ], [ %792, %785 ]
   %.21253.i = phi i32 [ %.08251255.i, %.lr.ph.i33 ], [ %spec.select.i34, %785 ]
   %.08311252.i = phi i32 [ 0, %.lr.ph.i33 ], [ %791, %785 ]
-  %787 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %784, i64 %786
+  %787 = getelementptr inbounds nuw [144 x i8], ptr %784, i64 %786
   %788 = load i32, ptr %787, align 8, !noalias !19
   %789 = icmp eq i32 %788, 5
   %790 = zext i1 %789 to i32
@@ -33295,7 +33210,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.08321264.i = phi i32 [ 0, %.lr.ph1266.i ], [ %979, %._crit_edge1606.i ]
   %.08381263.i = phi i32 [ 1, %.lr.ph1266.i ], [ %980, %._crit_edge1606.i ]
   %816 = zext i32 %.08381263.i to i64
-  %817 = getelementptr inbounds nuw %struct.Material, ptr %754, i64 %816
+  %817 = getelementptr inbounds nuw [40 x i8], ptr %754, i64 %816
   %818 = call noalias dereferenceable_or_null(336) ptr @calloc(i64 noundef 12, i64 noundef 28) #66
   %819 = call i32 @rlGetShaderIdDefault() #63, !noalias !25
   %820 = call ptr @rlGetShaderLocsDefault() #63, !noalias !25
@@ -33324,7 +33239,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.71109.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !19
   %824 = call ptr @GetDirectoryPath(ptr noundef %1) #63, !noalias !19
   %825 = load ptr, ptr %773, align 8, !noalias !19
-  %826 = getelementptr inbounds nuw %struct.cgltf_material, ptr %825, i64 %815
+  %826 = getelementptr inbounds nuw [1232 x i8], ptr %825, i64 %815
   %827 = getelementptr inbounds nuw i8, ptr %826, i64 8
   %828 = load i32, ptr %827, align 8, !noalias !19
   %.not962.i = icmp eq i32 %828, 0
@@ -33361,7 +33276,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 839:                                              ; preds = %838, %829
   %840 = phi ptr [ %.pre.i41, %838 ], [ %825, %829 ]
-  %841 = getelementptr inbounds nuw %struct.cgltf_material, ptr %840, i64 %815
+  %841 = getelementptr inbounds nuw [1232 x i8], ptr %840, i64 %815
   %842 = getelementptr inbounds nuw i8, ptr %841, i64 152
   %843 = load float, ptr %842, align 8, !noalias !19
   %844 = fmul float %843, 2.550000e+02
@@ -33370,7 +33285,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %847 = getelementptr inbounds nuw i8, ptr %846, i64 20
   store i8 %845, ptr %847, align 4, !noalias !19
   %848 = load ptr, ptr %773, align 8, !noalias !19
-  %849 = getelementptr inbounds nuw %struct.cgltf_material, ptr %848, i64 %815
+  %849 = getelementptr inbounds nuw [1232 x i8], ptr %848, i64 %815
   %850 = getelementptr inbounds nuw i8, ptr %849, i64 156
   %851 = load float, ptr %850, align 4, !noalias !19
   %852 = fmul float %851, 2.550000e+02
@@ -33379,7 +33294,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %855 = getelementptr inbounds nuw i8, ptr %854, i64 21
   store i8 %853, ptr %855, align 1, !noalias !19
   %856 = load ptr, ptr %773, align 8, !noalias !19
-  %857 = getelementptr inbounds nuw %struct.cgltf_material, ptr %856, i64 %815
+  %857 = getelementptr inbounds nuw [1232 x i8], ptr %856, i64 %815
   %858 = getelementptr inbounds nuw i8, ptr %857, i64 160
   %859 = load float, ptr %858, align 8, !noalias !19
   %860 = fmul float %859, 2.550000e+02
@@ -33388,7 +33303,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %863 = getelementptr inbounds nuw i8, ptr %862, i64 22
   store i8 %861, ptr %863, align 2, !noalias !19
   %864 = load ptr, ptr %773, align 8, !noalias !19
-  %865 = getelementptr inbounds nuw %struct.cgltf_material, ptr %864, i64 %815
+  %865 = getelementptr inbounds nuw [1232 x i8], ptr %864, i64 %815
   %866 = getelementptr inbounds nuw i8, ptr %865, i64 164
   %867 = load float, ptr %866, align 4, !noalias !19
   %868 = fmul float %867, 2.550000e+02
@@ -33397,7 +33312,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %871 = getelementptr inbounds nuw i8, ptr %870, i64 23
   store i8 %869, ptr %871, align 1, !noalias !19
   %872 = load ptr, ptr %773, align 8, !noalias !19
-  %873 = getelementptr inbounds nuw %struct.cgltf_material, ptr %872, i64 %815
+  %873 = getelementptr inbounds nuw [1232 x i8], ptr %872, i64 %815
   %874 = getelementptr inbounds nuw i8, ptr %873, i64 104
   %875 = load ptr, ptr %874, align 8, !noalias !19
   %.not965.i = icmp eq ptr %875, null
@@ -33491,14 +33406,14 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 902:                                              ; preds = %._crit_edge1262.i, %876
   %903 = load ptr, ptr %773, align 8, !noalias !19
-  %904 = getelementptr inbounds nuw %struct.cgltf_material, ptr %903, i64 %815
+  %904 = getelementptr inbounds nuw [1232 x i8], ptr %903, i64 %815
   %905 = getelementptr inbounds nuw i8, ptr %904, i64 172
   %906 = load float, ptr %905, align 4, !noalias !19
   %907 = load ptr, ptr %.sroa.61108.0..sroa_idx.i, align 8, !noalias !19
   %908 = getelementptr inbounds nuw i8, ptr %907, i64 108
   store float %906, ptr %908, align 4, !noalias !19
   %909 = load ptr, ptr %773, align 8, !noalias !19
-  %910 = getelementptr inbounds nuw %struct.cgltf_material, ptr %909, i64 %815
+  %910 = getelementptr inbounds nuw [1232 x i8], ptr %909, i64 %815
   %911 = getelementptr inbounds nuw i8, ptr %910, i64 168
   %912 = load float, ptr %911, align 8, !noalias !19
   %913 = load ptr, ptr %.sroa.61108.0..sroa_idx.i, align 8, !noalias !19
@@ -33509,7 +33424,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 ._crit_edge1602.i:                                ; preds = %839, %902
   %915 = load ptr, ptr %774, align 8, !noalias !19
-  %916 = getelementptr inbounds nuw %struct.cgltf_material, ptr %915, i64 %815
+  %916 = getelementptr inbounds nuw [1232 x i8], ptr %915, i64 %815
   %917 = getelementptr inbounds nuw i8, ptr %916, i64 1016
   %918 = load ptr, ptr %917, align 8, !noalias !19
   %.not967.i = icmp eq ptr %918, null
@@ -33541,7 +33456,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 927:                                              ; preds = %926, %._crit_edge1602.i
   %928 = phi ptr [ %.pre1604.i, %926 ], [ %915, %._crit_edge1602.i ]
-  %929 = getelementptr inbounds nuw %struct.cgltf_material, ptr %928, i64 %815
+  %929 = getelementptr inbounds nuw [1232 x i8], ptr %928, i64 %815
   %930 = getelementptr inbounds nuw i8, ptr %929, i64 1064
   %931 = load ptr, ptr %930, align 8, !noalias !19
   %.not969.i = icmp eq ptr %931, null
@@ -33573,7 +33488,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 940:                                              ; preds = %939, %927
   %941 = phi ptr [ %.pre1605.i, %939 ], [ %928, %927 ]
-  %942 = getelementptr inbounds nuw %struct.cgltf_material, ptr %941, i64 %815
+  %942 = getelementptr inbounds nuw [1232 x i8], ptr %941, i64 %815
   %943 = getelementptr inbounds nuw i8, ptr %942, i64 1112
   %944 = load ptr, ptr %943, align 8, !noalias !19
   %.not971.i = icmp eq ptr %944, null
@@ -33600,7 +33515,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 952:                                              ; preds = %949, %945
   %953 = load ptr, ptr %774, align 8, !noalias !19
-  %954 = getelementptr inbounds nuw %struct.cgltf_material, ptr %953, i64 %815
+  %954 = getelementptr inbounds nuw [1232 x i8], ptr %953, i64 %815
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 1160
   %956 = load float, ptr %955, align 8, !noalias !19
   %957 = fmul float %956, 2.550000e+02
@@ -33609,7 +33524,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %960 = getelementptr inbounds nuw i8, ptr %959, i64 160
   store i8 %958, ptr %960, align 4, !noalias !19
   %961 = load ptr, ptr %774, align 8, !noalias !19
-  %962 = getelementptr inbounds nuw %struct.cgltf_material, ptr %961, i64 %815
+  %962 = getelementptr inbounds nuw [1232 x i8], ptr %961, i64 %815
   %963 = getelementptr inbounds nuw i8, ptr %962, i64 1164
   %964 = load float, ptr %963, align 4, !noalias !19
   %965 = fmul float %964, 2.550000e+02
@@ -33618,7 +33533,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %968 = getelementptr inbounds nuw i8, ptr %967, i64 161
   store i8 %966, ptr %968, align 1, !noalias !19
   %969 = load ptr, ptr %774, align 8, !noalias !19
-  %970 = getelementptr inbounds nuw %struct.cgltf_material, ptr %969, i64 %815
+  %970 = getelementptr inbounds nuw [1232 x i8], ptr %969, i64 %815
   %971 = getelementptr inbounds nuw i8, ptr %970, i64 1168
   %972 = load float, ptr %971, align 8, !noalias !19
   %973 = fmul float %972, 2.550000e+02
@@ -33655,7 +33570,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.08511354.i = phi i32 [ 0, %.lr.ph1356.i ], [ %2045, %2043 ]
   %990 = getelementptr inbounds nuw i8, ptr %988, i64 264
   %991 = load ptr, ptr %990, align 8, !noalias !19
-  %992 = getelementptr inbounds nuw %struct.cgltf_node, ptr %991, i64 %989
+  %992 = getelementptr inbounds nuw [264 x i8], ptr %991, i64 %989
   %993 = getelementptr inbounds nuw i8, ptr %992, i64 40
   %994 = load ptr, ptr %993, align 8, !noalias !19
   %.not957.i = icmp eq ptr %994, null
@@ -33798,7 +33713,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.28471348.i = phi i32 [ %.08451355.i, %.lr.ph1350.i ], [ %.3848.i, %2038 ]
   %.08521347.i = phi i32 [ 0, %.lr.ph1350.i ], [ %2040, %2038 ]
   %1115 = load ptr, ptr %1111, align 8, !noalias !19
-  %1116 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %1115, i64 %1114
+  %1116 = getelementptr inbounds nuw [144 x i8], ptr %1115, i64 %1114
   %1117 = load i32, ptr %1116, align 8, !noalias !19
   %.not958.i = icmp eq i32 %1117, 5
   br i1 %.not958.i, label %.preheader1244.i, label %2038
@@ -33811,7 +33726,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 .lr.ph1334.i:                                     ; preds = %.preheader1244.i
   %1120 = sext i32 %.28471348.i to i64
-  %1121 = getelementptr inbounds %struct.Mesh, ptr %749, i64 %1120
+  %1121 = getelementptr inbounds [120 x i8], ptr %749, i64 %1120
   %1122 = getelementptr inbounds nuw i8, ptr %1121, i64 48
   %1123 = getelementptr inbounds nuw i8, ptr %1121, i64 24
   %1124 = getelementptr inbounds nuw i8, ptr %1121, i64 16
@@ -33822,7 +33737,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 ._crit_edge1335.i:                                ; preds = %.loopexit1229.i, %.preheader1244.i
   %1128 = phi ptr [ %1115, %.preheader1244.i ], [ %1892, %.loopexit1229.i ]
-  %1129 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %1128, i64 %1114
+  %1129 = getelementptr inbounds nuw [144 x i8], ptr %1128, i64 %1114
   %1130 = getelementptr inbounds nuw i8, ptr %1129, i64 8
   %1131 = load ptr, ptr %1130, align 8, !noalias !19
   %.not959.i = icmp eq ptr %1131, null
@@ -33832,10 +33747,10 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1133 = phi ptr [ %1115, %.lr.ph1334.i ], [ %1892, %.loopexit1229.i ]
   %1134 = phi i64 [ 0, %.lr.ph1334.i ], [ %1891, %.loopexit1229.i ]
   %.08541333.i = phi i32 [ 0, %.lr.ph1334.i ], [ %1890, %.loopexit1229.i ]
-  %1135 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %1133, i64 %1114
+  %1135 = getelementptr inbounds nuw [144 x i8], ptr %1133, i64 %1114
   %1136 = getelementptr inbounds nuw i8, ptr %1135, i64 24
   %1137 = load ptr, ptr %1136, align 8, !noalias !19
-  %1138 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %1137, i64 %1134
+  %1138 = getelementptr inbounds nuw [24 x i8], ptr %1137, i64 %1134
   %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 8
   %1140 = load i32, ptr %1139, align 8, !noalias !19
   switch i32 %1140, label %.loopexit1229.i [
@@ -33878,11 +33793,11 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1164 = getelementptr inbounds nuw i8, ptr %1159, i64 16
   %1165 = load i64, ptr %1164, align 8, !noalias !19
   %1166 = lshr i64 %1165, 2
-  %1167 = getelementptr inbounds nuw float, ptr %1163, i64 %1166
+  %1167 = getelementptr inbounds nuw [4 x i8], ptr %1163, i64 %1166
   %1168 = getelementptr inbounds nuw i8, ptr %1143, i64 24
   %1169 = load i64, ptr %1168, align 8, !noalias !19
   %1170 = lshr i64 %1169, 2
-  %1171 = getelementptr inbounds nuw float, ptr %1167, i64 %1170
+  %1171 = getelementptr inbounds nuw [4 x i8], ptr %1167, i64 %1170
   %1172 = load i64, ptr %1152, align 8, !noalias !19
   %.not1429.i = icmp eq i64 %1172, 0
   br i1 %.not1429.i, label %.loopexit1229.i, label %.preheader1214.lr.ph.i
@@ -33896,7 +33811,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.08631327.i = phi i32 [ 0, %.preheader1214.lr.ph.i ], [ %1182, %1177 ]
   %1174 = mul i32 %.08631327.i, 3
   %1175 = sext i32 %.08591328.i to i64
-  %invariant.gep1712.i = getelementptr float, ptr %1171, i64 %1175
+  %invariant.gep1712.i = getelementptr [4 x i8], ptr %1171, i64 %1175
   br label %1186
 
 ._crit_edge1329.i:                                ; preds = %1177
@@ -33917,13 +33832,13 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 1186:                                             ; preds = %1186, %.preheader1214.i
   %indvars.iv1545.i = phi i64 [ 0, %.preheader1214.i ], [ %indvars.iv.next1546.i, %1186 ]
-  %gep1713.i = getelementptr float, ptr %invariant.gep1712.i, i64 %indvars.iv1545.i
+  %gep1713.i = getelementptr [4 x i8], ptr %invariant.gep1712.i, i64 %indvars.iv1545.i
   %1187 = load float, ptr %gep1713.i, align 4, !noalias !19
   %1188 = load ptr, ptr %1127, align 8, !noalias !19
   %1189 = trunc nuw nsw i64 %indvars.iv1545.i to i32
   %1190 = add i32 %1174, %1189
   %1191 = zext i32 %1190 to i64
-  %1192 = getelementptr inbounds nuw float, ptr %1188, i64 %1191
+  %1192 = getelementptr inbounds nuw [4 x i8], ptr %1188, i64 %1191
   store float %1187, ptr %1192, align 4, !noalias !19
   %indvars.iv.next1546.i = add nuw nsw i64 %indvars.iv1545.i, 1
   %exitcond1549.not.i = icmp eq i64 %indvars.iv.next1546.i, 3
@@ -33933,15 +33848,15 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.08691330.i = phi i32 [ %1217, %.lr.ph1332.i ], [ 0, %._crit_edge1329.i ]
   %1193 = mul i32 %.08691330.i, 3
   %1194 = zext i32 %1193 to i64
-  %1195 = getelementptr inbounds nuw float, ptr %.pre1610.i, i64 %1194
+  %1195 = getelementptr inbounds nuw [4 x i8], ptr %.pre1610.i, i64 %1194
   %1196 = load float, ptr %1195, align 4, !noalias !19
   %1197 = add i32 %1193, 1
   %1198 = zext i32 %1197 to i64
-  %1199 = getelementptr inbounds nuw float, ptr %.pre1610.i, i64 %1198
+  %1199 = getelementptr inbounds nuw [4 x i8], ptr %.pre1610.i, i64 %1198
   %1200 = load float, ptr %1199, align 4, !noalias !19
   %1201 = add i32 %1193, 2
   %1202 = zext i32 %1201 to i64
-  %1203 = getelementptr inbounds nuw float, ptr %.pre1610.i, i64 %1202
+  %1203 = getelementptr inbounds nuw [4 x i8], ptr %.pre1610.i, i64 %1202
   %1204 = load float, ptr %1203, align 4, !noalias !19
   %1205 = fmul float %997, %1200
   %1206 = call float @llvm.fmuladd.f32(float %996, float %1196, float %1205)
@@ -33997,11 +33912,11 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1243 = getelementptr inbounds nuw i8, ptr %1238, i64 16
   %1244 = load i64, ptr %1243, align 8, !noalias !19
   %1245 = lshr i64 %1244, 2
-  %1246 = getelementptr inbounds nuw float, ptr %1242, i64 %1245
+  %1246 = getelementptr inbounds nuw [4 x i8], ptr %1242, i64 %1245
   %1247 = getelementptr inbounds nuw i8, ptr %1224, i64 24
   %1248 = load i64, ptr %1247, align 8, !noalias !19
   %1249 = lshr i64 %1248, 2
-  %1250 = getelementptr inbounds nuw float, ptr %1246, i64 %1249
+  %1250 = getelementptr inbounds nuw [4 x i8], ptr %1246, i64 %1249
   %1251 = load i64, ptr %1233, align 8, !noalias !19
   %.not1427.i = icmp eq i64 %1251, 0
   br i1 %.not1427.i, label %.loopexit1229.i, label %.preheader1215.lr.ph.i
@@ -34015,7 +33930,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.08781320.i = phi i32 [ 0, %.preheader1215.lr.ph.i ], [ %1261, %1256 ]
   %1253 = mul i32 %.08781320.i, 3
   %1254 = sext i32 %.08741321.i to i64
-  %invariant.gep1710.i = getelementptr float, ptr %1250, i64 %1254
+  %invariant.gep1710.i = getelementptr [4 x i8], ptr %1250, i64 %1254
   br label %1265
 
 ._crit_edge1322.i:                                ; preds = %1256
@@ -34036,13 +33951,13 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 1265:                                             ; preds = %1265, %.preheader1215.i
   %indvars.iv1540.i = phi i64 [ 0, %.preheader1215.i ], [ %indvars.iv.next1541.i, %1265 ]
-  %gep1711.i = getelementptr float, ptr %invariant.gep1710.i, i64 %indvars.iv1540.i
+  %gep1711.i = getelementptr [4 x i8], ptr %invariant.gep1710.i, i64 %indvars.iv1540.i
   %1266 = load float, ptr %gep1711.i, align 4, !noalias !19
   %1267 = load ptr, ptr %1126, align 8, !noalias !19
   %1268 = trunc nuw nsw i64 %indvars.iv1540.i to i32
   %1269 = add i32 %1253, %1268
   %1270 = zext i32 %1269 to i64
-  %1271 = getelementptr inbounds nuw float, ptr %1267, i64 %1270
+  %1271 = getelementptr inbounds nuw [4 x i8], ptr %1267, i64 %1270
   store float %1266, ptr %1271, align 4, !noalias !19
   %indvars.iv.next1541.i = add nuw nsw i64 %indvars.iv1540.i, 1
   %exitcond1544.not.i = icmp eq i64 %indvars.iv.next1541.i, 3
@@ -34052,15 +33967,15 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.08831323.i = phi i32 [ %1296, %.lr.ph1325.i ], [ 0, %._crit_edge1322.i ]
   %1272 = mul i32 %.08831323.i, 3
   %1273 = zext i32 %1272 to i64
-  %1274 = getelementptr inbounds nuw float, ptr %.pre1609.i, i64 %1273
+  %1274 = getelementptr inbounds nuw [4 x i8], ptr %.pre1609.i, i64 %1273
   %1275 = load float, ptr %1274, align 4, !noalias !19
   %1276 = add i32 %1272, 1
   %1277 = zext i32 %1276 to i64
-  %1278 = getelementptr inbounds nuw float, ptr %.pre1609.i, i64 %1277
+  %1278 = getelementptr inbounds nuw [4 x i8], ptr %.pre1609.i, i64 %1277
   %1279 = load float, ptr %1278, align 4, !noalias !19
   %1280 = add i32 %1272, 2
   %1281 = zext i32 %1280 to i64
-  %1282 = getelementptr inbounds nuw float, ptr %.pre1609.i, i64 %1281
+  %1282 = getelementptr inbounds nuw [4 x i8], ptr %.pre1609.i, i64 %1281
   %1283 = load float, ptr %1282, align 4, !noalias !19
   %1284 = fmul float %1060, %1279
   %1285 = call float @llvm.fmuladd.f32(float %1054, float %1275, float %1284)
@@ -34116,11 +34031,11 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1322 = getelementptr inbounds nuw i8, ptr %1317, i64 16
   %1323 = load i64, ptr %1322, align 8, !noalias !19
   %1324 = lshr i64 %1323, 2
-  %1325 = getelementptr inbounds nuw float, ptr %1321, i64 %1324
+  %1325 = getelementptr inbounds nuw [4 x i8], ptr %1321, i64 %1324
   %1326 = getelementptr inbounds nuw i8, ptr %1303, i64 24
   %1327 = load i64, ptr %1326, align 8, !noalias !19
   %1328 = lshr i64 %1327, 2
-  %1329 = getelementptr inbounds nuw float, ptr %1325, i64 %1328
+  %1329 = getelementptr inbounds nuw [4 x i8], ptr %1325, i64 %1328
   %1330 = load i64, ptr %1312, align 8, !noalias !19
   %.not1425.i = icmp eq i64 %1330, 0
   br i1 %.not1425.i, label %.loopexit1229.i, label %.preheader1216.lr.ph.i
@@ -34134,7 +34049,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.08951313.i = phi i32 [ 0, %.preheader1216.lr.ph.i ], [ %1340, %1335 ]
   %1332 = shl i32 %.08951313.i, 2
   %1333 = sext i32 %.08901314.i to i64
-  %invariant.gep1708.i = getelementptr float, ptr %1329, i64 %1333
+  %invariant.gep1708.i = getelementptr [4 x i8], ptr %1329, i64 %1333
   br label %1344
 
 ._crit_edge1315.i:                                ; preds = %1335
@@ -34155,13 +34070,13 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 1344:                                             ; preds = %1344, %.preheader1216.i
   %indvars.iv1535.i = phi i64 [ 0, %.preheader1216.i ], [ %indvars.iv.next1536.i, %1344 ]
-  %gep1709.i = getelementptr float, ptr %invariant.gep1708.i, i64 %indvars.iv1535.i
+  %gep1709.i = getelementptr [4 x i8], ptr %invariant.gep1708.i, i64 %indvars.iv1535.i
   %1345 = load float, ptr %gep1709.i, align 4, !noalias !19
   %1346 = load ptr, ptr %1125, align 8, !noalias !19
   %1347 = trunc i64 %indvars.iv1535.i to i32
   %1348 = add nuw nsw i32 %1332, %1347
   %1349 = zext i32 %1348 to i64
-  %1350 = getelementptr inbounds nuw float, ptr %1346, i64 %1349
+  %1350 = getelementptr inbounds nuw [4 x i8], ptr %1346, i64 %1349
   store float %1345, ptr %1350, align 4, !noalias !19
   %indvars.iv.next1536.i = add nuw nsw i64 %indvars.iv1535.i, 1
   %exitcond1539.not.i = icmp eq i64 %indvars.iv.next1536.i, 4
@@ -34171,15 +34086,15 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.09021316.i = phi i32 [ %1375, %.lr.ph1318.i ], [ 0, %._crit_edge1315.i ]
   %1351 = mul i32 %.09021316.i, 3
   %1352 = zext i32 %1351 to i64
-  %1353 = getelementptr inbounds nuw float, ptr %.pre1608.i, i64 %1352
+  %1353 = getelementptr inbounds nuw [4 x i8], ptr %.pre1608.i, i64 %1352
   %1354 = load float, ptr %1353, align 4, !noalias !19
   %1355 = add i32 %1351, 1
   %1356 = zext i32 %1355 to i64
-  %1357 = getelementptr inbounds nuw float, ptr %.pre1608.i, i64 %1356
+  %1357 = getelementptr inbounds nuw [4 x i8], ptr %.pre1608.i, i64 %1356
   %1358 = load float, ptr %1357, align 4, !noalias !19
   %1359 = add i32 %1351, 2
   %1360 = zext i32 %1359 to i64
-  %1361 = getelementptr inbounds nuw float, ptr %.pre1608.i, i64 %1360
+  %1361 = getelementptr inbounds nuw [4 x i8], ptr %.pre1608.i, i64 %1360
   %1362 = load float, ptr %1361, align 4, !noalias !19
   %1363 = fmul float %997, %1358
   %1364 = call float @llvm.fmuladd.f32(float %996, float %1354, float %1363)
@@ -34237,11 +34152,11 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1400 = getelementptr inbounds nuw i8, ptr %1395, i64 16
   %1401 = load i64, ptr %1400, align 8, !noalias !19
   %1402 = lshr i64 %1401, 2
-  %1403 = getelementptr inbounds nuw float, ptr %1399, i64 %1402
+  %1403 = getelementptr inbounds nuw [4 x i8], ptr %1399, i64 %1402
   %1404 = getelementptr inbounds nuw i8, ptr %1382, i64 24
   %1405 = load i64, ptr %1404, align 8, !noalias !19
   %1406 = lshr i64 %1405, 2
-  %1407 = getelementptr inbounds nuw float, ptr %1403, i64 %1406
+  %1407 = getelementptr inbounds nuw [4 x i8], ptr %1403, i64 %1406
   %.not1424.i = icmp eq i64 %1391, 0
   br i1 %.not1424.i, label %.loopexit1232.i, label %.preheader1217.lr.ph.i
 
@@ -34254,16 +34169,16 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.09091310.i = phi i32 [ 0, %.preheader1217.lr.ph.i ], [ %1422, %.preheader1217.i ]
   %1409 = shl i32 %.09091310.i, 1
   %1410 = sext i32 %.09051311.i to i64
-  %invariant.gep1706.i = getelementptr float, ptr %1407, i64 %1410
+  %invariant.gep1706.i = getelementptr [4 x i8], ptr %1407, i64 %1410
   %1411 = load float, ptr %invariant.gep1706.i, align 4, !noalias !19
   %1412 = zext i32 %1409 to i64
-  %1413 = getelementptr inbounds nuw float, ptr %1393, i64 %1412
+  %1413 = getelementptr inbounds nuw [4 x i8], ptr %1393, i64 %1412
   store float %1411, ptr %1413, align 4, !noalias !19
   %gep1707.i.c = getelementptr i8, ptr %invariant.gep1706.i, i64 4
   %1414 = load float, ptr %gep1707.i.c, align 4, !noalias !19
   %1415 = or disjoint i32 %1409, 1
   %1416 = zext i32 %1415 to i64
-  %1417 = getelementptr inbounds nuw float, ptr %1393, i64 %1416
+  %1417 = getelementptr inbounds nuw [4 x i8], ptr %1393, i64 %1416
   store float %1414, ptr %1417, align 4, !noalias !19
   %1418 = load i64, ptr %1408, align 8, !noalias !19
   %1419 = lshr i64 %1418, 2
@@ -34329,7 +34244,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1456 = load i8, ptr %1455, align 1, !noalias !19
   %1457 = uitofp i8 %1456 to float
   %1458 = fdiv float %1457, 2.550000e+02
-  %1459 = getelementptr inbounds nuw float, ptr %1430, i64 %1454
+  %1459 = getelementptr inbounds nuw [4 x i8], ptr %1430, i64 %1454
   store float %1458, ptr %1459, align 4, !noalias !19
   %1460 = add i32 %.09121306.i, 1
   %1461 = zext i32 %1460 to i64
@@ -34391,11 +34306,11 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 .lr.ph1301.i:                                     ; preds = %.preheader1219.i, %.lr.ph1301.i
   %1497 = phi i64 [ %1504, %.lr.ph1301.i ], [ 0, %.preheader1219.i ]
   %.09061300.i = phi i32 [ %1503, %.lr.ph1301.i ], [ 0, %.preheader1219.i ]
-  %1498 = getelementptr inbounds nuw i16, ptr %1471, i64 %1497
+  %1498 = getelementptr inbounds nuw [2 x i8], ptr %1471, i64 %1497
   %1499 = load i16, ptr %1498, align 2, !noalias !19
   %1500 = uitofp i16 %1499 to float
   %1501 = fdiv float %1500, 6.553500e+04
-  %1502 = getelementptr inbounds nuw float, ptr %1469, i64 %1497
+  %1502 = getelementptr inbounds nuw [4 x i8], ptr %1469, i64 %1497
   store float %1501, ptr %1502, align 4, !noalias !19
   %1503 = add i32 %.09061300.i, 1
   %1504 = zext i32 %1503 to i64
@@ -34415,10 +34330,10 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 .loopexit1232.i:                                  ; preds = %.preheader1217.i, %1509, %1508, %._crit_edge1302.i, %._crit_edge1308.i, %1389
   %.0904.i = phi ptr [ null, %1509 ], [ %1430, %._crit_edge1308.i ], [ %1469, %._crit_edge1302.i ], [ null, %1508 ], [ %1393, %1389 ], [ %1393, %.preheader1217.i ]
   %1510 = load ptr, ptr %1111, align 8, !noalias !19
-  %1511 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %1510, i64 %1114
+  %1511 = getelementptr inbounds nuw [144 x i8], ptr %1510, i64 %1114
   %1512 = getelementptr inbounds nuw i8, ptr %1511, i64 24
   %1513 = load ptr, ptr %1512, align 8, !noalias !19
-  %1514 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %1513, i64 %1134
+  %1514 = getelementptr inbounds nuw [24 x i8], ptr %1513, i64 %1134
   %1515 = getelementptr inbounds nuw i8, ptr %1514, i64 12
   %1516 = load i32, ptr %1515, align 4, !noalias !19
   switch i32 %1516, label %1519 [
@@ -34587,11 +34502,11 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1611 = getelementptr inbounds nuw i8, ptr %1606, i64 16
   %1612 = load i64, ptr %1611, align 8, !noalias !19
   %1613 = lshr i64 %1612, 1
-  %1614 = getelementptr inbounds nuw i16, ptr %1610, i64 %1613
+  %1614 = getelementptr inbounds nuw [2 x i8], ptr %1610, i64 %1613
   %1615 = getelementptr inbounds nuw i8, ptr %1523, i64 24
   %1616 = load i64, ptr %1615, align 8, !noalias !19
   %1617 = lshr i64 %1616, 1
-  %1618 = getelementptr inbounds nuw i16, ptr %1614, i64 %1617
+  %1618 = getelementptr inbounds nuw [2 x i8], ptr %1614, i64 %1617
   %.not1416.i = icmp eq i64 %1602, 0
   br i1 %.not1416.i, label %.preheader1236.i.preheader, label %.preheader1221.lr.ph.i
 
@@ -34609,7 +34524,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %indvars.iv1495.i = phi i64 [ 0, %.preheader1221.lr.ph.i ], [ %indvars.iv.next1496.i, %1624 ]
   %.08941289.i = phi i32 [ 0, %.preheader1221.lr.ph.i ], [ %1625, %1624 ]
   %1623 = mul i32 %.08941289.i, 3
-  %invariant.gep1702.i = getelementptr i16, ptr %1618, i64 %indvars.iv1495.i
+  %invariant.gep1702.i = getelementptr [2 x i8], ptr %1618, i64 %indvars.iv1495.i
   br label %1628
 
 1624:                                             ; preds = %1628
@@ -34621,12 +34536,12 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 1628:                                             ; preds = %1628, %.preheader1221.i
   %indvars.iv1490.i = phi i64 [ 0, %.preheader1221.i ], [ %indvars.iv.next1491.i, %1628 ]
-  %gep1703.i = getelementptr i16, ptr %invariant.gep1702.i, i64 %indvars.iv1490.i
+  %gep1703.i = getelementptr [2 x i8], ptr %invariant.gep1702.i, i64 %indvars.iv1490.i
   %1629 = load i16, ptr %gep1703.i, align 2, !noalias !19
   %1630 = trunc nuw nsw i64 %indvars.iv1490.i to i32
   %1631 = add i32 %1623, %1630
   %1632 = zext i32 %1631 to i64
-  %1633 = getelementptr inbounds nuw i16, ptr %1604, i64 %1632
+  %1633 = getelementptr inbounds nuw [2 x i8], ptr %1604, i64 %1632
   store i16 %1629, ptr %1633, align 2, !noalias !19
   %indvars.iv.next1491.i = add nuw nsw i64 %indvars.iv1490.i, 1
   %exitcond1494.not.i = icmp eq i64 %indvars.iv.next1491.i, 3
@@ -34641,7 +34556,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.08911291.i = phi i32 [ %1674, %.preheader1236.i ], [ 0, %.preheader1236.i.preheader ]
   %.08921290.i = phi i32 [ %1673, %.preheader1236.i ], [ 0, %.preheader1236.i.preheader ]
   %1636 = zext i32 %.08911291.i to i64
-  %1637 = getelementptr inbounds nuw i16, ptr %1604, i64 %1636
+  %1637 = getelementptr inbounds nuw [2 x i8], ptr %1604, i64 %1636
   %1638 = load i16, ptr %1637, align 2, !noalias !19
   %1639 = uitofp i16 %1638 to float
   %1640 = fdiv nnan float %1639, 6.553500e+04
@@ -34652,7 +34567,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   store i8 %1642, ptr %1644, align 1, !noalias !19
   %1645 = add i32 %.08911291.i, 1
   %1646 = zext i32 %1645 to i64
-  %1647 = getelementptr inbounds nuw i16, ptr %1604, i64 %1646
+  %1647 = getelementptr inbounds nuw [2 x i8], ptr %1604, i64 %1646
   %1648 = load i16, ptr %1647, align 2, !noalias !19
   %1649 = uitofp i16 %1648 to float
   %1650 = fdiv nnan float %1649, 6.553500e+04
@@ -34665,7 +34580,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   store i8 %1652, ptr %1656, align 1, !noalias !19
   %1657 = add i32 %.08911291.i, 2
   %1658 = zext i32 %1657 to i64
-  %1659 = getelementptr inbounds nuw i16, ptr %1604, i64 %1658
+  %1659 = getelementptr inbounds nuw [2 x i8], ptr %1604, i64 %1658
   %1660 = load i16, ptr %1659, align 2, !noalias !19
   %1661 = uitofp i16 %1660 to float
   %1662 = fdiv nnan float %1661, 6.553500e+04
@@ -34708,11 +34623,11 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1694 = getelementptr inbounds nuw i8, ptr %1689, i64 16
   %1695 = load i64, ptr %1694, align 8, !noalias !19
   %1696 = lshr i64 %1695, 2
-  %1697 = getelementptr inbounds nuw float, ptr %1693, i64 %1696
+  %1697 = getelementptr inbounds nuw [4 x i8], ptr %1693, i64 %1696
   %1698 = getelementptr inbounds nuw i8, ptr %1523, i64 24
   %1699 = load i64, ptr %1698, align 8, !noalias !19
   %1700 = lshr i64 %1699, 2
-  %1701 = getelementptr inbounds nuw float, ptr %1697, i64 %1700
+  %1701 = getelementptr inbounds nuw [4 x i8], ptr %1697, i64 %1700
   %.not1415.i = icmp eq i64 %1685, 0
   br i1 %.not1415.i, label %.preheader1237.i.preheader, label %.preheader1222.lr.ph.i
 
@@ -34730,7 +34645,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %indvars.iv1486.i = phi i64 [ 0, %.preheader1222.lr.ph.i ], [ %indvars.iv.next1487.i, %1707 ]
   %.08881284.i = phi i32 [ 0, %.preheader1222.lr.ph.i ], [ %1708, %1707 ]
   %1706 = mul i32 %.08881284.i, 3
-  %invariant.gep1700.i = getelementptr float, ptr %1701, i64 %indvars.iv1486.i
+  %invariant.gep1700.i = getelementptr [4 x i8], ptr %1701, i64 %indvars.iv1486.i
   br label %1711
 
 1707:                                             ; preds = %1711
@@ -34742,12 +34657,12 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 1711:                                             ; preds = %1711, %.preheader1222.i
   %indvars.iv1481.i = phi i64 [ 0, %.preheader1222.i ], [ %indvars.iv.next1482.i, %1711 ]
-  %gep1701.i = getelementptr float, ptr %invariant.gep1700.i, i64 %indvars.iv1481.i
+  %gep1701.i = getelementptr [4 x i8], ptr %invariant.gep1700.i, i64 %indvars.iv1481.i
   %1712 = load float, ptr %gep1701.i, align 4, !noalias !19
   %1713 = trunc nuw nsw i64 %indvars.iv1481.i to i32
   %1714 = add i32 %1706, %1713
   %1715 = zext i32 %1714 to i64
-  %1716 = getelementptr inbounds nuw float, ptr %1687, i64 %1715
+  %1716 = getelementptr inbounds nuw [4 x i8], ptr %1687, i64 %1715
   store float %1712, ptr %1716, align 4, !noalias !19
   %indvars.iv.next1482.i = add nuw nsw i64 %indvars.iv1481.i, 1
   %exitcond1485.not.i = icmp eq i64 %indvars.iv.next1482.i, 3
@@ -34762,7 +34677,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.08851286.i = phi i32 [ %1751, %.preheader1237.i ], [ 0, %.preheader1237.i.preheader ]
   %.08861285.i = phi i32 [ %1750, %.preheader1237.i ], [ 0, %.preheader1237.i.preheader ]
   %1719 = zext i32 %.08851286.i to i64
-  %1720 = getelementptr inbounds nuw float, ptr %1687, i64 %1719
+  %1720 = getelementptr inbounds nuw [4 x i8], ptr %1687, i64 %1719
   %1721 = load float, ptr %1720, align 4, !noalias !19
   %1722 = fmul float %1721, 2.550000e+02
   %1723 = fptoui float %1722 to i8
@@ -34771,7 +34686,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   store i8 %1723, ptr %1725, align 1, !noalias !19
   %1726 = add i32 %.08851286.i, 1
   %1727 = zext i32 %1726 to i64
-  %1728 = getelementptr inbounds nuw float, ptr %1687, i64 %1727
+  %1728 = getelementptr inbounds nuw [4 x i8], ptr %1687, i64 %1727
   %1729 = load float, ptr %1728, align 4, !noalias !19
   %1730 = fmul float %1729, 2.550000e+02
   %1731 = fptoui float %1730 to i8
@@ -34782,7 +34697,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   store i8 %1731, ptr %1735, align 1, !noalias !19
   %1736 = add i32 %.08851286.i, 2
   %1737 = zext i32 %1736 to i64
-  %1738 = getelementptr inbounds nuw float, ptr %1687, i64 %1737
+  %1738 = getelementptr inbounds nuw [4 x i8], ptr %1687, i64 %1737
   %1739 = load float, ptr %1738, align 4, !noalias !19
   %1740 = fmul float %1739, 2.550000e+02
   %1741 = fptoui float %1740 to i8
@@ -34931,7 +34846,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 .lr.ph1277.i:                                     ; preds = %.preheader1224.i, %.lr.ph1277.i
   %1830 = phi i64 [ %1840, %.lr.ph1277.i ], [ 0, %.preheader1224.i ]
   %.08751276.i = phi i32 [ %1839, %.lr.ph1277.i ], [ 0, %.preheader1224.i ]
-  %1831 = getelementptr inbounds nuw i16, ptr %1804, i64 %1830
+  %1831 = getelementptr inbounds nuw [2 x i8], ptr %1804, i64 %1830
   %1832 = load i16, ptr %1831, align 2, !noalias !19
   %1833 = uitofp i16 %1832 to float
   %1834 = fdiv nnan float %1833, 6.553500e+04
@@ -35001,7 +34916,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 .lr.ph1271.i:                                     ; preds = %.preheader1225.i, %.lr.ph1271.i
   %1876 = phi i64 [ %1884, %.lr.ph1271.i ], [ 0, %.preheader1225.i ]
   %.08701270.i = phi i32 [ %1883, %.lr.ph1271.i ], [ 0, %.preheader1225.i ]
-  %1877 = getelementptr inbounds nuw float, ptr %1851, i64 %1876
+  %1877 = getelementptr inbounds nuw [4 x i8], ptr %1851, i64 %1876
   %1878 = load float, ptr %1877, align 4, !noalias !19
   %1879 = fmul float %1878, 2.550000e+02
   %1880 = fptoui float %1879 to i8
@@ -35027,7 +34942,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1890 = add i32 %.08541333.i, 1
   %1891 = zext i32 %1890 to i64
   %1892 = load ptr, ptr %1111, align 8, !noalias !19
-  %1893 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %1892, i64 %1114
+  %1893 = getelementptr inbounds nuw [144 x i8], ptr %1892, i64 %1114
   %1894 = getelementptr inbounds nuw i8, ptr %1893, i64 32
   %1895 = load i64, ptr %1894, align 8, !noalias !19
   %1896 = icmp ugt i64 %1895, %1891
@@ -35045,7 +34960,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1903 = trunc i64 %1902 to i32
   %1904 = sdiv i32 %1903, 3
   %1905 = sext i32 %.28471348.i to i64
-  %1906 = getelementptr inbounds %struct.Mesh, ptr %749, i64 %1905
+  %1906 = getelementptr inbounds [120 x i8], ptr %749, i64 %1905
   %1907 = getelementptr inbounds nuw i8, ptr %1906, i64 4
   store i32 %1904, ptr %1907, align 4, !noalias !19
   %1908 = getelementptr inbounds nuw i8, ptr %1131, i64 8
@@ -35070,11 +34985,11 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1920 = getelementptr inbounds nuw i8, ptr %1915, i64 16
   %1921 = load i64, ptr %1920, align 8, !noalias !19
   %1922 = lshr i64 %1921, 1
-  %1923 = getelementptr inbounds nuw i16, ptr %1919, i64 %1922
+  %1923 = getelementptr inbounds nuw [2 x i8], ptr %1919, i64 %1922
   %1924 = getelementptr inbounds nuw i8, ptr %1131, i64 24
   %1925 = load i64, ptr %1924, align 8, !noalias !19
   %1926 = lshr i64 %1925, 1
-  %1927 = getelementptr inbounds nuw i16, ptr %1923, i64 %1926
+  %1927 = getelementptr inbounds nuw [2 x i8], ptr %1923, i64 %1926
   %1928 = load i64, ptr %1901, align 8, !noalias !19
   %.not1433.i = icmp eq i64 %1928, 0
   br i1 %.not1433.i, label %.loopexit1242.i, label %.preheader1226.lr.ph.i
@@ -35088,10 +35003,10 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.08661343.i = phi i32 [ 0, %.preheader1226.lr.ph.i ], [ %1940, %.preheader1226.i ]
   %.08681342.i = phi i32 [ 0, %.preheader1226.lr.ph.i ], [ %1939, %.preheader1226.i ]
   %1931 = sext i32 %.08681342.i to i64
-  %1932 = getelementptr inbounds i16, ptr %1927, i64 %1931
+  %1932 = getelementptr inbounds [2 x i8], ptr %1927, i64 %1931
   %1933 = load i16, ptr %1932, align 2, !noalias !19
   %1934 = load ptr, ptr %1914, align 8, !noalias !19
-  %1935 = getelementptr inbounds nuw i16, ptr %1934, i64 %1930
+  %1935 = getelementptr inbounds nuw [2 x i8], ptr %1934, i64 %1930
   store i16 %1933, ptr %1935, align 2, !noalias !19
   %1936 = load i64, ptr %1929, align 8, !noalias !19
   %1937 = lshr i64 %1936, 1
@@ -35137,7 +35052,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1965 = load i8, ptr %1964, align 1, !noalias !19
   %1966 = zext i8 %1965 to i16
   %1967 = load ptr, ptr %1948, align 8, !noalias !19
-  %1968 = getelementptr inbounds nuw i16, ptr %1967, i64 %1962
+  %1968 = getelementptr inbounds nuw [2 x i8], ptr %1967, i64 %1962
   store i16 %1966, ptr %1968, align 2, !noalias !19
   %1969 = load i64, ptr %1961, align 8, !noalias !19
   %1970 = trunc i64 %1969 to i32
@@ -35162,11 +35077,11 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1986 = getelementptr inbounds nuw i8, ptr %1981, i64 16
   %1987 = load i64, ptr %1986, align 8, !noalias !19
   %1988 = lshr i64 %1987, 2
-  %1989 = getelementptr inbounds nuw i32, ptr %1985, i64 %1988
+  %1989 = getelementptr inbounds nuw [4 x i8], ptr %1985, i64 %1988
   %1990 = getelementptr inbounds nuw i8, ptr %1131, i64 24
   %1991 = load i64, ptr %1990, align 8, !noalias !19
   %1992 = lshr i64 %1991, 2
-  %1993 = getelementptr inbounds nuw i32, ptr %1989, i64 %1992
+  %1993 = getelementptr inbounds nuw [4 x i8], ptr %1989, i64 %1992
   %1994 = load i64, ptr %1901, align 8, !noalias !19
   %.not1431.i = icmp eq i64 %1994, 0
   br i1 %.not1431.i, label %._crit_edge1339.i, label %.preheader1228.lr.ph.i
@@ -35180,11 +35095,11 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %.08581338.i = phi i32 [ 0, %.preheader1228.lr.ph.i ], [ %2007, %.preheader1228.i ]
   %.08601337.i = phi i32 [ 0, %.preheader1228.lr.ph.i ], [ %2006, %.preheader1228.i ]
   %1997 = sext i32 %.08601337.i to i64
-  %1998 = getelementptr inbounds i32, ptr %1993, i64 %1997
+  %1998 = getelementptr inbounds [4 x i8], ptr %1993, i64 %1997
   %1999 = load i32, ptr %1998, align 4, !noalias !19
   %2000 = trunc i32 %1999 to i16
   %2001 = load ptr, ptr %1980, align 8, !noalias !19
-  %2002 = getelementptr inbounds nuw i16, ptr %2001, i64 %1996
+  %2002 = getelementptr inbounds nuw [2 x i8], ptr %2001, i64 %1996
   store i16 %2000, ptr %2002, align 2, !noalias !19
   %2003 = load i64, ptr %1995, align 8, !noalias !19
   %2004 = lshr i64 %2003, 2
@@ -35206,7 +35121,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 ._crit_edge1335._crit_edge.i:                     ; preds = %._crit_edge1335.i, %1897
   %2012 = sext i32 %.28471348.i to i64
-  %2013 = getelementptr inbounds %struct.Mesh, ptr %749, i64 %2012
+  %2013 = getelementptr inbounds [120 x i8], ptr %749, i64 %2012
   %2014 = load i32, ptr %2013, align 8, !noalias !19
   %2015 = sdiv i32 %2014, 3
   %2016 = getelementptr inbounds nuw i8, ptr %2013, i64 4
@@ -35224,7 +35139,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %2020 = getelementptr inbounds nuw i8, ptr %2017, i64 104
   %2021 = load ptr, ptr %2020, align 8, !noalias !19
   %2022 = load ptr, ptr %1111, align 8, !noalias !19
-  %2023 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %2022, i64 %1114
+  %2023 = getelementptr inbounds nuw [144 x i8], ptr %2022, i64 %1114
   %2024 = getelementptr inbounds nuw i8, ptr %2023, i64 16
   %2025 = load ptr, ptr %2024, align 8, !noalias !19
   br label %2026
@@ -35232,14 +35147,14 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 2026:                                             ; preds = %2034, %.lr.ph1346.i
   %2027 = phi i64 [ 0, %.lr.ph1346.i ], [ %2035, %2034 ]
   %.08561344.i = phi i32 [ 0, %.lr.ph1346.i ], [ %2030, %2034 ]
-  %2028 = getelementptr inbounds nuw %struct.cgltf_material, ptr %2021, i64 %2027
+  %2028 = getelementptr inbounds nuw [1232 x i8], ptr %2021, i64 %2027
   %2029 = icmp eq ptr %2028, %2025
   %2030 = add i32 %.08561344.i, 1
   br i1 %2029, label %2031, label %2034
 
 2031:                                             ; preds = %2026
   %2032 = sext i32 %.28471348.i to i64
-  %2033 = getelementptr inbounds i32, ptr %761, i64 %2032
+  %2033 = getelementptr inbounds [4 x i8], ptr %761, i64 %2032
   store i32 %2030, ptr %2033, align 4, !noalias !19
   br label %.loopexit1241.i
 
@@ -35287,7 +35202,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 .lr.ph.i.i42:                                     ; preds = %2050, %2072
   %2056 = phi i64 [ %2076, %2072 ], [ 0, %2050 ]
   %.0172.i.i = phi i32 [ %2075, %2072 ], [ 0, %2050 ]
-  %2057 = getelementptr inbounds nuw ptr, ptr %.sroa.3.0.copyload.i, i64 %2056
+  %2057 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.3.0.copyload.i, i64 %2056
   %2058 = load ptr, ptr %2057, align 8, !noalias !19
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2058, align 8, !noalias !19
   %.sroa.5.0..sroa_idx.i987.i = getelementptr inbounds nuw i8, ptr %2058, i64 8
@@ -35296,7 +35211,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   br i1 %.not.i.i43, label %.preheader466, label %2059
 
 2059:                                             ; preds = %.lr.ph.i.i42
-  %2060 = getelementptr inbounds nuw %struct.BoneInfo, ptr %2055, i64 %2056
+  %2060 = getelementptr inbounds nuw [36 x i8], ptr %2055, i64 %2056
   %2061 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %2060, ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload.i.i, i64 noundef 32) #63, !noalias !19
   %2062 = getelementptr inbounds nuw i8, ptr %2060, i64 31
   store i8 0, ptr %2062, align 1, !noalias !19
@@ -35308,7 +35223,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 2063:                                             ; preds = %.preheader466, %2068
   %2064 = phi i64 [ %2070, %2068 ], [ 0, %.preheader466 ]
   %.01.i.i = phi i32 [ %2069, %2068 ], [ 0, %.preheader466 ]
-  %2065 = getelementptr inbounds nuw ptr, ptr %.sroa.3.0.copyload.i, i64 %2064
+  %2065 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.3.0.copyload.i, i64 %2064
   %2066 = load ptr, ptr %2065, align 8, !noalias !19
   %2067 = icmp eq ptr %2066, %.sroa.5.0.copyload.i.i
   br i1 %2067, label %2072, label %2068
@@ -35321,7 +35236,7 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
 
 2072:                                             ; preds = %2068, %2063
   %.016.i.i = phi i32 [ -1, %2068 ], [ %.01.i.i, %2063 ]
-  %2073 = getelementptr inbounds nuw %struct.BoneInfo, ptr %2055, i64 %2056
+  %2073 = getelementptr inbounds nuw [36 x i8], ptr %2055, i64 %2056
   %2074 = getelementptr inbounds nuw i8, ptr %2073, i64 32
   store i32 %.016.i.i, ptr %2074, align 4, !noalias !19
   %2075 = add i32 %.0172.i.i, 1
@@ -35354,7 +35269,7 @@ LoadBoneInfoGLTF.exit.i:                          ; preds = %2072, %2050
 
 2093:                                             ; preds = %MatrixDecompose.exit.i, %.lr.ph1361.i
   %indvars.iv1550.i = phi i64 [ 0, %.lr.ph1361.i ], [ %indvars.iv.next1551.i, %MatrixDecompose.exit.i ]
-  %2094 = getelementptr inbounds nuw ptr, ptr %.sroa.3.0.copyload.i, i64 %indvars.iv1550.i
+  %2094 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.3.0.copyload.i, i64 %indvars.iv1550.i
   %2095 = load ptr, ptr %2094, align 8, !noalias !19
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !19
   call void @cgltf_node_transform_world(ptr noundef %2095, ptr noundef nonnull %30), !noalias !19
@@ -35370,7 +35285,7 @@ LoadBoneInfoGLTF.exit.i:                          ; preds = %2072, %2050
   %2105 = load float, ptr %2090, align 8, !noalias !19
   %2106 = load float, ptr %2091, align 8, !noalias !19
   %2107 = load float, ptr %2092, align 8, !noalias !19
-  %2108 = getelementptr inbounds nuw %struct.Transform, ptr %2080, i64 %indvars.iv1550.i
+  %2108 = getelementptr inbounds nuw [40 x i8], ptr %2080, i64 %indvars.iv1550.i
   %2109 = getelementptr inbounds nuw i8, ptr %2108, i64 12
   %2110 = getelementptr inbounds nuw i8, ptr %2108, i64 28
   store float %2099, ptr %2108, align 4, !noalias !19
@@ -35566,7 +35481,7 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
   %.41400.i = phi i32 [ 0, %.lr.ph1401.i ], [ %.5.i45, %.loopexit1213.i ]
   %.08531399.i = phi i32 [ 0, %.lr.ph1401.i ], [ %2506, %.loopexit1213.i ]
   %2210 = load ptr, ptr %2204, align 8, !noalias !19
-  %2211 = getelementptr inbounds nuw %struct.cgltf_node, ptr %2210, i64 %2209
+  %2211 = getelementptr inbounds nuw [264 x i8], ptr %2210, i64 %2209
   %2212 = getelementptr inbounds nuw i8, ptr %2211, i64 40
   %2213 = load ptr, ptr %2212, align 8, !noalias !19
   %.not954.i = icmp eq ptr %2213, null
@@ -35588,7 +35503,7 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
   %.61396.i = phi i32 [ %.41400.i, %.lr.ph1397.i ], [ %.7.i, %2500 ]
   %.08501395.i = phi i32 [ 0, %.lr.ph1397.i ], [ %2502, %2500 ]
   %2220 = load ptr, ptr %2216, align 8, !noalias !19
-  %2221 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %2220, i64 %2219
+  %2221 = getelementptr inbounds nuw [144 x i8], ptr %2220, i64 %2219
   %2222 = load i32, ptr %2221, align 8, !noalias !19
   %.not955.i = icmp eq i32 %2222, 5
   br i1 %.not955.i, label %.preheader1211.i, label %2500
@@ -35601,13 +35516,13 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
   br i1 %.not1437.i, label %._crit_edge1390.i, label %.lr.ph1389.i.preheader
 
 .lr.ph1389.i.preheader:                           ; preds = %.preheader1211.i
-  %2225 = getelementptr inbounds %struct.Mesh, ptr %749, i64 %.pre1617.i
+  %2225 = getelementptr inbounds [120 x i8], ptr %749, i64 %.pre1617.i
   %2226 = getelementptr inbounds nuw i8, ptr %2225, i64 88
   %2227 = getelementptr inbounds nuw i8, ptr %2225, i64 80
   br label %.lr.ph1389.i
 
 ._crit_edge1390.i:                                ; preds = %.loopexit.i46, %.preheader1211.i
-  %2228 = getelementptr inbounds %struct.Mesh, ptr %749, i64 %.pre1617.i
+  %2228 = getelementptr inbounds [120 x i8], ptr %749, i64 %.pre1617.i
   %2229 = load i32, ptr %2228, align 8, !noalias !19
   %2230 = mul nsw i32 %2229, 3
   %2231 = sext i32 %2230 to i64
@@ -35630,10 +35545,10 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
   %2241 = phi ptr [ %2484, %.loopexit.i46 ], [ %2220, %.lr.ph1389.i.preheader ]
   %2242 = phi i64 [ %2483, %.loopexit.i46 ], [ 0, %.lr.ph1389.i.preheader ]
   %.08491388.i = phi i32 [ %2482, %.loopexit.i46 ], [ 0, %.lr.ph1389.i.preheader ]
-  %2243 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %2241, i64 %2219
+  %2243 = getelementptr inbounds nuw [144 x i8], ptr %2241, i64 %2219
   %2244 = getelementptr inbounds nuw i8, ptr %2243, i64 24
   %2245 = load ptr, ptr %2244, align 8, !noalias !19
-  %2246 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %2245, i64 %2242
+  %2246 = getelementptr inbounds nuw [24 x i8], ptr %2245, i64 %2242
   %2247 = getelementptr inbounds nuw i8, ptr %2246, i64 8
   %2248 = load i32, ptr %2247, align 8, !noalias !19
   switch i32 %2248, label %.loopexit.i46 [
@@ -35775,7 +35690,7 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
 .lr.ph1383.i:                                     ; preds = %.preheader1207.i, %2333
   %indvars.iv1591.i = phi i64 [ %indvars.iv.next1592.i, %2333 ], [ 0, %.preheader1207.i ]
   %.08341381.i = phi i1 [ %.1835.i, %2333 ], [ false, %.preheader1207.i ]
-  %2329 = getelementptr inbounds nuw i16, ptr %2300, i64 %indvars.iv1591.i
+  %2329 = getelementptr inbounds nuw [2 x i8], ptr %2300, i64 %indvars.iv1591.i
   %2330 = load i16, ptr %2329, align 2, !noalias !19
   %2331 = icmp ult i16 %2330, 256
   %or.cond.i51 = select i1 %2331, i1 true, i1 %.08341381.i
@@ -35881,7 +35796,7 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
   %2385 = uitofp i8 %2384 to float
   %2386 = fdiv float %2385, 2.550000e+02
   %2387 = load ptr, ptr %2226, align 8, !noalias !19
-  %2388 = getelementptr inbounds nuw float, ptr %2387, i64 %2382
+  %2388 = getelementptr inbounds nuw [4 x i8], ptr %2387, i64 %2382
   store float %2386, ptr %2388, align 4, !noalias !19
   %2389 = add i32 %.08261375.i, 1
   %2390 = zext i32 %2389 to i64
@@ -35946,12 +35861,12 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
 .lr.ph1370.i:                                     ; preds = %.preheader1205.i, %.lr.ph1370.i
   %2428 = phi i64 [ %2436, %.lr.ph1370.i ], [ 0, %.preheader1205.i ]
   %.08211369.i = phi i32 [ %2435, %.lr.ph1370.i ], [ 0, %.preheader1205.i ]
-  %2429 = getelementptr inbounds nuw i16, ptr %2402, i64 %2428
+  %2429 = getelementptr inbounds nuw [2 x i8], ptr %2402, i64 %2428
   %2430 = load i16, ptr %2429, align 2, !noalias !19
   %2431 = uitofp i16 %2430 to float
   %2432 = fdiv float %2431, 6.553500e+04
   %2433 = load ptr, ptr %2226, align 8, !noalias !19
-  %2434 = getelementptr inbounds nuw float, ptr %2433, i64 %2428
+  %2434 = getelementptr inbounds nuw [4 x i8], ptr %2433, i64 %2428
   store float %2432, ptr %2434, align 4, !noalias !19
   %2435 = add i32 %.08211369.i, 1
   %2436 = zext i32 %2435 to i64
@@ -35975,11 +35890,11 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
   %2451 = getelementptr inbounds nuw i8, ptr %2446, i64 16
   %2452 = load i64, ptr %2451, align 8, !noalias !19
   %2453 = lshr i64 %2452, 2
-  %2454 = getelementptr inbounds nuw float, ptr %2450, i64 %2453
+  %2454 = getelementptr inbounds nuw [4 x i8], ptr %2450, i64 %2453
   %2455 = getelementptr inbounds nuw i8, ptr %2345, i64 24
   %2456 = load i64, ptr %2455, align 8, !noalias !19
   %2457 = lshr i64 %2456, 2
-  %2458 = getelementptr inbounds nuw float, ptr %2454, i64 %2457
+  %2458 = getelementptr inbounds nuw [4 x i8], ptr %2454, i64 %2457
   %2459 = getelementptr inbounds nuw i8, ptr %2345, i64 32
   %2460 = load i64, ptr %2459, align 8, !noalias !19
   %.not1438.i = icmp eq i64 %2460, 0
@@ -35994,7 +35909,7 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
   %.08201364.i = phi i32 [ 0, %.preheader1206.lr.ph.i ], [ %2468, %2464 ]
   %2462 = shl i32 %.08191365.i, 2
   %2463 = sext i32 %.08201364.i to i64
-  %invariant.gep1714.i = getelementptr float, ptr %2458, i64 %2463
+  %invariant.gep1714.i = getelementptr [4 x i8], ptr %2458, i64 %2463
   br label %2473
 
 2464:                                             ; preds = %2473
@@ -36010,13 +35925,13 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
 
 2473:                                             ; preds = %2473, %.preheader1206.i
   %indvars.iv1556.i = phi i64 [ 0, %.preheader1206.i ], [ %indvars.iv.next1557.i, %2473 ]
-  %gep1715.i = getelementptr float, ptr %invariant.gep1714.i, i64 %indvars.iv1556.i
+  %gep1715.i = getelementptr [4 x i8], ptr %invariant.gep1714.i, i64 %indvars.iv1556.i
   %2474 = load float, ptr %gep1715.i, align 4, !noalias !19
   %2475 = load ptr, ptr %2226, align 8, !noalias !19
   %2476 = trunc i64 %indvars.iv1556.i to i32
   %2477 = add nuw nsw i32 %2462, %2476
   %2478 = zext i32 %2477 to i64
-  %2479 = getelementptr inbounds nuw float, ptr %2475, i64 %2478
+  %2479 = getelementptr inbounds nuw [4 x i8], ptr %2475, i64 %2478
   store float %2474, ptr %2479, align 4, !noalias !19
   %indvars.iv.next1557.i = add nuw nsw i64 %indvars.iv1556.i, 1
   %exitcond1560.not.i = icmp eq i64 %indvars.iv.next1557.i, 4
@@ -36034,7 +35949,7 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
   %2482 = add i32 %.08491388.i, 1
   %2483 = zext i32 %2482 to i64
   %2484 = load ptr, ptr %2216, align 8, !noalias !19
-  %2485 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %2484, i64 %2219
+  %2485 = getelementptr inbounds nuw [144 x i8], ptr %2484, i64 %2219
   %2486 = getelementptr inbounds nuw i8, ptr %2485, i64 32
   %2487 = load i64, ptr %2486, align 8, !noalias !19
   %2488 = icmp ugt i64 %2487, %2483
@@ -36060,7 +35975,7 @@ MatrixDecompose.exit.i:                           ; preds = %2194, %2185, %2177,
 .lr.ph1393.i:                                     ; preds = %2490, %.lr.ph1393.i
   %indvars.iv1598.i = phi i64 [ %indvars.iv.next1599.i, %.lr.ph1393.i ], [ 0, %2490 ]
   %2495 = load ptr, ptr %2493, align 8, !noalias !19
-  %2496 = getelementptr inbounds nuw %struct.Matrix, ptr %2495, i64 %indvars.iv1598.i
+  %2496 = getelementptr inbounds nuw [64 x i8], ptr %2495, i64 %indvars.iv1598.i
   store float 1.000000e+00, ptr %2496, align 4, !noalias !19
   %.sroa.4.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %2496, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx.i47, i8 0, i64 16, i1 false), !noalias !19
@@ -36270,7 +36185,7 @@ LoadGLTF.exit:                                    ; preds = %714, %2510
   %2555 = phi i32 [ %2562, %2561 ], [ %2552, %.preheader.i.i75 ]
   %indvars.iv.i.i78 = phi i64 [ %indvars.iv.next.i.i79, %2561 ], [ 0, %.preheader.i.i75 ]
   %2556 = load ptr, ptr %2549, align 8, !noalias !28
-  %2557 = getelementptr inbounds nuw %struct.CubeChunk3D, ptr %2556, i64 %indvars.iv.i.i78
+  %2557 = getelementptr inbounds nuw [16 x i8], ptr %2556, i64 %indvars.iv.i.i78
   %2558 = load ptr, ptr %2557, align 8, !noalias !28
   %.not23.i.i = icmp eq ptr %2558, null
   br i1 %.not23.i.i, label %2561, label %2559
@@ -36308,7 +36223,7 @@ Vox_FreeArrays.exit.i:                            ; preds = %._crit_edge.i.i76, 
   %.05469.i = phi ptr [ %2542, %.lr.ph.i68 ], [ %2591, %2568 ]
   %.05568.i = phi ptr [ %2543, %.lr.ph.i68 ], [ %2590, %2568 ]
   %.05667.i = phi i32 [ %2544, %.lr.ph.i68 ], [ %2589, %2568 ]
-  %2569 = getelementptr inbounds nuw %struct.Mesh, ptr %2528, i64 %indvars.iv.i70
+  %2569 = getelementptr inbounds nuw [120 x i8], ptr %2528, i64 %indvars.iv.i70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2569, i8 0, i64 120, i1 false), !noalias !28
   %2570 = sitofp i32 %.05667.i to double
   %2571 = call double @llvm.minnum.f64(double %2570, double 6.553200e+04)
@@ -36338,7 +36253,7 @@ Vox_FreeArrays.exit.i:                            ; preds = %._crit_edge.i.i76, 
   %2587 = getelementptr inbounds nuw i8, ptr %2569, i64 48
   store ptr %2586, ptr %2587, align 8, !noalias !28
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2586, ptr align 1 %.05370.i, i64 %2585, i1 false), !noalias !28
-  %2588 = getelementptr inbounds nuw i32, ptr %2529, i64 %indvars.iv.i70
+  %2588 = getelementptr inbounds nuw [4 x i8], ptr %2529, i64 %indvars.iv.i70
   store i32 0, ptr %2588, align 4, !noalias !28
   %2589 = add nsw i32 %.05667.i, -65532
   %2590 = getelementptr inbounds nuw i8, ptr %.05568.i, i64 786384
@@ -36539,7 +36454,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %.0450554.i = phi i32 [ 0, %.lr.ph558.i ], [ %3153, %.loopexit540.i ]
   %.0454553.i = phi i32 [ -2, %.lr.ph558.i ], [ %.1455.i, %.loopexit540.i ]
   %2648 = load ptr, ptr %2631, align 8
-  %2649 = getelementptr inbounds nuw %struct.m3df_t, ptr %2648, i64 %indvars.iv.i95
+  %2649 = getelementptr inbounds nuw [40 x i8], ptr %2648, i64 %indvars.iv.i95
   %2650 = load i32, ptr %2649, align 4
   %.not479.i = icmp eq i32 %.0454553.i, %2650
   br i1 %.not479.i, label %._crit_edge619.i, label %2651
@@ -36558,13 +36473,13 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %2655 = sext i32 %2654 to i64
   %2656 = mul nsw i64 %2655, 120
   %2657 = call ptr @realloc(ptr noundef %.sroa.16.2, i64 noundef %2656) #61
-  %2658 = getelementptr %struct.Mesh, ptr %2657, i64 %2655
+  %2658 = getelementptr [120 x i8], ptr %2657, i64 %2655
   %2659 = getelementptr i8, ptr %2658, i64 -120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2659, i8 0, i64 120, i1 false)
   %2660 = shl nsw i64 %2655, 2
   %2661 = call ptr @realloc(ptr noundef %.sroa.86.2, i64 noundef %2660) #61
   %.pre.i96 = load ptr, ptr %2631, align 8
-  %.phi.trans.insert.i97 = getelementptr inbounds nuw %struct.m3df_t, ptr %.pre.i96, i64 %indvars.iv.i95
+  %.phi.trans.insert.i97 = getelementptr inbounds nuw [40 x i8], ptr %.pre.i96, i64 %indvars.iv.i95
   %.pre607.i = load i32, ptr %.phi.trans.insert.i97, align 4
   %.pre608.i = load i32, ptr %2605, align 8
   br label %2662
@@ -36588,7 +36503,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %indvars.iv575.i = phi i64 [ %indvars.iv.i95, %.lr.ph.preheader.i ], [ %indvars.iv.next576.i, %2695 ]
   %.2452543.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %2696, %2695 ]
   %.0456542.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1457.i, %2695 ]
-  %2669 = getelementptr inbounds nuw %struct.m3df_t, ptr %2665, i64 %indvars.iv575.i
+  %2669 = getelementptr inbounds nuw [40 x i8], ptr %2665, i64 %indvars.iv575.i
   %2670 = load i32, ptr %2669, align 4
   %2671 = icmp eq i32 %2664, %2670
   br i1 %2671, label %2672, label %.critedge.loopexit.i
@@ -36598,7 +36513,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %2674 = getelementptr inbounds nuw i8, ptr %2669, i64 4
   %2675 = load i32, ptr %2674, align 4
   %2676 = zext i32 %2675 to i64
-  %2677 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2673, i64 %2676
+  %2677 = getelementptr inbounds nuw [24 x i8], ptr %2673, i64 %2676
   %2678 = getelementptr inbounds nuw i8, ptr %2677, i64 16
   %2679 = load i32, ptr %2678, align 4
   %.not493.i = icmp eq i32 %2679, 0
@@ -36608,7 +36523,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %2681 = getelementptr inbounds nuw i8, ptr %2669, i64 8
   %2682 = load i32, ptr %2681, align 4
   %2683 = zext i32 %2682 to i64
-  %2684 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2673, i64 %2683
+  %2684 = getelementptr inbounds nuw [24 x i8], ptr %2673, i64 %2683
   %2685 = getelementptr inbounds nuw i8, ptr %2684, i64 16
   %2686 = load i32, ptr %2685, align 4
   %.not494.i = icmp eq i32 %2686, 0
@@ -36618,7 +36533,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %2688 = getelementptr inbounds nuw i8, ptr %2669, i64 12
   %2689 = load i32, ptr %2688, align 4
   %2690 = zext i32 %2689 to i64
-  %2691 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2673, i64 %2690
+  %2691 = getelementptr inbounds nuw [24 x i8], ptr %2673, i64 %2690
   %2692 = getelementptr inbounds nuw i8, ptr %2691, i64 16
   %2693 = load i32, ptr %2692, align 4
   %.not495.i = icmp eq i32 %2693, 0
@@ -36645,7 +36560,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %.2452.lcssa.i = phi i32 [ 0, %2662 ], [ %.2452.lcssa.ph.i, %.critedge.loopexit.i ]
   %2698 = mul nuw nsw i32 %.2452.lcssa.i, 3
   %2699 = sext i32 %2652 to i64
-  %2700 = getelementptr inbounds %struct.Mesh, ptr %.sroa.16.3, i64 %2699
+  %2700 = getelementptr inbounds [120 x i8], ptr %.sroa.16.3, i64 %2699
   store i32 %2698, ptr %2700, align 8
   %2701 = getelementptr inbounds nuw i8, ptr %2700, i64 4
   store i32 %.2452.lcssa.i, ptr %2701, align 4
@@ -36722,7 +36637,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
 
 2743:                                             ; preds = %2730, %2728, %.thread.i99
   %2744 = add nsw i32 %2664, 1
-  %2745 = getelementptr inbounds i32, ptr %.sroa.86.3, i64 %2699
+  %2745 = getelementptr inbounds [4 x i8], ptr %.sroa.86.3, i64 %2699
   store i32 %2744, ptr %2745, align 4
   %.pre609.i = load ptr, ptr %2631, align 8
   br label %2746
@@ -36737,28 +36652,28 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %.1451.i = phi i32 [ %.0450554.i, %._crit_edge619.i ], [ 0, %2743 ]
   %.1449.i = phi i32 [ %.0448555.i, %._crit_edge619.i ], [ %2652, %2743 ]
   %2748 = load ptr, ptr %2632, align 8
-  %2749 = getelementptr inbounds nuw %struct.m3df_t, ptr %2747, i64 %indvars.iv.i95
+  %2749 = getelementptr inbounds nuw [40 x i8], ptr %2747, i64 %indvars.iv.i95
   %2750 = getelementptr inbounds nuw i8, ptr %2749, i64 4
   %2751 = load i32, ptr %2750, align 4
   %2752 = zext i32 %2751 to i64
-  %2753 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2748, i64 %2752
+  %2753 = getelementptr inbounds nuw [24 x i8], ptr %2748, i64 %2752
   %2754 = load float, ptr %2753, align 4
   %2755 = load float, ptr %2635, align 8
   %2756 = fmul float %2754, %2755
-  %2757 = getelementptr inbounds %struct.Mesh, ptr %.sroa.16.4, i64 %.pre-phi.i
+  %2757 = getelementptr inbounds [120 x i8], ptr %.sroa.16.4, i64 %.pre-phi.i
   %2758 = getelementptr inbounds nuw i8, ptr %2757, i64 8
   %2759 = load ptr, ptr %2758, align 8
   %2760 = mul nsw i32 %.1451.i, 9
   %2761 = sext i32 %2760 to i64
-  %2762 = getelementptr inbounds float, ptr %2759, i64 %2761
+  %2762 = getelementptr inbounds [4 x i8], ptr %2759, i64 %2761
   store float %2756, ptr %2762, align 4
   %2763 = load ptr, ptr %2632, align 8
   %2764 = load ptr, ptr %2631, align 8
-  %2765 = getelementptr inbounds nuw %struct.m3df_t, ptr %2764, i64 %indvars.iv.i95
+  %2765 = getelementptr inbounds nuw [40 x i8], ptr %2764, i64 %indvars.iv.i95
   %2766 = getelementptr inbounds nuw i8, ptr %2765, i64 4
   %2767 = load i32, ptr %2766, align 4
   %2768 = zext i32 %2767 to i64
-  %2769 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2763, i64 %2768
+  %2769 = getelementptr inbounds nuw [24 x i8], ptr %2763, i64 %2768
   %2770 = getelementptr inbounds nuw i8, ptr %2769, i64 4
   %2771 = load float, ptr %2770, align 4
   %2772 = load float, ptr %2635, align 8
@@ -36766,15 +36681,15 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %2774 = load ptr, ptr %2758, align 8
   %2775 = add nsw i32 %2760, 1
   %2776 = sext i32 %2775 to i64
-  %2777 = getelementptr inbounds float, ptr %2774, i64 %2776
+  %2777 = getelementptr inbounds [4 x i8], ptr %2774, i64 %2776
   store float %2773, ptr %2777, align 4
   %2778 = load ptr, ptr %2632, align 8
   %2779 = load ptr, ptr %2631, align 8
-  %2780 = getelementptr inbounds nuw %struct.m3df_t, ptr %2779, i64 %indvars.iv.i95
+  %2780 = getelementptr inbounds nuw [40 x i8], ptr %2779, i64 %indvars.iv.i95
   %2781 = getelementptr inbounds nuw i8, ptr %2780, i64 4
   %2782 = load i32, ptr %2781, align 4
   %2783 = zext i32 %2782 to i64
-  %2784 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2778, i64 %2783
+  %2784 = getelementptr inbounds nuw [24 x i8], ptr %2778, i64 %2783
   %2785 = getelementptr inbounds nuw i8, ptr %2784, i64 8
   %2786 = load float, ptr %2785, align 4
   %2787 = load float, ptr %2635, align 8
@@ -36782,30 +36697,30 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %2789 = load ptr, ptr %2758, align 8
   %2790 = add nsw i32 %2760, 2
   %2791 = sext i32 %2790 to i64
-  %2792 = getelementptr inbounds float, ptr %2789, i64 %2791
+  %2792 = getelementptr inbounds [4 x i8], ptr %2789, i64 %2791
   store float %2788, ptr %2792, align 4
   %2793 = load ptr, ptr %2632, align 8
   %2794 = load ptr, ptr %2631, align 8
-  %2795 = getelementptr inbounds nuw %struct.m3df_t, ptr %2794, i64 %indvars.iv.i95
+  %2795 = getelementptr inbounds nuw [40 x i8], ptr %2794, i64 %indvars.iv.i95
   %2796 = getelementptr inbounds nuw i8, ptr %2795, i64 8
   %2797 = load i32, ptr %2796, align 4
   %2798 = zext i32 %2797 to i64
-  %2799 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2793, i64 %2798
+  %2799 = getelementptr inbounds nuw [24 x i8], ptr %2793, i64 %2798
   %2800 = load float, ptr %2799, align 4
   %2801 = load float, ptr %2635, align 8
   %2802 = fmul float %2800, %2801
   %2803 = load ptr, ptr %2758, align 8
   %2804 = add nsw i32 %2760, 3
   %2805 = sext i32 %2804 to i64
-  %2806 = getelementptr inbounds float, ptr %2803, i64 %2805
+  %2806 = getelementptr inbounds [4 x i8], ptr %2803, i64 %2805
   store float %2802, ptr %2806, align 4
   %2807 = load ptr, ptr %2632, align 8
   %2808 = load ptr, ptr %2631, align 8
-  %2809 = getelementptr inbounds nuw %struct.m3df_t, ptr %2808, i64 %indvars.iv.i95
+  %2809 = getelementptr inbounds nuw [40 x i8], ptr %2808, i64 %indvars.iv.i95
   %2810 = getelementptr inbounds nuw i8, ptr %2809, i64 8
   %2811 = load i32, ptr %2810, align 4
   %2812 = zext i32 %2811 to i64
-  %2813 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2807, i64 %2812
+  %2813 = getelementptr inbounds nuw [24 x i8], ptr %2807, i64 %2812
   %2814 = getelementptr inbounds nuw i8, ptr %2813, i64 4
   %2815 = load float, ptr %2814, align 4
   %2816 = load float, ptr %2635, align 8
@@ -36813,15 +36728,15 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %2818 = load ptr, ptr %2758, align 8
   %2819 = add nsw i32 %2760, 4
   %2820 = sext i32 %2819 to i64
-  %2821 = getelementptr inbounds float, ptr %2818, i64 %2820
+  %2821 = getelementptr inbounds [4 x i8], ptr %2818, i64 %2820
   store float %2817, ptr %2821, align 4
   %2822 = load ptr, ptr %2632, align 8
   %2823 = load ptr, ptr %2631, align 8
-  %2824 = getelementptr inbounds nuw %struct.m3df_t, ptr %2823, i64 %indvars.iv.i95
+  %2824 = getelementptr inbounds nuw [40 x i8], ptr %2823, i64 %indvars.iv.i95
   %2825 = getelementptr inbounds nuw i8, ptr %2824, i64 8
   %2826 = load i32, ptr %2825, align 4
   %2827 = zext i32 %2826 to i64
-  %2828 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2822, i64 %2827
+  %2828 = getelementptr inbounds nuw [24 x i8], ptr %2822, i64 %2827
   %2829 = getelementptr inbounds nuw i8, ptr %2828, i64 8
   %2830 = load float, ptr %2829, align 4
   %2831 = load float, ptr %2635, align 8
@@ -36829,30 +36744,30 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %2833 = load ptr, ptr %2758, align 8
   %2834 = add nsw i32 %2760, 5
   %2835 = sext i32 %2834 to i64
-  %2836 = getelementptr inbounds float, ptr %2833, i64 %2835
+  %2836 = getelementptr inbounds [4 x i8], ptr %2833, i64 %2835
   store float %2832, ptr %2836, align 4
   %2837 = load ptr, ptr %2632, align 8
   %2838 = load ptr, ptr %2631, align 8
-  %2839 = getelementptr inbounds nuw %struct.m3df_t, ptr %2838, i64 %indvars.iv.i95
+  %2839 = getelementptr inbounds nuw [40 x i8], ptr %2838, i64 %indvars.iv.i95
   %2840 = getelementptr inbounds nuw i8, ptr %2839, i64 12
   %2841 = load i32, ptr %2840, align 4
   %2842 = zext i32 %2841 to i64
-  %2843 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2837, i64 %2842
+  %2843 = getelementptr inbounds nuw [24 x i8], ptr %2837, i64 %2842
   %2844 = load float, ptr %2843, align 4
   %2845 = load float, ptr %2635, align 8
   %2846 = fmul float %2844, %2845
   %2847 = load ptr, ptr %2758, align 8
   %2848 = add nsw i32 %2760, 6
   %2849 = sext i32 %2848 to i64
-  %2850 = getelementptr inbounds float, ptr %2847, i64 %2849
+  %2850 = getelementptr inbounds [4 x i8], ptr %2847, i64 %2849
   store float %2846, ptr %2850, align 4
   %2851 = load ptr, ptr %2632, align 8
   %2852 = load ptr, ptr %2631, align 8
-  %2853 = getelementptr inbounds nuw %struct.m3df_t, ptr %2852, i64 %indvars.iv.i95
+  %2853 = getelementptr inbounds nuw [40 x i8], ptr %2852, i64 %indvars.iv.i95
   %2854 = getelementptr inbounds nuw i8, ptr %2853, i64 12
   %2855 = load i32, ptr %2854, align 4
   %2856 = zext i32 %2855 to i64
-  %2857 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2851, i64 %2856
+  %2857 = getelementptr inbounds nuw [24 x i8], ptr %2851, i64 %2856
   %2858 = getelementptr inbounds nuw i8, ptr %2857, i64 4
   %2859 = load float, ptr %2858, align 4
   %2860 = load float, ptr %2635, align 8
@@ -36860,15 +36775,15 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %2862 = load ptr, ptr %2758, align 8
   %2863 = add nsw i32 %2760, 7
   %2864 = sext i32 %2863 to i64
-  %2865 = getelementptr inbounds float, ptr %2862, i64 %2864
+  %2865 = getelementptr inbounds [4 x i8], ptr %2862, i64 %2864
   store float %2861, ptr %2865, align 4
   %2866 = load ptr, ptr %2632, align 8
   %2867 = load ptr, ptr %2631, align 8
-  %2868 = getelementptr inbounds nuw %struct.m3df_t, ptr %2867, i64 %indvars.iv.i95
+  %2868 = getelementptr inbounds nuw [40 x i8], ptr %2867, i64 %indvars.iv.i95
   %2869 = getelementptr inbounds nuw i8, ptr %2868, i64 12
   %2870 = load i32, ptr %2869, align 4
   %2871 = zext i32 %2870 to i64
-  %2872 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2866, i64 %2871
+  %2872 = getelementptr inbounds nuw [24 x i8], ptr %2866, i64 %2871
   %2873 = getelementptr inbounds nuw i8, ptr %2872, i64 8
   %2874 = load float, ptr %2873, align 4
   %2875 = load float, ptr %2635, align 8
@@ -36876,7 +36791,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %2877 = load ptr, ptr %2758, align 8
   %2878 = add nsw i32 %2760, 8
   %2879 = sext i32 %2878 to i64
-  %2880 = getelementptr inbounds float, ptr %2877, i64 %2879
+  %2880 = getelementptr inbounds [4 x i8], ptr %2877, i64 %2879
   store float %2876, ptr %2880, align 4
   %2881 = getelementptr inbounds nuw i8, ptr %2757, i64 48
   %2882 = load ptr, ptr %2881, align 8
@@ -36886,11 +36801,11 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
 
 2883:                                             ; preds = %2746
   %2884 = load ptr, ptr %2632, align 8
-  %2885 = getelementptr inbounds nuw %struct.m3df_t, ptr %.pre615.i, i64 %indvars.iv.i95
+  %2885 = getelementptr inbounds nuw [40 x i8], ptr %.pre615.i, i64 %indvars.iv.i95
   %2886 = getelementptr inbounds nuw i8, ptr %2885, i64 4
   %2887 = load i32, ptr %2886, align 4
   %2888 = zext i32 %2887 to i64
-  %2889 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2884, i64 %2888
+  %2889 = getelementptr inbounds nuw [24 x i8], ptr %2884, i64 %2888
   %2890 = getelementptr inbounds nuw i8, ptr %2889, i64 16
   %2891 = load i32, ptr %2890, align 4
   %.not485.i = icmp ult i32 %2891, 16777216
@@ -36908,11 +36823,11 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
 2896:                                             ; preds = %2892, %2883
   %2897 = phi ptr [ %.pre611.i, %2892 ], [ %.pre615.i, %2883 ]
   %2898 = phi ptr [ %.pre610.i, %2892 ], [ %2884, %2883 ]
-  %2899 = getelementptr inbounds nuw %struct.m3df_t, ptr %2897, i64 %indvars.iv.i95
+  %2899 = getelementptr inbounds nuw [40 x i8], ptr %2897, i64 %indvars.iv.i95
   %2900 = getelementptr inbounds nuw i8, ptr %2899, i64 8
   %2901 = load i32, ptr %2900, align 4
   %2902 = zext i32 %2901 to i64
-  %2903 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2898, i64 %2902
+  %2903 = getelementptr inbounds nuw [24 x i8], ptr %2898, i64 %2902
   %2904 = getelementptr inbounds nuw i8, ptr %2903, i64 16
   %2905 = load i32, ptr %2904, align 4
   %.not486.i = icmp ult i32 %2905, 16777216
@@ -36932,11 +36847,11 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
 2912:                                             ; preds = %2906, %2896
   %2913 = phi ptr [ %.pre613.i, %2906 ], [ %2897, %2896 ]
   %2914 = phi ptr [ %.pre612.i, %2906 ], [ %2898, %2896 ]
-  %2915 = getelementptr inbounds nuw %struct.m3df_t, ptr %2913, i64 %indvars.iv.i95
+  %2915 = getelementptr inbounds nuw [40 x i8], ptr %2913, i64 %indvars.iv.i95
   %2916 = getelementptr inbounds nuw i8, ptr %2915, i64 12
   %2917 = load i32, ptr %2916, align 4
   %2918 = zext i32 %2917 to i64
-  %2919 = getelementptr inbounds nuw %struct.m3dv_t, ptr %2914, i64 %2918
+  %2919 = getelementptr inbounds nuw [24 x i8], ptr %2914, i64 %2918
   %2920 = getelementptr inbounds nuw i8, ptr %2919, i64 16
   %2921 = load i32, ptr %2920, align 4
   %.not487.i = icmp ult i32 %2921, 16777216
@@ -36954,7 +36869,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
 
 2928:                                             ; preds = %2922, %2912, %2746
   %2929 = phi ptr [ %2913, %2912 ], [ %.pre614.i, %2922 ], [ %.pre615.i, %2746 ]
-  %2930 = getelementptr inbounds nuw %struct.m3df_t, ptr %2929, i64 %indvars.iv.i95
+  %2930 = getelementptr inbounds nuw [40 x i8], ptr %2929, i64 %indvars.iv.i95
   %2931 = getelementptr inbounds nuw i8, ptr %2930, i64 28
   %2932 = load i32, ptr %2931, align 4
   %.not488.i = icmp eq i32 %2932, -1
@@ -36963,78 +36878,78 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
 2933:                                             ; preds = %2928
   %2934 = load ptr, ptr %2636, align 8
   %2935 = zext i32 %2932 to i64
-  %2936 = getelementptr inbounds nuw %struct.m3dti_t, ptr %2934, i64 %2935
+  %2936 = getelementptr inbounds nuw [8 x i8], ptr %2934, i64 %2935
   %2937 = load float, ptr %2936, align 4
   %2938 = getelementptr inbounds nuw i8, ptr %2757, i64 16
   %2939 = load ptr, ptr %2938, align 8
   %2940 = mul nsw i32 %.1451.i, 6
   %2941 = sext i32 %2940 to i64
-  %2942 = getelementptr inbounds float, ptr %2939, i64 %2941
+  %2942 = getelementptr inbounds [4 x i8], ptr %2939, i64 %2941
   store float %2937, ptr %2942, align 4
   %2943 = load ptr, ptr %2636, align 8
   %2944 = load ptr, ptr %2631, align 8
-  %2945 = getelementptr inbounds nuw %struct.m3df_t, ptr %2944, i64 %indvars.iv.i95
+  %2945 = getelementptr inbounds nuw [40 x i8], ptr %2944, i64 %indvars.iv.i95
   %2946 = getelementptr inbounds nuw i8, ptr %2945, i64 28
   %2947 = load i32, ptr %2946, align 4
   %2948 = zext i32 %2947 to i64
-  %2949 = getelementptr inbounds nuw %struct.m3dti_t, ptr %2943, i64 %2948
+  %2949 = getelementptr inbounds nuw [8 x i8], ptr %2943, i64 %2948
   %2950 = getelementptr inbounds nuw i8, ptr %2949, i64 4
   %2951 = load float, ptr %2950, align 4
   %2952 = fsub float 1.000000e+00, %2951
   %2953 = load ptr, ptr %2938, align 8
-  %2954 = getelementptr float, ptr %2953, i64 %2941
+  %2954 = getelementptr [4 x i8], ptr %2953, i64 %2941
   %2955 = getelementptr i8, ptr %2954, i64 4
   store float %2952, ptr %2955, align 4
   %2956 = load ptr, ptr %2636, align 8
   %2957 = load ptr, ptr %2631, align 8
-  %2958 = getelementptr inbounds nuw %struct.m3df_t, ptr %2957, i64 %indvars.iv.i95
+  %2958 = getelementptr inbounds nuw [40 x i8], ptr %2957, i64 %indvars.iv.i95
   %2959 = getelementptr inbounds nuw i8, ptr %2958, i64 32
   %2960 = load i32, ptr %2959, align 4
   %2961 = zext i32 %2960 to i64
-  %2962 = getelementptr inbounds nuw %struct.m3dti_t, ptr %2956, i64 %2961
+  %2962 = getelementptr inbounds nuw [8 x i8], ptr %2956, i64 %2961
   %2963 = load float, ptr %2962, align 4
   %2964 = load ptr, ptr %2938, align 8
-  %2965 = getelementptr float, ptr %2964, i64 %2941
+  %2965 = getelementptr [4 x i8], ptr %2964, i64 %2941
   %2966 = getelementptr i8, ptr %2965, i64 8
   store float %2963, ptr %2966, align 4
   %2967 = load ptr, ptr %2636, align 8
   %2968 = load ptr, ptr %2631, align 8
-  %2969 = getelementptr inbounds nuw %struct.m3df_t, ptr %2968, i64 %indvars.iv.i95
+  %2969 = getelementptr inbounds nuw [40 x i8], ptr %2968, i64 %indvars.iv.i95
   %2970 = getelementptr inbounds nuw i8, ptr %2969, i64 32
   %2971 = load i32, ptr %2970, align 4
   %2972 = zext i32 %2971 to i64
-  %2973 = getelementptr inbounds nuw %struct.m3dti_t, ptr %2967, i64 %2972
+  %2973 = getelementptr inbounds nuw [8 x i8], ptr %2967, i64 %2972
   %2974 = getelementptr inbounds nuw i8, ptr %2973, i64 4
   %2975 = load float, ptr %2974, align 4
   %2976 = fsub float 1.000000e+00, %2975
   %2977 = load ptr, ptr %2938, align 8
-  %2978 = getelementptr float, ptr %2977, i64 %2941
+  %2978 = getelementptr [4 x i8], ptr %2977, i64 %2941
   %2979 = getelementptr i8, ptr %2978, i64 12
   store float %2976, ptr %2979, align 4
   %2980 = load ptr, ptr %2636, align 8
   %2981 = load ptr, ptr %2631, align 8
-  %2982 = getelementptr inbounds nuw %struct.m3df_t, ptr %2981, i64 %indvars.iv.i95
+  %2982 = getelementptr inbounds nuw [40 x i8], ptr %2981, i64 %indvars.iv.i95
   %2983 = getelementptr inbounds nuw i8, ptr %2982, i64 36
   %2984 = load i32, ptr %2983, align 4
   %2985 = zext i32 %2984 to i64
-  %2986 = getelementptr inbounds nuw %struct.m3dti_t, ptr %2980, i64 %2985
+  %2986 = getelementptr inbounds nuw [8 x i8], ptr %2980, i64 %2985
   %2987 = load float, ptr %2986, align 4
   %2988 = load ptr, ptr %2938, align 8
-  %2989 = getelementptr float, ptr %2988, i64 %2941
+  %2989 = getelementptr [4 x i8], ptr %2988, i64 %2941
   %2990 = getelementptr i8, ptr %2989, i64 16
   store float %2987, ptr %2990, align 4
   %2991 = load ptr, ptr %2636, align 8
   %2992 = load ptr, ptr %2631, align 8
-  %2993 = getelementptr inbounds nuw %struct.m3df_t, ptr %2992, i64 %indvars.iv.i95
+  %2993 = getelementptr inbounds nuw [40 x i8], ptr %2992, i64 %indvars.iv.i95
   %2994 = getelementptr inbounds nuw i8, ptr %2993, i64 36
   %2995 = load i32, ptr %2994, align 4
   %2996 = zext i32 %2995 to i64
-  %2997 = getelementptr inbounds nuw %struct.m3dti_t, ptr %2991, i64 %2996
+  %2997 = getelementptr inbounds nuw [8 x i8], ptr %2991, i64 %2996
   %2998 = getelementptr inbounds nuw i8, ptr %2997, i64 4
   %2999 = load float, ptr %2998, align 4
   %3000 = fsub float 1.000000e+00, %2999
   %3001 = load ptr, ptr %2938, align 8
-  %3002 = getelementptr float, ptr %3001, i64 %2941
+  %3002 = getelementptr [4 x i8], ptr %3001, i64 %2941
   %3003 = getelementptr i8, ptr %3002, i64 20
   store float %3000, ptr %3003, align 4
   %.pre616.i = load ptr, ptr %2631, align 8
@@ -37042,7 +36957,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
 
 3004:                                             ; preds = %2933, %2928
   %3005 = phi ptr [ %.pre616.i, %2933 ], [ %2929, %2928 ]
-  %3006 = getelementptr inbounds nuw %struct.m3df_t, ptr %3005, i64 %indvars.iv.i95
+  %3006 = getelementptr inbounds nuw [40 x i8], ptr %3005, i64 %indvars.iv.i95
   %3007 = getelementptr inbounds nuw i8, ptr %3006, i64 16
   %3008 = load i32, ptr %3007, align 4
   %.not489.i = icmp eq i32 %3008, -1
@@ -37051,105 +36966,105 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
 3009:                                             ; preds = %3004
   %3010 = load ptr, ptr %2632, align 8
   %3011 = zext i32 %3008 to i64
-  %3012 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3010, i64 %3011
+  %3012 = getelementptr inbounds nuw [24 x i8], ptr %3010, i64 %3011
   %3013 = load float, ptr %3012, align 4
   %3014 = getelementptr inbounds nuw i8, ptr %2757, i64 32
   %3015 = load ptr, ptr %3014, align 8
-  %3016 = getelementptr inbounds float, ptr %3015, i64 %2761
+  %3016 = getelementptr inbounds [4 x i8], ptr %3015, i64 %2761
   store float %3013, ptr %3016, align 4
   %3017 = load ptr, ptr %2632, align 8
   %3018 = load ptr, ptr %2631, align 8
-  %3019 = getelementptr inbounds nuw %struct.m3df_t, ptr %3018, i64 %indvars.iv.i95
+  %3019 = getelementptr inbounds nuw [40 x i8], ptr %3018, i64 %indvars.iv.i95
   %3020 = getelementptr inbounds nuw i8, ptr %3019, i64 16
   %3021 = load i32, ptr %3020, align 4
   %3022 = zext i32 %3021 to i64
-  %3023 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3017, i64 %3022
+  %3023 = getelementptr inbounds nuw [24 x i8], ptr %3017, i64 %3022
   %3024 = getelementptr inbounds nuw i8, ptr %3023, i64 4
   %3025 = load float, ptr %3024, align 4
   %3026 = load ptr, ptr %3014, align 8
-  %3027 = getelementptr inbounds float, ptr %3026, i64 %2776
+  %3027 = getelementptr inbounds [4 x i8], ptr %3026, i64 %2776
   store float %3025, ptr %3027, align 4
   %3028 = load ptr, ptr %2632, align 8
   %3029 = load ptr, ptr %2631, align 8
-  %3030 = getelementptr inbounds nuw %struct.m3df_t, ptr %3029, i64 %indvars.iv.i95
+  %3030 = getelementptr inbounds nuw [40 x i8], ptr %3029, i64 %indvars.iv.i95
   %3031 = getelementptr inbounds nuw i8, ptr %3030, i64 16
   %3032 = load i32, ptr %3031, align 4
   %3033 = zext i32 %3032 to i64
-  %3034 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3028, i64 %3033
+  %3034 = getelementptr inbounds nuw [24 x i8], ptr %3028, i64 %3033
   %3035 = getelementptr inbounds nuw i8, ptr %3034, i64 8
   %3036 = load float, ptr %3035, align 4
   %3037 = load ptr, ptr %3014, align 8
-  %3038 = getelementptr inbounds float, ptr %3037, i64 %2791
+  %3038 = getelementptr inbounds [4 x i8], ptr %3037, i64 %2791
   store float %3036, ptr %3038, align 4
   %3039 = load ptr, ptr %2632, align 8
   %3040 = load ptr, ptr %2631, align 8
-  %3041 = getelementptr inbounds nuw %struct.m3df_t, ptr %3040, i64 %indvars.iv.i95
+  %3041 = getelementptr inbounds nuw [40 x i8], ptr %3040, i64 %indvars.iv.i95
   %3042 = getelementptr inbounds nuw i8, ptr %3041, i64 20
   %3043 = load i32, ptr %3042, align 4
   %3044 = zext i32 %3043 to i64
-  %3045 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3039, i64 %3044
+  %3045 = getelementptr inbounds nuw [24 x i8], ptr %3039, i64 %3044
   %3046 = load float, ptr %3045, align 4
   %3047 = load ptr, ptr %3014, align 8
-  %3048 = getelementptr inbounds float, ptr %3047, i64 %2805
+  %3048 = getelementptr inbounds [4 x i8], ptr %3047, i64 %2805
   store float %3046, ptr %3048, align 4
   %3049 = load ptr, ptr %2632, align 8
   %3050 = load ptr, ptr %2631, align 8
-  %3051 = getelementptr inbounds nuw %struct.m3df_t, ptr %3050, i64 %indvars.iv.i95
+  %3051 = getelementptr inbounds nuw [40 x i8], ptr %3050, i64 %indvars.iv.i95
   %3052 = getelementptr inbounds nuw i8, ptr %3051, i64 20
   %3053 = load i32, ptr %3052, align 4
   %3054 = zext i32 %3053 to i64
-  %3055 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3049, i64 %3054
+  %3055 = getelementptr inbounds nuw [24 x i8], ptr %3049, i64 %3054
   %3056 = getelementptr inbounds nuw i8, ptr %3055, i64 4
   %3057 = load float, ptr %3056, align 4
   %3058 = load ptr, ptr %3014, align 8
-  %3059 = getelementptr inbounds float, ptr %3058, i64 %2820
+  %3059 = getelementptr inbounds [4 x i8], ptr %3058, i64 %2820
   store float %3057, ptr %3059, align 4
   %3060 = load ptr, ptr %2632, align 8
   %3061 = load ptr, ptr %2631, align 8
-  %3062 = getelementptr inbounds nuw %struct.m3df_t, ptr %3061, i64 %indvars.iv.i95
+  %3062 = getelementptr inbounds nuw [40 x i8], ptr %3061, i64 %indvars.iv.i95
   %3063 = getelementptr inbounds nuw i8, ptr %3062, i64 20
   %3064 = load i32, ptr %3063, align 4
   %3065 = zext i32 %3064 to i64
-  %3066 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3060, i64 %3065
+  %3066 = getelementptr inbounds nuw [24 x i8], ptr %3060, i64 %3065
   %3067 = getelementptr inbounds nuw i8, ptr %3066, i64 8
   %3068 = load float, ptr %3067, align 4
   %3069 = load ptr, ptr %3014, align 8
-  %3070 = getelementptr inbounds float, ptr %3069, i64 %2835
+  %3070 = getelementptr inbounds [4 x i8], ptr %3069, i64 %2835
   store float %3068, ptr %3070, align 4
   %3071 = load ptr, ptr %2632, align 8
   %3072 = load ptr, ptr %2631, align 8
-  %3073 = getelementptr inbounds nuw %struct.m3df_t, ptr %3072, i64 %indvars.iv.i95
+  %3073 = getelementptr inbounds nuw [40 x i8], ptr %3072, i64 %indvars.iv.i95
   %3074 = getelementptr inbounds nuw i8, ptr %3073, i64 24
   %3075 = load i32, ptr %3074, align 4
   %3076 = zext i32 %3075 to i64
-  %3077 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3071, i64 %3076
+  %3077 = getelementptr inbounds nuw [24 x i8], ptr %3071, i64 %3076
   %3078 = load float, ptr %3077, align 4
   %3079 = load ptr, ptr %3014, align 8
-  %3080 = getelementptr inbounds float, ptr %3079, i64 %2849
+  %3080 = getelementptr inbounds [4 x i8], ptr %3079, i64 %2849
   store float %3078, ptr %3080, align 4
   %3081 = load ptr, ptr %2632, align 8
   %3082 = load ptr, ptr %2631, align 8
-  %3083 = getelementptr inbounds nuw %struct.m3df_t, ptr %3082, i64 %indvars.iv.i95
+  %3083 = getelementptr inbounds nuw [40 x i8], ptr %3082, i64 %indvars.iv.i95
   %3084 = getelementptr inbounds nuw i8, ptr %3083, i64 24
   %3085 = load i32, ptr %3084, align 4
   %3086 = zext i32 %3085 to i64
-  %3087 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3081, i64 %3086
+  %3087 = getelementptr inbounds nuw [24 x i8], ptr %3081, i64 %3086
   %3088 = getelementptr inbounds nuw i8, ptr %3087, i64 4
   %3089 = load float, ptr %3088, align 4
   %3090 = load ptr, ptr %3014, align 8
-  %3091 = getelementptr inbounds float, ptr %3090, i64 %2864
+  %3091 = getelementptr inbounds [4 x i8], ptr %3090, i64 %2864
   store float %3089, ptr %3091, align 4
   %3092 = load ptr, ptr %2632, align 8
   %3093 = load ptr, ptr %2631, align 8
-  %3094 = getelementptr inbounds nuw %struct.m3df_t, ptr %3093, i64 %indvars.iv.i95
+  %3094 = getelementptr inbounds nuw [40 x i8], ptr %3093, i64 %indvars.iv.i95
   %3095 = getelementptr inbounds nuw i8, ptr %3094, i64 24
   %3096 = load i32, ptr %3095, align 4
   %3097 = zext i32 %3096 to i64
-  %3098 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3092, i64 %3097
+  %3098 = getelementptr inbounds nuw [24 x i8], ptr %3092, i64 %3097
   %3099 = getelementptr inbounds nuw i8, ptr %3098, i64 8
   %3100 = load float, ptr %3099, align 4
   %3101 = load ptr, ptr %3014, align 8
-  %3102 = getelementptr inbounds float, ptr %3101, i64 %2879
+  %3102 = getelementptr inbounds [4 x i8], ptr %3101, i64 %2879
   store float %3100, ptr %3102, align 4
   br label %3103
 
@@ -37174,12 +37089,12 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %indvars.iv587.i = phi i64 [ 0, %.preheader539.i ], [ %indvars.iv.next588.i, %.loopexit538.i ]
   %3112 = load ptr, ptr %2632, align 8
   %3113 = load ptr, ptr %2631, align 8
-  %3114 = getelementptr inbounds nuw %struct.m3df_t, ptr %3113, i64 %indvars.iv.i95
+  %3114 = getelementptr inbounds nuw [40 x i8], ptr %3113, i64 %indvars.iv.i95
   %3115 = getelementptr inbounds nuw i8, ptr %3114, i64 4
-  %3116 = getelementptr inbounds nuw i32, ptr %3115, i64 %indvars.iv587.i
+  %3116 = getelementptr inbounds nuw [4 x i8], ptr %3115, i64 %indvars.iv587.i
   %3117 = load i32, ptr %3116, align 4
   %3118 = zext i32 %3117 to i64
-  %3119 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3112, i64 %3118
+  %3119 = getelementptr inbounds nuw [24 x i8], ptr %3112, i64 %3118
   %3120 = getelementptr inbounds nuw i8, ptr %3119, i64 20
   %3121 = load i32, ptr %3120, align 4
   %.not492.i = icmp eq i32 %3121, -1
@@ -37199,8 +37114,8 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
 3128:                                             ; preds = %3128, %.preheader537.i
   %indvars.iv583.i = phi i64 [ 0, %.preheader537.i ], [ %indvars.iv.next584.i, %3128 ]
   %3129 = load ptr, ptr %2637, align 8
-  %3130 = getelementptr inbounds %struct.m3ds_t, ptr %3129, i64 %3125
-  %3131 = getelementptr inbounds nuw i32, ptr %3130, i64 %indvars.iv583.i
+  %3130 = getelementptr inbounds [32 x i8], ptr %3129, i64 %3125
+  %3131 = getelementptr inbounds nuw [4 x i8], ptr %3130, i64 %indvars.iv583.i
   %3132 = load i32, ptr %3131, align 4
   %3133 = trunc i32 %3132 to i8
   %3134 = load ptr, ptr %3109, align 8
@@ -37208,12 +37123,12 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %3136 = getelementptr inbounds i8, ptr %3134, i64 %3135
   store i8 %3133, ptr %3136, align 1
   %3137 = load ptr, ptr %2637, align 8
-  %3138 = getelementptr inbounds %struct.m3ds_t, ptr %3137, i64 %3125
+  %3138 = getelementptr inbounds [32 x i8], ptr %3137, i64 %3125
   %3139 = getelementptr inbounds nuw i8, ptr %3138, i64 16
-  %3140 = getelementptr inbounds nuw float, ptr %3139, i64 %indvars.iv583.i
+  %3140 = getelementptr inbounds nuw [4 x i8], ptr %3139, i64 %indvars.iv583.i
   %3141 = load float, ptr %3140, align 4
   %3142 = load ptr, ptr %3110, align 8
-  %3143 = getelementptr inbounds float, ptr %3142, i64 %3135
+  %3143 = getelementptr inbounds [4 x i8], ptr %3142, i64 %3135
   store float %3141, ptr %3143, align 4
   %indvars.iv.next584.i = add nuw nsw i64 %indvars.iv583.i, 1
   %exitcond586.not.i = icmp eq i64 %indvars.iv.next584.i, 4
@@ -37228,7 +37143,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %3150 = getelementptr inbounds i8, ptr %3147, i64 %3149
   store i8 %3146, ptr %3150, align 1
   %3151 = load ptr, ptr %3110, align 8
-  %3152 = getelementptr inbounds float, ptr %3151, i64 %3149
+  %3152 = getelementptr inbounds [4 x i8], ptr %3151, i64 %3149
   store float 1.000000e+00, ptr %3152, align 4
   br label %.loopexit538.i
 
@@ -37255,7 +37170,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
 3160:                                             ; preds = %.loopexit.i94, %.lr.ph562.i
   %indvars.iv595.i = phi i64 [ 0, %.lr.ph562.i ], [ %indvars.iv.next596.i, %.loopexit.i94 ]
   %indvars.iv.next596.i = add nuw nsw i64 %indvars.iv595.i, 1
-  %3161 = getelementptr inbounds nuw %struct.Material, ptr %2622, i64 %indvars.iv.next596.i
+  %3161 = getelementptr inbounds nuw [40 x i8], ptr %2622, i64 %indvars.iv.next596.i
   %3162 = call noalias dereferenceable_or_null(336) ptr @calloc(i64 noundef 12, i64 noundef 28) #66
   %3163 = call i32 @rlGetShaderIdDefault() #63, !noalias !40
   %3164 = call ptr @rlGetShaderLocsDefault() #63, !noalias !40
@@ -37283,7 +37198,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %.sroa.7528.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3161, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7528.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %3168 = load ptr, ptr %2640, align 8
-  %3169 = getelementptr inbounds nuw %struct.m3dm_t, ptr %3168, i64 %indvars.iv595.i
+  %3169 = getelementptr inbounds nuw [24 x i8], ptr %3168, i64 %indvars.iv595.i
   %3170 = getelementptr inbounds nuw i8, ptr %3169, i64 8
   %3171 = load i8, ptr %3170, align 8
   %.not574.i = icmp eq i8 %3171, 0
@@ -37303,10 +37218,10 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %3182 = phi ptr [ %3278, %3267 ], [ %3162, %3160 ]
   %indvars.iv592.i = phi i64 [ %indvars.iv.next593.i, %3267 ], [ 0, %3160 ]
   %3183 = phi ptr [ %3279, %3267 ], [ %3168, %3160 ]
-  %3184 = getelementptr inbounds nuw %struct.m3dm_t, ptr %3183, i64 %indvars.iv595.i
+  %3184 = getelementptr inbounds nuw [24 x i8], ptr %3183, i64 %indvars.iv595.i
   %3185 = getelementptr inbounds nuw i8, ptr %3184, i64 16
   %3186 = load ptr, ptr %3185, align 8
-  %3187 = getelementptr inbounds nuw %struct.m3dp_t, ptr %3186, i64 %indvars.iv592.i
+  %3187 = getelementptr inbounds nuw [8 x i8], ptr %3186, i64 %indvars.iv592.i
   %3188 = load i8, ptr %3187, align 4
   switch i8 %3188, label %3223 [
     i8 0, label %3189
@@ -37386,7 +37301,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
   %3227 = getelementptr inbounds nuw i8, ptr %3187, i64 4
   %3228 = load i32, ptr %3227, align 4
   %3229 = zext i32 %3228 to i64
-  %3230 = getelementptr inbounds nuw %struct.m3dtx_t, ptr %3226, i64 %3229
+  %3230 = getelementptr inbounds nuw [24 x i8], ptr %3226, i64 %3229
   %3231 = getelementptr inbounds nuw i8, ptr %3230, i64 8
   %3232 = load ptr, ptr %3231, align 8
   store ptr %3232, ptr %4, align 8, !noalias !34
@@ -37407,7 +37322,7 @@ LoadVOX.exit:                                     ; preds = %2516, %2593
 
 switch.lookup:                                    ; preds = %3225
   %3242 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.LoadModel, i64 %3242
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.LoadModel, i64 %3242
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %3243
 
@@ -37498,7 +37413,7 @@ switch.lookup:                                    ; preds = %3225
   %3278 = phi ptr [ %3266, %3256 ], [ %3182, %3223 ], [ %3221, %3217 ], [ %3181, %3213 ], [ %3180, %3209 ], [ %3207, %3203 ], [ %3179, %3199 ], [ %3178, %3195 ], [ %3193, %3189 ]
   %indvars.iv.next593.i = add nuw nsw i64 %indvars.iv592.i, 1
   %3279 = load ptr, ptr %2640, align 8
-  %3280 = getelementptr inbounds nuw %struct.m3dm_t, ptr %3279, i64 %indvars.iv595.i
+  %3280 = getelementptr inbounds nuw [24 x i8], ptr %3279, i64 %indvars.iv595.i
   %3281 = getelementptr inbounds nuw i8, ptr %3280, i64 8
   %3282 = load i8, ptr %3281, align 8
   %3283 = zext i8 %3282 to i64
@@ -37528,27 +37443,27 @@ switch.lookup:                                    ; preds = %3225
 3296:                                             ; preds = %3428, %.lr.ph565.i
   %indvars.iv598.i = phi i64 [ 0, %.lr.ph565.i ], [ %indvars.iv.next599.i, %3428 ]
   %3297 = load ptr, ptr %3293, align 8
-  %3298 = getelementptr inbounds nuw %struct.m3db_t, ptr %3297, i64 %indvars.iv598.i
+  %3298 = getelementptr inbounds nuw [104 x i8], ptr %3297, i64 %indvars.iv598.i
   %3299 = load i32, ptr %3298, align 8
-  %3300 = getelementptr inbounds nuw %struct.BoneInfo, ptr %3290, i64 %indvars.iv598.i
+  %3300 = getelementptr inbounds nuw [36 x i8], ptr %3290, i64 %indvars.iv598.i
   %3301 = getelementptr inbounds nuw i8, ptr %3300, i64 32
   store i32 %3299, ptr %3301, align 4
   %3302 = load ptr, ptr %3293, align 8
-  %3303 = getelementptr inbounds nuw %struct.m3db_t, ptr %3302, i64 %indvars.iv598.i
+  %3303 = getelementptr inbounds nuw [104 x i8], ptr %3302, i64 %indvars.iv598.i
   %3304 = getelementptr inbounds nuw i8, ptr %3303, i64 8
   %3305 = load ptr, ptr %3304, align 8
   %3306 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3300, ptr noundef nonnull dereferenceable(1) %3305, i64 noundef 32) #63
   %3307 = load ptr, ptr %3294, align 8
   %3308 = load ptr, ptr %3293, align 8
-  %3309 = getelementptr inbounds nuw %struct.m3db_t, ptr %3308, i64 %indvars.iv598.i
+  %3309 = getelementptr inbounds nuw [104 x i8], ptr %3308, i64 %indvars.iv598.i
   %3310 = getelementptr inbounds nuw i8, ptr %3309, i64 16
   %3311 = load i32, ptr %3310, align 8
   %3312 = zext i32 %3311 to i64
-  %3313 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3307, i64 %3312
+  %3313 = getelementptr inbounds nuw [24 x i8], ptr %3307, i64 %3312
   %3314 = load float, ptr %3313, align 4
   %3315 = load float, ptr %3295, align 8
   %3316 = fmul float %3314, %3315
-  %3317 = getelementptr inbounds nuw %struct.Transform, ptr %3291, i64 %indvars.iv598.i
+  %3317 = getelementptr inbounds nuw [40 x i8], ptr %3291, i64 %indvars.iv598.i
   store float %3316, ptr %3317, align 4
   %3318 = getelementptr inbounds nuw i8, ptr %3313, i64 4
   %3319 = load float, ptr %3318, align 4
@@ -37563,7 +37478,7 @@ switch.lookup:                                    ; preds = %3225
   %3326 = getelementptr inbounds nuw i8, ptr %3309, i64 20
   %3327 = load i32, ptr %3326, align 4
   %3328 = zext i32 %3327 to i64
-  %3329 = getelementptr inbounds nuw %struct.m3dv_t, ptr %3307, i64 %3328
+  %3329 = getelementptr inbounds nuw [24 x i8], ptr %3307, i64 %3328
   %3330 = load float, ptr %3329, align 4
   %3331 = getelementptr inbounds nuw i8, ptr %3317, i64 12
   store float %3330, ptr %3331, align 4
@@ -37614,7 +37529,7 @@ switch.lookup:                                    ; preds = %3225
 
 3358:                                             ; preds = %3296
   %3359 = zext nneg i32 %3299 to i64
-  %3360 = getelementptr inbounds nuw %struct.Transform, ptr %3291, i64 %3359
+  %3360 = getelementptr inbounds nuw [40 x i8], ptr %3291, i64 %3359
   %3361 = getelementptr inbounds nuw i8, ptr %3360, i64 12
   %3362 = load <2 x float>, ptr %3361, align 4
   %3363 = getelementptr inbounds nuw i8, ptr %3360, i64 20
@@ -37734,11 +37649,11 @@ switch.lookup:                                    ; preds = %3225
 
 ._crit_edge566.i:                                 ; preds = %._crit_edge566.loopexit.i, %3287
   %.2.lcssa.i = phi i64 [ 0, %3287 ], [ %3432, %._crit_edge566.loopexit.i ]
-  %3433 = getelementptr inbounds nuw %struct.BoneInfo, ptr %3290, i64 %.2.lcssa.i
+  %3433 = getelementptr inbounds nuw [36 x i8], ptr %3290, i64 %.2.lcssa.i
   %3434 = getelementptr inbounds nuw i8, ptr %3433, i64 32
   store i32 -1, ptr %3434, align 4
   store i64 19507875711831886, ptr %3433, align 4
-  %3435 = getelementptr inbounds nuw %struct.Transform, ptr %3291, i64 %.2.lcssa.i
+  %3435 = getelementptr inbounds nuw [40 x i8], ptr %3291, i64 %.2.lcssa.i
   %3436 = getelementptr inbounds nuw i8, ptr %3435, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3435, i8 0, i64 24, i1 false)
   store float 1.000000e+00, ptr %3436, align 4
@@ -37767,7 +37682,7 @@ switch.lookup:                                    ; preds = %3225
 
 .lr.ph573.i:                                      ; preds = %.lr.ph573.i.preheader, %._crit_edge571.i
   %indvars.iv604.i = phi i64 [ %indvars.iv.next605.i, %._crit_edge571.i ], [ 0, %.lr.ph573.i.preheader ]
-  %3446 = getelementptr inbounds nuw %struct.Mesh, ptr %.sroa.16.0, i64 %indvars.iv604.i
+  %3446 = getelementptr inbounds nuw [120 x i8], ptr %.sroa.16.0, i64 %indvars.iv604.i
   %3447 = getelementptr inbounds nuw i8, ptr %3446, i64 64
   %3448 = load ptr, ptr %3447, align 8
   %3449 = getelementptr inbounds nuw i8, ptr %3446, i64 8
@@ -37796,7 +37711,7 @@ switch.lookup:                                    ; preds = %3225
 .lr.ph570.i:                                      ; preds = %.lr.ph573.i, %.lr.ph570.i
   %indvars.iv601.i = phi i64 [ %indvars.iv.next602.i, %.lr.ph570.i ], [ 0, %.lr.ph573.i ]
   %3466 = load ptr, ptr %3465, align 8
-  %3467 = getelementptr inbounds nuw %struct.Matrix, ptr %3466, i64 %indvars.iv601.i
+  %3467 = getelementptr inbounds nuw [64 x i8], ptr %3466, i64 %indvars.iv601.i
   store float 1.000000e+00, ptr %3467, align 4
   %.sroa.4.0..sroa_idx.i88 = getelementptr inbounds nuw i8, ptr %3467, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx.i88, i8 0, i64 16, i1 false)
@@ -37900,7 +37815,7 @@ LoadM3D.exit:                                     ; preds = %2596, %.sink.split.
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %3479 = load ptr, ptr %3476, align 8
-  %3480 = getelementptr inbounds nuw %struct.Mesh, ptr %3479, i64 %indvars.iv
+  %3480 = getelementptr inbounds nuw [120 x i8], ptr %3479, i64 %indvars.iv
   call void @UploadMesh(ptr noundef %3480, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3481 = load i32, ptr %3474, align 8
@@ -38330,7 +38245,7 @@ define zeroext i1 @IsModelValid(ptr noundef readonly byval(%struct.Model) align 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %97 ]
-  %17 = getelementptr inbounds nuw %struct.Mesh, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [120 x i8], ptr %3, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
@@ -38492,7 +38407,7 @@ define void @UnloadModel(ptr noundef readonly byval(%struct.Model) align 8 captu
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct.Mesh, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [120 x i8], ptr %6, i64 %indvars.iv
   tail call void @UnloadMesh(ptr noundef byval(%struct.Mesh) align 8 %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -38517,7 +38432,7 @@ define void @UnloadModel(ptr noundef readonly byval(%struct.Model) align 8 captu
 
 22:                                               ; preds = %.lr.ph9, %22
   %indvars.iv11 = phi i64 [ 0, %.lr.ph9 ], [ %indvars.iv.next12, %22 ]
-  %23 = getelementptr inbounds nuw %struct.Material, ptr %11, i64 %indvars.iv11
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %indvars.iv11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void @free(ptr noundef %25) #63
@@ -38538,7 +38453,7 @@ define void @UnloadMesh(ptr noundef readonly byval(%struct.Mesh) align 8 capture
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   tail call void @rlUnloadVertexBuffer(i32 noundef %7) #63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -38678,7 +38593,7 @@ GetMeshBoundingBox.exit:                          ; preds = %.lr.ph.i, %6, %9
   %38 = phi float [ %.sroa.838.0.i, %.lr.ph ], [ %66, %GetMeshBoundingBox.exit48 ]
   %39 = phi float [ %29, %.lr.ph ], [ %68, %GetMeshBoundingBox.exit48 ]
   %40 = phi float [ %.sroa.8.0.i, %.lr.ph ], [ %72, %GetMeshBoundingBox.exit48 ]
-  %41 = getelementptr inbounds nuw %struct.Mesh, ptr %8, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [120 x i8], ptr %8, i64 %indvars.iv
   %.sroa.061.0.copyload = load i32, ptr %41, align 8
   %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.463.0.copyload = load ptr, ptr %.sroa.463.0..sroa_idx, align 8
@@ -38934,7 +38849,7 @@ define void @UpdateMeshBuffer(ptr noundef readonly byval(%struct.Mesh) align 8 c
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4
   tail call void @rlUpdateVertexBuffer(i32 noundef %10, ptr noundef %2, i32 noundef %3, i32 noundef %4) #63
   ret void
@@ -39519,7 +39434,7 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
 365:                                              ; preds = %357, %386
   %storemerge359 = phi i32 [ 0, %357 ], [ %388, %386 ]
   %366 = sext i32 %storemerge359 to i64
-  %367 = getelementptr inbounds %struct.MaterialMap, ptr %359, i64 %366
+  %367 = getelementptr inbounds [28 x i8], ptr %359, i64 %366
   %368 = load i32, ptr %367, align 4
   %.not50 = icmp eq i32 %368, 0
   br i1 %.not50, label %386, label %369
@@ -39533,14 +39448,14 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
 
 372:                                              ; preds = %369
   %373 = zext nneg i32 %370 to i64
-  %374 = getelementptr inbounds nuw %struct.MaterialMap, ptr %359, i64 %373
+  %374 = getelementptr inbounds nuw [28 x i8], ptr %359, i64 %373
   %375 = load i32, ptr %374, align 4
   call void @rlEnableTextureCubemap(i32 noundef %375) #63
   br label %380
 
 376:                                              ; preds = %369
   %377 = sext i32 %370 to i64
-  %378 = getelementptr inbounds %struct.MaterialMap, ptr %359, i64 %377
+  %378 = getelementptr inbounds [28 x i8], ptr %359, i64 %377
   %379 = load i32, ptr %378, align 4
   call void @rlEnableTexture(i32 noundef %379) #63
   br label %380
@@ -39548,7 +39463,7 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
 380:                                              ; preds = %376, %372
   %381 = load i32, ptr %11, align 4
   %382 = sext i32 %381 to i64
-  %383 = getelementptr i32, ptr %18, i64 %382
+  %383 = getelementptr [4 x i8], ptr %18, i64 %382
   %384 = getelementptr i8, ptr %383, i64 60
   %385 = load i32, ptr %384, align 4
   call void @rlSetUniform(i32 noundef %385, ptr noundef nonnull %11, i32 noundef 4, i32 noundef 1) #63
@@ -40113,7 +40028,7 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
 
 680:                                              ; preds = %.preheader, %689
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %689 ]
-  %681 = getelementptr inbounds nuw %struct.MaterialMap, ptr %609, i64 %indvars.iv
+  %681 = getelementptr inbounds nuw [28 x i8], ptr %609, i64 %indvars.iv
   %682 = load i32, ptr %681, align 4
   %.not48 = icmp eq i32 %682, 0
   br i1 %.not48, label %689, label %683
@@ -40331,8 +40246,8 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw %struct.float16, ptr %79, i64 %indvars.iv
-  %88 = getelementptr inbounds nuw %struct.Matrix, ptr %2, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [64 x i8], ptr %79, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %indvars.iv
   %.sroa.0214.0.copyload = load float, ptr %88, align 4
   %.sroa.4215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 4
   %.sroa.4215.0.copyload = load float, ptr %.sroa.4215.0..sroa_idx, align 4
@@ -40623,7 +40538,7 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
 197:                                              ; preds = %191, %218
   %storemerge388 = phi i32 [ 0, %191 ], [ %220, %218 ]
   %198 = sext i32 %storemerge388 to i64
-  %199 = getelementptr inbounds %struct.MaterialMap, ptr %193, i64 %198
+  %199 = getelementptr inbounds [28 x i8], ptr %193, i64 %198
   %200 = load i32, ptr %199, align 4
   %.not70 = icmp eq i32 %200, 0
   br i1 %.not70, label %218, label %201
@@ -40637,14 +40552,14 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
 
 204:                                              ; preds = %201
   %205 = zext nneg i32 %202 to i64
-  %206 = getelementptr inbounds nuw %struct.MaterialMap, ptr %193, i64 %205
+  %206 = getelementptr inbounds nuw [28 x i8], ptr %193, i64 %205
   %207 = load i32, ptr %206, align 4
   call void @rlEnableTextureCubemap(i32 noundef %207) #63
   br label %212
 
 208:                                              ; preds = %201
   %209 = sext i32 %202 to i64
-  %210 = getelementptr inbounds %struct.MaterialMap, ptr %193, i64 %209
+  %210 = getelementptr inbounds [28 x i8], ptr %193, i64 %209
   %211 = load i32, ptr %210, align 4
   call void @rlEnableTexture(i32 noundef %211) #63
   br label %212
@@ -40652,7 +40567,7 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
 212:                                              ; preds = %208, %204
   %213 = load i32, ptr %11, align 4
   %214 = sext i32 %213 to i64
-  %215 = getelementptr i32, ptr %18, i64 %214
+  %215 = getelementptr [4 x i8], ptr %18, i64 %214
   %216 = getelementptr i8, ptr %215, i64 60
   %217 = load i32, ptr %216, align 4
   call void @rlSetUniform(i32 noundef %217, ptr noundef nonnull %11, i32 noundef 4, i32 noundef 1) #63
@@ -41202,7 +41117,7 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
 
 511:                                              ; preds = %.preheader, %520
   %indvars.iv393 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next394, %520 ]
-  %512 = getelementptr inbounds nuw %struct.MaterialMap, ptr %302, i64 %indvars.iv393
+  %512 = getelementptr inbounds nuw [28 x i8], ptr %302, i64 %indvars.iv393
   %513 = load i32, ptr %512, align 4
   %.not68 = icmp eq i32 %513, 0
   br i1 %.not68, label %520, label %514
@@ -41305,7 +41220,7 @@ define zeroext i1 @ExportMesh(ptr noundef readonly byval(%struct.Mesh) align 8 c
   %.0122128 = phi i32 [ %33, %.lr.ph ], [ %52, %39 ]
   %40 = sext i32 %.0122128 to i64
   %41 = getelementptr inbounds i8, ptr %14, i64 %40
-  %42 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   %43 = load float, ptr %42, align 4
   %44 = fpext float %43 to double
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 4
@@ -41332,7 +41247,7 @@ define zeroext i1 @ExportMesh(ptr noundef readonly byval(%struct.Mesh) align 8 c
   %.1131 = phi i32 [ %52, %.lr.ph134 ], [ %66, %56 ]
   %57 = sext i32 %.1131 to i64
   %58 = getelementptr inbounds i8, ptr %14, i64 %57
-  %59 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv153
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv153
   %60 = load float, ptr %59, align 4
   %61 = fpext float %60 to double
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
@@ -41365,7 +41280,7 @@ define zeroext i1 @ExportMesh(ptr noundef readonly byval(%struct.Mesh) align 8 c
   %.2136 = phi i32 [ %66, %.lr.ph139 ], [ %84, %71 ]
   %72 = sext i32 %.2136 to i64
   %73 = getelementptr inbounds i8, ptr %14, i64 %72
-  %74 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv157
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv157
   %75 = load float, ptr %74, align 4
   %76 = fpext float %75 to double
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 4
@@ -41387,7 +41302,7 @@ define zeroext i1 @ExportMesh(ptr noundef readonly byval(%struct.Mesh) align 8 c
   %.3141 = phi i32 [ %101, %.lr.ph144 ], [ %.2.lcssa, %.preheader124 ]
   %86 = sext i32 %.3141 to i64
   %87 = getelementptr inbounds i8, ptr %14, i64 %86
-  %88 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv161
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %indvars.iv161
   %89 = load i16, ptr %88, align 2
   %90 = zext i16 %89 to i32
   %91 = add nuw nsw i32 %90, 1
@@ -41532,7 +41447,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %45 = sext i32 %.1.lcssa to i64
   %46 = getelementptr inbounds i8, ptr %4, i64 %45
   %47 = sext i32 %43 to i64
-  %48 = getelementptr inbounds float, ptr %29, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %29, i64 %47
   %49 = load float, ptr %48, align 4
   %50 = fpext float %49 to double
   %51 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) @.str.77, double noundef %50) #63
@@ -41548,7 +41463,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %56 = urem i32 %55, 20
   %57 = icmp eq i32 %56, 0
   %58 = select i1 %57, ptr @.str.75, ptr @.str.76
-  %59 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv225
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv225
   %60 = load float, ptr %59, align 4
   %61 = fpext float %60 to double
   %62 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %58, double noundef %61) #63
@@ -41584,7 +41499,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %75 = sext i32 %.3.lcssa to i64
   %76 = getelementptr inbounds i8, ptr %4, i64 %75
   %77 = sext i32 %73 to i64
-  %78 = getelementptr inbounds float, ptr %66, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %66, i64 %77
   %79 = load float, ptr %78, align 4
   %80 = fpext float %79 to double
   %81 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull dereferenceable(1) @.str.77, double noundef %80) #63
@@ -41600,7 +41515,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %86 = urem i32 %85, 20
   %87 = icmp eq i32 %86, 0
   %88 = select i1 %87, ptr @.str.75, ptr @.str.76
-  %89 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv228
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv228
   %90 = load float, ptr %89, align 4
   %91 = fpext float %90 to double
   %92 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %88, double noundef %91) #63
@@ -41636,7 +41551,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %105 = sext i32 %.5.lcssa to i64
   %106 = getelementptr inbounds i8, ptr %4, i64 %105
   %107 = sext i32 %103 to i64
-  %108 = getelementptr inbounds float, ptr %96, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %96, i64 %107
   %109 = load float, ptr %108, align 4
   %110 = fpext float %109 to double
   %111 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(1) @.str.77, double noundef %110) #63
@@ -41652,7 +41567,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %116 = urem i32 %115, 20
   %117 = icmp eq i32 %116, 0
   %118 = select i1 %117, ptr @.str.75, ptr @.str.76
-  %119 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv234
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv234
   %120 = load float, ptr %119, align 4
   %121 = fpext float %120 to double
   %122 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(1) %118, double noundef %121) #63
@@ -41688,7 +41603,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %135 = sext i32 %.7.lcssa to i64
   %136 = getelementptr inbounds i8, ptr %4, i64 %135
   %137 = sext i32 %133 to i64
-  %138 = getelementptr inbounds float, ptr %126, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %126, i64 %137
   %139 = load float, ptr %138, align 4
   %140 = fpext float %139 to double
   %141 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(1) @.str.77, double noundef %140) #63
@@ -41704,7 +41619,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %146 = urem i32 %145, 20
   %147 = icmp eq i32 %146, 0
   %148 = select i1 %147, ptr @.str.75, ptr @.str.76
-  %149 = getelementptr inbounds nuw float, ptr %126, i64 %indvars.iv240
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv240
   %150 = load float, ptr %149, align 4
   %151 = fpext float %150 to double
   %152 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %144, ptr noundef nonnull dereferenceable(1) %148, double noundef %151) #63
@@ -41740,7 +41655,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %165 = sext i32 %.9.lcssa to i64
   %166 = getelementptr inbounds i8, ptr %4, i64 %165
   %167 = sext i32 %163 to i64
-  %168 = getelementptr inbounds float, ptr %156, i64 %167
+  %168 = getelementptr inbounds [4 x i8], ptr %156, i64 %167
   %169 = load float, ptr %168, align 4
   %170 = fpext float %169 to double
   %171 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(1) @.str.77, double noundef %170) #63
@@ -41756,7 +41671,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %176 = urem i32 %175, 20
   %177 = icmp eq i32 %176, 0
   %178 = select i1 %177, ptr @.str.75, ptr @.str.76
-  %179 = getelementptr inbounds nuw float, ptr %156, i64 %indvars.iv246
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %indvars.iv246
   %180 = load float, ptr %179, align 4
   %181 = fpext float %180 to double
   %182 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) %178, double noundef %181) #63
@@ -41844,7 +41759,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %225 = sext i32 %.12.lcssa to i64
   %226 = getelementptr inbounds i8, ptr %4, i64 %225
   %227 = sext i32 %223 to i64
-  %228 = getelementptr inbounds i16, ptr %216, i64 %227
+  %228 = getelementptr inbounds [2 x i8], ptr %216, i64 %227
   %229 = load i16, ptr %228, align 2
   %230 = zext i16 %229 to i32
   %231 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(1) @.str.89, i32 noundef %230) #63
@@ -41859,7 +41774,7 @@ define zeroext i1 @ExportMeshAsCode(ptr noundef readonly byval(%struct.Mesh) ali
   %235 = urem i32 %234, 20
   %236 = icmp eq i32 %235, 0
   %237 = select i1 %236, ptr @.str.87, ptr @.str.88
-  %238 = getelementptr inbounds nuw i16, ptr %216, i64 %indvars.iv258
+  %238 = getelementptr inbounds nuw [2 x i8], ptr %216, i64 %indvars.iv258
   %239 = load i16, ptr %238, align 2
   %240 = zext i16 %239 to i32
   %241 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %233, ptr noundef nonnull dereferenceable(1) %237, i32 noundef %240) #63
@@ -41932,7 +41847,7 @@ define internal fastcc void @ProcessMaterialsOBJ(ptr noundef captures(none) %0, 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds nuw %struct.Material, ptr %0, i64 %indvars.iv90
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv90
   %11 = tail call noalias dereferenceable_or_null(336) ptr @calloc(i64 noundef 12, i64 noundef 28) #66
   %12 = tail call i32 @rlGetShaderIdDefault() #63, !noalias !64
   %13 = tail call ptr @rlGetShaderLocsDefault() #63, !noalias !64
@@ -41968,7 +41883,7 @@ define internal fastcc void @ProcessMaterialsOBJ(ptr noundef captures(none) %0, 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %100
   %indvars.iv = phi i64 [ %indvars.iv.next, %100 ], [ 0, %.lr.ph ]
-  %17 = getelementptr inbounds nuw %struct.Material, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv
   %18 = call noalias dereferenceable_or_null(336) ptr @calloc(i64 noundef 12, i64 noundef 28) #66
   %19 = call i32 @rlGetShaderIdDefault() #63, !noalias !64
   %20 = call ptr @rlGetShaderLocsDefault() #63, !noalias !64
@@ -42001,7 +41916,7 @@ define internal fastcc void @ProcessMaterialsOBJ(ptr noundef captures(none) %0, 
   store i32 1, ptr %.sroa.37.0..sroa_idx.i, align 4
   store i32 1, ptr %.sroa.48.0..sroa_idx.i, align 4
   store i32 7, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %25 = getelementptr inbounds nuw %struct.tinyobj_material_t, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [144 x i8], ptr %1, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
@@ -42183,7 +42098,7 @@ define void @UnloadMaterial(ptr noundef readonly byval(%struct.Material) align 8
 
 .preheader:                                       ; preds = %7, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %7 ]
-  %10 = getelementptr inbounds nuw %struct.MaterialMap, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [28 x i8], ptr %9, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @rlGetTextureIdDefault() #63
   %.not5 = icmp eq i32 %11, %12
@@ -42213,7 +42128,7 @@ define void @SetMaterialTexture(ptr noundef readonly captures(none) %0, i32 noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.MaterialMap, ptr %5, i64 %6
+  %7 = getelementptr inbounds [28 x i8], ptr %5, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(20) %2, i64 20, i1 false)
   ret void
 }
@@ -42243,7 +42158,7 @@ define void @SetModelMeshMaterial(ptr noundef readonly captures(none) %0, i32 no
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %13, i64 %14
   store i32 %2, ptr %15, align 4
   br label %16
 
@@ -42358,10 +42273,10 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 66:                                               ; preds = %._crit_edge434.i, %.lr.ph437.i
   %indvars.iv468.i = phi i64 [ 0, %.lr.ph437.i ], [ %indvars.iv.next469.i, %._crit_edge434.i ]
-  %67 = getelementptr inbounds nuw %struct.IQMAnim, ptr %37, i64 %indvars.iv468.i
+  %67 = getelementptr inbounds nuw [20 x i8], ptr %37, i64 %indvars.iv468.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds nuw %struct.ModelAnimation, ptr %43, i64 %indvars.iv468.i
+  %70 = getelementptr inbounds nuw [56 x i8], ptr %43, i64 %indvars.iv468.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i32 %69, ptr %71, align 4
   %72 = load i32, ptr %24, align 4
@@ -42398,14 +42313,14 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %89 = load i32, ptr %56, align 4
   %.not399.i = icmp eq i32 %89, 0
   %90 = load ptr, ptr %76, align 8
-  %91 = getelementptr inbounds nuw %struct.BoneInfo, ptr %90, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [36 x i8], ptr %90, i64 %indvars.iv.i
   br i1 %.not399.i, label %100, label %92
 
 92:                                               ; preds = %.lr.ph.i
   %93 = load i32, ptr %65, align 4
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds nuw i8, ptr %15, i64 %94
-  %96 = getelementptr inbounds nuw %struct.IQMJoint.2, ptr %60, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [48 x i8], ptr %60, i64 %indvars.iv.i
   %97 = load i32, ptr %96, align 4
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 %98
@@ -42417,10 +42332,10 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   br label %101
 
 101:                                              ; preds = %100, %92
-  %102 = getelementptr inbounds nuw %struct.IQMPose, ptr %28, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %indvars.iv.i
   %103 = load i32, ptr %102, align 4
   %104 = load ptr, ptr %76, align 8
-  %105 = getelementptr inbounds nuw %struct.BoneInfo, ptr %104, i64 %indvars.iv.i
+  %105 = getelementptr inbounds nuw [36 x i8], ptr %104, i64 %indvars.iv.i
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 32
   store i32 %103, ptr %106, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -42448,7 +42363,7 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %117 = mul nuw nsw i64 %116, 40
   %118 = call noalias ptr @malloc(i64 noundef %117) #65
   %119 = load ptr, ptr %80, align 8
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv449.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv449.i
   store ptr %118, ptr %120, align 8
   %indvars.iv.next450.i = add nuw nsw i64 %indvars.iv449.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next450.i, %77
@@ -42476,13 +42391,13 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 .lr.ph426.i:                                      ; preds = %.preheader418.i, %365
   %indvars.iv452.i = phi i64 [ %indvars.iv.next453.i, %365 ], [ 0, %.preheader418.i ]
   %.1380425.i = phi i32 [ %.11.i, %365 ], [ %.0379429.i, %.preheader418.i ]
-  %125 = getelementptr inbounds nuw %struct.IQMPose, ptr %28, i64 %indvars.iv452.i
+  %125 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %indvars.iv452.i
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load float, ptr %126, align 4
   %128 = load ptr, ptr %80, align 8
-  %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv455.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv455.i
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw %struct.Transform, ptr %130, i64 %indvars.iv452.i
+  %131 = getelementptr inbounds nuw [40 x i8], ptr %130, i64 %indvars.iv452.i
   store float %127, ptr %131, align 4
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %133 = load i32, ptr %132, align 4
@@ -42492,15 +42407,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 135:                                              ; preds = %.lr.ph426.i
   %136 = sext i32 %.1380425.i to i64
-  %137 = getelementptr inbounds i16, ptr %51, i64 %136
+  %137 = getelementptr inbounds [2 x i8], ptr %51, i64 %136
   %138 = load i16, ptr %137, align 2
   %139 = uitofp i16 %138 to float
   %140 = getelementptr inbounds nuw i8, ptr %125, i64 48
   %141 = load float, ptr %140, align 4
   %142 = load ptr, ptr %80, align 8
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv455.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv455.i
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw %struct.Transform, ptr %144, i64 %indvars.iv452.i
+  %145 = getelementptr inbounds nuw [40 x i8], ptr %144, i64 %indvars.iv452.i
   %146 = load float, ptr %145, align 4
   %147 = call float @llvm.fmuladd.f32(float %139, float %141, float %146)
   store float %147, ptr %145, align 4
@@ -42512,9 +42427,9 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %150 = getelementptr inbounds nuw i8, ptr %125, i64 12
   %151 = load float, ptr %150, align 4
   %152 = load ptr, ptr %80, align 8
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv455.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv455.i
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds nuw %struct.Transform, ptr %154, i64 %indvars.iv452.i
+  %155 = getelementptr inbounds nuw [40 x i8], ptr %154, i64 %indvars.iv452.i
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
   store float %151, ptr %156, align 4
   %157 = and i32 %133, 2
@@ -42523,15 +42438,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 158:                                              ; preds = %149
   %159 = sext i32 %.2.i to i64
-  %160 = getelementptr inbounds i16, ptr %51, i64 %159
+  %160 = getelementptr inbounds [2 x i8], ptr %51, i64 %159
   %161 = load i16, ptr %160, align 2
   %162 = uitofp i16 %161 to float
   %163 = getelementptr inbounds nuw i8, ptr %125, i64 52
   %164 = load float, ptr %163, align 4
   %165 = load ptr, ptr %80, align 8
-  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv455.i
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %indvars.iv455.i
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds nuw %struct.Transform, ptr %167, i64 %indvars.iv452.i
+  %168 = getelementptr inbounds nuw [40 x i8], ptr %167, i64 %indvars.iv452.i
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load float, ptr %169, align 4
   %171 = call float @llvm.fmuladd.f32(float %162, float %164, float %170)
@@ -42544,9 +42459,9 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %174 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %175 = load float, ptr %174, align 4
   %176 = load ptr, ptr %80, align 8
-  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %indvars.iv455.i
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %indvars.iv455.i
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds nuw %struct.Transform, ptr %178, i64 %indvars.iv452.i
+  %179 = getelementptr inbounds nuw [40 x i8], ptr %178, i64 %indvars.iv452.i
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store float %175, ptr %180, align 4
   %181 = and i32 %133, 4
@@ -42555,15 +42470,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 182:                                              ; preds = %173
   %183 = sext i32 %.3.i to i64
-  %184 = getelementptr inbounds i16, ptr %51, i64 %183
+  %184 = getelementptr inbounds [2 x i8], ptr %51, i64 %183
   %185 = load i16, ptr %184, align 2
   %186 = uitofp i16 %185 to float
   %187 = getelementptr inbounds nuw i8, ptr %125, i64 56
   %188 = load float, ptr %187, align 4
   %189 = load ptr, ptr %80, align 8
-  %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv455.i
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %indvars.iv455.i
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds nuw %struct.Transform, ptr %191, i64 %indvars.iv452.i
+  %192 = getelementptr inbounds nuw [40 x i8], ptr %191, i64 %indvars.iv452.i
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load float, ptr %193, align 4
   %195 = call float @llvm.fmuladd.f32(float %186, float %188, float %194)
@@ -42576,9 +42491,9 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %198 = getelementptr inbounds nuw i8, ptr %125, i64 20
   %199 = load float, ptr %198, align 4
   %200 = load ptr, ptr %80, align 8
-  %201 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv455.i
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %indvars.iv455.i
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds nuw %struct.Transform, ptr %202, i64 %indvars.iv452.i
+  %203 = getelementptr inbounds nuw [40 x i8], ptr %202, i64 %indvars.iv452.i
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 12
   store float %199, ptr %204, align 4
   %205 = and i32 %133, 8
@@ -42587,15 +42502,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 206:                                              ; preds = %197
   %207 = sext i32 %.4.i to i64
-  %208 = getelementptr inbounds i16, ptr %51, i64 %207
+  %208 = getelementptr inbounds [2 x i8], ptr %51, i64 %207
   %209 = load i16, ptr %208, align 2
   %210 = uitofp i16 %209 to float
   %211 = getelementptr inbounds nuw i8, ptr %125, i64 60
   %212 = load float, ptr %211, align 4
   %213 = load ptr, ptr %80, align 8
-  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %indvars.iv455.i
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %indvars.iv455.i
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds nuw %struct.Transform, ptr %215, i64 %indvars.iv452.i
+  %216 = getelementptr inbounds nuw [40 x i8], ptr %215, i64 %indvars.iv452.i
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 12
   %218 = load float, ptr %217, align 4
   %219 = call float @llvm.fmuladd.f32(float %210, float %212, float %218)
@@ -42608,9 +42523,9 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %222 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %223 = load float, ptr %222, align 4
   %224 = load ptr, ptr %80, align 8
-  %225 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv455.i
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %indvars.iv455.i
   %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds nuw %struct.Transform, ptr %226, i64 %indvars.iv452.i
+  %227 = getelementptr inbounds nuw [40 x i8], ptr %226, i64 %indvars.iv452.i
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 16
   store float %223, ptr %228, align 4
   %229 = and i32 %133, 16
@@ -42619,15 +42534,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 230:                                              ; preds = %221
   %231 = sext i32 %.5.i to i64
-  %232 = getelementptr inbounds i16, ptr %51, i64 %231
+  %232 = getelementptr inbounds [2 x i8], ptr %51, i64 %231
   %233 = load i16, ptr %232, align 2
   %234 = uitofp i16 %233 to float
   %235 = getelementptr inbounds nuw i8, ptr %125, i64 64
   %236 = load float, ptr %235, align 4
   %237 = load ptr, ptr %80, align 8
-  %238 = getelementptr inbounds nuw ptr, ptr %237, i64 %indvars.iv455.i
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %indvars.iv455.i
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds nuw %struct.Transform, ptr %239, i64 %indvars.iv452.i
+  %240 = getelementptr inbounds nuw [40 x i8], ptr %239, i64 %indvars.iv452.i
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
   %242 = load float, ptr %241, align 4
   %243 = call float @llvm.fmuladd.f32(float %234, float %236, float %242)
@@ -42640,9 +42555,9 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %246 = getelementptr inbounds nuw i8, ptr %125, i64 28
   %247 = load float, ptr %246, align 4
   %248 = load ptr, ptr %80, align 8
-  %249 = getelementptr inbounds nuw ptr, ptr %248, i64 %indvars.iv455.i
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %indvars.iv455.i
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds nuw %struct.Transform, ptr %250, i64 %indvars.iv452.i
+  %251 = getelementptr inbounds nuw [40 x i8], ptr %250, i64 %indvars.iv452.i
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 20
   store float %247, ptr %252, align 4
   %253 = and i32 %133, 32
@@ -42651,15 +42566,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 254:                                              ; preds = %245
   %255 = sext i32 %.6.i to i64
-  %256 = getelementptr inbounds i16, ptr %51, i64 %255
+  %256 = getelementptr inbounds [2 x i8], ptr %51, i64 %255
   %257 = load i16, ptr %256, align 2
   %258 = uitofp i16 %257 to float
   %259 = getelementptr inbounds nuw i8, ptr %125, i64 68
   %260 = load float, ptr %259, align 4
   %261 = load ptr, ptr %80, align 8
-  %262 = getelementptr inbounds nuw ptr, ptr %261, i64 %indvars.iv455.i
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %indvars.iv455.i
   %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds nuw %struct.Transform, ptr %263, i64 %indvars.iv452.i
+  %264 = getelementptr inbounds nuw [40 x i8], ptr %263, i64 %indvars.iv452.i
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 20
   %266 = load float, ptr %265, align 4
   %267 = call float @llvm.fmuladd.f32(float %258, float %260, float %266)
@@ -42672,9 +42587,9 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %270 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %271 = load float, ptr %270, align 4
   %272 = load ptr, ptr %80, align 8
-  %273 = getelementptr inbounds nuw ptr, ptr %272, i64 %indvars.iv455.i
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %indvars.iv455.i
   %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds nuw %struct.Transform, ptr %274, i64 %indvars.iv452.i
+  %275 = getelementptr inbounds nuw [40 x i8], ptr %274, i64 %indvars.iv452.i
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 24
   store float %271, ptr %276, align 4
   %277 = and i32 %133, 64
@@ -42683,15 +42598,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 278:                                              ; preds = %269
   %279 = sext i32 %.7.i to i64
-  %280 = getelementptr inbounds i16, ptr %51, i64 %279
+  %280 = getelementptr inbounds [2 x i8], ptr %51, i64 %279
   %281 = load i16, ptr %280, align 2
   %282 = uitofp i16 %281 to float
   %283 = getelementptr inbounds nuw i8, ptr %125, i64 72
   %284 = load float, ptr %283, align 4
   %285 = load ptr, ptr %80, align 8
-  %286 = getelementptr inbounds nuw ptr, ptr %285, i64 %indvars.iv455.i
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %indvars.iv455.i
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds nuw %struct.Transform, ptr %287, i64 %indvars.iv452.i
+  %288 = getelementptr inbounds nuw [40 x i8], ptr %287, i64 %indvars.iv452.i
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 24
   %290 = load float, ptr %289, align 4
   %291 = call float @llvm.fmuladd.f32(float %282, float %284, float %290)
@@ -42704,9 +42619,9 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %294 = getelementptr inbounds nuw i8, ptr %125, i64 36
   %295 = load float, ptr %294, align 4
   %296 = load ptr, ptr %80, align 8
-  %297 = getelementptr inbounds nuw ptr, ptr %296, i64 %indvars.iv455.i
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %296, i64 %indvars.iv455.i
   %298 = load ptr, ptr %297, align 8
-  %299 = getelementptr inbounds nuw %struct.Transform, ptr %298, i64 %indvars.iv452.i
+  %299 = getelementptr inbounds nuw [40 x i8], ptr %298, i64 %indvars.iv452.i
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 28
   store float %295, ptr %300, align 4
   %301 = and i32 %133, 128
@@ -42715,15 +42630,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 302:                                              ; preds = %293
   %303 = sext i32 %.8.i to i64
-  %304 = getelementptr inbounds i16, ptr %51, i64 %303
+  %304 = getelementptr inbounds [2 x i8], ptr %51, i64 %303
   %305 = load i16, ptr %304, align 2
   %306 = uitofp i16 %305 to float
   %307 = getelementptr inbounds nuw i8, ptr %125, i64 76
   %308 = load float, ptr %307, align 4
   %309 = load ptr, ptr %80, align 8
-  %310 = getelementptr inbounds nuw ptr, ptr %309, i64 %indvars.iv455.i
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %indvars.iv455.i
   %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr inbounds nuw %struct.Transform, ptr %311, i64 %indvars.iv452.i
+  %312 = getelementptr inbounds nuw [40 x i8], ptr %311, i64 %indvars.iv452.i
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 28
   %314 = load float, ptr %313, align 4
   %315 = call float @llvm.fmuladd.f32(float %306, float %308, float %314)
@@ -42736,9 +42651,9 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %318 = getelementptr inbounds nuw i8, ptr %125, i64 40
   %319 = load float, ptr %318, align 4
   %320 = load ptr, ptr %80, align 8
-  %321 = getelementptr inbounds nuw ptr, ptr %320, i64 %indvars.iv455.i
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %320, i64 %indvars.iv455.i
   %322 = load ptr, ptr %321, align 8
-  %323 = getelementptr inbounds nuw %struct.Transform, ptr %322, i64 %indvars.iv452.i
+  %323 = getelementptr inbounds nuw [40 x i8], ptr %322, i64 %indvars.iv452.i
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 32
   store float %319, ptr %324, align 4
   %325 = and i32 %133, 256
@@ -42747,15 +42662,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 326:                                              ; preds = %317
   %327 = sext i32 %.9.i to i64
-  %328 = getelementptr inbounds i16, ptr %51, i64 %327
+  %328 = getelementptr inbounds [2 x i8], ptr %51, i64 %327
   %329 = load i16, ptr %328, align 2
   %330 = uitofp i16 %329 to float
   %331 = getelementptr inbounds nuw i8, ptr %125, i64 80
   %332 = load float, ptr %331, align 4
   %333 = load ptr, ptr %80, align 8
-  %334 = getelementptr inbounds nuw ptr, ptr %333, i64 %indvars.iv455.i
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %indvars.iv455.i
   %335 = load ptr, ptr %334, align 8
-  %336 = getelementptr inbounds nuw %struct.Transform, ptr %335, i64 %indvars.iv452.i
+  %336 = getelementptr inbounds nuw [40 x i8], ptr %335, i64 %indvars.iv452.i
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 32
   %338 = load float, ptr %337, align 4
   %339 = call float @llvm.fmuladd.f32(float %330, float %332, float %338)
@@ -42768,9 +42683,9 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %342 = getelementptr inbounds nuw i8, ptr %125, i64 44
   %343 = load float, ptr %342, align 4
   %344 = load ptr, ptr %80, align 8
-  %345 = getelementptr inbounds nuw ptr, ptr %344, i64 %indvars.iv455.i
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %344, i64 %indvars.iv455.i
   %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds nuw %struct.Transform, ptr %346, i64 %indvars.iv452.i
+  %347 = getelementptr inbounds nuw [40 x i8], ptr %346, i64 %indvars.iv452.i
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 36
   store float %343, ptr %348, align 4
   %349 = and i32 %133, 512
@@ -42779,15 +42694,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 350:                                              ; preds = %341
   %351 = sext i32 %.10.i to i64
-  %352 = getelementptr inbounds i16, ptr %51, i64 %351
+  %352 = getelementptr inbounds [2 x i8], ptr %51, i64 %351
   %353 = load i16, ptr %352, align 2
   %354 = uitofp i16 %353 to float
   %355 = getelementptr inbounds nuw i8, ptr %125, i64 84
   %356 = load float, ptr %355, align 4
   %357 = load ptr, ptr %80, align 8
-  %358 = getelementptr inbounds nuw ptr, ptr %357, i64 %indvars.iv455.i
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %357, i64 %indvars.iv455.i
   %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds nuw %struct.Transform, ptr %359, i64 %indvars.iv452.i
+  %360 = getelementptr inbounds nuw [40 x i8], ptr %359, i64 %indvars.iv452.i
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 36
   %362 = load float, ptr %361, align 4
   %363 = call float @llvm.fmuladd.f32(float %354, float %356, float %362)
@@ -42798,9 +42713,9 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 365:                                              ; preds = %350, %341
   %.11.i = phi i32 [ %364, %350 ], [ %.10.i, %341 ]
   %366 = load ptr, ptr %80, align 8
-  %367 = getelementptr inbounds nuw ptr, ptr %366, i64 %indvars.iv455.i
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %366, i64 %indvars.iv455.i
   %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr inbounds nuw %struct.Transform, ptr %368, i64 %indvars.iv452.i
+  %369 = getelementptr inbounds nuw [40 x i8], ptr %368, i64 %indvars.iv452.i
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 12
   %371 = load <2 x float>, ptr %370, align 4
   %372 = getelementptr inbounds nuw i8, ptr %369, i64 20
@@ -42858,7 +42773,7 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   %396 = phi i32 [ %513, %512 ], [ %388, %.preheader.i ]
   %indvars.iv460.i = phi i64 [ %indvars.iv.next461.i, %512 ], [ 0, %.preheader.i ]
   %397 = load ptr, ptr %76, align 8
-  %398 = getelementptr inbounds nuw %struct.BoneInfo, ptr %397, i64 %indvars.iv460.i
+  %398 = getelementptr inbounds nuw [36 x i8], ptr %397, i64 %indvars.iv460.i
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 32
   %400 = load i32, ptr %399, align 4
   %401 = icmp sgt i32 %400, -1
@@ -42866,12 +42781,12 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
 
 402:                                              ; preds = %.lr.ph431.i
   %403 = load ptr, ptr %80, align 8
-  %404 = getelementptr inbounds nuw ptr, ptr %403, i64 %indvars.iv463.i
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %403, i64 %indvars.iv463.i
   %405 = load ptr, ptr %404, align 8
-  %406 = getelementptr inbounds nuw %struct.Transform, ptr %405, i64 %indvars.iv460.i
+  %406 = getelementptr inbounds nuw [40 x i8], ptr %405, i64 %indvars.iv460.i
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 12
   %408 = zext nneg i32 %400 to i64
-  %409 = getelementptr inbounds nuw %struct.Transform, ptr %405, i64 %408
+  %409 = getelementptr inbounds nuw [40 x i8], ptr %405, i64 %408
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 12
   %411 = load <2 x float>, ptr %410, align 4
   %412 = getelementptr inbounds nuw i8, ptr %409, i64 20
@@ -42914,15 +42829,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   store <2 x float> %.sroa.034.4.vec.insert.i.i, ptr %407, align 4
   store <2 x float> %.sroa.4.12.vec.insert.i403.i, ptr %415, align 4
   %437 = load ptr, ptr %80, align 8
-  %438 = getelementptr inbounds nuw ptr, ptr %437, i64 %indvars.iv463.i
+  %438 = getelementptr inbounds nuw [8 x i8], ptr %437, i64 %indvars.iv463.i
   %439 = load ptr, ptr %438, align 8
-  %440 = getelementptr inbounds nuw %struct.Transform, ptr %439, i64 %indvars.iv460.i
+  %440 = getelementptr inbounds nuw [40 x i8], ptr %439, i64 %indvars.iv460.i
   %441 = load ptr, ptr %76, align 8
-  %442 = getelementptr inbounds nuw %struct.BoneInfo, ptr %441, i64 %indvars.iv460.i
+  %442 = getelementptr inbounds nuw [36 x i8], ptr %441, i64 %indvars.iv460.i
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 32
   %444 = load i32, ptr %443, align 4
   %445 = sext i32 %444 to i64
-  %446 = getelementptr inbounds %struct.Transform, ptr %439, i64 %445
+  %446 = getelementptr inbounds [40 x i8], ptr %439, i64 %445
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 12
   %.sroa.020.0.copyload.i = load <2 x float>, ptr %440, align 4
   %.sroa.221.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %440, i64 8
@@ -42978,15 +42893,15 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   store <2 x float> %.sroa.0103.4.vec.insert.i.i, ptr %440, align 4
   store float %487, ptr %.sroa.221.0..sroa_idx.i, align 4
   %488 = load ptr, ptr %80, align 8
-  %489 = getelementptr inbounds nuw ptr, ptr %488, i64 %indvars.iv463.i
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %488, i64 %indvars.iv463.i
   %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds nuw %struct.Transform, ptr %490, i64 %indvars.iv460.i
+  %491 = getelementptr inbounds nuw [40 x i8], ptr %490, i64 %indvars.iv460.i
   %492 = load ptr, ptr %76, align 8
-  %493 = getelementptr inbounds nuw %struct.BoneInfo, ptr %492, i64 %indvars.iv460.i
+  %493 = getelementptr inbounds nuw [36 x i8], ptr %492, i64 %indvars.iv460.i
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 32
   %495 = load i32, ptr %494, align 4
   %496 = sext i32 %495 to i64
-  %497 = getelementptr inbounds %struct.Transform, ptr %490, i64 %496
+  %497 = getelementptr inbounds [40 x i8], ptr %490, i64 %496
   %.sroa.012.0.copyload.i = load <2 x float>, ptr %491, align 4
   %.sroa.213.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %491, i64 8
   %.sroa.213.0.copyload.i = load float, ptr %.sroa.213.0..sroa_idx.i, align 4
@@ -42998,16 +42913,16 @@ define noundef ptr @LoadModelAnimations(ptr noundef %0, ptr noundef writeonly ca
   store <2 x float> %.sroa.08.4.vec.insert.i.i, ptr %491, align 4
   store float %498, ptr %.sroa.213.0..sroa_idx.i, align 4
   %499 = load ptr, ptr %80, align 8
-  %500 = getelementptr inbounds nuw ptr, ptr %499, i64 %indvars.iv463.i
+  %500 = getelementptr inbounds nuw [8 x i8], ptr %499, i64 %indvars.iv463.i
   %501 = load ptr, ptr %500, align 8
-  %502 = getelementptr inbounds nuw %struct.Transform, ptr %501, i64 %indvars.iv460.i
+  %502 = getelementptr inbounds nuw [40 x i8], ptr %501, i64 %indvars.iv460.i
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 28
   %504 = load ptr, ptr %76, align 8
-  %505 = getelementptr inbounds nuw %struct.BoneInfo, ptr %504, i64 %indvars.iv460.i
+  %505 = getelementptr inbounds nuw [36 x i8], ptr %504, i64 %indvars.iv460.i
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 32
   %507 = load i32, ptr %506, align 4
   %508 = sext i32 %507 to i64
-  %509 = getelementptr inbounds %struct.Transform, ptr %501, i64 %508
+  %509 = getelementptr inbounds [40 x i8], ptr %501, i64 %508
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 28
   %.sroa.03.0.copyload.i = load <2 x float>, ptr %503, align 4
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %502, i64 36
@@ -43116,11 +43031,11 @@ LoadModelAnimationsIQM.exit:                      ; preds = %14, %18, %22, %._cr
 550:                                              ; preds = %._crit_edge330.i, %.lr.ph333.i
   %indvars.iv344.i = phi i64 [ 0, %.lr.ph333.i ], [ %indvars.iv.next345.i, %._crit_edge330.i ]
   %551 = load ptr, ptr %546, align 8
-  %552 = getelementptr inbounds nuw %struct.m3da_t, ptr %551, i64 %indvars.iv344.i
+  %552 = getelementptr inbounds nuw [24 x i8], ptr %551, i64 %indvars.iv344.i
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 8
   %554 = load i32, ptr %553, align 8
   %555 = udiv i32 %554, 17
-  %556 = getelementptr inbounds nuw %struct.ModelAnimation, ptr %544, i64 %indvars.iv344.i
+  %556 = getelementptr inbounds nuw [56 x i8], ptr %544, i64 %indvars.iv344.i
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 4
   store i32 %555, ptr %557, align 4
   %558 = load i32, ptr %531, align 8
@@ -43151,16 +43066,16 @@ LoadModelAnimationsIQM.exit:                      ; preds = %14, %18, %22, %._cr
 .lr.ph.i59:                                       ; preds = %550, %.lr.ph.i59
   %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i61, %.lr.ph.i59 ], [ 0, %550 ]
   %576 = load ptr, ptr %547, align 8
-  %577 = getelementptr inbounds nuw %struct.m3db_t, ptr %576, i64 %indvars.iv.i60
+  %577 = getelementptr inbounds nuw [104 x i8], ptr %576, i64 %indvars.iv.i60
   %578 = load i32, ptr %577, align 8
   %579 = load ptr, ptr %563, align 8
-  %580 = getelementptr inbounds nuw %struct.BoneInfo, ptr %579, i64 %indvars.iv.i60
+  %580 = getelementptr inbounds nuw [36 x i8], ptr %579, i64 %indvars.iv.i60
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 32
   store i32 %578, ptr %581, align 4
   %582 = load ptr, ptr %563, align 8
-  %583 = getelementptr inbounds nuw %struct.BoneInfo, ptr %582, i64 %indvars.iv.i60
+  %583 = getelementptr inbounds nuw [36 x i8], ptr %582, i64 %indvars.iv.i60
   %584 = load ptr, ptr %547, align 8
-  %585 = getelementptr inbounds nuw %struct.m3db_t, ptr %584, i64 %indvars.iv.i60
+  %585 = getelementptr inbounds nuw [104 x i8], ptr %584, i64 %indvars.iv.i60
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 8
   %587 = load ptr, ptr %586, align 8
   %588 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %583, ptr noundef nonnull dereferenceable(1) %587, i64 noundef 32) #63
@@ -43177,11 +43092,11 @@ LoadModelAnimationsIQM.exit:                      ; preds = %14, %18, %22, %._cr
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %550
   %.0289.lcssa.i = phi i64 [ 0, %550 ], [ %592, %._crit_edge.loopexit.i ]
   %593 = load ptr, ptr %563, align 8
-  %594 = getelementptr inbounds nuw %struct.BoneInfo, ptr %593, i64 %.0289.lcssa.i
+  %594 = getelementptr inbounds nuw [36 x i8], ptr %593, i64 %.0289.lcssa.i
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 32
   store i32 -1, ptr %595, align 4
   %596 = load ptr, ptr %563, align 8
-  %597 = getelementptr inbounds nuw %struct.BoneInfo, ptr %596, i64 %.0289.lcssa.i
+  %597 = getelementptr inbounds nuw [36 x i8], ptr %596, i64 %.0289.lcssa.i
   store i64 19507875711831886, ptr %597, align 1
   %598 = load i32, ptr %557, align 4
   %599 = icmp sgt i32 %598, 0
@@ -43195,7 +43110,7 @@ LoadModelAnimationsIQM.exit:                      ; preds = %14, %18, %22, %._cr
   %603 = mul nuw nsw i64 %602, 40
   %604 = call noalias ptr @malloc(i64 noundef %603) #65
   %605 = load ptr, ptr %567, align 8
-  %606 = getelementptr inbounds nuw ptr, ptr %605, i64 %indvars.iv341.i
+  %606 = getelementptr inbounds nuw [8 x i8], ptr %605, i64 %indvars.iv341.i
   store ptr %604, ptr %606, align 8
   %607 = trunc i64 %indvars.iv341.i to i32
   %608 = mul i32 %607, 17
@@ -43211,89 +43126,89 @@ LoadModelAnimationsIQM.exit:                      ; preds = %14, %18, %22, %._cr
 .lr.ph324.i:                                      ; preds = %.preheader.i12, %834
   %indvars.iv338.i = phi i64 [ %indvars.iv.next339.i, %834 ], [ 0, %.preheader.i12 ]
   %612 = load ptr, ptr %548, align 8
-  %613 = getelementptr inbounds nuw %struct.m3db_t, ptr %609, i64 %indvars.iv338.i
+  %613 = getelementptr inbounds nuw [104 x i8], ptr %609, i64 %indvars.iv338.i
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 16
   %615 = load i32, ptr %614, align 8
   %616 = zext i32 %615 to i64
-  %617 = getelementptr inbounds nuw %struct.m3dv_t, ptr %612, i64 %616
+  %617 = getelementptr inbounds nuw [24 x i8], ptr %612, i64 %616
   %618 = load float, ptr %617, align 4
   %619 = load float, ptr %549, align 8
   %620 = fmul float %618, %619
   %621 = load ptr, ptr %567, align 8
-  %622 = getelementptr inbounds nuw ptr, ptr %621, i64 %indvars.iv341.i
+  %622 = getelementptr inbounds nuw [8 x i8], ptr %621, i64 %indvars.iv341.i
   %623 = load ptr, ptr %622, align 8
-  %624 = getelementptr inbounds nuw %struct.Transform, ptr %623, i64 %indvars.iv338.i
+  %624 = getelementptr inbounds nuw [40 x i8], ptr %623, i64 %indvars.iv338.i
   store float %620, ptr %624, align 4
   %625 = load ptr, ptr %548, align 8
-  %626 = getelementptr inbounds nuw %struct.m3dv_t, ptr %625, i64 %616
+  %626 = getelementptr inbounds nuw [24 x i8], ptr %625, i64 %616
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 4
   %628 = load float, ptr %627, align 4
   %629 = load float, ptr %549, align 8
   %630 = fmul float %628, %629
   %631 = load ptr, ptr %567, align 8
-  %632 = getelementptr inbounds nuw ptr, ptr %631, i64 %indvars.iv341.i
+  %632 = getelementptr inbounds nuw [8 x i8], ptr %631, i64 %indvars.iv341.i
   %633 = load ptr, ptr %632, align 8
-  %634 = getelementptr inbounds nuw %struct.Transform, ptr %633, i64 %indvars.iv338.i
+  %634 = getelementptr inbounds nuw [40 x i8], ptr %633, i64 %indvars.iv338.i
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 4
   store float %630, ptr %635, align 4
   %636 = load ptr, ptr %548, align 8
-  %637 = getelementptr inbounds nuw %struct.m3dv_t, ptr %636, i64 %616
+  %637 = getelementptr inbounds nuw [24 x i8], ptr %636, i64 %616
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 8
   %639 = load float, ptr %638, align 4
   %640 = load float, ptr %549, align 8
   %641 = fmul float %639, %640
   %642 = load ptr, ptr %567, align 8
-  %643 = getelementptr inbounds nuw ptr, ptr %642, i64 %indvars.iv341.i
+  %643 = getelementptr inbounds nuw [8 x i8], ptr %642, i64 %indvars.iv341.i
   %644 = load ptr, ptr %643, align 8
-  %645 = getelementptr inbounds nuw %struct.Transform, ptr %644, i64 %indvars.iv338.i
+  %645 = getelementptr inbounds nuw [40 x i8], ptr %644, i64 %indvars.iv338.i
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 8
   store float %641, ptr %646, align 4
   %647 = load ptr, ptr %548, align 8
   %648 = getelementptr inbounds nuw i8, ptr %613, i64 20
   %649 = load i32, ptr %648, align 4
   %650 = zext i32 %649 to i64
-  %651 = getelementptr inbounds nuw %struct.m3dv_t, ptr %647, i64 %650
+  %651 = getelementptr inbounds nuw [24 x i8], ptr %647, i64 %650
   %652 = load float, ptr %651, align 4
   %653 = load ptr, ptr %567, align 8
-  %654 = getelementptr inbounds nuw ptr, ptr %653, i64 %indvars.iv341.i
+  %654 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %indvars.iv341.i
   %655 = load ptr, ptr %654, align 8
-  %656 = getelementptr inbounds nuw %struct.Transform, ptr %655, i64 %indvars.iv338.i
+  %656 = getelementptr inbounds nuw [40 x i8], ptr %655, i64 %indvars.iv338.i
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 12
   store float %652, ptr %657, align 4
   %658 = load ptr, ptr %548, align 8
-  %659 = getelementptr inbounds nuw %struct.m3dv_t, ptr %658, i64 %650
+  %659 = getelementptr inbounds nuw [24 x i8], ptr %658, i64 %650
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 4
   %661 = load float, ptr %660, align 4
   %662 = load ptr, ptr %567, align 8
-  %663 = getelementptr inbounds nuw ptr, ptr %662, i64 %indvars.iv341.i
+  %663 = getelementptr inbounds nuw [8 x i8], ptr %662, i64 %indvars.iv341.i
   %664 = load ptr, ptr %663, align 8
-  %665 = getelementptr inbounds nuw %struct.Transform, ptr %664, i64 %indvars.iv338.i
+  %665 = getelementptr inbounds nuw [40 x i8], ptr %664, i64 %indvars.iv338.i
   %666 = getelementptr inbounds nuw i8, ptr %665, i64 16
   store float %661, ptr %666, align 4
   %667 = load ptr, ptr %548, align 8
-  %668 = getelementptr inbounds nuw %struct.m3dv_t, ptr %667, i64 %650
+  %668 = getelementptr inbounds nuw [24 x i8], ptr %667, i64 %650
   %669 = getelementptr inbounds nuw i8, ptr %668, i64 8
   %670 = load float, ptr %669, align 4
   %671 = load ptr, ptr %567, align 8
-  %672 = getelementptr inbounds nuw ptr, ptr %671, i64 %indvars.iv341.i
+  %672 = getelementptr inbounds nuw [8 x i8], ptr %671, i64 %indvars.iv341.i
   %673 = load ptr, ptr %672, align 8
-  %674 = getelementptr inbounds nuw %struct.Transform, ptr %673, i64 %indvars.iv338.i
+  %674 = getelementptr inbounds nuw [40 x i8], ptr %673, i64 %indvars.iv338.i
   %675 = getelementptr inbounds nuw i8, ptr %674, i64 20
   store float %670, ptr %675, align 4
   %676 = load ptr, ptr %548, align 8
-  %677 = getelementptr inbounds nuw %struct.m3dv_t, ptr %676, i64 %650
+  %677 = getelementptr inbounds nuw [24 x i8], ptr %676, i64 %650
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 12
   %679 = load float, ptr %678, align 4
   %680 = load ptr, ptr %567, align 8
-  %681 = getelementptr inbounds nuw ptr, ptr %680, i64 %indvars.iv341.i
+  %681 = getelementptr inbounds nuw [8 x i8], ptr %680, i64 %indvars.iv341.i
   %682 = load ptr, ptr %681, align 8
-  %683 = getelementptr inbounds nuw %struct.Transform, ptr %682, i64 %indvars.iv338.i
+  %683 = getelementptr inbounds nuw [40 x i8], ptr %682, i64 %indvars.iv338.i
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 24
   store float %679, ptr %684, align 4
   %685 = load ptr, ptr %567, align 8
-  %686 = getelementptr inbounds nuw ptr, ptr %685, i64 %indvars.iv341.i
+  %686 = getelementptr inbounds nuw [8 x i8], ptr %685, i64 %indvars.iv341.i
   %687 = load ptr, ptr %686, align 8
-  %688 = getelementptr inbounds nuw %struct.Transform, ptr %687, i64 %indvars.iv338.i
+  %688 = getelementptr inbounds nuw [40 x i8], ptr %687, i64 %indvars.iv338.i
   %689 = getelementptr inbounds nuw i8, ptr %688, i64 12
   %690 = load <2 x float>, ptr %689, align 4
   %691 = getelementptr inbounds nuw i8, ptr %688, i64 20
@@ -43321,25 +43236,25 @@ LoadModelAnimationsIQM.exit:                      ; preds = %14, %18, %22, %._cr
   store <2 x float> %.sroa.022.4.vec.insert.i.i19, ptr %689, align 4
   store <2 x float> %.sroa.4.12.vec.insert.i.i21, ptr %691, align 4
   %704 = load ptr, ptr %567, align 8
-  %705 = getelementptr inbounds nuw ptr, ptr %704, i64 %indvars.iv341.i
+  %705 = getelementptr inbounds nuw [8 x i8], ptr %704, i64 %indvars.iv341.i
   %706 = load ptr, ptr %705, align 8
-  %707 = getelementptr inbounds nuw %struct.Transform, ptr %706, i64 %indvars.iv338.i
+  %707 = getelementptr inbounds nuw [40 x i8], ptr %706, i64 %indvars.iv338.i
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 36
   store float 1.000000e+00, ptr %708, align 4
   %709 = load ptr, ptr %567, align 8
-  %710 = getelementptr inbounds nuw ptr, ptr %709, i64 %indvars.iv341.i
+  %710 = getelementptr inbounds nuw [8 x i8], ptr %709, i64 %indvars.iv341.i
   %711 = load ptr, ptr %710, align 8
-  %712 = getelementptr inbounds nuw %struct.Transform, ptr %711, i64 %indvars.iv338.i
+  %712 = getelementptr inbounds nuw [40 x i8], ptr %711, i64 %indvars.iv338.i
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 32
   store float 1.000000e+00, ptr %713, align 4
   %714 = load ptr, ptr %567, align 8
-  %715 = getelementptr inbounds nuw ptr, ptr %714, i64 %indvars.iv341.i
+  %715 = getelementptr inbounds nuw [8 x i8], ptr %714, i64 %indvars.iv341.i
   %716 = load ptr, ptr %715, align 8
-  %717 = getelementptr inbounds nuw %struct.Transform, ptr %716, i64 %indvars.iv338.i
+  %717 = getelementptr inbounds nuw [40 x i8], ptr %716, i64 %indvars.iv338.i
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 28
   store float 1.000000e+00, ptr %718, align 4
   %719 = load ptr, ptr %563, align 8
-  %720 = getelementptr inbounds nuw %struct.BoneInfo, ptr %719, i64 %indvars.iv338.i
+  %720 = getelementptr inbounds nuw [36 x i8], ptr %719, i64 %indvars.iv338.i
   %721 = getelementptr inbounds nuw i8, ptr %720, i64 32
   %722 = load i32, ptr %721, align 4
   %723 = icmp sgt i32 %722, -1
@@ -43347,12 +43262,12 @@ LoadModelAnimationsIQM.exit:                      ; preds = %14, %18, %22, %._cr
 
 724:                                              ; preds = %.lr.ph324.i
   %725 = load ptr, ptr %567, align 8
-  %726 = getelementptr inbounds nuw ptr, ptr %725, i64 %indvars.iv341.i
+  %726 = getelementptr inbounds nuw [8 x i8], ptr %725, i64 %indvars.iv341.i
   %727 = load ptr, ptr %726, align 8
-  %728 = getelementptr inbounds nuw %struct.Transform, ptr %727, i64 %indvars.iv338.i
+  %728 = getelementptr inbounds nuw [40 x i8], ptr %727, i64 %indvars.iv338.i
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 12
   %730 = zext nneg i32 %722 to i64
-  %731 = getelementptr inbounds nuw %struct.Transform, ptr %727, i64 %730
+  %731 = getelementptr inbounds nuw [40 x i8], ptr %727, i64 %730
   %732 = getelementptr inbounds nuw i8, ptr %731, i64 12
   %733 = load <2 x float>, ptr %732, align 4
   %734 = getelementptr inbounds nuw i8, ptr %731, i64 20
@@ -43395,15 +43310,15 @@ LoadModelAnimationsIQM.exit:                      ; preds = %14, %18, %22, %._cr
   store <2 x float> %.sroa.034.4.vec.insert.i.i29, ptr %729, align 4
   store <2 x float> %.sroa.4.12.vec.insert.i307.i, ptr %737, align 4
   %759 = load ptr, ptr %567, align 8
-  %760 = getelementptr inbounds nuw ptr, ptr %759, i64 %indvars.iv341.i
+  %760 = getelementptr inbounds nuw [8 x i8], ptr %759, i64 %indvars.iv341.i
   %761 = load ptr, ptr %760, align 8
-  %762 = getelementptr inbounds nuw %struct.Transform, ptr %761, i64 %indvars.iv338.i
+  %762 = getelementptr inbounds nuw [40 x i8], ptr %761, i64 %indvars.iv338.i
   %763 = load ptr, ptr %563, align 8
-  %764 = getelementptr inbounds nuw %struct.BoneInfo, ptr %763, i64 %indvars.iv338.i
+  %764 = getelementptr inbounds nuw [36 x i8], ptr %763, i64 %indvars.iv338.i
   %765 = getelementptr inbounds nuw i8, ptr %764, i64 32
   %766 = load i32, ptr %765, align 4
   %767 = sext i32 %766 to i64
-  %768 = getelementptr inbounds %struct.Transform, ptr %761, i64 %767
+  %768 = getelementptr inbounds [40 x i8], ptr %761, i64 %767
   %769 = getelementptr inbounds nuw i8, ptr %768, i64 12
   %.sroa.020.0.copyload.i30 = load <2 x float>, ptr %762, align 4
   %.sroa.221.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %762, i64 8
@@ -43459,15 +43374,15 @@ LoadModelAnimationsIQM.exit:                      ; preds = %14, %18, %22, %._cr
   store <2 x float> %.sroa.0103.4.vec.insert.i.i40, ptr %762, align 4
   store float %809, ptr %.sroa.221.0..sroa_idx.i31, align 4
   %810 = load ptr, ptr %567, align 8
-  %811 = getelementptr inbounds nuw ptr, ptr %810, i64 %indvars.iv341.i
+  %811 = getelementptr inbounds nuw [8 x i8], ptr %810, i64 %indvars.iv341.i
   %812 = load ptr, ptr %811, align 8
-  %813 = getelementptr inbounds nuw %struct.Transform, ptr %812, i64 %indvars.iv338.i
+  %813 = getelementptr inbounds nuw [40 x i8], ptr %812, i64 %indvars.iv338.i
   %814 = load ptr, ptr %563, align 8
-  %815 = getelementptr inbounds nuw %struct.BoneInfo, ptr %814, i64 %indvars.iv338.i
+  %815 = getelementptr inbounds nuw [36 x i8], ptr %814, i64 %indvars.iv338.i
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 32
   %817 = load i32, ptr %816, align 4
   %818 = sext i32 %817 to i64
-  %819 = getelementptr inbounds %struct.Transform, ptr %812, i64 %818
+  %819 = getelementptr inbounds [40 x i8], ptr %812, i64 %818
   %.sroa.012.0.copyload.i41 = load <2 x float>, ptr %813, align 4
   %.sroa.213.0..sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %813, i64 8
   %.sroa.213.0.copyload.i43 = load float, ptr %.sroa.213.0..sroa_idx.i42, align 4
@@ -43479,16 +43394,16 @@ LoadModelAnimationsIQM.exit:                      ; preds = %14, %18, %22, %._cr
   store <2 x float> %.sroa.08.4.vec.insert.i.i52, ptr %813, align 4
   store float %820, ptr %.sroa.213.0..sroa_idx.i42, align 4
   %821 = load ptr, ptr %567, align 8
-  %822 = getelementptr inbounds nuw ptr, ptr %821, i64 %indvars.iv341.i
+  %822 = getelementptr inbounds nuw [8 x i8], ptr %821, i64 %indvars.iv341.i
   %823 = load ptr, ptr %822, align 8
-  %824 = getelementptr inbounds nuw %struct.Transform, ptr %823, i64 %indvars.iv338.i
+  %824 = getelementptr inbounds nuw [40 x i8], ptr %823, i64 %indvars.iv338.i
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 28
   %826 = load ptr, ptr %563, align 8
-  %827 = getelementptr inbounds nuw %struct.BoneInfo, ptr %826, i64 %indvars.iv338.i
+  %827 = getelementptr inbounds nuw [36 x i8], ptr %826, i64 %indvars.iv338.i
   %828 = getelementptr inbounds nuw i8, ptr %827, i64 32
   %829 = load i32, ptr %828, align 4
   %830 = sext i32 %829 to i64
-  %831 = getelementptr inbounds %struct.Transform, ptr %823, i64 %830
+  %831 = getelementptr inbounds [40 x i8], ptr %823, i64 %830
   %832 = getelementptr inbounds nuw i8, ptr %831, i64 28
   %.sroa.03.0.copyload.i53 = load <2 x float>, ptr %825, align 4
   %.sroa.24.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %824, i64 36
@@ -43516,62 +43431,62 @@ LoadModelAnimationsIQM.exit:                      ; preds = %14, %18, %22, %._cr
 ._crit_edge325.i:                                 ; preds = %._crit_edge325.loopexit.i, %.preheader.i12
   %.0290.lcssa.i = phi i64 [ 0, %.preheader.i12 ], [ %838, %._crit_edge325.loopexit.i ]
   %839 = load ptr, ptr %567, align 8
-  %840 = getelementptr inbounds nuw ptr, ptr %839, i64 %indvars.iv341.i
+  %840 = getelementptr inbounds nuw [8 x i8], ptr %839, i64 %indvars.iv341.i
   %841 = load ptr, ptr %840, align 8
-  %842 = getelementptr inbounds nuw %struct.Transform, ptr %841, i64 %.0290.lcssa.i
+  %842 = getelementptr inbounds nuw [40 x i8], ptr %841, i64 %.0290.lcssa.i
   store float 0.000000e+00, ptr %842, align 4
   %843 = load ptr, ptr %567, align 8
-  %844 = getelementptr inbounds nuw ptr, ptr %843, i64 %indvars.iv341.i
+  %844 = getelementptr inbounds nuw [8 x i8], ptr %843, i64 %indvars.iv341.i
   %845 = load ptr, ptr %844, align 8
-  %846 = getelementptr inbounds nuw %struct.Transform, ptr %845, i64 %.0290.lcssa.i
+  %846 = getelementptr inbounds nuw [40 x i8], ptr %845, i64 %.0290.lcssa.i
   %847 = getelementptr inbounds nuw i8, ptr %846, i64 4
   store float 0.000000e+00, ptr %847, align 4
   %848 = load ptr, ptr %567, align 8
-  %849 = getelementptr inbounds nuw ptr, ptr %848, i64 %indvars.iv341.i
+  %849 = getelementptr inbounds nuw [8 x i8], ptr %848, i64 %indvars.iv341.i
   %850 = load ptr, ptr %849, align 8
-  %851 = getelementptr inbounds nuw %struct.Transform, ptr %850, i64 %.0290.lcssa.i
+  %851 = getelementptr inbounds nuw [40 x i8], ptr %850, i64 %.0290.lcssa.i
   %852 = getelementptr inbounds nuw i8, ptr %851, i64 8
   store float 0.000000e+00, ptr %852, align 4
   %853 = load ptr, ptr %567, align 8
-  %854 = getelementptr inbounds nuw ptr, ptr %853, i64 %indvars.iv341.i
+  %854 = getelementptr inbounds nuw [8 x i8], ptr %853, i64 %indvars.iv341.i
   %855 = load ptr, ptr %854, align 8
-  %856 = getelementptr inbounds nuw %struct.Transform, ptr %855, i64 %.0290.lcssa.i
+  %856 = getelementptr inbounds nuw [40 x i8], ptr %855, i64 %.0290.lcssa.i
   %857 = getelementptr inbounds nuw i8, ptr %856, i64 12
   store float 0.000000e+00, ptr %857, align 4
   %858 = load ptr, ptr %567, align 8
-  %859 = getelementptr inbounds nuw ptr, ptr %858, i64 %indvars.iv341.i
+  %859 = getelementptr inbounds nuw [8 x i8], ptr %858, i64 %indvars.iv341.i
   %860 = load ptr, ptr %859, align 8
-  %861 = getelementptr inbounds nuw %struct.Transform, ptr %860, i64 %.0290.lcssa.i
+  %861 = getelementptr inbounds nuw [40 x i8], ptr %860, i64 %.0290.lcssa.i
   %862 = getelementptr inbounds nuw i8, ptr %861, i64 16
   store float 0.000000e+00, ptr %862, align 4
   %863 = load ptr, ptr %567, align 8
-  %864 = getelementptr inbounds nuw ptr, ptr %863, i64 %indvars.iv341.i
+  %864 = getelementptr inbounds nuw [8 x i8], ptr %863, i64 %indvars.iv341.i
   %865 = load ptr, ptr %864, align 8
-  %866 = getelementptr inbounds nuw %struct.Transform, ptr %865, i64 %.0290.lcssa.i
+  %866 = getelementptr inbounds nuw [40 x i8], ptr %865, i64 %.0290.lcssa.i
   %867 = getelementptr inbounds nuw i8, ptr %866, i64 20
   store float 0.000000e+00, ptr %867, align 4
   %868 = load ptr, ptr %567, align 8
-  %869 = getelementptr inbounds nuw ptr, ptr %868, i64 %indvars.iv341.i
+  %869 = getelementptr inbounds nuw [8 x i8], ptr %868, i64 %indvars.iv341.i
   %870 = load ptr, ptr %869, align 8
-  %871 = getelementptr inbounds nuw %struct.Transform, ptr %870, i64 %.0290.lcssa.i
+  %871 = getelementptr inbounds nuw [40 x i8], ptr %870, i64 %.0290.lcssa.i
   %872 = getelementptr inbounds nuw i8, ptr %871, i64 24
   store float 1.000000e+00, ptr %872, align 4
   %873 = load ptr, ptr %567, align 8
-  %874 = getelementptr inbounds nuw ptr, ptr %873, i64 %indvars.iv341.i
+  %874 = getelementptr inbounds nuw [8 x i8], ptr %873, i64 %indvars.iv341.i
   %875 = load ptr, ptr %874, align 8
-  %876 = getelementptr inbounds nuw %struct.Transform, ptr %875, i64 %.0290.lcssa.i
+  %876 = getelementptr inbounds nuw [40 x i8], ptr %875, i64 %.0290.lcssa.i
   %877 = getelementptr inbounds nuw i8, ptr %876, i64 36
   store float 1.000000e+00, ptr %877, align 4
   %878 = load ptr, ptr %567, align 8
-  %879 = getelementptr inbounds nuw ptr, ptr %878, i64 %indvars.iv341.i
+  %879 = getelementptr inbounds nuw [8 x i8], ptr %878, i64 %indvars.iv341.i
   %880 = load ptr, ptr %879, align 8
-  %881 = getelementptr inbounds nuw %struct.Transform, ptr %880, i64 %.0290.lcssa.i
+  %881 = getelementptr inbounds nuw [40 x i8], ptr %880, i64 %.0290.lcssa.i
   %882 = getelementptr inbounds nuw i8, ptr %881, i64 32
   store float 1.000000e+00, ptr %882, align 4
   %883 = load ptr, ptr %567, align 8
-  %884 = getelementptr inbounds nuw ptr, ptr %883, i64 %indvars.iv341.i
+  %884 = getelementptr inbounds nuw [8 x i8], ptr %883, i64 %indvars.iv341.i
   %885 = load ptr, ptr %884, align 8
-  %886 = getelementptr inbounds nuw %struct.Transform, ptr %885, i64 %.0290.lcssa.i
+  %886 = getelementptr inbounds nuw [40 x i8], ptr %885, i64 %.0290.lcssa.i
   %887 = getelementptr inbounds nuw i8, ptr %886, i64 28
   store float 1.000000e+00, ptr %887, align 4
   call void @free(ptr noundef nonnull %609) #63
@@ -43684,7 +43599,7 @@ LoadModelAnimationsM3D.exit:                      ; preds = %518, %.sink.split.i
 934:                                              ; preds = %._crit_edge217.i, %.lr.ph222.i
   %935 = phi i64 [ 0, %.lr.ph222.i ], [ %1056, %._crit_edge217.i ]
   %.0162219.i = phi i32 [ 0, %.lr.ph222.i ], [ %1055, %._crit_edge217.i ]
-  %936 = getelementptr inbounds nuw %struct.ModelAnimation, ptr %920, i64 %935
+  %936 = getelementptr inbounds nuw [56 x i8], ptr %920, i64 %935
   store i32 %921, ptr %936, align 4
   %937 = call noalias ptr @malloc(i64 noundef %922) #65
   br i1 %.not3.i.i, label %LoadBoneInfoGLTF.exit.i, label %.lr.ph.i.i
@@ -43692,7 +43607,7 @@ LoadModelAnimationsM3D.exit:                      ; preds = %518, %.sink.split.i
 .lr.ph.i.i:                                       ; preds = %934, %954
   %938 = phi i64 [ %958, %954 ], [ 0, %934 ]
   %.0172.i.i = phi i32 [ %957, %954 ], [ 0, %934 ]
-  %939 = getelementptr inbounds nuw ptr, ptr %.sroa.3.0.copyload.i, i64 %938
+  %939 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.3.0.copyload.i, i64 %938
   %940 = load ptr, ptr %939, align 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %940, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %940, i64 8
@@ -43701,7 +43616,7 @@ LoadModelAnimationsM3D.exit:                      ; preds = %518, %.sink.split.i
   br i1 %.not.i.i, label %.preheader, label %941
 
 941:                                              ; preds = %.lr.ph.i.i
-  %942 = getelementptr inbounds nuw %struct.BoneInfo, ptr %937, i64 %938
+  %942 = getelementptr inbounds nuw [36 x i8], ptr %937, i64 %938
   %943 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %942, ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload.i.i, i64 noundef 32) #63
   %944 = getelementptr inbounds nuw i8, ptr %942, i64 31
   store i8 0, ptr %944, align 1
@@ -43713,7 +43628,7 @@ LoadModelAnimationsM3D.exit:                      ; preds = %518, %.sink.split.i
 945:                                              ; preds = %.preheader, %950
   %946 = phi i64 [ %952, %950 ], [ 0, %.preheader ]
   %.01.i.i = phi i32 [ %951, %950 ], [ 0, %.preheader ]
-  %947 = getelementptr inbounds nuw ptr, ptr %.sroa.3.0.copyload.i, i64 %946
+  %947 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.3.0.copyload.i, i64 %946
   %948 = load ptr, ptr %947, align 8
   %949 = icmp eq ptr %948, %.sroa.5.0.copyload.i.i
   br i1 %949, label %954, label %950
@@ -43726,7 +43641,7 @@ LoadModelAnimationsM3D.exit:                      ; preds = %518, %.sink.split.i
 
 954:                                              ; preds = %950, %945
   %.016.i.i = phi i32 [ -1, %950 ], [ %.01.i.i, %945 ]
-  %955 = getelementptr inbounds nuw %struct.BoneInfo, ptr %937, i64 %938
+  %955 = getelementptr inbounds nuw [36 x i8], ptr %937, i64 %938
   %956 = getelementptr inbounds nuw i8, ptr %955, i64 32
   store i32 %.016.i.i, ptr %956, align 4
   %957 = add i32 %.0172.i.i, 1
@@ -43738,7 +43653,7 @@ LoadBoneInfoGLTF.exit.i:                          ; preds = %954, %934
   %960 = getelementptr inbounds nuw i8, ptr %936, i64 8
   store ptr %937, ptr %960, align 8
   %961 = load ptr, ptr %933, align 8
-  %962 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %961, i64 %935
+  %962 = getelementptr inbounds nuw [80 x i8], ptr %961, i64 %935
   %.sroa.081.0.copyload.i = load ptr, ptr %962, align 8
   %.sroa.785.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %962, i64 24
   %.sroa.785.0.copyload.i = load ptr, ptr %.sroa.785.0..sroa_idx.i, align 8
@@ -43755,7 +43670,7 @@ LoadBoneInfoGLTF.exit.i:                          ; preds = %954, %934
   %964 = phi i64 [ %1033, %.thread.us.i ], [ 0, %.lr.ph209.i ]
   %.0163207.us.i = phi i32 [ %1032, %.thread.us.i ], [ 0, %.lr.ph209.i ]
   %.0164206.us.i = phi float [ %.1165.us.i, %.thread.us.i ], [ 0.000000e+00, %.lr.ph209.i ]
-  %965 = getelementptr inbounds nuw %struct.cgltf_animation_channel, ptr %.sroa.785.0.copyload.i, i64 %964
+  %965 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.785.0.copyload.i, i64 %964
   %.sroa.0.0.copyload.us.i = load ptr, ptr %965, align 8
   %.sroa.5.0..sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %965, i64 8
   %.sroa.547.0..sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %965, i64 16
@@ -43766,7 +43681,7 @@ LoadBoneInfoGLTF.exit.i:                          ; preds = %954, %934
 967:                                              ; preds = %972, %.lr.ph.us.i
   %968 = phi i64 [ 0, %.lr.ph.us.i ], [ %974, %972 ]
   %.0160205.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %973, %972 ]
-  %969 = getelementptr inbounds nuw ptr, ptr %.sroa.3.0.copyload.i, i64 %968
+  %969 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.3.0.copyload.i, i64 %968
   %970 = load ptr, ptr %969, align 8
   %971 = icmp eq ptr %966, %970
   br i1 %971, label %976, label %972
@@ -43785,7 +43700,7 @@ LoadBoneInfoGLTF.exit.i:                          ; preds = %954, %934
   %979 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.us.i, i64 16
   %980 = load i32, ptr %979, align 8
   %981 = sext i32 %.0160205.us.i to i64
-  %982 = getelementptr inbounds %struct.Channels, ptr %963, i64 %981
+  %982 = getelementptr inbounds [32 x i8], ptr %963, i64 %981
   %983 = getelementptr inbounds nuw i8, ptr %982, i64 24
   store i32 %980, ptr %983, align 8
   %.not181.us.i = icmp eq i32 %980, 3
@@ -43956,7 +43871,7 @@ cgltf_accessor_read_float.exit.thread200.us.i:    ; preds = %cgltf_accessor_read
   %1061 = mul nsw i64 %1060, 40
   %1062 = call noalias ptr @malloc(i64 noundef %1061) #65
   %1063 = load ptr, ptr %1051, align 8
-  %1064 = getelementptr inbounds nuw ptr, ptr %1063, i64 %indvars.iv231.i
+  %1064 = getelementptr inbounds nuw [8 x i8], ptr %1063, i64 %indvars.iv231.i
   store ptr %1062, ptr %1064, align 8
   %1065 = trunc nuw nsw i64 %indvars.iv231.i to i32
   %1066 = uitofp nneg i32 %1065 to float
@@ -43969,7 +43884,7 @@ cgltf_accessor_read_float.exit.thread200.us.i:    ; preds = %cgltf_accessor_read
 ._crit_edge212.i:                                 ; preds = %1239
   %1071 = load ptr, ptr %960, align 8
   %1072 = load ptr, ptr %1051, align 8
-  %1073 = getelementptr inbounds nuw ptr, ptr %1072, i64 %indvars.iv231.i
+  %1073 = getelementptr inbounds nuw [8 x i8], ptr %1072, i64 %indvars.iv231.i
   %1074 = load ptr, ptr %1073, align 8
   %1075 = icmp sgt i32 %1244, 0
   br i1 %1075, label %.lr.ph.preheader.i.i, label %BuildPoseFromParentJoints.exit.i
@@ -43980,7 +43895,7 @@ cgltf_accessor_read_float.exit.thread200.us.i:    ; preds = %cgltf_accessor_read
 
 .lr.ph.i185.i:                                    ; preds = %1172, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %1172 ]
-  %1076 = getelementptr inbounds nuw %struct.BoneInfo, ptr %1071, i64 %indvars.iv.i.i
+  %1076 = getelementptr inbounds nuw [36 x i8], ptr %1071, i64 %indvars.iv.i.i
   %1077 = getelementptr inbounds nuw i8, ptr %1076, i64 32
   %1078 = load i32, ptr %1077, align 4
   %1079 = icmp sgt i32 %1078, -1
@@ -43997,9 +43912,9 @@ cgltf_accessor_read_float.exit.thread200.us.i:    ; preds = %cgltf_accessor_read
   br label %1172
 
 1085:                                             ; preds = %1080
-  %1086 = getelementptr inbounds nuw %struct.Transform, ptr %1074, i64 %indvars.iv.i.i
+  %1086 = getelementptr inbounds nuw [40 x i8], ptr %1074, i64 %indvars.iv.i.i
   %1087 = getelementptr inbounds nuw i8, ptr %1086, i64 12
-  %1088 = getelementptr inbounds nuw %struct.Transform, ptr %1074, i64 %1081
+  %1088 = getelementptr inbounds nuw [40 x i8], ptr %1074, i64 %1081
   %1089 = getelementptr inbounds nuw i8, ptr %1088, i64 12
   %1090 = load <2 x float>, ptr %1089, align 4
   %1091 = getelementptr inbounds nuw i8, ptr %1088, i64 20
@@ -44043,7 +43958,7 @@ cgltf_accessor_read_float.exit.thread200.us.i:    ; preds = %cgltf_accessor_read
   store <2 x float> %.sroa.4.12.vec.insert.i.i.i, ptr %1094, align 4
   %1116 = load i32, ptr %1077, align 4
   %1117 = sext i32 %1116 to i64
-  %1118 = getelementptr inbounds %struct.Transform, ptr %1074, i64 %1117
+  %1118 = getelementptr inbounds [40 x i8], ptr %1074, i64 %1117
   %1119 = getelementptr inbounds nuw i8, ptr %1118, i64 12
   %.sroa.020.0.copyload.i.i = load <2 x float>, ptr %1086, align 4
   %.sroa.221.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1086, i64 8
@@ -44100,7 +44015,7 @@ cgltf_accessor_read_float.exit.thread200.us.i:    ; preds = %cgltf_accessor_read
   store float %1159, ptr %.sroa.221.0..sroa_idx.i.i, align 4
   %1160 = load i32, ptr %1077, align 4
   %1161 = sext i32 %1160 to i64
-  %1162 = getelementptr inbounds %struct.Transform, ptr %1074, i64 %1161
+  %1162 = getelementptr inbounds [40 x i8], ptr %1074, i64 %1161
   %.sroa.010.0.copyload.i.i = load <2 x float>, ptr %1162, align 4
   %.sroa.211.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1162, i64 8
   %.sroa.211.0.copyload.i.i = load float, ptr %.sroa.211.0..sroa_idx.i.i, align 4
@@ -44116,7 +44031,7 @@ cgltf_accessor_read_float.exit.thread200.us.i:    ; preds = %cgltf_accessor_read
   %1166 = getelementptr inbounds nuw i8, ptr %1086, i64 28
   %1167 = load i32, ptr %1077, align 4
   %1168 = sext i32 %1167 to i64
-  %1169 = getelementptr inbounds %struct.Transform, ptr %1074, i64 %1168
+  %1169 = getelementptr inbounds [40 x i8], ptr %1074, i64 %1168
   %1170 = getelementptr inbounds nuw i8, ptr %1169, i64 28
   %.sroa.03.0.copyload.i.i = load <2 x float>, ptr %1166, align 4
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1086, i64 36
@@ -44145,7 +44060,7 @@ BuildPoseFromParentJoints.exit.i:                 ; preds = %1172, %._crit_edge2
 .lr.ph.i64:                                       ; preds = %.lr.ph216.i, %1239
   %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i66, %1239 ], [ 0, %.lr.ph216.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %1176 = getelementptr inbounds nuw ptr, ptr %.sroa.3.0.copyload.i, i64 %indvars.iv.i65
+  %1176 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.3.0.copyload.i, i64 %indvars.iv.i65
   %1177 = load ptr, ptr %1176, align 8
   %1178 = getelementptr inbounds nuw i8, ptr %1177, i64 96
   %1179 = load float, ptr %1178, align 8
@@ -44179,7 +44094,7 @@ BuildPoseFromParentJoints.exit.i:                 ; preds = %1172, %._crit_edge2
   %1196 = getelementptr inbounds nuw i8, ptr %1177, i64 132
   %1197 = load float, ptr %1196, align 4
   store float %1197, ptr %930, align 4
-  %1198 = getelementptr inbounds nuw %struct.Channels, ptr %963, i64 %indvars.iv.i65
+  %1198 = getelementptr inbounds nuw [32 x i8], ptr %963, i64 %indvars.iv.i65
   %1199 = load ptr, ptr %1198, align 8
   %.not178.i = icmp eq ptr %1199, null
   br i1 %.not178.i, label %1211, label %1200
@@ -44196,7 +44111,7 @@ BuildPoseFromParentJoints.exit.i:                 ; preds = %1172, %._crit_edge2
 
 1208:                                             ; preds = %1200
   %1209 = load ptr, ptr %960, align 8
-  %1210 = getelementptr inbounds nuw %struct.BoneInfo, ptr %1209, i64 %indvars.iv.i65
+  %1210 = getelementptr inbounds nuw [36 x i8], ptr %1209, i64 %indvars.iv.i65
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.369, ptr noundef %0, ptr noundef %1210) #63
   br label %1211
 
@@ -44218,7 +44133,7 @@ BuildPoseFromParentJoints.exit.i:                 ; preds = %1172, %._crit_edge2
 
 1222:                                             ; preds = %1214
   %1223 = load ptr, ptr %960, align 8
-  %1224 = getelementptr inbounds nuw %struct.BoneInfo, ptr %1223, i64 %indvars.iv.i65
+  %1224 = getelementptr inbounds nuw [36 x i8], ptr %1223, i64 %indvars.iv.i65
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.370, ptr noundef %0, ptr noundef %1224) #63
   br label %1225
 
@@ -44240,15 +44155,15 @@ BuildPoseFromParentJoints.exit.i:                 ; preds = %1172, %._crit_edge2
 
 1236:                                             ; preds = %1228
   %1237 = load ptr, ptr %960, align 8
-  %1238 = getelementptr inbounds nuw %struct.BoneInfo, ptr %1237, i64 %indvars.iv.i65
+  %1238 = getelementptr inbounds nuw [36 x i8], ptr %1237, i64 %indvars.iv.i65
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.371, ptr noundef %0, ptr noundef %1238) #63
   br label %1239
 
 1239:                                             ; preds = %1236, %1228, %1225
   %1240 = load ptr, ptr %1051, align 8
-  %1241 = getelementptr inbounds nuw ptr, ptr %1240, i64 %indvars.iv231.i
+  %1241 = getelementptr inbounds nuw [8 x i8], ptr %1240, i64 %indvars.iv231.i
   %1242 = load ptr, ptr %1241, align 8
-  %1243 = getelementptr inbounds nuw %struct.Transform, ptr %1242, i64 %indvars.iv.i65
+  %1243 = getelementptr inbounds nuw [40 x i8], ptr %1242, i64 %indvars.iv.i65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %931, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %932, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false)
@@ -44332,7 +44247,7 @@ define void @UpdateModelAnimationBones(ptr noundef readonly byval(%struct.Model)
 
 22:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %23 = getelementptr inbounds nuw %struct.Mesh, ptr %21, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [120 x i8], ptr %21, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load ptr, ptr %24, align 8
   %.not123 = icmp eq ptr %25, null
@@ -44357,11 +44272,11 @@ define void @UpdateModelAnimationBones(ptr noundef readonly byval(%struct.Model)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %.0116 to i64
-  %33 = getelementptr inbounds ptr, ptr %11, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %11, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %.0117 to i64
-  %37 = getelementptr inbounds %struct.Mesh, ptr %35, i64 %36
+  %37 = getelementptr inbounds [120 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %wide.trip.count291 = zext nneg i32 %28 to i64
   br label %46
@@ -44377,14 +44292,14 @@ define void @UpdateModelAnimationBones(ptr noundef readonly byval(%struct.Model)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %.0117 to i64
-  %43 = getelementptr inbounds %struct.Mesh, ptr %41, i64 %42
+  %43 = getelementptr inbounds [120 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = add nsw i64 %42, 1
   br label %291
 
 46:                                               ; preds = %.lr.ph282, %QuaternionInvert.exit
   %indvars.iv288 = phi i64 [ 0, %.lr.ph282 ], [ %indvars.iv.next289, %QuaternionInvert.exit ]
-  %47 = getelementptr inbounds nuw %struct.Transform, ptr %31, i64 %indvars.iv288
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %indvars.iv288
   %.sroa.091.0.copyload = load <2 x float>, ptr %47, align 4
   %.sroa.492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 8
   %.sroa.492.0.copyload = load float, ptr %.sroa.492.0..sroa_idx, align 4
@@ -44397,7 +44312,7 @@ define void @UpdateModelAnimationBones(ptr noundef readonly byval(%struct.Model)
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 36
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %50 = load ptr, ptr %33, align 8
-  %51 = getelementptr inbounds nuw %struct.Transform, ptr %50, i64 %indvars.iv288
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %50, i64 %indvars.iv288
   %.sroa.085.0.copyload = load <2 x float>, ptr %51, align 4
   %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.486.0.copyload = load float, ptr %.sroa.486.0..sroa_idx, align 4
@@ -44670,7 +44585,7 @@ QuaternionInvert.exit:                            ; preds = %46, %59
   %287 = tail call float @llvm.fmuladd.f32(float %236, float 0.000000e+00, float %284)
   %288 = fadd float %287, 1.000000e+00
   %289 = load ptr, ptr %38, align 8
-  %290 = getelementptr inbounds nuw %struct.Matrix, ptr %289, i64 %indvars.iv288
+  %290 = getelementptr inbounds nuw [64 x i8], ptr %289, i64 %indvars.iv288
   store float %240, ptr %290, align 4
   %.sroa.4209.0..sroa_idx = getelementptr inbounds nuw i8, ptr %290, i64 4
   store float %253, ptr %.sroa.4209.0..sroa_idx, align 4
@@ -44708,7 +44623,7 @@ QuaternionInvert.exit:                            ; preds = %46, %59
 
 291:                                              ; preds = %.lr.ph286, %301
   %indvars.iv293 = phi i64 [ %45, %.lr.ph286 ], [ %indvars.iv.next294, %301 ]
-  %292 = getelementptr inbounds %struct.Mesh, ptr %41, i64 %indvars.iv293
+  %292 = getelementptr inbounds [120 x i8], ptr %41, i64 %indvars.iv293
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 96
   %294 = load ptr, ptr %293, align 8
   %.not125 = icmp eq ptr %294, null
@@ -44752,7 +44667,7 @@ define void @UpdateModelAnimation(ptr noundef readonly byval(%struct.Model) alig
 
 9:                                                ; preds = %.lr.ph216, %.critedge
   %indvars.iv224 = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next225, %.critedge ]
-  %10 = getelementptr inbounds nuw %struct.Mesh, ptr %8, i64 %indvars.iv224
+  %10 = getelementptr inbounds nuw [120 x i8], ptr %8, i64 %indvars.iv224
   %.sroa.065.0.copyload = load i32, ptr %10, align 8
   %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.668.0.copyload = load ptr, ptr %.sroa.668.0..sroa_idx, align 8
@@ -44791,35 +44706,35 @@ define void @UpdateModelAnimation(ptr noundef readonly byval(%struct.Model) alig
   %indvars.iv222 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next223, %41 ]
   %.0102213 = phi i32 [ 0, %.lr.ph ], [ %40, %41 ]
   %.0103212 = phi i1 [ false, %.lr.ph ], [ %.2, %41 ]
-  %20 = getelementptr inbounds nuw float, ptr %.sroa.1477.0.copyload, i64 %indvars.iv222
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.1477.0.copyload, i64 %indvars.iv222
   store float 0.000000e+00, ptr %20, align 4
   %21 = add nuw nsw i64 %indvars.iv222, 1
-  %22 = getelementptr inbounds nuw float, ptr %.sroa.1477.0.copyload, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.1477.0.copyload, i64 %21
   store float 0.000000e+00, ptr %22, align 4
   %23 = add nuw nsw i64 %indvars.iv222, 2
-  %24 = getelementptr inbounds nuw float, ptr %.sroa.1477.0.copyload, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.1477.0.copyload, i64 %23
   store float 0.000000e+00, ptr %24, align 4
   br i1 %15, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw float, ptr %.sroa.21.0.copyload, i64 %indvars.iv222
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.21.0.copyload, i64 %indvars.iv222
   store float 0.000000e+00, ptr %26, align 4
-  %27 = getelementptr inbounds nuw float, ptr %.sroa.21.0.copyload, i64 %21
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.21.0.copyload, i64 %21
   store float 0.000000e+00, ptr %27, align 4
-  %28 = getelementptr inbounds nuw float, ptr %.sroa.21.0.copyload, i64 %23
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.21.0.copyload, i64 %23
   store float 0.000000e+00, ptr %28, align 4
   br label %29
 
 29:                                               ; preds = %25, %19
-  %30 = getelementptr inbounds nuw float, ptr %.sroa.668.0.copyload, i64 %indvars.iv222
-  %31 = getelementptr inbounds nuw float, ptr %.sroa.668.0.copyload, i64 %21
-  %32 = getelementptr inbounds nuw float, ptr %.sroa.668.0.copyload, i64 %23
-  %33 = getelementptr inbounds nuw float, ptr %.sroa.972.0.copyload, i64 %indvars.iv222
-  %34 = getelementptr inbounds nuw float, ptr %.sroa.972.0.copyload, i64 %21
-  %35 = getelementptr inbounds nuw float, ptr %.sroa.972.0.copyload, i64 %23
-  %36 = getelementptr inbounds nuw float, ptr %.sroa.21.0.copyload, i64 %indvars.iv222
-  %37 = getelementptr inbounds nuw float, ptr %.sroa.21.0.copyload, i64 %21
-  %38 = getelementptr inbounds nuw float, ptr %.sroa.21.0.copyload, i64 %23
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.668.0.copyload, i64 %indvars.iv222
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.668.0.copyload, i64 %21
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.668.0.copyload, i64 %23
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.972.0.copyload, i64 %indvars.iv222
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.972.0.copyload, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.972.0.copyload, i64 %23
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.21.0.copyload, i64 %indvars.iv222
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.21.0.copyload, i64 %21
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.21.0.copyload, i64 %23
   %39 = sext i32 %.0102213 to i64
   %40 = add i32 %.0102213, 4
   br label %43
@@ -44832,7 +44747,7 @@ define void @UpdateModelAnimation(ptr noundef readonly byval(%struct.Model) alig
 43:                                               ; preds = %29, %195
   %indvars.iv = phi i64 [ %39, %29 ], [ %indvars.iv.next, %195 ]
   %.1104209 = phi i1 [ %.0103212, %29 ], [ %.2, %195 ]
-  %44 = getelementptr inbounds float, ptr %.sroa.32.0.copyload, i64 %indvars.iv
+  %44 = getelementptr inbounds [4 x i8], ptr %.sroa.32.0.copyload, i64 %indvars.iv
   %45 = load float, ptr %44, align 4
   %46 = fcmp oeq float %45, 0.000000e+00
   br i1 %46, label %195, label %47
@@ -44845,7 +44760,7 @@ define void @UpdateModelAnimation(ptr noundef readonly byval(%struct.Model) alig
   %52 = load float, ptr %32, align 4
   %53 = load ptr, ptr %16, align 8
   %54 = zext i8 %49 to i64
-  %55 = getelementptr inbounds nuw %struct.Matrix, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [64 x i8], ptr %53, i64 %54
   %.sroa.0142.0.copyload = load float, ptr %55, align 4
   %.sroa.4143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 4
   %.sroa.4143.0.copyload = load float, ptr %.sroa.4143.0..sroa_idx, align 4
@@ -44897,7 +44812,7 @@ define void @UpdateModelAnimation(ptr noundef readonly byval(%struct.Model) alig
   %76 = load float, ptr %34, align 4
   %77 = load float, ptr %35, align 4
   %78 = load ptr, ptr %16, align 8
-  %79 = getelementptr inbounds nuw %struct.Matrix, ptr %78, i64 %54
+  %79 = getelementptr inbounds nuw [64 x i8], ptr %78, i64 %54
   %.sroa.0169.0.copyload = load float, ptr %79, align 4
   %.sroa.4170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 4
   %.sroa.4170.0.copyload = load float, ptr %.sroa.4170.0..sroa_idx, align 4
@@ -45090,7 +45005,7 @@ define void @UnloadModelAnimations(ptr noundef captures(none) %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %UnloadModelAnimation.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %UnloadModelAnimation.exit ]
-  %4 = getelementptr inbounds nuw %struct.ModelAnimation, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %indvars.iv
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -45106,7 +45021,7 @@ define void @UnloadModelAnimations(ptr noundef captures(none) %0, i32 noundef %1
 
 6:                                                ; preds = %6, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %.sroa.5.0.copyload, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.5.0.copyload, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %8) #63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -45143,7 +45058,7 @@ define void @UnloadModelAnimation(ptr noundef readonly byval(%struct.ModelAnimat
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %11) #63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -45173,10 +45088,10 @@ define noundef zeroext i1 @IsModelAnimationValid(ptr noundef readonly byval(%str
 
 10:                                               ; preds = %10, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct.BoneInfo, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [36 x i8], ptr %7, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds nuw %struct.BoneInfo, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [36 x i8], ptr %9, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 4
   %.not6 = icmp eq i32 %13, %16
@@ -45214,7 +45129,7 @@ define void @GenMeshPoly(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.08492 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %22, %.lr.ph ]
-  %14 = getelementptr inbounds nuw %struct.Vector3, ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %indvars.iv
   store float 0.000000e+00, ptr %14, align 4
   %.sroa.245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float 0.000000e+00, ptr %.sroa.245.0..sroa_idx, align 4
@@ -45270,7 +45185,7 @@ define void @GenMeshPoly(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
 
 43:                                               ; preds = %._crit_edge, %43
   %indvars.iv99 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next100, %43 ]
-  %44 = getelementptr inbounds nuw %struct.Vector3, ptr %13, i64 %indvars.iv99
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %indvars.iv99
   store float 0.000000e+00, ptr %44, align 4
   %.sroa.229.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 4
   store float 1.000000e+00, ptr %.sroa.229.0..sroa_idx, align 4
@@ -45282,7 +45197,7 @@ define void @GenMeshPoly(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
 
 45:                                               ; preds = %29, %45
   %indvars.iv105 = phi i64 [ 0, %29 ], [ %indvars.iv.next106, %45 ]
-  %46 = getelementptr inbounds nuw %struct.Vector3, ptr %8, i64 %indvars.iv105
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %indvars.iv105
   %47 = load float, ptr %46, align 4
   %.idx = mul nuw nsw i64 %indvars.iv105, 12
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
@@ -45318,7 +45233,7 @@ define void @GenMeshPoly(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
 
 .preheader:                                       ; preds = %.preheader90, %.preheader
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader ], [ 0, %.preheader90 ]
-  %58 = getelementptr inbounds nuw %struct.Vector3, ptr %13, i64 %indvars.iv115
+  %58 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %indvars.iv115
   %59 = load float, ptr %58, align 4
   %.idx122 = mul nuw nsw i64 %indvars.iv115, 12
   %60 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx122
@@ -45379,7 +45294,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
   %20 = fadd float %19, -5.000000e-01
   %21 = fmul float %2, %20
   %22 = mul nuw nsw i64 %indvars.iv175, %14
-  %invariant.gep = getelementptr inbounds nuw %struct.Vector3, ptr %11, i64 %22
+  %invariant.gep = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %22
   br label %23
 
 ._crit_edge:                                      ; preds = %23
@@ -45394,7 +45309,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
   %26 = fdiv float %25, %13
   %27 = fadd float %26, -5.000000e-01
   %28 = fmul float %1, %27
-  %gep = getelementptr inbounds nuw %struct.Vector3, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [12 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %28, ptr %gep, align 4
   %.sroa.275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %gep, i64 4
   store float 0.000000e+00, ptr %.sroa.275.0..sroa_idx, align 4
@@ -45422,7 +45337,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
   %indvars.iv180 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next181, %.lr.ph148 ]
-  %34 = getelementptr inbounds nuw %struct.Vector3, ptr %15, i64 %indvars.iv180
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %15, i64 %indvars.iv180
   store float 0.000000e+00, ptr %34, align 4
   %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 4
   store float 1.000000e+00, ptr %.sroa.265.0..sroa_idx, align 4
@@ -45438,7 +45353,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
   %36 = trunc nuw nsw i64 %indvars.iv190 to i32
   %37 = uitofp nneg i32 %36 to float
   %38 = fdiv float %37, %32
-  %invariant.gep224 = getelementptr inbounds nuw %struct.Vector2, ptr %30, i64 %35
+  %invariant.gep224 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %35
   br label %45
 
 ._crit_edge156:                                   ; preds = %._crit_edge153, %.preheader138.lr.ph, %._crit_edge149
@@ -45457,7 +45372,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
 
 45:                                               ; preds = %.preheader138, %45
   %indvars.iv185 = phi i64 [ 0, %.preheader138 ], [ %indvars.iv.next186, %45 ]
-  %gep225 = getelementptr inbounds nuw %struct.Vector2, ptr %invariant.gep224, i64 %indvars.iv185
+  %gep225 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep224, i64 %indvars.iv185
   %46 = trunc nuw nsw i64 %indvars.iv185 to i32
   %47 = uitofp nneg i32 %46 to float
   %48 = fdiv float %47, %31
@@ -45504,7 +45419,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
   %66 = sdiv i32 %.0122158, %3
   %67 = add nsw i32 %66, %.0122158
   %68 = add nsw i32 %67, %6
-  %69 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv195
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv195
   store i32 %68, ptr %69, align 4
   %70 = add nsw i32 %67, 1
   %71 = getelementptr i8, ptr %69, i64 4
@@ -45529,7 +45444,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %.lr.ph164
   %indvars.iv199 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next200, %.lr.ph164 ]
-  %78 = getelementptr inbounds nuw %struct.Vector3, ptr %11, i64 %indvars.iv199
+  %78 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %indvars.iv199
   %79 = load float, ptr %78, align 4
   %.idx = mul nuw nsw i64 %indvars.iv199, 12
   %80 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx
@@ -45552,7 +45467,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %.lr.ph166
   %indvars.iv204 = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next205, %.lr.ph166 ]
-  %87 = getelementptr inbounds nuw %struct.Vector2, ptr %30, i64 %indvars.iv204
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv204
   %88 = load float, ptr %87, align 4
   %.idx222 = shl nuw nsw i64 %indvars.iv204, 3
   %89 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx222
@@ -45574,7 +45489,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %.lr.ph168
   %indvars.iv209 = phi i64 [ 0, %.lr.ph168.preheader ], [ %indvars.iv.next210, %.lr.ph168 ]
-  %93 = getelementptr inbounds nuw %struct.Vector3, ptr %15, i64 %indvars.iv209
+  %93 = getelementptr inbounds nuw [12 x i8], ptr %15, i64 %indvars.iv209
   %94 = load float, ptr %93, align 4
   %.idx223 = mul nuw nsw i64 %indvars.iv209, 12
   %95 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx223
@@ -45601,10 +45516,10 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.lr.ph170
   %indvars.iv214 = phi i64 [ 0, %.lr.ph170.preheader ], [ %indvars.iv.next215, %.lr.ph170 ]
-  %102 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv214
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv214
   %103 = load i32, ptr %102, align 4
   %104 = trunc i32 %103 to i16
-  %105 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv214
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv214
   store i16 %104, ptr %105, align 2
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
@@ -45790,7 +45705,7 @@ define void @GenMeshCube(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %21 ]
   %.08687 = phi i16 [ 0, %4 ], [ %32, %21 ]
   %22 = shl i16 %.08687, 2
-  %23 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %indvars.iv
   store i16 %22, ptr %23, align 2
   %24 = or disjoint i16 %22, 1
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 2
@@ -45870,14 +45785,14 @@ define void @GenMeshSphere(ptr dead_on_unwind noalias writable sret(%struct.Mesh
 
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i64
   %.idx = mul nuw nsw i64 %35, 12
   %36 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %37 = load float, ptr %36, align 4
   %38 = mul nuw nsw i64 %indvars.iv, 3
-  %39 = getelementptr inbounds nuw float, ptr %14, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %38
   store float %37, ptr %39, align 4
   %40 = load i16, ptr %33, align 2
   %41 = zext i16 %40 to i64
@@ -45886,7 +45801,7 @@ define void @GenMeshSphere(ptr dead_on_unwind noalias writable sret(%struct.Mesh
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load float, ptr %43, align 4
   %45 = add nuw nsw i64 %38, 1
-  %46 = getelementptr inbounds nuw float, ptr %14, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %45
   store float %44, ptr %46, align 4
   %47 = load i16, ptr %33, align 2
   %48 = zext i16 %47 to i64
@@ -45895,14 +45810,14 @@ define void @GenMeshSphere(ptr dead_on_unwind noalias writable sret(%struct.Mesh
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load float, ptr %50, align 4
   %52 = add nuw nsw i64 %38, 2
-  %53 = getelementptr inbounds nuw float, ptr %14, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %52
   store float %51, ptr %53, align 4
   %54 = load i16, ptr %33, align 2
   %55 = zext i16 %54 to i64
   %.idx52 = mul nuw nsw i64 %55, 12
   %56 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx52
   %57 = load float, ptr %56, align 4
-  %58 = getelementptr inbounds nuw float, ptr %21, i64 %38
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %38
   store float %57, ptr %58, align 4
   %59 = load i16, ptr %33, align 2
   %60 = zext i16 %59 to i64
@@ -45910,7 +45825,7 @@ define void @GenMeshSphere(ptr dead_on_unwind noalias writable sret(%struct.Mesh
   %61 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx53
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds nuw float, ptr %21, i64 %45
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %45
   store float %63, ptr %64, align 4
   %65 = load i16, ptr %33, align 2
   %66 = zext i16 %65 to i64
@@ -45918,7 +45833,7 @@ define void @GenMeshSphere(ptr dead_on_unwind noalias writable sret(%struct.Mesh
   %67 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx54
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load float, ptr %68, align 4
-  %70 = getelementptr inbounds nuw float, ptr %21, i64 %52
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %52
   store float %69, ptr %70, align 4
   %71 = load i16, ptr %33, align 2
   %72 = zext i16 %71 to i64
@@ -46008,14 +45923,14 @@ define void @GenMeshHemiSphere(ptr dead_on_unwind noalias writable sret(%struct.
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i64
   %.idx = mul nuw nsw i64 %36, 12
   %37 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %38 = load float, ptr %37, align 4
   %39 = mul nuw nsw i64 %indvars.iv, 3
-  %40 = getelementptr inbounds nuw float, ptr %15, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %39
   store float %38, ptr %40, align 4
   %41 = load i16, ptr %34, align 2
   %42 = zext i16 %41 to i64
@@ -46024,7 +45939,7 @@ define void @GenMeshHemiSphere(ptr dead_on_unwind noalias writable sret(%struct.
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load float, ptr %44, align 4
   %46 = add nuw nsw i64 %39, 1
-  %47 = getelementptr inbounds nuw float, ptr %15, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %46
   store float %45, ptr %47, align 4
   %48 = load i16, ptr %34, align 2
   %49 = zext i16 %48 to i64
@@ -46033,14 +45948,14 @@ define void @GenMeshHemiSphere(ptr dead_on_unwind noalias writable sret(%struct.
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load float, ptr %51, align 4
   %53 = add nuw nsw i64 %39, 2
-  %54 = getelementptr inbounds nuw float, ptr %15, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %53
   store float %52, ptr %54, align 4
   %55 = load i16, ptr %34, align 2
   %56 = zext i16 %55 to i64
   %.idx55 = mul nuw nsw i64 %56, 12
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx55
   %58 = load float, ptr %57, align 4
-  %59 = getelementptr inbounds nuw float, ptr %22, i64 %39
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %39
   store float %58, ptr %59, align 4
   %60 = load i16, ptr %34, align 2
   %61 = zext i16 %60 to i64
@@ -46048,7 +45963,7 @@ define void @GenMeshHemiSphere(ptr dead_on_unwind noalias writable sret(%struct.
   %62 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx56
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load float, ptr %63, align 4
-  %65 = getelementptr inbounds nuw float, ptr %22, i64 %46
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %46
   store float %64, ptr %65, align 4
   %66 = load i16, ptr %34, align 2
   %67 = zext i16 %66 to i64
@@ -46056,7 +45971,7 @@ define void @GenMeshHemiSphere(ptr dead_on_unwind noalias writable sret(%struct.
   %68 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx57
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds nuw float, ptr %22, i64 %53
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %53
   store float %70, ptr %71, align 4
   %72 = load i16, ptr %34, align 2
   %73 = zext i16 %72 to i64
@@ -46278,7 +46193,7 @@ par_shapes_translate.exit:                        ; preds = %.lr.ph.i, %._crit_e
 
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.lr.ph86
   %indvars.iv = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next, %.lr.ph86 ]
-  %99 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv
   store float 0x3FEE666660000000, ptr %99, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -46295,14 +46210,14 @@ par_shapes_translate.exit:                        ; preds = %.lr.ph.i, %._crit_e
 
 100:                                              ; preds = %.lr.ph90, %100
   %indvars.iv96 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next97, %100 ]
-  %101 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv96
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %indvars.iv96
   %102 = load i16, ptr %101, align 2
   %103 = zext i16 %102 to i64
   %.idx = mul nuw nsw i64 %103, 12
   %104 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %105 = load float, ptr %104, align 4
   %106 = mul nuw nsw i64 %indvars.iv96, 3
-  %107 = getelementptr inbounds nuw float, ptr %81, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %106
   store float %105, ptr %107, align 4
   %108 = load i16, ptr %101, align 2
   %109 = zext i16 %108 to i64
@@ -46311,7 +46226,7 @@ par_shapes_translate.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %112 = load float, ptr %111, align 4
   %113 = add nuw nsw i64 %106, 1
-  %114 = getelementptr inbounds nuw float, ptr %81, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %113
   store float %112, ptr %114, align 4
   %115 = load i16, ptr %101, align 2
   %116 = zext i16 %115 to i64
@@ -46320,14 +46235,14 @@ par_shapes_translate.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load float, ptr %118, align 4
   %120 = add nuw nsw i64 %106, 2
-  %121 = getelementptr inbounds nuw float, ptr %81, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %120
   store float %119, ptr %121, align 4
   %122 = load i16, ptr %101, align 2
   %123 = zext i16 %122 to i64
   %.idx79 = mul nuw nsw i64 %123, 12
   %124 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx79
   %125 = load float, ptr %124, align 4
-  %126 = getelementptr inbounds nuw float, ptr %88, i64 %106
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %106
   store float %125, ptr %126, align 4
   %127 = load i16, ptr %101, align 2
   %128 = zext i16 %127 to i64
@@ -46335,7 +46250,7 @@ par_shapes_translate.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %129 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx80
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load float, ptr %130, align 4
-  %132 = getelementptr inbounds nuw float, ptr %88, i64 %113
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %113
   store float %131, ptr %132, align 4
   %133 = load i16, ptr %101, align 2
   %134 = zext i16 %133 to i64
@@ -46343,7 +46258,7 @@ par_shapes_translate.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %135 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx81
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load float, ptr %136, align 4
-  %138 = getelementptr inbounds nuw float, ptr %88, i64 %120
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %120
   store float %137, ptr %138, align 4
   %139 = load i16, ptr %101, align 2
   %140 = zext i16 %139 to i64
@@ -46482,7 +46397,7 @@ define void @GenMeshCone(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %60 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   store float 0x3FEE666660000000, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -46499,14 +46414,14 @@ define void @GenMeshCone(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
 
 61:                                               ; preds = %.lr.ph71, %61
   %indvars.iv74 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next75, %61 ]
-  %62 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv74
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv74
   %63 = load i16, ptr %62, align 2
   %64 = zext i16 %63 to i64
   %.idx = mul nuw nsw i64 %64, 12
   %65 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %66 = load float, ptr %65, align 4
   %67 = mul nuw nsw i64 %indvars.iv74, 3
-  %68 = getelementptr inbounds nuw float, ptr %42, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %67
   store float %66, ptr %68, align 4
   %69 = load i16, ptr %62, align 2
   %70 = zext i16 %69 to i64
@@ -46515,7 +46430,7 @@ define void @GenMeshCone(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load float, ptr %72, align 4
   %74 = add nuw nsw i64 %67, 1
-  %75 = getelementptr inbounds nuw float, ptr %42, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %74
   store float %73, ptr %75, align 4
   %76 = load i16, ptr %62, align 2
   %77 = zext i16 %76 to i64
@@ -46524,14 +46439,14 @@ define void @GenMeshCone(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load float, ptr %79, align 4
   %81 = add nuw nsw i64 %67, 2
-  %82 = getelementptr inbounds nuw float, ptr %42, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %81
   store float %80, ptr %82, align 4
   %83 = load i16, ptr %62, align 2
   %84 = zext i16 %83 to i64
   %.idx63 = mul nuw nsw i64 %84, 12
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx63
   %86 = load float, ptr %85, align 4
-  %87 = getelementptr inbounds nuw float, ptr %49, i64 %67
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %67
   store float %86, ptr %87, align 4
   %88 = load i16, ptr %62, align 2
   %89 = zext i16 %88 to i64
@@ -46539,7 +46454,7 @@ define void @GenMeshCone(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
   %90 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx64
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load float, ptr %91, align 4
-  %93 = getelementptr inbounds nuw float, ptr %49, i64 %74
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %74
   store float %92, ptr %93, align 4
   %94 = load i16, ptr %62, align 2
   %95 = zext i16 %94 to i64
@@ -46547,7 +46462,7 @@ define void @GenMeshCone(ptr dead_on_unwind noalias writable sret(%struct.Mesh) 
   %96 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx65
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load float, ptr %97, align 4
-  %99 = getelementptr inbounds nuw float, ptr %49, i64 %81
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %81
   store float %98, ptr %99, align 4
   %100 = load i16, ptr %62, align 2
   %101 = zext i16 %100 to i64
@@ -46648,14 +46563,14 @@ define void @GenMeshTorus(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i64
   %.idx = mul nuw nsw i64 %42, 12
   %43 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %44 = load float, ptr %43, align 4
   %45 = mul nuw nsw i64 %indvars.iv, 3
-  %46 = getelementptr inbounds nuw float, ptr %21, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %45
   store float %44, ptr %46, align 4
   %47 = load i16, ptr %40, align 2
   %48 = zext i16 %47 to i64
@@ -46664,7 +46579,7 @@ define void @GenMeshTorus(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load float, ptr %50, align 4
   %52 = add nuw nsw i64 %45, 1
-  %53 = getelementptr inbounds nuw float, ptr %21, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %52
   store float %51, ptr %53, align 4
   %54 = load i16, ptr %40, align 2
   %55 = zext i16 %54 to i64
@@ -46673,14 +46588,14 @@ define void @GenMeshTorus(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load float, ptr %57, align 4
   %59 = add nuw nsw i64 %45, 2
-  %60 = getelementptr inbounds nuw float, ptr %21, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %59
   store float %58, ptr %60, align 4
   %61 = load i16, ptr %40, align 2
   %62 = zext i16 %61 to i64
   %.idx57 = mul nuw nsw i64 %62, 12
   %63 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx57
   %64 = load float, ptr %63, align 4
-  %65 = getelementptr inbounds nuw float, ptr %28, i64 %45
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %45
   store float %64, ptr %65, align 4
   %66 = load i16, ptr %40, align 2
   %67 = zext i16 %66 to i64
@@ -46688,7 +46603,7 @@ define void @GenMeshTorus(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
   %68 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx58
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds nuw float, ptr %28, i64 %52
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %52
   store float %70, ptr %71, align 4
   %72 = load i16, ptr %40, align 2
   %73 = zext i16 %72 to i64
@@ -46696,7 +46611,7 @@ define void @GenMeshTorus(ptr dead_on_unwind noalias writable sret(%struct.Mesh)
   %74 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx59
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load float, ptr %75, align 4
-  %77 = getelementptr inbounds nuw float, ptr %28, i64 %59
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %59
   store float %76, ptr %77, align 4
   %78 = load i16, ptr %40, align 2
   %79 = zext i16 %78 to i64
@@ -46800,14 +46715,14 @@ par_shapes_create_trefoil_knot.exit:              ; preds = %9, %11, %13
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i64
   %.idx = mul nuw nsw i64 %41, 12
   %42 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %43 = load float, ptr %42, align 4
   %44 = mul nuw nsw i64 %indvars.iv, 3
-  %45 = getelementptr inbounds nuw float, ptr %20, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %44
   store float %43, ptr %45, align 4
   %46 = load i16, ptr %39, align 2
   %47 = zext i16 %46 to i64
@@ -46816,7 +46731,7 @@ par_shapes_create_trefoil_knot.exit:              ; preds = %9, %11, %13
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load float, ptr %49, align 4
   %51 = add nuw nsw i64 %44, 1
-  %52 = getelementptr inbounds nuw float, ptr %20, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %51
   store float %50, ptr %52, align 4
   %53 = load i16, ptr %39, align 2
   %54 = zext i16 %53 to i64
@@ -46825,14 +46740,14 @@ par_shapes_create_trefoil_knot.exit:              ; preds = %9, %11, %13
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load float, ptr %56, align 4
   %58 = add nuw nsw i64 %44, 2
-  %59 = getelementptr inbounds nuw float, ptr %20, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %58
   store float %57, ptr %59, align 4
   %60 = load i16, ptr %39, align 2
   %61 = zext i16 %60 to i64
   %.idx57 = mul nuw nsw i64 %61, 12
   %62 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx57
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds nuw float, ptr %27, i64 %44
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %44
   store float %63, ptr %64, align 4
   %65 = load i16, ptr %39, align 2
   %66 = zext i16 %65 to i64
@@ -46840,7 +46755,7 @@ par_shapes_create_trefoil_knot.exit:              ; preds = %9, %11, %13
   %67 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx58
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load float, ptr %68, align 4
-  %70 = getelementptr inbounds nuw float, ptr %27, i64 %51
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %51
   store float %69, ptr %70, align 4
   %71 = load i16, ptr %39, align 2
   %72 = zext i16 %71 to i64
@@ -46848,7 +46763,7 @@ par_shapes_create_trefoil_knot.exit:              ; preds = %9, %11, %13
   %73 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx59
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load float, ptr %74, align 4
-  %76 = getelementptr inbounds nuw float, ptr %27, i64 %58
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %58
   store float %75, ptr %76, align 4
   %77 = load i16, ptr %39, align 2
   %78 = zext i16 %77 to i64
@@ -46952,10 +46867,10 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.M
   %49 = ashr exact i64 %sext281, 32
   %sext282 = shl i64 %.0231252.us, 32
   %50 = ashr exact i64 %sext282, 32
-  %invariant.gep = getelementptr inbounds nuw %struct.Color, ptr %10, i64 %38
-  %invariant.gep283 = getelementptr inbounds nuw %struct.Color, ptr %10, i64 %42
-  %invariant.gep285 = getelementptr inbounds nuw %struct.Color, ptr %10, i64 %38
-  %invariant.gep287 = getelementptr inbounds nuw %struct.Color, ptr %10, i64 %42
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %38
+  %invariant.gep283 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %42
+  %invariant.gep285 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %38
+  %invariant.gep287 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %42
   br label %51
 
 51:                                               ; preds = %.preheader.us, %142
@@ -46966,9 +46881,9 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.M
   %52 = trunc nuw nsw i64 %indvars.iv266 to i32
   %53 = uitofp nneg i32 %52 to float
   %54 = fmul float %31, %53
-  %55 = getelementptr float, ptr %20, i64 %indvars.iv260
+  %55 = getelementptr [4 x i8], ptr %20, i64 %indvars.iv260
   store float %54, ptr %55, align 4
-  %gep = getelementptr inbounds nuw %struct.Color, ptr %invariant.gep, i64 %indvars.iv266
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv266
   %56 = load i8, ptr %gep, align 1
   %57 = zext i8 %56 to i32
   %58 = getelementptr inbounds nuw i8, ptr %gep, i64 1
@@ -46988,7 +46903,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.M
   store float %41, ptr %70, align 4
   %71 = getelementptr i8, ptr %55, i64 12
   store float %54, ptr %71, align 4
-  %gep284 = getelementptr inbounds nuw %struct.Color, ptr %invariant.gep283, i64 %indvars.iv266
+  %gep284 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep283, i64 %indvars.iv266
   %72 = load i8, ptr %gep284, align 1
   %73 = zext i8 %72 to i32
   %74 = getelementptr inbounds nuw i8, ptr %gep284, i64 1
@@ -47012,7 +46927,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.M
   %89 = fmul float %31, %88
   %90 = getelementptr i8, ptr %55, i64 24
   store float %89, ptr %90, align 4
-  %gep286 = getelementptr inbounds nuw %struct.Color, ptr %invariant.gep285, i64 %indvars.iv.next267
+  %gep286 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep285, i64 %indvars.iv.next267
   %91 = load i8, ptr %gep286, align 1
   %92 = zext i8 %91 to i32
   %93 = getelementptr inbounds nuw i8, ptr %gep286, i64 1
@@ -47044,7 +46959,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.M
   store float %45, ptr %111, align 4
   %112 = getelementptr i8, ptr %55, i64 60
   store float %89, ptr %112, align 4
-  %gep288 = getelementptr inbounds nuw %struct.Color, ptr %invariant.gep287, i64 %indvars.iv.next267
+  %gep288 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep287, i64 %indvars.iv.next267
   %113 = load i8, ptr %gep288, align 1
   %114 = zext i8 %113 to i32
   %115 = getelementptr inbounds nuw i8, ptr %gep288, i64 1
@@ -47063,7 +46978,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.M
   %127 = getelementptr i8, ptr %55, i64 68
   store float %45, ptr %127, align 4
   %128 = fdiv float %53, %30
-  %129 = getelementptr float, ptr %27, i64 %indvars.iv262
+  %129 = getelementptr [4 x i8], ptr %27, i64 %indvars.iv262
   store float %128, ptr %129, align 4
   %130 = getelementptr i8, ptr %129, i64 4
   store float %46, ptr %130, align 4
@@ -47100,31 +47015,31 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.M
 143:                                              ; preds = %Vector3Normalize.exit.us, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vector3Normalize.exit.us ], [ 0, %51 ]
   %144 = add nsw i64 %indvars.iv, %indvars.iv264
-  %145 = getelementptr inbounds float, ptr %20, i64 %144
+  %145 = getelementptr inbounds [4 x i8], ptr %20, i64 %144
   %146 = load float, ptr %145, align 4
   %147 = add nsw i64 %144, 1
-  %148 = getelementptr inbounds float, ptr %20, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %20, i64 %147
   %149 = load float, ptr %148, align 4
   %150 = add nsw i64 %144, 2
-  %151 = getelementptr inbounds float, ptr %20, i64 %150
+  %151 = getelementptr inbounds [4 x i8], ptr %20, i64 %150
   %152 = load float, ptr %151, align 4
   %153 = add nsw i64 %144, 3
-  %154 = getelementptr inbounds float, ptr %20, i64 %153
+  %154 = getelementptr inbounds [4 x i8], ptr %20, i64 %153
   %155 = load float, ptr %154, align 4
   %156 = add nsw i64 %144, 4
-  %157 = getelementptr inbounds float, ptr %20, i64 %156
+  %157 = getelementptr inbounds [4 x i8], ptr %20, i64 %156
   %158 = load float, ptr %157, align 4
   %159 = add nsw i64 %144, 5
-  %160 = getelementptr inbounds float, ptr %20, i64 %159
+  %160 = getelementptr inbounds [4 x i8], ptr %20, i64 %159
   %161 = load float, ptr %160, align 4
   %162 = add nsw i64 %144, 6
-  %163 = getelementptr inbounds float, ptr %20, i64 %162
+  %163 = getelementptr inbounds [4 x i8], ptr %20, i64 %162
   %164 = load float, ptr %163, align 4
   %165 = add nsw i64 %144, 7
-  %166 = getelementptr inbounds float, ptr %20, i64 %165
+  %166 = getelementptr inbounds [4 x i8], ptr %20, i64 %165
   %167 = load float, ptr %166, align 4
   %168 = add nsw i64 %144, 8
-  %169 = getelementptr inbounds float, ptr %20, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %20, i64 %168
   %170 = load float, ptr %169, align 4
   %171 = fsub float %155, %146
   %172 = fsub float %158, %149
@@ -47163,24 +47078,24 @@ Vector3Normalize.exit.us:                         ; preds = %190, %143
   %.sroa.013.0.i.us = phi <2 x float> [ %.sroa.013.4.vec.insert.i.us, %190 ], [ %.sroa.018.4.vec.insert.i.us, %143 ]
   %.sroa.617.0.i.us = phi float [ %194, %190 ], [ %185, %143 ]
   %.sroa.097.0.vec.extract.us = extractelement <2 x float> %.sroa.013.0.i.us, i64 0
-  %195 = getelementptr inbounds float, ptr %22, i64 %144
+  %195 = getelementptr inbounds [4 x i8], ptr %22, i64 %144
   store float %.sroa.097.0.vec.extract.us, ptr %195, align 4
   %.sroa.097.4.vec.extract.us = extractelement <2 x float> %.sroa.013.0.i.us, i64 1
-  %196 = getelementptr inbounds float, ptr %22, i64 %147
+  %196 = getelementptr inbounds [4 x i8], ptr %22, i64 %147
   store float %.sroa.097.4.vec.extract.us, ptr %196, align 4
-  %197 = getelementptr inbounds float, ptr %22, i64 %150
+  %197 = getelementptr inbounds [4 x i8], ptr %22, i64 %150
   store float %.sroa.617.0.i.us, ptr %197, align 4
-  %198 = getelementptr inbounds float, ptr %22, i64 %153
+  %198 = getelementptr inbounds [4 x i8], ptr %22, i64 %153
   store float %.sroa.097.0.vec.extract.us, ptr %198, align 4
-  %199 = getelementptr inbounds float, ptr %22, i64 %156
+  %199 = getelementptr inbounds [4 x i8], ptr %22, i64 %156
   store float %.sroa.097.4.vec.extract.us, ptr %199, align 4
-  %200 = getelementptr inbounds float, ptr %22, i64 %159
+  %200 = getelementptr inbounds [4 x i8], ptr %22, i64 %159
   store float %.sroa.617.0.i.us, ptr %200, align 4
-  %201 = getelementptr inbounds float, ptr %22, i64 %162
+  %201 = getelementptr inbounds [4 x i8], ptr %22, i64 %162
   store float %.sroa.097.0.vec.extract.us, ptr %201, align 4
-  %202 = getelementptr inbounds float, ptr %22, i64 %165
+  %202 = getelementptr inbounds [4 x i8], ptr %22, i64 %165
   store float %.sroa.097.4.vec.extract.us, ptr %202, align 4
-  %203 = getelementptr inbounds float, ptr %22, i64 %168
+  %203 = getelementptr inbounds [4 x i8], ptr %22, i64 %168
   store float %.sroa.617.0.i.us, ptr %203, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 9
   %204 = icmp samesign ult i64 %indvars.iv, 9
@@ -47311,7 +47226,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   %59 = mul nsw i32 %53, %.010501068
   %60 = add nsw i32 %59, %.010511059
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.Color, ptr %5, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %5, i64 %61
   %63 = load i8, ptr %62, align 1
   switch i8 %63, label %.thread [
     i8 -1, label %64
@@ -47338,7 +47253,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
 
 76:                                               ; preds = %72
   %77 = sext i32 %.110361065 to i64
-  %78 = getelementptr %struct.Vector3, ptr %14, i64 %77
+  %78 = getelementptr [12 x i8], ptr %14, i64 %77
   store float %56, ptr %78, align 4
   %.sroa.11406.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 4
   store float %.sroa.01030.4.vec.extract, ptr %.sroa.11406.0..sroa_idx, align 4
@@ -47375,7 +47290,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   %.sroa.9339.0..sroa_idx = getelementptr i8, ptr %78, i64 68
   store float %26, ptr %.sroa.9339.0..sroa_idx, align 4
   %84 = sext i32 %.110451063 to i64
-  %85 = getelementptr %struct.Vector3, ptr %17, i64 %84
+  %85 = getelementptr [12 x i8], ptr %17, i64 %84
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %85, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n3, i64 12, i1 false)
   %86 = getelementptr i8, ptr %85, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %86, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n3, i64 12, i1 false)
@@ -47388,7 +47303,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   %90 = getelementptr i8, ptr %85, i64 60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %90, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n3, i64 12, i1 false)
   %91 = sext i32 %.110391064 to i64
-  %92 = getelementptr %struct.Vector2, ptr %16, i64 %91
+  %92 = getelementptr [8 x i8], ptr %16, i64 %91
   store float 0.000000e+00, ptr %92, align 4
   %.sroa.2200.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 4
   store float 5.000000e-01, ptr %.sroa.2200.0..sroa_idx, align 4
@@ -47496,7 +47411,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   %123 = mul nsw i32 %53, %29
   %124 = add nsw i32 %123, %.010511059
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds %struct.Color, ptr %5, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %5, i64 %125
   %127 = load i8, ptr %126, align 1
   %128 = icmp eq i8 %127, 0
   br i1 %128, label %129, label %141
@@ -47525,7 +47440,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
 
 142:                                              ; preds = %141, %137
   %143 = sext i32 %104 to i64
-  %144 = getelementptr inbounds %struct.Vector3, ptr %14, i64 %143
+  %144 = getelementptr inbounds [12 x i8], ptr %14, i64 %143
   store float %56, ptr %144, align 4
   %.sroa.7.0..sroa_idx385 = getelementptr inbounds nuw i8, ptr %144, i64 4
   store float %.sroa.01030.4.vec.extract, ptr %.sroa.7.0..sroa_idx385, align 4
@@ -47563,7 +47478,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   store float %28, ptr %.sroa.11.0..sroa_idx238, align 4
   %150 = add nsw i32 %.110361065, 18
   %151 = sext i32 %111 to i64
-  %152 = getelementptr inbounds %struct.Vector3, ptr %17, i64 %151
+  %152 = getelementptr inbounds [12 x i8], ptr %17, i64 %151
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %152, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n6, i64 12, i1 false)
   %153 = getelementptr i8, ptr %85, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %153, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n6, i64 12, i1 false)
@@ -47577,7 +47492,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %157, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n6, i64 12, i1 false)
   %158 = add nsw i32 %.110451063, 18
   %159 = sext i32 %118 to i64
-  %160 = getelementptr inbounds %struct.Vector2, ptr %16, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %16, i64 %159
   store float 0.000000e+00, ptr %160, align 4
   %.sroa.2160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 4
   store float 0.000000e+00, ptr %.sroa.2160.0..sroa_idx, align 4
@@ -47615,7 +47530,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   %169 = mul nsw i32 %.pre.pre, %30
   %170 = add nsw i32 %169, %.010511059
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds %struct.Color, ptr %5, i64 %171
+  %172 = getelementptr inbounds [4 x i8], ptr %5, i64 %171
   %173 = load i8, ptr %172, align 1
   %174 = icmp eq i8 %173, 0
   br i1 %174, label %175, label %212
@@ -47640,7 +47555,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
 
 187:                                              ; preds = %167, %183
   %188 = sext i32 %.21037 to i64
-  %189 = getelementptr inbounds %struct.Vector3, ptr %14, i64 %188
+  %189 = getelementptr inbounds [12 x i8], ptr %14, i64 %188
   store float %56, ptr %189, align 4
   %.sroa.11406.0..sroa_idx409 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store float %.sroa.01030.4.vec.extract, ptr %.sroa.11406.0..sroa_idx409, align 4
@@ -47678,7 +47593,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   store float %26, ptr %.sroa.9316.0..sroa_idx319, align 4
   %195 = add nsw i32 %.21037, 6
   %196 = sext i32 %.21046 to i64
-  %197 = getelementptr inbounds %struct.Vector3, ptr %17, i64 %196
+  %197 = getelementptr inbounds [12 x i8], ptr %17, i64 %196
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %197, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n5, i64 12, i1 false)
   %198 = getelementptr i8, ptr %197, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %198, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n5, i64 12, i1 false)
@@ -47692,7 +47607,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %202, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n5, i64 12, i1 false)
   %203 = add nsw i32 %.21046, 6
   %204 = sext i32 %.21040 to i64
-  %205 = getelementptr inbounds %struct.Vector2, ptr %16, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %16, i64 %204
   store float 1.000000e+00, ptr %205, align 4
   %.sroa.2132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %205, i64 4
   store float 0.000000e+00, ptr %.sroa.2132.0..sroa_idx, align 4
@@ -47732,7 +47647,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   %217 = add nuw nsw i32 %.010511059, 1
   %218 = add nsw i32 %217, %216
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds %struct.Color, ptr %5, i64 %219
+  %220 = getelementptr inbounds [4 x i8], ptr %5, i64 %219
   %221 = load i8, ptr %220, align 1
   %222 = icmp eq i8 %221, 0
   br i1 %222, label %223, label %235
@@ -47761,7 +47676,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
 
 236:                                              ; preds = %235, %231
   %237 = sext i32 %.3 to i64
-  %238 = getelementptr inbounds %struct.Vector3, ptr %14, i64 %237
+  %238 = getelementptr inbounds [12 x i8], ptr %14, i64 %237
   store float %58, ptr %238, align 4
   %.sroa.10355.0..sroa_idx362 = getelementptr inbounds nuw i8, ptr %238, i64 4
   store float %.sroa.01030.4.vec.extract, ptr %.sroa.10355.0..sroa_idx362, align 4
@@ -47799,7 +47714,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   store float %26, ptr %.sroa.9316.0..sroa_idx321, align 4
   %244 = add nsw i32 %.3, 6
   %245 = sext i32 %.31047 to i64
-  %246 = getelementptr inbounds %struct.Vector3, ptr %17, i64 %245
+  %246 = getelementptr inbounds [12 x i8], ptr %17, i64 %245
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %246, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n1, i64 12, i1 false)
   %247 = getelementptr i8, ptr %246, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %247, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n1, i64 12, i1 false)
@@ -47813,7 +47728,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %251, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n1, i64 12, i1 false)
   %252 = add nsw i32 %.31047, 6
   %253 = sext i32 %.31041 to i64
-  %254 = getelementptr inbounds %struct.Vector2, ptr %16, i64 %253
+  %254 = getelementptr inbounds [8 x i8], ptr %16, i64 %253
   store float 0.000000e+00, ptr %254, align 4
   %.sroa.2104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %254, i64 4
   store float 0.000000e+00, ptr %.sroa.2104.0..sroa_idx, align 4
@@ -47852,7 +47767,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   %264 = add nsw i32 %.010511059, -1
   %265 = add nsw i32 %264, %263
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds %struct.Color, ptr %5, i64 %266
+  %267 = getelementptr inbounds [4 x i8], ptr %5, i64 %266
   %268 = load i8, ptr %267, align 1
   %269 = icmp eq i8 %268, 0
   br i1 %269, label %270, label %.thread
@@ -47877,7 +47792,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
 
 282:                                              ; preds = %261, %278
   %283 = sext i32 %.4 to i64
-  %284 = getelementptr inbounds %struct.Vector3, ptr %14, i64 %283
+  %284 = getelementptr inbounds [12 x i8], ptr %14, i64 %283
   store float %56, ptr %284, align 4
   %.sroa.11406.0..sroa_idx413 = getelementptr inbounds nuw i8, ptr %284, i64 4
   store float %.sroa.01030.4.vec.extract, ptr %.sroa.11406.0..sroa_idx413, align 4
@@ -47915,7 +47830,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   store float %28, ptr %.sroa.10264.0..sroa_idx271, align 4
   %290 = add nsw i32 %.4, 6
   %291 = sext i32 %.41048 to i64
-  %292 = getelementptr inbounds %struct.Vector3, ptr %17, i64 %291
+  %292 = getelementptr inbounds [12 x i8], ptr %17, i64 %291
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %292, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n2, i64 12, i1 false)
   %293 = getelementptr i8, ptr %292, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %293, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n2, i64 12, i1 false)
@@ -47929,7 +47844,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %297, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n2, i64 12, i1 false)
   %298 = add nsw i32 %.41048, 6
   %299 = sext i32 %.41042 to i64
-  %300 = getelementptr inbounds %struct.Vector2, ptr %16, i64 %299
+  %300 = getelementptr inbounds [8 x i8], ptr %16, i64 %299
   store float 5.000000e-01, ptr %300, align 4
   %.sroa.276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 4
   store float 0.000000e+00, ptr %.sroa.276.0..sroa_idx, align 4
@@ -47976,7 +47891,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
 
 319:                                              ; preds = %315
   %320 = sext i32 %.110361065 to i64
-  %321 = getelementptr %struct.Vector3, ptr %14, i64 %320
+  %321 = getelementptr [12 x i8], ptr %14, i64 %320
   store float %56, ptr %321, align 4
   %.sroa.11406.0..sroa_idx417 = getelementptr inbounds nuw i8, ptr %321, i64 4
   store float %.sroa.01030.4.vec.extract, ptr %.sroa.11406.0..sroa_idx417, align 4
@@ -48013,7 +47928,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   %.sroa.11368.0..sroa_idx379 = getelementptr i8, ptr %321, i64 68
   store float %28, ptr %.sroa.11368.0..sroa_idx379, align 4
   %327 = sext i32 %.110451063 to i64
-  %328 = getelementptr %struct.Vector3, ptr %17, i64 %327
+  %328 = getelementptr [12 x i8], ptr %17, i64 %327
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %328, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n4, i64 12, i1 false)
   %329 = getelementptr i8, ptr %328, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %329, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n4, i64 12, i1 false)
@@ -48026,7 +47941,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   %333 = getelementptr i8, ptr %328, i64 60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %333, ptr noundef nonnull align 4 dereferenceable(12) @__const.GenMeshCubicmap.n4, i64 12, i1 false)
   %334 = sext i32 %.110391064 to i64
-  %335 = getelementptr %struct.Vector2, ptr %16, i64 %334
+  %335 = getelementptr [8 x i8], ptr %16, i64 %334
   store float 0.000000e+00, ptr %335, align 4
   %.sroa.250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %335, i64 4
   store float 5.000000e-01, ptr %.sroa.250.0..sroa_idx, align 4
@@ -48148,9 +48063,9 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
 .lr.ph1081:                                       ; preds = %.lr.ph1081.preheader, %.lr.ph1081
   %indvars.iv1090 = phi i64 [ 0, %.lr.ph1081.preheader ], [ %indvars.iv.next1091, %.lr.ph1081 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph1081.preheader ], [ %indvars.iv.next, %.lr.ph1081 ]
-  %366 = getelementptr inbounds nuw %struct.Vector3, ptr %14, i64 %indvars.iv
+  %366 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %indvars.iv
   %367 = load float, ptr %366, align 4
-  %368 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv1090
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv1090
   store float %367, ptr %368, align 4
   %369 = getelementptr inbounds nuw i8, ptr %366, i64 4
   %370 = load float, ptr %369, align 4
@@ -48176,9 +48091,9 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
 .lr.ph1084:                                       ; preds = %.lr.ph1084.preheader, %.lr.ph1084
   %indvars.iv1097 = phi i64 [ 0, %.lr.ph1084.preheader ], [ %indvars.iv.next1098, %.lr.ph1084 ]
   %indvars.iv1095 = phi i64 [ 0, %.lr.ph1084.preheader ], [ %indvars.iv.next1096, %.lr.ph1084 ]
-  %376 = getelementptr inbounds nuw %struct.Vector3, ptr %17, i64 %indvars.iv1095
+  %376 = getelementptr inbounds nuw [12 x i8], ptr %17, i64 %indvars.iv1095
   %377 = load float, ptr %376, align 4
-  %378 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv1097
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv1097
   store float %377, ptr %378, align 4
   %379 = getelementptr inbounds nuw i8, ptr %376, i64 4
   %380 = load float, ptr %379, align 4
@@ -48204,9 +48119,9 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
 .lr.ph1087:                                       ; preds = %.lr.ph1087.preheader, %.lr.ph1087
   %indvars.iv1106 = phi i64 [ 0, %.lr.ph1087.preheader ], [ %indvars.iv.next1107, %.lr.ph1087 ]
   %indvars.iv1104 = phi i64 [ 0, %.lr.ph1087.preheader ], [ %indvars.iv.next1105, %.lr.ph1087 ]
-  %385 = getelementptr inbounds nuw %struct.Vector2, ptr %16, i64 %indvars.iv1104
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv1104
   %386 = load float, ptr %385, align 4
-  %387 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv1106
+  %387 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv1106
   store float %386, ptr %387, align 4
   %388 = getelementptr inbounds nuw i8, ptr %385, i64 4
   %389 = load float, ptr %388, align 4
@@ -48370,37 +48285,37 @@ define void @GenMeshTangents(ptr noundef captures(none) %0) local_unnamed_addr #
   %106 = fmul float %77, %105
   %107 = tail call float @llvm.fmuladd.f32(float %75, float %74, float %106)
   %108 = fmul float %107, %84
-  %109 = getelementptr inbounds nuw %struct.Vector3, ptr %23, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %indvars.iv
   store float %88, ptr %109, align 4
   %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 4
   store float %92, ptr %.sroa.635.0..sroa_idx, align 4
   %.sroa.740.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 8
   store float %96, ptr %.sroa.740.0..sroa_idx, align 4
-  %110 = getelementptr inbounds nuw %struct.Vector3, ptr %23, i64 %43
+  %110 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %43
   store float %88, ptr %110, align 4
   %.sroa.635.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store float %92, ptr %.sroa.635.0..sroa_idx36, align 4
   %.sroa.740.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store float %96, ptr %.sroa.740.0..sroa_idx41, align 4
-  %111 = getelementptr inbounds nuw %struct.Vector3, ptr %23, i64 %50
+  %111 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %50
   store float %88, ptr %111, align 4
   %.sroa.635.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store float %92, ptr %.sroa.635.0..sroa_idx38, align 4
   %.sroa.740.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store float %96, ptr %.sroa.740.0..sroa_idx43, align 4
-  %112 = getelementptr inbounds nuw %struct.Vector3, ptr %24, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [12 x i8], ptr %24, i64 %indvars.iv
   store float %100, ptr %112, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 4
   store float %104, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 8
   store float %108, ptr %.sroa.7.0..sroa_idx, align 4
-  %113 = getelementptr inbounds nuw %struct.Vector3, ptr %24, i64 %43
+  %113 = getelementptr inbounds nuw [12 x i8], ptr %24, i64 %43
   store float %100, ptr %113, align 4
   %.sroa.6.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store float %104, ptr %.sroa.6.0..sroa_idx24, align 4
   %.sroa.7.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store float %108, ptr %.sroa.7.0..sroa_idx28, align 4
-  %114 = getelementptr inbounds nuw %struct.Vector3, ptr %24, i64 %50
+  %114 = getelementptr inbounds nuw [12 x i8], ptr %24, i64 %50
   store float %100, ptr %114, align 4
   %.sroa.6.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %114, i64 4
   store float %104, ptr %.sroa.6.0..sroa_idx26, align 4
@@ -48429,7 +48344,7 @@ define void @GenMeshTangents(ptr noundef captures(none) %0) local_unnamed_addr #
   %122 = load float, ptr %121, align 4
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %124 = load float, ptr %123, align 4
-  %125 = getelementptr inbounds nuw %struct.Vector3, ptr %23, i64 %indvars.iv204
+  %125 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %indvars.iv204
   %.sroa.0.0.copyload185 = load <2 x float>, ptr %125, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 8
   %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4
@@ -48475,14 +48390,14 @@ define void @GenMeshTangents(ptr noundef captures(none) %0) local_unnamed_addr #
   %161 = tail call float @llvm.fmuladd.f32(float %150, float %133, float %160)
   %162 = load ptr, ptr %11, align 8
   %163 = shl nsw i64 %indvars.iv204, 2
-  %164 = getelementptr inbounds nuw float, ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %163
   store float %155, ptr %164, align 4
   %165 = load ptr, ptr %11, align 8
-  %166 = getelementptr inbounds nuw float, ptr %165, i64 %163
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %165, i64 %163
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
   store float %158, ptr %167, align 4
   %168 = load ptr, ptr %11, align 8
-  %169 = getelementptr inbounds nuw float, ptr %168, i64 %163
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %163
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store float %161, ptr %170, align 4
   %171 = fneg float %158
@@ -48494,7 +48409,7 @@ define void @GenMeshTangents(ptr noundef captures(none) %0) local_unnamed_addr #
   %177 = fneg float %155
   %178 = fmul float %133, %177
   %179 = tail call float @llvm.fmuladd.f32(float %132, float %158, float %178)
-  %180 = getelementptr inbounds nuw %struct.Vector3, ptr %24, i64 %indvars.iv204
+  %180 = getelementptr inbounds nuw [12 x i8], ptr %24, i64 %indvars.iv204
   %.sroa.0.0.copyload = load <2 x float>, ptr %180, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 8
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
@@ -48506,7 +48421,7 @@ define void @GenMeshTangents(ptr noundef captures(none) %0) local_unnamed_addr #
   %184 = fcmp olt float %183, 0.000000e+00
   %185 = select i1 %184, float -1.000000e+00, float 1.000000e+00
   %186 = load ptr, ptr %11, align 8
-  %187 = getelementptr inbounds nuw float, ptr %186, i64 %163
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %163
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 12
   store float %185, ptr %188, align 4
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
@@ -48843,10 +48758,10 @@ MatrixRotate.exit:                                ; preds = %9, %16
 
 213:                                              ; preds = %.lr.ph, %213
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %213 ]
-  %214 = getelementptr inbounds nuw i32, ptr %207, i64 %indvars.iv
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %207, i64 %indvars.iv
   %215 = load i32, ptr %214, align 4
   %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds %struct.Material, ptr %205, i64 %216
+  %217 = getelementptr inbounds [40 x i8], ptr %205, i64 %216
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 20
@@ -48881,14 +48796,14 @@ MatrixRotate.exit:                                ; preds = %9, %16
   store i8 %228, ptr %.sroa.57.0..sroa_idx, align 1
   store i8 %232, ptr %.sroa.610.0..sroa_idx, align 2
   store i8 %236, ptr %.sroa.713.0..sroa_idx, align 1
-  %237 = getelementptr inbounds nuw %struct.Mesh, ptr %212, i64 %indvars.iv
+  %237 = getelementptr inbounds nuw [120 x i8], ptr %212, i64 %indvars.iv
   %238 = load i32, ptr %214, align 4
   %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds %struct.Material, ptr %205, i64 %239
+  %240 = getelementptr inbounds [40 x i8], ptr %205, i64 %239
   tail call void @DrawMesh(ptr noundef byval(%struct.Mesh) align 8 %237, ptr noundef byval(%struct.Material) align 8 %240, ptr noundef nonnull byval(%struct.Matrix) align 8 %0)
   %241 = load i32, ptr %214, align 4
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds %struct.Material, ptr %205, i64 %242
+  %243 = getelementptr inbounds [40 x i8], ptr %205, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 20
@@ -49232,7 +49147,7 @@ Vector3Normalize.exit258:                         ; preds = %Vector3Normalize.ex
 
 Vector3Normalize.exit258.split.us:                ; preds = %Vector3Normalize.exit258, %Vector3Normalize.exit258.split.us
   %indvars.iv300 = phi i64 [ %indvars.iv.next301, %Vector3Normalize.exit258.split.us ], [ 0, %Vector3Normalize.exit258 ]
-  %124 = getelementptr inbounds nuw %struct.Vector3, ptr %13, i64 %indvars.iv300
+  %124 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %indvars.iv300
   %.sroa.036.0.copyload.us = load <2 x float>, ptr %124, align 4
   %.sroa.237.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %124, i64 8
   %.sroa.237.0.copyload.us = load float, ptr %.sroa.237.0..sroa_idx.us, align 4
@@ -49329,7 +49244,7 @@ Vector3Normalize.exit258.split.us:                ; preds = %Vector3Normalize.ex
 
 Vector3Normalize.exit258.split:                   ; preds = %Vector3Normalize.exit258, %Vector3Normalize.exit258.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vector3Normalize.exit258.split ], [ 0, %Vector3Normalize.exit258 ]
-  %183 = getelementptr inbounds nuw %struct.Vector3, ptr %13, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %indvars.iv
   %.sroa.036.0.copyload = load <2 x float>, ptr %183, align 4
   %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %183, i64 8
   %.sroa.237.0.copyload = load float, ptr %.sroa.237.0..sroa_idx, align 4
@@ -49358,12 +49273,12 @@ Vector3Normalize.exit258.split:                   ; preds = %Vector3Normalize.ex
 
 191:                                              ; preds = %.split.us, %191
   %indvars.iv304 = phi i64 [ 0, %.split.us ], [ %indvars.iv.next305, %191 ]
-  %192 = getelementptr inbounds nuw %struct.Vector2, ptr %14, i64 %indvars.iv304
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv304
   %193 = load float, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %195 = load float, ptr %194, align 4
   tail call void @rlTexCoord2f(float noundef %193, float noundef %195) #63
-  %196 = getelementptr inbounds nuw %struct.Vector3, ptr %13, i64 %indvars.iv304
+  %196 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %indvars.iv304
   %197 = load float, ptr %196, align 4
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 4
   %199 = load float, ptr %198, align 4
@@ -49982,18 +49897,18 @@ define void @GetRayCollisionMesh(ptr dead_on_unwind noalias writable writeonly s
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.Vector3, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %24
   %.sroa.739.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i64
-  %29 = getelementptr inbounds nuw %struct.Vector3, ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %28
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   br label %35
 
 30:                                               ; preds = %14
   %31 = mul nuw nsw i64 %indvars.iv, 3
-  %32 = getelementptr inbounds nuw %struct.Vector3, ptr %6, i64 %31
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %.sroa.739.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -50006,7 +49921,7 @@ define void @GetRayCollisionMesh(ptr dead_on_unwind noalias writable writeonly s
   %.sroa.036.0.in = phi ptr [ %25, %18 ], [ %33, %30 ]
   %.sroa.739.0.in = phi ptr [ %.sroa.739.0..sroa_idx, %18 ], [ %.sroa.739.0..sroa_idx40, %30 ]
   %.pn = phi i64 [ %21, %18 ], [ %31, %30 ]
-  %.sroa.042.0.in = getelementptr inbounds nuw %struct.Vector3, ptr %6, i64 %.pn
+  %.sroa.042.0.in = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %.pn
   %.sroa.745.0.in = getelementptr inbounds nuw i8, ptr %.sroa.042.0.in, i64 8
   %.sroa.745.0 = load float, ptr %.sroa.745.0.in, align 4
   %.sroa.042.0 = load <2 x float>, ptr %.sroa.042.0.in, align 4
@@ -50982,7 +50897,7 @@ define internal fastcc i32 @jsmn_parse(ptr noundef nonnull captures(none) %0, pt
 jsmn_alloc_token.exit:                            ; preds = %17
   %20 = add i32 %18, 1
   store i32 %20, ptr %6, align 8
-  %21 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %3, i64 %19
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 -1, i64 16, i1 false)
@@ -50995,7 +50910,7 @@ jsmn_alloc_token.exit:                            ; preds = %17
 
 26:                                               ; preds = %jsmn_alloc_token.exit
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds %struct.jsmntok_t, ptr %3, i64 %27
+  %28 = getelementptr inbounds [32 x i8], ptr %3, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = add nsw i32 %30, 1
@@ -51032,7 +50947,7 @@ jsmn_alloc_token.exit:                            ; preds = %17
 
 48:                                               ; preds = %62, %45
   %.pn = phi i64 [ %47, %45 ], [ %66, %62 ]
-  %.0108 = getelementptr inbounds %struct.jsmntok_t, ptr %3, i64 %.pn
+  %.0108 = getelementptr inbounds [32 x i8], ptr %3, i64 %.pn
   %49 = getelementptr inbounds nuw i8, ptr %.0108, i64 8
   %50 = load i64, ptr %49, align 8
   %.not138 = icmp eq i64 %50, -1
@@ -51186,7 +51101,7 @@ switch.early.test.i:                              ; preds = %95
 jsmn_parse_string.exit:                           ; preds = %79
   %104 = add i32 %80, 1
   store i32 %104, ptr %6, align 8
-  %105 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %3, i64 %81
+  %105 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %81
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, i8 -1, i64 16, i1 false)
@@ -51207,7 +51122,7 @@ jsmn_parse_string.exit:                           ; preds = %79
 
 113:                                              ; preds = %jsmn_parse_string.exit
   %114 = sext i32 %111 to i64
-  %115 = getelementptr inbounds %struct.jsmntok_t, ptr %3, i64 %114
+  %115 = getelementptr inbounds [32 x i8], ptr %3, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = load i32, ptr %116, align 8
   %118 = add nsw i32 %117, 1
@@ -51230,7 +51145,7 @@ jsmn_parse_string.exit:                           ; preds = %79
 
 125:                                              ; preds = %123
   %126 = sext i32 %124 to i64
-  %127 = getelementptr inbounds %struct.jsmntok_t, ptr %3, i64 %126
+  %127 = getelementptr inbounds [32 x i8], ptr %3, i64 %126
   %128 = load i32, ptr %127, align 8
   %.off = add i32 %128, -1
   %switch = icmp ult i32 %.off, 2
@@ -51252,7 +51167,7 @@ jsmn_parse_string.exit:                           ; preds = %79
 
 135:                                              ; preds = %133
   %136 = sext i32 %134 to i64
-  %137 = getelementptr inbounds %struct.jsmntok_t, ptr %3, i64 %136
+  %137 = getelementptr inbounds [32 x i8], ptr %3, i64 %136
   %138 = load i32, ptr %137, align 8
   switch i32 %138, label %.lr.ph.i144.preheader [
     i32 1, label %.thread163
@@ -51312,7 +51227,7 @@ jsmn_parse_string.exit:                           ; preds = %79
 155:                                              ; preds = %152
   %156 = add i32 %153, 1
   store i32 %156, ptr %6, align 8
-  %157 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %3, i64 %154
+  %157 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %154
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, i8 -1, i64 16, i1 false)
@@ -51336,7 +51251,7 @@ jsmn_parse_string.exit:                           ; preds = %79
 
 167:                                              ; preds = %155
   %168 = sext i32 %163 to i64
-  %169 = getelementptr inbounds %struct.jsmntok_t, ptr %3, i64 %168
+  %169 = getelementptr inbounds [32 x i8], ptr %3, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %171 = load i32, ptr %170, align 8
   %172 = add nsw i32 %171, 1
@@ -51368,7 +51283,7 @@ jsmn_parse_string.exit:                           ; preds = %79
 
 .lr.ph196:                                        ; preds = %.lr.ph196.preheader, %188
   %indvars.iv = phi i64 [ %180, %.lr.ph196.preheader ], [ %indvars.iv.next, %188 ]
-  %181 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %3, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load i64, ptr %182, align 8
   %.not131 = icmp eq i64 %183, -1
@@ -51512,7 +51427,7 @@ define internal fastcc i32 @cgltf_parse_json_root(ptr noundef nonnull readonly %
   %.02671225 = phi i32 [ 1, %.lr.ph1226 ], [ %.2269768, %cgltf_parse_json_asset.exit.thread765 ]
   %.02791224 = phi i32 [ 0, %.lr.ph1226 ], [ %4865, %cgltf_parse_json_asset.exit.thread765 ]
   %108 = zext nneg i32 %.02671225 to i64
-  %109 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %108
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %108
   %110 = load i32, ptr %109, align 8
   %.not285 = icmp eq i32 %110, 3
   br i1 %.not285, label %111, label %cgltf_parse_json_asset.exit.thread
@@ -51540,7 +51455,7 @@ cgltf_json_strcmp.exit:                           ; preds = %115
 
 125:                                              ; preds = %cgltf_json_strcmp.exit
   %126 = zext nneg i32 %.02671225 to i64
-  %127 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %126
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %129 = load i32, ptr %128, align 8
   %.not.i297 = icmp eq i32 %129, 1
@@ -51557,7 +51472,7 @@ cgltf_json_strcmp.exit:                           ; preds = %115
   %.069149.i = phi i32 [ %344, %cgltf_parse_json_string.exit.thread126.i ], [ 0, %130 ]
   %.071148.i = phi i32 [ %.273128.i, %cgltf_parse_json_string.exit.thread126.i ], [ %133, %130 ]
   %134 = zext nneg i32 %.071148.i to i64
-  %135 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %134
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %134
   %136 = load i32, ptr %135, align 8
   %.not75.i = icmp eq i32 %136, 3
   br i1 %.not75.i, label %137, label %cgltf_parse_json_asset.exit.thread
@@ -51766,7 +51681,7 @@ cgltf_json_strcmp.exit109.i:                      ; preds = %141
 255:                                              ; preds = %253
   %256 = add nuw nsw i32 %.071148.i, 1
   %257 = zext nneg i32 %256 to i64
-  %258 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %257
+  %258 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %257
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %260 = load i64, ptr %259, align 8
   store i64 %260, ptr %102, align 8
@@ -51795,7 +51710,7 @@ cgltf_json_strcmp.exit109.i:                      ; preds = %141
 275:                                              ; preds = %287, %269
   %indvars.iv.i.i.i = phi i64 [ %257, %269 ], [ %indvars.iv.next.i.i.i, %287 ]
   %.016.i.i.i = phi i32 [ %274, %269 ], [ %.1.i.i.i, %287 ]
-  %276 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i
+  %276 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i
   %277 = load i32, ptr %276, align 8
   switch i32 %277, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %278
@@ -51875,7 +51790,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %301, %298
   %.03347.i.i = phi i32 [ %321, %316 ], [ %308, %307 ]
   %.03546.i.i = phi i32 [ %323, %316 ], [ 0, %307 ]
   %309 = zext nneg i32 %.03347.i.i to i64
-  %310 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %309
+  %310 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %309
   %311 = load i32, ptr %310, align 8
   %.not41.i.i = icmp eq i32 %311, 3
   br i1 %.not41.i.i, label %312, label %cgltf_parse_json_asset.exit.thread
@@ -51891,7 +51806,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %301, %298
   %318 = add i64 %317, 1
   store i64 %318, ptr %99, align 8
   %319 = load ptr, ptr %100, align 8
-  %320 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %319, i64 %317
+  %320 = getelementptr inbounds nuw [16 x i8], ptr %319, i64 %317
   %321 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i, ptr noundef readonly %2, ptr noundef %320)
   %322 = icmp slt i32 %321, 0
   %323 = add nuw nsw i32 %.03546.i.i, 1
@@ -51908,7 +51823,7 @@ cgltf_json_strcmp.exit114.thread.i:               ; preds = %cgltf_json_strcmp.e
 327:                                              ; preds = %339, %cgltf_json_strcmp.exit114.thread.i
   %indvars.iv.i.i = phi i64 [ %326, %cgltf_json_strcmp.exit114.thread.i ], [ %indvars.iv.next.i.i, %339 ]
   %.016.i.i = phi i32 [ %325, %cgltf_json_strcmp.exit114.thread.i ], [ %.1.i.i, %339 ]
-  %328 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i
+  %328 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i
   %329 = load i32, ptr %328, align 8
   switch i32 %329, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %330
@@ -51980,7 +51895,7 @@ cgltf_json_strcmp.exit300:                        ; preds = %cgltf_json_strcmp.e
 
 352:                                              ; preds = %cgltf_json_strcmp.exit300
   %353 = zext nneg i32 %.02671225 to i64
-  %354 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %353
+  %354 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %353
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 32
   %356 = load i32, ptr %355, align 8
   %.not.i.i = icmp eq i32 %356, 2
@@ -52024,9 +51939,9 @@ cgltf_parse_json_array.exit.i:                    ; preds = %366
   %.021121.i = phi i64 [ %1009, %cgltf_parse_json_mesh.exit.thread32.i ], [ 0, %cgltf_parse_json_array.exit.i ]
   %.023120.i = phi i32 [ %.0118.i34.i, %cgltf_parse_json_mesh.exit.thread32.i ], [ %371, %cgltf_parse_json_array.exit.i ]
   %373 = load ptr, ptr %96, align 8
-  %374 = getelementptr inbounds nuw %struct.cgltf_mesh, ptr %373, i64 %.021121.i
+  %374 = getelementptr inbounds nuw [96 x i8], ptr %373, i64 %.021121.i
   %375 = zext nneg i32 %.023120.i to i64
-  %376 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %375
+  %376 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %375
   %377 = load i32, ptr %376, align 8
   %.not.i29.i = icmp eq i32 %377, 1
   br i1 %.not.i29.i, label %378, label %cgltf_parse_json_asset.exit.thread
@@ -52055,7 +51970,7 @@ cgltf_parse_json_array.exit.i:                    ; preds = %366
   %.0123317.i.i = phi i32 [ 0, %.lr.ph318.i.i ], [ %1006, %cgltf_parse_json_string.exit.thread225.i.i ]
   %.0124316.i.i = phi i32 [ %381, %.lr.ph318.i.i ], [ %.2126228.i.i, %cgltf_parse_json_string.exit.thread225.i.i ]
   %393 = zext nneg i32 %.0124316.i.i to i64
-  %394 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %393
+  %394 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %393
   %395 = load i32, ptr %394, align 8
   %.not137.i.i = icmp eq i32 %395, 3
   br i1 %.not137.i.i, label %396, label %cgltf_parse_json_asset.exit.thread
@@ -52087,7 +52002,7 @@ cgltf_json_strcmp.exit.i.i:                       ; preds = %400
 
 409:                                              ; preds = %cgltf_json_strcmp.exit.i.i
   %410 = sext i32 %.0124316.i.i to i64
-  %411 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %410
+  %411 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %410
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 32
   %413 = load i32, ptr %412, align 8
   %.not.i142.i.i = icmp eq i32 %413, 3
@@ -52132,7 +52047,7 @@ cgltf_json_strcmp.exit146.i.i:                    ; preds = %400
 
 437:                                              ; preds = %cgltf_json_strcmp.exit146.i.i
   %438 = sext i32 %.0124316.i.i to i64
-  %439 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %438
+  %439 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %438
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 32
   %441 = load i32, ptr %440, align 8
   %.not.i147.i.i = icmp eq i32 %441, 2
@@ -52175,9 +52090,9 @@ cgltf_parse_json_array.exit.i.i:                  ; preds = %451
   %.0119312.i.i = phi i64 [ %825, %cgltf_parse_json_primitive.exit.thread204.i.i ], [ 0, %cgltf_parse_json_array.exit.i.i ]
   %.3127311.i.i = phi i32 [ %.0140.i206.i.i, %cgltf_parse_json_primitive.exit.thread204.i.i ], [ %456, %cgltf_parse_json_array.exit.i.i ]
   %457 = load ptr, ptr %390, align 8
-  %458 = getelementptr inbounds nuw %struct.cgltf_primitive, ptr %457, i64 %.0119312.i.i
+  %458 = getelementptr inbounds nuw [144 x i8], ptr %457, i64 %.0119312.i.i
   %459 = zext nneg i32 %.3127311.i.i to i64
-  %460 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %459
+  %460 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %459
   %461 = load i32, ptr %460, align 8
   %.not.i149.i.i = icmp eq i32 %461, 1
   br i1 %.not.i149.i.i, label %462, label %cgltf_parse_json_asset.exit.thread
@@ -52214,7 +52129,7 @@ cgltf_parse_json_array.exit.i.i:                  ; preds = %451
   %.0146298.i.i.i = phi i32 [ 0, %.lr.ph299.i.i.i ], [ %823, %cgltf_parse_json_extras.exit.thread253.i.i.i ]
   %.0147297.i.i.i = phi i32 [ %465, %.lr.ph299.i.i.i ], [ %.2149256.i.i.i, %cgltf_parse_json_extras.exit.thread253.i.i.i ]
   %484 = zext nneg i32 %.0147297.i.i.i to i64
-  %485 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %484
+  %485 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %484
   %486 = load i32, ptr %485, align 8
   %.not159.i.i.i = icmp eq i32 %486, 3
   br i1 %.not159.i.i.i, label %487, label %cgltf_parse_json_asset.exit.thread
@@ -52418,7 +52333,7 @@ cgltf_parse_json_array.exit.i.i.i:                ; preds = %575
   %.0141293.i.i.i = phi i64 [ %582, %581 ], [ 0, %cgltf_parse_json_array.exit.i.i.i ]
   %.3150292.i.i.i = phi i32 [ %587, %581 ], [ %580, %cgltf_parse_json_array.exit.i.i.i ]
   %584 = load ptr, ptr %477, align 8
-  %585 = getelementptr inbounds nuw %struct.cgltf_morph_target, ptr %584, i64 %.0141293.i.i.i
+  %585 = getelementptr inbounds nuw [16 x i8], ptr %584, i64 %.0141293.i.i.i
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 8
   %587 = call fastcc i32 @cgltf_parse_json_attribute_list(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.3150292.i.i.i, ptr noundef readonly %2, ptr noundef %585, ptr noundef nonnull %586)
   %588 = icmp slt i32 %587, 0
@@ -52438,7 +52353,7 @@ cgltf_json_strcmp.exit192.i.i.i:                  ; preds = %491
 594:                                              ; preds = %592
   %595 = add nuw nsw i32 %.0147297.i.i.i, 1
   %596 = zext nneg i32 %595 to i64
-  %597 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %596
+  %597 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %596
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 8
   %599 = load i64, ptr %598, align 8
   store i64 %599, ptr %475, align 8
@@ -52467,7 +52382,7 @@ cgltf_json_strcmp.exit192.i.i.i:                  ; preds = %491
 614:                                              ; preds = %626, %608
   %indvars.iv.i.i.i.i.i = phi i64 [ %596, %608 ], [ %indvars.iv.next.i.i.i.i.i, %626 ]
   %.016.i.i.i.i.i = phi i32 [ %613, %608 ], [ %.1.i.i.i.i.i, %626 ]
-  %615 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i.i.i
+  %615 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i.i.i
   %616 = load i32, ptr %615, align 8
   switch i32 %616, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %617
@@ -52547,7 +52462,7 @@ cgltf_calloc.exit.thread.i.i.i:                   ; preds = %640, %637
   %.0290.i.i.i = phi i32 [ %802, %cgltf_parse_json_draco_mesh_compression.exit.thread242.i.i.i ], [ 0, %646 ]
   %.6153289.i.i.i = phi i32 [ %.8244.i.i.i, %cgltf_parse_json_draco_mesh_compression.exit.thread242.i.i.i ], [ %647, %646 ]
   %648 = zext nneg i32 %.6153289.i.i.i to i64
-  %649 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %648
+  %649 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %648
   %650 = load i32, ptr %649, align 8
   %.not163.i.i.i = icmp eq i32 %650, 3
   br i1 %.not163.i.i.i, label %651, label %cgltf_parse_json_asset.exit.thread
@@ -52593,7 +52508,7 @@ cgltf_json_strcmp.exit202.i.i.i:                  ; preds = %655
   %.03657.i.i.i.i = phi i32 [ %731, %730 ], [ 0, %667 ]
   %.03856.i.i.i.i = phi i32 [ %.24053.i.i.i.i, %730 ], [ %670, %667 ]
   %671 = zext nneg i32 %.03856.i.i.i.i to i64
-  %672 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %671
+  %672 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %671
   %673 = load i32, ptr %672, align 8
   %.not41.i.i.i.i = icmp eq i32 %673, 3
   br i1 %.not41.i.i.i.i, label %674, label %cgltf_parse_json_asset.exit.thread
@@ -52670,7 +52585,7 @@ cgltf_json_strcmp.exit45.thread.i.i.i.i:          ; preds = %cgltf_json_strcmp.e
 713:                                              ; preds = %725, %cgltf_json_strcmp.exit45.thread.i.i.i.i
   %indvars.iv.i.i204.i.i.i = phi i64 [ %712, %cgltf_json_strcmp.exit45.thread.i.i.i.i ], [ %indvars.iv.next.i.i207.i.i.i, %725 ]
   %.016.i.i205.i.i.i = phi i32 [ %711, %cgltf_json_strcmp.exit45.thread.i.i.i.i ], [ %.1.i.i206.i.i.i, %725 ]
-  %714 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i204.i.i.i
+  %714 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i204.i.i.i
   %715 = load i32, ptr %714, align 8
   switch i32 %715, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %716
@@ -52737,7 +52652,7 @@ cgltf_json_strcmp.exit212.i.i.i:                  ; preds = %655
   %.04159.i.i.i.i = phi i32 [ %795, %cgltf_skip_json.exit.i221.i.i.i ], [ 0, %738 ]
   %.04258.i.i.i.i = phi i32 [ %.345.i.i.i.i, %cgltf_skip_json.exit.i221.i.i.i ], [ %741, %738 ]
   %742 = zext nneg i32 %.04258.i.i.i.i to i64
-  %743 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %742
+  %743 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %742
   %744 = load i32, ptr %743, align 8
   %.not47.i.i.i.i = icmp eq i32 %744, 3
   br i1 %.not47.i.i.i.i, label %745, label %cgltf_parse_json_asset.exit.thread
@@ -52815,7 +52730,7 @@ cgltf_json_strcmp.exit.thread.i.i.i.i:            ; preds = %cgltf_json_strcmp.e
 778:                                              ; preds = %790, %cgltf_json_strcmp.exit.thread.i.i.i.i
   %indvars.iv.i.i216.i.i.i = phi i64 [ %777, %cgltf_json_strcmp.exit.thread.i.i.i.i ], [ %indvars.iv.next.i.i219.i.i.i, %790 ]
   %.016.i.i217.i.i.i = phi i32 [ %776, %cgltf_json_strcmp.exit.thread.i.i.i.i ], [ %.1.i.i218.i.i.i, %790 ]
-  %779 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i216.i.i.i
+  %779 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i216.i.i.i
   %780 = load i32, ptr %779, align 8
   switch i32 %780, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %781
@@ -52861,7 +52776,7 @@ cgltf_json_strcmp.exit212.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
   %797 = load i64, ptr %467, align 8
   %798 = add i64 %797, 1
   store i64 %798, ptr %467, align 8
-  %799 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %796, i64 %797
+  %799 = getelementptr inbounds nuw [16 x i8], ptr %796, i64 %797
   %800 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.6153289.i.i.i, ptr noundef readonly %2, ptr noundef %799)
   br label %cgltf_parse_json_draco_mesh_compression.exit.i.i.i
 
@@ -52885,7 +52800,7 @@ cgltf_json_strcmp.exit197.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
 806:                                              ; preds = %818, %cgltf_json_strcmp.exit197.thread.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %805, %cgltf_json_strcmp.exit197.thread.i.i.i ], [ %indvars.iv.next.i.i.i.i, %818 ]
   %.016.i.i.i.i = phi i32 [ %804, %cgltf_json_strcmp.exit197.thread.i.i.i ], [ %.1.i.i.i.i, %818 ]
-  %807 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i.i
+  %807 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i.i
   %808 = load i32, ptr %807, align 8
   switch i32 %808, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %809
@@ -52948,7 +52863,7 @@ cgltf_json_strcmp.exit154.i.i:                    ; preds = %400
 
 830:                                              ; preds = %cgltf_json_strcmp.exit154.i.i
   %831 = sext i32 %.0124316.i.i to i64
-  %832 = getelementptr %struct.jsmntok_t, ptr %1, i64 %831
+  %832 = getelementptr [32 x i8], ptr %1, i64 %831
   %833 = getelementptr i8, ptr %832, i64 32
   %834 = load i32, ptr %833, align 8
   %.not.i155.i.i = icmp eq i32 %834, 2
@@ -53008,7 +52923,7 @@ cgltf_parse_json_array.exit162.i.i:               ; preds = %844
 .lr.ph.i165.i.i:                                  ; preds = %cgltf_json_to_float.exit.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i310 = phi i64 [ %indvars.iv.next.i.i313, %cgltf_json_to_float.exit.i.i.i ], [ %855, %.lr.ph.preheader.i.i.i ]
   %indvars.iv.i.i.i311 = phi i64 [ %indvars.iv.next.i.i.i312, %cgltf_json_to_float.exit.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %856 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i310
+  %856 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i310
   %857 = load i32, ptr %856, align 8
   %.not24.i.i.i = icmp eq i32 %857, 4
   br i1 %.not24.i.i.i, label %cgltf_json_to_float.exit.i.i.i, label %cgltf_parse_json_asset.exit.thread
@@ -53028,7 +52943,7 @@ cgltf_json_to_float.exit.i.i.i:                   ; preds = %.lr.ph.i165.i.i
   %866 = call double @strtod(ptr noundef nonnull captures(none) %60, ptr noundef null) #63
   %867 = fptrunc double %866 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  %868 = getelementptr inbounds nuw float, ptr %848, i64 %indvars.iv.i.i.i311
+  %868 = getelementptr inbounds nuw [4 x i8], ptr %848, i64 %indvars.iv.i.i.i311
   store float %867, ptr %868, align 4
   %indvars.iv.next.i.i.i312 = add nuw nsw i64 %indvars.iv.i.i.i311, 1
   %indvars.iv.next.i.i313 = add nuw nsw i64 %indvars.iv.i.i310, 1
@@ -53044,7 +52959,7 @@ cgltf_json_strcmp.exit170.i.i:                    ; preds = %400
 872:                                              ; preds = %cgltf_json_strcmp.exit170.i.i
   %873 = add nuw nsw i32 %.0124316.i.i, 1
   %874 = zext nneg i32 %873 to i64
-  %875 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %874
+  %875 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %874
   %876 = getelementptr inbounds nuw i8, ptr %875, i64 8
   %877 = load i64, ptr %876, align 8
   store i64 %877, ptr %384, align 8
@@ -53071,7 +52986,7 @@ cgltf_json_strcmp.exit170.i.i:                    ; preds = %400
   %.0309.i.i = phi i32 [ %887, %886 ], [ 0, %882 ]
   %.5129308.i.i = phi i32 [ %.7.i.i, %886 ], [ %885, %882 ]
   %888 = zext nneg i32 %.5129308.i.i to i64
-  %889 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %888
+  %889 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %888
   %890 = load i32, ptr %889, align 8
   %.not138.i.i = icmp eq i32 %890, 3
   br i1 %.not138.i.i, label %891, label %cgltf_parse_json_asset.exit.thread
@@ -53100,7 +53015,7 @@ cgltf_json_strcmp.exit173.i.i:                    ; preds = %895
 905:                                              ; preds = %cgltf_json_strcmp.exit173.i.i
   %906 = add nuw nsw i32 %.5129308.i.i, 1
   %907 = zext nneg i32 %906 to i64
-  %908 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %907
+  %908 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %907
   %909 = load i32, ptr %908, align 8
   %910 = icmp eq i32 %909, 2
   br i1 %910, label %911, label %cgltf_json_strcmp.exit173.thread.i.i
@@ -53118,7 +53033,7 @@ cgltf_json_strcmp.exit173.thread.i.i:             ; preds = %905, %cgltf_json_st
 916:                                              ; preds = %928, %cgltf_json_strcmp.exit173.thread.i.i
   %indvars.iv.i174.i.i = phi i64 [ %915, %cgltf_json_strcmp.exit173.thread.i.i ], [ %indvars.iv.next.i175.i.i, %928 ]
   %.016.i.i.i306 = phi i32 [ %914, %cgltf_json_strcmp.exit173.thread.i.i ], [ %.1.i.i.i307, %928 ]
-  %917 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i174.i.i
+  %917 = getelementptr inbounds [32 x i8], ptr %1, i64 %indvars.iv.i174.i.i
   %918 = load i32, ptr %917, align 8
   switch i32 %918, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %919
@@ -53164,7 +53079,7 @@ cgltf_skip_json.exit.i.i:                         ; preds = %.split.loop.exit.i.
 936:                                              ; preds = %948, %933
   %indvars.iv.i176.i.i = phi i64 [ %935, %933 ], [ %indvars.iv.next.i179.i.i, %948 ]
   %.016.i177.i.i = phi i32 [ %934, %933 ], [ %.1.i178.i.i, %948 ]
-  %937 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i176.i.i
+  %937 = getelementptr inbounds [32 x i8], ptr %1, i64 %indvars.iv.i176.i.i
   %938 = load i32, ptr %937, align 8
   switch i32 %938, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %939
@@ -53244,7 +53159,7 @@ cgltf_calloc.exit.thread.i192.i.i:                ; preds = %962, %959
   %.03347.i.i.i = phi i32 [ %982, %977 ], [ %969, %968 ]
   %.03546.i.i.i = phi i32 [ %984, %977 ], [ 0, %968 ]
   %970 = zext nneg i32 %.03347.i.i.i to i64
-  %971 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %970
+  %971 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %970
   %972 = load i32, ptr %971, align 8
   %.not41.i.i.i = icmp eq i32 %972, 3
   br i1 %.not41.i.i.i, label %973, label %cgltf_parse_json_asset.exit.thread
@@ -53260,7 +53175,7 @@ cgltf_calloc.exit.thread.i192.i.i:                ; preds = %962, %959
   %979 = add i64 %978, 1
   store i64 %979, ptr %382, align 8
   %980 = load ptr, ptr %383, align 8
-  %981 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %980, i64 %978
+  %981 = getelementptr inbounds nuw [16 x i8], ptr %980, i64 %978
   %982 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i.i, ptr noundef readonly %2, ptr noundef %981)
   %983 = icmp slt i32 %982, 0
   %984 = add nuw nsw i32 %.03546.i.i.i, 1
@@ -53277,7 +53192,7 @@ cgltf_json_strcmp.exit185.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 988:                                              ; preds = %1000, %cgltf_json_strcmp.exit185.thread.i.i
   %indvars.iv.i193.i.i = phi i64 [ %987, %cgltf_json_strcmp.exit185.thread.i.i ], [ %indvars.iv.next.i196.i.i, %1000 ]
   %.016.i194.i.i = phi i32 [ %986, %cgltf_json_strcmp.exit185.thread.i.i ], [ %.1.i195.i.i, %1000 ]
-  %989 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i193.i.i
+  %989 = getelementptr inbounds [32 x i8], ptr %1, i64 %indvars.iv.i193.i.i
   %990 = load i32, ptr %989, align 8
   switch i32 %990, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %991
@@ -53348,7 +53263,7 @@ cgltf_json_strcmp.exit316:                        ; preds = %cgltf_json_strcmp.e
 
 1014:                                             ; preds = %cgltf_json_strcmp.exit316
   %1015 = zext nneg i32 %.02671225 to i64
-  %1016 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1015
+  %1016 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1015
   %1017 = getelementptr inbounds nuw i8, ptr %1016, i64 32
   %1018 = load i32, ptr %1017, align 8
   %.not.i.i317 = icmp eq i32 %1018, 2
@@ -53392,9 +53307,9 @@ cgltf_parse_json_array.exit.i322:                 ; preds = %1028
   %.02198.i = phi i64 [ %1648, %cgltf_parse_json_accessor.exit.thread61.i ], [ 0, %cgltf_parse_json_array.exit.i322 ]
   %.02397.i = phi i32 [ %.0.i3063.i, %cgltf_parse_json_accessor.exit.thread61.i ], [ %1033, %cgltf_parse_json_array.exit.i322 ]
   %1035 = load ptr, ptr %94, align 8
-  %1036 = getelementptr inbounds nuw %struct.cgltf_accessor, ptr %1035, i64 %.02198.i
+  %1036 = getelementptr inbounds nuw [288 x i8], ptr %1035, i64 %.02198.i
   %1037 = zext nneg i32 %.02397.i to i64
-  %1038 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1037
+  %1038 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1037
   %1039 = load i32, ptr %1038, align 8
   %.not.i29.i325 = icmp eq i32 %1039, 1
   br i1 %.not.i29.i325, label %1040, label %cgltf_parse_json_asset.exit.thread
@@ -53435,7 +53350,7 @@ cgltf_parse_json_array.exit.i322:                 ; preds = %1028
   %.0157297.i.i = phi i32 [ %1043, %.lr.ph.i.i326 ], [ %.2159278.i.i, %cgltf_parse_json_string.exit.thread276.i.i ]
   %.0161296.i.i = phi i32 [ 0, %.lr.ph.i.i326 ], [ %1645, %cgltf_parse_json_string.exit.thread276.i.i ]
   %1067 = zext nneg i32 %.0157297.i.i to i64
-  %1068 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1067
+  %1068 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1067
   %1069 = load i32, ptr %1068, align 8
   %.not164.i.i = icmp eq i32 %1069, 3
   br i1 %.not164.i.i, label %1070, label %cgltf_parse_json_asset.exit.thread
@@ -53469,7 +53384,7 @@ cgltf_json_strcmp.exit.i.i372:                    ; preds = %1074
 
 1083:                                             ; preds = %cgltf_json_strcmp.exit.i.i372
   %1084 = sext i32 %.0157297.i.i to i64
-  %1085 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1084
+  %1085 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1084
   %1086 = getelementptr inbounds nuw i8, ptr %1085, i64 32
   %1087 = load i32, ptr %1086, align 8
   %.not.i169.i.i = icmp eq i32 %1087, 3
@@ -53514,7 +53429,7 @@ cgltf_json_strcmp.exit173.i.i364:                 ; preds = %1074
 
 1111:                                             ; preds = %cgltf_json_strcmp.exit173.i.i364
   %1112 = sext i32 %.0157297.i.i to i64
-  %1113 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1112
+  %1113 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1112
   %1114 = getelementptr inbounds nuw i8, ptr %1113, i64 32
   %1115 = load i32, ptr %1114, align 8
   %.not.i174.i.i = icmp eq i32 %1115, 4
@@ -53553,7 +53468,7 @@ cgltf_json_strcmp.exit178.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1132:                                             ; preds = %cgltf_json_strcmp.exit178.i.i
   %1133 = sext i32 %.0157297.i.i to i64
-  %1134 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1133
+  %1134 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1133
   %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 32
   %1136 = load i32, ptr %1135, align 8
   %.not.i179.i.i = icmp eq i32 %1136, 4
@@ -53590,7 +53505,7 @@ cgltf_json_strcmp.exit184.i.i:                    ; preds = %1074
 
 1152:                                             ; preds = %cgltf_json_strcmp.exit184.i.i
   %1153 = sext i32 %.0157297.i.i to i64
-  %1154 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1153
+  %1154 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1153
   %1155 = getelementptr inbounds nuw i8, ptr %1154, i64 32
   %1156 = load i32, ptr %1155, align 8
   %.not.i.i.i.i361 = icmp eq i32 %1156, 4
@@ -53617,7 +53532,7 @@ cgltf_json_to_int.exit.i.i.i362:                  ; preds = %1152
 
 switch.lookup:                                    ; preds = %cgltf_json_to_int.exit.i.i.i362
   %1168 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cgltf_parse_json_root.30, i64 %1168
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cgltf_parse_json_root.30, i64 %1168
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %cgltf_json_to_component_type.exit.i.i
 
@@ -53634,7 +53549,7 @@ cgltf_json_strcmp.exit188.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1172:                                             ; preds = %cgltf_json_strcmp.exit188.i.i
   %1173 = sext i32 %.0157297.i.i to i64
-  %1174 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1173
+  %1174 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1173
   %1175 = getelementptr i8, ptr %1174, i64 40
   %.val.i.i = load i64, ptr %1175, align 8
   %1176 = getelementptr i8, ptr %1174, i64 48
@@ -53665,7 +53580,7 @@ cgltf_json_strcmp.exit191.i.i:                    ; preds = %1074
 
 1189:                                             ; preds = %cgltf_json_strcmp.exit191.i.i
   %1190 = sext i32 %.0157297.i.i to i64
-  %1191 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1190
+  %1191 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1190
   %1192 = getelementptr inbounds nuw i8, ptr %1191, i64 32
   %1193 = load i32, ptr %1192, align 8
   %.not.i192.i.i = icmp eq i32 %1193, 4
@@ -53701,7 +53616,7 @@ cgltf_json_strcmp.exit198.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1208:                                             ; preds = %cgltf_json_strcmp.exit198.i.i
   %1209 = sext i32 %.0157297.i.i to i64
-  %1210 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1209
+  %1210 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1209
   %1211 = getelementptr inbounds nuw i8, ptr %1210, i64 32
   %1212 = load i32, ptr %1211, align 8
   %.not.i199.i.i = icmp eq i32 %1212, 3
@@ -53787,7 +53702,7 @@ cgltf_json_strcmp.exit213.tail.i.i:               ; preds = %sub_1.i.i
 1243:                                             ; preds = %cgltf_json_strcmp.exit213.tail.i.i
   store i32 1, ptr %1056, align 8
   %1244 = sext i32 %.0157297.i.i to i64
-  %1245 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1244
+  %1245 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1244
   %1246 = getelementptr inbounds nuw i8, ptr %1245, i64 32
   %1247 = getelementptr inbounds nuw i8, ptr %1245, i64 56
   %1248 = load i32, ptr %1247, align 8
@@ -53810,7 +53725,7 @@ cgltf_json_strcmp.exit213.tail.i.i:               ; preds = %sub_1.i.i
 .lr.ph.i.i.i354:                                  ; preds = %cgltf_json_to_float.exit.i.i.i357, %.lr.ph.preheader.i.i.i353
   %indvars.iv336.i.i = phi i64 [ %indvars.iv.next337.i.i, %cgltf_json_to_float.exit.i.i.i357 ], [ %1251, %.lr.ph.preheader.i.i.i353 ]
   %indvars.iv.i.i.i355 = phi i64 [ %indvars.iv.next.i.i.i358, %cgltf_json_to_float.exit.i.i.i357 ], [ 0, %.lr.ph.preheader.i.i.i353 ]
-  %1252 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv336.i.i
+  %1252 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv336.i.i
   %1253 = load i32, ptr %1252, align 8
   %.not24.i.i.i356 = icmp eq i32 %1253, 4
   br i1 %.not24.i.i.i356, label %cgltf_json_to_float.exit.i.i.i357, label %cgltf_parse_json_asset.exit.thread
@@ -53830,7 +53745,7 @@ cgltf_json_to_float.exit.i.i.i357:                ; preds = %.lr.ph.i.i.i354
   %1262 = call double @strtod(ptr noundef nonnull captures(none) %55, ptr noundef null) #63
   %1263 = fptrunc double %1262 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  %1264 = getelementptr inbounds nuw float, ptr %1057, i64 %indvars.iv.i.i.i355
+  %1264 = getelementptr inbounds nuw [4 x i8], ptr %1057, i64 %indvars.iv.i.i.i355
   store float %1263, ptr %1264, align 4
   %indvars.iv.next.i.i.i358 = add nuw nsw i64 %indvars.iv.i.i.i355, 1
   %indvars.iv.next337.i.i = add nuw nsw i64 %indvars.iv336.i.i, 1
@@ -53846,7 +53761,7 @@ cgltf_json_strcmp.exit219.tail.i.i:               ; preds = %sub_1.i.i
 1268:                                             ; preds = %cgltf_json_strcmp.exit219.tail.i.i
   store i32 1, ptr %1054, align 4
   %1269 = sext i32 %.0157297.i.i to i64
-  %1270 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1269
+  %1270 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1269
   %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 32
   %1272 = getelementptr inbounds nuw i8, ptr %1270, i64 56
   %1273 = load i32, ptr %1272, align 8
@@ -53869,7 +53784,7 @@ cgltf_json_strcmp.exit219.tail.i.i:               ; preds = %sub_1.i.i
 .lr.ph.i227.i.i:                                  ; preds = %cgltf_json_to_float.exit.i231.i.i, %.lr.ph.preheader.i225.i.i
   %indvars.iv.i.i349 = phi i64 [ %indvars.iv.next.i.i350, %cgltf_json_to_float.exit.i231.i.i ], [ %1276, %.lr.ph.preheader.i225.i.i ]
   %indvars.iv.i228.i.i = phi i64 [ %indvars.iv.next.i233.i.i, %cgltf_json_to_float.exit.i231.i.i ], [ 0, %.lr.ph.preheader.i225.i.i ]
-  %1277 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i349
+  %1277 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i349
   %1278 = load i32, ptr %1277, align 8
   %.not24.i230.i.i = icmp eq i32 %1278, 4
   br i1 %.not24.i230.i.i, label %cgltf_json_to_float.exit.i231.i.i, label %cgltf_parse_json_asset.exit.thread
@@ -53889,7 +53804,7 @@ cgltf_json_to_float.exit.i231.i.i:                ; preds = %.lr.ph.i227.i.i
   %1287 = call double @strtod(ptr noundef nonnull captures(none) %54, ptr noundef null) #63
   %1288 = fptrunc double %1287 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  %1289 = getelementptr inbounds nuw float, ptr %1055, i64 %indvars.iv.i228.i.i
+  %1289 = getelementptr inbounds nuw [4 x i8], ptr %1055, i64 %indvars.iv.i228.i.i
   store float %1288, ptr %1289, align 4
   %indvars.iv.next.i233.i.i = add nuw nsw i64 %indvars.iv.i228.i.i, 1
   %indvars.iv.next.i.i350 = add nuw nsw i64 %indvars.iv.i.i349, 1
@@ -53905,7 +53820,7 @@ cgltf_json_strcmp.exit239.i.i:                    ; preds = %1074
 1293:                                             ; preds = %cgltf_json_strcmp.exit239.i.i
   store i32 1, ptr %1047, align 8
   %1294 = sext i32 %.0157297.i.i to i64
-  %1295 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1294
+  %1295 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1294
   %1296 = getelementptr inbounds nuw i8, ptr %1295, i64 32
   %1297 = load i32, ptr %1296, align 8
   %.not.i240.i.i = icmp eq i32 %1297, 1
@@ -53922,7 +53837,7 @@ cgltf_json_strcmp.exit239.i.i:                    ; preds = %1074
   %.0123253.i.i.i = phi i32 [ %.2125230.i.i.i, %cgltf_skip_json.exit194.thread227.i.i.i ], [ %1301, %1298 ]
   %.0133252.i.i.i = phi i32 [ %1549, %cgltf_skip_json.exit194.thread227.i.i.i ], [ 0, %1298 ]
   %1302 = zext nneg i32 %.0123253.i.i.i to i64
-  %1303 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1302
+  %1303 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1302
   %1304 = load i32, ptr %1303, align 8
   %.not134.i.i.i = icmp eq i32 %1304, 3
   br i1 %.not134.i.i.i, label %1305, label %cgltf_parse_json_asset.exit.thread
@@ -53953,7 +53868,7 @@ cgltf_json_strcmp.exit.i.i.i348:                  ; preds = %1309
 
 1318:                                             ; preds = %cgltf_json_strcmp.exit.i.i.i348
   %1319 = sext i32 %.0123253.i.i.i to i64
-  %1320 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1319
+  %1320 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1319
   %1321 = getelementptr inbounds nuw i8, ptr %1320, i64 32
   %1322 = load i32, ptr %1321, align 8
   %.not.i142.i.i.i = icmp eq i32 %1322, 4
@@ -53990,7 +53905,7 @@ cgltf_json_strcmp.exit146.i.i.i:                  ; preds = %1309
 
 1338:                                             ; preds = %cgltf_json_strcmp.exit146.i.i.i
   %1339 = sext i32 %.0123253.i.i.i to i64
-  %1340 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1339
+  %1340 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1339
   %1341 = getelementptr inbounds nuw i8, ptr %1340, i64 32
   %1342 = load i32, ptr %1341, align 8
   %.not138.i.i.i = icmp eq i32 %1342, 1
@@ -54007,7 +53922,7 @@ cgltf_json_strcmp.exit146.i.i.i:                  ; preds = %1309
   %.0122248.i.i.i = phi i32 [ %1441, %cgltf_skip_json.exit.thread.i.i.i ], [ 0, %1343 ]
   %.3126247.i.i.i = phi i32 [ %.5128201.i.i.i, %cgltf_skip_json.exit.thread.i.i.i ], [ %1346, %1343 ]
   %1347 = zext nneg i32 %.3126247.i.i.i to i64
-  %1348 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1347
+  %1348 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1347
   %1349 = load i32, ptr %1348, align 8
   %.not139.i.i.i = icmp eq i32 %1349, 3
   br i1 %.not139.i.i.i, label %1350, label %cgltf_parse_json_asset.exit.thread
@@ -54037,7 +53952,7 @@ cgltf_json_strcmp.exit149.i.i.i:                  ; preds = %1354
 
 1363:                                             ; preds = %cgltf_json_strcmp.exit149.i.i.i
   %1364 = sext i32 %.3126247.i.i.i to i64
-  %1365 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1364
+  %1365 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1364
   %1366 = getelementptr inbounds nuw i8, ptr %1365, i64 32
   %1367 = load i32, ptr %1366, align 8
   %.not.i150.i.i.i = icmp eq i32 %1367, 4
@@ -54076,7 +53991,7 @@ cgltf_json_strcmp.exit155.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 1384:                                             ; preds = %cgltf_json_strcmp.exit155.i.i.i
   %1385 = sext i32 %.3126247.i.i.i to i64
-  %1386 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1385
+  %1386 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1385
   %1387 = getelementptr inbounds nuw i8, ptr %1386, i64 32
   %1388 = load i32, ptr %1387, align 8
   %.not.i156.i.i.i = icmp eq i32 %1388, 4
@@ -54113,7 +54028,7 @@ cgltf_json_strcmp.exit162.i.i.i:                  ; preds = %1354
 
 1404:                                             ; preds = %cgltf_json_strcmp.exit162.i.i.i
   %1405 = sext i32 %.3126247.i.i.i to i64
-  %1406 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1405
+  %1406 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1405
   %1407 = getelementptr inbounds nuw i8, ptr %1406, i64 32
   %1408 = load i32, ptr %1407, align 8
   %.not.i.i.i.i.i345 = icmp eq i32 %1408, 4
@@ -54140,7 +54055,7 @@ cgltf_json_to_int.exit.i.i.i.i346:                ; preds = %1404
 
 switch.lookup429:                                 ; preds = %cgltf_json_to_int.exit.i.i.i.i346
   %1420 = zext nneg i32 %switch.tableidx428 to i64
-  %switch.gep430 = getelementptr inbounds nuw i32, ptr @switch.table.cgltf_parse_json_root.30, i64 %1420
+  %switch.gep430 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cgltf_parse_json_root.30, i64 %1420
   %switch.load431 = load i32, ptr %switch.gep430, align 4
   br label %cgltf_json_to_component_type.exit.i.i.i
 
@@ -54159,7 +54074,7 @@ cgltf_json_strcmp.exit162.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
 1425:                                             ; preds = %1437, %cgltf_json_strcmp.exit162.thread.i.i.i
   %indvars.iv.i.i.i.i341 = phi i64 [ %1424, %cgltf_json_strcmp.exit162.thread.i.i.i ], [ %indvars.iv.next.i.i.i.i344, %1437 ]
   %.016.i.i.i.i342 = phi i32 [ %1423, %cgltf_json_strcmp.exit162.thread.i.i.i ], [ %.1.i.i.i.i343, %1437 ]
-  %1426 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i.i341
+  %1426 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i.i341
   %1427 = load i32, ptr %1426, align 8
   switch i32 %1427, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %1428
@@ -54206,7 +54121,7 @@ cgltf_json_strcmp.exit166.i.i.i:                  ; preds = %1309
 
 1445:                                             ; preds = %cgltf_json_strcmp.exit166.i.i.i
   %1446 = sext i32 %.0123253.i.i.i to i64
-  %1447 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1446
+  %1447 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1446
   %1448 = getelementptr inbounds nuw i8, ptr %1447, i64 32
   %1449 = load i32, ptr %1448, align 8
   %.not135.i.i.i = icmp eq i32 %1449, 1
@@ -54223,7 +54138,7 @@ cgltf_json_strcmp.exit166.i.i.i:                  ; preds = %1309
   %.0245.i.i.i = phi i32 [ %1528, %cgltf_skip_json.exit187.thread.i.i.i ], [ 0, %1450 ]
   %.6129244.i.i.i = phi i32 [ %.8213.i.i.i, %cgltf_skip_json.exit187.thread.i.i.i ], [ %1453, %1450 ]
   %1454 = zext nneg i32 %.6129244.i.i.i to i64
-  %1455 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1454
+  %1455 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1454
   %1456 = load i32, ptr %1455, align 8
   %.not136.i.i.i = icmp eq i32 %1456, 3
   br i1 %.not136.i.i.i, label %1457, label %cgltf_parse_json_asset.exit.thread
@@ -54251,7 +54166,7 @@ cgltf_json_strcmp.exit169.i.i.i:                  ; preds = %1461
 
 1471:                                             ; preds = %cgltf_json_strcmp.exit169.i.i.i
   %1472 = sext i32 %.6129244.i.i.i to i64
-  %1473 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1472
+  %1473 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1472
   %1474 = getelementptr inbounds nuw i8, ptr %1473, i64 32
   %1475 = load i32, ptr %1474, align 8
   %.not.i170.i.i.i = icmp eq i32 %1475, 4
@@ -54290,7 +54205,7 @@ cgltf_json_strcmp.exit176.i.i.i337:               ; preds = %cgltf_json_strcmp.e
 
 1492:                                             ; preds = %cgltf_json_strcmp.exit176.i.i.i337
   %1493 = sext i32 %.6129244.i.i.i to i64
-  %1494 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1493
+  %1494 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1493
   %1495 = getelementptr inbounds nuw i8, ptr %1494, i64 32
   %1496 = load i32, ptr %1495, align 8
   %.not.i177.i.i.i338 = icmp eq i32 %1496, 4
@@ -54328,7 +54243,7 @@ cgltf_json_strcmp.exit176.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
 1512:                                             ; preds = %1524, %cgltf_json_strcmp.exit176.thread.i.i.i
   %indvars.iv.i181.i.i.i = phi i64 [ %1511, %cgltf_json_strcmp.exit176.thread.i.i.i ], [ %indvars.iv.next.i184.i.i.i, %1524 ]
   %.016.i182.i.i.i = phi i32 [ %1510, %cgltf_json_strcmp.exit176.thread.i.i.i ], [ %.1.i183.i.i.i, %1524 ]
-  %1513 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i181.i.i.i
+  %1513 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i181.i.i.i
   %1514 = load i32, ptr %1513, align 8
   switch i32 %1514, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %1515
@@ -54376,7 +54291,7 @@ cgltf_json_strcmp.exit166.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
 1532:                                             ; preds = %1544, %cgltf_json_strcmp.exit166.thread.i.i.i
   %indvars.iv.i188.i.i.i = phi i64 [ %1531, %cgltf_json_strcmp.exit166.thread.i.i.i ], [ %indvars.iv.next.i191.i.i.i, %1544 ]
   %.016.i189.i.i.i = phi i32 [ %1530, %cgltf_json_strcmp.exit166.thread.i.i.i ], [ %.1.i190.i.i.i, %1544 ]
-  %1533 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i188.i.i.i
+  %1533 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i188.i.i.i
   %1534 = load i32, ptr %1533, align 8
   switch i32 %1534, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %1535
@@ -54433,7 +54348,7 @@ cgltf_json_strcmp.exit248.i.i:                    ; preds = %cgltf_json_strcmp.e
 1554:                                             ; preds = %1552
   %1555 = add nuw nsw i32 %.0157297.i.i, 1
   %1556 = zext nneg i32 %1555 to i64
-  %1557 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1556
+  %1557 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1556
   %1558 = getelementptr inbounds nuw i8, ptr %1557, i64 8
   %1559 = load i64, ptr %1558, align 8
   store i64 %1559, ptr %1046, align 8
@@ -54462,7 +54377,7 @@ cgltf_json_strcmp.exit248.i.i:                    ; preds = %cgltf_json_strcmp.e
 1574:                                             ; preds = %1586, %1568
   %indvars.iv.i.i42.i = phi i64 [ %1556, %1568 ], [ %indvars.iv.next.i.i43.i, %1586 ]
   %.016.i.i.i334 = phi i32 [ %1573, %1568 ], [ %.1.i.i.i335, %1586 ]
-  %1575 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i42.i
+  %1575 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i42.i
   %1576 = load i32, ptr %1575, align 8
   switch i32 %1576, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %1577
@@ -54542,7 +54457,7 @@ cgltf_calloc.exit.thread.i.i370:                  ; preds = %1600, %1597
   %.03347.i.i367 = phi i32 [ %1620, %1615 ], [ %1607, %1606 ]
   %.03546.i.i368 = phi i32 [ %1622, %1615 ], [ 0, %1606 ]
   %1608 = zext nneg i32 %.03347.i.i367 to i64
-  %1609 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1608
+  %1609 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1608
   %1610 = load i32, ptr %1609, align 8
   %.not41.i.i369 = icmp eq i32 %1610, 3
   br i1 %.not41.i.i369, label %1611, label %cgltf_parse_json_asset.exit.thread
@@ -54558,7 +54473,7 @@ cgltf_calloc.exit.thread.i.i370:                  ; preds = %1600, %1597
   %1617 = add i64 %1616, 1
   store i64 %1617, ptr %1044, align 8
   %1618 = load ptr, ptr %1045, align 8
-  %1619 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %1618, i64 %1616
+  %1619 = getelementptr inbounds nuw [16 x i8], ptr %1618, i64 %1616
   %1620 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i367, ptr noundef nonnull readonly %2, ptr noundef %1619)
   %1621 = icmp slt i32 %1620, 0
   %1622 = add nuw nsw i32 %.03546.i.i368, 1
@@ -54575,7 +54490,7 @@ cgltf_json_strcmp.exit251.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 1626:                                             ; preds = %1638, %cgltf_json_strcmp.exit251.thread.i.i
   %indvars.iv.i31.i = phi i64 [ %1625, %cgltf_json_strcmp.exit251.thread.i.i ], [ %indvars.iv.next.i32.i, %1638 ]
   %.016.i.i327 = phi i32 [ %1624, %cgltf_json_strcmp.exit251.thread.i.i ], [ %.1.i.i328, %1638 ]
-  %1627 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i31.i
+  %1627 = getelementptr inbounds [32 x i8], ptr %1, i64 %indvars.iv.i31.i
   %1628 = load i32, ptr %1627, align 8
   switch i32 %1628, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %1629
@@ -54650,7 +54565,7 @@ cgltf_json_strcmp.exit379:                        ; preds = %cgltf_json_strcmp.e
 
 1653:                                             ; preds = %cgltf_json_strcmp.exit379
   %1654 = zext nneg i32 %.02671225 to i64
-  %1655 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1654
+  %1655 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1654
   %1656 = getelementptr inbounds nuw i8, ptr %1655, i64 32
   %1657 = load i32, ptr %1656, align 8
   %.not.i.i380 = icmp eq i32 %1657, 2
@@ -54694,9 +54609,9 @@ cgltf_parse_json_array.exit.i385:                 ; preds = %1667
   %.02155.i = phi i64 [ %2121, %cgltf_parse_json_buffer_view.exit.thread33.i ], [ 0, %cgltf_parse_json_array.exit.i385 ]
   %.02354.i = phi i32 [ %.0124.i35.i, %cgltf_parse_json_buffer_view.exit.thread33.i ], [ %1672, %cgltf_parse_json_array.exit.i385 ]
   %1674 = load ptr, ptr %92, align 8
-  %1675 = getelementptr inbounds nuw %struct.cgltf_buffer_view, ptr %1674, i64 %.02155.i
+  %1675 = getelementptr inbounds nuw [152 x i8], ptr %1674, i64 %.02155.i
   %1676 = zext nneg i32 %.02354.i to i64
-  %1677 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1676
+  %1677 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1676
   %1678 = load i32, ptr %1677, align 8
   %.not.i29.i388 = icmp eq i32 %1678, 1
   br i1 %.not.i29.i388, label %1679, label %cgltf_parse_json_asset.exit.thread
@@ -54733,7 +54648,7 @@ cgltf_parse_json_array.exit.i385:                 ; preds = %1667
   %.0129256.i.i = phi i32 [ 0, %.lr.ph257.i.i ], [ %2119, %cgltf_parse_json_string.exit.thread230.i.i ]
   %.0130255.i.i = phi i32 [ %1682, %.lr.ph257.i.i ], [ %.2132233.i.i, %cgltf_parse_json_string.exit.thread230.i.i ]
   %1702 = zext nneg i32 %.0130255.i.i to i64
-  %1703 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1702
+  %1703 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1702
   %1704 = load i32, ptr %1703, align 8
   %.not137.i.i389 = icmp eq i32 %1704, 3
   br i1 %.not137.i.i389, label %1705, label %cgltf_parse_json_asset.exit.thread
@@ -54992,7 +54907,7 @@ cgltf_json_strcmp.exit182.i.i:                    ; preds = %cgltf_json_strcmp.e
 1834:                                             ; preds = %1832
   %1835 = add nuw nsw i32 %.0130255.i.i, 1
   %1836 = zext nneg i32 %1835 to i64
-  %1837 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1836
+  %1837 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1836
   %1838 = getelementptr inbounds nuw i8, ptr %1837, i64 8
   %1839 = load i64, ptr %1838, align 8
   store i64 %1839, ptr %1694, align 8
@@ -55021,7 +54936,7 @@ cgltf_json_strcmp.exit182.i.i:                    ; preds = %cgltf_json_strcmp.e
 1854:                                             ; preds = %1866, %1848
   %indvars.iv.i.i.i.i410 = phi i64 [ %1836, %1848 ], [ %indvars.iv.next.i.i.i.i413, %1866 ]
   %.016.i.i.i.i411 = phi i32 [ %1853, %1848 ], [ %.1.i.i.i.i412, %1866 ]
-  %1855 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i.i410
+  %1855 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i.i410
   %1856 = load i32, ptr %1855, align 8
   switch i32 %1856, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %1857
@@ -55097,7 +55012,7 @@ cgltf_calloc.exit.thread.i.i407:                  ; preds = %1879, %1876
   %.0253.i.i = phi i32 [ %2099, %cgltf_parse_json_meshopt_compression.exit.thread219.i.i ], [ 0, %1885 ]
   %.4134252.i.i = phi i32 [ %.6136221.i.i, %cgltf_parse_json_meshopt_compression.exit.thread219.i.i ], [ %1886, %1885 ]
   %1887 = zext nneg i32 %.4134252.i.i to i64
-  %1888 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1887
+  %1888 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1887
   %1889 = load i32, ptr %1888, align 8
   %.not141.i.i = icmp eq i32 %1889, 3
   br i1 %.not141.i.i, label %1890, label %cgltf_parse_json_asset.exit.thread
@@ -55141,7 +55056,7 @@ cgltf_json_strcmp.exit192.i.i:                    ; preds = %1894
   %.010131.i.i.i = phi i32 [ %2092, %cgltf_skip_json.exit.thread.i.i.i401 ], [ 0, %1907 ]
   %.010330.i.i.i = phi i32 [ %.210525.i.i.i, %cgltf_skip_json.exit.thread.i.i.i401 ], [ %1910, %1907 ]
   %1911 = zext nneg i32 %.010330.i.i.i to i64
-  %1912 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1911
+  %1912 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1911
   %1913 = load i32, ptr %1912, align 8
   %.not106.i.i.i = icmp eq i32 %1913, 3
   br i1 %.not106.i.i.i, label %1914, label %cgltf_parse_json_asset.exit.thread
@@ -55173,7 +55088,7 @@ cgltf_json_strcmp.exit.i.i.i404:                  ; preds = %1918
 
 1927:                                             ; preds = %cgltf_json_strcmp.exit.i.i.i404
   %1928 = sext i32 %.010330.i.i.i to i64
-  %1929 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1928
+  %1929 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1928
   %1930 = getelementptr inbounds nuw i8, ptr %1929, i64 32
   %1931 = load i32, ptr %1930, align 8
   %.not.i108.i.i.i = icmp eq i32 %1931, 4
@@ -55213,7 +55128,7 @@ cgltf_json_strcmp.exit112.i.i.i:                  ; preds = %1918
 
 1949:                                             ; preds = %cgltf_json_strcmp.exit112.i.i.i
   %1950 = sext i32 %.010330.i.i.i to i64
-  %1951 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1950
+  %1951 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1950
   %1952 = getelementptr inbounds nuw i8, ptr %1951, i64 32
   %1953 = load i32, ptr %1952, align 8
   %.not.i113.i.i.i = icmp eq i32 %1953, 4
@@ -55249,7 +55164,7 @@ cgltf_json_strcmp.exit118.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 1968:                                             ; preds = %cgltf_json_strcmp.exit118.i.i.i
   %1969 = sext i32 %.010330.i.i.i to i64
-  %1970 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1969
+  %1970 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1969
   %1971 = getelementptr inbounds nuw i8, ptr %1970, i64 32
   %1972 = load i32, ptr %1971, align 8
   %.not.i119.i.i.i = icmp eq i32 %1972, 4
@@ -55285,7 +55200,7 @@ cgltf_json_strcmp.exit125.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 1987:                                             ; preds = %cgltf_json_strcmp.exit125.i.i.i
   %1988 = sext i32 %.010330.i.i.i to i64
-  %1989 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1988
+  %1989 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %1988
   %1990 = getelementptr inbounds nuw i8, ptr %1989, i64 32
   %1991 = load i32, ptr %1990, align 8
   %.not.i126.i.i.i = icmp eq i32 %1991, 4
@@ -55322,7 +55237,7 @@ cgltf_json_strcmp.exit132.i.i.i:                  ; preds = %1918
 
 2007:                                             ; preds = %cgltf_json_strcmp.exit132.i.i.i
   %2008 = sext i32 %.010330.i.i.i to i64
-  %2009 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2008
+  %2009 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2008
   %2010 = getelementptr inbounds nuw i8, ptr %2009, i64 32
   %2011 = load i32, ptr %2010, align 8
   %.not.i133.i.i.i = icmp eq i32 %2011, 4
@@ -55359,7 +55274,7 @@ cgltf_json_strcmp.exit139.i.i.i:                  ; preds = %1918
 
 2027:                                             ; preds = %cgltf_json_strcmp.exit139.i.i.i
   %2028 = sext i32 %.010330.i.i.i to i64
-  %2029 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2028
+  %2029 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2028
   %2030 = getelementptr inbounds nuw i8, ptr %2029, i64 32
   %2031 = load i32, ptr %2030, align 8
   %.not.i140.i.i.i = icmp eq i32 %2031, 3
@@ -55411,7 +55326,7 @@ cgltf_json_strcmp.exit151.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 2050:                                             ; preds = %cgltf_json_strcmp.exit151.i.i.i
   %2051 = sext i32 %.010330.i.i.i to i64
-  %2052 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2051
+  %2052 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2051
   %2053 = getelementptr inbounds nuw i8, ptr %2052, i64 32
   %2054 = load i32, ptr %2053, align 8
   %.not.i152.i.i.i = icmp eq i32 %2054, 3
@@ -55470,7 +55385,7 @@ cgltf_json_strcmp.exit151.thread.i.i.i:           ; preds = %cgltf_json_strcmp.e
 2076:                                             ; preds = %2088, %cgltf_json_strcmp.exit151.thread.i.i.i
   %indvars.iv.i.i194.i.i = phi i64 [ %2075, %cgltf_json_strcmp.exit151.thread.i.i.i ], [ %indvars.iv.next.i.i197.i.i, %2088 ]
   %.016.i.i195.i.i = phi i32 [ %2074, %cgltf_json_strcmp.exit151.thread.i.i.i ], [ %.1.i.i196.i.i, %2088 ]
-  %2077 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i194.i.i
+  %2077 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i194.i.i
   %2078 = load i32, ptr %2077, align 8
   switch i32 %2078, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %2079
@@ -55514,7 +55429,7 @@ cgltf_json_strcmp.exit192.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   %2094 = load i64, ptr %1684, align 8
   %2095 = add i64 %2094, 1
   store i64 %2095, ptr %1684, align 8
-  %2096 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %2093, i64 %2094
+  %2096 = getelementptr inbounds nuw [16 x i8], ptr %2093, i64 %2094
   %2097 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.4134252.i.i, ptr noundef readonly %2, ptr noundef %2096)
   br label %cgltf_parse_json_meshopt_compression.exit.i.i
 
@@ -55538,7 +55453,7 @@ cgltf_json_strcmp.exit187.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 2103:                                             ; preds = %2115, %cgltf_json_strcmp.exit187.thread.i.i
   %indvars.iv.i.i.i390 = phi i64 [ %2102, %cgltf_json_strcmp.exit187.thread.i.i ], [ %indvars.iv.next.i.i.i393, %2115 ]
   %.016.i.i.i391 = phi i32 [ %2101, %cgltf_json_strcmp.exit187.thread.i.i ], [ %.1.i.i.i392, %2115 ]
-  %2104 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i390
+  %2104 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i390
   %2105 = load i32, ptr %2104, align 8
   switch i32 %2105, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %2106
@@ -55598,7 +55513,7 @@ cgltf_json_strcmp.exit423:                        ; preds = %cgltf_json_strcmp.e
 
 2126:                                             ; preds = %cgltf_json_strcmp.exit423
   %2127 = zext nneg i32 %.02671225 to i64
-  %2128 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2127
+  %2128 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2127
   %2129 = getelementptr inbounds nuw i8, ptr %2128, i64 32
   %2130 = load i32, ptr %2129, align 8
   %.not.i.i424 = icmp eq i32 %2130, 2
@@ -55642,9 +55557,9 @@ cgltf_parse_json_array.exit.i429:                 ; preds = %2140
   %.02149.i = phi i64 [ %2347, %cgltf_parse_json_buffer.exit.thread32.i ], [ 0, %cgltf_parse_json_array.exit.i429 ]
   %.02348.i = phi i32 [ %.061.i34.i, %cgltf_parse_json_buffer.exit.thread32.i ], [ %2145, %cgltf_parse_json_array.exit.i429 ]
   %2147 = load ptr, ptr %90, align 8
-  %2148 = getelementptr inbounds nuw %struct.cgltf_buffer, ptr %2147, i64 %.02149.i
+  %2148 = getelementptr inbounds nuw [80 x i8], ptr %2147, i64 %.02149.i
   %2149 = zext nneg i32 %.02348.i to i64
-  %2150 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2149
+  %2150 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2149
   %2151 = load i32, ptr %2150, align 8
   %.not.i29.i432 = icmp eq i32 %2151, 1
   br i1 %.not.i29.i432, label %2152, label %cgltf_parse_json_asset.exit.thread
@@ -55670,7 +55585,7 @@ cgltf_parse_json_array.exit.i429:                 ; preds = %2140
   %.060111.i.i = phi i32 [ 0, %.lr.ph.i.i433 ], [ %2345, %cgltf_parse_json_string.exit.thread101.i.i ]
   %.062110.i.i = phi i32 [ %2155, %.lr.ph.i.i433 ], [ %.264103.i.i, %cgltf_parse_json_string.exit.thread101.i.i ]
   %2164 = zext nneg i32 %.062110.i.i to i64
-  %2165 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2164
+  %2165 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2164
   %2166 = load i32, ptr %2165, align 8
   %.not65.i.i = icmp eq i32 %2166, 3
   br i1 %.not65.i.i, label %2167, label %cgltf_parse_json_asset.exit.thread
@@ -55841,7 +55756,7 @@ cgltf_json_strcmp.exit85.i.i:                     ; preds = %2171
 2256:                                             ; preds = %2254
   %2257 = add nuw nsw i32 %.062110.i.i, 1
   %2258 = zext nneg i32 %2257 to i64
-  %2259 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2258
+  %2259 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2258
   %2260 = getelementptr inbounds nuw i8, ptr %2259, i64 8
   %2261 = load i64, ptr %2260, align 8
   store i64 %2261, ptr %2159, align 8
@@ -55870,7 +55785,7 @@ cgltf_json_strcmp.exit85.i.i:                     ; preds = %2171
 2276:                                             ; preds = %2288, %2270
   %indvars.iv.i.i.i.i443 = phi i64 [ %2258, %2270 ], [ %indvars.iv.next.i.i.i.i446, %2288 ]
   %.016.i.i.i.i444 = phi i32 [ %2275, %2270 ], [ %.1.i.i.i.i445, %2288 ]
-  %2277 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i.i443
+  %2277 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i.i443
   %2278 = load i32, ptr %2277, align 8
   switch i32 %2278, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %2279
@@ -55950,7 +55865,7 @@ cgltf_calloc.exit.thread.i.i.i461:                ; preds = %2302, %2299
   %.03347.i.i.i456 = phi i32 [ %2322, %2317 ], [ %2309, %2308 ]
   %.03546.i.i.i457 = phi i32 [ %2324, %2317 ], [ 0, %2308 ]
   %2310 = zext nneg i32 %.03347.i.i.i456 to i64
-  %2311 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2310
+  %2311 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2310
   %2312 = load i32, ptr %2311, align 8
   %.not41.i.i.i458 = icmp eq i32 %2312, 3
   br i1 %.not41.i.i.i458, label %2313, label %cgltf_parse_json_asset.exit.thread
@@ -55966,7 +55881,7 @@ cgltf_calloc.exit.thread.i.i.i461:                ; preds = %2302, %2299
   %2319 = add i64 %2318, 1
   store i64 %2319, ptr %2156, align 8
   %2320 = load ptr, ptr %2157, align 8
-  %2321 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %2320, i64 %2318
+  %2321 = getelementptr inbounds nuw [16 x i8], ptr %2320, i64 %2318
   %2322 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i.i456, ptr noundef readonly %2, ptr noundef %2321)
   %2323 = icmp slt i32 %2322, 0
   %2324 = add nuw nsw i32 %.03546.i.i.i457, 1
@@ -55983,7 +55898,7 @@ cgltf_json_strcmp.exit90.thread.i.i:              ; preds = %cgltf_json_strcmp.e
 2328:                                             ; preds = %2340, %cgltf_json_strcmp.exit90.thread.i.i
   %indvars.iv.i.i.i434 = phi i64 [ %2327, %cgltf_json_strcmp.exit90.thread.i.i ], [ %indvars.iv.next.i.i.i437, %2340 ]
   %.016.i.i.i435 = phi i32 [ %2326, %cgltf_json_strcmp.exit90.thread.i.i ], [ %.1.i.i.i436, %2340 ]
-  %2329 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i434
+  %2329 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i434
   %2330 = load i32, ptr %2329, align 8
   switch i32 %2330, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %2331
@@ -56046,7 +55961,7 @@ cgltf_json_strcmp.exit470:                        ; preds = %cgltf_json_strcmp.e
 
 2352:                                             ; preds = %cgltf_json_strcmp.exit470
   %2353 = zext nneg i32 %.02671225 to i64
-  %2354 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2353
+  %2354 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2353
   %2355 = getelementptr inbounds nuw i8, ptr %2354, i64 32
   %2356 = load i32, ptr %2355, align 8
   %.not.i.i471 = icmp eq i32 %2356, 2
@@ -56089,9 +56004,9 @@ cgltf_parse_json_array.exit.i476:                 ; preds = %2366
   %.021273.i = phi i64 [ %3571, %cgltf_parse_json_material.exit.thread190.i ], [ 0, %cgltf_parse_json_array.exit.i476 ]
   %.023272.i = phi i32 [ %.0254.i192.i, %cgltf_parse_json_material.exit.thread190.i ], [ %2371, %cgltf_parse_json_array.exit.i476 ]
   %2372 = load ptr, ptr %88, align 8
-  %2373 = getelementptr inbounds nuw %struct.cgltf_material, ptr %2372, i64 %.021273.i
+  %2373 = getelementptr inbounds nuw [1232 x i8], ptr %2372, i64 %.021273.i
   %2374 = zext nneg i32 %.023272.i to i64
-  %2375 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2374
+  %2375 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2374
   %2376 = load i32, ptr %2375, align 8
   %.not.i29.i479 = icmp eq i32 %2376, 1
   br i1 %.not.i29.i479, label %2377, label %cgltf_parse_json_asset.exit.thread
@@ -56102,7 +56017,7 @@ cgltf_parse_json_array.exit.i476:                 ; preds = %2366
 
 2379:                                             ; preds = %2379, %2377
   %indvars.iv.i.i.i480 = phi i64 [ 0, %2377 ], [ %indvars.iv.next.i.i.i481, %2379 ]
-  %2380 = getelementptr inbounds nuw float, ptr %2378, i64 %indvars.iv.i.i.i480
+  %2380 = getelementptr inbounds nuw [4 x i8], ptr %2378, i64 %indvars.iv.i.i.i480
   store float 1.000000e+00, ptr %2380, align 4
   %indvars.iv.next.i.i.i481 = add nuw nsw i64 %indvars.iv.i.i.i480, 1
   %exitcond.not.i.i.i482 = icmp eq i64 %indvars.iv.next.i.i.i481, 4
@@ -56118,7 +56033,7 @@ cgltf_fill_float_array.exit.i.i:                  ; preds = %2379
 
 2384:                                             ; preds = %2384, %cgltf_fill_float_array.exit.i.i
   %indvars.iv.i274.i.i = phi i64 [ 0, %cgltf_fill_float_array.exit.i.i ], [ %indvars.iv.next.i275.i.i, %2384 ]
-  %2385 = getelementptr inbounds nuw float, ptr %2383, i64 %indvars.iv.i274.i.i
+  %2385 = getelementptr inbounds nuw [4 x i8], ptr %2383, i64 %indvars.iv.i274.i.i
   store float 1.000000e+00, ptr %2385, align 4
   %indvars.iv.next.i275.i.i = add nuw nsw i64 %indvars.iv.i274.i.i, 1
   %exitcond.not.i276.i.i = icmp eq i64 %indvars.iv.next.i275.i.i, 4
@@ -56130,7 +56045,7 @@ cgltf_fill_float_array.exit277.i.i:               ; preds = %2384
 
 2387:                                             ; preds = %2387, %cgltf_fill_float_array.exit277.i.i
   %indvars.iv.i278.i.i = phi i64 [ 0, %cgltf_fill_float_array.exit277.i.i ], [ %indvars.iv.next.i279.i.i, %2387 ]
-  %2388 = getelementptr inbounds nuw float, ptr %2386, i64 %indvars.iv.i278.i.i
+  %2388 = getelementptr inbounds nuw [4 x i8], ptr %2386, i64 %indvars.iv.i278.i.i
   store float 1.000000e+00, ptr %2388, align 4
   %indvars.iv.next.i279.i.i = add nuw nsw i64 %indvars.iv.i278.i.i, 1
   %exitcond.not.i280.i.i = icmp eq i64 %indvars.iv.next.i279.i.i, 3
@@ -56144,7 +56059,7 @@ cgltf_fill_float_array.exit281.i.i:               ; preds = %2387
 
 2391:                                             ; preds = %2391, %cgltf_fill_float_array.exit281.i.i
   %indvars.iv.i282.i.i = phi i64 [ 0, %cgltf_fill_float_array.exit281.i.i ], [ %indvars.iv.next.i283.i.i, %2391 ]
-  %2392 = getelementptr inbounds nuw float, ptr %2390, i64 %indvars.iv.i282.i.i
+  %2392 = getelementptr inbounds nuw [4 x i8], ptr %2390, i64 %indvars.iv.i282.i.i
   store float 1.000000e+00, ptr %2392, align 4
   %indvars.iv.next.i283.i.i = add nuw nsw i64 %indvars.iv.i282.i.i, 1
   %exitcond.not.i284.i.i = icmp eq i64 %indvars.iv.next.i283.i.i, 3
@@ -56218,7 +56133,7 @@ cgltf_fill_float_array.exit285.i.i:               ; preds = %2391
   %.0258451.i.i = phi i32 [ 0, %.lr.ph452.i.i ], [ %3570, %cgltf_parse_json_string.exit.thread415.i.i ]
   %.0259450.i.i = phi i32 [ %2400, %.lr.ph452.i.i ], [ %.2261418.i.i, %cgltf_parse_json_string.exit.thread415.i.i ]
   %2449 = zext nneg i32 %.0259450.i.i to i64
-  %2450 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2449
+  %2450 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2449
   %2451 = load i32, ptr %2450, align 8
   %.not266.i.i = icmp eq i32 %2451, 3
   br i1 %.not266.i.i, label %2452, label %cgltf_parse_json_asset.exit.thread
@@ -56315,7 +56230,7 @@ cgltf_json_strcmp.exit290.i.i:                    ; preds = %2456
   %.05915.i.i.i = phi i32 [ %2602, %cgltf_parse_json_float_array.exit.thread8.i.i.i ], [ 0, %2494 ]
   %.06114.i.i.i = phi i32 [ %.26310.i.i.i, %cgltf_parse_json_float_array.exit.thread8.i.i.i ], [ %2497, %2494 ]
   %2498 = zext nneg i32 %.06114.i.i.i to i64
-  %2499 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2498
+  %2499 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2498
   %2500 = load i32, ptr %2499, align 8
   %.not64.i.i.i = icmp eq i32 %2500, 3
   br i1 %.not64.i.i.i, label %2501, label %cgltf_parse_json_asset.exit.thread
@@ -56434,7 +56349,7 @@ cgltf_json_strcmp.exit77.i.i.i:                   ; preds = %cgltf_json_strcmp.e
 .lr.ph.i.i.i.i520:                                ; preds = %cgltf_json_to_float.exit.i.i.i.i, %.preheader.i.i.i.i
   %indvars.iv.i293.i.i = phi i64 [ %indvars.iv.next.i294.i.i, %cgltf_json_to_float.exit.i.i.i.i ], [ %2555, %.preheader.i.i.i.i ]
   %indvars.iv.i.i.i.i521 = phi i64 [ %indvars.iv.next.i.i.i.i523, %cgltf_json_to_float.exit.i.i.i.i ], [ 0, %.preheader.i.i.i.i ]
-  %2556 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i293.i.i
+  %2556 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i293.i.i
   %2557 = load i32, ptr %2556, align 8
   %.not24.i.i.i.i = icmp eq i32 %2557, 4
   br i1 %.not24.i.i.i.i, label %cgltf_json_to_float.exit.i.i.i.i, label %cgltf_parse_json_asset.exit.thread
@@ -56454,7 +56369,7 @@ cgltf_json_to_float.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i520
   %2566 = call double @strtod(ptr noundef nonnull captures(none) %34, ptr noundef null) #63
   %2567 = fptrunc double %2566 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  %2568 = getelementptr inbounds nuw float, ptr %2378, i64 %indvars.iv.i.i.i.i521
+  %2568 = getelementptr inbounds nuw [4 x i8], ptr %2378, i64 %indvars.iv.i.i.i.i521
   store float %2567, ptr %2568, align 4
   %indvars.iv.next.i.i.i.i523 = add nuw nsw i64 %indvars.iv.i.i.i.i521, 1
   %indvars.iv.next.i294.i.i = add nuw nsw i64 %indvars.iv.i293.i.i, 1
@@ -56492,7 +56407,7 @@ cgltf_json_strcmp.exit84.thread.i.i.i:            ; preds = %cgltf_json_strcmp.e
 2584:                                             ; preds = %2596, %cgltf_json_strcmp.exit84.thread.i.i.i
   %indvars.iv.i85.i.i.i = phi i64 [ %2583, %cgltf_json_strcmp.exit84.thread.i.i.i ], [ %indvars.iv.next.i86.i.i.i, %2596 ]
   %.016.i.i.i.i517 = phi i32 [ %2582, %cgltf_json_strcmp.exit84.thread.i.i.i ], [ %.1.i.i.i.i518, %2596 ]
-  %2585 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i85.i.i.i
+  %2585 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i85.i.i.i
   %2586 = load i32, ptr %2585, align 8
   switch i32 %2586, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %2587
@@ -56566,7 +56481,7 @@ cgltf_json_strcmp.exit297.i.i:                    ; preds = %2456
 .lr.ph.i300.i.i:                                  ; preds = %cgltf_json_to_float.exit.i302.i.i, %.preheader.i.i.i511
   %indvars.iv.i.i513 = phi i64 [ %indvars.iv.next.i.i515, %cgltf_json_to_float.exit.i302.i.i ], [ %2612, %.preheader.i.i.i511 ]
   %indvars.iv.i301.i.i = phi i64 [ %indvars.iv.next.i304.i.i, %cgltf_json_to_float.exit.i302.i.i ], [ 0, %.preheader.i.i.i511 ]
-  %2613 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i513
+  %2613 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i513
   %2614 = load i32, ptr %2613, align 8
   %.not24.i.i.i514 = icmp eq i32 %2614, 4
   br i1 %.not24.i.i.i514, label %cgltf_json_to_float.exit.i302.i.i, label %cgltf_parse_json_asset.exit.thread
@@ -56586,7 +56501,7 @@ cgltf_json_to_float.exit.i302.i.i:                ; preds = %.lr.ph.i300.i.i
   %2623 = call double @strtod(ptr noundef nonnull captures(none) %33, ptr noundef null) #63
   %2624 = fptrunc double %2623 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  %2625 = getelementptr inbounds nuw float, ptr %2433, i64 %indvars.iv.i301.i.i
+  %2625 = getelementptr inbounds nuw [4 x i8], ptr %2433, i64 %indvars.iv.i301.i.i
   store float %2624, ptr %2625, align 4
   %indvars.iv.next.i304.i.i = add nuw nsw i64 %indvars.iv.i301.i.i, 1
   %indvars.iv.next.i.i515 = add nuw nsw i64 %indvars.iv.i.i513, 1
@@ -56754,7 +56669,7 @@ cgltf_json_strcmp.exit337.i.i:                    ; preds = %2456
 2703:                                             ; preds = %2701
   %2704 = add nuw nsw i32 %.0259450.i.i, 1
   %2705 = zext nneg i32 %2704 to i64
-  %2706 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2705
+  %2706 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2705
   %2707 = getelementptr inbounds nuw i8, ptr %2706, i64 8
   %2708 = load i64, ptr %2707, align 8
   store i64 %2708, ptr %2426, align 8
@@ -56783,7 +56698,7 @@ cgltf_json_strcmp.exit337.i.i:                    ; preds = %2456
 2723:                                             ; preds = %2735, %2717
   %indvars.iv.i.i340.i.i = phi i64 [ %2705, %2717 ], [ %indvars.iv.next.i.i343.i.i, %2735 ]
   %.016.i.i341.i.i = phi i32 [ %2722, %2717 ], [ %.1.i.i342.i.i, %2735 ]
-  %2724 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i340.i.i
+  %2724 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i340.i.i
   %2725 = load i32, ptr %2724, align 8
   switch i32 %2725, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %2726
@@ -56869,7 +56784,7 @@ cgltf_calloc.exit.i.i:                            ; preds = %2751
   %.0448.i.i = phi i32 [ %2758, %2757 ], [ 0, %cgltf_calloc.exit.i.i ]
   %.4263447.i.i = phi i32 [ %.6265.i.i, %2757 ], [ %2750, %cgltf_calloc.exit.i.i ]
   %2759 = zext nneg i32 %.4263447.i.i to i64
-  %2760 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2759
+  %2760 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2759
   %2761 = load i32, ptr %2760, align 8
   %.not270.i.i = icmp eq i32 %2761, 3
   br i1 %.not270.i.i, label %2762, label %cgltf_parse_json_asset.exit.thread
@@ -56923,7 +56838,7 @@ cgltf_json_strcmp.exit352.i.i:                    ; preds = %2766
   %.05716.i.i.i = phi i32 [ %2893, %2892 ], [ 0, %2778 ]
   %.05915.i355.i.i = phi i32 [ %.2619.i.i.i, %2892 ], [ %2781, %2778 ]
   %2782 = zext nneg i32 %.05915.i355.i.i to i64
-  %2783 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2782
+  %2783 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2782
   %2784 = load i32, ptr %2783, align 8
   %.not62.i.i.i = icmp eq i32 %2784, 3
   br i1 %.not62.i.i.i, label %2785, label %cgltf_parse_json_asset.exit.thread
@@ -56973,7 +56888,7 @@ cgltf_json_strcmp.exit.i364.i.i:                  ; preds = %2789
 .lr.ph.i.i368.i.i:                                ; preds = %cgltf_json_to_float.exit.i.i371.i.i, %.preheader.i.i366.i.i
   %indvars.iv35.i.i.i = phi i64 [ %indvars.iv.next36.i.i.i, %cgltf_json_to_float.exit.i.i371.i.i ], [ %2804, %.preheader.i.i366.i.i ]
   %indvars.iv.i.i369.i.i = phi i64 [ %indvars.iv.next.i.i373.i.i, %cgltf_json_to_float.exit.i.i371.i.i ], [ 0, %.preheader.i.i366.i.i ]
-  %2805 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv35.i.i.i
+  %2805 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv35.i.i.i
   %2806 = load i32, ptr %2805, align 8
   %.not24.i.i370.i.i = icmp eq i32 %2806, 4
   br i1 %.not24.i.i370.i.i, label %cgltf_json_to_float.exit.i.i371.i.i, label %cgltf_parse_json_asset.exit.thread
@@ -56993,7 +56908,7 @@ cgltf_json_to_float.exit.i.i371.i.i:              ; preds = %.lr.ph.i.i368.i.i
   %2815 = call double @strtod(ptr noundef nonnull captures(none) %31, ptr noundef null) #63
   %2816 = fptrunc double %2815 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  %2817 = getelementptr inbounds nuw float, ptr %2383, i64 %indvars.iv.i.i369.i.i
+  %2817 = getelementptr inbounds nuw [4 x i8], ptr %2383, i64 %indvars.iv.i.i369.i.i
   store float %2816, ptr %2817, align 4
   %indvars.iv.next.i.i373.i.i = add nuw nsw i64 %indvars.iv.i.i369.i.i, 1
   %indvars.iv.next36.i.i.i = add nuw nsw i64 %indvars.iv35.i.i.i, 1
@@ -57026,7 +56941,7 @@ cgltf_json_strcmp.exit67.i.i.i:                   ; preds = %2789
 .lr.ph.i73.i.i.i:                                 ; preds = %cgltf_json_to_float.exit.i77.i.i.i, %.preheader.i71.i.i.i
   %indvars.iv.i362.i.i = phi i64 [ %indvars.iv.next.i363.i.i, %cgltf_json_to_float.exit.i77.i.i.i ], [ %2827, %.preheader.i71.i.i.i ]
   %indvars.iv.i74.i.i.i = phi i64 [ %indvars.iv.next.i79.i.i.i, %cgltf_json_to_float.exit.i77.i.i.i ], [ 0, %.preheader.i71.i.i.i ]
-  %2828 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i362.i.i
+  %2828 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i362.i.i
   %2829 = load i32, ptr %2828, align 8
   %.not24.i76.i.i.i = icmp eq i32 %2829, 4
   br i1 %.not24.i76.i.i.i, label %cgltf_json_to_float.exit.i77.i.i.i, label %cgltf_parse_json_asset.exit.thread
@@ -57046,7 +56961,7 @@ cgltf_json_to_float.exit.i77.i.i.i:               ; preds = %.lr.ph.i73.i.i.i
   %2838 = call double @strtod(ptr noundef nonnull captures(none) %30, ptr noundef null) #63
   %2839 = fptrunc double %2838 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %2840 = getelementptr inbounds nuw float, ptr %2386, i64 %indvars.iv.i74.i.i.i
+  %2840 = getelementptr inbounds nuw [4 x i8], ptr %2386, i64 %indvars.iv.i74.i.i.i
   store float %2839, ptr %2840, align 4
   %indvars.iv.next.i79.i.i.i = add nuw nsw i64 %indvars.iv.i74.i.i.i, 1
   %indvars.iv.next.i363.i.i = add nuw nsw i64 %indvars.iv.i362.i.i, 1
@@ -57118,7 +57033,7 @@ cgltf_json_strcmp.exit93.thread.i.i.i:            ; preds = %cgltf_json_strcmp.e
 2873:                                             ; preds = %2885, %cgltf_json_strcmp.exit93.thread.i.i.i
   %indvars.iv.i94.i.i.i = phi i64 [ %2872, %cgltf_json_strcmp.exit93.thread.i.i.i ], [ %indvars.iv.next.i95.i.i.i, %2885 ]
   %.016.i.i356.i.i = phi i32 [ %2871, %cgltf_json_strcmp.exit93.thread.i.i.i ], [ %.1.i.i357.i.i, %2885 ]
-  %2874 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i94.i.i.i
+  %2874 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i94.i.i.i
   %2875 = load i32, ptr %2874, align 8
   switch i32 %2875, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %2876
@@ -57186,7 +57101,7 @@ cgltf_json_strcmp.exit378.i.i:                    ; preds = %2766
 2901:                                             ; preds = %2913, %2897
   %indvars.iv.i177.i = phi i64 [ %2900, %2897 ], [ %indvars.iv.next.i178.i, %2913 ]
   %.016.i.i501 = phi i32 [ %2899, %2897 ], [ %.1.i.i502, %2913 ]
-  %2902 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i177.i
+  %2902 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i177.i
   %2903 = load i32, ptr %2902, align 8
   switch i32 %2903, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %2904
@@ -57243,7 +57158,7 @@ cgltf_json_strcmp.exit381.i.i:                    ; preds = %2766
   %.06013.i.i = phi i32 [ %3014, %cgltf_skip_json.exit.thread.i.i ], [ 0, %2923 ]
   %.06212.i.i = phi i32 [ %.2647.i.i, %cgltf_skip_json.exit.thread.i.i ], [ %2926, %2923 ]
   %2927 = zext nneg i32 %.06212.i.i to i64
-  %2928 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2927
+  %2928 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2927
   %2929 = load i32, ptr %2928, align 8
   %.not65.i.i495 = icmp eq i32 %2929, 3
   br i1 %.not65.i.i495, label %2930, label %cgltf_parse_json_asset.exit.thread
@@ -57380,7 +57295,7 @@ cgltf_json_strcmp.exit84.thread.i.i:              ; preds = %cgltf_json_strcmp.e
 2997:                                             ; preds = %3009, %cgltf_json_strcmp.exit84.thread.i.i
   %indvars.iv.i.i167.i = phi i64 [ %2996, %cgltf_json_strcmp.exit84.thread.i.i ], [ %indvars.iv.next.i.i170.i, %3009 ]
   %.016.i.i168.i = phi i32 [ %2995, %cgltf_json_strcmp.exit84.thread.i.i ], [ %.1.i.i169.i, %3009 ]
-  %2998 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i167.i
+  %2998 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i167.i
   %2999 = load i32, ptr %2998, align 8
   switch i32 %2999, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %3000
@@ -57449,7 +57364,7 @@ cgltf_json_strcmp.exit164.i:                      ; preds = %2766
   %.02845.i146.i = phi i32 [ %3083, %3082 ], [ 0, %3021 ]
   %.03044.i147.i = phi i32 [ %.23241.i155.i, %3082 ], [ %3024, %3021 ]
   %3025 = zext nneg i32 %.03044.i147.i to i64
-  %3026 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3025
+  %3026 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3025
   %3027 = load i32, ptr %3026, align 8
   %.not33.i148.i = icmp eq i32 %3027, 3
   br i1 %.not33.i148.i, label %3028, label %cgltf_parse_json_asset.exit.thread
@@ -57489,7 +57404,7 @@ cgltf_json_strcmp.exit.tail.i.i:                  ; preds = %sub_1.i.i494
 
 3046:                                             ; preds = %cgltf_json_strcmp.exit.tail.i.i
   %3047 = sext i32 %.03044.i147.i to i64
-  %3048 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3047
+  %3048 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3047
   %3049 = getelementptr inbounds nuw i8, ptr %3048, i64 32
   %3050 = load i32, ptr %3049, align 8
   %.not.i35.i158.i = icmp eq i32 %3050, 4
@@ -57527,7 +57442,7 @@ cgltf_json_strcmp.exit.thread.i149.i:             ; preds = %cgltf_json_strcmp.e
 3066:                                             ; preds = %3078, %cgltf_json_strcmp.exit.thread.i149.i
   %indvars.iv.i.i150.i = phi i64 [ %3065, %cgltf_json_strcmp.exit.thread.i149.i ], [ %indvars.iv.next.i.i153.i, %3078 ]
   %.016.i.i151.i = phi i32 [ %3064, %cgltf_json_strcmp.exit.thread.i149.i ], [ %.1.i.i152.i, %3078 ]
-  %3067 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i150.i
+  %3067 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i150.i
   %3068 = load i32, ptr %3067, align 8
   switch i32 %3068, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %3069
@@ -57587,7 +57502,7 @@ cgltf_json_strcmp.exit141.i:                      ; preds = %2766
 
 3093:                                             ; preds = %3093, %3090
   %indvars.iv.i.i112.i = phi i64 [ 0, %3090 ], [ %indvars.iv.next.i.i113.i, %3093 ]
-  %3094 = getelementptr inbounds nuw float, ptr %2446, i64 %indvars.iv.i.i112.i
+  %3094 = getelementptr inbounds nuw [4 x i8], ptr %2446, i64 %indvars.iv.i.i112.i
   store float 1.000000e+00, ptr %3094, align 4
   %indvars.iv.next.i.i113.i = add nuw nsw i64 %indvars.iv.i.i112.i, 1
   %exitcond.not.i.i114.i = icmp eq i64 %indvars.iv.next.i.i113.i, 3
@@ -57602,7 +57517,7 @@ cgltf_fill_float_array.exit.preheader.i.i:        ; preds = %3093
   %.05213.i.i = phi i32 [ %3183, %cgltf_fill_float_array.exit.i122.i ], [ 0, %cgltf_fill_float_array.exit.preheader.i.i ]
   %.05412.i.i = phi i32 [ %.2568.i.i, %cgltf_fill_float_array.exit.i122.i ], [ %3095, %cgltf_fill_float_array.exit.preheader.i.i ]
   %3096 = zext nneg i32 %.05412.i.i to i64
-  %3097 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3096
+  %3097 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3096
   %3098 = load i32, ptr %3097, align 8
   %.not57.i.i = icmp eq i32 %3098, 3
   br i1 %.not57.i.i, label %3099, label %cgltf_parse_json_asset.exit.thread
@@ -57687,7 +57602,7 @@ cgltf_json_strcmp.exit63.i124.i:                  ; preds = %3103
 .lr.ph.i.i129.i:                                  ; preds = %cgltf_json_to_float.exit.i.i132.i, %.preheader.i.i127.i
   %indvars.iv.i130.i = phi i64 [ %indvars.iv.next.i134.i, %cgltf_json_to_float.exit.i.i132.i ], [ %3136, %.preheader.i.i127.i ]
   %indvars.iv.i65.i.i = phi i64 [ %indvars.iv.next.i66.i.i, %cgltf_json_to_float.exit.i.i132.i ], [ 0, %.preheader.i.i127.i ]
-  %3137 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i130.i
+  %3137 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i130.i
   %3138 = load i32, ptr %3137, align 8
   %.not24.i.i131.i = icmp eq i32 %3138, 4
   br i1 %.not24.i.i131.i, label %cgltf_json_to_float.exit.i.i132.i, label %cgltf_parse_json_asset.exit.thread
@@ -57707,7 +57622,7 @@ cgltf_json_to_float.exit.i.i132.i:                ; preds = %.lr.ph.i.i129.i
   %3147 = call double @strtod(ptr noundef nonnull captures(none) %20, ptr noundef null) #63
   %3148 = fptrunc double %3147 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %3149 = getelementptr inbounds nuw float, ptr %2446, i64 %indvars.iv.i65.i.i
+  %3149 = getelementptr inbounds nuw [4 x i8], ptr %2446, i64 %indvars.iv.i65.i.i
   store float %3148, ptr %3149, align 4
   %indvars.iv.next.i66.i.i = add nuw nsw i64 %indvars.iv.i65.i.i, 1
   %indvars.iv.next.i134.i = add nuw nsw i64 %indvars.iv.i130.i, 1
@@ -57745,7 +57660,7 @@ cgltf_json_strcmp.exit73.thread.i.i:              ; preds = %cgltf_json_strcmp.e
 3165:                                             ; preds = %3177, %cgltf_json_strcmp.exit73.thread.i.i
   %indvars.iv.i74.i116.i = phi i64 [ %3164, %cgltf_json_strcmp.exit73.thread.i.i ], [ %indvars.iv.next.i75.i119.i, %3177 ]
   %.016.i.i117.i = phi i32 [ %3163, %cgltf_json_strcmp.exit73.thread.i.i ], [ %.1.i.i118.i, %3177 ]
-  %3166 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i74.i116.i
+  %3166 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i74.i116.i
   %3167 = load i32, ptr %3166, align 8
   switch i32 %3167, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %3168
@@ -57817,7 +57732,7 @@ cgltf_json_strcmp.exit110.i:                      ; preds = %2766
   %.03510.i.i = phi i32 [ %3252, %3251 ], [ 0, %3190 ]
   %.0379.i.i = phi i32 [ %.2396.i.i, %3251 ], [ %3193, %3190 ]
   %3194 = zext nneg i32 %.0379.i.i to i64
-  %3195 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3194
+  %3195 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3194
   %3196 = load i32, ptr %3195, align 8
   %.not40.i.i = icmp eq i32 %3196, 3
   br i1 %.not40.i.i, label %3197, label %cgltf_parse_json_asset.exit.thread
@@ -57894,7 +57809,7 @@ cgltf_json_strcmp.exit46.thread.i.i:              ; preds = %cgltf_json_strcmp.e
 3234:                                             ; preds = %3246, %cgltf_json_strcmp.exit46.thread.i.i
   %indvars.iv.i.i99.i = phi i64 [ %3233, %cgltf_json_strcmp.exit46.thread.i.i ], [ %indvars.iv.next.i.i102.i, %3246 ]
   %.016.i.i100.i = phi i32 [ %3232, %cgltf_json_strcmp.exit46.thread.i.i ], [ %.1.i.i101.i, %3246 ]
-  %3235 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i99.i
+  %3235 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i99.i
   %3236 = load i32, ptr %3235, align 8
   switch i32 %3236, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %3237
@@ -57962,7 +57877,7 @@ cgltf_json_strcmp.exit96.i:                       ; preds = %2766
   %.05114.i.i = phi i32 [ %3361, %cgltf_parse_json_float_array.exit.thread7.i.i ], [ 0, %3259 ]
   %.05313.i.i = phi i32 [ %.2559.i.i, %cgltf_parse_json_float_array.exit.thread7.i.i ], [ %3262, %3259 ]
   %3263 = zext nneg i32 %.05313.i.i to i64
-  %3264 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3263
+  %3264 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3263
   %3265 = load i32, ptr %3264, align 8
   %.not56.i.i = icmp eq i32 %3265, 3
   br i1 %.not56.i.i, label %3266, label %cgltf_parse_json_asset.exit.thread
@@ -58056,7 +57971,7 @@ cgltf_json_strcmp.exit65.i.i:                     ; preds = %cgltf_json_strcmp.e
 .lr.ph.i.i81.i:                                   ; preds = %cgltf_json_to_float.exit.i.i85.i, %.preheader.i.i79.i
   %indvars.iv.i82.i = phi i64 [ %indvars.iv.next.i88.i, %cgltf_json_to_float.exit.i.i85.i ], [ %3308, %.preheader.i.i79.i ]
   %indvars.iv.i.i83.i = phi i64 [ %indvars.iv.next.i.i87.i, %cgltf_json_to_float.exit.i.i85.i ], [ 0, %.preheader.i.i79.i ]
-  %3309 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i82.i
+  %3309 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i82.i
   %3310 = load i32, ptr %3309, align 8
   %.not24.i.i84.i = icmp eq i32 %3310, 4
   br i1 %.not24.i.i84.i, label %cgltf_json_to_float.exit.i.i85.i, label %cgltf_parse_json_asset.exit.thread
@@ -58076,7 +57991,7 @@ cgltf_json_to_float.exit.i.i85.i:                 ; preds = %.lr.ph.i.i81.i
   %3319 = call double @strtod(ptr noundef nonnull captures(none) %24, ptr noundef null) #63
   %3320 = fptrunc double %3319 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %3321 = getelementptr inbounds nuw float, ptr %2390, i64 %indvars.iv.i.i83.i
+  %3321 = getelementptr inbounds nuw [4 x i8], ptr %2390, i64 %indvars.iv.i.i83.i
   store float %3320, ptr %3321, align 4
   %indvars.iv.next.i.i87.i = add nuw nsw i64 %indvars.iv.i.i83.i, 1
   %indvars.iv.next.i88.i = add nuw nsw i64 %indvars.iv.i82.i, 1
@@ -58127,7 +58042,7 @@ cgltf_json_strcmp.exit69.thread.i.i:              ; preds = %cgltf_json_strcmp.e
 3343:                                             ; preds = %3355, %cgltf_json_strcmp.exit69.thread.i.i
   %indvars.iv.i74.i.i = phi i64 [ %3342, %cgltf_json_strcmp.exit69.thread.i.i ], [ %indvars.iv.next.i75.i.i, %3355 ]
   %.016.i.i73.i = phi i32 [ %3341, %cgltf_json_strcmp.exit69.thread.i.i ], [ %.1.i.i74.i, %3355 ]
-  %3344 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i74.i.i
+  %3344 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i74.i.i
   %3345 = load i32, ptr %3344, align 8
   switch i32 %3345, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %3346
@@ -58198,7 +58113,7 @@ cgltf_json_strcmp.exit70.i:                       ; preds = %cgltf_json_strcmp.e
   %.05013.i.i = phi i32 [ %3459, %3458 ], [ 0, %3367 ]
   %.05212.i.i = phi i32 [ %.2548.i.i, %3458 ], [ %3370, %3367 ]
   %3371 = zext nneg i32 %.05212.i.i to i64
-  %3372 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3371
+  %3372 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3371
   %3373 = load i32, ptr %3372, align 8
   %.not55.i.i = icmp eq i32 %3373, 3
   br i1 %.not55.i.i, label %3374, label %cgltf_parse_json_asset.exit.thread
@@ -58248,7 +58163,7 @@ cgltf_json_strcmp.exit.i55.i:                     ; preds = %3378
 .lr.ph.i.i59.i:                                   ; preds = %cgltf_json_to_float.exit.i.i63.i, %.preheader.i.i57.i
   %indvars.iv.i60.i = phi i64 [ %indvars.iv.next.i66.i, %cgltf_json_to_float.exit.i.i63.i ], [ %3393, %.preheader.i.i57.i ]
   %indvars.iv.i.i61.i = phi i64 [ %indvars.iv.next.i.i65.i, %cgltf_json_to_float.exit.i.i63.i ], [ 0, %.preheader.i.i57.i ]
-  %3394 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i60.i
+  %3394 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i60.i
   %3395 = load i32, ptr %3394, align 8
   %.not24.i.i62.i = icmp eq i32 %3395, 4
   br i1 %.not24.i.i62.i, label %cgltf_json_to_float.exit.i.i63.i, label %cgltf_parse_json_asset.exit.thread
@@ -58268,7 +58183,7 @@ cgltf_json_to_float.exit.i.i63.i:                 ; preds = %.lr.ph.i.i59.i
   %3404 = call double @strtod(ptr noundef nonnull captures(none) %27, ptr noundef null) #63
   %3405 = fptrunc double %3404 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %3406 = getelementptr inbounds nuw float, ptr %2442, i64 %indvars.iv.i.i61.i
+  %3406 = getelementptr inbounds nuw [4 x i8], ptr %2442, i64 %indvars.iv.i.i61.i
   store float %3405, ptr %3406, align 4
   %indvars.iv.next.i.i65.i = add nuw nsw i64 %indvars.iv.i.i61.i, 1
   %indvars.iv.next.i66.i = add nuw nsw i64 %indvars.iv.i60.i, 1
@@ -58341,7 +58256,7 @@ cgltf_json_strcmp.exit68.thread.i.i:              ; preds = %cgltf_json_strcmp.e
 3440:                                             ; preds = %3452, %cgltf_json_strcmp.exit68.thread.i.i
   %indvars.iv.i69.i.i = phi i64 [ %3439, %cgltf_json_strcmp.exit68.thread.i.i ], [ %indvars.iv.next.i70.i.i, %3452 ]
   %.016.i.i50.i = phi i32 [ %3438, %cgltf_json_strcmp.exit68.thread.i.i ], [ %.1.i.i51.i, %3452 ]
-  %3441 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i69.i.i
+  %3441 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i69.i.i
   %3442 = load i32, ptr %3441, align 8
   switch i32 %3442, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %3443
@@ -58414,7 +58329,7 @@ cgltf_json_strcmp.exit47.i:                       ; preds = %2766
   %.02845.i.i = phi i32 [ %3524, %3523 ], [ 0, %3466 ]
   %.03044.i.i = phi i32 [ %.23241.i.i, %3523 ], [ %3469, %3466 ]
   %3470 = zext nneg i32 %.03044.i.i to i64
-  %3471 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3470
+  %3471 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3470
   %3472 = load i32, ptr %3471, align 8
   %.not33.i.i = icmp eq i32 %3472, 3
   br i1 %.not33.i.i, label %3473, label %cgltf_parse_json_asset.exit.thread
@@ -58442,7 +58357,7 @@ cgltf_json_strcmp.exit.i43.i:                     ; preds = %3477
 
 3487:                                             ; preds = %cgltf_json_strcmp.exit.i43.i
   %3488 = sext i32 %.03044.i.i to i64
-  %3489 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3488
+  %3489 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3488
   %3490 = getelementptr inbounds nuw i8, ptr %3489, i64 32
   %3491 = load i32, ptr %3490, align 8
   %.not.i35.i.i = icmp eq i32 %3491, 4
@@ -58480,7 +58395,7 @@ cgltf_json_strcmp.exit.thread.i.i:                ; preds = %cgltf_json_strcmp.e
 3507:                                             ; preds = %3519, %cgltf_json_strcmp.exit.thread.i.i
   %indvars.iv.i.i38.i = phi i64 [ %3506, %cgltf_json_strcmp.exit.thread.i.i ], [ %indvars.iv.next.i.i41.i, %3519 ]
   %.016.i.i39.i = phi i32 [ %3505, %cgltf_json_strcmp.exit.thread.i.i ], [ %.1.i.i40.i, %3519 ]
-  %3508 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i38.i
+  %3508 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i38.i
   %3509 = load i32, ptr %3508, align 8
   switch i32 %3509, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %3510
@@ -58559,7 +58474,7 @@ cgltf_json_strcmp.exit.thread.i490:               ; preds = %cgltf_json_strcmp.e
   %3544 = load i64, ptr %2402, align 8
   %3545 = add i64 %3544, 1
   store i64 %3545, ptr %2402, align 8
-  %3546 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %3543, i64 %3544
+  %3546 = getelementptr inbounds nuw [16 x i8], ptr %3543, i64 %3544
   %3547 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef %.4263447.i.i, ptr noundef readonly %2, ptr noundef %3546)
   br label %cgltf_parse_json_pbr_specular_glossiness.exit.i.i
 
@@ -58577,7 +58492,7 @@ cgltf_json_strcmp.exit347.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 3552:                                             ; preds = %3564, %cgltf_json_strcmp.exit347.thread.i.i
   %indvars.iv.i382.i.i = phi i64 [ %3551, %cgltf_json_strcmp.exit347.thread.i.i ], [ %indvars.iv.next.i383.i.i, %3564 ]
   %.016.i.i.i483 = phi i32 [ %3550, %cgltf_json_strcmp.exit347.thread.i.i ], [ %.1.i.i.i484, %3564 ]
-  %3553 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i382.i.i
+  %3553 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i382.i.i
   %3554 = load i32, ptr %3553, align 8
   switch i32 %3554, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %3555
@@ -58640,7 +58555,7 @@ cgltf_json_strcmp.exit534:                        ; preds = %cgltf_json_strcmp.e
 
 3577:                                             ; preds = %cgltf_json_strcmp.exit534
   %3578 = zext nneg i32 %.02671225 to i64
-  %3579 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3578
+  %3579 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3578
   %3580 = getelementptr inbounds nuw i8, ptr %3579, i64 32
   %3581 = load i32, ptr %3580, align 8
   %.not.i.i535 = icmp eq i32 %3581, 2
@@ -58684,9 +58599,9 @@ cgltf_parse_json_array.exit.i540:                 ; preds = %3591
   %.02149.i543 = phi i64 [ %3827, %cgltf_parse_json_image.exit.thread32.i ], [ 0, %cgltf_parse_json_array.exit.i540 ]
   %.02348.i544 = phi i32 [ %.069.i34.i, %cgltf_parse_json_image.exit.thread32.i ], [ %3596, %cgltf_parse_json_array.exit.i540 ]
   %3598 = load ptr, ptr %86, align 8
-  %3599 = getelementptr inbounds nuw %struct.cgltf_image, ptr %3598, i64 %.02149.i543
+  %3599 = getelementptr inbounds nuw [72 x i8], ptr %3598, i64 %.02149.i543
   %3600 = zext nneg i32 %.02348.i544 to i64
-  %3601 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3600
+  %3601 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3600
   %3602 = load i32, ptr %3601, align 8
   %.not.i29.i545 = icmp eq i32 %3602, 1
   br i1 %.not.i29.i545, label %3603, label %cgltf_parse_json_asset.exit.thread
@@ -58713,7 +58628,7 @@ cgltf_parse_json_array.exit.i540:                 ; preds = %3591
   %.068129.i.i = phi i32 [ 0, %.lr.ph.i.i546 ], [ %3825, %cgltf_parse_json_string.exit.thread119.i.i ]
   %.070128.i.i = phi i32 [ %3606, %.lr.ph.i.i546 ], [ %.272121.i.i, %cgltf_parse_json_string.exit.thread119.i.i ]
   %3616 = zext nneg i32 %.070128.i.i to i64
-  %3617 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3616
+  %3617 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3616
   %3618 = load i32, ptr %3617, align 8
   %.not73.i.i = icmp eq i32 %3618, 3
   br i1 %.not73.i.i, label %3619, label %cgltf_parse_json_asset.exit.thread
@@ -58931,7 +58846,7 @@ cgltf_json_strcmp.exit102.i.i:                    ; preds = %3623
 3736:                                             ; preds = %3734
   %3737 = add nuw nsw i32 %.070128.i.i, 1
   %3738 = zext nneg i32 %3737 to i64
-  %3739 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3738
+  %3739 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3738
   %3740 = getelementptr inbounds nuw i8, ptr %3739, i64 8
   %3741 = load i64, ptr %3740, align 8
   store i64 %3741, ptr %3610, align 8
@@ -58960,7 +58875,7 @@ cgltf_json_strcmp.exit102.i.i:                    ; preds = %3623
 3756:                                             ; preds = %3768, %3750
   %indvars.iv.i.i.i.i556 = phi i64 [ %3738, %3750 ], [ %indvars.iv.next.i.i.i.i559, %3768 ]
   %.016.i.i.i.i557 = phi i32 [ %3755, %3750 ], [ %.1.i.i.i.i558, %3768 ]
-  %3757 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i.i556
+  %3757 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i.i556
   %3758 = load i32, ptr %3757, align 8
   switch i32 %3758, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %3759
@@ -59040,7 +58955,7 @@ cgltf_calloc.exit.thread.i.i.i572:                ; preds = %3782, %3779
   %.03347.i.i.i567 = phi i32 [ %3802, %3797 ], [ %3789, %3788 ]
   %.03546.i.i.i568 = phi i32 [ %3804, %3797 ], [ 0, %3788 ]
   %3790 = zext nneg i32 %.03347.i.i.i567 to i64
-  %3791 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3790
+  %3791 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3790
   %3792 = load i32, ptr %3791, align 8
   %.not41.i.i.i569 = icmp eq i32 %3792, 3
   br i1 %.not41.i.i.i569, label %3793, label %cgltf_parse_json_asset.exit.thread
@@ -59056,7 +58971,7 @@ cgltf_calloc.exit.thread.i.i.i572:                ; preds = %3782, %3779
   %3799 = add i64 %3798, 1
   store i64 %3799, ptr %3607, align 8
   %3800 = load ptr, ptr %3608, align 8
-  %3801 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %3800, i64 %3798
+  %3801 = getelementptr inbounds nuw [16 x i8], ptr %3800, i64 %3798
   %3802 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i.i567, ptr noundef readonly %2, ptr noundef %3801)
   %3803 = icmp slt i32 %3802, 0
   %3804 = add nuw nsw i32 %.03546.i.i.i568, 1
@@ -59073,7 +58988,7 @@ cgltf_json_strcmp.exit107.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 3808:                                             ; preds = %3820, %cgltf_json_strcmp.exit107.thread.i.i
   %indvars.iv.i.i.i547 = phi i64 [ %3807, %cgltf_json_strcmp.exit107.thread.i.i ], [ %indvars.iv.next.i.i.i550, %3820 ]
   %.016.i.i.i548 = phi i32 [ %3806, %cgltf_json_strcmp.exit107.thread.i.i ], [ %.1.i.i.i549, %3820 ]
-  %3809 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i547
+  %3809 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i547
   %3810 = load i32, ptr %3809, align 8
   switch i32 %3810, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %3811
@@ -59136,7 +59051,7 @@ cgltf_json_strcmp.exit584:                        ; preds = %cgltf_json_strcmp.e
 
 3832:                                             ; preds = %cgltf_json_strcmp.exit584
   %3833 = zext nneg i32 %.02671225 to i64
-  %3834 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3833
+  %3834 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3833
   %3835 = getelementptr inbounds nuw i8, ptr %3834, i64 32
   %3836 = load i32, ptr %3835, align 8
   %.not.i.i585 = icmp eq i32 %3836, 2
@@ -59180,9 +59095,9 @@ cgltf_parse_json_array.exit.i590:                 ; preds = %3846
   %.02160.i = phi i64 [ %4198, %cgltf_parse_json_texture.exit.thread33.i ], [ 0, %cgltf_parse_json_array.exit.i590 ]
   %.02359.i = phi i32 [ %.0156.i35.i, %cgltf_parse_json_texture.exit.thread33.i ], [ %3851, %cgltf_parse_json_array.exit.i590 ]
   %3853 = load ptr, ptr %84, align 8
-  %3854 = getelementptr inbounds nuw %struct.cgltf_texture, ptr %3853, i64 %.02160.i
+  %3854 = getelementptr inbounds nuw [96 x i8], ptr %3853, i64 %.02160.i
   %3855 = zext nneg i32 %.02359.i to i64
-  %3856 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3855
+  %3856 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3855
   %3857 = load i32, ptr %3856, align 8
   %.not.i29.i593 = icmp eq i32 %3857, 1
   br i1 %.not.i29.i593, label %3858, label %cgltf_parse_json_asset.exit.thread
@@ -59212,7 +59127,7 @@ cgltf_parse_json_array.exit.i590:                 ; preds = %3846
   %.0158350.i.i = phi i32 [ %3861, %.lr.ph351.i.i ], [ %.2160308.i.i, %cgltf_parse_json_string.exit.thread305.i.i ]
   %.0170349.i.i = phi i32 [ 0, %.lr.ph351.i.i ], [ %4195, %cgltf_parse_json_string.exit.thread305.i.i ]
   %3874 = zext nneg i32 %.0158350.i.i to i64
-  %3875 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3874
+  %3875 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3874
   %3876 = load i32, ptr %3875, align 8
   %.not176.i.i = icmp eq i32 %3876, 3
   br i1 %.not176.i.i, label %3877, label %cgltf_parse_json_asset.exit.thread
@@ -59244,7 +59159,7 @@ cgltf_json_strcmp.exit.i.i616:                    ; preds = %3881
 
 3890:                                             ; preds = %cgltf_json_strcmp.exit.i.i616
   %3891 = sext i32 %.0158350.i.i to i64
-  %3892 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3891
+  %3892 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3891
   %3893 = getelementptr inbounds nuw i8, ptr %3892, i64 32
   %3894 = load i32, ptr %3893, align 8
   %.not.i188.i.i617 = icmp eq i32 %3894, 3
@@ -59289,7 +59204,7 @@ cgltf_json_strcmp.exit192.i.i612:                 ; preds = %3881
 
 3918:                                             ; preds = %cgltf_json_strcmp.exit192.i.i612
   %3919 = sext i32 %.0158350.i.i to i64
-  %3920 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3919
+  %3920 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3919
   %3921 = getelementptr inbounds nuw i8, ptr %3920, i64 32
   %3922 = load i32, ptr %3921, align 8
   %.not.i193.i.i613 = icmp eq i32 %3922, 4
@@ -59329,7 +59244,7 @@ cgltf_json_strcmp.exit197.i.i:                    ; preds = %3881
 
 3940:                                             ; preds = %cgltf_json_strcmp.exit197.i.i
   %3941 = sext i32 %.0158350.i.i to i64
-  %3942 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3941
+  %3942 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3941
   %3943 = getelementptr inbounds nuw i8, ptr %3942, i64 32
   %3944 = load i32, ptr %3943, align 8
   %.not.i198.i.i = icmp eq i32 %3944, 4
@@ -59374,7 +59289,7 @@ cgltf_json_strcmp.exit204.i.i606:                 ; preds = %cgltf_json_strcmp.e
 3963:                                             ; preds = %3961
   %3964 = add nuw nsw i32 %.0158350.i.i, 1
   %3965 = zext nneg i32 %3964 to i64
-  %3966 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3965
+  %3966 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %3965
   %3967 = getelementptr inbounds nuw i8, ptr %3966, i64 8
   %3968 = load i64, ptr %3967, align 8
   store i64 %3968, ptr %3869, align 8
@@ -59403,7 +59318,7 @@ cgltf_json_strcmp.exit204.i.i606:                 ; preds = %cgltf_json_strcmp.e
 3983:                                             ; preds = %3995, %3977
   %indvars.iv.i.i.i.i608 = phi i64 [ %3965, %3977 ], [ %indvars.iv.next.i.i.i.i611, %3995 ]
   %.016.i.i.i.i609 = phi i32 [ %3982, %3977 ], [ %.1.i.i.i.i610, %3995 ]
-  %3984 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i.i608
+  %3984 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i.i608
   %3985 = load i32, ptr %3984, align 8
   switch i32 %3985, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %3986
@@ -59440,7 +59355,7 @@ cgltf_json_strcmp.exit209.i.i:                    ; preds = %3881
 
 4001:                                             ; preds = %cgltf_json_strcmp.exit209.i.i
   %4002 = sext i32 %.0158350.i.i to i64
-  %4003 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4002
+  %4003 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4002
   %4004 = getelementptr inbounds nuw i8, ptr %4003, i64 32
   %4005 = load i32, ptr %4004, align 8
   %.not177.i.i = icmp eq i32 %4005, 1
@@ -59482,7 +59397,7 @@ cgltf_calloc.exit.i.i597:                         ; preds = %4012
   %.4162345.i.i = phi i32 [ %.9167290.i.i, %.thread287.i.i ], [ %4011, %cgltf_calloc.exit.i.i597 ]
   %.0169344.i.i = phi i32 [ %4175, %.thread287.i.i ], [ 0, %cgltf_calloc.exit.i.i597 ]
   %4018 = zext nneg i32 %.4162345.i.i to i64
-  %4019 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4018
+  %4019 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4018
   %4020 = load i32, ptr %4019, align 8
   %.not180.i.i = icmp eq i32 %4020, 3
   br i1 %.not180.i.i, label %4021, label %cgltf_parse_json_asset.exit.thread
@@ -59513,7 +59428,7 @@ cgltf_json_strcmp.exit214.i.i:                    ; preds = %4025
 4034:                                             ; preds = %cgltf_json_strcmp.exit214.i.i
   store i32 1, ptr %3866, align 8
   %4035 = sext i32 %.4162345.i.i to i64
-  %4036 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4035
+  %4036 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4035
   %4037 = getelementptr inbounds nuw i8, ptr %4036, i64 32
   %4038 = load i32, ptr %4037, align 8
   %.not184.i.i = icmp eq i32 %4038, 1
@@ -59530,7 +59445,7 @@ cgltf_json_strcmp.exit214.i.i:                    ; preds = %4025
   %.0157341.i.i = phi i32 [ %4099, %4098 ], [ 0, %4039 ]
   %.6164340.i.i = phi i32 [ %.8166258.i.i, %4098 ], [ %4042, %4039 ]
   %4043 = zext nneg i32 %.6164340.i.i to i64
-  %4044 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4043
+  %4044 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4043
   %4045 = load i32, ptr %4044, align 8
   %.not185.i.i = icmp eq i32 %4045, 3
   br i1 %.not185.i.i, label %4046, label %cgltf_parse_json_asset.exit.thread
@@ -59558,7 +59473,7 @@ cgltf_json_strcmp.exit217.i.i:                    ; preds = %4050
 
 4060:                                             ; preds = %cgltf_json_strcmp.exit217.i.i
   %4061 = sext i32 %.6164340.i.i to i64
-  %4062 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4061
+  %4062 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4061
   %4063 = getelementptr inbounds nuw i8, ptr %4062, i64 32
   %4064 = load i32, ptr %4063, align 8
   %.not.i218.i.i = icmp eq i32 %4064, 4
@@ -59599,7 +59514,7 @@ cgltf_json_strcmp.exit217.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 4082:                                             ; preds = %4094, %cgltf_json_strcmp.exit217.thread.i.i
   %indvars.iv.i.i.i601 = phi i64 [ %4081, %cgltf_json_strcmp.exit217.thread.i.i ], [ %indvars.iv.next.i.i.i604, %4094 ]
   %.016.i.i.i602 = phi i32 [ %4080, %cgltf_json_strcmp.exit217.thread.i.i ], [ %.1.i.i.i603, %4094 ]
-  %4083 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i601
+  %4083 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i601
   %4084 = load i32, ptr %4083, align 8
   switch i32 %4084, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %4085
@@ -59647,7 +59562,7 @@ cgltf_json_strcmp.exit224.i.i:                    ; preds = %4025
 4103:                                             ; preds = %cgltf_json_strcmp.exit224.i.i
   store i32 1, ptr %3864, align 8
   %4104 = sext i32 %.4162345.i.i to i64
-  %4105 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4104
+  %4105 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4104
   %4106 = getelementptr inbounds nuw i8, ptr %4105, i64 32
   %4107 = load i32, ptr %4106, align 8
   %.not181.i.i = icmp eq i32 %4107, 1
@@ -59664,7 +59579,7 @@ cgltf_json_strcmp.exit224.i.i:                    ; preds = %4025
   %.0338.i.i = phi i32 [ %4168, %4167 ], [ 0, %4108 ]
   %.10168337.i.i = phi i32 [ %.12271.i.i, %4167 ], [ %4111, %4108 ]
   %4112 = zext nneg i32 %.10168337.i.i to i64
-  %4113 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4112
+  %4113 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4112
   %4114 = load i32, ptr %4113, align 8
   %.not182.i.i = icmp eq i32 %4114, 3
   br i1 %.not182.i.i, label %4115, label %cgltf_parse_json_asset.exit.thread
@@ -59692,7 +59607,7 @@ cgltf_json_strcmp.exit227.i.i:                    ; preds = %4119
 
 4129:                                             ; preds = %cgltf_json_strcmp.exit227.i.i
   %4130 = sext i32 %.10168337.i.i to i64
-  %4131 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4130
+  %4131 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4130
   %4132 = getelementptr inbounds nuw i8, ptr %4131, i64 32
   %4133 = load i32, ptr %4132, align 8
   %.not.i228.i.i = icmp eq i32 %4133, 4
@@ -59733,7 +59648,7 @@ cgltf_json_strcmp.exit227.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 4151:                                             ; preds = %4163, %cgltf_json_strcmp.exit227.thread.i.i
   %indvars.iv.i232.i.i = phi i64 [ %4150, %cgltf_json_strcmp.exit227.thread.i.i ], [ %indvars.iv.next.i235.i.i, %4163 ]
   %.016.i233.i.i = phi i32 [ %4149, %cgltf_json_strcmp.exit227.thread.i.i ], [ %.1.i234.i.i, %4163 ]
-  %4152 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i232.i.i
+  %4152 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i232.i.i
   %4153 = load i32, ptr %4152, align 8
   switch i32 %4153, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %4154
@@ -59777,7 +59692,7 @@ cgltf_json_strcmp.exit224.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   %4170 = load i64, ptr %3863, align 8
   %4171 = add i64 %4170, 1
   store i64 %4171, ptr %3863, align 8
-  %4172 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %4169, i64 %4170
+  %4172 = getelementptr inbounds nuw [16 x i8], ptr %4169, i64 %4170
   %4173 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.4162345.i.i, ptr noundef readonly %2, ptr noundef %4172)
   %4174 = icmp slt i32 %4173, 0
   br i1 %4174, label %cgltf_parse_json_asset.exit.thread, label %.thread287.i.i
@@ -59797,7 +59712,7 @@ cgltf_json_strcmp.exit209.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 4179:                                             ; preds = %4191, %cgltf_json_strcmp.exit209.thread.i.i
   %indvars.iv.i239.i.i = phi i64 [ %4178, %cgltf_json_strcmp.exit209.thread.i.i ], [ %indvars.iv.next.i242.i.i, %4191 ]
   %.016.i240.i.i = phi i32 [ %4177, %cgltf_json_strcmp.exit209.thread.i.i ], [ %.1.i241.i.i, %4191 ]
-  %4180 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i239.i.i
+  %4180 = getelementptr inbounds [32 x i8], ptr %1, i64 %indvars.iv.i239.i.i
   %4181 = load i32, ptr %4180, align 8
   switch i32 %4181, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %4182
@@ -59861,7 +59776,7 @@ cgltf_json_strcmp.exit623:                        ; preds = %cgltf_json_strcmp.e
 
 4203:                                             ; preds = %cgltf_json_strcmp.exit623
   %4204 = zext nneg i32 %.02671225 to i64
-  %4205 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4204
+  %4205 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4204
   %4206 = getelementptr inbounds nuw i8, ptr %4205, i64 32
   %4207 = load i32, ptr %4206, align 8
   %.not.i.i624 = icmp eq i32 %4207, 2
@@ -59904,9 +59819,9 @@ cgltf_parse_json_array.exit.i629:                 ; preds = %4217
   %.02149.i632 = phi i64 [ %4447, %cgltf_parse_json_sampler.exit.thread32.i ], [ 0, %cgltf_parse_json_array.exit.i629 ]
   %.02348.i633 = phi i32 [ %.082.i34.i, %cgltf_parse_json_sampler.exit.thread32.i ], [ %4222, %cgltf_parse_json_array.exit.i629 ]
   %4223 = load ptr, ptr %82, align 8
-  %4224 = getelementptr inbounds nuw %struct.cgltf_sampler, ptr %4223, i64 %.02149.i632
+  %4224 = getelementptr inbounds nuw [64 x i8], ptr %4223, i64 %.02149.i632
   %4225 = zext nneg i32 %.02348.i633 to i64
-  %4226 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4225
+  %4226 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4225
   %4227 = load i32, ptr %4226, align 8
   %.not.i29.i634 = icmp eq i32 %4227, 1
   br i1 %.not.i29.i634, label %4228, label %cgltf_parse_json_asset.exit.thread
@@ -59936,7 +59851,7 @@ cgltf_parse_json_array.exit.i629:                 ; preds = %4217
   %.081146.i.i = phi i32 [ 0, %.lr.ph.i.i635 ], [ %4446, %cgltf_parse_json_string.exit.thread136.i.i ]
   %.083145.i.i = phi i32 [ %4233, %.lr.ph.i.i635 ], [ %.285138.i.i, %cgltf_parse_json_string.exit.thread136.i.i ]
   %4242 = zext nneg i32 %.083145.i.i to i64
-  %4243 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4242
+  %4243 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4242
   %4244 = load i32, ptr %4243, align 8
   %.not86.i.i = icmp eq i32 %4244, 3
   br i1 %.not86.i.i, label %4245, label %cgltf_parse_json_asset.exit.thread
@@ -60156,7 +60071,7 @@ cgltf_json_strcmp.exit118.i.i:                    ; preds = %4249
 4356:                                             ; preds = %4354
   %4357 = add nuw nsw i32 %.083145.i.i, 1
   %4358 = zext nneg i32 %4357 to i64
-  %4359 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4358
+  %4359 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4358
   %4360 = getelementptr inbounds nuw i8, ptr %4359, i64 8
   %4361 = load i64, ptr %4360, align 8
   store i64 %4361, ptr %4237, align 8
@@ -60185,7 +60100,7 @@ cgltf_json_strcmp.exit118.i.i:                    ; preds = %4249
 4376:                                             ; preds = %4388, %4370
   %indvars.iv.i.i.i.i655 = phi i64 [ %4358, %4370 ], [ %indvars.iv.next.i.i.i.i658, %4388 ]
   %.016.i.i.i.i656 = phi i32 [ %4375, %4370 ], [ %.1.i.i.i.i657, %4388 ]
-  %4377 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i.i655
+  %4377 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i.i655
   %4378 = load i32, ptr %4377, align 8
   switch i32 %4378, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %4379
@@ -60266,7 +60181,7 @@ cgltf_calloc.exit.thread.i.i.i653:                ; preds = %4403, %4400
   %.03347.i.i.i648 = phi i32 [ %4423, %4418 ], [ %4410, %4409 ]
   %.03546.i.i.i649 = phi i32 [ %4425, %4418 ], [ 0, %4409 ]
   %4411 = zext nneg i32 %.03347.i.i.i648 to i64
-  %4412 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4411
+  %4412 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4411
   %4413 = load i32, ptr %4412, align 8
   %.not41.i.i.i650 = icmp eq i32 %4413, 3
   br i1 %.not41.i.i.i650, label %4414, label %cgltf_parse_json_asset.exit.thread
@@ -60282,7 +60197,7 @@ cgltf_calloc.exit.thread.i.i.i653:                ; preds = %4403, %4400
   %4420 = add i64 %4419, 1
   store i64 %4420, ptr %4234, align 8
   %4421 = load ptr, ptr %4235, align 8
-  %4422 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %4421, i64 %4419
+  %4422 = getelementptr inbounds nuw [16 x i8], ptr %4421, i64 %4419
   %4423 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i.i648, ptr noundef readonly %2, ptr noundef %4422)
   %4424 = icmp slt i32 %4423, 0
   %4425 = add nuw nsw i32 %.03546.i.i.i649, 1
@@ -60299,7 +60214,7 @@ cgltf_json_strcmp.exit123.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 4429:                                             ; preds = %4441, %cgltf_json_strcmp.exit123.thread.i.i
   %indvars.iv.i.i.i636 = phi i64 [ %4428, %cgltf_json_strcmp.exit123.thread.i.i ], [ %indvars.iv.next.i.i.i639, %4441 ]
   %.016.i.i.i637 = phi i32 [ %4427, %cgltf_json_strcmp.exit123.thread.i.i ], [ %.1.i.i.i638, %4441 ]
-  %4430 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i636
+  %4430 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i636
   %4431 = load i32, ptr %4430, align 8
   switch i32 %4431, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %4432
@@ -60358,7 +60273,7 @@ cgltf_json_strcmp.exit668:                        ; preds = %cgltf_json_strcmp.e
 
 4453:                                             ; preds = %cgltf_json_strcmp.exit668
   %4454 = zext nneg i32 %.02671225 to i64
-  %4455 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4454
+  %4455 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4454
   %4456 = getelementptr inbounds nuw i8, ptr %4455, i64 32
   %4457 = load i32, ptr %4456, align 8
   %.not.i.i669 = icmp eq i32 %4457, 2
@@ -60402,9 +60317,9 @@ cgltf_parse_json_array.exit.i674:                 ; preds = %4467
   %.02151.i = phi i64 [ %4709, %cgltf_parse_json_skin.exit.thread32.i ], [ 0, %cgltf_parse_json_array.exit.i674 ]
   %.02350.i = phi i32 [ %.087.i34.i, %cgltf_parse_json_skin.exit.thread32.i ], [ %4472, %cgltf_parse_json_array.exit.i674 ]
   %4474 = load ptr, ptr %80, align 8
-  %4475 = getelementptr inbounds nuw %struct.cgltf_skin, ptr %4474, i64 %.02151.i
+  %4475 = getelementptr inbounds nuw [80 x i8], ptr %4474, i64 %.02151.i
   %4476 = zext nneg i32 %.02350.i to i64
-  %4477 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4476
+  %4477 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4476
   %4478 = load i32, ptr %4477, align 8
   %.not.i29.i677 = icmp eq i32 %4478, 1
   br i1 %.not.i29.i677, label %4479, label %cgltf_parse_json_asset.exit.thread
@@ -60432,7 +60347,7 @@ cgltf_parse_json_array.exit.i674:                 ; preds = %4467
   %.086158.i.i = phi i32 [ 0, %.lr.ph159.i.i ], [ %4707, %cgltf_parse_json_string.exit.thread142.i.i ]
   %.088157.i.i = phi i32 [ %4482, %.lr.ph159.i.i ], [ %.290144.i.i, %cgltf_parse_json_string.exit.thread142.i.i ]
   %4493 = zext nneg i32 %.088157.i.i to i64
-  %4494 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4493
+  %4494 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4493
   %4495 = load i32, ptr %4494, align 8
   %.not93.i.i = icmp eq i32 %4495, 3
   br i1 %.not93.i.i, label %4496, label %cgltf_parse_json_asset.exit.thread
@@ -60552,7 +60467,7 @@ cgltf_parse_json_array.exit.i.i705:               ; preds = %4547
 .lr.ph.i.i706:                                    ; preds = %cgltf_json_to_int.exit.i.i708, %.lr.ph.preheader.i.i
   %indvars.iv.i.i707 = phi i64 [ %4553, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i709, %cgltf_json_to_int.exit.i.i708 ]
   %.0155.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %4571, %cgltf_json_to_int.exit.i.i708 ]
-  %4554 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i707
+  %4554 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i707
   %4555 = load i32, ptr %4554, align 8
   %.not.i104.i.i = icmp eq i32 %4555, 4
   br i1 %.not.i104.i.i, label %4556, label %cgltf_json_to_int.exit.i.i708
@@ -60580,7 +60495,7 @@ cgltf_parse_json_array.exit.i.i705:               ; preds = %4547
 cgltf_json_to_int.exit.i.i708:                    ; preds = %4556, %.lr.ph.i.i706
   %.0.i105.i.i = phi ptr [ %4568, %4556 ], [ null, %.lr.ph.i.i706 ]
   %4569 = load ptr, ptr %4490, align 8
-  %4570 = getelementptr inbounds nuw ptr, ptr %4569, i64 %.0155.i.i
+  %4570 = getelementptr inbounds nuw [8 x i8], ptr %4569, i64 %.0155.i.i
   store ptr %.0.i105.i.i, ptr %4570, align 8
   %indvars.iv.next.i.i709 = add nuw nsw i64 %indvars.iv.i.i707, 1
   %4571 = add nuw i64 %.0155.i.i, 1
@@ -60669,7 +60584,7 @@ cgltf_json_strcmp.exit122.i.i:                    ; preds = %cgltf_json_strcmp.e
 4616:                                             ; preds = %4614
   %4617 = add nuw nsw i32 %.088157.i.i, 1
   %4618 = zext nneg i32 %4617 to i64
-  %4619 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4618
+  %4619 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4618
   %4620 = getelementptr inbounds nuw i8, ptr %4619, i64 8
   %4621 = load i64, ptr %4620, align 8
   store i64 %4621, ptr %4486, align 8
@@ -60698,7 +60613,7 @@ cgltf_json_strcmp.exit122.i.i:                    ; preds = %cgltf_json_strcmp.e
 4636:                                             ; preds = %4648, %4630
   %indvars.iv.i.i.i.i697 = phi i64 [ %4618, %4630 ], [ %indvars.iv.next.i.i.i.i700, %4648 ]
   %.016.i.i.i.i698 = phi i32 [ %4635, %4630 ], [ %.1.i.i.i.i699, %4648 ]
-  %4637 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i.i697
+  %4637 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i.i697
   %4638 = load i32, ptr %4637, align 8
   switch i32 %4638, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %4639
@@ -60779,7 +60694,7 @@ cgltf_calloc.exit.thread.i.i.i694:                ; preds = %4663, %4660
   %.03347.i.i.i689 = phi i32 [ %4683, %4678 ], [ %4670, %4669 ]
   %.03546.i.i.i690 = phi i32 [ %4685, %4678 ], [ 0, %4669 ]
   %4671 = zext nneg i32 %.03347.i.i.i689 to i64
-  %4672 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4671
+  %4672 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4671
   %4673 = load i32, ptr %4672, align 8
   %.not41.i.i.i691 = icmp eq i32 %4673, 3
   br i1 %.not41.i.i.i691, label %4674, label %cgltf_parse_json_asset.exit.thread
@@ -60795,7 +60710,7 @@ cgltf_calloc.exit.thread.i.i.i694:                ; preds = %4663, %4660
   %4680 = add i64 %4679, 1
   store i64 %4680, ptr %4483, align 8
   %4681 = load ptr, ptr %4484, align 8
-  %4682 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %4681, i64 %4679
+  %4682 = getelementptr inbounds nuw [16 x i8], ptr %4681, i64 %4679
   %4683 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i.i689, ptr noundef readonly %2, ptr noundef %4682)
   %4684 = icmp slt i32 %4683, 0
   %4685 = add nuw nsw i32 %.03546.i.i.i690, 1
@@ -60812,7 +60727,7 @@ cgltf_json_strcmp.exit127.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 4689:                                             ; preds = %4701, %cgltf_json_strcmp.exit127.thread.i.i
   %indvars.iv.i.i.i678 = phi i64 [ %4688, %cgltf_json_strcmp.exit127.thread.i.i ], [ %indvars.iv.next.i.i.i681, %4701 ]
   %.016.i.i.i679 = phi i32 [ %4687, %cgltf_json_strcmp.exit127.thread.i.i ], [ %.1.i.i.i680, %4701 ]
-  %4690 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i678
+  %4690 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i678
   %4691 = load i32, ptr %4690, align 8
   switch i32 %4691, label %cgltf_parse_json_asset.exit.thread [
     i32 1, label %4692
@@ -60913,7 +60828,7 @@ cgltf_json_strcmp.exit721.thread:                 ; preds = %cgltf_json_strcmp.e
 
 4731:                                             ; preds = %4728
   %4732 = zext nneg i32 %.02671225 to i64
-  %4733 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4732
+  %4733 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4732
   %4734 = getelementptr inbounds nuw i8, ptr %4733, i64 32
   %4735 = call fastcc i32 @cgltf_json_to_int(ptr noundef %4734, ptr noundef %2)
   %4736 = sext i32 %4735 to i64
@@ -60950,7 +60865,7 @@ cgltf_json_strcmp.exit721.thread:                 ; preds = %cgltf_json_strcmp.e
 
 4755:                                             ; preds = %4752
   %4756 = zext nneg i32 %.02671225 to i64
-  %4757 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4756
+  %4757 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4756
   %4758 = getelementptr inbounds nuw i8, ptr %4757, i64 32
   %4759 = load i32, ptr %4758, align 8
   %.not286 = icmp eq i32 %4759, 1
@@ -60992,7 +60907,7 @@ cgltf_json_strcmp.exit721.thread:                 ; preds = %cgltf_json_strcmp.e
   %.42711220 = phi i32 [ %.9276750, %.thread747 ], [ %4772, %4771 ]
   %.02781219 = phi i32 [ %4849, %.thread747 ], [ 0, %4771 ]
   %4773 = zext nneg i32 %.42711220 to i64
-  %4774 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4773
+  %4774 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4773
   %4775 = load i32, ptr %4774, align 8
   %.not289 = icmp eq i32 %4775, 3
   br i1 %.not289, label %4776, label %cgltf_parse_json_asset.exit.thread
@@ -61010,7 +60925,7 @@ cgltf_json_strcmp.exit721.thread:                 ; preds = %cgltf_json_strcmp.e
 
 4783:                                             ; preds = %4780
   %4784 = zext nneg i32 %.42711220 to i64
-  %4785 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4784
+  %4785 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4784
   %4786 = getelementptr inbounds nuw i8, ptr %4785, i64 32
   %4787 = load i32, ptr %4786, align 8
   %.not293 = icmp eq i32 %4787, 1
@@ -61032,7 +60947,7 @@ cgltf_json_strcmp.exit721.thread:                 ; preds = %cgltf_json_strcmp.e
   %.02661216 = phi i32 [ %4793, %4792 ], [ 0, %4788 ]
   %.62731215 = phi i32 [ %.8275, %4792 ], [ %4791, %4788 ]
   %4794 = zext nneg i32 %.62731215 to i64
-  %4795 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4794
+  %4795 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4794
   %4796 = load i32, ptr %4795, align 8
   %.not294 = icmp eq i32 %4796, 3
   br i1 %.not294, label %4797, label %cgltf_parse_json_asset.exit.thread
@@ -61069,7 +60984,7 @@ cgltf_json_strcmp.exit721.thread:                 ; preds = %cgltf_json_strcmp.e
 
 4814:                                             ; preds = %4811
   %4815 = zext nneg i32 %.42711220 to i64
-  %4816 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4815
+  %4816 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4815
   %4817 = getelementptr inbounds nuw i8, ptr %4816, i64 32
   %4818 = load i32, ptr %4817, align 8
   %.not290 = icmp eq i32 %4818, 1
@@ -61091,7 +61006,7 @@ cgltf_json_strcmp.exit721.thread:                 ; preds = %cgltf_json_strcmp.e
   %.01213 = phi i32 [ %4824, %4823 ], [ 0, %4819 ]
   %.102771212 = phi i32 [ %.12, %4823 ], [ %4822, %4819 ]
   %4825 = zext nneg i32 %.102771212 to i64
-  %4826 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4825
+  %4826 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4825
   %4827 = load i32, ptr %4826, align 8
   %.not291 = icmp eq i32 %4827, 3
   br i1 %.not291, label %4828, label %cgltf_parse_json_asset.exit.thread
@@ -61126,7 +61041,7 @@ cgltf_json_strcmp.exit721.thread:                 ; preds = %cgltf_json_strcmp.e
   %4844 = load i64, ptr %75, align 8
   %4845 = add i64 %4844, 1
   store i64 %4845, ptr %75, align 8
-  %4846 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %4843, i64 %4844
+  %4846 = getelementptr inbounds nuw [16 x i8], ptr %4843, i64 %4844
   %4847 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef %0, ptr noundef %1, i32 noundef %.42711220, ptr noundef %2, ptr noundef %4846)
   %4848 = icmp slt i32 %4847, 0
   br i1 %4848, label %cgltf_parse_json_asset.exit.thread, label %.thread747
@@ -61216,7 +61131,7 @@ define internal fastcc i32 @cgltf_parse_json_cameras(ptr noundef nonnull readonl
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %16 = zext nneg i32 %2 to i64
-  %17 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %16
   %18 = load i32, ptr %17, align 8
   %.not.i = icmp eq i32 %18, 2
   br i1 %.not.i, label %22, label %19
@@ -61261,9 +61176,9 @@ cgltf_parse_json_array.exit:                      ; preds = %28
   %.02165 = phi i64 [ %512, %cgltf_parse_json_camera.exit.thread32 ], [ 0, %cgltf_parse_json_array.exit ]
   %.02364 = phi i32 [ %.0186.i34, %cgltf_parse_json_camera.exit.thread32 ], [ %35, %cgltf_parse_json_array.exit ]
   %37 = load ptr, ptr %14, align 8
-  %38 = getelementptr inbounds nuw %struct.cgltf_camera, ptr %37, i64 %.02165
+  %38 = getelementptr inbounds nuw [104 x i8], ptr %37, i64 %.02165
   %39 = zext nneg i32 %.02364 to i64
-  %40 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %39
   %41 = load i32, ptr %40, align 8
   %.not.i29 = icmp eq i32 %41, 1
   br i1 %.not.i29, label %42, label %cgltf_parse_json_array.exit.thread
@@ -61297,7 +61212,7 @@ cgltf_parse_json_array.exit:                      ; preds = %28
   %.0188393.i = phi i32 [ %45, %.lr.ph394.i ], [ %.2190360.i, %cgltf_parse_json_string.exit.thread357.i ]
   %.0202392.i = phi i32 [ 0, %.lr.ph394.i ], [ %510, %cgltf_parse_json_string.exit.thread357.i ]
   %62 = zext nneg i32 %.0188393.i to i64
-  %63 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %62
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %62
   %64 = load i32, ptr %63, align 8
   %.not203.i = icmp eq i32 %64, 3
   br i1 %.not203.i, label %65, label %cgltf_parse_json_array.exit.thread
@@ -61394,7 +61309,7 @@ cgltf_json_strcmp.exit217.i:                      ; preds = %69
   %.0187388.i = phi i32 [ %256, %cgltf_parse_json_extras.exit.thread333.i ], [ 0, %111 ]
   %.4192387.i = phi i32 [ %.6194335.i, %cgltf_parse_json_extras.exit.thread333.i ], [ %112, %111 ]
   %113 = zext nneg i32 %.4192387.i to i64
-  %114 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %113
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %113
   %115 = load i32, ptr %114, align 8
   %.not210.i = icmp eq i32 %115, 3
   br i1 %.not210.i, label %116, label %cgltf_parse_json_array.exit.thread
@@ -61573,7 +61488,7 @@ cgltf_json_strcmp.exit246.i:                      ; preds = %120
 202:                                              ; preds = %200
   %203 = add nuw nsw i32 %.4192387.i, 1
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %204
+  %205 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %207 = load i64, ptr %206, align 8
   store i64 %207, ptr %54, align 8
@@ -61602,7 +61517,7 @@ cgltf_json_strcmp.exit246.i:                      ; preds = %120
 222:                                              ; preds = %234, %216
   %indvars.iv.i.i.i = phi i64 [ %204, %216 ], [ %indvars.iv.next.i.i.i, %234 ]
   %.016.i.i.i = phi i32 [ %221, %216 ], [ %.1.i.i.i, %234 ]
-  %223 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i
+  %223 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i
   %224 = load i32, ptr %223, align 8
   switch i32 %224, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %225
@@ -61640,7 +61555,7 @@ cgltf_json_strcmp.exit246.thread.i:               ; preds = %cgltf_json_strcmp.e
 240:                                              ; preds = %252, %cgltf_json_strcmp.exit246.thread.i
   %indvars.iv.i.i = phi i64 [ %239, %cgltf_json_strcmp.exit246.thread.i ], [ %indvars.iv.next.i.i, %252 ]
   %.016.i.i = phi i32 [ %238, %cgltf_json_strcmp.exit246.thread.i ], [ %.1.i.i, %252 ]
-  %241 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i
+  %241 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i
   %242 = load i32, ptr %241, align 8
   switch i32 %242, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %243
@@ -61715,7 +61630,7 @@ cgltf_json_strcmp.exit251.i:                      ; preds = %69
   %.0385.i = phi i32 [ %270, %269 ], [ 0, %267 ]
   %.8196384.i = phi i32 [ %.10.i, %269 ], [ %268, %267 ]
   %271 = zext nneg i32 %.8196384.i to i64
-  %272 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %271
+  %272 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %271
   %273 = load i32, ptr %272, align 8
   %.not206.i = icmp eq i32 %273, 3
   br i1 %.not206.i, label %274, label %cgltf_parse_json_array.exit.thread
@@ -61890,7 +61805,7 @@ cgltf_json_strcmp.exit282.i:                      ; preds = %278
 359:                                              ; preds = %357
   %360 = add nuw nsw i32 %.8196384.i, 1
   %361 = zext nneg i32 %360 to i64
-  %362 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %361
+  %362 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %361
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %364 = load i64, ptr %363, align 8
   store i64 %364, ptr %53, align 8
@@ -61919,7 +61834,7 @@ cgltf_json_strcmp.exit282.i:                      ; preds = %278
 379:                                              ; preds = %391, %373
   %indvars.iv.i.i286.i = phi i64 [ %361, %373 ], [ %indvars.iv.next.i.i289.i, %391 ]
   %.016.i.i287.i = phi i32 [ %378, %373 ], [ %.1.i.i288.i, %391 ]
-  %380 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i286.i
+  %380 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i286.i
   %381 = load i32, ptr %380, align 8
   switch i32 %381, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %382
@@ -61961,7 +61876,7 @@ cgltf_json_strcmp.exit282.thread.i:               ; preds = %cgltf_json_strcmp.e
 398:                                              ; preds = %410, %cgltf_json_strcmp.exit282.thread.i
   %indvars.iv.i292.i = phi i64 [ %397, %cgltf_json_strcmp.exit282.thread.i ], [ %indvars.iv.next.i295.i, %410 ]
   %.016.i293.i = phi i32 [ %396, %cgltf_json_strcmp.exit282.thread.i ], [ %.1.i294.i, %410 ]
-  %399 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i292.i
+  %399 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i292.i
   %400 = load i32, ptr %399, align 8
   switch i32 %400, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %401
@@ -62013,7 +61928,7 @@ cgltf_json_strcmp.exit301.i:                      ; preds = %69
 420:                                              ; preds = %418
   %421 = add nuw nsw i32 %.0188393.i, 1
   %422 = zext nneg i32 %421 to i64
-  %423 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %422
+  %423 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %422
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 8
   %425 = load i64, ptr %424, align 8
   store i64 %425, ptr %49, align 8
@@ -62042,7 +61957,7 @@ cgltf_json_strcmp.exit301.i:                      ; preds = %69
 440:                                              ; preds = %452, %434
   %indvars.iv.i.i305.i = phi i64 [ %422, %434 ], [ %indvars.iv.next.i.i308.i, %452 ]
   %.016.i.i306.i = phi i32 [ %439, %434 ], [ %.1.i.i307.i, %452 ]
-  %441 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i305.i
+  %441 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i305.i
   %442 = load i32, ptr %441, align 8
   switch i32 %442, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %443
@@ -62123,7 +62038,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %467, %464
   %.03347.i.i = phi i32 [ %487, %482 ], [ %474, %473 ]
   %.03546.i.i = phi i32 [ %489, %482 ], [ 0, %473 ]
   %475 = zext nneg i32 %.03347.i.i to i64
-  %476 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %475
+  %476 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %475
   %477 = load i32, ptr %476, align 8
   %.not41.i.i = icmp eq i32 %477, 3
   br i1 %.not41.i.i, label %478, label %cgltf_parse_json_array.exit.thread
@@ -62139,7 +62054,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %467, %464
   %484 = add i64 %483, 1
   store i64 %484, ptr %46, align 8
   %485 = load ptr, ptr %47, align 8
-  %486 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %485, i64 %483
+  %486 = getelementptr inbounds nuw [16 x i8], ptr %485, i64 %483
   %487 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i, ptr noundef readonly %3, ptr noundef %486)
   %488 = icmp slt i32 %487, 0
   %489 = add nuw nsw i32 %.03546.i.i, 1
@@ -62156,7 +62071,7 @@ cgltf_json_strcmp.exit313.thread.i:               ; preds = %cgltf_json_strcmp.e
 493:                                              ; preds = %505, %cgltf_json_strcmp.exit313.thread.i
   %indvars.iv.i316.i = phi i64 [ %492, %cgltf_json_strcmp.exit313.thread.i ], [ %indvars.iv.next.i319.i, %505 ]
   %.016.i317.i = phi i32 [ %491, %cgltf_json_strcmp.exit313.thread.i ], [ %.1.i318.i, %505 ]
-  %494 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i316.i
+  %494 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i316.i
   %495 = load i32, ptr %494, align 8
   switch i32 %495, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %496
@@ -62231,7 +62146,7 @@ define internal fastcc i32 @cgltf_parse_json_nodes(ptr noundef nonnull readonly 
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %18 = zext nneg i32 %2 to i64
-  %19 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %18
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %18
   %20 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %20, 2
   br i1 %.not.i, label %24, label %21
@@ -62275,9 +62190,9 @@ cgltf_parse_json_array.exit:                      ; preds = %30
   %.021120 = phi i64 [ %594, %cgltf_parse_json_node.exit.thread80 ], [ 0, %cgltf_parse_json_array.exit ]
   %.023119 = phi i32 [ %.0222.i82, %cgltf_parse_json_node.exit.thread80 ], [ %37, %cgltf_parse_json_array.exit ]
   %38 = load ptr, ptr %16, align 8
-  %39 = getelementptr inbounds nuw %struct.cgltf_node, ptr %38, i64 %.021120
+  %39 = getelementptr inbounds nuw [264 x i8], ptr %38, i64 %.021120
   %40 = zext nneg i32 %.023119 to i64
-  %41 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %40
   %42 = load i32, ptr %41, align 8
   %.not.i29 = icmp eq i32 %42, 1
   br i1 %.not.i29, label %43, label %cgltf_parse_json_array.exit.thread
@@ -62334,7 +62249,7 @@ cgltf_parse_json_array.exit:                      ; preds = %30
   %.0224457.i = phi i32 [ %55, %.lr.ph458.i ], [ %.2226417.i, %cgltf_parse_json_string.exit.thread414.i ]
   %.0239456.i = phi i32 [ 0, %.lr.ph458.i ], [ %592, %cgltf_parse_json_string.exit.thread414.i ]
   %78 = zext nneg i32 %.0224457.i to i64
-  %79 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %78
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %78
   %80 = load i32, ptr %79, align 8
   %.not244.i = icmp eq i32 %80, 3
   br i1 %.not244.i, label %81, label %cgltf_parse_json_array.exit.thread
@@ -62369,7 +62284,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %85
 
 94:                                               ; preds = %cgltf_json_strcmp.exit.i
   %95 = sext i32 %.0224457.i to i64
-  %96 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %95
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load i32, ptr %97, align 8
   %.not.i257.i = icmp eq i32 %98, 3
@@ -62414,7 +62329,7 @@ cgltf_json_strcmp.exit261.i:                      ; preds = %85
 
 122:                                              ; preds = %cgltf_json_strcmp.exit261.i
   %123 = sext i32 %.0224457.i to i64
-  %124 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %126 = load i32, ptr %125, align 8
   %.not.i262.i = icmp eq i32 %126, 2
@@ -62460,7 +62375,7 @@ cgltf_parse_json_array.exit.i:                    ; preds = %136
 .lr.ph453.i:                                      ; preds = %cgltf_json_to_int.exit.i, %.lr.ph453.preheader.i
   %indvars.iv531.i = phi i64 [ %142, %.lr.ph453.preheader.i ], [ %indvars.iv.next532.i, %cgltf_json_to_int.exit.i ]
   %.0234451.i = phi i64 [ 0, %.lr.ph453.preheader.i ], [ %160, %cgltf_json_to_int.exit.i ]
-  %143 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv531.i
+  %143 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv531.i
   %144 = load i32, ptr %143, align 8
   %.not.i264.i = icmp eq i32 %144, 4
   br i1 %.not.i264.i, label %145, label %cgltf_json_to_int.exit.i
@@ -62488,7 +62403,7 @@ cgltf_parse_json_array.exit.i:                    ; preds = %136
 cgltf_json_to_int.exit.i:                         ; preds = %145, %.lr.ph453.i
   %.0.i265.i = phi ptr [ %157, %145 ], [ null, %.lr.ph453.i ]
   %158 = load ptr, ptr %72, align 8
-  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %.0234451.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %.0234451.i
   store ptr %.0.i265.i, ptr %159, align 8
   %indvars.iv.next532.i = add nuw nsw i64 %indvars.iv531.i, 1
   %160 = add nuw i64 %.0234451.i, 1
@@ -62503,7 +62418,7 @@ cgltf_json_strcmp.exit268.i:                      ; preds = %cgltf_json_strcmp.e
 
 165:                                              ; preds = %cgltf_json_strcmp.exit268.i
   %166 = sext i32 %.0224457.i to i64
-  %167 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %166
+  %167 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %169 = load i32, ptr %168, align 8
   %.not255.i = icmp eq i32 %169, 4
@@ -62538,7 +62453,7 @@ cgltf_json_strcmp.exit275.i:                      ; preds = %cgltf_json_strcmp.e
 
 185:                                              ; preds = %cgltf_json_strcmp.exit275.i
   %186 = sext i32 %.0224457.i to i64
-  %187 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %186
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %186
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 32
   %189 = load i32, ptr %188, align 8
   %.not254.i = icmp eq i32 %189, 4
@@ -62574,7 +62489,7 @@ cgltf_json_strcmp.exit282.i:                      ; preds = %85
 
 206:                                              ; preds = %cgltf_json_strcmp.exit282.i
   %207 = sext i32 %.0224457.i to i64
-  %208 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %207
+  %208 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load i32, ptr %209, align 8
   %.not253.i = icmp eq i32 %210, 4
@@ -62611,7 +62526,7 @@ cgltf_json_strcmp.exit289.i:                      ; preds = %85
 227:                                              ; preds = %cgltf_json_strcmp.exit289.i
   store i32 1, ptr %67, align 8
   %228 = sext i32 %.0224457.i to i64
-  %229 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %228
+  %229 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %228
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 32
   %231 = load i32, ptr %230, align 8
   %.not.i290.i = icmp eq i32 %231, 2
@@ -62631,7 +62546,7 @@ cgltf_json_strcmp.exit289.i:                      ; preds = %85
 .lr.ph.i.i:                                       ; preds = %cgltf_json_to_float.exit.i.i, %.preheader.i.i
   %indvars.iv528.i = phi i64 [ %indvars.iv.next529.i, %cgltf_json_to_float.exit.i.i ], [ %235, %.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %cgltf_json_to_float.exit.i.i ], [ 0, %.preheader.i.i ]
-  %236 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv528.i
+  %236 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv528.i
   %237 = load i32, ptr %236, align 8
   %.not24.i.i = icmp eq i32 %237, 4
   br i1 %.not24.i.i, label %cgltf_json_to_float.exit.i.i, label %cgltf_parse_json_array.exit.thread
@@ -62651,7 +62566,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
   %246 = call double @strtod(ptr noundef nonnull captures(none) %11, ptr noundef null) #63
   %247 = fptrunc double %246 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %248 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i.i
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i.i
   store float %247, ptr %248, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next529.i = add nuw nsw i64 %indvars.iv528.i, 1
@@ -62666,7 +62581,7 @@ cgltf_json_strcmp.exit294.i:                      ; preds = %cgltf_json_strcmp.e
 251:                                              ; preds = %cgltf_json_strcmp.exit294.i
   store i32 1, ptr %66, align 4
   %252 = sext i32 %.0224457.i to i64
-  %253 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %252
+  %253 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 32
   %255 = load i32, ptr %254, align 8
   %.not.i295.i = icmp eq i32 %255, 2
@@ -62686,7 +62601,7 @@ cgltf_json_strcmp.exit294.i:                      ; preds = %cgltf_json_strcmp.e
 .lr.ph.i300.i:                                    ; preds = %cgltf_json_to_float.exit.i304.i, %.preheader.i298.i
   %indvars.iv525.i = phi i64 [ %indvars.iv.next526.i, %cgltf_json_to_float.exit.i304.i ], [ %259, %.preheader.i298.i ]
   %indvars.iv.i301.i = phi i64 [ %indvars.iv.next.i306.i, %cgltf_json_to_float.exit.i304.i ], [ 0, %.preheader.i298.i ]
-  %260 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv525.i
+  %260 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv525.i
   %261 = load i32, ptr %260, align 8
   %.not24.i303.i = icmp eq i32 %261, 4
   br i1 %.not24.i303.i, label %cgltf_json_to_float.exit.i304.i, label %cgltf_parse_json_array.exit.thread
@@ -62706,7 +62621,7 @@ cgltf_json_to_float.exit.i304.i:                  ; preds = %.lr.ph.i300.i
   %270 = call double @strtod(ptr noundef nonnull captures(none) %10, ptr noundef null) #63
   %271 = fptrunc double %270 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %272 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i301.i
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i301.i
   store float %271, ptr %272, align 4
   %indvars.iv.next.i306.i = add nuw nsw i64 %indvars.iv.i301.i, 1
   %indvars.iv.next526.i = add nuw nsw i64 %indvars.iv525.i, 1
@@ -62722,7 +62637,7 @@ cgltf_json_strcmp.exit312.i:                      ; preds = %85
 276:                                              ; preds = %cgltf_json_strcmp.exit312.i
   store i32 1, ptr %65, align 8
   %277 = sext i32 %.0224457.i to i64
-  %278 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %277
+  %278 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 32
   %280 = load i32, ptr %279, align 8
   %.not.i313.i = icmp eq i32 %280, 2
@@ -62742,7 +62657,7 @@ cgltf_json_strcmp.exit312.i:                      ; preds = %85
 .lr.ph.i318.i:                                    ; preds = %cgltf_json_to_float.exit.i322.i, %.preheader.i316.i
   %indvars.iv522.i = phi i64 [ %indvars.iv.next523.i, %cgltf_json_to_float.exit.i322.i ], [ %284, %.preheader.i316.i ]
   %indvars.iv.i319.i = phi i64 [ %indvars.iv.next.i324.i, %cgltf_json_to_float.exit.i322.i ], [ 0, %.preheader.i316.i ]
-  %285 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv522.i
+  %285 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv522.i
   %286 = load i32, ptr %285, align 8
   %.not24.i321.i = icmp eq i32 %286, 4
   br i1 %.not24.i321.i, label %cgltf_json_to_float.exit.i322.i, label %cgltf_parse_json_array.exit.thread
@@ -62762,7 +62677,7 @@ cgltf_json_to_float.exit.i322.i:                  ; preds = %.lr.ph.i318.i
   %295 = call double @strtod(ptr noundef nonnull captures(none) %9, ptr noundef null) #63
   %296 = fptrunc double %295 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %297 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i319.i
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i319.i
   store float %296, ptr %297, align 4
   %indvars.iv.next.i324.i = add nuw nsw i64 %indvars.iv.i319.i, 1
   %indvars.iv.next523.i = add nuw nsw i64 %indvars.iv522.i, 1
@@ -62777,7 +62692,7 @@ cgltf_json_strcmp.exit330.i:                      ; preds = %cgltf_json_strcmp.e
 300:                                              ; preds = %cgltf_json_strcmp.exit330.i
   store i32 1, ptr %64, align 4
   %301 = sext i32 %.0224457.i to i64
-  %302 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %301
+  %302 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %301
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 32
   %304 = load i32, ptr %303, align 8
   %.not.i331.i = icmp eq i32 %304, 2
@@ -62797,7 +62712,7 @@ cgltf_json_strcmp.exit330.i:                      ; preds = %cgltf_json_strcmp.e
 .lr.ph.i336.i:                                    ; preds = %cgltf_json_to_float.exit.i340.i, %.preheader.i334.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %cgltf_json_to_float.exit.i340.i ], [ %308, %.preheader.i334.i ]
   %indvars.iv.i337.i = phi i64 [ %indvars.iv.next.i342.i, %cgltf_json_to_float.exit.i340.i ], [ 0, %.preheader.i334.i ]
-  %309 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %309 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i
   %310 = load i32, ptr %309, align 8
   %.not24.i339.i = icmp eq i32 %310, 4
   br i1 %.not24.i339.i, label %cgltf_json_to_float.exit.i340.i, label %cgltf_parse_json_array.exit.thread
@@ -62817,7 +62732,7 @@ cgltf_json_to_float.exit.i340.i:                  ; preds = %.lr.ph.i336.i
   %319 = call double @strtod(ptr noundef nonnull captures(none) %8, ptr noundef null) #63
   %320 = fptrunc double %319 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %321 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i337.i
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i337.i
   store float %320, ptr %321, align 4
   %indvars.iv.next.i342.i = add nuw nsw i64 %indvars.iv.i337.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -62832,7 +62747,7 @@ cgltf_json_strcmp.exit348.i:                      ; preds = %85
 
 325:                                              ; preds = %cgltf_json_strcmp.exit348.i
   %326 = sext i32 %.0224457.i to i64
-  %327 = getelementptr %struct.jsmntok_t, ptr %1, i64 %326
+  %327 = getelementptr [32 x i8], ptr %1, i64 %326
   %328 = getelementptr i8, ptr %327, i64 32
   %329 = load i32, ptr %328, align 8
   %.not.i61 = icmp eq i32 %329, 2
@@ -62892,7 +62807,7 @@ cgltf_parse_json_array.exit67:                    ; preds = %339
 .lr.ph.i56:                                       ; preds = %cgltf_json_to_float.exit.i, %.lr.ph.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %cgltf_json_to_float.exit.i ], [ %350, %.lr.ph.preheader.i ]
   %indvars.iv.i57 = phi i64 [ %indvars.iv.next.i59, %cgltf_json_to_float.exit.i ], [ 0, %.lr.ph.preheader.i ]
-  %351 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv
+  %351 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
   %352 = load i32, ptr %351, align 8
   %.not24.i = icmp eq i32 %352, 4
   br i1 %.not24.i, label %cgltf_json_to_float.exit.i, label %cgltf_parse_json_array.exit.thread
@@ -62912,7 +62827,7 @@ cgltf_json_to_float.exit.i:                       ; preds = %.lr.ph.i56
   %361 = call double @strtod(ptr noundef nonnull captures(none) %6, ptr noundef null) #63
   %362 = fptrunc double %361 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %363 = getelementptr inbounds nuw float, ptr %343, i64 %indvars.iv.i57
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %indvars.iv.i57
   store float %362, ptr %363, align 4
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i57, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -62932,7 +62847,7 @@ cgltf_json_strcmp.exit351.i:                      ; preds = %cgltf_json_strcmp.e
 368:                                              ; preds = %366
   %369 = add nuw nsw i32 %.0224457.i, 1
   %370 = zext nneg i32 %369 to i64
-  %371 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %370
+  %371 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %370
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %373 = load i64, ptr %372, align 8
   store i64 %373, ptr %61, align 8
@@ -62961,7 +62876,7 @@ cgltf_json_strcmp.exit351.i:                      ; preds = %cgltf_json_strcmp.e
 388:                                              ; preds = %400, %382
   %indvars.iv.i.i50 = phi i64 [ %370, %382 ], [ %indvars.iv.next.i.i53, %400 ]
   %.016.i.i51 = phi i32 [ %387, %382 ], [ %.1.i.i52, %400 ]
-  %389 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i50
+  %389 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i50
   %390 = load i32, ptr %389, align 8
   switch i32 %390, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %391
@@ -63002,7 +62917,7 @@ cgltf_json_strcmp.exit46:                         ; preds = %85
 
 407:                                              ; preds = %cgltf_json_strcmp.exit46
   %408 = sext i32 %.0224457.i to i64
-  %409 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %408
+  %409 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %408
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 32
   %411 = load i32, ptr %410, align 8
   %.not245.i = icmp eq i32 %411, 1
@@ -63044,7 +62959,7 @@ cgltf_json_strcmp.exit46:                         ; preds = %85
   %.0223448.i = phi i32 [ %565, %.thread396.i ], [ 0, %423 ]
   %.5229447.i = phi i32 [ %.10399.i, %.thread396.i ], [ %424, %423 ]
   %425 = zext nneg i32 %.5229447.i to i64
-  %426 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %425
+  %426 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %425
   %427 = load i32, ptr %426, align 8
   %.not248.i = icmp eq i32 %427, 3
   br i1 %.not248.i, label %428, label %cgltf_parse_json_array.exit.thread
@@ -63074,7 +62989,7 @@ cgltf_json_strcmp.exit356.i:                      ; preds = %432
 
 441:                                              ; preds = %cgltf_json_strcmp.exit356.i
   %442 = sext i32 %.5229447.i to i64
-  %443 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %442
+  %443 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %442
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 32
   %445 = load i32, ptr %444, align 8
   %.not249.i = icmp eq i32 %445, 1
@@ -63091,7 +63006,7 @@ cgltf_json_strcmp.exit356.i:                      ; preds = %432
   %.0446.i = phi i32 [ %505, %504 ], [ 0, %446 ]
   %.7231445.i = phi i32 [ %.9233385.i, %504 ], [ %449, %446 ]
   %450 = zext nneg i32 %.7231445.i to i64
-  %451 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %450
+  %451 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %450
   %452 = load i32, ptr %451, align 8
   %.not250.i = icmp eq i32 %452, 3
   br i1 %.not250.i, label %453, label %cgltf_parse_json_array.exit.thread
@@ -63119,7 +63034,7 @@ cgltf_json_strcmp.exit359.i:                      ; preds = %457
 
 467:                                              ; preds = %cgltf_json_strcmp.exit359.i
   %468 = sext i32 %.7231445.i to i64
-  %469 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %468
+  %469 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %468
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 32
   %471 = load i32, ptr %470, align 8
   %.not251.i = icmp eq i32 %471, 4
@@ -63156,7 +63071,7 @@ cgltf_json_strcmp.exit359.thread.i:               ; preds = %cgltf_json_strcmp.e
 488:                                              ; preds = %500, %cgltf_json_strcmp.exit359.thread.i
   %indvars.iv.i364.i = phi i64 [ %487, %cgltf_json_strcmp.exit359.thread.i ], [ %indvars.iv.next.i365.i, %500 ]
   %.016.i.i = phi i32 [ %486, %cgltf_json_strcmp.exit359.thread.i ], [ %.1.i.i, %500 ]
-  %489 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i364.i
+  %489 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i364.i
   %490 = load i32, ptr %489, align 8
   switch i32 %490, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %491
@@ -63204,7 +63119,7 @@ cgltf_json_strcmp.exit:                           ; preds = %432
 509:                                              ; preds = %cgltf_json_strcmp.exit
   store i32 1, ptr %58, align 8
   %510 = sext i32 %.5229447.i to i64
-  %511 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %510
+  %511 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %510
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 32
   %513 = load i32, ptr %512, align 8
   %.not.i33 = icmp eq i32 %513, 1
@@ -63221,7 +63136,7 @@ cgltf_json_strcmp.exit:                           ; preds = %432
   %.02739.i = phi i32 [ %558, %cgltf_skip_json.exit.i39 ], [ 0, %514 ]
   %.02938.i = phi i32 [ %.231.i, %cgltf_skip_json.exit.i39 ], [ %517, %514 ]
   %518 = zext nneg i32 %.02938.i to i64
-  %519 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %518
+  %519 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %518
   %520 = load i32, ptr %519, align 8
   %.not32.i = icmp eq i32 %520, 3
   br i1 %.not32.i, label %521, label %cgltf_parse_json_array.exit.thread
@@ -63261,7 +63176,7 @@ cgltf_json_strcmp.exit.thread.i:                  ; preds = %cgltf_json_strcmp.e
 541:                                              ; preds = %553, %cgltf_json_strcmp.exit.thread.i
   %indvars.iv.i.i35 = phi i64 [ %540, %cgltf_json_strcmp.exit.thread.i ], [ %indvars.iv.next.i.i38, %553 ]
   %.016.i.i36 = phi i32 [ %539, %cgltf_json_strcmp.exit.thread.i ], [ %.1.i.i37, %553 ]
-  %542 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i35
+  %542 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i35
   %543 = load i32, ptr %542, align 8
   switch i32 %543, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %544
@@ -63307,7 +63222,7 @@ cgltf_json_strcmp.exit.thread:                    ; preds = %cgltf_json_strcmp.e
   %560 = load i64, ptr %57, align 8
   %561 = add i64 %560, 1
   store i64 %561, ptr %57, align 8
-  %562 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %559, i64 %560
+  %562 = getelementptr inbounds nuw [16 x i8], ptr %559, i64 %560
   %563 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.5229447.i, ptr noundef readonly %3, ptr noundef %562)
   br label %cgltf_parse_json_mesh_gpu_instancing.exit
 
@@ -63331,7 +63246,7 @@ cgltf_json_strcmp.exit46.thread:                  ; preds = %cgltf_json_strcmp.e
 569:                                              ; preds = %581, %cgltf_json_strcmp.exit46.thread
   %indvars.iv.i31 = phi i64 [ %568, %cgltf_json_strcmp.exit46.thread ], [ %indvars.iv.next.i32, %581 ]
   %.016.i = phi i32 [ %567, %cgltf_json_strcmp.exit46.thread ], [ %.1.i, %581 ]
-  %570 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i31
+  %570 = getelementptr inbounds [32 x i8], ptr %1, i64 %indvars.iv.i31
   %571 = load i32, ptr %570, align 8
   switch i32 %571, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %572
@@ -63421,7 +63336,7 @@ define internal fastcc i32 @cgltf_parse_json_scenes(ptr noundef nonnull readonly
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 288
   %9 = zext nneg i32 %2 to i64
-  %10 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %9
   %11 = load i32, ptr %10, align 8
   %.not.i = icmp eq i32 %11, 2
   br i1 %.not.i, label %15, label %12
@@ -63466,9 +63381,9 @@ cgltf_parse_json_array.exit:                      ; preds = %21
   %.02151 = phi i64 [ %226, %cgltf_parse_json_scene.exit.thread32 ], [ 0, %cgltf_parse_json_array.exit ]
   %.02350 = phi i32 [ %.065.i34, %cgltf_parse_json_scene.exit.thread32 ], [ %28, %cgltf_parse_json_array.exit ]
   %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds nuw %struct.cgltf_scene, ptr %30, i64 %.02151
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 %.02151
   %32 = zext nneg i32 %.02350 to i64
-  %33 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %32
   %34 = load i32, ptr %33, align 8
   %.not.i29 = icmp eq i32 %34, 1
   br i1 %.not.i29, label %35, label %cgltf_parse_json_array.exit.thread
@@ -63494,7 +63409,7 @@ cgltf_parse_json_array.exit:                      ; preds = %21
   %.064116.i = phi i32 [ 0, %.lr.ph117.i ], [ %224, %cgltf_parse_json_string.exit.thread102.i ]
   %.066115.i = phi i32 [ %38, %.lr.ph117.i ], [ %.268104.i, %cgltf_parse_json_string.exit.thread102.i ]
   %47 = zext nneg i32 %.066115.i to i64
-  %48 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %47
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %47
   %49 = load i32, ptr %48, align 8
   %.not71.i = icmp eq i32 %49, 3
   br i1 %.not71.i, label %50, label %cgltf_parse_json_array.exit.thread
@@ -63613,7 +63528,7 @@ cgltf_parse_json_array.exit.i:                    ; preds = %101
 .lr.ph.i:                                         ; preds = %cgltf_json_to_int.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %107, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %cgltf_json_to_int.exit.i ]
   %.0113.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %125, %cgltf_json_to_int.exit.i ]
-  %108 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %108 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i
   %109 = load i32, ptr %108, align 8
   %.not.i80.i = icmp eq i32 %109, 4
   br i1 %.not.i80.i, label %110, label %cgltf_json_to_int.exit.i
@@ -63641,7 +63556,7 @@ cgltf_parse_json_array.exit.i:                    ; preds = %101
 cgltf_json_to_int.exit.i:                         ; preds = %110, %.lr.ph.i
   %.0.i81.i = phi ptr [ %122, %110 ], [ null, %.lr.ph.i ]
   %123 = load ptr, ptr %44, align 8
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %.0113.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %.0113.i
   store ptr %.0.i81.i, ptr %124, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %125 = add nuw i64 %.0113.i, 1
@@ -63663,7 +63578,7 @@ cgltf_json_strcmp.exit84.i:                       ; preds = %54
 133:                                              ; preds = %131
   %134 = add nuw nsw i32 %.066115.i, 1
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %135
+  %136 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load i64, ptr %137, align 8
   store i64 %138, ptr %42, align 8
@@ -63692,7 +63607,7 @@ cgltf_json_strcmp.exit84.i:                       ; preds = %54
 153:                                              ; preds = %165, %147
   %indvars.iv.i.i.i = phi i64 [ %135, %147 ], [ %indvars.iv.next.i.i.i, %165 ]
   %.016.i.i.i = phi i32 [ %152, %147 ], [ %.1.i.i.i, %165 ]
-  %154 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i
+  %154 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i
   %155 = load i32, ptr %154, align 8
   switch i32 %155, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %156
@@ -63773,7 +63688,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %180, %177
   %.03347.i.i = phi i32 [ %200, %195 ], [ %187, %186 ]
   %.03546.i.i = phi i32 [ %202, %195 ], [ 0, %186 ]
   %188 = zext nneg i32 %.03347.i.i to i64
-  %189 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %188
+  %189 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %188
   %190 = load i32, ptr %189, align 8
   %.not41.i.i = icmp eq i32 %190, 3
   br i1 %.not41.i.i, label %191, label %cgltf_parse_json_array.exit.thread
@@ -63789,7 +63704,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %180, %177
   %197 = add i64 %196, 1
   store i64 %197, ptr %39, align 8
   %198 = load ptr, ptr %40, align 8
-  %199 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %198, i64 %196
+  %199 = getelementptr inbounds nuw [16 x i8], ptr %198, i64 %196
   %200 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i, ptr noundef readonly %3, ptr noundef %199)
   %201 = icmp slt i32 %200, 0
   %202 = add nuw nsw i32 %.03546.i.i, 1
@@ -63806,7 +63721,7 @@ cgltf_json_strcmp.exit89.thread.i:                ; preds = %cgltf_json_strcmp.e
 206:                                              ; preds = %218, %cgltf_json_strcmp.exit89.thread.i
   %indvars.iv.i.i = phi i64 [ %205, %cgltf_json_strcmp.exit89.thread.i ], [ %indvars.iv.next.i.i, %218 ]
   %.016.i.i = phi i32 [ %204, %cgltf_json_strcmp.exit89.thread.i ], [ %.1.i.i, %218 ]
-  %207 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i
+  %207 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i
   %208 = load i32, ptr %207, align 8
   switch i32 %208, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %209
@@ -63908,7 +63823,7 @@ define internal fastcc i32 @cgltf_parse_json_animations(ptr noundef nonnull read
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %12
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp eq i32 %14, 2
   br i1 %.not.i, label %18, label %15
@@ -63953,9 +63868,9 @@ cgltf_parse_json_array.exit:                      ; preds = %24
   %.021111 = phi i64 [ %656, %cgltf_parse_json_animation.exit.thread32 ], [ 0, %cgltf_parse_json_array.exit ]
   %.023110 = phi i32 [ %.094.i34, %cgltf_parse_json_animation.exit.thread32 ], [ %31, %cgltf_parse_json_array.exit ]
   %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds nuw %struct.cgltf_animation, ptr %33, i64 %.021111
+  %34 = getelementptr inbounds nuw [80 x i8], ptr %33, i64 %.021111
   %35 = zext nneg i32 %.023110 to i64
-  %36 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %35
   %37 = load i32, ptr %36, align 8
   %.not.i29 = icmp eq i32 %37, 1
   br i1 %.not.i29, label %38, label %cgltf_parse_json_array.exit.thread
@@ -63983,7 +63898,7 @@ cgltf_parse_json_array.exit:                      ; preds = %24
   %.093295.i = phi i32 [ 0, %.lr.ph296.i ], [ %654, %cgltf_parse_json_string.exit.thread209.i ]
   %.097294.i = phi i32 [ %41, %.lr.ph296.i ], [ %.299212.i, %cgltf_parse_json_string.exit.thread209.i ]
   %52 = zext nneg i32 %.097294.i to i64
-  %53 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %52
   %54 = load i32, ptr %53, align 8
   %.not112.i = icmp eq i32 %54, 3
   br i1 %.not112.i, label %55, label %cgltf_parse_json_array.exit.thread
@@ -64100,9 +64015,9 @@ cgltf_parse_json_array.exit.i:                    ; preds = %106
   %.091290.i = phi i64 [ %301, %cgltf_parse_json_animation_sampler.exit.thread189.i ], [ 0, %cgltf_parse_json_array.exit.i ]
   %.3100289.i = phi i32 [ %.071.i191.i, %cgltf_parse_json_animation_sampler.exit.thread189.i ], [ %111, %cgltf_parse_json_array.exit.i ]
   %113 = load ptr, ptr %49, align 8
-  %114 = getelementptr inbounds nuw %struct.cgltf_animation_sampler, ptr %113, i64 %.091290.i
+  %114 = getelementptr inbounds nuw [64 x i8], ptr %113, i64 %.091290.i
   %115 = zext nneg i32 %.3100289.i to i64
-  %116 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %115
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %115
   %117 = load i32, ptr %116, align 8
   %.not.i123.i = icmp eq i32 %117, 1
   br i1 %.not.i123.i, label %118, label %cgltf_parse_json_array.exit.thread
@@ -64128,7 +64043,7 @@ cgltf_parse_json_array.exit.i:                    ; preds = %106
   %.070133.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %299, %cgltf_parse_json_extras.exit.thread122.i.i ]
   %.072132.i.i = phi i32 [ %121, %.lr.ph.i.i ], [ %.274124.i.i, %cgltf_parse_json_extras.exit.thread122.i.i ]
   %130 = zext nneg i32 %.072132.i.i to i64
-  %131 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %130
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %130
   %132 = load i32, ptr %131, align 8
   %.not75.i.i = icmp eq i32 %132, 3
   br i1 %.not75.i.i, label %133, label %cgltf_parse_json_array.exit.thread
@@ -64292,7 +64207,7 @@ cgltf_json_strcmp.exit100.i.i:                    ; preds = %cgltf_json_strcmp.e
 209:                                              ; preds = %207
   %210 = add nuw nsw i32 %.072132.i.i, 1
   %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %211
+  %212 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %211
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load i64, ptr %213, align 8
   store i64 %214, ptr %125, align 8
@@ -64321,7 +64236,7 @@ cgltf_json_strcmp.exit100.i.i:                    ; preds = %cgltf_json_strcmp.e
 229:                                              ; preds = %241, %223
   %indvars.iv.i.i.i.i = phi i64 [ %211, %223 ], [ %indvars.iv.next.i.i.i.i, %241 ]
   %.016.i.i.i.i = phi i32 [ %228, %223 ], [ %.1.i.i.i.i, %241 ]
-  %230 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i.i
+  %230 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i.i
   %231 = load i32, ptr %230, align 8
   switch i32 %231, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %232
@@ -64402,7 +64317,7 @@ cgltf_calloc.exit.thread.i.i.i:                   ; preds = %256, %253
   %.03347.i.i.i = phi i32 [ %276, %271 ], [ %263, %262 ]
   %.03546.i.i.i = phi i32 [ %278, %271 ], [ 0, %262 ]
   %264 = zext nneg i32 %.03347.i.i.i to i64
-  %265 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %264
+  %265 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %264
   %266 = load i32, ptr %265, align 8
   %.not41.i.i.i = icmp eq i32 %266, 3
   br i1 %.not41.i.i.i, label %267, label %cgltf_parse_json_array.exit.thread
@@ -64418,7 +64333,7 @@ cgltf_calloc.exit.thread.i.i.i:                   ; preds = %256, %253
   %273 = add i64 %272, 1
   store i64 %273, ptr %122, align 8
   %274 = load ptr, ptr %123, align 8
-  %275 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %274, i64 %272
+  %275 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %272
   %276 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i.i, ptr noundef readonly %3, ptr noundef %275)
   %277 = icmp slt i32 %276, 0
   %278 = add nuw nsw i32 %.03546.i.i.i, 1
@@ -64435,7 +64350,7 @@ cgltf_json_strcmp.exit105.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 282:                                              ; preds = %294, %cgltf_json_strcmp.exit105.thread.i.i
   %indvars.iv.i.i.i = phi i64 [ %281, %cgltf_json_strcmp.exit105.thread.i.i ], [ %indvars.iv.next.i.i.i, %294 ]
   %.016.i.i.i = phi i32 [ %280, %cgltf_json_strcmp.exit105.thread.i.i ], [ %.1.i.i.i, %294 ]
-  %283 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i
+  %283 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i
   %284 = load i32, ptr %283, align 8
   switch i32 %284, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %285
@@ -64539,9 +64454,9 @@ cgltf_json_strcmp.exit127.i:                      ; preds = %cgltf_json_strcmp.e
   %.0287.i = phi i64 [ %558, %cgltf_parse_json_animation_channel.exit.thread197.i ], [ 0, %.preheader.i ]
   %.5102286.i = phi i32 [ %.098.i199.i, %cgltf_parse_json_animation_channel.exit.thread197.i ], [ %321, %.preheader.i ]
   %323 = load ptr, ptr %47, align 8
-  %324 = getelementptr inbounds nuw %struct.cgltf_animation_channel, ptr %323, i64 %.0287.i
+  %324 = getelementptr inbounds nuw [64 x i8], ptr %323, i64 %.0287.i
   %325 = zext nneg i32 %.5102286.i to i64
-  %326 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %325
+  %326 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %325
   %327 = load i32, ptr %326, align 8
   %.not.i135.i = icmp eq i32 %327, 1
   br i1 %.not.i135.i, label %328, label %cgltf_parse_json_array.exit.thread
@@ -64567,7 +64482,7 @@ cgltf_json_strcmp.exit127.i:                      ; preds = %cgltf_json_strcmp.e
   %.0101212.i.i = phi i32 [ 0, %.lr.ph213.i.i ], [ %556, %cgltf_skip_json.exit156.thread186.i.i ]
   %.0102211.i.i = phi i32 [ %331, %.lr.ph213.i.i ], [ %.2104189.i.i, %cgltf_skip_json.exit156.thread186.i.i ]
   %340 = zext nneg i32 %.0102211.i.i to i64
-  %341 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %340
+  %341 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %340
   %342 = load i32, ptr %341, align 8
   %.not108.i.i = icmp eq i32 %342, 3
   br i1 %.not108.i.i, label %343, label %cgltf_parse_json_array.exit.thread
@@ -64650,7 +64565,7 @@ cgltf_json_strcmp.exit117.i.i:                    ; preds = %347
   %.0209.i.i = phi i32 [ %535, %cgltf_parse_json_extras.exit.thread175.i.i ], [ 0, %379 ]
   %.3105208.i.i = phi i32 [ %.5107177.i.i, %cgltf_parse_json_extras.exit.thread175.i.i ], [ %382, %379 ]
   %383 = zext nneg i32 %.3105208.i.i to i64
-  %384 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %383
+  %384 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %383
   %385 = load i32, ptr %384, align 8
   %.not110.i.i = icmp eq i32 %385, 3
   br i1 %.not110.i.i, label %386, label %cgltf_parse_json_array.exit.thread
@@ -64782,7 +64697,7 @@ cgltf_json_strcmp.exit142.i.i:                    ; preds = %390
 445:                                              ; preds = %443
   %446 = add nuw nsw i32 %.3105208.i.i, 1
   %447 = zext nneg i32 %446 to i64
-  %448 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %447
+  %448 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %447
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
   %450 = load i64, ptr %449, align 8
   store i64 %450, ptr %335, align 8
@@ -64811,7 +64726,7 @@ cgltf_json_strcmp.exit142.i.i:                    ; preds = %390
 465:                                              ; preds = %477, %459
   %indvars.iv.i.i.i156.i = phi i64 [ %447, %459 ], [ %indvars.iv.next.i.i.i159.i, %477 ]
   %.016.i.i.i157.i = phi i32 [ %464, %459 ], [ %.1.i.i.i158.i, %477 ]
-  %466 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i156.i
+  %466 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i156.i
   %467 = load i32, ptr %466, align 8
   switch i32 %467, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %468
@@ -64892,7 +64807,7 @@ cgltf_calloc.exit.thread.i.i154.i:                ; preds = %492, %489
   %.03347.i.i149.i = phi i32 [ %512, %507 ], [ %499, %498 ]
   %.03546.i.i150.i = phi i32 [ %514, %507 ], [ 0, %498 ]
   %500 = zext nneg i32 %.03347.i.i149.i to i64
-  %501 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %500
+  %501 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %500
   %502 = load i32, ptr %501, align 8
   %.not41.i.i151.i = icmp eq i32 %502, 3
   br i1 %.not41.i.i151.i, label %503, label %cgltf_parse_json_array.exit.thread
@@ -64908,7 +64823,7 @@ cgltf_calloc.exit.thread.i.i154.i:                ; preds = %492, %489
   %509 = add i64 %508, 1
   store i64 %509, ptr %332, align 8
   %510 = load ptr, ptr %333, align 8
-  %511 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %510, i64 %508
+  %511 = getelementptr inbounds nuw [16 x i8], ptr %510, i64 %508
   %512 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i149.i, ptr noundef readonly %3, ptr noundef %511)
   %513 = icmp slt i32 %512, 0
   %514 = add nuw nsw i32 %.03546.i.i150.i, 1
@@ -64925,7 +64840,7 @@ cgltf_json_strcmp.exit147.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 518:                                              ; preds = %530, %cgltf_json_strcmp.exit147.thread.i.i
   %indvars.iv.i.i137.i = phi i64 [ %517, %cgltf_json_strcmp.exit147.thread.i.i ], [ %indvars.iv.next.i.i140.i, %530 ]
   %.016.i.i138.i = phi i32 [ %516, %cgltf_json_strcmp.exit147.thread.i.i ], [ %.1.i.i139.i, %530 ]
-  %519 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i137.i
+  %519 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i137.i
   %520 = load i32, ptr %519, align 8
   switch i32 %520, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %521
@@ -64978,7 +64893,7 @@ cgltf_json_strcmp.exit117.thread.i.i:             ; preds = %cgltf_json_strcmp.e
 539:                                              ; preds = %551, %cgltf_json_strcmp.exit117.thread.i.i
   %indvars.iv.i150.i.i = phi i64 [ %538, %cgltf_json_strcmp.exit117.thread.i.i ], [ %indvars.iv.next.i153.i.i, %551 ]
   %.016.i151.i.i = phi i32 [ %537, %cgltf_json_strcmp.exit117.thread.i.i ], [ %.1.i152.i.i, %551 ]
-  %540 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i150.i.i
+  %540 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i150.i.i
   %541 = load i32, ptr %540, align 8
   switch i32 %541, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %542
@@ -65047,7 +64962,7 @@ cgltf_json_strcmp.exit168.i:                      ; preds = %59
 564:                                              ; preds = %562
   %565 = add nuw nsw i32 %.097294.i, 1
   %566 = zext nneg i32 %565 to i64
-  %567 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %566
+  %567 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %566
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 8
   %569 = load i64, ptr %568, align 8
   store i64 %569, ptr %45, align 8
@@ -65076,7 +64991,7 @@ cgltf_json_strcmp.exit168.i:                      ; preds = %59
 584:                                              ; preds = %596, %578
   %indvars.iv.i.i171.i = phi i64 [ %566, %578 ], [ %indvars.iv.next.i.i174.i, %596 ]
   %.016.i.i172.i = phi i32 [ %583, %578 ], [ %.1.i.i173.i, %596 ]
-  %585 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i171.i
+  %585 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i171.i
   %586 = load i32, ptr %585, align 8
   switch i32 %586, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %587
@@ -65157,7 +65072,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %611, %608
   %.03347.i.i = phi i32 [ %631, %626 ], [ %618, %617 ]
   %.03546.i.i = phi i32 [ %633, %626 ], [ 0, %617 ]
   %619 = zext nneg i32 %.03347.i.i to i64
-  %620 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %619
+  %620 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %619
   %621 = load i32, ptr %620, align 8
   %.not41.i.i = icmp eq i32 %621, 3
   br i1 %.not41.i.i, label %622, label %cgltf_parse_json_array.exit.thread
@@ -65173,7 +65088,7 @@ cgltf_calloc.exit.thread.i.i:                     ; preds = %611, %608
   %628 = add i64 %627, 1
   store i64 %628, ptr %42, align 8
   %629 = load ptr, ptr %43, align 8
-  %630 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %629, i64 %627
+  %630 = getelementptr inbounds nuw [16 x i8], ptr %629, i64 %627
   %631 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.03347.i.i, ptr noundef readonly %3, ptr noundef %630)
   %632 = icmp slt i32 %631, 0
   %633 = add nuw nsw i32 %.03546.i.i, 1
@@ -65190,7 +65105,7 @@ cgltf_json_strcmp.exit178.thread.i:               ; preds = %cgltf_json_strcmp.e
 637:                                              ; preds = %649, %cgltf_json_strcmp.exit178.thread.i
   %indvars.iv.i.i = phi i64 [ %636, %cgltf_json_strcmp.exit178.thread.i ], [ %indvars.iv.next.i.i, %649 ]
   %.016.i.i = phi i32 [ %635, %cgltf_json_strcmp.exit178.thread.i ], [ %.1.i.i, %649 ]
-  %638 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i
+  %638 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i
   %639 = load i32, ptr %638, align 8
   switch i32 %639, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %640
@@ -65259,7 +65174,7 @@ define internal fastcc range(i32 -2, -2147483647) i32 @cgltf_parse_json_extras(p
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %2 to i64
-  %10 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %4, align 8
@@ -65291,7 +65206,7 @@ define internal fastcc range(i32 -2, -2147483647) i32 @cgltf_parse_json_extras(p
 30:                                               ; preds = %42, %24
   %indvars.iv.i = phi i64 [ %9, %24 ], [ %indvars.iv.next.i, %42 ]
   %.016.i = phi i32 [ %29, %24 ], [ %.1.i, %42 ]
-  %31 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 8
   switch i32 %32, label %cgltf_skip_json.exit [
     i32 1, label %33
@@ -65339,7 +65254,7 @@ define internal fastcc i32 @cgltf_parse_json_lights(ptr noundef nonnull readonly
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %13 = zext nneg i32 %2 to i64
-  %14 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %13
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 2
   br i1 %.not.i, label %19, label %16
@@ -65383,9 +65298,9 @@ cgltf_parse_json_array.exit:                      ; preds = %25
   %.02148 = phi i64 [ %327, %cgltf_parse_json_light.exit.thread32 ], [ 0, %cgltf_parse_json_array.exit ]
   %.02347 = phi i32 [ %.0124.i34, %cgltf_parse_json_light.exit.thread32 ], [ %32, %cgltf_parse_json_array.exit ]
   %33 = load ptr, ptr %11, align 8
-  %34 = getelementptr inbounds nuw %struct.cgltf_light, ptr %33, i64 %.02148
+  %34 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 %.02148
   %35 = zext nneg i32 %.02347 to i64
-  %36 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %35
   %37 = load i32, ptr %36, align 8
   %.not.i29 = icmp eq i32 %37, 1
   br i1 %.not.i29, label %38, label %cgltf_parse_json_array.exit.thread
@@ -65421,7 +65336,7 @@ cgltf_parse_json_array.exit:                      ; preds = %25
   %.0127247.i = phi i32 [ 0, %.lr.ph248.i ], [ %325, %cgltf_parse_json_string.exit.thread230.i ]
   %.0128246.i = phi i32 [ %47, %.lr.ph248.i ], [ %.2130233.i, %cgltf_parse_json_string.exit.thread230.i ]
   %54 = zext nneg i32 %.0128246.i to i64
-  %55 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %54
   %56 = load i32, ptr %55, align 8
   %.not134.i = icmp eq i32 %56, 3
   br i1 %.not134.i, label %57, label %cgltf_parse_json_array.exit.thread
@@ -65453,7 +65368,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %61
 
 70:                                               ; preds = %cgltf_json_strcmp.exit.i
   %71 = sext i32 %.0128246.i to i64
-  %72 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %71
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load i32, ptr %73, align 8
   %.not.i139.i = icmp eq i32 %74, 3
@@ -65498,7 +65413,7 @@ cgltf_json_strcmp.exit143.i:                      ; preds = %61
 
 98:                                               ; preds = %cgltf_json_strcmp.exit143.i
   %99 = sext i32 %.0128246.i to i64
-  %100 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %99
+  %100 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %102 = load i32, ptr %101, align 8
   %.not.i144.i = icmp eq i32 %102, 2
@@ -65518,7 +65433,7 @@ cgltf_json_strcmp.exit143.i:                      ; preds = %61
 .lr.ph.i.i:                                       ; preds = %cgltf_json_to_float.exit.i.i, %.preheader.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %cgltf_json_to_float.exit.i.i ], [ %106, %.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %cgltf_json_to_float.exit.i.i ], [ 0, %.preheader.i.i ]
-  %107 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i
   %108 = load i32, ptr %107, align 8
   %.not24.i.i = icmp eq i32 %108, 4
   br i1 %.not24.i.i, label %cgltf_json_to_float.exit.i.i, label %cgltf_parse_json_array.exit.thread
@@ -65538,7 +65453,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
   %117 = call double @strtod(ptr noundef nonnull captures(none) %10, ptr noundef null) #63
   %118 = fptrunc double %117 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %119 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i.i
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i.i
   store float %118, ptr %119, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -65553,7 +65468,7 @@ cgltf_json_strcmp.exit148.i:                      ; preds = %61
 
 123:                                              ; preds = %cgltf_json_strcmp.exit148.i
   %124 = sext i32 %.0128246.i to i64
-  %125 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %124
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %127 = load i32, ptr %126, align 8
   %.not.i149.i = icmp eq i32 %127, 4
@@ -65589,7 +65504,7 @@ cgltf_json_strcmp.exit153.i:                      ; preds = %cgltf_json_strcmp.e
 
 142:                                              ; preds = %cgltf_json_strcmp.exit153.i
   %143 = sext i32 %.0128246.i to i64
-  %144 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %143
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %146 = load i32, ptr %145, align 8
   %.not.i154.i = icmp eq i32 %146, 3
@@ -65641,7 +65556,7 @@ cgltf_json_strcmp.exit165.thread288.i:            ; preds = %cgltf_json_strcmp.e
 
 165:                                              ; preds = %cgltf_json_strcmp.exit165.thread288.i
   %166 = sext i32 %.0128246.i to i64
-  %167 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %166
+  %167 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %169 = load i32, ptr %168, align 8
   %.not.i166.i = icmp eq i32 %169, 4
@@ -65677,7 +65592,7 @@ cgltf_json_strcmp.exit172.i:                      ; preds = %cgltf_json_strcmp.e
 
 184:                                              ; preds = %cgltf_json_strcmp.exit172.i
   %185 = sext i32 %.0128246.i to i64
-  %186 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %185
+  %186 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %185
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %188 = load i32, ptr %187, align 8
   %.not135.i = icmp eq i32 %188, 1
@@ -65694,7 +65609,7 @@ cgltf_json_strcmp.exit172.i:                      ; preds = %cgltf_json_strcmp.e
   %.0244.i = phi i32 [ %265, %cgltf_skip_json.exit.thread.i ], [ 0, %189 ]
   %.3131243.i = phi i32 [ %.5133216.i, %cgltf_skip_json.exit.thread.i ], [ %192, %189 ]
   %193 = zext nneg i32 %.3131243.i to i64
-  %194 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %193
+  %194 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %193
   %195 = load i32, ptr %194, align 8
   %.not136.i = icmp eq i32 %195, 3
   br i1 %.not136.i, label %196, label %cgltf_parse_json_array.exit.thread
@@ -65722,7 +65637,7 @@ cgltf_json_strcmp.exit175.i:                      ; preds = %200
 
 210:                                              ; preds = %cgltf_json_strcmp.exit175.i
   %211 = sext i32 %.3131243.i to i64
-  %212 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %211
+  %212 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %211
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 32
   %214 = load i32, ptr %213, align 8
   %.not.i176.i = icmp eq i32 %214, 4
@@ -65758,7 +65673,7 @@ cgltf_json_strcmp.exit182.i:                      ; preds = %cgltf_json_strcmp.e
 
 229:                                              ; preds = %cgltf_json_strcmp.exit182.i
   %230 = sext i32 %.3131243.i to i64
-  %231 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %230
+  %231 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %230
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 32
   %233 = load i32, ptr %232, align 8
   %.not.i183.i = icmp eq i32 %233, 4
@@ -65796,7 +65711,7 @@ cgltf_json_strcmp.exit182.thread.i:               ; preds = %cgltf_json_strcmp.e
 249:                                              ; preds = %261, %cgltf_json_strcmp.exit182.thread.i
   %indvars.iv.i187.i = phi i64 [ %248, %cgltf_json_strcmp.exit182.thread.i ], [ %indvars.iv.next.i188.i, %261 ]
   %.016.i.i = phi i32 [ %247, %cgltf_json_strcmp.exit182.thread.i ], [ %.1.i.i, %261 ]
-  %250 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i187.i
+  %250 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i187.i
   %251 = load i32, ptr %250, align 8
   switch i32 %251, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %252
@@ -65849,7 +65764,7 @@ cgltf_json_strcmp.exit191.i:                      ; preds = %61
 271:                                              ; preds = %269
   %272 = add nuw nsw i32 %.0128246.i, 1
   %273 = zext nneg i32 %272 to i64
-  %274 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %273
+  %274 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %273
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %276 = load i64, ptr %275, align 8
   store i64 %276, ptr %49, align 8
@@ -65878,7 +65793,7 @@ cgltf_json_strcmp.exit191.i:                      ; preds = %61
 291:                                              ; preds = %303, %285
   %indvars.iv.i.i.i = phi i64 [ %273, %285 ], [ %indvars.iv.next.i.i.i, %303 ]
   %.016.i.i.i = phi i32 [ %290, %285 ], [ %.1.i.i.i, %303 ]
-  %292 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i
+  %292 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i
   %293 = load i32, ptr %292, align 8
   switch i32 %293, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %294
@@ -65916,7 +65831,7 @@ cgltf_json_strcmp.exit191.thread.i:               ; preds = %cgltf_json_strcmp.e
 309:                                              ; preds = %321, %cgltf_json_strcmp.exit191.thread.i
   %indvars.iv.i194.i = phi i64 [ %308, %cgltf_json_strcmp.exit191.thread.i ], [ %indvars.iv.next.i197.i, %321 ]
   %.016.i195.i = phi i32 [ %307, %cgltf_json_strcmp.exit191.thread.i ], [ %.1.i196.i, %321 ]
-  %310 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i194.i
+  %310 = getelementptr inbounds [32 x i8], ptr %1, i64 %indvars.iv.i194.i
   %311 = load i32, ptr %310, align 8
   switch i32 %311, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %312
@@ -65982,7 +65897,7 @@ define internal fastcc range(i32 -2147483646, -2147483647) i32 @cgltf_skip_json(
 5:                                                ; preds = %2, %17
   %indvars.iv = phi i64 [ %4, %2 ], [ %indvars.iv.next, %17 ]
   %.016 = phi i32 [ %3, %2 ], [ %.1, %17 ]
-  %6 = getelementptr inbounds %struct.jsmntok_t, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds [32 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %.split.loop.exit18 [
     i32 1, label %8
@@ -66025,7 +65940,7 @@ define internal fastcc i32 @cgltf_parse_json_variants(ptr noundef nonnull readon
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 320
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, 2
   br i1 %.not.i, label %14, label %11
@@ -66070,9 +65985,9 @@ cgltf_parse_json_array.exit:                      ; preds = %20
   %.02144 = phi i64 [ %142, %cgltf_parse_json_variant.exit.thread32 ], [ 0, %cgltf_parse_json_array.exit ]
   %.02343 = phi i32 [ %.035.i34, %cgltf_parse_json_variant.exit.thread32 ], [ %27, %cgltf_parse_json_array.exit ]
   %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds nuw %struct.cgltf_material_variant, ptr %29, i64 %.02144
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %.02144
   %31 = zext nneg i32 %.02343 to i64
-  %32 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %31
   %33 = load i32, ptr %32, align 8
   %.not.i29 = icmp eq i32 %33, 1
   br i1 %.not.i29, label %34, label %cgltf_parse_json_array.exit.thread
@@ -66094,7 +66009,7 @@ cgltf_parse_json_array.exit:                      ; preds = %20
   %.03459.i = phi i32 [ 0, %.lr.ph.i ], [ %140, %139 ]
   %.03658.i = phi i32 [ %37, %.lr.ph.i ], [ %.23853.i, %139 ]
   %42 = zext nneg i32 %.03658.i to i64
-  %43 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %42
   %44 = load i32, ptr %43, align 8
   %.not39.i = icmp eq i32 %44, 3
   br i1 %.not39.i, label %45, label %cgltf_parse_json_array.exit.thread
@@ -66173,7 +66088,7 @@ cgltf_json_strcmp.exit45.i:                       ; preds = %49
 85:                                               ; preds = %83
   %86 = add nuw nsw i32 %.03658.i, 1
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %87
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i64, ptr %89, align 8
   store i64 %90, ptr %39, align 8
@@ -66202,7 +66117,7 @@ cgltf_json_strcmp.exit45.i:                       ; preds = %49
 105:                                              ; preds = %117, %99
   %indvars.iv.i.i.i = phi i64 [ %87, %99 ], [ %indvars.iv.next.i.i.i, %117 ]
   %.016.i.i.i = phi i32 [ %104, %99 ], [ %.1.i.i.i, %117 ]
-  %106 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i.i
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i.i
   %107 = load i32, ptr %106, align 8
   switch i32 %107, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %108
@@ -66240,7 +66155,7 @@ cgltf_json_strcmp.exit45.thread.i:                ; preds = %cgltf_json_strcmp.e
 123:                                              ; preds = %135, %cgltf_json_strcmp.exit45.thread.i
   %indvars.iv.i.i = phi i64 [ %122, %cgltf_json_strcmp.exit45.thread.i ], [ %indvars.iv.next.i.i, %135 ]
   %.016.i.i = phi i32 [ %121, %cgltf_json_strcmp.exit45.thread.i ], [ %.1.i.i, %135 ]
-  %124 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i
   %125 = load i32, ptr %124, align 8
   switch i32 %125, label %cgltf_parse_json_array.exit.thread [
     i32 1, label %126
@@ -66300,7 +66215,7 @@ cgltf_parse_json_array.exit.thread:               ; preds = %cgltf_parse_json_va
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483646, -2147483647) i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %1, i64 %6
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 3
   br i1 %.not, label %9, label %cgltf_skip_json.exit
@@ -66308,7 +66223,7 @@ define internal fastcc range(i32 -2147483646, -2147483647) i32 @cgltf_parse_json
 9:                                                ; preds = %5
   %10 = add nsw i32 %2, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %1, i64 %11
   %13 = load i32, ptr %12, align 8
   %.not43 = icmp eq i32 %13, 1
   br i1 %.not43, label %14, label %cgltf_skip_json.exit
@@ -66367,7 +66282,7 @@ define internal fastcc range(i32 -2147483646, -2147483647) i32 @cgltf_parse_json
 50:                                               ; preds = %62, %44
   %indvars.iv.i = phi i64 [ %11, %44 ], [ %indvars.iv.next.i, %62 ]
   %.016.i = phi i32 [ %49, %44 ], [ %.1.i, %62 ]
-  %51 = getelementptr inbounds %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %51 = getelementptr inbounds [32 x i8], ptr %1, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 8
   switch i32 %52, label %cgltf_skip_json.exit [
     i32 1, label %53
@@ -66408,7 +66323,7 @@ cgltf_skip_json.exit:                             ; preds = %50, %.split.loop.ex
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2, -2147483648) i32 @cgltf_parse_json_string_array(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = zext nneg i32 %2 to i64
-  %8 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %7
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 2
   br i1 %.not, label %10, label %cgltf_parse_json_array.exit.thread
@@ -66451,8 +66366,8 @@ cgltf_parse_json_array.exit:                      ; preds = %16
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %cgltf_parse_json_string.exit ]
   %.02339 = phi i64 [ 0, %.lr.ph ], [ %47, %cgltf_parse_json_string.exit ]
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.02339
-  %27 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.02339
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
   %28 = load i32, ptr %27, align 8
   %.not.i31 = icmp eq i32 %28, 3
   br i1 %.not.i31, label %29, label %cgltf_parse_json_array.exit.thread
@@ -66504,7 +66419,7 @@ cgltf_parse_json_array.exit.thread:               ; preds = %31, %24, %29, %cglt
 define internal fastcc range(i32 -2, -2147483648) i32 @cgltf_parse_json_attribute_list(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = alloca [128 x i8], align 16
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 1
   br i1 %.not, label %11, label %.thread
@@ -66549,7 +66464,7 @@ cgltf_calloc.exit:                                ; preds = %17
   %.04160 = phi i32 [ %118, %cgltf_json_to_int.exit ], [ %.04157, %cgltf_calloc.exit ]
   %.03959 = phi i64 [ %114, %cgltf_json_to_int.exit ], [ 0, %cgltf_calloc.exit ]
   %25 = zext nneg i32 %.04160 to i64
-  %26 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %25
   %27 = load i32, ptr %26, align 8
   %.not46 = icmp eq i32 %27, 3
   br i1 %.not46, label %28, label %.thread
@@ -66562,7 +66477,7 @@ cgltf_calloc.exit:                                ; preds = %17
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %33, i64 %.03959
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %.03959
   %35 = load ptr, ptr %34, align 8
   %.not22.i = icmp eq ptr %35, null
   br i1 %.not22.i, label %36, label %.thread
@@ -66592,7 +66507,7 @@ cgltf_parse_json_string.exit:                     ; preds = %36
   store ptr %46, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %52, i64 %.03959
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %.03959
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 12
@@ -66686,7 +66601,7 @@ cgltf_parse_json_string.exit:                     ; preds = %36
   br label %cgltf_parse_attribute_type.exit
 
 cgltf_parse_attribute_type.exit:                  ; preds = %59, %89, %.thread.i, %90, %95
-  %96 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.next
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.next
   %97 = load i32, ptr %96, align 8
   %.not.i50 = icmp eq i32 %97, 4
   br i1 %.not.i50, label %98, label %cgltf_json_to_int.exit
@@ -66714,7 +66629,7 @@ cgltf_parse_attribute_type.exit:                  ; preds = %59, %89, %.thread.i
 cgltf_json_to_int.exit:                           ; preds = %cgltf_parse_attribute_type.exit, %98
   %.0.i51 = phi ptr [ %110, %98 ], [ null, %cgltf_parse_attribute_type.exit ]
   %111 = load ptr, ptr %4, align 8
-  %112 = getelementptr inbounds nuw %struct.cgltf_attribute, ptr %111, i64 %.03959
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %111, i64 %.03959
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %.0.i51, ptr %113, align 8
   %114 = add nuw i64 %.03959, 1
@@ -66734,7 +66649,7 @@ define internal fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef n
   %7 = alloca [128 x i8], align 16
   %8 = alloca [128 x i8], align 16
   %9 = zext nneg i32 %2 to i64
-  %10 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %9
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 2
   br i1 %.not, label %12, label %.thread186
@@ -66756,7 +66671,7 @@ define internal fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef n
   %.091243 = phi i32 [ %15, %.lr.ph244 ], [ %.495, %.thread196 ]
   %.0107242 = phi i32 [ 0, %.lr.ph244 ], [ %208, %.thread196 ]
   %19 = zext nneg i32 %.091243 to i64
-  %20 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %19
   %21 = load i32, ptr %20, align 8
   %.not118 = icmp eq i32 %21, 1
   br i1 %.not118, label %22, label %.thread186
@@ -66783,7 +66698,7 @@ define internal fastcc i32 @cgltf_parse_json_material_mapping_data(ptr noundef n
   %.0101231 = phi i32 [ %.2103, %26 ], [ -1, %.lr.ph.preheader ]
   %.0104230 = phi i32 [ %.2106, %26 ], [ -1, %.lr.ph.preheader ]
   %28 = zext nneg i32 %.293234 to i64
-  %29 = getelementptr %struct.jsmntok_t, ptr %1, i64 %28
+  %29 = getelementptr [32 x i8], ptr %1, i64 %28
   %30 = load i32, ptr %29, align 8
   %.not119 = icmp eq i32 %30, 3
   br i1 %.not119, label %31, label %.thread186
@@ -66848,7 +66763,7 @@ cgltf_json_strcmp.exit130:                        ; preds = %cgltf_json_strcmp.e
 62:                                               ; preds = %cgltf_json_strcmp.exit130
   %63 = add nuw nsw i32 %.293234, 1
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %64
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %64
   %66 = load i32, ptr %65, align 8
   %.not120 = icmp eq i32 %66, 2
   br i1 %.not120, label %67, label %.thread186
@@ -66860,7 +66775,7 @@ cgltf_json_strcmp.exit130:                        ; preds = %cgltf_json_strcmp.e
 69:                                               ; preds = %81, %67
   %indvars.iv.i = phi i64 [ %64, %67 ], [ %indvars.iv.next.i, %81 ]
   %.016.i = phi i32 [ %68, %67 ], [ %.1.i, %81 ]
-  %70 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i
   %71 = load i32, ptr %70, align 8
   switch i32 %71, label %.thread186 [
     i32 1, label %72
@@ -66908,7 +66823,7 @@ cgltf_json_strcmp.exit133:                        ; preds = %35
 92:                                               ; preds = %104, %88
   %indvars.iv.i134 = phi i64 [ %91, %88 ], [ %indvars.iv.next.i137, %104 ]
   %.016.i135 = phi i32 [ %90, %88 ], [ %.1.i136, %104 ]
-  %93 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i134
+  %93 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i134
   %94 = load i32, ptr %93, align 8
   switch i32 %94, label %.thread186 [
     i32 1, label %95
@@ -66950,7 +66865,7 @@ cgltf_json_strcmp.exit133.thread:                 ; preds = %35, %cgltf_json_str
 111:                                              ; preds = %123, %cgltf_json_strcmp.exit133.thread
   %indvars.iv.i141 = phi i64 [ %110, %cgltf_json_strcmp.exit133.thread ], [ %indvars.iv.next.i144, %123 ]
   %.016.i142 = phi i32 [ %109, %cgltf_json_strcmp.exit133.thread ], [ %.1.i143, %123 ]
-  %112 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i141
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i141
   %113 = load i32, ptr %112, align 8
   switch i32 %113, label %.thread186 [
     i32 1, label %114
@@ -66999,7 +66914,7 @@ cgltf_skip_json.exit:                             ; preds = %.split.loop.exit.i1
 
 130:                                              ; preds = %.thread167
   %131 = zext nneg i32 %.2103 to i64
-  %132 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %131
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %134 = load i32, ptr %133, align 8
   br i1 %.not122, label %.thread190, label %.preheader
@@ -67014,17 +66929,17 @@ cgltf_skip_json.exit:                             ; preds = %.split.loop.exit.i1
   %136 = inttoptr i64 %135 to ptr
   %137 = icmp sgt i32 %.2100, -1
   %138 = zext nneg i32 %.2100 to i64
-  %139 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %138
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %142 = add nuw nsw i32 %.2100, 1
   %143 = zext nneg i32 %.2103 to i64
-  %invariant.gep = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %143
+  %invariant.gep = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %143
   br label %144
 
 144:                                              ; preds = %.lr.ph240, %cgltf_parse_json_extras.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph240 ], [ %indvars.iv.next, %cgltf_parse_json_extras.exit ]
-  %gep = getelementptr inbounds nuw %struct.jsmntok_t, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep, i64 %indvars.iv
   %145 = getelementptr inbounds nuw i8, ptr %gep, i64 32
   %146 = load i32, ptr %145, align 8
   %.not.i148 = icmp eq i32 %146, 4
@@ -67050,18 +66965,18 @@ cgltf_json_to_int.exit151:                        ; preds = %144
 
 158:                                              ; preds = %cgltf_json_to_int.exit151
   %159 = load i64, ptr %5, align 8
-  %160 = getelementptr inbounds nuw %struct.cgltf_material_mapping, ptr %4, i64 %159
+  %160 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %159
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr %136, ptr %161, align 8
   %162 = and i64 %155, 2147483647
   %163 = load i64, ptr %5, align 8
-  %164 = getelementptr inbounds nuw %struct.cgltf_material_mapping, ptr %4, i64 %163
+  %164 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %163
   store i64 %162, ptr %164, align 8
   br i1 %137, label %165, label %cgltf_parse_json_extras.exit
 
 165:                                              ; preds = %158
   %166 = load i64, ptr %5, align 8
-  %167 = getelementptr inbounds nuw %struct.cgltf_material_mapping, ptr %4, i64 %166
+  %167 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %169 = load ptr, ptr %168, align 8
   %.not.i152 = icmp eq ptr %169, null
@@ -67095,7 +67010,7 @@ cgltf_json_to_int.exit151:                        ; preds = %144
 186:                                              ; preds = %198, %181
   %indvars.iv.i.i = phi i64 [ %138, %181 ], [ %indvars.iv.next.i.i, %198 ]
   %.016.i.i = phi i32 [ %142, %181 ], [ %.1.i.i, %198 ]
-  %187 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i.i
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i.i
   %188 = load i32, ptr %187, align 8
   switch i32 %188, label %.thread186 [
     i32 1, label %189
@@ -67165,7 +67080,7 @@ define internal fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull re
   %11 = alloca [128 x i8], align 16
   %12 = alloca [128 x i8], align 16
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %13
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 1
   br i1 %.not, label %16, label %.thread
@@ -67178,7 +67093,7 @@ define internal fastcc i32 @cgltf_parse_json_texture_view(ptr noundef nonnull re
 
 19:                                               ; preds = %19, %16
   %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %19 ]
-  %20 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   store float 1.000000e+00, ptr %20, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
@@ -67204,7 +67119,7 @@ cgltf_fill_float_array.exit:                      ; preds = %19
   %.09147 = phi i32 [ 0, %.lr.ph48 ], [ %319, %cgltf_skip_json.exit143.thread18 ]
   %.09246 = phi i32 [ %24, %.lr.ph48 ], [ %.29421, %cgltf_skip_json.exit143.thread18 ]
   %31 = zext nneg i32 %.09246 to i64
-  %32 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %31
   %33 = load i32, ptr %32, align 8
   %.not98 = icmp eq i32 %33, 3
   br i1 %.not98, label %34, label %.thread
@@ -67235,7 +67150,7 @@ cgltf_json_strcmp.exit:                           ; preds = %38
 
 47:                                               ; preds = %cgltf_json_strcmp.exit
   %48 = zext nneg i32 %.09246 to i64
-  %49 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %48
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load i32, ptr %50, align 8
   %.not.i103 = icmp eq i32 %51, 4
@@ -67275,7 +67190,7 @@ cgltf_json_strcmp.exit107:                        ; preds = %38
 
 69:                                               ; preds = %cgltf_json_strcmp.exit107
   %70 = zext nneg i32 %.09246 to i64
-  %71 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %70
+  %71 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load i32, ptr %72, align 8
   %.not.i108 = icmp eq i32 %73, 4
@@ -67312,7 +67227,7 @@ cgltf_json_strcmp.exit114:                        ; preds = %cgltf_json_strcmp.e
 
 89:                                               ; preds = %cgltf_json_strcmp.exit114
   %90 = zext nneg i32 %.09246 to i64
-  %91 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %90
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load i32, ptr %92, align 8
   %.not.i115 = icmp eq i32 %93, 4
@@ -67349,7 +67264,7 @@ cgltf_json_strcmp.exit120:                        ; preds = %cgltf_json_strcmp.e
 
 109:                                              ; preds = %cgltf_json_strcmp.exit120
   %110 = zext nneg i32 %.09246 to i64
-  %111 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %110
+  %111 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %113 = load i32, ptr %112, align 8
   %.not.i121 = icmp eq i32 %113, 4
@@ -67386,7 +67301,7 @@ cgltf_json_strcmp.exit127:                        ; preds = %38
 
 129:                                              ; preds = %cgltf_json_strcmp.exit127
   %130 = zext nneg i32 %.09246 to i64
-  %131 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %130
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load i32, ptr %132, align 8
   %.not99 = icmp eq i32 %133, 1
@@ -67403,7 +67318,7 @@ cgltf_json_strcmp.exit127:                        ; preds = %38
   %.044 = phi i32 [ %298, %cgltf_parse_json_texture_transform.exit.thread8 ], [ 0, %134 ]
   %.39543 = phi i32 [ %.59710, %cgltf_parse_json_texture_transform.exit.thread8 ], [ %137, %134 ]
   %138 = zext nneg i32 %.39543 to i64
-  %139 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %138
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %138
   %140 = load i32, ptr %139, align 8
   %.not100 = icmp eq i32 %140, 3
   br i1 %.not100, label %141, label %.thread
@@ -67432,7 +67347,7 @@ cgltf_json_strcmp.exit130:                        ; preds = %145
 155:                                              ; preds = %cgltf_json_strcmp.exit130
   store i32 1, ptr %25, align 8
   %156 = zext nneg i32 %.39543 to i64
-  %157 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %156
+  %157 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
   %159 = load i32, ptr %158, align 8
   %.not.i131 = icmp eq i32 %159, 1
@@ -67449,7 +67364,7 @@ cgltf_json_strcmp.exit130:                        ; preds = %145
   %.051105.i = phi i32 [ %277, %cgltf_parse_json_float_array.exit.thread96.i ], [ 0, %160 ]
   %.053104.i = phi i32 [ %.25598.i, %cgltf_parse_json_float_array.exit.thread96.i ], [ %163, %160 ]
   %164 = zext nneg i32 %.053104.i to i64
-  %165 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %164
+  %165 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %164
   %166 = load i32, ptr %165, align 8
   %.not56.i = icmp eq i32 %166, 3
   br i1 %.not56.i, label %167, label %.thread
@@ -67499,7 +67414,7 @@ cgltf_json_strcmp.exit.i:                         ; preds = %171
   %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %cgltf_json_to_float.exit.i.i ], [ %186, %.preheader.i.i ]
   %exitcond.not.i.i = phi i1 [ true, %cgltf_json_to_float.exit.i.i ], [ false, %.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ 1, %cgltf_json_to_float.exit.i.i ], [ 0, %.preheader.i.i ]
-  %187 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %indvars.iv124.i
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv124.i
   %188 = load i32, ptr %187, align 8
   %.not24.i.i = icmp eq i32 %188, 4
   br i1 %.not24.i.i, label %cgltf_json_to_float.exit.i.i, label %.thread
@@ -67519,7 +67434,7 @@ cgltf_json_to_float.exit.i.i:                     ; preds = %.lr.ph.i.i
   %197 = call double @strtod(ptr noundef nonnull captures(none) %8, ptr noundef null) #63
   %198 = fptrunc double %197 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %199 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.i
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.i
   store float %198, ptr %199, align 4
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   br i1 %exitcond.not.i.i, label %cgltf_parse_json_float_array.exit.i, label %.lr.ph.i.i
@@ -67586,7 +67501,7 @@ cgltf_json_strcmp.exit66.i:                       ; preds = %171
   %indvars.iv.i133 = phi i64 [ %indvars.iv.next.i134, %cgltf_json_to_float.exit.i76.i ], [ %227, %.preheader.i70.i ]
   %exitcond.not.i80.i = phi i1 [ true, %cgltf_json_to_float.exit.i76.i ], [ false, %.preheader.i70.i ]
   %indvars.iv.i73.i = phi i64 [ 1, %cgltf_json_to_float.exit.i76.i ], [ 0, %.preheader.i70.i ]
-  %228 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %indvars.iv.i133
+  %228 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv.i133
   %229 = load i32, ptr %228, align 8
   %.not24.i75.i = icmp eq i32 %229, 4
   br i1 %.not24.i75.i, label %cgltf_json_to_float.exit.i76.i, label %.thread
@@ -67606,7 +67521,7 @@ cgltf_json_to_float.exit.i76.i:                   ; preds = %.lr.ph.i72.i
   %238 = call double @strtod(ptr noundef nonnull captures(none) %6, ptr noundef null) #63
   %239 = fptrunc double %238 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %240 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i73.i
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i73.i
   store float %239, ptr %240, align 4
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i133, 1
   br i1 %exitcond.not.i80.i, label %cgltf_parse_json_float_array.exit.i, label %.lr.ph.i72.i
@@ -67655,7 +67570,7 @@ cgltf_json_strcmp.exit84.thread.i:                ; preds = %cgltf_json_strcmp.e
 261:                                              ; preds = %273, %cgltf_json_strcmp.exit84.thread.i
   %indvars.iv.i88.i = phi i64 [ %260, %cgltf_json_strcmp.exit84.thread.i ], [ %indvars.iv.next.i89.i, %273 ]
   %.016.i.i = phi i32 [ %259, %cgltf_json_strcmp.exit84.thread.i ], [ %.1.i.i, %273 ]
-  %262 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %indvars.iv.i88.i
+  %262 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv.i88.i
   %263 = load i32, ptr %262, align 8
   switch i32 %263, label %.thread [
     i32 1, label %264
@@ -67705,7 +67620,7 @@ cgltf_json_strcmp.exit130.thread:                 ; preds = %145, %cgltf_json_st
 281:                                              ; preds = %293, %cgltf_json_strcmp.exit130.thread
   %indvars.iv.i135 = phi i64 [ %280, %cgltf_json_strcmp.exit130.thread ], [ %indvars.iv.next.i136, %293 ]
   %.016.i = phi i32 [ %279, %cgltf_json_strcmp.exit130.thread ], [ %.1.i, %293 ]
-  %282 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %indvars.iv.i135
+  %282 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv.i135
   %283 = load i32, ptr %282, align 8
   switch i32 %283, label %.thread [
     i32 1, label %284
@@ -67758,7 +67673,7 @@ cgltf_json_strcmp.exit127.thread:                 ; preds = %38, %cgltf_json_str
 302:                                              ; preds = %314, %cgltf_json_strcmp.exit127.thread
   %indvars.iv.i137 = phi i64 [ %301, %cgltf_json_strcmp.exit127.thread ], [ %indvars.iv.next.i140, %314 ]
   %.016.i138 = phi i32 [ %300, %cgltf_json_strcmp.exit127.thread ], [ %.1.i139, %314 ]
-  %303 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %indvars.iv.i137
+  %303 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv.i137
   %304 = load i32, ptr %303, align 8
   switch i32 %304, label %.thread [
     i32 1, label %305
@@ -67814,7 +67729,7 @@ define internal fastcc i32 @cgltf_parse_json_iridescence(ptr noundef nonnull %0,
   %7 = alloca [128 x i8], align 16
   %8 = alloca [128 x i8], align 16
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %9
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 1
   br i1 %.not, label %12, label %cgltf_skip_json.exit.thread9
@@ -67841,7 +67756,7 @@ define internal fastcc i32 @cgltf_parse_json_iridescence(ptr noundef nonnull %0,
   %.07314 = phi i32 [ 0, %.lr.ph ], [ %147, %cgltf_skip_json.exit.thread ]
   %.07513 = phi i32 [ %15, %.lr.ph ], [ %.2778, %cgltf_skip_json.exit.thread ]
   %22 = zext nneg i32 %.07513 to i64
-  %23 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %22
   %24 = load i32, ptr %23, align 8
   %.not78 = icmp eq i32 %24, 3
   br i1 %.not78, label %25, label %cgltf_skip_json.exit.thread9
@@ -67873,7 +67788,7 @@ cgltf_json_strcmp.exit:                           ; preds = %29
 
 38:                                               ; preds = %cgltf_json_strcmp.exit
   %39 = zext nneg i32 %.07513 to i64
-  %40 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load i32, ptr %41, align 8
   %.not.i80 = icmp eq i32 %42, 4
@@ -67921,7 +67836,7 @@ cgltf_json_strcmp.exit87:                         ; preds = %29
 
 64:                                               ; preds = %cgltf_json_strcmp.exit87
   %65 = zext nneg i32 %.07513 to i64
-  %66 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %65
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load i32, ptr %67, align 8
   %.not.i88 = icmp eq i32 %68, 4
@@ -67958,7 +67873,7 @@ cgltf_json_strcmp.exit94:                         ; preds = %29
 
 84:                                               ; preds = %cgltf_json_strcmp.exit94
   %85 = zext nneg i32 %.07513 to i64
-  %86 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %88 = load i32, ptr %87, align 8
   %.not.i95 = icmp eq i32 %88, 4
@@ -67995,7 +67910,7 @@ cgltf_json_strcmp.exit101:                        ; preds = %cgltf_json_strcmp.e
 
 104:                                              ; preds = %cgltf_json_strcmp.exit101
   %105 = zext nneg i32 %.07513 to i64
-  %106 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %105
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load i32, ptr %107, align 8
   %.not.i102 = icmp eq i32 %108, 4
@@ -68044,7 +67959,7 @@ cgltf_json_strcmp.exit108.thread:                 ; preds = %29, %cgltf_json_str
 130:                                              ; preds = %142, %cgltf_json_strcmp.exit108.thread
   %indvars.iv.i = phi i64 [ %129, %cgltf_json_strcmp.exit108.thread ], [ %indvars.iv.next.i, %142 ]
   %.016.i = phi i32 [ %128, %cgltf_json_strcmp.exit108.thread ], [ %.1.i, %142 ]
-  %131 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %indvars.iv.i
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv.i
   %132 = load i32, ptr %131, align 8
   switch i32 %132, label %cgltf_skip_json.exit.thread9 [
     i32 1, label %133
@@ -68098,7 +68013,7 @@ define internal fastcc i32 @cgltf_parse_json_anisotropy(ptr noundef nonnull %0, 
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %7
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 1
   br i1 %.not, label %10, label %cgltf_skip_json.exit.thread6
@@ -68119,7 +68034,7 @@ define internal fastcc i32 @cgltf_parse_json_anisotropy(ptr noundef nonnull %0, 
   %.04411 = phi i32 [ 0, %.lr.ph ], [ %96, %cgltf_skip_json.exit.thread ]
   %.04610 = phi i32 [ %13, %.lr.ph ], [ %.2485, %cgltf_skip_json.exit.thread ]
   %17 = zext nneg i32 %.04610 to i64
-  %18 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 8
   %.not49 = icmp eq i32 %19, 3
   br i1 %.not49, label %20, label %cgltf_skip_json.exit.thread6
@@ -68149,7 +68064,7 @@ cgltf_json_strcmp.exit:                           ; preds = %24
 
 33:                                               ; preds = %cgltf_json_strcmp.exit
   %34 = zext nneg i32 %.04610 to i64
-  %35 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8
   %.not.i51 = icmp eq i32 %37, 4
@@ -68186,7 +68101,7 @@ cgltf_json_strcmp.exit55:                         ; preds = %cgltf_json_strcmp.e
 
 53:                                               ; preds = %cgltf_json_strcmp.exit55
   %54 = zext nneg i32 %.04610 to i64
-  %55 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load i32, ptr %56, align 8
   %.not.i56 = icmp eq i32 %57, 4
@@ -68235,7 +68150,7 @@ cgltf_json_strcmp.exit62.thread:                  ; preds = %24, %cgltf_json_str
 79:                                               ; preds = %91, %cgltf_json_strcmp.exit62.thread
   %indvars.iv.i = phi i64 [ %78, %cgltf_json_strcmp.exit62.thread ], [ %indvars.iv.next.i, %91 ]
   %.016.i = phi i32 [ %77, %cgltf_json_strcmp.exit62.thread ], [ %.1.i, %91 ]
-  %80 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv.i
   %81 = load i32, ptr %80, align 8
   switch i32 %81, label %cgltf_skip_json.exit.thread6 [
     i32 1, label %82
@@ -68288,7 +68203,7 @@ cgltf_skip_json.exit.thread6:                     ; preds = %cgltf_skip_json.exi
 define internal fastcc i32 @cgltf_parse_json_dispersion(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #50 {
   %5 = alloca [128 x i8], align 16
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %6
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 1
   br i1 %.not, label %9, label %cgltf_skip_json.exit.thread
@@ -68304,7 +68219,7 @@ define internal fastcc i32 @cgltf_parse_json_dispersion(ptr noundef nonnull read
   %.02744 = phi i32 [ %67, %66 ], [ 0, %9 ]
   %.02943 = phi i32 [ %.23140, %66 ], [ %12, %9 ]
   %13 = zext nneg i32 %.02943 to i64
-  %14 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %13
   %15 = load i32, ptr %14, align 8
   %.not32 = icmp eq i32 %15, 3
   br i1 %.not32, label %16, label %cgltf_skip_json.exit.thread
@@ -68332,7 +68247,7 @@ cgltf_json_strcmp.exit:                           ; preds = %20
 
 30:                                               ; preds = %cgltf_json_strcmp.exit
   %31 = sext i32 %.02943 to i64
-  %32 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load i32, ptr %33, align 8
   %.not.i34 = icmp eq i32 %34, 4
@@ -68370,7 +68285,7 @@ cgltf_json_strcmp.exit.thread:                    ; preds = %20, %cgltf_json_str
 50:                                               ; preds = %62, %cgltf_json_strcmp.exit.thread
   %indvars.iv.i = phi i64 [ %49, %cgltf_json_strcmp.exit.thread ], [ %indvars.iv.next.i, %62 ]
   %.016.i = phi i32 [ %48, %cgltf_json_strcmp.exit.thread ], [ %.1.i, %62 ]
-  %51 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 8
   switch i32 %52, label %cgltf_skip_json.exit.thread [
     i32 1, label %53
@@ -68434,7 +68349,7 @@ define internal fastcc range(i32 0, 2) i32 @_m3dstbi__zbuild_huffman(ptr noundef
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -68458,7 +68373,7 @@ define internal fastcc range(i32 0, 2) i32 @_m3dstbi__zbuild_huffman(ptr noundef
 
 ._crit_edge:                                      ; preds = %._crit_edge.preheader, %13
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %13 ], [ 1, %._crit_edge.preheader ]
-  %17 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv83
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv83
   %18 = load i32, ptr %17, align 4
   %19 = trunc nuw nsw i64 %indvars.iv83 to i32
   %20 = shl nuw nsw i32 1, %19
@@ -68469,15 +68384,15 @@ define internal fastcc range(i32 0, 2) i32 @_m3dstbi__zbuild_huffman(ptr noundef
   %indvars.iv87 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next88, %33 ]
   %.06474 = phi i32 [ 0, %.preheader ], [ %39, %33 ]
   %.06573 = phi i32 [ 0, %.preheader ], [ %38, %33 ]
-  %23 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv87
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv87
   store i32 %.06573, ptr %23, align 4
   %24 = trunc i32 %.06573 to i16
-  %25 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv87
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv87
   store i16 %24, ptr %25, align 2
   %26 = trunc i32 %.06474 to i16
-  %27 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv87
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv87
   store i16 %26, ptr %27, align 2
-  %28 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv87
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv87
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, %.06573
   %.not68 = icmp ne i32 %29, 0
@@ -68491,7 +68406,7 @@ define internal fastcc range(i32 0, 2) i32 @_m3dstbi__zbuild_huffman(ptr noundef
   %34 = trunc i64 %indvars.iv87 to i32
   %35 = sub i32 16, %34
   %36 = shl i32 %30, %35
-  %37 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv87
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv87
   store i32 %36, ptr %37, align 4
   %38 = shl i32 %30, 1
   %39 = add nsw i32 %29, %.06474
@@ -68520,13 +68435,13 @@ define internal fastcc range(i32 0, 2) i32 @_m3dstbi__zbuild_huffman(ptr noundef
 
 48:                                               ; preds = %44
   %49 = zext i8 %46 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %4, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %49
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds nuw i16, ptr %14, i64 %49
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %49
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   %55 = sub i32 %51, %54
-  %56 = getelementptr inbounds nuw i16, ptr %15, i64 %49
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %49
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i32
   %59 = add nsw i32 %55, %58
@@ -68538,7 +68453,7 @@ define internal fastcc range(i32 0, 2) i32 @_m3dstbi__zbuild_huffman(ptr noundef
   %65 = getelementptr inbounds i8, ptr %42, i64 %64
   store i8 %46, ptr %65, align 1
   %66 = trunc i64 %indvars.iv94 to i16
-  %67 = getelementptr inbounds i16, ptr %43, i64 %64
+  %67 = getelementptr inbounds [2 x i8], ptr %43, i64 %64
   store i16 %66, ptr %67, align 2
   %68 = icmp ult i8 %46, 10
   br i1 %68, label %.lr.ph78, label %.loopexit
@@ -68556,7 +68471,7 @@ define internal fastcc range(i32 0, 2) i32 @_m3dstbi__zbuild_huffman(ptr noundef
 
 75:                                               ; preds = %.lr.ph78, %75
   %indvars.iv91 = phi i64 [ %73, %.lr.ph78 ], [ %indvars.iv.next92, %75 ]
-  %76 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv91
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv91
   store i16 %63, ptr %76, align 2
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, %74
   %77 = icmp samesign ult i64 %indvars.iv.next92, 512
@@ -69850,7 +69765,7 @@ define internal fastcc void @BuildPoseFromParentJoints(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %102 ]
-  %5 = getelementptr inbounds nuw %struct.BoneInfo, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [36 x i8], ptr %0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, -1
@@ -69867,10 +69782,10 @@ define internal fastcc void @BuildPoseFromParentJoints(ptr noundef readonly capt
   br label %102
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw %struct.Transform, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = zext nneg i32 %7 to i64
-  %18 = getelementptr inbounds nuw %struct.Transform, ptr %2, i64 %17
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load <2 x float>, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 20
@@ -69914,7 +69829,7 @@ define internal fastcc void @BuildPoseFromParentJoints(ptr noundef readonly capt
   store <2 x float> %.sroa.4.12.vec.insert.i, ptr %24, align 4
   %46 = load i32, ptr %6, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.Transform, ptr %2, i64 %47
+  %48 = getelementptr inbounds [40 x i8], ptr %2, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %.sroa.020.0.copyload = load <2 x float>, ptr %15, align 4
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -69971,7 +69886,7 @@ define internal fastcc void @BuildPoseFromParentJoints(ptr noundef readonly capt
   store float %89, ptr %.sroa.221.0..sroa_idx, align 4
   %90 = load i32, ptr %6, align 4
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %struct.Transform, ptr %2, i64 %91
+  %92 = getelementptr inbounds [40 x i8], ptr %2, i64 %91
   %.sroa.010.0.copyload = load <2 x float>, ptr %92, align 4
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 8
   %.sroa.211.0.copyload = load float, ptr %.sroa.211.0..sroa_idx, align 4
@@ -69987,7 +69902,7 @@ define internal fastcc void @BuildPoseFromParentJoints(ptr noundef readonly capt
   %96 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %97 = load i32, ptr %6, align 4
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %struct.Transform, ptr %2, i64 %98
+  %99 = getelementptr inbounds [40 x i8], ptr %2, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 28
   %.sroa.03.0.copyload = load <2 x float>, ptr %96, align 4
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 36

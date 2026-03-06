@@ -10,11 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %struct.mk_pp = type { %struct.mk_ismt2_pp }
-%"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry" = type { %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" }
-%"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" = type { ptr, %"struct.std::pair" }
-%"struct.std::pair" = type { i32, ptr }
-%"class.obj_map<func_decl, func_interp *>::obj_map_entry" = type { %"struct.obj_map<func_decl, func_interp *>::key_data" }
-%"struct.obj_map<func_decl, func_interp *>::key_data" = type { ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -165,7 +160,7 @@ _ZNK10model_core17get_num_constantsEv.exit.i:     ; preds = %_ZL22display_uninte
 60:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.lr.ph.i7
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i7 ], [ %indvars.iv.next.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   %61 = load ptr, ptr %50, align 8, !tbaa !30
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   %63 = load ptr, ptr %62, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -198,7 +193,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21.i: ; preds = %_ZS
   %.idx.i.i.i.i.i = mul nuw nsw i64 %79, 24
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx.i.i.i.i.i
   %81 = zext i32 %75 to i64
-  %82 = getelementptr inbounds nuw %"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry", ptr %78, i64 %81
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %81
   %.not34.i.i.i.i.i = icmp eq i32 %77, %75
   br i1 %.not34.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -363,7 +358,7 @@ _ZNK10model_core17get_num_functionsEv.exit.i:     ; preds = %_ZL17display_consta
 139:                                              ; preds = %._crit_edge89.i, %.lr.ph91.i
   %indvars.iv115.i = phi i64 [ 0, %.lr.ph91.i ], [ %indvars.iv.next116.i, %._crit_edge89.i ]
   %140 = load ptr, ptr %129, align 8, !tbaa !30
-  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv115.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv115.i
   %142 = load ptr, ptr %141, align 8, !tbaa !31
   %143 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.4, i64 noundef 9)
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 16
@@ -406,7 +401,7 @@ _ZlsRSo6symbol.exit.i:                            ; preds = %153, %151, %_ZStlsI
   %.idx.i.i.i.i.i11 = shl nuw nsw i64 %166, 4
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 %.idx.i.i.i.i.i11
   %168 = zext i32 %162 to i64
-  %169 = getelementptr inbounds nuw %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %165, i64 %168
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %165, i64 %168
   %.not34.i.i.i.i.i12 = icmp eq i32 %164, %162
   br i1 %.not34.i.i.i.i.i12, label %.preheader.i.i.i.i.i17, label %.lr.ph.i.i.i.i.i13
 
@@ -517,7 +512,7 @@ _ZNK11func_interp11num_entriesEv.exit.i:          ; preds = %._crit_edge.i31
 207:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72.i, %.lr.ph84.i
   %indvars.iv109.i = phi i64 [ 0, %.lr.ph84.i ], [ %indvars.iv.next110.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72.i ]
   %208 = load ptr, ptr %196, align 8, !tbaa !68
-  %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv109.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %indvars.iv109.i
   %210 = load ptr, ptr %209, align 8, !tbaa !72
   %211 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.6, i64 noundef 6)
   br i1 %201, label %.thread.i, label %213
@@ -542,7 +537,7 @@ _ZNK11func_interp11num_entriesEv.exit.i:          ; preds = %._crit_edge.i31
   %217 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %indvars.iv104.i)
   %218 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %217, ptr noundef nonnull @.str.1, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %219 = getelementptr inbounds nuw ptr, ptr %214, i64 %indvars.iv104.i
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %indvars.iv104.i
   %220 = load ptr, ptr %219, align 8, !tbaa !28
   call void @_ZN11mk_ismt2_ppC1EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %220, ptr noundef nonnull align 8 dereferenceable(976) %128, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %221 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %217, ptr noundef nonnull align 8 dereferenceable(48) %3)

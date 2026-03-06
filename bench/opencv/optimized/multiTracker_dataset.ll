@@ -544,7 +544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182: ; preds = %14
   store i64 0, ptr %133, align 8
   store i32 50397184, ptr %15, align 8, !tbaa !72
   store ptr @_ZL5image, ptr %132, align 8, !tbaa !75
-  %157 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %156, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [32 x i8], ptr %156, i64 %indvars.iv
   %158 = load <2 x double>, ptr %157, align 8
   %159 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %158)
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 8
@@ -722,7 +722,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit188: ; preds = %21
           to label %236 unwind label %264
 
 236:                                              ; preds = %.lr.ph317
-  %237 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %235, i64 %indvars.iv322
+  %237 = getelementptr inbounds nuw [32 x i8], ptr %235, i64 %indvars.iv322
   %238 = invoke noundef zeroext i1 @_ZN2cv6legacy8tracking16MultiTracker_Alt9addTargetERKNS_11_InputArrayERKNS_5Rect_IdEENS_3PtrINS1_7TrackerEEE(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(32) %237, ptr noundef nonnull %21)
           to label %239 unwind label %266
 
@@ -810,7 +810,7 @@ _ZNSt12__shared_ptrIN2cv6legacy8tracking7TrackerELN9__gnu_cxx12_Lock_policyE2EED
   store i32 50397184, ptr %22, align 8, !tbaa !72
   store ptr %9, ptr %186, align 8, !tbaa !75
   %272 = load ptr, ptr @boundingBoxes, align 8, !tbaa !4
-  %273 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %272, i64 %indvars.iv322
+  %273 = getelementptr inbounds nuw [32 x i8], ptr %272, i64 %indvars.iv322
   %274 = load <2 x double>, ptr %273, align 8
   %275 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %274)
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 8
@@ -882,7 +882,7 @@ _ZNSt12__shared_ptrIN2cv6legacy8tracking7TrackerELN9__gnu_cxx12_Lock_policyE2EED
   store i32 50397184, ptr %24, align 8, !tbaa !72
   store ptr %9, ptr %194, align 8, !tbaa !75
   %301 = load ptr, ptr %196, align 8, !tbaa !4
-  %302 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %301, i64 %indvars.iv325
+  %302 = getelementptr inbounds nuw [32 x i8], ptr %301, i64 %indvars.iv325
   %303 = load <2 x double>, ptr %302, align 8
   %304 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %303)
   %305 = getelementptr inbounds nuw i8, ptr %302, i64 8
@@ -902,7 +902,7 @@ _ZNSt12__shared_ptrIN2cv6legacy8tracking7TrackerELN9__gnu_cxx12_Lock_policyE2EED
   %.sroa.3.8.insert.ext.i208 = zext i32 %310 to i64
   %.sroa.3.8.insert.insert.i209 = or disjoint i64 %.sroa.5.8.insert.shift.i207, %.sroa.3.8.insert.ext.i208
   %313 = load ptr, ptr %188, align 8, !tbaa !90
-  %314 = getelementptr inbounds nuw %"class.cv::Scalar_", ptr %313, i64 %indvars.iv325
+  %314 = getelementptr inbounds nuw [32 x i8], ptr %313, i64 %indvars.iv325
   invoke void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_5Rect_IiEERKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 %.sroa.0.0.insert.insert.i204, i64 %.sroa.3.8.insert.insert.i209, ptr noundef nonnull align 8 dereferenceable(32) %314, i32 noundef 2, i32 noundef 1, i32 noundef 0)
           to label %315 unwind label %319
 
@@ -1569,7 +1569,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; pr
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %49, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %44, ptr @boundingBoxes, align 8, !tbaa !4
   store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @boundingBoxes, i64 8), align 8, !tbaa !76
-  %50 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %42
   store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @boundingBoxes, i64 16), align 8, !tbaa !101
   br label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backERKS2_.exit
 
@@ -1637,7 +1637,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backERKS2_.exit: ; preds = %29, %_ZNSt6
   store i64 0, ptr %71, align 8
   store i32 50397184, ptr %8, align 8, !tbaa !72
   store ptr %6, ptr %70, align 8, !tbaa !75
-  %77 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %indvars.iv
   %78 = load <2 x double>, ptr %77, align 8
   %79 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %78)
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8

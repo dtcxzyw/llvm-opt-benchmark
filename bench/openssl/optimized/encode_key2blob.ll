@@ -31,7 +31,7 @@ define internal range(i32 0, 2) i32 @ec2blob_does_selection(ptr readnone capture
 
 .preheader.i:                                     ; preds = %2, %7
   %.01117.i = phi i64 [ %8, %7 ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw i32, ptr @__const.key2blob_check_selection.checks, i64 %.01117.i
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @__const.key2blob_check_selection.checks, i64 %.01117.i
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = and i32 %5, %1
   %.not.i = icmp eq i32 %6, 0
@@ -115,7 +115,7 @@ define internal range(i32 0, 2) i32 @sm22blob_does_selection(ptr readnone captur
 
 .preheader.i:                                     ; preds = %2, %7
   %.01117.i = phi i64 [ %8, %7 ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw i32, ptr @__const.key2blob_check_selection.checks, i64 %.01117.i
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @__const.key2blob_check_selection.checks, i64 %.01117.i
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = and i32 %5, %1
   %.not.i = icmp eq i32 %6, 0

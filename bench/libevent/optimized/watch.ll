@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
-%struct.evwatch_list = type { ptr, ptr }
 
 @evthread_lock_fns_ = external local_unnamed_addr global %struct.evthread_lock_callbacks, align 8
 
@@ -138,7 +137,7 @@ define void @evwatch_free(ptr noundef %0) local_unnamed_addr #0 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.evwatch_list, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1184
   store ptr %12, ptr %21, align 8
   br label %22

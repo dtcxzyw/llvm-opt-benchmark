@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.anon.0 = type { ptr, i32 }
 
 @proto_register_smtp.hf = internal global [23 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_smtp_req, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_rsp, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_message, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_command_line, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_req_command, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_req_parameter, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_response, %struct._header_field_info { ptr @.str.2, ptr @.str.12, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_rsp_code, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 7, i32 513, ptr @response_codes_vs_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_rsp_parameter, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_username, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_password, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_username_password, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_eom, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_data_fragments, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 0, i32 0, ptr null, i64 0, ptr @.str.27, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_data_fragment, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 35, i32 0, ptr null, i64 0, ptr @.str.30, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_data_fragment_overlap, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 2, i32 0, ptr null, i64 0, ptr @.str.33, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_data_fragment_overlap_conflicts, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 2, i32 0, ptr null, i64 0, ptr @.str.36, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_data_fragment_multiple_tails, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 2, i32 0, ptr null, i64 0, ptr @.str.39, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_data_fragment_too_long_fragment, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 2, i32 0, ptr null, i64 0, ptr @.str.42, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_data_fragment_error, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 35, i32 0, ptr null, i64 0, ptr @.str.45, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_data_fragment_count, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_data_reassembled_in, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 35, i32 0, ptr null, i64 0, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_smtp_data_reassembled_length, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 7, i32 1, ptr null, i64 0, ptr @.str.53, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_smtp_req = internal global i32 0, align 4
@@ -486,7 +485,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 135:                                              ; preds = %.critedge.us
   %136 = load i8, ptr %.0258.us, align 1
   %137 = zext i8 %136 to i64
-  %138 = getelementptr i16, ptr %54, i64 %137
+  %138 = getelementptr [2 x i8], ptr %54, i64 %137
   %139 = load i16, ptr %138, align 2
   %140 = and i16 %139, 2
   %.not.i285.us = icmp eq i16 %140, 0
@@ -496,7 +495,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %142 = getelementptr i8, ptr %.0258.us, i64 1
   %143 = load i8, ptr %142, align 1
   %144 = zext i8 %143 to i64
-  %145 = getelementptr i16, ptr %54, i64 %144
+  %145 = getelementptr [2 x i8], ptr %54, i64 %144
   %146 = load i16, ptr %145, align 2
   %147 = and i16 %146, 2
   %.not14.i.us = icmp eq i16 %147, 0
@@ -506,7 +505,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %149 = getelementptr i8, ptr %.0258.us, i64 2
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i64
-  %152 = getelementptr i16, ptr %54, i64 %151
+  %152 = getelementptr [2 x i8], ptr %54, i64 %151
   %153 = load i16, ptr %152, align 2
   %154 = and i16 %153, 2
   %.not15.i.us = icmp eq i16 %154, 0
@@ -516,7 +515,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %156 = getelementptr i8, ptr %.0258.us, i64 3
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i64
-  %159 = getelementptr i16, ptr %54, i64 %158
+  %159 = getelementptr [2 x i8], ptr %54, i64 %158
   %160 = load i16, ptr %159, align 2
   %161 = and i16 %160, 2
   %.not16.i.us = icmp eq i16 %161, 0
@@ -529,7 +528,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 164:                                              ; preds = %173, %162
   %.017.i.us = phi i64 [ 0, %162 ], [ %174, %173 ]
-  %165 = getelementptr %struct.anon.0, ptr @commands, i64 %.017.i.us
+  %165 = getelementptr [16 x i8], ptr @commands, i64 %.017.i.us
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load i32, ptr %166, align 8
   %168 = icmp eq i32 %167, %133
@@ -1703,7 +1702,7 @@ proto_item_set_hidden.exit.i291:                  ; preds = %724, %721, %718
   %743 = add i32 %.0144158.i, 2
   %744 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %743)
   %745 = zext i8 %740 to i64
-  %746 = getelementptr i16, ptr %729, i64 %745
+  %746 = getelementptr [2 x i8], ptr %729, i64 %745
   %747 = load i16, ptr %746, align 2
   %748 = and i16 %747, 8
   %.not.i295 = icmp eq i16 %748, 0
@@ -1711,7 +1710,7 @@ proto_item_set_hidden.exit.i291:                  ; preds = %724, %721, %718
 
 749:                                              ; preds = %739
   %750 = zext i8 %742 to i64
-  %751 = getelementptr i16, ptr %729, i64 %750
+  %751 = getelementptr [2 x i8], ptr %729, i64 %750
   %752 = load i16, ptr %751, align 2
   %753 = and i16 %752, 8
   %.not151.i = icmp eq i16 %753, 0
@@ -1719,7 +1718,7 @@ proto_item_set_hidden.exit.i291:                  ; preds = %724, %721, %718
 
 754:                                              ; preds = %749
   %755 = zext i8 %744 to i64
-  %756 = getelementptr i16, ptr %729, i64 %755
+  %756 = getelementptr [2 x i8], ptr %729, i64 %755
   %757 = load i16, ptr %756, align 2
   %758 = and i16 %757, 8
   %.not152.i = icmp eq i16 %758, 0

@@ -488,7 +488,7 @@ common.resume:                                    ; preds = %137, %134, %123, %.
 "_ZN10num_bigint7biguint7convert89_$LT$impl$u20$core..convert..From$LT$u64$GT$$u20$for$u20$num_bigint..biguint..BigUint$GT$4from17h312c34c49508260fE.exit": ; preds = %"_ZN4core3num21_$LT$impl$u20$u64$GT$3pow17hfc6702fd0fc8148cE.exit.thread"
   %.pre.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !95, !noalias !92
   %.pre.i.us.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !95, !noalias !92
-  %141 = getelementptr inbounds i64, ptr %.pre.i, i64 %.pre.i.us.i
+  %141 = getelementptr inbounds [8 x i8], ptr %.pre.i, i64 %.pre.i.us.i
   store i64 %.011.i32, ptr %141, align 8, !noalias !92
   %142 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !95, !noalias !92, !noundef !11
   %143 = add i64 %142, 1
@@ -709,7 +709,7 @@ define internal fastcc void @_ZN10num_bigint6bigint6BigInt12from_biguint17hcc6db
   %9 = load i64, ptr %7, align 8, !alias.scope !137, !noundef !11
   %.not.i.i = icmp eq i64 %9, 0
   %10 = load ptr, ptr %8, align 8, !alias.scope !137, !nonnull !11
-  %11 = getelementptr i64, ptr %10, i64 %9
+  %11 = getelementptr [8 x i8], ptr %10, i64 %9
   %12 = getelementptr i8, ptr %11, i64 -8
   %.not1011.i.i = icmp eq ptr %12, null
   %.not10.i.i = select i1 %.not.i.i, i1 true, i1 %.not1011.i.i

@@ -19,12 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.6" = type { %"struct.std::_Tuple_impl.7" }
 %"struct.std::_Tuple_impl.7" = type { %"struct.std::_Head_base.10" }
 %"struct.std::_Head_base.10" = type { ptr }
-%"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper" = type { %"class.absl::lts_20240722::AnyInvocable" }
-%"class.absl::lts_20240722::AnyInvocable" = type { %"class.absl::lts_20240722::internal_any_invocable::Impl" }
-%"class.absl::lts_20240722::internal_any_invocable::Impl" = type { %"class.absl::lts_20240722::internal_any_invocable::CoreImpl" }
-%"class.absl::lts_20240722::internal_any_invocable::CoreImpl" = type { %"union.absl::lts_20240722::internal_any_invocable::TypeErasedState", ptr, ptr }
-%"union.absl::lts_20240722::internal_any_invocable::TypeErasedState" = type { %struct.anon }
-%struct.anon = type { ptr, i64 }
 %"class.grpc_core::ExecCtx" = type { ptr, %struct.grpc_closure_list, %"struct.grpc_core::ExecCtx::CombinerData", i64, %"class.std::optional", ptr }
 %struct.grpc_closure_list = type { ptr, ptr }
 %"struct.grpc_core::ExecCtx::CombinerData" = type { ptr, ptr }
@@ -43,18 +37,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage" = type { %"class.grpc_core::Timestamp" }
 %"class.grpc_core::Timestamp" = type { i64 }
-%"struct.std::atomic.30" = type { %"struct.std::__atomic_base.31" }
-%"struct.std::__atomic_base.31" = type { i64 }
+%"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper" = type { %"class.absl::lts_20240722::AnyInvocable" }
+%"class.absl::lts_20240722::AnyInvocable" = type { %"class.absl::lts_20240722::internal_any_invocable::Impl" }
+%"class.absl::lts_20240722::internal_any_invocable::Impl" = type { %"class.absl::lts_20240722::internal_any_invocable::CoreImpl" }
+%"class.absl::lts_20240722::internal_any_invocable::CoreImpl" = type { %"union.absl::lts_20240722::internal_any_invocable::TypeErasedState", ptr, ptr }
+%"union.absl::lts_20240722::internal_any_invocable::TypeErasedState" = type { %struct.anon }
+%struct.anon = type { ptr, i64 }
 %"struct.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper, 1, std::allocator<grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper>>::Allocated" = type { ptr, i64 }
 %"class.grpc_core::PerCpuOptions" = type { i64, i64 }
-%"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_1800000_40", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20" }
-%"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic.30"] }
-%"class.grpc_core::HistogramCollector_65536_26" = type { [26 x %"struct.std::atomic.30"] }
-%"class.grpc_core::HistogramCollector_1800000_40" = type { [40 x %"struct.std::atomic.30"] }
-%"class.grpc_core::HistogramCollector_100000_20" = type { [20 x %"struct.std::atomic.30"] }
-%"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic.30"] }
-%"class.grpc_core::HistogramCollector_100_20" = type { [20 x %"struct.std::atomic.30"] }
-%"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic.30"] }
 
 $_ZN4absl12lts_2024072219ReleasableMutexLockD2Ev = comdat any
 
@@ -348,7 +338,7 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %55 = load ptr, ptr %54, align 16, !noalias !45
   %.sink2.i.i.i13 = select i1 %50, ptr %55, ptr %54
-  %56 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %.sink2.i.i.i13, i64 %.sink1.i.i.i11
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i.i.i13, i64 %.sink1.i.i.i11
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load ptr, ptr %57, align 16, !tbaa !41
   tail call void %58(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %56) #26
@@ -463,7 +453,7 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %15, %_ZN9grpc_core4
   %20 = load ptr, ptr %19, align 16
   %21 = select i1 %18, ptr %20, ptr %19
   %22 = lshr i64 %17, 1
-  %23 = getelementptr %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %21, i64 %22
+  %23 = getelementptr [32 x i8], ptr %21, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -32
   %25 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #26
   %26 = getelementptr i8, ptr %23, i64 -8
@@ -477,7 +467,7 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %15, %_ZN9grpc_core4
   %31 = load ptr, ptr %19, align 16
   %32 = select i1 %30, ptr %31, ptr %19
   %33 = lshr i64 %29, 1
-  %34 = getelementptr %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %32, i64 %33
+  %34 = getelementptr [32 x i8], ptr %32, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -32
   %36 = getelementptr i8, ptr %34, i64 -16
   %37 = load ptr, ptr %36, align 16, !tbaa !41
@@ -505,7 +495,7 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %15, %_ZN9grpc_core4
 50:                                               ; preds = %.noexc
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 4072
   %52 = sext i32 %49 to i64
-  %53 = getelementptr inbounds %"struct.std::atomic.30", ptr %51, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %51, i64 %52
   %54 = atomicrmw add ptr %53, i64 1 monotonic, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = load i64, ptr %55, align 8, !tbaa !63
@@ -841,7 +831,7 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
 .lr.ph.i.i.i:                                     ; preds = %.thread32.i.i, %.lr.ph.i.i.i
   %.sroa.017.0.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %24, %.thread32.i.i ]
   %.012.i.i.i = phi i64 [ %35, %.lr.ph.i.i.i ], [ 0, %.thread32.i.i ]
-  %26 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %20, i64 %.012.i.i.i
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.012.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i.i, i64 16
   %28 = load ptr, ptr %27, align 16, !tbaa !41
   tail call void %28(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.017.0.i.i, ptr noundef nonnull align 16 dereferenceable(32) %26) #26
@@ -868,7 +858,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_cor
 .lr.ph.i15.i.i:                                   ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit.i.i, %.lr.ph.i15.i.i
   %.06.i.i.i = phi i64 [ %36, %.lr.ph.i15.i.i ], [ %.pre33.i.i, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit.i.i ]
   %36 = add nsw i64 %.06.i.i.i, -1
-  %37 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %24, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 16, !tbaa !41
   tail call void %39(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %37, ptr noundef nonnull align 16 dereferenceable(32) %37) #26
@@ -908,7 +898,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14
 53:                                               ; preds = %.noexc6
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 3752
   %55 = sext i32 %52 to i64
-  %56 = getelementptr inbounds %"struct.std::atomic.30", ptr %54, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %54, i64 %55
   %57 = atomicrmw add ptr %56, i64 1 monotonic, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %59 = load i64, ptr %58, align 8, !tbaa !63
@@ -924,7 +914,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14
 64:                                               ; preds = %.noexc8
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 3912
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds %"struct.std::atomic.30", ptr %65, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %65, i64 %66
   %68 = atomicrmw add ptr %67, i64 1 monotonic, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %70 = load i64, ptr %69, align 16, !tbaa !64
@@ -939,7 +929,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14
 74:                                               ; preds = %.noexc10
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 4232
   %76 = sext i32 %73 to i64
-  %77 = getelementptr inbounds %"struct.std::atomic.30", ptr %75, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %75, i64 %76
   %78 = atomicrmw add ptr %77, i64 1 monotonic, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %80 = load i8, ptr %79, align 1, !tbaa !32, !range !30, !noundef !31
@@ -1476,7 +1466,7 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
   %22 = load i64, ptr %21, align 8, !tbaa !91
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !101
-  %25 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [6632 x i8], ptr %24, i64 %23
   ret ptr %25
 }
 
@@ -1605,7 +1595,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.06.i = phi i64 [ %8, %.lr.ph.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 16, !tbaa !41
   tail call void %11(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #26
@@ -1711,7 +1701,7 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(32) ptr @_ZN4absl12
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i: ; preds = %3
   %15 = shl nuw nsw i64 %11, 5
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #29
-  %17 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %16, i64 %.sink1.i
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.sink1.i
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 16, !tbaa !41
   tail call void %19(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %17) #26
@@ -1730,7 +1720,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
 .lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i, %.lr.ph.i
   %.sroa.021.0 = phi ptr [ %33, %.lr.ph.i ], [ %.sink2.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
   %.012.i = phi i64 [ %34, %.lr.ph.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
-  %25 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %16, i64 %.012.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.012.i
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 16
   %27 = load ptr, ptr %26, align 16, !tbaa !41
   tail call void %27(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.021.0, ptr noundef nonnull align 16 dereferenceable(32) %25) #26
@@ -1751,7 +1741,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
 .lr.ph.i16:                                       ; preds = %.lr.ph.i, %.lr.ph.i16
   %.06.i = phi i64 [ %35, %.lr.ph.i16 ], [ %.sink1.i, %.lr.ph.i ]
   %35 = add nsw i64 %.06.i, -1
-  %36 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %.sink2.i, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 16, !tbaa !41
   tail call void %38(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %36, ptr noundef nonnull align 16 dereferenceable(32) %36) #26
@@ -1845,7 +1835,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.032.0 = phi ptr [ %3, %.lr.ph.preheader.i ], [ %27, %.lr.ph.i ]
   %.012.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %28, %.lr.ph.i ]
-  %19 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %.02148, i64 %.012.i
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %.02148, i64 %.012.i
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 16
   %21 = load ptr, ptr %20, align 16, !tbaa !41
   tail call void %21(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.032.0, ptr noundef nonnull align 16 dereferenceable(32) %19) #26
@@ -1866,7 +1856,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
 .lr.ph.i27:                                       ; preds = %.lr.ph.i, %.lr.ph.i27
   %.06.i = phi i64 [ %29, %.lr.ph.i27 ], [ %5, %.lr.ph.i ]
   %29 = add i64 %.06.i, -1
-  %30 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 16, !tbaa !41
   tail call void %32(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %30, ptr noundef nonnull align 16 dereferenceable(32) %30) #26
@@ -1963,16 +1953,16 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 
 _ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit: ; preds = %19, %2
   %35 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
-  %36 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %35, i64 %11
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %11
   %37 = getelementptr inbounds nuw i8, ptr %spec.select22, i64 16
-  %38 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %37, i64 %11
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %11
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit, %.lr.ph.i
   %.sroa.011.0 = phi ptr [ %47, %.lr.ph.i ], [ %36, %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit ]
   %.012.i = phi i64 [ %48, %.lr.ph.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit ]
-  %39 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %38, i64 %.012.i
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %.012.i
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.011.0, i64 16
   %41 = load ptr, ptr %40, align 16, !tbaa !41
   call void %41(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.011.0, ptr noundef nonnull align 16 dereferenceable(32) %39) #26
@@ -1993,7 +1983,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSeriali
 .lr.ph.i9:                                        ; preds = %.lr.ph.i, %.lr.ph.i9
   %.06.i = phi i64 [ %49, %.lr.ph.i9 ], [ %13, %.lr.ph.i ]
   %49 = add i64 %.06.i, -1
-  %50 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %36, i64 %49
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 16, !tbaa !41
   call void %52(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %50, ptr noundef nonnull align 16 dereferenceable(32) %50) #26

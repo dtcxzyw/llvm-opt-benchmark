@@ -56,7 +56,7 @@ Abc_NtkIsSopLogic.exit:
 
 9:                                                ; preds = %.critedge2.i, %.lr.ph.i
   %indvars.iv55.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next56.i, %.critedge2.i ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val33.val.i, i64 %indvars.iv55.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val33.val.i, i64 %indvars.iv55.i
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.critedge2.i, label %13
@@ -87,10 +87,10 @@ Abc_NtkIsSopLogic.exit:
 
 21:                                               ; preds = %..critedge4_crit_edge.us.i, %.lr.ph45.i
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %..critedge4_crit_edge.us.i ], [ 0, %.lr.ph45.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val38.i, i64 %indvars.iv50.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val38.i, i64 %indvars.iv50.i
   %23 = load i32, ptr %22, align 4, !tbaa !43
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %.val37.val.val.i, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %.val37.val.val.i, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !37
   %27 = icmp samesign ult i64 %indvars.iv50.i, 2
   br i1 %27, label %28, label %.lr.ph.us.i.preheader
@@ -112,10 +112,10 @@ Abc_NtkIsSopLogic.exit:
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i.preheader, %31
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %31 ], [ 0, %.lr.ph.us.i.preheader ]
-  %32 = getelementptr inbounds nuw i32, ptr %.val38.i, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.val38.i, i64 %indvars.iv.i
   %33 = load i32, ptr %32, align 4, !tbaa !43
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %.val37.val.val.i, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %.val37.val.val.i, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !37
   %37 = icmp ne i64 %indvars.iv50.i, %indvars.iv.i
   %38 = icmp eq ptr %26, %36
@@ -168,7 +168,7 @@ Abc_NtkFxuCheck.exit:                             ; preds = %.critedge2.i, %3
 52:                                               ; preds = %52, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %52 ]
   %53 = load ptr, ptr %48, align 8, !tbaa !36
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i.i
   store ptr null, ptr %54, align 8, !tbaa !37
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %49
@@ -225,7 +225,7 @@ Vec_PtrGrow.exit.i44.i:                           ; preds = %68, %Vec_PtrFill.ex
 72:                                               ; preds = %72, %.lr.ph.i45.i
   %indvars.iv.i47.i = phi i64 [ 0, %.lr.ph.i45.i ], [ %indvars.iv.next.i48.i, %72 ]
   %73 = load ptr, ptr %71, align 8, !tbaa !36
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.i47.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.i47.i
   store ptr null, ptr %74, align 8, !tbaa !37
   %indvars.iv.next.i48.i = add nuw nsw i64 %indvars.iv.i47.i, 1
   %exitcond.not.i49.i = icmp eq i64 %indvars.iv.next.i48.i, %wide.trip.count.i46.i
@@ -279,7 +279,7 @@ Vec_PtrGrow.exit.i53.i:                           ; preds = %91, %Vec_PtrFill.ex
 95:                                               ; preds = %95, %.lr.ph.i54.i
   %indvars.iv.i56.i = phi i64 [ 0, %.lr.ph.i54.i ], [ %indvars.iv.next.i57.i, %95 ]
   %96 = load ptr, ptr %94, align 8, !tbaa !36
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv.i56.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv.i56.i
   store ptr null, ptr %97, align 8, !tbaa !37
   %indvars.iv.next.i57.i = add nuw nsw i64 %indvars.iv.i56.i, 1
   %exitcond.not.i58.i = icmp eq i64 %indvars.iv.next.i57.i, %wide.trip.count.i55.i
@@ -332,7 +332,7 @@ Vec_PtrGrow.exit.i62.i:                           ; preds = %113, %Vec_PtrFill.e
 117:                                              ; preds = %117, %.lr.ph.i63.i
   %indvars.iv.i65.i = phi i64 [ 0, %.lr.ph.i63.i ], [ %indvars.iv.next.i66.i, %117 ]
   %118 = load ptr, ptr %116, align 8, !tbaa !36
-  %119 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv.i65.i
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv.i65.i
   store ptr null, ptr %119, align 8, !tbaa !37
   %indvars.iv.next.i66.i = add nuw nsw i64 %indvars.iv.i65.i, 1
   %exitcond.not.i67.i = icmp eq i64 %indvars.iv.next.i66.i, %wide.trip.count.i64.i
@@ -352,7 +352,7 @@ Vec_PtrFill.exit69.i:                             ; preds = %117, %Vec_PtrGrow.e
   %124 = phi ptr [ %153, %152 ], [ %121, %Vec_PtrFill.exit69.i ]
   %125 = getelementptr i8, ptr %124, i64 8
   %.val33.val.i21 = load ptr, ptr %125, align 8, !tbaa !36
-  %126 = getelementptr inbounds nuw ptr, ptr %.val33.val.i21, i64 %indvars.iv.i20
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %.val33.val.i21, i64 %indvars.iv.i20
   %127 = load ptr, ptr %126, align 8, !tbaa !37
   %128 = icmp eq ptr %127, null
   br i1 %128, label %152, label %129
@@ -382,13 +382,13 @@ Vec_PtrFill.exit69.i:                             ; preds = %117, %Vec_PtrGrow.e
   %143 = load ptr, ptr %43, align 8, !tbaa !50
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !36
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv.i20
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv.i20
   store ptr %142, ptr %146, align 8, !tbaa !37
   %147 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %148 = load ptr, ptr %44, align 8, !tbaa !51
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8, !tbaa !36
-  %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv.i20
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv.i20
   store ptr %147, ptr %151, align 8, !tbaa !37
   br label %152
 
@@ -457,7 +457,7 @@ Abc_NtkFxuCollectInfo.exit:                       ; preds = %152, %Vec_PtrFill.e
   %184 = load ptr, ptr %46, align 8, !tbaa !53
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %186 = load ptr, ptr %185, align 8, !tbaa !36
-  %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv69.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %indvars.iv69.i
   %188 = load ptr, ptr %187, align 8, !tbaa !37
   %189 = icmp eq ptr %188, null
   br i1 %189, label %220, label %190
@@ -466,13 +466,13 @@ Abc_NtkFxuCollectInfo.exit:                       ; preds = %152, %Vec_PtrFill.e
   %.val.i27 = load ptr, ptr %4, align 8, !tbaa !18
   %191 = getelementptr i8, ptr %.val.i27, i64 8
   %.val.val.i = load ptr, ptr %191, align 8, !tbaa !36
-  %192 = getelementptr inbounds nuw ptr, ptr %.val.val.i, i64 %indvars.iv69.i
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %.val.val.i, i64 %indvars.iv69.i
   %193 = load ptr, ptr %192, align 8, !tbaa !37
   tail call void @Abc_ObjRemoveFanins(ptr noundef %193) #10
   %194 = load ptr, ptr %46, align 8, !tbaa !53
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load ptr, ptr %195, align 8, !tbaa !36
-  %197 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv69.i
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv69.i
   %198 = load ptr, ptr %197, align 8, !tbaa !37
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
   %200 = load i32, ptr %199, align 4, !tbaa !61
@@ -486,13 +486,13 @@ Abc_NtkFxuCollectInfo.exit:                       ; preds = %152, %Vec_PtrFill.e
 203:                                              ; preds = %203, %.lr.ph57.i
   %indvars.iv.i29 = phi i64 [ 0, %.lr.ph57.i ], [ %indvars.iv.next.i30, %203 ]
   %204 = load ptr, ptr %202, align 8, !tbaa !62
-  %205 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.i29
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %indvars.iv.i29
   %206 = load i32, ptr %205, align 4, !tbaa !43
   %.val50.i = load ptr, ptr %4, align 8, !tbaa !18
   %207 = getelementptr i8, ptr %.val50.i, i64 8
   %.val50.val.i = load ptr, ptr %207, align 8, !tbaa !36
   %208 = sext i32 %206 to i64
-  %209 = getelementptr inbounds ptr, ptr %.val50.val.i, i64 %208
+  %209 = getelementptr inbounds [8 x i8], ptr %.val50.val.i, i64 %208
   %210 = load ptr, ptr %209, align 8, !tbaa !37
   tail call void @Abc_ObjAddFanin(ptr noundef %193, ptr noundef %210) #10
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
@@ -505,7 +505,7 @@ Abc_NtkFxuCollectInfo.exit:                       ; preds = %152, %Vec_PtrFill.e
   %214 = load ptr, ptr %45, align 8, !tbaa !52
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = load ptr, ptr %215, align 8, !tbaa !36
-  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %indvars.iv69.i
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %indvars.iv69.i
   %218 = load ptr, ptr %217, align 8, !tbaa !37
   %219 = getelementptr inbounds nuw i8, ptr %193, i64 56
   store ptr %218, ptr %219, align 8, !tbaa !56
@@ -526,12 +526,12 @@ Abc_NtkFxuCollectInfo.exit:                       ; preds = %152, %Vec_PtrFill.e
   %.val51.i = load ptr, ptr %4, align 8, !tbaa !18
   %227 = getelementptr i8, ptr %.val51.i, i64 8
   %.val51.val.i = load ptr, ptr %227, align 8, !tbaa !36
-  %228 = getelementptr inbounds ptr, ptr %.val51.val.i, i64 %indvars.iv75.i
+  %228 = getelementptr inbounds [8 x i8], ptr %.val51.val.i, i64 %indvars.iv75.i
   %229 = load ptr, ptr %228, align 8, !tbaa !37
   %230 = load ptr, ptr %46, align 8, !tbaa !53
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load ptr, ptr %231, align 8, !tbaa !36
-  %233 = getelementptr inbounds ptr, ptr %232, i64 %indvars.iv75.i
+  %233 = getelementptr inbounds [8 x i8], ptr %232, i64 %indvars.iv75.i
   %234 = load ptr, ptr %233, align 8, !tbaa !37
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 4
   %236 = load i32, ptr %235, align 4, !tbaa !61
@@ -545,13 +545,13 @@ Abc_NtkFxuCollectInfo.exit:                       ; preds = %152, %Vec_PtrFill.e
 239:                                              ; preds = %239, %.lr.ph62.i
   %indvars.iv72.i = phi i64 [ 0, %.lr.ph62.i ], [ %indvars.iv.next73.i, %239 ]
   %240 = load ptr, ptr %238, align 8, !tbaa !62
-  %241 = getelementptr inbounds nuw i32, ptr %240, i64 %indvars.iv72.i
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %240, i64 %indvars.iv72.i
   %242 = load i32, ptr %241, align 4, !tbaa !43
   %.val52.i = load ptr, ptr %4, align 8, !tbaa !18
   %243 = getelementptr i8, ptr %.val52.i, i64 8
   %.val52.val.i = load ptr, ptr %243, align 8, !tbaa !36
   %244 = sext i32 %242 to i64
-  %245 = getelementptr inbounds ptr, ptr %.val52.val.i, i64 %244
+  %245 = getelementptr inbounds [8 x i8], ptr %.val52.val.i, i64 %244
   %246 = load ptr, ptr %245, align 8, !tbaa !37
   tail call void @Abc_ObjAddFanin(ptr noundef %229, ptr noundef %246) #10
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
@@ -564,7 +564,7 @@ Abc_NtkFxuCollectInfo.exit:                       ; preds = %152, %Vec_PtrFill.e
   %250 = load ptr, ptr %45, align 8, !tbaa !52
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load ptr, ptr %251, align 8, !tbaa !36
-  %253 = getelementptr inbounds ptr, ptr %252, i64 %indvars.iv75.i
+  %253 = getelementptr inbounds [8 x i8], ptr %252, i64 %indvars.iv75.i
   %254 = load ptr, ptr %253, align 8, !tbaa !37
   %255 = getelementptr inbounds nuw i8, ptr %229, i64 56
   store ptr %254, ptr %255, align 8, !tbaa !56
@@ -620,7 +620,7 @@ define void @Abc_NtkFxuFreeInfo(ptr noundef readonly captures(none) %0) local_un
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !36
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %.not24 = icmp eq ptr %11, null
   br i1 %.not24, label %16, label %12

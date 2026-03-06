@@ -22,12 +22,7 @@ module asm ".previous"
 %"struct.std::less" = type { i8 }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector.136" = type { %"struct.std::_Vector_base.137" }
-%"struct.std::_Vector_base.137" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.QWriteLocker = type { i64 }
-%"class.vcg::Point3" = type { [3 x float] }
 %"class.vcg::Matrix44" = type { %"struct.std::array.127" }
 %"struct.std::array.127" = type { [16 x float] }
 %class.QReadLocker = type { i64 }
@@ -461,7 +456,7 @@ define void @_ZN18MLSelectionBuffersD2Ev(ptr noundef nonnull align 8 dereference
 .lr.ph:                                           ; preds = %.noexc, %_ZNSt6vectorIjSaIjEE5clearEv.exit
   %6 = phi ptr [ %25, %_ZNSt6vectorIjSaIjEE5clearEv.exit ], [ %5, %.noexc ]
   %.015 = phi i64 [ %26, %_ZNSt6vectorIjSaIjEE5clearEv.exit ], [ 0, %.noexc ]
-  %7 = getelementptr inbounds %"class.std::vector.136", ptr %6, i64 %.015
+  %7 = getelementptr inbounds [24 x i8], ptr %6, i64 %.015
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
@@ -480,7 +475,7 @@ define void @_ZN18MLSelectionBuffersD2Ev(ptr noundef nonnull align 8 dereference
 
 18:                                               ; preds = %11
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %"class.std::vector.136", ptr %19, i64 %.015
+  %20 = getelementptr inbounds [24 x i8], ptr %19, i64 %.015
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -681,7 +676,7 @@ _ZN12QWriteLockerC2EP14QReadWriteLock.exit:
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = zext i32 %1 to i64
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds nuw %"class.std::vector.136", ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %36
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %38, align 8
@@ -700,7 +695,7 @@ _ZN12QWriteLockerC2EP14QReadWriteLock.exit:
 
 49:                                               ; preds = %42
   %50 = load ptr, ptr %35, align 8
-  %51 = getelementptr inbounds nuw %"class.std::vector.136", ptr %50, i64 %36
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %36
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load ptr, ptr %53, align 8
@@ -917,7 +912,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %150, %.n
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %152, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %147, ptr %126, align 8
   store ptr %151, ptr %127, align 8
-  %153 = getelementptr inbounds nuw i32, ptr %147, i64 %145
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %145
   store ptr %153, ptr %129, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -1022,7 +1017,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm.exit83: ; preds = %_ZNKSt6vectorI
   br i1 %or.cond169, label %207, label %222
 
 207:                                              ; preds = %198
-  %208 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %.sroa.0104.1, i64 %203
+  %208 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0104.1, i64 %203
   %209 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0183, i64 8
   %210 = load float, ptr %209, align 4
   store float %210, ptr %208, align 4
@@ -1154,7 +1149,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i90: ; preds = %257, %
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i92: ; preds = %259, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i90
   store ptr %254, ptr %233, align 8
   store ptr %258, ptr %234, align 8
-  %260 = getelementptr inbounds nuw i32, ptr %254, i64 %252
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %254, i64 %252
   store ptr %260, ptr %236, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit95
 
@@ -1175,7 +1170,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit95:         ; preds = %_ZNSt6vectorIjSaIjE
 271:                                              ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit95
   %272 = load ptr, ptr @__glewBindBuffer, align 8
   %273 = load ptr, ptr %35, align 8
-  %274 = getelementptr inbounds nuw %"class.std::vector.136", ptr %273, i64 %36
+  %274 = getelementptr inbounds nuw [24 x i8], ptr %273, i64 %36
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %276 = load ptr, ptr %275, align 8
   %277 = load ptr, ptr %274, align 8
@@ -1315,12 +1310,12 @@ _ZN11QReadLockerC2EP14QReadWriteLock.exit:
   %indvars.iv15.i.i.i = phi i64 [ 1, %28 ], [ %indvars.iv.next16.i.i.i, %34 ]
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv15.i.i.i, 4
   %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
-  %invariant.gep20.i.i.i = getelementptr float, ptr %3, i64 %indvars.iv15.i.i.i
+  %invariant.gep20.i.i.i = getelementptr [4 x i8], ptr %3, i64 %indvars.iv15.i.i.i
   br label %31
 
 31:                                               ; preds = %31, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %31 ]
-  %gep.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   %.idx19.i.i.i = shl i64 %indvars.iv.i.i.i, 4
   %gep21.i.i.i = getelementptr i8, ptr %invariant.gep20.i.i.i, i64 %.idx19.i.i.i
   %32 = load float, ptr %gep.i.i.i, align 4, !alias.scope !12
@@ -1388,7 +1383,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %34
   %48 = phi ptr [ %45, %.lr.ph ], [ %89, %84 ]
   %.02354 = phi i64 [ 0, %.lr.ph ], [ %85, %84 ]
   %49 = load ptr, ptr @__glewBindBuffer, align 8
-  %50 = getelementptr inbounds i32, ptr %48, i64 %.02354
+  %50 = getelementptr inbounds [4 x i8], ptr %48, i64 %.02354
   %51 = load i32, ptr %50, align 4
   invoke void %49(i32 noundef 34962, i32 noundef %51)
           to label %52 unwind label %.loopexit.split-lp.loopexit
@@ -1437,7 +1432,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %34
   %76 = load ptr, ptr @__glewBindBuffer, align 8
   %77 = load ptr, ptr %41, align 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i32, ptr %78, i64 %.02354
+  %79 = getelementptr inbounds [4 x i8], ptr %78, i64 %.02354
   %80 = load i32, ptr %79, align 4
   invoke void %76(i32 noundef 34962, i32 noundef %80)
           to label %81 unwind label %.loopexit.split-lp.loopexit
@@ -1530,12 +1525,12 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %34
   %indvars.iv15.i.i.i29 = phi i64 [ 1, %116 ], [ %indvars.iv.next16.i.i.i39, %122 ]
   %.idx.i.i.i30 = shl nuw nsw i64 %indvars.iv15.i.i.i29, 4
   %invariant.gep.i.i.i31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i.i30
-  %invariant.gep20.i.i.i32 = getelementptr float, ptr %2, i64 %indvars.iv15.i.i.i29
+  %invariant.gep20.i.i.i32 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv15.i.i.i29
   br label %119
 
 119:                                              ; preds = %119, %.preheader.i.i.i28
   %indvars.iv.i.i.i33 = phi i64 [ 0, %.preheader.i.i.i28 ], [ %indvars.iv.next.i.i.i37, %119 ]
-  %gep.i.i.i34 = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i31, i64 %indvars.iv.i.i.i33
+  %gep.i.i.i34 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i31, i64 %indvars.iv.i.i.i33
   %.idx19.i.i.i35 = shl i64 %indvars.iv.i.i.i33, 4
   %gep21.i.i.i36 = getelementptr i8, ptr %invariant.gep20.i.i.i32, i64 %.idx19.i.i.i35
   %120 = load float, ptr %gep.i.i.i34, align 4, !alias.scope !18
@@ -1574,7 +1569,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit42:  ; preds = %_ZNK3vcg8Matrix44If
   %131 = phi ptr [ %128, %.lr.ph56 ], [ %176, %170 ]
   %.02255 = phi i64 [ 0, %.lr.ph56 ], [ %171, %170 ]
   %132 = load ptr, ptr @__glewBindBuffer, align 8
-  %133 = getelementptr inbounds i32, ptr %131, i64 %.02255
+  %133 = getelementptr inbounds [4 x i8], ptr %131, i64 %.02255
   %134 = load i32, ptr %133, align 4
   invoke void %132(i32 noundef 34962, i32 noundef %134)
           to label %135 unwind label %.loopexit
@@ -1626,7 +1621,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit42:  ; preds = %_ZNK3vcg8Matrix44If
   %162 = load ptr, ptr %123, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i32, ptr %164, i64 %.02255
+  %165 = getelementptr inbounds [4 x i8], ptr %164, i64 %.02255
   %166 = load i32, ptr %165, align 4
   invoke void %161(i32 noundef 34962, i32 noundef %166)
           to label %167 unwind label %.loopexit
@@ -1743,7 +1738,7 @@ define void @_ZN18MLSelectionBuffers16deallocateBufferENS_17ML_SELECTION_TYPEE(p
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw %"class.std::vector.136", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
@@ -1759,7 +1754,7 @@ define void @_ZN18MLSelectionBuffers16deallocateBufferENS_17ML_SELECTION_TYPEE(p
   %16 = trunc i64 %14 to i32
   tail call void %15(i32 noundef %16, ptr noundef nonnull %9)
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds nuw %"class.std::vector.136", ptr %17, i64 %4
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %4
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8

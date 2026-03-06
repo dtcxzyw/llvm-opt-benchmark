@@ -116,7 +116,7 @@ define hidden void @_ZN6google8protobuf7strings19SubstituteAndAppendEPNSt7__cxx1
   %45 = zext nneg i8 %41 to i32
   %46 = add nsw i32 %45, -48
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %15, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !14
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !16
@@ -147,7 +147,7 @@ define hidden void @_ZN6google8protobuf7strings19SubstituteAndAppendEPNSt7__cxx1
 
 61:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %62 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i
   %63 = load ptr, ptr %62, align 8, !tbaa !14
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %_ZN6google8protobuf7stringsL19CountSubstituteArgsEPKPKNS1_8internal13SubstituteArgE.exit, label %.lr.ph.i, !llvm.loop !19
@@ -542,7 +542,7 @@ _ZN6google8protobuf15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traits
 193:                                              ; preds = %186
   %194 = and i8 %190, 15
   %195 = zext nneg i8 %194 to i64
-  %196 = getelementptr inbounds nuw ptr, ptr %15, i64 %195
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %195
   %197 = load ptr, ptr %196, align 8, !tbaa !14
   %198 = load ptr, ptr %197, align 8, !tbaa !23
   %199 = getelementptr inbounds nuw i8, ptr %197, i64 8

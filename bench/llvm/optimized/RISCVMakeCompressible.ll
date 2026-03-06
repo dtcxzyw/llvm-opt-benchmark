@@ -37,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::DebugLoc" = type { %"class.llvm::TypedTrackingMDRef" }
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -391,7 +390,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i:
   %109 = phi i32 [ %104, %103 ], [ %.pre.i.i, %106 ]
   %110 = load ptr, ptr %10, align 8, !tbaa !278
   %111 = zext i32 %109 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %111
   %113 = ptrtoint ptr %.sroa.040.077.i to i64
   store i64 %113, ptr %112, align 1
   %114 = load i32, ptr %42, align 8, !tbaa !279
@@ -545,7 +544,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit35.i: ; preds = %.thre
   %194 = load ptr, ptr %10, align 8, !tbaa !278
   %195 = load i32, ptr %42, align 8, !tbaa !279
   %196 = zext i32 %195 to i64
-  %197 = getelementptr inbounds nuw ptr, ptr %194, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %196
   %198 = getelementptr inbounds i8, ptr %197, i64 -8
   %199 = load ptr, ptr %198, align 8, !tbaa !354
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
@@ -926,7 +925,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit101.sink.split: ; preds 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit101: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit101.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit99
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
   %332 = load ptr, ptr %56, align 8, !tbaa !361
-  %333 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %332, i64 %.neg
+  %333 = getelementptr inbounds [32 x i8], ptr %332, i64 %.neg
   %334 = getelementptr inbounds nuw i8, ptr %.sroa.0147.0178, i64 44
   %335 = load i32, ptr %334, align 4
   %336 = and i32 %335, 4
@@ -1070,12 +1069,12 @@ _ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i: ; preds = %388, %384, %3
   %398 = getelementptr inbounds nuw i8, ptr %354, i64 40
   %399 = load i24, ptr %398, align 8
   %400 = zext i24 %399 to i64
-  %401 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %397, i64 %400
+  %401 = getelementptr inbounds nuw [32 x i8], ptr %397, i64 %400
   %.not30.i = icmp samesign eq i64 %spec.select.i, %400
   br i1 %.not30.i, label %_ZL14updateOperandsRN4llvm12MachineInstrENS_10RegImmPairENS_8RegisterE.exit, label %.lr.ph.i110.preheader
 
 .lr.ph.i110.preheader:                            ; preds = %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i
-  %402 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %397, i64 %spec.select.i
+  %402 = getelementptr inbounds nuw [32 x i8], ptr %397, i64 %spec.select.i
   br label %.lr.ph.i110
 
 ._crit_edge.loopexit.i:                           ; preds = %.critedge.i

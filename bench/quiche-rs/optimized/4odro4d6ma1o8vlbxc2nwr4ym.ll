@@ -476,7 +476,7 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$10dgram_send17h7f35e
   %17 = load ptr, ptr %16, align 8, !alias.scope !42, !noalias !36, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 13456
   %19 = load i64, ptr %18, align 16, !alias.scope !42, !noalias !36, !noundef !3
-  %20 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [2624 x i8], ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 13464
   %22 = load i64, ptr %21, align 8, !alias.scope !42, !noalias !36, !noundef !3
   store ptr %17, ptr %7, align 8, !noalias !41
@@ -723,7 +723,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17he6c5a3ae9a9f7feaE.exit.thread.
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !66
   %116 = load ptr, ptr %16, align 8, !alias.scope !63, !noalias !68, !nonnull !3, !noundef !3
   %117 = load i64, ptr %18, align 16, !alias.scope !63, !noalias !68, !noundef !3
-  %118 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw [2624 x i8], ptr %116, i64 %117
   %119 = load i64, ptr %21, align 8, !alias.scope !63, !noalias !68, !noundef !3
   store ptr %116, ptr %4, align 8, !noalias !66
   %.sroa.02.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -855,7 +855,7 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$11stream_recv17ha253893db528
   %37 = add i64 %.sroa.01.0.i.i.i, %36
   %38 = and i64 %37, %29
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds { i64, { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, i64, i64, i64, { [2 x i32], i32, [1 x i32] } }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i8, [7 x i8] }, { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr, i64, i8, i8, i8, i8, [4 x i8] } }, ptr %30, i64 %39
+  %40 = getelementptr inbounds [376 x i8], ptr %30, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 -376
   %42 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(376) %41), !noalias !89
   br i1 %42, label %58, label %46, !prof !92
@@ -1895,7 +1895,7 @@ define hidden noundef zeroext i1 @"_ZN6quiche19Connection$LT$F$GT$15stream_reada
   %22 = add i64 %.sroa.01.0.i.i.i, %21
   %23 = and i64 %22, %14
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { i64, { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, i64, i64, i64, { [2 x i32], i32, [1 x i32] } }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i8, [7 x i8] }, { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr, i64, i8, i8, i8, i8, [4 x i8] } }, ptr %15, i64 %24
+  %25 = getelementptr inbounds [376 x i8], ptr %15, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -376
   %27 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(376) %26), !noalias !205
   br i1 %27, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h236b64a0f16c0728E.exit", label %31, !prof !92
@@ -2003,7 +2003,7 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$15stream_shutdown17h
   %39 = add i64 %.sroa.01.0.i.i.i, %38
   %40 = and i64 %39, %31
   %41 = sub nsw i64 0, %40
-  %42 = getelementptr inbounds { i64, { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, i64, i64, i64, { [2 x i32], i32, [1 x i32] } }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i8, [7 x i8] }, { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr, i64, i8, i8, i8, i8, [4 x i8] } }, ptr %32, i64 %41
+  %42 = getelementptr inbounds [376 x i8], ptr %32, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 -376
   %44 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(376) %43), !noalias !223
   br i1 %44, label %56, label %48, !prof !92
@@ -2178,7 +2178,7 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$15stream_shutdown17h
   %113 = load ptr, ptr %112, align 8, !alias.scope !247, !nonnull !3, !noundef !3
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 13456
   %115 = load i64, ptr %114, align 16, !alias.scope !247, !noundef !3
-  %116 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [2624 x i8], ptr %113, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 13464
   %118 = load i64, ptr %117, align 8, !alias.scope !247, !noundef !3
   store ptr %113, ptr %5, align 8, !noalias !247
@@ -2284,7 +2284,7 @@ define hidden noundef range(i64 0, 16384) i64 @"_ZN6quiche19Connection$LT$F$GT$2
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 13456
   %6 = load i64, ptr %5, align 16, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [2624 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 13464
   %9 = load i64, ptr %8, align 8, !noundef !3
   store ptr %4, ptr %2, align 8

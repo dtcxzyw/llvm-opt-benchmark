@@ -58,7 +58,7 @@ define internal range(i32 -13, 1) i32 @allocate(ptr noundef %0, ptr noundef %1) 
 
 15:                                               ; preds = %11
   %16 = sext i32 %13 to i64
-  %17 = getelementptr ptr, ptr %12, i64 %16
+  %17 = getelementptr [8 x i8], ptr %12, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -8
   %19 = load ptr, ptr %18, align 8, !tbaa !15
   br label %20
@@ -85,7 +85,7 @@ define internal range(i32 -13, 1) i32 @allocate(ptr noundef %0, ptr noundef %1) 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %4, align 8, !tbaa !3
   %30 = sext i32 %26 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load ptr, ptr %32, align 8, !tbaa !15
   br label %34
@@ -237,7 +237,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br i1 %100, label %109, label %101
 
 101:                                              ; preds = %pmix_obj_new_tma.exit
-  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8, !tbaa !15
   %104 = icmp eq ptr %103, null
   br i1 %104, label %109, label %105
@@ -257,7 +257,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br i1 %112, label %117, label %113
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv
   %115 = load ptr, ptr %114, align 8, !tbaa !15
   %116 = icmp eq ptr %115, null
   br i1 %116, label %117, label %121
@@ -301,7 +301,7 @@ pmix_obj_update.exit:                             ; preds = %124
 
 135:                                              ; preds = %pmix_obj_update.exit
   %136 = zext nneg i32 %134 to i64
-  %137 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %136
+  %137 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %139 = load i32, ptr %138, align 4, !tbaa !60
   %140 = icmp sgt i32 %139, 0
@@ -337,7 +337,7 @@ pmix_obj_update.exit:                             ; preds = %124
 
 ._crit_edge116:                                   ; preds = %147, %._crit_edge.thread, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %157 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   %158 = load ptr, ptr %157, align 8, !tbaa !15
   %.not100 = icmp eq ptr %158, null
   br i1 %.not100, label %._crit_edge121, label %65, !llvm.loop !68

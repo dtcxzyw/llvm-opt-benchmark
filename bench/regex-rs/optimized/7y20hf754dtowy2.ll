@@ -89,7 +89,7 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha33df075c2aa9364E.exit.i": ; preds = %25
   %29 = getelementptr i8, ptr %.val, i64 24
   %.val.i = load ptr, ptr %29, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds nuw { i32, i32 }, ptr %.val.i, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %22
   %31 = load i32, ptr %30, align 4, !noundef !5
   %32 = zext i32 %31 to i64
   %33 = shl i64 %2, 1
@@ -123,7 +123,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit: ; pre
   ret void
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i64, ptr %45, i64 %.061
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %.061
   %48 = load i64, ptr %47, align 8, !noundef !5
   %49 = icmp ne i64 %48, 0
   %50 = icmp ult i64 %.0, %43
@@ -131,7 +131,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit: ; pre
   br i1 %or.cond, label %51, label %.critedge
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i64, ptr %45, i64 %.0
+  %52 = getelementptr inbounds [8 x i8], ptr %45, i64 %.0
   %53 = load i64, ptr %52, align 8, !noundef !5
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %.critedge, label %55
@@ -585,7 +585,7 @@ define noundef zeroext i1 @"_ZN126_$LT$$LT$regex..regex..string..Captures$u20$as
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !5
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %18, i64 %20
+  %21 = getelementptr inbounds [16 x i8], ptr %18, i64 %20
   br label %_ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.exit
 
 _ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.exit: ; preds = %2, %14

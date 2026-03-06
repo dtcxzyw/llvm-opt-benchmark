@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SDL_FPoint = type { float, float }
 %struct.SDL_FRect = type { float, float, float, float }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.SDL_GPURenderStateUniformBuffer = type { i32, ptr, i32 }
 
 @SDL_renderers = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [29 x i8] c"SDL.renderer.texture_formats\00", align 1
@@ -280,11 +279,11 @@ define hidden noundef zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef %0, 
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %5, align 8
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds i32, ptr %10, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %10, i64 %14
   store i32 %1, ptr %15, align 4
   %16 = load i32, ptr %5, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %10, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %10, i64 %17
   store i32 0, ptr %18, align 4
   store ptr %10, ptr %3, align 8
   %19 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %0, i32 noundef 2) #15
@@ -567,7 +566,7 @@ define hidden ptr @SDL_GetRenderDriver_REAL(i32 noundef %0) local_unnamed_addr #
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @render_drivers, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @render_drivers, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -800,7 +799,7 @@ select.unfold.preheader:                          ; preds = %.thread, %select.un
 
 .thread201:                                       ; preds = %56, %62, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = getelementptr inbounds nuw ptr, ptr @render_drivers, i64 %indvars.iv.next
+  %69 = getelementptr inbounds nuw [8 x i8], ptr @render_drivers, i64 %indvars.iv.next
   %70 = load ptr, ptr %69, align 8
   %.not178 = icmp eq i64 %indvars.iv.next, 5
   br i1 %.not178, label %select.unfold, label %56, !llvm.loop !9
@@ -824,7 +823,7 @@ select.unfold..critedge_crit_edge:                ; preds = %select.unfold
 
 73:                                               ; preds = %72, %78
   %indvars.iv229 = phi i64 [ 0, %72 ], [ %indvars.iv.next230, %78 ]
-  %74 = getelementptr inbounds nuw ptr, ptr @render_drivers, i64 %indvars.iv229
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @render_drivers, i64 %indvars.iv229
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %75, align 8
   %77 = tail call zeroext i1 %76(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %0) #15
@@ -2401,7 +2400,7 @@ define hidden noundef ptr @SDL_CreateTextureWithProperties_REAL(ptr noundef %0, 
 
 41:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
-  %42 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, %.0219
   br i1 %44, label %IsSupportedFormat.exit, label %40
@@ -2647,7 +2646,7 @@ switch.lookup:                                    ; preds = %95
 
 172:                                              ; preds = %171, %.lr.ph.i274
   %indvars.iv.i276 = phi i64 [ 0, %.lr.ph.i274 ], [ %indvars.iv.next.i277, %171 ]
-  %173 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv.i276
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %indvars.iv.i276
   %174 = load i32, ptr %173, align 4
   %175 = icmp eq i32 %174, %.0219
   br i1 %175, label %IsSupportedFormat.exit279, label %171
@@ -2907,7 +2906,7 @@ define internal fastcc i32 @GetClosestSupportedFormat(ptr noundef readonly captu
 
 12:                                               ; preds = %.lr.ph243, %9
   %indvars.iv277 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next278, %9 ]
-  %13 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv277
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv277
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 842094158
   br i1 %15, label %.thread214, label %9
@@ -2919,7 +2918,7 @@ define internal fastcc i32 @GetClosestSupportedFormat(ptr noundef readonly captu
 
 17:                                               ; preds = %.lr.ph245, %16
   %indvars.iv282 = phi i64 [ 0, %.lr.ph245 ], [ %indvars.iv.next283, %16 ]
-  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv282
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv282
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 376840196
   br i1 %20, label %.thread214, label %16
@@ -2950,7 +2949,7 @@ define internal fastcc i32 @GetClosestSupportedFormat(ptr noundef readonly captu
 
 28:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %1
   br i1 %31, label %.thread214, label %27
@@ -2989,7 +2988,7 @@ define internal fastcc i32 @GetClosestSupportedFormat(ptr noundef readonly captu
 
 42:                                               ; preds = %.lr.ph239, %41
   %indvars.iv267 = phi i64 [ 0, %.lr.ph239 ], [ %indvars.iv.next268, %41 ]
-  %43 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv267
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv267
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, -15794176
   %or.cond216 = icmp eq i32 %45, 369557504
@@ -3013,7 +3012,7 @@ define internal fastcc i32 @GetClosestSupportedFormat(ptr noundef readonly captu
 
 51:                                               ; preds = %.lr.ph241, %50
   %indvars.iv272 = phi i64 [ 0, %.lr.ph241 ], [ %indvars.iv.next273, %50 ]
-  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv272
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv272
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, -33554432
   %or.cond217 = icmp eq i32 %54, 436207616
@@ -3062,7 +3061,7 @@ switch.lookup:                                    ; preds = %62
 
 70:                                               ; preds = %.lr.ph237, %85
   %indvars.iv262 = phi i64 [ 0, %.lr.ph237 ], [ %indvars.iv.next263, %85 ]
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv262
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv262
   %72 = load i32, ptr %71, align 4
   %.not174 = icmp eq i32 %72, 0
   %.mask176 = and i32 %72, -268435456
@@ -3346,7 +3345,7 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
 
 68:                                               ; preds = %.lr.ph360, %67
   %indvars.iv383 = phi i64 [ 0, %.lr.ph360 ], [ %indvars.iv.next384, %67 ]
-  %69 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv383
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv383
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, 372645892
   br i1 %71, label %.thread338, label %67
@@ -3358,7 +3357,7 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
 
 73:                                               ; preds = %.lr.ph358, %72
   %indvars.iv378 = phi i64 [ 0, %.lr.ph358 ], [ %indvars.iv.next379, %72 ]
-  %74 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv378
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv378
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, 376840196
   br i1 %76, label %.thread338, label %72
@@ -3383,7 +3382,7 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
 
 84:                                               ; preds = %.lr.ph, %83
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
-  %85 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, %.pre
   br i1 %87, label %88, label %83
@@ -3417,7 +3416,7 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
 
 98:                                               ; preds = %.lr.ph362, %97
   %indvars.iv388 = phi i64 [ 0, %.lr.ph362 ], [ %indvars.iv.next389, %97 ]
-  %99 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv388
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv388
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, -15794176
   %or.cond342 = icmp eq i32 %101, 369557504
@@ -3458,7 +3457,7 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
 
 111:                                              ; preds = %.lr.ph364, %110
   %indvars.iv393 = phi i64 [ 0, %.lr.ph364 ], [ %indvars.iv.next394, %110 ]
-  %112 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv393
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv393
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, -33554432
   %or.cond344 = icmp eq i32 %114, 436207616
@@ -3479,7 +3478,7 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
 
 121:                                              ; preds = %.lr.ph366, %136
   %indvars.iv398 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next399, %136 ]
-  %122 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv398
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv398
   %123 = load i32, ptr %122, align 4
   %.not264 = icmp eq i32 %123, 0
   %.mask266 = and i32 %123, -268435456
@@ -8596,10 +8595,10 @@ define internal fastcc noundef zeroext i1 @RenderPointsWithRects(ptr noundef %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load float, ptr %19, align 4
   %21 = fmul float %16, %20
-  %22 = getelementptr inbounds nuw %struct.SDL_FRect, ptr %12, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv
   store float %21, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load float, ptr %23, align 4
@@ -8765,7 +8764,7 @@ define hidden zeroext i1 @SDL_RenderLines_REAL(ptr noundef %0, ptr noundef %1, i
   %59 = shl nsw i32 %2, 2
   %60 = load float, ptr %1, align 4
   %61 = zext nneg i32 %43 to i64
-  %62 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %1, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %61
   %63 = load float, ptr %62, align 4
   %64 = fcmp oeq float %60, %63
   br i1 %64, label %65, label %.lr.ph.preheader
@@ -8791,7 +8790,7 @@ define hidden zeroext i1 @SDL_RenderLines_REAL(ptr noundef %0, ptr noundef %1, i
   %.0296322 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %.thread ]
   %.0299320 = phi ptr [ %55, %.lr.ph.preheader ], [ %.2301, %.thread ]
   %.0303319 = phi ptr [ %42, %.lr.ph.preheader ], [ %84, %.thread ]
-  %72 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %1, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %.sroa.0.0.copyload = load float, ptr %72, align 4
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 4
   %.sroa.15.0.copyload = load float, ptr %.sroa.15.0..sroa_idx, align 4
@@ -9161,10 +9160,10 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
   %.0132156 = phi i1 [ true, %.lr.ph ], [ %.1133, %99 ]
   %.0135155 = phi i1 [ false, %.lr.ph ], [ %.1136, %99 ]
   %.0137154 = phi i8 [ 0, %.lr.ph ], [ %.2139, %99 ]
-  %22 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %23 = load float, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %1, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %25 = load float, ptr %24, align 4
   %26 = fcmp oeq float %23, %25
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -9206,7 +9205,7 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
   %46 = select i1 %45, float %28, float %30
   %47 = add nsw i32 %.0131157, 1
   %48 = sext i32 %.0131157 to i64
-  %49 = getelementptr inbounds %struct.SDL_FRect, ptr %17, i64 %48
+  %49 = getelementptr inbounds [16 x i8], ptr %17, i64 %48
   %50 = fmul float %7, %23
   store float %50, ptr %49, align 4
   %51 = fmul float %9, %.
@@ -9241,7 +9240,7 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
   %67 = select i1 %66, float %23, float %25
   %68 = add nsw i32 %.0131157, 1
   %69 = sext i32 %.0131157 to i64
-  %70 = getelementptr inbounds %struct.SDL_FRect, ptr %17, i64 %69
+  %70 = getelementptr inbounds [16 x i8], ptr %17, i64 %69
   %71 = fmul float %7, %.153
   store float %71, ptr %70, align 4
   %72 = fmul float %9, %28
@@ -9493,7 +9492,7 @@ define hidden zeroext i1 @SDL_RenderRects_REAL(ptr noundef %0, ptr noundef reado
 
 28:                                               ; preds = %SDL_RenderRect_REAL.exit, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %SDL_RenderRect_REAL.exit ]
-  %29 = getelementptr inbounds nuw %struct.SDL_FRect, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %0, i32 noundef 2) #15
   %.0.sroa.gep23.i = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -9752,10 +9751,10 @@ define hidden zeroext i1 @SDL_RenderFillRects_REAL(ptr noundef %0, ptr noundef r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %32 = getelementptr inbounds nuw %struct.SDL_FRect, ptr %1, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %33 = load float, ptr %32, align 4
   %34 = fmul float %29, %33
-  %35 = getelementptr inbounds nuw %struct.SDL_FRect, ptr %25, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   store float %34, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %37 = load float, ptr %36, align 4
@@ -9854,7 +9853,7 @@ define internal fastcc noundef zeroext i1 @QueueCmdFillRects(ptr noundef %0, ptr
   %.08699 = phi ptr [ %19, %.lr.ph.preheader ], [ %52, %.lr.ph ]
   %.08798 = phi ptr [ %29, %.lr.ph.preheader ], [ %61, %.lr.ph ]
   %.08897 = phi i32 [ 0, %.lr.ph.preheader ], [ %62, %.lr.ph ]
-  %35 = getelementptr inbounds nuw %struct.SDL_FRect, ptr %1, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %36 = load float, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %38 = load float, ptr %37, align 4
@@ -12355,7 +12354,7 @@ select.unfold:                                    ; preds = %82, %.thread174
 
 .lr.ph197.split.us:                               ; preds = %.lr.ph197, %92
   %indvars.iv214 = phi i64 [ %indvars.iv.next215, %92 ], [ 0, %.lr.ph197 ]
-  %90 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv214
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv214
   %91 = load i32, ptr %90, align 4
   %or.cond156.us = icmp ult i32 %91, %8
   br i1 %or.cond156.us, label %92, label %.split.us
@@ -12367,7 +12366,7 @@ select.unfold:                                    ; preds = %82, %.thread174
 
 .lr.ph197.split.us198:                            ; preds = %.lr.ph197, %96
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %96 ], [ 0, %.lr.ph197 ]
-  %93 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv209
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv209
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i32
   %or.cond156.us202 = icmp ugt i32 %8, %95
@@ -12563,7 +12562,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   ]
 
 75:                                               ; preds = %.backedge
-  %76 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv404
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv404
   %77 = load i32, ptr %76, align 4
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %79 = load i32, ptr %78, align 4
@@ -12572,7 +12571,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   br label %111
 
 82:                                               ; preds = %.backedge
-  %83 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv404
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv404
   %84 = load i16, ptr %83, align 2
   %85 = zext i16 %84 to i32
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 2
@@ -12619,7 +12618,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 3, %111 ]
   %.0295399 = phi i32 [ %.1296, %.preheader ], [ 0, %111 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %114 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next
+  %114 = getelementptr inbounds [4 x i8], ptr %13, i64 %indvars.iv.next
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i32 %115, %.0282
   %117 = icmp eq i32 %115, %.0283
@@ -15191,7 +15190,7 @@ FlushRenderCommandsIfGPURenderStateNeeded.exit:   ; preds = %2, %7, %25
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %38 = load ptr, ptr %34, align 8
-  %39 = getelementptr inbounds nuw %struct.SDL_GPURenderStateUniformBuffer, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @SDL_free_REAL(ptr noundef %41) #15
@@ -15297,7 +15296,7 @@ define hidden zeroext i1 @SDL_SetGPURenderStateFragmentUniforms_REAL(ptr noundef
 
 42:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %43 = getelementptr inbounds nuw %struct.SDL_GPURenderStateUniformBuffer, ptr %40, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %indvars.iv
   %44 = load i32, ptr %43, align 8
   %.not49 = icmp eq i32 %44, %1
   br i1 %.not49, label %45, label %41
@@ -15329,7 +15328,7 @@ define hidden zeroext i1 @SDL_SetGPURenderStateFragmentUniforms_REAL(ptr noundef
 57:                                               ; preds = %._crit_edge
   %58 = load i32, ptr %36, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct.SDL_GPURenderStateUniformBuffer, ptr %56, i64 %59
+  %60 = getelementptr inbounds [24 x i8], ptr %56, i64 %59
   store i32 %1, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i32 %3, ptr %61, align 8
@@ -15878,7 +15877,7 @@ define internal fastcc zeroext i1 @RenderLineBresenham(ptr noundef %0, i32 nound
   %.079100 = phi i32 [ %39, %.lr.ph.preheader ], [ %.180, %.lr.ph ]
   %.18499 = phi i32 [ %.083, %.lr.ph.preheader ], [ %.2, %.lr.ph ]
   %59 = sitofp i32 %.079100 to float
-  %60 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %57, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   store float %59, ptr %60, align 4
   %61 = sitofp i32 %.073101 to float
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -15968,7 +15967,7 @@ define internal fastcc i32 @remap_indices(ptr noundef nonnull readonly captures(
 
 .preheader.split.us:                              ; preds = %.preheader, %remap_one_indice.exit.thread.us
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %remap_one_indice.exit.thread.us ], [ 0, %.preheader ]
-  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv30
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv30
   %24 = load i32, ptr %23, align 4
   %25 = mul nsw i32 %24, %4
   %26 = sext i32 %25 to i64
@@ -16002,7 +16001,7 @@ remap_one_indice.exit.thread.us:                  ; preds = %remap_one_indice.ex
 
 .preheader.split:                                 ; preds = %.preheader, %remap_one_indice.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %remap_one_indice.exit.thread ], [ 0, %.preheader ]
-  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %42 = mul nsw i32 %41, %4
   %43 = sext i32 %42 to i64

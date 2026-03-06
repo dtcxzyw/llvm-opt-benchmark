@@ -384,7 +384,7 @@ define hidden void @SDL_Portal_ShowFileDialogWithProperties(i32 noundef %0, ptr 
 
 176:                                              ; preds = %DBus_AppendFilter.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %DBus_AppendFilter.exit.i ]
-  %177 = getelementptr inbounds nuw %struct.SDL_DialogFileFilter, ptr %46, i64 %indvars.iv.i
+  %177 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %indvars.iv.i
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %180 = load ptr, ptr %179, align 8
@@ -923,7 +923,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   br label %124
 
 109:                                              ; preds = %95
-  %110 = getelementptr inbounds nuw ptr, ptr %.284, i64 %.188139
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.284, i64 %.188139
   store ptr %100, ptr %110, align 8
   %111 = load ptr, ptr %45, align 8
   %112 = call i32 %111(ptr noundef nonnull %8) #5
@@ -937,7 +937,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
 ._crit_edge:                                      ; preds = %109, %.preheader
   %.188.lcssa = phi i64 [ 0, %.preheader ], [ %113, %109 ]
   %.183.lcssa = phi ptr [ %82, %.preheader ], [ %.284, %109 ]
-  %117 = getelementptr inbounds nuw ptr, ptr %.183.lcssa, i64 %.188.lcssa
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %.183.lcssa, i64 %.188.lcssa
   store ptr null, ptr %117, align 8
   %118 = load ptr, ptr %2, align 8
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -966,7 +966,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
 
 .lr.ph146:                                        ; preds = %124, %.lr.ph146
   %.0144 = phi i64 [ %130, %.lr.ph146 ], [ 0, %124 ]
-  %128 = getelementptr inbounds nuw ptr, ptr %.082, i64 %.0144
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %.082, i64 %.0144
   %129 = load ptr, ptr %128, align 8
   call void @SDL_free_REAL(ptr noundef %129) #5
   %130 = add nuw i64 %.0144, 1

@@ -593,7 +593,7 @@ define internal i32 @encryptor(ptr noundef readonly captures(none) %0, ptr nound
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr ptr, ptr %36, i64 %37
+  %38 = getelementptr [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   br label %44
@@ -619,7 +619,7 @@ define internal i32 @encryptor(ptr noundef readonly captures(none) %0, ptr nound
 51:                                               ; preds = %44
   %52 = load i32, ptr %47, align 8
   %53 = sext i32 %15 to i64
-  %54 = getelementptr %struct.scatterlist, ptr %46, i64 %53
+  %54 = getelementptr [32 x i8], ptr %46, i64 %53
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, 3
   %57 = or disjoint i64 %56, %45
@@ -631,7 +631,7 @@ define internal i32 @encryptor(ptr noundef readonly captures(none) %0, ptr nound
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %61 = load i32, ptr %14, align 8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr %struct.scatterlist, ptr %60, i64 %62
+  %63 = getelementptr [32 x i8], ptr %60, i64 %62
   %64 = load i64, ptr %0, align 8
   %65 = and i64 %64, -4
   %66 = load i32, ptr %11, align 4
@@ -667,7 +667,7 @@ define internal i32 @encryptor(ptr noundef readonly captures(none) %0, ptr nound
 88:                                               ; preds = %51
   %89 = sub i32 %13, %86
   %90 = sext i32 %73 to i64
-  %91 = getelementptr %struct.scatterlist, ptr %46, i64 %90
+  %91 = getelementptr [32 x i8], ptr %46, i64 %90
   %92 = load i64, ptr %91, align 8
   %93 = and i64 %92, -4
   %94 = or disjoint i64 %93, 2
@@ -675,7 +675,7 @@ define internal i32 @encryptor(ptr noundef readonly captures(none) %0, ptr nound
   %95 = load i32, ptr %14, align 8
   %96 = add i32 %95, -1
   %97 = sext i32 %96 to i64
-  %98 = getelementptr %struct.scatterlist, ptr %60, i64 %97
+  %98 = getelementptr [32 x i8], ptr %60, i64 %97
   %99 = load i64, ptr %98, align 8
   %100 = and i64 %99, -4
   %101 = or disjoint i64 %100, 2
@@ -811,7 +811,7 @@ define internal i32 @decryptor(ptr noundef readonly captures(none) %0, ptr nound
   %16 = add i32 %15, %14
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = sext i32 %8 to i64
-  %19 = getelementptr %struct.scatterlist, ptr %17, i64 %18
+  %19 = getelementptr [32 x i8], ptr %17, i64 %18
   %20 = load i64, ptr %0, align 8
   %21 = and i64 %20, -4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -843,7 +843,7 @@ define internal i32 @decryptor(ptr noundef readonly captures(none) %0, ptr nound
 41:                                               ; preds = %11
   %42 = sub i32 %16, %39
   %43 = sext i32 %29 to i64
-  %44 = getelementptr %struct.scatterlist, ptr %17, i64 %43
+  %44 = getelementptr [32 x i8], ptr %17, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = and i64 %45, -4
   %47 = or disjoint i64 %46, 2

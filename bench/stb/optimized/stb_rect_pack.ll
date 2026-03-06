@@ -3,9 +3,6 @@ source_filename = "bench/stb/original/stb_rect_pack.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.stbrp_node = type { i32, i32, ptr }
-%struct.stbrp_rect = type { i32, i32, i32, i32, i32, i32 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @stbrp_setup_heuristic(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -56,8 +53,8 @@ define void @stbrp_init_target(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw %struct.stbrp_node, ptr %3, i64 %indvars.iv.next
-  %9 = getelementptr inbounds nuw %struct.stbrp_node, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8, !tbaa !14
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -69,7 +66,7 @@ define void @stbrp_init_target(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 
 ._crit_edge:                                      ; preds = %5, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %11, %._crit_edge.loopexit ], [ 0, %5 ]
-  %12 = getelementptr inbounds nuw %struct.stbrp_node, ptr %3, i64 %.0.lcssa
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.0.lcssa
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %13, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -612,7 +609,7 @@ define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %7, ptr %6, align 4, !tbaa !34
@@ -636,7 +633,7 @@ define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32
 
 12:                                               ; preds = %.lr.ph57, %63
   %indvars.iv65 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next66, %63 ]
-  %13 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv65
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv65
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !33
   %16 = icmp eq i32 %15, 0
@@ -759,7 +756,7 @@ stbrp__skyline_pack_rectangle.exit.thread:        ; preds = %29, %33, %24
 .lr.ph62:                                         ; preds = %._crit_edge58, %76
   %indvars.iv70 = phi i64 [ 0, %._crit_edge58 ], [ %indvars.iv.next71, %76 ]
   %.04559 = phi i32 [ 1, %._crit_edge58 ], [ %77, %76 ]
-  %64 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv70
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv70
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %66 = load i32, ptr %65, align 4, !tbaa !37
   %67 = icmp eq i32 %66, 2147483647

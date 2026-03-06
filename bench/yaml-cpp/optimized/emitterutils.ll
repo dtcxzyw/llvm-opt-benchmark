@@ -2152,7 +2152,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4Y
   %57 = phi ptr [ %64, %60 ], [ %56, %54 ]
   %.01424.i = phi i64 [ %62, %60 ], [ 0, %54 ]
   %.01523.i = phi i32 [ %spec.select.i, %60 ], [ -1, %54 ]
-  %58 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %57, i64 %.01424.i
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 %.01424.i
   %59 = call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   %.not.i = icmp eq i32 %59, -1
   br i1 %.not.i, label %.critedge, label %60
@@ -2784,7 +2784,7 @@ define noundef zeroext i1 @_ZN4YAML5Utils18WriteTagWithPrefixERNS_15ostream_wrap
   %53 = phi ptr [ %60, %56 ], [ %52, %48 ]
   %.01424.i = phi i64 [ %58, %56 ], [ 0, %48 ]
   %.01523.i = phi i32 [ %spec.select.i, %56 ], [ -1, %48 ]
-  %54 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %53, i64 %.01424.i
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %.01424.i
   %55 = call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   %.not.i = icmp eq i32 %55, -1
   br i1 %.not.i, label %.critedge, label %56
@@ -2939,7 +2939,7 @@ _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit: ; preds = %56, %.lr.ph
   %132 = phi ptr [ %139, %135 ], [ %131, %127 ]
   %.01424.i38 = phi i64 [ %137, %135 ], [ 0, %127 ]
   %.01523.i39 = phi i32 [ %spec.select.i41, %135 ], [ -1, %127 ]
-  %133 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %132, i64 %.01424.i38
+  %133 = getelementptr inbounds nuw [32 x i8], ptr %132, i64 %.01424.i38
   %134 = call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(24) %7) #15
   %.not.i40 = icmp eq i32 %134, -1
   br i1 %.not.i40, label %.critedge24, label %135
@@ -3684,7 +3684,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK4YAML5RegEx7MatchesINS_16StringCharS
   %44 = phi ptr [ %51, %47 ], [ %43, %39 ]
   %.01424.i = phi i64 [ %49, %47 ], [ 0, %39 ]
   %.01523.i = phi i32 [ %spec.select.i, %47 ], [ -1, %39 ]
-  %45 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %44, i64 %.01424.i
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %.01424.i
   %46 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(24) %1) #15
   %.not.i = icmp eq i32 %46, -1
   br i1 %.not.i, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit, label %47
@@ -5351,7 +5351,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %45 = phi ptr [ %52, %48 ], [ %8, %.preheader ]
   %.014.i40 = phi i64 [ %50, %48 ], [ 0, %.preheader ]
   %.015.i39 = phi i32 [ %spec.select.i11, %48 ], [ -1, %.preheader ]
-  %46 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %45, i64 %.014.i40
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %.014.i40
   %47 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.not.i10 = icmp eq i32 %47, -1
   br i1 %.not.i10, label %common.ret78, label %48
@@ -5462,7 +5462,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx10MatchOpAndINS_16StringCharSour
   %7 = phi ptr [ %14, %10 ], [ %6, %2 ]
   %.01424 = phi i64 [ %12, %10 ], [ 0, %2 ]
   %.01523 = phi i32 [ %spec.select, %10 ], [ -1, %2 ]
-  %8 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %7, i64 %.01424
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %.01424
   %9 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %._crit_edge, label %10

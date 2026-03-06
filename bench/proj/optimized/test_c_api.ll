@@ -169253,7 +169253,7 @@ _ZN7testing15AssertionResultD2Ev.exit710:         ; preds = %558, %_ZNKSt14defau
   %567 = load ptr, ptr %31, align 8, !tbaa !1285
   %568 = load i32, ptr %30, align 4, !tbaa !60
   %569 = sext i32 %568 to i64
-  %570 = getelementptr inbounds ptr, ptr %567, i64 %569
+  %570 = getelementptr inbounds [8 x i8], ptr %567, i64 %569
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store ptr null, ptr %41, align 8, !tbaa !31
   %571 = load ptr, ptr %570, align 8, !tbaa !142, !noalias !1304
@@ -169445,7 +169445,7 @@ _ZN7testing15AssertionResultD2Ev.exit723:         ; preds = %601, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %650 = load ptr, ptr %31, align 8, !tbaa !1285
-  %651 = getelementptr inbounds nuw ptr, ptr %650, i64 %indvars.iv
+  %651 = getelementptr inbounds nuw [8 x i8], ptr %650, i64 %indvars.iv
   %652 = load ptr, ptr %651, align 8, !tbaa !142
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 88
   %654 = load ptr, ptr %653, align 8, !tbaa !1309
@@ -169660,7 +169660,7 @@ _ZN7testing15AssertionResultD2Ev.exit742:         ; preds = %709, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %717 = load ptr, ptr %31, align 8, !tbaa !1285
-  %718 = getelementptr inbounds nuw ptr, ptr %717, i64 %indvars.iv
+  %718 = getelementptr inbounds nuw [8 x i8], ptr %717, i64 %indvars.iv
   %719 = load ptr, ptr %718, align 8, !tbaa !142
   %720 = getelementptr inbounds nuw i8, ptr %719, i64 8
   %721 = load ptr, ptr %720, align 8, !tbaa !1316
@@ -169723,7 +169723,7 @@ _ZN7testing15AssertionResultD2Ev.exit742:         ; preds = %709, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %740 = load ptr, ptr %31, align 8, !tbaa !1285
-  %741 = getelementptr inbounds nuw ptr, ptr %740, i64 %indvars.iv
+  %741 = getelementptr inbounds nuw [8 x i8], ptr %740, i64 %indvars.iv
   %742 = load ptr, ptr %741, align 8, !tbaa !142
   %743 = load ptr, ptr %742, align 8, !tbaa !1317
   store ptr %626, ptr %50, align 8, !tbaa !4
@@ -169953,7 +169953,7 @@ _ZN7testing15AssertionResultD2Ev.exit773:         ; preds = %799, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %807 = load ptr, ptr %31, align 8, !tbaa !1285
-  %808 = getelementptr inbounds nuw ptr, ptr %807, i64 %indvars.iv
+  %808 = getelementptr inbounds nuw [8 x i8], ptr %807, i64 %indvars.iv
   %809 = load ptr, ptr %808, align 8, !tbaa !142
   %810 = getelementptr inbounds nuw i8, ptr %809, i64 16
   %811 = load ptr, ptr %810, align 8, !tbaa !1323
@@ -170173,7 +170173,7 @@ _ZN7testing15AssertionResultD2Ev.exit799:         ; preds = %867, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %875 = load ptr, ptr %31, align 8, !tbaa !1285
-  %876 = getelementptr inbounds nuw ptr, ptr %875, i64 %indvars.iv
+  %876 = getelementptr inbounds nuw [8 x i8], ptr %875, i64 %indvars.iv
   %877 = load ptr, ptr %876, align 8, !tbaa !142
   %878 = getelementptr inbounds nuw i8, ptr %877, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
@@ -170310,7 +170310,7 @@ _ZN7testing15AssertionResultD2Ev.exit814:         ; preds = %911, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %919 = load ptr, ptr %31, align 8, !tbaa !1285
-  %920 = getelementptr inbounds nuw ptr, ptr %919, i64 %indvars.iv
+  %920 = getelementptr inbounds nuw [8 x i8], ptr %919, i64 %indvars.iv
   %921 = load ptr, ptr %920, align 8, !tbaa !142
   %922 = getelementptr inbounds nuw i8, ptr %921, i64 28
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
@@ -170447,7 +170447,7 @@ _ZN7testing15AssertionResultD2Ev.exit829:         ; preds = %955, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %963 = load ptr, ptr %31, align 8, !tbaa !1285
-  %964 = getelementptr inbounds nuw ptr, ptr %963, i64 %indvars.iv
+  %964 = getelementptr inbounds nuw [8 x i8], ptr %963, i64 %indvars.iv
   %965 = load ptr, ptr %964, align 8, !tbaa !142
   %966 = getelementptr inbounds nuw i8, ptr %965, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
@@ -170584,7 +170584,7 @@ _ZN7testing15AssertionResultD2Ev.exit845:         ; preds = %999, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %1007 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1008 = getelementptr inbounds nuw ptr, ptr %1007, i64 %indvars.iv
+  %1008 = getelementptr inbounds nuw [8 x i8], ptr %1007, i64 %indvars.iv
   %1009 = load ptr, ptr %1008, align 8, !tbaa !142
   %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
@@ -170721,7 +170721,7 @@ _ZN7testing15AssertionResultD2Ev.exit860:         ; preds = %1043, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %1051 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1052 = getelementptr inbounds nuw ptr, ptr %1051, i64 %indvars.iv
+  %1052 = getelementptr inbounds nuw [8 x i8], ptr %1051, i64 %indvars.iv
   %1053 = load ptr, ptr %1052, align 8, !tbaa !142
   %1054 = getelementptr inbounds nuw i8, ptr %1053, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
@@ -170858,7 +170858,7 @@ _ZN7testing15AssertionResultD2Ev.exit876:         ; preds = %1087, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %1095 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1096 = getelementptr inbounds nuw ptr, ptr %1095, i64 %indvars.iv
+  %1096 = getelementptr inbounds nuw [8 x i8], ptr %1095, i64 %indvars.iv
   %1097 = load ptr, ptr %1096, align 8, !tbaa !142
   %1098 = getelementptr inbounds nuw i8, ptr %1097, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
@@ -170995,7 +170995,7 @@ _ZN7testing15AssertionResultD2Ev.exit892:         ; preds = %1131, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %1139 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1140 = getelementptr inbounds nuw ptr, ptr %1139, i64 %indvars.iv
+  %1140 = getelementptr inbounds nuw [8 x i8], ptr %1139, i64 %indvars.iv
   %1141 = load ptr, ptr %1140, align 8, !tbaa !142
   %1142 = getelementptr inbounds nuw i8, ptr %1141, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -171133,7 +171133,7 @@ _ZN7testing15AssertionResultD2Ev.exit908:         ; preds = %1175, %_ZNKSt14defa
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
   call void @llvm.lifetime.start.p0(ptr nonnull %86)
   %1183 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1184 = getelementptr inbounds nuw ptr, ptr %1183, i64 %indvars.iv
+  %1184 = getelementptr inbounds nuw [8 x i8], ptr %1183, i64 %indvars.iv
   %1185 = load ptr, ptr %1184, align 8, !tbaa !142
   %1186 = getelementptr inbounds nuw i8, ptr %1185, i64 72
   %1187 = load ptr, ptr %1186, align 8, !tbaa !1364
@@ -171238,7 +171238,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit916: ; preds = %11
 1214:                                             ; preds = %1213
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
   %1215 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1216 = getelementptr inbounds nuw ptr, ptr %1215, i64 %indvars.iv
+  %1216 = getelementptr inbounds nuw [8 x i8], ptr %1215, i64 %indvars.iv
   %1217 = load ptr, ptr %1216, align 8, !tbaa !142
   %1218 = getelementptr inbounds nuw i8, ptr %1217, i64 72
   %1219 = load ptr, ptr %1218, align 8, !tbaa !1364
@@ -171468,7 +171468,7 @@ _ZN7testing15AssertionResultD2Ev.exit945:         ; preds = %1280, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %1288 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1289 = getelementptr inbounds nuw ptr, ptr %1288, i64 %indvars.iv
+  %1289 = getelementptr inbounds nuw [8 x i8], ptr %1288, i64 %indvars.iv
   %1290 = load ptr, ptr %1289, align 8, !tbaa !142
   %1291 = getelementptr inbounds nuw i8, ptr %1290, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
@@ -171618,7 +171618,7 @@ _ZN7testing15AssertionResultD2Ev.exit960:         ; preds = %1324, %_ZNKSt14defa
 1336:                                             ; preds = %1333
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
   %1337 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1338 = getelementptr inbounds nuw ptr, ptr %1337, i64 %indvars.iv
+  %1338 = getelementptr inbounds nuw [8 x i8], ptr %1337, i64 %indvars.iv
   %1339 = load ptr, ptr %1338, align 8, !tbaa !142
   %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
@@ -171763,7 +171763,7 @@ _ZN7testing15AssertionResultD2Ev.exit976:         ; preds = %1372, %_ZNKSt14defa
 1384:                                             ; preds = %1381
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
   %1385 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1386 = getelementptr inbounds nuw ptr, ptr %1385, i64 %indvars.iv
+  %1386 = getelementptr inbounds nuw [8 x i8], ptr %1385, i64 %indvars.iv
   %1387 = load ptr, ptr %1386, align 8, !tbaa !142
   %1388 = getelementptr inbounds nuw i8, ptr %1387, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
@@ -171908,7 +171908,7 @@ _ZN7testing15AssertionResultD2Ev.exit992:         ; preds = %1420, %_ZNKSt14defa
 1432:                                             ; preds = %1429
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
   %1433 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1434 = getelementptr inbounds nuw ptr, ptr %1433, i64 %indvars.iv
+  %1434 = getelementptr inbounds nuw [8 x i8], ptr %1433, i64 %indvars.iv
   %1435 = load ptr, ptr %1434, align 8, !tbaa !142
   %1436 = getelementptr inbounds nuw i8, ptr %1435, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
@@ -172041,7 +172041,7 @@ _ZN7testing15AssertionResultD2Ev.exit1008:        ; preds = %1468, %_ZNKSt14defa
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %1476 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1477 = getelementptr inbounds nuw ptr, ptr %1476, i64 %indvars.iv
+  %1477 = getelementptr inbounds nuw [8 x i8], ptr %1476, i64 %indvars.iv
   %1478 = load ptr, ptr %1477, align 8, !tbaa !142
   %1479 = getelementptr inbounds nuw i8, ptr %1478, i64 80
   %1480 = load ptr, ptr %1479, align 8, !tbaa !1385
@@ -172274,7 +172274,7 @@ _ZN7testing15AssertionResultD2Ev.exit1034:        ; preds = %1536, %_ZNKSt14defa
 1548:                                             ; preds = %1545
   call void @llvm.lifetime.start.p0(ptr nonnull %111)
   %1549 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1550 = getelementptr inbounds nuw ptr, ptr %1549, i64 %indvars.iv
+  %1550 = getelementptr inbounds nuw [8 x i8], ptr %1549, i64 %indvars.iv
   %1551 = load ptr, ptr %1550, align 8, !tbaa !142
   %1552 = getelementptr inbounds nuw i8, ptr %1551, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %112)
@@ -172419,7 +172419,7 @@ _ZN7testing15AssertionResultD2Ev.exit1050:        ; preds = %1584, %_ZNKSt14defa
 1596:                                             ; preds = %1593
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %1597 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1598 = getelementptr inbounds nuw ptr, ptr %1597, i64 %indvars.iv
+  %1598 = getelementptr inbounds nuw [8 x i8], ptr %1597, i64 %indvars.iv
   %1599 = load ptr, ptr %1598, align 8, !tbaa !142
   %1600 = getelementptr inbounds nuw i8, ptr %1599, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
@@ -172565,7 +172565,7 @@ _ZN7testing15AssertionResultD2Ev.exit1066:        ; preds = %1632, %_ZNKSt14defa
   %.1 = phi i8 [ 1, %_ZN7testing15AssertionResultD2Ev.exit960 ], [ %.02876, %_ZN7testing15AssertionResultD2Ev.exit976 ], [ %.02876, %_ZN7testing15AssertionResultD2Ev.exit992 ], [ %.02876, %_ZN7testing15AssertionResultD2Ev.exit1034 ], [ %.02876, %_ZN7testing15AssertionResultD2Ev.exit1050 ], [ %.02876, %_ZN7testing15AssertionResultD2Ev.exit1066 ], [ %.02876, %1593 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %119)
   %1642 = load ptr, ptr %31, align 8, !tbaa !1285
-  %1643 = getelementptr inbounds nuw ptr, ptr %1642, i64 %indvars.iv
+  %1643 = getelementptr inbounds nuw [8 x i8], ptr %1642, i64 %indvars.iv
   %1644 = load ptr, ptr %1643, align 8, !tbaa !142
   %1645 = getelementptr inbounds nuw i8, ptr %1644, i64 28
   call void @llvm.lifetime.start.p0(ptr nonnull %120)
@@ -173595,7 +173595,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.016282885 = phi i8 [ 0, %.lr.ph2888 ], [ %1976, %_ZN7testing15AssertionResultD2Ev.exit1207 ]
   %.016292884 = phi i8 [ 0, %.lr.ph2888 ], [ %1973, %_ZN7testing15AssertionResultD2Ev.exit1207 ]
   %.016302883 = phi i8 [ 0, %.lr.ph2888 ], [ %1970, %_ZN7testing15AssertionResultD2Ev.exit1207 ]
-  %1964 = getelementptr inbounds nuw ptr, ptr %1954, i64 %indvars.iv2975
+  %1964 = getelementptr inbounds nuw [8 x i8], ptr %1954, i64 %indvars.iv2975
   %1965 = load ptr, ptr %1964, align 8, !tbaa !142
   %1966 = getelementptr inbounds nuw i8, ptr %1965, i64 24
   %1967 = load i32, ptr %1966, align 8, !tbaa !1410
@@ -174340,7 +174340,7 @@ _ZN7testing15AssertionResultD2Ev.exit1275:        ; preds = %_ZN7testing15Assert
   %indvars.iv2977 = phi i64 [ 0, %.lr.ph2897 ], [ %indvars.iv.next2978, %_ZN7testing15AssertionResultD2Ev.exit1292 ]
   %.016232895 = phi i8 [ 0, %.lr.ph2897 ], [ %2212, %_ZN7testing15AssertionResultD2Ev.exit1292 ]
   %.016242894 = phi i8 [ 0, %.lr.ph2897 ], [ %2209, %_ZN7testing15AssertionResultD2Ev.exit1292 ]
-  %2203 = getelementptr inbounds nuw ptr, ptr %2193, i64 %indvars.iv2977
+  %2203 = getelementptr inbounds nuw [8 x i8], ptr %2193, i64 %indvars.iv2977
   %2204 = load ptr, ptr %2203, align 8, !tbaa !142
   %2205 = getelementptr inbounds nuw i8, ptr %2204, i64 24
   %2206 = load i32, ptr %2205, align 8, !tbaa !1410
@@ -174803,7 +174803,7 @@ _ZN7testing15AssertionResultD2Ev.exit1326:        ; preds = %_ZN7testing15Assert
   %indvars.iv2979 = phi i64 [ 0, %.lr.ph2904 ], [ %indvars.iv.next2980, %_ZN7testing15AssertionResultD2Ev.exit1343 ]
   %.016192902 = phi i8 [ 0, %.lr.ph2904 ], [ %2362, %_ZN7testing15AssertionResultD2Ev.exit1343 ]
   %.016202901 = phi i8 [ 0, %.lr.ph2904 ], [ %2359, %_ZN7testing15AssertionResultD2Ev.exit1343 ]
-  %2353 = getelementptr inbounds nuw ptr, ptr %2343, i64 %indvars.iv2979
+  %2353 = getelementptr inbounds nuw [8 x i8], ptr %2343, i64 %indvars.iv2979
   %2354 = load ptr, ptr %2353, align 8, !tbaa !142
   %2355 = getelementptr inbounds nuw i8, ptr %2354, i64 24
   %2356 = load i32, ptr %2355, align 8, !tbaa !1410
@@ -175540,7 +175540,7 @@ _ZN7testing15AssertionResultD2Ev.exit1411:        ; preds = %2573, %_ZNKSt14defa
 2588:                                             ; preds = %.lr.ph2909, %_ZN7testing15AssertionResultD2Ev.exit1465
   %indvars.iv2981 = phi i64 [ 0, %.lr.ph2909 ], [ %indvars.iv.next2982, %_ZN7testing15AssertionResultD2Ev.exit1465 ]
   %2589 = load ptr, ptr %199, align 8, !tbaa !1285
-  %2590 = getelementptr inbounds nuw ptr, ptr %2589, i64 %indvars.iv2981
+  %2590 = getelementptr inbounds nuw [8 x i8], ptr %2589, i64 %indvars.iv2981
   %2591 = load ptr, ptr %2590, align 8, !tbaa !142
   %2592 = getelementptr inbounds nuw i8, ptr %2591, i64 40
   %2593 = load double, ptr %2592, align 8, !tbaa !1422
@@ -175672,7 +175672,7 @@ _ZN7testing15AssertionResultD2Ev.exit1424:        ; preds = %2627, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(ptr nonnull %208)
   call void @llvm.lifetime.start.p0(ptr nonnull %211)
   %2635 = load ptr, ptr %199, align 8, !tbaa !1285
-  %2636 = getelementptr inbounds nuw ptr, ptr %2635, i64 %indvars.iv2981
+  %2636 = getelementptr inbounds nuw [8 x i8], ptr %2635, i64 %indvars.iv2981
   %2637 = load ptr, ptr %2636, align 8, !tbaa !142
   %2638 = getelementptr inbounds nuw i8, ptr %2637, i64 56
   %2639 = load double, ptr %2638, align 8, !tbaa !62, !noalias !1427
@@ -175796,7 +175796,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1437:        ; preds = %2669, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1435
   call void @llvm.lifetime.end.p0(ptr nonnull %211)
   %.pre2987 = load ptr, ptr %199, align 8, !tbaa !1285
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre2987, i64 %indvars.iv2981
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre2987, i64 %indvars.iv2981
   %.pre2988 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !142
   br label %2677
 
@@ -175926,7 +175926,7 @@ _ZN7testing15AssertionResultD2Ev.exit1451:        ; preds = %2710, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(ptr nonnull %214)
   call void @llvm.lifetime.start.p0(ptr nonnull %217)
   %2718 = load ptr, ptr %199, align 8, !tbaa !1285
-  %2719 = getelementptr inbounds nuw ptr, ptr %2718, i64 %indvars.iv2981
+  %2719 = getelementptr inbounds nuw [8 x i8], ptr %2718, i64 %indvars.iv2981
   %2720 = load ptr, ptr %2719, align 8, !tbaa !142
   %2721 = getelementptr inbounds nuw i8, ptr %2720, i64 64
   %2722 = load double, ptr %2721, align 8, !tbaa !62, !noalias !1433
@@ -176381,7 +176381,7 @@ _ZN7testing15AssertionResultD2Ev.exit1499:        ; preds = %2849, %_ZNKSt14defa
 2864:                                             ; preds = %.lr.ph2912, %_ZN7testing15AssertionResultD2Ev.exit1555
   %indvars.iv2984 = phi i64 [ 0, %.lr.ph2912 ], [ %indvars.iv.next2985, %_ZN7testing15AssertionResultD2Ev.exit1555 ]
   %2865 = load ptr, ptr %222, align 8, !tbaa !1285
-  %2866 = getelementptr inbounds nuw ptr, ptr %2865, i64 %indvars.iv2984
+  %2866 = getelementptr inbounds nuw [8 x i8], ptr %2865, i64 %indvars.iv2984
   %2867 = load ptr, ptr %2866, align 8, !tbaa !142
   %2868 = getelementptr inbounds nuw i8, ptr %2867, i64 40
   %2869 = load double, ptr %2868, align 8, !tbaa !1422
@@ -176513,7 +176513,7 @@ _ZN7testing15AssertionResultD2Ev.exit1513:        ; preds = %2903, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(ptr nonnull %231)
   call void @llvm.lifetime.start.p0(ptr nonnull %234)
   %2911 = load ptr, ptr %222, align 8, !tbaa !1285
-  %2912 = getelementptr inbounds nuw ptr, ptr %2911, i64 %indvars.iv2984
+  %2912 = getelementptr inbounds nuw [8 x i8], ptr %2911, i64 %indvars.iv2984
   %2913 = load ptr, ptr %2912, align 8, !tbaa !142
   %2914 = getelementptr inbounds nuw i8, ptr %2913, i64 56
   %2915 = load double, ptr %2914, align 8, !tbaa !62, !noalias !1444
@@ -176637,7 +176637,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1527:        ; preds = %2945, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1525
   call void @llvm.lifetime.end.p0(ptr nonnull %234)
   %.pre2989 = load ptr, ptr %222, align 8, !tbaa !1285
-  %.phi.trans.insert2990 = getelementptr inbounds nuw ptr, ptr %.pre2989, i64 %indvars.iv2984
+  %.phi.trans.insert2990 = getelementptr inbounds nuw [8 x i8], ptr %.pre2989, i64 %indvars.iv2984
   %.pre2991 = load ptr, ptr %.phi.trans.insert2990, align 8, !tbaa !142
   br label %2953
 
@@ -176767,7 +176767,7 @@ _ZN7testing15AssertionResultD2Ev.exit1541:        ; preds = %2986, %_ZNKSt14defa
   call void @llvm.lifetime.end.p0(ptr nonnull %237)
   call void @llvm.lifetime.start.p0(ptr nonnull %240)
   %2994 = load ptr, ptr %222, align 8, !tbaa !1285
-  %2995 = getelementptr inbounds nuw ptr, ptr %2994, i64 %indvars.iv2984
+  %2995 = getelementptr inbounds nuw [8 x i8], ptr %2994, i64 %indvars.iv2984
   %2996 = load ptr, ptr %2995, align 8, !tbaa !142
   %2997 = getelementptr inbounds nuw i8, ptr %2996, i64 64
   %2998 = load double, ptr %2997, align 8, !tbaa !62, !noalias !1450
@@ -180226,7 +180226,7 @@ _ZN7testing15AssertionResultD2Ev.exit288:         ; preds = %390, %_ZNKSt14defau
   %399 = load ptr, ptr %29, align 8, !tbaa !1285
   %400 = load i32, ptr %28, align 4, !tbaa !60
   %401 = sext i32 %400 to i64
-  %402 = getelementptr inbounds ptr, ptr %399, i64 %401
+  %402 = getelementptr inbounds [8 x i8], ptr %399, i64 %401
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr null, ptr %39, align 8, !tbaa !31
   %403 = load ptr, ptr %402, align 8, !tbaa !142, !noalias !1492
@@ -180389,7 +180389,7 @@ _ZN7testing15AssertionResultD2Ev.exit301:         ; preds = %433, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %463 = load ptr, ptr %29, align 8, !tbaa !1285
-  %464 = getelementptr inbounds nuw ptr, ptr %463, i64 %indvars.iv
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %463, i64 %indvars.iv
   %465 = load ptr, ptr %464, align 8, !tbaa !142
   %466 = load ptr, ptr %465, align 8, !tbaa !1497
   store ptr %444, ptr %43, align 8, !tbaa !4
@@ -180603,7 +180603,7 @@ _ZN7testing15AssertionResultD2Ev.exit320:         ; preds = %521, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %529 = load ptr, ptr %29, align 8, !tbaa !1285
-  %530 = getelementptr inbounds nuw ptr, ptr %529, i64 %indvars.iv
+  %530 = getelementptr inbounds nuw [8 x i8], ptr %529, i64 %indvars.iv
   %531 = load ptr, ptr %530, align 8, !tbaa !142
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 8
   %533 = load ptr, ptr %532, align 8, !tbaa !1504
@@ -180678,7 +180678,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328: ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %556 = load ptr, ptr %29, align 8, !tbaa !1285
-  %557 = getelementptr inbounds nuw ptr, ptr %556, i64 %indvars.iv
+  %557 = getelementptr inbounds nuw [8 x i8], ptr %556, i64 %indvars.iv
   %558 = load ptr, ptr %557, align 8, !tbaa !142
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 16
   %560 = load ptr, ptr %559, align 8, !tbaa !1505
@@ -180914,7 +180914,7 @@ _ZN7testing15AssertionResultD2Ev.exit354:         ; preds = %617, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %625 = load ptr, ptr %29, align 8, !tbaa !1285
-  %626 = getelementptr inbounds nuw ptr, ptr %625, i64 %indvars.iv
+  %626 = getelementptr inbounds nuw [8 x i8], ptr %625, i64 %indvars.iv
   %627 = load ptr, ptr %626, align 8, !tbaa !142
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 24
   %629 = load ptr, ptr %628, align 8, !tbaa !1511
@@ -181134,7 +181134,7 @@ _ZN7testing15AssertionResultD2Ev.exit380:         ; preds = %685, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %693 = load ptr, ptr %29, align 8, !tbaa !1285
-  %694 = getelementptr inbounds nuw ptr, ptr %693, i64 %indvars.iv
+  %694 = getelementptr inbounds nuw [8 x i8], ptr %693, i64 %indvars.iv
   %695 = load ptr, ptr %694, align 8, !tbaa !142
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
@@ -181266,7 +181266,7 @@ _ZN7testing15AssertionResultD2Ev.exit393:         ; preds = %727, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %735 = load ptr, ptr %29, align 8, !tbaa !1285
-  %736 = getelementptr inbounds nuw ptr, ptr %735, i64 %indvars.iv
+  %736 = getelementptr inbounds nuw [8 x i8], ptr %735, i64 %indvars.iv
   %737 = load ptr, ptr %736, align 8, !tbaa !142
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
@@ -181412,7 +181412,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %782 = load ptr, ptr %29, align 8, !tbaa !1285
-  %783 = getelementptr inbounds nuw ptr, ptr %782, i64 %indvars.iv
+  %783 = getelementptr inbounds nuw [8 x i8], ptr %782, i64 %indvars.iv
   %784 = load ptr, ptr %783, align 8, !tbaa !142
   %785 = getelementptr inbounds nuw i8, ptr %784, i64 40
   %786 = load ptr, ptr %785, align 8, !tbaa !1525
@@ -181627,7 +181627,7 @@ _ZN7testing15AssertionResultD2Ev.exit439:         ; preds = %841, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %849 = load ptr, ptr %29, align 8, !tbaa !1285
-  %850 = getelementptr inbounds nuw ptr, ptr %849, i64 %indvars.iv
+  %850 = getelementptr inbounds nuw [8 x i8], ptr %849, i64 %indvars.iv
   %851 = load ptr, ptr %850, align 8, !tbaa !142
   %852 = getelementptr inbounds nuw i8, ptr %851, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
@@ -181763,7 +181763,7 @@ _ZN7testing15AssertionResultD2Ev.exit452:         ; preds = %883, %_ZNKSt14defau
   %.1489 = phi i8 [ 1, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %.0488719, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %892 = load ptr, ptr %29, align 8, !tbaa !1285
-  %893 = getelementptr inbounds nuw ptr, ptr %892, i64 %indvars.iv
+  %893 = getelementptr inbounds nuw [8 x i8], ptr %892, i64 %indvars.iv
   %894 = load ptr, ptr %893, align 8, !tbaa !142
   %895 = getelementptr inbounds nuw i8, ptr %894, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -184722,7 +184722,7 @@ _ZN7testing15AssertionResultD2Ev.exit192:         ; preds = %307, %_ZNKSt14defau
   %316 = load ptr, ptr %22, align 8, !tbaa !1285
   %317 = load i32, ptr %21, align 4, !tbaa !60
   %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds ptr, ptr %316, i64 %318
+  %319 = getelementptr inbounds [8 x i8], ptr %316, i64 %318
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr null, ptr %32, align 8, !tbaa !31
   %320 = load ptr, ptr %319, align 8, !tbaa !142, !noalias !1576
@@ -184880,7 +184880,7 @@ _ZN7testing15AssertionResultD2Ev.exit205:         ; preds = %350, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %370 = load ptr, ptr %22, align 8, !tbaa !1285
-  %371 = getelementptr inbounds nuw ptr, ptr %370, i64 %indvars.iv
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %indvars.iv
   %372 = load ptr, ptr %371, align 8, !tbaa !142
   %373 = load ptr, ptr %372, align 8, !tbaa !1581
   store ptr %362, ptr %36, align 8, !tbaa !4
@@ -185094,7 +185094,7 @@ _ZN7testing15AssertionResultD2Ev.exit224:         ; preds = %428, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %436 = load ptr, ptr %22, align 8, !tbaa !1285
-  %437 = getelementptr inbounds nuw ptr, ptr %436, i64 %indvars.iv
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %436, i64 %indvars.iv
   %438 = load ptr, ptr %437, align 8, !tbaa !142
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 8
   %440 = load ptr, ptr %439, align 8, !tbaa !1588
@@ -286384,7 +286384,7 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds 
   br label %_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %88, %_ZNSt6vectorIP8_IO_FILESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %89 = getelementptr inbounds nuw ptr, ptr %84, i64 %82
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   br label %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit: ; preds = %71, %_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
@@ -286746,7 +286746,7 @@ _ZNSt6vectorIP6pj_ctxSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = 
   br label %_ZNSt6vectorIP6pj_ctxSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP6pj_ctxSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %199, %_ZNSt6vectorIP6pj_ctxSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %200 = getelementptr inbounds nuw ptr, ptr %195, i64 %193
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %193
   br label %_ZNSt6vectorIP6pj_ctxSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP6pj_ctxSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6pj_ctxSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %182
@@ -287095,7 +287095,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i: ; preds = %
 _ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i, %47
   store ptr %40, ptr %3, align 8, !tbaa !2216
   store ptr %46, ptr %5, align 8, !tbaa !2208
-  %48 = getelementptr inbounds nuw %"class.std::thread", ptr %40, i64 %38
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   store ptr %48, ptr %6, align 8, !tbaa !2217
   %.sroa.0.0.copyload.i.i.pr = load i64, ptr %4, align 8, !tbaa !10
   %.not.i12 = icmp eq i64 %.sroa.0.0.copyload.i.i.pr, 0

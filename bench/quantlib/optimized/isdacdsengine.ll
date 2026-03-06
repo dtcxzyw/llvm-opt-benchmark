@@ -4937,7 +4937,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %__len.09.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %while.body.i.i ]
   %__first.sroa.0.08.i.i = phi ptr [ %451, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %while.body.i.i ]
   %shr.i.i = lshr i64 %__len.09.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %__first.sroa.0.08.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.08.i.i, i64 %shr.i.i
   %454 = load i64, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !97
   %cmp.i.i5.i.i = icmp slt i64 %453, %454
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -5946,7 +5946,7 @@ while.body.i.i1214:                               ; preds = %if.then1243, %while
   %__len.09.i.i1215 = phi i64 [ %__len.1.i.i1227, %while.body.i.i1214 ], [ %sub.ptr.div.i.i.i.i.i1210, %if.then1243 ]
   %__first.sroa.0.08.i.i1216 = phi ptr [ %__first.sroa.0.1.i.i1226, %while.body.i.i1214 ], [ %579, %if.then1243 ]
   %shr.i.i1217 = lshr i64 %__len.09.i.i1215, 1
-  %add.ptr.i.i.i.i.i1221 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %__first.sroa.0.08.i.i1216, i64 %shr.i.i1217
+  %add.ptr.i.i.i.i.i1221 = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.08.i.i1216, i64 %shr.i.i1217
   %581 = load i64, ptr %add.ptr.i.i.i.i.i1221, align 8, !tbaa !97
   %cmp.i.i5.i.i1223 = icmp slt i64 %571, %581
   %incdec.ptr.i.i.i1224 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i1221, i64 8
@@ -5961,7 +5961,7 @@ while.body.i.i1238:                               ; preds = %while.body.i.i1214,
   %__len.09.i.i1239 = phi i64 [ %__len.1.i.i1251, %while.body.i.i1238 ], [ %sub.ptr.div.i.i.i.i.i1210, %while.body.i.i1214 ]
   %__first.sroa.0.08.i.i1240 = phi ptr [ %__first.sroa.0.1.i.i1250, %while.body.i.i1238 ], [ %579, %while.body.i.i1214 ]
   %shr.i.i1241 = lshr i64 %__len.09.i.i1239, 1
-  %add.ptr.i.i.i.i.i1245 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %__first.sroa.0.08.i.i1240, i64 %shr.i.i1241
+  %add.ptr.i.i.i.i.i1245 = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.08.i.i1240, i64 %shr.i.i1241
   %583 = load i64, ptr %add.ptr.i.i.i.i.i1245, align 8, !tbaa !97
   %cmp.i.i5.i.i1247 = icmp slt i64 %583, %573
   %incdec.ptr.i.i.i1248 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i1245, i64 8
@@ -6107,7 +6107,7 @@ if.then.i20.i.i1286:                              ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i1287: ; preds = %if.then.i20.i.i1286, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i1282
   store ptr %call5.i.i.i.i.i1292, ptr %localNodes, align 8, !tbaa !147
   store ptr %incdec.ptr.i.i1284, ptr %_M_finish.i1168, align 8, !tbaa !146
-  %add.ptr19.i.i1288 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i.i1292, i64 %cond.i.i.i1271
+  %add.ptr19.i.i1288 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i1292, i64 %cond.i.i.i1271
   store ptr %add.ptr19.i.i1288, ptr %_M_end_of_storage.i1169, align 8, !tbaa !144
   br label %invoke.cont1286
 
@@ -10921,7 +10921,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %__result.coerce, align 8, !tbaa !147
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i40, align 8, !tbaa !146
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i41, align 8, !tbaa !144
   br label %_ZNSt20back_insert_iteratorISt6vectorIN8QuantLib4DateESaIS2_EEEaSERKS2_.exit
 
@@ -10999,7 +10999,7 @@ if.then.i20.i.i.i34:                              ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i35: ; preds = %if.then.i20.i.i.i34, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i30
   store ptr %call5.i.i.i.i.i.i21, ptr %__result.coerce, align 8, !tbaa !147
   store ptr %incdec.ptr.i.i.i32, ptr %_M_finish.i.i40, align 8, !tbaa !146
-  %add.ptr19.i.i.i36 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i.i.i21, i64 %cond.i.i.i.i18
+  %add.ptr19.i.i.i36 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i21, i64 %cond.i.i.i.i18
   store ptr %add.ptr19.i.i.i36, ptr %_M_end_of_storage.i.i41, align 8, !tbaa !144
   br label %_ZNSt20back_insert_iteratorISt6vectorIN8QuantLib4DateESaIS2_EEEaSERKS2_.exit38
 
@@ -11070,7 +11070,7 @@ if.then.i20.i.i.i71:                              ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i72: ; preds = %if.then.i20.i.i.i71, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i67
   store ptr %call5.i.i.i.i.i.i58, ptr %__result.coerce, align 8, !tbaa !147
   store ptr %incdec.ptr.i.i.i69, ptr %_M_finish.i.i40, align 8, !tbaa !146
-  %add.ptr19.i.i.i73 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i.i.i58, i64 %cond.i.i.i.i55
+  %add.ptr19.i.i.i73 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i58, i64 %cond.i.i.i.i55
   store ptr %add.ptr19.i.i.i73, ptr %_M_end_of_storage.i.i41, align 8, !tbaa !144
   br label %_ZNSt20back_insert_iteratorISt6vectorIN8QuantLib4DateESaIS2_EEEaSERKS2_.exit75
 
@@ -11184,7 +11184,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %__result.coerce, align 8, !tbaa !147
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !146
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !144
   br label %_ZNSt20back_insert_iteratorISt6vectorIN8QuantLib4DateESaIS2_EEEaSERKS2_.exit
 
@@ -11251,7 +11251,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %1, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %if.then.i.i.i.i.i30
 
@@ -11280,7 +11280,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6
 
 for.body.i.i.i.i.i34.preheader:                   ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %1, i64 %sub
+  %add.ptr50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i34
 
 for.body.i.i.i.i.i34:                             ; preds = %for.body.i.i.i.i.i34.preheader, %for.body.i.i.i.i.i34
@@ -11386,7 +11386,7 @@ if.then.i77:                                      ; preds = %invoke.cont87
 _ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %invoke.cont87, %if.then.i77
   store ptr %cond.i50, ptr %this, align 8, !tbaa !147
   store ptr %__cur.0.lcssa.i.i.i.i.i75, ptr %_M_finish, align 8, !tbaa !146
-  %add.ptr105 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %cond.i50, i64 %cond.i
+  %add.ptr105 = getelementptr inbounds nuw [8 x i8], ptr %cond.i50, i64 %cond.i
   store ptr %add.ptr105, ptr %_M_end_of_storage, align 8, !tbaa !144
   br label %if.end109
 

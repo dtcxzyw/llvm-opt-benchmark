@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pm_scope_node = type { %struct.pm_node, ptr, ptr, ptr, ptr, %struct.pm_constant_id_list_t, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr }
 %struct.pm_node = type { i16, i16, i32, %struct.pm_location_t }
 %struct.pm_constant_id_list_t = type { i64, i64, ptr }
-%struct.ruby_opt_message = type { ptr, i16, i16 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.pm_buffer_t = type { i64, i64, ptr }
@@ -1186,7 +1185,7 @@ define dso_local void @ruby_set_argv(i32 noundef %0, ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !76
   %8 = tail call i64 @rb_external_str_new_cstr(ptr noundef %7) #25
   tail call void @rb_obj_freeze_inline(i64 noundef %8) #25
@@ -1453,7 +1452,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
 
 130:                                              ; preds = %130, %122
   %indvars.iv.i.i.i = phi i64 [ 0, %122 ], [ %indvars.iv.next.i.i.i, %130 ]
-  %131 = getelementptr %struct.ruby_opt_message, ptr @usage.usage_msg, i64 %indvars.iv.i.i.i
+  %131 = getelementptr [16 x i8], ptr @usage.usage_msg, i64 %indvars.iv.i.i.i
   %132 = load ptr, ptr %131, align 16, !tbaa !80
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %134 = load i16, ptr %133, align 8, !tbaa !83
@@ -1477,7 +1476,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
 
 .preheader.i.i:                                   ; preds = %145, %.preheader.i.i
   %indvars.iv67.i.i.i = phi i64 [ %indvars.iv.next68.i.i.i, %.preheader.i.i ], [ 0, %145 ]
-  %146 = getelementptr %struct.ruby_opt_message, ptr @usage.help_msg, i64 %indvars.iv67.i.i.i
+  %146 = getelementptr [16 x i8], ptr @usage.help_msg, i64 %indvars.iv67.i.i.i
   %147 = load ptr, ptr %146, align 16, !tbaa !80
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %149 = load i16, ptr %148, align 8, !tbaa !83
@@ -1503,7 +1502,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
 
 162:                                              ; preds = %162, %160
   %indvars.iv71.i.i.i = phi i64 [ 0, %160 ], [ %indvars.iv.next72.i.i.i, %162 ]
-  %163 = getelementptr %struct.ruby_opt_message, ptr @usage.dumps, i64 %indvars.iv71.i.i.i
+  %163 = getelementptr [16 x i8], ptr @usage.dumps, i64 %indvars.iv71.i.i.i
   %164 = load ptr, ptr %163, align 16, !tbaa !80
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %166 = load i16, ptr %165, align 8, !tbaa !83
@@ -1523,7 +1522,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
 
 174:                                              ; preds = %174, %172
   %indvars.iv75.i.i.i = phi i64 [ 0, %172 ], [ %indvars.iv.next76.i.i.i, %174 ]
-  %175 = getelementptr %struct.ruby_opt_message, ptr @usage.features, i64 %indvars.iv75.i.i.i
+  %175 = getelementptr [16 x i8], ptr @usage.features, i64 %indvars.iv75.i.i.i
   %176 = load ptr, ptr %175, align 16, !tbaa !80
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %178 = load i16, ptr %177, align 8, !tbaa !83
@@ -1543,7 +1542,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
 
 186:                                              ; preds = %186, %184
   %indvars.iv79.i.i.i = phi i64 [ 0, %184 ], [ %indvars.iv.next80.i.i.i, %186 ]
-  %187 = getelementptr %struct.ruby_opt_message, ptr @usage.warn_categories, i64 %indvars.iv79.i.i.i
+  %187 = getelementptr [16 x i8], ptr @usage.warn_categories, i64 %indvars.iv79.i.i.i
   %188 = load ptr, ptr %187, align 16, !tbaa !80
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %190 = load i16, ptr %189, align 8, !tbaa !83
@@ -2001,7 +2000,7 @@ rb_array_len.exit321.thread.i:                    ; preds = %384
 
 RARRAY_AREF.exit.i:                               ; preds = %392, %rb_array_len.exit321.thread.i
   %.0.i.i.i = phi ptr [ %393, %392 ], [ %382, %rb_array_len.exit321.thread.i ]
-  %394 = getelementptr i64, ptr %.0.i.i.i, i64 %.0218.i
+  %394 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %.0218.i
   %395 = load i64, ptr %394, align 8, !tbaa !47
   %396 = call i64 @rb_attr_get(i64 noundef %395, i64 noundef %379) #25
   %.not381.i = icmp eq i64 %396, %395
@@ -2053,7 +2052,7 @@ copy_str.exit.thread370.i:                        ; preds = %397
 
 414:                                              ; preds = %413, %412
   %415 = call ptr @rb_ary_ptr_use_start(i64 noundef %378) #25
-  %416 = getelementptr i64, ptr %415, i64 %.0218.i
+  %416 = getelementptr [8 x i8], ptr %415, i64 %.0218.i
   store i64 %.0.i323373377.i, ptr %416, align 8, !tbaa !47
   %417 = and i64 %.0.i323373377.i, 7
   %.not.i.i.i328.i = icmp eq i64 %417, 0
@@ -2118,7 +2117,7 @@ rb_array_len.exit331.thread.i:                    ; preds = %430
 
 RARRAY_AREF.exit334.i:                            ; preds = %440, %rb_array_len.exit331.thread.i
   %.0.i.i333.i = phi ptr [ %441, %440 ], [ %428, %rb_array_len.exit331.thread.i ]
-  %442 = getelementptr i64, ptr %.0.i.i333.i, i64 %.0214.i
+  %442 = getelementptr [8 x i8], ptr %.0.i.i333.i, i64 %.0214.i
   %443 = load i64, ptr %442, align 8, !tbaa !47
   %444 = inttoptr i64 %443 to ptr
   %445 = load i64, ptr %444, align 8, !tbaa !42, !noalias !116
@@ -2149,7 +2148,7 @@ copy_str.exit340.i:                               ; preds = %448, %RARRAY_AREF.e
 
 455:                                              ; preds = %454, %452
   %456 = call ptr @rb_ary_ptr_use_start(i64 noundef %426) #25
-  %457 = getelementptr i64, ptr %456, i64 %.0214.i
+  %457 = getelementptr [8 x i8], ptr %456, i64 %.0214.i
   store i64 %451, ptr %457, align 8, !tbaa !47
   %458 = and i64 %451, 7
   %.not.i.i.i341.i = icmp eq i64 %458, 0
@@ -2227,7 +2226,7 @@ RARRAY_ASET.exit342.i:                            ; preds = %459, %455
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %495 = getelementptr ptr, ptr %.0202.i, i64 %indvars.iv.i.i
+  %495 = getelementptr [8 x i8], ptr %.0202.i, i64 %indvars.iv.i.i
   %496 = load ptr, ptr %495, align 8, !tbaa !76
   %497 = call i64 @rb_external_str_new_cstr(ptr noundef %496) #25
   call void @rb_obj_freeze_inline(i64 noundef %497) #25
@@ -3789,7 +3788,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %70, %.critedge.thre
   br i1 %77, label %78, label %.critedge3
 
 78:                                               ; preds = %.lr.ph126.split
-  %79 = getelementptr ptr, ptr %.081124, i64 %75
+  %79 = getelementptr [8 x i8], ptr %.081124, i64 %75
   %80 = load ptr, ptr %79, align 8, !tbaa !76
   %81 = load i8, ptr %80, align 1, !tbaa !7
   %.not102 = icmp eq i8 %81, 45
@@ -4903,7 +4902,7 @@ proc_e_option.exit:                               ; preds = %337, %339, %343
   %346 = load i64, ptr %28, align 8, !tbaa !94
   %347 = call i64 @rb_str_cat(i64 noundef %346, ptr noundef nonnull @.str.16, i64 noundef 1) #25
   %348 = sub i64 %.0156.in498, %.0.i237
-  %349 = getelementptr ptr, ptr %.0157499, i64 %.0.i237
+  %349 = getelementptr [8 x i8], ptr %.0157499, i64 %.0.i237
   %350 = getelementptr i8, ptr %349, i64 -8
   br label %proc_W_option.exit.thread
 
@@ -6016,7 +6015,7 @@ proc_long_options.exit:                           ; preds = %498, %514, %515, %.
 
 780:                                              ; preds = %proc_long_options.exit
   %781 = sub i64 %.0156.in498, %.0262.i
-  %782 = getelementptr ptr, ptr %.0157499, i64 %781
+  %782 = getelementptr [8 x i8], ptr %.0157499, i64 %781
   %783 = getelementptr i8, ptr %782, i64 -8
   br label %proc_W_option.exit.thread
 

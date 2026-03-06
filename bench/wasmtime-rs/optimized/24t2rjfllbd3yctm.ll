@@ -668,7 +668,7 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
 146:                                              ; preds = %.noexc461, %135
   %147 = phi i64 [ %.pre.i.i, %.noexc461 ], [ %143, %135 ]
   %148 = load ptr, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !84, !noalias !87, !nonnull !5, !noundef !5
-  %149 = getelementptr inbounds { i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %148, i64 %147
+  %149 = getelementptr inbounds [32 x i8], ptr %148, i64 %147
   store i64 %140, ptr %149, align 8, !noalias !66
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i64 %141, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !66
@@ -700,7 +700,7 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
   %155 = icmp ult i64 %153, %154
   call void @llvm.assume(i1 %155)
   %156 = load ptr, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !74, !noalias !75, !nonnull !5, !noundef !5
-  %157 = getelementptr inbounds { i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %156, i64 %153
+  %157 = getelementptr inbounds [32 x i8], ptr %156, i64 %153
   %.sroa.440.0..sroa_idx41.i = getelementptr inbounds nuw i8, ptr %157, i64 16
   %.sroa.440.0.copyload42.i = load i32, ptr %.sroa.440.0..sroa_idx41.i, align 8, !noalias !89
   %158 = icmp eq i32 %.sroa.440.0.copyload42.i, 3

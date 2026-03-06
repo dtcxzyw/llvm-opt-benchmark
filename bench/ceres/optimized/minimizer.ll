@@ -232,7 +232,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal9Minimizer12RunCallbacksERKN
   br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16

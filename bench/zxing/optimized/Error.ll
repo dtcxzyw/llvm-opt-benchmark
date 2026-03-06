@@ -457,7 +457,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %10 = load i8, ptr %9, align 2, !tbaa !28
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @__const._ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE.name, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE.name, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %3) #15

@@ -572,7 +572,7 @@ _ZN12builtin_nameC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
   %33 = phi i32 [ %.pre2.i, %.noexc ], [ %27, %25 ]
   %34 = phi ptr [ %.pre.i, %.noexc ], [ %23, %25 ]
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %struct.builtin_name, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !111
   %37 = load ptr, ptr %1, align 8, !tbaa !108
   %38 = getelementptr inbounds i8, ptr %37, i64 -4
@@ -630,7 +630,7 @@ _ZN12builtin_nameC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
   %59 = phi i32 [ %.pre2.i15, %.noexc16 ], [ %53, %51 ]
   %60 = phi ptr [ %.pre.i13, %.noexc16 ], [ %49, %51 ]
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw %struct.builtin_name, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !111
   %63 = load ptr, ptr %1, align 8, !tbaa !108
   %64 = getelementptr inbounds i8, ptr %63, i64 -4
@@ -688,7 +688,7 @@ _ZN12builtin_nameC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
   %85 = phi i32 [ %.pre2.i25, %.noexc26 ], [ %79, %77 ]
   %86 = phi ptr [ %.pre.i23, %.noexc26 ], [ %75, %77 ]
   %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds nuw %struct.builtin_name, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !111
   %89 = load ptr, ptr %1, align 8, !tbaa !108
   %90 = getelementptr inbounds i8, ptr %89, i64 -4
@@ -746,7 +746,7 @@ _ZN12builtin_nameC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
   %111 = phi i32 [ %.pre2.i35, %.noexc36 ], [ %105, %103 ]
   %112 = phi ptr [ %.pre.i33, %.noexc36 ], [ %101, %103 ]
   %113 = zext i32 %111 to i64
-  %114 = getelementptr inbounds nuw %struct.builtin_name, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !111
   %115 = load ptr, ptr %1, align 8, !tbaa !108
   %116 = getelementptr inbounds i8, ptr %115, i64 -4
@@ -804,7 +804,7 @@ _ZN12builtin_nameC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
   %137 = phi i32 [ %.pre2.i45, %.noexc46 ], [ %131, %129 ]
   %138 = phi ptr [ %.pre.i43, %.noexc46 ], [ %127, %129 ]
   %139 = zext i32 %137 to i64
-  %140 = getelementptr inbounds nuw %struct.builtin_name, ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %140, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !111
   %141 = load ptr, ptr %1, align 8, !tbaa !108
   %142 = getelementptr inbounds i8, ptr %141, i64 -4
@@ -862,7 +862,7 @@ _ZN12builtin_nameC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
   %163 = phi i32 [ %.pre2.i55, %.noexc56 ], [ %157, %155 ]
   %164 = phi ptr [ %.pre.i53, %.noexc56 ], [ %153, %155 ]
   %165 = zext i32 %163 to i64
-  %166 = getelementptr inbounds nuw %struct.builtin_name, ptr %164, i64 %165
+  %166 = getelementptr inbounds nuw [16 x i8], ptr %164, i64 %165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !111
   %167 = load ptr, ptr %1, align 8, !tbaa !108
   %168 = getelementptr inbounds i8, ptr %167, i64 -4
@@ -1029,7 +1029,7 @@ _ZNK4decl13get_decl_kindEv.exit.thread:           ; preds = %_ZNK4decl13get_decl
 
 switch.lookup:                                    ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK22special_relations_util12get_propertyEP9func_decl, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK22special_relations_util12get_propertyEP9func_decl, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 

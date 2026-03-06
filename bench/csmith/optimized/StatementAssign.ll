@@ -769,7 +769,7 @@ _ZNK12CVQualifiers11is_volatileEv.exit:           ; preds = %96
 
 switch.lookup:                                    ; preds = %206
   %208 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN15StatementAssign11make_randomER9CGContextPK4TypePK12CVQualifiers, i64 %208
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN15StatementAssign11make_randomER9CGContextPK4TypePK12CVQualifiers, i64 %208
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit
 
@@ -958,7 +958,7 @@ define dso_local noundef ptr @_ZN15StatementAssign29make_possible_compound_assig
 
 switch.lookup:                                    ; preds = %5
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN15StatementAssign22compound_to_binary_opsE10eAssignOps, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN15StatementAssign22compound_to_binary_opsE10eAssignOps, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1745,7 +1745,7 @@ define dso_local noundef range(i32 0, 19) i32 @_ZN15StatementAssign22compound_to
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN15StatementAssign22compound_to_binary_opsE10eAssignOps, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN15StatementAssign22compound_to_binary_opsE10eAssignOps, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -3159,7 +3159,7 @@ _ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; 
 _ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %24, ptr %1, align 8, !tbaa !149
   store ptr %28, ptr %5, align 8, !tbaa !145
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr %7, align 8, !tbaa !148
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backEOS2_.exit
 
@@ -3221,7 +3221,7 @@ _ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i7: ;
 _ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i9: ; preds = %55, %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i7
   store ptr %50, ptr %1, align 8, !tbaa !149
   store ptr %54, ptr %5, align 8, !tbaa !145
-  %56 = getelementptr inbounds nuw ptr, ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   store ptr %56, ptr %7, align 8, !tbaa !148
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backEOS2_.exit10
 

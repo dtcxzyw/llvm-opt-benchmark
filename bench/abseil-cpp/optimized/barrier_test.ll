@@ -430,7 +430,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i: ; preds = %
 _ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i, %63
   store ptr %56, ptr %8, align 8, !tbaa !51
   store ptr %62, ptr %21, align 8, !tbaa !41
-  %64 = getelementptr inbounds nuw %"class.std::thread", ptr %56, i64 %54
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %54
   store ptr %64, ptr %22, align 8, !tbaa !52
   %.sroa.0.0.copyload.i.i.pr = load i64, ptr %9, align 8, !tbaa !40
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i.pr, 0
@@ -753,7 +753,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i110: ; preds 
 _ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit63: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i110, %157
   store ptr %150, ptr %8, align 8, !tbaa !51
   store ptr %156, ptr %21, align 8, !tbaa !41
-  %158 = getelementptr inbounds nuw %"class.std::thread", ptr %150, i64 %148
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %148
   store ptr %158, ptr %22, align 8, !tbaa !52
   %.sroa.0.0.copyload.i.i64.pr = load i64, ptr %14, align 8, !tbaa !40
   %.not.i65 = icmp eq i64 %.sroa.0.0.copyload.i.i64.pr, 0

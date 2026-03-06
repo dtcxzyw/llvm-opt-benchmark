@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.agxbuf = type { %union.anon.1 }
 %union.anon.1 = type { %struct.anon.2 }
 %struct.anon.2 = type { ptr, i64, i64, [7 x i8], i8 }
-%struct.bezier = type { ptr, i64, i32, i32, %struct.pointf_s, %struct.pointf_s }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @Rankdir = internal unnamed_addr global i32 0, align 4
@@ -122,7 +121,7 @@ define void @translate_bb(ptr noundef readonly captures(none) %0, i32 noundef %1
   %47 = phi ptr [ %52, %.lr.ph ], [ %44, %43 ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 240
   %49 = load ptr, ptr %48, align 8, !tbaa !37
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !38
   tail call void @translate_bb(ptr noundef %51, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -913,7 +912,7 @@ addXLabel.exit316.i:                              ; preds = %330, %325
   %379 = load ptr, ptr %376, align 8, !tbaa !97
   %380 = getelementptr inbounds nuw i8, ptr %376, i64 8
   %381 = load i64, ptr %380, align 8, !tbaa !106
-  %382 = getelementptr %struct.bezier, ptr %379, i64 %381
+  %382 = getelementptr [56 x i8], ptr %379, i64 %381
   %383 = getelementptr i8, ptr %382, i64 -36
   %384 = load i32, ptr %383, align 4, !tbaa !107
   %.not.i332.i = icmp eq i32 %384, 0
@@ -924,7 +923,7 @@ addXLabel.exit316.i:                              ; preds = %330, %325
   %387 = load ptr, ptr %386, align 8, !tbaa !102
   %388 = getelementptr i8, ptr %382, i64 -48
   %389 = load i64, ptr %388, align 8, !tbaa !108
-  %390 = getelementptr %struct.pointf_s, ptr %387, i64 %389
+  %390 = getelementptr [16 x i8], ptr %387, i64 %389
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %385, %378
@@ -1546,7 +1545,7 @@ default.unreachable:                              ; preds = %578
   %670 = phi ptr [ %727, %724 ], [ %643, %.preheader.i.i ]
   %.074.i.i = phi i64 [ %725, %724 ], [ 0, %.preheader.i.i ]
   %671 = load ptr, ptr %670, align 8, !tbaa !97
-  %672 = getelementptr inbounds nuw %struct.bezier, ptr %671, i64 %.074.i.i
+  %672 = getelementptr inbounds nuw [56 x i8], ptr %671, i64 %.074.i.i
   %.sroa.023.0.copyload.i.i = load ptr, ptr %672, align 8, !tbaa !132
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %672, i64 8
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !133
@@ -1568,7 +1567,7 @@ default.unreachable:                              ; preds = %578
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph75.i.i, %.lr.ph.i.i
   %.05073.i.i = phi i64 [ %686, %.lr.ph.i.i ], [ 0, %.lr.ph75.i.i ]
-  %673 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.023.0.copyload.i.i, i64 %.05073.i.i
+  %673 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.023.0.copyload.i.i, i64 %.05073.i.i
   %674 = load double, ptr %673, align 8
   %675 = getelementptr inbounds nuw i8, ptr %673, i64 8
   %676 = load double, ptr %675, align 8
@@ -1591,7 +1590,7 @@ default.unreachable:                              ; preds = %578
   %688 = getelementptr inbounds nuw i8, ptr %.pre80.pre84.i.i, i64 16
   %689 = load ptr, ptr %688, align 8, !tbaa !62
   %690 = load ptr, ptr %689, align 8, !tbaa !97
-  %691 = getelementptr inbounds nuw %struct.bezier, ptr %690, i64 %.074.i.i
+  %691 = getelementptr inbounds nuw [56 x i8], ptr %690, i64 %.074.i.i
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 24
   %693 = load double, ptr %692, align 8
   %694 = getelementptr inbounds nuw i8, ptr %691, i64 32
@@ -1619,7 +1618,7 @@ default.unreachable:                              ; preds = %578
   %707 = getelementptr inbounds nuw i8, ptr %.pre80.pre8488.i.i, i64 16
   %708 = load ptr, ptr %707, align 8, !tbaa !62
   %709 = load ptr, ptr %708, align 8, !tbaa !97
-  %710 = getelementptr inbounds nuw %struct.bezier, ptr %709, i64 %.074.i.i
+  %710 = getelementptr inbounds nuw [56 x i8], ptr %709, i64 %.074.i.i
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 40
   %712 = load double, ptr %711, align 8
   %713 = getelementptr inbounds nuw i8, ptr %710, i64 48
@@ -1943,7 +1942,7 @@ agxbdisown.exit:                                  ; preds = %872, %.thread.i, %a
 
 889:                                              ; preds = %884
   %890 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 24), align 8, !tbaa !141
-  %891 = getelementptr inbounds nuw ptr, ptr %887, i64 %890
+  %891 = getelementptr inbounds nuw [8 x i8], ptr %887, i64 %890
   %892 = sub i64 %spec.select.i.i, %890
   %893 = shl i64 %892, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %891, i8 0, i64 %893, i1 false)
@@ -1956,8 +1955,8 @@ agxbdisown.exit:                                  ; preds = %872, %.thread.i, %a
 898:                                              ; preds = %889
   %899 = sub i64 %890, %894
   %900 = sub i64 %spec.select.i.i, %899
-  %901 = getelementptr inbounds nuw ptr, ptr %887, i64 %900
-  %902 = getelementptr inbounds nuw ptr, ptr %887, i64 %894
+  %901 = getelementptr inbounds nuw [8 x i8], ptr %887, i64 %900
+  %902 = getelementptr inbounds nuw [8 x i8], ptr %887, i64 %894
   %903 = shl i64 %899, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %901, ptr nonnull align 8 %902, i64 %903, i1 false)
   store i64 %900, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 8), align 8, !tbaa !142
@@ -1984,7 +1983,7 @@ show_boxes_append.exit:                           ; preds = %._crit_edge.i.i78, 
   %913 = phi i64 [ %.pre.i.i79, %._crit_edge.i.i78 ], [ %905, %904 ]
   %914 = add i64 %913, %912
   %915 = urem i64 %914, %911
-  %916 = getelementptr inbounds nuw ptr, ptr %910, i64 %915
+  %916 = getelementptr inbounds nuw [8 x i8], ptr %910, i64 %915
   store ptr %.0.i, ptr %916, align 8, !tbaa !144
   %917 = add i64 %912, 1
   store i64 %917, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 16), align 8, !tbaa !138
@@ -2102,7 +2101,7 @@ define internal fastcc void @place_flip_graph_label(ptr noundef %0) unnamed_addr
   %52 = phi ptr [ %57, %.lr.ph ], [ %.pre, %._crit_edge37 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 240
   %54 = load ptr, ptr %53, align 8, !tbaa !37
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !38
   tail call fastcc void @place_flip_graph_label(ptr noundef %56)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2219,7 +2218,7 @@ define void @place_graph_label(ptr noundef %0) local_unnamed_addr #0 {
   %50 = phi ptr [ %55, %.lr.ph ], [ %.pre, %._crit_edge38 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 240
   %52 = load ptr, ptr %51, align 8, !tbaa !37
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !38
   tail call void @place_graph_label(ptr noundef %54)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2427,7 +2426,7 @@ define internal fastcc i64 @countClusterLabels(ptr noundef %0) unnamed_addr #0 {
   %.117 = phi i64 [ %18, %.lr.ph ], [ %.011, %._crit_edge20 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 240
   %14 = load ptr, ptr %13, align 8, !tbaa !37
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !38
   %17 = tail call fastcc i64 @countClusterLabels(ptr noundef %16)
   %18 = add i64 %17, %.117
@@ -2462,7 +2461,7 @@ define internal fastcc void @addClusterObj(ptr dead_on_unwind noalias nonnull wr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %11 = load ptr, ptr %10, align 8, !tbaa !37
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !38
   call fastcc void @addClusterObj(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %13, ptr noundef nonnull byval(%struct.cinfo_t) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !116

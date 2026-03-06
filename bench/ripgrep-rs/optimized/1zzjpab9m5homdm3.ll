@@ -2352,7 +2352,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h647f03c6732aad98E.llv
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { i64, [6 x i64] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [56 x i8], ptr %12, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 56, i1 false)
   br label %14
 
@@ -2380,7 +2380,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc506f7f89971a560E.ll
   %9 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { i64, [6 x i64] }, ptr %11, i64 %9
+  %12 = getelementptr inbounds [56 x i8], ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
@@ -4368,7 +4368,7 @@ default.unreachable65:                            ; preds = %tailrecurse
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds { i64, [6 x i64] }, ptr %35, i64 %37
+  %38 = getelementptr inbounds [56 x i8], ptr %35, i64 %37
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8edbf764d4e338ddE.llvm.8824384959217489573"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %31, ptr noundef nonnull %35, ptr noundef nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -4731,7 +4731,7 @@ define void @_ZN6ignore19PartialErrorBuilder4push17h78c50d9036044805E(ptr noalia
   %13 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %4, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !634, !noalias !637, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds { i64, [6 x i64] }, ptr %15, i64 %13
+  %16 = getelementptr inbounds [56 x i8], ptr %15, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %17 = load i64, ptr %3, align 8, !alias.scope !634, !noalias !637, !noundef !4
   %18 = add i64 %17, 1
@@ -4810,7 +4810,7 @@ _ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit:  ; preds = %5, %tailrecurse.i, 
   %21 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %12, %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !639, !noalias !644, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds { i64, [6 x i64] }, ptr %23, i64 %21
+  %24 = getelementptr inbounds [56 x i8], ptr %23, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %25 = load i64, ptr %11, align 8, !alias.scope !639, !noalias !644, !noundef !4
   %26 = add i64 %25, 1
@@ -4871,7 +4871,7 @@ define void @_ZN6ignore19PartialErrorBuilder10maybe_push17h3b82c41a3122e2fdE(ptr
   %16 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %7, %5 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !648, !noalias !653, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { i64, [6 x i64] }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [56 x i8], ptr %18, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %20 = load i64, ptr %6, align 8, !alias.scope !648, !noalias !653, !noundef !4
   %21 = add i64 %20, 1

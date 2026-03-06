@@ -784,7 +784,7 @@ define i64 @pg_pwrite_zeros(i32 noundef %0, i64 noundef %1, i64 noundef %2) loca
 .preheader:                                       ; preds = %6, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %6 ]
   %.13044 = phi i64 [ %9, %.preheader ], [ %.029, %6 ]
-  %7 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   store ptr @pg_pwrite_zeros.zbuffer, ptr %7, align 16
   %.130. = call i64 @llvm.umin.i64(i64 %.13044, i64 8192)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8

@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._stat_tap_table_item_type = type { i32, %union.anon, %union.anon.0 }
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
-%struct._value_string = type { i32, ptr }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.4, %struct.anon.5, ptr }
 %struct.anon = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon.1 }
 %union.anon.1 = type { %struct.anon.2 }
@@ -4178,7 +4177,7 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
 
 19:                                               ; preds = %8, %19
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr %struct._value_string, ptr @ansi_map_opr_code_strings, i64 %indvars.iv
+  %20 = getelementptr [16 x i8], ptr @ansi_map_opr_code_strings, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 1, ptr %2, align 16
   %22 = load i32, ptr %20, align 16
@@ -4357,7 +4356,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   %spec.store.select.i = select i1 %28, i32 0, i32 %27
   store i32 %spec.store.select.i, ptr @dissect_invokeData.tap_current, align 4
   %29 = sext i32 %spec.store.select.i to i64
-  %30 = getelementptr %struct._ansi_map_tap_rec_t, ptr @dissect_invokeData.tap_rec, i64 %29
+  %30 = getelementptr [4 x i8], ptr @dissect_invokeData.tap_rec, i64 %29
   store ptr %30, ptr @dissect_invokeData.tap_p, align 8
   %31 = load i32, ptr @OperationCode, align 4
   switch i32 %31, label %.thread.i [
@@ -5136,7 +5135,7 @@ find_saved_invokedata.exit:                       ; preds = %._crit_edge.i, %418
   %spec.store.select.i27 = select i1 %432, i32 0, i32 %431
   store i32 %spec.store.select.i27, ptr @dissect_returnData.tap_current, align 4
   %433 = sext i32 %spec.store.select.i27 to i64
-  %434 = getelementptr %struct._ansi_map_tap_rec_t, ptr @dissect_returnData.tap_rec, i64 %433
+  %434 = getelementptr [4 x i8], ptr @dissect_returnData.tap_rec, i64 %433
   store ptr %434, ptr @dissect_returnData.tap_p, align 8
   %435 = load i32, ptr @OperationCode, align 4
   switch i32 %435, label %.thread.i30 [

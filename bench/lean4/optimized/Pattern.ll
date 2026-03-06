@@ -2809,7 +2809,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_StrPatDescr_m
 
 9:                                                ; preds = %.lr.ph, %7
   %.01526 = phi i64 [ %2, %.lr.ph ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01526
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01526
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i1
@@ -2900,7 +2900,7 @@ lean_nat_lt.exit:
 
 7:                                                ; preds = %5, %.lr.ph.i
   %.01526.i = phi i64 [ 0, %.lr.ph.i ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %.01526.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01526.i
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -3015,7 +3015,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
 
 19:                                               ; preds = %17, %.lr.ph.i.i
   %.01526.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %17 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %.01526.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01526.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = trunc i64 %22 to i1
@@ -3484,7 +3484,7 @@ lean_dec.exit12:                                  ; preds = %18, %17, %15
 
 23:                                               ; preds = %21, %.lr.ph.i
   %.01526.i = phi i64 [ %.val, %.lr.ph.i ], [ %22, %21 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01526.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01526.i
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i1
@@ -3621,7 +3621,7 @@ define noundef nonnull ptr @l_Array_contains___at_Lake_StrPatDescr_matches___spe
 
 8:                                                ; preds = %6, %.lr.ph.i.i
   %.01526.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %7, %6 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01526.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01526.i.i
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i1
@@ -3818,7 +3818,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_StrPat_mem___
 
 10:                                               ; preds = %.lr.ph, %8
   %.02246 = phi i64 [ %2, %.lr.ph ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02246
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02246
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i1
@@ -4008,7 +4008,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_StrPat_mem___
 
 10:                                               ; preds = %.lr.ph, %8
   %.02246 = phi i64 [ %2, %.lr.ph ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02246
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02246
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i1
@@ -6017,7 +6017,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_PathPat_path_
 
 10:                                               ; preds = %.lr.ph, %8
   %.02246 = phi i64 [ %2, %.lr.ph ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02246
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02246
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i1
@@ -6207,7 +6207,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_PathPat_path_
 
 10:                                               ; preds = %.lr.ph, %8
   %.02246 = phi i64 [ %2, %.lr.ph ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02246
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02246
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i1
@@ -16543,7 +16543,7 @@ declare zeroext i8 @l_Lean_Name_quickCmp(ptr noundef, ptr noundef) local_unnamed
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1

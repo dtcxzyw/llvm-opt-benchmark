@@ -3118,7 +3118,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit78: ; preds = %_ZNKSt8_Rb_treeIN
   %117 = phi i1 [ true, %112 ], [ false, %127 ]
   %indvars.iv239 = phi i64 [ 0, %112 ], [ 1, %127 ]
   %118 = trunc nuw nsw i64 %indvars.iv239 to i32
-  %invariant.gep = getelementptr inbounds i32, ptr %106, i64 %indvars.iv239
+  %invariant.gep = getelementptr inbounds [4 x i8], ptr %106, i64 %indvars.iv239
   br label %128
 
 119:                                              ; preds = %_ZN8rawspeed19AbstractTiffDecoder11setMetaDataEPKNS_14CameraMetaDataERKNS_6TiffIDERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, %218, %211, %209, %207, %191, %186, %184, %178, %176, %174

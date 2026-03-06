@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVProbeData = type { ptr, ptr, i32, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
 
 @.str = private unnamed_addr constant [27 x i8] c"No such pixel format: %s.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [77 x i8] c"Pattern type 'glob_sequence' is deprecated: use pattern_type 'glob' instead\0A\00", align 1
@@ -920,7 +919,7 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 1120
   %45 = load ptr, ptr %44, align 8, !tbaa !102
   %46 = sext i32 %30 to i64
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !88
   br label %56
 
@@ -965,13 +964,13 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not162, label %69, label %71
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %62, ptr %70, align 8, !tbaa !103
   br label %78
 
 71:                                               ; preds = %67, %65, %63, %61
   %72 = load ptr, ptr %60, align 8, !tbaa !104
-  %73 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %74 = call i32 %72(ptr noundef nonnull %0, ptr noundef nonnull %73, ptr noundef %.0134, i32 noundef 1, ptr noundef null) #14
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %76, label %._crit_edge222
@@ -992,7 +991,7 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %79 = phi ptr [ %.pre224, %._crit_edge222 ], [ %62, %69 ]
   %80 = call i64 @avio_size(ptr noundef %79) #14
   %81 = trunc i64 %80 to i32
-  %82 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %81, ptr %82, align 4, !tbaa !105
   %83 = load i32, ptr %59, align 8, !tbaa !87
   %.not163 = icmp eq i32 %83, 0
@@ -1094,7 +1093,7 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
 
 126:                                              ; preds = %125, %123
   %indvars.iv.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i, %125 ]
-  %127 = getelementptr inbounds nuw [2 x i32], ptr @sizes, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw [8 x i8], ptr @sizes, i64 %indvars.iv.i
   %128 = load i32, ptr %127, align 8, !tbaa !105
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %130 = load i32, ptr %129, align 4, !tbaa !105
@@ -1315,7 +1314,7 @@ add_filename_as_pkt_side_data.exit:               ; preds = %221
 
 232:                                              ; preds = %226, %273
   %indvars.iv212 = phi i64 [ 0, %226 ], [ %indvars.iv.next213, %273 ]
-  %233 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv212
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv212
   %234 = load ptr, ptr %233, align 8, !tbaa !103
   %.not179 = icmp eq ptr %234, null
   br i1 %.not179, label %273, label %235
@@ -1325,10 +1324,10 @@ add_filename_as_pkt_side_data.exit:               ; preds = %221
   %237 = load i32, ptr %227, align 8, !tbaa !123
   %238 = sext i32 %237 to i64
   %239 = getelementptr inbounds i8, ptr %236, i64 %238
-  %240 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv212
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv212
   %241 = load i32, ptr %240, align 4, !tbaa !105
   %242 = call i32 @avio_read(ptr noundef nonnull %234, ptr noundef %239, i32 noundef %241) #14
-  %243 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv212
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv212
   store i32 %242, ptr %243, align 4, !tbaa !105
   %244 = load i32, ptr %229, align 8, !tbaa !101
   %.not180 = icmp eq i32 %244, 0
@@ -1448,7 +1447,7 @@ thread-pre-split197:                              ; preds = %235, %252, %248
 
 303:                                              ; preds = %.preheader, %309
   %indvars.iv216 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next217, %309 ]
-  %304 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv216
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv216
   %305 = load ptr, ptr %304, align 8, !tbaa !103
   %306 = load ptr, ptr %302, align 8, !tbaa !67
   %.not185 = icmp eq ptr %305, %306
@@ -1620,7 +1619,7 @@ define internal range(i32 -1, 1) i32 @img_read_seek(ptr noundef readonly capture
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 320
   %17 = load ptr, ptr %16, align 8, !tbaa !127
   %18 = zext nneg i32 %13 to i64
-  %19 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !128
   %21 = trunc i64 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16

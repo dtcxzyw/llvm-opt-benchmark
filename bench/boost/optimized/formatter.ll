@@ -355,7 +355,7 @@ define weak_odr hidden void @_ZN5boost6locale8impl_icu9formatterIcE6createERSt8i
 37:                                               ; preds = %4
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !12
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %33
   %41 = load ptr, ptr %40, align 8, !tbaa !13
   %.not8.i = icmp eq ptr %41, null
   br i1 %.not8.i, label %42, label %43
@@ -1073,7 +1073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %.b
   %318 = call i64 @llvm.fshl.i64(i64 %317, i64 %317, i64 57)
   %319 = getelementptr inbounds nuw i8, ptr %44, i64 584
   %320 = select i1 %316, i64 %315, i64 1
-  %321 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %319, i64 %320
+  %321 = getelementptr inbounds nuw [256 x i8], ptr %319, i64 %320
   br label %.invoke
 
 .invoke:                                          ; preds = %297, %305, %313
@@ -1081,7 +1081,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %.b
   %.sink = phi ptr [ %300, %297 ], [ %308, %305 ], [ %321, %313 ]
   %.sink363 = icmp ult i64 %.sink365, 4
   %322 = select i1 %.sink363, i64 %.sink365, i64 1
-  %323 = getelementptr inbounds nuw %"class.icu_70::UnicodeString", ptr %.sink, i64 %322
+  %323 = getelementptr inbounds nuw [64 x i8], ptr %.sink, i64 %322
   %324 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7013UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %323)
           to label %372 unwind label %301
 
@@ -1820,7 +1820,7 @@ _ZNK6icu_7013UnicodeStringixEi.exit:              ; preds = %30
   %39 = load ptr, ptr %20, align 8
   %40 = select i1 %.not.i.i.i, ptr %39, ptr %19
   %41 = sext i32 %.03476 to i64
-  %42 = getelementptr inbounds i16, ptr %40, i64 %41
+  %42 = getelementptr inbounds [2 x i8], ptr %40, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !46
   switch i16 %43, label %_ZNK6icu_7013UnicodeStringixEi.exit.thread [
     i16 37, label %44
@@ -1834,7 +1834,7 @@ _ZNK6icu_7013UnicodeStringixEi.exit:              ; preds = %30
 
 _ZNK6icu_7013UnicodeStringixEi.exit55:            ; preds = %44
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i16, ptr %40, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %40, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !46
   switch i16 %49, label %_ZNK6icu_7013UnicodeStringixEi.exit58 [
     i16 79, label %50
@@ -1848,7 +1848,7 @@ _ZNK6icu_7013UnicodeStringixEi.exit55:            ; preds = %44
 
 53:                                               ; preds = %50
   %54 = sext i32 %51 to i64
-  %55 = getelementptr inbounds i16, ptr %40, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %40, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !46
   br label %_ZNK6icu_7013UnicodeStringixEi.exit58
 
@@ -2274,7 +2274,7 @@ define weak_odr hidden void @_ZN5boost6locale8impl_icu9formatterIwE6createERSt8i
 51:                                               ; preds = %4
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !12
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %47
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %47
   %55 = load ptr, ptr %54, align 8, !tbaa !13
   %.not8.i = icmp eq ptr %55, null
   br i1 %.not8.i, label %56, label %57
@@ -3167,7 +3167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204: ; preds = %36
   %397 = call i64 @llvm.fshl.i64(i64 %396, i64 %396, i64 57)
   %398 = getelementptr inbounds nuw i8, ptr %58, i64 584
   %399 = select i1 %395, i64 %394, i64 1
-  %400 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %398, i64 %399
+  %400 = getelementptr inbounds nuw [256 x i8], ptr %398, i64 %399
   br label %.invoke
 
 .invoke:                                          ; preds = %376, %384, %392
@@ -3175,7 +3175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204: ; preds = %36
   %.sink = phi ptr [ %379, %376 ], [ %387, %384 ], [ %400, %392 ]
   %.sink392 = icmp ult i64 %.sink394, 4
   %401 = select i1 %.sink392, i64 %.sink394, i64 1
-  %402 = getelementptr inbounds nuw %"class.icu_70::UnicodeString", ptr %.sink, i64 %401
+  %402 = getelementptr inbounds nuw [64 x i8], ptr %.sink, i64 %401
   %403 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7013UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 8 dereferenceable(64) %402)
           to label %463 unwind label %380
 
@@ -7017,7 +7017,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2ERKS4_.exit: ; preds = %.
   %27 = phi i64 [ %20, %._crit_edge.i.i ], [ %20, %22 ], [ %.pre6.i.i, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %28, align 8, !tbaa !56
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %29, align 4, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

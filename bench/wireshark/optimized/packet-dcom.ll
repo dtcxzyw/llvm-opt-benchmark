@@ -2431,7 +2431,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
 
 19:                                               ; preds = %10
   %20 = zext i8 %12 to i64
-  %21 = getelementptr i16, ptr %8, i64 %20
+  %21 = getelementptr [2 x i8], ptr %8, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 64
   %24 = icmp eq i16 %23, 0

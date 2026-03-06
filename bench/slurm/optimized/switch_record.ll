@@ -3,8 +3,6 @@ source_filename = "bench/slurm/original/switch_record.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.switch_record_t = type { i32, i32, ptr, ptr, ptr, i16, i16, i16, ptr, ptr, ptr, ptr }
-
 @switch_record_table = dso_local global ptr null, align 8
 @switch_record_cnt = dso_local local_unnamed_addr global i32 0, align 4
 @switch_levels = dso_local local_unnamed_addr global i32 0, align 4
@@ -70,31 +68,31 @@ define dso_local void @switch_record_table_destroy() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.preheader ]
   %4 = load ptr, ptr @switch_record_table, align 8
-  %5 = getelementptr inbounds nuw %struct.switch_record_t, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [72 x i8], ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %6) #7
   %7 = load ptr, ptr @switch_record_table, align 8
-  %8 = getelementptr inbounds nuw %struct.switch_record_t, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %9) #7
   %10 = load ptr, ptr @switch_record_table, align 8
-  %11 = getelementptr inbounds nuw %struct.switch_record_t, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [72 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @slurm_xfree(ptr noundef nonnull %12) #7
   %13 = load ptr, ptr @switch_record_table, align 8
-  %14 = getelementptr inbounds nuw %struct.switch_record_t, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   tail call void @slurm_xfree(ptr noundef nonnull %15) #7
   %16 = load ptr, ptr @switch_record_table, align 8
-  %17 = getelementptr inbounds nuw %struct.switch_record_t, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [72 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   tail call void @slurm_xfree(ptr noundef nonnull %18) #7
   %19 = load ptr, ptr @switch_record_table, align 8
-  %20 = getelementptr inbounds nuw %struct.switch_record_t, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [72 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   tail call void @slurm_xfree(ptr noundef nonnull %21) #7
   %22 = load ptr, ptr @switch_record_table, align 8
-  %23 = getelementptr inbounds nuw %struct.switch_record_t, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [72 x i8], ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not11 = icmp eq ptr %25, null
@@ -107,7 +105,7 @@ define dso_local void @switch_record_table_destroy() local_unnamed_addr #0 {
 
 27:                                               ; preds = %26, %.lr.ph
   %28 = phi ptr [ %.pre, %26 ], [ %22, %.lr.ph ]
-  %29 = getelementptr inbounds nuw %struct.switch_record_t, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [72 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr null, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -215,7 +213,7 @@ _read_topo_file.exit:                             ; preds = %14
 .lr.ph225:                                        ; preds = %.lr.ph225.preheader, %108
   %indvars.iv = phi i64 [ 0, %.lr.ph225.preheader ], [ %indvars.iv.next, %108 ]
   %.0130222 = phi ptr [ %39, %.lr.ph225.preheader ], [ %109, %108 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0130222, i64 36
   store i16 -1, ptr %43, align 4
@@ -439,7 +437,7 @@ _get_switch_inx.exit.thread:                      ; preds = %127, %_get_switch_i
 145:                                              ; preds = %_get_switch_inx.exit
   %146 = load ptr, ptr @switch_record_table, align 8
   %147 = zext nneg i32 %.068.i to i64
-  %148 = getelementptr inbounds nuw %struct.switch_record_t, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [72 x i8], ptr %146, i64 %147
   %149 = load i32, ptr %148, align 8
   %150 = icmp eq i32 %149, -1
   br i1 %150, label %151, label %156
@@ -469,7 +467,7 @@ _get_switch_inx.exit.thread:                      ; preds = %127, %_get_switch_i
 160:                                              ; preds = %156
   store i32 %159, ptr %.1131228, align 8
   %161 = load ptr, ptr @switch_record_table, align 8
-  %162 = getelementptr inbounds nuw %struct.switch_record_t, ptr %161, i64 %147
+  %162 = getelementptr inbounds nuw [72 x i8], ptr %161, i64 %147
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %164 = load ptr, ptr %163, align 8
   %165 = call ptr @bit_copy(ptr noundef %164) #7
@@ -481,7 +479,7 @@ _get_switch_inx.exit.thread:                      ; preds = %127, %_get_switch_i
   store i32 %., ptr %.1131228, align 8
   %167 = load ptr, ptr %123, align 8
   %168 = load ptr, ptr @switch_record_table, align 8
-  %169 = getelementptr inbounds nuw %struct.switch_record_t, ptr %168, i64 %147
+  %169 = getelementptr inbounds nuw [72 x i8], ptr %168, i64 %147
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = load ptr, ptr %170, align 8
   call void @bit_or(ptr noundef %167, ptr noundef %171) #7
@@ -644,7 +642,7 @@ _get_switch_inx.exit.thread:                      ; preds = %127, %_get_switch_i
   %indvars.iv304 = phi i64 [ %indvars.iv.next305, %277 ], [ 0, %221 ]
   %.0124250 = phi i1 [ %spec.select, %277 ], [ false, %221 ]
   %226 = load ptr, ptr @switch_record_table, align 8
-  %227 = getelementptr inbounds nuw %struct.switch_record_t, ptr %226, i64 %indvars.iv304
+  %227 = getelementptr inbounds nuw [72 x i8], ptr %226, i64 %indvars.iv304
   %228 = load i32, ptr %227, align 8
   %.not155 = icmp eq i32 %228, 0
   br i1 %.not155, label %277, label %229
@@ -656,18 +654,18 @@ _get_switch_inx.exit.thread:                      ; preds = %127, %_get_switch_i
   %233 = call i32 @hostlist_count(ptr noundef %232) #7
   %234 = trunc i32 %233 to i16
   %235 = load ptr, ptr @switch_record_table, align 8
-  %236 = getelementptr inbounds nuw %struct.switch_record_t, ptr %235, i64 %indvars.iv304
+  %236 = getelementptr inbounds nuw [72 x i8], ptr %235, i64 %indvars.iv304
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 34
   store i16 %234, ptr %237, align 2
   %238 = load ptr, ptr @switch_record_table, align 8
-  %239 = getelementptr inbounds nuw %struct.switch_record_t, ptr %238, i64 %indvars.iv304
+  %239 = getelementptr inbounds nuw [72 x i8], ptr %238, i64 %indvars.iv304
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 34
   %241 = load i16, ptr %240, align 2
   %242 = zext i16 %241 to i64
   %243 = shl nuw nsw i64 %242, 1
   %244 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %243, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 270, ptr noundef nonnull @__func__._find_child_switches) #7
   %245 = load ptr, ptr @switch_record_table, align 8
-  %246 = getelementptr inbounds nuw %struct.switch_record_t, ptr %245, i64 %indvars.iv304
+  %246 = getelementptr inbounds nuw [72 x i8], ptr %245, i64 %indvars.iv304
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 64
   store ptr %244, ptr %247, align 8
   %248 = call ptr @hostlist_iterator_create(ptr noundef %232) #7
@@ -689,7 +687,7 @@ _get_switch_inx.exit.thread:                      ; preds = %127, %_get_switch_i
 .lr.ph.i167:                                      ; preds = %.preheader.i, %272
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %272 ], [ 0, %.preheader.i ]
   %254 = load ptr, ptr @switch_record_table, align 8
-  %255 = getelementptr inbounds nuw %struct.switch_record_t, ptr %254, i64 %indvars.iv.i
+  %255 = getelementptr inbounds nuw [72 x i8], ptr %254, i64 %indvars.iv.i
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %257 = load ptr, ptr %256, align 8
   %258 = call i32 @xstrcmp(ptr noundef nonnull %251, ptr noundef %257) #7
@@ -699,14 +697,14 @@ _get_switch_inx.exit.thread:                      ; preds = %127, %_get_switch_i
 260:                                              ; preds = %.lr.ph.i167
   %261 = trunc i64 %indvars.iv.i to i16
   %262 = load ptr, ptr @switch_record_table, align 8
-  %263 = getelementptr inbounds nuw %struct.switch_record_t, ptr %262, i64 %indvars.iv304
+  %263 = getelementptr inbounds nuw [72 x i8], ptr %262, i64 %indvars.iv304
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 64
   %265 = load ptr, ptr %264, align 8
   %266 = sext i32 %.01924.i to i64
-  %267 = getelementptr inbounds i16, ptr %265, i64 %266
+  %267 = getelementptr inbounds [2 x i8], ptr %265, i64 %266
   store i16 %261, ptr %267, align 2
   %268 = load ptr, ptr @switch_record_table, align 8
-  %269 = getelementptr inbounds nuw %struct.switch_record_t, ptr %268, i64 %indvars.iv.i
+  %269 = getelementptr inbounds nuw [72 x i8], ptr %268, i64 %indvars.iv.i
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 36
   store i16 %250, ptr %270, align 4
   %271 = add nsw i32 %.01924.i, 1
@@ -734,7 +732,7 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %229
 
 277:                                              ; preds = %_find_child_switches.exit, %.lr.ph252
   %278 = phi ptr [ %.pre332, %_find_child_switches.exit ], [ %226, %.lr.ph252 ]
-  %279 = getelementptr inbounds nuw %struct.switch_record_t, ptr %278, i64 %indvars.iv304
+  %279 = getelementptr inbounds nuw [72 x i8], ptr %278, i64 %indvars.iv304
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %281 = load ptr, ptr %280, align 8
   %282 = call i32 @bit_set_count(ptr noundef %281) #7
@@ -756,18 +754,18 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %229
   %289 = sext i32 %288 to i64
   %290 = call ptr @slurm_xcalloc(i64 noundef %289, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 481, ptr noundef nonnull @__func__.switch_record_validate) #7
   %291 = load ptr, ptr @switch_record_table, align 8
-  %292 = getelementptr inbounds nuw %struct.switch_record_t, ptr %291, i64 %indvars.iv306
+  %292 = getelementptr inbounds nuw [72 x i8], ptr %291, i64 %indvars.iv306
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 48
   store ptr %290, ptr %293, align 8
   %294 = load i32, ptr @switch_record_cnt, align 4
   %295 = sext i32 %294 to i64
   %296 = call ptr @slurm_xcalloc(i64 noundef %295, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 483, ptr noundef nonnull @__func__.switch_record_validate) #7
   %297 = load ptr, ptr @switch_record_table, align 8
-  %298 = getelementptr inbounds nuw %struct.switch_record_t, ptr %297, i64 %indvars.iv306
+  %298 = getelementptr inbounds nuw [72 x i8], ptr %297, i64 %indvars.iv306
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 56
   store ptr %296, ptr %299, align 8
   %300 = load ptr, ptr @switch_record_table, align 8
-  %301 = getelementptr inbounds nuw %struct.switch_record_t, ptr %300, i64 %indvars.iv306
+  %301 = getelementptr inbounds nuw [72 x i8], ptr %300, i64 %indvars.iv306
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 32
   store i16 0, ptr %302, align 8
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
@@ -803,7 +801,7 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %229
 .preheader187:                                    ; preds = %.lr.ph258, %.lr.ph262
   %313 = phi i32 [ %310, %.lr.ph262 ], [ %328, %.lr.ph258 ]
   %314 = load ptr, ptr @switch_record_table, align 8
-  %315 = getelementptr inbounds nuw %struct.switch_record_t, ptr %314, i64 %indvars.iv317
+  %315 = getelementptr inbounds nuw [72 x i8], ptr %314, i64 %indvars.iv317
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 34
   %317 = load i16, ptr %316, align 2
   %.not276 = icmp eq i16 %317, 0
@@ -812,16 +810,16 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %229
 .lr.ph258:                                        ; preds = %.lr.ph262, %.lr.ph258
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %.lr.ph258 ], [ %indvars.iv309, %.lr.ph262 ]
   %318 = load ptr, ptr @switch_record_table, align 8
-  %319 = getelementptr inbounds nuw %struct.switch_record_t, ptr %318, i64 %indvars.iv317
+  %319 = getelementptr inbounds nuw [72 x i8], ptr %318, i64 %indvars.iv317
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 48
   %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds nuw i32, ptr %321, i64 %indvars.iv311
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %indvars.iv311
   store i32 -1, ptr %322, align 4
   %323 = load ptr, ptr @switch_record_table, align 8
-  %324 = getelementptr inbounds nuw %struct.switch_record_t, ptr %323, i64 %indvars.iv311
+  %324 = getelementptr inbounds nuw [72 x i8], ptr %323, i64 %indvars.iv311
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 48
   %326 = load ptr, ptr %325, align 8
-  %327 = getelementptr inbounds nuw i32, ptr %326, i64 %indvars.iv317
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %326, i64 %indvars.iv317
   store i32 -1, ptr %327, align 4
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %328 = load i32, ptr @switch_record_cnt, align 4
@@ -834,22 +832,22 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %229
   %331 = phi ptr [ %346, %.lr.ph260 ], [ %315, %.preheader187 ]
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 64
   %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds nuw i16, ptr %333, i64 %indvars.iv314
+  %334 = getelementptr inbounds nuw [2 x i8], ptr %333, i64 %indvars.iv314
   %335 = load i16, ptr %334, align 2
   %336 = getelementptr inbounds nuw i8, ptr %331, i64 48
   %337 = load ptr, ptr %336, align 8
   %338 = zext i16 %335 to i64
-  %339 = getelementptr inbounds nuw i32, ptr %337, i64 %338
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %338
   store i32 1, ptr %339, align 4
   %340 = load ptr, ptr @switch_record_table, align 8
-  %341 = getelementptr inbounds nuw %struct.switch_record_t, ptr %340, i64 %338
+  %341 = getelementptr inbounds nuw [72 x i8], ptr %340, i64 %338
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 48
   %343 = load ptr, ptr %342, align 8
-  %344 = getelementptr inbounds nuw i32, ptr %343, i64 %indvars.iv317
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %indvars.iv317
   store i32 1, ptr %344, align 4
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %345 = load ptr, ptr @switch_record_table, align 8
-  %346 = getelementptr inbounds nuw %struct.switch_record_t, ptr %345, i64 %indvars.iv317
+  %346 = getelementptr inbounds nuw [72 x i8], ptr %345, i64 %indvars.iv317
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 34
   %348 = load i16, ptr %347, align 2
   %349 = zext i16 %348 to i64
@@ -880,10 +878,10 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %229
 
 .lr.ph264:                                        ; preds = %.preheader184
   %359 = load ptr, ptr @switch_record_table, align 8
-  %360 = getelementptr inbounds nuw %struct.switch_record_t, ptr %359, i64 %indvars.iv323
+  %360 = getelementptr inbounds nuw [72 x i8], ptr %359, i64 %indvars.iv323
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 48
   %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds nuw i32, ptr %362, i64 %indvars.iv326
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %362, i64 %indvars.iv326
   %364 = load i32, ptr %363, align 4
   %365 = icmp eq i32 %364, -1
   br i1 %365, label %._crit_edge265, label %.lr.ph264.split
@@ -894,24 +892,24 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %229
   %368 = phi i32 [ %390, %_check_better_path.exit ], [ %357, %.lr.ph264 ]
   %369 = phi ptr [ %391, %_check_better_path.exit ], [ %359, %.lr.ph264 ]
   %indvars.iv320 = phi i64 [ %indvars.iv.next321, %_check_better_path.exit ], [ 0, %.lr.ph264 ]
-  %370 = getelementptr inbounds nuw %struct.switch_record_t, ptr %369, i64 %indvars.iv323
+  %370 = getelementptr inbounds nuw [72 x i8], ptr %369, i64 %indvars.iv323
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 48
   %372 = load ptr, ptr %371, align 8
-  %373 = getelementptr inbounds nuw i32, ptr %372, i64 %indvars.iv326
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %indvars.iv326
   %374 = load i32, ptr %373, align 4
   %375 = icmp eq i32 %374, -1
   br i1 %375, label %_check_better_path.exit, label %376
 
 376:                                              ; preds = %.lr.ph264.split
-  %377 = getelementptr inbounds nuw %struct.switch_record_t, ptr %369, i64 %indvars.iv326
+  %377 = getelementptr inbounds nuw [72 x i8], ptr %369, i64 %indvars.iv326
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 48
   %379 = load ptr, ptr %378, align 8
-  %380 = getelementptr inbounds nuw i32, ptr %379, i64 %indvars.iv320
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %379, i64 %indvars.iv320
   %381 = load i32, ptr %380, align 4
   %382 = icmp eq i32 %381, -1
   %383 = add i32 %381, %374
   %spec.select.i = select i1 %382, i32 -1, i32 %383
-  %384 = getelementptr inbounds nuw i32, ptr %372, i64 %indvars.iv320
+  %384 = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %indvars.iv320
   %385 = load i32, ptr %384, align 4
   %386 = icmp ugt i32 %385, %spec.select.i
   br i1 %386, label %387, label %_check_better_path.exit
@@ -961,7 +959,7 @@ _check_better_path.exit:                          ; preds = %.lr.ph264.split, %3
 .lr.ph270:                                        ; preds = %.lr.ph270.preheader, %_find_desc_switches.exit
   %404 = phi ptr [ %.pre337, %.lr.ph270.preheader ], [ %482, %_find_desc_switches.exit ]
   %indvars.iv329 = phi i64 [ 0, %.lr.ph270.preheader ], [ %indvars.iv.next330, %_find_desc_switches.exit ]
-  %405 = getelementptr inbounds nuw %struct.switch_record_t, ptr %404, i64 %indvars.iv329
+  %405 = getelementptr inbounds nuw [72 x i8], ptr %404, i64 %indvars.iv329
   %406 = load i32, ptr %405, align 8
   %.not154 = icmp eq i32 %406, %.7273
   br i1 %.not154, label %407, label %_find_desc_switches.exit
@@ -990,7 +988,7 @@ _check_better_path.exit:                          ; preds = %.lr.ph264.split, %3
 .preheader.us.i.i:                                ; preds = %.loopexit.us.i.i, %.preheader.us.preheader.i.i
   %416 = phi i16 [ %415, %.preheader.us.preheader.i.i ], [ %424, %.loopexit.us.i.i ]
   %indvars.iv23.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i ], [ %indvars.iv.next24.i.i, %.loopexit.us.i.i ]
-  %417 = getelementptr inbounds nuw i16, ptr %412, i64 %indvars.iv23.i.i
+  %417 = getelementptr inbounds nuw [2 x i8], ptr %412, i64 %indvars.iv23.i.i
   %418 = load i16, ptr %417, align 2
   br label %420
 
@@ -1001,7 +999,7 @@ _check_better_path.exit:                          ; preds = %.lr.ph264.split, %3
 
 420:                                              ; preds = %419, %.preheader.us.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %419 ]
-  %421 = getelementptr inbounds nuw i16, ptr %409, i64 %indvars.iv.i.i
+  %421 = getelementptr inbounds nuw [2 x i8], ptr %409, i64 %indvars.iv.i.i
   %422 = load i16, ptr %421, align 2
   %423 = icmp eq i16 %422, %418
   br i1 %423, label %.loopexit.us.i.i, label %419
@@ -1014,7 +1012,7 @@ _check_better_path.exit:                          ; preds = %.lr.ph264.split, %3
 
 ..critedge_crit_edge.us.i.i:                      ; preds = %419
   %425 = zext i16 %416 to i64
-  %426 = getelementptr inbounds nuw i16, ptr %409, i64 %425
+  %426 = getelementptr inbounds nuw [2 x i8], ptr %409, i64 %425
   store i16 %418, ptr %426, align 2
   %427 = load i16, ptr %410, align 2
   %428 = add i16 %427, 1
@@ -1024,10 +1022,10 @@ _check_better_path.exit:                          ; preds = %.lr.ph264.split, %3
 .preheader.i.i:                                   ; preds = %.preheader.lr.ph.i.i, %.preheader.i.i
   %429 = phi i16 [ %435, %.preheader.i.i ], [ 0, %.preheader.lr.ph.i.i ]
   %indvars.iv28.i.i = phi i64 [ %indvars.iv.next29.i.i, %.preheader.i.i ], [ 0, %.preheader.lr.ph.i.i ]
-  %430 = getelementptr inbounds nuw i16, ptr %412, i64 %indvars.iv28.i.i
+  %430 = getelementptr inbounds nuw [2 x i8], ptr %412, i64 %indvars.iv28.i.i
   %431 = load i16, ptr %430, align 2
   %432 = zext i16 %429 to i64
-  %433 = getelementptr inbounds nuw i16, ptr %409, i64 %432
+  %433 = getelementptr inbounds nuw [2 x i8], ptr %409, i64 %432
   store i16 %431, ptr %433, align 2
   %434 = load i16, ptr %410, align 2
   %435 = add i16 %434, 1
@@ -1038,7 +1036,7 @@ _check_better_path.exit:                          ; preds = %.lr.ph264.split, %3
 
 _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %.preheader.i.i, %407
   %436 = load ptr, ptr @switch_record_table, align 8
-  %437 = getelementptr inbounds nuw %struct.switch_record_t, ptr %436, i64 %indvars.iv329
+  %437 = getelementptr inbounds nuw [72 x i8], ptr %436, i64 %indvars.iv329
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 34
   %439 = load i16, ptr %438, align 2
   %.not.i168 = icmp eq i16 %439, 0
@@ -1050,13 +1048,13 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
   %441 = phi ptr [ %476, %_merge_switches_array.exit32.i ], [ %436, %_merge_switches_array.exit.i ]
   %442 = getelementptr inbounds nuw i8, ptr %440, i64 64
   %443 = load ptr, ptr %442, align 8
-  %444 = getelementptr inbounds nuw i16, ptr %443, i64 %indvars.iv.i170
+  %444 = getelementptr inbounds nuw [2 x i8], ptr %443, i64 %indvars.iv.i170
   %445 = load i16, ptr %444, align 2
   %446 = getelementptr inbounds nuw i8, ptr %440, i64 56
   %447 = load ptr, ptr %446, align 8
   %448 = getelementptr inbounds nuw i8, ptr %440, i64 32
   %449 = zext i16 %445 to i64
-  %450 = getelementptr inbounds nuw %struct.switch_record_t, ptr %441, i64 %449
+  %450 = getelementptr inbounds nuw [72 x i8], ptr %441, i64 %449
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 56
   %452 = load ptr, ptr %451, align 8
   %453 = getelementptr inbounds nuw i8, ptr %450, i64 32
@@ -1077,7 +1075,7 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
 .preheader.us.i19.i:                              ; preds = %.loopexit.us.i25.i, %.preheader.us.preheader.i17.i
   %456 = phi i16 [ %455, %.preheader.us.preheader.i17.i ], [ %464, %.loopexit.us.i25.i ]
   %indvars.iv23.i20.i = phi i64 [ 0, %.preheader.us.preheader.i17.i ], [ %indvars.iv.next24.i26.i, %.loopexit.us.i25.i ]
-  %457 = getelementptr inbounds nuw i16, ptr %452, i64 %indvars.iv23.i20.i
+  %457 = getelementptr inbounds nuw [2 x i8], ptr %452, i64 %indvars.iv23.i20.i
   %458 = load i16, ptr %457, align 2
   br label %460
 
@@ -1088,7 +1086,7 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
 
 460:                                              ; preds = %459, %.preheader.us.i19.i
   %indvars.iv.i21.i = phi i64 [ 0, %.preheader.us.i19.i ], [ %indvars.iv.next.i22.i, %459 ]
-  %461 = getelementptr inbounds nuw i16, ptr %447, i64 %indvars.iv.i21.i
+  %461 = getelementptr inbounds nuw [2 x i8], ptr %447, i64 %indvars.iv.i21.i
   %462 = load i16, ptr %461, align 2
   %463 = icmp eq i16 %462, %458
   br i1 %463, label %.loopexit.us.i25.i, label %459
@@ -1101,7 +1099,7 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
 
 ..critedge_crit_edge.us.i24.i:                    ; preds = %459
   %465 = zext i16 %456 to i64
-  %466 = getelementptr inbounds nuw i16, ptr %447, i64 %465
+  %466 = getelementptr inbounds nuw [2 x i8], ptr %447, i64 %465
   store i16 %458, ptr %466, align 2
   %467 = load i16, ptr %448, align 2
   %468 = add i16 %467, 1
@@ -1111,10 +1109,10 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
 .preheader.i28.i:                                 ; preds = %.preheader.lr.ph.i14.i, %.preheader.i28.i
   %469 = phi i16 [ %475, %.preheader.i28.i ], [ 0, %.preheader.lr.ph.i14.i ]
   %indvars.iv28.i29.i = phi i64 [ %indvars.iv.next29.i30.i, %.preheader.i28.i ], [ 0, %.preheader.lr.ph.i14.i ]
-  %470 = getelementptr inbounds nuw i16, ptr %452, i64 %indvars.iv28.i29.i
+  %470 = getelementptr inbounds nuw [2 x i8], ptr %452, i64 %indvars.iv28.i29.i
   %471 = load i16, ptr %470, align 2
   %472 = zext i16 %469 to i64
-  %473 = getelementptr inbounds nuw i16, ptr %447, i64 %472
+  %473 = getelementptr inbounds nuw [2 x i8], ptr %447, i64 %472
   store i16 %471, ptr %473, align 2
   %474 = load i16, ptr %448, align 2
   %475 = add i16 %474, 1
@@ -1126,7 +1124,7 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
 _merge_switches_array.exit32.i:                   ; preds = %.loopexit.us.i25.i, %.preheader.i28.i, %.lr.ph.i169
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i170, 1
   %476 = load ptr, ptr @switch_record_table, align 8
-  %477 = getelementptr inbounds nuw %struct.switch_record_t, ptr %476, i64 %indvars.iv329
+  %477 = getelementptr inbounds nuw [72 x i8], ptr %476, i64 %indvars.iv329
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 34
   %479 = load i16, ptr %478, align 2
   %480 = zext i16 %479 to i64
@@ -1231,10 +1229,10 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %indvars.iv.i176 = phi i64 [ %indvars.iv.next.i177, %.lr.ph38.i ], [ 0, %.preheader32.i ]
   %.02637.i = phi ptr [ @.str.25, %.lr.ph38.i ], [ @.str.23, %.preheader32.i ]
   %522 = load ptr, ptr @switch_record_table, align 8
-  %523 = getelementptr inbounds nuw %struct.switch_record_t, ptr %522, i64 %indvars.iv48.i
+  %523 = getelementptr inbounds nuw [72 x i8], ptr %522, i64 %indvars.iv48.i
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 48
   %525 = load ptr, ptr %524, align 8
-  %526 = getelementptr inbounds nuw i32, ptr %525, i64 %indvars.iv.i176
+  %526 = getelementptr inbounds nuw [4 x i8], ptr %525, i64 %indvars.iv.i176
   %527 = load i32, ptr %526, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, ptr noundef nonnull %.02637.i, i32 noundef %527) #7
   %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i176, 1
@@ -1265,7 +1263,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
 .preheader.i175:                                  ; preds = %.preheader31.i, %562
   %indvars.iv54.i = phi i64 [ %indvars.iv.next55.i, %562 ], [ 0, %.preheader31.i ]
   %540 = load ptr, ptr @switch_record_table, align 8
-  %541 = getelementptr inbounds nuw %struct.switch_record_t, ptr %540, i64 %indvars.iv54.i
+  %541 = getelementptr inbounds nuw [72 x i8], ptr %540, i64 %indvars.iv54.i
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 32
   %543 = load i16, ptr %542, align 8
   %.not46.i = icmp eq i16 %543, 0
@@ -1275,16 +1273,16 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %.lr.ph42.i ], [ 0, %.preheader.i175 ]
   %544 = phi ptr [ %551, %.lr.ph42.i ], [ %540, %.preheader.i175 ]
   %.141.i = phi ptr [ @.str.25, %.lr.ph42.i ], [ @.str.23, %.preheader.i175 ]
-  %545 = getelementptr inbounds nuw %struct.switch_record_t, ptr %544, i64 %indvars.iv54.i
+  %545 = getelementptr inbounds nuw [72 x i8], ptr %544, i64 %indvars.iv54.i
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 56
   %547 = load ptr, ptr %546, align 8
-  %548 = getelementptr inbounds nuw i16, ptr %547, i64 %indvars.iv51.i
+  %548 = getelementptr inbounds nuw [2 x i8], ptr %547, i64 %indvars.iv51.i
   %549 = load i16, ptr %548, align 2
   %550 = zext i16 %549 to i32
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, ptr noundef nonnull %.141.i, i32 noundef %550) #7
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %551 = load ptr, ptr @switch_record_table, align 8
-  %552 = getelementptr inbounds nuw %struct.switch_record_t, ptr %551, i64 %indvars.iv54.i
+  %552 = getelementptr inbounds nuw [72 x i8], ptr %551, i64 %indvars.iv54.i
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 32
   %554 = load i16, ptr %553, align 8
   %555 = zext i16 %554 to i64

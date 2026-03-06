@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.google::protobuf::UnknownField" = type { i32, i32, %union.anon.3 }
-%union.anon.3 = type { i64 }
 %"class.google::protobuf::UnknownFieldSet" = type { %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl" }
@@ -143,7 +141,7 @@ define hidden void @_ZN6google8protobuf15UnknownFieldSet13ClearFallbackEv(ptr no
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6google8protobuf12UnknownField6DeleteEv.exit ], [ %9, %1 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %11 = load ptr, ptr %0, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %11, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv.next
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !13
   switch i32 %14, label %_ZN6google8protobuf12UnknownField6DeleteEv.exit [
@@ -344,7 +342,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
   store ptr %32, ptr %0, align 8, !tbaa !12
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %18
   store ptr %36, ptr %13, align 8, !tbaa !9
-  %37 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %32, i64 %21
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %21
   store ptr %37, ptr %25, align 8, !tbaa !25
   br label %.lr.ph.preheader
 
@@ -355,7 +353,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit ]
   %38 = load ptr, ptr %1, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %13, align 8, !tbaa !9
   %41 = load ptr, ptr %25, align 8, !tbaa !25
   %.not.i = icmp eq ptr %40, %41
@@ -412,7 +410,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %63, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %58, ptr %0, align 8, !tbaa !12
   store ptr %62, ptr %13, align 8, !tbaa !9
-  %64 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %56
   store ptr %64, ptr %25, align 8, !tbaa !25
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
@@ -568,7 +566,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
   store ptr %32, ptr %0, align 8, !tbaa !12
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %18
   store ptr %36, ptr %13, align 8, !tbaa !9
-  %37 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %32, i64 %21
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %21
   store ptr %37, ptr %25, align 8, !tbaa !25
   br label %.lr.ph.preheader
 
@@ -579,7 +577,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit ]
   %38 = load ptr, ptr %1, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %13, align 8, !tbaa !9
   %41 = load ptr, ptr %25, align 8, !tbaa !25
   %.not.i = icmp eq ptr %40, %41
@@ -636,7 +634,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %63, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %58, ptr %0, align 8, !tbaa !12
   store ptr %62, ptr %13, align 8, !tbaa !9
-  %64 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %56
   store ptr %64, ptr %25, align 8, !tbaa !25
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
@@ -913,7 +911,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %24, ptr %0, align 8, !tbaa !12
   store ptr %28, ptr %4, align 8, !tbaa !9
-  %30 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8, !tbaa !25
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
@@ -989,7 +987,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %24, ptr %0, align 8, !tbaa !12
   store ptr %28, ptr %4, align 8, !tbaa !9
-  %30 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8, !tbaa !25
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
@@ -1065,7 +1063,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %24, ptr %0, align 8, !tbaa !12
   store ptr %28, ptr %4, align 8, !tbaa !9
-  %30 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8, !tbaa !25
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
@@ -1147,7 +1145,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %26, ptr %0, align 8, !tbaa !12
   store ptr %30, ptr %6, align 8, !tbaa !9
-  %32 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %8, align 8, !tbaa !25
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
@@ -1225,7 +1223,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %24, ptr %0, align 8, !tbaa !12
   store ptr %28, ptr %4, align 8, !tbaa !9
-  %30 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8, !tbaa !25
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
@@ -1293,7 +1291,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %0, align 8, !tbaa !12
   store ptr %27, ptr %3, align 8, !tbaa !9
-  %29 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8, !tbaa !25
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
 
@@ -1333,8 +1331,8 @@ define hidden void @_ZN6google8protobuf15UnknownFieldSet14DeleteSubrangeEii(ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6google8protobuf12UnknownField6DeleteEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6google8protobuf12UnknownField6DeleteEv.exit ]
   %17 = load ptr, ptr %0, align 8, !tbaa !12
-  %18 = getelementptr %"class.google::protobuf::UnknownField", ptr %17, i64 %indvars.iv
-  %19 = getelementptr %"class.google::protobuf::UnknownField", ptr %18, i64 %5
+  %18 = getelementptr [16 x i8], ptr %17, i64 %indvars.iv
+  %19 = getelementptr [16 x i8], ptr %18, i64 %5
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !13
   switch i32 %21, label %_ZN6google8protobuf12UnknownField6DeleteEv.exit [
@@ -1409,9 +1407,9 @@ _ZN6google8protobuf12UnknownField6DeleteEv.exit:  ; preds = %.lr.ph, %22, %30, %
 44:                                               ; preds = %.lr.ph21, %44
   %45 = phi ptr [ %10, %.lr.ph21 ], [ %51, %44 ]
   %.01519 = phi i64 [ %7, %.lr.ph21 ], [ %49, %44 ]
-  %46 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %45, i64 %.01519
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %.01519
   %47 = sub i64 %.01519, %16
-  %48 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %47
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !26
   %49 = add nuw i64 %.01519, 1
   %50 = load ptr, ptr %8, align 8, !tbaa !9
@@ -1456,7 +1454,7 @@ define hidden void @_ZN6google8protobuf15UnknownFieldSet14DeleteByNumberEi(ptr n
   br i1 %9, label %10, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit
 
 10:                                               ; preds = %._crit_edge.thread
-  %11 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %.lcssa1341, i64 %.0.lcssa39
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %.lcssa1341, i64 %.0.lcssa39
   %.not.i.i = icmp eq ptr %.lcssa1440, %11
   br i1 %.not.i.i, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit, label %12
 
@@ -1471,7 +1469,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit: ; preds = %
   %13 = phi ptr [ %45, %_ZN6google8protobuf12UnknownField6DeleteEv.exit ], [ %5, %2 ]
   %.017 = phi i64 [ %.1, %_ZN6google8protobuf12UnknownField6DeleteEv.exit ], [ 0, %2 ]
   %.01216 = phi i64 [ %43, %_ZN6google8protobuf12UnknownField6DeleteEv.exit ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %13, i64 %.01216
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.01216
   %15 = load i32, ptr %14, align 8, !tbaa !38
   %16 = icmp eq i32 %15, %1
   br i1 %16, label %17, label %38
@@ -1535,7 +1533,7 @@ _ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i: ; preds = %_ZN6google8pro
   br i1 %.not, label %41, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %13, i64 %.017
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.017
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !26
   br label %41
 
@@ -2129,7 +2127,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %56, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
   store ptr %51, ptr %30, align 8, !tbaa !12
   store ptr %55, ptr %31, align 8, !tbaa !9
-  %57 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %49
   store ptr %57, ptr %33, align 8, !tbaa !25
   br label %_ZN6google8protobuf8internal24UnknownFieldParserHelper9AddVarintEjm.exit
 
@@ -2203,7 +2201,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i52: ; preds = %86, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i50
   store ptr %81, ptr %60, align 8, !tbaa !12
   store ptr %85, ptr %61, align 8, !tbaa !9
-  %87 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %79
   store ptr %87, ptr %63, align 8, !tbaa !25
   br label %_ZN6google8protobuf8internal24UnknownFieldParserHelper9AddVarintEjm.exit
 
@@ -2396,7 +2394,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i66: ; preds = %167, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i64
   store ptr %162, ptr %141, align 8, !tbaa !12
   store ptr %166, ptr %142, align 8, !tbaa !9
-  %168 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %162, i64 %160
+  %168 = getelementptr inbounds nuw [16 x i8], ptr %162, i64 %160
   store ptr %168, ptr %144, align 8, !tbaa !25
   br label %_ZN6google8protobuf8internal24UnknownFieldParserHelper9AddVarintEjm.exit
 
@@ -2499,7 +2497,7 @@ _ZSt22__uninitialized_move_aIPN6google8protobuf12UnknownFieldES3_SaIS2_EET0_T_S6
   %27 = sub i64 %26, %18
   %28 = ashr exact i64 %27, 4
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %"class.google::protobuf::UnknownField", ptr %13, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %13, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPN6google8protobuf12UnknownFieldES3_ET0_T_S5_S4_.exit
 
@@ -2522,7 +2520,7 @@ _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12UnknownFieldESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12UnknownFieldESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit, %32
   %35 = phi ptr [ %13, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12UnknownFieldESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %36
   store ptr %37, ptr %12, align 8, !tbaa !9
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPN6google8protobuf12UnknownFieldES3_SaIS2_EET0_T_S6_S5_RT1_.exit53, label %38
@@ -2605,7 +2603,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE11_M_allocateEm.exit
 _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %66, %68
   store ptr %57, ptr %0, align 8, !tbaa !12
   store ptr %67, ptr %12, align 8, !tbaa !9
-  %69 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %57, i64 %53
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %53
   store ptr %69, ptr %10, align 8, !tbaa !25
   br label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12UnknownFieldESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit
 
@@ -2792,9 +2790,9 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 
 _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !12
-  %43 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %33, i64 %1
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %1
   store ptr %43, ptr %4, align 8, !tbaa !9
-  %44 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %32, i64 %30
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %30
   store ptr %44, ptr %11, align 8, !tbaa !25
   br label %45
 

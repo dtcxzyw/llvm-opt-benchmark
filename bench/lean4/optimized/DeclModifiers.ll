@@ -4116,7 +4116,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Modifiers_filterAttrs___spe
 9:                                                ; preds = %.lr.ph, %lean_dec.exit31
   %.02548 = phi i64 [ %2, %.lr.ph ], [ %42, %lean_dec.exit31 ]
   %.02747 = phi ptr [ %4, %.lr.ph ], [ %.229, %lean_dec.exit31 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02548
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02548
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i1
@@ -10285,7 +10285,7 @@ lean_dec.exit141:                                 ; preds = %111, %110, %108, %l
 
 lean_dec.exit140:                                 ; preds = %122, %121, %119, %113
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %9
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %9
   %125 = load ptr, ptr %124, align 8, !tbaa !9
   %126 = ptrtoint ptr %125 to i64
   %127 = trunc i64 %126 to i1
@@ -14777,7 +14777,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_expandDeclId___spec__1___ra
 
 lean_inc.exit88:                                  ; preds = %19, %18, %16, %8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %4
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %4
   %22 = load ptr, ptr %21, align 8, !tbaa !9
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i1

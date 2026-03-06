@@ -520,7 +520,7 @@ define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr noundef 
 23:                                               ; preds = %.lr.ph, %pcapng_count_string_option.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pcapng_count_string_option.exit ]
   %.193 = phi i32 [ 0, %.lr.ph ], [ %34, %pcapng_count_string_option.exit ]
-  %24 = getelementptr ptr, ptr %22, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %pcapng_count_string_option.exit, label %26
@@ -639,7 +639,7 @@ pcapng_count_string_option.exit72:                ; preds = %pcapng_count_string
 74:                                               ; preds = %.lr.ph97, %92
   %indvars.iv100 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next101, %92 ]
   %75 = load ptr, ptr %1, align 8
-  %76 = getelementptr ptr, ptr %75, i64 %indvars.iv100
+  %76 = getelementptr [8 x i8], ptr %75, i64 %indvars.iv100
   %77 = load ptr, ptr %76, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)

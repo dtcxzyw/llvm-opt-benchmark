@@ -74,7 +74,7 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h18b58ce70da4f3
   unreachable
 
 .lr.ph:                                           ; preds = %20
-  %23 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %1, i64 %.0.lcssa.i
+  %23 = getelementptr inbounds [16 x i8], ptr %1, i64 %.0.lcssa.i
   %24 = sub nuw i64 %2, %.0.lcssa.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -96,7 +96,7 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h18b58ce70da4f3
 .preheader.i:                                     ; preds = %31, %.preheader.i
   %.017.i.i = phi i64 [ %34, %.preheader.i ], [ 0, %31 ]
   %.016.i.i = phi i64 [ %35, %.preheader.i ], [ 0, %31 ]
-  %32 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %.sroa.0.046, i64 %.016.i.i
+  %32 = getelementptr inbounds [16 x i8], ptr %.sroa.0.046, i64 %.016.i.i
   %33 = getelementptr i8, ptr %32, i64 8
   %.val.i.i = load i64, ptr %33, align 8, !alias.scope !13, !noalias !15, !noundef !7
   %34 = call noundef i64 @llvm.uadd.sat.i64(i64 %.017.i.i, i64 %.val.i.i)
@@ -243,7 +243,7 @@ default.unreachable:                              ; preds = %59
 
 83:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h47ec3b351a964a96E.exit.thread.i17"
   %84 = sub nuw i64 %.sroa.8.045, %.0.lcssa.i19
-  %85 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %.sroa.0.046, i64 %.0.lcssa.i19
+  %85 = getelementptr inbounds [16 x i8], ptr %.sroa.0.046, i64 %.0.lcssa.i19
   %86 = icmp eq i64 %.sroa.8.045, %.0.lcssa.i19
   br i1 %86, label %.thread.i21, label %90
 
@@ -685,7 +685,7 @@ define hidden void @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$
 .preheader:                                       ; preds = %4, %.preheader
   %.017.i = phi i64 [ %11, %.preheader ], [ 0, %4 ]
   %.016.i = phi i64 [ %12, %.preheader ], [ 0, %4 ]
-  %9 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %2, i64 %.016.i
+  %9 = getelementptr inbounds [16 x i8], ptr %2, i64 %.016.i
   %10 = getelementptr i8, ptr %9, i64 8
   %.val.i = load i64, ptr %10, align 8, !noundef !7
   %11 = tail call noundef i64 @llvm.uadd.sat.i64(i64 %.017.i, i64 %.val.i)

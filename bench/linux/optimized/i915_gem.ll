@@ -19,21 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.list_head = type { ptr, ptr }
 %struct.drm_mm_node = type { i64, i64, i64, ptr, %struct.list_head, %struct.list_head, %struct.rb_node, %struct.rb_node, %struct.rb_node, i64, i64, i64, i64 }
 %struct.rb_node = type { i64, ptr, ptr }
-%struct.i915_fence_reg = type { %struct.list_head, ptr, ptr, %struct.atomic_t, %struct.i915_active, i32, i8, i32, i32, i32, i32 }
-%struct.i915_active = type { %struct.atomic_t, %struct.mutex, %struct.spinlock, ptr, %struct.rb_root, %struct.i915_active_fence, i64, ptr, ptr, %struct.work_struct, %struct.llist_head }
-%struct.mutex = type { %struct.atomic64_t, %struct.raw_spinlock, %struct.optimistic_spin_queue, %struct.list_head }
-%struct.atomic64_t = type { i64 }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.2 }
-%union.anon.2 = type { %struct.atomic_t }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.spinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.raw_spinlock }
-%struct.rb_root = type { ptr }
-%struct.i915_active_fence = type { ptr, %struct.dma_fence_cb }
-%struct.dma_fence_cb = type { %struct.list_head, ptr }
-%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
-%struct.llist_head = type { ptr }
 %struct.i915_gem_ww_ctx = type { %struct.ww_acquire_ctx, %struct.list_head, ptr, i8 }
 %struct.ww_acquire_ctx = type { ptr, i64, i32, i16, i16 }
 
@@ -1688,7 +1673,7 @@ define dso_local void @i915_gem_runtime_suspend(ptr noundef readonly captures(ad
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 832
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %33 to i64
-  %37 = getelementptr %struct.i915_fence_reg, ptr %35, i64 %36
+  %37 = getelementptr [224 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
@@ -2525,7 +2510,7 @@ define dso_local i32 @i915_gem_init(ptr noundef %0) local_unnamed_addr #0 align 
 13:                                               ; preds = %31, %10
   %14 = phi i1 [ true, %10 ], [ false, %31 ]
   %15 = phi i64 [ 0, %10 ], [ 1, %31 ]
-  %16 = getelementptr ptr, ptr %11, i64 %15
+  %16 = getelementptr [8 x i8], ptr %11, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %31, label %19
@@ -2568,7 +2553,7 @@ define dso_local i32 @i915_gem_init(ptr noundef %0) local_unnamed_addr #0 align 
 36:                                               ; preds = %45, %35
   %37 = phi i1 [ true, %35 ], [ false, %45 ]
   %38 = phi i64 [ 0, %35 ], [ 1, %45 ]
-  %39 = getelementptr ptr, ptr %11, i64 %38
+  %39 = getelementptr [8 x i8], ptr %11, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %45, label %42
@@ -2625,7 +2610,7 @@ i915_gem_drain_workqueue.exit:                    ; preds = %.loopexit.i
 .preheader11:                                     ; preds = %i915_gem_drain_workqueue.exit, %77
   %65 = phi i1 [ false, %77 ], [ true, %i915_gem_drain_workqueue.exit ]
   %66 = phi i64 [ 1, %77 ], [ 0, %i915_gem_drain_workqueue.exit ]
-  %67 = getelementptr ptr, ptr %11, i64 %66
+  %67 = getelementptr [8 x i8], ptr %11, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %77, label %70
@@ -2650,7 +2635,7 @@ i915_gem_drain_workqueue.exit:                    ; preds = %.loopexit.i
 .preheader10:                                     ; preds = %i915_gem_drain_workqueue.exit, %88
   %78 = phi i1 [ false, %88 ], [ true, %i915_gem_drain_workqueue.exit ]
   %79 = phi i64 [ 1, %88 ], [ 0, %i915_gem_drain_workqueue.exit ]
-  %80 = getelementptr ptr, ptr %11, i64 %79
+  %80 = getelementptr [8 x i8], ptr %11, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %88, label %83
@@ -2770,7 +2755,7 @@ define dso_local void @i915_gem_driver_remove(ptr noundef %0) local_unnamed_addr
 3:                                                ; preds = %10, %1
   %4 = phi i1 [ true, %1 ], [ false, %10 ]
   %5 = phi i64 [ 0, %1 ], [ 1, %10 ]
-  %6 = getelementptr ptr, ptr %2, i64 %5
+  %6 = getelementptr [8 x i8], ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %9
@@ -2831,7 +2816,7 @@ define dso_local void @i915_gem_driver_release(ptr noundef %0) local_unnamed_add
 3:                                                ; preds = %16, %1
   %4 = phi i1 [ true, %1 ], [ false, %16 ]
   %5 = phi i64 [ 0, %1 ], [ 1, %16 ]
-  %6 = getelementptr ptr, ptr %2, i64 %5
+  %6 = getelementptr [8 x i8], ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9

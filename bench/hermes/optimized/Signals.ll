@@ -72,7 +72,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %I.09 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw %struct.CallbackAndCookie, ptr @_ZL14CallBacksToRun, i64 %I.09
+  %arrayidx = getelementptr inbounds nuw [24 x i8], ptr @_ZL14CallBacksToRun, i64 %I.09
   %Flag = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %0 = cmpxchg ptr %Flag, i32 2, i32 3 seq_cst seq_cst, align 4
   %1 = extractvalue { i32, i1 } %0, 1
@@ -540,7 +540,7 @@ for.body:                                         ; preds = %_ZL17CreateSigAltSt
   store i32 -939524096, ptr %sa_flags.i, align 8
   %call2.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #15
   %idxprom.i = zext i32 %10 to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.anon, ptr @_ZL20RegisteredSignalInfo, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [160 x i8], ptr @_ZL20RegisteredSignalInfo, i64 %idxprom.i
   %call3.i = call i32 @sigaction(i32 noundef %9, ptr noundef nonnull %NewHandler.i, ptr noundef nonnull %arrayidx.i) #15
   %SigNo.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 152
   store i32 %9, ptr %SigNo.i, align 8
@@ -560,7 +560,7 @@ for.body8:                                        ; preds = %for.cond6.preheader
   store i32 -939524096, ptr %sa_flags.i10, align 8
   %call2.i12 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i11) #15
   %idxprom.i13 = zext i32 %13 to i64
-  %arrayidx.i14 = getelementptr inbounds nuw %struct.anon, ptr @_ZL20RegisteredSignalInfo, i64 %idxprom.i13
+  %arrayidx.i14 = getelementptr inbounds nuw [160 x i8], ptr @_ZL20RegisteredSignalInfo, i64 %idxprom.i13
   %call3.i15 = call i32 @sigaction(i32 noundef %12, ptr noundef nonnull %NewHandler.i9, ptr noundef nonnull %arrayidx.i14) #15
   %SigNo.i16 = getelementptr inbounds nuw i8, ptr %arrayidx.i14, i64 152
   store i32 %12, ptr %SigNo.i16, align 8
@@ -758,7 +758,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
   %I.07.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds nuw %struct.CallbackAndCookie, ptr @_ZL14CallBacksToRun, i64 %I.07.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr @_ZL14CallBacksToRun, i64 %I.07.i
   %Flag.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %0 = cmpxchg ptr %Flag.i, i32 0, i32 1 seq_cst seq_cst, align 4
   %1 = extractvalue { i32, i1 } %0, 1
@@ -803,7 +803,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %entry
   %I.07.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.cond.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.CallbackAndCookie, ptr @_ZL14CallBacksToRun, i64 %I.07.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [24 x i8], ptr @_ZL14CallBacksToRun, i64 %I.07.i.i
   %Flag.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %0 = cmpxchg ptr %Flag.i.i, i32 0, i32 1 seq_cst seq_cst, align 4
   %1 = extractvalue { i32, i1 } %0, 1
@@ -911,7 +911,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw %struct.anon, ptr @_ZL20RegisteredSignalInfo, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [160 x i8], ptr @_ZL20RegisteredSignalInfo, i64 %indvars.iv.i
   %SigNo.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 152
   %2 = load i32, ptr %SigNo.i, align 8
   %call3.i = tail call i32 @sigaction(i32 noundef %2, ptr noundef nonnull %arrayidx.i, ptr noundef null) #15
@@ -990,7 +990,7 @@ if.end:                                           ; preds = %if.then
 
 for.body.i2:                                      ; preds = %_ZL19RemoveFilesToRemovev.exit, %for.inc.i
   %I.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %_ZL19RemoveFilesToRemovev.exit ]
-  %arrayidx.i3 = getelementptr inbounds nuw %struct.CallbackAndCookie, ptr @_ZL14CallBacksToRun, i64 %I.09.i
+  %arrayidx.i3 = getelementptr inbounds nuw [24 x i8], ptr @_ZL14CallBacksToRun, i64 %I.09.i
   %Flag.i = getelementptr inbounds nuw i8, ptr %arrayidx.i3, i64 16
   %11 = cmpxchg ptr %Flag.i, i32 2, i32 3 seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1

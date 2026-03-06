@@ -1021,7 +1021,7 @@ define noundef i32 @_ZNK7rocksdb7blob_db29BlobIndexCompactionFilterBase8FilterV2
   %72 = load i64, ptr %71, align 8, !tbaa !101
   %73 = urem i64 %55, %72
   %74 = load ptr, ptr %70, align 8, !tbaa !100
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %73
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %73
   %76 = load ptr, ptr %75, align 8, !tbaa !119
   %.not.i.i.i.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %77
@@ -4233,7 +4233,7 @@ _ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !110
   %66 = urem i64 %65, %50
-  %67 = getelementptr inbounds nuw ptr, ptr %62, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %66
   store ptr %51, ptr %67, align 8, !tbaa !119
   br label %_ZN7rocksdb7blob_db21BlobCompactionContextD2Ev.exit
 
@@ -4446,7 +4446,7 @@ _ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !110
   %67 = urem i64 %66, %51
-  %68 = getelementptr inbounds nuw ptr, ptr %63, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %67
   store ptr %52, ptr %68, align 8, !tbaa !119
   br label %_ZN7rocksdb7blob_db21BlobCompactionContextD2Ev.exit
 

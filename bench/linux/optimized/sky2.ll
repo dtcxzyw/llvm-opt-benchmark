@@ -45,24 +45,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.30 = type { [14 x i8] }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.rx_ring_info = type { ptr, i64, i32, [2 x i64] }
-%struct.sky2_status_le = type { i32, i16, i8, i8 }
-%struct.bio_vec = type { ptr, i32, i32 }
-%struct.sky2_rx_le = type { i32, i16, i8, i8 }
-%struct.tx_ring_info = type { ptr, i64, i64, i32 }
-%struct.sky2_tx_le = type { i32, i16, i8, i8 }
-%struct.page = type { i64, %union.anon.60, %union.anon.68, %struct.atomic_t, [8 x i8] }
-%union.anon.60 = type { %struct.anon.61 }
-%struct.anon.61 = type { %union.anon.62, ptr, %union.anon.64, i64 }
-%union.anon.62 = type { %struct.list_head }
-%union.anon.64 = type { i64 }
-%union.anon.68 = type { %struct.atomic_t }
-%struct.netdev_queue = type { ptr, %struct.netdevice_tracker, ptr, ptr, %struct.kobject, i32, i64, %struct.atomic64_t, ptr, ptr, %struct.spinlock, i32, i64, i64, [40 x i8], %struct.dql }
-%struct.netdevice_tracker = type {}
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.kref = type { %struct.refcount_struct }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.atomic64_t = type { i64 }
-%struct.dql = type { i32, i32, i32, [52 x i8], i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, [20 x i8] }
 
 @__param_str_debug = internal constant [11 x i8] c"sky2.debug\00", align 1
 @param_ops_int = external dso_local constant %struct.kernel_param_ops, align 8
@@ -765,7 +747,7 @@ define internal void @sky2_remove(ptr noundef %0) #2 align 16 {
 16:                                               ; preds = %16, %13
   %17 = phi i64 [ %15, %13 ], [ %18, %16 ]
   %18 = add nsw i64 %17, -1
-  %19 = getelementptr ptr, ptr %14, i64 %18
+  %19 = getelementptr [8 x i8], ptr %14, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @unregister_netdev(ptr noundef %20) #23
   %21 = icmp samesign ugt i64 %17, 1
@@ -879,7 +861,7 @@ define internal void @sky2_remove(ptr noundef %0) #2 align 16 {
 89:                                               ; preds = %89, %86
   %90 = phi i64 [ %88, %86 ], [ %91, %89 ]
   %91 = add nsw i64 %90, -1
-  %92 = getelementptr ptr, ptr %87, i64 %91
+  %92 = getelementptr [8 x i8], ptr %87, i64 %91
   %93 = load ptr, ptr %92, align 8
   tail call void @free_netdev(ptr noundef %93) #23
   %94 = icmp samesign ugt i64 %90, 1
@@ -910,7 +892,7 @@ define internal void @sky2_shutdown(ptr noundef %0) #2 align 16 {
 
 9:                                                ; preds = %18, %7
   %10 = phi i64 [ 0, %7 ], [ %19, %18 ]
-  %11 = getelementptr ptr, ptr %8, i64 %10
+  %11 = getelementptr [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @rtnl_lock() #23
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 352
@@ -998,7 +980,7 @@ define internal fastcc noundef ptr @sky2_name(i8 noundef zeroext %0, ptr noundef
 
 5:                                                ; preds = %2
   %6 = zext i8 %0 to i64
-  %7 = getelementptr ptr, ptr @sky2_name.name, i64 %6
+  %7 = getelementptr [8 x i8], ptr @sky2_name.name, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -1432
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef 16, ptr noundef nonnull @.str.29, ptr noundef %9) #23
@@ -1673,7 +1655,7 @@ define internal fastcc ptr @sky2_init_netdev(ptr noundef nonnull %0, i32 noundef
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 1256
   store i32 5000, ptr %20, align 8
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr %struct.net_device_ops, ptr @sky2_netdev_ops, i64 %21
+  %22 = getelementptr [680 x i8], ptr @sky2_netdev_ops, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %22, ptr %23, align 8
   %24 = getelementptr i8, ptr %8, i64 2304
@@ -1740,7 +1722,7 @@ define internal fastcc ptr @sky2_init_netdev(ptr noundef nonnull %0, i32 noundef
   %62 = getelementptr i8, ptr %8, i64 2468
   store i16 168, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %64 = getelementptr ptr, ptr %63, i64 %21
+  %64 = getelementptr [8 x i8], ptr %63, i64 %21
   store ptr %8, ptr %64, align 8
   %65 = getelementptr i8, ptr %8, i64 2320
   store i32 %1, ptr %65, align 16
@@ -2075,7 +2057,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %68 = phi i32 [ 0, %65 ], [ %.ph, %select.unfold ]
   %69 = load ptr, ptr %46, align 8
   %70 = zext i32 %67 to i64
-  %71 = getelementptr %struct.sky2_status_le, ptr %69, i64 %70
+  %71 = getelementptr [8 x i8], ptr %69, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 7
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
@@ -2092,7 +2074,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %82 = load i8, ptr %81, align 1
   %83 = and i8 %82, 1
   %84 = zext nneg i8 %83 to i64
-  %85 = getelementptr ptr, ptr %48, i64 %84
+  %85 = getelementptr [8 x i8], ptr %48, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr i8, ptr %86, i64 2304
   %88 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -2110,12 +2092,12 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   ]
 
 92:                                               ; preds = %76
-  %93 = getelementptr i32, ptr %5, i64 %84
+  %93 = getelementptr [4 x i8], ptr %5, i64 %84
   %94 = load i32, ptr %93, align 4
   %95 = add i32 %94, 1
   store i32 %95, ptr %93, align 4
   %96 = zext i16 %89 to i32
-  %97 = getelementptr i32, ptr %4, i64 %84
+  %97 = getelementptr [4 x i8], ptr %4, i64 %84
   %98 = load i32, ptr %97, align 4
   %99 = add i32 %98, %96
   store i32 %99, ptr %97, align 4
@@ -2124,7 +2106,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %102 = getelementptr i8, ptr %86, i64 2464
   %103 = load i16, ptr %102, align 32
   %104 = zext i16 %103 to i64
-  %105 = getelementptr %struct.rx_ring_info, ptr %101, i64 %104
+  %105 = getelementptr [40 x i8], ptr %101, i64 %104
   %106 = lshr i32 %90, 16
   %107 = trunc nuw i32 %106 to i16
   %108 = and i16 %107, 32767
@@ -2153,7 +2135,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %124 = trunc nuw i32 %123 to i16
   store i16 %124, ptr %102, align 32
   %125 = zext nneg i32 %123 to i64
-  %126 = getelementptr %struct.rx_ring_info, ptr %116, i64 %125
+  %126 = getelementptr [40 x i8], ptr %116, i64 %125
   tail call void @llvm.prefetch.p0(ptr %126, i32 0, i32 3, i32 1)
   %127 = load ptr, ptr %105, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 152
@@ -2326,7 +2308,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
 254:                                              ; preds = %254, %252
   %255 = phi i64 [ 0, %252 ], [ %263, %254 ]
   %256 = phi ptr [ %248, %252 ], [ %267, %254 ]
-  %257 = getelementptr i64, ptr %253, i64 %255
+  %257 = getelementptr [8 x i8], ptr %253, i64 %255
   %258 = load i64, ptr %257, align 8
   %.idx = shl nuw nsw i64 %255, 4
   %259 = getelementptr i8, ptr %256, i64 56
@@ -2388,7 +2370,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %301 = zext i32 %300 to i64
   %302 = getelementptr i8, ptr %299, i64 %301
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 48
-  %304 = getelementptr %struct.bio_vec, ptr %303, i64 %297
+  %304 = getelementptr [16 x i8], ptr %303, i64 %297
   %305 = icmp eq i32 %298, 0
   br i1 %305, label %306, label %347
 
@@ -2514,7 +2496,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %381 = getelementptr i8, ptr %86, i64 2466
   %382 = load i16, ptr %381, align 2
   %383 = zext i16 %382 to i64
-  %384 = getelementptr %struct.sky2_rx_le, ptr %380, i64 %383
+  %384 = getelementptr [8 x i8], ptr %380, i64 %383
   %385 = add i16 %382, 1
   %386 = and i16 %385, 1023
   store i16 %386, ptr %381, align 2
@@ -2528,7 +2510,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %391 = load ptr, ptr %379, align 8
   %392 = load i16, ptr %381, align 2
   %393 = zext i16 %392 to i64
-  %394 = getelementptr %struct.sky2_rx_le, ptr %391, i64 %393
+  %394 = getelementptr [8 x i8], ptr %391, i64 %393
   %395 = add i16 %392, 1
   %396 = and i16 %395, 1023
   store i16 %396, ptr %381, align 2
@@ -2558,12 +2540,12 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
 
 413:                                              ; preds = %413, %411
   %414 = phi i64 [ 0, %411 ], [ %437, %413 ]
-  %415 = getelementptr i64, ptr %412, i64 %414
+  %415 = getelementptr [8 x i8], ptr %412, i64 %414
   %416 = load i64, ptr %415, align 8
   %417 = load ptr, ptr %379, align 8
   %418 = load i16, ptr %381, align 2
   %419 = zext i16 %418 to i64
-  %420 = getelementptr %struct.sky2_rx_le, ptr %417, i64 %419
+  %420 = getelementptr [8 x i8], ptr %417, i64 %419
   %421 = add i16 %418, 1
   %422 = and i16 %421, 1023
   store i16 %422, ptr %381, align 2
@@ -2577,7 +2559,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %427 = load ptr, ptr %379, align 8
   %428 = load i16, ptr %381, align 2
   %429 = zext i16 %428 to i64
-  %430 = getelementptr %struct.sky2_rx_le, ptr %427, i64 %429
+  %430 = getelementptr [8 x i8], ptr %427, i64 %429
   %431 = add i16 %428, 1
   %432 = and i16 %431, 1023
   store i16 %432, ptr %381, align 2
@@ -2693,7 +2675,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %504 = getelementptr i8, ptr %86, i64 2464
   %505 = load i16, ptr %504, align 32
   %506 = zext i16 %505 to i64
-  %507 = getelementptr %struct.rx_ring_info, ptr %503, i64 %506
+  %507 = getelementptr [40 x i8], ptr %503, i64 %506
   %508 = load ptr, ptr %507, align 8
   %509 = tail call i16 @llvm.bswap.i16(i16 %89)
   %510 = getelementptr inbounds nuw i8, ptr %508, i64 152
@@ -2708,7 +2690,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %515 = getelementptr i8, ptr %86, i64 2464
   %516 = load i16, ptr %515, align 32
   %517 = zext i16 %516 to i64
-  %518 = getelementptr %struct.rx_ring_info, ptr %514, i64 %517
+  %518 = getelementptr [40 x i8], ptr %514, i64 %517
   %519 = load ptr, ptr %518, align 8
   %520 = tail call i16 @llvm.bswap.i16(i16 %89)
   %521 = getelementptr inbounds nuw i8, ptr %519, i64 152
@@ -2749,7 +2731,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %542 = getelementptr i8, ptr %86, i64 2464
   %543 = load i16, ptr %542, align 32
   %544 = zext i16 %543 to i64
-  %545 = getelementptr %struct.rx_ring_info, ptr %541, i64 %544
+  %545 = getelementptr [40 x i8], ptr %541, i64 %544
   %546 = load ptr, ptr %545, align 8
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 128
   %548 = load i8, ptr %547, align 8
@@ -2777,7 +2759,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %564 = getelementptr i8, ptr %86, i64 2320
   %565 = load i32, ptr %564, align 16
   %566 = zext i32 %565 to i64
-  %567 = getelementptr i32, ptr @rxqaddr, i64 %566
+  %567 = getelementptr [4 x i8], ptr @rxqaddr, i64 %566
   %568 = load i32, ptr %567, align 4
   %569 = add i32 %568, 1076
   %570 = load ptr, ptr %563, align 8
@@ -2792,7 +2774,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %576 = getelementptr i8, ptr %86, i64 2464
   %577 = load i16, ptr %576, align 32
   %578 = zext i16 %577 to i64
-  %579 = getelementptr %struct.rx_ring_info, ptr %575, i64 %578
+  %579 = getelementptr [40 x i8], ptr %575, i64 %578
   %580 = load ptr, ptr %579, align 8
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 129
   %582 = load i24, ptr %581, align 1
@@ -3072,7 +3054,7 @@ define internal void @sky2_watchdog(ptr noundef %0) #2 align 16 {
   %20 = phi i8 [ %9, %11 ], [ %106, %105 ]
   %21 = phi i64 [ 0, %11 ], [ %107, %105 ]
   %22 = phi i32 [ 0, %11 ], [ %.ph, %105 ]
-  %23 = getelementptr ptr, ptr %12, i64 %21
+  %23 = getelementptr [8 x i8], ptr %12, i64 %21
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 352
   %26 = load volatile i64, ptr %25, align 8
@@ -3093,7 +3075,7 @@ define internal void @sky2_watchdog(ptr noundef %0) #2 align 16 {
   %37 = getelementptr i8, ptr %24, i64 2320
   %38 = load i32, ptr %37, align 16
   %39 = zext i32 %38 to i64
-  %40 = getelementptr i32, ptr @rxqaddr, i64 %39
+  %40 = getelementptr [4 x i8], ptr @rxqaddr, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = shl i32 %38, 7
   %43 = add i32 %42, 3184
@@ -3577,7 +3559,7 @@ define internal noundef range(i32 -95, 1) i32 @sky2_set_wol(ptr noundef captures
 30:                                               ; preds = %30, %27
   %31 = phi i64 [ 0, %27 ], [ %39, %30 ]
   %32 = phi i8 [ 0, %27 ], [ %38, %30 ]
-  %33 = getelementptr ptr, ptr %28, i64 %31
+  %33 = getelementptr [8 x i8], ptr %28, i64 %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 2524
   %36 = load i8, ptr %35, align 4
@@ -4269,7 +4251,7 @@ define internal void @sky2_get_strings(ptr readnone captures(none) %0, i32 nound
   %5 = phi i64 [ %9, %.preheader ], [ 0, %3 ]
   %6 = shl nuw nsw i64 %5, 5
   %7 = getelementptr i8, ptr %2, i64 %6
-  %8 = getelementptr %struct.sky2_stat, ptr @sky2_stats, i64 %5
+  %8 = getelementptr [34 x i8], ptr @sky2_stats, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(32) %7, ptr noundef align 2 dereferenceable(32) %8, i64 32, i1 false)
   %9 = add nuw nsw i64 %5, 1
   %10 = icmp eq i64 %9, 36
@@ -4352,7 +4334,7 @@ define internal noundef range(i32 0, 2) i32 @sky2_set_phys_id(ptr noundef %0, i3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 184
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 416
   %42 = zext i32 %10 to i64
-  %43 = getelementptr ptr, ptr %41, i64 %42
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %40, ptr noundef nonnull @.str.35, ptr noundef nonnull %45) #24
@@ -4364,7 +4346,7 @@ define internal noundef range(i32 0, 2) i32 @sky2_set_phys_id(ptr noundef %0, i3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 416
   %51 = zext i32 %10 to i64
-  %52 = getelementptr ptr, ptr %50, i64 %51
+  %52 = getelementptr [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %49, ptr noundef nonnull @.str.36, ptr noundef nonnull %54) #24
@@ -4405,7 +4387,7 @@ __gm_phy_read.exit.i:                             ; preds = %46, %37, %.thread.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 416
   %76 = zext i32 %10 to i64
-  %77 = getelementptr ptr, ptr %75, i64 %76
+  %77 = getelementptr [8 x i8], ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %74, ptr noundef nonnull @.str.37, ptr noundef nonnull %79) #24
@@ -4417,7 +4399,7 @@ __gm_phy_read.exit.i:                             ; preds = %46, %37, %.thread.i
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 184
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 416
   %85 = zext i32 %10 to i64
-  %86 = getelementptr ptr, ptr %84, i64 %85
+  %86 = getelementptr [8 x i8], ptr %84, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %83, ptr noundef nonnull @.str.36, ptr noundef nonnull %88) #24
@@ -4461,7 +4443,7 @@ switch.lookup:                                    ; preds = %65, %71, %80
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 184
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 416
   %110 = zext i32 %10 to i64
-  %111 = getelementptr ptr, ptr %109, i64 %110
+  %111 = getelementptr [8 x i8], ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %108, ptr noundef nonnull @.str.37, ptr noundef nonnull %113) #24
@@ -4473,7 +4455,7 @@ switch.lookup:                                    ; preds = %65, %71, %80
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 184
   %118 = getelementptr inbounds nuw i8, ptr %8, i64 416
   %119 = zext i32 %10 to i64
-  %120 = getelementptr ptr, ptr %118, i64 %119
+  %120 = getelementptr [8 x i8], ptr %118, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %117, ptr noundef nonnull @.str.36, ptr noundef nonnull %122) #24
@@ -4513,7 +4495,7 @@ gm_phy_write.exit3.i:                             ; preds = %99, %114, %105
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 184
   %143 = getelementptr inbounds nuw i8, ptr %8, i64 416
   %144 = zext i32 %10 to i64
-  %145 = getelementptr ptr, ptr %143, i64 %144
+  %145 = getelementptr [8 x i8], ptr %143, i64 %144
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %142, ptr noundef nonnull @.str.37, ptr noundef nonnull %147) #24
@@ -4525,7 +4507,7 @@ gm_phy_write.exit3.i:                             ; preds = %99, %114, %105
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 184
   %152 = getelementptr inbounds nuw i8, ptr %8, i64 416
   %153 = zext i32 %10 to i64
-  %154 = getelementptr ptr, ptr %152, i64 %153
+  %154 = getelementptr [8 x i8], ptr %152, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %151, ptr noundef nonnull @.str.36, ptr noundef nonnull %156) #24
@@ -4572,7 +4554,7 @@ gm_phy_write.exit3.i:                             ; preds = %99, %114, %105
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 184
   %185 = getelementptr inbounds nuw i8, ptr %8, i64 416
   %186 = zext i32 %10 to i64
-  %187 = getelementptr ptr, ptr %185, i64 %186
+  %187 = getelementptr [8 x i8], ptr %185, i64 %186
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %184, ptr noundef nonnull @.str.37, ptr noundef nonnull %189) #24
@@ -4584,7 +4566,7 @@ gm_phy_write.exit3.i:                             ; preds = %99, %114, %105
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 184
   %194 = getelementptr inbounds nuw i8, ptr %8, i64 416
   %195 = zext i32 %10 to i64
-  %196 = getelementptr ptr, ptr %194, i64 %195
+  %196 = getelementptr [8 x i8], ptr %194, i64 %195
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %193, ptr noundef nonnull @.str.36, ptr noundef nonnull %198) #24
@@ -4735,7 +4717,7 @@ define internal void @sky2_get_ethtool_stats(ptr noundef readonly captures(none)
 
 121:                                              ; preds = %152, %118
   %122 = phi i64 [ 2, %118 ], [ %155, %152 ]
-  %.split = getelementptr %struct.sky2_stat, ptr @sky2_stats, i64 %122
+  %.split = getelementptr [34 x i8], ptr @sky2_stats, i64 %122
   %123 = getelementptr i8, ptr %.split, i64 32
   %124 = load i16, ptr %123, align 2
   %125 = zext i16 %124 to i32
@@ -4771,7 +4753,7 @@ define internal void @sky2_get_ethtool_stats(ptr noundef readonly captures(none)
 
 152:                                              ; preds = %130
   %153 = zext i32 %140 to i64
-  %154 = getelementptr i64, ptr %2, i64 %122
+  %154 = getelementptr [8 x i8], ptr %2, i64 %122
   store i64 %153, ptr %154, align 8
   %155 = add nuw nsw i64 %122, 1
   %156 = icmp eq i64 %155, 36
@@ -5140,7 +5122,7 @@ declare void @llvm.assume(i1 noundef) #17
 define internal fastcc void @sky2_phy_init(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %4 = zext i32 %1 to i64
-  %5 = getelementptr ptr, ptr %3, i64 %4
+  %5 = getelementptr [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 2526
   %8 = load i16, ptr %7, align 2
@@ -5991,13 +5973,13 @@ gm_phy_write.exit26:                              ; preds = %460, %472, %466, %2
   br i1 %523, label %527, label %531
 
 527:                                              ; preds = %520
-  %528 = getelementptr i16, ptr @copper_fc_adv, i64 %526
+  %528 = getelementptr [2 x i8], ptr @copper_fc_adv, i64 %526
   %529 = load i16, ptr %528, align 2
   %530 = or i16 %529, %516
   br label %552
 
 531:                                              ; preds = %520
-  %532 = getelementptr i16, ptr @fiber_fc_adv, i64 %526
+  %532 = getelementptr [2 x i8], ptr @fiber_fc_adv, i64 %526
   %533 = load i16, ptr %532, align 2
   %534 = or i16 %533, %516
   br label %552
@@ -6006,7 +5988,7 @@ gm_phy_write.exit26:                              ; preds = %460, %472, %466, %2
   %536 = getelementptr i8, ptr %6, i64 2528
   %537 = load i32, ptr %536, align 32
   %538 = zext i32 %537 to i64
-  %539 = getelementptr i16, ptr @gm_fc_disable, i64 %538
+  %539 = getelementptr [2 x i8], ptr @gm_fc_disable, i64 %538
   %540 = load i16, ptr %539, align 2
   %541 = or i16 %517, %540
   %542 = or i16 %541, 2
@@ -7943,7 +7925,7 @@ gm_phy_write.exit104:                             ; preds = %1694, %1700, %1706
 
 1713:                                             ; preds = %gm_phy_write.exit108, %gm_phy_write.exit104
   %1714 = phi i64 [ 0, %gm_phy_write.exit104 ], [ %1772, %gm_phy_write.exit108 ]
-  %1715 = getelementptr %struct.anon.33, ptr @sky2_phy_init.eee_afe, i64 %1714
+  %1715 = getelementptr [4 x i8], ptr @sky2_phy_init.eee_afe, i64 %1714
   %1716 = getelementptr inbounds nuw i8, ptr %1715, i64 2
   %1717 = load i16, ptr %1716, align 2
   %1718 = load ptr, ptr %0, align 8
@@ -8314,7 +8296,7 @@ define internal noundef i32 @sky2_close(ptr noundef %0) #2 align 16 {
   %34 = getelementptr i8, ptr %0, i64 2320
   %35 = load i32, ptr %34, align 16
   %36 = zext i32 %35 to i64
-  %37 = getelementptr i32, ptr @portirq_msk, i64 %36
+  %37 = getelementptr [4 x i8], ptr @portirq_msk, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = xor i32 %38, -1
   %40 = and i32 %33, %39
@@ -8375,7 +8357,7 @@ define internal fastcc void @sky2_hw_down(ptr noundef %0) unnamed_addr #2 align 
   %9 = getelementptr i8, ptr %7, i64 %8
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 4, ptr elementtype(i8) %9) #23, !srcloc !7
   %10 = zext i32 %4 to i64
-  %11 = getelementptr i32, ptr @txqaddr, i64 %10
+  %11 = getelementptr [4 x i8], ptr @txqaddr, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1076
   %14 = load ptr, ptr %2, align 8
@@ -8458,7 +8440,7 @@ define internal fastcc void @sky2_hw_down(ptr noundef %0) unnamed_addr #2 align 
   %72 = load ptr, ptr %0, align 64
   %73 = load i32, ptr %3, align 16
   %74 = zext i32 %73 to i64
-  %75 = getelementptr i32, ptr @rxqaddr, i64 %74
+  %75 = getelementptr [4 x i8], ptr @rxqaddr, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 2088
   %78 = load ptr, ptr %72, align 8
@@ -8555,7 +8537,7 @@ define internal fastcc void @sky2_hw_down(ptr noundef %0) unnamed_addr #2 align 
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 184
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %143 = getelementptr ptr, ptr %142, i64 %10
+  %143 = getelementptr [8 x i8], ptr %142, i64 %10
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %141, ptr noundef nonnull @.str.37, ptr noundef nonnull %145) #24
@@ -8566,7 +8548,7 @@ define internal fastcc void @sky2_hw_down(ptr noundef %0) unnamed_addr #2 align 
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 184
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %151 = getelementptr ptr, ptr %150, i64 %10
+  %151 = getelementptr [8 x i8], ptr %150, i64 %10
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %149, ptr noundef nonnull @.str.36, ptr noundef nonnull %153) #24
@@ -8609,7 +8591,7 @@ gm_phy_write.exit:                                ; preds = %132, %138, %146
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 184
   %176 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %177 = getelementptr ptr, ptr %176, i64 %10
+  %177 = getelementptr [8 x i8], ptr %176, i64 %10
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %175, ptr noundef nonnull @.str.35, ptr noundef nonnull %179) #24
@@ -8620,7 +8602,7 @@ gm_phy_write.exit:                                ; preds = %132, %138, %146
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 184
   %184 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %185 = getelementptr ptr, ptr %184, i64 %10
+  %185 = getelementptr [8 x i8], ptr %184, i64 %10
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %183, ptr noundef nonnull @.str.36, ptr noundef nonnull %187) #24
@@ -8660,7 +8642,7 @@ __gm_phy_read.exit:                               ; preds = %.thread.i, %172, %1
   %206 = load ptr, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 184
   %208 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %209 = getelementptr ptr, ptr %208, i64 %10
+  %209 = getelementptr [8 x i8], ptr %208, i64 %10
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %207, ptr noundef nonnull @.str.37, ptr noundef nonnull %211) #24
@@ -8671,7 +8653,7 @@ __gm_phy_read.exit:                               ; preds = %.thread.i, %172, %1
   %214 = load ptr, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 184
   %216 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %217 = getelementptr ptr, ptr %216, i64 %10
+  %217 = getelementptr [8 x i8], ptr %216, i64 %10
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %215, ptr noundef nonnull @.str.36, ptr noundef nonnull %219) #24
@@ -8710,7 +8692,7 @@ gm_phy_write.exit3:                               ; preds = %198, %204, %212
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 184
   %240 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %241 = getelementptr ptr, ptr %240, i64 %10
+  %241 = getelementptr [8 x i8], ptr %240, i64 %10
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %239, ptr noundef nonnull @.str.37, ptr noundef nonnull %243) #24
@@ -8721,7 +8703,7 @@ gm_phy_write.exit3:                               ; preds = %198, %204, %212
   %246 = load ptr, ptr %245, align 8
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 184
   %248 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %249 = getelementptr ptr, ptr %248, i64 %10
+  %249 = getelementptr [8 x i8], ptr %248, i64 %10
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %247, ptr noundef nonnull @.str.36, ptr noundef nonnull %251) #24
@@ -8781,7 +8763,7 @@ gm_phy_write.exit5.gm_phy_write.exit13_crit_edge: ; preds = %gm_phy_write.exit5
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 184
   %280 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %281 = getelementptr ptr, ptr %280, i64 %10
+  %281 = getelementptr [8 x i8], ptr %280, i64 %10
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %279, ptr noundef nonnull @.str.37, ptr noundef nonnull %283) #24
@@ -8792,7 +8774,7 @@ gm_phy_write.exit5.gm_phy_write.exit13_crit_edge: ; preds = %gm_phy_write.exit5
   %286 = load ptr, ptr %285, align 8
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 184
   %288 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %289 = getelementptr ptr, ptr %288, i64 %10
+  %289 = getelementptr [8 x i8], ptr %288, i64 %10
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %287, ptr noundef nonnull @.str.36, ptr noundef nonnull %291) #24
@@ -8835,7 +8817,7 @@ gm_phy_write.exit7:                               ; preds = %270, %276, %284
   %312 = load ptr, ptr %311, align 8
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 184
   %314 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %315 = getelementptr ptr, ptr %314, i64 %10
+  %315 = getelementptr [8 x i8], ptr %314, i64 %10
   %316 = load ptr, ptr %315, align 8
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %313, ptr noundef nonnull @.str.35, ptr noundef nonnull %317) #24
@@ -8846,7 +8828,7 @@ gm_phy_write.exit7:                               ; preds = %270, %276, %284
   %320 = load ptr, ptr %319, align 8
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 184
   %322 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %323 = getelementptr ptr, ptr %322, i64 %10
+  %323 = getelementptr [8 x i8], ptr %322, i64 %10
   %324 = load ptr, ptr %323, align 8
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %321, ptr noundef nonnull @.str.36, ptr noundef nonnull %325) #24
@@ -8886,7 +8868,7 @@ __gm_phy_read.exit9:                              ; preds = %.thread.i8, %310, %
   %344 = load ptr, ptr %343, align 8
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 184
   %346 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %347 = getelementptr ptr, ptr %346, i64 %10
+  %347 = getelementptr [8 x i8], ptr %346, i64 %10
   %348 = load ptr, ptr %347, align 8
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %345, ptr noundef nonnull @.str.37, ptr noundef nonnull %349) #24
@@ -8897,7 +8879,7 @@ __gm_phy_read.exit9:                              ; preds = %.thread.i8, %310, %
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 184
   %354 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %355 = getelementptr ptr, ptr %354, i64 %10
+  %355 = getelementptr [8 x i8], ptr %354, i64 %10
   %356 = load ptr, ptr %355, align 8
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %353, ptr noundef nonnull @.str.36, ptr noundef nonnull %357) #24
@@ -8936,7 +8918,7 @@ gm_phy_write.exit11:                              ; preds = %336, %342, %350
   %376 = load ptr, ptr %375, align 8
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 184
   %378 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %379 = getelementptr ptr, ptr %378, i64 %10
+  %379 = getelementptr [8 x i8], ptr %378, i64 %10
   %380 = load ptr, ptr %379, align 8
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %377, ptr noundef nonnull @.str.37, ptr noundef nonnull %381) #24
@@ -8947,7 +8929,7 @@ gm_phy_write.exit11:                              ; preds = %336, %342, %350
   %384 = load ptr, ptr %383, align 8
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 184
   %386 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %387 = getelementptr ptr, ptr %386, i64 %10
+  %387 = getelementptr [8 x i8], ptr %386, i64 %10
   %388 = load ptr, ptr %387, align 8
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %385, ptr noundef nonnull @.str.36, ptr noundef nonnull %389) #24
@@ -8988,7 +8970,7 @@ gm_phy_write.exit13:                              ; preds = %368, %gm_phy_write.
   %408 = load ptr, ptr %407, align 8
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 184
   %410 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %411 = getelementptr ptr, ptr %410, i64 %10
+  %411 = getelementptr [8 x i8], ptr %410, i64 %10
   %412 = load ptr, ptr %411, align 8
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %409, ptr noundef nonnull @.str.37, ptr noundef nonnull %413) #24
@@ -8999,7 +8981,7 @@ gm_phy_write.exit13:                              ; preds = %368, %gm_phy_write.
   %416 = load ptr, ptr %415, align 8
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 184
   %418 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %419 = getelementptr ptr, ptr %418, i64 %10
+  %419 = getelementptr [8 x i8], ptr %418, i64 %10
   %420 = load ptr, ptr %419, align 8
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %417, ptr noundef nonnull @.str.36, ptr noundef nonnull %421) #24
@@ -9012,7 +8994,7 @@ gm_phy_write.exit15:                              ; preds = %400, %414, %406, %g
   %424 = load ptr, ptr %2, align 8
   %425 = getelementptr i8, ptr %424, i64 7232
   %426 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %425) #23, !srcloc !12
-  %427 = getelementptr i32, ptr @phy_power, i64 %10
+  %427 = getelementptr [4 x i8], ptr @phy_power, i64 %10
   %428 = load i32, ptr %427, align 4
   %429 = or i32 %428, %426
   %430 = load ptr, ptr %2, align 8
@@ -9149,7 +9131,7 @@ define internal fastcc void @sky2_tx_complete(ptr noundef captures(none) %0, i16
   %21 = zext i16 %20 to i32
   %22 = load ptr, ptr %14, align 32
   %23 = zext i16 %20 to i64
-  %24 = getelementptr %struct.tx_ring_info, ptr %22, i64 %23
+  %24 = getelementptr [32 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i64, ptr %26, align 8
@@ -9307,7 +9289,7 @@ define internal fastcc void @sky2_rx_clean(ptr noundef readonly captures(none) %
   %13 = phi i16 [ %8, %10 ], [ %60, %59 ]
   %14 = phi i64 [ 0, %10 ], [ %61, %59 ]
   %15 = load ptr, ptr %11, align 64
-  %16 = getelementptr %struct.rx_ring_info, ptr %15, i64 %14
+  %16 = getelementptr [40 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %59, label %19
@@ -9341,7 +9323,7 @@ define internal fastcc void @sky2_rx_clean(ptr noundef readonly captures(none) %
 40:                                               ; preds = %40, %38
   %41 = phi i64 [ 0, %38 ], [ %49, %40 ]
   %42 = phi ptr [ %34, %38 ], [ %53, %40 ]
-  %43 = getelementptr i64, ptr %39, i64 %41
+  %43 = getelementptr [8 x i8], ptr %39, i64 %41
   %44 = load i64, ptr %43, align 8
   %.idx = shl nuw nsw i64 %41, 4
   %45 = getelementptr i8, ptr %42, i64 56
@@ -9492,7 +9474,7 @@ define internal i32 @sky2_open(ptr noundef %0) #2 align 16 {
   %79 = or i32 %74, 32
   %80 = select i1 %78, i32 %79, i32 %74
   %81 = zext i32 %5 to i64
-  %82 = getelementptr i32, ptr @portirq_msk, i64 %81
+  %82 = getelementptr [4 x i8], ptr @portirq_msk, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = or i32 %80, %83
   %85 = load ptr, ptr %3, align 8
@@ -9535,7 +9517,7 @@ define internal fastcc void @sky2_hw_up(ptr noundef captures(none) initializes((
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %6 = xor i32 %4, 1
   %7 = zext i32 %6 to i64
-  %8 = getelementptr ptr, ptr %5, i64 %7
+  %8 = getelementptr [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 66
   store i16 0, ptr %10, align 2
@@ -9557,7 +9539,7 @@ define internal fastcc void @sky2_hw_up(ptr noundef captures(none) initializes((
   %21 = load ptr, ptr %20, align 8
   %22 = load i16, ptr %11, align 4
   %23 = zext i16 %22 to i64
-  %24 = getelementptr %struct.sky2_tx_le, ptr %21, i64 %23
+  %24 = getelementptr [8 x i8], ptr %21, i64 %23
   %25 = add i16 %22, 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load i16, ptr %26, align 64
@@ -9602,7 +9584,7 @@ define internal fastcc void @sky2_hw_up(ptr noundef captures(none) initializes((
 
 53:                                               ; preds = %44, %39, %34, %1
   %54 = zext i32 %4 to i64
-  %55 = getelementptr ptr, ptr %5, i64 %54
+  %55 = getelementptr [8 x i8], ptr %5, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 968
   %58 = load ptr, ptr %57, align 8
@@ -9813,7 +9795,7 @@ define internal fastcc void @sky2_hw_up(ptr noundef captures(none) initializes((
   %189 = load ptr, ptr %2, align 8
   %190 = getelementptr i8, ptr %189, i64 7232
   %191 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %190) #23, !srcloc !12
-  %192 = getelementptr i32, ptr @phy_power, i64 %54
+  %192 = getelementptr [4 x i8], ptr @phy_power, i64 %54
   %193 = load i32, ptr %192, align 4
   %194 = xor i32 %193, -1
   %195 = and i32 %191, %194
@@ -9828,7 +9810,7 @@ define internal fastcc void @sky2_hw_up(ptr noundef captures(none) initializes((
   br i1 %201, label %202, label %206
 
 202:                                              ; preds = %198
-  %203 = getelementptr i32, ptr @coma_mode, i64 %54
+  %203 = getelementptr [4 x i8], ptr @coma_mode, i64 %54
   %204 = load i32, ptr %203, align 4
   %205 = or i32 %204, %195
   br label %206
@@ -10204,7 +10186,7 @@ gm_phy_write.exit:                                ; preds = %233, %245, %239, %2
   br i1 %468, label %._crit_edge, label %469
 
 ._crit_edge:                                      ; preds = %463
-  %.phi.trans.insert = getelementptr i32, ptr @txqaddr, i64 %54
+  %.phi.trans.insert = getelementptr [4 x i8], ptr @txqaddr, i64 %54
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.pre24 = and i32 %.pre, 65535
   %.pre25 = zext nneg i32 %.pre24 to i64
@@ -10229,7 +10211,7 @@ gm_phy_write.exit:                                ; preds = %233, %245, %239, %2
 
 477:                                              ; preds = %473, %471
   %478 = phi i32 [ %472, %471 ], [ %476, %473 ]
-  %479 = getelementptr i32, ptr @rxqaddr, i64 %54
+  %479 = getelementptr [4 x i8], ptr @rxqaddr, i64 %54
   %480 = load i32, ptr %479, align 4
   %481 = shl nuw nsw i32 %478, 7
   %482 = add nsw i32 %481, -1
@@ -10294,7 +10276,7 @@ sky2_ramset.exit:                                 ; preds = %500, %517
   %522 = load ptr, ptr %2, align 8
   %523 = getelementptr i8, ptr %522, i64 %484
   %524 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %523) #23, !srcloc !8
-  %525 = getelementptr i32, ptr @txqaddr, i64 %54
+  %525 = getelementptr [4 x i8], ptr @txqaddr, i64 %54
   %526 = load i32, ptr %525, align 4
   %527 = shl nuw nsw i32 %467, 9
   %528 = add nsw i32 %527, -1
@@ -10532,7 +10514,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @sky2_alloc_rx_skbs(ptr nou
 32:                                               ; preds = %27, %24
   %33 = phi i64 [ 0, %24 ], [ %28, %27 ]
   %34 = load ptr, ptr %25, align 64
-  %35 = getelementptr %struct.rx_ring_info, ptr %34, i64 %33
+  %35 = getelementptr [40 x i8], ptr %34, i64 %33
   %36 = tail call fastcc ptr @sky2_rx_alloc(ptr noundef %0, i32 noundef 3264)
   store ptr %36, ptr %35, align 8
   %37 = icmp eq ptr %36, null
@@ -10625,7 +10607,7 @@ define internal fastcc ptr @sky2_rx_alloc(ptr noundef readonly captures(none) %0
   %52 = zext i32 %51 to i64
   %53 = getelementptr i8, ptr %50, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %55 = getelementptr %struct.bio_vec, ptr %54, i64 %46
+  %55 = getelementptr [16 x i8], ptr %54, i64 %46
   store ptr %47, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 12
   store i32 0, ptr %56, align 4
@@ -10764,7 +10746,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef
   %33 = select i1 %29, i64 %30, i64 %32
   %34 = add i64 %28, %33
   %35 = lshr i64 %34, 12
-  %36 = getelementptr %struct.page, ptr %26, i64 %35
+  %36 = getelementptr [64 x i8], ptr %26, i64 %35
   %37 = and i64 %27, 4095
   %38 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %5, ptr noundef %36, i64 noundef %37, i64 noundef %8, i32 noundef 2, i64 noundef 0) #23
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10794,7 +10776,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef
   %55 = phi i64 [ 0, %52 ], [ %72, %71 ]
   %56 = phi ptr [ %48, %52 ], [ %76, %71 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %58 = getelementptr %struct.bio_vec, ptr %57, i64 %55
+  %58 = getelementptr [16 x i8], ptr %57, i64 %55
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
@@ -10803,7 +10785,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
   %66 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %5, ptr noundef %62, i64 noundef %65, i64 noundef %61, i32 noundef 2, i64 noundef 0) #23
-  %67 = getelementptr i64, ptr %53, i64 %55
+  %67 = getelementptr [8 x i8], ptr %53, i64 %55
   store i64 %66, ptr %67, align 8
   %68 = icmp eq i64 %66, -1
   br i1 %68, label %69, label %71
@@ -10827,7 +10809,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef
 .preheader:                                       ; preds = %69, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %55, %69 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %81 = getelementptr i64, ptr %53, i64 %indvars.iv.next
+  %81 = getelementptr [8 x i8], ptr %53, i64 %indvars.iv.next
   %82 = load i64, ptr %81, align 8
   %83 = load ptr, ptr %43, align 8
   %84 = load i32, ptr %44, align 4
@@ -10902,7 +10884,7 @@ define internal fastcc void @sky2_rx_start(ptr noundef captures(none) initialize
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 16
   %5 = zext i32 %4 to i64
-  %6 = getelementptr i32, ptr @rxqaddr, i64 %5
+  %6 = getelementptr [4 x i8], ptr @rxqaddr, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i16 0, ptr %8, align 32
@@ -11005,7 +10987,7 @@ define internal fastcc void @sky2_rx_start(ptr noundef captures(none) initialize
   %80 = load ptr, ptr %79, align 8
   %81 = load i16, ptr %9, align 2
   %82 = zext i16 %81 to i64
-  %83 = getelementptr %struct.sky2_rx_le, ptr %80, i64 %82
+  %83 = getelementptr [8 x i8], ptr %80, i64 %82
   %84 = add i16 %81, 1
   %85 = and i16 %84, 1023
   store i16 %85, ptr %9, align 2
@@ -11017,7 +10999,7 @@ define internal fastcc void @sky2_rx_start(ptr noundef captures(none) initialize
   %88 = load ptr, ptr %0, align 64
   %89 = load i32, ptr %3, align 16
   %90 = zext i32 %89 to i64
-  %91 = getelementptr i32, ptr @rxqaddr, i64 %90
+  %91 = getelementptr [4 x i8], ptr @rxqaddr, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %92, 1076
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11063,14 +11045,14 @@ define internal fastcc void @sky2_rx_start(ptr noundef captures(none) initialize
 121:                                              ; preds = %.loopexit, %117
   %122 = phi i64 [ 0, %117 ], [ %196, %.loopexit ]
   %123 = load ptr, ptr %118, align 64
-  %124 = getelementptr %struct.rx_ring_info, ptr %123, i64 %122
+  %124 = getelementptr [40 x i8], ptr %123, i64 %122
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load i64, ptr %125, align 8
   %127 = load i16, ptr %119, align 2
   %128 = load ptr, ptr %120, align 8
   %129 = load i16, ptr %9, align 2
   %130 = zext i16 %129 to i64
-  %131 = getelementptr %struct.sky2_rx_le, ptr %128, i64 %130
+  %131 = getelementptr [8 x i8], ptr %128, i64 %130
   %132 = add i16 %129, 1
   %133 = and i16 %132, 1023
   store i16 %133, ptr %9, align 2
@@ -11084,7 +11066,7 @@ define internal fastcc void @sky2_rx_start(ptr noundef captures(none) initialize
   %138 = load ptr, ptr %120, align 8
   %139 = load i16, ptr %9, align 2
   %140 = zext i16 %139 to i64
-  %141 = getelementptr %struct.sky2_rx_le, ptr %138, i64 %140
+  %141 = getelementptr [8 x i8], ptr %138, i64 %140
   %142 = add i16 %139, 1
   %143 = and i16 %142, 1023
   store i16 %143, ptr %9, align 2
@@ -11114,12 +11096,12 @@ define internal fastcc void @sky2_rx_start(ptr noundef captures(none) initialize
 
 160:                                              ; preds = %160, %158
   %161 = phi i64 [ 0, %158 ], [ %184, %160 ]
-  %162 = getelementptr i64, ptr %159, i64 %161
+  %162 = getelementptr [8 x i8], ptr %159, i64 %161
   %163 = load i64, ptr %162, align 8
   %164 = load ptr, ptr %120, align 8
   %165 = load i16, ptr %9, align 2
   %166 = zext i16 %165 to i64
-  %167 = getelementptr %struct.sky2_rx_le, ptr %164, i64 %166
+  %167 = getelementptr [8 x i8], ptr %164, i64 %166
   %168 = add i16 %165, 1
   %169 = and i16 %168, 1023
   store i16 %169, ptr %9, align 2
@@ -11133,7 +11115,7 @@ define internal fastcc void @sky2_rx_start(ptr noundef captures(none) initialize
   %174 = load ptr, ptr %120, align 8
   %175 = load i16, ptr %9, align 2
   %176 = zext i16 %175 to i64
-  %177 = getelementptr %struct.sky2_rx_le, ptr %174, i64 %176
+  %177 = getelementptr [8 x i8], ptr %174, i64 %176
   %178 = add i16 %175, 1
   %179 = and i16 %178, 1023
   store i16 %179, ptr %9, align 2
@@ -11247,7 +11229,7 @@ define internal fastcc void @sky2_rx_start(ptr noundef captures(none) initialize
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 640, ptr elementtype(i16) %254) #23, !srcloc !13
   %255 = load i32, ptr %3, align 16
   %256 = zext i32 %255 to i64
-  %257 = getelementptr i32, ptr @txqaddr, i64 %256
+  %257 = getelementptr [4 x i8], ptr @txqaddr, i64 %256
   %258 = load i32, ptr %257, align 4
   %259 = add i32 %258, 1080
   %260 = load ptr, ptr %2, align 8
@@ -11306,7 +11288,7 @@ define internal fastcc void @rx_set_rss(ptr noundef readonly captures(none) %0, 
   %29 = shl i32 %28, 2
   %30 = add i32 %29, 544
   %31 = add i32 %30, %27
-  %32 = getelementptr i32, ptr %3, i64 %25
+  %32 = getelementptr [4 x i8], ptr %3, i64 %25
   %33 = load i32, ptr %32, align 4
   %34 = load ptr, ptr %5, align 8
   %35 = zext i32 %31 to i64
@@ -11326,7 +11308,7 @@ define internal fastcc void @rx_set_rss(ptr noundef readonly captures(none) %0, 
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 268435456, ptr elementtype(i32) %45) #23, !srcloc !6
   %46 = load i32, ptr %23, align 16
   %47 = zext i32 %46 to i64
-  %48 = getelementptr i32, ptr @rxqaddr, i64 %47
+  %48 = getelementptr [4 x i8], ptr @rxqaddr, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %49, 1076
   %51 = load ptr, ptr %5, align 8
@@ -11340,7 +11322,7 @@ define internal fastcc void @rx_set_rss(ptr noundef readonly captures(none) %0, 
   %55 = getelementptr i8, ptr %0, i64 2320
   %56 = load i32, ptr %55, align 16
   %57 = zext i32 %56 to i64
-  %58 = getelementptr i32, ptr @rxqaddr, i64 %57
+  %58 = getelementptr [4 x i8], ptr @rxqaddr, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = add i32 %59, 1076
   %61 = load ptr, ptr %5, align 8
@@ -11461,7 +11443,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %78 = select i1 %74, i64 %75, i64 %77
   %79 = add i64 %73, %78
   %80 = lshr i64 %79, 12
-  %81 = getelementptr %struct.page, ptr %71, i64 %80
+  %81 = getelementptr [64 x i8], ptr %71, i64 %80
   %82 = and i64 %72, 4095
   %83 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %51, ptr noundef %81, i64 noundef %82, i64 noundef %54, i32 noundef 1, i64 noundef 0) #23
   %84 = icmp eq i64 %83, -1
@@ -11493,7 +11475,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %101 = getelementptr i8, ptr %1, i64 2344
   %102 = load ptr, ptr %101, align 8
   %103 = zext i16 %86 to i64
-  %104 = getelementptr %struct.sky2_tx_le, ptr %102, i64 %103
+  %104 = getelementptr [8 x i8], ptr %102, i64 %103
   %105 = add i16 %86, 1
   %106 = load i16, ptr %15, align 64
   %107 = add i16 %106, -1
@@ -11555,7 +11537,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %149 = getelementptr i8, ptr %1, i64 2344
   %150 = load ptr, ptr %149, align 8
   %151 = zext i16 %112 to i64
-  %152 = getelementptr %struct.sky2_tx_le, ptr %150, i64 %151
+  %152 = getelementptr [8 x i8], ptr %150, i64 %151
   %153 = add i16 %112, 1
   %154 = load i16, ptr %15, align 64
   %155 = add i16 %154, -1
@@ -11589,7 +11571,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %173 = getelementptr i8, ptr %1, i64 2344
   %174 = load ptr, ptr %173, align 8
   %175 = zext i16 %164 to i64
-  %176 = getelementptr %struct.sky2_tx_le, ptr %174, i64 %175
+  %176 = getelementptr [8 x i8], ptr %174, i64 %175
   %177 = add i16 %164, 1
   %178 = load i16, ptr %15, align 64
   %179 = add i16 %178, -1
@@ -11673,7 +11655,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %237 = getelementptr i8, ptr %1, i64 2344
   %238 = load ptr, ptr %237, align 8
   %239 = zext i16 %195 to i64
-  %240 = getelementptr %struct.sky2_tx_le, ptr %238, i64 %239
+  %240 = getelementptr [8 x i8], ptr %238, i64 %239
   %241 = add i16 %195, 1
   %242 = load i16, ptr %15, align 64
   %243 = add i16 %242, -1
@@ -11693,7 +11675,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %251 = getelementptr i8, ptr %1, i64 2336
   %252 = load ptr, ptr %251, align 32
   %253 = zext i16 %249 to i64
-  %254 = getelementptr %struct.tx_ring_info, ptr %252, i64 %253
+  %254 = getelementptr [32 x i8], ptr %252, i64 %253
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store i64 1, ptr %255, align 8
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 16
@@ -11702,7 +11684,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   store i32 %48, ptr %257, align 8
   %258 = getelementptr i8, ptr %1, i64 2344
   %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr %struct.sky2_tx_le, ptr %259, i64 %253
+  %260 = getelementptr [8 x i8], ptr %259, i64 %253
   %261 = add i16 %249, 1
   %262 = load i16, ptr %15, align 64
   %263 = add i16 %262, -1
@@ -11731,7 +11713,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %280 = phi i16 [ %311, %325 ], [ %337, %330 ]
   %281 = load ptr, ptr %251, align 32
   %282 = zext i16 %280 to i64
-  %283 = getelementptr %struct.tx_ring_info, ptr %281, i64 %282
+  %283 = getelementptr [32 x i8], ptr %281, i64 %282
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store i64 2, ptr %284, align 8
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 16
@@ -11740,7 +11722,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 24
   store i32 %286, ptr %287, align 8
   %288 = load ptr, ptr %258, align 8
-  %289 = getelementptr %struct.sky2_tx_le, ptr %288, i64 %282
+  %289 = getelementptr [8 x i8], ptr %288, i64 %282
   %290 = add i16 %280, 1
   %291 = load i16, ptr %15, align 64
   %292 = add i16 %291, -1
@@ -11772,7 +11754,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %310 = phi ptr [ %304, %279 ], [ %275, %248 ]
   %311 = phi i16 [ %293, %279 ], [ %264, %248 ]
   %312 = getelementptr inbounds nuw i8, ptr %310, i64 48
-  %313 = getelementptr %struct.bio_vec, ptr %312, i64 %309
+  %313 = getelementptr [16 x i8], ptr %312, i64 %309
   %314 = load ptr, ptr %49, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 184
   %316 = getelementptr inbounds nuw i8, ptr %313, i64 8
@@ -11796,7 +11778,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
 330:                                              ; preds = %325
   %331 = load ptr, ptr %258, align 8
   %332 = zext i16 %311 to i64
-  %333 = getelementptr %struct.sky2_tx_le, ptr %331, i64 %332
+  %333 = getelementptr [8 x i8], ptr %331, i64 %332
   %334 = add i16 %311, 1
   %335 = load i16, ptr %15, align 64
   %336 = add i16 %335, -1
@@ -11885,7 +11867,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %386 = getelementptr i8, ptr %1, i64 2320
   %387 = load i32, ptr %386, align 16
   %388 = zext i32 %387 to i64
-  %389 = getelementptr i32, ptr @txqaddr, i64 %388
+  %389 = getelementptr [4 x i8], ptr @txqaddr, i64 %388
   %390 = load i32, ptr %389, align 4
   %391 = load i16, ptr %8, align 4
   tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !35
@@ -11910,7 +11892,7 @@ define internal noundef range(i32 0, 17) i32 @sky2_xmit_frame(ptr noundef %0, pt
   %403 = phi i32 [ %424, %419 ], [ %401, %400 ]
   %404 = load ptr, ptr %251, align 32
   %405 = zext i32 %403 to i64
-  %406 = getelementptr %struct.tx_ring_info, ptr %404, i64 %405
+  %406 = getelementptr [32 x i8], ptr %404, i64 %405
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %408 = load i64, ptr %407, align 8
   %409 = and i64 %408, 3
@@ -12035,7 +12017,7 @@ define internal noundef range(i32 -110, 1) i32 @sky2_ioctl(ptr noundef %0, ptr n
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 416
   %49 = zext i32 %16 to i64
-  %50 = getelementptr ptr, ptr %48, i64 %49
+  %50 = getelementptr [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %47, ptr noundef nonnull @.str.35, ptr noundef nonnull %52) #24
@@ -12047,7 +12029,7 @@ define internal noundef range(i32 -110, 1) i32 @sky2_ioctl(ptr noundef %0, ptr n
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 184
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 416
   %58 = zext i32 %16 to i64
-  %59 = getelementptr ptr, ptr %57, i64 %58
+  %59 = getelementptr [8 x i8], ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %56, ptr noundef nonnull @.str.36, ptr noundef nonnull %61) #24
@@ -12110,7 +12092,7 @@ __gm_phy_read.exit:                               ; preds = %.thread.i, %44, %53
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 184
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 416
   %100 = zext i32 %67 to i64
-  %101 = getelementptr ptr, ptr %99, i64 %100
+  %101 = getelementptr [8 x i8], ptr %99, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %98, ptr noundef nonnull @.str.37, ptr noundef nonnull %103) #24
@@ -12122,7 +12104,7 @@ __gm_phy_read.exit:                               ; preds = %.thread.i, %44, %53
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 184
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 416
   %109 = zext i32 %67 to i64
-  %110 = getelementptr ptr, ptr %108, i64 %109
+  %110 = getelementptr [8 x i8], ptr %108, i64 %109
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %107, ptr noundef nonnull @.str.36, ptr noundef nonnull %112) #24
@@ -12195,7 +12177,7 @@ define internal noundef range(i32 -12, 1) i32 @sky2_change_mtu(ptr noundef %0, i
 .preheader:                                       ; preds = %29, %.preheader
   %37 = phi i64 [ %43, %.preheader ], [ 0, %29 ]
   %38 = load ptr, ptr %22, align 8
-  %39 = getelementptr %struct.netdev_queue, ptr %38, i64 %37
+  %39 = getelementptr [320 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 128
   tail call void @_raw_spin_lock(ptr noundef nonnull %40) #23
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 132
@@ -12227,7 +12209,7 @@ define internal noundef range(i32 -12, 1) i32 @sky2_change_mtu(ptr noundef %0, i
 55:                                               ; preds = %.loopexit4
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 416
   %57 = zext i32 %6 to i64
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 440
   %61 = load i8, ptr %60, align 8
@@ -12294,7 +12276,7 @@ define internal noundef range(i32 -12, 1) i32 @sky2_change_mtu(ptr noundef %0, i
   %103 = load ptr, ptr %3, align 64
   %104 = load i32, ptr %5, align 16
   %105 = zext i32 %104 to i64
-  %106 = getelementptr i32, ptr @rxqaddr, i64 %105
+  %106 = getelementptr [4 x i8], ptr @rxqaddr, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, 2088
   %109 = load ptr, ptr %103, align 8
@@ -12358,7 +12340,7 @@ define internal noundef range(i32 -12, 1) i32 @sky2_change_mtu(ptr noundef %0, i
   %151 = getelementptr i8, ptr %149, i64 %150
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %147, ptr elementtype(i16) %151) #23, !srcloc !13
   %152 = zext i32 %6 to i64
-  %153 = getelementptr i32, ptr @rxqaddr, i64 %152
+  %153 = getelementptr [4 x i8], ptr @rxqaddr, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = add i32 %154, 2088
   %156 = load ptr, ptr %4, align 8
@@ -12435,7 +12417,7 @@ define internal void @sky2_tx_timeout(ptr noundef %0, i32 %1) #19 align 16 {
   %24 = zext i16 %23 to i32
   %25 = load i32, ptr %17, align 16
   %26 = zext i32 %25 to i64
-  %27 = getelementptr i32, ptr @txqaddr, i64 %26
+  %27 = getelementptr [4 x i8], ptr @txqaddr, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %28, 1060
   %30 = load ptr, ptr %4, align 8
@@ -12837,7 +12819,7 @@ define internal noundef i32 @sky2_set_features(ptr noundef captures(none) %0, i6
   %16 = getelementptr i8, ptr %0, i64 2320
   %17 = load i32, ptr %16, align 16
   %18 = zext i32 %17 to i64
-  %19 = getelementptr i32, ptr @rxqaddr, i64 %18
+  %19 = getelementptr [4 x i8], ptr @rxqaddr, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, 1076
   %22 = and i64 %1, 1099511627776
@@ -13398,7 +13380,7 @@ define internal fastcc void @sky2_err_intr(ptr noundef readonly captures(none) %
 define internal fastcc void @sky2_phy_intr(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr ptr, ptr %3, i64 %4
+  %5 = getelementptr [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 2304
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 352
@@ -13579,7 +13561,7 @@ __gm_phy_read.exit2:                              ; preds = %.thread.i1, %66, %7
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 184
   %119 = getelementptr inbounds nuw i8, ptr %90, i64 416
   %120 = zext i32 %92 to i64
-  %121 = getelementptr ptr, ptr %119, i64 %120
+  %121 = getelementptr [8 x i8], ptr %119, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %118, ptr noundef nonnull @.str.35, ptr noundef nonnull %123) #24
@@ -13591,7 +13573,7 @@ __gm_phy_read.exit2:                              ; preds = %.thread.i1, %66, %7
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 184
   %128 = getelementptr inbounds nuw i8, ptr %90, i64 416
   %129 = zext i32 %92 to i64
-  %130 = getelementptr ptr, ptr %128, i64 %129
+  %130 = getelementptr [8 x i8], ptr %128, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %127, ptr noundef nonnull @.str.36, ptr noundef nonnull %132) #24
@@ -13629,7 +13611,7 @@ __gm_phy_read.exit4:                              ; preds = %.thread.i3, %115, %
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 184
   %151 = getelementptr inbounds nuw i8, ptr %90, i64 416
   %152 = zext i32 %92 to i64
-  %153 = getelementptr ptr, ptr %151, i64 %152
+  %153 = getelementptr [8 x i8], ptr %151, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %150, ptr noundef nonnull @.str.35, ptr noundef nonnull %155) #24
@@ -13641,7 +13623,7 @@ __gm_phy_read.exit4:                              ; preds = %.thread.i3, %115, %
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 184
   %160 = getelementptr inbounds nuw i8, ptr %90, i64 416
   %161 = zext i32 %92 to i64
-  %162 = getelementptr ptr, ptr %160, i64 %161
+  %162 = getelementptr [8 x i8], ptr %160, i64 %161
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %159, ptr noundef nonnull @.str.36, ptr noundef nonnull %164) #24
@@ -13903,7 +13885,7 @@ __gm_phy_read.exit6.thread:                       ; preds = %147, %156, %__gm_ph
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 184
   %327 = getelementptr inbounds nuw i8, ptr %299, i64 416
   %328 = zext i32 %301 to i64
-  %329 = getelementptr ptr, ptr %327, i64 %328
+  %329 = getelementptr [8 x i8], ptr %327, i64 %328
   %330 = load ptr, ptr %329, align 8
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %326, ptr noundef nonnull @.str.37, ptr noundef nonnull %331) #24
@@ -13915,7 +13897,7 @@ __gm_phy_read.exit6.thread:                       ; preds = %147, %156, %__gm_ph
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 184
   %336 = getelementptr inbounds nuw i8, ptr %299, i64 416
   %337 = zext i32 %301 to i64
-  %338 = getelementptr ptr, ptr %336, i64 %337
+  %338 = getelementptr [8 x i8], ptr %336, i64 %337
   %339 = load ptr, ptr %338, align 8
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %335, ptr noundef nonnull @.str.36, ptr noundef nonnull %340) #24
@@ -13969,7 +13951,7 @@ declare dso_local zeroext i1 @napi_complete_done(ptr noundef, i32 noundef) local
 define internal fastcc void @sky2_hw_error(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @net_ratelimit() #23
   %9 = icmp eq i32 %8, 0
@@ -14063,7 +14045,7 @@ define internal fastcc void @sky2_hw_error(ptr noundef readonly captures(none) %
   br label %57
 
 57:                                               ; preds = %56, %53
-  %58 = getelementptr i32, ptr @rxqaddr, i64 %5
+  %58 = getelementptr [4 x i8], ptr @rxqaddr, i64 %5
   %59 = load i32, ptr %58, align 4
   %60 = add i32 %59, 1076
   %61 = load ptr, ptr %0, align 8
@@ -14087,7 +14069,7 @@ define internal fastcc void @sky2_hw_error(ptr noundef readonly captures(none) %
   br label %71
 
 71:                                               ; preds = %70, %67
-  %72 = getelementptr i32, ptr @txqaddr, i64 %5
+  %72 = getelementptr [4 x i8], ptr @txqaddr, i64 %5
   %73 = load i32, ptr %72, align 4
   %74 = add i32 %73, 1076
   %75 = load ptr, ptr %0, align 8
@@ -14174,7 +14156,7 @@ define internal fastcc void @sky2_link_up(ptr noundef readonly captures(none) %0
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 184
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %60 = zext i32 %4 to i64
-  %61 = getelementptr ptr, ptr %59, i64 %60
+  %61 = getelementptr [8 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %58, ptr noundef nonnull @.str.37, ptr noundef nonnull %63) #24
@@ -14186,7 +14168,7 @@ define internal fastcc void @sky2_link_up(ptr noundef readonly captures(none) %0
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %69 = zext i32 %4 to i64
-  %70 = getelementptr ptr, ptr %68, i64 %69
+  %70 = getelementptr [8 x i8], ptr %68, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %67, ptr noundef nonnull @.str.36, ptr noundef nonnull %72) #24
@@ -14223,7 +14205,7 @@ gm_phy_write.exit:                                ; preds = %49, %55, %64
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %97 = load i32, ptr %96, align 4
   %98 = zext i32 %97 to i64
-  %99 = getelementptr ptr, ptr @sky2_link_up.fc_name, i64 %98
+  %99 = getelementptr [8 x i8], ptr @sky2_link_up.fc_name, i64 %98
   %100 = load ptr, ptr %99, align 8
   tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %89, ptr noundef nonnull @.str.81, i32 noundef %91, ptr noundef nonnull %95, ptr noundef %100) #24
   br label %101
@@ -14289,7 +14271,7 @@ define internal noundef range(i32 0, 2) i32 @sky2_intr(i32 %0, ptr noundef %1) #
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 460
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
-  %17 = getelementptr %struct.sky2_status_le, ptr %13, i64 %16
+  %17 = getelementptr [8 x i8], ptr %13, i64 %16
   tail call void @llvm.prefetch.p0(ptr %17, i32 0, i32 3, i32 1)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = tail call zeroext i1 @napi_schedule_prep(ptr noundef nonnull %18) #23
@@ -14347,7 +14329,7 @@ define internal fastcc void @sky2_all_down(ptr noundef %0) unnamed_addr #2 align
 23:                                               ; preds = %53, %21
   %24 = phi i8 [ %19, %21 ], [ %54, %53 ]
   %25 = phi i64 [ 0, %21 ], [ %55, %53 ]
-  %26 = getelementptr ptr, ptr %22, i64 %25
+  %26 = getelementptr [8 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 2304
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 352
@@ -14376,7 +14358,7 @@ define internal fastcc void @sky2_all_down(ptr noundef %0) unnamed_addr #2 align
 42:                                               ; preds = %42, %40
   %43 = phi i64 [ 0, %40 ], [ %49, %42 ]
   %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr %struct.netdev_queue, ptr %44, i64 %43
+  %45 = getelementptr [320 x i8], ptr %44, i64 %43
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 128
   tail call void @_raw_spin_lock(ptr noundef nonnull %46) #23
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 132
@@ -14424,7 +14406,7 @@ define internal fastcc void @sky2_all_up(ptr noundef %0) unnamed_addr #2 align 1
   %8 = phi i8 [ %3, %5 ], [ %25, %24 ]
   %9 = phi i64 [ 0, %5 ], [ %27, %24 ]
   %10 = phi i32 [ -1073741824, %5 ], [ %26, %24 ]
-  %11 = getelementptr ptr, ptr %6, i64 %9
+  %11 = getelementptr [8 x i8], ptr %6, i64 %9
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 352
   %14 = load volatile i64, ptr %13, align 8
@@ -14436,7 +14418,7 @@ define internal fastcc void @sky2_all_up(ptr noundef %0) unnamed_addr #2 align 1
   %18 = getelementptr i8, ptr %12, i64 2304
   tail call fastcc void @sky2_hw_up(ptr noundef %18)
   tail call void @sky2_set_multicast(ptr noundef %12)
-  %19 = getelementptr i32, ptr @portirq_msk, i64 %9
+  %19 = getelementptr [4 x i8], ptr @portirq_msk, i64 %9
   %20 = load i32, ptr %19, align 4
   %21 = or i32 %20, %10
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -14520,7 +14502,7 @@ define internal noundef i32 @sky2_suspend(ptr noundef readonly captures(none) %0
 15:                                               ; preds = %173, %13
   %16 = phi i8 [ %11, %13 ], [ %174, %173 ]
   %17 = phi i64 [ 0, %13 ], [ %175, %173 ]
-  %18 = getelementptr ptr, ptr %14, i64 %17
+  %18 = getelementptr [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 2524
   %21 = load i8, ptr %20, align 4
@@ -14567,7 +14549,7 @@ define internal noundef i32 @sky2_suspend(ptr noundef readonly captures(none) %0
   %52 = getelementptr i8, ptr %51, i64 7232
   %53 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %52) #23, !srcloc !12
   %54 = zext i32 %27 to i64
-  %55 = getelementptr i32, ptr @phy_power, i64 %54
+  %55 = getelementptr [4 x i8], ptr @phy_power, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = xor i32 %56, -1
   %58 = and i32 %53, %57
@@ -14583,7 +14565,7 @@ define internal noundef i32 @sky2_suspend(ptr noundef readonly captures(none) %0
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %62
-  %67 = getelementptr i32, ptr @coma_mode, i64 %54
+  %67 = getelementptr [4 x i8], ptr @coma_mode, i64 %54
   %68 = load i32, ptr %67, align 4
   %69 = or i32 %68, %58
   br label %70
@@ -14641,7 +14623,7 @@ define internal noundef i32 @sky2_suspend(ptr noundef readonly captures(none) %0
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 184
   %107 = getelementptr inbounds nuw i8, ptr %25, i64 416
-  %108 = getelementptr ptr, ptr %107, i64 %54
+  %108 = getelementptr [8 x i8], ptr %107, i64 %54
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 296
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %106, ptr noundef nonnull @.str.37, ptr noundef nonnull %110) #24
@@ -14652,7 +14634,7 @@ define internal noundef i32 @sky2_suspend(ptr noundef readonly captures(none) %0
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 184
   %115 = getelementptr inbounds nuw i8, ptr %25, i64 416
-  %116 = getelementptr ptr, ptr %115, i64 %54
+  %116 = getelementptr [8 x i8], ptr %115, i64 %54
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 296
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %114, ptr noundef nonnull @.str.36, ptr noundef nonnull %118) #24

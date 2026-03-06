@@ -41,15 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::ConstantFolder" = type { %"class.llvm::IRBuilderFolder" }
 %"class.llvm::IRBuilderFolder" = type { ptr }
 %"class.llvm::IRBuilderDefaultInserter" = type { ptr }
-%"class.std::unique_ptr.152" = type { %"struct.std::__uniq_ptr_data.153" }
-%"struct.std::__uniq_ptr_data.153" = type { %"class.std::__uniq_ptr_impl.154" }
-%"class.std::__uniq_ptr_impl.154" = type { %"class.std::tuple.155" }
-%"class.std::tuple.155" = type { %"struct.std::_Tuple_impl.156" }
-%"struct.std::_Tuple_impl.156" = type { %"struct.std::_Head_base.159" }
-%"struct.std::_Head_base.159" = type { ptr }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"class.llvm::InsertPosition" = type { %"class.llvm::ilist_iterator_w_bits" }
-%"struct.std::pair.139" = type { i32, ptr }
 
 $_ZN4llvm13IRBuilderBase26CreateConstInBoundsGEP2_32EPNS_4TypeEPNS_5ValueEjjRKNS_5TwineE = comdat any
 
@@ -234,7 +226,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15Analy
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_8FunctionENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i, %62
   store ptr %55, ptr %12, align 8, !tbaa !34
   store ptr %61, ptr %35, align 8, !tbaa !28
-  %63 = getelementptr inbounds nuw %"class.std::unique_ptr.152", ptr %55, i64 %53
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %63, ptr %37, align 8, !tbaa !31
   br label %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit
 
@@ -562,7 +554,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i: ; preds =
   %202 = and i32 %201, 134217727
   %203 = zext nneg i32 %202 to i64
   %204 = sub nsw i64 0, %203
-  %205 = getelementptr inbounds %"class.llvm::Use", ptr %199, i64 %204
+  %205 = getelementptr inbounds [32 x i8], ptr %199, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 32
   %207 = load ptr, ptr %206, align 8, !tbaa !108
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef %207) #16
@@ -575,7 +567,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i: ; preds =
   %212 = and i32 %211, 134217727
   %213 = zext nneg i32 %212 to i64
   %214 = sub nsw i64 0, %213
-  %215 = getelementptr inbounds %"class.llvm::Use", ptr %209, i64 %214
+  %215 = getelementptr inbounds [32 x i8], ptr %209, i64 %214
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 32
   %217 = load ptr, ptr %216, align 8, !tbaa !108
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %209, ptr noundef %217) #16
@@ -640,7 +632,7 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit.i.i: ; preds = %
   %244 = and i32 %243, 134217727
   %245 = zext nneg i32 %244 to i64
   %246 = sub nsw i64 0, %245
-  %247 = getelementptr inbounds %"class.llvm::Use", ptr %232, i64 %246
+  %247 = getelementptr inbounds [32 x i8], ptr %232, i64 %246
   %248 = load ptr, ptr %247, align 8, !tbaa !108
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 32
   %250 = load ptr, ptr %249, align 8, !tbaa !108
@@ -714,7 +706,7 @@ _ZL10lowerSubFnRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInsert
   %281 = getelementptr inbounds nuw i8, ptr %270, i64 16
   %282 = load ptr, ptr %281, align 8, !tbaa !142
   %283 = and i64 %.0.i.i.i.i, 4294967295
-  %284 = getelementptr inbounds nuw ptr, ptr %282, i64 %283
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %283
   %285 = load ptr, ptr %284, align 8, !tbaa !141
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 257, ptr %99, align 8
@@ -741,7 +733,7 @@ _ZL10lowerSubFnRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInsert
   %297 = and i32 %296, 134217727
   %298 = zext nneg i32 %297 to i64
   %299 = sub nsw i64 0, %298
-  %300 = getelementptr inbounds %"class.llvm::Use", ptr %294, i64 %299
+  %300 = getelementptr inbounds [32 x i8], ptr %294, i64 %299
   %301 = load ptr, ptr %300, align 8, !tbaa !108
   %302 = call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %301) #16
   %303 = getelementptr inbounds i8, ptr %302, i64 -32
@@ -750,7 +742,7 @@ _ZL10lowerSubFnRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInsert
   %306 = and i32 %305, 134217727
   %307 = zext nneg i32 %306 to i64
   %308 = sub nsw i64 0, %307
-  %309 = getelementptr inbounds %"class.llvm::Use", ptr %294, i64 %308
+  %309 = getelementptr inbounds [32 x i8], ptr %294, i64 %308
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 32
   %311 = load ptr, ptr %310, align 8, !tbaa !108
   %312 = call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %311) #16
@@ -761,7 +753,7 @@ _ZL10lowerSubFnRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInsert
   %317 = and i32 %316, 134217727
   %318 = zext nneg i32 %317 to i64
   %319 = sub nsw i64 0, %318
-  %320 = getelementptr inbounds %"class.llvm::Use", ptr %304, i64 %319
+  %320 = getelementptr inbounds [32 x i8], ptr %304, i64 %319
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 32
   %322 = load ptr, ptr %321, align 8, !tbaa !108
   %323 = getelementptr inbounds nuw i8, ptr %314, i64 4
@@ -769,7 +761,7 @@ _ZL10lowerSubFnRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInsert
   %325 = and i32 %324, 134217727
   %326 = zext nneg i32 %325 to i64
   %327 = sub nsw i64 0, %326
-  %328 = getelementptr inbounds %"class.llvm::Use", ptr %314, i64 %327
+  %328 = getelementptr inbounds [32 x i8], ptr %314, i64 %327
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 32
   %330 = load ptr, ptr %329, align 8, !tbaa !108
   %331 = call noundef zeroext i1 @_ZNK4llvm8Constant18isElementWiseEqualEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %322, ptr noundef %330) #16
@@ -780,7 +772,7 @@ _ZL10lowerSubFnRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInsert
   %334 = and i32 %333, 134217727
   %335 = zext nneg i32 %334 to i64
   %336 = sub nsw i64 0, %335
-  %337 = getelementptr inbounds %"class.llvm::Use", ptr %304, i64 %336
+  %337 = getelementptr inbounds [32 x i8], ptr %304, i64 %336
   %338 = load ptr, ptr %337, align 8, !tbaa !108
   %339 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %340 = load ptr, ptr %339, align 8, !tbaa !133
@@ -1162,7 +1154,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !52
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair.139", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -1171,7 +1163,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   store i32 %19, ptr %6, align 8, !tbaa !54
   %20 = load ptr, ptr %0, align 8, !tbaa !52
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair.139", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }

@@ -222,7 +222,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %83, %_ZNK5frame20is
 
 103:                                              ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.thread
   %104 = zext nneg i32 %101 to i64
-  %105 = getelementptr inbounds nuw i64, ptr %14, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %107 = load i64, ptr %106, align 8
   %108 = sub i64 0, %107
@@ -685,7 +685,7 @@ define hidden noundef ptr @_ZNK5frame23entry_frame_argument_atEi(ptr noundef non
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i64, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   ret ptr %6
 }
 
@@ -711,7 +711,7 @@ define hidden noundef ptr @_ZNK5frame27interpreter_frame_sender_spEv(ptr noundef
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i64, ptr %6, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %6, i64 %8
   %10 = inttoptr i64 %8 to ptr
   %11 = select i1 %4, ptr %9, ptr %10
   ret ptr %11
@@ -741,7 +741,7 @@ define hidden noundef ptr @_ZNK5frame29interpreter_frame_monitor_endEv(ptr nound
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -72
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i64, ptr %3, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %5
   ret ptr %6
 }
 
@@ -1096,7 +1096,7 @@ define hidden void @_ZNK5frame28sender_for_interpreter_frameEP11RegisterMap(ptr 
   %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %5, i64 -8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i64, ptr %5, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %5, i64 %11
   %13 = inttoptr i64 %11 to ptr
   %14 = select i1 %9, ptr %12, ptr %13
   %15 = load ptr, ptr %5, align 8
@@ -1187,7 +1187,7 @@ define hidden noundef zeroext range(i8 4, 15) i8 @_ZN5frame24interpreter_frame_r
   %17 = getelementptr inbounds i8, ptr %16, i64 -16
   %18 = load i64, ptr %17, align 8
   %.not.i.i = icmp eq i64 %18, 0
-  %19 = getelementptr inbounds i64, ptr %16, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %16, i64 %18
   %20 = icmp eq ptr %16, null
   %21 = or i1 %20, %.not.i.i
   %22 = load ptr, ptr %0, align 8
@@ -1221,7 +1221,7 @@ define hidden noundef zeroext range(i8 4, 15) i8 @_ZN5frame24interpreter_frame_r
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i64, ptr %30, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %30, i64 %32
   %34 = inttoptr i64 %32 to ptr
   %35 = select i1 %28, ptr %33, ptr %34
   br label %40
@@ -1301,13 +1301,13 @@ define hidden noundef ptr @_ZNK5frame24interpreter_frame_tos_atEi(ptr noundef no
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds i64, ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   %8 = icmp eq ptr %4, null
   %9 = or i1 %8, %.not.i.i
   %10 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %9, ptr %10, ptr %7
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds i64, ptr %spec.select.i, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %spec.select.i, i64 %11
   ret ptr %12
 }
 

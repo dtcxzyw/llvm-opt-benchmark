@@ -39,7 +39,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$boxcar..Vec$LT$alloc..boxed
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0a934da3ab92e3f8E.exit.i.i.i.i", %6
   %.sroa.0.07.i.i.i.i = phi i64 [ %9, %"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0a934da3ab92e3f8E.exit.i.i.i.i" ], [ 0, %6 ]
-  %8 = getelementptr inbounds nuw { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %4, i64 %.sroa.0.07.i.i.i.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %.sroa.0.07.i.i.i.i
   %9 = add nuw i64 %.sroa.0.07.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
@@ -105,7 +105,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$boxcar..Vec$LT$alloc..boxed
   br i1 %35, label %41, label %36
 
 36:                                               ; preds = %.body.i.i.i.i
-  %37 = getelementptr inbounds nuw { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %4, i64 %.sroa.0.1.i.i.i.i
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %.sroa.0.1.i.i.i.i
   %38 = add i64 %.sroa.0.1.i.i.i.i, 1
   invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0a934da3ab92e3f8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %37) #16
           to label %.body.i.i.i.i unwind label %39, !noalias !9
@@ -293,8 +293,8 @@ define hidden void @"_ZN4core3ptr117drop_in_place$LT$alloc..vec..drain..Drain$LT
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load ptr, ptr %20, align 8, !noalias !33, !nonnull !10, !noundef !10
-  %22 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %21, i64 %16
-  %23 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %21, i64 %13
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %16
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %13
   %24 = mul i64 %7, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %22, i64 %24, i1 false), !noalias !33
   br label %17
@@ -322,8 +322,8 @@ define hidden void @"_ZN4core3ptr117drop_in_place$LT$alloc..vec..drain..Drain$LT
 36:                                               ; preds = %26
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %38 = load ptr, ptr %37, align 8, !noalias !33, !nonnull !10, !noundef !10
-  %39 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %38, i64 %33
-  %40 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %38, i64 %30
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %33
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %30
   %41 = mul i64 %7, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %39, i64 %41, i1 false), !noalias !33
   br label %34
@@ -456,7 +456,7 @@ define internal fastcc void @"_ZN4core3ptr165drop_in_place$LT$lock_api..rwlock..
   br i1 %5, label %"_ZN4core3ptr126drop_in_place$LT$core..cell..UnsafeCell$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$$GT$$GT$17h03056242fe32556cE.exit", label %6
 
 6:                                                ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$17h4366da475814f7b0E.exit.i.i.i.i"
-  %7 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.val.i.i, i64 %.sroa.0.0.i.i.i.i
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i, i64 %.sroa.0.0.i.i.i.i
   %8 = add i64 %.sroa.0.0.i.i.i.i, 1
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17ha2dadf1cb820e75eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 4, i64 noundef 4)
           to label %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$17h4366da475814f7b0E.exit.i.i.i.i" unwind label %10, !noalias !42
@@ -472,7 +472,7 @@ define internal fastcc void @"_ZN4core3ptr165drop_in_place$LT$lock_api..rwlock..
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$17h4366da475814f7b0E.exit7.i.i.i.i"
 
 12:                                               ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$17h4366da475814f7b0E.exit7.i.i.i.i"
-  %13 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.val.i.i, i64 %.sroa.0.1.i.i.i.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i, i64 %.sroa.0.1.i.i.i.i
   %14 = add i64 %.sroa.0.1.i.i.i.i, 1
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17ha2dadf1cb820e75eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, i64 noundef 4, i64 noundef 4)
           to label %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$17h4366da475814f7b0E.exit7.i.i.i.i" unwind label %15, !noalias !42
@@ -614,8 +614,8 @@ define hidden void @"_ZN4core3ptr227drop_in_place$LT$core..iter..adapters..map..
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load ptr, ptr %20, align 8, !noalias !49, !nonnull !10, !noundef !10
-  %22 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %21, i64 %16
-  %23 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %21, i64 %13
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %16
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %13
   %24 = mul i64 %7, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %22, i64 %24, i1 false), !noalias !49
   br label %17
@@ -643,8 +643,8 @@ define hidden void @"_ZN4core3ptr227drop_in_place$LT$core..iter..adapters..map..
 36:                                               ; preds = %26
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %38 = load ptr, ptr %37, align 8, !noalias !49, !nonnull !10, !noundef !10
-  %39 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %38, i64 %33
-  %40 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %38, i64 %30
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %33
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %30
   %41 = mul i64 %7, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %39, i64 %41, i1 false), !noalias !49
   br label %34
@@ -681,7 +681,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$salsa..table..Table
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN4core3ptr65drop_in_place$LT$boxcar..raw..Entry$LT$salsa..table..Page$GT$$GT$17hfeaeace62ddb6d0aE.exit.i.i.i.i.i", %6
   %.sroa.0.010.i.i.i.i.i = phi i64 [ %9, %"_ZN4core3ptr65drop_in_place$LT$boxcar..raw..Entry$LT$salsa..table..Page$GT$$GT$17hfeaeace62ddb6d0aE.exit.i.i.i.i.i" ], [ 0, %6 ]
-  %8 = getelementptr inbounds nuw { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %4, i64 %.sroa.0.010.i.i.i.i.i
+  %8 = getelementptr inbounds nuw [80 x i8], ptr %4, i64 %.sroa.0.010.i.i.i.i.i
   %9 = add nuw i64 %.sroa.0.010.i.i.i.i.i, 1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %11 = load i8, ptr %10, align 1, !range !20, !alias.scope !60, !noalias !59, !noundef !10
@@ -759,7 +759,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$salsa..table..Table
   br label %38
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %4, i64 %.sroa.0.1.i.i.i.i.i
+  %43 = getelementptr inbounds nuw [80 x i8], ptr %4, i64 %.sroa.0.1.i.i.i.i.i
   %44 = add i64 %.sroa.0.1.i.i.i.i.i, 1
   invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$boxcar..raw..Entry$LT$salsa..table..Page$GT$$GT$17hfeaeace62ddb6d0aE"(ptr noalias noundef align 8 dereferenceable(80) %43) #16
           to label %38 unwind label %45, !noalias !59
@@ -1450,7 +1450,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$salsa..table..memo..MemoTabl
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN4core3ptr80drop_in_place$LT$boxcar..raw..Entry$LT$salsa..table..memo..MemoEntryType$GT$$GT$17h4f57491f86b7d2a6E.exit.i.i.i.i.i", %6
   %.sroa.0.08.i.i.i.i.i = phi i64 [ %9, %"_ZN4core3ptr80drop_in_place$LT$boxcar..raw..Entry$LT$salsa..table..memo..MemoEntryType$GT$$GT$17h4f57491f86b7d2a6E.exit.i.i.i.i.i" ], [ 0, %6 ]
-  %8 = getelementptr inbounds nuw { { { { [4 x i64] } } }, { i8 }, [7 x i8] }, ptr %4, i64 %.sroa.0.08.i.i.i.i.i
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %.sroa.0.08.i.i.i.i.i
   %9 = add nuw i64 %.sroa.0.08.i.i.i.i.i, 1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load i8, ptr %10, align 1, !range !20, !alias.scope !209, !noalias !208, !noundef !10
@@ -1731,7 +1731,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$salsa..ac
   br i1 %5, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he30f7ebc00d561baE.exit", label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %.val, i64 %.sroa.0.0.i.i
+  %7 = getelementptr inbounds nuw [184 x i8], ptr %.val, i64 %.sroa.0.0.i.i
   %8 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$salsa..active_query..ActiveQuery$GT$17h085e230618af4027E"(ptr noalias noundef nonnull align 8 dereferenceable(184) %7)
           to label %4 unwind label %11
@@ -1747,7 +1747,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$salsa..ac
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %.val, i64 %.sroa.0.1.i.i
+  %14 = getelementptr inbounds nuw [184 x i8], ptr %.val, i64 %.sroa.0.1.i.i
   %15 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$salsa..active_query..ActiveQuery$GT$17h085e230618af4027E"(ptr noalias noundef nonnull align 8 dereferenceable(184) %14) #16
           to label %9 unwind label %16
@@ -1793,7 +1793,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$salsa..ac
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17hfaeede18e617005eE.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %6, %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17hfaeede18e617005eE.exit.i.i" ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw { { i32, i32 }, i64, { { ptr, {} } }, i32, i8, [3 x i8] }, ptr %.val, i64 %.sroa.0.09.i.i
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.sroa.0.09.i.i
   %6 = add nuw i64 %.sroa.0.09.i.i, 1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8, !alias.scope !274, !nonnull !10, !noundef !10
@@ -1816,7 +1816,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$salsa..ac
 
 .lr.ph12.i.i:                                     ; preds = %12, %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17hfaeede18e617005eE.exit8.i.i"
   %.sroa.0.110.i.i = phi i64 [ %16, %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17hfaeede18e617005eE.exit8.i.i" ], [ %6, %12 ]
-  %15 = getelementptr inbounds nuw { { i32, i32 }, i64, { { ptr, {} } }, i32, i8, [3 x i8] }, ptr %.val, i64 %.sroa.0.110.i.i
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.sroa.0.110.i.i
   %16 = add i64 %.sroa.0.110.i.i, 1
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load ptr, ptr %17, align 8, !alias.scope !285, !nonnull !10, !noundef !10
@@ -2228,7 +2228,7 @@ define void @"_ZN119_$LT$salsa..tracked_struct..IngredientImpl$LT$C$GT$..delete_
   %.sroa.9.1.i = phi i64 [ 0, %23 ], [ %.sroa.9.0.i, %9 ]
   %.sroa.7.1.i = phi i64 [ %25, %23 ], [ %.sroa.7.0.i, %9 ]
   %.sroa.4.1.i = phi i64 [ %24, %23 ], [ %.sroa.4.0.i, %9 ]
-  %13 = getelementptr inbounds nuw { { ptr } }, ptr %8, i64 %.sroa.4.1.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.sroa.4.1.i
   %14 = load atomic ptr, ptr %13 acquire, align 8, !noalias !341
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit.i.i.i.i.i, label %.preheader.i.i.i.i.i
@@ -2243,7 +2243,7 @@ define void @"_ZN119_$LT$salsa..tracked_struct..IngredientImpl$LT$C$GT$..delete_
   br i1 %16, label %17, label %.loopexit.i.i.i.i.i
 
 17:                                               ; preds = %.preheader.i.i.i.i.i
-  %18 = getelementptr inbounds nuw { { { { [4 x i64] } } }, { i8 }, [7 x i8] }, ptr %14, i64 %.sroa.9.2.i
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %.sroa.9.2.i
   %19 = add nuw i64 %.sroa.9.2.i, 1
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load atomic i8, ptr %20 acquire, align 1, !noalias !341

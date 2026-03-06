@@ -138,7 +138,7 @@ for.body13:                                       ; preds = %for.body13.lr.ph, %
   %sumu.029 = phi double [ 0.000000e+00, %for.body13.lr.ph ], [ %add, %for.body13 ]
   %sumu2.028 = phi double [ 0.000000e+00, %for.body13.lr.ph ], [ %10, %for.body13 ]
   %j.027 = phi i64 [ %sub, %for.body13.lr.ph ], [ %inc, %for.body13 ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %8, i64 %j.027
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %j.027
   %9 = load double, ptr %add.ptr.i, align 8, !tbaa !24
   %add = fadd double %sumu.029, %9
   %10 = call double @llvm.fmuladd.f64(double %9, double %9, double %sumu2.028)
@@ -226,7 +226,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %_ZNSt12_Vector
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i1, ptr %agg.result, align 8, !tbaa !21
   store ptr %call5.i.i.i.i1, ptr %_M_finish.i.i, align 8, !tbaa !30
-  %add.ptr21.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i1, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i1, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !23
   br label %invoke.cont10
 
@@ -307,7 +307,7 @@ if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i.i
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i.i3, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i3, i64 %cond.i.i.i.i.i
   br label %_ZNSt20back_insert_iteratorISt6vectorIdSaIdEEEaSERKd.exit.i
 
 _ZNSt20back_insert_iteratorISt6vectorIdSaIdEEEaSERKd.exit.i: ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i, %if.then.i.i.i

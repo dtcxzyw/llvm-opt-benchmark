@@ -11278,7 +11278,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !2912
   store i32 %51, ptr %11, align 4, !noalias !2912
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2912
@@ -11518,7 +11518,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8, !noundef !388
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %121 = getelementptr inbounds { i32, i16, i16 }, ptr %120, i64 %119
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %123
 
@@ -11719,7 +11719,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !2936
   store i32 %51, ptr %11, align 4, !noalias !2936
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2936
@@ -11959,7 +11959,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8, !noundef !388
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %121 = getelementptr inbounds { i32, i16, i16 }, ptr %120, i64 %119
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %123
 
@@ -12160,7 +12160,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !2957
   store i32 %51, ptr %11, align 4, !noalias !2957
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2957
@@ -12398,7 +12398,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -12599,7 +12599,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !2978
   store i32 %51, ptr %11, align 4, !noalias !2978
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2978
@@ -12839,7 +12839,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8, !noundef !388
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %121 = getelementptr inbounds { i32, i16, i16 }, ptr %120, i64 %119
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %123
 
@@ -13040,7 +13040,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !2999
   store i32 %51, ptr %11, align 4, !noalias !2999
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !2999
@@ -13278,7 +13278,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -13479,7 +13479,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3020
   store i32 %51, ptr %11, align 4, !noalias !3020
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3020
@@ -13717,7 +13717,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -13918,7 +13918,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3041
   store i32 %51, ptr %11, align 4, !noalias !3041
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3041
@@ -14156,7 +14156,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -14357,7 +14357,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3062
   store i32 %51, ptr %11, align 4, !noalias !3062
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3062
@@ -14595,7 +14595,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -14796,7 +14796,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3083
   store i32 %51, ptr %11, align 4, !noalias !3083
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3083
@@ -15034,7 +15034,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -15235,7 +15235,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3104
   store i32 %51, ptr %11, align 4, !noalias !3104
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3104
@@ -15475,7 +15475,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8, !noundef !388
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %121 = getelementptr inbounds { i32, i16, i16 }, ptr %120, i64 %119
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %123
 
@@ -15676,7 +15676,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3125
   store i32 %51, ptr %11, align 4, !noalias !3125
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3125
@@ -15914,7 +15914,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -16115,7 +16115,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3146
   store i32 %51, ptr %11, align 4, !noalias !3146
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3146
@@ -16353,7 +16353,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -16554,7 +16554,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3167
   store i32 %51, ptr %11, align 4, !noalias !3167
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3167
@@ -16794,7 +16794,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8, !noundef !388
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %121 = getelementptr inbounds { i32, i16, i16 }, ptr %120, i64 %119
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %123
 
@@ -16995,7 +16995,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3188
   store i32 %51, ptr %11, align 4, !noalias !3188
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3188
@@ -17233,7 +17233,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -17434,7 +17434,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3209
   store i32 %51, ptr %11, align 4, !noalias !3209
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3209
@@ -17672,7 +17672,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -17873,7 +17873,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3230
   store i32 %51, ptr %11, align 4, !noalias !3230
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3230
@@ -18113,7 +18113,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8, !noundef !388
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %121 = getelementptr inbounds { i32, i16, i16 }, ptr %120, i64 %119
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %123
 
@@ -18314,7 +18314,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3251
   store i32 %51, ptr %11, align 4, !noalias !3251
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3251
@@ -18552,7 +18552,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -18753,7 +18753,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3272
   store i32 %51, ptr %11, align 4, !noalias !3272
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3272
@@ -18991,7 +18991,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -19192,7 +19192,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3293
   store i32 %51, ptr %11, align 4, !noalias !3293
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3293
@@ -19432,7 +19432,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8, !noundef !388
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %121 = getelementptr inbounds { i32, i16, i16 }, ptr %120, i64 %119
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %123
 
@@ -19633,7 +19633,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3314
   store i32 %51, ptr %11, align 4, !noalias !3314
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3314
@@ -19871,7 +19871,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -20072,7 +20072,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3335
   store i32 %51, ptr %11, align 4, !noalias !3335
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3335
@@ -20310,7 +20310,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -20511,7 +20511,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3356
   store i32 %51, ptr %11, align 4, !noalias !3356
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3356
@@ -20749,7 +20749,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -20950,7 +20950,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3377
   store i32 %51, ptr %11, align 4, !noalias !3377
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3377
@@ -21188,7 +21188,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -21389,7 +21389,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3398
   store i32 %51, ptr %11, align 4, !noalias !3398
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3398
@@ -21627,7 +21627,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -21828,7 +21828,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3419
   store i32 %51, ptr %11, align 4, !noalias !3419
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3419
@@ -22066,7 +22066,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -22267,7 +22267,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3440
   store i32 %51, ptr %11, align 4, !noalias !3440
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3440
@@ -22505,7 +22505,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -22706,7 +22706,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3461
   store i32 %51, ptr %11, align 4, !noalias !3461
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3461
@@ -22944,7 +22944,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -23145,7 +23145,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3482
   store i32 %51, ptr %11, align 4, !noalias !3482
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3482
@@ -23383,7 +23383,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -23584,7 +23584,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3503
   store i32 %51, ptr %11, align 4, !noalias !3503
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3503
@@ -23822,7 +23822,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -24023,7 +24023,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3524
   store i32 %51, ptr %11, align 4, !noalias !3524
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3524
@@ -24263,7 +24263,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8, !noundef !388
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %121 = getelementptr inbounds { i32, i16, i16 }, ptr %120, i64 %119
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %123
 
@@ -24464,7 +24464,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3545
   store i32 %51, ptr %11, align 4, !noalias !3545
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3545
@@ -24702,7 +24702,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -24903,7 +24903,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3566
   store i32 %51, ptr %11, align 4, !noalias !3566
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3566
@@ -25143,7 +25143,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8, !noundef !388
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %121 = getelementptr inbounds { i32, i16, i16 }, ptr %120, i64 %119
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %123
 
@@ -25344,7 +25344,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !2916, !noalias !3587
   store i32 %51, ptr %11, align 4, !noalias !3587
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !3587
@@ -25582,7 +25582,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !388
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -67251,7 +67251,7 @@ common.resume.i:                                  ; preds = %264, %261, %"_ZN4co
   %200 = load i64, ptr %199, align 8, !alias.scope !8619, !noalias !8624
   %.sink5.i.i.i.i.i = select i1 %197, ptr %198, ptr %194
   %.sink4.i.i.i.i.i = select i1 %197, i64 %200, i64 %196
-  %201 = getelementptr inbounds i32, ptr %.sink5.i.i.i.i.i, i64 %.sink4.i.i.i.i.i
+  %201 = getelementptr inbounds [4 x i8], ptr %.sink5.i.i.i.i.i, i64 %.sink4.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !8627
   %202 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %202, align 8, !alias.scope !8633, !noalias !8627
@@ -90565,7 +90565,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   %104 = load i64, ptr %103, align 8, !alias.scope !11072, !noalias !11077
   %.sink5.i.i.i = select i1 %101, ptr %102, ptr %98
   %.sink4.i.i.i = select i1 %101, i64 %104, i64 %100
-  %105 = getelementptr inbounds i32, ptr %.sink5.i.i.i, i64 %.sink4.i.i.i
+  %105 = getelementptr inbounds [4 x i8], ptr %.sink5.i.i.i, i64 %.sink4.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !11080
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %106, align 8, !alias.scope !11086, !noalias !11080
@@ -108867,7 +108867,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   %101 = load i64, ptr %100, align 8, !alias.scope !12236, !noalias !12241
   %.sink5.i.i.i = select i1 %98, ptr %99, ptr %95
   %.sink4.i.i.i = select i1 %98, i64 %101, i64 %97
-  %102 = getelementptr inbounds i32, ptr %.sink5.i.i.i, i64 %.sink4.i.i.i
+  %102 = getelementptr inbounds [4 x i8], ptr %.sink5.i.i.i, i64 %.sink4.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !12244
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %103, align 8, !alias.scope !12250, !noalias !12244
@@ -158784,7 +158784,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit249
   %247 = load i64, ptr %246, align 8, !alias.scope !16365, !noalias !16370
   %.sink5.i.i.i = select i1 %244, ptr %245, ptr %27
   %.sink4.i.i.i = select i1 %244, i64 %247, i64 %243
-  %248 = getelementptr inbounds i32, ptr %.sink5.i.i.i, i64 %.sink4.i.i.i
+  %248 = getelementptr inbounds [4 x i8], ptr %.sink5.i.i.i, i64 %.sink4.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !16373
   %249 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %249, align 8, !alias.scope !16379, !noalias !16373
@@ -173081,7 +173081,7 @@ define internal fastcc void @_ZN5salsa7runtime11local_state10LocalState10push_qu
   %28 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %19, %17 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8, !alias.scope !18325, !noalias !18328, !nonnull !388, !noundef !388
-  %31 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %30, i64 %28
+  %31 = getelementptr inbounds [80 x i8], ptr %30, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %31, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   %32 = load i64, ptr %18, align 8, !alias.scope !18325, !noalias !18328, !noundef !388
   %33 = add i64 %32, 1

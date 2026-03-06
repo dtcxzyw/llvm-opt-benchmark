@@ -452,7 +452,7 @@ define dso_local ptr @x64_classify_reg_call_struct_type_check(ptr noundef %0, pt
 
 48:                                               ; preds = %.lr.ph, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 72
   %52 = load ptr, ptr %51, align 8
@@ -837,7 +837,7 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
 
 29:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load i64, ptr %32, align 8
@@ -1482,7 +1482,7 @@ define dso_local noundef zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load i64, ptr %34, align 8
@@ -1551,7 +1551,7 @@ thread-pre-split:                                 ; preds = %2, %tailrecurse.bac
   br i1 %exitcond.not.i, label %.x64_get_member_at_offset.exit_crit_edge, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.next.i
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load i64, ptr %24, align 8
@@ -1703,7 +1703,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 .lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %.lr.ph
   %indvars.iv.next.i110 = phi i64 [ 1, %.lr.ph.i.lr.ph ], [ %indvars.iv.next.i, %.lr.ph ]
   %32 = phi ptr [ %27, %.lr.ph.i.lr.ph ], [ %34, %.lr.ph ]
-  %33 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next.i110
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.next.i110
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load i64, ptr %35, align 8
@@ -2059,7 +2059,7 @@ x64_get_fp_type_at_offset.exit.thread:            ; preds = %14
   br i1 %exitcond.not.i.i, label %.x64_get_member_at_offset.exit_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next.i.i
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load i64, ptr %33, align 8
@@ -2168,7 +2168,7 @@ tailrecurse.i77:                                  ; preds = %tailrecurse.i77.bac
   br i1 %exitcond.not.i.i92, label %.x64_get_member_at_offset.exit_crit_edge.i95, label %.lr.ph.i.i93, !llvm.loop !14
 
 .lr.ph.i.i93:                                     ; preds = %.lr.ph.i89
-  %83 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv.next.i.i91
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.next.i.i91
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %86 = load i64, ptr %85, align 8
@@ -2284,7 +2284,7 @@ tailrecurse.i99:                                  ; preds = %tailrecurse.i99.bac
   br i1 %exitcond.not.i.i114, label %.x64_get_member_at_offset.exit_crit_edge.i117, label %.lr.ph.i.i115, !llvm.loop !14
 
 .lr.ph.i.i115:                                    ; preds = %.lr.ph.i111
-  %138 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv.next.i.i113
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv.next.i.i113
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
   %141 = load i64, ptr %140, align 8
@@ -2431,7 +2431,7 @@ tailrecurse.i121:                                 ; preds = %tailrecurse.i121.ba
   br i1 %exitcond.not.i.i136, label %.x64_get_member_at_offset.exit_crit_edge.i139, label %.lr.ph.i.i137, !llvm.loop !14
 
 .lr.ph.i.i137:                                    ; preds = %.lr.ph.i133
-  %210 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv.next.i.i135
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %indvars.iv.next.i.i135
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 48
   %213 = load i64, ptr %212, align 8
@@ -2653,7 +2653,7 @@ x64_classify_parameter.exit:                      ; preds = %try_use_registers.e
   %indvars.iv = phi i64 [ 0, %41 ], [ %indvars.iv.next, %x64_classify_parameter.exit53 ]
   %.sroa.0.269 = phi i32 [ %.sroa.0.0, %41 ], [ %.sroa.0.5, %x64_classify_parameter.exit53 ]
   %.sroa.7.368 = phi i32 [ %.sroa.7.1, %41 ], [ %.sroa.7.6, %x64_classify_parameter.exit53 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = tail call fastcc ptr @type_lowering(ptr noundef readonly %48)
@@ -2681,7 +2681,7 @@ x64_classify_parameter.exit53:                    ; preds = %try_use_registers.e
   %.sroa.0.5 = phi i32 [ %.sroa.0.269, %58 ], [ %57, %try_use_registers.exit.i51 ]
   %.0.i52 = phi ptr [ %59, %58 ], [ %50, %try_use_registers.exit.i51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %60 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   store ptr %.0.i52, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %42
@@ -2718,7 +2718,7 @@ x64_classify_parameter.exit53:                    ; preds = %try_use_registers.e
   %.sroa.0.372 = phi i32 [ %.sroa.0.1, %68 ], [ %.sroa.0.6, %x64_classify_parameter.exit57 ]
   %.sroa.7.471 = phi i32 [ %.sroa.7.2, %68 ], [ %.sroa.7.7, %x64_classify_parameter.exit57 ]
   %74 = load ptr, ptr %63, align 8
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv75
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv75
   %76 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %77 = tail call fastcc ptr @type_lowering(ptr noundef readonly %76)
@@ -2746,7 +2746,7 @@ x64_classify_parameter.exit57:                    ; preds = %try_use_registers.e
   %.sroa.0.6 = phi i32 [ %.sroa.0.372, %86 ], [ %85, %try_use_registers.exit.i55 ]
   %.0.i56 = phi ptr [ %87, %86 ], [ %78, %try_use_registers.exit.i55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %88 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv75
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv75
   store ptr %.0.i56, ptr %88, align 8
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %69

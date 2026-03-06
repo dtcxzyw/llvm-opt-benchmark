@@ -79,7 +79,7 @@ define hidden noundef i32 @_Z16fed_tau_internalRKiRKfS2_RKbRSt6vectorIfSaIfEE(pt
   %8 = zext nneg i32 %6 to i64
   %9 = shl nuw nsw i64 %8, 2
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #11
-  %11 = getelementptr inbounds nuw float, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %8
   store float 0.000000e+00, ptr %10, align 4, !tbaa !3
   %12 = getelementptr i8, ptr %10, i64 4
   %13 = add nsw i64 %8, -1
@@ -167,7 +167,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit60:                  ; preds = %_ZNSt6vectorIfSaIfE
   %44 = tail call float @cosf(float noundef %43) #10, !tbaa !7
   %45 = fmul float %44, %44
   %46 = fdiv float %36, %45
-  %47 = getelementptr inbounds nuw float, ptr %.sroa.074.1, i64 %indvars.iv98
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.074.1, i64 %indvars.iv98
   store float %46, ptr %47, align 4, !tbaa !3
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %48 = load i32, ptr %0, align 4, !tbaa !7
@@ -188,7 +188,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit60:                  ; preds = %_ZNSt6vectorIfSaIfE
   %56 = tail call float @cosf(float noundef %55) #10, !tbaa !7
   %57 = fmul float %56, %56
   %58 = fdiv float %36, %57
-  %59 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   store float %58, ptr %59, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %0, align 4, !tbaa !7
@@ -276,10 +276,10 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
 
 87:                                               ; preds = %83
   %88 = sext i32 %86 to i64
-  %89 = getelementptr float, ptr %.sroa.074.1, i64 %88
+  %89 = getelementptr [4 x i8], ptr %.sroa.074.1, i64 %88
   %90 = getelementptr i8, ptr %89, i64 -4
   %91 = load float, ptr %90, align 4, !tbaa !3
-  %92 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv101
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv101
   store float %91, ptr %92, align 4, !tbaa !3
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count

@@ -12,7 +12,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_up
 %struct.atomic_t = type { i32 }
 %struct.ieee80211_sta_vht_cap = type { i8, i32, %struct.ieee80211_vht_mcs_info }
 %struct.ieee80211_vht_mcs_info = type { i16, i16, i16, i16 }
-%struct.ieee80211_channel = type { i32, i32, i16, i16, i32, i32, i32, i32, i8, i32, i32, i32, i32, i64, i32, i8 }
 %struct.sta_opmode_info = type { i32, i32, i32, i8 }
 
 @.str = private unnamed_addr constant [69 x i8] c"\016%s: Ignoring VHT IE from %pM (link:%pM) due to invalid rx_mcs_map\0A\00", align 1
@@ -375,7 +374,7 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
 
 29:                                               ; preds = %27, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %24 ]
-  %.split = getelementptr %struct.ieee80211_channel, ptr %25, i64 %indvars.iv
+  %.split = getelementptr [64 x i8], ptr %25, i64 %indvars.iv
   %30 = getelementptr i8, ptr %.split, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 129
@@ -664,7 +663,7 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cur_vht_bw(ptr noundef reado
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %8 = load i8, ptr %7, align 2
   %9 = zext i8 %8 to i64
-  %10 = getelementptr ptr, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14, !prof !12
@@ -800,7 +799,7 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cap_rx_bw(ptr noundef readon
   tail call void @__rcu_read_lock() #13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4936
   %16 = zext i8 %14 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load volatile ptr, ptr %17, align 8
   %19 = load i8, ptr %8, align 1, !range !5, !noundef !6
   %20 = icmp ne i8 %19, 0
@@ -1369,7 +1368,7 @@ define dso_local void @ieee80211_update_mu_groups(ptr noundef %0, i32 noundef %1
   tail call void @__rcu_read_lock() #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %6 = zext i32 %1 to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %14, label %10
@@ -1407,7 +1406,7 @@ define dso_local void @ieee80211_vht_handle_opmode(ptr noundef %0, ptr noundef %
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 312
   %10 = zext i32 %3 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @__ieee80211_vht_handle_opmode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 poison)
   %14 = icmp eq i32 %13, 0
@@ -1445,7 +1444,7 @@ switch.lookup:                                    ; preds = %switch.lookup, %2
   %5 = trunc i64 %4 to i32
   %6 = shl i32 %5, 1
   %7 = lshr i32 %3, %6
-  %8 = getelementptr i16, ptr %1, i64 %4
+  %8 = getelementptr [2 x i8], ptr %1, i64 %4
   %9 = shl nuw nsw i32 %7, 4
   %10 = and i32 %9, 48
   %switch.shiftamt = zext nneg i32 %10 to i64

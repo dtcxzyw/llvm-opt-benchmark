@@ -8,18 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<Yosys::SExpr, std::allocator<Yosys::SExpr>>::_Vector_impl" }
 %"struct.std::_Vector_base<Yosys::SExpr, std::allocator<Yosys::SExpr>>::_Vector_impl" = type { %"struct.std::_Vector_base<Yosys::SExpr, std::allocator<Yosys::SExpr>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<Yosys::SExpr, std::allocator<Yosys::SExpr>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.Yosys::SExpr" = type { %"class.std::variant" }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type { %"union.std::__detail::__variant::_Variadic_union", i8 }
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.0" }
-%"union.std::__detail::__variant::_Variadic_union.0" = type { %"struct.std::__detail::__variant::_Uninitialized.1" }
-%"struct.std::__detail::__variant::_Uninitialized.1" = type { %"struct.__gnu_cxx::__aligned_membuf.2" }
-%"struct.__gnu_cxx::__aligned_membuf.2" = type { [32 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -33,6 +21,18 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
+%"class.Yosys::SExpr" = type { %"class.std::variant" }
+%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
+%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
+%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
+%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
+%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
+%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
+%"struct.std::__detail::__variant::_Variant_storage.base" = type { %"union.std::__detail::__variant::_Variadic_union", i8 }
+%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.0" }
+%"union.std::__detail::__variant::_Variadic_union.0" = type { %"struct.std::__detail::__variant::_Uninitialized.1" }
+%"struct.std::__detail::__variant::_Uninitialized.1" = type { %"struct.__gnu_cxx::__aligned_membuf.2" }
+%"struct.__gnu_cxx::__aligned_membuf.2" = type { [32 x i8] }
 
 $_ZNSt6vectorIN5Yosys5SExprESaIS1_EEC2ERKS3_ = comdat any
 
@@ -215,7 +215,7 @@ _ZNK5Yosys5SExpr4listEv.exit:                     ; preds = %30
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26: ; preds = %._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26_crit_edge, %.lr.ph
   %45 = phi ptr [ %.pre, %._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26_crit_edge ], [ %40, %.lr.ph ]
-  %46 = getelementptr inbounds nuw %"class.Yosys::SExpr", ptr %45, i64 %.01729
+  %46 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %.01729
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5YosyslsERSoRKNS_5SExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %46)
           to label %48 unwind label %43
 
@@ -1272,7 +1272,7 @@ _ZNK5Yosys5SExpr4listEv.exit:                     ; preds = %32
 
 77:                                               ; preds = %._crit_edge41, %72
   %78 = phi ptr [ %.pre, %._crit_edge41 ], [ %73, %72 ]
-  %79 = getelementptr inbounds nuw %"class.Yosys::SExpr", ptr %78, i64 %.039
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %78, i64 %.039
   invoke void @_ZN5Yosys11SExprWriter5printERKNS_5SExprEbb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %79, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %80 unwind label %75
 
@@ -1453,7 +1453,7 @@ define void @_ZN5Yosys11SExprWriter5closeEm(ptr noundef nonnull align 8 captures
   %20 = add nsw i64 %19, -1
   %21 = add i64 %20, %18
   %22 = sdiv i64 %21, 64
-  %23 = getelementptr inbounds i64, ptr %14, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %14, i64 %22
   %24 = and i64 %21, -9223372036854775745
   %25 = icmp ugt i64 %24, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %25, i64 -8, i64 0
@@ -1602,7 +1602,7 @@ define void @_ZN5Yosys11SExprWriterD2Ev(ptr noundef nonnull align 8 dereferencea
   %37 = add nsw i64 %36, -1
   %38 = add i64 %37, %35
   %39 = sdiv i64 %38, 64
-  %40 = getelementptr inbounds i64, ptr %31, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %31, i64 %39
   %41 = and i64 %38, -9223372036854775745
   %42 = icmp ugt i64 %41, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i = select i1 %42, i64 -8, i64 0
@@ -1708,7 +1708,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN5Yosys11SExprWri
   %86 = sub i64 %84, %85
   %87 = ashr exact i64 %86, 3
   %88 = sub nsw i64 0, %87
-  %89 = getelementptr inbounds i64, ptr %83, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %83, i64 %88
   call void @_ZdlPvm(ptr noundef %89, i64 noundef %86) #20
   store ptr null, ptr %11, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1786,7 +1786,7 @@ define linkonce_odr void @_ZN5Yosys11SExprWriter3popEv(ptr noundef nonnull align
   %33 = add nsw i64 %32, -1
   %34 = add i64 %33, %31
   %35 = sdiv i64 %34, 64
-  %36 = getelementptr inbounds i64, ptr %27, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %27, i64 %35
   %37 = and i64 %34, -9223372036854775745
   %38 = icmp ugt i64 %37, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i = select i1 %38, i64 -8, i64 0
@@ -2045,7 +2045,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %12
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 63
   %24 = lshr i64 %21, 6
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %24
   br label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i
 
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
@@ -2297,13 +2297,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
 136:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %137 = ashr exact i64 %60, 3
   %138 = sub nsw i64 0, %137
-  %139 = getelementptr inbounds i64, ptr %8, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %8, i64 %138
   tail call void @_ZdlPvm(ptr noundef %139, i64 noundef %60) #20
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %136
   %140 = lshr i64 %70, 6
-  %141 = getelementptr inbounds nuw i64, ptr %73, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %140
   store ptr %141, ptr %7, align 8, !tbaa !86
   store ptr %73, ptr %0, align 8
   %.sroa.588.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 8

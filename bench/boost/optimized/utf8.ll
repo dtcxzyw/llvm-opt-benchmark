@@ -979,7 +979,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %.pre7.i.i.i = load ptr, ptr %14, align 8, !tbaa !51, !alias.scope !46
   %87 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %.pre6.i.i.i, ptr %87, align 8, !tbaa !53, !alias.scope !46
-  %88 = getelementptr inbounds nuw i32, ptr %.pre7.i.i.i, i64 %.pre6.i.i.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.pre7.i.i.i, i64 %.pre6.i.i.i
   store i32 0, ptr %88, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !46
   %89 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7compareEPKw(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.5) #19

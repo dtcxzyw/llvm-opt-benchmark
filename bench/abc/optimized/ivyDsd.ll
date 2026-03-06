@@ -96,7 +96,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %3, align 4, !tbaa !3
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i32, ptr %28, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %28, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !12
   %33 = add nuw nsw i32 %.02149, 1
   %exitcond.not = icmp eq i32 %33, 5
@@ -136,7 +136,7 @@ Vec_IntPush.exit33:                               ; preds = %Vec_IntPush.exit33.
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %3, align 4, !tbaa !3
   %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds i32, ptr %45, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %45, i64 %48
   store i32 %36, ptr %49, align 4, !tbaa !12
   br label %110
 
@@ -221,7 +221,7 @@ Vec_IntGrow.exit.i39:                             ; preds = %71, %69
   %90 = add nsw i32 %89, -1
   store i32 %90, ptr %3, align 4, !tbaa !3
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i32, ptr %88, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %88, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !12
   %94 = or i32 %93, 16
   %95 = load i32, ptr %1, align 8, !tbaa !10
@@ -247,7 +247,7 @@ Vec_IntPush.exit47.sink.split:                    ; preds = %87
   %103 = add nsw i32 %102, 1
   store i32 %103, ptr %3, align 4, !tbaa !3
   %104 = sext i32 %102 to i64
-  %105 = getelementptr inbounds i32, ptr %.sink68, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %.sink68, i64 %104
   store i32 %.sink66, ptr %105, align 4, !tbaa !12
   br label %106
 
@@ -286,7 +286,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %.086190 = phi i32 [ 0, %2 ], [ %.187, %57 ]
   %.088189 = phi i32 [ 0, %2 ], [ %.189, %57 ]
   %.090188 = phi i32 [ 0, %2 ], [ %.191, %57 ]
-  %9 = getelementptr inbounds nuw [2 x i32], ptr @s_Masks, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @s_Masks, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8, !tbaa !12
   %11 = and i32 %10, %0
   %.not182 = icmp eq i32 %11, 0
@@ -295,7 +295,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 12:                                               ; preds = %8
   %13 = add nsw i32 %.088189, 1
   %14 = sext i32 %.088189 to i64
-  %15 = getelementptr inbounds i32, ptr %5, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %5, i64 %14
   %indvars.iv.tr263 = trunc i64 %indvars.iv to i32
   %16 = shl i32 %indvars.iv.tr263, 1
   store i32 %16, ptr %15, align 4, !tbaa !12
@@ -311,7 +311,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 21:                                               ; preds = %17
   %22 = add nsw i32 %.088189, 1
   %23 = sext i32 %.088189 to i64
-  %24 = getelementptr inbounds i32, ptr %5, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %5, i64 %23
   %indvars.iv.tr262 = trunc i64 %indvars.iv to i32
   %25 = shl i32 %indvars.iv.tr262, 1
   %26 = or disjoint i32 %25, 1
@@ -325,7 +325,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 28:                                               ; preds = %27
   %29 = add nsw i32 %.086190, 1
   %30 = sext i32 %.086190 to i64
-  %31 = getelementptr inbounds i32, ptr %6, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %6, i64 %30
   %indvars.iv.tr261 = trunc i64 %indvars.iv to i32
   %32 = shl i32 %indvars.iv.tr261, 1
   store i32 %32, ptr %31, align 4, !tbaa !12
@@ -338,7 +338,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 34:                                               ; preds = %33
   %35 = add nsw i32 %.086190, 1
   %36 = sext i32 %.086190 to i64
-  %37 = getelementptr inbounds i32, ptr %6, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %6, i64 %36
   %indvars.iv.tr260 = trunc i64 %indvars.iv to i32
   %38 = shl i32 %indvars.iv.tr260, 1
   %39 = or disjoint i32 %38, 1
@@ -359,7 +359,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 47:                                               ; preds = %40
   %48 = add nsw i32 %.084191, 1
   %49 = sext i32 %.084191 to i64
-  %50 = getelementptr inbounds i32, ptr %7, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %7, i64 %49
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %51 = shl i32 %indvars.iv.tr, 1
   store i32 %51, ptr %50, align 4, !tbaa !12
@@ -372,7 +372,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 53:                                               ; preds = %52
   %54 = add nsw i32 %.090188, 1
   %55 = sext i32 %.090188 to i64
-  %56 = getelementptr inbounds i32, ptr %4, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %4, i64 %55
   store i32 %41, ptr %56, align 4, !tbaa !12
   br label %57
 
@@ -414,12 +414,12 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 
 .lr.ph199.us:                                     ; preds = %.lr.ph199.us.preheader, %105
   %indvars.iv230 = phi i64 [ 0, %.lr.ph199.us.preheader ], [ %indvars.iv.next231, %105 ]
-  %69 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv230
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv230
   %70 = load i32, ptr %69, align 4, !tbaa !12
   %71 = shl i32 %70, 1
   %72 = ashr exact i32 %71, 1
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr @s_Masks, i64 %73
   %75 = load i32, ptr %74, align 8, !tbaa !12
   %76 = and i32 %75, %0
   %77 = shl nuw i32 1, %72
@@ -438,12 +438,12 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   br i1 %84, label %106, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv224
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv224
   %87 = load i32, ptr %86, align 4, !tbaa !12
   %88 = shl i32 %87, 1
   %89 = ashr exact i32 %88, 1
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr @s_Masks, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = load i32, ptr %92, align 4, !tbaa !12
   %94 = and i32 %93, %.0.i147.us
@@ -561,7 +561,7 @@ Vec_IntPush.exit133:                              ; preds = %.Vec_IntGrow.exit10
   %150 = add nsw i32 %149, 1
   store i32 %150, ptr %122, align 4, !tbaa !3
   %151 = sext i32 %149 to i64
-  %152 = getelementptr inbounds i32, ptr %148, i64 %151
+  %152 = getelementptr inbounds [4 x i8], ptr %148, i64 %151
   store i32 %121, ptr %152, align 4, !tbaa !12
   %.val69.i = load i32, ptr %122, align 4, !tbaa !3
   %153 = shl i32 %.val69.i, 1
@@ -617,7 +617,7 @@ Vec_IntPush.exit133:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not68.i, label %187, label %182
 
 182:                                              ; preds = %178
-  %183 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv236
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv236
   %184 = load i32, ptr %183, align 4, !tbaa !12
   %185 = shl nuw i32 1, %184
   %186 = or i32 %185, %.0.i106213
@@ -751,7 +751,7 @@ Vec_IntPush.exit120:                              ; preds = %.Vec_IntGrow.exit10
   %253 = add nsw i32 %252, 1
   store i32 %253, ptr %225, align 4, !tbaa !3
   %254 = sext i32 %252 to i64
-  %255 = getelementptr inbounds i32, ptr %251, i64 %254
+  %255 = getelementptr inbounds [4 x i8], ptr %251, i64 %254
   store i32 %224, ptr %255, align 4, !tbaa !12
   %.val.i = load i32, ptr %225, align 4, !tbaa !3
   %256 = shl i32 %.val.i, 1
@@ -805,15 +805,15 @@ Ivy_TruthRecognizeMuxMaj.exit:                    ; preds = %Vec_IntPush.exit133
   %indvars.iv220 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next221, %Ivy_DecSetVar.exit ]
   %.078195 = phi i32 [ %.077, %.lr.ph.preheader ], [ %.0.i110, %Ivy_DecSetVar.exit ]
   %.sroa.0.1193 = phi i32 [ %273, %.lr.ph.preheader ], [ %.sroa.0.3, %Ivy_DecSetVar.exit ]
-  %274 = getelementptr inbounds nuw i32, ptr %.092, i64 %indvars.iv220
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %.092, i64 %indvars.iv220
   %275 = load i32, ptr %274, align 4, !tbaa !12
   %276 = ashr i32 %275, 1
   %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %277
+  %278 = getelementptr inbounds [8 x i8], ptr @s_Masks, i64 %277
   %279 = and i32 %275, 1
   %280 = xor i32 %279, 1
   %281 = zext nneg i32 %280 to i64
-  %282 = getelementptr inbounds nuw i32, ptr %278, i64 %281
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %281
   %283 = load i32, ptr %282, align 4, !tbaa !12
   %284 = and i32 %283, %.078195
   %285 = shl nuw i32 1, %276
@@ -1029,7 +1029,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %391 = add nsw i32 %390, 1
   store i32 %391, ptr %363, align 4, !tbaa !3
   %392 = sext i32 %390 to i64
-  %393 = getelementptr inbounds i32, ptr %389, i64 %392
+  %393 = getelementptr inbounds [4 x i8], ptr %389, i64 %392
   store i32 %.sroa.0.2, ptr %393, align 4, !tbaa !12
   %.val = load i32, ptr %363, align 4, !tbaa !3
   %394 = shl i32 %.val, 1
@@ -1068,7 +1068,7 @@ tailrecurse:                                      ; preds = %47, %2
   %accumulator.tr = phi i32 [ 0, %2 ], [ %51, %47 ]
   %.tr = phi i32 [ %0, %2 ], [ %49, %47 ]
   %4 = sext i32 %.tr to i64
-  %5 = getelementptr inbounds i32, ptr %.val, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr %.val, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = and i32 %6, 15
   switch i32 %7, label %.loopexit [
@@ -1126,17 +1126,17 @@ tailrecurse:                                      ; preds = %47, %2
   %.lobit64 = and i32 %35, 1
   %36 = xor i32 %.lobit64, 1
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @s_Masks, i64 40), i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @s_Masks, i64 40), i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !12
   br label %.loopexit
 
 40:                                               ; preds = %tailrecurse
-  %41 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %4
+  %41 = getelementptr inbounds [8 x i8], ptr @s_Masks, i64 %4
   %42 = lshr exact i32 %6, 4
   %.lobit = and i32 %42, 1
   %43 = xor i32 %.lobit, 1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !12
   br label %.loopexit
 
@@ -1290,7 +1290,7 @@ define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   %4 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %.val, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %.val, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = and i32 %7, 15
   switch i32 %8, label %common.ret98 [
@@ -1535,7 +1535,7 @@ define ptr @Ivy_ManDsdConstruct_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
   %6 = getelementptr i8, ptr %3, i64 8
   %.val44 = load ptr, ptr %6, align 8, !tbaa !11
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i32, ptr %.val44, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %.val44, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !12
   %10 = and i32 %9, 15
   switch i32 %10, label %116 [
@@ -1562,14 +1562,14 @@ define ptr @Ivy_ManDsdConstruct_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
 19:                                               ; preds = %4
   %20 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %20, align 8, !tbaa !11
-  %21 = getelementptr inbounds i32, ptr %.val, i64 %7
+  %21 = getelementptr inbounds [4 x i8], ptr %.val, i64 %7
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = getelementptr i8, ptr %0, i64 24
   %.val50 = load ptr, ptr %23, align 8, !tbaa !35
   %24 = getelementptr i8, ptr %.val50, i64 8
   %.val50.val = load ptr, ptr %24, align 8, !tbaa !36
   %25 = sext i32 %22 to i64
-  %26 = getelementptr inbounds ptr, ptr %.val50.val, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %.val50.val, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !38
   %28 = lshr i32 %9, 4
   %29 = and i32 %28, 1
@@ -1651,7 +1651,7 @@ Ivy_DecGetVar.exit:                               ; preds = %58, %60, %61, %62, 
   %70 = zext nneg i32 %68 to i64
   %71 = xor i64 %70, %69
   %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %72, ptr %73, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1734,7 +1734,7 @@ define ptr @Ivy_ManDsdConstruct(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %.val12, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.val12, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !12
   %10 = ashr i32 %9, 8
   store i32 %10, ptr %8, align 4, !tbaa !12

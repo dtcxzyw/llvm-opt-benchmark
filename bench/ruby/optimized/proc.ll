@@ -1785,21 +1785,21 @@ define hidden i64 @rb_sym_to_proc(i64 noundef %0) local_unnamed_addr #0 {
 RARRAY_AREF.exit:                                 ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !35
-  %16 = getelementptr i64, ptr %15, i64 %9
+  %16 = getelementptr [8 x i8], ptr %15, i64 %9
   %17 = load i64, ptr %16, align 8, !tbaa !36
   %18 = icmp eq i64 %17, %0
   br i1 %18, label %RARRAY_AREF.exit15, label %26
 
 RARRAY_AREF.exit.thread:                          ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %20 = getelementptr i64, ptr %19, i64 %9
+  %20 = getelementptr [8 x i8], ptr %19, i64 %9
   %21 = load i64, ptr %20, align 8, !tbaa !36
   %22 = icmp eq i64 %21, %0
   br i1 %22, label %RARRAY_AREF.exit15, label %26
 
 RARRAY_AREF.exit15:                               ; preds = %RARRAY_AREF.exit, %RARRAY_AREF.exit.thread
   %.0.i.i14 = phi ptr [ %19, %RARRAY_AREF.exit.thread ], [ %15, %RARRAY_AREF.exit ]
-  %23 = getelementptr i64, ptr %.0.i.i14, i64 %9
+  %23 = getelementptr [8 x i8], ptr %.0.i.i14, i64 %9
   %24 = getelementptr i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !36
   br label %59
@@ -1831,7 +1831,7 @@ RARRAY_AREF.exit15:                               ; preds = %RARRAY_AREF.exit, %
 sym_proc_new.exit:                                ; preds = %26, %41
   %42 = load i64, ptr @rb_sym_to_proc.sym_proc_cache, align 8, !tbaa !36
   %43 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %42) #21
-  %44 = getelementptr i64, ptr %43, i64 %9
+  %44 = getelementptr [8 x i8], ptr %43, i64 %9
   store i64 %0, ptr %44, align 8, !tbaa !36
   %45 = icmp eq i64 %0, 0
   %46 = and i64 %0, 7
@@ -1847,7 +1847,7 @@ RARRAY_ASET.exit:                                 ; preds = %sym_proc_new.exit, 
   tail call void @rb_ary_ptr_use_end(i64 noundef %42) #21
   %50 = load i64, ptr @rb_sym_to_proc.sym_proc_cache, align 8, !tbaa !36
   %51 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %50) #21
-  %52 = getelementptr i64, ptr %51, i64 %9
+  %52 = getelementptr [8 x i8], ptr %51, i64 %9
   %53 = getelementptr i8, ptr %52, i64 8
   store i64 %29, ptr %53, align 8, !tbaa !36
   %54 = icmp eq i64 %29, 0
@@ -4006,7 +4006,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %rb_proc_get_iseq.ex
 
 61:                                               ; preds = %rb_scan_args_n_opt.exit
   %62 = zext nneg i32 %0 to i64
-  %63 = getelementptr i64, ptr %1, i64 %62
+  %63 = getelementptr [8 x i8], ptr %1, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -8
   %65 = load i64, ptr %64, align 8, !tbaa !36
   %66 = call i32 @rb_keyword_given_p() #21
@@ -5363,7 +5363,7 @@ rb_array_len.exit252.thread:                      ; preds = %229
 
 RARRAY_AREF.exit255:                              ; preds = %rb_array_len.exit252.thread, %247
   %.0.i.i254 = phi ptr [ %248, %247 ], [ %226, %rb_array_len.exit252.thread ]
-  %249 = getelementptr i64, ptr %.0.i.i254, i64 %230
+  %249 = getelementptr [8 x i8], ptr %.0.i.i254, i64 %230
   %250 = load i64, ptr %249, align 8, !tbaa !36
   %251 = inttoptr i64 %250 to ptr
   %252 = load i64, ptr %251, align 8, !tbaa !42
@@ -6592,7 +6592,7 @@ define internal i64 @bind_eval(i32 noundef %0, ptr noundef readonly captures(non
   %13 = phi i1 [ true, %.preheader ], [ false, %26 ]
   %.185.i7 = phi i32 [ 1, %.preheader ], [ %.286.i, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !44
   %16 = icmp slt i32 %.185.i7, %0
   %.not108.i = icmp eq ptr %15, null
@@ -6603,7 +6603,7 @@ define internal i64 @bind_eval(i32 noundef %0, ptr noundef readonly captures(non
 
 18:                                               ; preds = %17
   %19 = sext i32 %.185.i7 to i64
-  %20 = getelementptr i64, ptr %1, i64 %19
+  %20 = getelementptr [8 x i8], ptr %1, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !36
   store i64 %21, ptr %15, align 8, !tbaa !36
   br label %22
@@ -8552,7 +8552,7 @@ define internal fastcc ptr @get_local_variable_ptr(ptr noundef nonnull captures(
 
 19:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %20 = getelementptr i64, ptr %18, i64 %indvars.iv
+  %20 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !36
   %22 = icmp eq i64 %21, %1
   br i1 %22, label %23, label %60
@@ -8583,7 +8583,7 @@ define internal fastcc ptr @get_local_variable_ptr(ptr noundef nonnull captures(
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %.036, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !110
-  %40 = getelementptr i64, ptr %39, i64 %indvars.iv
+  %40 = getelementptr [8 x i8], ptr %39, i64 %indvars.iv
   %41 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %42 = load ptr, ptr %41, align 8, !tbaa !20
   %43 = getelementptr i8, ptr %6, i64 -8
@@ -8617,7 +8617,7 @@ rb_obj_write.exit:                                ; preds = %37, %49
   %.neg = add i32 %reass.sub, -4
   %57 = add i32 %.neg, %54
   %58 = zext i32 %57 to i64
-  %59 = getelementptr i64, ptr %56, i64 %58
+  %59 = getelementptr [8 x i8], ptr %56, i64 %58
   br label %.loopexit
 
 60:                                               ; preds = %19

@@ -124,7 +124,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %.lr.ph, %_ZN6icu_77
   %.0.i.i = select i1 %.not.i.i, ptr %spec.select, ptr null
   %.0.i = call i32 @llvm.smax.i32(i32 %.02543, i32 0)
   %28 = zext nneg i32 %.0.i to i64
-  %29 = getelementptr inbounds nuw i16, ptr %.0.i.i, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.0.i.i, i64 %28
   %30 = sub nsw i32 %22, %.0.i
   %31 = invoke noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %24, ptr noundef %29, i32 noundef %30, i32 noundef %.044)
           to label %32 unwind label %39
@@ -539,7 +539,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %52 = select i1 %49, i32 %40, i32 %51
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %52, i32 0)
   %53 = sext i32 %spec.select.i to i64
-  %54 = getelementptr inbounds i16, ptr %.0.i.i, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %53
   %55 = sub nsw i32 %52, %spec.select.i
   %56 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %36, ptr noundef %54, i32 noundef %55, i32 noundef 2)
   %57 = add nsw i32 %56, %spec.select.i
@@ -877,7 +877,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %.0.i.i = select i1 %.not.i.i, ptr %spec.select42, ptr null
   %.0.i = call i32 @llvm.smax.i32(i32 %.02437, i32 0)
   %30 = zext nneg i32 %.0.i to i64
-  %31 = getelementptr inbounds nuw i16, ptr %.0.i.i, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.0.i.i, i64 %30
   %32 = sub nsw i32 %24, %.0.i
   %33 = call noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %26, ptr noundef %31, i32 noundef %32, i32 noundef %.02138)
   %34 = add nsw i32 %33, %.0.i
@@ -1041,7 +1041,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %.0.i.i = select i1 %.not.i.i, ptr %spec.select56, ptr null
   %.0.i = call i32 @llvm.smax.i32(i32 %.039, i32 0)
   %30 = zext nneg i32 %.0.i to i64
-  %31 = getelementptr inbounds nuw i16, ptr %.0.i.i, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.0.i.i, i64 %30
   %32 = sub nsw i32 %25, %.0.i
   %33 = call noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %26, ptr noundef %31, i32 noundef %32, i32 noundef %.035)
   %34 = add nsw i32 %33, %.0.i
@@ -1133,7 +1133,7 @@ _ZNK6icu_7710UnicodeSet4spanERKNS_13UnicodeStringEi17USetSpanCondition.exit: ; p
   %.0.i.i = select i1 %.not.i.i, ptr %spec.select, ptr null
   %.0.i = call i32 @llvm.smax.i32(i32 %.03263, i32 0)
   %30 = zext nneg i32 %.0.i to i64
-  %31 = getelementptr inbounds nuw i16, ptr %.0.i.i, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.0.i.i, i64 %30
   %32 = sub nsw i32 %24, %.0.i
   %33 = call noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %26, ptr noundef %31, i32 noundef %32, i32 noundef %.02864)
   %34 = add nsw i32 %33, %.0.i

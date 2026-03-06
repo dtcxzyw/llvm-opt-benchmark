@@ -19,10 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::utils::trace::details::Region" = type <{ ptr, i32, [4 x i8] }>
-%"class.std::vector.26" = type { %"struct.std::_Vector_base.27" }
-%"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.0" = type { i8 }
 
 $_ZN2cv3dnn12MVNLayerImplC2ERKNS0_14dnn4_v2024122311LayerParamsE = comdat any
@@ -834,7 +830,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn12MVNLayerImpl8finalizeERKNS_11_Input
   %.not15 = phi i1 [ %8, %5 ], [ true, %12 ]
   %indvars.iv = phi i64 [ 0, %5 ], [ 1, %12 ]
   %.014 = phi i32 [ 1, %5 ], [ %15, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !67
   %15 = mul nsw i32 %14, %.014
   br i1 %.not15, label %20, label %12, !llvm.loop !73
@@ -1397,7 +1393,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12MVNLayerImpl8getFLOPSERKSt6
 15:                                               ; preds = %.lr.ph, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit23 ]
   %.0932 = phi i64 [ 0, %.lr.ph ], [ %40, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit23 ]
-  %16 = getelementptr inbounds nuw %"class.std::vector.26", ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %16, align 8, !tbaa !96
   %17 = getelementptr i8, ptr %16, i64 8
   %.val11 = load ptr, ptr %17, align 8, !tbaa !96
@@ -1428,7 +1424,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12MVNLayerImpl8getFLOPSERKSt6
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %30, %.lr.ph.i ]
-  %28 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4, !tbaa !67
   %30 = mul nsw i32 %29, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1451,7 +1447,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12MVNLayerImpl8getFLOPSERKSt6
 .lr.ph.i17:                                       ; preds = %.loopexit, %.lr.ph.i17
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i20, %.lr.ph.i17 ], [ 0, %.loopexit ]
   %.0231.i19 = phi i32 [ %35, %.lr.ph.i17 ], [ 1, %.loopexit ]
-  %33 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i18
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i18
   %34 = load i32, ptr %33, align 4, !tbaa !67
   %35 = mul nsw i32 %34, %.0231.i19
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i18, 1
@@ -1652,14 +1648,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46, %
 55:                                               ; preds = %51
   %56 = zext nneg i32 %54 to i64
   %57 = load ptr, ptr %52, align 8, !tbaa !102
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %59 = load i64, ptr %58, align 8, !tbaa !24
   br label %98
 
 60:                                               ; preds = %51
   %61 = zext nneg i32 %54 to i64
   %62 = load ptr, ptr %52, align 8, !tbaa !104
-  %63 = getelementptr inbounds nuw double, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load double, ptr %63, align 8, !tbaa !107
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = call double @modf(double noundef %64, ptr noundef nonnull %7) #23
@@ -1711,7 +1707,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %72,
 79:                                               ; preds = %51
   %80 = zext nneg i32 %54 to i64
   %81 = load ptr, ptr %52, align 8, !tbaa !109
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !26
   %84 = tail call i64 @strtol(ptr noundef nonnull captures(none) %83, ptr noundef null, i32 noundef 10) #23
   %sext = shl i64 %84, 32
@@ -1929,14 +1925,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
 52:                                               ; preds = %48
   %53 = zext nneg i32 %51 to i64
   %54 = load ptr, ptr %49, align 8, !tbaa !104
-  %55 = getelementptr inbounds nuw double, ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %53
   %56 = load double, ptr %55, align 8, !tbaa !107
   br label %79
 
 57:                                               ; preds = %48
   %58 = zext nneg i32 %51 to i64
   %59 = load ptr, ptr %49, align 8, !tbaa !102
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %58
   %61 = load i64, ptr %60, align 8, !tbaa !24
   %62 = sitofp i64 %61 to double
   br label %79
@@ -1944,7 +1940,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
 63:                                               ; preds = %48
   %64 = zext nneg i32 %51 to i64
   %65 = load ptr, ptr %49, align 8, !tbaa !109
-  %66 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %64
   %67 = load ptr, ptr %66, align 8, !tbaa !26
   %68 = tail call double @strtod(ptr noundef nonnull captures(none) %67, ptr noundef null) #23
   br label %79

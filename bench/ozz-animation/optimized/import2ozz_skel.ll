@@ -29,13 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.ozz::io::Stream" = type { ptr }
 %"class.ozz::io::OArchive" = type <{ ptr, i8, [7 x i8] }>
 %"class.ozz::log::LogV" = type { %"class.ozz::log::Logger.base", [7 x i8] }
-%"struct.ozz::animation::offline::RawSkeleton::Joint" = type { %"class.std::vector", %"class.std::__cxx11::basic_string", %"struct.ozz::math::Transform" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.ozz::math::Transform" = type { %"struct.ozz::math::Float3", %"struct.ozz::math::Quaternion", %"struct.ozz::math::Float3" }
-%"struct.ozz::math::Quaternion" = type { float, float, float, float }
-%"struct.ozz::math::Float3" = type { float, float, float }
 
 $_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev = comdat any
 
@@ -1223,7 +1216,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_112LogHierarc
 19:                                               ; preds = %.lr.ph, %_ZNSolsEPFRSoS_E.exit
   %20 = phi ptr [ %16, %.lr.ph ], [ %138, %_ZNSolsEPFRSoS_E.exit ]
   %.02484 = phi i64 [ 0, %.lr.ph ], [ %136, %_ZNSolsEPFRSoS_E.exit ]
-  %21 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %20, i64 %.02484
+  %21 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %.02484
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN3ozz3log4LogVC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %4)
   %22 = load ptr, ptr %4, align 8, !tbaa !4
@@ -1632,7 +1625,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
 .lr.ph:                                           ; preds = %2, %9
   %17 = phi ptr [ %12, %9 ], [ %7, %2 ]
   %.01528 = phi i64 [ %10, %9 ], [ 0, %2 ]
-  %18 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %17, i64 %.01528
+  %18 = getelementptr inbounds nuw [96 x i8], ptr %17, i64 %.01528
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !65
@@ -1738,7 +1731,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc23, %48
 
 60:                                               ; preds = %.lr.ph
   %61 = load ptr, ptr %0, align 8, !tbaa !61
-  %62 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %61, i64 %.01528
+  %62 = getelementptr inbounds nuw [96 x i8], ptr %61, i64 %.01528
   %63 = call fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_135ValidateJointNamesUniquenessRecurseERKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS5_EEEPSt3setIPKcNS_8str_lessENS6_ISD_EEE(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %63, label %9, label %.loopexit

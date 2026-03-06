@@ -27,42 +27,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ata_scsi_que
 %struct.qspinlock = type { %union.anon }
 %union.anon = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
-%struct.ata_device = type { ptr, i32, i32, i64, ptr, ptr, ptr, i32, %struct.device, i64, i64, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i16, i16, i16, [42 x i8], %union.anon.2, [8 x i8], [20 x i8], [64 x i8], i32, i32, i32, i32, ptr, [512 x i8], i32, %struct.ata_ering, [56 x i8] }
-%struct.device = type { %struct.kobject, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.mutex, %struct.dev_links_info, %struct.dev_pm_info, ptr, %struct.dev_msi_info, ptr, ptr, i64, i64, ptr, ptr, %struct.list_head, ptr, %struct.dev_archdata, ptr, ptr, i32, i32, i32, %struct.spinlock, %struct.list_head, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8 }
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.kref = type { %struct.refcount_struct }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.mutex = type { %struct.atomic64_t, %struct.raw_spinlock, %struct.optimistic_spin_queue, %struct.list_head }
-%struct.atomic64_t = type { i64 }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.dev_links_info = type { %struct.list_head, %struct.list_head, %struct.list_head, i32 }
-%struct.dev_pm_info = type { %struct.pm_message, i16, i32, %struct.spinlock, %struct.list_head, %struct.completion, ptr, i8, %struct.hrtimer, i64, %struct.work_struct, %struct.wait_queue_head, ptr, %struct.atomic_t, %struct.atomic_t, i16, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, ptr, ptr, ptr }
-%struct.pm_message = type { i32 }
-%struct.completion = type { i32, %struct.swait_queue_head }
-%struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
-%struct.hrtimer = type { %struct.timerqueue_node, i64, ptr, ptr, i8, i8, i8, i8 }
-%struct.timerqueue_node = type { %struct.rb_node, i64 }
-%struct.rb_node = type { i64, ptr, ptr }
-%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
-%struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
-%struct.dev_msi_info = type { ptr, ptr }
-%struct.dev_archdata = type {}
-%struct.list_head = type { ptr, ptr }
-%union.anon.2 = type { [128 x i32] }
-%struct.ata_ering = type { i32, [32 x %struct.ata_ering_entry] }
-%struct.ata_ering_entry = type { i32, i32, i64 }
-%struct.ata_link = type { ptr, i32, %struct.device, i32, i32, i32, i32, i32, i32, i32, i32, %struct.ata_eh_info, %struct.ata_eh_context, [32 x i8], [2 x %struct.ata_device], i64, [56 x i8] }
-%struct.ata_eh_info = type { ptr, i32, i32, i32, [2 x i32], i32, i32, [80 x i8], i32 }
-%struct.ata_eh_context = type { %struct.ata_eh_info, [2 x i32], [2 x [8 x i32]], [2 x i32], i32, i32, i32, [2 x i8], i64 }
 %struct.scsi_sense_hdr = type { i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.scsi_exec_args = type { ptr, i32, ptr, i32, i32, ptr }
-%struct.ata_queued_cmd = type { ptr, ptr, ptr, ptr, %struct.ata_taskfile, [16 x i8], i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.scatterlist, ptr, ptr, i32, i32, %struct.ata_taskfile, ptr, ptr, ptr }
-%struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
-%struct.ata_taskfile = type { i64, i8, i8, i8, i8, i8, i8, i8, %union.anon.3, i8, i8, i8, i8, i8, %union.anon.4, i32 }
-%union.anon.3 = type { i8 }
-%union.anon.4 = type { i8 }
 %struct.ata_scsi_args = type { ptr, ptr, ptr }
-%struct.ata_cpr = type { i8, i8, i64, i64 }
 %struct.sg_mapping_iter = type { ptr, ptr, i64, i64, %struct.sg_page_iter, i32, i32, i32 }
 %struct.sg_page_iter = type { ptr, i32, i32, i32 }
 
@@ -190,7 +157,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr n
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 9408
   %49 = zext nneg i32 %31 to i64
-  %50 = getelementptr %struct.ata_device, ptr %48, i64 %49
+  %50 = getelementptr [2624 x i8], ptr %48, i64 %49
   br label %60
 
 51:                                               ; preds = %25
@@ -203,7 +170,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr n
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 14736
   %57 = load ptr, ptr %56, align 16
   %58 = zext i32 %53 to i64
-  %.split = getelementptr %struct.ata_link, ptr %57, i64 %58
+  %.split = getelementptr [6464 x i8], ptr %57, i64 %58
   %59 = getelementptr i8, ptr %.split, i64 1152
   br label %60
 
@@ -377,7 +344,7 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %21, i64 9408
   %64 = zext nneg i32 %46 to i64
-  %65 = getelementptr %struct.ata_device, ptr %63, i64 %64
+  %65 = getelementptr [2624 x i8], ptr %63, i64 %64
   br label %75
 
 66:                                               ; preds = %40
@@ -390,7 +357,7 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   %71 = getelementptr inbounds nuw i8, ptr %21, i64 14736
   %72 = load ptr, ptr %71, align 16
   %73 = zext i32 %68 to i64
-  %.split = getelementptr %struct.ata_link, ptr %72, i64 %73
+  %.split = getelementptr [6464 x i8], ptr %72, i64 %73
   %74 = getelementptr i8, ptr %.split, i64 1152
   br label %75
 
@@ -434,7 +401,7 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   %97 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %98 = load i32, ptr %97, align 8
   %99 = zext i32 %98 to i64
-  %100 = getelementptr i32, ptr %96, i64 %99
+  %100 = getelementptr [4 x i8], ptr %96, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = or i32 %101, 32
   store i32 %102, ptr %100, align 4
@@ -608,7 +575,7 @@ define dso_local void @ata_scsi_unlock_native_capacity(ptr noundef readonly capt
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 9408
   %47 = zext nneg i32 %29 to i64
-  %48 = getelementptr %struct.ata_device, ptr %46, i64 %47
+  %48 = getelementptr [2624 x i8], ptr %46, i64 %47
   br label %58
 
 49:                                               ; preds = %23
@@ -621,7 +588,7 @@ define dso_local void @ata_scsi_unlock_native_capacity(ptr noundef readonly capt
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 14736
   %55 = load ptr, ptr %54, align 16
   %56 = zext i32 %51 to i64
-  %.split = getelementptr %struct.ata_link, ptr %55, i64 %56
+  %.split = getelementptr [6464 x i8], ptr %55, i64 %56
   %57 = getelementptr i8, ptr %.split, i64 1152
   br label %58
 
@@ -736,7 +703,7 @@ define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly captures(address, r
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 9408
   %42 = zext nneg i32 %24 to i64
-  %43 = getelementptr %struct.ata_device, ptr %41, i64 %42
+  %43 = getelementptr [2624 x i8], ptr %41, i64 %42
   br label %53
 
 44:                                               ; preds = %18
@@ -749,7 +716,7 @@ define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly captures(address, r
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 14736
   %50 = load ptr, ptr %49, align 16
   %51 = zext i32 %46 to i64
-  %.split = getelementptr %struct.ata_link, ptr %50, i64 %51
+  %.split = getelementptr [6464 x i8], ptr %50, i64 %51
   %52 = getelementptr i8, ptr %.split, i64 1152
   br label %53
 
@@ -1293,7 +1260,7 @@ define dso_local i32 @ata_sas_scsi_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 9408
   %112 = zext nneg i32 %94 to i64
-  %113 = getelementptr %struct.ata_device, ptr %111, i64 %112
+  %113 = getelementptr [2624 x i8], ptr %111, i64 %112
   br label %123
 
 114:                                              ; preds = %88
@@ -1306,7 +1273,7 @@ define dso_local i32 @ata_sas_scsi_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 14736
   %120 = load ptr, ptr %119, align 16
   %121 = zext i32 %116 to i64
-  %.split = getelementptr %struct.ata_link, ptr %120, i64 %121
+  %.split = getelementptr [6464 x i8], ptr %120, i64 %121
   %122 = getelementptr i8, ptr %.split, i64 1152
   br label %123
 
@@ -1754,7 +1721,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_slave_config(ptr nounde
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 9408
   %44 = zext nneg i32 %26 to i64
-  %45 = getelementptr %struct.ata_device, ptr %43, i64 %44
+  %45 = getelementptr [2624 x i8], ptr %43, i64 %44
   br label %55
 
 46:                                               ; preds = %20
@@ -1767,7 +1734,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_slave_config(ptr nounde
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 14736
   %52 = load ptr, ptr %51, align 16
   %53 = zext i32 %48 to i64
-  %.split = getelementptr %struct.ata_link, ptr %52, i64 %53
+  %.split = getelementptr [6464 x i8], ptr %52, i64 %53
   %54 = getelementptr i8, ptr %.split, i64 1152
   br label %55
 
@@ -1858,7 +1825,7 @@ define dso_local void @ata_scsi_slave_destroy(ptr noundef %0) #0 align 16 {
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 9408
   %49 = zext nneg i32 %31 to i64
-  %50 = getelementptr %struct.ata_device, ptr %48, i64 %49
+  %50 = getelementptr [2624 x i8], ptr %48, i64 %49
   br label %60
 
 51:                                               ; preds = %25
@@ -1871,7 +1838,7 @@ define dso_local void @ata_scsi_slave_destroy(ptr noundef %0) #0 align 16 {
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 14736
   %57 = load ptr, ptr %56, align 16
   %58 = zext i32 %53 to i64
-  %.split = getelementptr %struct.ata_link, ptr %57, i64 %58
+  %.split = getelementptr [6464 x i8], ptr %57, i64 %58
   %59 = getelementptr i8, ptr %.split, i64 1152
   br label %60
 
@@ -2085,7 +2052,7 @@ ata_get_xlat_func.exit.thread:                    ; preds = %35, %56, %51, %69, 
   %92 = icmp ult i32 %91, 33
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %94 = zext i32 %91 to i64
-  %95 = getelementptr %struct.ata_queued_cmd, ptr %93, i64 %94
+  %95 = getelementptr [240 x i8], ptr %93, i64 %94
   %96 = select i1 %92, ptr %95, ptr null
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 92
   store i32 %91, ptr %97, align 4
@@ -3129,7 +3096,7 @@ define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr noundef readonly 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 9408
   %48 = zext nneg i32 %30 to i64
-  %49 = getelementptr %struct.ata_device, ptr %47, i64 %48
+  %49 = getelementptr [2624 x i8], ptr %47, i64 %48
   br label %59
 
 50:                                               ; preds = %24
@@ -3142,7 +3109,7 @@ define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr noundef readonly 
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 14736
   %56 = load ptr, ptr %55, align 16
   %57 = zext i32 %52 to i64
-  %.split = getelementptr %struct.ata_link, ptr %56, i64 %57
+  %.split = getelementptr [6464 x i8], ptr %56, i64 %57
   %58 = getelementptr i8, ptr %.split, i64 1152
   br label %59
 
@@ -3705,7 +3672,7 @@ define internal noundef i32 @ata_scsiop_inq_b9(ptr noundef readonly captures(non
 18:                                               ; preds = %18, %15
   %19 = phi i64 [ 0, %15 ], [ %34, %18 ]
   %20 = phi ptr [ %16, %15 ], [ %35, %18 ]
-  %21 = getelementptr %struct.ata_cpr, ptr %17, i64 %19
+  %21 = getelementptr [24 x i8], ptr %17, i64 %19
   %22 = load i8, ptr %21, align 8
   store i8 %22, ptr %20, align 1
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 1
@@ -4002,7 +3969,7 @@ define dso_local i32 @ata_scsi_add_hosts(ptr noundef readonly captures(none) %0,
   %indvars.iv = phi i32 [ %indvars.iv.next, %41 ], [ -1, %6 ]
   %9 = phi i32 [ %42, %41 ], [ 0, %6 ]
   %10 = sext i32 %9 to i64
-  %11 = getelementptr ptr, ptr %7, i64 %10
+  %11 = getelementptr [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @scsi_host_alloc(ptr noundef %1, i32 noundef 8) #19
   %14 = icmp eq ptr %13, null
@@ -4061,7 +4028,7 @@ define dso_local i32 @ata_scsi_add_hosts(ptr noundef readonly captures(none) %0,
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv9 = phi i64 [ %40, %.preheader.preheader ], [ %indvars.iv.next10, %.preheader ]
-  %45 = getelementptr ptr, ptr %7, i64 %indvars.iv9
+  %45 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv9
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 64
   tail call void @scsi_remove_host(ptr noundef %47) #19
@@ -4306,7 +4273,7 @@ define dso_local void @ata_scsi_hotplug(ptr noundef %0) local_unnamed_addr #0 al
 .preheader:                                       ; preds = %7, %.preheader
   %13 = phi i64 [ %16, %.preheader ], [ 0, %7 ]
   %14 = load ptr, ptr %10, align 16
-  %15 = getelementptr %struct.ata_link, ptr %14, i64 %13
+  %15 = getelementptr [6464 x i8], ptr %14, i64 %13
   tail call fastcc void @ata_scsi_handle_link_detach(ptr noundef %15)
   %16 = add nuw nsw i64 %13, 1
   %17 = icmp eq i64 %16, 15
@@ -4515,7 +4482,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_scsi_user_scan(ptr noundef r
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 9408
   %58 = zext nneg i32 %20 to i64
-  %59 = getelementptr %struct.ata_device, ptr %57, i64 %58
+  %59 = getelementptr [2624 x i8], ptr %57, i64 %58
   br label %67
 
 60:                                               ; preds = %37
@@ -4526,7 +4493,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_scsi_user_scan(ptr noundef r
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 14736
   %64 = load ptr, ptr %63, align 16
   %65 = zext i32 %20 to i64
-  %.split = getelementptr %struct.ata_link, ptr %64, i64 %65
+  %.split = getelementptr [6464 x i8], ptr %64, i64 %65
   %66 = getelementptr i8, ptr %.split, i64 1152
   br label %67
 
@@ -5028,7 +4995,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_write_same_xlat(ptr nounde
   %83 = shl nuw i64 %82, 48
   %84 = or i64 %83, %78
   %85 = add nuw nsw i64 %76, 1
-  %86 = getelementptr i64, ptr @ata_scsi_rbuf, i64 %76
+  %86 = getelementptr [8 x i8], ptr @ata_scsi_rbuf, i64 %76
   store i64 %84, ptr %86, align 8
   %87 = icmp ult i32 %77, 65536
   %88 = add i32 %77, -65535

@@ -1062,7 +1062,7 @@ _ZN6statrs12distribution9dirichlet14is_valid_alpha17h00e7d4c1915b2f3aE.exit.thre
   %39 = load ptr, ptr %26, align 8, !noalias !116, !nonnull !7, !noundef !7
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !116
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull readonly align 8 %9, i64 %.idx.i.i, i1 false), !noalias !129
-  %40 = getelementptr inbounds double, ptr %39, i64 %11
+  %40 = getelementptr inbounds [8 x i8], ptr %39, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !130
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !137
   store ptr %39, ptr %3, align 8, !alias.scope !144, !noalias !148
@@ -1259,14 +1259,14 @@ define { i64, double } @_ZN6statrs12distribution9dirichlet9Dirichlet7entropy17h7
   %.sroa.0.12.us.i.i = phi double [ 0.000000e+00, %.split.us.i.i ], [ %8, %4 ]
   %.sroa.011.01.us.i.i = phi i64 [ 0, %.split.us.i.i ], [ %5, %4 ]
   %5 = add nuw i64 %.sroa.011.01.us.i.i, 1
-  %6 = getelementptr double, ptr %.val, i64 %.sroa.011.01.us.i.i
+  %6 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.011.01.us.i.i
   %7 = load double, ptr %6, align 8, !alias.scope !158, !noundef !7
   %8 = fadd double %.sroa.0.12.us.i.i, %7
   %exitcond.not.i.i = icmp eq i64 %5, %.val1
   br i1 %exitcond.not.i.i, label %.lr.ph.i, label %4
 
 .lr.ph.i:                                         ; preds = %4
-  %9 = getelementptr inbounds double, ptr %.val, i64 %.val1
+  %9 = getelementptr inbounds [8 x i8], ptr %.val, i64 %.val1
   br label %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i"
 
 "_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i": ; preds = %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i", %.lr.ph.i
@@ -1276,13 +1276,13 @@ define { i64, double } @_ZN6statrs12distribution9dirichlet9Dirichlet7entropy17h7
   %12 = phi i64 [ %.val1, %.lr.ph.i ], [ %17, %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i" ]
   %13 = phi ptr [ %.val, %.lr.ph.i ], [ %19, %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i" ]
   %14 = icmp eq ptr %13, %11
-  %15 = getelementptr inbounds double, ptr %10, i64 %.val1
+  %15 = getelementptr inbounds [8 x i8], ptr %10, i64 %.val1
   %16 = select i1 %14, ptr %15, ptr %13
   %17 = add i64 %12, -1
   %18 = icmp eq i64 %17, 0
   %.idx = select i1 %18, i64 0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
-  %20 = getelementptr double, ptr %13, i64 %.val1
+  %20 = getelementptr [8 x i8], ptr %13, i64 %.val1
   %21 = select i1 %14, ptr %20, ptr %11
   %22 = select i1 %14, ptr %15, ptr %10
   %.val.i = load double, ptr %16, align 8, !noalias !161, !noundef !7
@@ -1370,7 +1370,7 @@ define void @"_ZN364_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$s
   %.sroa.0.12.us.i.i = phi double [ 0.000000e+00, %.split.us.i.i ], [ %11, %7 ]
   %.sroa.011.01.us.i.i = phi i64 [ 0, %.split.us.i.i ], [ %8, %7 ]
   %8 = add nuw i64 %.sroa.011.01.us.i.i, 1
-  %9 = getelementptr double, ptr %.val, i64 %.sroa.011.01.us.i.i
+  %9 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.011.01.us.i.i
   %10 = load double, ptr %9, align 8, !alias.scope !167, !noundef !7
   %11 = fadd double %.sroa.0.12.us.i.i, %10
   %exitcond.not.i.i = icmp eq i64 %8, %.val1
@@ -1397,10 +1397,10 @@ _ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit:
 12:                                               ; preds = %12, %.split.us.i
   %.sroa.09.09.us.i = phi i64 [ 0, %.split.us.i ], [ %13, %12 ]
   %13 = add nuw i64 %.sroa.09.09.us.i, 1
-  %14 = getelementptr double, ptr %.val, i64 %.sroa.09.09.us.i
+  %14 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.09.09.us.i
   %15 = load double, ptr %14, align 8, !alias.scope !174, !noalias !170, !noundef !7
   %16 = fdiv double %15, %.us-phi.i.i
-  %17 = getelementptr double, ptr %.sroa.4.0.copyload.i, i64 %.sroa.09.09.us.i
+  %17 = getelementptr [8 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.09.09.us.i
   store double %16, ptr %17, align 8, !noalias !170
   %exitcond.not.i = icmp eq i64 %13, %.val1
   br i1 %exitcond.not.i, label %.split11.us.i, label %12
@@ -1470,7 +1470,7 @@ define void @"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$s
   %.sroa.0.12.us.i.i = phi double [ 0.000000e+00, %.split.us.i.i ], [ %16, %12 ]
   %.sroa.011.01.us.i.i = phi i64 [ 0, %.split.us.i.i ], [ %13, %12 ]
   %13 = add nuw i64 %.sroa.011.01.us.i.i, 1
-  %14 = getelementptr double, ptr %.val, i64 %.sroa.011.01.us.i.i
+  %14 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.011.01.us.i.i
   %15 = load double, ptr %14, align 8, !alias.scope !186, !noundef !7
   %16 = fadd double %.sroa.0.12.us.i.i, %15
   %exitcond.not.i.i = icmp eq i64 %13, %.val13
@@ -1503,12 +1503,12 @@ _ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit:
 20:                                               ; preds = %20, %.split.us.i
   %.sroa.09.010.us.i = phi i64 [ 0, %.split.us.i ], [ %21, %20 ]
   %21 = add nuw i64 %.sroa.09.010.us.i, 1
-  %22 = getelementptr double, ptr %.val, i64 %.sroa.09.010.us.i
+  %22 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.09.010.us.i
   %23 = load double, ptr %22, align 8, !alias.scope !195, !noalias !192, !noundef !7
   %24 = fsub double %.us-phi.i.i, %23
   %25 = fmul double %23, %24
   %26 = fdiv double %25, %19
-  %27 = getelementptr double, ptr %.sroa.4.0.copyload.i, i64 %.sroa.09.010.us.i
+  %27 = getelementptr [8 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.09.010.us.i
   store double %26, ptr %27, align 8, !noalias !192
   %exitcond.not.i = icmp eq i64 %21, %.val13
   br i1 %exitcond.not.i, label %.split12.us.i, label %20
@@ -1630,11 +1630,11 @@ common.resume:                                    ; preds = %.body, %77, %31
 59:                                               ; preds = %59, %.lr.ph.i
   %.sroa.02.01.i = phi i64 [ 0, %.lr.ph.i ], [ %60, %59 ]
   %60 = add nuw i64 %.sroa.02.01.i, 1
-  %61 = getelementptr double, ptr %.val17, i64 %.sroa.02.01.i
+  %61 = getelementptr [8 x i8], ptr %.val17, i64 %.sroa.02.01.i
   %62 = load double, ptr %61, align 8, !alias.scope !222, !noalias !208, !noundef !7
   %63 = mul i64 %.sroa.02.01.i, %.sroa.6.0.copyload.i
-  %64 = getelementptr double, ptr %.sroa.4.0.copyload4.i, i64 %63
-  %65 = getelementptr double, ptr %64, i64 %.sroa.02.01.i
+  %64 = getelementptr [8 x i8], ptr %.sroa.4.0.copyload4.i, i64 %63
+  %65 = getelementptr [8 x i8], ptr %64, i64 %.sroa.02.01.i
   store double %62, ptr %65, align 8, !noalias !208
   %exitcond.not.i20 = icmp eq i64 %60, %.sroa.6.0.copyload.i
   br i1 %exitcond.not.i20, label %.loopexit33, label %59
@@ -1714,7 +1714,7 @@ common.resume:                                    ; preds = %.body, %77, %31
 
 "_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i.lr.ph": ; preds = %.split
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
-  %80 = getelementptr double, ptr %.val, i64 %.sroa.07.036
+  %80 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.07.036
   br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i"
 
 "_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i.lr.ph", %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit"
@@ -1725,7 +1725,7 @@ common.resume:                                    ; preds = %.body, %77, %31
   %81 = add nuw i64 %.sroa.09.034, 1
   %82 = load double, ptr %80, align 8, !noalias !236, !noundef !7
   %83 = fneg double %82
-  %84 = getelementptr double, ptr %.val, i64 %.sroa.09.034
+  %84 = getelementptr [8 x i8], ptr %.val, i64 %.sroa.09.034
   %85 = load double, ptr %84, align 8, !noalias !236, !noundef !7
   %86 = fmul double %85, %83
   %87 = fdiv double %86, %19
@@ -1736,8 +1736,8 @@ common.resume:                                    ; preds = %.body, %77, %31
 
 "_ZN8nalgebra4base3ops137_$LT$impl$u20$core..ops..index..IndexMut$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$9index_mut17hf25e42010faa6ac2E.exit.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i"
   %90 = mul i64 %.val3.i.i, %.sroa.09.034
-  %91 = getelementptr double, ptr %.val.i.i, i64 %90
-  %92 = getelementptr double, ptr %91, i64 %.sroa.07.036
+  %91 = getelementptr [8 x i8], ptr %.val.i.i, i64 %90
+  %92 = getelementptr [8 x i8], ptr %91, i64 %.sroa.07.036
   store double %87, ptr %92, align 8, !noalias !236
   %.val3.i13.i = load i64, ptr %.sroa.57.0..sroa_idx.i, align 8, !alias.scope !239, !noalias !242, !noundef !7
   %.val4.i14.i = load i64, ptr %.sroa.7.0..sroa_idx.i22, align 8, !alias.scope !239, !noalias !242, !noundef !7
@@ -1757,8 +1757,8 @@ common.resume:                                    ; preds = %.body, %77, %31
 "_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit": ; preds = %"_ZN8nalgebra4base3ops137_$LT$impl$u20$core..ops..index..IndexMut$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$9index_mut17hf25e42010faa6ac2E.exit.i"
   %.val.i16.i = load ptr, ptr %.sroa.4.0..sroa_idx.i21, align 8, !alias.scope !239, !noalias !242, !nonnull !7, !noundef !7
   %96 = mul i64 %.val3.i13.i, %.sroa.07.036
-  %97 = getelementptr double, ptr %.val.i16.i, i64 %96
-  %98 = getelementptr double, ptr %97, i64 %.sroa.09.034
+  %97 = getelementptr [8 x i8], ptr %.val.i16.i, i64 %96
+  %98 = getelementptr [8 x i8], ptr %97, i64 %.sroa.09.034
   store double %87, ptr %98, align 8, !noalias !236
   %exitcond.not = icmp eq i64 %81, %.sroa.07.036
   br i1 %exitcond.not, label %.loopexit, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i"
@@ -1803,13 +1803,13 @@ define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u2
 
 "_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i": ; preds = %9
   %15 = icmp eq ptr %12, %11
-  %16 = getelementptr inbounds double, ptr %10, i64 %.val3
+  %16 = getelementptr inbounds [8 x i8], ptr %10, i64 %.val3
   %17 = select i1 %15, ptr %16, ptr %12
   %18 = add i64 %13, -1
   %19 = icmp eq i64 %18, 0
   %.idx = select i1 %19, i64 0, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  %21 = getelementptr double, ptr %12, i64 %.val3
+  %21 = getelementptr [8 x i8], ptr %12, i64 %.val3
   %22 = select i1 %15, ptr %21, ptr %11
   %23 = select i1 %15, ptr %16, ptr %10
   %.val.i = load double, ptr %17, align 8, !noalias !251, !noundef !7
@@ -1848,16 +1848,16 @@ define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u2
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us": ; preds = %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i8.us"
   %34 = icmp eq ptr %33, %31
-  %35 = getelementptr inbounds double, ptr %30, i64 %.val3
+  %35 = getelementptr inbounds [8 x i8], ptr %30, i64 %.val3
   %36 = select i1 %34, ptr %35, ptr %33
   %37 = add i64 %32, -1
   %38 = icmp eq i64 %37, 0
   %.idx20.us = select i1 %38, i64 0, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx20.us
-  %40 = getelementptr double, ptr %33, i64 %.val3
+  %40 = getelementptr [8 x i8], ptr %33, i64 %.val3
   %41 = select i1 %34, ptr %40, ptr %31
   %42 = select i1 %34, ptr %35, ptr %30
-  %43 = getelementptr double, ptr %.val1.i.i.i.i, i64 %.sroa.2.031.i.us
+  %43 = getelementptr [8 x i8], ptr %.val1.i.i.i.i, i64 %.sroa.2.031.i.us
   %44 = load double, ptr %43, align 8, !noalias !260, !noundef !7
   %.val4.i.i.i.us = load double, ptr %36, align 8, !alias.scope !273, !noalias !274, !noundef !7
   %45 = fadd double %44, -1.000000e+00

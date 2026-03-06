@@ -3,7 +3,6 @@ source_filename = "bench/llvm/original/TypeIndexDiscovery.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::codeview::TiReference" = type { i32, i32, i32 }
 %"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
 %"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
 %"class.llvm::SmallVectorTemplateBase" = type { %"class.llvm::SmallVectorTemplateCommon" }
@@ -26,17 +25,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::FixedStreamArrayIterator" = type <{ %"class.llvm::FixedStreamArray", i32, [4 x i8] }>
 %"class.llvm::SmallVector.5" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.6" }
 %"struct.llvm::SmallVectorStorage.6" = type { [24 x i8] }
-%"class.llvm::codeview::TypeIndex" = type { %"struct.llvm::support::detail::packed_endian_specific_integral.7" }
-%"struct.llvm::support::detail::packed_endian_specific_integral.7" = type { %struct.anon.8 }
-%struct.anon.8 = type { [4 x i8] }
 %class.anon = type { i8 }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.10" }
-%"struct.std::_Head_base.10" = type { ptr }
 
 $_ZN4llvm18BinaryStreamReader9readArrayINS_8codeview9TypeIndexEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj = comdat any
 
@@ -144,7 +134,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %14 = phi i32 [ %7, %5 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %3, align 8, !tbaa !16
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [12 x i8], ptr %15, i64 %16
   store i64 1, ptr %17, align 1
   %.sroa.2.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i, align 1
@@ -167,7 +157,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %25 = phi i32 [ %19, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit ], [ %.pre.i143, %21 ]
   %26 = load ptr, ptr %3, align 8, !tbaa !16
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %27
   store i64 17179869184, ptr %28, align 1
   %.sroa.2.0..sroa_idx2.i144 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i144, align 1
@@ -196,7 +186,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %40 = phi i32 [ %33, %31 ], [ %.pre.i147, %36 ]
   %41 = load ptr, ptr %3, align 8, !tbaa !16
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [12 x i8], ptr %41, i64 %42
   store i64 0, ptr %43, align 1
   %.sroa.2.0..sroa_idx2.i148 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 2, ptr %.sroa.2.0..sroa_idx2.i148, align 1
@@ -225,7 +215,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %55 = phi i32 [ %48, %46 ], [ %.pre.i151, %51 ]
   %56 = load ptr, ptr %3, align 8, !tbaa !16
   %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [12 x i8], ptr %56, i64 %57
   store i64 1, ptr %58, align 1
   %.sroa.2.0..sroa_idx2.i152 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i152, align 1
@@ -259,7 +249,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %71 = phi i32 [ %64, %62 ], [ %.pre.i155, %67 ]
   %72 = load ptr, ptr %3, align 8, !tbaa !16
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [12 x i8], ptr %72, i64 %73
   store i64 17179869185, ptr %74, align 1
   %.sroa.2.0..sroa_idx2.i156 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 %.0.copyload.i.i.i.i.i.i, ptr %.sroa.2.0..sroa_idx2.i156, align 1
@@ -294,7 +284,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %88 = phi i32 [ %81, %78 ], [ %.pre.i160, %84 ]
   %89 = load ptr, ptr %3, align 8, !tbaa !16
   %90 = zext i32 %88 to i64
-  %91 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [12 x i8], ptr %89, i64 %90
   store i64 8589934593, ptr %91, align 1
   %.sroa.2.0..sroa_idx2.i161 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i32 %79, ptr %.sroa.2.0..sroa_idx2.i161, align 1
@@ -323,7 +313,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %103 = phi i32 [ %96, %94 ], [ %.pre.i164, %99 ]
   %104 = load ptr, ptr %3, align 8, !tbaa !16
   %105 = zext i32 %103 to i64
-  %106 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [12 x i8], ptr %104, i64 %105
   store i64 0, ptr %106, align 1
   %.sroa.2.0..sroa_idx2.i165 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i165, align 1
@@ -346,7 +336,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %114 = phi i32 [ %108, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit166 ], [ %.pre.i168, %110 ]
   %115 = load ptr, ptr %3, align 8, !tbaa !16
   %116 = zext i32 %114 to i64
-  %117 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [12 x i8], ptr %115, i64 %116
   store i64 17179869185, ptr %117, align 1
   %.sroa.2.0..sroa_idx2.i169 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i169, align 1
@@ -375,7 +365,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %129 = phi i32 [ %122, %120 ], [ %.pre.i172, %125 ]
   %130 = load ptr, ptr %3, align 8, !tbaa !16
   %131 = zext i32 %129 to i64
-  %132 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [12 x i8], ptr %130, i64 %131
   store i64 0, ptr %132, align 1
   %.sroa.2.0..sroa_idx2.i173 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i173, align 1
@@ -404,7 +394,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %144 = phi i32 [ %137, %135 ], [ %.pre.i176, %140 ]
   %145 = load ptr, ptr %3, align 8, !tbaa !16
   %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [12 x i8], ptr %145, i64 %146
   store i64 0, ptr %147, align 1
   %.sroa.2.0..sroa_idx2.i177 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i177, align 1
@@ -433,7 +423,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %159 = phi i32 [ %152, %150 ], [ %.pre.i180, %155 ]
   %160 = load ptr, ptr %3, align 8, !tbaa !16
   %161 = zext i32 %159 to i64
-  %162 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %160, i64 %161
+  %162 = getelementptr inbounds nuw [12 x i8], ptr %160, i64 %161
   store i64 0, ptr %162, align 1
   %.sroa.2.0..sroa_idx2.i181 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i181, align 1
@@ -456,7 +446,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %170 = phi i32 [ %164, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit182 ], [ %.pre.i184, %166 ]
   %171 = load ptr, ptr %3, align 8, !tbaa !16
   %172 = zext i32 %170 to i64
-  %173 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %171, i64 %172
+  %173 = getelementptr inbounds nuw [12 x i8], ptr %171, i64 %172
   store i64 34359738368, ptr %173, align 1
   %.sroa.2.0..sroa_idx2.i185 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i185, align 1
@@ -485,7 +475,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %185 = phi i32 [ %178, %176 ], [ %.pre.i188, %181 ]
   %186 = load ptr, ptr %3, align 8, !tbaa !16
   %187 = zext i32 %185 to i64
-  %188 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %186, i64 %187
+  %188 = getelementptr inbounds nuw [12 x i8], ptr %186, i64 %187
   store i64 0, ptr %188, align 1
   %.sroa.2.0..sroa_idx2.i189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store i32 3, ptr %.sroa.2.0..sroa_idx2.i189, align 1
@@ -508,7 +498,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %196 = phi i32 [ %190, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit190 ], [ %.pre.i192, %192 ]
   %197 = load ptr, ptr %3, align 8, !tbaa !16
   %198 = zext i32 %196 to i64
-  %199 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %197, i64 %198
+  %199 = getelementptr inbounds nuw [12 x i8], ptr %197, i64 %198
   store i64 68719476736, ptr %199, align 1
   %.sroa.2.0..sroa_idx2.i193 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i193, align 1
@@ -542,7 +532,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %212 = phi i32 [ %205, %203 ], [ %.pre.i197, %208 ]
   %213 = load ptr, ptr %3, align 8, !tbaa !16
   %214 = zext i32 %212 to i64
-  %215 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %213, i64 %214
+  %215 = getelementptr inbounds nuw [12 x i8], ptr %213, i64 %214
   store i64 17179869184, ptr %215, align 1
   %.sroa.2.0..sroa_idx2.i198 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i32 %.0.copyload.i.i.i.i.i.i195, ptr %.sroa.2.0..sroa_idx2.i198, align 1
@@ -571,7 +561,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %227 = phi i32 [ %220, %218 ], [ %.pre.i201, %223 ]
   %228 = load ptr, ptr %3, align 8, !tbaa !16
   %229 = zext i32 %227 to i64
-  %230 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %228, i64 %229
+  %230 = getelementptr inbounds nuw [12 x i8], ptr %228, i64 %229
   store i64 0, ptr %230, align 1
   %.sroa.2.0..sroa_idx2.i202 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i32 2, ptr %.sroa.2.0..sroa_idx2.i202, align 1
@@ -600,7 +590,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %242 = phi i32 [ %235, %233 ], [ %.pre.i205, %238 ]
   %243 = load ptr, ptr %3, align 8, !tbaa !16
   %244 = zext i32 %242 to i64
-  %245 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %243, i64 %244
+  %245 = getelementptr inbounds nuw [12 x i8], ptr %243, i64 %244
   store i64 17179869184, ptr %245, align 1
   %.sroa.2.0..sroa_idx2.i206 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i32 3, ptr %.sroa.2.0..sroa_idx2.i206, align 1
@@ -629,7 +619,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %257 = phi i32 [ %250, %248 ], [ %.pre.i209, %253 ]
   %258 = load ptr, ptr %3, align 8, !tbaa !16
   %259 = zext i32 %257 to i64
-  %260 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %258, i64 %259
+  %260 = getelementptr inbounds nuw [12 x i8], ptr %258, i64 %259
   store i64 17179869184, ptr %260, align 1
   %.sroa.2.0..sroa_idx2.i210 = getelementptr inbounds nuw i8, ptr %260, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i210, align 1
@@ -658,7 +648,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %272 = phi i32 [ %265, %263 ], [ %.pre.i213, %268 ]
   %273 = load ptr, ptr %3, align 8, !tbaa !16
   %274 = zext i32 %272 to i64
-  %275 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %273, i64 %274
+  %275 = getelementptr inbounds nuw [12 x i8], ptr %273, i64 %274
   store i64 17179869184, ptr %275, align 1
   %.sroa.2.0..sroa_idx2.i214 = getelementptr inbounds nuw i8, ptr %275, i64 8
   store i32 2, ptr %.sroa.2.0..sroa_idx2.i214, align 1
@@ -687,7 +677,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %287 = phi i32 [ %280, %278 ], [ %.pre.i217, %283 ]
   %288 = load ptr, ptr %3, align 8, !tbaa !16
   %289 = zext i32 %287 to i64
-  %290 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %288, i64 %289
+  %290 = getelementptr inbounds nuw [12 x i8], ptr %288, i64 %289
   store i64 0, ptr %290, align 1
   %.sroa.2.0..sroa_idx2.i218 = getelementptr inbounds nuw i8, ptr %290, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i218, align 1
@@ -716,7 +706,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %302 = phi i32 [ %295, %293 ], [ %.pre.i221, %298 ]
   %303 = load ptr, ptr %3, align 8, !tbaa !16
   %304 = zext i32 %302 to i64
-  %305 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %303, i64 %304
+  %305 = getelementptr inbounds nuw [12 x i8], ptr %303, i64 %304
   store i64 0, ptr %305, align 1
   %.sroa.2.0..sroa_idx2.i222 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store i32 2, ptr %.sroa.2.0..sroa_idx2.i222, align 1
@@ -760,7 +750,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %320 = phi i32 [ %314, %313 ], [ %.pre.i.i, %317 ]
   %321 = load ptr, ptr %3, align 8, !tbaa !16
   %322 = zext i32 %320 to i64
-  %323 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %321, i64 %322
+  %323 = getelementptr inbounds nuw [12 x i8], ptr %321, i64 %322
   store i64 %.sroa.23.0.insert.shift.i, ptr %323, align 1
   %.sroa.2.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %323, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i.i, align 1
@@ -832,7 +822,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %348 = phi i32 [ %343, %341 ], [ %.pre.i.i.i, %345 ]
   %349 = load ptr, ptr %3, align 8, !tbaa !16
   %350 = zext i32 %348 to i64
-  %351 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %349, i64 %350
+  %351 = getelementptr inbounds nuw [12 x i8], ptr %349, i64 %350
   store i64 %.sroa.24.0.insert.shift.i.i, ptr %351, align 1
   %.sroa.2.0..sroa_idx2.i.i.i = getelementptr inbounds nuw i8, ptr %351, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i.i.i, align 1
@@ -847,7 +837,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 356:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i.i
   %357 = and i16 %.0.copyload.i.i.i.i.i.i.i.i.i, 32767
   %358 = zext nneg i16 %357 to i64
-  %359 = getelementptr inbounds nuw i32, ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %358
+  %359 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %358
   %360 = load i32, ptr %359, align 4, !tbaa !20
   %361 = add i32 %360, 10
   br label %_ZL15handleBaseClassN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
@@ -861,7 +851,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 365:                                              ; preds = %362
   %366 = and i16 %.0.copyload.i.i.i.i.i.i.i.i54.i, 32767
   %367 = zext nneg i16 %366 to i64
-  %368 = getelementptr inbounds nuw i32, ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %367
+  %368 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %367
   %369 = load i32, ptr %368, align 4, !tbaa !20
   %370 = add i32 %369, 6
   br label %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
@@ -896,7 +886,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %384 = phi i32 [ %379, %377 ], [ %.pre.i.i57.i, %381 ]
   %385 = load ptr, ptr %3, align 8, !tbaa !16
   %386 = zext i32 %384 to i64
-  %387 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %385, i64 %386
+  %387 = getelementptr inbounds nuw [12 x i8], ptr %385, i64 %386
   store i64 %.sroa.27.0.insert.shift.i.i, ptr %387, align 1
   %.sroa.2.0..sroa_idx2.i.i59.i = getelementptr inbounds nuw i8, ptr %387, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i.i59.i, align 1
@@ -911,7 +901,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 392:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i58.i
   %393 = and i16 %.0.copyload.i.i.i.i.i.i.i.i60.i, 32767
   %394 = zext nneg i16 %393 to i64
-  %395 = getelementptr inbounds nuw i32, ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %394
+  %395 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %394
   %396 = load i32, ptr %395, align 4, !tbaa !20
   %397 = add i32 %396, 10
   br label %_ZL16handleDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
@@ -946,7 +936,7 @@ _ZL22handleOverloadedMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codevie
   %.sroa.24.0.insert.shift.i66.i = shl nuw i64 %.sroa.24.0.insert.ext.i65.i, 32
   %412 = load ptr, ptr %3, align 8, !tbaa !16
   %413 = zext i32 %410 to i64
-  %414 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %412, i64 %413
+  %414 = getelementptr inbounds nuw [12 x i8], ptr %412, i64 %413
   store i64 %.sroa.24.0.insert.shift.i66.i, ptr %414, align 1
   %.sroa.2.0..sroa_idx2.i.i67.i = getelementptr inbounds nuw i8, ptr %414, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i.i67.i, align 1
@@ -979,7 +969,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %428 = phi i32 [ %423, %421 ], [ %.pre.i.i71.i, %425 ]
   %429 = load ptr, ptr %3, align 8, !tbaa !16
   %430 = zext i32 %428 to i64
-  %431 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %429, i64 %430
+  %431 = getelementptr inbounds nuw [12 x i8], ptr %429, i64 %430
   store i64 %.sroa.24.0.insert.shift.i69.i, ptr %431, align 1
   %.sroa.2.0..sroa_idx2.i.i73.i = getelementptr inbounds nuw i8, ptr %431, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i.i73.i, align 1
@@ -1025,7 +1015,7 @@ _ZL16handleNestedTypeN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiR
   %.sroa.24.0.insert.shift.i78.i = shl nuw i64 %.sroa.24.0.insert.ext.i77.i, 32
   %452 = load ptr, ptr %3, align 8, !tbaa !16
   %453 = zext i32 %450 to i64
-  %454 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %452, i64 %453
+  %454 = getelementptr inbounds nuw [12 x i8], ptr %452, i64 %453
   store i64 %.sroa.24.0.insert.shift.i78.i, ptr %454, align 1
   %.sroa.2.0..sroa_idx2.i.i79.i = getelementptr inbounds nuw i8, ptr %454, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i.i79.i, align 1
@@ -1058,7 +1048,7 @@ _ZL22handleStaticDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codevie
   %.sroa.24.0.insert.shift.i84.i = shl nuw i64 %.sroa.24.0.insert.ext.i83.i, 32
   %469 = load ptr, ptr %3, align 8, !tbaa !16
   %470 = zext i32 %467 to i64
-  %471 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %469, i64 %470
+  %471 = getelementptr inbounds nuw [12 x i8], ptr %469, i64 %470
   store i64 %.sroa.24.0.insert.shift.i84.i, ptr %471, align 1
   %.sroa.2.0..sroa_idx2.i.i85.i = getelementptr inbounds nuw i8, ptr %471, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i.i85.i, align 1
@@ -1091,7 +1081,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %485 = phi i32 [ %480, %478 ], [ %.pre.i.i87.i, %482 ]
   %486 = load ptr, ptr %3, align 8, !tbaa !16
   %487 = zext i32 %485 to i64
-  %488 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %486, i64 %487
+  %488 = getelementptr inbounds nuw [12 x i8], ptr %486, i64 %487
   store i64 %.sroa.26.0.insert.shift.i.i, ptr %488, align 1
   %.sroa.2.0..sroa_idx2.i.i89.i = getelementptr inbounds nuw i8, ptr %488, i64 8
   store i32 2, ptr %.sroa.2.0..sroa_idx2.i.i89.i, align 1
@@ -1106,7 +1096,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 493:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i88.i
   %494 = and i16 %.0.copyload.i.i.i.i.i.i.i.i90.i, 32767
   %495 = zext nneg i16 %494 to i64
-  %496 = getelementptr inbounds nuw i32, ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %495
+  %496 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %495
   %497 = load i32, ptr %496, align 4, !tbaa !20
   %498 = add i32 %497, 14
   br label %_ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.exit.i.i
@@ -1122,7 +1112,7 @@ _ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.exit.i.i: ; preds = %493, %_ZN4l
 502:                                              ; preds = %_ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.exit.i.i
   %503 = and i16 %.0.copyload.i.i.i.i.i.i.i14.i.i, 32767
   %504 = zext nneg i16 %503 to i64
-  %505 = getelementptr inbounds nuw i32, ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %504
+  %505 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %504
   %506 = load i32, ptr %505, align 4, !tbaa !20
   %507 = add i32 %506, 2
   br label %_ZL22handleVirtualBaseClassN4llvm8ArrayRefIhEEjbRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
@@ -1152,7 +1142,7 @@ _ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiRefere
   %.sroa.22.0.insert.shift.i.i = shl nuw i64 %.sroa.22.0.insert.ext.i.i, 32
   %517 = load ptr, ptr %3, align 8, !tbaa !16
   %518 = zext i32 %515 to i64
-  %519 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %517, i64 %518
+  %519 = getelementptr inbounds nuw [12 x i8], ptr %517, i64 %518
   store i64 %.sroa.22.0.insert.shift.i.i, ptr %519, align 1
   %.sroa.2.0..sroa_idx2.i.i95.i = getelementptr inbounds nuw i8, ptr %519, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i.i95.i, align 1
@@ -1181,7 +1171,7 @@ _ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codevie
   %.sroa.22.0.insert.shift.i100.i = shl nuw i64 %.sroa.22.0.insert.ext.i99.i, 32
   %530 = load ptr, ptr %3, align 8, !tbaa !16
   %531 = zext i32 %528 to i64
-  %532 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %530, i64 %531
+  %532 = getelementptr inbounds nuw [12 x i8], ptr %530, i64 %531
   store i64 %.sroa.22.0.insert.shift.i100.i, ptr %532, align 1
   %.sroa.2.0..sroa_idx2.i.i101.i = getelementptr inbounds nuw i8, ptr %532, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i.i101.i, align 1
@@ -1240,7 +1230,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %561 = phi i32 [ %554, %552 ], [ %.pre.i.i228, %557 ]
   %562 = load ptr, ptr %3, align 8, !tbaa !16
   %563 = zext i32 %561 to i64
-  %564 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %562, i64 %563
+  %564 = getelementptr inbounds nuw [12 x i8], ptr %562, i64 %563
   store i64 0, ptr %564, align 1
   %.sroa.2.0..sroa_idx2.i.i230 = getelementptr inbounds nuw i8, ptr %564, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i.i230, align 1
@@ -1270,7 +1260,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %576 = phi i32 [ %566, %570 ], [ %.pre.i10.i, %572 ]
   %577 = load ptr, ptr %3, align 8, !tbaa !16
   %578 = zext i32 %576 to i64
-  %579 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %577, i64 %578
+  %579 = getelementptr inbounds nuw [12 x i8], ptr %577, i64 %578
   store i64 34359738368, ptr %579, align 1
   %.sroa.2.0..sroa_idx2.i11.i = getelementptr inbounds nuw i8, ptr %579, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i11.i, align 1
@@ -1790,7 +1780,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %13 = phi i32 [ %6, %4 ], [ %.pre.i, %9 ]
   %14 = load ptr, ptr %2, align 8, !tbaa !16
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %15
   store i64 103079215105, ptr %16, align 1
   %.sroa.2.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i, align 1
@@ -1819,7 +1809,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %28 = phi i32 [ %21, %19 ], [ %.pre.i90, %24 ]
   %29 = load ptr, ptr %2, align 8, !tbaa !16
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %30
   store i64 103079215104, ptr %31, align 1
   %.sroa.2.0..sroa_idx2.i91 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i91, align 1
@@ -1848,7 +1838,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %43 = phi i32 [ %36, %34 ], [ %.pre.i94, %39 ]
   %44 = load ptr, ptr %2, align 8, !tbaa !16
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %45
   store i64 0, ptr %46, align 1
   %.sroa.2.0..sroa_idx2.i95 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i95, align 1
@@ -1877,7 +1867,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %58 = phi i32 [ %51, %49 ], [ %.pre.i98, %54 ]
   %59 = load ptr, ptr %2, align 8, !tbaa !16
   %60 = zext i32 %58 to i64
-  %61 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [12 x i8], ptr %59, i64 %60
   store i64 0, ptr %61, align 1
   %.sroa.2.0..sroa_idx2.i99 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i99, align 1
@@ -1906,7 +1896,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %73 = phi i32 [ %66, %64 ], [ %.pre.i102, %69 ]
   %74 = load ptr, ptr %2, align 8, !tbaa !16
   %75 = zext i32 %73 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [12 x i8], ptr %74, i64 %75
   store i64 1, ptr %76, align 1
   %.sroa.2.0..sroa_idx2.i103 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i103, align 1
@@ -1935,7 +1925,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %88 = phi i32 [ %81, %79 ], [ %.pre.i106, %84 ]
   %89 = load ptr, ptr %2, align 8, !tbaa !16
   %90 = zext i32 %88 to i64
-  %91 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [12 x i8], ptr %89, i64 %90
   store i64 0, ptr %91, align 1
   %.sroa.2.0..sroa_idx2.i107 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i107, align 1
@@ -1964,7 +1954,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %103 = phi i32 [ %96, %94 ], [ %.pre.i110, %99 ]
   %104 = load ptr, ptr %2, align 8, !tbaa !16
   %105 = zext i32 %103 to i64
-  %106 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [12 x i8], ptr %104, i64 %105
   store i64 0, ptr %106, align 1
   %.sroa.2.0..sroa_idx2.i111 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i111, align 1
@@ -1993,7 +1983,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %118 = phi i32 [ %111, %109 ], [ %.pre.i114, %114 ]
   %119 = load ptr, ptr %2, align 8, !tbaa !16
   %120 = zext i32 %118 to i64
-  %121 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [12 x i8], ptr %119, i64 %120
   store i64 0, ptr %121, align 1
   %.sroa.2.0..sroa_idx2.i115 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i115, align 1
@@ -2022,7 +2012,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %133 = phi i32 [ %126, %124 ], [ %.pre.i118, %129 ]
   %134 = load ptr, ptr %2, align 8, !tbaa !16
   %135 = zext i32 %133 to i64
-  %136 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [12 x i8], ptr %134, i64 %135
   store i64 0, ptr %136, align 1
   %.sroa.2.0..sroa_idx2.i119 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i119, align 1
@@ -2051,7 +2041,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %148 = phi i32 [ %141, %139 ], [ %.pre.i122, %144 ]
   %149 = load ptr, ptr %2, align 8, !tbaa !16
   %150 = zext i32 %148 to i64
-  %151 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw [12 x i8], ptr %149, i64 %150
   store i64 0, ptr %151, align 1
   %.sroa.2.0..sroa_idx2.i123 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i123, align 1
@@ -2080,7 +2070,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %163 = phi i32 [ %156, %154 ], [ %.pre.i126, %159 ]
   %164 = load ptr, ptr %2, align 8, !tbaa !16
   %165 = zext i32 %163 to i64
-  %166 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %164, i64 %165
+  %166 = getelementptr inbounds nuw [12 x i8], ptr %164, i64 %165
   store i64 17179869184, ptr %166, align 1
   %.sroa.2.0..sroa_idx2.i127 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i127, align 1
@@ -2109,7 +2099,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %178 = phi i32 [ %171, %169 ], [ %.pre.i130, %174 ]
   %179 = load ptr, ptr %2, align 8, !tbaa !16
   %180 = zext i32 %178 to i64
-  %181 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %179, i64 %180
+  %181 = getelementptr inbounds nuw [12 x i8], ptr %179, i64 %180
   store i64 34359738368, ptr %181, align 1
   %.sroa.2.0..sroa_idx2.i131 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i131, align 1
@@ -2139,7 +2129,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %193 = phi i32 [ %186, %184 ], [ %.pre.i134, %189 ]
   %194 = load ptr, ptr %2, align 8, !tbaa !16
   %195 = zext i32 %193 to i64
-  %196 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw [12 x i8], ptr %194, i64 %195
   store i64 17179869185, ptr %196, align 1
   %.sroa.2.0..sroa_idx2.i135 = getelementptr inbounds nuw i8, ptr %196, i64 8
   store i32 %.0.copyload.i.i.i, ptr %.sroa.2.0..sroa_idx2.i135, align 1
@@ -2168,7 +2158,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %208 = phi i32 [ %201, %199 ], [ %.pre.i138, %204 ]
   %209 = load ptr, ptr %2, align 8, !tbaa !16
   %210 = zext i32 %208 to i64
-  %211 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %209, i64 %210
+  %211 = getelementptr inbounds nuw [12 x i8], ptr %209, i64 %210
   store i64 34359738369, ptr %211, align 1
   %.sroa.2.0..sroa_idx2.i139 = getelementptr inbounds nuw i8, ptr %211, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i139, align 1
@@ -2197,7 +2187,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %223 = phi i32 [ %216, %214 ], [ %.pre.i142, %219 ]
   %224 = load ptr, ptr %2, align 8, !tbaa !16
   %225 = zext i32 %223 to i64
-  %226 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw [12 x i8], ptr %224, i64 %225
   store i64 34359738368, ptr %226, align 1
   %.sroa.2.0..sroa_idx2.i143 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i32 1, ptr %.sroa.2.0..sroa_idx2.i143, align 1
@@ -3052,7 +3042,7 @@ _ZN4llvm24FixedStreamArrayIteratorINS_8codeview9TypeIndexEEC2ERKS3_.exit31: ; pr
   %184 = load ptr, ptr %0, align 8, !tbaa !16
   %185 = load i32, ptr %146, align 8, !tbaa !11
   %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %184, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %186
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_8codeview9TypeIndexELb1EE18uninitialized_copyINS_24FixedStreamArrayIteratorIS2_EEPS2_EEvT_S8_T0_(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %187)
   %188 = load ptr, ptr %171, align 8, !tbaa !27
   %.not.i.i.i.i.i32 = icmp eq ptr %188, null
@@ -4338,7 +4328,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !107
   store ptr %67, ptr %41, align 8, !tbaa !104
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !106
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -4488,7 +4478,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !107
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !104
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !106
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -4608,7 +4598,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !107
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !104
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !106
   ret void
 }

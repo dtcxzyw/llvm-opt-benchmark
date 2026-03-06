@@ -76,8 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.zwp_relative_pointer_v1_listener = type { ptr }
 %struct.zwp_locked_pointer_v1_listener = type { ptr, ptr }
 %struct.zwp_confined_pointer_v1_listener = type { ptr, ptr }
-%struct._GLFWscaleWayland = type { ptr, i32 }
-%struct._GLFWofferWayland = type { ptr, i32, i32 }
 %struct.GLFWimage = type { i32, i32, ptr }
 %struct.pollfd = type { i32, i16, i16 }
 %struct._GLFWcursorWayland = type { ptr, ptr, ptr, i32, i32, i32, i32, i32 }
@@ -245,7 +243,7 @@ define hidden void @_glfwUpdateBufferScaleFromOutputsWayland(ptr noundef %0) loc
   %.024 = phi i64 [ 0, %.lr.ph ], [ %23, %17 ]
   %.01923 = phi i32 [ 1, %.lr.ph ], [ %22, %17 ]
   %18 = load ptr, ptr %14, align 8, !tbaa !131
-  %19 = getelementptr inbounds nuw %struct._GLFWscaleWayland, ptr %18, i64 %.024
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %.024
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !132
   %22 = tail call i32 @_glfw_max(i32 noundef %21, i32 noundef %.01923) #20
@@ -754,7 +752,7 @@ define internal void @dataDeviceHandleDataOffer(ptr readnone captures(none) %0, 
   %13 = add i32 %12, 1
   store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %9, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %14
   store ptr %2, ptr %15, align 8, !tbaa !175
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !147
@@ -799,7 +797,7 @@ define internal void @dataDeviceHandleEnter(ptr readnone captures(none) %0, ptr 
 
 18:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %19 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %16, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !178
   %21 = icmp eq ptr %20, %6
   br i1 %21, label %22, label %17
@@ -817,7 +815,7 @@ define internal void @dataDeviceHandleEnter(ptr readnone captures(none) %0, ptr 
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !182
   %.not24 = icmp eq i32 %33, 0
@@ -830,11 +828,11 @@ define internal void @dataDeviceHandleEnter(ptr readnone captures(none) %0, ptr 
   br label %35
 
 35:                                               ; preds = %34, %30, %22
-  %36 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv
   %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
   %38 = add i32 %37, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !185
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
   %42 = add i32 %41, -1
@@ -930,7 +928,7 @@ define internal void @dataDeviceHandleDrop(ptr readnone captures(none) %0, ptr r
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !186
   call void @_glfw_free(ptr noundef %16) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -978,7 +976,7 @@ define internal void @dataDeviceHandleSelection(ptr readnone captures(none) %0, 
 
 14:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %15 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !178
   %17 = icmp eq ptr %16, %2
   br i1 %17, label %18, label %13
@@ -1005,10 +1003,10 @@ define internal void @dataDeviceHandleSelection(ptr readnone captures(none) %0, 
 27:                                               ; preds = %22, %21
   %28 = phi i32 [ %.pre17, %22 ], [ %11, %21 ]
   %29 = phi ptr [ %.pre, %22 ], [ %12, %21 ]
-  %30 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %indvars.iv
   %31 = add i32 %28, -1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !185
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
   %35 = add i32 %34, -1
@@ -3556,7 +3554,7 @@ define internal fastcc void @handleEvents(ptr noundef %0) unnamed_addr #0 {
 
 69:                                               ; preds = %.lr.ph
   %70 = zext nneg i32 %67 to i64
-  %71 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !282
   %73 = sext i16 %72 to i32
   br label %translateKey.exit
@@ -4012,7 +4010,7 @@ define hidden noundef ptr @_glfwGetScancodeNameWayland(i32 noundef %0) local_unn
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !282
   %8 = icmp eq i16 %7, -1
   br i1 %8, label %37, label %9
@@ -4086,7 +4084,7 @@ declare i64 @_glfwEncodeUTF8(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 -32768, 32768) i32 @_glfwGetKeyScancodeWayland(i32 noundef %0) local_unnamed_addr #4 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134680), i64 %2
+  %3 = getelementptr inbounds [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134680), i64 %2
   %4 = load i16, ptr %3, align 2, !tbaa !282
   %5 = sext i16 %4 to i32
   ret i32 %5
@@ -4287,7 +4285,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateStandardCursorWayland(ptr noundef 
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._glfwCreateStandardCursorWayland, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._glfwCreateStandardCursorWayland, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -4330,7 +4328,7 @@ switch.lookup:                                    ; preds = %2
 
 switch.lookup25:                                  ; preds = %17
   %20 = zext nneg i32 %switch.tableidx23 to i64
-  %switch.gep26 = getelementptr inbounds nuw ptr, ptr @switch.table._glfwCreateStandardCursorWayland.19, i64 %20
+  %switch.gep26 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._glfwCreateStandardCursorWayland.19, i64 %20
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137560), align 8, !tbaa !302
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134096), align 8, !tbaa !303
@@ -4430,7 +4428,7 @@ define internal fastcc void @setCursorImage(ptr noundef readonly captures(none) 
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load i32, ptr %19, align 8, !tbaa !327
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !328
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137568), align 8, !tbaa !330
   %25 = tail call ptr %24(ptr noundef %23) #20
@@ -4879,7 +4877,7 @@ define internal void @dataOfferHandleOffer(ptr readnone captures(none) %0, ptr n
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !178
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %6
@@ -5621,7 +5619,7 @@ define internal void @keyboardHandleKey(ptr readnone captures(none) %0, ptr read
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %4 to i64
-  %13 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134168), i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !282
   %15 = sext i16 %14 to i32
   br label %translateKey.exit
@@ -5751,7 +5749,7 @@ define internal void @keyboardHandleModifiers(ptr readnone captures(none) %0, pt
   %.09 = phi i64 [ 0, %10 ], [ %45, %44 ]
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137296), align 8, !tbaa !383
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137152), align 8, !tbaa !309
-  %35 = getelementptr inbounds nuw %struct.anon.39, ptr %8, i64 %.09
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09
   %36 = load i32, ptr %35, align 8, !tbaa !381
   %37 = tail call i32 %33(ptr noundef %34, i32 noundef %36, i32 noundef 8) #20
   %38 = icmp eq i32 %37, 1
@@ -5919,7 +5917,7 @@ define internal void @surfaceHandleEnter(ptr noundef %0, ptr readnone captures(n
   %25 = phi ptr [ %.pre20, %._crit_edge ], [ %23, %18 ]
   %26 = phi i64 [ %13, %._crit_edge ], [ %.pre, %18 ]
   store i64 %.pre-phi, ptr %12, align 8, !tbaa !129
-  %27 = getelementptr inbounds nuw %struct._GLFWscaleWayland, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %29 = load i32, ptr %28, align 8, !tbaa !390
   store ptr %2, ptr %27, align 8, !tbaa !391
@@ -5959,13 +5957,13 @@ define internal void @surfaceHandleLeave(ptr noundef %0, ptr readnone captures(n
 
 12:                                               ; preds = %.lr.ph, %10
   %.019 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
-  %13 = getelementptr inbounds nuw %struct._GLFWscaleWayland, ptr %9, i64 %.019
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.019
   %14 = load ptr, ptr %13, align 8, !tbaa !392
   %15 = icmp eq ptr %14, %2
   br i1 %15, label %16, label %10
 
 16:                                               ; preds = %12
-  %17 = getelementptr %struct._GLFWscaleWayland, ptr %9, i64 %7
+  %17 = getelementptr [16 x i8], ptr %9, i64 %7
   %18 = getelementptr i8, ptr %17, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !393
   %19 = load i64, ptr %6, align 8, !tbaa !129

@@ -1391,7 +1391,7 @@ define hidden noundef ptr @tvb_ntp_fmt_ts_sec(ptr noundef %0, i32 noundef %1) lo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr ptr, ptr @mon_names, i64 %15
+  %16 = getelementptr [8 x i8], ptr @mon_names, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %19 = load i32, ptr %18, align 4
@@ -1808,7 +1808,7 @@ proto_item_set_generated.exit:                    ; preds = %53, %50, %47, %4, %
 
 141:                                              ; preds = %136, %140
   %indvars.iv212 = phi i64 [ 0, %136 ], [ %indvars.iv.next213, %140 ]
-  %142 = getelementptr %struct.anon.0, ptr @kod_messages, i64 %indvars.iv212
+  %142 = getelementptr [16 x i8], ptr @kod_messages, i64 %indvars.iv212
   %143 = load ptr, ptr %142, align 16
   %144 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 12, ptr noundef %143, i64 noundef 4)
   %145 = icmp eq i32 %144, 0
@@ -1833,7 +1833,7 @@ proto_item_set_generated.exit:                    ; preds = %53, %50, %47, %4, %
 
 155:                                              ; preds = %150, %154
   %indvars.iv = phi i64 [ 0, %150 ], [ %indvars.iv.next, %154 ]
-  %156 = getelementptr %struct.anon.1, ptr @primary_sources, i64 %indvars.iv
+  %156 = getelementptr [16 x i8], ptr @primary_sources, i64 %indvars.iv
   %157 = load ptr, ptr %156, align 16
   %158 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 12, ptr noundef %157, i64 noundef 4)
   %159 = icmp eq i32 %158, 0

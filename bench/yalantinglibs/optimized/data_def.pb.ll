@@ -2650,7 +2650,7 @@ for.body.preheader.i:                             ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %elements5.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %elements5.i, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %isnull.i.i = icmp eq ptr %3, null
   br i1 %isnull.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %delete.notnull.i.i
@@ -3087,7 +3087,7 @@ for.body.preheader.i.i:                           ; preds = %if.then.i.i1
 
 for.body.i.i:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %elements5.i.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements5.i.i, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %arrayidx.i.i, align 8
   %isnull.i.i.i = icmp eq ptr %14, null
   br i1 %isnull.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %delete.notnull.i.i.i
@@ -3306,7 +3306,7 @@ if.then.i.i:                                      ; preds = %entry
 do.body.i.i:                                      ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE5ClearEPS4_.exit.i.i, %if.then.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE5ClearEPS4_.exit.i.i ], [ 0, %if.then.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %elements8.i.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements8.i.i, i64 %indvars.iv.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %name_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3368,7 +3368,7 @@ if.then.i.i5:                                     ; preds = %_ZN6google8protobuf
 do.body.i.i9:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE5ClearEPS4_.exit.i.i, %if.then.i.i5
   %indvars.iv.i.i10 = phi i64 [ %indvars.iv.next.i.i11, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE5ClearEPS4_.exit.i.i ], [ 0, %if.then.i.i5 ]
   %indvars.iv.next.i.i11 = add nuw nsw i64 %indvars.iv.i.i10, 1
-  %arrayidx.i.i12 = getelementptr inbounds nuw ptr, ptr %elements8.i.i7, i64 %indvars.iv.i.i10
+  %arrayidx.i.i12 = getelementptr inbounds nuw [8 x i8], ptr %elements8.i.i7, i64 %indvars.iv.i.i10
   %12 = load ptr, ptr %arrayidx.i.i12, align 8
   %x_.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_.i.i.i.i, i8 0, i64 12, i1 false)
@@ -3995,7 +3995,7 @@ if.then.i.i.i91:                                  ; preds = %land.lhs.true.i.i.i
   %inc.i.i.i = add nsw i32 %52, 1
   store i32 %inc.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %52 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %54 = load ptr, ptr %arrayidx.i.i.i, align 8
   br label %_ZN6mygame7Monster21_internal_add_weaponsEv.exit
 
@@ -4025,7 +4025,7 @@ if.end12.i.i.i:                                   ; preds = %if.then10.i.i.i, %l
   %inc20.i.i.i = add nsw i32 %61, 1
   store i32 %inc20.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom21.i.i.i = sext i32 %61 to i64
-  %arrayidx22.i.i.i = getelementptr inbounds ptr, ptr %elements18.i.i.i, i64 %idxprom21.i.i.i
+  %arrayidx22.i.i.i = getelementptr inbounds [8 x i8], ptr %elements18.i.i.i, i64 %idxprom21.i.i.i
   store ptr %call.i.i.i.i.i, ptr %arrayidx22.i.i.i, align 8
   br label %_ZN6mygame7Monster21_internal_add_weaponsEv.exit
 
@@ -4727,7 +4727,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit151: ; preds = %
   %31 = load ptr, ptr %rep_.i.i.i, align 8
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %idxprom.i.i.i = sext i32 %i.0262 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %32 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 58, ptr %retval.0.i150, align 1
   %add.ptr.i.i153 = getelementptr inbounds nuw i8, ptr %retval.0.i150, i64 1
@@ -4885,7 +4885,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit224: ; preds = %
   %43 = load ptr, ptr %rep_.i.i.i225, align 8
   %elements.i.i.i226 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %idxprom.i.i.i227 = sext i32 %i55.0266 to i64
-  %arrayidx.i.i.i228 = getelementptr inbounds ptr, ptr %elements.i.i.i226, i64 %idxprom.i.i.i227
+  %arrayidx.i.i.i228 = getelementptr inbounds [8 x i8], ptr %elements.i.i.i226, i64 %idxprom.i.i.i227
   %44 = load ptr, ptr %arrayidx.i.i.i228, align 8
   store i8 74, ptr %retval.0.i223, align 1
   %add.ptr.i.i230 = getelementptr inbounds nuw i8, ptr %retval.0.i223, i64 1
@@ -6017,7 +6017,7 @@ for.body.preheader.i:                             ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %elements5.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %elements5.i, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %isnull.i.i = icmp eq ptr %3, null
   br i1 %isnull.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %delete.notnull.i.i
@@ -6204,7 +6204,7 @@ for.body.preheader.i.i:                           ; preds = %if.then.i.i1
 
 for.body.i.i:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %elements5.i.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements5.i.i, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %arrayidx.i.i, align 8
   %isnull.i.i.i = icmp eq ptr %12, null
   br i1 %isnull.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %delete.notnull.i.i.i
@@ -6288,7 +6288,7 @@ if.then.i.i:                                      ; preds = %entry
 do.body.i.i:                                      ; preds = %do.body.i.i, %if.then.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %do.body.i.i ], [ 0, %if.then.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %elements8.i.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements8.i.i, i64 %indvars.iv.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   tail call void @_ZN6mygame7Monster5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -6423,7 +6423,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %inc.i.i.i = add nsw i32 %11, 1
   store i32 %inc.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %11 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
   br label %_ZN6mygame8Monsters22_internal_add_monstersEv.exit
 
@@ -6453,7 +6453,7 @@ if.end12.i.i.i:                                   ; preds = %if.then10.i.i.i, %l
   %inc20.i.i.i = add nsw i32 %20, 1
   store i32 %inc20.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom21.i.i.i = sext i32 %20 to i64
-  %arrayidx22.i.i.i = getelementptr inbounds ptr, ptr %elements18.i.i.i, i64 %idxprom21.i.i.i
+  %arrayidx22.i.i.i = getelementptr inbounds [8 x i8], ptr %elements18.i.i.i, i64 %idxprom21.i.i.i
   store ptr %call.i.i.i.i.i, ptr %arrayidx22.i.i.i, align 8
   br label %_ZN6mygame8Monsters22_internal_add_monstersEv.exit
 
@@ -6629,7 +6629,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %for
   %2 = load ptr, ptr %rep_.i.i.i, align 8
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %i.016 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 10, ptr %retval.0.i, align 1
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 1
@@ -6880,7 +6880,7 @@ if.then.i.i.i:                                    ; preds = %if.end
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.then.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %do.body.i.i.i ], [ 0, %if.then.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
   tail call void @_ZN6mygame7Monster5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -6951,7 +6951,7 @@ if.then.i.i.i:                                    ; preds = %if.end
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.then.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %do.body.i.i.i ], [ 0, %if.then.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
   tail call void @_ZN6mygame7Monster5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -8743,7 +8743,7 @@ if.then.i.i:                                      ; preds = %entry
 do.body.i.i:                                      ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i, %if.then.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i ], [ 0, %if.then.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %elements8.i.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements8.i.i, i64 %indvars.iv.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %x_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i, i8 0, i64 16, i1 false)
@@ -9050,7 +9050,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %for
   %2 = load ptr, ptr %rep_.i.i.i, align 8
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %i.016 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 10, ptr %retval.0.i, align 1
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 1
@@ -9301,7 +9301,7 @@ if.then.i.i.i:                                    ; preds = %if.end
 do.body.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i.i, %if.then.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i.i ], [ 0, %if.then.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -9395,7 +9395,7 @@ if.then.i.i.i:                                    ; preds = %if.end
 do.body.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i.i, %if.then.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i.i ], [ 0, %if.then.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -10956,7 +10956,7 @@ for.body.preheader.i:                             ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %elements5.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %elements5.i, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %isnull.i.i = icmp eq ptr %3, null
   br i1 %isnull.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %delete.notnull.i.i
@@ -11143,7 +11143,7 @@ for.body.preheader.i.i:                           ; preds = %if.then.i.i1
 
 for.body.i.i:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %elements5.i.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements5.i.i, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %arrayidx.i.i, align 8
   %isnull.i.i.i = icmp eq ptr %12, null
   br i1 %isnull.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %delete.notnull.i.i.i
@@ -11227,7 +11227,7 @@ if.then.i.i:                                      ; preds = %entry
 do.body.i.i:                                      ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i, %if.then.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i ], [ 0, %if.then.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %elements8.i.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements8.i.i, i64 %indvars.iv.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %name_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11398,7 +11398,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %inc.i.i.i = add nsw i32 %11, 1
   store i32 %inc.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %11 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
   br label %_ZN6mygame7persons25_internal_add_person_listEv.exit
 
@@ -11428,7 +11428,7 @@ if.end12.i.i.i:                                   ; preds = %if.then10.i.i.i, %l
   %inc20.i.i.i = add nsw i32 %20, 1
   store i32 %inc20.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom21.i.i.i = sext i32 %20 to i64
-  %arrayidx22.i.i.i = getelementptr inbounds ptr, ptr %elements18.i.i.i, i64 %idxprom21.i.i.i
+  %arrayidx22.i.i.i = getelementptr inbounds [8 x i8], ptr %elements18.i.i.i, i64 %idxprom21.i.i.i
   store ptr %call.i.i.i.i.i, ptr %arrayidx22.i.i.i, align 8
   br label %_ZN6mygame7persons25_internal_add_person_listEv.exit
 
@@ -11604,7 +11604,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %for
   %2 = load ptr, ptr %rep_.i.i.i, align 8
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %i.016 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 10, ptr %retval.0.i, align 1
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 1
@@ -11963,7 +11963,7 @@ if.then.i.i.i:                                    ; preds = %if.end
 do.body.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i.i, %if.then.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i.i ], [ 0, %if.then.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
   %name_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12070,7 +12070,7 @@ if.then.i.i.i:                                    ; preds = %if.end
 do.body.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i.i, %if.then.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i.i ], [ 0, %if.then.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
   %name_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13556,7 +13556,7 @@ if.then:                                          ; preds = %land.lhs.true
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %current_size_, align 8
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %elements, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %elements, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -13615,7 +13615,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE16NewFromPrototy
   %inc20 = add nsw i32 %11, 1
   store i32 %inc20, ptr %current_size_19, align 8
   %idxprom21 = sext i32 %11 to i64
-  %arrayidx22 = getelementptr inbounds ptr, ptr %elements18, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds [8 x i8], ptr %elements18, i64 %idxprom21
   store ptr %call.i.sink8.i.i.i, ptr %arrayidx22, align 8
   br label %return
 
@@ -13649,7 +13649,7 @@ if.then:                                          ; preds = %land.lhs.true
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %current_size_, align 8
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %elements, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %elements, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -13708,7 +13708,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE16NewFromProto
   %inc20 = add nsw i32 %11, 1
   store i32 %inc20, ptr %current_size_19, align 8
   %idxprom21 = sext i32 %11 to i64
-  %arrayidx22 = getelementptr inbounds ptr, ptr %elements18, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds [8 x i8], ptr %elements18, i64 %idxprom21
   store ptr %call.i.sink8.i.i.i, ptr %arrayidx22, align 8
   br label %return
 
@@ -13785,7 +13785,7 @@ for.body.preheader:                               ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE6DeleteEPS4_PNS0_5ArenaE.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE6DeleteEPS4_PNS0_5ArenaE.exit ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %elements5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %elements5, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %isnull.i = icmp eq ptr %3, null
   br i1 %isnull.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE6DeleteEPS4_PNS0_5ArenaE.exit, label %delete.notnull.i
@@ -13895,9 +13895,9 @@ for.body.i.preheader:                             ; preds = %if.end
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv = phi i64 [ 0, %for.body.i.preheader ], [ %indvars.iv.next, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %elements.i, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %elements.i, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx4.i = getelementptr inbounds nuw ptr, ptr %call.i, i64 %indvars.iv
+  %arrayidx4.i = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx4.i, align 8
   tail call void @_ZN6mygame6Weapon9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -13915,11 +13915,11 @@ for.body8.i.preheader:                            ; preds = %for.end.i
 
 for.body8.i:                                      ; preds = %for.body8.i.preheader, %for.body8.i
   %indvars.iv8 = phi i64 [ %9, %for.body8.i.preheader ], [ %indvars.iv.next9, %for.body8.i ]
-  %arrayidx11.i = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv8
+  %arrayidx11.i = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %indvars.iv8
   %10 = load ptr, ptr %arrayidx11.i, align 8
   %call.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame6WeaponEJEEEPT_PS1_DpOT0_(ptr noundef %8)
   tail call void @_ZN6mygame6Weapon9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv8
+  %arrayidx15.i = getelementptr inbounds [8 x i8], ptr %call.i, i64 %indvars.iv8
   store ptr %call.i.i, ptr %arrayidx15.i, align 8
   %indvars.iv.next9 = add nsw i64 %indvars.iv8, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next9 to i32
@@ -13974,9 +13974,9 @@ for.body.i.preheader:                             ; preds = %if.end
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv = phi i64 [ 0, %for.body.i.preheader ], [ %indvars.iv.next, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %elements.i, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %elements.i, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx4.i = getelementptr inbounds nuw ptr, ptr %call.i, i64 %indvars.iv
+  %arrayidx4.i = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx4.i, align 8
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -13996,7 +13996,7 @@ for.body8.i.lr.ph:                                ; preds = %for.end.i
 
 for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, %for.body8.i.us
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %for.body8.i.us ], [ %9, %for.body8.i.lr.ph ]
-  %arrayidx11.i.us = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv13
+  %arrayidx11.i.us = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %indvars.iv13
   %10 = load ptr, ptr %arrayidx11.i.us, align 8
   %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.us, i64 8
@@ -14005,7 +14005,7 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
   %x_.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.us, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i.us, i8 0, i64 16, i1 false)
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv13
+  %arrayidx15.i.us = getelementptr inbounds [8 x i8], ptr %call.i, i64 %indvars.iv13
   store ptr %call.i.i.i.i.us, ptr %arrayidx15.i.us, align 8
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, 1
   %lftr.wideiv16 = trunc i64 %indvars.iv.next14 to i32
@@ -14014,7 +14014,7 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
 
 for.body8.i:                                      ; preds = %for.body8.i.lr.ph, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
   %indvars.iv9 = phi i64 [ %indvars.iv.next10, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ], [ %9, %for.body8.i.lr.ph ]
-  %arrayidx11.i = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv9
+  %arrayidx11.i = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %indvars.iv9
   %11 = load ptr, ptr %arrayidx11.i, align 8
   %12 = load ptr, ptr %hooks_cookie_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %12, null
@@ -14032,7 +14032,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %x_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call2.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %11)
-  %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv9
+  %arrayidx15.i = getelementptr inbounds [8 x i8], ptr %call.i, i64 %indvars.iv9
   store ptr %call2.i8.i.i.i, ptr %arrayidx15.i, align 8
   %indvars.iv.next10 = add nsw i64 %indvars.iv9, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next10 to i32
@@ -14085,9 +14085,9 @@ for.body.i.preheader:                             ; preds = %if.end
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv = phi i64 [ 0, %for.body.i.preheader ], [ %indvars.iv.next, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %elements.i, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %elements.i, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx4.i = getelementptr inbounds nuw ptr, ptr %call.i, i64 %indvars.iv
+  %arrayidx4.i = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx4.i, align 8
   tail call void @_ZN6mygame7Monster9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -14105,11 +14105,11 @@ for.body8.i.preheader:                            ; preds = %for.end.i
 
 for.body8.i:                                      ; preds = %for.body8.i.preheader, %for.body8.i
   %indvars.iv8 = phi i64 [ %9, %for.body8.i.preheader ], [ %indvars.iv.next9, %for.body8.i ]
-  %arrayidx11.i = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv8
+  %arrayidx11.i = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %indvars.iv8
   %10 = load ptr, ptr %arrayidx11.i, align 8
   %call.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame7MonsterEJEEEPT_PS1_DpOT0_(ptr noundef %8)
   tail call void @_ZN6mygame7Monster9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %call.i.i, ptr noundef nonnull align 8 dereferenceable(112) %10)
-  %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv8
+  %arrayidx15.i = getelementptr inbounds [8 x i8], ptr %call.i, i64 %indvars.iv8
   store ptr %call.i.i, ptr %arrayidx15.i, align 8
   %indvars.iv.next9 = add nsw i64 %indvars.iv8, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next9 to i32
@@ -14156,7 +14156,7 @@ for.body.preheader:                               ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE6DeleteEPS4_PNS0_5ArenaE.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE6DeleteEPS4_PNS0_5ArenaE.exit ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %elements5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %elements5, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %isnull.i = icmp eq ptr %3, null
   br i1 %isnull.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE6DeleteEPS4_PNS0_5ArenaE.exit, label %delete.notnull.i
@@ -14264,9 +14264,9 @@ for.body.i.preheader:                             ; preds = %if.end
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv = phi i64 [ 0, %for.body.i.preheader ], [ %indvars.iv.next, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %elements.i, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %elements.i, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx4.i = getelementptr inbounds nuw ptr, ptr %call.i, i64 %indvars.iv
+  %arrayidx4.i = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx4.i, align 8
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -14286,7 +14286,7 @@ for.body8.i.lr.ph:                                ; preds = %for.end.i
 
 for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, %for.body8.i.us
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %for.body8.i.us ], [ %9, %for.body8.i.lr.ph ]
-  %arrayidx11.i.us = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv13
+  %arrayidx11.i.us = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %indvars.iv13
   %10 = load ptr, ptr %arrayidx11.i.us, align 8
   %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.us, i64 8
@@ -14295,7 +14295,7 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
   %x_.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.us, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i.us, i8 0, i64 20, i1 false)
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv13
+  %arrayidx15.i.us = getelementptr inbounds [8 x i8], ptr %call.i, i64 %indvars.iv13
   store ptr %call.i.i.i.i.us, ptr %arrayidx15.i.us, align 8
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, 1
   %lftr.wideiv16 = trunc i64 %indvars.iv.next14 to i32
@@ -14304,7 +14304,7 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
 
 for.body8.i:                                      ; preds = %for.body8.i.lr.ph, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
   %indvars.iv9 = phi i64 [ %indvars.iv.next10, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ], [ %9, %for.body8.i.lr.ph ]
-  %arrayidx11.i = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv9
+  %arrayidx11.i = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %indvars.iv9
   %11 = load ptr, ptr %arrayidx11.i, align 8
   %12 = load ptr, ptr %hooks_cookie_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %12, null
@@ -14322,7 +14322,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %x_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %call2.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv9
+  %arrayidx15.i = getelementptr inbounds [8 x i8], ptr %call.i, i64 %indvars.iv9
   store ptr %call2.i8.i.i.i, ptr %arrayidx15.i, align 8
   %indvars.iv.next10 = add nsw i64 %indvars.iv9, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next10 to i32
@@ -14375,9 +14375,9 @@ for.body.i.preheader:                             ; preds = %if.end
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv = phi i64 [ 0, %for.body.i.preheader ], [ %indvars.iv.next, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %elements.i, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %elements.i, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx4.i = getelementptr inbounds nuw ptr, ptr %call.i, i64 %indvars.iv
+  %arrayidx4.i = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx4.i, align 8
   tail call void @_ZN6mygame6person9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -14395,11 +14395,11 @@ for.body8.i.preheader:                            ; preds = %for.end.i
 
 for.body8.i:                                      ; preds = %for.body8.i.preheader, %for.body8.i
   %indvars.iv8 = phi i64 [ %9, %for.body8.i.preheader ], [ %indvars.iv.next9, %for.body8.i ]
-  %arrayidx11.i = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv8
+  %arrayidx11.i = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %indvars.iv8
   %10 = load ptr, ptr %arrayidx11.i, align 8
   %call.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame6personEJEEEPT_PS1_DpOT0_(ptr noundef %8)
   tail call void @_ZN6mygame6person9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %call.i.i, ptr noundef nonnull align 8 dereferenceable(48) %10)
-  %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv8
+  %arrayidx15.i = getelementptr inbounds [8 x i8], ptr %call.i, i64 %indvars.iv8
   store ptr %call.i.i, ptr %arrayidx15.i, align 8
   %indvars.iv.next9 = add nsw i64 %indvars.iv8, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next9 to i32

@@ -330,7 +330,7 @@ openFile.exit.i:                                  ; preds = %53
 
 104:                                              ; preds = %._crit_edge.i
   %105 = sext i32 %102 to i64
-  %106 = getelementptr inbounds ptr, ptr %1, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %1, i64 %105
   store ptr %106, ptr @Files, align 8, !tbaa !16
   br label %107
 

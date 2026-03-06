@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.rb_data_type_struct = type { ptr, %struct.anon, ptr, ptr, i64 }
 %struct.anon = type { ptr, ptr, ptr, ptr, [1 x ptr] }
-%struct.EC_builtin_curve = type { i32, ptr }
 
 @mPKey = external local_unnamed_addr global i64, align 8
 @.str = private unnamed_addr constant [8 x i8] c"ECError\00", align 1
@@ -349,7 +348,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_long2int_inline.
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
-  %16 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %10, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %17 = load i32, ptr %16, align 16, !tbaa !11
   %18 = call ptr @OBJ_nid2sn(i32 noundef %17) #8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -443,7 +442,7 @@ define internal noundef i64 @ossl_ec_key_initialize(i32 noundef %0, ptr noundef 
 
 12:                                               ; preds = %.preheader
   %13 = sext i32 %.185.i33 to i64
-  %14 = getelementptr inbounds i64, ptr %1, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !6
   store i64 %15, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %16 = add nsw i32 %.185.i33, 1
@@ -980,7 +979,7 @@ define internal noundef i64 @ossl_ec_group_initialize(i32 noundef %0, ptr nounde
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %31 ]
   %.185.i45 = phi i32 [ 1, %.preheader ], [ %.286.i, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = icmp slt i32 %.185.i45, %0
   %.not108.i = icmp eq ptr %20, null
@@ -991,7 +990,7 @@ define internal noundef i64 @ossl_ec_group_initialize(i32 noundef %0, ptr nounde
 
 23:                                               ; preds = %22
   %24 = sext i32 %.185.i45 to i64
-  %25 = getelementptr inbounds i64, ptr %1, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %1, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !6
   store i64 %26, ptr %20, align 8, !tbaa !6
   br label %27
@@ -2347,7 +2346,7 @@ define internal noundef i64 @ossl_ec_point_mul(i32 noundef %0, ptr noundef reado
   %34 = phi i1 [ true, %.preheader ], [ false, %47 ]
   %.185.i24 = phi i32 [ 1, %.preheader ], [ %.286.i, %47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !24
   %37 = icmp slt i32 %.185.i24, %0
   %.not108.i = icmp eq ptr %36, null
@@ -2358,7 +2357,7 @@ define internal noundef i64 @ossl_ec_point_mul(i32 noundef %0, ptr noundef reado
 
 39:                                               ; preds = %38
   %40 = sext i32 %.185.i24 to i64
-  %41 = getelementptr inbounds i64, ptr %1, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %1, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !6
   store i64 %42, ptr %36, align 8, !tbaa !6
   br label %43

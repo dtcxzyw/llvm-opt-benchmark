@@ -133,7 +133,7 @@ define void @_ZN6LibRaw10nikon_3700Ev(ptr noundef nonnull align 8 dereferenceabl
 
 26:                                               ; preds = %1, %37
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %37 ]
-  %27 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw10nikon_3700EvE5table, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [36 x i8], ptr @_ZZN6LibRaw10nikon_3700EvE5table, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !76
   %29 = icmp eq i32 %28, %22
   br i1 %29, label %30, label %37
@@ -1326,7 +1326,7 @@ define void @_ZN6LibRaw12parse_rolleiEv(ptr noundef nonnull align 8 dereferencea
 
 switch.lookup:                                    ; preds = %89
   %93 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6LibRaw12parse_rolleiEv, i64 %93
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6LibRaw12parse_rolleiEv, i64 %93
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %25, align 8, !tbaa !90
   br label %94
@@ -1599,7 +1599,7 @@ _ZN6LibRaw13get_timestampEi.exit:                 ; preds = %.loopexit.i, %24, %
 
 42:                                               ; preds = %_ZN6LibRaw13get_timestampEi.exit
   %43 = zext nneg i32 %40 to i64
-  %44 = getelementptr i16, ptr @_ZZN6LibRaw13parse_kyoceraEvE5table, i64 %43
+  %44 = getelementptr [2 x i8], ptr @_ZZN6LibRaw13parse_kyoceraEvE5table, i64 %43
   %45 = getelementptr i8, ptr %44, i64 -14
   %46 = load i16, ptr %45, align 2, !tbaa !120
   %47 = uitofp i16 %46 to float
@@ -1627,7 +1627,7 @@ _ZN6LibRaw13get_timestampEi.exit:                 ; preds = %.loopexit.i, %24, %
   %60 = lshr i32 %.013, 1
   %61 = xor i32 %60, %.013
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw float, ptr %56, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %62
   store float %59, ptr %63, align 4, !tbaa !91
   %64 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %64, 4
@@ -1860,7 +1860,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw10nikon_e995Ev(ptr noundef nonnull
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(8) %10)
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %2, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %2, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !128
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %16, align 4, !tbaa !128
@@ -1878,7 +1878,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw10nikon_e995Ev(ptr noundef nonnull
   %21 = getelementptr inbounds nuw i8, ptr @__const._ZN6LibRaw10nikon_e995Ev.often, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !75
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !128
   %26 = icmp slt i32 %25, 200
   br i1 %26, label %27, label %20

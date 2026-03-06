@@ -26,12 +26,12 @@ define void @ff_acelp_interpolate(ptr noundef writeonly captures(none) %0, ptr n
   %13 = sext i32 %4 to i64
   %wide.trip.count44 = zext nneg i32 %6 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  %invariant.gep47 = getelementptr i16, ptr %2, i64 %13
+  %invariant.gep47 = getelementptr [2 x i8], ptr %2, i64 %13
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %15
   %indvars.iv41 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next42, %15 ]
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv41
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv41
   br label %17
 
 14:                                               ; preds = %._crit_edge.us
@@ -39,7 +39,7 @@ define void @ff_acelp_interpolate(ptr noundef writeonly captures(none) %0, ptr n
   br label %15
 
 15:                                               ; preds = %14, %._crit_edge.us
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv41
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv41
   store i16 %35, ptr %16, align 2, !tbaa !4
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
@@ -49,10 +49,10 @@ define void @ff_acelp_interpolate(ptr noundef writeonly captures(none) %0, ptr n
   %indvars.iv36 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next37, %17 ]
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %17 ]
   %.031.us = phi i32 [ 16384, %.preheader.us ], [ %33, %17 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv36
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv36
   %18 = load i16, ptr %gep, align 2, !tbaa !4
   %19 = sext i16 %18 to i32
-  %gep48 = getelementptr i16, ptr %invariant.gep47, i64 %indvars.iv
+  %gep48 = getelementptr [2 x i8], ptr %invariant.gep47, i64 %indvars.iv
   %20 = load i16, ptr %gep48, align 2, !tbaa !4
   %21 = sext i16 %20 to i32
   %22 = mul nsw i32 %21, %19
@@ -60,11 +60,11 @@ define void @ff_acelp_interpolate(ptr noundef writeonly captures(none) %0, ptr n
   %indvars.iv.next = add nsw i64 %indvars.iv, %12
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %24 = sub nsw i64 %indvars.iv41, %indvars.iv.next37
-  %25 = getelementptr inbounds i16, ptr %1, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %1, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !4
   %27 = sext i16 %26 to i32
   %28 = sub nsw i64 %indvars.iv.next, %13
-  %29 = getelementptr inbounds i16, ptr %2, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %2, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !4
   %31 = sext i16 %30 to i32
   %32 = mul nsw i32 %31, %27
@@ -105,37 +105,37 @@ define void @ff_acelp_interpolatef(ptr noundef writeonly captures(none) %0, ptr 
   %13 = sext i32 %4 to i64
   %wide.trip.count42 = zext nneg i32 %6 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  %invariant.gep45 = getelementptr float, ptr %2, i64 %13
+  %invariant.gep45 = getelementptr [4 x i8], ptr %2, i64 %13
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv39 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next40, %._crit_edge.us ]
-  %invariant.gep = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv39
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv39
   br label %14
 
 14:                                               ; preds = %.preheader.us, %14
   %indvars.iv34 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next35, %14 ]
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %14 ]
   %.029.us = phi float [ 0.000000e+00, %.preheader.us ], [ %24, %14 ]
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv34
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv34
   %15 = load float, ptr %gep, align 4, !tbaa !11
-  %gep46 = getelementptr float, ptr %invariant.gep45, i64 %indvars.iv
+  %gep46 = getelementptr [4 x i8], ptr %invariant.gep45, i64 %indvars.iv
   %16 = load float, ptr %gep46, align 4, !tbaa !11
   %17 = tail call nsz float @llvm.fmuladd.f32(float %15, float %16, float %.029.us)
   %indvars.iv.next = add nsw i64 %indvars.iv, %12
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %18 = sub nsw i64 %indvars.iv39, %indvars.iv.next35
-  %19 = getelementptr inbounds float, ptr %1, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %1, i64 %18
   %20 = load float, ptr %19, align 4, !tbaa !11
   %21 = sub nsw i64 %indvars.iv.next, %13
-  %22 = getelementptr inbounds float, ptr %2, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %2, i64 %21
   %23 = load float, ptr %22, align 4, !tbaa !11
   %24 = tail call nsz float @llvm.fmuladd.f32(float %20, float %23, float %17)
   %exitcond.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !13
 
 ._crit_edge.us:                                   ; preds = %14
-  %25 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv39
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv39
   store float %24, ptr %25, align 4, !tbaa !11
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
@@ -172,7 +172,7 @@ define void @ff_acelp_high_pass_filter(ptr noundef writeonly captures(none) %0, 
   %15 = lshr i64 %14, 32
   %16 = add nuw nsw i64 %13, %15
   %17 = trunc i64 %16 to i32
-  %18 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2, !tbaa !4
   %20 = sext i16 %19 to i32
   %21 = getelementptr i8, ptr %18, i64 -2
@@ -191,7 +191,7 @@ define void @ff_acelp_high_pass_filter(ptr noundef writeonly captures(none) %0, 
   %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 -32768)
   %35 = tail call i32 @llvm.smin.i32(i32 %34, i32 32767)
   %.0.i = trunc nsw i32 %35 to i16
-  %36 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %.0.i, ptr %36, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -224,7 +224,7 @@ define void @ff_acelp_apply_order_2_transfer_function(ptr noundef writeonly capt
   %13 = phi float [ %.pre22, %.lr.ph ], [ %29, %12 ]
   %14 = phi float [ %.pre, %.lr.ph ], [ %23, %12 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %15 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !11
   %17 = load float, ptr %3, align 4, !tbaa !11
   %18 = fneg nsz float %14
@@ -237,7 +237,7 @@ define void @ff_acelp_apply_order_2_transfer_function(ptr noundef writeonly capt
   %25 = tail call nsz float @llvm.fmuladd.f32(float %24, float %14, float %23)
   %26 = load float, ptr %11, align 4, !tbaa !11
   %27 = tail call nsz float @llvm.fmuladd.f32(float %26, float %13, float %25)
-  %28 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store float %27, ptr %28, align 4, !tbaa !11
   %29 = load float, ptr %5, align 4, !tbaa !11
   store float %29, ptr %10, align 4, !tbaa !11
@@ -254,7 +254,7 @@ define void @ff_acelp_apply_order_2_transfer_function(ptr noundef writeonly capt
 define void @ff_tilt_compensation(ptr noundef captures(none) %0, float noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = add nsw i32 %3, -1
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %2, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %6
   %8 = load float, ptr %7, align 4, !tbaa !11
   %9 = icmp sgt i32 %3, 1
   %10 = fneg nsz float %1
@@ -266,7 +266,7 @@ define void @ff_tilt_compensation(ptr noundef captures(none) %0, float noundef %
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr float, ptr %2, i64 %indvars.iv
+  %13 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv
   %14 = getelementptr i8, ptr %13, i64 -4
   %15 = load float, ptr %14, align 4, !tbaa !11
   %16 = load float, ptr %13, align 4, !tbaa !11

@@ -3,7 +3,6 @@ source_filename = "bench/sdl/original/SDL_waylandvulkan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.VkExtensionProperties = type { [256 x i8], i32 }
 %struct.VkWaylandSurfaceCreateInfoKHR = type { i32, ptr, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [22 x i8] c"Vulkan already loaded\00", align 1
@@ -84,7 +83,7 @@ define hidden zeroext i1 @Wayland_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.preheader ]
   %.045 = phi i1 [ %.1, %31 ], [ false, %.preheader ]
   %.02844 = phi i1 [ %.129, %31 ], [ false, %.preheader ]
-  %25 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [260 x i8], ptr %23, i64 %indvars.iv
   %26 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.5, ptr noundef nonnull %25) #5
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %31, label %28

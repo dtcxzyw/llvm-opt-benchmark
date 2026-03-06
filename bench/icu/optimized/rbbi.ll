@@ -1338,7 +1338,7 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator4nextEv(ptr noundef nonnul
   store i32 %12, ptr %4, align 4, !tbaa !75
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !80
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !81
@@ -1347,7 +1347,7 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator4nextEv(ptr noundef nonnul
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %16, ptr %20, align 8, !tbaa !82
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 544
-  %22 = getelementptr inbounds nuw i16, ptr %21, i64 %14
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %14
   %23 = load i16, ptr %22, align 2, !tbaa !83
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 192
@@ -1591,7 +1591,7 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextEv(ptr noundef
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load ptr, ptr %38, align 8, !tbaa !91
-  %40 = getelementptr inbounds nuw i16, ptr %39, i64 %29
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %29
   %41 = load i16, ptr %40, align 2, !tbaa !92
   %42 = icmp ult i16 %41, -9216
   br i1 %42, label %43, label %46
@@ -1620,7 +1620,7 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextEv(ptr noundef
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %55 = load ptr, ptr %54, align 8, !tbaa !91
   %56 = sext i32 %48 to i64
-  %57 = getelementptr inbounds i16, ptr %55, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %55, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !92
   %59 = icmp ult i16 %58, -10240
   br i1 %59, label %.thread.i, label %62
@@ -1694,7 +1694,7 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextEv(ptr noundef
 
 94:                                               ; preds = %88
   %95 = load ptr, ptr %91, align 8, !tbaa !96
-  %96 = getelementptr inbounds nuw i16, ptr %95, i64 %80
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %95, i64 %80
   %97 = load i16, ptr %96, align 2, !tbaa !83
   %98 = zext i16 %97 to i32
   %99 = add nuw nsw i32 %81, %98
@@ -1797,7 +1797,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %110, %108, %104, %9
 155:                                              ; preds = %.thread90.i
   %156 = load ptr, ptr %74, align 8, !tbaa !42
   %157 = zext i8 %134 to i64
-  %158 = getelementptr inbounds nuw i32, ptr %156, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !80
   %160 = icmp slt i32 %159, 0
   br i1 %160, label %.thread94.i, label %.thread96.i
@@ -1841,7 +1841,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %110, %108, %104, %9
   %181 = trunc i64 %180 to i32
   %182 = load ptr, ptr %74, align 8, !tbaa !42
   %183 = zext i8 %165 to i64
-  %184 = getelementptr inbounds nuw i32, ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %183
   store i32 %181, ptr %184, align 4, !tbaa !80
   br label %185
 
@@ -1861,7 +1861,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %110, %108, %104, %9
 192:                                              ; preds = %188
   %193 = load ptr, ptr %75, align 8, !tbaa !91
   %194 = sext i32 %189 to i64
-  %195 = getelementptr inbounds i16, ptr %193, i64 %194
+  %195 = getelementptr inbounds [2 x i8], ptr %193, i64 %194
   %196 = load i16, ptr %195, align 2, !tbaa !92
   %197 = icmp ult i16 %196, -10240
   br i1 %197, label %198, label %201
@@ -1908,7 +1908,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %110, %108, %104, %9
 211:                                              ; preds = %210
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %213 = load ptr, ptr %212, align 8, !tbaa !91
-  %214 = getelementptr inbounds nuw i16, ptr %213, i64 %29
+  %214 = getelementptr inbounds nuw [2 x i8], ptr %213, i64 %29
   %215 = load i16, ptr %214, align 2, !tbaa !92
   %216 = icmp ult i16 %215, -9216
   br i1 %216, label %217, label %220
@@ -1937,7 +1937,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %110, %108, %104, %9
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %229 = load ptr, ptr %228, align 8, !tbaa !91
   %230 = sext i32 %222 to i64
-  %231 = getelementptr inbounds i16, ptr %229, i64 %230
+  %231 = getelementptr inbounds [2 x i8], ptr %229, i64 %230
   %232 = load i16, ptr %231, align 2, !tbaa !92
   %233 = icmp ult i16 %232, -10240
   br i1 %233, label %.thread.i32, label %236
@@ -2011,7 +2011,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %110, %108, %104, %9
 
 268:                                              ; preds = %262
   %269 = load ptr, ptr %265, align 8, !tbaa !96
-  %270 = getelementptr inbounds nuw i16, ptr %269, i64 %254
+  %270 = getelementptr inbounds nuw [2 x i8], ptr %269, i64 %254
   %271 = load i16, ptr %270, align 2, !tbaa !83
   %272 = zext i16 %271 to i32
   %273 = add nuw nsw i32 %255, %272
@@ -2045,7 +2045,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %110, %108, %104, %9
 _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i:       ; preds = %284, %282, %278, %268
   %288 = phi i32 [ %273, %268 ], [ %287, %284 ], [ %281, %278 ], [ %283, %282 ]
   %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds i16, ptr %267, i64 %289
+  %290 = getelementptr inbounds [2 x i8], ptr %267, i64 %289
   %291 = load i16, ptr %290, align 2, !tbaa !83
   %292 = zext i16 %291 to i32
   %293 = icmp ule i32 %20, %292
@@ -2113,7 +2113,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i:       ; preds = %284, %282, %278, %2
 328:                                              ; preds = %.thread90.i14
   %329 = load ptr, ptr %248, align 8, !tbaa !42
   %330 = zext i8 %307 to i64
-  %331 = getelementptr inbounds nuw i32, ptr %329, i64 %330
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %329, i64 %330
   %332 = load i32, ptr %331, align 4, !tbaa !80
   %333 = icmp slt i32 %332, 0
   br i1 %333, label %.thread94.i17, label %.thread96.i30
@@ -2157,7 +2157,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i:       ; preds = %284, %282, %278, %2
   %354 = trunc i64 %353 to i32
   %355 = load ptr, ptr %248, align 8, !tbaa !42
   %356 = zext i8 %338 to i64
-  %357 = getelementptr inbounds nuw i32, ptr %355, i64 %356
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %356
   store i32 %354, ptr %357, align 4, !tbaa !80
   br label %358
 
@@ -2177,7 +2177,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i:       ; preds = %284, %282, %278, %2
 365:                                              ; preds = %361
   %366 = load ptr, ptr %249, align 8, !tbaa !91
   %367 = sext i32 %362 to i64
-  %368 = getelementptr inbounds i16, ptr %366, i64 %367
+  %368 = getelementptr inbounds [2 x i8], ptr %366, i64 %367
   %369 = load i16, ptr %368, align 2, !tbaa !92
   %370 = icmp ult i16 %369, -10240
   br i1 %370, label %371, label %374
@@ -2227,7 +2227,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i:       ; preds = %284, %282, %278, %2
 385:                                              ; preds = %384
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %387 = load ptr, ptr %386, align 8, !tbaa !91
-  %388 = getelementptr inbounds nuw i16, ptr %387, i64 %29
+  %388 = getelementptr inbounds nuw [2 x i8], ptr %387, i64 %29
   %389 = load i16, ptr %388, align 2, !tbaa !92
   %390 = icmp ult i16 %389, -9216
   br i1 %390, label %391, label %394
@@ -2256,7 +2256,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i:       ; preds = %284, %282, %278, %2
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %403 = load ptr, ptr %402, align 8, !tbaa !91
   %404 = sext i32 %396 to i64
-  %405 = getelementptr inbounds i16, ptr %403, i64 %404
+  %405 = getelementptr inbounds [2 x i8], ptr %403, i64 %404
   %406 = load i16, ptr %405, align 2, !tbaa !92
   %407 = icmp ult i16 %406, -10240
   br i1 %407, label %.thread.i62, label %410
@@ -2330,7 +2330,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i:       ; preds = %284, %282, %278, %2
 
 442:                                              ; preds = %436
   %443 = load ptr, ptr %439, align 8, !tbaa !96
-  %444 = getelementptr inbounds nuw i16, ptr %443, i64 %428
+  %444 = getelementptr inbounds nuw [2 x i8], ptr %443, i64 %428
   %445 = load i16, ptr %444, align 2, !tbaa !83
   %446 = zext i16 %445 to i32
   %447 = add nuw nsw i32 %429, %446
@@ -2382,7 +2382,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i60:       ; preds = %458, %456, %452, %4
   %473 = getelementptr inbounds nuw i8, ptr %16, i64 %431
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 6
   %475 = zext nneg i16 %.354.i45 to i64
-  %476 = getelementptr inbounds nuw i16, ptr %474, i64 %475
+  %476 = getelementptr inbounds nuw [2 x i8], ptr %474, i64 %475
   %477 = load i16, ptr %476, align 2, !tbaa !83
   %478 = zext i16 %477 to i32
   %479 = mul i32 %18, %478
@@ -2433,7 +2433,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i60:       ; preds = %458, %456, %452, %4
 503:                                              ; preds = %.thread90.i43
   %504 = load ptr, ptr %422, align 8, !tbaa !42
   %505 = zext i16 %482 to i64
-  %506 = getelementptr inbounds nuw i32, ptr %504, i64 %505
+  %506 = getelementptr inbounds nuw [4 x i8], ptr %504, i64 %505
   %507 = load i32, ptr %506, align 4, !tbaa !80
   %508 = icmp slt i32 %507, 0
   br i1 %508, label %.thread94.i46, label %.thread96.i59
@@ -2477,7 +2477,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i60:       ; preds = %458, %456, %452, %4
   %529 = trunc i64 %528 to i32
   %530 = load ptr, ptr %422, align 8, !tbaa !42
   %531 = zext i16 %513 to i64
-  %532 = getelementptr inbounds nuw i32, ptr %530, i64 %531
+  %532 = getelementptr inbounds nuw [4 x i8], ptr %530, i64 %531
   store i32 %529, ptr %532, align 4, !tbaa !80
   br label %533
 
@@ -2497,7 +2497,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i60:       ; preds = %458, %456, %452, %4
 540:                                              ; preds = %536
   %541 = load ptr, ptr %423, align 8, !tbaa !91
   %542 = sext i32 %537 to i64
-  %543 = getelementptr inbounds i16, ptr %541, i64 %542
+  %543 = getelementptr inbounds [2 x i8], ptr %541, i64 %542
   %544 = load i16, ptr %543, align 2, !tbaa !92
   %545 = icmp ult i16 %544, -10240
   br i1 %545, label %546, label %549
@@ -2544,7 +2544,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i60:       ; preds = %458, %456, %452, %4
 559:                                              ; preds = %558
   %560 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %561 = load ptr, ptr %560, align 8, !tbaa !91
-  %562 = getelementptr inbounds nuw i16, ptr %561, i64 %29
+  %562 = getelementptr inbounds nuw [2 x i8], ptr %561, i64 %29
   %563 = load i16, ptr %562, align 2, !tbaa !92
   %564 = icmp ult i16 %563, -9216
   br i1 %564, label %565, label %568
@@ -2573,7 +2573,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i60:       ; preds = %458, %456, %452, %4
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %577 = load ptr, ptr %576, align 8, !tbaa !91
   %578 = sext i32 %570 to i64
-  %579 = getelementptr inbounds i16, ptr %577, i64 %578
+  %579 = getelementptr inbounds [2 x i8], ptr %577, i64 %578
   %580 = load i16, ptr %579, align 2, !tbaa !92
   %581 = icmp ult i16 %580, -10240
   br i1 %581, label %.thread.i92, label %584
@@ -2647,7 +2647,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i60:       ; preds = %458, %456, %452, %4
 
 616:                                              ; preds = %610
   %617 = load ptr, ptr %613, align 8, !tbaa !96
-  %618 = getelementptr inbounds nuw i16, ptr %617, i64 %602
+  %618 = getelementptr inbounds nuw [2 x i8], ptr %617, i64 %602
   %619 = load i16, ptr %618, align 2, !tbaa !83
   %620 = zext i16 %619 to i32
   %621 = add nuw nsw i32 %603, %620
@@ -2681,7 +2681,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i60:       ; preds = %458, %456, %452, %4
 _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i90:     ; preds = %632, %630, %626, %616
   %636 = phi i32 [ %621, %616 ], [ %635, %632 ], [ %629, %626 ], [ %631, %630 ]
   %637 = sext i32 %636 to i64
-  %638 = getelementptr inbounds i16, ptr %615, i64 %637
+  %638 = getelementptr inbounds [2 x i8], ptr %615, i64 %637
   %639 = load i16, ptr %638, align 2, !tbaa !83
   %640 = zext i16 %639 to i32
   %641 = icmp ule i32 %20, %640
@@ -2698,7 +2698,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i90:     ; preds = %632, %630, %626, %6
   %646 = getelementptr inbounds nuw i8, ptr %16, i64 %605
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 6
   %648 = zext i16 %.354.i75 to i64
-  %649 = getelementptr inbounds nuw i16, ptr %647, i64 %648
+  %649 = getelementptr inbounds nuw [2 x i8], ptr %647, i64 %648
   %650 = load i16, ptr %649, align 2, !tbaa !83
   %651 = zext i16 %650 to i32
   %652 = mul i32 %18, %651
@@ -2749,7 +2749,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i90:     ; preds = %632, %630, %626, %6
 676:                                              ; preds = %.thread90.i73
   %677 = load ptr, ptr %596, align 8, !tbaa !42
   %678 = zext i16 %655 to i64
-  %679 = getelementptr inbounds nuw i32, ptr %677, i64 %678
+  %679 = getelementptr inbounds nuw [4 x i8], ptr %677, i64 %678
   %680 = load i32, ptr %679, align 4, !tbaa !80
   %681 = icmp slt i32 %680, 0
   br i1 %681, label %.thread94.i76, label %.thread96.i89
@@ -2793,7 +2793,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i90:     ; preds = %632, %630, %626, %6
   %702 = trunc i64 %701 to i32
   %703 = load ptr, ptr %596, align 8, !tbaa !42
   %704 = zext i16 %686 to i64
-  %705 = getelementptr inbounds nuw i32, ptr %703, i64 %704
+  %705 = getelementptr inbounds nuw [4 x i8], ptr %703, i64 %704
   store i32 %702, ptr %705, align 4, !tbaa !80
   br label %706
 
@@ -2813,7 +2813,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i90:     ; preds = %632, %630, %626, %6
 713:                                              ; preds = %709
   %714 = load ptr, ptr %597, align 8, !tbaa !91
   %715 = sext i32 %710 to i64
-  %716 = getelementptr inbounds i16, ptr %714, i64 %715
+  %716 = getelementptr inbounds [2 x i8], ptr %714, i64 %715
   %717 = load i16, ptr %716, align 2, !tbaa !92
   %718 = icmp ult i16 %717, -10240
   br i1 %718, label %719, label %722
@@ -2900,7 +2900,7 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousEi(ptr
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8, !tbaa !91
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %21
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %21
   %33 = load i16, ptr %32, align 2, !tbaa !92
   %34 = icmp ult i16 %33, -9216
   br i1 %34, label %.thread.i, label %37
@@ -2958,7 +2958,7 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousEi(ptr
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %61 = load ptr, ptr %60, align 8, !tbaa !91
   %62 = zext nneg i32 %57 to i64
-  %63 = getelementptr i16, ptr %61, i64 %62
+  %63 = getelementptr [2 x i8], ptr %61, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -2
   %65 = load i16, ptr %64, align 2, !tbaa !92
   %66 = icmp ult i16 %65, -10240
@@ -2968,7 +2968,7 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousEi(ptr
   %67 = add nsw i32 %57, -1
   store i32 %67, ptr %42, align 8, !tbaa !94
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i16, ptr %61, i64 %68
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %68
   %70 = load i16, ptr %69, align 2, !tbaa !92
   %71 = zext i16 %70 to i32
   br label %.lr.ph.i
@@ -3002,7 +3002,7 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousEi(ptr
   %86 = load ptr, ptr %81, align 8, !tbaa !96
   %87 = lshr i32 %.01933.i, 6
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !83
   %91 = zext i16 %90 to i32
   %92 = and i32 %.01933.i, 63
@@ -3058,7 +3058,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %105, %103, %99, %85
 124:                                              ; preds = %121
   %125 = load ptr, ptr %77, align 8, !tbaa !91
   %126 = zext nneg i32 %122 to i64
-  %127 = getelementptr i16, ptr %125, i64 %126
+  %127 = getelementptr [2 x i8], ptr %125, i64 %126
   %128 = getelementptr i8, ptr %127, i64 -2
   %129 = load i16, ptr %128, align 2, !tbaa !92
   %130 = icmp ult i16 %129, -10240
@@ -3068,7 +3068,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %105, %103, %99, %85
   %132 = add nsw i32 %122, -1
   store i32 %132, ptr %42, align 8, !tbaa !94
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw i16, ptr %125, i64 %133
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %125, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !92
   %136 = zext i16 %135 to i32
   br label %139
@@ -3113,7 +3113,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i: ; preds = %139, %_ZN6icu_77
 157:                                              ; preds = %156
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %159 = load ptr, ptr %158, align 8, !tbaa !91
-  %160 = getelementptr inbounds nuw i16, ptr %159, i64 %21
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %159, i64 %21
   %161 = load i16, ptr %160, align 2, !tbaa !92
   %162 = icmp ult i16 %161, -9216
   br i1 %162, label %.thread.i22, label %165
@@ -3171,7 +3171,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i: ; preds = %139, %_ZN6icu_77
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %189 = load ptr, ptr %188, align 8, !tbaa !91
   %190 = zext nneg i32 %185 to i64
-  %191 = getelementptr i16, ptr %189, i64 %190
+  %191 = getelementptr [2 x i8], ptr %189, i64 %190
   %192 = getelementptr i8, ptr %191, i64 -2
   %193 = load i16, ptr %192, align 2, !tbaa !92
   %194 = icmp ult i16 %193, -10240
@@ -3181,7 +3181,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i: ; preds = %139, %_ZN6icu_77
   %195 = add nsw i32 %185, -1
   store i32 %195, ptr %170, align 8, !tbaa !94
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw i16, ptr %189, i64 %196
+  %197 = getelementptr inbounds nuw [2 x i8], ptr %189, i64 %196
   %198 = load i16, ptr %197, align 2, !tbaa !92
   %199 = zext i16 %198 to i32
   br label %.lr.ph.i12
@@ -3215,7 +3215,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i: ; preds = %139, %_ZN6icu_77
   %214 = load ptr, ptr %209, align 8, !tbaa !96
   %215 = lshr i32 %.01933.i13, 6
   %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr inbounds nuw i16, ptr %214, i64 %216
+  %217 = getelementptr inbounds nuw [2 x i8], ptr %214, i64 %216
   %218 = load i16, ptr %217, align 2, !tbaa !83
   %219 = zext i16 %218 to i32
   %220 = and i32 %.01933.i13, 63
@@ -3251,7 +3251,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i: ; preds = %139, %_ZN6icu_77
 _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i:       ; preds = %233, %231, %227, %213
   %237 = phi i32 [ %221, %213 ], [ %236, %233 ], [ %230, %227 ], [ %232, %231 ]
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds i16, ptr %211, i64 %238
+  %239 = getelementptr inbounds [2 x i8], ptr %211, i64 %238
   %240 = load i16, ptr %239, align 2, !tbaa !83
   %241 = getelementptr inbounds nuw i8, ptr %.020.i16, i64 23
   %242 = zext i16 %240 to i64
@@ -3271,7 +3271,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i:       ; preds = %233, %231, %227, %2
 252:                                              ; preds = %249
   %253 = load ptr, ptr %205, align 8, !tbaa !91
   %254 = zext nneg i32 %250 to i64
-  %255 = getelementptr i16, ptr %253, i64 %254
+  %255 = getelementptr [2 x i8], ptr %253, i64 %254
   %256 = getelementptr i8, ptr %255, i64 -2
   %257 = load i16, ptr %256, align 2, !tbaa !92
   %258 = icmp ult i16 %257, -10240
@@ -3281,7 +3281,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i:       ; preds = %233, %231, %227, %2
   %260 = add nsw i32 %250, -1
   store i32 %260, ptr %170, align 8, !tbaa !94
   %261 = zext nneg i32 %260 to i64
-  %262 = getelementptr inbounds nuw i16, ptr %253, i64 %261
+  %262 = getelementptr inbounds nuw [2 x i8], ptr %253, i64 %261
   %263 = load i16, ptr %262, align 2, !tbaa !92
   %264 = zext i16 %263 to i32
   br label %267
@@ -3329,7 +3329,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit._crit_edge.i: ; preds = %267, %_ZN6icu_
 286:                                              ; preds = %285
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %288 = load ptr, ptr %287, align 8, !tbaa !91
-  %289 = getelementptr inbounds nuw i16, ptr %288, i64 %21
+  %289 = getelementptr inbounds nuw [2 x i8], ptr %288, i64 %21
   %290 = load i16, ptr %289, align 2, !tbaa !92
   %291 = icmp ult i16 %290, -9216
   br i1 %291, label %.thread.i39, label %294
@@ -3387,7 +3387,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit._crit_edge.i: ; preds = %267, %_ZN6icu_
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %318 = load ptr, ptr %317, align 8, !tbaa !91
   %319 = zext nneg i32 %314 to i64
-  %320 = getelementptr i16, ptr %318, i64 %319
+  %320 = getelementptr [2 x i8], ptr %318, i64 %319
   %321 = getelementptr i8, ptr %320, i64 -2
   %322 = load i16, ptr %321, align 2, !tbaa !92
   %323 = icmp ult i16 %322, -10240
@@ -3397,7 +3397,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit._crit_edge.i: ; preds = %267, %_ZN6icu_
   %324 = add nsw i32 %314, -1
   store i32 %324, ptr %299, align 8, !tbaa !94
   %325 = zext nneg i32 %324 to i64
-  %326 = getelementptr inbounds nuw i16, ptr %318, i64 %325
+  %326 = getelementptr inbounds nuw [2 x i8], ptr %318, i64 %325
   %327 = load i16, ptr %326, align 2, !tbaa !92
   %328 = zext i16 %327 to i32
   br label %.lr.ph.i27
@@ -3431,7 +3431,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit._crit_edge.i: ; preds = %267, %_ZN6icu_
   %343 = load ptr, ptr %338, align 8, !tbaa !96
   %344 = lshr i32 %.01933.i28, 6
   %345 = zext nneg i32 %344 to i64
-  %346 = getelementptr inbounds nuw i16, ptr %343, i64 %345
+  %346 = getelementptr inbounds nuw [2 x i8], ptr %343, i64 %345
   %347 = load i16, ptr %346, align 2, !tbaa !83
   %348 = zext i16 %347 to i32
   %349 = and i32 %.01933.i28, 63
@@ -3471,7 +3471,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i32:       ; preds = %362, %360, %356, %3
   %369 = load i8, ptr %368, align 1, !tbaa !70
   %370 = getelementptr inbounds nuw i8, ptr %.020.i31, i64 26
   %371 = zext i8 %369 to i64
-  %372 = getelementptr inbounds nuw i16, ptr %370, i64 %371
+  %372 = getelementptr inbounds nuw [2 x i8], ptr %370, i64 %371
   %373 = load i16, ptr %372, align 2, !tbaa !83
   %374 = zext i16 %373 to i32
   %375 = load i32, ptr %332, align 4, !tbaa !87
@@ -3487,7 +3487,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i32:       ; preds = %362, %360, %356, %3
 381:                                              ; preds = %378
   %382 = load ptr, ptr %334, align 8, !tbaa !91
   %383 = zext nneg i32 %379 to i64
-  %384 = getelementptr i16, ptr %382, i64 %383
+  %384 = getelementptr [2 x i8], ptr %382, i64 %383
   %385 = getelementptr i8, ptr %384, i64 -2
   %386 = load i16, ptr %385, align 2, !tbaa !92
   %387 = icmp ult i16 %386, -10240
@@ -3497,7 +3497,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i32:       ; preds = %362, %360, %356, %3
   %389 = add nsw i32 %379, -1
   store i32 %389, ptr %299, align 8, !tbaa !94
   %390 = zext nneg i32 %389 to i64
-  %391 = getelementptr inbounds nuw i16, ptr %382, i64 %390
+  %391 = getelementptr inbounds nuw [2 x i8], ptr %382, i64 %390
   %392 = load i16, ptr %391, align 2, !tbaa !92
   %393 = zext i16 %392 to i32
   br label %396
@@ -3542,7 +3542,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i34: ; preds = %396, %_ZN6icu_
 414:                                              ; preds = %413
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %416 = load ptr, ptr %415, align 8, !tbaa !91
-  %417 = getelementptr inbounds nuw i16, ptr %416, i64 %21
+  %417 = getelementptr inbounds nuw [2 x i8], ptr %416, i64 %21
   %418 = load i16, ptr %417, align 2, !tbaa !92
   %419 = icmp ult i16 %418, -9216
   br i1 %419, label %.thread.i56, label %422
@@ -3600,7 +3600,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i34: ; preds = %396, %_ZN6icu_
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %446 = load ptr, ptr %445, align 8, !tbaa !91
   %447 = zext nneg i32 %442 to i64
-  %448 = getelementptr i16, ptr %446, i64 %447
+  %448 = getelementptr [2 x i8], ptr %446, i64 %447
   %449 = getelementptr i8, ptr %448, i64 -2
   %450 = load i16, ptr %449, align 2, !tbaa !92
   %451 = icmp ult i16 %450, -10240
@@ -3610,7 +3610,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i34: ; preds = %396, %_ZN6icu_
   %452 = add nsw i32 %442, -1
   store i32 %452, ptr %427, align 8, !tbaa !94
   %453 = zext nneg i32 %452 to i64
-  %454 = getelementptr inbounds nuw i16, ptr %446, i64 %453
+  %454 = getelementptr inbounds nuw [2 x i8], ptr %446, i64 %453
   %455 = load i16, ptr %454, align 2, !tbaa !92
   %456 = zext i16 %455 to i32
   br label %.lr.ph.i44
@@ -3644,7 +3644,7 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i34: ; preds = %396, %_ZN6icu_
   %471 = load ptr, ptr %466, align 8, !tbaa !96
   %472 = lshr i32 %.01933.i45, 6
   %473 = zext nneg i32 %472 to i64
-  %474 = getelementptr inbounds nuw i16, ptr %471, i64 %473
+  %474 = getelementptr inbounds nuw [2 x i8], ptr %471, i64 %473
   %475 = load i16, ptr %474, align 2, !tbaa !83
   %476 = zext i16 %475 to i32
   %477 = and i32 %.01933.i45, 63
@@ -3680,11 +3680,11 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i34: ; preds = %396, %_ZN6icu_
 _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i49:     ; preds = %490, %488, %484, %470
   %494 = phi i32 [ %478, %470 ], [ %493, %490 ], [ %487, %484 ], [ %489, %488 ]
   %495 = sext i32 %494 to i64
-  %496 = getelementptr inbounds i16, ptr %468, i64 %495
+  %496 = getelementptr inbounds [2 x i8], ptr %468, i64 %495
   %497 = load i16, ptr %496, align 2, !tbaa !83
   %498 = getelementptr inbounds nuw i8, ptr %.020.i48, i64 26
   %499 = zext i16 %497 to i64
-  %500 = getelementptr inbounds nuw i16, ptr %498, i64 %499
+  %500 = getelementptr inbounds nuw [2 x i8], ptr %498, i64 %499
   %501 = load i16, ptr %500, align 2, !tbaa !83
   %502 = zext i16 %501 to i32
   %503 = load i32, ptr %460, align 4, !tbaa !87
@@ -3700,7 +3700,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i49:     ; preds = %490, %488, %484, %4
 509:                                              ; preds = %506
   %510 = load ptr, ptr %462, align 8, !tbaa !91
   %511 = zext nneg i32 %507 to i64
-  %512 = getelementptr i16, ptr %510, i64 %511
+  %512 = getelementptr [2 x i8], ptr %510, i64 %511
   %513 = getelementptr i8, ptr %512, i64 -2
   %514 = load i16, ptr %513, align 2, !tbaa !92
   %515 = icmp ult i16 %514, -10240
@@ -3710,7 +3710,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i49:     ; preds = %490, %488, %484, %4
   %517 = add nsw i32 %507, -1
   store i32 %517, ptr %427, align 8, !tbaa !94
   %518 = zext nneg i32 %517 to i64
-  %519 = getelementptr inbounds nuw i16, ptr %510, i64 %518
+  %519 = getelementptr inbounds nuw [2 x i8], ptr %510, i64 %518
   %520 = load i16, ptr %519, align 2, !tbaa !92
   %521 = zext i16 %520 to i32
   br label %524
@@ -3763,11 +3763,11 @@ define noundef i32 @_ZNK6icu_7722RuleBasedBreakIterator13getRuleStatusEv(ptr nou
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !118
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !80
   %11 = add nsw i32 %10, %3
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %7, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %7, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !80
   ret i32 %14
 }
@@ -3786,7 +3786,7 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator16getRuleStatusVecEPiiR10U
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load i32, ptr %12, align 8, !tbaa !65
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %11, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !80
   %17 = icmp sgt i32 %16, %2
   br i1 %17, label %18, label %19
@@ -3810,10 +3810,10 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator16getRuleStatusVecEPiiR10U
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = add nsw i32 %21, %22
   %24 = sext i32 %23 to i64
-  %25 = getelementptr i32, ptr %11, i64 %24
+  %25 = getelementptr [4 x i8], ptr %11, i64 %24
   %26 = getelementptr i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !80
-  %28 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %27, ptr %28, align 4, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

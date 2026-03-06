@@ -101,7 +101,7 @@ define hidden void @_ZN4cvc58internal6theory7boolean15BooleanTypeRule11computeTy
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %23, 32
   %25 = and i64 %24, 67108863
-  %26 = getelementptr inbounds nuw ptr, ptr %21, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %25
   %.not4142 = icmp eq ptr %spec.select.i.i, %26
   br i1 %.not4142, label %.critedge28, label %.lr.ph
 
@@ -436,7 +436,7 @@ define hidden void @_ZN4cvc58internal6theory7boolean11IteTypeRule11computeTypeEP
   %24 = icmp eq i32 %23, 2
   %spec.select.i.i = select i1 %24, i64 2, i64 1
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %spec.select.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %spec.select.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !13, !noalias !28
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %27, ptr %10, align 8, !tbaa !11, !noalias !31
@@ -457,7 +457,7 @@ define hidden void @_ZN4cvc58internal6theory7boolean11IteTypeRule11computeTypeEP
   %37 = icmp eq i32 %35, 2
   %spec.select.i.i34 = select i1 %37, i64 3, i64 2
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %spec.select.i.i34
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %spec.select.i.i34
   %40 = load ptr, ptr %39, align 8, !tbaa !13, !noalias !34
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %40, ptr %9, align 8, !tbaa !11, !noalias !37
@@ -579,7 +579,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36: ; preds = %_ZNSo
   %89 = icmp eq i32 %87, 2
   %spec.select.i.i37 = select i1 %89, i64 2, i64 1
   %90 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %spec.select.i.i37
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %spec.select.i.i37
   %92 = load ptr, ptr %91, align 8, !tbaa !13, !noalias !68
   invoke void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(8) %78)
           to label %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit unwind label %215
@@ -727,7 +727,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %_ZNSo
   %153 = icmp eq i32 %151, 2
   %spec.select.i.i47 = select i1 %153, i64 3, i64 2
   %154 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %spec.select.i.i47
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %spec.select.i.i47
   %156 = load ptr, ptr %155, align 8, !tbaa !13, !noalias !71
   invoke void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(24) %156, ptr noundef nonnull align 8 dereferenceable(8) %142)
           to label %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit51 unwind label %217
@@ -929,7 +929,7 @@ _ZNSolsEPFRSoS_E.exit61:                          ; preds = %.noexc134, %57
   %244 = icmp eq i32 %242, 2
   %245 = getelementptr inbounds nuw i8, ptr %235, i64 24
   %246 = zext i1 %244 to i64
-  %247 = getelementptr inbounds nuw ptr, ptr %245, i64 %246
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %246
   %248 = load ptr, ptr %247, align 8, !tbaa !13, !noalias !77
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %248, ptr %6, align 8, !tbaa !11, !noalias !80

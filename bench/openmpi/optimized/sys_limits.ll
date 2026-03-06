@@ -218,7 +218,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
 93:                                               ; preds = %55, %71, %77, %88, %60, %44
   tail call void @PMIx_Argv_free(ptr noundef nonnull %10) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %94 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next
   %95 = load ptr, ptr %94, align 8, !tbaa !3
   %.not = icmp eq ptr %95, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16

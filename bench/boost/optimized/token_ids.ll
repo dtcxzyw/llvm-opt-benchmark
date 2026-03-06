@@ -387,7 +387,7 @@ define void @_ZN5boost4wave14get_token_nameENS0_8token_idE(ptr dead_on_unwind no
 
 7:                                                ; preds = %2
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZN5boost4wave14get_token_nameENS0_8token_idEE9tok_names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost4wave14get_token_nameENS0_8token_idEE9tok_names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   br label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2EPKcRKS5_.exit
 
@@ -411,7 +411,7 @@ define noundef ptr @_ZN5boost4wave15get_token_valueENS0_8token_idE(i32 noundef %
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZZN5boost4wave15get_token_valueENS0_8token_idEE10tok_values, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost4wave15get_token_valueENS0_8token_idEE10tok_values, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   br label %9
 

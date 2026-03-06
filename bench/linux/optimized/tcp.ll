@@ -132,7 +132,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tcp_abort: ;
 %union.anon.76 = type { ptr }
 %struct.tcp_splice_state = type { ptr, i64, i32 }
 %struct.sockcm_cookie = type { i64, i32, i32 }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.__kernel_timespec = type { i64, i64 }
 %struct.__kernel_old_timespec = type { i64, i64 }
 %struct.__kernel_sock_timeval = type { i64, i64 }
@@ -154,9 +153,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tcp_abort: ;
 %union.anon.66 = type { i64 }
 %union.anon.67 = type { ptr }
 %struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
-%struct.inet_ehash_bucket = type { %struct.hlist_nulls_head }
-%struct.hlist_nulls_head = type { ptr }
-%struct.inet_bind_hashbucket = type { %struct.spinlock, %struct.hlist_head }
 
 @tcp_orphan_count = dso_local global i32 0, section ".data..percpu", align 4
 @__UNIQUE_ID___addressable_tcp_orphan_count937 = internal global ptr @tcp_orphan_count, section ".discard.addressable", align 8
@@ -1182,7 +1178,7 @@ define dso_local i64 @tcp_splice_read(ptr noundef readonly captures(none) %0, pt
   %32 = or i32 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %34 = zext i32 %27 to i64
-  %35 = getelementptr i32, ptr %33, i64 %34
+  %35 = getelementptr [4 x i8], ptr %33, i64 %34
   %36 = load volatile i32, ptr %35, align 4
   %37 = icmp eq i32 %36, %32
   br i1 %37, label %39, label %38
@@ -1885,7 +1881,7 @@ define dso_local i32 @tcp_sendmsg_fastopen(ptr noundef %0, ptr noundef %1, ptr n
 35:                                               ; preds = %31, %26
   %36 = phi i64 [ 0, %26 ], [ %34, %31 ]
   %37 = or i32 %28, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %36
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %36
   %38 = getelementptr i8, ptr %.split, i64 48
   %39 = load ptr, ptr %38, align 16
   %40 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %39, i32 noundef %37, i64 noundef 56) #24
@@ -2619,7 +2615,7 @@ define dso_local i32 @tcp_sendmsg_locked(ptr noundef %0, ptr noundef %1, i64 nou
   %354 = zext i32 %353 to i64
   %355 = getelementptr i8, ptr %352, i64 %354
   %356 = zext i8 %319 to i64
-  %357 = getelementptr %struct.bio_vec, ptr %355, i64 %356
+  %357 = getelementptr [16 x i8], ptr %355, i64 %356
   %358 = getelementptr i8, ptr %357, i64 32
   %359 = load ptr, ptr %358, align 8
   %360 = icmp eq ptr %359, %331
@@ -2870,7 +2866,7 @@ define dso_local i32 @tcp_sendmsg_locked(ptr noundef %0, ptr noundef %1, i64 nou
   %509 = getelementptr i8, ptr %506, i64 %508
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 48
   %511 = zext i8 %319 to i64
-  %512 = getelementptr %struct.bio_vec, ptr %510, i64 %511
+  %512 = getelementptr [16 x i8], ptr %510, i64 %511
   store ptr %504, ptr %512, align 8
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 12
   store i32 %505, ptr %513, align 4
@@ -6214,7 +6210,7 @@ define dso_local range(i32 0, -2147483648) i32 @tcp_orphan_count_sum() local_unn
 
 12:                                               ; preds = %8
   %13 = and i64 %9, 63
-  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
+  %14 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @tcp_orphan_count to i64)
   %17 = inttoptr i64 %16 to ptr
@@ -9639,10 +9635,10 @@ define dso_local void @tcp_get_info(ptr noundef %0, ptr noundef initializes((0, 
 220:                                              ; preds = %235, %119
   %221 = phi i64 [ 1, %119 ], [ %239, %235 ]
   %222 = phi i64 [ 0, %119 ], [ %238, %235 ]
-  %223 = getelementptr i32, ptr %218, i64 %221
+  %223 = getelementptr [4 x i8], ptr %218, i64 %221
   %224 = load i32, ptr %223, align 4
   %225 = zext i32 %224 to i64
-  %226 = getelementptr i64, ptr %3, i64 %221
+  %226 = getelementptr [8 x i8], ptr %3, i64 %221
   %227 = icmp eq i64 %221, %219
   br i1 %227, label %228, label %235
 
@@ -9878,10 +9874,10 @@ define dso_local ptr @tcp_get_timestamping_opt_stats(ptr noundef %0, ptr noundef
 40:                                               ; preds = %55, %34
   %41 = phi i64 [ 1, %34 ], [ %59, %55 ]
   %42 = phi i64 [ 0, %34 ], [ %58, %55 ]
-  %43 = getelementptr i32, ptr %38, i64 %41
+  %43 = getelementptr [4 x i8], ptr %38, i64 %41
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
-  %46 = getelementptr i64, ptr %31, i64 %41
+  %46 = getelementptr [8 x i8], ptr %31, i64 %41
   %47 = icmp eq i64 %41, %39
   br i1 %47, label %48, label %55
 
@@ -11392,7 +11388,7 @@ define internal fastcc i32 @tcp_zerocopy_receive(ptr noundef %0, ptr noundef cap
   %79 = or i32 %77, %78
   %80 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %81 = zext i32 %74 to i64
-  %82 = getelementptr i32, ptr %80, i64 %81
+  %82 = getelementptr [4 x i8], ptr %80, i64 %81
   %83 = load volatile i32, ptr %82, align 4
   %84 = icmp eq i32 %83, %79
   br i1 %84, label %86, label %85
@@ -11507,7 +11503,7 @@ define internal fastcc i32 @tcp_zerocopy_receive(ptr noundef %0, ptr noundef cap
   %150 = load i8, ptr %149, align 2
   %151 = zext i8 %150 to i64
   %152 = getelementptr i8, ptr %129, i64 32
-  %153 = getelementptr %struct.bio_vec, ptr %152, i64 %151
+  %153 = getelementptr [16 x i8], ptr %152, i64 %151
   %154 = icmp eq ptr %136, %153
   br i1 %154, label %.thread, label %155
 
@@ -11977,7 +11973,7 @@ thread-pre-split52:                               ; preds = %365, %.loopexit, %.
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09prefetcht0 ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 6*32+ 8)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09prefetchw ${1:P}\0A6651:\0A.popsection\0A", "i,*m,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i8) %433) #22, !srcloc !106
   %434 = add i32 %293, 1
   %435 = zext i32 %293 to i64
-  %436 = getelementptr ptr, ptr %10, i64 %435
+  %436 = getelementptr [8 x i8], ptr %10, i64 %435
   store ptr %433, ptr %436, align 8
   %437 = add i32 %291, 4096
   store i32 %437, ptr %7, align 4
@@ -12015,7 +12011,7 @@ tcp_zerocopy_vm_insert_batch.exit.thread:         ; preds = %444
 
 tcp_zerocopy_vm_insert_batch.exit:                ; preds = %444
   %457 = zext i32 %450 to i64
-  %458 = getelementptr ptr, ptr %10, i64 %457
+  %458 = getelementptr [8 x i8], ptr %10, i64 %457
   %459 = call fastcc i32 @tcp_zerocopy_vm_insert_batch_error(ptr noundef nonnull %259, ptr noundef %458, i64 noundef %448, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef %1, i32 noundef range(i32 0, -4095) %269, i32 noundef %447)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %460 = icmp eq i32 %459, 0
@@ -13093,7 +13089,7 @@ define dso_local void @tcp_init() local_unnamed_addr #14 section ".init.text" al
   %16 = or disjoint i64 %15, 1
   %17 = inttoptr i64 %16 to ptr
   %18 = load ptr, ptr @tcp_hashinfo, align 64
-  %19 = getelementptr %struct.inet_ehash_bucket, ptr %18, i64 %14
+  %19 = getelementptr [8 x i8], ptr %18, i64 %14
   store ptr %17, ptr %19, align 8
   %20 = add i32 %13, 1
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 16), align 16
@@ -13119,24 +13115,24 @@ define dso_local void @tcp_init() local_unnamed_addr #14 section ".init.text" al
   %33 = shl nuw i32 1, %32
   store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 56), align 8
   %34 = zext i32 %33 to i64
-  %35 = getelementptr %struct.inet_bind_hashbucket, ptr %31, i64 %34
+  %35 = getelementptr [16 x i8], ptr %31, i64 %34
   store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 48), align 16
   br label %36
 
 36:                                               ; preds = %36, %27
   %37 = phi i64 [ 0, %27 ], [ %46, %36 ]
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 32), align 32
-  %39 = getelementptr %struct.inet_bind_hashbucket, ptr %38, i64 %37
+  %39 = getelementptr [16 x i8], ptr %38, i64 %37
   store i32 0, ptr %39, align 8
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 32), align 32
-  %.split = getelementptr %struct.inet_bind_hashbucket, ptr %40, i64 %37
+  %.split = getelementptr [16 x i8], ptr %40, i64 %37
   %41 = getelementptr i8, ptr %.split, i64 8
   store ptr null, ptr %41, align 8
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 48), align 16
-  %43 = getelementptr %struct.inet_bind_hashbucket, ptr %42, i64 %37
+  %43 = getelementptr [16 x i8], ptr %42, i64 %37
   store i32 0, ptr %43, align 8
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_hashinfo, i64 48), align 16
-  %.split1 = getelementptr %struct.inet_bind_hashbucket, ptr %44, i64 %37
+  %.split1 = getelementptr [16 x i8], ptr %44, i64 %37
   %45 = getelementptr i8, ptr %.split1, i64 8
   store ptr null, ptr %45, align 8
   %46 = add nuw nsw i64 %37, 1
@@ -13221,7 +13217,7 @@ define internal void @tcp_orphan_update(ptr readnone captures(none) %0) #0 align
 
 13:                                               ; preds = %9
   %14 = and i64 %10, 63
-  %15 = getelementptr i64, ptr @__per_cpu_offset, i64 %14
+  %15 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, ptrtoint (ptr @tcp_orphan_count to i64)
   %18 = inttoptr i64 %17 to ptr
@@ -13620,7 +13616,7 @@ define internal fastcc i32 @tcp_zerocopy_vm_insert_batch(ptr noundef nonnull %0,
 
 23:                                               ; preds = %8
   %24 = zext i32 %15 to i64
-  %25 = getelementptr ptr, ptr %1, i64 %24
+  %25 = getelementptr [8 x i8], ptr %1, i64 %24
   %26 = call fastcc i32 @tcp_zerocopy_vm_insert_batch_error(ptr noundef %0, ptr noundef %25, i64 noundef %13, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %12)
   br label %27
 

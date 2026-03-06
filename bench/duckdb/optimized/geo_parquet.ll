@@ -42,13 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.185" = type { %"struct.std::_Tuple_impl.186" }
 %"struct.std::_Tuple_impl.186" = type { %"struct.std::_Head_base.189" }
 %"struct.std::_Head_base.189" = type { ptr }
-%"class.duckdb::unique_ptr.12" = type { %"class.std::unique_ptr.13" }
-%"class.std::unique_ptr.13" = type { %"struct.std::__uniq_ptr_data.14" }
-%"struct.std::__uniq_ptr_data.14" = type { %"class.std::__uniq_ptr_impl.15" }
-%"class.std::__uniq_ptr_impl.15" = type { %"class.std::tuple.16" }
-%"class.std::tuple.16" = type { %"struct.std::_Tuple_impl.17" }
-%"struct.std::_Tuple_impl.17" = type { %"struct.std::_Head_base.20" }
-%"struct.std::_Head_base.20" = type { ptr }
 %"class.duckdb::unique_ptr.719" = type { %"class.std::unique_ptr.720" }
 %"class.std::unique_ptr.720" = type { %"struct.std::__uniq_ptr_data.721" }
 %"struct.std::__uniq_ptr_data.721" = type { %"class.std::__uniq_ptr_impl.722" }
@@ -66,17 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.duckdb::shared_ptr.220" = type { %"class.std::shared_ptr.221" }
 %"class.std::shared_ptr.221" = type { %"class.std::__shared_ptr.222" }
 %"class.std::__shared_ptr.222" = type { ptr, %"class.std::__shared_count" }
-%"class.duckdb::Vector" = type { i8, %"struct.duckdb::LogicalType", ptr, %"struct.duckdb::ValidityMask", %"class.duckdb::shared_ptr.216", %"class.duckdb::shared_ptr.216" }
-%"class.duckdb::shared_ptr.216" = type { %"class.std::shared_ptr.217" }
-%"class.std::shared_ptr.217" = type { %"class.std::__shared_ptr.218" }
-%"class.std::__shared_ptr.218" = type { ptr, %"class.std::__shared_count" }
-%"class.duckdb::unique_ptr.230" = type { %"class.std::unique_ptr.231" }
-%"class.std::unique_ptr.231" = type { %"struct.std::__uniq_ptr_data.232" }
-%"struct.std::__uniq_ptr_data.232" = type { %"class.std::__uniq_ptr_impl.233" }
-%"class.std::__uniq_ptr_impl.233" = type { %"class.std::tuple.234" }
-%"class.std::tuple.234" = type { %"struct.std::_Tuple_impl.235" }
-%"struct.std::_Tuple_impl.235" = type { %"struct.std::_Head_base.238" }
-%"struct.std::_Head_base.238" = type { ptr }
 %"class.duckdb::unique_ptr.242" = type { %"class.std::unique_ptr.243" }
 %"class.std::unique_ptr.243" = type { %"struct.std::__uniq_ptr_data.244" }
 %"struct.std::__uniq_ptr_data.244" = type { %"class.std::__uniq_ptr_impl.245" }
@@ -113,13 +95,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.562" = type { %"struct.std::_Tuple_impl.563" }
 %"struct.std::_Tuple_impl.563" = type { %"struct.std::_Head_base.566" }
 %"struct.std::_Head_base.566" = type { ptr }
-%"struct.duckdb::ParquetColumnSchema" = type { i32, %"class.std::__cxx11::basic_string", %"struct.duckdb::LogicalType", i64, i64, i64, i64, %"class.duckdb::optional_idx", i32, i32, i32, i32, %"class.duckdb::vector.567" }
-%"class.duckdb::optional_idx" = type { i64 }
-%"class.duckdb::vector.567" = type { %"class.std::vector.568" }
-%"class.std::vector.568" = type { %"struct.std::_Vector_base.569" }
-%"struct.std::_Vector_base.569" = type { %"struct.std::_Vector_base<duckdb::ParquetColumnSchema, std::allocator<duckdb::ParquetColumnSchema>>::_Vector_impl" }
-%"struct.std::_Vector_base<duckdb::ParquetColumnSchema, std::allocator<duckdb::ParquetColumnSchema>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb::ParquetColumnSchema, std::allocator<duckdb::ParquetColumnSchema>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<duckdb::ParquetColumnSchema, std::allocator<duckdb::ParquetColumnSchema>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.duckdb::unique_ptr.12" = type { %"class.std::unique_ptr.13" }
+%"class.std::unique_ptr.13" = type { %"struct.std::__uniq_ptr_data.14" }
+%"struct.std::__uniq_ptr_data.14" = type { %"class.std::__uniq_ptr_impl.15" }
+%"class.std::__uniq_ptr_impl.15" = type { %"class.std::tuple.16" }
+%"class.std::tuple.16" = type { %"struct.std::_Tuple_impl.17" }
+%"struct.std::_Tuple_impl.17" = type { %"struct.std::_Head_base.20" }
+%"struct.std::_Head_base.20" = type { ptr }
 %"struct.duckdb::ExceptionFormatValue" = type { i8, double, i64, %"class.std::__cxx11::basic_string" }
 %"class.std::tuple.804" = type { %"struct.std::_Tuple_impl.805" }
 %"struct.std::_Tuple_impl.805" = type { %"struct.std::_Head_base.806" }
@@ -1146,7 +1128,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEE
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %217, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %210, ptr %26, align 8, !tbaa !53
   store ptr %216, ptr %190, align 8, !tbaa !47
-  %218 = getelementptr inbounds nuw %"class.duckdb::unique_ptr.12", ptr %210, i64 %208
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %208
   store ptr %218, ptr %192, align 8, !tbaa !50
   br label %_ZNSt10unique_ptrIN6duckdb24BoundReferenceExpressionESt14default_deleteIS1_EED2Ev.exit
 
@@ -1259,7 +1241,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEE
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i217: ; preds = %254, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i214
   store ptr %247, ptr %27, align 8, !tbaa !53
   store ptr %253, ptr %227, align 8, !tbaa !47
-  %255 = getelementptr inbounds nuw %"class.duckdb::unique_ptr.12", ptr %247, i64 %245
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %245
   store ptr %255, ptr %229, align 8, !tbaa !50
   br label %_ZNSt10unique_ptrIN6duckdb24BoundReferenceExpressionESt14default_deleteIS1_EED2Ev.exit226
 
@@ -1372,7 +1354,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEE
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i244: ; preds = %291, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i241
   store ptr %284, ptr %28, align 8, !tbaa !53
   store ptr %290, ptr %264, align 8, !tbaa !47
-  %292 = getelementptr inbounds nuw %"class.duckdb::unique_ptr.12", ptr %284, i64 %282
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %282
   store ptr %292, ptr %266, align 8, !tbaa !50
   br label %_ZNSt10unique_ptrIN6duckdb24BoundReferenceExpressionESt14default_deleteIS1_EED2Ev.exit253
 
@@ -4357,7 +4339,7 @@ _ZN6duckdb19UnifiedVectorFormatD2Ev.exit141:      ; preds = %_ZN6duckdb15Selecti
   br i1 %.not.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit, label %417
 
 417:                                              ; preds = %414
-  %418 = getelementptr inbounds nuw i32, ptr %416, i64 %.062162
+  %418 = getelementptr inbounds nuw [4 x i8], ptr %416, i64 %.062162
   %419 = load i32, ptr %418, align 4, !tbaa !89
   %420 = zext i32 %419 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit
@@ -4370,7 +4352,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %414, %417
   br i1 %.not.i142, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit143, label %424
 
 424:                                              ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit
-  %425 = getelementptr inbounds nuw i32, ptr %423, i64 %.062162
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %423, i64 %.062162
   %426 = load i32, ptr %425, align 4, !tbaa !89
   %427 = zext i32 %426 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit143
@@ -4383,7 +4365,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit143: ; preds = %_ZNK6duckdb15Select
   br i1 %.not.i144, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit145, label %431
 
 431:                                              ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit143
-  %432 = getelementptr inbounds nuw i32, ptr %430, i64 %.062162
+  %432 = getelementptr inbounds nuw [4 x i8], ptr %430, i64 %.062162
   %433 = load i32, ptr %432, align 4, !tbaa !89
   %434 = zext i32 %433 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit145
@@ -4396,7 +4378,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit145: ; preds = %_ZNK6duckdb15Select
 
 _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit145
   %437 = lshr i64 %421, 6
-  %438 = getelementptr inbounds nuw i64, ptr %436, i64 %437
+  %438 = getelementptr inbounds nuw [8 x i8], ptr %436, i64 %437
   %439 = load i64, ptr %438, align 8, !tbaa !134
   %440 = and i64 %421, 63
   %441 = shl nuw i64 1, %440
@@ -4412,7 +4394,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb
 
 _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i148: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %445 = lshr i64 %428, 6
-  %446 = getelementptr inbounds nuw i64, ptr %444, i64 %445
+  %446 = getelementptr inbounds nuw [8 x i8], ptr %444, i64 %445
   %447 = load i64, ptr %446, align 8, !tbaa !134
   %448 = and i64 %428, 63
   %449 = shl nuw i64 1, %448
@@ -4429,7 +4411,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit150: ; preds = %_ZNK6duc
 
 _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i152: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit150
   %454 = lshr i64 %435, 6
-  %455 = getelementptr inbounds nuw i64, ptr %453, i64 %454
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %453, i64 %454
   %456 = load i64, ptr %455, align 8, !tbaa !134
   %457 = and i64 %435, 63
   %458 = shl nuw i64 1, %457
@@ -4567,16 +4549,16 @@ _ZNSt8_Rb_treeIN6duckdb15WKBGeometryTypeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_E
 
 506:                                              ; preds = %493, %.noexc
   %507 = load ptr, ptr %66, align 8, !tbaa !135
-  %508 = getelementptr inbounds nuw double, ptr %507, i64 %435
+  %508 = getelementptr inbounds nuw [8 x i8], ptr %507, i64 %435
   %509 = load double, ptr %508, align 8, !tbaa !146
   %510 = load ptr, ptr %67, align 8, !tbaa !135
-  %511 = getelementptr inbounds nuw double, ptr %510, i64 %435
+  %511 = getelementptr inbounds nuw [8 x i8], ptr %510, i64 %435
   %512 = load double, ptr %511, align 8, !tbaa !146
   %513 = load ptr, ptr %68, align 8, !tbaa !135
-  %514 = getelementptr inbounds nuw double, ptr %513, i64 %435
+  %514 = getelementptr inbounds nuw [8 x i8], ptr %513, i64 %435
   %515 = load double, ptr %514, align 8, !tbaa !146
   %516 = load ptr, ptr %69, align 8, !tbaa !135
-  %517 = getelementptr inbounds nuw double, ptr %516, i64 %435
+  %517 = getelementptr inbounds nuw [8 x i8], ptr %516, i64 %435
   %518 = load double, ptr %517, align 8, !tbaa !146
   %519 = load double, ptr %70, align 8, !tbaa !146
   %520 = fcmp olt double %509, %519
@@ -4727,7 +4709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_6VectorELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [104 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -4808,7 +4790,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZNK6duckdb6vectorINS_10unique_ptrINS_6VectorESt14default_deleteIS2_ELb1EEELb1EE3getILb1EEERKS5_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb::unique_ptr.230", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -5803,7 +5785,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %309 = load i64, ptr %308, align 8, !tbaa !180
   %310 = urem i64 %304, %309
   %311 = load ptr, ptr %301, align 8, !tbaa !173
-  %312 = getelementptr inbounds nuw ptr, ptr %311, i64 %310
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %310
   %313 = load ptr, ptr %312, align 8, !tbaa !186
   %.not.i.i.i = icmp eq ptr %313, null
   %.pre.i = load ptr, ptr %22, align 8, !tbaa !3
@@ -5983,7 +5965,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %389 = getelementptr inbounds nuw i8, ptr %343, i64 160
   store i64 %304, ptr %389, align 8, !tbaa !188
   %390 = load ptr, ptr %301, align 8, !tbaa !173
-  %391 = getelementptr inbounds nuw ptr, ptr %390, i64 %.0.i256
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %.0.i256
   %392 = load ptr, ptr %391, align 8, !tbaa !186
   %.not.i.i257 = icmp eq ptr %392, null
   br i1 %.not.i.i257, label %396, label %393
@@ -6009,7 +5991,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %402 = getelementptr inbounds nuw i8, ptr %399, i64 160
   %403 = load i64, ptr %402, align 8, !tbaa !188
   %404 = urem i64 %403, %401
-  %405 = getelementptr inbounds nuw ptr, ptr %390, i64 %404
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %404
   store ptr %343, ptr %405, align 8, !tbaa !186
   br label %406
 
@@ -9576,7 +9558,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEE
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %102, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %95, ptr %14, align 8, !tbaa !53
   store ptr %101, ptr %75, align 8, !tbaa !47
-  %103 = getelementptr inbounds nuw %"class.duckdb::unique_ptr.12", ptr %95, i64 %93
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %93
   store ptr %103, ptr %77, align 8, !tbaa !50
   br label %_ZNSt10unique_ptrIN6duckdb24BoundReferenceExpressionESt14default_deleteIS1_EED2Ev.exit
 
@@ -10058,7 +10040,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZNK6duckdb6vectorINS_19ParquetColumnSchemaELb1EE3getILb1EEERKS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"struct.duckdb::ParquetColumnSchema", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -10818,7 +10800,7 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE13_M_deallocateEPS1_m
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !216
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !219
-  %74 = getelementptr inbounds nuw %"struct.duckdb::ExceptionFormatValue", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !298
   ret void
 }
@@ -11483,7 +11465,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store i64 %2, ptr %32, align 8, !tbaa !188
   %33 = load ptr, ptr %0, align 8, !tbaa !173
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !186
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -11509,7 +11491,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 160
   %46 = load i64, ptr %45, align 8, !tbaa !188
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !186
   br label %49
 
@@ -11626,7 +11608,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 160
   %16 = load i64, ptr %15, align 8, !tbaa !188
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !186
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -11641,7 +11623,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !186
   br label %28
 
@@ -11789,7 +11771,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %14 = load i64, ptr %13, align 8, !tbaa !180
   %15 = urem i64 %9, %14
   %16 = load ptr, ptr %0, align 8, !tbaa !173
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !186
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %.loopexit26, label %19
@@ -12167,7 +12149,7 @@ _ZNSt12_Vector_baseIN14duckdb_parquet8KeyValueESaIS1_EE13_M_deallocateEPS1_m.exi
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !321
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !253
-  %56 = getelementptr inbounds nuw %"class.duckdb_parquet::KeyValue", ptr %20, i64 %16
+  %56 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %56, ptr %55, align 8, !tbaa !255
   ret void
 
@@ -12299,7 +12281,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !180
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !173
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !186
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb24GeoParquetColumnMetadataEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34

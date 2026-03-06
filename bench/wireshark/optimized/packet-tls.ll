@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._StringInfo = type { ptr, i32 }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._ssldecrypt_assoc_t = type { ptr, ptr, ptr, ptr, ptr }
 %struct.tlsinfo = type { i32, i8, i8, ptr }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon.5, %struct.anon.8, %struct.anon.9, ptr }
 %struct.anon.5 = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon }
@@ -1604,14 +1603,14 @@ define hidden noundef zeroext i1 @tls_get_cipher_info(ptr noundef %0, i16 nounde
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = getelementptr i32, ptr @tls_get_cipher_info.gcry_modes, i64 %23
+  %24 = getelementptr [4 x i8], ptr @tls_get_cipher_info.gcry_modes, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = tail call i32 @ssl_get_cipher_algo(ptr noundef nonnull %19)
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %28, -64
   %30 = sext i32 %29 to i64
-  %31 = getelementptr i32, ptr @tls_get_cipher_info.gcry_mds, i64 %30
+  %31 = getelementptr [4 x i8], ptr @tls_get_cipher_info.gcry_mds, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp ne i32 %26, 0
   %34 = icmp ne i32 %29, 4
@@ -1841,7 +1840,7 @@ define hidden noundef zeroext i1 @tls13_exporter(ptr noundef %0, i1 noundef zero
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, -64
   %25 = sext i32 %24 to i64
-  %26 = getelementptr i32, ptr @tls_get_cipher_info.gcry_mds, i64 %25
+  %26 = getelementptr [4 x i8], ptr @tls_get_cipher_info.gcry_mds, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp ne i32 %21, 0
   %29 = icmp ne i32 %24, 4
@@ -2238,7 +2237,7 @@ define hidden void @proto_reg_handoff_ssl() #0 {
   call void @g_strfreev(ptr noundef %24)
   %52 = add i32 %.035.i, 1
   %53 = zext i32 %52 to i64
-  %54 = getelementptr ptr, ptr %21, i64 %53
+  %54 = getelementptr [8 x i8], ptr %21, i64 %53
   %55 = load ptr, ptr %54, align 8
   %.not28.i = icmp eq ptr %55, null
   br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
@@ -2640,7 +2639,7 @@ define internal void @ssl_parse_uat() #0 {
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph18.preheader ]
   %30 = load ptr, ptr @tlskeylist_uats, align 8
-  %31 = getelementptr %struct._ssldecrypt_assoc_t, ptr %30, i64 %indvars.iv
+  %31 = getelementptr [40 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr @ssl_key_hash, align 8
   %33 = load ptr, ptr @tls_handle, align 8
   call void @ssl_parse_key_list(ptr noundef %31, ptr noundef %32, ptr noundef nonnull @.str.907, ptr noundef %33, i1 noundef zeroext true)
@@ -2736,7 +2735,7 @@ define internal i32 @dissect_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %13 = load ptr, ptr @g_ascii_table, align 8
   %14 = load i8, ptr %12, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr i16, ptr %13, i64 %15
+  %16 = getelementptr [2 x i8], ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 64
   %.not = icmp eq i16 %18, 0
@@ -2746,7 +2745,7 @@ define internal i32 @dissect_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %20 = getelementptr i8, ptr %12, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr i16, ptr %13, i64 %22
+  %23 = getelementptr [2 x i8], ptr %13, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 64
   %.not170 = icmp eq i16 %25, 0
@@ -2756,7 +2755,7 @@ define internal i32 @dissect_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %27 = getelementptr i8, ptr %12, i64 2
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i64
-  %30 = getelementptr i16, ptr %13, i64 %29
+  %30 = getelementptr [2 x i8], ptr %13, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 64
   %.not171 = icmp eq i16 %32, 0
@@ -2766,7 +2765,7 @@ define internal i32 @dissect_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %34 = getelementptr i8, ptr %12, i64 3
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr i16, ptr %13, i64 %36
+  %37 = getelementptr [2 x i8], ptr %13, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 64
   %.not172 = icmp eq i16 %39, 0
@@ -3381,7 +3380,7 @@ addresses_equal.exit:                             ; preds = %59, %51, %copy_addr
 
 .lr.ph:                                           ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %74 = getelementptr i32, ptr %73, i64 %.056
+  %74 = getelementptr [4 x i8], ptr %73, i64 %.056
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5169,7 +5168,7 @@ define internal fastcc noundef zeroext i1 @decrypt_tls13_early_data(ptr noundef 
 
 65:                                               ; preds = %59, %tls_save_decrypted_record.exit63
   %indvars.iv = phi i64 [ 0, %59 ], [ %indvars.iv.next, %tls_save_decrypted_record.exit63 ]
-  %66 = getelementptr i16, ptr @decrypt_tls13_early_data.tls13_ciphers, i64 %indvars.iv
+  %66 = getelementptr [2 x i8], ptr @decrypt_tls13_early_data.tls13_ciphers, i64 %indvars.iv
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i32
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1013, i32 noundef %68)

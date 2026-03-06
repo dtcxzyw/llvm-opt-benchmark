@@ -1167,17 +1167,17 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEPK
 9:                                                ; preds = %4, %9
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %9 ]
   %.01617 = phi i1 [ false, %4 ], [ %22, %9 ]
-  %10 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %11 = load double, ptr %10, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !3
   %14 = fsub double %11, %13
   %15 = fdiv double 1.000000e+00, %14
-  %16 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store double %15, ptr %16, align 8, !tbaa !3
   %17 = fneg double %13
   %18 = fmul double %15, %17
-  %19 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store double %18, ptr %19, align 8, !tbaa !3
   %20 = fcmp une double %15, 1.000000e+00
   %21 = fcmp une double %18, 0.000000e+00
@@ -1250,17 +1250,17 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEff
 17:                                               ; preds = %17, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %17 ]
   %.01617.i = phi i1 [ false, %4 ], [ %30, %17 ]
-  %18 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %19 = load double, ptr %18, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %21 = load double, ptr %20, align 8, !tbaa !3
   %22 = fsub double %19, %21
   %23 = fdiv double 1.000000e+00, %22
-  %24 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   store double %23, ptr %24, align 8, !tbaa !3
   %25 = fneg double %21
   %26 = fmul double %23, %25
-  %27 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   store double %26, ptr %27, align 8, !tbaa !3
   %28 = fcmp une double %23, 1.000000e+00
   %29 = fcmp une double %26, 0.000000e+00

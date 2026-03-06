@@ -4651,7 +4651,7 @@ _ZNSt6vectorIS_IS_IfSaIfEESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i: ;
 
 .noexc129.i:                                      ; preds = %.lr.ph.preheader.i.i.i.i.i.i
   store ptr %1626, ptr %48, align 8
-  %1627 = getelementptr inbounds nuw %"class.std::vector.39", ptr %1626, i64 %1622
+  %1627 = getelementptr inbounds nuw [24 x i8], ptr %1626, i64 %1622
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %1626, i8 0, i64 %1625, i1 false)
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %1626, i64 %1625
   br label %_ZNSt12_Vector_baseISt6vectorIS0_IfSaIfEESaIS2_EESaIS4_EEC2EmRKS5_.exit.thread.i.i
@@ -4689,7 +4689,7 @@ _ZNSt12_Vector_baseISt6vectorIS0_IfSaIfEESaIS2_EESaIS4_EEC2EmRKS5_.exit.thread.i
   %1646 = trunc nuw i64 %indvars.iv.next313.i to i32
   %1647 = trunc i64 %indvars.iv312.i to i32
   %1648 = add i32 %1647, 2
-  %1649 = getelementptr inbounds nuw %"class.std::vector.39", ptr %1628, i64 %indvars.iv312.i
+  %1649 = getelementptr inbounds nuw [24 x i8], ptr %1628, i64 %indvars.iv312.i
   %1650 = getelementptr inbounds nuw i8, ptr %1649, i64 8
   %1651 = getelementptr inbounds nuw i8, ptr %1649, i64 16
   br label %1652
@@ -4739,16 +4739,16 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %1668
 
 .noexc132.i:                                      ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
   store ptr %1673, ptr %49, align 8
-  %1674 = getelementptr inbounds nuw i64, ptr %1673, i64 %1669
+  %1674 = getelementptr inbounds nuw [8 x i8], ptr %1673, i64 %1669
   store ptr %1674, ptr %1634, align 8
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %1673, i8 -1, i64 %1672, i1 false)
   %1675 = getelementptr inbounds nuw i8, ptr %1673, i64 %1672
   store ptr %1675, ptr %1633, align 8
-  %1676 = getelementptr inbounds nuw i64, ptr %1607, i64 %indvars.iv.i
+  %1676 = getelementptr inbounds nuw [8 x i8], ptr %1607, i64 %indvars.iv.i
   %1677 = load i64, ptr %1676, align 8
-  %1678 = getelementptr inbounds nuw i64, ptr %1673, i64 %indvars.iv312.i
+  %1678 = getelementptr inbounds nuw [8 x i8], ptr %1673, i64 %indvars.iv312.i
   store i64 %1677, ptr %1678, align 8
-  %1679 = getelementptr inbounds nuw i64, ptr %1610, i64 %indvars.iv.i
+  %1679 = getelementptr inbounds nuw [8 x i8], ptr %1610, i64 %indvars.iv.i
   %1680 = load i64, ptr %1679, align 8
   %1681 = load ptr, ptr %44, align 8
   %1682 = load ptr, ptr %1681, align 8
@@ -4761,9 +4761,9 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %1668
   %1687 = srem i32 %1646, %1685
   %1688 = zext nneg i32 %1687 to i64
   %1689 = load ptr, ptr %49, align 8
-  %1690 = getelementptr inbounds nuw i64, ptr %1689, i64 %1688
+  %1690 = getelementptr inbounds nuw [8 x i8], ptr %1689, i64 %1688
   store i64 %1680, ptr %1690, align 8
-  %1691 = getelementptr inbounds nuw i64, ptr %1613, i64 %indvars.iv.i
+  %1691 = getelementptr inbounds nuw [8 x i8], ptr %1613, i64 %indvars.iv.i
   %1692 = load i64, ptr %1691, align 8
   %1693 = load ptr, ptr %44, align 8
   %1694 = load ptr, ptr %1693, align 8
@@ -4776,7 +4776,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %1668
   %1699 = srem i32 %1648, %1697
   %1700 = zext nneg i32 %1699 to i64
   %1701 = load ptr, ptr %49, align 8
-  %1702 = getelementptr inbounds nuw i64, ptr %1701, i64 %1700
+  %1702 = getelementptr inbounds nuw [8 x i8], ptr %1701, i64 %1700
   store i64 %1692, ptr %1702, align 8
   %1703 = load ptr, ptr %47, align 8
   invoke void @_ZN10open_spiel5State12ApplyActionsERKSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(60) %1703, ptr noundef nonnull align 8 dereferenceable(24) %49)
@@ -4887,7 +4887,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds 
 _ZNSt6vectorIS_IfSaIfEESaIS1_EE9push_backEOS1_.exit.i: ; preds = %1746, %_ZNSt6vectorIS_IfSaIfEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %1729, ptr %1649, align 8
   store ptr %1745, ptr %1650, align 8
-  %1750 = getelementptr inbounds nuw %"class.std::vector.34", ptr %1729, i64 %1727
+  %1750 = getelementptr inbounds nuw [24 x i8], ptr %1729, i64 %1727
   store ptr %1750, ptr %1651, align 8
   %.pre320.i = load ptr, ptr %50, align 8
   %.not.i.i.i.i65 = icmp eq ptr %.pre320.i, null

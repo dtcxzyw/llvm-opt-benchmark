@@ -1257,7 +1257,7 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_org_freedesktop_upower(
   %indvars.iv = phi i64 [ %indvars.iv.next, %check_upower_device.exit ], [ 0, %14 ]
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
@@ -1310,7 +1310,7 @@ define hidden noundef zeroext i1 @SDL_GetPowerInfo_Linux_org_freedesktop_upower(
 
 switch.lookup:                                    ; preds = %33
   %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetPowerInfo_Linux_org_freedesktop_upower, i64 %38
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_GetPowerInfo_Linux_org_freedesktop_upower, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %39
 

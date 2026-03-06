@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ossl_qtx_args_st = type { ptr, ptr, ptr, i64, ptr, ptr }
 %struct.ossl_qrx_args_st = type { ptr, ptr, ptr, i64, i64, [3 x i64], i8 }
 %struct.quic_tls_args_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.quic_rxfc_st = type { i64, i64, i64, i64, i64, i64, i64, %struct.OSSL_TIME, ptr, ptr, ptr, i8, i8, i8, i8 }
-%struct.OSSL_TIME = type { i64 }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 %struct.quic_txp_status_st = type { i32, i32, i64 }
 %struct.qlog_trace_info_st = type { %struct.quic_conn_id_st, ptr, ptr, ptr, i32, ptr, ptr, i64, ptr }
@@ -22,6 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ossl_qtx_iovec_st = type { ptr, i64 }
 %struct.ossl_quic_frame_conn_close_st = type { i8, i64, i64, ptr, i64 }
 %struct.ossl_rtt_info_st = type { %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME }
+%struct.OSSL_TIME = type { i64 }
 %struct.PACKET = type { ptr, i64 }
 %struct.quic_preferred_addr_st = type { i16, i16, [4 x i8], [16 x i8], %struct.QUIC_STATELESS_RESET_TOKEN, %struct.quic_conn_id_st }
 %struct.QUIC_STATELESS_RESET_TOKEN = type { [16 x i8] }
@@ -273,7 +272,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_init(ptr noundef %0) local_unnamed
 
 62:                                               ; preds = %61, %.preheader151.i
   %indvars.iv.i = phi i64 [ 0, %.preheader151.i ], [ %indvars.iv.next.i, %61 ]
-  %63 = getelementptr inbounds nuw %struct.quic_rxfc_st, ptr %60, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [96 x i8], ptr %60, i64 %indvars.iv.i
   %64 = call i32 @ossl_quic_rxfc_init_standalone(ptr noundef nonnull %63, i64 noundef 16384, ptr noundef nonnull @get_time, ptr noundef nonnull %0) #15
   %.not149.i = icmp eq i32 %64, 0
   br i1 %.not149.i, label %.loopexit.i, label %61
@@ -395,13 +394,13 @@ define range(i32 0, 2) i32 @ossl_quic_channel_init(ptr noundef %0) local_unnamed
 131:                                              ; preds = %135, %102
   %indvars.iv159.i = phi i64 [ 0, %102 ], [ %indvars.iv.next160.i, %135 ]
   %132 = call ptr @ossl_quic_sstream_new(i64 noundef 16384) #15
-  %133 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv159.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv159.i
   store ptr %132, ptr %133, align 8, !tbaa !106
   %134 = icmp eq ptr %132, null
   br i1 %134, label %.loopexit.i, label %135
 
 135:                                              ; preds = %131
-  %136 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv159.i
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv159.i
   store ptr %132, ptr %136, align 8, !tbaa !106
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
   %exitcond162.not.i = icmp eq i64 %indvars.iv.next160.i, 3
@@ -469,7 +468,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_init(ptr noundef %0) local_unnamed
 165:                                              ; preds = %164, %.preheader.i
   %indvars.iv163.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next164.i, %164 ]
   %166 = call ptr @ossl_quic_rstream_new(ptr noundef null, ptr noundef null, i64 noundef 0) #15
-  %167 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv163.i
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %indvars.iv163.i
   store ptr %166, ptr %167, align 8, !tbaa !118
   %168 = icmp eq ptr %166, null
   br i1 %168, label %.loopexit.i, label %164
@@ -757,10 +756,10 @@ define internal fastcc void @ch_cleanup(ptr noundef %0) unnamed_addr #0 {
 
 43:                                               ; preds = %40, %43
   %indvars.iv = phi i64 [ 0, %40 ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !106
   tail call void @ossl_quic_sstream_free(ptr noundef %45) #15
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !118
   tail call void @ossl_quic_rstream_free(ptr noundef %47) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1551,7 +1550,7 @@ ch_update_ping_deadline.exit.i:                   ; preds = %ch_update_ping_dead
 
 switch.lookup:                                    ; preds = %185
   %189 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ossl_quic_channel_subtick, i64 %189
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ossl_quic_channel_subtick, i64 %189
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ossl_quic_pkt_type_to_enc_level.exit.i.i
 
@@ -4324,14 +4323,14 @@ define internal fastcc void @ch_discard_el(ptr noundef captures(none) %0, i32 no
   %22 = tail call i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %21, i32 noundef %switch.select3.i) #15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %24 = zext nneg i32 %switch.select3.i to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !106
   %.not32 = icmp eq ptr %26, null
   br i1 %.not32, label %.thread, label %27, !prof !237
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %24
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %24
   %30 = load ptr, ptr %29, align 8, !tbaa !118
   %.not33 = icmp eq ptr %30, null
   br i1 %.not33, label %.thread, label %31, !prof !237
@@ -5639,7 +5638,7 @@ define internal i32 @ch_on_crypto_send(ptr noundef %0, i64 noundef %1, ptr nound
   %switch.selectcmp2.i = icmp eq i32 %9, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i64 0, i64 %switch.select.i
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 1096
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %switch.select3.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %switch.select3.i
   %12 = load ptr, ptr %11, align 8, !tbaa !106
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %15, label %13, !prof !237
@@ -5678,7 +5677,7 @@ define internal i32 @ch_on_crypto_recv_record(ptr noundef %0, ptr noundef %1, pt
   %switch.select.i = select i1 %switch.selectcmp.i, i64 1, i64 2
   %switch.selectcmp2.i = icmp eq i32 %.030, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i64 0, i64 %switch.select.i
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %switch.select3.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %switch.select3.i
   %14 = load ptr, ptr %13, align 8, !tbaa !118
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !71
@@ -5737,7 +5736,7 @@ crypto_ensure_empty.exit._crit_edge:              ; preds = %crypto_ensure_empty
 .thread:                                          ; preds = %._crit_edge, %3
   %26 = phi i64 [ %spec.select44, %._crit_edge ], [ 0, %3 ]
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 1120
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !118
   %30 = icmp eq ptr %29, null
   br i1 %30, label %33, label %31
@@ -5766,7 +5765,7 @@ define internal i32 @ch_on_crypto_release_record(i64 noundef %0, ptr noundef %1)
   %switch.selectcmp2.i = icmp eq i32 %8, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i64 0, i64 %switch.select.i
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1120
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %switch.select3.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %switch.select3.i
   %11 = load ptr, ptr %10, align 8, !tbaa !118
   %12 = icmp eq ptr %11, null
   br i1 %12, label %21, label %13
@@ -5775,7 +5774,7 @@ define internal i32 @ch_on_crypto_release_record(i64 noundef %0, ptr noundef %1)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 992
   call void @ossl_statm_get_rtt_info(ptr noundef nonnull %14, ptr noundef nonnull %3) #15
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %16 = getelementptr inbounds nuw %struct.quic_rxfc_st, ptr %15, i64 %switch.select3.i
+  %16 = getelementptr inbounds nuw [96 x i8], ptr %15, i64 %switch.select3.i
   %17 = load i64, ptr %3, align 8
   %18 = call i32 @ossl_quic_rxfc_on_retire(ptr noundef nonnull %16, i64 noundef %0, i64 %17) #15
   %.not = icmp eq i32 %18, 0
@@ -5844,7 +5843,7 @@ define internal range(i32 0, 2) i32 @ch_on_handshake_yield_secret(i32 noundef %0
   %switch.select.i = select i1 %switch.selectcmp.i, i64 1, i64 2
   %switch.selectcmp2.i = icmp eq i32 %.03346, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i64 0, i64 %switch.select.i
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %switch.select3.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %switch.select3.i
   %34 = load ptr, ptr %33, align 8, !tbaa !118
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !71

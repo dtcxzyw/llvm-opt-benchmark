@@ -357,7 +357,7 @@ define ptr @l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -399,7 +399,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 7
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit
 
@@ -2526,7 +2526,7 @@ lean_dec.exit132:                                 ; preds = %94, %93, %91, %84
 
 switch.lookup:                                    ; preds = %lean_dec.exit132
   %96 = and i64 %85, 7
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %96
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %96
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit
 
@@ -2630,7 +2630,7 @@ lean_dec.exit129:                                 ; preds = %128, %127, %125, %l
 
 switch.lookup249:                                 ; preds = %lean_dec.exit129
   %130 = and i64 %120, 7
-  %switch.gep250 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %130
+  %switch.gep250 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %130
   %switch.load251 = load ptr, ptr %switch.gep250, align 8
   br label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit190
 
@@ -3024,7 +3024,7 @@ lean_dec.exit123:                                 ; preds = %275, %274, %272, %l
 
 switch.lookup252:                                 ; preds = %lean_dec.exit123
   %277 = and i64 %267, 7
-  %switch.gep253 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %277
+  %switch.gep253 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 %277
   %switch.load254 = load ptr, ptr %switch.gep253, align 8
   br label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit216
 
@@ -3108,7 +3108,7 @@ declare ptr @l_Lean_SubExpr_Pos_toString(ptr noundef) local_unnamed_addr #4
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -6815,7 +6815,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Widget_CodeWithInfos_mergePosMap___
 lean_ensure_exclusive_array.exit.i:               ; preds = %8, %6
   %.0.i.i = phi ptr [ %9, %8 ], [ %1, %6 ]
   %10 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %0
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %0
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i1
@@ -6974,7 +6974,7 @@ lean_dec.exit:                                    ; preds = %51, %50, %48, %lean
 
 53:                                               ; preds = %5
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %3
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %3
   %56 = load ptr, ptr %55, align 8, !tbaa !10
   %57 = ptrtoint ptr %56 to i64
   %58 = trunc i64 %57 to i1
@@ -7010,7 +7010,7 @@ lean_array_uget.exit:                             ; preds = %53, %61, %63, %64
 lean_ensure_exclusive_array.exit.i:               ; preds = %66, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %67, %66 ], [ %4, %lean_array_uget.exit ]
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %3
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %3
   %70 = load ptr, ptr %69, align 8, !tbaa !10
   %71 = ptrtoint ptr %70 to i64
   %72 = trunc i64 %71 to i1
@@ -7838,7 +7838,7 @@ lean_dec.exit:                                    ; preds = %20, %19, %17
 lean_ensure_exclusive_array.exit.i.i:             ; preds = %22, %lean_dec.exit
   %.0.i.i.i = phi ptr [ %23, %22 ], [ %1, %lean_dec.exit ]
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.val
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.val
   %26 = load ptr, ptr %25, align 8, !tbaa !10
   %27 = ptrtoint ptr %26 to i64
   %28 = trunc i64 %27 to i1

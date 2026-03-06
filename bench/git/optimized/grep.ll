@@ -106,7 +106,7 @@ define dso_local void @list_config_color_grep_slots(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %.preheader, %11
   %.012 = phi i64 [ 0, %.preheader ], [ %12, %11 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @color_grep_slots, i64 %.012
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @color_grep_slots, i64 %.012
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
@@ -667,7 +667,7 @@ compile_pattern_atom.exit.thread.i:               ; preds = %31, %compile_patter
   %35 = getelementptr inbounds nuw i8, ptr %.13662.i, i64 40
   %36 = load i32, ptr %35, align 8, !tbaa !40
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %2, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !47
   %.not46.i = icmp eq ptr %39, null
   br i1 %.not46.i, label %40, label %41
@@ -685,7 +685,7 @@ compile_pattern_atom.exit.thread.i:               ; preds = %31, %compile_patter
   store ptr %39, ptr %44, align 8, !tbaa !23
   %45 = load i32, ptr %35, align 8, !tbaa !40
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %2, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %46
   store ptr %42, ptr %47, align 8, !tbaa !47
   %.136.pre.i = load ptr, ptr %.13662.i, align 8, !tbaa !43
   br label %48
@@ -702,7 +702,7 @@ compile_pattern_atom.exit.thread.i:               ; preds = %31, %compile_patter
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %58
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %58 ], [ 0, %.preheader.i.preheader ]
   %.03363.i = phi ptr [ %.134.i, %58 ], [ null, %.preheader.i.preheader ]
-  %49 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8, !tbaa !47
   %.not42.i = icmp eq ptr %50, null
   br i1 %.not42.i, label %58, label %51
@@ -1915,7 +1915,7 @@ end_of_line.exit:                                 ; preds = %.lr.ph.i221, %196, 
   %207 = getelementptr inbounds nuw i8, ptr %.02339.i, i64 40
   %208 = load i32, ptr %207, align 8, !tbaa !40
   %209 = zext i32 %208 to i64
-  %210 = getelementptr inbounds nuw %struct.anon.0, ptr @header_field, i64 %209
+  %210 = getelementptr inbounds nuw [16 x i8], ptr @header_field, i64 %209
   %211 = load ptr, ptr %210, align 16, !tbaa !126
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %213 = load i64, ptr %212, align 8, !tbaa !128
@@ -4237,7 +4237,7 @@ tailrecurse:                                      ; preds = %73, %8
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load i32, ptr %18, align 8, !tbaa !40
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.anon.0, ptr @header_field, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr @header_field, i64 %20
   %22 = load ptr, ptr %21, align 16, !tbaa !126
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !128

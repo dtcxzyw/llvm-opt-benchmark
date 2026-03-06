@@ -33,12 +33,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.anon.26 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.bus_type = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
 %struct.notifier_block = type { ptr, ptr, i32 }
-%struct.intel_uncore_extra_reg = type { %struct.raw_spinlock, i64, i64, i64, %struct.atomic_t }
-%struct.freerunning_counters = type { i32, i32, i32, i32, i32, ptr }
-%struct.intel_uncore_pmu = type { %struct.pmu, [32 x i8], i32, i32, i8, %struct.atomic_t, ptr, ptr }
-%struct.pmu = type { %struct.list_head, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, %struct.atomic_t, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.pci_extra_dev = type { [4 x ptr] }
-%struct.uncore_event_desc = type { %struct.device_attribute, ptr }
 
 @__param_str_uncore_no_discover = internal constant [32 x i8] c"intel_uncore.uncore_no_discover\00", align 16
 @param_ops_bool = external dso_local constant %struct.kernel_param_ops, align 8
@@ -149,7 +143,7 @@ define dso_local i32 @uncore_pcibus_to_dieid(ptr noundef readonly captures(none)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %16 = load i8, ptr %15, align 8
   %17 = zext i8 %16 to i64
-  %18 = getelementptr i32, ptr %14, i64 %17
+  %18 = getelementptr [4 x i8], ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
   br label %.loopexit
 
@@ -199,7 +193,7 @@ define dso_local i32 @uncore_die_to_segment(i32 noundef %0) local_unnamed_addr #
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %21 = load i8, ptr %20, align 8
   %22 = zext i8 %21 to i64
-  %23 = getelementptr i32, ptr %19, i64 %22
+  %23 = getelementptr [4 x i8], ptr %19, i64 %22
   %24 = load i32, ptr %23, align 4
   br label %.loopexit
 
@@ -232,7 +226,7 @@ define dso_local i32 @uncore_device_to_die(ptr noundef readonly captures(none) %
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -1
   %9 = sext i32 %7 to i64
-  %10 = getelementptr [1 x %struct.cpumask], ptr @node_to_cpumask_map, i64 %9
+  %10 = getelementptr [8 x i8], ptr @node_to_cpumask_map, i64 %9
   %11 = select i1 %8, ptr @__cpu_online_mask, ptr %10
   %12 = load i64, ptr %11, align 8
   br label %13
@@ -252,7 +246,7 @@ define dso_local i32 @uncore_device_to_die(ptr noundef readonly captures(none) %
 
 22:                                               ; preds = %18
   %23 = and i64 %19, 63
-  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
+  %24 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, ptrtoint (ptr @cpu_info to i64)
   %27 = inttoptr i64 %26 to ptr
@@ -363,7 +357,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(no
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local ptr @uncore_pmu_to_box(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_info to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -377,7 +371,7 @@ define dso_local ptr @uncore_pmu_to_box(ptr noundef readonly captures(none) %0, 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %9 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -488,7 +482,7 @@ define dso_local noundef ptr @uncore_get_constraint(ptr noundef %0, ptr noundef 
 15:                                               ; preds = %11, %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %17 = sext i32 %6 to i64
-  %18 = getelementptr %struct.intel_uncore_extra_reg, ptr %16, i64 %17
+  %18 = getelementptr [40 x i8], ptr %16, i64 %17
   %19 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %18) #18
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load volatile i32, ptr %20, align 4
@@ -573,7 +567,7 @@ define dso_local void @uncore_put_constraint(ptr noundef %0, ptr noundef capture
 define dso_local i64 @uncore_shared_reg_config(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = sext i32 %1 to i64
-  %5 = getelementptr %struct.intel_uncore_extra_reg, ptr %3, i64 %4
+  %5 = getelementptr [40 x i8], ptr %3, i64 %4
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #18
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
@@ -605,7 +599,7 @@ define dso_local void @uncore_perf_event_update(ptr noundef %0, ptr noundef %1) 
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = zext nneg i32 %12 to i64
-  %.split = getelementptr %struct.freerunning_counters, ptr %18, i64 %19
+  %.split = getelementptr [32 x i8], ptr %18, i64 %19
   %20 = getelementptr i8, ptr %.split, i64 16
   br label %33
 
@@ -749,7 +743,7 @@ define dso_local void @uncore_pmu_event_start(ptr noundef %0, i32 %1) #0 align 1
   store i32 0, ptr %38, align 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %45 = sext i32 %6 to i64
-  %46 = getelementptr ptr, ptr %44, i64 %45
+  %46 = getelementptr [8 x i8], ptr %44, i64 %45
   store ptr %0, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %48 = load i32, ptr %47, align 4
@@ -844,7 +838,7 @@ define dso_local void @uncore_pmu_event_stop(ptr noundef %0, i32 noundef %1) #0 
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 176
   %36 = load ptr, ptr %35, align 8
   %37 = zext nneg i32 %30 to i64
-  %.split3 = getelementptr %struct.freerunning_counters, ptr %36, i64 %37
+  %.split3 = getelementptr [32 x i8], ptr %36, i64 %37
   %38 = getelementptr i8, ptr %.split3, i64 16
   br label %51
 
@@ -921,7 +915,7 @@ define dso_local void @uncore_pmu_event_stop(ptr noundef %0, i32 noundef %1) #0 
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %94 = load i32, ptr %5, align 4
   %95 = sext i32 %94 to i64
-  %96 = getelementptr ptr, ptr %93, i64 %95
+  %96 = getelementptr [8 x i8], ptr %93, i64 %95
   store ptr null, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %98 = load i32, ptr %97, align 8
@@ -983,7 +977,7 @@ define dso_local void @uncore_pmu_event_stop(ptr noundef %0, i32 noundef %1) #0 
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 176
   %133 = load ptr, ptr %132, align 8
   %134 = zext nneg i32 %127 to i64
-  %.split = getelementptr %struct.freerunning_counters, ptr %133, i64 %134
+  %.split = getelementptr [32 x i8], ptr %133, i64 %134
   %135 = getelementptr i8, ptr %.split, i64 16
   br label %148
 
@@ -1092,7 +1086,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %36 = sext i32 %28 to i64
-  %37 = getelementptr ptr, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   store ptr %0, ptr %37, align 8
   %38 = add nsw i32 %28, 1
   br label %39
@@ -1138,11 +1132,11 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
 63:                                               ; preds = %88, %52
   %64 = phi i32 [ %50, %52 ], [ %89, %88 ]
   %65 = phi i64 [ 0, %52 ], [ %90, %88 ]
-  %66 = getelementptr ptr, ptr %53, i64 %65
+  %66 = getelementptr [8 x i8], ptr %53, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 396
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr i32, ptr %3, i64 %65
+  %70 = getelementptr [4 x i8], ptr %3, i64 %65
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %69, %71
   br i1 %72, label %73, label %80
@@ -1151,7 +1145,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 368
   %75 = load i64, ptr %74, align 8
   %76 = sext i32 %69 to i64
-  %77 = getelementptr i64, ptr %54, i64 %76
+  %77 = getelementptr [8 x i8], ptr %54, i64 %76
   %78 = load i64, ptr %77, align 8
   %79 = icmp eq i64 %75, %78
   br i1 %79, label %88, label %80
@@ -1182,11 +1176,11 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
 
 93:                                               ; preds = %335, %56
   %94 = phi i64 [ 0, %56 ], [ %336, %335 ]
-  %95 = getelementptr ptr, ptr %57, i64 %94
+  %95 = getelementptr [8 x i8], ptr %57, i64 %94
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 396
   %98 = load i32, ptr %97, align 4
-  %99 = getelementptr i32, ptr %3, i64 %94
+  %99 = getelementptr [4 x i8], ptr %3, i64 %94
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %98, %100
   br i1 %101, label %102, label %109
@@ -1195,7 +1189,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 368
   %104 = load i64, ptr %103, align 8
   %105 = sext i32 %98 to i64
-  %106 = getelementptr i64, ptr %58, i64 %105
+  %106 = getelementptr [8 x i8], ptr %58, i64 %105
   %107 = load i64, ptr %106, align 8
   %108 = icmp eq i64 %104, %107
   br i1 %108, label %320, label %109
@@ -1203,7 +1197,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
 109:                                              ; preds = %102, %93
   store i32 %100, ptr %97, align 4
   %110 = sext i32 %100 to i64
-  %111 = getelementptr i64, ptr %58, i64 %110
+  %111 = getelementptr [8 x i8], ptr %58, i64 %110
   %112 = load i64, ptr %111, align 8
   %113 = add i64 %112, 1
   store i64 %113, ptr %111, align 8
@@ -1246,7 +1240,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
   %139 = getelementptr inbounds nuw i8, ptr %130, i64 336
   %140 = load i32, ptr %139, align 8
   %141 = sext i32 %140 to i64
-  %142 = getelementptr i64, ptr %136, i64 %141
+  %142 = getelementptr [8 x i8], ptr %136, i64 %141
   %143 = load i64, ptr %142, align 8
   %144 = trunc i64 %143 to i32
   br label %151
@@ -1305,7 +1299,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
   %181 = getelementptr inbounds nuw i8, ptr %170, i64 336
   %182 = load i32, ptr %181, align 8
   %183 = sext i32 %182 to i64
-  %184 = getelementptr i64, ptr %178, i64 %183
+  %184 = getelementptr [8 x i8], ptr %178, i64 %183
   %185 = load i64, ptr %184, align 8
   %186 = trunc i64 %185 to i32
   br label %193
@@ -1390,7 +1384,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
   %244 = getelementptr inbounds nuw i8, ptr %219, i64 336
   %245 = load i32, ptr %244, align 8
   %246 = sext i32 %245 to i64
-  %247 = getelementptr i64, ptr %241, i64 %246
+  %247 = getelementptr [8 x i8], ptr %241, i64 %246
   %248 = load i64, ptr %247, align 8
   %249 = trunc i64 %248 to i32
   br label %256
@@ -1470,7 +1464,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
   %305 = getelementptr inbounds nuw i8, ptr %280, i64 336
   %306 = load i32, ptr %305, align 8
   %307 = sext i32 %306 to i64
-  %308 = getelementptr i64, ptr %302, i64 %307
+  %308 = getelementptr [8 x i8], ptr %302, i64 %307
   %309 = load i64, ptr %308, align 8
   %310 = trunc i64 %309 to i32
   br label %317
@@ -1552,7 +1546,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef n
 
 .split.us:                                        ; preds = %11, %32
   %13 = phi i64 [ %35, %32 ], [ 0, %11 ]
-  %14 = getelementptr ptr, ptr %6, i64 %13
+  %14 = getelementptr [8 x i8], ptr %6, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 396
   %17 = load i32, ptr %16, align 4
@@ -1560,7 +1554,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef n
   br i1 %18, label %.split21.us, label %19
 
 19:                                               ; preds = %.split.us
-  %20 = getelementptr ptr, ptr %9, i64 %13
+  %20 = getelementptr [8 x i8], ptr %9, i64 %13
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %17 to i64
   %23 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %21, i64 %22) #18, !srcloc !37
@@ -1590,7 +1584,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef n
   %38 = phi i64 [ 0, %7 ], [ %89, %.loopexit11 ]
   %39 = phi i32 [ 10, %7 ], [ %87, %.loopexit11 ]
   %40 = phi i32 [ 0, %7 ], [ %88, %.loopexit11 ]
-  %41 = getelementptr ptr, ptr %6, i64 %38
+  %41 = getelementptr [8 x i8], ptr %6, i64 %38
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %8, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 352
@@ -1653,7 +1647,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef n
 
 .loopexit11:                                      ; preds = %69, %.loopexit12, %54, %51
   %83 = phi ptr [ %82, %.loopexit12 ], [ %52, %51 ], [ @uncore_constraint_fixed, %54 ], [ %70, %69 ]
-  %84 = getelementptr ptr, ptr %9, i64 %38
+  %84 = getelementptr [8 x i8], ptr %9, i64 %38
   store ptr %83, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %86 = load i32, ptr %85, align 8
@@ -1665,7 +1659,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef n
 
 .split:                                           ; preds = %11, %110
   %91 = phi i64 [ %115, %110 ], [ 0, %11 ]
-  %92 = getelementptr ptr, ptr %6, i64 %91
+  %92 = getelementptr [8 x i8], ptr %6, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 396
   %95 = load i32, ptr %94, align 4
@@ -1673,7 +1667,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef n
   br i1 %96, label %.split21.us, label %97
 
 97:                                               ; preds = %.split
-  %98 = getelementptr ptr, ptr %9, i64 %91
+  %98 = getelementptr [8 x i8], ptr %9, i64 %91
   %99 = load ptr, ptr %98, align 8
   %100 = sext i32 %95 to i64
   %101 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %99, i64 %100) #18, !srcloc !37
@@ -1696,7 +1690,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef n
   %112 = sext i32 %111 to i64
   call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %112) #18, !srcloc !28
   %113 = load i32, ptr %94, align 4
-  %114 = getelementptr i32, ptr %1, i64 %91
+  %114 = getelementptr [4 x i8], ptr %1, i64 %91
   store i32 %113, ptr %114, align 4
   %115 = add nuw nsw i64 %91, 1
   %116 = icmp eq i64 %115, %10
@@ -1763,7 +1757,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef n
   br i1 %151, label %155, label %152
 
 152:                                              ; preds = %.split28
-  %153 = getelementptr ptr, ptr %6, i64 %143
+  %153 = getelementptr [8 x i8], ptr %6, i64 %143
   %154 = load ptr, ptr %153, align 8
   call void %150(ptr noundef nonnull %0, ptr noundef %154) #18
   br label %155
@@ -1803,7 +1797,7 @@ define dso_local void @uncore_pmu_event_del(ptr noundef %0, i32 %1) #0 align 16 
 15:                                               ; preds = %48, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %12 ]
   %16 = phi i64 [ %50, %48 ], [ 1, %12 ]
-  %17 = getelementptr ptr, ptr %13, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %0
   br i1 %19, label %20, label %48
@@ -1835,7 +1829,7 @@ define dso_local void @uncore_pmu_event_del(ptr noundef %0, i32 %1) #0 align 16 
 .preheader:                                       ; preds = %32, %.preheader
   %36 = phi i64 [ %42, %.preheader ], [ %16, %32 ]
   %37 = phi i64 [ %36, %.preheader ], [ %indvars.iv, %32 ]
-  %38 = getelementptr ptr, ptr %13, i64 %36
+  %38 = getelementptr [8 x i8], ptr %13, i64 %36
   %39 = load ptr, ptr %38, align 8
   %sext = shl i64 %37, 32
   %40 = ashr exact i64 %sext, 29
@@ -1895,7 +1889,7 @@ define dso_local void @uncore_pmu_event_read(ptr noundef %0) #0 align 16 {
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 176
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %13 to i64
-  %.split = getelementptr %struct.freerunning_counters, ptr %19, i64 %20
+  %.split = getelementptr [32 x i8], ptr %19, i64 %20
   %21 = getelementptr i8, ptr %.split, i64 16
   br label %34
 
@@ -1972,7 +1966,7 @@ define dso_local void @uncore_get_alias_name(ptr noundef writeonly captures(none
 17:                                               ; preds = %12
   %18 = load i32, ptr %16, align 8
   %19 = sext i32 %18 to i64
-  %20 = getelementptr i32, ptr %14, i64 %19
+  %20 = getelementptr [4 x i8], ptr %14, i64 %19
   br label %21
 
 21:                                               ; preds = %17, %12
@@ -2167,7 +2161,7 @@ define internal fastcc void @uncore_types_exit(ptr noundef readonly captures(non
 29:                                               ; preds = %29, %27
   %30 = phi i64 [ 0, %27 ], [ %34, %29 ]
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr ptr, ptr %31, i64 %30
+  %32 = getelementptr [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8
   tail call void @kfree(ptr noundef %33) #18
   %34 = add nuw nsw i64 %30, 1
@@ -2381,7 +2375,7 @@ define internal fastcc i32 @uncore_pci_init() unnamed_addr #8 section ".init.tex
 47:                                               ; preds = %.split8.i
   %48 = trunc i64 %45 to i32
   %49 = load ptr, ptr %38, align 8
-  %50 = getelementptr i64, ptr %49, i64 %45
+  %50 = getelementptr [8 x i8], ptr %49, i64 %45
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %.loopexit.i, label %.split.i
@@ -2389,14 +2383,14 @@ define internal fastcc i32 @uncore_pci_init() unnamed_addr #8 section ".init.tex
 .split.i:                                         ; preds = %47, %76
   %53 = phi i64 [ %77, %76 ], [ 0, %47 ]
   %54 = load ptr, ptr %38, align 8
-  %55 = getelementptr i64, ptr %54, i64 %45
+  %55 = getelementptr [8 x i8], ptr %54, i64 %45
   %56 = load i64, ptr %55, align 8
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %76, label %58
 
 58:                                               ; preds = %.split.i
   %59 = load ptr, ptr %39, align 8
-  %60 = getelementptr i64, ptr %59, i64 %53
+  %60 = getelementptr [8 x i8], ptr %59, i64 %53
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, %56
   %63 = trunc i64 %62 to i32
@@ -2412,7 +2406,7 @@ define internal fastcc i32 @uncore_pci_init() unnamed_addr #8 section ".init.tex
 
 72:                                               ; preds = %58
   %73 = load ptr, ptr %40, align 8
-  %74 = getelementptr %struct.intel_uncore_pmu, ptr %73, i64 %53
+  %74 = getelementptr [368 x i8], ptr %73, i64 %53
   %75 = tail call fastcc i32 @uncore_pci_pmu_register(ptr noundef nonnull %70, ptr noundef nonnull %33, ptr noundef %74, i32 noundef %48)
   br label %76
 
@@ -2471,7 +2465,7 @@ uncore_pci_pmus_register.exit:                    ; preds = %.loopexit6.i, %25
   %106 = load i64, ptr %105, align 8
   %107 = lshr i64 %106, 8
   %108 = and i64 %107, 255
-  %109 = getelementptr ptr, ptr %104, i64 %108
+  %109 = getelementptr [8 x i8], ptr %104, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %112 = load i32, ptr %111, align 4
@@ -2511,7 +2505,7 @@ uncore_pci_pmus_register.exit:                    ; preds = %.loopexit6.i, %25
 136:                                              ; preds = %120
   %137 = load ptr, ptr %116, align 8
   %138 = and i64 %122, 255
-  %139 = getelementptr %struct.intel_uncore_pmu, ptr %137, i64 %138
+  %139 = getelementptr [368 x i8], ptr %137, i64 %138
   %140 = icmp eq ptr %139, null
   br i1 %140, label %132, label %141
 
@@ -2545,7 +2539,7 @@ uncore_pci_pmus_register.exit:                    ; preds = %.loopexit6.i, %25
   %157 = getelementptr inbounds nuw i8, ptr %143, i64 216
   %158 = load i8, ptr %157, align 8
   %159 = zext i8 %158 to i64
-  %160 = getelementptr i32, ptr %156, i64 %159
+  %160 = getelementptr [4 x i8], ptr %156, i64 %159
   %161 = load i32, ptr %160, align 4
   tail call void @_raw_spin_unlock(ptr noundef nonnull @pci2phy_map_lock) #18
   %162 = icmp sgt i32 %161, -1
@@ -2709,7 +2703,7 @@ define internal fastcc i32 @uncore_mmio_init() unnamed_addr #8 section ".init.te
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @uncore_event_cpu_online(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_info to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -2757,7 +2751,7 @@ define internal noundef range(i32 -12, 1) i32 @uncore_event_cpu_online(i32 nound
 
 36:                                               ; preds = %32
   %37 = sext i32 %0 to i64
-  %38 = getelementptr i64, ptr @__per_cpu_offset, i64 %37
+  %38 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %37
   br label %39
 
 39:                                               ; preds = %.loopexit16, %36
@@ -2785,7 +2779,7 @@ define internal noundef range(i32 -12, 1) i32 @uncore_event_cpu_online(i32 nound
   %57 = phi i32 [ 0, %45 ], [ %71, %69 ]
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 360
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr ptr, ptr %59, i64 %53
+  %60 = getelementptr [8 x i8], ptr %59, i64 %53
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %69, label %63
@@ -2831,7 +2825,7 @@ define internal noundef range(i32 -12, 1) i32 @uncore_event_cpu_online(i32 nound
 
 81:                                               ; preds = %77
   %82 = sext i32 %0 to i64
-  %83 = getelementptr i64, ptr @__per_cpu_offset, i64 %82
+  %83 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %82
   br label %84
 
 84:                                               ; preds = %.loopexit14, %81
@@ -2859,7 +2853,7 @@ define internal noundef range(i32 -12, 1) i32 @uncore_event_cpu_online(i32 nound
   %102 = phi i32 [ 0, %90 ], [ %116, %114 ]
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 360
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr ptr, ptr %104, i64 %98
+  %105 = getelementptr [8 x i8], ptr %104, i64 %98
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %114, label %108
@@ -2902,7 +2896,7 @@ define internal noundef range(i32 -12, 1) i32 @uncore_event_cpu_online(i32 nound
 
 125:                                              ; preds = %.loopexit15
   %126 = sext i32 %0 to i64
-  %127 = getelementptr i64, ptr @__per_cpu_offset, i64 %126
+  %127 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %126
   br label %128
 
 128:                                              ; preds = %.loopexit, %125
@@ -2930,7 +2924,7 @@ define internal noundef range(i32 -12, 1) i32 @uncore_event_cpu_online(i32 nound
   %146 = phi i32 [ 0, %134 ], [ %160, %158 ]
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 360
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr ptr, ptr %148, i64 %142
+  %149 = getelementptr [8 x i8], ptr %148, i64 %142
   %150 = load ptr, ptr %149, align 8
   %151 = icmp eq ptr %150, null
   br i1 %151, label %158, label %152
@@ -2980,7 +2974,7 @@ define internal noundef i32 @uncore_event_cpu_offline(i32 noundef %0) #0 align 1
   br i1 %5, label %38, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %7 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, ptrtoint (ptr @cpu_die_map to i64)
   %10 = inttoptr i64 %9 to ptr
@@ -3031,7 +3025,7 @@ define internal noundef i32 @uncore_event_cpu_offline(i32 noundef %0) #0 align 1
   br label %38
 
 38:                                               ; preds = %33, %1
-  %39 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %39 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, ptrtoint (ptr @cpu_info to i64)
   %42 = inttoptr i64 %41 to ptr
@@ -3064,7 +3058,7 @@ define internal noundef i32 @uncore_event_cpu_offline(i32 noundef %0) #0 align 1
   %61 = phi ptr [ %89, %87 ], [ %58, %56 ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 360
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr ptr, ptr %63, i64 %49
+  %64 = getelementptr [8 x i8], ptr %63, i64 %49
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %87, label %67
@@ -3140,7 +3134,7 @@ define internal noundef i32 @uncore_event_cpu_offline(i32 noundef %0) #0 align 1
   %111 = phi ptr [ %139, %137 ], [ %108, %106 ]
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 360
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr ptr, ptr %113, i64 %99
+  %114 = getelementptr [8 x i8], ptr %113, i64 %99
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %115, null
   br i1 %116, label %137, label %117
@@ -3352,7 +3346,7 @@ define internal i32 @uncore_pci_probe(ptr noundef %0, ptr noundef readonly captu
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %19 = load i8, ptr %18, align 8
   %20 = zext i8 %19 to i64
-  %21 = getelementptr i32, ptr %17, i64 %20
+  %21 = getelementptr [4 x i8], ptr %17, i64 %20
   %22 = load i32, ptr %21, align 4
   tail call void @_raw_spin_unlock(ptr noundef nonnull @pci2phy_map_lock) #18
   %23 = icmp sgt i32 %22, -1
@@ -3370,14 +3364,14 @@ define internal i32 @uncore_pci_probe(ptr noundef %0, ptr noundef readonly captu
   %31 = and i64 %26, 255
   %32 = load ptr, ptr @uncore_extra_pci_dev, align 8
   %33 = zext nneg i32 %22 to i64
-  %34 = getelementptr %struct.pci_extra_dev, ptr %32, i64 %33
-  %35 = getelementptr ptr, ptr %34, i64 %31
+  %34 = getelementptr [32 x i8], ptr %32, i64 %33
+  %35 = getelementptr [8 x i8], ptr %34, i64 %31
   store ptr %0, ptr %35, align 8
   br label %64
 
 36:                                               ; preds = %24
   %37 = load ptr, ptr @uncore_pci_uncores, align 8
-  %38 = getelementptr ptr, ptr %37, i64 %28
+  %38 = getelementptr [8 x i8], ptr %37, i64 %28
   %39 = load ptr, ptr %38, align 8
   %40 = icmp ult i64 %26, 65536
   br i1 %40, label %51, label %41
@@ -3398,7 +3392,7 @@ define internal i32 @uncore_pci_probe(ptr noundef %0, ptr noundef readonly captu
   %52 = getelementptr inbounds nuw i8, ptr %39, i64 152
   %53 = load ptr, ptr %52, align 8
   %54 = and i64 %26, 255
-  %55 = getelementptr %struct.intel_uncore_pmu, ptr %53, i64 %54
+  %55 = getelementptr [368 x i8], ptr %53, i64 %54
   br label %56
 
 56:                                               ; preds = %51, %41
@@ -3407,7 +3401,7 @@ define internal i32 @uncore_pci_probe(ptr noundef %0, ptr noundef readonly captu
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 360
   %60 = load ptr, ptr %59, align 8
   %61 = zext nneg i32 %22 to i64
-  %62 = getelementptr ptr, ptr %60, i64 %61
+  %62 = getelementptr [8 x i8], ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8
   br label %64
 
@@ -3454,7 +3448,7 @@ define internal void @uncore_pci_remove(ptr noundef captures(address) %0) #0 ali
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %18 = load i8, ptr %17, align 8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr i32, ptr %16, i64 %19
+  %20 = getelementptr [4 x i8], ptr %16, i64 %19
   %21 = load i32, ptr %20, align 4
   tail call void @_raw_spin_unlock(ptr noundef nonnull @pci2phy_map_lock) #18
   %22 = icmp sgt i32 %21, -1
@@ -3469,18 +3463,18 @@ define internal void @uncore_pci_remove(ptr noundef captures(address) %0) #0 ali
 27:                                               ; preds = %23
   %28 = load ptr, ptr @uncore_extra_pci_dev, align 8
   %29 = zext nneg i32 %21 to i64
-  %30 = getelementptr %struct.pci_extra_dev, ptr %28, i64 %29
+  %30 = getelementptr [32 x i8], ptr %28, i64 %29
   br label %31
 
 31:                                               ; preds = %40, %27
   %32 = phi i64 [ 0, %27 ], [ %41, %40 ]
-  %33 = getelementptr ptr, ptr %30, i64 %32
+  %33 = getelementptr [8 x i8], ptr %30, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %0
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %31
-  %37 = getelementptr ptr, ptr %30, i64 %32
+  %37 = getelementptr [8 x i8], ptr %30, i64 %32
   store ptr null, ptr %37, align 8
   %38 = and i64 %32, 4294967292
   %39 = icmp eq i64 %38, 0
@@ -3504,7 +3498,7 @@ define internal void @uncore_pci_remove(ptr noundef captures(address) %0) #0 ali
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 360
   %47 = load ptr, ptr %46, align 8
   %48 = zext nneg i32 %21 to i64
-  %49 = getelementptr ptr, ptr %47, i64 %48
+  %49 = getelementptr [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
   store ptr null, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 348
@@ -3592,7 +3586,7 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
   %23 = phi i64 [ %19, %18 ], [ 0, %12 ]
   %24 = trunc i64 %23 to i32
   %25 = select i1 %1, i32 %24, i32 -1
-  %26 = getelementptr %struct.intel_uncore_pmu, ptr %10, i64 %23
+  %26 = getelementptr [368 x i8], ptr %10, i64 %23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 340
   store i32 %25, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 336
@@ -3633,7 +3627,7 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
 .preheader7:                                      ; preds = %.loopexit10, %.preheader7
   %48 = phi i32 [ %53, %.preheader7 ], [ 0, %.loopexit10 ]
   %49 = sext i32 %48 to i64
-  %50 = getelementptr %struct.uncore_event_desc, ptr %46, i64 %49
+  %50 = getelementptr [40 x i8], ptr %46, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   %53 = add i32 %48, 1
@@ -3664,8 +3658,8 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
 
 69:                                               ; preds = %69, %66
   %70 = phi i64 [ 0, %66 ], [ %73, %69 ]
-  %71 = getelementptr %struct.uncore_event_desc, ptr %67, i64 %70
-  %72 = getelementptr ptr, ptr %63, i64 %70
+  %71 = getelementptr [40 x i8], ptr %67, i64 %70
+  %72 = getelementptr [8 x i8], ptr %63, i64 %70
   store ptr %71, ptr %72, align 8
   %73 = add nuw nsw i64 %70, 1
   %74 = icmp eq i64 %73, %68
@@ -3695,7 +3689,7 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
 
 .preheader:                                       ; preds = %.loopexit9, %.preheader
   %84 = phi i64 [ %87, %.preheader ], [ 0, %.loopexit9 ]
-  %.split = getelementptr %struct.intel_uncore_pmu, ptr %10, i64 %84
+  %.split = getelementptr [368 x i8], ptr %10, i64 %84
   %85 = getelementptr i8, ptr %.split, i64 360
   %86 = load ptr, ptr %85, align 8
   tail call void @kfree(ptr noundef %86) #18
@@ -3779,14 +3773,14 @@ define internal fastcc ptr @uncore_pci_find_dev_pmu(ptr noundef readonly capture
 
 30:                                               ; preds = %.loopexit.us.us, %.split15.us.us
   %31 = phi i64 [ 0, %.split15.us.us ], [ %64, %.loopexit.us.us ]
-  %32 = getelementptr i64, ptr %29, i64 %31
+  %32 = getelementptr [8 x i8], ptr %29, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %.loopexit.us.us, label %.split.us17.us
 
 35:                                               ; preds = %.split.us17.us, %58
   %36 = phi i64 [ 0, %.split.us17.us ], [ %59, %58 ]
-  %37 = getelementptr i64, ptr %61, i64 %36
+  %37 = getelementptr [8 x i8], ptr %61, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %33
   %40 = lshr i64 %39, 12
@@ -3832,7 +3826,7 @@ define internal fastcc ptr @uncore_pci_find_dev_pmu(ptr noundef readonly capture
 .split19.us:                                      ; preds = %50
   %66 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr %struct.intel_uncore_pmu, ptr %67, i64 %36
+  %68 = getelementptr [368 x i8], ptr %67, i64 %36
   br label %.loopexit9
 
 69:                                               ; preds = %104, %4
@@ -3872,12 +3866,12 @@ define internal fastcc ptr @uncore_pci_find_dev_pmu(ptr noundef readonly capture
   %95 = load ptr, ptr @uncore_pci_uncores, align 8
   %96 = lshr i64 %85, 8
   %97 = and i64 %96, 255
-  %98 = getelementptr ptr, ptr %95, i64 %97
+  %98 = getelementptr [8 x i8], ptr %95, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 152
   %101 = load ptr, ptr %100, align 8
   %102 = and i64 %85, 255
-  %103 = getelementptr %struct.intel_uncore_pmu, ptr %101, i64 %102
+  %103 = getelementptr [368 x i8], ptr %101, i64 %102
   br label %.loopexit9
 
 104:                                              ; preds = %83, %77, %73
@@ -3895,7 +3889,7 @@ define internal fastcc i32 @uncore_pci_pmu_register(ptr noundef %0, ptr noundef 
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %3 to i64
-  %8 = getelementptr ptr, ptr %6, i64 %7
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11, !prof !15
@@ -3928,7 +3922,7 @@ define internal fastcc i32 @uncore_pci_pmu_register(ptr noundef %0, ptr noundef 
 
 26:                                               ; preds = %26, %23
   %27 = phi i64 [ 0, %23 ], [ %29, %26 ]
-  %28 = getelementptr %struct.intel_uncore_extra_reg, ptr %24, i64 %27
+  %28 = getelementptr [40 x i8], ptr %24, i64 %27
   store i32 0, ptr %28, align 8
   %29 = add nuw nsw i64 %27, 1
   %30 = icmp eq i64 %29, %25
@@ -4000,7 +3994,7 @@ define internal fastcc i32 @uncore_pci_pmu_register(ptr noundef %0, ptr noundef 
 
 63:                                               ; preds = %62, %54, %46
   %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr ptr, ptr %64, i64 %7
+  %65 = getelementptr [8 x i8], ptr %64, i64 %7
   store ptr %19, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 348
   %67 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %66, i32 1, ptr nonnull elementtype(i32) %66) #18, !srcloc !66
@@ -4015,7 +4009,7 @@ define internal fastcc i32 @uncore_pci_pmu_register(ptr noundef %0, ptr noundef 
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr ptr, ptr %74, i64 %7
+  %75 = getelementptr [8 x i8], ptr %74, i64 %7
   store ptr null, ptr %75, align 8
   %76 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %50, i64 0, ptr nonnull elementtype(i64) %50) #18, !srcloc !64
   %77 = icmp ult i8 %76, 2
@@ -4139,7 +4133,7 @@ define internal fastcc i32 @uncore_pmu_register(ptr noundef initializes((0, 304)
 52:                                               ; preds = %47
   %53 = load i32, ptr %51, align 8
   %54 = sext i32 %53 to i64
-  %55 = getelementptr i32, ptr %49, i64 %54
+  %55 = getelementptr [4 x i8], ptr %49, i64 %54
   br label %56
 
 56:                                               ; preds = %52, %47
@@ -4179,7 +4173,7 @@ define internal fastcc i32 @uncore_pmu_register(ptr noundef initializes((0, 304)
 77:                                               ; preds = %71
   %78 = load i32, ptr %76, align 8
   %79 = sext i32 %78 to i64
-  %80 = getelementptr i32, ptr %74, i64 %79
+  %80 = getelementptr [4 x i8], ptr %74, i64 %79
   br label %81
 
 81:                                               ; preds = %77, %71
@@ -4271,7 +4265,7 @@ define internal noundef range(i32 0, 2) i32 @uncore_pmu_hrtimer(ptr noundef %0) 
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 176
   %39 = load ptr, ptr %38, align 8
   %40 = zext nneg i32 %34 to i64
-  %.split = getelementptr %struct.freerunning_counters, ptr %39, i64 %40
+  %.split = getelementptr [32 x i8], ptr %39, i64 %40
   %41 = getelementptr i8, ptr %.split, i64 16
   br label %52
 
@@ -4362,7 +4356,7 @@ define internal noundef range(i32 0, 2) i32 @uncore_pmu_hrtimer(ptr noundef %0) 
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 176
   %107 = load ptr, ptr %106, align 8
   %108 = zext nneg i32 %102 to i64
-  %.split7 = getelementptr %struct.freerunning_counters, ptr %107, i64 %108
+  %.split7 = getelementptr [32 x i8], ptr %107, i64 %108
   %109 = getelementptr i8, ptr %.split7, i64 16
   br label %120
 
@@ -4445,7 +4439,7 @@ declare dso_local i64 @hrtimer_forward(ptr noundef, i64 noundef, i64 noundef) lo
 define internal void @uncore_pmu_enable(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !95
   %3 = sext i32 %2 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_info to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -4459,7 +4453,7 @@ define internal void @uncore_pmu_enable(ptr noundef readonly captures(none) %0) 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %9 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
@@ -4486,7 +4480,7 @@ define internal void @uncore_pmu_enable(ptr noundef readonly captures(none) %0) 
 define internal void @uncore_pmu_disable(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !96
   %3 = sext i32 %2 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_info to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -4500,7 +4494,7 @@ define internal void @uncore_pmu_disable(ptr noundef readonly captures(none) %0)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %9 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
@@ -4555,7 +4549,7 @@ define internal i32 @uncore_pmu_event_init(ptr noundef %0) #0 align 16 {
 
 22:                                               ; preds = %18
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
+  %24 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, ptrtoint (ptr @cpu_info to i64)
   %27 = inttoptr i64 %26 to ptr
@@ -4569,7 +4563,7 @@ define internal i32 @uncore_pmu_event_init(ptr noundef %0) #0 align 16 {
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 360
   %34 = load ptr, ptr %33, align 8
   %35 = zext i32 %29 to i64
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread, label %39
@@ -4655,7 +4649,7 @@ define internal i32 @uncore_pmu_event_init(ptr noundef %0) #0 align 16 {
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 176
   %93 = load ptr, ptr %92, align 8
   %94 = zext nneg i32 %82 to i64
-  %.split = getelementptr %struct.freerunning_counters, ptr %93, i64 %94
+  %.split = getelementptr [32 x i8], ptr %93, i64 %94
   %95 = getelementptr i8, ptr %.split, i64 12
   %96 = load i32, ptr %95, align 4
   %97 = icmp ult i32 %91, %96
@@ -4720,7 +4714,7 @@ define internal fastcc i32 @uncore_freerunning_counter(ptr readonly captures(non
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %5 to i64
-  %11 = getelementptr %struct.freerunning_counters, ptr %9, i64 %10
+  %11 = getelementptr [32 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -4733,7 +4727,7 @@ define internal fastcc i32 @uncore_freerunning_counter(ptr readonly captures(non
   %19 = getelementptr inbounds nuw i8, ptr %.368.val, i64 336
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr i32, ptr %16, i64 %21
+  %22 = getelementptr [4 x i8], ptr %16, i64 %21
   %23 = load i32, ptr %22, align 4
   br label %30
 
@@ -4787,7 +4781,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_validate_group(ptr noundef 
 
 24:                                               ; preds = %24, %21
   %25 = phi i64 [ 0, %21 ], [ %27, %24 ]
-  %26 = getelementptr %struct.intel_uncore_extra_reg, ptr %22, i64 %25
+  %26 = getelementptr [40 x i8], ptr %22, i64 %25
   store i32 0, ptr %26, align 8
   %27 = add nuw nsw i64 %25, 1
   %28 = icmp eq i64 %27, %23
@@ -4831,7 +4825,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_validate_group(ptr noundef 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 112
   %53 = sext i32 %45 to i64
-  %54 = getelementptr ptr, ptr %52, i64 %53
+  %54 = getelementptr [8 x i8], ptr %52, i64 %53
   store ptr %4, ptr %54, align 8
   %55 = add nsw i32 %45, 1
   br label %56
@@ -4875,7 +4869,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_validate_group(ptr noundef 
 
 81:                                               ; preds = %79
   %82 = sext i32 %69 to i64
-  %83 = getelementptr ptr, ptr %66, i64 %82
+  %83 = getelementptr [8 x i8], ptr %66, i64 %82
   store ptr %70, ptr %83, align 8
   %84 = add nsw i32 %69, 1
   br label %85
@@ -4915,7 +4909,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_validate_group(ptr noundef 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %17, i64 112
   %109 = zext nneg i32 %89 to i64
-  %110 = getelementptr ptr, ptr %108, i64 %109
+  %110 = getelementptr [8 x i8], ptr %108, i64 %109
   store ptr %1, ptr %110, align 8
   %111 = add nuw nsw i32 %89, 1
   br label %112
@@ -4992,7 +4986,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @uncore_bus_notify(i64 nounde
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 216
   %26 = load i8, ptr %25, align 8
   %27 = zext i8 %26 to i64
-  %28 = getelementptr i32, ptr %24, i64 %27
+  %28 = getelementptr [4 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4
   tail call void @_raw_spin_unlock(ptr noundef nonnull @pci2phy_map_lock) #18
   %30 = icmp sgt i32 %29, -1
@@ -5002,7 +4996,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @uncore_bus_notify(i64 nounde
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 360
   %33 = load ptr, ptr %32, align 8
   %34 = zext nneg i32 %29 to i64
-  %35 = getelementptr ptr, ptr %33, i64 %34
+  %35 = getelementptr [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   store ptr null, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 348
@@ -5109,7 +5103,7 @@ define internal fastcc i32 @type_pmu_register(ptr noundef nonnull readonly captu
 .preheader:                                       ; preds = %1, %6
   %11 = phi i64 [ %7, %6 ], [ 0, %1 ]
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr %struct.intel_uncore_pmu, ptr %12, i64 %11
+  %13 = getelementptr [368 x i8], ptr %12, i64 %11
   %14 = tail call fastcc i32 @uncore_pmu_register(ptr noundef %13)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %6, label %.loopexit
@@ -5136,7 +5130,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr noundef
 8:                                                ; preds = %3
   %9 = zext i32 %1 to i64
   %10 = sext i32 %2 to i64
-  %11 = getelementptr i64, ptr @__per_cpu_offset, i64 %10
+  %11 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %10
   br label %12
 
 12:                                               ; preds = %.loopexit19, %8
@@ -5161,7 +5155,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr noundef
   %27 = phi i32 [ 0, %19 ], [ %67, %64 ]
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 360
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr ptr, ptr %29, i64 %9
+  %30 = getelementptr [8 x i8], ptr %29, i64 %9
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %64
@@ -5191,7 +5185,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr noundef
 
 50:                                               ; preds = %50, %47
   %51 = phi i64 [ 0, %47 ], [ %53, %50 ]
-  %52 = getelementptr %struct.intel_uncore_extra_reg, ptr %48, i64 %51
+  %52 = getelementptr [40 x i8], ptr %48, i64 %51
   store i32 0, ptr %52, align 8
   %53 = add nuw nsw i64 %51, 1
   %54 = icmp eq i64 %53, %49
@@ -5260,7 +5254,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr noundef
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 360
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr ptr, ptr %87, i64 %76
+  %88 = getelementptr [8 x i8], ptr %87, i64 %76
   store ptr %79, ptr %88, align 8
   %89 = icmp eq ptr %80, %4
   br i1 %89, label %.loopexit16, label %77, !llvm.loop !102
@@ -5313,7 +5307,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr noundef
   %114 = phi ptr [ %141, %139 ], [ %111, %109 ]
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 360
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr ptr, ptr %116, i64 %102
+  %117 = getelementptr [8 x i8], ptr %116, i64 %102
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
   br i1 %119, label %139, label %120
@@ -5380,7 +5374,7 @@ define internal fastcc void @uncore_change_context(ptr noundef readonly captures
   %7 = icmp slt i32 %1, 0
   %8 = select i1 %7, i32 %2, i32 %1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
+  %10 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %9
   br i1 %7, label %.split7.us, label %.split7
 
 .split7.us:                                       ; preds = %6, %.loopexit.split.us.us
@@ -5414,7 +5408,7 @@ define internal fastcc void @uncore_change_context(ptr noundef readonly captures
   %30 = phi i32 [ 0, %.split.us.us ], [ %44, %42 ]
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 360
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr ptr, ptr %32, i64 %23
+  %33 = getelementptr [8 x i8], ptr %32, i64 %23
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %42, label %36
@@ -5478,7 +5472,7 @@ define internal fastcc void @uncore_change_context(ptr noundef readonly captures
   %67 = phi i32 [ 0, %.split.us ], [ %81, %79 ]
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 360
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr ptr, ptr %69, i64 %60
+  %70 = getelementptr [8 x i8], ptr %69, i64 %60
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %79, label %73
@@ -5532,7 +5526,7 @@ define internal fastcc void @uncore_change_context(ptr noundef readonly captures
   %100 = phi i32 [ 0, %.split ], [ %116, %114 ]
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 360
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr ptr, ptr %102, i64 %96
+  %103 = getelementptr [8 x i8], ptr %102, i64 %96
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %114, label %106

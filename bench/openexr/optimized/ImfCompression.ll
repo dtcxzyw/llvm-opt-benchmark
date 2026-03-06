@@ -163,7 +163,7 @@ define void @_ZN7Imf_3_424getCompressionNameFromIdENS_11CompressionERNSt7__cxx11
 
 7:                                                ; preds = %2, %3
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %8
+  %9 = getelementptr inbounds [72 x i8], ptr @_ZN7Imf_3_4L8IdToDescE, i64 %8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %9)
   ret void
 }
@@ -186,7 +186,7 @@ define void @_ZN7Imf_3_431getCompressionDescriptionFromIdENS_11CompressionERNSt7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = sext i32 %0 to i64
-  %12 = getelementptr inbounds %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %11
+  %12 = getelementptr inbounds [72 x i8], ptr @_ZN7Imf_3_4L8IdToDescE, i64 %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %5, align 8, !tbaa !21, !alias.scope !18
@@ -619,7 +619,7 @@ define void @_ZN7Imf_3_425getCompressionNamesStringERKNSt7__cxx1112basic_stringI
 7:                                                ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %8 = getelementptr inbounds nuw %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [72 x i8], ptr @_ZN7Imf_3_4L8IdToDescE, i64 %indvars.iv
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %9 = load i64, ptr %4, align 8, !tbaa !17
   %10 = load i64, ptr %5, align 8, !tbaa !17
@@ -789,7 +789,7 @@ define noundef i32 @_ZN7Imf_3_426getCompressionNumScanlinesENS_11CompressionE(i3
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3
+  %4 = getelementptr inbounds nuw [72 x i8], ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load i32, ptr %5, align 8, !tbaa !35
   br label %7
@@ -806,7 +806,7 @@ define noundef zeroext i1 @_ZN7Imf_3_418isLossyCompressionENS_11CompressionE(i32
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3
+  %4 = getelementptr inbounds nuw [72 x i8], ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %6 = load i8, ptr %5, align 4, !tbaa !39, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1
@@ -824,7 +824,7 @@ define noundef zeroext i1 @_ZN7Imf_3_422isValidDeepCompressionENS_11CompressionE
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3
+  %4 = getelementptr inbounds nuw [72 x i8], ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 69
   %6 = load i8, ptr %5, align 1, !tbaa !42, !range !40, !noundef !41
   %7 = trunc nuw i8 %6 to i1

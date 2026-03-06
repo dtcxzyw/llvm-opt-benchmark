@@ -687,7 +687,7 @@ define void @_ZN7rocksdb18BytesToHumanStringB5cxx11Em(ptr dead_on_unwind noalias
 
 11:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %12 = getelementptr inbounds nuw ptr, ptr @__const._ZN7rocksdb18BytesToHumanStringB5cxx11Em.size_name, i64 %.09
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN7rocksdb18BytesToHumanStringB5cxx11Em.size_name, i64 %.09
   %13 = load ptr, ptr %12, align 8, !tbaa !42
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 20, ptr noundef nonnull @.str.21, double noundef %.0, ptr noundef %13) #28
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2270,7 +2270,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %58, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %55, ptr %0, align 8, !tbaa !57
   store ptr %59, ptr %11, align 8, !tbaa !54
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %53
   store ptr %61, ptr %12, align 8, !tbaa !58
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -2434,7 +2434,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i42: ; preds = %112, %
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i44: ; preds = %114, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i42
   store ptr %113, ptr %11, align 8, !tbaa !54
-  %115 = getelementptr inbounds nuw i32, ptr %109, i64 %107
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %107
   store ptr %115, ptr %12, align 8, !tbaa !58
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit47
 
@@ -2568,7 +2568,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %14
 19:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %12
   %20 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %13, %12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.023
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.023
   %22 = load i32, ptr %21, align 4, !tbaa !50
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
   %23 = call i32 @llvm.abs.i32(i32 %22, i1 false)
@@ -3401,7 +3401,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !34
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !26
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !29
   ret void
 

@@ -3,7 +3,6 @@ source_filename = "bench/libquic/original/err.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.err_error_st = type { ptr, ptr, i32, i16, i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @global_next_library = internal unnamed_addr global i32 33, align 4
@@ -89,7 +88,7 @@ err_get_state.exit.i:                             ; preds = %5, %0
   %13 = add i32 %8, 1
   %14 = and i32 %13, 15
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i.i, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %.06.i.i, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !13
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %16, i64 22
@@ -145,7 +144,7 @@ err_get_state.exit:                               ; preds = %6, %11
   %20 = and i32 %19, 15
   %.041 = select i1 %.not, i32 %20, i32 %16
   %21 = zext i32 %.041 to i64
-  %22 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %.06.i, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !13
   %25 = icmp ne ptr %2, null
@@ -292,7 +291,7 @@ err_get_state.exit.i:                             ; preds = %5, %0
   %13 = add i32 %8, 1
   %14 = and i32 %13, 15
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i.i, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %.06.i.i, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !13
   br label %get_error_values.exit
@@ -331,7 +330,7 @@ err_get_state.exit.i:                             ; preds = %7, %2
   %15 = add i32 %10, 1
   %16 = and i32 %15, 15
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i.i, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %.06.i.i, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !13
   %21 = icmp ne ptr %0, null
@@ -395,7 +394,7 @@ err_get_state.exit.i:                             ; preds = %5, %0
 
 12:                                               ; preds = %err_get_state.exit.i
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %.06.i.i, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !13
   br label %get_error_values.exit
@@ -432,7 +431,7 @@ err_get_state.exit.i:                             ; preds = %7, %2
 
 14:                                               ; preds = %err_get_state.exit.i
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i.i, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %.06.i.i, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !13
   %19 = icmp ne ptr %0, null
@@ -491,7 +490,7 @@ err_get_state.exit:                               ; preds = %5, %0
 
 7:                                                ; preds = %err_get_state.exit, %err_clear.exit
   %indvars.iv = phi i64 [ 0, %err_get_state.exit ], [ %indvars.iv.next, %err_clear.exit ]
-  %8 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %.06.i, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 22
   %10 = load i8, ptr %9, align 2, !tbaa !17
   %11 = and i8 %10, 16
@@ -593,7 +592,7 @@ define hidden void @ERR_error_string_n(i32 noundef %0, ptr noundef %1, i64 nound
 
 ERR_lib_error_string.exit:                        ; preds = %7
   %10 = zext nneg i32 %.pre to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @kLibraryNames, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @kLibraryNames, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = icmp eq i32 %.pre, 2
   br i1 %13, label %14, label %ERR_lib_error_string.exit.thread
@@ -613,7 +612,7 @@ ERR_lib_error_string.exit.thread:                 ; preds = %7, %ERR_lib_error_s
 
 19:                                               ; preds = %ERR_lib_error_string.exit.thread
   %20 = zext nneg i32 %8 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr @kLibraryNames, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @kLibraryNames, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   br label %ERR_reason_error_string.exit
 
@@ -761,7 +760,7 @@ define hidden ptr @ERR_lib_error_string(i32 noundef %0) local_unnamed_addr #5 {
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 24
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @kLibraryNames, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @kLibraryNames, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   br label %8
 
@@ -791,7 +790,7 @@ define hidden ptr @ERR_reason_error_string(i32 noundef %0) local_unnamed_addr #0
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr @kLibraryNames, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @kLibraryNames, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   br label %err_string_lookup.exit
 
@@ -851,7 +850,7 @@ bsearch.exit.i:                                   ; preds = %33
 
 switch.lookup:                                    ; preds = %17
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ERR_reason_error_string, i64 %41
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ERR_reason_error_string, i64 %41
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %err_string_lookup.exit
 
@@ -1005,7 +1004,7 @@ err_get_state.exit:                               ; preds = %5, %10
 
 28:                                               ; preds = %25, %17
   %29 = zext nneg i32 %21 to i64
-  %30 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i, i64 %29
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %.06.i, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 22
   %32 = load i8, ptr %31, align 2, !tbaa !17
   %33 = and i8 %32, 16
@@ -1157,7 +1156,7 @@ err_get_state.exit.thread.i.i:                    ; preds = %err_get_state.exit.
 
 51:                                               ; preds = %err_get_state.exit.i.i
   %52 = zext i32 %47 to i64
-  %53 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i.i.i, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %.06.i.i.i, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 22
   %55 = load i8, ptr %54, align 2, !tbaa !17
   %56 = and i8 %55, 16
@@ -1231,7 +1230,7 @@ err_get_state.exit.thread.i:                      ; preds = %err_get_state.exit.
 
 19:                                               ; preds = %err_get_state.exit.i
   %20 = zext i32 %15 to i64
-  %21 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i.i, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %.06.i.i, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 22
   %23 = load i8, ptr %22, align 2, !tbaa !17
   %24 = and i8 %23, 16
@@ -1287,7 +1286,7 @@ err_get_state.exit:                               ; preds = %0, %5
 
 12:                                               ; preds = %err_get_state.exit
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %.06.i, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 22
   %16 = load i8, ptr %15, align 2, !tbaa !17
   %17 = or i8 %16, 32
@@ -1327,7 +1326,7 @@ err_get_state.exit:                               ; preds = %5, %0
 .lr.ph:                                           ; preds = %err_get_state.exit, %24
   %11 = phi i32 [ %storemerge, %24 ], [ %10, %err_get_state.exit ]
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.err_error_st, ptr %.06.i, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %.06.i, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %15 = load i8, ptr %14, align 2, !tbaa !17
   %16 = and i8 %15, 32
@@ -1398,7 +1397,7 @@ define internal void @err_state_free(ptr noundef captures(address_is_null) %0) #
 
 .preheader:                                       ; preds = %1, %err_clear.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %err_clear.exit ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw %struct.err_error_st, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
   %5 = load i8, ptr %4, align 2, !tbaa !17
   %6 = and i8 %5, 16

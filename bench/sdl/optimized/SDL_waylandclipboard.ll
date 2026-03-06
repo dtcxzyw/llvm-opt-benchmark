@@ -291,13 +291,13 @@ define hidden ptr @Wayland_GetPrimarySelectionText(ptr noundef readonly captures
 16:                                               ; preds = %.preheader, %26
   %.024 = phi i64 [ 0, %.preheader ], [ %27, %26 ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr @text_mime_types, i64 %.024
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @text_mime_types, i64 %.024
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i1 @Wayland_primary_selection_offer_has_mime(ptr noundef %17, ptr noundef %19) #4
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw ptr, ptr @text_mime_types, i64 %.024
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @text_mime_types, i64 %.024
   %23 = load ptr, ptr %13, align 8
   %24 = load ptr, ptr %22, align 8
   %25 = call ptr @Wayland_primary_selection_offer_receive(ptr noundef %23, ptr noundef %24, ptr noundef nonnull %2) #4
@@ -357,7 +357,7 @@ define hidden noundef zeroext i1 @Wayland_HasPrimarySelectionText(ptr noundef re
 13:                                               ; preds = %13, %.preheader
   %.017 = phi i64 [ 0, %.preheader ], [ %18, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr @text_mime_types, i64 %.017
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @text_mime_types, i64 %.017
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i1 @Wayland_primary_selection_offer_has_mime(ptr noundef %14, ptr noundef %16) #4
   %18 = add nuw nsw i64 %.017, 1

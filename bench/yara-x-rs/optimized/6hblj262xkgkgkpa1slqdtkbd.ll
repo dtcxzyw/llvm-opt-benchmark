@@ -770,7 +770,7 @@ define { i32, i32 } @"_ZN100_$LT$$RF$alloc..vec..Vec$LT$yara_x_parser..ast..Expr
 18:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = load ptr, ptr %9, align 8, !nonnull !14, !noundef !14
-  %20 = getelementptr { i32, [3 x i32] }, ptr %19, i64 %15
+  %20 = getelementptr [16 x i8], ptr %19, i64 %15
   %21 = getelementptr i8, ptr %20, i64 -16
   %22 = tail call { i32, i32 } @"_ZN73_$LT$yara_x_parser..ast..Expr$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17hc943cd00c02d8da6E"(ptr noalias noundef readonly align 8 dereferenceable(16) %21)
   %23 = extractvalue { i32, i32 } %22, 0
@@ -858,7 +858,7 @@ define hidden void @_ZN13yara_x_parser3cst13syntax_stream12SyntaxStream3end17hcf
   %.sroa.01.0.i = sub nuw i64 %16, %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !78, !nonnull !14, !noundef !14
-  %21 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %20, i64 %.sroa.01.0.i
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.sroa.01.0.i
   %22 = load i64, ptr %21, align 8, !range !8, !noundef !14
   %23 = icmp eq i64 %22, -9223372036854775808
   br i1 %23, label %25, label %41, !prof !41
@@ -929,7 +929,7 @@ define hidden void @_ZN13yara_x_parser3cst13syntax_stream12SyntaxStream14end_wit
   %.sroa.01.0.i = sub nuw i64 %16, %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !83, !nonnull !14, !noundef !14
-  %21 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %20, i64 %.sroa.01.0.i
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.sroa.01.0.i
   %22 = load i64, ptr %21, align 8, !range !8, !noundef !14
   %23 = icmp eq i64 %22, -9223372036854775808
   br i1 %23, label %25, label %41, !prof !41
@@ -1129,7 +1129,7 @@ _ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbf
   %.sroa.01.0.i = sub nuw i64 %25, %27
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %29 = load ptr, ptr %28, align 8, !alias.scope !91, !nonnull !14, !noundef !14
-  %30 = getelementptr inbounds nuw { i8, [11 x i8] }, ptr %29, i64 %.sroa.01.0.i
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %.sroa.01.0.i
   %31 = load i8, ptr %30, align 4, !range !94, !alias.scope !95, !noalias !98, !noundef !14
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %.val162.i = load i32, ptr %32, align 4, !alias.scope !100, !noalias !98, !noundef !14
@@ -1158,7 +1158,7 @@ _ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbf
   %.sroa.01.0.i.i = sub nuw i64 %40, %42
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %44 = load ptr, ptr %43, align 8, !alias.scope !109, !nonnull !14, !noundef !14
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %.sroa.01.0.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.sroa.01.0.i.i
   %46 = load i64, ptr %45, align 8, !noalias !106, !noundef !14
   %.not6.i = icmp ult i64 %46, %.val
   br i1 %.not6.i, label %47, label %48, !prof !27
@@ -1261,7 +1261,7 @@ _ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbf
   %.sroa.01.0.i = sub nuw i64 %26, %28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load ptr, ptr %29, align 8, !alias.scope !115, !nonnull !14, !noundef !14
-  %31 = getelementptr inbounds nuw { i8, [11 x i8] }, ptr %30, i64 %.sroa.01.0.i
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %.sroa.01.0.i
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h3512f4519cb25408E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h3512f4519cb25408E.exit": ; preds = %_ZN13yara_x_parser6parser12token_stream11TokenStream12fetch_tokens17h858e1f80fbfede63E.exit, %23
@@ -1289,7 +1289,7 @@ define hidden noundef i64 @_ZN13yara_x_parser6parser12token_stream11TokenStream8
   %.sroa.01.0.i = sub nuw i64 %10, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8, !alias.scope !118, !nonnull !14, !noundef !14
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %.sroa.01.0.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.sroa.01.0.i
   %16 = load i64, ptr %15, align 8, !noundef !14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8, !noundef !14
@@ -1372,10 +1372,10 @@ define { ptr, i64 } @_ZN13yara_x_parser9tokenizer6tokens7TokenId11description17h
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !94, !noundef !14
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN13yara_x_parser9tokenizer6tokens7TokenId11description17hcea322d39bef6933E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN13yara_x_parser9tokenizer6tokens7TokenId11description17hcea322d39bef6933E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13yara_x_parser9tokenizer6tokens7TokenId11description17hcea322d39bef6933E.21, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN13yara_x_parser9tokenizer6tokens7TokenId11description17hcea322d39bef6933E.21, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

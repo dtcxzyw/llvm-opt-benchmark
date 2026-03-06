@@ -9,16 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVCodecHWConfig = type { i32, i32, i32 }
 %union.anon.0 = type { ptr }
 %union.anon.1 = type { i64 }
-%struct.H264SliceContext = type { ptr, %struct.GetBitContext, ptr, i32, i32, i32, i32, i32, [2 x i32], i32, i32, i32, i32, i32, %struct.H264PredWeightTable, i32, i32, i32, i32, [40 x i8], ptr, i32, i32, i32, [2 x i32], i32, i32, i32, [2 x i32], ptr, i32, i32, i32, i32, i32, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [32 x i32], [2 x [32 x i32]], [2 x [48 x i32]], [2 x [2 x [48 x i32]]], [2 x i32], i32, [2 x [48 x %struct.H264Ref]], [2 x [32 x %struct.anon]], [2 x i32], i32, ptr, ptr, ptr, [2 x ptr], i32, i32, [2 x i32], [120 x i8], [8 x i8], [2 x [40 x [2 x i16]]], [2 x [40 x i8]], [2 x [40 x [2 x i8]]], [40 x i8], [4 x i16], [1536 x i16], [3 x [32 x i16]], [512 x i16], [2 x ptr], %struct.CABACContext, [1024 x i8], i32, [67 x %struct.MMCO], i32, i32, i32, i32, i32, i32, [2 x i32], i32, i32 }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.H264PredWeightTable = type { i32, i32, i32, i32, [2 x i32], [2 x i32], [48 x [2 x [2 x i32]]], [48 x [2 x [2 x [2 x i32]]]], [48 x [48 x [2 x i32]]] }
-%struct.H264Ref = type { [3 x ptr], [3 x i32], i32, i32, i32, ptr }
-%struct.anon = type { i8, i32 }
-%struct.CABACContext = type { i32, i32, ptr, ptr, ptr }
-%struct.MMCO = type { i32, i32, i32 }
-%struct.H264Picture = type { ptr, %struct.ThreadFrame, ptr, ptr, ptr, [2 x ptr], [2 x ptr], ptr, ptr, ptr, [2 x ptr], [2 x i32], i32, i32, i32, i32, i32, [2 x [2 x [32 x i32]]], [2 x [2 x i32]], i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, ptr, i32 }
-%struct.ThreadFrame = type { ptr, [2 x ptr], ptr }
-%struct.H2645NAL = type { ptr, i32, i32, i32, ptr, %struct.GetBitContext, i32, i32, i32, i32, i32, i32, ptr }
 
 @ff_h264_mb_sizes = local_unnamed_addr constant [4 x i16] [i16 256, i16 384, i16 512, i16 768], align 2
 @.str = private unnamed_addr constant [5 x i8] c"h264\00", align 1
@@ -231,7 +222,7 @@ define void @ff_h264_free_tables(ptr noundef %0) local_unnamed_addr #1 {
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %27 = load ptr, ptr %25, align 8, !tbaa !92
-  %28 = getelementptr inbounds nuw %struct.H264SliceContext, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [35568 x i8], ptr %27, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 28576
   tail call void @av_freep(ptr noundef nonnull %29) #11
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 28584
@@ -369,7 +360,7 @@ define range(i32 -12, 1) i32 @ff_h264_alloc_tables(ptr noundef initializes((7308
   %63 = load i32, ptr %3, align 4, !tbaa !95
   %64 = shl nsw i32 %63, 1
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i16, ptr %62, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %62, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 731760
   store ptr %67, ptr %68, align 8, !tbaa !90
@@ -410,13 +401,13 @@ define range(i32 -12, 1) i32 @ff_h264_alloc_tables(ptr noundef initializes((7308
   %reass.add = add i32 %85, %.0128156
   %reass.mul = shl i32 %reass.add, 2
   %86 = sext i32 %83 to i64
-  %87 = getelementptr inbounds i32, ptr %78, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %78, i64 %86
   store i32 %reass.mul, ptr %87, align 4, !tbaa !89
   %88 = load i32, ptr %3, align 4, !tbaa !95
   %89 = shl nsw i32 %88, 1
   %90 = srem i32 %83, %89
   %91 = shl nsw i32 %90, 3
-  %92 = getelementptr inbounds i32, ptr %79, i64 %86
+  %92 = getelementptr inbounds [4 x i8], ptr %79, i64 %86
   store i32 %91, ptr %92, align 4, !tbaa !89
   %93 = add nuw nsw i32 %.0128156, 1
   %94 = load i32, ptr %71, align 8, !tbaa !114
@@ -535,7 +526,7 @@ define range(i32 -12, 1) i32 @ff_h264_alloc_tables(ptr noundef initializes((7308
   %154 = mul nsw i32 %150, %.1131162
   %155 = add nsw i32 %154, %.1129159
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds i32, ptr %148, i64 %156
+  %157 = getelementptr inbounds [4 x i8], ptr %148, i64 %156
   store i32 %153, ptr %157, align 4, !tbaa !89
   %158 = add nuw nsw i32 %.1129159, 1
   %159 = load i32, ptr %104, align 8, !tbaa !114
@@ -563,24 +554,24 @@ define range(i32 -12, 1) i32 @ff_h264_alloc_tables(ptr noundef initializes((7308
   %170 = load ptr, ptr %129, align 8, !tbaa !129
   %171 = mul nsw i32 %165, %.lcssa
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds i32, ptr %170, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %170, i64 %172
   store i32 %169, ptr %173, align 4, !tbaa !89
   %174 = load i32, ptr %104, align 8, !tbaa !114
   %175 = shl nsw i32 %174, 1
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds i16, ptr %140, i64 %176
+  %177 = getelementptr inbounds [2 x i8], ptr %140, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 736736
   store ptr %178, ptr %179, align 8, !tbaa !135
   %180 = sext i32 %109 to i64
-  %181 = getelementptr inbounds i16, ptr %140, i64 %180
+  %181 = getelementptr inbounds [2 x i8], ptr %140, i64 %180
   %182 = load i32, ptr %3, align 4, !tbaa !95
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds i16, ptr %181, i64 %183
+  %184 = getelementptr inbounds [2 x i8], ptr %181, i64 %183
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 2
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 736744
   store ptr %185, ptr %186, align 8, !tbaa !135
-  %187 = getelementptr inbounds i16, ptr %185, i64 %18
+  %187 = getelementptr inbounds [2 x i8], ptr %185, i64 %18
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 736752
   store ptr %187, ptr %188, align 8, !tbaa !135
   %189 = icmp sgt i32 %111, 0
@@ -588,7 +579,7 @@ define range(i32 -12, 1) i32 @ff_h264_alloc_tables(ptr noundef initializes((7308
 
 .lr.ph168:                                        ; preds = %._crit_edge163, %.lr.ph168
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph168 ], [ 0, %._crit_edge163 ]
-  %190 = getelementptr inbounds nuw i16, ptr %140, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw [2 x i8], ptr %140, i64 %indvars.iv
   store i16 1024, ptr %190, align 2, !tbaa !136
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %191 = icmp slt i64 %indvars.iv.next, %139
@@ -626,7 +617,7 @@ define internal void @h264_er_decode_mb(ptr noundef %0, i32 noundef %1, i32 %2, 
   %spec.store.select = select i1 %.not, i32 %1, i32 0
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 22664
   %23 = sext i32 %spec.store.select to i64
-  %24 = getelementptr inbounds %struct.H264Ref, ptr %22, i64 %23
+  %24 = getelementptr inbounds [56 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !102
   %.not30 = icmp eq ptr %25, null
   br i1 %.not30, label %26, label %29
@@ -640,7 +631,7 @@ define internal void @h264_er_decode_mb(ptr noundef %0, i32 noundef %1, i32 %2, 
 29:                                               ; preds = %26, %9
   %.0 = phi i32 [ %spec.store.select, %9 ], [ 0, %26 ]
   %30 = sext i32 %.0 to i64
-  %31 = getelementptr inbounds %struct.H264Ref, ptr %22, i64 %30
+  %31 = getelementptr inbounds [56 x i8], ptr %22, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
   %33 = load i32, ptr %32, align 4, !tbaa !141
   %34 = and i32 %33, 3
@@ -763,7 +754,7 @@ define void @ff_h264_flush_change(ptr noundef initializes((735696, 735700), (736
 
 9:                                                ; preds = %9, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   store i32 -2147483648, ptr %10, align 4, !tbaa !89
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -795,14 +786,14 @@ idr.exit:                                         ; preds = %9
 19:                                               ; preds = %.lr.ph
   %20 = add nsw i32 %.030, 1
   %21 = sext i32 %.030 to i64
-  %22 = getelementptr inbounds ptr, ptr %15, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %15, i64 %21
   store ptr %17, ptr %22, align 8, !tbaa !156
   br label %23
 
 23:                                               ; preds = %.lr.ph, %19
   %.1 = phi i32 [ %20, %19 ], [ %.030, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !156
   %.not26 = icmp eq ptr %25, null
   br i1 %.not26, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !157
@@ -813,7 +804,7 @@ idr.exit:                                         ; preds = %9
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
   %.0.lcssa = phi i64 [ 0, %13 ], [ %26, %._crit_edge.loopexit ]
-  %27 = getelementptr inbounds ptr, ptr %15, i64 %.0.lcssa
+  %27 = getelementptr inbounds [8 x i8], ptr %15, i64 %.0.lcssa
   store ptr null, ptr %27, align 8, !tbaa !156
   br label %28
 
@@ -882,7 +873,7 @@ define internal range(i32 -2147483648, 1) i32 @h264_decode_init(ptr noundef %0) 
 
 26:                                               ; preds = %26, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %26 ]
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv.i
   store i32 -2147483648, ptr %27, align 4, !tbaa !89
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -945,7 +936,7 @@ define internal range(i32 -2147483648, 1) i32 @h264_decode_init(ptr noundef %0) 
 
 51:                                               ; preds = %50, %.preheader.i
   %indvars.iv77.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next78.i, %50 ]
-  %52 = getelementptr inbounds nuw %struct.H264Picture, ptr %48, i64 %indvars.iv77.i
+  %52 = getelementptr inbounds nuw [760 x i8], ptr %48, i64 %indvars.iv77.i
   %53 = tail call ptr @av_frame_alloc() #11
   store ptr %53, ptr %52, align 8, !tbaa !177
   %.not.i.i = icmp eq ptr %53, null
@@ -998,7 +989,7 @@ h264_init_pic.exit65.preheader.i:                 ; preds = %64
 
 h264_init_pic.exit65.i:                           ; preds = %h264_init_pic.exit65.i, %.lr.ph.i
   %indvars.iv81.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next82.i, %h264_init_pic.exit65.i ]
-  %70 = getelementptr inbounds nuw %struct.H264SliceContext, ptr %69, i64 %indvars.iv81.i
+  %70 = getelementptr inbounds nuw [35568 x i8], ptr %69, i64 %indvars.iv81.i
   store ptr %3, ptr %70, align 16, !tbaa !179
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, %wide.trip.count.i
@@ -1183,7 +1174,7 @@ define internal i32 @h264_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %spec.select.i = select i1 %43, i32 %44, i32 %.03955.i
   %spec.select52.i = select i1 %43, ptr %30, ptr %.056.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %45 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.next.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.next.i
   %46 = load ptr, ptr %45, align 8, !tbaa !156
   %.not47.i = icmp eq ptr %46, null
   br i1 %.not47.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !204
@@ -1192,7 +1183,7 @@ define internal i32 @h264_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %.039.lcssa.ph.i = phi i32 [ %.03955.i, %35 ], [ %spec.select.i, %38 ], [ %.03955.i, %.lr.ph.i ]
   %.0.lcssa.ph.i = phi ptr [ %.056.i, %35 ], [ %spec.select52.i, %38 ], [ %.056.i, %.lr.ph.i ]
   %.phi.trans.insert.i = zext i32 %.039.lcssa.ph.i to i64
-  %.phi.trans.insert71.i = getelementptr inbounds nuw ptr, ptr %24, i64 %.phi.trans.insert.i
+  %.phi.trans.insert71.i = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.phi.trans.insert.i
   %.pre.i = load ptr, ptr %.phi.trans.insert71.i, align 8, !tbaa !156
   %47 = icmp eq ptr %.pre.i, null
   br i1 %47, label %._crit_edge.i, label %.lr.ph66.preheader.i
@@ -1200,14 +1191,14 @@ define internal i32 @h264_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 .lr.ph66.preheader.i:                             ; preds = %.critedge.i, %.preheader.i
   %.0.lcssa79.i = phi ptr [ %.0.lcssa.ph.i, %.critedge.i ], [ %28, %.preheader.i ]
   %.039.lcssa78.i = phi i64 [ %.phi.trans.insert.i, %.critedge.i ], [ 0, %.preheader.i ]
-  %48 = getelementptr inbounds nuw ptr, ptr %24, i64 %.039.lcssa78.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.039.lcssa78.i
   br label %.lr.ph66.i
 
 .lr.ph66.i:                                       ; preds = %.lr.ph66.i, %.lr.ph66.preheader.i
   %indvars.iv68.i = phi i64 [ %.039.lcssa78.i, %.lr.ph66.preheader.i ], [ %indvars.iv.next69.i, %.lr.ph66.i ]
   %49 = phi ptr [ %48, %.lr.ph66.preheader.i ], [ %50, %.lr.ph66.i ]
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  %50 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.next69.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.next69.i
   %51 = load ptr, ptr %50, align 8, !tbaa !156
   store ptr %51, ptr %49, align 8, !tbaa !156
   %.not50.i = icmp eq ptr %51, null
@@ -1474,7 +1465,7 @@ is_avcc_extradata.exit.thread:                    ; preds = %110, %101, %120, %1
   %.03563.i.i = phi i32 [ %.23754.i.i, %.thread.i.i ], [ 0, %187 ]
   %.03862.i.i = phi i32 [ %.24053.i.i, %.thread.i.i ], [ 1, %187 ]
   %191 = load ptr, ptr %174, align 8, !tbaa !220
-  %192 = getelementptr inbounds nuw %struct.H2645NAL, ptr %191, i64 %indvars.iv.i.i
+  %192 = getelementptr inbounds nuw [96 x i8], ptr %191, i64 %indvars.iv.i.i
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 64
   %194 = load i32, ptr %193, align 8, !tbaa !221
   switch i32 %194, label %.thread.i.i [
@@ -1665,7 +1656,7 @@ get_last_needed_nal.exit.i:                       ; preds = %.thread.i.i
   %indvars.iv.i103 = phi i64 [ 0, %.lr.ph.i102 ], [ %indvars.iv.next.i104, %.thread281.i ]
   %.0197295.i = phi i32 [ 0, %.lr.ph.i102 ], [ %.1.i, %.thread281.i ]
   %314 = load ptr, ptr %174, align 8, !tbaa !220
-  %315 = getelementptr inbounds nuw %struct.H2645NAL, ptr %314, i64 %indvars.iv.i103
+  %315 = getelementptr inbounds nuw [96 x i8], ptr %314, i64 %indvars.iv.i103
   %316 = load i32, ptr %283, align 4, !tbaa !226
   %317 = icmp sgt i32 %316, 7
   %318 = getelementptr inbounds nuw i8, ptr %315, i64 68
@@ -1735,7 +1726,7 @@ get_last_needed_nal.exit.i:                       ; preds = %.thread.i.i
 
 336:                                              ; preds = %336, %335
   %indvars.iv.i273.i = phi i64 [ 0, %335 ], [ %indvars.iv.next.i274.i, %336 ]
-  %337 = getelementptr inbounds nuw i32, ptr %307, i64 %indvars.iv.i273.i
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %indvars.iv.i273.i
   store i32 -2147483648, ptr %337, align 4, !tbaa !89
   %indvars.iv.next.i274.i = add nuw nsw i64 %indvars.iv.i273.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i274.i, 16
@@ -2075,7 +2066,7 @@ debug_green_metadata.exit.i:                      ; preds = %440, %435, %418, %4
   %514 = load ptr, ptr %308, align 8, !tbaa !92
   %515 = load i32, ptr %18, align 4, !tbaa !197
   %516 = sext i32 %515 to i64
-  %517 = getelementptr inbounds %struct.H264SliceContext, ptr %514, i64 %516
+  %517 = getelementptr inbounds [35568 x i8], ptr %514, i64 %516
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 22648
   %519 = getelementptr inbounds nuw i8, ptr %517, i64 22652
   store i32 0, ptr %519, align 4, !tbaa !89
@@ -2384,7 +2375,7 @@ decode_nal_units.exit:                            ; preds = %625, %628, %631, %6
   %spec.select.i132 = select i1 %669, i32 %670, i32 %.03955.i112
   %spec.select52.i133 = select i1 %669, ptr %656, ptr %.056.i111
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i110, 1
-  %671 = getelementptr inbounds nuw ptr, ptr %650, i64 %indvars.iv.next.i134
+  %671 = getelementptr inbounds nuw [8 x i8], ptr %650, i64 %indvars.iv.next.i134
   %672 = load ptr, ptr %671, align 8, !tbaa !156
   %.not47.i135 = icmp eq ptr %672, null
   br i1 %.not47.i135, label %.critedge.i114, label %.lr.ph.i109, !llvm.loop !204
@@ -2393,7 +2384,7 @@ decode_nal_units.exit:                            ; preds = %625, %628, %631, %6
   %.039.lcssa.ph.i115 = phi i32 [ %.03955.i112, %661 ], [ %spec.select.i132, %664 ], [ %.03955.i112, %.lr.ph.i109 ]
   %.0.lcssa.ph.i116 = phi ptr [ %.056.i111, %661 ], [ %spec.select52.i133, %664 ], [ %.056.i111, %.lr.ph.i109 ]
   %.phi.trans.insert.i117 = zext i32 %.039.lcssa.ph.i115 to i64
-  %.phi.trans.insert71.i118 = getelementptr inbounds nuw ptr, ptr %650, i64 %.phi.trans.insert.i117
+  %.phi.trans.insert71.i118 = getelementptr inbounds nuw [8 x i8], ptr %650, i64 %.phi.trans.insert.i117
   %.pre.i119 = load ptr, ptr %.phi.trans.insert71.i118, align 8, !tbaa !156
   %673 = icmp eq ptr %.pre.i119, null
   br i1 %673, label %._crit_edge.i127, label %.lr.ph66.preheader.i120
@@ -2401,14 +2392,14 @@ decode_nal_units.exit:                            ; preds = %625, %628, %631, %6
 .lr.ph66.preheader.i120:                          ; preds = %.critedge.i114, %.preheader.i107
   %.0.lcssa79.i121 = phi ptr [ %.0.lcssa.ph.i116, %.critedge.i114 ], [ %654, %.preheader.i107 ]
   %.039.lcssa78.i122 = phi i64 [ %.phi.trans.insert.i117, %.critedge.i114 ], [ 0, %.preheader.i107 ]
-  %674 = getelementptr inbounds nuw ptr, ptr %650, i64 %.039.lcssa78.i122
+  %674 = getelementptr inbounds nuw [8 x i8], ptr %650, i64 %.039.lcssa78.i122
   br label %.lr.ph66.i123
 
 .lr.ph66.i123:                                    ; preds = %.lr.ph66.i123, %.lr.ph66.preheader.i120
   %indvars.iv68.i124 = phi i64 [ %.039.lcssa78.i122, %.lr.ph66.preheader.i120 ], [ %indvars.iv.next69.i125, %.lr.ph66.i123 ]
   %675 = phi ptr [ %674, %.lr.ph66.preheader.i120 ], [ %676, %.lr.ph66.i123 ]
   %indvars.iv.next69.i125 = add nuw nsw i64 %indvars.iv68.i124, 1
-  %676 = getelementptr inbounds nuw ptr, ptr %650, i64 %indvars.iv.next69.i125
+  %676 = getelementptr inbounds nuw [8 x i8], ptr %650, i64 %indvars.iv.next69.i125
   %677 = load ptr, ptr %676, align 8, !tbaa !156
   store ptr %677, ptr %675, align 8, !tbaa !156
   %.not50.i126 = icmp eq ptr %677, null
@@ -2539,7 +2530,7 @@ define internal noundef i32 @h264_decode_end(ptr noundef readonly captures(none)
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.H264Picture, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [760 x i8], ptr %4, i64 %indvars.iv
   tail call void @ff_h264_unref_picture(ptr noundef nonnull %6) #11
   tail call void @av_frame_free(ptr noundef nonnull %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -2600,7 +2591,7 @@ define internal void @h264_decode_flush(ptr noundef %0) #1 {
 
 11:                                               ; preds = %11, %1
   %indvars.iv.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i.i
   store i32 -2147483648, ptr %12, align 4, !tbaa !89
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
@@ -2632,14 +2623,14 @@ idr.exit.i:                                       ; preds = %11
 21:                                               ; preds = %.lr.ph.i
   %22 = add nsw i32 %.030.i, 1
   %23 = sext i32 %.030.i to i64
-  %24 = getelementptr inbounds ptr, ptr %4, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %4, i64 %23
   store ptr %19, ptr %24, align 8, !tbaa !156
   br label %25
 
 25:                                               ; preds = %21, %.lr.ph.i
   %.1.i = phi i32 [ %22, %21 ], [ %.030.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %26 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next.i
   %27 = load ptr, ptr %26, align 8, !tbaa !156
   %.not26.i = icmp eq ptr %27, null
   br i1 %.not26.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !157
@@ -2650,7 +2641,7 @@ idr.exit.i:                                       ; preds = %11
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %16
   %.0.lcssa.i = phi i64 [ 0, %16 ], [ %28, %._crit_edge.loopexit.i ]
-  %29 = getelementptr inbounds ptr, ptr %4, i64 %.0.lcssa.i
+  %29 = getelementptr inbounds [8 x i8], ptr %4, i64 %.0.lcssa.i
   store ptr null, ptr %29, align 8, !tbaa !156
   br label %ff_h264_flush_change.exit
 
@@ -2674,7 +2665,7 @@ ff_h264_flush_change.exit:                        ; preds = %idr.exit.i, %._crit
 
 38:                                               ; preds = %ff_h264_flush_change.exit, %38
   %indvars.iv = phi i64 [ 0, %ff_h264_flush_change.exit ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw %struct.H264Picture, ptr %37, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [760 x i8], ptr %37, i64 %indvars.iv
   tail call void @ff_h264_unref_picture(ptr noundef nonnull %39) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
@@ -2821,21 +2812,21 @@ define internal fastcc range(i32 -2147483648, 1) i32 @finalize_frame(ptr noundef
 
 .split.us:                                        ; preds = %45, %.split.us
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.split.us ], [ 0, %45 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv62
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv62
   %51 = load ptr, ptr %50, align 8, !tbaa !102
-  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv62
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv62
   %53 = load i32, ptr %52, align 4, !tbaa !89
   %54 = mul nuw nsw i32 %53, %48
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr %51, i64 %55
-  %57 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv62
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv62
   store ptr %56, ptr %57, align 8, !tbaa !102
   %58 = sext i32 %53 to i64
   %59 = getelementptr inbounds i8, ptr %51, i64 %58
-  %60 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv62
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv62
   store ptr %59, ptr %60, align 8, !tbaa !102
   %61 = shl nsw i32 %53, 1
-  %62 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv62
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv62
   store i32 %61, ptr %62, align 4, !tbaa !89
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 4
@@ -2843,19 +2834,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @finalize_frame(ptr noundef
 
 .split:                                           ; preds = %45, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %45 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !102
-  %65 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !89
   %67 = mul nuw nsw i32 %66, %48
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %64, i64 %68
-  %70 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %69, ptr %70, align 8, !tbaa !102
-  %71 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %64, ptr %71, align 8, !tbaa !102
   %72 = shl nsw i32 %66, 1
-  %73 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %72, ptr %73, align 4, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

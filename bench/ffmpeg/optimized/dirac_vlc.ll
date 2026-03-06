@@ -11,9 +11,9 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @ff_dirac_golomb_read_16bit(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i8, ptr %0, align 1, !tbaa !4
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @dirac_golomb_lut, i64 %6
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds i16, ptr %2, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %2, i64 %8
   %.0105142 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.0.0143 = load i16, ptr %7, align 16, !tbaa !7
   %.sroa.7.0.in144 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -76,7 +76,7 @@ define i32 @ff_dirac_golomb_read_16bit(ptr noundef readonly captures(none) %0, i
   %24 = getelementptr inbounds nuw i8, ptr %.0102163, i64 14
   store i16 0, ptr %24, align 2, !tbaa !7
   %25 = sext i8 %.sroa.19.0174 to i64
-  %26 = getelementptr inbounds i16, ptr %.0102163, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %.0102163, i64 %25
   %.not119 = icmp ult ptr %26, %9
   br i1 %.not119, label %27, label %.thread
 
@@ -87,8 +87,8 @@ define i32 @ff_dirac_golomb_read_16bit(ptr noundef readonly captures(none) %0, i
   %29 = zext i16 %.sroa.25.0176 to i64
   %30 = load i8, ptr %.0105166, align 1, !tbaa !4
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %29
-  %33 = getelementptr inbounds nuw %struct.LUTState, ptr %32, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr @dirac_golomb_lut, i64 %29
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %31
   %34 = add nuw nsw i32 %.098165, 1
   %.0105 = getelementptr inbounds nuw i8, ptr %.0105166, i64 1
   %.sroa.0.0 = load i16, ptr %33, align 16, !tbaa !7
@@ -157,7 +157,7 @@ define i32 @ff_dirac_golomb_read_16bit(ptr noundef readonly captures(none) %0, i
   %50 = zext i8 %.sroa.23.0.lcssa to i16
   %spec.select126 = select i1 %.not122, i16 %39, i16 %50
   %51 = sext i8 %.sroa.19.0.lcssa to i64
-  %52 = getelementptr inbounds i16, ptr %.0102.lcssa, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %.0102.lcssa, i64 %51
   %.not123 = icmp ult ptr %52, %9
   br i1 %.not123, label %53, label %.thread
 
@@ -165,8 +165,8 @@ define i32 @ff_dirac_golomb_read_16bit(ptr noundef readonly captures(none) %0, i
   %54 = zext i16 %.sroa.25.0.lcssa to i64
   %55 = load i8, ptr %.0105.lcssa, align 1, !tbaa !4
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %54
-  %58 = getelementptr inbounds nuw %struct.LUTState, ptr %57, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr @dirac_golomb_lut, i64 %54
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %56
   %.sroa.25.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %58, i64 14
   %.sroa.25.0.copyload84 = load i16, ptr %.sroa.25.0..sroa_idx83, align 2, !tbaa !7
   %.not124 = icmp eq i16 %.sroa.25.0.copyload84, 0
@@ -201,9 +201,9 @@ define i32 @ff_dirac_golomb_read_16bit(ptr noundef readonly captures(none) %0, i
 define i32 @ff_dirac_golomb_read_32bit(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i8, ptr %0, align 1, !tbaa !4
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @dirac_golomb_lut, i64 %6
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds i32, ptr %2, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %2, i64 %8
   %.0105142 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.0.0143 = load i16, ptr %7, align 16, !tbaa !7
   %.sroa.7.0.in144 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -269,7 +269,7 @@ define i32 @ff_dirac_golomb_read_32bit(ptr noundef readonly captures(none) %0, i
   %27 = getelementptr inbounds nuw i8, ptr %.0102163, i64 28
   store i32 0, ptr %27, align 4, !tbaa !11
   %28 = sext i8 %.sroa.19.0174 to i64
-  %29 = getelementptr inbounds i32, ptr %.0102163, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %.0102163, i64 %28
   %.not119 = icmp ult ptr %29, %9
   br i1 %.not119, label %30, label %.thread
 
@@ -280,8 +280,8 @@ define i32 @ff_dirac_golomb_read_32bit(ptr noundef readonly captures(none) %0, i
   %32 = zext i16 %.sroa.25.0176 to i64
   %33 = load i8, ptr %.0105166, align 1, !tbaa !4
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %32
-  %36 = getelementptr inbounds nuw %struct.LUTState, ptr %35, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr @dirac_golomb_lut, i64 %32
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %34
   %37 = add nuw nsw i32 %.098165, 1
   %.0105 = getelementptr inbounds nuw i8, ptr %.0105166, i64 1
   %.sroa.0.0 = load i16, ptr %36, align 16, !tbaa !7
@@ -350,7 +350,7 @@ define i32 @ff_dirac_golomb_read_32bit(ptr noundef readonly captures(none) %0, i
   %56 = zext i8 %.sroa.23.0.lcssa to i32
   %spec.select126 = select i1 %.not122, i32 %41, i32 %56
   %57 = sext i8 %.sroa.19.0.lcssa to i64
-  %58 = getelementptr inbounds i32, ptr %.0102.lcssa, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %.0102.lcssa, i64 %57
   %.not123 = icmp ult ptr %58, %9
   br i1 %.not123, label %59, label %.thread
 
@@ -358,8 +358,8 @@ define i32 @ff_dirac_golomb_read_32bit(ptr noundef readonly captures(none) %0, i
   %60 = zext i16 %.sroa.25.0.lcssa to i64
   %61 = load i8, ptr %.0105.lcssa, align 1, !tbaa !4
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %60
-  %64 = getelementptr inbounds nuw %struct.LUTState, ptr %63, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr @dirac_golomb_lut, i64 %60
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %62
   %.sroa.25.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %64, i64 14
   %.sroa.25.0.copyload84 = load i16, ptr %.sroa.25.0..sroa_idx83, align 2, !tbaa !7
   %.not124 = icmp eq i16 %.sroa.25.0.copyload84, 0

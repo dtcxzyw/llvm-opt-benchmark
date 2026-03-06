@@ -2368,7 +2368,7 @@ gnu_add_sparse_entry.exit:                        ; preds = %660
   br i1 %.not62, label %gnu_add_sparse_entry.exit.thread, label %681
 
 681:                                              ; preds = %679
-  %682 = getelementptr i32, ptr %678, i64 %680
+  %682 = getelementptr [4 x i8], ptr %678, i64 %680
   %683 = getelementptr i8, ptr %682, i64 -4
   %684 = load i32, ptr %683, align 4, !tbaa !46
   %685 = icmp eq i32 %684, 47

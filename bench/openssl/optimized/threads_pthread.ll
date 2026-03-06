@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/threads_pthread.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.thread_qp = type { ptr, i32, ptr }
-%struct.rcu_qp = type { i64 }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/threads_pthread.c\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"assertion failed: data != NULL\00", align 1
 @.str.2 = private unnamed_addr constant [36 x i8] c"assertion failed: ret != UINT64_MAX\00", align 1
@@ -43,7 +40,7 @@ define void @ossl_rcu_read_lock(ptr noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %16, %26
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %26 ]
   %.02633 = phi i32 [ -1, %16 ], [ %spec.select, %26 ]
-  %18 = getelementptr inbounds nuw %struct.thread_qp, ptr %.0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %.0, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !13
   %21 = icmp eq ptr %20, %0
@@ -73,7 +70,7 @@ define void @ossl_rcu_read_lock(ptr noundef %0) local_unnamed_addr #0 {
   %34 = load atomic i32, ptr %32 acquire, align 4
   %35 = load ptr, ptr %33, align 8, !tbaa !20
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %struct.rcu_qp, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = atomicrmw add ptr %37, i64 1 acquire, align 8
   %39 = load atomic i32, ptr %32 monotonic, align 4
   %40 = icmp eq i32 %34, %39
@@ -82,12 +79,12 @@ define void @ossl_rcu_read_lock(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.i
   %41 = phi i64 [ %47, %.lr.ph.i ], [ %36, %31 ]
   %42 = load ptr, ptr %33, align 8, !tbaa !20
-  %43 = getelementptr inbounds nuw %struct.rcu_qp, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = atomicrmw sub ptr %43, i64 1 monotonic, align 8
   %45 = load atomic i32, ptr %32 acquire, align 4
   %46 = load ptr, ptr %33, align 8, !tbaa !20
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw %struct.rcu_qp, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = atomicrmw add ptr %48, i64 1 acquire, align 8
   %50 = load atomic i32, ptr %32 monotonic, align 4
   %51 = icmp eq i32 %45, %50
@@ -96,9 +93,9 @@ define void @ossl_rcu_read_lock(ptr noundef %0) local_unnamed_addr #0 {
 get_hold_current_qp.exit:                         ; preds = %.lr.ph.i, %31
   %.lcssa.i = phi i64 [ %36, %31 ], [ %47, %.lr.ph.i ]
   %52 = load ptr, ptr %33, align 8, !tbaa !20
-  %53 = getelementptr inbounds nuw %struct.rcu_qp, ptr %52, i64 %.lcssa.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.lcssa.i
   %54 = sext i32 %spec.select to i64
-  %55 = getelementptr inbounds %struct.thread_qp, ptr %.0, i64 %54
+  %55 = getelementptr inbounds [24 x i8], ptr %.0, i64 %54
   store ptr %53, ptr %55, align 8, !tbaa !17
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 1, ptr %56, align 8, !tbaa !16
@@ -162,7 +159,7 @@ define void @ossl_rcu_read_unlock(ptr noundef readonly captures(address) %0) loc
 
 8:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw %struct.thread_qp, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = icmp eq ptr %11, %0
@@ -267,7 +264,7 @@ update_qp.exit:                                   ; preds = %15, %1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !20
   %35 = zext i32 %22 to i64
-  %36 = getelementptr inbounds nuw %struct.rcu_qp, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %37) #9
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40

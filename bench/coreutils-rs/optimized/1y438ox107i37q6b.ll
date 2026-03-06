@@ -2070,8 +2070,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
 43:                                               ; preds = %38
   %44 = sub i64 %34, %39
   %45 = load ptr, ptr %13, align 8, !alias.scope !168, !noalias !163, !nonnull !9, !noundef !9
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %35
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %35
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %44
   %48 = shl i64 %39, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull align 8 %46, i64 %48, i1 false), !noalias !171
   store i64 %44, ptr %12, align 8, !alias.scope !168, !noalias !163
@@ -2079,7 +2079,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
 
 49:                                               ; preds = %38
   %50 = load ptr, ptr %13, align 8, !alias.scope !168, !noalias !163, !nonnull !9, !noundef !9
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %30
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %30
   %52 = shl i64 %40, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 8 %50, i64 %52, i1 false), !noalias !171
   br label %57
@@ -2103,7 +2103,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %62 = select i1 %.not.i.i, i64 0, i64 %61
   %.0.i.i = sub nuw i64 %60, %62
   %63 = load ptr, ptr %13, align 8, !alias.scope !160, !noalias !163, !nonnull !9, !noundef !9
-  %64 = getelementptr inbounds ptr, ptr %63, i64 %.0.i.i
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %.0.i.i
   store ptr %.0, ptr %64, align 8, !noalias !163
   %65 = load i64, ptr %11, align 8, !alias.scope !160, !noalias !163, !noundef !9
   %66 = add i64 %65, 1
@@ -2122,7 +2122,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %71 = select i1 %.not.i.i22, i64 0, i64 %70
   %.0.i.i23 = sub nuw i64 %69, %71
   %72 = load ptr, ptr %13, align 8, !alias.scope !180, !nonnull !9, !noundef !9
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %.0.i.i23
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %.0.i.i23
   %74 = load i64, ptr %10, align 8, !noundef !9
   %75 = load ptr, ptr %73, align 8, !nonnull !9, !align !10, !noundef !9
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8192
@@ -2154,7 +2154,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %.0.i.i25 = sub nuw i64 %87, %88
   store i64 %.0.i.i25, ptr %12, align 8, !alias.scope !181
   store i64 %65, ptr %11, align 8, !alias.scope !181
-  %89 = getelementptr inbounds ptr, ptr %72, i64 %69
+  %89 = getelementptr inbounds [8 x i8], ptr %72, i64 %69
   %90 = load ptr, ptr %89, align 8, !noalias !181, !nonnull !9, !align !10, !noundef !9
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8192
   %92 = load i64, ptr %91, align 8, !noundef !9
@@ -2178,7 +2178,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %99 = add i64 %55, -1
   store i64 %99, ptr %11, align 8, !alias.scope !184
   %100 = load ptr, ptr %13, align 8, !alias.scope !184, !nonnull !9, !noundef !9
-  %101 = getelementptr inbounds ptr, ptr %100, i64 %95
+  %101 = getelementptr inbounds [8 x i8], ptr %100, i64 %95
   %102 = load ptr, ptr %101, align 8, !noalias !184, !nonnull !9, !align !10, !noundef !9
   %103 = load i64, ptr %10, align 8, !noundef !9
   %104 = load i64, ptr %14, align 8, !noundef !9
@@ -2275,8 +2275,8 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
 135:                                              ; preds = %130
   %136 = sub i64 %126, %131
   %137 = load ptr, ptr %13, align 8, !alias.scope !207, !noalias !202, !nonnull !9, !noundef !9
-  %138 = getelementptr inbounds ptr, ptr %137, i64 %127
-  %139 = getelementptr inbounds ptr, ptr %137, i64 %136
+  %138 = getelementptr inbounds [8 x i8], ptr %137, i64 %127
+  %139 = getelementptr inbounds [8 x i8], ptr %137, i64 %136
   %140 = shl i64 %131, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %139, ptr nonnull align 8 %138, i64 %140, i1 false), !noalias !210
   store i64 %136, ptr %12, align 8, !alias.scope !207, !noalias !202
@@ -2284,7 +2284,7 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
 
 141:                                              ; preds = %130
   %142 = load ptr, ptr %13, align 8, !alias.scope !207, !noalias !202, !nonnull !9, !noundef !9
-  %143 = getelementptr inbounds ptr, ptr %142, i64 %122
+  %143 = getelementptr inbounds [8 x i8], ptr %142, i64 %122
   %144 = shl i64 %132, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %143, ptr nonnull align 8 %142, i64 %144, i1 false), !noalias !210
   br label %147
@@ -2307,7 +2307,7 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
   %152 = add i64 %151, 1
   store i64 %152, ptr %11, align 8, !alias.scope !199, !noalias !202
   %153 = load ptr, ptr %13, align 8, !alias.scope !199, !noalias !202, !nonnull !9, !noundef !9
-  %154 = getelementptr inbounds ptr, ptr %153, i64 %..i.i
+  %154 = getelementptr inbounds [8 x i8], ptr %153, i64 %..i.i
   store ptr %118, ptr %154, align 8, !noalias !202
   tail call void @__rust_dealloc(ptr noundef nonnull %102, i64 noundef 8200, i64 noundef 8) #25
   br label %155
@@ -2429,8 +2429,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
 46:                                               ; preds = %41
   %47 = sub i64 %37, %42
   %48 = load ptr, ptr %16, align 8, !alias.scope !232, !noalias !227, !nonnull !9, !noundef !9
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %38
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %38
+  %50 = getelementptr inbounds [8 x i8], ptr %48, i64 %47
   %51 = shl i64 %42, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 8 %49, i64 %51, i1 false), !noalias !235
   store i64 %47, ptr %15, align 8, !alias.scope !232, !noalias !227
@@ -2438,7 +2438,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
 
 52:                                               ; preds = %41
   %53 = load ptr, ptr %16, align 8, !alias.scope !232, !noalias !227, !nonnull !9, !noundef !9
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %33
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %33
   %55 = shl i64 %43, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 8 %53, i64 %55, i1 false), !noalias !235
   br label %60
@@ -2462,7 +2462,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %65 = select i1 %.not.i.i, i64 0, i64 %64
   %.0.i.i = sub nuw i64 %63, %65
   %66 = load ptr, ptr %16, align 8, !alias.scope !224, !noalias !227, !nonnull !9, !noundef !9
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %.0.i.i
+  %67 = getelementptr inbounds [8 x i8], ptr %66, i64 %.0.i.i
   store ptr %.0, ptr %67, align 8, !noalias !227
   %68 = load i64, ptr %14, align 8, !alias.scope !224, !noalias !227, !noundef !9
   %69 = add i64 %68, 1
@@ -2481,7 +2481,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %74 = select i1 %.not.i.i24, i64 0, i64 %73
   %.0.i.i25 = sub nuw i64 %72, %74
   %75 = load ptr, ptr %16, align 8, !alias.scope !244, !nonnull !9, !noundef !9
-  %76 = getelementptr inbounds ptr, ptr %75, i64 %.0.i.i25
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %.0.i.i25
   %77 = load i64, ptr %13, align 8, !noundef !9
   %78 = load ptr, ptr %76, align 8, !nonnull !9, !align !10, !noundef !9
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8192
@@ -2513,7 +2513,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %.0.i.i27 = sub nuw i64 %90, %91
   store i64 %.0.i.i27, ptr %15, align 8, !alias.scope !245
   store i64 %68, ptr %14, align 8, !alias.scope !245
-  %92 = getelementptr inbounds ptr, ptr %75, i64 %72
+  %92 = getelementptr inbounds [8 x i8], ptr %75, i64 %72
   %93 = load ptr, ptr %92, align 8, !noalias !245, !nonnull !9, !align !10, !noundef !9
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8192
   %95 = load i64, ptr %94, align 8, !noundef !9
@@ -2537,7 +2537,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %102 = add i64 %58, -1
   store i64 %102, ptr %14, align 8, !alias.scope !248
   %103 = load ptr, ptr %16, align 8, !alias.scope !248, !nonnull !9, !noundef !9
-  %104 = getelementptr inbounds ptr, ptr %103, i64 %98
+  %104 = getelementptr inbounds [8 x i8], ptr %103, i64 %98
   %105 = load ptr, ptr %104, align 8, !noalias !248, !nonnull !9, !align !10, !noundef !9
   %106 = load i64, ptr %13, align 8, !noundef !9
   %107 = load i64, ptr %17, align 8, !noundef !9
@@ -2634,8 +2634,8 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
 138:                                              ; preds = %133
   %139 = sub i64 %129, %134
   %140 = load ptr, ptr %16, align 8, !alias.scope !271, !noalias !266, !nonnull !9, !noundef !9
-  %141 = getelementptr inbounds ptr, ptr %140, i64 %130
-  %142 = getelementptr inbounds ptr, ptr %140, i64 %139
+  %141 = getelementptr inbounds [8 x i8], ptr %140, i64 %130
+  %142 = getelementptr inbounds [8 x i8], ptr %140, i64 %139
   %143 = shl i64 %134, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %142, ptr nonnull align 8 %141, i64 %143, i1 false), !noalias !274
   store i64 %139, ptr %15, align 8, !alias.scope !271, !noalias !266
@@ -2643,7 +2643,7 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
 
 144:                                              ; preds = %133
   %145 = load ptr, ptr %16, align 8, !alias.scope !271, !noalias !266, !nonnull !9, !noundef !9
-  %146 = getelementptr inbounds ptr, ptr %145, i64 %125
+  %146 = getelementptr inbounds [8 x i8], ptr %145, i64 %125
   %147 = shl i64 %135, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %146, ptr nonnull align 8 %145, i64 %147, i1 false), !noalias !274
   br label %150
@@ -2666,7 +2666,7 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
   %155 = add i64 %154, 1
   store i64 %155, ptr %14, align 8, !alias.scope !263, !noalias !266
   %156 = load ptr, ptr %16, align 8, !alias.scope !263, !noalias !266, !nonnull !9, !noundef !9
-  %157 = getelementptr inbounds ptr, ptr %156, i64 %..i.i
+  %157 = getelementptr inbounds [8 x i8], ptr %156, i64 %..i.i
   store ptr %121, ptr %157, align 8, !noalias !266
   tail call void @__rust_dealloc(ptr noundef nonnull %105, i64 noundef 8200, i64 noundef 8) #25
   br label %158
@@ -2783,8 +2783,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
 43:                                               ; preds = %38
   %44 = sub i64 %34, %39
   %45 = load ptr, ptr %13, align 8, !alias.scope !293, !noalias !288, !nonnull !9, !noundef !9
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %35
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %35
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %44
   %48 = shl i64 %39, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull align 8 %46, i64 %48, i1 false), !noalias !296
   store i64 %44, ptr %12, align 8, !alias.scope !293, !noalias !288
@@ -2792,7 +2792,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
 
 49:                                               ; preds = %38
   %50 = load ptr, ptr %13, align 8, !alias.scope !293, !noalias !288, !nonnull !9, !noundef !9
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %30
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %30
   %52 = shl i64 %40, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 8 %50, i64 %52, i1 false), !noalias !296
   br label %57
@@ -2816,7 +2816,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %62 = select i1 %.not.i.i, i64 0, i64 %61
   %.0.i.i = sub nuw i64 %60, %62
   %63 = load ptr, ptr %13, align 8, !alias.scope !285, !noalias !288, !nonnull !9, !noundef !9
-  %64 = getelementptr inbounds ptr, ptr %63, i64 %.0.i.i
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %.0.i.i
   store ptr %.0, ptr %64, align 8, !noalias !288
   %65 = load i64, ptr %11, align 8, !alias.scope !285, !noalias !288, !noundef !9
   %66 = add i64 %65, 1
@@ -2835,7 +2835,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %71 = select i1 %.not.i.i22, i64 0, i64 %70
   %.0.i.i23 = sub nuw i64 %69, %71
   %72 = load ptr, ptr %13, align 8, !alias.scope !305, !nonnull !9, !noundef !9
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %.0.i.i23
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %.0.i.i23
   %74 = load i64, ptr %10, align 8, !noundef !9
   %75 = load ptr, ptr %73, align 8, !nonnull !9, !align !10, !noundef !9
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8192
@@ -2867,7 +2867,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %.0.i.i25 = sub nuw i64 %87, %88
   store i64 %.0.i.i25, ptr %12, align 8, !alias.scope !306
   store i64 %65, ptr %11, align 8, !alias.scope !306
-  %89 = getelementptr inbounds ptr, ptr %72, i64 %69
+  %89 = getelementptr inbounds [8 x i8], ptr %72, i64 %69
   %90 = load ptr, ptr %89, align 8, !noalias !306, !nonnull !9, !align !10, !noundef !9
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8192
   %92 = load i64, ptr %91, align 8, !noundef !9
@@ -2891,7 +2891,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   %99 = add i64 %55, -1
   store i64 %99, ptr %11, align 8, !alias.scope !309
   %100 = load ptr, ptr %13, align 8, !alias.scope !309, !nonnull !9, !noundef !9
-  %101 = getelementptr inbounds ptr, ptr %100, i64 %95
+  %101 = getelementptr inbounds [8 x i8], ptr %100, i64 %95
   %102 = load ptr, ptr %101, align 8, !noalias !309, !nonnull !9, !align !10, !noundef !9
   %103 = load i64, ptr %10, align 8, !noundef !9
   %104 = load i64, ptr %14, align 8, !noundef !9
@@ -2988,8 +2988,8 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
 135:                                              ; preds = %130
   %136 = sub i64 %126, %131
   %137 = load ptr, ptr %13, align 8, !alias.scope !332, !noalias !327, !nonnull !9, !noundef !9
-  %138 = getelementptr inbounds ptr, ptr %137, i64 %127
-  %139 = getelementptr inbounds ptr, ptr %137, i64 %136
+  %138 = getelementptr inbounds [8 x i8], ptr %137, i64 %127
+  %139 = getelementptr inbounds [8 x i8], ptr %137, i64 %136
   %140 = shl i64 %131, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %139, ptr nonnull align 8 %138, i64 %140, i1 false), !noalias !335
   store i64 %136, ptr %12, align 8, !alias.scope !332, !noalias !327
@@ -2997,7 +2997,7 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
 
 141:                                              ; preds = %130
   %142 = load ptr, ptr %13, align 8, !alias.scope !332, !noalias !327, !nonnull !9, !noundef !9
-  %143 = getelementptr inbounds ptr, ptr %142, i64 %122
+  %143 = getelementptr inbounds [8 x i8], ptr %142, i64 %122
   %144 = shl i64 %132, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %143, ptr nonnull align 8 %142, i64 %144, i1 false), !noalias !335
   br label %147
@@ -3020,7 +3020,7 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
   %152 = add i64 %151, 1
   store i64 %152, ptr %11, align 8, !alias.scope !324, !noalias !327
   %153 = load ptr, ptr %13, align 8, !alias.scope !324, !noalias !327, !nonnull !9, !noundef !9
-  %154 = getelementptr inbounds ptr, ptr %153, i64 %..i.i
+  %154 = getelementptr inbounds [8 x i8], ptr %153, i64 %..i.i
   store ptr %118, ptr %154, align 8, !noalias !327
   tail call void @__rust_dealloc(ptr noundef nonnull %102, i64 noundef 8200, i64 noundef 8) #25
   br label %155
@@ -3079,9 +3079,9 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17h20328a7
   %.sroa.11.0.i.i = phi i64 [ 0, %19 ], [ %18, %17 ], [ 0, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !342, !noalias !343, !nonnull !9, !noundef !9
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %.sroa.0.0.i.i
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %.sroa.5.0.i.i
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %.sroa.11.0.i.i
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %.sroa.0.0.i.i
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %.sroa.5.0.i.i
+  %25 = getelementptr inbounds [8 x i8], ptr %22, i64 %.sroa.11.0.i.i
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %28
@@ -3210,9 +3210,9 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17hb525581
   %.sroa.11.0.i.i = phi i64 [ 0, %19 ], [ %18, %17 ], [ 0, %.noexc ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !368, !noalias !373, !nonnull !9, !noundef !9
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %.sroa.0.0.i.i
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %.sroa.5.0.i.i
-  %27 = getelementptr inbounds ptr, ptr %24, i64 %.sroa.11.0.i.i
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %.sroa.0.0.i.i
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %.sroa.5.0.i.i
+  %27 = getelementptr inbounds [8 x i8], ptr %24, i64 %.sroa.11.0.i.i
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %30
@@ -3613,8 +3613,8 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
 53:                                               ; preds = %48
   %54 = sub i64 %44, %49
   %55 = load ptr, ptr %15, align 8, !alias.scope !482, !noalias !477, !nonnull !9, !noundef !9
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %45
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %54
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %45
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %54
   %58 = shl i64 %49, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr nonnull align 8 %56, i64 %58, i1 false), !noalias !485
   store i64 %54, ptr %14, align 8, !alias.scope !482, !noalias !477
@@ -3622,7 +3622,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
 
 59:                                               ; preds = %48
   %60 = load ptr, ptr %15, align 8, !alias.scope !482, !noalias !477, !nonnull !9, !noundef !9
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %40
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %40
   %62 = shl i64 %50, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 8 %60, i64 %62, i1 false), !noalias !485
   br label %68
@@ -3648,7 +3648,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %73 = select i1 %.not.i.i, i64 0, i64 %72
   %.0.i.i = sub nuw i64 %71, %73
   %74 = load ptr, ptr %15, align 8, !alias.scope !474, !noalias !477, !nonnull !9, !noundef !9
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %.0.i.i
+  %75 = getelementptr inbounds [8 x i8], ptr %74, i64 %.0.i.i
   store ptr %.0, ptr %75, align 8, !noalias !477
   %76 = load i64, ptr %13, align 8, !alias.scope !474, !noalias !477, !noundef !9
   %77 = add i64 %76, 1
@@ -3667,7 +3667,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %82 = select i1 %.not.i.i30, i64 0, i64 %81
   %.0.i.i31 = sub nuw i64 %80, %82
   %83 = load ptr, ptr %15, align 8, !alias.scope !494, !nonnull !9, !noundef !9
-  %84 = getelementptr inbounds ptr, ptr %83, i64 %.0.i.i31
+  %84 = getelementptr inbounds [8 x i8], ptr %83, i64 %.0.i.i31
   %85 = load i64, ptr %12, align 8, !noundef !9
   %86 = load ptr, ptr %84, align 8, !nonnull !9, !align !10, !noundef !9
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8200
@@ -3705,7 +3705,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %.0.i.i33 = sub nuw i64 %100, %101
   store i64 %.0.i.i33, ptr %14, align 8, !alias.scope !495
   store i64 %76, ptr %13, align 8, !alias.scope !495
-  %102 = getelementptr inbounds ptr, ptr %83, i64 %80
+  %102 = getelementptr inbounds [8 x i8], ptr %83, i64 %80
   %103 = load ptr, ptr %102, align 8, !noalias !495, !nonnull !9, !align !10, !noundef !9
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8200
   %105 = load i64, ptr %104, align 8, !noundef !9
@@ -3726,7 +3726,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %112 = select i1 %.not.i.i38, i64 0, i64 %111
   %.0.i.i39 = sub nuw i64 %110, %112
   %113 = load ptr, ptr %15, align 8, !alias.scope !503, !nonnull !9, !noundef !9
-  %114 = getelementptr inbounds ptr, ptr %113, i64 %.0.i.i39
+  %114 = getelementptr inbounds [8 x i8], ptr %113, i64 %.0.i.i39
   %115 = load ptr, ptr %114, align 8, !nonnull !9, !align !10, !noundef !9
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8192
   %117 = load i64, ptr %116, align 8, !alias.scope !504, !noundef !9
@@ -3786,7 +3786,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %137 = add i64 %132, -1
   store i64 %137, ptr %13, align 8, !alias.scope !512
   %138 = load ptr, ptr %15, align 8, !alias.scope !512, !nonnull !9, !noundef !9
-  %139 = getelementptr inbounds ptr, ptr %138, i64 %133
+  %139 = getelementptr inbounds [8 x i8], ptr %138, i64 %133
   %140 = load ptr, ptr %139, align 8, !noalias !512, !nonnull !9, !align !10, !noundef !9
   %141 = load i64, ptr %12, align 8, !noundef !9
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 8200
@@ -3915,8 +3915,8 @@ _ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit.i: ; preds =
 187:                                              ; preds = %182
   %188 = sub i64 %178, %183
   %189 = load ptr, ptr %15, align 8, !alias.scope !537, !noalias !532, !nonnull !9, !noundef !9
-  %190 = getelementptr inbounds ptr, ptr %189, i64 %179
-  %191 = getelementptr inbounds ptr, ptr %189, i64 %188
+  %190 = getelementptr inbounds [8 x i8], ptr %189, i64 %179
+  %191 = getelementptr inbounds [8 x i8], ptr %189, i64 %188
   %192 = shl i64 %183, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %191, ptr nonnull align 8 %190, i64 %192, i1 false), !noalias !540
   store i64 %188, ptr %14, align 8, !alias.scope !537, !noalias !532
@@ -3924,7 +3924,7 @@ _ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit.i: ; preds =
 
 193:                                              ; preds = %182
   %194 = load ptr, ptr %15, align 8, !alias.scope !537, !noalias !532, !nonnull !9, !noundef !9
-  %195 = getelementptr inbounds ptr, ptr %194, i64 %174
+  %195 = getelementptr inbounds [8 x i8], ptr %194, i64 %174
   %196 = shl i64 %184, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %195, ptr nonnull align 8 %194, i64 %196, i1 false), !noalias !540
   br label %199
@@ -3947,7 +3947,7 @@ _ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit.i: ; preds =
   %204 = add i64 %203, 1
   store i64 %204, ptr %13, align 8, !alias.scope !529, !noalias !532
   %205 = load ptr, ptr %15, align 8, !alias.scope !529, !noalias !532, !nonnull !9, !noundef !9
-  %206 = getelementptr inbounds ptr, ptr %205, i64 %..i.i
+  %206 = getelementptr inbounds [8 x i8], ptr %205, i64 %..i.i
   store ptr %170, ptr %206, align 8, !noalias !532
   tail call void @__rust_dealloc(ptr noundef nonnull %140, i64 noundef 8216, i64 noundef 8) #25
   br label %207
@@ -4093,8 +4093,8 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
 53:                                               ; preds = %48
   %54 = sub i64 %44, %49
   %55 = load ptr, ptr %15, align 8, !alias.scope !571, !noalias !566, !nonnull !9, !noundef !9
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %45
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %54
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %45
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %54
   %58 = shl i64 %49, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr nonnull align 8 %56, i64 %58, i1 false), !noalias !574
   store i64 %54, ptr %14, align 8, !alias.scope !571, !noalias !566
@@ -4102,7 +4102,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
 
 59:                                               ; preds = %48
   %60 = load ptr, ptr %15, align 8, !alias.scope !571, !noalias !566, !nonnull !9, !noundef !9
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %40
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %40
   %62 = shl i64 %50, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 8 %60, i64 %62, i1 false), !noalias !574
   br label %68
@@ -4128,7 +4128,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %73 = select i1 %.not.i.i, i64 0, i64 %72
   %.0.i.i = sub nuw i64 %71, %73
   %74 = load ptr, ptr %15, align 8, !alias.scope !563, !noalias !566, !nonnull !9, !noundef !9
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %.0.i.i
+  %75 = getelementptr inbounds [8 x i8], ptr %74, i64 %.0.i.i
   store ptr %.0, ptr %75, align 8, !noalias !566
   %76 = load i64, ptr %13, align 8, !alias.scope !563, !noalias !566, !noundef !9
   %77 = add i64 %76, 1
@@ -4147,7 +4147,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %82 = select i1 %.not.i.i30, i64 0, i64 %81
   %.0.i.i31 = sub nuw i64 %80, %82
   %83 = load ptr, ptr %15, align 8, !alias.scope !583, !nonnull !9, !noundef !9
-  %84 = getelementptr inbounds ptr, ptr %83, i64 %.0.i.i31
+  %84 = getelementptr inbounds [8 x i8], ptr %83, i64 %.0.i.i31
   %85 = load i64, ptr %12, align 8, !noundef !9
   %86 = load ptr, ptr %84, align 8, !nonnull !9, !align !10, !noundef !9
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8200
@@ -4185,7 +4185,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %.0.i.i33 = sub nuw i64 %100, %101
   store i64 %.0.i.i33, ptr %14, align 8, !alias.scope !584
   store i64 %76, ptr %13, align 8, !alias.scope !584
-  %102 = getelementptr inbounds ptr, ptr %83, i64 %80
+  %102 = getelementptr inbounds [8 x i8], ptr %83, i64 %80
   %103 = load ptr, ptr %102, align 8, !noalias !584, !nonnull !9, !align !10, !noundef !9
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8200
   %105 = load i64, ptr %104, align 8, !noundef !9
@@ -4206,7 +4206,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %112 = select i1 %.not.i.i38, i64 0, i64 %111
   %.0.i.i39 = sub nuw i64 %110, %112
   %113 = load ptr, ptr %15, align 8, !alias.scope !592, !nonnull !9, !noundef !9
-  %114 = getelementptr inbounds ptr, ptr %113, i64 %.0.i.i39
+  %114 = getelementptr inbounds [8 x i8], ptr %113, i64 %.0.i.i39
   %115 = load ptr, ptr %114, align 8, !nonnull !9, !align !10, !noundef !9
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8192
   %117 = load i64, ptr %116, align 8, !alias.scope !593, !noundef !9
@@ -4266,7 +4266,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %137 = add i64 %132, -1
   store i64 %137, ptr %13, align 8, !alias.scope !601
   %138 = load ptr, ptr %15, align 8, !alias.scope !601, !nonnull !9, !noundef !9
-  %139 = getelementptr inbounds ptr, ptr %138, i64 %133
+  %139 = getelementptr inbounds [8 x i8], ptr %138, i64 %133
   %140 = load ptr, ptr %139, align 8, !noalias !601, !nonnull !9, !align !10, !noundef !9
   %141 = load i64, ptr %12, align 8, !noundef !9
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 8200
@@ -4395,8 +4395,8 @@ _ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit.i: ; preds =
 187:                                              ; preds = %182
   %188 = sub i64 %178, %183
   %189 = load ptr, ptr %15, align 8, !alias.scope !626, !noalias !621, !nonnull !9, !noundef !9
-  %190 = getelementptr inbounds ptr, ptr %189, i64 %179
-  %191 = getelementptr inbounds ptr, ptr %189, i64 %188
+  %190 = getelementptr inbounds [8 x i8], ptr %189, i64 %179
+  %191 = getelementptr inbounds [8 x i8], ptr %189, i64 %188
   %192 = shl i64 %183, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %191, ptr nonnull align 8 %190, i64 %192, i1 false), !noalias !629
   store i64 %188, ptr %14, align 8, !alias.scope !626, !noalias !621
@@ -4404,7 +4404,7 @@ _ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit.i: ; preds =
 
 193:                                              ; preds = %182
   %194 = load ptr, ptr %15, align 8, !alias.scope !626, !noalias !621, !nonnull !9, !noundef !9
-  %195 = getelementptr inbounds ptr, ptr %194, i64 %174
+  %195 = getelementptr inbounds [8 x i8], ptr %194, i64 %174
   %196 = shl i64 %184, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %195, ptr nonnull align 8 %194, i64 %196, i1 false), !noalias !629
   br label %199
@@ -4427,7 +4427,7 @@ _ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit.i: ; preds =
   %204 = add i64 %203, 1
   store i64 %204, ptr %13, align 8, !alias.scope !618, !noalias !621
   %205 = load ptr, ptr %15, align 8, !alias.scope !618, !noalias !621, !nonnull !9, !noundef !9
-  %206 = getelementptr inbounds ptr, ptr %205, i64 %..i.i
+  %206 = getelementptr inbounds [8 x i8], ptr %205, i64 %..i.i
   store ptr %170, ptr %206, align 8, !noalias !621
   tail call void @__rust_dealloc(ptr noundef nonnull %140, i64 noundef 8216, i64 noundef 8) #25
   br label %207
@@ -4493,9 +4493,9 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16LinesChunkBuffer5print17hf22b216
   %.sroa.11.0.i.i = phi i64 [ 0, %19 ], [ %18, %17 ], [ 0, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !638, !noalias !639, !nonnull !9, !noundef !9
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %.sroa.0.0.i.i
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %.sroa.5.0.i.i
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %.sroa.11.0.i.i
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %.sroa.0.0.i.i
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %.sroa.5.0.i.i
+  %25 = getelementptr inbounds [8 x i8], ptr %22, i64 %.sroa.11.0.i.i
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %28

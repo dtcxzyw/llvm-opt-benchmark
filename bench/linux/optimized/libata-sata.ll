@@ -42,11 +42,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ata_eh_analy
 %struct.attribute = type { ptr, i16 }
 %struct.attribute_group = type { ptr, ptr, ptr, ptr, ptr }
 %struct.atomic_t = type { i32 }
-%struct.ata_queued_cmd = type { ptr, ptr, ptr, ptr, %struct.ata_taskfile, [16 x i8], i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.scatterlist, ptr, ptr, i32, i32, %struct.ata_taskfile, ptr, ptr, ptr }
-%struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
-%struct.ata_taskfile = type { i64, i8, i8, i8, i8, i8, i8, i8, %union.anon.3, i8, i8, i8, i8, i8, %union.anon.4, i32 }
-%union.anon.3 = type { i8 }
-%union.anon.4 = type { i8 }
 
 @sata_deb_timing_normal = dso_local constant [3 x i32] [i32 5, i32 100, i32 2000], align 4
 @__UNIQUE_ID___addressable_sata_deb_timing_normal433 = internal global ptr @sata_deb_timing_normal, section ".discard.addressable", align 8
@@ -1707,7 +1702,7 @@ define dso_local i32 @ata_qc_complete_multiple(ptr noundef %0, i64 noundef %1) #
   %37 = trunc i64 %36 to i32
   %38 = icmp ugt i32 %37, 32
   %39 = and i64 %36, 4294967295
-  %40 = getelementptr %struct.ata_queued_cmd, ptr %32, i64 %39
+  %40 = getelementptr [240 x i8], ptr %32, i64 %39
   %41 = icmp eq ptr %40, null
   %42 = select i1 %38, i1 true, i1 %41
   br i1 %42, label %.thread, label %43, !prof !16
@@ -1827,7 +1822,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_lpm_show(ptr no
 
 9:                                                ; preds = %3
   %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr ptr, ptr @ata_lpm_policy_names, i64 %10
+  %11 = getelementptr [8 x i8], ptr @ata_lpm_policy_names, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef %12) #11
   %14 = sext i32 %13 to i64
@@ -1846,7 +1841,7 @@ define internal noundef i64 @ata_scsi_lpm_store(ptr noundef readonly captures(no
 
 7:                                                ; preds = %14, %4
   %8 = phi i64 [ 1, %4 ], [ %15, %14 ]
-  %9 = getelementptr ptr, ptr @ata_lpm_policy_names, i64 %8
+  %9 = getelementptr [8 x i8], ptr @ata_lpm_policy_names, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @strlen(ptr noundef %10) #11
   %12 = tail call i32 @strncmp(ptr noundef %10, ptr noundef %2, i64 noundef %11) #11
@@ -2643,7 +2638,7 @@ define dso_local range(i32 -5, 1) i32 @ata_eh_read_sense_success_ncq_log(ptr nou
 19:                                               ; preds = %66, %13
   %20 = phi i64 [ 0, %13 ], [ %68, %66 ]
   %21 = phi i32 [ 0, %13 ], [ %67, %66 ]
-  %22 = getelementptr %struct.ata_queued_cmd, ptr %17, i64 %20
+  %22 = getelementptr [240 x i8], ptr %17, i64 %20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 589824
@@ -2773,7 +2768,7 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #1 align 16 {
 
 19:                                               ; preds = %30, %17
   %20 = phi i64 [ 0, %17 ], [ %31, %30 ]
-  %21 = getelementptr %struct.ata_queued_cmd, ptr %18, i64 %20
+  %21 = getelementptr [240 x i8], ptr %18, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 65536
@@ -2954,7 +2949,7 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #1 align 16 {
 
 156:                                              ; preds = %131
   %157 = zext nneg i8 %64 to i64
-  %158 = getelementptr %struct.ata_queued_cmd, ptr %18, i64 %157
+  %158 = getelementptr [240 x i8], ptr %18, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 184
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %160, i8 0, i64 3, i1 false)
@@ -3020,7 +3015,7 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #1 align 16 {
 
 193:                                              ; preds = %.preheader8, %216
   %194 = phi i64 [ %217, %216 ], [ 0, %.preheader8 ]
-  %195 = getelementptr %struct.ata_queued_cmd, ptr %18, i64 %194
+  %195 = getelementptr [240 x i8], ptr %18, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 80
   %197 = load i64, ptr %196, align 8
   %198 = and i64 %197, 589824

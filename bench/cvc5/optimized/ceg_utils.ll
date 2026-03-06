@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.cvc5::internal::FatalStream" = type { i8 }
-%"class.cvc5::internal::theory::quantifiers::TermProperties" = type { ptr, i32, %"class.cvc5::internal::NodeTemplate" }
 
 $_ZN4cvc58internal12NodeTemplateILb1EED2Ev = comdat any
 
@@ -108,7 +107,7 @@ define hidden noundef i32 @_ZN4cvc58internal6theory11quantifiers11mkNegateCTTENS
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4cvc58internal6theory11quantifiers11mkNegateCTTENS2_11CegTermTypeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4cvc58internal6theory11quantifiers11mkNegateCTTENS2_11CegTermTypeE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -1568,7 +1567,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !34
   store ptr %42, ptr %4, align 8, !tbaa !13
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !16
   ret void
 
@@ -1924,7 +1923,7 @@ _ZSt8_DestroyIPN4cvc58internal6theory11quantifiers14TermPropertiesES4_EvT_S6_RSa
 _ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal6theory11quantifiers14TermPropertiesES4_EvT_S6_RSaIT0_E.exit, %52
   store ptr %20, ptr %0, align 8, !tbaa !38
   store ptr %47, ptr %4, align 8, !tbaa !17
-  %56 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %20, i64 %16
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %56, ptr %51, align 8, !tbaa !20
   ret void
 

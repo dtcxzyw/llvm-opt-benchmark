@@ -96,7 +96,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKNS
   %3 = load float, ptr %0, align 4
   %4 = load i16, ptr %1, align 2
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %5
   %7 = load float, ptr %6, align 4
   %8 = fcmp oeq float %3, %7
   br i1 %8, label %9, label %27
@@ -107,7 +107,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKNS
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %14
   %16 = load float, ptr %15, align 4
   %17 = fcmp oeq float %11, %16
   br i1 %17, label %18, label %27
@@ -118,7 +118,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKNS
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %23
   %25 = load float, ptr %24, align 4
   %26 = fcmp oeq float %20, %25
   br label %27

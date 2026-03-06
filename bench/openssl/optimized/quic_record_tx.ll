@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 %struct.quic_pkt_hdr_ptrs_st = type { ptr, ptr, i64, ptr }
-%struct.ossl_qtx_iovec_st = type { ptr, i64 }
 %struct.bio_msg_st = type { ptr, i64, ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [37 x i8] c"../openssl/ssl/quic/quic_record_tx.c\00", align 1
@@ -256,7 +255,7 @@ define range(i32 0, 2) i32 @ossl_qtx_write_pkt(ptr noundef %0, ptr noundef reado
 
 switch.lookup:                                    ; preds = %17
   %20 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ossl_qtx_write_pkt, i64 %20
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ossl_qtx_write_pkt, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   %21 = and i32 %18, 253
   %switch.selectcmp.i.i.not = icmp eq i32 %21, 4
@@ -767,7 +766,7 @@ thread-pre-split.i:                               ; preds = %207
 .lr.ph.i.i.i.i:                                   ; preds = %241, %.lr.ph.i.i.i.i
   %.08.i.i.i.i = phi i64 [ %245, %.lr.ph.i.i.i.i ], [ 0, %241 ]
   %.067.i.i.i.i = phi i64 [ %246, %.lr.ph.i.i.i.i ], [ 0, %241 ]
-  %242 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %216, i64 %.067.i.i.i.i
+  %242 = getelementptr inbounds nuw [16 x i8], ptr %216, i64 %.067.i.i.i.i
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load i64, ptr %243, align 8, !tbaa !71
   %245 = add i64 %244, %.08.i.i.i.i
@@ -895,7 +894,7 @@ qtx_write_hdr.exit.thread.i.i:                    ; preds = %292, %279
 .lr.ph.i.i.i:                                     ; preds = %310, %.lr.ph.i.preheader.i.i
   %.sroa.9.1.i.i = phi i64 [ %311, %310 ], [ %.sroa.9.0113.i.i, %.lr.ph.i.preheader.i.i ]
   %306 = phi i64 [ 0, %310 ], [ %.sroa.15.0112.i.i, %.lr.ph.i.preheader.i.i ]
-  %307 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %216, i64 %.sroa.9.1.i.i
+  %307 = getelementptr inbounds nuw [16 x i8], ptr %216, i64 %.sroa.9.1.i.i
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %309 = load i64, ptr %308, align 8, !tbaa !71
   %.not26.i.i.i = icmp eq i64 %309, %306
@@ -983,7 +982,7 @@ qtx_write_hdr.exit.thread.i.i:                    ; preds = %292, %279
 
 .lr.ph.i.i72.i.i.outer:                           ; preds = %346, %353
   %.sroa.9.4.i.i.ph = phi i64 [ %354, %353 ], [ 0, %346 ]
-  %349 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %216, i64 %.sroa.9.4.i.i.ph
+  %349 = getelementptr inbounds nuw [16 x i8], ptr %216, i64 %.sroa.9.4.i.i.ph
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %.not31.i.i.i.i = icmp ult i64 %.sroa.9.4.i.i.ph, %218
   br label %.lr.ph.i.i72.i.i
@@ -1429,7 +1428,7 @@ define range(i32 -2, 2) i32 @ossl_qtx_flush_net(ptr noundef captures(none) %0) l
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.02640 = phi ptr [ %.026, %.lr.ph ], [ %.0263872, %.lr.ph.preheader ]
   %.02839 = phi i64 [ %34, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %20 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %2, i64 %.02839
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %.02839
   %21 = getelementptr inbounds nuw i8, ptr %.02640, i64 256
   store ptr %21, ptr %20, align 8, !tbaa !90
   %22 = getelementptr inbounds nuw i8, ptr %.02640, i64 16
@@ -1502,7 +1501,7 @@ define range(i32 -2, 2) i32 @ossl_qtx_flush_net(ptr noundef captures(none) %0) l
   br i1 %.not32, label %66, label %59
 
 59:                                               ; preds = %.lr.ph43
-  %60 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %2, i64 %.141
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %.141
   %61 = load ptr, ptr %60, align 8, !tbaa !90
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load i64, ptr %62, align 8, !tbaa !92

@@ -310,7 +310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %49,
 
 67:                                               ; preds = %67, %64
   %indvars.iv.i.i.i = phi i64 [ 0, %64 ], [ %indvars.iv.next.i.i.i, %67 ]
-  %68 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv.i.i.i
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %indvars.iv.i.i.i
   store i16 %66, ptr %68, align 2, !tbaa !13
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16
@@ -404,8 +404,8 @@ define void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan14encode_vectorsElPKfP
   %21 = load i32, ptr %16, align 8, !tbaa !59
   %22 = sext i32 %21 to i64
   %23 = mul nsw i64 %.057, %22
-  %24 = getelementptr inbounds float, ptr %2, i64 %23
-  %25 = getelementptr inbounds nuw i64, ptr %3, i64 %.057
+  %24 = getelementptr inbounds [4 x i8], ptr %2, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.057
   %26 = load i64, ptr %17, align 8, !tbaa !60
   %27 = mul i64 %26, %.057
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 %27
@@ -443,7 +443,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %37
   %43 = shl nuw nsw i64 %41, 2
   %44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #30
   store ptr %44, ptr %10, align 8, !tbaa !65
-  %45 = getelementptr inbounds nuw float, ptr %44, i64 %41
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %41
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %45, ptr %46, align 8, !tbaa !67
   store float 0.000000e+00, ptr %44, align 4, !tbaa !68
@@ -474,7 +474,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i42: ; preds = %_ZNSt6vectorIfS
 
 .noexc44:                                         ; preds = %51
   store ptr %53, ptr %11, align 8, !tbaa !65
-  %54 = getelementptr inbounds nuw float, ptr %53, i64 %41
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %41
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %54, ptr %55, align 8, !tbaa !67
   store float 0.000000e+00, ptr %53, align 4, !tbaa !68
@@ -644,7 +644,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit51:                  ; preds = %105, %_ZNSt6vectorI
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 %130
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %129, ptr align 1 %131, i64 %125, i1 false)
   %132 = load ptr, ptr %9, align 8, !tbaa !58
-  %133 = getelementptr inbounds nuw i64, ptr %132, i64 %.029
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %.029
   %134 = load i64, ptr %133, align 8, !tbaa !56
   call void @_ZNK5faiss15Level1Quantizer13encode_listnoElPh(ptr noundef nonnull align 8 dereferenceable(80) %119, i64 noundef %134, ptr noundef %128)
   %135 = icmp samesign ugt i64 %.029.in56, 1
@@ -725,7 +725,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %37
 .noexc41:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %43 = shl nuw nsw i64 %41, 2
   %44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #30
-  %45 = getelementptr inbounds nuw float, ptr %44, i64 %41
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %41
   store float 0.000000e+00, ptr %44, align 4, !tbaa !68
   %46 = add nsw i64 %41, -1
   %47 = icmp eq i64 %46, 0
@@ -814,7 +814,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i46: ; preds = %70
           to label %.noexc53 unwind label %95
 
 .noexc53:                                         ; preds = %75
-  %78 = getelementptr inbounds nuw float, ptr %77, i64 %72
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %72
   store float 0.000000e+00, ptr %77, align 4, !tbaa !68
   %79 = add nsw i64 %72, -1
   %80 = icmp eq i64 %79, 0
@@ -858,7 +858,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i55: ; preds = %._crit_edge
 
 .noexc59:                                         ; preds = %86
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %88, i8 0, i64 %87, i1 false), !tbaa !68
-  %89 = getelementptr inbounds nuw float, ptr %88, i64 %1
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %1
   %90 = ptrtoint ptr %89 to i64
   br label %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit
 
@@ -881,7 +881,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i55: ; preds = %._crit_edge
   %.024102 = phi i64 [ 0, %.lr.ph ], [ %112, %111 ]
   %98 = load i32, ptr %38, align 8, !tbaa !59
   %99 = load ptr, ptr %83, align 8, !tbaa !97
-  %100 = getelementptr inbounds nuw i64, ptr %3, i64 %.024102
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.024102
   %101 = load i64, ptr %100, align 8, !tbaa !56
   %102 = load ptr, ptr %99, align 8, !tbaa !61
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 80
@@ -892,7 +892,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i55: ; preds = %._crit_edge
 105:                                              ; preds = %97
   %106 = sext i32 %98 to i64
   %107 = mul nsw i64 %.024102, %106
-  %108 = getelementptr inbounds float, ptr %.sroa.095.0, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %.sroa.095.0, i64 %107
   %109 = load i32, ptr %38, align 8, !tbaa !59
   %110 = sext i32 %109 to i64
   invoke void @_ZN5faiss8fvec_addEmPKfS1_Pf(i64 noundef %110, ptr noundef %.sroa.079.0, ptr noundef %108, ptr noundef %108)
@@ -1184,7 +1184,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %41, %61
 
 75:                                               ; preds = %.lr.ph, %75
   %.038 = phi i64 [ 0, %.lr.ph ], [ %79, %75 ]
-  %76 = getelementptr inbounds nuw float, ptr %63, i64 %.038
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %.038
   %77 = load float, ptr %76, align 4, !tbaa !68
   %78 = fdiv float %77, %74
   store float %78, ptr %76, align 4, !tbaa !68
@@ -2276,7 +2276,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_
           to label %.noexc27 unwind label %85
 
 .noexc27:                                         ; preds = %44
-  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %41
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %41
   store i64 0, ptr %46, align 8, !tbaa !56
   %48 = add nsw i64 %41, -1
   %49 = icmp eq i64 %48, 0
@@ -2294,7 +2294,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc27
           to label %.noexc32 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit35.thread
 
 .noexc32:                                         ; preds = %51
-  %54 = getelementptr inbounds nuw float, ptr %53, i64 %41
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %41
   store float 0.000000e+00, ptr %53, align 4, !tbaa !68
   br i1 %49, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
@@ -2540,7 +2540,7 @@ define internal void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScan19estimate_nor
   %27 = mul i64 %26, %.017
   %28 = load i64, ptr %22, align 8, !tbaa !94
   %29 = mul i64 %27, %28
-  %30 = getelementptr inbounds nuw float, ptr %25, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %29
   %31 = invoke noundef float @_ZN5faiss12quantize_lut22aq_estimate_norm_scaleEmmmPKf(i64 noundef %26, i64 noundef %28, i64 noundef 2, ptr noundef %30)
           to label %32 unwind label %46
 
@@ -2664,7 +2664,7 @@ define internal void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan14encode_vect
 22:                                               ; preds = %.lr.ph, %46
   %.020 = phi i64 [ %19, %.lr.ph ], [ %47, %46 ]
   %23 = load ptr, ptr %3, align 8, !tbaa !58
-  %24 = getelementptr inbounds i64, ptr %23, i64 %.020
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %.020
   %25 = load i64, ptr %24, align 8, !tbaa !56
   %26 = icmp slt i64 %25, 0
   br i1 %26, label %27, label %34
@@ -2674,7 +2674,7 @@ define internal void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan14encode_vect
   %29 = load i32, ptr %21, align 8, !tbaa !59
   %30 = sext i32 %29 to i64
   %31 = mul nsw i64 %.020, %30
-  %32 = getelementptr inbounds float, ptr %28, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %28, i64 %31
   %33 = shl nsw i64 %30, 2
   call void @llvm.memset.p0.i64(ptr align 4 %32, i8 0, i64 %33, i1 false)
   br label %46
@@ -2685,9 +2685,9 @@ define internal void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan14encode_vect
   %37 = load i32, ptr %21, align 8, !tbaa !59
   %38 = sext i32 %37 to i64
   %39 = mul nsw i64 %.020, %38
-  %40 = getelementptr inbounds float, ptr %36, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %36, i64 %39
   %41 = load ptr, ptr %4, align 8, !tbaa !65
-  %42 = getelementptr inbounds float, ptr %41, i64 %39
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %39
   %43 = load ptr, ptr %35, align 8, !tbaa !61
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 112
   %45 = load ptr, ptr %44, align 8
@@ -2768,10 +2768,10 @@ define internal void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan14encode_vect
   %23 = load i32, ptr %19, align 8, !tbaa !59
   %24 = sext i32 %23 to i64
   %25 = mul nsw i64 %.017, %24
-  %26 = getelementptr inbounds float, ptr %22, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %20, align 8, !tbaa !97
   %28 = load ptr, ptr %5, align 8, !tbaa !58
-  %29 = getelementptr inbounds i64, ptr %28, i64 %.017
+  %29 = getelementptr inbounds [8 x i8], ptr %28, i64 %.017
   %30 = load i64, ptr %29, align 8, !tbaa !56
   %31 = load ptr, ptr %27, align 8, !tbaa !61
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
@@ -2928,7 +2928,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %9
           to label %.noexc27 unwind label %.loopexit.split-lp
 
 .noexc27:                                         ; preds = %19
-  %22 = getelementptr inbounds nuw float, ptr %21, i64 %16
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %16
   store float 0.000000e+00, ptr %21, align 4, !tbaa !68
   %23 = add nsw i64 %16, -1
   %24 = icmp eq i64 %23, 0
@@ -2978,7 +2978,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %37 = load i64, ptr %3, align 8, !tbaa !56
   %38 = load ptr, ptr %34, align 8, !tbaa !97
   %39 = load ptr, ptr %35, align 8, !tbaa !121
-  %40 = getelementptr inbounds i64, ptr %39, i64 %.030
+  %40 = getelementptr inbounds [8 x i8], ptr %39, i64 %.030
   %41 = load i64, ptr %40, align 8, !tbaa !56
   %42 = load ptr, ptr %38, align 8, !tbaa !61
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 80
@@ -2994,7 +2994,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %50 = load i32, ptr %14, align 8, !tbaa !59
   %51 = mul nsw i32 %50, %47
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds float, ptr %49, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %49, i64 %52
   %54 = sext i32 %50 to i64
   %55 = invoke noundef float @_ZN5faiss18fvec_inner_productEPKfS1_m(ptr noundef %.sroa.028.0, ptr noundef %53, i64 noundef %54)
           to label %56 unwind label %.loopexit
@@ -3002,7 +3002,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 56:                                               ; preds = %45
   %57 = fmul float %48, %55
   %58 = load ptr, ptr %6, align 8, !tbaa !128
-  %59 = getelementptr inbounds nuw float, ptr %58, i64 %.030
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.030
   store float %57, ptr %59, align 4, !tbaa !68
   %60 = add nuw i64 %.030, 1
   %61 = load i64, ptr %11, align 8, !tbaa !56
@@ -3092,9 +3092,9 @@ define internal void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan11compute_LUT
   %20 = load ptr, ptr %3, align 8, !tbaa !102
   %21 = load i64, ptr %4, align 8, !tbaa !56
   %22 = mul i64 %21, %.018
-  %23 = getelementptr inbounds nuw float, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %22
   %24 = load i64, ptr %5, align 8, !tbaa !56
-  %25 = getelementptr inbounds nuw float, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %6, align 8, !tbaa !57
   %27 = load i64, ptr %7, align 8, !tbaa !56
   %28 = shl i64 %27, 2

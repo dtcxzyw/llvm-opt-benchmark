@@ -249,7 +249,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14ExponentOpDataC2Ev(ptr noundef non
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double 1.000000e+00, ptr %5, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -447,7 +447,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 54:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11
   %indvars.iv = phi i64 [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11 ]
-  %55 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %56 = load double, ptr %55, align 8, !tbaa !6
   %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %56)
           to label %_ZNSolsEd.exit unwind label %59
@@ -892,7 +892,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i40: ;
   %111 = phi ptr [ %.pre, %69 ], [ %117, %116 ]
   %indvars.iv = phi i64 [ 0, %69 ], [ %indvars.iv.next, %116 ]
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 168
-  %113 = getelementptr inbounds nuw double, ptr %112, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv
   %114 = load double, ptr %113, align 8, !tbaa !6
   %115 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIdEEbT_(double noundef %114)
   br i1 %115, label %123, label %116
@@ -900,10 +900,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i40: ;
 116:                                              ; preds = %110
   %117 = load ptr, ptr %1, align 8, !tbaa !63
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 168
-  %119 = getelementptr inbounds nuw double, ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv
   %120 = load double, ptr %119, align 8, !tbaa !6
   %121 = fdiv double 1.000000e+00, %120
-  %122 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store double %121, ptr %122, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

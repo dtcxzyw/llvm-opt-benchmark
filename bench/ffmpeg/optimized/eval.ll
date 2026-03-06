@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { double, double, i8 }
 %struct.anon.0 = type { ptr, double }
 %struct.Parser = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr }
-%struct.FFSFC64 = type { i64, i64, i64, i64 }
 
 @.str = private unnamed_addr constant [50 x i8] c"Invalid chars '%s' at the end of expression '%s'\0A\00", align 1
 @si_prefixes = internal unnamed_addr constant <{ { double, double, i8, [7 x i8] }, %struct.anon, { double, double, i8, [7 x i8] }, %struct.anon, %struct.anon, %struct.anon, { double, double, i8, [7 x i8] }, %struct.anon, { double, double, i8, [7 x i8] }, %struct.anon, %struct.anon, { double, double, i8, [7 x i8] }, %struct.anon, %struct.anon, %struct.anon, { double, double, i8, [7 x i8] }, %struct.anon, %struct.anon, %struct.anon, %struct.anon, { double, double, i8, [7 x i8] }, { double, double, i8, [7 x i8] }, %struct.anon, %struct.anon, %struct.anon, %struct.anon, %struct.anon, %struct.anon, { double, double, i8, [7 x i8] }, %struct.anon, { double, double, i8, [7 x i8] }, { double, double, i8, [7 x i8] }, %struct.anon, { double, double, i8, [7 x i8] }, %struct.anon, { double, double, i8, [7 x i8] }, %struct.anon, %struct.anon, { double, double, i8, [7 x i8] }, %struct.anon, { double, double, i8, [7 x i8] }, { double, double, i8, [7 x i8] }, %struct.anon, { double, double, i8, [7 x i8] }, %struct.anon, %struct.anon, %struct.anon, %struct.anon, { double, double, i8, [7 x i8] }, %struct.anon, %struct.anon, %struct.anon, { double, double, i8, [7 x i8] }, { double, double, i8, [7 x i8] } }> <{ { double, double, i8, [7 x i8] } { double 0x43B0000000000000, double 1.000000e+18, i8 18, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x41D0000000000000, double 1.000000e+09, i8 9, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, %struct.anon zeroinitializer, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 1.024000e+03, double 1.000000e+03, i8 3, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x4130000000000000, double 1.000000e+06, i8 6, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x4310000000000000, double 1.000000e+15, i8 15, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, %struct.anon zeroinitializer, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x4270000000000000, double 1.000000e+12, i8 12, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, %struct.anon zeroinitializer, %struct.anon zeroinitializer, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x44F0000000000000, double 0x44EA784379D99DB4, i8 24, [7 x i8] zeroinitializer }, { double, double, i8, [7 x i8] } { double 0x4450000000000000, double 1.000000e+21, i8 21, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, %struct.anon zeroinitializer, %struct.anon zeroinitializer, %struct.anon zeroinitializer, %struct.anon zeroinitializer, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x3C30000000000000, double 1.000000e-18, i8 -18, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x3F8428A2F98D728A, double 1.000000e-02, i8 -2, [7 x i8] zeroinitializer }, { double, double, i8, [7 x i8] } { double 0x3FB965FEA53D6E3C, double 1.000000e-01, i8 -1, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x3CD0000000000000, double 1.000000e-15, i8 -15, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x405965FEA53D6E3E, double 1.000000e+02, i8 2, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 1.024000e+03, double 1.000000e+03, i8 3, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x3F50000000000000, double 1.000000e-03, i8 -3, [7 x i8] zeroinitializer }, { double, double, i8, [7 x i8] } { double 0x3E10000000000000, double 1.000000e-09, i8 -9, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x3D70000000000000, double 0x3D719799812DEA11, i8 -12, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, %struct.anon zeroinitializer, %struct.anon zeroinitializer, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x3EB0000000000000, double 0x3EB0C6F7A0B5ED8D, i8 -6, [7 x i8] zeroinitializer }, %struct.anon zeroinitializer, %struct.anon zeroinitializer, %struct.anon zeroinitializer, { double, double, i8, [7 x i8] } { double 0x3AF0000000000000, double 0x3AF357C299A88EA7, i8 -24, [7 x i8] zeroinitializer }, { double, double, i8, [7 x i8] } { double 0x3B90000000000000, double 0x3B92E3B40A0E9B4F, i8 -21, [7 x i8] zeroinitializer } }>, align 16
@@ -131,7 +130,7 @@ define double @av_strtod(ptr noundef %0, ptr noundef writeonly captures(address_
 .thread:                                          ; preds = %21, %30
   %32 = phi i8 [ %31, %30 ], [ 31, %21 ]
   %33 = zext nneg i8 %32 to i64
-  %34 = getelementptr inbounds nuw %struct.anon, ptr @si_prefixes, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr @si_prefixes, i64 %33
   %35 = shl nuw nsw i64 1, %33
   %36 = and i64 %35, 4209708702332602
   %.not15.not = icmp eq i64 %36, 0
@@ -590,7 +589,7 @@ define internal fastcc range(i32 -22, 1) i32 @expr_count(ptr noundef readonly ca
 
 .lr.ph:                                           ; preds = %.lr.ph47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv46, 1
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.critedge49, label %.lr.ph47, !llvm.loop !41
@@ -617,7 +616,7 @@ define internal fastcc range(i32 -22, 1) i32 @expr_count(ptr noundef readonly ca
 
 22:                                               ; preds = %.critedge.thread
   %23 = sext i32 %20 to i64
-  %24 = getelementptr inbounds i32, ptr %1, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %1, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !43
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4, !tbaa !43
@@ -637,7 +636,7 @@ define range(i32 -22, 1) i32 @av_expr_count_func(ptr noundef readonly captures(a
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 4, ptr %7, align 4, !tbaa !43
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds i32, ptr %5, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %5, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !43
   %11 = tail call fastcc i32 @expr_count(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %10)
   ret i32 %11
@@ -729,7 +728,7 @@ define internal fastcc double @eval_expr(ptr noundef nonnull %0, ptr noundef rea
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !42
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds double, ptr %16, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %16, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !48
   %22 = fmul nsz double %14, %21
   br label %common.ret534
@@ -814,7 +813,7 @@ common.ret534:                                    ; preds = %636, %625, %628, %6
   %86 = tail call i32 @llvm.smax.i32(i32 %85, i32 0)
   %87 = tail call i32 @llvm.umin.i32(i32 %86, i32 9)
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw double, ptr %81, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %88
   %90 = load double, ptr %89, align 8, !tbaa !48
   %91 = fmul nsz double %79, %90
   br label %common.ret534
@@ -1079,7 +1078,7 @@ common.ret534:                                    ; preds = %636, %625, %628, %6
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %281 = load ptr, ptr %280, align 8, !tbaa !47
   %282 = zext nneg i32 %279 to i64
-  %283 = getelementptr inbounds nuw %struct.FFSFC64, ptr %281, i64 %282
+  %283 = getelementptr inbounds nuw [32 x i8], ptr %281, i64 %282
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %285 = load i64, ptr %284, align 8, !tbaa !49
   %.not375 = icmp eq i64 %285, 0
@@ -1098,7 +1097,7 @@ common.ret534:                                    ; preds = %636, %625, %628, %6
 286:                                              ; preds = %273
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %288 = load ptr, ptr %287, align 8, !tbaa !46
-  %289 = getelementptr inbounds nuw double, ptr %288, i64 %282
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %282
   %290 = load double, ptr %289, align 8, !tbaa !48
   %291 = fcmp uno double %290, 0.000000e+00
   %292 = fptoui double %290 to i64
@@ -1144,7 +1143,7 @@ ff_sfc64_init.exit:                               ; preds = %294, %._crit_edge44
   %322 = add i64 %321, %316
   store i64 %322, ptr %319, align 8, !tbaa !54
   %323 = uitofp i64 %316 to double
-  %324 = getelementptr inbounds nuw double, ptr %308, i64 %282
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %282
   store double %323, ptr %324, align 8, !tbaa !48
   %325 = fmul nnan nsz double %323, 0x3BF0000000000000
   br label %common.ret534
@@ -1165,7 +1164,7 @@ ff_sfc64_init.exit:                               ; preds = %294, %._crit_edge44
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %340 = load ptr, ptr %339, align 8, !tbaa !47
   %341 = zext nneg i32 %338 to i64
-  %342 = getelementptr inbounds nuw %struct.FFSFC64, ptr %340, i64 %341
+  %342 = getelementptr inbounds nuw [32 x i8], ptr %340, i64 %341
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 24
   %344 = load i64, ptr %343, align 8, !tbaa !49
   %.not374 = icmp eq i64 %344, 0
@@ -1184,7 +1183,7 @@ ff_sfc64_init.exit:                               ; preds = %294, %._crit_edge44
 345:                                              ; preds = %326
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %347 = load ptr, ptr %346, align 8, !tbaa !46
-  %348 = getelementptr inbounds nuw double, ptr %347, i64 %341
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %347, i64 %341
   %349 = load double, ptr %348, align 8, !tbaa !48
   %350 = fcmp uno double %349, 0.000000e+00
   %351 = fptoui double %349 to i64
@@ -1230,7 +1229,7 @@ ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge43
   %381 = add i64 %380, %375
   store i64 %381, ptr %378, align 8, !tbaa !54
   %382 = uitofp i64 %375 to double
-  %383 = getelementptr inbounds nuw double, ptr %367, i64 %341
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %367, i64 %341
   store double %382, ptr %383, align 8, !tbaa !48
   %384 = fsub nsz double %333, %330
   %385 = fmul nsz double %384, %382
@@ -1268,7 +1267,7 @@ ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge43
   %408 = phi i64 [ %406, %401 ], [ 0, %394 ]
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %410 = load ptr, ptr %409, align 8, !tbaa !46
-  %411 = getelementptr inbounds nuw double, ptr %410, i64 %408
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %410, i64 %408
   %412 = load double, ptr %411, align 8, !tbaa !48
   br label %413
 
@@ -1282,7 +1281,7 @@ ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge43
 
 414:                                              ; preds = %413
   %415 = uitofp nneg i32 %.0359 to double
-  %416 = getelementptr inbounds nuw double, ptr %.pre437, i64 %408
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %.pre437, i64 %408
   store double %415, ptr %416, align 8, !tbaa !48
   %417 = load ptr, ptr %395, align 8, !tbaa !14
   %418 = tail call nsz fastcc double @eval_expr(ptr noundef %0, ptr noundef %417)
@@ -1303,7 +1302,7 @@ ff_sfc64_init.exit400:                            ; preds = %353, %._crit_edge43
 split:                                            ; preds = %413, %._crit_edge
   %426 = phi ptr [ %.pre, %._crit_edge ], [ %.pre437, %413 ]
   %.1358 = phi nsz double [ %419, %._crit_edge ], [ %.0357, %413 ]
-  %427 = getelementptr inbounds nuw double, ptr %426, i64 %408
+  %427 = getelementptr inbounds nuw [8 x i8], ptr %426, i64 %408
   store double %412, ptr %427, align 8, !tbaa !48
   br label %common.ret534
 
@@ -1608,14 +1607,14 @@ split:                                            ; preds = %413, %._crit_edge
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %605 = load ptr, ptr %604, align 8, !tbaa !47
   %606 = zext nneg i32 %603 to i64
-  %607 = getelementptr inbounds nuw %struct.FFSFC64, ptr %605, i64 %606
+  %607 = getelementptr inbounds nuw [32 x i8], ptr %605, i64 %606
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 24
   store i64 0, ptr %608, align 8, !tbaa !49
   %609 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %610 = load double, ptr %609, align 8, !tbaa !39
   %611 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %612 = load ptr, ptr %611, align 8, !tbaa !46
-  %613 = getelementptr inbounds nuw double, ptr %612, i64 %606
+  %613 = getelementptr inbounds nuw [8 x i8], ptr %612, i64 %606
   store double %510, ptr %613, align 8, !tbaa !48
   %614 = fmul nsz double %510, %610
   br label %common.ret534
@@ -2148,7 +2147,7 @@ strmatch.exit:                                    ; preds = %20, %.lr.ph196
 
 strmatch.exit.thread:                             ; preds = %.lr.ph.i, %strmatch.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   %41 = load ptr, ptr %40, align 8, !tbaa !7
   %.not92 = icmp eq ptr %41, null
   br i1 %.not92, label %.critedge.preheader, label %.lr.ph196
@@ -2158,7 +2157,7 @@ strmatch.exit.thread:                             ; preds = %.lr.ph.i, %strmatch
 
 .critedge:                                        ; preds = %.critedge.preheader, %strmatch.exit167.thread
   %indvars.iv231 = phi i64 [ %indvars.iv.next232, %strmatch.exit167.thread ], [ 0, %.critedge.preheader ]
-  %42 = getelementptr inbounds nuw %struct.anon.0, ptr @constants, i64 %indvars.iv231
+  %42 = getelementptr inbounds nuw [16 x i8], ptr @constants, i64 %indvars.iv231
   %43 = load ptr, ptr %42, align 16, !tbaa !64
   %44 = load i8, ptr %43, align 1, !tbaa !4
   %.not26.i155 = icmp eq i8 %44, 0
@@ -2799,7 +2798,7 @@ strmatch.exit167.thread:                          ; preds = %.lr.ph.i156, %strma
   %277 = trunc nuw nsw i64 %indvars.iv234 to i32
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %279 = load ptr, ptr %278, align 8, !tbaa !29
-  %280 = getelementptr inbounds nuw ptr, ptr %279, i64 %indvars.iv234
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %indvars.iv234
   %281 = load ptr, ptr %280, align 8, !tbaa !68
   %282 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %281, ptr %282, align 8, !tbaa !4
@@ -2811,7 +2810,7 @@ strmatch.exit167.thread:                          ; preds = %.lr.ph.i156, %strma
 
 284:                                              ; preds = %.lr.ph207
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
-  %285 = getelementptr inbounds nuw ptr, ptr %272, i64 %indvars.iv.next235
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %indvars.iv.next235
   %286 = load ptr, ptr %285, align 8, !tbaa !7
   %.not147 = icmp eq ptr %286, null
   br i1 %.not147, label %.critedge2, label %.lr.ph207
@@ -2838,7 +2837,7 @@ strmatch.exit167.thread:                          ; preds = %.lr.ph.i156, %strma
   %292 = trunc nuw nsw i64 %indvars.iv237 to i32
   %293 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %294 = load ptr, ptr %293, align 8, !tbaa !31
-  %295 = getelementptr inbounds nuw ptr, ptr %294, i64 %indvars.iv237
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %indvars.iv237
   %296 = load ptr, ptr %295, align 8, !tbaa !68
   %297 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %296, ptr %297, align 8, !tbaa !4
@@ -2850,7 +2849,7 @@ strmatch.exit167.thread:                          ; preds = %.lr.ph.i156, %strma
 
 299:                                              ; preds = %.lr.ph217
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
-  %300 = getelementptr inbounds nuw ptr, ptr %288, i64 %indvars.iv.next238
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %indvars.iv.next238
   %301 = load ptr, ptr %300, align 8, !tbaa !7
   %.not149 = icmp eq ptr %301, null
   br i1 %.not149, label %.critedge4, label %.lr.ph217

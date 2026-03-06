@@ -33,30 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Rb_tree.50" = type { %"struct.std::_Rb_tree<const ue2::GoughSSAVar *, std::pair<const ue2::GoughSSAVar *const, unsigned long>, std::_Select1st<std::pair<const ue2::GoughSSAVar *const, unsigned long>>, std::less<const ue2::GoughSSAVar *>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<const ue2::GoughSSAVar *, std::pair<const ue2::GoughSSAVar *const, unsigned long>, std::_Select1st<std::pair<const ue2::GoughSSAVar *const, unsigned long>>, std::less<const ue2::GoughSSAVar *>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.ue2::gough_accel_state_info" = type <{ i32, i8, [3 x i8] }>
-%"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex" = type { %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::bidir_rand_stored_vertex" }
-%"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::bidir_rand_stored_vertex" = type { %"class.std::vector.237", %"class.std::vector.237", %"struct.ue2::GoughVertexProps" }
-%"class.std::vector.237" = type { %"struct.std::_Vector_base.238" }
-%"struct.std::_Vector_base.238" = type { %"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl" }
-%"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ue2::GoughVertexProps" = type { i32, %"class.std::vector.7", %"class.std::vector.12", %"class.std::vector.12" }
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
-%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex" = type { %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::bidir_rand_stored_vertex.base", [7 x i8] }
-%"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::bidir_rand_stored_vertex.base" = type <{ %"class.std::vector.112", %"class.std::vector.112", i8 }>
-%"class.std::vector.112" = type { %"struct.std::_Vector_base.113" }
-%"struct.std::_Vector_base.113" = type { %"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, boost::no_property>>, boost::no_property>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, boost::no_property>>, boost::no_property>>>::_Vector_impl" }
-%"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, boost::no_property>>, boost::no_property>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, boost::no_property>>, boost::no_property>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, boost::no_property>>, boost::no_property>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, boost::no_property>>, boost::no_property>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, boost::no_property>>, boost::no_property>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, boost::no_property>>, boost::no_property>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.boost::detail::stored_edge_iter" = type { %"class.boost::detail::stored_edge", %"struct.std::_List_iterator" }
-%"class.boost::detail::stored_edge" = type { i64 }
-%"struct.std::_List_iterator" = type { ptr }
 %"class.boost::shared_array_property_map" = type <{ %"class.boost::shared_array", [8 x i8] }>
 %"class.boost::shared_array" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::detail::shared_count" = type { ptr }
@@ -232,7 +208,7 @@ define hidden void @_ZN3ue225find_allowed_accel_statesERKN5boost14adjacency_list
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr %23, align 8
-  %66 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %65, i64 %.sroa.0190.0370
+  %66 = getelementptr inbounds nuw [128 x i8], ptr %65, i64 %.sroa.0190.0370
   %.sroa.2.0.copyload = load ptr, ptr %31, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %68 = load ptr, ptr %67, align 8
@@ -388,7 +364,7 @@ _ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSE
   store ptr %104, ptr %40, align 8
   %125 = getelementptr inbounds nuw i8, ptr %105, i64 56
   store ptr %125, ptr %41, align 8
-  %126 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %104, i64 %102
+  %126 = getelementptr inbounds nuw [56 x i8], ptr %104, i64 %102
   store ptr %126, ptr %42, align 8
   br label %.noexc.i
 
@@ -638,7 +614,7 @@ _ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSE
   store ptr %191, ptr %40, align 8
   %212 = getelementptr inbounds nuw i8, ptr %192, i64 56
   store ptr %212, ptr %41, align 8
-  %213 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %191, i64 %189
+  %213 = getelementptr inbounds nuw [56 x i8], ptr %191, i64 %189
   store ptr %213, ptr %42, align 8
   br label %.noexc81.i
 
@@ -1249,7 +1225,7 @@ _ZN3ue28containsISt3setImSt4lessImESaImEEEEbRKT_RKNS6_8key_typeE.exit.i: ; preds
 
 422:                                              ; preds = %_ZN3ue28containsISt3setImSt4lessImESaImEEEEbRKT_RKNS6_8key_typeE.exit.i
   %423 = load ptr, ptr %40, align 8, !noalias !37
-  %424 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %423, i64 %415
+  %424 = getelementptr inbounds nuw [56 x i8], ptr %423, i64 %415
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 24
   %426 = load ptr, ptr %425, align 8, !noalias !37
   %427 = getelementptr inbounds nuw i8, ptr %424, i64 32
@@ -1398,9 +1374,9 @@ _ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_
 
 _ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE13_M_deallocateEPSB_m.exit38.i.i: ; preds = %479, %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit.i.i
   store ptr %457, ptr %40, align 8
-  %480 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %458, i64 %441
+  %480 = getelementptr inbounds nuw [56 x i8], ptr %458, i64 %441
   store ptr %480, ptr %41, align 8
-  %481 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %457, i64 %455
+  %481 = getelementptr inbounds nuw [56 x i8], ptr %457, i64 %455
   store ptr %481, ptr %42, align 8
   br label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i.i
 
@@ -1409,7 +1385,7 @@ _ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSE
   br i1 %483, label %484, label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i.i
 
 484:                                              ; preds = %482
-  %485 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %432, i64 %438
+  %485 = getelementptr inbounds nuw [56 x i8], ptr %432, i64 %438
   %.not.i.i.i.i.i.i = icmp eq ptr %431, %485
   br i1 %.not.i.i.i.i.i.i, label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
@@ -1595,9 +1571,9 @@ _ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_
 
 _ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE13_M_deallocateEPSB_m.exit38.i: ; preds = %542, %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit.i
   store ptr %520, ptr %40, align 8
-  %543 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %521, i64 %504
+  %543 = getelementptr inbounds nuw [56 x i8], ptr %521, i64 %504
   store ptr %543, ptr %41, align 8
-  %544 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %520, i64 %518
+  %544 = getelementptr inbounds nuw [56 x i8], ptr %520, i64 %518
   store ptr %544, ptr %42, align 8
   br label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i112.i
 
@@ -1606,7 +1582,7 @@ _ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSE
   br i1 %546, label %547, label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i112.i
 
 547:                                              ; preds = %545
-  %548 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %495, i64 %501
+  %548 = getelementptr inbounds nuw [56 x i8], ptr %495, i64 %501
   %.not.i.i.i.i.i113.i = icmp eq ptr %494, %548
   br i1 %.not.i.i.i.i.i113.i, label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i112.i, label %.lr.ph.i.i.i.i.i.i.i.i114.i
 
@@ -1862,7 +1838,7 @@ _ZN3ue28containsISt3setImSt4lessImESaImEEEEbRKT_RKNS6_8key_typeE.exit151.i: ; pr
 
 624:                                              ; preds = %_ZN3ue28containsISt3setImSt4lessImESaImEEEEbRKT_RKNS6_8key_typeE.exit151.i
   %625 = load ptr, ptr %40, align 8, !noalias !79
-  %626 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %625, i64 %617
+  %626 = getelementptr inbounds nuw [56 x i8], ptr %625, i64 %617
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 24
   %628 = load ptr, ptr %627, align 8, !noalias !79
   %629 = getelementptr inbounds nuw i8, ptr %626, i64 32
@@ -1910,7 +1886,7 @@ _ZN3ue28containsISt3setImSt4lessImESaImEEEEbRKT_RKNS6_8key_typeE.exit151.i: ; pr
   br i1 %648, label %649, label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i159.i
 
 649:                                              ; preds = %647
-  %650 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %637, i64 %643
+  %650 = getelementptr inbounds nuw [56 x i8], ptr %637, i64 %643
   %.not.i.i.i.i.i160.i = icmp eq ptr %636, %650
   br i1 %.not.i.i.i.i.i160.i, label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i159.i, label %.lr.ph.i.i.i.i.i.i.i.i161.i
 
@@ -2218,11 +2194,11 @@ _ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge
   %720 = phi ptr [ %.pre, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit._ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.thread_crit_edge ], [ %65, %72 ]
   %.1221 = phi i32 [ %.0, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit._ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.thread_crit_edge ], [ 0, %72 ]
   %721 = load i64, ptr %21, align 8
-  %722 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %720, i64 %721
+  %722 = getelementptr inbounds nuw [128 x i8], ptr %720, i64 %721
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 48
   %724 = load i32, ptr %723, align 8
   %725 = load i64, ptr %48, align 8
-  %726 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %720, i64 %725
+  %726 = getelementptr inbounds nuw [128 x i8], ptr %720, i64 %725
   %727 = getelementptr inbounds nuw i8, ptr %726, i64 48
   %728 = load i32, ptr %727, align 8
   %729 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i, i64 8
@@ -2230,7 +2206,7 @@ _ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge
 
 730:                                              ; preds = %733, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.thread
   %.0712.i.i.i.i = phi i64 [ 0, %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit.thread ], [ %734, %733 ]
-  %731 = getelementptr inbounds nuw i64, ptr %729, i64 %.0712.i.i.i.i
+  %731 = getelementptr inbounds nuw [8 x i8], ptr %729, i64 %.0712.i.i.i.i
   %732 = load i64, ptr %731, align 8
   %.not.i.i.i.i16 = icmp eq i64 %732, 0
   br i1 %.not.i.i.i.i16, label %733, label %735
@@ -2327,7 +2303,7 @@ _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS
 
 _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i: ; preds = %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i.preheader, %775
   %.0712.i.i.i144.i = phi i64 [ %776, %775 ], [ 0, %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i.preheader ]
-  %773 = getelementptr inbounds nuw i64, ptr %729, i64 %.0712.i.i.i144.i
+  %773 = getelementptr inbounds nuw [8 x i8], ptr %729, i64 %.0712.i.i.i144.i
   %774 = load i64, ptr %773, align 8
   %.not.i.i.i145.i = icmp eq i64 %774, 0
   br i1 %.not.i.i.i145.i, label %775, label %777
@@ -2429,7 +2405,7 @@ _ZNKSt4lessIN3ue213gough_edge_idEEclERKS1_S4_.exit.i.i: ; preds = %809
   store ptr %51, ptr %53, align 8
   store ptr %51, ptr %54, align 8
   store i64 0, ptr %55, align 8
-  %816 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %720, i64 %.sroa.0190.0370
+  %816 = getelementptr inbounds nuw [128 x i8], ptr %720, i64 %.sroa.0190.0370
   %817 = load ptr, ptr %816, align 8, !noalias !102
   %818 = getelementptr inbounds nuw i8, ptr %816, i64 8
   %819 = load ptr, ptr %818, align 8, !noalias !102
@@ -2463,17 +2439,17 @@ _ZNK3ue29CharReach4noneEv.exit.i:                 ; preds = %826
 
 828:                                              ; preds = %_ZNK3ue29CharReach4noneEv.exit.i
   %829 = load ptr, ptr %23, align 8
-  %830 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %829, i64 %.sroa.0190.0370
+  %830 = getelementptr inbounds nuw [128 x i8], ptr %829, i64 %.sroa.0190.0370
   %831 = getelementptr inbounds nuw i8, ptr %830, i64 48
   %832 = load i32, ptr %831, align 8
-  %833 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %829, i64 %822
+  %833 = getelementptr inbounds nuw [128 x i8], ptr %829, i64 %822
   %834 = getelementptr inbounds nuw i8, ptr %833, i64 48
   %835 = load i32, ptr %834, align 8
   br label %836
 
 836:                                              ; preds = %839, %828
   %.0712.i.i.i170.i = phi i64 [ 0, %828 ], [ %840, %839 ]
-  %837 = getelementptr inbounds nuw i64, ptr %825, i64 %.0712.i.i.i170.i
+  %837 = getelementptr inbounds nuw [8 x i8], ptr %825, i64 %.0712.i.i.i170.i
   %838 = load i64, ptr %837, align 8
   %.not.i.i.i171.i = icmp eq i64 %838, 0
   br i1 %.not.i.i.i171.i, label %839, label %841
@@ -2773,7 +2749,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeE
 
 ._crit_edge.i35:                                  ; preds = %964
   %.pre.i36 = load ptr, ptr %23, align 8, !noalias !115
-  %.phi.trans.insert.i = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %.pre.i36, i64 %.sroa.0190.0370
+  %.phi.trans.insert.i = getelementptr inbounds nuw [128 x i8], ptr %.pre.i36, i64 %.sroa.0190.0370
   %.pre509.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !115
   %.phi.trans.insert510.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i, i64 8
   %.pre511.i = load ptr, ptr %.phi.trans.insert510.i, align 8, !noalias !115
@@ -2797,7 +2773,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeE
 
 972:                                              ; preds = %970
   %.val139.i = load ptr, ptr %815, align 8
-  %973 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %.pre.i36, i64 %971
+  %973 = getelementptr inbounds nuw [128 x i8], ptr %.pre.i36, i64 %971
   %974 = load ptr, ptr %973, align 8, !noalias !129
   %975 = getelementptr inbounds nuw i8, ptr %973, i64 8
   %976 = load ptr, ptr %975, align 8, !noalias !129
@@ -2912,14 +2888,14 @@ _ZN3ue28containsISt3setImSt4lessImESaImEEEEbRKT_RKNS6_8key_typeE.exit.i.i: ; pre
 
 1004:                                             ; preds = %_ZN3ue28containsISt3setImSt4lessImESaImEEEEbRKT_RKNS6_8key_typeE.exit.i.i
   %1005 = load i32, ptr %977, align 8
-  %1006 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %.pre.i36, i64 %993
+  %1006 = getelementptr inbounds nuw [128 x i8], ptr %.pre.i36, i64 %993
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 48
   %1008 = load i32, ptr %1007, align 8
   br label %1009
 
 1009:                                             ; preds = %1012, %1004
   %.0712.i.i.i.i.i = phi i64 [ 0, %1004 ], [ %1013, %1012 ]
-  %1010 = getelementptr inbounds nuw i64, ptr %996, i64 %.0712.i.i.i.i.i
+  %1010 = getelementptr inbounds nuw [8 x i8], ptr %996, i64 %.0712.i.i.i.i.i
   %1011 = load i64, ptr %1010, align 8
   %.not.i.i.i30.i.i = icmp eq i64 %1011, 0
   br i1 %.not.i.i.i30.i.i, label %1012, label %1014
@@ -3014,7 +2990,7 @@ _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS
 
 _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i.i: ; preds = %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i.i.preheader, %1053
   %.0712.i.i.i38.i.i = phi i64 [ %1054, %1053 ], [ 0, %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i.i.preheader ]
-  %1051 = getelementptr inbounds nuw i64, ptr %996, i64 %.0712.i.i.i38.i.i
+  %1051 = getelementptr inbounds nuw [8 x i8], ptr %996, i64 %.0712.i.i.i38.i.i
   %1052 = load i64, ptr %1051, align 8
   %.not.i.i.i39.i.i = icmp eq i64 %1052, 0
   br i1 %.not.i.i.i39.i.i, label %1053, label %1055
@@ -3201,7 +3177,7 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit.i23:         ; preds = %_ZN3ue28containsISt
   store ptr %56, ptr %58, align 8
   store ptr %56, ptr %59, align 8
   store i64 0, ptr %60, align 8
-  %1129 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %720, i64 %.sroa.0190.0370
+  %1129 = getelementptr inbounds nuw [128 x i8], ptr %720, i64 %.sroa.0190.0370
   %1130 = load ptr, ptr %1129, align 8, !noalias !141
   %1131 = getelementptr inbounds nuw i8, ptr %1129, i64 8
   %1132 = load ptr, ptr %1131, align 8, !noalias !141
@@ -3232,17 +3208,17 @@ _ZNK3ue29CharReach4noneEv.exit230.i:              ; preds = %1139
   br i1 %.not13.i.i226.i, label %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit252.i, label %1141
 
 1141:                                             ; preds = %_ZNK3ue29CharReach4noneEv.exit230.i
-  %1142 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %1134, i64 %.sroa.0190.0370
+  %1142 = getelementptr inbounds nuw [128 x i8], ptr %1134, i64 %.sroa.0190.0370
   %1143 = getelementptr inbounds nuw i8, ptr %1142, i64 48
   %1144 = load i32, ptr %1143, align 8
-  %1145 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %1134, i64 %1135
+  %1145 = getelementptr inbounds nuw [128 x i8], ptr %1134, i64 %1135
   %1146 = getelementptr inbounds nuw i8, ptr %1145, i64 48
   %1147 = load i32, ptr %1146, align 8
   br label %1148
 
 1148:                                             ; preds = %1151, %1141
   %.0712.i.i.i233.i = phi i64 [ 0, %1141 ], [ %1152, %1151 ]
-  %1149 = getelementptr inbounds nuw i64, ptr %1138, i64 %.0712.i.i.i233.i
+  %1149 = getelementptr inbounds nuw [8 x i8], ptr %1138, i64 %.0712.i.i.i233.i
   %1150 = load i64, ptr %1149, align 8
   %.not.i.i.i234.i = icmp eq i64 %1150, 0
   br i1 %.not.i.i.i234.i, label %1151, label %1153
@@ -3399,7 +3375,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeE
 
 1212:                                             ; preds = %.noexc276.i, %1199
   %1213 = phi ptr [ %1133, %1199 ], [ %.pre512.i, %.noexc276.i ]
-  %1214 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %1213, i64 %.sroa.0190.0370
+  %1214 = getelementptr inbounds nuw [128 x i8], ptr %1213, i64 %.sroa.0190.0370
   %1215 = load ptr, ptr %1214, align 8, !noalias !153
   %1216 = getelementptr inbounds nuw i8, ptr %1214, i64 8
   %1217 = load ptr, ptr %1216, align 8, !noalias !153
@@ -3430,7 +3406,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeE
   br i1 %.not.i52, label %.critedge137.i, label %1224
 
 1224:                                             ; preds = %1222
-  %1225 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %1213, i64 %1223
+  %1225 = getelementptr inbounds nuw [128 x i8], ptr %1213, i64 %1223
   %1226 = load ptr, ptr %1225, align 8, !noalias !167
   %1227 = getelementptr inbounds nuw i8, ptr %1225, i64 8
   %1228 = load ptr, ptr %1227, align 8, !noalias !167
@@ -3488,14 +3464,14 @@ _ZN3ue28containsISt3setImSt4lessImESaImEEEEbRKT_RKNS6_8key_typeE.exit.i304.i: ; 
 
 1241:                                             ; preds = %_ZN3ue28containsISt3setImSt4lessImESaImEEEEbRKT_RKNS6_8key_typeE.exit.i304.i
   %1242 = load i32, ptr %1229, align 8
-  %1243 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %1213, i64 %1230
+  %1243 = getelementptr inbounds nuw [128 x i8], ptr %1213, i64 %1230
   %1244 = getelementptr inbounds nuw i8, ptr %1243, i64 48
   %1245 = load i32, ptr %1244, align 8
   br label %1246
 
 1246:                                             ; preds = %1249, %1241
   %.0712.i.i.i.i305.i = phi i64 [ 0, %1241 ], [ %1250, %1249 ]
-  %1247 = getelementptr inbounds nuw i64, ptr %1233, i64 %.0712.i.i.i.i305.i
+  %1247 = getelementptr inbounds nuw [8 x i8], ptr %1233, i64 %.0712.i.i.i.i305.i
   %1248 = load i64, ptr %1247, align 8
   %.not.i.i.i26.i.i = icmp eq i64 %1248, 0
   br i1 %.not.i.i.i26.i.i, label %1249, label %1251
@@ -3630,7 +3606,7 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit318.i:        ; preds = %.loopexit.i51
 _ZN3ue2L20allow_two_byte_accelERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKSt3mapINS_13gough_edge_idESt6vectorI9gough_insSaISE_EESt4lessISC_ESaISt4pairIKSC_SG_EEEmRKNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE.exit: ; preds = %_ZNSt3setImSt4lessImESaImEED2Ev.exit.i23, %_ZNSt3setImSt4lessImESaImEED2Ev.exit318.i, %1297
   %.8.i = phi i8 [ 1, %1297 ], [ 0, %_ZNSt3setImSt4lessImESaImEED2Ev.exit.i23 ], [ 0, %_ZNSt3setImSt4lessImESaImEED2Ev.exit318.i ]
   %1298 = load ptr, ptr %23, align 8
-  %1299 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %1298, i64 %.sroa.0190.0370
+  %1299 = getelementptr inbounds nuw [128 x i8], ptr %1298, i64 %.sroa.0190.0370
   %1300 = getelementptr inbounds nuw i8, ptr %1299, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 %.1221, ptr %22, align 4
@@ -3778,7 +3754,7 @@ define linkonce_odr hidden void @_ZN3ue224add_edge_if_not_selfloopIN5boost14adja
   br i1 %23, label %24, label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %12, i64 %18
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %18
   %.not.i.i.i.i = icmp eq ptr %11, %25
   br i1 %.not.i.i.i.i, label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -4035,9 +4011,9 @@ _ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_
 
 _ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE13_M_deallocateEPSB_m.exit38: ; preds = %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit, %49
   store ptr %27, ptr %0, align 8
-  %50 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %28, i64 %1
+  %50 = getelementptr inbounds nuw [56 x i8], ptr %28, i64 %1
   store ptr %50, ptr %4, align 8
-  %51 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %27, i64 %25
+  %51 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %25
   store ptr %51, ptr %11, align 8
   br label %52
 
@@ -4289,7 +4265,7 @@ define linkonce_odr hidden void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %14, i64 %1
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %1
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -4358,13 +4334,13 @@ _ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edge
 _ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edgeImNS0_11no_propertyEEEES5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i: ; preds = %41, %_ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edgeImNS0_11no_propertyEEEES5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i.i
   store ptr %36, ptr %15, align 8
   store ptr %40, ptr %16, align 8
-  %42 = getelementptr inbounds nuw %"class.boost::detail::stored_edge_iter", ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %34
   store ptr %42, ptr %18, align 8
   br label %43
 
 43:                                               ; preds = %_ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edgeImNS0_11no_propertyEEEES5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i, %20
   %44 = load ptr, ptr %13, align 8
-  %45 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %44, i64 %2
+  %45 = getelementptr inbounds nuw [56 x i8], ptr %44, i64 %2
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %48 = load ptr, ptr %47, align 8
@@ -4434,7 +4410,7 @@ _ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edge
 _ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edgeImNS0_11no_propertyEEEES5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i42: ; preds = %72, %_ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edgeImNS0_11no_propertyEEEES5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i.i39
   store ptr %67, ptr %46, align 8
   store ptr %71, ptr %47, align 8
-  %73 = getelementptr inbounds nuw %"class.boost::detail::stored_edge_iter", ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %65
   store ptr %73, ptr %49, align 8
   br label %74
 
@@ -4593,7 +4569,7 @@ define linkonce_odr hidden void @_ZN5boost18depth_first_searchINS_14adjacency_li
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.sroa.035.044 = phi i64 [ %18, %.lr.ph ], [ 0, %4 ]
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds i32, ptr %16, i64 %.sroa.035.044
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %.sroa.035.044
   store i32 0, ptr %17, align 4
   %18 = add i64 %.sroa.035.044, 1
   %.not41 = icmp eq i64 %18, %15
@@ -4691,7 +4667,7 @@ _ZN5boost25shared_array_property_mapINS_18default_color_typeENS_26vec_adj_list_v
 59:                                               ; preds = %.lr.ph47, %_ZN5boost25shared_array_property_mapINS_18default_color_typeENS_26vec_adj_list_vertex_id_mapINS_11no_propertyEmEEED2Ev.exit24
   %.sroa.035.146 = phi i64 [ 0, %.lr.ph47 ], [ %91, %_ZN5boost25shared_array_property_mapINS_18default_color_typeENS_26vec_adj_list_vertex_id_mapINS_11no_propertyEmEEED2Ev.exit24 ]
   %60 = load ptr, ptr %2, align 8
-  %61 = getelementptr inbounds i32, ptr %60, i64 %.sroa.035.146
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %.sroa.035.146
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %_ZN5boost25shared_array_property_mapINS_18default_color_typeENS_26vec_adj_list_vertex_id_mapINS_11no_propertyEmEEED2Ev.exit24
@@ -4821,11 +4797,11 @@ define linkonce_odr hidden void @_ZN5boost6detail22depth_first_visit_implINS_14a
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i32, ptr %7, i64 %1
+  %8 = getelementptr inbounds [4 x i8], ptr %7, i64 %1
   store i32 1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !214
-  %11 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %1
   %12 = load ptr, ptr %11, align 8, !noalias !214
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !214
@@ -4897,7 +4873,7 @@ _ZNSt6vectorISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_implINS1_17bid
   %.sroa.0235.0267 = phi ptr [ %.sroa.0235.1, %103 ], [ %.sroa.0235.0.copyload, %_ZNSt6vectorISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_implINS1_17bidirectional_tagEmEEEES0_INS3_13out_edge_iterIN9__gnu_cxx17__normal_iteratorIPNS3_16stored_edge_iterImSt14_List_iteratorINS1_9list_edgeImNS1_11no_propertyEEEESE_EES_ISH_SaISH_EEEEmS6_lEESM_EEESaISP_EE8pop_backEv.exit ]
   %34 = load i64, ptr %.sroa.0235.0267, align 8, !noalias !222
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i32, ptr %35, i64 %34
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %34
   %37 = load i32, ptr %36, align 4
   switch i32 %37, label %101 [
     i32 0, label %38
@@ -5037,16 +5013,16 @@ _ZNSt6vectorISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_implINS1_17bid
 .noexc80:                                         ; preds = %83, %_ZNSt6vectorISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_implINS1_17bidirectional_tagEmEEEES0_INS3_13out_edge_iterIN9__gnu_cxx17__normal_iteratorIPNS3_16stored_edge_iterImSt14_List_iteratorINS1_9list_edgeImNS1_11no_propertyEEEESE_EES_ISH_SaISH_EEEEmS6_lEESM_EEESaISP_EE11_S_relocateEPSP_SS_SS_RSQ_.exit24.i
   store ptr %63, ptr %5, align 8
   store ptr %82, ptr %17, align 8
-  %84 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %63, i64 %61
+  %84 = getelementptr inbounds nuw [72 x i8], ptr %63, i64 %61
   store ptr %84, ptr %18, align 8
   br label %85
 
 85:                                               ; preds = %.noexc80, %_ZNSt16allocator_traitsISaISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_implINS1_17bidirectional_tagEmEEEES0_INS3_13out_edge_iterIN9__gnu_cxx17__normal_iteratorIPNS3_16stored_edge_iterImSt14_List_iteratorINS1_9list_edgeImNS1_11no_propertyEEEESE_EESt6vectorISH_SaISH_EEEEmS6_lEESN_EEEEE9constructISQ_JSQ_EEEvRSR_PT_DpOT0_.exit.i.i79
   %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds i32, ptr %86, i64 %34
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %34
   store i32 1, ptr %87, align 4
   %88 = load ptr, ptr %9, align 8, !noalias !236
-  %89 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS>, boost::vecS, boost::vecS, boost::bidirectionalS, boost::no_property, boost::no_property, boost::no_property, boost::listS>::config::stored_vertex", ptr %88, i64 %34
+  %89 = getelementptr inbounds nuw [56 x i8], ptr %88, i64 %34
   %90 = load ptr, ptr %89, align 8, !noalias !236
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load ptr, ptr %91, align 8, !noalias !236
@@ -5098,7 +5074,7 @@ _ZNSt4pairImS_IN5boost8optionalINS0_6detail14edge_desc_implINS0_17bidirectional_
 ._crit_edge:                                      ; preds = %103, %_ZNSt6vectorISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_implINS1_17bidirectional_tagEmEEEES0_INS3_13out_edge_iterIN9__gnu_cxx17__normal_iteratorIPNS3_16stored_edge_iterImSt14_List_iteratorINS1_9list_edgeImNS1_11no_propertyEEEESE_EES_ISH_SaISH_EEEEmS6_lEESM_EEESaISP_EE8pop_backEv.exit
   %.0.lcssa = phi i64 [ %27, %_ZNSt6vectorISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_implINS1_17bidirectional_tagEmEEEES0_INS3_13out_edge_iterIN9__gnu_cxx17__normal_iteratorIPNS3_16stored_edge_iterImSt14_List_iteratorINS1_9list_edgeImNS1_11no_propertyEEEESE_EES_ISH_SaISH_EEEEmS6_lEESM_EEESaISP_EE8pop_backEv.exit ], [ %.1, %103 ]
   %104 = load ptr, ptr %3, align 8
-  %105 = getelementptr inbounds i32, ptr %104, i64 %.0.lcssa
+  %105 = getelementptr inbounds [4 x i8], ptr %104, i64 %.0.lcssa
   store i32 4, ptr %105, align 4
   %106 = load ptr, ptr %5, align 8
   %107 = load ptr, ptr %17, align 8
@@ -5311,7 +5287,7 @@ _ZNSt12_Vector_baseISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_implINS
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i23, ptr %4, align 8
-  %63 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %20, i64 %16
+  %63 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %63, ptr %62, align 8
   ret void
 }

@@ -250,7 +250,7 @@ define internal void @format_message(ptr noundef readonly captures(none) %0, ptr
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   br label %28
 
 15:                                               ; preds = %7, %2
@@ -274,7 +274,7 @@ define internal void @format_message(ptr noundef readonly captures(none) %0, ptr
 24:                                               ; preds = %21
   %25 = sub nsw i32 %5, %20
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %17, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %17, i64 %26
   br label %28
 
 28:                                               ; preds = %24, %10

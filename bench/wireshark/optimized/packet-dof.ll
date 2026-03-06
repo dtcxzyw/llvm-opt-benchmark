@@ -13,12 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._e_prefs = type { ptr, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, i8, i32, ptr, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, ptr, ptr, i8, i8, i8, i32, i32, i32, ptr, i32, ptr, i8, i8, i8, ptr, ptr, ptr, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, ptr, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i32, i8, i8, i8, ptr, i32, i8, i8, i32, i8, i8, i8, i32, i8, i32, i8, i8, i8, i32, i32, i32, ptr, i8, i8, i8, i8, i8, i8, i32, i32, i8, i8, i8, i8, i32, i32, i32, i32, i8, i8, i32, i8, i8, i32, i32, i8, i8, i8, i32, i8, i8, i8 }
 %struct.color_t = type { i16, i16, i16 }
 %struct.true_false_string = type { ptr, ptr }
-%struct._dof_group_data = type { ptr, i8, ptr, i8, ptr }
-%struct._dof_identity_data = type { ptr, i8, ptr, i8, ptr }
-%struct._secmode_field_t = type { ptr, ptr, ptr }
-%struct._dof_session_key_data = type { ptr }
-%struct._seckey_field_t = type { ptr }
-%struct._identsecret_field_t = type { ptr, ptr, ptr }
 %struct._addr_port_key = type { %struct._address, i16 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct._dof_ns_session_key = type { i32, i32, i32, i8 }
@@ -1553,7 +1547,7 @@ define internal void @dof_cleanup_routine() #0 {
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %0 ]
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 16), align 8
-  %3 = getelementptr %struct._dof_group_data, ptr %2, i64 %indvars.iv.i
+  %3 = getelementptr [40 x i8], ptr %2, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1594,16 +1588,16 @@ define internal void @dof_shutdown_routine() #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
-  %3 = getelementptr %struct._dof_identity_data, ptr %2, i64 %indvars.iv
+  %3 = getelementptr [40 x i8], ptr %2, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5)
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
-  %7 = getelementptr %struct._dof_identity_data, ptr %6, i64 %indvars.iv
+  %7 = getelementptr [40 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8)
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
-  %10 = getelementptr %struct._dof_identity_data, ptr %9, i64 %indvars.iv
+  %10 = getelementptr [40 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12)
@@ -1623,16 +1617,16 @@ define internal void @dof_shutdown_routine() #0 {
 .lr.ph22:                                         ; preds = %._crit_edge, %.lr.ph22
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.lr.ph22 ], [ 0, %._crit_edge ]
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 16), align 8
-  %19 = getelementptr %struct._dof_group_data, ptr %18, i64 %indvars.iv27
+  %19 = getelementptr [40 x i8], ptr %18, i64 %indvars.iv27
   %20 = load ptr, ptr %19, align 8
   tail call void @g_free(ptr noundef %20)
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 16), align 8
-  %22 = getelementptr %struct._dof_group_data, ptr %21, i64 %indvars.iv27
+  %22 = getelementptr [40 x i8], ptr %21, i64 %indvars.iv27
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void @g_free(ptr noundef %24)
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 16), align 8
-  %26 = getelementptr %struct._dof_group_data, ptr %25, i64 %indvars.iv27
+  %26 = getelementptr [40 x i8], ptr %25, i64 %indvars.iv27
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8
   tail call void @g_free(ptr noundef %28)
@@ -2636,8 +2630,8 @@ init_addr_port_tables.exit:                       ; preds = %0, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %init_addr_port_tables.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 16), align 8
-  %17 = getelementptr %struct._dof_group_data, ptr %16, i64 %indvars.iv
-  %18 = getelementptr %struct._secmode_field_t, ptr %10, i64 %indvars.iv
+  %17 = getelementptr [40 x i8], ptr %16, i64 %indvars.iv
+  %18 = getelementptr [24 x i8], ptr %10, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   tail call fastcc void @parse_hex_string(ptr noundef %19, ptr noundef %17, ptr noundef nonnull %20)
@@ -2666,7 +2660,7 @@ init_addr_port_tables.exit:                       ; preds = %0, %8
 .lr.ph140:                                        ; preds = %._crit_edge, %.lr.ph140
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %.lr.ph140 ], [ 0, %._crit_edge ]
   %33 = load ptr, ptr @global_security, align 8
-  %34 = getelementptr %struct._dof_session_key_data, ptr %33, i64 %indvars.iv161
+  %34 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv161
   %35 = load ptr, ptr %34, align 8
   tail call void @g_free(ptr noundef %35)
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
@@ -2694,8 +2688,8 @@ init_addr_port_tables.exit:                       ; preds = %0, %8
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %.lr.ph144 ], [ 0, %._crit_edge141 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %45 = load ptr, ptr @global_security, align 8
-  %46 = getelementptr %struct._dof_session_key_data, ptr %45, i64 %indvars.iv164
-  %47 = getelementptr %struct._seckey_field_t, ptr %31, i64 %indvars.iv164
+  %46 = getelementptr [8 x i8], ptr %45, i64 %indvars.iv164
+  %47 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv164
   %48 = load ptr, ptr %47, align 8
   call fastcc void @parse_hex_string(ptr noundef %48, ptr noundef %46, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2714,7 +2708,7 @@ init_addr_port_tables.exit:                       ; preds = %0, %8
 .lr.ph148:                                        ; preds = %._crit_edge145, %.lr.ph148
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %.lr.ph148 ], [ 0, %._crit_edge145 ]
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
-  %55 = getelementptr %struct._dof_identity_data, ptr %54, i64 %indvars.iv167
+  %55 = getelementptr [40 x i8], ptr %54, i64 %indvars.iv167
   %56 = load ptr, ptr %55, align 8
   tail call void @g_free(ptr noundef %56)
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -2749,8 +2743,8 @@ init_addr_port_tables.exit:                       ; preds = %0, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
-  %71 = getelementptr %struct._dof_identity_data, ptr %70, i64 %indvars.iv170
-  %72 = getelementptr %struct._identsecret_field_t, ptr %52, i64 %indvars.iv170
+  %71 = getelementptr [40 x i8], ptr %70, i64 %indvars.iv170
+  %72 = getelementptr [24 x i8], ptr %52, i64 %indvars.iv170
   %73 = load ptr, ptr %72, align 8
   %74 = load i8, ptr %73, align 1
   %.fr158 = freeze i8 %74
@@ -2958,7 +2952,7 @@ dof_oid_create_internal.exit.thread:              ; preds = %10, %13, %19, %16
 
 28:                                               ; preds = %26
   %29 = zext i8 %27 to i64
-  %30 = getelementptr i16, ptr %25, i64 %29
+  %30 = getelementptr [2 x i8], ptr %25, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 1024
   %.not14.i = icmp eq i16 %32, 0
@@ -2972,7 +2966,7 @@ dof_oid_create_internal.exit.thread:              ; preds = %10, %13, %19, %16
 35:                                               ; preds = %28
   %36 = load i8, ptr %33, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr i16, ptr %25, i64 %37
+  %38 = getelementptr [2 x i8], ptr %25, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 1024
   %.not15.i = icmp eq i16 %40, 0
@@ -3075,7 +3069,7 @@ dof_oid_create_internal.exit46.thread:            ; preds = %50, %53, %59, %56
 
 67:                                               ; preds = %65
   %68 = zext i8 %66 to i64
-  %69 = getelementptr i16, ptr %25, i64 %68
+  %69 = getelementptr [2 x i8], ptr %25, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = and i16 %70, 1024
   %.not14.i54 = icmp eq i16 %71, 0
@@ -3089,7 +3083,7 @@ dof_oid_create_internal.exit46.thread:            ; preds = %50, %53, %59, %56
 74:                                               ; preds = %67
   %75 = load i8, ptr %72, align 1
   %76 = zext i8 %75 to i64
-  %77 = getelementptr i16, ptr %25, i64 %76
+  %77 = getelementptr [2 x i8], ptr %25, i64 %76
   %78 = load i16, ptr %77, align 2
   %79 = and i16 %78, 1024
   %.not15.i55 = icmp eq i16 %79, 0
@@ -3127,7 +3121,7 @@ count_hex_bytes.exit59:                           ; preds = %.outer.i56, %65, %6
 
 87:                                               ; preds = %85
   %88 = zext i8 %86 to i64
-  %89 = getelementptr i16, ptr %25, i64 %88
+  %89 = getelementptr [2 x i8], ptr %25, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = and i16 %90, 1024
   %.not14.i67 = icmp eq i16 %91, 0
@@ -3141,7 +3135,7 @@ count_hex_bytes.exit59:                           ; preds = %.outer.i56, %65, %6
 94:                                               ; preds = %87
   %95 = load i8, ptr %92, align 1
   %96 = zext i8 %95 to i64
-  %97 = getelementptr i16, ptr %25, i64 %96
+  %97 = getelementptr [2 x i8], ptr %25, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = and i16 %98, 1024
   %.not15.i68 = icmp eq i16 %99, 0
@@ -3221,7 +3215,7 @@ define internal noundef zeroext i1 @seckey_list_update_cb(ptr noundef readonly c
 
 7:                                                ; preds = %5
   %8 = zext i8 %6 to i64
-  %9 = getelementptr i16, ptr %4, i64 %8
+  %9 = getelementptr [2 x i8], ptr %4, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 1024
   %.not14.i = icmp eq i16 %11, 0
@@ -3235,7 +3229,7 @@ define internal noundef zeroext i1 @seckey_list_update_cb(ptr noundef readonly c
 14:                                               ; preds = %7
   %15 = load i8, ptr %12, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr i16, ptr %4, i64 %16
+  %17 = getelementptr [2 x i8], ptr %4, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 1024
   %.not15.i = icmp eq i16 %19, 0
@@ -3383,7 +3377,7 @@ dof_oid_create_internal.exit:                     ; preds = %19, %16
 
 27:                                               ; preds = %25
   %28 = zext i8 %26 to i64
-  %29 = getelementptr i16, ptr %24, i64 %28
+  %29 = getelementptr [2 x i8], ptr %24, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 1024
   %.not14.i = icmp eq i16 %31, 0
@@ -3397,7 +3391,7 @@ dof_oid_create_internal.exit:                     ; preds = %19, %16
 34:                                               ; preds = %27
   %35 = load i8, ptr %32, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr i16, ptr %24, i64 %36
+  %37 = getelementptr [2 x i8], ptr %24, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 1024
   %.not15.i = icmp eq i16 %39, 0
@@ -3502,7 +3496,7 @@ dof_oid_create_internal.exit46:                   ; preds = %58, %55
 
 66:                                               ; preds = %64
   %67 = zext i8 %65 to i64
-  %68 = getelementptr i16, ptr %63, i64 %67
+  %68 = getelementptr [2 x i8], ptr %63, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, 1024
   %.not14.i54 = icmp eq i16 %70, 0
@@ -3516,7 +3510,7 @@ dof_oid_create_internal.exit46:                   ; preds = %58, %55
 73:                                               ; preds = %66
   %74 = load i8, ptr %71, align 1
   %75 = zext i8 %74 to i64
-  %76 = getelementptr i16, ptr %63, i64 %75
+  %76 = getelementptr [2 x i8], ptr %63, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = and i16 %77, 1024
   %.not15.i55 = icmp eq i16 %78, 0
@@ -3558,7 +3552,7 @@ count_hex_bytes.exit59:                           ; preds = %.outer.i56, %64, %6
 
 87:                                               ; preds = %85
   %88 = zext i8 %86 to i64
-  %89 = getelementptr i16, ptr %84, i64 %88
+  %89 = getelementptr [2 x i8], ptr %84, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = and i16 %90, 1024
   %.not14.i67 = icmp eq i16 %91, 0
@@ -3572,7 +3566,7 @@ count_hex_bytes.exit59:                           ; preds = %.outer.i56, %64, %6
 94:                                               ; preds = %87
   %95 = load i8, ptr %92, align 1
   %96 = zext i8 %95 to i64
-  %97 = getelementptr i16, ptr %84, i64 %96
+  %97 = getelementptr [2 x i8], ptr %84, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = and i16 %98, 1024
   %.not15.i68 = icmp eq i16 %99, 0
@@ -3672,7 +3666,7 @@ define internal fastcc void @parse_hex_string(ptr noundef readonly captures(addr
 
 7:                                                ; preds = %5
   %8 = zext i8 %6 to i64
-  %9 = getelementptr i16, ptr %4, i64 %8
+  %9 = getelementptr [2 x i8], ptr %4, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 1024
   %.not14.i = icmp eq i16 %11, 0
@@ -3686,7 +3680,7 @@ define internal fastcc void @parse_hex_string(ptr noundef readonly captures(addr
 14:                                               ; preds = %7
   %15 = load i8, ptr %12, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr i16, ptr %4, i64 %16
+  %17 = getelementptr [2 x i8], ptr %4, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 1024
   %.not15.i = icmp eq i16 %19, 0
@@ -3718,7 +3712,7 @@ count_hex_bytes.exit:                             ; preds = %14, %.outer.i, %5, 
   %.01419 = phi i8 [ 0, %.lr.ph ], [ %.115, %48 ]
   %28 = load i8, ptr %.020, align 1
   %29 = zext i8 %28 to i64
-  %30 = getelementptr i16, ptr %25, i64 %29
+  %30 = getelementptr [2 x i8], ptr %25, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 1024
   %.not = icmp eq i16 %32, 0
@@ -10369,7 +10363,7 @@ read_c4.exit:                                     ; preds = %.lr.ph.i, %.lr.ph
 
 switch.lookup:                                    ; preds = %read_c4.exit
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_2008_16_security_11, i64 %33
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_2008_16_security_11, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %34
 
@@ -14170,7 +14164,7 @@ proto_item_set_generated.exit:                    ; preds = %45, %62, %65
   %.1327394 = phi ptr [ null, %.lr.ph ], [ %.2328, %259 ]
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 32
   %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr %struct._dof_identity_data, ptr %214, i64 %indvars.iv412
+  %215 = getelementptr [40 x i8], ptr %214, i64 %indvars.iv412
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load i8, ptr %216, align 8
@@ -14547,7 +14541,7 @@ proto_item_set_generated.exit380:                 ; preds = %286, %283, %280, %2
 
 423:                                              ; preds = %.lr.ph404
   %424 = load ptr, ptr %418, align 8
-  %425 = getelementptr %struct._dof_session_key_data, ptr %424, i64 %indvars.iv415
+  %425 = getelementptr [8 x i8], ptr %424, i64 %indvars.iv415
   %426 = load ptr, ptr %425, align 8
   %427 = call fastcc zeroext i1 @validate_session_key(ptr noundef %192, i32 noundef %.0323, ptr noundef %.0321, ptr noundef nonnull %7, ptr noundef %426)
   br i1 %427, label %428, label %433
@@ -14555,7 +14549,7 @@ proto_item_set_generated.exit380:                 ; preds = %286, %283, %280, %2
 428:                                              ; preds = %423
   %429 = load ptr, ptr @globals.4, align 8
   %430 = load ptr, ptr %429, align 8
-  %431 = getelementptr %struct._dof_session_key_data, ptr %430, i64 %indvars.iv415
+  %431 = getelementptr [8 x i8], ptr %430, i64 %indvars.iv415
   %432 = load ptr, ptr %431, align 8
   br label %433
 
@@ -15104,7 +15098,7 @@ read_c4.exit.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph
 
 switch.lookup:                                    ; preds = %read_c4.exit.i
   %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_2008_16_security_11, i64 %48
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_2008_16_security_11, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %49
 
@@ -15360,7 +15354,7 @@ dof_packet_get_proto_data.exit:                   ; preds = %42, %46
   %.1547 = phi ptr [ null, %.lr.ph549 ], [ %.2, %142 ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr %struct._dof_identity_data, ptr %114, i64 %indvars.iv558
+  %115 = getelementptr [40 x i8], ptr %114, i64 %indvars.iv558
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i8, ptr %116, align 8
   %.not526 = icmp eq i8 %.0479, %117
@@ -15614,7 +15608,7 @@ dof_packet_get_proto_data.exit:                   ; preds = %42, %46
   %.1486543 = phi ptr [ null, %.lr.ph544 ], [ %.2487, %308 ]
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 32
   %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr %struct._dof_identity_data, ptr %280, i64 %indvars.iv555
+  %281 = getelementptr [40 x i8], ptr %280, i64 %indvars.iv555
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i8, ptr %282, align 8
   %.not516 = icmp eq i8 %.0483, %283
@@ -15776,7 +15770,7 @@ dof_packet_get_proto_data.exit:                   ; preds = %42, %46
   %.1491540 = phi ptr [ null, %.lr.ph ], [ %.2492, %402 ]
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 32
   %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr %struct._dof_identity_data, ptr %374, i64 %indvars.iv
+  %375 = getelementptr [40 x i8], ptr %374, i64 %indvars.iv
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %377 = load i8, ptr %376, align 8
   %.not508 = icmp eq i8 %.0494, %377

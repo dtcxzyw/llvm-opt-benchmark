@@ -1568,7 +1568,7 @@ _ZSt4copyIPN2cv5Rect_IiEES3_ET0_T_S5_S4_.exit.i:  ; preds = %534, %533
   %.sroa.0219.3294 = phi ptr [ %.sroa.0219.4, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0219.0, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5clearEv.exit ]
   %.sroa.11.1293 = phi ptr [ %.sroa.11.3, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit ], [ %spec.select, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5clearEv.exit ]
   %.sroa.19.1292 = phi ptr [ %.sroa.19.2, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.19.0, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5clearEv.exit ]
-  %547 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %545, i64 %indvars.iv
+  %547 = getelementptr inbounds nuw [16 x i8], ptr %545, i64 %indvars.iv
   %548 = load i32, ptr %547, align 4, !tbaa !81
   %549 = sitofp i32 %548 to float
   %550 = fdiv float %549, %491
@@ -1663,7 +1663,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %584, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   %.pre339 = phi ptr [ %.pre339.pre, %584 ], [ %.pre339343, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i ]
   %.pre = phi ptr [ %.pre.pre, %584 ], [ %.pre340, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i ]
-  %585 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %580, i64 %578
+  %585 = getelementptr inbounds nuw [16 x i8], ptr %580, i64 %578
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %567
@@ -1787,7 +1787,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vector
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %627 = load ptr, ptr %32, align 8, !tbaa !92
-  %628 = getelementptr inbounds nuw %"class.std::vector.30", ptr %627, i64 %indvars.iv336
+  %628 = getelementptr inbounds nuw [24 x i8], ptr %627, i64 %indvars.iv336
   store i32 1124024333, ptr %44, align 8, !tbaa !95
   store i32 2, ptr %436, align 4, !tbaa !96
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 8
@@ -1845,7 +1845,7 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit: ; preds = %638, %.lr.
 646:                                              ; preds = %_ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !107
   %647 = load ptr, ptr %32, align 8, !tbaa !92
-  %648 = getelementptr inbounds nuw %"class.std::vector.30", ptr %647, i64 %indvars.iv336
+  %648 = getelementptr inbounds nuw [24 x i8], ptr %647, i64 %indvars.iv336
   %649 = load ptr, ptr %648, align 8, !tbaa !100
   %650 = getelementptr inbounds nuw i8, ptr %648, i64 8
   %651 = getelementptr inbounds nuw i8, ptr %648, i64 16
@@ -1879,7 +1879,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EEaSEOS4_.exit.thread: ; preds = %646, %655, %
   store ptr %27, ptr %451, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %656 = load ptr, ptr %32, align 8, !tbaa !92
-  %657 = getelementptr inbounds nuw %"class.std::vector.30", ptr %656, i64 %indvars.iv336
+  %657 = getelementptr inbounds nuw [24 x i8], ptr %656, i64 %indvars.iv336
   store i32 0, ptr %453, align 8, !tbaa !64
   store i32 0, ptr %454, align 4, !tbaa !66
   store i32 -2130509811, ptr %46, align 8, !tbaa !67

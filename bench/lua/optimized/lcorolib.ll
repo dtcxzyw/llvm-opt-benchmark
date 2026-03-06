@@ -132,7 +132,7 @@ getco.exit:                                       ; preds = %1, %4
 
 auxstatus.exit:                                   ; preds = %getco.exit, %7, %14, %15
   %.0.i = phi i64 [ %.1.i, %14 ], [ 1, %15 ], [ 0, %getco.exit ], [ 2, %7 ]
-  %16 = getelementptr inbounds nuw ptr, ptr @statname, i64 %.0.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @statname, i64 %.0.i
   %17 = load ptr, ptr %16, align 8, !tbaa !5
   %18 = call ptr @lua_pushstring(ptr noundef %0, ptr noundef %17) #3
   ret i32 1
@@ -228,7 +228,7 @@ auxstatus.exit.thread:                            ; preds = %auxstatus.exit, %7
 
 auxstatus.exit.thread17:                          ; preds = %getco.exit, %auxstatus.exit.thread22
   %.0.i21 = phi i64 [ 3, %auxstatus.exit.thread22 ], [ 0, %getco.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr @statname, i64 %.0.i21
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @statname, i64 %.0.i21
   %17 = load ptr, ptr %16, align 8, !tbaa !5
   %18 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %17) #3
   br label %19

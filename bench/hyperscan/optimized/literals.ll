@@ -58,8 +58,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.39" = type { i32 }
 %"struct.std::_Head_base.40" = type { i32 }
 %"struct.std::_Head_base.41" = type { i32 }
-%struct.pattern = type { %"class.std::__cxx11::basic_string", i32, i32, %struct.hs_expr_ext }
-%struct.hs_expr_ext = type { i64, i64, i64, i64, i32, i32 }
 %"class.testing::internal::ParamIterator.102" = type { %"class.testing::internal::scoped_ptr.103" }
 %"class.testing::internal::scoped_ptr.103" = type { ptr }
 %"class.testing::internal::ParamIterator.104" = type { %"class.testing::internal::scoped_ptr.105" }
@@ -6630,7 +6628,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %73, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %68, ptr %0, align 8
   store ptr %72, ptr %7, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %66
   store ptr %74, ptr %50, align 8
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -6812,7 +6810,7 @@ define linkonce_odr hidden void @_ZN20HyperscanLiteralTest5SetUpEv(ptr noundef n
 
 23:                                               ; preds = %23, %1
   %storemerge3.i = phi i64 [ 1, %1 ], [ %33, %23 ]
-  %24 = getelementptr i32, ptr %21, i64 %storemerge3.i
+  %24 = getelementptr [4 x i8], ptr %21, i64 %storemerge3.i
   %25 = getelementptr i8, ptr %24, i64 -4
   %26 = load i32, ptr %25, align 4
   %27 = lshr i32 %26, 30
@@ -6851,7 +6849,7 @@ define linkonce_odr hidden void @_ZN20HyperscanLiteralTest5SetUpEv(ptr noundef n
 
 49:                                               ; preds = %47, %35
   %.0812.i.i = phi i64 [ 0, %35 ], [ %48, %47 ]
-  %50 = getelementptr inbounds nuw i32, ptr %21, i64 %.0812.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.0812.i.i
   %51 = load i32, ptr %50, align 4
   %.not10.i.i = icmp eq i32 %51, 0
   br i1 %.not10.i.i, label %47, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EE4seedERKj.exit
@@ -7338,7 +7336,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8
-  %57 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.32", ptr %20, i64 %16
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %57, ptr %56, align 8
   ret void
 }
@@ -7499,7 +7497,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal24ParameterizedTestF
 
 7:                                                ; preds = %7, %.noexc
   %storemerge3.i.i.i.i.i = phi i64 [ 1, %.noexc ], [ %17, %7 ]
-  %8 = getelementptr i32, ptr %5, i64 %storemerge3.i.i.i.i.i
+  %8 = getelementptr [4 x i8], ptr %5, i64 %storemerge3.i.i.i.i.i
   %9 = getelementptr i8, ptr %8, i64 -4
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 30
@@ -7538,7 +7536,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal24ParameterizedTestF
 
 33:                                               ; preds = %31, %19
   %.0812.i.i.i.i.i.i = phi i64 [ 0, %19 ], [ %32, %31 ]
-  %34 = getelementptr inbounds nuw i32, ptr %5, i64 %.0812.i.i.i.i.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0812.i.i.i.i.i.i
   %35 = load i32, ptr %34, align 4
   %.not10.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %.not10.i.i.i.i.i.i, label %31, label %.loopexit
@@ -7610,7 +7608,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6random6detail20generate_unifor
   br i1 %10, label %12, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %7
-  %.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %0, i64 %9
+  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %9
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %11 = add i64 %9, 1
   br label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEclEv.exit
@@ -7622,10 +7620,10 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6random6detail20generate_unifor
 13:                                               ; preds = %13, %12
   %14 = phi i32 [ %.pre.i.i, %12 ], [ %19, %13 ]
   %.037.i.i = phi i64 [ 0, %12 ], [ %17, %13 ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %.037.i.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.037.i.i
   %16 = and i32 %14, -2147483648
   %17 = add nuw nsw i64 %.037.i.i, 1
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 2147483646
   %21 = or disjoint i32 %20, %16
@@ -7648,10 +7646,10 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6random6detail20generate_unifor
 .preheader36.i.i:                                 ; preds = %.preheader36.i.i, %.preheader36.preheader.i.i
   %29 = phi i32 [ %34, %.preheader36.i.i ], [ %.pre42.i.i, %.preheader36.preheader.i.i ]
   %.03338.i.i = phi i64 [ %32, %.preheader36.i.i ], [ 222, %.preheader36.preheader.i.i ]
-  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %.03338.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.03338.i.i
   %31 = and i32 %29, -2147483648
   %32 = add nuw nsw i64 %.03338.i.i, 1
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 2147483646
   %36 = or disjoint i32 %35, %31
@@ -7674,10 +7672,10 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6random6detail20generate_unifor
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %44 = phi i32 [ %49, %.preheader.i.i ], [ %.pre44.i.i, %.preheader.preheader.i.i ]
   %.03539.i.i = phi i64 [ %47, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %45 = getelementptr inbounds nuw i32, ptr %0, i64 %.03539.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.03539.i.i
   %46 = and i32 %44, -2147483648
   %47 = add nuw nsw i64 %.03539.i.i, 1
-  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 2147483646
   %51 = or disjoint i32 %50, %46
@@ -7747,7 +7745,7 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
   br i1 %96, label %98, label %._crit_edge.i103
 
 ._crit_edge.i103:                                 ; preds = %94
-  %.phi.trans.insert.i104 = getelementptr inbounds nuw i32, ptr %0, i64 %95
+  %.phi.trans.insert.i104 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %95
   %.pre.i105 = load i32, ptr %.phi.trans.insert.i104, align 4
   %97 = add i64 %95, 1
   br label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEclEv.exit122
@@ -7759,10 +7757,10 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
 99:                                               ; preds = %99, %98
   %100 = phi i32 [ %.pre.i.i106, %98 ], [ %105, %99 ]
   %.037.i.i107 = phi i64 [ 0, %98 ], [ %103, %99 ]
-  %101 = getelementptr inbounds nuw i32, ptr %0, i64 %.037.i.i107
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.037.i.i107
   %102 = and i32 %100, -2147483648
   %103 = add nuw nsw i64 %.037.i.i107, 1
-  %104 = getelementptr inbounds nuw i32, ptr %0, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %103
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, 2147483646
   %107 = or disjoint i32 %106, %102
@@ -7784,10 +7782,10 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
 .preheader36.i.i112:                              ; preds = %.preheader36.i.i112, %.preheader36.preheader.i.i109
   %115 = phi i32 [ %120, %.preheader36.i.i112 ], [ %.pre42.i.i111, %.preheader36.preheader.i.i109 ]
   %.03338.i.i113 = phi i64 [ %118, %.preheader36.i.i112 ], [ 222, %.preheader36.preheader.i.i109 ]
-  %116 = getelementptr inbounds nuw i32, ptr %0, i64 %.03338.i.i113
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.03338.i.i113
   %117 = and i32 %115, -2147483648
   %118 = add nuw nsw i64 %.03338.i.i113, 1
-  %119 = getelementptr inbounds nuw i32, ptr %0, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = and i32 %120, 2147483646
   %122 = or disjoint i32 %121, %117
@@ -7809,10 +7807,10 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
 .preheader.i.i118:                                ; preds = %.preheader.i.i118, %.preheader.preheader.i.i115
   %130 = phi i32 [ %135, %.preheader.i.i118 ], [ %.pre44.i.i117, %.preheader.preheader.i.i115 ]
   %.03539.i.i119 = phi i64 [ %133, %.preheader.i.i118 ], [ 227, %.preheader.preheader.i.i115 ]
-  %131 = getelementptr inbounds nuw i32, ptr %0, i64 %.03539.i.i119
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.03539.i.i119
   %132 = and i32 %130, -2147483648
   %133 = add nuw nsw i64 %.03539.i.i119, 1
-  %134 = getelementptr inbounds nuw i32, ptr %0, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %133
   %135 = load i32, ptr %134, align 4
   %136 = and i32 %135, 2147483646
   %137 = or disjoint i32 %136, %132
@@ -8871,7 +8869,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal24ParameterizedTestF
 
 7:                                                ; preds = %7, %.noexc
   %storemerge3.i.i.i.i.i = phi i64 [ 1, %.noexc ], [ %17, %7 ]
-  %8 = getelementptr i32, ptr %5, i64 %storemerge3.i.i.i.i.i
+  %8 = getelementptr [4 x i8], ptr %5, i64 %storemerge3.i.i.i.i.i
   %9 = getelementptr i8, ptr %8, i64 -4
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 30
@@ -8910,7 +8908,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal24ParameterizedTestF
 
 33:                                               ; preds = %31, %19
   %.0812.i.i.i.i.i.i = phi i64 [ 0, %19 ], [ %32, %31 ]
-  %34 = getelementptr inbounds nuw i32, ptr %5, i64 %.0812.i.i.i.i.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0812.i.i.i.i.i.i
   %35 = load i32, ptr %34, align 4
   %.not10.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %.not10.i.i.i.i.i.i, label %31, label %.loopexit
@@ -8985,7 +8983,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal24ParameterizedTestF
 
 7:                                                ; preds = %7, %.noexc
   %storemerge3.i.i.i.i.i = phi i64 [ 1, %.noexc ], [ %17, %7 ]
-  %8 = getelementptr i32, ptr %5, i64 %storemerge3.i.i.i.i.i
+  %8 = getelementptr [4 x i8], ptr %5, i64 %storemerge3.i.i.i.i.i
   %9 = getelementptr i8, ptr %8, i64 -4
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 30
@@ -9024,7 +9022,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal24ParameterizedTestF
 
 33:                                               ; preds = %31, %19
   %.0812.i.i.i.i.i.i = phi i64 [ 0, %19 ], [ %32, %31 ]
-  %34 = getelementptr inbounds nuw i32, ptr %5, i64 %.0812.i.i.i.i.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.0812.i.i.i.i.i.i
   %35 = load i32, ptr %34, align 4
   %.not10.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %.not10.i.i.i.i.i.i, label %31, label %.loopexit
@@ -9065,7 +9063,7 @@ define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGene
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #25
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9097,7 +9095,7 @@ define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGene
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #25
   br label %_ZN7testing8internal30ValuesInIteratorRangeGeneratorIbED2Ev.exit
 
@@ -9156,7 +9154,7 @@ define linkonce_odr dso_local void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef 
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPv(ptr noundef %11) #25
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11036,7 +11034,7 @@ _ZNSt12_Vector_baseI7patternSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i37, ptr %7, align 8
-  %90 = getelementptr inbounds nuw %struct.pattern, ptr %25, i64 %19
+  %90 = getelementptr inbounds nuw [80 x i8], ptr %25, i64 %19
   store ptr %90, ptr %89, align 8
   ret void
 }
@@ -11214,7 +11212,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8
   ret void
 }
@@ -11445,7 +11443,7 @@ _ZNSt12_Vector_baseI7patternSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %26, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i37, ptr %8, align 8
-  %95 = getelementptr inbounds nuw %struct.pattern, ptr %26, i64 %20
+  %95 = getelementptr inbounds nuw [80 x i8], ptr %26, i64 %20
   store ptr %95, ptr %94, align 8
   ret void
 
@@ -15272,7 +15270,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8
-  %79 = getelementptr inbounds nuw %"struct.std::pair.75", ptr %22, i64 %16
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %79, ptr %78, align 8
   ret void
 }

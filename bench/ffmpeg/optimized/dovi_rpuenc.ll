@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVCIExy = type { %struct.AVRational, %struct.AVRational }
 %struct.AVPrimaryCoefficients = type { %struct.AVCIExy, %struct.AVCIExy, %struct.AVCIExy }
 %struct.PutBitContext = type { i32, i32, ptr, ptr, ptr }
-%struct.AVDOVIReshapingCurve = type { i8, [9 x i16], [8 x i32], [8 x i8], [8 x [3 x i64]], [8 x i8], [8 x i64], [8 x [3 x [7 x i64]]] }
-%struct.AVDOVINLQParams = type { i16, i64, i64, i64 }
 
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"0\00", align 1
@@ -263,7 +261,7 @@ select.unfold:                                    ; preds = %35, %31
 
 105:                                              ; preds = %104, %113
   %indvars.iv = phi i64 [ 1, %104 ], [ %indvars.iv.next, %113 ]
-  %106 = getelementptr inbounds nuw %struct.anon, ptr @dv_levels, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [24 x i8], ptr @dv_levels, i64 %indvars.iv
   %107 = load i64, ptr %106, align 8, !tbaa !35
   %108 = icmp ugt i64 %.0103, %107
   br i1 %108, label %113, label %109
@@ -485,7 +483,7 @@ define range(i32 -1094995529, 1) i32 @ff_dovi_rpu_generate(ptr noundef %0, ptr n
   %35 = zext i8 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %37 = zext i8 %34 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !82
   %.not474 = icmp eq ptr %39, null
   br i1 %.not474, label %40, label %42
@@ -531,7 +529,7 @@ define range(i32 -1094995529, 1) i32 @ff_dovi_rpu_generate(ptr noundef %0, ptr n
   br i1 %.not509, label %52, label %50
 
 50:                                               ; preds = %.preheader973
-  %51 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   tail call void @av_refstruct_unref(ptr noundef nonnull %51) #12
   br label %52
 
@@ -607,8 +605,8 @@ define range(i32 -1094995529, 1) i32 @ff_dovi_rpu_generate(ptr noundef %0, ptr n
 
 80:                                               ; preds = %av_cmp_q.exit.thread64.i, %73
   %indvars.iv.i = phi i64 [ 0, %73 ], [ %indvars.iv.next.i, %av_cmp_q.exit.thread64.i ]
-  %81 = getelementptr inbounds nuw %struct.AVRational, ptr %76, i64 %indvars.iv.i
-  %82 = getelementptr inbounds nuw %struct.AVRational, ptr %77, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv.i
   %83 = load i64, ptr %81, align 4
   %84 = load i64, ptr %82, align 4
   %.sroa.011.0.extract.trunc.i.i = trunc i64 %83 to i32
@@ -651,8 +649,8 @@ av_cmp_q.exit.thread64.i:                         ; preds = %94, %91
 
 99:                                               ; preds = %av_cmp_q.exit51.thread70.i, %.preheader84.i
   %indvars.iv155.i = phi i64 [ 0, %.preheader84.i ], [ %indvars.iv.next156.i, %av_cmp_q.exit51.thread70.i ]
-  %100 = getelementptr inbounds nuw %struct.AVRational, ptr %78, i64 %indvars.iv155.i
-  %101 = getelementptr inbounds nuw %struct.AVRational, ptr %79, i64 %indvars.iv155.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv155.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv155.i
   %102 = load i64, ptr %100, align 4
   %103 = load i64, ptr %101, align 4
   %.sroa.011.0.extract.trunc.i42.i = trunc i64 %102 to i32
@@ -690,8 +688,8 @@ av_cmp_q.exit51.thread70.i:                       ; preds = %113, %110
 
 116:                                              ; preds = %av_cmp_q.exit61.thread78.i, %.preheader.i
   %indvars.iv159.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next160.i, %av_cmp_q.exit61.thread78.i ]
-  %117 = getelementptr inbounds nuw %struct.AVRational, ptr %97, i64 %indvars.iv159.i
-  %118 = getelementptr inbounds nuw %struct.AVRational, ptr %98, i64 %indvars.iv159.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv159.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv159.i
   %119 = load i64, ptr %117, align 4
   %120 = load i64, ptr %118, align 4
   %.sroa.011.0.extract.trunc.i52.i = trunc i64 %119 to i32
@@ -776,7 +774,7 @@ ff_dovi_rpu_extension_is_static.exit.i:           ; preds = %144, %144, %144, %1
 
 .lr.ph.i:                                         ; preds = %162, %.lr.ph.preheader.i
   %indvars.iv.i520 = phi i64 [ %154, %.lr.ph.preheader.i ], [ %indvars.iv.next.i521, %162 ]
-  %155 = getelementptr inbounds %struct.AVDOVIDmData, ptr %138, i64 %indvars.iv.i520
+  %155 = getelementptr inbounds [76 x i8], ptr %138, i64 %indvars.iv.i520
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(76) %155, ptr noundef nonnull readonly dereferenceable(76) %150, i64 76)
   %.not35.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not35.i, label %156, label %162
@@ -788,7 +786,7 @@ ff_dovi_rpu_extension_is_static.exit.i:           ; preds = %144, %144, %144, %1
 
 158:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %159 = getelementptr inbounds %struct.AVDOVIDmData, ptr %138, i64 %154
+  %159 = getelementptr inbounds [76 x i8], ptr %138, i64 %154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %6, ptr noundef nonnull align 4 dereferenceable(76) %159, i64 76, i1 false), !tbaa.struct !96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %159, ptr noundef nonnull align 4 dereferenceable(76) %155, i64 76, i1 false), !tbaa.struct !96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %155, ptr noundef nonnull align 4 dereferenceable(76) %6, i64 76, i1 false), !tbaa.struct !96
@@ -936,7 +934,7 @@ ff_dovi_rpu_extension_is_static.exit.thread:      ; preds = %177
 .preheader968:                                    ; preds = %192, %._crit_edge991
   %indvars.iv1069 = phi i64 [ 0, %192 ], [ %indvars.iv.next1070, %._crit_edge991 ]
   %.1420994 = phi i32 [ %193, %192 ], [ %.2421.lcssa, %._crit_edge991 ]
-  %195 = getelementptr inbounds nuw %struct.AVDOVIReshapingCurve, ptr %194, i64 %indvars.iv1069
+  %195 = getelementptr inbounds nuw [1672 x i8], ptr %194, i64 %indvars.iv1069
   %196 = load i8, ptr %195, align 8, !tbaa !100
   %197 = icmp ugt i8 %196, 1
   br i1 %197, label %.lr.ph990, label %._crit_edge991
@@ -957,7 +955,7 @@ ff_dovi_rpu_extension_is_static.exit.thread:      ; preds = %177
 201:                                              ; preds = %.lr.ph990, %208
   %indvars.iv1064 = phi i64 [ 0, %.lr.ph990 ], [ %indvars.iv.next1065, %208 ]
   %.2421989 = phi i32 [ %.1420994, %.lr.ph990 ], [ %.3422, %208 ]
-  %202 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv1064
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %indvars.iv1064
   %203 = load i32, ptr %202, align 4, !tbaa !75
   switch i32 %203, label %208 [
     i32 0, label %204
@@ -1357,7 +1355,7 @@ set_ue_golomb.exit:                               ; preds = %397, %416
   %439 = phi i32 [ %.pre1134, %426 ], [ %475, %._crit_edge998 ]
   %440 = phi i32 [ %.pre1133, %426 ], [ %476, %._crit_edge998 ]
   %indvars.iv1076 = phi i64 [ 0, %426 ], [ %indvars.iv.next1077, %._crit_edge998 ]
-  %441 = getelementptr inbounds nuw %struct.AVDOVIReshapingCurve, ptr %433, i64 %indvars.iv1076
+  %441 = getelementptr inbounds nuw [1672 x i8], ptr %433, i64 %indvars.iv1076
   %442 = load i8, ptr %441, align 8, !tbaa !100
   %443 = zext i8 %442 to i32
   %444 = zext i8 %442 to i64
@@ -1434,7 +1432,7 @@ put_bits.exit.i:                                  ; preds = %471, %451
   %.0445995 = phi i32 [ 0, %.lr.ph997 ], [ %.pre-phi1162, %put_bits.exit572 ]
   %481 = load i8, ptr %434, align 1, !tbaa !121
   %482 = zext i8 %481 to i32
-  %483 = getelementptr inbounds nuw i16, ptr %474, i64 %indvars.iv1073
+  %483 = getelementptr inbounds nuw [2 x i8], ptr %474, i64 %indvars.iv1073
   %484 = load i16, ptr %483, align 2, !tbaa !128
   %485 = zext i16 %484 to i32
   %486 = sub nsw i32 %485, %.0445995
@@ -1535,7 +1533,7 @@ put_bits.exit572:                                 ; preds = %488, %508
 
 539:                                              ; preds = %527, %._crit_edge1006
   %indvars.iv1093 = phi i64 [ 0, %527 ], [ %indvars.iv.next1094, %._crit_edge1006 ]
-  %540 = getelementptr inbounds nuw %struct.AVDOVIReshapingCurve, ptr %433, i64 %indvars.iv1093
+  %540 = getelementptr inbounds nuw [1672 x i8], ptr %433, i64 %indvars.iv1093
   %541 = load i8, ptr %540, align 8, !tbaa !100
   %542 = icmp ugt i8 %541, 1
   br i1 %542, label %.lr.ph1005, label %._crit_edge1006
@@ -1556,7 +1554,7 @@ put_bits.exit572:                                 ; preds = %488, %508
 
 549:                                              ; preds = %.lr.ph1005, %.loopexit966
   %indvars.iv1090 = phi i64 [ 0, %.lr.ph1005 ], [ %indvars.iv.next1091, %.loopexit966 ]
-  %550 = getelementptr inbounds nuw i32, ptr %543, i64 %indvars.iv1090
+  %550 = getelementptr inbounds nuw [4 x i8], ptr %543, i64 %indvars.iv1090
   %551 = load i32, ptr %550, align 4, !tbaa !75
   %552 = icmp slt i32 %551, 256
   br i1 %552, label %553, label %584
@@ -1779,12 +1777,12 @@ put_bits.exit606:                                 ; preds = %670, %675, %661
   br label %677
 
 677:                                              ; preds = %put_bits.exit606, %put_bits.exit.i599
-  %678 = getelementptr inbounds nuw [3 x i64], ptr %548, i64 %indvars.iv1090
+  %678 = getelementptr inbounds nuw [24 x i8], ptr %548, i64 %indvars.iv1090
   br label %679
 
 679:                                              ; preds = %677, %put_se_coef.exit
   %indvars.iv1087 = phi i64 [ 0, %677 ], [ %indvars.iv.next1088, %put_se_coef.exit ]
-  %680 = getelementptr inbounds nuw i64, ptr %678, i64 %indvars.iv1087
+  %680 = getelementptr inbounds nuw [8 x i8], ptr %678, i64 %indvars.iv1087
   %681 = load i64, ptr %680, align 8, !tbaa !40
   %682 = load i8, ptr %244, align 1, !tbaa !114
   switch i8 %682, label %put_se_coef.exit [
@@ -1993,7 +1991,7 @@ put_bits.exit611:                                 ; preds = %793, %801, %783
   %802 = add nsw i32 %621, %.sink1388
   store i32 %.026.i.i609, ptr %7, align 8, !tbaa !115
   store i32 %802, ptr %221, align 4, !tbaa !116
-  %803 = getelementptr inbounds nuw i64, ptr %545, i64 %indvars.iv1090
+  %803 = getelementptr inbounds nuw [8 x i8], ptr %545, i64 %indvars.iv1090
   %804 = load i64, ptr %803, align 8, !tbaa !40
   %805 = load i8, ptr %244, align 1, !tbaa !114
   switch i8 %805, label %put_se_coef.exit614 [
@@ -2153,12 +2151,12 @@ put_se_coef.exit614:                              ; preds = %put_bits.exit611, %
   br i1 %.not1033, label %.loopexit966, label %.preheader965.lr.ph
 
 .preheader965.lr.ph:                              ; preds = %put_se_coef.exit614
-  %895 = getelementptr inbounds nuw [3 x [7 x i64]], ptr %546, i64 %indvars.iv1090
+  %895 = getelementptr inbounds nuw [168 x i8], ptr %546, i64 %indvars.iv1090
   br label %.preheader965
 
 .preheader965:                                    ; preds = %.preheader965.lr.ph, %897
   %indvars.iv1084 = phi i64 [ 0, %.preheader965.lr.ph ], [ %indvars.iv.next1085, %897 ]
-  %896 = getelementptr inbounds nuw [7 x i64], ptr %895, i64 %indvars.iv1084
+  %896 = getelementptr inbounds nuw [56 x i8], ptr %895, i64 %indvars.iv1084
   br label %901
 
 897:                                              ; preds = %put_se_coef.exit617
@@ -2170,7 +2168,7 @@ put_se_coef.exit614:                              ; preds = %put_bits.exit611, %
 
 901:                                              ; preds = %.preheader965, %put_se_coef.exit617
   %indvars.iv1080 = phi i64 [ 0, %.preheader965 ], [ %indvars.iv.next1081, %put_se_coef.exit617 ]
-  %902 = getelementptr inbounds nuw i64, ptr %896, i64 %indvars.iv1080
+  %902 = getelementptr inbounds nuw [8 x i8], ptr %896, i64 %indvars.iv1080
   %903 = load i64, ptr %902, align 8, !tbaa !40
   %904 = load i8, ptr %244, align 1, !tbaa !114
   switch i8 %904, label %put_se_coef.exit617 [
@@ -2680,7 +2678,7 @@ put_se_coef.exit617:                              ; preds = %put_se_coef.exit617
 
 1193:                                             ; preds = %.preheader963, %put_ue_coef.exit626
   %indvars.iv1097 = phi i64 [ 0, %.preheader963 ], [ %indvars.iv.next1098, %put_ue_coef.exit626 ]
-  %1194 = getelementptr inbounds nuw %struct.AVDOVINLQParams, ptr %537, i64 %indvars.iv1097
+  %1194 = getelementptr inbounds nuw [32 x i8], ptr %537, i64 %indvars.iv1097
   %1195 = load i8, ptr %538, align 2, !tbaa !122
   %1196 = zext i8 %1195 to i32
   %1197 = load i16, ptr %1194, align 8, !tbaa !142
@@ -3388,7 +3386,7 @@ set_ue_golomb.exit671:                            ; preds = %1564, %1583
   %1589 = phi i32 [ %.0.i.i.i670, %.preheader962 ], [ %1620, %put_sbits.exit ]
   %1590 = phi i32 [ %.026.i.i.i669, %.preheader962 ], [ %.026.i.i.i676, %put_sbits.exit ]
   %indvars.iv1101 = phi i64 [ 0, %.preheader962 ], [ %indvars.iv.next1102, %put_sbits.exit ]
-  %1591 = getelementptr inbounds nuw %struct.AVRational, ptr %1584, i64 %indvars.iv1101
+  %1591 = getelementptr inbounds nuw [8 x i8], ptr %1584, i64 %indvars.iv1101
   %1592 = load i64, ptr %1591, align 4
   %.sroa.03.0.extract.trunc.i = trunc i64 %1592 to i32
   %1593 = and i64 %1592, -35188667056128
@@ -3456,7 +3454,7 @@ put_sbits.exit:                                   ; preds = %1611, %1619, %1601
 1622:                                             ; preds = %.preheader961, %put_bits32.exit
   %1623 = phi i32 [ %.026.i.i.i676, %.preheader961 ], [ %.0.i686, %put_bits32.exit ]
   %indvars.iv1105 = phi i64 [ 0, %.preheader961 ], [ %indvars.iv.next1106, %put_bits32.exit ]
-  %1624 = getelementptr inbounds nuw %struct.AVRational, ptr %1585, i64 %indvars.iv1105
+  %1624 = getelementptr inbounds nuw [8 x i8], ptr %1585, i64 %indvars.iv1105
   %1625 = load i64, ptr %1624, align 4
   %.sroa.03.0.extract.trunc.i678 = trunc i64 %1625 to i32
   %.sroa.5.0.extract.shift.i679 = lshr i64 %1625, 32
@@ -3560,7 +3558,7 @@ put_bits32.exit:                                  ; preds = %1638, %1647
   %1684 = phi i32 [ %1620, %.preheader ], [ %1715, %put_sbits.exit702 ]
   %1685 = phi i32 [ %.0.i686, %.preheader ], [ %.026.i.i.i700, %put_sbits.exit702 ]
   %indvars.iv1109 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1110, %put_sbits.exit702 ]
-  %1686 = getelementptr inbounds nuw %struct.AVRational, ptr %1621, i64 %indvars.iv1109
+  %1686 = getelementptr inbounds nuw [8 x i8], ptr %1621, i64 %indvars.iv1109
   %1687 = load i64, ptr %1686, align 4
   %.sroa.03.0.extract.trunc.i688 = trunc i64 %1687 to i32
   %1688 = and i64 %1687, -70373039144960
@@ -3832,12 +3830,12 @@ ff_dovi_rpu_extension_is_static.exit722.thread:   ; preds = %1814
 
 switch.lookup:                                    ; preds = %ff_dovi_rpu_extension_is_static.exit722.thread
   %1826 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ff_dovi_rpu_generate, i64 %1826
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ff_dovi_rpu_generate, i64 %1826
   br label %1828
 
 switch.lookup1415:                                ; preds = %1823
   %1827 = zext nneg i8 %switch.tableidx1413 to i64
-  %switch.gep1418 = getelementptr inbounds nuw i32, ptr @switch.table.ff_dovi_rpu_generate.3, i64 %1827
+  %switch.gep1418 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ff_dovi_rpu_generate.3, i64 %1827
   br label %1828
 
 1828:                                             ; preds = %switch.lookup1415, %switch.lookup
@@ -6805,7 +6803,7 @@ ff_dovi_rpu_extension_is_static.exit749:          ; preds = %3469, %3469, %3469,
   %.sink1394 = phi i32 [ %3480, %3479 ], [ %3477, %3476 ]
   %.sink1392 = phi ptr [ %1499, %3479 ], [ %3468, %3476 ]
   %3482 = sext i32 %.sink1394 to i64
-  %3483 = getelementptr inbounds %struct.AVDOVIDmData, ptr %.sink1392, i64 %3482
+  %3483 = getelementptr inbounds [76 x i8], ptr %.sink1392, i64 %3482
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3483, ptr nonnull align 4 %3474, i64 %spec.select513, i1 false)
   br label %3484
 

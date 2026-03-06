@@ -25,7 +25,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_gss_mech_put
 %struct.static_call_key = type { ptr, %union.anon.5 }
 %union.anon.5 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.pf_desc = type { i32, i32, i32, ptr, ptr, ptr, i8 }
 
 @registered_mechs_lock = internal global %struct.spinlock zeroinitializer, align 4
 @registered_mechs = internal global %struct.list_head { ptr @registered_mechs, ptr @registered_mechs }, align 8
@@ -61,7 +60,7 @@ define dso_local i32 @gss_mech_register(ptr noundef %0) #0 align 16 {
 7:                                                ; preds = %26, %5
   %8 = phi i64 [ 0, %5 ], [ %28, %26 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr %struct.pf_desc, ptr %9, i64 %8
+  %10 = getelementptr [48 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @strlen(ptr noundef %12) #14
@@ -108,7 +107,7 @@ define dso_local i32 @gss_mech_register(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %34, %45
   %38 = phi i64 [ %48, %45 ], [ 0, %34 ]
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr %struct.pf_desc, ptr %39, i64 %38
+  %40 = getelementptr [48 x i8], ptr %39, i64 %38
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
@@ -174,7 +173,7 @@ define dso_local void @gss_mech_unregister(ptr noundef captures(none) %0) #0 ali
 11:                                               ; preds = %19, %9
   %12 = phi i64 [ 0, %9 ], [ %22, %19 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr %struct.pf_desc, ptr %13, i64 %12
+  %14 = getelementptr [48 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -425,7 +424,7 @@ define dso_local ptr @gss_mech_get_by_pseudoflavor(i32 noundef %0) local_unnamed
 
 17:                                               ; preds = %14, %10
   %18 = phi i64 [ %15, %14 ], [ 0, %10 ]
-  %19 = getelementptr %struct.pf_desc, ptr %12, i64 %18
+  %19 = getelementptr [48 x i8], ptr %12, i64 %18
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, %0
   br i1 %21, label %22, label %14
@@ -477,7 +476,7 @@ define dso_local ptr @gss_mech_get_by_pseudoflavor(i32 noundef %0) local_unnamed
 
 45:                                               ; preds = %42, %38
   %46 = phi i64 [ %43, %42 ], [ 0, %38 ]
-  %47 = getelementptr %struct.pf_desc, ptr %40, i64 %46
+  %47 = getelementptr [48 x i8], ptr %40, i64 %46
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, %0
   br i1 %49, label %50, label %42
@@ -514,7 +513,7 @@ define dso_local i32 @gss_svc_to_pseudoflavor(ptr noundef readonly captures(none
 
 11:                                               ; preds = %23, %7
   %12 = phi i64 [ 0, %7 ], [ %24, %23 ]
-  %13 = getelementptr %struct.pf_desc, ptr %9, i64 %12
+  %13 = getelementptr [48 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %1
@@ -564,7 +563,7 @@ define dso_local i32 @gss_mech_info2flavor(ptr noundef %0) local_unnamed_addr #0
 
 16:                                               ; preds = %28, %12
   %17 = phi i64 [ 0, %12 ], [ %29, %28 ]
-  %18 = getelementptr %struct.pf_desc, ptr %14, i64 %17
+  %18 = getelementptr [48 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %6
@@ -637,7 +636,7 @@ define dso_local noundef range(i32 -2, 1) i32 @gss_mech_flavor2info(i32 noundef 
 
 15:                                               ; preds = %13, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %9 ]
-  %16 = getelementptr %struct.pf_desc, ptr %11, i64 %indvars.iv
+  %16 = getelementptr [48 x i8], ptr %11, i64 %indvars.iv
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, %0
   br i1 %18, label %19, label %13
@@ -652,13 +651,13 @@ define dso_local noundef range(i32 -2, 1) i32 @gss_mech_flavor2info(i32 noundef 
   %25 = load i32, ptr %21, align 8
   store i32 %25, ptr %1, align 4
   %26 = load ptr, ptr %10, align 8
-  %.split = getelementptr %struct.pf_desc, ptr %26, i64 %indvars.iv
+  %.split = getelementptr [48 x i8], ptr %26, i64 %indvars.iv
   %27 = getelementptr i8, ptr %.split, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %10, align 8
-  %.split3 = getelementptr %struct.pf_desc, ptr %30, i64 %indvars.iv
+  %.split3 = getelementptr [48 x i8], ptr %30, i64 %indvars.iv
   %31 = getelementptr i8, ptr %.split3, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -700,7 +699,7 @@ define dso_local i32 @gss_pseudoflavor_to_service(ptr noundef readonly captures(
 
 12:                                               ; preds = %10, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %6 ]
-  %13 = getelementptr %struct.pf_desc, ptr %8, i64 %indvars.iv
+  %13 = getelementptr [48 x i8], ptr %8, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %16, label %10
@@ -735,7 +734,7 @@ define dso_local noundef zeroext i1 @gss_pseudoflavor_to_datatouch(ptr noundef r
 
 12:                                               ; preds = %10, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %6 ]
-  %13 = getelementptr %struct.pf_desc, ptr %8, i64 %indvars.iv
+  %13 = getelementptr [48 x i8], ptr %8, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %16, label %10
@@ -771,7 +770,7 @@ define dso_local ptr @gss_service_to_auth_domain_name(ptr noundef readonly captu
 
 12:                                               ; preds = %10, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %6 ]
-  %13 = getelementptr %struct.pf_desc, ptr %8, i64 %indvars.iv
+  %13 = getelementptr [48 x i8], ptr %8, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %1
@@ -805,7 +804,7 @@ define dso_local i32 @gss_import_sec_context(ptr noundef %0, i64 noundef %1, ptr
 13:                                               ; preds = %9, %6
   %14 = phi i64 [ 0, %6 ], [ %12, %9 ]
   %15 = or i32 %5, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %14
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %14
   %16 = getelementptr i8, ptr %.split, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %17, i32 noundef %15, i64 noundef 24) #16

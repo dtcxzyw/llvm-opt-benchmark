@@ -46,7 +46,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds i32, ptr %2, i64 %0
+  %12 = getelementptr inbounds [4 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -67,7 +67,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.33
   %4 = zext i32 %3 to i64
   %5 = mul nuw nsw i64 %4, 922
   %6 = lshr i64 %5, 32
-  %7 = getelementptr inbounds nuw i16, ptr @anon.1bf8cbd9db60c063894021140588f89d.0.llvm.3355593342274400970, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.0.llvm.3355593342274400970, i64 %6
   %8 = load i16, ptr %7, align 2, !alias.scope !4, !noalias !7, !noundef !9
   %9 = zext i16 %8 to i32
   %10 = add i32 %0, %9
@@ -76,7 +76,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.33
   %13 = zext i32 %12 to i64
   %14 = mul nuw nsw i64 %13, 922
   %15 = lshr i64 %14, 32
-  %16 = getelementptr inbounds nuw i32, ptr @anon.1bf8cbd9db60c063894021140588f89d.1.llvm.3355593342274400970, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.1.llvm.3355593342274400970, i64 %15
   %17 = load i32, ptr %16, align 4, !alias.scope !7, !noalias !4, !noundef !9
   %18 = lshr i32 %17, 8
   %19 = icmp eq i32 %0, %18
@@ -179,7 +179,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.33
   %31 = zext i32 %30 to i64
   %32 = mul nuw nsw i64 %31, 928
   %33 = lshr i64 %32, 32
-  %34 = getelementptr inbounds nuw i16, ptr @anon.1bf8cbd9db60c063894021140588f89d.2.llvm.3355593342274400970, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.2.llvm.3355593342274400970, i64 %33
   %35 = load i16, ptr %34, align 2, !alias.scope !10, !noalias !13, !noundef !9
   %36 = zext i16 %35 to i32
   %37 = add i32 %27, %36
@@ -188,7 +188,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.33
   %40 = zext i32 %39 to i64
   %41 = mul nuw nsw i64 %40, 928
   %42 = lshr i64 %41, 32
-  %43 = getelementptr inbounds nuw { i32, i32 }, ptr @anon.1bf8cbd9db60c063894021140588f89d.3.llvm.3355593342274400970, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.3.llvm.3355593342274400970, i64 %42
   %44 = load i32, ptr %43, align 4, !alias.scope !13, !noalias !10, !noundef !9
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %46 = load i32, ptr %45, align 4, !range !15, !alias.scope !13, !noalias !10, !noundef !9
@@ -211,7 +211,7 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups26canonical_fully_decompo
   %5 = zext i32 %4 to i64
   %6 = mul nuw nsw i64 %5, 2061
   %7 = lshr i64 %6, 32
-  %8 = getelementptr inbounds nuw i16, ptr @anon.1bf8cbd9db60c063894021140588f89d.4.llvm.3355593342274400970, i64 %7
+  %8 = getelementptr inbounds nuw [2 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.4.llvm.3355593342274400970, i64 %7
   %9 = load i16, ptr %8, align 2, !alias.scope !16, !noalias !19, !noundef !9
   %10 = zext i16 %9 to i32
   %11 = add i32 %0, %10
@@ -220,7 +220,7 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups26canonical_fully_decompo
   %14 = zext i32 %13 to i64
   %15 = mul nuw nsw i64 %14, 2061
   %16 = lshr i64 %15, 32
-  %17 = getelementptr inbounds nuw { i32, { i16, i16 } }, ptr @anon.1bf8cbd9db60c063894021140588f89d.5.llvm.3355593342274400970, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.5.llvm.3355593342274400970, i64 %16
   %.sroa.03.0.copyload.i = load i64, ptr %17, align 4, !alias.scope !19, !noalias !16
   %.sroa.01.0.extract.trunc.i.i.i = trunc i64 %.sroa.03.0.copyload.i to i32
   %18 = icmp eq i32 %0, %.sroa.01.0.extract.trunc.i.i.i
@@ -248,7 +248,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
   unreachable
 
 "_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit": ; preds = %22
-  %27 = getelementptr inbounds nuw i32, ptr @anon.1bf8cbd9db60c063894021140588f89d.6.llvm.3355593342274400970, i64 %20
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.6.llvm.3355593342274400970, i64 %20
   br label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread: ; preds = %1, %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit"
@@ -276,7 +276,7 @@ define hidden { ptr, i64 } @"_ZN21unicode_normalization7lookups26canonical_fully
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he1d2e0fc4a523fc5E.llvm.3355593342274400970.exit": ; preds = %5
-  %10 = getelementptr inbounds nuw i32, ptr @anon.1bf8cbd9db60c063894021140588f89d.6.llvm.3355593342274400970, i64 %3
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.6.llvm.3355593342274400970, i64 %3
   %11 = insertvalue { ptr, i64 } poison, ptr %10, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %7, 1
   ret { ptr, i64 } %12
@@ -296,7 +296,7 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups30compatibility_fully_dec
   %5 = zext i32 %4 to i64
   %6 = mul nuw nsw i64 %5, 3812
   %7 = lshr i64 %6, 32
-  %8 = getelementptr inbounds nuw i16, ptr @anon.1bf8cbd9db60c063894021140588f89d.10.llvm.3355593342274400970, i64 %7
+  %8 = getelementptr inbounds nuw [2 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.10.llvm.3355593342274400970, i64 %7
   %9 = load i16, ptr %8, align 2, !alias.scope !27, !noalias !30, !noundef !9
   %10 = zext i16 %9 to i32
   %11 = add i32 %0, %10
@@ -305,7 +305,7 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups30compatibility_fully_dec
   %14 = zext i32 %13 to i64
   %15 = mul nuw nsw i64 %14, 3812
   %16 = lshr i64 %15, 32
-  %17 = getelementptr inbounds nuw { i32, { i16, i16 } }, ptr @anon.1bf8cbd9db60c063894021140588f89d.11.llvm.3355593342274400970, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.11.llvm.3355593342274400970, i64 %16
   %.sroa.03.0.copyload.i = load i64, ptr %17, align 4, !alias.scope !30, !noalias !27
   %.sroa.01.0.extract.trunc.i.i.i = trunc i64 %.sroa.03.0.copyload.i to i32
   %18 = icmp eq i32 %0, %.sroa.01.0.extract.trunc.i.i.i
@@ -333,7 +333,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
   unreachable
 
 "_ZN21unicode_normalization7lookups30compatibility_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h1cb84bb88a75d1a0E.llvm.3355593342274400970.exit": ; preds = %22
-  %27 = getelementptr inbounds nuw i32, ptr @anon.1bf8cbd9db60c063894021140588f89d.12.llvm.3355593342274400970, i64 %20
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.12.llvm.3355593342274400970, i64 %20
   br label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread: ; preds = %1, %"_ZN21unicode_normalization7lookups30compatibility_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h1cb84bb88a75d1a0E.llvm.3355593342274400970.exit"
@@ -361,7 +361,7 @@ define hidden { ptr, i64 } @"_ZN21unicode_normalization7lookups30compatibility_f
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he1d2e0fc4a523fc5E.llvm.3355593342274400970.exit": ; preds = %5
-  %10 = getelementptr inbounds nuw i32, ptr @anon.1bf8cbd9db60c063894021140588f89d.12.llvm.3355593342274400970, i64 %3
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.12.llvm.3355593342274400970, i64 %3
   %11 = insertvalue { ptr, i64 } poison, ptr %10, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %7, 1
   ret { ptr, i64 } %12
@@ -381,7 +381,7 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups36cjk_compat_variants_ful
   %5 = zext i32 %4 to i64
   %6 = mul nuw nsw i64 %5, 1002
   %7 = lshr i64 %6, 32
-  %8 = getelementptr inbounds nuw i16, ptr @anon.1bf8cbd9db60c063894021140588f89d.15, i64 %7
+  %8 = getelementptr inbounds nuw [2 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.15, i64 %7
   %9 = load i16, ptr %8, align 2, !alias.scope !38, !noalias !41, !noundef !9
   %10 = zext i16 %9 to i32
   %11 = add i32 %0, %10
@@ -390,7 +390,7 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups36cjk_compat_variants_ful
   %14 = zext i32 %13 to i64
   %15 = mul nuw nsw i64 %14, 1002
   %16 = lshr i64 %15, 32
-  %17 = getelementptr inbounds nuw { i32, { i16, i16 } }, ptr @anon.1bf8cbd9db60c063894021140588f89d.16, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.16, i64 %16
   %.sroa.03.0.copyload.i = load i64, ptr %17, align 4, !alias.scope !41, !noalias !38
   %.sroa.01.0.extract.trunc.i.i.i = trunc i64 %.sroa.03.0.copyload.i to i32
   %18 = icmp eq i32 %0, %.sroa.01.0.extract.trunc.i.i.i
@@ -418,7 +418,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
   unreachable
 
 "_ZN21unicode_normalization7lookups36cjk_compat_variants_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h11e9bd9139359a17E.exit": ; preds = %22
-  %27 = getelementptr inbounds nuw i32, ptr @anon.1bf8cbd9db60c063894021140588f89d.17, i64 %20
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.17, i64 %20
   br label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread: ; preds = %1, %"_ZN21unicode_normalization7lookups36cjk_compat_variants_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h11e9bd9139359a17E.exit"
@@ -437,7 +437,7 @@ define noundef zeroext i1 @_ZN21unicode_normalization7lookups17is_combining_mark
   %5 = zext i32 %4 to i64
   %6 = mul nuw nsw i64 %5, 2450
   %7 = lshr i64 %6, 32
-  %8 = getelementptr inbounds nuw i16, ptr @anon.1bf8cbd9db60c063894021140588f89d.20, i64 %7
+  %8 = getelementptr inbounds nuw [2 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.20, i64 %7
   %9 = load i16, ptr %8, align 2, !noundef !9
   %10 = zext i16 %9 to i32
   %11 = add i32 %0, %10
@@ -446,7 +446,7 @@ define noundef zeroext i1 @_ZN21unicode_normalization7lookups17is_combining_mark
   %14 = zext i32 %13 to i64
   %15 = mul nuw nsw i64 %14, 2450
   %16 = lshr i64 %15, 32
-  %17 = getelementptr inbounds nuw i32, ptr @anon.1bf8cbd9db60c063894021140588f89d.21, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.21, i64 %16
   %18 = load i32, ptr %17, align 4, !noundef !9
   %19 = icmp eq i32 %0, %18
   ret i1 %19
@@ -463,7 +463,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.33
   %4 = zext i32 %3 to i64
   %5 = mul nuw nsw i64 %4, 1090
   %6 = lshr i64 %5, 32
-  %7 = getelementptr inbounds nuw i16, ptr @anon.1bf8cbd9db60c063894021140588f89d.22.llvm.3355593342274400970, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.22.llvm.3355593342274400970, i64 %6
   %8 = load i16, ptr %7, align 2, !alias.scope !46, !noalias !49, !noundef !9
   %9 = zext i16 %8 to i32
   %10 = add i32 %0, %9
@@ -472,7 +472,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.33
   %13 = zext i32 %12 to i64
   %14 = mul nuw nsw i64 %13, 1090
   %15 = lshr i64 %14, 32
-  %16 = getelementptr inbounds nuw i32, ptr @anon.1bf8cbd9db60c063894021140588f89d.23.llvm.3355593342274400970, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @anon.1bf8cbd9db60c063894021140588f89d.23.llvm.3355593342274400970, i64 %15
   %17 = load i32, ptr %16, align 4, !alias.scope !49, !noalias !46, !noundef !9
   %18 = lshr i32 %17, 8
   %19 = icmp eq i32 %0, %18
@@ -494,7 +494,7 @@ define hidden noundef i32 @_ZN21unicode_normalization12perfect_hash10mph_lookup1
   br i1 %13, label %14, label %25, !prof !51
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %12
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %12
   %16 = load i16, ptr %15, align 2, !noundef !9
   %17 = zext i16 %16 to i32
   %18 = add i32 %0, %17
@@ -511,7 +511,7 @@ define hidden noundef i32 @_ZN21unicode_normalization12perfect_hash10mph_lookup1
   unreachable
 
 26:                                               ; preds = %14
-  %27 = getelementptr inbounds nuw { i32, i32 }, ptr %3, i64 %23
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %23
   %28 = load i32, ptr %27, align 4, !noundef !9
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = load i32, ptr %29, align 4, !range !15, !noundef !9
@@ -536,7 +536,7 @@ define hidden i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5
   br i1 %13, label %14, label %25, !prof !51
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %12
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %12
   %16 = load i16, ptr %15, align 2, !noundef !9
   %17 = zext i16 %16 to i32
   %18 = add i32 %0, %17
@@ -553,7 +553,7 @@ define hidden i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5
   unreachable
 
 26:                                               ; preds = %14
-  %27 = getelementptr inbounds nuw { i32, { i16, i16 } }, ptr %3, i64 %23
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %23
   %.sroa.03.0.copyload = load i64, ptr %27, align 4
   %.sroa.01.0.extract.trunc.i.i = trunc i64 %.sroa.03.0.copyload to i32
   %28 = icmp eq i32 %0, %.sroa.01.0.extract.trunc.i.i
@@ -591,7 +591,7 @@ define hidden noundef i8 @_ZN21unicode_normalization12perfect_hash10mph_lookup17
   br i1 %13, label %14, label %25, !prof !51
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %12
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %12
   %16 = load i16, ptr %15, align 2, !noundef !9
   %17 = zext i16 %16 to i32
   %18 = add i32 %0, %17
@@ -608,7 +608,7 @@ define hidden noundef i8 @_ZN21unicode_normalization12perfect_hash10mph_lookup17
   unreachable
 
 26:                                               ; preds = %14
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %23
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %23
   %28 = load i32, ptr %27, align 4, !noundef !9
   %29 = lshr i32 %28, 8
   %30 = icmp eq i32 %0, %29

@@ -713,7 +713,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = and i64 %1, 127
-  %7 = getelementptr inbounds nuw { ptr, i64 }, ptr @_ZN5uu_od8prn_char7A_CHARS17hbc8a5ae772774170E, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5uu_od8prn_char7A_CHARS17hbc8a5ae772774170E, i64 %6
   store ptr %7, ptr %4, align 8
   store ptr %4, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -806,7 +806,7 @@ define hidden void @_ZN5uu_od8prn_char13format_item_c17h24728308594c05d3E.llvm.1
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit129: ; preds = %36
   %42 = zext nneg i8 %37 to i64
-  %43 = getelementptr inbounds nuw { ptr, i64 }, ptr @_ZN5uu_od8prn_char7C_CHARS17hb381dfc174836e9bE.llvm.10907310164025772830, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5uu_od8prn_char7C_CHARS17hb381dfc174836e9bE.llvm.10907310164025772830, i64 %42
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %43, ptr %34, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
@@ -1307,7 +1307,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.10907310164025772830.exit1
 
 38:                                               ; preds = %.lr.ph
   %39 = zext nneg i8 %19 to i64
-  %40 = getelementptr inbounds nuw { ptr, i64 }, ptr @_ZN5uu_od8prn_char7C_CHARS17hb381dfc174836e9bE.llvm.10907310164025772830, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5uu_od8prn_char7C_CHARS17hb381dfc174836e9bE.llvm.10907310164025772830, i64 %39
   %41 = load ptr, ptr %40, align 8, !nonnull !9, !align !34, !noundef !9
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i64, ptr %42, align 8, !noundef !9

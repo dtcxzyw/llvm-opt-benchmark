@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.re_pattern_buffer = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i32, ptr, ptr, [256 x i8], ptr, ptr, i64, i64, i64, ptr }
 %struct.re_registers = type { i32, i32, ptr, ptr }
 %struct.reg_init_args = type { i64, i64, ptr, i32 }
-%struct.rmatch_offset = type { i64, i64 }
-%struct.backref_name_tag = type { ptr, i64 }
-%struct.pair_t = type { i64, i64 }
 
 @rb_reg_match_time_limit = hidden local_unnamed_addr global i64 0, align 8
 @casetable = internal unnamed_addr constant [256 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\7F\80\81\82\83\84\85\86\87\88\89\8A\8B\8C\8D\8E\8F\90\91\92\93\94\95\96\97\98\99\9A\9B\9C\9D\9E\9F\A0\A1\A2\A3\A4\A5\A6\A7\A8\A9\AA\AB\AC\AD\AE\AF\B0\B1\B2\B3\B4\B5\B6\B7\B8\B9\BA\BB\BC\BD\BE\BF\C0\C1\C2\C3\C4\C5\C6\C7\C8\C9\CA\CB\CC\CD\CE\CF\D0\D1\D2\D3\D4\D5\D6\D7\D8\D9\DA\DB\DC\DD\DE\DF\E0\E1\E2\E3\E4\E5\E6\E7\E8\E9\EA\EB\EC\ED\EE\EF\F0\F1\F2\F3\F4\F5\F6\F7\F8\F9\FA\FB\FC\FD\FE\FF", align 16
@@ -289,7 +286,7 @@ define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr n
 
 47:                                               ; preds = %47, %42
   %.035.i = phi i64 [ 0, %42 ], [ %49, %47 ]
-  %48 = getelementptr i64, ptr %6, i64 %.035.i
+  %48 = getelementptr [8 x i8], ptr %6, i64 %.035.i
   store i64 %43, ptr %48, align 8, !tbaa !18
   %49 = add nuw nsw i64 %.035.i, 1
   %exitcond.not.i = icmp eq i64 %49, 256
@@ -311,7 +308,7 @@ define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr n
   %55 = sub i64 %46, %54
   %56 = load i8, ptr %.03036.i, align 1, !tbaa !7
   %57 = zext i8 %56 to i64
-  %58 = getelementptr i64, ptr %6, i64 %57
+  %58 = getelementptr [8 x i8], ptr %6, i64 %57
   store i64 %55, ptr %58, align 8, !tbaa !18
   %59 = getelementptr i8, ptr %.03036.i, i64 1
   %exitcond41.not.i = icmp eq ptr %59, %44
@@ -338,7 +335,7 @@ define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr n
 70:                                               ; preds = %64, %60
   %71 = load i8, ptr %61, align 1, !tbaa !7
   %72 = zext i8 %71 to i64
-  %73 = getelementptr i64, ptr %6, i64 %72
+  %73 = getelementptr [8 x i8], ptr %6, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !18
   %75 = getelementptr i8, ptr %.02838.i, i64 %74
   %76 = getelementptr i8, ptr %75, i64 %1
@@ -378,7 +375,7 @@ define internal fastcc noundef i64 @rb_memsearch_qs_utf8(ptr noundef nonnull %0,
 
 10:                                               ; preds = %4, %10
   %.038 = phi i64 [ 0, %4 ], [ %12, %10 ]
-  %11 = getelementptr i64, ptr %5, i64 %.038
+  %11 = getelementptr [8 x i8], ptr %5, i64 %.038
   store i64 %6, ptr %11, align 8, !tbaa !18
   %12 = add nuw nsw i64 %.038, 1
   %exitcond.not = icmp eq i64 %12, 512
@@ -464,7 +461,7 @@ define internal fastcc noundef i64 @rb_memsearch_qs_utf8(ptr noundef nonnull %0,
 rb_memsearch_qs_utf8_hash.exit:                   ; preds = %22, %57, %59
   %.026.i = phi i32 [ %23, %22 ], [ %60, %59 ], [ %58, %57 ]
   %61 = zext nneg i32 %.026.i to i64
-  %62 = getelementptr i64, ptr %5, i64 %61
+  %62 = getelementptr [8 x i8], ptr %5, i64 %61
   store i64 %18, ptr %62, align 8, !tbaa !18
   %63 = getelementptr i8, ptr %.03039, i64 1
   %exitcond45.not = icmp eq ptr %63, %7
@@ -555,7 +552,7 @@ rb_memsearch_qs_utf8_hash.exit:                   ; preds = %22, %57, %59
 rb_memsearch_qs_utf8_hash.exit35:                 ; preds = %78, %113, %115
   %.026.i33 = phi i32 [ %79, %78 ], [ %116, %115 ], [ %114, %113 ]
   %117 = zext nneg i32 %.026.i33 to i64
-  %118 = getelementptr i64, ptr %5, i64 %117
+  %118 = getelementptr [8 x i8], ptr %5, i64 %117
   %119 = load i64, ptr %118, align 8, !tbaa !18
   %120 = getelementptr i8, ptr %.02842, i64 %119
   %121 = getelementptr i8, ptr %120, i64 %1
@@ -1912,7 +1909,7 @@ match_check.exit:                                 ; preds = %4
   %18 = getelementptr i8, ptr %5, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !92
   %20 = zext nneg i32 %.011 to i64
-  %21 = getelementptr i64, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !18
   %.not15 = icmp eq i64 %22, -1
   %23 = select i1 %.not15, i64 0, i64 20
@@ -1960,7 +1957,7 @@ match_check.exit:                                 ; preds = %4
   %18 = getelementptr i8, ptr %5, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !92
   %20 = zext nneg i32 %.020 to i64
-  %21 = getelementptr i64, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !18
   %23 = icmp eq i64 %22, -1
   br i1 %23, label %33, label %24
@@ -1968,7 +1965,7 @@ match_check.exit:                                 ; preds = %4
 24:                                               ; preds = %17
   %25 = getelementptr i8, ptr %5, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !93
-  %27 = getelementptr i64, ptr %26, i64 %20
+  %27 = getelementptr [8 x i8], ptr %26, i64 %20
   %28 = load i64, ptr %27, align 8, !tbaa !18
   %29 = sub i64 %28, %22
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2138,7 +2135,7 @@ match_check.exit.i:                               ; preds = %3
   %.010.in.i = phi i32 [ %15, %13 ], [ %.010.i, %16 ]
   %.010.i = add i32 %.010.in.i, -1
   %17 = sext i32 %.010.i to i64
-  %18 = getelementptr i64, ptr %10, i64 %17
+  %18 = getelementptr [8 x i8], ptr %10, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp eq i64 %19, -1
   %21 = icmp sgt i32 %.010.i, 0
@@ -2155,7 +2152,7 @@ match_last_index.exit:                            ; preds = %16
   %27 = zext nneg i32 %.010.i to i64
   %28 = getelementptr i8, ptr %4, i64 48
   %29 = load ptr, ptr %28, align 8, !tbaa !93
-  %30 = getelementptr i64, ptr %29, i64 %27
+  %30 = getelementptr [8 x i8], ptr %29, i64 %27
   %31 = load i64, ptr %30, align 8, !tbaa !18
   %32 = sub i64 %31, %19
   %33 = tail call i64 @rb_str_subseq(i64 noundef %26, i64 noundef %19, i64 noundef %32) #29
@@ -2200,7 +2197,7 @@ match_check.exit.i:                               ; preds = %3
   %.010.in.i = phi i32 [ %16, %13 ], [ %.010.i, %17 ]
   %.010.i = add i32 %.010.in.i, -1
   %18 = sext i32 %.010.i to i64
-  %19 = getelementptr i64, ptr %10, i64 %18
+  %19 = getelementptr [8 x i8], ptr %10, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !18
   %21 = icmp eq i64 %20, -1
   %22 = icmp sgt i32 %.010.i, 0
@@ -2548,7 +2545,7 @@ rb_array_len.exit42.thread.i:                     ; preds = %23
 
 RARRAY_AREF.exit.i:                               ; preds = %32, %.thread.i
   %.0.i.i.i = phi ptr [ %33, %32 ], [ %18, %.thread.i ]
-  %34 = getelementptr i64, ptr %.0.i.i.i, i64 %25
+  %34 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %25
   %35 = load i64, ptr %34, align 8, !tbaa !18
   store i64 %35, ptr %6, align 8, !tbaa !18
   %36 = call ptr @rb_enc_get(i64 noundef %35) #29
@@ -4358,7 +4355,7 @@ RSTRING_PTR.exit186:                              ; preds = %139, %142
   %.1157.in = phi i32 [ %150, %149 ], [ %.1157, %152 ]
   %.1157 = add i32 %.1157.in, -1
   %153 = sext i32 %.1157 to i64
-  %154 = getelementptr i64, ptr %151, i64 %153
+  %154 = getelementptr [8 x i8], ptr %151, i64 %153
   %155 = load i64, ptr %154, align 8, !tbaa !18
   %156 = icmp eq i64 %155, -1
   %157 = icmp sgt i32 %.1157, 0
@@ -4389,7 +4386,7 @@ RSTRING_PTR.exit186:                              ; preds = %139, %142
 167:                                              ; preds = %.thread199
   %168 = load ptr, ptr %19, align 8, !tbaa !92
   %169 = zext nneg i32 %.0156202 to i64
-  %170 = getelementptr i64, ptr %168, i64 %169
+  %170 = getelementptr [8 x i8], ptr %168, i64 %169
   %171 = load i64, ptr %170, align 8, !tbaa !18
   %172 = icmp eq i64 %171, -1
   br i1 %172, label %183, label %173, !llvm.loop !177
@@ -4408,7 +4405,7 @@ RSTRING_PTR.exit190:                              ; preds = %173, %176
   %.sroa.2.0.i189 = phi ptr [ %.sroa.2.0.copyload.i188, %176 ], [ %21, %173 ]
   %177 = getelementptr i8, ptr %.sroa.2.0.i189, i64 %171
   %178 = load ptr, ptr %22, align 8, !tbaa !93
-  %179 = getelementptr i64, ptr %178, i64 %169
+  %179 = getelementptr [8 x i8], ptr %178, i64 %169
   %180 = load i64, ptr %179, align 8, !tbaa !18
   %181 = sub i64 %180, %171
   %182 = call i64 @rb_enc_str_buf_cat(i64 noundef %.2, ptr noundef %177, i64 noundef %181, ptr noundef %7) #29
@@ -4966,7 +4963,7 @@ match_check.exit.i.i:                             ; preds = %5
   %.010.in.i.i = phi i32 [ %17, %15 ], [ %.010.i.i, %18 ]
   %.010.i.i = add i32 %.010.in.i.i, -1
   %19 = sext i32 %.010.i.i to i64
-  %20 = getelementptr i64, ptr %12, i64 %19
+  %20 = getelementptr [8 x i8], ptr %12, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !18
   %22 = icmp eq i64 %21, -1
   %23 = icmp sgt i32 %.010.i.i, 0
@@ -4983,7 +4980,7 @@ match_last_index.exit.i:                          ; preds = %18
   %29 = zext nneg i32 %.010.i.i to i64
   %30 = getelementptr i8, ptr %6, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !93
-  %32 = getelementptr i64, ptr %31, i64 %29
+  %32 = getelementptr [8 x i8], ptr %31, i64 %29
   %33 = load i64, ptr %32, align 8, !tbaa !18
   %34 = sub i64 %33, %21
   %35 = tail call i64 @rb_str_subseq(i64 noundef %28, i64 noundef %21, i64 noundef %34) #29
@@ -5140,7 +5137,7 @@ match_check.exit.i:                               ; preds = %9
   %25 = getelementptr i8, ptr %12, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !92
   %27 = zext nneg i32 %.020.i to i64
-  %28 = getelementptr i64, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !18
   %30 = icmp eq i64 %29, -1
   br i1 %30, label %rb_reg_nth_match.exit, label %31
@@ -5148,7 +5145,7 @@ match_check.exit.i:                               ; preds = %9
 31:                                               ; preds = %24
   %32 = getelementptr i8, ptr %12, i64 48
   %33 = load ptr, ptr %32, align 8, !tbaa !93
-  %34 = getelementptr i64, ptr %33, i64 %27
+  %34 = getelementptr [8 x i8], ptr %33, i64 %27
   %35 = load i64, ptr %34, align 8, !tbaa !18
   %36 = sub i64 %35, %29
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -6267,7 +6264,7 @@ backref_number_check.exit:                        ; preds = %10
   %15 = getelementptr i8, ptr %4, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !92
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr i64, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %21, label %23
@@ -6280,7 +6277,7 @@ backref_number_check.exit:                        ; preds = %10
   tail call fastcc void @update_char_offset(i64 noundef %0)
   %24 = getelementptr i8, ptr %4, i64 56
   %25 = load ptr, ptr %24, align 8, !tbaa !224
-  %26 = getelementptr %struct.rmatch_offset, ptr %25, i64 %17
+  %26 = getelementptr [16 x i8], ptr %25, i64 %17
   %27 = load i64, ptr %26, align 8, !tbaa !230
   %28 = add i64 %27, 4611686018427387904
   %or.cond.i = icmp sgt i64 %28, -1
@@ -6299,7 +6296,7 @@ backref_number_check.exit:                        ; preds = %10
 rb_long2num_inline.exit:                          ; preds = %29, %32
   %34 = phi ptr [ %25, %29 ], [ %.pre, %32 ]
   %.0.i = phi i64 [ %31, %29 ], [ %33, %32 ]
-  %35 = getelementptr %struct.rmatch_offset, ptr %34, i64 %17
+  %35 = getelementptr [16 x i8], ptr %34, i64 %17
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !232
   %38 = add i64 %37, 4611686018427387904
@@ -6358,7 +6355,7 @@ backref_number_check.exit:                        ; preds = %10
   %15 = getelementptr i8, ptr %4, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !92
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr i64, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %21, label %23
@@ -6384,7 +6381,7 @@ rb_long2num_inline.exit:                          ; preds = %25, %28
   %.0.i = phi i64 [ %27, %25 ], [ %29, %28 ]
   %30 = getelementptr i8, ptr %4, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !93
-  %32 = getelementptr i64, ptr %31, i64 %17
+  %32 = getelementptr [8 x i8], ptr %31, i64 %17
   %33 = load i64, ptr %32, align 8, !tbaa !18
   %34 = add i64 %33, 4611686018427387904
   %or.cond.i14 = icmp sgt i64 %34, -1
@@ -6442,7 +6439,7 @@ backref_number_check.exit:                        ; preds = %10
   %15 = getelementptr i8, ptr %4, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !92
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr i64, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %rb_long2num_inline.exit, label %21
@@ -6498,7 +6495,7 @@ backref_number_check.exit:                        ; preds = %10
   %15 = getelementptr i8, ptr %4, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !92
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr i64, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %rb_long2num_inline.exit, label %21
@@ -6506,7 +6503,7 @@ backref_number_check.exit:                        ; preds = %10
 21:                                               ; preds = %backref_number_check.exit
   %22 = getelementptr i8, ptr %4, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !93
-  %24 = getelementptr i64, ptr %23, i64 %17
+  %24 = getelementptr [8 x i8], ptr %23, i64 %17
   %25 = load i64, ptr %24, align 8, !tbaa !18
   %26 = add i64 %25, 4611686018427387904
   %or.cond.i = icmp sgt i64 %26, -1
@@ -6559,7 +6556,7 @@ backref_number_check.exit:                        ; preds = %10
   %15 = getelementptr i8, ptr %4, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !92
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr i64, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %rb_long2num_inline.exit, label %21
@@ -6568,7 +6565,7 @@ backref_number_check.exit:                        ; preds = %10
   tail call fastcc void @update_char_offset(i64 noundef %0)
   %22 = getelementptr i8, ptr %4, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !224
-  %24 = getelementptr %struct.rmatch_offset, ptr %23, i64 %17
+  %24 = getelementptr [16 x i8], ptr %23, i64 %17
   %25 = load i64, ptr %24, align 8, !tbaa !230
   %26 = add i64 %25, 4611686018427387904
   %or.cond.i = icmp sgt i64 %26, -1
@@ -6621,7 +6618,7 @@ backref_number_check.exit:                        ; preds = %10
   %15 = getelementptr i8, ptr %4, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !92
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr i64, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %rb_long2num_inline.exit, label %21
@@ -6630,7 +6627,7 @@ backref_number_check.exit:                        ; preds = %10
   tail call fastcc void @update_char_offset(i64 noundef %0)
   %22 = getelementptr i8, ptr %4, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !224
-  %24 = getelementptr %struct.rmatch_offset, ptr %23, i64 %17
+  %24 = getelementptr [16 x i8], ptr %23, i64 %17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !232
   %27 = add i64 %26, 4611686018427387904
@@ -6673,7 +6670,7 @@ backref_number_check.exit:                        ; preds = %6
   %11 = getelementptr i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !92
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr i64, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !18
   %16 = icmp slt i64 %15, 0
   br i1 %16, label %26, label %17
@@ -6681,7 +6678,7 @@ backref_number_check.exit:                        ; preds = %6
 17:                                               ; preds = %backref_number_check.exit
   %18 = getelementptr i8, ptr %4, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !93
-  %20 = getelementptr i64, ptr %19, i64 %13
+  %20 = getelementptr [8 x i8], ptr %19, i64 %13
   %21 = load i64, ptr %20, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !94
@@ -6727,7 +6724,7 @@ backref_number_check.exit:                        ; preds = %10
   %15 = getelementptr i8, ptr %4, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !92
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr i64, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %rb_long2num_inline.exit, label %21
@@ -6736,7 +6733,7 @@ backref_number_check.exit:                        ; preds = %10
   tail call fastcc void @update_char_offset(i64 noundef %0)
   %22 = getelementptr i8, ptr %4, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !224
-  %24 = getelementptr %struct.rmatch_offset, ptr %23, i64 %17
+  %24 = getelementptr [16 x i8], ptr %23, i64 %17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !232
   %27 = load i64, ptr %24, align 8, !tbaa !230
@@ -6791,14 +6788,14 @@ match_check.exit.i:                               ; preds = %1
 17:                                               ; preds = %28, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
   %18 = load ptr, ptr %15, align 8, !tbaa !92
-  %19 = getelementptr i64, ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv.i
   %20 = load i64, ptr %19, align 8, !tbaa !18
   %21 = icmp eq i64 %20, -1
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %16, align 8, !tbaa !93
-  %24 = getelementptr i64, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv.i
   %25 = load i64, ptr %24, align 8, !tbaa !18
   %26 = sub i64 %25, %20
   %27 = tail call i64 @rb_str_subseq(i64 noundef %12, i64 noundef %20, i64 noundef %26) #29
@@ -6893,7 +6890,7 @@ match_check.exit.i:                               ; preds = %23
   %35 = getelementptr i8, ptr %4, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !92
   %37 = zext nneg i32 %.020.i to i64
-  %38 = getelementptr i64, ptr %36, i64 %37
+  %38 = getelementptr [8 x i8], ptr %36, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !18
   %40 = icmp eq i64 %39, -1
   br i1 %40, label %rb_reg_nth_match.exit, label %41
@@ -6901,7 +6898,7 @@ match_check.exit.i:                               ; preds = %23
 41:                                               ; preds = %34
   %42 = getelementptr i8, ptr %4, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !93
-  %44 = getelementptr i64, ptr %43, i64 %37
+  %44 = getelementptr [8 x i8], ptr %43, i64 %37
   %45 = load i64, ptr %44, align 8, !tbaa !18
   %46 = sub i64 %45, %39
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -6939,7 +6936,7 @@ match_check.exit.i38:                             ; preds = %56
   %63 = getelementptr i8, ptr %4, i64 40
   %64 = load ptr, ptr %63, align 8, !tbaa !92
   %65 = zext nneg i32 %52 to i64
-  %66 = getelementptr i64, ptr %64, i64 %65
+  %66 = getelementptr [8 x i8], ptr %64, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !18
   %68 = icmp eq i64 %67, -1
   br i1 %68, label %rb_reg_nth_match.exit, label %69
@@ -6947,7 +6944,7 @@ match_check.exit.i38:                             ; preds = %56
 69:                                               ; preds = %62
   %70 = getelementptr i8, ptr %4, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !93
-  %72 = getelementptr i64, ptr %71, i64 %65
+  %72 = getelementptr [8 x i8], ptr %71, i64 %65
   %73 = load i64, ptr %72, align 8, !tbaa !18
   %74 = sub i64 %73, %67
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7051,14 +7048,14 @@ match_check.exit.i:                               ; preds = %1
 17:                                               ; preds = %28, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
   %18 = load ptr, ptr %15, align 8, !tbaa !92
-  %19 = getelementptr i64, ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv.i
   %20 = load i64, ptr %19, align 8, !tbaa !18
   %21 = icmp eq i64 %20, -1
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %16, align 8, !tbaa !93
-  %24 = getelementptr i64, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv.i
   %25 = load i64, ptr %24, align 8, !tbaa !18
   %26 = sub i64 %25, %20
   %27 = tail call i64 @rb_str_subseq(i64 noundef %12, i64 noundef %20, i64 noundef %26) #29
@@ -7105,7 +7102,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3
 
 13:                                               ; preds = %rb_scan_args_n_opt.exit
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr i64, ptr %1, i64 %14
+  %15 = getelementptr [8 x i8], ptr %1, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !tbaa !18
   %18 = tail call i32 @rb_keyword_given_p() #29
@@ -7305,7 +7302,7 @@ rb_array_len.exit42.thread:                       ; preds = %65
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit42.thread, %73
   %.0.i.i = phi ptr [ %74, %73 ], [ %57, %rb_array_len.exit42.thread ]
-  %75 = getelementptr i64, ptr %.0.i.i, i64 %.035
+  %75 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.035
   %76 = load i64, ptr %75, align 8, !tbaa !18
   %77 = and i64 %76, 255
   %78 = icmp eq i64 %77, 12
@@ -7394,14 +7391,14 @@ match_check.exit.i:                               ; preds = %112
 117:                                              ; preds = %match_check.exit.i
   %118 = load ptr, ptr %62, align 8, !tbaa !92
   %119 = zext nneg i32 %111 to i64
-  %120 = getelementptr i64, ptr %118, i64 %119
+  %120 = getelementptr [8 x i8], ptr %118, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !18
   %122 = icmp eq i64 %121, -1
   br i1 %122, label %130, label %123
 
 123:                                              ; preds = %117
   %124 = load ptr, ptr %63, align 8, !tbaa !93
-  %125 = getelementptr i64, ptr %124, i64 %119
+  %125 = getelementptr [8 x i8], ptr %124, i64 %119
   %126 = load i64, ptr %125, align 8, !tbaa !18
   %127 = sub i64 %126, %121
   %128 = load i64, ptr %64, align 8, !tbaa !94
@@ -7450,7 +7447,7 @@ match_check.exit:                                 ; preds = %3
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %31
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %31 ], [ 0, %.lr.ph ]
-  %18 = getelementptr i64, ptr %1, i64 %indvars.iv34
+  %18 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv34
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = trunc i64 %19 to i1
   br i1 %20, label %rb_reg_nth_match.exit.us.us, label %21
@@ -7482,7 +7479,7 @@ rb_reg_nth_match.exit.us.us:                      ; preds = %.lr.ph.split.us.spl
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 0, %.lr.ph ]
-  %32 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %32 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %33 = load i64, ptr %32, align 8, !tbaa !18
   %34 = trunc i64 %33 to i1
   br i1 %34, label %35, label %61
@@ -7517,14 +7514,14 @@ match_check.exit.i:                               ; preds = %35
   %.020.i = phi i32 [ %45, %44 ], [ %37, %42 ]
   %48 = load ptr, ptr %15, align 8, !tbaa !92
   %49 = zext nneg i32 %.020.i to i64
-  %50 = getelementptr i64, ptr %48, i64 %49
+  %50 = getelementptr [8 x i8], ptr %48, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !18
   %52 = icmp eq i64 %51, -1
   br i1 %52, label %rb_reg_nth_match.exit, label %53
 
 53:                                               ; preds = %47
   %54 = load ptr, ptr %16, align 8, !tbaa !93
-  %55 = getelementptr i64, ptr %54, i64 %49
+  %55 = getelementptr [8 x i8], ptr %54, i64 %49
   %56 = load i64, ptr %55, align 8, !tbaa !18
   %57 = sub i64 %56, %51
   %58 = load i64, ptr %17, align 8, !tbaa !94
@@ -7560,14 +7557,14 @@ match_check.exit.i26:                             ; preds = %65
 69:                                               ; preds = %match_check.exit.i26
   %70 = load ptr, ptr %15, align 8, !tbaa !92
   %71 = zext nneg i32 %63 to i64
-  %72 = getelementptr i64, ptr %70, i64 %71
+  %72 = getelementptr [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !18
   %74 = icmp eq i64 %73, -1
   br i1 %74, label %rb_reg_nth_match.exit30, label %75
 
 75:                                               ; preds = %69
   %76 = load ptr, ptr %16, align 8, !tbaa !93
-  %77 = getelementptr i64, ptr %76, i64 %71
+  %77 = getelementptr [8 x i8], ptr %76, i64 %71
   %78 = load i64, ptr %77, align 8, !tbaa !18
   %79 = sub i64 %78, %73
   %80 = load i64, ptr %17, align 8, !tbaa !94
@@ -7727,7 +7724,7 @@ rbimpl_size_mul_or_raise.exit43:                  ; preds = %27
   br i1 %.not50.us, label %rb_reg_nth_match.exit48.thread.us, label %45
 
 45:                                               ; preds = %.lr.ph.split.us
-  %46 = getelementptr %struct.backref_name_tag, ptr %32, i64 %indvars.iv56
+  %46 = getelementptr [16 x i8], ptr %32, i64 %indvars.iv56
   %47 = load ptr, ptr %46, align 16, !tbaa !239
   %.not.us = icmp eq ptr %47, null
   br i1 %.not.us, label %52, label %48
@@ -7760,7 +7757,7 @@ rb_reg_nth_match.exit48.thread.us:                ; preds = %55, %.lr.ph.split.u
   br i1 %.not50, label %71, label %59
 
 59:                                               ; preds = %.lr.ph.split
-  %60 = getelementptr %struct.backref_name_tag, ptr %32, i64 %indvars.iv
+  %60 = getelementptr [16 x i8], ptr %32, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 16, !tbaa !239
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %66, label %62
@@ -7798,14 +7795,14 @@ match_check.exit.i45:                             ; preds = %71
 
 77:                                               ; preds = %match_check.exit.i45
   %78 = load ptr, ptr %41, align 8, !tbaa !92
-  %79 = getelementptr i64, ptr %78, i64 %indvars.iv
+  %79 = getelementptr [8 x i8], ptr %78, i64 %indvars.iv
   %80 = load i64, ptr %79, align 8, !tbaa !18
   %81 = icmp eq i64 %80, -1
   br i1 %81, label %rb_reg_nth_match.exit48.thread, label %rb_reg_nth_match.exit48
 
 rb_reg_nth_match.exit48:                          ; preds = %77
   %82 = load ptr, ptr %42, align 8, !tbaa !93
-  %83 = getelementptr i64, ptr %82, i64 %indvars.iv
+  %83 = getelementptr [8 x i8], ptr %82, i64 %indvars.iv
   %84 = load i64, ptr %83, align 8, !tbaa !18
   %85 = sub i64 %84, %80
   %86 = load i64, ptr %43, align 8, !tbaa !94
@@ -10439,7 +10436,7 @@ rb_scan_args_n_opt.exit:
 
 5:                                                ; preds = %rb_scan_args_n_opt.exit
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr i64, ptr %1, i64 %6
+  %7 = getelementptr [8 x i8], ptr %1, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i64, ptr %8, align 8, !tbaa !18
   %10 = tail call i32 @rb_keyword_given_p() #29
@@ -10899,7 +10896,7 @@ define internal noundef i32 @reg_named_captures_iter(ptr noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %10 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !27
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 1
@@ -10979,11 +10976,11 @@ define internal fastcc void @update_char_offset(i64 noundef %0) unnamed_addr #1 
 
 26:                                               ; preds = %.lr.ph113, %26
   %indvars.iv127 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next128, %26 ]
-  %27 = getelementptr i64, ptr %21, i64 %indvars.iv127
+  %27 = getelementptr [8 x i8], ptr %21, i64 %indvars.iv127
   %28 = load i64, ptr %27, align 8, !tbaa !18
-  %29 = getelementptr %struct.rmatch_offset, ptr %23, i64 %indvars.iv127
+  %29 = getelementptr [16 x i8], ptr %23, i64 %indvars.iv127
   store i64 %28, ptr %29, align 8, !tbaa !230
-  %30 = getelementptr i64, ptr %25, i64 %indvars.iv127
+  %30 = getelementptr [8 x i8], ptr %25, i64 %indvars.iv127
   %31 = load i64, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %31, ptr %32, align 8, !tbaa !232
@@ -11016,7 +11013,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %33
 43:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.077103 = phi i32 [ 0, %.lr.ph ], [ %.178, %57 ]
-  %44 = getelementptr i64, ptr %41, i64 %indvars.iv
+  %44 = getelementptr [8 x i8], ptr %41, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8, !tbaa !18
   %46 = icmp slt i64 %45, 0
   br i1 %46, label %57, label %47
@@ -11024,14 +11021,14 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %33
 47:                                               ; preds = %43
   %48 = add i32 %.077103, 1
   %49 = sext i32 %.077103 to i64
-  %50 = getelementptr %struct.pair_t, ptr %39, i64 %49
+  %50 = getelementptr [16 x i8], ptr %39, i64 %49
   store i64 %45, ptr %50, align 16, !tbaa !292
   %51 = load ptr, ptr %42, align 8, !tbaa !93
-  %52 = getelementptr i64, ptr %51, i64 %indvars.iv
+  %52 = getelementptr [8 x i8], ptr %51, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8, !tbaa !18
   %54 = add i32 %.077103, 2
   %55 = sext i32 %48 to i64
-  %56 = getelementptr %struct.pair_t, ptr %39, i64 %55
+  %56 = getelementptr [16 x i8], ptr %39, i64 %55
   store i64 %53, ptr %56, align 16, !tbaa !292
   br label %57
 
@@ -11081,7 +11078,7 @@ RSTRING_PTR.exit:                                 ; preds = %._crit_edge, %64
   %indvars.iv117 = phi i64 [ 0, %.lr.ph108.preheader ], [ %indvars.iv.next118, %.lr.ph108 ]
   %.079106 = phi i64 [ 0, %.lr.ph108.preheader ], [ %74, %.lr.ph108 ]
   %.080105 = phi ptr [ %.sroa.2.0.i, %.lr.ph108.preheader ], [ %72, %.lr.ph108 ]
-  %70 = getelementptr %struct.pair_t, ptr %39, i64 %indvars.iv117
+  %70 = getelementptr [16 x i8], ptr %39, i64 %indvars.iv117
   %71 = load i64, ptr %70, align 16, !tbaa !292
   %72 = getelementptr i8, ptr %.sroa.2.0.i, i64 %71
   %73 = call i64 @rb_enc_strlen(ptr noundef %.080105, ptr noundef %72, ptr noundef %17) #29
@@ -11094,14 +11091,14 @@ RSTRING_PTR.exit:                                 ; preds = %._crit_edge, %64
 
 76:                                               ; preds = %.lr.ph111, %117
   %indvars.iv122 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next123, %117 ]
-  %77 = getelementptr i64, ptr %67, i64 %indvars.iv122
+  %77 = getelementptr [8 x i8], ptr %67, i64 %indvars.iv122
   %78 = load i64, ptr %77, align 8, !tbaa !18
   %79 = icmp slt i64 %78, 0
   br i1 %79, label %80, label %.lr.ph.i.outer
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr %68, align 8, !tbaa !224
-  %82 = getelementptr %struct.rmatch_offset, ptr %81, i64 %indvars.iv122
+  %82 = getelementptr [16 x i8], ptr %81, i64 %indvars.iv122
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 -1, i64 16, i1 false)
   br label %117
 
@@ -11135,10 +11132,10 @@ bsearch.exit:                                     ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load i64, ptr %94, align 8, !tbaa !298
   %96 = load ptr, ptr %68, align 8, !tbaa !224
-  %97 = getelementptr %struct.rmatch_offset, ptr %96, i64 %indvars.iv122
+  %97 = getelementptr [16 x i8], ptr %96, i64 %indvars.iv122
   store i64 %95, ptr %97, align 8, !tbaa !230
   %98 = load ptr, ptr %69, align 8, !tbaa !93
-  %99 = getelementptr i64, ptr %98, i64 %indvars.iv122
+  %99 = getelementptr [8 x i8], ptr %98, i64 %indvars.iv122
   %100 = load i64, ptr %99, align 8, !tbaa !18
   br label %.lr.ph.i87
 
@@ -11349,7 +11346,7 @@ match_check.exit.i:                               ; preds = %22
   %34 = getelementptr i8, ptr %6, i64 40
   %35 = load ptr, ptr %34, align 8, !tbaa !92
   %36 = zext nneg i32 %.020.i to i64
-  %37 = getelementptr i64, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !18
   %39 = icmp eq i64 %38, -1
   br i1 %39, label %rb_reg_nth_match.exit, label %40
@@ -11357,7 +11354,7 @@ match_check.exit.i:                               ; preds = %22
 40:                                               ; preds = %33
   %41 = getelementptr i8, ptr %6, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !93
-  %43 = getelementptr i64, ptr %42, i64 %36
+  %43 = getelementptr [8 x i8], ptr %42, i64 %36
   %44 = load i64, ptr %43, align 8, !tbaa !18
   %45 = sub i64 %44, %38
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -11412,7 +11409,7 @@ match_check.exit.i18:                             ; preds = %56
   %68 = getelementptr i8, ptr %6, i64 40
   %69 = load ptr, ptr %68, align 8, !tbaa !92
   %70 = zext nneg i32 %.020.i21 to i64
-  %71 = getelementptr i64, ptr %69, i64 %70
+  %71 = getelementptr [8 x i8], ptr %69, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !18
   %73 = icmp eq i64 %72, -1
   br i1 %73, label %rb_reg_nth_match.exit22, label %74
@@ -11420,7 +11417,7 @@ match_check.exit.i18:                             ; preds = %56
 74:                                               ; preds = %67
   %75 = getelementptr i8, ptr %6, i64 48
   %76 = load ptr, ptr %75, align 8, !tbaa !93
-  %77 = getelementptr i64, ptr %76, i64 %70
+  %77 = getelementptr [8 x i8], ptr %76, i64 %70
   %78 = load i64, ptr %77, align 8, !tbaa !18
   %79 = sub i64 %78, %72
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -11515,14 +11512,14 @@ match_check.exit.i:                               ; preds = %.lr.ph.split
   %.020.i = phi i32 [ %32, %31 ], [ %24, %29 ]
   %35 = load ptr, ptr %19, align 8, !tbaa !92
   %36 = zext nneg i32 %.020.i to i64
-  %37 = getelementptr i64, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !18
   %39 = icmp eq i64 %38, -1
   br i1 %39, label %rb_reg_nth_match.exit, label %40
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %20, align 8, !tbaa !93
-  %42 = getelementptr i64, ptr %41, i64 %36
+  %42 = getelementptr [8 x i8], ptr %41, i64 %36
   %43 = load i64, ptr %42, align 8, !tbaa !18
   %44 = sub i64 %43, %38
   %45 = load i64, ptr %21, align 8, !tbaa !94
@@ -11622,7 +11619,7 @@ define internal noundef i32 @match_named_captures_iter(ptr noundef %0, ptr nound
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.outer, %rb_reg_nth_match.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %rb_reg_nth_match.exit.thread ], [ %indvars.iv.ph, %.lr.ph.split.outer ]
-  %32 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %32 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !27
   %34 = load i64, ptr %26, align 8, !tbaa !31
   %.not.i.i = icmp eq i64 %34, 0
@@ -11651,14 +11648,14 @@ match_check.exit.i:                               ; preds = %.lr.ph.split
   %.020.i = phi i32 [ %41, %40 ], [ %33, %38 ]
   %44 = load ptr, ptr %28, align 8, !tbaa !92
   %45 = zext nneg i32 %.020.i to i64
-  %46 = getelementptr i64, ptr %44, i64 %45
+  %46 = getelementptr [8 x i8], ptr %44, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !18
   %48 = icmp eq i64 %47, -1
   br i1 %48, label %rb_reg_nth_match.exit.thread, label %rb_reg_nth_match.exit
 
 rb_reg_nth_match.exit:                            ; preds = %43
   %49 = load ptr, ptr %29, align 8, !tbaa !93
-  %50 = getelementptr i64, ptr %49, i64 %45
+  %50 = getelementptr [8 x i8], ptr %49, i64 %45
   %51 = load i64, ptr %50, align 8, !tbaa !18
   %52 = sub i64 %51, %47
   %53 = load i64, ptr %30, align 8, !tbaa !94
@@ -11713,10 +11710,10 @@ define internal noundef i32 @match_inspect_name_iter(ptr noundef %0, ptr noundef
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %12 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !27
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %struct.backref_name_tag, ptr %5, i64 %14
+  %15 = getelementptr [16 x i8], ptr %5, i64 %14
   store ptr %0, ptr %15, align 8, !tbaa !239
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %10, ptr %16, align 8, !tbaa !241

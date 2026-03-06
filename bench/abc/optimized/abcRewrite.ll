@@ -110,7 +110,7 @@ Abc_Clock.exit93:                                 ; preds = %26, %29
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %39 ]
   %43 = getelementptr i8, ptr %.val1119.i, i64 8
   %.val12.val.i = load ptr, ptr %43, align 8, !tbaa !40
-  %44 = getelementptr inbounds nuw ptr, ptr %.val12.val.i, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val12.val.i, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8, !tbaa !41
   %46 = getelementptr i8, ptr %45, i64 44
   %.val13.i = load i32, ptr %46, align 4, !tbaa !42
@@ -192,7 +192,7 @@ Abc_Clock.exit95:                                 ; preds = %Abc_NtkStartCutManF
   %81 = phi ptr [ %73, %.lr.ph ], [ %137, %136 ]
   %82 = getelementptr i8, ptr %81, i64 8
   %.val89.val = load ptr, ptr %82, align 8, !tbaa !40
-  %83 = getelementptr inbounds nuw ptr, ptr %.val89.val, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.val89.val, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !41
   %85 = icmp eq ptr %84, null
   br i1 %85, label %136, label %86
@@ -447,7 +447,7 @@ define void @Abc_ManRewritePrintDivs(ptr noundef readonly captures(none) %0, i32
   %4 = getelementptr i8, ptr %0, i64 8
   %.val53 = load ptr, ptr %4, align 8, !tbaa !40
   %5 = sext i32 %.val52 to i64
-  %6 = getelementptr ptr, ptr %.val53, i64 %5
+  %6 = getelementptr [8 x i8], ptr %.val53, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load ptr, ptr %7, align 8, !tbaa !41
   %9 = icmp sgt i32 %.val52, 0
@@ -460,7 +460,7 @@ define void @Abc_ManRewritePrintDivs(ptr noundef readonly captures(none) %0, i32
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %72
   %indvars.iv77 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next78, %72 ]
   %.val49 = load ptr, ptr %4, align 8, !tbaa !40
-  %11 = getelementptr inbounds nuw ptr, ptr %.val49, i64 %indvars.iv77
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val49, i64 %indvars.iv77
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = icmp slt i64 %indvars.iv77, %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -490,14 +490,14 @@ define void @Abc_ManRewritePrintDivs(ptr noundef readonly captures(none) %0, i32
   %25 = getelementptr i8, ptr %.val54.val, i64 8
   %.val54.val.val = load ptr, ptr %25, align 8, !tbaa !40
   %26 = sext i32 %.val55.val to i64
-  %27 = getelementptr inbounds ptr, ptr %.val54.val.val, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %.val54.val.val, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !41
   %wide.trip.count = zext nneg i32 %.val47 to i64
   br label %29
 
 29:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %.val50, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.val50, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !41
   %32 = icmp eq ptr %28, %31
   br i1 %32, label %.critedge2.loopexit.split.loop.exit80, label %33
@@ -548,14 +548,14 @@ define void @Abc_ManRewritePrintDivs(ptr noundef readonly captures(none) %0, i32
   %49 = getelementptr i8, ptr %.val57.val, i64 8
   %.val57.val.val = load ptr, ptr %49, align 8, !tbaa !40
   %50 = sext i32 %.val58.val to i64
-  %51 = getelementptr inbounds ptr, ptr %.val57.val.val, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.val57.val.val, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !41
   %wide.trip.count75 = zext nneg i32 %.val to i64
   br label %53
 
 53:                                               ; preds = %.lr.ph64, %57
   %indvars.iv72 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next73, %57 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %.val51, i64 %indvars.iv72
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.val51, i64 %indvars.iv72
   %55 = load ptr, ptr %54, align 8, !tbaa !41
   %56 = icmp eq ptr %52, %55
   br i1 %56, label %.critedge4.loopexit.split.loop.exit82, label %57
@@ -713,7 +713,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %2, %._crit_edge.i.i
   %44 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %44, align 8, !tbaa !68
   %45 = sext i32 %.val3.i to i64
-  %46 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !49
   %48 = getelementptr inbounds nuw i8, ptr %.val11, i64 216
   %49 = load i32, ptr %48, align 8, !tbaa !69
@@ -818,7 +818,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %50, %._crit_edge.i.
   %91 = getelementptr i8, ptr %.val11, i64 232
   %.val.i.i.i24 = load ptr, ptr %91, align 8, !tbaa !68
   %92 = sext i32 %.val12 to i64
-  %93 = getelementptr inbounds i32, ptr %.val.i.i.i24, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i24, i64 %92
   store i32 %49, ptr %93, align 4, !tbaa !49
   %94 = getelementptr i8, ptr %0, i64 32
   %.val8 = load ptr, ptr %94, align 8, !tbaa !62
@@ -828,7 +828,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %50, %._crit_edge.i.
   %96 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %96, align 8, !tbaa !40
   %97 = sext i32 %.val8.val to i64
-  %98 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %.val.val.val, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !41
   tail call void @Abc_ManShowCutCone_rec(ptr noundef %99, ptr noundef %1)
   %.val9 = load ptr, ptr %0, align 8, !tbaa !61
@@ -840,7 +840,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %50, %._crit_edge.i.
   %102 = getelementptr i8, ptr %.val9.val, i64 8
   %.val9.val.val = load ptr, ptr %102, align 8, !tbaa !40
   %103 = sext i32 %.val10.val to i64
-  %104 = getelementptr inbounds ptr, ptr %.val9.val.val, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %.val9.val.val, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !41
   tail call void @Abc_ManShowCutCone_rec(ptr noundef %105, ptr noundef %1)
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -907,7 +907,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %134 = add nsw i32 %133, 1
   store i32 %134, ptr %106, align 4, !tbaa !35
   %135 = sext i32 %133 to i64
-  %136 = getelementptr inbounds ptr, ptr %132, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %132, i64 %135
   store ptr %0, ptr %136, align 8, !tbaa !41
   br label %137
 
@@ -934,7 +934,7 @@ tailrecurse:                                      ; preds = %Vec_PtrFind.exit22.
 
 9:                                                ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !41
   %12 = icmp eq ptr %11, %.tr
   br i1 %12, label %Vec_PtrFind.exit, label %13
@@ -952,7 +952,7 @@ Vec_PtrFind.exit.thread:                          ; preds = %13
 
 17:                                               ; preds = %21, %Vec_PtrFind.exit.thread
   %indvars.iv.i18 = phi i64 [ 0, %Vec_PtrFind.exit.thread ], [ %indvars.iv.next.i19, %21 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i18
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i18
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %20 = icmp eq ptr %19, %16
   br i1 %20, label %Vec_PtrFind.exit, label %21
@@ -984,7 +984,7 @@ Vec_PtrFind.exit22.thread:                        ; preds = %21, %tailrecurse
   %30 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %30, align 8, !tbaa !40
   %31 = sext i32 %.val12.val to i64
-  %32 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.val.val.val, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !41
   tail call void @Abc_RwrExpWithCut_rec(ptr noundef %33, ptr noundef %1, i32 noundef %2)
   %.val13 = load ptr, ptr %.tr, align 8, !tbaa !61
@@ -996,7 +996,7 @@ Vec_PtrFind.exit22.thread:                        ; preds = %21, %tailrecurse
   %36 = getelementptr i8, ptr %.val13.val, i64 8
   %.val13.val.val = load ptr, ptr %36, align 8, !tbaa !40
   %37 = sext i32 %.val14.val to i64
-  %38 = getelementptr inbounds ptr, ptr %.val13.val.val, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val13.val.val, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !41
   br label %tailrecurse
 }
@@ -1012,7 +1012,7 @@ define void @Abc_RwrExpWithCut(ptr noundef readonly captures(none) %0, ptr nound
   %5 = getelementptr i8, ptr %.val23.val, i64 8
   %.val23.val.val = load ptr, ptr %5, align 8, !tbaa !40
   %6 = sext i32 %.val24.val to i64
-  %7 = getelementptr inbounds ptr, ptr %.val23.val.val, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %.val23.val.val, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !41
   tail call void @Abc_RwrExpWithCut_rec(ptr noundef %8, ptr noundef %1, i32 noundef 1)
   %.val25 = load ptr, ptr %0, align 8, !tbaa !61
@@ -1024,7 +1024,7 @@ define void @Abc_RwrExpWithCut(ptr noundef readonly captures(none) %0, ptr nound
   %11 = getelementptr i8, ptr %.val25.val, i64 8
   %.val25.val.val = load ptr, ptr %11, align 8, !tbaa !40
   %12 = sext i32 %.val26.val to i64
-  %13 = getelementptr inbounds ptr, ptr %.val25.val.val, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %.val25.val.val, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !41
   tail call void @Abc_RwrExpWithCut_rec(ptr noundef %14, ptr noundef %1, i32 noundef 0)
   %15 = getelementptr i8, ptr %1, i64 4
@@ -1041,7 +1041,7 @@ define void @Abc_RwrExpWithCut(ptr noundef readonly captures(none) %0, ptr nound
   %.030 = phi i32 [ 0, %.lr.ph ], [ %31, %18 ]
   %.01929 = phi i32 [ 0, %.lr.ph ], [ %28, %18 ]
   %.val22 = load ptr, ptr %17, align 8, !tbaa !40
-  %19 = getelementptr inbounds nuw ptr, ptr %.val22, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val22, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !41
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, -2

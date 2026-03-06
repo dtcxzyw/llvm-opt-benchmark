@@ -134,7 +134,7 @@ define void @OPENSSL_LH_free(ptr noundef %0) local_unnamed_addr #1 {
   %5 = phi i32 [ %11, %._crit_edge.i ], [ %4, %.preheader.i ]
   %6 = phi ptr [ %12, %._crit_edge.i ], [ %.pre, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %.preheader.i ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   %.not14.i = icmp eq ptr %8, null
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
@@ -155,7 +155,7 @@ define void @OPENSSL_LH_free(ptr noundef %0) local_unnamed_addr #1 {
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph17.i
   %11 = phi i32 [ %.pre22.i, %._crit_edge.loopexit.i ], [ %5, %.lr.ph17.i ]
   %12 = phi ptr [ %.pre21.i, %._crit_edge.loopexit.i ], [ %6, %.lr.ph17.i ]
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   store ptr null, ptr %13, align 8, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = zext i32 %11 to i64
@@ -193,7 +193,7 @@ define void @OPENSSL_LH_flush(ptr noundef captures(address_is_null) %0) local_un
   %5 = phi i32 [ %4, %.lr.ph17.preheader ], [ %11, %._crit_edge ]
   %6 = phi ptr [ %.pre, %.lr.ph17.preheader ], [ %12, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph17.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   %.not14 = icmp eq ptr %8, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -214,7 +214,7 @@ define void @OPENSSL_LH_flush(ptr noundef captures(address_is_null) %0) local_un
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph17
   %11 = phi i32 [ %.pre22, %._crit_edge.loopexit ], [ %5, %.lr.ph17 ]
   %12 = phi ptr [ %.pre21, %._crit_edge.loopexit ], [ %6, %.lr.ph17 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr null, ptr %13, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = zext i32 %11 to i64
@@ -269,7 +269,7 @@ define ptr @OPENSSL_LH_insert(ptr noundef captures(none) initializes((96, 100)) 
 28:                                               ; preds = %21
   store ptr %26, ptr %0, align 8, !tbaa !14
   %29 = zext i32 %15 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   %31 = shl nuw nsw i64 %29, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %30, i8 0, i64 %31, i1 false)
   store i32 %15, ptr %18, align 4, !tbaa !19
@@ -285,10 +285,10 @@ define ptr @OPENSSL_LH_insert(ptr noundef captures(none) initializes((96, 100)) 
   store i32 %34, ptr %9, align 8, !tbaa !17
   %35 = load ptr, ptr %0, align 8, !tbaa !14
   %36 = zext i32 %17 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = add i32 %19, %17
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %39
   store ptr null, ptr %40, align 8, !tbaa !25
   %.04449.i = load ptr, ptr %37, align 8, !tbaa !25
   %.not4750.i = icmp eq ptr %.04449.i, null
@@ -574,7 +574,7 @@ getrn.exit:                                       ; preds = %37, %42
   %69 = add i32 %67, -1
   %70 = add i32 %69, %68
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %66, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !25
   store ptr null, ptr %72, align 8, !tbaa !25
   %74 = icmp eq i32 %67, 0
@@ -619,7 +619,7 @@ getrn.exit:                                       ; preds = %37, %42
   %93 = add i32 %91, -1
   store i32 %93, ptr %56, align 8, !tbaa !17
   %94 = sext i32 %storemerge.pre-phi.i to i64
-  %95 = getelementptr inbounds ptr, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !25
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %.preheader.i
@@ -774,7 +774,7 @@ define void @OPENSSL_LH_doall(ptr noundef readonly captures(address_is_null) %0,
 .lr.ph24.split.us.i:                              ; preds = %.loopexit.us.i, %.lr.ph24.i
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %.loopexit.us.i ], [ %10, %.lr.ph24.i ]
   %11 = load ptr, ptr %0, align 8, !tbaa !14
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv27.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv27.i
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %.not20.us.i = icmp eq ptr %13, null
   br i1 %.not20.us.i, label %.loopexit.us.i, label %.lr.ph.us.i
@@ -823,7 +823,7 @@ define void @OPENSSL_LH_doall_arg(ptr noundef readonly captures(address_is_null)
 .lr.ph24.split.i:                                 ; preds = %.loopexit.i, %.lr.ph24.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ %11, %.lr.ph24.i ]
   %13 = load ptr, ptr %0, align 8, !tbaa !14
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !25
   %.not20.i = icmp eq ptr %15, null
   br i1 %.not20.i, label %.loopexit.i, label %.lr.ph.i
@@ -865,7 +865,7 @@ define void @OPENSSL_LH_doall_arg_thunk(ptr noundef readonly captures(address_is
 .lr.ph24.split.i:                                 ; preds = %.loopexit.i, %.lr.ph24.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ %10, %.lr.ph24.i ]
   %12 = load ptr, ptr %0, align 8, !tbaa !14
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %.not20.i = icmp eq ptr %14, null
   br i1 %.not20.i, label %.loopexit.i, label %.lr.ph.i

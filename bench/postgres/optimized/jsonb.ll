@@ -13,10 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.anon.8 = type { i32, ptr }
 
 @.str = private unnamed_addr constant [36 x i8] c"unsupported jsonb version number %d\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"jsonb.c\00", align 1
@@ -1284,7 +1280,7 @@ array_to_jsonb_internal.exit:                     ; preds = %45, %49
   %78 = shl nsw i64 %77, 4
   %79 = getelementptr i8, ptr %66, i64 %78
   %80 = getelementptr i8, ptr %79, i64 24
-  %81 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds [100 x i8], ptr %80, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 91
   %83 = load i8, ptr %82, align 1, !range !7, !noundef !8
   %84 = trunc nuw i8 %83 to i1
@@ -1325,7 +1321,7 @@ array_to_jsonb_internal.exit:                     ; preds = %45, %49
   br i1 %101, label %143, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr %struct.CompactAttribute, ptr %66, i64 %90
+  %103 = getelementptr [16 x i8], ptr %66, i64 %90
   %104 = getelementptr i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 4
   %106 = icmp sgt i32 %105, -1
@@ -1777,9 +1773,9 @@ define dso_local i64 @jsonb_build_object_worker(i32 noundef %0, ptr noundef read
   br i1 %28, label %.split.us, label %.critedge.us.us
 
 .critedge.us.us:                                  ; preds = %.lr.ph.split.us.split.us
-  %29 = getelementptr inbounds i64, ptr %1, i64 %25
+  %29 = getelementptr inbounds [8 x i8], ptr %1, i64 %25
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i32, ptr %3, i64 %25
+  %31 = getelementptr inbounds [4 x i8], ptr %3, i64 %25
   %32 = load i32, ptr %31, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1795,12 +1791,12 @@ add_jsonb.exit.us.us:                             ; preds = %.critedge.us.us
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = or disjoint i32 %.027.us.us, 1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i64, ptr %1, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %1, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 %35
   %39 = load i8, ptr %38, align 1, !range !7, !noundef !8
   %40 = trunc nuw i8 %39 to i1
-  %41 = getelementptr inbounds i32, ptr %3, i64 %35
+  %41 = getelementptr inbounds [4 x i8], ptr %3, i64 %35
   %42 = load i32, ptr %41, align 4
   call fastcc void @add_jsonb(i64 noundef %37, i1 noundef zeroext %40, ptr noundef %9, i32 noundef %42, i1 noundef zeroext false)
   %43 = add i32 %.027.us.us, 2
@@ -1822,9 +1818,9 @@ add_jsonb.exit.us.us:                             ; preds = %.critedge.us.us
   br i1 %52, label %67, label %.critedge.us
 
 .critedge.us:                                     ; preds = %49
-  %53 = getelementptr inbounds i64, ptr %1, i64 %45
+  %53 = getelementptr inbounds [8 x i8], ptr %1, i64 %45
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i32, ptr %3, i64 %45
+  %55 = getelementptr inbounds [4 x i8], ptr %3, i64 %45
   %56 = load i32, ptr %55, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1840,12 +1836,12 @@ add_jsonb.exit.us:                                ; preds = %.critedge.us
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %58 = or disjoint i32 %.027.us, 1
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i64, ptr %1, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %1, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %2, i64 %59
   %63 = load i8, ptr %62, align 1, !range !7, !noundef !8
   %64 = trunc nuw i8 %63 to i1
-  %65 = getelementptr inbounds i32, ptr %3, i64 %59
+  %65 = getelementptr inbounds [4 x i8], ptr %3, i64 %59
   %66 = load i32, ptr %65, align 4
   call fastcc void @add_jsonb(i64 noundef %61, i1 noundef zeroext %64, ptr noundef %9, i32 noundef %66, i1 noundef zeroext false)
   br label %67
@@ -1873,9 +1869,9 @@ add_jsonb.exit.us:                                ; preds = %.critedge.us
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph.split
-  %78 = getelementptr inbounds i64, ptr %1, i64 %70
+  %78 = getelementptr inbounds [8 x i8], ptr %1, i64 %70
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i32, ptr %3, i64 %70
+  %80 = getelementptr inbounds [4 x i8], ptr %3, i64 %70
   %81 = load i32, ptr %80, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1898,12 +1894,12 @@ add_jsonb.exit:                                   ; preds = %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %86 = or disjoint i32 %.027, 1
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i64, ptr %1, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %1, i64 %87
   %89 = load i64, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %2, i64 %87
   %91 = load i8, ptr %90, align 1, !range !7, !noundef !8
   %92 = trunc nuw i8 %91 to i1
-  %93 = getelementptr inbounds i32, ptr %3, i64 %87
+  %93 = getelementptr inbounds [4 x i8], ptr %3, i64 %87
   %94 = load i32, ptr %93, align 4
   call fastcc void @add_jsonb(i64 noundef %89, i1 noundef zeroext %92, ptr noundef %9, i32 noundef %94, i1 noundef zeroext false)
   %95 = add i32 %.027, 2
@@ -2034,9 +2030,9 @@ define dso_local i64 @jsonb_build_array_worker(i32 noundef %0, ptr noundef reado
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %.lr.ph.split.us
-  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv14
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv14
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv14
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv14
   %17 = load i32, ptr %16, align 4
   call fastcc void @add_jsonb(i64 noundef %15, i1 noundef zeroext false, ptr noundef %6, i32 noundef %17, i1 noundef zeroext false)
   br label %18
@@ -2048,12 +2044,12 @@ define dso_local i64 @jsonb_build_array_worker(i32 noundef %0, ptr noundef reado
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !range !7, !noundef !8
   %23 = trunc nuw i8 %22 to i1
-  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   call fastcc void @add_jsonb(i64 noundef %20, i1 noundef zeroext %23, ptr noundef %6, i32 noundef %25, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2105,12 +2101,12 @@ define dso_local i64 @jsonb_build_array(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %16 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i
   %19 = load i8, ptr %18, align 1, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
-  %21 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
   call fastcc void @add_jsonb(i64 noundef %17, i1 noundef zeroext %20, ptr noundef %2, i32 noundef %22, i1 noundef zeroext false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2239,7 +2235,7 @@ define dso_local i64 @jsonb_object(ptr noundef readonly captures(none) %0) local
 
 49:                                               ; preds = %39
   %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds i64, ptr %50, i64 %41
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %41
   %52 = load i64, ptr %51, align 8
   %53 = inttoptr i64 %52 to ptr
   %54 = call ptr @text_to_cstring(ptr noundef %53) #12
@@ -2258,7 +2254,7 @@ define dso_local i64 @jsonb_object(ptr noundef readonly captures(none) %0) local
 
 63:                                               ; preds = %49
   %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds i64, ptr %64, i64 %59
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %59
   %66 = load i64, ptr %65, align 8
   %67 = inttoptr i64 %66 to ptr
   %68 = call ptr @text_to_cstring(ptr noundef %67) #12
@@ -2394,7 +2390,7 @@ define dso_local i64 @jsonb_object_two_arg(ptr noundef readonly captures(none) %
 
 49:                                               ; preds = %40
   %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %52 = load i64, ptr %51, align 8
   %53 = inttoptr i64 %52 to ptr
   %54 = call ptr @text_to_cstring(ptr noundef %53) #12
@@ -2412,7 +2408,7 @@ define dso_local i64 @jsonb_object_two_arg(ptr noundef readonly captures(none) %
 
 62:                                               ; preds = %49
   %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8
   %66 = inttoptr i64 %65 to ptr
   %67 = call ptr @text_to_cstring(ptr noundef %66) #12
@@ -3369,7 +3365,7 @@ define internal fastcc void @cannotCastJsonbValue(i32 noundef %0, ptr noundef %1
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw %struct.anon.8, ptr @cannotCastJsonbValue.messages, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @cannotCastJsonbValue.messages, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %8, label %3
@@ -4324,7 +4320,7 @@ define internal fastcc void @array_dim_to_jsonb(ptr noundef nonnull %0, i32 noun
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds i32, ptr %3, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %3, i64 %12
   %14 = load i32, ptr %13, align 4
   %.not28 = icmp slt i32 %14, 1
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -4342,7 +4338,7 @@ define internal fastcc void @array_dim_to_jsonb(ptr noundef nonnull %0, i32 noun
   %17 = phi i32 [ %25, %.lr.ph.split.us ], [ %.pre, %.lr.ph.split.us.preheader ]
   %.029.us = phi i32 [ %26, %.lr.ph.split.us ], [ 1, %.lr.ph.split.us.preheader ]
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr %4, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %4, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 %18
   %22 = load i8, ptr %21, align 1, !range !7, !noundef !8

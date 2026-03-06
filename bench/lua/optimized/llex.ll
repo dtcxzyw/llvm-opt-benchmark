@@ -77,7 +77,7 @@ define hidden void @luaX_init(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @luaX_tokens, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @luaX_tokens, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = tail call ptr @luaS_new(ptr noundef %0, ptr noundef %5) #6
   tail call void @luaC_fix(ptr noundef %0, ptr noundef %6) #6
@@ -124,7 +124,7 @@ define hidden ptr @luaX_token2str(ptr noundef readonly captures(none) %0, i32 no
 
 16:                                               ; preds = %2
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr ptr, ptr @luaX_tokens, i64 %17
+  %18 = getelementptr [8 x i8], ptr @luaX_tokens, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -2048
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = icmp samesign ult i32 %1, 288
@@ -238,7 +238,7 @@ save.exit:                                        ; preds = %.save.exit_crit_edg
 
 48:                                               ; preds = %36
   %49 = zext nneg i32 %2 to i64
-  %50 = getelementptr ptr, ptr @luaX_tokens, i64 %49
+  %50 = getelementptr [8 x i8], ptr @luaX_tokens, i64 %49
   %51 = getelementptr i8, ptr %50, i64 -2048
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   %53 = icmp samesign ult i32 %2, 288

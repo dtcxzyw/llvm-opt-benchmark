@@ -1383,7 +1383,7 @@ fill_buf.exit190.thread.i:                        ; preds = %fmap_need_off_once_
 
 283:                                              ; preds = %283, %.preheader80.i.i.i
   %indvars.iv108.i.i.i = phi i64 [ 0, %.preheader80.i.i.i ], [ %indvars.iv.next109.i.i.i, %283 ]
-  %284 = getelementptr inbounds nuw i16, ptr %97, i64 %indvars.iv108.i.i.i
+  %284 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %indvars.iv108.i.i.i
   store i16 %227, ptr %284, align 2, !tbaa !18
   %indvars.iv.next109.i.i.i = add nuw nsw i64 %indvars.iv108.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next109.i.i.i, 4096
@@ -1406,7 +1406,7 @@ fill_buf.exit190.thread.i:                        ; preds = %fmap_need_off_once_
   %288 = load i16, ptr %44, align 2, !tbaa !53
   %289 = lshr i16 %288, 8
   %290 = zext nneg i16 %289 to i64
-  %291 = getelementptr inbounds nuw i16, ptr %94, i64 %290
+  %291 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %290
   %292 = load i16, ptr %291, align 2, !tbaa !18
   %293 = icmp sgt i16 %292, 18
   br i1 %293, label %.preheader84.i.i.i, label %.loopexit85.i.i.i
@@ -1432,7 +1432,7 @@ fill_buf.exit190.thread.i:                        ; preds = %fmap_need_off_once_
   %300 = zext nneg i16 %.1.i.i.i to i64
   %.2.in.v.v.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not76.i.i.i, i64 56, i64 2094
   %.2.in.v.v.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %.2.in.v.v.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %.2.in.i.i.i = getelementptr inbounds nuw i16, ptr %.2.in.v.v.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, i64 %300
+  %.2.in.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %.2.in.v.v.i.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, i64 %300
   %.2.i.i.i = load i16, ptr %.2.in.i.i.i, align 2, !tbaa !18
   %301 = lshr i32 %.0.i.i.i, 1
   %302 = icmp sgt i16 %.2.i.i.i, 18
@@ -1823,7 +1823,7 @@ read_c_len.exit.i.i:                              ; preds = %fill_buf.exit164.i,
   store i16 %468, ptr %41, align 8, !tbaa !60
   %469 = lshr i16 %466, 4
   %470 = zext nneg i16 %469 to i64
-  %471 = getelementptr inbounds nuw i16, ptr %97, i64 %470
+  %471 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %470
   %472 = load i16, ptr %471, align 2, !tbaa !18
   %473 = icmp ugt i16 %472, 509
   br i1 %473, label %.preheader.i.i, label %.loopexit.i.i
@@ -1849,7 +1849,7 @@ decode_c.exit.thread.i:                           ; preds = %475
   %479 = zext nneg i16 %.1.i.i to i64
   %.2.in.v.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i.i, i64 56, i64 2094
   %.2.in.v.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %.2.in.v.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %.2.in.i.i = getelementptr inbounds nuw i16, ptr %.2.in.v.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, i64 %479
+  %.2.in.i.i = getelementptr inbounds nuw [2 x i8], ptr %.2.in.v.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, i64 %479
   %.2.i.i = load i16, ptr %.2.in.i.i, align 2, !tbaa !18
   %480 = lshr i32 %.0.i.i, 1
   %481 = icmp ugt i16 %.2.i.i, 509
@@ -2049,7 +2049,7 @@ decode_c.exit.i:                                  ; preds = %._crit_edge.i89.i, 
   %577 = add i32 %.057.i, %576
   %578 = lshr i16 %558, 8
   %579 = zext nneg i16 %578 to i64
-  %580 = getelementptr inbounds nuw i16, ptr %94, i64 %579
+  %580 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %579
   %581 = load i16, ptr %580, align 2, !tbaa !18
   %582 = icmp ugt i16 %581, 16
   br i1 %582, label %.preheader.i72.i, label %.loopexit.i71.i
@@ -2075,7 +2075,7 @@ decode_c.exit.i:                                  ; preds = %._crit_edge.i89.i, 
   %589 = zext nneg i16 %.1.i73.i to i64
   %.2.in.v.v.i76.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i75.i, i64 56, i64 2094
   %.2.in.v.v.i76.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %.2.in.v.v.i76.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %.2.in.i78.i = getelementptr inbounds nuw i16, ptr %.2.in.v.v.i76.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, i64 %589
+  %.2.in.i78.i = getelementptr inbounds nuw [2 x i8], ptr %.2.in.v.v.i76.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, i64 %589
   %.2.i79.i = load i16, ptr %.2.in.i78.i, align 2, !tbaa !18
   %590 = lshr i32 %.0.i74.i, 1
   %591 = icmp ugt i16 %.2.i79.i, 16
@@ -3844,7 +3844,7 @@ define internal fastcc void @read_pt_len(ptr noundef nonnull captures(none) %0, 
 
 15:                                               ; preds = %.preheader, %15
   %indvars.iv96 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next97, %15 ]
-  %16 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv96
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv96
   store i16 %13, ptr %16, align 2, !tbaa !18
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next97, 256
@@ -3985,7 +3985,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
 
 12:                                               ; preds = %.preheader124
   %13 = zext nneg i8 %10 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !18
   %16 = add i16 %15, 1
   store i16 %16, ptr %14, align 2, !tbaa !18
@@ -4001,7 +4001,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
 19:                                               ; preds = %17, %19
   %20 = phi i16 [ 0, %17 ], [ %28, %19 ]
   %indvars.iv154 = phi i64 [ 1, %17 ], [ %indvars.iv.next155, %19 ]
-  %21 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv154
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv154
   %22 = load i16, ptr %21, align 2, !tbaa !18
   %23 = zext i16 %22 to i32
   %24 = trunc i64 %indvars.iv154 to i32
@@ -4010,7 +4010,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
   %27 = trunc i32 %26 to i16
   %28 = add i16 %20, %27
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
-  %29 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.next155
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv.next155
   store i16 %28, ptr %29, align 2, !tbaa !18
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 17
   br i1 %exitcond157.not, label %30, label %19
@@ -4041,7 +4041,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
   %indvars.iv168 = phi i32 [ %37, %33 ], [ %indvars.iv.next169, %39 ]
   %indvars.iv163 = phi i64 [ 2, %33 ], [ %indvars.iv.next164, %39 ]
   %indvars.iv158 = phi i64 [ 1, %33 ], [ %indvars.iv.next159, %39 ]
-  %40 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv158
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv158
   %41 = load i16, ptr %40, align 2, !tbaa !18
   %42 = zext i16 %41 to i32
   %43 = lshr i32 %42, %34
@@ -4051,7 +4051,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
   %46 = sub i32 %3, %45
   %47 = shl nuw nsw i32 1, %46
   %48 = trunc nuw nsw i32 %47 to i16
-  %49 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv158
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv158
   store i16 %48, ptr %49, align 2, !tbaa !18
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
@@ -4065,14 +4065,14 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
   %51 = sub i32 16, %50
   %52 = shl nuw nsw i32 1, %51
   %53 = trunc nuw nsw i32 %52 to i16
-  %54 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv165
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv165
   store i16 %53, ptr %54, align 2, !tbaa !18
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count170
   br i1 %exitcond171.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader123
-  %55 = getelementptr inbounds nuw i16, ptr %8, i64 %35
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %35
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 2
   %57 = load i16, ptr %56, align 2, !tbaa !18
   %58 = zext i16 %57 to i32
@@ -4099,7 +4099,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
 
 64:                                               ; preds = %.lr.ph137
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %65 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv172
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv172
   store i16 0, ptr %65, align 2, !tbaa !18
   %.not114 = icmp eq i64 %indvars.iv.next173, %63
   br i1 %.not114, label %.loopexit122, label %.lr.ph137
@@ -4126,10 +4126,10 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
 
 77:                                               ; preds = %75
   %78 = zext nneg i8 %72 to i64
-  %79 = getelementptr inbounds nuw i16, ptr %8, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !18
   %81 = zext i16 %80 to i32
-  %82 = getelementptr inbounds nuw i16, ptr %7, i64 %78
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %78
   %83 = load i16, ptr %82, align 2, !tbaa !18
   %84 = zext i16 %83 to i32
   %85 = add nuw nsw i32 %84, %81
@@ -4152,7 +4152,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
 
 91:                                               ; preds = %.lr.ph139, %91
   %indvars.iv177 = phi i64 [ %89, %.lr.ph139 ], [ %indvars.iv.next178, %91 ]
-  %92 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv177
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv177
   store i16 %88, ptr %92, align 2, !tbaa !18
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %93 = icmp samesign ult i64 %indvars.iv.next178, %90
@@ -4161,7 +4161,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
 94:                                               ; preds = %77
   %95 = lshr i32 %81, %34
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %4, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %96
   %98 = sub nuw nsw i32 %73, %3
   %.not116140 = icmp eq i32 %98, 0
   br i1 %.not116140, label %._crit_edge147, label %.lr.ph146
@@ -4181,9 +4181,9 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
 
 .thread:                                          ; preds = %101
   %103 = zext nneg i32 %.3143 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %68, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %103
   store i16 0, ptr %104, align 2, !tbaa !18
-  %105 = getelementptr inbounds nuw i16, ptr %69, i64 %103
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %103
   store i16 0, ptr %105, align 2, !tbaa !18
   %106 = add nuw nsw i32 %.3143, 1
   %107 = trunc nuw nsw i32 %.3143 to i16
@@ -4202,7 +4202,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
   %113 = zext nneg i16 %111 to i64
   %.1.v.v = select i1 %.not117, i64 56, i64 2094
   %.1.v = getelementptr inbounds nuw i8, ptr %0, i64 %.1.v.v
-  %.1 = getelementptr inbounds nuw i16, ptr %.1.v, i64 %113
+  %.1 = getelementptr inbounds nuw [2 x i8], ptr %.1.v, i64 %113
   %114 = shl i32 %.0106141, 1
   %115 = add nsw i32 %.7142, -1
   %.not116 = icmp eq i32 %115, 0

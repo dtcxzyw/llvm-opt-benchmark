@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Luau::detail::DenseHashTable" = type <{ ptr, i64, i64, ptr, [8 x i8] }>
 %"struct.Luau::Printer_DEPRECATED" = type { i8, ptr }
 %"class.Luau::CommaSeparatorInserter" = type { i8, ptr, ptr }
-%"struct.Luau::AstArray.61" = type { ptr, i64 }
 %"struct.Luau::CstTypeTable::Item" = type { i32, %"struct.Luau::Position", %"struct.Luau::Position", %"struct.Luau::Position", %"class.std::optional.64", %"class.std::optional.41", ptr }
 %"class.std::optional.64" = type { %"struct.std::_Optional_base.65" }
 %"struct.std::_Optional_base.65" = type { %"struct.std::_Optional_payload.67" }
@@ -31,21 +30,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.44" = type { %"struct.std::_Optional_payload_base.base.46", [3 x i8] }
 %"struct.std::_Optional_payload_base.base.46" = type <{ %"union.std::_Optional_payload_base<Luau::Position>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<Luau::Position>::_Storage" = type { %"struct.Luau::Position" }
-%"struct.Luau::AstTableProp" = type { %"struct.Luau::AstName", %"struct.Luau::Location", ptr, i32, %"class.std::optional.30" }
-%"struct.Luau::AstName" = type { ptr }
-%"struct.Luau::Location" = type { %"struct.Luau::Position", %"struct.Luau::Position" }
-%"class.std::optional.30" = type { %"struct.std::_Optional_base.31" }
-%"struct.std::_Optional_base.31" = type { %"struct.std::_Optional_payload.33" }
-%"struct.std::_Optional_payload.33" = type { %"struct.std::_Optional_payload_base.base.35", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.35" = type <{ %"union.std::_Optional_payload_base<Luau::Location>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<Luau::Location>::_Storage" = type { %"struct.Luau::Location" }
-%"struct.std::pair" = type { ptr, ptr }
 %"struct.Luau::TranspileResult" = type { %"class.std::__cxx11::basic_string", %"struct.Luau::Location", %"class.std::__cxx11::basic_string" }
+%"struct.Luau::Location" = type { %"struct.Luau::Position", %"struct.Luau::Position" }
 %"class.Luau::Allocator" = type { ptr, i64 }
 %"class.Luau::AstNameTable" = type { %"class.Luau::DenseHashSet", ptr }
 %"class.Luau::DenseHashSet" = type { %"class.Luau::detail::DenseHashTable.13" }
 %"class.Luau::detail::DenseHashTable.13" = type <{ ptr, i64, i64, %"struct.Luau::AstNameTable::Entry", [8 x i8] }>
 %"struct.Luau::AstNameTable::Entry" = type { %"struct.Luau::AstName", i32, i32 }
+%"struct.Luau::AstName" = type { ptr }
 %"struct.Luau::ParseResult" = type { ptr, i64, %"class.std::vector.15", %"class.std::vector.20", %"class.std::vector.25", %"class.Luau::DenseHashMap" }
 %"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
 %"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<Luau::HotComment, std::allocator<Luau::HotComment>>::_Vector_impl" }
@@ -73,7 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<Luau::AstLocal *, std::allocator<Luau::AstLocal *>>::_Vector_impl" }
 %"struct.std::_Vector_base<Luau::AstLocal *, std::allocator<Luau::AstLocal *>>::_Vector_impl" = type { %"struct.std::_Vector_base<Luau::AstLocal *, std::allocator<Luau::AstLocal *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<Luau::AstLocal *, std::allocator<Luau::AstLocal *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.87" = type { %"struct.Luau::AstName", ptr }
 
 $_ZN4Luau7AstRttiINS_7AstAttrEE5valueE = comdat any
 
@@ -4090,7 +4081,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit701:     ; preds = %.lr.ph631, %321
   %935 = load ptr, ptr %934, align 8
   tail call void %935(ptr noundef nonnull align 8 dereferenceable(8) %931, i64 2, ptr nonnull %.str.123..str.124)
   %936 = load ptr, ptr %926, align 8, !tbaa !155
-  %937 = getelementptr inbounds nuw ptr, ptr %936, i64 %.0258590
+  %937 = getelementptr inbounds nuw [8 x i8], ptr %936, i64 %.0258590
   %938 = load ptr, ptr %937, align 8, !tbaa !83
   tail call void @_ZN4Luau7Printer9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(28) %938)
   %939 = add nuw i64 %.0258590, 1
@@ -4127,7 +4118,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit701:     ; preds = %.lr.ph631, %321
   %953 = load ptr, ptr %952, align 8
   tail call void %953(ptr noundef nonnull align 8 dereferenceable(8) %946, i64 2, ptr nonnull %.sroa.3.0)
   %954 = load ptr, ptr %927, align 8, !tbaa !157
-  %955 = getelementptr inbounds nuw ptr, ptr %954, i64 %.0591
+  %955 = getelementptr inbounds nuw [8 x i8], ptr %954, i64 %.0591
   %956 = load ptr, ptr %955, align 8, !tbaa !61
   tail call void @_ZN4Luau7Printer9visualizeERNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(29) %956)
   %957 = add nuw i64 %.0591, 1
@@ -5420,7 +5411,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit370: ; preds = %62
 
 693:                                              ; preds = %692
   %694 = load ptr, ptr %681, align 8, !tbaa !229
-  %695 = getelementptr inbounds nuw %"struct.Luau::Position", ptr %694, i64 %.0202554
+  %695 = getelementptr inbounds nuw [8 x i8], ptr %694, i64 %.0202554
   %696 = load ptr, ptr %16, align 8, !tbaa !46
   %697 = load ptr, ptr %696, align 8, !tbaa !22
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 16
@@ -5435,7 +5426,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit370: ; preds = %62
 
 704:                                              ; preds = %693, %692
   %705 = load ptr, ptr %682, align 8, !tbaa !231
-  %706 = getelementptr inbounds nuw %"struct.Luau::AstArray.61", ptr %705, i64 %.0202554
+  %706 = getelementptr inbounds nuw [16 x i8], ptr %705, i64 %.0202554
   %.sroa.06.0.copyload = load ptr, ptr %706, align 8, !tbaa !232
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %706, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !45
@@ -5505,7 +5496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381: ; preds = %72
   %739 = load ptr, ptr %738, align 8
   call void %739(ptr noundef nonnull align 8 dereferenceable(8) %736, i64 1, ptr nonnull @.str.135)
   %740 = load ptr, ptr %686, align 8, !tbaa !235
-  %741 = getelementptr inbounds nuw ptr, ptr %740, i64 %.0202554
+  %741 = getelementptr inbounds nuw [8 x i8], ptr %740, i64 %.0202554
   %742 = load ptr, ptr %741, align 8, !tbaa !83
   call void @_ZN4Luau7Printer9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(28) %742)
   br i1 %.not319, label %743, label %748
@@ -5562,7 +5553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381: ; preds = %72
   %770 = load ptr, ptr %769, align 8
   tail call void %770(ptr noundef nonnull align 8 dereferenceable(8) %766, i64 2, ptr nonnull %.str.123..str.124)
   %771 = load ptr, ptr %760, align 8, !tbaa !238
-  %772 = getelementptr inbounds nuw ptr, ptr %771, i64 %.0550
+  %772 = getelementptr inbounds nuw [8 x i8], ptr %771, i64 %.0550
   %773 = load ptr, ptr %772, align 8, !tbaa !83
   tail call void @_ZN4Luau7Printer9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(28) %773)
   %774 = add nuw i64 %.0550, 1
@@ -6007,7 +5998,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit325:     ; preds = %.lr.ph527, %156
   %.0177509 = phi i64 [ 0, %.lr.ph511 ], [ %425, %424 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %248 = load ptr, ptr %239, align 8, !tbaa !285
-  %249 = getelementptr inbounds nuw %"struct.Luau::CstTypeTable::Item", ptr %248, i64 %.0177509
+  %249 = getelementptr inbounds nuw [56 x i8], ptr %248, i64 %.0177509
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %249, i64 56, i1 false)
   %250 = load i32, ptr %6, align 8, !tbaa !286
   %251 = icmp eq i32 %250, 0
@@ -6309,7 +6300,7 @@ _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %428
 _ZN4Luau22CommaSeparatorInserterclEv.exit333:     ; preds = %.lr.ph513, %443
   %.sroa.0.2 = phi i1 [ %.sroa.0.0, %443 ], [ false, %.lr.ph513 ]
   %447 = load ptr, ptr %429, align 8, !tbaa !304
-  %448 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %447, i64 %.0179512
+  %448 = getelementptr inbounds nuw [56 x i8], ptr %447, i64 %.0179512
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
   %450 = load ptr, ptr %9, align 8, !tbaa !46
   %451 = load ptr, ptr %450, align 8, !tbaa !22
@@ -6318,7 +6309,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit333:     ; preds = %.lr.ph513, %443
   call void %453(ptr noundef nonnull align 8 dereferenceable(8) %450, ptr noundef nonnull align 4 dereferenceable(8) %449)
   %454 = load ptr, ptr %9, align 8, !tbaa !46
   %455 = load ptr, ptr %429, align 8, !tbaa !304
-  %456 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %455, i64 %.0179512
+  %456 = getelementptr inbounds nuw [56 x i8], ptr %455, i64 %.0179512
   %457 = load ptr, ptr %456, align 8, !tbaa !300
   %458 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %457) #23
   %459 = load ptr, ptr %454, align 8, !tbaa !22
@@ -6326,7 +6317,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit333:     ; preds = %.lr.ph513, %443
   %461 = load ptr, ptr %460, align 8
   call void %461(ptr noundef nonnull align 8 dereferenceable(8) %454, i64 %458, ptr nonnull %457)
   %462 = load ptr, ptr %429, align 8, !tbaa !304
-  %463 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %462, i64 %.0179512
+  %463 = getelementptr inbounds nuw [56 x i8], ptr %462, i64 %.0179512
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 24
   %465 = load ptr, ptr %464, align 8, !tbaa !301
   %.not288 = icmp eq ptr %465, null
@@ -6339,7 +6330,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit333:     ; preds = %.lr.ph513, %443
   %470 = load ptr, ptr %469, align 8
   call void %470(ptr noundef nonnull align 8 dereferenceable(8) %467, i64 1, ptr nonnull @.str.127)
   %471 = load ptr, ptr %429, align 8, !tbaa !304
-  %472 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %471, i64 %.0179512
+  %472 = getelementptr inbounds nuw [56 x i8], ptr %471, i64 %.0179512
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 24
   %474 = load ptr, ptr %473, align 8, !tbaa !301
   call void @_ZN4Luau7Printer23visualizeTypeAnnotationERNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(28) %474)
@@ -6605,7 +6596,7 @@ _ZNK4Luau7AstNameeqEPKc.exit344:                  ; preds = %580
 
 604:                                              ; preds = %.lr.ph508
   %605 = load ptr, ptr %9, align 8, !tbaa !46
-  %606 = getelementptr inbounds nuw ptr, ptr %.pre542, i64 %.0182507
+  %606 = getelementptr inbounds nuw [8 x i8], ptr %.pre542, i64 %.0182507
   %607 = load ptr, ptr %606, align 8, !tbaa !258
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 12
   %609 = load ptr, ptr %605, align 8, !tbaa !22
@@ -6622,7 +6613,7 @@ _ZNK4Luau7AstNameeqEPKc.exit344:                  ; preds = %580
 
 616:                                              ; preds = %604, %.lr.ph508
   %617 = phi ptr [ %.pre, %604 ], [ %.pre542, %.lr.ph508 ]
-  %618 = getelementptr inbounds nuw ptr, ptr %617, i64 %.0182507
+  %618 = getelementptr inbounds nuw [8 x i8], ptr %617, i64 %.0182507
   %619 = load ptr, ptr %618, align 8, !tbaa !258
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load i32, ptr %620, align 8, !tbaa !47
@@ -6645,7 +6636,7 @@ _ZNK4Luau7AstNameeqEPKc.exit344:                  ; preds = %580
   %630 = load ptr, ptr %629, align 8
   tail call void %630(ptr noundef nonnull align 8 dereferenceable(8) %627, i64 1, ptr nonnull @.str.128)
   %631 = load ptr, ptr %561, align 8, !tbaa !310
-  %632 = getelementptr inbounds nuw ptr, ptr %631, i64 %.0182507
+  %632 = getelementptr inbounds nuw [8 x i8], ptr %631, i64 %.0182507
   %633 = load ptr, ptr %632, align 8, !tbaa !258
   tail call void @_ZN4Luau7Printer23visualizeTypeAnnotationERNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(28) %633)
   %634 = load ptr, ptr %9, align 8, !tbaa !46
@@ -6685,7 +6676,7 @@ _ZNK4Luau7AstNameeqEPKc.exit344:                  ; preds = %580
 647:                                              ; preds = %.lr.ph
   %648 = load ptr, ptr %9, align 8, !tbaa !46
   %649 = load ptr, ptr %644, align 8, !tbaa !314
-  %650 = getelementptr inbounds nuw ptr, ptr %649, i64 %.0178506
+  %650 = getelementptr inbounds nuw [8 x i8], ptr %649, i64 %.0178506
   %651 = load ptr, ptr %650, align 8, !tbaa !258
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 12
   %653 = load ptr, ptr %648, align 8, !tbaa !22
@@ -6701,7 +6692,7 @@ _ZNK4Luau7AstNameeqEPKc.exit344:                  ; preds = %580
 
 660:                                              ; preds = %647, %.lr.ph
   %661 = load ptr, ptr %644, align 8, !tbaa !314
-  %662 = getelementptr inbounds nuw ptr, ptr %661, i64 %.0178506
+  %662 = getelementptr inbounds nuw [8 x i8], ptr %661, i64 %.0178506
   %663 = load ptr, ptr %662, align 8, !tbaa !258
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 8
   %665 = load i32, ptr %664, align 8, !tbaa !47
@@ -6724,7 +6715,7 @@ _ZNK4Luau7AstNameeqEPKc.exit344:                  ; preds = %580
   %674 = load ptr, ptr %673, align 8
   tail call void %674(ptr noundef nonnull align 8 dereferenceable(8) %671, i64 1, ptr nonnull @.str.128)
   %675 = load ptr, ptr %644, align 8, !tbaa !314
-  %676 = getelementptr inbounds nuw ptr, ptr %675, i64 %.0178506
+  %676 = getelementptr inbounds nuw [8 x i8], ptr %675, i64 %.0178506
   %677 = load ptr, ptr %676, align 8, !tbaa !258
   tail call void @_ZN4Luau7Printer23visualizeTypeAnnotationERNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(28) %677)
   %678 = load ptr, ptr %9, align 8, !tbaa !46
@@ -7972,7 +7963,7 @@ _ZN4Luau18Printer_DEPRECATED9visualizeERKNS_8AstLocalE.exit: ; preds = %207, %22
   %670 = load ptr, ptr %669, align 8
   tail call void %670(ptr noundef nonnull align 8 dereferenceable(8) %666, i64 2, ptr nonnull %.str.123..str.124)
   %671 = load ptr, ptr %661, align 8, !tbaa !155
-  %672 = getelementptr inbounds nuw ptr, ptr %671, i64 %.0191479
+  %672 = getelementptr inbounds nuw [8 x i8], ptr %671, i64 %.0191479
   %673 = load ptr, ptr %672, align 8, !tbaa !83
   tail call void @_ZN4Luau18Printer_DEPRECATED9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %673)
   %674 = add nuw i64 %.0191479, 1
@@ -8009,7 +8000,7 @@ _ZN4Luau18Printer_DEPRECATED9visualizeERKNS_8AstLocalE.exit: ; preds = %207, %22
   %688 = load ptr, ptr %687, align 8
   tail call void %688(ptr noundef nonnull align 8 dereferenceable(8) %681, i64 2, ptr nonnull %.sroa.3.0)
   %689 = load ptr, ptr %662, align 8, !tbaa !157
-  %690 = getelementptr inbounds nuw ptr, ptr %689, i64 %.0480
+  %690 = getelementptr inbounds nuw [8 x i8], ptr %689, i64 %.0480
   %691 = load ptr, ptr %690, align 8, !tbaa !61
   tail call void @_ZN4Luau18Printer_DEPRECATED9visualizeERNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(29) %691)
   %692 = add nuw i64 %.0480, 1
@@ -8996,7 +8987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit306: ; preds = %51
   %525 = load ptr, ptr %524, align 8
   call void %525(ptr noundef nonnull align 8 dereferenceable(8) %522, i64 1, ptr nonnull @.str.135)
   %526 = load ptr, ptr %499, align 8, !tbaa !235
-  %527 = getelementptr inbounds nuw ptr, ptr %526, i64 %.0147472
+  %527 = getelementptr inbounds nuw [8 x i8], ptr %526, i64 %.0147472
   %528 = load ptr, ptr %527, align 8, !tbaa !83
   call void @_ZN4Luau18Printer_DEPRECATED9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %528)
   %529 = load ptr, ptr %11, align 8, !tbaa !328
@@ -9067,7 +9058,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit309: ; preds = %53
   %561 = load ptr, ptr %560, align 8
   tail call void %561(ptr noundef nonnull align 8 dereferenceable(8) %557, i64 2, ptr nonnull %.str.123..str.124)
   %562 = load ptr, ptr %551, align 8, !tbaa !238
-  %563 = getelementptr inbounds nuw ptr, ptr %562, i64 %.0469
+  %563 = getelementptr inbounds nuw [8 x i8], ptr %562, i64 %.0469
   %564 = load ptr, ptr %563, align 8, !tbaa !83
   tail call void @_ZN4Luau18Printer_DEPRECATED9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %564)
   %565 = add nuw i64 %.0469, 1
@@ -9418,7 +9409,7 @@ _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %154, %.thread, %_ZN
 
 _ZN4Luau22CommaSeparatorInserterclEv.exit248:     ; preds = %.lr.ph403, %180
   %184 = load ptr, ptr %172, align 8, !tbaa !304
-  %185 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %184, i64 %.0129402
+  %185 = getelementptr inbounds nuw [56 x i8], ptr %184, i64 %.0129402
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %4, align 8, !tbaa !328
   %188 = load ptr, ptr %187, align 8, !tbaa !22
@@ -9427,7 +9418,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit248:     ; preds = %.lr.ph403, %180
   tail call void %190(ptr noundef nonnull align 8 dereferenceable(8) %187, ptr noundef nonnull align 4 dereferenceable(8) %186)
   %191 = load ptr, ptr %4, align 8, !tbaa !328
   %192 = load ptr, ptr %172, align 8, !tbaa !304
-  %193 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %192, i64 %.0129402
+  %193 = getelementptr inbounds nuw [56 x i8], ptr %192, i64 %.0129402
   %194 = load ptr, ptr %193, align 8, !tbaa !300
   %195 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %194) #23
   %196 = load ptr, ptr %191, align 8, !tbaa !22
@@ -9435,7 +9426,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit248:     ; preds = %.lr.ph403, %180
   %198 = load ptr, ptr %197, align 8
   tail call void %198(ptr noundef nonnull align 8 dereferenceable(8) %191, i64 %195, ptr nonnull %194)
   %199 = load ptr, ptr %172, align 8, !tbaa !304
-  %200 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %199, i64 %.0129402
+  %200 = getelementptr inbounds nuw [56 x i8], ptr %199, i64 %.0129402
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %202 = load ptr, ptr %201, align 8, !tbaa !301
   %.not211 = icmp eq ptr %202, null
@@ -9448,7 +9439,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit248:     ; preds = %.lr.ph403, %180
   %207 = load ptr, ptr %206, align 8
   tail call void %207(ptr noundef nonnull align 8 dereferenceable(8) %204, i64 1, ptr nonnull @.str.127)
   %208 = load ptr, ptr %172, align 8, !tbaa !304
-  %209 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %208, i64 %.0129402
+  %209 = getelementptr inbounds nuw [56 x i8], ptr %208, i64 %.0129402
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 24
   %211 = load ptr, ptr %210, align 8, !tbaa !301
   tail call void @_ZN4Luau18Printer_DEPRECATED23visualizeTypeAnnotationERKNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %211)
@@ -9634,7 +9625,7 @@ _ZNK4Luau7AstNameeqEPKc.exit258:                  ; preds = %281
 
 305:                                              ; preds = %.lr.ph399
   %306 = load ptr, ptr %4, align 8, !tbaa !328
-  %307 = getelementptr inbounds nuw ptr, ptr %.pre434, i64 %.0132398
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %.pre434, i64 %.0132398
   %308 = load ptr, ptr %307, align 8, !tbaa !258
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 12
   %310 = load ptr, ptr %306, align 8, !tbaa !22
@@ -9651,7 +9642,7 @@ _ZNK4Luau7AstNameeqEPKc.exit258:                  ; preds = %281
 
 317:                                              ; preds = %305, %.lr.ph399
   %318 = phi ptr [ %.pre, %305 ], [ %.pre434, %.lr.ph399 ]
-  %319 = getelementptr inbounds nuw ptr, ptr %318, i64 %.0132398
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %.0132398
   %320 = load ptr, ptr %319, align 8, !tbaa !258
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %322 = load i32, ptr %321, align 8, !tbaa !47
@@ -9674,7 +9665,7 @@ _ZNK4Luau7AstNameeqEPKc.exit258:                  ; preds = %281
   %331 = load ptr, ptr %330, align 8
   tail call void %331(ptr noundef nonnull align 8 dereferenceable(8) %328, i64 1, ptr nonnull @.str.128)
   %332 = load ptr, ptr %262, align 8, !tbaa !310
-  %333 = getelementptr inbounds nuw ptr, ptr %332, i64 %.0132398
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %.0132398
   %334 = load ptr, ptr %333, align 8, !tbaa !258
   tail call void @_ZN4Luau18Printer_DEPRECATED23visualizeTypeAnnotationERKNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %334)
   %335 = load ptr, ptr %4, align 8, !tbaa !328
@@ -9714,7 +9705,7 @@ _ZNK4Luau7AstNameeqEPKc.exit258:                  ; preds = %281
 348:                                              ; preds = %.lr.ph
   %349 = load ptr, ptr %4, align 8, !tbaa !328
   %350 = load ptr, ptr %345, align 8, !tbaa !314
-  %351 = getelementptr inbounds nuw ptr, ptr %350, i64 %.0130397
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %350, i64 %.0130397
   %352 = load ptr, ptr %351, align 8, !tbaa !258
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 12
   %354 = load ptr, ptr %349, align 8, !tbaa !22
@@ -9730,7 +9721,7 @@ _ZNK4Luau7AstNameeqEPKc.exit258:                  ; preds = %281
 
 361:                                              ; preds = %348, %.lr.ph
   %362 = load ptr, ptr %345, align 8, !tbaa !314
-  %363 = getelementptr inbounds nuw ptr, ptr %362, i64 %.0130397
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %362, i64 %.0130397
   %364 = load ptr, ptr %363, align 8, !tbaa !258
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load i32, ptr %365, align 8, !tbaa !47
@@ -9753,7 +9744,7 @@ _ZNK4Luau7AstNameeqEPKc.exit258:                  ; preds = %281
   %375 = load ptr, ptr %374, align 8
   tail call void %375(ptr noundef nonnull align 8 dereferenceable(8) %372, i64 1, ptr nonnull @.str.128)
   %376 = load ptr, ptr %345, align 8, !tbaa !314
-  %377 = getelementptr inbounds nuw ptr, ptr %376, i64 %.0130397
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %.0130397
   %378 = load ptr, ptr %377, align 8, !tbaa !258
   tail call void @_ZN4Luau18Printer_DEPRECATED23visualizeTypeAnnotationERKNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %378)
   %379 = load ptr, ptr %4, align 8, !tbaa !328
@@ -9932,8 +9923,8 @@ define dso_local void @_ZN4Luau9transpileB5cxx11ERNS_12AstStatBlockERKNS_12Dense
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %.012.i.i = phi i64 [ %28, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %.012.i.i
-  %27 = getelementptr inbounds nuw %"struct.std::pair", ptr %25, i64 %.012.i.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %.012.i.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %.012.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   %28 = add nuw i64 %.012.i.i, 1
   %exitcond.not = icmp eq i64 %28, %24
@@ -10276,8 +10267,8 @@ define dso_local void @_ZN4Luau18transpileWithTypesB5cxx11ERNS_12AstStatBlockERK
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %.012.i.i = phi i64 [ %28, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %.012.i.i
-  %27 = getelementptr inbounds nuw %"struct.std::pair", ptr %25, i64 %.012.i.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %.012.i.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %.012.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   %28 = add nuw i64 %.012.i.i, 1
   %exitcond.not = icmp eq i64 %28, %24
@@ -10583,9 +10574,9 @@ _ZNSt22_Optional_payload_baseIN4Luau27FragmentParseResumeSettingsEE12_M_construc
 .lr.ph.i.i.i:                                     ; preds = %.noexc52, %.lr.ph.i.i.i
   %.012.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i ], [ 0, %.noexc52 ]
   %34 = load ptr, ptr %19, align 8, !tbaa !356
-  %35 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %34, i64 %.012.i.i.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %.012.i.i.i
   %36 = load ptr, ptr %20, align 8, !tbaa !356
-  %37 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %36, i64 %.012.i.i.i
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %.012.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
   %38 = add nuw i64 %.012.i.i.i, 1
   store i64 %38, ptr %21, align 8, !tbaa !355
@@ -12742,7 +12733,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit46:      ; preds = %.lr.ph111, %44
   %.037115 = phi i64 [ 0, %.lr.ph117 ], [ %114, %113 ]
   %.sroa.064.0113 = phi i1 [ true, %.lr.ph117 ], [ false, %113 ]
   %84 = load ptr, ptr %76, align 8, !tbaa !418
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %.037115
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.037115
   %86 = load ptr, ptr %85, align 8, !tbaa !92
   br i1 %.sroa.064.0113, label %_ZN4Luau22CommaSeparatorInserterclEv.exit48, label %87
 
@@ -13091,7 +13082,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %.pn.i.i = phi i64 [ %21, %16 ], [ %31, %29 ]
   %.02028.i.i = phi i64 [ 0, %16 ], [ %30, %29 ]
   %.02129.i.i = and i64 %.pn.i.i, %17
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %.02129.i.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %.02129.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = icmp eq ptr %25, %13
   br i1 %26, label %_ZN4Luau6detail14DenseHashTableIPNS_7AstNodeESt4pairIS3_PNS_7CstNodeEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERS8_.exit, label %27
@@ -13123,7 +13114,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_7AstNodeESt4pairIS3_PNS_7CstNodeEES4_IKS3_S6
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !56
   %.02331.i5 = and i64 %38, %33
-  %42 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %.02331.i5
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.02331.i5
   %43 = load ptr, ptr %42, align 8, !tbaa !56
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge, label %.lr.ph.preheader
@@ -13152,7 +13143,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_7AstNodeESt4pairIS3_PNS_7CstNodeEES4_IKS3_S6
   %.not.i3 = icmp ule i64 %49, %33
   tail call void @llvm.assume(i1 %.not.i3)
   %.02331.i = and i64 %50, %33
-  %51 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %.02331.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.02331.i
   %52 = load ptr, ptr %51, align 8, !tbaa !56
   %53 = icmp eq ptr %52, %41
   br i1 %53, label %._crit_edge, label %.lr.ph
@@ -13183,7 +13174,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPNS_7AstNode
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.07.i.i = phi i64 [ %12, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %9, i64 %.07.i.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.07.i.i
   store ptr %.pre.i.i, ptr %10, align 8, !tbaa !56
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr null, ptr %11, align 8, !tbaa !57
@@ -13221,7 +13212,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_7AstNodeESt4pairIS3_PNS_7CstNodeEES4_IKS3_S6
 
 16:                                               ; preds = %.lr.ph26, %40
   %.025 = phi i64 [ 0, %.lr.ph26 ], [ %41, %40 ]
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre32, i64 %.025
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %.pre32, i64 %.025
   %18 = load ptr, ptr %17, align 8, !tbaa !56
   %19 = load ptr, ptr %6, align 8, !tbaa !56
   %20 = icmp eq ptr %18, %19
@@ -13233,7 +13224,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_7AstNodeESt4pairIS3_PNS_7CstNodeEES4_IKS3_S6
   %24 = lshr i64 %22, 9
   %25 = xor i64 %23, %24
   %.02331.i21 = and i64 %25, %14
-  %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sroa.0.0, i64 %.02331.i21
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %.02331.i21
   %27 = load ptr, ptr %26, align 8, !tbaa !56
   %28 = icmp eq ptr %27, %7
   br i1 %28, label %._crit_edge, label %.lr.ph.preheader
@@ -13259,7 +13250,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_7AstNodeESt4pairIS3_PNS_7CstNodeEES4_IKS3_S6
   %.not.i12 = icmp ule i64 %31, %14
   tail call void @llvm.assume(i1 %.not.i12)
   %.02331.i = and i64 %32, %14
-  %33 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sroa.0.0, i64 %.02331.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %.02331.i
   %34 = load ptr, ptr %33, align 8, !tbaa !56
   %35 = icmp eq ptr %34, %7
   br i1 %35, label %._crit_edge, label %.lr.ph
@@ -14145,7 +14136,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit46:      ; preds = %.lr.ph109, %45
   %.037113 = phi i64 [ 0, %.lr.ph115 ], [ %115, %114 ]
   %.sroa.062.0111 = phi i1 [ true, %.lr.ph115 ], [ false, %114 ]
   %85 = load ptr, ptr %77, align 8, !tbaa !418
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %.037113
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.037113
   %87 = load ptr, ptr %86, align 8, !tbaa !92
   br i1 %.sroa.062.0111, label %_ZN4Luau22CommaSeparatorInserterclEv.exit48, label %88
 

@@ -28,8 +28,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dmi_memdev_h
 %struct.attribute = type { ptr, i16 }
 %struct.efi = type { ptr, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.efi_memory_map, i64 }
 %struct.efi_memory_map = type { i64, ptr, ptr, i32, i64, i64, i64 }
-%struct.dmi_strmatch = type { i8, [79 x i8] }
-%struct.dmi_memdev_info = type { ptr, ptr, i64, i16, i8 }
 
 @dmi_kobj = dso_local global ptr null, align 8
 @__UNIQUE_ID___addressable_dmi_kobj411 = internal global ptr @dmi_kobj, section ".discard.addressable", align 8
@@ -383,7 +381,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 
 .split.us:                                        ; preds = %1, %.thread5.us
   %5 = phi i64 [ %23, %.thread5.us ], [ 0, %1 ]
-  %6 = getelementptr %struct.dmi_strmatch, ptr %2, i64 %5
+  %6 = getelementptr [80 x i8], ptr %2, i64 %5
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 127
   switch i8 %8, label %9 [
@@ -393,7 +391,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 
 9:                                                ; preds = %.split.us
   %10 = zext nneg i8 %8 to i64
-  %11 = getelementptr ptr, ptr @dmi_ident, i64 %10
+  %11 = getelementptr [8 x i8], ptr @dmi_ident, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread6, label %14
@@ -420,7 +418,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 
 .split:                                           ; preds = %1, %.thread5
   %25 = phi i64 [ %59, %.thread5 ], [ 0, %1 ]
-  %26 = getelementptr %struct.dmi_strmatch, ptr %2, i64 %25
+  %26 = getelementptr [80 x i8], ptr %2, i64 %25
   %27 = load i8, ptr %26, align 8
   %28 = and i8 %27, 127
   switch i8 %28, label %45 [
@@ -457,7 +455,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 
 45:                                               ; preds = %.split
   %46 = zext nneg i8 %28 to i64
-  %47 = getelementptr ptr, ptr @dmi_ident, i64 %46
+  %47 = getelementptr [8 x i8], ptr @dmi_ident, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread6, label %50
@@ -519,7 +517,7 @@ define dso_local noundef ptr @dmi_first_match(ptr noundef readonly captures(ret:
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local ptr @dmi_get_system_info(i32 noundef %0) #4 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @dmi_ident, i64 %2
+  %3 = getelementptr [8 x i8], ptr @dmi_ident, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -553,10 +551,10 @@ define dso_local noundef range(i32 0, 2) i32 @dmi_name_in_vendors(ptr noundef re
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %2 = phi i1 [ false, %1 ], [ true, %.backedge.backedge ]
   %3 = phi i64 [ 0, %1 ], [ 1, %.backedge.backedge ]
-  %4 = getelementptr i32, ptr @dmi_name_in_vendors.fields, i64 %3
+  %4 = getelementptr [4 x i8], ptr @dmi_name_in_vendors.fields, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr ptr, ptr @dmi_ident, i64 %6
+  %7 = getelementptr [8 x i8], ptr @dmi_ident, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
@@ -658,7 +656,7 @@ define dso_local noundef zeroext i1 @dmi_get_date(i32 noundef %0, ptr noundef wr
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr ptr, ptr @dmi_ident, i64 %6
+  %7 = getelementptr [8 x i8], ptr @dmi_ident, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %52
@@ -893,7 +891,7 @@ declare dso_local void @memunmap(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local zeroext i1 @dmi_match(i32 noundef %0, ptr noundef readonly captures(address) %1) #5 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr ptr, ptr @dmi_ident, i64 %3
+  %4 = getelementptr [8 x i8], ptr @dmi_ident, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %1, null
@@ -936,7 +934,7 @@ define dso_local void @dmi_memdev_name(i16 noundef zeroext %0, ptr noundef write
 
 .preheader:                                       ; preds = %.preheader.preheader, %10
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr %struct.dmi_memdev_info, ptr %4, i64 %indvars.iv
+  %12 = getelementptr [32 x i8], ptr %4, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i16, ptr %13, align 8
   %15 = icmp eq i16 %14, %0
@@ -976,7 +974,7 @@ define dso_local i64 @dmi_memdev_size(i16 noundef zeroext %0) #8 align 16 {
 
 .preheader:                                       ; preds = %.preheader.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr %struct.dmi_memdev_info, ptr %2, i64 %indvars.iv
+  %10 = getelementptr [32 x i8], ptr %2, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %12, %0
@@ -1014,7 +1012,7 @@ define dso_local zeroext i8 @dmi_memdev_type(i16 noundef zeroext %0) #8 align 16
 
 .preheader:                                       ; preds = %.preheader.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr %struct.dmi_memdev_info, ptr %2, i64 %indvars.iv
+  %10 = getelementptr [32 x i8], ptr %2, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %12, %0
@@ -1043,7 +1041,7 @@ define dso_local zeroext i16 @dmi_memdev_handle(i32 noundef %0) #9 align 16 {
 
 9:                                                ; preds = %1
   %10 = zext nneg i32 %0 to i64
-  %.split = getelementptr %struct.dmi_memdev_info, ptr %2, i64 %10
+  %.split = getelementptr [32 x i8], ptr %2, i64 %10
   %11 = getelementptr i8, ptr %.split, i64 24
   %12 = load i16, ptr %11, align 8
   br label %13
@@ -1547,7 +1545,7 @@ declare dso_local void @add_device_randomness(ptr noundef, i64 noundef) local_un
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @dmi_save_ident(ptr noundef readonly captures(address) %0, i32 noundef range(i32 1, 23) %1, i32 noundef range(i32 4, 27) %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr ptr, ptr @dmi_ident, i64 %4
+  %5 = getelementptr [8 x i8], ptr @dmi_ident, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %20
@@ -1578,7 +1576,7 @@ define internal fastcc void @dmi_save_ident(ptr noundef readonly captures(addres
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @dmi_save_release(ptr noundef readonly captures(none) %0, i32 noundef range(i32 4, 6) %1, i32 noundef range(i32 21, 24) %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr ptr, ptr @dmi_ident, i64 %4
+  %5 = getelementptr [8 x i8], ptr @dmi_ident, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %31
@@ -2172,7 +2170,7 @@ define internal void @save_mem_devices(ptr noundef readonly captures(address) %0
   %17 = load i16, ptr %16, align 1
   %18 = load ptr, ptr @dmi_memdev, align 8
   %19 = sext i32 %10 to i64
-  %.split = getelementptr %struct.dmi_memdev_info, ptr %18, i64 %19
+  %.split = getelementptr [32 x i8], ptr %18, i64 %19
   %20 = getelementptr i8, ptr %.split, i64 24
   store i16 %17, ptr %20, align 8
   %21 = getelementptr i8, ptr %0, i64 16
@@ -2181,7 +2179,7 @@ define internal void @save_mem_devices(ptr noundef readonly captures(address) %0
   %24 = load ptr, ptr @dmi_memdev, align 8
   %25 = load i32, ptr @save_mem_devices.nr, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr %struct.dmi_memdev_info, ptr %24, i64 %26
+  %27 = getelementptr [32 x i8], ptr %24, i64 %26
   store ptr %23, ptr %27, align 8
   %28 = getelementptr i8, ptr %0, i64 17
   %29 = load i8, ptr %28, align 1
@@ -2189,7 +2187,7 @@ define internal void @save_mem_devices(ptr noundef readonly captures(address) %0
   %31 = load ptr, ptr @dmi_memdev, align 8
   %32 = load i32, ptr @save_mem_devices.nr, align 4
   %33 = sext i32 %32 to i64
-  %.split2 = getelementptr %struct.dmi_memdev_info, ptr %31, i64 %33
+  %.split2 = getelementptr [32 x i8], ptr %31, i64 %33
   %34 = getelementptr i8, ptr %.split2, i64 8
   store ptr %30, ptr %34, align 8
   %35 = getelementptr i8, ptr %0, i64 18

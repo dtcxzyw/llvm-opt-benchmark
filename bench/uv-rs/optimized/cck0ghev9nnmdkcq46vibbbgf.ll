@@ -3828,7 +3828,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %39 = load ptr, ptr %24, align 8, !nonnull !3, !noundef !3
   %40 = load i64, ptr %25, align 8, !noundef !3
-  %41 = getelementptr inbounds { i8, [55 x i8] }, ptr %39, i64 %40
+  %41 = getelementptr inbounds [56 x i8], ptr %39, i64 %40
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !604
   store i64 0, ptr %7, align 8, !noalias !604
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3862,7 +3862,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
 
 51:                                               ; preds = %46, %50
   %52 = load ptr, ptr %24, align 8, !alias.scope !607, !noalias !610, !nonnull !3, !noundef !3
-  %53 = getelementptr inbounds { i8, [55 x i8] }, ptr %52, i64 %47
+  %53 = getelementptr inbounds [56 x i8], ptr %52, i64 %47
   store i8 8, ptr %53, align 8
   br label %.sink.split
 
@@ -3914,7 +3914,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heeb2c56c74f620fdE.exit9": ; preds = %72, %69
   %73 = load ptr, ptr %24, align 8, !alias.scope !620, !noalias !623, !nonnull !3, !noundef !3
-  %74 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %73, i64 %38
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %73, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %74, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   br label %.sink.split
 
@@ -3953,7 +3953,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
 
 87:                                               ; preds = %75, %78
   %88 = load ptr, ptr %24, align 8, !alias.scope !626, !noalias !629, !nonnull !3, !noundef !3
-  %89 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %88, i64 %38
+  %89 = getelementptr inbounds nuw [56 x i8], ptr %88, i64 %38
   store i8 8, ptr %89, align 8
   %90 = add nuw nsw i64 %38, 1
   store i64 %90, ptr %25, align 8, !alias.scope !626, !noalias !629
@@ -3997,7 +3997,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
   %.sink35 = phi i64 [ %38, %59 ], [ %38, %56 ], [ %96, %95 ], [ %96, %99 ]
   %105 = phi ptr [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %59 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %56 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %95 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %99 ]
   %106 = load ptr, ptr %24, align 8, !noalias !3, !nonnull !3, !noundef !3
-  %107 = getelementptr inbounds { i8, [55 x i8] }, ptr %106, i64 %.sink35
+  %107 = getelementptr inbounds [56 x i8], ptr %106, i64 %.sink35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %107, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   %108 = add i64 %.sink35, 1
   store i64 %108, ptr %25, align 8, !noalias !3
@@ -4030,7 +4030,7 @@ define hidden void @_ZN8pathdiff10diff_paths17h9beccaaac32025afE(ptr dead_on_unw
 
 117:                                              ; preds = %100, %104
   %118 = load ptr, ptr %24, align 8, !alias.scope !647, !noalias !650, !nonnull !3, !noundef !3
-  %119 = getelementptr inbounds { i8, [55 x i8] }, ptr %118, i64 %101
+  %119 = getelementptr inbounds [56 x i8], ptr %118, i64 %101
   store i8 8, ptr %119, align 8
   %120 = add i64 %101, 1
   store i64 %120, ptr %25, align 8, !alias.scope !647, !noalias !650
@@ -4151,7 +4151,7 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %42 = load ptr, ptr %27, align 8, !nonnull !3, !noundef !3
   %43 = load i64, ptr %28, align 8, !noundef !3
-  %44 = getelementptr inbounds { i8, [55 x i8] }, ptr %42, i64 %43
+  %44 = getelementptr inbounds [56 x i8], ptr %42, i64 %43
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !678
   store i64 0, ptr %6, align 8, !noalias !678
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4185,7 +4185,7 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
 
 54:                                               ; preds = %49, %53
   %55 = load ptr, ptr %27, align 8, !alias.scope !681, !noalias !684, !nonnull !3, !noundef !3
-  %56 = getelementptr inbounds { i8, [55 x i8] }, ptr %55, i64 %50
+  %56 = getelementptr inbounds [56 x i8], ptr %55, i64 %50
   store i8 8, ptr %56, align 8
   br label %.sink.split
 
@@ -4237,7 +4237,7 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heeb2c56c74f620fdE.exit9": ; preds = %75, %72
   %76 = load ptr, ptr %27, align 8, !alias.scope !693, !noalias !696, !nonnull !3, !noundef !3
-  %77 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %76, i64 %41
+  %77 = getelementptr inbounds nuw [56 x i8], ptr %76, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %77, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   br label %.sink.split
 
@@ -4276,7 +4276,7 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
 
 90:                                               ; preds = %78, %81
   %91 = load ptr, ptr %27, align 8, !alias.scope !699, !noalias !702, !nonnull !3, !noundef !3
-  %92 = getelementptr inbounds nuw { i8, [55 x i8] }, ptr %91, i64 %41
+  %92 = getelementptr inbounds nuw [56 x i8], ptr %91, i64 %41
   store i8 8, ptr %92, align 8
   %93 = add nuw nsw i64 %41, 1
   store i64 %93, ptr %28, align 8, !alias.scope !699, !noalias !702
@@ -4320,7 +4320,7 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
   %.sink35 = phi i64 [ %41, %62 ], [ %41, %59 ], [ %99, %98 ], [ %99, %102 ]
   %108 = phi ptr [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %62 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.81, %59 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %98 ], [ @anon.6bcc0c700345c9aa1dfe01020ab483ec.86, %102 ]
   %109 = load ptr, ptr %27, align 8, !noalias !3, !nonnull !3, !noundef !3
-  %110 = getelementptr inbounds { i8, [55 x i8] }, ptr %109, i64 %.sink35
+  %110 = getelementptr inbounds [56 x i8], ptr %109, i64 %.sink35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   %111 = add i64 %.sink35, 1
   store i64 %111, ptr %28, align 8, !noalias !3
@@ -4353,7 +4353,7 @@ define hidden void @_ZN8pathdiff10diff_paths17haa5af8e06471be23E(ptr dead_on_unw
 
 120:                                              ; preds = %103, %107
   %121 = load ptr, ptr %27, align 8, !alias.scope !720, !noalias !723, !nonnull !3, !noundef !3
-  %122 = getelementptr inbounds { i8, [55 x i8] }, ptr %121, i64 %104
+  %122 = getelementptr inbounds [56 x i8], ptr %121, i64 %104
   store i8 8, ptr %122, align 8
   %123 = add i64 %104, 1
   store i64 %123, ptr %28, align 8, !alias.scope !720, !noalias !723

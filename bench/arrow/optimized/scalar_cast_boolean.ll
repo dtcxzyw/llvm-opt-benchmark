@@ -77,11 +77,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.arrow::internal::BitBlockCounter" = type { ptr, i64, i64 }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"struct.arrow::compute::internal::applicator::ScalarUnaryNotNullStateful.106" = type { i8 }
-%"union.arrow::BinaryViewType::c_type" = type { %struct.anon.111 }
-%struct.anon.111 = type { i32, %"struct.std::array" }
-%"struct.std::array" = type { [12 x i8] }
-%"class.std::shared_ptr.114" = type { %"class.std::__shared_ptr.115" }
-%"class.std::__shared_ptr.115" = type { ptr, %"class.std::__shared_count" }
 
 $_ZN5arrow18TypedChunkLocationIiEC5Eii = comdat any
 
@@ -1116,7 +1111,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit102:
 
 switch.lookup:                                    ; preds = %295
   %300 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5arrow7compute8internal15GetBooleanCastsEv, i64 %300
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5arrow7compute8internal15GetBooleanCastsEv, i64 %300
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5arrow7compute8internal15GenerateNumericITtTpTyENS1_10applicator11ScalarUnaryENS_11BooleanTypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJNS1_9IsNonZeroEEEET1_NS1_6detail9GetTypeIdE.exit
 
@@ -4103,7 +4098,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal10applicator11ScalarUnaryINS
   %12 = load i64, ptr %11, align 8, !tbaa !129
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !136
-  %15 = getelementptr inbounds i16, ptr %14, i64 %12
+  %15 = getelementptr inbounds [2 x i8], ptr %14, i64 %12
   store ptr %15, ptr %7, align 8, !tbaa !170
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %17 = load i8, ptr %16, align 8, !tbaa !141
@@ -4200,7 +4195,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal10applicator11ScalarUnaryINS
   %12 = load i64, ptr %11, align 8, !tbaa !129
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !136
-  %15 = getelementptr inbounds i16, ptr %14, i64 %12
+  %15 = getelementptr inbounds [2 x i8], ptr %14, i64 %12
   store ptr %15, ptr %7, align 8, !tbaa !181
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %17 = load i8, ptr %16, align 8, !tbaa !141
@@ -4297,7 +4292,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal10applicator11ScalarUnaryINS
   %12 = load i64, ptr %11, align 8, !tbaa !129
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !136
-  %15 = getelementptr inbounds i32, ptr %14, i64 %12
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %12
   store ptr %15, ptr %7, align 8, !tbaa !191
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %17 = load i8, ptr %16, align 8, !tbaa !141
@@ -4394,7 +4389,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal10applicator11ScalarUnaryINS
   %12 = load i64, ptr %11, align 8, !tbaa !129
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !136
-  %15 = getelementptr inbounds i32, ptr %14, i64 %12
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %12
   store ptr %15, ptr %7, align 8, !tbaa !202
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %17 = load i8, ptr %16, align 8, !tbaa !141
@@ -4491,7 +4486,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal10applicator11ScalarUnaryINS
   %12 = load i64, ptr %11, align 8, !tbaa !129
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !136
-  %15 = getelementptr inbounds i64, ptr %14, i64 %12
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %12
   store ptr %15, ptr %7, align 8, !tbaa !212
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %17 = load i8, ptr %16, align 8, !tbaa !141
@@ -4588,7 +4583,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal10applicator11ScalarUnaryINS
   %12 = load i64, ptr %11, align 8, !tbaa !129
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !136
-  %15 = getelementptr inbounds i64, ptr %14, i64 %12
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %12
   store ptr %15, ptr %7, align 8, !tbaa !223
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %17 = load i8, ptr %16, align 8, !tbaa !141
@@ -4685,7 +4680,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal10applicator11ScalarUnaryINS
   %12 = load i64, ptr %11, align 8, !tbaa !129
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !136
-  %15 = getelementptr inbounds float, ptr %14, i64 %12
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %12
   store ptr %15, ptr %7, align 8, !tbaa !233
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %17 = load i8, ptr %16, align 8, !tbaa !141
@@ -4782,7 +4777,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal10applicator11ScalarUnaryINS
   %12 = load i64, ptr %11, align 8, !tbaa !129
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !136
-  %15 = getelementptr inbounds double, ptr %14, i64 %12
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %12
   store ptr %15, ptr %7, align 8, !tbaa !244
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %17 = load i8, ptr %16, align 8, !tbaa !141
@@ -6801,7 +6796,7 @@ _ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit: ; preds = %_ZN5arrow7comp
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %37 = load ptr, ptr %36, align 8, !tbaa !136
-  %38 = getelementptr inbounds i32, ptr %37, i64 %34
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %34
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %40 = load ptr, ptr %39, align 8, !tbaa !136
   %41 = icmp eq ptr %40, null
@@ -6846,7 +6841,7 @@ _ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit: ; preds = %_ZN5arrow7comp
   %.sroa.20.9 = phi i8 [ %.sroa.20.11, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %.sroa.20.1, %.lr.ph45.i.i.i.i.preheader ]
   %.02344.i.i.i.i = phi i64 [ %64, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ 0, %.lr.ph45.i.i.i.i.preheader ]
   %.143.i.i.i.i = phi i64 [ %65, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %.02447.i.i.i.i, %.lr.ph45.i.i.i.i.preheader ]
-  %49 = getelementptr inbounds i32, ptr %38, i64 %.143.i.i.i.i
+  %49 = getelementptr inbounds [4 x i8], ptr %38, i64 %.143.i.i.i.i
   %50 = load i32, ptr %49, align 4, !tbaa !52
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 %51
@@ -6938,7 +6933,7 @@ _ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11Boolean
   br i1 %86, label %87, label %101
 
 87:                                               ; preds = %.lr.ph.i.i.i.i
-  %88 = getelementptr inbounds i32, ptr %38, i64 %.437.i.i.i.i
+  %88 = getelementptr inbounds [4 x i8], ptr %38, i64 %.437.i.i.i.i
   %89 = load i32, ptr %88, align 4, !tbaa !52
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 %90
@@ -7476,7 +7471,7 @@ _ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit: ; preds = %_ZN5arrow7comp
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %37 = load ptr, ptr %36, align 8, !tbaa !136
-  %38 = getelementptr inbounds i64, ptr %37, i64 %34
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %34
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %40 = load ptr, ptr %39, align 8, !tbaa !136
   %41 = icmp eq ptr %40, null
@@ -7521,7 +7516,7 @@ _ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit: ; preds = %_ZN5arrow7comp
   %.sroa.20.9 = phi i8 [ %.sroa.20.11, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %.sroa.20.1, %.lr.ph45.i.i.i.i.preheader ]
   %.02344.i.i.i.i = phi i64 [ %62, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ 0, %.lr.ph45.i.i.i.i.preheader ]
   %.143.i.i.i.i = phi i64 [ %63, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %.02447.i.i.i.i, %.lr.ph45.i.i.i.i.preheader ]
-  %49 = getelementptr inbounds i64, ptr %38, i64 %.143.i.i.i.i
+  %49 = getelementptr inbounds [8 x i8], ptr %38, i64 %.143.i.i.i.i
   %50 = load i64, ptr %49, align 8, !tbaa !119
   %51 = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 %50
   %52 = getelementptr i8, ptr %49, i64 8
@@ -7611,7 +7606,7 @@ _ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11Boolean
   br i1 %84, label %85, label %97
 
 85:                                               ; preds = %.lr.ph.i.i.i.i
-  %86 = getelementptr inbounds i64, ptr %38, i64 %.437.i.i.i.i
+  %86 = getelementptr inbounds [8 x i8], ptr %38, i64 %.437.i.i.i.i
   %87 = load i64, ptr %86, align 8, !tbaa !119
   %88 = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 %87
   %89 = getelementptr i8, ptr %86, i64 8
@@ -7811,7 +7806,7 @@ _ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit: ; preds = %_ZN5arrow7comp
   %33 = load i64, ptr %32, align 8, !tbaa !129
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %35 = load ptr, ptr %34, align 8, !tbaa !136
-  %36 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %35, i64 %33
+  %36 = getelementptr inbounds [16 x i8], ptr %35, i64 %33
   %37 = invoke { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %.noexc11 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7860,7 +7855,7 @@ _ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit: ; preds = %_ZN5arrow7comp
   %.sroa.20.9 = phi i8 [ %.sroa.20.11, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %.sroa.20.1, %.lr.ph46.i.i.i.i.preheader ]
   %.02345.i.i.i.i = phi i64 [ %79, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ 0, %.lr.ph46.i.i.i.i.preheader ]
   %.144.i.i.i.i = phi i64 [ %80, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %.02448.i.i.i.i, %.lr.ph46.i.i.i.i.preheader ]
-  %49 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %36, i64 %.144.i.i.i.i
+  %49 = getelementptr inbounds [16 x i8], ptr %36, i64 %.144.i.i.i.i
   %50 = load i32, ptr %49, align 8, !tbaa !51
   %51 = icmp slt i32 %50, 13
   br i1 %51, label %52, label %54
@@ -7873,7 +7868,7 @@ _ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit: ; preds = %_ZN5arrow7comp
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !51
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %"class.std::shared_ptr.114", ptr %39, i64 %57
+  %58 = getelementptr inbounds [16 x i8], ptr %39, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !370
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 9
   %61 = load i8, ptr %60, align 1, !tbaa !373, !range !106, !noundef !107
@@ -7974,7 +7969,7 @@ _ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11Boolean
   br i1 %101, label %102, label %131
 
 102:                                              ; preds = %.lr.ph.i.i.i.i
-  %103 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %36, i64 %.438.i.i.i.i
+  %103 = getelementptr inbounds [16 x i8], ptr %36, i64 %.438.i.i.i.i
   %104 = load i32, ptr %103, align 8, !tbaa !51
   %105 = icmp slt i32 %104, 13
   br i1 %105, label %106, label %108
@@ -7987,7 +7982,7 @@ _ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11Boolean
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %110 = load i32, ptr %109, align 8, !tbaa !51
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds %"class.std::shared_ptr.114", ptr %39, i64 %111
+  %112 = getelementptr inbounds [16 x i8], ptr %39, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !370
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 9
   %115 = load i8, ptr %114, align 1, !tbaa !373, !range !106, !noundef !107

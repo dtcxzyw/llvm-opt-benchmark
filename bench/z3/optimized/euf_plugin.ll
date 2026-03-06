@@ -4,12 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.euf::egraph::update_record" = type { i32, ptr, ptr, %union.anon.32 }
-%union.anon.32 = type { i64 }
 %"class.euf::justification" = type { i32, %union.anon, %union.anon.17 }
 %union.anon = type { ptr }
 %union.anon.17 = type { ptr }
-%"struct.euf::egraph::to_merge" = type { ptr, ptr, i32, %"class.euf::justification" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.36 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.36 = type { i64, [8 x i8] }
@@ -69,7 +66,7 @@ _ZN3euf6egraph16push_plugin_undoEj.exit:          ; preds = %8, %14
   %16 = phi ptr [ %.pre.i.i, %14 ], [ %6, %8 ]
   %17 = and i32 %1, 255
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %18
   store i32 14, ptr %19, align 8, !tbaa !14
   %20 = getelementptr i8, ptr %19, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 16, i1 false)
@@ -115,7 +112,7 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit: ; preds = %10
   %17 = phi i32 [ %.pre2.i.i, %16 ], [ %12, %10 ]
   %18 = phi ptr [ %.pre.i.i, %16 ], [ %8, %10 ]
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %"struct.euf::egraph::to_merge", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %19
   store ptr %1, ptr %20, align 8, !tbaa !19
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %2, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !19
@@ -167,7 +164,7 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit: ; preds = %13
   %20 = phi i32 [ %.pre2.i.i, %19 ], [ %15, %13 ]
   %21 = phi ptr [ %.pre.i.i, %19 ], [ %11, %13 ]
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %"struct.euf::egraph::to_merge", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %22
   store ptr %1, ptr %23, align 8, !tbaa !19
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %2, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !19
@@ -206,7 +203,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i:  ; preds = %4
 
 _ZNK3euf6egraph4findEP4expr.exit:                 ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i
   %14 = zext i32 %10 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %14
   %.pre.i.then.val = load ptr, ptr %15, align 8, !tbaa !19
   %.not = icmp eq ptr %.pre.i.then.val, null
   br i1 %.not, label %_ZNK3euf6egraph4findEP4expr.exit.thread, label %17

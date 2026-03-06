@@ -70,7 +70,7 @@ _ZN15NumberlikeArrayItEC2EPKtj.exit.thread:       ; preds = %4
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %23 ], [ %6, %._crit_edge ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %19 = and i64 %indvars.iv.next.i, 4294967295
-  %20 = getelementptr inbounds nuw i16, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !18
   %22 = icmp eq i16 %21, 0
   br i1 %22, label %23, label %_ZN18BigUnsignedInABase15zapLeadingZerosEv.exit
@@ -86,7 +86,7 @@ _ZN18BigUnsignedInABase15zapLeadingZerosEv.exit:  ; preds = %.lr.ph.i, %23, %._c
 
 .lr.ph:                                           ; preds = %_ZN15NumberlikeArrayItEC2EPKtj.exit.thread, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %_ZN15NumberlikeArrayItEC2EPKtj.exit.thread ]
-  %24 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !18
   %.not = icmp ult i16 %25, %3
   br i1 %.not, label %18, label %26
@@ -199,9 +199,9 @@ _ZN15NumberlikeArrayItE8allocateEj.exit:          ; preds = %.noexc, %_ZN12_GLOB
 
 36:                                               ; preds = %36, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %36 ]
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i.i
   %38 = load i64, ptr %37, align 8, !tbaa !29
-  %39 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i.i
   store i64 %38, ptr %39, align 8, !tbaa !29
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %30
@@ -239,9 +239,9 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %36, %.noexc29
 
 49:                                               ; preds = %49, %.lr.ph.i.i31
   %indvars.iv.i.i32 = phi i64 [ 0, %.lr.ph.i.i31 ], [ %indvars.iv.next.i.i33, %49 ]
-  %50 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv.i.i32
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i.i32
   %51 = load i64, ptr %50, align 8, !tbaa !29
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv.i.i32
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i.i32
   store i64 %51, ptr %52, align 8, !tbaa !29
   %indvars.iv.next.i.i33 = add nuw nsw i64 %indvars.iv.i.i32, 1
   %exitcond.not.i.i34 = icmp eq i64 %indvars.iv.next.i.i33, %45
@@ -258,7 +258,7 @@ _ZN11BigUnsignedC2ERKS_.exit36:                   ; preds = %49
 55:                                               ; preds = %53
   %56 = load ptr, ptr %42, align 8, !tbaa !14
   %57 = zext i32 %.044 to i64
-  %58 = getelementptr inbounds nuw i16, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %57
   store i16 %54, ptr %58, align 2, !tbaa !18
   %59 = add i32 %.044, 1
   %60 = load ptr, ptr %41, align 8, !tbaa !28
@@ -419,7 +419,7 @@ define void @_ZNK18BigUnsignedInABasecv11BigUnsignedEv(ptr dead_on_unwind noalia
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = load ptr, ptr %11, align 8, !tbaa !14
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %15
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %15
   %19 = load i16, ptr %18, align 2, !tbaa !18
   invoke void @_ZN11BigUnsignedC1Et(ptr noundef nonnull align 8 dereferenceable(16) %5, i16 noundef zeroext %19)
           to label %20 unwind label %29
@@ -619,7 +619,7 @@ define void @_ZN18BigUnsignedInABaseC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   %.sink51 = phi i16 [ -48, %22 ], [ -55, %29 ], [ -87, %31 ]
   %36 = zext nneg i8 %27 to i16
   %37 = add nsw i16 %.sink51, %36
-  %38 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %indvars.iv
   store i16 %37, ptr %38, align 2, !tbaa !18
   %.not = icmp ult i16 %37, %2
   br i1 %.not, label %21, label %.invoke
@@ -642,7 +642,7 @@ define void @_ZN18BigUnsignedInABaseC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   %indvars.iv.i = phi i64 [ %40, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %42 = and i64 %indvars.iv.next.i, 4294967295
-  %43 = getelementptr inbounds nuw i16, ptr %18, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !18
   %45 = icmp eq i16 %44, 0
   br i1 %45, label %46, label %_ZN18BigUnsignedInABase15zapLeadingZerosEv.exit
@@ -721,7 +721,7 @@ define void @_ZNK18BigUnsignedInABasecvNSt7__cxx1112basic_stringIcSt11char_trait
   %26 = xor i32 %25, -1
   %27 = add i32 %11, %26
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %23, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !18
   %31 = icmp ult i16 %30, 10
   %32 = trunc i16 %30 to i8

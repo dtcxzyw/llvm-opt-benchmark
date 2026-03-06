@@ -7573,7 +7573,7 @@ _ZN5serde2de9MapAccess10next_entry17h96931bd3f407fdd1E.exit.i: ; preds = %.noexc
   %.sroa.0.0.copyload.i.i = load ptr, ptr %152, align 8, !noalias !1602, !nonnull !58, !noundef !58
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !1602
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 96
-  %180 = getelementptr inbounds { [3 x i64] }, ptr %179, i64 %.sroa.43.0.copyload.i.i
+  %180 = getelementptr inbounds [24 x i8], ptr %179, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %180, i64 24, i1 false), !noalias !1610
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %180, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !1609
   %.pr.i = load i64, ptr %20, align 8, !alias.scope !1611, !noalias !1577
@@ -10174,7 +10174,7 @@ _ZN5serde2de7Visitor10visit_bool17h6b4cd0ec76bae7adE.exit: ; preds = %147
   %.sroa.0.0.copyload.i.i = load ptr, ptr %157, align 8, !noalias !2080, !nonnull !58, !noundef !58
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !2080
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %195 = getelementptr inbounds { [3 x i64] }, ptr %194, i64 %.sroa.43.0.copyload.i.i
+  %195 = getelementptr inbounds [24 x i8], ptr %194, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %195, i64 24, i1 false), !noalias !2088
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %195, ptr noundef nonnull align 8 dereferenceable(24) %161, i64 24, i1 false), !noalias !2039
   %.pr.i = load i64, ptr %22, align 8, !alias.scope !2089, !noalias !2044
@@ -11039,7 +11039,7 @@ _ZN5serde2de7Visitor10visit_bool17h8f83444c71cc1afbE.exit: ; preds = %147
   %.sroa.0.0.copyload.i.i = load ptr, ptr %157, align 8, !noalias !2252, !nonnull !58, !noundef !58
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !2252
   %191 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %192 = getelementptr inbounds { [3 x i64] }, ptr %191, i64 %.sroa.43.0.copyload.i.i
+  %192 = getelementptr inbounds [24 x i8], ptr %191, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !2260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %192, i64 24, i1 false), !noalias !2211
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %192, ptr noundef nonnull align 8 dereferenceable(24) %158, i64 24, i1 false), !noalias !2211

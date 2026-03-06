@@ -525,7 +525,7 @@ define void @ff_sws_graph_free(ptr noundef captures(none) %0) local_unnamed_addr
 11:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %12 = load ptr, ptr %8, align 8, !tbaa !74
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %16 = load ptr, ptr %15, align 8, !tbaa !70
@@ -1130,7 +1130,7 @@ define void @ff_sws_graph_run(ptr noundef initializes((432, 480), (488, 536)) %0
 18:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %19 = load ptr, ptr %16, align 8, !tbaa !74
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   store ptr %21, ptr %6, align 8, !tbaa !72
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
@@ -1543,7 +1543,7 @@ define internal void @run_copy(ptr noundef readonly captures(none) %0, ptr nound
 
 11:                                               ; preds = %ff_fmt_vshift.exit.i, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %ff_fmt_vshift.exit.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !75, !alias.scope !110
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %ff_sws_img_shift.exit, label %14
@@ -1564,7 +1564,7 @@ define internal void @run_copy(ptr noundef readonly captures(none) %0, ptr nound
 ff_fmt_vshift.exit.i:                             ; preds = %18, %14
   %22 = phi i32 [ %21, %18 ], [ 0, %14 ]
   %23 = ashr i32 %2, %22
-  %24 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4, !tbaa !42, !alias.scope !110
   %26 = mul nsw i32 %23, %25
   %27 = sext i32 %26 to i64
@@ -1585,7 +1585,7 @@ ff_sws_img_shift.exit:                            ; preds = %11, %ff_fmt_vshift.
 
 32:                                               ; preds = %ff_fmt_vshift.exit.i36, %ff_sws_img_shift.exit
   %indvars.iv.i33 = phi i64 [ 0, %ff_sws_img_shift.exit ], [ %indvars.iv.next.i37, %ff_fmt_vshift.exit.i36 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i33
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i33
   %34 = load ptr, ptr %33, align 8, !tbaa !75, !alias.scope !115
   %.not.i34 = icmp eq ptr %34, null
   br i1 %.not.i34, label %ff_sws_img_shift.exit39.preheader, label %35
@@ -1606,7 +1606,7 @@ ff_sws_img_shift.exit:                            ; preds = %11, %ff_fmt_vshift.
 ff_fmt_vshift.exit.i36:                           ; preds = %39, %35
   %43 = phi i32 [ %42, %39 ], [ 0, %35 ]
   %44 = ashr i32 %2, %43
-  %45 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i33
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i33
   %46 = load i32, ptr %45, align 4, !tbaa !42, !alias.scope !115
   %47 = mul nsw i32 %44, %46
   %48 = sext i32 %47 to i64
@@ -1621,7 +1621,7 @@ ff_sws_img_shift.exit39.preheader:                ; preds = %32, %ff_fmt_vshift.
 
 ff_sws_img_shift.exit39:                          ; preds = %ff_sws_img_shift.exit39.preheader, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %ff_sws_img_shift.exit39.preheader ]
-  %50 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !75
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %.critedge, label %52
@@ -1647,15 +1647,15 @@ ff_sws_img_shift.exit39:                          ; preds = %ff_sws_img_shift.ex
 ff_fmt_vshift.exit:                               ; preds = %52, %56
   %60 = phi i32 [ %59, %56 ], [ 0, %52 ]
   %61 = ashr i32 %3, %60
-  %62 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !42
-  %64 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !42
   %66 = icmp eq i32 %63, %65
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %ff_fmt_vshift.exit
-  %68 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !75
   %70 = mul nsw i32 %63, %61
   %71 = sext i32 %70 to i64
@@ -1668,7 +1668,7 @@ ff_fmt_vshift.exit:                               ; preds = %52, %56
 
 .lr.ph:                                           ; preds = %72
   %. = tail call i32 @llvm.smin.i32(i32 %65, i32 %63)
-  %74 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %75 = sext i32 %. to i64
   %76 = sext i32 %63 to i64
   %77 = sext i32 %65 to i64
@@ -1728,7 +1728,7 @@ define internal void @run_lut3d(ptr noundef readonly captures(none) %0, ptr noun
 
 13:                                               ; preds = %ff_fmt_vshift.exit.i, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %ff_fmt_vshift.exit.i ]
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !75, !alias.scope !120
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %ff_sws_img_shift.exit, label %16
@@ -1749,7 +1749,7 @@ define internal void @run_lut3d(ptr noundef readonly captures(none) %0, ptr noun
 ff_fmt_vshift.exit.i:                             ; preds = %20, %16
   %24 = phi i32 [ %23, %20 ], [ 0, %16 ]
   %25 = ashr i32 %2, %24
-  %26 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !42, !alias.scope !120
   %28 = mul nsw i32 %25, %27
   %29 = sext i32 %28 to i64
@@ -1770,7 +1770,7 @@ ff_sws_img_shift.exit:                            ; preds = %13, %ff_fmt_vshift.
 
 34:                                               ; preds = %ff_fmt_vshift.exit.i10, %ff_sws_img_shift.exit
   %indvars.iv.i7 = phi i64 [ 0, %ff_sws_img_shift.exit ], [ %indvars.iv.next.i11, %ff_fmt_vshift.exit.i10 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i7
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i7
   %36 = load ptr, ptr %35, align 8, !tbaa !75, !alias.scope !123
   %.not.i8 = icmp eq ptr %36, null
   br i1 %.not.i8, label %ff_sws_img_shift.exit13, label %37
@@ -1791,7 +1791,7 @@ ff_sws_img_shift.exit:                            ; preds = %13, %ff_fmt_vshift.
 ff_fmt_vshift.exit.i10:                           ; preds = %41, %37
   %45 = phi i32 [ %44, %41 ], [ 0, %37 ]
   %46 = ashr i32 %2, %45
-  %47 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i7
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i7
   %48 = load i32, ptr %47, align 4, !tbaa !42, !alias.scope !123
   %49 = mul nsw i32 %46, %48
   %50 = sext i32 %49 to i64
@@ -1890,7 +1890,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_legacy_subpass(ptr no
 
 26:                                               ; preds = %22, %34
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %34 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = icmp eq i64 %indvars.iv.next, %25
@@ -2030,7 +2030,7 @@ pass_append.exit135:                              ; preds = %67, %63, %pass_appe
   %indvars.iv170 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next171, %124 ]
   %94 = tail call ptr @sws_alloc_context() #12
   %95 = load ptr, ptr %85, align 16, !tbaa !142
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv170
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv170
   store ptr %94, ptr %96, align 8, !tbaa !94
   %.not126 = icmp eq ptr %94, null
   br i1 %.not126, label %.thread145, label %97
@@ -2065,13 +2065,13 @@ pass_append.exit135:                              ; preds = %67, %63, %pass_appe
 
 117:                                              ; preds = %106, %117
   %indvars.iv166 = phi i64 [ 0, %106 ], [ %indvars.iv.next167, %117 ]
-  %118 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv166
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv166
   %119 = load i32, ptr %118, align 4, !tbaa !42
-  %120 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv166
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv166
   store i32 %119, ptr %120, align 4, !tbaa !42
-  %121 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv166
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv166
   %122 = load i32, ptr %121, align 4, !tbaa !42
-  %123 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv166
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv166
   store i32 %122, ptr %123, align 4, !tbaa !42
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 4
@@ -2229,7 +2229,7 @@ define internal void @run_legacy_unscaled(ptr noundef %0, ptr noundef readonly c
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = sdiv i32 %2, %16
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %14, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %14, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !94
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load i32, ptr %21, align 8, !tbaa !97
@@ -2263,7 +2263,7 @@ slice_ctx.exit:                                   ; preds = %5, %12, %usePal.exi
 
 30:                                               ; preds = %ff_fmt_vshift.exit.i, %slice_ctx.exit
   %indvars.iv.i = phi i64 [ 0, %slice_ctx.exit ], [ %indvars.iv.next.i, %ff_fmt_vshift.exit.i ]
-  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8, !tbaa !75, !alias.scope !152
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %ff_sws_img_shift.exit, label %33
@@ -2284,7 +2284,7 @@ slice_ctx.exit:                                   ; preds = %5, %12, %usePal.exi
 ff_fmt_vshift.exit.i:                             ; preds = %37, %33
   %41 = phi i32 [ %40, %37 ], [ 0, %33 ]
   %42 = ashr i32 %2, %41
-  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   %44 = load i32, ptr %43, align 4, !tbaa !42, !alias.scope !152
   %45 = mul nsw i32 %42, %44
   %46 = sext i32 %45 to i64
@@ -2321,7 +2321,7 @@ define internal void @run_legacy_swscale(ptr noundef readonly captures(none) %0,
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = sdiv i32 %2, %16
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %14, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %14, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !94
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load i32, ptr %21, align 8, !tbaa !97
@@ -2355,7 +2355,7 @@ slice_ctx.exit:                                   ; preds = %5, %12, %usePal.exi
 
 30:                                               ; preds = %ff_fmt_vshift.exit.i, %slice_ctx.exit
   %indvars.iv.i = phi i64 [ 0, %slice_ctx.exit ], [ %indvars.iv.next.i, %ff_fmt_vshift.exit.i ]
-  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8, !tbaa !75, !alias.scope !155
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %ff_sws_img_shift.exit, label %33
@@ -2376,7 +2376,7 @@ slice_ctx.exit:                                   ; preds = %5, %12, %usePal.exi
 ff_fmt_vshift.exit.i:                             ; preds = %37, %33
   %41 = phi i32 [ %40, %37 ], [ 0, %33 ]
   %42 = ashr i32 %2, %41
-  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   %44 = load i32, ptr %43, align 4, !tbaa !42, !alias.scope !155
   %45 = mul nsw i32 %42, %44
   %46 = sext i32 %45 to i64
@@ -2424,7 +2424,7 @@ define internal void @setup_legacy_swscale(ptr readnone captures(none) %0, ptr n
 
 17:                                               ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !108
   %20 = load i32, ptr %16, align 8, !tbaa !99
   %21 = add nsw i32 %20, 2

@@ -131,7 +131,7 @@ note_variable.exit.i:                             ; preds = %st_mult.exit.i.i.i,
   %50 = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %48, %st_mult.exit.i.i.i ]
   %51 = add i64 %49, 1
   store i64 %51, ptr getelementptr inbounds nuw (i8, ptr @variables_set, i64 8), align 8, !tbaa !12
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %49
   store ptr %38, ptr %52, align 8, !tbaa !4
   br label %53
 
@@ -340,7 +340,7 @@ do_getc.exit66.i:                                 ; preds = %99, %96, %87
   %.0243.i.i = phi i64 [ %127, %.lr.ph.i.i8 ], [ %.226.i.i, %141 ]
   %131 = lshr i64 %130, 1
   %132 = add i64 %131, %.0214.i.i
-  %133 = getelementptr inbounds nuw ptr, ptr %128, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !4
   %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %134, ptr noundef nonnull readonly dereferenceable(1) %125) #12
   %136 = icmp sgt i32 %135, 0
@@ -368,7 +368,7 @@ do_getc.exit66.i:                                 ; preds = %99, %96, %87
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %.._crit_edge.thread.i_crit_edge.i
   %145 = phi ptr [ %128, %._crit_edge.i.i ], [ %.pre96.i, %.._crit_edge.thread.i_crit_edge.i ]
   %.021.lcssa11.i.i = phi i64 [ %.223.i.i, %._crit_edge.i.i ], [ 0, %.._crit_edge.thread.i_crit_edge.i ]
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %.021.lcssa11.i.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %.021.lcssa11.i.i
   %147 = load ptr, ptr %146, align 8, !tbaa !4
   %148 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %147, ptr noundef nonnull readonly dereferenceable(1) %125) #12
   %149 = icmp eq i32 %148, 0

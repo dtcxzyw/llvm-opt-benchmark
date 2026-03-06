@@ -737,7 +737,7 @@ define hidden void @_ZN15ShmemTHPSupport7scan_osEv(ptr noundef nonnull align 4 c
 
 switch.lookup:                                    ; preds = %28
   %31 = zext nneg i32 %29 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 %31
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN15ShmemTHPSupport14mode_to_stringE12ShmemTHPMode.exit.i
 
@@ -773,7 +773,7 @@ define hidden void @_ZN15ShmemTHPSupport8print_onEP12outputStream(ptr noundef no
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN15ShmemTHPSupport14mode_to_stringE12ShmemTHPMode.exit
 
@@ -797,7 +797,7 @@ define hidden noundef nonnull ptr @_ZN15ShmemTHPSupport14mode_to_stringE12ShmemT
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -853,7 +853,7 @@ define hidden void @_ZN9HugePages8print_onEP12outputStream(ptr noundef %0) local
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN15ShmemTHPSupport14mode_to_stringE12ShmemTHPMode.exit.i
 

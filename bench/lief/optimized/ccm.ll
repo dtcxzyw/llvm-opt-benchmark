@@ -1152,15 +1152,15 @@ mbedtls_ccm_setkey.exit.thread:                   ; preds = %8, %1, %11, %mbedtl
 22:                                               ; preds = %18, %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %23 = getelementptr inbounds nuw i64, ptr @msg_len_test_data, i64 %.045
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @msg_len_test_data, i64 %.045
   %24 = load i64, ptr %23, align 8, !tbaa !25
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 16 @msg_test_data, i64 %24, i1 false)
-  %25 = getelementptr inbounds nuw i64, ptr @iv_len_test_data, i64 %.045
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @iv_len_test_data, i64 %.045
   %26 = load i64, ptr %25, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw i64, ptr @add_len_test_data, i64 %.045
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @add_len_test_data, i64 %.045
   %28 = load i64, ptr %27, align 8, !tbaa !25
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 %24
-  %30 = getelementptr inbounds nuw i64, ptr @tag_len_test_data, i64 %.045
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @tag_len_test_data, i64 %.045
   %31 = load i64, ptr %30, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = call i32 @mbedtls_ccm_starts(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull readonly @iv_test_data, i64 noundef %26)

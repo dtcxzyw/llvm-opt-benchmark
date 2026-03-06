@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::__1::array" = type { [3 x i32] }
-%"struct.mitsuba::Vector" = type { %"struct.drjit::StaticArrayImpl.78" }
-%"struct.drjit::StaticArrayImpl.78" = type { %"struct.drjit::StaticArrayImpl.79" }
-%"struct.drjit::StaticArrayImpl.79" = type { <4 x float> }
-%"struct.mitsuba::Normal" = type { %"struct.drjit::StaticArrayImpl.90" }
-%"struct.drjit::StaticArrayImpl.90" = type { %"struct.drjit::StaticArrayImpl.91" }
-%"struct.drjit::StaticArrayImpl.91" = type { <4 x float> }
-%"struct.mitsuba::Vector.102" = type { %"struct.drjit::StaticArrayImpl.103" }
-%"struct.drjit::StaticArrayImpl.103" = type { [2 x float] }
 %"class.std::__1::basic_string" = type { %"class.std::__1::__compressed_pair" }
 %"class.std::__1::__compressed_pair" = type { %"struct.std::__1::__compressed_pair_elem" }
 %"struct.std::__1::__compressed_pair_elem" = type { %"struct.std::__1::basic_string<char>::__rep" }
@@ -379,9 +371,9 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorINS_5arrayIjLm3EEENS_9allocato
   %41 = phi i32 [ 0, %.lr.ph ], [ %82, %38 ]
   %.0185431 = phi i8 [ 0, %.lr.ph ], [ %81, %38 ]
   %42 = zext i8 %.0185431 to i64
-  %43 = getelementptr inbounds nuw %"struct.mitsuba::Vector", ptr %7, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %42
   %44 = load <3 x float>, ptr %43, align 16
-  %45 = getelementptr inbounds nuw %"struct.mitsuba::Normal", ptr %10, i64 %42
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %42
   %46 = load <3 x float>, ptr %45, align 16
   %47 = shufflevector <3 x float> %44, <3 x float> poison, <4 x i32> zeroinitializer
   %48 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.pre, <4 x float> %47, <4 x float> %.sroa.0401.0.copyload)
@@ -397,11 +389,11 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorINS_5arrayIjLm3EEENS_9allocato
   %58 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.pre445, <4 x float> %57, <4 x float> %56)
   %59 = mul nuw nsw i32 %41, 3
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw float, ptr %23, i64 %60
-  %62 = getelementptr inbounds nuw float, ptr %25, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %60
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %60
   %63 = shl nuw nsw i32 %41, 1
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw float, ptr %30, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %64
   %66 = fmul contract <4 x float> %58, %58
   %shift = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %66, %shift
@@ -421,7 +413,7 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorINS_5arrayIjLm3EEENS_9allocato
   %76 = shufflevector <4 x float> %70, <4 x float> poison, <3 x i32> zeroinitializer
   %.sroa.0.0.vec.extract435 = fmul contract <3 x float> %75, %76
   store <3 x float> %.sroa.0.0.vec.extract435, ptr %62, align 1
-  %77 = getelementptr inbounds nuw %"struct.mitsuba::Vector.102", ptr %13, i64 %42
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %42
   %78 = load i64, ptr %77, align 4
   store i64 %78, ptr %65, align 1
   %79 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %52, <4 x float> %40)

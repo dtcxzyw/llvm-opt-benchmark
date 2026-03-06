@@ -20,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::ArrayRefIter" = type { ptr }
 %"class.gmx::AnalysisDataPointSetRef" = type { %"class.gmx::AnalysisDataFrameHeader", i32, i32, %"class.gmx::ArrayRef" }
 %"class.gmx::AnalysisDataPointSetInfo" = type { i32, i32, i32, i32 }
-%"class.gmx::AnalysisDataValue" = type { float, float, %"class.gmx::FlagsTemplate" }
-%"class.gmx::FlagsTemplate" = type { i64 }
 %"class.gmx::AnalysisDataFrameRef" = type { %"class.gmx::AnalysisDataFrameHeader", %"class.gmx::ArrayRef", %"class.gmx::ArrayRef.96" }
 %"class.gmx::ArrayRef.96" = type { %"struct.gmx::ArrayRefIter.97", %"struct.gmx::ArrayRefIter.97" }
 %"struct.gmx::ArrayRefIter.97" = type { ptr }
@@ -201,7 +199,7 @@ define noundef i32 @_ZNK3gmx8internal23AnalysisDataStorageImpl16firstStoredIndex
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !26
   %5 = load ptr, ptr %2, align 8, !tbaa !27
-  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4, !tbaa !30
@@ -214,7 +212,7 @@ define noundef i32 @_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLo
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !26
   %6 = load ptr, ptr %3, align 8, !tbaa !27
-  %7 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !30
@@ -350,7 +348,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataE
   store ptr %21, ptr %4, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store ptr %26, ptr %16, align 8, !tbaa !33
-  %27 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %21, i64 %1
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %1
   store ptr %27, ptr %8, align 8, !tbaa !35
   %.pre25 = ptrtoint ptr %21 to i64
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
@@ -463,7 +461,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14def
 _ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %63
   store ptr %57, ptr %4, align 8, !tbaa !27
   store ptr %62, ptr %29, align 8, !tbaa !33
-  %64 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %57, i64 %55
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   store ptr %64, ptr %8, align 8, !tbaa !35
   br label %_ZNSt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS2_EED2Ev.exit
 
@@ -605,7 +603,7 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl12rotateBufferEv(ptr nound
   %14 = icmp eq i64 %5, %13
   %spec.select = select i1 %14, i64 0, i64 %5
   store i64 %spec.select, ptr %3, align 8, !tbaa !26
-  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %9, i64 %4
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %4
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 72
@@ -760,7 +758,7 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl11finishFrameEi(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8, !tbaa !26
   %7 = load ptr, ptr %4, align 8, !tbaa !27
-  %8 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 4, !tbaa !30
@@ -790,7 +788,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
 25:                                               ; preds = %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
   %26 = and i64 %22, 2147483647
-  %27 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %7, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !28
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load i32, ptr %29, align 8, !tbaa !64
@@ -900,7 +898,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS
 _ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %70
   store ptr %63, ptr %41, align 8, !tbaa !88
   store ptr %69, ptr %44, align 8, !tbaa !86
-  %71 = getelementptr inbounds nuw %"class.std::unique_ptr.25", ptr %63, i64 %61
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %61
   store ptr %71, ptr %46, align 8, !tbaa !87
   br label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit
 
@@ -1019,7 +1017,7 @@ _ZN3gmx24AnalysisDataStorageFrame11clearValuesEv.exit: ; preds = %.lr.ph.i, %22,
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %55 = getelementptr inbounds nuw %"class.gmx::AnalysisDataPointSetInfo", ptr %51, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !103
   %56 = load ptr, ptr %26, align 8, !tbaa !60, !noalias !103
   store ptr %56, ptr %4, align 8, !tbaa !106, !noalias !103
@@ -1084,7 +1082,7 @@ define void @_ZN3gmx8internal23AnalysisDataStorageImpl17finishFrameSerialEi(ptr 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8, !tbaa !26
   %13 = load ptr, ptr %10, align 8, !tbaa !27
-  %14 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !30
@@ -1114,7 +1112,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
 31:                                               ; preds = %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
   %32 = and i64 %28, 2147483647
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %13, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 4, !tbaa !30
@@ -1194,7 +1192,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl23shouldNotifyImmediatelyEv.exit.threa
   %74 = phi ptr [ %62, %.lr.ph ], [ %84, %73 ]
   %75 = load ptr, ptr %56, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %76 = getelementptr inbounds nuw %"class.gmx::AnalysisDataPointSetInfo", ptr %74, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !110
   %77 = load ptr, ptr %69, align 8, !tbaa !60, !noalias !110
   store ptr %77, ptr %3, align 8, !tbaa !106, !noalias !110
@@ -1247,7 +1245,7 @@ define void @_ZNK3gmx8internal28AnalysisDataStorageFrameData8pointSetEi(ptr dead
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = sext i32 %2 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !56
-  %9 = getelementptr inbounds nuw %"class.gmx::AnalysisDataPointSetInfo", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !60
@@ -1412,7 +1410,7 @@ _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2
 _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE17_M_realloc_insertIJRiS5_S5_iEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %62, %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i
   store ptr %54, ptr %6, align 8, !tbaa !56
   store ptr %61, ptr %15, align 8, !tbaa !84
-  %63 = getelementptr inbounds nuw %"class.gmx::AnalysisDataPointSetInfo", ptr %54, i64 %52
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %52
   store ptr %63, ptr %16, align 8, !tbaa !59
   br label %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12emplace_backIJRiS5_S5_iEEERS1_DpOT_.exit
 
@@ -1737,7 +1735,7 @@ _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2
 _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE17_M_realloc_insertIJmRKiRiS7_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %87, %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i
   store ptr %78, ptr %46, align 8, !tbaa !56
   store ptr %86, ptr %55, align 8, !tbaa !84
-  %88 = getelementptr inbounds nuw %"class.gmx::AnalysisDataPointSetInfo", ptr %78, i64 %76
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %76
   store ptr %88, ptr %57, align 8, !tbaa !59
   br label %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12emplace_backIJmRKiRiS7_EEERS1_DpOT_.exit
 
@@ -1842,7 +1840,7 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
 _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %30, ptr %2, align 8, !tbaa !60
   store ptr %34, ptr %9, align 8, !tbaa !82
-  %36 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %28
   store ptr %36, ptr %10, align 8, !tbaa !63
   br label %_ZNSt20back_insert_iteratorISt6vectorIN3gmx17AnalysisDataValueESaIS2_EEEaSERKS2_.exit
 
@@ -2047,7 +2045,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrameC2ERKNS_20AbstractAnalysisDataE(pt
   br i1 %25, label %26, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeEm.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %16, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %13
   %.not.i.i = icmp eq ptr %15, %27
   br i1 %.not.i.i, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE6resizeEm.exit, label %28
 
@@ -2174,9 +2172,9 @@ _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit:
 
 _ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !60
-  %33 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !82
-  %34 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !63
   br label %35
 
@@ -2246,7 +2244,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame14finishPointSetEv(ptr noundef non
 .lr.ph:                                           ; preds = %13, %25
   %.028 = phi i64 [ %26, %25 ], [ %16, %13 ]
   %.01927 = phi i32 [ %27, %25 ], [ 0, %13 ]
-  %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.028
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %.028
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !151
   %24 = trunc i64 %23 to i1
@@ -2270,7 +2268,7 @@ define void @_ZN3gmx24AnalysisDataStorageFrame14finishPointSetEv(ptr noundef non
 
 29:                                               ; preds = %28
   %30 = add i64 %.018, -1
-  %31 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !151
   %34 = trunc i64 %33 to i1
@@ -2282,8 +2280,8 @@ define void @_ZN3gmx24AnalysisDataStorageFrame14finishPointSetEv(ptr noundef non
   %36 = load ptr, ptr %0, align 8, !tbaa !127
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load i32, ptr %37, align 8, !tbaa !128
-  %39 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.0.lcssa
-  %40 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.018.lcssa
+  %39 = getelementptr inbounds [16 x i8], ptr %.pre, i64 %.0.lcssa
+  %40 = getelementptr inbounds [16 x i8], ptr %.pre, i64 %.018.lcssa
   tail call void @_ZN3gmx8internal28AnalysisDataStorageFrameData11addPointSetEiiNS_8ArrayRefIKNS_17AnalysisDataValueEEE(ptr noundef nonnull align 8 dereferenceable(84) %36, i32 noundef %38, i32 noundef %spec.select, ptr %39, ptr %40)
   %.pre33 = load i8, ptr %10, align 4, !tbaa !96, !range !99
   %41 = trunc nuw i8 %.pre33 to i1
@@ -2508,7 +2506,7 @@ define void @_ZNK3gmx19AnalysisDataStorage15tryGetDataFrameEi(ptr dead_on_unwind
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %7 = load i64, ptr %6, align 8, !tbaa !26
   %8 = load ptr, ptr %5, align 8, !tbaa !27
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 4, !tbaa !30
@@ -2678,7 +2676,7 @@ define noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataSto
   %26 = phi i32 [ %.pre48, %23 ], [ %10, %11 ]
   %27 = phi ptr [ %.pre, %23 ], [ %6, %11 ]
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %28
   br label %65
 
 30:                                               ; preds = %2
@@ -2686,7 +2684,7 @@ define noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataSto
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %33 = load i64, ptr %32, align 8, !tbaa !26
   %34 = load ptr, ptr %31, align 8, !tbaa !27
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 4, !tbaa !30
@@ -3210,7 +3208,7 @@ define noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataSto
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load i64, ptr %5, align 8, !tbaa !26
   %7 = load ptr, ptr %4, align 8, !tbaa !27
-  %8 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 4, !tbaa !30
@@ -3240,7 +3238,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
 
 25:                                               ; preds = %_ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit
   %26 = and i64 %22, 2147483647
-  %27 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %7, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !28
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load i32, ptr %29, align 8, !tbaa !64

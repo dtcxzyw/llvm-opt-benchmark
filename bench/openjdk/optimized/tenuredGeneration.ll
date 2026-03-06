@@ -671,7 +671,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %20, %10
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %27, %30, %37, %57
   %.0.i1.i = phi i64 [ %34, %30 ], [ %29, %27 ], [ %56, %37 ], [ %61, %57 ]
-  %62 = getelementptr inbounds ptr, ptr %.0, i64 %.0.i1.i
+  %62 = getelementptr inbounds [8 x i8], ptr %.0, i64 %.0.i1.i
   %63 = icmp ugt ptr %62, %1
   br i1 %63, label %64, label %6, !llvm.loop !6
 
@@ -734,7 +734,7 @@ define hidden void @_ZN17TenuredGenerationC2E13ReservedSpacemmmP11CardTableRS(pt
   unreachable
 
 32:                                               ; preds = %6
-  %33 = getelementptr inbounds nuw ptr, ptr %14, i64 %18
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %18
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %27, %34
   %36 = icmp eq i64 %35, 0
@@ -1082,7 +1082,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %28, %31, %38, %58
   %.0.i1.i = phi i64 [ %35, %31 ], [ %30, %28 ], [ %57, %38 ], [ %62, %58 ]
-  %63 = getelementptr inbounds ptr, ptr %.08, i64 %.0.i1.i
+  %63 = getelementptr inbounds [8 x i8], ptr %.08, i64 %.0.i1.i
   %64 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %65 = ptrtoint ptr %.08 to i64
   %66 = add i32 %64, -1
@@ -1180,7 +1180,7 @@ define linkonce_odr hidden noundef ptr @_ZN17TenuredGeneration8allocateEmb(ptr n
   br i1 %.not, label %_ZN22SerialBlockOffsetTable16update_for_blockEPP12HeapWordImplS2_.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %1
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %1
   %9 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %10 = ptrtoint ptr %6 to i64
   %11 = add i32 %9, -1
@@ -1211,7 +1211,7 @@ define linkonce_odr hidden noundef ptr @_ZN17TenuredGeneration12par_allocateEmb(
   br i1 %.not, label %_ZN22SerialBlockOffsetTable16update_for_blockEPP12HeapWordImplS2_.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %1
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %1
   %9 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %10 = ptrtoint ptr %6 to i64
   %11 = add i32 %9, -1

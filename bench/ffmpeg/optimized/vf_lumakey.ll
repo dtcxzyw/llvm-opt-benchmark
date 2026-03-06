@@ -418,7 +418,7 @@ define internal noundef i32 @do_lumakey_slice16(ptr noundef readonly captures(no
 
 46:                                               ; preds = %.preheader.us, %66
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %66 ]
-  %47 = getelementptr inbounds nuw i16, ptr %.06573.us, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %.06573.us, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2, !tbaa !60
   %49 = zext i16 %48 to i32
   %.not.us = icmp sgt i32 %19, %49
@@ -452,7 +452,7 @@ define internal noundef i32 @do_lumakey_slice16(ptr noundef readonly captures(no
 
 .sink.split:                                      ; preds = %46, %54, %59
   %.sink = phi i16 [ %64, %59 ], [ %58, %54 ], [ 0, %46 ]
-  %65 = getelementptr inbounds nuw i16, ptr %.06474.us, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %.06474.us, i64 %indvars.iv
   store i16 %.sink, ptr %65, align 2, !tbaa !60
   br label %66
 
@@ -462,8 +462,8 @@ define internal noundef i32 @do_lumakey_slice16(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %._crit_edge.us, label %46, !llvm.loop !62
 
 ._crit_edge.us:                                   ; preds = %66
-  %67 = getelementptr inbounds i16, ptr %.06573.us, i64 %34
-  %68 = getelementptr inbounds i16, ptr %.06474.us, i64 %36
+  %67 = getelementptr inbounds [2 x i8], ptr %.06573.us, i64 %34
+  %68 = getelementptr inbounds [2 x i8], ptr %.06474.us, i64 %36
   %69 = add nsw i32 %.075.us, 1
   %exitcond79.not = icmp eq i32 %69, %13
   br i1 %exitcond79.not, label %._crit_edge76, label %.preheader.us, !llvm.loop !63

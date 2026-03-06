@@ -181,7 +181,7 @@ define internal void @chmd_close(ptr noundef captures(address_is_null) %0, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next, %45 ]
   %46 = load ptr, ptr %44, align 8, !tbaa !35
   %47 = load ptr, ptr %40, align 8, !tbaa !44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   tail call void %46(ptr noundef %49) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1741,7 +1741,7 @@ define internal fastcc ptr @read_chunk(ptr noundef captures(none) %0, ptr nounde
 20:                                               ; preds = %19, %9
   %21 = phi ptr [ %.pre, %19 ], [ %11, %9 ]
   %22 = zext i32 %3 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   %.not57 = icmp eq ptr %24, null
   br i1 %.not57, label %25, label %79
@@ -1834,7 +1834,7 @@ define internal fastcc ptr @read_chunk(ptr noundef captures(none) %0, ptr nounde
 
 76:                                               ; preds = %69, %69
   %77 = load ptr, ptr %10, align 8, !tbaa !44
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %22
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %22
   store ptr %31, ptr %78, align 8, !tbaa !46
   br label %79
 
@@ -2400,7 +2400,7 @@ tolower.exit.sink.split:                          ; preds = %132
   %133 = tail call ptr @__ctype_tolower_loc() #15
   %134 = load ptr, ptr %133, align 8, !tbaa !90
   %135 = zext nneg i32 %.0116 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !92
   br label %tolower.exit
 
@@ -2413,7 +2413,7 @@ tolower.exit134.sink.split:                       ; preds = %tolower.exit
   %138 = tail call ptr @__ctype_tolower_loc() #15
   %139 = load ptr, ptr %138, align 8, !tbaa !90
   %140 = zext nneg i32 %.0118 to i64
-  %141 = getelementptr inbounds nuw i32, ptr %139, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !92
   br label %tolower.exit134
 

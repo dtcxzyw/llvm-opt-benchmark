@@ -18,8 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.listTypeEntry = type { ptr, ptr, %struct.quicklistEntry }
 %struct.quicklistEntry = type { ptr, ptr, ptr, ptr, i64, i64, i32 }
 %struct.listIter = type { ptr, i32 }
-%struct._redisSortObject = type { ptr, %union.anon }
-%union.anon = type { double }
 
 @.str = private unnamed_addr constant [3 x i8] c"->\00", align 1
 @server = external local_unnamed_addr global %struct.redisServer, align 8
@@ -488,7 +486,7 @@ define dso_local void @sortCommandGeneric(ptr noundef %0, i32 noundef %1) local_
   %27 = add i32 %25, %26
   %28 = load ptr, ptr %16, align 8, !tbaa !68
   %29 = sext i32 %.0381588 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !13
@@ -524,7 +522,7 @@ define dso_local void @sortCommandGeneric(ptr noundef %0, i32 noundef %1) local_
   %48 = load ptr, ptr %16, align 8, !tbaa !68
   %49 = add nsw i32 %.0381588, 2
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %48, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %48, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !21
   %53 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull %4, ptr noundef null) #12
   %.not456 = icmp eq i32 %53, 0
@@ -543,7 +541,7 @@ define dso_local void @sortCommandGeneric(ptr noundef %0, i32 noundef %1) local_
 59:                                               ; preds = %55
   %60 = add nsw i32 %.0381588, 1
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %28, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %28, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !21
   br label %171
 
@@ -557,7 +555,7 @@ define dso_local void @sortCommandGeneric(ptr noundef %0, i32 noundef %1) local_
 68:                                               ; preds = %64
   %69 = add nsw i32 %.0381588, 1
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %28, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %28, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !21
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !13
@@ -730,7 +728,7 @@ sdslen.exit507:                                   ; preds = %.tail.thread, %130,
   %160 = load ptr, ptr %16, align 8, !tbaa !68
   %161 = add nsw i32 %.0381588, 1
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds ptr, ptr %160, i64 %162
+  %163 = getelementptr inbounds [8 x i8], ptr %160, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !21
   %165 = call noalias noundef dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #11
   store i32 0, ptr %165, align 8, !tbaa !5
@@ -969,7 +967,7 @@ sdslen.exit507:                                   ; preds = %.tail.thread, %130,
 
 263:                                              ; preds = %.lr.ph623
   %264 = call ptr @listTypeGet(ptr noundef nonnull %5) #12
-  %265 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv677
+  %265 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv677
   store ptr %264, ptr %265, align 8, !tbaa !50
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store ptr null, ptr %266, align 8, !tbaa !15
@@ -1001,7 +999,7 @@ sdslen.exit507:                                   ; preds = %.tail.thread, %130,
 .lr.ph618:                                        ; preds = %270, %.lr.ph618
   %indvars.iv674 = phi i64 [ %indvars.iv.next675, %.lr.ph618 ], [ 0, %270 ]
   %273 = call ptr @listTypeGet(ptr noundef nonnull %6) #12
-  %274 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv674
+  %274 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv674
   store ptr %273, ptr %274, align 8, !tbaa !50
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   store ptr null, ptr %275, align 8, !tbaa !15
@@ -1034,7 +1032,7 @@ sdslen.exit507:                                   ; preds = %.tail.thread, %130,
   %indvars.iv671 = phi i64 [ %indvars.iv.next672, %.lr.ph612 ], [ 0, %280 ]
   %283 = phi ptr [ %287, %.lr.ph612 ], [ %282, %280 ]
   %284 = call ptr @createObject(i32 noundef 0, ptr noundef nonnull %283) #12
-  %285 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv671
+  %285 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv671
   store ptr %284, ptr %285, align 8, !tbaa !50
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store ptr null, ptr %286, align 8, !tbaa !15
@@ -1164,7 +1162,7 @@ sdslen.exit507:                                   ; preds = %.tail.thread, %130,
 sdslen.exit509:                                   ; preds = %320, %326, %329, %333, %337, %341
   %.0.i508 = phi i64 [ %343, %341 ], [ %328, %326 ], [ %332, %329 ], [ %336, %333 ], [ %340, %337 ], [ 0, %320 ]
   %344 = call ptr @createStringObject(ptr noundef nonnull %321, i64 noundef %.0.i508) #12
-  %345 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv668
+  %345 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv668
   store ptr %344, ptr %345, align 8, !tbaa !50
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   store ptr null, ptr %346, align 8, !tbaa !15
@@ -1242,7 +1240,7 @@ sdslen.exit509:                                   ; preds = %320, %326, %329, %3
 sdslen.exit511:                                   ; preds = %.lr.ph599, %363, %366, %370, %374, %378
   %.0.i510 = phi i64 [ %380, %378 ], [ %365, %363 ], [ %369, %366 ], [ %373, %370 ], [ %377, %374 ], [ 0, %.lr.ph599 ]
   %381 = call ptr @createStringObject(ptr noundef nonnull %358, i64 noundef %.0.i510) #12
-  %382 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv
+  %382 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv
   store ptr %381, ptr %382, align 8, !tbaa !50
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 8
   store ptr null, ptr %383, align 8, !tbaa !15
@@ -1297,14 +1295,14 @@ sdslen.exit511:                                   ; preds = %.lr.ph599, %363, %3
 
 393:                                              ; preds = %392
   %394 = load ptr, ptr %176, align 8, !tbaa !73
-  %395 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv680
+  %395 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv680
   %396 = load ptr, ptr %395, align 8, !tbaa !50
   %397 = call ptr @lookupKeyByPattern(ptr noundef %394, ptr noundef nonnull %.4416734, ptr noundef %396)
   %.not488 = icmp eq ptr %397, null
   br i1 %.not488, label %.thread535, label %.thread526
 
 398:                                              ; preds = %392
-  %399 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv680
+  %399 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv680
   %400 = load ptr, ptr %399, align 8, !tbaa !50
   br i1 %.not489528, label %403, label %.thread535
 
@@ -1333,7 +1331,7 @@ sdslen.exit511:                                   ; preds = %.lr.ph599, %363, %3
   %408 = getelementptr inbounds nuw i8, ptr %.0386531, i64 8
   %409 = load ptr, ptr %408, align 8, !tbaa !13
   %410 = call double @fast_float_strtod(ptr noundef %409, ptr noundef nonnull %7) #12
-  %411 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv680
+  %411 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv680
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 8
   store double %410, ptr %412, align 8, !tbaa !15
   %413 = load ptr, ptr %7, align 8, !tbaa !93
@@ -1362,7 +1360,7 @@ sdslen.exit511:                                   ; preds = %.lr.ph599, %363, %3
   %424 = load ptr, ptr %423, align 8, !tbaa !13
   %425 = ptrtoint ptr %424 to i64
   %426 = sitofp i64 %425 to double
-  %427 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv680
+  %427 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv680
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 8
   store double %426, ptr %428, align 8, !tbaa !15
   br label %430
@@ -1462,7 +1460,7 @@ sdslen.exit511:                                   ; preds = %.lr.ph599, %363, %3
   br i1 %.not491, label %457, label %460
 
 457:                                              ; preds = %.lr.ph649
-  %458 = getelementptr inbounds %struct._redisSortObject, ptr %247, i64 %indvars.iv691
+  %458 = getelementptr inbounds [16 x i8], ptr %247, i64 %indvars.iv691
   %459 = load ptr, ptr %458, align 8, !tbaa !50
   call void @addReplyBulk(ptr noundef %0, ptr noundef %459) #12
   br label %460
@@ -1474,7 +1472,7 @@ sdslen.exit511:                                   ; preds = %.lr.ph599, %363, %3
   br i1 %.not499642, label %._crit_edge645, label %.lr.ph644
 
 .lr.ph644:                                        ; preds = %460
-  %462 = getelementptr inbounds %struct._redisSortObject, ptr %247, i64 %indvars.iv691
+  %462 = getelementptr inbounds [16 x i8], ptr %247, i64 %indvars.iv691
   br label %463
 
 463:                                              ; preds = %.lr.ph644, %478
@@ -1534,7 +1532,7 @@ sdslen.exit511:                                   ; preds = %.lr.ph599, %363, %3
 .lr.ph640.split.us:                               ; preds = %.lr.ph640, %.lr.ph640.split.us
   %indvars.iv688 = phi i64 [ %indvars.iv.next689, %.lr.ph640.split.us ], [ %484, %.lr.ph640 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %485 = getelementptr inbounds %struct._redisSortObject, ptr %247, i64 %indvars.iv688
+  %485 = getelementptr inbounds [16 x i8], ptr %247, i64 %indvars.iv688
   %486 = load ptr, ptr %485, align 8, !tbaa !50
   call void @listTypePush(ptr noundef %483, ptr noundef %486, i32 noundef 1) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1551,7 +1549,7 @@ sdslen.exit511:                                   ; preds = %.lr.ph599, %363, %3
   br i1 %.not496634, label %.loopexit544, label %.lr.ph636
 
 .lr.ph636:                                        ; preds = %.lr.ph640.split
-  %488 = getelementptr inbounds %struct._redisSortObject, ptr %247, i64 %indvars.iv685
+  %488 = getelementptr inbounds [16 x i8], ptr %247, i64 %indvars.iv685
   br label %489
 
 489:                                              ; preds = %.lr.ph636, %503
@@ -1646,7 +1644,7 @@ sdslen.exit511:                                   ; preds = %.lr.ph599, %363, %3
 
 .lr.ph652:                                        ; preds = %.lr.ph652.preheader, %.lr.ph652
   %indvars.iv694 = phi i64 [ 0, %.lr.ph652.preheader ], [ %indvars.iv.next695, %.lr.ph652 ]
-  %524 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv694
+  %524 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv694
   %525 = load ptr, ptr %524, align 8, !tbaa !50
   call void @decrRefCount(ptr noundef %525) #12
   %indvars.iv.next695 = add nuw nsw i64 %indvars.iv694, 1
@@ -1665,7 +1663,7 @@ sdslen.exit511:                                   ; preds = %.lr.ph599, %363, %3
 
 .lr.ph656.split:                                  ; preds = %.lr.ph656.split.preheader, %530
   %indvars.iv699 = phi i64 [ 0, %.lr.ph656.split.preheader ], [ %indvars.iv.next700, %530 ]
-  %526 = getelementptr inbounds nuw %struct._redisSortObject, ptr %247, i64 %indvars.iv699
+  %526 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv699
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   %528 = load ptr, ptr %527, align 8, !tbaa !15
   %.not502 = icmp eq ptr %528, null

@@ -45,7 +45,7 @@ define dso_local i32 @__cookie_v6_init_sequence(ptr noundef readonly captures(no
 9:                                                ; preds = %15, %3
   %10 = phi i32 [ 3, %3 ], [ %16, %15 ]
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr i16, ptr @msstab, i64 %11
+  %12 = getelementptr [2 x i8], ptr @msstab, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = icmp ult i16 %8, %13
   br i1 %14, label %15, label %split
@@ -266,7 +266,7 @@ define dso_local range(i32 0, 65536) i32 @__cookie_v6_check(ptr noundef readonly
 
 54:                                               ; preds = %48
   %55 = zext nneg i32 %52 to i64
-  %56 = getelementptr i16, ptr @msstab, i64 %55
+  %56 = getelementptr [2 x i8], ptr @msstab, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i32
   br label %.thread

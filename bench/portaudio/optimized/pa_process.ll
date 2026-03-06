@@ -3,8 +3,6 @@ source_filename = "bench/portaudio/original/pa_process.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PaUtilChannelDescriptor = type { ptr, i32 }
-
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @PaUtil_InitializeBufferProcessor(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, double noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #0 {
   %15 = and i64 %8, 4
@@ -241,7 +239,7 @@ CalculateFrameShift.exit:                         ; preds = %.lr.ph.i, %LCM.exit
   br i1 %127, label %182, label %128
 
 128:                                              ; preds = %124
-  %129 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %126, i64 %114
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %114
   store ptr %129, ptr %31, align 8, !tbaa !34
   br label %130
 
@@ -316,7 +314,7 @@ CalculateFrameShift.exit:                         ; preds = %.lr.ph.i, %LCM.exit
   br i1 %173, label %182, label %174
 
 174:                                              ; preds = %170
-  %175 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %172, i64 %160
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %172, i64 %160
   store ptr %175, ptr %33, align 8, !tbaa !34
   br label %176
 
@@ -572,7 +570,7 @@ define void @PaUtil_SetInputChannel(ptr noundef readonly captures(none) %0, i32 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %3, ptr %9, align 8, !tbaa !51
@@ -606,7 +604,7 @@ define void @PaUtil_SetInterleavedInputChannels(ptr noundef readonly captures(no
   %15 = trunc nuw i64 %indvars.iv to i32
   %16 = add i32 %1, %15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %17
   store ptr %.020, ptr %18, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %.020, i64 %13
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -624,7 +622,7 @@ define void @PaUtil_SetNonInterleavedInputChannel(ptr noundef readonly captures(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   store ptr %2, ptr %7, align 8, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %8, align 8, !tbaa !51
@@ -643,7 +641,7 @@ define void @PaUtil_Set2ndInputChannel(ptr noundef readonly captures(none) %0, i
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %3, ptr %9, align 8, !tbaa !51
@@ -677,7 +675,7 @@ define void @PaUtil_Set2ndInterleavedInputChannels(ptr noundef readonly captures
   %15 = trunc nuw i64 %indvars.iv to i32
   %16 = add i32 %1, %15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %17
   store ptr %.020, ptr %18, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %.020, i64 %13
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -695,7 +693,7 @@ define void @PaUtil_Set2ndNonInterleavedInputChannel(ptr noundef readonly captur
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   store ptr %2, ptr %7, align 8, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %8, align 8, !tbaa !51
@@ -732,7 +730,7 @@ define void @PaUtil_SetOutputChannel(ptr noundef readonly captures(none) %0, i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %3, ptr %9, align 8, !tbaa !51
@@ -766,7 +764,7 @@ define void @PaUtil_SetInterleavedOutputChannels(ptr noundef readonly captures(n
   %15 = trunc nuw i64 %indvars.iv to i32
   %16 = add i32 %1, %15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %17
   store ptr %.017, ptr %18, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %.01321, ptr %19, align 8, !tbaa !51
@@ -784,7 +782,7 @@ define void @PaUtil_SetNonInterleavedOutputChannel(ptr noundef readonly captures
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   store ptr %2, ptr %7, align 8, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %8, align 8, !tbaa !51
@@ -803,7 +801,7 @@ define void @PaUtil_Set2ndOutputChannel(ptr noundef readonly captures(none) %0, 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %3, ptr %9, align 8, !tbaa !51
@@ -837,7 +835,7 @@ define void @PaUtil_Set2ndInterleavedOutputChannels(ptr noundef readonly capture
   %15 = trunc nuw i64 %indvars.iv to i32
   %16 = add i32 %1, %15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %17
   store ptr %.017, ptr %18, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %.01321, ptr %19, align 8, !tbaa !51
@@ -855,7 +853,7 @@ define void @PaUtil_Set2ndNonInterleavedOutputChannel(ptr noundef readonly captu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   store ptr %2, ptr %7, align 8, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %8, align 8, !tbaa !51
@@ -1166,10 +1164,10 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
 
 .preheader270:                                    ; preds = %.preheader270.preheader, %.preheader270
   %indvars.iv = phi i64 [ 0, %.preheader270.preheader ], [ %indvars.iv.next, %.preheader270 ]
-  %65 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !49
   %67 = load ptr, ptr %17, align 8, !tbaa !33
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   store ptr %66, ptr %68, align 8, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1188,7 +1186,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   %75 = mul i64 %..1206, %74
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 %75
   %77 = load ptr, ptr %17, align 8, !tbaa !33
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv305
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv305
   store ptr %76, ptr %78, align 8, !tbaa !63
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond309.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count308
@@ -1256,7 +1254,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
 
 99:                                               ; preds = %.preheader267, %99
   %indvars.iv310 = phi i64 [ 0, %.preheader267 ], [ %indvars.iv.next311, %99 ]
-  %100 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv310
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv310
   %101 = load ptr, ptr %100, align 8, !tbaa !49
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %103 = load i32, ptr %102, align 8, !tbaa !51
@@ -1272,7 +1270,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   %indvars.iv316 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next317, %106 ]
   %.2218278 = phi ptr [ %43, %.lr.ph ], [ %112, %106 ]
   %107 = load ptr, ptr %19, align 8, !tbaa !27
-  %108 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv316
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv316
   %109 = load ptr, ptr %108, align 8, !tbaa !49
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %111 = load i32, ptr %110, align 8, !tbaa !51
@@ -1342,10 +1340,10 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
 
 .preheader261:                                    ; preds = %.preheader261.preheader, %.preheader261
   %indvars.iv319 = phi i64 [ 0, %.preheader261.preheader ], [ %indvars.iv.next320, %.preheader261 ]
-  %142 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv319
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv319
   %143 = load ptr, ptr %142, align 8, !tbaa !49
   %144 = load ptr, ptr %28, align 8, !tbaa !44
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv319
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv319
   store ptr %143, ptr %145, align 8, !tbaa !63
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %exitcond323.not = icmp eq i64 %indvars.iv.next320, %wide.trip.count322
@@ -1365,7 +1363,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   %153 = mul i64 %..1206, %152
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 %153
   %155 = load ptr, ptr %28, align 8, !tbaa !44
-  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv324
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %indvars.iv324
   store ptr %154, ptr %156, align 8, !tbaa !63
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %exitcond329.not = icmp eq i64 %indvars.iv.next325, %wide.trip.count328
@@ -1422,7 +1420,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
 
 181:                                              ; preds = %.preheader258, %181
   %indvars.iv330 = phi i64 [ 0, %.preheader258 ], [ %indvars.iv.next331, %181 ]
-  %182 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv330
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv330
   %183 = load ptr, ptr %182, align 8, !tbaa !49
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %185 = load i32, ptr %184, align 8, !tbaa !51
@@ -1451,7 +1449,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   %indvars.iv335 = phi i64 [ 0, %.lr.ph290 ], [ %indvars.iv.next336, %195 ]
   %.0219288 = phi ptr [ %188, %.lr.ph290 ], [ %201, %195 ]
   %196 = load ptr, ptr %37, align 8, !tbaa !38
-  %197 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv335
+  %197 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv335
   %198 = load ptr, ptr %197, align 8, !tbaa !49
   %199 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %200 = load i32, ptr %199, align 8, !tbaa !51
@@ -1516,7 +1514,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
 228:                                              ; preds = %.lr.ph292, %228
   %indvars.iv338 = phi i64 [ 0, %.lr.ph292 ], [ %indvars.iv.next339, %228 ]
   %229 = load ptr, ptr %225, align 8, !tbaa !39
-  %230 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv338
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv338
   %231 = load ptr, ptr %230, align 8, !tbaa !49
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %233 = load i32, ptr %232, align 8, !tbaa !51
@@ -1608,14 +1606,14 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr noundef captures
 .preheader178:                                    ; preds = %41, %66
   %43 = phi i1 [ false, %66 ], [ true, %41 ]
   %indvars.iv221 = phi i64 [ 1, %66 ], [ 0, %41 ]
-  %44 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv221
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv221
   %45 = load i64, ptr %44, align 8, !tbaa !48
   %46 = trunc i64 %45 to i32
   %.not175 = icmp eq i32 %46, 0
   br i1 %.not175, label %66, label %47
 
 47:                                               ; preds = %.preheader178
-  %48 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv221
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv221
   %49 = load ptr, ptr %48, align 8, !tbaa !34
   %50 = load i32, ptr %17, align 8, !tbaa !15
   %.not216 = icmp eq i32 %50, 0
@@ -1624,7 +1622,7 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr noundef captures
 .lr.ph:                                           ; preds = %47, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %47 ]
   %51 = load ptr, ptr %18, align 8, !tbaa !39
-  %52 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %49, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !49
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !51
@@ -1716,7 +1714,7 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr noundef captures
   %indvars.iv224 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next225, %89 ]
   %.1150183 = phi ptr [ %.0149, %.lr.ph186 ], [ %95, %89 ]
   %90 = load ptr, ptr %25, align 8, !tbaa !27
-  %91 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %.0153, i64 %indvars.iv224
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %.0153, i64 %indvars.iv224
   %92 = load ptr, ptr %91, align 8, !tbaa !49
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = load i32, ptr %93, align 8, !tbaa !51
@@ -1809,7 +1807,7 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr noundef captures
   %.reass = mul i64 %factor.op.mul, %indvars.iv227
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 %.reass
   %136 = load ptr, ptr %28, align 8, !tbaa !33
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv227
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv227
   store ptr %135, ptr %137, align 8, !tbaa !63
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count
@@ -1840,7 +1838,7 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr noundef captures
   %.reass209 = mul i64 %factor.op.mul208, %indvars.iv230
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 %.reass209
   %145 = load ptr, ptr %32, align 8, !tbaa !44
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv230
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv230
   store ptr %144, ptr %146, align 8, !tbaa !63
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
@@ -1952,7 +1950,7 @@ define internal fastcc i64 @AdaptingInputOnlyProcess(ptr noundef %0, ptr noundef
   %40 = mul i64 %20, %39
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 %40
   %42 = load ptr, ptr %10, align 8, !tbaa !33
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   store ptr %41, ptr %43, align 8, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1983,7 +1981,7 @@ define internal fastcc i64 @AdaptingInputOnlyProcess(ptr noundef %0, ptr noundef
   %indvars.iv94 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next95, %49 ]
   %.18186 = phi ptr [ %.080, %.lr.ph89 ], [ %55, %49 ]
   %50 = load ptr, ptr %11, align 8, !tbaa !27
-  %51 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv94
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv94
   %52 = load ptr, ptr %51, align 8, !tbaa !49
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !51
@@ -2116,7 +2114,7 @@ define internal fastcc i64 @AdaptingOutputOnlyProcess(ptr noundef %0, ptr nounde
   %.reass = mul i64 %factor.op.mul, %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.reass
   %34 = load ptr, ptr %10, align 8, !tbaa !44
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   store ptr %33, ptr %35, align 8, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2212,7 +2210,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
   %indvars.iv123 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next124, %77 ]
   %.1102112 = phi ptr [ %.0101, %.lr.ph115 ], [ %83, %77 ]
   %78 = load ptr, ptr %16, align 8, !tbaa !38
-  %79 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv123
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv123
   %80 = load ptr, ptr %79, align 8, !tbaa !49
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load i32, ptr %81, align 8, !tbaa !51
@@ -2246,7 +2244,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
 97:                                               ; preds = %.lr.ph118, %97
   %indvars.iv126 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next127, %97 ]
   %98 = load ptr, ptr %19, align 8, !tbaa !39
-  %99 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv126
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv126
   %100 = load ptr, ptr %99, align 8, !tbaa !49
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load i32, ptr %101, align 8, !tbaa !51
@@ -2319,7 +2317,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyInput(ptr noundef %0, ptr nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.06771 = phi ptr [ %16, %.lr.ph ], [ %27, %21 ]
   %22 = load ptr, ptr %17, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !49
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !51
@@ -2369,10 +2367,10 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyInput(ptr noundef %0, ptr nounde
 
 52:                                               ; preds = %.lr.ph75, %52
   %indvars.iv80 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next81, %52 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv80
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv80
   %54 = load ptr, ptr %53, align 8, !tbaa !63
   %55 = load ptr, ptr %48, align 8, !tbaa !27
-  %56 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv80
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv80
   %57 = load ptr, ptr %56, align 8, !tbaa !49
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !51
@@ -2437,7 +2435,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyOutput(ptr noundef %0, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.06771 = phi ptr [ %16, %.lr.ph ], [ %27, %21 ]
   %22 = load ptr, ptr %17, align 8, !tbaa !38
-  %23 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !49
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !51
@@ -2487,10 +2485,10 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyOutput(ptr noundef %0, ptr nound
 
 52:                                               ; preds = %.lr.ph75, %52
   %indvars.iv80 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next81, %52 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv80
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv80
   %54 = load ptr, ptr %53, align 8, !tbaa !63
   %55 = load ptr, ptr %48, align 8, !tbaa !38
-  %56 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv80
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv80
   %57 = load ptr, ptr %56, align 8, !tbaa !49
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !51
@@ -2543,7 +2541,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_ZeroOutput(ptr noundef captures(none
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !39
-  %14 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %4, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !49
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !51
@@ -2652,7 +2650,7 @@ define internal fastcc void @CopyTempOutputBuffersToHostOutputBuffers(ptr nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %.171 = phi ptr [ %.059, %.lr.ph ], [ %45, %39 ]
   %40 = load ptr, ptr %10, align 8, !tbaa !38
-  %41 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %.061, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %.061, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !49
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !51

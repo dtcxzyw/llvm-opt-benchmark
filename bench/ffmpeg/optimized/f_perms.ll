@@ -102,17 +102,17 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   %20 = add i32 %19, 40
   %21 = and i32 %20, 63
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !37
   %25 = add i32 %19, 9
   %26 = and i32 %25, 63
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %17, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !37
   %30 = add i32 %29, %24
   %31 = and i32 %19, 63
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %17, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %32
   store i32 %30, ptr %33, align 4, !tbaa !37
   %34 = add i32 %19, 1
   store i32 %34, ptr %18, align 4, !tbaa !36
@@ -128,10 +128,10 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
 38:                                               ; preds = %2, %37, %36, %16, %13
   %.0 = phi i32 [ %10, %37 ], [ %15, %13 ], [ %35, %16 ], [ 1, %36 ], [ 0, %2 ]
   %39 = zext i1 %9 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr @perm_str, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @perm_str, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !38
   %42 = zext nneg i32 %.0 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr @perm_str, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @perm_str, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !38
   %45 = icmp eq i32 %.0, %10
   %46 = select i1 %45, ptr @.str.6, ptr @.str.7

@@ -1163,8 +1163,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 .lr.ph:                                           ; preds = %.preheader.split.preheader, %.preheader.split.backedge
   %.sroa.01.019 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
   %5 = add i64 %.sroa.01.019, 1
-  %6 = getelementptr inbounds nuw { i64, [20 x i64] }, ptr %0, i64 %.sroa.01.019
-  %7 = getelementptr inbounds nuw { i64, [20 x i64] }, ptr %2, i64 %.sroa.01.019
+  %6 = getelementptr inbounds nuw [168 x i8], ptr %0, i64 %.sroa.01.019
+  %7 = getelementptr inbounds nuw [168 x i8], ptr %2, i64 %.sroa.01.019
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)

@@ -3,31 +3,7 @@ source_filename = "bench/openusd/original/alloccommon.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.RefCntBuffer = type { i32, i32, [7 x i32], i32, [7 x i32], ptr, ptr, %struct.segmentation, i32, i32, i32, i32, [8 x %struct.WarpedMotionParams], i32, i8, %struct.aom_film_grain_t, %struct.aom_codec_frame_buffer, %struct.yv12_buffer_config, i8, [4 x i32], [8 x i8], [2 x i8], %struct.frame_contexts }
-%struct.segmentation = type { i8, i8, i8, i8, [8 x [8 x i16]], [8 x i32], i32, i8 }
-%struct.WarpedMotionParams = type { [8 x i32], i16, i16, i16, i16, i8, i8 }
-%struct.aom_film_grain_t = type { i32, i32, [14 x [2 x i32]], i32, [10 x [2 x i32]], i32, [10 x [2 x i32]], i32, i32, i32, [24 x i32], [25 x i32], [25 x i32], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16 }
-%struct.aom_codec_frame_buffer = type { ptr, i64, ptr }
-%struct.yv12_buffer_config = type { %union.anon, %union.anon.0, %union.anon.2, %union.anon.4, %union.anon.6, %union.anon.8, i32, [3 x ptr], ptr, i32, ptr, i64, i32, i64, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, i32, ptr }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i32, i32 }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { i32, i32 }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { i32, i32 }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { i32, i32 }
-%union.anon.6 = type { %struct.anon.7 }
-%struct.anon.7 = type { i32, i32 }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { ptr, ptr, ptr }
-%struct.frame_contexts = type { [5 x [13 x [3 x i16]]], [5 x [2 x [9 x [3 x i16]]]], [2 x [3 x [3 x i16]]], [2 x [2 x [6 x i16]]], [2 x [2 x [7 x i16]]], [2 x [2 x [8 x i16]]], [2 x [2 x [9 x i16]]], [2 x [2 x [10 x i16]]], [2 x [2 x [11 x i16]]], [2 x [2 x [12 x i16]]], [5 x [2 x [4 x [4 x i16]]]], [5 x [2 x [42 x [5 x i16]]]], [5 x [2 x [21 x [5 x i16]]]], [6 x [3 x i16]], [2 x [3 x i16]], [6 x [3 x i16]], [3 x [3 x i16]], [8 x [9 x i16]], [22 x [3 x i16]], [22 x [17 x i16]], [4 x [3 x i16]], [22 x [3 x i16]], [4 x [5 x i16]], [22 x [4 x i16]], [22 x [3 x i16]], [7 x [8 x i16]], [7 x [8 x i16]], [7 x [5 x [9 x i16]]], [7 x [5 x [9 x i16]]], [7 x [3 x [3 x i16]]], [2 x [3 x i16]], [5 x [3 x i16]], [3 x [6 x [3 x i16]]], [5 x [3 x i16]], [3 x [3 x [3 x i16]]], [3 x [3 x [3 x i16]]], [3 x [2 x [3 x i16]]], [21 x [3 x i16]], [6 x [3 x i16]], [6 x [3 x i16]], [3 x [3 x i16]], [3 x [3 x i16]], [4 x [3 x i16]], %struct.nmv_context, %struct.nmv_context, [3 x i16], %struct.segmentation_probs, [22 x [3 x i16]], [6 x i16], [4 x i16], [3 x i16], [3 x i16], [4 x [14 x i16]], [2 x [13 x [15 x i16]]], [20 x [11 x i16]], [16 x [4 x i16]], [5 x [5 x [14 x i16]]], [8 x [8 x i16]], [4 x [3 x [4 x i16]]], [5 x i16], [4 x [5 x i16]], [5 x i16], [3 x [4 x [13 x [17 x i16]]]], [4 x [4 x [17 x i16]]], [9 x i16], [6 x [17 x i16]], i32 }
-%struct.nmv_context = type { [5 x i16], [2 x %struct.nmv_component] }
-%struct.nmv_component = type { [12 x i16], [2 x [5 x i16]], [5 x i16], [3 x i16], [3 x i16], [3 x i16], [3 x i16], [10 x [3 x i16]] }
-%struct.segmentation_probs = type { [9 x i16], [3 x [3 x i16]], [3 x [9 x i16]] }
 %struct.TileInfo = type { i32, i32, i32, i32, i32, i32 }
-%struct.RestorationInfo = type { i32, i32, i32, i32, i32, ptr, %struct.RestorationStripeBoundaries, i32 }
-%struct.RestorationStripeBoundaries = type { ptr, ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [34 x i8] c"Failed to allocate cm->rst_tmpbuf\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"Failed to allocate cm->rlbs\00", align 1
@@ -58,7 +34,7 @@ define hidden void @av1_free_ref_frame_buffers(ptr noundef %0) local_unnamed_add
 
 5:                                                ; preds = %1, %16
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %6 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [22816 x i8], ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %16
@@ -112,7 +88,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %indvars.iv
   %7 = icmp ne i64 %indvars.iv, 0
   %8 = zext i1 %7 to i32
   tail call void @av1_alloc_restoration_struct(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %8) #4
@@ -214,7 +190,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   %59 = and i32 %58, -32
   %60 = mul i32 %.059.lcssa, %59
   %61 = shl i32 %60, %46
-  %62 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %0, i64 %indvars.iv73
+  %62 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv73
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 23640
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 23660
   %65 = load i32, ptr %64, align 4
@@ -287,7 +263,7 @@ define hidden void @av1_free_restoration_buffers(ptr noundef %0) local_unnamed_a
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %indvars.iv
   tail call void @av1_free_restoration_struct(ptr noundef nonnull %4) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -306,7 +282,7 @@ define hidden void @av1_free_restoration_buffers(ptr noundef %0) local_unnamed_a
 
 10:                                               ; preds = %5, %10
   %indvars.iv19 = phi i64 [ 0, %5 ], [ %indvars.iv.next20, %10 ]
-  %11 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %0, i64 %indvars.iv19
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 23640
   %13 = load ptr, ptr %12, align 8
   tail call void @aom_free(ptr noundef %13) #4
@@ -351,13 +327,13 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
 
 10:                                               ; preds = %.preheader35.us, %10
   %indvars.iv41 = phi i64 [ 0, %.preheader35.us ], [ %indvars.iv.next42, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv41
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv41
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv44
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv44
   %14 = load ptr, ptr %13, align 8
   tail call void @aom_free(ptr noundef %14) #4
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv44
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv44
   store ptr null, ptr %16, align 8
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
@@ -365,18 +341,18 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
 
 ._crit_edge.us:                                   ; preds = %10
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv44
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv44
   %19 = load ptr, ptr %18, align 8
   tail call void @aom_free(ptr noundef %19) #4
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv44
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv44
   store ptr null, ptr %21, align 8
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv44
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv44
   %24 = load ptr, ptr %23, align 8
   tail call void @aom_free(ptr noundef %24) #4
   %25 = load ptr, ptr %9, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv44
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv44
   store ptr null, ptr %26, align 8
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %27 = load i32, ptr %4, align 4
@@ -387,18 +363,18 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
 .preheader35:                                     ; preds = %.preheader35.lr.ph, %.preheader35
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader35 ], [ 0, %.preheader35.lr.ph ]
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   tail call void @aom_free(ptr noundef %32) #4
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   store ptr null, ptr %34, align 8
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   tail call void @aom_free(ptr noundef %37) #4
   %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   store ptr null, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %4, align 4
@@ -417,7 +393,7 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
 
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv47 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next48, %45 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv47
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv47
   %47 = load ptr, ptr %46, align 8
   tail call void @aom_free(ptr noundef %47) #4
   store ptr null, ptr %46, align 8
@@ -474,7 +450,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 14:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %15 = tail call ptr @aom_calloc(i64 noundef %11, i64 noundef 8) #4
-  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %15, ptr %16, align 8
   %.not52 = icmp eq ptr %15, null
   br i1 %.not52, label %.loopexit, label %13
@@ -518,10 +494,10 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 25:                                               ; preds = %._crit_edge59.us
   %26 = tail call ptr @aom_calloc(i64 noundef %22, i64 noundef 1) #4
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv82
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv82
   store ptr %26, ptr %28, align 8
   %29 = load ptr, ptr %20, align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv82
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv82
   %31 = load ptr, ptr %30, align 8
   %.not50.us = icmp eq ptr %31, null
   br i1 %.not50.us, label %.loopexit, label %40
@@ -529,12 +505,12 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 32:                                               ; preds = %.preheader.us, %24
   %indvars.iv77 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next78, %24 ]
   %33 = tail call ptr @aom_calloc(i64 noundef %22, i64 noundef 1) #4
-  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv77
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv77
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv82
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv82
   store ptr %33, ptr %36, align 8
   %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv82
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv82
   %39 = load ptr, ptr %38, align 8
   %.not51.us = icmp eq ptr %39, null
   br i1 %.not51.us, label %.loopexit, label %24
@@ -547,10 +523,10 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 ._crit_edge59.us:                                 ; preds = %24
   %41 = tail call ptr @aom_calloc(i64 noundef %22, i64 noundef 1) #4
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv82
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv82
   store ptr %41, ptr %43, align 8
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv82
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv82
   %46 = load ptr, ptr %45, align 8
   %.not49.us = icmp eq ptr %46, null
   br i1 %.not49.us, label %.loopexit, label %25
@@ -564,10 +540,10 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %47 ], [ 0, %.preheader.lr.ph ]
   %48 = tail call ptr @aom_calloc(i64 noundef %22, i64 noundef 1) #4
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv72
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv72
   store ptr %48, ptr %50, align 8
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv72
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv72
   %53 = load ptr, ptr %52, align 8
   %.not49 = icmp eq ptr %53, null
   br i1 %.not49, label %.loopexit, label %54
@@ -575,10 +551,10 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 54:                                               ; preds = %.preheader
   %55 = tail call ptr @aom_calloc(i64 noundef %22, i64 noundef 1) #4
   %56 = load ptr, ptr %20, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv72
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv72
   store ptr %55, ptr %57, align 8
   %58 = load ptr, ptr %20, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv72
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv72
   %60 = load ptr, ptr %59, align 8
   %.not50 = icmp eq ptr %60, null
   br i1 %.not50, label %.loopexit, label %47

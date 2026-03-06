@@ -377,16 +377,16 @@ RelationGetSmgr.exit54:                           ; preds = %32, %35
 41:                                               ; preds = %RelationGetSmgr.exit54
   %42 = tail call i32 @visibilitymap_prepare_truncate(ptr noundef nonnull %0, i32 noundef %1) #7
   %43 = zext nneg i32 %.044 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %5, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %43
   store i32 %42, ptr %44, align 4
   %.not60 = icmp eq i32 %42, -1
   br i1 %.not60, label %50, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i32, ptr %3, i64 %43
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %43
   store i32 2, ptr %46, align 4
   %47 = tail call i32 @smgrnblocks(ptr noundef nonnull %14, i32 noundef 2) #7
-  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %43
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %43
   store i32 %47, ptr %48, align 4
   %49 = add nuw nsw i32 %.044, 1
   br label %50
@@ -910,7 +910,7 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   %.239 = phi ptr [ %25, %24 ], [ %31, %27 ], [ %.03748, %26 ]
   %33 = add i32 %.03549, 1
   %34 = sext i32 %.03549 to i64
-  %35 = getelementptr inbounds ptr, ptr %.239, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %.239, i64 %34
   store ptr %22, ptr %35, align 8
   br label %36
 
@@ -944,7 +944,7 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
 
 41:                                               ; preds = %39, %41
   %indvars.iv = phi i64 [ 0, %39 ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %.3, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.3, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   tail call void @smgrclose(ptr noundef %43) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1055,7 +1055,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 31:                                               ; preds = %.preheader62, %27
   %.sink = phi i32 [ %28, %27 ], [ -1, %.preheader62 ]
   %.255 = phi i64 [ %30, %27 ], [ %.15468, %.preheader62 ]
-  %32 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %.sink, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1102,13 +1102,13 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   %.147 = phi i32 [ 8, %40 ], [ %44, %43 ], [ %.04673, %42 ]
   %49 = add i32 %.04574, 1
   %50 = sext i32 %.04574 to i64
-  %51 = getelementptr inbounds ptr, ptr %.149, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.149, i64 %50
   store ptr %21, ptr %51, align 8
   br label %.loopexit
 
 52:                                               ; preds = %.preheader, %58
   %indvars.iv80 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next81, %58 ]
-  %53 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv80
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv80
   %54 = load i32, ptr %53, align 4
   %.not61 = icmp eq i32 %54, -1
   br i1 %.not61, label %58, label %55
@@ -1391,16 +1391,16 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
   %36 = load i32, ptr %20, align 4
   %37 = tail call i32 @FreeSpaceMapPrepareTruncateRel(ptr noundef %30, i32 noundef %36) #7
   %38 = zext nneg i32 %.0 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %3, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %38
   store i32 %37, ptr %39, align 4
   %.not61 = icmp eq i32 %37, -1
   br i1 %.not61, label %45, label %40
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %38
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %38
   store i32 1, ptr %41, align 4
   %42 = tail call i32 @smgrnblocks(ptr noundef %22, i32 noundef 1) #7
-  %43 = getelementptr inbounds nuw i32, ptr %4, i64 %38
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %38
   store i32 %42, ptr %43, align 4
   %44 = add nuw nsw i32 %.0, 1
   br label %45
@@ -1421,16 +1421,16 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
   %51 = load i32, ptr %20, align 4
   %52 = tail call i32 @visibilitymap_prepare_truncate(ptr noundef %30, i32 noundef %51) #7
   %53 = zext nneg i32 %.1 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %3, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %53
   store i32 %52, ptr %54, align 4
   %.not62 = icmp eq i32 %52, -1
   br i1 %.not62, label %59, label %.thread
 
 .thread:                                          ; preds = %50
-  %55 = getelementptr inbounds nuw i32, ptr %2, i64 %53
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %53
   store i32 2, ptr %55, align 4
   %56 = tail call i32 @smgrnblocks(ptr noundef %22, i32 noundef 2) #7
-  %57 = getelementptr inbounds nuw i32, ptr %4, i64 %53
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %53
   store i32 %56, ptr %57, align 4
   %58 = add nuw nsw i32 %.1, 1
   br label %60

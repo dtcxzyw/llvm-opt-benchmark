@@ -29,10 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.52 = type { i64 }
 %union.anon.53 = type { i64 }
 %struct.timespec = type { i64, i64 }
-%struct.rb_heap_struct = type { i16, i64, i64, i64, i64, i64, i64, i64, i64, ptr, %struct.ccan_list_head, ptr, ptr, i64, ptr, i64, i64 }
-%struct.ccan_list_head = type { %struct.ccan_list_node }
-%struct.ccan_list_node = type { ptr, ptr }
-%struct.ractor_newobj_heap_cache = type { ptr, ptr }
 %struct.each_obj_data = type { ptr, i8, ptr, ptr, ptr, [5 x ptr], [5 x i64] }
 %struct.global_vm_table_foreach_data = type { ptr, ptr, ptr, i8 }
 %struct.gc_mark_func_data_struct = type { ptr, ptr }
@@ -42,8 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.gc_raise_tag = type { i64, ptr, ptr }
 %struct.gc_sweep_context = type { ptr, i32, i32, i32 }
-%struct.gc_profile_record = type { i32, double, double, i64, i64, i64, i64 }
-%struct.rb_class_cc_entries_entry = type { i32, i32, ptr }
 %struct.objspace_and_reason = type { ptr, i32 }
 %struct.desired_compaction_pages_i_data = type { ptr, [5 x i64] }
 %struct.verify_internal_consistency_struct = type { ptr, i32, i64, i64, i64, i64, i64 }
@@ -1347,7 +1341,7 @@ define hidden noundef ptr @rb_objspace_alloc() local_unnamed_addr #0 {
 
 24:                                               ; preds = %24, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %24 ]
-  %25 = getelementptr %struct.rb_heap_struct, ptr %12, i64 %indvars.iv.i
+  %25 = getelementptr [144 x i8], ptr %12, i64 %indvars.iv.i
   %26 = trunc nuw nsw i64 %indvars.iv.i to i32
   %narrow26.i = shl nuw nsw i32 40, %26
   %27 = trunc nuw nsw i32 %narrow26.i to i16
@@ -1441,7 +1435,7 @@ current_process_time.exit.thread.i.i:             ; preds = %current_process_tim
 
 56:                                               ; preds = %56, %14
   %indvars.iv31.i = phi i64 [ 0, %14 ], [ %indvars.iv.next32.i, %56 ]
-  %57 = getelementptr i64, ptr @gc_params, i64 %indvars.iv31.i
+  %57 = getelementptr [8 x i8], ptr @gc_params, i64 %indvars.iv31.i
   store i64 10000, ptr %57, align 8, !tbaa !93
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 5
@@ -1474,7 +1468,7 @@ define hidden void @rb_objspace_free(ptr noundef captures(none) %0) local_unname
 
 2:                                                ; preds = %2, %1
   %indvars.iv.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %2 ]
-  %3 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i.i
+  %3 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i.i
   %4 = getelementptr i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !167
   %.not.not.i.i = icmp ne ptr %5, null
@@ -1520,7 +1514,7 @@ rb_darray_size.exit.i:                            ; preds = %heap_page_free.exit
 
 17:                                               ; preds = %rb_darray_size.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %19 = getelementptr ptr, ptr %18, i64 %.032.i
+  %19 = getelementptr [8 x i8], ptr %18, i64 %.032.i
   %20 = load ptr, ptr %19, align 8, !tbaa !173
   %21 = load i64, ptr %12, align 8, !tbaa !174
   %22 = add i64 %21, 1
@@ -1586,7 +1580,7 @@ free_stack_chunks.exit.i:                         ; preds = %.lr.ph.i.i.i, %31
 
 43:                                               ; preds = %43, %.critedge.i
   %indvars.iv.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next.i, %43 ]
-  %44 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
+  %44 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %45 = getelementptr i8, ptr %44, i64 168
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
@@ -1689,7 +1683,7 @@ heap_idx_for_size.exit.i:                         ; preds = %21
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %38 = getelementptr %struct.ractor_newobj_heap_cache, ptr %37, i64 %26
+  %38 = getelementptr [16 x i8], ptr %37, i64 %26
   %39 = load ptr, ptr %38, align 8, !tbaa !192
   %40 = and i16 %30, 2048
   %.not.i.i.i = icmp eq i16 %40, 0
@@ -1724,7 +1718,7 @@ ractor_cache_allocate_slot.exit.thread.i.i:       ; preds = %45, %41
 
 newobj_alloc.exit.i:                              ; preds = %ractor_cache_allocate_slot.exit.thread.i.i, %ractor_cache_allocate_slot.exit.i.i
   %.0.i.i = phi i64 [ %49, %ractor_cache_allocate_slot.exit.thread.i.i ], [ %46, %ractor_cache_allocate_slot.exit.i.i ]
-  %50 = getelementptr %struct.rb_heap_struct, ptr %12, i64 %26
+  %50 = getelementptr [144 x i8], ptr %12, i64 %26
   %51 = getelementptr i8, ptr %50, i64 72
   %52 = load i64, ptr %51, align 8, !tbaa !200
   %53 = add i64 %52, 1
@@ -1755,7 +1749,7 @@ newobj_alloc.exit.i:                              ; preds = %ractor_cache_alloca
   %70 = xor i64 %69, -1
   %71 = udiv i16 %.lhs.trunc.i.i.i.i, 1280
   %.zext11.i.i.i.i = zext nneg i16 %71 to i64
-  %72 = getelementptr i64, ptr %64, i64 %.zext11.i.i.i.i
+  %72 = getelementptr [8 x i8], ptr %64, i64 %.zext11.i.i.i.i
   %73 = load i64, ptr %72, align 8, !tbaa !93
   %74 = and i64 %73, %70
   %75 = shl nuw i64 2, %68
@@ -3413,7 +3407,7 @@ rb_array_len.exit.i:                              ; preds = %37, %34
 
 RARRAY_AREF.exit.i:                               ; preds = %47, %44
   %.0.i.i.i = phi ptr [ %48, %47 ], [ %40, %44 ]
-  %49 = getelementptr i64, ptr %.0.i.i.i, i64 %.02631.i
+  %49 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %.02631.i
   %50 = load i64, ptr %49, align 8, !tbaa !93
   %51 = call i64 @rb_equal(i64 noundef %50, i64 noundef %1) #6
   %.not27.i = icmp eq i64 %51, 0
@@ -3661,7 +3655,7 @@ gc_exit.exit.i:                                   ; preds = %99, %rb_gc_event_ho
 
 101:                                              ; preds = %rb_darray_size.exit.i
   %102 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %103 = getelementptr ptr, ptr %102, i64 %.03962.i
+  %103 = getelementptr [8 x i8], ptr %102, i64 %.03962.i
   %104 = load ptr, ptr %103, align 8, !tbaa !173
   %105 = load i16, ptr %104, align 8, !tbaa !189
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 40
@@ -3878,7 +3872,7 @@ rb_darray_size.exit.i:                            ; preds = %1, %._crit_edge.i
 
 8:                                                ; preds = %rb_darray_size.exit.i
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %10 = getelementptr ptr, ptr %9, i64 %.02328.i
+  %10 = getelementptr [8 x i8], ptr %9, i64 %.02328.i
   %11 = load ptr, ptr %10, align 8, !tbaa !173
   %12 = load i16, ptr %11, align 8, !tbaa !189
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -4063,7 +4057,7 @@ define dso_local range(i32 0, 2) i32 @rb_objspace_garbage_object_p(i64 noundef %
 
 .split.i:                                         ; preds = %1, %.split.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.split.i ], [ 0, %1 ]
-  %9 = getelementptr %struct.rb_heap_struct, ptr %4, i64 %indvars.iv.i.i
+  %9 = getelementptr [144 x i8], ptr %4, i64 %indvars.iv.i.i
   %10 = getelementptr i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8, !tbaa !167
   %.not.not.i.i = icmp ne ptr %11, null
@@ -4091,7 +4085,7 @@ has_sweeping_pages.exit.i:                        ; preds = %.split.i
   %21 = udiv i16 %.lhs.trunc.i.i, 40
   %22 = udiv i16 %.lhs.trunc.i.i, 2560
   %.zext2.i.i = zext nneg i16 %22 to i64
-  %23 = getelementptr i64, ptr %20, i64 %.zext2.i.i
+  %23 = getelementptr [8 x i8], ptr %20, i64 %.zext2.i.i
   %24 = load i64, ptr %23, align 8, !tbaa !93
   %25 = and i16 %21, 63
   %26 = zext nneg i16 %25 to i64
@@ -4120,7 +4114,7 @@ define internal fastcc zeroext i1 @rb_gc_impl_garbage_object_p(ptr noundef reado
 
 .split:                                           ; preds = %2, %.split
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split ], [ 0, %2 ]
-  %7 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
+  %7 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %8 = getelementptr i8, ptr %7, i64 136
   %9 = load ptr, ptr %8, align 8, !tbaa !167
   %.not.not.i = icmp ne ptr %9, null
@@ -4148,7 +4142,7 @@ has_sweeping_pages.exit:                          ; preds = %.split
   %19 = udiv i16 %.lhs.trunc.i, 40
   %20 = udiv i16 %.lhs.trunc.i, 2560
   %.zext2.i = zext nneg i16 %20 to i64
-  %21 = getelementptr i64, ptr %18, i64 %.zext2.i
+  %21 = getelementptr [8 x i8], ptr %18, i64 %.zext2.i
   %22 = load i64, ptr %21, align 8, !tbaa !93
   %23 = and i16 %19, 63
   %24 = zext nneg i16 %23 to i64
@@ -5184,7 +5178,7 @@ define dso_local void @rb_gc_mark(i64 noundef %0) local_unnamed_addr #0 {
   %23 = udiv i16 %.lhs.trunc.i.i.i.i.i, 40
   %24 = udiv i16 %.lhs.trunc.i.i.i.i.i, 2560
   %.zext2.i.i.i.i.i = zext nneg i16 %24 to i64
-  %25 = getelementptr i64, ptr %22, i64 %.zext2.i.i.i.i.i
+  %25 = getelementptr [8 x i8], ptr %22, i64 %.zext2.i.i.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !93
   %27 = and i16 %23, 63
   %28 = zext nneg i16 %27 to i64
@@ -5257,7 +5251,7 @@ define internal fastcc void @gc_mark_and_pin_internal(i64 noundef %0) unnamed_ad
   %23 = udiv i16 %.lhs.trunc.i.i.i.i, 40
   %24 = udiv i16 %.lhs.trunc.i.i.i.i, 2560
   %.zext2.i.i.i.i = zext nneg i16 %24 to i64
-  %25 = getelementptr i64, ptr %22, i64 %.zext2.i.i.i.i
+  %25 = getelementptr [8 x i8], ptr %22, i64 %.zext2.i.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !93
   %27 = and i16 %23, 63
   %28 = zext nneg i16 %27 to i64
@@ -5458,7 +5452,7 @@ is_pointer_to_heap.exit.i:                        ; preds = %59
   %82 = udiv i16 %66, 40
   %83 = udiv i16 %66, 2560
   %.zext2.i.i.i.i = zext nneg i16 %83 to i64
-  %84 = getelementptr i64, ptr %81, i64 %.zext2.i.i.i.i
+  %84 = getelementptr [8 x i8], ptr %81, i64 %.zext2.i.i.i.i
   %85 = load i64, ptr %84, align 8, !tbaa !93
   %86 = and i16 %82, 63
   %87 = zext nneg i16 %86 to i64
@@ -5561,7 +5555,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %31 = udiv i16 %.lhs.trunc.i.i.i, 40
   %32 = udiv i16 %.lhs.trunc.i.i.i, 2560
   %.zext2.i.i.i = zext nneg i16 %32 to i64
-  %33 = getelementptr i64, ptr %30, i64 %.zext2.i.i.i
+  %33 = getelementptr [8 x i8], ptr %30, i64 %.zext2.i.i.i
   %34 = load i64, ptr %33, align 8, !tbaa !93
   %35 = and i16 %31, 63
   %36 = zext nneg i16 %35 to i64
@@ -5582,7 +5576,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %45 = udiv i16 %.lhs.trunc.i.i.i.i, 40
   %46 = udiv i16 %.lhs.trunc.i.i.i.i, 2560
   %.zext2.i.i.i.i = zext nneg i16 %46 to i64
-  %47 = getelementptr i64, ptr %44, i64 %.zext2.i.i.i.i
+  %47 = getelementptr [8 x i8], ptr %44, i64 %.zext2.i.i.i.i
   %48 = load i64, ptr %47, align 8, !tbaa !93
   %49 = and i16 %45, 63
   %50 = zext nneg i16 %49 to i64
@@ -5667,7 +5661,7 @@ rb_darray_ensure_space.exit.i:                    ; preds = %rb_darray_resize_ca
   %82 = phi i64 [ %62, %rb_darray_size.exit.i.i ], [ %.pre15.i, %rb_darray_resize_capa_impl.exit.i.i ]
   %83 = phi ptr [ %59, %rb_darray_size.exit.i.i ], [ %76, %rb_darray_resize_capa_impl.exit.i.i ]
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %85 = getelementptr ptr, ptr %84, i64 %82
+  %85 = getelementptr [8 x i8], ptr %84, i64 %82
   store ptr %0, ptr %85, align 8, !tbaa !275
   %86 = add i64 %82, 1
   store i64 %86, ptr %83, align 8, !tbaa !171
@@ -5701,7 +5695,7 @@ define hidden void @rb_gc_remove_weak(i64 noundef %0, ptr noundef readnone captu
   %14 = udiv i16 %.lhs.trunc.i.i, 40
   %15 = udiv i16 %.lhs.trunc.i.i, 2560
   %.zext2.i.i = zext nneg i16 %15 to i64
-  %16 = getelementptr i64, ptr %13, i64 %.zext2.i.i
+  %16 = getelementptr [8 x i8], ptr %13, i64 %.zext2.i.i
   %17 = load i64, ptr %16, align 8, !tbaa !93
   %18 = and i16 %14, 63
   %19 = zext nneg i16 %18 to i64
@@ -5729,7 +5723,7 @@ rb_darray_size.exit.i:                            ; preds = %28
 
 .lr.ph.i:                                         ; preds = %rb_darray_size.exit.lr.ph.i, %rb_darray_size.exit.i
   %.01416.i = phi i64 [ %26, %rb_darray_size.exit.i ], [ 0, %rb_darray_size.exit.lr.ph.i ]
-  %27 = getelementptr ptr, ptr %25, i64 %.01416.i
+  %27 = getelementptr [8 x i8], ptr %25, i64 %.01416.i
   %.not13.i = icmp eq ptr %27, null
   br i1 %.not13.i, label %rb_gc_impl_remove_weak.exit, label %28
 
@@ -5779,7 +5773,7 @@ define dso_local void @rb_gc_mark_values(i64 noundef %0, ptr noundef readonly ca
 
 .lr.ph:                                           ; preds = %2, %gc_mark_internal.exit
   %.04 = phi i64 [ %22, %gc_mark_internal.exit ], [ 0, %2 ]
-  %4 = getelementptr i64, ptr %1, i64 %.04
+  %4 = getelementptr [8 x i8], ptr %1, i64 %.04
   %5 = load i64, ptr %4, align 8, !tbaa !93
   %6 = icmp eq i64 %5, 0
   %7 = and i64 %5, 7
@@ -5825,7 +5819,7 @@ define dso_local void @rb_gc_mark_vm_stack_values(i64 noundef %0, ptr noundef re
 
 .lr.ph:                                           ; preds = %2, %gc_mark_and_pin_internal.exit
   %.04 = phi i64 [ %44, %gc_mark_and_pin_internal.exit ], [ 0, %2 ]
-  %4 = getelementptr i64, ptr %1, i64 %.04
+  %4 = getelementptr [8 x i8], ptr %1, i64 %.04
   %5 = load i64, ptr %4, align 8, !tbaa !93
   %6 = icmp eq i64 %5, 0
   %7 = and i64 %5, 7
@@ -5863,7 +5857,7 @@ define dso_local void @rb_gc_mark_vm_stack_values(i64 noundef %0, ptr noundef re
   %27 = udiv i16 %.lhs.trunc.i.i.i.i.i, 40
   %28 = udiv i16 %.lhs.trunc.i.i.i.i.i, 2560
   %.zext2.i.i.i.i.i = zext nneg i16 %28 to i64
-  %29 = getelementptr i64, ptr %26, i64 %.zext2.i.i.i.i.i
+  %29 = getelementptr [8 x i8], ptr %26, i64 %.zext2.i.i.i.i.i
   %30 = load i64, ptr %29, align 8, !tbaa !93
   %31 = and i16 %27, 63
   %32 = zext nneg i16 %31 to i64
@@ -5957,7 +5951,7 @@ define internal noundef i32 @mark_key(i64 noundef %0, i64 %1, i64 %2) #0 {
   %25 = udiv i16 %.lhs.trunc.i.i.i.i.i, 40
   %26 = udiv i16 %.lhs.trunc.i.i.i.i.i, 2560
   %.zext2.i.i.i.i.i = zext nneg i16 %26 to i64
-  %27 = getelementptr i64, ptr %24, i64 %.zext2.i.i.i.i.i
+  %27 = getelementptr [8 x i8], ptr %24, i64 %.zext2.i.i.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !93
   %29 = and i16 %25, 63
   %30 = zext nneg i16 %29 to i64
@@ -6043,7 +6037,7 @@ define internal noundef i32 @pin_key_pin_value(i64 noundef %0, i64 noundef %1, i
   %25 = udiv i16 %.lhs.trunc.i.i.i.i.i, 40
   %26 = udiv i16 %.lhs.trunc.i.i.i.i.i, 2560
   %.zext2.i.i.i.i.i = zext nneg i16 %26 to i64
-  %27 = getelementptr i64, ptr %24, i64 %.zext2.i.i.i.i.i
+  %27 = getelementptr [8 x i8], ptr %24, i64 %.zext2.i.i.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !93
   %29 = and i16 %25, 63
   %30 = zext nneg i16 %29 to i64
@@ -6111,7 +6105,7 @@ gc_mark_and_pin_internal.exit:                    ; preds = %3, %rb_gc_impl_mark
   %63 = udiv i16 %.lhs.trunc.i.i.i.i.i5, 40
   %64 = udiv i16 %.lhs.trunc.i.i.i.i.i5, 2560
   %.zext2.i.i.i.i.i6 = zext nneg i16 %64 to i64
-  %65 = getelementptr i64, ptr %62, i64 %.zext2.i.i.i.i.i6
+  %65 = getelementptr [8 x i8], ptr %62, i64 %.zext2.i.i.i.i.i6
   %66 = load i64, ptr %65, align 8, !tbaa !93
   %67 = and i16 %63, 63
   %68 = zext nneg i16 %67 to i64
@@ -6296,7 +6290,7 @@ define internal noundef i32 @rb_mark_tbl_i(i64 %0, i64 noundef %1, i64 %2) #0 {
   %25 = udiv i16 %.lhs.trunc.i.i.i.i.i, 40
   %26 = udiv i16 %.lhs.trunc.i.i.i.i.i, 2560
   %.zext2.i.i.i.i.i = zext nneg i16 %26 to i64
-  %27 = getelementptr i64, ptr %24, i64 %.zext2.i.i.i.i.i
+  %27 = getelementptr [8 x i8], ptr %24, i64 %.zext2.i.i.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !93
   %29 = and i16 %25, 63
   %30 = zext nneg i16 %29 to i64
@@ -6713,7 +6707,7 @@ RCLASS_IV_COUNT.exit:                             ; preds = %rb_vm_lock_leave.ex
 
 84:                                               ; preds = %RCLASS_IV_COUNT.exit
   %85 = load ptr, ptr %57, align 8, !tbaa !215
-  %86 = getelementptr i64, ptr %85, i64 %indvars.iv214
+  %86 = getelementptr [8 x i8], ptr %85, i64 %indvars.iv214
   %87 = load i64, ptr %86, align 8, !tbaa !93
   %88 = icmp eq i64 %87, 0
   %89 = and i64 %87, 7
@@ -6874,7 +6868,7 @@ rb_array_const_ptr.exit:                          ; preds = %151, %155
 
 .lr.ph207:                                        ; preds = %rb_array_const_ptr.exit, %gc_mark_internal.exit166
   %.0122206 = phi i64 [ %179, %gc_mark_internal.exit166 ], [ 0, %rb_array_const_ptr.exit ]
-  %161 = getelementptr i64, ptr %.0.i165, i64 %.0122206
+  %161 = getelementptr [8 x i8], ptr %.0.i165, i64 %.0122206
   %162 = load i64, ptr %161, align 8, !tbaa !93
   %163 = icmp eq i64 %162, 0
   %164 = and i64 %162, 7
@@ -7078,7 +7072,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %250, %254
 
 .lr.ph200:                                        ; preds = %.lr.ph200.preheader, %gc_mark_internal.exit174
   %indvars.iv = phi i64 [ 0, %.lr.ph200.preheader ], [ %indvars.iv.next, %gc_mark_internal.exit174 ]
-  %257 = getelementptr i64, ptr %.0.i173, i64 %indvars.iv
+  %257 = getelementptr [8 x i8], ptr %.0.i173, i64 %indvars.iv
   %258 = load i64, ptr %257, align 8, !tbaa !93
   %259 = icmp eq i64 %258, 0
   %260 = and i64 %258, 7
@@ -7233,7 +7227,7 @@ RSTRUCT_CONST_PTR.exit:                           ; preds = %331, %335
 
 .lr.ph:                                           ; preds = %RSTRUCT_CONST_PTR.exit, %gc_mark_internal.exit179
   %.0198 = phi i64 [ %359, %gc_mark_internal.exit179 ], [ 0, %RSTRUCT_CONST_PTR.exit ]
-  %341 = getelementptr i64, ptr %.0.i178, i64 %.0198
+  %341 = getelementptr [8 x i8], ptr %.0.i178, i64 %.0198
   %342 = load i64, ptr %341, align 8, !tbaa !93
   %343 = icmp eq i64 %342, 0
   %344 = and i64 %342, 7
@@ -7607,7 +7601,7 @@ define internal fastcc void @rb_gc_impl_writebarrier_unprotect(ptr noundef captu
   %9 = udiv i16 %.lhs.trunc.i, 40
   %10 = udiv i16 %.lhs.trunc.i, 2560
   %.zext2.i = zext nneg i16 %10 to i64
-  %11 = getelementptr i64, ptr %8, i64 %.zext2.i
+  %11 = getelementptr [8 x i8], ptr %8, i64 %.zext2.i
   %12 = load i64, ptr %11, align 8, !tbaa !93
   %13 = and i16 %9, 63
   %14 = zext nneg i16 %13 to i64
@@ -7647,7 +7641,7 @@ rb_gc_vm_lock_no_barrier.exit:                    ; preds = %17, %19
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 904
-  %31 = getelementptr i64, ptr %30, i64 %.zext2.i
+  %31 = getelementptr [8 x i8], ptr %30, i64 %.zext2.i
   %32 = load i64, ptr %31, align 8, !tbaa !93
   %33 = and i64 %32, %15
   %.not20.i = icmp eq i64 %33, 0
@@ -7661,7 +7655,7 @@ rb_gc_vm_lock_no_barrier.exit:                    ; preds = %17, %19
 
 ._crit_edge.i:                                    ; preds = %24, %34, %29
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 488
-  %38 = getelementptr i64, ptr %37, i64 %.zext2.i
+  %38 = getelementptr [8 x i8], ptr %37, i64 %.zext2.i
   %39 = load i64, ptr %38, align 8, !tbaa !93
   %40 = xor i64 %15, -1
   %41 = and i64 %39, %40
@@ -7674,7 +7668,7 @@ rb_gc_vm_lock_no_barrier.exit:                    ; preds = %17, %19
   %47 = xor i64 %46, -1
   %48 = udiv i16 %.lhs.trunc.i, 1280
   %.zext11.i.i.i = zext nneg i16 %48 to i64
-  %49 = getelementptr i64, ptr %42, i64 %.zext11.i.i.i
+  %49 = getelementptr [8 x i8], ptr %42, i64 %.zext11.i.i.i
   %50 = load i64, ptr %49, align 8, !tbaa !93
   %51 = and i64 %50, %47
   store i64 %51, ptr %49, align 8, !tbaa !93
@@ -7682,7 +7676,7 @@ rb_gc_vm_lock_no_barrier.exit:                    ; preds = %17, %19
   %53 = and i64 %52, -33
   store i64 %53, ptr %21, align 8, !tbaa !113
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 280
-  %55 = getelementptr i64, ptr %54, i64 %.zext2.i
+  %55 = getelementptr [8 x i8], ptr %54, i64 %.zext2.i
   %56 = load i64, ptr %55, align 8, !tbaa !93
   %57 = and i64 %56, %15
   %.not21.i = icmp eq i64 %57, 0
@@ -7737,7 +7731,7 @@ gc_mark_set.exit:                                 ; preds = %RVALUE_DEMOTE.exit,
   %83 = xor i64 %82, -1
   %84 = udiv i16 %.lhs.trunc.i, 1280
   %.zext11.i.i = zext nneg i16 %84 to i64
-  %85 = getelementptr i64, ptr %78, i64 %.zext11.i.i
+  %85 = getelementptr [8 x i8], ptr %78, i64 %.zext11.i.i
   %86 = load i64, ptr %85, align 8, !tbaa !93
   %87 = and i64 %86, %83
   store i64 %87, ptr %85, align 8, !tbaa !93
@@ -7749,7 +7743,7 @@ gc_mark_set.exit:                                 ; preds = %RVALUE_DEMOTE.exit,
 gc_remember_unprotected.exit:                     ; preds = %68, %gc_mark_set.exit, %76
   %90 = phi ptr [ %.pre29, %68 ], [ %28, %gc_mark_set.exit ], [ %77, %76 ]
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 72
-  %92 = getelementptr i64, ptr %91, i64 %.zext2.i
+  %92 = getelementptr [8 x i8], ptr %91, i64 %.zext2.i
   %93 = load i64, ptr %92, align 8, !tbaa !93
   %94 = or i64 %93, %15
   store i64 %94, ptr %92, align 8, !tbaa !93
@@ -7791,7 +7785,7 @@ define hidden void @rb_gc_writebarrier_remember(i64 noundef %0) local_unnamed_ad
   %13 = udiv i16 %.lhs.trunc.i.i.i, 40
   %14 = udiv i16 %.lhs.trunc.i.i.i, 2560
   %.zext2.i.i.i = zext nneg i16 %14 to i64
-  %15 = getelementptr i64, ptr %12, i64 %.zext2.i.i.i
+  %15 = getelementptr [8 x i8], ptr %12, i64 %.zext2.i.i.i
   %16 = load i64, ptr %15, align 8, !tbaa !93
   %17 = and i16 %13, 63
   %18 = zext nneg i16 %17 to i64
@@ -7802,7 +7796,7 @@ define hidden void @rb_gc_writebarrier_remember(i64 noundef %0) local_unnamed_ad
 
 RVALUE_BLACK_P.exit.i:                            ; preds = %8
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 696
-  %22 = getelementptr i64, ptr %21, i64 %.zext2.i.i.i
+  %22 = getelementptr [8 x i8], ptr %21, i64 %.zext2.i.i.i
   %23 = load i64, ptr %22, align 8, !tbaa !93
   %24 = and i64 %23, %19
   %.not10.not.i = icmp eq i64 %24, 0
@@ -7828,7 +7822,7 @@ RVALUE_BLACK_P.exit.i:                            ; preds = %8
   %35 = udiv i16 %.lhs.trunc.i.i11.i, 40
   %36 = udiv i16 %.lhs.trunc.i.i11.i, 2560
   %.zext2.i.i12.i = zext nneg i16 %36 to i64
-  %37 = getelementptr i64, ptr %34, i64 %.zext2.i.i12.i
+  %37 = getelementptr [8 x i8], ptr %34, i64 %.zext2.i.i12.i
   %38 = load i64, ptr %37, align 8, !tbaa !93
   %39 = and i16 %35, 63
   %40 = zext nneg i16 %39 to i64
@@ -7863,7 +7857,7 @@ define hidden void @rb_gc_copy_attributes(i64 noundef %0, i64 noundef %1) local_
   %10 = udiv i16 %.lhs.trunc.i.i, 40
   %11 = udiv i16 %.lhs.trunc.i.i, 2560
   %.zext2.i.i = zext nneg i16 %11 to i64
-  %12 = getelementptr i64, ptr %9, i64 %.zext2.i.i
+  %12 = getelementptr [8 x i8], ptr %9, i64 %.zext2.i.i
   %13 = load i64, ptr %12, align 8, !tbaa !93
   %14 = and i16 %10, 63
   %15 = zext nneg i16 %14 to i64
@@ -7990,7 +7984,7 @@ rbimpl_intern_const.exit83.i:                     ; preds = %.lr.ph.i81.i, %rbim
   %17 = udiv i16 %.lhs.trunc.i.i, 40
   %18 = udiv i16 %.lhs.trunc.i.i, 2560
   %.zext2.i.i = zext nneg i16 %18 to i64
-  %19 = getelementptr i64, ptr %16, i64 %.zext2.i.i
+  %19 = getelementptr [8 x i8], ptr %16, i64 %.zext2.i.i
   %20 = load i64, ptr %19, align 8, !tbaa !93
   %21 = and i16 %17, 63
   %22 = zext nneg i16 %21 to i64
@@ -8018,14 +8012,14 @@ rbimpl_intern_const.exit83.i:                     ; preds = %.lr.ph.i81.i, %rbim
 32:                                               ; preds = %27
   %33 = load i64, ptr @rb_gc_impl_obj_flags.ID_old, align 8, !tbaa !93
   %34 = add nuw nsw i64 %.0.i, 1
-  %35 = getelementptr i64, ptr %1, i64 %.0.i
+  %35 = getelementptr [8 x i8], ptr %1, i64 %.0.i
   store i64 %33, ptr %35, align 8, !tbaa !93
   br label %36
 
 36:                                               ; preds = %32, %27
   %.1.i = phi i64 [ %34, %32 ], [ %.0.i, %27 ]
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 488
-  %38 = getelementptr i64, ptr %37, i64 %.zext2.i.i
+  %38 = getelementptr [8 x i8], ptr %37, i64 %.zext2.i.i
   %39 = load i64, ptr %38, align 8, !tbaa !93
   %40 = lshr i64 %39, %22
   %.not45.i = trunc i64 %40 to i1
@@ -8036,14 +8030,14 @@ rbimpl_intern_const.exit83.i:                     ; preds = %.lr.ph.i81.i, %rbim
 42:                                               ; preds = %36
   %43 = load i64, ptr @rb_gc_impl_obj_flags.ID_uncollectible, align 8, !tbaa !93
   %44 = add nuw nsw i64 %.1.i, 1
-  %45 = getelementptr i64, ptr %1, i64 %.1.i
+  %45 = getelementptr [8 x i8], ptr %1, i64 %.1.i
   store i64 %43, ptr %45, align 8, !tbaa !93
   br label %46
 
 46:                                               ; preds = %42, %36
   %.2.i = phi i64 [ %44, %42 ], [ %.1.i, %36 ]
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 696
-  %48 = getelementptr i64, ptr %47, i64 %.zext2.i.i
+  %48 = getelementptr [8 x i8], ptr %47, i64 %.zext2.i.i
   %49 = load i64, ptr %48, align 8, !tbaa !93
   %50 = lshr i64 %49, %22
   %.not46.i = trunc i64 %50 to i1
@@ -8054,14 +8048,14 @@ rbimpl_intern_const.exit83.i:                     ; preds = %.lr.ph.i81.i, %rbim
 52:                                               ; preds = %46
   %53 = load i64, ptr @rb_gc_impl_obj_flags.ID_marking, align 8, !tbaa !93
   %54 = add nuw nsw i64 %.2.i, 1
-  %55 = getelementptr i64, ptr %1, i64 %.2.i
+  %55 = getelementptr [8 x i8], ptr %1, i64 %.2.i
   store i64 %53, ptr %55, align 8, !tbaa !93
   br label %56
 
 56:                                               ; preds = %52, %46
   %.3.i = phi i64 [ %54, %52 ], [ %.2.i, %46 ]
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 280
-  %58 = getelementptr i64, ptr %57, i64 %.zext2.i.i
+  %58 = getelementptr [8 x i8], ptr %57, i64 %.zext2.i.i
   %59 = load i64, ptr %58, align 8, !tbaa !93
   %60 = lshr i64 %59, %22
   %.not47.i = trunc i64 %60 to i1
@@ -8072,14 +8066,14 @@ rbimpl_intern_const.exit83.i:                     ; preds = %.lr.ph.i81.i, %rbim
 62:                                               ; preds = %56
   %63 = load i64, ptr @rb_gc_impl_obj_flags.ID_marked, align 8, !tbaa !93
   %64 = add nuw nsw i64 %.3.i, 1
-  %65 = getelementptr i64, ptr %1, i64 %.3.i
+  %65 = getelementptr [8 x i8], ptr %1, i64 %.3.i
   store i64 %63, ptr %65, align 8, !tbaa !93
   br label %66
 
 66:                                               ; preds = %62, %56
   %.4.i = phi i64 [ %64, %62 ], [ %.3.i, %56 ]
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 1112
-  %68 = getelementptr i64, ptr %67, i64 %.zext2.i.i
+  %68 = getelementptr [8 x i8], ptr %67, i64 %.zext2.i.i
   %69 = load i64, ptr %68, align 8, !tbaa !93
   %70 = lshr i64 %69, %22
   %.not48.i = trunc i64 %70 to i1
@@ -8090,7 +8084,7 @@ rbimpl_intern_const.exit83.i:                     ; preds = %.lr.ph.i81.i, %rbim
 72:                                               ; preds = %66
   %73 = load i64, ptr @rb_gc_impl_obj_flags.ID_pinned, align 8, !tbaa !93
   %74 = add nuw nsw i64 %.4.i, 1
-  %75 = getelementptr i64, ptr %1, i64 %.4.i
+  %75 = getelementptr [8 x i8], ptr %1, i64 %.4.i
   store i64 %73, ptr %75, align 8, !tbaa !93
   br label %rb_gc_impl_obj_flags.exit
 
@@ -8126,7 +8120,7 @@ define hidden void @rb_gc_ractor_cache_free(ptr noundef captures(none) %0) local
 
 9:                                                ; preds = %heap_page_freelist_append.exit.i.i, %1
   %.011.i.i = phi i64 [ 0, %1 ], [ %22, %heap_page_freelist_append.exit.i.i ]
-  %10 = getelementptr %struct.ractor_newobj_heap_cache, ptr %8, i64 %.011.i.i
+  %10 = getelementptr [16 x i8], ptr %8, i64 %.011.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !192
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %heap_page_freelist_append.exit.i.i, label %12
@@ -8562,7 +8556,7 @@ define dso_local void @rb_gc_update_values(i64 noundef %0, ptr noundef captures(
 
 .lr.ph.i:                                         ; preds = %2, %rb_gc_impl_object_moved_p.exit.thread.i
   %.02.i = phi i64 [ %16, %rb_gc_impl_object_moved_p.exit.thread.i ], [ 0, %2 ]
-  %4 = getelementptr i64, ptr %1, i64 %.02.i
+  %4 = getelementptr [8 x i8], ptr %1, i64 %.02.i
   %5 = load i64, ptr %4, align 8, !tbaa !93
   %6 = icmp eq i64 %5, 0
   %7 = and i64 %5, 7
@@ -8621,7 +8615,7 @@ define hidden void @rb_gc_prepare_heap() local_unnamed_addr #0 {
 5:                                                ; preds = %5, %0
   %indvars.iv.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i.i, %5 ]
   %.08.i.i = phi i64 [ 0, %0 ], [ %9, %5 ]
-  %6 = getelementptr %struct.rb_heap_struct, ptr %4, i64 %indvars.iv.i.i
+  %6 = getelementptr [144 x i8], ptr %4, i64 %indvars.iv.i.i
   %7 = getelementptr i8, ptr %6, i64 176
   %8 = load i64, ptr %7, align 8, !tbaa !360
   %9 = add i64 %8, %.08.i.i
@@ -8667,7 +8661,7 @@ objspace_available_slots.exit.i:                  ; preds = %5
 25:                                               ; preds = %25, %objspace_available_slots.exit.i
   %indvars.iv.i17.i = phi i64 [ 0, %objspace_available_slots.exit.i ], [ %indvars.iv.next.i19.i, %25 ]
   %.08.i18.i = phi i64 [ 0, %objspace_available_slots.exit.i ], [ %29, %25 ]
-  %26 = getelementptr %struct.rb_heap_struct, ptr %4, i64 %indvars.iv.i17.i
+  %26 = getelementptr [144 x i8], ptr %4, i64 %indvars.iv.i17.i
   %27 = getelementptr i8, ptr %26, i64 176
   %28 = load i64, ptr %27, align 8, !tbaa !360
   %29 = add i64 %28, %.08.i18.i
@@ -9073,7 +9067,7 @@ RB_FL_ABLE.exit.i:                                ; preds = %free_gen_ivtbl.exit
 
 77:                                               ; preds = %.lr.ph, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
-  %78 = getelementptr i64, ptr %72, i64 %indvars.iv
+  %78 = getelementptr [8 x i8], ptr %72, i64 %indvars.iv
   %79 = load i64, ptr %78, align 8, !tbaa !212
   %80 = icmp eq i64 %79, 0
   %81 = and i64 %79, 7
@@ -9341,7 +9335,7 @@ update_cvc_tbl.exit:                              ; preds = %update_cc_tbl.exit,
 53:                                               ; preds = %rb_gc_impl_object_moved_p.exit.thread.i, %.lr.ph.i
   %54 = phi i64 [ %50, %.lr.ph.i ], [ %67, %rb_gc_impl_object_moved_p.exit.thread.i ]
   %.02.i = phi i64 [ 0, %.lr.ph.i ], [ %68, %rb_gc_impl_object_moved_p.exit.thread.i ]
-  %55 = getelementptr i64, ptr %52, i64 %.02.i
+  %55 = getelementptr [8 x i8], ptr %52, i64 %.02.i
   %56 = load i64, ptr %55, align 8, !tbaa !93
   %57 = icmp eq i64 %56, 0
   %58 = and i64 %56, 7
@@ -9444,7 +9438,7 @@ RCLASS_IV_COUNT.exit:                             ; preds = %rb_vm_lock_leave.ex
 
 101:                                              ; preds = %RCLASS_IV_COUNT.exit
   %102 = load ptr, ptr %72, align 8, !tbaa !215
-  %103 = getelementptr i64, ptr %102, i64 %indvars.iv463
+  %103 = getelementptr [8 x i8], ptr %102, i64 %indvars.iv463
   %104 = load i64, ptr %103, align 8, !tbaa !93
   %105 = icmp eq i64 %104, 0
   %106 = and i64 %104, 7
@@ -9837,7 +9831,7 @@ rb_array_const_ptr.exit.i:                        ; preds = %287, %.thread.i
 
 290:                                              ; preds = %rb_gc_impl_object_moved_p.exit43.thread.i, %rb_array_const_ptr.exit.i
   %.012.i = phi i64 [ 0, %rb_array_const_ptr.exit.i ], [ %303, %rb_gc_impl_object_moved_p.exit43.thread.i ]
-  %291 = getelementptr i64, ptr %.0.i40.i, i64 %.012.i
+  %291 = getelementptr [8 x i8], ptr %.0.i40.i, i64 %.012.i
   %292 = load i64, ptr %291, align 8, !tbaa !93
   %293 = icmp eq i64 %292, 0
   %294 = and i64 %292, 7
@@ -10141,7 +10135,7 @@ ROBJECT_IV_COUNT.exit:                            ; preds = %434, %438
   br i1 %446, label %447, label %update_cc_tbl.exit268
 
 447:                                              ; preds = %ROBJECT_IV_COUNT.exit
-  %448 = getelementptr i64, ptr %.024.i, i64 %indvars.iv
+  %448 = getelementptr [8 x i8], ptr %.024.i, i64 %indvars.iv
   %449 = load i64, ptr %448, align 8, !tbaa !93
   %450 = icmp eq i64 %449, 0
   %451 = and i64 %449, 7
@@ -10527,7 +10521,7 @@ RSTRUCT_CONST_PTR.exit:                           ; preds = %648, %652
 
 .lr.ph:                                           ; preds = %RSTRUCT_CONST_PTR.exit, %rb_gc_impl_object_moved_p.exit388.thread
   %.0196454 = phi i64 [ %670, %rb_gc_impl_object_moved_p.exit388.thread ], [ 0, %RSTRUCT_CONST_PTR.exit ]
-  %658 = getelementptr i64, ptr %.0.i385, i64 %.0196454
+  %658 = getelementptr [8 x i8], ptr %.0.i385, i64 %.0196454
   %659 = load i64, ptr %658, align 8, !tbaa !93
   %660 = icmp eq i64 %659, 0
   %661 = and i64 %659, 7
@@ -11281,7 +11275,7 @@ rb_darray_size.exit204.thread:                    ; preds = %200, %rb_darray_siz
 263:                                              ; preds = %.preheader587, %263
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %263 ], [ 0, %.preheader587 ]
   %.08.i = phi i64 [ %267, %263 ], [ 0, %.preheader587 ]
-  %264 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
+  %264 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %265 = getelementptr i8, ptr %264, i64 176
   %266 = load i64, ptr %265, align 8, !tbaa !360
   %267 = add i64 %266, %.08.i
@@ -11305,7 +11299,7 @@ objspace_available_slots.exit:                    ; preds = %263
 .preheader409:                                    ; preds = %.thread362, %.preheader409
   %indvars.iv.i217 = phi i64 [ %indvars.iv.next.i219, %.preheader409 ], [ 0, %.thread362 ]
   %.08.i218 = phi i64 [ %277, %.preheader409 ], [ 0, %.thread362 ]
-  %274 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i217
+  %274 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i217
   %275 = getelementptr i8, ptr %274, i64 176
   %276 = load i64, ptr %275, align 8, !tbaa !360
   %277 = add i64 %276, %.08.i218
@@ -11424,7 +11418,7 @@ objspace_available_slots.exit221:                 ; preds = %.preheader409
 333:                                              ; preds = %.preheader588, %333
   %indvars.iv.i232 = phi i64 [ %indvars.iv.next.i234, %333 ], [ 0, %.preheader588 ]
   %.08.i233 = phi i64 [ %337, %333 ], [ 0, %.preheader588 ]
-  %334 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i232
+  %334 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i232
   %335 = getelementptr i8, ptr %334, i64 88
   %336 = load i64, ptr %335, align 8, !tbaa !243
   %337 = add i64 %336, %.08.i233
@@ -11448,7 +11442,7 @@ total_final_slots_count.exit:                     ; preds = %333
 .preheader408:                                    ; preds = %.thread368, %.preheader408
   %indvars.iv.i238 = phi i64 [ %indvars.iv.next.i240, %.preheader408 ], [ 0, %.thread368 ]
   %.08.i239 = phi i64 [ %347, %.preheader408 ], [ 0, %.thread368 ]
-  %344 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i238
+  %344 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i238
   %345 = getelementptr i8, ptr %344, i64 88
   %346 = load i64, ptr %345, align 8, !tbaa !243
   %347 = add i64 %346, %.08.i239
@@ -11529,7 +11523,7 @@ total_final_slots_count.exit242:                  ; preds = %.preheader408
 384:                                              ; preds = %.preheader590, %384
   %indvars.iv.i249 = phi i64 [ %indvars.iv.next.i250, %384 ], [ 0, %.preheader590 ]
   %.056.i = phi i64 [ %388, %384 ], [ 0, %.preheader590 ]
-  %385 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i249
+  %385 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i249
   %386 = getelementptr i8, ptr %385, i64 168
   %387 = load i64, ptr %386, align 8, !tbaa !397
   %388 = add i64 %387, %.056.i
@@ -11553,7 +11547,7 @@ heap_eden_total_pages.exit:                       ; preds = %384
 .thread373:                                       ; preds = %.thread372, %.thread373
   %indvars.iv.i254 = phi i64 [ %indvars.iv.next.i256, %.thread373 ], [ 0, %.thread372 ]
   %.056.i255 = phi i64 [ %398, %.thread373 ], [ 0, %.thread372 ]
-  %395 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i254
+  %395 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i254
   %396 = getelementptr i8, ptr %395, i64 168
   %397 = load i64, ptr %396, align 8, !tbaa !397
   %398 = add i64 %397, %.056.i255
@@ -11676,7 +11670,7 @@ heap_eden_total_pages.exit258:                    ; preds = %.thread373
 459:                                              ; preds = %.preheader592, %459
   %indvars.iv.i269 = phi i64 [ %indvars.iv.next.i271, %459 ], [ 0, %.preheader592 ]
   %.08.i270 = phi i64 [ %463, %459 ], [ 0, %.preheader592 ]
-  %460 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i269
+  %460 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i269
   %461 = getelementptr i8, ptr %460, i64 72
   %462 = load i64, ptr %461, align 8, !tbaa !200
   %463 = add i64 %462, %.08.i270
@@ -11700,7 +11694,7 @@ total_allocated_objects.exit:                     ; preds = %459
 .thread379:                                       ; preds = %.thread378, %.thread379
   %indvars.iv.i275 = phi i64 [ %indvars.iv.next.i277, %.thread379 ], [ 0, %.thread378 ]
   %.08.i276 = phi i64 [ %473, %.thread379 ], [ 0, %.thread378 ]
-  %470 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i275
+  %470 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i275
   %471 = getelementptr i8, ptr %470, i64 72
   %472 = load i64, ptr %471, align 8, !tbaa !200
   %473 = add i64 %472, %.08.i276
@@ -11739,7 +11733,7 @@ total_allocated_objects.exit279:                  ; preds = %.thread379
 486:                                              ; preds = %.preheader594, %486
   %indvars.iv.i282 = phi i64 [ %indvars.iv.next.i284, %486 ], [ 0, %.preheader594 ]
   %.08.i283 = phi i64 [ %490, %486 ], [ 0, %.preheader594 ]
-  %487 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i282
+  %487 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i282
   %488 = getelementptr i8, ptr %487, i64 80
   %489 = load i64, ptr %488, align 8, !tbaa !401
   %490 = add i64 %489, %.08.i283
@@ -11763,7 +11757,7 @@ total_freed_objects.exit:                         ; preds = %486
 .preheader:                                       ; preds = %.thread380, %.preheader
   %indvars.iv.i288 = phi i64 [ %indvars.iv.next.i290, %.preheader ], [ 0, %.thread380 ]
   %.08.i289 = phi i64 [ %500, %.preheader ], [ 0, %.thread380 ]
-  %497 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i288
+  %497 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i288
   %498 = getelementptr i8, ptr %497, i64 80
   %499 = load i64, ptr %498, align 8, !tbaa !401
   %500 = add i64 %499, %.08.i289
@@ -12360,7 +12354,7 @@ define hidden noundef nonnull ptr @rb_gc_heap_sizes() local_unnamed_addr #28 {
   %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %narrow1.i = shl nuw nsw i32 40, %3
   %4 = zext nneg i32 %narrow1.i to i64
-  %5 = getelementptr i64, ptr @heap_sizes, i64 %indvars.iv.i
+  %5 = getelementptr [8 x i8], ptr @heap_sizes, i64 %indvars.iv.i
   store i64 %4, ptr %5, align 8, !tbaa !93
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
@@ -12472,7 +12466,7 @@ define hidden void @ruby_gc_set_params() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   %14 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %1, i64 noundef 35, ptr noundef nonnull @.str.207, i32 noundef %13) #6
-  %15 = getelementptr i64, ptr @gc_params, i64 %indvars.iv.i
+  %15 = getelementptr [8 x i8], ptr @gc_params, i64 %indvars.iv.i
   %16 = call fastcc i32 @get_envparam_size(ptr noundef nonnull %1, ptr noundef %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -12634,7 +12628,7 @@ define hidden noundef nonnull ptr @rb_method_type_name(i32 noundef %0) local_unn
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.rb_raw_obj_info, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rb_raw_obj_info, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -13284,7 +13278,7 @@ rb_objspace_data_type_name.exit:                  ; preds = %272
 
 switch.lookup:                                    ; preds = %316
   %322 = and i64 %317, 15
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.rb_raw_obj_info, i64 %322
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rb_raw_obj_info, i64 %322
   %switch.load = load ptr, ptr %switch.gep, align 8
   %323 = lshr i32 %318, 6
   %324 = and i32 %323, 1
@@ -14540,7 +14534,7 @@ rbimpl_RB_TYPE_P_fastpath.exit32.thread.i:        ; preds = %rbimpl_RB_TYPE_P_fa
 
 86:                                               ; preds = %83, %78
   %.028.i = phi i64 [ %84, %83 ], [ %81, %78 ]
-  %87 = getelementptr %struct.rb_heap_struct, ptr %77, i64 %indvars.iv.i
+  %87 = getelementptr [144 x i8], ptr %77, i64 %indvars.iv.i
   %88 = tail call fastcc i64 @stat_one_heap(ptr noundef readonly %87, i64 noundef %.028.i, i64 noundef 4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
@@ -14583,14 +14577,14 @@ RB_SYMBOL_P.exit.i:                               ; preds = %99
 RB_SYMBOL_P.exit.thread.i:                        ; preds = %RB_SYMBOL_P.exit.i, %96
   %104 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %105 = and i64 %92, 7
-  %106 = getelementptr %struct.rb_heap_struct, ptr %104, i64 %105
+  %106 = getelementptr [144 x i8], ptr %104, i64 %105
   %107 = tail call fastcc i64 @stat_one_heap(ptr noundef readonly %106, i64 noundef 4, i64 noundef %.0)
   br label %rb_gc_impl_stat_heap.exit
 
 108:                                              ; preds = %RB_SYMBOL_P.exit.i
   %109 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %110 = and i64 %92, 7
-  %111 = getelementptr %struct.rb_heap_struct, ptr %109, i64 %110
+  %111 = getelementptr [144 x i8], ptr %109, i64 %110
   %112 = tail call fastcc i64 @stat_one_heap(ptr noundef readonly %111, i64 noundef %.0, i64 noundef 4)
   br label %rb_gc_impl_stat_heap.exit
 
@@ -15361,7 +15355,7 @@ RB_SYMBOL_P.exit.i:                               ; preds = %22
 
 .split.i.i.i:                                     ; preds = %40, %.split.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.split.i.i.i ], [ 0, %40 ]
-  %46 = getelementptr %struct.rb_heap_struct, ptr %36, i64 %indvars.iv.i.i.i.i
+  %46 = getelementptr [144 x i8], ptr %36, i64 %indvars.iv.i.i.i.i
   %47 = getelementptr i8, ptr %46, i64 136
   %48 = load ptr, ptr %47, align 8, !tbaa !167
   %.not.not.i.i.i.i = icmp ne ptr %48, null
@@ -15389,7 +15383,7 @@ rb_gc_impl_garbage_object_p.exit.i.i:             ; preds = %49
   %57 = udiv i16 %.lhs.trunc.i.i.i.i, 40
   %58 = udiv i16 %.lhs.trunc.i.i.i.i, 2560
   %.zext2.i.i.i.i = zext nneg i16 %58 to i64
-  %59 = getelementptr i64, ptr %56, i64 %.zext2.i.i.i.i
+  %59 = getelementptr [8 x i8], ptr %56, i64 %.zext2.i.i.i.i
   %60 = load i64, ptr %59, align 8, !tbaa !93
   %61 = and i16 %57, 63
   %62 = zext nneg i16 %61 to i64
@@ -15531,7 +15525,7 @@ rb_darray_size.exit.lr.ph.i:                      ; preds = %18
   %.lcssa3945 = phi i64 [ %.lcssa3944, %rb_darray_size.exit.i ], [ 0, %rb_darray_size.exit.lr.ph.i ]
   %.us-phi.i.lcssa42 = phi i64 [ %.us-phi.i.lcssa41, %rb_darray_size.exit.i ], [ 0, %rb_darray_size.exit.lr.ph.i ]
   %.021611.i = phi i64 [ %53, %rb_darray_size.exit.i ], [ 0, %rb_darray_size.exit.lr.ph.i ]
-  %28 = getelementptr ptr, ptr %24, i64 %.021611.i
+  %28 = getelementptr [8 x i8], ptr %24, i64 %.021611.i
   %29 = load ptr, ptr %28, align 8, !tbaa !173
   %30 = load i16, ptr %29, align 8, !tbaa !189
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -15567,7 +15561,7 @@ rb_darray_size.exit.lr.ph.i:                      ; preds = %18
 
 count_objects_i.exit.i:                           ; preds = %.preheader.i
   %49 = and i64 %42, 31
-  %50 = getelementptr i64, ptr %4, i64 %49
+  %50 = getelementptr [8 x i8], ptr %4, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !93
   %52 = add i64 %51, 1
   store i64 %52, ptr %50, align 8, !tbaa !93
@@ -15690,7 +15684,7 @@ rb_ull2num_inline.exit34:                         ; preds = %87, %90
 94:                                               ; preds = %rb_ull2num_inline.exit34, %106
   %.02046 = phi i64 [ 0, %rb_ull2num_inline.exit34 ], [ %107, %106 ]
   %95 = tail call fastcc i64 @type_sym(i64 noundef %.02046)
-  %96 = getelementptr i64, ptr %4, i64 %.02046
+  %96 = getelementptr [8 x i8], ptr %4, i64 %.02046
   %97 = load i64, ptr %96, align 8, !tbaa !93
   %.not = icmp eq i64 %97, 0
   br i1 %.not, label %106, label %98
@@ -16266,7 +16260,7 @@ rb_ec_tag_state.exit:                             ; preds = %rb_ec_vm_lock_rec.e
 
 get_final.exit:                                   ; preds = %.lr.ph.i, %168
   %.0.i.i.i16 = phi ptr [ %169, %168 ], [ %164, %.lr.ph.i ]
-  %170 = getelementptr i64, ptr %.0.i.i.i16, i64 %.031.i
+  %170 = getelementptr [8 x i8], ptr %.0.i.i.i16, i64 %.031.i
   %171 = load i64, ptr %170, align 8, !tbaa !93
   store volatile i64 %171, ptr %.sroa.4.i, align 8, !tbaa !101
   %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.8.19.i = load volatile i64, ptr %.sroa.4.i, align 8, !tbaa !101
@@ -16403,7 +16397,7 @@ RB_FL_TEST.exit.thread.i:                         ; preds = %obj_free_object_id.
   %220 = xor i64 %219, -1
   %221 = udiv i16 %.lhs.trunc.i.i.i.i, 1280
   %.zext11.i.i.i.i = zext nneg i16 %221 to i64
-  %222 = getelementptr i64, ptr %214, i64 %.zext11.i.i.i.i
+  %222 = getelementptr [8 x i8], ptr %214, i64 %.zext11.i.i.i.i
   %223 = load i64, ptr %222, align 8, !tbaa !93
   %224 = and i64 %223, %220
   store i64 %224, ptr %222, align 8, !tbaa !93
@@ -16460,7 +16454,7 @@ define internal i64 @get_final(i64 noundef %0, ptr noundef readonly captures(non
 
 RARRAY_AREF.exit:                                 ; preds = %5, %7
   %.0.i.i = phi ptr [ %6, %5 ], [ %9, %7 ]
-  %10 = getelementptr i64, ptr %.0.i.i, i64 %0
+  %10 = getelementptr [8 x i8], ptr %.0.i.i, i64 %0
   %11 = load i64, ptr %10, align 8, !tbaa !93
   ret i64 %11
 }
@@ -16622,7 +16616,7 @@ rb_memerror_reentered.exit.thread:                ; preds = %23, %rb_memerror_re
 newobj_slowpath.exit:                             ; preds = %rb_gc_cr_lock.exit, %32, %33
   %.val.i = phi i16 [ %18, %rb_gc_cr_lock.exit ], [ %18, %32 ], [ %.val.i.pre, %33 ]
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %35 = getelementptr %struct.ractor_newobj_heap_cache, ptr %34, i64 %4
+  %35 = getelementptr [16 x i8], ptr %34, i64 %4
   %36 = load ptr, ptr %35, align 8, !tbaa !192
   %37 = and i16 %.val.i, 2048
   %.not.i.i = icmp eq i16 %37, 0
@@ -16657,7 +16651,7 @@ ractor_cache_allocate_slot.exit.thread.i:         ; preds = %42, %38
 
 newobj_alloc.exit:                                ; preds = %ractor_cache_allocate_slot.exit.i, %ractor_cache_allocate_slot.exit.thread.i
   %.0.i = phi i64 [ %46, %ractor_cache_allocate_slot.exit.thread.i ], [ %43, %ractor_cache_allocate_slot.exit.i ]
-  %47 = getelementptr %struct.rb_heap_struct, ptr %2, i64 %4
+  %47 = getelementptr [144 x i8], ptr %2, i64 %4
   %48 = getelementptr i8, ptr %47, i64 72
   %49 = load i64, ptr %48, align 8, !tbaa !200
   %50 = add i64 %49, 1
@@ -16688,7 +16682,7 @@ newobj_alloc.exit:                                ; preds = %ractor_cache_alloca
   %67 = xor i64 %66, -1
   %68 = udiv i16 %.lhs.trunc.i.i.i, 1280
   %.zext11.i.i.i = zext nneg i16 %68 to i64
-  %69 = getelementptr i64, ptr %61, i64 %.zext11.i.i.i
+  %69 = getelementptr [8 x i8], ptr %61, i64 %.zext11.i.i.i
   %70 = load i64, ptr %69, align 8, !tbaa !93
   %71 = and i64 %70, %67
   %72 = shl nuw i64 2, %65
@@ -16782,7 +16776,7 @@ rb_memerror_reentered.exit.thread:                ; preds = %23, %rb_memerror_re
 newobj_slowpath.exit:                             ; preds = %rb_gc_cr_lock.exit, %32, %33
   %.val.i = phi i16 [ %18, %rb_gc_cr_lock.exit ], [ %18, %32 ], [ %.val.i.pre, %33 ]
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %35 = getelementptr %struct.ractor_newobj_heap_cache, ptr %34, i64 %4
+  %35 = getelementptr [16 x i8], ptr %34, i64 %4
   %36 = load ptr, ptr %35, align 8, !tbaa !192
   %37 = and i16 %.val.i, 2048
   %.not.i.i = icmp eq i16 %37, 0
@@ -16817,7 +16811,7 @@ ractor_cache_allocate_slot.exit.thread.i:         ; preds = %42, %38
 
 newobj_alloc.exit:                                ; preds = %ractor_cache_allocate_slot.exit.i, %ractor_cache_allocate_slot.exit.thread.i
   %.0.i = phi i64 [ %46, %ractor_cache_allocate_slot.exit.thread.i ], [ %43, %ractor_cache_allocate_slot.exit.i ]
-  %47 = getelementptr %struct.rb_heap_struct, ptr %2, i64 %4
+  %47 = getelementptr [144 x i8], ptr %2, i64 %4
   %48 = getelementptr i8, ptr %47, i64 72
   %49 = load i64, ptr %48, align 8, !tbaa !200
   %50 = add i64 %49, 1
@@ -16853,7 +16847,7 @@ newobj_alloc.exit.newobj_init.exit_crit_edge:     ; preds = %newobj_alloc.exit
   %67 = xor i64 %66, -1
   %68 = udiv i16 %.lhs.trunc.i.i.i, 1280
   %.zext11.i.i.i = zext nneg i16 %68 to i64
-  %69 = getelementptr i64, ptr %61, i64 %.zext11.i.i.i
+  %69 = getelementptr [8 x i8], ptr %61, i64 %.zext11.i.i.i
   %70 = load i64, ptr %69, align 8, !tbaa !93
   %71 = and i64 %70, %67
   %72 = shl nuw i64 2, %65
@@ -16871,7 +16865,7 @@ newobj_init.exit:                                 ; preds = %newobj_alloc.exit.n
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 72
   %78 = udiv i16 %.lhs.trunc.i.pre-phi, 2560
   %.zext2.i = zext nneg i16 %78 to i64
-  %79 = getelementptr i64, ptr %77, i64 %.zext2.i
+  %79 = getelementptr [8 x i8], ptr %77, i64 %.zext2.i
   %80 = load i64, ptr %79, align 8, !tbaa !93
   %81 = and i16 %.pre-phi11, 63
   %82 = zext nneg i16 %81 to i64
@@ -16890,7 +16884,7 @@ define internal fastcc range(i64 1, 0) i64 @newobj_cache_miss(ptr noundef %0, pt
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = getelementptr %struct.rb_heap_struct, ptr %7, i64 %2
+  %8 = getelementptr [144 x i8], ptr %7, i64 %2
   br i1 %3, label %19, label %9
 
 9:                                                ; preds = %4
@@ -16932,7 +16926,7 @@ rb_gc_cr_lock.exit:                               ; preds = %9, %11, %15
   store i64 0, ptr %1, align 8, !tbaa !194
   %.val25 = load i16, ptr %20, align 4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = getelementptr %struct.ractor_newobj_heap_cache, ptr %24, i64 %2
+  %25 = getelementptr [16 x i8], ptr %24, i64 %2
   %26 = load ptr, ptr %25, align 8, !tbaa !192
   %27 = and i16 %.val25, 2048
   %.not.i = icmp eq i16 %27, 0
@@ -17108,7 +17102,7 @@ heap_next_free_page.exit:                         ; preds = %ractor_cache_alloca
   %117 = load ptr, ptr %116, align 8, !tbaa !522
   store ptr %117, ptr %33, align 8, !tbaa !515
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %119 = getelementptr %struct.ractor_newobj_heap_cache, ptr %118, i64 %2
+  %119 = getelementptr [16 x i8], ptr %118, i64 %2
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr %115, ptr %120, align 8, !tbaa !344
   %121 = getelementptr inbounds nuw i8, ptr %115, i64 48
@@ -17420,7 +17414,7 @@ gc_marks_continue.exit:                           ; preds = %gc_marks_step.exit.
 
 .preheader:                                       ; preds = %103, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %103 ]
-  %107 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
+  %107 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %108 = getelementptr i8, ptr %107, i64 136
   %109 = load ptr, ptr %108, align 8, !tbaa !167
   %.not.not.i = icmp ne ptr %109, null
@@ -17479,7 +17473,7 @@ gc_sweeping_enter.exit.i:                         ; preds = %122, %current_proce
 
 125:                                              ; preds = %137, %gc_sweeping_enter.exit.i
   %indvars.iv.i16 = phi i64 [ 0, %gc_sweeping_enter.exit.i ], [ %indvars.iv.next.i19, %137 ]
-  %126 = getelementptr %struct.rb_heap_struct, ptr %123, i64 %indvars.iv.i16
+  %126 = getelementptr [144 x i8], ptr %123, i64 %indvars.iv.i16
   %127 = call fastcc i32 @gc_sweep_step(ptr noundef %0, ptr noundef %126)
   %.not.i17 = icmp eq i32 %127, 0
   %128 = icmp eq ptr %126, %1
@@ -17493,7 +17487,7 @@ gc_sweeping_enter.exit.i:                         ; preds = %122, %current_proce
 
 .critedge.i:                                      ; preds = %129, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %129 ]
-  %132 = getelementptr %struct.rb_heap_struct, ptr %123, i64 %indvars.iv.i.i
+  %132 = getelementptr [144 x i8], ptr %123, i64 %indvars.iv.i.i
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 96
   %134 = load ptr, ptr %133, align 8, !tbaa !167
   %.not6.i.i = icmp eq ptr %134, null
@@ -17730,7 +17724,7 @@ gc_sweeping_enter.exit:                           ; preds = %1, %11, %current_pr
 
 29:                                               ; preds = %._crit_edge42.i.i, %25
   %indvars.iv.i.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i.i, %._crit_edge42.i.i ]
-  %30 = getelementptr %struct.rb_heap_struct, ptr %28, i64 %indvars.iv.i.i
+  %30 = getelementptr [144 x i8], ptr %28, i64 %indvars.iv.i.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %32 = load i64, ptr %31, align 8, !tbaa !397
   %33 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !93
@@ -17774,7 +17768,7 @@ rb_size_mul_or_raise.exit.i.i:                    ; preds = %29
   %.037.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ 0, %rb_size_mul_or_raise.exit.i.i ]
   %.031.i.i = getelementptr i8, ptr %.pn38.i.i, i64 -56
   %46 = add i64 %.037.i.i, 1
-  %47 = getelementptr ptr, ptr %43, i64 %.037.i.i
+  %47 = getelementptr [8 x i8], ptr %43, i64 %.037.i.i
   store ptr %.031.i.i, ptr %47, align 8, !tbaa !173
   %.pn.i.i = load ptr, ptr %.pn38.i.i, align 8, !tbaa !90
   %.not.i.i = icmp eq ptr %.pn.i.i, %45
@@ -17791,7 +17785,7 @@ rb_size_mul_or_raise.exit.i.i:                    ; preds = %29
 .lr.ph41.i.i:                                     ; preds = %._crit_edge.i.i, %60
   %49 = phi ptr [ %52, %60 ], [ %45, %._crit_edge.i.i ]
   %.139.i.i = phi i64 [ %61, %60 ], [ 0, %._crit_edge.i.i ]
-  %50 = getelementptr ptr, ptr %43, i64 %.139.i.i
+  %50 = getelementptr [8 x i8], ptr %43, i64 %.139.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !173
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
   store ptr %49, ptr %52, align 8, !tbaa !90
@@ -17841,7 +17835,7 @@ gc_sort_heap_by_compare_func.exit.i:              ; preds = %._crit_edge42.i.i, 
 
 69:                                               ; preds = %heap_page_freelist_append.exit.i.i, %65
   %.011.i.i = phi i64 [ 0, %65 ], [ %82, %heap_page_freelist_append.exit.i.i ]
-  %70 = getelementptr %struct.ractor_newobj_heap_cache, ptr %68, i64 %.011.i.i
+  %70 = getelementptr [16 x i8], ptr %68, i64 %.011.i.i
   %71 = load ptr, ptr %70, align 8, !tbaa !192
   %.not.i.i22.i = icmp eq ptr %71, null
   br i1 %.not.i.i22.i, label %heap_page_freelist_append.exit.i.i, label %72
@@ -17896,7 +17890,7 @@ heap_page_freelist_append.exit.i.i:               ; preds = %81, %79, %69
 
 90:                                               ; preds = %108, %gc_sort_heap_by_compare_func.exit.i
   %indvars.iv.i = phi i64 [ 0, %gc_sort_heap_by_compare_func.exit.i ], [ %indvars.iv.next.i, %108 ]
-  %91 = getelementptr %struct.rb_heap_struct, ptr %62, i64 %indvars.iv.i
+  %91 = getelementptr [144 x i8], ptr %62, i64 %indvars.iv.i
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 80
   %93 = load ptr, ptr %92, align 8, !tbaa !151
   %.not.i.i.i15 = icmp eq ptr %93, %92
@@ -17961,7 +17955,7 @@ gc_sweep_start.exit:                              ; preds = %heap_page_freelist_
 
 116:                                              ; preds = %ccan_list_tail_.exit.i, %111
   %indvars.iv.i26 = phi i64 [ 0, %111 ], [ %indvars.iv.next.i29, %ccan_list_tail_.exit.i ]
-  %117 = getelementptr %struct.rb_heap_struct, ptr %62, i64 %indvars.iv.i26
+  %117 = getelementptr [144 x i8], ptr %62, i64 %indvars.iv.i26
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 80
   %.pn26.i = load ptr, ptr %118, align 8, !tbaa !90
   %.not2527.i = icmp eq ptr %.pn26.i, %118
@@ -18034,7 +18028,7 @@ gc_compact_start.exit:                            ; preds = %113, %129, %132
 
 145:                                              ; preds = %.backedge, %gc_compact_start.exit
   %indvars.iv.i32 = phi i64 [ 0, %gc_compact_start.exit ], [ %indvars.iv.i32.be, %.backedge ]
-  %146 = getelementptr %struct.rb_heap_struct, ptr %62, i64 %indvars.iv.i32
+  %146 = getelementptr [144 x i8], ptr %62, i64 %indvars.iv.i32
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 128
   %148 = load i64, ptr %147, align 8, !tbaa !397
   %.not.i33 = icmp eq i64 %148, 0
@@ -18059,7 +18053,7 @@ gc_compact_start.exit:                            ; preds = %113, %129, %132
 
 gc_compact_all_compacted_p.exit.preheader:        ; preds = %149, %lock_page_body.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %lock_page_body.exit ], [ 0, %149 ]
-  %153 = getelementptr %struct.rb_heap_struct, ptr %62, i64 %indvars.iv
+  %153 = getelementptr [144 x i8], ptr %62, i64 %indvars.iv
   %154 = getelementptr i8, ptr %153, i64 96
   %.val.i = load ptr, ptr %154, align 8, !tbaa !167
   %155 = getelementptr i8, ptr %153, i64 104
@@ -18103,7 +18097,7 @@ gc_compact_all_compacted_p.exit.preheader:        ; preds = %149, %lock_page_bod
   %178 = inttoptr i64 %.018.i.i to ptr
   %179 = load i64, ptr %178, align 8, !tbaa !113
   %180 = and i64 %179, 31
-  %181 = getelementptr i64, ptr %136, i64 %180
+  %181 = getelementptr [8 x i8], ptr %136, i64 %180
   %182 = load i64, ptr %181, align 8, !tbaa !93
   %183 = add i64 %182, 1
   store i64 %183, ptr %181, align 8, !tbaa !93
@@ -18172,9 +18166,9 @@ gc_compact_plane.exit.thread.i:                   ; preds = %gc_is_moveable_obj.
 200:                                              ; preds = %gc_compact_plane.exit46.thread.i, %gc_compact_plane.exit.thread.i
   %indvars.iv.i39 = phi i64 [ 1, %gc_compact_plane.exit.thread.i ], [ %indvars.iv.next.i40, %gc_compact_plane.exit46.thread.i ]
   %.03093.i = phi i64 [ %199, %gc_compact_plane.exit.thread.i ], [ %235, %gc_compact_plane.exit46.thread.i ]
-  %201 = getelementptr i64, ptr %160, i64 %indvars.iv.i39
+  %201 = getelementptr [8 x i8], ptr %160, i64 %indvars.iv.i39
   %202 = load i64, ptr %201, align 8, !tbaa !93
-  %203 = getelementptr i64, ptr %161, i64 %indvars.iv.i39
+  %203 = getelementptr [8 x i8], ptr %161, i64 %indvars.iv.i39
   %204 = load i64, ptr %203, align 8, !tbaa !93
   %205 = xor i64 %204, -1
   %206 = and i64 %202, %205
@@ -18201,7 +18195,7 @@ gc_compact_plane.exit.thread.i:                   ; preds = %gc_is_moveable_obj.
   %216 = inttoptr i64 %.018.i36.i to ptr
   %217 = load i64, ptr %216, align 8, !tbaa !113
   %218 = and i64 %217, 31
-  %219 = getelementptr i64, ptr %136, i64 %218
+  %219 = getelementptr [8 x i8], ptr %136, i64 %218
   %220 = load i64, ptr %219, align 8, !tbaa !93
   %221 = add i64 %220, 1
   store i64 %221, ptr %219, align 8, !tbaa !93
@@ -18416,7 +18410,7 @@ rb_gc_update_vm_references.exit.i.preheader:      ; preds = %300, %rb_ec_vm_ptr.
 
 301:                                              ; preds = %._crit_edge.i56, %256
   %indvars.iv46.i = phi i64 [ 0, %256 ], [ %indvars.iv.next47.i, %._crit_edge.i56 ]
-  %302 = getelementptr %struct.rb_heap_struct, ptr %62, i64 %indvars.iv46.i
+  %302 = getelementptr [144 x i8], ptr %62, i64 %indvars.iv46.i
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 80
   %.pn35.i = load ptr, ptr %303, align 8, !tbaa !90
   %.not.i37.i51 = icmp eq ptr %.pn35.i, %303
@@ -18470,7 +18464,7 @@ rb_gc_update_vm_references.exit.i.preheader:      ; preds = %300, %rb_ec_vm_ptr.
 329:                                              ; preds = %.preheader.i.i
   %330 = load ptr, ptr %320, align 65536, !tbaa !186
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 72
-  %332 = getelementptr i64, ptr %331, i64 %.zext2.i.i.i
+  %332 = getelementptr [8 x i8], ptr %331, i64 %.zext2.i.i.i
   %333 = load i64, ptr %332, align 8, !tbaa !93
   %334 = and i64 %333, %325
   %.not25.i.i = icmp eq i64 %334, 0
@@ -18487,7 +18481,7 @@ rb_gc_update_vm_references.exit.i.preheader:      ; preds = %300, %rb_ec_vm_ptr.
   %.pre35.i.i = phi i8 [ %336, %335 ], [ %.pre35.pre.i.i, %329 ]
   %338 = phi ptr [ %.pre.i.i59, %335 ], [ %330, %329 ]
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 904
-  %340 = getelementptr i64, ptr %339, i64 %.zext2.i.i.i
+  %340 = getelementptr [8 x i8], ptr %339, i64 %.zext2.i.i.i
   %341 = load i64, ptr %340, align 8, !tbaa !93
   %342 = and i64 %341, %325
   %.not26.i.i = icmp eq i64 %342, 0
@@ -18507,7 +18501,7 @@ rb_gc_update_vm_references.exit.i.preheader:      ; preds = %300, %rb_ec_vm_ptr.
 348:                                              ; preds = %345
   %349 = load ptr, ptr %320, align 65536, !tbaa !186
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 280
-  %351 = getelementptr i64, ptr %350, i64 %.zext2.i.i.i
+  %351 = getelementptr [8 x i8], ptr %350, i64 %.zext2.i.i.i
   %352 = load i64, ptr %351, align 8, !tbaa !93
   %353 = and i64 %352, %325
   %.not28.i.i = icmp eq i64 %353, 0
@@ -18563,7 +18557,7 @@ gc_update_references.exit.i:                      ; preds = %rb_gc_update_vm_ref
 
 gc_sweep_compact.exit:                            ; preds = %.critedge.i, %gc_unprotect_pages.exit.i
   %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i49, %gc_unprotect_pages.exit.i ], [ 0, %.critedge.i ]
-  %368 = getelementptr %struct.rb_heap_struct, ptr %62, i64 %indvars.iv.i46
+  %368 = getelementptr [144 x i8], ptr %62, i64 %indvars.iv.i46
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 104
   %370 = load ptr, ptr %369, align 8, !tbaa !539
   %.not1.i.i = icmp eq ptr %370, null
@@ -18609,7 +18603,7 @@ gc_unprotect_pages.exit.i:                        ; preds = %unlock_page_body.ex
 
 386:                                              ; preds = %386, %gc_update_references.exit.i
   %indvars.iv51.i = phi i64 [ 0, %gc_update_references.exit.i ], [ %indvars.iv.next52.i, %386 ]
-  %387 = getelementptr %struct.rb_heap_struct, ptr %62, i64 %indvars.iv51.i
+  %387 = getelementptr [144 x i8], ptr %62, i64 %indvars.iv51.i
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 104
   %389 = getelementptr inbounds nuw i8, ptr %387, i64 72
   store ptr null, ptr %389, align 8, !tbaa !515
@@ -18646,7 +18640,7 @@ gc_compact_finish.exit:                           ; preds = %384, %390, %393
 
 .preheader62:                                     ; preds = %401, %._crit_edge
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %._crit_edge ], [ 0, %401 ]
-  %403 = getelementptr %struct.rb_heap_struct, ptr %62, i64 %indvars.iv98
+  %403 = getelementptr [144 x i8], ptr %62, i64 %indvars.iv98
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 96
   %405 = load ptr, ptr %404, align 8, !tbaa !167
   %.not.i1780 = icmp eq ptr %405, null
@@ -18665,7 +18659,7 @@ gc_compact_finish.exit:                           ; preds = %384, %390, %393
 
 .preheader:                                       ; preds = %401, %.preheader
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.preheader ], [ 0, %401 ]
-  %408 = getelementptr %struct.rb_heap_struct, ptr %62, i64 %indvars.iv102
+  %408 = getelementptr [144 x i8], ptr %62, i64 %indvars.iv102
   %409 = call fastcc i32 @gc_sweep_step(ptr noundef nonnull %0, ptr noundef %408)
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 5
@@ -18768,7 +18762,7 @@ define internal fastcc void @gc_marks_rest(ptr noundef %0) unnamed_addr #0 {
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv
+  %7 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv
   %8 = getelementptr i8, ptr %7, i64 160
   store ptr null, ptr %8, align 8, !tbaa !534
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -18801,7 +18795,7 @@ define internal fastcc void @gc_marks_rest(ptr noundef %0) unnamed_addr #0 {
 21:                                               ; preds = %18
   %22 = add i32 %19, -1
   %23 = sext i32 %22 to i64
-  %24 = getelementptr i64, ptr %42, i64 %23
+  %24 = getelementptr [8 x i8], ptr %42, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !93
   br label %34
 
@@ -18904,7 +18898,7 @@ define internal fastcc void @gc_marks_finish(ptr noundef %0) unnamed_addr #0 {
 
 20:                                               ; preds = %10, %gc_marks_wb_unprotected_objects.exit
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %gc_marks_wb_unprotected_objects.exit ]
-  %21 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv
+  %21 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv
   %22 = getelementptr i8, ptr %21, i64 120
   %.pn39.i = load ptr, ptr %22, align 8, !tbaa !90
   %.not40.i = icmp eq ptr %.pn39.i, %22
@@ -18966,9 +18960,9 @@ gc_marks_wb_unprotected_objects_plane.exit.i:     ; preds = %38, %.lr.ph.i
 44:                                               ; preds = %gc_marks_wb_unprotected_objects_plane.exit36.i, %gc_marks_wb_unprotected_objects_plane.exit.i
   %.02638.i = phi i64 [ %43, %gc_marks_wb_unprotected_objects_plane.exit.i ], [ %58, %gc_marks_wb_unprotected_objects_plane.exit36.i ]
   %.02737.i = phi i64 [ 1, %gc_marks_wb_unprotected_objects_plane.exit.i ], [ %59, %gc_marks_wb_unprotected_objects_plane.exit36.i ]
-  %45 = getelementptr i64, ptr %23, i64 %.02737.i
+  %45 = getelementptr [8 x i8], ptr %23, i64 %.02737.i
   %46 = load i64, ptr %45, align 8, !tbaa !93
-  %47 = getelementptr i64, ptr %24, i64 %.02737.i
+  %47 = getelementptr [8 x i8], ptr %24, i64 %.02737.i
   %48 = load i64, ptr %47, align 8, !tbaa !93
   %49 = and i64 %48, %46
   %.not.i28.i = icmp eq i64 %49, 0
@@ -19015,7 +19009,7 @@ gc_marks_wb_unprotected_objects_plane.exit36.i:   ; preds = %55, %44
 63:                                               ; preds = %60
   %64 = add i32 %61, -1
   %65 = sext i32 %64 to i64
-  %66 = getelementptr i64, ptr %84, i64 %65
+  %66 = getelementptr [8 x i8], ptr %84, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !93
   br label %76
 
@@ -19097,7 +19091,7 @@ rb_darray_size.exit.lr.ph.i:                      ; preds = %.loopexit
   %99 = phi i64 [ %138, %rb_darray_size.exit.i ], [ %98, %rb_darray_size.exit.lr.ph.i ]
   %.0162939.i = phi i64 [ %139, %rb_darray_size.exit.i ], [ 0, %rb_darray_size.exit.lr.ph.i ]
   %.03038.i = phi i64 [ %.1.i, %rb_darray_size.exit.i ], [ 0, %rb_darray_size.exit.lr.ph.i ]
-  %100 = getelementptr ptr, ptr %97, i64 %.0162939.i
+  %100 = getelementptr [8 x i8], ptr %97, i64 %.0162939.i
   %.not.i75 = icmp eq ptr %100, null
   br i1 %.not.i75, label %rb_darray_clear.exit.i, label %114
 
@@ -19168,7 +19162,7 @@ rb_darray_realloc_mul_add_without_gc.exit.i.i:    ; preds = %rbimpl_size_add_or_
   %127 = udiv i16 %.lhs.trunc.i.i, 40
   %128 = udiv i16 %.lhs.trunc.i.i, 2560
   %.zext2.i.i = zext nneg i16 %128 to i64
-  %129 = getelementptr i64, ptr %126, i64 %.zext2.i.i
+  %129 = getelementptr [8 x i8], ptr %126, i64 %.zext2.i.i
   %130 = load i64, ptr %129, align 8, !tbaa !93
   %131 = and i16 %127, 63
   %132 = zext nneg i16 %131 to i64
@@ -19205,7 +19199,7 @@ gc_update_weak_references.exit:                   ; preds = %rb_darray_realloc_m
 145:                                              ; preds = %145, %gc_update_weak_references.exit
   %indvars.iv.i = phi i64 [ 0, %gc_update_weak_references.exit ], [ %indvars.iv.next.i, %145 ]
   %.08.i = phi i64 [ 0, %gc_update_weak_references.exit ], [ %149, %145 ]
-  %146 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
+  %146 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %147 = getelementptr i8, ptr %146, i64 176
   %148 = load i64, ptr %147, align 8, !tbaa !360
   %149 = add i64 %148, %.08.i
@@ -19241,7 +19235,7 @@ objspace_available_slots.exit:                    ; preds = %145
 167:                                              ; preds = %objspace_available_slots.exit, %167
   %indvars.iv83 = phi i64 [ 0, %objspace_available_slots.exit ], [ %indvars.iv.next84, %167 ]
   %.06079 = phi i64 [ 0, %objspace_available_slots.exit ], [ %171, %167 ]
-  %168 = getelementptr i64, ptr @gc_params, i64 %indvars.iv83
+  %168 = getelementptr [8 x i8], ptr @gc_params, i64 %indvars.iv83
   %169 = load i64, ptr %168, align 8, !tbaa !93
   %170 = mul i64 %169, %spec.select
   %171 = add i64 %170, %.06079
@@ -19414,7 +19408,7 @@ define internal fastcc range(i32 0, 2) i32 @gc_mark_stacked_objects(ptr noundef 
 15:                                               ; preds = %12
   %16 = add i32 %13, -1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr i64, ptr %36, i64 %17
+  %18 = getelementptr [8 x i8], ptr %36, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !93
   br label %28
 
@@ -19487,7 +19481,7 @@ define internal fastcc range(i32 0, 2) i32 @gc_mark_stacked_objects(ptr noundef 
 50:                                               ; preds = %39
   %51 = add i32 %40, -1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr i64, ptr %38, i64 %52
+  %53 = getelementptr [8 x i8], ptr %38, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !93
   br label %55
 
@@ -19515,7 +19509,7 @@ define internal fastcc range(i32 0, 2) i32 @gc_mark_stacked_objects(ptr noundef 
   %66 = udiv i16 %.lhs.trunc, 40
   %67 = udiv i16 %.lhs.trunc, 2560
   %.zext24 = zext nneg i16 %67 to i64
-  %68 = getelementptr i64, ptr %65, i64 %.zext24
+  %68 = getelementptr [8 x i8], ptr %65, i64 %.zext24
   %69 = load i64, ptr %68, align 8, !tbaa !93
   %70 = and i16 %66, 63
   %71 = zext nneg i16 %70 to i64
@@ -19620,7 +19614,7 @@ define internal fastcc void @mark_roots(ptr noundef initializes((1088, 1096)) %0
   %31 = udiv i16 %.lhs.trunc.i.i.i.i.i.i, 40
   %32 = udiv i16 %.lhs.trunc.i.i.i.i.i.i, 2560
   %.zext2.i.i.i.i.i.i = zext nneg i16 %32 to i64
-  %33 = getelementptr i64, ptr %30, i64 %.zext2.i.i.i.i.i.i
+  %33 = getelementptr [8 x i8], ptr %30, i64 %.zext2.i.i.i.i.i.i
   %34 = load i64, ptr %33, align 8, !tbaa !93
   %35 = and i16 %31, 63
   %36 = zext nneg i16 %35 to i64
@@ -19682,7 +19676,7 @@ define internal noundef i32 @pin_value(i64 %0, i64 noundef %1, i64 noundef %2) #
   %14 = udiv i16 %.lhs.trunc.i.i.i.i, 40
   %15 = udiv i16 %.lhs.trunc.i.i.i.i, 2560
   %.zext2.i.i.i.i = zext nneg i16 %15 to i64
-  %16 = getelementptr i64, ptr %13, i64 %.zext2.i.i.i.i
+  %16 = getelementptr [8 x i8], ptr %13, i64 %.zext2.i.i.i.i
   %17 = load i64, ptr %16, align 8, !tbaa !93
   %18 = and i16 %14, 63
   %19 = zext nneg i16 %18 to i64
@@ -19765,7 +19759,7 @@ define internal fastcc void @gc_mark(ptr noundef captures(none) %0, i64 noundef 
   %7 = udiv i16 %.lhs.trunc.i.i, 40
   %8 = udiv i16 %.lhs.trunc.i.i, 2560
   %.zext2.i.i = zext nneg i16 %8 to i64
-  %9 = getelementptr i64, ptr %6, i64 %.zext2.i.i
+  %9 = getelementptr [8 x i8], ptr %6, i64 %.zext2.i.i
   %10 = load i64, ptr %9, align 8, !tbaa !93
   %11 = and i16 %7, 63
   %12 = zext nneg i16 %11 to i64
@@ -19790,7 +19784,7 @@ define internal fastcc void @gc_mark(ptr noundef captures(none) %0, i64 noundef 
   %24 = udiv i16 %.lhs.trunc.i.i.i, 40
   %25 = udiv i16 %.lhs.trunc.i.i.i, 2560
   %.zext2.i.i.i = zext nneg i16 %25 to i64
-  %26 = getelementptr i64, ptr %23, i64 %.zext2.i.i.i
+  %26 = getelementptr [8 x i8], ptr %23, i64 %.zext2.i.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !93
   %28 = and i16 %24, 63
   %29 = zext nneg i16 %28 to i64
@@ -19815,7 +19809,7 @@ rgengc_check_relation.exit:                       ; preds = %.rgengc_check_relat
   %.lhs.trunc.i.i9.pre-phi = phi i16 [ %.pre19, %.rgengc_check_relation.exit_crit_edge ], [ %.lhs.trunc.i.i, %15 ], [ %.lhs.trunc.i.i, %19 ], [ %.lhs.trunc.i.i, %32 ]
   %37 = load ptr, ptr %.pre17, align 65536, !tbaa !186
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 280
-  %39 = getelementptr i64, ptr %38, i64 %.zext2.i.i10.pre-phi
+  %39 = getelementptr [8 x i8], ptr %38, i64 %.zext2.i.i10.pre-phi
   %40 = load i64, ptr %39, align 8, !tbaa !93
   %41 = and i64 %40, %.pre-phi30
   %.not.i11 = icmp eq i64 %41, 0
@@ -19850,7 +19844,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %42, %rbimpl_RB_TYPE
 
 56:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
   %57 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %58 = getelementptr i64, ptr %57, i64 %.zext2.i.i10.pre-phi
+  %58 = getelementptr [8 x i8], ptr %57, i64 %.zext2.i.i10.pre-phi
   %59 = load i64, ptr %58, align 8, !tbaa !93
   %60 = and i64 %59, %.pre-phi30
   %.not.i13 = icmp eq i64 %60, 0
@@ -19867,7 +19861,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %42, %rbimpl_RB_TYPE
   %66 = getelementptr inbounds nuw i8, ptr %37, i64 1320
   %67 = udiv i16 %.lhs.trunc.i.i9.pre-phi, 1280
   %.zext4.i.i.i = zext nneg i16 %67 to i64
-  %68 = getelementptr i64, ptr %66, i64 %.zext4.i.i.i
+  %68 = getelementptr [8 x i8], ptr %66, i64 %.zext4.i.i.i
   %69 = load i64, ptr %68, align 8, !tbaa !93
   %70 = shl nuw nsw i16 %.pre-phi21, 1
   %71 = and i16 %70, 62
@@ -19900,7 +19894,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %42, %rbimpl_RB_TYPE
 
 RVALUE_AGE_INC.exit.sink.split.i:                 ; preds = %86, %65
   %91 = getelementptr inbounds nuw i8, ptr %37, i64 488
-  %92 = getelementptr i64, ptr %91, i64 %.zext2.i.i10.pre-phi
+  %92 = getelementptr [8 x i8], ptr %91, i64 %.zext2.i.i10.pre-phi
   %93 = load i64, ptr %92, align 8, !tbaa !93
   %94 = or i64 %93, %.pre-phi30
   store i64 %94, ptr %92, align 8, !tbaa !93
@@ -19942,7 +19936,7 @@ define internal fastcc void @gc_grey(ptr noundef captures(none) %0, i64 noundef 
   %11 = udiv i16 %.lhs.trunc, 40
   %12 = udiv i16 %.lhs.trunc, 2560
   %.zext8 = zext nneg i16 %12 to i64
-  %13 = getelementptr i64, ptr %10, i64 %.zext8
+  %13 = getelementptr [8 x i8], ptr %10, i64 %.zext8
   %14 = load i64, ptr %13, align 8, !tbaa !93
   %15 = and i16 %11, 63
   %16 = zext nneg i16 %15 to i64
@@ -20063,7 +20057,7 @@ push_mark_stack.exit:                             ; preds = %._crit_edge.i, %pus
   %59 = add i32 %57, 1
   store i32 %59, ptr %26, align 8, !tbaa !154
   %60 = sext i32 %57 to i64
-  %61 = getelementptr i64, ptr %58, i64 %60
+  %61 = getelementptr [8 x i8], ptr %58, i64 %60
   store i64 %1, ptr %61, align 8, !tbaa !93
   ret void
 }
@@ -20402,7 +20396,7 @@ gc_prof_sweep_timer_start.exit:                   ; preds = %15, %18, %21, %getr
 
 113:                                              ; preds = %113, %.thread86
   %indvars.iv.i = phi i64 [ 0, %.thread86 ], [ %indvars.iv.next.i, %113 ]
-  %114 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
+  %114 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %115 = getelementptr i8, ptr %114, i64 136
   %116 = load ptr, ptr %115, align 8, !tbaa !167
   %.not.not.i = icmp ne ptr %116, null
@@ -20433,7 +20427,7 @@ has_sweeping_pages.exit:                          ; preds = %113
 125:                                              ; preds = %125, %122
   %indvars.iv.i.i.i = phi i64 [ 0, %122 ], [ %indvars.iv.next.i.i.i, %125 ]
   %.08.i.i.i = phi i64 [ 0, %122 ], [ %129, %125 ]
-  %126 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i.i.i
+  %126 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i.i.i
   %127 = getelementptr i8, ptr %126, i64 80
   %128 = load i64, ptr %127, align 8, !tbaa !401
   %129 = add i64 %128, %.08.i.i.i
@@ -20466,7 +20460,7 @@ gc_prof_set_heap_info.exit.i:                     ; preds = %total_freed_objects
 
 gc_prof_set_heap_info.exit.split.us.i:            ; preds = %gc_prof_set_heap_info.exit.i, %155
   %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %155 ], [ 0, %gc_prof_set_heap_info.exit.i ]
-  %142 = getelementptr %struct.rb_heap_struct, ptr %139, i64 %indvars.iv29.i
+  %142 = getelementptr [144 x i8], ptr %139, i64 %indvars.iv29.i
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 56
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, i8 0, i64 16, i1 false)
@@ -20554,7 +20548,7 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %159
 
 gc_prof_set_heap_info.exit.split.i:               ; preds = %gc_prof_set_heap_info.exit.i, %gc_prof_set_heap_info.exit.split.i
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %gc_prof_set_heap_info.exit.split.i ], [ 0, %gc_prof_set_heap_info.exit.i ]
-  %180 = getelementptr %struct.rb_heap_struct, ptr %139, i64 %indvars.iv.i74
+  %180 = getelementptr [144 x i8], ptr %139, i64 %indvars.iv.i74
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 56
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, 5
@@ -20846,7 +20840,7 @@ define internal fastcc void @gc_ractor_newobj_cache_clear(ptr noundef captures(n
 
 4:                                                ; preds = %1, %heap_page_freelist_append.exit
   %.011 = phi i64 [ 0, %1 ], [ %17, %heap_page_freelist_append.exit ]
-  %5 = getelementptr %struct.ractor_newobj_heap_cache, ptr %2, i64 %.011
+  %5 = getelementptr [16 x i8], ptr %2, i64 %.011
   %6 = load ptr, ptr %5, align 8, !tbaa !192
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %heap_page_freelist_append.exit, label %7
@@ -20988,7 +20982,7 @@ define internal fastcc void @heap_add_page(ptr noundef %0, ptr noundef nonnull i
   %60 = xor i64 %59, -1
   %61 = udiv i16 %.lhs.trunc.i.i.i, 1280
   %.zext11.i.i.i = zext nneg i16 %61 to i64
-  %62 = getelementptr i64, ptr %54, i64 %.zext11.i.i.i
+  %62 = getelementptr [8 x i8], ptr %54, i64 %.zext11.i.i.i
   %63 = load i64, ptr %62, align 8, !tbaa !93
   %64 = and i64 %63, %60
   store i64 %64, ptr %62, align 8, !tbaa !93
@@ -21088,9 +21082,9 @@ unlock_page_body.exit.i:                          ; preds = %rb_gc_vm_lock.exit.
 53:                                               ; preds = %53, %unlock_page_body.exit.i
   %indvars.iv.i.i = phi i64 [ 1, %unlock_page_body.exit.i ], [ %indvars.iv.next.i.i, %53 ]
   %.025.i.i = phi i64 [ %52, %unlock_page_body.exit.i ], [ %60, %53 ]
-  %54 = getelementptr i64, ptr %40, i64 %indvars.iv.i.i
+  %54 = getelementptr [8 x i8], ptr %40, i64 %indvars.iv.i.i
   %55 = load i64, ptr %54, align 8, !tbaa !93
-  %56 = getelementptr i64, ptr %39, i64 %indvars.iv.i.i
+  %56 = getelementptr [8 x i8], ptr %39, i64 %indvars.iv.i.i
   %57 = load i64, ptr %56, align 8, !tbaa !93
   %58 = xor i64 %57, -1
   %59 = and i64 %55, %58
@@ -21168,7 +21162,7 @@ define internal fastcc void @invalidate_moved_plane(ptr noundef readonly capture
   %16 = udiv i16 %.lhs.trunc, 40
   %17 = udiv i16 %.lhs.trunc, 2560
   %.zext37 = zext nneg i16 %17 to i64
-  %18 = getelementptr i64, ptr %15, i64 %.zext37
+  %18 = getelementptr [8 x i8], ptr %15, i64 %.zext37
   %19 = load i64, ptr %18, align 8, !tbaa !93
   %20 = and i16 %16, 63
   %21 = zext nneg i16 %20 to i64
@@ -21246,7 +21240,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_gc_impl_location
   %66 = xor i64 %65, -1
   %67 = udiv i16 %.lhs.trunc.i.i.i, 1280
   %.zext11.i.i.i = zext nneg i16 %67 to i64
-  %68 = getelementptr i64, ptr %60, i64 %.zext11.i.i.i
+  %68 = getelementptr [8 x i8], ptr %60, i64 %.zext11.i.i.i
   %69 = load i64, ptr %68, align 8, !tbaa !93
   %70 = and i64 %69, %66
   store i64 %70, ptr %68, align 8, !tbaa !93
@@ -21277,24 +21271,24 @@ define internal fastcc noundef i64 @gc_move(ptr noundef readonly captures(none) 
   %12 = udiv i16 %.lhs.trunc.i, 40
   %13 = udiv i16 %.lhs.trunc.i, 2560
   %.zext2.i = zext nneg i16 %13 to i64
-  %14 = getelementptr i64, ptr %11, i64 %.zext2.i
+  %14 = getelementptr [8 x i8], ptr %11, i64 %.zext2.i
   %15 = load i64, ptr %14, align 8, !tbaa !93
   %16 = and i16 %12, 63
   %17 = zext nneg i16 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %19 = getelementptr i64, ptr %18, i64 %.zext2.i
+  %19 = getelementptr [8 x i8], ptr %18, i64 %.zext2.i
   %20 = load i64, ptr %19, align 8, !tbaa !93
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 488
-  %22 = getelementptr i64, ptr %21, i64 %.zext2.i
+  %22 = getelementptr [8 x i8], ptr %21, i64 %.zext2.i
   %23 = load i64, ptr %22, align 8, !tbaa !93
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 904
-  %25 = getelementptr i64, ptr %24, i64 %.zext2.i
+  %25 = getelementptr [8 x i8], ptr %24, i64 %.zext2.i
   %26 = load i64, ptr %25, align 8, !tbaa !93
   %27 = shl nuw i64 1, %17
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 1320
   %29 = udiv i16 %.lhs.trunc.i, 1280
   %.zext4.i = zext nneg i16 %29 to i64
-  %30 = getelementptr i64, ptr %28, i64 %.zext4.i
+  %30 = getelementptr [8 x i8], ptr %28, i64 %.zext4.i
   %31 = load i64, ptr %30, align 8, !tbaa !93
   %32 = xor i64 %27, -1
   %33 = and i64 %15, %32
@@ -21387,7 +21381,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RB_FL_TEST.exit.thr
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1320
   %76 = shl nuw i64 3, %72
   %77 = xor i64 %76, -1
-  %78 = getelementptr i64, ptr %75, i64 %.zext4.i
+  %78 = getelementptr [8 x i8], ptr %75, i64 %.zext4.i
   %79 = load i64, ptr %78, align 8, !tbaa !93
   %80 = and i64 %79, %77
   store i64 %80, ptr %78, align 8, !tbaa !93
@@ -21402,7 +21396,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RB_FL_TEST.exit.thr
   %87 = udiv i16 %.lhs.trunc116, 40
   %88 = udiv i16 %.lhs.trunc116, 2560
   %.zext119 = zext nneg i16 %88 to i64
-  %89 = getelementptr i64, ptr %86, i64 %.zext119
+  %89 = getelementptr [8 x i8], ptr %86, i64 %.zext119
   %90 = load i64, ptr %89, align 8, !tbaa !93
   %91 = and i16 %87, 63
   %92 = zext nneg i16 %91 to i64
@@ -21422,7 +21416,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RB_FL_TEST.exit.thr
   %102 = udiv i16 %.lhs.trunc120, 40
   %103 = udiv i16 %.lhs.trunc120, 2560
   %.zext123 = zext nneg i16 %103 to i64
-  %104 = getelementptr i64, ptr %101, i64 %.zext123
+  %104 = getelementptr [8 x i8], ptr %101, i64 %.zext123
   %105 = load i64, ptr %104, align 8, !tbaa !93
   %106 = and i16 %102, 63
   %107 = zext nneg i16 %106 to i64
@@ -21442,7 +21436,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RB_FL_TEST.exit.thr
   %117 = udiv i16 %.lhs.trunc124, 40
   %118 = udiv i16 %.lhs.trunc124, 2560
   %.zext127 = zext nneg i16 %118 to i64
-  %119 = getelementptr i64, ptr %116, i64 %.zext127
+  %119 = getelementptr [8 x i8], ptr %116, i64 %.zext127
   %120 = load i64, ptr %119, align 8, !tbaa !93
   %121 = and i16 %117, 63
   %122 = zext nneg i16 %121 to i64
@@ -21462,7 +21456,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RB_FL_TEST.exit.thr
   %132 = udiv i16 %.lhs.trunc128, 40
   %133 = udiv i16 %.lhs.trunc128, 2560
   %.zext131 = zext nneg i16 %133 to i64
-  %134 = getelementptr i64, ptr %131, i64 %.zext131
+  %134 = getelementptr [8 x i8], ptr %131, i64 %.zext131
   %135 = load i64, ptr %134, align 8, !tbaa !93
   %136 = and i16 %132, 63
   %137 = zext nneg i16 %136 to i64
@@ -21482,7 +21476,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RB_FL_TEST.exit.thr
   %149 = xor i64 %148, -1
   %150 = udiv i16 %.lhs.trunc128, 1280
   %.zext11.i = zext nneg i16 %150 to i64
-  %151 = getelementptr i64, ptr %144, i64 %.zext11.i
+  %151 = getelementptr [8 x i8], ptr %144, i64 %.zext11.i
   %152 = load i64, ptr %151, align 8, !tbaa !93
   %153 = and i64 %152, %149
   %154 = and i64 %142, 3
@@ -21541,7 +21535,7 @@ define internal fastcc zeroext i1 @gc_compact_move(ptr noundef %0, ptr noundef %
 heap_idx_for_size.exit.i:                         ; preds = %9, %7
   %.0.i59 = phi i64 [ 0, %7 ], [ %14, %9 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = getelementptr %struct.rb_heap_struct, ptr %15, i64 %.0.i59
+  %16 = getelementptr [144 x i8], ptr %15, i64 %.0.i59
   br label %gc_compact_destination_pool.exit
 
 gc_compact_destination_pool.exit:                 ; preds = %3, %heap_idx_for_size.exit.i
@@ -21642,7 +21636,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_gc_rebuild_shape
   %71 = inttoptr i64 %2 to ptr
   %72 = load i64, ptr %71, align 8, !tbaa !113
   %73 = and i64 %72, 31
-  %74 = getelementptr i64, ptr %70, i64 %73
+  %74 = getelementptr [8 x i8], ptr %70, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !93
   %76 = add i64 %75, 1
   store i64 %76, ptr %74, align 8, !tbaa !93
@@ -21661,7 +21655,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_gc_rebuild_shape
   %81 = inttoptr i64 %2 to ptr
   %82 = load i64, ptr %81, align 8, !tbaa !113
   %83 = and i64 %82, 31
-  %84 = getelementptr i64, ptr %80, i64 %83
+  %84 = getelementptr [8 x i8], ptr %80, i64 %83
   %85 = load i64, ptr %84, align 8, !tbaa !93
   %86 = add i64 %85, 1
   store i64 %86, ptr %84, align 8, !tbaa !93
@@ -21672,7 +21666,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_gc_rebuild_shape
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %89 = load i64, ptr %.pre-phi, align 8, !tbaa !113
   %90 = and i64 %89, 31
-  %91 = getelementptr i64, ptr %88, i64 %90
+  %91 = getelementptr [8 x i8], ptr %88, i64 %90
   %92 = load i64, ptr %91, align 8, !tbaa !93
   %93 = add i64 %92, 1
   store i64 %93, ptr %91, align 8, !tbaa !93
@@ -21701,7 +21695,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_gc_rebuild_shape
   %107 = udiv i16 %.lhs.trunc.i.i, 40
   %108 = udiv i16 %.lhs.trunc.i.i, 2560
   %.zext2.i.i = zext nneg i16 %108 to i64
-  %109 = getelementptr i64, ptr %106, i64 %.zext2.i.i
+  %109 = getelementptr [8 x i8], ptr %106, i64 %.zext2.i.i
   %110 = load i64, ptr %109, align 8, !tbaa !93
   %111 = and i16 %107, 63
   %112 = zext nneg i16 %111 to i64
@@ -21850,8 +21844,8 @@ define internal fastcc void @gc_sweep_page(ptr noundef %0, ptr noundef readonly 
   %.zext58 = zext nneg i16 %24 to i64
   %25 = lshr i32 %18, 6
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr i64, ptr %11, i64 %.zext58
-  %28 = getelementptr i64, ptr %27, i64 %26
+  %27 = getelementptr [8 x i8], ptr %11, i64 %.zext58
+  %28 = getelementptr [8 x i8], ptr %27, i64 %26
   %29 = load i64, ptr %28, align 8, !tbaa !93
   %30 = or i64 %29, %notmask
   store i64 %30, ptr %28, align 8, !tbaa !93
@@ -21889,7 +21883,7 @@ define internal fastcc void @gc_sweep_page(ptr noundef %0, ptr noundef readonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %49
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %49 ]
   %.04859 = phi i64 [ %42, %.lr.ph.preheader ], [ %50, %49 ]
-  %45 = getelementptr i64, ptr %11, i64 %indvars.iv
+  %45 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8, !tbaa !93
   %.not56 = icmp eq i64 %46, -1
   br i1 %.not56, label %49, label %47
@@ -22011,7 +22005,7 @@ define internal fastcc void @gc_sweep_plane(ptr noundef %0, i64 noundef %1, i64 
   %48 = udiv i16 %.lhs.trunc.i, 40
   %49 = udiv i16 %.lhs.trunc.i, 2560
   %.zext2.i = zext nneg i16 %49 to i64
-  %50 = getelementptr i64, ptr %47, i64 %.zext2.i
+  %50 = getelementptr [8 x i8], ptr %47, i64 %.zext2.i
   %51 = load i64, ptr %50, align 8, !tbaa !93
   %52 = and i16 %48, 63
   %53 = zext nneg i16 %52 to i64
@@ -22155,7 +22149,7 @@ obj_free_object_id.exit:                          ; preds = %RB_FL_UNSET.exit.i
   %108 = xor i64 %107, -1
   %109 = udiv i16 %.lhs.trunc.i, 1280
   %.zext11.i.i.i = zext nneg i16 %109 to i64
-  %110 = getelementptr i64, ptr %103, i64 %.zext11.i.i.i
+  %110 = getelementptr [8 x i8], ptr %103, i64 %.zext11.i.i.i
   %111 = load i64, ptr %110, align 8, !tbaa !93
   %112 = and i64 %111, %108
   store i64 %112, ptr %110, align 8, !tbaa !93
@@ -22205,7 +22199,7 @@ obj_free_object_id.exit:                          ; preds = %RB_FL_UNSET.exit.i
   %138 = xor i64 %137, -1
   %139 = udiv i16 %.lhs.trunc.i.i.i47, 1280
   %.zext11.i.i.i48 = zext nneg i16 %139 to i64
-  %140 = getelementptr i64, ptr %132, i64 %.zext11.i.i.i48
+  %140 = getelementptr [8 x i8], ptr %132, i64 %.zext11.i.i.i48
   %141 = load i64, ptr %140, align 8, !tbaa !93
   %142 = and i64 %141, %138
   store i64 %142, ptr %140, align 8, !tbaa !93
@@ -22302,7 +22296,7 @@ rb_darray_size.exit.lr.ph:                        ; preds = %10
   %.05970 = phi i64 [ %.1, %rb_darray_size.exit ], [ %7, %rb_darray_size.exit.lr.ph ]
   %17 = phi ptr [ %46, %rb_darray_size.exit ], [ %14, %rb_darray_size.exit.lr.ph ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = getelementptr ptr, ptr %18, i64 %.0455871
+  %19 = getelementptr [8 x i8], ptr %18, i64 %.0455871
   %20 = load ptr, ptr %19, align 8, !tbaa !173
   %21 = getelementptr i8, ptr %20, i64 2
   %.val50 = load i16, ptr %21, align 2, !tbaa !258
@@ -22360,7 +22354,7 @@ heap_page_free.exit:                              ; preds = %29, %32
   br i1 %.not49, label %44, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr ptr, ptr %18, i64 %.0465772
+  %43 = getelementptr [8 x i8], ptr %18, i64 %.0465772
   store ptr %20, ptr %43, align 8, !tbaa !173
   br label %44
 
@@ -22389,7 +22383,7 @@ rb_darray_size.exit52.loopexit:                   ; preds = %rb_darray_size.exit
   %53 = add i64 %52, %51
   store i64 %53, ptr %.lcssa, align 8, !tbaa !171
   %54 = getelementptr i8, ptr %.lcssa, i64 8
-  %55 = getelementptr ptr, ptr %54, i64 %53
+  %55 = getelementptr [8 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %55, align 8, !tbaa !173
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8, !tbaa !175
@@ -22523,7 +22517,7 @@ rb_darray_size.exit.i:                            ; preds = %39
   %.04559.i = phi i64 [ %45, %.lr.ph.i ], [ %.146.i, %60 ]
   %48 = add i64 %.04559.i, %.060.i
   %49 = lshr i64 %48, 1
-  %50 = getelementptr ptr, ptr %46, i64 %49
+  %50 = getelementptr [8 x i8], ptr %46, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !173
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i64, ptr %52, align 8, !tbaa !257
@@ -22558,7 +22552,7 @@ rb_darray_size.exit.i.i:                          ; preds = %60, %rb_darray_size
 
 rb_darray_ensure_space.exit.thread.i:             ; preds = %rb_darray_size.exit.i.i
   %65 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %66 = getelementptr ptr, ptr %65, i64 %.045.lcssa.ph.i
+  %66 = getelementptr [8 x i8], ptr %65, i64 %.045.lcssa.ph.i
   br label %rb_darray_size.exit56.i
 
 67:                                               ; preds = %rb_darray_size.exit.i.i
@@ -22609,7 +22603,7 @@ rb_darray_ensure_space.exit.i:                    ; preds = %82, %rb_darray_real
   %84 = ptrtoint ptr %79 to i64
   store i64 %84, ptr %43, align 1
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %86 = getelementptr ptr, ptr %85, i64 %.045.lcssa79.i
+  %86 = getelementptr [8 x i8], ptr %85, i64 %.045.lcssa79.i
   %.pre = load i64, ptr %79, align 8, !tbaa !171
   br label %rb_darray_size.exit56.i
 
@@ -22631,7 +22625,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %rb_darray_size.exit
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %92, ptr noundef nonnull align 1 %87, i64 noundef %93, i1 noundef false) #6
   %94 = load ptr, ptr %43, align 8, !tbaa !170
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %96 = getelementptr ptr, ptr %95, i64 %.045.lcssa8086.i
+  %96 = getelementptr [8 x i8], ptr %95, i64 %.045.lcssa8086.i
   store ptr %36, ptr %96, align 8, !tbaa !173
   %97 = load i64, ptr %94, align 8, !tbaa !171
   %98 = add i64 %97, 1
@@ -22737,7 +22731,7 @@ rb_darray_size.exit:                              ; preds = %2
 
 32:                                               ; preds = %heap_ready_to_gc.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %heap_ready_to_gc.exit.i ]
-  %33 = getelementptr %struct.rb_heap_struct, ptr %30, i64 %indvars.iv.i
+  %33 = getelementptr [144 x i8], ptr %30, i64 %indvars.iv.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !515
   %.not.i.i = icmp eq ptr %35, null
@@ -22931,7 +22925,7 @@ gc_enter.exit:                                    ; preds = %46, %50, %rb_ec_rac
 127:                                              ; preds = %127, %117
   %indvars.iv.i82 = phi i64 [ 0, %117 ], [ %indvars.iv.next.i83, %127 ]
   %.08.i = phi i64 [ 0, %117 ], [ %131, %127 ]
-  %128 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i82
+  %128 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i82
   %129 = getelementptr i8, ptr %128, i64 72
   %130 = load i64, ptr %129, align 8, !tbaa !200
   %131 = add i64 %130, %.08.i
@@ -23044,7 +23038,7 @@ xmalloc2_size.exit.i:                             ; preds = %152
 169:                                              ; preds = %167, %.thread.i
   %170 = phi i64 [ %.pre30.i, %.thread.i ], [ %144, %167 ]
   %171 = phi ptr [ %165, %.thread.i ], [ %.pr.i, %167 ]
-  %172 = getelementptr %struct.gc_profile_record, ptr %171, i64 %170
+  %172 = getelementptr [56 x i8], ptr %171, i64 %170
   %173 = getelementptr i8, ptr %172, i64 -56
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %173, ptr %174, align 8, !tbaa !542
@@ -23339,7 +23333,7 @@ gc_marking_enter.exit.i:                          ; preds = %279, %current_proce
 
 307:                                              ; preds = %.loopexit46.i.i, %298
   %indvars.iv.i.i = phi i64 [ 0, %298 ], [ %indvars.iv.next.i.i, %.loopexit46.i.i ]
-  %308 = getelementptr %struct.rb_heap_struct, ptr %306, i64 %indvars.iv.i.i
+  %308 = getelementptr [144 x i8], ptr %306, i64 %indvars.iv.i.i
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 80
   %.pn1.i.i.i = load ptr, ptr %309, align 8, !tbaa !90
   %.not2.i.i.i = icmp eq ptr %.pn1.i.i.i, %309
@@ -23440,7 +23434,7 @@ heap_move_pooled_pages_to_free_pages.exit.i.i:    ; preds = %328, %rgengc_mark_a
 
 344:                                              ; preds = %rgengc_rememberset_mark.exit.i.i, %332
   %indvars.iv55.i.i = phi i64 [ 0, %332 ], [ %indvars.iv.next56.i.i, %rgengc_rememberset_mark.exit.i.i ]
-  %345 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv55.i.i
+  %345 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv55.i.i
   %346 = getelementptr i8, ptr %345, i64 120
   %.pn50.i.i.i = load ptr, ptr %346, align 8, !tbaa !90
   %.not51.i.i.i = icmp eq ptr %.pn50.i.i.i, %346
@@ -23465,15 +23459,15 @@ heap_move_pooled_pages_to_free_pages.exit.i.i:    ; preds = %328, %rgengc_mark_a
 
 356:                                              ; preds = %356, %350
   %.047.i.i.i = phi i64 [ 0, %350 ], [ %366, %356 ]
-  %357 = getelementptr i64, ptr %353, i64 %.047.i.i.i
+  %357 = getelementptr [8 x i8], ptr %353, i64 %.047.i.i.i
   %358 = load i64, ptr %357, align 8, !tbaa !93
-  %359 = getelementptr i64, ptr %354, i64 %.047.i.i.i
+  %359 = getelementptr [8 x i8], ptr %354, i64 %.047.i.i.i
   %360 = load i64, ptr %359, align 8, !tbaa !93
-  %361 = getelementptr i64, ptr %355, i64 %.047.i.i.i
+  %361 = getelementptr [8 x i8], ptr %355, i64 %.047.i.i.i
   %362 = load i64, ptr %361, align 8, !tbaa !93
   %363 = and i64 %362, %360
   %364 = or i64 %363, %358
-  %365 = getelementptr i64, ptr %9, i64 %.047.i.i.i
+  %365 = getelementptr [8 x i8], ptr %9, i64 %.047.i.i.i
   store i64 %364, ptr %365, align 8, !tbaa !93
   store i64 0, ptr %357, align 8, !tbaa !93
   %366 = add nuw nsw i64 %.047.i.i.i, 1
@@ -23524,7 +23518,7 @@ rgengc_rememberset_mark_plane.exit.i.i.i:         ; preds = %379, %367
 385:                                              ; preds = %rgengc_rememberset_mark_plane.exit46.i.i.i, %rgengc_rememberset_mark_plane.exit.i.i.i
   %.149.i.i.i = phi i64 [ 1, %rgengc_rememberset_mark_plane.exit.i.i.i ], [ %397, %rgengc_rememberset_mark_plane.exit46.i.i.i ]
   %.03648.i.i.i = phi i64 [ %384, %rgengc_rememberset_mark_plane.exit.i.i.i ], [ %396, %rgengc_rememberset_mark_plane.exit46.i.i.i ]
-  %386 = getelementptr i64, ptr %9, i64 %.149.i.i.i
+  %386 = getelementptr [8 x i8], ptr %9, i64 %.149.i.i.i
   %387 = load i64, ptr %386, align 8, !tbaa !93
   %.not.i38.i.i.i = icmp eq i64 %387, 0
   br i1 %.not.i38.i.i.i, label %rgengc_rememberset_mark_plane.exit46.i.i.i, label %.preheader.i39.i.i.i
@@ -23885,7 +23879,7 @@ define internal fastcc void @gc_rest(ptr noundef %0) unnamed_addr #0 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %1 ]
-  %15 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
+  %15 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %16 = getelementptr i8, ptr %15, i64 136
   %17 = load ptr, ptr %16, align 8, !tbaa !167
   %.not.not.i = icmp ne ptr %17, null
@@ -24117,7 +24111,7 @@ gc_marking_exit.exit:                             ; preds = %gc_marking_enter.ex
 
 101:                                              ; preds = %.preheader71, %101
   %indvars.iv.i24 = phi i64 [ %indvars.iv.next.i26, %101 ], [ 0, %.preheader71 ]
-  %102 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i24
+  %102 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i24
   %103 = getelementptr i8, ptr %102, i64 136
   %104 = load ptr, ptr %103, align 8, !tbaa !167
   %.not.not.i25 = icmp ne ptr %104, null
@@ -24175,7 +24169,7 @@ gc_sweeping_enter.exit:                           ; preds = %105, %110, %current
 
 119:                                              ; preds = %._crit_edge.i, %gc_sweeping_enter.exit
   %indvars.iv.i38 = phi i64 [ 0, %gc_sweeping_enter.exit ], [ %indvars.iv.next.i40, %._crit_edge.i ]
-  %120 = getelementptr %struct.rb_heap_struct, ptr %118, i64 %indvars.iv.i38
+  %120 = getelementptr [144 x i8], ptr %118, i64 %indvars.iv.i38
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 96
   %122 = load ptr, ptr %121, align 8, !tbaa !167
   %.not6.i = icmp eq ptr %122, null
@@ -24439,7 +24433,7 @@ pop_mark_stack.exit:                              ; preds = %13, %20
 
 26:                                               ; preds = %.preheader47, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 0, %.preheader47 ]
-  %27 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
+  %27 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %28 = getelementptr i8, ptr %27, i64 136
   %29 = load ptr, ptr %28, align 8, !tbaa !167
   %.not.not.i = icmp ne ptr %29, null
@@ -24460,7 +24454,7 @@ has_sweeping_pages.exit:                          ; preds = %26
 
 31:                                               ; preds = %.preheader, %._crit_edge37
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge37 ]
-  %32 = getelementptr %struct.rb_heap_struct, ptr %30, i64 %indvars.iv
+  %32 = getelementptr [144 x i8], ptr %30, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   store ptr null, ptr %33, align 8, !tbaa !167
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 80
@@ -24491,7 +24485,7 @@ has_sweeping_pages.exit:                          ; preds = %26
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %rgengc_mark_and_rememberset_clear.exit
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %rgengc_mark_and_rememberset_clear.exit ], [ 0, %.loopexit.preheader ]
-  %41 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv41
+  %41 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv41
   %42 = getelementptr i8, ptr %41, i64 120
   %.pn1.i = load ptr, ptr %42, align 8, !tbaa !90
   %.not2.i = icmp eq ptr %.pn1.i, %42
@@ -24705,7 +24699,7 @@ define internal noundef i32 @pin_key_mark_value(i64 noundef %0, i64 noundef %1, 
   %25 = udiv i16 %.lhs.trunc.i.i.i.i.i, 40
   %26 = udiv i16 %.lhs.trunc.i.i.i.i.i, 2560
   %.zext2.i.i.i.i.i = zext nneg i16 %26 to i64
-  %27 = getelementptr i64, ptr %24, i64 %.zext2.i.i.i.i.i
+  %27 = getelementptr [8 x i8], ptr %24, i64 %.zext2.i.i.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !93
   %29 = and i16 %25, 63
   %30 = zext nneg i16 %29 to i64
@@ -24844,7 +24838,7 @@ define internal fastcc void @gc_writebarrier_generational(i64 noundef %0) unname
   %8 = udiv i16 %.lhs.trunc.i, 40
   %9 = udiv i16 %.lhs.trunc.i, 2560
   %.zext2.i = zext nneg i16 %9 to i64
-  %10 = getelementptr i64, ptr %7, i64 %.zext2.i
+  %10 = getelementptr [8 x i8], ptr %7, i64 %.zext2.i
   %11 = load i64, ptr %10, align 8, !tbaa !93
   %12 = and i16 %8, 63
   %13 = zext nneg i16 %12 to i64
@@ -24865,7 +24859,7 @@ define internal fastcc void @gc_writebarrier_generational(i64 noundef %0) unname
   %.pre.i = load i32, ptr %3, align 4, !tbaa !12
   %.pre = load ptr, ptr %5, align 65536, !tbaa !186
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 904
-  %.phi.trans.insert1 = getelementptr i64, ptr %.phi.trans.insert, i64 %.zext2.i
+  %.phi.trans.insert1 = getelementptr [8 x i8], ptr %.phi.trans.insert, i64 %.zext2.i
   %.pre2 = load i64, ptr %.phi.trans.insert1, align 8, !tbaa !93
   br label %rb_gc_vm_lock_no_barrier.exit
 
@@ -24880,7 +24874,7 @@ rb_gc_vm_lock_no_barrier.exit:                    ; preds = %16, %18
 
 23:                                               ; preds = %rb_gc_vm_lock_no_barrier.exit
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 904
-  %25 = getelementptr i64, ptr %24, i64 %.zext2.i
+  %25 = getelementptr [8 x i8], ptr %24, i64 %.zext2.i
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %27 = load i8, ptr %26, align 4
   %28 = or i8 %27, 2
@@ -24918,7 +24912,7 @@ define internal fastcc void @gc_writebarrier_incremental(i64 noundef %0, i64 nou
   %8 = udiv i16 %.lhs.trunc.i.i, 40
   %9 = udiv i16 %.lhs.trunc.i.i, 2560
   %.zext2.i.i = zext nneg i16 %9 to i64
-  %10 = getelementptr i64, ptr %7, i64 %.zext2.i.i
+  %10 = getelementptr [8 x i8], ptr %7, i64 %.zext2.i.i
   %11 = load i64, ptr %10, align 8, !tbaa !93
   %12 = and i16 %8, 63
   %13 = zext nneg i16 %12 to i64
@@ -24929,7 +24923,7 @@ define internal fastcc void @gc_writebarrier_incremental(i64 noundef %0, i64 nou
 
 RVALUE_BLACK_P.exit:                              ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 696
-  %17 = getelementptr i64, ptr %16, i64 %.zext2.i.i
+  %17 = getelementptr [8 x i8], ptr %16, i64 %.zext2.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !93
   %19 = and i64 %18, %14
   %.not.not = icmp eq i64 %19, 0
@@ -24944,7 +24938,7 @@ RVALUE_BLACK_P.exit:                              ; preds = %3
   %25 = udiv i16 %.lhs.trunc.i.i25, 40
   %26 = udiv i16 %.lhs.trunc.i.i25, 2560
   %.zext2.i.i26 = zext nneg i16 %26 to i64
-  %27 = getelementptr i64, ptr %24, i64 %.zext2.i.i26
+  %27 = getelementptr [8 x i8], ptr %24, i64 %.zext2.i.i26
   %28 = load i64, ptr %27, align 8, !tbaa !93
   %29 = and i16 %25, 63
   %30 = zext nneg i16 %29 to i64
@@ -24955,7 +24949,7 @@ RVALUE_BLACK_P.exit:                              ; preds = %3
 
 33:                                               ; preds = %20
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %35 = getelementptr i64, ptr %34, i64 %.zext2.i.i
+  %35 = getelementptr [8 x i8], ptr %34, i64 %.zext2.i.i
   %36 = load i64, ptr %35, align 8, !tbaa !93
   %37 = and i64 %36, %14
   %.not23 = icmp eq i64 %37, 0
@@ -24974,7 +24968,7 @@ RVALUE_BLACK_P.exit:                              ; preds = %3
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %45 = getelementptr i64, ptr %44, i64 %.zext2.i.i26
+  %45 = getelementptr [8 x i8], ptr %44, i64 %.zext2.i.i26
   %46 = load i64, ptr %45, align 8, !tbaa !93
   %47 = and i64 %46, %31
   %.not7.i.i = icmp eq i64 %47, 0
@@ -24996,7 +24990,7 @@ RVALUE_BLACK_P.exit:                              ; preds = %3
   %57 = udiv i16 %.lhs.trunc.i.i.i.i, 40
   %58 = udiv i16 %.lhs.trunc.i.i.i.i, 2560
   %.zext2.i.i.i.i = zext nneg i16 %58 to i64
-  %59 = getelementptr i64, ptr %56, i64 %.zext2.i.i.i.i
+  %59 = getelementptr [8 x i8], ptr %56, i64 %.zext2.i.i.i.i
   %60 = load i64, ptr %59, align 8, !tbaa !93
   %61 = and i16 %57, 63
   %62 = zext nneg i16 %61 to i64
@@ -25018,7 +25012,7 @@ RVALUE_BLACK_P.exit:                              ; preds = %3
 rgengc_check_relation.exit.i:                     ; preds = %38, %65, %52, %48
   %70 = phi ptr [ %.pre, %65 ], [ %23, %52 ], [ %23, %48 ], [ %23, %38 ]
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 280
-  %72 = getelementptr i64, ptr %71, i64 %.zext2.i.i26
+  %72 = getelementptr [8 x i8], ptr %71, i64 %.zext2.i.i26
   %73 = load i64, ptr %72, align 8, !tbaa !93
   %74 = and i64 %73, %31
   %.not.i12.i = icmp eq i64 %74, 0
@@ -25034,7 +25028,7 @@ rgengc_check_relation.exit.i:                     ; preds = %38, %65, %52, %48
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %70, i64 72
-  %82 = getelementptr i64, ptr %81, i64 %.zext2.i.i26
+  %82 = getelementptr [8 x i8], ptr %81, i64 %.zext2.i.i26
   %83 = load i64, ptr %82, align 8, !tbaa !93
   %84 = and i64 %83, %31
   %.not.i13.i = icmp eq i64 %84, 0
@@ -25051,7 +25045,7 @@ rgengc_check_relation.exit.i:                     ; preds = %38, %65, %52, %48
   %90 = getelementptr inbounds nuw i8, ptr %70, i64 1320
   %91 = udiv i16 %.lhs.trunc.i.i25, 1280
   %.zext4.i.i.i.i = zext nneg i16 %91 to i64
-  %92 = getelementptr i64, ptr %90, i64 %.zext4.i.i.i.i
+  %92 = getelementptr [8 x i8], ptr %90, i64 %.zext4.i.i.i.i
   %93 = load i64, ptr %92, align 8, !tbaa !93
   %94 = shl nuw nsw i16 %25, 1
   %95 = and i16 %94, 62
@@ -25084,7 +25078,7 @@ rgengc_check_relation.exit.i:                     ; preds = %38, %65, %52, %48
 
 RVALUE_AGE_INC.exit.sink.split.i.i:               ; preds = %110, %89
   %115 = getelementptr inbounds nuw i8, ptr %70, i64 488
-  %116 = getelementptr i64, ptr %115, i64 %.zext2.i.i26
+  %116 = getelementptr [8 x i8], ptr %115, i64 %.zext2.i.i26
   %117 = load i64, ptr %116, align 8, !tbaa !93
   %118 = or i64 %117, %31
   store i64 %118, ptr %116, align 8, !tbaa !93
@@ -25121,7 +25115,7 @@ gc_aging.exit.i:                                  ; preds = %RVALUE_AGE_INC.exit
 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %6, i64 904
-  %135 = getelementptr i64, ptr %134, i64 %.zext2.i.i
+  %135 = getelementptr [8 x i8], ptr %134, i64 %.zext2.i.i
   %136 = load i64, ptr %135, align 8, !tbaa !93
   %137 = and i64 %136, %14
   %.not.i.i29 = icmp eq i64 %137, 0
@@ -25146,7 +25140,7 @@ gc_mark_from.exit:                                ; preds = %138, %133, %gc_agin
 146:                                              ; preds = %gc_mark_from.exit
   %147 = load ptr, ptr %22, align 65536, !tbaa !186
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 1112
-  %149 = getelementptr i64, ptr %148, i64 %.zext2.i.i26
+  %149 = getelementptr [8 x i8], ptr %148, i64 %.zext2.i.i26
   %150 = load i64, ptr %149, align 8, !tbaa !93
   %151 = or i64 %150, %31
   store i64 %151, ptr %149, align 8, !tbaa !93
@@ -25195,7 +25189,7 @@ define internal noundef i64 @objspace_each_objects_try(i64 noundef %0) #0 {
 
 10:                                               ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
-  %11 = getelementptr %struct.rb_heap_struct, ptr %4, i64 %indvars.iv
+  %11 = getelementptr [144 x i8], ptr %4, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %13 = load i64, ptr %12, align 8, !tbaa !397
   %14 = shl i64 %13, 3
@@ -25217,7 +25211,7 @@ define internal noundef i64 @objspace_each_objects_try(i64 noundef %0) #0 {
   %.pn75 = phi ptr [ %.pn, %.lr.ph ], [ %.pn72, %17 ]
   %.05874 = phi i64 [ %20, %.lr.ph ], [ 0, %17 ]
   %.055 = getelementptr i8, ptr %.pn75, i64 -56
-  %19 = getelementptr ptr, ptr %15, i64 %.05874
+  %19 = getelementptr [8 x i8], ptr %15, i64 %.05874
   store ptr %.055, ptr %19, align 8, !tbaa !173
   %20 = add i64 %.05874, 1
   %.pn = load ptr, ptr %.pn75, align 8, !tbaa !90
@@ -25226,9 +25220,9 @@ define internal noundef i64 @objspace_each_objects_try(i64 noundef %0) #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %.058.lcssa = phi i64 [ 0, %17 ], [ %20, %.lr.ph ]
-  %21 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %21 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %15, ptr %21, align 8, !tbaa !649
-  %22 = getelementptr i64, ptr %6, i64 %indvars.iv
+  %22 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %.058.lcssa, ptr %22, align 8, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -25239,10 +25233,10 @@ define internal noundef i64 @objspace_each_objects_try(i64 noundef %0) #0 {
 
 24:                                               ; preds = %.preheader, %.thread
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %.thread ]
-  %25 = getelementptr %struct.rb_heap_struct, ptr %4, i64 %indvars.iv86
-  %26 = getelementptr i64, ptr %6, i64 %indvars.iv86
+  %25 = getelementptr [144 x i8], ptr %4, i64 %indvars.iv86
+  %26 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv86
   %27 = load i64, ptr %26, align 8, !tbaa !93
-  %28 = getelementptr ptr, ptr %5, i64 %indvars.iv86
+  %28 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv86
   %29 = load ptr, ptr %28, align 8, !tbaa !649
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %31 = load ptr, ptr %30, align 8, !tbaa !151
@@ -25257,7 +25251,7 @@ define internal noundef i64 @objspace_each_objects_try(i64 noundef %0) #0 {
 .lr.ph81:                                         ; preds = %24, %64
   %.05679 = phi i64 [ %65, %64 ], [ 0, %24 ]
   %.05778 = phi ptr [ %.1, %64 ], [ %32, %24 ]
-  %36 = getelementptr ptr, ptr %29, i64 %.05679
+  %36 = getelementptr [8 x i8], ptr %29, i64 %.05679
   %37 = load ptr, ptr %36, align 8, !tbaa !173
   %.not = icmp eq ptr %37, %.05778
   br i1 %.not, label %38, label %64
@@ -25342,7 +25336,7 @@ define internal noundef i64 @objspace_each_objects_ensure(i64 noundef %0) #23 {
 
 14:                                               ; preds = %11, %14
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr ptr, ptr %12, i64 %indvars.iv
+  %15 = getelementptr [8 x i8], ptr %12, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !649
   tail call void @free(ptr noundef %16) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -25563,7 +25557,7 @@ rb_gc_prepare_heap_process_object.exit:           ; preds = %25, %27
 31:                                               ; preds = %rb_gc_prepare_heap_process_object.exit
   %32 = load ptr, ptr %9, align 65536, !tbaa !186
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
-  %34 = getelementptr i64, ptr %33, i64 %.zext2.i
+  %34 = getelementptr [8 x i8], ptr %33, i64 %.zext2.i
   %35 = load i64, ptr %34, align 8, !tbaa !93
   %36 = and i64 %35, %14
   %.not19 = icmp eq i64 %36, 0
@@ -25571,7 +25565,7 @@ rb_gc_prepare_heap_process_object.exit:           ; preds = %25, %27
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 1320
-  %39 = getelementptr i64, ptr %38, i64 %.zext11.i.i
+  %39 = getelementptr [8 x i8], ptr %38, i64 %.zext11.i.i
   %40 = load i64, ptr %39, align 8, !tbaa !93
   %41 = and i64 %40, %19
   %42 = or i64 %41, %21
@@ -25706,7 +25700,7 @@ rb_gc_impl_object_moved_p.exit.thread:            ; preds = %2, %gc_location_int
 
 22:                                               ; preds = %.lr.ph, %rb_gc_impl_object_moved_p.exit18.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %rb_gc_impl_object_moved_p.exit18.thread ]
-  %23 = getelementptr %struct.rb_class_cc_entries_entry, ptr %21, i64 %indvars.iv
+  %23 = getelementptr [16 x i8], ptr %21, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !660
   %26 = ptrtoint ptr %25 to i64
@@ -26364,7 +26358,7 @@ define internal fastcc i64 @objspace_live_slots(ptr noundef readonly captures(no
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
   %.08.i = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %3 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
+  %3 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %4 = getelementptr i8, ptr %3, i64 72
   %5 = load i64, ptr %4, align 8, !tbaa !200
   %6 = add i64 %5, %.08.i
@@ -26375,7 +26369,7 @@ define internal fastcc i64 @objspace_live_slots(ptr noundef readonly captures(no
 total_allocated_objects.exit:                     ; preds = %2, %total_allocated_objects.exit
   %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i5, %total_allocated_objects.exit ], [ 0, %2 ]
   %.08.i4 = phi i64 [ %10, %total_allocated_objects.exit ], [ 0, %2 ]
-  %7 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i3
+  %7 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i3
   %8 = getelementptr i8, ptr %7, i64 80
   %9 = load i64, ptr %8, align 8, !tbaa !401
   %10 = add i64 %9, %.08.i4
@@ -26386,7 +26380,7 @@ total_allocated_objects.exit:                     ; preds = %2, %total_allocated
 total_freed_objects.exit:                         ; preds = %total_allocated_objects.exit, %total_freed_objects.exit
   %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i9, %total_freed_objects.exit ], [ 0, %total_allocated_objects.exit ]
   %.08.i8 = phi i64 [ %14, %total_freed_objects.exit ], [ 0, %total_allocated_objects.exit ]
-  %11 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i7
+  %11 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i7
   %12 = getelementptr i8, ptr %11, i64 88
   %13 = load i64, ptr %12, align 8, !tbaa !243
   %14 = add i64 %13, %.08.i8
@@ -26407,7 +26401,7 @@ define internal fastcc i64 @objspace_free_slots(ptr noundef readonly captures(no
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
   %.08.i = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %3 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
+  %3 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %4 = getelementptr i8, ptr %3, i64 176
   %5 = load i64, ptr %4, align 8, !tbaa !360
   %6 = add i64 %5, %.08.i
@@ -26418,7 +26412,7 @@ define internal fastcc i64 @objspace_free_slots(ptr noundef readonly captures(no
 objspace_available_slots.exit:                    ; preds = %2, %objspace_available_slots.exit
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %objspace_available_slots.exit ], [ 0, %2 ]
   %.08.i.i = phi i64 [ %10, %objspace_available_slots.exit ], [ 0, %2 ]
-  %7 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i.i
+  %7 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i.i
   %8 = getelementptr i8, ptr %7, i64 72
   %9 = load i64, ptr %8, align 8, !tbaa !200
   %10 = add i64 %9, %.08.i.i
@@ -26429,7 +26423,7 @@ objspace_available_slots.exit:                    ; preds = %2, %objspace_availa
 total_allocated_objects.exit.i:                   ; preds = %objspace_available_slots.exit, %total_allocated_objects.exit.i
   %indvars.iv.i3.i = phi i64 [ %indvars.iv.next.i5.i, %total_allocated_objects.exit.i ], [ 0, %objspace_available_slots.exit ]
   %.08.i4.i = phi i64 [ %14, %total_allocated_objects.exit.i ], [ 0, %objspace_available_slots.exit ]
-  %11 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i3.i
+  %11 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i3.i
   %12 = getelementptr i8, ptr %11, i64 80
   %13 = load i64, ptr %12, align 8, !tbaa !401
   %14 = add i64 %13, %.08.i4.i
@@ -26440,7 +26434,7 @@ total_allocated_objects.exit.i:                   ; preds = %objspace_available_
 total_freed_objects.exit.i:                       ; preds = %total_allocated_objects.exit.i, %total_freed_objects.exit.i
   %indvars.iv.i7.i = phi i64 [ %indvars.iv.next.i9.i, %total_freed_objects.exit.i ], [ 0, %total_allocated_objects.exit.i ]
   %.08.i8.i = phi i64 [ %18, %total_freed_objects.exit.i ], [ 0, %total_allocated_objects.exit.i ]
-  %15 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i7.i
+  %15 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i7.i
   %16 = getelementptr i8, ptr %15, i64 88
   %17 = load i64, ptr %16, align 8, !tbaa !243
   %18 = add i64 %17, %.08.i8.i
@@ -26451,7 +26445,7 @@ total_freed_objects.exit.i:                       ; preds = %total_allocated_obj
 objspace_live_slots.exit:                         ; preds = %total_freed_objects.exit.i, %objspace_live_slots.exit
   %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i5, %objspace_live_slots.exit ], [ 0, %total_freed_objects.exit.i ]
   %.08.i4 = phi i64 [ %22, %objspace_live_slots.exit ], [ 0, %total_freed_objects.exit.i ]
-  %19 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i3
+  %19 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i3
   %20 = getelementptr i8, ptr %19, i64 88
   %21 = load i64, ptr %20, align 8, !tbaa !243
   %22 = add i64 %21, %.08.i4
@@ -26525,7 +26519,7 @@ thread-pre-split:                                 ; preds = %7, %7, %11, %12
   %20 = phi i8 [ %15, %.lr.ph ], [ %28, %26 ]
   %21 = phi ptr [ %.promoted, %.lr.ph ], [ %27, %26 ]
   %22 = zext i8 %20 to i64
-  %23 = getelementptr i16, ptr %18, i64 %22
+  %23 = getelementptr [2 x i8], ptr %18, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !576
   %25 = and i16 %24, 8192
   %.not33 = icmp eq i16 %25, 0
@@ -26887,7 +26881,7 @@ rb_objspace_data_type_name.exit.i:                ; preds = %35
   br label %type_name.exit
 
 switch.lookup:                                    ; preds = %6
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.gc_verify_internal_consistency_m.109, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %type_name.exit
 
@@ -27208,7 +27202,7 @@ atomic_sub_nounderflow.exit27:                    ; preds = %.preheader.i24, %15
 
 .preheader:                                       ; preds = %38, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %38 ]
-  %40 = getelementptr %struct.rb_heap_struct, ptr %0, i64 %indvars.iv.i
+  %40 = getelementptr [144 x i8], ptr %0, i64 %indvars.iv.i
   %41 = getelementptr i8, ptr %40, i64 136
   %42 = load ptr, ptr %41, align 8, !tbaa !167
   %.not.not.i = icmp ne ptr %42, null
@@ -28580,7 +28574,7 @@ rbimpl_intern_const.exit62:                       ; preds = %.lr.ph.i60, %rbimpl
 
 27:                                               ; preds = %1, %79
   %.072 = phi i64 [ 0, %1 ], [ %80, %79 ]
-  %28 = getelementptr i64, ptr %10, i64 %.072
+  %28 = getelementptr [8 x i8], ptr %10, i64 %.072
   %29 = load i64, ptr %28, align 8, !tbaa !93
   %.not = icmp eq i64 %29, 0
   br i1 %.not, label %40, label %30
@@ -28606,7 +28600,7 @@ rb_ull2num_inline.exit:                           ; preds = %34, %37
   br label %40
 
 40:                                               ; preds = %rb_ull2num_inline.exit, %27
-  %41 = getelementptr i64, ptr %11, i64 %.072
+  %41 = getelementptr [8 x i8], ptr %11, i64 %.072
   %42 = load i64, ptr %41, align 8, !tbaa !93
   %.not42 = icmp eq i64 %42, 0
   br i1 %.not42, label %53, label %43
@@ -28632,7 +28626,7 @@ rb_ull2num_inline.exit64:                         ; preds = %47, %50
   br label %53
 
 53:                                               ; preds = %rb_ull2num_inline.exit64, %40
-  %54 = getelementptr i64, ptr %12, i64 %.072
+  %54 = getelementptr [8 x i8], ptr %12, i64 %.072
   %55 = load i64, ptr %54, align 8, !tbaa !93
   %.not43 = icmp eq i64 %55, 0
   br i1 %.not43, label %66, label %56
@@ -28658,7 +28652,7 @@ rb_ull2num_inline.exit66:                         ; preds = %60, %63
   br label %66
 
 66:                                               ; preds = %rb_ull2num_inline.exit66, %53
-  %67 = getelementptr i64, ptr %13, i64 %.072
+  %67 = getelementptr [8 x i8], ptr %13, i64 %.072
   %68 = load i64, ptr %67, align 8, !tbaa !93
   %.not44 = icmp eq i64 %68, 0
   br i1 %.not44, label %79, label %69
@@ -28752,7 +28746,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %rbimpl_intern_const
 
 19:                                               ; preds = %rb_scan_args_n_opt.exit
   %20 = zext nneg i32 %0 to i64
-  %21 = getelementptr i64, ptr %1, i64 %20
+  %21 = getelementptr [8 x i8], ptr %1, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load i64, ptr %22, align 8, !tbaa !93
   switch i32 %17, label %.thread120 [
@@ -28926,7 +28920,7 @@ rb_gc_vm_lock.exit:                               ; preds = %.thread79, %76
 96:                                               ; preds = %78, %96
   %indvars.iv = phi i64 [ 0, %78 ], [ %indvars.iv.next, %96 ]
   %.04687 = phi i64 [ 0, %78 ], [ %..046, %96 ]
-  %97 = getelementptr %struct.rb_heap_struct, ptr %74, i64 %indvars.iv
+  %97 = getelementptr [144 x i8], ptr %74, i64 %indvars.iv
   %98 = getelementptr i8, ptr %97, i64 168
   %99 = load i64, ptr %98, align 8, !tbaa !397
   %..046 = call i64 @llvm.umax.i64(i64 %.04687, i64 %99)
@@ -28940,10 +28934,10 @@ rb_gc_vm_lock.exit:                               ; preds = %.thread79, %76
 
 101:                                              ; preds = %.preheader, %._crit_edge93
   %indvars.iv99 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next100, %._crit_edge93 ]
-  %102 = getelementptr %struct.rb_heap_struct, ptr %92, i64 %indvars.iv99
+  %102 = getelementptr [144 x i8], ptr %92, i64 %indvars.iv99
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 128
   %104 = load i64, ptr %103, align 8, !tbaa !397
-  %105 = getelementptr i64, ptr %93, i64 %indvars.iv99
+  %105 = getelementptr [8 x i8], ptr %93, i64 %indvars.iv99
   %106 = load i64, ptr %105, align 8, !tbaa !93
   store i64 %106, ptr %94, align 8, !tbaa !362
   %.not5088 = icmp eq i64 %106, 0
@@ -29093,7 +29087,7 @@ define internal noundef i64 @rb_gcdebug_add_stress_to_class(i32 noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !93
   %16 = load i64, ptr %7, align 8, !tbaa !190
   %17 = tail call i64 @rb_hash_aset(i64 noundef %16, i64 noundef %15, i64 noundef 20) #6
@@ -29133,7 +29127,7 @@ define internal noundef i64 @rb_gcdebug_remove_stress_to_class(i32 noundef %0, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = load i64, ptr %7, align 8, !tbaa !190
-  %14 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !93
   %16 = tail call i64 @rb_hash_delete(i64 noundef %13, i64 noundef %15) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -29218,7 +29212,7 @@ rb_darray_size.exit.i.i:                          ; preds = %verify_internal_con
 
 36:                                               ; preds = %rb_darray_size.exit.i.i
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %38 = getelementptr ptr, ptr %37, i64 %.036112.i.i
+  %38 = getelementptr [8 x i8], ptr %37, i64 %.036112.i.i
   %39 = load ptr, ptr %38, align 8, !tbaa !173
   %40 = load i16, ptr %39, align 8, !tbaa !189
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
@@ -29275,7 +29269,7 @@ rb_darray_size.exit.i.i:                          ; preds = %verify_internal_con
 
 .split.i.i.i.i:                                   ; preds = %.preheader.i.i.i, %.split.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.split.i.i.i.i ], [ 0, %.preheader.i.i.i ]
-  %75 = getelementptr %struct.rb_heap_struct, ptr %49, i64 %indvars.iv.i.i.i.i.i
+  %75 = getelementptr [144 x i8], ptr %49, i64 %indvars.iv.i.i.i.i.i
   %76 = getelementptr i8, ptr %75, i64 136
   %77 = load ptr, ptr %76, align 8, !tbaa !167
   %.not.not.i.i.i.i.i = icmp ne ptr %77, null
@@ -29297,7 +29291,7 @@ has_sweeping_pages.exit.i.i.i.i:                  ; preds = %.split.i.i.i.i
 
 rb_gc_impl_garbage_object_p.exit.i.i.i:           ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 280
-  %84 = getelementptr i64, ptr %83, i64 %.zext2.i.i.i.i.i
+  %84 = getelementptr [8 x i8], ptr %83, i64 %.zext2.i.i.i.i.i
   %85 = load i64, ptr %84, align 8, !tbaa !93
   %86 = and i64 %85, %59
   %.not12.i.i.i.i = icmp eq i64 %86, 0
@@ -29381,7 +29375,7 @@ rb_objspace_reachable_objects_from.exit.i.i.i:    ; preds = %105, %103
 112:                                              ; preds = %109, %106
   %113 = load ptr, ptr %54, align 65536, !tbaa !186
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 72
-  %115 = getelementptr i64, ptr %114, i64 %.zext2.i.i.i.i.i
+  %115 = getelementptr [8 x i8], ptr %114, i64 %.zext2.i.i.i.i.i
   %116 = load i64, ptr %115, align 8, !tbaa !93
   %117 = and i64 %116, %59
   %.not55.i.i.i = icmp eq i64 %117, 0
@@ -29389,7 +29383,7 @@ rb_objspace_reachable_objects_from.exit.i.i.i:    ; preds = %105, %103
 
 118:                                              ; preds = %112
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 488
-  %120 = getelementptr i64, ptr %119, i64 %.zext2.i.i.i.i.i
+  %120 = getelementptr [8 x i8], ptr %119, i64 %.zext2.i.i.i.i.i
   %121 = load i64, ptr %120, align 8, !tbaa !93
   %122 = and i64 %121, %59
   %.not56.i.i.i = icmp eq i64 %122, 0
@@ -29471,7 +29465,7 @@ rb_objspace_reachable_objects_from.exit72.i.i.i:  ; preds = %145, %143
 149:                                              ; preds = %146
   %150 = load ptr, ptr %54, align 65536, !tbaa !186
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 280
-  %152 = getelementptr i64, ptr %151, i64 %.zext2.i.i.i.i.i
+  %152 = getelementptr [8 x i8], ptr %151, i64 %.zext2.i.i.i.i.i
   %153 = load i64, ptr %152, align 8, !tbaa !93
   %154 = and i64 %153, %59
   %.not.i75.i.i.i = icmp eq i64 %154, 0
@@ -29479,7 +29473,7 @@ rb_objspace_reachable_objects_from.exit72.i.i.i:  ; preds = %145, %143
 
 RVALUE_BLACK_P.exit.i.i.i:                        ; preds = %149
   %155 = getelementptr inbounds nuw i8, ptr %150, i64 696
-  %156 = getelementptr i64, ptr %155, i64 %.zext2.i.i.i.i.i
+  %156 = getelementptr [8 x i8], ptr %155, i64 %.zext2.i.i.i.i.i
   %157 = load i64, ptr %156, align 8, !tbaa !93
   %158 = and i64 %157, %59
   %.not59.not.i.i.i = icmp eq i64 %158, 0
@@ -29567,7 +29561,7 @@ rb_gc_impl_garbage_object_p.exit.thread103.i.i.i: ; preds = %rb_gc_impl_garbage_
   br label %obj_type_name.exit.i.i.i
 
 switch.lookup:                                    ; preds = %182
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.gc_verify_internal_consistency_m.109, i64 %64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 %64
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %obj_type_name.exit.i.i.i
 
@@ -29760,7 +29754,7 @@ rb_objspace_data_type_name.exit.i.i90.i.i.i:      ; preds = %231
   br label %obj_type_name.exit100.i.i.i
 
 switch.lookup113:                                 ; preds = %207
-  %switch.gep117 = getelementptr inbounds nuw ptr, ptr @switch.table.gc_verify_internal_consistency_m.109, i64 %64
+  %switch.gep117 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 %64
   %switch.load118 = load ptr, ptr %switch.gep117, align 8
   br label %obj_type_name.exit100.i.i.i
 
@@ -29793,7 +29787,7 @@ verify_internal_consistency_i.exit.i.i:           ; preds = %verify_internal_con
 
 .critedge.thread.i.i:                             ; preds = %.critedge.thread.i.i.preheader, %gc_verify_heap_pages_.exit.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %gc_verify_heap_pages_.exit.i.i.i ], [ 0, %.critedge.thread.i.i.preheader ]
-  %245 = getelementptr %struct.rb_heap_struct, ptr %13, i64 %indvars.iv.i.i.i
+  %245 = getelementptr [144 x i8], ptr %13, i64 %indvars.iv.i.i.i
   %246 = getelementptr i8, ptr %245, i64 120
   %.pn69.i.i.i.i = load ptr, ptr %246, align 8, !tbaa !90
   %.not71.i.i.i.i = icmp eq ptr %.pn69.i.i.i.i, %246
@@ -29957,7 +29951,7 @@ rb_objspace_data_type_name.exit.i.i.i.i.i.i:      ; preds = %279
   br label %obj_type_name.exit.i.i.i.i
 
 switch.lookup121:                                 ; preds = %255
-  %switch.gep125 = getelementptr inbounds nuw ptr, ptr @switch.table.gc_verify_internal_consistency_m.109, i64 %256
+  %switch.gep125 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 %256
   %switch.load126 = load ptr, ptr %switch.gep125, align 8
   br label %obj_type_name.exit.i.i.i.i
 
@@ -30013,14 +30007,14 @@ obj_type_name.exit.i.i.i.i:                       ; preds = %switch.lookup121, %
   %314 = udiv i16 %.lhs.trunc.i.i.i51.i.i, 40
   %315 = udiv i16 %.lhs.trunc.i.i.i51.i.i, 2560
   %.zext88.i.i.i.i.i = zext nneg i16 %315 to i64
-  %316 = getelementptr i64, ptr %306, i64 %.zext88.i.i.i.i.i
+  %316 = getelementptr [8 x i8], ptr %306, i64 %.zext88.i.i.i.i.i
   %317 = load i64, ptr %316, align 8, !tbaa !93
   %318 = and i16 %314, 63
   %319 = zext nneg i16 %318 to i64
   %320 = shl nuw i64 1, %319
   %321 = and i64 %320, %317
   %.not81.i.i.i.i.i = icmp eq i64 %321, 0
-  %322 = getelementptr i64, ptr %308, i64 %.zext88.i.i.i.i.i
+  %322 = getelementptr [8 x i8], ptr %308, i64 %.zext88.i.i.i.i.i
   %323 = load i64, ptr %322, align 8, !tbaa !93
   %324 = and i64 %320, %323
   %.fr165.i.i.i.i.i = freeze i64 %324
@@ -30033,7 +30027,7 @@ obj_type_name.exit.i.i.i.i:                       ; preds = %switch.lookup121, %
   br label %.split.us.i.i.i.i.i
 
 .preheader93.split.i.i.i.i.i:                     ; preds = %.preheader93.i.i.i.i.i
-  %326 = getelementptr i64, ptr %307, i64 %.zext88.i.i.i.i.i
+  %326 = getelementptr [8 x i8], ptr %307, i64 %.zext88.i.i.i.i.i
   %327 = load i64, ptr %326, align 8, !tbaa !93
   %328 = and i64 %327, %320
   %.fr.i.i.i.i.i = freeze i64 %328
@@ -30065,7 +30059,7 @@ obj_type_name.exit.i.i.i.i:                       ; preds = %switch.lookup121, %
   %334 = udiv i16 %.lhs.trunc89.i.i.i.i.i, 40
   %335 = udiv i16 %.lhs.trunc89.i.i.i.i.i, 2560
   %.zext92.i.i.i.i.i = zext nneg i16 %335 to i64
-  %336 = getelementptr i64, ptr %308, i64 %.zext92.i.i.i.i.i
+  %336 = getelementptr [8 x i8], ptr %308, i64 %.zext92.i.i.i.i.i
   %337 = load i64, ptr %336, align 8, !tbaa !93
   %338 = and i16 %334, 63
   %339 = zext nneg i16 %338 to i64
@@ -30225,7 +30219,7 @@ rb_objspace_data_type_name.exit.i.i.i.i.i:        ; preds = %377
   br label %obj_type_name.exit.i52.i.i
 
 switch.lookup129:                                 ; preds = %348
-  %switch.gep133 = getelementptr inbounds nuw ptr, ptr @switch.table.gc_verify_internal_consistency_m.109, i64 %349
+  %switch.gep133 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 %349
   %switch.load134 = load ptr, ptr %switch.gep133, align 8
   br label %obj_type_name.exit.i52.i.i
 
@@ -30278,7 +30272,7 @@ gc_verify_heap_pages_.exit.i.i.i:                 ; preds = %gc_verify_heap_page
 
 gc_verify_heap_pages.exit.i.i:                    ; preds = %gc_verify_heap_pages_.exit.i.i.i, %gc_verify_heap_pages.exit.i.i
   %indvars.iv.i57.i.i = phi i64 [ %indvars.iv.next.i58.i.i, %gc_verify_heap_pages.exit.i.i ], [ 0, %gc_verify_heap_pages_.exit.i.i.i ]
-  %398 = getelementptr %struct.rb_heap_struct, ptr %13, i64 %indvars.iv.i57.i.i
+  %398 = getelementptr [144 x i8], ptr %13, i64 %indvars.iv.i57.i.i
   %399 = getelementptr i8, ptr %398, i64 136
   %400 = load ptr, ptr %399, align 8, !tbaa !167
   %.not.not.i.i.i = icmp ne ptr %400, null
@@ -30302,7 +30296,7 @@ has_sweeping_pages.exit.i.i:                      ; preds = %gc_verify_heap_page
 .preheader87.i.i:                                 ; preds = %401, %.preheader87.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.preheader87.i.i ], [ 0, %401 ]
   %.08.i.i.i.i = phi i64 [ %408, %.preheader87.i.i ], [ 0, %401 ]
-  %405 = getelementptr %struct.rb_heap_struct, ptr %13, i64 %indvars.iv.i.i.i.i
+  %405 = getelementptr [144 x i8], ptr %13, i64 %indvars.iv.i.i.i.i
   %406 = getelementptr i8, ptr %405, i64 72
   %407 = load i64, ptr %406, align 8, !tbaa !200
   %408 = add i64 %407, %.08.i.i.i.i
@@ -30313,7 +30307,7 @@ has_sweeping_pages.exit.i.i:                      ; preds = %gc_verify_heap_page
 total_allocated_objects.exit.i.i.i:               ; preds = %.preheader87.i.i, %total_allocated_objects.exit.i.i.i
   %indvars.iv.i3.i.i.i = phi i64 [ %indvars.iv.next.i5.i.i.i, %total_allocated_objects.exit.i.i.i ], [ 0, %.preheader87.i.i ]
   %.08.i4.i.i.i = phi i64 [ %412, %total_allocated_objects.exit.i.i.i ], [ 0, %.preheader87.i.i ]
-  %409 = getelementptr %struct.rb_heap_struct, ptr %13, i64 %indvars.iv.i3.i.i.i
+  %409 = getelementptr [144 x i8], ptr %13, i64 %indvars.iv.i3.i.i.i
   %410 = getelementptr i8, ptr %409, i64 80
   %411 = load i64, ptr %410, align 8, !tbaa !401
   %412 = add i64 %411, %.08.i4.i.i.i
@@ -30324,7 +30318,7 @@ total_allocated_objects.exit.i.i.i:               ; preds = %.preheader87.i.i, %
 total_freed_objects.exit.i.i.i:                   ; preds = %total_allocated_objects.exit.i.i.i, %total_freed_objects.exit.i.i.i
   %indvars.iv.i7.i.i.i = phi i64 [ %indvars.iv.next.i9.i.i.i, %total_freed_objects.exit.i.i.i ], [ 0, %total_allocated_objects.exit.i.i.i ]
   %.08.i8.i.i.i = phi i64 [ %416, %total_freed_objects.exit.i.i.i ], [ 0, %total_allocated_objects.exit.i.i.i ]
-  %413 = getelementptr %struct.rb_heap_struct, ptr %13, i64 %indvars.iv.i7.i.i.i
+  %413 = getelementptr [144 x i8], ptr %13, i64 %indvars.iv.i7.i.i.i
   %414 = getelementptr i8, ptr %413, i64 88
   %415 = load i64, ptr %414, align 8, !tbaa !243
   %416 = add i64 %415, %.08.i8.i.i.i
@@ -30347,7 +30341,7 @@ objspace_live_slots.exit.i.i:                     ; preds = %total_freed_objects
 423:                                              ; preds = %423, %421
   %indvars.iv.i62.i.i = phi i64 [ 0, %421 ], [ %indvars.iv.next.i63.i.i, %423 ]
   %.08.i.i.i = phi i64 [ 0, %421 ], [ %427, %423 ]
-  %424 = getelementptr %struct.rb_heap_struct, ptr %13, i64 %indvars.iv.i62.i.i
+  %424 = getelementptr [144 x i8], ptr %13, i64 %indvars.iv.i62.i.i
   %425 = getelementptr i8, ptr %424, i64 88
   %426 = load i64, ptr %425, align 8, !tbaa !243
   %427 = add i64 %426, %.08.i.i.i
@@ -30358,7 +30352,7 @@ objspace_live_slots.exit.i.i:                     ; preds = %total_freed_objects
 total_final_slots_count.exit.i.i:                 ; preds = %423, %total_final_slots_count.exit.i.i
   %indvars.iv.i65.i.i = phi i64 [ %indvars.iv.next.i67.i.i, %total_final_slots_count.exit.i.i ], [ 0, %423 ]
   %.08.i66.i.i = phi i64 [ %431, %total_final_slots_count.exit.i.i ], [ 0, %423 ]
-  %428 = getelementptr %struct.rb_heap_struct, ptr %13, i64 %indvars.iv.i65.i.i
+  %428 = getelementptr [144 x i8], ptr %13, i64 %indvars.iv.i65.i.i
   %429 = getelementptr i8, ptr %428, i64 80
   %430 = load i64, ptr %429, align 8, !tbaa !401
   %431 = add i64 %430, %.08.i66.i.i
@@ -30432,7 +30426,7 @@ total_freed_objects.exit.i.i:                     ; preds = %total_final_slots_c
 459:                                              ; preds = %459, %.preheader86.i.i
   %indvars.iv.i69.i.i = phi i64 [ %indvars.iv.next.i71.i.i, %459 ], [ 0, %.preheader86.i.i ]
   %.08.i70.i.i = phi i64 [ %463, %459 ], [ 0, %.preheader86.i.i ]
-  %460 = getelementptr %struct.rb_heap_struct, ptr %13, i64 %indvars.iv.i69.i.i
+  %460 = getelementptr [144 x i8], ptr %13, i64 %indvars.iv.i69.i.i
   %461 = getelementptr i8, ptr %460, i64 88
   %462 = load i64, ptr %461, align 8, !tbaa !243
   %463 = add i64 %462, %.08.i70.i.i
@@ -30449,7 +30443,7 @@ total_final_slots_count.exit73.i.i:               ; preds = %459
 .preheader.i.i:                                   ; preds = %total_final_slots_count.exit73.i.i, %.preheader.i.i
   %indvars.iv.i74.i.i = phi i64 [ %indvars.iv.next.i76.i.i, %.preheader.i.i ], [ 0, %total_final_slots_count.exit73.i.i ]
   %.08.i75.i.i = phi i64 [ %469, %.preheader.i.i ], [ 0, %total_final_slots_count.exit73.i.i ]
-  %466 = getelementptr %struct.rb_heap_struct, ptr %13, i64 %indvars.iv.i74.i.i
+  %466 = getelementptr [144 x i8], ptr %13, i64 %indvars.iv.i74.i.i
   %467 = getelementptr i8, ptr %466, i64 88
   %468 = load i64, ptr %467, align 8, !tbaa !243
   %469 = add i64 %468, %.08.i75.i.i
@@ -30467,7 +30461,7 @@ total_final_slots_count.exit78.i.i:               ; preds = %.preheader.i.i
 470:                                              ; preds = %.preheader, %470
   %indvars.iv.i79.i.i = phi i64 [ %indvars.iv.next.i81.i.i, %470 ], [ 0, %.preheader ]
   %.08.i80.i.i = phi i64 [ %474, %470 ], [ 0, %.preheader ]
-  %471 = getelementptr %struct.rb_heap_struct, ptr %13, i64 %indvars.iv.i79.i.i
+  %471 = getelementptr [144 x i8], ptr %13, i64 %indvars.iv.i79.i.i
   %472 = getelementptr i8, ptr %471, i64 88
   %473 = load i64, ptr %472, align 8, !tbaa !243
   %474 = add i64 %473, %.08.i80.i.i
@@ -30549,7 +30543,7 @@ define internal i64 @gc_profile_record_get(i64 %0) #0 {
 11:                                               ; preds = %.lr.ph, %rbimpl_intern_const.exit93
   %.041101 = phi i64 [ 0, %.lr.ph ], [ %109, %rbimpl_intern_const.exit93 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !169
-  %13 = getelementptr %struct.gc_profile_record, ptr %12, i64 %.041101
+  %13 = getelementptr [56 x i8], ptr %12, i64 %.041101
   %14 = tail call i64 @rb_hash_new() #6
   %.pr.i = load i64, ptr @gc_profile_record_get.rbimpl_id, align 8, !tbaa !93
   %.not4.i = icmp eq i64 %.pr.i, 0
@@ -30853,7 +30847,7 @@ define internal i64 @gc_profile_result(i64 %0) #0 {
 20:                                               ; preds = %20, %12
   %.022.i = phi i64 [ 0, %12 ], [ %23, %20 ]
   %21 = load ptr, ptr %19, align 8, !tbaa !169
-  %22 = getelementptr %struct.gc_profile_record, ptr %21, i64 %.022.i
+  %22 = getelementptr [56 x i8], ptr %21, i64 %.022.i
   %23 = add nuw i64 %.022.i, 1
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load double, ptr %24, align 8, !tbaa !622
@@ -30913,7 +30907,7 @@ rb_check_arity.exit:                              ; preds = %3
 23:                                               ; preds = %23, %15
   %.022.i = phi i64 [ 0, %15 ], [ %26, %23 ]
   %24 = load ptr, ptr %22, align 8, !tbaa !169
-  %25 = getelementptr %struct.gc_profile_record, ptr %24, i64 %.022.i
+  %25 = getelementptr [56 x i8], ptr %24, i64 %.022.i
   %26 = add nuw i64 %.022.i, 1
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load double, ptr %27, align 8, !tbaa !622
@@ -30959,7 +30953,7 @@ define internal i64 @gc_profile_total_time(i64 %0) #0 {
 12:                                               ; preds = %.preheader, %12
   %.113 = phi double [ 0.000000e+00, %.preheader ], [ %16, %12 ]
   %.0912 = phi i64 [ 0, %.preheader ], [ %17, %12 ]
-  %13 = getelementptr %struct.gc_profile_record, ptr %11, i64 %.0912
+  %13 = getelementptr [56 x i8], ptr %11, i64 %.0912
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load double, ptr %14, align 8, !tbaa !580
   %16 = fadd double %.113, %15
@@ -31096,7 +31090,7 @@ rb_gc_obj_optimal_size.exit:                      ; preds = %24, %28, %36
 
 heap_idx_for_size.exit.i:                         ; preds = %.thread, %42
   %.0.i = phi i64 [ 0, %42 ], [ %48, %.thread ]
-  %49 = getelementptr %struct.rb_heap_struct, ptr %15, i64 %.0.i
+  %49 = getelementptr [144 x i8], ptr %15, i64 %.0.i
   br label %gc_compact_destination_pool.exit
 
 gc_compact_destination_pool.exit:                 ; preds = %.preheader, %rb_gc_obj_optimal_size.exit, %heap_idx_for_size.exit.i
@@ -31213,7 +31207,7 @@ gc_object_moved_p.exit.thread.split.us:           ; preds = %gc_object_moved_p.e
 
 .split.i.us:                                      ; preds = %gc_object_moved_p.exit.thread.split.us, %.split.i.us
   %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %.split.i.us ], [ 0, %gc_object_moved_p.exit.thread.split.us ]
-  %28 = getelementptr %struct.rb_heap_struct, ptr %3, i64 %indvars.iv.i.i.us
+  %28 = getelementptr [144 x i8], ptr %3, i64 %indvars.iv.i.i.us
   %29 = getelementptr i8, ptr %28, i64 136
   %30 = load ptr, ptr %29, align 8, !tbaa !167
   %.not.not.i.i.us = icmp ne ptr %30, null
@@ -31235,7 +31229,7 @@ has_sweeping_pages.exit.i.us:                     ; preds = %.split.i.us
 
 rb_gc_impl_garbage_object_p.exit.us:              ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 280
-  %37 = getelementptr i64, ptr %36, i64 %.zext2.i.i
+  %37 = getelementptr [8 x i8], ptr %36, i64 %.zext2.i.i
   %38 = load i64, ptr %37, align 8, !tbaa !93
   %39 = and i64 %38, %24
   %.not12.i.us = icmp eq i64 %39, 0
@@ -31275,7 +31269,7 @@ gc_object_moved_p.exit.thread.split:              ; preds = %gc_object_moved_p.e
 
 .split.i:                                         ; preds = %gc_object_moved_p.exit.thread.split, %.split.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.split.i ], [ 0, %gc_object_moved_p.exit.thread.split ]
-  %49 = getelementptr %struct.rb_heap_struct, ptr %3, i64 %indvars.iv.i.i
+  %49 = getelementptr [144 x i8], ptr %3, i64 %indvars.iv.i.i
   %50 = getelementptr i8, ptr %49, i64 136
   %51 = load ptr, ptr %50, align 8, !tbaa !167
   %.not.not.i.i = icmp ne ptr %51, null
@@ -31297,7 +31291,7 @@ has_sweeping_pages.exit.i:                        ; preds = %.split.i
 
 rb_gc_impl_garbage_object_p.exit:                 ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 280
-  %58 = getelementptr i64, ptr %57, i64 %.zext2.i.i
+  %58 = getelementptr [8 x i8], ptr %57, i64 %.zext2.i.i
   %59 = load i64, ptr %58, align 8, !tbaa !93
   %60 = and i64 %59, %24
   %.not12.i = icmp eq i64 %60, 0
@@ -31548,7 +31542,7 @@ is_pointer_to_heap.exit.thread.split.split.i:     ; preds = %is_pointer_to_heap.
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 72
   %81 = udiv i16 %59, 2560
   %.zext107.i = zext nneg i16 %81 to i64
-  %82 = getelementptr i64, ptr %80, i64 %.zext107.i
+  %82 = getelementptr [8 x i8], ptr %80, i64 %.zext107.i
   %83 = load i64, ptr %82, align 8, !tbaa !93
   %84 = and i16 %61, 63
   %85 = zext nneg i16 %84 to i64
@@ -31556,29 +31550,29 @@ is_pointer_to_heap.exit.thread.split.split.i:     ; preds = %is_pointer_to_heap.
   %87 = and i64 %83, %86
   %88 = icmp ne i64 %87, 0
   %89 = getelementptr inbounds nuw i8, ptr %79, i64 488
-  %90 = getelementptr i64, ptr %89, i64 %.zext107.i
+  %90 = getelementptr [8 x i8], ptr %89, i64 %.zext107.i
   %91 = load i64, ptr %90, align 8, !tbaa !93
   %92 = and i64 %91, %86
   %93 = icmp ne i64 %92, 0
   %94 = getelementptr inbounds nuw i8, ptr %79, i64 280
-  %95 = getelementptr i64, ptr %94, i64 %.zext107.i
+  %95 = getelementptr [8 x i8], ptr %94, i64 %.zext107.i
   %96 = load i64, ptr %95, align 8, !tbaa !93
   %97 = and i64 %96, %86
   %98 = icmp ne i64 %97, 0
   %99 = getelementptr inbounds nuw i8, ptr %79, i64 696
-  %100 = getelementptr i64, ptr %99, i64 %.zext107.i
+  %100 = getelementptr [8 x i8], ptr %99, i64 %.zext107.i
   %101 = load i64, ptr %100, align 8, !tbaa !93
   %102 = and i64 %101, %86
   %103 = icmp ne i64 %102, 0
   %104 = getelementptr inbounds nuw i8, ptr %79, i64 904
-  %105 = getelementptr i64, ptr %104, i64 %.zext107.i
+  %105 = getelementptr [8 x i8], ptr %104, i64 %.zext107.i
   %106 = load i64, ptr %105, align 8, !tbaa !93
   %107 = and i64 %106, %86
   %108 = icmp ne i64 %107, 0
   %109 = getelementptr inbounds nuw i8, ptr %79, i64 1320
   %110 = udiv i16 %59, 1280
   %.zext4.i.i = zext nneg i16 %110 to i64
-  %111 = getelementptr i64, ptr %109, i64 %.zext4.i.i
+  %111 = getelementptr [8 x i8], ptr %109, i64 %.zext4.i.i
   %112 = load i64, ptr %111, align 8, !tbaa !93
   %113 = shl nuw nsw i16 %61, 1
   %114 = and i16 %113, 62
@@ -31775,7 +31769,7 @@ define internal void @check_generation_i(i64 noundef %0, ptr noundef captures(no
   %13 = udiv i16 %.lhs.trunc.i, 40
   %14 = udiv i16 %.lhs.trunc.i, 2560
   %.zext2.i = zext nneg i16 %14 to i64
-  %15 = getelementptr i64, ptr %12, i64 %.zext2.i
+  %15 = getelementptr [8 x i8], ptr %12, i64 %.zext2.i
   %16 = load i64, ptr %15, align 8, !tbaa !93
   %17 = and i16 %13, 63
   %18 = zext nneg i16 %17 to i64
@@ -31793,7 +31787,7 @@ define internal void @check_generation_i(i64 noundef %0, ptr noundef captures(no
   %26 = udiv i16 %.lhs.trunc.i15, 40
   %27 = udiv i16 %.lhs.trunc.i15, 2560
   %.zext2.i16 = zext nneg i16 %27 to i64
-  %28 = getelementptr i64, ptr %25, i64 %.zext2.i16
+  %28 = getelementptr [8 x i8], ptr %25, i64 %.zext2.i16
   %29 = load i64, ptr %28, align 8, !tbaa !93
   %30 = and i16 %26, 63
   %31 = zext nneg i16 %30 to i64
@@ -31804,7 +31798,7 @@ define internal void @check_generation_i(i64 noundef %0, ptr noundef captures(no
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 488
-  %36 = getelementptr i64, ptr %35, i64 %.zext2.i16
+  %36 = getelementptr [8 x i8], ptr %35, i64 %.zext2.i16
   %37 = load i64, ptr %36, align 8, !tbaa !93
   %38 = and i64 %37, %32
   %.not14 = icmp eq i64 %38, 0
@@ -31837,7 +31831,7 @@ define internal void @check_color_i(i64 noundef %0, ptr noundef captures(none) %
   %9 = udiv i16 %.lhs.trunc.i, 40
   %10 = udiv i16 %.lhs.trunc.i, 2560
   %.zext2.i = zext nneg i16 %10 to i64
-  %11 = getelementptr i64, ptr %8, i64 %.zext2.i
+  %11 = getelementptr [8 x i8], ptr %8, i64 %.zext2.i
   %12 = load i64, ptr %11, align 8, !tbaa !93
   %13 = and i16 %9, 63
   %14 = zext nneg i16 %13 to i64
@@ -31855,7 +31849,7 @@ define internal void @check_color_i(i64 noundef %0, ptr noundef captures(none) %
   %22 = udiv i16 %.lhs.trunc.i.i, 40
   %23 = udiv i16 %.lhs.trunc.i.i, 2560
   %.zext2.i.i = zext nneg i16 %23 to i64
-  %24 = getelementptr i64, ptr %21, i64 %.zext2.i.i
+  %24 = getelementptr [8 x i8], ptr %21, i64 %.zext2.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !93
   %26 = and i16 %22, 63
   %27 = zext nneg i16 %26 to i64

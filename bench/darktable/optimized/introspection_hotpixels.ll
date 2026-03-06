@@ -14,9 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32 }
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"hot pixels\00", align 1
 @.str.1 = private unnamed_addr constant [65 x i8] c"remove abnormally bright pixels by dampening them with neighbors\00", align 1
@@ -174,8 +171,8 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %51 = mul nuw nsw i64 %indvars.iv197.i, %50
   %52 = add nuw nsw i64 %51, 1
   %53 = shl nuw i64 %52, %22
-  %54 = getelementptr inbounds nuw float, ptr %2, i64 %53
-  %55 = getelementptr inbounds nuw float, ptr %3, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %53
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %53
   br label %56
 
 56:                                               ; preds = %.critedge.us.us.us.i, %.lr.ph.us.us.i
@@ -189,7 +186,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %59, label %60, label %.critedge.us.us.us.i
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds float, ptr %.0109129.us.us.us.i, i64 %42
+  %61 = getelementptr inbounds [4 x i8], ptr %.0109129.us.us.us.i, i64 %42
   %62 = load float, ptr %61, align 4, !tbaa !47
   %63 = fcmp reassoc nsz arcp contract afn ogt float %58, %62
   br i1 %63, label %64, label %67
@@ -204,7 +201,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 67:                                               ; preds = %66, %64, %60
   %.099.us.us.us.i = phi i32 [ 1, %66 ], [ 1, %64 ], [ 0, %60 ]
   %.098.us.us.us.i = phi nsz float [ %62, %66 ], [ 0.000000e+00, %64 ], [ 0.000000e+00, %60 ]
-  %68 = getelementptr inbounds float, ptr %.0109129.us.us.us.i, i64 %44
+  %68 = getelementptr inbounds [4 x i8], ptr %.0109129.us.us.us.i, i64 %44
   %69 = load float, ptr %68, align 4, !tbaa !47
   %70 = fcmp reassoc nsz arcp contract afn ogt float %58, %69
   br i1 %70, label %71, label %75
@@ -220,7 +217,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 75:                                               ; preds = %74, %71, %67
   %.1100.us.us.us.i = phi i32 [ %72, %74 ], [ %72, %71 ], [ %.099.us.us.us.i, %67 ]
   %.1.us.us.us.i = phi nsz float [ %69, %74 ], [ %.098.us.us.us.i, %71 ], [ %.098.us.us.us.i, %67 ]
-  %76 = getelementptr inbounds nuw float, ptr %.0109129.us.us.us.i, i64 %14
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %.0109129.us.us.us.i, i64 %14
   %77 = load float, ptr %76, align 4, !tbaa !47
   %78 = fcmp reassoc nsz arcp contract afn ogt float %58, %77
   br i1 %78, label %79, label %83
@@ -236,7 +233,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 83:                                               ; preds = %82, %79, %75
   %.2101.us.us.us.i = phi i32 [ %80, %82 ], [ %80, %79 ], [ %.1100.us.us.us.i, %75 ]
   %.2.us.us.us.i = phi nsz float [ %77, %82 ], [ %.1.us.us.us.i, %79 ], [ %.1.us.us.us.i, %75 ]
-  %84 = getelementptr inbounds nuw float, ptr %.0109129.us.us.us.i, i64 %47
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %.0109129.us.us.us.i, i64 %47
   %85 = load float, ptr %84, align 4, !tbaa !47
   %86 = fcmp reassoc nsz arcp contract afn ogt float %58, %85
   br i1 %86, label %87, label %91
@@ -261,7 +258,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .preheader122.us.us.us.i:                         ; preds = %91, %.preheader122.us.us.us.i
   %indvars.iv191.i = phi i64 [ %indvars.iv.next192.i, %.preheader122.us.us.us.i ], [ 0, %91 ]
-  %94 = getelementptr inbounds nuw float, ptr %.0108130.us.us.us.i, i64 %indvars.iv191.i
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.0108130.us.us.us.i, i64 %indvars.iv191.i
   store float %.3.us.us.us.i, ptr %94, align 4, !tbaa !47
   %indvars.iv.next192.i = add nuw nsw i64 %indvars.iv191.i, 1
   %exitcond195.not.i = icmp eq i64 %indvars.iv.next192.i, %14
@@ -270,8 +267,8 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .critedge.us.us.us.i:                             ; preds = %92, %91, %56
   %.2105.us.us.us.i = phi i32 [ %.1104132.us.us.us.i, %56 ], [ %.1104132.us.us.us.i, %91 ], [ %93, %92 ]
   %95 = add nuw nsw i32 %.0107131.us.us.us.i, 1
-  %96 = getelementptr inbounds nuw float, ptr %.0109129.us.us.us.i, i64 %14
-  %97 = getelementptr inbounds nuw float, ptr %.0108130.us.us.us.i, i64 %14
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %.0109129.us.us.us.i, i64 %14
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %.0108130.us.us.us.i, i64 %14
   %exitcond196.not.i = icmp eq i32 %95, %40
   br i1 %exitcond196.not.i, label %._crit_edge.split.us.us.us.i, label %56
 
@@ -286,8 +283,8 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %98 = mul nuw nsw i64 %indvars.iv186.i, %50
   %99 = add nuw nsw i64 %98, 1
   %100 = shl nuw i64 %99, %22
-  %101 = getelementptr inbounds nuw float, ptr %2, i64 %100
-  %102 = getelementptr inbounds nuw float, ptr %3, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %100
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %100
   br label %103
 
 103:                                              ; preds = %.critedge.us153.i, %.lr.ph.us.i
@@ -301,7 +298,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %106, label %107, label %.critedge.us153.i
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds float, ptr %.0109129.us142.i, i64 %42
+  %108 = getelementptr inbounds [4 x i8], ptr %.0109129.us142.i, i64 %42
   %109 = load float, ptr %108, align 4, !tbaa !47
   %110 = fcmp reassoc nsz arcp contract afn ogt float %105, %109
   br i1 %110, label %111, label %114
@@ -316,7 +313,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 114:                                              ; preds = %113, %111, %107
   %.099.us143.i = phi i32 [ 1, %113 ], [ 1, %111 ], [ 0, %107 ]
   %.098.us144.i = phi nsz float [ %109, %113 ], [ 0.000000e+00, %111 ], [ 0.000000e+00, %107 ]
-  %115 = getelementptr inbounds float, ptr %.0109129.us142.i, i64 %44
+  %115 = getelementptr inbounds [4 x i8], ptr %.0109129.us142.i, i64 %44
   %116 = load float, ptr %115, align 4, !tbaa !47
   %117 = fcmp reassoc nsz arcp contract afn ogt float %105, %116
   br i1 %117, label %118, label %122
@@ -332,7 +329,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 122:                                              ; preds = %121, %118, %114
   %.1100.us145.i = phi i32 [ %119, %121 ], [ %119, %118 ], [ %.099.us143.i, %114 ]
   %.1.us146.i = phi nsz float [ %116, %121 ], [ %.098.us144.i, %118 ], [ %.098.us144.i, %114 ]
-  %123 = getelementptr inbounds nuw float, ptr %.0109129.us142.i, i64 %14
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.0109129.us142.i, i64 %14
   %124 = load float, ptr %123, align 4, !tbaa !47
   %125 = fcmp reassoc nsz arcp contract afn ogt float %105, %124
   br i1 %125, label %126, label %130
@@ -348,7 +345,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 130:                                              ; preds = %129, %126, %122
   %.2101.us147.i = phi i32 [ %127, %129 ], [ %127, %126 ], [ %.1100.us145.i, %122 ]
   %.2.us148.i = phi nsz float [ %124, %129 ], [ %.1.us146.i, %126 ], [ %.1.us146.i, %122 ]
-  %131 = getelementptr inbounds nuw float, ptr %.0109129.us142.i, i64 %47
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %.0109129.us142.i, i64 %47
   %132 = load float, ptr %131, align 4, !tbaa !47
   %133 = fcmp reassoc nsz arcp contract afn ogt float %105, %132
   br i1 %133, label %134, label %138
@@ -379,7 +376,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 141:                                              ; preds = %.preheader.us.i, %141
   %indvars.iv171.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next172.i, %141 ]
-  %gep217.i = getelementptr inbounds nuw float, ptr %invariant.gep216.i, i64 %indvars.iv171.i
+  %gep217.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep216.i, i64 %indvars.iv171.i
   store float %.pre202.i, ptr %gep217.i, align 4, !tbaa !47
   %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i, 1
   %exitcond175.not.i = icmp eq i64 %indvars.iv.next172.i, %14
@@ -392,7 +389,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 144:                                              ; preds = %.preheader119.us.i, %144
   %indvars.iv163.i = phi i64 [ 0, %.preheader119.us.i ], [ %indvars.iv.next164.i, %144 ]
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv163.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv163.i
   store float %.pre.i, ptr %gep.i, align 4, !tbaa !47
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
   %exitcond167.not.i = icmp eq i64 %indvars.iv.next164.i, %14
@@ -400,7 +397,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .preheader122.us155.i:                            ; preds = %138, %.preheader122.us155.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader122.us155.i ], [ 0, %138 ]
-  %145 = getelementptr inbounds nuw float, ptr %.0108130.us141.i, i64 %indvars.iv.i
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %.0108130.us141.i, i64 %indvars.iv.i
   store float %.3.us150.i, ptr %145, align 4, !tbaa !47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
@@ -409,8 +406,8 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .critedge.us153.i:                                ; preds = %140, %.preheader120.us.i, %138, %103
   %.2105.us154.i = phi i32 [ %.1104132.us139.i, %103 ], [ %.1104132.us139.i, %138 ], [ %148, %.preheader120.us.i ], [ %148, %140 ]
   %indvars.iv.next182.i = add nuw nsw i64 %indvars.iv181.i, 1
-  %146 = getelementptr inbounds nuw float, ptr %.0109129.us142.i, i64 %14
-  %147 = getelementptr inbounds nuw float, ptr %.0108130.us141.i, i64 %14
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %.0109129.us142.i, i64 %14
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %.0108130.us141.i, i64 %14
   %exitcond185.not.i = icmp eq i64 %indvars.iv.next182.i, %wide.trip.count184.i
   br i1 %exitcond185.not.i, label %._crit_edge.split.us156.i, label %103
 
@@ -466,7 +463,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .preheader142.i:                                  ; preds = %.split149.i, %.split152.i
   %indvars.iv202.i = phi i64 [ 0, %.split152.i ], [ %indvars.iv.next203.i, %.split149.i ]
-  %162 = getelementptr inbounds nuw [6 x [4 x [2 x i32]]], ptr %7, i64 %indvars.iv202.i
+  %162 = getelementptr inbounds nuw [192 x i8], ptr %7, i64 %indvars.iv202.i
   %163 = trunc i64 %indvars.iv202.i to i32
   %164 = or i32 %163, 600
   %165 = add i32 %164, %160
@@ -513,14 +510,14 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv244.i = phi i64 [ %indvars.iv.next245.i, %._crit_edge.split.us.us.us.i46 ], [ 2, %.lr.ph172.split.us.i ]
   %.0119169.us.us.i = phi i32 [ %.2.us.us.us.i45, %._crit_edge.split.us.us.us.i46 ], [ 0, %.lr.ph172.split.us.i ]
   %186 = mul nuw nsw i64 %indvars.iv244.i, %181
-  %187 = getelementptr inbounds nuw float, ptr %2, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %186
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  %189 = getelementptr inbounds nuw float, ptr %3, i64 %186
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %186
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = trunc nuw nsw i64 %indvars.iv244.i to i32
   %192 = urem i32 %191, 6
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [6 x [4 x [2 x i32]]], ptr %7, i64 %193
+  %194 = getelementptr inbounds nuw [192 x i8], ptr %7, i64 %193
   br label %195
 
 195:                                              ; preds = %.critedge.us.us.us.i44, %.lr.ph168.us.us.i
@@ -554,15 +551,15 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv239.i = phi i64 [ 0, %.preheader141.us.us.us.i ], [ %indvars.iv.next240.i, %221 ]
   %.0110157.us.us.us.i = phi float [ 0.000000e+00, %.preheader141.us.us.us.i ], [ %.1.us.us.us.i47, %221 ]
   %.0111156.us.us.us.i = phi i32 [ 0, %.preheader141.us.us.us.i ], [ %.1112.us.us.us.i, %221 ]
-  %206 = getelementptr inbounds nuw [2 x i32], ptr %224, i64 %indvars.iv239.i
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %indvars.iv239.i
   %207 = load i32, ptr %206, align 8, !tbaa !67
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 4
   %209 = load i32, ptr %208, align 4, !tbaa !67
   %210 = sext i32 %207 to i64
-  %211 = getelementptr inbounds float, ptr %.0117164.us.us.us.i, i64 %210
+  %211 = getelementptr inbounds [4 x i8], ptr %.0117164.us.us.us.i, i64 %210
   %212 = sext i32 %209 to i64
   %213 = mul nsw i64 %212, %181
-  %214 = getelementptr inbounds nuw float, ptr %211, i64 %213
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %213
   %215 = load float, ptr %214, align 4, !tbaa !47
   %216 = fcmp reassoc nsz arcp contract afn ogt float %197, %215
   br i1 %216, label %217, label %221
@@ -585,7 +582,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .preheader141.us.us.us.i:                         ; preds = %195
   %222 = urem i32 %.0115166.us.us.us.i, 6
   %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %194, i64 %223
+  %224 = getelementptr inbounds nuw [32 x i8], ptr %194, i64 %223
   br label %205
 
 ._crit_edge.split.us.us.us.i46:                   ; preds = %.critedge.us.us.us.i44
@@ -597,14 +594,14 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv234.i = phi i64 [ 2, %.lr.ph168.us.preheader.i ], [ %indvars.iv.next235.i, %._crit_edge.split.us190.i ]
   %.0119169.us.i = phi i32 [ 0, %.lr.ph168.us.preheader.i ], [ %.2.us183.i, %._crit_edge.split.us190.i ]
   %225 = mul nuw nsw i64 %indvars.iv234.i, %181
-  %226 = getelementptr inbounds nuw float, ptr %2, i64 %225
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %225
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %228 = getelementptr inbounds nuw float, ptr %3, i64 %225
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %225
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %230 = trunc i64 %indvars.iv234.i to i32
   %231 = urem i32 %230, 6
   %232 = zext nneg i32 %231 to i64
-  %233 = getelementptr inbounds nuw [6 x [4 x [2 x i32]]], ptr %7, i64 %232
+  %233 = getelementptr inbounds nuw [192 x i8], ptr %7, i64 %232
   %234 = add i32 %230, 600
   %235 = add nsw i32 %160, %234
   %236 = srem i32 %235, 6
@@ -647,7 +644,7 @@ FCxtrans.exit140.us.i:                            ; preds = %.lr.ph162.us.i, %26
 
 258:                                              ; preds = %FCxtrans.exit140.us.i
   %259 = load float, ptr %.0117164.us177.i, align 4, !tbaa !47
-  %260 = getelementptr inbounds nuw float, ptr %.0116165.us176.i, i64 %indvars.iv225.i
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %.0116165.us176.i, i64 %indvars.iv225.i
   store float %259, ptr %260, align 4, !tbaa !47
   br label %261
 
@@ -669,7 +666,7 @@ FCxtrans.exit136.us.i:                            ; preds = %.lr.ph.us.i40, %271
 
 268:                                              ; preds = %FCxtrans.exit136.us.i
   %269 = load float, ptr %.0117164.us177.i, align 4, !tbaa !47
-  %270 = getelementptr inbounds float, ptr %.0116165.us176.i, i64 %indvars.iv222.i
+  %270 = getelementptr inbounds [4 x i8], ptr %.0116165.us176.i, i64 %indvars.iv222.i
   store float %269, ptr %270, align 4, !tbaa !47
   br label %271
 
@@ -690,15 +687,15 @@ FCxtrans.exit136.us.i:                            ; preds = %.lr.ph.us.i40, %271
   %indvars.iv218.i = phi i64 [ 0, %.preheader141.us189.i ], [ %indvars.iv.next219.i, %291 ]
   %.0110157.us185.i = phi float [ 0.000000e+00, %.preheader141.us189.i ], [ %.1.us188.i, %291 ]
   %.0111156.us186.i = phi i32 [ 0, %.preheader141.us189.i ], [ %.1112.us187.i, %291 ]
-  %276 = getelementptr inbounds nuw [2 x i32], ptr %297, i64 %indvars.iv218.i
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %indvars.iv218.i
   %277 = load i32, ptr %276, align 8, !tbaa !67
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 4
   %279 = load i32, ptr %278, align 4, !tbaa !67
   %280 = sext i32 %277 to i64
-  %281 = getelementptr inbounds float, ptr %.0117164.us177.i, i64 %280
+  %281 = getelementptr inbounds [4 x i8], ptr %.0117164.us177.i, i64 %280
   %282 = sext i32 %279 to i64
   %283 = mul nsw i64 %282, %181
-  %284 = getelementptr inbounds nuw float, ptr %281, i64 %283
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %281, i64 %283
   %285 = load float, ptr %284, align 4, !tbaa !47
   %286 = fcmp reassoc nsz arcp contract afn ogt float %249, %285
   br i1 %286, label %287, label %291
@@ -729,7 +726,7 @@ FCxtrans.exit136.us.i:                            ; preds = %.lr.ph.us.i40, %271
   %294 = trunc nuw nsw i64 %indvars.iv229.i to i32
   %295 = urem i32 %294, 6
   %296 = zext nneg i32 %295 to i64
-  %297 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %233, i64 %296
+  %297 = getelementptr inbounds nuw [32 x i8], ptr %233, i64 %296
   br label %275
 
 .lr.ph.us.i40:                                    ; preds = %251
@@ -770,7 +767,7 @@ FCxtrans.exit.i:                                  ; preds = %.split.i, %.prehead
   %310 = sext i32 %309 to i64
   %311 = getelementptr inbounds i8, ptr %168, i64 %310
   %312 = load i8, ptr %311, align 1, !tbaa !68
-  %313 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %162, i64 %indvars.iv198.i
+  %313 = getelementptr inbounds nuw [32 x i8], ptr %162, i64 %indvars.iv198.i
   %314 = add i32 %invariant.op150.i, %306
   br label %FCxtrans.exit128.i
 
@@ -782,7 +779,7 @@ FCxtrans.exit.i:                                  ; preds = %.split.i, %.prehead
 FCxtrans.exit128.i:                               ; preds = %332, %FCxtrans.exit.i
   %indvars.iv.i35 = phi i64 [ 0, %FCxtrans.exit.i ], [ %indvars.iv.next.i36, %332 ]
   %.0113143.i = phi i32 [ 0, %FCxtrans.exit.i ], [ %.1114.i, %332 ]
-  %315 = getelementptr inbounds nuw [2 x i32], ptr @__const.process_xtrans.search, i64 %indvars.iv.i35
+  %315 = getelementptr inbounds nuw [8 x i8], ptr @__const.process_xtrans.search, i64 %indvars.iv.i35
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 4
   %317 = load i32, ptr %316, align 4, !tbaa !67
   %318 = load i32, ptr %315, align 8, !tbaa !67
@@ -800,7 +797,7 @@ FCxtrans.exit128.i:                               ; preds = %332, %FCxtrans.exit
 
 327:                                              ; preds = %FCxtrans.exit128.i
   %328 = sext i32 %.0113143.i to i64
-  %329 = getelementptr inbounds [2 x i32], ptr %313, i64 %328
+  %329 = getelementptr inbounds [8 x i8], ptr %313, i64 %328
   store i32 %318, ptr %329, align 8, !tbaa !67
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 4
   store i32 %317, ptr %330, align 4, !tbaa !67
@@ -861,9 +858,9 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
   %indvars.iv146.i = phi i64 [ %indvars.iv.next147.i, %._crit_edge.split.us.us.us.i60 ], [ 2, %.lr.ph109.split.us.i ]
   %.081107.us.us.i = phi i32 [ %.283.us.us.us.i, %._crit_edge.split.us.us.us.i60 ], [ 0, %.lr.ph109.split.us.i ]
   %357 = mul nuw nsw i64 %indvars.iv146.i, %349
-  %358 = getelementptr inbounds nuw float, ptr %2, i64 %357
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %357
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
-  %360 = getelementptr inbounds nuw float, ptr %3, i64 %357
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %357
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 8
   br label %362
 
@@ -893,7 +890,7 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
 373:                                              ; preds = %372, %370, %366
   %.077.us.us.us.i = phi i32 [ 1, %372 ], [ 1, %370 ], [ 0, %366 ]
   %.076.us.us.us.i = phi nsz float [ %368, %372 ], [ 0.000000e+00, %370 ], [ 0.000000e+00, %366 ]
-  %374 = getelementptr inbounds float, ptr %.087101.us.us.us.i, i64 %353
+  %374 = getelementptr inbounds [4 x i8], ptr %.087101.us.us.us.i, i64 %353
   %375 = load float, ptr %374, align 4, !tbaa !47
   %376 = fcmp reassoc nsz arcp contract afn ogt float %364, %375
   br i1 %376, label %377, label %381
@@ -925,7 +922,7 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
 389:                                              ; preds = %388, %385, %381
   %.279.us.us.us.i = phi i32 [ %386, %388 ], [ %386, %385 ], [ %.178.us.us.us.i, %381 ]
   %.2.us.us.us.i62 = phi nsz float [ %383, %388 ], [ %.1.us.us.us.i61, %385 ], [ %.1.us.us.us.i61, %381 ]
-  %390 = getelementptr inbounds nuw float, ptr %.087101.us.us.us.i, i64 %354
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %.087101.us.us.us.i, i64 %354
   %391 = load float, ptr %390, align 4, !tbaa !47
   %392 = fcmp reassoc nsz arcp contract afn ogt float %364, %391
   br i1 %392, label %393, label %397
@@ -966,9 +963,9 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
   %indvars.iv140.i = phi i64 [ 2, %.lr.ph105.us.preheader.i ], [ %indvars.iv.next141.i, %._crit_edge.split.us127.i ]
   %.081107.us.i = phi i32 [ 0, %.lr.ph105.us.preheader.i ], [ %.283.us126.i, %._crit_edge.split.us127.i ]
   %403 = mul nuw nsw i64 %indvars.iv140.i, %349
-  %404 = getelementptr inbounds nuw float, ptr %2, i64 %403
+  %404 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %403
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
-  %406 = getelementptr inbounds nuw float, ptr %3, i64 %403
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %403
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   br label %408
 
@@ -998,7 +995,7 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
 419:                                              ; preds = %418, %416, %412
   %.077.us116.i = phi i32 [ 1, %418 ], [ 1, %416 ], [ 0, %412 ]
   %.076.us117.i = phi nsz float [ %414, %418 ], [ 0.000000e+00, %416 ], [ 0.000000e+00, %412 ]
-  %420 = getelementptr inbounds float, ptr %.087101.us115.i, i64 %353
+  %420 = getelementptr inbounds [4 x i8], ptr %.087101.us115.i, i64 %353
   %421 = load float, ptr %420, align 4, !tbaa !47
   %422 = fcmp reassoc nsz arcp contract afn ogt float %410, %421
   br i1 %422, label %423, label %427
@@ -1030,7 +1027,7 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
 435:                                              ; preds = %434, %431, %427
   %.279.us120.i = phi i32 [ %432, %434 ], [ %432, %431 ], [ %.178.us118.i, %427 ]
   %.2.us121.i = phi nsz float [ %429, %434 ], [ %.1.us119.i, %431 ], [ %.1.us119.i, %427 ]
-  %436 = getelementptr inbounds nuw float, ptr %.087101.us115.i, i64 %354
+  %436 = getelementptr inbounds nuw [4 x i8], ptr %.087101.us115.i, i64 %354
   %437 = load float, ptr %436, align 4, !tbaa !47
   %438 = fcmp reassoc nsz arcp contract afn ogt float %410, %437
   br i1 %438, label %439, label %443
@@ -1057,7 +1054,7 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
 
 .lr.ph100.us.i:                                   ; preds = %.lr.ph100.us.preheader.i, %.lr.ph100.us.i
   %indvars.iv134.i = phi i64 [ 2, %.lr.ph100.us.preheader.i ], [ %indvars.iv.next135.i, %.lr.ph100.us.i ]
-  %445 = getelementptr inbounds nuw float, ptr %.086102.us114.i, i64 %indvars.iv134.i
+  %445 = getelementptr inbounds nuw [4 x i8], ptr %.086102.us114.i, i64 %indvars.iv134.i
   store float %.pre151.i, ptr %445, align 4, !tbaa !47
   %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i, 2
   %or.cond.us.i = icmp samesign ult i64 %indvars.iv.next135.i, %456
@@ -1065,7 +1062,7 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
 
 .lr.ph.us.i54:                                    ; preds = %.lr.ph.us.i54, %.lr.ph.us.preheader.i52
   %indvars.iv.i55 = phi i64 [ -2, %.lr.ph.us.preheader.i52 ], [ %indvars.iv.next.i56, %.lr.ph.us.i54 ]
-  %446 = getelementptr inbounds float, ptr %.086102.us114.i, i64 %indvars.iv.i55
+  %446 = getelementptr inbounds [4 x i8], ptr %.086102.us114.i, i64 %indvars.iv.i55
   store float %.pre.i53, ptr %446, align 4, !tbaa !47
   %indvars.iv.next.i56 = add nsw i64 %indvars.iv.i55, -2
   %447 = icmp samesign ugt i64 %indvars.iv.i55, -9
@@ -1472,7 +1469,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

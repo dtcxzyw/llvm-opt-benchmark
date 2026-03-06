@@ -289,7 +289,7 @@ define hidden noalias ptr @SDL_GetSensors_REAL(ptr noundef writeonly captures(ad
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %17
   %.126.lcssa = phi i64 [ 0, %17 ], [ %15, %.loopexit.loopexit ]
-  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %.126.lcssa
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.126.lcssa
   store i32 0, ptr %16, align 4
   br label %26
 
@@ -308,7 +308,7 @@ define hidden noalias ptr @SDL_GetSensors_REAL(ptr noundef writeonly captures(ad
   %indvars41 = trunc i64 %indvars.iv to i32
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 48), align 8
   %22 = tail call i32 %21(i32 noundef %indvars41) #9
-  %23 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 %22, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

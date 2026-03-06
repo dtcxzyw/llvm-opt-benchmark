@@ -976,7 +976,7 @@ print_modules.exit:                               ; preds = %51, %35
 
 sub_0:                                            ; preds = %.tail318
   %167 = sext i32 %161 to i64
-  %168 = getelementptr ptr, ptr %1, i64 %167
+  %168 = getelementptr [8 x i8], ptr %1, i64 %167
   %169 = getelementptr i8, ptr %168, i64 -8
   %170 = load ptr, ptr %169, align 8, !tbaa !24
   %171 = load i8, ptr %170, align 1
@@ -1062,7 +1062,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %180
   %200 = sub i32 %199, %198
   store i32 %200, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 140), align 4, !tbaa !117
   %201 = sext i32 %198 to i64
-  %202 = getelementptr ptr, ptr %1, i64 %201
+  %202 = getelementptr [8 x i8], ptr %1, i64 %201
   %203 = getelementptr i8, ptr %202, i64 -8
   %204 = load ptr, ptr %203, align 8, !tbaa !24
   %.not281 = icmp eq ptr %.5217, null
@@ -1097,7 +1097,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %180
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %214 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %215 = load ptr, ptr %214, align 8, !tbaa !24
   %216 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %215) #27
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %215, i8 0, i64 %216, i1 false)
@@ -1653,7 +1653,7 @@ zend_string_equals_cstr.exit:                     ; preds = %419
 
 sub_0319:                                         ; preds = %449
   %452 = sext i32 %450 to i64
-  %453 = getelementptr inbounds ptr, ptr %1, i64 %452
+  %453 = getelementptr inbounds [8 x i8], ptr %1, i64 %452
   %454 = load ptr, ptr %453, align 8, !tbaa !24
   %455 = load i8, ptr %454, align 1
   %.not340 = icmp eq i8 %455, 45

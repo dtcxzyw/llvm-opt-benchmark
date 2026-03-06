@@ -316,7 +316,7 @@ define internal i32 @crypto_cmac_digest_setkey(ptr noundef %0, ptr noundef %1, i
   %30 = select i1 %27, i64 135, i64 0
   %31 = xor i64 %30, %29
   %32 = tail call i64 @llvm.bswap.i64(i64 %28)
-  %33 = getelementptr i64, ptr %9, i64 %24
+  %33 = getelementptr [8 x i8], ptr %9, i64 %24
   store i64 %32, ptr %33, align 8
   %34 = tail call i64 @llvm.bswap.i64(i64 %31)
   %35 = getelementptr i8, ptr %33, i64 8
@@ -337,7 +337,7 @@ define internal i32 @crypto_cmac_digest_setkey(ptr noundef %0, ptr noundef %1, i
   %45 = select i1 %43, i64 27, i64 0
   %46 = xor i64 %45, %44
   %47 = tail call i64 @llvm.bswap.i64(i64 %46)
-  %48 = getelementptr i64, ptr %9, i64 %41
+  %48 = getelementptr [8 x i8], ptr %9, i64 %41
   store i64 %47, ptr %48, align 8
   br i1 %40, label %39, label %.loopexit, !llvm.loop !10
 

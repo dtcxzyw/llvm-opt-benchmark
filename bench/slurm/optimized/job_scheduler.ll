@@ -2240,11 +2240,11 @@ _het_job_ready.exit:                              ; preds = %23, %26, %29, %33, 
 .lr.ph.i.i:                                       ; preds = %187, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 1, %187 ]
   %190 = load ptr, ptr %185, align 8
-  %191 = getelementptr inbounds nuw ptr, ptr %190, i64 %indvars.iv.i.i
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv.i.i
   %192 = load ptr, ptr %191, align 8
   %193 = call ptr @xstrdup(ptr noundef %192) #16
   %194 = load ptr, ptr %185, align 8
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv.i.i
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %indvars.iv.i.i
   store ptr %193, ptr %195, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %196 = load i32, ptr %183, align 8
@@ -2441,7 +2441,7 @@ _split_env.exit.i:                                ; preds = %.lr.ph.i.i, %187
 
 317:                                              ; preds = %317, %310
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %317 ], [ 0, %310 ]
-  %318 = getelementptr inbounds nuw ptr, ptr %316, i64 %indvars.iv.i
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %indvars.iv.i
   %319 = load ptr, ptr %318, align 8
   %.not16.i = icmp eq ptr %319, null
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2654,7 +2654,7 @@ define dso_local range(i32 -1, 1) i32 @make_batch_job_cred(ptr noundef captures(
   store ptr %29, ptr %30, align 8
   %31 = load ptr, ptr %16, align 8
   %32 = sext i32 %.0 to i64
-  %33 = getelementptr inbounds i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8
   store i64 %34, ptr %29, align 8
   %35 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 2939, ptr noundef nonnull @__func__.make_batch_job_cred) #16
@@ -3089,7 +3089,7 @@ define internal noundef i32 @_foreach_test_job_dependency(ptr noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %29
   %31 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._foreach_update_job_depenency_list, i64 %31
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._foreach_update_job_depenency_list, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_depend_type2str.exit
 
@@ -3466,7 +3466,7 @@ _test_job_dependency_common.exit.thread:          ; preds = %105, %152, %155, %1
 
 switch.lookup107:                                 ; preds = %197
   %199 = zext nneg i16 %switch.tableidx106 to i64
-  %switch.gep108 = getelementptr inbounds nuw ptr, ptr @switch.table._foreach_update_job_depenency_list, i64 %199
+  %switch.gep108 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._foreach_update_job_depenency_list, i64 %199
   %switch.load109 = load ptr, ptr %switch.gep108, align 8
   br label %_depend_type2str.exit80
 
@@ -3503,7 +3503,7 @@ _depend_type2str.exit80:                          ; preds = %197, %switch.lookup
 
 switch.lookup111:                                 ; preds = %210
   %212 = zext nneg i16 %switch.tableidx110 to i64
-  %switch.gep112 = getelementptr inbounds nuw ptr, ptr @switch.table._foreach_update_job_depenency_list, i64 %212
+  %switch.gep112 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._foreach_update_job_depenency_list, i64 %212
   %switch.load113 = load ptr, ptr %switch.gep112, align 8
   br label %_depend_type2str.exit82
 
@@ -3677,7 +3677,7 @@ define internal noundef i32 @_foreach_update_job_depenency_list(ptr noundef %0, 
 
 switch.lookup:                                    ; preds = %20
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._foreach_update_job_depenency_list, i64 %23
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._foreach_update_job_depenency_list, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_depend_type2str.exit
 
@@ -10689,7 +10689,7 @@ _job_runnable_test2.exit:                         ; preds = %2, %23
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %9, align 8
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %35, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %35, i64 %40
   %42 = load i32, ptr %41, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8
@@ -11095,10 +11095,10 @@ define internal noundef i32 @_foreach_set_het_job_env(ptr noundef %0, ptr nounde
 103:                                              ; preds = %.lr.ph, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
   %.095132 = phi i32 [ 0, %.lr.ph ], [ %110, %103 ]
-  %104 = getelementptr inbounds nuw i16, ptr %87, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %indvars.iv
   %105 = load i16, ptr %104, align 2
   %106 = zext i16 %105 to i32
-  %107 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4
   %109 = mul i32 %108, %106
   %110 = add i32 %109, %.095132
@@ -11325,7 +11325,7 @@ _depend_type2str.exit:                            ; preds = %7, %15, %16, %17, %
 
 switch.lookup:                                    ; preds = %41
   %46 = zext nneg i32 %.val36 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._foreach_depend_list2str, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._foreach_depend_list2str, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_depend_state2str.exit40
 

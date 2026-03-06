@@ -454,7 +454,7 @@ lpad:                                             ; preds = %for.body
   br label %ehcleanup
 
 invoke.cont24.loopexit:                           ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i4 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i1.i, i64 %inc.i.i.i.i
+  %add.ptr.i.i4 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i1.i, i64 %inc.i.i.i.i
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %invoke.cont24.loopexit, %for.cond.cleanup

@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.FFCodecDefault = type { ptr, ptr }
 %union.anon = type { ptr }
-%struct.hnode = type { i32, i8, [2 x i32] }
 
 @.str = private unnamed_addr constant [11 x i8] c"idcinvideo\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"id Quake II CIN video\00", align 1
@@ -41,7 +40,7 @@ define internal range(i32 -1, 1) i32 @idcin_decode_init(ptr noundef %0) #0 {
 .preheader:                                       ; preds = %8, %19
   %indvars.iv30 = phi i64 [ 0, %8 ], [ %indvars.iv.next31, %19 ]
   %.01824 = phi i64 [ 0, %8 ], [ %indvars.iv.next, %19 ]
-  %12 = getelementptr inbounds nuw [512 x %struct.hnode], ptr %11, i64 %indvars.iv30
+  %12 = getelementptr inbounds nuw [8192 x i8], ptr %11, i64 %indvars.iv30
   %sext = shl i64 %.01824, 32
   %13 = ashr exact i64 %sext, 32
   br label %14
@@ -53,7 +52,7 @@ define internal range(i32 -1, 1) i32 @idcin_decode_init(ptr noundef %0) #0 {
   %15 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !33
   %17 = zext i8 %16 to i32
-  %18 = getelementptr inbounds nuw %struct.hnode, ptr %12, i64 %indvars.iv25
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv25
   store i32 %17, ptr %18, align 4, !tbaa !34
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next26, 256
@@ -122,8 +121,8 @@ define internal i32 @idcin_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %.14063.i = phi i32 [ %.030.lcssa.i, %._crit_edge.i ], [ %.03974.i, %.preheader.i ]
   %.04262.i = phi i64 [ %55, %._crit_edge.i ], [ %.04173.i, %.preheader.i ]
   %30 = sext i32 %.14063.i to i64
-  %31 = getelementptr inbounds i32, ptr %23, i64 %30
-  %32 = getelementptr [512 x %struct.hnode], ptr %10, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %23, i64 %30
+  %32 = getelementptr [8192 x i8], ptr %10, i64 %30
   %.03054.i = load i32, ptr %31, align 4, !tbaa !44
   %33 = icmp sgt i32 %.03054.i, 255
   br i1 %33, label %.lr.ph.i, label %._crit_edge.i
@@ -154,11 +153,11 @@ define internal i32 @idcin_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %.334.i = phi i32 [ %.23356.i, %.lr.ph.i ], [ 8, %36 ]
   %.3.i = phi i32 [ %.257.i, %.lr.ph.i ], [ %38, %36 ]
   %43 = zext nneg i32 %.03058.i to i64
-  %44 = getelementptr %struct.hnode, ptr %32, i64 %43
+  %44 = getelementptr [16 x i8], ptr %32, i64 %43
   %45 = getelementptr i8, ptr %44, i64 28
   %46 = and i8 %.338.i, 1
   %47 = zext nneg i8 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %47
   %49 = lshr i8 %.338.i, 1
   %50 = add nsw i32 %.334.i, -1
   %.030.i = load i32, ptr %48, align 4, !tbaa !44
@@ -227,7 +226,7 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 define internal fastcc void @huff_build_tree(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483648, 256) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [512 x %struct.hnode], ptr %3, i64 %4
+  %5 = getelementptr inbounds [8192 x i8], ptr %3, i64 %4
   br label %10
 
 .preheader:                                       ; preds = %10
@@ -243,7 +242,7 @@ define internal fastcc void @huff_build_tree(ptr noundef captures(none) %0, i32 
 
 10:                                               ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct.hnode, ptr %5, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i8 0, ptr %12, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -264,16 +263,16 @@ define internal fastcc void @huff_build_tree(ptr noundef captures(none) %0, i32 
 19:                                               ; preds = %.lr.ph
   %20 = load i32, ptr %13, align 4, !tbaa !44
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %struct.hnode, ptr %5, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %5, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !34
   %24 = sext i32 %16 to i64
-  %25 = getelementptr inbounds %struct.hnode, ptr %5, i64 %24
+  %25 = getelementptr inbounds [16 x i8], ptr %5, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !34
   %27 = add nsw i32 %26, %23
   store i32 %27, ptr %14, align 4, !tbaa !34
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %indvars = trunc i64 %indvars.iv.next32 to i32
-  %28 = getelementptr inbounds nuw %struct.hnode, ptr %5, i64 %indvars.iv.next32
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.next32
   %29 = tail call fastcc i32 @huff_smallest_node(ptr noundef nonnull %5, i32 noundef %indvars)
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %29, ptr %30, align 4, !tbaa !44
@@ -288,7 +287,7 @@ define internal fastcc void @huff_build_tree(ptr noundef captures(none) %0, i32 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.024.lcssa = phi i32 [ 255, %.preheader ], [ %32, %._crit_edge.loopexit ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 2097172
-  %34 = getelementptr inbounds i32, ptr %33, i64 %4
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %4
   store i32 %.024.lcssa, ptr %34, align 4, !tbaa !44
   ret void
 }
@@ -306,7 +305,7 @@ define internal fastcc i32 @huff_smallest_node(ptr noundef captures(none) %0, i3
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
   %.026 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %11 ]
   %.01725 = phi i32 [ 99999999, %.lr.ph.preheader ], [ %.118, %11 ]
-  %4 = getelementptr inbounds nuw %struct.hnode, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i8, ptr %5, align 4, !tbaa !51
   %.not = icmp eq i8 %6, 0
@@ -335,7 +334,7 @@ define internal fastcc i32 @huff_smallest_node(ptr noundef captures(none) %0, i3
 
 13:                                               ; preds = %._crit_edge
   %14 = sext i32 %.1 to i64
-  %15 = getelementptr inbounds %struct.hnode, ptr %0, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i8 1, ptr %16, align 4, !tbaa !51
   br label %._crit_edge.thread

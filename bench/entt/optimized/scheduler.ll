@@ -38,8 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"struct.std::pair" = type { i32, i32 }
 %"class.std::shared_ptr.74" = type { %"class.std::__shared_ptr.75" }
 %"class.std::__shared_ptr.75" = type { ptr, %"class.std::__shared_count" }
@@ -2716,7 +2714,7 @@ define linkonce_odr hidden void @_ZN4entt15basic_schedulerIjSaIvEE6updateEjPv(pt
   %.020 = phi i64 [ %11, %_ZNSt6vectorISt10shared_ptrIN4entt8internal21basic_process_handlerIjEEESaIS5_EE8pop_backEv.exit ], [ %10, %.lr.ph.preheader ]
   %11 = add i64 %.020, -1
   %12 = load ptr, ptr %0, align 8, !tbaa !70
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !64
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -2726,7 +2724,7 @@ define linkonce_odr hidden void @_ZN4entt15basic_schedulerIjSaIvEE6updateEjPv(pt
 
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr %0, align 8, !tbaa !70
-  %21 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %11
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %11
   %22 = load ptr, ptr %21, align 8, !tbaa !64
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !64
@@ -8046,7 +8044,7 @@ _ZNSt6vectorISt10shared_ptrIN4entt8internal21basic_process_handlerIjEEESaIS5_EE1
 _ZNSt12_Vector_baseISt10shared_ptrIN4entt8internal21basic_process_handlerIjEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN4entt8internal21basic_process_handlerIjEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !70
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !67
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !62
   ret void
 }
@@ -10267,7 +10265,7 @@ _ZNSt6vectorISt10shared_ptrIN4entt8internal21basic_process_handlerIjEEESaIS5_EE1
 _ZNSt12_Vector_baseISt10shared_ptrIN4entt8internal21basic_process_handlerIjEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN4entt8internal21basic_process_handlerIjEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !70
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !67
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !62
   ret void
 }

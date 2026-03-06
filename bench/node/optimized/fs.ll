@@ -16,7 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
 %struct.uv__queue = type { ptr, ptr }
 %struct.uv_buf_t = type { ptr, i64 }
-%struct.uv_dirent_s = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @uv__fs_statx.no_statx = internal unnamed_addr global i32 0, align 4
@@ -1147,7 +1146,7 @@ if.then19.i:                                      ; preds = %if.end10.tail.i, %l
 if.end20.i:                                       ; preds = %if.end10.tail.i, %lor.lhs.false.tail.i, %if.end10.i
   %d_name.i.le = getelementptr inbounds nuw i8, ptr %call3.i205, i64 19
   %130 = load ptr, ptr %add.ptr.val69, align 8
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %130, i64 %conv17.i
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %130, i64 %conv17.i
   %call23.i207 = call ptr @uv__strdup(ptr noundef nonnull %d_name.i.le) #15
   store ptr %call23.i207, ptr %arrayidx.i, align 8
   %cmp25.i208 = icmp eq ptr %call23.i207, null
@@ -1174,11 +1173,11 @@ for.body.preheader.i:                             ; preds = %error.i211
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %132 = load ptr, ptr %add.ptr.val69, align 8
-  %arrayidx34.i = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %132, i64 %indvars.iv.i
+  %arrayidx34.i = getelementptr inbounds nuw [16 x i8], ptr %132, i64 %indvars.iv.i
   %133 = load ptr, ptr %arrayidx34.i, align 8
   call void @uv__free(ptr noundef %133) #15
   %134 = load ptr, ptr %add.ptr.val69, align 8
-  %arrayidx38.i = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %134, i64 %indvars.iv.i
+  %arrayidx38.i = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %indvars.iv.i
   store ptr null, ptr %arrayidx38.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1821,7 +1820,7 @@ if.end20.i366:                                    ; preds = %if.then18.i373, %if
 land.rhs.i.i:                                     ; preds = %for.body.i.i, %if.end20.i366
   %offset.019.i.i = phi i64 [ 0, %if.end20.i366 ], [ %inc.i.i, %for.body.i.i ]
   %size.addr.018.i.i = phi i64 [ %r.0.i.i, %if.end20.i366 ], [ %sub.i.i367, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.uv_buf_t, ptr %216, i64 %offset.019.i.i
+  %arrayidx.i.i = getelementptr inbounds [16 x i8], ptr %216, i64 %offset.019.i.i
   %len.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %217 = load i64, ptr %len.i.i, align 8
   %cmp1.not.i.i = icmp ugt i64 %217, %size.addr.018.i.i
@@ -1849,7 +1848,7 @@ uv__fs_buf_offset.exit.i:                         ; preds = %for.body.i.i, %if.t
   %conv.i369 = trunc i64 %offset.015.i.i to i32
   store i32 %conv.i369, ptr %nbufs1.i, align 4
   %idx.ext.i = and i64 %offset.015.i.i, 4294967295
-  %add.ptr.i370 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %219, i64 %idx.ext.i
+  %add.ptr.i370 = getelementptr inbounds nuw [16 x i8], ptr %219, i64 %idx.ext.i
   store ptr %add.ptr.i370, ptr %bufs2.i354, align 8
   %sub.i371 = sub i32 %nbufs.049.i, %conv.i369
   %add27.i = add nuw nsw i64 %r.0.i.i, %total.048.i

@@ -587,7 +587,7 @@ define dso_local noundef ptr @_ZN5Lexer9TokenNameENS_5TokenE(i32 noundef %0) loc
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5Lexer9TokenNameENS_5TokenE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5Lexer9TokenNameENS_5TokenE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

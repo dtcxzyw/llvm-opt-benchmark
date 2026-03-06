@@ -3,10 +3,6 @@ source_filename = "bench/php/original/zend_dfg.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._zend_basic_block = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [2 x i32] }
-%struct._zend_op = type { ptr, %union._znode_op, %union._znode_op, %union._znode_op, i32, i32, i8, i8, i8, i8 }
-%union._znode_op = type { i32 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 29
@@ -22,7 +18,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %13 = add nsw i32 %12, -5
   %14 = zext i32 %13 to i64
   %15 = lshr i64 %14, 6
-  %16 = getelementptr inbounds nuw i64, ptr %4, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !11
   %18 = and i64 %14, 63
   %19 = lshr i64 %17, %18
@@ -35,7 +31,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %24 = shl nuw i64 1, %23
   %25 = lshr i32 %13, 6
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !11
   %29 = or i64 %28, %24
   store i64 %29, ptr %27, align 8, !tbaa !11
@@ -67,7 +63,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %43 = add nsw i32 %42, -5
   %44 = zext i32 %43 to i64
   %45 = lshr i64 %44, 6
-  %46 = getelementptr inbounds nuw i64, ptr %4, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !11
   %48 = and i64 %44, 63
   %49 = lshr i64 %47, %48
@@ -80,7 +76,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %54 = shl nuw i64 1, %53
   %55 = lshr i32 %43, 6
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %3, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !11
   %59 = or i64 %58, %54
   store i64 %59, ptr %57, align 8, !tbaa !11
@@ -110,7 +106,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %73 = add nsw i32 %72, -5
   %74 = zext i32 %73 to i64
   %75 = lshr i64 %74, 6
-  %76 = getelementptr inbounds nuw i64, ptr %4, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !11
   %78 = and i64 %74, 63
   %79 = lshr i64 %77, %78
@@ -123,7 +119,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %84 = shl nuw i64 1, %83
   %85 = lshr i32 %73, 6
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i64, ptr %3, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !11
   %89 = or i64 %88, %84
   store i64 %89, ptr %87, align 8, !tbaa !11
@@ -205,7 +201,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %103 = shl nuw i64 1, %102
   %104 = lshr i32 %100, 6
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw i64, ptr %4, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %105
   %107 = load i64, ptr %106, align 8, !tbaa !11
   %108 = or i64 %103, %107
   store i64 %108, ptr %106, align 8, !tbaa !11
@@ -225,7 +221,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %118 = shl nuw i64 1, %117
   %119 = lshr i32 %115, 6
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw i64, ptr %4, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %120
   %122 = load i64, ptr %121, align 8, !tbaa !11
   %123 = or i64 %118, %122
   store i64 %123, ptr %121, align 8, !tbaa !11
@@ -245,7 +241,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %133 = shl nuw i64 1, %132
   %134 = lshr i32 %130, 6
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw i64, ptr %4, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %135
   %137 = load i64, ptr %136, align 8, !tbaa !11
   %138 = or i64 %133, %137
   store i64 %138, ptr %136, align 8, !tbaa !11
@@ -269,7 +265,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %149 = add nsw i32 %148, -5
   %150 = zext i32 %149 to i64
   %151 = lshr i64 %150, 6
-  %152 = getelementptr inbounds nuw i64, ptr %4, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !11
   %154 = and i64 %150, 63
   %155 = lshr i64 %153, %154
@@ -282,7 +278,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %160 = shl nuw i64 1, %159
   %161 = lshr i32 %149, 6
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw i64, ptr %3, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %162
   %164 = load i64, ptr %163, align 8, !tbaa !11
   %165 = or i64 %164, %160
   store i64 %165, ptr %163, align 8, !tbaa !11
@@ -301,7 +297,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %172 = shl nuw i64 1, %171
   %173 = lshr i32 %149, 6
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw i64, ptr %4, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %174
   %176 = load i64, ptr %175, align 8, !tbaa !11
   %177 = or i64 %176, %172
   store i64 %177, ptr %175, align 8, !tbaa !11
@@ -325,7 +321,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %188 = add nsw i32 %187, -5
   %189 = zext i32 %188 to i64
   %190 = lshr i64 %189, 6
-  %191 = getelementptr inbounds nuw i64, ptr %4, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %190
   %192 = load i64, ptr %191, align 8, !tbaa !11
   %193 = and i64 %189, 63
   %194 = lshr i64 %192, %193
@@ -338,7 +334,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %199 = shl nuw i64 1, %198
   %200 = lshr i32 %188, 6
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw i64, ptr %3, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %201
   %203 = load i64, ptr %202, align 8, !tbaa !11
   %204 = or i64 %203, %199
   store i64 %204, ptr %202, align 8, !tbaa !11
@@ -354,7 +350,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %210 = shl nuw i64 1, %209
   %211 = lshr i32 %188, 6
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds nuw i64, ptr %4, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %212
   %214 = load i64, ptr %213, align 8, !tbaa !11
   %215 = or i64 %214, %210
   store i64 %215, ptr %213, align 8, !tbaa !11
@@ -378,7 +374,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %226 = add nsw i32 %225, -5
   %227 = zext i32 %226 to i64
   %228 = lshr i64 %227, 6
-  %229 = getelementptr inbounds nuw i64, ptr %4, i64 %228
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %228
   %230 = load i64, ptr %229, align 8, !tbaa !11
   %231 = and i64 %227, 63
   %232 = lshr i64 %230, %231
@@ -391,7 +387,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %237 = shl nuw i64 1, %236
   %238 = lshr i32 %226, 6
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw i64, ptr %3, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %239
   %241 = load i64, ptr %240, align 8, !tbaa !11
   %242 = or i64 %241, %237
   store i64 %242, ptr %240, align 8, !tbaa !11
@@ -410,7 +406,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %249 = shl nuw i64 1, %248
   %250 = lshr i32 %226, 6
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr inbounds nuw i64, ptr %4, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %251
   %253 = load i64, ptr %252, align 8, !tbaa !11
   %254 = or i64 %253, %249
   store i64 %254, ptr %252, align 8, !tbaa !11
@@ -430,7 +426,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %263 = add nsw i32 %262, -5
   %264 = zext i32 %263 to i64
   %265 = lshr i64 %264, 6
-  %266 = getelementptr inbounds nuw i64, ptr %4, i64 %265
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %265
   %267 = load i64, ptr %266, align 8, !tbaa !11
   %268 = and i64 %264, 63
   %269 = lshr i64 %267, %268
@@ -443,7 +439,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %274 = shl nuw i64 1, %273
   %275 = lshr i32 %263, 6
   %276 = zext nneg i32 %275 to i64
-  %277 = getelementptr inbounds nuw i64, ptr %3, i64 %276
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %276
   %278 = load i64, ptr %277, align 8, !tbaa !11
   %279 = or i64 %278, %274
   store i64 %279, ptr %277, align 8, !tbaa !11
@@ -459,7 +455,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %285 = shl nuw i64 1, %284
   %286 = lshr i32 %263, 6
   %287 = zext nneg i32 %286 to i64
-  %288 = getelementptr inbounds nuw i64, ptr %4, i64 %287
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %287
   %289 = load i64, ptr %288, align 8, !tbaa !11
   %290 = or i64 %289, %285
   store i64 %290, ptr %288, align 8, !tbaa !11
@@ -479,7 +475,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %299 = add nsw i32 %298, -5
   %300 = zext i32 %299 to i64
   %301 = lshr i64 %300, 6
-  %302 = getelementptr inbounds nuw i64, ptr %4, i64 %301
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %301
   %303 = load i64, ptr %302, align 8, !tbaa !11
   %304 = and i64 %300, 63
   %305 = lshr i64 %303, %304
@@ -492,7 +488,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %310 = shl nuw i64 1, %309
   %311 = lshr i32 %299, 6
   %312 = zext nneg i32 %311 to i64
-  %313 = getelementptr inbounds nuw i64, ptr %3, i64 %312
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %312
   %314 = load i64, ptr %313, align 8, !tbaa !11
   %315 = or i64 %314, %310
   store i64 %315, ptr %313, align 8, !tbaa !11
@@ -512,7 +508,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %324 = add nsw i32 %323, -5
   %325 = zext i32 %324 to i64
   %326 = lshr i64 %325, 6
-  %327 = getelementptr inbounds nuw i64, ptr %4, i64 %326
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %326
   %328 = load i64, ptr %327, align 8, !tbaa !11
   %329 = and i64 %325, 63
   %330 = lshr i64 %328, %329
@@ -525,7 +521,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %335 = shl nuw i64 1, %334
   %336 = lshr i32 %324, 6
   %337 = zext nneg i32 %336 to i64
-  %338 = getelementptr inbounds nuw i64, ptr %3, i64 %337
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %337
   %339 = load i64, ptr %338, align 8, !tbaa !11
   %340 = or i64 %339, %335
   store i64 %340, ptr %338, align 8, !tbaa !11
@@ -553,7 +549,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %352 = add nsw i32 %351, -5
   %353 = zext i32 %352 to i64
   %354 = lshr i64 %353, 6
-  %355 = getelementptr inbounds nuw i64, ptr %4, i64 %354
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %354
   %356 = load i64, ptr %355, align 8, !tbaa !11
   %357 = and i64 %353, 63
   %358 = lshr i64 %356, %357
@@ -566,7 +562,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %363 = shl nuw i64 1, %362
   %364 = lshr i32 %352, 6
   %365 = zext nneg i32 %364 to i64
-  %366 = getelementptr inbounds nuw i64, ptr %3, i64 %365
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %365
   %367 = load i64, ptr %366, align 8, !tbaa !11
   %368 = or i64 %367, %363
   store i64 %368, ptr %366, align 8, !tbaa !11
@@ -579,7 +575,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %373 = add nsw i32 %372, -5
   %374 = zext i32 %373 to i64
   %375 = lshr i64 %374, 6
-  %376 = getelementptr inbounds nuw i64, ptr %4, i64 %375
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %375
   %377 = load i64, ptr %376, align 8, !tbaa !11
   %378 = and i64 %374, 63
   %379 = lshr i64 %377, %378
@@ -592,7 +588,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %384 = shl nuw i64 1, %383
   %385 = lshr i32 %373, 6
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds nuw i64, ptr %3, i64 %386
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %386
   %388 = load i64, ptr %387, align 8, !tbaa !11
   %389 = or i64 %388, %384
   store i64 %389, ptr %387, align 8, !tbaa !11
@@ -641,7 +637,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %413 = shl nuw i64 1, %412
   %414 = lshr i32 %410, 6
   %415 = zext nneg i32 %414 to i64
-  %416 = getelementptr inbounds nuw i64, ptr %4, i64 %415
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %415
   %417 = load i64, ptr %416, align 8, !tbaa !11
   %418 = or i64 %413, %417
   store i64 %418, ptr %416, align 8, !tbaa !11
@@ -666,7 +662,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %432 = shl nuw i64 1, %431
   %433 = lshr i32 %429, 6
   %434 = zext nneg i32 %433 to i64
-  %435 = getelementptr inbounds nuw i64, ptr %4, i64 %434
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %434
   %436 = load i64, ptr %435, align 8, !tbaa !11
   %437 = or i64 %432, %436
   store i64 %437, ptr %435, align 8, !tbaa !11
@@ -689,7 +685,7 @@ define dso_local void @zend_dfg_add_use_def_op(ptr noundef readonly captures(non
   %449 = shl nuw i64 1, %448
   %450 = lshr i32 %446, 6
   %451 = zext nneg i32 %450 to i64
-  %452 = getelementptr inbounds nuw i64, ptr %4, i64 %451
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %451
   %453 = load i64, ptr %452, align 8, !tbaa !11
   %454 = or i64 %449, %453
   store i64 %454, ptr %452, align 8, !tbaa !11
@@ -737,7 +733,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
 
 26:                                               ; preds = %.lr.ph185, %.loopexit177
   %indvars.iv = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next, %.loopexit177 ]
-  %27 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %6, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !44
   %30 = icmp sgt i32 %29, -1
@@ -748,15 +744,15 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %34 = load i32, ptr %33, align 4, !tbaa !47
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %struct._zend_op, ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !48
   %39 = zext i32 %38 to i64
   %.idx = shl nuw nsw i64 %39, 5
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
   %41 = mul nsw i64 %indvars.iv, %25
-  %42 = getelementptr inbounds i64, ptr %15, i64 %41
-  %43 = getelementptr inbounds i64, ptr %13, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %15, i64 %41
+  %43 = getelementptr inbounds [8 x i8], ptr %13, i64 %41
   %.not195 = icmp eq i32 %38, 0
   br i1 %.not195, label %.loopexit177, label %.lr.ph
 
@@ -781,7 +777,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %54 = add nsw i32 %53, -5
   %55 = zext i32 %54 to i64
   %56 = lshr i64 %55, 6
-  %57 = getelementptr inbounds nuw i64, ptr %43, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !11
   %59 = and i64 %55, 63
   %60 = lshr i64 %58, %59
@@ -794,7 +790,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %65 = shl nuw i64 1, %64
   %66 = lshr i32 %54, 6
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %42, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !11
   %70 = or i64 %69, %65
   store i64 %70, ptr %68, align 8, !tbaa !11
@@ -824,7 +820,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %82 = add nsw i32 %81, -5
   %83 = zext i32 %82 to i64
   %84 = lshr i64 %83, 6
-  %85 = getelementptr inbounds nuw i64, ptr %43, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !11
   %87 = and i64 %83, 63
   %88 = lshr i64 %86, %87
@@ -837,7 +833,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %93 = shl nuw i64 1, %92
   %94 = lshr i32 %82, 6
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw i64, ptr %42, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !11
   %98 = or i64 %97, %93
   store i64 %98, ptr %96, align 8, !tbaa !11
@@ -863,7 +859,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %109 = add nsw i32 %108, -5
   %110 = zext i32 %109 to i64
   %111 = lshr i64 %110, 6
-  %112 = getelementptr inbounds nuw i64, ptr %43, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %111
   %113 = load i64, ptr %112, align 8, !tbaa !11
   %114 = and i64 %110, 63
   %115 = lshr i64 %113, %114
@@ -876,7 +872,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %120 = shl nuw i64 1, %119
   %121 = lshr i32 %109, 6
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw i64, ptr %42, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %122
   %124 = load i64, ptr %123, align 8, !tbaa !11
   %125 = or i64 %124, %120
   store i64 %125, ptr %123, align 8, !tbaa !11
@@ -954,7 +950,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %136 = shl nuw i64 1, %135
   %137 = lshr i32 %133, 6
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw i64, ptr %43, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %138
   %140 = load i64, ptr %139, align 8, !tbaa !11
   %141 = or i64 %136, %140
   store i64 %141, ptr %139, align 8, !tbaa !11
@@ -974,7 +970,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %151 = shl nuw i64 1, %150
   %152 = lshr i32 %148, 6
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw i64, ptr %43, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %153
   %155 = load i64, ptr %154, align 8, !tbaa !11
   %156 = or i64 %151, %155
   store i64 %156, ptr %154, align 8, !tbaa !11
@@ -994,7 +990,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %166 = shl nuw i64 1, %165
   %167 = lshr i32 %163, 6
   %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds nuw i64, ptr %43, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %168
   %170 = load i64, ptr %169, align 8, !tbaa !11
   %171 = or i64 %166, %170
   store i64 %171, ptr %169, align 8, !tbaa !11
@@ -1018,7 +1014,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %182 = add nsw i32 %181, -5
   %183 = zext i32 %182 to i64
   %184 = lshr i64 %183, 6
-  %185 = getelementptr inbounds nuw i64, ptr %43, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %184
   %186 = load i64, ptr %185, align 8, !tbaa !11
   %187 = and i64 %183, 63
   %188 = lshr i64 %186, %187
@@ -1031,7 +1027,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %193 = shl nuw i64 1, %192
   %194 = lshr i32 %182, 6
   %195 = zext nneg i32 %194 to i64
-  %196 = getelementptr inbounds nuw i64, ptr %42, i64 %195
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %195
   %197 = load i64, ptr %196, align 8, !tbaa !11
   %198 = or i64 %197, %193
   store i64 %198, ptr %196, align 8, !tbaa !11
@@ -1048,7 +1044,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %204 = shl nuw i64 1, %203
   %205 = lshr i32 %182, 6
   %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds nuw i64, ptr %43, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %206
   %208 = load i64, ptr %207, align 8, !tbaa !11
   %209 = or i64 %208, %204
   store i64 %209, ptr %207, align 8, !tbaa !11
@@ -1072,7 +1068,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %220 = add nsw i32 %219, -5
   %221 = zext i32 %220 to i64
   %222 = lshr i64 %221, 6
-  %223 = getelementptr inbounds nuw i64, ptr %43, i64 %222
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %222
   %224 = load i64, ptr %223, align 8, !tbaa !11
   %225 = and i64 %221, 63
   %226 = lshr i64 %224, %225
@@ -1085,7 +1081,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %231 = shl nuw i64 1, %230
   %232 = lshr i32 %220, 6
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw i64, ptr %42, i64 %233
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %233
   %235 = load i64, ptr %234, align 8, !tbaa !11
   %236 = or i64 %235, %231
   store i64 %236, ptr %234, align 8, !tbaa !11
@@ -1101,7 +1097,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %242 = shl nuw i64 1, %241
   %243 = lshr i32 %220, 6
   %244 = zext nneg i32 %243 to i64
-  %245 = getelementptr inbounds nuw i64, ptr %43, i64 %244
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %244
   %246 = load i64, ptr %245, align 8, !tbaa !11
   %247 = or i64 %246, %242
   store i64 %247, ptr %245, align 8, !tbaa !11
@@ -1125,7 +1121,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %258 = add nsw i32 %257, -5
   %259 = zext i32 %258 to i64
   %260 = lshr i64 %259, 6
-  %261 = getelementptr inbounds nuw i64, ptr %43, i64 %260
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %260
   %262 = load i64, ptr %261, align 8, !tbaa !11
   %263 = and i64 %259, 63
   %264 = lshr i64 %262, %263
@@ -1138,7 +1134,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %269 = shl nuw i64 1, %268
   %270 = lshr i32 %258, 6
   %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds nuw i64, ptr %42, i64 %271
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %271
   %273 = load i64, ptr %272, align 8, !tbaa !11
   %274 = or i64 %273, %269
   store i64 %274, ptr %272, align 8, !tbaa !11
@@ -1155,7 +1151,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %280 = shl nuw i64 1, %279
   %281 = lshr i32 %258, 6
   %282 = zext nneg i32 %281 to i64
-  %283 = getelementptr inbounds nuw i64, ptr %43, i64 %282
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %282
   %284 = load i64, ptr %283, align 8, !tbaa !11
   %285 = or i64 %284, %280
   store i64 %285, ptr %283, align 8, !tbaa !11
@@ -1175,7 +1171,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %294 = add nsw i32 %293, -5
   %295 = zext i32 %294 to i64
   %296 = lshr i64 %295, 6
-  %297 = getelementptr inbounds nuw i64, ptr %43, i64 %296
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %296
   %298 = load i64, ptr %297, align 8, !tbaa !11
   %299 = and i64 %295, 63
   %300 = lshr i64 %298, %299
@@ -1188,7 +1184,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %305 = shl nuw i64 1, %304
   %306 = lshr i32 %294, 6
   %307 = zext nneg i32 %306 to i64
-  %308 = getelementptr inbounds nuw i64, ptr %42, i64 %307
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %307
   %309 = load i64, ptr %308, align 8, !tbaa !11
   %310 = or i64 %309, %305
   store i64 %310, ptr %308, align 8, !tbaa !11
@@ -1204,7 +1200,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %316 = shl nuw i64 1, %315
   %317 = lshr i32 %294, 6
   %318 = zext nneg i32 %317 to i64
-  %319 = getelementptr inbounds nuw i64, ptr %43, i64 %318
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %318
   %320 = load i64, ptr %319, align 8, !tbaa !11
   %321 = or i64 %320, %316
   store i64 %321, ptr %319, align 8, !tbaa !11
@@ -1224,7 +1220,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %330 = add nsw i32 %329, -5
   %331 = zext i32 %330 to i64
   %332 = lshr i64 %331, 6
-  %333 = getelementptr inbounds nuw i64, ptr %43, i64 %332
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %332
   %334 = load i64, ptr %333, align 8, !tbaa !11
   %335 = and i64 %331, 63
   %336 = lshr i64 %334, %335
@@ -1237,7 +1233,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %341 = shl nuw i64 1, %340
   %342 = lshr i32 %330, 6
   %343 = zext nneg i32 %342 to i64
-  %344 = getelementptr inbounds nuw i64, ptr %42, i64 %343
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %343
   %345 = load i64, ptr %344, align 8, !tbaa !11
   %346 = or i64 %345, %341
   store i64 %346, ptr %344, align 8, !tbaa !11
@@ -1257,7 +1253,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %355 = add nsw i32 %354, -5
   %356 = zext i32 %355 to i64
   %357 = lshr i64 %356, 6
-  %358 = getelementptr inbounds nuw i64, ptr %43, i64 %357
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %357
   %359 = load i64, ptr %358, align 8, !tbaa !11
   %360 = and i64 %356, 63
   %361 = lshr i64 %359, %360
@@ -1270,7 +1266,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %366 = shl nuw i64 1, %365
   %367 = lshr i32 %355, 6
   %368 = zext nneg i32 %367 to i64
-  %369 = getelementptr inbounds nuw i64, ptr %42, i64 %368
+  %369 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %368
   %370 = load i64, ptr %369, align 8, !tbaa !11
   %371 = or i64 %370, %366
   store i64 %371, ptr %369, align 8, !tbaa !11
@@ -1296,7 +1292,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %382 = add nsw i32 %381, -5
   %383 = zext i32 %382 to i64
   %384 = lshr i64 %383, 6
-  %385 = getelementptr inbounds nuw i64, ptr %43, i64 %384
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %384
   %386 = load i64, ptr %385, align 8, !tbaa !11
   %387 = and i64 %383, 63
   %388 = lshr i64 %386, %387
@@ -1309,7 +1305,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %393 = shl nuw i64 1, %392
   %394 = lshr i32 %382, 6
   %395 = zext nneg i32 %394 to i64
-  %396 = getelementptr inbounds nuw i64, ptr %42, i64 %395
+  %396 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %395
   %397 = load i64, ptr %396, align 8, !tbaa !11
   %398 = or i64 %397, %393
   store i64 %398, ptr %396, align 8, !tbaa !11
@@ -1322,7 +1318,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %403 = add nsw i32 %402, -5
   %404 = zext i32 %403 to i64
   %405 = lshr i64 %404, 6
-  %406 = getelementptr inbounds nuw i64, ptr %43, i64 %405
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %405
   %407 = load i64, ptr %406, align 8, !tbaa !11
   %408 = and i64 %404, 63
   %409 = lshr i64 %407, %408
@@ -1335,7 +1331,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %414 = shl nuw i64 1, %413
   %415 = lshr i32 %403, 6
   %416 = zext nneg i32 %415 to i64
-  %417 = getelementptr inbounds nuw i64, ptr %42, i64 %416
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %416
   %418 = load i64, ptr %417, align 8, !tbaa !11
   %419 = or i64 %418, %414
   store i64 %419, ptr %417, align 8, !tbaa !11
@@ -1380,7 +1376,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %440 = shl nuw i64 1, %439
   %441 = lshr i32 %437, 6
   %442 = zext nneg i32 %441 to i64
-  %443 = getelementptr inbounds nuw i64, ptr %43, i64 %442
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %442
   %444 = load i64, ptr %443, align 8, !tbaa !11
   %445 = or i64 %440, %444
   store i64 %445, ptr %443, align 8, !tbaa !11
@@ -1404,7 +1400,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %458 = shl nuw i64 1, %457
   %459 = lshr i32 %455, 6
   %460 = zext nneg i32 %459 to i64
-  %461 = getelementptr inbounds nuw i64, ptr %43, i64 %460
+  %461 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %460
   %462 = load i64, ptr %461, align 8, !tbaa !11
   %463 = or i64 %458, %462
   store i64 %463, ptr %461, align 8, !tbaa !11
@@ -1427,7 +1423,7 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %474 = shl nuw i64 1, %473
   %475 = lshr i32 %471, 6
   %476 = zext nneg i32 %475 to i64
-  %477 = getelementptr inbounds nuw i64, ptr %43, i64 %476
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %476
   %478 = load i64, ptr %477, align 8, !tbaa !11
   %479 = or i64 %474, %478
   store i64 %479, ptr %477, align 8, !tbaa !11
@@ -1482,7 +1478,7 @@ _zend_dfg_add_use_def_op.exit:                    ; preds = %467, %.thread, %.lr
   %498 = shl nuw i64 1, %497
   %499 = lshr i32 %.1147186, 6
   %500 = zext nneg i32 %499 to i64
-  %501 = getelementptr inbounds nuw i64, ptr %491, i64 %500
+  %501 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %500
   %502 = load i64, ptr %501, align 8, !tbaa !11
   %503 = or i64 %502, %498
   store i64 %503, ptr %501, align 8, !tbaa !11
@@ -1501,7 +1497,7 @@ _zend_dfg_add_use_def_op.exit:                    ; preds = %467, %.thread, %.lr
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i.preheader.lr.ph ], [ %indvars.iv.i.be, %.lr.ph.i.backedge ]
-  %506 = getelementptr inbounds nuw i64, ptr %491, i64 %indvars.iv.i
+  %506 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %indvars.iv.i
   %507 = load i64, ptr %506, align 8, !tbaa !11
   %.not.i152 = icmp eq i64 %507, 0
   br i1 %.not.i152, label %505, label %zend_bitset_empty.exit
@@ -1513,7 +1509,7 @@ zend_bitset_empty.exit:                           ; preds = %.lr.ph.i, %508
 
 508:                                              ; preds = %zend_bitset_empty.exit
   %509 = add nsw i64 %indvars.iv.i153, -1
-  %510 = getelementptr inbounds nuw i64, ptr %491, i64 %509
+  %510 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %509
   %511 = load i64, ptr %510, align 8, !tbaa !11
   %.not16.i = icmp eq i64 %511, 0
   br i1 %.not16.i, label %zend_bitset_empty.exit, label %512
@@ -1540,12 +1536,12 @@ zend_bitset_last.exit:                            ; preds = %zend_bitset_empty.e
   %522 = xor i64 %521, -1
   %523 = lshr i32 %.014.i, 6
   %524 = zext nneg i32 %523 to i64
-  %525 = getelementptr inbounds nuw i64, ptr %491, i64 %524
+  %525 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %524
   %526 = load i64, ptr %525, align 8, !tbaa !11
   %527 = and i64 %526, %522
   store i64 %527, ptr %525, align 8, !tbaa !11
   %528 = sext i32 %.014.i to i64
-  %529 = getelementptr inbounds %struct._zend_basic_block, ptr %6, i64 %528
+  %529 = getelementptr inbounds [64 x i8], ptr %6, i64 %528
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 8
   %531 = load i32, ptr %530, align 8, !tbaa !44
   %532 = icmp sgt i32 %531, -1
@@ -1557,7 +1553,7 @@ zend_bitset_last.exit:                            ; preds = %zend_bitset_empty.e
   %.not = icmp eq i32 %535, 0
   %536 = mul nsw i32 %.014.i, %9
   %537 = sext i32 %536 to i64
-  %538 = getelementptr inbounds i64, ptr %19, i64 %537
+  %538 = getelementptr inbounds [8 x i8], ptr %19, i64 %537
   br i1 %.not, label %558, label %539
 
 539:                                              ; preds = %533
@@ -1565,7 +1561,7 @@ zend_bitset_last.exit:                            ; preds = %zend_bitset_empty.e
   %541 = load i32, ptr %540, align 4, !tbaa !52
   %542 = mul nsw i32 %541, %9
   %543 = sext i32 %542 to i64
-  %544 = getelementptr inbounds i64, ptr %17, i64 %543
+  %544 = getelementptr inbounds [8 x i8], ptr %17, i64 %543
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %538, ptr readonly align 8 %544, i64 %494, i1 false)
   %545 = load i32, ptr %534, align 4, !tbaa !50
   %546 = icmp sgt i32 %545, 1
@@ -1581,18 +1577,18 @@ zend_bitset_last.exit:                            ; preds = %zend_bitset_empty.e
 
 .lr.ph.i158.preheader:                            ; preds = %.lr.ph.i158.preheader.preheader, %zend_bitset_union.exit.loopexit
   %indvars.iv202 = phi i64 [ 1, %.lr.ph.i158.preheader.preheader ], [ %indvars.iv.next203, %zend_bitset_union.exit.loopexit ]
-  %548 = getelementptr inbounds nuw i32, ptr %547, i64 %indvars.iv202
+  %548 = getelementptr inbounds nuw [4 x i8], ptr %547, i64 %indvars.iv202
   %549 = load i32, ptr %548, align 4, !tbaa !52
   %550 = mul nsw i32 %549, %9
   %551 = sext i32 %550 to i64
-  %552 = getelementptr inbounds i64, ptr %17, i64 %551
+  %552 = getelementptr inbounds [8 x i8], ptr %17, i64 %551
   br label %.lr.ph.i158
 
 .lr.ph.i158:                                      ; preds = %.lr.ph.i158.preheader, %.lr.ph.i158
   %indvars.iv.i159 = phi i64 [ %indvars.iv.next.i160, %.lr.ph.i158 ], [ 0, %.lr.ph.i158.preheader ]
-  %553 = getelementptr inbounds nuw i64, ptr %552, i64 %indvars.iv.i159
+  %553 = getelementptr inbounds nuw [8 x i8], ptr %552, i64 %indvars.iv.i159
   %554 = load i64, ptr %553, align 8, !tbaa !11
-  %555 = getelementptr inbounds nuw i64, ptr %538, i64 %indvars.iv.i159
+  %555 = getelementptr inbounds nuw [8 x i8], ptr %538, i64 %indvars.iv.i159
   %556 = load i64, ptr %555, align 8, !tbaa !11
   %557 = or i64 %556, %554
   store i64 %557, ptr %555, align 8, !tbaa !11
@@ -1610,30 +1606,30 @@ zend_bitset_union.exit.loopexit:                  ; preds = %.lr.ph.i158
   br label %.loopexit175
 
 .loopexit175:                                     ; preds = %zend_bitset_union.exit.loopexit, %539, %558
-  %559 = getelementptr inbounds i64, ptr %15, i64 %537
-  %560 = getelementptr inbounds i64, ptr %19, i64 %537
-  %561 = getelementptr inbounds i64, ptr %13, i64 %537
+  %559 = getelementptr inbounds [8 x i8], ptr %15, i64 %537
+  %560 = getelementptr inbounds [8 x i8], ptr %19, i64 %537
+  %561 = getelementptr inbounds [8 x i8], ptr %13, i64 %537
   br i1 %.not.i155, label %zend_bitset_union_with_difference.exit, label %.lr.ph.i165
 
 .lr.ph.i165:                                      ; preds = %.loopexit175, %.lr.ph.i165
   %indvars.iv.i166 = phi i64 [ %indvars.iv.next.i167, %.lr.ph.i165 ], [ 0, %.loopexit175 ]
-  %562 = getelementptr inbounds nuw i64, ptr %559, i64 %indvars.iv.i166
+  %562 = getelementptr inbounds nuw [8 x i8], ptr %559, i64 %indvars.iv.i166
   %563 = load i64, ptr %562, align 8, !tbaa !11
-  %564 = getelementptr inbounds nuw i64, ptr %560, i64 %indvars.iv.i166
+  %564 = getelementptr inbounds nuw [8 x i8], ptr %560, i64 %indvars.iv.i166
   %565 = load i64, ptr %564, align 8, !tbaa !11
-  %566 = getelementptr inbounds nuw i64, ptr %561, i64 %indvars.iv.i166
+  %566 = getelementptr inbounds nuw [8 x i8], ptr %561, i64 %indvars.iv.i166
   %567 = load i64, ptr %566, align 8, !tbaa !11
   %568 = xor i64 %567, -1
   %569 = and i64 %565, %568
   %570 = or i64 %569, %563
-  %571 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i166
+  %571 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i166
   store i64 %570, ptr %571, align 8, !tbaa !11
   %indvars.iv.next.i167 = add nuw nsw i64 %indvars.iv.i166, 1
   %exitcond.not.i168 = icmp eq i64 %indvars.iv.next.i167, %493
   br i1 %exitcond.not.i168, label %zend_bitset_union_with_difference.exit, label %.lr.ph.i165
 
 zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i165, %.lr.ph191, %.loopexit175
-  %572 = getelementptr inbounds i64, ptr %17, i64 %537
+  %572 = getelementptr inbounds [8 x i8], ptr %17, i64 %537
   %bcmp.i = tail call i32 @bcmp(ptr readonly %572, ptr readonly %11, i64 %494)
   %573 = icmp eq i32 %bcmp.i, 0
   br i1 %573, label %.lr.ph.i.backedge, label %574
@@ -1644,7 +1640,7 @@ zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i165, %.lr.p
   %576 = getelementptr inbounds nuw i8, ptr %529, i64 28
   %577 = load i32, ptr %576, align 4, !tbaa !54
   %578 = sext i32 %577 to i64
-  %579 = getelementptr inbounds i32, ptr %575, i64 %578
+  %579 = getelementptr inbounds [4 x i8], ptr %575, i64 %578
   %580 = getelementptr inbounds nuw i8, ptr %529, i64 24
   %581 = load i32, ptr %580, align 8, !tbaa !55
   %582 = icmp sgt i32 %581, 0
@@ -1656,14 +1652,14 @@ zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i165, %.lr.p
 
 .lr.ph194:                                        ; preds = %.lr.ph194.preheader, %.lr.ph194
   %indvars.iv207 = phi i64 [ 0, %.lr.ph194.preheader ], [ %indvars.iv.next208, %.lr.ph194 ]
-  %583 = getelementptr inbounds nuw i32, ptr %579, i64 %indvars.iv207
+  %583 = getelementptr inbounds nuw [4 x i8], ptr %579, i64 %indvars.iv207
   %584 = load i32, ptr %583, align 4, !tbaa !52
   %585 = and i32 %584, 63
   %586 = zext nneg i32 %585 to i64
   %587 = shl nuw i64 1, %586
   %588 = lshr i32 %584, 6
   %589 = zext nneg i32 %588 to i64
-  %590 = getelementptr inbounds nuw i64, ptr %491, i64 %589
+  %590 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %589
   %591 = load i64, ptr %590, align 8, !tbaa !11
   %592 = or i64 %587, %591
   store i64 %592, ptr %590, align 8, !tbaa !11

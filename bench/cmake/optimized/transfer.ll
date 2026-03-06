@@ -1464,7 +1464,7 @@ define internal fastcc void @xfer_setup(ptr noundef %0, i32 noundef range(i32 -1
   %.sink = phi i32 [ %4, %21 ], [ %1, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 568
   %24 = zext nneg i32 %.sink to i64
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !97
   br label %27
 
@@ -1484,7 +1484,7 @@ define internal fastcc void @xfer_setup(ptr noundef %0, i32 noundef range(i32 -1
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 568
   %35 = zext nneg i32 %1 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !97
   br label %38
 
@@ -1498,7 +1498,7 @@ define internal fastcc void @xfer_setup(ptr noundef %0, i32 noundef range(i32 -1
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 568
   %44 = zext nneg i32 %4 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !97
   br label %47
 

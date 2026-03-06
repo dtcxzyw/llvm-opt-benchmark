@@ -158,7 +158,7 @@ define i32 @tq_send(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8, !tbaa !9
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %13) #5
   %15 = load i32, ptr %12, align 4, !tbaa !19
@@ -297,7 +297,7 @@ define range(i32 -541478725, 1) i32 @tq_receive(ptr noundef %0, ptr noundef writ
   %25 = load ptr, ptr %0, align 8, !tbaa !9
   %26 = load i32, ptr %4, align 4, !tbaa !19
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !19
   %30 = and i32 %29, 2
   %.not34.not.i = icmp eq i32 %30, 0
@@ -331,7 +331,7 @@ define range(i32 -541478725, 1) i32 @tq_receive(ptr noundef %0, ptr noundef writ
 40:                                               ; preds = %50, %.lr.ph48.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next.i, %50 ]
   %.02946.i = phi i32 [ 0, %.lr.ph48.i ], [ %.130.i, %50 ]
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4, !tbaa !19
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %50, label %43
@@ -342,7 +342,7 @@ define range(i32 -541478725, 1) i32 @tq_receive(ptr noundef %0, ptr noundef writ
   br i1 %.not32.i, label %.thread35.i, label %48
 
 .thread35.i:                                      ; preds = %43
-  %45 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i
   %46 = trunc nuw i64 %indvars.iv.i to i32
   %47 = or disjoint i32 %42, 2
   store i32 %47, ptr %45, align 4, !tbaa !19
@@ -407,7 +407,7 @@ define void @tq_send_finish(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #5
   %10 = load ptr, ptr %0, align 8, !tbaa !9
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !19
   %14 = or i32 %13, 1
   store i32 %14, ptr %12, align 4, !tbaa !19
@@ -434,7 +434,7 @@ define void @tq_receive_finish(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #5
   %10 = load ptr, ptr %0, align 8, !tbaa !9
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !19
   %14 = or i32 %13, 2
   store i32 %14, ptr %12, align 4, !tbaa !19

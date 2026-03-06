@@ -1284,7 +1284,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowINS_10StrideIterIPKhEEEEvNS_5R
   br i1 %22, label %23, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i16, ptr %13, i64 %10
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %10
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %25
 
@@ -1333,7 +1333,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   %41 = load i8, ptr %40, align 1, !tbaa !16
   %42 = icmp ne i8 %39, %41
   %43 = zext i1 %42 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %.133, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.133, i64 %43
   %45 = getelementptr inbounds i8, ptr %36, i64 %34
   %.not31 = icmp eq ptr %45, %.sroa.0.0.copyload.i.i
   br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !60
@@ -1369,7 +1369,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   br i1 %62, label %63, label %_ZNSt6vectorItSaItEE6resizeEm.exit21
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i16, ptr %27, i64 %55
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %55
   %.not.i.i20 = icmp eq ptr %26, %64
   br i1 %.not.i.i20, label %_ZNSt6vectorItSaItEE6resizeEm.exit21, label %65
 
@@ -1412,7 +1412,7 @@ define linkonce_odr void @_ZN5ZXing13GetPatternRowIPKhEEvNS_5RangeIT_EERSt6vecto
   br i1 %20, label %21, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i16, ptr %11, i64 %8
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %8
   %.not.i.i = icmp eq ptr %10, %22
   br i1 %.not.i.i, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %23
 
@@ -1499,7 +1499,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   %55 = load i8, ptr %.252, align 1, !tbaa !16
   %56 = icmp ne i8 %54, %55
   %57 = zext i1 %56 to i64
-  %58 = getelementptr inbounds nuw i16, ptr %.351, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.351, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %.not38 = icmp eq ptr %59, %1
   br i1 %.not38, label %._crit_edge, label %.lr.ph53, !llvm.loop !62
@@ -1533,7 +1533,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
   br i1 %73, label %74, label %_ZNSt6vectorItSaItEE6resizeEm.exit44
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i16, ptr %25, i64 %66
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %66
   %.not.i.i43 = icmp eq ptr %24, %75
   br i1 %.not.i.i43, label %_ZNSt6vectorItSaItEE6resizeEm.exit44, label %76
 
@@ -2062,9 +2062,9 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit36: ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !56
-  %39 = getelementptr inbounds nuw i16, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !53
-  %40 = getelementptr inbounds nuw i16, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !67
   br label %41
 

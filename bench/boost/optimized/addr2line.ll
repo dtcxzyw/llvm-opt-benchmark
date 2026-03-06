@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.boost::stacktrace::detail::to_string_impl_base" = type { %"struct.boost::stacktrace::detail::to_string_using_addr2line" }
 %"struct.boost::stacktrace::detail::to_string_using_addr2line" = type { %"class.std::__cxx11::basic_string" }
 %"struct.std::array" = type { [40 x i8] }
-%"class.boost::stacktrace::frame" = type { ptr }
 %"class.boost::stacktrace::detail::location_from_symbol" = type { %struct.Dl_info }
 %struct.Dl_info = type { ptr, ptr, ptr, ptr }
 %"class.std::basic_ifstream" = type { %"class.std::basic_istream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
@@ -192,7 +191,7 @@ define noundef range(i64 -1152921504606846977, 1152921504606846976) i64 @_ZN5boo
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = invoke i32 @_Unwind_Backtrace(ptr noundef nonnull @_ZN5boost10stacktrace6detail15unwind_callbackEP15_Unwind_ContextPv, ptr noundef nonnull %4)
           to label %11 unwind label %25
@@ -1166,7 +1165,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i27: ; 
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %77
   store i8 0, ptr %90, align 1, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %91 = getelementptr inbounds nuw %"class.boost::stacktrace::frame", ptr %1, i64 %.053
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.053
   %92 = load ptr, ptr %91, align 8, !tbaa !12
   invoke void @_ZN5boost10stacktrace6detail19to_string_impl_baseINS1_25to_string_using_addr2lineEEclB5cxx11EPKv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %92)
           to label %93 unwind label %122

@@ -13,9 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.1" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.116" = type { %"class.std::__shared_ptr.117" }
 %"class.std::__shared_ptr.117" = type { ptr, %"class.std::__shared_count" }
-%struct.float16_t = type { i16 }
-%struct.float32_t = type { i32 }
-%struct.float64_t = type { i64 }
 
 $_ZNSt12__shared_ptrI11vxsat_csr_tLN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -1960,7 +1957,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_
   %28 = lshr i64 %27, 3
   %29 = mul i64 %28, %11
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %10
   ret ptr %31
 }
 
@@ -2001,7 +1998,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_
   %28 = lshr i64 %27, 3
   %29 = mul i64 %28, %11
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %10
   ret ptr %31
 }
 
@@ -2042,7 +2039,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_
   %28 = lshr i64 %27, 3
   %29 = mul i64 %28, %11
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %10
   ret ptr %31
 }
 
@@ -2083,7 +2080,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_
   %28 = lshr i64 %27, 3
   %29 = mul i64 %28, %11
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %10
   ret ptr %31
 }
 
@@ -2165,7 +2162,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_
   %28 = lshr i64 %27, 3
   %29 = mul i64 %28, %11
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %10
   ret ptr %31
 }
 
@@ -2206,7 +2203,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_
   %28 = lshr i64 %27, 3
   %29 = mul i64 %28, %11
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %10
   ret ptr %31
 }
 
@@ -2247,7 +2244,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_
   %28 = lshr i64 %27, 3
   %29 = mul i64 %28, %11
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %10
   ret ptr %31
 }
 
@@ -2288,7 +2285,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_
   %28 = lshr i64 %27, 3
   %29 = mul i64 %28, %11
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw %struct.float16_t, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %10
   ret ptr %31
 }
 
@@ -2329,7 +2326,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_
   %28 = lshr i64 %27, 3
   %29 = mul i64 %28, %11
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw %struct.float32_t, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %10
   ret ptr %31
 }
 
@@ -2370,7 +2367,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_
   %28 = lshr i64 %27, 3
   %29 = mul i64 %28, %11
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw %struct.float64_t, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %10
   ret ptr %31
 }
 

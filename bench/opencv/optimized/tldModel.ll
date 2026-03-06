@@ -20,16 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::RotatedRect" = type { %"class.cv::Point_", %"class.cv::Size_.50", float }
 %"class.cv::Point_" = type { float, float }
 %"class.cv::Size_.50" = type { float, float }
-%"class.cv::tracking::impl::tld::TLDEnsembleClassifier" = type <{ %"class.std::vector.44", %"class.std::vector.51", %"class.std::vector.44", i32, [4 x i8] }>
-%"class.std::vector.51" = type { %"struct.std::_Vector_base.52" }
-%"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<cv::Vec<unsigned char, 4>, std::allocator<cv::Vec<unsigned char, 4>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Vec<unsigned char, 4>, std::allocator<cv::Vec<unsigned char, 4>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Vec<unsigned char, 4>, std::allocator<cv::Vec<unsigned char, 4>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Vec<unsigned char, 4>, std::allocator<cv::Vec<unsigned char, 4>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.44" = type { %"struct.std::_Vector_base.45" }
-%"struct.std::_Vector_base.45" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch" = type <{ %"class.cv::Rect_", i8, i8, [6 x i8] }>
 %"class.cv::Range" = type { i32, i32 }
 %"class.cv::tracking::impl::tld::CalcSrParallelLoopBody" = type { %"class.cv::ParallelLoopBody", ptr, ptr }
 %"class.cv::ParallelLoopBody" = type { ptr }
@@ -680,7 +670,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
 
 235:                                              ; preds = %234
   %236 = load ptr, ptr %5, align 8, !tbaa !126
-  %237 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %236, i64 %.090223
+  %237 = getelementptr inbounds nuw [32 x i8], ptr %236, i64 %.090223
   %238 = load double, ptr %237, align 8, !tbaa !115
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %240 = load double, ptr %239, align 8, !tbaa !107
@@ -896,7 +886,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
 .lr.ph220:                                        ; preds = %.preheader212, %378
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %378 ], [ 0, %.preheader212 ]
   %376 = phi ptr [ %382, %378 ], [ %366, %.preheader212 ]
-  %377 = getelementptr inbounds nuw %"class.cv::tracking::impl::tld::TLDEnsembleClassifier", ptr %376, i64 %indvars.iv234
+  %377 = getelementptr inbounds nuw [80 x i8], ptr %376, i64 %indvars.iv234
   invoke void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier9integrateERKNS_4Mat_IhEEb(ptr noundef nonnull align 8 dereferenceable(76) %377, ptr noundef nonnull align 8 dereferenceable(96) %17, i1 noundef zeroext true)
           to label %378 unwind label %389
 
@@ -1041,7 +1031,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIN2cv4
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.thread: ; preds = %425, %434
   %443 = phi i64 [ %442, %434 ], [ 0, %425 ]
-  %444 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %427, i64 %443
+  %444 = getelementptr inbounds nuw [32 x i8], ptr %427, i64 %443
   %445 = invoke noundef double @_ZN2cv8tracking4impl3tld7overlapERKNS_5Rect_IdEES6_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %444)
           to label %446 unwind label %465
 
@@ -1056,7 +1046,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
 
 _ZN2cv4Mat_IhEC2Eii.exit136:                      ; preds = %448
   %449 = load ptr, ptr %6, align 8, !tbaa !126
-  %450 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %449, i64 %443
+  %450 = getelementptr inbounds nuw [32 x i8], ptr %449, i64 %443
   invoke void @_ZN2cv8tracking4impl3tld8resampleERKNS_3MatERKNS_5Rect_IdEERNS_4Mat_IhEE(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(32) %450, ptr noundef nonnull align 8 dereferenceable(96) %21)
           to label %451 unwind label %469
 
@@ -1066,7 +1056,7 @@ _ZN2cv4Mat_IhEC2Eii.exit136:                      ; preds = %448
 
 452:                                              ; preds = %451
   %453 = load ptr, ptr %6, align 8, !tbaa !126
-  %454 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %453, i64 %443
+  %454 = getelementptr inbounds nuw [32 x i8], ptr %453, i64 %443
   invoke void @_ZN2cv8tracking4impl3tld8resampleERKNS_3MatERKNS_5Rect_IdEERNS_4Mat_IhEE(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(32) %454, ptr noundef nonnull align 8 dereferenceable(96) %17)
           to label %.preheader unwind label %469
 
@@ -1106,7 +1096,7 @@ _ZN2cv4Mat_IhEC2Eii.exit136:                      ; preds = %448
 .lr.ph226:                                        ; preds = %.preheader, %473
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %473 ], [ 0, %.preheader ]
   %471 = phi ptr [ %477, %473 ], [ %458, %.preheader ]
-  %472 = getelementptr inbounds nuw %"class.cv::tracking::impl::tld::TLDEnsembleClassifier", ptr %471, i64 %indvars.iv237
+  %472 = getelementptr inbounds nuw [80 x i8], ptr %471, i64 %indvars.iv237
   invoke void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier9integrateERKNS_4Mat_IhEEb(ptr noundef nonnull align 8 dereferenceable(76) %472, ptr noundef nonnull align 8 dereferenceable(96) %17, i1 noundef zeroext false)
           to label %473 unwind label %484
 
@@ -1571,7 +1561,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi i32 [ %.pre.pre, %92 ], [ %88, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %86, ptr %49, align 8, !tbaa !146
   store ptr %91, ptr %66, align 8, !tbaa !151
-  %93 = getelementptr inbounds nuw i32, ptr %86, i64 %84
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %84
   store ptr %93, ptr %68, align 8, !tbaa !152
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1586,11 +1576,11 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %46
   %100 = trunc i64 %99 to i32
   %101 = urem i32 %100, %57
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"class.cv::Mat_", ptr %52, i64 %102
+  %103 = getelementptr inbounds nuw [96 x i8], ptr %52, i64 %102
   %104 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %103, ptr noundef nonnull align 8 dereferenceable(96) %1)
   %105 = load i32, ptr %48, align 4, !tbaa !27
   %106 = load ptr, ptr %49, align 8, !tbaa !146
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %102
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %102
   store i32 %105, ptr %107, align 4, !tbaa !27
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1659,7 +1649,7 @@ _ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit._crit_edge:   ; preds = %_ZN2cv4Mat_IhEC2ENS
 20:                                               ; preds = %.lr.ph30, %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit
   %indvars.iv32 = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next33, %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit ]
   %21 = phi ptr [ %10, %.lr.ph30 ], [ %72, %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit ]
-  %22 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %21, i64 %indvars.iv32
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %indvars.iv32
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 33
   %24 = load i8, ptr %23, align 1, !tbaa !157, !range !160, !noundef !161
   %25 = trunc nuw i8 %24 to i1
@@ -1671,7 +1661,7 @@ _ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit._crit_edge:   ; preds = %_ZN2cv4Mat_IhEC2ENS
 
 .invoke:                                          ; preds = %26
   %27 = load ptr, ptr %3, align 8, !tbaa !156
-  %28 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %27, i64 %indvars.iv32
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %indvars.iv32
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load i8, ptr %29, align 8, !tbaa !162, !range !160, !noundef !161
   %31 = trunc nuw i8 %30 to i1
@@ -1685,7 +1675,7 @@ _ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit._crit_edge:   ; preds = %_ZN2cv4Mat_IhEC2ENS
 
 34:                                               ; preds = %.invoke, %20
   %35 = load ptr, ptr %3, align 8, !tbaa !156
-  %36 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %35, i64 %indvars.iv32
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %indvars.iv32
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 33
   %38 = load i8, ptr %37, align 1, !tbaa !157, !range !160, !noundef !161
   %39 = trunc nuw i8 %38 to i1
@@ -1711,9 +1701,9 @@ _ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit._crit_edge:   ; preds = %_ZN2cv4Mat_IhEC2ENS
 .lr.ph:                                           ; preds = %.preheader, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.preheader ]
   %51 = phi ptr [ %62, %58 ], [ %44, %.preheader ]
-  %52 = getelementptr inbounds nuw %"class.cv::tracking::impl::tld::TLDEnsembleClassifier", ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [80 x i8], ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %3, align 8, !tbaa !156
-  %54 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %53, i64 %indvars.iv32
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %indvars.iv32
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load i8, ptr %55, align 8, !tbaa !162, !range !160, !noundef !161
   %57 = trunc nuw i8 %56 to i1
@@ -1809,7 +1799,7 @@ define hidden void @_ZN2cv8tracking4impl3tld15TrackerTLDModel19integrateAddition
   br i1 %29, label %30, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw double, ptr %20, i64 %13
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %13
   %.not.i.i = icmp eq ptr %19, %31
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %32
 
@@ -1863,14 +1853,14 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
   %indvars.iv54 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next55, %.loopexit ]
   %50 = phi ptr [ %39, %.lr.ph47 ], [ %115, %.loopexit ]
   %51 = load ptr, ptr %17, align 8, !tbaa !145
-  %52 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv54
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv54
   %53 = load double, ptr %52, align 8, !tbaa !7
   %54 = fcmp ule double %53, 5.000000e-01
   %.not = xor i1 %3, %54
   br i1 %.not, label %56, label %.sink.split
 
 .sink.split:                                      ; preds = %49
-  %55 = getelementptr inbounds nuw %"class.cv::Mat_", ptr %50, i64 %indvars.iv54
+  %55 = getelementptr inbounds nuw [96 x i8], ptr %50, i64 %indvars.iv54
   call void @_ZN2cv8tracking4impl3tld15TrackerTLDModel13pushIntoModelERKNS_4Mat_IhEEb(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(96) %55, i1 noundef zeroext %3)
   br label %56
 
@@ -1911,9 +1901,9 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %56 ]
   %78 = phi ptr [ %93, %.lr.ph ], [ %60, %56 ]
   %.03540 = phi double [ %89, %.lr.ph ], [ 0.000000e+00, %56 ]
-  %79 = getelementptr inbounds nuw %"class.cv::tracking::impl::tld::TLDEnsembleClassifier", ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [80 x i8], ptr %78, i64 %indvars.iv
   %80 = load ptr, ptr %2, align 8, !tbaa !119
-  %81 = getelementptr inbounds nuw %"class.cv::Mat_", ptr %80, i64 %indvars.iv54
+  %81 = getelementptr inbounds nuw [96 x i8], ptr %80, i64 %indvars.iv54
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !133
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 72
@@ -1939,9 +1929,9 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
 .lr.ph44:                                         ; preds = %.preheader, %.lr.ph44
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.lr.ph44 ], [ 0, %.preheader ]
   %100 = phi ptr [ %107, %.lr.ph44 ], [ %67, %.preheader ]
-  %101 = getelementptr inbounds nuw %"class.cv::tracking::impl::tld::TLDEnsembleClassifier", ptr %100, i64 %indvars.iv51
+  %101 = getelementptr inbounds nuw [80 x i8], ptr %100, i64 %indvars.iv51
   %102 = load ptr, ptr %2, align 8, !tbaa !119
-  %103 = getelementptr inbounds nuw %"class.cv::Mat_", ptr %102, i64 %indvars.iv54
+  %103 = getelementptr inbounds nuw [96 x i8], ptr %102, i64 %indvars.iv54
   call void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier9integrateERKNS_4Mat_IhEEb(ptr noundef nonnull align 8 dereferenceable(76) %101, ptr noundef nonnull align 8 dereferenceable(96) %103, i1 noundef zeroext %3)
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %104 = load ptr, ptr %46, align 8, !tbaa !21
@@ -2260,12 +2250,12 @@ define linkonce_odr hidden void @_ZNK2cv8tracking4impl3tld22CalcSrParallelLoopBo
   %13 = load ptr, ptr %12, align 8, !tbaa !21
   %14 = load ptr, ptr %8, align 8, !tbaa !178
   %15 = load ptr, ptr %14, align 8, !tbaa !119
-  %16 = getelementptr inbounds nuw %"class.cv::Mat_", ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [96 x i8], ptr %15, i64 %indvars.iv
   %17 = tail call noundef double @_ZNK2cv8tracking4impl3tld11TLDDetector2SrERKNS_4Mat_IhEE(ptr noundef nonnull align 8 dereferenceable(312) %13, ptr noundef nonnull align 8 dereferenceable(96) %16)
   %18 = load ptr, ptr %7, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 432
   %20 = load ptr, ptr %19, align 8, !tbaa !145
-  %21 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store double %17, ptr %21, align 8, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %4, align 4, !tbaa !168
@@ -2741,9 +2731,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !145
-  %38 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !165
-  %39 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !189
   br label %40
 
@@ -2916,7 +2906,7 @@ _ZNSt12_Vector_baseIN2cv4Mat_IhEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !119
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !120
-  %50 = getelementptr inbounds nuw %"class.cv::Mat_", ptr %20, i64 %16
+  %50 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %50, ptr %49, align 8, !tbaa !118
   ret void
 

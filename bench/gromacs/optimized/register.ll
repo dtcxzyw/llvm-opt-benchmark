@@ -3,15 +3,6 @@ source_filename = "bench/gromacs/original/register.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.gmx::ProcessFrameConversion::FrameModule" = type { %"class.std::unique_ptr.7" }
-%"class.std::unique_ptr.7" = type { %"struct.std::__uniq_ptr_data.8" }
-%"struct.std::__uniq_ptr_data.8" = type { %"class.std::__uniq_ptr_impl.9" }
-%"class.std::__uniq_ptr_impl.9" = type { %"class.std::tuple.10" }
-%"class.std::tuple.10" = type { %"struct.std::_Tuple_impl.11" }
-%"struct.std::_Tuple_impl.11" = type { %"struct.std::_Head_base.14" }
-%"struct.std::_Head_base.14" = type { ptr }
-%"class.gmx::BasicVector" = type { [3 x float] }
-
 $_ZNK3gmx22ProcessFrameConversion9guaranteeEv = comdat any
 
 $_ZNSt6vectorIN3gmx22ProcessFrameConversion11FrameModuleESaIS2_EE17_M_realloc_insertIJSt10unique_ptrINS0_15IFrameConverterESt14default_deleteIS7_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
@@ -344,7 +335,7 @@ _ZNSt6vectorIN3gmx22ProcessFrameConversion11FrameModuleESaIS2_EE11_S_relocateEPS
 _ZNSt12_Vector_baseIN3gmx22ProcessFrameConversion11FrameModuleESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3gmx22ProcessFrameConversion11FrameModuleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %31
   store ptr %20, ptr %0, align 8, !tbaa !36
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !37
-  %35 = getelementptr inbounds nuw %"struct.gmx::ProcessFrameConversion::FrameModule", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !40
   ret void
 }
@@ -474,8 +465,8 @@ define void @_ZN3gmx22ProcessFrameConversion21prepareNewCoordinatesEPK10t_trxfra
 
 57:                                               ; preds = %57, %.lr.ph.split.us.split.us
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %57 ], [ 0, %.lr.ph.split.us.split.us ]
-  %58 = getelementptr inbounds nuw [3 x float], ptr %40, i64 %indvars.iv33
-  %59 = getelementptr inbounds nuw [3 x float], ptr %42, i64 %indvars.iv33
+  %58 = getelementptr inbounds nuw [12 x i8], ptr %40, i64 %indvars.iv33
+  %59 = getelementptr inbounds nuw [12 x i8], ptr %42, i64 %indvars.iv33
   %60 = load float, ptr %58, align 4, !tbaa !61
   store float %60, ptr %59, align 4, !tbaa !61
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
@@ -486,8 +477,8 @@ define void @_ZN3gmx22ProcessFrameConversion21prepareNewCoordinatesEPK10t_trxfra
   %65 = load float, ptr %64, align 4, !tbaa !61
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store float %65, ptr %66, align 4, !tbaa !61
-  %67 = getelementptr inbounds nuw [3 x float], ptr %53, i64 %indvars.iv33
-  %68 = getelementptr inbounds nuw [3 x float], ptr %54, i64 %indvars.iv33
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %53, i64 %indvars.iv33
+  %68 = getelementptr inbounds nuw [12 x i8], ptr %54, i64 %indvars.iv33
   %69 = load float, ptr %67, align 4, !tbaa !61
   store float %69, ptr %68, align 4, !tbaa !61
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 4
@@ -498,8 +489,8 @@ define void @_ZN3gmx22ProcessFrameConversion21prepareNewCoordinatesEPK10t_trxfra
   %74 = load float, ptr %73, align 4, !tbaa !61
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store float %74, ptr %75, align 4, !tbaa !61
-  %76 = getelementptr inbounds nuw [3 x float], ptr %55, i64 %indvars.iv33
-  %77 = getelementptr inbounds nuw [3 x float], ptr %56, i64 %indvars.iv33
+  %76 = getelementptr inbounds nuw [12 x i8], ptr %55, i64 %indvars.iv33
+  %77 = getelementptr inbounds nuw [12 x i8], ptr %56, i64 %indvars.iv33
   %78 = load float, ptr %76, align 4, !tbaa !61
   store float %78, ptr %77, align 4, !tbaa !61
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
@@ -516,8 +507,8 @@ define void @_ZN3gmx22ProcessFrameConversion21prepareNewCoordinatesEPK10t_trxfra
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %.lr.ph.split.us.split
   %indvars.iv28 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next29, %.lr.ph.split.us.split ]
-  %85 = getelementptr inbounds nuw [3 x float], ptr %40, i64 %indvars.iv28
-  %86 = getelementptr inbounds nuw [3 x float], ptr %42, i64 %indvars.iv28
+  %85 = getelementptr inbounds nuw [12 x i8], ptr %40, i64 %indvars.iv28
+  %86 = getelementptr inbounds nuw [12 x i8], ptr %42, i64 %indvars.iv28
   %87 = load float, ptr %85, align 4, !tbaa !61
   store float %87, ptr %86, align 4, !tbaa !61
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 4
@@ -528,8 +519,8 @@ define void @_ZN3gmx22ProcessFrameConversion21prepareNewCoordinatesEPK10t_trxfra
   %92 = load float, ptr %91, align 4, !tbaa !61
   %93 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store float %92, ptr %93, align 4, !tbaa !61
-  %94 = getelementptr inbounds nuw [3 x float], ptr %53, i64 %indvars.iv28
-  %95 = getelementptr inbounds nuw [3 x float], ptr %54, i64 %indvars.iv28
+  %94 = getelementptr inbounds nuw [12 x i8], ptr %53, i64 %indvars.iv28
+  %95 = getelementptr inbounds nuw [12 x i8], ptr %54, i64 %indvars.iv28
   %96 = load float, ptr %94, align 4, !tbaa !61
   store float %96, ptr %95, align 4, !tbaa !61
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
@@ -559,8 +550,8 @@ define void @_ZN3gmx22ProcessFrameConversion21prepareNewCoordinatesEPK10t_trxfra
 
 105:                                              ; preds = %105, %.lr.ph.split.split.us
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %105 ], [ 0, %.lr.ph.split.split.us ]
-  %106 = getelementptr inbounds nuw [3 x float], ptr %40, i64 %indvars.iv23
-  %107 = getelementptr inbounds nuw [3 x float], ptr %42, i64 %indvars.iv23
+  %106 = getelementptr inbounds nuw [12 x i8], ptr %40, i64 %indvars.iv23
+  %107 = getelementptr inbounds nuw [12 x i8], ptr %42, i64 %indvars.iv23
   %108 = load float, ptr %106, align 4, !tbaa !61
   store float %108, ptr %107, align 4, !tbaa !61
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 4
@@ -571,8 +562,8 @@ define void @_ZN3gmx22ProcessFrameConversion21prepareNewCoordinatesEPK10t_trxfra
   %113 = load float, ptr %112, align 4, !tbaa !61
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store float %113, ptr %114, align 4, !tbaa !61
-  %115 = getelementptr inbounds nuw [3 x float], ptr %103, i64 %indvars.iv23
-  %116 = getelementptr inbounds nuw [3 x float], ptr %104, i64 %indvars.iv23
+  %115 = getelementptr inbounds nuw [12 x i8], ptr %103, i64 %indvars.iv23
+  %116 = getelementptr inbounds nuw [12 x i8], ptr %104, i64 %indvars.iv23
   %117 = load float, ptr %115, align 4, !tbaa !61
   store float %117, ptr %116, align 4, !tbaa !61
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 4
@@ -592,8 +583,8 @@ define void @_ZN3gmx22ProcessFrameConversion21prepareNewCoordinatesEPK10t_trxfra
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %.lr.ph.split.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next, %.lr.ph.split.split ]
-  %124 = getelementptr inbounds nuw [3 x float], ptr %40, i64 %indvars.iv
-  %125 = getelementptr inbounds nuw [3 x float], ptr %42, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [12 x i8], ptr %40, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [12 x i8], ptr %42, i64 %indvars.iv
   %126 = load float, ptr %124, align 4, !tbaa !61
   store float %126, ptr %125, align 4, !tbaa !61
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 4
@@ -680,9 +671,9 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: 
 
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !33
-  %35 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !82
-  %36 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !34
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
@@ -691,7 +682,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br i1 %38, label %39, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit, label %41
 

@@ -3,10 +3,6 @@ source_filename = "bench/luajit/original/lib_base.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.TValue = type { i64 }
-%struct.CType = type { i32, i32, i16, i16, %struct.GCRef }
-%struct.GCRef = type { i64 }
-
 @.str = private unnamed_addr constant [3 x i8] c"_G\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"Lua 5.1\00", align 1
 @lj_lib_init_base = internal constant [330 x i8] c"\02\00\1CFassert\C3nil\C7boolean\FC\01\C8userdata\C6string\C5upval\C6thread\C5proto\C8function\C5trace\C5cdata\C5table\FC\09\C6number\84typeDnext\FDEpairs@\FDFipairs\8CgetmetatableLsetmetatable\07getfenv\07setfenvFrawget\06rawset\08rawequal\06unpack\06selectHtonumberHtostring\05errorEpcall\86xpcall\08loadfile\04load\0Aloadstring\06dofile\06gcinfo\0Ecollectgarbage\FC\02\08newproxy\C8tostring\05print\FC\03\C8_VERSION\FA\FF", align 16
@@ -583,7 +579,7 @@ define internal i32 @lj_cf_unpack(ptr noundef %0) #2 {
 35:                                               ; preds = %31
   %36 = load i64, ptr %27, align 8, !tbaa !35
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds %union.TValue, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv
   br label %41
 
 39:                                               ; preds = %31
@@ -737,7 +733,7 @@ lj_strscan_numberobj.exit.thread:                 ; preds = %lj_strscan_numberob
   %39 = and i32 %36, 65535
   %40 = load ptr, ptr %27, align 8, !tbaa !51
   %41 = zext nneg i32 %39 to i64
-  %42 = getelementptr inbounds nuw %struct.CType, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %41
   %.pre79 = load i32, ptr %42, align 8, !tbaa !48
   br label %43
 
@@ -1401,7 +1397,7 @@ define internal noundef i32 @lj_cf_print(ptr noundef %0) #2 {
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %86
   %.03847.us = phi i64 [ %90, %86 ], [ 0, %.lr.ph ]
   %63 = load ptr, ptr %6, align 8, !tbaa !19
-  %64 = getelementptr inbounds nuw %union.TValue, ptr %63, i64 %.03847.us
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.03847.us
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %65 = call ptr @lj_strfmt_wstrnum(ptr noundef nonnull %0, ptr noundef %64, ptr noundef nonnull %3) #11
@@ -1460,7 +1456,7 @@ define internal noundef i32 @lj_cf_print(ptr noundef %0) #2 {
 .lr.ph.split:                                     ; preds = %.lr.ph, %108
   %.03847 = phi i64 [ %112, %108 ], [ 0, %.lr.ph ]
   %91 = load ptr, ptr %6, align 8, !tbaa !19
-  %92 = getelementptr inbounds nuw %union.TValue, ptr %91, i64 %.03847
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.03847
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %93 = load ptr, ptr %4, align 8, !tbaa !4

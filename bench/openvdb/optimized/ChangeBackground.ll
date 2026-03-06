@@ -325,8 +325,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.openvdb::v11_0::util::OnMaskIterator" = type { %"class.openvdb::v11_0::util::BaseMaskIterator" }
 %"class.openvdb::v11_0::util::BaseMaskIterator" = type { i32, ptr }
 %class.anon.650 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion" = type { %union.anon.642 }
-%union.anon.642 = type { ptr }
 %class.anon.666 = type { ptr, ptr, ptr }
 %"struct.openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>::ChildIter" = type { %"struct.openvdb::v11_0::tree::SparseIteratorBase.667" }
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.667" = type { %"class.openvdb::v11_0::tree::IteratorBase.668" }
@@ -334,8 +332,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.openvdb::v11_0::util::OnMaskIterator.669" = type { %"class.openvdb::v11_0::util::BaseMaskIterator.670" }
 %"class.openvdb::v11_0::util::BaseMaskIterator.670" = type { i32, ptr }
 %class.anon.672 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.647" = type { %union.anon.648 }
-%union.anon.648 = type { ptr }
 %"class.tbb::detail::d1::small_object_allocator" = type { ptr }
 %"struct.tbb::detail::d1::wait_node" = type { %"struct.tbb::detail::d1::node.base", %"class.tbb::detail::d1::wait_context" }
 %"struct.tbb::detail::d1::node.base" = type <{ ptr, %"struct.std::atomic.659" }>
@@ -379,15 +375,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.705" = type { %"class.openvdb::v11_0::tree::IteratorBase.706" }
 %"class.openvdb::v11_0::tree::IteratorBase.706" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator" }
 %class.anon.710 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.697" = type { %union.anon.698 }
-%union.anon.698 = type { ptr }
 %class.anon.715 = type { ptr, ptr, ptr }
 %"struct.openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>::ChildIter" = type { %"struct.openvdb::v11_0::tree::SparseIteratorBase.716" }
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.716" = type { %"class.openvdb::v11_0::tree::IteratorBase.717" }
 %"class.openvdb::v11_0::tree::IteratorBase.717" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator.669" }
 %class.anon.721 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.708" = type { %union.anon.709 }
-%union.anon.709 = type { ptr }
 %"class.std::unique_ptr.727" = type { %"struct.std::__uniq_ptr_data.728" }
 %"struct.std::__uniq_ptr_data.728" = type { %"class.std::__uniq_ptr_impl.729" }
 %"class.std::__uniq_ptr_impl.729" = type { %"class.std::tuple.730" }
@@ -421,15 +413,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.826" = type { %"class.openvdb::v11_0::tree::IteratorBase.827" }
 %"class.openvdb::v11_0::tree::IteratorBase.827" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator" }
 %class.anon.831 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.818" = type { %union.anon.819 }
-%union.anon.819 = type { ptr }
 %class.anon.836 = type { ptr, ptr, ptr }
 %"struct.openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>::ChildIter" = type { %"struct.openvdb::v11_0::tree::SparseIteratorBase.837" }
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.837" = type { %"class.openvdb::v11_0::tree::IteratorBase.838" }
 %"class.openvdb::v11_0::tree::IteratorBase.838" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator.669" }
 %class.anon.843 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.829" = type { %union.anon.830 }
-%union.anon.830 = type { ptr }
 %"class.std::unique_ptr.849" = type { %"struct.std::__uniq_ptr_data.850" }
 %"struct.std::__uniq_ptr_data.850" = type { %"class.std::__uniq_ptr_impl.851" }
 %"class.std::__uniq_ptr_impl.851" = type { %"class.std::tuple.852" }
@@ -454,15 +442,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.895" = type { %"class.openvdb::v11_0::tree::IteratorBase.896" }
 %"class.openvdb::v11_0::tree::IteratorBase.896" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator" }
 %class.anon.900 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.887" = type { %union.anon.888 }
-%union.anon.888 = type { ptr }
 %class.anon.905 = type { ptr, ptr, ptr }
 %"struct.openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>::ChildIter" = type { %"struct.openvdb::v11_0::tree::SparseIteratorBase.906" }
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.906" = type { %"class.openvdb::v11_0::tree::IteratorBase.907" }
 %"class.openvdb::v11_0::tree::IteratorBase.907" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator.669" }
 %class.anon.912 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.898" = type { %union.anon.899 }
-%union.anon.899 = type { ptr }
 %"class.std::unique_ptr.918" = type { %"struct.std::__uniq_ptr_data.919" }
 %"struct.std::__uniq_ptr_data.919" = type { %"class.std::__uniq_ptr_impl.920" }
 %"class.std::__uniq_ptr_impl.920" = type { %"class.std::tuple.921" }
@@ -487,15 +471,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.970" = type { %"class.openvdb::v11_0::tree::IteratorBase.971" }
 %"class.openvdb::v11_0::tree::IteratorBase.971" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator" }
 %class.anon.975 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.962" = type { %union.anon.963 }
-%union.anon.963 = type { ptr }
 %class.anon.980 = type { ptr, ptr, ptr }
 %"struct.openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>::ChildIter" = type { %"struct.openvdb::v11_0::tree::SparseIteratorBase.981" }
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.981" = type { %"class.openvdb::v11_0::tree::IteratorBase.982" }
 %"class.openvdb::v11_0::tree::IteratorBase.982" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator.669" }
 %class.anon.987 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.973" = type { %union.anon.974 }
-%union.anon.974 = type { ptr }
 %"class.std::unique_ptr.993" = type { %"struct.std::__uniq_ptr_data.994" }
 %"struct.std::__uniq_ptr_data.994" = type { %"class.std::__uniq_ptr_impl.995" }
 %"class.std::__uniq_ptr_impl.995" = type { %"class.std::tuple.996" }
@@ -520,15 +500,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.1039" = type { %"class.openvdb::v11_0::tree::IteratorBase.1040" }
 %"class.openvdb::v11_0::tree::IteratorBase.1040" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator" }
 %class.anon.1045 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.1031" = type { %union.anon.1032 }
-%union.anon.1032 = type <{ ptr, [8 x i8] }>
 %class.anon.1050 = type { ptr, ptr, ptr }
 %"struct.openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>::ChildIter" = type { %"struct.openvdb::v11_0::tree::SparseIteratorBase.1051" }
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.1051" = type { %"class.openvdb::v11_0::tree::IteratorBase.1052" }
 %"class.openvdb::v11_0::tree::IteratorBase.1052" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator.669" }
 %class.anon.1057 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.1042" = type { %union.anon.1043 }
-%union.anon.1043 = type <{ ptr, [8 x i8] }>
 %"class.openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::ValueIter" = type { %"class.openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::BaseIter.1062" }
 %"class.openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::BaseIter.1062" = type { ptr, %"struct.std::_Rb_tree_iterator.1029" }
 %"struct.std::_Rb_tree_iterator.1029" = type { ptr }
@@ -556,15 +532,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.1117" = type { %"class.openvdb::v11_0::tree::IteratorBase.1118" }
 %"class.openvdb::v11_0::tree::IteratorBase.1118" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator" }
 %class.anon.1122 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.1109" = type { %union.anon.1110 }
-%union.anon.1110 = type { %"class.openvdb::v11_0::math::Vec3" }
 %class.anon.1127 = type { ptr, ptr, ptr }
 %"struct.openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>::ChildIter" = type { %"struct.openvdb::v11_0::tree::SparseIteratorBase.1128" }
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.1128" = type { %"class.openvdb::v11_0::tree::IteratorBase.1129" }
 %"class.openvdb::v11_0::tree::IteratorBase.1129" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator.669" }
 %class.anon.1134 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.1120" = type { %union.anon.1121 }
-%union.anon.1121 = type { %"class.openvdb::v11_0::math::Vec3" }
 %"class.openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::ValueIter" = type { %"class.openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::BaseIter.1139" }
 %"class.openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::BaseIter.1139" = type { ptr, %"struct.std::_Rb_tree_iterator.1107" }
 %"struct.std::_Rb_tree_iterator.1107" = type { ptr }
@@ -592,15 +564,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.1187" = type { %"class.openvdb::v11_0::tree::IteratorBase.1188" }
 %"class.openvdb::v11_0::tree::IteratorBase.1188" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator" }
 %class.anon.1193 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.1178" = type { %union.anon.1179 }
-%union.anon.1179 = type <{ ptr, [8 x i8] }>
 %class.anon.1198 = type { ptr, ptr, ptr }
 %"struct.openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>::ChildIter" = type { %"struct.openvdb::v11_0::tree::SparseIteratorBase.1199" }
 %"struct.openvdb::v11_0::tree::SparseIteratorBase.1199" = type { %"class.openvdb::v11_0::tree::IteratorBase.1200" }
 %"class.openvdb::v11_0::tree::IteratorBase.1200" = type { ptr, %"class.openvdb::v11_0::util::OnMaskIterator.669" }
 %class.anon.1205 = type { ptr, ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::NodeUnion.1190" = type { %union.anon.1191 }
-%union.anon.1191 = type <{ ptr, [8 x i8] }>
 %"class.openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::ValueIter" = type { %"class.openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::BaseIter.1210" }
 %"class.openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::BaseIter.1210" = type { ptr, %"struct.std::_Rb_tree_iterator.1176" }
 %"struct.std::_Rb_tree_iterator.1176" = type { ptr }
@@ -3657,7 +3625,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %3 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.06.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %4)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -3700,7 +3668,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %7 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %7, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %7, i64 %it.sroa.3.06.i.i.i19
   %8 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %8)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -3953,7 +3921,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %3 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.06.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %4)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -3996,7 +3964,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %7 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %7, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %7, i64 %it.sroa.3.06.i.i.i19
   %8 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %8)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -4248,7 +4216,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %2 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %it.sroa.3.06.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %3)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -4290,7 +4258,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %5 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i.i19
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -4542,7 +4510,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %3 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.06.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %4)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -4585,7 +4553,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %7 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %7, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %7, i64 %it.sroa.3.06.i.i.i19
   %8 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %8)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -4837,7 +4805,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %2 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %it.sroa.3.06.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %3)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -4879,7 +4847,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %5 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i.i19
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -5128,7 +5096,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %2 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %it.sroa.3.06.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %transform.i, ptr noundef nonnull align 8 dereferenceable(532496) %3)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -5170,7 +5138,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %5 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i.i19
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEclISC_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %transform.i9, ptr noundef nonnull align 8 dereferenceable(66576) %6)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -5419,7 +5387,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %2 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %it.sroa.3.06.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %transform.i, ptr noundef nonnull align 8 dereferenceable(794640) %3)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -5461,7 +5429,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %5 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i.i19
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEclISC_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %transform.i9, ptr noundef nonnull align 8 dereferenceable(99344) %6)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -5710,7 +5678,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %2 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %it.sroa.3.06.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %transform.i, ptr noundef nonnull align 8 dereferenceable(532496) %3)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -5752,7 +5720,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %5 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i.i19
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEclISC_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %transform.i9, ptr noundef nonnull align 8 dereferenceable(66576) %6)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -6008,7 +5976,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %3 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.06.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %4)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -6051,7 +6019,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %7 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %7, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %7, i64 %it.sroa.3.06.i.i.i19
   %8 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %8)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -6306,7 +6274,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %3 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.06.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %4)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -6349,7 +6317,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %7 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %7, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %7, i64 %it.sroa.3.06.i.i.i19
   %8 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %8)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -6603,7 +6571,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %2 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %it.sroa.3.06.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %3)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -6645,7 +6613,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %5 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i.i19
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -6899,7 +6867,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %3 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.06.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %4)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -6942,7 +6910,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %7 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %7, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %7, i64 %it.sroa.3.06.i.i.i19
   %8 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %8)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -7196,7 +7164,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %2 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %it.sroa.3.06.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %3)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -7238,7 +7206,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %5 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i.i19
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -7489,7 +7457,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %2 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %it.sroa.3.06.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEEEclISE_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %transform.i, ptr noundef nonnull align 8 dereferenceable(532496) %3)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -7531,7 +7499,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %5 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i.i19
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %transform.i9, ptr noundef nonnull align 8 dereferenceable(66576) %6)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -7782,7 +7750,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %2 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %it.sroa.3.06.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEEEclISE_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %transform.i, ptr noundef nonnull align 8 dereferenceable(794640) %3)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -7824,7 +7792,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %5 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i.i19
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %transform.i9, ptr noundef nonnull align 8 dereferenceable(99344) %6)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -8075,7 +8043,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %2 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %it.sroa.3.06.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEEEclISE_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %transform.i, ptr noundef nonnull align 8 dereferenceable(532496) %3)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -8117,7 +8085,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %5 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i.i19
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %transform.i9, ptr noundef nonnull align 8 dereferenceable(66576) %6)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -8712,7 +8680,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %11 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %11, i64 %it.sroa.3.06.i.i.i
   %12 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %12)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -8755,7 +8723,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %15 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %15, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %15, i64 %it.sroa.3.06.i.i.i19
   %16 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %16)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -8798,7 +8766,7 @@ for.body.i.i.preheader.i32:                       ; preds = %cond.false.i.i30
 for.body.i.i.i34:                                 ; preds = %for.body.i.i.i34, %for.body.i.i.preheader.i32
   %it.sroa.3.06.i.i.i35 = phi i64 [ %inc.i.i.i.i37, %for.body.i.i.i34 ], [ 0, %for.body.i.i.preheader.i32 ]
   %19 = load ptr, ptr %mNodes.i.i.i.i.i.i33, align 8
-  %arrayidx.i.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %19, i64 %it.sroa.3.06.i.i.i35
+  %arrayidx.i.i.i.i.i.i36 = getelementptr inbounds [8 x i8], ptr %19, i64 %it.sroa.3.06.i.i.i35
   %20 = load ptr, ptr %arrayidx.i.i.i.i.i.i36, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclERS8_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i25, ptr noundef nonnull align 8 dereferenceable(96) %20)
   %inc.i.i.i.i37 = add nuw i64 %it.sroa.3.06.i.i.i35, 1
@@ -9061,7 +9029,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %10 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %10, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %10, i64 %it.sroa.3.06.i.i.i
   %11 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %11)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -9103,7 +9071,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %13 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %13, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %13, i64 %it.sroa.3.06.i.i.i19
   %14 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %14)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -9145,7 +9113,7 @@ for.body.i.i.preheader.i32:                       ; preds = %cond.false.i.i30
 for.body.i.i.i34:                                 ; preds = %for.body.i.i.i34, %for.body.i.i.preheader.i32
   %it.sroa.3.06.i.i.i35 = phi i64 [ %inc.i.i.i.i37, %for.body.i.i.i34 ], [ 0, %for.body.i.i.preheader.i32 ]
   %16 = load ptr, ptr %mNodes.i.i.i.i.i.i33, align 8
-  %arrayidx.i.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %16, i64 %it.sroa.3.06.i.i.i35
+  %arrayidx.i.i.i.i.i.i36 = getelementptr inbounds [8 x i8], ptr %16, i64 %it.sroa.3.06.i.i.i35
   %17 = load ptr, ptr %arrayidx.i.i.i.i.i.i36, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclERS8_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i25, ptr noundef nonnull align 8 dereferenceable(96) %17)
   %inc.i.i.i.i37 = add nuw i64 %it.sroa.3.06.i.i.i35, 1
@@ -9409,7 +9377,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %11 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %11, i64 %it.sroa.3.06.i.i.i
   %12 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %12)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -9452,7 +9420,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %15 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %15, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %15, i64 %it.sroa.3.06.i.i.i19
   %16 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %16)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -9495,7 +9463,7 @@ for.body.i.i.preheader.i32:                       ; preds = %cond.false.i.i30
 for.body.i.i.i34:                                 ; preds = %for.body.i.i.i34, %for.body.i.i.preheader.i32
   %it.sroa.3.06.i.i.i35 = phi i64 [ %inc.i.i.i.i37, %for.body.i.i.i34 ], [ 0, %for.body.i.i.preheader.i32 ]
   %19 = load ptr, ptr %mNodes.i.i.i.i.i.i33, align 8
-  %arrayidx.i.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %19, i64 %it.sroa.3.06.i.i.i35
+  %arrayidx.i.i.i.i.i.i36 = getelementptr inbounds [8 x i8], ptr %19, i64 %it.sroa.3.06.i.i.i35
   %20 = load ptr, ptr %arrayidx.i.i.i.i.i.i36, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclERS9_(ptr noundef nonnull align 4 dereferenceable(8) %transform.i25, ptr noundef nonnull align 8 dereferenceable(96) %20)
   %inc.i.i.i.i37 = add nuw i64 %it.sroa.3.06.i.i.i35, 1
@@ -9758,7 +9726,7 @@ for.body.i.i.preheader.i:                         ; preds = %cond.false.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
   %it.sroa.3.06.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %10 = load ptr, ptr %mNodes.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %10, i64 %it.sroa.3.06.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %10, i64 %it.sroa.3.06.i.i.i
   %11 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i, ptr noundef nonnull align 8 dereferenceable(270352) %11)
   %inc.i.i.i.i = add nuw i64 %it.sroa.3.06.i.i.i, 1
@@ -9800,7 +9768,7 @@ for.body.i.i.preheader.i16:                       ; preds = %cond.false.i.i14
 for.body.i.i.i18:                                 ; preds = %for.body.i.i.i18, %for.body.i.i.preheader.i16
   %it.sroa.3.06.i.i.i19 = phi i64 [ %inc.i.i.i.i21, %for.body.i.i.i18 ], [ 0, %for.body.i.i.preheader.i16 ]
   %13 = load ptr, ptr %mNodes.i.i.i.i.i.i17, align 8
-  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %13, i64 %it.sroa.3.06.i.i.i19
+  %arrayidx.i.i.i.i.i.i20 = getelementptr inbounds [8 x i8], ptr %13, i64 %it.sroa.3.06.i.i.i19
   %14 = load ptr, ptr %arrayidx.i.i.i.i.i.i20, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i9, ptr noundef nonnull align 8 dereferenceable(33808) %14)
   %inc.i.i.i.i21 = add nuw i64 %it.sroa.3.06.i.i.i19, 1
@@ -9842,7 +9810,7 @@ for.body.i.i.preheader.i32:                       ; preds = %cond.false.i.i30
 for.body.i.i.i34:                                 ; preds = %for.body.i.i.i34, %for.body.i.i.preheader.i32
   %it.sroa.3.06.i.i.i35 = phi i64 [ %inc.i.i.i.i37, %for.body.i.i.i34 ], [ 0, %for.body.i.i.preheader.i32 ]
   %16 = load ptr, ptr %mNodes.i.i.i.i.i.i33, align 8
-  %arrayidx.i.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %16, i64 %it.sroa.3.06.i.i.i35
+  %arrayidx.i.i.i.i.i.i36 = getelementptr inbounds [8 x i8], ptr %16, i64 %it.sroa.3.06.i.i.i35
   %17 = load ptr, ptr %arrayidx.i.i.i.i.i.i36, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclERS9_(ptr noundef nonnull align 8 dereferenceable(16) %transform.i25, ptr noundef nonnull align 8 dereferenceable(96) %17)
   %inc.i.i.i.i37 = add nuw i64 %it.sroa.3.06.i.i.i35, 1
@@ -10330,7 +10298,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -10368,7 +10336,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 262144
   br label %for.body.i.i
@@ -10441,7 +10409,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -10489,7 +10457,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont18
@@ -10527,7 +10495,7 @@ if.end25:                                         ; preds = %for.inc, %if.end.i,
 for.body30:                                       ; preds = %if.end25, %for.body30
   %18 = phi ptr [ %23, %for.body30 ], [ %17, %if.end25 ]
   %i26.0152 = phi i64 [ %inc34, %for.body30 ], [ 1, %if.end25 ]
-  %19 = getelementptr i32, ptr %18, i64 %i26.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i26.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -10628,7 +10596,7 @@ if.end68:                                         ; preds = %if.end68.lr.ph, %fo
   %i59.0159 = phi i64 [ 0, %if.end68.lr.ph ], [ %inc83, %for.inc82 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end68.lr.ph ], [ %nodePtr.2.lcssa, %for.inc82 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i59.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i59.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !241)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 262144
@@ -10672,7 +10640,7 @@ for.body75:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont76:                                    ; preds = %for.body75
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -10686,7 +10654,7 @@ invoke.cont76:                                    ; preds = %for.body75
 if.end.i.i.i.i:                                   ; preds = %invoke.cont76
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -10707,7 +10675,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -10814,7 +10782,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -10852,7 +10820,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32768
   br label %for.body.i.i
@@ -10925,7 +10893,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -10973,7 +10941,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -11011,7 +10979,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -11112,7 +11080,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !250)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 32768
@@ -11156,7 +11124,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.647", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -11170,7 +11138,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -11191,7 +11159,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -11737,7 +11705,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 262144
   br label %for.body.i.i.i.i
@@ -11758,7 +11726,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -11811,7 +11779,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -11826,7 +11794,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -11886,7 +11854,7 @@ invoke.cont14:                                    ; preds = %if.then10
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeIbLj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISC_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -11939,7 +11907,7 @@ if.end:                                           ; preds = %if.then10
   br i1 %cmp.i28, label %invoke.cont23, label %invoke.cont28
 
 invoke.cont23:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -11951,7 +11919,7 @@ invoke.cont23:                                    ; preds = %if.end
 
 invoke.cont28:                                    ; preds = %invoke.cont6.invoke.cont28_crit_edge, %if.end, %invoke.cont23
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont6.invoke.cont28_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont23 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -11963,7 +11931,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont28, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 262144
   br label %for.body.i.i.i.i44
@@ -11984,7 +11952,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -12583,7 +12551,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -12598,7 +12566,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -12661,7 +12629,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeIbLj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISC_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -12717,7 +12685,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -12729,7 +12697,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE16initNodeChildrenINS2_INS3_IS6_Lj5EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESM_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -12776,11 +12744,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -12802,7 +12770,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !263)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 262144
@@ -12843,7 +12811,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -12857,7 +12825,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -12878,7 +12846,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -13344,7 +13312,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32768
   br label %for.body.i.i.i.i
@@ -13365,7 +13333,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -13418,7 +13386,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -13433,7 +13401,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -13493,7 +13461,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeIbLj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISA_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -13546,7 +13514,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -13558,7 +13526,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -13570,7 +13538,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 32768
   br label %for.body.i.i.i.i44
@@ -13591,7 +13559,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -14155,7 +14123,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -14170,7 +14138,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -14233,7 +14201,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeIbLj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISA_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -14289,7 +14257,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -14301,7 +14269,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_8LeafNodeIbLj3EEEE16initNodeChildrenINS2_INS1_12InternalNodeIS4_Lj4EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESL_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -14348,11 +14316,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -14374,7 +14342,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 32768
@@ -14415,7 +14383,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.647", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -14429,7 +14397,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -14450,7 +14418,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -15010,7 +14978,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -15062,7 +15030,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -15077,7 +15045,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -15141,7 +15109,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeISB_EEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -15195,7 +15163,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -15207,7 +15175,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -15223,7 +15191,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -15333,7 +15301,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i8, ptr %this, align 1
   %9 = xor i8 %8, %7
@@ -15342,7 +15310,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %11 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %11 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -15366,7 +15334,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %18 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %18 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store i8 %frombool11.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -15381,7 +15349,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i9 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i10 = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i9
+  %arrayidx.i.i.i.i10 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i9
   %21 = load i64, ptr %arrayidx.i.i.i.i10, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -15402,7 +15370,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -15859,7 +15827,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -15911,7 +15879,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -15926,7 +15894,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -15990,7 +15958,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -16044,7 +16012,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -16056,7 +16024,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -16072,7 +16040,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -16182,7 +16150,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.647", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i8, ptr %this, align 1
   %9 = xor i8 %8, %7
@@ -16191,7 +16159,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %11 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %11 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.647", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -16215,7 +16183,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %18 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %18 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.647", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store i8 %frombool11.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -16230,7 +16198,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i9 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i10 = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i9
+  %arrayidx.i.i.i.i10 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i9
   %21 = load i64, ptr %arrayidx.i.i.i.i10, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -16251,7 +16219,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -16300,7 +16268,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !296)
@@ -16343,7 +16311,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -16365,7 +16333,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -16865,7 +16833,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -16880,7 +16848,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -16947,7 +16915,7 @@ invoke.cont13:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIbLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSG_IS8_Lj4EEELj5EEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -17004,7 +16972,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %36 = load i64, ptr %mGrainSize.i.i, align 8
   %37 = load i64, ptr %arrayidx.i2.i, align 8
@@ -17016,7 +16984,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeIbLj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSB_IS4_Lj4EEELj5EEEEEEEEENS5_14OpWithoutIndexEEclERKNS5_9NodeRangeE(ptr noundef nonnull align 1 dereferenceable(2) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %39 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %39, -1
@@ -17056,7 +17024,7 @@ entry:
   %mBuffer.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %shr.i.i.i.i.i = lshr i32 %0, 6
   %idxprom.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i.i, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i.i, i64 %idxprom.i.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %and.i.i.i.i.i = and i32 %0, 63
   %sh_prom.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i to i64
@@ -17083,7 +17051,7 @@ if.then:                                          ; preds = %entry
 cond.true.i.i.i.i.i:                              ; preds = %if.then
   %shr.i.i.i.i.i.i = lshr i32 %8, 6
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i, i64 %idxprom.i.i.i.i.i.i
   %9 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %or.i.i.i.i.i.i = or i64 %9, %shl.i.i.i.i.i.i
   store i64 %or.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 8
@@ -17093,7 +17061,7 @@ cond.false.i.i.i.i.i:                             ; preds = %if.then
   %not.i.i.i.i.i.i = xor i64 %shl.i.i.i.i.i.i, -1
   %shr.i5.i.i.i.i.i = lshr i32 %8, 6
   %idxprom.i6.i.i.i.i.i = zext nneg i32 %shr.i5.i.i.i.i.i to i64
-  %arrayidx.i7.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i, i64 %idxprom.i6.i.i.i.i.i
+  %arrayidx.i7.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i, i64 %idxprom.i6.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i7.i.i.i.i.i, align 8
   %and2.i.i.i.i.i.i = and i64 %10, %not.i.i.i.i.i.i
   store i64 %and2.i.i.i.i.i.i, ptr %arrayidx.i7.i.i.i.i.i, align 8
@@ -17105,7 +17073,7 @@ if.else:                                          ; preds = %entry
   %mBuffer.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i.i5, i64 64
   %shr.i.i.i.i.i7 = lshr i32 %11, 6
   %idxprom.i.i.i.i.i8 = zext nneg i32 %shr.i.i.i.i.i7 to i64
-  %arrayidx.i.i.i.i.i9 = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i.i6, i64 %idxprom.i.i.i.i.i8
+  %arrayidx.i.i.i.i.i9 = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i.i6, i64 %idxprom.i.i.i.i.i8
   %12 = load i64, ptr %arrayidx.i.i.i.i.i9, align 8
   %and.i.i.i.i.i10 = and i32 %11, 63
   %sh_prom.i.i.i.i.i11 = zext nneg i32 %and.i.i.i.i.i10 to i64
@@ -17132,7 +17100,7 @@ if.then7:                                         ; preds = %if.else
 cond.true.i.i.i.i.i31:                            ; preds = %if.then7
   %shr.i.i.i.i.i.i32 = lshr i32 %18, 6
   %idxprom.i.i.i.i.i.i33 = zext nneg i32 %shr.i.i.i.i.i.i32 to i64
-  %arrayidx.i.i.i.i.i.i34 = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i21, i64 %idxprom.i.i.i.i.i.i33
+  %arrayidx.i.i.i.i.i.i34 = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i21, i64 %idxprom.i.i.i.i.i.i33
   %19 = load i64, ptr %arrayidx.i.i.i.i.i.i34, align 8
   %or.i.i.i.i.i.i35 = or i64 %19, %shl.i.i.i.i.i.i24
   store i64 %or.i.i.i.i.i.i35, ptr %arrayidx.i.i.i.i.i.i34, align 8
@@ -17142,7 +17110,7 @@ cond.false.i.i.i.i.i25:                           ; preds = %if.then7
   %not.i.i.i.i.i.i26 = xor i64 %shl.i.i.i.i.i.i24, -1
   %shr.i5.i.i.i.i.i27 = lshr i32 %18, 6
   %idxprom.i6.i.i.i.i.i28 = zext nneg i32 %shr.i5.i.i.i.i.i27 to i64
-  %arrayidx.i7.i.i.i.i.i29 = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i21, i64 %idxprom.i6.i.i.i.i.i28
+  %arrayidx.i7.i.i.i.i.i29 = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i21, i64 %idxprom.i6.i.i.i.i.i28
   %20 = load i64, ptr %arrayidx.i7.i.i.i.i.i29, align 8
   %and2.i.i.i.i.i.i30 = and i64 %20, %not.i.i.i.i.i.i26
   store i64 %and2.i.i.i.i.i.i30, ptr %arrayidx.i7.i.i.i.i.i29, align 8
@@ -17383,7 +17351,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -17421,7 +17389,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 262144
   br label %for.body.i.i
@@ -17494,7 +17462,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -17542,7 +17510,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -17580,7 +17548,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -17681,7 +17649,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !311)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 262144
@@ -17725,7 +17693,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.697", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -17739,7 +17707,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -17760,7 +17728,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -17867,7 +17835,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -17905,7 +17873,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32768
   br label %for.body.i.i
@@ -17978,7 +17946,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -18026,7 +17994,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -18064,7 +18032,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -18165,7 +18133,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !317)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 32768
@@ -18209,7 +18177,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.708", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -18223,7 +18191,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -18244,7 +18212,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -18741,7 +18709,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 262144
   br label %for.body.i.i.i.i
@@ -18762,7 +18730,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -18815,7 +18783,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -18830,7 +18798,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -18890,7 +18858,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeIiLj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISC_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -18943,7 +18911,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -18955,7 +18923,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -18967,7 +18935,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 262144
   br label %for.body.i.i.i.i44
@@ -18988,7 +18956,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -19552,7 +19520,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -19567,7 +19535,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -19630,7 +19598,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeIiLj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISC_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -19686,7 +19654,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -19698,7 +19666,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE16initNodeChildrenINS2_INS3_IS6_Lj5EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESM_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -19745,11 +19713,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -19771,7 +19739,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !326)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 262144
@@ -19812,7 +19780,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.697", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -19826,7 +19794,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -19847,7 +19815,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -20313,7 +20281,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32768
   br label %for.body.i.i.i.i
@@ -20334,7 +20302,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -20387,7 +20355,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -20402,7 +20370,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -20462,7 +20430,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeIiLj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISA_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -20515,7 +20483,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -20527,7 +20495,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -20539,7 +20507,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 32768
   br label %for.body.i.i.i.i44
@@ -20560,7 +20528,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -21124,7 +21092,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -21139,7 +21107,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -21202,7 +21170,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeIiLj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISA_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -21258,7 +21226,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -21270,7 +21238,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_8LeafNodeIiLj3EEEE16initNodeChildrenINS2_INS1_12InternalNodeIS4_Lj4EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESL_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -21317,11 +21285,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -21343,7 +21311,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !336)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 32768
@@ -21384,7 +21352,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.708", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -21398,7 +21366,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -21419,7 +21387,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -22161,7 +22129,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %tempIdx.0156 = phi i32 [ 0, %for.cond.preheader ], [ %tempIdx.1, %for.inc ]
   %shr.i = lshr i64 %indvars.iv, 6
   %idxprom.i = and i64 %shr.i, 67108863
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %valueMask, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %valueMask, i64 %idxprom.i
   %30 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %indvars.iv, 63
   %shl.i = shl nuw i64 1, %and.i
@@ -22171,13 +22139,13 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.then170:                                       ; preds = %for.body
   %idxprom = zext i32 %tempIdx.0156 to i64
-  %arrayidx = getelementptr inbounds nuw i32, ptr %tempBuf.0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %tempBuf.0, i64 %idxprom
   %31 = load i32, ptr %arrayidx, align 4
   %inc = add i32 %tempIdx.0156, 1
   br label %for.inc
 
 if.else173:                                       ; preds = %for.body
-  %arrayidx.i71 = getelementptr inbounds nuw i64, ptr %selectionMask, i64 %idxprom.i
+  %arrayidx.i71 = getelementptr inbounds nuw [8 x i8], ptr %selectionMask, i64 %idxprom.i
   %32 = load i64, ptr %arrayidx.i71, align 8
   %and2.i75 = and i64 %32, %shl.i
   %cmp.i76.not = icmp eq i64 %and2.i75, 0
@@ -22187,7 +22155,7 @@ if.else173:                                       ; preds = %for.body
 for.inc:                                          ; preds = %if.then170, %if.else173
   %.sink = phi i32 [ %cond178, %if.else173 ], [ %31, %if.then170 ]
   %tempIdx.1 = phi i32 [ %tempIdx.0156, %if.else173 ], [ %inc, %if.then170 ]
-  %33 = getelementptr inbounds nuw i32, ptr %destBuf, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %destBuf, i64 %indvars.iv
   store i32 %.sink, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
@@ -23468,7 +23436,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -23520,7 +23488,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -23535,7 +23503,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -23599,7 +23567,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeISB_EEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -23653,7 +23621,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -23665,7 +23633,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -23681,7 +23649,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -23791,14 +23759,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.697", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i32, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i32, ptr %this, align 4
   %cmp.i.i.i.i = icmp eq i32 %7, %8
   %9 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %9 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.697", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -23819,7 +23787,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i11.i7 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i12.i = zext i32 %14 to i64
-  %arrayidx.i.i13.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.697", ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
+  %arrayidx.i.i13.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
   store i32 %sub.i9.i, ptr %arrayidx.i.i13.i, align 8
   br label %for.inc
 
@@ -23834,7 +23802,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %15, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %idxprom.i.i.i.i10
   %17 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -23855,7 +23823,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i.i
   %18 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %18, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -24312,7 +24280,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -24364,7 +24332,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -24379,7 +24347,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -24443,7 +24411,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -24497,7 +24465,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -24509,7 +24477,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -24525,7 +24493,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -24635,14 +24603,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.708", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i32, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i32, ptr %this, align 4
   %cmp.i.i.i.i = icmp eq i32 %7, %8
   %9 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %9 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.708", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -24663,7 +24631,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i11.i7 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i12.i = zext i32 %14 to i64
-  %arrayidx.i.i13.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.708", ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
+  %arrayidx.i.i13.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
   store i32 %sub.i9.i, ptr %arrayidx.i.i13.i, align 8
   br label %for.inc
 
@@ -24678,7 +24646,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %15, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %idxprom.i.i.i.i10
   %17 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -24699,7 +24667,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i.i
   %18 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %18, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -24748,7 +24716,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !367)
@@ -24792,7 +24760,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -24814,7 +24782,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -25314,7 +25282,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -25329,7 +25297,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -25396,7 +25364,7 @@ invoke.cont13:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIiLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSG_IS8_Lj4EEELj5EEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -25453,7 +25421,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %36 = load i64, ptr %mGrainSize.i.i, align 8
   %37 = load i64, ptr %arrayidx.i2.i, align 8
@@ -25465,7 +25433,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeIiLj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSB_IS4_Lj4EEELj5EEEEEEEEENS5_14OpWithoutIndexEEclERKNS5_9NodeRangeE(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %39 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %39, -1
@@ -25515,7 +25483,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %2 = load ptr, ptr %call.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIiLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %3 = load i32, ptr %retval.0.i.i.i.i.i.i, align 4
   %4 = load i32, ptr %this, align 4
@@ -25560,7 +25528,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %11 = load ptr, ptr %call.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i9 = icmp eq ptr %11, null
   %idxprom.i.i.i.i.i.i10 = zext i32 %9 to i64
-  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw i32, ptr %11, i64 %idxprom.i.i.i.i.i.i10
+  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %idxprom.i.i.i.i.i.i10
   %retval.0.i.i.i.i.i.i12 = select i1 %tobool.not.i.i.i.i.i.i9, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIiLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i11
   %12 = load i32, ptr %this, align 4
   %sub.i = sub nsw i32 0, %12
@@ -25593,7 +25561,7 @@ if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04
   %.sink = phi ptr [ %7, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
   %sub.i15.sink = phi i32 [ %8, %if.then.i.i.i ], [ %sub.i15, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
   %idxprom.i.i.i24 = zext i32 %.sink28 to i64
-  %arrayidx.i.i.i25 = getelementptr inbounds nuw i32, ptr %.sink, i64 %idxprom.i.i.i24
+  %arrayidx.i.i.i25 = getelementptr inbounds nuw [4 x i8], ptr %.sink, i64 %idxprom.i.i.i24
   store i32 %sub.i15.sink, ptr %arrayidx.i.i.i25, align 4
   br label %if.end11
 
@@ -25832,7 +25800,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -25870,7 +25838,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 262144
   br label %for.body.i.i
@@ -25943,7 +25911,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -25991,7 +25959,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -26029,7 +25997,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -26130,7 +26098,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !380)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 262144
@@ -26174,7 +26142,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.818", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -26188,7 +26156,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -26209,7 +26177,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -26316,7 +26284,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -26354,7 +26322,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32768
   br label %for.body.i.i
@@ -26427,7 +26395,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -26475,7 +26443,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -26513,7 +26481,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -26614,7 +26582,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !386)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 32768
@@ -26658,7 +26626,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.829", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -26672,7 +26640,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -26693,7 +26661,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -27190,7 +27158,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 262144
   br label %for.body.i.i.i.i
@@ -27211,7 +27179,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -27264,7 +27232,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -27279,7 +27247,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -27339,7 +27307,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeIlLj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISC_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -27392,7 +27360,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -27404,7 +27372,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -27416,7 +27384,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 262144
   br label %for.body.i.i.i.i44
@@ -27437,7 +27405,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -28001,7 +27969,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -28016,7 +27984,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -28079,7 +28047,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeIlLj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISC_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -28135,7 +28103,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -28147,7 +28115,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE16initNodeChildrenINS2_INS3_IS6_Lj5EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESM_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -28194,11 +28162,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -28220,7 +28188,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !395)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 262144
@@ -28261,7 +28229,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.818", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -28275,7 +28243,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -28296,7 +28264,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -28762,7 +28730,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32768
   br label %for.body.i.i.i.i
@@ -28783,7 +28751,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -28836,7 +28804,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -28851,7 +28819,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -28911,7 +28879,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeIlLj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISA_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -28964,7 +28932,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -28976,7 +28944,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -28988,7 +28956,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 32768
   br label %for.body.i.i.i.i44
@@ -29009,7 +28977,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -29573,7 +29541,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -29588,7 +29556,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -29651,7 +29619,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeIlLj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISA_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -29707,7 +29675,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -29719,7 +29687,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_8LeafNodeIlLj3EEEE16initNodeChildrenINS2_INS1_12InternalNodeIS4_Lj4EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESL_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -29766,11 +29734,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -29792,7 +29760,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !405)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 32768
@@ -29833,7 +29801,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.829", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -29847,7 +29815,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -29868,7 +29836,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -30599,7 +30567,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %tempIdx.0156 = phi i32 [ 0, %for.cond.preheader ], [ %tempIdx.1, %for.inc ]
   %shr.i = lshr i64 %indvars.iv, 6
   %idxprom.i = and i64 %shr.i, 67108863
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %valueMask, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %valueMask, i64 %idxprom.i
   %30 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %indvars.iv, 63
   %shl.i = shl nuw i64 1, %and.i
@@ -30609,13 +30577,13 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.then169:                                       ; preds = %for.body
   %idxprom = zext i32 %tempIdx.0156 to i64
-  %arrayidx = getelementptr inbounds nuw i64, ptr %tempBuf.0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %tempBuf.0, i64 %idxprom
   %31 = load i64, ptr %arrayidx, align 8
   %inc = add i32 %tempIdx.0156, 1
   br label %for.inc
 
 if.else172:                                       ; preds = %for.body
-  %arrayidx.i71 = getelementptr inbounds nuw i64, ptr %selectionMask, i64 %idxprom.i
+  %arrayidx.i71 = getelementptr inbounds nuw [8 x i8], ptr %selectionMask, i64 %idxprom.i
   %32 = load i64, ptr %arrayidx.i71, align 8
   %and2.i75 = and i64 %32, %shl.i
   %cmp.i76.not = icmp eq i64 %and2.i75, 0
@@ -30625,7 +30593,7 @@ if.else172:                                       ; preds = %for.body
 for.inc:                                          ; preds = %if.then169, %if.else172
   %.sink = phi i64 [ %cond177, %if.else172 ], [ %31, %if.then169 ]
   %tempIdx.1 = phi i32 [ %tempIdx.0156, %if.else172 ], [ %inc, %if.then169 ]
-  %33 = getelementptr inbounds nuw i64, ptr %destBuf, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %destBuf, i64 %indvars.iv
   store i64 %.sink, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
@@ -31450,7 +31418,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -31502,7 +31470,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -31517,7 +31485,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -31581,7 +31549,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeISB_EEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -31634,7 +31602,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -31646,7 +31614,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -31662,7 +31630,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -31772,14 +31740,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.818", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i64, ptr %this, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, %8
   %9 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %9 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.818", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -31800,7 +31768,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i11.i7 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i12.i = zext i32 %14 to i64
-  %arrayidx.i.i13.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.818", ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
+  %arrayidx.i.i13.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
   store i64 %sub.i9.i, ptr %arrayidx.i.i13.i, align 8
   br label %for.inc
 
@@ -31815,7 +31783,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %15, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %idxprom.i.i.i.i10
   %17 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -31836,7 +31804,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i.i
   %18 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %18, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -32291,7 +32259,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -32343,7 +32311,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -32358,7 +32326,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -32422,7 +32390,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -32475,7 +32443,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -32487,7 +32455,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -32503,7 +32471,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -32613,14 +32581,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.829", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i64, ptr %this, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, %8
   %9 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %9 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.829", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -32641,7 +32609,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i11.i7 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i12.i = zext i32 %14 to i64
-  %arrayidx.i.i13.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.829", ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
+  %arrayidx.i.i13.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
   store i64 %sub.i9.i, ptr %arrayidx.i.i13.i, align 8
   br label %for.inc
 
@@ -32656,7 +32624,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %15, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %idxprom.i.i.i.i10
   %17 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -32677,7 +32645,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i.i
   %18 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %18, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -32726,7 +32694,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !425)
@@ -32770,7 +32738,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -32792,7 +32760,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -33290,7 +33258,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -33305,7 +33273,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -33372,7 +33340,7 @@ invoke.cont13:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIlLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSG_IS8_Lj4EEELj5EEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -33428,7 +33396,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -33440,7 +33408,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeIlLj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSB_IS4_Lj4EEELj5EEEEEEEEENS5_14OpWithoutIndexEEclERKNS5_9NodeRangeE(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %38 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %38, -1
@@ -33490,7 +33458,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %2 = load ptr, ptr %call.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %2, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIlLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %3 = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %4 = load i64, ptr %this, align 8
@@ -33535,7 +33503,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %11 = load ptr, ptr %call.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i9 = icmp eq ptr %11, null
   %idxprom.i.i.i.i.i.i10 = zext i32 %9 to i64
-  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %11, i64 %idxprom.i.i.i.i.i.i10
+  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %idxprom.i.i.i.i.i.i10
   %retval.0.i.i.i.i.i.i12 = select i1 %tobool.not.i.i.i.i.i.i9, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIlLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i11
   %12 = load i64, ptr %this, align 8
   %sub.i = sub nsw i64 0, %12
@@ -33568,7 +33536,7 @@ if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04
   %.sink = phi ptr [ %7, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
   %sub.i15.sink = phi i64 [ %8, %if.then.i.i.i ], [ %sub.i15, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
   %idxprom.i.i.i24 = zext i32 %.sink28 to i64
-  %arrayidx.i.i.i25 = getelementptr inbounds nuw i64, ptr %.sink, i64 %idxprom.i.i.i24
+  %arrayidx.i.i.i25 = getelementptr inbounds nuw [8 x i8], ptr %.sink, i64 %idxprom.i.i.i24
   store i64 %sub.i15.sink, ptr %arrayidx.i.i.i25, align 8
   br label %if.end11
 
@@ -33807,7 +33775,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -33845,7 +33813,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 262144
   br label %for.body.i.i
@@ -33918,7 +33886,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -33966,7 +33934,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -34004,7 +33972,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -34105,7 +34073,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !438)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 262144
@@ -34149,7 +34117,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.887", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -34163,7 +34131,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -34184,7 +34152,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -34291,7 +34259,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -34329,7 +34297,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32768
   br label %for.body.i.i
@@ -34402,7 +34370,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -34450,7 +34418,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -34488,7 +34456,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -34589,7 +34557,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !444)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 32768
@@ -34633,7 +34601,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.898", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -34647,7 +34615,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -34668,7 +34636,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -35165,7 +35133,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 262144
   br label %for.body.i.i.i.i
@@ -35186,7 +35154,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -35239,7 +35207,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -35254,7 +35222,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -35314,7 +35282,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeIfLj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISC_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -35367,7 +35335,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -35379,7 +35347,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -35391,7 +35359,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 262144
   br label %for.body.i.i.i.i44
@@ -35412,7 +35380,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -35976,7 +35944,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -35991,7 +35959,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -36054,7 +36022,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeIfLj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISC_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -36110,7 +36078,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -36122,7 +36090,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE16initNodeChildrenINS2_INS3_IS6_Lj5EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESM_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -36169,11 +36137,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -36195,7 +36163,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !453)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 262144
@@ -36236,7 +36204,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.887", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -36250,7 +36218,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -36271,7 +36239,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -36737,7 +36705,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32768
   br label %for.body.i.i.i.i
@@ -36758,7 +36726,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -36811,7 +36779,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -36826,7 +36794,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -36886,7 +36854,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeIfLj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISA_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -36939,7 +36907,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -36951,7 +36919,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -36963,7 +36931,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 32768
   br label %for.body.i.i.i.i44
@@ -36984,7 +36952,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -37548,7 +37516,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -37563,7 +37531,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -37626,7 +37594,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeIfLj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISA_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -37682,7 +37650,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -37694,7 +37662,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_8LeafNodeIfLj3EEEE16initNodeChildrenINS2_INS1_12InternalNodeIS4_Lj4EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESL_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -37741,11 +37709,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -37767,7 +37735,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !463)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 32768
@@ -37808,7 +37776,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.898", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -37822,7 +37790,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -37843,7 +37811,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -38587,7 +38555,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %tempIdx.0155 = phi i32 [ 0, %for.cond.preheader ], [ %tempIdx.1, %for.inc ]
   %shr.i = lshr i64 %indvars.iv, 6
   %idxprom.i = and i64 %shr.i, 67108863
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %valueMask, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %valueMask, i64 %idxprom.i
   %30 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %indvars.iv, 63
   %shl.i = shl nuw i64 1, %and.i
@@ -38597,13 +38565,13 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.then170:                                       ; preds = %for.body
   %idxprom = zext i32 %tempIdx.0155 to i64
-  %arrayidx = getelementptr inbounds nuw float, ptr %tempBuf.0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %tempBuf.0, i64 %idxprom
   %31 = load float, ptr %arrayidx, align 4
   %inc = add i32 %tempIdx.0155, 1
   br label %for.inc
 
 if.else173:                                       ; preds = %for.body
-  %arrayidx.i70 = getelementptr inbounds nuw i64, ptr %selectionMask, i64 %idxprom.i
+  %arrayidx.i70 = getelementptr inbounds nuw [8 x i8], ptr %selectionMask, i64 %idxprom.i
   %32 = load i64, ptr %arrayidx.i70, align 8
   %and2.i74 = and i64 %32, %shl.i
   %cmp.i75.not = icmp eq i64 %and2.i74, 0
@@ -38613,7 +38581,7 @@ if.else173:                                       ; preds = %for.body
 for.inc:                                          ; preds = %if.then170, %if.else173
   %.sink = phi float [ %cond178, %if.else173 ], [ %31, %if.then170 ]
   %tempIdx.1 = phi i32 [ %tempIdx.0155, %if.else173 ], [ %inc, %if.then170 ]
-  %33 = getelementptr inbounds nuw float, ptr %destBuf, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %destBuf, i64 %indvars.iv
   store float %.sink, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
@@ -39601,7 +39569,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -39653,7 +39621,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -39668,7 +39636,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -39732,7 +39700,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeISB_EEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -39786,7 +39754,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -39798,7 +39766,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -39814,7 +39782,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -39924,7 +39892,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.887", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load float, ptr %arrayidx.i.i.i.i, align 8
   %8 = load float, ptr %this, align 4
   %sub.i.i.i = fsub float %7, %8
@@ -39933,7 +39901,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %10 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %10 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.887", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -39955,7 +39923,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %16 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %16 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.887", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store float %fneg.i10.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -39970,7 +39938,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %17, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %idxprom.i.i.i.i10
   %19 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -39991,7 +39959,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i.i.i.i
   %20 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -40448,7 +40416,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -40500,7 +40468,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -40515,7 +40483,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -40579,7 +40547,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -40633,7 +40601,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -40645,7 +40613,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -40661,7 +40629,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -40771,7 +40739,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.898", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load float, ptr %arrayidx.i.i.i.i, align 8
   %8 = load float, ptr %this, align 4
   %sub.i.i.i = fsub float %7, %8
@@ -40780,7 +40748,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %10 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %10 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.898", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -40802,7 +40770,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %16 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %16 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.898", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store float %fneg.i10.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -40817,7 +40785,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %17, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %idxprom.i.i.i.i10
   %19 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -40838,7 +40806,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i.i.i.i
   %20 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -40887,7 +40855,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !483)
@@ -40931,7 +40899,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -40953,7 +40921,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -41453,7 +41421,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -41468,7 +41436,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -41535,7 +41503,7 @@ invoke.cont13:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIfLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSG_IS8_Lj4EEELj5EEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -41592,7 +41560,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %36 = load i64, ptr %mGrainSize.i.i, align 8
   %37 = load i64, ptr %arrayidx.i2.i, align 8
@@ -41604,7 +41572,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeIfLj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSB_IS4_Lj4EEELj5EEEEEEEEENS5_14OpWithoutIndexEEclERKNS5_9NodeRangeE(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %39 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %39, -1
@@ -41654,7 +41622,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %2 = load ptr, ptr %call.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %3 = load float, ptr %retval.0.i.i.i.i.i.i, align 4
   %4 = load float, ptr %this, align 4
@@ -41701,7 +41669,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %12 = load ptr, ptr %call.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i9 = icmp eq ptr %12, null
   %idxprom.i.i.i.i.i.i10 = zext i32 %10 to i64
-  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw float, ptr %12, i64 %idxprom.i.i.i.i.i.i10
+  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %idxprom.i.i.i.i.i.i10
   %retval.0.i.i.i.i.i.i12 = select i1 %tobool.not.i.i.i.i.i.i9, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i11
   %13 = load float, ptr %this, align 4
   %14 = load float, ptr %retval.0.i.i.i.i.i.i12, align 4
@@ -41735,7 +41703,7 @@ if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04
   %.sink = phi ptr [ %8, %if.then.i.i.i ], [ %19, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
   %fneg.i16.sink = phi float [ %9, %if.then.i.i.i ], [ %fneg.i16, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
   %idxprom.i.i.i25 = zext i32 %.sink29 to i64
-  %arrayidx.i.i.i26 = getelementptr inbounds nuw float, ptr %.sink, i64 %idxprom.i.i.i25
+  %arrayidx.i.i.i26 = getelementptr inbounds nuw [4 x i8], ptr %.sink, i64 %idxprom.i.i.i25
   store float %fneg.i16.sink, ptr %arrayidx.i.i.i26, align 4
   br label %if.end11
 
@@ -41974,7 +41942,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -42012,7 +41980,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 262144
   br label %for.body.i.i
@@ -42085,7 +42053,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -42133,7 +42101,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -42171,7 +42139,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -42272,7 +42240,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !496)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 262144
@@ -42316,7 +42284,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.962", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -42330,7 +42298,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -42351,7 +42319,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -42458,7 +42426,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -42496,7 +42464,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32768
   br label %for.body.i.i
@@ -42569,7 +42537,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -42617,7 +42585,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -42655,7 +42623,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -42756,7 +42724,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !502)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 32768
@@ -42800,7 +42768,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.973", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -42814,7 +42782,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -42835,7 +42803,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -43332,7 +43300,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 262144
   br label %for.body.i.i.i.i
@@ -43353,7 +43321,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -43406,7 +43374,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -43421,7 +43389,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -43481,7 +43449,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeIdLj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISC_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -43534,7 +43502,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -43546,7 +43514,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -43558,7 +43526,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 262144
   br label %for.body.i.i.i.i44
@@ -43579,7 +43547,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -44143,7 +44111,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -44158,7 +44126,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -44221,7 +44189,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeIdLj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISC_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -44277,7 +44245,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -44289,7 +44257,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE16initNodeChildrenINS2_INS3_IS6_Lj5EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESM_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -44336,11 +44304,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -44362,7 +44330,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !511)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 262144
@@ -44403,7 +44371,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.962", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -44417,7 +44385,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -44438,7 +44406,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -44904,7 +44872,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32768
   br label %for.body.i.i.i.i
@@ -44925,7 +44893,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -44978,7 +44946,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -44993,7 +44961,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -45053,7 +45021,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeIdLj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISA_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -45106,7 +45074,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -45118,7 +45086,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -45130,7 +45098,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 32768
   br label %for.body.i.i.i.i44
@@ -45151,7 +45119,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -45715,7 +45683,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -45730,7 +45698,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -45793,7 +45761,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeIdLj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISA_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -45849,7 +45817,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -45861,7 +45829,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_8LeafNodeIdLj3EEEE16initNodeChildrenINS2_INS1_12InternalNodeIS4_Lj4EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESL_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -45908,11 +45876,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -45934,7 +45902,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !521)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 32768
@@ -45975,7 +45943,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.973", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -45989,7 +45957,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -46010,7 +45978,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -46751,7 +46719,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %tempIdx.0155 = phi i32 [ 0, %for.cond.preheader ], [ %tempIdx.1, %for.inc ]
   %shr.i = lshr i64 %indvars.iv, 6
   %idxprom.i = and i64 %shr.i, 67108863
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %valueMask, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %valueMask, i64 %idxprom.i
   %30 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %indvars.iv, 63
   %shl.i = shl nuw i64 1, %and.i
@@ -46761,13 +46729,13 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.then170:                                       ; preds = %for.body
   %idxprom = zext i32 %tempIdx.0155 to i64
-  %arrayidx = getelementptr inbounds nuw double, ptr %tempBuf.0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %tempBuf.0, i64 %idxprom
   %31 = load double, ptr %arrayidx, align 8
   %inc = add i32 %tempIdx.0155, 1
   br label %for.inc
 
 if.else173:                                       ; preds = %for.body
-  %arrayidx.i70 = getelementptr inbounds nuw i64, ptr %selectionMask, i64 %idxprom.i
+  %arrayidx.i70 = getelementptr inbounds nuw [8 x i8], ptr %selectionMask, i64 %idxprom.i
   %32 = load i64, ptr %arrayidx.i70, align 8
   %and2.i74 = and i64 %32, %shl.i
   %cmp.i75.not = icmp eq i64 %and2.i74, 0
@@ -46777,7 +46745,7 @@ if.else173:                                       ; preds = %for.body
 for.inc:                                          ; preds = %if.then170, %if.else173
   %.sink = phi double [ %cond178, %if.else173 ], [ %31, %if.then170 ]
   %tempIdx.1 = phi i32 [ %tempIdx.0155, %if.else173 ], [ %inc, %if.then170 ]
-  %33 = getelementptr inbounds nuw double, ptr %destBuf, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %destBuf, i64 %indvars.iv
   store double %.sink, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
@@ -47762,7 +47730,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -47814,7 +47782,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -47829,7 +47797,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -47893,7 +47861,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeISB_EEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -47946,7 +47914,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -47958,7 +47926,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -47974,7 +47942,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -48084,7 +48052,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.962", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load double, ptr %arrayidx.i.i.i.i, align 8
   %8 = load double, ptr %this, align 8
   %sub.i.i.i = fsub double %7, %8
@@ -48093,7 +48061,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %10 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %10 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.962", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -48115,7 +48083,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %16 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %16 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.962", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store double %fneg.i10.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -48130,7 +48098,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %17, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %idxprom.i.i.i.i10
   %19 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -48151,7 +48119,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i.i.i.i
   %20 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -48606,7 +48574,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -48658,7 +48626,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -48673,7 +48641,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -48737,7 +48705,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -48790,7 +48758,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -48802,7 +48770,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -48818,7 +48786,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -48928,7 +48896,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.973", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load double, ptr %arrayidx.i.i.i.i, align 8
   %8 = load double, ptr %this, align 8
   %sub.i.i.i = fsub double %7, %8
@@ -48937,7 +48905,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %10 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %10 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.973", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -48959,7 +48927,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %16 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %16 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.973", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store double %fneg.i10.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -48974,7 +48942,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %17, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %idxprom.i.i.i.i10
   %19 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -48995,7 +48963,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i.i.i.i
   %20 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -49044,7 +49012,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !541)
@@ -49088,7 +49056,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -49110,7 +49078,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -49608,7 +49576,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -49623,7 +49591,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -49690,7 +49658,7 @@ invoke.cont13:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIdLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSG_IS8_Lj4EEELj5EEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -49746,7 +49714,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -49758,7 +49726,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeIdLj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSB_IS4_Lj4EEELj5EEEEEEEEENS5_14OpWithoutIndexEEclERKNS5_9NodeRangeE(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %38 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %38, -1
@@ -49808,7 +49776,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %2 = load ptr, ptr %call.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %2, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %3 = load double, ptr %retval.0.i.i.i.i.i.i, align 8
   %4 = load double, ptr %this, align 8
@@ -49855,7 +49823,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %12 = load ptr, ptr %call.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i9 = icmp eq ptr %12, null
   %idxprom.i.i.i.i.i.i10 = zext i32 %10 to i64
-  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw double, ptr %12, i64 %idxprom.i.i.i.i.i.i10
+  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %idxprom.i.i.i.i.i.i10
   %retval.0.i.i.i.i.i.i12 = select i1 %tobool.not.i.i.i.i.i.i9, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i11
   %13 = load double, ptr %this, align 8
   %14 = load double, ptr %retval.0.i.i.i.i.i.i12, align 8
@@ -49889,7 +49857,7 @@ if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04
   %.sink = phi ptr [ %8, %if.then.i.i.i ], [ %19, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
   %fneg.i16.sink = phi double [ %9, %if.then.i.i.i ], [ %fneg.i16, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
   %idxprom.i.i.i25 = zext i32 %.sink29 to i64
-  %arrayidx.i.i.i26 = getelementptr inbounds nuw double, ptr %.sink, i64 %idxprom.i.i.i25
+  %arrayidx.i.i.i26 = getelementptr inbounds nuw [8 x i8], ptr %.sink, i64 %idxprom.i.i.i25
   store double %fneg.i16.sink, ptr %arrayidx.i.i.i26, align 8
   br label %if.end11
 
@@ -50128,7 +50096,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -50166,7 +50134,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 524288
   br label %for.body.i.i
@@ -50239,7 +50207,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -50287,7 +50255,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -50325,7 +50293,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -50426,7 +50394,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !554)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 524288
@@ -50470,7 +50438,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1031", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -50484,7 +50452,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -50505,7 +50473,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -50612,7 +50580,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -50650,7 +50618,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 65536
   br label %for.body.i.i
@@ -50723,7 +50691,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -50771,7 +50739,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -50809,7 +50777,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -50910,7 +50878,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !560)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 65536
@@ -50954,7 +50922,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1042", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -50968,7 +50936,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -50989,7 +50957,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -51486,7 +51454,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 524288
   br label %for.body.i.i.i.i
@@ -51507,7 +51475,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -51560,7 +51528,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -51575,7 +51543,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -51635,7 +51603,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeINS6_4math4Vec3IfEELj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISF_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -51688,7 +51656,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -51700,7 +51668,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -51712,7 +51680,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 524288
   br label %for.body.i.i.i.i44
@@ -51733,7 +51701,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -52297,7 +52265,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -52312,7 +52280,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -52375,7 +52343,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeINS6_4math4Vec3IfEELj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISF_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -52431,7 +52399,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -52443,7 +52411,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE16initNodeChildrenINS2_INS3_IS9_Lj5EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESP_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -52490,11 +52458,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -52516,7 +52484,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !569)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 524288
@@ -52557,7 +52525,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1031", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -52571,7 +52539,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -52592,7 +52560,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -53058,7 +53026,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 65536
   br label %for.body.i.i.i.i
@@ -53079,7 +53047,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -53132,7 +53100,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -53147,7 +53115,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -53207,7 +53175,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeINS6_4math4Vec3IfEELj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISD_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -53260,7 +53228,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -53272,7 +53240,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -53284,7 +53252,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 65536
   br label %for.body.i.i.i.i44
@@ -53305,7 +53273,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -53869,7 +53837,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -53884,7 +53852,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -53947,7 +53915,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeINS6_4math4Vec3IfEELj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISD_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -54003,7 +53971,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -54015,7 +53983,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE16initNodeChildrenINS2_INS1_12InternalNodeIS7_Lj4EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESO_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -54062,11 +54030,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -54088,7 +54056,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !579)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 65536
@@ -54129,7 +54097,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1042", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -54143,7 +54111,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -54164,7 +54132,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -55063,7 +55031,7 @@ for.body:                                         ; preds = %if.end165, %for.inc
   %tempIdx.0156 = phi i32 [ %tempIdx.1, %for.inc ], [ 0, %if.end165 ]
   %shr.i = lshr i64 %indvars.iv, 6
   %idxprom.i = and i64 %shr.i, 67108863
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %valueMask, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %valueMask, i64 %idxprom.i
   %28 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %indvars.iv, 63
   %shl.i = shl nuw i64 1, %and.i
@@ -55073,19 +55041,19 @@ for.body:                                         ; preds = %if.end165, %for.inc
 
 if.then174:                                       ; preds = %for.body
   %idxprom = zext i32 %tempIdx.0156 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.316", ptr %tempBuf.0, i64 %idxprom
-  %arrayidx176 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.316", ptr %destBuf, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [12 x i8], ptr %tempBuf.0, i64 %idxprom
+  %arrayidx176 = getelementptr inbounds nuw [12 x i8], ptr %destBuf, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx176, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx, i64 12, i1 false)
   %inc = add i32 %tempIdx.0156, 1
   br label %for.inc
 
 if.else177:                                       ; preds = %for.body
-  %arrayidx.i70 = getelementptr inbounds nuw i64, ptr %selectionMask, i64 %idxprom.i
+  %arrayidx.i70 = getelementptr inbounds nuw [8 x i8], ptr %selectionMask, i64 %idxprom.i
   %29 = load i64, ptr %arrayidx.i70, align 8
   %and2.i74 = and i64 %29, %shl.i
   %cmp.i75.not = icmp eq i64 %and2.i74, 0
   %inactiveVal1.inactiveVal0 = select i1 %cmp.i75.not, ptr %inactiveVal0, ptr %inactiveVal1
-  %arrayidx183 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.316", ptr %destBuf, i64 %indvars.iv
+  %arrayidx183 = getelementptr inbounds nuw [12 x i8], ptr %destBuf, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx183, ptr noundef nonnull align 8 dereferenceable(12) %inactiveVal1.inactiveVal0, i64 12, i1 false)
   br label %for.inc
 
@@ -56182,7 +56150,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i, ptr noundef nonnull align 8 dereferenceable(532496) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -56234,7 +56202,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -56249,7 +56217,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -56313,7 +56281,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeENSF_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeISE_EEEEEENSF_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -56366,7 +56334,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -56378,7 +56346,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -56394,7 +56362,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(532496) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -56508,7 +56476,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -56529,7 +56497,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -56564,7 +56532,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1031", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load float, ptr %arrayidx.i.i.i, align 8
   %2 = load float, ptr %this, align 4
   %sub.i.i.i = fsub float %1, %2
@@ -56627,7 +56595,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %19 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %19 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1031", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -56635,7 +56603,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %20 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %20 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1031", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %21 = load float, ptr %this, align 4
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %22 = load float, ptr %arrayidx3.i.i, align 4
@@ -56711,7 +56679,7 @@ if.then8:                                         ; preds = %land.rhs.i.i15, %_Z
   %42 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i46 = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i47 = zext i32 %42 to i64
-  %arrayidx.i.i48 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1031", ptr %call.i.i46, i64 %idxprom.i.i47
+  %arrayidx.i.i48 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i46, i64 %idxprom.i.i47
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i42, ptr %arrayidx.i.i48, align 8
   %ref.tmp9.sroa.2.0.arrayidx.i.i48.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i48, i64 8
   store float %fneg7.i.i40, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i48.sroa_idx, align 8
@@ -57148,7 +57116,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEclISC_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i, ptr noundef nonnull align 8 dereferenceable(66576) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -57200,7 +57168,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -57215,7 +57183,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -57279,7 +57247,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeENSE_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS7_ISD_Lj5EEEEEEEEENSE_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -57332,7 +57300,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -57344,7 +57312,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -57360,7 +57328,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEclISC_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(66576) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -57474,7 +57442,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -57495,7 +57463,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -57530,7 +57498,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1042", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load float, ptr %arrayidx.i.i.i, align 8
   %2 = load float, ptr %this, align 4
   %sub.i.i.i = fsub float %1, %2
@@ -57593,7 +57561,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %19 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %19 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1042", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -57601,7 +57569,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %20 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %20 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1042", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %21 = load float, ptr %this, align 4
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %22 = load float, ptr %arrayidx3.i.i, align 4
@@ -57677,7 +57645,7 @@ if.then8:                                         ; preds = %land.rhs.i.i15, %_Z
   %42 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i46 = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i47 = zext i32 %42 to i64
-  %arrayidx.i.i48 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1042", ptr %call.i.i46, i64 %idxprom.i.i47
+  %arrayidx.i.i48 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i46, i64 %idxprom.i.i47
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i42, ptr %arrayidx.i.i48, align 8
   %ref.tmp9.sroa.2.0.arrayidx.i.i48.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i48, i64 8
   store float %fneg7.i.i40, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i48.sroa_idx, align 8
@@ -57708,7 +57676,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !601)
@@ -57752,7 +57720,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -57774,7 +57742,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -58272,7 +58240,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -58287,7 +58255,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -58354,7 +58322,7 @@ invoke.cont13:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_ISB_Lj4EEELj5EEEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -58410,7 +58378,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -58422,7 +58390,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSE_IS7_Lj4EEELj5EEEEEEEEENS8_14OpWithoutIndexEEclERKNS8_9NodeRangeE(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %38 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %38, -1
@@ -58488,7 +58456,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %4 = load ptr, ptr %call.i.i.i, align 8
   %tobool2.not.i.i.i.i.i.i = icmp eq ptr %4, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.316", ptr %4, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool2.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %5 = load float, ptr %retval.0.i.i.i.i.i.i, align 4
   %6 = load float, ptr %this, align 4
@@ -58567,7 +58535,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i
   %idxprom.i.i.i = zext i32 %23 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.316", ptr %25, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %idxprom.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -58603,7 +58571,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %30 = load ptr, ptr %call.i.i.i5, align 8
   %tobool2.not.i.i.i.i.i.i11 = icmp eq ptr %30, null
   %idxprom.i.i.i.i.i.i12 = zext i32 %26 to i64
-  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.316", ptr %30, i64 %idxprom.i.i.i.i.i.i12
+  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %idxprom.i.i.i.i.i.i12
   %retval.0.i.i.i.i.i.i14 = select i1 %tobool2.not.i.i.i.i.i.i11, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i13
   %31 = load float, ptr %this, align 4
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -58695,7 +58663,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i63:                                  ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i61
   %idxprom.i.i.i64 = zext i32 %52 to i64
-  %arrayidx.i.i.i65 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.316", ptr %54, i64 %idxprom.i.i.i64
+  %arrayidx.i.i.i65 = getelementptr inbounds nuw [12 x i8], ptr %54, i64 %idxprom.i.i.i64
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i53, ptr %arrayidx.i.i.i65, align 4
   %ref.tmp9.sroa.2.0.arrayidx.i.i.i65.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i65, i64 8
   store float %fneg7.i.i51, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i.i65.sroa_idx, align 4
@@ -58936,7 +58904,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -58974,7 +58942,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 786432
   br label %for.body.i.i
@@ -59047,7 +59015,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -59095,7 +59063,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -59133,7 +59101,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -59234,7 +59202,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !615)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 786432
@@ -59278,7 +59246,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1109", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -59292,7 +59260,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -59313,7 +59281,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -59420,7 +59388,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -59458,7 +59426,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 98304
   br label %for.body.i.i
@@ -59531,7 +59499,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -59579,7 +59547,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -59617,7 +59585,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -59718,7 +59686,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !621)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 98304
@@ -59762,7 +59730,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1120", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -59776,7 +59744,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -59797,7 +59765,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -60294,7 +60262,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 786432
   br label %for.body.i.i.i.i
@@ -60315,7 +60283,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -60368,7 +60336,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -60383,7 +60351,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -60443,7 +60411,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeINS6_4math4Vec3IdEELj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISF_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -60496,7 +60464,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -60508,7 +60476,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -60520,7 +60488,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 786432
   br label %for.body.i.i.i.i44
@@ -60541,7 +60509,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -61105,7 +61073,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -61120,7 +61088,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -61183,7 +61151,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeINS6_4math4Vec3IdEELj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISF_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -61239,7 +61207,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -61251,7 +61219,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE16initNodeChildrenINS2_INS3_IS9_Lj5EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESP_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -61298,11 +61266,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -61324,7 +61292,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !630)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 786432
@@ -61365,7 +61333,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1109", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -61379,7 +61347,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -61400,7 +61368,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -61866,7 +61834,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 98304
   br label %for.body.i.i.i.i
@@ -61887,7 +61855,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -61940,7 +61908,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -61955,7 +61923,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -62015,7 +61983,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeINS6_4math4Vec3IdEELj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISD_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -62068,7 +62036,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -62080,7 +62048,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -62092,7 +62060,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 98304
   br label %for.body.i.i.i.i44
@@ -62113,7 +62081,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -62677,7 +62645,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -62692,7 +62660,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -62755,7 +62723,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeINS6_4math4Vec3IdEELj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISD_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -62811,7 +62779,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -62823,7 +62791,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE16initNodeChildrenINS2_INS1_12InternalNodeIS7_Lj4EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESO_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -62870,11 +62838,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -62896,7 +62864,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !640)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 98304
@@ -62937,7 +62905,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1120", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -62951,7 +62919,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -62972,7 +62940,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -63877,7 +63845,7 @@ for.body:                                         ; preds = %if.end159, %for.inc
   %tempIdx.0158 = phi i32 [ %tempIdx.1, %for.inc ], [ 0, %if.end159 ]
   %shr.i = lshr i64 %indvars.iv, 6
   %idxprom.i = and i64 %shr.i, 67108863
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %valueMask, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %valueMask, i64 %idxprom.i
   %27 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %indvars.iv, 63
   %shl.i = shl nuw i64 1, %and.i
@@ -63887,19 +63855,19 @@ for.body:                                         ; preds = %if.end159, %for.inc
 
 if.then168:                                       ; preds = %for.body
   %idxprom = zext i32 %tempIdx.0158 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %tempBuf.0, i64 %idxprom
-  %arrayidx170 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %destBuf, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [24 x i8], ptr %tempBuf.0, i64 %idxprom
+  %arrayidx170 = getelementptr inbounds nuw [24 x i8], ptr %destBuf, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx170, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i64 24, i1 false)
   %inc = add i32 %tempIdx.0158, 1
   br label %for.inc
 
 if.else171:                                       ; preds = %for.body
-  %arrayidx.i70 = getelementptr inbounds nuw i64, ptr %selectionMask, i64 %idxprom.i
+  %arrayidx.i70 = getelementptr inbounds nuw [8 x i8], ptr %selectionMask, i64 %idxprom.i
   %28 = load i64, ptr %arrayidx.i70, align 8
   %and2.i74 = and i64 %28, %shl.i
   %cmp.i75.not = icmp eq i64 %and2.i74, 0
   %inactiveVal1.inactiveVal0 = select i1 %cmp.i75.not, ptr %inactiveVal0, ptr %inactiveVal1
-  %arrayidx177 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %destBuf, i64 %indvars.iv
+  %arrayidx177 = getelementptr inbounds nuw [24 x i8], ptr %destBuf, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx177, ptr noundef nonnull align 8 dereferenceable(24) %inactiveVal1.inactiveVal0, i64 24, i1 false)
   br label %for.inc
 
@@ -65002,7 +64970,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %my_body.i, ptr noundef nonnull align 8 dereferenceable(794640) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -65054,7 +65022,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -65069,7 +65037,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -65133,7 +65101,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeENSF_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeISE_EEEEEENSF_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -65186,7 +65154,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -65198,7 +65166,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -65214,7 +65182,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(794640) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -65328,7 +65296,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -65349,7 +65317,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -65384,7 +65352,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1109", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load double, ptr %arrayidx.i.i.i, align 8
   %2 = load double, ptr %this, align 8
   %sub.i.i.i = fsub double %1, %2
@@ -65447,7 +65415,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %19 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %19 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1109", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNewValue, i64 24, i1 false)
   br label %if.end9
 
@@ -65455,7 +65423,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %20 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %20 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1109", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [24 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %21 = load double, ptr %this, align 8, !noalias !670
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %22 = load double, ptr %arrayidx3.i.i, align 8, !noalias !670
@@ -65529,7 +65497,7 @@ if.then6:                                         ; preds = %land.rhs.i.i15, %_Z
   %42 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i44 = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i45 = zext i32 %42 to i64
-  %arrayidx.i.i46 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1109", ptr %call.i.i44, i64 %idxprom.i.i45
+  %arrayidx.i.i46 = getelementptr inbounds nuw [24 x i8], ptr %call.i.i44, i64 %idxprom.i.i45
   store double %fneg.i.i36, ptr %arrayidx.i.i46, align 8
   %ref.tmp7.sroa.2.0.arrayidx.i.i46.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i46, i64 8
   store double %fneg4.i.i38, ptr %ref.tmp7.sroa.2.0.arrayidx.i.i46.sroa_idx, align 8
@@ -65968,7 +65936,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEclISC_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %my_body.i, ptr noundef nonnull align 8 dereferenceable(99344) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -66020,7 +65988,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -66035,7 +66003,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -66099,7 +66067,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeENSE_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS7_ISD_Lj5EEEEEEEEENSE_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -66152,7 +66120,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -66164,7 +66132,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -66180,7 +66148,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEclISC_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(99344) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -66294,7 +66262,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -66315,7 +66283,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -66350,7 +66318,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1120", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load double, ptr %arrayidx.i.i.i, align 8
   %2 = load double, ptr %this, align 8
   %sub.i.i.i = fsub double %1, %2
@@ -66413,7 +66381,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %19 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %19 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1120", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNewValue, i64 24, i1 false)
   br label %if.end9
 
@@ -66421,7 +66389,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %20 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %20 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1120", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [24 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %21 = load double, ptr %this, align 8, !noalias !686
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %22 = load double, ptr %arrayidx3.i.i, align 8, !noalias !686
@@ -66495,7 +66463,7 @@ if.then6:                                         ; preds = %land.rhs.i.i15, %_Z
   %42 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i44 = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i45 = zext i32 %42 to i64
-  %arrayidx.i.i46 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1120", ptr %call.i.i44, i64 %idxprom.i.i45
+  %arrayidx.i.i46 = getelementptr inbounds nuw [24 x i8], ptr %call.i.i44, i64 %idxprom.i.i45
   store double %fneg.i.i36, ptr %arrayidx.i.i46, align 8
   %ref.tmp7.sroa.2.0.arrayidx.i.i46.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i46, i64 8
   store double %fneg4.i.i38, ptr %ref.tmp7.sroa.2.0.arrayidx.i.i46.sroa_idx, align 8
@@ -66528,7 +66496,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !696)
@@ -66572,7 +66540,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -66594,7 +66562,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -67092,7 +67060,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -67107,7 +67075,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -67174,7 +67142,7 @@ invoke.cont13:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_ISB_Lj4EEELj5EEEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -67230,7 +67198,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -67242,7 +67210,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSE_IS7_Lj4EEELj5EEEEEEEEENS8_14OpWithoutIndexEEclERKNS8_9NodeRangeE(ptr noundef nonnull align 8 dereferenceable(48) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %38 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %38, -1
@@ -67307,7 +67275,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %4 = load ptr, ptr %call.i.i.i, align 8
   %tobool2.not.i.i.i.i.i.i = icmp eq ptr %4, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %4, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool2.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %5 = load double, ptr %retval.0.i.i.i.i.i.i, align 8
   %6 = load double, ptr %this, align 8
@@ -67386,7 +67354,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i
   %idxprom.i.i.i = zext i32 %23 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %25, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %idxprom.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNewValue, i64 24, i1 false)
   br label %if.end9
 
@@ -67421,7 +67389,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %30 = load ptr, ptr %call.i.i.i5, align 8
   %tobool2.not.i.i.i.i.i.i11 = icmp eq ptr %30, null
   %idxprom.i.i.i.i.i.i12 = zext i32 %26 to i64
-  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %30, i64 %idxprom.i.i.i.i.i.i12
+  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %idxprom.i.i.i.i.i.i12
   %retval.0.i.i.i.i.i.i14 = select i1 %tobool2.not.i.i.i.i.i.i11, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i13
   %31 = load double, ptr %this, align 8, !noalias !710
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -67511,7 +67479,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i61:                                  ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i59
   %idxprom.i.i.i62 = zext i32 %52 to i64
-  %arrayidx.i.i.i63 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %54, i64 %idxprom.i.i.i62
+  %arrayidx.i.i.i63 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %idxprom.i.i.i62
   store double %fneg.i.i47, ptr %arrayidx.i.i.i63, align 8
   %ref.tmp7.sroa.2.0.arrayidx.i.i.i63.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i63, i64 8
   store double %fneg4.i.i49, ptr %ref.tmp7.sroa.2.0.arrayidx.i.i.i63.sroa_idx, align 8
@@ -67754,7 +67722,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -67792,7 +67760,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 524288
   br label %for.body.i.i
@@ -67865,7 +67833,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -67913,7 +67881,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -67951,7 +67919,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -68052,7 +68020,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !725)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 524288
@@ -68096,7 +68064,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1178", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -68110,7 +68078,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -68131,7 +68099,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -68238,7 +68206,7 @@ if.else.lr.ph:                                    ; preds = %_ZNSt12_Vector_base
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
   store ptr %call5.i.i.i.i24, ptr %nodeCounts, align 8
   store ptr %call5.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i24, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i24, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %parents, i64 16
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %nodeCounts, i64 8
@@ -68276,7 +68244,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %for
   %2 = phi ptr [ %call5.i.i.i.i24, %if.else.lr.ph ], [ %11, %for.inc ]
   %i.0146 = phi i64 [ 0, %if.else.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %i.0146
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.0146
   %4 = load ptr, ptr %arrayidx.i, align 8
   %mChildMask.i.i = getelementptr inbounds nuw i8, ptr %4, i64 65536
   br label %for.body.i.i
@@ -68349,7 +68317,7 @@ if.then.i18.i.i.i55:                              ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i56: ; preds = %if.then.i18.i.i.i55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i52
   store ptr %call5.i.i.i.i.i.i62, ptr %nodeCounts, align 8
   store ptr %incdec.ptr.i.i.i53, ptr %_M_finish.i.i32, align 8
-  %add.ptr19.i.i.i57 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
+  %add.ptr19.i.i.i57 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i62, i64 %cond.i.i.i.i47
   store ptr %add.ptr19.i.i.i57, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -68397,7 +68365,7 @@ if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc121
   store ptr %call5.i.i.i.i122, ptr %nodeCounts, align 8
-  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i122, i64 %0
+  %add.ptr37.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i122, i64 %0
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont17
@@ -68435,7 +68403,7 @@ if.end24:                                         ; preds = %for.inc, %if.end.i,
 for.body29:                                       ; preds = %if.end24, %for.body29
   %18 = phi ptr [ %23, %for.body29 ], [ %17, %if.end24 ]
   %i25.0152 = phi i64 [ %inc33, %for.body29 ], [ 1, %if.end24 ]
-  %19 = getelementptr i32, ptr %18, i64 %i25.0152
+  %19 = getelementptr [4 x i8], ptr %18, i64 %i25.0152
   %add.ptr.i75 = getelementptr i8, ptr %19, i64 -4
   %20 = load i32, ptr %add.ptr.i75, align 4
   %21 = load i32, ptr %19, align 4
@@ -68536,7 +68504,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
   %i58.0159 = phi i64 [ 0, %if.end66.lr.ph ], [ %inc81, %for.inc80 ]
   %nodePtr.0158 = phi ptr [ %33, %if.end66.lr.ph ], [ %nodePtr.2.lcssa, %for.inc80 ]
   %35 = load ptr, ptr %mNodes.i81, align 8
-  %arrayidx.i82 = getelementptr inbounds ptr, ptr %35, i64 %i58.0159
+  %arrayidx.i82 = getelementptr inbounds [8 x i8], ptr %35, i64 %i58.0159
   %36 = load ptr, ptr %arrayidx.i82, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !731)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %36, i64 65536
@@ -68580,7 +68548,7 @@ for.body73:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont74:                                    ; preds = %for.body73
   %idxprom.i.i.i = zext i32 %40 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1190", ptr %call.i.i86, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i86, i64 %idxprom.i.i.i
   %41 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.2155, i64 8
   store ptr %41, ptr %nodePtr.2155, align 8
@@ -68594,7 +68562,7 @@ invoke.cont74:                                    ; preds = %for.body73
 if.end.i.i.i.i:                                   ; preds = %invoke.cont74
   %and.i.i.i.i = and i32 %add.i.i.i88, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %idxprom.i.i.i.i
   %44 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -68615,7 +68583,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i
   %45 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %45, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -69112,7 +69080,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 524288
   br label %for.body.i.i.i.i
@@ -69133,7 +69101,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -69186,7 +69154,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -69201,7 +69169,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -69261,7 +69229,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeINS6_4math4Vec3IiEELj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISF_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -69314,7 +69282,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -69326,7 +69294,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -69338,7 +69306,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 524288
   br label %for.body.i.i.i.i44
@@ -69359,7 +69327,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -69923,7 +69891,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -69938,7 +69906,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -70001,7 +69969,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_12InternalNodeINS7_8LeafNodeINS6_4math4Vec3IiEELj3EEELj4EEEE16initNodeChildrenINS8_INS9_ISF_Lj5EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -70057,7 +70025,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -70069,7 +70037,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE16initNodeChildrenINS2_INS3_IS9_Lj5EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESP_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -70116,11 +70084,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -70142,7 +70110,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !740)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 524288
@@ -70183,7 +70151,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1178", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -70197,7 +70165,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -70218,7 +70186,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -70684,7 +70652,7 @@ if.else.i.i:                                      ; preds = %for.inc.i.i, %if.el
   %6 = load ptr, ptr %4, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.09.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.09.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %mChildMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 65536
   br label %for.body.i.i.i.i
@@ -70705,7 +70673,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   %11 = load ptr, ptr %5, align 32
   %12 = load ptr, ptr %11, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds i32, ptr %12, i64 %i.09.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds [4 x i8], ptr %12, i64 %i.09.i.i
   store i32 %add.i.i.i.i, ptr %add.ptr.i7.i.i, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %13 = load i64, ptr %range, align 8
@@ -70758,7 +70726,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %19 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr109, %land.rhs.lr.ph.i ]
   %rem.i8290 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i91 = zext i8 %rem.i8290 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i91
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i91
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %20 = load i64, ptr %my_grainsize.i.i.i, align 8
   %21 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -70773,7 +70741,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i8290, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %23 = load i64, ptr %add.ptr.i, align 8
   store i64 %23, ptr %arrayidx.i2.i.i, align 8
@@ -70833,7 +70801,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i21 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeINS6_4math4Vec3IiEELj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISD_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
@@ -70886,7 +70854,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i28, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %41 = load i64, ptr %my_grainsize.i.i, align 8
   %42 = load i64, ptr %arrayidx.i2.i, align 8
@@ -70898,7 +70866,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i34.pre-phi = phi i64 [ %.pre111, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i35 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
+  %arrayidx.i35 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i34.pre-phi
   %my_begin.i.i.i36 = getelementptr inbounds nuw i8, ptr %arrayidx.i35, i64 8
   %44 = load i64, ptr %my_begin.i.i.i36, align 8
   %45 = load i64, ptr %arrayidx.i35, align 8
@@ -70910,7 +70878,7 @@ if.else.i.i39:                                    ; preds = %invoke.cont24, %for
   %46 = load ptr, ptr %14, align 8
   %mNodes.i.i.i41 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %47 = load ptr, ptr %mNodes.i.i.i41, align 8
-  %arrayidx.i.i.i42 = getelementptr inbounds ptr, ptr %47, i64 %i.09.i.i40
+  %arrayidx.i.i.i42 = getelementptr inbounds [8 x i8], ptr %47, i64 %i.09.i.i40
   %48 = load ptr, ptr %arrayidx.i.i.i42, align 8
   %mChildMask.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %48, i64 65536
   br label %for.body.i.i.i.i44
@@ -70931,7 +70899,7 @@ for.body.i.i.i.i44:                               ; preds = %for.body.i.i.i.i44,
 for.inc.i.i53:                                    ; preds = %for.body.i.i.i.i44
   %51 = load ptr, ptr %15, align 32
   %52 = load ptr, ptr %51, align 8
-  %add.ptr.i7.i.i54 = getelementptr inbounds i32, ptr %52, i64 %i.09.i.i40
+  %add.ptr.i7.i.i54 = getelementptr inbounds [4 x i8], ptr %52, i64 %i.09.i.i40
   store i32 %add.i.i.i.i50, ptr %add.ptr.i7.i.i54, align 4
   %inc.i.i55 = add nuw i64 %i.09.i.i40, 1
   %exitcond.not = icmp eq i64 %inc.i.i55, %45
@@ -71495,7 +71463,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %my_grainsize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %my_grainsize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -71510,7 +71478,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i2.i.i, i64 24, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -71573,7 +71541,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListINS7_8LeafNodeINS6_4math4Vec3IiEELj3EEEE16initNodeChildrenINS8_INS7_12InternalNodeISD_Lj4EEEEENS7_10NodeFilterEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -71629,7 +71597,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %my_grainsize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %my_grainsize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -71641,7 +71609,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [24 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZZN7openvdb5v11_04tree8NodeListINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE16initNodeChildrenINS2_INS1_12InternalNodeIS7_Lj4EEEEENS1_10NodeFilterEEEbRT_RKT0_bENKUlRN3tbb6detail2d113blocked_rangeImEEE0_clESO_(ptr noundef nonnull align 8 dereferenceable(32) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i32)
   %37 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %37, -1
@@ -71688,11 +71656,11 @@ if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr i32, ptr %5, i64 %1
+  %6 = getelementptr [4 x i8], ptr %5, i64 %1
   %add.ptr.i = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %add.ptr.i, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -71714,7 +71682,7 @@ if.end7:                                          ; preds = %if.end7.lr.ph, %for
   %11 = load ptr, ptr %9, align 8
   %mNodes.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load ptr, ptr %mNodes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %i.017
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.017
   %13 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !750)
   %mChildMask.i = getelementptr inbounds nuw i8, ptr %13, i64 65536
@@ -71755,7 +71723,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
   %17 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i, %_ZN7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1190", ptr %call.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i.i
   %18 = load ptr, ptr %arrayidx.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %nodePtr.315, i64 8
   store ptr %18, ptr %nodePtr.315, align 8
@@ -71769,7 +71737,7 @@ for.body11:                                       ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i:                                   ; preds = %for.body11
   %and.i.i.i.i = and i32 %add.i.i.i10, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -71790,7 +71758,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -72682,7 +72650,7 @@ for.body:                                         ; preds = %if.end165, %for.inc
   %tempIdx.0167 = phi i32 [ %tempIdx.1, %for.inc ], [ 0, %if.end165 ]
   %shr.i = lshr i64 %indvars.iv, 6
   %idxprom.i = and i64 %shr.i, 67108863
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %valueMask, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %valueMask, i64 %idxprom.i
   %27 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %indvars.iv, 63
   %shl.i = shl nuw i64 1, %and.i
@@ -72692,19 +72660,19 @@ for.body:                                         ; preds = %if.end165, %for.inc
 
 if.then174:                                       ; preds = %for.body
   %idxprom = zext i32 %tempIdx.0167 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.439", ptr %tempBuf.0, i64 %idxprom
-  %arrayidx176 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.439", ptr %destBuf, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [12 x i8], ptr %tempBuf.0, i64 %idxprom
+  %arrayidx176 = getelementptr inbounds nuw [12 x i8], ptr %destBuf, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx176, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx, i64 12, i1 false)
   %inc = add i32 %tempIdx.0167, 1
   br label %for.inc
 
 if.else177:                                       ; preds = %for.body
-  %arrayidx.i71 = getelementptr inbounds nuw i64, ptr %selectionMask, i64 %idxprom.i
+  %arrayidx.i71 = getelementptr inbounds nuw [8 x i8], ptr %selectionMask, i64 %idxprom.i
   %28 = load i64, ptr %arrayidx.i71, align 8
   %and2.i75 = and i64 %28, %shl.i
   %cmp.i76.not = icmp eq i64 %and2.i75, 0
   %inactiveVal1.inactiveVal0 = select i1 %cmp.i76.not, ptr %inactiveVal0, ptr %inactiveVal1
-  %arrayidx183 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.439", ptr %destBuf, i64 %indvars.iv
+  %arrayidx183 = getelementptr inbounds nuw [12 x i8], ptr %destBuf, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx183, ptr noundef nonnull align 8 dereferenceable(12) %inactiveVal1.inactiveVal0, i64 12, i1 false)
   br label %for.inc
 
@@ -73533,7 +73501,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i, ptr noundef nonnull align 8 dereferenceable(532496) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -73585,7 +73553,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -73600,7 +73568,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -73664,7 +73632,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeENSF_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeISE_EEEEEENSF_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -73717,7 +73685,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -73729,7 +73697,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -73745,7 +73713,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(532496) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -73859,7 +73827,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -73880,7 +73848,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -73915,7 +73883,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1178", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load i32, ptr %arrayidx.i.i.i, align 8
   %2 = load i32, ptr %this, align 4
   %cmp.i.i.not.i = icmp eq i32 %1, %2
@@ -73972,7 +73940,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %13 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %13 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1178", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -73980,7 +73948,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %14 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1178", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %15 = load i32, ptr %this, align 4
   %sub.i.i = sub nsw i32 0, %15
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -74052,7 +74020,7 @@ if.then8:                                         ; preds = %land.rhs.i.i25, %_Z
   %30 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i48 = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i49 = zext i32 %30 to i64
-  %arrayidx.i.i50 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1178", ptr %call.i.i48, i64 %idxprom.i.i49
+  %arrayidx.i.i50 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i48, i64 %idxprom.i.i49
   store i64 %retval.sroa.0.0.insert.insert.i.i44, ptr %arrayidx.i.i50, align 8
   %ref.tmp9.sroa.2.0.arrayidx.i.i50.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i50, i64 8
   store i32 %sub7.i.i40, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i50.sroa_idx, align 8
@@ -74489,7 +74457,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEclISC_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i, ptr noundef nonnull align 8 dereferenceable(66576) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -74541,7 +74509,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -74556,7 +74524,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -74620,7 +74588,7 @@ invoke.cont13:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeENSE_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS7_ISD_Lj5EEEEEEEEENSE_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -74673,7 +74641,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -74685,7 +74653,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -74701,7 +74669,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont26
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEclISC_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(66576) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -74815,7 +74783,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -74836,7 +74804,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -74871,7 +74839,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1190", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load i32, ptr %arrayidx.i.i.i, align 8
   %2 = load i32, ptr %this, align 4
   %cmp.i.i.not.i = icmp eq i32 %1, %2
@@ -74928,7 +74896,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %13 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %13 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1190", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -74936,7 +74904,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %14 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1190", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %15 = load i32, ptr %this, align 4
   %sub.i.i = sub nsw i32 0, %15
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -75008,7 +74976,7 @@ if.then8:                                         ; preds = %land.rhs.i.i25, %_Z
   %30 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i48 = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i49 = zext i32 %30 to i64
-  %arrayidx.i.i50 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1190", ptr %call.i.i48, i64 %idxprom.i.i49
+  %arrayidx.i.i50 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i48, i64 %idxprom.i.i49
   store i64 %retval.sroa.0.0.insert.insert.i.i44, ptr %arrayidx.i.i50, align 8
   %ref.tmp9.sroa.2.0.arrayidx.i.i50.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i50, i64 8
   store i32 %sub7.i.i40, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i50.sroa_idx, align 8
@@ -75039,7 +75007,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !770)
@@ -75083,7 +75051,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -75105,7 +75073,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -75603,7 +75571,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -75618,7 +75586,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -75685,7 +75653,7 @@ invoke.cont13:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_ISB_Lj4EEELj5EEEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -75741,7 +75709,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont21, label %invoke.cont26
 
 invoke.cont21:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -75753,7 +75721,7 @@ invoke.cont21:                                    ; preds = %if.end
 
 invoke.cont26:                                    ; preds = %invoke.cont.invoke.cont26_crit_edge, %if.end, %invoke.cont21
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont26_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont21 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSE_IS7_Lj4EEELj5EEEEEEEEENS8_14OpWithoutIndexEEclERKNS8_9NodeRangeE(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %38 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %38, -1
@@ -75819,7 +75787,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %4 = load ptr, ptr %call.i.i.i, align 8
   %tobool2.not.i.i.i.i.i.i = icmp eq ptr %4, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.439", ptr %4, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool2.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %5 = load i32, ptr %retval.0.i.i.i.i.i.i, align 4
   %6 = load i32, ptr %this, align 4
@@ -75892,7 +75860,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.439", ptr %19, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [12 x i8], ptr %19, i64 %idxprom.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -75928,7 +75896,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %24 = load ptr, ptr %call.i.i.i5, align 8
   %tobool2.not.i.i.i.i.i.i11 = icmp eq ptr %24, null
   %idxprom.i.i.i.i.i.i12 = zext i32 %20 to i64
-  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.439", ptr %24, i64 %idxprom.i.i.i.i.i.i12
+  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw [12 x i8], ptr %24, i64 %idxprom.i.i.i.i.i.i12
   %retval.0.i.i.i.i.i.i14 = select i1 %tobool2.not.i.i.i.i.i.i11, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i13
   %25 = load i32, ptr %this, align 4
   %sub.i.i = sub nsw i32 0, %25
@@ -76016,7 +75984,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i65:                                  ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i63
   %idxprom.i.i.i66 = zext i32 %40 to i64
-  %arrayidx.i.i.i67 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.439", ptr %42, i64 %idxprom.i.i.i66
+  %arrayidx.i.i.i67 = getelementptr inbounds nuw [12 x i8], ptr %42, i64 %idxprom.i.i.i66
   store i64 %retval.sroa.0.0.insert.insert.i.i55, ptr %arrayidx.i.i.i67, align 4
   %ref.tmp9.sroa.2.0.arrayidx.i.i.i67.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i67, i64 8
   store i32 %sub7.i.i51, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i.i67.sroa_idx, align 4
@@ -76610,7 +76578,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -76662,7 +76630,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -76677,7 +76645,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -76741,7 +76709,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeISB_EEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -76795,7 +76763,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -76807,7 +76775,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -76823,7 +76791,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -76933,7 +76901,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i8, ptr %this, align 1
   %9 = xor i8 %8, %7
@@ -76942,7 +76910,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %11 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %11 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -76966,7 +76934,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %18 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %18 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store i8 %frombool11.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -76981,7 +76949,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i9 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i10 = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i9
+  %arrayidx.i.i.i.i10 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i9
   %21 = load i64, ptr %arrayidx.i.i.i.i10, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -77002,7 +76970,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -77459,7 +77427,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -77511,7 +77479,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -77526,7 +77494,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -77590,7 +77558,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIbLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -77644,7 +77612,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -77656,7 +77624,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<bool, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -77672,7 +77640,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 1 dereferenceable(2) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -77782,7 +77750,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.647", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i8, ptr %this, align 1
   %9 = xor i8 %8, %7
@@ -77791,7 +77759,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %11 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %11 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.647", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -77815,7 +77783,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %18 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %18 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.647", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store i8 %frombool11.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -77830,7 +77798,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i9 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i10 = getelementptr inbounds nuw i64, ptr %19, i64 %idxprom.i.i.i.i9
+  %arrayidx.i.i.i.i10 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %idxprom.i.i.i.i9
   %21 = load i64, ptr %arrayidx.i.i.i.i10, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -77851,7 +77819,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i
   %22 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %22, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -77900,7 +77868,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !789)
@@ -77943,7 +77911,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -77965,7 +77933,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -78465,7 +78433,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIbLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -78480,7 +78448,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -78547,7 +78515,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIbLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSH_IS8_Lj4EEELj5EEEEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -78604,7 +78572,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %36 = load i64, ptr %mGrainSize.i.i, align 8
   %37 = load i64, ptr %arrayidx.i2.i, align 8
@@ -78616,7 +78584,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<bool, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeIbLj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSC_IS4_Lj4EEELj5EEEEEEEEEEENS5_14OpWithoutIndexEEclERKNS5_9NodeRangeE(ptr noundef nonnull align 1 dereferenceable(2) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %39 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %39, -1
@@ -78656,7 +78624,7 @@ entry:
   %mBuffer.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %shr.i.i.i.i.i = lshr i32 %0, 6
   %idxprom.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i.i, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i.i, i64 %idxprom.i.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %and.i.i.i.i.i = and i32 %0, 63
   %sh_prom.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i to i64
@@ -78683,7 +78651,7 @@ if.then:                                          ; preds = %entry
 cond.true.i.i.i.i.i:                              ; preds = %if.then
   %shr.i.i.i.i.i.i = lshr i32 %8, 6
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i, i64 %idxprom.i.i.i.i.i.i
   %9 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %or.i.i.i.i.i.i = or i64 %9, %shl.i.i.i.i.i.i
   store i64 %or.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 8
@@ -78693,7 +78661,7 @@ cond.false.i.i.i.i.i:                             ; preds = %if.then
   %not.i.i.i.i.i.i = xor i64 %shl.i.i.i.i.i.i, -1
   %shr.i5.i.i.i.i.i = lshr i32 %8, 6
   %idxprom.i6.i.i.i.i.i = zext nneg i32 %shr.i5.i.i.i.i.i to i64
-  %arrayidx.i7.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i, i64 %idxprom.i6.i.i.i.i.i
+  %arrayidx.i7.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i, i64 %idxprom.i6.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i7.i.i.i.i.i, align 8
   %and2.i.i.i.i.i.i = and i64 %10, %not.i.i.i.i.i.i
   store i64 %and2.i.i.i.i.i.i, ptr %arrayidx.i7.i.i.i.i.i, align 8
@@ -78705,7 +78673,7 @@ if.else:                                          ; preds = %entry
   %mBuffer.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i.i5, i64 64
   %shr.i.i.i.i.i7 = lshr i32 %11, 6
   %idxprom.i.i.i.i.i8 = zext nneg i32 %shr.i.i.i.i.i7 to i64
-  %arrayidx.i.i.i.i.i9 = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i.i6, i64 %idxprom.i.i.i.i.i8
+  %arrayidx.i.i.i.i.i9 = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i.i6, i64 %idxprom.i.i.i.i.i8
   %12 = load i64, ptr %arrayidx.i.i.i.i.i9, align 8
   %and.i.i.i.i.i10 = and i32 %11, 63
   %sh_prom.i.i.i.i.i11 = zext nneg i32 %and.i.i.i.i.i10 to i64
@@ -78732,7 +78700,7 @@ if.then7:                                         ; preds = %if.else
 cond.true.i.i.i.i.i31:                            ; preds = %if.then7
   %shr.i.i.i.i.i.i32 = lshr i32 %18, 6
   %idxprom.i.i.i.i.i.i33 = zext nneg i32 %shr.i.i.i.i.i.i32 to i64
-  %arrayidx.i.i.i.i.i.i34 = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i21, i64 %idxprom.i.i.i.i.i.i33
+  %arrayidx.i.i.i.i.i.i34 = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i21, i64 %idxprom.i.i.i.i.i.i33
   %19 = load i64, ptr %arrayidx.i.i.i.i.i.i34, align 8
   %or.i.i.i.i.i.i35 = or i64 %19, %shl.i.i.i.i.i.i24
   store i64 %or.i.i.i.i.i.i35, ptr %arrayidx.i.i.i.i.i.i34, align 8
@@ -78742,7 +78710,7 @@ cond.false.i.i.i.i.i25:                           ; preds = %if.then7
   %not.i.i.i.i.i.i26 = xor i64 %shl.i.i.i.i.i.i24, -1
   %shr.i5.i.i.i.i.i27 = lshr i32 %18, 6
   %idxprom.i6.i.i.i.i.i28 = zext nneg i32 %shr.i5.i.i.i.i.i27 to i64
-  %arrayidx.i7.i.i.i.i.i29 = getelementptr inbounds nuw i64, ptr %mBuffer.i.i.i21, i64 %idxprom.i6.i.i.i.i.i28
+  %arrayidx.i7.i.i.i.i.i29 = getelementptr inbounds nuw [8 x i8], ptr %mBuffer.i.i.i21, i64 %idxprom.i6.i.i.i.i.i28
   %20 = load i64, ptr %arrayidx.i7.i.i.i.i.i29, align 8
   %and2.i.i.i.i.i.i30 = and i64 %20, %not.i.i.i.i.i.i26
   store i64 %and2.i.i.i.i.i.i30, ptr %arrayidx.i7.i.i.i.i.i29, align 8
@@ -79284,7 +79252,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -79336,7 +79304,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -79351,7 +79319,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -79415,7 +79383,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeISB_EEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -79469,7 +79437,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -79481,7 +79449,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -79497,7 +79465,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -79607,14 +79575,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.697", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i32, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i32, ptr %this, align 4
   %cmp.i.i.i.i = icmp eq i32 %7, %8
   %9 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %9 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.697", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -79635,7 +79603,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i11.i7 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i12.i = zext i32 %14 to i64
-  %arrayidx.i.i13.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.697", ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
+  %arrayidx.i.i13.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
   store i32 %sub.i9.i, ptr %arrayidx.i.i13.i, align 8
   br label %for.inc
 
@@ -79650,7 +79618,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %15, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %idxprom.i.i.i.i10
   %17 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -79671,7 +79639,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i.i
   %18 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %18, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -80128,7 +80096,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -80180,7 +80148,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -80195,7 +80163,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -80259,7 +80227,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIiLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -80313,7 +80281,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -80325,7 +80293,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -80341,7 +80309,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -80451,14 +80419,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.708", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i32, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i32, ptr %this, align 4
   %cmp.i.i.i.i = icmp eq i32 %7, %8
   %9 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %9 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.708", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -80479,7 +80447,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i11.i7 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i12.i = zext i32 %14 to i64
-  %arrayidx.i.i13.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.708", ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
+  %arrayidx.i.i13.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
   store i32 %sub.i9.i, ptr %arrayidx.i.i13.i, align 8
   br label %for.inc
 
@@ -80494,7 +80462,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %15, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %idxprom.i.i.i.i10
   %17 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -80515,7 +80483,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i.i
   %18 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %18, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -80564,7 +80532,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !807)
@@ -80608,7 +80576,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -80630,7 +80598,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -81130,7 +81098,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIiLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -81145,7 +81113,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -81212,7 +81180,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIiLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSH_IS8_Lj4EEELj5EEEEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -81269,7 +81237,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %36 = load i64, ptr %mGrainSize.i.i, align 8
   %37 = load i64, ptr %arrayidx.i2.i, align 8
@@ -81281,7 +81249,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<int, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeIiLj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSC_IS4_Lj4EEELj5EEEEEEEEEEENS5_14OpWithoutIndexEEclERKNS5_9NodeRangeE(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %39 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %39, -1
@@ -81331,7 +81299,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %2 = load ptr, ptr %call.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIiLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %3 = load i32, ptr %retval.0.i.i.i.i.i.i, align 4
   %4 = load i32, ptr %this, align 4
@@ -81376,7 +81344,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %11 = load ptr, ptr %call.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i9 = icmp eq ptr %11, null
   %idxprom.i.i.i.i.i.i10 = zext i32 %9 to i64
-  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw i32, ptr %11, i64 %idxprom.i.i.i.i.i.i10
+  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %idxprom.i.i.i.i.i.i10
   %retval.0.i.i.i.i.i.i12 = select i1 %tobool.not.i.i.i.i.i.i9, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIiLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i11
   %12 = load i32, ptr %this, align 4
   %sub.i = sub nsw i32 0, %12
@@ -81409,7 +81377,7 @@ if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04
   %.sink = phi ptr [ %7, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
   %sub.i15.sink = phi i32 [ %8, %if.then.i.i.i ], [ %sub.i15, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
   %idxprom.i.i.i24 = zext i32 %.sink28 to i64
-  %arrayidx.i.i.i25 = getelementptr inbounds nuw i32, ptr %.sink, i64 %idxprom.i.i.i24
+  %arrayidx.i.i.i25 = getelementptr inbounds nuw [4 x i8], ptr %.sink, i64 %idxprom.i.i.i24
   store i32 %sub.i15.sink, ptr %arrayidx.i.i.i25, align 4
   br label %if.end11
 
@@ -81947,7 +81915,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -81999,7 +81967,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -82014,7 +81982,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -82078,7 +82046,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeISB_EEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -82131,7 +82099,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -82143,7 +82111,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -82159,7 +82127,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -82269,14 +82237,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.818", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i64, ptr %this, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, %8
   %9 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %9 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.818", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -82297,7 +82265,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i11.i7 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i12.i = zext i32 %14 to i64
-  %arrayidx.i.i13.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.818", ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
+  %arrayidx.i.i13.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
   store i64 %sub.i9.i, ptr %arrayidx.i.i13.i, align 8
   br label %for.inc
 
@@ -82312,7 +82280,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %15, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %idxprom.i.i.i.i10
   %17 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -82333,7 +82301,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i.i
   %18 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %18, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -82788,7 +82756,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -82840,7 +82808,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -82855,7 +82823,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -82919,7 +82887,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIlLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -82972,7 +82940,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -82984,7 +82952,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -83000,7 +82968,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -83110,14 +83078,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.829", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i64, ptr %this, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, %8
   %9 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %9 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.829", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -83138,7 +83106,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i11.i7 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i12.i = zext i32 %14 to i64
-  %arrayidx.i.i13.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.829", ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
+  %arrayidx.i.i13.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i11.i7, i64 %idxprom.i.i12.i
   store i64 %sub.i9.i, ptr %arrayidx.i.i13.i, align 8
   br label %for.inc
 
@@ -83153,7 +83121,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %15, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %idxprom.i.i.i.i10
   %17 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -83174,7 +83142,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i.i
   %18 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %18, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -83223,7 +83191,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !825)
@@ -83267,7 +83235,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -83289,7 +83257,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -83787,7 +83755,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIlLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -83802,7 +83770,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -83869,7 +83837,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIlLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSH_IS8_Lj4EEELj5EEEEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -83925,7 +83893,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -83937,7 +83905,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<long, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeIlLj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSC_IS4_Lj4EEELj5EEEEEEEEEEENS5_14OpWithoutIndexEEclERKNS5_9NodeRangeE(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %38 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %38, -1
@@ -83987,7 +83955,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %2 = load ptr, ptr %call.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %2, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIlLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %3 = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %4 = load i64, ptr %this, align 8
@@ -84032,7 +84000,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %11 = load ptr, ptr %call.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i9 = icmp eq ptr %11, null
   %idxprom.i.i.i.i.i.i10 = zext i32 %9 to i64
-  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %11, i64 %idxprom.i.i.i.i.i.i10
+  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %idxprom.i.i.i.i.i.i10
   %retval.0.i.i.i.i.i.i12 = select i1 %tobool.not.i.i.i.i.i.i9, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIlLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i11
   %12 = load i64, ptr %this, align 8
   %sub.i = sub nsw i64 0, %12
@@ -84065,7 +84033,7 @@ if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04
   %.sink = phi ptr [ %7, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
   %sub.i15.sink = phi i64 [ %8, %if.then.i.i.i ], [ %sub.i15, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
   %idxprom.i.i.i24 = zext i32 %.sink28 to i64
-  %arrayidx.i.i.i25 = getelementptr inbounds nuw i64, ptr %.sink, i64 %idxprom.i.i.i24
+  %arrayidx.i.i.i25 = getelementptr inbounds nuw [8 x i8], ptr %.sink, i64 %idxprom.i.i.i24
   store i64 %sub.i15.sink, ptr %arrayidx.i.i.i25, align 8
   br label %if.end11
 
@@ -84608,7 +84576,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -84660,7 +84628,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -84675,7 +84643,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -84739,7 +84707,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeISB_EEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -84793,7 +84761,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -84805,7 +84773,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -84821,7 +84789,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -84931,7 +84899,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.887", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load float, ptr %arrayidx.i.i.i.i, align 8
   %8 = load float, ptr %this, align 4
   %sub.i.i.i = fsub float %7, %8
@@ -84940,7 +84908,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %10 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %10 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.887", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -84962,7 +84930,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %16 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %16 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.887", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store float %fneg.i10.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -84977,7 +84945,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %17, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %idxprom.i.i.i.i10
   %19 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -84998,7 +84966,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i.i.i.i
   %20 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -85455,7 +85423,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -85507,7 +85475,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -85522,7 +85490,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -85586,7 +85554,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -85640,7 +85608,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -85652,7 +85620,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -85668,7 +85636,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -85778,7 +85746,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.898", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load float, ptr %arrayidx.i.i.i.i, align 8
   %8 = load float, ptr %this, align 4
   %sub.i.i.i = fsub float %7, %8
@@ -85787,7 +85755,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %10 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %10 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.898", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -85809,7 +85777,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %16 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %16 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.898", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store float %fneg.i10.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -85824,7 +85792,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %17, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %idxprom.i.i.i.i10
   %19 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -85845,7 +85813,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i.i.i.i
   %20 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -85894,7 +85862,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !843)
@@ -85938,7 +85906,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -85960,7 +85928,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -86460,7 +86428,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIfLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -86475,7 +86443,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -86542,7 +86510,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIfLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSH_IS8_Lj4EEELj5EEEEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -86599,7 +86567,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %36 = load i64, ptr %mGrainSize.i.i, align 8
   %37 = load i64, ptr %arrayidx.i2.i, align 8
@@ -86611,7 +86579,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeIfLj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSC_IS4_Lj4EEELj5EEEEEEEEEEENS5_14OpWithoutIndexEEclERKNS5_9NodeRangeE(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %39 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %39, -1
@@ -86661,7 +86629,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %2 = load ptr, ptr %call.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw float, ptr %2, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %3 = load float, ptr %retval.0.i.i.i.i.i.i, align 4
   %4 = load float, ptr %this, align 4
@@ -86708,7 +86676,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %12 = load ptr, ptr %call.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i9 = icmp eq ptr %12, null
   %idxprom.i.i.i.i.i.i10 = zext i32 %10 to i64
-  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw float, ptr %12, i64 %idxprom.i.i.i.i.i.i10
+  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %idxprom.i.i.i.i.i.i10
   %retval.0.i.i.i.i.i.i12 = select i1 %tobool.not.i.i.i.i.i.i9, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i11
   %13 = load float, ptr %this, align 4
   %14 = load float, ptr %retval.0.i.i.i.i.i.i12, align 4
@@ -86742,7 +86710,7 @@ if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04
   %.sink = phi ptr [ %8, %if.then.i.i.i ], [ %19, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
   %fneg.i16.sink = phi float [ %9, %if.then.i.i.i ], [ %fneg.i16, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
   %idxprom.i.i.i25 = zext i32 %.sink29 to i64
-  %arrayidx.i.i.i26 = getelementptr inbounds nuw float, ptr %.sink, i64 %idxprom.i.i.i25
+  %arrayidx.i.i.i26 = getelementptr inbounds nuw [4 x i8], ptr %.sink, i64 %idxprom.i.i.i25
   store float %fneg.i16.sink, ptr %arrayidx.i.i.i26, align 4
   br label %if.end11
 
@@ -87283,7 +87251,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -87335,7 +87303,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -87350,7 +87318,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -87414,7 +87382,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeISB_EEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -87467,7 +87435,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -87479,7 +87447,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -87495,7 +87463,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -87605,7 +87573,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.962", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load double, ptr %arrayidx.i.i.i.i, align 8
   %8 = load double, ptr %this, align 8
   %sub.i.i.i = fsub double %7, %8
@@ -87614,7 +87582,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %10 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %10 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.962", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -87636,7 +87604,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %16 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %16 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.962", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store double %fneg.i10.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -87651,7 +87619,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %17, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %idxprom.i.i.i.i10
   %19 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -87672,7 +87640,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i.i.i.i
   %20 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -88127,7 +88095,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -88179,7 +88147,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -88194,7 +88162,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -88258,7 +88226,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -88311,7 +88279,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -88323,7 +88291,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -88339,7 +88307,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -88449,7 +88417,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi i32 [ %add.i.i, %for.body.lr.ph ], [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ]
   %call.i.i.i.i4 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.973", ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i4, i64 %idxprom.i.i.i.i
   %7 = load double, ptr %arrayidx.i.i.i.i, align 8
   %8 = load double, ptr %this, align 8
   %sub.i.i.i = fsub double %7, %8
@@ -88458,7 +88426,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %10 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i = zext i32 %10 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.973", ptr %call.i.i.i5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
@@ -88480,7 +88448,7 @@ if.then7.i:                                       ; preds = %if.else.i
   %16 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i12.i7 = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i13.i = zext i32 %16 to i64
-  %arrayidx.i.i14.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.973", ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i12.i7, i64 %idxprom.i.i13.i
   store double %fneg.i10.i, ptr %arrayidx.i.i14.i, align 8
   br label %for.inc
 
@@ -88495,7 +88463,7 @@ for.inc:                                          ; preds = %if.then7.i, %if.els
 if.end.i.i.i.i:                                   ; preds = %for.inc
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i10 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw i64, ptr %17, i64 %idxprom.i.i.i.i10
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %idxprom.i.i.i.i10
   %19 = load i64, ptr %arrayidx.i.i.i.i11, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -88516,7 +88484,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i.i.i.i
   %20 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -88565,7 +88533,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !861)
@@ -88609,7 +88577,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -88631,7 +88599,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -89129,7 +89097,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIdLj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -89144,7 +89112,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -89211,7 +89179,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIdLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSH_IS8_Lj4EEELj5EEEEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -89267,7 +89235,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -89279,7 +89247,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeIdLj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSC_IS4_Lj4EEELj5EEEEEEEEEEENS5_14OpWithoutIndexEEclERKNS5_9NodeRangeE(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %38 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %38, -1
@@ -89329,7 +89297,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %2 = load ptr, ptr %call.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %2, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %3 = load double, ptr %retval.0.i.i.i.i.i.i, align 8
   %4 = load double, ptr %this, align 8
@@ -89376,7 +89344,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %12 = load ptr, ptr %call.i.i.i5, align 8
   %tobool.not.i.i.i.i.i.i9 = icmp eq ptr %12, null
   %idxprom.i.i.i.i.i.i10 = zext i32 %10 to i64
-  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw double, ptr %12, i64 %idxprom.i.i.i.i.i.i10
+  %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %idxprom.i.i.i.i.i.i10
   %retval.0.i.i.i.i.i.i12 = select i1 %tobool.not.i.i.i.i.i.i9, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i11
   %13 = load double, ptr %this, align 8
   %14 = load double, ptr %retval.0.i.i.i.i.i.i12, align 8
@@ -89410,7 +89378,7 @@ if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04
   %.sink = phi ptr [ %8, %if.then.i.i.i ], [ %19, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
   %fneg.i16.sink = phi double [ %9, %if.then.i.i.i ], [ %fneg.i16, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
   %idxprom.i.i.i25 = zext i32 %.sink29 to i64
-  %arrayidx.i.i.i26 = getelementptr inbounds nuw double, ptr %.sink, i64 %idxprom.i.i.i25
+  %arrayidx.i.i.i26 = getelementptr inbounds nuw [8 x i8], ptr %.sink, i64 %idxprom.i.i.i25
   store double %fneg.i16.sink, ptr %arrayidx.i.i.i26, align 8
   br label %if.end11
 
@@ -90101,7 +90069,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEEEclISE_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i, ptr noundef nonnull align 8 dereferenceable(532496) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -90153,7 +90121,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -90168,7 +90136,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -90232,7 +90200,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEELj5EEEE9NodeRangeENSF_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeISE_EEEEEEEENSF_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -90285,7 +90253,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -90297,7 +90265,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -90313,7 +90281,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEEEclISE_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(532496) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -90427,7 +90395,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -90448,7 +90416,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -90483,7 +90451,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1031", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load float, ptr %arrayidx.i.i.i, align 8
   %2 = load float, ptr %this, align 4
   %sub.i.i.i = fsub float %1, %2
@@ -90546,7 +90514,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %19 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %19 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1031", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -90554,7 +90522,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %20 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %20 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1031", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %21 = load float, ptr %this, align 4
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %22 = load float, ptr %arrayidx3.i.i, align 4
@@ -90630,7 +90598,7 @@ if.then8:                                         ; preds = %land.rhs.i.i15, %_Z
   %42 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i46 = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i47 = zext i32 %42 to i64
-  %arrayidx.i.i48 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1031", ptr %call.i.i46, i64 %idxprom.i.i47
+  %arrayidx.i.i48 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i46, i64 %idxprom.i.i47
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i42, ptr %arrayidx.i.i48, align 8
   %ref.tmp9.sroa.2.0.arrayidx.i.i48.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i48, i64 8
   store float %fneg7.i.i40, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i48.sroa_idx, align 8
@@ -91067,7 +91035,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i, ptr noundef nonnull align 8 dereferenceable(66576) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -91119,7 +91087,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -91134,7 +91102,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -91198,7 +91166,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEELj4EEEE9NodeRangeENSE_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS7_ISD_Lj5EEEEEEEEEEENSE_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -91251,7 +91219,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -91263,7 +91231,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -91279,7 +91247,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(66576) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -91393,7 +91361,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -91414,7 +91382,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -91449,7 +91417,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1042", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load float, ptr %arrayidx.i.i.i, align 8
   %2 = load float, ptr %this, align 4
   %sub.i.i.i = fsub float %1, %2
@@ -91512,7 +91480,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %19 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %19 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1042", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -91520,7 +91488,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %20 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %20 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1042", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %21 = load float, ptr %this, align 4
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %22 = load float, ptr %arrayidx3.i.i, align 4
@@ -91596,7 +91564,7 @@ if.then8:                                         ; preds = %land.rhs.i.i15, %_Z
   %42 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i46 = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i47 = zext i32 %42 to i64
-  %arrayidx.i.i48 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1042", ptr %call.i.i46, i64 %idxprom.i.i47
+  %arrayidx.i.i48 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i46, i64 %idxprom.i.i47
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i42, ptr %arrayidx.i.i48, align 8
   %ref.tmp9.sroa.2.0.arrayidx.i.i48.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i48, i64 8
   store float %fneg7.i.i40, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i48.sroa_idx, align 8
@@ -91627,7 +91595,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !879)
@@ -91671,7 +91639,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -91693,7 +91661,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -92191,7 +92159,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -92206,7 +92174,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -92273,7 +92241,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IfEELj3EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSK_ISB_Lj4EEELj5EEEEEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -92329,7 +92297,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -92341,7 +92309,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSF_IS7_Lj4EEELj5EEEEEEEEEEENS8_14OpWithoutIndexEEclERKNS8_9NodeRangeE(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %38 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %38, -1
@@ -92407,7 +92375,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %4 = load ptr, ptr %call.i.i.i, align 8
   %tobool2.not.i.i.i.i.i.i = icmp eq ptr %4, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.316", ptr %4, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool2.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %5 = load float, ptr %retval.0.i.i.i.i.i.i, align 4
   %6 = load float, ptr %this, align 4
@@ -92486,7 +92454,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i
   %idxprom.i.i.i = zext i32 %23 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.316", ptr %25, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %idxprom.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -92522,7 +92490,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %30 = load ptr, ptr %call.i.i.i5, align 8
   %tobool2.not.i.i.i.i.i.i11 = icmp eq ptr %30, null
   %idxprom.i.i.i.i.i.i12 = zext i32 %26 to i64
-  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.316", ptr %30, i64 %idxprom.i.i.i.i.i.i12
+  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %idxprom.i.i.i.i.i.i12
   %retval.0.i.i.i.i.i.i14 = select i1 %tobool2.not.i.i.i.i.i.i11, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i13
   %31 = load float, ptr %this, align 4
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -92614,7 +92582,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i63:                                  ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i61
   %idxprom.i.i.i64 = zext i32 %52 to i64
-  %arrayidx.i.i.i65 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.316", ptr %54, i64 %idxprom.i.i.i64
+  %arrayidx.i.i.i65 = getelementptr inbounds nuw [12 x i8], ptr %54, i64 %idxprom.i.i.i64
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i53, ptr %arrayidx.i.i.i65, align 4
   %ref.tmp9.sroa.2.0.arrayidx.i.i.i65.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i65, i64 8
   store float %fneg7.i.i51, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i.i65.sroa_idx, align 4
@@ -93306,7 +93274,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEEEclISE_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %my_body.i, ptr noundef nonnull align 8 dereferenceable(794640) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -93358,7 +93326,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -93373,7 +93341,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -93437,7 +93405,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEELj5EEEE9NodeRangeENSF_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeISE_EEEEEEEENSF_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -93490,7 +93458,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -93502,7 +93470,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -93518,7 +93486,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEEEclISE_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(794640) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -93632,7 +93600,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -93653,7 +93621,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -93688,7 +93656,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1109", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load double, ptr %arrayidx.i.i.i, align 8
   %2 = load double, ptr %this, align 8
   %sub.i.i.i = fsub double %1, %2
@@ -93751,7 +93719,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %19 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %19 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1109", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNewValue, i64 24, i1 false)
   br label %if.end9
 
@@ -93759,7 +93727,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %20 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %20 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1109", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [24 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %21 = load double, ptr %this, align 8, !noalias !902
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %22 = load double, ptr %arrayidx3.i.i, align 8, !noalias !902
@@ -93833,7 +93801,7 @@ if.then6:                                         ; preds = %land.rhs.i.i15, %_Z
   %42 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i44 = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i45 = zext i32 %42 to i64
-  %arrayidx.i.i46 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1109", ptr %call.i.i44, i64 %idxprom.i.i45
+  %arrayidx.i.i46 = getelementptr inbounds nuw [24 x i8], ptr %call.i.i44, i64 %idxprom.i.i45
   store double %fneg.i.i36, ptr %arrayidx.i.i46, align 8
   %ref.tmp7.sroa.2.0.arrayidx.i.i46.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i46, i64 8
   store double %fneg4.i.i38, ptr %ref.tmp7.sroa.2.0.arrayidx.i.i46.sroa_idx, align 8
@@ -94272,7 +94240,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %my_body.i, ptr noundef nonnull align 8 dereferenceable(99344) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -94324,7 +94292,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -94339,7 +94307,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -94403,7 +94371,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEELj4EEEE9NodeRangeENSE_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS7_ISD_Lj5EEEEEEEEEEENSE_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -94456,7 +94424,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -94468,7 +94436,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -94484,7 +94452,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(99344) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -94598,7 +94566,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -94619,7 +94587,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -94654,7 +94622,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1120", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load double, ptr %arrayidx.i.i.i, align 8
   %2 = load double, ptr %this, align 8
   %sub.i.i.i = fsub double %1, %2
@@ -94717,7 +94685,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %19 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %19 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1120", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [24 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNewValue, i64 24, i1 false)
   br label %if.end9
 
@@ -94725,7 +94693,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %20 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %20 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1120", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [24 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %21 = load double, ptr %this, align 8, !noalias !917
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %22 = load double, ptr %arrayidx3.i.i, align 8, !noalias !917
@@ -94799,7 +94767,7 @@ if.then6:                                         ; preds = %land.rhs.i.i15, %_Z
   %42 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i44 = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i45 = zext i32 %42 to i64
-  %arrayidx.i.i46 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1120", ptr %call.i.i44, i64 %idxprom.i.i45
+  %arrayidx.i.i46 = getelementptr inbounds nuw [24 x i8], ptr %call.i.i44, i64 %idxprom.i.i45
   store double %fneg.i.i36, ptr %arrayidx.i.i46, align 8
   %ref.tmp7.sroa.2.0.arrayidx.i.i46.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i46, i64 8
   store double %fneg4.i.i38, ptr %ref.tmp7.sroa.2.0.arrayidx.i.i46.sroa_idx, align 8
@@ -94832,7 +94800,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !927)
@@ -94876,7 +94844,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -94898,7 +94866,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -95396,7 +95364,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -95411,7 +95379,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -95478,7 +95446,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IdEELj3EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSK_ISB_Lj4EEELj5EEEEEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -95534,7 +95502,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -95546,7 +95514,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSF_IS7_Lj4EEELj5EEEEEEEEEEENS8_14OpWithoutIndexEEclERKNS8_9NodeRangeE(ptr noundef nonnull align 8 dereferenceable(48) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %38 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %38, -1
@@ -95611,7 +95579,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %4 = load ptr, ptr %call.i.i.i, align 8
   %tobool2.not.i.i.i.i.i.i = icmp eq ptr %4, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %4, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool2.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %5 = load double, ptr %retval.0.i.i.i.i.i.i, align 8
   %6 = load double, ptr %this, align 8
@@ -95690,7 +95658,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i
   %idxprom.i.i.i = zext i32 %23 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %25, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %idxprom.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mNewValue, i64 24, i1 false)
   br label %if.end9
 
@@ -95725,7 +95693,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %30 = load ptr, ptr %call.i.i.i5, align 8
   %tobool2.not.i.i.i.i.i.i11 = icmp eq ptr %30, null
   %idxprom.i.i.i.i.i.i12 = zext i32 %26 to i64
-  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %30, i64 %idxprom.i.i.i.i.i.i12
+  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %idxprom.i.i.i.i.i.i12
   %retval.0.i.i.i.i.i.i14 = select i1 %tobool2.not.i.i.i.i.i.i11, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i13
   %31 = load double, ptr %this, align 8, !noalias !940
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -95815,7 +95783,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i61:                                  ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i59
   %idxprom.i.i.i62 = zext i32 %52 to i64
-  %arrayidx.i.i.i63 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3", ptr %54, i64 %idxprom.i.i.i62
+  %arrayidx.i.i.i63 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %idxprom.i.i.i62
   store double %fneg.i.i47, ptr %arrayidx.i.i.i63, align 8
   %ref.tmp7.sroa.2.0.arrayidx.i.i.i63.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i63, i64 8
   store double %fneg4.i.i49, ptr %ref.tmp7.sroa.2.0.arrayidx.i.i.i63.sroa_idx, align 8
@@ -96500,7 +96468,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEEEclISE_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i, ptr noundef nonnull align 8 dereferenceable(532496) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -96552,7 +96520,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -96567,7 +96535,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -96631,7 +96599,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEELj5EEEE9NodeRangeENSF_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeISE_EEEEEEEENSF_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -96684,7 +96652,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -96696,7 +96664,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -96712,7 +96680,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEEEclISE_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(532496) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -96826,7 +96794,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -96847,7 +96815,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !245
@@ -96882,7 +96850,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1178", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load i32, ptr %arrayidx.i.i.i, align 8
   %2 = load i32, ptr %this, align 4
   %cmp.i.i.not.i = icmp eq i32 %1, %2
@@ -96939,7 +96907,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %13 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %13 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1178", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -96947,7 +96915,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %14 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1178", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %15 = load i32, ptr %this, align 4
   %sub.i.i = sub nsw i32 0, %15
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -97019,7 +96987,7 @@ if.then8:                                         ; preds = %land.rhs.i.i25, %_Z
   %30 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i48 = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i49 = zext i32 %30 to i64
-  %arrayidx.i.i50 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1178", ptr %call.i.i48, i64 %idxprom.i.i49
+  %arrayidx.i.i50 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i48, i64 %idxprom.i.i49
   store i64 %retval.sroa.0.0.insert.insert.i.i44, ptr %arrayidx.i.i50, align 8
   %ref.tmp9.sroa.2.0.arrayidx.i.i50.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i50, i64 8
   store i32 %sub7.i.i40, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i50.sroa_idx, align 8
@@ -97456,7 +97424,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i, ptr noundef nonnull align 8 dereferenceable(66576) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -97508,7 +97476,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -97523,7 +97491,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -97587,7 +97555,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEELj4EEEE9NodeRangeENSE_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS7_ISD_Lj5EEEEEEEEEEENSE_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -97640,7 +97608,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -97652,7 +97620,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -97668,7 +97636,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools18ChangeBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEEEclISD_EEvRT_(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(66576) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -97782,7 +97750,7 @@ for.body:                                         ; preds = %invoke.cont, %_ZN7o
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -97803,7 +97771,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !254
@@ -97838,7 +97806,7 @@ entry:
   %0 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1190", ptr %call.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i, i64 %idxprom.i.i.i
   %1 = load i32, ptr %arrayidx.i.i.i, align 8
   %2 = load i32, ptr %this, align 4
   %cmp.i.i.not.i = icmp eq i32 %1, %2
@@ -97895,7 +97863,7 @@ if.then:                                          ; preds = %land.rhs.i.i, %_ZN7
   %13 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i = zext i32 %13 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1190", ptr %call.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %call.i.i, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -97903,7 +97871,7 @@ if.else:                                          ; preds = %_ZN7openvdb5v11_04m
   %14 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i6 = zext i32 %14 to i64
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1190", ptr %call.i.i.i5, i64 %idxprom.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i.i5, i64 %idxprom.i.i.i6
   %15 = load i32, ptr %this, align 4
   %sub.i.i = sub nsw i32 0, %15
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -97975,7 +97943,7 @@ if.then8:                                         ; preds = %land.rhs.i.i25, %_Z
   %30 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i48 = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i49 = zext i32 %30 to i64
-  %arrayidx.i.i50 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.1190", ptr %call.i.i48, i64 %idxprom.i.i49
+  %arrayidx.i.i50 = getelementptr inbounds nuw [16 x i8], ptr %call.i.i48, i64 %idxprom.i.i49
   store i64 %retval.sroa.0.0.insert.insert.i.i44, ptr %arrayidx.i.i50, align 8
   %ref.tmp9.sroa.2.0.arrayidx.i.i50.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i50, i64 8
   store i32 %sub7.i.i40, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i50.sroa_idx, align 8
@@ -98006,7 +97974,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %mNodeList.i.i, align 8
   %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %mNodes.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %it.sroa.3.011
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %it.sroa.3.011
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %it.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !961)
@@ -98050,7 +98018,7 @@ for.body.i.i:                                     ; preds = %_ZN7openvdb5v11_04t
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i
   %and.i.i.i.i.i.i = and i32 %add.i.i.i2.i.i, 63
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idxprom.i.i.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
@@ -98072,7 +98040,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx12.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i.i.i
   %12 = load i64, ptr %arrayidx12.i.i.i.i.i.i, align 8
   %tobool8.not.i.i.i.i.i.i = icmp eq i64 %12, -1
   br i1 %tobool8.not.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %cond.false.loopexit.i.i.i.i.i.i, !llvm.loop !300
@@ -98570,7 +98538,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i, label %invoke.cont
 
 _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeELh8EE12is_divisibleEh.exit.i: ; preds = %land.rhs.i
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %8 = load i64, ptr %mGrainSize.i.i.i, align 8
   %9 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -98585,7 +98553,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %rem.i = and i8 %add.i, 7
   store i8 %rem.i, ptr %range_pool, align 8
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %11 = load i64, ptr %add.ptr.i, align 8
   store i64 %11, ptr %arrayidx.i2.i.i, align 8
@@ -98652,7 +98620,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeINS4_4math4Vec3IiEELj3EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools18ChangeBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSK_ISB_Lj4EEELj5EEEEEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
@@ -98708,7 +98676,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i25, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -98720,7 +98688,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i31.pre-phi = phi i64 [ %.pre55, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i32 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
+  %arrayidx.i32 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i31.pre-phi
   call void @_ZNK7openvdb5v11_04tree8NodeListINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE19NodeTransformerCopyINS0_5tools18ChangeBackgroundOpINS1_11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINSF_IS7_Lj4EEELj5EEEEEEEEEEENS8_14OpWithoutIndexEEclERKNS8_9NodeRangeE(ptr noundef nonnull align 4 dereferenceable(24) %my_body.i33, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i32)
   %38 = load i8, ptr %my_size.i, align 2
   %dec.i35 = add i8 %38, -1
@@ -98786,7 +98754,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %4 = load ptr, ptr %call.i.i.i, align 8
   %tobool2.not.i.i.i.i.i.i = icmp eq ptr %4, null
   %idxprom.i.i.i.i.i.i = zext i32 %0 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.439", ptr %4, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %idxprom.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = select i1 %tobool2.not.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i
   %5 = load i32, ptr %retval.0.i.i.i.i.i.i, align 4
   %6 = load i32, ptr %this, align 4
@@ -98859,7 +98827,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i
   %idxprom.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.439", ptr %19, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [12 x i8], ptr %19, i64 %idxprom.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mNewValue, i64 12, i1 false)
   br label %if.end15
 
@@ -98895,7 +98863,7 @@ _ZNK7openvdb5v11_04tree18SparseIteratorBaseINS0_4util15OffMaskIteratorINS3_8Node
   %24 = load ptr, ptr %call.i.i.i5, align 8
   %tobool2.not.i.i.i.i.i.i11 = icmp eq ptr %24, null
   %idxprom.i.i.i.i.i.i12 = zext i32 %20 to i64
-  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.439", ptr %24, i64 %idxprom.i.i.i.i.i.i12
+  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw [12 x i8], ptr %24, i64 %idxprom.i.i.i.i.i.i12
   %retval.0.i.i.i.i.i.i14 = select i1 %tobool2.not.i.i.i.i.i.i11, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i13
   %25 = load i32, ptr %this, align 4
   %sub.i.i = sub nsw i32 0, %25
@@ -98983,7 +98951,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i
 
 if.then.i.i.i65:                                  ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i63
   %idxprom.i.i.i66 = zext i32 %40 to i64
-  %arrayidx.i.i.i67 = getelementptr inbounds nuw %"class.openvdb::v11_0::math::Vec3.439", ptr %42, i64 %idxprom.i.i.i66
+  %arrayidx.i.i.i67 = getelementptr inbounds nuw [12 x i8], ptr %42, i64 %idxprom.i.i.i66
   store i64 %retval.sroa.0.0.insert.insert.i.i55, ptr %arrayidx.i.i.i67, align 4
   %ref.tmp9.sroa.2.0.arrayidx.i.i.i67.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i67, i64 8
   store i32 %sub7.i.i51, ptr %ref.tmp9.sroa.2.0.arrayidx.i.i.i67.sroa_idx, align 4
@@ -99422,7 +99390,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -99474,7 +99442,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -99489,7 +99457,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -99553,7 +99521,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_4TreeINS5_8RootNodeISB_EEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -99607,7 +99575,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -99619,7 +99587,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -99635,7 +99603,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -99713,7 +99681,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
   %3 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i, %_ZNK7openvdb5v11_04util8NodeMaskILj5EE8beginOffEv.exit ]
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.887", ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
   %4 = load float, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i = fcmp olt float %4, 0.000000e+00
   %cond.in.idx.i = select i1 %cmp.i, i64 4, i64 0
@@ -99730,7 +99698,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i3 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw i64, ptr %5, i64 %idxprom.i.i.i.i3
+  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idxprom.i.i.i.i3
   %7 = load i64, ptr %arrayidx.i.i.i.i4, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -99752,7 +99720,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !971
@@ -100277,7 +100245,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -100329,7 +100297,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -100344,7 +100312,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -100408,7 +100376,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -100462,7 +100430,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -100474,7 +100442,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -100490,7 +100458,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -100568,7 +100536,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
   %3 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %add.i.i, %_ZNK7openvdb5v11_04util8NodeMaskILj4EE8beginOffEv.exit ]
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.898", ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
   %4 = load float, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i = fcmp olt float %4, 0.000000e+00
   %cond.in.idx.i = select i1 %cmp.i, i64 4, i64 0
@@ -100585,7 +100553,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i3 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw i64, ptr %5, i64 %idxprom.i.i.i.i3
+  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idxprom.i.i.i.i3
   %7 = load i64, ptr %arrayidx.i.i.i.i4, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -100607,7 +100575,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !976
@@ -101132,7 +101100,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclERS8_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(96) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -101184,7 +101152,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIfLj3
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -101199,7 +101167,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -101263,7 +101231,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIfLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSG_IS8_Lj4EEELj5EEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -101317,7 +101285,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -101329,7 +101297,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -101345,7 +101313,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEclERS8_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(96) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -101436,7 +101404,7 @@ _ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNod
   %5 = load ptr, ptr %call.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   %idxprom.i.i.i.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw float, ptr %5, i64 %idxprom.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %idxprom.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i.i
   %6 = load float, ptr %retval.0.i.i.i.i.i.i.i, align 4
   %cmp.i = fcmp olt float %6, 0.000000e+00
@@ -101454,7 +101422,7 @@ _ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNod
 if.end.i.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE3setINS8_9ValueIterINS0_4util15OffMaskIteratorINSG_8NodeMaskILj3EEEEES8_KfNS8_8ValueOffEEEEEvRT_.exit
   %and.i.i.i.i = and i32 %add.i.i.i3, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %idxprom.i.i.i.i
   %9 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -101476,7 +101444,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next.i.i.i.i
   %11 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %11, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !300
@@ -101932,7 +101900,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -101984,7 +101952,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -101999,7 +101967,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -102063,7 +102031,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_4TreeINS5_8RootNodeISB_EEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -102116,7 +102084,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -102128,7 +102096,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -102144,7 +102112,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -102222,7 +102190,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
   %3 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i, %_ZNK7openvdb5v11_04util8NodeMaskILj5EE8beginOffEv.exit ]
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.962", ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
   %4 = load double, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i = fcmp olt double %4, 0.000000e+00
   %cond.in.idx.i = select i1 %cmp.i, i64 8, i64 0
@@ -102239,7 +102207,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i3 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw i64, ptr %5, i64 %idxprom.i.i.i.i3
+  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idxprom.i.i.i.i3
   %7 = load i64, ptr %arrayidx.i.i.i.i4, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -102261,7 +102229,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !971
@@ -102784,7 +102752,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -102836,7 +102804,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -102851,7 +102819,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -102915,7 +102883,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -102968,7 +102936,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -102980,7 +102948,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -102996,7 +102964,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclIS9_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -103074,7 +103042,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
   %3 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %add.i.i, %_ZNK7openvdb5v11_04util8NodeMaskILj4EE8beginOffEv.exit ]
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.973", ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
   %4 = load double, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i = fcmp olt double %4, 0.000000e+00
   %cond.in.idx.i = select i1 %cmp.i, i64 8, i64 0
@@ -103091,7 +103059,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i3 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw i64, ptr %5, i64 %idxprom.i.i.i.i3
+  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idxprom.i.i.i.i3
   %7 = load i64, ptr %arrayidx.i.i.i.i4, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -103113,7 +103081,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !976
@@ -103636,7 +103604,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclERS8_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(96) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -103688,7 +103656,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIdLj3
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -103703,7 +103671,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -103767,7 +103735,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIdLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSG_IS8_Lj4EEELj5EEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -103820,7 +103788,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -103832,7 +103800,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -103848,7 +103816,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEclERS8_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(96) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -103939,7 +103907,7 @@ _ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNod
   %5 = load ptr, ptr %call.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   %idxprom.i.i.i.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %5, i64 %idxprom.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idxprom.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i.i
   %6 = load double, ptr %retval.0.i.i.i.i.i.i.i, align 8
   %cmp.i = fcmp olt double %6, 0.000000e+00
@@ -103957,7 +103925,7 @@ _ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNod
 if.end.i.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE3setINS8_9ValueIterINS0_4util15OffMaskIteratorINSG_8NodeMaskILj3EEEEES8_KdNS8_8ValueOffEEEEEvRT_.exit
   %and.i.i.i.i = and i32 %add.i.i.i3, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %idxprom.i.i.i.i
   %9 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -103979,7 +103947,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next.i.i.i.i
   %11 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %11, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !300
@@ -104437,7 +104405,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -104489,7 +104457,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -104504,7 +104472,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -104568,7 +104536,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeISB_EEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -104622,7 +104590,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -104634,7 +104602,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -104650,7 +104618,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -104728,7 +104696,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
   %3 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i, %_ZNK7openvdb5v11_04util8NodeMaskILj5EE8beginOffEv.exit ]
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.887", ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
   %4 = load float, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i = fcmp olt float %4, 0.000000e+00
   %cond.in.idx.i = select i1 %cmp.i, i64 4, i64 0
@@ -104745,7 +104713,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i3 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw i64, ptr %5, i64 %idxprom.i.i.i.i3
+  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idxprom.i.i.i.i3
   %7 = load i64, ptr %arrayidx.i.i.i.i4, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -104767,7 +104735,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !971
@@ -105225,7 +105193,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -105277,7 +105245,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -105292,7 +105260,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -105356,7 +105324,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIfLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -105410,7 +105378,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -105422,7 +105390,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -105438,7 +105406,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -105516,7 +105484,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
   %3 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %add.i.i, %_ZNK7openvdb5v11_04util8NodeMaskILj4EE8beginOffEv.exit ]
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.898", ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
   %4 = load float, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i = fcmp olt float %4, 0.000000e+00
   %cond.in.idx.i = select i1 %cmp.i, i64 4, i64 0
@@ -105533,7 +105501,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i3 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw i64, ptr %5, i64 %idxprom.i.i.i.i3
+  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idxprom.i.i.i.i3
   %7 = load i64, ptr %arrayidx.i.i.i.i4, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -105555,7 +105523,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !976
@@ -106013,7 +105981,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclERS9_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i, ptr noundef nonnull align 8 dereferenceable(96) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -106065,7 +106033,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIfLj3
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -106080,7 +106048,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -106144,7 +106112,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIfLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSH_IS8_Lj4EEELj5EEEEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -106198,7 +106166,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %35 = load i64, ptr %mGrainSize.i.i, align 8
   %36 = load i64, ptr %arrayidx.i2.i, align 8
@@ -106210,7 +106178,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<float, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %38 = load i64, ptr %mBegin.i.i.i35, align 8
   %39 = load i64, ptr %arrayidx.i33, align 8
@@ -106226,7 +106194,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %38, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %41 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %41, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %41, i64 %it.sroa.3.06.i.i40
   %42 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEEclERS9_(ptr noundef nonnull align 4 dereferenceable(8) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(96) %42)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -106317,7 +106285,7 @@ _ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_
   %5 = load ptr, ptr %call.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   %idxprom.i.i.i.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw float, ptr %5, i64 %idxprom.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %idxprom.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i.i
   %6 = load float, ptr %retval.0.i.i.i.i.i.i.i, align 4
   %cmp.i = fcmp olt float %6, 0.000000e+00
@@ -106335,7 +106303,7 @@ _ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_
 if.end.i.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEE3setINS9_9ValueIterINS0_4util15OffMaskIteratorINSI_8NodeMaskILj3EEEEES9_KfNS9_8ValueOffEEEEEvRT_.exit
   %and.i.i.i.i = and i32 %add.i.i.i3, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %idxprom.i.i.i.i
   %9 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -106357,7 +106325,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next.i.i.i.i
   %11 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %11, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !300
@@ -106813,7 +106781,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(270352) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -106865,7 +106833,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -106880,7 +106848,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -106944,7 +106912,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS7_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEE9NodeRangeENSC_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeISB_EEEEEEEENSC_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -106997,7 +106965,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -107009,7 +106977,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -107025,7 +106993,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISB_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(270352) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -107103,7 +107071,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
   %3 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i, %_ZNK7openvdb5v11_04util8NodeMaskILj5EE8beginOffEv.exit ]
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.962", ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
   %4 = load double, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i = fcmp olt double %4, 0.000000e+00
   %cond.in.idx.i = select i1 %cmp.i, i64 8, i64 0
@@ -107120,7 +107088,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i3 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw i64, ptr %5, i64 %idxprom.i.i.i.i3
+  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idxprom.i.i.i.i3
   %7 = load i64, ptr %arrayidx.i.i.i.i4, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -107142,7 +107110,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !971
@@ -107598,7 +107566,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(33808) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -107650,7 +107618,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_12InternalNode
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -107665,7 +107633,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -107729,7 +107697,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_12InternalNodeINS5_8LeafNodeIdLj3EEELj4EEEE9NodeRangeENSB_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS7_ISA_Lj5EEEEEEEEEEENSB_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -107782,7 +107750,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -107794,7 +107762,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -107810,7 +107778,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclISA_EEvRT_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(33808) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -107888,7 +107856,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
   %3 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %add.i.i, %_ZNK7openvdb5v11_04util8NodeMaskILj4EE8beginOffEv.exit ]
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %it)
   %idxprom.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeUnion.973", ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i.i.i, i64 %idxprom.i.i.i.i
   %4 = load double, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i = fcmp olt double %4, 0.000000e+00
   %cond.in.idx.i = select i1 %cmp.i, i64 8, i64 0
@@ -107905,7 +107873,7 @@ for.body:                                         ; preds = %_ZNK7openvdb5v11_04
 if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i, 63
   %idxprom.i.i.i.i3 = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw i64, ptr %5, i64 %idxprom.i.i.i.i3
+  %arrayidx.i.i.i.i4 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idxprom.i.i.i.i3
   %7 = load i64, ptr %arrayidx.i.i.i.i4, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -107927,7 +107895,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next.i.i.i.i
   %9 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %9, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !976
@@ -108383,7 +108351,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %4 = load ptr, ptr %mNodeList.i.i.i.i, align 8
   %mNodes.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mNodes.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %it.sroa.3.06.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %it.sroa.3.06.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   tail call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclERS9_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i, ptr noundef nonnull align 8 dereferenceable(96) %6)
   %inc.i.i.i = add nuw i64 %it.sroa.3.06.i.i, 1
@@ -108435,7 +108403,7 @@ _ZN3tbb6detail2d112range_vectorIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIdLj3
   %11 = phi i8 [ %inc32.i, %land.rhs.i ], [ %my_size.promoted.i.pr101, %land.rhs.lr.ph.i ]
   %rem.i7280 = phi i8 [ %rem.i, %land.rhs.i ], [ %this.promoted.i, %land.rhs.lr.ph.i ]
   %idxprom.i.i.i81 = zext i8 %rem.i7280 to i64
-  %arrayidx.i2.i.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i.i81
+  %arrayidx.i2.i.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i.i81
   %mGrainSize.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i.i, i64 16
   %12 = load i64, ptr %mGrainSize.i.i.i, align 8
   %13 = load i64, ptr %arrayidx.i2.i.i, align 8
@@ -108450,7 +108418,7 @@ while.body.i:                                     ; preds = %_ZN3tbb6detail2d112
   %add.i = add i8 %rem.i7280, 1
   %rem.i = and i8 %add.i, 7
   %idx.ext.i = zext nneg i8 %rem.i to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i2.i.i, i64 32, i1 false)
   %15 = load i64, ptr %add.ptr.i, align 8
   store i64 %15, ptr %arrayidx.i2.i.i, align 8
@@ -108514,7 +108482,7 @@ invoke.cont12:                                    ; preds = %if.then9
   call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   store ptr null, ptr %alloc.i.i, align 8
   %call.i.i.i19 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
-  %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree8NodeListINS5_8LeafNodeIdLj3EEEE9NodeRangeENS9_19NodeTransformerCopyINS4_5tools26ChangeLevelSetBackgroundOpINS5_11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSH_IS8_Lj4EEELj5EEEEEEEEEEENS9_14OpWithoutIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
@@ -108567,7 +108535,7 @@ if.end:                                           ; preds = %if.then9
   br i1 %cmp.i26, label %invoke.cont19, label %invoke.cont24
 
 invoke.cont19:                                    ; preds = %if.end
-  %arrayidx.i2.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i.i
+  %arrayidx.i2.i = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i.i
   %mGrainSize.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i2.i, i64 16
   %34 = load i64, ptr %mGrainSize.i.i, align 8
   %35 = load i64, ptr %arrayidx.i2.i, align 8
@@ -108579,7 +108547,7 @@ invoke.cont19:                                    ; preds = %if.end
 
 invoke.cont24:                                    ; preds = %invoke.cont.invoke.cont24_crit_edge, %if.end, %invoke.cont19
   %idxprom.i32.pre-phi = phi i64 [ %.pre103, %invoke.cont.invoke.cont24_crit_edge ], [ %idxprom.i.i, %if.end ], [ %idxprom.i.i, %invoke.cont19 ]
-  %arrayidx.i33 = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<openvdb::v11_0::tree::LeafNode<double, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
+  %arrayidx.i33 = getelementptr inbounds nuw [32 x i8], ptr %my_pool2.i, i64 %idxprom.i32.pre-phi
   %mBegin.i.i.i35 = getelementptr inbounds nuw i8, ptr %arrayidx.i33, i64 8
   %37 = load i64, ptr %mBegin.i.i.i35, align 8
   %38 = load i64, ptr %arrayidx.i33, align 8
@@ -108595,7 +108563,7 @@ for.body.lr.ph.i.i37:                             ; preds = %invoke.cont24
 for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i37
   %it.sroa.3.06.i.i40 = phi i64 [ %37, %for.body.lr.ph.i.i37 ], [ %inc.i.i.i43, %for.body.i.i39 ]
   %40 = load ptr, ptr %mNodes.i.i.i.i.i41, align 8
-  %arrayidx.i.i.i.i.i42 = getelementptr inbounds ptr, ptr %40, i64 %it.sroa.3.06.i.i40
+  %arrayidx.i.i.i.i.i42 = getelementptr inbounds [8 x i8], ptr %40, i64 %it.sroa.3.06.i.i40
   %41 = load ptr, ptr %arrayidx.i.i.i.i.i42, align 8
   call void @_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEEclERS9_(ptr noundef nonnull align 8 dereferenceable(16) %my_body.i34, ptr noundef nonnull align 8 dereferenceable(96) %41)
   %inc.i.i.i43 = add i64 %it.sroa.3.06.i.i40, 1
@@ -108686,7 +108654,7 @@ _ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_
   %5 = load ptr, ptr %call.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   %idxprom.i.i.i.i.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %5, i64 %idxprom.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idxprom.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i.i.i.i
   %6 = load double, ptr %retval.0.i.i.i.i.i.i.i, align 8
   %cmp.i = fcmp olt double %6, 0.000000e+00
@@ -108704,7 +108672,7 @@ _ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_
 if.end.i.i.i.i:                                   ; preds = %_ZNK7openvdb5v11_05tools26ChangeLevelSetBackgroundOpINS0_4tree11LeafManagerINS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEE3setINS9_9ValueIterINS0_4util15OffMaskIteratorINSI_8NodeMaskILj3EEEEES9_KdNS9_8ValueOffEEEEEvRT_.exit
   %and.i.i.i.i = and i32 %add.i.i.i3, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %idxprom.i.i.i.i
   %9 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
@@ -108726,7 +108694,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next.i.i.i.i
   %11 = load i64, ptr %arrayidx12.i.i.i.i, align 8
   %tobool8.not.i.i.i.i = icmp eq i64 %11, -1
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !300

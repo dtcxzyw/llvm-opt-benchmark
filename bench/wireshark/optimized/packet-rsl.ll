@@ -1305,13 +1305,13 @@ define internal void @req_ref_ra_est_cause_convert(ptr noundef %0, i32 noundef %
 
 switch.lookup:                                    ; preds = %2
   %16 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.req_ref_ra_est_cause_convert, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.req_ref_ra_est_cause_convert, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %18
 
 switch.lookup11:                                  ; preds = %5
   %17 = zext nneg i32 %7 to i64
-  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table.req_ref_ra_est_cause_convert.55, i64 %17
+  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.req_ref_ra_est_cause_convert.55, i64 %17
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   br label %18
 
@@ -2551,7 +2551,7 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   %.0168190 = phi i1 [ %.2170, %139 ], [ false, %4 ]
   %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0161192)
   %15 = zext i8 %14 to i64
-  %16 = getelementptr %struct.tlv_def, ptr @rsl_att_tlvdef, i64 %15
+  %16 = getelementptr [8 x i8], ptr @rsl_att_tlvdef, i64 %15
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %.thread181 [
     i32 1, label %18

@@ -605,7 +605,7 @@ _ZL13RunBasicTestsv.exit:                         ; preds = %214
 
 .preheader:                                       ; preds = %_ZL13RunBasicTestsv.exit, %_ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit81.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit81.i ], [ 0, %_ZL13RunBasicTestsv.exit ]
-  %219 = getelementptr inbounds nuw %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i
+  %219 = getelementptr inbounds nuw [88 x i8], ptr @_ZL12kRFCTestData, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %220 = load ptr, ptr %219, align 8, !tbaa !33
   %221 = call noundef ptr %220(ptr noundef null)
@@ -1261,7 +1261,7 @@ define internal noundef i32 @_ZL16GenerateCallbackiiP11bn_gencb_st(i32 noundef %
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL16GenerateCallbackiiP11bn_gencb_st, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZL16GenerateCallbackiiP11bn_gencb_st, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.fold.split
 

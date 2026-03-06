@@ -244,7 +244,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds
 _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %57, %_ZNSt6vectorIPK8VariableSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %52, ptr %6, align 8, !tbaa !20
   store ptr %56, ptr %24, align 8, !tbaa !14
-  %58 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
   store ptr %58, ptr %25, align 8, !tbaa !17
   br label %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit.backedge
 
@@ -354,7 +354,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__nor
 
 .noexc147:                                        ; preds = %104
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %105, ptr align 4 %99, i64 %102, i1 false), !noalias !54
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %.098
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %.098
   %107 = load i32, ptr %106, align 4, !tbaa !12
   %108 = load i32, ptr %4, align 4, !tbaa !12
   %109 = icmp ult i32 %107, %108
@@ -385,7 +385,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__nor
 
 .noexc153:                                        ; preds = %117
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %118, ptr align 4 %112, i64 %115, i1 false), !noalias !58
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %.098
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %.098
   %120 = load i32, ptr %119, align 4, !tbaa !12
   store i32 %120, ptr %4, align 4, !tbaa !12
   call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %115) #20
@@ -625,7 +625,7 @@ select.unfold.i:                                  ; preds = %.noexc162, %.noexc1
 
 .noexc178:                                        ; preds = %.noexc177
   %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds nuw i32, ptr @__const._ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.t_ops, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.t_ops, i64 %201
   %203 = load i32, ptr %202, align 4, !tbaa !81
   %204 = load i32, ptr @_ZN5Error8r_error_E, align 4, !tbaa !12
   %.not.i173 = icmp eq i32 %204, 0
@@ -1635,7 +1635,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
 44:                                               ; preds = %.lr.ph, %_ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEixEOS2_.exit29
   %45 = phi ptr [ %40, %.lr.ph ], [ %70, %_ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEixEOS2_.exit29 ]
   %.030 = phi i64 [ 0, %.lr.ph ], [ %65, %_ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEixEOS2_.exit29 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %.030
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.030
   %47 = load ptr, ptr %46, align 8, !tbaa !96
   %48 = icmp eq ptr %47, null
   br i1 %48, label %51, label %49
@@ -2972,7 +2972,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   %147 = phi ptr [ %142, %.lr.ph ], [ %168, %165 ]
   %.079 = phi i64 [ 0, %.lr.ph ], [ %166, %165 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %.079
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %.079
   %149 = load ptr, ptr %148, align 8, !tbaa !148
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !150
@@ -3298,7 +3298,7 @@ _ZNSt6vectorIPK5BlockSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds 
 _ZNSt6vectorIPK5BlockSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIPK5BlockSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %24, ptr %1, align 8, !tbaa !161
   store ptr %28, ptr %5, align 8, !tbaa !159
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr %7, align 8, !tbaa !160
   br label %_ZNSt6vectorIPK5BlockSaIS2_EE9push_backEOS2_.exit
 
@@ -3367,7 +3367,7 @@ _ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; 
 _ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %24, ptr %1, align 8, !tbaa !166
   store ptr %28, ptr %5, align 8, !tbaa !162
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr %7, align 8, !tbaa !165
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backEOS2_.exit
 

@@ -121,7 +121,7 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %.05885 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %47, %.lr.ph.split ]
-  %42 = getelementptr inbounds nuw ptr, ptr %.065, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.065, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !19
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #16
   %45 = trunc i64 %44 to i32
@@ -171,7 +171,7 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
   %56 = phi ptr [ %.pre117, %.lr.ph90.split.us.preheader ], [ %64, %60 ]
   %indvars.iv110 = phi i64 [ 0, %.lr.ph90.split.us.preheader ], [ %indvars.iv.next111, %60 ]
   %.05289.us = phi ptr [ %54, %.lr.ph90.split.us.preheader ], [ %69, %60 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv110
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv110
   store ptr %.05289.us, ptr %57, align 8, !tbaa !19
   %58 = trunc nuw nsw i64 %indvars.iv110 to i32
   %59 = invoke ptr @ucnv_getAvailableName_77(i32 noundef %58)
@@ -182,7 +182,7 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
   %62 = load ptr, ptr %6, align 8, !tbaa !7
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !11
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv110
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv110
   %66 = load ptr, ptr %65, align 8, !tbaa !19
   %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #16
   %68 = getelementptr i8, ptr %.05289.us, i64 %67
@@ -226,13 +226,13 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
   %75 = phi ptr [ %.pre115, %.lr.ph90.split ], [ %80, %74 ]
   %indvars.iv105 = phi i64 [ 0, %.lr.ph90.split ], [ %indvars.iv.next106, %74 ]
   %.05289 = phi ptr [ %54, %.lr.ph90.split ], [ %85, %74 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv105
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv105
   store ptr %.05289, ptr %76, align 8, !tbaa !19
-  %77 = getelementptr inbounds nuw ptr, ptr %.065, i64 %indvars.iv105
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %.065, i64 %indvars.iv105
   %78 = load ptr, ptr %77, align 8, !tbaa !19
   %79 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.05289, ptr noundef nonnull dereferenceable(1) %78) #17
   %80 = load ptr, ptr %71, align 8, !tbaa !11
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv105
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv105
   %82 = load ptr, ptr %81, align 8, !tbaa !19
   %83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #16
   %84 = getelementptr i8, ptr %.05289, i64 %83
@@ -363,7 +363,7 @@ define internal fastcc void @_ZL20generateSelectorDataP18UConverterSelectorP13UP
 25:                                               ; preds = %.lr.ph82, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next, %22 ]
   %26 = load ptr, ptr %20, align 8, !tbaa !11
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !19
   %29 = call ptr @ucnv_open_77(ptr noundef %28, ptr noundef nonnull %4)
   %30 = load i32, ptr %4, align 4, !tbaa !3
@@ -942,7 +942,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 122:                                              ; preds = %.lr.ph, %122
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %122 ]
   %.0105133 = phi ptr [ %120, %.lr.ph ], [ %126, %122 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv
   store ptr %.0105133, ptr %123, align 8, !tbaa !19
   %124 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0105133) #16
   %125 = getelementptr i8, ptr %.0105133, i64 %124
@@ -1037,10 +1037,10 @@ define internal fastcc noundef i32 @_ZL12ucnvsel_swapPK12UDataSwapperPKviPvP10UE
 
 48:                                               ; preds = %45, %48
   %indvars.iv = phi i64 [ 0, %45 ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !29
   %51 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %50)
-  %52 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %51, ptr %52, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1159,7 +1159,7 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
 24:                                               ; preds = %23
   %25 = icmp sgt i32 %2, -1
   %26 = zext nneg i32 %2 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %26
   %.054 = select i1 %25, ptr %27, ptr null
   %28 = icmp eq ptr %.054, null
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1197,14 +1197,14 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
   %43 = load ptr, ptr %42, align 8, !tbaa !54
   %44 = lshr i32 %38, 5
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !58
   %48 = zext i16 %47 to i32
   %49 = shl nuw nsw i32 %48, 2
   %50 = and i32 %38, 31
   %51 = add nuw nsw i32 %49, %50
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i16, ptr %43, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %52
   br label %107
 
 54:                                               ; preds = %35
@@ -1228,7 +1228,7 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
   %63 = load ptr, ptr %62, align 8, !tbaa !54
   %64 = lshr i32 %38, 5
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 640
   %68 = load i16, ptr %67, align 2, !tbaa !58
   %69 = zext i16 %68 to i32
@@ -1236,7 +1236,7 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
   %71 = and i32 %38, 31
   %72 = add nuw nsw i32 %70, %71
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %63, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %73
   br label %107
 
 75:                                               ; preds = %56
@@ -1258,7 +1258,7 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
 86:                                               ; preds = %75
   %87 = lshr i32 %79, 11
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %80, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4160
   %91 = load i16, ptr %90, align 2, !tbaa !58
   %92 = zext i16 %91 to i32
@@ -1266,7 +1266,7 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
   %94 = and i32 %93, 63
   %95 = add nuw nsw i32 %94, %92
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %80, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !58
   %99 = zext i16 %98 to i32
   %100 = shl nuw nsw i32 %99, 2
@@ -1277,7 +1277,7 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
 103:                                              ; preds = %86, %83
   %104 = phi i32 [ %85, %83 ], [ %102, %86 ]
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i16, ptr %80, i64 %105
+  %106 = getelementptr inbounds [2 x i8], ptr %80, i64 %105
   br label %107
 
 107:                                              ; preds = %61, %103, %41
@@ -1286,15 +1286,15 @@ define noundef ptr @ucnvsel_selectForString_77(ptr noundef %0, ptr noundef reado
   %.053 = load i16, ptr %.053.in, align 2, !tbaa !58
   %108 = load ptr, ptr %29, align 8, !tbaa !34
   %109 = zext i16 %.053 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %109
   br i1 %30, label %.lr.ph.i, label %_ZL14intersectMasksPjPKji.exit.thread
 
 .lr.ph.i:                                         ; preds = %107, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %107 ]
   %.010.i = phi i32 [ %116, %.lr.ph.i ], [ 0, %107 ]
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv.i
   %112 = load i32, ptr %111, align 4, !tbaa !29
-  %113 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   %114 = load i32, ptr %113, align 4, !tbaa !29
   %115 = and i32 %114, %112
   store i32 %115, ptr %113, align 4, !tbaa !29
@@ -1374,7 +1374,7 @@ define internal fastcc noundef ptr @_ZL13selectForMaskPK18UConverterSelectorPjP1
 .lr.ph17.i:                                       ; preds = %._crit_edge.i, %.lr.ph17.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph17.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %.0915.i = phi i16 [ 0, %.lr.ph17.preheader.i ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4, !tbaa !29
   %.not11.i = icmp eq i32 %25, 0
   br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1435,7 +1435,7 @@ _ZL9countOnesPji.exit:                            ; preds = %._crit_edge.i
 43:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %.02366 = phi i16 [ 0, %.lr.ph ], [ %.1.lcssa, %.critedge ]
-  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !29
   br label %46
 
@@ -1457,7 +1457,7 @@ _ZL9countOnesPji.exit:                            ; preds = %._crit_edge.i
   %53 = add i16 %52, 1
   store i16 %53, ptr %11, align 8, !tbaa !65
   %54 = sext i16 %52 to i64
-  %55 = getelementptr inbounds i16, ptr %33, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %33, i64 %54
   store i16 %.163, ptr %55, align 2, !tbaa !58
   br label %56
 
@@ -1622,7 +1622,7 @@ define noundef ptr @ucnvsel_selectForUTF8_77(ptr noundef %0, ptr noundef %1, i32
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !73
   %43 = zext nneg i8 %36 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %43
   br label %115
 
 45:                                               ; preds = %34
@@ -1668,14 +1668,14 @@ define noundef ptr @ucnvsel_selectForUTF8_77(ptr noundef %0, ptr noundef %1, i32
   %75 = lshr i32 %66, 5
   %76 = or disjoint i32 %75, %74
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %69, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !58
   %80 = zext i16 %79 to i32
   %81 = shl nuw nsw i32 %80, 2
   %82 = and i32 %66, 31
   %83 = add nuw nsw i32 %81, %82
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i16, ptr %69, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %84
   br label %115
 
 86:                                               ; preds = %45
@@ -1697,12 +1697,12 @@ define noundef ptr @ucnvsel_selectForUTF8_77(ptr noundef %0, ptr noundef %1, i32
   %96 = load ptr, ptr %0, align 8, !tbaa !33
   %97 = load ptr, ptr %96, align 8, !tbaa !54
   %98 = zext i8 %36 to i64
-  %99 = getelementptr inbounds nuw i16, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 3776
   %101 = load i16, ptr %100, align 2, !tbaa !58
   %102 = zext i16 %101 to i64
-  %103 = getelementptr inbounds nuw i16, ptr %97, i64 %102
-  %104 = getelementptr inbounds nuw i16, ptr %103, i64 %94
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %102
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 %94
   br label %115
 
 .thread93:                                        ; preds = %47, %50, %61, %89, %86
@@ -1715,7 +1715,7 @@ define noundef ptr @ucnvsel_selectForUTF8_77(ptr noundef %0, ptr noundef %1, i32
   %111 = load ptr, ptr %110, align 8, !tbaa !54
   %112 = ashr i32 %106, 3
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i16, ptr %111, i64 %113
+  %114 = getelementptr inbounds [2 x i8], ptr %111, i64 %113
   br label %115
 
 115:                                              ; preds = %65, %.thread93, %93, %39
@@ -1724,15 +1724,15 @@ define noundef ptr @ucnvsel_selectForUTF8_77(ptr noundef %0, ptr noundef %1, i32
   %.072 = load i16, ptr %.072.in, align 2, !tbaa !58
   %116 = load ptr, ptr %31, align 8, !tbaa !34
   %117 = zext i16 %.072 to i64
-  %118 = getelementptr inbounds nuw i32, ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %117
   br i1 %32, label %.lr.ph.i, label %_ZL14intersectMasksPjPKji.exit.thread
 
 .lr.ph.i:                                         ; preds = %115, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %115 ]
   %.010.i = phi i32 [ %124, %.lr.ph.i ], [ 0, %115 ]
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i
   %120 = load i32, ptr %119, align 4, !tbaa !29
-  %121 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   %122 = load i32, ptr %121, align 4, !tbaa !29
   %123 = and i32 %122, %120
   store i32 %123, ptr %121, align 4, !tbaa !29
@@ -1840,10 +1840,10 @@ define internal noundef ptr @_ZL21ucnvsel_next_encodingP12UEnumerationPiP10UErro
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = load ptr, ptr %8, align 8, !tbaa !62
   %19 = sext i16 %10 to i64
-  %20 = getelementptr inbounds i16, ptr %18, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %18, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !58
   %22 = sext i16 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %17, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %17, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !19
   %25 = add nsw i16 %10, 1
   store i16 %25, ptr %9, align 2, !tbaa !64

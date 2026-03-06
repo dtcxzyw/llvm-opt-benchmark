@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.RelFileLocator = type { i32, i32, i32 }
 %struct.XLogPageReadPrivate = type { ptr, i32 }
 %struct.XLogReaderRoutine = type { ptr, ptr, ptr }
-%struct.TimeLineHistoryEntry = type { i32, i64, i64 }
 
 @WalSegSz = external local_unnamed_addr global i32, align 4
 @.str = private unnamed_addr constant [55 x i8] c"out of memory while allocating a WAL reading processor\00", align 1
@@ -179,7 +178,7 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
 63:                                               ; preds = %59, %.thread50.i
   %64 = phi i64 [ %58, %.thread50.i ], [ %61, %59 ]
   %65 = zext nneg i8 %35 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr @RmgrNames, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @RmgrNames, i64 %65
   %67 = load ptr, ptr %66, align 8
   br label %68
 
@@ -317,14 +316,14 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
 .lr.ph:                                           ; preds = %26
   %33 = sext i32 %.promoted to i64
   %wide.trip.count = sext i32 %31 to i64
-  %34 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %33
+  %34 = getelementptr inbounds [24 x i8], ptr %.pre50.pre, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = icmp ult i64 %36, %13
   br i1 %37, label %.lr.ph59, label %.critedge
 
 38:                                               ; preds = %.lr.ph59
-  %39 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %indvars.iv.next
+  %39 = getelementptr inbounds [24 x i8], ptr %.pre50.pre, i64 %indvars.iv.next
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = icmp ult i64 %41, %13
@@ -349,7 +348,7 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
 .lr.ph42:                                         ; preds = %.critedge, %50
   %45 = phi i32 [ %51, %50 ], [ %.pr, %.critedge ]
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.pre50.pre, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8
   %.not = icmp ult i64 %49, %13
@@ -364,7 +363,7 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
 .critedge2:                                       ; preds = %.lr.ph42, %50, %.critedge
   %.lcssa = phi i32 [ %.pr, %.critedge ], [ 0, %50 ], [ %45, %.lr.ph42 ]
   %53 = sext i32 %.lcssa to i64
-  %54 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %53
+  %54 = getelementptr inbounds [24 x i8], ptr %.pre50.pre, i64 %53
   %55 = load i32, ptr %54, align 8
   %56 = udiv i64 4294967296, %28
   %57 = udiv i64 %27, %56
@@ -446,7 +445,7 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %97 = load i32, ptr %96, align 8
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %95, i64 %98
+  %99 = getelementptr inbounds [24 x i8], ptr %95, i64 %98
   %100 = load i32, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   store i32 %100, ptr %101, align 8

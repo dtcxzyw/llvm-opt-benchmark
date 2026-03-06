@@ -3,7 +3,6 @@ source_filename = "bench/icu/original/bytestriebuilder.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_77::BytesTrieElement" = type { i32, i32 }
 %"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
 
 $_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
@@ -747,7 +746,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7716BytesTrieBui
   %19 = add nsw i32 %15, 1
   store i32 %19, ptr %14, align 4, !tbaa !33
   %20 = sext i32 %15 to i64
-  %21 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %.pre, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %20
   br label %50
 
 22:                                               ; preds = %13
@@ -797,7 +796,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7716BytesTrieBui
   %46 = add nsw i32 %.pre20, 1
   store i32 %46, ptr %14, align 4, !tbaa !33
   %47 = sext i32 %.pre20 to i64
-  %48 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %29, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %29, i64 %47
   %49 = icmp slt i32 %.pre21, 1
   br i1 %49, label %50, label %_ZN6icu_7716BytesTrieElement5setToENS_11StringPieceEiRNS_10CharStringER10UErrorCode.exit
 
@@ -983,7 +982,7 @@ _ZNK6icu_7716BytesTrieElement9getStringERKNS_10CharStringE.exit: ; preds = %34, 
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %87 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = load ptr, ptr %22, align 8, !tbaa !30
-  %59 = getelementptr inbounds nuw %"class.icu_77::BytesTrieElement", ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %24, align 8, !tbaa !23
   %61 = load i32, ptr %59, align 4, !tbaa !17
   %62 = icmp sgt i32 %61, -1
@@ -1218,7 +1217,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7716BytesTrieBuilder22getElemen
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = load i32, ptr %6, align 4, !tbaa !17
@@ -1259,7 +1258,7 @@ define noundef zeroext range(i16 0, 256) i16 @_ZNK6icu_7716BytesTrieBuilder14get
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = load i32, ptr %7, align 4, !tbaa !17
@@ -1280,7 +1279,7 @@ define noundef i32 @_ZNK6icu_7716BytesTrieBuilder15getElementValueEi(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !19
   ret i32 %8
@@ -1291,9 +1290,9 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7716BytesTrieBu
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = load i32, ptr %8, align 4, !tbaa !17
@@ -1381,7 +1380,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7716BytesTrieBu
   %.013 = phi i32 [ %1, %4 ], [ %26, %.critedge ]
   %.0 = phi i32 [ 0, %4 ], [ %27, %.critedge ]
   %13 = sext i32 %.013 to i64
-  %14 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %6, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %6, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !17
   %.0.p.i.i = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
   %.0.i.i = add nuw i32 %.0.p.i.i, 1
@@ -1397,7 +1396,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7716BytesTrieBu
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %6, i64 %indvars.iv.next
+  %21 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv.next
   %22 = load i32, ptr %21, align 4, !tbaa !17
   %.0.p.i.i14 = tail call i32 @llvm.abs.i32(i32 %22, i1 false)
   %.0.i.i15 = add nuw i32 %.0.p.i.i14, 1
@@ -1432,7 +1431,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7716BytesTrieBu
   %.08 = phi i32 [ %3, %4 ], [ %25, %23 ]
   %.0 = phi i32 [ %1, %4 ], [ %24, %23 ]
   %12 = sext i32 %.0 to i64
-  %13 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %6, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !17
   %.0.p.i.i = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
   %.0.i.i = add nuw i32 %.0.p.i.i, 1
@@ -1444,7 +1443,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7716BytesTrieBu
 17:                                               ; preds = %17, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ %12, %11 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %6, i64 %indvars.iv.next
+  %18 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv.next
   %19 = load i32, ptr %18, align 4, !tbaa !17
   %.0.p.i.i10 = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
   %.0.i.i11 = add nuw i32 %.0.p.i.i10, 1
@@ -1481,7 +1480,7 @@ define noundef i32 @_ZNK6icu_7716BytesTrieBuilder26indexOfElementWithNextUnitEii
 
 14:                                               ; preds = %14, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ %13, %4 ]
-  %15 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !17
   %.0.p.i.i = tail call i32 @llvm.abs.i32(i32 %16, i1 false)
   %.0.i.i = add nuw i32 %.0.p.i.i, 1
@@ -1742,7 +1741,7 @@ define noundef ptr @_ZNK6icu_7716BytesTrieBuilder21createLinearMatchNodeEiiiPNS_
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = load i32, ptr %12, align 4, !tbaa !17
@@ -1899,7 +1898,7 @@ _ZNK6icu_7716BytesTrieElement9getStringERKNS_10CharStringE.exit:
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %"class.icu_77::BytesTrieElement", ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = load i32, ptr %7, align 4, !tbaa !17

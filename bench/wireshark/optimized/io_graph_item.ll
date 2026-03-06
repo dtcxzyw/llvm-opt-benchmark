@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.nstime_t = type { i64, i32 }
-%struct._io_graph_item_t = type { i32, i64, i64, %union.anon, %union.anon.0, %union.anon.1, i32, i32, i32, i32 }
-%union.anon = type { %struct.nstime_t }
-%union.anon.0 = type { %struct.nstime_t }
-%union.anon.1 = type { %struct.nstime_t }
 
 @.str = private unnamed_addr constant [8 x i8] c"Packets\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"Bytes\00", align 1
@@ -130,7 +126,7 @@ define hidden ptr @check_field_unit(ptr noundef %0, ptr noundef writeonly captur
 30:                                               ; preds = %28
   %31 = tail call ptr @g_string_new(ptr noundef nonnull @.str.13)
   %32 = zext i32 %2 to i64
-  %33 = getelementptr ptr, ptr @__const.check_field_unit.item_unit_names, i64 %32
+  %33 = getelementptr [8 x i8], ptr @__const.check_field_unit.item_unit_names, i64 %32
   %34 = load ptr, ptr %33, align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %31, ptr noundef nonnull @.str.16, ptr noundef nonnull %0, ptr noundef %34)
   br label %.sink.split
@@ -143,7 +139,7 @@ define hidden ptr @check_field_unit(ptr noundef %0, ptr noundef writeonly captur
 37:                                               ; preds = %35
   %38 = tail call ptr @g_string_new(ptr noundef nonnull @.str.13)
   %39 = zext i32 %2 to i64
-  %40 = getelementptr ptr, ptr @__const.check_field_unit.item_unit_names, i64 %39
+  %40 = getelementptr [8 x i8], ptr @__const.check_field_unit.item_unit_names, i64 %39
   %41 = load ptr, ptr %40, align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %38, ptr noundef nonnull @.str.17, ptr noundef nonnull %0, ptr noundef %41)
   br label %.sink.split
@@ -169,7 +165,7 @@ declare void @g_string_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 define hidden double @get_io_graph_item(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #1 {
   %9 = alloca %struct.nstime_t, align 8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr %struct._io_graph_item_t, ptr %0, i64 %10
+  %11 = getelementptr [88 x i8], ptr %0, i64 %10
   switch i32 %1, label %49 [
     i32 0, label %12
     i32 1, label %20

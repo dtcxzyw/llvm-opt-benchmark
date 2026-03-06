@@ -3,10 +3,7 @@ source_filename = "bench/luajit/original/lj_snap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SnapShot = type { i32, i16, i16, i8, i8, i8, i8 }
 %union.TValue = type { i64 }
-%union.IRIns = type { %struct.GCRef }
-%struct.GCRef = type { i64 }
 
 @lj_ir_mode = external hidden local_unnamed_addr constant [102 x i8], align 16
 @lj_bc_mode = external hidden local_unnamed_addr constant [0 x i16], align 2
@@ -81,7 +78,7 @@ define hidden void @lj_snap_add(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = zext i16 %3 to i64
-  %11 = getelementptr %struct.SnapShot, ptr %9, i64 %10
+  %11 = getelementptr [12 x i8], ptr %9, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load i16, ptr %12, align 4, !tbaa !35
   %14 = zext i16 %13 to i32
@@ -121,7 +118,7 @@ define hidden void @lj_snap_add(ptr noundef %0) local_unnamed_addr #0 {
   %33 = load ptr, ptr %32, align 8, !tbaa !29
   %34 = add nsw i32 %4, -1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %struct.SnapShot, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !41
   br label %44
 
@@ -152,7 +149,7 @@ lj_snap_grow_buf.exit:                            ; preds = %38, %42
   store i8 0, ptr %46, align 4, !tbaa !38
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 182
   store i8 0, ptr %47, align 2, !tbaa !39
-  %48 = getelementptr inbounds nuw %struct.SnapShot, ptr %45, i64 %.pre-phi
+  %48 = getelementptr inbounds nuw [12 x i8], ptr %45, i64 %.pre-phi
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %50 = load i32, ptr %49, align 8, !tbaa !44
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -173,7 +170,7 @@ lj_snap_grow_map.exit.i:                          ; preds = %59, %44
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %61 = load ptr, ptr %60, align 8, !tbaa !32
   %62 = zext i32 %.0 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %65 = load i16, ptr %64, align 8, !tbaa !47
   %66 = zext i16 %65 to i32
@@ -190,7 +187,7 @@ lj_snap_grow_map.exit.i:                          ; preds = %59, %44
 71:                                               ; preds = %132, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %132 ]
   %.04657.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.2.i.i, %132 ]
-  %72 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv.i.i
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv.i.i
   %73 = load i32, ptr %72, align 4, !tbaa !4
   %74 = icmp eq i64 %indvars.iv.i.i, 1
   br i1 %74, label %75, label %77
@@ -215,9 +212,9 @@ lj_snap_grow_map.exit.i:                          ; preds = %59, %44
   %86 = load i32, ptr %49, align 8, !tbaa !44
   %87 = zext i32 %86 to i64
   %88 = sub nsw i64 0, %87
-  %89 = getelementptr inbounds %union.TValue, ptr %85, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %85, i64 %88
   %90 = and i32 %73, 16711680
-  %91 = getelementptr inbounds nuw %union.TValue, ptr %89, i64 %indvars.iv.i.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv.i.i
   %92 = load i64, ptr %91, align 8, !tbaa !40
   %93 = tail call i32 @lj_ir_k64(ptr noundef nonnull %0, i32 noundef 28, i64 noundef %92) #10
   %94 = or i32 %93, %90
@@ -238,7 +235,7 @@ lj_snap_grow_map.exit.i:                          ; preds = %59, %44
   %101 = or disjoint i32 %100, %99
   %102 = load ptr, ptr %69, align 8, !tbaa !51
   %103 = zext nneg i32 %.048.i.i to i64
-  %104 = getelementptr inbounds nuw %union.IRIns, ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 5
   %106 = load i8, ptr %105, align 1, !tbaa !40
   %107 = icmp eq i8 %106, 71
@@ -269,7 +266,7 @@ lj_snap_grow_map.exit.i:                          ; preds = %59, %44
   br i1 %121, label %132, label %122
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i32, ptr %67, i64 %120
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %120
   %124 = load i32, ptr %123, align 4, !tbaa !4
   %125 = and i32 %124, 196608
   %.not53.i.i = icmp eq i32 %125, 0
@@ -286,7 +283,7 @@ lj_snap_grow_map.exit.i:                          ; preds = %59, %44
   %.045.sink.i.i = phi i32 [ 17137663, %75 ], [ %101, %108 ], [ %spec.select.i.i, %126 ], [ %101, %97 ]
   %129 = add i32 %.04657.i.i, 1
   %130 = zext i32 %.04657.i.i to i64
-  %131 = getelementptr inbounds nuw i32, ptr %63, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %130
   store i32 %.045.sink.i.i, ptr %131, align 4, !tbaa !4
   br label %132
 
@@ -302,7 +299,7 @@ snapshot_slots.exit.i:                            ; preds = %132, %lj_snap_grow_
   %134 = getelementptr inbounds nuw i8, ptr %48, i64 10
   store i8 %133, ptr %134, align 2, !tbaa !54
   %135 = zext i32 %.046.lcssa.i.i to i64
-  %136 = getelementptr inbounds nuw i32, ptr %63, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %138 = load ptr, ptr %137, align 8, !tbaa !8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 32
@@ -329,7 +326,7 @@ snapshot_slots.exit.i:                            ; preds = %132, %lj_snap_grow_
   %158 = getelementptr inbounds i8, ptr %157, i64 -93
   %159 = load i8, ptr %158, align 1, !tbaa !55
   %160 = zext i8 %159 to i64
-  %161 = getelementptr inbounds nuw %union.TValue, ptr %141, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %160
   br label %165
 
 162:                                              ; preds = %snapshot_slots.exit.i
@@ -371,7 +368,7 @@ snapshot_slots.exit.i:                            ; preds = %132, %lj_snap_grow_
   %185 = add nuw nsw i32 %184, 2
   %186 = zext nneg i32 %185 to i64
   %187 = sub nsw i64 0, %186
-  %188 = getelementptr inbounds %union.TValue, ptr %.036.i.i, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %.036.i.i, i64 %187
   br label %.outer.i.i
 
 189:                                              ; preds = %175
@@ -398,7 +395,7 @@ snapshot_slots.exit.i:                            ; preds = %132, %lj_snap_grow_
   %204 = getelementptr inbounds i8, ptr %203, i64 -93
   %205 = load i8, ptr %204, align 1, !tbaa !55
   %206 = zext i8 %205 to i64
-  %207 = getelementptr inbounds nuw %union.TValue, ptr %.1.i.i, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %.1.i.i, i64 %206
   %208 = icmp ugt ptr %207, %.029.ph38.i.i
   %spec.select.i28.i = select i1 %208, ptr %207, ptr %.029.ph38.i.i
   %209 = icmp ugt ptr %.1.i.i, %146
@@ -509,7 +506,7 @@ define hidden void @lj_snap_purge(ptr noundef readonly captures(none) %0) local_
 
 43:                                               ; preds = %50, %.lr.ph.i
   %.01620.i = phi i64 [ 0, %.lr.ph.i ], [ %51, %50 ]
-  %44 = getelementptr inbounds nuw i16, ptr %41, i64 %.01620.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %.01620.i
   %45 = load i16, ptr %44, align 2, !tbaa !47
   %.not18.i = icmp sgt i16 %45, -1
   br i1 %.not18.i, label %50, label %46
@@ -546,7 +543,7 @@ define hidden void @lj_snap_purge(ptr noundef readonly captures(none) %0) local_
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %53, align 8, !tbaa !71
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv
   store i32 0, ptr %60, align 4, !tbaa !4
   br label %61
 
@@ -606,7 +603,7 @@ define internal fastcc i32 @snap_usedef(ptr noundef readonly captures(none) %0, 
   %24 = load i32, ptr %.0152, align 4, !tbaa !4
   %25 = and i32 %24, 255
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr @lj_bc_mode, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !47
   %29 = and i16 %28, 120
   %cond = icmp eq i16 %29, 24
@@ -749,7 +746,7 @@ define internal fastcc i32 @snap_usedef(ptr noundef readonly captures(none) %0, 
   %91 = icmp slt i32 %24, 0
   %92 = lshr i32 %24, 16
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr i32, ptr %23, i64 %93
+  %94 = getelementptr [4 x i8], ptr %23, i64 %93
   %95 = getelementptr i8, ptr %94, i64 -131072
   br i1 %91, label %.loopexit, label %.thread186
 
@@ -1029,13 +1026,13 @@ define hidden void @lj_snap_shrink(ptr noundef captures(none) %0) local_unnamed_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %6 = load i16, ptr %5, align 2, !tbaa !33
   %7 = zext i16 %6 to i64
-  %8 = getelementptr %struct.SnapShot, ptr %4, i64 %7
+  %8 = getelementptr [12 x i8], ptr %4, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !32
   %12 = load i32, ptr %9, align 4, !tbaa !41
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %13
   %15 = getelementptr i8, ptr %8, i64 -2
   %16 = load i8, ptr %15, align 2, !tbaa !54
   %17 = zext i8 %16 to i32
@@ -1045,7 +1042,7 @@ define hidden void @lj_snap_shrink(ptr noundef captures(none) %0) local_unnamed_
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %21 = load i32, ptr %20, align 8, !tbaa !44
   %22 = zext i8 %16 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %14, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %22
   %.0.copyload.i = load i64, ptr %23, align 4
   %24 = lshr i64 %.0.copyload.i, 8
   %25 = inttoptr i64 %24 to ptr
@@ -1101,7 +1098,7 @@ define hidden void @lj_snap_shrink(ptr noundef captures(none) %0) local_unnamed_
 
 52:                                               ; preds = %59, %.lr.ph.i
   %.01620.i = phi i64 [ 0, %.lr.ph.i ], [ %60, %59 ]
-  %53 = getelementptr inbounds nuw i16, ptr %50, i64 %.01620.i
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %.01620.i
   %54 = load i16, ptr %53, align 2, !tbaa !47
   %.not18.i = icmp sgt i16 %54, -1
   br i1 %.not18.i, label %59, label %55
@@ -1146,7 +1143,7 @@ snap_useuv.exit:                                  ; preds = %.loopexit.i, %34, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %86 ]
   %.04750 = phi i32 [ 0, %.lr.ph.preheader ], [ %.148, %86 ]
-  %70 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4, !tbaa !4
   %72 = lshr i32 %71, 24
   %73 = icmp ult i32 %72, %63
@@ -1167,7 +1164,7 @@ snap_useuv.exit:                                  ; preds = %.loopexit.i, %34, %
 82:                                               ; preds = %76, %.lr.ph
   %83 = add i32 %.04750, 1
   %84 = zext i32 %.04750 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %14, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %84
   store i32 %71, ptr %85, align 4, !tbaa !4
   br label %86
 
@@ -1199,11 +1196,11 @@ snap_useuv.exit:                                  ; preds = %.loopexit.i, %34, %
   %.254 = phi i32 [ %98, %.lr.ph57 ], [ %.047.lcssa73, %.lr.ph57.preheader ]
   %94 = add i32 %.155, 1
   %95 = zext i32 %.155 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %14, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !4
   %98 = add i32 %.254, 1
   %99 = zext i32 %.254 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %14, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %99
   store i32 %97, ptr %100, align 4, !tbaa !4
   %.not = icmp ugt i32 %94, %92
   br i1 %.not, label %._crit_edge58.loopexit, label %.lr.ph57, !llvm.loop !86
@@ -1227,19 +1224,19 @@ define hidden ptr @lj_snap_regspmap(ptr noundef readnone captures(none) %0, ptr 
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !87
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw %struct.SnapShot, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !88
   %11 = load i32, ptr %8, align 4, !tbaa !41
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %12
   %14 = getelementptr i8, ptr %1, i64 12
   %.val = load i32, ptr %14, align 4, !tbaa !89
   %15 = getelementptr i8, ptr %1, i64 32
   %.val34 = load ptr, ptr %15, align 8, !tbaa !90
   %16 = add i32 %.val, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %union.IRIns, ptr %.val34, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val34, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 5
   %20 = load i8, ptr %19, align 1, !tbaa !40
   %21 = icmp eq i8 %20, 20
@@ -1299,7 +1296,7 @@ snap_renamefilter.exit:                           ; preds = %31, %4
 45:                                               ; preds = %45, %.preheader
   %.2 = phi i32 [ %51, %45 ], [ %.030, %.preheader ]
   %46 = zext i32 %.2 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %13, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !4
   %49 = lshr i32 %48, 24
   %50 = icmp eq i32 %49, %44
@@ -1321,7 +1318,7 @@ snap_renamefilter.exit:                           ; preds = %31, %4
   %.029 = phi i32 [ %53, %52 ], [ %57, %54 ]
   %59 = load ptr, ptr %15, align 8, !tbaa !90
   %60 = zext nneg i32 %.029 to i64
-  %61 = getelementptr inbounds nuw %union.IRIns, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 6
   %63 = load i16, ptr %62, align 2, !tbaa !40
   %64 = and i64 %60, 63
@@ -1334,7 +1331,7 @@ snap_renamefilter.exit:                           ; preds = %31, %4
   %.val35 = load i32, ptr %14, align 4, !tbaa !89
   %68 = add i32 %.val35, -1
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %union.IRIns, ptr %59, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 5
   %72 = load i8, ptr %71, align 1, !tbaa !40
   %73 = icmp eq i8 %72, 20
@@ -1386,12 +1383,12 @@ define hidden void @lj_snap_replay(ptr noundef initializes((252, 256)) %0, ptr n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3020
   %6 = load i32, ptr %5, align 4, !tbaa !93
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.SnapShot, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !88
   %11 = load i32, ptr %8, align 4, !tbaa !41
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %15 = load i8, ptr %14, align 2, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 252
@@ -1413,13 +1410,13 @@ define hidden void @lj_snap_replay(ptr noundef initializes((252, 256)) %0, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %.0253471 = phi i64 [ 0, %.lr.ph ], [ %.1254, %89 ]
   %.0255470 = phi i32 [ 0, %.lr.ph ], [ %.1256, %89 ]
-  %24 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = lshr i32 %25, 24
   %27 = and i32 %25, 65535
   %28 = load ptr, ptr %17, align 8, !tbaa !90
   %29 = zext nneg i32 %27 to i64
-  %30 = getelementptr inbounds nuw %union.IRIns, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = and i64 %29, 63
   %32 = shl nuw i64 1, %31
   %33 = and i64 %32, %.0253471
@@ -1435,7 +1432,7 @@ define hidden void @lj_snap_replay(ptr noundef initializes((252, 256)) %0, ptr n
 
 .lr.ph.i:                                         ; preds = %23, %34
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %23 ]
-  %35 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i
   %36 = load i32, ptr %35, align 4, !tbaa !4
   %37 = and i32 %36, 65535
   %38 = icmp eq i32 %37, %27
@@ -1444,7 +1441,7 @@ define hidden void @lj_snap_replay(ptr noundef initializes((252, 256)) %0, ptr n
 snap_dedup.exit:                                  ; preds = %.lr.ph.i
   %39 = lshr i32 %36, 24
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %18, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !4
   %43 = and i32 %42, -1245185
   %.not293 = icmp eq i32 %43, 0
@@ -1508,7 +1505,7 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
   %75 = and i32 %25, 1245184
   %76 = or i32 %.0258, %75
   %77 = zext nneg i32 %26 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %18, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %77
   store i32 %76, ptr %78, align 4, !tbaa !4
   %79 = and i32 %25, 196608
   %80 = icmp ne i32 %79, 0
@@ -1542,7 +1539,7 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %94 = load i16, ptr %93, align 4, !tbaa !35
   %95 = zext i16 %94 to i64
-  %96 = getelementptr inbounds nuw %union.IRIns, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %95
   %wide.trip.count.i.i360 = zext i8 %15 to i64
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1569,12 +1566,12 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
 108:                                              ; preds = %.lr.ph482, %.loopexit450
   %indvars.iv515 = phi i64 [ 0, %.lr.ph482 ], [ %indvars.iv.next516, %.loopexit450 ]
   %.3479 = phi i32 [ 0, %.lr.ph482 ], [ %.5, %.loopexit450 ]
-  %109 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv515
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv515
   %110 = load i32, ptr %109, align 4, !tbaa !4
   %111 = and i32 %110, 65535
   %112 = load ptr, ptr %91, align 8, !tbaa !90
   %113 = zext nneg i32 %111 to i64
-  %114 = getelementptr inbounds nuw %union.IRIns, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 6
   %116 = load i8, ptr %115, align 2, !tbaa !40
   %117 = icmp eq i8 %116, -3
@@ -1583,7 +1580,7 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
 118:                                              ; preds = %108
   %119 = lshr i32 %110, 24
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %97, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !4
   %.not289 = icmp eq i32 %122, %119
   br i1 %.not289, label %123, label %.loopexit450
@@ -1602,7 +1599,7 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
 132:                                              ; preds = %123
   %133 = load i16, ptr %114, align 8, !tbaa !40
   %134 = zext i16 %133 to i64
-  %135 = getelementptr inbounds nuw %union.IRIns, ptr %112, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %134
   %136 = icmp sgt i16 %133, -1
   br i1 %136, label %137, label %139
 
@@ -1631,7 +1628,7 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
 
 .lr.ph.i.i:                                       ; preds = %143, %147
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %147 ], [ 0, %143 ]
-  %148 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i
   %149 = load i32, ptr %148, align 4, !tbaa !4
   %150 = trunc i32 %149 to i16
   %151 = icmp eq i16 %133, %150
@@ -1640,7 +1637,7 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
 snap_dedup.exit.i:                                ; preds = %.lr.ph.i.i
   %152 = lshr i32 %149, 24
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %97, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !4
   %156 = and i32 %155, -1245185
   %157 = icmp eq i32 %156, 0
@@ -1669,7 +1666,7 @@ snap_pref.exit:                                   ; preds = %snap_dedup.exit.thr
   %169 = load i16, ptr %168, align 2, !tbaa !40
   %.val301 = load ptr, ptr %91, align 8, !tbaa !90
   %170 = zext i16 %169 to i64
-  %171 = getelementptr inbounds nuw %union.IRIns, ptr %.val301, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %.val301, i64 %170
   %172 = icmp sgt i16 %169, -1
   br i1 %172, label %173, label %175
 
@@ -1698,7 +1695,7 @@ snap_pref.exit:                                   ; preds = %snap_dedup.exit.thr
 
 .lr.ph.i.i318:                                    ; preds = %179, %183
   %indvars.iv.i.i319 = phi i64 [ %indvars.iv.next.i.i320, %183 ], [ 0, %179 ]
-  %184 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i319
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i319
   %185 = load i32, ptr %184, align 4, !tbaa !4
   %186 = trunc i32 %185 to i16
   %187 = icmp eq i16 %169, %186
@@ -1707,7 +1704,7 @@ snap_pref.exit:                                   ; preds = %snap_dedup.exit.thr
 snap_dedup.exit.i324:                             ; preds = %.lr.ph.i.i318
   %188 = lshr i32 %185, 24
   %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds nuw i32, ptr %97, i64 %189
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %189
   %191 = load i32, ptr %190, align 4, !tbaa !4
   %192 = and i32 %191, -1245185
   %193 = icmp eq i32 %192, 0
@@ -1750,7 +1747,7 @@ snap_pref.exit325:                                ; preds = %snap_dedup.exit.thr
 
 210:                                              ; preds = %207
   %211 = zext i8 %209 to i64
-  %212 = getelementptr inbounds nuw %union.IRIns, ptr %114, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %211
   %213 = icmp eq ptr %212, %.0265476
   br i1 %213, label %233, label %snap_pref.exit354
 
@@ -1768,7 +1765,7 @@ snap_pref.exit325:                                ; preds = %snap_dedup.exit.thr
   %218 = load ptr, ptr %91, align 8, !tbaa !90
   %219 = load i16, ptr %.0265476, align 8, !tbaa !40
   %220 = zext i16 %219 to i64
-  %221 = getelementptr inbounds nuw %union.IRIns, ptr %218, i64 %220
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %220
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 5
   %223 = load i8, ptr %222, align 1, !tbaa !40
   %224 = and i8 %223, -2
@@ -1778,14 +1775,14 @@ snap_pref.exit325:                                ; preds = %snap_dedup.exit.thr
 225:                                              ; preds = %217
   %226 = load i16, ptr %221, align 8, !tbaa !40
   %227 = zext i16 %226 to i64
-  %228 = getelementptr inbounds nuw %union.IRIns, ptr %218, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %227
   br label %snap_sunk_store.exit
 
 snap_sunk_store.exit:                             ; preds = %217, %225
   %.0.i326 = phi ptr [ %228, %225 ], [ %221, %217 ]
   %229 = load i16, ptr %.0.i326, align 8, !tbaa !40
   %230 = zext i16 %229 to i64
-  %231 = getelementptr inbounds nuw %union.IRIns, ptr %218, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %230
   %232 = icmp eq ptr %231, %114
   br i1 %232, label %233, label %snap_pref.exit354
 
@@ -1794,7 +1791,7 @@ snap_sunk_store.exit:                             ; preds = %217, %225
   %235 = load i16, ptr %234, align 2, !tbaa !40
   %.val302 = load ptr, ptr %91, align 8, !tbaa !90
   %236 = zext i16 %235 to i64
-  %237 = getelementptr inbounds nuw %union.IRIns, ptr %.val302, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %.val302, i64 %236
   %238 = icmp sgt i16 %235, -1
   br i1 %238, label %239, label %241
 
@@ -1823,7 +1820,7 @@ snap_sunk_store.exit:                             ; preds = %217, %225
 
 .lr.ph.i.i333:                                    ; preds = %245, %249
   %indvars.iv.i.i334 = phi i64 [ %indvars.iv.next.i.i335, %249 ], [ 0, %245 ]
-  %250 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i334
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i334
   %251 = load i32, ptr %250, align 4, !tbaa !4
   %252 = trunc i32 %251 to i16
   %253 = icmp eq i16 %235, %252
@@ -1832,7 +1829,7 @@ snap_sunk_store.exit:                             ; preds = %217, %225
 snap_dedup.exit.i339:                             ; preds = %.lr.ph.i.i333
   %254 = lshr i32 %251, 24
   %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr inbounds nuw i32, ptr %97, i64 %255
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %255
   %257 = load i32, ptr %256, align 4, !tbaa !4
   %258 = and i32 %257, -1245185
   %259 = icmp eq i32 %258, 0
@@ -1865,10 +1862,10 @@ snap_pref.exit340.snap_pref.exit340.thread_crit_edge: ; preds = %snap_pref.exit3
 snap_pref.exit340.thread:                         ; preds = %snap_pref.exit340.snap_pref.exit340.thread_crit_edge, %241
   %.pre-phi = phi i64 [ %.pre526, %snap_pref.exit340.snap_pref.exit340.thread_crit_edge ], [ %236, %241 ]
   %268 = phi ptr [ %.pre, %snap_pref.exit340.snap_pref.exit340.thread_crit_edge ], [ %.val302, %241 ]
-  %269 = getelementptr inbounds nuw %union.IRIns, ptr %268, i64 %.pre-phi
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %.pre-phi
   %270 = load i16, ptr %269, align 8, !tbaa !40
   %271 = zext i16 %270 to i64
-  %272 = getelementptr inbounds nuw %union.IRIns, ptr %268, i64 %271
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %271
   %273 = icmp sgt i16 %270, -1
   br i1 %273, label %274, label %276
 
@@ -1897,7 +1894,7 @@ snap_pref.exit340.thread:                         ; preds = %snap_pref.exit340.s
 
 .lr.ph.i.i347:                                    ; preds = %280, %284
   %indvars.iv.i.i348 = phi i64 [ %indvars.iv.next.i.i349, %284 ], [ 0, %280 ]
-  %285 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i348
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i348
   %286 = load i32, ptr %285, align 4, !tbaa !4
   %287 = trunc i32 %286 to i16
   %288 = icmp eq i16 %270, %287
@@ -1906,7 +1903,7 @@ snap_pref.exit340.thread:                         ; preds = %snap_pref.exit340.s
 snap_dedup.exit.i353:                             ; preds = %.lr.ph.i.i347
   %289 = lshr i32 %286, 24
   %290 = zext nneg i32 %289 to i64
-  %291 = getelementptr inbounds nuw i32, ptr %97, i64 %290
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %290
   %292 = load i32, ptr %291, align 4, !tbaa !4
   %293 = and i32 %292, -1245185
   %294 = icmp eq i32 %293, 0
@@ -1943,7 +1940,7 @@ snap_pref.exit354:                                ; preds = %210, %snap_dedup.ex
 308:                                              ; preds = %305
   %309 = load i16, ptr %114, align 8, !tbaa !40
   %310 = zext i16 %309 to i64
-  %311 = getelementptr inbounds nuw %union.IRIns, ptr %112, i64 %310
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %310
   %312 = icmp sgt i16 %309, -1
   br i1 %312, label %313, label %315
 
@@ -1972,7 +1969,7 @@ snap_pref.exit354:                                ; preds = %210, %snap_dedup.ex
 
 .lr.ph.i.i361:                                    ; preds = %319, %323
   %indvars.iv.i.i362 = phi i64 [ %indvars.iv.next.i.i363, %323 ], [ 0, %319 ]
-  %324 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i362
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i362
   %325 = load i32, ptr %324, align 4, !tbaa !4
   %326 = trunc i32 %325 to i16
   %327 = icmp eq i16 %309, %326
@@ -1981,7 +1978,7 @@ snap_pref.exit354:                                ; preds = %210, %snap_dedup.ex
 snap_dedup.exit.i367:                             ; preds = %.lr.ph.i.i361
   %328 = lshr i32 %325, 24
   %329 = zext nneg i32 %328 to i64
-  %330 = getelementptr inbounds nuw i32, ptr %97, i64 %329
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %329
   %331 = load i32, ptr %330, align 4, !tbaa !4
   %332 = and i32 %331, -1245185
   %333 = icmp eq i32 %332, 0
@@ -2004,7 +2001,7 @@ snap_pref.exit368:                                ; preds = %313, %315, %snap_de
   %.0.i366 = phi i32 [ %314, %313 ], [ %340, %snap_dedup.exit.thread.i365 ], [ %332, %snap_dedup.exit.i367 ], [ 0, %315 ]
   %341 = lshr i32 %110, 24
   %342 = zext nneg i32 %341 to i64
-  %343 = getelementptr inbounds nuw i32, ptr %97, i64 %342
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %342
   store i32 %.0.i366, ptr %343, align 4, !tbaa !4
   br label %.loopexit450
 
@@ -2016,12 +2013,12 @@ snap_pref.exit368:                                ; preds = %313, %315, %snap_de
 
 344:                                              ; preds = %.lr.ph490, %.loopexit
   %indvars.iv520 = phi i64 [ 0, %.lr.ph490 ], [ %indvars.iv.next521, %.loopexit ]
-  %345 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv520
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv520
   %346 = load i32, ptr %345, align 4, !tbaa !4
   %347 = and i32 %346, 65535
   %348 = load ptr, ptr %91, align 8, !tbaa !90
   %349 = zext nneg i32 %347 to i64
-  %350 = getelementptr inbounds nuw %union.IRIns, ptr %348, i64 %349
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %349
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 6
   %352 = load i8, ptr %351, align 2, !tbaa !40
   %353 = icmp eq i8 %352, -3
@@ -2030,14 +2027,14 @@ snap_pref.exit368:                                ; preds = %313, %315, %snap_de
 354:                                              ; preds = %344
   %355 = lshr i32 %346, 24
   %356 = zext nneg i32 %355 to i64
-  %357 = getelementptr inbounds nuw i32, ptr %101, i64 %356
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %356
   %358 = load i32, ptr %357, align 4, !tbaa !4
   %.not285 = icmp eq i32 %358, %355
   br i1 %.not285, label %363, label %359
 
 359:                                              ; preds = %354
   %360 = zext i32 %358 to i64
-  %361 = getelementptr inbounds nuw i32, ptr %101, i64 %360
+  %361 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %360
   %362 = load i32, ptr %361, align 4, !tbaa !4
   br label %.loopexit.sink.split
 
@@ -2055,7 +2052,7 @@ snap_pref.exit368:                                ; preds = %313, %315, %snap_de
 
 373:                                              ; preds = %363
   %374 = zext i16 %364 to i64
-  %375 = getelementptr inbounds nuw %union.IRIns, ptr %348, i64 %374
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %374
   %376 = icmp sgt i16 %364, -1
   br i1 %376, label %377, label %379
 
@@ -2084,7 +2081,7 @@ snap_pref.exit368:                                ; preds = %313, %315, %snap_de
 
 .lr.ph.i.i375:                                    ; preds = %383, %387
   %indvars.iv.i.i376 = phi i64 [ %indvars.iv.next.i.i377, %387 ], [ 0, %383 ]
-  %388 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i376
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i376
   %389 = load i32, ptr %388, align 4, !tbaa !4
   %390 = trunc i32 %389 to i16
   %391 = icmp eq i16 %364, %390
@@ -2093,7 +2090,7 @@ snap_pref.exit368:                                ; preds = %313, %315, %snap_de
 snap_dedup.exit.i381:                             ; preds = %.lr.ph.i.i375
   %392 = lshr i32 %389, 24
   %393 = zext nneg i32 %392 to i64
-  %394 = getelementptr inbounds nuw i32, ptr %101, i64 %393
+  %394 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %393
   %395 = load i32, ptr %394, align 4, !tbaa !4
   %396 = and i32 %395, -1245185
   %397 = icmp eq i32 %396, 0
@@ -2128,7 +2125,7 @@ snap_pref.exit382:                                ; preds = %377, %379, %snap_de
 411:                                              ; preds = %406
   %.val306 = load ptr, ptr %91, align 8, !tbaa !90
   %412 = zext i16 %408 to i64
-  %413 = getelementptr inbounds nuw %union.IRIns, ptr %.val306, i64 %412
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %.val306, i64 %412
   %414 = icmp sgt i16 %408, -1
   br i1 %414, label %415, label %417
 
@@ -2157,7 +2154,7 @@ snap_pref.exit382:                                ; preds = %377, %379, %snap_de
 
 .lr.ph.i.i389:                                    ; preds = %421, %425
   %indvars.iv.i.i390 = phi i64 [ %indvars.iv.next.i.i391, %425 ], [ 0, %421 ]
-  %426 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i390
+  %426 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i390
   %427 = load i32, ptr %426, align 4, !tbaa !4
   %428 = trunc i32 %427 to i16
   %429 = icmp eq i16 %408, %428
@@ -2166,7 +2163,7 @@ snap_pref.exit382:                                ; preds = %377, %379, %snap_de
 snap_dedup.exit.i395:                             ; preds = %.lr.ph.i.i389
   %430 = lshr i32 %427, 24
   %431 = zext nneg i32 %430 to i64
-  %432 = getelementptr inbounds nuw i32, ptr %101, i64 %431
+  %432 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %431
   %433 = load i32, ptr %432, align 4, !tbaa !4
   %434 = and i32 %433, -1245185
   %435 = icmp eq i32 %434, 0
@@ -2237,7 +2234,7 @@ snap_pref.exit396:                                ; preds = %415, %417, %snap_de
 
 464:                                              ; preds = %461
   %465 = zext i8 %463 to i64
-  %466 = getelementptr inbounds nuw %union.IRIns, ptr %350, i64 %465
+  %466 = getelementptr inbounds nuw [8 x i8], ptr %350, i64 %465
   %467 = icmp eq ptr %466, %.0276486
   br i1 %467, label %487, label %snap_sunk_store.exit300.thread
 
@@ -2255,7 +2252,7 @@ snap_pref.exit396:                                ; preds = %415, %417, %snap_de
   %472 = load ptr, ptr %91, align 8, !tbaa !90
   %473 = load i16, ptr %.0276486, align 8, !tbaa !40
   %474 = zext i16 %473 to i64
-  %475 = getelementptr inbounds nuw %union.IRIns, ptr %472, i64 %474
+  %475 = getelementptr inbounds nuw [8 x i8], ptr %472, i64 %474
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 5
   %477 = load i8, ptr %476, align 1, !tbaa !40
   %478 = and i8 %477, -2
@@ -2265,14 +2262,14 @@ snap_pref.exit396:                                ; preds = %415, %417, %snap_de
 479:                                              ; preds = %471
   %480 = load i16, ptr %475, align 8, !tbaa !40
   %481 = zext i16 %480 to i64
-  %482 = getelementptr inbounds nuw %union.IRIns, ptr %472, i64 %481
+  %482 = getelementptr inbounds nuw [8 x i8], ptr %472, i64 %481
   br label %snap_sunk_store.exit300
 
 snap_sunk_store.exit300:                          ; preds = %471, %479
   %.0.i398 = phi ptr [ %482, %479 ], [ %475, %471 ]
   %483 = load i16, ptr %.0.i398, align 8, !tbaa !40
   %484 = zext i16 %483 to i64
-  %485 = getelementptr inbounds nuw %union.IRIns, ptr %472, i64 %484
+  %485 = getelementptr inbounds nuw [8 x i8], ptr %472, i64 %484
   %486 = icmp eq ptr %485, %350
   br i1 %486, label %487, label %snap_sunk_store.exit300.thread
 
@@ -2280,7 +2277,7 @@ snap_sunk_store.exit300:                          ; preds = %471, %479
   %488 = load ptr, ptr %91, align 8, !tbaa !90
   %489 = load i16, ptr %.0276486, align 8, !tbaa !40
   %490 = zext i16 %489 to i64
-  %491 = getelementptr inbounds nuw %union.IRIns, ptr %488, i64 %490
+  %491 = getelementptr inbounds nuw [8 x i8], ptr %488, i64 %490
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 2
   %493 = load i16, ptr %492, align 2, !tbaa !40
   %494 = zext i16 %493 to i32
@@ -2291,14 +2288,14 @@ snap_sunk_store.exit300:                          ; preds = %471, %479
 
 497:                                              ; preds = %487
   %498 = zext i16 %493 to i64
-  %499 = getelementptr inbounds nuw %union.IRIns, ptr %488, i64 %498
+  %499 = getelementptr inbounds nuw [8 x i8], ptr %488, i64 %498
   %500 = icmp eq i8 %496, 57
   br i1 %500, label %501, label %510
 
 501:                                              ; preds = %497
   %502 = load i16, ptr %499, align 8, !tbaa !40
   %503 = zext i16 %502 to i64
-  %504 = getelementptr inbounds nuw %union.IRIns, ptr %488, i64 %503
+  %504 = getelementptr inbounds nuw [8 x i8], ptr %488, i64 %503
   %505 = tail call fastcc i32 @snap_replay_const(ptr noundef %0, ptr noundef %504)
   %506 = getelementptr inbounds nuw i8, ptr %499, i64 2
   %507 = load i16, ptr %506, align 2, !tbaa !40
@@ -2323,7 +2320,7 @@ snap_sunk_store.exit300:                          ; preds = %471, %479
   %515 = load ptr, ptr %91, align 8, !tbaa !90
   %516 = load i16, ptr %491, align 8, !tbaa !40
   %517 = zext i16 %516 to i64
-  %518 = getelementptr inbounds nuw %union.IRIns, ptr %515, i64 %517
+  %518 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %517
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 4
   %520 = load i16, ptr %519, align 4, !tbaa !40
   %521 = getelementptr inbounds nuw i8, ptr %518, i64 2
@@ -2344,7 +2341,7 @@ snap_sunk_store.exit300:                          ; preds = %471, %479
 528:                                              ; preds = %524
   %529 = load ptr, ptr %106, align 8, !tbaa !51
   %530 = zext i16 %525 to i64
-  %531 = getelementptr inbounds nuw %union.IRIns, ptr %529, i64 %530
+  %531 = getelementptr inbounds nuw [8 x i8], ptr %529, i64 %530
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 2
   %533 = load i16, ptr %532, align 2, !tbaa !40
   %534 = trunc i32 %.1272 to i16
@@ -2370,7 +2367,7 @@ snap_sunk_store.exit300:                          ; preds = %471, %479
   %543 = load i16, ptr %542, align 2, !tbaa !40
   %.val307 = load ptr, ptr %91, align 8, !tbaa !90
   %544 = zext i16 %543 to i64
-  %545 = getelementptr inbounds nuw %union.IRIns, ptr %.val307, i64 %544
+  %545 = getelementptr inbounds nuw [8 x i8], ptr %.val307, i64 %544
   %546 = icmp sgt i16 %543, -1
   br i1 %546, label %547, label %549
 
@@ -2399,7 +2396,7 @@ snap_sunk_store.exit300:                          ; preds = %471, %479
 
 .lr.ph.i.i407:                                    ; preds = %553, %557
   %indvars.iv.i.i408 = phi i64 [ %indvars.iv.next.i.i409, %557 ], [ 0, %553 ]
-  %558 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i408
+  %558 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i408
   %559 = load i32, ptr %558, align 4, !tbaa !4
   %560 = trunc i32 %559 to i16
   %561 = icmp eq i16 %543, %560
@@ -2408,7 +2405,7 @@ snap_sunk_store.exit300:                          ; preds = %471, %479
 snap_dedup.exit.i413:                             ; preds = %.lr.ph.i.i407
   %562 = lshr i32 %559, 24
   %563 = zext nneg i32 %562 to i64
-  %564 = getelementptr inbounds nuw i32, ptr %101, i64 %563
+  %564 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %563
   %565 = load i32, ptr %564, align 4, !tbaa !4
   %566 = and i32 %565, -1245185
   %567 = icmp eq i32 %566, 0
@@ -2441,10 +2438,10 @@ snap_pref.exit414.snap_pref.exit414.thread_crit_edge: ; preds = %snap_pref.exit4
 snap_pref.exit414.thread:                         ; preds = %snap_pref.exit414.snap_pref.exit414.thread_crit_edge, %549
   %.pre-phi528 = phi i64 [ %.pre527, %snap_pref.exit414.snap_pref.exit414.thread_crit_edge ], [ %544, %549 ]
   %576 = phi ptr [ %.pre524, %snap_pref.exit414.snap_pref.exit414.thread_crit_edge ], [ %.val307, %549 ]
-  %577 = getelementptr inbounds nuw %union.IRIns, ptr %576, i64 %.pre-phi528
+  %577 = getelementptr inbounds nuw [8 x i8], ptr %576, i64 %.pre-phi528
   %578 = load i16, ptr %577, align 8, !tbaa !40
   %579 = zext i16 %578 to i64
-  %580 = getelementptr inbounds nuw %union.IRIns, ptr %576, i64 %579
+  %580 = getelementptr inbounds nuw [8 x i8], ptr %576, i64 %579
   %581 = icmp sgt i16 %578, -1
   br i1 %581, label %582, label %584
 
@@ -2473,7 +2470,7 @@ snap_pref.exit414.thread:                         ; preds = %snap_pref.exit414.s
 
 .lr.ph.i.i421:                                    ; preds = %588, %592
   %indvars.iv.i.i422 = phi i64 [ %indvars.iv.next.i.i423, %592 ], [ 0, %588 ]
-  %593 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i422
+  %593 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i422
   %594 = load i32, ptr %593, align 4, !tbaa !4
   %595 = trunc i32 %594 to i16
   %596 = icmp eq i16 %578, %595
@@ -2482,7 +2479,7 @@ snap_pref.exit414.thread:                         ; preds = %snap_pref.exit414.s
 snap_dedup.exit.i427:                             ; preds = %.lr.ph.i.i421
   %597 = lshr i32 %594, 24
   %598 = zext nneg i32 %597 to i64
-  %599 = getelementptr inbounds nuw i32, ptr %101, i64 %598
+  %599 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %598
   %600 = load i32, ptr %599, align 4, !tbaa !4
   %601 = and i32 %600, -1245185
   %602 = icmp eq i32 %601, 0
@@ -2559,7 +2556,7 @@ snap_sunk_store.exit300.thread:                   ; preds = %464, %468, %snap_su
   %626 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %627 = load i32, ptr %626, align 8, !tbaa !44
   %628 = zext i32 %627 to i64
-  %629 = getelementptr inbounds nuw i32, ptr %625, i64 %628
+  %629 = getelementptr inbounds nuw [4 x i8], ptr %625, i64 %628
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %629, ptr %630, align 8, !tbaa !71
   %631 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2665,27 +2662,27 @@ define hidden ptr @lj_snap_restore(ptr noundef readonly captures(none) %0, ptr n
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3016
   %10 = load i32, ptr %9, align 8, !tbaa !102
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.GCRef, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !68
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !87
   %17 = zext i32 %6 to i64
-  %18 = getelementptr inbounds nuw %struct.SnapShot, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 10
   %20 = load i8, ptr %19, align 2, !tbaa !54
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %22 = load ptr, ptr %21, align 8, !tbaa !88
   %23 = load i32, ptr %18, align 4, !tbaa !41
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %24
   %26 = getelementptr i8, ptr %14, i64 12
   %.val = load i32, ptr %26, align 4, !tbaa !89
   %27 = getelementptr i8, ptr %14, i64 32
   %.val86 = load ptr, ptr %27, align 8, !tbaa !90
   %28 = add i32 %.val, -1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %union.IRIns, ptr %.val86, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.val86, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 5
   %32 = load i8, ptr %31, align 1, !tbaa !40
   %33 = icmp eq i8 %32, 20
@@ -2719,7 +2716,7 @@ define hidden ptr @lj_snap_restore(ptr noundef readonly captures(none) %0, ptr n
 snap_renamefilter.exit:                           ; preds = %43, %2
   %.08.lcssa.i = phi i64 [ 0, %2 ], [ %.1.i, %43 ]
   %48 = zext i8 %20 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %25, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %48
   %.0.copyload.i = load i64, ptr %49, align 4
   %50 = lshr i64 %.0.copyload.i, 8
   %51 = inttoptr i64 %50 to ptr
@@ -2743,7 +2740,7 @@ snap_renamefilter.exit:                           ; preds = %43, %2
   %67 = getelementptr inbounds nuw i8, ptr %18, i64 9
   %68 = load i8, ptr %67, align 1, !tbaa !106
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw %union.TValue, ptr %66, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %72 = load i64, ptr %71, align 8, !tbaa !107
   %73 = inttoptr i64 %72 to ptr
@@ -2761,7 +2758,7 @@ snap_renamefilter.exit:                           ; preds = %43, %2
   %82 = getelementptr inbounds i8, ptr %81, i64 -93
   %83 = load i8, ptr %82, align 1, !tbaa !55
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw %union.TValue, ptr %66, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store ptr %85, ptr %86, align 8, !tbaa !57
   %87 = zext i8 %68 to i32
@@ -2791,7 +2788,7 @@ snap_renamefilter.exit:                           ; preds = %43, %2
 
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %snap_unsink.exit
   %indvars.iv97 = phi i64 [ 0, %.lr.ph91.preheader ], [ %indvars.iv.next98, %snap_unsink.exit ]
-  %101 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv97
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv97
   %102 = load i32, ptr %101, align 4, !tbaa !4
   %103 = and i32 %102, 262144
   %.not83 = icmp eq i32 %103, 0
@@ -2800,11 +2797,11 @@ snap_renamefilter.exit:                           ; preds = %43, %2
 104:                                              ; preds = %.lr.ph91
   %105 = lshr i32 %102, 24
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw %union.TValue, ptr %100, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %106
   %108 = and i32 %102, 65535
   %109 = load ptr, ptr %27, align 8, !tbaa !90
   %110 = zext nneg i32 %108 to i64
-  %111 = getelementptr inbounds nuw %union.IRIns, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 6
   %113 = load i8, ptr %112, align 2, !tbaa !40
   %.not85 = icmp eq i8 %113, -3
@@ -2821,7 +2818,7 @@ snap_renamefilter.exit:                           ; preds = %43, %2
 
 .lr.ph:                                           ; preds = %.preheader, %114
   %indvars.iv = phi i64 [ %indvars.iv.next, %114 ], [ 0, %.preheader ]
-  %115 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %116 = load i32, ptr %115, align 4, !tbaa !4
   %117 = and i32 %116, 65535
   %118 = icmp eq i32 %117, %108
@@ -2830,7 +2827,7 @@ snap_renamefilter.exit:                           ; preds = %43, %2
 119:                                              ; preds = %.lr.ph
   %120 = lshr i32 %116, 24
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw %union.TValue, ptr %100, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %121
   %123 = load i64, ptr %122, align 8, !tbaa !40
   store i64 %123, ptr %107, align 8, !tbaa !40
   br label %snap_unsink.exit
@@ -2856,7 +2853,7 @@ snap_renamefilter.exit:                           ; preds = %43, %2
   store ptr %126, ptr %134, align 8, !tbaa !119
   %135 = load i16, ptr %111, align 8, !tbaa !40
   %136 = zext i16 %135 to i64
-  %137 = getelementptr inbounds nuw %union.IRIns, ptr %109, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %136
   %138 = load i32, ptr %137, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %139 = call i32 @lj_ctype_info(ptr noundef %133, i32 noundef %138, ptr noundef nonnull %3) #10
@@ -2881,11 +2878,11 @@ snap_renamefilter.exit:                           ; preds = %43, %2
 152:                                              ; preds = %127
   %153 = load ptr, ptr %27, align 8, !tbaa !90
   %154 = load ptr, ptr %15, align 8, !tbaa !87
-  %155 = getelementptr inbounds nuw %struct.SnapShot, ptr %154, i64 %17
+  %155 = getelementptr inbounds nuw [12 x i8], ptr %154, i64 %17
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %157 = load i16, ptr %156, align 4, !tbaa !35
   %158 = zext i16 %157 to i64
-  %159 = getelementptr inbounds nuw %union.IRIns, ptr %153, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %158
   %.0128.i = getelementptr inbounds nuw i8, ptr %111, i64 8
   %160 = icmp ult ptr %.0128.i, %159
   br i1 %160, label %.lr.ph.i87, label %.loopexit127.i
@@ -2906,7 +2903,7 @@ snap_renamefilter.exit:                           ; preds = %43, %2
 
 167:                                              ; preds = %164
   %168 = zext i8 %166 to i64
-  %169 = getelementptr inbounds nuw %union.IRIns, ptr %111, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %168
   %170 = icmp eq ptr %169, %.0130.i
   br i1 %170, label %._crit_edge102, label %snap_sunk_store.exit117.thread.i
 
@@ -2930,7 +2927,7 @@ snap_renamefilter.exit:                           ; preds = %43, %2
   %175 = load ptr, ptr %27, align 8, !tbaa !90
   %176 = load i16, ptr %.0130.i, align 8, !tbaa !40
   %177 = zext i16 %176 to i64
-  %178 = getelementptr inbounds nuw %union.IRIns, ptr %175, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 5
   %180 = load i8, ptr %179, align 1, !tbaa !40
   %181 = and i8 %180, -2
@@ -2940,25 +2937,25 @@ snap_renamefilter.exit:                           ; preds = %43, %2
 182:                                              ; preds = %174
   %183 = load i16, ptr %178, align 8, !tbaa !40
   %184 = zext i16 %183 to i64
-  %185 = getelementptr inbounds nuw %union.IRIns, ptr %175, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %184
   br label %snap_sunk_store.exit117.i
 
 snap_sunk_store.exit117.i:                        ; preds = %182, %174
   %.0.i118.i = phi ptr [ %185, %182 ], [ %178, %174 ]
   %186 = load i16, ptr %.0.i118.i, align 8, !tbaa !40
   %187 = zext i16 %186 to i64
-  %188 = getelementptr inbounds nuw %union.IRIns, ptr %175, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %187
   %189 = icmp eq ptr %188, %111
   br i1 %189, label %190, label %snap_sunk_store.exit117.thread.i
 
 190:                                              ; preds = %._crit_edge102, %snap_sunk_store.exit117.i
   %.pre-phi113 = phi i64 [ %.pre112, %._crit_edge102 ], [ %177, %snap_sunk_store.exit117.i ]
   %191 = phi ptr [ %.pre103, %._crit_edge102 ], [ %175, %snap_sunk_store.exit117.i ]
-  %192 = getelementptr inbounds nuw %union.IRIns, ptr %191, i64 %.pre-phi113
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %.pre-phi113
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 2
   %194 = load i16, ptr %193, align 2, !tbaa !40
   %195 = zext i16 %194 to i64
-  %196 = getelementptr inbounds nuw %union.IRIns, ptr %191, i64 %195
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %.pn114129.i, i64 12
   %198 = load i8, ptr %197, align 4, !tbaa !40
   %199 = and i8 %198, 31
@@ -2975,7 +2972,7 @@ snap_sunk_store.exit117.i:                        ; preds = %182, %174
 
 switch.lookup:                                    ; preds = %203
   %205 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lj_snap_restore, i64 %205
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lj_snap_restore, i64 %205
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %206
 
@@ -3026,7 +3023,7 @@ snap_sunk_store.exit117.thread.i:                 ; preds = %216, %snap_sunk_sto
 228:                                              ; preds = %._crit_edge
   %229 = load i16, ptr %111, align 8, !tbaa !40
   %230 = zext i16 %229 to i64
-  %231 = getelementptr inbounds nuw %union.IRIns, ptr %109, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %230
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %233 = load i64, ptr %232, align 8, !tbaa !40
   %234 = inttoptr i64 %233 to ptr
@@ -3040,11 +3037,11 @@ snap_sunk_store.exit117.thread.i:                 ; preds = %216, %snap_sunk_sto
   store i64 %239, ptr %107, align 8, !tbaa !40
   %240 = load ptr, ptr %27, align 8, !tbaa !90
   %241 = load ptr, ptr %15, align 8, !tbaa !87
-  %242 = getelementptr inbounds nuw %struct.SnapShot, ptr %241, i64 %17
+  %242 = getelementptr inbounds nuw [12 x i8], ptr %241, i64 %17
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 4
   %244 = load i16, ptr %243, align 4, !tbaa !35
   %245 = zext i16 %244 to i64
-  %246 = getelementptr inbounds nuw %union.IRIns, ptr %240, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %245
   %.0108131.i = getelementptr inbounds nuw i8, ptr %111, i64 8
   %247 = icmp ult ptr %.0108131.i, %246
   br i1 %247, label %.lr.ph134.i, label %snap_unsink.exit
@@ -3069,7 +3066,7 @@ snap_sunk_store.exit117.thread.i:                 ; preds = %216, %snap_sunk_sto
 
 256:                                              ; preds = %253
   %257 = zext i8 %255 to i64
-  %258 = getelementptr inbounds nuw %union.IRIns, ptr %111, i64 %257
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %257
   %259 = icmp eq ptr %258, %.0108133.i
   br i1 %259, label %._crit_edge105, label %snap_sunk_store.exit.thread.i
 
@@ -3077,7 +3074,7 @@ snap_sunk_store.exit117.thread.i:                 ; preds = %216, %snap_sunk_sto
   %.pre106 = load ptr, ptr %27, align 8, !tbaa !90
   %.pre107 = load i16, ptr %.0108133.i, align 8, !tbaa !40
   %.phi.trans.insert = zext i16 %.pre107 to i64
-  %.phi.trans.insert108 = getelementptr inbounds nuw %union.IRIns, ptr %.pre106, i64 %.phi.trans.insert
+  %.phi.trans.insert108 = getelementptr inbounds nuw [8 x i8], ptr %.pre106, i64 %.phi.trans.insert
   %.phi.trans.insert109 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert108, i64 5
   %.pre110 = load i8, ptr %.phi.trans.insert109, align 1, !tbaa !40
   br label %279
@@ -3096,7 +3093,7 @@ snap_sunk_store.exit117.thread.i:                 ; preds = %216, %snap_sunk_sto
   %264 = load ptr, ptr %27, align 8, !tbaa !90
   %265 = load i16, ptr %.0108133.i, align 8, !tbaa !40
   %266 = zext i16 %265 to i64
-  %267 = getelementptr inbounds nuw %union.IRIns, ptr %264, i64 %266
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %266
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 5
   %269 = load i8, ptr %268, align 1, !tbaa !40
   %270 = and i8 %269, -2
@@ -3106,14 +3103,14 @@ snap_sunk_store.exit117.thread.i:                 ; preds = %216, %snap_sunk_sto
 271:                                              ; preds = %263
   %272 = load i16, ptr %267, align 8, !tbaa !40
   %273 = zext i16 %272 to i64
-  %274 = getelementptr inbounds nuw %union.IRIns, ptr %264, i64 %273
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %273
   br label %snap_sunk_store.exit.i
 
 snap_sunk_store.exit.i:                           ; preds = %271, %263
   %.0.i120.i = phi ptr [ %274, %271 ], [ %267, %263 ]
   %275 = load i16, ptr %.0.i120.i, align 8, !tbaa !40
   %276 = zext i16 %275 to i64
-  %277 = getelementptr inbounds nuw %union.IRIns, ptr %264, i64 %276
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %276
   %278 = icmp eq ptr %277, %111
   br i1 %278, label %279, label %snap_sunk_store.exit.thread.i
 
@@ -3121,7 +3118,7 @@ snap_sunk_store.exit.i:                           ; preds = %271, %263
   %.pre-phi = phi i64 [ %.phi.trans.insert, %._crit_edge105 ], [ %266, %snap_sunk_store.exit.i ]
   %280 = phi i8 [ %.pre110, %._crit_edge105 ], [ %269, %snap_sunk_store.exit.i ]
   %281 = phi ptr [ %.pre106, %._crit_edge105 ], [ %264, %snap_sunk_store.exit.i ]
-  %282 = getelementptr inbounds nuw %union.IRIns, ptr %281, i64 %.pre-phi
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %.pre-phi
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %283 = icmp eq i8 %280, 62
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 2
@@ -3136,7 +3133,7 @@ snap_sunk_store.exit.i:                           ; preds = %271, %263
   %288 = getelementptr inbounds nuw i8, ptr %.pn132.i, i64 10
   %289 = load i16, ptr %288, align 2, !tbaa !40
   %290 = zext i16 %289 to i64
-  %291 = getelementptr inbounds nuw %union.IRIns, ptr %281, i64 %290
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %290
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 5
   %293 = load i8, ptr %292, align 1, !tbaa !40
   %294 = icmp eq i8 %293, 27
@@ -3156,7 +3153,7 @@ snap_sunk_store.exit.i:                           ; preds = %271, %263
 
 300:                                              ; preds = %279
   %301 = zext i16 %285 to i64
-  %302 = getelementptr inbounds nuw %union.IRIns, ptr %281, i64 %301
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %301
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 5
   %304 = load i8, ptr %303, align 1, !tbaa !40
   %305 = icmp eq i8 %304, 30
@@ -3165,7 +3162,7 @@ snap_sunk_store.exit.i:                           ; preds = %271, %263
 306:                                              ; preds = %300
   %307 = load i16, ptr %302, align 8, !tbaa !40
   %308 = zext i16 %307 to i64
-  %309 = getelementptr inbounds nuw %union.IRIns, ptr %281, i64 %308
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %308
   br label %310
 
 310:                                              ; preds = %306, %300
@@ -3217,7 +3214,7 @@ snap_unsink.exit:                                 ; preds = %snap_sunk_store.exi
   %326 = load i32, ptr %49, align 4, !tbaa !4
   %327 = and i32 %326, 255
   %328 = zext nneg i32 %327 to i64
-  %329 = getelementptr inbounds nuw %union.TValue, ptr %325, i64 %328
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %328
   store ptr %329, ptr %65, align 8, !tbaa !48
   %330 = load i32, ptr %51, align 4, !tbaa !4
   %331 = and i32 %330, 255
@@ -3254,7 +3251,7 @@ snap_unsink.exit:                                 ; preds = %snap_sunk_store.exi
   %.sink119 = phi ptr [ %100, %345 ], [ %329, %336 ]
   %.sink = load i8, ptr %.sink.in, align 1, !tbaa !40
   %348 = zext i8 %.sink to i64
-  %349 = getelementptr inbounds nuw %union.TValue, ptr %.sink119, i64 %348
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %.sink119, i64 %348
   %350 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store ptr %349, ptr %350, align 8, !tbaa !57
   ret ptr %51
@@ -3267,7 +3264,7 @@ define internal fastcc void @snap_restoreval(ptr noundef readonly captures(none)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !90
   %10 = zext nneg i32 %5 to i64
-  %11 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = icmp samesign ult i32 %5, 32768
   br i1 %12, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -3311,7 +3308,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %.val = load i32, ptr %13, align 4, !tbaa !89
   %31 = add i32 %.val, -1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 5
   %35 = load i8, ptr %34, align 1, !tbaa !40
   %36 = icmp eq i8 %35, 20
@@ -3357,7 +3354,7 @@ snap_renameref.exit:                              ; preds = %48, %30, %23
   %.sroa.0.0.copyload.le76 = load i8, ptr %55, align 4, !tbaa !40
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %57 = zext nneg i32 %53 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %57
   %59 = and i8 %.sroa.0.0.copyload.le76, 31
   %60 = add nsw i8 %59, -15
   %61 = icmp ult i8 %60, 5
@@ -3394,7 +3391,7 @@ tailrecurse:                                      ; preds = %74
   %75 = load i16, ptr %24, align 8, !tbaa !40
   %76 = zext i16 %75 to i32
   %77 = zext i16 %75 to i64
-  %78 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %77
   %79 = icmp sgt i16 %75, -1
   br i1 %79, label %tailrecurse._crit_edge, label %23
 
@@ -3409,7 +3406,7 @@ tailrecurse:                                      ; preds = %74
 85:                                               ; preds = %80
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %87 = zext nneg i32 %.0 to i64
-  %88 = getelementptr inbounds nuw i64, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %87
   %89 = load i64, ptr %88, align 8, !tbaa !132
   %90 = trunc i64 %89 to i32
   %91 = sitofp i32 %90 to double
@@ -3423,7 +3420,7 @@ tailrecurse:                                      ; preds = %74
 94:                                               ; preds = %92
   %95 = add nsw i32 %.0, -16
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw double, ptr %2, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %96
   %98 = load double, ptr %97, align 8, !tbaa !133
   store double %98, ptr %6, align 8, !tbaa !40
   br label %114
@@ -3442,7 +3439,7 @@ tailrecurse:                                      ; preds = %74
 105:                                              ; preds = %99
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %107 = zext nneg i32 %.0 to i64
-  %108 = getelementptr inbounds nuw i64, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %107
   %109 = load i64, ptr %108, align 8, !tbaa !132
   %110 = xor i8 %82, -1
   %111 = sext i8 %110 to i64
@@ -3478,7 +3475,7 @@ define internal fastcc void @snap_restoredata(ptr noundef readonly captures(none
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !90
   %11 = zext nneg i32 %4 to i64
-  %12 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 6
   %14 = load i16, ptr %13, align 2, !tbaa !40
   %15 = zext i16 %14 to i32
@@ -3517,7 +3514,7 @@ define internal fastcc void @snap_restoredata(ptr noundef readonly captures(none
   %.val = load i32, ptr %29, align 4, !tbaa !89
   %30 = add i32 %.val, -1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 5
   %34 = load i8, ptr %33, align 1, !tbaa !40
   %35 = icmp eq i8 %34, 20
@@ -3561,7 +3558,7 @@ snap_renameref.exit:                              ; preds = %47, %28, %24
 53:                                               ; preds = %snap_renameref.exit
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %55 = zext nneg i32 %52 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %55
   %57 = icmp eq i32 %6, 8
   br i1 %57, label %58, label %77
 
@@ -3582,10 +3579,10 @@ snap_renameref.exit:                              ; preds = %47, %28, %24
 .thread:                                          ; preds = %65
   %66 = icmp samesign ugt i32 %.052, 15
   %67 = zext nneg i32 %.052 to i64
-  %68 = getelementptr double, ptr %1, i64 %67
+  %68 = getelementptr [8 x i8], ptr %1, i64 %67
   %69 = getelementptr i8, ptr %68, i64 -128
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %67
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %67
   %.2 = select i1 %66, ptr %69, ptr %71
   br label %77
 

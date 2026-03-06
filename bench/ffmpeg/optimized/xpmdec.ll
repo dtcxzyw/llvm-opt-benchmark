@@ -541,7 +541,7 @@ ascii2index.exit.thread157:                       ; preds = %153, %ascii2index.e
   %168 = call fastcc i32 @color_string_to_rgba(ptr noundef %154, i64 noundef %155)
   %169 = load ptr, ptr %10, align 8, !tbaa !41
   %170 = zext nneg i32 %.014.i159 to i64
-  %171 = getelementptr inbounds nuw i32, ptr %169, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %170
   store i32 %168, ptr %171, align 4, !tbaa !38
   %172 = call fastcc i64 @mod_strcspn(ptr noundef nonnull %154, ptr noundef nonnull @.str.9)
   %173 = getelementptr i8, ptr %154, i64 %172
@@ -625,7 +625,7 @@ ascii2index.exit155:                              ; preds = %205
 ascii2index.exit155.thread164:                    ; preds = %201, %ascii2index.exit155
   %.014.i147166 = phi i32 [ %210, %ascii2index.exit155 ], [ 0, %201 ]
   %214 = zext nneg i32 %.014.i147166 to i64
-  %215 = getelementptr inbounds nuw i32, ptr %110, i64 %214
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %214
   %216 = load i32, ptr %215, align 4, !tbaa !38
   %217 = getelementptr inbounds nuw i8, ptr %.0103199, i64 4
   store i32 %216, ptr %.0103199, align 4, !tbaa !38

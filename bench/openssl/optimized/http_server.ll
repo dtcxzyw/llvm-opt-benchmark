@@ -104,7 +104,7 @@ define void @spawn_loop(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 0, ptr %15, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr @n_responders, align 4, !tbaa !3
@@ -147,13 +147,13 @@ define void @spawn_loop(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph101:                                        ; preds = %.lr.ph101.preheader, %40
   %indvars.iv122 = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next123, %40 ]
-  %34 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv122
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv122
   %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = icmp eq i32 %35, %30
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %.lr.ph101
-  %38 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv122
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv122
   %39 = trunc nuw nsw i64 %indvars.iv122 to i32
   store i32 0, ptr %38, align 4, !tbaa !3
   br label %.loopexit84
@@ -180,7 +180,7 @@ define void @spawn_loop(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %42, %51
   %46 = phi i32 [ %52, %51 ], [ %44, %42 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %42 ]
-  %47 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i
   %48 = load i32, ptr %47, align 4, !tbaa !3
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %51, label %49
@@ -250,7 +250,7 @@ define void @spawn_loop(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i58:                                       ; preds = %70, %79
   %74 = phi i32 [ %80, %79 ], [ %72, %70 ]
   %indvars.iv.i59 = phi i64 [ %indvars.iv.next.i62, %79 ], [ 0, %70 ]
-  %75 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i59
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i59
   %76 = load i32, ptr %75, align 4, !tbaa !3
   %.not.i60 = icmp eq i32 %76, 0
   br i1 %.not.i60, label %79, label %77
@@ -327,7 +327,7 @@ thread-pre-split:                                 ; preds = %66, %55
 
 .lr.ph104:                                        ; preds = %.lr.ph104.preheader, %101
   %indvars.iv125 = phi i64 [ 0, %.lr.ph104.preheader ], [ %indvars.iv.next126, %101 ]
-  %98 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv125
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv125
   %99 = load i32, ptr %98, align 4, !tbaa !3
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %.loopexit, label %101
@@ -338,7 +338,7 @@ thread-pre-split:                                 ; preds = %66, %55
   br i1 %exitcond129.not, label %.loopexit.thread, label %.lr.ph104, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph104
-  %102 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv125
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv125
   %103 = trunc nuw nsw i64 %indvars.iv125 to i32
   store i32 %85, ptr %102, align 4, !tbaa !3
   %104 = add nsw i32 %.144, 1
@@ -355,7 +355,7 @@ thread-pre-split:                                 ; preds = %66, %55
 .lr.ph.i65:                                       ; preds = %.loopexit.thread, %113
   %108 = phi i32 [ %114, %113 ], [ %106, %.loopexit.thread ]
   %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i69, %113 ], [ 0, %.loopexit.thread ]
-  %109 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i66
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i66
   %110 = load i32, ptr %109, align 4, !tbaa !3
   %.not.i67 = icmp eq i32 %110, 0
   br i1 %.not.i67, label %113, label %111
@@ -394,7 +394,7 @@ thread-pre-split:                                 ; preds = %66, %55
 .lr.ph.i72:                                       ; preds = %.thread80, %128
   %123 = phi i32 [ %129, %128 ], [ %121, %.thread80 ]
   %indvars.iv.i73 = phi i64 [ %indvars.iv.next.i76, %128 ], [ 0, %.thread80 ]
-  %124 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i73
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i73
   %125 = load i32, ptr %124, align 4, !tbaa !3
   %.not.i74 = icmp eq i32 %125, 0
   br i1 %.not.i74, label %128, label %126
@@ -1166,7 +1166,7 @@ define internal fastcc i32 @urldecode(ptr noundef nonnull %0) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %.017, i64 1
   %8 = load i8, ptr %7, align 1, !tbaa !20
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !28
   %12 = and i16 %11, 4096
   %.not21 = icmp eq i16 %12, 0
@@ -1176,7 +1176,7 @@ define internal fastcc i32 @urldecode(ptr noundef nonnull %0) unnamed_addr #0 {
   %14 = getelementptr inbounds nuw i8, ptr %.017, i64 2
   %15 = load i8, ptr %14, align 1, !tbaa !20
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !28
   %19 = and i16 %18, 4096
   %.not22 = icmp eq i16 %19, 0

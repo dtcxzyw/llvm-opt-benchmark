@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.sat::literal" = type { i32 }
-%class.svector.13 = type { %class.vector.14 }
-%class.vector.14 = type { ptr }
 %class.svector = type { %class.vector }
 %class.vector = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -137,8 +134,8 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit11:   ; preds = %5, %8
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw %"class.sat::literal", ptr %6, i64 %indvars.iv
-  %29 = getelementptr inbounds nuw %"class.sat::literal", ptr %26, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %30 = load i32, ptr %28, align 4, !tbaa !9
   store i32 %30, ptr %29, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -177,7 +174,7 @@ define hidden void @_ZN2pb4card6negateEv(ptr noundef nonnull align 8 captures(no
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %"class.sat::literal", ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !30
   %15 = xor i32 %14, 1
   store i32 %15, ptr %13, align 4, !tbaa !30
@@ -204,7 +201,7 @@ define hidden noundef zeroext i1 @_ZNK2pb4card11is_watchingEN3sat7literalE(ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw %"class.sat::literal", ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i32, ptr %9, align 4, !tbaa !9
   %10 = icmp eq i32 %.sroa.0.0.copyload.i, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -453,7 +450,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2pb4card7displ
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %40
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %40 ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds nuw %"class.sat::literal", ptr %9, i64 %indvars.iv33
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv33
   %.sroa.0.0.copyload.i29.us = load i32, ptr %10, align 4, !tbaa !9
   %11 = icmp eq i32 %.sroa.0.0.copyload.i29.us, -2
   br i1 %11, label %20, label %12
@@ -516,7 +513,7 @@ _ZN3satlsERSoNS_7literalE.exit.us:                ; preds = %20, %12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN3satlsERSoNS_7literalE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3satlsERSoNS_7literalE.exit ], [ 0, %.lr.ph ]
-  %51 = getelementptr inbounds nuw %"class.sat::literal", ptr %9, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %.sroa.0.0.copyload.i29 = load i32, ptr %51, align 4, !tbaa !9
   %52 = icmp eq i32 %.sroa.0.0.copyload.i29, -2
   br i1 %52, label %53, label %55
@@ -574,7 +571,7 @@ define hidden void @_ZN2pb4card11clear_watchERNS_16solver_interfaceE(ptr noundef
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw %"class.sat::literal", ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %18, align 4, !tbaa !9
   tail call void @_ZN2pb10constraint15unwatch_literalERNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %.sroa.0.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -685,7 +682,7 @@ define hidden noundef zeroext i1 @_ZN2pb4card10init_watchERNS_16solver_interface
 45:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %.0109148 = phi i32 [ 0, %.lr.ph ], [ %.1, %68 ]
-  %46 = getelementptr inbounds nuw %"class.sat::literal", ptr %33, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %.sroa.021.0.copyload = load i32, ptr %46, align 4, !tbaa !9
   %47 = load ptr, ptr %1, align 8, !tbaa !26
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -712,7 +709,7 @@ define hidden noundef zeroext i1 @_ZN2pb4card10init_watchERNS_16solver_interface
   br i1 %or.cond122, label %59, label %61
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds nuw %"class.sat::literal", ptr %33, i64 %52
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %52
   %.sroa.020.0.copyload = load i32, ptr %60, align 4, !tbaa !9
   tail call void @_ZN2pb10constraint15unwatch_literalERNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %.sroa.020.0.copyload)
   %.sroa.019.0.copyload = load i32, ptr %46, align 4, !tbaa !9
@@ -756,7 +753,7 @@ define hidden noundef zeroext i1 @_ZN2pb4card10init_watchERNS_16solver_interface
 79:                                               ; preds = %75, %69
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %81 = zext i32 %.0109.lcssa to i64
-  %82 = getelementptr inbounds nuw %"class.sat::literal", ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   %.sroa.016.0.copyload = load i32, ptr %82, align 4, !tbaa !9
   %83 = icmp ult i32 %31, %29
   br i1 %83, label %.lr.ph155.preheader, label %._crit_edge156
@@ -780,7 +777,7 @@ define hidden noundef zeroext i1 @_ZN2pb4card10init_watchERNS_16solver_interface
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = load ptr, ptr %89, align 8
   %91 = tail call noundef i32 %90(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %.sroa.016.0153)
-  %92 = getelementptr inbounds nuw %"class.sat::literal", ptr %80, i64 %indvars.iv171
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv171
   %.sroa.010.0.copyload = load i32, ptr %92, align 4, !tbaa !9
   %93 = load ptr, ptr %1, align 8, !tbaa !26
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 40
@@ -820,7 +817,7 @@ define hidden noundef zeroext i1 @_ZN2pb4card10init_watchERNS_16solver_interface
 
 107:                                              ; preds = %.lr.ph151, %107
   %indvars.iv166 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next167, %107 ]
-  %108 = getelementptr inbounds nuw %"class.sat::literal", ptr %106, i64 %indvars.iv166
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv166
   %.sroa.05.0.copyload = load i32, ptr %108, align 4, !tbaa !9
   %109 = load ptr, ptr %1, align 8, !tbaa !26
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 104
@@ -855,7 +852,7 @@ define hidden noundef zeroext i1 @_ZN2pb4card10init_watchERNS_16solver_interface
 125:                                              ; preds = %118, %130
   %.0110149 = phi i32 [ 0, %118 ], [ %131, %130 ]
   %126 = zext i32 %.0110149 to i64
-  %127 = getelementptr inbounds nuw %"class.sat::literal", ptr %122, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %126
   %.sroa.01.0.copyload = load i32, ptr %127, align 4, !tbaa !9
   %128 = tail call noundef zeroext i1 @_ZNK2pb10constraint10is_watchedERKNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %.sroa.01.0.copyload)
   br i1 %128, label %130, label %129
@@ -950,7 +947,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %22, %28
   %30 = phi i32 [ %.pre2.i, %28 ], [ %24, %22 ]
   %31 = getelementptr inbounds i8, ptr %29, i64 -4
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"class.sat::literal", ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %32
   store i32 %20, ptr %33, align 4, !tbaa !9
   %34 = add i32 %30, 1
   store i32 %34, ptr %31, align 4, !tbaa !9
@@ -999,7 +996,7 @@ define hidden noundef zeroext i1 @_ZNK2pb4card25validate_unit_propagationERKNS_1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ %15, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
-  %19 = getelementptr inbounds nuw %"class.sat::literal", ptr %12, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %.sroa.0.0.copyload.i13 = load i32, ptr %19, align 4, !tbaa !9
   %20 = load ptr, ptr %1, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -1101,7 +1098,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb4card4evalERK7svectorI5lboolj
   %14 = trunc i32 %.sroa.01.0.copyload to i1
   %15 = lshr i32 %.sroa.01.0.copyload, 1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !59
   %19 = sub nsw i32 0, %18
   %20 = select i1 %14, i32 %19, i32 %18
@@ -1147,7 +1144,7 @@ define hidden void @_ZNK2pb4card13init_use_listERN3sat12ext_use_listE(ptr nounde
   %.sroa.01.0.copyload = load i32, ptr %.010, align 4, !tbaa !9
   %10 = load ptr, ptr %1, align 8, !tbaa !61
   %11 = zext i32 %.sroa.01.0.copyload to i64
-  %12 = getelementptr inbounds nuw %class.svector.13, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !64
   %14 = icmp eq ptr %13, null
   br i1 %14, label %21, label %15
@@ -1172,7 +1169,7 @@ _ZN3sat12ext_use_list6insertENS_7literalEm.exit:  ; preds = %15, %21
   %23 = phi ptr [ %.pre.i.i, %21 ], [ %13, %15 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 -4
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw i64, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   store i64 %4, ptr %26, align 8, !tbaa !67
   %27 = add i32 %22, 1
   store i32 %27, ptr %24, align 4, !tbaa !9
@@ -1247,7 +1244,7 @@ define linkonce_odr hidden void @_ZNK2pb4card8literalsEv(ptr dead_on_unwind noal
 .lr.ph.i.i:                                       ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i.i, %.lr.ph.preheader.i.i
   %6 = phi ptr [ null, %.lr.ph.preheader.i.i ], [ %16, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i.i ]
-  %7 = getelementptr inbounds nuw %"class.sat::literal", ptr %5, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i
   %8 = icmp eq ptr %6, null
   br i1 %8, label %15, label %9
 
@@ -1271,7 +1268,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i.i: ; preds = %15, %9
   %17 = phi i32 [ %.pre2.i.i.i, %15 ], [ %11, %9 ]
   %18 = getelementptr inbounds i8, ptr %16, i64 -4
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %"class.sat::literal", ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %19
   %21 = load i32, ptr %7, align 4, !tbaa !9
   store i32 %21, ptr %20, align 4, !tbaa !9
   %22 = add i32 %17, 1
@@ -1288,9 +1285,9 @@ _ZN7svectorIN3sat7literalEjEC2EjPKS1_.exit:       ; preds = %_ZN6vectorIN3sat7li
 define linkonce_odr hidden void @_ZN2pb4card4swapEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #10 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7
   %.sroa.0.0.copyload.i = load i32, ptr %6, align 4, !tbaa !9
   %9 = load i32, ptr %8, align 4, !tbaa !9
   store i32 %9, ptr %6, align 4, !tbaa !9
@@ -1302,7 +1299,7 @@ define linkonce_odr hidden void @_ZN2pb4card4swapEjj(ptr noundef nonnull align 8
 define linkonce_odr hidden i32 @_ZNK2pb4card7get_litEj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #10 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %4
   %.sroa.0.0.copyload = load i32, ptr %5, align 4, !tbaa !9
   ret i32 %.sroa.0.0.copyload
 }
@@ -1311,7 +1308,7 @@ define linkonce_odr hidden i32 @_ZNK2pb4card7get_litEj(ptr noundef nonnull align
 define linkonce_odr hidden void @_ZN2pb4card7set_litEjN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 %2) unnamed_addr #10 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   store i32 %2, ptr %6, align 4, !tbaa !9
   ret void
 }

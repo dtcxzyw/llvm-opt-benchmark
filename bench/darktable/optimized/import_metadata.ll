@@ -119,7 +119,7 @@ define void @dt_import_metadata_init(ptr noundef initializes((16, 24)) %0) local
 
 39:                                               ; preds = %1, %39
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 64, ptr %40, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -347,7 +347,7 @@ define internal fastcc void @_import_metadata_presets_update(ptr noundef readonl
   br i1 %33, label %42, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %.02528, ptr %35, align 8, !tbaa !70
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02528) #13
   %37 = trunc i64 %36 to i32
@@ -387,7 +387,7 @@ define internal fastcc void @_import_metadata_presets_update(ptr noundef readonl
 52:                                               ; preds = %48
   %53 = load ptr, ptr %5, align 8, !tbaa !58
   %54 = add nuw nsw i64 %indvars.iv33, 1
-  %55 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv33
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv33
   %56 = load ptr, ptr %55, align 8, !tbaa !70
   %57 = trunc nuw nsw i64 %54 to i32
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %53, ptr noundef nonnull %2, i32 noundef %57, ptr noundef %56, i32 noundef -1) #10

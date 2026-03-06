@@ -92,12 +92,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::Span" = type { ptr, i64 }
 %class.anon.150 = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
-%"class.std::unique_ptr.135" = type { %"struct.std::__uniq_ptr_data.136" }
-%"struct.std::__uniq_ptr_data.136" = type { %"class.std::__uniq_ptr_impl.137" }
-%"class.std::__uniq_ptr_impl.137" = type { %"class.std::tuple.138" }
-%"class.std::tuple.138" = type { %"struct.std::_Tuple_impl.139" }
-%"struct.std::_Tuple_impl.139" = type { %"struct.std::_Head_base.140" }
-%"struct.std::_Head_base.140" = type { ptr }
 %"class.grpc_core::RefCountedPtr.141" = type { ptr }
 %"class.absl::lts_20240722::FunctionRef" = type { %"union.absl::lts_20240722::functional_internal::VoidPtr", ptr }
 %"union.absl::lts_20240722::functional_internal::VoidPtr" = type { ptr }
@@ -108,6 +102,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.grpc_core::RefCountedPtr.143" = type { ptr }
 %"class.grpc_core::RefCountedPtr.184" = type { ptr }
 %class.anon.197 = type { ptr }
+%"class.std::unique_ptr.135" = type { %"struct.std::__uniq_ptr_data.136" }
+%"struct.std::__uniq_ptr_data.136" = type { %"class.std::__uniq_ptr_impl.137" }
+%"class.std::__uniq_ptr_impl.137" = type { %"class.std::tuple.138" }
+%"class.std::tuple.138" = type { %"struct.std::_Tuple_impl.139" }
+%"struct.std::_Tuple_impl.139" = type { %"struct.std::_Head_base.140" }
+%"struct.std::_Head_base.140" = type { ptr }
 %"class.grpc_core::RefCountedPtr.11" = type { ptr }
 %"struct.grpc_core::LoadBalancingPolicy::PickResult" = type { %"class.std::variant.205" }
 %"class.std::variant.205" = type { %"struct.std::__detail::__variant::_Variant_base.base.228", [7 x i8] }
@@ -2504,7 +2504,7 @@ define noundef i64 @_ZNK9grpc_core12EndpointList8Endpoint5IndexEv(ptr noundef no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %.069 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.preheader ]
-  %12 = getelementptr inbounds nuw %"class.std::unique_ptr.135", ptr %7, i64 %.069
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.069
   %13 = load ptr, ptr %12, align 8, !tbaa !57
   %14 = icmp eq ptr %13, %0
   br i1 %14, label %._crit_edge, label %15
@@ -3248,7 +3248,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !168
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !165
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !169
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -5619,7 +5619,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core12EndpointList8EndpointENS1_16OrphanableD
 _ZNSt6vectorISt10unique_ptrIN9grpc_core12EndpointList8EndpointENS1_16OrphanableDeleteEESaIS5_EE9push_backEOS5_.exit.i.i.i.i: ; preds = %41, %_ZNSt6vectorISt10unique_ptrIN9grpc_core12EndpointList8EndpointENS1_16OrphanableDeleteEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i.i
   store ptr %34, ptr %14, align 8, !tbaa !132
   store ptr %40, ptr %15, align 8, !tbaa !131
-  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.135", ptr %34, i64 %32
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %42, ptr %17, align 8, !tbaa !207
   %.pr.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !57
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null

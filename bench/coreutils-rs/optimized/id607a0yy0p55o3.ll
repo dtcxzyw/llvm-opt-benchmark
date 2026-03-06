@@ -133,10 +133,10 @@ switch.lookup:                                    ; preds = %2
   %17 = load i8, ptr %16, align 8, !range !20, !noundef !9
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %19 = zext nneg i8 %17 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN62_$LT$uu_seq..error..SeqError$u20$as$u20$core..fmt..Display$GT$3fmt17had03f635c2cdd396E", i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN62_$LT$uu_seq..error..SeqError$u20$as$u20$core..fmt..Display$GT$3fmt17had03f635c2cdd396E", i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = zext nneg i8 %17 to i64
-  %switch.gep19 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN62_$LT$uu_seq..error..SeqError$u20$as$u20$core..fmt..Display$GT$3fmt17had03f635c2cdd396E.2", i64 %20
+  %switch.gep19 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN62_$LT$uu_seq..error..SeqError$u20$as$u20$core..fmt..Display$GT$3fmt17had03f635c2cdd396E.2", i64 %20
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   store ptr %switch.load, ptr %10, align 8
   store i64 %switch.load20, ptr %18, align 8

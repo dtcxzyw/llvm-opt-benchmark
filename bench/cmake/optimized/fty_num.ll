@@ -173,7 +173,7 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noun
   %20 = phi i8 [ %16, %.lr.ph ], [ %27, %25 ]
   %.263 = phi ptr [ %.1, %.lr.ph ], [ %26, %25 ]
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !24
   %24 = and i16 %23, 2048
   %.not50 = icmp eq i16 %24, 0
@@ -198,7 +198,7 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noun
 
 31:                                               ; preds = %.preheader
   %32 = zext i8 %30 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %18, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !24
   %35 = and i16 %34, 2048
   %.not52 = icmp eq i16 %35, 0
@@ -250,7 +250,7 @@ define internal noundef zeroext i1 @Check_Numeric_Character(i32 noundef %0, ptr 
   %3 = tail call ptr @__ctype_b_loc() #15
   %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds i16, ptr %4, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %4, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !24
   %.fr7 = freeze i16 %7
   %8 = and i16 %.fr7, 2048

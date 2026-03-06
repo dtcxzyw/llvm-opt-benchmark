@@ -3,9 +3,6 @@ source_filename = "bench/abc/original/wlcAbc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Wlc_Obj_t_ = type { i16, i32, i32, i32, %union.anon }
-%union.anon = type { [1 x ptr] }
-
 @.str = private unnamed_addr constant [21 x i8] c"abc_blast_input.info\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"w\00", align 1
 @.str.2 = private unnamed_addr constant [14 x i8] c"%s[%d] : %c \0A\00", align 1
@@ -51,10 +48,10 @@ define void @Wlc_NtkPrintInputInfo(ptr noundef %0) local_unnamed_addr #0 {
   %.05680 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %43 ]
   %.val65 = load ptr, ptr %5, align 8, !tbaa !10
   %.val66 = load ptr, ptr %6, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw i32, ptr %.val65, i64 %indvars.iv87
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.val65, i64 %indvars.iv87
   %14 = load i32, ptr %13, align 4, !tbaa !20
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val66, i64 %15
+  %16 = getelementptr inbounds [24 x i8], ptr %.val66, i64 %15
   %17 = getelementptr i8, ptr %16, i64 8
   %.val67 = load i32, ptr %17, align 8, !tbaa !21
   %18 = getelementptr i8, ptr %16, i64 12
@@ -114,10 +111,10 @@ define void @Wlc_NtkPrintInputInfo(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv91 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next92, %.critedge ]
   %.val74 = load ptr, ptr %10, align 8, !tbaa !10
   %.val75 = load ptr, ptr %11, align 8, !tbaa !11
-  %51 = getelementptr inbounds nuw i32, ptr %.val74, i64 %indvars.iv91
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.val74, i64 %indvars.iv91
   %52 = load i32, ptr %51, align 4, !tbaa !20
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val75, i64 %53
+  %54 = getelementptr inbounds [24 x i8], ptr %.val75, i64 %53
   %55 = getelementptr i8, ptr %54, i64 8
   %.val69 = load i32, ptr %55, align 8, !tbaa !21
   %56 = getelementptr i8, ptr %54, i64 12
@@ -184,10 +181,10 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr noundef readonly captures(
   %.053 = phi i32 [ 0, %.lr.ph ], [ %.1, %46 ]
   %.val42 = load ptr, ptr %6, align 8, !tbaa !10
   %.val43 = load ptr, ptr %7, align 8, !tbaa !11
-  %10 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv60
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %.val42, i64 %indvars.iv60
   %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val43, i64 %12
+  %13 = getelementptr inbounds [24 x i8], ptr %.val43, i64 %12
   %14 = load i16, ptr %13, align 8
   %15 = and i16 %14, 63
   %.not = icmp eq i16 %15, 3
@@ -204,12 +201,12 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr noundef readonly captures(
   %.val40 = load ptr, ptr %8, align 8, !tbaa !10
   %22 = sext i32 %.053 to i64
   %wide.trip.count = zext i32 %21 to i64
-  %invariant.gep = getelementptr i32, ptr %.val40, i64 %22
+  %invariant.gep = getelementptr [4 x i8], ptr %.val40, i64 %22
   br label %23
 
 23:                                               ; preds = %16, %25
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %25 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %24 = load i32, ptr %gep, align 4, !tbaa !20
   %.not39 = icmp eq i32 %24, 0
   br i1 %.not39, label %25, label %26
@@ -238,8 +235,8 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr noundef readonly captures(
 35:                                               ; preds = %30, %43
   %indvars.iv55 = phi i64 [ 0, %30 ], [ %indvars.iv.next56, %43 ]
   %.val41 = load ptr, ptr %8, align 8, !tbaa !10
-  %36 = getelementptr i32, ptr %.val41, i64 %indvars.iv55
-  %37 = getelementptr i32, ptr %36, i64 %22
+  %36 = getelementptr [4 x i8], ptr %.val41, i64 %indvars.iv55
+  %37 = getelementptr [4 x i8], ptr %36, i64 %22
   %38 = load i32, ptr %37, align 4, !tbaa !20
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %43, label %40
@@ -324,7 +321,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   %.val.us152 = phi i32 [ %.val.us, %35 ], [ %.val123, %.lr.ph125 ]
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %35 ], [ 0, %.lr.ph125 ]
   %.val102.us = load ptr, ptr %24, align 8, !tbaa !10
-  %27 = getelementptr inbounds nuw i32, ptr %.val102.us, i64 %indvars.iv144
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.val102.us, i64 %indvars.iv144
   %28 = load i32, ptr %27, align 4, !tbaa !20
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %35, label %30
@@ -347,7 +344,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
 .lr.ph125.split:                                  ; preds = %.lr.ph125, %52
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %52 ], [ 0, %.lr.ph125 ]
   %.val102 = load ptr, ptr %24, align 8, !tbaa !10
-  %38 = getelementptr inbounds nuw i32, ptr %.val102, i64 %indvars.iv141
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.val102, i64 %indvars.iv141
   %39 = load i32, ptr %38, align 4, !tbaa !20
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %52, label %41
@@ -361,7 +358,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
 
 45:                                               ; preds = %41
   %.val111 = load ptr, ptr %26, align 8, !tbaa !52
-  %46 = getelementptr inbounds nuw ptr, ptr %.val111, i64 %indvars.iv141
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val111, i64 %indvars.iv141
   %47 = load ptr, ptr %46, align 8, !tbaa !53
   br label %.sink.split
 
@@ -401,10 +398,10 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   %.085121 = phi i32 [ 0, %.lr.ph ], [ %.186, %98 ]
   %.val103 = load ptr, ptr %14, align 8, !tbaa !10
   %.val104 = load ptr, ptr %15, align 8, !tbaa !11
-  %59 = getelementptr inbounds nuw i32, ptr %.val103, i64 %indvars.iv138
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.val103, i64 %indvars.iv138
   %60 = load i32, ptr %59, align 4, !tbaa !20
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val104, i64 %61
+  %62 = getelementptr inbounds [24 x i8], ptr %.val104, i64 %61
   %63 = load i16, ptr %62, align 8
   %64 = and i16 %63, 63
   %.not94 = icmp eq i16 %64, 3
@@ -421,12 +418,12 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   %.val101 = load ptr, ptr %16, align 8, !tbaa !10
   %71 = sext i32 %.085121 to i64
   %wide.trip.count = zext i32 %70 to i64
-  %invariant.gep = getelementptr i32, ptr %.val101, i64 %71
+  %invariant.gep = getelementptr [4 x i8], ptr %.val101, i64 %71
   br label %72
 
 72:                                               ; preds = %65, %74
   %indvars.iv = phi i64 [ 0, %65 ], [ %indvars.iv.next, %74 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %73 = load i32, ptr %gep, align 4, !tbaa !20
   %.not95 = icmp eq i32 %73, 0
   br i1 %.not95, label %74, label %75
@@ -452,8 +449,8 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
 80:                                               ; preds = %.preheader, %95
   %indvars.iv133 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next134, %95 ]
   %.val100 = load ptr, ptr %16, align 8, !tbaa !10
-  %81 = getelementptr i32, ptr %.val100, i64 %indvars.iv133
-  %82 = getelementptr i32, ptr %81, i64 %71
+  %81 = getelementptr [4 x i8], ptr %.val100, i64 %indvars.iv133
+  %82 = getelementptr [4 x i8], ptr %81, i64 %71
   %83 = load i32, ptr %82, align 4, !tbaa !20
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %95, label %85
@@ -503,7 +500,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   %.val113129 = phi ptr [ %.val113, %.lr.ph130 ], [ %.val113126, %.critedge2 ]
   %105 = getelementptr i8, ptr %.val113129, i64 8
   %.val114.val = load ptr, ptr %105, align 8, !tbaa !52
-  %106 = getelementptr inbounds nuw ptr, ptr %.val114.val, i64 %indvars.iv147
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %.val114.val, i64 %indvars.iv147
   %107 = load ptr, ptr %106, align 8, !tbaa !53
   call void @Abc_ObjAddFanin(ptr noundef %101, ptr noundef %107) #12
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
@@ -615,7 +612,7 @@ define noalias noundef ptr @Wlc_NtkGetPut(ptr noundef readonly captures(none) %0
   %15 = getelementptr i8, ptr %.val117.val, i64 8
   %.val117.val.val = load ptr, ptr %15, align 8, !tbaa !52
   %16 = sext i32 %.val118.val to i64
-  %17 = getelementptr inbounds ptr, ptr %.val117.val.val, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.val117.val.val, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !25
@@ -659,7 +656,7 @@ Vec_IntAlloc.exit:                                ; preds = %10, %25
   %38 = phi ptr [ %43, %.lr.ph ], [ %35, %33 ]
   %39 = getelementptr i8, ptr %38, i64 8
   %.val112 = load ptr, ptr %39, align 8, !tbaa !52
-  %40 = getelementptr inbounds nuw ptr, ptr %.val112, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.val112, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !53
   %42 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %34, ptr noundef %41, ptr noundef null) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -692,10 +689,10 @@ Vec_IntAlloc.exit:                                ; preds = %10, %25
   %.val122.val = load ptr, ptr %52, align 8, !tbaa !79
   %53 = getelementptr i8, ptr %.val122.val, i64 8
   %.val122.val.val = load ptr, ptr %53, align 8, !tbaa !52
-  %54 = getelementptr inbounds nuw i32, ptr %.val123, i64 %indvars.iv167
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.val123, i64 %indvars.iv167
   %55 = load i32, ptr %54, align 4, !tbaa !20
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %.val122.val.val, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %.val122.val.val, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !53
   %59 = tail call ptr @Abc_ObjName(ptr noundef %58) #12
   %60 = trunc nuw nsw i64 %indvars.iv167 to i32
@@ -823,7 +820,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %117 = add nsw i32 %99, 1
   store i32 %117, ptr %24, align 4, !tbaa !3
   %118 = sext i32 %99 to i64
-  %119 = getelementptr inbounds i32, ptr %.pre.i180, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %.pre.i180, i64 %118
   store i32 %.086, ptr %119, align 4, !tbaa !20
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %.val120 = load i32, ptr %21, align 4, !tbaa !80
@@ -939,7 +936,7 @@ Vec_IntPush.exit139:                              ; preds = %Vec_IntPush.exit139
   %156 = add nsw i32 %138, 1
   store i32 %156, ptr %126, align 4, !tbaa !3
   %157 = sext i32 %138 to i64
-  %158 = getelementptr inbounds i32, ptr %.pre.i135183, i64 %157
+  %158 = getelementptr inbounds [4 x i8], ptr %.pre.i135183, i64 %157
   store i32 %.084, ptr %158, align 4, !tbaa !20
   br label %159
 
@@ -957,7 +954,7 @@ Vec_IntPush.exit139:                              ; preds = %Vec_IntPush.exit139
 
 163:                                              ; preds = %159
   %.val = load ptr, ptr %30, align 8, !tbaa !10
-  %164 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv175
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv175
   %165 = load i32, ptr %164, align 4, !tbaa !20
   %166 = icmp eq i8 %162, 48
   %167 = zext i1 %166 to i32
@@ -1011,7 +1008,7 @@ Vec_IntPush.exit146:                              ; preds = %Vec_IntPush.exit146
   %188 = add nsw i32 %170, 1
   store i32 %188, ptr %126, align 4, !tbaa !3
   %189 = sext i32 %170 to i64
-  %190 = getelementptr inbounds i32, ptr %.pre.i142187, i64 %189
+  %190 = getelementptr inbounds [4 x i8], ptr %.pre.i142187, i64 %189
   store i32 %169, ptr %190, align 4, !tbaa !20
   br label %191
 
@@ -1080,7 +1077,7 @@ Vec_IntPush.exit153:                              ; preds = %Vec_IntPush.exit153
   %214 = add nsw i32 %212, 1
   store i32 %214, ptr %126, align 4, !tbaa !3
   %215 = sext i32 %212 to i64
-  %216 = getelementptr inbounds i32, ptr %213, i64 %215
+  %216 = getelementptr inbounds [4 x i8], ptr %213, i64 %215
   store i32 %.val113, ptr %216, align 4, !tbaa !20
   %217 = load ptr, ptr %30, align 8, !tbaa !10
   %.not.i154 = icmp eq ptr %217, null

@@ -220,7 +220,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   %indvars.iv378.i = phi i64 [ 2, %.lr.ph.preheader.i ], [ %indvars.iv.next379.i, %.noexc47 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.noexc47 ]
   %.0288.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %.4.i, %.noexc47 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = load i8, ptr %10, align 1, !tbaa !13
   switch i8 %11, label %247 [
@@ -270,7 +270,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
 
 30:                                               ; preds = %69, %.lr.ph291.i
   %indvars.iv396.i = phi i64 [ %indvars.iv378.i, %.lr.ph291.i ], [ %indvars.iv.next397.i, %69 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv396.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv396.i
   %32 = load ptr, ptr %31, align 8, !tbaa !14
   %33 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #21
   %34 = load i64, ptr %7, align 8, !tbaa !10

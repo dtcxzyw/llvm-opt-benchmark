@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %struct.luaL_Reg = type { ptr, ptr }
 %"class.std::allocator" = type { i8 }
-%struct.MapNode = type { i16, i8, i8 }
 %"struct.std::_Rb_tree<irr::core::vector3d<short>, std::pair<const irr::core::vector3d<short>, MapBlock *>, std::_Select1st<std::pair<const irr::core::vector3d<short>, MapBlock *>>, std::less<irr::core::vector3d<short>>>::_Alloc_node" = type { ptr }
 %"class.std::map.140" = type { %"class.std::_Rb_tree.141" }
 %"class.std::_Rb_tree.141" = type { %"struct.std::_Rb_tree<irr::core::vector3d<short>, std::pair<const irr::core::vector3d<short>, MapBlock *>, std::_Select1st<std::pair<const irr::core::vector3d<short>, MapBlock *>>, std::less<irr::core::vector3d<short>>>::_Rb_tree_impl" }
@@ -20,6 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %struct.MapEditEvent = type <{ i32, %"class.irr::core::vector3d", [2 x i8], %struct.MapNode, %"class.std::vector.145", i8, [7 x i8] }>
 %"class.irr::core::vector3d" = type { i16, i16, i16 }
+%struct.MapNode = type { i16, i8, i8 }
 %"class.std::vector.145" = type { %"struct.std::_Vector_base.146" }
 %"struct.std::_Vector_base.146" = type { %"struct.std::_Vector_base<irr::core::vector3d<short>, std::allocator<irr::core::vector3d<short>>>::_Vector_impl" }
 %"struct.std::_Vector_base<irr::core::vector3d<short>, std::allocator<irr::core::vector3d<short>>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::core::vector3d<short>, std::allocator<irr::core::vector3d<short>>>::_Vector_impl_data" }
@@ -659,7 +659,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %if.end
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %6 = load ptr, ptr %m_data, align 8, !tbaa !43
-  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %6, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %7 = load i16, ptr %arrayidx, align 4, !tbaa !44
   %conv = zext i16 %7 to i64
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv)
@@ -775,7 +775,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %call11 = tail call i64 @lua_tointeger(ptr noundef %L, i32 noundef -1)
   %conv = trunc i64 %call11 to i16
   %11 = load ptr, ptr %m_data, align 8, !tbaa !43
-  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %11, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i16 %conv, ptr %arrayidx, align 4, !tbaa !44
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2)
   %cmp10.not = icmp eq i64 %indvars.iv.next, %9
@@ -1122,7 +1122,7 @@ _ZNSt12_Vector_baseIN3irr4core8vector3dIsEESaIS3_EE13_M_deallocateEPS3_m.exit.i:
   store ptr %call5.i.i.i.i, ptr %modified_blocks, align 8, !tbaa !68
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i32.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8, !tbaa !70
-  %add.ptr21.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [6 x i8], ptr %call5.i.i.i.i, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !69
   br label %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE7reserveEm.exit
 
@@ -1206,7 +1206,7 @@ if.then.i41.i.i:                                  ; preds = %_ZNSt6vectorIN3irr4
 _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i
   store ptr %call5.i.i.i.i.i, ptr %modified_blocks, align 8, !tbaa !68
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !70
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [6 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !69
   br label %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE9push_backERKS3_.exit
 
@@ -1316,7 +1316,7 @@ if.end.i:                                         ; preds = %land.lhs.true22.i.i
 if.end6.i:                                        ; preds = %if.end.i
   %m_data.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %m_data.i, align 8, !tbaa !43
-  %arrayidx11.i = getelementptr inbounds %struct.MapNode, ptr %13, i64 %idxprom.i
+  %arrayidx11.i = getelementptr inbounds [4 x i8], ptr %13, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx11.i, align 4, !tbaa.struct !84
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
 
@@ -1398,7 +1398,7 @@ if.end.i:                                         ; preds = %land.lhs.true22.i.i
   %sub20.i.i.i = sub nsw i32 %conv.i.i, %conv3.i.i
   %add21.i.i.i = add nsw i32 %sub20.i.i.i, %add.i.i.i
   %idxprom.i = sext i32 %add21.i.i.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.MapNode, ptr %8, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %8, i64 %idxprom.i
   store i32 %call2, ptr %arrayidx.i, align 4, !tbaa.struct !84
   br label %_ZN16VoxelManipulator15setNodeNoEmergeERKN3irr4core8vector3dIsEE7MapNode.exit
 
@@ -1951,7 +1951,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %if.end
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %6 = load ptr, ptr %m_data, align 8, !tbaa !43
-  %param1.split = getelementptr inbounds nuw %struct.MapNode, ptr %6, i64 %indvars.iv
+  %param1.split = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %param1 = getelementptr inbounds nuw i8, ptr %param1.split, i64 2
   %7 = load i8, ptr %param1, align 2, !tbaa !86
   %conv = zext i8 %7 to i64
@@ -2058,7 +2058,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %call11 = tail call i64 @lua_tointeger(ptr noundef %L, i32 noundef -1)
   %conv = trunc i64 %call11 to i8
   %11 = load ptr, ptr %m_data, align 8, !tbaa !43
-  %param1.split = getelementptr inbounds nuw %struct.MapNode, ptr %11, i64 %indvars.iv
+  %param1.split = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %param1 = getelementptr inbounds nuw i8, ptr %param1.split, i64 2
   store i8 %conv, ptr %param1, align 2, !tbaa !86
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2)
@@ -2114,7 +2114,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %if.end
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %6 = load ptr, ptr %m_data, align 8, !tbaa !43
-  %param25.split = getelementptr inbounds nuw %struct.MapNode, ptr %6, i64 %indvars.iv
+  %param25.split = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %param25 = getelementptr inbounds nuw i8, ptr %param25.split, i64 3
   %7 = load i8, ptr %param25, align 1, !tbaa !89
   %conv = zext i8 %7 to i64
@@ -2221,7 +2221,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %call11 = tail call i64 @lua_tointeger(ptr noundef %L, i32 noundef -1)
   %conv = trunc i64 %call11 to i8
   %11 = load ptr, ptr %m_data, align 8, !tbaa !43
-  %param212.split = getelementptr inbounds nuw %struct.MapNode, ptr %11, i64 %indvars.iv
+  %param212.split = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %param212 = getelementptr inbounds nuw i8, ptr %param212.split, i64 3
   store i8 %conv, ptr %param212, align 1, !tbaa !89
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2)

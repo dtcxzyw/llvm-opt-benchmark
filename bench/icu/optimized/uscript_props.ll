@@ -38,7 +38,7 @@ define i32 @uscript_getSampleString_77(i32 noundef %0, ptr noundef %1, i32 nound
 
 _ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit: ; preds = %13
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !7
   %17 = and i32 %16, 2097151
   %18 = icmp eq i32 %17, 0
@@ -92,7 +92,7 @@ define void @_Z33uscript_getSampleUnicodeString_7711UScriptCode(ptr dead_on_unwi
 
 _ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit: ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !7
   %7 = and i32 %6, 2097151
   %.not = icmp eq i32 %7, 0
@@ -126,7 +126,7 @@ define range(i32 0, 8) i32 @uscript_getUsage_77(i32 noundef %0) local_unnamed_ad
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !7
   %6 = lshr i32 %5, 21
   %7 = and i32 %6, 7
@@ -144,7 +144,7 @@ define signext range(i8 0, 2) i8 @uscript_isRightToLeft_77(i32 noundef %0) local
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !7
   %6 = lshr i32 %5, 24
   %7 = trunc nuw i32 %6 to i8
@@ -163,7 +163,7 @@ define signext range(i8 0, 2) i8 @uscript_breaksBetweenLetters_77(i32 noundef %0
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !7
   %6 = lshr i32 %5, 25
   %7 = trunc nuw nsw i32 %6 to i8
@@ -182,7 +182,7 @@ define signext range(i8 0, 2) i8 @uscript_isCased_77(i32 noundef %0) local_unnam
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !7
   %6 = lshr i32 %5, 26
   %7 = trunc nuw nsw i32 %6 to i8

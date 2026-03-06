@@ -1314,7 +1314,7 @@ define internal fastcc range(i32 -3, 1) i32 @decode_current_locale(ptr noundef %
 
 .lr.ph.i:                                         ; preds = %15, %19
   %.01823.i = phi i64 [ %20, %19 ], [ 0, %15 ]
-  %21 = getelementptr i32, ptr %14, i64 %.01823.i
+  %21 = getelementptr [4 x i8], ptr %14, i64 %.01823.i
   %22 = load i32, ptr %21, align 4, !tbaa !180
   %23 = and i32 %22, -2048
   %.not.i.i = icmp eq i32 %23, 55296
@@ -1634,7 +1634,7 @@ define internal fastcc i32 @encode_locale_ex(ptr noundef %0, ptr noundef %1, ptr
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %36
   %.03349.us.i = phi i64 [ %37, %36 ], [ 0, %.lr.ph.i ]
   %.03548.us.i = phi ptr [ %.1.us.i, %36 ], [ %.034.i, %.lr.ph.i ]
-  %33 = getelementptr i32, ptr %0, i64 %.03349.us.i
+  %33 = getelementptr [4 x i8], ptr %0, i64 %.03349.us.i
   %34 = load i32, ptr %33, align 4, !tbaa !180
   %35 = icmp slt i32 %34, 128
   br i1 %35, label %36, label %.split.us.i
@@ -1650,7 +1650,7 @@ define internal fastcc i32 @encode_locale_ex(ptr noundef %0, ptr noundef %1, ptr
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %49
   %.03349.i = phi i64 [ %50, %49 ], [ 0, %.lr.ph.i ]
   %.03548.i = phi ptr [ %.1.i, %49 ], [ %.034.i, %.lr.ph.i ]
-  %38 = getelementptr i32, ptr %0, i64 %.03349.i
+  %38 = getelementptr [4 x i8], ptr %0, i64 %.03349.i
   %39 = load i32, ptr %38, align 4, !tbaa !180
   %40 = icmp slt i32 %39, 128
   %41 = and i32 %39, 2147483520
@@ -2827,12 +2827,12 @@ _Py_wgetcwd.exit37.thread:                        ; preds = %33, %43, %Py_Decode
 55:                                               ; preds = %51
   %56 = shl i64 %46, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %53, ptr nonnull align 16 %10, i64 %56, i1 false)
-  %57 = getelementptr i32, ptr %53, i64 %46
+  %57 = getelementptr [4 x i8], ptr %53, i64 %46
   store i32 47, ptr %57, align 4, !tbaa !180
   %58 = getelementptr i8, ptr %57, i64 4
   %59 = shl i64 %47, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %58, ptr nonnull align 4 %0, i64 %59, i1 false)
-  %60 = getelementptr i32, ptr %58, i64 %47
+  %60 = getelementptr [4 x i8], ptr %58, i64 %47
   store i32 0, ptr %60, align 4, !tbaa !180
   br label %61
 
@@ -2971,21 +2971,21 @@ define hidden ptr @_Py_join_relfile(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not33.i, label %29, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr i32, ptr %0, i64 %12
+  %23 = getelementptr [4 x i8], ptr %0, i64 %12
   %24 = getelementptr i8, ptr %23, i64 -4
   %25 = load i32, ptr %24, align 4, !tbaa !180
   %.not34.i = icmp eq i32 %25, 47
   br i1 %.not34.i, label %29, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr i32, ptr %9, i64 %12
+  %27 = getelementptr [4 x i8], ptr %9, i64 %12
   store i32 47, ptr %27, align 4, !tbaa !180
   %28 = add nuw nsw i64 %12, 1
   br label %29
 
 29:                                               ; preds = %26, %22, %21
   %.0.i = phi i64 [ %28, %26 ], [ %12, %22 ], [ 1, %21 ]
-  %30 = getelementptr i32, ptr %9, i64 %.0.i
+  %30 = getelementptr [4 x i8], ptr %9, i64 %.0.i
   br label %join_relfile.exit
 
 join_relfile.exit:                                ; preds = %16, %29
@@ -3022,7 +3022,7 @@ define hidden range(i32 -1, 1) i32 @_Py_add_relfile(ptr noundef %0, ptr noundef 
   ]
 
 10:                                               ; preds = %9
-  %11 = getelementptr i32, ptr %0, i64 %4
+  %11 = getelementptr [4 x i8], ptr %0, i64 %4
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4, !tbaa !180
   %.not34.i = icmp eq i32 %13, 47
@@ -3035,7 +3035,7 @@ define hidden range(i32 -1, 1) i32 @_Py_add_relfile(ptr noundef %0, ptr noundef 
 
 16:                                               ; preds = %9, %14, %10
   %.0.i = phi i64 [ %15, %14 ], [ %4, %10 ], [ %4, %9 ]
-  %17 = getelementptr i32, ptr %0, i64 %.0.i
+  %17 = getelementptr [4 x i8], ptr %0, i64 %.0.i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %9, %16
@@ -3056,7 +3056,7 @@ define hidden range(i64 2, 1) i64 @_Py_find_basename(ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %1, %6
   %.0713 = phi i64 [ %7, %6 ], [ %2, %1 ]
-  %3 = getelementptr i32, ptr %0, i64 %.0713
+  %3 = getelementptr [4 x i8], ptr %0, i64 %.0713
   %4 = load i32, ptr %3, align 4, !tbaa !180
   %5 = icmp eq i32 %4, 47
   br i1 %5, label %8, label %6
@@ -3098,7 +3098,7 @@ define hidden noundef ptr @_Py_normpath_and_size(ptr noundef returned %0, i64 no
   br i1 %.old1, label %107, label %.split
 
 .split:                                           ; preds = %11
-  %12 = getelementptr i32, ptr %0, i64 %1
+  %12 = getelementptr [4 x i8], ptr %0, i64 %1
   %13 = load i32, ptr %0, align 4, !tbaa !180
   %14 = icmp eq i32 %13, 47
   br i1 %14, label %15, label %_Py_skiproot.exit
@@ -3120,7 +3120,7 @@ define hidden noundef ptr @_Py_normpath_and_size(ptr noundef returned %0, i64 no
 22:                                               ; preds = %.sink.split, %7, %15
   %.0147.ph = phi i64 [ 1, %7 ], [ 1, %15 ], [ %spec.select.i, %.sink.split ]
   %.ph = phi ptr [ null, %7 ], [ %12, %15 ], [ %.ph.ph, %.sink.split ]
-  %23 = getelementptr i32, ptr %0, i64 %.0147.ph
+  %23 = getelementptr [4 x i8], ptr %0, i64 %.0147.ph
   %24 = getelementptr i8, ptr %23, i64 -4
   %25 = load i32, ptr %24, align 4, !tbaa !180
   %.pr = load i32, ptr %23, align 4, !tbaa !180
@@ -3674,7 +3674,7 @@ define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr noundef r
   %.180.us.us.us = phi i64 [ %.046.us.us, %.lr.ph.us.us ], [ %.2.us.us.us, %33 ]
   %.04779.us.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %34, %33 ]
   %.14978.us.us.us = phi ptr [ %.048.us.us, %.lr.ph.us.us ], [ %.250.us.us.us, %33 ]
-  %20 = getelementptr i32, ptr %0, i64 %.04779.us.us.us
+  %20 = getelementptr [4 x i8], ptr %0, i64 %.04779.us.us.us
   %21 = load i32, ptr %20, align 4, !tbaa !180
   %22 = and i32 %21, -128
   %or.cond.us.us.us = icmp eq i32 %22, 56448
@@ -3741,7 +3741,7 @@ define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr noundef r
   %.180.us93 = phi i64 [ %.046.us, %.lr.ph.us ], [ %.2.us101, %64 ]
   %.04779.us94 = phi i64 [ 0, %.lr.ph.us ], [ %65, %64 ]
   %.14978.us95 = phi ptr [ %.048.us, %.lr.ph.us ], [ %.250.us100, %64 ]
-  %44 = getelementptr i32, ptr %0, i64 %.04779.us94
+  %44 = getelementptr [4 x i8], ptr %0, i64 %.04779.us94
   %45 = load i32, ptr %44, align 4, !tbaa !180
   %46 = and i32 %45, -128
   %or.cond.us96 = icmp eq i32 %46, 56448

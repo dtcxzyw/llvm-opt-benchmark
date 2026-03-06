@@ -3,14 +3,9 @@ source_filename = "bench/postgres/original/nbtsearch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ItemIdData = type { i32 }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
-%struct.BlockIdData = type { i16, i16 }
 %struct.BTScanInsertData = type { i8, i8, i8, i8, i8, ptr, i32, [32 x %struct.ScanKeyData] }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.BTScanPosItem = type { %struct.ItemPointerData, i16, i16 }
 %struct.BTReadPageState = type { i16, i16, ptr, ptr, i16, i16, i8, i8, i8, i16, i16 }
 
 @.str = private unnamed_addr constant [117 x i8] c"table tid from new index tuple (%u,%u) cannot find insert offset between offsets %u and %u of block %u in index \22%s\22\00", align 1
@@ -62,7 +57,7 @@ BufferGetPage.exit:                               ; preds = %10
   %14 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %15 = xor i32 %12, -1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i16, ptr %19, align 4
@@ -159,7 +154,7 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
   %.0.i = phi i16 [ %68, %67 ], [ %spec.select.i, %64 ], [ %44, %BufferGetPage.exit.i ]
   %70 = zext i16 %.0.i to i64
   %71 = getelementptr i8, ptr %.0.i.i6668, i64 20
-  %72 = getelementptr %struct.ItemIdData, ptr %71, i64 %70
+  %72 = getelementptr [4 x i8], ptr %71, i64 %70
   %.val = load i32, ptr %72, align 4
   %73 = and i32 %.val, 32767
   %74 = zext nneg i32 %73 to i64
@@ -236,7 +231,7 @@ define internal fastcc i32 @_bt_moveright(ptr noundef %0, ptr noundef %1, ptr no
   %20 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %21 = xor i32 %.0.us, -1
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8
   br label %BufferGetPage.exit.us
 
@@ -317,7 +312,7 @@ BufferGetPage.exit.us:                            ; preds = %19, %13
   %55 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %56 = xor i32 %.0, -1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   %59 = load ptr, ptr %58, align 8
   br label %BufferGetPage.exit
 
@@ -406,7 +401,7 @@ define dso_local zeroext i16 @_bt_binsrch_insert(ptr noundef readonly captures(n
   %9 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %10 = xor i32 %6, -1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %BufferGetPage.exit
 
@@ -569,7 +564,7 @@ define dso_local i32 @_bt_compare(ptr noundef readonly captures(none) %0, ptr no
 21:                                               ; preds = %14, %4
   %22 = zext i16 %3 to i64
   %23 = getelementptr i8, ptr %2, i64 20
-  %24 = getelementptr %struct.ItemIdData, ptr %23, i64 %22
+  %24 = getelementptr [4 x i8], ptr %23, i64 %22
   %.val = load i32, ptr %24, align 4
   %25 = and i32 %.val, 32767
   %26 = zext nneg i32 %25 to i64
@@ -625,7 +620,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %21, %BTreeTupleIsPi
 
 53:                                               ; preds = %48
   %54 = sext i16 %50 to i64
-  %55 = getelementptr %struct.CompactAttribute, ptr %6, i64 %54
+  %55 = getelementptr [16 x i8], ptr %6, i64 %54
   %56 = getelementptr i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 4
   %58 = icmp sgt i32 %57, -1
@@ -869,7 +864,7 @@ BTreeTupleGetMaxHeapTID.exit:                     ; preds = %BTreeTupleIsPosting
   %178 = getelementptr inbounds nuw i8, ptr %175, i64 %177
   %179 = and i16 %.val.i83, 4095
   %180 = zext nneg i16 %179 to i64
-  %181 = getelementptr %struct.ItemPointerData, ptr %178, i64 %180
+  %181 = getelementptr [6 x i8], ptr %178, i64 %180
   %182 = getelementptr i8, ptr %181, i64 -6
   %183 = tail call i32 @ItemPointerCompare(ptr noundef %172, ptr noundef %182) #7
   %184 = icmp sgt i32 %183, 0
@@ -894,7 +889,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define internal fastcc i32 @_bt_binsrch_posting(ptr noundef readonly captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = zext i16 %2 to i64
   %5 = getelementptr i8, ptr %1, i64 20
-  %6 = getelementptr %struct.ItemIdData, ptr %5, i64 %4
+  %6 = getelementptr [4 x i8], ptr %5, i64 %4
   %.val = load i32, ptr %6, align 4
   %7 = and i32 %.val, 32767
   %8 = zext nneg i32 %7 to i64
@@ -943,7 +938,7 @@ BTreeTupleIsPosting.exit:                         ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 %30
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %31
   %34 = sext i32 %27 to i64
-  %35 = getelementptr inbounds %struct.ItemPointerData, ptr %33, i64 %34
+  %35 = getelementptr inbounds [6 x i8], ptr %33, i64 %34
   %36 = tail call i32 @ItemPointerCompare(ptr noundef %28, ptr noundef nonnull %35) #7
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %40
@@ -1038,7 +1033,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 132
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.BTScanPosItem, ptr %34, i64 %37
+  %38 = getelementptr inbounds [10 x i8], ptr %34, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %39, ptr noundef nonnull readonly align 2 dereferenceable(6) %38, i64 6, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -1132,7 +1127,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
 .thread204:                                       ; preds = %81, %82
   %83 = phi i16 [ 5, %81 ], [ 1, %82 ]
   %84 = sext i32 %.1 to i64
-  %85 = getelementptr inbounds %struct.ScanKeyData, ptr %5, i64 %84
+  %85 = getelementptr inbounds [72 x i8], ptr %5, i64 %84
   %86 = and i32 %79, 50331648
   %87 = or disjoint i32 %86, 129
   call void @ScanKeyEntryInitialize(ptr noundef nonnull %85, i32 noundef %87, i16 noundef signext %.0157, i16 noundef zeroext %83, i32 noundef 0, i32 noundef 0, i32 noundef 0, i64 noundef 0) #7
@@ -1149,7 +1144,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   %.pre-phi = phi i64 [ %.pre261, %._crit_edge ], [ %84, %.thread204 ]
   %.2155206 = phi ptr [ %.0153, %._crit_edge ], [ %85, %.thread204 ]
   %90 = add i32 %.1, 1
-  %91 = getelementptr inbounds ptr, ptr %4, i64 %.pre-phi
+  %91 = getelementptr inbounds [8 x i8], ptr %4, i64 %.pre-phi
   store ptr %.2155206, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %.2155206, i64 6
   %93 = load i16, ptr %92, align 2
@@ -1260,7 +1255,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   %135 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %136 = xor i32 %127, -1
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr %135, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %137
   %139 = load ptr, ptr %138, align 8
   br label %BufferGetPage.exit.i
 
@@ -1315,7 +1310,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   %170 = getelementptr inbounds nuw i8, ptr %125, i64 132
   %171 = load i32, ptr %170, align 4
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds %struct.BTScanPosItem, ptr %169, i64 %172
+  %173 = getelementptr inbounds [10 x i8], ptr %169, i64 %172
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %174, ptr noundef nonnull readonly align 2 dereferenceable(6) %173, i64 6, i1 false)
   %175 = getelementptr inbounds nuw i8, ptr %125, i64 64
@@ -1334,7 +1329,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
 
 183:                                              ; preds = %.lr.ph, %.thread216
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread216 ]
-  %184 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %185 = load ptr, ptr %184, align 8
   %186 = load i32, ptr %185, align 8
   %187 = and i32 %186, 4
@@ -1345,7 +1340,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   %189 = getelementptr inbounds nuw i8, ptr %185, i64 64
   %190 = load i64, ptr %189, align 8
   %191 = inttoptr i64 %190 to ptr
-  %192 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %119, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [72 x i8], ptr %119, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %192, ptr noundef nonnull align 8 dereferenceable(72) %191, i64 72, i1 false)
   %.not191 = icmp eq i64 %indvars.iv, %123
   br i1 %.not191, label %.preheader, label %.thread216
@@ -1380,7 +1375,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
 
 207:                                              ; preds = %204
   %208 = zext nneg i32 %.6 to i64
-  %209 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %119, i64 %208
+  %209 = getelementptr inbounds nuw [72 x i8], ptr %119, i64 %208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %209, ptr noundef nonnull align 8 dereferenceable(72) %195, i64 72, i1 false)
   %210 = load i32, ptr %195, align 8
   %211 = and i32 %210, 16
@@ -1419,7 +1414,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   %222 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %223 = load i32, ptr %222, align 8
   %224 = load ptr, ptr %121, align 8
-  %225 = getelementptr inbounds nuw i32, ptr %224, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %indvars.iv
   %226 = load i32, ptr %225, align 4
   %227 = icmp eq i32 %223, %226
   %228 = icmp eq i32 %223, 0
@@ -1430,7 +1425,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   %230 = getelementptr inbounds nuw i8, ptr %185, i64 4
   %231 = load i16, ptr %230, align 4
   %232 = call ptr @index_getprocinfo(ptr noundef nonnull %9, i16 noundef signext %231, i16 noundef zeroext 1) #7
-  %233 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %119, i64 %indvars.iv
+  %233 = getelementptr inbounds nuw [72 x i8], ptr %119, i64 %indvars.iv
   %234 = load i32, ptr %185, align 8
   %235 = load i16, ptr %230, align 4
   %236 = load i32, ptr %222, align 8
@@ -1443,7 +1438,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
 
 241:                                              ; preds = %221
   %242 = load ptr, ptr %122, align 8
-  %243 = getelementptr inbounds nuw i32, ptr %242, i64 %indvars.iv
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %indvars.iv
   %244 = load i32, ptr %243, align 4
   %245 = call i32 @get_opfamily_proc(i32 noundef %244, i32 noundef %226, i32 noundef %223, i16 noundef signext 1) #7
   %.not186 = icmp eq i32 %245, 0
@@ -1452,7 +1447,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
 246:                                              ; preds = %241
   %247 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %248 = load ptr, ptr %121, align 8
-  %249 = getelementptr inbounds nuw i32, ptr %248, i64 %indvars.iv
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %248, i64 %indvars.iv
   %250 = load i32, ptr %249, align 4
   %251 = load i32, ptr %222, align 8
   %252 = getelementptr inbounds nuw i8, ptr %185, i64 4
@@ -1466,7 +1461,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   unreachable
 
 259:                                              ; preds = %241
-  %260 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %119, i64 %indvars.iv
+  %260 = getelementptr inbounds nuw [72 x i8], ptr %119, i64 %indvars.iv
   %261 = load i32, ptr %185, align 8
   %262 = getelementptr inbounds nuw i8, ptr %185, i64 4
   %263 = load i16, ptr %262, align 4
@@ -1587,7 +1582,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   %309 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %310 = xor i32 %306, -1
   %311 = zext nneg i32 %310 to i64
-  %312 = getelementptr inbounds nuw ptr, ptr %309, i64 %311
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %311
   %313 = load ptr, ptr %312, align 8
   br label %BufferGetPage.exit.i196
 
@@ -1672,7 +1667,7 @@ _bt_binsrch.exit:                                 ; preds = %BufferGetPage.exit.
   %358 = getelementptr inbounds nuw i8, ptr %11, i64 132
   %359 = load i32, ptr %358, align 4
   %360 = sext i32 %359 to i64
-  %361 = getelementptr inbounds %struct.BTScanPosItem, ptr %357, i64 %360
+  %361 = getelementptr inbounds [10 x i8], ptr %357, i64 %360
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %362, ptr noundef nonnull readonly align 2 dereferenceable(6) %361, i64 6, i1 false)
   %363 = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -1828,7 +1823,7 @@ define internal fastcc noundef zeroext i1 @_bt_readnextpage(ptr noundef %0, i32 
   %59 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %60 = xor i32 %56, -1
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %61
   %63 = load ptr, ptr %62, align 8
   br label %BufferGetPage.exit.i
 
@@ -1878,7 +1873,7 @@ BufferGetPage.exit.i:                             ; preds = %64, %58
   %88 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %89 = xor i32 %85, -1
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8
   br label %BufferGetPage.exit74.i
 
@@ -1915,7 +1910,7 @@ BufferGetPage.exit74.i:                           ; preds = %93, %87
   %113 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %114 = xor i32 %110, -1
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %115
   %117 = load ptr, ptr %116, align 8
   br label %BufferGetPage.exit76.i
 
@@ -1965,7 +1960,7 @@ BufferGetPage.exit76.i:                           ; preds = %118, %112
   %144 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %145 = xor i32 %141, -1
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %144, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %146
   %148 = load ptr, ptr %147, align 8
   br label %BufferGetPage.exit78.i
 
@@ -2045,7 +2040,7 @@ _bt_lock_and_validate_left.exit:                  ; preds = %BufferGetPage.exit.
   %181 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %182 = xor i32 %178, -1
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw ptr, ptr %181, i64 %183
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %183
   %185 = load ptr, ptr %184, align 8
   br label %BufferGetPage.exit
 
@@ -2341,7 +2336,7 @@ define dso_local noundef zeroext i1 @_bt_next(ptr noundef %0, i32 noundef %1) lo
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 132
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.BTScanPosItem, ptr %23, i64 %26
+  %27 = getelementptr inbounds [10 x i8], ptr %23, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %28, ptr noundef nonnull readonly align 2 dereferenceable(6) %27, i64 6, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -2499,7 +2494,7 @@ define dso_local i32 @_bt_get_endpoint(ptr noundef %0, i32 noundef %1, i1 nounde
   %13 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %14 = xor i32 %.048, -1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   %17 = load ptr, ptr %16, align 8
   br label %BufferGetPage.exit
 
@@ -2533,7 +2528,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
   %36 = and i64 %35, 65535
   %37 = select i1 %32, i64 0, i64 %36
   %38 = getelementptr i8, ptr %.147.us.us, i64 20
-  %39 = getelementptr %struct.ItemIdData, ptr %38, i64 %37
+  %39 = getelementptr [4 x i8], ptr %38, i64 %37
   %.val.us = load i32, ptr %39, align 4
   %40 = and i32 %.val.us, 32767
   %41 = zext nneg i32 %40 to i64
@@ -2561,7 +2556,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
   %57 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %58 = xor i32 %48, -1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %59
   %61 = load ptr, ptr %60, align 8
   br label %.split.us.us.sink.split
 
@@ -2610,7 +2605,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
   %81 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %82 = xor i32 %72, -1
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %81, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %83
   %85 = load ptr, ptr %84, align 8
   br label %.split.us.us.sink.split, !llvm.loop !17
 
@@ -2665,7 +2660,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
   %107 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %108 = xor i32 %104, -1
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %107, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %109
   %111 = load ptr, ptr %110, align 8
   br label %BufferGetPage.exit57
 
@@ -2709,7 +2704,7 @@ BufferGetPage.exit57:                             ; preds = %106, %112
   %136 = icmp eq i32 %135, 0
   %137 = select i1 %136, i64 1, i64 2
   %138 = getelementptr i8, ptr %.147.lcssa, i64 20
-  %139 = getelementptr %struct.ItemIdData, ptr %138, i64 %137
+  %139 = getelementptr [4 x i8], ptr %138, i64 %137
   %.val = load i32, ptr %139, align 4
   %140 = and i32 %.val, 32767
   %141 = zext nneg i32 %140 to i64
@@ -2729,7 +2724,7 @@ BufferGetPage.exit57:                             ; preds = %106, %112
   %151 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %152 = xor i32 %148, -1
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr %151, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %153
   %155 = load ptr, ptr %154, align 8
   br label %BufferGetPage.exit59
 
@@ -2787,7 +2782,7 @@ define internal fastcc zeroext i1 @_bt_readpage(ptr noundef %0, i32 noundef %1, 
   %14 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %15 = xor i32 %11, -1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %BufferGetPage.exit
 
@@ -2894,7 +2889,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %.v = select i1 %81, i16 %.0.i, i16 %58
   %82 = zext i16 %.v to i64
   %83 = getelementptr i8, ptr %.0.i.i, i64 20
-  %84 = getelementptr %struct.ItemIdData, ptr %83, i64 %82
+  %84 = getelementptr [4 x i8], ptr %83, i64 %82
   %.val216 = load i32, ptr %84, align 4
   %85 = and i32 %.val216, 32767
   %86 = zext nneg i32 %85 to i64
@@ -2956,7 +2951,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %.0184282 = phi i16 [ %109, %.lr.ph284 ], [ %.1185, %select.unfold ]
   %.0187281 = phi i32 [ 0, %.lr.ph284 ], [ %.2189, %select.unfold ]
   %115 = zext i16 %.0184282 to i64
-  %116 = getelementptr %struct.ItemIdData, ptr %110, i64 %115
+  %116 = getelementptr [4 x i8], ptr %110, i64 %115
   %117 = load i8, ptr %111, align 1, !range !5, !noundef !6
   %118 = trunc nuw i8 %117 to i1
   %.val214.pre = load i32, ptr %116, align 4
@@ -3007,7 +3002,7 @@ BTreeTupleIsPosting.exit:                         ; preds = %134
 
 BTreeTupleIsPosting.exit.thread:                  ; preds = %134, %BTreeTupleIsPosting.exit
   %141 = sext i32 %.0187281 to i64
-  %142 = getelementptr inbounds %struct.BTScanPosItem, ptr %112, i64 %141
+  %142 = getelementptr inbounds [10 x i8], ptr %112, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %142, ptr noundef nonnull readonly align 2 dereferenceable(6) %126, i64 6, i1 false)
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 6
   store i16 %.0184282, ptr %143, align 2
@@ -3049,7 +3044,7 @@ _bt_saveitem.exit:                                ; preds = %BTreeTupleIsPosting
   %164 = getelementptr inbounds nuw i8, ptr %126, i64 %162
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 %163
   %166 = sext i32 %.0187281 to i64
-  %167 = getelementptr inbounds %struct.BTScanPosItem, ptr %112, i64 %166
+  %167 = getelementptr inbounds [10 x i8], ptr %112, i64 %166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %167, ptr noundef nonnull readonly align 2 dereferenceable(6) %165, i64 6, i1 false)
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 6
   store i16 %.0184282, ptr %168, align 2
@@ -3105,9 +3100,9 @@ _bt_setuppostingitems.exit:                       ; preds = %159, %170
   %195 = zext i16 %.val2.i.i227 to i64
   %196 = getelementptr inbounds nuw i8, ptr %126, i64 %194
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 %195
-  %198 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %197, i64 %indvars.iv291
+  %198 = getelementptr inbounds nuw [6 x i8], ptr %197, i64 %indvars.iv291
   %199 = sext i32 %.4277 to i64
-  %200 = getelementptr inbounds %struct.BTScanPosItem, ptr %112, i64 %199
+  %200 = getelementptr inbounds [10 x i8], ptr %112, i64 %199
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %200, ptr noundef nonnull readonly align 2 dereferenceable(6) %198, i64 6, i1 false)
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 6
   store i16 %.0184282, ptr %201, align 2
@@ -3215,7 +3210,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %217, %BTreeTupleIsP
 244:                                              ; preds = %241
   %245 = zext nneg i16 %58 to i64
   %246 = getelementptr i8, ptr %.0.i.i, i64 20
-  %247 = getelementptr %struct.ItemIdData, ptr %246, i64 %245
+  %247 = getelementptr [4 x i8], ptr %246, i64 %245
   %.val212 = load i32, ptr %247, align 4
   %248 = and i32 %.val212, 32767
   %249 = zext nneg i32 %248 to i64
@@ -3239,7 +3234,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %217, %BTreeTupleIsP
   %.2269 = phi i16 [ %252, %.lr.ph271 ], [ %.3, %select.unfold256 ]
   %.5268 = phi i32 [ 1358, %.lr.ph271 ], [ %.7, %select.unfold256 ]
   %258 = zext i16 %.2269 to i64
-  %259 = getelementptr %struct.ItemIdData, ptr %253, i64 %258
+  %259 = getelementptr [4 x i8], ptr %253, i64 %258
   %260 = load i8, ptr %254, align 1, !range !5, !noundef !6
   %261 = trunc nuw i8 %260 to i1
   %.val.pre = load i32, ptr %259, align 4
@@ -3295,7 +3290,7 @@ BTreeTupleIsPosting.exit234:                      ; preds = %278
 BTreeTupleIsPosting.exit234.thread:               ; preds = %278, %BTreeTupleIsPosting.exit234
   %285 = add i32 %.5268, -1
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds %struct.BTScanPosItem, ptr %255, i64 %286
+  %287 = getelementptr inbounds [10 x i8], ptr %255, i64 %286
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %287, ptr noundef nonnull readonly align 2 dereferenceable(6) %270, i64 6, i1 false)
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 6
   store i16 %.2269, ptr %288, align 2
@@ -3334,7 +3329,7 @@ BTreeTupleIsPosting.exit234.thread:               ; preds = %278, %BTreeTupleIsP
   %309 = getelementptr inbounds nuw i8, ptr %270, i64 %307
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 %308
   %311 = sext i32 %304 to i64
-  %312 = getelementptr inbounds %struct.BTScanPosItem, ptr %255, i64 %311
+  %312 = getelementptr inbounds [10 x i8], ptr %255, i64 %311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %312, ptr noundef nonnull readonly align 2 dereferenceable(6) %310, i64 6, i1 false)
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 6
   store i16 %.2269, ptr %313, align 2
@@ -3390,9 +3385,9 @@ _bt_setuppostingitems.exit245:                    ; preds = %303, %315
   %341 = zext i16 %.val2.i.i247 to i64
   %342 = getelementptr inbounds nuw i8, ptr %270, i64 %340
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 %341
-  %344 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %343, i64 %indvars.iv
+  %344 = getelementptr inbounds nuw [6 x i8], ptr %343, i64 %indvars.iv
   %345 = sext i32 %338 to i64
-  %346 = getelementptr inbounds %struct.BTScanPosItem, ptr %255, i64 %345
+  %346 = getelementptr inbounds [10 x i8], ptr %255, i64 %345
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %346, ptr noundef nonnull readonly align 2 dereferenceable(6) %344, i64 6, i1 false)
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 6
   store i16 %.2269, ptr %347, align 2

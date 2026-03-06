@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl" }
 %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl" = type { %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.YAML::GraphBuilderAdapter::ContainerFrame" = type { ptr, ptr }
 
 $_ZN4YAML19GraphBuilderAdapterD2Ev = comdat any
 
@@ -166,7 +165,7 @@ _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allo
   store ptr %7, ptr %0, align 8, !tbaa !13
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -258,7 +257,7 @@ _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_crea
   store ptr %46, ptr %47, align 8, !tbaa !28
   store ptr %37, ptr %35, align 8, !tbaa !29
   %48 = and i64 %1, 31
-  %49 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !30
   ret void
 

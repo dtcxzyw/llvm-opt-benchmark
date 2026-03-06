@@ -39,14 +39,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Luau::DenseHashSet.36" = type { %"class.Luau::detail::DenseHashTable.37" }
 %"class.Luau::detail::DenseHashTable.37" = type <{ ptr, i64, i64, ptr, [8 x i8] }>
 %"struct.std::__detail::_AllocNode" = type { ptr }
-%"struct.std::pair" = type { ptr, i64 }
-%"struct.std::pair.137" = type { %"class.std::__cxx11::basic_string", ptr }
+%"struct.Luau::TypePackIterator" = type { ptr, ptr, i64, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::pair.139" = type { %"class.std::__cxx11::basic_string", %"struct.std::pair.141" }
-%"struct.std::pair.141" = type { ptr, i64 }
-%"struct.Luau::TypePackIterator" = type { ptr, ptr, i64, ptr }
 
 $_ZN4Luau7AstRttiINS_7AstAttrEE5valueE = comdat any
 
@@ -2068,7 +2064,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; pr
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %133, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %128, ptr %95, align 8, !tbaa !95
   store ptr %132, ptr %96, align 8, !tbaa !88
-  %134 = getelementptr inbounds nuw ptr, ptr %128, i64 %126
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   store ptr %134, ptr %97, align 8, !tbaa !89
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit
 
@@ -2153,7 +2149,7 @@ _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i
 _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %162, %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %157, ptr %102, align 8, !tbaa !98
   store ptr %161, ptr %103, align 8, !tbaa !91
-  %163 = getelementptr inbounds nuw ptr, ptr %157, i64 %155
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %155
   store ptr %163, ptr %104, align 8, !tbaa !92
   br label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE9push_backERKS3_.exit
 
@@ -4228,7 +4224,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i: ; pred
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i, %29
   store ptr %23, ptr %0, align 8, !tbaa !95
   store ptr %28, ptr %3, align 8, !tbaa !88
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !89
   br label %31
 
@@ -4488,7 +4484,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau16FreeTypeSearcher5vis
   %.pn.i.i = phi i64 [ %19, %12 ], [ %29, %27 ]
   %.02032.i.i = phi i64 [ 0, %12 ], [ %28, %27 ]
   %.02133.i.i = and i64 %.pn.i.i, %15
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %.02133.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.02133.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !93
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %25
@@ -4556,7 +4552,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau16FreeTypeSearcher5vis
   %.pn.i.i = phi i64 [ %24, %17 ], [ %34, %32 ]
   %.02032.i.i = phi i64 [ 0, %17 ], [ %33, %32 ]
   %.02133.i.i = and i64 %.pn.i.i, %20
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.02133.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.02133.i.i
   %28 = load ptr, ptr %27, align 8, !tbaa !93
   %29 = icmp eq ptr %28, %1
   br i1 %29, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %30
@@ -4695,7 +4691,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau16FreeTypeSearcher5vis
   %.pn.i.i = phi i64 [ %20, %13 ], [ %30, %28 ]
   %.02032.i.i = phi i64 [ 0, %13 ], [ %29, %28 ]
   %.02133.i.i = and i64 %.pn.i.i, %16
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %.02133.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.02133.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !93
   %25 = icmp eq ptr %24, %1
   br i1 %25, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %26
@@ -4792,7 +4788,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau16FreeTypeSearcher5vis
   %.pn.i.i = phi i64 [ %24, %17 ], [ %34, %32 ]
   %.02032.i.i = phi i64 [ 0, %17 ], [ %33, %32 ]
   %.02133.i.i = and i64 %.pn.i.i, %20
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.02133.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.02133.i.i
   %28 = load ptr, ptr %27, align 8, !tbaa !93
   %29 = icmp eq ptr %28, %1
   br i1 %29, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %30
@@ -5361,7 +5357,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau16FreeTypeSearcher16se
   %.pn.i.i = phi i64 [ %21, %16 ], [ %31, %29 ]
   %.02032.i.i = phi i64 [ 0, %16 ], [ %30, %29 ]
   %.02133.i.i = and i64 %.pn.i.i, %17
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %.02133.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.02133.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !115
   %26 = icmp eq ptr %25, %1
   br i1 %26, label %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit, label %27
@@ -5408,7 +5404,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau16FreeTypeSearcher16se
   %.pn.i.i.i = phi i64 [ %44, %.thread88 ], [ %54, %52 ]
   %.02032.i.i.i = phi i64 [ 0, %.thread88 ], [ %53, %52 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %40
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %.02133.i.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.02133.i.i.i
   %48 = load ptr, ptr %47, align 8, !tbaa !115
   %49 = icmp eq ptr %48, %1
   br i1 %49, label %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i, label %50
@@ -5440,14 +5436,14 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %64 = load ptr, ptr %63, align 8, !tbaa !115
   %.02336.i6.i = and i64 %57, %61
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %.02336.i6.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.02336.i6.i
   %66 = load ptr, ptr %65, align 8, !tbaa !115
   %67 = icmp eq ptr %66, %64
   br i1 %67, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %73, %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i
   %.02336.i.lcssa5.i = phi i64 [ %.02336.i6.i, %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i ], [ %.02336.i.i, %73 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %62, i64 %.02336.i.lcssa5.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.02336.i.lcssa5.i
   store ptr %1, ptr %68, align 8, !tbaa !115
   %69 = load i64, ptr %7, align 8, !tbaa !194
   %70 = add i64 %69, 1
@@ -5467,7 +5463,7 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %.not.i3.i = icmp ule i64 %74, %57
   tail call void @llvm.assume(i1 %.not.i3.i)
   %.02336.i.i = and i64 %75, %57
-  %76 = getelementptr inbounds nuw ptr, ptr %62, i64 %.02336.i.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.02336.i.i
   %77 = load ptr, ptr %76, align 8, !tbaa !115
   %78 = icmp eq ptr %77, %64
   br i1 %78, label %._crit_edge.i, label %.lr.ph.i
@@ -5500,7 +5496,7 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %.pn.i.i3 = phi i64 [ %95, %90 ], [ %105, %103 ]
   %.02032.i.i4 = phi i64 [ 0, %90 ], [ %104, %103 ]
   %.02133.i.i5 = and i64 %.pn.i.i3, %91
-  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %.02133.i.i5
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %.02133.i.i5
   %99 = load ptr, ptr %98, align 8, !tbaa !115
   %100 = icmp eq ptr %99, %1
   br i1 %100, label %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit, label %101
@@ -5547,7 +5543,7 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %.pn.i.i.i10 = phi i64 [ %118, %.thread95 ], [ %128, %126 ]
   %.02032.i.i.i11 = phi i64 [ 0, %.thread95 ], [ %127, %126 ]
   %.02133.i.i.i12 = and i64 %.pn.i.i.i10, %114
-  %121 = getelementptr inbounds nuw ptr, ptr %119, i64 %.02133.i.i.i12
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %.02133.i.i.i12
   %122 = load ptr, ptr %121, align 8, !tbaa !115
   %123 = icmp eq ptr %122, %1
   br i1 %123, label %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i16, label %124
@@ -5579,14 +5575,14 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %138 = load ptr, ptr %137, align 8, !tbaa !115
   %.02336.i6.i17 = and i64 %131, %135
-  %139 = getelementptr inbounds nuw ptr, ptr %136, i64 %.02336.i6.i17
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %.02336.i6.i17
   %140 = load ptr, ptr %139, align 8, !tbaa !115
   %141 = icmp eq ptr %140, %138
   br i1 %141, label %._crit_edge.i23, label %.lr.ph.i18
 
 ._crit_edge.i23:                                  ; preds = %147, %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i16
   %.02336.i.lcssa5.i24 = phi i64 [ %.02336.i6.i17, %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i16 ], [ %.02336.i.i22, %147 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %136, i64 %.02336.i.lcssa5.i24
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %.02336.i.lcssa5.i24
   store ptr %1, ptr %142, align 8, !tbaa !115
   %143 = load i64, ptr %81, align 8, !tbaa !194
   %144 = add i64 %143, 1
@@ -5606,7 +5602,7 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %.not.i3.i21 = icmp ule i64 %148, %131
   tail call void @llvm.assume(i1 %.not.i3.i21)
   %.02336.i.i22 = and i64 %149, %131
-  %150 = getelementptr inbounds nuw ptr, ptr %136, i64 %.02336.i.i22
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %.02336.i.i22
   %151 = load ptr, ptr %150, align 8, !tbaa !115
   %152 = icmp eq ptr %151, %138
   br i1 %152, label %._crit_edge.i23, label %.lr.ph.i18
@@ -5639,7 +5635,7 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %.pn.i.i27 = phi i64 [ %169, %164 ], [ %179, %177 ]
   %.02032.i.i28 = phi i64 [ 0, %164 ], [ %178, %177 ]
   %.02133.i.i29 = and i64 %.pn.i.i27, %165
-  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %.02133.i.i29
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %.02133.i.i29
   %173 = load ptr, ptr %172, align 8, !tbaa !115
   %174 = icmp eq ptr %173, %1
   br i1 %174, label %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit32, label %175
@@ -5678,7 +5674,7 @@ _ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2
   %.pn.i.i33 = phi i64 [ %169, %188 ], [ %201, %199 ]
   %.02032.i.i34 = phi i64 [ 0, %188 ], [ %200, %199 ]
   %.02133.i.i35 = and i64 %.pn.i.i33, %191
-  %194 = getelementptr inbounds nuw ptr, ptr %192, i64 %.02133.i.i35
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %.02133.i.i35
   %195 = load ptr, ptr %194, align 8, !tbaa !115
   %196 = icmp eq ptr %195, %1
   br i1 %196, label %_ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2_.exit, label %197
@@ -5725,7 +5721,7 @@ _ZNK4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE8containsERKS2
   %.pn.i.i.i40 = phi i64 [ %213, %.thread102 ], [ %223, %221 ]
   %.02032.i.i.i41 = phi i64 [ 0, %.thread102 ], [ %222, %221 ]
   %.02133.i.i.i42 = and i64 %.pn.i.i.i40, %209
-  %216 = getelementptr inbounds nuw ptr, ptr %214, i64 %.02133.i.i.i42
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %.02133.i.i.i42
   %217 = load ptr, ptr %216, align 8, !tbaa !115
   %218 = icmp eq ptr %217, %1
   br i1 %218, label %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i46, label %219
@@ -5757,14 +5753,14 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %233 = load ptr, ptr %232, align 8, !tbaa !115
   %.02336.i6.i47 = and i64 %226, %230
-  %234 = getelementptr inbounds nuw ptr, ptr %231, i64 %.02336.i6.i47
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %.02336.i6.i47
   %235 = load ptr, ptr %234, align 8, !tbaa !115
   %236 = icmp eq ptr %235, %233
   br i1 %236, label %._crit_edge.i53, label %.lr.ph.i48
 
 ._crit_edge.i53:                                  ; preds = %242, %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i46
   %.02336.i.lcssa5.i54 = phi i64 [ %.02336.i6.i47, %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i46 ], [ %.02336.i.i52, %242 ]
-  %237 = getelementptr inbounds nuw ptr, ptr %231, i64 %.02336.i.lcssa5.i54
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %.02336.i.lcssa5.i54
   store ptr %1, ptr %237, align 8, !tbaa !115
   %238 = load i64, ptr %155, align 8, !tbaa !194
   %239 = add i64 %238, 1
@@ -5784,7 +5780,7 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %.not.i3.i51 = icmp ule i64 %243, %226
   tail call void @llvm.assume(i1 %.not.i3.i51)
   %.02336.i.i52 = and i64 %244, %226
-  %245 = getelementptr inbounds nuw ptr, ptr %231, i64 %.02336.i.i52
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %.02336.i.i52
   %246 = load ptr, ptr %245, align 8, !tbaa !115
   %247 = icmp eq ptr %246, %233
   br i1 %247, label %._crit_edge.i53, label %.lr.ph.i48
@@ -5819,7 +5815,7 @@ _ZN4Luau12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toIS2_EE6insertERKS2_.e
   %.pn.i.i.i58 = phi i64 [ %230, %261 ], [ %272, %270 ]
   %.02032.i.i.i59 = phi i64 [ 0, %261 ], [ %271, %270 ]
   %.02133.i.i.i60 = and i64 %.pn.i.i.i58, %262
-  %265 = getelementptr inbounds nuw ptr, ptr %263, i64 %.02133.i.i.i60
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %.02133.i.i.i60
   %266 = load ptr, ptr %265, align 8, !tbaa !115
   %267 = icmp eq ptr %266, %1
   br i1 %267, label %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i64, label %268
@@ -5846,14 +5842,14 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %277 = load ptr, ptr %276, align 8, !tbaa !115
   %.02336.i6.i65 = and i64 %274, %230
-  %278 = getelementptr inbounds nuw ptr, ptr %275, i64 %.02336.i6.i65
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %.02336.i6.i65
   %279 = load ptr, ptr %278, align 8, !tbaa !115
   %280 = icmp eq ptr %279, %277
   br i1 %280, label %._crit_edge.i71, label %.lr.ph.i66
 
 ._crit_edge.i71:                                  ; preds = %286, %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i64
   %.02336.i.lcssa5.i72 = phi i64 [ %.02336.i6.i65, %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERKS3_.exit.i64 ], [ %.02336.i.i70, %286 ]
-  %281 = getelementptr inbounds nuw ptr, ptr %275, i64 %.02336.i.lcssa5.i72
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %.02336.i.lcssa5.i72
   store ptr %1, ptr %281, align 8, !tbaa !115
   %282 = load i64, ptr %249, align 8, !tbaa !194
   %283 = add i64 %282, 1
@@ -5873,7 +5869,7 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %.not.i3.i69 = icmp ule i64 %287, %274
   tail call void @llvm.assume(i1 %.not.i3.i69)
   %.02336.i.i70 = and i64 %288, %274
-  %289 = getelementptr inbounds nuw ptr, ptr %275, i64 %.02336.i.i70
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %.02336.i.i70
   %290 = load ptr, ptr %289, align 8, !tbaa !115
   %291 = icmp eq ptr %290, %277
   br i1 %291, label %._crit_edge.i71, label %.lr.ph.i66
@@ -5903,7 +5899,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.05.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.05.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.05.i.i
   store ptr %.pre.i.i, ptr %10, align 8, !tbaa !115
   %11 = add nuw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, %spec.select
@@ -5940,7 +5936,7 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
 
 16:                                               ; preds = %.lr.ph27, %39
   %.026 = phi i64 [ 0, %.lr.ph27 ], [ %40, %39 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %.pre30, i64 %.026
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre30, i64 %.026
   %18 = load ptr, ptr %17, align 8, !tbaa !115
   %19 = icmp eq ptr %18, %12
   br i1 %19, label %39, label %20
@@ -5951,14 +5947,14 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %23 = lshr i64 %21, 9
   %24 = xor i64 %22, %23
   %.02336.i22 = and i64 %24, %14
-  %25 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i22
   %26 = load ptr, ptr %25, align 8, !tbaa !115
   %27 = icmp eq ptr %26, %7
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %31, %20
   %.02336.i.lcssa21 = phi i64 [ %.02336.i22, %20 ], [ %.02336.i, %31 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i.lcssa21
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i.lcssa21
   store ptr %18, ptr %28, align 8, !tbaa !115
   br label %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE13insert_unsafeERKS3_.exit
 
@@ -5975,13 +5971,13 @@ _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseH
   %.not.i12 = icmp ule i64 %32, %14
   tail call void @llvm.assume(i1 %.not.i12)
   %.02336.i = and i64 %33, %14
-  %34 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i
   %35 = load ptr, ptr %34, align 8, !tbaa !115
   %36 = icmp eq ptr %35, %7
   br i1 %36, label %._crit_edge, label %.lr.ph
 
 _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE13insert_unsafeERKS3_.exit.loopexit: ; preds = %.lr.ph
-  %37 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i24
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i24
   br label %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE13insert_unsafeERKS3_.exit
 
 _ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE13insert_unsafeERKS3_.exit: ; preds = %_ZN4Luau6detail14DenseHashTableIPKvS3_S3_NS0_16ItemInterfaceSetIS3_EENS_16DenseHashPointerESt8equal_toIS3_EE13insert_unsafeERKS3_.exit.loopexit, %._crit_edge
@@ -6032,7 +6028,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %.pn.i.i = phi i64 [ %21, %16 ], [ %31, %29 ]
   %.02028.i.i = phi i64 [ 0, %16 ], [ %30, %29 ]
   %.02129.i.i = and i64 %.pn.i.i, %17
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %.02129.i.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %.02129.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !115
   %26 = icmp eq ptr %25, %13
   br i1 %26, label %_ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERS6_.exit, label %27
@@ -6064,7 +6060,7 @@ _ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMap
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !115
   %.02331.i5 = and i64 %38, %33
-  %42 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %.02331.i5
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.02331.i5
   %43 = load ptr, ptr %42, align 8, !tbaa !115
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge, label %.lr.ph.preheader
@@ -6093,7 +6089,7 @@ _ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMap
   %.not.i3 = icmp ule i64 %49, %33
   tail call void @llvm.assume(i1 %.not.i3)
   %.02331.i = and i64 %50, %33
-  %51 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %.02331.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.02331.i
   %52 = load ptr, ptr %51, align 8, !tbaa !115
   %53 = icmp eq ptr %52, %41
   br i1 %53, label %._crit_edge, label %.lr.ph
@@ -6124,7 +6120,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPKvSt4pairIS
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.07.i.i = phi i64 [ %12, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %9, i64 %.07.i.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.07.i.i
   store ptr %.pre.i.i, ptr %10, align 8, !tbaa !115
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %11, align 8, !tbaa !31
@@ -6162,7 +6158,7 @@ _ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMap
 
 16:                                               ; preds = %.lr.ph26, %40
   %.025 = phi i64 [ 0, %.lr.ph26 ], [ %41, %40 ]
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre32, i64 %.025
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %.pre32, i64 %.025
   %18 = load ptr, ptr %17, align 8, !tbaa !115
   %19 = load ptr, ptr %6, align 8, !tbaa !115
   %20 = icmp eq ptr %18, %19
@@ -6174,7 +6170,7 @@ _ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMap
   %24 = lshr i64 %22, 9
   %25 = xor i64 %23, %24
   %.02331.i21 = and i64 %25, %14
-  %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sroa.0.0, i64 %.02331.i21
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %.02331.i21
   %27 = load ptr, ptr %26, align 8, !tbaa !115
   %28 = icmp eq ptr %27, %7
   br i1 %28, label %._crit_edge, label %.lr.ph.preheader
@@ -6200,7 +6196,7 @@ _ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMap
   %.not.i12 = icmp ule i64 %31, %14
   tail call void @llvm.assume(i1 %.not.i12)
   %.02331.i = and i64 %32, %14
-  %33 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sroa.0.0, i64 %.02331.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %.02331.i
   %34 = load ptr, ptr %33, align 8, !tbaa !115
   %35 = icmp eq ptr %34, %7
   br i1 %35, label %._crit_edge, label %.lr.ph
@@ -6458,7 +6454,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__d
   %10 = load i64, ptr %9, align 8, !tbaa !22
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !32
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !216
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -6595,7 +6591,7 @@ _ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_
 31:                                               ; preds = %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !32
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !216
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -6622,7 +6618,7 @@ _ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_
   %45 = load ptr, ptr %43, align 8, !tbaa !115
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !216
   br label %49
 
@@ -6697,7 +6693,7 @@ _ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_
   %16 = load ptr, ptr %15, align 8, !tbaa !115
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !216
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -6712,7 +6708,7 @@ _ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !216
   br label %29
 
@@ -6788,7 +6784,7 @@ _ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_
   %20 = ptrtoint ptr %8 to i64
   %21 = urem i64 %20, %19
   %.pre = load ptr, ptr %0, align 8, !tbaa !32
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %21
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %21
   %.pre41 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !216
   br label %_ZNKSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKS0_m.exit
 
@@ -6799,7 +6795,7 @@ _ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_
   %26 = load i64, ptr %25, align 8, !tbaa !22
   %27 = urem i64 %24, %26
   %28 = load ptr, ptr %0, align 8, !tbaa !32
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !216
   %.not.i25 = icmp eq ptr %30, null
   br i1 %.not.i25, label %.critedge, label %31
@@ -6812,7 +6808,7 @@ _ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_
   br i1 %35, label %_ZNKSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKS0_m.exit.thread, label %.lr.ph.i
 
 _ZNKSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKS0_m.exit.thread: ; preds = %31
-  %36 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %37 = load ptr, ptr %32, align 8, !tbaa !108
   %.not18.i2756 = icmp eq ptr %37, null
   br i1 %.not18.i2756, label %._crit_edge.i.i, label %53
@@ -6851,7 +6847,7 @@ _ZNKSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0
   br i1 %49, label %51, label %72
 
 51:                                               ; preds = %_ZNKSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKS0_m.exit
-  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %.018
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.018
   br i1 %.not18.i27, label %._crit_edge.i.i, label %53
 
 53:                                               ; preds = %_ZNKSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKS0_m.exit.thread, %51
@@ -6871,7 +6867,7 @@ _ZNKSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0
   br i1 %.not9.i.i, label %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb0EEE.exit, label %63
 
 63:                                               ; preds = %53
-  %64 = getelementptr inbounds nuw ptr, ptr %56, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %62
   store ptr %55, ptr %64, align 8, !tbaa !216
   br label %._crit_edge.i.i
 
@@ -6905,7 +6901,7 @@ _ZNKSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0
   br i1 %.not17.i, label %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb0EEE.exit, label %78
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw ptr, ptr %48, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %77
   store ptr %.016, ptr %79, align 8, !tbaa !216
   br label %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb0EEE.exit
 
@@ -7079,7 +7075,7 @@ _ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit73: ; preds = %13
   %.pn.i.i.i = phi i64 [ %31, %24 ], [ %41, %39 ]
   %.02028.i.i.i = phi i64 [ 0, %24 ], [ %40, %39 ]
   %.02129.i.i.i = and i64 %.pn.i.i.i, %27
-  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %32, i64 %.02129.i.i.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %.02129.i.i.i
   %35 = load ptr, ptr %34, align 8, !tbaa !115
   %36 = icmp eq ptr %35, %12
   br i1 %36, label %42, label %37
@@ -7128,7 +7124,7 @@ _ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPoi
   %.pn.i.i.i74 = phi i64 [ %60, %53 ], [ %70, %68 ]
   %.02028.i.i.i75 = phi i64 [ 0, %53 ], [ %69, %68 ]
   %.02129.i.i.i76 = and i64 %.pn.i.i.i74, %56
-  %63 = getelementptr inbounds nuw %"struct.std::pair", ptr %61, i64 %.02129.i.i.i76
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %.02129.i.i.i76
   %64 = load ptr, ptr %63, align 8, !tbaa !115
   %65 = icmp eq ptr %64, %12
   br i1 %65, label %71, label %66
@@ -7188,14 +7184,14 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %75, %79
   %91 = lshr i64 %89, 9
   %92 = xor i64 %90, %91
   %.02336.i6.i = and i64 %92, 15
-  %93 = getelementptr inbounds nuw ptr, ptr %88, i64 %.02336.i6.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.02336.i6.i
   %94 = load ptr, ptr %93, align 8, !tbaa !93
   %95 = icmp eq ptr %94, null
   br i1 %95, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %99, %.lr.ph.preheader.i.i.i
   %.02336.i.lcssa5.i = phi i64 [ %.02336.i6.i, %.lr.ph.preheader.i.i.i ], [ %.02336.i.i, %99 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %88, i64 %.02336.i.lcssa5.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.02336.i.lcssa5.i
   store ptr %12, ptr %96, align 8, !tbaa !93
   br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit
 
@@ -7212,7 +7208,7 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %75, %79
   %.not.i3.i = icmp samesign ult i64 %.02235.i7.i, 15
   tail call void @llvm.assume(i1 %.not.i3.i)
   %.02336.i.i = and i64 %101, 15
-  %102 = getelementptr inbounds nuw ptr, ptr %88, i64 %.02336.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.02336.i.i
   %103 = load ptr, ptr %102, align 8, !tbaa !93
   %104 = icmp eq ptr %103, null
   br i1 %104, label %._crit_edge.i, label %.lr.ph.i
@@ -7317,7 +7313,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; pr
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %151, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %145, ptr %124, align 8, !tbaa !95
   store ptr %150, ptr %125, align 8, !tbaa !88
-  %152 = getelementptr inbounds nuw ptr, ptr %145, i64 %143
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %143
   store ptr %152, ptr %127, align 8, !tbaa !89
   br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit101
 
@@ -7691,7 +7687,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau19MutatingGeneralizer5
   %.pn.i.i = phi i64 [ %20, %13 ], [ %30, %28 ]
   %.02032.i.i = phi i64 [ 0, %13 ], [ %29, %28 ]
   %.02133.i.i = and i64 %.pn.i.i, %16
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %.02133.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.02133.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !93
   %25 = icmp eq ptr %24, %1
   br i1 %25, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %26
@@ -7753,7 +7749,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau19MutatingGeneralizer5
   %.pn.i.i = phi i64 [ %20, %13 ], [ %30, %28 ]
   %.02032.i.i = phi i64 [ 0, %13 ], [ %29, %28 ]
   %.02133.i.i = and i64 %.pn.i.i, %16
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %.02133.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.02133.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !93
   %25 = icmp eq ptr %24, %1
   br i1 %25, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %26
@@ -7796,7 +7792,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau19MutatingGeneralizer5
   %.pn.i.i.i = phi i64 [ %46, %39 ], [ %56, %54 ]
   %.02028.i.i.i = phi i64 [ 0, %39 ], [ %55, %54 ]
   %.02129.i.i.i = and i64 %.pn.i.i.i, %42
-  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %47, i64 %.02129.i.i.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %.02129.i.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !115
   %51 = icmp eq ptr %50, %1
   br i1 %51, label %57, label %52
@@ -7845,7 +7841,7 @@ _ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPoi
   %.pn.i.i.i5 = phi i64 [ %75, %68 ], [ %85, %83 ]
   %.02028.i.i.i6 = phi i64 [ 0, %68 ], [ %84, %83 ]
   %.02129.i.i.i7 = and i64 %.pn.i.i.i5, %71
-  %78 = getelementptr inbounds nuw %"struct.std::pair", ptr %76, i64 %.02129.i.i.i7
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %.02129.i.i.i7
   %79 = load ptr, ptr %78, align 8, !tbaa !115
   %80 = icmp eq ptr %79, %1
   br i1 %80, label %86, label %81
@@ -8057,7 +8053,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau19MutatingGeneralizer5
   %.pn.i.i.i = phi i64 [ %26, %19 ], [ %36, %34 ]
   %.02028.i.i.i = phi i64 [ 0, %19 ], [ %35, %34 ]
   %.02129.i.i.i = and i64 %.pn.i.i.i, %22
-  %29 = getelementptr inbounds nuw %"struct.std::pair", ptr %27, i64 %.02129.i.i.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.02129.i.i.i
   %30 = load ptr, ptr %29, align 8, !tbaa !115
   %31 = icmp eq ptr %30, %10
   br i1 %31, label %37, label %32
@@ -8106,7 +8102,7 @@ _ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPoi
   %.pn.i.i.i4 = phi i64 [ %55, %48 ], [ %65, %63 ]
   %.02028.i.i.i5 = phi i64 [ 0, %48 ], [ %64, %63 ]
   %.02129.i.i.i6 = and i64 %.pn.i.i.i4, %51
-  %58 = getelementptr inbounds nuw %"struct.std::pair", ptr %56, i64 %.02129.i.i.i6
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %.02129.i.i.i6
   %59 = load ptr, ptr %58, align 8, !tbaa !115
   %60 = icmp eq ptr %59, %10
   br i1 %60, label %66, label %61
@@ -8200,7 +8196,7 @@ _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i
 _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %104, %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %99, ptr %79, align 8, !tbaa !98
   store ptr %103, ptr %80, align 8, !tbaa !91
-  %105 = getelementptr inbounds nuw ptr, ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %97
   store ptr %105, ptr %82, align 8, !tbaa !92
   br label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE9push_backERKS3_.exit
 
@@ -8336,7 +8332,7 @@ _ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_
 define linkonce_odr dso_local noundef ptr @_ZN4Luau11emplaceTypeINS_9Unifiable5BoundIPKNS_4TypeEEEJRKS5_EEEPT_PS3_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #14 comdat {
   %3 = load i32, ptr %0, align 8, !tbaa !86
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEE9tableDtorE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEE9tableDtorE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !115
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void %6(ptr noundef nonnull %7)
@@ -8352,7 +8348,7 @@ declare noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef) local_unnamed_a
 define linkonce_odr dso_local noundef ptr @_ZN4Luau11emplaceTypeINS_11GenericTypeEJRNS_7NotNullINS_5ScopeEEEEEEPT_PNS_4TypeEDpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #14 comdat {
   %3 = load i32, ptr %0, align 8, !tbaa !86
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEE9tableDtorE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEE9tableDtorE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !115
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void %6(ptr noundef nonnull %7)
@@ -8393,7 +8389,7 @@ define linkonce_odr dso_local void @_ZN4Luau19MutatingGeneralizer7replaceERNS_12
   %.pn.i.i = phi i64 [ %23, %18 ], [ %33, %31 ]
   %.02032.i.i = phi i64 [ 0, %18 ], [ %32, %31 ]
   %.02133.i.i = and i64 %.pn.i.i, %19
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.02133.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.02133.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = icmp eq ptr %27, %8
   br i1 %28, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %29
@@ -8440,7 +8436,7 @@ define linkonce_odr dso_local void @_ZN4Luau19MutatingGeneralizer7replaceERNS_12
   %.pn.i.i.i = phi i64 [ %46, %.thread167 ], [ %56, %54 ]
   %.02032.i.i.i = phi i64 [ 0, %.thread167 ], [ %55, %54 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %42
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %.02133.i.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.02133.i.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !93
   %51 = icmp eq ptr %50, %8
   br i1 %51, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i, label %52
@@ -8473,14 +8469,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !93
   %.02336.i6.i = and i64 %60, %64
-  %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %.02336.i6.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.02336.i6.i
   %69 = load ptr, ptr %68, align 8, !tbaa !93
   %70 = icmp eq ptr %69, %67
   br i1 %70, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %76, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
   %.02336.i.lcssa5.i = phi i64 [ %.02336.i6.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i ], [ %.02336.i.i, %76 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %.02336.i.lcssa5.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.02336.i.lcssa5.i
   store ptr %8, ptr %71, align 8, !tbaa !93
   %72 = load i64, ptr %9, align 8, !tbaa !168
   %73 = add i64 %72, 1
@@ -8500,7 +8496,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i = icmp ule i64 %77, %60
   tail call void @llvm.assume(i1 %.not.i3.i)
   %.02336.i.i = and i64 %78, %60
-  %79 = getelementptr inbounds nuw ptr, ptr %65, i64 %.02336.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.02336.i.i
   %80 = load ptr, ptr %79, align 8, !tbaa !93
   %81 = icmp eq ptr %80, %67
   br i1 %81, label %._crit_edge.i, label %.lr.ph.i
@@ -8610,7 +8606,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5
   %.pn.i.i62 = phi i64 [ %130, %125 ], [ %140, %138 ]
   %.02032.i.i63 = phi i64 [ 0, %125 ], [ %139, %138 ]
   %.02133.i.i64 = and i64 %.pn.i.i62, %126
-  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %.02133.i.i64
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %.02133.i.i64
   %134 = load ptr, ptr %133, align 8, !tbaa !93
   %135 = icmp eq ptr %134, %97
   br i1 %135, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit68, label %136, !llvm.loop !236
@@ -8656,7 +8652,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5
   %.pn.i.i.i70 = phi i64 [ %152, %.thread180 ], [ %162, %160 ]
   %.02032.i.i.i71 = phi i64 [ 0, %.thread180 ], [ %161, %160 ]
   %.02133.i.i.i72 = and i64 %.pn.i.i.i70, %148
-  %155 = getelementptr inbounds nuw ptr, ptr %153, i64 %.02133.i.i.i72
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %.02133.i.i.i72
   %156 = load ptr, ptr %155, align 8, !tbaa !93
   %157 = icmp eq ptr %156, %97
   br i1 %157, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i76, label %158
@@ -8686,14 +8682,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %169 = load ptr, ptr %1, align 8, !tbaa !102
   %170 = load ptr, ptr %66, align 8, !tbaa !93
   %.02336.i6.i77 = and i64 %164, %168
-  %171 = getelementptr inbounds nuw ptr, ptr %169, i64 %.02336.i6.i77
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %.02336.i6.i77
   %172 = load ptr, ptr %171, align 8, !tbaa !93
   %173 = icmp eq ptr %172, %170
   br i1 %173, label %._crit_edge.i83, label %.lr.ph.i78
 
 ._crit_edge.i83:                                  ; preds = %179, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i76
   %.02336.i.lcssa5.i84 = phi i64 [ %.02336.i6.i77, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i76 ], [ %.02336.i.i82, %179 ]
-  %174 = getelementptr inbounds nuw ptr, ptr %169, i64 %.02336.i.lcssa5.i84
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %.02336.i.lcssa5.i84
   store ptr %97, ptr %174, align 8, !tbaa !93
   %175 = load i64, ptr %9, align 8, !tbaa !168
   %176 = add i64 %175, 1
@@ -8713,7 +8709,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i81 = icmp ule i64 %180, %164
   tail call void @llvm.assume(i1 %.not.i3.i81)
   %.02336.i.i82 = and i64 %181, %164
-  %182 = getelementptr inbounds nuw ptr, ptr %169, i64 %.02336.i.i82
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %.02336.i.i82
   %183 = load ptr, ptr %182, align 8, !tbaa !93
   %184 = icmp eq ptr %183, %170
   br i1 %184, label %._crit_edge.i83, label %.lr.ph.i78
@@ -8872,7 +8868,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5
   %.pn.i.i95 = phi i64 [ %251, %246 ], [ %261, %259 ]
   %.02032.i.i96 = phi i64 [ 0, %246 ], [ %260, %259 ]
   %.02133.i.i97 = and i64 %.pn.i.i95, %247
-  %254 = getelementptr inbounds nuw ptr, ptr %252, i64 %.02133.i.i97
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %.02133.i.i97
   %255 = load ptr, ptr %254, align 8, !tbaa !93
   %256 = icmp eq ptr %255, %218
   br i1 %256, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit101, label %257, !llvm.loop !237
@@ -8918,7 +8914,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5
   %.pn.i.i.i103 = phi i64 [ %273, %.thread200 ], [ %283, %281 ]
   %.02032.i.i.i104 = phi i64 [ 0, %.thread200 ], [ %282, %281 ]
   %.02133.i.i.i105 = and i64 %.pn.i.i.i103, %269
-  %276 = getelementptr inbounds nuw ptr, ptr %274, i64 %.02133.i.i.i105
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %.02133.i.i.i105
   %277 = load ptr, ptr %276, align 8, !tbaa !93
   %278 = icmp eq ptr %277, %218
   br i1 %278, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i109, label %279
@@ -8948,14 +8944,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %290 = load ptr, ptr %1, align 8, !tbaa !102
   %291 = load ptr, ptr %66, align 8, !tbaa !93
   %.02336.i6.i110 = and i64 %285, %289
-  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %.02336.i6.i110
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %.02336.i6.i110
   %293 = load ptr, ptr %292, align 8, !tbaa !93
   %294 = icmp eq ptr %293, %291
   br i1 %294, label %._crit_edge.i116, label %.lr.ph.i111
 
 ._crit_edge.i116:                                 ; preds = %300, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i109
   %.02336.i.lcssa5.i117 = phi i64 [ %.02336.i6.i110, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i109 ], [ %.02336.i.i115, %300 ]
-  %295 = getelementptr inbounds nuw ptr, ptr %290, i64 %.02336.i.lcssa5.i117
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %.02336.i.lcssa5.i117
   store ptr %218, ptr %295, align 8, !tbaa !93
   %296 = load i64, ptr %9, align 8, !tbaa !168
   %297 = add i64 %296, 1
@@ -8975,7 +8971,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i114 = icmp ule i64 %301, %285
   tail call void @llvm.assume(i1 %.not.i3.i114)
   %.02336.i.i115 = and i64 %302, %285
-  %303 = getelementptr inbounds nuw ptr, ptr %290, i64 %.02336.i.i115
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %.02336.i.i115
   %304 = load ptr, ptr %303, align 8, !tbaa !93
   %305 = icmp eq ptr %304, %291
   br i1 %305, label %._crit_edge.i116, label %.lr.ph.i111
@@ -9055,7 +9051,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.05.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.05.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.05.i.i
   store ptr %.pre.i.i, ptr %10, align 8, !tbaa !93
   %11 = add nuw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, %spec.select
@@ -9092,7 +9088,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
 
 16:                                               ; preds = %.lr.ph27, %39
   %.026 = phi i64 [ 0, %.lr.ph27 ], [ %40, %39 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %.pre30, i64 %.026
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre30, i64 %.026
   %18 = load ptr, ptr %17, align 8, !tbaa !93
   %19 = icmp eq ptr %18, %12
   br i1 %19, label %39, label %20
@@ -9103,14 +9099,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %23 = lshr i64 %21, 9
   %24 = xor i64 %22, %23
   %.02336.i22 = and i64 %24, %14
-  %25 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i22
   %26 = load ptr, ptr %25, align 8, !tbaa !93
   %27 = icmp eq ptr %26, %7
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %31, %20
   %.02336.i.lcssa21 = phi i64 [ %.02336.i22, %20 ], [ %.02336.i, %31 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i.lcssa21
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i.lcssa21
   store ptr %18, ptr %28, align 8, !tbaa !93
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERKS4_.exit
 
@@ -9127,13 +9123,13 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i12 = icmp ule i64 %32, %14
   tail call void @llvm.assume(i1 %.not.i12)
   %.02336.i = and i64 %33, %14
-  %34 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i
   %35 = load ptr, ptr %34, align 8, !tbaa !93
   %36 = icmp eq ptr %35, %7
   br i1 %36, label %._crit_edge, label %.lr.ph
 
 _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERKS4_.exit.loopexit: ; preds = %.lr.ph
-  %37 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i24
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i24
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERKS4_.exit
 
 _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERKS4_.exit: ; preds = %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERKS4_.exit.loopexit, %._crit_edge
@@ -9189,7 +9185,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEE6fnDtorISC_EEvPv(ptr noundef %0) #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8, !tbaa !242
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !115
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %5(ptr noundef nonnull %6)
@@ -10090,7 +10086,7 @@ define linkonce_odr dso_local void @_ZN4Luau23UserDefinedFunctionDataD2Ev(ptr no
 
 .lr.ph.i.i.i.i:                                   ; preds = %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i
   %.04.i.i.i.i = phi i64 [ %13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw %"struct.std::pair.137", ptr %3, i64 %.04.i.i.i.i
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %.04.i.i.i.i
   %8 = load ptr, ptr %7, align 8, !tbaa !240
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = icmp eq ptr %8, %9
@@ -10144,7 +10140,7 @@ _ZN4Luau12DenseHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_1
 
 .lr.ph.i.i.i.i3:                                  ; preds = %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i6
   %.04.i.i.i.i4 = phi i64 [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i6 ], [ 0, %24 ]
-  %27 = getelementptr inbounds nuw %"struct.std::pair.139", ptr %23, i64 %.04.i.i.i.i4
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %.04.i.i.i.i4
   %28 = load ptr, ptr %27, align 8, !tbaa !240
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = icmp eq ptr %28, %29
@@ -10457,7 +10453,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12visit_detail7hasSeen
   %.pn.i.i = phi i64 [ %17, %12 ], [ %27, %25 ]
   %.02032.i.i = phi i64 [ 0, %12 ], [ %26, %25 ]
   %.02133.i.i = and i64 %.pn.i.i, %13
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02133.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.02133.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !115
   %22 = icmp eq ptr %21, %1
   br i1 %22, label %_ZNK4Luau12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS1_EE8containsERKS1_.exit, label %23
@@ -10504,7 +10500,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12visit_detail7hasSeen
   %.pn.i.i.i = phi i64 [ %40, %.thread11 ], [ %50, %48 ]
   %.02032.i.i.i = phi i64 [ 0, %.thread11 ], [ %49, %48 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %36
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %.02133.i.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.02133.i.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !115
   %45 = icmp eq ptr %44, %1
   br i1 %45, label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i, label %46
@@ -10536,14 +10532,14 @@ _ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHa
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !115
   %.02336.i6.i = and i64 %53, %57
-  %61 = getelementptr inbounds nuw ptr, ptr %58, i64 %.02336.i6.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.02336.i6.i
   %62 = load ptr, ptr %61, align 8, !tbaa !115
   %63 = icmp eq ptr %62, %60
   br i1 %63, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %69, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i
   %.02336.i.lcssa5.i = phi i64 [ %.02336.i6.i, %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i ], [ %.02336.i.i, %69 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %58, i64 %.02336.i.lcssa5.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.02336.i.lcssa5.i
   store ptr %1, ptr %64, align 8, !tbaa !115
   %65 = load i64, ptr %3, align 8, !tbaa !280
   %66 = add i64 %65, 1
@@ -10563,7 +10559,7 @@ _ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHa
   %.not.i3.i = icmp ule i64 %70, %53
   tail call void @llvm.assume(i1 %.not.i3.i)
   %.02336.i.i = and i64 %71, %53
-  %72 = getelementptr inbounds nuw ptr, ptr %58, i64 %.02336.i.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.02336.i.i
   %73 = load ptr, ptr %72, align 8, !tbaa !115
   %74 = icmp eq ptr %73, %60
   br i1 %74, label %._crit_edge.i, label %.lr.ph.i
@@ -10593,7 +10589,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.05.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.05.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.05.i.i
   store ptr %.pre.i.i, ptr %10, align 8, !tbaa !115
   %11 = add nuw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, %spec.select
@@ -10630,7 +10626,7 @@ _ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHa
 
 16:                                               ; preds = %.lr.ph27, %39
   %.026 = phi i64 [ 0, %.lr.ph27 ], [ %40, %39 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %.pre30, i64 %.026
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre30, i64 %.026
   %18 = load ptr, ptr %17, align 8, !tbaa !115
   %19 = icmp eq ptr %18, %12
   br i1 %19, label %39, label %20
@@ -10641,14 +10637,14 @@ _ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHa
   %23 = lshr i64 %21, 9
   %24 = xor i64 %22, %23
   %.02336.i22 = and i64 %24, %14
-  %25 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i22
   %26 = load ptr, ptr %25, align 8, !tbaa !115
   %27 = icmp eq ptr %26, %7
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %31, %20
   %.02336.i.lcssa21 = phi i64 [ %.02336.i22, %20 ], [ %.02336.i, %31 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i.lcssa21
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i.lcssa21
   store ptr %18, ptr %28, align 8, !tbaa !115
   br label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERKS2_.exit
 
@@ -10665,13 +10661,13 @@ _ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHa
   %.not.i12 = icmp ule i64 %32, %14
   tail call void @llvm.assume(i1 %.not.i12)
   %.02336.i = and i64 %33, %14
-  %34 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i
   %35 = load ptr, ptr %34, align 8, !tbaa !115
   %36 = icmp eq ptr %35, %7
   br i1 %36, label %._crit_edge, label %.lr.ph
 
 _ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERKS2_.exit.loopexit: ; preds = %.lr.ph
-  %37 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i24
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i24
   br label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERKS2_.exit
 
 _ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERKS2_.exit: ; preds = %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE13insert_unsafeERKS2_.exit.loopexit, %._crit_edge
@@ -10691,7 +10687,7 @@ declare noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef) local_unna
 define linkonce_odr dso_local noundef ptr @_ZN4Luau15emplaceTypePackINS_9Unifiable5BoundIPKNS_11TypePackVarEEEJRKS5_EEEPT_PS3_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #14 comdat {
   %3 = load i32, ptr %0, align 8, !tbaa !207
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !115
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void %6(ptr noundef nonnull %7)
@@ -10707,7 +10703,7 @@ declare noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef) local_u
 define linkonce_odr dso_local noundef ptr @_ZN4Luau15emplaceTypePackINS_15GenericTypePackEJRNS_7NotNullINS_5ScopeEEEEEEPT_PNS_11TypePackVarEDpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #14 comdat {
   %3 = load i32, ptr %0, align 8, !tbaa !207
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEE9tableDtorE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !115
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void %6(ptr noundef nonnull %7)
@@ -10893,7 +10889,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %21, %14 ], [ %31, %29 ]
   %.02032.i.i.i = phi i64 [ 0, %14 ], [ %30, %29 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %17
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %.02133.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.02133.i.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !93
   %26 = icmp eq ptr %25, %5
   br i1 %26, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit, label %27
@@ -10929,7 +10925,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit: ; preds = %23
   %.pn.i.i.i.i = phi i64 [ %40, %36 ], [ %49, %47 ]
   %.02032.i.i.i.i = phi i64 [ 0, %36 ], [ %48, %47 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %17
-  %42 = getelementptr inbounds nuw ptr, ptr %22, i64 %.02133.i.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.02133.i.i.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !93
   %44 = icmp eq ptr %43, %1
   br i1 %44, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %45
@@ -10961,14 +10957,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %54 = lshr i64 %52, 9
   %55 = xor i64 %53, %54
   %.02336.i6.i.i = and i64 %.pre-phi, %55
-  %56 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02336.i6.i.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02336.i6.i.i
   %57 = load ptr, ptr %56, align 8, !tbaa !93
   %58 = icmp eq ptr %57, %50
   br i1 %58, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %64, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %64 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02336.i.lcssa5.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %59, align 8, !tbaa !93
   %60 = load i64, ptr %7, align 8, !tbaa !168
   %61 = add i64 %60, 1
@@ -10988,7 +10984,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %65, %.pre-phi
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %66, %.pre-phi
-  %67 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02336.i.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02336.i.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !93
   %69 = icmp eq ptr %68, %50
   br i1 %69, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -11026,7 +11022,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %19, %12 ], [ %29, %27 ]
   %.02032.i.i.i = phi i64 [ 0, %12 ], [ %28, %27 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %15
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %.02133.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.02133.i.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !93
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit, label %25
@@ -11079,7 +11075,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %50, %45 ], [ %60, %58 ]
   %.02032.i.i.i.i = phi i64 [ 0, %45 ], [ %59, %58 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %46
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02133.i.i.i.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02133.i.i.i.i
   %54 = load ptr, ptr %53, align 8, !tbaa !93
   %55 = icmp eq ptr %54, %1
   br i1 %55, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %56
@@ -11110,14 +11106,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %69 = load ptr, ptr %68, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %62, %66
-  %70 = getelementptr inbounds nuw ptr, ptr %67, i64 %.02336.i6.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.02336.i6.i.i
   %71 = load ptr, ptr %70, align 8, !tbaa !93
   %72 = icmp eq ptr %71, %69
   br i1 %72, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %78, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %78 ]
-  %73 = getelementptr inbounds nuw ptr, ptr %67, i64 %.02336.i.lcssa5.i.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %73, align 8, !tbaa !93
   %74 = load i64, ptr %5, align 8, !tbaa !168
   %75 = add i64 %74, 1
@@ -11137,7 +11133,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %79, %62
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %80, %62
-  %81 = getelementptr inbounds nuw ptr, ptr %67, i64 %.02336.i.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.02336.i.i.i
   %82 = load ptr, ptr %81, align 8, !tbaa !93
   %83 = icmp eq ptr %82, %69
   br i1 %83, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -11182,7 +11178,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %23, %18 ], [ %33, %31 ]
   %.02032.i.i.i.i = phi i64 [ 0, %18 ], [ %32, %31 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %19
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.02133.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.02133.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %29
@@ -11213,14 +11209,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %35, %39
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i6.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i6.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !93
   %45 = icmp eq ptr %44, %42
   br i1 %45, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %51, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %51 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.lcssa5.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %46, align 8, !tbaa !93
   %47 = load i64, ptr %6, align 8, !tbaa !168
   %48 = add i64 %47, 1
@@ -11240,7 +11236,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %52, %35
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %53, %35
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !93
   %56 = icmp eq ptr %55, %42
   br i1 %56, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -11285,7 +11281,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %23, %18 ], [ %33, %31 ]
   %.02032.i.i.i.i = phi i64 [ 0, %18 ], [ %32, %31 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %19
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.02133.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.02133.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %29
@@ -11316,14 +11312,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %35, %39
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i6.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i6.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !93
   %45 = icmp eq ptr %44, %42
   br i1 %45, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %51, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %51 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.lcssa5.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %46, align 8, !tbaa !93
   %47 = load i64, ptr %6, align 8, !tbaa !168
   %48 = add i64 %47, 1
@@ -11343,7 +11339,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %52, %35
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %53, %35
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !93
   %56 = icmp eq ptr %55, %42
   br i1 %56, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -11388,7 +11384,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %23, %18 ], [ %33, %31 ]
   %.02032.i.i.i.i = phi i64 [ 0, %18 ], [ %32, %31 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %19
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.02133.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.02133.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %29
@@ -11419,14 +11415,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %35, %39
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i6.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i6.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !93
   %45 = icmp eq ptr %44, %42
   br i1 %45, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %51, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %51 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.lcssa5.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %46, align 8, !tbaa !93
   %47 = load i64, ptr %6, align 8, !tbaa !168
   %48 = add i64 %47, 1
@@ -11446,7 +11442,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %52, %35
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %53, %35
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !93
   %56 = icmp eq ptr %55, %42
   br i1 %56, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -11489,7 +11485,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %24, %17 ], [ %34, %32 ]
   %.02032.i.i.i = phi i64 [ 0, %17 ], [ %33, %32 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %20
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.02133.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.02133.i.i.i
   %28 = load ptr, ptr %27, align 8, !tbaa !93
   %29 = icmp eq ptr %28, %1
   br i1 %29, label %_ZNK4Luau10TypeCacher8isCachedEPKNS_4TypeE.exit, label %30
@@ -11532,7 +11528,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i35 = phi i64 [ %50, %43 ], [ %60, %58 ]
   %.02032.i.i.i36 = phi i64 [ 0, %43 ], [ %59, %58 ]
   %.02133.i.i.i37 = and i64 %.pn.i.i.i35, %46
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02133.i.i.i37
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02133.i.i.i37
   %54 = load ptr, ptr %53, align 8, !tbaa !93
   %55 = icmp eq ptr %54, %1
   br i1 %55, label %_ZNK4Luau10TypeCacher8isCachedEPKNS_4TypeE.exit, label %56
@@ -11590,7 +11586,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i40 = phi i64 [ %85, %78 ], [ %95, %93 ]
   %.02032.i.i.i41 = phi i64 [ 0, %78 ], [ %94, %93 ]
   %.02133.i.i.i42 = and i64 %.pn.i.i.i40, %81
-  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %.02133.i.i.i42
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.02133.i.i.i42
   %89 = load ptr, ptr %88, align 8, !tbaa !96
   %90 = icmp eq ptr %89, %69
   br i1 %90, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_11TypePackVarE.exit, label %91
@@ -11633,7 +11629,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i45 = phi i64 [ %107, %100 ], [ %116, %114 ]
   %.02032.i.i.i46 = phi i64 [ 0, %100 ], [ %115, %114 ]
   %.02133.i.i.i47 = and i64 %.pn.i.i.i45, %103
-  %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %.02133.i.i.i47
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %.02133.i.i.i47
   %111 = load ptr, ptr %110, align 8, !tbaa !96
   %112 = icmp eq ptr %111, %98
   %113 = icmp eq ptr %111, %76
@@ -11687,7 +11683,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_11TypePackVarE.exit: ; preds = %87, %1
   %.pn.i.i.i51 = phi i64 [ %135, %129 ], [ %145, %143 ]
   %.02032.i.i.i52 = phi i64 [ 0, %129 ], [ %144, %143 ]
   %.02133.i.i.i53 = and i64 %.pn.i.i.i51, %131
-  %138 = getelementptr inbounds nuw ptr, ptr %136, i64 %.02133.i.i.i53
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %.02133.i.i.i53
   %139 = load ptr, ptr %138, align 8, !tbaa !93
   %140 = icmp eq ptr %139, %123
   br i1 %140, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit56.thread100, label %141
@@ -11751,7 +11747,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit56.thread100: ; preds = %_Z
   %.pn.i.i.i57 = phi i64 [ %167, %161 ], [ %177, %175 ]
   %.02032.i.i.i58 = phi i64 [ 0, %161 ], [ %176, %175 ]
   %.02133.i.i.i59 = and i64 %.pn.i.i.i57, %163
-  %170 = getelementptr inbounds nuw ptr, ptr %168, i64 %.02133.i.i.i59
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %.02133.i.i.i59
   %171 = load ptr, ptr %170, align 8, !tbaa !93
   %172 = icmp eq ptr %171, %155
   br i1 %172, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit62.thread104, label %173
@@ -11808,7 +11804,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit62.thread104: ; preds = %_Z
   %.pn.i.i.i63 = phi i64 [ %196, %192 ], [ %205, %203 ]
   %.02032.i.i.i64 = phi i64 [ 0, %192 ], [ %204, %203 ]
   %.02133.i.i.i65 = and i64 %.pn.i.i.i63, %188
-  %198 = getelementptr inbounds nuw ptr, ptr %189, i64 %.02133.i.i.i65
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.02133.i.i.i65
   %199 = load ptr, ptr %198, align 8, !tbaa !93
   %200 = icmp eq ptr %199, %190
   br i1 %200, label %.thread110, label %201
@@ -11869,7 +11865,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit68: ; preds = %203, %201, %
   %.pn.i.i.i.i = phi i64 [ %223, %218 ], [ %233, %231 ]
   %.02032.i.i.i.i = phi i64 [ 0, %218 ], [ %232, %231 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %219
-  %226 = getelementptr inbounds nuw ptr, ptr %224, i64 %.02133.i.i.i.i
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %.02133.i.i.i.i
   %227 = load ptr, ptr %226, align 8, !tbaa !93
   %228 = icmp eq ptr %227, %1
   br i1 %228, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %229
@@ -11900,14 +11896,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %242 = load ptr, ptr %241, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %235, %239
-  %243 = getelementptr inbounds nuw ptr, ptr %240, i64 %.02336.i6.i.i
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %.02336.i6.i.i
   %244 = load ptr, ptr %243, align 8, !tbaa !93
   %245 = icmp eq ptr %244, %242
   br i1 %245, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %251, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %251 ]
-  %246 = getelementptr inbounds nuw ptr, ptr %240, i64 %.02336.i.lcssa5.i.i
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %246, align 8, !tbaa !93
   %247 = load i64, ptr %36, align 8, !tbaa !168
   %248 = add i64 %247, 1
@@ -11927,7 +11923,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %252, %235
   call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %253, %235
-  %254 = getelementptr inbounds nuw ptr, ptr %240, i64 %.02336.i.i.i
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %.02336.i.i.i
   %255 = load ptr, ptr %254, align 8, !tbaa !93
   %256 = icmp eq ptr %255, %242
   br i1 %256, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -11966,7 +11962,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.pn.i.i.i.i71 = phi i64 [ %276, %271 ], [ %286, %284 ]
   %.02032.i.i.i.i72 = phi i64 [ 0, %271 ], [ %285, %284 ]
   %.02133.i.i.i.i73 = and i64 %.pn.i.i.i.i71, %272
-  %279 = getelementptr inbounds nuw ptr, ptr %277, i64 %.02133.i.i.i.i73
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %.02133.i.i.i.i73
   %280 = load ptr, ptr %279, align 8, !tbaa !93
   %281 = icmp eq ptr %280, %1
   br i1 %281, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i77, label %282
@@ -11997,14 +11993,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %294 = getelementptr inbounds nuw i8, ptr %258, i64 24
   %295 = load ptr, ptr %294, align 8, !tbaa !93
   %.02336.i6.i.i78 = and i64 %288, %292
-  %296 = getelementptr inbounds nuw ptr, ptr %293, i64 %.02336.i6.i.i78
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %.02336.i6.i.i78
   %297 = load ptr, ptr %296, align 8, !tbaa !93
   %298 = icmp eq ptr %297, %295
   br i1 %298, label %._crit_edge.i.i84, label %.lr.ph.i.i79
 
 ._crit_edge.i.i84:                                ; preds = %304, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i77
   %.02336.i.lcssa5.i.i85 = phi i64 [ %.02336.i6.i.i78, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i77 ], [ %.02336.i.i.i83, %304 ]
-  %299 = getelementptr inbounds nuw ptr, ptr %293, i64 %.02336.i.lcssa5.i.i85
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %.02336.i.lcssa5.i.i85
   store ptr %1, ptr %299, align 8, !tbaa !93
   %300 = load i64, ptr %259, align 8, !tbaa !168
   %301 = add i64 %300, 1
@@ -12024,7 +12020,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i82 = icmp ule i64 %305, %288
   call void @llvm.assume(i1 %.not.i3.i.i82)
   %.02336.i.i.i83 = and i64 %306, %288
-  %307 = getelementptr inbounds nuw ptr, ptr %293, i64 %.02336.i.i.i83
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %.02336.i.i.i83
   %308 = load ptr, ptr %307, align 8, !tbaa !93
   %309 = icmp eq ptr %308, %295
   br i1 %309, label %._crit_edge.i.i84, label %.lr.ph.i.i79
@@ -12063,7 +12059,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %20, %13 ], [ %30, %28 ]
   %.02032.i.i.i = phi i64 [ 0, %13 ], [ %29, %28 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %16
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %.02133.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.02133.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !93
   %25 = icmp eq ptr %24, %1
   br i1 %25, label %_ZNK4Luau10TypeCacher8isCachedEPKNS_4TypeE.exit, label %26
@@ -12106,7 +12102,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i35 = phi i64 [ %46, %39 ], [ %56, %54 ]
   %.02032.i.i.i36 = phi i64 [ 0, %39 ], [ %55, %54 ]
   %.02133.i.i.i37 = and i64 %.pn.i.i.i35, %42
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %.02133.i.i.i37
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.02133.i.i.i37
   %50 = load ptr, ptr %49, align 8, !tbaa !93
   %51 = icmp eq ptr %50, %1
   br i1 %51, label %_ZNK4Luau10TypeCacher8isCachedEPKNS_4TypeE.exit, label %52
@@ -12157,7 +12153,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i40 = phi i64 [ %77, %70 ], [ %87, %85 ]
   %.02032.i.i.i41 = phi i64 [ 0, %70 ], [ %86, %85 ]
   %.02133.i.i.i42 = and i64 %.pn.i.i.i40, %73
-  %80 = getelementptr inbounds nuw ptr, ptr %78, i64 %.02133.i.i.i42
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.02133.i.i.i42
   %81 = load ptr, ptr %80, align 8, !tbaa !93
   %82 = icmp eq ptr %81, %63
   br i1 %82, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit45, label %83
@@ -12193,7 +12189,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit45: ; preds = %79
   %.pn.i.i.i.i = phi i64 [ %96, %92 ], [ %105, %103 ]
   %.02032.i.i.i.i = phi i64 [ 0, %92 ], [ %104, %103 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %73
-  %98 = getelementptr inbounds nuw ptr, ptr %78, i64 %.02133.i.i.i.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.02133.i.i.i.i
   %99 = load ptr, ptr %98, align 8, !tbaa !93
   %100 = icmp eq ptr %99, %1
   br i1 %100, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %101
@@ -12225,14 +12221,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %110 = lshr i64 %108, 9
   %111 = xor i64 %109, %110
   %.02336.i6.i.i = and i64 %.pre-phi, %111
-  %112 = getelementptr inbounds nuw ptr, ptr %107, i64 %.02336.i6.i.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.02336.i6.i.i
   %113 = load ptr, ptr %112, align 8, !tbaa !93
   %114 = icmp eq ptr %113, %106
   br i1 %114, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %120, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %120 ]
-  %115 = getelementptr inbounds nuw ptr, ptr %107, i64 %.02336.i.lcssa5.i.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %115, align 8, !tbaa !93
   %116 = load i64, ptr %32, align 8, !tbaa !168
   %117 = add i64 %116, 1
@@ -12252,7 +12248,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %121, %.pre-phi
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %122, %.pre-phi
-  %123 = getelementptr inbounds nuw ptr, ptr %107, i64 %.02336.i.i.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.02336.i.i.i
   %124 = load ptr, ptr %123, align 8, !tbaa !93
   %125 = icmp eq ptr %124, %106
   br i1 %125, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -12319,7 +12315,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit45.thread: ; preds = %85, %
   %.pn.i.i.i47 = phi i64 [ %158, %152 ], [ %168, %166 ]
   %.02032.i.i.i48 = phi i64 [ 0, %152 ], [ %167, %166 ]
   %.02133.i.i.i49 = and i64 %.pn.i.i.i47, %154
-  %161 = getelementptr inbounds nuw ptr, ptr %159, i64 %.02133.i.i.i49
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %.02133.i.i.i49
   %162 = load ptr, ptr %161, align 8, !tbaa !93
   %163 = icmp eq ptr %162, %146
   br i1 %163, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit52, label %164
@@ -12380,7 +12376,7 @@ _ZStneIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declval
   %.pn.i.i.i53 = phi i64 [ %189, %183 ], [ %199, %197 ]
   %.02032.i.i.i54 = phi i64 [ 0, %183 ], [ %198, %197 ]
   %.02133.i.i.i55 = and i64 %.pn.i.i.i53, %185
-  %192 = getelementptr inbounds nuw ptr, ptr %190, i64 %.02133.i.i.i55
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %.02133.i.i.i55
   %193 = load ptr, ptr %192, align 8, !tbaa !93
   %194 = icmp eq ptr %193, %177
   br i1 %194, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit58, label %195
@@ -12432,7 +12428,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit58: ; preds = %197, %195, %
   %.pn.i.i.i59 = phi i64 [ %219, %212 ], [ %229, %227 ]
   %.02032.i.i.i60 = phi i64 [ 0, %212 ], [ %228, %227 ]
   %.02133.i.i.i61 = and i64 %.pn.i.i.i59, %215
-  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %.02133.i.i.i61
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %.02133.i.i.i61
   %223 = load ptr, ptr %222, align 8, !tbaa !93
   %224 = icmp eq ptr %223, %205
   br i1 %224, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit64, label %225
@@ -12478,7 +12474,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit64: ; preds = %227, %225, %
   %.pn.i.i.i65 = phi i64 [ %247, %240 ], [ %257, %255 ]
   %.02032.i.i.i66 = phi i64 [ 0, %240 ], [ %256, %255 ]
   %.02133.i.i.i67 = and i64 %.pn.i.i.i65, %243
-  %250 = getelementptr inbounds nuw ptr, ptr %248, i64 %.02133.i.i.i67
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %.02133.i.i.i67
   %251 = load ptr, ptr %250, align 8, !tbaa !93
   %252 = icmp eq ptr %251, %233
   br i1 %252, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit70.thread114, label %253
@@ -12535,7 +12531,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit70.thread114: ; preds = %24
   %.pn.i.i.i.i72 = phi i64 [ %275, %270 ], [ %285, %283 ]
   %.02032.i.i.i.i73 = phi i64 [ 0, %270 ], [ %284, %283 ]
   %.02133.i.i.i.i74 = and i64 %.pn.i.i.i.i72, %271
-  %278 = getelementptr inbounds nuw ptr, ptr %276, i64 %.02133.i.i.i.i74
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %.02133.i.i.i.i74
   %279 = load ptr, ptr %278, align 8, !tbaa !93
   %280 = icmp eq ptr %279, %1
   br i1 %280, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i78, label %281
@@ -12566,14 +12562,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %294 = load ptr, ptr %293, align 8, !tbaa !93
   %.02336.i6.i.i79 = and i64 %287, %291
-  %295 = getelementptr inbounds nuw ptr, ptr %292, i64 %.02336.i6.i.i79
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %.02336.i6.i.i79
   %296 = load ptr, ptr %295, align 8, !tbaa !93
   %297 = icmp eq ptr %296, %294
   br i1 %297, label %._crit_edge.i.i85, label %.lr.ph.i.i80
 
 ._crit_edge.i.i85:                                ; preds = %303, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i78
   %.02336.i.lcssa5.i.i86 = phi i64 [ %.02336.i6.i.i79, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i78 ], [ %.02336.i.i.i84, %303 ]
-  %298 = getelementptr inbounds nuw ptr, ptr %292, i64 %.02336.i.lcssa5.i.i86
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %.02336.i.lcssa5.i.i86
   store ptr %1, ptr %298, align 8, !tbaa !93
   %299 = load i64, ptr %32, align 8, !tbaa !168
   %300 = add i64 %299, 1
@@ -12593,7 +12589,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i83 = icmp ule i64 %304, %287
   tail call void @llvm.assume(i1 %.not.i3.i.i83)
   %.02336.i.i.i84 = and i64 %305, %287
-  %306 = getelementptr inbounds nuw ptr, ptr %292, i64 %.02336.i.i.i84
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %.02336.i.i.i84
   %307 = load ptr, ptr %306, align 8, !tbaa !93
   %308 = icmp eq ptr %307, %294
   br i1 %308, label %._crit_edge.i.i85, label %.lr.ph.i.i80
@@ -12632,7 +12628,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.pn.i.i.i.i89 = phi i64 [ %328, %323 ], [ %338, %336 ]
   %.02032.i.i.i.i90 = phi i64 [ 0, %323 ], [ %337, %336 ]
   %.02133.i.i.i.i91 = and i64 %.pn.i.i.i.i89, %324
-  %331 = getelementptr inbounds nuw ptr, ptr %329, i64 %.02133.i.i.i.i91
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %329, i64 %.02133.i.i.i.i91
   %332 = load ptr, ptr %331, align 8, !tbaa !93
   %333 = icmp eq ptr %332, %1
   br i1 %333, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i95, label %334
@@ -12663,14 +12659,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %346 = getelementptr inbounds nuw i8, ptr %310, i64 24
   %347 = load ptr, ptr %346, align 8, !tbaa !93
   %.02336.i6.i.i96 = and i64 %340, %344
-  %348 = getelementptr inbounds nuw ptr, ptr %345, i64 %.02336.i6.i.i96
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %.02336.i6.i.i96
   %349 = load ptr, ptr %348, align 8, !tbaa !93
   %350 = icmp eq ptr %349, %347
   br i1 %350, label %._crit_edge.i.i102, label %.lr.ph.i.i97
 
 ._crit_edge.i.i102:                               ; preds = %356, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i95
   %.02336.i.lcssa5.i.i103 = phi i64 [ %.02336.i6.i.i96, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i95 ], [ %.02336.i.i.i101, %356 ]
-  %351 = getelementptr inbounds nuw ptr, ptr %345, i64 %.02336.i.lcssa5.i.i103
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %.02336.i.lcssa5.i.i103
   store ptr %1, ptr %351, align 8, !tbaa !93
   %352 = load i64, ptr %311, align 8, !tbaa !168
   %353 = add i64 %352, 1
@@ -12690,7 +12686,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i100 = icmp ule i64 %357, %340
   tail call void @llvm.assume(i1 %.not.i3.i.i100)
   %.02336.i.i.i101 = and i64 %358, %340
-  %359 = getelementptr inbounds nuw ptr, ptr %345, i64 %.02336.i.i.i101
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %.02336.i.i.i101
   %360 = load ptr, ptr %359, align 8, !tbaa !93
   %361 = icmp eq ptr %360, %347
   br i1 %361, label %._crit_edge.i.i102, label %.lr.ph.i.i97
@@ -12734,7 +12730,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %23, %16 ], [ %33, %31 ]
   %.02032.i.i.i = phi i64 [ 0, %16 ], [ %32, %31 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %19
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.02133.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.02133.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = icmp eq ptr %27, %7
   br i1 %28, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit, label %29
@@ -12769,7 +12765,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i7 = phi i64 [ %43, %36 ], [ %53, %51 ]
   %.02032.i.i.i8 = phi i64 [ 0, %36 ], [ %52, %51 ]
   %.02133.i.i.i9 = and i64 %.pn.i.i.i7, %39
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %.02133.i.i.i9
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.02133.i.i.i9
   %47 = load ptr, ptr %46, align 8, !tbaa !93
   %48 = icmp eq ptr %47, %34
   br i1 %48, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit, label %49
@@ -12809,7 +12805,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit: ; preds = %25, %45
   %.pn.i.i.i.i = phi i64 [ %66, %61 ], [ %75, %73 ]
   %.02032.i.i.i.i = phi i64 [ 0, %61 ], [ %74, %73 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %62
-  %68 = getelementptr inbounds nuw ptr, ptr %54, i64 %.02133.i.i.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.02133.i.i.i.i
   %69 = load ptr, ptr %68, align 8, !tbaa !93
   %70 = icmp eq ptr %69, %1
   br i1 %70, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %71
@@ -12841,14 +12837,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %82 = lshr i64 %80, 9
   %83 = xor i64 %81, %82
   %.02336.i6.i.i = and i64 %79, %83
-  %84 = getelementptr inbounds nuw ptr, ptr %77, i64 %.02336.i6.i.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.02336.i6.i.i
   %85 = load ptr, ptr %84, align 8, !tbaa !93
   %86 = icmp eq ptr %85, %76
   br i1 %86, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %92, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %92 ]
-  %87 = getelementptr inbounds nuw ptr, ptr %77, i64 %.02336.i.lcssa5.i.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %87, align 8, !tbaa !93
   %88 = load i64, ptr %9, align 8, !tbaa !168
   %89 = add i64 %88, 1
@@ -12868,7 +12864,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %93, %79
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %94, %79
-  %95 = getelementptr inbounds nuw ptr, ptr %77, i64 %.02336.i.i.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.02336.i.i.i
   %96 = load ptr, ptr %95, align 8, !tbaa !93
   %97 = icmp eq ptr %96, %76
   br i1 %97, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -12908,7 +12904,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.pn.i.i.i.i15 = phi i64 [ %117, %112 ], [ %127, %125 ]
   %.02032.i.i.i.i16 = phi i64 [ 0, %112 ], [ %126, %125 ]
   %.02133.i.i.i.i17 = and i64 %.pn.i.i.i.i15, %113
-  %120 = getelementptr inbounds nuw ptr, ptr %118, i64 %.02133.i.i.i.i17
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.02133.i.i.i.i17
   %121 = load ptr, ptr %120, align 8, !tbaa !93
   %122 = icmp eq ptr %121, %1
   br i1 %122, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i21, label %123
@@ -12939,14 +12935,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %135 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %136 = load ptr, ptr %135, align 8, !tbaa !93
   %.02336.i6.i.i22 = and i64 %129, %133
-  %137 = getelementptr inbounds nuw ptr, ptr %134, i64 %.02336.i6.i.i22
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %.02336.i6.i.i22
   %138 = load ptr, ptr %137, align 8, !tbaa !93
   %139 = icmp eq ptr %138, %136
   br i1 %139, label %._crit_edge.i.i28, label %.lr.ph.i.i23
 
 ._crit_edge.i.i28:                                ; preds = %145, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i21
   %.02336.i.lcssa5.i.i29 = phi i64 [ %.02336.i6.i.i22, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i21 ], [ %.02336.i.i.i27, %145 ]
-  %140 = getelementptr inbounds nuw ptr, ptr %134, i64 %.02336.i.lcssa5.i.i29
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %.02336.i.lcssa5.i.i29
   store ptr %1, ptr %140, align 8, !tbaa !93
   %141 = load i64, ptr %100, align 8, !tbaa !168
   %142 = add i64 %141, 1
@@ -12966,7 +12962,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i26 = icmp ule i64 %146, %129
   tail call void @llvm.assume(i1 %.not.i3.i.i26)
   %.02336.i.i.i27 = and i64 %147, %129
-  %148 = getelementptr inbounds nuw ptr, ptr %134, i64 %.02336.i.i.i27
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %.02336.i.i.i27
   %149 = load ptr, ptr %148, align 8, !tbaa !93
   %150 = icmp eq ptr %149, %136
   br i1 %150, label %._crit_edge.i.i28, label %.lr.ph.i.i23
@@ -13011,7 +13007,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %23, %18 ], [ %33, %31 ]
   %.02032.i.i.i.i = phi i64 [ 0, %18 ], [ %32, %31 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %19
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.02133.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.02133.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %29
@@ -13042,14 +13038,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %35, %39
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i6.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i6.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !93
   %45 = icmp eq ptr %44, %42
   br i1 %45, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %51, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %51 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.lcssa5.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %46, align 8, !tbaa !93
   %47 = load i64, ptr %6, align 8, !tbaa !168
   %48 = add i64 %47, 1
@@ -13069,7 +13065,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %52, %35
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %53, %35
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !93
   %56 = icmp eq ptr %55, %42
   br i1 %56, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -13114,7 +13110,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %23, %18 ], [ %33, %31 ]
   %.02032.i.i.i.i = phi i64 [ 0, %18 ], [ %32, %31 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %19
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.02133.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.02133.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %29
@@ -13145,14 +13141,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %35, %39
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i6.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i6.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !93
   %45 = icmp eq ptr %44, %42
   br i1 %45, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %51, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %51 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.lcssa5.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %46, align 8, !tbaa !93
   %47 = load i64, ptr %6, align 8, !tbaa !168
   %48 = add i64 %47, 1
@@ -13172,7 +13168,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %52, %35
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %53, %35
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !93
   %56 = icmp eq ptr %55, %42
   br i1 %56, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -13217,7 +13213,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %23, %18 ], [ %33, %31 ]
   %.02032.i.i.i.i = phi i64 [ 0, %18 ], [ %32, %31 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %19
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.02133.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.02133.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %29
@@ -13248,14 +13244,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %35, %39
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i6.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i6.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !93
   %45 = icmp eq ptr %44, %42
   br i1 %45, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %51, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %51 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.lcssa5.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %46, align 8, !tbaa !93
   %47 = load i64, ptr %6, align 8, !tbaa !168
   %48 = add i64 %47, 1
@@ -13275,7 +13271,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %52, %35
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %53, %35
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !93
   %56 = icmp eq ptr %55, %42
   br i1 %56, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -13320,7 +13316,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %23, %18 ], [ %33, %31 ]
   %.02032.i.i.i.i = phi i64 [ 0, %18 ], [ %32, %31 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %19
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.02133.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.02133.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %29
@@ -13351,14 +13347,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %35, %39
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i6.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i6.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !93
   %45 = icmp eq ptr %44, %42
   br i1 %45, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %51, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %51 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.lcssa5.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %46, align 8, !tbaa !93
   %47 = load i64, ptr %6, align 8, !tbaa !168
   %48 = add i64 %47, 1
@@ -13378,7 +13374,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %52, %35
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %53, %35
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !93
   %56 = icmp eq ptr %55, %42
   br i1 %56, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -13423,7 +13419,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %23, %18 ], [ %33, %31 ]
   %.02032.i.i.i.i = phi i64 [ 0, %18 ], [ %32, %31 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %19
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.02133.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.02133.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %29
@@ -13454,14 +13450,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %35, %39
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i6.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i6.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !93
   %45 = icmp eq ptr %44, %42
   br i1 %45, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %51, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %51 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.lcssa5.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %46, align 8, !tbaa !93
   %47 = load i64, ptr %6, align 8, !tbaa !168
   %48 = add i64 %47, 1
@@ -13481,7 +13477,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %52, %35
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %53, %35
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !93
   %56 = icmp eq ptr %55, %42
   br i1 %56, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -13519,7 +13515,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %19, %12 ], [ %29, %27 ]
   %.02032.i.i.i = phi i64 [ 0, %12 ], [ %28, %27 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %15
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %.02133.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.02133.i.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !93
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit, label %25
@@ -13563,7 +13559,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i13 = phi i64 [ %46, %39 ], [ %56, %54 ]
   %.02032.i.i.i14 = phi i64 [ 0, %39 ], [ %55, %54 ]
   %.02133.i.i.i15 = and i64 %.pn.i.i.i13, %42
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %.02133.i.i.i15
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.02133.i.i.i15
   %50 = load ptr, ptr %49, align 8, !tbaa !93
   %51 = icmp eq ptr %50, %1
   br i1 %51, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit, label %52
@@ -13631,7 +13627,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i18 = phi i64 [ %75, %69 ], [ %85, %83 ]
   %.02032.i.i.i19 = phi i64 [ 0, %69 ], [ %84, %83 ]
   %.02133.i.i.i20 = and i64 %.pn.i.i.i18, %71
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %.02133.i.i.i20
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.02133.i.i.i20
   %79 = load ptr, ptr %78, align 8, !tbaa !93
   %80 = icmp eq ptr %79, %63
   br i1 %80, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit23.thread, label %81
@@ -13685,7 +13681,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit23.thread: ; preds = %77
   %.pn.i.i.i.i = phi i64 [ %101, %96 ], [ %111, %109 ]
   %.02032.i.i.i.i = phi i64 [ 0, %96 ], [ %110, %109 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %97
-  %104 = getelementptr inbounds nuw ptr, ptr %102, i64 %.02133.i.i.i.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %.02133.i.i.i.i
   %105 = load ptr, ptr %104, align 8, !tbaa !93
   %106 = icmp eq ptr %105, %1
   br i1 %106, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %107
@@ -13715,14 +13711,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %118 = load ptr, ptr %4, align 8, !tbaa !102
   %119 = load ptr, ptr %60, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %113, %117
-  %120 = getelementptr inbounds nuw ptr, ptr %118, i64 %.02336.i6.i.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.02336.i6.i.i
   %121 = load ptr, ptr %120, align 8, !tbaa !93
   %122 = icmp eq ptr %121, %119
   br i1 %122, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %128, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %128 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %118, i64 %.02336.i.lcssa5.i.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %123, align 8, !tbaa !93
   %124 = load i64, ptr %5, align 8, !tbaa !168
   %125 = add i64 %124, 1
@@ -13742,7 +13738,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %129, %113
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %130, %113
-  %131 = getelementptr inbounds nuw ptr, ptr %118, i64 %.02336.i.i.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.02336.i.i.i
   %132 = load ptr, ptr %131, align 8, !tbaa !93
   %133 = icmp eq ptr %132, %119
   br i1 %133, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -13781,7 +13777,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.pn.i.i.i.i26 = phi i64 [ %152, %147 ], [ %162, %160 ]
   %.02032.i.i.i.i27 = phi i64 [ 0, %147 ], [ %161, %160 ]
   %.02133.i.i.i.i28 = and i64 %.pn.i.i.i.i26, %148
-  %155 = getelementptr inbounds nuw ptr, ptr %153, i64 %.02133.i.i.i.i28
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %.02133.i.i.i.i28
   %156 = load ptr, ptr %155, align 8, !tbaa !93
   %157 = icmp eq ptr %156, %1
   br i1 %157, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i32, label %158
@@ -13812,14 +13808,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %170 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %171 = load ptr, ptr %170, align 8, !tbaa !93
   %.02336.i6.i.i33 = and i64 %164, %168
-  %172 = getelementptr inbounds nuw ptr, ptr %169, i64 %.02336.i6.i.i33
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %.02336.i6.i.i33
   %173 = load ptr, ptr %172, align 8, !tbaa !93
   %174 = icmp eq ptr %173, %171
   br i1 %174, label %._crit_edge.i.i39, label %.lr.ph.i.i34
 
 ._crit_edge.i.i39:                                ; preds = %180, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i32
   %.02336.i.lcssa5.i.i40 = phi i64 [ %.02336.i6.i.i33, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i32 ], [ %.02336.i.i.i38, %180 ]
-  %175 = getelementptr inbounds nuw ptr, ptr %169, i64 %.02336.i.lcssa5.i.i40
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %.02336.i.lcssa5.i.i40
   store ptr %1, ptr %175, align 8, !tbaa !93
   %176 = load i64, ptr %136, align 8, !tbaa !168
   %177 = add i64 %176, 1
@@ -13839,7 +13835,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i37 = icmp ule i64 %181, %164
   tail call void @llvm.assume(i1 %.not.i3.i.i37)
   %.02336.i.i.i38 = and i64 %182, %164
-  %183 = getelementptr inbounds nuw ptr, ptr %169, i64 %.02336.i.i.i38
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %.02336.i.i.i38
   %184 = load ptr, ptr %183, align 8, !tbaa !93
   %185 = icmp eq ptr %184, %171
   br i1 %185, label %._crit_edge.i.i39, label %.lr.ph.i.i34
@@ -13877,7 +13873,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %19, %12 ], [ %29, %27 ]
   %.02032.i.i.i = phi i64 [ 0, %12 ], [ %28, %27 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %15
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %.02133.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.02133.i.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !93
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit, label %25
@@ -13921,7 +13917,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i13 = phi i64 [ %46, %39 ], [ %56, %54 ]
   %.02032.i.i.i14 = phi i64 [ 0, %39 ], [ %55, %54 ]
   %.02133.i.i.i15 = and i64 %.pn.i.i.i13, %42
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %.02133.i.i.i15
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.02133.i.i.i15
   %50 = load ptr, ptr %49, align 8, !tbaa !93
   %51 = icmp eq ptr %50, %1
   br i1 %51, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit, label %52
@@ -13989,7 +13985,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i18 = phi i64 [ %75, %69 ], [ %85, %83 ]
   %.02032.i.i.i19 = phi i64 [ 0, %69 ], [ %84, %83 ]
   %.02133.i.i.i20 = and i64 %.pn.i.i.i18, %71
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %.02133.i.i.i20
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.02133.i.i.i20
   %79 = load ptr, ptr %78, align 8, !tbaa !93
   %80 = icmp eq ptr %79, %63
   br i1 %80, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit23.thread, label %81
@@ -14043,7 +14039,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit23.thread: ; preds = %77
   %.pn.i.i.i.i = phi i64 [ %101, %96 ], [ %111, %109 ]
   %.02032.i.i.i.i = phi i64 [ 0, %96 ], [ %110, %109 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %97
-  %104 = getelementptr inbounds nuw ptr, ptr %102, i64 %.02133.i.i.i.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %.02133.i.i.i.i
   %105 = load ptr, ptr %104, align 8, !tbaa !93
   %106 = icmp eq ptr %105, %1
   br i1 %106, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %107
@@ -14073,14 +14069,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %118 = load ptr, ptr %4, align 8, !tbaa !102
   %119 = load ptr, ptr %60, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %113, %117
-  %120 = getelementptr inbounds nuw ptr, ptr %118, i64 %.02336.i6.i.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.02336.i6.i.i
   %121 = load ptr, ptr %120, align 8, !tbaa !93
   %122 = icmp eq ptr %121, %119
   br i1 %122, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %128, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %128 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %118, i64 %.02336.i.lcssa5.i.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %123, align 8, !tbaa !93
   %124 = load i64, ptr %5, align 8, !tbaa !168
   %125 = add i64 %124, 1
@@ -14100,7 +14096,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %129, %113
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %130, %113
-  %131 = getelementptr inbounds nuw ptr, ptr %118, i64 %.02336.i.i.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %.02336.i.i.i
   %132 = load ptr, ptr %131, align 8, !tbaa !93
   %133 = icmp eq ptr %132, %119
   br i1 %133, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -14139,7 +14135,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.pn.i.i.i.i26 = phi i64 [ %152, %147 ], [ %162, %160 ]
   %.02032.i.i.i.i27 = phi i64 [ 0, %147 ], [ %161, %160 ]
   %.02133.i.i.i.i28 = and i64 %.pn.i.i.i.i26, %148
-  %155 = getelementptr inbounds nuw ptr, ptr %153, i64 %.02133.i.i.i.i28
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %.02133.i.i.i.i28
   %156 = load ptr, ptr %155, align 8, !tbaa !93
   %157 = icmp eq ptr %156, %1
   br i1 %157, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i32, label %158
@@ -14170,14 +14166,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %170 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %171 = load ptr, ptr %170, align 8, !tbaa !93
   %.02336.i6.i.i33 = and i64 %164, %168
-  %172 = getelementptr inbounds nuw ptr, ptr %169, i64 %.02336.i6.i.i33
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %.02336.i6.i.i33
   %173 = load ptr, ptr %172, align 8, !tbaa !93
   %174 = icmp eq ptr %173, %171
   br i1 %174, label %._crit_edge.i.i39, label %.lr.ph.i.i34
 
 ._crit_edge.i.i39:                                ; preds = %180, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i32
   %.02336.i.lcssa5.i.i40 = phi i64 [ %.02336.i6.i.i33, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i32 ], [ %.02336.i.i.i38, %180 ]
-  %175 = getelementptr inbounds nuw ptr, ptr %169, i64 %.02336.i.lcssa5.i.i40
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %.02336.i.lcssa5.i.i40
   store ptr %1, ptr %175, align 8, !tbaa !93
   %176 = load i64, ptr %136, align 8, !tbaa !168
   %177 = add i64 %176, 1
@@ -14197,7 +14193,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i37 = icmp ule i64 %181, %164
   tail call void @llvm.assume(i1 %.not.i3.i.i37)
   %.02336.i.i.i38 = and i64 %182, %164
-  %183 = getelementptr inbounds nuw ptr, ptr %169, i64 %.02336.i.i.i38
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %.02336.i.i.i38
   %184 = load ptr, ptr %183, align 8, !tbaa !93
   %185 = icmp eq ptr %184, %171
   br i1 %185, label %._crit_edge.i.i39, label %.lr.ph.i.i34
@@ -14241,7 +14237,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %22, %17 ], [ %32, %30 ]
   %.02032.i.i.i.i = phi i64 [ 0, %17 ], [ %31, %30 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %18
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.02133.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.02133.i.i.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !93
   %27 = icmp eq ptr %26, %1
   br i1 %27, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %28
@@ -14272,14 +14268,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %41 = load ptr, ptr %40, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %34, %38
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i6.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i6.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !93
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %50, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %50 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i.lcssa5.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %45, align 8, !tbaa !93
   %46 = load i64, ptr %5, align 8, !tbaa !168
   %47 = add i64 %46, 1
@@ -14299,7 +14295,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %51, %34
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %52, %34
-  %53 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i.i.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i.i.i
   %54 = load ptr, ptr %53, align 8, !tbaa !93
   %55 = icmp eq ptr %54, %41
   br i1 %55, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -14343,7 +14339,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %22, %17 ], [ %32, %30 ]
   %.02032.i.i.i.i = phi i64 [ 0, %17 ], [ %31, %30 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %18
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.02133.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.02133.i.i.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !93
   %27 = icmp eq ptr %26, %1
   br i1 %27, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %28
@@ -14374,14 +14370,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %41 = load ptr, ptr %40, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %34, %38
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i6.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i6.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !93
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %50, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %50 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i.lcssa5.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %45, align 8, !tbaa !93
   %46 = load i64, ptr %5, align 8, !tbaa !168
   %47 = add i64 %46, 1
@@ -14401,7 +14397,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %51, %34
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %52, %34
-  %53 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i.i.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i.i.i
   %54 = load ptr, ptr %53, align 8, !tbaa !93
   %55 = icmp eq ptr %54, %41
   br i1 %55, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -14446,7 +14442,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %23, %18 ], [ %33, %31 ]
   %.02032.i.i.i.i = phi i64 [ 0, %18 ], [ %32, %31 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %19
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.02133.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.02133.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !93
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %29
@@ -14477,14 +14473,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %35, %39
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i6.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i6.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !93
   %45 = icmp eq ptr %44, %42
   br i1 %45, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %51, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %51 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.lcssa5.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %46, align 8, !tbaa !93
   %47 = load i64, ptr %6, align 8, !tbaa !168
   %48 = add i64 %47, 1
@@ -14504,7 +14500,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %52, %35
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %53, %35
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02336.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02336.i.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !93
   %56 = icmp eq ptr %55, %42
   br i1 %56, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -14543,7 +14539,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %20, %13 ], [ %30, %28 ]
   %.02032.i.i.i = phi i64 [ 0, %13 ], [ %29, %28 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %16
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %.02133.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.02133.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !93
   %25 = icmp eq ptr %24, %1
   br i1 %25, label %_ZNK4Luau10TypeCacher8isCachedEPKNS_4TypeE.exit, label %26
@@ -14586,7 +14582,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i7 = phi i64 [ %46, %39 ], [ %56, %54 ]
   %.02032.i.i.i8 = phi i64 [ 0, %39 ], [ %55, %54 ]
   %.02133.i.i.i9 = and i64 %.pn.i.i.i7, %42
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %.02133.i.i.i9
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.02133.i.i.i9
   %50 = load ptr, ptr %49, align 8, !tbaa !93
   %51 = icmp eq ptr %50, %1
   br i1 %51, label %_ZNK4Luau10TypeCacher8isCachedEPKNS_4TypeE.exit, label %52
@@ -14630,7 +14626,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i12 = phi i64 [ %72, %65 ], [ %82, %80 ]
   %.02032.i.i.i13 = phi i64 [ 0, %65 ], [ %81, %80 ]
   %.02133.i.i.i14 = and i64 %.pn.i.i.i12, %68
-  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %.02133.i.i.i14
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.02133.i.i.i14
   %76 = load ptr, ptr %75, align 8, !tbaa !93
   %77 = icmp eq ptr %76, %58
   br i1 %77, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit17, label %78
@@ -14666,7 +14662,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit17: ; preds = %74
   %.pn.i.i.i.i = phi i64 [ %91, %87 ], [ %100, %98 ]
   %.02032.i.i.i.i = phi i64 [ 0, %87 ], [ %99, %98 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %68
-  %93 = getelementptr inbounds nuw ptr, ptr %73, i64 %.02133.i.i.i.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.02133.i.i.i.i
   %94 = load ptr, ptr %93, align 8, !tbaa !93
   %95 = icmp eq ptr %94, %1
   br i1 %95, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %96
@@ -14698,14 +14694,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %105 = lshr i64 %103, 9
   %106 = xor i64 %104, %105
   %.02336.i6.i.i = and i64 %.pre-phi, %106
-  %107 = getelementptr inbounds nuw ptr, ptr %102, i64 %.02336.i6.i.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %.02336.i6.i.i
   %108 = load ptr, ptr %107, align 8, !tbaa !93
   %109 = icmp eq ptr %108, %101
   br i1 %109, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %115, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %115 ]
-  %110 = getelementptr inbounds nuw ptr, ptr %102, i64 %.02336.i.lcssa5.i.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %110, align 8, !tbaa !93
   %111 = load i64, ptr %32, align 8, !tbaa !168
   %112 = add i64 %111, 1
@@ -14725,7 +14721,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %116, %.pre-phi
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %117, %.pre-phi
-  %118 = getelementptr inbounds nuw ptr, ptr %102, i64 %.02336.i.i.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %.02336.i.i.i
   %119 = load ptr, ptr %118, align 8, !tbaa !93
   %120 = icmp eq ptr %119, %101
   br i1 %120, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -14764,7 +14760,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.pn.i.i.i.i20 = phi i64 [ %139, %134 ], [ %149, %147 ]
   %.02032.i.i.i.i21 = phi i64 [ 0, %134 ], [ %148, %147 ]
   %.02133.i.i.i.i22 = and i64 %.pn.i.i.i.i20, %135
-  %142 = getelementptr inbounds nuw ptr, ptr %140, i64 %.02133.i.i.i.i22
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %.02133.i.i.i.i22
   %143 = load ptr, ptr %142, align 8, !tbaa !93
   %144 = icmp eq ptr %143, %1
   br i1 %144, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i26, label %145
@@ -14795,14 +14791,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %157 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %158 = load ptr, ptr %157, align 8, !tbaa !93
   %.02336.i6.i.i27 = and i64 %151, %155
-  %159 = getelementptr inbounds nuw ptr, ptr %156, i64 %.02336.i6.i.i27
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %.02336.i6.i.i27
   %160 = load ptr, ptr %159, align 8, !tbaa !93
   %161 = icmp eq ptr %160, %158
   br i1 %161, label %._crit_edge.i.i33, label %.lr.ph.i.i28
 
 ._crit_edge.i.i33:                                ; preds = %167, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i26
   %.02336.i.lcssa5.i.i34 = phi i64 [ %.02336.i6.i.i27, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i26 ], [ %.02336.i.i.i32, %167 ]
-  %162 = getelementptr inbounds nuw ptr, ptr %156, i64 %.02336.i.lcssa5.i.i34
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %.02336.i.lcssa5.i.i34
   store ptr %1, ptr %162, align 8, !tbaa !93
   %163 = load i64, ptr %122, align 8, !tbaa !168
   %164 = add i64 %163, 1
@@ -14822,7 +14818,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i31 = icmp ule i64 %168, %151
   tail call void @llvm.assume(i1 %.not.i3.i.i31)
   %.02336.i.i.i32 = and i64 %169, %151
-  %170 = getelementptr inbounds nuw ptr, ptr %156, i64 %.02336.i.i.i32
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %.02336.i.i.i32
   %171 = load ptr, ptr %170, align 8, !tbaa !93
   %172 = icmp eq ptr %171, %158
   br i1 %172, label %._crit_edge.i.i33, label %.lr.ph.i.i28
@@ -14861,7 +14857,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %20, %13 ], [ %30, %28 ]
   %.02032.i.i.i = phi i64 [ 0, %13 ], [ %29, %28 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %16
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %.02133.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.02133.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !93
   %25 = icmp eq ptr %24, %1
   br i1 %25, label %_ZNK4Luau10TypeCacher8isCachedEPKNS_4TypeE.exit, label %26
@@ -14904,7 +14900,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i18 = phi i64 [ %46, %39 ], [ %56, %54 ]
   %.02032.i.i.i19 = phi i64 [ 0, %39 ], [ %55, %54 ]
   %.02133.i.i.i20 = and i64 %.pn.i.i.i18, %42
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %.02133.i.i.i20
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.02133.i.i.i20
   %50 = load ptr, ptr %49, align 8, !tbaa !93
   %51 = icmp eq ptr %50, %1
   br i1 %51, label %_ZNK4Luau10TypeCacher8isCachedEPKNS_4TypeE.exit, label %52
@@ -14976,7 +14972,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i23 = phi i64 [ %84, %78 ], [ %94, %92 ]
   %.02032.i.i.i24 = phi i64 [ 0, %78 ], [ %93, %92 ]
   %.02133.i.i.i25 = and i64 %.pn.i.i.i23, %80
-  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %.02133.i.i.i25
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.02133.i.i.i25
   %88 = load ptr, ptr %87, align 8, !tbaa !93
   %89 = icmp eq ptr %88, %72
   br i1 %89, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit28, label %90
@@ -15029,7 +15025,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit28: ; preds = %92, %90, %86
   %.pn.i.i.i29 = phi i64 [ %110, %104 ], [ %120, %118 ]
   %.02032.i.i.i30 = phi i64 [ 0, %104 ], [ %119, %118 ]
   %.02133.i.i.i31 = and i64 %.pn.i.i.i29, %106
-  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %.02133.i.i.i31
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %.02133.i.i.i31
   %114 = load ptr, ptr %113, align 8, !tbaa !96
   %115 = icmp eq ptr %114, %98
   br i1 %115, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_11TypePackVarE.exit, label %116
@@ -15082,7 +15078,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_11TypePackVarE.exit: ; preds = %118, %
   %.pn.i.i.i.i = phi i64 [ %140, %135 ], [ %150, %148 ]
   %.02032.i.i.i.i = phi i64 [ 0, %135 ], [ %149, %148 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %136
-  %143 = getelementptr inbounds nuw ptr, ptr %141, i64 %.02133.i.i.i.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %.02133.i.i.i.i
   %144 = load ptr, ptr %143, align 8, !tbaa !93
   %145 = icmp eq ptr %144, %1
   br i1 %145, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %146
@@ -15113,14 +15109,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %159 = load ptr, ptr %158, align 8, !tbaa !93
   %.02336.i6.i.i = and i64 %152, %156
-  %160 = getelementptr inbounds nuw ptr, ptr %157, i64 %.02336.i6.i.i
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %.02336.i6.i.i
   %161 = load ptr, ptr %160, align 8, !tbaa !93
   %162 = icmp eq ptr %161, %159
   br i1 %162, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %168, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %168 ]
-  %163 = getelementptr inbounds nuw ptr, ptr %157, i64 %.02336.i.lcssa5.i.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %163, align 8, !tbaa !93
   %164 = load i64, ptr %32, align 8, !tbaa !168
   %165 = add i64 %164, 1
@@ -15140,7 +15136,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i = icmp ule i64 %169, %152
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %170, %152
-  %171 = getelementptr inbounds nuw ptr, ptr %157, i64 %.02336.i.i.i
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %.02336.i.i.i
   %172 = load ptr, ptr %171, align 8, !tbaa !93
   %173 = icmp eq ptr %172, %159
   br i1 %173, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -15179,7 +15175,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.pn.i.i.i.i36 = phi i64 [ %193, %188 ], [ %203, %201 ]
   %.02032.i.i.i.i37 = phi i64 [ 0, %188 ], [ %202, %201 ]
   %.02133.i.i.i.i38 = and i64 %.pn.i.i.i.i36, %189
-  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %.02133.i.i.i.i38
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %.02133.i.i.i.i38
   %197 = load ptr, ptr %196, align 8, !tbaa !93
   %198 = icmp eq ptr %197, %1
   br i1 %198, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i42, label %199
@@ -15210,14 +15206,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %211 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %212 = load ptr, ptr %211, align 8, !tbaa !93
   %.02336.i6.i.i43 = and i64 %205, %209
-  %213 = getelementptr inbounds nuw ptr, ptr %210, i64 %.02336.i6.i.i43
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %.02336.i6.i.i43
   %214 = load ptr, ptr %213, align 8, !tbaa !93
   %215 = icmp eq ptr %214, %212
   br i1 %215, label %._crit_edge.i.i49, label %.lr.ph.i.i44
 
 ._crit_edge.i.i49:                                ; preds = %221, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i42
   %.02336.i.lcssa5.i.i50 = phi i64 [ %.02336.i6.i.i43, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i42 ], [ %.02336.i.i.i48, %221 ]
-  %216 = getelementptr inbounds nuw ptr, ptr %210, i64 %.02336.i.lcssa5.i.i50
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %.02336.i.lcssa5.i.i50
   store ptr %1, ptr %216, align 8, !tbaa !93
   %217 = load i64, ptr %176, align 8, !tbaa !168
   %218 = add i64 %217, 1
@@ -15237,7 +15233,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_
   %.not.i3.i.i47 = icmp ule i64 %222, %205
   tail call void @llvm.assume(i1 %.not.i3.i.i47)
   %.02336.i.i.i48 = and i64 %223, %205
-  %224 = getelementptr inbounds nuw ptr, ptr %210, i64 %.02336.i.i.i48
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %.02336.i.i.i48
   %225 = load ptr, ptr %224, align 8, !tbaa !93
   %226 = icmp eq ptr %225, %212
   br i1 %226, label %._crit_edge.i.i49, label %.lr.ph.i.i44
@@ -15283,7 +15279,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %21, %14 ], [ %31, %29 ]
   %.02032.i.i.i = phi i64 [ 0, %14 ], [ %30, %29 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %17
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %.02133.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.02133.i.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !96
   %26 = icmp eq ptr %25, %5
   br i1 %26, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_11TypePackVarE.exit, label %27
@@ -15319,7 +15315,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_11TypePackVarE.exit: ; preds = %23
   %.pn.i.i.i.i = phi i64 [ %40, %36 ], [ %49, %47 ]
   %.02032.i.i.i.i = phi i64 [ 0, %36 ], [ %48, %47 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %17
-  %42 = getelementptr inbounds nuw ptr, ptr %22, i64 %.02133.i.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.02133.i.i.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !96
   %44 = icmp eq ptr %43, %1
   br i1 %44, label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %45
@@ -15351,14 +15347,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %54 = lshr i64 %52, 9
   %55 = xor i64 %53, %54
   %.02336.i6.i.i = and i64 %.pre-phi, %55
-  %56 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02336.i6.i.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02336.i6.i.i
   %57 = load ptr, ptr %56, align 8, !tbaa !96
   %58 = icmp eq ptr %57, %50
   br i1 %58, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %64, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %64 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02336.i.lcssa5.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %59, align 8, !tbaa !96
   %60 = load i64, ptr %7, align 8, !tbaa !285
   %61 = add i64 %60, 1
@@ -15378,7 +15374,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %.not.i3.i.i = icmp ule i64 %65, %.pre-phi
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %66, %.pre-phi
-  %67 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02336.i.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02336.i.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !96
   %69 = icmp eq ptr %68, %50
   br i1 %69, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -15422,7 +15418,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %22, %17 ], [ %32, %30 ]
   %.02032.i.i.i.i = phi i64 [ 0, %17 ], [ %31, %30 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %18
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.02133.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.02133.i.i.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !96
   %27 = icmp eq ptr %26, %1
   br i1 %27, label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %28
@@ -15453,14 +15449,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = load ptr, ptr %40, align 8, !tbaa !96
   %.02336.i6.i.i = and i64 %34, %38
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i6.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i6.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !96
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %50, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %50 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i.lcssa5.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %45, align 8, !tbaa !96
   %46 = load i64, ptr %5, align 8, !tbaa !285
   %47 = add i64 %46, 1
@@ -15480,7 +15476,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %.not.i3.i.i = icmp ule i64 %51, %34
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %52, %34
-  %53 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i.i.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i.i.i
   %54 = load ptr, ptr %53, align 8, !tbaa !96
   %55 = icmp eq ptr %54, %41
   br i1 %55, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -15549,7 +15545,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %27, %21 ], [ %37, %35 ]
   %.02032.i.i.i = phi i64 [ 0, %21 ], [ %36, %35 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %23
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %.02133.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.02133.i.i.i
   %31 = load ptr, ptr %30, align 8, !tbaa !93
   %32 = icmp eq ptr %31, %15
   br i1 %32, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit, label %33
@@ -15602,7 +15598,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit: ; preds = %29, %33, %35, 
   %.pn.i.i.i12 = phi i64 [ %58, %51 ], [ %68, %66 ]
   %.02032.i.i.i13 = phi i64 [ 0, %51 ], [ %67, %66 ]
   %.02133.i.i.i14 = and i64 %.pn.i.i.i12, %54
-  %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %.02133.i.i.i14
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.02133.i.i.i14
   %62 = load ptr, ptr %61, align 8, !tbaa !96
   %63 = icmp eq ptr %62, %42
   br i1 %63, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_11TypePackVarE.exit.thread, label %64
@@ -15654,7 +15650,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_11TypePackVarE.exit.thread: ; preds = 
   %.pn.i.i.i.i = phi i64 [ %87, %82 ], [ %97, %95 ]
   %.02032.i.i.i.i = phi i64 [ 0, %82 ], [ %96, %95 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %83
-  %90 = getelementptr inbounds nuw ptr, ptr %88, i64 %.02133.i.i.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.02133.i.i.i.i
   %91 = load ptr, ptr %90, align 8, !tbaa !96
   %92 = icmp eq ptr %91, %1
   br i1 %92, label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %93
@@ -15685,14 +15681,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %106 = load ptr, ptr %105, align 8, !tbaa !96
   %.02336.i6.i.i = and i64 %99, %103
-  %107 = getelementptr inbounds nuw ptr, ptr %104, i64 %.02336.i6.i.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %.02336.i6.i.i
   %108 = load ptr, ptr %107, align 8, !tbaa !96
   %109 = icmp eq ptr %108, %106
   br i1 %109, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %115, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %115 ]
-  %110 = getelementptr inbounds nuw ptr, ptr %104, i64 %.02336.i.lcssa5.i.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %110, align 8, !tbaa !96
   %111 = load i64, ptr %70, align 8, !tbaa !285
   %112 = add i64 %111, 1
@@ -15712,7 +15708,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %.not.i3.i.i = icmp ule i64 %116, %99
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %117, %99
-  %118 = getelementptr inbounds nuw ptr, ptr %104, i64 %.02336.i.i.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %.02336.i.i.i
   %119 = load ptr, ptr %118, align 8, !tbaa !96
   %120 = icmp eq ptr %119, %106
   br i1 %120, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -15750,7 +15746,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i = phi i64 [ %19, %12 ], [ %29, %27 ]
   %.02032.i.i.i = phi i64 [ 0, %12 ], [ %28, %27 ]
   %.02133.i.i.i = and i64 %.pn.i.i.i, %15
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %.02133.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.02133.i.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !96
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_11TypePackVarE.exit, label %25
@@ -15796,7 +15792,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i6 = phi i64 [ %47, %40 ], [ %57, %55 ]
   %.02032.i.i.i7 = phi i64 [ 0, %40 ], [ %56, %55 ]
   %.02133.i.i.i8 = and i64 %.pn.i.i.i6, %43
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %.02133.i.i.i8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.02133.i.i.i8
   %51 = load ptr, ptr %50, align 8, !tbaa !93
   %52 = icmp eq ptr %51, %31
   br i1 %52, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit, label %53
@@ -15843,7 +15839,7 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit: ; preds = %49
   %.pn.i.i.i.i = phi i64 [ %74, %69 ], [ %84, %82 ]
   %.02032.i.i.i.i = phi i64 [ 0, %69 ], [ %83, %82 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %70
-  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %.02133.i.i.i.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.02133.i.i.i.i
   %78 = load ptr, ptr %77, align 8, !tbaa !96
   %79 = icmp eq ptr %78, %1
   br i1 %79, label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %80
@@ -15874,14 +15870,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %93 = load ptr, ptr %92, align 8, !tbaa !96
   %.02336.i6.i.i = and i64 %86, %90
-  %94 = getelementptr inbounds nuw ptr, ptr %91, i64 %.02336.i6.i.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.02336.i6.i.i
   %95 = load ptr, ptr %94, align 8, !tbaa !96
   %96 = icmp eq ptr %95, %93
   br i1 %96, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %102, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %102 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %91, i64 %.02336.i.lcssa5.i.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %97, align 8, !tbaa !96
   %98 = load i64, ptr %5, align 8, !tbaa !285
   %99 = add i64 %98, 1
@@ -15901,7 +15897,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %.not.i3.i.i = icmp ule i64 %103, %86
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %104, %86
-  %105 = getelementptr inbounds nuw ptr, ptr %91, i64 %.02336.i.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.02336.i.i.i
   %106 = load ptr, ptr %105, align 8, !tbaa !96
   %107 = icmp eq ptr %106, %93
   br i1 %107, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -15945,7 +15941,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %22, %17 ], [ %32, %30 ]
   %.02032.i.i.i.i = phi i64 [ 0, %17 ], [ %31, %30 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %18
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.02133.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.02133.i.i.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !96
   %27 = icmp eq ptr %26, %1
   br i1 %27, label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %28
@@ -15976,14 +15972,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = load ptr, ptr %40, align 8, !tbaa !96
   %.02336.i6.i.i = and i64 %34, %38
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i6.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i6.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !96
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %50, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %50 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i.lcssa5.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %45, align 8, !tbaa !96
   %46 = load i64, ptr %5, align 8, !tbaa !285
   %47 = add i64 %46, 1
@@ -16003,7 +15999,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %.not.i3.i.i = icmp ule i64 %51, %34
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %52, %34
-  %53 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i.i.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i.i.i
   %54 = load ptr, ptr %53, align 8, !tbaa !96
   %55 = icmp eq ptr %54, %41
   br i1 %55, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -16047,7 +16043,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10TypeCacher5visitEPKN
   %.pn.i.i.i.i = phi i64 [ %22, %17 ], [ %32, %30 ]
   %.02032.i.i.i.i = phi i64 [ 0, %17 ], [ %31, %30 ]
   %.02133.i.i.i.i = and i64 %.pn.i.i.i.i, %18
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.02133.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.02133.i.i.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !96
   %27 = icmp eq ptr %26, %1
   br i1 %27, label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i, label %28
@@ -16078,14 +16074,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = load ptr, ptr %40, align 8, !tbaa !96
   %.02336.i6.i.i = and i64 %34, %38
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i6.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i6.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !96
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %50, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i
   %.02336.i.lcssa5.i.i = phi i64 [ %.02336.i6.i.i, %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i.i ], [ %.02336.i.i.i, %50 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i.lcssa5.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i.lcssa5.i.i
   store ptr %1, ptr %45, align 8, !tbaa !96
   %46 = load i64, ptr %5, align 8, !tbaa !285
   %47 = add i64 %46, 1
@@ -16105,7 +16101,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %.not.i3.i.i = icmp ule i64 %51, %34
   tail call void @llvm.assume(i1 %.not.i3.i.i)
   %.02336.i.i.i = and i64 %52, %34
-  %53 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02336.i.i.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02336.i.i.i
   %54 = load ptr, ptr %53, align 8, !tbaa !96
   %55 = icmp eq ptr %54, %41
   br i1 %55, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -16144,7 +16140,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPKNS_11TypeP
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.05.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.05.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.05.i.i
   store ptr %.pre.i.i, ptr %10, align 8, !tbaa !96
   %11 = add nuw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, %spec.select
@@ -16181,7 +16177,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
 
 16:                                               ; preds = %.lr.ph27, %39
   %.026 = phi i64 [ 0, %.lr.ph27 ], [ %40, %39 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %.pre30, i64 %.026
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.pre30, i64 %.026
   %18 = load ptr, ptr %17, align 8, !tbaa !96
   %19 = icmp eq ptr %18, %12
   br i1 %19, label %39, label %20
@@ -16192,14 +16188,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %23 = lshr i64 %21, 9
   %24 = xor i64 %22, %23
   %.02336.i22 = and i64 %24, %14
-  %25 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i22
   %26 = load ptr, ptr %25, align 8, !tbaa !96
   %27 = icmp eq ptr %26, %7
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %31, %20
   %.02336.i.lcssa21 = phi i64 [ %.02336.i22, %20 ], [ %.02336.i, %31 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i.lcssa21
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i.lcssa21
   store ptr %18, ptr %28, align 8, !tbaa !96
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERKS4_.exit
 
@@ -16216,13 +16212,13 @@ _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetI
   %.not.i12 = icmp ule i64 %32, %14
   tail call void @llvm.assume(i1 %.not.i12)
   %.02336.i = and i64 %33, %14
-  %34 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i
   %35 = load ptr, ptr %34, align 8, !tbaa !96
   %36 = icmp eq ptr %35, %7
   br i1 %36, label %._crit_edge, label %.lr.ph
 
 _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERKS4_.exit.loopexit: ; preds = %.lr.ph
-  %37 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0, i64 %.02336.i24
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02336.i24
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERKS4_.exit
 
 _ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERKS4_.exit: ; preds = %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERKS4_.exit.loopexit, %._crit_edge

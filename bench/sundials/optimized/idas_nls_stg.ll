@@ -218,26 +218,26 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensStg(ptr noundef %0, ptr n
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv
   %98 = load ptr, ptr %97, align 8, !tbaa !37
   %99 = load ptr, ptr %89, align 8, !tbaa !31
   %100 = load ptr, ptr %99, align 8, !tbaa !38
   %101 = load ptr, ptr %100, align 8, !tbaa !41
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv
   store ptr %98, ptr %102, align 8, !tbaa !37
-  %103 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv
   %104 = load ptr, ptr %103, align 8, !tbaa !37
   %105 = load ptr, ptr %92, align 8, !tbaa !32
   %106 = load ptr, ptr %105, align 8, !tbaa !38
   %107 = load ptr, ptr %106, align 8, !tbaa !41
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv
   store ptr %104, ptr %108, align 8, !tbaa !37
-  %109 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8, !tbaa !37
   %111 = load ptr, ptr %95, align 8, !tbaa !33
   %112 = load ptr, ptr %111, align 8, !tbaa !38
   %113 = load ptr, ptr %112, align 8, !tbaa !41
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv
   store ptr %110, ptr %114, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -537,10 +537,10 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolveSensStg(ptr noundef readonly 
   %18 = load ptr, ptr %4, align 8, !tbaa !62
   %19 = load ptr, ptr %0, align 8, !tbaa !38
   %20 = load ptr, ptr %19, align 8, !tbaa !41
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !37
   %23 = load ptr, ptr %8, align 8, !tbaa !36
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !37
   %26 = load ptr, ptr %9, align 8, !tbaa !49
   %27 = load ptr, ptr %10, align 8, !tbaa !50

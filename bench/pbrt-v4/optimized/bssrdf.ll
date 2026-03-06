@@ -538,7 +538,7 @@ define dso_local void @_ZN4pbrt26ComputeBeamDiffusionBSSRDFEffPNS_11BSSRDFTableE
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %store_forwarded = phi float [ %load_initial, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = getelementptr float, ptr %10, i64 %indvars.iv
+  %21 = getelementptr [4 x i8], ptr %10, i64 %indvars.iv
   %22 = fmul float %store_forwarded, 0x3FF3333340000000
   store float %22, ptr %21, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -641,7 +641,7 @@ _ZN4pbrt7FastExpEf.exit:                          ; preds = %46, %63, %65
   %.0.i = phi float [ %70, %65 ], [ 0.000000e+00, %46 ], [ 0x7FF0000000000000, %63 ]
   %71 = fsub float 1.000000e+00, %.0.i
   %72 = fdiv float %71, 0x3FEFFD4080000000
-  %73 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv19
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv19
   store float %72, ptr %73, align 4, !tbaa !35
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, %16
@@ -728,8 +728,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i: ; pr
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i ]
-  %21 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i.i.i
-  %22 = getelementptr inbounds nuw float, ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i
   %23 = load float, ptr %22, align 4, !tbaa !35
   store float %23, ptr %21, align 4, !tbaa !35
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -784,8 +784,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i16: ; 
 
 .lr.ph.i.i.i20:                                   ; preds = %.noexc, %.lr.ph.i.i.i20
   %indvars.iv.i.i.i21 = phi i64 [ %indvars.iv.next.i.i.i22, %.lr.ph.i.i.i20 ], [ 0, %.noexc ]
-  %40 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i.i.i21
-  %41 = getelementptr inbounds nuw float, ptr %.pre.i.i.i19, i64 %indvars.iv.i.i.i21
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i.i.i21
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i.i19, i64 %indvars.iv.i.i.i21
   %42 = load float, ptr %41, align 4, !tbaa !35
   store float %42, ptr %40, align 4, !tbaa !35
   %indvars.iv.next.i.i.i22 = add nuw nsw i64 %indvars.iv.i.i.i21, 1
@@ -841,8 +841,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i32: ; 
 
 .lr.ph.i.i.i36:                                   ; preds = %.noexc45, %.lr.ph.i.i.i36
   %indvars.iv.i.i.i37 = phi i64 [ %indvars.iv.next.i.i.i38, %.lr.ph.i.i.i36 ], [ 0, %.noexc45 ]
-  %61 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv.i.i.i37
-  %62 = getelementptr inbounds nuw float, ptr %.pre.i.i.i35, i64 %indvars.iv.i.i.i37
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i.i.i37
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i.i35, i64 %indvars.iv.i.i.i37
   %63 = load float, ptr %62, align 4, !tbaa !35
   store float %63, ptr %61, align 4, !tbaa !35
   %indvars.iv.next.i.i.i38 = add nuw nsw i64 %indvars.iv.i.i.i37, 1
@@ -904,8 +904,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i49: ; 
 
 .lr.ph.i.i.i53:                                   ; preds = %.noexc62, %.lr.ph.i.i.i53
   %indvars.iv.i.i.i54 = phi i64 [ %indvars.iv.next.i.i.i55, %.lr.ph.i.i.i53 ], [ 0, %.noexc62 ]
-  %83 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv.i.i.i54
-  %84 = getelementptr inbounds nuw float, ptr %.pre.i.i.i52, i64 %indvars.iv.i.i.i54
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.i.i.i54
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i.i52, i64 %indvars.iv.i.i.i54
   %85 = load float, ptr %84, align 4, !tbaa !35
   store float %85, ptr %83, align 4, !tbaa !35
   %indvars.iv.next.i.i.i55 = add nuw nsw i64 %indvars.iv.i.i.i54, 1
@@ -955,8 +955,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i66: ; 
 
 .lr.ph.i.i.i70:                                   ; preds = %.noexc79, %.lr.ph.i.i.i70
   %indvars.iv.i.i.i71 = phi i64 [ %indvars.iv.next.i.i.i72, %.lr.ph.i.i.i70 ], [ 0, %.noexc79 ]
-  %102 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv.i.i.i71
-  %103 = getelementptr inbounds nuw float, ptr %.pre.i.i.i69, i64 %indvars.iv.i.i.i71
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i.i.i71
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i.i69, i64 %indvars.iv.i.i.i71
   %104 = load float, ptr %103, align 4, !tbaa !35
   store float %104, ptr %102, align 4, !tbaa !35
   %indvars.iv.next.i.i.i72 = add nuw nsw i64 %indvars.iv.i.i.i71, 1
@@ -4558,11 +4558,11 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt26ComputeBeamDiffusio
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !37
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %7
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %7
   %16 = load float, ptr %15, align 4, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !37
-  %19 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i.i.i
   %20 = load float, ptr %19, align 4, !tbaa !35
   %21 = fmul float %20, 0x401921FB60000000
   %22 = fsub float 1.000000e+00, %16
@@ -4580,8 +4580,8 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt26ComputeBeamDiffusio
   %34 = load ptr, ptr %33, align 8, !tbaa !36
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %36 = load ptr, ptr %35, align 8, !tbaa !37
-  %37 = getelementptr float, ptr %36, i64 %10
-  %38 = getelementptr float, ptr %37, i64 %indvars.iv.i.i.i
+  %37 = getelementptr [4 x i8], ptr %36, i64 %10
+  %38 = getelementptr [4 x i8], ptr %37, i64 %indvars.iv.i.i.i
   store float %32, ptr %38, align 4, !tbaa !35
   %indvars.iv.next.i.i.i = add nuw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %6
@@ -4595,16 +4595,16 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt26ComputeBeamDiffusio
   %41 = phi ptr [ %4, %.._crit_edge_crit_edge.i.i.i ], [ %34, %._crit_edge.loopexit.i.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !37
-  %44 = getelementptr inbounds nuw float, ptr %39, i64 %.pre-phi34.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.pre-phi34.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 136
   %46 = load ptr, ptr %45, align 8, !tbaa !37
-  %47 = getelementptr inbounds nuw float, ptr %46, i64 %.pre-phi34.i.i.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.pre-phi34.i.i.i
   %48 = tail call noundef float @_ZN4pbrt19IntegrateCatmullRomEN4pstd4spanIKfEES3_NS1_IfEE(ptr %43, i64 %40, ptr %44, i64 %6, ptr %47, i64 %6)
   %49 = load ptr, ptr %.val, align 8, !tbaa !197
   %50 = load ptr, ptr %49, align 8, !tbaa !36
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 104
   %52 = load ptr, ptr %51, align 8, !tbaa !37
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %.pre-phi.i.i.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.pre-phi.i.i.i
   store float %48, ptr %53, align 4, !tbaa !35
   ret void
 }
@@ -4707,7 +4707,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail21stringPrintfRecursiveIRKN4p
 
 .lr.ph.i:                                         ; preds = %.noexc, %40
   %.011.i = phi i64 [ %42, %40 ], [ 0, %.noexc ]
-  %31 = getelementptr inbounds nuw float, ptr %27, i64 %.011.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.011.i
   %32 = load float, ptr %31, align 4, !tbaa !35
   %33 = fpext float %32 to double
   %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %24, double noundef %33)
@@ -5081,7 +5081,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail21stringPrintfRecursiveIRKN4p
 
 .lr.ph.i:                                         ; preds = %.noexc, %39
   %.011.i = phi i64 [ %41, %39 ], [ 0, %.noexc ]
-  %30 = getelementptr inbounds nuw float, ptr %26, i64 %.011.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %.011.i
   %31 = load float, ptr %30, align 4, !tbaa !35
   %32 = fpext float %31 to double
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %23, double noundef %32)
@@ -5455,7 +5455,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail21stringPrintfRecursiveIRKN4p
 
 .lr.ph.i:                                         ; preds = %.noexc, %38
   %.011.i = phi i64 [ %40, %38 ], [ 0, %.noexc ]
-  %29 = getelementptr inbounds nuw float, ptr %25, i64 %.011.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.011.i
   %30 = load float, ptr %29, align 4, !tbaa !35
   %31 = fpext float %30 to double
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %22, double noundef %31)
@@ -5829,7 +5829,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail21stringPrintfRecursiveIRKN4p
 
 .lr.ph.i:                                         ; preds = %.noexc, %37
   %.011.i = phi i64 [ %39, %37 ], [ 0, %.noexc ]
-  %28 = getelementptr inbounds nuw float, ptr %24, i64 %.011.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.011.i
   %29 = load float, ptr %28, align 4, !tbaa !35
   %30 = fpext float %29 to double
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %21, double noundef %30)
@@ -6203,7 +6203,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail21stringPrintfRecursiveIRKN4p
 
 .lr.ph.i:                                         ; preds = %.noexc, %36
   %.011.i = phi i64 [ %38, %36 ], [ 0, %.noexc ]
-  %27 = getelementptr inbounds nuw float, ptr %23, i64 %.011.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.011.i
   %28 = load float, ptr %27, align 4, !tbaa !35
   %29 = fpext float %28 to double
   %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %20, double noundef %29)

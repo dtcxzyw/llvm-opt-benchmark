@@ -3,7 +3,6 @@ source_filename = "bench/openjdk/original/zip_util.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.jzcell = type { i32, i32, i64 }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.gz_header_s = type { i32, i64, i32, i32, ptr, i32, i32, ptr, i32, ptr, i32, i32, i32 }
 
@@ -402,7 +401,7 @@ ZIP_FreeEntry.exit:                               ; preds = %1, %8
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %27 = load ptr, ptr %22, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i.i
   %29 = load ptr, ptr %28, align 8
   tail call void @free(ptr noundef %29) #21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -844,7 +843,7 @@ findEND.exit:                                     ; preds = %split, %readFullyAt
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %189 = load ptr, ptr %184, align 8
-  %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv.i.i
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %indvars.iv.i.i
   %191 = load ptr, ptr %190, align 8
   tail call void @free(ptr noundef %191) #21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1350,10 +1349,10 @@ tailrecurse.i._crit_edge:                         ; preds = %tailrecurse.i, %isM
   %457 = add nuw nsw i32 %409, 1
   %458 = zext nneg i32 %457 to i64
   %459 = tail call noalias ptr @malloc(i64 noundef %458) #25
-  %460 = getelementptr inbounds ptr, ptr %456, i64 %455
+  %460 = getelementptr inbounds [8 x i8], ptr %456, i64 %455
   store ptr %459, ptr %460, align 8
   %461 = load ptr, ptr %184, align 8
-  %462 = getelementptr inbounds ptr, ptr %461, i64 %455
+  %462 = getelementptr inbounds [8 x i8], ptr %461, i64 %455
   %463 = load ptr, ptr %462, align 8
   %464 = icmp eq ptr %463, null
   br i1 %464, label %readFullyAt.exit.thread, label %addMetaName.exit
@@ -1379,7 +1378,7 @@ tailrecurse.i._crit_edge:                         ; preds = %tailrecurse.i, %isM
 .lr.ph.i.i184:                                    ; preds = %.lr.ph.i.i184, %.lr.ph.preheader.i.i
   %indvars.iv.i.i185 = phi i64 [ %474, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i186, %.lr.ph.i.i184 ]
   %475 = load ptr, ptr %184, align 8
-  %476 = getelementptr inbounds ptr, ptr %475, i64 %indvars.iv.i.i185
+  %476 = getelementptr inbounds [8 x i8], ptr %475, i64 %indvars.iv.i.i185
   store ptr null, ptr %476, align 8
   %indvars.iv.next.i.i186 = add nsw i64 %indvars.iv.i.i185, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i186, %467
@@ -1401,7 +1400,7 @@ tailrecurse.i:                                    ; preds = %._crit_edge.loopexi
 addMetaName.exit:                                 ; preds = %.loopexit.i190
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %463, ptr nonnull readonly align 1 %435, i64 %436, i1 false)
   %480 = load ptr, ptr %184, align 8
-  %481 = getelementptr inbounds ptr, ptr %480, i64 %455
+  %481 = getelementptr inbounds [8 x i8], ptr %480, i64 %455
   %482 = load ptr, ptr %481, align 8
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 %436
   store i8 0, ptr %483, align 1
@@ -1413,7 +1412,7 @@ addMetaName.exit:                                 ; preds = %.loopexit.i190
 isMetaName.exit.thread:                           ; preds = %.preheader.i, %440, %addMetaName.exit
   %486 = ptrtoint ptr %.0149269 to i64
   %487 = add i64 %379, %486
-  %488 = getelementptr inbounds nuw %struct.jzcell, ptr %362, i64 %indvars.iv
+  %488 = getelementptr inbounds nuw [16 x i8], ptr %362, i64 %indvars.iv
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 8
   store i64 %487, ptr %489, align 8
   %.not219 = icmp eq i16 %408, 0
@@ -1437,7 +1436,7 @@ hashN.exit:                                       ; preds = %.lr.ph.i191, %isMet
   store i32 %.0.lcssa.i, ptr %488, align 8
   %497 = urem i32 %.0.lcssa.i, %364
   %498 = zext i32 %497 to i64
-  %499 = getelementptr inbounds nuw i32, ptr %368, i64 %498
+  %499 = getelementptr inbounds nuw [4 x i8], ptr %368, i64 %498
   %500 = load i32, ptr %499, align 4
   %501 = getelementptr inbounds nuw i8, ptr %488, i64 4
   store i32 %500, ptr %501, align 4
@@ -1513,7 +1512,7 @@ readFullyAt.exit.thread:                          ; preds = %353, %355, %tailrec
 .lr.ph.i.i195:                                    ; preds = %.preheader.i.i193, %.lr.ph.i.i195
   %indvars.iv.i.i196 = phi i64 [ %indvars.iv.next.i.i197, %.lr.ph.i.i195 ], [ 0, %.preheader.i.i193 ]
   %539 = load ptr, ptr %184, align 8
-  %540 = getelementptr inbounds nuw ptr, ptr %539, i64 %indvars.iv.i.i196
+  %540 = getelementptr inbounds nuw [8 x i8], ptr %539, i64 %indvars.iv.i.i196
   %541 = load ptr, ptr %540, align 8
   tail call void @free(ptr noundef %541) #21
   %indvars.iv.next.i.i197 = add nuw nsw i64 %indvars.iv.i.i196, 1
@@ -1737,7 +1736,7 @@ hashN.exit:                                       ; preds = %.lr.ph.i, %4
   %23 = load i32, ptr %22, align 8
   %24 = urem i32 %.0.lcssa.i, %23
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %21, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %25
   %27 = icmp ne i8 %3, 0
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1797,7 +1796,7 @@ equals.exit.thread:                               ; preds = %39, %33, %31
   %.15285 = phi i32 [ %78, %.critedge ], [ %.051, %.lr.ph.preheader ]
   %46 = load ptr, ptr %29, align 8
   %47 = sext i32 %.15285 to i64
-  %48 = getelementptr inbounds %struct.jzcell, ptr %46, i64 %47
+  %48 = getelementptr inbounds [16 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, %.053
   br i1 %50, label %51, label %.critedge
@@ -1897,7 +1896,7 @@ equals.exit71:                                    ; preds = %.critedge, %.prehea
   %93 = load i32, ptr %22, align 8
   %94 = urem i32 %91, %93
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %95
   br label %31
 
 .loopexit78:                                      ; preds = %82, %equals.exit71, %hashN.exit, %equals.exit
@@ -2441,7 +2440,7 @@ define noalias noundef ptr @ZIP_GetNextEntry(ptr noundef captures(none) %0, i32 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.jzcell, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %13
   %15 = tail call fastcc ptr @newEntry(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 1)
   %16 = load ptr, ptr %8, align 8
   tail call void @JVM_RawMonitorExit(ptr noundef %16) #21

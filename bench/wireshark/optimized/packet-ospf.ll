@@ -1492,7 +1492,7 @@ define internal i32 @dissect_ospf(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 30:                                               ; preds = %4
   %31 = zext nneg i8 %12 to i64
-  %32 = getelementptr ptr, ptr @hf_ospf_msg_type_array, i64 %31
+  %32 = getelementptr [8 x i8], ptr @hf_ospf_msg_type_array, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 4
@@ -2141,7 +2141,7 @@ dissect_ospfv2_lls_tlv.exit.us.i:                 ; preds = %._crit_edge.i.us.i,
 
 switch.lookup:                                    ; preds = %.lr.ph.split.i231
   %386 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_ospf, i64 %386
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_ospf, i64 %386
   %switch.load = load ptr, ptr %switch.gep, align 8
   %387 = load i32, ptr %switch.load, align 4
   %388 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %387, ptr noundef %0, i32 noundef range(i32 -2147483648, 327930) %.040.i, i32 noundef %380, i32 noundef 0)
@@ -2514,7 +2514,7 @@ ospf_ls_type_to_filter.exit.thread:               ; preds = %41
 
 ospf_ls_type_to_filter.exit246:                   ; preds = %41, %44
   %.0.i245 = phi i64 [ %46, %44 ], [ 8, %41 ]
-  %47 = getelementptr ptr, ptr @hf_ospf_ls_type_array, i64 %.0.i245
+  %47 = getelementptr [8 x i8], ptr @hf_ospf_ls_type_array, i64 %.0.i245
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %48, align 4
   %50 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %49, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0)
@@ -4010,7 +4010,7 @@ define internal fastcc i32 @dissect_ospf_v3_lsa(ptr noundef %0, ptr noundef %1, 
 
 38:                                               ; preds = %6
   %39 = zext nneg i32 %.0.i to i64
-  %40 = getelementptr ptr, ptr @hf_ospf_v3_ls_type_array, i64 %39
+  %40 = getelementptr [8 x i8], ptr @hf_ospf_v3_ls_type_array, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %42, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0)

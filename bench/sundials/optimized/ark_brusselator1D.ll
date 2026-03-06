@@ -722,7 +722,7 @@ check_flag.exit91:                                ; preds = %24
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %.097 = phi i64 [ %43, %.lr.ph ], [ 1, %29 ]
   %38 = mul nuw nsw i64 %.097, 3
-  %39 = getelementptr inbounds nuw double, ptr %20, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !24
   %41 = getelementptr i8, ptr %39, i64 -24
   %42 = load double, ptr %41, align 8, !tbaa !24
@@ -731,14 +731,14 @@ check_flag.exit91:                                ; preds = %24
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx96
   %45 = load double, ptr %44, align 8, !tbaa !24
   %46 = add nuw nsw i64 %38, 1
-  %47 = getelementptr inbounds nuw double, ptr %20, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %46
   %48 = load double, ptr %47, align 8, !tbaa !24
   %49 = getelementptr i8, ptr %39, i64 -16
   %50 = load double, ptr %49, align 8, !tbaa !24
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %52 = load double, ptr %51, align 8, !tbaa !24
   %53 = add nuw nsw i64 %38, 2
-  %54 = getelementptr inbounds nuw double, ptr %20, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %53
   %55 = load double, ptr %54, align 8, !tbaa !24
   %56 = getelementptr i8, ptr %39, i64 -8
   %57 = load double, ptr %56, align 8, !tbaa !24
@@ -752,7 +752,7 @@ check_flag.exit91:                                ; preds = %24
   %65 = tail call double @llvm.fmuladd.f64(double %64, double %40, double %62)
   %66 = fmul double %40, %48
   %67 = tail call double @llvm.fmuladd.f64(double %66, double %40, double %65)
-  %68 = getelementptr inbounds nuw double, ptr %25, i64 %38
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %38
   store double %67, ptr %68, align 8, !tbaa !24
   %69 = tail call double @llvm.fmuladd.f64(double %48, double -2.000000e+00, double %50)
   %70 = fadd double %69, %52
@@ -760,7 +760,7 @@ check_flag.exit91:                                ; preds = %24
   %72 = tail call double @llvm.fmuladd.f64(double %70, double %33, double %71)
   %73 = fneg double %66
   %74 = tail call double @llvm.fmuladd.f64(double %73, double %40, double %72)
-  %75 = getelementptr inbounds nuw double, ptr %25, i64 %46
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %46
   store double %74, ptr %75, align 8, !tbaa !24
   %76 = tail call double @llvm.fmuladd.f64(double %55, double -2.000000e+00, double %57)
   %77 = fadd double %76, %59
@@ -769,7 +769,7 @@ check_flag.exit91:                                ; preds = %24
   %80 = tail call double @llvm.fmuladd.f64(double %77, double %35, double %79)
   %81 = fneg double %55
   %82 = tail call double @llvm.fmuladd.f64(double %81, double %40, double %80)
-  %83 = getelementptr inbounds nuw double, ptr %25, i64 %53
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %53
   store double %82, ptr %83, align 8, !tbaa !24
   %exitcond.not = icmp eq i64 %43, %36
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -829,7 +829,7 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load ptr, ptr %28, align 8, !tbaa !35
   %30 = getelementptr i8, ptr %29, i64 24
-  %31 = getelementptr double, ptr %30, i64 %19
+  %31 = getelementptr [8 x i8], ptr %30, i64 %19
   %32 = load double, ptr %31, align 8, !tbaa !24
   %33 = fadd double %26, %32
   store double %33, ptr %31, align 8, !tbaa !24
@@ -839,7 +839,7 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %37 = getelementptr i8, ptr %27, i64 -16
   %38 = load ptr, ptr %37, align 8, !tbaa !35
   %39 = getelementptr i8, ptr %38, i64 24
-  %40 = getelementptr double, ptr %39, i64 %19
+  %40 = getelementptr [8 x i8], ptr %39, i64 %19
   %41 = load double, ptr %40, align 8, !tbaa !24
   %42 = fadd double %41, %36
   store double %42, ptr %40, align 8, !tbaa !24
@@ -849,7 +849,7 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %46 = getelementptr i8, ptr %27, i64 -8
   %47 = load ptr, ptr %46, align 8, !tbaa !35
   %48 = getelementptr i8, ptr %47, i64 24
-  %49 = getelementptr double, ptr %48, i64 %19
+  %49 = getelementptr [8 x i8], ptr %48, i64 %19
   %50 = load double, ptr %49, align 8, !tbaa !24
   %51 = fadd double %50, %45
   store double %51, ptr %49, align 8, !tbaa !24
@@ -858,7 +858,7 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %54 = fdiv double %53, %12
   %55 = fdiv double %54, %12
   %56 = load ptr, ptr %27, align 8, !tbaa !35
-  %57 = getelementptr inbounds double, ptr %56, i64 %19
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %19
   %58 = load double, ptr %57, align 8, !tbaa !24
   %59 = fsub double %58, %55
   store double %59, ptr %57, align 8, !tbaa !24
@@ -868,7 +868,7 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %63 = fdiv double %62, %12
   %64 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !35
-  %66 = getelementptr inbounds double, ptr %65, i64 %19
+  %66 = getelementptr inbounds [8 x i8], ptr %65, i64 %19
   %67 = load double, ptr %66, align 8, !tbaa !24
   %68 = fsub double %67, %63
   store double %68, ptr %66, align 8, !tbaa !24
@@ -878,7 +878,7 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %72 = fdiv double %71, %12
   %73 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !35
-  %75 = getelementptr inbounds double, ptr %74, i64 %19
+  %75 = getelementptr inbounds [8 x i8], ptr %74, i64 %19
   %76 = load double, ptr %75, align 8, !tbaa !24
   %77 = fsub double %76, %72
   store double %77, ptr %75, align 8, !tbaa !24
@@ -889,7 +889,7 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %.idx.i = mul nuw nsw i64 %81, 24
   %82 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
   %83 = load ptr, ptr %82, align 8, !tbaa !35
-  %84 = getelementptr double, ptr %83, i64 %19
+  %84 = getelementptr [8 x i8], ptr %83, i64 %19
   %85 = getelementptr i8, ptr %84, i64 -24
   %86 = load double, ptr %85, align 8, !tbaa !24
   %87 = fadd double %86, %80
@@ -899,7 +899,7 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %90 = fdiv double %89, %12
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !35
-  %93 = getelementptr double, ptr %92, i64 %19
+  %93 = getelementptr [8 x i8], ptr %92, i64 %19
   %94 = getelementptr i8, ptr %93, i64 -24
   %95 = load double, ptr %94, align 8, !tbaa !24
   %96 = fadd double %95, %90
@@ -909,7 +909,7 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %99 = fdiv double %98, %12
   %100 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !35
-  %102 = getelementptr double, ptr %101, i64 %19
+  %102 = getelementptr [8 x i8], ptr %101, i64 %19
   %103 = getelementptr i8, ptr %102, i64 -24
   %104 = load double, ptr %103, align 8, !tbaa !24
   %105 = fadd double %104, %99
@@ -946,21 +946,21 @@ check_flag.exit.thread.i:                         ; preds = %LaplaceMatrix.exit.
 check_flag.exit.i:                                ; preds = %check_flag.exit.i, %.lr.ph.i8
   %.0763.i = phi i64 [ 1, %.lr.ph.i8 ], [ %166, %check_flag.exit.i ]
   %119 = mul nuw nsw i64 %.0763.i, 3
-  %120 = getelementptr inbounds nuw double, ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load double, ptr %120, align 8, !tbaa !24
   %122 = add nuw nsw i64 %119, 1
-  %123 = getelementptr inbounds nuw double, ptr %107, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %122
   %124 = load double, ptr %123, align 8, !tbaa !24
   %125 = add nuw nsw i64 %119, 2
-  %126 = getelementptr inbounds nuw double, ptr %107, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %125
   %127 = load double, ptr %126, align 8, !tbaa !24
   %128 = fmul double %121, 2.000000e+00
   %129 = fadd double %127, 1.000000e+00
   %130 = fneg double %129
   %131 = tail call double @llvm.fmuladd.f64(double %128, double %124, double %130)
-  %132 = getelementptr inbounds nuw ptr, ptr %113, i64 %119
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %119
   %133 = load ptr, ptr %132, align 8, !tbaa !35
-  %134 = getelementptr inbounds double, ptr %133, i64 %115
+  %134 = getelementptr inbounds [8 x i8], ptr %133, i64 %115
   %135 = load double, ptr %134, align 8, !tbaa !24
   %136 = fadd double %131, %135
   store double %136, ptr %134, align 8, !tbaa !24
@@ -975,9 +975,9 @@ check_flag.exit.i:                                ; preds = %check_flag.exit.i, 
   %144 = fsub double %143, %127
   store double %144, ptr %142, align 8, !tbaa !24
   %145 = fmul double %121, %121
-  %146 = getelementptr inbounds nuw ptr, ptr %113, i64 %122
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %122
   %147 = load ptr, ptr %146, align 8, !tbaa !35
-  %148 = getelementptr double, ptr %147, i64 %115
+  %148 = getelementptr [8 x i8], ptr %147, i64 %115
   %149 = getelementptr i8, ptr %148, i64 -8
   %150 = load double, ptr %149, align 8, !tbaa !24
   %151 = fadd double %145, %150
@@ -985,9 +985,9 @@ check_flag.exit.i:                                ; preds = %check_flag.exit.i, 
   %152 = load double, ptr %148, align 8, !tbaa !24
   %153 = fsub double %152, %145
   store double %153, ptr %148, align 8, !tbaa !24
-  %154 = getelementptr inbounds nuw ptr, ptr %113, i64 %125
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %125
   %155 = load ptr, ptr %154, align 8, !tbaa !35
-  %156 = getelementptr double, ptr %155, i64 %115
+  %156 = getelementptr [8 x i8], ptr %155, i64 %115
   %157 = getelementptr i8, ptr %156, i64 -16
   %158 = load double, ptr %157, align 8, !tbaa !24
   %159 = fsub double %158, %121

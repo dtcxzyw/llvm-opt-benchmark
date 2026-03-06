@@ -223,7 +223,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__112__ge
   %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 31
-  %5 = getelementptr inbounds nuw %"class.std::__1::__sp_mut", ptr @_ZZNSt3__112__get_sp_mutEPKvE4muts, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNSt3__112__get_sp_mutEPKvE4muts, i64 %4
   ret ptr %5
 }
 

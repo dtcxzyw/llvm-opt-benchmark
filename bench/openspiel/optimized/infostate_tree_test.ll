@@ -32,10 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<open_spiel::algorithms::InfostateNode *, std::allocator<open_spiel::algorithms::InfostateNode *>>::_Vector_impl" }
-%"struct.std::_Vector_base<open_spiel::algorithms::InfostateNode *, std::allocator<open_spiel::algorithms::InfostateNode *>>::_Vector_impl" = type { %"struct.std::_Vector_base<open_spiel::algorithms::InfostateNode *, std::allocator<open_spiel::algorithms::InfostateNode *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<open_spiel::algorithms::InfostateNode *, std::allocator<open_spiel::algorithms::InfostateNode *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::shared_ptr.35" = type { %"class.std::__shared_ptr.36" }
 %"class.std::__shared_ptr.36" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -46,12 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
-%"struct.std::_Head_base.4" = type { ptr }
 %"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
 %"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<std::unique_ptr<open_spiel::State>, std::allocator<std::unique_ptr<open_spiel::State>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::unique_ptr<open_spiel::State>, std::allocator<std::unique_ptr<open_spiel::State>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<open_spiel::State>, std::allocator<std::unique_ptr<open_spiel::State>>>::_Vector_impl_data" }
@@ -2953,7 +2943,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %891, %887
           to label %902 unwind label %.loopexit.i
 
 902:                                              ; preds = %898
-  %903 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %80, i64 %indvars.iv.i
+  %903 = getelementptr inbounds nuw [32 x i8], ptr %80, i64 %indvars.iv.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %903)
           to label %904 unwind label %960
 
@@ -3162,7 +3152,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %975 = sub i64 %973, %974
   %976 = ashr exact i64 %975, 3
   store i64 %976, ptr %95, align 8
-  %977 = getelementptr inbounds nuw i32, ptr @__const._ZN10open_spiel10algorithms12_GLOBAL__N_124TestDepthLimitedSubgamesEv.expected_leaf_counts, i64 %indvars.iv.i
+  %977 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN10open_spiel10algorithms12_GLOBAL__N_124TestDepthLimitedSubgamesEv.expected_leaf_counts, i64 %indvars.iv.i
   %978 = load i32, ptr %977, align 4
   store i32 %978, ptr %96, align 4
   %979 = sext i32 %978 to i64
@@ -3469,7 +3459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i44: 
   unreachable
 
 1075:                                             ; preds = %1072
-  %1076 = getelementptr inbounds nuw %"class.std::vector", ptr %.pre208.i, i64 %indvars.iv.i46
+  %1076 = getelementptr inbounds nuw [24 x i8], ptr %.pre208.i, i64 %indvars.iv.i46
   %1077 = load ptr, ptr %1076, align 8
   %1078 = getelementptr inbounds nuw i8, ptr %1076, i64 8
   %1079 = load ptr, ptr %1078, align 8
@@ -3707,7 +3697,7 @@ _ZNK10open_spiel10algorithms8internal6NodeIdINS0_10SequenceIdEE2idEv.exit.i.i: ;
   br i1 %.not.i.i.i73.i, label %1145, label %.invoke.i
 
 1145:                                             ; preds = %_ZNK10open_spiel10algorithms8internal6NodeIdINS0_10SequenceIdEE2idEv.exit.i.i
-  %1146 = getelementptr inbounds ptr, ptr %1140, i64 %.sroa.0106.0168.i
+  %1146 = getelementptr inbounds [8 x i8], ptr %1140, i64 %.sroa.0106.0168.i
   %1147 = load ptr, ptr %1146, align 8
   %1148 = getelementptr inbounds nuw i8, ptr %1147, i64 112
   %1149 = load i64, ptr %1148, align 8
@@ -3794,7 +3784,7 @@ _ZNK10open_spiel10algorithms8internal6NodeIdINS0_10SequenceIdEE2idEv.exit.i84.i:
   br i1 %.not.i.i.i85.i, label %1173, label %.invoke.i
 
 1173:                                             ; preds = %_ZNK10open_spiel10algorithms8internal6NodeIdINS0_10SequenceIdEE2idEv.exit.i84.i
-  %1174 = getelementptr inbounds ptr, ptr %1168, i64 %.sroa.0100.0163.i
+  %1174 = getelementptr inbounds [8 x i8], ptr %1168, i64 %.sroa.0100.0163.i
   %1175 = load ptr, ptr %1174, align 8
   %1176 = load i64, ptr %1148, align 8
   store i64 %1176, ptr %76, align 8
@@ -8887,7 +8877,7 @@ define internal fastcc noundef zeroext i1 @_ZN10open_spiel10algorithms12_GLOBAL_
 
 19:                                               ; preds = %19, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = tail call fastcc noundef zeroext i1 @_ZN10open_spiel10algorithms12_GLOBAL__N_114IsNodeBalancedERKNS0_13InfostateNodeEii(ptr noundef nonnull align 8 dereferenceable(240) %21, i32 noundef %1, i32 noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9097,7 +9087,7 @@ _ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE
 .noexc:                                           ; preds = %69, %_ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %62, ptr %8, align 8
   store ptr %68, ptr %19, align 8
-  %73 = getelementptr inbounds nuw %"class.std::unique_ptr.54", ptr %62, i64 %60
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %60
   store ptr %73, ptr %20, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
@@ -9162,7 +9152,7 @@ _ZNSt6vectorIPKN10open_spiel5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i
 _ZNSt6vectorIPKN10open_spiel5StateESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %101, %_ZNSt6vectorIPKN10open_spiel5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %96, ptr %9, align 8
   store ptr %100, ptr %21, align 8
-  %102 = getelementptr inbounds nuw ptr, ptr %96, i64 %94
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %94
   store ptr %102, ptr %22, align 8
   br label %_ZNSt6vectorIPKN10open_spiel5StateESaIS3_EE9push_backEOS3_.exit
 
@@ -10687,7 +10677,7 @@ _ZNK10open_spiel10algorithms13InfostateNode20corresponding_statesEv.exit28.i: ; 
   unreachable
 
 _ZNK10open_spiel10algorithms13InfostateTree14nodes_at_depthEm.exit.i: ; preds = %.loopexit46
-  %193 = getelementptr inbounds %"class.std::vector", ptr %187, i64 %185
+  %193 = getelementptr inbounds [24 x i8], ptr %187, i64 %185
   invoke void @_ZN10open_spiel10algorithms17MakeInfostateTreeERKSt6vectorIPNS0_13InfostateNodeESaIS3_EEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %193, i32 noundef 1000)
           to label %.noexc29 unwind label %.loopexit.split-lp.loopexit
 
@@ -10750,7 +10740,7 @@ _ZNK10open_spiel10algorithms13InfostateTree14nodes_at_depthEm.exit.i: ; preds = 
 .lr.ph186.i:                                      ; preds = %.preheader.i, %_ZNSt6vectorIlSaIlEED2Ev.exit99.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNSt6vectorIlSaIlEED2Ev.exit99.i ], [ 0, %.preheader.i ]
   %211 = phi ptr [ %480, %_ZNSt6vectorIlSaIlEED2Ev.exit99.i ], [ %199, %.preheader.i ]
-  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %indvars.iv.i
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv.i
   %213 = load ptr, ptr %212, align 8
   %214 = load ptr, ptr %10, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
@@ -10774,7 +10764,7 @@ _ZNK10open_spiel10algorithms13InfostateTree14nodes_at_depthEm.exit.i: ; preds = 
   unreachable
 
 226:                                              ; preds = %.lr.ph186.i
-  %227 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %220, i64 %indvars.iv.i
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %indvars.iv.i
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds nuw i8, ptr %213, i64 120
   %230 = load ptr, ptr %229, align 8

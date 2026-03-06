@@ -1083,7 +1083,7 @@ define void @_ZN6colvar9map_total10calc_valueEv(ptr noundef nonnull align 8 dere
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 704
   %33 = sext i32 %31 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !7
-  %35 = getelementptr inbounds nuw double, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load double, ptr %35, align 8, !tbaa !122
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store double %36, ptr %37, align 8, !tbaa !120
@@ -1127,7 +1127,7 @@ define void @_ZN6colvar9map_total11apply_forceERK11colvarvalue(ptr noundef nonnu
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 728
   %14 = sext i32 %10 to i64
   %15 = load ptr, ptr %13, align 8, !tbaa !7
-  %16 = getelementptr inbounds nuw double, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load double, ptr %16, align 8, !tbaa !122
   %18 = fadd double %12, %17
   store double %18, ptr %16, align 8, !tbaa !122

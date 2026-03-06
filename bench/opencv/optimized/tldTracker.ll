@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.62" = type { %"struct.std::_Vector_base<cv::Mat_<unsigned char>, std::allocator<cv::Mat_<unsigned char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Mat_<unsigned char>, std::allocator<cv::Mat_<unsigned char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Mat_<unsigned char>, std::allocator<cv::Mat_<unsigned char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Mat_<unsigned char>, std::allocator<cv::Mat_<unsigned char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch" = type <{ %"class.cv::Rect_", i8, i8, [6 x i8] }>
 %"class.std::vector.81" = type { %"struct.std::_Vector_base.82" }
 %"struct.std::_Vector_base.82" = type { %"struct.std::_Vector_base<cv::Rect_<double>, std::allocator<cv::Rect_<double>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Rect_<double>, std::allocator<cv::Rect_<double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Rect_<double>, std::allocator<cv::Rect_<double>>>::_Vector_impl_data" }
@@ -1977,7 +1976,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.
   %180 = ptrtoint ptr %.sroa.0182.3 to i64
   %181 = sub i64 %179, %180
   %182 = ashr exact i64 %181, 3
-  %183 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %.sroa.0195.3, i64 %182
+  %183 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0195.3, i64 %182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %183, i64 32, i1 false), !tbaa.struct !72
   %184 = load ptr, ptr %44, align 8, !tbaa !70
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 1
@@ -2202,7 +2201,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit131: ; preds = %_ZNSt12_Vector_
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit131, %290
   %268 = phi ptr [ %280, %290 ], [ %257, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit131 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %290 ], [ 0, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit131 ]
-  %269 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %268, i64 %indvars.iv
+  %269 = getelementptr inbounds nuw [40 x i8], ptr %268, i64 %indvars.iv
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   %271 = load i8, ptr %270, align 8, !tbaa !113, !range !86, !noundef !87
   %272 = trunc nuw i8 %271 to i1
@@ -2230,7 +2229,7 @@ _ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit: ; preds =
 279:                                              ; preds = %.lr.ph, %_ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit
   %280 = phi ptr [ %.pre222, %_ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit ], [ %268, %.lr.ph ]
   %.0.in = phi i8 [ %276, %_ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit ], [ 0, %.lr.ph ]
-  %281 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %280, i64 %indvars.iv
+  %281 = getelementptr inbounds nuw [40 x i8], ptr %280, i64 %indvars.iv
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 33
   %283 = load i8, ptr %282, align 1, !tbaa !115, !range !86, !noundef !87
   %284 = trunc nuw i8 %283 to i1
@@ -2823,7 +2822,7 @@ _ZN2cv4Mat_IhEC2Eii.exit:                         ; preds = %120
 
 121:                                              ; preds = %_ZN2cv4Mat_IhEC2Eii.exit
   %122 = load ptr, ptr %4, align 8, !tbaa !127
-  %123 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %122, i64 %.04397
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %.04397
   %124 = load double, ptr %123, align 8, !tbaa !75
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %126 = load double, ptr %125, align 8, !tbaa !78
@@ -4176,7 +4175,7 @@ _ZNSt12_Vector_baseIN2cv4Mat_IhEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !103
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !106
-  %50 = getelementptr inbounds nuw %"class.cv::Mat_", ptr %20, i64 %16
+  %50 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %50, ptr %49, align 8, !tbaa !108
   ret void
 

@@ -1669,7 +1669,7 @@ define hidden noundef nonnull align 8 dereferenceable(400) ptr @_ZN13yara_x_pars
   %44 = add i64 %.sroa.01.0.i.i.i, %43
   %45 = and i64 %44, %36
   %46 = sub nsw i64 0, %45
-  %47 = getelementptr inbounds { { i64, i16, [3 x i16] }, {} }, ptr %37, i64 %46
+  %47 = getelementptr inbounds [16 x i8], ptr %37, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -16
   %49 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h55c64b34b0462059E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %48), !noalias !88
   br i1 %49, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdb93931342522e39E.exit", label %53, !prof !91
@@ -2414,7 +2414,7 @@ define hidden noundef nonnull align 8 dereferenceable(400) ptr @_ZN13yara_x_pars
   %29 = add i64 %.sroa.01.0.i.i.i, %28
   %30 = and i64 %29, %21
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds { { i64, i16, [3 x i16] }, {} }, ptr %22, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr %22, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -16
   %34 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h55c64b34b0462059E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33), !noalias !227
   br i1 %34, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdb93931342522e39E.exit", label %38, !prof !91

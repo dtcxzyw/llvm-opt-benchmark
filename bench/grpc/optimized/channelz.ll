@@ -33,10 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.166" = type { %"struct.std::_Head_base.167" }
 %"struct.std::_Head_base.167" = type { ptr }
 %"class.std::tuple.168" = type { i8 }
-%"struct.grpc_core::channelz::PerCpuCallCountingHelper::PerCpuData" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic.14", [32 x i8] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.std::atomic.14" = type { double }
 %"class.std::map" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -1584,7 +1580,7 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
   %22 = load i64, ptr %21, align 8, !tbaa !76
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !86
-  %25 = getelementptr inbounds nuw %"struct.grpc_core::channelz::PerCpuCallCountingHelper::PerCpuData", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %23
   ret ptr %25
 }
 
@@ -2648,7 +2644,7 @@ define noundef nonnull ptr @_ZN9grpc_core8channelz11ChannelNode39GetChannelConne
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core8channelz11ChannelNode39GetChannelConnectivityStateChangeStringE23grpc_connectivity_state, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9grpc_core8channelz11ChannelNode39GetChannelConnectivityStateChangeStringE23grpc_connectivity_state, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -7939,7 +7935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN9g
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %.noexc13
-  %33 = getelementptr inbounds %"struct.grpc_core::channelz::PerCpuCallCountingHelper::PerCpuData", ptr %30, i64 %25
+  %33 = getelementptr inbounds [64 x i8], ptr %30, i64 %25
   br label %34
 
 34:                                               ; preds = %34, %32
@@ -22299,7 +22295,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EE
 _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit, %40
   store ptr %24, ptr %0, align 8, !tbaa !158
   store ptr %38, ptr %6, align 8, !tbaa !161
-  %44 = getelementptr inbounds nuw %"class.grpc_core::experimental::Json", ptr %24, i64 %18
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %44, ptr %39, align 8, !tbaa !163
   ret void
 }

@@ -3,12 +3,6 @@ source_filename = "bench/postgres/original/printtup.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PrinttupAttrInfo = type { i32, i32, i8, i16, %struct.FmgrInfo }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [7 x i8] c"\09----\0A\00", align 1
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [9 x i8] c"printtup\00", align 1
@@ -99,12 +93,12 @@ define internal noundef zeroext i1 @printtup(ptr noundef %0, ptr noundef %1) #0 
 .thread.us.i:                                     ; preds = %23, %.thread.us.i
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %.thread.us.i ], [ 0, %23 ]
   %27 = load ptr, ptr %17, align 8
-  %28 = getelementptr inbounds nuw %struct.PrinttupAttrInfo, ptr %27, i64 %indvars.iv45.i
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 %indvars.iv45.i
   %29 = load i32, ptr %4, align 8
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 4
   %32 = getelementptr i8, ptr %4, i64 %31
-  %33 = getelementptr %struct.FormData_pg_attribute, ptr %32, i64 %indvars.iv45.i
+  %33 = getelementptr [100 x i8], ptr %32, i64 %indvars.iv45.i
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 10
   store i16 0, ptr %34, align 2
   %35 = getelementptr i8, ptr %33, i64 92
@@ -121,15 +115,15 @@ define internal noundef zeroext i1 @printtup(ptr noundef %0, ptr noundef %1) #0 
 .split.i:                                         ; preds = %23, %65
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ 0, %23 ]
   %40 = load ptr, ptr %17, align 8
-  %41 = getelementptr inbounds nuw %struct.PrinttupAttrInfo, ptr %40, i64 %indvars.iv.i
-  %42 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv.i
   %43 = load i16, ptr %42, align 2
   %44 = load i32, ptr %4, align 8
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 4
   %47 = getelementptr i8, ptr %4, i64 %46
   %48 = getelementptr i8, ptr %47, i64 24
-  %49 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %48, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [100 x i8], ptr %48, i64 %indvars.iv.i
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 10
   store i16 %43, ptr %50, align 2
   switch i16 %43, label %60 [
@@ -213,7 +207,7 @@ slot_getallattrs.exit:                            ; preds = %printtup_prepare_in
 89:                                               ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
   %90 = load ptr, ptr %87, align 8
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   %92 = load i64, ptr %91, align 8
   %93 = load ptr, ptr %88, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 %indvars.iv
@@ -235,7 +229,7 @@ slot_getallattrs.exit:                            ; preds = %printtup_prepare_in
 
 103:                                              ; preds = %89
   %104 = load ptr, ptr %86, align 8
-  %105 = getelementptr inbounds nuw %struct.PrinttupAttrInfo, ptr %104, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [64 x i8], ptr %104, i64 %indvars.iv
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 10
   %107 = load i16, ptr %106, align 2
   %108 = icmp eq i16 %107, 0
@@ -410,7 +404,7 @@ list_head.exit:                                   ; preds = %4, %7
   %26 = shl nsw i64 %25, 4
   %27 = getelementptr i8, ptr %1, i64 %26
   %28 = getelementptr i8, ptr %27, i64 24
-  %29 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [100 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 68
   %31 = load i32, ptr %30, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -434,7 +428,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %.val48 = load ptr, ptr %22, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.155, i64 8
   %40 = sext i32 %.val to i64
-  %41 = getelementptr inbounds %union.ListCell, ptr %.val48, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %.val48, i64 %40
   %.not = icmp ult ptr %39, %41
   br i1 %.not, label %.lr.ph, label %.critedge47
 
@@ -447,7 +441,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %.val50 = load ptr, ptr %22, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.155, i64 8
   %47 = sext i32 %.val49 to i64
-  %48 = getelementptr inbounds %union.ListCell, ptr %.val50, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.val50, i64 %47
   %49 = icmp ult ptr %46, %48
   %..i51 = select i1 %49, ptr %46, ptr null
   %50 = call i32 @llvm.bswap.i32(i32 %43)
@@ -461,7 +455,7 @@ select.unfold:                                    ; preds = %.lr.ph
   br i1 %.not46, label %56, label %52
 
 52:                                               ; preds = %.critedge47
-  %53 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %54 = load i16, ptr %53, align 2
   %55 = call i16 @llvm.bswap.i16(i16 %54)
   br label %56
@@ -584,7 +578,7 @@ define dso_local void @debugStartup(ptr noundef readnone captures(none) %0, i32 
   %8 = shl nsw i64 %7, 4
   %9 = getelementptr i8, ptr %2, i64 %8
   %10 = getelementptr i8, ptr %9, i64 24
-  %11 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [100 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %14 = load i32, ptr %13, align 4
@@ -650,13 +644,13 @@ slot_getattr.exit:                                ; preds = %12, %slot_getsomeat
 
 20:                                               ; preds = %slot_getattr.exit
   %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   %24 = load i32, ptr %6, align 8
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 4
   %27 = getelementptr i8, ptr %6, i64 %26
-  %28 = getelementptr %struct.FormData_pg_attribute, ptr %27, i64 %indvars.iv
+  %28 = getelementptr [100 x i8], ptr %27, i64 %indvars.iv
   %29 = getelementptr i8, ptr %28, i64 92
   %30 = load i32, ptr %29, align 4
   call void @getTypeOutputInfo(i32 noundef %30, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
@@ -667,7 +661,7 @@ slot_getattr.exit:                                ; preds = %12, %slot_getsomeat
   %35 = shl nsw i64 %34, 4
   %36 = getelementptr i8, ptr %6, i64 %35
   %37 = getelementptr i8, ptr %36, i64 24
-  %38 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [100 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %.not.i = icmp eq ptr %32, null
   %40 = select i1 %.not.i, ptr @.str.6, ptr @.str.5

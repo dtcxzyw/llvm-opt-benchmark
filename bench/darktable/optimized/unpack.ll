@@ -628,7 +628,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw6unpackEv(ptr noundef nonnul
 318:                                              ; preds = %314, %318
   %indvars.iv = phi i64 [ 0, %314 ], [ %indvars.iv.next, %318 ]
   %.055140 = phi i32 [ %317, %314 ], [ %spec.select133, %318 ]
-  %319 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %315, i64 %indvars.iv
   %320 = load i32, ptr %319, align 4, !tbaa !106
   %spec.select133 = call i32 @llvm.umin.i32(i32 %.055140, i32 %320)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -637,7 +637,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw6unpackEv(ptr noundef nonnul
 
 .preheader:                                       ; preds = %318, %.preheader
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %.preheader ], [ 0, %318 ]
-  %321 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv144
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %315, i64 %indvars.iv144
   %322 = load i32, ptr %321, align 4, !tbaa !106
   %323 = sub i32 %322, %spec.select133
   store i32 %323, ptr %321, align 4, !tbaa !106

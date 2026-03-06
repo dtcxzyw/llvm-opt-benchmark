@@ -72,80 +72,6 @@ module asm ".previous"
 %"struct.std::_Vector_base.197" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.282" = type { i32, i32 }
-%class.CFaceO = type { %"class.vcg::Face" }
-%"class.vcg::Face" = type { %"class.vcg::FaceArityMax" }
-%"class.vcg::FaceArityMax" = type { %"class.vcg::DefaultDeriver" }
-%"class.vcg::DefaultDeriver" = type { %"class.vcg::Arity11" }
-%"class.vcg::Arity11" = type { %"class.vcg::face::WedgeTexCoordfOcf" }
-%"class.vcg::face::WedgeTexCoordfOcf" = type { %"class.vcg::face::WedgeTexCoordOcf" }
-%"class.vcg::face::WedgeTexCoordOcf" = type { %"class.vcg::Arity10" }
-%"class.vcg::Arity10" = type { %"class.vcg::face::CurvatureDirmOcf" }
-%"class.vcg::face::CurvatureDirmOcf" = type { %"class.vcg::face::CurvatureDirOcf" }
-%"class.vcg::face::CurvatureDirOcf" = type { %"class.vcg::Arity9" }
-%"class.vcg::Arity9" = type { %"class.vcg::face::VFAdjOcf" }
-%"class.vcg::face::VFAdjOcf" = type { %"class.vcg::Arity8" }
-%"class.vcg::Arity8" = type { %"class.vcg::face::FFAdjOcf" }
-%"class.vcg::face::FFAdjOcf" = type { %"class.vcg::Arity7" }
-%"class.vcg::Arity7" = type { %"class.vcg::face::Color4bOcf" }
-%"class.vcg::face::Color4bOcf" = type { %"class.vcg::face::ColorOcf" }
-%"class.vcg::face::ColorOcf" = type { %"class.vcg::Arity6" }
-%"class.vcg::Arity6" = type { %"class.vcg::face::MarkOcf" }
-%"class.vcg::face::MarkOcf" = type { %"class.vcg::Arity5" }
-%"class.vcg::Arity5" = type { %"class.vcg::face::QualitymOcf" }
-%"class.vcg::face::QualitymOcf" = type { %"class.vcg::face::QualityOcf" }
-%"class.vcg::face::QualityOcf" = type { %"class.vcg::Arity4" }
-%"class.vcg::Arity4" = type { %"class.vcg::face::Normal3m" }
-%"class.vcg::face::Normal3m" = type { %"class.vcg::face::NormalAbs" }
-%"class.vcg::face::NormalAbs" = type { %"class.vcg::Arity3.base", %"class.vcg::Point3" }
-%"class.vcg::Arity3.base" = type { %"class.vcg::face::BitFlags.base" }
-%"class.vcg::face::BitFlags.base" = type <{ %"class.vcg::Arity2", i32 }>
-%"class.vcg::Arity2" = type { %"class.vcg::face::VertexRef" }
-%"class.vcg::face::VertexRef" = type { %"class.vcg::Arity1", [3 x ptr] }
-%"class.vcg::Arity1" = type { %"class.vcg::face::InfoOcf" }
-%"class.vcg::face::InfoOcf" = type { ptr }
-%"class.vcg::Point3" = type { [3 x float] }
-%"class.vcg::TexCoord2" = type <{ [1 x %"class.vcg::Point2.141"], [1 x i16], [2 x i8] }>
-%"class.vcg::Point2.141" = type { [2 x float] }
-%"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack" = type { [3 x %"class.vcg::TexCoord2"] }
-%"struct.std::pair.289" = type { i16, i32 }
-%class.CVertexO = type { %"class.vcg::Vertex.base", [4 x i8] }
-%"class.vcg::Vertex.base" = type { %"class.vcg::VertexArityMax.base" }
-%"class.vcg::VertexArityMax.base" = type { %"class.vcg::Arity12.base" }
-%"class.vcg::Arity12.base" = type { %"class.vcg::DefaultDeriver.base" }
-%"class.vcg::DefaultDeriver.base" = type { %"class.vcg::Arity11.base" }
-%"class.vcg::Arity11.base" = type { %"class.vcg::vertex::RadiusmOcf.base" }
-%"class.vcg::vertex::RadiusmOcf.base" = type { %"class.vcg::vertex::RadiusOcf.base" }
-%"class.vcg::vertex::RadiusOcf.base" = type { %"class.vcg::Arity10.base" }
-%"class.vcg::Arity10.base" = type { %"class.vcg::vertex::CurvatureDirmOcf.base" }
-%"class.vcg::vertex::CurvatureDirmOcf.base" = type { %"class.vcg::vertex::CurvatureDirOcf.base" }
-%"class.vcg::vertex::CurvatureDirOcf.base" = type { %"class.vcg::Arity9.base" }
-%"class.vcg::Arity9.base" = type { %"class.vcg::vertex::TexCoordfOcf.base" }
-%"class.vcg::vertex::TexCoordfOcf.base" = type { %"class.vcg::vertex::TexCoordOcf.base" }
-%"class.vcg::vertex::TexCoordOcf.base" = type { %"class.vcg::Arity8.base" }
-%"class.vcg::Arity8.base" = type { %"class.vcg::vertex::MarkOcf.base" }
-%"class.vcg::vertex::MarkOcf.base" = type { %"class.vcg::Arity7.base" }
-%"class.vcg::Arity7.base" = type { %"class.vcg::vertex::VFAdjOcf.base" }
-%"class.vcg::vertex::VFAdjOcf.base" = type { %"class.vcg::Arity6.base" }
-%"class.vcg::Arity6.base" = type { %"class.vcg::vertex::Color4b.base" }
-%"class.vcg::vertex::Color4b.base" = type { %"class.vcg::vertex::Color.base" }
-%"class.vcg::vertex::Color.base" = type { %"class.vcg::Arity5.276", %"class.vcg::Color4" }
-%"class.vcg::Arity5.276" = type { %"class.vcg::vertex::Qualitym" }
-%"class.vcg::vertex::Qualitym" = type { %"class.vcg::vertex::Quality" }
-%"class.vcg::vertex::Quality" = type { %"class.vcg::Arity4.base", float }
-%"class.vcg::Arity4.base" = type { %"class.vcg::vertex::Normal3m.base" }
-%"class.vcg::vertex::Normal3m.base" = type { %"class.vcg::vertex::Normal.base" }
-%"class.vcg::vertex::Normal.base" = type { %"class.vcg::Arity3.278", %"class.vcg::Point3" }
-%"class.vcg::Arity3.278" = type { %"class.vcg::vertex::BitFlags" }
-%"class.vcg::vertex::BitFlags" = type { %"class.vcg::Arity2.base", i32 }
-%"class.vcg::Arity2.base" = type { %"class.vcg::vertex::Coord3m.base" }
-%"class.vcg::vertex::Coord3m.base" = type { %"class.vcg::vertex::Coord.base" }
-%"class.vcg::vertex::Coord.base" = type <{ %"class.vcg::Arity1.280", %"class.vcg::Point3" }>
-%"class.vcg::Arity1.280" = type { %"class.vcg::vertex::InfoOcf" }
-%"class.vcg::vertex::InfoOcf" = type { ptr }
-%"class.vcg::Color4" = type { %"class.vcg::Point4" }
-%"class.vcg::Point4" = type { [4 x i8] }
-%"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd" = type { [2 x i32] }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"class.std::tuple.291" = type { %"struct.std::_Tuple_impl.292" }
 %"struct.std::_Tuple_impl.292" = type { %"struct.std::_Head_base.293" }
@@ -154,6 +80,8 @@ module asm ".previous"
 %class.QReadLocker = type { i64 }
 %"class.vcg::Matrix44" = type { %"struct.std::array.142" }
 %"struct.std::array.142" = type { [16 x float] }
+%"class.vcg::Color4" = type { %"class.vcg::Point4" }
+%"class.vcg::Point4" = type { [4 x i8] }
 %class.MLRenderingData = type { %"class.vcg::PerViewData" }
 %"struct.std::pair" = type { i32, %"class.std::vector.5" }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
@@ -1255,7 +1183,7 @@ _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10
   %11 = phi ptr [ %18, %17 ], [ %10, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE5clearEv.exit ]
   %12 = phi ptr [ %19, %17 ], [ %9, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE5clearEv.exit ]
   %.011 = phi i64 [ %20, %17 ], [ 0, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE5clearEv.exit ]
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %.011
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %.011
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -1810,9 +1738,9 @@ define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMan
 12:                                               ; preds = %3, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [9 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [9 x i8], ptr %15, i64 %indvars.iv
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %9, i8 0, i64 9, i1 false), !alias.scope !17
   br label %17
@@ -3146,9 +3074,9 @@ define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMan
 8:                                                ; preds = %2, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [9 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [9 x i8], ptr %11, i64 %indvars.iv
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false), !alias.scope !29
   br label %13
@@ -3390,7 +3318,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
 
 .noexc15:                                         ; preds = %32
   %33 = load ptr, ptr %17, align 8
-  %34 = getelementptr inbounds i32, ptr %33, i64 %.0
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %.0
   %35 = load i32, ptr %34, align 4
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %_ZNK3vcg33QtThreadSafeTextureNamesContainerixEm.exit unwind label %36
@@ -3456,7 +3384,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %55, %.no
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %56, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
-  %57 = getelementptr inbounds nuw i32, ptr %52, i64 %50
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %50
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %39
@@ -3782,7 +3710,7 @@ _ZNK3vcg33QtThreadSafeTextureNamesContainer4sizeEv.exit: ; preds = %16
 30:                                               ; preds = %_ZNK3vcg33QtThreadSafeTextureNamesContainer4sizeEv.exit
   tail call void @_ZN14QReadWriteLock11lockForReadEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
   %31 = load ptr, ptr %17, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %2
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %2
   %33 = load i32, ptr %32, align 4
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %_ZNK3vcg33QtThreadSafeTextureNamesContainerixEm.exit unwind label %34
@@ -4151,7 +4079,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %29, %.noex
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %26, ptr %0, align 8
   store ptr %30, ptr %6, align 8
-  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -4734,7 +4662,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %27, %.no
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %24, ptr %0, align 8
   store ptr %28, ptr %4, align 8
-  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -5187,7 +5115,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3vcg49NotThreadSafeGLMeshAttributesM
 
 24:                                               ; preds = %.preheader, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
-  %25 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %.pre, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [9 x i8], ptr %.pre, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %47
@@ -5609,7 +5537,7 @@ _ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit: ; preds = %_ZN3vcg20GLMes
   %indvars.iv366 = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit227.preheader ], [ %indvars.iv.next367, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit227 ]
   %.0362 = phi i1 [ false, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit227.preheader ], [ %318, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit227 ]
   %188 = load ptr, ptr %142, align 8
-  %189 = getelementptr inbounds nuw ptr, ptr %188, i64 %indvars.iv366
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %indvars.iv366
   %190 = load ptr, ptr %189, align 8
   %.not113 = icmp eq ptr %190, null
   br i1 %.not113, label %305, label %191
@@ -5709,7 +5637,7 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
 
 235:                                              ; preds = %231
   %236 = load ptr, ptr %142, align 8
-  %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv366
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %indvars.iv366
   %238 = load ptr, ptr %237, align 8
   %239 = load i64, ptr %238, align 8
   %.not117 = icmp eq i64 %239, %226
@@ -5736,7 +5664,7 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
 
 249:                                              ; preds = %245
   %250 = load ptr, ptr %142, align 8
-  %251 = getelementptr inbounds nuw ptr, ptr %250, i64 %indvars.iv366
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %indvars.iv366
   %252 = load ptr, ptr %251, align 8
   %253 = load i64, ptr %252, align 8
   %.not118 = icmp eq i64 %226, %253
@@ -5974,7 +5902,7 @@ _ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext1
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %34, align 8
-  %40 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %39, i64 %.01018.i
+  %40 = getelementptr inbounds nuw [9 x i8], ptr %39, i64 %.01018.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !72
   br label %41
@@ -6606,7 +6534,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 192:                                              ; preds = %.preheader124
   %193 = load ptr, ptr %185, align 8
-  %194 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %193, i64 %.025144
+  %194 = getelementptr inbounds nuw [9 x i8], ptr %193, i64 %.025144
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 %indvars.iv150
   %196 = load i8, ptr %195, align 1
   %197 = trunc i8 %196 to i1
@@ -6949,7 +6877,7 @@ define linkonce_odr noundef i64 @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiVie
   unreachable
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %5
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %5
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 264
@@ -7078,7 +7006,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg49NotThreadSafeGLMeshAttributesMu
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %17, i64 %.01018.i
+  %18 = getelementptr inbounds nuw [9 x i8], ptr %17, i64 %.01018.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !92
   br label %19
@@ -7288,7 +7216,7 @@ _ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit56: ; preds = %.lr.ph110
 
 _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit60: ; preds = %94
   %100 = load ptr, ptr %42, align 8
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv123
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv123
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv123
   %104 = load i8, ptr %103, align 1
@@ -7320,7 +7248,7 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit60: 
   unreachable
 
 118:                                              ; preds = %110
-  %119 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv123
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv123
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
   br i1 %121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit, label %130
@@ -7348,7 +7276,7 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit60: 
 
 switch.lookup:                                    ; preds = %130
   %134 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %134
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %134
   %switch.load = load i64, ptr %switch.gep, align 8
   %135 = mul i64 %switch.load, %109
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit
@@ -7443,7 +7371,7 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit63: 
 _ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit.i: ; preds = %190, %180
   %indvars.iv.i = phi i64 [ 0, %180 ], [ %indvars.iv.next.i, %190 ]
   %182 = load ptr, ptr %42, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv.i
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv.i
   %184 = load ptr, ptr %183, align 8
   %.not.i64 = icmp eq ptr %184, null
   br i1 %.not.i64, label %190, label %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i
@@ -7840,7 +7768,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pre
 _ZNSt6vectorISt4pairIjjESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %145, %_ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %139, ptr %118, align 8
   store ptr %144, ptr %120, align 8
-  %146 = getelementptr inbounds nuw %"struct.std::pair.282", ptr %139, i64 %137
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %137
   store ptr %146, ptr %122, align 8
   br label %147
 
@@ -7983,7 +7911,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i319: ; 
 _ZNSt6vectorISt4pairIjjESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i322: ; preds = %205, %_ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i319
   store ptr %199, ptr %178, align 8
   store ptr %204, ptr %180, align 8
-  %206 = getelementptr inbounds nuw %"struct.std::pair.282", ptr %199, i64 %197
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %197
   store ptr %206, ptr %182, align 8
   br label %207
 
@@ -8119,7 +8047,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %225, %229, %221
   %259 = load ptr, ptr %0, align 8
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 304
   %261 = load ptr, ptr %260, align 8
-  %262 = getelementptr inbounds nuw %class.CFaceO, ptr %261, i64 %.0210622
+  %262 = getelementptr inbounds nuw [48 x i8], ptr %261, i64 %.0210622
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %264 = load ptr, ptr %263, align 8
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
@@ -8135,7 +8063,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %225, %229, %221
   store float %271, ptr %272, align 4
   %273 = getelementptr i8, ptr %258, i64 12
   %274 = load ptr, ptr %260, align 8
-  %275 = getelementptr inbounds nuw %class.CFaceO, ptr %274, i64 %.0210622
+  %275 = getelementptr inbounds nuw [48 x i8], ptr %274, i64 %.0210622
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 16
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
@@ -8151,7 +8079,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %225, %229, %221
   store float %284, ptr %285, align 4
   %286 = getelementptr i8, ptr %258, i64 24
   %287 = load ptr, ptr %260, align 8
-  %288 = getelementptr inbounds nuw %class.CFaceO, ptr %287, i64 %.0210622
+  %288 = getelementptr inbounds nuw [48 x i8], ptr %287, i64 %.0210622
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 24
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 8
@@ -8178,7 +8106,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %225, %229, %221
   %304 = load ptr, ptr %0, align 8
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 304
   %306 = load ptr, ptr %305, align 8
-  %307 = getelementptr inbounds nuw %class.CFaceO, ptr %306, i64 %.0210622
+  %307 = getelementptr inbounds nuw [48 x i8], ptr %306, i64 %.0210622
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %309 = load ptr, ptr %308, align 8
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 24
@@ -8217,7 +8145,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %225, %229, %221
   %331 = getelementptr i8, ptr %303, i64 12
   %332 = getelementptr inbounds nuw i8, ptr %325, i64 304
   %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds nuw %class.CFaceO, ptr %333, i64 %.0210622
+  %334 = getelementptr inbounds nuw [48 x i8], ptr %333, i64 %.0210622
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 16
   %336 = load ptr, ptr %335, align 8
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 24
@@ -8256,7 +8184,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %225, %229, %221
   %358 = getelementptr i8, ptr %303, i64 24
   %359 = getelementptr inbounds nuw i8, ptr %352, i64 304
   %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds nuw %class.CFaceO, ptr %360, i64 %.0210622
+  %361 = getelementptr inbounds nuw [48 x i8], ptr %360, i64 %.0210622
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 24
   %363 = load ptr, ptr %362, align 8
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 24
@@ -8303,7 +8231,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit334:            ; preds = %374, %351
   %388 = load ptr, ptr %0, align 8
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 304
   %390 = load ptr, ptr %389, align 8
-  %391 = getelementptr inbounds nuw %class.CFaceO, ptr %390, i64 %.0210622
+  %391 = getelementptr inbounds nuw [48 x i8], ptr %390, i64 %.0210622
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 36
   %393 = load float, ptr %392, align 4
   %394 = getelementptr inbounds nuw i8, ptr %391, i64 40
@@ -8340,7 +8268,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit334:            ; preds = %374, %351
   %413 = getelementptr i8, ptr %387, i64 12
   %414 = getelementptr inbounds nuw i8, ptr %407, i64 304
   %415 = load ptr, ptr %414, align 8
-  %416 = getelementptr inbounds nuw %class.CFaceO, ptr %415, i64 %.0210622
+  %416 = getelementptr inbounds nuw [48 x i8], ptr %415, i64 %.0210622
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 36
   %418 = load float, ptr %417, align 4
   %419 = getelementptr inbounds nuw i8, ptr %416, i64 40
@@ -8377,7 +8305,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit334:            ; preds = %374, %351
   %438 = getelementptr i8, ptr %387, i64 24
   %439 = getelementptr inbounds nuw i8, ptr %432, i64 304
   %440 = load ptr, ptr %439, align 8
-  %441 = getelementptr inbounds nuw %class.CFaceO, ptr %440, i64 %.0210622
+  %441 = getelementptr inbounds nuw [48 x i8], ptr %440, i64 %.0210622
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 36
   %443 = load float, ptr %442, align 4
   %444 = getelementptr inbounds nuw i8, ptr %441, i64 40
@@ -8420,7 +8348,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %465 = load ptr, ptr %0, align 8
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 304
   %467 = load ptr, ptr %466, align 8
-  %468 = getelementptr inbounds nuw %class.CFaceO, ptr %467, i64 %.0210622
+  %468 = getelementptr inbounds nuw [48 x i8], ptr %467, i64 %.0210622
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %470 = load ptr, ptr %469, align 8
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 40
@@ -8429,7 +8357,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %473 = load i32, ptr %471, align 1
   store i32 %473, ptr %472, align 1
   %474 = load ptr, ptr %466, align 8
-  %475 = getelementptr inbounds nuw %class.CFaceO, ptr %474, i64 %.0210622
+  %475 = getelementptr inbounds nuw [48 x i8], ptr %474, i64 %.0210622
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 16
   %477 = load ptr, ptr %476, align 8
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 40
@@ -8437,7 +8365,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %480 = load i32, ptr %478, align 1
   store i32 %480, ptr %479, align 1
   %481 = load ptr, ptr %466, align 8
-  %482 = getelementptr inbounds nuw %class.CFaceO, ptr %481, i64 %.0210622
+  %482 = getelementptr inbounds nuw [48 x i8], ptr %481, i64 %.0210622
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 24
   %484 = load ptr, ptr %483, align 8
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 40
@@ -8455,7 +8383,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %492 = load ptr, ptr %0, align 8
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 304
   %494 = load ptr, ptr %493, align 8
-  %495 = getelementptr inbounds nuw %class.CFaceO, ptr %494, i64 %.0210622
+  %495 = getelementptr inbounds nuw [48 x i8], ptr %494, i64 %.0210622
   %496 = load ptr, ptr %495, align 8
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 24
   %498 = load ptr, ptr %496, align 8
@@ -8470,7 +8398,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %506 = load i32, ptr %504, align 1
   store i32 %506, ptr %505, align 1
   %507 = load ptr, ptr %493, align 8
-  %508 = getelementptr inbounds nuw %class.CFaceO, ptr %507, i64 %.0210622
+  %508 = getelementptr inbounds nuw [48 x i8], ptr %507, i64 %.0210622
   %509 = load ptr, ptr %508, align 8
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 24
   %511 = load ptr, ptr %509, align 8
@@ -8484,7 +8412,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %519 = load i32, ptr %517, align 1
   store i32 %519, ptr %518, align 1
   %520 = load ptr, ptr %493, align 8
-  %521 = getelementptr inbounds nuw %class.CFaceO, ptr %520, i64 %.0210622
+  %521 = getelementptr inbounds nuw [48 x i8], ptr %520, i64 %.0210622
   %522 = load ptr, ptr %521, align 8
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 24
   %524 = load ptr, ptr %522, align 8
@@ -8508,7 +8436,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %537 = load ptr, ptr %0, align 8
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 304
   %539 = load ptr, ptr %538, align 8
-  %540 = getelementptr inbounds nuw %class.CFaceO, ptr %539, i64 %.0210622
+  %540 = getelementptr inbounds nuw [48 x i8], ptr %539, i64 %.0210622
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 8
   %542 = load ptr, ptr %541, align 8
   %543 = load ptr, ptr %542, align 8
@@ -8521,13 +8449,13 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %sext.i = shl i64 %549, 32
   %550 = ashr exact i64 %sext.i, 32
   %551 = load ptr, ptr %544, align 8
-  %552 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %551, i64 %550
+  %552 = getelementptr inbounds [12 x i8], ptr %551, i64 %550
   %553 = load float, ptr %552, align 4
   %.idx706 = mul i64 %254, 24
   %554 = getelementptr i8, ptr %.sroa.0482.0, i64 %.idx706
   store float %553, ptr %554, align 4
   %555 = load ptr, ptr %538, align 8
-  %556 = getelementptr inbounds nuw %class.CFaceO, ptr %555, i64 %.0210622
+  %556 = getelementptr inbounds nuw [48 x i8], ptr %555, i64 %.0210622
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 8
   %558 = load ptr, ptr %557, align 8
   %559 = load ptr, ptr %558, align 8
@@ -8540,13 +8468,13 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %sext.i341 = shl i64 %565, 32
   %566 = ashr exact i64 %sext.i341, 32
   %567 = load ptr, ptr %560, align 8
-  %568 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %567, i64 %566
+  %568 = getelementptr inbounds [12 x i8], ptr %567, i64 %566
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 4
   %570 = load float, ptr %569, align 4
   %571 = getelementptr i8, ptr %554, i64 4
   store float %570, ptr %571, align 4
   %572 = load ptr, ptr %538, align 8
-  %573 = getelementptr inbounds nuw %class.CFaceO, ptr %572, i64 %.0210622
+  %573 = getelementptr inbounds nuw [48 x i8], ptr %572, i64 %.0210622
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 16
   %575 = load ptr, ptr %574, align 8
   %576 = load ptr, ptr %575, align 8
@@ -8559,12 +8487,12 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %sext.i342 = shl i64 %582, 32
   %583 = ashr exact i64 %sext.i342, 32
   %584 = load ptr, ptr %577, align 8
-  %585 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %584, i64 %583
+  %585 = getelementptr inbounds [12 x i8], ptr %584, i64 %583
   %586 = load float, ptr %585, align 4
   %587 = getelementptr i8, ptr %554, i64 8
   store float %586, ptr %587, align 4
   %588 = load ptr, ptr %538, align 8
-  %589 = getelementptr inbounds nuw %class.CFaceO, ptr %588, i64 %.0210622
+  %589 = getelementptr inbounds nuw [48 x i8], ptr %588, i64 %.0210622
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 16
   %591 = load ptr, ptr %590, align 8
   %592 = load ptr, ptr %591, align 8
@@ -8577,13 +8505,13 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %sext.i343 = shl i64 %598, 32
   %599 = ashr exact i64 %sext.i343, 32
   %600 = load ptr, ptr %593, align 8
-  %601 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %600, i64 %599
+  %601 = getelementptr inbounds [12 x i8], ptr %600, i64 %599
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 4
   %603 = load float, ptr %602, align 4
   %604 = getelementptr i8, ptr %554, i64 12
   store float %603, ptr %604, align 4
   %605 = load ptr, ptr %538, align 8
-  %606 = getelementptr inbounds nuw %class.CFaceO, ptr %605, i64 %.0210622
+  %606 = getelementptr inbounds nuw [48 x i8], ptr %605, i64 %.0210622
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 24
   %608 = load ptr, ptr %607, align 8
   %609 = load ptr, ptr %608, align 8
@@ -8596,12 +8524,12 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %sext.i344 = shl i64 %615, 32
   %616 = ashr exact i64 %sext.i344, 32
   %617 = load ptr, ptr %610, align 8
-  %618 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %617, i64 %616
+  %618 = getelementptr inbounds [12 x i8], ptr %617, i64 %616
   %619 = load float, ptr %618, align 4
   %620 = getelementptr i8, ptr %554, i64 16
   store float %619, ptr %620, align 4
   %621 = load ptr, ptr %538, align 8
-  %622 = getelementptr inbounds nuw %class.CFaceO, ptr %621, i64 %.0210622
+  %622 = getelementptr inbounds nuw [48 x i8], ptr %621, i64 %.0210622
   %623 = getelementptr inbounds nuw i8, ptr %622, i64 24
   %624 = load ptr, ptr %623, align 8
   %625 = load ptr, ptr %624, align 8
@@ -8614,7 +8542,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %sext.i345 = shl i64 %631, 32
   %632 = ashr exact i64 %sext.i345, 32
   %633 = load ptr, ptr %626, align 8
-  %634 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %633, i64 %632
+  %634 = getelementptr inbounds [12 x i8], ptr %633, i64 %632
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 4
   %636 = load float, ptr %635, align 4
   %637 = getelementptr i8, ptr %554, i64 20
@@ -8630,7 +8558,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %642 = load ptr, ptr %0, align 8
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 304
   %644 = load ptr, ptr %643, align 8
-  %645 = getelementptr inbounds nuw %class.CFaceO, ptr %644, i64 %.0210622
+  %645 = getelementptr inbounds nuw [48 x i8], ptr %644, i64 %.0210622
   %646 = load ptr, ptr %645, align 8
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 192
   %648 = load ptr, ptr %646, align 8
@@ -8639,13 +8567,13 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %651 = sub i64 %649, %650
   %652 = sdiv exact i64 %651, 48
   %653 = load ptr, ptr %647, align 8
-  %654 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %653, i64 %652
+  %654 = getelementptr inbounds [36 x i8], ptr %653, i64 %652
   %655 = load float, ptr %654, align 4
   %.idx707 = mul i64 %254, 24
   %656 = getelementptr i8, ptr %.sroa.0470.1, i64 %.idx707
   store float %655, ptr %656, align 4
   %657 = load ptr, ptr %643, align 8
-  %658 = getelementptr inbounds nuw %class.CFaceO, ptr %657, i64 %.0210622
+  %658 = getelementptr inbounds nuw [48 x i8], ptr %657, i64 %.0210622
   %659 = load ptr, ptr %658, align 8
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 192
   %661 = load ptr, ptr %659, align 8
@@ -8654,13 +8582,13 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %664 = sub i64 %662, %663
   %665 = sdiv exact i64 %664, 48
   %666 = load ptr, ptr %660, align 8
-  %667 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %666, i64 %665
+  %667 = getelementptr inbounds [36 x i8], ptr %666, i64 %665
   %668 = getelementptr inbounds nuw i8, ptr %667, i64 4
   %669 = load float, ptr %668, align 4
   %670 = getelementptr i8, ptr %656, i64 4
   store float %669, ptr %670, align 4
   %671 = load ptr, ptr %643, align 8
-  %672 = getelementptr inbounds nuw %class.CFaceO, ptr %671, i64 %.0210622
+  %672 = getelementptr inbounds nuw [48 x i8], ptr %671, i64 %.0210622
   %673 = load ptr, ptr %672, align 8
   %674 = getelementptr inbounds nuw i8, ptr %673, i64 192
   %675 = load ptr, ptr %673, align 8
@@ -8669,13 +8597,13 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %678 = sub i64 %676, %677
   %679 = sdiv exact i64 %678, 48
   %680 = load ptr, ptr %674, align 8
-  %681 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %680, i64 %679
+  %681 = getelementptr inbounds [36 x i8], ptr %680, i64 %679
   %682 = getelementptr inbounds nuw i8, ptr %681, i64 12
   %683 = load float, ptr %682, align 4
   %684 = getelementptr i8, ptr %656, i64 8
   store float %683, ptr %684, align 4
   %685 = load ptr, ptr %643, align 8
-  %686 = getelementptr inbounds nuw %class.CFaceO, ptr %685, i64 %.0210622
+  %686 = getelementptr inbounds nuw [48 x i8], ptr %685, i64 %.0210622
   %687 = load ptr, ptr %686, align 8
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 192
   %689 = load ptr, ptr %687, align 8
@@ -8684,13 +8612,13 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %692 = sub i64 %690, %691
   %693 = sdiv exact i64 %692, 48
   %694 = load ptr, ptr %688, align 8
-  %695 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %694, i64 %693
+  %695 = getelementptr inbounds [36 x i8], ptr %694, i64 %693
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 16
   %697 = load float, ptr %696, align 4
   %698 = getelementptr i8, ptr %656, i64 12
   store float %697, ptr %698, align 4
   %699 = load ptr, ptr %643, align 8
-  %700 = getelementptr inbounds nuw %class.CFaceO, ptr %699, i64 %.0210622
+  %700 = getelementptr inbounds nuw [48 x i8], ptr %699, i64 %.0210622
   %701 = load ptr, ptr %700, align 8
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 192
   %703 = load ptr, ptr %701, align 8
@@ -8699,13 +8627,13 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %706 = sub i64 %704, %705
   %707 = sdiv exact i64 %706, 48
   %708 = load ptr, ptr %702, align 8
-  %709 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %708, i64 %707
+  %709 = getelementptr inbounds [36 x i8], ptr %708, i64 %707
   %710 = getelementptr inbounds nuw i8, ptr %709, i64 24
   %711 = load float, ptr %710, align 4
   %712 = getelementptr i8, ptr %656, i64 16
   store float %711, ptr %712, align 4
   %713 = load ptr, ptr %643, align 8
-  %714 = getelementptr inbounds nuw %class.CFaceO, ptr %713, i64 %.0210622
+  %714 = getelementptr inbounds nuw [48 x i8], ptr %713, i64 %.0210622
   %715 = load ptr, ptr %714, align 8
   %716 = getelementptr inbounds nuw i8, ptr %715, i64 192
   %717 = load ptr, ptr %715, align 8
@@ -8714,7 +8642,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %720 = sub i64 %718, %719
   %721 = sdiv exact i64 %720, 48
   %722 = load ptr, ptr %716, align 8
-  %723 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %722, i64 %721
+  %723 = getelementptr inbounds [36 x i8], ptr %722, i64 %721
   %724 = getelementptr inbounds nuw i8, ptr %723, i64 28
   %725 = load float, ptr %724, align 4
   %726 = getelementptr i8, ptr %656, i64 20
@@ -8735,9 +8663,9 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %452, %431
   %732 = load ptr, ptr %0, align 8
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 304
   %734 = load ptr, ptr %733, align 8
-  %735 = getelementptr inbounds nuw %class.CFaceO, ptr %734, i64 %.0210622
+  %735 = getelementptr inbounds nuw [48 x i8], ptr %734, i64 %.0210622
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 8
-  %737 = getelementptr inbounds nuw ptr, ptr %736, i64 %indvars.iv
+  %737 = getelementptr inbounds nuw [8 x i8], ptr %736, i64 %indvars.iv
   %738 = load ptr, ptr %737, align 8
   %739 = getelementptr inbounds nuw i8, ptr %732, i64 8
   %740 = load ptr, ptr %739, align 8
@@ -9305,7 +9233,7 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
 996:                                              ; preds = %._crit_edge634
   %997 = load i16, ptr %243, align 2
   %998 = load ptr, ptr %241, align 8
-  %999 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %998, i64 %indvars.iv656
+  %999 = getelementptr inbounds nuw [8 x i8], ptr %998, i64 %indvars.iv656
   store i16 %997, ptr %999, align 4
   %1000 = getelementptr inbounds nuw i8, ptr %999, i64 4
   store i32 %.1.lcssa, ptr %1000, align 4
@@ -9335,14 +9263,14 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
   %1010 = load i32, ptr %.sroa.0420.0646, align 4
   %1011 = zext i32 %1010 to i64
   %1012 = load ptr, ptr %9, align 8
-  %1013 = getelementptr inbounds nuw i32, ptr %1012, i64 %1011
+  %1013 = getelementptr inbounds nuw [4 x i8], ptr %1012, i64 %1011
   %1014 = load i32, ptr %1013, align 4
   store i32 %1014, ptr %.sroa.0420.0646, align 4
   %1015 = getelementptr inbounds nuw i8, ptr %.sroa.0420.0646, i64 4
   %1016 = load i32, ptr %1015, align 4
   %1017 = zext i32 %1016 to i64
   %1018 = load ptr, ptr %9, align 8
-  %1019 = getelementptr inbounds nuw i32, ptr %1018, i64 %1017
+  %1019 = getelementptr inbounds nuw [4 x i8], ptr %1018, i64 %1017
   %1020 = load i32, ptr %1019, align 4
   store i32 %1020, ptr %1015, align 4
   %1021 = getelementptr inbounds nuw i8, ptr %.sroa.0420.0646, i64 8
@@ -9372,7 +9300,7 @@ switch.lookup:                                    ; preds = %1030
   %1035 = getelementptr inbounds nuw i8, ptr %1026, i64 8
   %1036 = load i64, ptr %1035, align 8
   %1037 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %1037
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %1037
   %switch.load = load i64, ptr %switch.gep, align 8
   %1038 = mul i64 %switch.load, %1036
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
@@ -9719,11 +9647,11 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc160, %57, %_Z
   br i1 %71, label %72, label %86
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds %"class.vcg::Point3", ptr %.sroa.0246.0265320, i64 %69
+  %73 = getelementptr inbounds [12 x i8], ptr %.sroa.0246.0265320, i64 %69
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %class.CVertexO, ptr %76, i64 %.0118302
+  %77 = getelementptr inbounds [48 x i8], ptr %76, i64 %.0118302
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load float, ptr %78, align 4
   store float %79, ptr %73, align 4
@@ -9743,11 +9671,11 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc160, %57, %_Z
   br i1 %88, label %89, label %111
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds %"class.vcg::Point3", ptr %.sroa.0237.0324, i64 %69
+  %90 = getelementptr inbounds [12 x i8], ptr %.sroa.0237.0324, i64 %69
   %91 = load ptr, ptr %0, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %class.CVertexO, ptr %93, i64 %.0118302
+  %94 = getelementptr inbounds [48 x i8], ptr %93, i64 %.0118302
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load float, ptr %95, align 4
   store float %96, ptr %90, align 4
@@ -9784,9 +9712,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc160, %57, %_Z
   %115 = load ptr, ptr %0, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds %class.CVertexO, ptr %117, i64 %.0118302
+  %118 = getelementptr inbounds [48 x i8], ptr %117, i64 %.0118302
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 40
-  %120 = getelementptr inbounds %"class.vcg::Color4", ptr %.sroa.0230.0, i64 %69
+  %120 = getelementptr inbounds [4 x i8], ptr %.sroa.0230.0, i64 %69
   %121 = load i32, ptr %119, align 1
   store i32 %121, ptr %120, align 1
   br label %122
@@ -9800,7 +9728,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc160, %57, %_Z
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds %class.CVertexO, ptr %128, i64 %.0118302
+  %129 = getelementptr inbounds [48 x i8], ptr %128, i64 %.0118302
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 192
   %132 = load ptr, ptr %130, align 8
@@ -9811,14 +9739,14 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc160, %57, %_Z
   %sext.i = shl i64 %136, 32
   %137 = ashr exact i64 %sext.i, 32
   %138 = load ptr, ptr %131, align 8
-  %139 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %138, i64 %137
+  %139 = getelementptr inbounds [12 x i8], ptr %138, i64 %137
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %139, align 4
   %.sroa.0217.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 0
   %.idx = shl i64 %69, 3
   %140 = getelementptr i8, ptr %.sroa.0219.1, i64 %.idx
   store float %.sroa.0217.0.vec.extract, ptr %140, align 4
   %141 = load ptr, ptr %127, align 8
-  %142 = getelementptr inbounds %class.CVertexO, ptr %141, i64 %.0118302
+  %142 = getelementptr inbounds [48 x i8], ptr %141, i64 %.0118302
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 192
   %145 = load ptr, ptr %143, align 8
@@ -9829,7 +9757,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc160, %57, %_Z
   %sext.i161 = shl i64 %149, 32
   %150 = ashr exact i64 %sext.i161, 32
   %151 = load ptr, ptr %144, align 8
-  %152 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %151, i64 %150
+  %152 = getelementptr inbounds [12 x i8], ptr %151, i64 %150
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %.sroa.0216.4.vec.extract = load float, ptr %153, align 4
   %154 = getelementptr i8, ptr %140, i64 4
@@ -10165,7 +10093,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   %286 = load ptr, ptr %0, align 8
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 304
   %288 = load ptr, ptr %287, align 8
-  %289 = getelementptr inbounds %class.CFaceO, ptr %288, i64 %.0109305
+  %289 = getelementptr inbounds [48 x i8], ptr %288, i64 %.0109305
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %286, i64 8
@@ -10179,7 +10107,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   %299 = getelementptr i8, ptr %.sroa.0.0, i64 %.idx316
   store i32 %298, ptr %299, align 4
   %300 = load ptr, ptr %287, align 8
-  %301 = getelementptr inbounds %class.CFaceO, ptr %300, i64 %.0109305
+  %301 = getelementptr inbounds [48 x i8], ptr %300, i64 %.0109305
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 16
   %303 = load ptr, ptr %302, align 8
   %304 = load ptr, ptr %292, align 8
@@ -10191,7 +10119,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   %310 = getelementptr i8, ptr %299, i64 4
   store i32 %309, ptr %310, align 4
   %311 = load ptr, ptr %287, align 8
-  %312 = getelementptr inbounds %class.CFaceO, ptr %311, i64 %.0109305
+  %312 = getelementptr inbounds [48 x i8], ptr %311, i64 %.0109305
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 24
   %314 = load ptr, ptr %313, align 8
   %315 = load ptr, ptr %292, align 8
@@ -10353,7 +10281,7 @@ switch.lookup:                                    ; preds = %379
   %394 = load i64, ptr %393, align 8
   %395 = mul i64 %392, %394
   %396 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %396
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %396
   %switch.load = load i64, ptr %switch.gep, align 8
   %397 = mul i64 %395, %switch.load
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit193
@@ -10605,7 +10533,7 @@ _ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CM
   store ptr %23, ptr %1, align 8
   %28 = getelementptr inbounds i8, ptr %23, i64 %21
   store ptr %28, ptr %18, align 8
-  %29 = getelementptr inbounds nuw %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %23, i64 %9
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %9
   store ptr %29, ptr %10, align 8
   br label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE7reserveEm.exit
 
@@ -10651,7 +10579,7 @@ _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10
   br label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit
 
 _ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndC2ERKS1_P6CFaceOi.exit: ; preds = %43, %42
-  %48 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv100
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv100
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %34, align 8
   %51 = ptrtoint ptr %49 to i64
@@ -10663,7 +10591,7 @@ _ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext1
   %57 = icmp eq i64 %56, 3
   %58 = and i64 %56, 4294967295
   %59 = select i1 %57, i64 0, i64 %58
-  %60 = getelementptr inbounds nuw ptr, ptr %41, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = ptrtoint ptr %61 to i64
   %63 = sub i64 %62, %52
@@ -10744,7 +10672,7 @@ _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10
 _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i: ; preds = %90, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i
   store ptr %84, ptr %1, align 8
   store ptr %89, ptr %35, align 8
-  %91 = getelementptr inbounds nuw %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %84, i64 %82
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   store ptr %91, ptr %10, align 8
   br label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit
 
@@ -10822,7 +10750,7 @@ _ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CM
   store ptr %118, ptr %1, align 8
   %123 = getelementptr inbounds i8, ptr %118, i64 %116
   store ptr %123, ptr %113, align 8
-  %124 = getelementptr inbounds nuw %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %118, i64 %104
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %104
   store ptr %124, ptr %105, align 8
   br label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE7reserveEm.exit32
 
@@ -10855,7 +10783,7 @@ _ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext1
   %136 = phi ptr [ %.pre, %.preheader85 ], [ %179, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit46 ]
   %.cmp = phi i1 [ true, %.preheader85 ], [ false, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit46 ]
   %indvars.iv = phi i64 [ 0, %.preheader85 ], [ 1, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit46 ]
-  %137 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %129, align 8
   %140 = ptrtoint ptr %138 to i64
@@ -10867,7 +10795,7 @@ _ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext1
   %sext = add nsw i64 %145, -4294967296
   %146 = ashr exact i64 %sext, 32
   %147 = select i1 %.cmp, i64 1, i64 %146
-  %148 = getelementptr inbounds ptr, ptr %135, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %135, i64 %147
   %149 = load ptr, ptr %148, align 8
   %150 = ptrtoint ptr %149 to i64
   %151 = sub i64 %150, %141
@@ -10947,7 +10875,7 @@ _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10
 _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i45: ; preds = %177, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i42
   store ptr %171, ptr %1, align 8
   store ptr %176, ptr %130, align 8
-  %178 = getelementptr inbounds nuw %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %171, i64 %169
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %169
   store ptr %178, ptr %105, align 8
   br label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit46
 
@@ -11042,9 +10970,9 @@ _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10
 
 _ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE13_M_deallocateEPS7_m.exit32.i: ; preds = %34, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i
   store ptr %29, ptr %0, align 8
-  %35 = getelementptr inbounds nuw %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8
-  %36 = getelementptr inbounds nuw %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8
   br label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE17_M_default_appendEm.exit
 
@@ -11053,7 +10981,7 @@ _ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CM
   br i1 %38, label %39, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %5, i64 %1
+  %40 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE17_M_default_appendEm.exit, label %41
 
@@ -11095,13 +11023,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %16 = and i64 %.fr.i16.lcssa, 8
   %17 = icmp eq i64 %16, 0
   %18 = or disjoint i64 %12, 1
-  %19 = getelementptr inbounds nuw %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %18
-  %20 = getelementptr inbounds nuw %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %13
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %13
   br label %21
 
 21:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_less_iterEEvT_T0_SI_T1_T2_.exit.i.i, %.split.i.i
   %.0.i.i = phi i64 [ %13, %.split.i.i ], [ %61, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_less_iterEEvT_T0_SI_T1_T2_.exit.i.i ]
-  %phi.call.i.i = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.0.i.i
+  %phi.call.i.i = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.i.i
   %.sroa.02.0.copyload.i.i = load i64, ptr %phi.call.i.i, align 4
   %22 = icmp slt i64 %.0.i.i, %15
   br i1 %22, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
@@ -11110,9 +11038,9 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.040.i.i.i = phi i64 [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread37.i.i.i ], [ %.0.i.i, %21 ]
   %23 = shl i64 %.040.i.i.i, 1
   %24 = add i64 %23, 2
-  %25 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %26
   %28 = load i32, ptr %25, align 4
   %29 = load i32, ptr %27, align 4
   %30 = icmp ult i32 %28, %29
@@ -11136,8 +11064,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThread
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread37.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i.i, %31
   %38 = phi i64 [ %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread.i.i.i ], [ %24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i.i ], [ %24, %31 ]
-  %39 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %38
-  %40 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.040.i.i.i
+  %39 = getelementptr inbounds [8 x i8], ptr %0, i64 %38
+  %40 = getelementptr inbounds [8 x i8], ptr %0, i64 %.040.i.i.i
   %41 = load i64, ptr %39, align 4
   store i64 %41, ptr %40, align 4
   %42 = icmp slt i64 %38, %15
@@ -11166,7 +11094,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThread
   %.023.i.i.i.i = phi i64 [ %.0924.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i.i ], [ %.1.i.i.i, %46 ]
   %.0924.in.i.i.i.i = add nsw i64 %.023.i.i.i.i, -1
   %.0924.i.i.i.i = sdiv i64 %.0924.in.i.i.i.i, 2
-  %48 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.0924.i.i.i.i
+  %48 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0924.i.i.i.i
   %49 = load i32, ptr %48, align 4
   %50 = icmp ult i32 %49, %.sroa.012.0.extract.trunc.i.i.i.i
   br i1 %50, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i.i, label %51
@@ -11182,7 +11110,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadS
   br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_less_iterEEvT_T0_SI_T1_T2_.exit.i.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i.i.i.i, %.lr.ph.i.i.i.i
-  %56 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.023.i.i.i.i
+  %56 = getelementptr inbounds [8 x i8], ptr %0, i64 %.023.i.i.i.i
   %57 = load i64, ptr %48, align 4
   store i64 %57, ptr %56, align 4
   %58 = icmp sgt i64 %.0924.i.i.i.i, %.0.i.i
@@ -11190,7 +11118,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadS
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_less_iterEEvT_T0_SI_T1_T2_.exit.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i.i.i.i, %51, %46
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %46 ], [ %.023.i.i.i.i, %51 ], [ %.0924.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i.i ], [ %.023.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i.i.i.i ]
-  %59 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %59 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   store i64 %.sroa.02.0.copyload.i.i, ptr %59, align 4
   %60 = icmp eq i64 %.0.i.i, 0
   %61 = add nsw i64 %.0.i.i, -1
@@ -11374,7 +11302,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAt
   %56 = sub i64 %55, %4
   %57 = ashr exact i64 %56, 3
   %58 = sub nsw i64 0, %57
-  %59 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %54, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %54, i64 %58
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %59, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %56, i1 false)
   store i64 %.sroa.05.0.copyload.i35, ptr %0, align 4
   br label %70
@@ -11428,7 +11356,7 @@ define linkonce_odr ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal
   %5 = sub i64 %3, %4
   %6 = ashr exact i64 %5, 3
   %7 = sdiv i64 %6, 2
-  %8 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds i8, ptr %1, i64 -8
   %11 = load i32, ptr %9, align 4
@@ -11622,9 +11550,9 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN3vc
   %.040.i.i = phi i64 [ %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread37.i.i ], [ 0, %.lr.ph ]
   %16 = shl i64 %.040.i.i, 1
   %17 = add i64 %16, 2
-  %18 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %17
   %19 = or disjoint i64 %16, 1
-  %20 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %0, i64 %19
   %21 = load i32, ptr %18, align 4
   %22 = load i32, ptr %20, align 4
   %23 = icmp ult i32 %21, %22
@@ -11648,8 +11576,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThread
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread37.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i, %24
   %31 = phi i64 [ %19, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread.i.i ], [ %17, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i.i ], [ %17, %24 ]
-  %32 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %31
-  %33 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.040.i.i
+  %32 = getelementptr inbounds [8 x i8], ptr %0, i64 %31
+  %33 = getelementptr inbounds [8 x i8], ptr %0, i64 %.040.i.i
   %34 = load i64, ptr %32, align 4
   store i64 %34, ptr %33, align 4
   %35 = icmp slt i64 %31, %14
@@ -11670,8 +11598,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThread
 42:                                               ; preds = %38
   %43 = shl nsw i64 %.0.lcssa.i.i, 1
   %44 = or disjoint i64 %43, 1
-  %45 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %44
-  %46 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.0.lcssa.i.i
+  %45 = getelementptr inbounds [8 x i8], ptr %0, i64 %44
+  %46 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i
   %47 = load i64, ptr %45, align 4
   store i64 %47, ptr %46, align 4
   br label %48
@@ -11688,7 +11616,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThread
   %.023.i.i.i = phi i64 [ %.0924.i.i78.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i ], [ %.1.i.i, %48 ]
   %.0924.in.i.i.i = add nsw i64 %.023.i.i.i, -1
   %.0924.i.i78.i = lshr i64 %.0924.in.i.i.i, 1
-  %50 = getelementptr inbounds nuw %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.0924.i.i78.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0924.i.i78.i
   %51 = load i32, ptr %50, align 4
   %52 = icmp ult i32 %51, %.sroa.012.0.extract.trunc.i.i.i
   br i1 %52, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i, label %53
@@ -11704,7 +11632,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadS
   br i1 %57, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_SH_RT0_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i.i.i, %.lr.ph.i.i.i
-  %58 = getelementptr inbounds nuw %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.023.i.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.023.i.i.i
   %59 = load i64, ptr %50, align 4
   store i64 %59, ptr %58, align 4
   %.not.i = icmp eq i64 %.0924.i.i78.i, 0
@@ -11712,7 +11640,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadS
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_SH_RT0_.exit: ; preds = %53, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i, %48
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %48 ], [ %.023.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i ], [ %.023.i.i.i, %53 ]
-  %60 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.0.lcssa.i.i.i
+  %60 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i
   store i64 %.sroa.02.0.copyload.i, ptr %60, align 4
   %61 = icmp sgt i64 %11, 8
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !164
@@ -11795,7 +11723,7 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit: ; 
   unreachable
 
 36:                                               ; preds = %28
-  %37 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit, label %48
@@ -11823,7 +11751,7 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit: ; 
 
 switch.lookup:                                    ; preds = %48
   %52 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %52
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %52
   %switch.load = load i64, ptr %switch.gep, align 8
   %53 = mul i64 %switch.load, %27
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit
@@ -11862,7 +11790,7 @@ define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMan
 
 12:                                               ; preds = %2
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %45, label %17
@@ -11899,7 +11827,7 @@ define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMan
 
 switch.lookup:                                    ; preds = %25
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %31
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %31
   %switch.load = load i64, ptr %switch.gep, align 8
   %32 = mul i64 %switch.load, %24
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
@@ -11957,7 +11885,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = zext nneg i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %32, label %10
@@ -12072,7 +12000,7 @@ _ZNSt3mapIsSt6vectorISt4pairIjjESaIS2_EESt4lessIsESaIS1_IKsS4_EEE5clearEv.exit: 
   %30 = sub i64 %25, %29
   %31 = sdiv exact i64 %30, 48
   %32 = load ptr, ptr %27, align 8
-  %33 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %32, i64 %31
+  %33 = getelementptr inbounds [36 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i16, ptr %34, align 2
   store i16 %35, ptr %4, align 2
@@ -12094,7 +12022,7 @@ _ZNSt3mapIsSt6vectorISt4pairIjjESaIS2_EESt4lessIsESaIS1_IKsS4_EEE5clearEv.exit: 
   %46 = sub i64 %44, %45
   %47 = sdiv exact i64 %46, 48
   %48 = load ptr, ptr %42, align 8
-  %49 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %48, i64 %47
+  %49 = getelementptr inbounds [36 x i8], ptr %48, i64 %47
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i16, ptr %50, align 2
   %52 = icmp ne i16 %51, %37
@@ -12223,7 +12151,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pre
 _ZNSt6vectorISt4pairIjjESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %100, %_ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %94, ptr %73, align 8
   store ptr %99, ptr %74, align 8
-  %101 = getelementptr inbounds nuw %"struct.std::pair.282", ptr %94, i64 %92
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %101, ptr %76, align 8
   br label %_ZNSt6vectorISt4pairIjjESaIS1_EE9push_backEOS1_.exit
 
@@ -12235,7 +12163,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE9push_backEOS1_.exit: ; preds = %78, %_ZNSt6vect
   %106 = sub i64 %44, %105
   %107 = sdiv exact i64 %106, 48
   %108 = load ptr, ptr %103, align 8
-  %109 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %108, i64 %107
+  %109 = getelementptr inbounds [36 x i8], ptr %108, i64 %107
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load i16, ptr %110, align 2
   store i16 %111, ptr %4, align 2
@@ -12728,9 +12656,9 @@ _ZNSt6vectorISt4pairIsjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.l
 
 _ZNSt12_Vector_baseISt4pairIsjESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorISt4pairIsjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %36
   store ptr %28, ptr %0, align 8
-  %37 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %1
   store ptr %37, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %28, i64 %26
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %38, ptr %11, align 8
   br label %39
 
@@ -12778,7 +12706,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, label %26
@@ -12787,7 +12715,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -12898,7 +12826,7 @@ _ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -12919,7 +12847,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8
   store ptr %72, ptr %8, align 8
-  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %74, ptr %6, align 8
   br label %_ZSt4fillIPjjEvT_S1_RKT0_.exit
 
@@ -13138,7 +13066,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8
   ret void
 }
@@ -13499,12 +13427,12 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %indvars.iv15.i.i.i = phi i64 [ 1, %3 ], [ %indvars.iv.next16.i.i.i, %9 ]
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv15.i.i.i, 4
   %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i
-  %invariant.gep20.i.i.i = getelementptr float, ptr %4, i64 %indvars.iv15.i.i.i
+  %invariant.gep20.i.i.i = getelementptr [4 x i8], ptr %4, i64 %indvars.iv15.i.i.i
   br label %6
 
 6:                                                ; preds = %6, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %6 ]
-  %gep.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   %.idx19.i.i.i = shl i64 %indvars.iv.i.i.i, 4
   %gep21.i.i.i = getelementptr i8, ptr %invariant.gep20.i.i.i, i64 %.idx19.i.i.i
   %7 = load float, ptr %gep.i.i.i, align 4, !alias.scope !188
@@ -14331,12 +14259,12 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %indvars.iv15.i.i.i = phi i64 [ 1, %.noexc ], [ %indvars.iv.next16.i.i.i, %84 ]
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv15.i.i.i, 4
   %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
-  %invariant.gep20.i.i.i = getelementptr float, ptr %10, i64 %indvars.iv15.i.i.i
+  %invariant.gep20.i.i.i = getelementptr [4 x i8], ptr %10, i64 %indvars.iv15.i.i.i
   br label %81
 
 81:                                               ; preds = %81, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %81 ]
-  %gep.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   %.idx19.i.i.i = shl i64 %indvars.iv.i.i.i, 4
   %gep21.i.i.i = getelementptr i8, ptr %invariant.gep20.i.i.i, i64 %.idx19.i.i.i
   %82 = load float, ptr %gep.i.i.i, align 4, !alias.scope !193
@@ -15103,7 +15031,7 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i32, ptr %43, i64 %41
+  %50 = getelementptr inbounds [4 x i8], ptr %43, i64 %41
   %51 = load i32, ptr %50, align 4
   br label %52
 
@@ -15264,7 +15192,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %53 = sub i64 %51, %52
   %54 = sdiv exact i64 %53, 48
   %55 = load ptr, ptr %49, align 8
-  %56 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %55, i64 %54
+  %56 = getelementptr inbounds [36 x i8], ptr %55, i64 %54
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i16, ptr %57, align 2
   %59 = icmp sgt i16 %58, -1
@@ -15287,7 +15215,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   tail call void @glEnable(i32 noundef 3553)
   %72 = zext nneg i16 %58 to i64
   %73 = load ptr, ptr %2, align 8
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %72
   %75 = load i32, ptr %74, align 4
   tail call void @glBindTexture(i32 noundef 3553, i32 noundef %75)
   br label %77
@@ -15350,7 +15278,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %105 = sub i64 %103, %104
   %106 = sdiv exact i64 %105, 48
   %107 = load ptr, ptr %101, align 8
-  %108 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %107, i64 %106
+  %108 = getelementptr inbounds [36 x i8], ptr %107, i64 %106
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load i16, ptr %109, align 2
   %.not = icmp eq i16 %110, %.266
@@ -15370,7 +15298,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 117:                                              ; preds = %113
   %118 = zext nneg i16 %110 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %114, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %118
   %120 = load i32, ptr %119, align 4
   tail call void @glBindTexture(i32 noundef 3553, i32 noundef %120)
   br label %122
@@ -15444,7 +15372,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %sext.i = shl i64 %157, 32
   %158 = ashr exact i64 %sext.i, 32
   %159 = load ptr, ptr %152, align 8
-  %160 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %159, i64 %158
+  %160 = getelementptr inbounds [12 x i8], ptr %159, i64 %158
   tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %160)
   br label %161
 
@@ -15460,7 +15388,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %168 = sub i64 %166, %167
   %169 = sdiv exact i64 %168, 48
   %170 = load ptr, ptr %164, align 8
-  %171 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %170, i64 %169
+  %171 = getelementptr inbounds [36 x i8], ptr %170, i64 %169
   tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %171)
   br label %172
 
@@ -15504,7 +15432,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %sext.i56 = shl i64 %195, 32
   %196 = ashr exact i64 %sext.i56, 32
   %197 = load ptr, ptr %190, align 8
-  %198 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %197, i64 %196
+  %198 = getelementptr inbounds [12 x i8], ptr %197, i64 %196
   tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %198)
   br label %199
 
@@ -15520,7 +15448,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %206 = sub i64 %204, %205
   %207 = sdiv exact i64 %206, 48
   %208 = load ptr, ptr %202, align 8
-  %209 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %208, i64 %207
+  %209 = getelementptr inbounds [36 x i8], ptr %208, i64 %207
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 12
   tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %210)
   br label %211
@@ -15565,7 +15493,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %sext.i57 = shl i64 %234, 32
   %235 = ashr exact i64 %sext.i57, 32
   %236 = load ptr, ptr %229, align 8
-  %237 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %236, i64 %235
+  %237 = getelementptr inbounds [12 x i8], ptr %236, i64 %235
   tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %237)
   br label %238
 
@@ -15581,7 +15509,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %245 = sub i64 %243, %244
   %246 = sdiv exact i64 %245, 48
   %247 = load ptr, ptr %241, align 8
-  %248 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %247, i64 %246
+  %248 = getelementptr inbounds [36 x i8], ptr %247, i64 %246
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
   tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %249)
   br label %250
@@ -16074,7 +16002,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %sext.i.us = shl i64 %40, 32
   %41 = ashr exact i64 %sext.i.us, 32
   %42 = load ptr, ptr %35, align 8
-  %43 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %42, i64 %41
+  %43 = getelementptr inbounds [12 x i8], ptr %42, i64 %41
   tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %43)
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.us, i64 8
   tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %44)
@@ -16354,7 +16282,7 @@ _ZNKSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaI
   store i64 %30, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, i8 0, i64 9, i1 false)
   %31 = load ptr, ptr %25, align 8
-  %32 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [9 x i8], ptr %31, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %32, i8 0, i64 9, i1 false)
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i
 
@@ -16383,9 +16311,9 @@ _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %_Z
 38:                                               ; preds = %.preheader, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit53
   %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit53 ]
   %39 = load ptr, ptr %25, align 8
-  %40 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %39, i64 %indvars.iv64
+  %40 = getelementptr inbounds nuw [9 x i8], ptr %39, i64 %indvars.iv64
   %41 = load ptr, ptr %26, align 8
-  %42 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %41, i64 %indvars.iv64
+  %42 = getelementptr inbounds nuw [9 x i8], ptr %41, i64 %indvars.iv64
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false), !alias.scope !213
   br label %43
@@ -16443,7 +16371,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i3
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit34: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i30
   %61 = load ptr, ptr %25, align 8
-  %62 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %61, i64 %indvars.iv64
+  %62 = getelementptr inbounds nuw [9 x i8], ptr %61, i64 %indvars.iv64
   call void @llvm.experimental.noalias.scope.decl(metadata !216)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, i8 0, i64 9, i1 false), !alias.scope !216
   br label %63
@@ -17221,7 +17149,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
 _ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit.i.i: ; preds = %49, %30
   %indvars.iv.i.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i.i, %49 ]
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i.i
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %49, label %38

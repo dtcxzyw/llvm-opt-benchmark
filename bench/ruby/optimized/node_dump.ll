@@ -4949,7 +4949,7 @@ add_id.exit4996:                                  ; preds = %2814, %2818, %2821
   %2870 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.490, ptr noundef nonnull %2844, i64 noundef %.0.i5129) #5
   %2871 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef %spec.select.i) #5
   %2872 = load ptr, ptr %2864, align 8, !tbaa !405
-  %2873 = getelementptr ptr, ptr %2872, i64 %.0.i5129
+  %2873 = getelementptr [8 x i8], ptr %2872, i64 %.0.i5129
   %2874 = load ptr, ptr %2873, align 8, !tbaa !406
   tail call fastcc void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %2874)
   %2875 = load i64, ptr %2851, align 8, !tbaa !27
@@ -5919,7 +5919,7 @@ add_id.exit5009:                                  ; preds = %3458, %3462, %3465
 
 3515:                                             ; preds = %.lr.ph, %3531
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %3531 ]
-  %3516 = getelementptr i64, ptr %3512, i64 %indvars.iv
+  %3516 = getelementptr [8 x i8], ptr %3512, i64 %indvars.iv
   %3517 = load i64, ptr %3516, align 8, !tbaa !486
   %3518 = icmp eq i64 %3517, 0
   br i1 %3518, label %3519, label %3521

@@ -58,15 +58,15 @@ define internal void @decode_hf_c(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph.us:                                        ; preds = %8, %._crit_edge.us
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %._crit_edge.us ], [ %9, %8 ]
-  %12 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv29
+  %12 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv29
   %13 = load i32, ptr %12, align 4, !tbaa !23
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [32 x i8], ptr %2, i64 %14
-  %16 = getelementptr inbounds [2 x i32], ptr %3, i64 %indvars.iv29
+  %16 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv29
   %17 = load i32, ptr %16, align 4, !tbaa !23
-  %18 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv29
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv29
   %19 = load ptr, ptr %18, align 8, !tbaa !25
-  %20 = getelementptr i32, ptr %19, i64 %6
+  %20 = getelementptr [4 x i8], ptr %19, i64 %6
   br label %21
 
 21:                                               ; preds = %.lr.ph.us, %21
@@ -79,7 +79,7 @@ define internal void @decode_hf_c(ptr noundef readonly captures(none) %0, ptr no
   %27 = ashr i32 %26, 4
   %28 = tail call i32 @llvm.smax.i32(i32 %27, i32 -8388608)
   %.0.i.i.us = tail call range(i32 -8388608, 8388608) i32 @llvm.smin.i32(i32 %28, i32 8388607)
-  %29 = getelementptr i32, ptr %20, i64 %indvars.iv
+  %29 = getelementptr [4 x i8], ptr %20, i64 %indvars.iv
   store i32 %.0.i.i.us, ptr %29, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
@@ -105,19 +105,19 @@ define internal void @decode_joint_c(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph.us:                                        ; preds = %7, %._crit_edge.us
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %._crit_edge.us ], [ %8, %7 ]
-  %11 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv28
+  %11 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv28
   %12 = load i32, ptr %11, align 4, !tbaa !23
-  %13 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv28
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv28
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = sext i32 %12 to i64
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv28
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv28
   %17 = load ptr, ptr %16, align 8, !tbaa !25
   br label %18
 
 18:                                               ; preds = %.lr.ph.us, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %18 ]
   %19 = add nsw i64 %indvars.iv, %5
-  %20 = getelementptr inbounds i32, ptr %14, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %14, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !23
   %22 = sext i32 %21 to i64
   %23 = mul nsw i64 %22, %15
@@ -126,7 +126,7 @@ define internal void @decode_joint_c(ptr noundef readonly captures(none) %0, ptr
   %26 = trunc i64 %25 to i32
   %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 -8388608)
   %.0.i.i.us = tail call range(i32 -8388608, 8388608) i32 @llvm.smin.i32(i32 %27, i32 8388607)
-  %28 = getelementptr inbounds i32, ptr %17, i64 %19
+  %28 = getelementptr inbounds [4 x i8], ptr %17, i64 %19
   store i32 %.0.i.i.us, ptr %28, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -167,10 +167,10 @@ define internal void @lfe_fir0_float_c(ptr noundef writeonly captures(none) %0, 
   %.047.i = phi float [ 0.000000e+00, %.preheader.i ], [ %24, %11 ]
   %.03646.i = phi float [ 0.000000e+00, %.preheader.i ], [ %19, %11 ]
   %12 = add nuw nsw i64 %indvars.iv.i, %10
-  %13 = getelementptr inbounds float, ptr %2, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %2, i64 %12
   %14 = load float, ptr %13, align 4, !tbaa !33
   %15 = sub nsw i64 0, %indvars.iv.i
-  %16 = getelementptr inbounds i32, ptr %.04149.i, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %.04149.i, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !23
   %18 = sitofp i32 %17 to float
   %19 = tail call nsz float @llvm.fmuladd.f32(float %14, float %18, float %.03646.i)
@@ -185,9 +185,9 @@ define internal void @lfe_fir0_float_c(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !35
 
 25:                                               ; preds = %11
-  %26 = getelementptr inbounds nuw float, ptr %.04050.i, i64 %indvars.iv54.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.04050.i, i64 %indvars.iv54.i
   store float %19, ptr %26, align 4, !tbaa !33
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv54.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv54.i
   store float %24, ptr %gep.i, align 4, !tbaa !33
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next55.i, 32
@@ -230,10 +230,10 @@ define internal void @lfe_fir1_float_c(ptr noundef writeonly captures(none) %0, 
   %.047.i = phi float [ 0.000000e+00, %.preheader.i ], [ %24, %11 ]
   %.03646.i = phi float [ 0.000000e+00, %.preheader.i ], [ %19, %11 ]
   %12 = add nuw nsw i64 %indvars.iv.i, %10
-  %13 = getelementptr inbounds float, ptr %2, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %2, i64 %12
   %14 = load float, ptr %13, align 4, !tbaa !33
   %15 = sub nsw i64 0, %indvars.iv.i
-  %16 = getelementptr inbounds i32, ptr %.04149.i, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %.04149.i, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !23
   %18 = sitofp i32 %17 to float
   %19 = tail call nsz float @llvm.fmuladd.f32(float %14, float %18, float %.03646.i)
@@ -248,9 +248,9 @@ define internal void @lfe_fir1_float_c(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond.not.i, label %25, label %11, !llvm.loop !35
 
 25:                                               ; preds = %11
-  %26 = getelementptr inbounds nuw float, ptr %.04050.i, i64 %indvars.iv54.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.04050.i, i64 %indvars.iv54.i
   store float %19, ptr %26, align 4, !tbaa !33
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv54.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv54.i
   store float %24, ptr %gep.i, align 4, !tbaa !33
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next55.i, 64
@@ -277,7 +277,7 @@ define internal void @lfe_x96_float_c(ptr noundef writeonly captures(none) %0, p
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %.022 = phi ptr [ %14, %.lr.ph ], [ %0, %4 ]
   %.01721 = phi float [ %8, %.lr.ph ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !33
   %9 = fmul nsz float %.01721, 7.500000e-01
   %10 = tail call nsz float @llvm.fmuladd.f32(float %8, float 2.500000e-01, float %9)
@@ -315,14 +315,14 @@ define internal void @sub_qmf32_float_c(ptr noundef readonly captures(none) %0, 
   %17 = add i32 %16, 3
   %18 = and i32 %17, 2
   %.not = icmp eq i32 %18, 0
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !25
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv33
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv33
   %22 = load i32, ptr %21, align 4, !tbaa !23
   %23 = sub nsw i32 0, %22
   %.sink.in = select i1 %.not, i32 %22, i32 %23
   %.sink = sitofp i32 %.sink.in to float
-  %24 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store float %.sink, ptr %24, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -377,14 +377,14 @@ define internal void @sub_qmf64_float_c(ptr noundef readonly captures(none) %0, 
   %22 = add i32 %21, 3
   %23 = and i32 %22, 2
   %.not65.us = icmp eq i32 %23, 0
-  %24 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv86
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv86
   %25 = load ptr, ptr %24, align 8, !tbaa !25
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv90
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv90
   %27 = load i32, ptr %26, align 4, !tbaa !23
   %28 = sub nsw i32 0, %27
   %.sink.in = select i1 %.not65.us, i32 %27, i32 %28
   %.sink = sitofp i32 %.sink.in to float
-  %29 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv86
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv86
   store float %.sink, ptr %29, align 4, !tbaa !33
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 32
@@ -409,19 +409,19 @@ define internal void @sub_qmf64_float_c(ptr noundef readonly captures(none) %0, 
   %34 = add i32 %33, 3
   %35 = and i32 %34, 2
   %.not67 = icmp eq i32 %35, 0
-  %36 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !25
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv82
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv82
   %39 = load i32, ptr %38, align 4, !tbaa !23
-  %40 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !25
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv82
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv82
   %43 = load i32, ptr %42, align 4, !tbaa !23
   %44 = add i32 %43, %39
   %45 = sub i32 0, %44
   %.sink94.in = select i1 %.not67, i32 %44, i32 %45
   %.sink94 = sitofp i32 %.sink94.in to float
-  %46 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store float %.sink94, ptr %46, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -433,14 +433,14 @@ define internal void @sub_qmf64_float_c(ptr noundef readonly captures(none) %0, 
   %48 = add i32 %47, 3
   %49 = and i32 %48, 2
   %.not66 = icmp eq i32 %49, 0
-  %50 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv78
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv78
   %51 = load ptr, ptr %50, align 8, !tbaa !25
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv82
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv82
   %53 = load i32, ptr %52, align 4, !tbaa !23
   %54 = sub nsw i32 0, %53
   %.sink95.in = select i1 %.not66, i32 %53, i32 %54
   %.sink95 = sitofp i32 %.sink95.in to float
-  %55 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv78
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv78
   store float %.sink95, ptr %55, align 4, !tbaa !33
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 64
@@ -482,17 +482,17 @@ define internal void @lfe_fir_fixed_c(ptr noundef writeonly captures(none) %0, p
   %.037 = phi i64 [ 0, %.preheader ], [ %25, %9 ]
   %.02736 = phi i64 [ 0, %.preheader ], [ %19, %9 ]
   %10 = add nuw nsw i64 %indvars.iv, %8
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !23
   %13 = sext i32 %12 to i64
   %14 = sub nsw i64 0, %indvars.iv
-  %15 = getelementptr inbounds i32, ptr %.03239, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %.03239, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = sext i32 %16 to i64
   %18 = mul nsw i64 %17, %13
   %19 = add nsw i64 %18, %.02736
   %20 = sub nuw nsw i64 255, %10
-  %21 = getelementptr inbounds nuw i32, ptr %2, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !23
   %23 = sext i32 %22 to i64
   %24 = mul nsw i64 %23, %17
@@ -507,7 +507,7 @@ define internal void @lfe_fir_fixed_c(ptr noundef writeonly captures(none) %0, p
   %29 = trunc i64 %28 to i32
   %30 = tail call i32 @llvm.smax.i32(i32 %29, i32 -8388608)
   %.0.i.i = tail call range(i32 -8388608, 8388608) i32 @llvm.smin.i32(i32 %30, i32 8388607)
-  %31 = getelementptr inbounds nuw i32, ptr %.03140, i64 %indvars.iv44
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.03140, i64 %indvars.iv44
   store i32 %.0.i.i, ptr %31, align 4, !tbaa !23
   %32 = add nsw i64 %25, 4194304
   %33 = lshr i64 %32, 23
@@ -541,7 +541,7 @@ define internal void @lfe_x96_fixed_c(ptr noundef writeonly captures(none) %0, p
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %.023 = phi ptr [ %26, %.lr.ph ], [ %0, %4 ]
   %.01722 = phi i32 [ %8, %.lr.ph ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !23
   %9 = sext i32 %8 to i64
   %10 = mul nsw i64 %9, 2097471
@@ -593,11 +593,11 @@ define internal void @sub_qmf32_fixed_c(ptr noundef readonly captures(none) %0, 
 
 14:                                               ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !25
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv25
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv25
   %18 = load i32, ptr %17, align 4, !tbaa !23
-  %19 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %18, ptr %19, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -648,11 +648,11 @@ define internal void @sub_qmf64_fixed_c(ptr noundef readonly captures(none) %0, 
 
 18:                                               ; preds = %.preheader.us, %18
   %indvars.iv60 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next61, %18 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv60
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv60
   %20 = load ptr, ptr %19, align 8, !tbaa !25
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv64
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv64
   %22 = load i32, ptr %21, align 4, !tbaa !23
-  %23 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv60
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv60
   store i32 %22, ptr %23, align 4, !tbaa !23
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 32
@@ -673,16 +673,16 @@ define internal void @sub_qmf64_fixed_c(ptr noundef readonly captures(none) %0, 
 
 26:                                               ; preds = %.preheader44, %26
   %indvars.iv = phi i64 [ 0, %.preheader44 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !25
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv56
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv56
   %30 = load i32, ptr %29, align 4, !tbaa !23
-  %31 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !25
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv56
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv56
   %34 = load i32, ptr %33, align 4, !tbaa !23
   %35 = add nsw i32 %34, %30
-  %36 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %35, ptr %36, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -690,11 +690,11 @@ define internal void @sub_qmf64_fixed_c(ptr noundef readonly captures(none) %0, 
 
 .preheader42:                                     ; preds = %26, %.preheader42
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.preheader42 ], [ 32, %26 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv52
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv52
   %38 = load ptr, ptr %37, align 8, !tbaa !25
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv56
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv56
   %40 = load i32, ptr %39, align 4, !tbaa !23
-  %41 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv52
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv52
   store i32 %40, ptr %41, align 4, !tbaa !23
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 64
@@ -720,12 +720,12 @@ define internal void @decor_c(ptr noundef captures(none) %0, ptr noundef readonl
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !23
   %8 = mul i32 %7, %2
   %9 = add i32 %8, 4
   %10 = ashr i32 %9, 3
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !23
   %13 = add i32 %10, %12
   store i32 %13, ptr %11, align 4, !tbaa !23
@@ -744,18 +744,18 @@ define internal void @dmix_sub_xch_c(ptr noundef captures(none) %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !23
   %8 = sext i32 %7 to i64
   %9 = mul nsw i64 %8, 5931520
   %10 = add nsw i64 %9, 4194304
   %11 = lshr i64 %10, 23
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = sub nsw i32 %14, %12
   store i32 %15, ptr %13, align 4, !tbaa !23
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !23
   %18 = sub nsw i32 %17, %12
   store i32 %18, ptr %16, align 4, !tbaa !23
@@ -778,14 +778,14 @@ define internal void @dmix_sub_c(ptr noundef captures(none) %0, ptr noundef read
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !23
   %10 = sext i32 %9 to i64
   %11 = mul nsw i64 %10, %6
   %12 = add nsw i64 %11, 16384
   %13 = lshr i64 %12, 15
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = sub i32 %16, %14
   store i32 %17, ptr %15, align 4, !tbaa !23
@@ -808,14 +808,14 @@ define internal void @dmix_add_c(ptr noundef captures(none) %0, ptr noundef read
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !23
   %10 = sext i32 %9 to i64
   %11 = mul nsw i64 %10, %6
   %12 = add nsw i64 %11, 16384
   %13 = lshr i64 %12, 15
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = add i32 %16, %14
   store i32 %17, ptr %15, align 4, !tbaa !23
@@ -838,7 +838,7 @@ define internal void @dmix_scale_c(ptr noundef captures(none) %0, i32 noundef %1
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !23
   %9 = sext i32 %8 to i64
   %10 = mul nsw i64 %9, %5
@@ -865,7 +865,7 @@ define internal void @dmix_scale_inv_c(ptr noundef captures(none) %0, i32 nounde
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !23
   %9 = sext i32 %8 to i64
   %10 = mul nsw i64 %9, %5
@@ -893,14 +893,14 @@ define internal void @assemble_freq_bands_c(ptr noundef writeonly captures(none)
 
 9:                                                ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !23
   %12 = sext i32 %11 to i64
   %13 = mul nsw i64 %12, %8
   %14 = add nsw i64 %13, 2097152
   %15 = lshr i64 %14, 22
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4, !tbaa !23
   %19 = sub i32 %18, %16
   store i32 %19, ptr %17, align 4, !tbaa !23
@@ -916,14 +916,14 @@ define internal void @assemble_freq_bands_c(ptr noundef writeonly captures(none)
 
 23:                                               ; preds = %23, %.lr.ph.i44
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.i44 ], [ %indvars.iv.next.i46, %23 ]
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i45
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i45
   %25 = load i32, ptr %24, align 4, !tbaa !23
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %26, %22
   %28 = add nsw i64 %27, 2097152
   %29 = lshr i64 %28, 22
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i45
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i45
   %32 = load i32, ptr %31, align 4, !tbaa !23
   %33 = sub i32 %32, %30
   store i32 %33, ptr %31, align 4, !tbaa !23
@@ -939,14 +939,14 @@ define internal void @assemble_freq_bands_c(ptr noundef writeonly captures(none)
 
 37:                                               ; preds = %37, %.lr.ph.i49
   %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.i49 ], [ %indvars.iv.next.i51, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i50
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i50
   %39 = load i32, ptr %38, align 4, !tbaa !23
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %40, %36
   %42 = add nsw i64 %41, 2097152
   %43 = lshr i64 %42, 22
   %44 = trunc i64 %43 to i32
-  %45 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i50
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i50
   %46 = load i32, ptr %45, align 4, !tbaa !23
   %47 = sub i32 %46, %44
   store i32 %47, ptr %45, align 4, !tbaa !23
@@ -962,14 +962,14 @@ define internal void @assemble_freq_bands_c(ptr noundef writeonly captures(none)
 
 51:                                               ; preds = %51, %.lr.ph.i54
   %indvars.iv.i55 = phi i64 [ 0, %.lr.ph.i54 ], [ %indvars.iv.next.i56, %51 ]
-  %52 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i55
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i55
   %53 = load i32, ptr %52, align 4, !tbaa !23
   %54 = sext i32 %53 to i64
   %55 = mul nsw i64 %54, %50
   %56 = add nsw i64 %55, 2097152
   %57 = lshr i64 %56, 22
   %58 = trunc i64 %57 to i32
-  %59 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i55
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i55
   %60 = load i32, ptr %59, align 4, !tbaa !23
   %61 = sub i32 %60, %58
   store i32 %61, ptr %59, align 4, !tbaa !23
@@ -980,7 +980,7 @@ define internal void @assemble_freq_bands_c(ptr noundef writeonly captures(none)
 .lr.ph.i59.us:                                    ; preds = %51, %filter1.exit72.loopexit.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %filter1.exit72.loopexit.us ], [ 0, %51 ]
   %.04173.us = phi ptr [ %104, %filter1.exit72.loopexit.us ], [ %1, %51 ]
-  %62 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 4, !tbaa !23
   %65 = sext i32 %64 to i64
@@ -988,14 +988,14 @@ define internal void @assemble_freq_bands_c(ptr noundef writeonly captures(none)
 
 66:                                               ; preds = %66, %.lr.ph.i59.us
   %indvars.iv.i60.us = phi i64 [ 0, %.lr.ph.i59.us ], [ %indvars.iv.next.i61.us, %66 ]
-  %67 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i60.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i60.us
   %68 = load i32, ptr %67, align 4, !tbaa !23
   %69 = sext i32 %68 to i64
   %70 = mul nsw i64 %69, %65
   %71 = add nsw i64 %70, 4194304
   %72 = lshr i64 %71, 23
   %73 = trunc i64 %72 to i32
-  %74 = getelementptr inbounds nuw i32, ptr %.04173.us, i64 %indvars.iv.i60.us
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.04173.us, i64 %indvars.iv.i60.us
   %75 = load i32, ptr %74, align 4, !tbaa !23
   %76 = sub i32 %75, %73
   store i32 %76, ptr %74, align 4, !tbaa !23
@@ -1011,14 +1011,14 @@ define internal void @assemble_freq_bands_c(ptr noundef writeonly captures(none)
 
 80:                                               ; preds = %80, %.lr.ph.i63.us
   %indvars.iv.i64.us = phi i64 [ 0, %.lr.ph.i63.us ], [ %indvars.iv.next.i65.us, %80 ]
-  %81 = getelementptr inbounds nuw i32, ptr %.04173.us, i64 %indvars.iv.i64.us
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %.04173.us, i64 %indvars.iv.i64.us
   %82 = load i32, ptr %81, align 4, !tbaa !23
   %83 = sext i32 %82 to i64
   %84 = mul nsw i64 %83, %79
   %85 = add nsw i64 %84, 4194304
   %86 = lshr i64 %85, 23
   %87 = trunc i64 %86 to i32
-  %88 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i64.us
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i64.us
   %89 = load i32, ptr %88, align 4, !tbaa !23
   %90 = sub i32 %89, %87
   store i32 %90, ptr %88, align 4, !tbaa !23
@@ -1033,14 +1033,14 @@ define internal void @assemble_freq_bands_c(ptr noundef writeonly captures(none)
 
 93:                                               ; preds = %93, %.lr.ph.i68.us
   %indvars.iv.i69.us = phi i64 [ 0, %.lr.ph.i68.us ], [ %indvars.iv.next.i70.us, %93 ]
-  %94 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i69.us
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i69.us
   %95 = load i32, ptr %94, align 4, !tbaa !23
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %92
   %98 = add nsw i64 %97, 4194304
   %99 = lshr i64 %98, 23
   %100 = trunc i64 %99 to i32
-  %101 = getelementptr inbounds nuw i32, ptr %.04173.us, i64 %indvars.iv.i69.us
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.04173.us, i64 %indvars.iv.i69.us
   %102 = load i32, ptr %101, align 4, !tbaa !23
   %103 = sub i32 %102, %100
   store i32 %103, ptr %101, align 4, !tbaa !23
@@ -1117,9 +1117,9 @@ define internal void @lbr_bank_c(ptr noundef captures(none) %0, ptr noundef read
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !70
-  %36 = getelementptr inbounds float, ptr %35, i64 %3
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %3
   %37 = getelementptr inbounds i8, ptr %36, i64 -16
   %38 = load float, ptr %37, align 4, !tbaa !33
   %39 = getelementptr inbounds i8, ptr %36, i64 -4
@@ -1148,7 +1148,7 @@ define internal void @lbr_bank_c(ptr noundef captures(none) %0, ptr noundef read
   %62 = tail call nsz float @llvm.fmuladd.f32(float %14, float %48, float %61)
   %63 = tail call nsz float @llvm.fmuladd.f32(float %20, float %42, float %62)
   %64 = tail call nsz float @llvm.fmuladd.f32(float %28, float %59, float %63)
-  %65 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   store float %64, ptr %65, align 4, !tbaa !33
   %66 = fneg nsz float %42
   %67 = fmul nsz float %16, %66
@@ -1176,12 +1176,12 @@ define internal void @lbr_bank_c(ptr noundef captures(none) %0, ptr noundef read
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.lr.ph107
   %indvars.iv109 = phi i64 [ 12, %.lr.ph107.preheader ], [ %indvars.iv.next110, %.lr.ph107 ]
-  %83 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv109
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv109
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %85 = load float, ptr %84, align 4, !tbaa !33
   %86 = fmul nsz float %22, %85
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %87 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %indvars.iv.next110
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv.next110
   %88 = load float, ptr %87, align 4, !tbaa !33
   %89 = fmul nsz float %22, %88
   %90 = fsub nsz float %89, %86
@@ -1231,9 +1231,9 @@ define internal void @lfe_iir_c(ptr noundef writeonly captures(none) %0, ptr nou
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
   %.13840.us = phi float [ %.03742.us, %.preheader.us ], [ %28, %10 ]
-  %11 = getelementptr inbounds nuw [2 x float], ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !33
-  %13 = getelementptr inbounds nuw [4 x float], ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %16 = load float, ptr %15, align 4, !tbaa !33

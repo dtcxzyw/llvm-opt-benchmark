@@ -3,8 +3,6 @@ source_filename = "bench/bullet3/original/btTriangleIndexVertexArray.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.btIndexedMesh = type <{ i32, [4 x i8], ptr, i32, i32, ptr, i32, i32, i32, [4 x i8] }>
-
 $_ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev = comdat any
 
 $_ZN26btTriangleIndexVertexArray16unLockVertexBaseEi = comdat any
@@ -66,9 +64,9 @@ define dso_local void @_ZN26btTriangleIndexVertexArrayC2EiPiiiPfi(ptr noundef no
 
 19:                                               ; preds = %19, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %19 ]
-  %20 = getelementptr inbounds nuw %struct.btIndexedMesh, ptr %17, i64 %indvars.iv.i.i.i.i
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %indvars.iv.i.i.i.i
   %21 = load ptr, ptr %13, align 8, !tbaa !17
-  %22 = getelementptr inbounds nuw %struct.btIndexedMesh, ptr %21, i64 %indvars.iv.i.i.i.i
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %indvars.iv.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !24
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
@@ -92,7 +90,7 @@ _ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i: ; preds = %
   store i32 1, ptr %15, align 8, !tbaa !19
   %.pre2.i.i = load i32, ptr %14, align 4, !tbaa !18
   %27 = sext i32 %.pre2.i.i to i64
-  %28 = getelementptr inbounds %struct.btIndexedMesh, ptr %17, i64 %27
+  %28 = getelementptr inbounds [48 x i8], ptr %17, i64 %27
   store i32 %1, ptr %28, align 8, !tbaa !25
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %2, ptr %.sroa.511.0..sroa_idx, align 8, !tbaa !26
@@ -112,7 +110,7 @@ _ZN20btAlignedObjectArrayI13btIndexedMeshE10deallocateEv.exit.i.i.i: ; preds = %
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %14, align 4, !tbaa !18
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds %struct.btIndexedMesh, ptr %17, i64 %31
+  %32 = getelementptr inbounds [48 x i8], ptr %17, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 36
   store i32 2, ptr %33, align 4, !tbaa !33
   ret void
@@ -247,7 +245,7 @@ define dso_local void @_ZN26btTriangleIndexVertexArray24getLockedVertexIndexBase
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds %struct.btIndexedMesh, ptr %12, i64 %13
+  %14 = getelementptr inbounds [48 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !35
   store i32 %16, ptr %2, align 4, !tbaa !25
@@ -279,7 +277,7 @@ define dso_local void @_ZNK26btTriangleIndexVertexArray32getLockedReadOnlyVertex
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds %struct.btIndexedMesh, ptr %12, i64 %13
+  %14 = getelementptr inbounds [48 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !35
   store i32 %16, ptr %2, align 4, !tbaa !25

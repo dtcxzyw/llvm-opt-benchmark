@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.object_id = type { [32 x i8], i32 }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"%o%c\00", align 1
 @.str.1 = private unnamed_addr constant [47 x i8] c"Index records invalid resolve-undo information\00", align 1
@@ -55,7 +53,7 @@ define dso_local void @record_resolve_undo(ptr noundef captures(none) %0, ptr no
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = add nsw i32 %6, -1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.object_id, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [36 x i8], ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %28, ptr noundef nonnull readonly align 4 dereferenceable(32) %29, i64 32, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -64,7 +62,7 @@ define dso_local void @record_resolve_undo(ptr noundef captures(none) %0, ptr no
   store i32 %31, ptr %32, align 4, !tbaa !28
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %34 = load i32, ptr %33, align 4, !tbaa !4
-  %35 = getelementptr inbounds nuw i32, ptr %24, i64 %27
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %27
   store i32 %34, ptr %35, align 4, !tbaa !4
   br label %36
 
@@ -89,7 +87,7 @@ define dso_local void @resolve_undo_write(ptr noundef %0, ptr noundef readonly c
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %1, align 8, !tbaa !29
   %10 = load i64, ptr %5, align 8, !tbaa !33
-  %11 = getelementptr inbounds nuw %struct.string_list_item, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
   %12 = icmp ult ptr %4, %11
   br i1 %12, label %.lr.ph40, label %.critedge
 
@@ -139,7 +137,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 27:                                               ; preds = %strbuf_addch.exit, %27
   %indvars.iv = phi i64 [ 0, %strbuf_addch.exit ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !4
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef %29, i32 noundef 0) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -148,13 +146,13 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 30:                                               ; preds = %.preheader, %36
   %indvars.iv33 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %36 ]
-  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv33
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv33
   %32 = load i32, ptr %31, align 4, !tbaa !4
   %.not26 = icmp eq i32 %32, 0
   br i1 %.not26, label %36, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw %struct.object_id, ptr %26, i64 %indvars.iv33
+  %34 = getelementptr inbounds nuw [36 x i8], ptr %26, i64 %indvars.iv33
   %35 = load i64, ptr %8, align 8, !tbaa !42
   tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %34, i64 noundef %35) #8
   br label %36
@@ -168,7 +166,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %37 = getelementptr inbounds nuw i8, ptr %.0233039, i64 16
   %38 = load ptr, ptr %1, align 8, !tbaa !29
   %39 = load i64, ptr %5, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw %struct.string_list_item, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %39
   %41 = icmp ult ptr %37, %40
   br i1 %41, label %.lr.ph40, label %.critedge
 
@@ -238,7 +236,7 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
   %.24978 = phi i64 [ %23, %21 ], [ %40, %39 ]
   %27 = call i64 @strtoul(ptr noundef %.279, ptr noundef nonnull %4, i32 noundef 8) #8
   %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   store i32 %28, ptr %29, align 4, !tbaa !4
   %30 = load ptr, ptr %4, align 8, !tbaa !47
   %.not61 = icmp eq ptr %30, null
@@ -270,7 +268,7 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
   %indvars.iv91 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next92, %63 ]
   %.382 = phi ptr [ %41, %.preheader ], [ %.4, %63 ]
   %.35081 = phi i64 [ %40, %.preheader ], [ %.451, %63 ]
-  %43 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv91
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv91
   %44 = load i32, ptr %43, align 4, !tbaa !4
   %.not60 = icmp eq i32 %44, 0
   br i1 %.not60, label %63, label %45
@@ -280,7 +278,7 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
   br i1 %46, label %.loopexit68, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw %struct.object_id, ptr %25, i64 %indvars.iv91
+  %48 = getelementptr inbounds nuw [36 x i8], ptr %25, i64 %indvars.iv91
   %49 = load i64, ptr %5, align 8, !tbaa !42
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr readonly align 1 %.382, i64 %49, i1 false)
   %50 = load i64, ptr %5, align 8, !tbaa !42
@@ -298,7 +296,7 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
 
 55:                                               ; preds = %.preheader110, %57
   %.0811.i.i = phi i64 [ %58, %57 ], [ 0, %.preheader110 ]
-  %56 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %56 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %2, %56
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %57
 
@@ -389,7 +387,7 @@ define dso_local range(i32 -1, 1) i32 @unmerge_index_entry(ptr noundef %0, ptr n
 14:                                               ; preds = %9
   %15 = load ptr, ptr %0, align 8, !tbaa !53
   %16 = zext nneg i32 %10 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 108
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %1) #9
@@ -406,7 +404,7 @@ define dso_local range(i32 -1, 1) i32 @unmerge_index_entry(ptr noundef %0, ptr n
 
 25:                                               ; preds = %23, %39
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next.pre-phi, %39 ]
-  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %.not35 = icmp eq i32 %27, 0
   br i1 %.not35, label %._crit_edge, label %28
@@ -416,7 +414,7 @@ define dso_local range(i32 -1, 1) i32 @unmerge_index_entry(ptr noundef %0, ptr n
   br label %39
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw %struct.object_id, ptr %24, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [36 x i8], ptr %24, i64 %indvars.iv
   %30 = add nuw nsw i64 %indvars.iv, 1
   %31 = trunc nuw nsw i64 %30 to i32
   %32 = tail call ptr @make_cache_entry(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %29, ptr noundef nonnull %1, i32 noundef %31, i32 noundef 0) #8
@@ -472,7 +470,7 @@ define dso_local void @unmerge_index(ptr noundef %0, ptr noundef %1, i32 noundef
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !33
-  %13 = getelementptr inbounds nuw %struct.string_list_item, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %12
   %14 = icmp ult ptr %8, %13
   br i1 %14, label %.lr.ph29, label %.critedge
 
@@ -503,7 +501,7 @@ define dso_local void @unmerge_index(ptr noundef %0, ptr noundef %1, i32 noundef
   %26 = load ptr, ptr %25, align 8, !tbaa !29
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !33
-  %29 = getelementptr inbounds nuw %struct.string_list_item, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %28
   %30 = icmp ult ptr %24, %29
   br i1 %30, label %.lr.ph29, label %.critedge
 

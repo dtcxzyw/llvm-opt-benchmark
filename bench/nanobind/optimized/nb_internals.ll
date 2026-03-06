@@ -17,14 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.nanobind::str" = type { %"class.nanobind::object" }
 %"class.nanobind::object" = type { %"class.nanobind::handle" }
 %"class.nanobind::handle" = type { ptr }
-%"struct.nanobind::detail::nb_shard" = type { %"class.tsl::robin_map", %"class.tsl::robin_map" }
-%"class.tsl::robin_map" = type { %"class.tsl::detail_robin_hash::robin_hash" }
-%"class.tsl::detail_robin_hash::robin_hash" = type <{ %"class.tsl::rh::power_of_two_growth_policy", %"class.std::vector", ptr, i64, i64, i64, float, float, i8, i8, [6 x i8] }>
-%"class.tsl::rh::power_of_two_growth_policy" = type { i64 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl" }
-%"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -905,7 +897,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #14 {
   %.074143 = phi i64 [ 0, %.lr.ph ], [ %16, %12 ]
   %.075142 = phi i64 [ 0, %.lr.ph ], [ %19, %12 ]
   %.076141 = phi i64 [ 0, %.lr.ph ], [ %20, %12 ]
-  %13 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_shard", ptr %9, i64 %.076141
+  %13 = getelementptr inbounds nuw [160 x i8], ptr %9, i64 %.076141
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %.074143
@@ -935,7 +927,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #14 {
   %28 = phi i64 [ %24, %.lr.ph161 ], [ %73, %._crit_edge154 ]
   %.081159 = phi i32 [ 0, %.lr.ph161 ], [ %.283, %._crit_edge154 ]
   %.086158 = phi i64 [ 0, %.lr.ph161 ], [ %74, %._crit_edge154 ]
-  %29 = getelementptr inbounds nuw %"struct.nanobind::detail::nb_shard", ptr %25, i64 %.086158
+  %29 = getelementptr inbounds nuw [160 x i8], ptr %25, i64 %.086158
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load i64, ptr %30, align 8
   %.not.i.i = icmp eq i64 %31, 0
@@ -945,7 +937,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #14 {
 
 .lr.ph.i.i:                                       ; preds = %27, %36
   %.04.i.i = phi i64 [ %37, %36 ], [ 0, %27 ]
-  %32 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %.pre.i.i, i64 %.04.i.i
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i, i64 %.04.i.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i16, ptr %33, align 4
   %35 = icmp eq i16 %34, -1
@@ -958,12 +950,12 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #14 {
 
 _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv.exit: ; preds = %.lr.ph.i.i, %27
   %.0.lcssa.i.i = phi i64 [ 0, %27 ], [ %.04.i.i, %.lr.ph.i.i ]
-  %38 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %.pre.i.i, i64 %31
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i, i64 %31
   %.not130150 = icmp samesign eq i64 %.0.lcssa.i.i, %31
   br i1 %.not130150, label %._crit_edge154, label %.lr.ph153.preheader
 
 .lr.ph153.preheader:                              ; preds = %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv.exit
-  %39 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %.pre.i.i, i64 %.0.lcssa.i.i
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i, i64 %.0.lcssa.i.i
   br label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEppEv.exit
@@ -1087,7 +1079,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
 
 .lr.ph.i.i98:                                     ; preds = %90, %99
   %.04.i.i99 = phi i64 [ %100, %99 ], [ 0, %90 ]
-  %95 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.16", ptr %.pre.i.i97, i64 %.04.i.i99
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i97, i64 %.04.i.i99
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i16, ptr %96, align 4
   %98 = icmp eq i16 %97, -1
@@ -1100,12 +1092,12 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
 
 _ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv.exit: ; preds = %.lr.ph.i.i98, %90
   %.0.lcssa.i.i100 = phi i64 [ 0, %90 ], [ %.04.i.i99, %.lr.ph.i.i98 ]
-  %101 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.16", ptr %.pre.i.i97, i64 %94
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i97, i64 %94
   %.not128164 = icmp samesign eq i64 %.0.lcssa.i.i100, %94
   br i1 %.not128164, label %.loopexit, label %.lr.ph167.preheader
 
 .lr.ph167.preheader:                              ; preds = %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv.exit
-  %102 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.16", ptr %.pre.i.i97, i64 %.0.lcssa.i.i100
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i97, i64 %.0.lcssa.i.i100
   br label %.lr.ph167
 
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E14robin_iteratorILb0EEppEv.exit
@@ -1166,7 +1158,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
 
 .lr.ph.i.i106:                                    ; preds = %126, %135
   %.04.i.i107 = phi i64 [ %136, %135 ], [ 0, %126 ]
-  %131 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %.pre.i.i105, i64 %.04.i.i107
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i105, i64 %.04.i.i107
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %133 = load i16, ptr %132, align 4
   %134 = icmp eq i16 %133, -1
@@ -1179,12 +1171,12 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
 
 _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv.exit110: ; preds = %.lr.ph.i.i106, %126
   %.0.lcssa.i.i108 = phi i64 [ 0, %126 ], [ %.04.i.i107, %.lr.ph.i.i106 ]
-  %137 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %.pre.i.i105, i64 %130
+  %137 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i105, i64 %130
   %.not129168 = icmp samesign eq i64 %.0.lcssa.i.i108, %130
   br i1 %.not129168, label %.critedge91, label %.lr.ph170.preheader
 
 .lr.ph170.preheader:                              ; preds = %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv.exit110
-  %138 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %.pre.i.i105, i64 %.0.lcssa.i.i108
+  %138 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i105, i64 %.0.lcssa.i.i108
   br label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEppEv.exit112

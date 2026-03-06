@@ -15,8 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.76 }
 %union.anon.76 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.drm_color_lut = type { i16, i16, i16, i16 }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [10 x i8] c"%s %s: %s\00", align 1
 @.str.1 = private unnamed_addr constant [67 x i8] c"drm_WARN_ON(crtc_state->pre_csc_lut != crtc_state->hw.degamma_lut)\00", align 1
@@ -761,7 +759,7 @@ define dso_local i32 @intel_color_init(ptr noundef %0) local_unnamed_addr #0 ali
   %24 = mul i32 %23, 65535
   %25 = sdiv i32 %24, %19
   %26 = trunc i32 %25 to i16
-  %27 = getelementptr %struct.drm_color_lut, ptr %16, i64 %22
+  %27 = getelementptr [8 x i8], ptr %16, i64 %22
   store i16 %26, ptr %27, align 2
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i16 %26, ptr %28, align 2
@@ -1078,7 +1076,7 @@ define internal i32 @chv_color_check(ptr noundef %0) #0 align 16 {
 
 111:                                              ; preds = %111, %106
   %112 = phi i64 [ 0, %106 ], [ %126, %111 ]
-  %113 = getelementptr i64, ptr %110, i64 %112
+  %113 = getelementptr [8 x i8], ptr %110, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = lshr i64 %114, 19
   %116 = and i64 %115, 17592186044415
@@ -1090,7 +1088,7 @@ define internal i32 @chv_color_check(ptr noundef %0) #0 align 16 {
   %122 = select i1 %120, i64 %121, i64 %118
   %123 = tail call i64 @llvm.smin.i64(i64 %122, i64 32767)
   %124 = trunc nsw i64 %123 to i16
-  %125 = getelementptr i16, ptr %108, i64 %112
+  %125 = getelementptr [2 x i8], ptr %108, i64 %112
   store i16 %124, ptr %125, align 2
   %126 = add nuw nsw i64 %112, 1
   %127 = icmp eq i64 %126, 9
@@ -1137,7 +1135,7 @@ define internal i32 @chv_color_check(ptr noundef %0) #0 align 16 {
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 144
   %149 = load i32, ptr %148, align 8
   %150 = zext i32 %149 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %147, i64 %150
+  %.split = getelementptr [56 x i8], ptr %147, i64 %150
   %151 = getelementptr i8, ptr %.split, i64 16
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 4324
@@ -1530,7 +1528,7 @@ define internal void @chv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   %216 = trunc i64 %215 to i32
   %217 = shl i32 %216, 3
   %218 = add i32 %210, %217
-  %219 = getelementptr %struct.drm_color_lut, ptr %199, i64 %215
+  %219 = getelementptr [8 x i8], ptr %199, i64 %215
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 2
   %221 = load i16, ptr %220, align 2
   %222 = zext i16 %221 to i32
@@ -1701,7 +1699,7 @@ define internal void @chv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   %326 = trunc i64 %325 to i32
   %327 = shl i32 %326, 3
   %328 = add i32 %320, %327
-  %329 = getelementptr %struct.drm_color_lut, ptr %309, i64 %325
+  %329 = getelementptr [8 x i8], ptr %309, i64 %325
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 2
   %331 = load i16, ptr %330, align 2
   %332 = zext i16 %331 to i32
@@ -2058,7 +2056,7 @@ define internal void @chv_read_luts(ptr noundef captures(none) %0) #0 align 16 {
   br label %97
 
 97:                                               ; preds = %94, %90, %77, %70
-  %98 = getelementptr %struct.drm_color_lut, ptr %21, i64 %30
+  %98 = getelementptr [8 x i8], ptr %21, i64 %30
   %99 = lshr i32 %43, 16
   %100 = and i32 %99, 16383
   %101 = mul nuw nsw i32 %100, 65535
@@ -2240,7 +2238,7 @@ define internal void @chv_read_luts(ptr noundef captures(none) %0) #0 align 16 {
   br label %215
 
 215:                                              ; preds = %212, %208, %195, %188
-  %216 = getelementptr %struct.drm_color_lut, ptr %139, i64 %148
+  %216 = getelementptr [8 x i8], ptr %139, i64 %148
   %217 = lshr i32 %161, 16
   %218 = and i32 %217, 1023
   %219 = mul nuw nsw i32 %218, 65535
@@ -2363,8 +2361,8 @@ define internal zeroext i1 @chv_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %67, label %208, label %68, !llvm.loop !74
 
 68:                                               ; preds = %.preheader
-  %69 = getelementptr %struct.drm_color_lut, ptr %31, i64 %66
-  %70 = getelementptr %struct.drm_color_lut, ptr %33, i64 %66
+  %69 = getelementptr [8 x i8], ptr %31, i64 %66
+  %70 = getelementptr [8 x i8], ptr %33, i64 %66
   %71 = load i16, ptr %70, align 2
   %72 = zext i16 %71 to i64
   %73 = load i16, ptr %69, align 2
@@ -2515,8 +2513,8 @@ define internal zeroext i1 @chv_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %177, label %210, label %178, !llvm.loop !74
 
 178:                                              ; preds = %.preheader16
-  %179 = getelementptr %struct.drm_color_lut, ptr %140, i64 %176
-  %180 = getelementptr %struct.drm_color_lut, ptr %142, i64 %176
+  %179 = getelementptr [8 x i8], ptr %140, i64 %176
+  %180 = getelementptr [8 x i8], ptr %142, i64 %176
   %181 = load i16, ptr %180, align 2
   %182 = zext i16 %181 to i64
   %183 = load i16, ptr %179, align 2
@@ -2906,7 +2904,7 @@ define internal void @chv_get_config(ptr noundef captures(none) initializes((432
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %22 = zext i32 %18 to i64
-  %23 = getelementptr i32, ptr %21, i64 %22
+  %23 = getelementptr [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = load i32, ptr %21, align 4
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -2958,7 +2956,7 @@ define internal fastcc i32 @intel_color_add_affected_planes(ptr noundef captures
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %7, i64 %10
+  %.split = getelementptr [56 x i8], ptr %7, i64 %10
   %11 = getelementptr i8, ptr %.split, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -3262,7 +3260,7 @@ define internal void @i965_load_luts(ptr noundef readonly captures(none) %0) #0 
   %36 = shl i32 %35, 3
   %37 = add i32 %36, %25
   %38 = add i32 %37, %34
-  %39 = getelementptr %struct.drm_color_lut, ptr %11, i64 %31
+  %39 = getelementptr [8 x i8], ptr %11, i64 %31
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 255
   %42 = zext nneg i16 %41 to i32
@@ -3414,7 +3412,7 @@ define internal void @i965_load_luts(ptr noundef readonly captures(none) %0) #0 
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 36
   %139 = sext i32 %17 to i64
-  %140 = getelementptr i32, ptr %138, i64 %139
+  %140 = getelementptr [4 x i8], ptr %138, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = load i32, ptr %138, align 4
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 32
@@ -3422,7 +3420,7 @@ define internal void @i965_load_luts(ptr noundef readonly captures(none) %0) #0 
   %145 = add i32 %141, 458768
   %146 = sub i32 %145, %142
   %147 = add i32 %146, %144
-  %148 = getelementptr %struct.drm_color_lut, ptr %11, i64 %135
+  %148 = getelementptr [8 x i8], ptr %11, i64 %135
   %149 = load i16, ptr %148, align 2
   %150 = zext i16 %149 to i32
   %151 = zext i16 %149 to i64
@@ -3484,7 +3482,7 @@ define internal void @i965_load_luts(ptr noundef readonly captures(none) %0) #0 
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %150, ptr elementtype(i32) %183) #13, !srcloc !68
   %184 = load ptr, ptr %136, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 36
-  %186 = getelementptr i32, ptr %185, i64 %139
+  %186 = getelementptr [4 x i8], ptr %185, i64 %139
   %187 = load i32, ptr %186, align 4
   %188 = load i32, ptr %185, align 4
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 32
@@ -3553,7 +3551,7 @@ define internal void @i965_load_luts(ptr noundef readonly captures(none) %0) #0 
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %196, ptr elementtype(i32) %228) #13, !srcloc !68
   %229 = load ptr, ptr %136, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 36
-  %231 = getelementptr i32, ptr %230, i64 %139
+  %231 = getelementptr [4 x i8], ptr %230, i64 %139
   %232 = load i32, ptr %231, align 4
   %233 = load i32, ptr %230, align 4
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 32
@@ -3666,7 +3664,7 @@ define internal fastcc void @i9xx_load_lut_8(ptr noundef readonly captures(none)
   %23 = shl i32 %22, 2
   %24 = add i32 %23, %14
   %25 = add i32 %24, %21
-  %26 = getelementptr %struct.drm_color_lut, ptr %9, i64 %18
+  %26 = getelementptr [8 x i8], ptr %9, i64 %18
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
   %29 = mul nuw nsw i32 %28, 255
@@ -3952,7 +3950,7 @@ define internal void @i965_read_luts(ptr noundef captures(none) %0) #0 align 16 
   br label %120
 
 120:                                              ; preds = %117, %113, %100, %93
-  %121 = getelementptr %struct.drm_color_lut, ptr %31, i64 %44
+  %121 = getelementptr [8 x i8], ptr %31, i64 %44
   %122 = lshr i32 %98, 8
   %123 = and i32 %122, 65280
   %124 = lshr i32 %61, 16
@@ -3982,7 +3980,7 @@ define internal void @i965_read_luts(ptr noundef captures(none) %0) #0 align 16 
   %142 = load ptr, ptr %19, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 36
   %144 = sext i32 %24 to i64
-  %145 = getelementptr i32, ptr %143, i64 %144
+  %145 = getelementptr [4 x i8], ptr %143, i64 %144
   %146 = load i32, ptr %145, align 4
   %147 = load i32, ptr %143, align 4
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 32
@@ -4049,11 +4047,11 @@ define internal void @i965_read_luts(ptr noundef captures(none) %0) #0 align 16 
 186:                                              ; preds = %183, %179, %166, %159
   %187 = tail call i32 @llvm.umin.i32(i32 %164, i32 65535)
   %188 = trunc nuw i32 %187 to i16
-  %189 = getelementptr %struct.drm_color_lut, ptr %31, i64 %141
+  %189 = getelementptr [8 x i8], ptr %31, i64 %141
   store i16 %188, ptr %189, align 2
   %190 = load ptr, ptr %19, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 36
-  %192 = getelementptr i32, ptr %191, i64 %144
+  %192 = getelementptr [4 x i8], ptr %191, i64 %144
   %193 = load i32, ptr %192, align 4
   %194 = load i32, ptr %191, align 4
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 32
@@ -4123,7 +4121,7 @@ define internal void @i965_read_luts(ptr noundef captures(none) %0) #0 align 16 
   store i16 %234, ptr %235, align 2
   %236 = load ptr, ptr %19, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 36
-  %238 = getelementptr i32, ptr %237, i64 %144
+  %238 = getelementptr [4 x i8], ptr %237, i64 %144
   %239 = load i32, ptr %238, align 4
   %240 = load i32, ptr %237, align 4
   %241 = getelementptr inbounds nuw i8, ptr %236, i64 32
@@ -4296,7 +4294,7 @@ define internal fastcc ptr @i9xx_read_lut_8(ptr %.0.val, i32 %.1648.val) unnamed
   br label %53
 
 53:                                               ; preds = %50, %46, %33, %26
-  %54 = getelementptr %struct.drm_color_lut, ptr %5, i64 %14
+  %54 = getelementptr [8 x i8], ptr %5, i64 %14
   %55 = lshr i32 %31, 16
   %56 = and i32 %55, 255
   %57 = mul nuw nsw i32 %56, 65535
@@ -4340,7 +4338,7 @@ define internal void @i9xx_get_config(ptr noundef captures(none) %0) #0 align 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %11 = zext i32 %7 to i64
-  %12 = getelementptr i32, ptr %10, i64 %11
+  %12 = getelementptr [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %10, align 4
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -4506,7 +4504,7 @@ define internal i32 @vlv_color_check(ptr noundef %0) #0 align 16 {
 
 81:                                               ; preds = %81, %76
   %82 = phi i64 [ 0, %76 ], [ %97, %81 ]
-  %83 = getelementptr i64, ptr %80, i64 %82
+  %83 = getelementptr [8 x i8], ptr %80, i64 %82
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 21
   %86 = and i64 %85, 4398046511103
@@ -4519,7 +4517,7 @@ define internal i32 @vlv_color_check(ptr noundef %0) #0 align 16 {
   %93 = tail call i64 @llvm.smin.i64(i64 %92, i64 2047)
   %94 = trunc nsw i64 %93 to i16
   %95 = and i16 %94, 4095
-  %96 = getelementptr i16, ptr %78, i64 %82
+  %96 = getelementptr [2 x i8], ptr %78, i64 %82
   store i16 %95, ptr %96, align 2
   %97 = add nuw nsw i64 %82, 1
   %98 = icmp eq i64 %97, 9
@@ -4566,7 +4564,7 @@ define internal i32 @vlv_color_check(ptr noundef %0) #0 align 16 {
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 144
   %120 = load i32, ptr %119, align 8
   %121 = zext i32 %120 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %118, i64 %121
+  %.split = getelementptr [56 x i8], ptr %118, i64 %121
   %122 = getelementptr i8, ptr %.split, i64 16
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4754
@@ -4609,7 +4607,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = sext i32 %10 to i64
-  %15 = getelementptr i32, ptr %13, i64 %14
+  %15 = getelementptr [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr %13, align 4
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -4677,7 +4675,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %23, ptr elementtype(i32) %56) #13, !srcloc !68
   %57 = load ptr, ptr %11, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %59 = getelementptr i32, ptr %58, i64 %14
+  %59 = getelementptr [4 x i8], ptr %58, i64 %14
   %60 = load i32, ptr %59, align 4
   %61 = load i32, ptr %58, align 4
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -4746,7 +4744,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %69, ptr elementtype(i32) %101) #13, !srcloc !68
   %102 = load ptr, ptr %11, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 64
-  %104 = getelementptr i32, ptr %103, i64 %14
+  %104 = getelementptr [4 x i8], ptr %103, i64 %14
   %105 = load i32, ptr %104, align 4
   %106 = load i32, ptr %103, align 4
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 32
@@ -4814,7 +4812,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %113, ptr elementtype(i32) %145) #13, !srcloc !68
   %146 = load ptr, ptr %11, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 64
-  %148 = getelementptr i32, ptr %147, i64 %14
+  %148 = getelementptr [4 x i8], ptr %147, i64 %14
   %149 = load i32, ptr %148, align 4
   %150 = load i32, ptr %147, align 4
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 32
@@ -4883,7 +4881,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %158, ptr elementtype(i32) %190) #13, !srcloc !68
   %191 = load ptr, ptr %11, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 64
-  %193 = getelementptr i32, ptr %192, i64 %14
+  %193 = getelementptr [4 x i8], ptr %192, i64 %14
   %194 = load i32, ptr %193, align 4
   %195 = load i32, ptr %192, align 4
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 32
@@ -4951,7 +4949,7 @@ define internal void @vlv_load_luts(ptr noundef readonly captures(none) %0) #0 a
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %202, ptr elementtype(i32) %234) #13, !srcloc !68
   %235 = load ptr, ptr %11, align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 64
-  %237 = getelementptr i32, ptr %236, i64 %14
+  %237 = getelementptr [4 x i8], ptr %236, i64 %14
   %238 = load i32, ptr %237, align 4
   %239 = load i32, ptr %236, align 4
   %240 = getelementptr inbounds nuw i8, ptr %235, i64 32
@@ -5147,8 +5145,8 @@ define internal zeroext i1 @i965_lut_equal(ptr noundef readonly captures(none) %
   br i1 %85, label %116, label %86, !llvm.loop !74
 
 86:                                               ; preds = %.preheader
-  %87 = getelementptr %struct.drm_color_lut, ptr %48, i64 %84
-  %88 = getelementptr %struct.drm_color_lut, ptr %50, i64 %84
+  %87 = getelementptr [8 x i8], ptr %48, i64 %84
+  %88 = getelementptr [8 x i8], ptr %50, i64 %84
   %89 = load i16, ptr %88, align 2
   %90 = zext i16 %89 to i64
   %91 = load i16, ptr %87, align 2
@@ -5209,7 +5207,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = sext i32 %10 to i64
-  %15 = getelementptr i32, ptr %13, i64 %14
+  %15 = getelementptr [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr %13, align 4
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -5277,7 +5275,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   store i32 %34, ptr %7, align 2
   %57 = load ptr, ptr %11, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %59 = getelementptr i32, ptr %58, i64 %14
+  %59 = getelementptr [4 x i8], ptr %58, i64 %14
   %60 = load i32, ptr %59, align 4
   %61 = load i32, ptr %58, align 4
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -5346,7 +5344,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   store i16 %100, ptr %101, align 2
   %102 = load ptr, ptr %11, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 64
-  %104 = getelementptr i32, ptr %103, i64 %14
+  %104 = getelementptr [4 x i8], ptr %103, i64 %14
   %105 = load i32, ptr %104, align 4
   %106 = load i32, ptr %103, align 4
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 32
@@ -5414,7 +5412,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   store i32 %122, ptr %145, align 2
   %146 = load ptr, ptr %11, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 64
-  %148 = getelementptr i32, ptr %147, i64 %14
+  %148 = getelementptr [4 x i8], ptr %147, i64 %14
   %149 = load i32, ptr %148, align 4
   %150 = load i32, ptr %147, align 4
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 32
@@ -5483,7 +5481,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   store i16 %189, ptr %190, align 2
   %191 = load ptr, ptr %11, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 64
-  %193 = getelementptr i32, ptr %192, i64 %14
+  %193 = getelementptr [4 x i8], ptr %192, i64 %14
   %194 = load i32, ptr %193, align 4
   %195 = load i32, ptr %192, align 4
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 32
@@ -5551,7 +5549,7 @@ define internal void @vlv_read_csc(ptr noundef captures(none) %0) #0 align 16 {
   store i32 %211, ptr %234, align 2
   %235 = load ptr, ptr %11, align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 64
-  %237 = getelementptr i32, ptr %236, i64 %14
+  %237 = getelementptr [4 x i8], ptr %236, i64 %14
   %238 = load i32, ptr %237, align 4
   %239 = load i32, ptr %236, align 4
   %240 = getelementptr inbounds nuw i8, ptr %235, i64 32
@@ -5699,10 +5697,10 @@ define internal i32 @i9xx_color_check(ptr noundef %0) #0 align 16 {
   %49 = shl i64 %48, 29
   %50 = add i64 %49, -8589934592
   %51 = ashr i64 %50, 32
-  %52 = getelementptr %struct.drm_color_lut, ptr %46, i64 %51
+  %52 = getelementptr [8 x i8], ptr %46, i64 %51
   %53 = add i64 %49, -4294967296
   %54 = ashr i64 %53, 32
-  %55 = getelementptr %struct.drm_color_lut, ptr %46, i64 %54
+  %55 = getelementptr [8 x i8], ptr %46, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = load i16, ptr %52, align 2
   %58 = zext i16 %56 to i32
@@ -5791,7 +5789,7 @@ define internal i32 @i9xx_color_check(ptr noundef %0) #0 align 16 {
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 144
   %122 = load i32, ptr %121, align 8
   %123 = zext i32 %122 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %120, i64 %123
+  %.split = getelementptr [56 x i8], ptr %120, i64 %123
   %124 = getelementptr i8, ptr %.split, i64 16
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 744
@@ -5868,7 +5866,7 @@ define internal void @i9xx_load_luts(ptr noundef readonly captures(none) %0) #0 
   %36 = shl i32 %35, 3
   %37 = add i32 %36, %25
   %38 = add i32 %37, %34
-  %39 = getelementptr %struct.drm_color_lut, ptr %10, i64 %31
+  %39 = getelementptr [8 x i8], ptr %10, i64 %31
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
   %42 = mul nuw nsw i32 %41, 1023
@@ -6327,7 +6325,7 @@ define internal void @i9xx_read_luts(ptr noundef captures(none) %0) #0 align 16 
 
 118:                                              ; preds = %115, %111, %98, %91
   %119 = sext i32 %43 to i64
-  %120 = getelementptr %struct.drm_color_lut, ptr %31, i64 %119
+  %120 = getelementptr [8 x i8], ptr %31, i64 %119
   %121 = lshr i32 %59, 16
   %122 = and i32 %121, 255
   %123 = lshr i32 %96, 8
@@ -6370,7 +6368,7 @@ define internal void @i9xx_read_luts(ptr noundef captures(none) %0) #0 align 16 
   %152 = phi i32 [ %59, %150 ], [ 0, %29 ]
   %153 = phi i32 [ %96, %150 ], [ 0, %29 ]
   %154 = phi i64 [ %151, %150 ], [ 0, %29 ]
-  %155 = getelementptr %struct.drm_color_lut, ptr %31, i64 %154
+  %155 = getelementptr [8 x i8], ptr %31, i64 %154
   %156 = lshr i32 %153, 22
   %157 = and i32 %156, 3
   %158 = lshr i32 %153, 18
@@ -6573,8 +6571,8 @@ define internal zeroext i1 @i9xx_lut_equal(ptr noundef readonly captures(none) %
   br i1 %88, label %119, label %89, !llvm.loop !74
 
 89:                                               ; preds = %.preheader
-  %90 = getelementptr %struct.drm_color_lut, ptr %50, i64 %87
-  %91 = getelementptr %struct.drm_color_lut, ptr %52, i64 %87
+  %90 = getelementptr [8 x i8], ptr %50, i64 %87
+  %91 = getelementptr [8 x i8], ptr %52, i64 %87
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i64
   %94 = load i16, ptr %90, align 2
@@ -6935,7 +6933,7 @@ define internal range(i32 -22, 1) i32 @icl_color_check(ptr noundef %0) #0 align 
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 144
   %185 = load i32, ptr %184, align 8
   %186 = zext i32 %185 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %183, i64 %186
+  %.split = getelementptr [56 x i8], ptr %183, i64 %186
   %187 = getelementptr i8, ptr %.split, i64 16
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 744
@@ -8003,7 +8001,7 @@ ilk_lut_write.exit59:                             ; preds = %61, %89
 
 97:                                               ; preds = %ilk_lut_write.exit61, %ilk_lut_write.exit59
   %98 = phi i64 [ 0, %ilk_lut_write.exit59 ], [ %199, %ilk_lut_write.exit61 ]
-  %99 = getelementptr %struct.drm_color_lut, ptr %19, i64 %98
+  %99 = getelementptr [8 x i8], ptr %19, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, 63
   %102 = zext nneg i16 %101 to i32
@@ -10238,7 +10236,7 @@ define internal void @icl_read_luts(ptr noundef captures(none) %0) #0 align 16 {
   br label %171
 
 171:                                              ; preds = %168, %164, %151, %144
-  %172 = getelementptr %struct.drm_color_lut, ptr %40, i64 %109
+  %172 = getelementptr [8 x i8], ptr %40, i64 %109
   %173 = lshr i32 %149, 14
   %174 = and i32 %173, 65472
   %175 = lshr i32 %118, 24
@@ -10430,8 +10428,8 @@ define internal zeroext i1 @icl_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %69, label %209, label %70, !llvm.loop !74
 
 70:                                               ; preds = %.preheader
-  %71 = getelementptr %struct.drm_color_lut, ptr %32, i64 %68
-  %72 = getelementptr %struct.drm_color_lut, ptr %34, i64 %68
+  %71 = getelementptr [8 x i8], ptr %32, i64 %68
+  %72 = getelementptr [8 x i8], ptr %34, i64 %68
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i64
   %75 = load i16, ptr %71, align 2
@@ -10584,8 +10582,8 @@ default.unreachable29:                            ; preds = %110
   br i1 %178, label %211, label %179, !llvm.loop !74
 
 179:                                              ; preds = %.preheader17
-  %180 = getelementptr %struct.drm_color_lut, ptr %140, i64 %177
-  %181 = getelementptr %struct.drm_color_lut, ptr %142, i64 %177
+  %180 = getelementptr [8 x i8], ptr %140, i64 %177
+  %181 = getelementptr [8 x i8], ptr %142, i64 %177
   %182 = load i16, ptr %181, align 2
   %183 = zext i16 %182 to i64
   %184 = load i16, ptr %180, align 2
@@ -11490,14 +11488,14 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr readonly captures(none) %.0
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %14 = phi i64 [ %25, %.preheader ], [ 0, %.preheader.preheader ]
-  %15 = getelementptr i64, ptr %.360.val.80.val, i64 %14
+  %15 = getelementptr [8 x i8], ptr %.360.val.80.val, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 9223372036854775807
   %18 = tail call i64 @llvm.umin.i64(i64 %17, i64 17179869183)
   %19 = lshr i64 %18, 2
   %20 = mul nuw i64 %19, 3688618971
   %21 = lshr i64 %20, 30
-  %22 = getelementptr i64, ptr %3, i64 %14
+  %22 = getelementptr [8 x i8], ptr %3, i64 %14
   %23 = and i64 %16, -9223372036854775808
   %24 = or disjoint i64 %21, %23
   store i64 %24, ptr %22, align 8
@@ -11511,11 +11509,11 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr readonly captures(none) %.0
 
 28:                                               ; preds = %101, %.thread
   %29 = phi i64 [ 0, %.thread ], [ %103, %101 ]
-  %30 = getelementptr i64, ptr %27, i64 %29
+  %30 = getelementptr [8 x i8], ptr %27, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 9223372036854775807
   %33 = tail call i64 @llvm.umin.i64(i64 %32, i64 17179869183)
-  %34 = getelementptr i16, ptr %0, i64 %29
+  %34 = getelementptr [2 x i8], ptr %0, i64 %29
   store i16 0, ptr %34, align 2
   %35 = load i64, ptr %30, align 8
   %36 = lshr i64 %35, 48
@@ -12555,7 +12553,7 @@ ilk_lut_write.exit11:                             ; preds = %47, %75
   %101 = phi i64 [ 0, %84 ], [ %151, %ilk_lut_write.exit12 ]
   %102 = load i16, ptr %86, align 8
   %103 = icmp ugt i16 %102, 13
-  %.split = getelementptr %struct.drm_color_lut, ptr %.80.val, i64 %101
+  %.split = getelementptr [8 x i8], ptr %.80.val, i64 %101
   %104 = getelementptr i8, ptr %.split, i64 2
   %105 = load i16, ptr %104, align 2
   br i1 %103, label %106, label %112
@@ -12831,7 +12829,7 @@ define internal fastcc void @ilk_load_lut_8(ptr noundef readonly captures(none) 
 
 17:                                               ; preds = %ilk_lut_write.exit, %14
   %18 = phi i64 [ 0, %14 ], [ %82, %ilk_lut_write.exit ]
-  %19 = getelementptr %struct.drm_color_lut, ptr %9, i64 %18
+  %19 = getelementptr [8 x i8], ptr %9, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
   %22 = mul nuw nsw i32 %21, 255
@@ -13109,7 +13107,7 @@ ilk_lut_write.exit8:                              ; preds = %49, %78
 
 89:                                               ; preds = %ilk_lut_write.exit9, %85
   %90 = phi i64 [ 0, %85 ], [ %150, %ilk_lut_write.exit9 ]
-  %91 = getelementptr %struct.drm_color_lut, ptr %.80.val, i64 %90
+  %91 = getelementptr [8 x i8], ptr %.80.val, i64 %90
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i32
   %94 = mul nuw nsw i32 %93, 1023
@@ -13486,7 +13484,7 @@ define internal fastcc ptr @glk_read_degamma_lut(ptr %.0.val, i32 %.1648.val) un
 115:                                              ; preds = %112, %108, %95, %88
   %116 = load i16, ptr %81, align 8
   %117 = icmp ugt i16 %116, 13
-  %118 = getelementptr %struct.drm_color_lut, ptr %11, i64 %84
+  %118 = getelementptr [8 x i8], ptr %11, i64 %84
   br i1 %117, label %119, label %126
 
 119:                                              ; preds = %115
@@ -13653,7 +13651,7 @@ define internal fastcc ptr @ilk_read_lut_8(ptr %.0.val, i32 %.1648.val) unnamed_
   br label %48
 
 48:                                               ; preds = %45, %41, %28, %21
-  %49 = getelementptr %struct.drm_color_lut, ptr %5, i64 %12
+  %49 = getelementptr [8 x i8], ptr %5, i64 %12
   %50 = lshr i32 %26, 16
   %51 = and i32 %50, 255
   %52 = mul nuw nsw i32 %51, 65535
@@ -13875,7 +13873,7 @@ define internal fastcc ptr @bdw_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 nou
   br label %114
 
 114:                                              ; preds = %111, %107, %94, %87
-  %115 = getelementptr %struct.drm_color_lut, ptr %10, i64 %83
+  %115 = getelementptr [8 x i8], ptr %10, i64 %83
   %116 = lshr i32 %92, 20
   %117 = and i32 %116, 1023
   %118 = mul nuw nsw i32 %117, 65535
@@ -15037,8 +15035,8 @@ ilk_csc_limited_range.exit:                       ; preds = %102, %98, %93, %86,
   %167 = mul i32 %161, %166
   %168 = sdiv i32 %167, %162
   %169 = sext i32 %168 to i64
-  %170 = getelementptr %struct.drm_color_lut, ptr %156, i64 %169
-  %171 = getelementptr %struct.drm_color_lut, ptr %158, i64 %165
+  %170 = getelementptr [8 x i8], ptr %156, i64 %169
+  %171 = getelementptr [8 x i8], ptr %158, i64 %165
   %172 = load i64, ptr %170, align 2
   store i64 %172, ptr %171, align 2
   %173 = add nuw nsw i64 %165, 1
@@ -15132,14 +15130,14 @@ ilk_csc_limited_range.exit:                       ; preds = %102, %98, %93, %86,
   %231 = mul i32 %226, %230
   %232 = sdiv i32 %231, %226
   %233 = sext i32 %232 to i64
-  %234 = getelementptr %struct.drm_color_lut, ptr %221, i64 %233
+  %234 = getelementptr [8 x i8], ptr %221, i64 %233
   %235 = load i16, ptr %234, align 2
   %236 = zext i16 %235 to i32
   %237 = mul nuw i32 %236, 56064
   %238 = udiv i32 %237, 65535
   %239 = trunc nuw i32 %238 to i16
   %240 = add nuw i16 %239, 4096
-  %241 = getelementptr %struct.drm_color_lut, ptr %223, i64 %229
+  %241 = getelementptr [8 x i8], ptr %223, i64 %229
   store i16 %240, ptr %241, align 2
   %242 = getelementptr inbounds nuw i8, ptr %234, i64 2
   %243 = load i16, ptr %242, align 2
@@ -15211,7 +15209,7 @@ ilk_csc_limited_range.exit:                       ; preds = %102, %98, %93, %86,
   %286 = getelementptr inbounds nuw i8, ptr %281, i64 144
   %287 = load i32, ptr %286, align 8
   %288 = zext i32 %287 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %285, i64 %288
+  %.split = getelementptr [56 x i8], ptr %285, i64 %288
   %289 = getelementptr i8, ptr %.split, i64 16
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 744
@@ -16006,8 +16004,8 @@ define internal zeroext i1 @glk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %66, label %203, label %67, !llvm.loop !74
 
 67:                                               ; preds = %.preheader
-  %68 = getelementptr %struct.drm_color_lut, ptr %30, i64 %65
-  %69 = getelementptr %struct.drm_color_lut, ptr %32, i64 %65
+  %68 = getelementptr [8 x i8], ptr %30, i64 %65
+  %69 = getelementptr [8 x i8], ptr %32, i64 %65
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i64
   %72 = load i16, ptr %68, align 2
@@ -16152,8 +16150,8 @@ define internal zeroext i1 @glk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %172, label %205, label %173, !llvm.loop !74
 
 173:                                              ; preds = %.preheader16
-  %174 = getelementptr %struct.drm_color_lut, ptr %135, i64 %171
-  %175 = getelementptr %struct.drm_color_lut, ptr %137, i64 %171
+  %174 = getelementptr [8 x i8], ptr %135, i64 %171
+  %175 = getelementptr [8 x i8], ptr %137, i64 %171
   %176 = load i16, ptr %175, align 2
   %177 = zext i16 %176 to i64
   %178 = load i16, ptr %174, align 2
@@ -16867,8 +16865,8 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %238 = mul i32 %234, %237
   %239 = sdiv i32 %238, 511
   %240 = sext i32 %239 to i64
-  %241 = getelementptr %struct.drm_color_lut, ptr %231, i64 %240
-  %242 = getelementptr %struct.drm_color_lut, ptr %233, i64 %236
+  %241 = getelementptr [8 x i8], ptr %231, i64 %240
+  %242 = getelementptr [8 x i8], ptr %233, i64 %236
   %243 = load i64, ptr %241, align 2
   store i64 %243, ptr %242, align 2
   %244 = add nuw nsw i64 %236, 1
@@ -16955,14 +16953,14 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %298 = mul i32 %295, %297
   %299 = sdiv i32 %298, 511
   %300 = sext i32 %299 to i64
-  %301 = getelementptr %struct.drm_color_lut, ptr %292, i64 %300
+  %301 = getelementptr [8 x i8], ptr %292, i64 %300
   %302 = load i16, ptr %301, align 2
   %303 = zext i16 %302 to i32
   %304 = mul nuw i32 %303, 56064
   %305 = udiv i32 %304, 65535
   %306 = trunc nuw i32 %305 to i16
   %307 = add nuw i16 %306, 4096
-  %308 = getelementptr %struct.drm_color_lut, ptr %294, i64 %296
+  %308 = getelementptr [8 x i8], ptr %294, i64 %296
   store i16 %307, ptr %308, align 2
   %309 = getelementptr inbounds nuw i8, ptr %301, i64 2
   %310 = load i16, ptr %309, align 2
@@ -16992,8 +16990,8 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %329 = mul i32 %295, %328
   %330 = sdiv i32 %329, 511
   %331 = sext i32 %330 to i64
-  %332 = getelementptr %struct.drm_color_lut, ptr %292, i64 %331
-  %333 = getelementptr %struct.drm_color_lut, ptr %294, i64 %327
+  %332 = getelementptr [8 x i8], ptr %292, i64 %331
+  %333 = getelementptr [8 x i8], ptr %294, i64 %327
   %334 = load i64, ptr %332, align 2
   store i64 %334, ptr %333, align 2
   %335 = add nuw nsw i64 %327, 1
@@ -17030,7 +17028,7 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %353 = getelementptr inbounds nuw i8, ptr %348, i64 144
   %354 = load i32, ptr %353, align 8
   %355 = zext i32 %354 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %352, i64 %355
+  %.split = getelementptr [56 x i8], ptr %352, i64 %355
   %356 = getelementptr i8, ptr %.split, i64 16
   %357 = load ptr, ptr %356, align 8
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 744
@@ -17761,8 +17759,8 @@ define internal zeroext i1 @ivb_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %83, label %228, label %84, !llvm.loop !74
 
 84:                                               ; preds = %.preheader
-  %85 = getelementptr %struct.drm_color_lut, ptr %46, i64 %82
-  %86 = getelementptr %struct.drm_color_lut, ptr %48, i64 %82
+  %85 = getelementptr [8 x i8], ptr %46, i64 %82
+  %86 = getelementptr [8 x i8], ptr %48, i64 %82
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i64
   %89 = load i16, ptr %85, align 2
@@ -17927,8 +17925,8 @@ define internal zeroext i1 @ivb_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %197, label %230, label %198, !llvm.loop !74
 
 198:                                              ; preds = %.preheader18
-  %199 = getelementptr %struct.drm_color_lut, ptr %160, i64 %196
-  %200 = getelementptr %struct.drm_color_lut, ptr %162, i64 %196
+  %199 = getelementptr [8 x i8], ptr %160, i64 %196
+  %200 = getelementptr [8 x i8], ptr %162, i64 %196
   %201 = load i16, ptr %200, align 2
   %202 = zext i16 %201 to i64
   %203 = load i16, ptr %199, align 2
@@ -18067,14 +18065,14 @@ define internal fastcc i32 @ilk_assign_luts(ptr noundef %0) unnamed_addr #0 alig
   %59 = mul i32 %54, %58
   %60 = sdiv i32 %59, %54
   %61 = sext i32 %60 to i64
-  %62 = getelementptr %struct.drm_color_lut, ptr %49, i64 %61
+  %62 = getelementptr [8 x i8], ptr %49, i64 %61
   %63 = load i16, ptr %62, align 2
   %64 = zext i16 %63 to i32
   %65 = mul nuw i32 %64, 56064
   %66 = udiv i32 %65, 65535
   %67 = trunc nuw i32 %66 to i16
   %68 = add nuw i16 %67, 4096
-  %69 = getelementptr %struct.drm_color_lut, ptr %51, i64 %57
+  %69 = getelementptr [8 x i8], ptr %51, i64 %57
   store i16 %68, ptr %69, align 2
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %71 = load i16, ptr %70, align 2
@@ -18301,7 +18299,7 @@ define internal void @hsw_get_config(ptr noundef captures(none) initializes((432
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %31 = zext i32 %27 to i64
-  %32 = getelementptr i32, ptr %30, i64 %31
+  %32 = getelementptr [4 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %30, align 4
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -19021,7 +19019,7 @@ define internal fastcc void @ivb_load_lut_10(ptr noundef readonly captures(none)
   br label %ilk_lut_write.exit
 
 ilk_lut_write.exit:                               ; preds = %22, %50
-  %56 = getelementptr %struct.drm_color_lut, ptr %.80.val, i64 %18
+  %56 = getelementptr [8 x i8], ptr %.80.val, i64 %18
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i32
   %59 = mul nuw nsw i32 %58, 1023
@@ -19333,7 +19331,7 @@ define internal fastcc ptr @ivb_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 nou
   br label %83
 
 83:                                               ; preds = %80, %76, %63, %56
-  %84 = getelementptr %struct.drm_color_lut, ptr %10, i64 %20
+  %84 = getelementptr [8 x i8], ptr %10, i64 %20
   %85 = lshr i32 %61, 20
   %86 = and i32 %85, 1023
   %87 = mul nuw nsw i32 %86, 65535
@@ -19516,7 +19514,7 @@ define internal void @ilk_get_config(ptr noundef captures(none) initializes((432
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %22 = zext i32 %18 to i64
-  %23 = getelementptr i32, ptr %21, i64 %22
+  %23 = getelementptr [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = load i32, ptr %21, align 4
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -19766,7 +19764,7 @@ define internal i32 @ilk_color_check(ptr noundef %0) #0 align 16 {
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 144
   %130 = load i32, ptr %129, align 8
   %131 = zext i32 %130 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %128, i64 %131
+  %.split = getelementptr [56 x i8], ptr %128, i64 %131
   %132 = getelementptr i8, ptr %.split, i64 16
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 744
@@ -19836,7 +19834,7 @@ define internal void @ilk_load_luts(ptr noundef readonly captures(none) %0) #0 a
   %29 = trunc i64 %28 to i32
   %30 = shl i32 %29, 2
   %31 = add i32 %24, %30
-  %32 = getelementptr %struct.drm_color_lut, ptr %13, i64 %28
+  %32 = getelementptr [8 x i8], ptr %13, i64 %28
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = mul nuw nsw i32 %34, 1023
@@ -20084,7 +20082,7 @@ define internal void @ilk_read_luts(ptr noundef captures(none) %0) #0 align 16 {
   br label %85
 
 85:                                               ; preds = %82, %78, %65, %58
-  %86 = getelementptr %struct.drm_color_lut, ptr %41, i64 %50
+  %86 = getelementptr [8 x i8], ptr %41, i64 %50
   %87 = lshr i32 %63, 20
   %88 = and i32 %87, 1023
   %89 = mul nuw nsw i32 %88, 65535
@@ -20247,8 +20245,8 @@ define internal zeroext i1 @ilk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %81, label %223, label %82, !llvm.loop !74
 
 82:                                               ; preds = %.preheader
-  %83 = getelementptr %struct.drm_color_lut, ptr %44, i64 %80
-  %84 = getelementptr %struct.drm_color_lut, ptr %46, i64 %80
+  %83 = getelementptr [8 x i8], ptr %44, i64 %80
+  %84 = getelementptr [8 x i8], ptr %46, i64 %80
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i64
   %87 = load i16, ptr %83, align 2
@@ -20400,8 +20398,8 @@ define internal zeroext i1 @ilk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %192, label %225, label %193, !llvm.loop !74
 
 193:                                              ; preds = %.preheader16
-  %194 = getelementptr %struct.drm_color_lut, ptr %155, i64 %191
-  %195 = getelementptr %struct.drm_color_lut, ptr %157, i64 %191
+  %194 = getelementptr [8 x i8], ptr %155, i64 %191
+  %195 = getelementptr [8 x i8], ptr %157, i64 %191
   %196 = load i16, ptr %195, align 2
   %197 = zext i16 %196 to i64
   %198 = load i16, ptr %194, align 2

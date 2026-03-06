@@ -220,7 +220,7 @@ define void @Rwr_ManStop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.critedge ], [ 0, %.preheader60 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val4661 = load ptr, ptr %7, align 8, !tbaa !54
-  %8 = getelementptr inbounds nuw ptr, ptr %.val4661, i64 %indvars.iv68
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val4661, i64 %indvars.iv68
   %9 = load ptr, ptr %8, align 8, !tbaa !55
   %10 = getelementptr i8, ptr %9, i64 4
   %.val4862 = load i32, ptr %10, align 4, !tbaa !33
@@ -232,7 +232,7 @@ define void @Rwr_ManStop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %12 = phi ptr [ %24, %Dec_GraphFree.exit ], [ %9, %.preheader ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val49 = load ptr, ptr %13, align 8, !tbaa !36
-  %14 = getelementptr inbounds nuw ptr, ptr %.val49, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val49, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !55
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !56
@@ -251,7 +251,7 @@ Dec_GraphFree.exit:                               ; preds = %.lr.ph, %20
   %21 = load ptr, ptr %2, align 8, !tbaa !51
   %22 = getelementptr i8, ptr %21, i64 8
   %.val46 = load ptr, ptr %22, align 8, !tbaa !54
-  %23 = getelementptr inbounds nuw ptr, ptr %.val46, i64 %indvars.iv68
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.val46, i64 %indvars.iv68
   %24 = load ptr, ptr %23, align 8, !tbaa !55
   %25 = getelementptr i8, ptr %24, i64 4
   %.val48 = load i32, ptr %25, align 4, !tbaa !33
@@ -281,7 +281,7 @@ Dec_GraphFree.exit:                               ; preds = %.lr.ph, %20
   %.val14.i = phi i32 [ %.val, %.lr.ph.i ], [ %.val.i, %42 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
   %.val8.i = load ptr, ptr %34, align 8, !tbaa !54
-  %36 = getelementptr inbounds nuw ptr, ptr %.val8.i, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8, !tbaa !55
   %.not.i50 = icmp eq ptr %37, null
   br i1 %.not.i50, label %42, label %38
@@ -452,7 +452,7 @@ define void @Rwr_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.024 = phi i32 [ 0, %1 ], [ %8, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !69
   %6 = icmp sgt i32 %5, 0
   %7 = zext i1 %6 to i32

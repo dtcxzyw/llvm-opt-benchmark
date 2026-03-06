@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.uv__queue = type { ptr, ptr }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.uv_stdio_container_s = type { i32, %union.anon.5 }
-%union.anon.5 = type { ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"/dev/null\00", align 1
 @environ = external local_unnamed_addr global ptr, align 8
@@ -254,8 +252,8 @@ for.body21.lr.ph:                                 ; preds = %for.body.preheader
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.inc28
   %indvars.iv = phi i64 [ 0, %for.body21.lr.ph ], [ %indvars.iv.next, %for.inc28 ]
   %5 = load ptr, ptr %stdio, align 8
-  %add.ptr = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %5, i64 %indvars.iv
-  %arrayidx23 = getelementptr inbounds nuw [2 x i32], ptr %pipes.0148, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
+  %arrayidx23 = getelementptr inbounds nuw [8 x i8], ptr %pipes.0148, i64 %indvars.iv
   %6 = load i32, ptr %add.ptr, align 8
   %and.i = and i32 %6, 7
   switch i32 %and.i, label %error [
@@ -505,8 +503,8 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   %29 = phi i32 [ %28, %for.body62.lr.ph ], [ %43, %for.inc78 ]
   %indvars.iv133 = phi i64 [ 0, %for.body62.lr.ph ], [ %indvars.iv.next134, %for.inc78 ]
   %30 = load ptr, ptr %stdio63, align 8
-  %add.ptr65 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %30, i64 %indvars.iv133
-  %arrayidx67 = getelementptr inbounds nuw [2 x i32], ptr %pipes.0148, i64 %indvars.iv133
+  %add.ptr65 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv133
+  %arrayidx67 = getelementptr inbounds nuw [8 x i8], ptr %pipes.0148, i64 %indvars.iv133
   %31 = load i32, ptr %add.ptr65, align 8
   %and.i80 = and i32 %31, 1
   %tobool.not.i81 = icmp eq i32 %and.i80, 0
@@ -557,7 +555,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %uv__process_close_stream.exit ], [ %indvars.iv133, %while.cond.preheader ]
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, -1
   %39 = load ptr, ptr %stdio63, align 8
-  %add.ptr77 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %39, i64 %indvars.iv.next139
+  %add.ptr77 = getelementptr inbounds [16 x i8], ptr %39, i64 %indvars.iv.next139
   %40 = load i32, ptr %add.ptr77, align 8
   %and.i87 = and i32 %40, 1
   %tobool.not.i88 = icmp eq i32 %and.i87, 0
@@ -598,14 +596,14 @@ for.body92:                                       ; preds = %error, %for.inc128
 
 if.then96:                                        ; preds = %for.body92
   %47 = load ptr, ptr %stdio97, align 8
-  %arrayidx99 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %47, i64 %indvars.iv141
+  %arrayidx99 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %indvars.iv141
   %48 = load i32, ptr %arrayidx99, align 8
   %and101 = and i32 %48, 6
   %tobool102.not = icmp eq i32 %and101, 0
   br i1 %tobool102.not, label %if.end105, label %for.inc128
 
 if.end105:                                        ; preds = %if.then96, %for.body92
-  %arrayidx107 = getelementptr inbounds nuw [2 x i32], ptr %pipes.0148, i64 %indvars.iv141
+  %arrayidx107 = getelementptr inbounds nuw [8 x i8], ptr %pipes.0148, i64 %indvars.iv141
   %49 = load i32, ptr %arrayidx107, align 4
   %cmp109.not = icmp eq i32 %49, -1
   br i1 %cmp109.not, label %if.end116, label %if.then111
@@ -853,7 +851,7 @@ for.body11.preheader:                             ; preds = %if.end8
 
 for.body11:                                       ; preds = %for.body11.preheader, %for.inc28
   %indvars.iv = phi i64 [ 0, %for.body11.preheader ], [ %indvars.iv.next, %for.inc28 ]
-  %arrayidx = getelementptr inbounds nuw [2 x i32], ptr %pipes, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %pipes, i64 %indvars.iv
   %arrayidx12 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %3 = load i32, ptr %arrayidx12, align 4
   %4 = zext i32 %3 to i64
@@ -896,7 +894,7 @@ for.inc28:                                        ; preds = %if.end17, %for.body
 for.body32:                                       ; preds = %for.inc28, %for.inc72
   %fd.1174 = phi i32 [ %inc73, %for.inc72 ], [ 0, %for.inc28 ]
   %idxprom33 = sext i32 %fd.1174 to i64
-  %arrayidx34 = getelementptr inbounds [2 x i32], ptr %pipes, i64 %idxprom33
+  %arrayidx34 = getelementptr inbounds [8 x i8], ptr %pipes, i64 %idxprom33
   %arrayidx35 = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 4
   %7 = load i32, ptr %arrayidx35, align 4
   %cmp36 = icmp slt i32 %7, 0

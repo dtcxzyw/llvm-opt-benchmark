@@ -450,7 +450,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !5, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !5, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -530,7 +530,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h9591bd7ad78fefeeE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !16, !noundef !3
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load double, ptr %15, align 8, !noalias !16, !noundef !3
   store double %16, ptr %5, align 8, !noalias !16
   store ptr %5, ptr %6, align 8, !noalias !16
@@ -578,7 +578,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h53e1c154906445f8E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !23, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !23, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !23
   store ptr %5, ptr %6, align 8, !noalias !23
@@ -648,7 +648,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !36, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !36, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17h645a4dabc3053795E.exit, !prof !40
@@ -791,7 +791,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hed0f748f30df9b4fE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !60, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !60, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !60
   store ptr %5, ptr %6, align 8, !noalias !60
@@ -839,7 +839,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hac430b6181253f49E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !67, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !67, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !67
   store ptr %5, ptr %6, align 8, !noalias !67
@@ -887,7 +887,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h79d01a0c257ba45cE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !74, !noundef !3
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load float, ptr %15, align 4, !noalias !74, !noundef !3
   store float %16, ptr %5, align 4, !noalias !74
   store ptr %5, ptr %6, align 8, !noalias !74
@@ -935,7 +935,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hb8d8952f2f6fe4f9E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !81, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !81, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !81
   store ptr %5, ptr %6, align 8, !noalias !81
@@ -983,7 +983,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h4fd1dd2017936a97E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !88, !noundef !3
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load float, ptr %15, align 4, !noalias !88, !noundef !3
   store float %16, ptr %5, align 4, !noalias !88
   store ptr %5, ptr %6, align 8, !noalias !88
@@ -1045,7 +1045,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h8b44e1fd3e46019aE.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !102, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !102, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !99, !noalias !107, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !102
@@ -1111,7 +1111,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf72a2a4374348240E.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !120, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !122, !noalias !123, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !120, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !120
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !120, !noundef !3
@@ -1161,7 +1161,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !128, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !128, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -1284,7 +1284,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !145, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !145, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -1355,7 +1355,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !153, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !153, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17hf24d1164429a6259E.exit, !prof !40
@@ -1413,7 +1413,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !160, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !160, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -1488,7 +1488,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h7488d038ce6cb608E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !167, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !167, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !167
   store ptr %5, ptr %6, align 8, !noalias !167
@@ -1536,7 +1536,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h0e06d714e2e234bdE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !174, !noundef !3
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load float, ptr %15, align 4, !noalias !174, !noundef !3
   store float %16, ptr %5, align 4, !noalias !174
   store ptr %5, ptr %6, align 8, !noalias !174
@@ -1632,7 +1632,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h58a612f31ec46710E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !188, !noundef !3
-  %15 = getelementptr inbounds nuw { i16 }, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !188
   store i16 %16, ptr %5, align 2, !noalias !188
   store ptr %5, ptr %6, align 8, !noalias !188
@@ -1680,7 +1680,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hac3e60b00a51fa2eE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !195, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !195, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !195
   store ptr %5, ptr %6, align 8, !noalias !195
@@ -1739,7 +1739,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hc28ec7403f683802E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !205, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !205, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !205
   store ptr %5, ptr %6, align 8, !noalias !205
@@ -1785,7 +1785,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !212, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !212, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !216
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -1861,7 +1861,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !222, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !222, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -1930,7 +1930,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h130d317956e00004E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !229, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !229, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !229
   store ptr %5, ptr %6, align 8, !noalias !229
@@ -1978,7 +1978,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h40c1894e63a4bb60E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !236, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !236, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !236
   store ptr %5, ptr %6, align 8, !noalias !236
@@ -2026,7 +2026,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17ha188da3d423e4504E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !243, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !243, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !243
   store ptr %5, ptr %6, align 8, !noalias !243
@@ -2070,7 +2070,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !250, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !250, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -2154,7 +2154,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h2e15c1104f2ecb67E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !260, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !260, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !260
   store ptr %5, ptr %6, align 8, !noalias !260
@@ -2200,7 +2200,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit.i.i": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noalias !273, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noalias !273, !noundef !3
   store i32 %15, ptr %5, align 4, !noalias !273
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2280,7 +2280,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h89c5238d9ff82b88E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !280, !noundef !3
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load double, ptr %15, align 8, !noalias !280, !noundef !3
   store double %16, ptr %5, align 8, !noalias !280
   store ptr %5, ptr %6, align 8, !noalias !280
@@ -2326,7 +2326,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !287, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !287, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !291
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -2402,7 +2402,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !297, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !297, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17ha7567c0003f4022aE.exit, !prof !40
@@ -2464,7 +2464,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h73ea9085e43706adE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !304, !noundef !3
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load double, ptr %15, align 8, !noalias !304, !noundef !3
   store double %16, ptr %5, align 8, !noalias !304
   store ptr %5, ptr %6, align 8, !noalias !304
@@ -2512,7 +2512,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hfc97826af608cbe5E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !311, !noundef !3
-  %15 = getelementptr inbounds nuw i128, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %16 = load i128, ptr %15, align 16, !noalias !311, !noundef !3
   store i128 %16, ptr %5, align 16, !noalias !311
   store ptr %5, ptr %6, align 8, !noalias !311
@@ -2567,7 +2567,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !321, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !321, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -2650,7 +2650,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h547d59e1cced1ca6E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !331, !noundef !3
-  %15 = getelementptr inbounds nuw { i16 }, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !331
   store i16 %16, ptr %5, align 2, !noalias !331
   store ptr %5, ptr %6, align 8, !noalias !331
@@ -2696,7 +2696,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit.i.i": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noalias !344, !noundef !3
-  %14 = getelementptr inbounds nuw i16, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %2
   %15 = load i16, ptr %14, align 2, !noalias !344, !noundef !3
   store i16 %15, ptr %5, align 2, !noalias !344
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2782,7 +2782,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5a212a45350a2999E.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !357, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !359, !noalias !360, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !357, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !357
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !357, !noundef !3
@@ -2836,7 +2836,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hf07a8ce13fbde6f2E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !365, !noundef !3
-  %15 = getelementptr inbounds nuw { i16 }, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !365
   store i16 %16, ptr %5, align 2, !noalias !365
   store ptr %5, ptr %6, align 8, !noalias !365
@@ -2884,7 +2884,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h1b39a14e492628dbE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !372, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !372, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !372
   store ptr %5, ptr %6, align 8, !noalias !372
@@ -2932,7 +2932,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hd7c8dcfc286a7e90E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !379, !noundef !3
-  %15 = getelementptr inbounds nuw { i16 }, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !379
   store i16 %16, ptr %5, align 2, !noalias !379
   store ptr %5, ptr %6, align 8, !noalias !379
@@ -3013,7 +3013,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h5ec47e022a526075E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !395, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !395, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !395
   store ptr %5, ptr %6, align 8, !noalias !395
@@ -3063,7 +3063,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !402, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !402, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !402
@@ -3125,7 +3125,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hfef33a496d39392aE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !409, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !409, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !409
   store ptr %5, ptr %6, align 8, !noalias !409
@@ -3176,7 +3176,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hc6f771833f262d52E.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !419, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !419, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !416, !noalias !423, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !419
@@ -3221,7 +3221,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !427, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !427, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !427
@@ -3287,7 +3287,7 @@ _ZN4core3ops8function6FnOnce9call_once17h44639242fa89ffd0E.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !440, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !442, !noalias !443, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !440, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !440, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !440
@@ -3406,7 +3406,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !460, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !460, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !460
@@ -3472,7 +3472,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9f823f51b8345074E.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !473, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !475, !noalias !476, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !473, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !473, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !473
@@ -3525,7 +3525,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h300b6af4bdd76553E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !480, !noundef !3
-  %15 = getelementptr inbounds nuw { i16 }, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !480
   store i16 %16, ptr %5, align 2, !noalias !480
   store ptr %5, ptr %6, align 8, !noalias !480
@@ -3632,7 +3632,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h909aee00a85a854bE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !497, !noundef !3
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load double, ptr %15, align 8, !noalias !497, !noundef !3
   store double %16, ptr %5, align 8, !noalias !497
   store ptr %5, ptr %6, align 8, !noalias !497
@@ -3702,7 +3702,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h528c3469b2786fa1E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !510, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !510, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !510
   store ptr %5, ptr %6, align 8, !noalias !510
@@ -3750,7 +3750,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hde00f27f7c5a99ffE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !517, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !517, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !517
   store ptr %5, ptr %6, align 8, !noalias !517
@@ -3894,7 +3894,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h049ea8263388871dE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !543, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !543, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !543
   store ptr %5, ptr %6, align 8, !noalias !543
@@ -3942,7 +3942,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h2075c45de58d31cdE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !550, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !550, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !550
   store ptr %5, ptr %6, align 8, !noalias !550
@@ -3988,7 +3988,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !557, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !557, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !561
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -4112,7 +4112,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !574, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !574, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -4180,7 +4180,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hd7e165f4543e364dE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !581, !noundef !3
-  %15 = getelementptr inbounds nuw { i16 }, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !581
   store i16 %16, ptr %5, align 2, !noalias !581
   store ptr %5, ptr %6, align 8, !noalias !581
@@ -4298,7 +4298,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !601, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !601, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17hc8df7b3a0a6e65d2E.exit, !prof !40
@@ -4378,7 +4378,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !614, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !614, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -4484,7 +4484,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !630, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !630, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !634
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -4575,7 +4575,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hf95e2763afba915aE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !643, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !643, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !643
   store ptr %5, ptr %6, align 8, !noalias !643
@@ -4627,7 +4627,7 @@ _ZN4core3ops8function6FnOnce9call_once17h46e981278a78c87fE.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !656, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !658, !noalias !659, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !656, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !656, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !656
@@ -4695,7 +4695,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17habe4fc57a966eb34E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !666, !noundef !3
-  %15 = getelementptr inbounds nuw i128, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %16 = load i128, ptr %15, align 16, !noalias !666, !noundef !3
   store i128 %16, ptr %5, align 16, !noalias !666
   store ptr %5, ptr %6, align 8, !noalias !666
@@ -4743,7 +4743,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h458bc9c92b0d52a1E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !673, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !673, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !673
   store ptr %5, ptr %6, align 8, !noalias !673
@@ -4798,7 +4798,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !683, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !683, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -4874,7 +4874,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !693, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !693, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -4948,7 +4948,7 @@ _ZN4core3ops8function6FnOnce9call_once17hdf7ed6201e1246feE.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !706, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !708, !noalias !709, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !706, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !706
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !706, !noundef !3
@@ -5002,7 +5002,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hdd7c2053fb384896E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !714, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !714, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !714
   store ptr %5, ptr %6, align 8, !noalias !714
@@ -5064,7 +5064,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17ha98ac6b20cc5ace5E.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !727, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !727, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !724, !noalias !731, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !727
@@ -5113,7 +5113,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h8effa7df9d9d8f19E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !735, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !735, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !735
   store ptr %5, ptr %6, align 8, !noalias !735
@@ -5157,7 +5157,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !742, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !742, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -5238,7 +5238,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !752, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !752, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -5303,7 +5303,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !759, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !759, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -5374,7 +5374,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !766, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !766, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -5453,7 +5453,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb4f7e11bcb3de4b1E.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !779, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !781, !noalias !782, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !779, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !779, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !779
@@ -5557,7 +5557,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h655bd7eec1a5fc4aE.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !796, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !796, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !793, !noalias !800, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !796
@@ -5602,7 +5602,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !804, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !804, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !804
@@ -5664,7 +5664,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hef80be599a7b32e1E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !811, !noundef !3
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load float, ptr %15, align 4, !noalias !811, !noundef !3
   store float %16, ptr %5, align 4, !noalias !811
   store ptr %5, ptr %6, align 8, !noalias !811
@@ -5760,7 +5760,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hea10a833b0a00d16E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !825, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !825, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !825
   store ptr %5, ptr %6, align 8, !noalias !825
@@ -5815,7 +5815,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !835, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !835, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !835
@@ -5877,7 +5877,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hbf3fa74ee1ac6992E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !842, !noundef !3
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load double, ptr %15, align 8, !noalias !842, !noundef !3
   store double %16, ptr %5, align 8, !noalias !842
   store ptr %5, ptr %6, align 8, !noalias !842
@@ -5925,7 +5925,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17he3baba0d33a5728fE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !849, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !849, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !849
   store ptr %5, ptr %6, align 8, !noalias !849
@@ -6021,7 +6021,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h75d73bb78a41711cE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !863, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !863, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !863
   store ptr %5, ptr %6, align 8, !noalias !863
@@ -6067,7 +6067,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit.i.i": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noalias !876, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noalias !876, !noundef !3
   store i32 %15, ptr %5, align 4, !noalias !876
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6176,7 +6176,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !892, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !892, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17h8f251cde5a761af5E.exit, !prof !40
@@ -6249,7 +6249,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hf8270144cc23d55dE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !902, !noundef !3
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load float, ptr %15, align 4, !noalias !902, !noundef !3
   store float %16, ptr %5, align 4, !noalias !902
   store ptr %5, ptr %6, align 8, !noalias !902
@@ -6308,7 +6308,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h4a0fa2efdb735644E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !912, !noundef !3
-  %15 = getelementptr inbounds nuw i128, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %16 = load i128, ptr %15, align 16, !noalias !912, !noundef !3
   store i128 %16, ptr %5, align 16, !noalias !912
   store ptr %5, ptr %6, align 8, !noalias !912
@@ -6363,7 +6363,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !922, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !922, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !922
@@ -6436,7 +6436,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h87a8900489837f50E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !932, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !932, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !932
   store ptr %5, ptr %6, align 8, !noalias !932
@@ -6491,7 +6491,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !942, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !942, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17he6c333b568e5debdE.exit, !prof !40
@@ -6549,7 +6549,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !949, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !949, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17h2c40c81cc174a36fE.exit, !prof !40
@@ -6611,7 +6611,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h0c8e1d9753571709E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !956, !noundef !3
-  %15 = getelementptr inbounds nuw i128, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %16 = load i128, ptr %15, align 16, !noalias !956, !noundef !3
   store i128 %16, ptr %5, align 16, !noalias !956
   store ptr %5, ptr %6, align 8, !noalias !956
@@ -6668,7 +6668,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hbce109533d1217bdE.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !966, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !966, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !963, !noalias !970, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !966
@@ -6717,7 +6717,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hf9c2c4af9c47f7aaE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !974, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !974, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !974
   store ptr %5, ptr %6, align 8, !noalias !974
@@ -6761,7 +6761,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !981, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !981, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -6840,7 +6840,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h819d118d22cd663aE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !991, !noundef !3
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load float, ptr %15, align 4, !noalias !991, !noundef !3
   store float %16, ptr %5, align 4, !noalias !991
   store ptr %5, ptr %6, align 8, !noalias !991
@@ -6888,7 +6888,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h234b70ac6680cd7aE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !998, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !998, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !998
   store ptr %5, ptr %6, align 8, !noalias !998
@@ -7021,7 +7021,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h0ce24aebd66ae83bE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1021, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1021, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !1021
   store ptr %5, ptr %6, align 8, !noalias !1021
@@ -7069,7 +7069,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17habf36d9c3182bf7aE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1028, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1028, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !1028
   store ptr %5, ptr %6, align 8, !noalias !1028
@@ -7130,7 +7130,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1038, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1038, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -7203,7 +7203,7 @@ _ZN4core3ops8function6FnOnce9call_once17h233e649763d44348E.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !1051, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !1053, !noalias !1054, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1051, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !1051, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !1051
@@ -7252,7 +7252,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1058, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1058, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -7360,7 +7360,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h7267a830053b8f20E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1074, !noundef !3
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load float, ptr %15, align 4, !noalias !1074, !noundef !3
   store float %16, ptr %5, align 4, !noalias !1074
   store ptr %5, ptr %6, align 8, !noalias !1074
@@ -7408,7 +7408,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h1948d0285314749fE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1081, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1081, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !1081
   store ptr %5, ptr %6, align 8, !noalias !1081
@@ -7452,7 +7452,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1088, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1088, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17hce1980ca8ea9b927E.exit, !prof !40
@@ -7529,7 +7529,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h476f556d4f74279dE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1098, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1098, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !1098
   store ptr %5, ptr %6, align 8, !noalias !1098
@@ -7573,7 +7573,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1105, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1105, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -7648,7 +7648,7 @@ _ZN4core3ops8function6FnOnce9call_once17h75a5f29d8a94f5cfE.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !1118, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !1120, !noalias !1121, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !1118, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1118
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !1118, !noundef !3
@@ -7708,7 +7708,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h354cdb663ca8c885E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1126, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1126, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !1126
   store ptr %5, ptr %6, align 8, !noalias !1126
@@ -7759,7 +7759,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hb08675ba9b5bdd89E.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1136, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1136, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !1133, !noalias !1140, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !1136
@@ -7808,7 +7808,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hda2062b9c1a27fa5E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1144, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1144, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !1144
   store ptr %5, ptr %6, align 8, !noalias !1144
@@ -7856,7 +7856,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h968b411553164bbeE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1151, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1151, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !1151
   store ptr %5, ptr %6, align 8, !noalias !1151
@@ -7911,7 +7911,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1161, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1161, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -7975,7 +7975,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1168, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1168, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !1168
@@ -8041,7 +8041,7 @@ _ZN4core3ops8function6FnOnce9call_once17hfa4335e23b0454c2E.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !1181, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !1183, !noalias !1184, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1181, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !1181, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !1181
@@ -8094,7 +8094,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h6b5c2d76767d3199E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1188, !noundef !3
-  %15 = getelementptr inbounds nuw { i16 }, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1188
   store i16 %16, ptr %5, align 2, !noalias !1188
   store ptr %5, ptr %6, align 8, !noalias !1188
@@ -8142,7 +8142,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h39c8067499cadc1dE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1195, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1195, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !1195
   store ptr %5, ptr %6, align 8, !noalias !1195
@@ -8201,7 +8201,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1205, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1205, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -8279,7 +8279,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h7bab8aaccf21e623E.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1215, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1215, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !1212, !noalias !1219, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !1215
@@ -8328,7 +8328,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h1adef542b2231a0aE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1223, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1223, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !1223
   store ptr %5, ptr %6, align 8, !noalias !1223
@@ -8376,7 +8376,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h9f2a1764b94b4b64E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1230, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1230, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !1230
   store ptr %5, ptr %6, align 8, !noalias !1230
@@ -8427,7 +8427,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hae5ba1969dd02a57E.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1240, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1240, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !1237, !noalias !1244, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !1240
@@ -8535,7 +8535,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hb62e2b31a47e44d4E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1258, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1258, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !1258
   store ptr %5, ptr %6, align 8, !noalias !1258
@@ -8583,7 +8583,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h086d2483ed32b086E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1265, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1265, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !1265
   store ptr %5, ptr %6, align 8, !noalias !1265
@@ -8635,7 +8635,7 @@ _ZN4core3ops8function6FnOnce9call_once17h97c392add235b584E.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !1278, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !1280, !noalias !1281, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1278, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !1278, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !1278
@@ -8699,7 +8699,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h2ca021b932e634adE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1288, !noundef !3
-  %15 = getelementptr inbounds nuw i128, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %16 = load i128, ptr %15, align 16, !noalias !1288, !noundef !3
   store i128 %16, ptr %5, align 16, !noalias !1288
   store ptr %5, ptr %6, align 8, !noalias !1288
@@ -8743,7 +8743,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1295, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1295, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17h32dadc641a7a276aE.exit, !prof !40
@@ -8859,7 +8859,7 @@ _ZN4core3ops8function6FnOnce9call_once17h2de2f06d186fc411E.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !1315, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !1317, !noalias !1318, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !1315, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1315
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !1315, !noundef !3
@@ -8909,7 +8909,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1323, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1323, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !1323
@@ -8978,7 +8978,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1333, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1333, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -9053,7 +9053,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h734fef2ee29b91bdE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1340, !noundef !3
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load float, ptr %15, align 4, !noalias !1340, !noundef !3
   store float %16, ptr %5, align 4, !noalias !1340
   store ptr %5, ptr %6, align 8, !noalias !1340
@@ -9101,7 +9101,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h92e859b1d69c46d7E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1347, !noundef !3
-  %15 = getelementptr inbounds nuw i128, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %16 = load i128, ptr %15, align 16, !noalias !1347, !noundef !3
   store i128 %16, ptr %5, align 16, !noalias !1347
   store ptr %5, ptr %6, align 8, !noalias !1347
@@ -9145,7 +9145,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1354, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1354, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -9231,7 +9231,7 @@ _ZN4core3ops8function6FnOnce9call_once17h80fd9ff0a4197b6cE.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !1370, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !1372, !noalias !1373, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !1370, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1370
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !1370, !noundef !3
@@ -9296,7 +9296,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h6dbe7a4236f64381E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1381, !noundef !3
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load double, ptr %15, align 8, !noalias !1381, !noundef !3
   store double %16, ptr %5, align 8, !noalias !1381
   store ptr %5, ptr %6, align 8, !noalias !1381
@@ -9342,7 +9342,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1388, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1388, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1392
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -9418,7 +9418,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1398, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1398, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17h40688f3b146d38edE.exit, !prof !40
@@ -9528,7 +9528,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h9cb4a62a534771c5E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1412, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1412, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !1412
   store ptr %5, ptr %6, align 8, !noalias !1412
@@ -9572,7 +9572,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1419, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1419, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -9644,7 +9644,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7b09c66906a9589fE.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !1432, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !1434, !noalias !1435, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1432, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !1432, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !1432
@@ -9703,7 +9703,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc8038d87b427035cE.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !1445, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !1447, !noalias !1448, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !1445, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1445
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !1445, !noundef !3
@@ -9757,7 +9757,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17ha2ab7ec664f65207E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1453, !noundef !3
-  %15 = getelementptr inbounds nuw { i16 }, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1453
   store i16 %16, ptr %5, align 2, !noalias !1453
   store ptr %5, ptr %6, align 8, !noalias !1453
@@ -9811,7 +9811,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4a23be9781890f96E.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !1466, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !1468, !noalias !1469, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !1466, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1466
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !1466, !noundef !3
@@ -9865,7 +9865,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h7285e70b3d1be70fE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1474, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1474, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !1474
   store ptr %5, ptr %6, align 8, !noalias !1474
@@ -9922,7 +9922,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1484, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1484, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1488
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -10002,7 +10002,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h99cf0029e644b52bE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1494, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1494, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !1494
   store ptr %5, ptr %6, align 8, !noalias !1494
@@ -10078,7 +10078,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h70f80953ad5c43a1E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1507, !noundef !3
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load float, ptr %15, align 4, !noalias !1507, !noundef !3
   store float %16, ptr %5, align 4, !noalias !1507
   store ptr %5, ptr %6, align 8, !noalias !1507
@@ -10132,7 +10132,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5c04c920b4abe59cE.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !1520, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !1522, !noalias !1523, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !1520, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1520
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !1520, !noundef !3
@@ -10186,7 +10186,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h975a66d09ee049b3E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1528, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1528, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !1528
   store ptr %5, ptr %6, align 8, !noalias !1528
@@ -10267,7 +10267,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h53aec58f14e6da1cE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1544, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1544, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !1544
   store ptr %5, ptr %6, align 8, !noalias !1544
@@ -10330,7 +10330,7 @@ _ZN4core3ops8function6FnOnce9call_once17h97e9c55600355bc4E.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !1560, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !1562, !noalias !1563, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1560, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !1560, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !1560
@@ -10381,7 +10381,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1567, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1567, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1571
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -10518,7 +10518,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1587, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1587, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1591
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -10596,7 +10596,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit.i.i": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noalias !1603, !noundef !3
-  %14 = getelementptr inbounds nuw double, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load double, ptr %14, align 8, !noalias !1603, !noundef !3
   store double %15, ptr %5, align 8, !noalias !1603
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10720,7 +10720,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1617, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1617, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !1617
@@ -10860,7 +10860,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hedd65e8e4a9c9953E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1637, !noundef !3
-  %15 = getelementptr inbounds nuw i128, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %16 = load i128, ptr %15, align 16, !noalias !1637, !noundef !3
   store i128 %16, ptr %5, align 16, !noalias !1637
   store ptr %5, ptr %6, align 8, !noalias !1637
@@ -10919,7 +10919,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h0e4a43fd9b804f39E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1647, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1647, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !1647
   store ptr %5, ptr %6, align 8, !noalias !1647
@@ -10976,7 +10976,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1657, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1657, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1661
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -11104,7 +11104,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h40cef7c2171f279bE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1674, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1674, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !1674
   store ptr %5, ptr %6, align 8, !noalias !1674
@@ -11150,7 +11150,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1681, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1681, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1685
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -11230,7 +11230,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hbb168542799df19fE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1691, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1691, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !1691
   store ptr %5, ptr %6, align 8, !noalias !1691
@@ -11276,7 +11276,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit.i.i": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noalias !1704, !noundef !3
-  %14 = getelementptr inbounds nuw i128, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %2
   %15 = load i128, ptr %14, align 16, !noalias !1704, !noundef !3
   store i128 %15, ptr %5, align 16, !noalias !1704
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11352,7 +11352,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1711, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1711, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -11423,7 +11423,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1718, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1718, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !1718
@@ -11481,7 +11481,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1725, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1725, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -11628,7 +11628,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17he43103d7297f3150E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1745, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1745, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !1745
   store ptr %5, ptr %6, align 8, !noalias !1745
@@ -11674,7 +11674,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit.i.i": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noalias !1758, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noalias !1758, !noundef !3
   store i64 %15, ptr %5, align 8, !noalias !1758
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11754,7 +11754,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h5336ebc1e2367578E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1765, !noundef !3
-  %15 = getelementptr inbounds nuw { i16 }, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1765
   store i16 %16, ptr %5, align 2, !noalias !1765
   store ptr %5, ptr %6, align 8, !noalias !1765
@@ -11820,7 +11820,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1778, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1778, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -11884,7 +11884,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1785, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1785, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !1785
@@ -11946,7 +11946,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h5549c65059c252abE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1792, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1792, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !1792
   store ptr %5, ptr %6, align 8, !noalias !1792
@@ -12000,7 +12000,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc95166cb938f776bE.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !1805, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !1807, !noalias !1808, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !1805, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1805
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !1805, !noundef !3
@@ -12050,7 +12050,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1813, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1813, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -12125,7 +12125,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h1d369899090d93ebE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1820, !noundef !3
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load float, ptr %15, align 4, !noalias !1820, !noundef !3
   store float %16, ptr %5, align 4, !noalias !1820
   store ptr %5, ptr %6, align 8, !noalias !1820
@@ -12195,7 +12195,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h991acd0d9d7cdae9E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1833, !noundef !3
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load double, ptr %15, align 8, !noalias !1833, !noundef !3
   store double %16, ptr %5, align 8, !noalias !1833
   store ptr %5, ptr %6, align 8, !noalias !1833
@@ -12254,7 +12254,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hea7087f39ee7de27E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1843, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1843, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !1843
   store ptr %5, ptr %6, align 8, !noalias !1843
@@ -12305,7 +12305,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h558f9355e61bc296E.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1853, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1853, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !1850, !noalias !1857, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !1853
@@ -12371,7 +12371,7 @@ _ZN4core3ops8function6FnOnce9call_once17hdd7a95b4e3bf88f8E.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !1870, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !1872, !noalias !1873, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !1870, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1870
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !1870, !noundef !3
@@ -12473,7 +12473,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h4357a080bcb041fbE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1885, !noundef !3
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load double, ptr %15, align 8, !noalias !1885, !noundef !3
   store double %16, ptr %5, align 8, !noalias !1885
   store ptr %5, ptr %6, align 8, !noalias !1885
@@ -12539,7 +12539,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1898, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1898, !noundef !3
   %17 = add i32 %16, 719163
   %18 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %17), !noalias !1898
@@ -12601,7 +12601,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17ha566de395481b0ebE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1905, !noundef !3
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load float, ptr %15, align 4, !noalias !1905, !noundef !3
   store float %16, ptr %5, align 4, !noalias !1905
   store ptr %5, ptr %6, align 8, !noalias !1905
@@ -12647,7 +12647,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit.i.i": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noalias !1918, !noundef !3
-  %14 = getelementptr inbounds nuw { i16 }, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %2
   %15 = load i16, ptr %14, align 2, !noalias !1918
   store i16 %15, ptr %5, align 2, !noalias !1918
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12742,7 +12742,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hccae23f661428f39E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1928, !noundef !3
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load double, ptr %15, align 8, !noalias !1928, !noundef !3
   store double %16, ptr %5, align 8, !noalias !1928
   store ptr %5, ptr %6, align 8, !noalias !1928
@@ -12790,7 +12790,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hd35dba46808b77abE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1935, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1935, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !1935
   store ptr %5, ptr %6, align 8, !noalias !1935
@@ -12838,7 +12838,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h2acd240622edc51eE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1942, !noundef !3
-  %15 = getelementptr inbounds nuw { i16 }, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !1942
   store i16 %16, ptr %5, align 2, !noalias !1942
   store ptr %5, ptr %6, align 8, !noalias !1942
@@ -12886,7 +12886,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h028f64ef090c1d99E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1949, !noundef !3
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load double, ptr %15, align 8, !noalias !1949, !noundef !3
   store double %16, ptr %5, align 8, !noalias !1949
   store ptr %5, ptr %6, align 8, !noalias !1949
@@ -12930,7 +12930,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1956, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !1956, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -12998,7 +12998,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hff06f10b57738797E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !1963, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !1963, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !1963
   store ptr %5, ptr %6, align 8, !noalias !1963
@@ -13099,7 +13099,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h45ea5fe0eb7a0ee8E.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1985, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1985, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !1982, !noalias !1989, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !1985
@@ -13146,7 +13146,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !1993, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !1993, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1997
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -13222,7 +13222,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2003, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !2003, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -13298,7 +13298,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2013, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !2013, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -13381,7 +13381,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h196c39778b470249E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2023, !noundef !3
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load double, ptr %15, align 8, !noalias !2023, !noundef !3
   store double %16, ptr %5, align 8, !noalias !2023
   store ptr %5, ptr %6, align 8, !noalias !2023
@@ -13425,7 +13425,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2030, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !2030, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17h03145fdeecc356f4E.exit, !prof !40
@@ -13487,7 +13487,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h8334cc4614ae80bfE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2037, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !2037, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !2037
   store ptr %5, ptr %6, align 8, !noalias !2037
@@ -13533,7 +13533,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !2044, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !2044, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2048
   %19 = icmp eq i64 %18, -9223372036854775808
@@ -13613,7 +13613,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h94d9662110f94b1dE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2054, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !2054, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !2054
   store ptr %5, ptr %6, align 8, !noalias !2054
@@ -13661,7 +13661,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h6ccc59d5fdd09102E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2061, !noundef !3
-  %15 = getelementptr inbounds nuw i128, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %16 = load i128, ptr %15, align 16, !noalias !2061, !noundef !3
   store i128 %16, ptr %5, align 16, !noalias !2061
   store ptr %5, ptr %6, align 8, !noalias !2061
@@ -13709,7 +13709,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h6f0a27fa8087f301E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2068, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !2068, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !2068
   store ptr %5, ptr %6, align 8, !noalias !2068
@@ -13757,7 +13757,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h3f43932eb0b5a76eE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2075, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !2075, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !2075
   store ptr %5, ptr %6, align 8, !noalias !2075
@@ -13805,7 +13805,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h29c7151d485b141cE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2082, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !2082, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !2082
   store ptr %5, ptr %6, align 8, !noalias !2082
@@ -13904,7 +13904,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h0c9f93c749afe082E.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !2099, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !2099, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !2096, !noalias !2103, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !2099
@@ -13953,7 +13953,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h2edaa427a01de024E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2107, !noundef !3
-  %15 = getelementptr inbounds nuw i128, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %16 = load i128, ptr %15, align 16, !noalias !2107, !noundef !3
   store i128 %16, ptr %5, align 16, !noalias !2107
   store ptr %5, ptr %6, align 8, !noalias !2107
@@ -14013,7 +14013,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5715e5866ed23018E.exit: ; preds = %3
   %16 = load ptr, ptr %15, align 8, !noalias !2120, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %0, align 8, !alias.scope !2122, !noalias !2123, !nonnull !3, !align !98, !noundef !3
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %20 = load i64, ptr %19, align 8, !noalias !2120, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2120
   %21 = load i8, ptr %18, align 1, !range !106, !noalias !2120, !noundef !3
@@ -14067,7 +14067,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h553ad302f3847befE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2128, !noundef !3
-  %15 = getelementptr inbounds nuw i128, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %16 = load i128, ptr %15, align 16, !noalias !2128, !noundef !3
   store i128 %16, ptr %5, align 16, !noalias !2128
   store ptr %5, ptr %6, align 8, !noalias !2128
@@ -14111,7 +14111,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2135, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !2135, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -14205,7 +14205,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit.i.i": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noalias !2151, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noalias !2151, !noundef !3
   store i64 %15, ptr %5, align 8, !noalias !2151
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14285,7 +14285,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h1b6e4ffb6a180994E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2158, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !2158, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !2158
   store ptr %5, ptr %6, align 8, !noalias !2158
@@ -14388,7 +14388,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2175, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !2175, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -14457,7 +14457,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hfa7f2b40a172cd38E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2182, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !2182, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !2182
   store ptr %5, ptr %6, align 8, !noalias !2182
@@ -14514,7 +14514,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit.i.i": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noalias !2198, !noundef !3
-  %14 = getelementptr inbounds nuw i16, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %2
   %15 = load i16, ptr %14, align 2, !noalias !2198, !noundef !3
   store i16 %15, ptr %5, align 2, !noalias !2198
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14598,7 +14598,7 @@ _ZN4core3ops8function6FnOnce9call_once17h55f9855be0054facE.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !2211, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !2213, !noalias !2214, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !2211, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !2211, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !2211
@@ -14654,7 +14654,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h124be7c1ed81fd6eE.exit: ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load ptr, ptr %15, align 8, !noalias !2221, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !2221, !noundef !3
   %19 = load i8, ptr %7, align 1, !range !106, !alias.scope !2218, !noalias !2225, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !2221
@@ -14703,7 +14703,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h718cd638a8cfd223E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2229, !noundef !3
-  %15 = getelementptr inbounds nuw { i16 }, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !2229
   store i16 %16, ptr %5, align 2, !noalias !2229
   store ptr %5, ptr %6, align 8, !noalias !2229
@@ -14751,7 +14751,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hbd5d97301f417345E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2236, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !2236, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !2236
   store ptr %5, ptr %6, align 8, !noalias !2236
@@ -14853,7 +14853,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h69a0b0951cc2c07aE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2250, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !2250, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !2250
   store ptr %5, ptr %6, align 8, !noalias !2250
@@ -14901,7 +14901,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h9fb04362428cb1f7E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2257, !noundef !3
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %2
   %16 = load i16, ptr %15, align 2, !noalias !2257, !noundef !3
   store i16 %16, ptr %5, align 2, !noalias !2257
   store ptr %5, ptr %6, align 8, !noalias !2257
@@ -14947,7 +14947,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit.i.i": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noalias !2270, !noundef !3
-  %14 = getelementptr inbounds nuw float, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load float, ptr %14, align 4, !noalias !2270, !noundef !3
   store float %15, ptr %5, align 4, !noalias !2270
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15023,7 +15023,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2277, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !2277, !noundef !3
   %17 = sdiv i64 %16, 1000000000
   %18 = trunc i64 %17 to i32
@@ -15091,7 +15091,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17hd4a976a3991adcc9E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2284, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !2284, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !2284
   store ptr %5, ptr %6, align 8, !noalias !2284
@@ -15143,7 +15143,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4796fefc7fda2a87E.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !2297, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !2299, !noalias !2300, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !2297, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !2297, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !2297
@@ -15202,7 +15202,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h6613d82effb39ec3E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2304, !noundef !3
-  %15 = getelementptr inbounds nuw i128, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %2
   %16 = load i128, ptr %15, align 16, !noalias !2304, !noundef !3
   store i128 %16, ptr %5, align 16, !noalias !2304
   store ptr %5, ptr %6, align 8, !noalias !2304
@@ -15250,7 +15250,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17he616d22036c2ea58E.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2311, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !2311, !noundef !3
   store i64 %16, ptr %5, align 8, !noalias !2311
   store ptr %5, ptr %6, align 8, !noalias !2311
@@ -15305,7 +15305,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2321, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !2321, !noundef !3
   %17 = icmp ugt i32 %16, 86399
   br i1 %17, label %19, label %_ZN4core3ops8function6FnOnce9call_once17h0925ca4b789b5ffdE.exit, !prof !40
@@ -15382,7 +15382,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8e901416ae9340c3E.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !2337, !noundef !3
   %16 = load ptr, ptr %0, align 8, !alias.scope !2339, !noalias !2340, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %18 = load i64, ptr %17, align 8, !noalias !2337, !noundef !3
   %19 = load i8, ptr %16, align 1, !range !106, !noalias !2337, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %18, i8 noundef %19), !noalias !2337
@@ -15442,7 +15442,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2347, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %16 = load i64, ptr %15, align 8, !noalias !2347, !noundef !3
   %17 = sdiv i64 %16, 1000000
   %18 = trunc i64 %17 to i32
@@ -15524,7 +15524,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2357, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !2357, !noundef !3
   %17 = sdiv i32 %16, 1000
   %18 = mul nsw i32 %17, -1000
@@ -15599,7 +15599,7 @@ define internal noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b
 _ZN4core3ops8function6FnOnce9call_once17h3ca9a0ece503278cE.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !2364, !noundef !3
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %2
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %2
   %16 = load i32, ptr %15, align 4, !noalias !2364, !noundef !3
   store i32 %16, ptr %5, align 4, !noalias !2364
   store ptr %5, ptr %6, align 8, !noalias !2364
@@ -26285,7 +26285,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -26331,7 +26331,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -26423,7 +26423,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -26469,7 +26469,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -26515,7 +26515,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -26561,7 +26561,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -26607,7 +26607,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   store ptr %5, ptr %6, align 8
@@ -26653,7 +26653,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -26745,7 +26745,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -26791,7 +26791,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -26837,7 +26837,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -26975,7 +26975,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -27021,7 +27021,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -27067,7 +27067,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -27113,7 +27113,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   store ptr %5, ptr %6, align 8
@@ -27159,7 +27159,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -27205,7 +27205,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -27251,7 +27251,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -27297,7 +27297,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -27343,7 +27343,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -27389,7 +27389,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -27435,7 +27435,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -27481,7 +27481,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -27527,7 +27527,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -27573,7 +27573,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -27619,7 +27619,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -27665,7 +27665,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -27757,7 +27757,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -27803,7 +27803,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   store ptr %5, ptr %6, align 8
@@ -27849,7 +27849,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -27941,7 +27941,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -27987,7 +27987,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -28033,7 +28033,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   store ptr %5, ptr %6, align 8
@@ -28171,7 +28171,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -28217,7 +28217,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -28263,7 +28263,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -28309,7 +28309,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -28355,7 +28355,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -28401,7 +28401,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -28447,7 +28447,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -28493,7 +28493,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -28539,7 +28539,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -28585,7 +28585,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -28631,7 +28631,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -28677,7 +28677,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -28723,7 +28723,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   store ptr %5, ptr %6, align 8
@@ -28861,7 +28861,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -28907,7 +28907,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -28953,7 +28953,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -28999,7 +28999,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -29091,7 +29091,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -29137,7 +29137,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -29183,7 +29183,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -29229,7 +29229,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -29275,7 +29275,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -29367,7 +29367,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -29413,7 +29413,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -29459,7 +29459,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -29505,7 +29505,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   store ptr %5, ptr %6, align 8
@@ -29551,7 +29551,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -29597,7 +29597,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -29643,7 +29643,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -29689,7 +29689,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -29735,7 +29735,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -29827,7 +29827,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   store ptr %5, ptr %6, align 8
@@ -29873,7 +29873,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -29919,7 +29919,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -30011,7 +30011,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -30057,7 +30057,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -30103,7 +30103,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -30149,7 +30149,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -30195,7 +30195,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -30333,7 +30333,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -30379,7 +30379,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -30425,7 +30425,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -30471,7 +30471,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -30517,7 +30517,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -30563,7 +30563,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   store ptr %5, ptr %6, align 8
@@ -30609,7 +30609,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -30655,7 +30655,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -30701,7 +30701,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -30793,7 +30793,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -30839,7 +30839,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -30885,7 +30885,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   store ptr %5, ptr %6, align 8
@@ -30931,7 +30931,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -30977,7 +30977,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -31023,7 +31023,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -31115,7 +31115,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -31161,7 +31161,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -31207,7 +31207,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -31299,7 +31299,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -31345,7 +31345,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -31391,7 +31391,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -31437,7 +31437,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -31529,7 +31529,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -31575,7 +31575,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -31621,7 +31621,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -31667,7 +31667,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   store ptr %5, ptr %6, align 8
@@ -31713,7 +31713,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -31759,7 +31759,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -31851,7 +31851,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -31897,7 +31897,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -31943,7 +31943,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -31989,7 +31989,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -32035,7 +32035,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -32081,7 +32081,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -32127,7 +32127,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   store ptr %5, ptr %6, align 8
@@ -32173,7 +32173,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   store ptr %5, ptr %6, align 8
@@ -32265,7 +32265,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   store ptr %5, ptr %6, align 8
@@ -32311,7 +32311,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   store ptr %5, ptr %6, align 8
@@ -32357,7 +32357,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32408,7 +32408,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load double, ptr %13, align 8, !noundef !3
   store double %14, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32459,7 +32459,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i128, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %2
   %14 = load i128, ptr %13, align 16, !noundef !3
   store i128 %14, ptr %5, align 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32510,7 +32510,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32612,7 +32612,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load i32, ptr %13, align 4, !noundef !3
   store i32 %14, ptr %5, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32663,7 +32663,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { i16 }, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32765,7 +32765,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32816,7 +32816,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %2
   %14 = load i16, ptr %13, align 2, !noundef !3
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32867,7 +32867,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %2
   %14 = load i64, ptr %13, align 8, !noundef !3
   store i64 %14, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32918,7 +32918,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 "_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %14 = load float, ptr %13, align 4, !noundef !3
   store float %14, ptr %5, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -33110,7 +33110,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33166,7 +33166,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33222,7 +33222,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33278,7 +33278,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33334,7 +33334,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33390,7 +33390,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33446,7 +33446,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33502,7 +33502,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33558,7 +33558,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33614,7 +33614,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33670,7 +33670,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33726,7 +33726,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = add i32 %15, 719163
   %17 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hbf119eaf451208cdE(i32 noundef %16)
@@ -33784,7 +33784,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3244
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -33860,7 +33860,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3250
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -33936,7 +33936,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3256
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -34012,7 +34012,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3262
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -34088,7 +34088,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3268
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -34164,7 +34164,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3274
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -34240,7 +34240,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3280
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -34316,7 +34316,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3286
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -34392,7 +34392,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3292
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -34468,7 +34468,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3298
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -34544,7 +34544,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3304
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -34620,7 +34620,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %2
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %2
   %17 = load i64, ptr %16, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3310
   %18 = icmp eq i64 %17, -9223372036854775808
@@ -34694,7 +34694,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -34750,7 +34750,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -34806,7 +34806,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -34862,7 +34862,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -34918,7 +34918,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -34974,7 +34974,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -35030,7 +35030,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -35086,7 +35086,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -35142,7 +35142,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -35198,7 +35198,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -35254,7 +35254,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -35310,7 +35310,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = icmp ugt i32 %15, 86399
   br i1 %16, label %21, label %"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17hda359230d795f9b0E.exit", !prof !40
@@ -35366,7 +35366,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -35435,7 +35435,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -35504,7 +35504,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -35573,7 +35573,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -35642,7 +35642,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -35711,7 +35711,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -35780,7 +35780,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -35849,7 +35849,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -35918,7 +35918,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -35987,7 +35987,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -36056,7 +36056,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -36125,7 +36125,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %2
   %15 = load i32, ptr %14, align 4, !noundef !3
   %16 = sdiv i32 %15, 1000
   %17 = mul nsw i32 %16, -1000
@@ -36194,7 +36194,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36257,7 +36257,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36320,7 +36320,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36383,7 +36383,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36446,7 +36446,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36509,7 +36509,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36572,7 +36572,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36635,7 +36635,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36698,7 +36698,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36761,7 +36761,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36824,7 +36824,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36887,7 +36887,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000
   %17 = trunc i64 %16 to i32
@@ -36950,7 +36950,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37012,7 +37012,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37074,7 +37074,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37136,7 +37136,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37198,7 +37198,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37260,7 +37260,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37322,7 +37322,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37384,7 +37384,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37446,7 +37446,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37508,7 +37508,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37570,7 +37570,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37632,7 +37632,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = sdiv i64 %15, 1000000000
   %17 = trunc i64 %16 to i32
@@ -37696,7 +37696,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -37749,7 +37749,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -37802,7 +37802,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -37855,7 +37855,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -37908,7 +37908,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -37961,7 +37961,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -38014,7 +38014,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -38067,7 +38067,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -38120,7 +38120,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -38173,7 +38173,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -38226,7 +38226,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -38279,7 +38279,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -38334,7 +38334,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -38390,7 +38390,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -38446,7 +38446,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -38502,7 +38502,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -38558,7 +38558,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -38614,7 +38614,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -38670,7 +38670,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -38726,7 +38726,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -38782,7 +38782,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -38838,7 +38838,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -38894,7 +38894,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -38950,7 +38950,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %14 = load ptr, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr %16, align 1, !range !106, !noundef !3
@@ -39004,7 +39004,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39053,7 +39053,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39102,7 +39102,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39151,7 +39151,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39200,7 +39200,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39249,7 +39249,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39298,7 +39298,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39347,7 +39347,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39396,7 +39396,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39445,7 +39445,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39494,7 +39494,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39543,7 +39543,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !3
   %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !98, !noundef !3
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %2
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %2
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = load i8, ptr %14, align 1, !range !106, !noundef !3
   call fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_to_naive_datetime17h3d7d69a728245930E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %16, i8 noundef %17)
@@ -39593,7 +39593,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -39680,7 +39680,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -39767,7 +39767,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -39854,7 +39854,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -39941,7 +39941,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -40028,7 +40028,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -40115,7 +40115,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -40202,7 +40202,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -40289,7 +40289,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -40376,7 +40376,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -40463,7 +40463,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -40550,7 +40550,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   %18 = load i32, ptr %17, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %18, ptr %7, align 4
@@ -40638,7 +40638,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -40735,7 +40735,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -40832,7 +40832,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -40929,7 +40929,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -41026,7 +41026,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -41123,7 +41123,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -41220,7 +41220,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -41317,7 +41317,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -41414,7 +41414,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -41511,7 +41511,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -41608,7 +41608,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -41705,7 +41705,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw { i32, i32 }, ptr %17, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %2
   %19 = load i32, ptr %18, align 4, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !3
@@ -41803,7 +41803,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -41910,7 +41910,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -42017,7 +42017,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -42124,7 +42124,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -42231,7 +42231,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -42338,7 +42338,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -42445,7 +42445,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -42552,7 +42552,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -42659,7 +42659,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -42766,7 +42766,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -42873,7 +42873,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -42980,7 +42980,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %.sroa.010.0.copyload = load i32, ptr %19, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.411.0.copyload = load i32, ptr %.sroa.411.0..sroa_idx, align 4
@@ -43085,7 +43085,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -43172,7 +43172,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -43259,7 +43259,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -43346,7 +43346,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -43433,7 +43433,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -43520,7 +43520,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -43607,7 +43607,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -43694,7 +43694,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -43781,7 +43781,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -43868,7 +43868,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -43955,7 +43955,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44042,7 +44042,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44129,7 +44129,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44216,7 +44216,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44303,7 +44303,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44390,7 +44390,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44477,7 +44477,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44564,7 +44564,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44651,7 +44651,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44738,7 +44738,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44825,7 +44825,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44912,7 +44912,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -44999,7 +44999,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -45086,7 +45086,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -45173,7 +45173,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -45260,7 +45260,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -45347,7 +45347,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -45434,7 +45434,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -45521,7 +45521,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -45608,7 +45608,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -45695,7 +45695,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -45782,7 +45782,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -45869,7 +45869,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -45956,7 +45956,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -46043,7 +46043,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -46130,7 +46130,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -46217,7 +46217,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -46304,7 +46304,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -46391,7 +46391,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -46478,7 +46478,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -46565,7 +46565,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -46652,7 +46652,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -46739,7 +46739,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -46826,7 +46826,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -46913,7 +46913,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -47000,7 +47000,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -47087,7 +47087,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -47174,7 +47174,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %18, ptr %7, align 8
@@ -47263,7 +47263,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4624
@@ -47382,7 +47382,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4639
@@ -47501,7 +47501,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4654
@@ -47620,7 +47620,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4669
@@ -47739,7 +47739,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4684
@@ -47858,7 +47858,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4699
@@ -47977,7 +47977,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4714
@@ -48096,7 +48096,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4729
@@ -48215,7 +48215,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4744
@@ -48334,7 +48334,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4759
@@ -48453,7 +48453,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4774
@@ -48572,7 +48572,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %2
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %2
   %20 = load i128, ptr %19, align 16, !noundef !3
   %.val7 = load i128, ptr %0, align 16, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4789
@@ -48694,7 +48694,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16
@@ -48879,7 +48879,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16
@@ -49064,7 +49064,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16
@@ -49249,7 +49249,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16
@@ -49434,7 +49434,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16
@@ -49619,7 +49619,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16
@@ -49804,7 +49804,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16
@@ -49989,7 +49989,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16
@@ -50174,7 +50174,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16
@@ -50359,7 +50359,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16
@@ -50544,7 +50544,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16
@@ -50729,7 +50729,7 @@ define internal noundef zeroext i1 @"_ZN12polars_arrow5array9primitive3fmt15get_
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %2
   %.sroa.011.0.copyload = load i128, ptr %22, align 16
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.412.0.copyload = load i128, ptr %.sroa.412.0..sroa_idx, align 16

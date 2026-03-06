@@ -38,37 +38,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2Profile = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
 %struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
 %struct.b2Rot = type { float, float }
-%struct.b2SolverSet = type { %struct.b2BodySimArray, %struct.b2BodyStateArray, %struct.b2JointSimArray, %struct.b2ContactSimArray, %struct.b2IslandSimArray, i32 }
-%struct.b2BodySimArray = type { ptr, i32, i32 }
-%struct.b2BodyStateArray = type { ptr, i32, i32 }
-%struct.b2IslandSimArray = type { ptr, i32, i32 }
-%struct.b2TaskContext = type { %struct.b2BitSet, %struct.b2BitSet, %struct.b2BitSet, float, i32 }
-%struct.b2SensorTaskContext = type { %struct.b2BitSet }
-%struct.b2ChainShape = type { i32, i32, i32, i32, i32, ptr, ptr, i16 }
-%struct.b2Sensor = type { %struct.b2ShapeRefArray, %struct.b2ShapeRefArray, i32 }
-%struct.b2ShapeRefArray = type { ptr, i32, i32 }
 %struct.b2Manifold = type { %struct.b2Vec2, float, [2 x %struct.b2ManifoldPoint], i32 }
 %struct.b2ManifoldPoint = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, i16, i8 }
 %struct.b2StepContext = type { float, float, float, float, i32, %struct.b2Softness, %struct.b2Softness, %struct.b2Softness, float, float, ptr, ptr, ptr, ptr, ptr, i32, ptr, %struct.b2AtomicInt, ptr, ptr, ptr, i32, i32, ptr, i32, i8, [64 x i8], %struct.b2AtomicU32, [64 x i8] }
 %struct.b2Softness = type { float, float, float }
 %struct.b2AtomicU32 = type { i32 }
-%struct.b2ContactSim = type { i32, i32, i32, i32, i32, float, float, float, float, %struct.b2Manifold, float, float, float, float, i32, %struct.b2SimplexCache }
-%struct.b2SimplexCache = type { i16, [3 x i8], [3 x i8] }
-%struct.b2Contact = type { i32, i32, i32, [2 x %struct.b2ContactEdge], i32, i32, i32, i32, i32, i32, i32, i8 }
-%struct.b2ContactEdge = type { i32, i32, i32 }
-%struct.b2Shape = type { i32, i32, i32, i32, i32, i32, float, float, float, float, float, i32, %struct.b2AABB, %struct.b2AABB, %struct.b2Vec2, i32, %struct.b2Filter, ptr, i32, %union.anon.0, i16, i8, i8, i8, i8 }
-%struct.b2AABB = type { %struct.b2Vec2, %struct.b2Vec2 }
-%struct.b2Filter = type { i64, i64, i32 }
-%union.anon.0 = type { %struct.b2Polygon }
-%struct.b2Polygon = type { [8 x %struct.b2Vec2], [8 x %struct.b2Vec2], %struct.b2Vec2, float, i32 }
-%struct.b2ContactBeginTouchEvent = type { %struct.b2ShapeId, %struct.b2ShapeId, %struct.b2Manifold }
-%struct.b2ShapeId = type { i32, i16, i16 }
-%struct.b2ContactEndTouchEvent = type { %struct.b2ShapeId, %struct.b2ShapeId }
 %struct.DrawContext = type { ptr, ptr }
-%struct.b2Body = type { [32 x i8], ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, float, i32, i32, i32, i16, i8, i8, i8, i8 }
-%struct.b2Joint = type { ptr, i32, i32, i32, [2 x %struct.b2JointEdge], i32, i32, i32, i32, float, i32, i16, i8, i8 }
-%struct.b2JointEdge = type { i32, i32, i32 }
-%struct.b2BodySim = type { %struct.b2Transform, %struct.b2Vec2, %struct.b2Rot, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, float, float, float, i32, i8, i8, i8, i8, i8 }
 %struct.b2SensorEvents = type { ptr, ptr, i32, i32 }
 %struct.b2ContactEvents = type { ptr, ptr, ptr, i32, i32, i32 }
 %struct.b2Counters = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [12 x i32] }
@@ -78,14 +53,15 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2ShapeProxy = type { [8 x %struct.b2Vec2], i32, float }
 %struct.b2Circle = type { %struct.b2Vec2, float }
 %struct.b2DistanceInput = type { %struct.b2ShapeProxy, %struct.b2ShapeProxy, %struct.b2Transform, %struct.b2Transform, i8 }
+%struct.b2SimplexCache = type { i16, [3 x i8], [3 x i8] }
 %struct.b2DistanceOutput = type { %struct.b2Vec2, %struct.b2Vec2, float, i32, i32 }
 %struct.b2RayCastInput = type { %struct.b2Vec2, %struct.b2Vec2, float }
 %struct.WorldRayCastContext = type { ptr, ptr, %struct.b2QueryFilter, float, ptr }
 %struct.b2CastOutput = type { %struct.b2Vec2, %struct.b2Vec2, float, i32, i8 }
 %struct.b2RayResult = type { %struct.b2ShapeId, %struct.b2Vec2, %struct.b2Vec2, float, i32, i32, i8 }
+%struct.b2ShapeId = type { i32, i16, i16 }
 %struct.b2ShapeCastInput = type { [8 x %struct.b2Vec2], i32, float, %struct.b2Vec2, float }
 %struct.ExplosionContext = type { ptr, %struct.b2Vec2, float, float, float }
-%struct.b2BodyState = type { %struct.b2Vec2, float, i32, %struct.b2Vec2, %struct.b2Rot }
 
 @b2_worlds = hidden global [128 x %struct.b2World] zeroinitializer, align 16
 @.str = private unnamed_addr constant [3 x i8] c"%d\00", align 1
@@ -501,7 +477,7 @@ define hidden void @b2TaskContextArray_Destroy(ptr noundef captures(none) initia
 define hidden ptr @b2GetWorldFromId(i32 %0) local_unnamed_addr #3 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -1792
   ret ptr %5
 }
@@ -509,14 +485,14 @@ define hidden ptr @b2GetWorldFromId(i32 %0) local_unnamed_addr #3 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @b2GetWorld(i32 noundef %0) local_unnamed_addr #3 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.b2World, ptr @b2_worlds, i64 %2
+  %3 = getelementptr inbounds [1792 x i8], ptr @b2_worlds, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden ptr @b2GetWorldLocked(i32 noundef %0) local_unnamed_addr #4 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.b2World, ptr @b2_worlds, i64 %2
+  %3 = getelementptr inbounds [1792 x i8], ptr @b2_worlds, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1783
   %5 = load i8, ptr %4, align 1, !tbaa !35, !range !77, !noundef !78
   %6 = trunc nuw i8 %5 to i1
@@ -538,7 +514,7 @@ define i32 @b2CreateWorld(ptr noundef readonly captures(none) %0) local_unnamed_
 
 10:                                               ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %11 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [1792 x i8], ptr @b2_worlds, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1787
   %13 = load i8, ptr %12, align 1, !tbaa !79, !range !77, !noundef !78
   %14 = icmp eq i8 %13, 0
@@ -553,7 +529,7 @@ define i32 @b2CreateWorld(ptr noundef readonly captures(none) %0) local_unnamed_
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @b2InitializeContactRegisters() #22
   %18 = and i64 %indvars.iv, 4294967295
-  %19 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %18
+  %19 = getelementptr inbounds nuw [1792 x i8], ptr @b2_worlds, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1592
   %21 = load i16, ptr %20, align 8, !tbaa !82
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1792) %19, i8 0, i64 1792, i1 false)
@@ -615,7 +591,7 @@ b2SolverSetArray_Push.exit:                       ; preds = %16, %42
   %47 = phi i32 [ %.pre.i, %42 ], [ %38, %16 ]
   %48 = load ptr, ptr %32, align 16, !tbaa !94
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds %struct.b2SolverSet, ptr %48, i64 %49
+  %50 = getelementptr inbounds [88 x i8], ptr %48, i64 %49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %50, i8 0, i64 80, i1 false)
   %.sroa.4.0..sroa_idx212 = getelementptr inbounds nuw i8, ptr %50, i64 80
   store i32 %37, ptr %.sroa.4.0..sroa_idx212, align 8, !tbaa !86
@@ -643,7 +619,7 @@ b2SolverSetArray_Push.exit180:                    ; preds = %b2SolverSetArray_Pu
   %62 = phi i32 [ %.pre.i179, %57 ], [ %54, %b2SolverSetArray_Push.exit ]
   %63 = load ptr, ptr %32, align 16, !tbaa !94
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds %struct.b2SolverSet, ptr %63, i64 %64
+  %65 = getelementptr inbounds [88 x i8], ptr %63, i64 %64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %65, i8 0, i64 80, i1 false)
   %.sroa.4214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 80
   store i32 %53, ptr %.sroa.4214.0..sroa_idx, align 8, !tbaa !86
@@ -671,7 +647,7 @@ b2SolverSetArray_Push.exit182:                    ; preds = %b2SolverSetArray_Pu
   %77 = phi i32 [ %.pre.i181, %72 ], [ %69, %b2SolverSetArray_Push.exit180 ]
   %78 = load ptr, ptr %32, align 16, !tbaa !94
   %79 = sext i32 %77 to i64
-  %80 = getelementptr inbounds %struct.b2SolverSet, ptr %78, i64 %79
+  %80 = getelementptr inbounds [88 x i8], ptr %78, i64 %79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %80, i8 0, i64 80, i1 false)
   %.sroa.4217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 80
   store i32 %68, ptr %.sroa.4217.0..sroa_idx, align 8, !tbaa !86
@@ -979,7 +955,7 @@ b2TaskContextArray_Resize.exit:                   ; preds = %b2TaskContextArray_
 .lr.ph:                                           ; preds = %b2TaskContextArray_Resize.exit, %.lr.ph
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.lr.ph ], [ 0, %b2TaskContextArray_Resize.exit ]
   %236 = load ptr, ptr %202, align 8, !tbaa !155
-  %237 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %236, i64 %indvars.iv225
+  %237 = getelementptr inbounds nuw [56 x i8], ptr %236, i64 %indvars.iv225
   %238 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 1024) #22
   %239 = extractvalue { ptr, i64 } %238, 0
   %240 = extractvalue { ptr, i64 } %238, 1
@@ -987,7 +963,7 @@ b2TaskContextArray_Resize.exit:                   ; preds = %b2TaskContextArray_
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i64 %240, ptr %.sroa.412.0..sroa_idx, align 8
   %241 = load ptr, ptr %202, align 8, !tbaa !155
-  %242 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %241, i64 %indvars.iv225
+  %242 = getelementptr inbounds nuw [56 x i8], ptr %241, i64 %indvars.iv225
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %244 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 256) #22
   %245 = extractvalue { ptr, i64 } %244, 0
@@ -996,7 +972,7 @@ b2TaskContextArray_Resize.exit:                   ; preds = %b2TaskContextArray_
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %242, i64 24
   store i64 %246, ptr %.sroa.410.0..sroa_idx, align 8
   %247 = load ptr, ptr %202, align 8, !tbaa !155
-  %248 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %247, i64 %indvars.iv225
+  %248 = getelementptr inbounds nuw [56 x i8], ptr %247, i64 %indvars.iv225
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 32
   %250 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 256) #22
   %251 = extractvalue { ptr, i64 } %250, 0
@@ -1005,7 +981,7 @@ b2TaskContextArray_Resize.exit:                   ; preds = %b2TaskContextArray_
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 40
   store i64 %252, ptr %.sroa.48.0..sroa_idx, align 8
   %253 = load ptr, ptr %212, align 8, !tbaa !156
-  %254 = getelementptr inbounds nuw %struct.b2SensorTaskContext, ptr %253, i64 %indvars.iv225
+  %254 = getelementptr inbounds nuw [16 x i8], ptr %253, i64 %indvars.iv225
   %255 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 128) #22
   %256 = extractvalue { ptr, i64 } %255, 0
   %257 = extractvalue { ptr, i64 } %255, 1
@@ -1087,7 +1063,7 @@ declare { ptr, i64 } @b2CreateBitSet(i32 noundef) local_unnamed_addr #2
 define void @b2DestroyWorld(i32 %0) local_unnamed_addr #0 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -1792
   %6 = getelementptr i8, ptr %4, i64 -320
   tail call void @b2DestroyBitSet(ptr noundef nonnull %6) #22
@@ -1184,18 +1160,18 @@ define void @b2DestroyWorld(i32 %0) local_unnamed_addr #0 {
 64:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %65 = load ptr, ptr %12, align 8, !tbaa !155
-  %66 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [56 x i8], ptr %65, i64 %indvars.iv
   tail call void @b2DestroyBitSet(ptr noundef %66) #22
   %67 = load ptr, ptr %12, align 8, !tbaa !155
-  %68 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %67, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   tail call void @b2DestroyBitSet(ptr noundef nonnull %69) #22
   %70 = load ptr, ptr %12, align 8, !tbaa !155
-  %71 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [56 x i8], ptr %70, i64 %indvars.iv
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   tail call void @b2DestroyBitSet(ptr noundef nonnull %72) #22
   %73 = load ptr, ptr %13, align 8, !tbaa !156
-  %74 = getelementptr inbounds nuw %struct.b2SensorTaskContext, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %indvars.iv
   tail call void @b2DestroyBitSet(ptr noundef %74) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %9, align 8, !tbaa !145
@@ -1217,7 +1193,7 @@ define void @b2DestroyWorld(i32 %0) local_unnamed_addr #0 {
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %86
   %indvars.iv89 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next90, %86 ]
   %82 = load ptr, ptr %60, align 8, !tbaa !161
-  %83 = getelementptr inbounds nuw %struct.b2ChainShape, ptr %82, i64 %indvars.iv89
+  %83 = getelementptr inbounds nuw [48 x i8], ptr %82, i64 %indvars.iv89
   %84 = load i32, ptr %83, align 8, !tbaa !162
   %.not74 = icmp eq i32 %84, -1
   br i1 %.not74, label %86, label %85
@@ -1257,10 +1233,10 @@ define void @b2DestroyWorld(i32 %0) local_unnamed_addr #0 {
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv92 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next93, %.lr.ph82 ]
   %96 = load ptr, ptr %78, align 8, !tbaa !167
-  %97 = getelementptr inbounds nuw %struct.b2Sensor, ptr %96, i64 %indvars.iv92
+  %97 = getelementptr inbounds nuw [40 x i8], ptr %96, i64 %indvars.iv92
   tail call void @b2ShapeRefArray_Destroy(ptr noundef %97) #22
   %98 = load ptr, ptr %78, align 8, !tbaa !167
-  %99 = getelementptr inbounds nuw %struct.b2Sensor, ptr %98, i64 %indvars.iv92
+  %99 = getelementptr inbounds nuw [40 x i8], ptr %98, i64 %indvars.iv92
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   tail call void @b2ShapeRefArray_Destroy(ptr noundef nonnull %100) #22
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
@@ -1298,7 +1274,7 @@ define void @b2DestroyWorld(i32 %0) local_unnamed_addr #0 {
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %119
   %indvars.iv97 = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next98, %119 ]
   %113 = load ptr, ptr %92, align 16, !tbaa !169
-  %114 = getelementptr inbounds nuw %struct.b2SolverSet, ptr %113, i64 %indvars.iv97
+  %114 = getelementptr inbounds nuw [88 x i8], ptr %113, i64 %indvars.iv97
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %116 = load i32, ptr %115, align 8, !tbaa !170
   %.not = icmp eq i32 %116, -1
@@ -1355,7 +1331,7 @@ define void @b2World_Step(i32 %0, float noundef %1, i32 noundef %2) local_unname
   %4 = alloca %struct.b2StepContext, align 8
   %5 = and i32 %0, 65535
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %6
+  %7 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -1792
   %9 = getelementptr i8, ptr %7, i64 -9
   %10 = load i8, ptr %9, align 1, !tbaa !35, !range !77, !noundef !78
@@ -1382,7 +1358,7 @@ define void @b2World_Step(i32 %0, float noundef %1, i32 noundef %2) local_unname
   %22 = sub nsw i32 1, %21
   store i32 %22, ptr %20, align 8, !tbaa !107
   %23 = sext i32 %22 to i64
-  %24 = getelementptr %struct.b2SensorEndTouchEventArray, ptr %7, i64 %23
+  %24 = getelementptr [16 x i8], ptr %7, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -400
   store i32 0, ptr %25, align 16, !tbaa !187
   %26 = getelementptr i8, ptr %24, i64 -368
@@ -1558,7 +1534,7 @@ b2MakeSoft.exit81:                                ; preds = %b2MakeSoft.exit74, 
 130:                                              ; preds = %130, %b2MakeSoft.exit81
   %indvars.iv.i = phi i64 [ 0, %b2MakeSoft.exit81 ], [ %indvars.iv.next.i, %130 ]
   %.0193.i = phi i32 [ 0, %b2MakeSoft.exit81 ], [ %134, %130 ]
-  %131 = getelementptr inbounds nuw %struct.b2GraphColor, ptr %122, i64 %indvars.iv.i
+  %131 = getelementptr inbounds nuw [56 x i8], ptr %122, i64 %indvars.iv.i
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %133 = load i32, ptr %132, align 8, !tbaa !211
   %134 = add nsw i32 %133, %.0193.i
@@ -1586,7 +1562,7 @@ b2MakeSoft.exit81:                                ; preds = %b2MakeSoft.exit74, 
 144:                                              ; preds = %._crit_edge.i, %135
   %indvars.iv230.i = phi i64 [ 0, %135 ], [ %indvars.iv.next231.i, %._crit_edge.i ]
   %.0152197.i = phi i32 [ 0, %135 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %145 = getelementptr inbounds nuw %struct.b2GraphColor, ptr %122, i64 %indvars.iv230.i
+  %145 = getelementptr inbounds nuw [56 x i8], ptr %122, i64 %indvars.iv230.i
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %148 = load i32, ptr %147, align 8, !tbaa !211
@@ -1612,8 +1588,8 @@ b2MakeSoft.exit81:                                ; preds = %b2MakeSoft.exit74, 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv224.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next225.i, %.lr.ph.i ]
   %indvars.iv222.i = phi i64 [ %151, %.lr.ph.preheader.i ], [ %indvars.iv.next223.i, %.lr.ph.i ]
-  %153 = getelementptr inbounds nuw %struct.b2ContactSim, ptr %149, i64 %indvars.iv224.i
-  %154 = getelementptr inbounds ptr, ptr %137, i64 %indvars.iv222.i
+  %153 = getelementptr inbounds nuw [176 x i8], ptr %149, i64 %indvars.iv224.i
+  %154 = getelementptr inbounds [8 x i8], ptr %137, i64 %indvars.iv222.i
   store ptr %153, ptr %154, align 8, !tbaa !217
   %indvars.iv.next223.i = add nsw i64 %indvars.iv222.i, 1
   %indvars.iv.next225.i = add nuw nsw i64 %indvars.iv224.i, 1
@@ -1637,8 +1613,8 @@ b2MakeSoft.exit81:                                ; preds = %b2MakeSoft.exit74, 
 .lr.ph201.i:                                      ; preds = %.lr.ph201.i, %.lr.ph201.preheader.i
   %indvars.iv237.i = phi i64 [ 0, %.lr.ph201.preheader.i ], [ %indvars.iv.next238.i, %.lr.ph201.i ]
   %indvars.iv235.i = phi i64 [ %143, %.lr.ph201.preheader.i ], [ %indvars.iv.next236.i, %.lr.ph201.i ]
-  %161 = getelementptr inbounds nuw %struct.b2ContactSim, ptr %141, i64 %indvars.iv237.i
-  %162 = getelementptr inbounds ptr, ptr %137, i64 %indvars.iv235.i
+  %161 = getelementptr inbounds nuw [176 x i8], ptr %141, i64 %indvars.iv237.i
+  %162 = getelementptr inbounds [8 x i8], ptr %137, i64 %indvars.iv235.i
   store ptr %161, ptr %162, align 8, !tbaa !217
   %indvars.iv.next236.i = add nsw i64 %indvars.iv235.i, 1
   %indvars.iv.next238.i = add nuw nsw i64 %indvars.iv237.i, 1
@@ -1658,7 +1634,7 @@ b2MakeSoft.exit81:                                ; preds = %b2MakeSoft.exit74, 
 168:                                              ; preds = %168, %.lr.ph205.i
   %indvars.iv244.i = phi i64 [ 0, %.lr.ph205.i ], [ %indvars.iv.next245.i, %168 ]
   %169 = load ptr, ptr %160, align 8, !tbaa !155
-  %170 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %169, i64 %indvars.iv244.i
+  %170 = getelementptr inbounds nuw [56 x i8], ptr %169, i64 %indvars.iv244.i
   tail call void @b2SetBitCountAndClear(ptr noundef %170, i32 noundef %.val.i) #22
   %indvars.iv.next245.i = add nuw nsw i64 %indvars.iv244.i, 1
   %171 = load i32, ptr %157, align 8, !tbaa !145
@@ -1705,7 +1681,7 @@ b2MakeSoft.exit81:                                ; preds = %b2MakeSoft.exit74, 
   %.sroa.58.0.insert.shift.i = shl nuw nsw i64 %.sroa.58.0.insert.ext.i, 32
   %196 = getelementptr i8, ptr %7, i64 -376
   %197 = sext i32 %190 to i64
-  %198 = getelementptr inbounds %struct.b2ContactEndTouchEventArray, ptr %196, i64 %197
+  %198 = getelementptr inbounds [16 x i8], ptr %196, i64 %197
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 12
   br label %206
@@ -1713,7 +1689,7 @@ b2MakeSoft.exit81:                                ; preds = %b2MakeSoft.exit74, 
 .lr.ph209.i:                                      ; preds = %178, %.lr.ph209.i
   %indvars.iv247.i = phi i64 [ %indvars.iv.next248.i, %.lr.ph209.i ], [ 1, %178 ]
   %201 = load ptr, ptr %179, align 8, !tbaa !155
-  %202 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %201, i64 %indvars.iv247.i
+  %202 = getelementptr inbounds nuw [56 x i8], ptr %201, i64 %indvars.iv247.i
   call void @b2InPlaceUnion(ptr noundef %180, ptr noundef nonnull %202) #22
   %indvars.iv.next248.i = add nuw nsw i64 %indvars.iv247.i, 1
   %203 = load i32, ptr %157, align 8, !tbaa !145
@@ -1725,7 +1701,7 @@ b2MakeSoft.exit81:                                ; preds = %b2MakeSoft.exit74, 
   %207 = phi i32 [ %188, %.lr.ph218.i ], [ %346, %._crit_edge215.i ]
   %indvars.iv250.i = phi i64 [ 0, %.lr.ph218.i ], [ %indvars.iv.next251.i, %._crit_edge215.i ]
   %208 = load ptr, ptr %180, align 8, !tbaa !226
-  %209 = getelementptr inbounds nuw i64, ptr %208, i64 %indvars.iv250.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %indvars.iv250.i
   %210 = load i64, ptr %209, align 8, !tbaa !227
   %.not164211.i = icmp eq i64 %210, 0
   br i1 %.not164211.i, label %._crit_edge215.i, label %.lr.ph214.i
@@ -1742,27 +1718,27 @@ b2MakeSoft.exit81:                                ; preds = %b2MakeSoft.exit74, 
   %216 = or disjoint i32 %212, %215
   %.val172.i = load ptr, ptr %191, align 16, !tbaa !228
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds %struct.b2Contact, ptr %.val172.i, i64 %217
+  %218 = getelementptr inbounds [68 x i8], ptr %.val172.i, i64 %217
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %220 = load i32, ptr %219, align 4, !tbaa !229
   %221 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %222 = load i32, ptr %221, align 4, !tbaa !231
   %.not165.i = icmp eq i32 %220, -1
   %223 = sext i32 %220 to i64
-  %224 = getelementptr inbounds %struct.b2GraphColor, ptr %122, i64 %223
+  %224 = getelementptr inbounds [56 x i8], ptr %122, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %.val174.sink.in.i = select i1 %.not165.i, ptr %192, ptr %225
   %.val174.sink.i = load ptr, ptr %.val174.sink.in.i, align 8, !tbaa !232
   %226 = sext i32 %222 to i64
-  %227 = getelementptr inbounds %struct.b2ContactSim, ptr %.val174.sink.i, i64 %226
+  %227 = getelementptr inbounds [176 x i8], ptr %.val174.sink.i, i64 %226
   %228 = getelementptr inbounds nuw i8, ptr %218, i64 36
   %229 = load i32, ptr %228, align 4, !tbaa !233
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds %struct.b2Shape, ptr %184, i64 %230
+  %231 = getelementptr inbounds [288 x i8], ptr %184, i64 %230
   %232 = getelementptr inbounds nuw i8, ptr %218, i64 40
   %233 = load i32, ptr %232, align 4, !tbaa !234
   %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds %struct.b2Shape, ptr %184, i64 %234
+  %235 = getelementptr inbounds [288 x i8], ptr %184, i64 %234
   %236 = load i32, ptr %231, align 8, !tbaa !235
   %237 = add nsw i32 %236, 1
   %238 = getelementptr inbounds nuw i8, ptr %231, i64 276
@@ -1828,7 +1804,7 @@ b2ContactBeginTouchEventArray_Push.exit.i:        ; preds = %264, %259, %.b2Cont
   %268 = phi i32 [ %256, %.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %.pre10.i.i, %264 ], [ %256, %259 ]
   %269 = phi ptr [ %.pre.i.i, %.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %267, %264 ], [ %.pre9.i.i, %259 ]
   %270 = sext i32 %268 to i64
-  %271 = getelementptr inbounds %struct.b2ContactBeginTouchEvent, ptr %269, i64 %270
+  %271 = getelementptr inbounds [128 x i8], ptr %269, i64 %270
   store i32 %237, ptr %271, align 4, !tbaa !86
   %.sroa.4186.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %271, i64 4
   store i16 %186, ptr %.sroa.4186.0..sroa_idx.i, align 4, !tbaa !245
@@ -1855,7 +1831,7 @@ b2ContactBeginTouchEventArray_Push.exit.i:        ; preds = %264, %259, %.b2Cont
   store i32 %276, ptr %244, align 4, !tbaa !240
   call void @b2LinkContact(ptr noundef nonnull %8, ptr noundef nonnull %218) #22
   %.val175.i = load ptr, ptr %192, align 8, !tbaa !232
-  %277 = getelementptr inbounds %struct.b2ContactSim, ptr %.val175.i, i64 %226
+  %277 = getelementptr inbounds [176 x i8], ptr %.val175.i, i64 %226
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 164
   %279 = load i32, ptr %278, align 4, !tbaa !241
   %280 = and i32 %279, -262145
@@ -1875,9 +1851,9 @@ b2ContactSimArray_RemoveSwap.exit.thread.i.i:     ; preds = %274
 
 b2ContactSimArray_RemoveSwap.exit.i.i:            ; preds = %274
   %285 = load ptr, ptr %281, align 8, !tbaa !232
-  %286 = getelementptr inbounds %struct.b2ContactSim, ptr %285, i64 %226
+  %286 = getelementptr inbounds [176 x i8], ptr %285, i64 %226
   %287 = sext i32 %284 to i64
-  %288 = getelementptr inbounds %struct.b2ContactSim, ptr %285, i64 %287
+  %288 = getelementptr inbounds [176 x i8], ptr %285, i64 %287
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %286, ptr noundef nonnull align 4 dereferenceable(176) %288, i64 176, i1 false), !tbaa.struct !249
   %.pre.i.i.i = load i32, ptr %282, align 8, !tbaa !248
   %.pre10.i.i.i = add nsw i32 %.pre.i.i.i, -1
@@ -1887,11 +1863,11 @@ b2ContactSimArray_RemoveSwap.exit.i.i:            ; preds = %274
 
 289:                                              ; preds = %b2ContactSimArray_RemoveSwap.exit.i.i
   %290 = load ptr, ptr %281, align 8, !tbaa !214
-  %291 = getelementptr inbounds %struct.b2ContactSim, ptr %290, i64 %226
+  %291 = getelementptr inbounds [176 x i8], ptr %290, i64 %226
   %292 = load i32, ptr %291, align 4, !tbaa !250
   %.val10.i.i = load ptr, ptr %191, align 16, !tbaa !228
   %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds %struct.b2Contact, ptr %.val10.i.i, i64 %293
+  %294 = getelementptr inbounds [68 x i8], ptr %.val10.i.i, i64 %293
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   store i32 %222, ptr %295, align 4, !tbaa !231
   br label %b2RemoveNonTouchingContact.exit.i
@@ -1952,7 +1928,7 @@ b2ContactEndTouchEventArray_Push.exit.i:          ; preds = %313, %308, %.b2Cont
   %317 = phi i32 [ %305, %.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %.pre10.i181.i, %313 ], [ %305, %308 ]
   %318 = phi ptr [ %.pre.i178.i, %.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %316, %313 ], [ %.pre9.i180.i, %308 ]
   %319 = sext i32 %317 to i64
-  %320 = getelementptr inbounds %struct.b2ContactEndTouchEvent, ptr %318, i64 %319
+  %320 = getelementptr inbounds [16 x i8], ptr %318, i64 %319
   store i64 %.sroa.07.0.insert.insert.i, ptr %320, align 4
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %320, i64 8
   store i64 %.sroa.06.0.insert.insert.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4
@@ -1993,7 +1969,7 @@ b2AddNonTouchingContact.exit.i:                   ; preds = %334, %323
   store i32 %340, ptr %329, align 8, !tbaa !248
   %341 = load ptr, ptr %328, align 8, !tbaa !232
   %342 = sext i32 %339 to i64
-  %343 = getelementptr inbounds %struct.b2ContactSim, ptr %341, i64 %342
+  %343 = getelementptr inbounds [176 x i8], ptr %341, i64 %342
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %343, ptr noundef nonnull readonly align 4 dereferenceable(176) %227, i64 176, i1 false)
   call void @b2RemoveContactFromGraph(ptr noundef nonnull %8, i32 noundef %325, i32 noundef %327, i32 noundef %220, i32 noundef %222) #22
   br label %b2RemoveNonTouchingContact.exit.i
@@ -2045,7 +2021,7 @@ b2Collide.exit:                                   ; preds = %._crit_edge215.i, %
   %364 = sub nsw i32 1, %363
   store i32 %364, ptr %362, align 8, !tbaa !107
   %365 = sext i32 %364 to i64
-  %366 = getelementptr %struct.b2SensorEndTouchEventArray, ptr %7, i64 %365
+  %366 = getelementptr [16 x i8], ptr %7, i64 %365
   %367 = getelementptr i8, ptr %366, i64 -400
   store i32 0, ptr %367, align 16, !tbaa !187
   %368 = getelementptr i8, ptr %366, i64 -368
@@ -2081,7 +2057,7 @@ define void @b2World_Draw(i32 %0, ptr noundef %1) local_unnamed_addr #7 {
   %9 = alloca [32 x i8], align 16
   %10 = and i32 %0, 65535
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %11
+  %12 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -1792
   %14 = getelementptr i8, ptr %12, i64 -9
   %15 = load i8, ptr %14, align 1, !tbaa !35, !range !77, !noundef !78
@@ -2147,7 +2123,7 @@ define void @b2World_Draw(i32 %0, ptr noundef %1) local_unnamed_addr #7 {
 
 54:                                               ; preds = %54, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %54 ]
-  %55 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %29, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [72 x i8], ptr %29, i64 %indvars.iv.i
   %56 = load <2 x float>, ptr %30, align 8
   %57 = load <2 x float>, ptr %31, align 8
   %58 = call i64 @b2DynamicTree_Query(ptr noundef nonnull %55, <2 x float> %56, <2 x float> %57, i64 noundef -1, ptr noundef nonnull @DrawQueryCallback, ptr noundef nonnull %3) #22
@@ -2157,7 +2133,7 @@ define void @b2World_Draw(i32 %0, ptr noundef %1) local_unnamed_addr #7 {
 
 59:                                               ; preds = %._crit_edge233.i, %.lr.ph236.i
   %indvars.iv244.i = phi i64 [ 0, %.lr.ph236.i ], [ %indvars.iv.next245.i, %._crit_edge233.i ]
-  %60 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv244.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv244.i
   %61 = load i64, ptr %60, align 8, !tbaa !227
   %.not229.i = icmp eq i64 %61, 0
   br i1 %.not229.i, label %._crit_edge233.i, label %.lr.ph232.i
@@ -2174,7 +2150,7 @@ define void @b2World_Draw(i32 %0, ptr noundef %1) local_unnamed_addr #7 {
   %67 = or disjoint i32 %63, %66
   %.val189.i = load ptr, ptr %36, align 8, !tbaa !269
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.b2Body, ptr %.val189.i, i64 %68
+  %69 = getelementptr inbounds [128 x i8], ptr %.val189.i, i64 %68
   %70 = load i8, ptr %37, align 2, !tbaa !270, !range !77, !noundef !78
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %72, label %88
@@ -2270,7 +2246,7 @@ define void @b2World_Draw(i32 %0, ptr noundef %1) local_unnamed_addr #7 {
   %119 = and i32 %.0174222.i, 1
   %.val190.i = load ptr, ptr %43, align 8, !tbaa !279
   %120 = sext i32 %118 to i64
-  %121 = getelementptr inbounds %struct.b2Joint, ptr %.val190.i, i64 %120
+  %121 = getelementptr inbounds [72 x i8], ptr %.val190.i, i64 %120
   %122 = lshr i32 %118, 6
   %123 = load i32, ptr %44, align 4, !tbaa !224
   %.not.i.i = icmp ult i32 %122, %123
@@ -2286,7 +2262,7 @@ define void @b2World_Draw(i32 %0, ptr noundef %1) local_unnamed_addr #7 {
 b2GetBit.exit.i:                                  ; preds = %.lr.ph.i
   %124 = load ptr, ptr %25, align 16, !tbaa !226
   %125 = zext nneg i32 %122 to i64
-  %126 = getelementptr inbounds nuw i64, ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %125
   %127 = load i64, ptr %126, align 8, !tbaa !227
   %128 = and i32 %118, 63
   %129 = zext nneg i32 %128 to i64
@@ -2300,7 +2276,7 @@ b2GetBit.exit.thread.i:                           ; preds = %b2GetBit.exit.i, %.
   %.pre-phi253.i = phi i64 [ %.pre252.i, %.lr.ph.b2GetBit.exit.thread_crit_edge.i ], [ %130, %b2GetBit.exit.i ]
   call void @b2DrawJoint(ptr noundef %1, ptr noundef nonnull %13, ptr noundef %121) #22
   %.val187.i = load ptr, ptr %25, align 16, !tbaa !226
-  %132 = getelementptr inbounds nuw i64, ptr %.val187.i, i64 %.pre-phi255.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %.val187.i, i64 %.pre-phi255.i
   %133 = load i64, ptr %132, align 8, !tbaa !227
   %134 = or i64 %133, %.pre-phi253.i
   store i64 %134, ptr %132, align 8, !tbaa !227
@@ -2308,7 +2284,7 @@ b2GetBit.exit.thread.i:                           ; preds = %b2GetBit.exit.i, %.
 
 135:                                              ; preds = %b2GetBit.exit.thread.i, %b2GetBit.exit.i
   %136 = zext nneg i32 %119 to i64
-  %137 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %121, i64 %136
+  %137 = getelementptr inbounds nuw [12 x i8], ptr %121, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 28
   %.0174.i = load i32, ptr %138, align 4, !tbaa !86
   %.not180.i = icmp eq i32 %.0174.i, -1
@@ -2345,9 +2321,9 @@ b2GetBit.exit.thread.i:                           ; preds = %b2GetBit.exit.i, %.
   %155 = and i32 %.0176226.i, 1
   %.val185.i = load ptr, ptr %46, align 16, !tbaa !228
   %156 = sext i32 %154 to i64
-  %157 = getelementptr inbounds %struct.b2Contact, ptr %.val185.i, i64 %156
+  %157 = getelementptr inbounds [68 x i8], ptr %.val185.i, i64 %156
   %158 = zext nneg i32 %155 to i64
-  %159 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw [12 x i8], ptr %157, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 20
   %161 = load i32, ptr %160, align 4, !tbaa !284
   %162 = load i32, ptr %157, align 4, !tbaa !285
@@ -2369,7 +2345,7 @@ b2GetBit.exit.thread.i:                           ; preds = %b2GetBit.exit.i, %.
 b2GetBit.exit199.i:                               ; preds = %167
   %170 = load ptr, ptr %27, align 16, !tbaa !226
   %171 = zext nneg i32 %168 to i64
-  %172 = getelementptr inbounds nuw i64, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %171
   %173 = load i64, ptr %172, align 8, !tbaa !227
   %174 = and i32 %154, 63
   %175 = zext nneg i32 %174 to i64
@@ -2380,13 +2356,13 @@ b2GetBit.exit199.i:                               ; preds = %167
 
 b2GetBit.exit199.thread.i:                        ; preds = %b2GetBit.exit199.i, %167
   %178 = sext i32 %165 to i64
-  %179 = getelementptr %struct.b2GraphColor, ptr %13, i64 %178
+  %179 = getelementptr [56 x i8], ptr %13, i64 %178
   %180 = getelementptr i8, ptr %179, i64 352
   %181 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %182 = load i32, ptr %181, align 4, !tbaa !231
   %.val186.i = load ptr, ptr %180, align 8, !tbaa !232
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds %struct.b2ContactSim, ptr %.val186.i, i64 %183
+  %184 = getelementptr inbounds [176 x i8], ptr %.val186.i, i64 %183
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 36
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 144
   %187 = load i32, ptr %186, align 4, !tbaa !287
@@ -2410,7 +2386,7 @@ b2GetBit.exit199.thread.i:                        ; preds = %b2GetBit.exit199.i,
   %193 = zext nneg i32 %192 to i64
   %194 = shl nuw i64 1, %193
   %195 = zext nneg i32 %168 to i64
-  %196 = getelementptr inbounds nuw i64, ptr %.val188.i, i64 %195
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %.val188.i, i64 %195
   %197 = load i64, ptr %196, align 8, !tbaa !227
   %198 = or i64 %197, %194
   store i64 %198, ptr %196, align 8, !tbaa !227
@@ -2420,7 +2396,7 @@ b2GetBit.exit199.thread.i:                        ; preds = %b2GetBit.exit199.i,
 
 199:                                              ; preds = %274, %.lr.ph224.i
   %indvars.iv240.i = phi i64 [ 0, %.lr.ph224.i ], [ %indvars.iv.next241.i, %274 ]
-  %200 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %189, i64 %indvars.iv240.i
+  %200 = getelementptr inbounds nuw [48 x i8], ptr %189, i64 %indvars.iv240.i
   %201 = load i8, ptr %48, align 8, !tbaa !288, !range !77, !noundef !78
   %202 = trunc nuw i8 %201 to i1
   br i1 %202, label %203, label %213
@@ -2431,7 +2407,7 @@ b2GetBit.exit199.thread.i:                        ; preds = %b2GetBit.exit199.i,
   %206 = select i1 %205, float 7.500000e+00, float 5.000000e+00
   %207 = load ptr, ptr %49, align 8, !tbaa !289
   %208 = sext i32 %204 to i64
-  %209 = getelementptr inbounds i32, ptr @__const.b2DrawWithBounds.graphColors, i64 %208
+  %209 = getelementptr inbounds [4 x i8], ptr @__const.b2DrawWithBounds.graphColors, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !86
   %211 = load ptr, ptr %39, align 8, !tbaa !272
   %212 = load <2 x float>, ptr %200, align 4
@@ -2597,7 +2573,7 @@ b2DrawWithBounds.exit:                            ; preds = %._crit_edge233.i, %
 295:                                              ; preds = %.lr.ph279, %._crit_edge276
   %indvars.iv315 = phi i64 [ 0, %.lr.ph279 ], [ %indvars.iv.next316, %._crit_edge276 ]
   %.val = load ptr, ptr %283, align 16, !tbaa !94
-  %296 = getelementptr inbounds nuw %struct.b2SolverSet, ptr %.val, i64 %indvars.iv315
+  %296 = getelementptr inbounds nuw [88 x i8], ptr %.val, i64 %indvars.iv315
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %298 = load i32, ptr %297, align 8, !tbaa !303
   %299 = icmp sgt i32 %298, 0
@@ -2615,12 +2591,12 @@ b2DrawWithBounds.exit:                            ; preds = %._crit_edge233.i, %
 .lr.ph275:                                        ; preds = %.lr.ph275.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph275.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %300 = load ptr, ptr %296, align 8, !tbaa !305
-  %301 = getelementptr inbounds nuw %struct.b2BodySim, ptr %300, i64 %indvars.iv
+  %301 = getelementptr inbounds nuw [100 x i8], ptr %300, i64 %indvars.iv
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 88
   %303 = load i32, ptr %302, align 4, !tbaa !306
   %.val237 = load ptr, ptr %287, align 8, !tbaa !269
   %304 = sext i32 %303 to i64
-  %305 = getelementptr inbounds %struct.b2Body, ptr %.val237, i64 %304
+  %305 = getelementptr inbounds [128 x i8], ptr %.val237, i64 %304
   %.sroa.0128.0.copyload = load <2 x float>, ptr %301, align 4
   %.sroa.4129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %301, i64 8
   %.sroa.4129.0.copyload = load <2 x float>, ptr %.sroa.4129.0..sroa_idx, align 4
@@ -2646,7 +2622,7 @@ b2DrawWithBounds.exit:                            ; preds = %._crit_edge233.i, %
   %.0216272 = phi i32 [ %.0216270, %.lr.ph ], [ %.0216, %b2DrawShape.exit ]
   %314 = load ptr, ptr %288, align 8, !tbaa !223
   %315 = sext i32 %.0216272 to i64
-  %316 = getelementptr inbounds %struct.b2Shape, ptr %314, i64 %315
+  %316 = getelementptr inbounds [288 x i8], ptr %314, i64 %315
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 128
   %318 = load i32, ptr %317, align 8, !tbaa !310
   %.not233 = icmp eq i32 %318, 0
@@ -2904,7 +2880,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
 .lr.ph282:                                        ; preds = %.lr.ph282.preheader, %466
   %indvars.iv320 = phi i64 [ 0, %.lr.ph282.preheader ], [ %indvars.iv.next321, %466 ]
   %460 = load ptr, ptr %456, align 8, !tbaa !329
-  %461 = getelementptr inbounds nuw %struct.b2Joint, ptr %460, i64 %indvars.iv320
+  %461 = getelementptr inbounds nuw [72 x i8], ptr %460, i64 %indvars.iv320
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
   %463 = load i32, ptr %462, align 8, !tbaa !330
   %464 = icmp eq i32 %463, -1
@@ -2950,7 +2926,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
 486:                                              ; preds = %.lr.ph294, %._crit_edge291
   %indvars.iv330 = phi i64 [ 0, %.lr.ph294 ], [ %indvars.iv.next331, %._crit_edge291 ]
   %.val235 = load ptr, ptr %471, align 16, !tbaa !94
-  %487 = getelementptr inbounds nuw %struct.b2SolverSet, ptr %.val235, i64 %indvars.iv330
+  %487 = getelementptr inbounds nuw [88 x i8], ptr %.val235, i64 %indvars.iv330
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 8
   %489 = load i32, ptr %488, align 8, !tbaa !303
   %490 = icmp sgt i32 %489, 0
@@ -2968,7 +2944,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
 .lr.ph290:                                        ; preds = %.lr.ph290.preheader, %._crit_edge287
   %indvars.iv325 = phi i64 [ 0, %.lr.ph290.preheader ], [ %indvars.iv.next326, %._crit_edge287 ]
   %491 = load ptr, ptr %487, align 8, !tbaa !305
-  %492 = getelementptr inbounds nuw %struct.b2BodySim, ptr %491, i64 %indvars.iv325
+  %492 = getelementptr inbounds nuw [100 x i8], ptr %491, i64 %indvars.iv325
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 88
   %494 = load i32, ptr %493, align 4, !tbaa !306
@@ -2981,7 +2957,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
   %500 = load i32, ptr %493, align 4, !tbaa !306
   %.val238 = load ptr, ptr %477, align 8, !tbaa !269
   %501 = sext i32 %500 to i64
-  %502 = getelementptr inbounds %struct.b2Body, ptr %.val238, i64 %501
+  %502 = getelementptr inbounds [128 x i8], ptr %.val238, i64 %501
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 56
   %504 = load i32, ptr %503, align 8, !tbaa !335
   %.not283 = icmp eq i32 %504, -1
@@ -2991,7 +2967,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
   %.0221284 = phi i32 [ %512, %.lr.ph286 ], [ %504, %.lr.ph290 ]
   %505 = load ptr, ptr %478, align 8, !tbaa !223
   %506 = sext i32 %.0221284 to i64
-  %507 = getelementptr inbounds %struct.b2Shape, ptr %505, i64 %506
+  %507 = getelementptr inbounds [288 x i8], ptr %505, i64 %506
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 64
   %.sroa.089.0.copyload = load float, ptr %508, align 8, !tbaa !206
   %.sroa.591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %507, i64 68
@@ -3046,7 +3022,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
 523:                                              ; preds = %.lr.ph297, %546
   %indvars.iv335 = phi i64 [ 0, %.lr.ph297 ], [ %indvars.iv.next336, %546 ]
   %524 = load ptr, ptr %517, align 8, !tbaa !343
-  %525 = getelementptr inbounds nuw %struct.b2Body, ptr %524, i64 %indvars.iv335
+  %525 = getelementptr inbounds nuw [128 x i8], ptr %524, i64 %indvars.iv335
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 40
   %527 = load i32, ptr %526, align 8, !tbaa !282
   %528 = icmp eq i32 %527, -1
@@ -3108,7 +3084,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
 558:                                              ; preds = %.lr.ph304, %._crit_edge301
   %indvars.iv345 = phi i64 [ 0, %.lr.ph304 ], [ %indvars.iv.next346, %._crit_edge301 ]
   %.val236 = load ptr, ptr %551, align 16, !tbaa !94
-  %559 = getelementptr inbounds nuw %struct.b2SolverSet, ptr %.val236, i64 %indvars.iv345
+  %559 = getelementptr inbounds nuw [88 x i8], ptr %.val236, i64 %indvars.iv345
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 8
   %561 = load i32, ptr %560, align 8, !tbaa !303
   %562 = icmp sgt i32 %561, 0
@@ -3126,7 +3102,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
 .lr.ph300:                                        ; preds = %.lr.ph300.preheader, %.lr.ph300
   %indvars.iv340 = phi i64 [ 0, %.lr.ph300.preheader ], [ %indvars.iv.next341, %.lr.ph300 ]
   %563 = load ptr, ptr %559, align 8, !tbaa !305
-  %564 = getelementptr inbounds nuw %struct.b2BodySim, ptr %563, i64 %indvars.iv340
+  %564 = getelementptr inbounds nuw [100 x i8], ptr %563, i64 %indvars.iv340
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 16
   %.sroa.060.0.copyload = load <2 x float>, ptr %565, align 4
   %566 = getelementptr inbounds nuw i8, ptr %564, i64 8
@@ -3183,7 +3159,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
 
 598:                                              ; preds = %587, %._crit_edge312
   %indvars.iv360 = phi i64 [ 0, %587 ], [ %indvars.iv.next361, %._crit_edge312 ]
-  %599 = getelementptr inbounds nuw %struct.b2GraphColor, ptr %13, i64 %indvars.iv360
+  %599 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %indvars.iv360
   %600 = getelementptr inbounds nuw i8, ptr %599, i64 352
   %601 = getelementptr inbounds nuw i8, ptr %599, i64 360
   %602 = load i32, ptr %601, align 8, !tbaa !211
@@ -3193,7 +3169,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
 .lr.ph311:                                        ; preds = %598
   %604 = icmp eq i64 %indvars.iv360, 11
   %605 = select i1 %604, float 7.500000e+00, float 5.000000e+00
-  %606 = getelementptr inbounds nuw i32, ptr @__const.b2DrawWithBounds.graphColors, i64 %indvars.iv360
+  %606 = getelementptr inbounds nuw [4 x i8], ptr @__const.b2DrawWithBounds.graphColors, i64 %indvars.iv360
   %wide.trip.count358 = zext nneg i32 %602 to i64
   br label %607
 
@@ -3205,7 +3181,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
 607:                                              ; preds = %.lr.ph311, %._crit_edge308
   %indvars.iv355 = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next356, %._crit_edge308 ]
   %608 = load ptr, ptr %600, align 8, !tbaa !215
-  %609 = getelementptr inbounds nuw %struct.b2ContactSim, ptr %608, i64 %indvars.iv355
+  %609 = getelementptr inbounds nuw [176 x i8], ptr %608, i64 %indvars.iv355
   %610 = getelementptr inbounds nuw i8, ptr %609, i64 36
   %611 = getelementptr inbounds nuw i8, ptr %609, i64 144
   %612 = load i32, ptr %611, align 4, !tbaa !287
@@ -3231,7 +3207,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %372, %3
 
 617:                                              ; preds = %.lr.ph307, %687
   %indvars.iv350 = phi i64 [ 0, %.lr.ph307 ], [ %indvars.iv.next351, %687 ]
-  %618 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %614, i64 %indvars.iv350
+  %618 = getelementptr inbounds nuw [48 x i8], ptr %614, i64 %indvars.iv350
   %619 = load i8, ptr %590, align 8, !tbaa !288, !range !77, !noundef !78
   %620 = trunc nuw i8 %619 to i1
   br i1 %620, label %621, label %626
@@ -3571,7 +3547,7 @@ declare { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef, ptr n
 define { ptr, i32 } @b2World_GetBodyEvents(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -9
   %6 = load i8, ptr %5, align 1, !tbaa !35, !range !77, !noundef !78
   %7 = trunc nuw i8 %6 to i1
@@ -3596,7 +3572,7 @@ define { ptr, i32 } @b2World_GetBodyEvents(i32 %0) local_unnamed_addr #4 {
 define void @b2World_GetSensorEvents(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2SensorEvents) align 8 captures(none) initializes((0, 24)) %0, i32 %1) local_unnamed_addr #9 {
   %3 = and i32 %1, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -9
   %7 = load i8, ptr %6, align 1, !tbaa !35, !range !77, !noundef !78
   %8 = trunc nuw i8 %7 to i1
@@ -3615,7 +3591,7 @@ define void @b2World_GetSensorEvents(ptr dead_on_unwind noalias writable writeon
   %16 = load i32, ptr %15, align 16, !tbaa !353
   %17 = getelementptr i8, ptr %5, i64 -408
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %17, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 16, !tbaa !187
   %22 = load ptr, ptr %14, align 8, !tbaa !354
@@ -3637,7 +3613,7 @@ define void @b2World_GetSensorEvents(ptr dead_on_unwind noalias writable writeon
 define void @b2World_GetContactEvents(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2ContactEvents) align 8 captures(none) initializes((0, 40)) %0, i32 %1) local_unnamed_addr #9 {
   %3 = and i32 %1, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -9
   %7 = load i8, ptr %6, align 1, !tbaa !35, !range !77, !noundef !78
   %8 = trunc nuw i8 %7 to i1
@@ -3656,7 +3632,7 @@ define void @b2World_GetContactEvents(ptr dead_on_unwind noalias writable writeo
   %16 = load i32, ptr %15, align 16, !tbaa !360
   %17 = getelementptr i8, ptr %5, i64 -376
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds %struct.b2ContactEndTouchEventArray, ptr %17, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 16, !tbaa !188
   %22 = getelementptr i8, ptr %5, i64 -336
@@ -3695,7 +3671,7 @@ define zeroext i1 @b2World_IsValid(i32 %0) local_unnamed_addr #4 {
 4:                                                ; preds = %1
   %5 = add nsw i32 %2, -1
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %6
+  %7 = getelementptr inbounds nuw [1792 x i8], ptr @b2_worlds, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1780
   %9 = load i16, ptr %8, align 4, !tbaa !83
   %10 = zext i16 %9 to i32
@@ -3725,7 +3701,7 @@ define zeroext i1 @b2Body_IsValid(i64 %0) local_unnamed_addr #10 {
 3:                                                ; preds = %1
   %.sroa.4.0.extract.shift = lshr i64 %0, 32
   %4 = and i64 %.sroa.4.0.extract.shift, 127
-  %5 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr inbounds nuw [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1780
   %7 = load i16, ptr %6, align 4, !tbaa !83
   %8 = trunc i64 %.sroa.4.0.extract.shift to i16
@@ -3745,7 +3721,7 @@ define zeroext i1 @b2Body_IsValid(i64 %0) local_unnamed_addr #10 {
   %16 = load ptr, ptr %15, align 8, !tbaa !343
   %17 = add nuw nsw i64 %0, 4294967295
   %18 = and i64 %17, 4294967295
-  %19 = getelementptr inbounds nuw %struct.b2Body, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [128 x i8], ptr %16, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load i32, ptr %20, align 8, !tbaa !282
   %22 = icmp eq i32 %21, -1
@@ -3774,7 +3750,7 @@ define zeroext i1 @b2Shape_IsValid(i64 %0) local_unnamed_addr #10 {
 3:                                                ; preds = %1
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %4 = and i64 %.sroa.2.0.extract.shift, 127
-  %5 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr inbounds nuw [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1780
   %7 = load i16, ptr %6, align 4, !tbaa !83
   %8 = trunc i64 %.sroa.2.0.extract.shift to i16
@@ -3796,7 +3772,7 @@ define zeroext i1 @b2Shape_IsValid(i64 %0) local_unnamed_addr #10 {
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1256
   %17 = load ptr, ptr %16, align 8, !tbaa !223
   %18 = and i64 %10, 4294967295
-  %19 = getelementptr inbounds nuw %struct.b2Shape, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [288 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !235
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %27, label %22
@@ -3824,7 +3800,7 @@ define zeroext i1 @b2Chain_IsValid(i64 %0) local_unnamed_addr #10 {
 3:                                                ; preds = %1
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %4 = and i64 %.sroa.2.0.extract.shift, 127
-  %5 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr inbounds nuw [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1780
   %7 = load i16, ptr %6, align 4, !tbaa !83
   %8 = trunc i64 %.sroa.2.0.extract.shift to i16
@@ -3846,7 +3822,7 @@ define zeroext i1 @b2Chain_IsValid(i64 %0) local_unnamed_addr #10 {
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1272
   %17 = load ptr, ptr %16, align 8, !tbaa !161
   %18 = and i64 %10, 4294967295
-  %19 = getelementptr inbounds nuw %struct.b2ChainShape, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !162
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %27, label %22
@@ -3874,7 +3850,7 @@ define zeroext i1 @b2Joint_IsValid(i64 %0) local_unnamed_addr #10 {
 3:                                                ; preds = %1
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %4 = and i64 %.sroa.2.0.extract.shift, 127
-  %5 = getelementptr inbounds nuw %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr inbounds nuw [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1780
   %7 = load i16, ptr %6, align 4, !tbaa !83
   %8 = trunc i64 %.sroa.2.0.extract.shift to i16
@@ -3896,7 +3872,7 @@ define zeroext i1 @b2Joint_IsValid(i64 %0) local_unnamed_addr #10 {
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1112
   %17 = load ptr, ptr %16, align 8, !tbaa !329
   %18 = and i64 %10, 4294967295
-  %19 = getelementptr inbounds nuw %struct.b2Joint, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [72 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 44
   %21 = load i32, ptr %20, align 4, !tbaa !374
   %22 = icmp eq i32 %21, -1
@@ -3919,7 +3895,7 @@ define void @b2World_EnableSleeping(i32 %0, i1 noundef zeroext %1) local_unnamed
   %3 = zext i1 %1 to i8
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %5
+  %6 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -1792
   %8 = getelementptr i8, ptr %6, i64 -9
   %9 = load i8, ptr %8, align 1, !tbaa !35, !range !77, !noundef !78
@@ -3950,7 +3926,7 @@ define void @b2World_EnableSleeping(i32 %0, i1 noundef zeroext %1) local_unnamed
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
   %.val = load ptr, ptr %17, align 16, !tbaa !94
-  %21 = getelementptr inbounds nuw %struct.b2SolverSet, ptr %.val, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [88 x i8], ptr %.val, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !303
   %24 = icmp sgt i32 %23, 0
@@ -3976,7 +3952,7 @@ declare void @b2WakeSolverSet(ptr noundef, i32 noundef) local_unnamed_addr #2
 define zeroext i1 @b2World_IsSleepingEnabled(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -10
   %6 = load i8, ptr %5, align 2, !tbaa !134, !range !77, !noundef !78
   %7 = trunc nuw i8 %6 to i1
@@ -3987,7 +3963,7 @@ define zeroext i1 @b2World_IsSleepingEnabled(i32 %0) local_unnamed_addr #4 {
 define void @b2World_EnableWarmStarting(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -9
   %7 = load i8, ptr %6, align 1, !tbaa !35, !range !77, !noundef !78
   %8 = trunc nuw i8 %7 to i1
@@ -4007,7 +3983,7 @@ define void @b2World_EnableWarmStarting(i32 %0, i1 noundef zeroext %1) local_unn
 define zeroext i1 @b2World_IsWarmStartingEnabled(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -8
   %6 = load i8, ptr %5, align 8, !tbaa !135, !range !77, !noundef !78
   %7 = trunc nuw i8 %6 to i1
@@ -4018,7 +3994,7 @@ define zeroext i1 @b2World_IsWarmStartingEnabled(i32 %0) local_unnamed_addr #4 {
 define i32 @b2World_GetAwakeBodyCount(i32 %0) local_unnamed_addr #10 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -720
   %.val = load ptr, ptr %5, align 16, !tbaa !94
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 184
@@ -4030,7 +4006,7 @@ define i32 @b2World_GetAwakeBodyCount(i32 %0) local_unnamed_addr #10 {
 define void @b2World_EnableContinuous(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -9
   %7 = load i8, ptr %6, align 1, !tbaa !35, !range !77, !noundef !78
   %8 = trunc nuw i8 %7 to i1
@@ -4050,7 +4026,7 @@ define void @b2World_EnableContinuous(i32 %0, i1 noundef zeroext %1) local_unnam
 define zeroext i1 @b2World_IsContinuousEnabled(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -7
   %6 = load i8, ptr %5, align 1, !tbaa !137, !range !77, !noundef !78
   %7 = trunc nuw i8 %6 to i1
@@ -4061,7 +4037,7 @@ define zeroext i1 @b2World_IsContinuousEnabled(i32 %0) local_unnamed_addr #4 {
 define void @b2World_SetRestitutionThreshold(i32 %0, float noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -9
   %7 = load i8, ptr %6, align 1, !tbaa !35, !range !77, !noundef !78
   %8 = trunc nuw i8 %7 to i1
@@ -4084,7 +4060,7 @@ define void @b2World_SetRestitutionThreshold(i32 %0, float noundef %1) local_unn
 define float @b2World_GetRestitutionThreshold(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -248
   %6 = load float, ptr %5, align 8, !tbaa !116
   ret float %6
@@ -4094,7 +4070,7 @@ define float @b2World_GetRestitutionThreshold(i32 %0) local_unnamed_addr #4 {
 define void @b2World_SetHitEventThreshold(i32 %0, float noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -9
   %7 = load i8, ptr %6, align 1, !tbaa !35, !range !77, !noundef !78
   %8 = trunc nuw i8 %7 to i1
@@ -4117,7 +4093,7 @@ define void @b2World_SetHitEventThreshold(i32 %0, float noundef %1) local_unname
 define float @b2World_GetHitEventThreshold(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -252
   %6 = load float, ptr %5, align 4, !tbaa !114
   ret float %6
@@ -4127,7 +4103,7 @@ define float @b2World_GetHitEventThreshold(i32 %0) local_unnamed_addr #4 {
 define void @b2World_SetContactTuning(i32 %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #11 {
   %5 = and i32 %0, 65535
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %6
+  %7 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -9
   %9 = load i8, ptr %8, align 1, !tbaa !35, !range !77, !noundef !78
   %10 = trunc nuw i8 %9 to i1
@@ -4162,7 +4138,7 @@ define void @b2World_SetContactTuning(i32 %0, float noundef %1, float noundef %2
 define void @b2World_SetJointTuning(i32 %0, float noundef %1, float noundef %2) local_unnamed_addr #11 {
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %5
+  %6 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -9
   %8 = load i8, ptr %7, align 1, !tbaa !35, !range !77, !noundef !78
   %9 = trunc nuw i8 %8 to i1
@@ -4191,7 +4167,7 @@ define void @b2World_SetJointTuning(i32 %0, float noundef %1, float noundef %2) 
 define void @b2World_SetMaximumLinearSpeed(i32 %0, float noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -9
   %7 = load i8, ptr %6, align 1, !tbaa !35, !range !77, !noundef !78
   %8 = trunc nuw i8 %7 to i1
@@ -4210,7 +4186,7 @@ define void @b2World_SetMaximumLinearSpeed(i32 %0, float noundef %1) local_unnam
 define float @b2World_GetMaximumLinearSpeed(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -244
   %6 = load float, ptr %5, align 4, !tbaa !118
   ret float %6
@@ -4220,7 +4196,7 @@ define float @b2World_GetMaximumLinearSpeed(i32 %0) local_unnamed_addr #4 {
 define void @b2World_GetProfile(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Profile) align 4 captures(none) initializes((0, 88)) %0, i32 %1) local_unnamed_addr #12 {
   %3 = and i32 %1, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -196
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %0, ptr noundef nonnull align 4 dereferenceable(88) %6, i64 88, i1 false), !tbaa.struct !377
   ret void
@@ -4230,7 +4206,7 @@ define void @b2World_GetProfile(ptr dead_on_unwind noalias writable writeonly sr
 define void @b2World_GetCounters(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Counters) align 4 captures(none) initializes((0, 88)) %0, i32 %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -1792
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %7, i8 0, i64 48, i1 false)
@@ -4298,13 +4274,13 @@ define void @b2World_GetCounters(ptr dead_on_unwind noalias writable writeonly s
 
 46:                                               ; preds = %2, %46
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw %struct.b2GraphColor, ptr %43, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [56 x i8], ptr %43, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !211
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %51 = load i32, ptr %50, align 8, !tbaa !390
   %52 = add nsw i32 %51, %49
-  %53 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store i32 %52, ptr %53, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
@@ -4321,7 +4297,7 @@ declare i32 @b2GetByteCount() local_unnamed_addr #2
 define void @b2World_SetUserData(i32 %0, ptr noundef %1) local_unnamed_addr #13 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -32
   store ptr %1, ptr %6, align 16, !tbaa !141
   ret void
@@ -4331,7 +4307,7 @@ define void @b2World_SetUserData(i32 %0, ptr noundef %1) local_unnamed_addr #13 
 define ptr @b2World_GetUserData(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -32
   %6 = load ptr, ptr %5, align 16, !tbaa !141
   ret ptr %6
@@ -4341,7 +4317,7 @@ define ptr @b2World_GetUserData(i32 %0) local_unnamed_addr #4 {
 define void @b2World_SetFrictionCallback(i32 %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -9
   %7 = load i8, ptr %6, align 1, !tbaa !35, !range !77, !noundef !78
   %8 = trunc nuw i8 %7 to i1
@@ -4362,7 +4338,7 @@ define void @b2World_SetFrictionCallback(i32 %0, ptr noundef %1) local_unnamed_a
 define void @b2World_SetRestitutionCallback(i32 %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -9
   %7 = load i8, ptr %6, align 1, !tbaa !35, !range !77, !noundef !78
   %8 = trunc nuw i8 %7 to i1
@@ -4388,7 +4364,7 @@ define void @b2World_DumpMemoryStats(i32 %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = and i32 %0, 65535
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %6
+  %7 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %6
   %8 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 9, i64 1, ptr nonnull %2)
   %9 = getelementptr i8, ptr %7, i64 -772
   %.val119 = load i32, ptr %9, align 4, !tbaa !392
@@ -4520,7 +4496,7 @@ define void @b2World_DumpMemoryStats(i32 %0) local_unnamed_addr #0 {
   %.0107136 = phi i32 [ 0, %.lr.ph ], [ %.1108, %117 ]
   %.0109135 = phi i32 [ 0, %.lr.ph ], [ %.1110, %117 ]
   %.0111134 = phi i32 [ 0, %.lr.ph ], [ %.1112, %117 ]
-  %97 = getelementptr inbounds nuw %struct.b2SolverSet, ptr %83, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [88 x i8], ptr %83, i64 %indvars.iv
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 80
   %99 = load i32, ptr %98, align 8, !tbaa !170
   %100 = icmp eq i32 %99, -1
@@ -4573,7 +4549,7 @@ define void @b2World_DumpMemoryStats(i32 %0) local_unnamed_addr #0 {
   %.0102146 = phi i32 [ 0, %._crit_edge ], [ %133, %129 ]
   %.2145 = phi i32 [ 0, %._crit_edge ], [ %136, %129 ]
   %.2113144 = phi i32 [ 0, %._crit_edge ], [ %139, %129 ]
-  %130 = getelementptr inbounds nuw %struct.b2GraphColor, ptr %95, i64 %indvars.iv151
+  %130 = getelementptr inbounds nuw [56 x i8], ptr %95, i64 %indvars.iv151
   %131 = getelementptr i8, ptr %130, i64 8
   %.val133 = load i32, ptr %131, align 8, !tbaa !408
   %132 = shl i32 %.val133, 3
@@ -4610,7 +4586,7 @@ define i64 @b2World_OverlapAABB(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, 
   %8 = alloca %struct.WorldQueryContext, align 8
   %9 = and i32 %0, 65535
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %10
+  %11 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -9
   %13 = load i8, ptr %12, align 1, !tbaa !35, !range !77, !noundef !78
   %14 = trunc nuw i8 %13 to i1
@@ -4643,7 +4619,7 @@ define i64 @b2World_OverlapAABB(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, 
   %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %26 ]
   %.sroa.011.118 = phi i32 [ 0, %15 ], [ %29, %26 ]
   %.sroa.413.117 = phi i32 [ 0, %15 ], [ %30, %26 ]
-  %27 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %20, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %indvars.iv
   %28 = call i64 @b2DynamicTree_Query(ptr noundef nonnull %27, <2 x float> %1, <2 x float> %2, i64 noundef %4, ptr noundef nonnull @TreeQueryCallback, ptr noundef nonnull %8) #22
   %.sroa.0.0.extract.trunc = trunc i64 %28 to i32
   %.sroa.4.0.extract.shift = lshr i64 %28, 32
@@ -4667,7 +4643,7 @@ define internal zeroext i1 @TreeQueryCallback(i32 %0, i32 noundef %1, ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1256
   %.val = load ptr, ptr %5, align 8, !tbaa !418
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %6
+  %7 = getelementptr inbounds [288 x i8], ptr %.val, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %.sroa.03.0.copyload = load i64, ptr %8, align 8, !tbaa !227
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -4720,7 +4696,7 @@ define i64 @b2World_OverlapPoint(i32 %0, <2 x float> %1, <2 x float> %2, <2 x fl
   store float 0.000000e+00, ptr %11, align 8, !tbaa !320
   %12 = and i32 %0, 65535
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %13
+  %14 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -9
   %16 = load i8, ptr %15, align 1, !tbaa !35, !range !77, !noundef !78
   %17 = trunc nuw i8 %16 to i1
@@ -4763,7 +4739,7 @@ define i64 @b2World_OverlapPoint(i32 %0, <2 x float> %1, <2 x float> %2, <2 x fl
   %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %35 ]
   %.sroa.015.122.i = phi i32 [ 0, %18 ], [ %38, %35 ]
   %.sroa.417.121.i = phi i32 [ 0, %18 ], [ %39, %35 ]
-  %36 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %29, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [72 x i8], ptr %29, i64 %indvars.iv.i
   %37 = call i64 @b2DynamicTree_Query(ptr noundef nonnull %36, <2 x float> %21, <2 x float> %22, i64 noundef %5, ptr noundef nonnull @TreeOverlapCallback, ptr noundef nonnull %9) #22
   %.sroa.0.0.extract.trunc.i = trunc i64 %37 to i32
   %.sroa.4.0.extract.shift.i = lshr i64 %37, 32
@@ -4785,7 +4761,7 @@ define i64 @b2World_OverlapCircle(i32 %0, ptr noundef %1, <2 x float> %2, <2 x f
   %9 = alloca %struct.WorldOverlapContext, align 8
   %10 = and i32 %0, 65535
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %11
+  %12 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -9
   %14 = load i8, ptr %13, align 1, !tbaa !35, !range !77, !noundef !78
   %15 = trunc nuw i8 %14 to i1
@@ -4829,7 +4805,7 @@ define i64 @b2World_OverlapCircle(i32 %0, ptr noundef %1, <2 x float> %2, <2 x f
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %34 ]
   %.sroa.015.122 = phi i32 [ 0, %16 ], [ %37, %34 ]
   %.sroa.417.121 = phi i32 [ 0, %16 ], [ %38, %34 ]
-  %35 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %28, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [72 x i8], ptr %28, i64 %indvars.iv
   %36 = call i64 @b2DynamicTree_Query(ptr noundef nonnull %35, <2 x float> %19, <2 x float> %20, i64 noundef %5, ptr noundef nonnull @TreeOverlapCallback, ptr noundef nonnull %9) #22
   %.sroa.0.0.extract.trunc = trunc i64 %36 to i32
   %.sroa.4.0.extract.shift = lshr i64 %36, 32
@@ -4858,7 +4834,7 @@ define internal zeroext i1 @TreeOverlapCallback(i32 %0, i32 noundef %1, ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1256
   %.val26 = load ptr, ptr %8, align 8, !tbaa !418
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.b2Shape, ptr %.val26, i64 %9
+  %10 = getelementptr inbounds [288 x i8], ptr %.val26, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %.sroa.05.0.copyload = load i64, ptr %11, align 8, !tbaa !227
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -4882,7 +4858,7 @@ define internal zeroext i1 @TreeOverlapCallback(i32 %0, i32 noundef %1, ptr noun
   %21 = load i32, ptr %20, align 4, !tbaa !425
   %.val = load ptr, ptr %19, align 8, !tbaa !269
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %22
+  %23 = getelementptr inbounds [128 x i8], ptr %.val, i64 %22
   %24 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %7, ptr noundef %23) #22
   %25 = extractvalue { <2 x float>, <2 x float> } %24, 0
   %26 = extractvalue { <2 x float>, <2 x float> } %24, 1
@@ -4947,7 +4923,7 @@ define i64 @b2World_OverlapCapsule(i32 %0, ptr noundef %1, <2 x float> %2, <2 x 
   %9 = alloca %struct.WorldOverlapContext, align 8
   %10 = and i32 %0, 65535
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %11
+  %12 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -9
   %14 = load i8, ptr %13, align 1, !tbaa !35, !range !77, !noundef !78
   %15 = trunc nuw i8 %14 to i1
@@ -4991,7 +4967,7 @@ define i64 @b2World_OverlapCapsule(i32 %0, ptr noundef %1, <2 x float> %2, <2 x 
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %34 ]
   %.sroa.015.122 = phi i32 [ 0, %16 ], [ %37, %34 ]
   %.sroa.417.121 = phi i32 [ 0, %16 ], [ %38, %34 ]
-  %35 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %28, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [72 x i8], ptr %28, i64 %indvars.iv
   %36 = call i64 @b2DynamicTree_Query(ptr noundef nonnull %35, <2 x float> %19, <2 x float> %20, i64 noundef %5, ptr noundef nonnull @TreeOverlapCallback, ptr noundef nonnull %9) #22
   %.sroa.0.0.extract.trunc = trunc i64 %36 to i32
   %.sroa.4.0.extract.shift = lshr i64 %36, 32
@@ -5014,7 +4990,7 @@ define i64 @b2World_OverlapPolygon(i32 %0, ptr noundef %1, <2 x float> %2, <2 x 
   %9 = alloca %struct.WorldOverlapContext, align 8
   %10 = and i32 %0, 65535
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %11
+  %12 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -9
   %14 = load i8, ptr %13, align 1, !tbaa !35, !range !77, !noundef !78
   %15 = trunc nuw i8 %14 to i1
@@ -5060,7 +5036,7 @@ define i64 @b2World_OverlapPolygon(i32 %0, ptr noundef %1, <2 x float> %2, <2 x 
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %36 ]
   %.sroa.016.123 = phi i32 [ 0, %16 ], [ %39, %36 ]
   %.sroa.418.122 = phi i32 [ 0, %16 ], [ %40, %36 ]
-  %37 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %30, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [72 x i8], ptr %30, i64 %indvars.iv
   %38 = call i64 @b2DynamicTree_Query(ptr noundef nonnull %37, <2 x float> %19, <2 x float> %20, i64 noundef %5, ptr noundef nonnull @TreeOverlapCallback, ptr noundef nonnull %9) #22
   %.sroa.0.0.extract.trunc = trunc i64 %38 to i32
   %.sroa.4.0.extract.shift = lshr i64 %38, 32
@@ -5084,7 +5060,7 @@ define i64 @b2World_CastRay(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, i64 
   %9 = alloca %struct.WorldRayCastContext, align 8
   %10 = and i32 %0, 65535
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %11
+  %12 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -9
   %14 = load i8, ptr %13, align 1, !tbaa !35, !range !77, !noundef !78
   %15 = trunc nuw i8 %14 to i1
@@ -5119,7 +5095,7 @@ define i64 @b2World_CastRay(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, i64 
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %33 ]
   %.sroa.014.123 = phi i32 [ 0, %16 ], [ %29, %33 ]
   %.sroa.416.122 = phi i32 [ 0, %16 ], [ %30, %33 ]
-  %27 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [72 x i8], ptr %25, i64 %indvars.iv
   %28 = call i64 @b2DynamicTree_RayCast(ptr noundef nonnull %27, ptr noundef nonnull %8, i64 noundef %4, ptr noundef nonnull @RayCastCallback, ptr noundef nonnull %9) #22
   %.sroa.0.0.extract.trunc = trunc i64 %28 to i32
   %.sroa.4.0.extract.shift = lshr i64 %28, 32
@@ -5159,7 +5135,7 @@ define internal float @RayCastCallback(ptr noundef %0, i32 %1, i32 noundef %2, p
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1256
   %.val33 = load ptr, ptr %7, align 8, !tbaa !418
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds %struct.b2Shape, ptr %.val33, i64 %8
+  %9 = getelementptr inbounds [288 x i8], ptr %.val33, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %.sroa.010.0.copyload = load i64, ptr %10, align 8, !tbaa !227
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5188,7 +5164,7 @@ define internal float @RayCastCallback(ptr noundef %0, i32 %1, i32 noundef %2, p
   %23 = load i32, ptr %22, align 4, !tbaa !425
   %.val = load ptr, ptr %21, align 8, !tbaa !269
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %24
+  %25 = getelementptr inbounds [128 x i8], ptr %.val, i64 %24
   %26 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %6, ptr noundef %25) #22
   %27 = extractvalue { <2 x float>, <2 x float> } %26, 0
   %28 = extractvalue { <2 x float>, <2 x float> } %26, 1
@@ -5254,7 +5230,7 @@ define void @b2World_CastRayClosest(ptr dead_on_unwind noalias writable sret(%st
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %9 = and i32 %1, 65535
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %10
+  %11 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -9
   %13 = load i8, ptr %12, align 1, !tbaa !35, !range !77, !noundef !78
   %14 = trunc nuw i8 %13 to i1
@@ -5289,7 +5265,7 @@ define void @b2World_CastRayClosest(ptr dead_on_unwind noalias writable sret(%st
 
 27:                                               ; preds = %15, %36
   %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %36 ]
-  %28 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %24, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [72 x i8], ptr %24, i64 %indvars.iv
   %29 = call i64 @b2DynamicTree_RayCast(ptr noundef nonnull %28, ptr noundef nonnull %7, i64 noundef %5, ptr noundef nonnull @RayCastCallback, ptr noundef nonnull %8) #22
   %.sroa.0.0.extract.trunc = trunc i64 %29 to i32
   %.sroa.4.0.extract.shift = lshr i64 %29, 32
@@ -5339,7 +5315,7 @@ define i64 @b2World_CastCircle(i32 %0, ptr noundef readonly captures(none) %1, <
   %11 = alloca %struct.WorldRayCastContext, align 8
   %12 = and i32 %0, 65535
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %13
+  %14 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -9
   %16 = load i8, ptr %15, align 1, !tbaa !35, !range !77, !noundef !78
   %17 = trunc nuw i8 %16 to i1
@@ -5398,7 +5374,7 @@ define i64 @b2World_CastCircle(i32 %0, ptr noundef readonly captures(none) %1, <
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %48 ]
   %.sroa.018.127 = phi i32 [ 0, %18 ], [ %44, %48 ]
   %.sroa.420.126 = phi i32 [ 0, %18 ], [ %45, %48 ]
-  %42 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %40, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [72 x i8], ptr %40, i64 %indvars.iv
   %43 = call i64 @b2DynamicTree_ShapeCast(ptr noundef nonnull %42, ptr noundef nonnull %10, i64 noundef %6, ptr noundef nonnull @ShapeCastCallback, ptr noundef nonnull %11) #22
   %.sroa.0.0.extract.trunc = trunc i64 %43 to i32
   %.sroa.4.0.extract.shift = lshr i64 %43, 32
@@ -5438,7 +5414,7 @@ define internal float @ShapeCastCallback(ptr noundef %0, i32 %1, i32 noundef %2,
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1256
   %.val29 = load ptr, ptr %7, align 8, !tbaa !418
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds %struct.b2Shape, ptr %.val29, i64 %8
+  %9 = getelementptr inbounds [288 x i8], ptr %.val29, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %.sroa.07.0.copyload = load i64, ptr %10, align 8, !tbaa !227
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5467,7 +5443,7 @@ define internal float @ShapeCastCallback(ptr noundef %0, i32 %1, i32 noundef %2,
   %23 = load i32, ptr %22, align 4, !tbaa !425
   %.val = load ptr, ptr %21, align 8, !tbaa !269
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %24
+  %25 = getelementptr inbounds [128 x i8], ptr %.val, i64 %24
   %26 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %6, ptr noundef %25) #22
   %27 = extractvalue { <2 x float>, <2 x float> } %26, 0
   %28 = extractvalue { <2 x float>, <2 x float> } %26, 1
@@ -5526,7 +5502,7 @@ define i64 @b2World_CastCapsule(i32 %0, ptr noundef readonly captures(none) %1, 
   %11 = alloca %struct.WorldRayCastContext, align 8
   %12 = and i32 %0, 65535
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %13
+  %14 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -9
   %16 = load i8, ptr %15, align 1, !tbaa !35, !range !77, !noundef !78
   %17 = trunc nuw i8 %16 to i1
@@ -5602,7 +5578,7 @@ define i64 @b2World_CastCapsule(i32 %0, ptr noundef readonly captures(none) %1, 
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %59 ]
   %.sroa.021.138 = phi i32 [ 0, %18 ], [ %55, %59 ]
   %.sroa.423.137 = phi i32 [ 0, %18 ], [ %56, %59 ]
-  %53 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %51, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [72 x i8], ptr %51, i64 %indvars.iv
   %54 = call i64 @b2DynamicTree_ShapeCast(ptr noundef nonnull %53, ptr noundef nonnull %10, i64 noundef %6, ptr noundef nonnull @ShapeCastCallback, ptr noundef nonnull %11) #22
   %.sroa.0.0.extract.trunc = trunc i64 %54 to i32
   %.sroa.4.0.extract.shift = lshr i64 %54, 32
@@ -5639,7 +5615,7 @@ define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, 
   %11 = alloca %struct.WorldRayCastContext, align 8
   %12 = and i32 %0, 65535
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %13
+  %14 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -1792
   %16 = getelementptr i8, ptr %14, i64 -9
   %17 = load i8, ptr %16, align 1, !tbaa !35, !range !77, !noundef !78
@@ -5691,8 +5667,8 @@ define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, 
 
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %indvars.iv
-  %37 = getelementptr inbounds nuw %struct.b2Vec2, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %38 = load <2 x float>, ptr %37, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %38, i64 0
   %foldExtExtBinop = fmul <2 x float> %3, %38
@@ -5716,7 +5692,7 @@ define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, 
   %indvars.iv39 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next40, %54 ]
   %.sroa.024.136 = phi i32 [ 0, %._crit_edge ], [ %50, %54 ]
   %.sroa.426.135 = phi i32 [ 0, %._crit_edge ], [ %51, %54 ]
-  %48 = getelementptr inbounds nuw %struct.b2DynamicTree, ptr %34, i64 %indvars.iv39
+  %48 = getelementptr inbounds nuw [72 x i8], ptr %34, i64 %indvars.iv39
   %49 = call i64 @b2DynamicTree_ShapeCast(ptr noundef nonnull %48, ptr noundef nonnull %10, i64 noundef %6, ptr noundef nonnull @ShapeCastCallback, ptr noundef nonnull %11) #22
   %.sroa.0.0.extract.trunc = trunc i64 %49 to i32
   %.sroa.4.0.extract.shift = lshr i64 %49, 32
@@ -5751,7 +5727,7 @@ define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, 
 define void @b2World_SetCustomFilterCallback(i32 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 {
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %5
+  %6 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -88
   store ptr %1, ptr %7, align 8, !tbaa !460
   %8 = getelementptr i8, ptr %6, i64 -80
@@ -5763,7 +5739,7 @@ define void @b2World_SetCustomFilterCallback(i32 %0, ptr noundef %1, ptr noundef
 define void @b2World_SetPreSolveCallback(i32 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 {
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %5
+  %6 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -104
   store ptr %1, ptr %7, align 8, !tbaa !462
   %8 = getelementptr i8, ptr %6, i64 -96
@@ -5775,7 +5751,7 @@ define void @b2World_SetPreSolveCallback(i32 %0, ptr noundef %1, ptr noundef %2)
 define void @b2World_SetGravity(i32 %0, <2 x float> %1) local_unnamed_addr #15 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
+  %5 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -260
   store <2 x float> %1, ptr %6, align 4
   ret void
@@ -5785,7 +5761,7 @@ define void @b2World_SetGravity(i32 %0, <2 x float> %1) local_unnamed_addr #15 {
 define <2 x float> @b2World_GetGravity(i32 %0) local_unnamed_addr #16 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -260
   %.sroa.01.0.copyload = load <2 x float>, ptr %5, align 4
   ret <2 x float> %.sroa.01.0.copyload
@@ -5796,7 +5772,7 @@ define void @b2World_Explode(i32 %0, ptr noundef readonly captures(none) %1) loc
   %3 = alloca %struct.ExplosionContext, align 8
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %5
+  %6 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -9
   %8 = load i8, ptr %7, align 1, !tbaa !35, !range !77, !noundef !78
   %9 = trunc nuw i8 %8 to i1
@@ -5857,13 +5833,13 @@ define internal noundef zeroext i1 @ExplosionCallback(i32 %0, i32 noundef %1, pt
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1256
   %.val64 = load ptr, ptr %9, align 8, !tbaa !418
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %struct.b2Shape, ptr %.val64, i64 %10
+  %11 = getelementptr inbounds [288 x i8], ptr %.val64, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 1032
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !425
   %.val63 = load ptr, ptr %12, align 8, !tbaa !269
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.b2Body, ptr %.val63, i64 %15
+  %16 = getelementptr inbounds [128 x i8], ptr %.val63, i64 %15
   %17 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef %8, ptr noundef %16) #22
   %18 = extractvalue { <2 x float>, <2 x float> } %17, 0
   %19 = extractvalue { <2 x float>, <2 x float> } %17, 1
@@ -6005,9 +5981,9 @@ b2Normalize.exit:                                 ; preds = %60, %58, %50
   %92 = getelementptr inbounds nuw i8, ptr %.val, i64 192
   %.val65 = load ptr, ptr %92, align 8, !tbaa !475
   %93 = sext i32 %89 to i64
-  %94 = getelementptr inbounds %struct.b2BodyState, ptr %.val65, i64 %93
+  %94 = getelementptr inbounds [32 x i8], ptr %.val65, i64 %93
   %.val66 = load ptr, ptr %91, align 8, !tbaa !476
-  %95 = getelementptr inbounds %struct.b2BodySim, ptr %.val66, i64 %93
+  %95 = getelementptr inbounds [100 x i8], ptr %.val66, i64 %93
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 60
   %97 = load float, ptr %96, align 4, !tbaa !346
   %98 = load <2 x float>, ptr %94, align 4
@@ -6049,7 +6025,7 @@ b2Normalize.exit:                                 ; preds = %60, %58, %50
 define void @b2World_RebuildStaticTree(i32 %0) local_unnamed_addr #0 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
+  %4 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -9
   %6 = load i8, ptr %5, align 1, !tbaa !35, !range !77, !noundef !78
   %7 = trunc nuw i8 %6 to i1
@@ -6071,7 +6047,7 @@ define void @b2World_EnableSpeculative(i32 %0, i1 noundef zeroext %1) local_unna
   %3 = zext i1 %1 to i8
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %5
+  %6 = getelementptr [1792 x i8], ptr @b2_worlds, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -6
   store i8 %3, ptr %7, align 2, !tbaa !138
   ret void
@@ -6117,7 +6093,7 @@ define internal void @b2CollideTask(i32 noundef %0, i32 noundef %1, i32 noundef 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1304
   %8 = load ptr, ptr %7, align 8, !tbaa !155
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %12 = load ptr, ptr %11, align 8, !tbaa !219
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 1256
@@ -6136,17 +6112,17 @@ define internal void @b2CollideTask(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %122
   %indvars.iv = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next, %122 ]
-  %19 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %19 = getelementptr inbounds [8 x i8], ptr %12, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !217
   %21 = load i32, ptr %20, align 4, !tbaa !250
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !480
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.b2Shape, ptr %14, i64 %24
+  %25 = getelementptr inbounds [288 x i8], ptr %14, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load i32, ptr %26, align 4, !tbaa !481
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.b2Shape, ptr %14, i64 %28
+  %29 = getelementptr inbounds [288 x i8], ptr %14, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %32 = load <2 x float>, ptr %30, align 8
@@ -6183,11 +6159,11 @@ b2AABB_Overlaps.exit.thread:                      ; preds = %.lr.ph
   %50 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !425
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.b2Body, ptr %16, i64 %52
+  %53 = getelementptr inbounds [128 x i8], ptr %16, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !425
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.b2Body, ptr %16, i64 %56
+  %57 = getelementptr inbounds [128 x i8], ptr %16, i64 %56
   %58 = tail call ptr @b2GetBodySim(ptr noundef %6, ptr noundef %53) #22
   %59 = tail call ptr @b2GetBodySim(ptr noundef %6, ptr noundef %57) #22
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 40
@@ -6297,7 +6273,7 @@ b2AABB_Overlaps.exit.thread:                      ; preds = %.lr.ph
   %116 = zext nneg i32 %115 to i64
   %117 = shl nuw i64 1, %116
   %118 = zext nneg i32 %114 to i64
-  %119 = getelementptr inbounds nuw i64, ptr %.val71, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %.val71, i64 %118
   %120 = load i64, ptr %119, align 8, !tbaa !227
   %121 = or i64 %120, %117
   store i64 %121, ptr %119, align 8, !tbaa !227
@@ -6344,7 +6320,7 @@ define internal noundef zeroext i1 @DrawQueryCallback(i32 %0, i32 noundef %1, pt
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1256
   %.val41 = load ptr, ptr %8, align 8, !tbaa !418
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.b2Shape, ptr %.val41, i64 %9
+  %10 = getelementptr inbounds [288 x i8], ptr %.val41, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 1472
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !425
@@ -6354,7 +6330,7 @@ define internal noundef zeroext i1 @DrawQueryCallback(i32 %0, i32 noundef %1, pt
   %16 = zext nneg i32 %15 to i64
   %17 = shl nuw i64 1, %16
   %18 = zext nneg i32 %14 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %.val, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !227
   %21 = or i64 %17, %20
   store i64 %21, ptr %19, align 8, !tbaa !227
@@ -6367,7 +6343,7 @@ define internal noundef zeroext i1 @DrawQueryCallback(i32 %0, i32 noundef %1, pt
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1032
   %.val40 = load ptr, ptr %26, align 8, !tbaa !269
   %27 = sext i32 %13 to i64
-  %28 = getelementptr inbounds %struct.b2Body, ptr %.val40, i64 %27
+  %28 = getelementptr inbounds [128 x i8], ptr %.val40, i64 %27
   %29 = tail call ptr @b2GetBodySim(ptr noundef nonnull %5, ptr noundef %28) #22
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %31 = load i32, ptr %30, align 8, !tbaa !310

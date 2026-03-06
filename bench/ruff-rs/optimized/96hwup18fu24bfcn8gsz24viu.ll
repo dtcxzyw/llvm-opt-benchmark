@@ -4506,7 +4506,7 @@ _ZN5serde2de9MapAccess10next_value17h90efd956dc008802E.exit.i: ; preds = %254
 
 541:                                              ; preds = %536, %532
   %542 = load ptr, ptr %178, align 8, !alias.scope !179, !noalias !182, !nonnull !4, !noundef !4
-  %543 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %542, i64 %533
+  %543 = getelementptr inbounds nuw [64 x i8], ptr %542, i64 %533
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %543, ptr noundef nonnull align 8 dereferenceable(64) %34, i64 64, i1 false)
   %544 = add i64 %533, 1
   store i64 %544, ptr %179, align 8, !alias.scope !179, !noalias !182
@@ -4970,7 +4970,7 @@ _ZN5serde2de9MapAccess10next_value17h90efd956dc008802E.exit.i: ; preds = %254
   %.sroa.51316.0.copyload.i = load i64, ptr %179, align 8, !noalias !130
   %663 = icmp ult i64 %.sroa.51316.0.copyload.i, 144115188075855872
   call void @llvm.assume(i1 %663)
-  %664 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %.sroa.41315.0.copyload.i, i64 %.sroa.51316.0.copyload.i
+  %664 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.41315.0.copyload.i, i64 %.sroa.51316.0.copyload.i
   %665 = icmp sgt i64 %.sroa.01314.0.copyload.i, -1
   call void @llvm.assume(i1 %665)
   store ptr %.sroa.41315.0.copyload.i, ptr %13, align 8, !noalias !130
@@ -83712,7 +83712,7 @@ _ZN5serde2de9MapAccess10next_value17hfbd3635548f5e763E.exit: ; preds = %664
   br label %.loopexit3066
 
 671:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17hfbd3635548f5e763E.exit
-  %672 = getelementptr inbounds nuw i64, ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %667
+  %672 = getelementptr inbounds nuw [8 x i8], ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %667
   %673 = load i64, ptr %672, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %39, i64 %673, i1 false)
   %.0..0..0..0..pr = load i64, ptr %40, align 8
@@ -83730,7 +83730,7 @@ _ZN5serde2de9MapAccess10next_value17hfbd3635548f5e763E.exit: ; preds = %664
   br label %883
 
 677:                                              ; preds = %671
-  %678 = getelementptr inbounds nuw i64, ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0..0..pr
+  %678 = getelementptr inbounds nuw [8 x i8], ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0..0..pr
   %679 = load i64, ptr %678, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 8 %40, i64 %679, i1 false)
   %680 = load i64, ptr %118, align 8, !range !5, !alias.scope !3746, !noundef !4
@@ -84915,11 +84915,11 @@ _ZN5serde2de9MapAccess10next_value17h24323440e9f9f384E.exit2275: ; preds = %875
 
 965:                                              ; preds = %963
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %966 = getelementptr inbounds nuw i64, ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %964
+  %966 = getelementptr inbounds nuw [8 x i8], ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %964
   %967 = load i64, ptr %966, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 8 %118, i64 %967, i1 false)
   %.0..0..0..0.1886 = load i64, ptr %3, align 8
-  %968 = getelementptr inbounds nuw i64, ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0..0.1886
+  %968 = getelementptr inbounds nuw [8 x i8], ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0..0.1886
   %969 = load i64, ptr %968, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %3, i64 %969, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -85057,7 +85057,7 @@ _ZN5serde2de9MapAccess10next_value17h24323440e9f9f384E.exit2275: ; preds = %875
   %.not1936 = icmp eq i8 %.sroa.0684.0, 3
   %.sroa.01037.0 = select i1 %.not1936, i8 2, i8 %.sroa.0684.0
   %.0..0..0. = load i64, ptr %4, align 8
-  %1004 = getelementptr inbounds nuw i64, ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0.
+  %1004 = getelementptr inbounds nuw [8 x i8], ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0.
   %1005 = load i64, ptr %1004, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %4, i64 %1005, i1 false)
   %.sroa.01000.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -88593,7 +88593,7 @@ _ZN5serde2de9MapAccess10next_value17h4bd281ba0c0a2c04E.exit: ; preds = %664
   br label %.loopexit3066
 
 671:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17h4bd281ba0c0a2c04E.exit
-  %672 = getelementptr inbounds nuw i64, ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %667
+  %672 = getelementptr inbounds nuw [8 x i8], ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %667
   %673 = load i64, ptr %672, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %39, i64 %673, i1 false)
   %.0..0..0..0..pr = load i64, ptr %40, align 8
@@ -88611,7 +88611,7 @@ _ZN5serde2de9MapAccess10next_value17h4bd281ba0c0a2c04E.exit: ; preds = %664
   br label %883
 
 677:                                              ; preds = %671
-  %678 = getelementptr inbounds nuw i64, ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0..0..pr
+  %678 = getelementptr inbounds nuw [8 x i8], ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0..0..pr
   %679 = load i64, ptr %678, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 8 %40, i64 %679, i1 false)
   %680 = load i64, ptr %118, align 8, !range !5, !alias.scope !3854, !noundef !4
@@ -89796,11 +89796,11 @@ _ZN5serde2de9MapAccess10next_value17h26b01579bf83aebaE.exit2275: ; preds = %875
 
 965:                                              ; preds = %963
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %966 = getelementptr inbounds nuw i64, ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %964
+  %966 = getelementptr inbounds nuw [8 x i8], ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %964
   %967 = load i64, ptr %966, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 8 %118, i64 %967, i1 false)
   %.0..0..0..0.1886 = load i64, ptr %3, align 8
-  %968 = getelementptr inbounds nuw i64, ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0..0.1886
+  %968 = getelementptr inbounds nuw [8 x i8], ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0..0.1886
   %969 = load i64, ptr %968, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %3, i64 %969, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -89938,7 +89938,7 @@ _ZN5serde2de9MapAccess10next_value17h26b01579bf83aebaE.exit2275: ; preds = %875
   %.not1936 = icmp eq i8 %.sroa.0684.0, 3
   %.sroa.01037.0 = select i1 %.not1936, i8 2, i8 %.sroa.0684.0
   %.0..0..0. = load i64, ptr %4, align 8
-  %1004 = getelementptr inbounds nuw i64, ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0.
+  %1004 = getelementptr inbounds nuw [8 x i8], ptr @anon.e0a28bab6e9fbc6c8066b40ff4c6baf1.203, i64 %.0..0..0.
   %1005 = load i64, ptr %1004, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %4, i64 %1005, i1 false)
   %.sroa.01000.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136

@@ -5,11 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.test__tmp = type { i64 }
 %struct.reftable_write_options = type { i8, i32, i8, i16, i32, i32, i8, i8, i64, ptr, ptr, ptr }
-%struct.reftable_ref_record = type { ptr, i64, i64, i32, %union.anon }
-%union.anon = type { ptr, [56 x i8] }
-%struct.reftable_log_record = type { ptr, i64, i64, i32, %union.anon.0 }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { [32 x i8], [32 x i8], ptr, ptr, i64, i16, ptr, i64 }
 
 @.str = private unnamed_addr constant [31 x i8] c"t/unit-tests/lib-reftable.c:31\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"!ret\00", align 1
@@ -94,7 +89,7 @@ define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i
   %.05377 = phi i64 [ %.1, %.lr.ph ], [ 4294967295, %10 ]
   %.05576 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %10 ]
   %.05975 = phi i64 [ %14, %.lr.ph ], [ 0, %10 ]
-  %11 = getelementptr inbounds nuw %struct.reftable_ref_record, ptr %1, i64 %.05975
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %.05975
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !18
   %spec.select = tail call i64 @llvm.umax.i64(i64 %13, i64 %.05576)
@@ -120,7 +115,7 @@ define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i
   %.281 = phi i64 [ %.3, %.lr.ph82 ], [ %.053.lcssa, %.preheader ]
   %.05480 = phi i64 [ %22, %.lr.ph82 ], [ 0, %.preheader ]
   %.25779 = phi i64 [ %spec.select73, %.lr.ph82 ], [ %.055.lcssa, %.preheader ]
-  %19 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %3, i64 %.05480
+  %19 = getelementptr inbounds nuw [144 x i8], ptr %3, i64 %.05480
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !23
   %spec.select73 = tail call i64 @llvm.umax.i64(i64 %21, i64 %.25779)

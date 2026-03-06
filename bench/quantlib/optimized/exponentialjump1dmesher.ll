@@ -420,7 +420,7 @@ for.body:                                         ; preds = %do.end70, %for.body
   %call81 = tail call double @log(double noundef %sub80) #18, !tbaa !23
   %mul = fmul double %div79, %call81
   %mul82 = fmul double %div76, %mul
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %36, i64 %i.0110
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %i.0110
   store double %mul82, ptr %add.ptr.i, align 8, !tbaa !26
   %inc = add nuw i64 %i.0110, 1
   %exitcond.not = icmp eq i64 %inc, %steps
@@ -429,14 +429,14 @@ for.body:                                         ; preds = %do.end70, %for.body
 for.body89:                                       ; preds = %for.body89.lr.ph, %for.body89
   %i84.0112 = phi i64 [ 0, %for.body89.lr.ph ], [ %add, %for.body89 ]
   %add = add nuw i64 %i84.0112, 1
-  %add.ptr.i70 = getelementptr inbounds nuw double, ptr %36, i64 %add
+  %add.ptr.i70 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %add
   %40 = load double, ptr %add.ptr.i70, align 8, !tbaa !26
-  %add.ptr.i71 = getelementptr inbounds nuw double, ptr %36, i64 %i84.0112
+  %add.ptr.i71 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %i84.0112
   %41 = load double, ptr %add.ptr.i71, align 8, !tbaa !26
   %sub94 = fsub double %40, %41
-  %add.ptr.i72 = getelementptr inbounds nuw double, ptr %37, i64 %i84.0112
+  %add.ptr.i72 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %i84.0112
   store double %sub94, ptr %add.ptr.i72, align 8, !tbaa !26
-  %add.ptr.i73 = getelementptr inbounds nuw double, ptr %38, i64 %add
+  %add.ptr.i73 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %add
   store double %sub94, ptr %add.ptr.i73, align 8, !tbaa !26
   %exitcond113.not = icmp eq i64 %add, %sub72
   br i1 %exitcond113.not, label %invoke.cont103, label %for.body89, !llvm.loop !29
@@ -479,7 +479,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %size, 3
   %call5.i.i.i.i2.i.i5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #21
   store ptr %call5.i.i.i.i2.i.i5, ptr %locations_, align 8, !tbaa !25
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i5, i64 %size
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i5, i64 %size
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !31
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i5, align 8, !tbaa !26
@@ -505,7 +505,7 @@ if.then.i.i.i.i.i9:                               ; preds = %if.then.i.i.i.i.i, 
 
 call5.i.i.i.i2.i.i.noexc24:                       ; preds = %if.then.i.i.i.i.i9
   store ptr %call5.i.i.i.i2.i.i25, ptr %dplus_57, align 8, !tbaa !25
-  %add.ptr.i.i.i11 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i25, i64 %size
+  %add.ptr.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i25, i64 %size
   %_M_end_of_storage.i.i.i12 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %add.ptr.i.i.i11, ptr %_M_end_of_storage.i.i.i12, align 8, !tbaa !31
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i25, align 8, !tbaa !26
@@ -533,7 +533,7 @@ if.then.i.i.i.i.i30:                              ; preds = %call5.i.i.i.i2.i.i.
 
 call5.i.i.i.i2.i.i.noexc45:                       ; preds = %if.then.i.i.i.i.i30
   store ptr %call5.i.i.i.i2.i.i46, ptr %dminus_63, align 8, !tbaa !25
-  %add.ptr.i.i.i32 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i46, i64 %size
+  %add.ptr.i.i.i32 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i46, i64 %size
   %_M_end_of_storage.i.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %add.ptr.i.i.i32, ptr %_M_end_of_storage.i.i.i33, align 8, !tbaa !31
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i46, align 8, !tbaa !26

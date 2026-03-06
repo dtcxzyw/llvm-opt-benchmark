@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/sbrdsp_fixed.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SoftFloat = type { i32, i32 }
-
 @ff_sbr_noise_table_fixed = hidden local_unnamed_addr constant [520 x [2 x i32]] [[2 x i32] [i32 -2146370303, i32 -1277396607], [2 x i32] [i32 2085495552, i32 -1450163839], [2 x i32] [i32 303440544, i32 -2042063359], [2 x i32] [i32 -1009435327, i32 -801882175], [2 x i32] [i32 1733128064, i32 636807680], [2 x i32] [i32 -837120895, i32 1923557120], [2 x i32] [i32 -22614073, i32 -1437934847], [2 x i32] [i32 -1959930367, i32 -247453215], [2 x i32] [i32 1177689088, i32 1615366528], [2 x i32] [i32 859192192, i32 -2124492671], [2 x i32] [i32 -2144648447, i32 -1892943871], [2 x i32] [i32 -2051514239, i32 1952250752], [2 x i32] [i32 -981956927, i32 -1217973759], [2 x i32] [i32 -1566152831, i32 -2104711679], [2 x i32] [i32 1623987328, i32 449904896], [2 x i32] [i32 151815120, i32 -1680360831], [2 x i32] [i32 1599794816, i32 -1957839487], [2 x i32] [i32 -2071037183, i32 -2034524287], [2 x i32] [i32 653363968, i32 -1061678719], [2 x i32] [i32 1429473152, i32 1388411264], [2 x i32] [i32 1969178240, i32 376112384], [2 x i32] [i32 -1519879807, i32 1128473728], [2 x i32] [i32 -1504342655, i32 -973669695], [2 x i32] [i32 -2136671359, i32 -1934279551], [2 x i32] [i32 2108066432, i32 -1663508607], [2 x i32] [i32 -1174063231, i32 -55210267], [2 x i32] [i32 -36284507, i32 6174154], [2 x i32] [i32 -1849205631, i32 913723904], [2 x i32] [i32 -2123710591, i32 -1887232895], [2 x i32] [i32 1111465088, i32 1437241728], [2 x i32] [i32 -2139645951, i32 -1247853951], [2 x i32] [i32 -2146825855, i32 2112479488], [2 x i32] [i32 1186833920, i32 1276658816], [2 x i32] [i32 742625152, i32 2037520000], [2 x i32] [i32 1345703680, i32 -1597791615], [2 x i32] [i32 -1656777215, i32 -727646015], [2 x i32] [i32 -1966928511, i32 79197080], [2 x i32] [i32 -1638218495, i32 -1962195967], [2 x i32] [i32 1713441536, i32 -2001046143], [2 x i32] [i32 1169800448, i32 -255963007], [2 x i32] [i32 -1839089535, i32 911174208], [2 x i32] [i32 -1994634367, i32 598542528], [2 x i32] [i32 -251435359, i32 -2143206783], [2 x i32] [i32 458632704, i32 -1948117631], [2 x i32] [i32 -1636204159, i32 2142504064], [2 x i32] [i32 2106918656, i32 -2058458879], [2 x i32] [i32 -1844973439, i32 2056571392], [2 x i32] [i32 -2003757823, i32 1061538944], [2 x i32] [i32 654676608, i32 -1514835711], [2 x i32] [i32 1831581312, i32 1004295040], [2 x i32] [i32 1961255680, i32 -2144039039], [2 x i32] [i32 -126491079, i32 1519169152], [2 x i32] [i32 609857152, i32 743749952], [2 x i32] [i32 2045653504, i32 -1178827135], [2 x i32] [i32 -1687198975, i32 -1622822015], [2 x i32] [i32 -2057063807, i32 -438584767], [2 x i32] [i32 1769766144, i32 2075642112], [2 x i32] [i32 -1399846783, i32 -1905569407], [2 x i32] [i32 -2010981119, i32 2144708864], [2 x i32] [i32 1963383296, i32 -2110772479], [2 x i32] [i32 -1511735807, i32 1262651648], [2 x i32] [i32 12106911, i32 1326461952], [2 x i32] [i32 1912657408, i32 1133513856], [2 x i32] [i32 -1474971391, i32 1735315968], [2 x i32] [i32 1549738880, i32 -1487344127], [2 x i32] [i32 -1351373823, i32 292638400], [2 x i32] [i32 642923008, i32 -988944767], [2 x i32] [i32 -1971002495, i32 -1589410943], [2 x i32] [i32 2132423680, i32 876530048], [2 x i32] [i32 1768845696, i32 -1589912063], [2 x i32] [i32 -2115547007, i32 -2146889471], [2 x i32] [i32 -2059766911, i32 -2131115519], [2 x i32] [i32 -459800447, i32 -2006282751], [2 x i32] [i32 -1477929983, i32 -577507903], [2 x i32] [i32 1972506624, i32 200966432], [2 x i32] [i32 -2062932223, i32 775222144], [2 x i32] [i32 1109093376, i32 -1532730623], [2 x i32] [i32 1312772224, i32 1008246592], [2 x i32] [i32 1016535616, i32 -586975551], [2 x i32] [i32 1954173824, i32 2076953088], [2 x i32] [i32 963034752, i32 2130552320], [2 x i32] [i32 1430543872, i32 2074258176], [2 x i32] [i32 1608942848, i32 -1930155263], [2 x i32] [i32 -2138283519, i32 1133560448], [2 x i32] [i32 2091672320, i32 -361977055], [2 x i32] [i32 1560871552, i32 -1032097279], [2 x i32] [i32 2049390720, i32 1478534016], [2 x i32] [i32 -1566851455, i32 -1645153791], [2 x i32] [i32 -1833080831, i32 1905636736], [2 x i32] [i32 -1748318591, i32 -2093383551], [2 x i32] [i32 -1888299007, i32 1605207680], [2 x i32] [i32 -1537025535, i32 -2116787711], [2 x i32] [i32 1793670656, i32 1797498240], [2 x i32] [i32 -1032640383, i32 -2122755455], [2 x i32] [i32 2086046848, i32 1719997440], [2 x i32] [i32 1116537472, i32 1723304704], [2 x i32] [i32 -18223357, i32 -1646478463], [2 x i32] [i32 -1509560191, i32 1188845056], [2 x i32] [i32 -2059317119, i32 -929119615], [2 x i32] [i32 2084761088, i32 200271264], [2 x i32] [i32 -1984367103, i32 1836263936], [2 x i32] [i32 -1492640127, i32 2118136448], [2 x i32] [i32 570354560, i32 1574412800], [2 x i32] [i32 602120960, i32 312199328], [2 x i32] [i32 -1592104063, i32 2132673280], [2 x i32] [i32 -37641007, i32 -1774178687], [2 x i32] [i32 -1183838463, i32 -2123830015], [2 x i32] [i32 2103694336, i32 -2019095167], [2 x i32] [i32 -2130224511, i32 1439222400], [2 x i32] [i32 -1453522815, i32 271259232], [2 x i32] [i32 196280848, i32 -441044415], [2 x i32] [i32 -1538864511, i32 -2099985663], [2 x i32] [i32 1739776128, i32 1153685120], [2 x i32] [i32 872243264, i32 -568417599], [2 x i32] [i32 -1453420927, i32 2029416064], [2 x i32] [i32 1865084672, i32 -393711039], [2 x i32] [i32 -2136754431, i32 -56567339], [2 x i32] [i32 1810955520, i32 223487712], [2 x i32] [i32 -197911423, i32 1493360384], [2 x i32] [i32 2146542464, i32 -265397663], [2 x i32] [i32 -1712248447, i32 -1966719743], [2 x i32] [i32 2069099904, i32 2075337984], [2 x i32] [i32 -1716758143, i32 1381345280], [2 x i32] [i32 -248378815, i32 613919296], [2 x i32] [i32 -857338943, i32 2021417856], [2 x i32] [i32 2127924352, i32 -1977029887], [2 x i32] [i32 614852160, i32 -1954962687], [2 x i32] [i32 -1788912383, i32 -1445909503], [2 x i32] [i32 2048794880, i32 1055762368], [2 x i32] [i32 -138509759, i32 69805264], [2 x i32] [i32 -2138358015, i32 910313664], [2 x i32] [i32 -1406626303, i32 1772664320], [2 x i32] [i32 -1744925823, i32 -1108686463], [2 x i32] [i32 -2139889535, i32 1814420352], [2 x i32] [i32 6181330, i32 1390887808], [2 x i32] [i32 1507039360, i32 -439225439], [2 x i32] [i32 2069355648, i32 874175488], [2 x i32] [i32 -1479267455, i32 1961489152], [2 x i32] [i32 -748947519, i32 1534855808], [2 x i32] [i32 1975257216, i32 1428236672], [2 x i32] [i32 -2126203135, i32 1844001664], [2 x i32] [i32 1478881664, i32 1195296256], [2 x i32] [i32 -2136411263, i32 -430625439], [2 x i32] [i32 2023241216, i32 -2140964479], [2 x i32] [i32 -1447718143, i32 1064039936], [2 x i32] [i32 -1016604863, i32 -1844781439], [2 x i32] [i32 307598080, i32 -2021761279], [2 x i32] [i32 -628531839, i32 123678416], [2 x i32] [i32 940465984, i32 -1694471295], [2 x i32] [i32 -780505663, i32 1393167872], [2 x i32] [i32 -187917807, i32 2097811200], [2 x i32] [i32 -2072220159, i32 -1158788735], [2 x i32] [i32 1192432000, i32 1694182528], [2 x i32] [i32 1579221120, i32 2071292544], [2 x i32] [i32 -663352831, i32 -1732254591], [2 x i32] [i32 76772448, i32 -2090051711], [2 x i32] [i32 2120010624, i32 1039578240], [2 x i32] [i32 -1754264319, i32 -1950510079], [2 x i32] [i32 1457429760, i32 1745571456], [2 x i32] [i32 -339486463, i32 1831364480], [2 x i32] [i32 1733521664, i32 -530802527], [2 x i32] [i32 1026255744, i32 -994996799], [2 x i32] [i32 2069477504, i32 826496640], [2 x i32] [i32 -2129098495, i32 -535695743], [2 x i32] [i32 1784169728, i32 -2035403263], [2 x i32] [i32 -1261715199, i32 27719126], [2 x i32] [i32 2051665280, i32 -1837323647], [2 x i32] [i32 -2072126719, i32 -1374839935], [2 x i32] [i32 -2090083583, i32 265818272], [2 x i32] [i32 1962807936, i32 1244949376], [2 x i32] [i32 -2145891071, i32 1526535424], [2 x i32] [i32 -1865645823, i32 -435760927], [2 x i32] [i32 -563500479, i32 -1465970175], [2 x i32] [i32 -529664223, i32 -1882103423], [2 x i32] [i32 51889128, i32 583963392], [2 x i32] [i32 1762410240, i32 -1827246335], [2 x i32] [i32 1901540352, i32 -1924935679], [2 x i32] [i32 -390263871, i32 -561613055], [2 x i32] [i32 200907328, i32 1177790080], [2 x i32] [i32 -1173995263, i32 2061171456], [2 x i32] [i32 795663936, i32 -1286560511], [2 x i32] [i32 -1511261439, i32 1959099264], [2 x i32] [i32 -743046207, i32 -2135488383], [2 x i32] [i32 -1476920703, i32 -649374079], [2 x i32] [i32 -576455295, i32 1784895360], [2 x i32] [i32 1053820352, i32 -974092351], [2 x i32] [i32 837003072, i32 2051176704], [2 x i32] [i32 -2099318271, i32 113943216], [2 x i32] [i32 -372063423, i32 -1992235007], [2 x i32] [i32 2146367744, i32 1251672576], [2 x i32] [i32 -1394710015, i32 1474151040], [2 x i32] [i32 -258061407, i32 -1227229439], [2 x i32] [i32 -1265886975, i32 -748336447], [2 x i32] [i32 -897973311, i32 349533504], [2 x i32] [i32 2145027968, i32 239145824], [2 x i32] [i32 -1216541183, i32 -1943362431], [2 x i32] [i32 2021598592, i32 757673408], [2 x i32] [i32 -1626183679, i32 1152136832], [2 x i32] [i32 441135520, i32 -2027979263], [2 x i32] [i32 2147062144, i32 1714463232], [2 x i32] [i32 624451264, i32 760075584], [2 x i32] [i32 -1349881855, i32 832486912], [2 x i32] [i32 932886336, i32 -2116266367], [2 x i32] [i32 -2110946047, i32 451433792], [2 x i32] [i32 419039104, i32 -2023784959], [2 x i32] [i32 -2050345727, i32 2112362752], [2 x i32] [i32 2005312384, i32 -1522179199], [2 x i32] [i32 -1830416511, i32 -179150559], [2 x i32] [i32 -1855964799, i32 -983440703], [2 x i32] [i32 834936896, i32 2088952448], [2 x i32] [i32 1976653952, i32 -1340752511], [2 x i32] [i32 1914750848, i32 1180062848], [2 x i32] [i32 -791011391, i32 2071426176], [2 x i32] [i32 2016310272, i32 -1932055679], [2 x i32] [i32 2131756672, i32 -80681695], [2 x i32] [i32 -2019997695, i32 887605184], [2 x i32] [i32 2141905024, i32 -361432127], [2 x i32] [i32 -770934015, i32 -1001440895], [2 x i32] [i32 112468816, i32 -550622591], [2 x i32] [i32 788203456, i32 -830072575], [2 x i32] [i32 1968237056, i32 -656864319], [2 x i32] [i32 1481780992, i32 1953182976], [2 x i32] [i32 -830190335, i32 2136780032], [2 x i32] [i32 -628156479, i32 804125120], [2 x i32] [i32 -1292402943, i32 1863578752], [2 x i32] [i32 -2092048255, i32 2071645824], [2 x i32] [i32 1899697792, i32 1234983552], [2 x i32] [i32 111646240, i32 456762496], [2 x i32] [i32 -1148895615, i32 2088246528], [2 x i32] [i32 -1061491711, i32 2108482432], [2 x i32] [i32 -2124616063, i32 -864344127], [2 x i32] [i32 -2106281599, i32 -1564589951], [2 x i32] [i32 -587082303, i32 2146429696], [2 x i32] [i32 135523456, i32 -1171228671], [2 x i32] [i32 -439411167, i32 -305156959], [2 x i32] [i32 1422146176, i32 1557539456], [2 x i32] [i32 -1820300415, i32 50945116], [2 x i32] [i32 -1912116479, i32 1908395264], [2 x i32] [i32 2059507840, i32 1648084736], [2 x i32] [i32 1578489088, i32 -80470575], [2 x i32] [i32 -681706559, i32 -791006527], [2 x i32] [i32 -732524415, i32 863529408], [2 x i32] [i32 1026580608, i32 -846607167], [2 x i32] [i32 2110959104, i32 42730444], [2 x i32] [i32 -664926911, i32 -388194623], [2 x i32] [i32 2147324544, i32 -564398911], [2 x i32] [i32 -2000375295, i32 -2111259135], [2 x i32] [i32 2145840256, i32 -1721057663], [2 x i32] [i32 -558864767, i32 -1632082431], [2 x i32] [i32 -766920383, i32 414442080], [2 x i32] [i32 -2145316479, i32 1602992512], [2 x i32] [i32 1858801152, i32 1193869184], [2 x i32] [i32 717432256, i32 1850829312], [2 x i32] [i32 2126239360, i32 98835736], [2 x i32] [i32 -1432248575, i32 -1968031615], [2 x i32] [i32 1374750080, i32 336071104], [2 x i32] [i32 2138260992, i32 984504960], [2 x i32] [i32 -1362180351, i32 452670592], [2 x i32] [i32 -165503279, i32 -1923746687], [2 x i32] [i32 2117206016, i32 1894976512], [2 x i32] [i32 1720120064, i32 -791388479], [2 x i32] [i32 1682942848, i32 977255360], [2 x i32] [i32 186998720, i32 1738151680], [2 x i32] [i32 -1864270975, i32 844977024], [2 x i32] [i32 -847537279, i32 -1434721663], [2 x i32] [i32 2101856640, i32 -1556235007], [2 x i32] [i32 -2040937599, i32 1923355520], [2 x i32] [i32 365184736, i32 1174309632], [2 x i32] [i32 -1651646719, i32 -2066450815], [2 x i32] [i32 2141970688, i32 916914496], [2 x i32] [i32 2049502208, i32 2083108992], [2 x i32] [i32 2138440704, i32 -1161935231], [2 x i32] [i32 602546560, i32 -1833122559], [2 x i32] [i32 1830869888, i32 -1386578815], [2 x i32] [i32 -1086810111, i32 -1414032383], [2 x i32] [i32 -2087584639, i32 -495965919], [2 x i32] [i32 2049215872, i32 -2131165951], [2 x i32] [i32 -2081482239, i32 1584320128], [2 x i32] [i32 662974656, i32 891526976], [2 x i32] [i32 -526645439, i32 1357352064], [2 x i32] [i32 -726134335, i32 -830255359], [2 x i32] [i32 -125130183, i32 -149051983], [2 x i32] [i32 -491740703, i32 2084237056], [2 x i32] [i32 -397497407, i32 1021467008], [2 x i32] [i32 -225233199, i32 -1884845311], [2 x i32] [i32 -1543752703, i32 1675702528], [2 x i32] [i32 2143057152, i32 1933622400], [2 x i32] [i32 1236162560, i32 -1954947455], [2 x i32] [i32 620829952, i32 2068193920], [2 x i32] [i32 906001856, i32 1033984384], [2 x i32] [i32 2004354944, i32 -934950463], [2 x i32] [i32 -2084935551, i32 1860503552], [2 x i32] [i32 788617664, i32 1402127616], [2 x i32] [i32 -1741459455, i32 188514064], [2 x i32] [i32 -563512639, i32 -1992308479], [2 x i32] [i32 1803811072, i32 1199151616], [2 x i32] [i32 -2145542655, i32 -2062112767], [2 x i32] [i32 1603085056, i32 260809600], [2 x i32] [i32 -1605772159, i32 -577631487], [2 x i32] [i32 2056895616, i32 -1697541247], [2 x i32] [i32 2050252160, i32 -184442559], [2 x i32] [i32 1046003456, i32 2147463040], [2 x i32] [i32 994972928, i32 235452816], [2 x i32] [i32 -1642760703, i32 1915790080], [2 x i32] [i32 1232599552, i32 757840640], [2 x i32] [i32 1618651136, i32 2076728704], [2 x i32] [i32 -1270760575, i32 -1919965695], [2 x i32] [i32 1612500480, i32 -635927295], [2 x i32] [i32 -2117587583, i32 537620608], [2 x i32] [i32 -875337023, i32 -1933713919], [2 x i32] [i32 1437295104, i32 2118052224], [2 x i32] [i32 -2093016959, i32 -4085013], [2 x i32] [i32 1935860096, i32 2142788992], [2 x i32] [i32 -1873878911, i32 2131025024], [2 x i32] [i32 -1965580159, i32 -337127167], [2 x i32] [i32 -70990199, i32 -798976959], [2 x i32] [i32 155113840, i32 -1907072895], [2 x i32] [i32 2136703488, i32 2085085440], [2 x i32] [i32 -1608571263, i32 2147171968], [2 x i32] [i32 98467032, i32 2143453568], [2 x i32] [i32 -1912440575, i32 -682726143], [2 x i32] [i32 -1799207807, i32 2096752256], [2 x i32] [i32 718436480, i32 -1851807743], [2 x i32] [i32 -2141203967, i32 2002270592], [2 x i32] [i32 -490217439, i32 405332384], [2 x i32] [i32 1444140800, i32 -78301791], [2 x i32] [i32 -110521063, i32 -1988563455], [2 x i32] [i32 2146351872, i32 2010586496], [2 x i32] [i32 1437764480, i32 2123986432], [2 x i32] [i32 -2138957183, i32 -958952703], [2 x i32] [i32 1763189376, i32 2137621120], [2 x i32] [i32 2130014080, i32 1546682112], [2 x i32] [i32 -1401975935, i32 1120701312], [2 x i32] [i32 2016174592, i32 -1608364543], [2 x i32] [i32 2077373696, i32 1951886848], [2 x i32] [i32 -477299039, i32 1226729216], [2 x i32] [i32 -947744319, i32 -1990477695], [2 x i32] [i32 -1840285567, i32 1907921792], [2 x i32] [i32 1971025792, i32 -995506687], [2 x i32] [i32 1558149120, i32 -2145326591], [2 x i32] [i32 -2141289855, i32 1250083712], [2 x i32] [i32 1667284352, i32 2025545984], [2 x i32] [i32 165728272, i32 1259250048], [2 x i32] [i32 -1203660927, i32 1772152960], [2 x i32] [i32 2113100160, i32 847556800], [2 x i32] [i32 1021062912, i32 1473453952], [2 x i32] [i32 1410361856, i32 393668896], [2 x i32] [i32 70295200, i32 -1609176319], [2 x i32] [i32 -830735679, i32 1102461184], [2 x i32] [i32 -2090495231, i32 -2073381759], [2 x i32] [i32 -1144225535, i32 -1963299711], [2 x i32] [i32 2143560448, i32 1312833536], [2 x i32] [i32 -1079207167, i32 -1907595519], [2 x i32] [i32 42861052, i32 1830161024], [2 x i32] [i32 2145988608, i32 2031066368], [2 x i32] [i32 1780430720, i32 -135794895], [2 x i32] [i32 -1259729151, i32 2079639808], [2 x i32] [i32 -377393119, i32 -1034376767], [2 x i32] [i32 1791737728, i32 -279676479], [2 x i32] [i32 127699928, i32 440471392], [2 x i32] [i32 1750316928, i32 -2033365247], [2 x i32] [i32 -965860415, i32 878204288], [2 x i32] [i32 -1927290879, i32 2144188928], [2 x i32] [i32 852062592, i32 -1607491711], [2 x i32] [i32 -162971423, i32 1591204096], [2 x i32] [i32 1639457664, i32 896502016], [2 x i32] [i32 -1599662847, i32 2034223488], [2 x i32] [i32 1393289984, i32 887698048], [2 x i32] [i32 1338301824, i32 -1999271039], [2 x i32] [i32 906577792, i32 -165630847], [2 x i32] [i32 58079856, i32 -116340311], [2 x i32] [i32 1718024960, i32 1965853696], [2 x i32] [i32 -1704067583, i32 -777580159], [2 x i32] [i32 1371648512, i32 174552896], [2 x i32] [i32 1135815296, i32 1289539712], [2 x i32] [i32 1594260736, i32 96463144], [2 x i32] [i32 2128073216, i32 -417710975], [2 x i32] [i32 -1726841599, i32 -1900819711], [2 x i32] [i32 -1387545343, i32 1550454784], [2 x i32] [i32 250348720, i32 -1796645631], [2 x i32] [i32 -2041251583, i32 -2081768575], [2 x i32] [i32 -1336354815, i32 1777413376], [2 x i32] [i32 64520628, i32 -2141876479], [2 x i32] [i32 -2104259455, i32 784392640], [2 x i32] [i32 -2147204095, i32 -773558207], [2 x i32] [i32 1913636608, i32 -2102263039], [2 x i32] [i32 223509248, i32 1661245952], [2 x i32] [i32 2060827008, i32 -760978431], [2 x i32] [i32 1091850112, i32 2063896960], [2 x i32] [i32 365208256, i32 -1650427647], [2 x i32] [i32 555611456, i32 2145192320], [2 x i32] [i32 -23965889, i32 2115185920], [2 x i32] [i32 -1709369087, i32 2086031488], [2 x i32] [i32 -2131693439, i32 -2137665791], [2 x i32] [i32 -2143825663, i32 40311248], [2 x i32] [i32 -1520440191, i32 723287232], [2 x i32] [i32 -1513268479, i32 2003017600], [2 x i32] [i32 2144177024, i32 -2120119295], [2 x i32] [i32 -1360752383, i32 -353767743], [2 x i32] [i32 -349142559, i32 -2060276991], [2 x i32] [i32 -937281983, i32 -2035922559], [2 x i32] [i32 -2144229631, i32 2066849280], [2 x i32] [i32 -360701215, i32 -2125740671], [2 x i32] [i32 -1889339519, i32 -1540298239], [2 x i32] [i32 948824832, i32 -2009378431], [2 x i32] [i32 2003820800, i32 -2145622015], [2 x i32] [i32 -2017387647, i32 -1211382143], [2 x i32] [i32 -1902455807, i32 1022730496], [2 x i32] [i32 2146870784, i32 -1801523071], [2 x i32] [i32 -1618695551, i32 17494334], [2 x i32] [i32 2016222720, i32 -242333391], [2 x i32] [i32 1828076288, i32 1124191616], [2 x i32] [i32 852581504, i32 1756204288], [2 x i32] [i32 -795094335, i32 -1869849599], [2 x i32] [i32 -773627263, i32 744226240], [2 x i32] [i32 -2005509503, i32 -1814119935], [2 x i32] [i32 -1402281087, i32 -395986879], [2 x i32] [i32 256845888, i32 2145322112], [2 x i32] [i32 2024917376, i32 1785931264], [2 x i32] [i32 1612355328, i32 -763070143], [2 x i32] [i32 1218095232, i32 -517046111], [2 x i32] [i32 1006262848, i32 -647256575], [2 x i32] [i32 2089766016, i32 -2137781119], [2 x i32] [i32 -822485759, i32 2115634560], [2 x i32] [i32 881022336, i32 45456580], [2 x i32] [i32 206975808, i32 94746640], [2 x i32] [i32 -1831443839, i32 1964422784], [2 x i32] [i32 1908400128, i32 -2141798527], [2 x i32] [i32 -1035139263, i32 -2078884607], [2 x i32] [i32 592116672, i32 1259171712], [2 x i32] [i32 -1414958335, i32 1263485568], [2 x i32] [i32 2122531712, i32 2147362304], [2 x i32] [i32 -443484351, i32 1172376704], [2 x i32] [i32 -1334154623, i32 -1286206975], [2 x i32] [i32 436370944, i32 -1865716223], [2 x i32] [i32 -2100036095, i32 2067829376], [2 x i32] [i32 238639872, i32 461381792], [2 x i32] [i32 -888378303, i32 605952000], [2 x i32] [i32 518253056, i32 1101538048], [2 x i32] [i32 -1425787647, i32 -177160527], [2 x i32] [i32 -1153152127, i32 -2097015679], [2 x i32] [i32 -2087885311, i32 474193024], [2 x i32] [i32 1876739200, i32 -274795743], [2 x i32] [i32 409103392, i32 34415904], [2 x i32] [i32 -995432575, i32 -2045457535], [2 x i32] [i32 -151700319, i32 -2028938367], [2 x i32] [i32 -1985221631, i32 -224575039], [2 x i32] [i32 -1800076543, i32 -36400775], [2 x i32] [i32 1615223040, i32 -2146531967], [2 x i32] [i32 -904155007, i32 2141490944], [2 x i32] [i32 -1548223743, i32 -751811711], [2 x i32] [i32 1693147264, i32 1134975104], [2 x i32] [i32 2091520768, i32 -573291007], [2 x i32] [i32 2130442624, i32 -1224283007], [2 x i32] [i32 1649044352, i32 -1643240703], [2 x i32] [i32 -1760988543, i32 -1579048575], [2 x i32] [i32 1759325824, i32 2141007360], [2 x i32] [i32 -573804415, i32 1479688576], [2 x i32] [i32 -930102207, i32 1832272000], [2 x i32] [i32 2130195968, i32 1973027456], [2 x i32] [i32 -1732847487, i32 -700671103], [2 x i32] [i32 925136064, i32 -470708991], [2 x i32] [i32 1454050304, i32 -2050376063], [2 x i32] [i32 1205850112, i32 -1518137983], [2 x i32] [i32 232612480, i32 -185302863], [2 x i32] [i32 1959136768, i32 -1417067519], [2 x i32] [i32 -1051684863, i32 1208802304], [2 x i32] [i32 -1911983231, i32 -1538813055], [2 x i32] [i32 1401650688, i32 1415535488], [2 x i32] [i32 1448251776, i32 -1754158719], [2 x i32] [i32 -1025870783, i32 -360552959], [2 x i32] [i32 -2141384319, i32 -2009309951], [2 x i32] [i32 -1951839103, i32 1332178560], [2 x i32] [i32 -142133839, i32 -511363455], [2 x i32] [i32 2135248768, i32 403996544], [2 x i32] [i32 2097799552, i32 -615566207], [2 x i32] [i32 2036107648, i32 -2093939199], [2 x i32] [i32 -2049440255, i32 -1709568383], [2 x i32] [i32 -1054517183, i32 706419328], [2 x i32] [i32 2144931840, i32 1911131264], [2 x i32] [i32 1083387648, i32 -1846730111], [2 x i32] [i32 1012815360, i32 -401154335], [2 x i32] [i32 -1333191807, i32 1610627200], [2 x i32] [i32 -942036991, i32 2147442176], [2 x i32] [i32 2118075264, i32 -1150598143], [2 x i32] [i32 -1320924927, i32 -1922320383], [2 x i32] [i32 -82495959, i32 -1500850943], [2 x i32] [i32 -646438911, i32 -164664943], [2 x i32] [i32 899393728, i32 46989068], [2 x i32] [i32 -1849744767, i32 2124881024], [2 x i32] [i32 1443685888, i32 -289789791], [2 x i32] [i32 -1519074047, i32 -1643841791], [2 x i32] [i32 2019599872, i32 193836192], [2 x i32] [i32 -1769233407, i32 191657952], [2 x i32] [i32 -688712319, i32 1076821760], [2 x i32] [i32 1236803712, i32 -2125287807], [2 x i32] [i32 -780095295, i32 159778000], [2 x i32] [i32 2147033600, i32 -303445599], [2 x i32] [i32 -1983545215, i32 -2104089343], [2 x i32] [i32 -957931839, i32 -1164650239], [2 x i32] [i32 949763328, i32 1531730432], [2 x i32] [i32 78853608, i32 1365936768], [2 x i32] [i32 1120458752, i32 -1833882879], [2 x i32] [i32 -2033691519, i32 -39220527], [2 x i32] [i32 -2120846463, i32 1767136640], [2 x i32] [i32 1877647872, i32 1919839488], [2 x i32] [i32 -2006008319, i32 888500992], [2 x i32] [i32 2062957440, i32 1999666048], [2 x i32] [i32 2094532096, i32 1850077184], [2 x i32] [i32 2139805696, i32 1507319680], [2 x i32] [i32 -2033776255, i32 -635226559], [2 x i32] [i32 1967090816, i32 -2107708671], [2 x i32] [i32 -2146370303, i32 -1277396607], [2 x i32] [i32 2085495552, i32 -1450163839], [2 x i32] [i32 303440544, i32 -2042063359], [2 x i32] [i32 -1009435327, i32 -801882175], [2 x i32] [i32 1733128064, i32 636807680], [2 x i32] [i32 -837120895, i32 1923557120], [2 x i32] [i32 -22614073, i32 -1437934847], [2 x i32] [i32 -1959930367, i32 -247453215]], align 16
 @.str = private unnamed_addr constant [42 x i8] c"Overflow in sbr_hf_apply_noise, shift=%d\0A\00", align 1
 
@@ -46,7 +44,7 @@ define internal void @sbr_sum64x5_c(ptr noundef captures(none) %0) #1 {
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %4 = load i32, ptr %3, align 4, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %6 = load i32, ptr %5, align 4, !tbaa !19
@@ -86,7 +84,7 @@ define internal i64 @sbr_sum_square_c(ptr noundef readonly captures(none) %0, i3
   %.075101 = phi i64 [ 0, %.lr.ph107.preheader ], [ %.277, %57 ]
   %.078100 = phi i64 [ 0, %.lr.ph107.preheader ], [ %.280, %57 ]
   %.08199 = phi i64 [ 0, %.lr.ph107.preheader ], [ %.283, %57 ]
-  %5 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !19
   %7 = sext i32 %6 to i64
   %8 = mul nsw i64 %7, %7
@@ -251,7 +249,7 @@ define internal void @sbr_neg_odd_64_c(ptr noundef captures(none) %0) #1 {
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %4 = load i32, ptr %3, align 4, !tbaa !19
   %5 = sub i32 0, %4
   store i32 %5, ptr %3, align 4, !tbaa !19
@@ -277,7 +275,7 @@ define internal void @sbr_qmf_pre_shuffle_c(ptr noundef captures(none) initializ
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %7 ]
   %8 = sub nuw nsw i64 64, %indvars.iv
-  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !19
   %11 = sub nsw i32 0, %10
   %.idx = shl nuw nsw i64 %indvars.iv, 3
@@ -285,7 +283,7 @@ define internal void @sbr_qmf_pre_shuffle_c(ptr noundef captures(none) initializ
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store i32 %11, ptr %13, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next
   %15 = load i32, ptr %14, align 4, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 260
   store i32 %15, ptr %16, align 4, !tbaa !19
@@ -303,12 +301,12 @@ define internal void @sbr_qmf_post_shuffle_c(ptr noundef writeonly captures(none
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %4 = sub nuw nsw i64 63, %indvars.iv
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !19
   %7 = sub nsw i32 0, %6
-  %8 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i32 %7, ptr %8, align 4, !tbaa !19
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %10, ptr %11, align 4, !tbaa !19
@@ -328,19 +326,19 @@ define internal void @sbr_qmf_deint_neg_c(ptr noundef writeonly captures(none) %
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %4 = shl nuw nsw i64 %indvars.iv, 1
   %5 = sub nuw nsw i64 63, %4
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !19
   %8 = add i32 %7, 16
   %9 = ashr i32 %8, 5
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %9, ptr %10, align 4, !tbaa !19
   %11 = sub nuw nsw i64 62, %4
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !19
   %14 = sub i32 16, %13
   %15 = ashr i32 %14, 5
   %16 = sub nuw nsw i64 63, %indvars.iv
-  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %16
   store i32 %15, ptr %17, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -356,15 +354,15 @@ define internal void @sbr_qmf_deint_bfly_c(ptr noundef writeonly captures(none) 
 
 4:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !19
   %7 = add i32 %6, 16
   %8 = sub nuw nsw i64 63, %indvars.iv
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !19
   %11 = sub i32 %7, %10
   %12 = ashr i32 %11, 5
-  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %12, ptr %13, align 4, !tbaa !19
   %14 = load i32, ptr %5, align 4, !tbaa !19
   %15 = add i32 %14, 16
@@ -372,7 +370,7 @@ define internal void @sbr_qmf_deint_bfly_c(ptr noundef writeonly captures(none) 
   %17 = add i32 %15, %16
   %18 = ashr i32 %17, 5
   %19 = sub nuw nsw i64 127, %indvars.iv
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %19
   store i32 %18, ptr %20, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -389,7 +387,7 @@ define internal void @sbr_autocorrelate_c(ptr noundef readonly captures(none) %0
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %3 ]
   %.1105.i194 = phi i64 [ 0, %2 ], [ %13, %3 ]
-  %4 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !19
   %6 = sext i32 %5 to i64
   %7 = mul nsw i64 %6, %6
@@ -591,7 +589,7 @@ av_int2sf.exit76:                                 ; preds = %autocorr_calc.exit5
   %.0106.i204 = phi i64 [ 0, %av_int2sf.exit76 ], [ %121, %103 ]
   %106 = sext i32 %105 to i64
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
-  %107 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv.next276
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next276
   %108 = load i32, ptr %107, align 4, !tbaa !19
   %109 = sext i32 %108 to i64
   %110 = mul nsw i64 %109, %106
@@ -955,7 +953,7 @@ av_int2sf.exit136:                                ; preds = %autocorr_calc.exit2
   %indvars.iv279 = phi i64 [ 1, %av_int2sf.exit136 ], [ %indvars.iv.next280, %293 ]
   %.0104.i8232 = phi i64 [ 0, %av_int2sf.exit136 ], [ %309, %293 ]
   %.0106.i7231 = phi i64 [ 0, %av_int2sf.exit136 ], [ %313, %293 ]
-  %294 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv279
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv279
   %295 = load i32, ptr %294, align 4, !tbaa !19
   %296 = sext i32 %295 to i64
   %297 = getelementptr inbounds nuw i8, ptr %294, i64 16
@@ -1198,7 +1196,7 @@ define internal void @sbr_hf_gen_c(ptr noundef writeonly captures(none) %0, ptr 
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ %32, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds [2 x i32], ptr %1, i64 %indvars.iv
+  %34 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !19
   %36 = sext i32 %35 to i64
   %37 = shl nsw i64 %36, 29
@@ -1225,7 +1223,7 @@ define internal void @sbr_hf_gen_c(ptr noundef writeonly captures(none) %0, ptr 
   %58 = sub i64 %57, %54
   %59 = lshr i64 %58, 29
   %60 = trunc i64 %59 to i32
-  %61 = getelementptr inbounds [2 x i32], ptr %0, i64 %indvars.iv
+  %61 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv
   store i32 %60, ptr %61, align 4, !tbaa !19
   %62 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !19
@@ -1262,7 +1260,7 @@ define internal void @sbr_hf_gen_c(ptr noundef writeonly captures(none) %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4) #1 {
-  %invariant.gep = getelementptr [2 x i32], ptr %1, i64 %4
+  %invariant.gep = getelementptr [8 x i8], ptr %1, i64 %4
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1272,7 +1270,7 @@ define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
-  %7 = getelementptr inbounds nuw %struct.SoftFloat, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !36
   %10 = icmp sgt i32 %9, -39
@@ -1282,7 +1280,7 @@ define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, p
   %12 = sub nsw i32 22, %9
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw i64 1, %13
-  %gep = getelementptr [40 x [2 x i32]], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [320 x i8], ptr %invariant.gep, i64 %indvars.iv
   %15 = load i32, ptr %gep, align 4, !tbaa !19
   %16 = sext i32 %15 to i64
   %17 = load i32, ptr %7, align 4, !tbaa !38
@@ -1295,7 +1293,7 @@ define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, p
   %24 = zext nneg i32 %23 to i64
   %25 = ashr i64 %22, %24
   %26 = trunc i64 %25 to i32
-  %27 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !19
@@ -1336,13 +1334,13 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
   %.062.i12 = phi i32 [ %3, %.lr.ph.preheader ], [ %13, %.thread ]
-  %8 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !19
   %12 = add nsw i32 %.062.i12, 1
   %13 = and i32 %12, 511
-  %14 = getelementptr inbounds nuw %struct.SoftFloat, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !38
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %31, label %16
@@ -1369,7 +1367,7 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
   br label %.thread
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw %struct.SoftFloat, ptr %2, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !36
   %35 = sub nsw i32 22, %34
@@ -1386,7 +1384,7 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
   %42 = load i32, ptr %32, align 4, !tbaa !38
   %43 = sext i32 %42 to i64
   %44 = zext nneg i32 %13 to i64
-  %45 = getelementptr inbounds nuw [2 x i32], ptr @ff_sbr_noise_table_fixed, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @ff_sbr_noise_table_fixed, i64 %44
   %46 = load i32, ptr %45, align 8, !tbaa !19
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %47, %43
@@ -1442,13 +1440,13 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
   %.062.i15 = phi i32 [ %3, %.lr.ph.preheader ], [ %16, %.thread ]
   %.063.i14 = phi i32 [ %10, %.lr.ph.preheader ], [ %69, %.thread ]
-  %11 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !19
   %15 = add nsw i32 %.062.i15, 1
   %16 = and i32 %15, 511
-  %17 = getelementptr inbounds nuw %struct.SoftFloat, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !38
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %35, label %19
@@ -1476,7 +1474,7 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
   br label %.thread
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds nuw %struct.SoftFloat, ptr %2, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !36
   %39 = sub nsw i32 22, %38
@@ -1493,7 +1491,7 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
   %46 = load i32, ptr %36, align 4, !tbaa !38
   %47 = sext i32 %46 to i64
   %48 = zext nneg i32 %16 to i64
-  %49 = getelementptr inbounds nuw [2 x i32], ptr @ff_sbr_noise_table_fixed, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @ff_sbr_noise_table_fixed, i64 %48
   %50 = load i32, ptr %49, align 8, !tbaa !19
   %51 = sext i32 %50 to i64
   %52 = mul nsw i64 %51, %47
@@ -1546,13 +1544,13 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
   %.062.i12 = phi i32 [ %3, %.lr.ph.preheader ], [ %13, %.thread ]
-  %8 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !19
   %12 = add nsw i32 %.062.i12, 1
   %13 = and i32 %12, 511
-  %14 = getelementptr inbounds nuw %struct.SoftFloat, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !38
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %31, label %16
@@ -1579,7 +1577,7 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
   br label %.thread
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw %struct.SoftFloat, ptr %2, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !36
   %35 = sub nsw i32 22, %34
@@ -1596,7 +1594,7 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
   %42 = load i32, ptr %32, align 4, !tbaa !38
   %43 = sext i32 %42 to i64
   %44 = zext nneg i32 %13 to i64
-  %45 = getelementptr inbounds nuw [2 x i32], ptr @ff_sbr_noise_table_fixed, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @ff_sbr_noise_table_fixed, i64 %44
   %46 = load i32, ptr %45, align 8, !tbaa !19
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %47, %43
@@ -1652,13 +1650,13 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
   %.062.i15 = phi i32 [ %3, %.lr.ph.preheader ], [ %15, %.thread ]
   %.063.i14 = phi i32 [ %.neg, %.lr.ph.preheader ], [ %68, %.thread ]
-  %10 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !19
   %14 = add nsw i32 %.062.i15, 1
   %15 = and i32 %14, 511
-  %16 = getelementptr inbounds nuw %struct.SoftFloat, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !38
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %34, label %18
@@ -1686,7 +1684,7 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
   br label %.thread
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw %struct.SoftFloat, ptr %2, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !36
   %38 = sub nsw i32 22, %37
@@ -1703,7 +1701,7 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
   %45 = load i32, ptr %35, align 4, !tbaa !38
   %46 = sext i32 %45 to i64
   %47 = zext nneg i32 %15 to i64
-  %48 = getelementptr inbounds nuw [2 x i32], ptr @ff_sbr_noise_table_fixed, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @ff_sbr_noise_table_fixed, i64 %47
   %49 = load i32, ptr %48, align 8, !tbaa !19
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, %46

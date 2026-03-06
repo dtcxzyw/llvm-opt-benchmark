@@ -72,10 +72,10 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
   ret void
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %13) #9
   %14 = load ptr, ptr %5, align 8, !tbaa !25
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %15) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %6, align 8, !tbaa !20
@@ -283,16 +283,16 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %81 = sext i32 %80 to i64
   %82 = tail call ptr @av_malloc_array(i64 noundef %81, i64 noundef 2) #9
   %83 = load ptr, ptr %70, align 8, !tbaa !24
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv
   store ptr %82, ptr %84, align 8, !tbaa !64
   %85 = load i32, ptr %65, align 4, !tbaa !61
   %86 = sext i32 %85 to i64
   %87 = tail call ptr @av_malloc_array(i64 noundef %86, i64 noundef 2) #9
   %88 = load ptr, ptr %74, align 8, !tbaa !25
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv
   store ptr %87, ptr %89, align 8, !tbaa !64
   %90 = load ptr, ptr %70, align 8, !tbaa !24
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8, !tbaa !64
   %.not95 = icmp eq ptr %92, null
   %.not96 = icmp eq ptr %87, null
@@ -317,7 +317,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
 
 switch.lookup:                                    ; preds = %.critedge
   %98 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_input, i64 %98
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_input, i64 %98
   %switch.load = load ptr, ptr %switch.gep, align 8
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store ptr %switch.load, ptr %99, align 8, !tbaa !69
@@ -364,9 +364,9 @@ define internal noundef i32 @filter_slice(ptr noundef %0, ptr noundef readonly c
 
 21:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %22 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !57
-  %24 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !57
   %26 = mul nsw i32 %23, %2
   %27 = sdiv i32 %26, %3
@@ -380,16 +380,16 @@ define internal noundef i32 @filter_slice(ptr noundef %0, ptr noundef readonly c
   br i1 %.not, label %34, label %54
 
 34:                                               ; preds = %21
-  %35 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !71
-  %37 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !57
   %39 = mul nsw i32 %38, %27
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %36, i64 %40
-  %42 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !71
-  %44 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !57
   %46 = mul nsw i32 %45, %27
   %47 = sext i32 %46 to i64
@@ -404,13 +404,13 @@ define internal noundef i32 @filter_slice(ptr noundef %0, ptr noundef readonly c
 
 54:                                               ; preds = %21
   %55 = load ptr, ptr %17, align 8, !tbaa !69
-  %56 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !71
-  %58 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !57
-  %60 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !71
-  %62 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !57
   %64 = mul nsw i32 %63, %27
   %65 = sext i32 %64 to i64
@@ -479,7 +479,7 @@ define internal fastcc void @check_params(ptr noundef captures(none) %0, ptr nou
   br i1 %.not, label %54, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !57
   %35 = load i32, ptr %8, align 4, !tbaa !29
   %36 = shl nsw i32 %35, 1
@@ -497,7 +497,7 @@ define internal fastcc void @check_params(ptr noundef captures(none) %0, ptr nou
   br label %43
 
 43:                                               ; preds = %37, %32
-  %44 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !57
   %46 = load i32, ptr %11, align 8, !tbaa !28
   %47 = shl nsw i32 %46, 1
@@ -543,9 +543,9 @@ define internal void @hadd(ptr noundef captures(none) %0, ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !76
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %8 = load i16, ptr %7, align 2, !tbaa !76
   %9 = add i16 %8, %6
   store i16 %9, ptr %7, align 2, !tbaa !76
@@ -568,9 +568,9 @@ define internal void @hsub(ptr noundef captures(none) %0, ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !76
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %8 = load i16, ptr %7, align 2, !tbaa !76
   %9 = sub i16 %8, %6
   store i16 %9, ptr %7, align 2, !tbaa !76
@@ -594,9 +594,9 @@ define internal void @hmuladd(ptr noundef captures(none) %0, ptr noundef readonl
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !76
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %11 = load i16, ptr %10, align 2, !tbaa !76
   %12 = mul i16 %9, %6
   %13 = add i16 %12, %11
@@ -616,11 +616,11 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %9 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %22 = load ptr, ptr %21, align 8, !tbaa !25
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %18
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %18
   %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !29
@@ -669,7 +669,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %59 = and i32 %53, 15
   %60 = or disjoint i32 %58, %59
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %24, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !76
   %64 = add i16 %63, %49
   store i16 %64, ptr %62, align 2, !tbaa !76
@@ -678,8 +678,8 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %67 = zext nneg i8 %66 to i64
   %68 = shl i64 %indvars.iv, 4
   %.masked = and i64 %68, 4294967280
-  %69 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked
-  %70 = getelementptr inbounds nuw i16, ptr %69, i64 %67
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.masked
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %67
   %71 = load i16, ptr %70, align 2, !tbaa !76
   %72 = add i16 %71, %49
   store i16 %72, ptr %70, align 2, !tbaa !76
@@ -725,7 +725,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %92 = and i32 %86, 15
   %93 = or disjoint i32 %91, %92
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr %24, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !76
   %97 = add i16 %96, 1
   store i16 %97, ptr %95, align 2, !tbaa !76
@@ -734,8 +734,8 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %100 = zext nneg i8 %99 to i64
   %101 = shl i64 %indvars.iv325, 4
   %.masked380 = and i64 %101, 4294967280
-  %102 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked380
-  %103 = getelementptr inbounds nuw i16, ptr %102, i64 %100
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.masked380
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %102, i64 %100
   %104 = load i16, ptr %103, align 2, !tbaa !76
   %105 = add i16 %104, 1
   store i16 %105, ptr %103, align 2, !tbaa !76
@@ -814,7 +814,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %141 = and i32 %135, 15
   %142 = or disjoint i32 %140, %141
   %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw i16, ptr %24, i64 %143
+  %144 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %143
   %145 = load i16, ptr %144, align 2, !tbaa !76
   %146 = add i16 %145, -1
   store i16 %146, ptr %144, align 2, !tbaa !76
@@ -823,8 +823,8 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %149 = zext nneg i8 %148 to i64
   %150 = shl i64 %indvars.iv331, 4
   %.masked381 = and i64 %150, 4294967280
-  %151 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked381
-  %152 = getelementptr inbounds nuw i16, ptr %151, i64 %149
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.masked381
+  %152 = getelementptr inbounds nuw [2 x i8], ptr %151, i64 %149
   %153 = load i16, ptr %152, align 2, !tbaa !76
   %154 = add i16 %153, -1
   store i16 %154, ptr %152, align 2, !tbaa !76
@@ -853,7 +853,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %164 = and i32 %158, 15
   %165 = or disjoint i32 %163, %164
   %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds nuw i16, ptr %24, i64 %166
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %166
   %168 = load i16, ptr %167, align 2, !tbaa !76
   %169 = add i16 %168, 1
   store i16 %169, ptr %167, align 2, !tbaa !76
@@ -862,8 +862,8 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %172 = zext nneg i8 %171 to i64
   %173 = shl i64 %indvars.iv336, 4
   %.masked382 = and i64 %173, 4294967280
-  %174 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked382
-  %175 = getelementptr inbounds nuw i16, ptr %174, i64 %172
+  %174 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.masked382
+  %175 = getelementptr inbounds nuw [2 x i8], ptr %174, i64 %172
   %176 = load i16, ptr %175, align 2, !tbaa !76
   %177 = add i16 %176, 1
   store i16 %177, ptr %175, align 2, !tbaa !76
@@ -887,9 +887,9 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
 .preheader270:                                    ; preds = %.preheader270.preheader, %.preheader270
   %indvars.iv346 = phi i64 [ %indvars.iv.next347, %.preheader270 ], [ 0, %.preheader270.preheader ]
   %180 = load ptr, ptr %111, align 8, !tbaa !68
-  %181 = getelementptr inbounds nuw [16 x i16], ptr %12, i64 %indvars.iv346
+  %181 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv346
   %182 = mul nsw i64 %indvars.iv346, %120
-  %183 = getelementptr inbounds i16, ptr %24, i64 %182
+  %183 = getelementptr inbounds [2 x i8], ptr %24, i64 %182
   call void %180(ptr noundef nonnull %181, ptr noundef %183, i32 noundef %116, i32 noundef 16) #9
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, 16
@@ -913,14 +913,14 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %.265 = call i32 @llvm.smin.i32(i32 %188, i32 %117)
   %189 = shl nsw i32 %.265, 4
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds i16, ptr %20, i64 %190
+  %191 = getelementptr inbounds [2 x i8], ptr %20, i64 %190
   call void %186(ptr noundef nonnull %11, ptr noundef %191, i32 noundef 16) #9
   br label %192
 
 192:                                              ; preds = %.lr.ph310, %198
   %indvars.iv350 = phi i64 [ 0, %.lr.ph310 ], [ %indvars.iv.next351, %198 ]
   %.0231295 = phi i32 [ 0, %.lr.ph310 ], [ %196, %198 ]
-  %193 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv350
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv350
   %194 = load i16, ptr %193, align 2, !tbaa !76
   %195 = zext i16 %194 to i32
   %196 = add nuw nsw i32 %.0231295, %195
@@ -939,7 +939,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
 
 199:                                              ; preds = %192
   %200 = trunc nuw nsw i64 %indvars.iv350 to i32
-  %201 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv350
+  %201 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv350
   %202 = load i16, ptr %201, align 2, !tbaa !76
   %203 = sub nsw i64 %indvars.iv358, %121
   %204 = zext i16 %202 to i64
@@ -951,12 +951,12 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not261304, label %.loopexit, label %.lr.ph305
 
 .lr.ph305:                                        ; preds = %.preheader
-  %205 = getelementptr inbounds nuw [16 x i16], ptr %12, i64 %indvars.iv350
+  %205 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv350
   %206 = mul nuw nsw i32 %5, %200
   br label %237
 
 207:                                              ; preds = %199
-  %208 = getelementptr inbounds nuw [16 x i16], ptr %12, i64 %indvars.iv350
+  %208 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv350
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %208, i8 0, i64 32, i1 false)
   %209 = trunc nsw i64 %203 to i32
   %210 = trunc i64 %203 to i16
@@ -978,7 +978,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %219 = add nuw nsw i32 %217, %215
   %220 = shl nsw i32 %219, 4
   %221 = zext nneg i32 %220 to i64
-  %222 = getelementptr inbounds nuw i16, ptr %24, i64 %221
+  %222 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %221
   call void %218(ptr noundef nonnull %208, ptr noundef %222, i32 noundef 16) #9
   %223 = add i16 %storemerge297, 1
   %224 = zext i16 %223 to i32
@@ -999,7 +999,7 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %230 = mul i32 %114, %229
   %231 = add i32 %230, -16
   %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds i16, ptr %24, i64 %232
+  %233 = getelementptr inbounds [2 x i8], ptr %24, i64 %232
   %234 = trunc i64 %211 to i32
   %235 = sub i32 %234, %5
   call void %228(ptr noundef nonnull %208, ptr noundef %233, i32 noundef %235, i32 noundef 16) #9
@@ -1016,14 +1016,14 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %242 = add nuw nsw i32 %spec.select, %206
   %243 = shl nsw i32 %242, 4
   %244 = zext nneg i32 %243 to i64
-  %245 = getelementptr inbounds nuw i16, ptr %24, i64 %244
+  %245 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %244
   call void %240(ptr noundef nonnull %205, ptr noundef %245, i32 noundef 16) #9
   %246 = load ptr, ptr %113, align 8, !tbaa !66
   %247 = call i32 @llvm.smin.i32(i32 %239, i32 %117)
   %248 = add nsw i32 %247, %206
   %249 = shl nsw i32 %248, 4
   %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds i16, ptr %24, i64 %250
+  %251 = getelementptr inbounds [2 x i8], ptr %24, i64 %250
   call void %246(ptr noundef nonnull %205, ptr noundef %251, i32 noundef 16) #9
   %252 = add i16 %238, 1
   %253 = zext i16 %252 to i64
@@ -1042,15 +1042,15 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %256 = call i32 @llvm.smax.i32(i32 %.pre-phi, i32 0)
   %257 = shl nsw i32 %256, 4
   %258 = zext nneg i32 %257 to i64
-  %259 = getelementptr inbounds nuw i16, ptr %20, i64 %258
+  %259 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %258
   call void %255(ptr noundef nonnull %11, ptr noundef %259, i32 noundef 16) #9
-  %260 = getelementptr inbounds nuw [16 x i16], ptr %12, i64 %indvars.iv350
+  %260 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv350
   br label %261
 
 261:                                              ; preds = %254, %267
   %indvars.iv354 = phi i64 [ 0, %254 ], [ %indvars.iv.next355, %267 ]
   %.2307 = phi i32 [ %.0231295, %254 ], [ %265, %267 ]
-  %262 = getelementptr inbounds nuw i16, ptr %260, i64 %indvars.iv354
+  %262 = getelementptr inbounds nuw [2 x i8], ptr %260, i64 %indvars.iv354
   %263 = load i16, ptr %262, align 2, !tbaa !76
   %264 = zext i16 %263 to i32
   %265 = add nuw nsw i32 %.2307, %264
@@ -1089,11 +1089,11 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %9 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %22 = load ptr, ptr %21, align 8, !tbaa !25
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %18
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %18
   %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !29
@@ -1117,7 +1117,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
   %43 = mul nsw i32 %42, %31
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %1, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %1, i64 %44
   %46 = icmp eq i32 %9, 0
   %47 = icmp sgt i32 %5, 0
   %or.cond = and i1 %46, %47
@@ -1131,7 +1131,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
 
 50:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv
   %52 = load i16, ptr %51, align 2, !tbaa !76
   %53 = zext i16 %52 to i32
   %54 = lshr i32 %53, 5
@@ -1142,7 +1142,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %59 = and i32 %53, 31
   %60 = or disjoint i32 %58, %59
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %24, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !76
   %64 = add i16 %63, %49
   store i16 %64, ptr %62, align 2, !tbaa !76
@@ -1152,7 +1152,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %68 = shl i64 %indvars.iv, 5
   %69 = add i64 %68, %67
   %70 = and i64 %69, 4294967295
-  %71 = getelementptr inbounds nuw i16, ptr %20, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !76
   %73 = add i16 %72, %49
   store i16 %73, ptr %71, align 2, !tbaa !76
@@ -1179,7 +1179,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %82 = mul nsw i32 %80, %31
   %narrow = select i1 %81, i32 0, i32 %82
   %83 = sext i32 %narrow to i64
-  %84 = getelementptr inbounds i16, ptr %1, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %1, i64 %83
   %wide.trip.count328 = zext nneg i32 %5 to i64
   br label %.preheader272.us
 
@@ -1190,7 +1190,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
 
 85:                                               ; preds = %.preheader272.us, %85
   %indvars.iv325 = phi i64 [ 0, %.preheader272.us ], [ %indvars.iv.next326, %85 ]
-  %86 = getelementptr inbounds nuw i16, ptr %.0241283.us, i64 %indvars.iv325
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %.0241283.us, i64 %indvars.iv325
   %87 = load i16, ptr %86, align 2, !tbaa !76
   %88 = zext i16 %87 to i32
   %89 = lshr i32 %88, 5
@@ -1201,7 +1201,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %94 = and i32 %88, 31
   %95 = or disjoint i32 %93, %94
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %24, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !76
   %99 = add i16 %98, 1
   store i16 %99, ptr %97, align 2, !tbaa !76
@@ -1211,7 +1211,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %103 = shl i64 %indvars.iv325, 5
   %104 = add i64 %103, %102
   %105 = and i64 %104, 4294967295
-  %106 = getelementptr inbounds nuw i16, ptr %20, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !76
   %108 = add i16 %107, 1
   store i16 %108, ptr %106, align 2, !tbaa !76
@@ -1220,7 +1220,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond329.not, label %._crit_edge.us, label %85, !llvm.loop !96
 
 ._crit_edge.us:                                   ; preds = %85
-  %109 = getelementptr inbounds i16, ptr %.0241283.us, i64 %79
+  %109 = getelementptr inbounds [2 x i8], ptr %.0241283.us, i64 %79
   %110 = add nuw nsw i32 %.0239284.us, 1
   %exitcond330.not = icmp eq i32 %110, %77
   br i1 %exitcond330.not, label %.preheader271, label %.preheader272.us, !llvm.loop !97
@@ -1267,7 +1267,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %129 = call i32 @llvm.smax.i32(i32 %128, i32 0)
   %130 = mul nsw i32 %129, %31
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i16, ptr %1, i64 %131
+  %132 = getelementptr inbounds [2 x i8], ptr %1, i64 %131
   br i1 %47, label %.lr.ph286, label %._crit_edge290
 
 .lr.ph289.preheader:                              ; preds = %.lr.ph286
@@ -1275,12 +1275,12 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %.380 = call i32 @llvm.smin.i32(i32 %113, i32 %133)
   %134 = mul nsw i32 %.380, %31
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i16, ptr %1, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %1, i64 %135
   br label %.lr.ph289
 
 .lr.ph286:                                        ; preds = %127, %.lr.ph286
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %.lr.ph286 ], [ 0, %127 ]
-  %137 = getelementptr inbounds nuw i16, ptr %132, i64 %indvars.iv331
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %indvars.iv331
   %138 = load i16, ptr %137, align 2, !tbaa !76
   %139 = zext i16 %138 to i32
   %140 = lshr i32 %139, 5
@@ -1291,7 +1291,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %145 = and i32 %139, 31
   %146 = or disjoint i32 %144, %145
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw i16, ptr %24, i64 %147
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !76
   %150 = add i16 %149, -1
   store i16 %150, ptr %148, align 2, !tbaa !76
@@ -1301,7 +1301,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %154 = shl i64 %indvars.iv331, 5
   %155 = add i64 %154, %153
   %156 = and i64 %155, 4294967295
-  %157 = getelementptr inbounds nuw i16, ptr %20, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %156
   %158 = load i16, ptr %157, align 2, !tbaa !76
   %159 = add i16 %158, -1
   store i16 %159, ptr %157, align 2, !tbaa !76
@@ -1319,7 +1319,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph289:                                        ; preds = %.lr.ph289.preheader, %.lr.ph289
   %indvars.iv336 = phi i64 [ 0, %.lr.ph289.preheader ], [ %indvars.iv.next337, %.lr.ph289 ]
-  %161 = getelementptr inbounds nuw i16, ptr %136, i64 %indvars.iv336
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %136, i64 %indvars.iv336
   %162 = load i16, ptr %161, align 2, !tbaa !76
   %163 = zext i16 %162 to i32
   %164 = lshr i32 %163, 5
@@ -1330,7 +1330,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %169 = and i32 %163, 31
   %170 = or disjoint i32 %168, %169
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw i16, ptr %24, i64 %171
+  %172 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %171
   %173 = load i16, ptr %172, align 2, !tbaa !76
   %174 = add i16 %173, 1
   store i16 %174, ptr %172, align 2, !tbaa !76
@@ -1340,7 +1340,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %178 = shl i64 %indvars.iv336, 5
   %179 = add i64 %178, %177
   %180 = and i64 %179, 4294967295
-  %181 = getelementptr inbounds nuw i16, ptr %20, i64 %180
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !76
   %183 = add i16 %182, 1
   store i16 %183, ptr %181, align 2, !tbaa !76
@@ -1364,16 +1364,16 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
 .preheader270:                                    ; preds = %.preheader270.preheader, %.preheader270
   %indvars.iv346 = phi i64 [ %indvars.iv.next347, %.preheader270 ], [ 0, %.preheader270.preheader ]
   %186 = load ptr, ptr %114, align 8, !tbaa !68
-  %187 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv346
+  %187 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %indvars.iv346
   %188 = mul nsw i64 %indvars.iv346, %124
-  %189 = getelementptr inbounds i16, ptr %24, i64 %188
+  %189 = getelementptr inbounds [2 x i8], ptr %24, i64 %188
   call void %186(ptr noundef nonnull %187, ptr noundef %189, i32 noundef %119, i32 noundef 32) #9
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, 32
   br i1 %exitcond349.not, label %.preheader269, label %.preheader270, !llvm.loop !101
 
 ._crit_edge311:                                   ; preds = %274, %.preheader269
-  %190 = getelementptr inbounds i16, ptr %.0242312, i64 %123
+  %190 = getelementptr inbounds [2 x i8], ptr %.0242312, i64 %123
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1390,14 +1390,14 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %.265 = call i32 @llvm.smin.i32(i32 %194, i32 %120)
   %195 = shl nsw i32 %.265, 5
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds i16, ptr %20, i64 %196
+  %197 = getelementptr inbounds [2 x i8], ptr %20, i64 %196
   call void %192(ptr noundef nonnull %11, ptr noundef %197, i32 noundef 32) #9
   br label %198
 
 198:                                              ; preds = %.lr.ph310, %204
   %indvars.iv350 = phi i64 [ 0, %.lr.ph310 ], [ %indvars.iv.next351, %204 ]
   %.0231295 = phi i32 [ 0, %.lr.ph310 ], [ %202, %204 ]
-  %199 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv350
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv350
   %200 = load i16, ptr %199, align 2, !tbaa !76
   %201 = zext i16 %200 to i32
   %202 = add nuw nsw i32 %.0231295, %201
@@ -1416,7 +1416,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
 
 205:                                              ; preds = %198
   %206 = trunc nuw nsw i64 %indvars.iv350 to i32
-  %207 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv350
+  %207 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv350
   %208 = load i16, ptr %207, align 2, !tbaa !76
   %209 = sub nsw i64 %indvars.iv358, %125
   %210 = zext i16 %208 to i64
@@ -1428,12 +1428,12 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not261304, label %.loopexit, label %.lr.ph305
 
 .lr.ph305:                                        ; preds = %.preheader
-  %211 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv350
+  %211 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %indvars.iv350
   %212 = mul nuw nsw i32 %5, %206
   br label %243
 
 213:                                              ; preds = %205
-  %214 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv350
+  %214 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %indvars.iv350
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %214, i8 0, i64 64, i1 false)
   %215 = trunc nsw i64 %209 to i32
   %216 = trunc i64 %209 to i16
@@ -1455,7 +1455,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %225 = add nuw nsw i32 %223, %221
   %226 = shl nsw i32 %225, 5
   %227 = zext nneg i32 %226 to i64
-  %228 = getelementptr inbounds nuw i16, ptr %24, i64 %227
+  %228 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %227
   call void %224(ptr noundef nonnull %214, ptr noundef %228, i32 noundef 32) #9
   %229 = add i16 %storemerge297, 1
   %230 = zext i16 %229 to i32
@@ -1476,7 +1476,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %236 = mul i32 %117, %235
   %237 = add i32 %236, -32
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds i16, ptr %24, i64 %238
+  %239 = getelementptr inbounds [2 x i8], ptr %24, i64 %238
   %240 = trunc i64 %217 to i32
   %241 = sub i32 %240, %5
   call void %234(ptr noundef nonnull %214, ptr noundef %239, i32 noundef %241, i32 noundef 32) #9
@@ -1493,14 +1493,14 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %248 = add nuw nsw i32 %spec.select, %212
   %249 = shl nsw i32 %248, 5
   %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr inbounds nuw i16, ptr %24, i64 %250
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %250
   call void %246(ptr noundef nonnull %211, ptr noundef %251, i32 noundef 32) #9
   %252 = load ptr, ptr %116, align 8, !tbaa !66
   %253 = call i32 @llvm.smin.i32(i32 %245, i32 %120)
   %254 = add nsw i32 %253, %212
   %255 = shl nsw i32 %254, 5
   %256 = sext i32 %255 to i64
-  %257 = getelementptr inbounds i16, ptr %24, i64 %256
+  %257 = getelementptr inbounds [2 x i8], ptr %24, i64 %256
   call void %252(ptr noundef nonnull %211, ptr noundef %257, i32 noundef 32) #9
   %258 = add i16 %244, 1
   %259 = zext i16 %258 to i64
@@ -1519,15 +1519,15 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %262 = call i32 @llvm.smax.i32(i32 %.pre-phi, i32 0)
   %263 = shl nsw i32 %262, 5
   %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw i16, ptr %20, i64 %264
+  %265 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %264
   call void %261(ptr noundef nonnull %11, ptr noundef %265, i32 noundef 32) #9
-  %266 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv350
+  %266 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %indvars.iv350
   br label %267
 
 267:                                              ; preds = %260, %273
   %indvars.iv354 = phi i64 [ 0, %260 ], [ %indvars.iv.next355, %273 ]
   %.2307 = phi i32 [ %.0231295, %260 ], [ %271, %273 ]
-  %268 = getelementptr inbounds nuw i16, ptr %266, i64 %indvars.iv354
+  %268 = getelementptr inbounds nuw [2 x i8], ptr %266, i64 %indvars.iv354
   %269 = load i16, ptr %268, align 2, !tbaa !76
   %270 = zext i16 %269 to i32
   %271 = add nuw nsw i32 %.2307, %270
@@ -1549,7 +1549,7 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
   %276 = shl nuw nsw i32 %206, 5
   %277 = add nuw nsw i32 %276, %275
   %278 = trunc nuw i32 %277 to i16
-  %279 = getelementptr inbounds nuw i16, ptr %.0242312, i64 %indvars.iv358
+  %279 = getelementptr inbounds nuw [2 x i8], ptr %.0242312, i64 %indvars.iv358
   store i16 %278, ptr %279, align 2, !tbaa !76
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
@@ -1566,11 +1566,11 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %9 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %22 = load ptr, ptr %21, align 8, !tbaa !25
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %18
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %18
   %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !29
@@ -1594,7 +1594,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
   %43 = mul nsw i32 %42, %31
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %1, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %1, i64 %44
   %46 = icmp eq i32 %9, 0
   %47 = icmp sgt i32 %5, 0
   %or.cond = and i1 %46, %47
@@ -1608,7 +1608,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
 
 50:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv
   %52 = load i16, ptr %51, align 2, !tbaa !76
   %53 = zext i16 %52 to i32
   %54 = lshr i32 %53, 5
@@ -1619,7 +1619,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %59 = and i32 %53, 31
   %60 = or disjoint i32 %58, %59
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %24, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !76
   %64 = add i16 %63, %49
   store i16 %64, ptr %62, align 2, !tbaa !76
@@ -1629,7 +1629,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %68 = shl i64 %indvars.iv, 5
   %69 = add i64 %68, %67
   %70 = and i64 %69, 4294967295
-  %71 = getelementptr inbounds nuw i16, ptr %20, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !76
   %73 = add i16 %72, %49
   store i16 %73, ptr %71, align 2, !tbaa !76
@@ -1656,7 +1656,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %82 = mul nsw i32 %80, %31
   %narrow = select i1 %81, i32 0, i32 %82
   %83 = sext i32 %narrow to i64
-  %84 = getelementptr inbounds i16, ptr %1, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %1, i64 %83
   %wide.trip.count328 = zext nneg i32 %5 to i64
   br label %.preheader272.us
 
@@ -1667,7 +1667,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
 
 85:                                               ; preds = %.preheader272.us, %85
   %indvars.iv325 = phi i64 [ 0, %.preheader272.us ], [ %indvars.iv.next326, %85 ]
-  %86 = getelementptr inbounds nuw i16, ptr %.0241283.us, i64 %indvars.iv325
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %.0241283.us, i64 %indvars.iv325
   %87 = load i16, ptr %86, align 2, !tbaa !76
   %88 = zext i16 %87 to i32
   %89 = lshr i32 %88, 5
@@ -1678,7 +1678,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %94 = and i32 %88, 31
   %95 = or disjoint i32 %93, %94
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %24, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !76
   %99 = add i16 %98, 1
   store i16 %99, ptr %97, align 2, !tbaa !76
@@ -1688,7 +1688,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %103 = shl i64 %indvars.iv325, 5
   %104 = add i64 %103, %102
   %105 = and i64 %104, 4294967295
-  %106 = getelementptr inbounds nuw i16, ptr %20, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !76
   %108 = add i16 %107, 1
   store i16 %108, ptr %106, align 2, !tbaa !76
@@ -1697,7 +1697,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond329.not, label %._crit_edge.us, label %85, !llvm.loop !109
 
 ._crit_edge.us:                                   ; preds = %85
-  %109 = getelementptr inbounds i16, ptr %.0241283.us, i64 %79
+  %109 = getelementptr inbounds [2 x i8], ptr %.0241283.us, i64 %79
   %110 = add nuw nsw i32 %.0239284.us, 1
   %exitcond330.not = icmp eq i32 %110, %77
   br i1 %exitcond330.not, label %.preheader271, label %.preheader272.us, !llvm.loop !110
@@ -1744,7 +1744,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %129 = call i32 @llvm.smax.i32(i32 %128, i32 0)
   %130 = mul nsw i32 %129, %31
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i16, ptr %1, i64 %131
+  %132 = getelementptr inbounds [2 x i8], ptr %1, i64 %131
   br i1 %47, label %.lr.ph286, label %._crit_edge290
 
 .lr.ph289.preheader:                              ; preds = %.lr.ph286
@@ -1752,12 +1752,12 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %.380 = call i32 @llvm.smin.i32(i32 %113, i32 %133)
   %134 = mul nsw i32 %.380, %31
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i16, ptr %1, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %1, i64 %135
   br label %.lr.ph289
 
 .lr.ph286:                                        ; preds = %127, %.lr.ph286
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %.lr.ph286 ], [ 0, %127 ]
-  %137 = getelementptr inbounds nuw i16, ptr %132, i64 %indvars.iv331
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %indvars.iv331
   %138 = load i16, ptr %137, align 2, !tbaa !76
   %139 = zext i16 %138 to i32
   %140 = lshr i32 %139, 5
@@ -1768,7 +1768,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %145 = and i32 %139, 31
   %146 = or disjoint i32 %144, %145
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw i16, ptr %24, i64 %147
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !76
   %150 = add i16 %149, -1
   store i16 %150, ptr %148, align 2, !tbaa !76
@@ -1778,7 +1778,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %154 = shl i64 %indvars.iv331, 5
   %155 = add i64 %154, %153
   %156 = and i64 %155, 4294967295
-  %157 = getelementptr inbounds nuw i16, ptr %20, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %156
   %158 = load i16, ptr %157, align 2, !tbaa !76
   %159 = add i16 %158, -1
   store i16 %159, ptr %157, align 2, !tbaa !76
@@ -1796,7 +1796,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph289:                                        ; preds = %.lr.ph289.preheader, %.lr.ph289
   %indvars.iv336 = phi i64 [ 0, %.lr.ph289.preheader ], [ %indvars.iv.next337, %.lr.ph289 ]
-  %161 = getelementptr inbounds nuw i16, ptr %136, i64 %indvars.iv336
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %136, i64 %indvars.iv336
   %162 = load i16, ptr %161, align 2, !tbaa !76
   %163 = zext i16 %162 to i32
   %164 = lshr i32 %163, 5
@@ -1807,7 +1807,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %169 = and i32 %163, 31
   %170 = or disjoint i32 %168, %169
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw i16, ptr %24, i64 %171
+  %172 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %171
   %173 = load i16, ptr %172, align 2, !tbaa !76
   %174 = add i16 %173, 1
   store i16 %174, ptr %172, align 2, !tbaa !76
@@ -1817,7 +1817,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %178 = shl i64 %indvars.iv336, 5
   %179 = add i64 %178, %177
   %180 = and i64 %179, 4294967295
-  %181 = getelementptr inbounds nuw i16, ptr %20, i64 %180
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !76
   %183 = add i16 %182, 1
   store i16 %183, ptr %181, align 2, !tbaa !76
@@ -1841,16 +1841,16 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
 .preheader270:                                    ; preds = %.preheader270.preheader, %.preheader270
   %indvars.iv346 = phi i64 [ %indvars.iv.next347, %.preheader270 ], [ 0, %.preheader270.preheader ]
   %186 = load ptr, ptr %114, align 8, !tbaa !68
-  %187 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv346
+  %187 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %indvars.iv346
   %188 = mul nsw i64 %indvars.iv346, %124
-  %189 = getelementptr inbounds i16, ptr %24, i64 %188
+  %189 = getelementptr inbounds [2 x i8], ptr %24, i64 %188
   call void %186(ptr noundef nonnull %187, ptr noundef %189, i32 noundef %119, i32 noundef 32) #9
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, 32
   br i1 %exitcond349.not, label %.preheader269, label %.preheader270, !llvm.loop !114
 
 ._crit_edge311:                                   ; preds = %274, %.preheader269
-  %190 = getelementptr inbounds i16, ptr %.0242312, i64 %123
+  %190 = getelementptr inbounds [2 x i8], ptr %.0242312, i64 %123
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1867,14 +1867,14 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %.265 = call i32 @llvm.smin.i32(i32 %194, i32 %120)
   %195 = shl nsw i32 %.265, 5
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds i16, ptr %20, i64 %196
+  %197 = getelementptr inbounds [2 x i8], ptr %20, i64 %196
   call void %192(ptr noundef nonnull %11, ptr noundef %197, i32 noundef 32) #9
   br label %198
 
 198:                                              ; preds = %.lr.ph310, %204
   %indvars.iv350 = phi i64 [ 0, %.lr.ph310 ], [ %indvars.iv.next351, %204 ]
   %.0231295 = phi i32 [ 0, %.lr.ph310 ], [ %202, %204 ]
-  %199 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv350
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv350
   %200 = load i16, ptr %199, align 2, !tbaa !76
   %201 = zext i16 %200 to i32
   %202 = add nuw nsw i32 %.0231295, %201
@@ -1893,7 +1893,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
 
 205:                                              ; preds = %198
   %206 = trunc nuw nsw i64 %indvars.iv350 to i32
-  %207 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv350
+  %207 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv350
   %208 = load i16, ptr %207, align 2, !tbaa !76
   %209 = sub nsw i64 %indvars.iv358, %125
   %210 = zext i16 %208 to i64
@@ -1905,12 +1905,12 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   br i1 %.not261304, label %.loopexit, label %.lr.ph305
 
 .lr.ph305:                                        ; preds = %.preheader
-  %211 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv350
+  %211 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %indvars.iv350
   %212 = mul nuw nsw i32 %5, %206
   br label %243
 
 213:                                              ; preds = %205
-  %214 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv350
+  %214 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %indvars.iv350
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %214, i8 0, i64 64, i1 false)
   %215 = trunc nsw i64 %209 to i32
   %216 = trunc i64 %209 to i16
@@ -1932,7 +1932,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %225 = add nuw nsw i32 %223, %221
   %226 = shl nsw i32 %225, 5
   %227 = zext nneg i32 %226 to i64
-  %228 = getelementptr inbounds nuw i16, ptr %24, i64 %227
+  %228 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %227
   call void %224(ptr noundef nonnull %214, ptr noundef %228, i32 noundef 32) #9
   %229 = add i16 %storemerge297, 1
   %230 = zext i16 %229 to i32
@@ -1953,7 +1953,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %236 = mul i32 %117, %235
   %237 = add i32 %236, -32
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds i16, ptr %24, i64 %238
+  %239 = getelementptr inbounds [2 x i8], ptr %24, i64 %238
   %240 = trunc i64 %217 to i32
   %241 = sub i32 %240, %5
   call void %234(ptr noundef nonnull %214, ptr noundef %239, i32 noundef %241, i32 noundef 32) #9
@@ -1970,14 +1970,14 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %248 = add nuw nsw i32 %spec.select, %212
   %249 = shl nsw i32 %248, 5
   %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr inbounds nuw i16, ptr %24, i64 %250
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %250
   call void %246(ptr noundef nonnull %211, ptr noundef %251, i32 noundef 32) #9
   %252 = load ptr, ptr %116, align 8, !tbaa !66
   %253 = call i32 @llvm.smin.i32(i32 %245, i32 %120)
   %254 = add nsw i32 %253, %212
   %255 = shl nsw i32 %254, 5
   %256 = sext i32 %255 to i64
-  %257 = getelementptr inbounds i16, ptr %24, i64 %256
+  %257 = getelementptr inbounds [2 x i8], ptr %24, i64 %256
   call void %252(ptr noundef nonnull %211, ptr noundef %257, i32 noundef 32) #9
   %258 = add i16 %244, 1
   %259 = zext i16 %258 to i64
@@ -1996,15 +1996,15 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %262 = call i32 @llvm.smax.i32(i32 %.pre-phi, i32 0)
   %263 = shl nsw i32 %262, 5
   %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw i16, ptr %20, i64 %264
+  %265 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %264
   call void %261(ptr noundef nonnull %11, ptr noundef %265, i32 noundef 32) #9
-  %266 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %indvars.iv350
+  %266 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %indvars.iv350
   br label %267
 
 267:                                              ; preds = %260, %273
   %indvars.iv354 = phi i64 [ 0, %260 ], [ %indvars.iv.next355, %273 ]
   %.2307 = phi i32 [ %.0231295, %260 ], [ %271, %273 ]
-  %268 = getelementptr inbounds nuw i16, ptr %266, i64 %indvars.iv354
+  %268 = getelementptr inbounds nuw [2 x i8], ptr %266, i64 %indvars.iv354
   %269 = load i16, ptr %268, align 2, !tbaa !76
   %270 = zext i16 %269 to i32
   %271 = add nuw nsw i32 %.2307, %270
@@ -2026,7 +2026,7 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
   %276 = shl nuw nsw i32 %206, 5
   %277 = add nuw nsw i32 %276, %275
   %278 = trunc nuw i32 %277 to i16
-  %279 = getelementptr inbounds nuw i16, ptr %.0242312, i64 %indvars.iv358
+  %279 = getelementptr inbounds nuw [2 x i8], ptr %.0242312, i64 %indvars.iv358
   store i16 %278, ptr %279, align 2, !tbaa !76
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
@@ -2043,11 +2043,11 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %9 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %22 = load ptr, ptr %21, align 8, !tbaa !25
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %18
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %18
   %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !29
@@ -2071,7 +2071,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
   %43 = mul nsw i32 %42, %31
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %1, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %1, i64 %44
   %46 = icmp eq i32 %9, 0
   %47 = icmp sgt i32 %5, 0
   %or.cond = and i1 %46, %47
@@ -2085,7 +2085,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
 
 50:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv
   %52 = load i16, ptr %51, align 2, !tbaa !76
   %53 = zext i16 %52 to i32
   %54 = lshr i32 %53, 6
@@ -2096,7 +2096,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %59 = and i32 %53, 63
   %60 = or disjoint i32 %58, %59
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %24, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !76
   %64 = add i16 %63, %49
   store i16 %64, ptr %62, align 2, !tbaa !76
@@ -2106,7 +2106,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %68 = shl i64 %indvars.iv, 6
   %69 = add i64 %68, %67
   %70 = and i64 %69, 4294967295
-  %71 = getelementptr inbounds nuw i16, ptr %20, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !76
   %73 = add i16 %72, %49
   store i16 %73, ptr %71, align 2, !tbaa !76
@@ -2133,7 +2133,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %82 = mul nsw i32 %80, %31
   %narrow = select i1 %81, i32 0, i32 %82
   %83 = sext i32 %narrow to i64
-  %84 = getelementptr inbounds i16, ptr %1, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %1, i64 %83
   %wide.trip.count328 = zext nneg i32 %5 to i64
   br label %.preheader272.us
 
@@ -2144,7 +2144,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
 
 85:                                               ; preds = %.preheader272.us, %85
   %indvars.iv325 = phi i64 [ 0, %.preheader272.us ], [ %indvars.iv.next326, %85 ]
-  %86 = getelementptr inbounds nuw i16, ptr %.0241283.us, i64 %indvars.iv325
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %.0241283.us, i64 %indvars.iv325
   %87 = load i16, ptr %86, align 2, !tbaa !76
   %88 = zext i16 %87 to i32
   %89 = lshr i32 %88, 6
@@ -2155,7 +2155,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %94 = and i32 %88, 63
   %95 = or disjoint i32 %93, %94
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %24, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !76
   %99 = add i16 %98, 1
   store i16 %99, ptr %97, align 2, !tbaa !76
@@ -2165,7 +2165,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %103 = shl i64 %indvars.iv325, 6
   %104 = add i64 %103, %102
   %105 = and i64 %104, 4294967295
-  %106 = getelementptr inbounds nuw i16, ptr %20, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !76
   %108 = add i16 %107, 1
   store i16 %108, ptr %106, align 2, !tbaa !76
@@ -2174,7 +2174,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond329.not, label %._crit_edge.us, label %85, !llvm.loop !122
 
 ._crit_edge.us:                                   ; preds = %85
-  %109 = getelementptr inbounds i16, ptr %.0241283.us, i64 %79
+  %109 = getelementptr inbounds [2 x i8], ptr %.0241283.us, i64 %79
   %110 = add nuw nsw i32 %.0239284.us, 1
   %exitcond330.not = icmp eq i32 %110, %77
   br i1 %exitcond330.not, label %.preheader271, label %.preheader272.us, !llvm.loop !123
@@ -2221,7 +2221,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %129 = call i32 @llvm.smax.i32(i32 %128, i32 0)
   %130 = mul nsw i32 %129, %31
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i16, ptr %1, i64 %131
+  %132 = getelementptr inbounds [2 x i8], ptr %1, i64 %131
   br i1 %47, label %.lr.ph286, label %._crit_edge290
 
 .lr.ph289.preheader:                              ; preds = %.lr.ph286
@@ -2229,12 +2229,12 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %.380 = call i32 @llvm.smin.i32(i32 %113, i32 %133)
   %134 = mul nsw i32 %.380, %31
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i16, ptr %1, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %1, i64 %135
   br label %.lr.ph289
 
 .lr.ph286:                                        ; preds = %127, %.lr.ph286
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %.lr.ph286 ], [ 0, %127 ]
-  %137 = getelementptr inbounds nuw i16, ptr %132, i64 %indvars.iv331
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %indvars.iv331
   %138 = load i16, ptr %137, align 2, !tbaa !76
   %139 = zext i16 %138 to i32
   %140 = lshr i32 %139, 6
@@ -2245,7 +2245,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %145 = and i32 %139, 63
   %146 = or disjoint i32 %144, %145
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw i16, ptr %24, i64 %147
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !76
   %150 = add i16 %149, -1
   store i16 %150, ptr %148, align 2, !tbaa !76
@@ -2255,7 +2255,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %154 = shl i64 %indvars.iv331, 6
   %155 = add i64 %154, %153
   %156 = and i64 %155, 4294967295
-  %157 = getelementptr inbounds nuw i16, ptr %20, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %156
   %158 = load i16, ptr %157, align 2, !tbaa !76
   %159 = add i16 %158, -1
   store i16 %159, ptr %157, align 2, !tbaa !76
@@ -2273,7 +2273,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph289:                                        ; preds = %.lr.ph289.preheader, %.lr.ph289
   %indvars.iv336 = phi i64 [ 0, %.lr.ph289.preheader ], [ %indvars.iv.next337, %.lr.ph289 ]
-  %161 = getelementptr inbounds nuw i16, ptr %136, i64 %indvars.iv336
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %136, i64 %indvars.iv336
   %162 = load i16, ptr %161, align 2, !tbaa !76
   %163 = zext i16 %162 to i32
   %164 = lshr i32 %163, 6
@@ -2284,7 +2284,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %169 = and i32 %163, 63
   %170 = or disjoint i32 %168, %169
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw i16, ptr %24, i64 %171
+  %172 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %171
   %173 = load i16, ptr %172, align 2, !tbaa !76
   %174 = add i16 %173, 1
   store i16 %174, ptr %172, align 2, !tbaa !76
@@ -2294,7 +2294,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %178 = shl i64 %indvars.iv336, 6
   %179 = add i64 %178, %177
   %180 = and i64 %179, 4294967295
-  %181 = getelementptr inbounds nuw i16, ptr %20, i64 %180
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !76
   %183 = add i16 %182, 1
   store i16 %183, ptr %181, align 2, !tbaa !76
@@ -2318,16 +2318,16 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
 .preheader270:                                    ; preds = %.preheader270.preheader, %.preheader270
   %indvars.iv346 = phi i64 [ %indvars.iv.next347, %.preheader270 ], [ 0, %.preheader270.preheader ]
   %186 = load ptr, ptr %114, align 8, !tbaa !68
-  %187 = getelementptr inbounds nuw [64 x i16], ptr %12, i64 %indvars.iv346
+  %187 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 %indvars.iv346
   %188 = mul nsw i64 %indvars.iv346, %124
-  %189 = getelementptr inbounds i16, ptr %24, i64 %188
+  %189 = getelementptr inbounds [2 x i8], ptr %24, i64 %188
   call void %186(ptr noundef nonnull %187, ptr noundef %189, i32 noundef %119, i32 noundef 64) #9
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, 64
   br i1 %exitcond349.not, label %.preheader269, label %.preheader270, !llvm.loop !127
 
 ._crit_edge311:                                   ; preds = %274, %.preheader269
-  %190 = getelementptr inbounds i16, ptr %.0242312, i64 %123
+  %190 = getelementptr inbounds [2 x i8], ptr %.0242312, i64 %123
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2344,14 +2344,14 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %.265 = call i32 @llvm.smin.i32(i32 %194, i32 %120)
   %195 = shl nsw i32 %.265, 6
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds i16, ptr %20, i64 %196
+  %197 = getelementptr inbounds [2 x i8], ptr %20, i64 %196
   call void %192(ptr noundef nonnull %11, ptr noundef %197, i32 noundef 64) #9
   br label %198
 
 198:                                              ; preds = %.lr.ph310, %204
   %indvars.iv350 = phi i64 [ 0, %.lr.ph310 ], [ %indvars.iv.next351, %204 ]
   %.0231295 = phi i32 [ 0, %.lr.ph310 ], [ %202, %204 ]
-  %199 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv350
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv350
   %200 = load i16, ptr %199, align 2, !tbaa !76
   %201 = zext i16 %200 to i32
   %202 = add nuw nsw i32 %.0231295, %201
@@ -2370,7 +2370,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
 
 205:                                              ; preds = %198
   %206 = trunc nuw nsw i64 %indvars.iv350 to i32
-  %207 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv350
+  %207 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv350
   %208 = load i16, ptr %207, align 2, !tbaa !76
   %209 = sub nsw i64 %indvars.iv358, %125
   %210 = zext i16 %208 to i64
@@ -2382,12 +2382,12 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   br i1 %.not261304, label %.loopexit, label %.lr.ph305
 
 .lr.ph305:                                        ; preds = %.preheader
-  %211 = getelementptr inbounds nuw [64 x i16], ptr %12, i64 %indvars.iv350
+  %211 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 %indvars.iv350
   %212 = mul nuw nsw i32 %5, %206
   br label %243
 
 213:                                              ; preds = %205
-  %214 = getelementptr inbounds nuw [64 x i16], ptr %12, i64 %indvars.iv350
+  %214 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 %indvars.iv350
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %214, i8 0, i64 128, i1 false)
   %215 = trunc nsw i64 %209 to i32
   %216 = trunc i64 %209 to i16
@@ -2409,7 +2409,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %225 = add nuw nsw i32 %223, %221
   %226 = shl nsw i32 %225, 6
   %227 = zext nneg i32 %226 to i64
-  %228 = getelementptr inbounds nuw i16, ptr %24, i64 %227
+  %228 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %227
   call void %224(ptr noundef nonnull %214, ptr noundef %228, i32 noundef 64) #9
   %229 = add i16 %storemerge297, 1
   %230 = zext i16 %229 to i32
@@ -2430,7 +2430,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %236 = mul i32 %117, %235
   %237 = add i32 %236, -64
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds i16, ptr %24, i64 %238
+  %239 = getelementptr inbounds [2 x i8], ptr %24, i64 %238
   %240 = trunc i64 %217 to i32
   %241 = sub i32 %240, %5
   call void %234(ptr noundef nonnull %214, ptr noundef %239, i32 noundef %241, i32 noundef 64) #9
@@ -2447,14 +2447,14 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %248 = add nuw nsw i32 %spec.select, %212
   %249 = shl nsw i32 %248, 6
   %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr inbounds nuw i16, ptr %24, i64 %250
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %250
   call void %246(ptr noundef nonnull %211, ptr noundef %251, i32 noundef 64) #9
   %252 = load ptr, ptr %116, align 8, !tbaa !66
   %253 = call i32 @llvm.smin.i32(i32 %245, i32 %120)
   %254 = add nsw i32 %253, %212
   %255 = shl nsw i32 %254, 6
   %256 = sext i32 %255 to i64
-  %257 = getelementptr inbounds i16, ptr %24, i64 %256
+  %257 = getelementptr inbounds [2 x i8], ptr %24, i64 %256
   call void %252(ptr noundef nonnull %211, ptr noundef %257, i32 noundef 64) #9
   %258 = add i16 %244, 1
   %259 = zext i16 %258 to i64
@@ -2473,15 +2473,15 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %262 = call i32 @llvm.smax.i32(i32 %.pre-phi, i32 0)
   %263 = shl nsw i32 %262, 6
   %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw i16, ptr %20, i64 %264
+  %265 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %264
   call void %261(ptr noundef nonnull %11, ptr noundef %265, i32 noundef 64) #9
-  %266 = getelementptr inbounds nuw [64 x i16], ptr %12, i64 %indvars.iv350
+  %266 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 %indvars.iv350
   br label %267
 
 267:                                              ; preds = %260, %273
   %indvars.iv354 = phi i64 [ 0, %260 ], [ %indvars.iv.next355, %273 ]
   %.2307 = phi i32 [ %.0231295, %260 ], [ %271, %273 ]
-  %268 = getelementptr inbounds nuw i16, ptr %266, i64 %indvars.iv354
+  %268 = getelementptr inbounds nuw [2 x i8], ptr %266, i64 %indvars.iv354
   %269 = load i16, ptr %268, align 2, !tbaa !76
   %270 = zext i16 %269 to i32
   %271 = add nuw nsw i32 %.2307, %270
@@ -2503,7 +2503,7 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
   %276 = shl nuw nsw i32 %206, 6
   %277 = add nuw nsw i32 %276, %275
   %278 = trunc nuw i32 %277 to i16
-  %279 = getelementptr inbounds nuw i16, ptr %.0242312, i64 %indvars.iv358
+  %279 = getelementptr inbounds nuw [2 x i8], ptr %.0242312, i64 %indvars.iv358
   store i16 %278, ptr %279, align 2, !tbaa !76
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
@@ -2520,11 +2520,11 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %9 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %22 = load ptr, ptr %21, align 8, !tbaa !25
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %18
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %18
   %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !29
@@ -2548,7 +2548,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
   %43 = mul nsw i32 %42, %31
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %1, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %1, i64 %44
   %46 = icmp eq i32 %9, 0
   %47 = icmp sgt i32 %5, 0
   %or.cond = and i1 %46, %47
@@ -2562,7 +2562,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
 
 50:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv
   %52 = load i16, ptr %51, align 2, !tbaa !76
   %53 = zext i16 %52 to i32
   %54 = lshr i32 %53, 7
@@ -2573,7 +2573,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %59 = and i32 %53, 127
   %60 = or disjoint i32 %58, %59
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %24, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !76
   %64 = add i16 %63, %49
   store i16 %64, ptr %62, align 2, !tbaa !76
@@ -2583,7 +2583,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %68 = shl i64 %indvars.iv, 7
   %69 = add i64 %68, %67
   %70 = and i64 %69, 4294967295
-  %71 = getelementptr inbounds nuw i16, ptr %20, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !76
   %73 = add i16 %72, %49
   store i16 %73, ptr %71, align 2, !tbaa !76
@@ -2610,7 +2610,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %82 = mul nsw i32 %80, %31
   %narrow = select i1 %81, i32 0, i32 %82
   %83 = sext i32 %narrow to i64
-  %84 = getelementptr inbounds i16, ptr %1, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %1, i64 %83
   %wide.trip.count328 = zext nneg i32 %5 to i64
   br label %.preheader272.us
 
@@ -2621,7 +2621,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
 
 85:                                               ; preds = %.preheader272.us, %85
   %indvars.iv325 = phi i64 [ 0, %.preheader272.us ], [ %indvars.iv.next326, %85 ]
-  %86 = getelementptr inbounds nuw i16, ptr %.0241283.us, i64 %indvars.iv325
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %.0241283.us, i64 %indvars.iv325
   %87 = load i16, ptr %86, align 2, !tbaa !76
   %88 = zext i16 %87 to i32
   %89 = lshr i32 %88, 7
@@ -2632,7 +2632,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %94 = and i32 %88, 127
   %95 = or disjoint i32 %93, %94
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %24, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !76
   %99 = add i16 %98, 1
   store i16 %99, ptr %97, align 2, !tbaa !76
@@ -2642,7 +2642,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %103 = shl i64 %indvars.iv325, 7
   %104 = add i64 %103, %102
   %105 = and i64 %104, 4294967295
-  %106 = getelementptr inbounds nuw i16, ptr %20, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !76
   %108 = add i16 %107, 1
   store i16 %108, ptr %106, align 2, !tbaa !76
@@ -2651,7 +2651,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond329.not, label %._crit_edge.us, label %85, !llvm.loop !135
 
 ._crit_edge.us:                                   ; preds = %85
-  %109 = getelementptr inbounds i16, ptr %.0241283.us, i64 %79
+  %109 = getelementptr inbounds [2 x i8], ptr %.0241283.us, i64 %79
   %110 = add nuw nsw i32 %.0239284.us, 1
   %exitcond330.not = icmp eq i32 %110, %77
   br i1 %exitcond330.not, label %.preheader271, label %.preheader272.us, !llvm.loop !136
@@ -2698,7 +2698,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %129 = call i32 @llvm.smax.i32(i32 %128, i32 0)
   %130 = mul nsw i32 %129, %31
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i16, ptr %1, i64 %131
+  %132 = getelementptr inbounds [2 x i8], ptr %1, i64 %131
   br i1 %47, label %.lr.ph286, label %._crit_edge290
 
 .lr.ph289.preheader:                              ; preds = %.lr.ph286
@@ -2706,12 +2706,12 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %.380 = call i32 @llvm.smin.i32(i32 %113, i32 %133)
   %134 = mul nsw i32 %.380, %31
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i16, ptr %1, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %1, i64 %135
   br label %.lr.ph289
 
 .lr.ph286:                                        ; preds = %127, %.lr.ph286
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %.lr.ph286 ], [ 0, %127 ]
-  %137 = getelementptr inbounds nuw i16, ptr %132, i64 %indvars.iv331
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %indvars.iv331
   %138 = load i16, ptr %137, align 2, !tbaa !76
   %139 = zext i16 %138 to i32
   %140 = lshr i32 %139, 7
@@ -2722,7 +2722,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %145 = and i32 %139, 127
   %146 = or disjoint i32 %144, %145
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw i16, ptr %24, i64 %147
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !76
   %150 = add i16 %149, -1
   store i16 %150, ptr %148, align 2, !tbaa !76
@@ -2732,7 +2732,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %154 = shl i64 %indvars.iv331, 7
   %155 = add i64 %154, %153
   %156 = and i64 %155, 4294967295
-  %157 = getelementptr inbounds nuw i16, ptr %20, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %156
   %158 = load i16, ptr %157, align 2, !tbaa !76
   %159 = add i16 %158, -1
   store i16 %159, ptr %157, align 2, !tbaa !76
@@ -2750,7 +2750,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph289:                                        ; preds = %.lr.ph289.preheader, %.lr.ph289
   %indvars.iv336 = phi i64 [ 0, %.lr.ph289.preheader ], [ %indvars.iv.next337, %.lr.ph289 ]
-  %161 = getelementptr inbounds nuw i16, ptr %136, i64 %indvars.iv336
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %136, i64 %indvars.iv336
   %162 = load i16, ptr %161, align 2, !tbaa !76
   %163 = zext i16 %162 to i32
   %164 = lshr i32 %163, 7
@@ -2761,7 +2761,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %169 = and i32 %163, 127
   %170 = or disjoint i32 %168, %169
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw i16, ptr %24, i64 %171
+  %172 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %171
   %173 = load i16, ptr %172, align 2, !tbaa !76
   %174 = add i16 %173, 1
   store i16 %174, ptr %172, align 2, !tbaa !76
@@ -2771,7 +2771,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %178 = shl i64 %indvars.iv336, 7
   %179 = add i64 %178, %177
   %180 = and i64 %179, 4294967295
-  %181 = getelementptr inbounds nuw i16, ptr %20, i64 %180
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !76
   %183 = add i16 %182, 1
   store i16 %183, ptr %181, align 2, !tbaa !76
@@ -2795,16 +2795,16 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
 .preheader270:                                    ; preds = %.preheader270.preheader, %.preheader270
   %indvars.iv346 = phi i64 [ %indvars.iv.next347, %.preheader270 ], [ 0, %.preheader270.preheader ]
   %186 = load ptr, ptr %114, align 8, !tbaa !68
-  %187 = getelementptr inbounds nuw [128 x i16], ptr %12, i64 %indvars.iv346
+  %187 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 %indvars.iv346
   %188 = mul nsw i64 %indvars.iv346, %124
-  %189 = getelementptr inbounds i16, ptr %24, i64 %188
+  %189 = getelementptr inbounds [2 x i8], ptr %24, i64 %188
   call void %186(ptr noundef nonnull %187, ptr noundef %189, i32 noundef %119, i32 noundef 128) #9
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, 128
   br i1 %exitcond349.not, label %.preheader269, label %.preheader270, !llvm.loop !140
 
 ._crit_edge311:                                   ; preds = %274, %.preheader269
-  %190 = getelementptr inbounds i16, ptr %.0242312, i64 %123
+  %190 = getelementptr inbounds [2 x i8], ptr %.0242312, i64 %123
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2821,14 +2821,14 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %.265 = call i32 @llvm.smin.i32(i32 %194, i32 %120)
   %195 = shl nsw i32 %.265, 7
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds i16, ptr %20, i64 %196
+  %197 = getelementptr inbounds [2 x i8], ptr %20, i64 %196
   call void %192(ptr noundef nonnull %11, ptr noundef %197, i32 noundef 128) #9
   br label %198
 
 198:                                              ; preds = %.lr.ph310, %204
   %indvars.iv350 = phi i64 [ 0, %.lr.ph310 ], [ %indvars.iv.next351, %204 ]
   %.0231295 = phi i32 [ 0, %.lr.ph310 ], [ %202, %204 ]
-  %199 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv350
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv350
   %200 = load i16, ptr %199, align 2, !tbaa !76
   %201 = zext i16 %200 to i32
   %202 = add nuw nsw i32 %.0231295, %201
@@ -2847,7 +2847,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
 
 205:                                              ; preds = %198
   %206 = trunc nuw nsw i64 %indvars.iv350 to i32
-  %207 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv350
+  %207 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv350
   %208 = load i16, ptr %207, align 2, !tbaa !76
   %209 = sub nsw i64 %indvars.iv358, %125
   %210 = zext i16 %208 to i64
@@ -2859,12 +2859,12 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   br i1 %.not261304, label %.loopexit, label %.lr.ph305
 
 .lr.ph305:                                        ; preds = %.preheader
-  %211 = getelementptr inbounds nuw [128 x i16], ptr %12, i64 %indvars.iv350
+  %211 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 %indvars.iv350
   %212 = mul nuw nsw i32 %5, %206
   br label %243
 
 213:                                              ; preds = %205
-  %214 = getelementptr inbounds nuw [128 x i16], ptr %12, i64 %indvars.iv350
+  %214 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 %indvars.iv350
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %214, i8 0, i64 256, i1 false)
   %215 = trunc nsw i64 %209 to i32
   %216 = trunc i64 %209 to i16
@@ -2886,7 +2886,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %225 = add nuw nsw i32 %223, %221
   %226 = shl nsw i32 %225, 7
   %227 = zext nneg i32 %226 to i64
-  %228 = getelementptr inbounds nuw i16, ptr %24, i64 %227
+  %228 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %227
   call void %224(ptr noundef nonnull %214, ptr noundef %228, i32 noundef 128) #9
   %229 = add i16 %storemerge297, 1
   %230 = zext i16 %229 to i32
@@ -2907,7 +2907,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %236 = mul i32 %117, %235
   %237 = add i32 %236, -128
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds i16, ptr %24, i64 %238
+  %239 = getelementptr inbounds [2 x i8], ptr %24, i64 %238
   %240 = trunc i64 %217 to i32
   %241 = sub i32 %240, %5
   call void %234(ptr noundef nonnull %214, ptr noundef %239, i32 noundef %241, i32 noundef 128) #9
@@ -2924,14 +2924,14 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %248 = add nuw nsw i32 %spec.select, %212
   %249 = shl nsw i32 %248, 7
   %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr inbounds nuw i16, ptr %24, i64 %250
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %250
   call void %246(ptr noundef nonnull %211, ptr noundef %251, i32 noundef 128) #9
   %252 = load ptr, ptr %116, align 8, !tbaa !66
   %253 = call i32 @llvm.smin.i32(i32 %245, i32 %120)
   %254 = add nsw i32 %253, %212
   %255 = shl nsw i32 %254, 7
   %256 = sext i32 %255 to i64
-  %257 = getelementptr inbounds i16, ptr %24, i64 %256
+  %257 = getelementptr inbounds [2 x i8], ptr %24, i64 %256
   call void %252(ptr noundef nonnull %211, ptr noundef %257, i32 noundef 128) #9
   %258 = add i16 %244, 1
   %259 = zext i16 %258 to i64
@@ -2950,15 +2950,15 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %262 = call i32 @llvm.smax.i32(i32 %.pre-phi, i32 0)
   %263 = shl nsw i32 %262, 7
   %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw i16, ptr %20, i64 %264
+  %265 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %264
   call void %261(ptr noundef nonnull %11, ptr noundef %265, i32 noundef 128) #9
-  %266 = getelementptr inbounds nuw [128 x i16], ptr %12, i64 %indvars.iv350
+  %266 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 %indvars.iv350
   br label %267
 
 267:                                              ; preds = %260, %273
   %indvars.iv354 = phi i64 [ 0, %260 ], [ %indvars.iv.next355, %273 ]
   %.2307 = phi i32 [ %.0231295, %260 ], [ %271, %273 ]
-  %268 = getelementptr inbounds nuw i16, ptr %266, i64 %indvars.iv354
+  %268 = getelementptr inbounds nuw [2 x i8], ptr %266, i64 %indvars.iv354
   %269 = load i16, ptr %268, align 2, !tbaa !76
   %270 = zext i16 %269 to i32
   %271 = add nuw nsw i32 %.2307, %270
@@ -2980,7 +2980,7 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
   %276 = shl nuw nsw i32 %206, 7
   %277 = add nuw nsw i32 %276, %275
   %278 = trunc nuw i32 %277 to i16
-  %279 = getelementptr inbounds nuw i16, ptr %.0242312, i64 %indvars.iv358
+  %279 = getelementptr inbounds nuw [2 x i8], ptr %.0242312, i64 %indvars.iv358
   store i16 %278, ptr %279, align 2, !tbaa !76
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
@@ -2997,11 +2997,11 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %9 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %22 = load ptr, ptr %21, align 8, !tbaa !25
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %18
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %18
   %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !29
@@ -3025,7 +3025,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
   %43 = mul nsw i32 %42, %31
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %1, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %1, i64 %44
   %46 = icmp eq i32 %9, 0
   %47 = icmp sgt i32 %5, 0
   %or.cond = and i1 %46, %47
@@ -3039,7 +3039,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
 
 50:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv
   %52 = load i16, ptr %51, align 2, !tbaa !76
   %53 = zext i16 %52 to i32
   %54 = lshr i32 %53, 8
@@ -3050,7 +3050,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %59 = and i32 %53, 255
   %60 = or disjoint i32 %58, %59
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %24, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !76
   %64 = add i16 %63, %49
   store i16 %64, ptr %62, align 2, !tbaa !76
@@ -3059,8 +3059,8 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %67 = zext nneg i16 %66 to i64
   %68 = shl i64 %indvars.iv, 8
   %.masked = and i64 %68, 4294967040
-  %69 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked
-  %70 = getelementptr inbounds nuw i16, ptr %69, i64 %67
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.masked
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %67
   %71 = load i16, ptr %70, align 2, !tbaa !76
   %72 = add i16 %71, %49
   store i16 %72, ptr %70, align 2, !tbaa !76
@@ -3087,7 +3087,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %81 = mul nsw i32 %79, %31
   %narrow = select i1 %80, i32 0, i32 %81
   %82 = sext i32 %narrow to i64
-  %83 = getelementptr inbounds i16, ptr %1, i64 %82
+  %83 = getelementptr inbounds [2 x i8], ptr %1, i64 %82
   %wide.trip.count328 = zext nneg i32 %5 to i64
   br label %.preheader272.us
 
@@ -3098,7 +3098,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
 
 84:                                               ; preds = %.preheader272.us, %84
   %indvars.iv325 = phi i64 [ 0, %.preheader272.us ], [ %indvars.iv.next326, %84 ]
-  %85 = getelementptr inbounds nuw i16, ptr %.0241283.us, i64 %indvars.iv325
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %.0241283.us, i64 %indvars.iv325
   %86 = load i16, ptr %85, align 2, !tbaa !76
   %87 = zext i16 %86 to i32
   %88 = lshr i32 %87, 8
@@ -3109,7 +3109,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %93 = and i32 %87, 255
   %94 = or disjoint i32 %92, %93
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw i16, ptr %24, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %95
   %97 = load i16, ptr %96, align 2, !tbaa !76
   %98 = add i16 %97, 1
   store i16 %98, ptr %96, align 2, !tbaa !76
@@ -3118,8 +3118,8 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %101 = zext nneg i16 %100 to i64
   %102 = shl i64 %indvars.iv325, 8
   %.masked380 = and i64 %102, 4294967040
-  %103 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked380
-  %104 = getelementptr inbounds nuw i16, ptr %103, i64 %101
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.masked380
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 %101
   %105 = load i16, ptr %104, align 2, !tbaa !76
   %106 = add i16 %105, 1
   store i16 %106, ptr %104, align 2, !tbaa !76
@@ -3128,7 +3128,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond329.not, label %._crit_edge.us, label %84, !llvm.loop !148
 
 ._crit_edge.us:                                   ; preds = %84
-  %107 = getelementptr inbounds i16, ptr %.0241283.us, i64 %78
+  %107 = getelementptr inbounds [2 x i8], ptr %.0241283.us, i64 %78
   %108 = add nuw nsw i32 %.0239284.us, 1
   %exitcond330.not = icmp eq i32 %108, %76
   br i1 %exitcond330.not, label %.preheader271, label %.preheader272.us, !llvm.loop !149
@@ -3175,7 +3175,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %127 = call i32 @llvm.smax.i32(i32 %126, i32 0)
   %128 = mul nsw i32 %127, %31
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i16, ptr %1, i64 %129
+  %130 = getelementptr inbounds [2 x i8], ptr %1, i64 %129
   br i1 %47, label %.lr.ph286, label %._crit_edge290
 
 .lr.ph289.preheader:                              ; preds = %.lr.ph286
@@ -3183,12 +3183,12 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %.383 = call i32 @llvm.smin.i32(i32 %111, i32 %131)
   %132 = mul nsw i32 %.383, %31
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds i16, ptr %1, i64 %133
+  %134 = getelementptr inbounds [2 x i8], ptr %1, i64 %133
   br label %.lr.ph289
 
 .lr.ph286:                                        ; preds = %125, %.lr.ph286
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %.lr.ph286 ], [ 0, %125 ]
-  %135 = getelementptr inbounds nuw i16, ptr %130, i64 %indvars.iv331
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %130, i64 %indvars.iv331
   %136 = load i16, ptr %135, align 2, !tbaa !76
   %137 = zext i16 %136 to i32
   %138 = lshr i32 %137, 8
@@ -3199,7 +3199,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %143 = and i32 %137, 255
   %144 = or disjoint i32 %142, %143
   %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr inbounds nuw i16, ptr %24, i64 %145
+  %146 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %145
   %147 = load i16, ptr %146, align 2, !tbaa !76
   %148 = add i16 %147, -1
   store i16 %148, ptr %146, align 2, !tbaa !76
@@ -3208,8 +3208,8 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %151 = zext nneg i16 %150 to i64
   %152 = shl i64 %indvars.iv331, 8
   %.masked381 = and i64 %152, 4294967040
-  %153 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked381
-  %154 = getelementptr inbounds nuw i16, ptr %153, i64 %151
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.masked381
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %151
   %155 = load i16, ptr %154, align 2, !tbaa !76
   %156 = add i16 %155, -1
   store i16 %156, ptr %154, align 2, !tbaa !76
@@ -3227,7 +3227,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph289:                                        ; preds = %.lr.ph289.preheader, %.lr.ph289
   %indvars.iv336 = phi i64 [ 0, %.lr.ph289.preheader ], [ %indvars.iv.next337, %.lr.ph289 ]
-  %158 = getelementptr inbounds nuw i16, ptr %134, i64 %indvars.iv336
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %134, i64 %indvars.iv336
   %159 = load i16, ptr %158, align 2, !tbaa !76
   %160 = zext i16 %159 to i32
   %161 = lshr i32 %160, 8
@@ -3238,7 +3238,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %166 = and i32 %160, 255
   %167 = or disjoint i32 %165, %166
   %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds nuw i16, ptr %24, i64 %168
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %168
   %170 = load i16, ptr %169, align 2, !tbaa !76
   %171 = add i16 %170, 1
   store i16 %171, ptr %169, align 2, !tbaa !76
@@ -3247,8 +3247,8 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %174 = zext nneg i16 %173 to i64
   %175 = shl i64 %indvars.iv336, 8
   %.masked382 = and i64 %175, 4294967040
-  %176 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked382
-  %177 = getelementptr inbounds nuw i16, ptr %176, i64 %174
+  %176 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %.masked382
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %176, i64 %174
   %178 = load i16, ptr %177, align 2, !tbaa !76
   %179 = add i16 %178, 1
   store i16 %179, ptr %177, align 2, !tbaa !76
@@ -3272,16 +3272,16 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
 .preheader270:                                    ; preds = %.preheader270.preheader, %.preheader270
   %indvars.iv346 = phi i64 [ %indvars.iv.next347, %.preheader270 ], [ 0, %.preheader270.preheader ]
   %182 = load ptr, ptr %112, align 8, !tbaa !68
-  %183 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 %indvars.iv346
+  %183 = getelementptr inbounds nuw [512 x i8], ptr %12, i64 %indvars.iv346
   %184 = mul nsw i64 %indvars.iv346, %122
-  %185 = getelementptr inbounds i16, ptr %24, i64 %184
+  %185 = getelementptr inbounds [2 x i8], ptr %24, i64 %184
   call void %182(ptr noundef nonnull %183, ptr noundef %185, i32 noundef %117, i32 noundef 256) #9
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, 256
   br i1 %exitcond349.not, label %.preheader269, label %.preheader270, !llvm.loop !153
 
 ._crit_edge311:                                   ; preds = %270, %.preheader269
-  %186 = getelementptr inbounds i16, ptr %.0242312, i64 %121
+  %186 = getelementptr inbounds [2 x i8], ptr %.0242312, i64 %121
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3298,14 +3298,14 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %.265 = call i32 @llvm.smin.i32(i32 %190, i32 %118)
   %191 = shl nsw i32 %.265, 8
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds i16, ptr %20, i64 %192
+  %193 = getelementptr inbounds [2 x i8], ptr %20, i64 %192
   call void %188(ptr noundef nonnull %11, ptr noundef %193, i32 noundef 256) #9
   br label %194
 
 194:                                              ; preds = %.lr.ph310, %200
   %indvars.iv350 = phi i64 [ 0, %.lr.ph310 ], [ %indvars.iv.next351, %200 ]
   %.0231295 = phi i32 [ 0, %.lr.ph310 ], [ %198, %200 ]
-  %195 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv350
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv350
   %196 = load i16, ptr %195, align 2, !tbaa !76
   %197 = zext i16 %196 to i32
   %198 = add nuw nsw i32 %.0231295, %197
@@ -3324,7 +3324,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
 
 201:                                              ; preds = %194
   %202 = trunc nuw nsw i64 %indvars.iv350 to i32
-  %203 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv350
+  %203 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv350
   %204 = load i16, ptr %203, align 2, !tbaa !76
   %205 = sub nsw i64 %indvars.iv358, %123
   %206 = zext i16 %204 to i64
@@ -3336,12 +3336,12 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   br i1 %.not261304, label %.loopexit, label %.lr.ph305
 
 .lr.ph305:                                        ; preds = %.preheader
-  %207 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 %indvars.iv350
+  %207 = getelementptr inbounds nuw [512 x i8], ptr %12, i64 %indvars.iv350
   %208 = mul nuw nsw i32 %5, %202
   br label %239
 
 209:                                              ; preds = %201
-  %210 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 %indvars.iv350
+  %210 = getelementptr inbounds nuw [512 x i8], ptr %12, i64 %indvars.iv350
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %210, i8 0, i64 512, i1 false)
   %211 = trunc nsw i64 %205 to i32
   %212 = trunc i64 %205 to i16
@@ -3363,7 +3363,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %221 = add nuw nsw i32 %219, %217
   %222 = shl nsw i32 %221, 8
   %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw i16, ptr %24, i64 %223
+  %224 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %223
   call void %220(ptr noundef nonnull %210, ptr noundef %224, i32 noundef 256) #9
   %225 = add i16 %storemerge297, 1
   %226 = zext i16 %225 to i32
@@ -3384,7 +3384,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %232 = mul i32 %115, %231
   %233 = add i32 %232, -256
   %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds i16, ptr %24, i64 %234
+  %235 = getelementptr inbounds [2 x i8], ptr %24, i64 %234
   %236 = trunc i64 %213 to i32
   %237 = sub i32 %236, %5
   call void %230(ptr noundef nonnull %210, ptr noundef %235, i32 noundef %237, i32 noundef 256) #9
@@ -3401,14 +3401,14 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %244 = add nuw nsw i32 %spec.select, %208
   %245 = shl nsw i32 %244, 8
   %246 = zext nneg i32 %245 to i64
-  %247 = getelementptr inbounds nuw i16, ptr %24, i64 %246
+  %247 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %246
   call void %242(ptr noundef nonnull %207, ptr noundef %247, i32 noundef 256) #9
   %248 = load ptr, ptr %114, align 8, !tbaa !66
   %249 = call i32 @llvm.smin.i32(i32 %241, i32 %118)
   %250 = add nsw i32 %249, %208
   %251 = shl nsw i32 %250, 8
   %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds i16, ptr %24, i64 %252
+  %253 = getelementptr inbounds [2 x i8], ptr %24, i64 %252
   call void %248(ptr noundef nonnull %207, ptr noundef %253, i32 noundef 256) #9
   %254 = add i16 %240, 1
   %255 = zext i16 %254 to i64
@@ -3427,15 +3427,15 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %258 = call i32 @llvm.smax.i32(i32 %.pre-phi, i32 0)
   %259 = shl nsw i32 %258, 8
   %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr inbounds nuw i16, ptr %20, i64 %260
+  %261 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %260
   call void %257(ptr noundef nonnull %11, ptr noundef %261, i32 noundef 256) #9
-  %262 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 %indvars.iv350
+  %262 = getelementptr inbounds nuw [512 x i8], ptr %12, i64 %indvars.iv350
   br label %263
 
 263:                                              ; preds = %256, %269
   %indvars.iv354 = phi i64 [ 0, %256 ], [ %indvars.iv.next355, %269 ]
   %.2307 = phi i32 [ %.0231295, %256 ], [ %267, %269 ]
-  %264 = getelementptr inbounds nuw i16, ptr %262, i64 %indvars.iv354
+  %264 = getelementptr inbounds nuw [2 x i8], ptr %262, i64 %indvars.iv354
   %265 = load i16, ptr %264, align 2, !tbaa !76
   %266 = zext i16 %265 to i32
   %267 = add nuw nsw i32 %.2307, %266
@@ -3457,7 +3457,7 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %272 = shl nuw nsw i32 %202, 8
   %273 = add nuw nsw i32 %272, %271
   %274 = trunc nuw i32 %273 to i16
-  %275 = getelementptr inbounds nuw i16, ptr %.0242312, i64 %indvars.iv358
+  %275 = getelementptr inbounds nuw [2 x i8], ptr %.0242312, i64 %indvars.iv358
   store i16 %274, ptr %275, align 2, !tbaa !76
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361

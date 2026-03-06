@@ -21,24 +21,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xhci_create_
 %struct.radix_tree_preload = type { %struct.local_lock_t, i32, ptr }
 %struct.local_lock_t = type {}
 %struct.lock_class_key = type {}
-%struct.xhci_stream_ctx = type { i64, [2 x i32] }
-%struct.xhci_root_port_bw_info = type { %struct.list_head, i32, %struct.xhci_interval_bw_table }
-%struct.list_head = type { ptr, ptr }
-%struct.xhci_interval_bw_table = type { i32, [16 x %struct.xhci_interval_bw], i32, i32, i32 }
-%struct.xhci_interval_bw = type { i32, %struct.list_head, [3 x i32] }
-%struct.xhci_virt_ep = type { ptr, i32, ptr, ptr, ptr, i32, i32, %struct.list_head, ptr, ptr, ptr, i8, %struct.xhci_bw_info, %struct.list_head, i32, i8 }
-%struct.xhci_bw_info = type { i32, i32, i32, i32, i32, i32 }
-%struct.xhci_port_cap = type { ptr, i8, i8, i8, i8 }
-%struct.xhci_erst_entry = type { i64, i32, i32 }
-%struct.xhci_intr_reg = type { i32, i32, i32, i32, i64, i64 }
-%struct.xhci_port = type { ptr, i32, i32, ptr, ptr, i8, i64, i8, %struct.completion, %struct.completion }
-%struct.completion = type { i32, %struct.swait_queue_head }
-%struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon }
-%union.anon = type { %struct.atomic_t }
-%union.xhci_trb = type { %struct.xhci_link_trb }
-%struct.xhci_link_trb = type { i64, i32, i32 }
 
 @__UNIQUE_ID___addressable_xhci_initialize_ring_info1106 = internal global ptr @xhci_initialize_ring_info, section ".discard.addressable", align 8
 @.str = private unnamed_addr constant [44 x i8] c"ring expansion succeed, now has %d segments\00", align 1
@@ -343,7 +325,7 @@ define dso_local noundef ptr @xhci_ring_alloc(ptr noundef readonly captures(none
 
 19:                                               ; preds = %15, %6
   %20 = phi i64 [ 0, %6 ], [ %18, %15 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %20
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %20
   %21 = getelementptr i8, ptr %.split, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_node_trace(ptr noundef %22, i32 noundef %12, i32 noundef %11, i64 noundef 104) #19
@@ -1070,7 +1052,7 @@ define dso_local noundef ptr @xhci_alloc_container_ctx(ptr noundef readonly capt
 
 19:                                               ; preds = %15, %6
   %20 = phi i64 [ 0, %6 ], [ %18, %15 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %20
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %20
   %21 = getelementptr i8, ptr %.split, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_node_trace(ptr noundef %22, i32 noundef %12, i32 noundef %11, i64 noundef 24) #19
@@ -1244,7 +1226,7 @@ define dso_local noundef ptr @xhci_alloc_stream_info(ptr noundef captures(none) 
 
 23:                                               ; preds = %19, %9
   %24 = phi i64 [ 0, %9 ], [ %22, %19 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %24
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %24
   %25 = getelementptr i8, ptr %.split, i64 48
   %26 = load ptr, ptr %25, align 16
   %27 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_node_trace(ptr noundef %26, i32 noundef %16, i32 noundef %15, i64 noundef 64) #19
@@ -1330,10 +1312,10 @@ define dso_local noundef ptr @xhci_alloc_stream_info(ptr noundef captures(none) 
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 1, %68 ]
   %75 = tail call ptr @xhci_ring_alloc(ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 4, i32 noundef %3, i32 noundef %4)
   %76 = load ptr, ptr %27, align 8
-  %77 = getelementptr ptr, ptr %76, i64 %indvars.iv
+  %77 = getelementptr [8 x i8], ptr %76, i64 %indvars.iv
   store ptr %75, ptr %77, align 8
   %78 = load ptr, ptr %27, align 8
-  %79 = getelementptr ptr, ptr %78, i64 %indvars.iv
+  %79 = getelementptr [8 x i8], ptr %78, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.loopexit.preheader, label %82
@@ -1353,7 +1335,7 @@ define dso_local noundef ptr @xhci_alloc_stream_info(ptr noundef captures(none) 
   %92 = or i64 %88, %91
   %93 = or i64 %92, 2
   %94 = load ptr, ptr %62, align 8
-  %95 = getelementptr %struct.xhci_stream_ctx, ptr %94, i64 %indvars.iv
+  %95 = getelementptr [16 x i8], ptr %94, i64 %indvars.iv
   store i64 %93, ptr %95, align 8
   %96 = load ptr, ptr %85, align 8
   %97 = load ptr, ptr %80, align 8
@@ -1366,7 +1348,7 @@ define dso_local noundef ptr @xhci_alloc_stream_info(ptr noundef captures(none) 
 102:                                              ; preds = %82
   tail call void @xhci_ring_free(ptr noundef %0, ptr noundef nonnull %80)
   %103 = load ptr, ptr %27, align 8
-  %104 = getelementptr ptr, ptr %103, i64 %indvars.iv
+  %104 = getelementptr [8 x i8], ptr %103, i64 %indvars.iv
   store ptr null, ptr %104, align 8
   br label %.loopexit.preheader
 
@@ -1376,7 +1358,7 @@ define dso_local noundef ptr @xhci_alloc_stream_info(ptr noundef captures(none) 
 .loopexit:                                        ; preds = %.loopexit.preheader, %113
   %105 = phi i64 [ %114, %113 ], [ 1, %.loopexit.preheader ]
   %106 = load ptr, ptr %27, align 8
-  %107 = getelementptr ptr, ptr %106, i64 %105
+  %107 = getelementptr [8 x i8], ptr %106, i64 %105
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
   br i1 %109, label %113, label %110
@@ -1384,7 +1366,7 @@ define dso_local noundef ptr @xhci_alloc_stream_info(ptr noundef captures(none) 
 110:                                              ; preds = %.loopexit
   tail call void @xhci_ring_free(ptr noundef %0, ptr noundef nonnull %108)
   %111 = load ptr, ptr %27, align 8
-  %112 = getelementptr ptr, ptr %111, i64 %105
+  %112 = getelementptr [8 x i8], ptr %111, i64 %105
   store ptr null, ptr %112, align 8
   br label %113
 
@@ -1494,7 +1476,7 @@ define dso_local noundef ptr @xhci_alloc_command_with_ctx(ptr noundef readonly c
 
 19:                                               ; preds = %15, %6
   %20 = phi i64 [ 0, %6 ], [ %18, %15 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %20
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %20
   %21 = getelementptr i8, ptr %.split, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_node_trace(ptr noundef %22, i32 noundef %12, i32 noundef %11, i64 noundef 24) #19
@@ -1673,7 +1655,7 @@ define dso_local void @xhci_free_stream_info(ptr noundef captures(none) %0, ptr 
   %9 = phi i32 [ %20, %18 ], [ 1, %4 ]
   %10 = load ptr, ptr %1, align 8
   %11 = sext i32 %9 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %18, label %15
@@ -1681,7 +1663,7 @@ define dso_local void @xhci_free_stream_info(ptr noundef captures(none) %0, ptr 
 15:                                               ; preds = %.preheader
   tail call void @xhci_ring_free(ptr noundef %0, ptr noundef nonnull %13)
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr ptr, ptr %16, i64 %11
+  %17 = getelementptr [8 x i8], ptr %16, i64 %11
   store ptr null, ptr %17, align 8
   %.pre = load i32, ptr %5, align 8
   br label %18
@@ -1809,7 +1791,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr noundef r
   %31 = load ptr, ptr %21, align 8
   %32 = load i8, ptr %22, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr %struct.xhci_root_port_bw_info, ptr %31, i64 %33
+  %34 = getelementptr [688 x i8], ptr %31, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -688
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1856,7 +1838,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr noundef r
   %58 = and i32 %4, 1
   %59 = icmp eq i32 %58, 0
   %60 = select i1 %59, i64 1, i64 2
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %60
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %60
   %61 = getelementptr i8, ptr %.split, i64 80
   br label %62
 
@@ -1875,7 +1857,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr noundef r
   %70 = load ptr, ptr %21, align 8
   %71 = load i8, ptr %22, align 1
   %72 = zext i8 %71 to i64
-  %73 = getelementptr %struct.xhci_root_port_bw_info, ptr %70, i64 %72
+  %73 = getelementptr [688 x i8], ptr %70, i64 %72
   %74 = getelementptr i8, ptr %73, i64 -688
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -1938,7 +1920,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr noundef r
 109:                                              ; preds = %102
   %110 = load ptr, ptr %21, align 8
   %111 = zext i8 %100 to i64
-  %112 = getelementptr %struct.xhci_root_port_bw_info, ptr %110, i64 %111
+  %112 = getelementptr [688 x i8], ptr %110, i64 %111
   %113 = getelementptr i8, ptr %112, i64 -688
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, %113
@@ -1986,7 +1968,7 @@ define dso_local void @xhci_free_virt_device(ptr noundef %0, i32 noundef %1) loc
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %6 = sext i32 %1 to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %133, label %10
@@ -1994,7 +1976,7 @@ define dso_local void @xhci_free_virt_device(ptr noundef %0, i32 noundef %1) loc
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr i64, ptr %12, i64 %6
+  %13 = getelementptr [8 x i8], ptr %12, i64 %6
   store i64 0, ptr %13, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_xhci_free_virt_device, i64 8), i32 2) #18
           to label %34 [label %14], !srcloc !6
@@ -2053,7 +2035,7 @@ define dso_local void @xhci_free_virt_device(ptr noundef %0, i32 noundef %1) loc
 
 44:                                               ; preds = %64, %41
   %45 = phi i64 [ 0, %41 ], [ %65, %64 ]
-  %46 = getelementptr %struct.xhci_virt_ep, ptr %43, i64 %45
+  %46 = getelementptr [144 x i8], ptr %43, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
@@ -2113,7 +2095,7 @@ define dso_local void @xhci_free_virt_device(ptr noundef %0, i32 noundef %1) loc
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %80 = load ptr, ptr %79, align 8
   %81 = zext i8 %69 to i64
-  %82 = getelementptr %struct.xhci_root_port_bw_info, ptr %80, i64 %81
+  %82 = getelementptr [688 x i8], ptr %80, i64 %81
   %83 = getelementptr i8, ptr %82, i64 -688
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, %83
@@ -2220,7 +2202,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_alloc_virt_device(ptr noundef
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %8 = sext i32 %1 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %15, label %12
@@ -2245,7 +2227,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_alloc_virt_device(ptr noundef
 22:                                               ; preds = %18, %15
   %23 = phi i64 [ 0, %15 ], [ %21, %18 ]
   %24 = or i32 %3, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %23
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %23
   %25 = getelementptr i8, ptr %.split, i64 104
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noalias noundef align 8 dereferenceable_or_null(4544) ptr @kmalloc_trace(ptr noundef %26, i32 noundef %24, i64 noundef 4544) #23
@@ -2269,7 +2251,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_alloc_virt_device(ptr noundef
 
 39:                                               ; preds = %35, %29
   %40 = phi i64 [ 0, %29 ], [ %38, %35 ]
-  %.split7 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %40
+  %.split7 = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %40
   %41 = getelementptr i8, ptr %.split7, i64 40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_node_trace(ptr noundef %42, i32 noundef %24, i32 noundef %34, i64 noundef 24) #19
@@ -2321,7 +2303,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_alloc_virt_device(ptr noundef
 
 71:                                               ; preds = %67, %60
   %72 = phi i64 [ 0, %60 ], [ %70, %67 ]
-  %.split8 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %72
+  %.split8 = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %72
   %73 = getelementptr i8, ptr %.split8, i64 40
   %74 = load ptr, ptr %73, align 8
   %75 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_node_trace(ptr noundef %74, i32 noundef %24, i32 noundef %66, i64 noundef 24) #19
@@ -2361,7 +2343,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_alloc_virt_device(ptr noundef
 
 93:                                               ; preds = %93, %90
   %94 = phi i64 [ 0, %90 ], [ %103, %93 ]
-  %95 = getelementptr %struct.xhci_virt_ep, ptr %92, i64 %94
+  %95 = getelementptr [144 x i8], ptr %92, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = trunc i64 %94 to i32
   store i32 %97, ptr %96, align 8
@@ -2395,7 +2377,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_alloc_virt_device(ptr noundef
   %113 = load i64, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr i64, ptr %115, i64 %8
+  %116 = getelementptr [8 x i8], ptr %115, i64 %8
   store i64 %113, ptr %116, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_xhci_alloc_virt_device, i64 8), i32 2) #18
           to label %137 [label %117], !srcloc !6
@@ -2492,7 +2474,7 @@ define dso_local void @xhci_copy_ep0_dequeue_into_input_ctx(ptr noundef readonly
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1300
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -2531,7 +2513,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xhci_setup_addressable_virt_dev(
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1300
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne i32 %5, 0
   %10 = icmp ne ptr %8, null
@@ -2698,7 +2680,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xhci_setup_addressable_virt_dev(
   %106 = load ptr, ptr %105, align 8
   %107 = add i32 %75, -1
   %108 = zext i32 %107 to i64
-  %.split = getelementptr %struct.xhci_root_port_bw_info, ptr %106, i64 %108
+  %.split = getelementptr [688 x i8], ptr %106, i64 %108
   %109 = getelementptr i8, ptr %.split, i64 24
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 4504
   store ptr %109, ptr %110, align 8
@@ -2709,7 +2691,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xhci_setup_addressable_virt_dev(
   %113 = load ptr, ptr %112, align 8
   %114 = add i32 %75, -1
   %115 = zext i32 %114 to i64
-  %116 = getelementptr %struct.xhci_root_port_bw_info, ptr %113, i64 %115
+  %116 = getelementptr [688 x i8], ptr %113, i64 %115
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, %116
   br i1 %118, label %.loopexit, label %119
@@ -3215,7 +3197,7 @@ thread-pre-split:                                 ; preds = %135, %131, %140
   %208 = tail call ptr @xhci_ring_alloc(ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %65, i32 noundef %195, i32 noundef %4)
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %210 = zext i32 %6 to i64
-  %211 = getelementptr %struct.xhci_virt_ep, ptr %209, i64 %210
+  %211 = getelementptr [144 x i8], ptr %209, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 32
   store ptr %208, ptr %212, align 8
   %213 = icmp eq ptr %208, null
@@ -3517,7 +3499,7 @@ define dso_local noundef ptr @xhci_alloc_command(ptr noundef readonly captures(n
 
 16:                                               ; preds = %12, %3
   %17 = phi i64 [ 0, %3 ], [ %15, %12 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %17
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 48
   %19 = load ptr, ptr %18, align 16
   %20 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_node_trace(ptr noundef %19, i32 noundef %9, i32 noundef %8, i64 noundef 56) #19
@@ -3539,7 +3521,7 @@ define dso_local noundef ptr @xhci_alloc_command(ptr noundef readonly captures(n
 
 29:                                               ; preds = %25, %23
   %30 = phi i64 [ 0, %23 ], [ %28, %25 ]
-  %.split2 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %30
+  %.split2 = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %30
   %31 = getelementptr i8, ptr %.split2, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_node_trace(ptr noundef %32, i32 noundef %9, i32 noundef %24, i64 noundef 32) #19
@@ -3640,7 +3622,7 @@ define dso_local void @xhci_remove_secondary_interrupter(ptr noundef %0, ptr nou
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %38 = load ptr, ptr %37, align 8
   %39 = zext nneg i32 %15 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   store ptr null, ptr %40, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %11) #18
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3700,7 +3682,7 @@ define dso_local void @xhci_mem_cleanup(ptr noundef %0) local_unnamed_addr #0 al
   %13 = phi i16 [ %8, %10 ], [ %54, %53 ]
   %14 = phi i64 [ 0, %10 ], [ %55, %53 ]
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr ptr, ptr %15, i64 %14
+  %16 = getelementptr [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %53, label %19
@@ -3724,7 +3706,7 @@ define dso_local void @xhci_mem_cleanup(ptr noundef %0) local_unnamed_addr #0 al
   %31 = getelementptr i8, ptr %29, i64 28
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %31) #18, !srcloc !81
   %.pre = load ptr, ptr %11, align 8
-  %.phi.trans.insert = getelementptr ptr, ptr %.pre, i64 %14
+  %.phi.trans.insert = getelementptr [8 x i8], ptr %.pre, i64 %14
   %.pre28 = load ptr, ptr %.phi.trans.insert, align 8
   %32 = icmp eq ptr %.pre28, null
   br i1 %32, label %50, label %.thread
@@ -3767,7 +3749,7 @@ define dso_local void @xhci_mem_cleanup(ptr noundef %0) local_unnamed_addr #0 al
 
 50:                                               ; preds = %49, %23
   %51 = phi ptr [ %.pre29, %49 ], [ %.pre, %23 ]
-  %52 = getelementptr ptr, ptr %51, i64 %14
+  %52 = getelementptr [8 x i8], ptr %51, i64 %14
   store ptr null, ptr %52, align 8
   %.pre30 = load i16, ptr %7, align 2
   br label %53
@@ -3813,7 +3795,7 @@ define dso_local void @xhci_mem_cleanup(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %74, label %.loopexit26.loopexit, label %.preheader25
 
 .preheader25:                                     ; preds = %71
-  %.split = getelementptr %struct.xhci_root_port_bw_info, ptr %73, i64 %72
+  %.split = getelementptr [688 x i8], ptr %73, i64 %72
   %75 = getelementptr i8, ptr %.split, i64 40
   br label %76
 
@@ -3930,10 +3912,10 @@ define dso_local void @xhci_mem_cleanup(ptr noundef %0) local_unnamed_addr #0 al
   %135 = load ptr, ptr %117, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr ptr, ptr %137, i64 %132
+  %138 = getelementptr [8 x i8], ptr %137, i64 %132
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %135, align 8
-  %141 = getelementptr i64, ptr %140, i64 %132
+  %141 = getelementptr [8 x i8], ptr %140, i64 %132
   %142 = load i64, ptr %141, align 8
   tail call void @dma_free_attrs(ptr noundef %116, i64 noundef %134, ptr noundef %139, i64 noundef %142, i64 noundef 0) #18
   %143 = add nuw nsw i64 %132, 1
@@ -3975,7 +3957,7 @@ define dso_local void @xhci_mem_cleanup(ptr noundef %0) local_unnamed_addr #0 al
 162:                                              ; preds = %.loopexit18, %160
   %163 = phi ptr [ %156, %160 ], [ %176, %.loopexit18 ]
   %164 = phi i64 [ 0, %160 ], [ %177, %.loopexit18 ]
-  %165 = getelementptr %struct.xhci_root_port_bw_info, ptr %163, i64 %164
+  %165 = getelementptr [688 x i8], ptr %163, i64 %164
   %166 = load ptr, ptr %165, align 8
   %167 = icmp eq ptr %166, %165
   br i1 %167, label %.loopexit18, label %.preheader
@@ -3992,7 +3974,7 @@ define dso_local void @xhci_mem_cleanup(ptr noundef %0) local_unnamed_addr #0 al
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %170, align 8
   tail call void @kfree(ptr noundef %168) #18
   %173 = load ptr, ptr %67, align 8
-  %174 = getelementptr %struct.xhci_root_port_bw_info, ptr %173, i64 %164
+  %174 = getelementptr [688 x i8], ptr %173, i64 %164
   %175 = icmp eq ptr %169, %174
   br i1 %175, label %.loopexit18, label %.preheader, !llvm.loop !88
 
@@ -4038,7 +4020,7 @@ define dso_local void @xhci_mem_cleanup(ptr noundef %0) local_unnamed_addr #0 al
   %198 = phi i32 [ 0, %195 ], [ %203, %197 ]
   %199 = load ptr, ptr %196, align 8
   %200 = sext i32 %198 to i64
-  %201 = getelementptr %struct.xhci_port_cap, ptr %199, i64 %200
+  %201 = getelementptr [16 x i8], ptr %199, i64 %200
   %202 = load ptr, ptr %201, align 8
   tail call void @kfree(ptr noundef %202) #18
   %203 = add nuw i32 %198, 1
@@ -4126,7 +4108,7 @@ declare dso_local void @xhci_cleanup_command_queue(ptr noundef) local_unnamed_ad
 define internal fastcc void @xhci_free_virt_devices_depth_first(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr ptr, ptr %3, i64 %4
+  %5 = getelementptr [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %56, label %8
@@ -4150,7 +4132,7 @@ define internal fastcc void @xhci_free_virt_devices_depth_first(ptr noundef %0, 
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %21 = load ptr, ptr %20, align 8
   %22 = zext i8 %10 to i64
-  %23 = getelementptr %struct.xhci_root_port_bw_info, ptr %21, i64 %22
+  %23 = getelementptr [688 x i8], ptr %21, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -688
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %24
@@ -4172,7 +4154,7 @@ define internal fastcc void @xhci_free_virt_devices_depth_first(ptr noundef %0, 
 .preheader:                                       ; preds = %.preheader6, %47
   %36 = phi i32 [ %48, %47 ], [ %27, %.preheader6 ]
   %37 = phi i64 [ %49, %47 ], [ 1, %.preheader6 ]
-  %38 = getelementptr ptr, ptr %3, i64 %37
+  %38 = getelementptr [8 x i8], ptr %3, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %47, label %41
@@ -4259,7 +4241,7 @@ define dso_local noundef ptr @xhci_create_secondary_interrupter(ptr noundef %0, 
 
 28:                                               ; preds = %37, %25
   %29 = phi i64 [ 1, %25 ], [ %38, %37 ]
-  %30 = getelementptr ptr, ptr %26, i64 %29
+  %30 = getelementptr [8 x i8], ptr %26, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %37
@@ -4344,7 +4326,7 @@ define internal fastcc noundef ptr @xhci_alloc_interrupter(ptr noundef readonly 
 
 16:                                               ; preds = %12, %3
   %17 = phi i64 [ 0, %3 ], [ %15, %12 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %17
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_node_trace(ptr noundef %19, i32 noundef %9, i32 noundef %8, i64 noundef 80) #19
@@ -4407,7 +4389,7 @@ define internal fastcc noundef ptr @xhci_alloc_interrupter(ptr noundef readonly 
   %58 = phi ptr [ %66, %.preheader ], [ %33, %53 ]
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %39, align 8
-  %61 = getelementptr %struct.xhci_erst_entry, ptr %60, i64 %57
+  %61 = getelementptr [16 x i8], ptr %60, i64 %57
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %63 = load i64, ptr %62, align 8
   store i64 %63, ptr %61, align 8
@@ -4457,7 +4439,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @xhci_add_interrupter(ptr n
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %2 to i64
-  %15 = getelementptr ptr, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %21, label %18
@@ -4475,7 +4457,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @xhci_add_interrupter(ptr n
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = getelementptr %struct.xhci_intr_reg, ptr %25, i64 %14
+  %26 = getelementptr [32 x i8], ptr %25, i64 %14
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -4786,7 +4768,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_mem_init(ptr noundef %0, i3
 
 173:                                              ; preds = %169, %164
   %174 = phi i64 [ 0, %164 ], [ %172, %169 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %174
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %174
   %175 = getelementptr i8, ptr %.split, i64 40
   %176 = load ptr, ptr %175, align 8
   %177 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_node_trace(ptr noundef %176, i32 noundef %137, i32 noundef %166, i64 noundef 24) #19
@@ -4841,12 +4823,12 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_mem_init(ptr noundef %0, i3
   %210 = load i64, ptr %3, align 8
   %211 = load ptr, ptr %178, align 8
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr i64, ptr %212, i64 %204
+  %213 = getelementptr [8 x i8], ptr %212, i64 %204
   store i64 %210, ptr %213, align 8
   %214 = load ptr, ptr %178, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr ptr, ptr %216, i64 %204
+  %217 = getelementptr [8 x i8], ptr %216, i64 %204
   store ptr %207, ptr %217, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %218 = add nuw nsw i64 %204, 1
@@ -4867,10 +4849,10 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_mem_init(ptr noundef %0, i3
   %227 = load ptr, ptr %178, align 8
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr ptr, ptr %229, i64 %224
+  %230 = getelementptr [8 x i8], ptr %229, i64 %224
   %231 = load ptr, ptr %230, align 8
   %232 = load ptr, ptr %227, align 8
-  %233 = getelementptr i64, ptr %232, i64 %224
+  %233 = getelementptr [8 x i8], ptr %232, i64 %224
   %234 = load i64, ptr %233, align 8
   call void @dma_free_attrs(ptr noundef %156, i64 noundef %226, ptr noundef %231, i64 noundef %234, i64 noundef 0) #18
   %235 = icmp eq i64 %224, 0
@@ -4974,21 +4956,21 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
   %.idx = shl i64 %23, 4
   %26 = getelementptr i8, ptr %25, i64 %.idx
   %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr %struct.xhci_port, ptr %27, i64 %23
+  %28 = getelementptr [120 x i8], ptr %27, i64 %23
   store ptr %26, ptr %28, align 8
   %29 = load ptr, ptr %16, align 8
-  %.split = getelementptr %struct.xhci_port, ptr %29, i64 %23
+  %.split = getelementptr [120 x i8], ptr %29, i64 %23
   %30 = getelementptr i8, ptr %.split, i64 8
   %31 = trunc i64 %23 to i32
   store i32 %31, ptr %30, align 8
   %32 = load ptr, ptr %16, align 8
-  %.split33 = getelementptr %struct.xhci_port, ptr %32, i64 %23
+  %.split33 = getelementptr [120 x i8], ptr %32, i64 %23
   %33 = getelementptr i8, ptr %.split33, i64 56
   store i32 0, ptr %33, align 8
   %34 = getelementptr i8, ptr %.split33, i64 64
   tail call void @__init_swait_queue_head(ptr noundef %34, ptr noundef nonnull @.str.34, ptr noundef nonnull @init_completion.__key) #18
   %35 = load ptr, ptr %16, align 8
-  %.split34 = getelementptr %struct.xhci_port, ptr %35, i64 %23
+  %.split34 = getelementptr [120 x i8], ptr %35, i64 %23
   %36 = getelementptr i8, ptr %.split34, i64 88
   store i32 0, ptr %36, align 8
   %37 = getelementptr i8, ptr %.split34, i64 96
@@ -5012,12 +4994,12 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
 .preheader58:                                     ; preds = %45, %58
   %46 = phi i64 [ %59, %58 ], [ 0, %45 ]
   %47 = load ptr, ptr %43, align 8
-  %48 = getelementptr %struct.xhci_root_port_bw_info, ptr %47, i64 %46
+  %48 = getelementptr [688 x i8], ptr %47, i64 %46
   store volatile ptr %48, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store volatile ptr %48, ptr %49, align 8
   %50 = load ptr, ptr %43, align 8
-  %.split35 = getelementptr %struct.xhci_root_port_bw_info, ptr %50, i64 %46
+  %.split35 = getelementptr [688 x i8], ptr %50, i64 %46
   %51 = getelementptr i8, ptr %.split35, i64 40
   br label %52
 
@@ -5234,7 +5216,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
   %191 = add i32 %190, 1
   store i32 %191, ptr %138, align 8
   %192 = zext i32 %190 to i64
-  %193 = getelementptr %struct.xhci_port_cap, ptr %189, i64 %192
+  %193 = getelementptr [16 x i8], ptr %189, i64 %192
   %194 = icmp ugt i32 %191, %90
   br i1 %194, label %.loopexit50, label %195
 
@@ -5279,17 +5261,17 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
 216:                                              ; preds = %248, %214
   %217 = phi i64 [ 0, %214 ], [ %250, %248 ]
   %218 = phi i8 [ %175, %214 ], [ %249, %248 ]
-  %219 = getelementptr i32, ptr %215, i64 %217
+  %219 = getelementptr [4 x i8], ptr %215, i64 %217
   %220 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %219) #18, !srcloc !80
   %221 = load ptr, ptr %193, align 8
-  %222 = getelementptr i32, ptr %221, i64 %217
+  %222 = getelementptr [4 x i8], ptr %221, i64 %217
   store i32 %220, ptr %222, align 4
   %223 = icmp eq i64 %217, 0
   br i1 %223, label %236, label %224
 
 224:                                              ; preds = %216
   %225 = load ptr, ptr %193, align 8
-  %226 = getelementptr i32, ptr %225, i64 %217
+  %226 = getelementptr [4 x i8], ptr %225, i64 %217
   %227 = load i32, ptr %226, align 4
   %228 = getelementptr i8, ptr %226, i64 -4
   %229 = load i32, ptr %228, align 4
@@ -5313,7 +5295,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
 
 241:                                              ; preds = %236
   %242 = load ptr, ptr %193, align 8
-  %243 = getelementptr i32, ptr %242, i64 %217
+  %243 = getelementptr [4 x i8], ptr %242, i64 %217
   %244 = load i32, ptr %243, align 4
   %245 = and i32 %244, 15
   %246 = icmp samesign ugt i32 %245, 4
@@ -5359,7 +5341,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
   %269 = add nuw nsw i32 %265, 1
   store i32 %269, ptr %139, align 8
   %270 = zext nneg i32 %265 to i64
-  %271 = getelementptr i32, ptr %268, i64 %270
+  %271 = getelementptr [4 x i8], ptr %268, i64 %270
   store i32 %179, ptr %271, align 4
   br label %272
 
@@ -5391,7 +5373,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
 287:                                              ; preds = %318, %284
   %288 = phi i64 [ %286, %284 ], [ %319, %318 ]
   %289 = load ptr, ptr %16, align 8
-  %290 = getelementptr %struct.xhci_port, ptr %289, i64 %288
+  %290 = getelementptr [120 x i8], ptr %289, i64 %288
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 16
   %292 = load ptr, ptr %291, align 8
   %293 = icmp eq ptr %292, null
@@ -5586,7 +5568,7 @@ thread-pre-split45:                               ; preds = %332, %329, %353, %3
   %397 = phi i64 [ %420, %417 ], [ 0, %392 ]
   %398 = phi i32 [ %419, %417 ], [ 0, %392 ]
   %399 = load ptr, ptr %16, align 8
-  %400 = getelementptr %struct.xhci_port, ptr %399, i64 %397
+  %400 = getelementptr [120 x i8], ptr %399, i64 %397
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 16
   %402 = load ptr, ptr %401, align 8
   %403 = icmp eq ptr %402, %135
@@ -5601,10 +5583,10 @@ thread-pre-split45:                               ; preds = %332, %329, %353, %3
 408:                                              ; preds = %404
   store i32 %398, ptr %405, align 4
   %409 = load ptr, ptr %16, align 8
-  %410 = getelementptr %struct.xhci_port, ptr %409, i64 %397
+  %410 = getelementptr [120 x i8], ptr %409, i64 %397
   %411 = load ptr, ptr %135, align 8
   %412 = sext i32 %398 to i64
-  %413 = getelementptr ptr, ptr %411, i64 %412
+  %413 = getelementptr [8 x i8], ptr %411, i64 %412
   store ptr %410, ptr %413, align 8
   %414 = add i32 %398, 1
   %415 = load i32, ptr %142, align 8
@@ -5654,7 +5636,7 @@ thread-pre-split45:                               ; preds = %332, %329, %353, %3
   %442 = phi i64 [ %465, %462 ], [ 0, %437 ]
   %443 = phi i32 [ %464, %462 ], [ 0, %437 ]
   %444 = load ptr, ptr %16, align 8
-  %445 = getelementptr %struct.xhci_port, ptr %444, i64 %442
+  %445 = getelementptr [120 x i8], ptr %444, i64 %442
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 16
   %447 = load ptr, ptr %446, align 8
   %448 = icmp eq ptr %447, %136
@@ -5669,10 +5651,10 @@ thread-pre-split45:                               ; preds = %332, %329, %353, %3
 453:                                              ; preds = %449
   store i32 %443, ptr %450, align 4
   %454 = load ptr, ptr %16, align 8
-  %455 = getelementptr %struct.xhci_port, ptr %454, i64 %442
+  %455 = getelementptr [120 x i8], ptr %454, i64 %442
   %456 = load ptr, ptr %136, align 8
   %457 = sext i32 %443 to i64
-  %458 = getelementptr ptr, ptr %456, i64 %457
+  %458 = getelementptr [8 x i8], ptr %456, i64 %457
   store ptr %455, ptr %458, align 8
   %459 = add i32 %443, 1
   %460 = load i32, ptr %143, align 8
@@ -5747,7 +5729,7 @@ define internal fastcc noundef ptr @xhci_segment_alloc(ptr noundef readonly capt
 
 19:                                               ; preds = %15, %5
   %20 = phi i64 [ 0, %5 ], [ %18, %15 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %20
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %20
   %21 = getelementptr i8, ptr %.split, i64 48
   %22 = load ptr, ptr %21, align 16
   %23 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_node_trace(ptr noundef %22, i32 noundef %12, i32 noundef %11, i64 noundef 56) #19
@@ -5795,7 +5777,7 @@ define internal fastcc noundef ptr @xhci_segment_alloc(ptr noundef readonly capt
 .preheader:                                       ; preds = %43, %.preheader
   %45 = phi i64 [ %48, %.preheader ], [ 0, %43 ]
   %46 = load ptr, ptr %23, align 8
-  %.split2 = getelementptr %union.xhci_trb, ptr %46, i64 %45
+  %.split2 = getelementptr [16 x i8], ptr %46, i64 %45
   %47 = getelementptr i8, ptr %.split2, i64 12
   store i32 1, ptr %47, align 4
   %48 = add nuw nsw i64 %45, 1

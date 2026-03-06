@@ -20,7 +20,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @nghttp2_hd_huff_encode_c
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.067
   %4 = load i8, ptr %3, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw %struct.nghttp2_huff_sym, ptr @huff_sym_table, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @huff_sym_table, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = zext i32 %7 to i64
   %9 = add i64 %.08, %8
@@ -75,7 +75,7 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %18 = getelementptr inbounds nuw i8, ptr %.047, i64 1
   %19 = load i8, ptr %.047, align 1, !tbaa !4
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.nghttp2_huff_sym, ptr @huff_sym_table, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @huff_sym_table, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = zext i32 %23 to i64
@@ -210,11 +210,11 @@ define dso_local i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr 
   %12 = load i8, ptr %.02228, align 1, !tbaa !4
   %13 = and i16 %10, 511
   %14 = zext nneg i16 %13 to i64
-  %15 = getelementptr inbounds nuw [16 x %struct.nghttp2_huff_decode], ptr @huff_decode_table, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr @huff_decode_table, i64 %14
   %16 = zext i8 %12 to i32
   %17 = lshr i32 %16, 4
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.nghttp2_huff_decode, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !29
   %.not25 = icmp sgt i16 %20, -1
   br i1 %.not25, label %26, label %21
@@ -231,10 +231,10 @@ define dso_local i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr 
 26:                                               ; preds = %21, %9
   %27 = and i16 %20, 511
   %28 = zext nneg i16 %27 to i64
-  %29 = getelementptr inbounds nuw [16 x %struct.nghttp2_huff_decode], ptr @huff_decode_table, i64 %28
+  %29 = getelementptr inbounds nuw [64 x i8], ptr @huff_decode_table, i64 %28
   %30 = and i32 %16, 15
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct.nghttp2_huff_decode, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !29
   %.not26 = icmp sgt i16 %33, -1
   br i1 %.not26, label %39, label %34

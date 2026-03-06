@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, i32 }
 %"union.icu_77::FormattedStringBuilder::ValueOrHeapArray.0" = type { %struct.anon.1, [24 x i8] }
 %struct.anon.1 = type { ptr, i32 }
-%"struct.icu_77::FormattedStringBuilder::Field" = type { i8 }
 %"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
 %"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
 %"class.icu_77::UObject" = type { ptr }
@@ -230,7 +229,7 @@ define noundef i32 @_ZNK6icu_7722FormattedStringBuilder14codePointCountEv(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i32, ptr %7, align 8, !tbaa !9
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i16, ptr %6, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %12 = load i32, ptr %11, align 4, !tbaa !10
   %13 = tail call i32 @u_countChar32_77(ptr noundef %10, i32 noundef %12)
@@ -255,7 +254,7 @@ define noundef range(i32 -1, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load i32, ptr %11, align 8, !tbaa !9
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i16, ptr %10, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %10, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %16, 63488
@@ -304,10 +303,10 @@ define noundef range(i32 -1, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load i32, ptr %11, align 8, !tbaa !9
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i16, ptr %10, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %10, i64 %13
   %15 = add nsw i32 %3, -1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i16, ptr %14, i64 %16
+  %17 = getelementptr inbounds [2 x i8], ptr %14, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !14
   %19 = and i16 %18, -1024
   %20 = icmp eq i16 %19, -9216
@@ -317,7 +316,7 @@ define noundef range(i32 -1, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder1
 
 22:                                               ; preds = %5
   %23 = zext nneg i32 %3 to i64
-  %24 = getelementptr i16, ptr %14, i64 %23
+  %24 = getelementptr [2 x i8], ptr %14, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -4
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = and i16 %26, -1024
@@ -325,7 +324,7 @@ define noundef range(i32 -1, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder1
   %29 = add nsw i32 %3, -2
   %spec.select = select i1 %28, i32 %29, i32 %15
   %.pre = zext nneg i32 %spec.select to i64
-  %.phi.trans.insert = getelementptr inbounds nuw i16, ptr %14, i64 %.pre
+  %.phi.trans.insert = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %.pre
   %.pre23 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !14
   br label %30
 
@@ -349,7 +348,7 @@ define noundef range(i32 -1, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder1
 
 40:                                               ; preds = %38
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds i16, ptr %14, i64 %41
+  %42 = getelementptr inbounds [2 x i8], ptr %14, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !14
   %44 = zext i16 %43 to i32
   %45 = and i32 %44, 64512
@@ -368,7 +367,7 @@ define noundef range(i32 -1, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder1
 
 53:                                               ; preds = %51
   %54 = zext nneg i32 %.018 to i64
-  %55 = getelementptr i16, ptr %14, i64 %54
+  %55 = getelementptr [2 x i8], ptr %14, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -2
   %57 = load i16, ptr %56, align 2, !tbaa !14
   %58 = zext i16 %57 to i32
@@ -397,9 +396,9 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load i32, ptr %8, align 8, !tbaa !9
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %7, i64 %10
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds i16, ptr %11, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !14
   %15 = zext i16 %14 to i32
   %16 = and i32 %15, 63488
@@ -420,7 +419,7 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder11
 
 25:                                               ; preds = %21
   %26 = sext i32 %22 to i64
-  %27 = getelementptr inbounds i16, ptr %11, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %11, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = zext i16 %28 to i32
   %30 = and i32 %29, 64512
@@ -439,7 +438,7 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder11
 
 38:                                               ; preds = %36
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr i16, ptr %11, i64 %39
+  %40 = getelementptr [2 x i8], ptr %11, i64 %39
   %41 = getelementptr i8, ptr %40, i64 -2
   %42 = load i16, ptr %41, align 2, !tbaa !14
   %43 = zext i16 %42 to i32
@@ -468,10 +467,10 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load i32, ptr %8, align 8, !tbaa !9
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %7, i64 %10
   %12 = add nsw i32 %1, -1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i16, ptr %11, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %11, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = and i16 %15, -1024
   %17 = icmp eq i16 %16, -9216
@@ -481,7 +480,7 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder15
 
 19:                                               ; preds = %2
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr i16, ptr %11, i64 %20
+  %21 = getelementptr [2 x i8], ptr %11, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -4
   %23 = load i16, ptr %22, align 2, !tbaa !14
   %24 = and i16 %23, -1024
@@ -489,7 +488,7 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder15
   %26 = add nsw i32 %1, -2
   %spec.select = select i1 %25, i32 %26, i32 %12
   %.pre = zext nneg i32 %spec.select to i64
-  %.phi.trans.insert = getelementptr inbounds nuw i16, ptr %11, i64 %.pre
+  %.phi.trans.insert = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %.pre
   %.pre21 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !14
   br label %27
 
@@ -515,7 +514,7 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder15
 
 39:                                               ; preds = %35
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds i16, ptr %11, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %11, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !14
   %43 = zext i16 %42 to i32
   %44 = and i32 %43, 64512
@@ -534,7 +533,7 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722FormattedStringBuilder15
 
 52:                                               ; preds = %50
   %53 = zext nneg i32 %.018 to i64
-  %54 = getelementptr i16, ptr %11, i64 %53
+  %54 = getelementptr [2 x i8], ptr %11, i64 %53
   %55 = getelementptr i8, ptr %54, i64 -2
   %56 = load i16, ptr %55, align 2, !tbaa !14
   %57 = zext i16 %56 to i32
@@ -640,7 +639,7 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
 47:                                               ; preds = %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
   %48 = trunc nuw i32 %2 to i16
   %49 = sext i32 %.0.i31 to i64
-  %50 = getelementptr inbounds i16, ptr %43, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %43, i64 %49
   store i16 %48, ptr %50, align 2, !tbaa !14
   br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32.sink.split
 
@@ -649,22 +648,22 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
   %53 = trunc i32 %52 to i16
   %54 = add i16 %53, -10304
   %55 = sext i32 %.0.i31 to i64
-  %56 = getelementptr inbounds i16, ptr %43, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %43, i64 %55
   store i16 %54, ptr %56, align 2, !tbaa !14
   %57 = trunc i32 %2 to i16
   %58 = and i16 %57, 1023
   %59 = or disjoint i16 %58, -9216
   %60 = add nsw i32 %.0.i31, 1
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i16, ptr %43, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %43, i64 %61
   store i16 %59, ptr %62, align 2, !tbaa !14
-  %63 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %46, i64 %61
+  %63 = getelementptr inbounds i8, ptr %46, i64 %61
   store i8 %3, ptr %63, align 1, !tbaa !13
   br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32.sink.split
 
 _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32.sink.split: ; preds = %51, %47
   %.sink34 = phi i64 [ %49, %47 ], [ %55, %51 ]
-  %64 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %46, i64 %.sink34
+  %64 = getelementptr inbounds i8, ptr %46, i64 %.sink34
   store i8 %3, ptr %64, align 1, !tbaa !13
   br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32
 
@@ -820,9 +819,9 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
   %57 = load ptr, ptr %56, align 8
   %58 = select i1 %52, ptr %57, ptr %56
   %59 = sext i32 %.0.i31.i to i64
-  %60 = getelementptr inbounds i16, ptr %55, i64 %59
+  %60 = getelementptr inbounds [2 x i8], ptr %55, i64 %59
   store i16 %19, ptr %60, align 2, !tbaa !14
-  %61 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %58, i64 %59
+  %61 = getelementptr inbounds i8, ptr %58, i64 %59
   store i8 %3, ptr %61, align 1, !tbaa !13
   br label %_ZN6icu_7722FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode.exit
 
@@ -928,7 +927,7 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit: ; pre
   %.not.i.i.i = icmp eq i16 %62, 0
   %63 = load ptr, ptr %46, align 8
   %64 = select i1 %.not.i.i.i, ptr %63, ptr %45
-  %65 = getelementptr inbounds i16, ptr %64, i64 %52
+  %65 = getelementptr inbounds [2 x i8], ptr %64, i64 %52
   %66 = load i16, ptr %65, align 2, !tbaa !14
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
@@ -939,11 +938,11 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %51, %61
   %69 = load ptr, ptr %47, align 8
   %70 = select i1 %68, ptr %69, ptr %47
   %71 = add nsw i64 %indvars.iv, %50
-  %72 = getelementptr inbounds i16, ptr %70, i64 %71
+  %72 = getelementptr inbounds [2 x i8], ptr %70, i64 %71
   store i16 %.0.i.i, ptr %72, align 2, !tbaa !14
   %73 = load ptr, ptr %48, align 8
   %74 = select i1 %68, ptr %73, ptr %48
-  %75 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %74, i64 %71
+  %75 = getelementptr inbounds i8, ptr %74, i64 %71
   store i8 %5, ptr %75, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1035,8 +1034,8 @@ define noundef i32 @_ZN6icu_7722FormattedStringBuilder6spliceEiiRKNS_13UnicodeSt
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %59, ptr %61, ptr %60
-  %63 = getelementptr inbounds i16, ptr %62, i64 %49
-  %64 = getelementptr inbounds nuw i16, ptr %63, i64 %50
+  %63 = getelementptr inbounds [2 x i8], ptr %62, i64 %49
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %50
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %63, ptr readonly align 1 %64, i64 range(i64 -4294967296, 4294967295) %57, i1 false)
   %.pre.i = load i32, ptr %51, align 4, !tbaa !10
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit.i
@@ -1054,8 +1053,8 @@ _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit.i:   ; preds = %54, %44
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %72 = load ptr, ptr %71, align 8
   %73 = select i1 %70, ptr %72, ptr %71
-  %74 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %73, i64 %49
-  %75 = getelementptr inbounds nuw %"struct.icu_77::FormattedStringBuilder::Field", ptr %74, i64 %50
+  %74 = getelementptr inbounds i8, ptr %73, i64 %49
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %50
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %74, ptr readonly align 1 %75, i64 range(i64 -4294967296, 4294967295) %68, i1 false)
   %.pre15.i = load i32, ptr %51, align 4, !tbaa !10
   br label %_ZN6icu_7722FormattedStringBuilder6removeEii.exit
@@ -1104,7 +1103,7 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit: ; pre
   %.not.i.i.i = icmp eq i16 %100, 0
   %101 = load ptr, ptr %84, align 8
   %102 = select i1 %.not.i.i.i, ptr %101, ptr %83
-  %103 = getelementptr inbounds i16, ptr %102, i64 %90
+  %103 = getelementptr inbounds [2 x i8], ptr %102, i64 %90
   %104 = load i16, ptr %103, align 2, !tbaa !14
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
@@ -1115,11 +1114,11 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %89, %99
   %107 = load ptr, ptr %85, align 8
   %108 = select i1 %106, ptr %107, ptr %85
   %109 = add nsw i64 %indvars.iv, %88
-  %110 = getelementptr inbounds i16, ptr %108, i64 %109
+  %110 = getelementptr inbounds [2 x i8], ptr %108, i64 %109
   store i16 %.0.i.i, ptr %110, align 2, !tbaa !14
   %111 = load ptr, ptr %86, align 8
   %112 = select i1 %106, ptr %111, ptr %86
-  %113 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %112, i64 %109
+  %113 = getelementptr inbounds i8, ptr %112, i64 %109
   store i8 %6, ptr %113, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1151,8 +1150,8 @@ define noundef i32 @_ZN6icu_7722FormattedStringBuilder6removeEii(ptr noundef non
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = select i1 %17, ptr %19, ptr %18
-  %21 = getelementptr inbounds i16, ptr %20, i64 %7
-  %22 = getelementptr inbounds i16, ptr %21, i64 %8
+  %21 = getelementptr inbounds [2 x i8], ptr %20, i64 %7
+  %22 = getelementptr inbounds [2 x i8], ptr %21, i64 %8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %22, i64 range(i64 -4294967296, 4294967295) %15, i1 false)
   %.pre = load i32, ptr %9, align 4, !tbaa !10
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit
@@ -1170,8 +1169,8 @@ _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit:     ; preds = %3, %12
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %30 = load ptr, ptr %29, align 8
   %31 = select i1 %28, ptr %30, ptr %29
-  %32 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %31, i64 %7
-  %33 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %32, i64 %8
+  %32 = getelementptr inbounds i8, ptr %31, i64 %7
+  %33 = getelementptr inbounds i8, ptr %32, i64 %8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %32, ptr readonly align 1 %33, i64 range(i64 -4294967296, 4294967295) %26, i1 false)
   %.pre15 = load i32, ptr %9, align 4, !tbaa !10
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit14
@@ -1286,22 +1285,22 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit: ; pre
   %57 = load i32, ptr %47, align 8, !tbaa !9
   %58 = sext i32 %57 to i64
   %59 = add nsw i64 %indvars.iv, %58
-  %60 = getelementptr inbounds i16, ptr %56, i64 %59
+  %60 = getelementptr inbounds [2 x i8], ptr %56, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !14
   %62 = load i8, ptr %0, align 8, !tbaa !3, !range !11, !noundef !12
   %63 = trunc nuw i8 %62 to i1
   %64 = load ptr, ptr %48, align 8
   %65 = select i1 %63, ptr %64, ptr %48
   %66 = add nsw i64 %indvars.iv, %51
-  %67 = getelementptr inbounds i16, ptr %65, i64 %66
+  %67 = getelementptr inbounds [2 x i8], ptr %65, i64 %66
   store i16 %61, ptr %67, align 2, !tbaa !14
   %68 = load ptr, ptr %49, align 8
   %69 = select i1 %54, ptr %68, ptr %49
-  %70 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %69, i64 %59
+  %70 = getelementptr inbounds i8, ptr %69, i64 %59
   %.sroa.0.0.copyload.i = load i8, ptr %70, align 1, !tbaa !13
   %71 = load ptr, ptr %50, align 8
   %72 = select i1 %63, ptr %71, ptr %50
-  %73 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %72, i64 %66
+  %73 = getelementptr inbounds i8, ptr %72, i64 %66
   store i8 %.sroa.0.0.copyload.i, ptr %73, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1368,12 +1367,12 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
   %28 = load ptr, ptr %27, align 8
   %29 = select i1 %26, ptr %28, ptr %27
   %30 = sext i32 %.0.i8 to i64
-  %31 = getelementptr inbounds i16, ptr %29, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %29, i64 %30
   store i16 0, ptr %31, align 2, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load ptr, ptr %32, align 8
   %34 = select i1 %26, ptr %33, ptr %32
-  %35 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %34, i64 %30
+  %35 = getelementptr inbounds i8, ptr %34, i64 %30
   store i8 0, ptr %35, align 1, !tbaa !13
   %36 = load i32, ptr %3, align 4, !tbaa !10
   %37 = add nsw i32 %36, -1
@@ -1438,9 +1437,9 @@ define noundef i32 @_ZN6icu_7722FormattedStringBuilder22prepareForInsertHelperEi
 
 38:                                               ; preds = %29
   %39 = sext i32 %31 to i64
-  %40 = getelementptr inbounds i16, ptr %34, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %34, i64 %39
   %41 = sext i32 %12 to i64
-  %42 = getelementptr inbounds i16, ptr %15, i64 %41
+  %42 = getelementptr inbounds [2 x i8], ptr %15, i64 %41
   %43 = sext i32 %1 to i64
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit, label %44
@@ -1460,15 +1459,15 @@ _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit:      ; preds = %38, %44
 
 50:                                               ; preds = %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit
   %51 = shl nsw i64 %49, 1
-  %52 = getelementptr inbounds i16, ptr %42, i64 %43
-  %53 = getelementptr inbounds i16, ptr %40, i64 %43
-  %54 = getelementptr inbounds i16, ptr %53, i64 %46
+  %52 = getelementptr inbounds [2 x i8], ptr %42, i64 %43
+  %53 = getelementptr inbounds [2 x i8], ptr %40, i64 %43
+  %54 = getelementptr inbounds [2 x i8], ptr %53, i64 %46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr readonly align 1 %52, i64 range(i64 -4294967296, 4294967295) %51, i1 false)
   br label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit83
 
 _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit83:    ; preds = %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit, %50
-  %55 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %35, i64 %39
-  %56 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %18, i64 %41
+  %55 = getelementptr inbounds i8, ptr %35, i64 %39
+  %56 = getelementptr inbounds i8, ptr %18, i64 %41
   br i1 %.not.i, label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit85, label %57
 
 57:                                               ; preds = %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit83
@@ -1479,9 +1478,9 @@ _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit85:    ; preds = %_ZN12_GLOBAL__N_112
   br i1 %.not.i82, label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit87, label %58
 
 58:                                               ; preds = %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit85
-  %59 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %56, i64 %43
-  %60 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %55, i64 %43
-  %61 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %60, i64 %46
+  %59 = getelementptr inbounds i8, ptr %56, i64 %43
+  %60 = getelementptr inbounds i8, ptr %55, i64 %43
+  %61 = getelementptr inbounds i8, ptr %60, i64 %46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr readonly align 1 %59, i64 range(i64 -4294967296, 4294967295) %49, i1 false)
   br label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit87
 
@@ -1515,7 +1514,7 @@ _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit87:    ; preds = %_ZN12_GLOBAL__N_112
   %68 = sub nsw i32 %10, %24
   %69 = lshr i32 %68, 1
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %15, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %70
   %72 = sext i32 %12 to i64
   %73 = load i32, ptr %19, align 4, !tbaa !10
   %.not.i88 = icmp eq i32 %73, 0
@@ -1524,7 +1523,7 @@ _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit87:    ; preds = %_ZN12_GLOBAL__N_112
 74:                                               ; preds = %67
   %75 = sext i32 %73 to i64
   %76 = shl nsw i64 %75, 1
-  %77 = getelementptr inbounds i16, ptr %15, i64 %72
+  %77 = getelementptr inbounds [2 x i8], ptr %15, i64 %72
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %71, ptr readonly align 1 %77, i64 range(i64 -4294967296, 4294967295) %76, i1 false)
   %.pre = load i32, ptr %19, align 4, !tbaa !10
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit
@@ -1540,21 +1539,21 @@ _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit:     ; preds = %67, %74
   %82 = sub nsw i32 %78, %1
   %83 = sext i32 %82 to i64
   %84 = shl nsw i64 %83, 1
-  %85 = getelementptr inbounds i16, ptr %71, i64 %79
-  %86 = getelementptr inbounds i16, ptr %85, i64 %80
+  %85 = getelementptr inbounds [2 x i8], ptr %71, i64 %79
+  %86 = getelementptr inbounds [2 x i8], ptr %85, i64 %80
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %86, ptr readonly align 1 %85, i64 range(i64 -4294967296, 4294967295) %84, i1 false)
   %.pre95 = load i32, ptr %19, align 4, !tbaa !10
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit90
 
 _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit90:   ; preds = %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit, %81
   %87 = phi i32 [ %1, %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit ], [ %.pre95, %81 ]
-  %88 = getelementptr inbounds nuw %"struct.icu_77::FormattedStringBuilder::Field", ptr %18, i64 %70
+  %88 = getelementptr inbounds nuw i8, ptr %18, i64 %70
   %.not.i91 = icmp eq i32 %87, 0
   br i1 %.not.i91, label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit92, label %89
 
 89:                                               ; preds = %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit90
   %90 = sext i32 %87 to i64
-  %91 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %18, i64 %72
+  %91 = getelementptr inbounds i8, ptr %18, i64 %72
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %88, ptr readonly align 1 %91, i64 range(i64 -4294967296, 4294967295) %90, i1 false)
   %.pre96 = load i32, ptr %19, align 4, !tbaa !10
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit92
@@ -1567,8 +1566,8 @@ _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit92:   ; preds = %_ZN12_GLOBAL__N_113
 93:                                               ; preds = %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit92
   %94 = sub nsw i32 %92, %1
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %88, i64 %79
-  %97 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %96, i64 %80
+  %96 = getelementptr inbounds i8, ptr %88, i64 %79
+  %97 = getelementptr inbounds i8, ptr %96, i64 %80
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %97, ptr readonly align 1 %96, i64 range(i64 -4294967296, 4294967295) %95, i1 false)
   br label %_ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit94
 
@@ -1598,7 +1597,7 @@ define void @_ZNK6icu_7722FormattedStringBuilder15toUnicodeStringEv(ptr dead_on_
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %9 = load i32, ptr %8, align 8, !tbaa !9
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %13 = load i32, ptr %12, align 4, !tbaa !10
   tail call void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %11, i32 noundef %13)
@@ -1618,7 +1617,7 @@ define void @_ZNK6icu_7722FormattedStringBuilder19toTempUnicodeStringEv(ptr dead
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %10 = load i32, ptr %9, align 8, !tbaa !9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %8, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %8, i64 %11
   store ptr %12, ptr %3, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %14 = load i32, ptr %13, align 4, !tbaa !10
@@ -1662,7 +1661,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %14 = load i32, ptr %13, align 8, !tbaa !9, !noalias !30
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i16, ptr %12, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %18 = load i32, ptr %17, align 4, !tbaa !10, !noalias !30
   invoke void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %16, i32 noundef %18)
@@ -1737,7 +1736,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit20: ; preds = %_ZN6ic
   %47 = load i32, ptr %13, align 8, !tbaa !9
   %48 = add nsw i32 %47, %.01140
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %46, i64 %49
+  %50 = getelementptr inbounds i8, ptr %46, i64 %49
   %.sroa.0.0.copyload.i = load i8, ptr %50, align 1, !tbaa !13
   %51 = icmp eq i8 %.sroa.0.0.copyload.i, 0
   br i1 %51, label %52, label %56
@@ -1774,7 +1773,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %52
 
 switch.lookup:                                    ; preds = %59
   %65 = zext nneg i8 %60 to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZNK6icu_7722FormattedStringBuilder13toDebugStringEv, i64 %65
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZNK6icu_7722FormattedStringBuilder13toDebugStringEv, i64 %65
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %66
 
@@ -1842,7 +1841,7 @@ define noundef ptr @_ZNK6icu_7722FormattedStringBuilder5charsEv(ptr noundef nonn
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i32, ptr %7, align 8, !tbaa !9
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i16, ptr %6, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %6, i64 %9
   ret ptr %10
 }
 
@@ -1893,18 +1892,18 @@ define noundef zeroext i1 @_ZNK6icu_7722FormattedStringBuilder13contentEqualsERK
 31:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %32 = add nsw i64 %indvars.iv, %29
-  %33 = getelementptr inbounds i16, ptr %13, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %13, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !14
   %35 = add nsw i64 %indvars.iv, %28
-  %36 = getelementptr inbounds i16, ptr %20, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %20, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !14
   %.not13 = icmp eq i16 %34, %37
   br i1 %.not13, label %38, label %.critedge
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %24, i64 %32
+  %39 = getelementptr inbounds i8, ptr %24, i64 %32
   %.sroa.0.0.copyload.i = load i8, ptr %39, align 1, !tbaa !13
-  %40 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %27, i64 %35
+  %40 = getelementptr inbounds i8, ptr %27, i64 %35
   %.sroa.0.0.copyload.i14 = load i8, ptr %40, align 1, !tbaa !13
   %.not16 = icmp eq i8 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i14
   br i1 %.not16, label %30, label %.critedge
@@ -1931,12 +1930,12 @@ define noundef zeroext i1 @_ZNK6icu_7722FormattedStringBuilder13containsFieldENS
   %12 = load i32, ptr %11, align 8, !tbaa !9
   %13 = sext i32 %12 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
-  %invariant.gep = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %10, i64 %13
+  %invariant.gep = getelementptr i8, ptr %10, i64 %13
   br label %14
 
 14:                                               ; preds = %14, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %gep = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i8, ptr %gep, align 1, !tbaa !13
   %15 = icmp eq i8 %1, %.sroa.0.0.copyload.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

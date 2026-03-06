@@ -15,11 +15,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.qspinlock = type { %union.anon.30 }
 %union.anon.30 = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
-%struct.xt_policy_elem = type { %union.anon.1, i32, i32, i8, i8, %struct.xt_policy_spec, %struct.xt_policy_spec }
-%union.anon.1 = type { %struct.anon }
-%struct.anon = type { %union.nf_inet_addr, %union.nf_inet_addr, %union.nf_inet_addr, %union.nf_inet_addr }
-%union.nf_inet_addr = type { [4 x i32] }
-%struct.xt_policy_spec = type { i8 }
 
 @__UNIQUE_ID_author769 = internal constant [51 x i8] c"xt_policy.author=Patrick McHardy <kaber@trash.net>\00", section ".modinfo", align 1
 @__UNIQUE_ID_description770 = internal constant [50 x i8] c"xt_policy.description=Xtables: IPsec policy match\00", section ".modinfo", align 1
@@ -132,7 +127,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
 
 .split.us.split:                                  ; preds = %.split.us.split.preheader, %54
   %50 = phi i64 [ %55, %54 ], [ %49, %.split.us.split.preheader ]
-  %51 = getelementptr ptr, ptr %48, i64 %50
+  %51 = getelementptr [8 x i8], ptr %48, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = tail call fastcc zeroext i1 @match_xfrm_state(ptr noundef %52, ptr noundef %4, i16 noundef zeroext %13)
   br i1 %53, label %.loopexit9, label %54
@@ -152,8 +147,8 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
 
 61:                                               ; preds = %.split
   %62 = sext i32 %59 to i64
-  %63 = getelementptr %struct.xt_policy_elem, ptr %4, i64 %62
-  %64 = getelementptr ptr, ptr %44, i64 %57
+  %63 = getelementptr [76 x i8], ptr %4, i64 %62
+  %64 = getelementptr [8 x i8], ptr %44, i64 %57
   %65 = load ptr, ptr %64, align 8
   %66 = tail call fastcc zeroext i1 @match_xfrm_state(ptr noundef %65, ptr noundef %63, i16 noundef zeroext %13)
   br i1 %66, label %67, label %.loopexit9
@@ -227,7 +222,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
   br i1 %107, label %108, label %.loopexit9
 
 108:                                              ; preds = %104
-  %109 = getelementptr %struct.xt_policy_elem, ptr %4, i64 %indvars.iv
+  %109 = getelementptr [76 x i8], ptr %4, i64 %indvars.iv
   %110 = tail call fastcc zeroext i1 @match_xfrm_state(ptr noundef nonnull %102, ptr noundef %109, i16 noundef zeroext %13)
   br i1 %110, label %111, label %.loopexit9
 

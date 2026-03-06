@@ -26,7 +26,7 @@ define void @memory_usage_component_register(ptr noundef %0) local_unnamed_addr 
   %5 = add nuw nsw i32 %2, 1
   store i32 %5, ptr @memory_register_num, align 4
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr ptr, ptr @memory_components, i64 %6
+  %7 = getelementptr [8 x i8], ptr @memory_components, i64 %6
   store ptr %0, ptr %7, align 8
   br label %8
 
@@ -46,7 +46,7 @@ define ptr @memory_usage_get(i32 noundef %0, ptr noundef writeonly captures(addr
   br i1 %.not7, label %._crit_edge, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr ptr, ptr @memory_components, i64 %.pre
+  %6 = getelementptr [8 x i8], ptr @memory_components, i64 %.pre
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -55,7 +55,7 @@ define ptr @memory_usage_get(i32 noundef %0, ptr noundef writeonly captures(addr
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %5
-  %11 = getelementptr ptr, ptr @memory_components, i64 %.pre
+  %11 = getelementptr [8 x i8], ptr @memory_components, i64 %.pre
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   br label %14
@@ -74,7 +74,7 @@ define void @memory_usage_gc() local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %0, %8
   %2 = phi i32 [ %9, %8 ], [ %1, %0 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %0 ]
-  %3 = getelementptr ptr, ptr @memory_components, i64 %indvars.iv
+  %3 = getelementptr [8 x i8], ptr @memory_components, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8

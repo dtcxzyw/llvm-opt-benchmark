@@ -123,9 +123,9 @@ define ptr @Mvc_CubeDup(ptr noundef readonly captures(none) %0, ptr noundef read
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %10, %.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !21
-  %23 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %22, ptr %23, align 4, !tbaa !21
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
@@ -198,7 +198,7 @@ define void @Mvc_CubeBitRemoveDcs(ptr noundef captures(none) %0) local_unnamed_a
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ %6, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !21
   %10 = lshr i32 %9, 1
   %11 = xor i32 %10, %9

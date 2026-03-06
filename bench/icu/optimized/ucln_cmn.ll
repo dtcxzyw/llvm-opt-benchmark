@@ -16,7 +16,7 @@ define void @u_cleanup_77() local_unnamed_addr #0 {
 
 1:                                                ; preds = %ucln_cleanupOne_77.exit.i, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %ucln_cleanupOne_77.exit.i ]
-  %2 = getelementptr inbounds nuw ptr, ptr @_ZL20gLibCleanupFunctions, i64 %indvars.iv.i
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @_ZL20gLibCleanupFunctions, i64 %indvars.iv.i
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %ucln_cleanupOne_77.exit.i, label %4
@@ -33,7 +33,7 @@ ucln_cleanupOne_77.exit.i:                        ; preds = %4, %1
 
 .preheader.i:                                     ; preds = %ucln_cleanupOne_77.exit.i, %10
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %10 ], [ 0, %ucln_cleanupOne_77.exit.i ]
-  %6 = getelementptr inbounds nuw ptr, ptr @_ZL23gCommonCleanupFunctions, i64 %indvars.iv15.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23gCommonCleanupFunctions, i64 %indvars.iv15.i
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %10, label %8
@@ -64,7 +64,7 @@ define noundef signext i8 @ucln_lib_cleanup_77() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %ucln_cleanupOne_77.exit
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %ucln_cleanupOne_77.exit ]
-  %2 = getelementptr inbounds nuw ptr, ptr @_ZL20gLibCleanupFunctions, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @_ZL20gLibCleanupFunctions, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %ucln_cleanupOne_77.exit, label %4
@@ -81,7 +81,7 @@ ucln_cleanupOne_77.exit:                          ; preds = %1, %4
 
 .preheader:                                       ; preds = %ucln_cleanupOne_77.exit, %10
   %indvars.iv15 = phi i64 [ %indvars.iv.next16, %10 ], [ 0, %ucln_cleanupOne_77.exit ]
-  %6 = getelementptr inbounds nuw ptr, ptr @_ZL23gCommonCleanupFunctions, i64 %indvars.iv15
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23gCommonCleanupFunctions, i64 %indvars.iv15
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
@@ -107,7 +107,7 @@ declare signext i8 @utrace_cleanup_77() local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @ucln_cleanupOne_77(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds ptr, ptr @_ZL20gLibCleanupFunctions, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @_ZL20gLibCleanupFunctions, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -137,7 +137,7 @@ define void @ucln_common_registerCleanup_77(i32 noundef %0, ptr noundef %1) loca
 6:                                                ; preds = %5
   tail call void @umtx_lock_77(ptr noundef null)
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr @_ZL23gCommonCleanupFunctions, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23gCommonCleanupFunctions, i64 %7
   store ptr %1, ptr %8, align 8, !tbaa !3
   invoke void @umtx_unlock_77(ptr noundef null)
           to label %_ZN6icu_775MutexD2Ev.exit unwind label %9
@@ -160,7 +160,7 @@ define void @ucln_registerCleanup_77(i32 noundef %0, ptr noundef %1) local_unnam
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZL20gLibCleanupFunctions, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZL20gLibCleanupFunctions, i64 %4
   store ptr %1, ptr %5, align 8, !tbaa !3
   br label %6
 

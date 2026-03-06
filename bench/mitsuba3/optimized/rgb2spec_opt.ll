@@ -88,7 +88,7 @@ define hidden noundef double @_Z10cie_interpPKdd(ptr noundef readonly captures(n
   %7 = fsub contract double %4, %6
   %8 = fsub contract double 1.000000e+00, %7
   %9 = zext nneg i32 %spec.store.select1 to i64
-  %10 = getelementptr inbounds nuw double, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %9
   %11 = load double, ptr %10, align 8
   %12 = fmul contract double %8, %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -114,13 +114,13 @@ define hidden noundef range(i32 0, 2) i32 @_Z12LUPDecomposePPdidPi(ptr noundef c
 
 .preheader.lr.ph:                                 ; preds = %.preheader78
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %6
   %8 = zext nneg i32 %1 to i64
   br label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %10, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -142,9 +142,9 @@ define hidden noundef range(i32 0, 2) i32 @_Z12LUPDecomposePPdidPi(ptr noundef c
   %indvars.iv95 = phi i64 [ %indvars.iv93, %.preheader ], [ %indvars.iv.next96, %12 ]
   %.06883 = phi double [ 0.000000e+00, %.preheader ], [ %.169, %12 ]
   %.07082 = phi i32 [ %11, %.preheader ], [ %.171, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv95
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv95
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv93
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv93
   %16 = load double, ptr %15, align 8
   %17 = tail call contract double @llvm.fabs.f64(double %16)
   %18 = fcmp contract ogt double %17, %.06883
@@ -165,16 +165,16 @@ define hidden noundef range(i32 0, 2) i32 @_Z12LUPDecomposePPdidPi(ptr noundef c
   br i1 %.not77, label %36, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv93
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv93
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %.171 to i64
-  %28 = getelementptr inbounds i32, ptr %3, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %3, i64 %27
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %25, align 4
   store i32 %26, ptr %28, align 4
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv93
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv93
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %27
+  %32 = getelementptr inbounds [8 x i8], ptr %0, i64 %27
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %30, align 8
   store ptr %31, ptr %32, align 8
@@ -189,17 +189,17 @@ define hidden noundef range(i32 0, 2) i32 @_Z12LUPDecomposePPdidPi(ptr noundef c
   br i1 %37, label %.lr.ph88, label %.loopexit
 
 .lr.ph88:                                         ; preds = %36
-  %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv93
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv93
   br label %.lr.ph85.us
 
 .lr.ph85.us:                                      ; preds = %._crit_edge.us, %.lr.ph88
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %._crit_edge.us ], [ %indvars.iv100, %.lr.ph88 ]
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv93
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv93
   %41 = load double, ptr %40, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv107
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv107
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv93
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv93
   %45 = load double, ptr %44, align 8
   %46 = fdiv contract double %45, %41
   store double %46, ptr %44, align 8
@@ -208,13 +208,13 @@ define hidden noundef range(i32 0, 2) i32 @_Z12LUPDecomposePPdidPi(ptr noundef c
 47:                                               ; preds = %.lr.ph85.us, %47
   %indvars.iv102 = phi i64 [ %indvars.iv100, %.lr.ph85.us ], [ %indvars.iv.next103, %47 ]
   %48 = load ptr, ptr %42, align 8
-  %49 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv93
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv93
   %50 = load double, ptr %49, align 8
   %51 = load ptr, ptr %38, align 8
-  %52 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv102
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv102
   %53 = load double, ptr %52, align 8
   %54 = fmul contract double %50, %53
-  %55 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv102
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv102
   %56 = load double, ptr %55, align 8
   %57 = fsub contract double %56, %54
   store double %57, ptr %55, align 8
@@ -251,27 +251,27 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr noundef readonly captures(none) %0
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %._crit_edge
   %indvars.iv55 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next56, %._crit_edge ]
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv55
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv55
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds double, ptr %2, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv55
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv55
   store double %13, ptr %14, align 8
   %.not = icmp eq i64 %indvars.iv55, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph46
-  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv55
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv55
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
   %17 = phi double [ %13, %.lr.ph ], [ %24, %16 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %22 = load double, ptr %21, align 8
   %23 = fmul contract double %20, %22
   %24 = fsub contract double %17, %23
@@ -292,13 +292,13 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr noundef readonly captures(none) %0
   br i1 %25, label %.lr.ph48, label %.preheader.._crit_edge49_crit_edge
 
 .preheader.._crit_edge49_crit_edge:               ; preds = %.preheader
-  %.phi.trans.insert = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.next61
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next61
   %.pre66 = load double, ptr %.phi.trans.insert, align 8
   br label %._crit_edge49
 
 .lr.ph48:                                         ; preds = %.preheader
-  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next61
-  %27 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.next61
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next61
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next61
   %.pre = load double, ptr %27, align 8
   br label %28
 
@@ -306,9 +306,9 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr noundef readonly captures(none) %0
   %29 = phi double [ %.pre, %.lr.ph48 ], [ %36, %28 ]
   %indvars.iv62 = phi i64 [ %indvars.iv60, %.lr.ph48 ], [ %indvars.iv.next63, %28 ]
   %30 = load ptr, ptr %26, align 8
-  %31 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv62
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv62
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv62
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv62
   %34 = load double, ptr %33, align 8
   %35 = fmul contract double %32, %34
   %36 = fsub contract double %29, %35
@@ -320,10 +320,10 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr noundef readonly captures(none) %0
 
 ._crit_edge49:                                    ; preds = %28, %.preheader.._crit_edge49_crit_edge
   %39 = phi double [ %.pre66, %.preheader.._crit_edge49_crit_edge ], [ %36, %28 ]
-  %40 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.next61
-  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next61
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next61
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next61
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv.next61
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next61
   %44 = load double, ptr %43, align 8
   %45 = fdiv contract double %39, %44
   store double %45, ptr %40, align 8
@@ -375,17 +375,17 @@ define hidden void @_Z7cie_labPd(ptr noundef captures(none) %0) local_unnamed_ad
   %.02640 = phi double [ 0.000000e+00, %1 ], [ %11, %5 ]
   %.02739 = phi double [ 0.000000e+00, %1 ], [ %15, %5 ]
   %.02838 = phi double [ 0.000000e+00, %1 ], [ %19, %5 ]
-  %6 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds nuw double, ptr @rgb_to_xyz, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @rgb_to_xyz, i64 %indvars.iv
   %9 = load double, ptr %8, align 8
   %10 = fmul contract double %7, %9
   %11 = fadd contract double %.02640, %10
-  %12 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 24), i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 24), i64 %indvars.iv
   %13 = load double, ptr %12, align 8
   %14 = fmul contract double %7, %13
   %15 = fadd contract double %.02739, %14
-  %16 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 48), i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 48), i64 %indvars.iv
   %17 = load double, ptr %16, align 8
   %18 = fmul contract double %7, %17
   %19 = fadd contract double %.02838, %18
@@ -549,7 +549,7 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #6 
   %26 = fsub contract double %23, %25
   %27 = fsub contract double 1.000000e+00, %26
   %28 = zext nneg i32 %spec.store.select1.i to i64
-  %29 = getelementptr inbounds nuw double, ptr @_ZL5cie_x, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZL5cie_x, i64 %28
   %30 = load double, ptr %29, align 8
   %31 = fmul contract double %27, %30
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -557,7 +557,7 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #6 
   %34 = fmul contract double %26, %33
   %35 = fadd contract double %31, %34
   store double %35, ptr %2, align 16
-  %36 = getelementptr inbounds nuw double, ptr @_ZL5cie_y, i64 %28
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @_ZL5cie_y, i64 %28
   %37 = load double, ptr %36, align 8
   %38 = fmul contract double %27, %37
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -565,7 +565,7 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #6 
   %41 = fmul contract double %26, %40
   %42 = fadd contract double %38, %41
   store double %42, ptr %15, align 8
-  %43 = getelementptr inbounds nuw double, ptr @_ZL5cie_z, i64 %28
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZL5cie_z, i64 %28
   %44 = load double, ptr %43, align 8
   %45 = fmul contract double %27, %44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -573,7 +573,7 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #6 
   %48 = fmul contract double %26, %47
   %49 = fadd contract double %45, %48
   store double %49, ptr %16, align 16
-  %50 = getelementptr inbounds nuw double, ptr %.040, i64 %28
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.040, i64 %28
   %51 = load double, ptr %50, align 8
   %52 = fmul contract double %27, %51
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -595,24 +595,24 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #6 
 
 61:                                               ; preds = %57, %17, %17
   %.039 = phi double [ 6.250000e-01, %17 ], [ %., %57 ], [ 6.250000e-01, %17 ]
-  %62 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv62
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @lambda_tbl, i64 %indvars.iv62
   store double %21, ptr %62, align 8
-  %invariant.gep = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv62
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr @rgb_tbl, i64 %indvars.iv62
   br label %.preheader
 
 .preheader:                                       ; preds = %61, %74
   %indvars.iv54 = phi i64 [ 0, %61 ], [ %indvars.iv.next55, %74 ]
-  %63 = getelementptr inbounds nuw [3 x double], ptr @xyz_to_rgb, i64 %indvars.iv54
-  %gep = getelementptr inbounds nuw [283 x double], ptr %invariant.gep, i64 %indvars.iv54
+  %63 = getelementptr inbounds nuw [24 x i8], ptr @xyz_to_rgb, i64 %indvars.iv54
+  %gep = getelementptr inbounds nuw [2264 x i8], ptr %invariant.gep, i64 %indvars.iv54
   %.promoted = load double, ptr %gep, align 8
   br label %64
 
 64:                                               ; preds = %.preheader, %64
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %64 ]
   %65 = phi double [ %.promoted, %.preheader ], [ %73, %64 ]
-  %66 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %67 = load double, ptr %66, align 8
-  %68 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %69 = load double, ptr %68, align 8
   %70 = fmul contract double %67, %69
   %71 = fmul contract double %56, %70
@@ -630,11 +630,11 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #6 
 
 .preheader48:                                     ; preds = %74, %.preheader48
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.preheader48 ], [ 0, %74 ]
-  %75 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv58
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv58
   %76 = load double, ptr %75, align 8
   %77 = fmul contract double %56, %76
   %78 = fmul contract double %.039, %77
-  %79 = getelementptr inbounds nuw double, ptr @xyz_whitepoint, i64 %indvars.iv58
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @xyz_whitepoint, i64 %indvars.iv58
   %80 = load double, ptr %79, align 8
   %81 = fadd contract double %80, %78
   store double %81, ptr %79, align 8
@@ -679,7 +679,7 @@ define hidden void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(none
 
 5:                                                ; preds = %3, %28
   %indvars.iv37 = phi i64 [ 0, %3 ], [ %indvars.iv.next38, %28 ]
-  %6 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv37
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @lambda_tbl, i64 %indvars.iv37
   %7 = load double, ptr %6, align 8
   %8 = fadd contract double %7, -3.600000e+02
   %9 = fdiv contract double %8, 4.700000e+02
@@ -689,7 +689,7 @@ define hidden void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(none
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %10 ]
   %.02627 = phi double [ 0.000000e+00, %5 ], [ %14, %10 ]
   %11 = fmul contract double %9, %.02627
-  %12 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
   %14 = fadd contract double %11, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -703,15 +703,15 @@ define hidden void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(none
   %19 = tail call contract double @llvm.sqrt.f64(double %18)
   %20 = fdiv contract double %16, %19
   %21 = fadd contract double %20, 5.000000e-01
-  %invariant.gep = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv37
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr @rgb_tbl, i64 %indvars.iv37
   br label %22
 
 22:                                               ; preds = %15, %22
   %indvars.iv33 = phi i64 [ 0, %15 ], [ %indvars.iv.next34, %22 ]
-  %gep = getelementptr inbounds nuw [283 x double], ptr %invariant.gep, i64 %indvars.iv33
+  %gep = getelementptr inbounds nuw [2264 x i8], ptr %invariant.gep, i64 %indvars.iv33
   %23 = load double, ptr %gep, align 8
   %24 = fmul contract double %21, %23
-  %25 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv33
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv33
   %26 = load double, ptr %25, align 8
   %27 = fadd contract double %26, %24
   store double %27, ptr %25, align 8
@@ -732,9 +732,9 @@ define hidden void @_Z13eval_residualPKdS0_Pd(ptr noundef readonly captures(none
 
 30:                                               ; preds = %29, %30
   %indvars.iv41 = phi i64 [ 0, %29 ], [ %indvars.iv.next42, %30 ]
-  %31 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv41
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv41
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv41
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv41
   %34 = load double, ptr %33, align 8
   %35 = fsub contract double %34, %32
   store double %35, ptr %33, align 8
@@ -758,7 +758,7 @@ define hidden void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(non
 9:                                                ; preds = %3, %87
   %indvars.iv36 = phi i64 [ 0, %3 ], [ %indvars.iv.next37, %87 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %10 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv36
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv36
   %11 = load double, ptr %10, align 8
   %12 = fadd contract double %11, -1.000000e-04
   store double %12, ptr %10, align 8
@@ -768,7 +768,7 @@ define hidden void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(non
 
 13:                                               ; preds = %36, %9
   %indvars.iv37.i = phi i64 [ 0, %9 ], [ %indvars.iv.next38.i, %36 ]
-  %14 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv37.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @lambda_tbl, i64 %indvars.iv37.i
   %15 = load double, ptr %14, align 8
   %16 = fadd contract double %15, -3.600000e+02
   %17 = fdiv contract double %16, 4.700000e+02
@@ -778,7 +778,7 @@ define hidden void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(non
   %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %18 ]
   %.02627.i = phi double [ 0.000000e+00, %13 ], [ %22, %18 ]
   %19 = fmul contract double %17, %.02627.i
-  %20 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %21 = load double, ptr %20, align 8
   %22 = fadd contract double %19, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -792,15 +792,15 @@ define hidden void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(non
   %27 = tail call contract double @llvm.sqrt.f64(double %26)
   %28 = fdiv contract double %24, %27
   %29 = fadd contract double %28, 5.000000e-01
-  %invariant.gep.i = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv37.i
+  %invariant.gep.i = getelementptr inbounds nuw [8 x i8], ptr @rgb_tbl, i64 %indvars.iv37.i
   br label %30
 
 30:                                               ; preds = %30, %23
   %indvars.iv33.i = phi i64 [ 0, %23 ], [ %indvars.iv.next34.i, %30 ]
-  %gep.i = getelementptr inbounds nuw [283 x double], ptr %invariant.gep.i, i64 %indvars.iv33.i
+  %gep.i = getelementptr inbounds nuw [2264 x i8], ptr %invariant.gep.i, i64 %indvars.iv33.i
   %31 = load double, ptr %gep.i, align 8
   %32 = fmul contract double %29, %31
-  %33 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv33.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv33.i
   %34 = load double, ptr %33, align 8
   %35 = fadd contract double %34, %32
   store double %35, ptr %33, align 8
@@ -821,9 +821,9 @@ define hidden void @_Z13eval_jacobianPKdS0_PPd(ptr noundef readonly captures(non
 
 38:                                               ; preds = %38, %37
   %indvars.iv41.i = phi i64 [ 0, %37 ], [ %indvars.iv.next42.i, %38 ]
-  %39 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv41.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv41.i
   %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv41.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv41.i
   %42 = load double, ptr %41, align 8
   %43 = fsub contract double %42, %40
   store double %43, ptr %41, align 8
@@ -843,7 +843,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %38
 
 46:                                               ; preds = %69, %_Z13eval_residualPKdS0_Pd.exit
   %indvars.iv37.i15 = phi i64 [ 0, %_Z13eval_residualPKdS0_Pd.exit ], [ %indvars.iv.next38.i25, %69 ]
-  %47 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv37.i15
+  %47 = getelementptr inbounds nuw [8 x i8], ptr @lambda_tbl, i64 %indvars.iv37.i15
   %48 = load double, ptr %47, align 8
   %49 = fadd contract double %48, -3.600000e+02
   %50 = fdiv contract double %49, 4.700000e+02
@@ -853,7 +853,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %38
   %indvars.iv.i16 = phi i64 [ 0, %46 ], [ %indvars.iv.next.i18, %51 ]
   %.02627.i17 = phi double [ 0.000000e+00, %46 ], [ %55, %51 ]
   %52 = fmul contract double %50, %.02627.i17
-  %53 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i16
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i16
   %54 = load double, ptr %53, align 8
   %55 = fadd contract double %52, %54
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
@@ -867,15 +867,15 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %38
   %60 = tail call contract double @llvm.sqrt.f64(double %59)
   %61 = fdiv contract double %57, %60
   %62 = fadd contract double %61, 5.000000e-01
-  %invariant.gep.i20 = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv37.i15
+  %invariant.gep.i20 = getelementptr inbounds nuw [8 x i8], ptr @rgb_tbl, i64 %indvars.iv37.i15
   br label %63
 
 63:                                               ; preds = %63, %56
   %indvars.iv33.i21 = phi i64 [ 0, %56 ], [ %indvars.iv.next34.i23, %63 ]
-  %gep.i22 = getelementptr inbounds nuw [283 x double], ptr %invariant.gep.i20, i64 %indvars.iv33.i21
+  %gep.i22 = getelementptr inbounds nuw [2264 x i8], ptr %invariant.gep.i20, i64 %indvars.iv33.i21
   %64 = load double, ptr %gep.i22, align 8
   %65 = fmul contract double %62, %64
-  %66 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv33.i21
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv33.i21
   %67 = load double, ptr %66, align 8
   %68 = fadd contract double %67, %65
   store double %68, ptr %66, align 8
@@ -896,9 +896,9 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %38
 
 71:                                               ; preds = %71, %70
   %indvars.iv41.i27 = phi i64 [ 0, %70 ], [ %indvars.iv.next42.i28, %71 ]
-  %72 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv41.i27
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv41.i27
   %73 = load double, ptr %72, align 8
-  %74 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv41.i27
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv41.i27
   %75 = load double, ptr %74, align 8
   %76 = fsub contract double %75, %73
   store double %76, ptr %74, align 8
@@ -912,15 +912,15 @@ _Z13eval_residualPKdS0_Pd.exit30:                 ; preds = %71
 
 77:                                               ; preds = %_Z13eval_residualPKdS0_Pd.exit30, %77
   %indvars.iv = phi i64 [ 0, %_Z13eval_residualPKdS0_Pd.exit30 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %79 = load double, ptr %78, align 8
-  %80 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %81 = load double, ptr %80, align 8
   %82 = fsub contract double %79, %81
   %83 = fdiv contract double %82, 2.000000e-04
-  %84 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw double, ptr %85, i64 %indvars.iv36
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv36
   store double %83, ptr %86, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -967,7 +967,7 @@ define hidden noundef double @_Z12gauss_newtonPKdPdi(ptr noundef readonly captur
 
 19:                                               ; preds = %42, %18
   %indvars.iv37.i = phi i64 [ 0, %18 ], [ %indvars.iv.next38.i, %42 ]
-  %20 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv37.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @lambda_tbl, i64 %indvars.iv37.i
   %21 = load double, ptr %20, align 8
   %22 = fadd contract double %21, -3.600000e+02
   %23 = fdiv contract double %22, 4.700000e+02
@@ -977,7 +977,7 @@ define hidden noundef double @_Z12gauss_newtonPKdPdi(ptr noundef readonly captur
   %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %24 ]
   %.02627.i = phi double [ 0.000000e+00, %19 ], [ %28, %24 ]
   %25 = fmul contract double %23, %.02627.i
-  %26 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %27 = load double, ptr %26, align 8
   %28 = fadd contract double %25, %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -991,15 +991,15 @@ define hidden noundef double @_Z12gauss_newtonPKdPdi(ptr noundef readonly captur
   %33 = call contract double @llvm.sqrt.f64(double %32)
   %34 = fdiv contract double %30, %33
   %35 = fadd contract double %34, 5.000000e-01
-  %invariant.gep.i = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv37.i
+  %invariant.gep.i = getelementptr inbounds nuw [8 x i8], ptr @rgb_tbl, i64 %indvars.iv37.i
   br label %36
 
 36:                                               ; preds = %36, %29
   %indvars.iv33.i = phi i64 [ 0, %29 ], [ %indvars.iv.next34.i, %36 ]
-  %gep.i = getelementptr inbounds nuw [283 x double], ptr %invariant.gep.i, i64 %indvars.iv33.i
+  %gep.i = getelementptr inbounds nuw [2264 x i8], ptr %invariant.gep.i, i64 %indvars.iv33.i
   %37 = load double, ptr %gep.i, align 8
   %38 = fmul contract double %35, %37
-  %39 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv33.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv33.i
   %40 = load double, ptr %39, align 8
   %41 = fadd contract double %40, %38
   store double %41, ptr %39, align 8
@@ -1020,9 +1020,9 @@ define hidden noundef double @_Z12gauss_newtonPKdPdi(ptr noundef readonly captur
 
 44:                                               ; preds = %44, %43
   %indvars.iv41.i = phi i64 [ 0, %43 ], [ %indvars.iv.next42.i, %44 ]
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv41.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv41.i
   %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv41.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv41.i
   %48 = load double, ptr %47, align 8
   %49 = fsub contract double %48, %46
   store double %49, ptr %47, align 8
@@ -1037,7 +1037,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %44
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %_Z13eval_residualPKdS0_Pd.exit
   %indvars.iv.i38 = phi i64 [ 0, %_Z13eval_residualPKdS0_Pd.exit ], [ %indvars.iv.next.i39, %.lr.ph.i ]
-  %50 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i38
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i38
   %51 = trunc nuw nsw i64 %indvars.iv.i38 to i32
   store i32 %51, ptr %50, align 4
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
@@ -1059,9 +1059,9 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %44
   %indvars.iv95.i = phi i64 [ %indvars.iv93.i, %.preheader.i ], [ %indvars.iv.next96.i, %53 ]
   %.06883.i = phi double [ 0.000000e+00, %.preheader.i ], [ %.169.i, %53 ]
   %.07082.i = phi i32 [ %52, %.preheader.i ], [ %.171.i, %53 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv95.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv95.i
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv93.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv93.i
   %57 = load double, ptr %56, align 8
   %58 = call contract double @llvm.fabs.f64(double %57)
   %59 = fcmp contract ogt double %58, %.06883.i
@@ -1082,16 +1082,16 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %44
   br i1 %.not77.i, label %77, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv93.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv93.i
   %67 = load i32, ptr %66, align 4
   %68 = sext i32 %.171.i to i64
-  %69 = getelementptr inbounds i32, ptr %10, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %10, i64 %68
   %70 = load i32, ptr %69, align 4
   store i32 %70, ptr %66, align 4
   store i32 %67, ptr %69, align 4
-  %71 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv93.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv93.i
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds ptr, ptr %8, i64 %68
+  %73 = getelementptr inbounds [8 x i8], ptr %8, i64 %68
   %74 = load ptr, ptr %73, align 8
   store ptr %74, ptr %71, align 8
   store ptr %72, ptr %73, align 8
@@ -1106,17 +1106,17 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %44
   br i1 %78, label %.lr.ph88.i, label %.loopexit.i
 
 .lr.ph88.i:                                       ; preds = %77
-  %79 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv93.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv93.i
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw double, ptr %80, i64 %indvars.iv93.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv93.i
   br label %.lr.ph85.us.i
 
 .lr.ph85.us.i:                                    ; preds = %._crit_edge.us.i, %.lr.ph88.i
   %indvars.iv107.i = phi i64 [ %indvars.iv.next108.i, %._crit_edge.us.i ], [ %indvars.iv100.i, %.lr.ph88.i ]
   %82 = load double, ptr %81, align 8
-  %83 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv107.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv107.i
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv93.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv93.i
   %86 = load double, ptr %85, align 8
   %87 = fdiv contract double %86, %82
   store double %87, ptr %85, align 8
@@ -1125,10 +1125,10 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %44
 88:                                               ; preds = %88, %.lr.ph85.us.i
   %indvars.iv102.i = phi i64 [ %indvars.iv100.i, %.lr.ph85.us.i ], [ %indvars.iv.next103.i, %88 ]
   %89 = load double, ptr %85, align 8
-  %90 = getelementptr inbounds nuw double, ptr %80, i64 %indvars.iv102.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv102.i
   %91 = load double, ptr %90, align 8
   %92 = fmul contract double %89, %91
-  %93 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv102.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv102.i
   %94 = load double, ptr %93, align 8
   %95 = fsub contract double %94, %92
   store double %95, ptr %93, align 8
@@ -1180,27 +1180,27 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %44
 
 .lr.ph46.i:                                       ; preds = %.loopexit.i, %._crit_edge.i
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %._crit_edge.i ], [ 0, %.loopexit.i ]
-  %123 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv55.i
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv55.i
   %124 = load i32, ptr %123, align 4
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds double, ptr %9, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %9, i64 %125
   %127 = load double, ptr %126, align 8
-  %128 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv55.i
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv55.i
   store double %127, ptr %128, align 8
   %.not.i = icmp eq i64 %indvars.iv55.i, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %.lr.ph46.i
-  %129 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv55.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv55.i
   %130 = load ptr, ptr %129, align 8
   br label %131
 
 131:                                              ; preds = %131, %.lr.ph.i41
   %132 = phi double [ %127, %.lr.ph.i41 ], [ %138, %131 ]
   %indvars.iv.i42 = phi i64 [ 0, %.lr.ph.i41 ], [ %indvars.iv.next.i43, %131 ]
-  %133 = getelementptr inbounds nuw double, ptr %130, i64 %indvars.iv.i42
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.i42
   %134 = load double, ptr %133, align 8
-  %135 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i42
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i42
   %136 = load double, ptr %135, align 8
   %137 = fmul contract double %134, %136
   %138 = fsub contract double %132, %137
@@ -1221,15 +1221,15 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %44
   br i1 %139, label %.lr.ph48.i, label %.preheader.._crit_edge49_crit_edge.i
 
 .preheader.._crit_edge49_crit_edge.i:             ; preds = %.preheader.i45
-  %.phi.trans.insert.i = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next61.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next61.i
   %.pre66.i = load double, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next61.i
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next61.i
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge49.i
 
 .lr.ph48.i:                                       ; preds = %.preheader.i45
-  %140 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next61.i
-  %141 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next61.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next61.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next61.i
   %.pre.i = load double, ptr %141, align 8
   %142 = load ptr, ptr %140, align 8
   br label %143
@@ -1237,9 +1237,9 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %44
 143:                                              ; preds = %143, %.lr.ph48.i
   %144 = phi double [ %.pre.i, %.lr.ph48.i ], [ %150, %143 ]
   %indvars.iv62.i = phi i64 [ %indvars.iv60.i, %.lr.ph48.i ], [ %indvars.iv.next63.i, %143 ]
-  %145 = getelementptr inbounds nuw double, ptr %142, i64 %indvars.iv62.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv62.i
   %146 = load double, ptr %145, align 8
-  %147 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv62.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv62.i
   %148 = load double, ptr %147, align 8
   %149 = fmul contract double %146, %148
   %150 = fsub contract double %144, %149
@@ -1251,8 +1251,8 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %44
 ._crit_edge49.i:                                  ; preds = %143, %.preheader.._crit_edge49_crit_edge.i
   %151 = phi ptr [ %.pre, %.preheader.._crit_edge49_crit_edge.i ], [ %142, %143 ]
   %152 = phi double [ %.pre66.i, %.preheader.._crit_edge49_crit_edge.i ], [ %150, %143 ]
-  %153 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next61.i
-  %154 = getelementptr inbounds nuw double, ptr %151, i64 %indvars.iv.next61.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next61.i
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv.next61.i
   %155 = load double, ptr %154, align 8
   %156 = fdiv contract double %152, %155
   store double %156, ptr %153, align 8
@@ -1262,13 +1262,13 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %44
 _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_Z8LUPSolvePPdPiS_iS_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0, %._crit_edge49.i ]
   %.252 = phi double [ %166, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0.000000e+00, %._crit_edge49.i ]
-  %158 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %159 = load double, ptr %158, align 8
-  %160 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %161 = load double, ptr %160, align 8
   %162 = fsub contract double %161, %159
   store double %162, ptr %160, align 8
-  %163 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %164 = load double, ptr %163, align 8
   %165 = fmul contract double %164, %164
   %166 = fadd contract double %.252, %165
@@ -1293,7 +1293,7 @@ _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_
 
 177:                                              ; preds = %.preheader, %177
   %indvars.iv61 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next62, %177 ]
-  %178 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv61
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv61
   %179 = load double, ptr %178, align 8
   %180 = fmul contract double %176, %179
   store double %180, ptr %178, align 8
@@ -1703,7 +1703,7 @@ select.unfold:                                    ; preds = %22, %9, %20, %18, %
   %50 = fsub contract double 3.000000e+00, %49
   %51 = fmul contract double %48, %50
   %52 = fptrunc double %51 to float
-  %53 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   store float %52, ptr %53, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = icmp slt i64 %indvars.iv.next, %33
@@ -1863,11 +1863,11 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
   %41 = add nsw i32 %28, 1
   %42 = srem i32 %41, 3
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds double, ptr %11, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %11, i64 %43
   %45 = add nsw i32 %28, 2
   %46 = srem i32 %45, 3
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds double, ptr %11, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %11, i64 %47
   br label %49
 
 49:                                               ; preds = %.lr.ph107, %._crit_edge104
@@ -1889,7 +1889,7 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %65
   %indvars.iv = phi i64 [ %57, %.lr.ph.preheader ], [ %indvars.iv.next, %65 ]
   %58 = load ptr, ptr %3, align 8, !llvm.access.group !31
-  %59 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %60 = load float, ptr %59, align 4, !llvm.access.group !31
   %61 = fpext float %60 to double
   store double %61, ptr %40, align 8, !llvm.access.group !31
@@ -1927,16 +1927,16 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
   %89 = fptrunc double %78 to float
   %90 = load ptr, ptr %4, align 8, !llvm.access.group !31
   %91 = mul nsw i64 %77, 3
-  %92 = getelementptr inbounds float, ptr %90, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %90, i64 %91
   store float %89, ptr %92, align 4, !llvm.access.group !31
   %93 = fptrunc double %83 to float
   %94 = load ptr, ptr %4, align 8, !llvm.access.group !31
-  %95 = getelementptr float, ptr %94, i64 %91
+  %95 = getelementptr [4 x i8], ptr %94, i64 %91
   %96 = getelementptr i8, ptr %95, i64 4
   store float %93, ptr %96, align 4, !llvm.access.group !31
   %97 = fptrunc double %88 to float
   %98 = load ptr, ptr %4, align 8, !llvm.access.group !31
-  %99 = getelementptr float, ptr %98, i64 %91
+  %99 = getelementptr [4 x i8], ptr %98, i64 %91
   %100 = getelementptr i8, ptr %99, i64 8
   store float %97, ptr %100, align 4, !llvm.access.group !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1958,7 +1958,7 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %114
   %indvars.iv117 = phi i64 [ %106, %.lr.ph103.preheader ], [ %indvars.iv.next118, %114 ]
   %107 = load ptr, ptr %3, align 8, !llvm.access.group !31
-  %108 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv117
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %indvars.iv117
   %109 = load float, ptr %108, align 4, !llvm.access.group !31
   %110 = fpext float %109 to double
   store double %110, ptr %40, align 8, !llvm.access.group !31
@@ -1996,16 +1996,16 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
   %138 = fptrunc double %127 to float
   %139 = load ptr, ptr %4, align 8, !llvm.access.group !31
   %140 = mul nsw i64 %126, 3
-  %141 = getelementptr inbounds float, ptr %139, i64 %140
+  %141 = getelementptr inbounds [4 x i8], ptr %139, i64 %140
   store float %138, ptr %141, align 4, !llvm.access.group !31
   %142 = fptrunc double %132 to float
   %143 = load ptr, ptr %4, align 8, !llvm.access.group !31
-  %144 = getelementptr float, ptr %143, i64 %140
+  %144 = getelementptr [4 x i8], ptr %143, i64 %140
   %145 = getelementptr i8, ptr %144, i64 4
   store float %142, ptr %145, align 4, !llvm.access.group !31
   %146 = fptrunc double %137 to float
   %147 = load ptr, ptr %4, align 8, !llvm.access.group !31
-  %148 = getelementptr float, ptr %147, i64 %140
+  %148 = getelementptr [4 x i8], ptr %147, i64 %140
   %149 = getelementptr i8, ptr %148, i64 8
   store float %146, ptr %149, align 4, !llvm.access.group !31
   %indvars.iv.next118 = add nsw i64 %indvars.iv117, -1

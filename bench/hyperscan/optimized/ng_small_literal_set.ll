@@ -22,9 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<ue2::(anonymous namespace)::sls_literal, std::pair<const ue2::(anonymous namespace)::sls_literal, ue2::flat_set<unsigned int>>, std::_Select1st<std::pair<const ue2::(anonymous namespace)::sls_literal, ue2::flat_set<unsigned int>>>, std::less<ue2::(anonymous namespace)::sls_literal>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::set" = type { %"class.std::_Rb_tree.23" }
-%"class.std::_Rb_tree.23" = type { %"struct.std::_Rb_tree<ue2::(anonymous namespace)::sls_literal, ue2::(anonymous namespace)::sls_literal, std::_Identity<ue2::(anonymous namespace)::sls_literal>, std::less<ue2::(anonymous namespace)::sls_literal>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<ue2::(anonymous namespace)::sls_literal, ue2::(anonymous namespace)::sls_literal, std::_Identity<ue2::(anonymous namespace)::sls_literal>, std::less<ue2::(anonymous namespace)::sls_literal>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 
 $__clang_call_terminate = comdat any
 
@@ -190,10 +187,10 @@ _ZNSt6vectorImSaImEED2Ev.exit227.thread.i:        ; preds = %_ZNSt6vectorImSaImE
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.0285.0.copyload.i, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.0285.0.copyload.i, i64 80
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds nuw %"class.std::set", ptr %.sroa.0304.0325.i, i64 %81
+  %82 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0304.0325.i, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.0285.0.copyload.i, i64 128
   %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i64, ptr %.sroa.0297.0.i, i64 %81
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0297.0.i, i64 %81
   store i64 %84, ptr %85, align 8
   %.sroa.058.0.copyload.i = load ptr, ptr %44, align 8
   %86 = icmp eq ptr %.sroa.0285.0.copyload.i, %.sroa.058.0.copyload.i
@@ -353,7 +350,7 @@ _ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit195.i: ; preds = %_ZN5boost14dynamic_
 .loopexit415.i:                                   ; preds = %.critedge24.i.i.i, %.critedge.i.i.i, %116
   %133 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %134 = load i64, ptr %133, align 8
-  %135 = getelementptr inbounds nuw %"class.std::set", ptr %.sroa.0304.0325.i, i64 %134
+  %135 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0304.0325.i, i64 %134
   %136 = getelementptr i8, ptr %135, i64 24
   %.val180.i = load ptr, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
@@ -1095,7 +1092,7 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalESt4pairIKS2_NS0_8flat_setIjSt4le
   %.sroa.04.0.i.i = phi ptr [ %528, %.noexc206.i ], [ %439, %.lr.ph.i.i.preheader.i ]
   %445 = load ptr, ptr %438, align 8, !noalias !37
   %446 = load i64, ptr %442, align 8, !noalias !42
-  %447 = getelementptr inbounds nuw i32, ptr %445, i64 %446
+  %447 = getelementptr inbounds nuw [4 x i8], ptr %445, i64 %446
   %448 = ptrtoint ptr %445 to i64
   %449 = icmp sgt i64 %446, 0
   br i1 %449, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i
@@ -1108,7 +1105,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i.i: ; p
   %451 = phi ptr [ %459, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i.i ], [ %445, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i.i ], [ %446, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i.i ]
   %452 = lshr i64 %.012.i.i.i.i, 1
-  %453 = getelementptr inbounds nuw i32, ptr %451, i64 %452
+  %453 = getelementptr inbounds nuw [4 x i8], ptr %451, i64 %452
   %454 = load i32, ptr %453, align 4, !noalias !45
   %455 = icmp ult i32 %454, %450
   %456 = getelementptr inbounds nuw i8, ptr %453, i64 4
@@ -1279,7 +1276,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
   %523 = sub i64 %522, %515
   %524 = ashr exact i64 %523, 2
   %525 = sub nsw i64 0, %524
-  %526 = getelementptr inbounds i32, ptr %447, i64 %525
+  %526 = getelementptr inbounds [4 x i8], ptr %447, i64 %525
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %526, ptr nonnull align 4 %461, i64 %523, i1 false), !noalias !52
   br label %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i.i
 
@@ -1352,7 +1349,7 @@ _ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit211.i: ; preds = %_ZN5boost14dynamic_
 
 .preheader.i:                                     ; preds = %140, %537
   %.0712.i.i.i = phi i64 [ %538, %537 ], [ 0, %140 ]
-  %535 = getelementptr inbounds nuw i64, ptr %79, i64 %.0712.i.i.i
+  %535 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.0712.i.i.i
   %536 = load i64, ptr %535, align 8
   %.not.i.i212.i = icmp eq i64 %536, 0
   br i1 %.not.i.i212.i, label %537, label %_ZNK3ue29CharReach10find_firstEv.exit.i
@@ -1394,7 +1391,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %.preheader.i
   %.0.i.i = select i1 %552, i64 %.0144485.i, i64 %554
   %555 = lshr i64 %.0.i.i, 6
   %556 = and i64 %555, 3
-  %557 = getelementptr inbounds nuw i64, ptr %79, i64 %556
+  %557 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %556
   %558 = load i64, ptr %557, align 8
   %559 = and i64 %.0.i.i, 63
   %560 = shl nuw i64 1, %559
@@ -1405,7 +1402,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %.preheader.i
 562:                                              ; preds = %553
   %563 = lshr i64 %.0.i174.i, 6
   %564 = and i64 %563, 3
-  %565 = getelementptr inbounds nuw i64, ptr %79, i64 %564
+  %565 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %564
   %566 = load i64, ptr %565, align 8
   %567 = and i64 %.0.i174.i, 63
   %568 = shl nuw i64 1, %567
@@ -1610,7 +1607,7 @@ _ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit219.i: ; preds = %_ZN5boost14dynamic_
   br label %632
 
 625:                                              ; preds = %622
-  %626 = getelementptr inbounds nuw i64, ptr %79, i64 %623
+  %626 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %623
   %627 = load i64, ptr %626, align 8
   %628 = shl nsw i64 -2, %624
   %629 = and i64 %627, %628
@@ -1628,7 +1625,7 @@ _ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit219.i: ; preds = %_ZN5boost14dynamic_
 
 634:                                              ; preds = %632
   %.0.i.i.i = add nuw nsw i64 %.0.in.i.i.i, 1
-  %635 = getelementptr inbounds nuw i64, ptr %79, i64 %.0.i.i.i
+  %635 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.0.i.i.i
   %636 = load i64, ptr %635, align 8
   %.not22.i.i.i = icmp eq i64 %636, 0
   br i1 %.not22.i.i.i, label %632, label %637, !llvm.loop !72
@@ -1655,12 +1652,12 @@ _ZNK3ue29CharReach9find_nextEm.exit.i:            ; preds = %637, %630
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.loopexit415.i
   %642 = phi i64 [ %.pre513.i, %._crit_edge.loopexit.i ], [ %134, %.loopexit415.i ]
-  %643 = getelementptr inbounds nuw i64, ptr %.sroa.0297.0.i, i64 %642
+  %643 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0297.0.i, i64 %642
   %644 = load i64, ptr %643, align 8
   %645 = add i64 %644, -1
   store i64 %645, ptr %643, align 8
   %646 = load i64, ptr %133, align 8
-  %647 = getelementptr inbounds nuw i64, ptr %.sroa.0297.0.i, i64 %646
+  %647 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0297.0.i, i64 %646
   %648 = load i64, ptr %647, align 8
   %.not156.i = icmp eq i64 %648, 0
   br i1 %.not156.i, label %649, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.thread.i
@@ -1852,7 +1849,7 @@ _ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4le
   %683 = getelementptr inbounds nuw i8, ptr %680, i64 %.sroa.6.019.i.i.i
   %684 = load i8, ptr %683, align 1
   %685 = lshr i64 %.sroa.6.019.i.i.i, 6
-  %686 = getelementptr inbounds nuw i64, ptr %682, i64 %685
+  %686 = getelementptr inbounds nuw [8 x i8], ptr %682, i64 %685
   %687 = load i64, ptr %686, align 8
   %688 = and i64 %.sroa.6.019.i.i.i, 63
   %689 = lshr i64 %687, %688

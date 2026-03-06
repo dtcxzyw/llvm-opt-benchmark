@@ -341,7 +341,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %22, %24
 26:                                               ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEc.exit23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm11raw_ostreamlsEc.exit23 ]
   %27 = load ptr, ptr %19, align 8, !tbaa !38
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !13
   %30 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %29, i32 noundef 32) #23
   %.not = icmp eq ptr %30, null
@@ -385,7 +385,7 @@ _ZN4llvm11raw_ostreamlsEc.exit16:                 ; preds = %36, %34, %26
 
 _ZN4llvm11raw_ostreamlsEc.exit19:                 ; preds = %41, %43
   %45 = load ptr, ptr %19, align 8, !tbaa !38
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !13
   %.not.i20 = icmp eq ptr %47, null
   br i1 %.not.i20, label %_ZN4llvm9StringRefC2EPKc.exit, label %48
@@ -414,7 +414,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZN4llvm11raw_ostre
 
 .critedge:                                        ; preds = %_ZN4llvm11raw_ostreamlsEc.exit16
   %58 = load ptr, ptr %19, align 8, !tbaa !38
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !13
   %.not.i24 = icmp eq ptr %60, null
   br i1 %.not.i24, label %_ZN4llvm9StringRefC2EPKc.exit25, label %61

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.translation_ctx_st = type { ptr, i32, i32, ptr, i32, i32, ptr, i64, ptr, ptr, [50 x i8], ptr, ptr, i64 }
 %struct.translation_st = type { i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.ossl_item_st = type { i32, ptr }
 
 @.str = private unnamed_addr constant [46 x i8] c"../openssl/crypto/evp/ctrl_params_translate.c\00", align 1
 @__func__.evp_pkey_ctx_ctrl_to_param = private unnamed_addr constant [27 x i8] c"evp_pkey_ctx_ctrl_to_param\00", align 1
@@ -1371,7 +1370,7 @@ define internal fastcc ptr @lookup_translation(ptr noundef nonnull captures(none
 
 11:                                               ; preds = %3, %.thread
   %.04884 = phi i64 [ 0, %3 ], [ %70, %.thread ]
-  %12 = getelementptr inbounds nuw %struct.translation_st, ptr %1, i64 %.04884
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 %.04884
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !22
   %15 = icmp eq i32 %14, -1
@@ -2271,7 +2270,7 @@ define internal i32 @fix_rsa_padding_mode(i32 noundef %0, ptr noundef readonly c
 
 38:                                               ; preds = %.preheader, %42
   %.06479 = phi i64 [ 0, %.preheader ], [ %43, %42 ]
-  %39 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_rsa_padding_mode.str_value_map, i64 %.06479
+  %39 = getelementptr inbounds nuw [16 x i8], ptr @fix_rsa_padding_mode.str_value_map, i64 %.06479
   %40 = load i32, ptr %39, align 16, !tbaa !68
   %41 = icmp eq i32 %33, %40
   br i1 %41, label %44, label %42
@@ -2302,7 +2301,7 @@ define internal i32 @fix_rsa_padding_mode(i32 noundef %0, ptr noundef readonly c
   br label %.thread
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_rsa_padding_mode.str_value_map, i64 %.06479
+  %49 = getelementptr inbounds nuw [16 x i8], ptr @fix_rsa_padding_mode.str_value_map, i64 %.06479
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !71
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2338,7 +2337,7 @@ define internal i32 @fix_rsa_padding_mode(i32 noundef %0, ptr noundef readonly c
 
 68:                                               ; preds = %65, %74
   %.080 = phi i64 [ 0, %65 ], [ %75, %74 ]
-  %69 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_rsa_padding_mode.str_value_map, i64 %.080
+  %69 = getelementptr inbounds nuw [16 x i8], ptr @fix_rsa_padding_mode.str_value_map, i64 %.080
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !71
   %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %71) #9
@@ -2429,7 +2428,7 @@ define internal i32 @fix_rsa_pss_saltlen(i32 noundef %0, ptr noundef readonly ca
 
 25:                                               ; preds = %22, %29
   %.05971 = phi i64 [ 0, %22 ], [ %30, %29 ]
-  %26 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_rsa_pss_saltlen.str_value_map, i64 %.05971
+  %26 = getelementptr inbounds nuw [16 x i8], ptr @fix_rsa_pss_saltlen.str_value_map, i64 %.05971
   %27 = load i32, ptr %26, align 16, !tbaa !68
   %28 = icmp eq i32 %24, %27
   br i1 %28, label %.thread65, label %29
@@ -2488,7 +2487,7 @@ define internal i32 @fix_rsa_pss_saltlen(i32 noundef %0, ptr noundef readonly ca
 
 57:                                               ; preds = %54, %63
   %.05872 = phi i64 [ 0, %54 ], [ %64, %63 ]
-  %58 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_rsa_pss_saltlen.str_value_map, i64 %.05872
+  %58 = getelementptr inbounds nuw [16 x i8], ptr @fix_rsa_pss_saltlen.str_value_map, i64 %.05872
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !71
   %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %60) #9
@@ -2561,7 +2560,7 @@ define internal range(i32 -2147483648, 2) i32 @fix_hkdf_mode(i32 noundef %0, ptr
 
 17:                                               ; preds = %14, %21
   %.04561 = phi i64 [ 0, %14 ], [ %22, %21 ]
-  %18 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_hkdf_mode.str_value_map, i64 %.04561
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @fix_hkdf_mode.str_value_map, i64 %.04561
   %19 = load i32, ptr %18, align 16, !tbaa !68
   %20 = icmp eq i32 %16, %19
   br i1 %20, label %.thread, label %21
@@ -2606,7 +2605,7 @@ define internal range(i32 -2147483648, 2) i32 @fix_hkdf_mode(i32 noundef %0, ptr
 
 41:                                               ; preds = %38, %47
   %.062 = phi i64 [ 0, %38 ], [ %48, %47 ]
-  %42 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @fix_hkdf_mode.str_value_map, i64 %.062
+  %42 = getelementptr inbounds nuw [16 x i8], ptr @fix_hkdf_mode.str_value_map, i64 %.062
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !71
   %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %44) #9

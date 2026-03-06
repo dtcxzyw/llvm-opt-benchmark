@@ -23,9 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.7 = type { %struct.FLAC__StreamMetadata_CueSheet }
 %struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
 %struct.static_metadata_t = type { i32, ptr, ptr, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Track = type { i64, i8, [13 x i8], i8, i8, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
-%struct.foreign_block_t = type { i64, i32 }
 
 @FLAC_ENCODE__DEFAULT_PADDING = dso_local local_unnamed_addr constant i32 8192, align 4
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -249,8 +246,8 @@ define dso_local range(i32 0, 2) i32 @flac__encode_file(ptr noundef %0, i64 noun
 
 35:                                               ; preds = %35, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [2048 x i32], ptr @in_, i64 %indvars.iv.i
-  %37 = getelementptr inbounds nuw ptr, ptr @input_, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8192 x i8], ptr @in_, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @input_, i64 %indvars.iv.i
   store ptr %36, ptr %37, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -361,7 +358,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 EncoderSession_construct.exit:                    ; preds = %77, %EncoderSession_construct.exit
   %.02221148 = phi i64 [ %83, %EncoderSession_construct.exit ], [ 0, %77 ]
-  %82 = getelementptr inbounds nuw i64, ptr %33, i64 %.02221148
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.02221148
   store i64 %.02221148, ptr %82, align 8, !tbaa !35
   %83 = add nuw nsw i64 %.02221148, 1
   %exitcond.not = icmp eq i64 %83, 8
@@ -4087,7 +4084,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %129 = phi i32 [ %125, %.lr.ph59.i ], [ %146, %.critedge.i ]
   %indvars.iv62.i = phi i64 [ 0, %.lr.ph59.i ], [ %indvars.iv.next63.i, %.critedge.i ]
   %130 = load ptr, ptr %126, align 8, !tbaa !97
-  %131 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %130, i64 %indvars.iv62.i
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %130, i64 %indvars.iv62.i
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 23
   %133 = load i8, ptr %132, align 1, !tbaa !98
   %.not4756.not.i = icmp eq i8 %133, 0
@@ -4102,7 +4099,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %136 = load ptr, ptr %127, align 8, !tbaa !32
   %137 = load i64, ptr %131, align 8, !tbaa !100
   %138 = load ptr, ptr %134, align 8, !tbaa !101
-  %139 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %138, i64 %indvars.iv.i
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %indvars.iv.i
   %140 = load i64, ptr %139, align 8, !tbaa !102
   %141 = add i64 %140, %137
   %142 = call i32 @FLAC__metadata_object_seektable_template_append_point(ptr noundef %136, i64 noundef %141) #20
@@ -4175,14 +4172,14 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %166 = phi i32 [ %163, %.lr.ph.i520 ], [ %175, %174 ]
   %indvars.iv.i521 = phi i64 [ 0, %.lr.ph.i520 ], [ %indvars.iv.next.i523, %174 ]
   %167 = load ptr, ptr %27, align 8, !tbaa !106
-  %168 = getelementptr inbounds nuw i32, ptr %167, i64 %indvars.iv.i521
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %indvars.iv.i521
   %169 = load i32, ptr %168, align 4, !tbaa !52
   %.not18.i = icmp eq i32 %169, 0
   br i1 %.not18.i, label %174, label %170
 
 170:                                              ; preds = %165
   %171 = load ptr, ptr %164, align 8, !tbaa !107
-  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv.i521
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %indvars.iv.i521
   %173 = load ptr, ptr %172, align 8, !tbaa !91
   call void @FLAC__metadata_object_delete(ptr noundef %173) #20
   %.pre.i522 = load i32, ptr %8, align 8, !tbaa !84
@@ -4265,7 +4262,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
 
 199:                                              ; preds = %.lr.ph666, %.thread
   %indvars.iv720 = phi i64 [ 0, %.lr.ph666 ], [ %indvars.iv.next721, %.thread ]
-  %200 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv720
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %indvars.iv720
   %201 = load ptr, ptr %200, align 8, !tbaa !91
   %202 = call ptr @FLAC__metadata_object_clone(ptr noundef %201) #20
   %.not463 = icmp eq ptr %202, null
@@ -4287,14 +4284,14 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %209 = phi i32 [ %206, %.lr.ph.i527 ], [ %218, %217 ]
   %indvars.iv.i528 = phi i64 [ 0, %.lr.ph.i527 ], [ %indvars.iv.next.i531, %217 ]
   %210 = load ptr, ptr %27, align 8, !tbaa !106
-  %211 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv.i528
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %indvars.iv.i528
   %212 = load i32, ptr %211, align 4, !tbaa !52
   %.not18.i529 = icmp eq i32 %212, 0
   br i1 %.not18.i529, label %217, label %213
 
 213:                                              ; preds = %208
   %214 = load ptr, ptr %207, align 8, !tbaa !107
-  %215 = getelementptr inbounds nuw ptr, ptr %214, i64 %indvars.iv.i528
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %indvars.iv.i528
   %216 = load ptr, ptr %215, align 8, !tbaa !91
   call void @FLAC__metadata_object_delete(ptr noundef %216) #20
   %.pre.i530 = load i32, ptr %8, align 8, !tbaa !84
@@ -4339,7 +4336,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %230 = load i64, ptr %191, align 8, !tbaa !111
   %231 = add i64 %230, 1
   store i64 %231, ptr %191, align 8, !tbaa !111
-  %232 = getelementptr inbounds nuw ptr, ptr %190, i64 %230
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %230
   store ptr %202, ptr %232, align 8, !tbaa !91
   %indvars.iv.next721 = add nuw nsw i64 %indvars.iv720, 1
   %exitcond724.not = icmp eq i64 %indvars.iv.next721, %wide.trip.count723
@@ -4350,7 +4347,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %.0407669 = phi i32 [ 0, %.lr.ph670 ], [ %spec.select, %.critedge ]
   %.0409668 = phi i64 [ 0, %.lr.ph670 ], [ %.1410, %.critedge ]
   %.0411667 = phi i64 [ 0, %.lr.ph670 ], [ %277, %.critedge ]
-  %235 = getelementptr inbounds nuw ptr, ptr %194, i64 %.0411667
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %.0411667
   %236 = load ptr, ptr %235, align 8, !tbaa !91
   %237 = load i32, ptr %236, align 8, !tbaa !62
   %238 = icmp eq i32 %237, 4
@@ -4384,14 +4381,14 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %250 = phi i32 [ %247, %.lr.ph.i538 ], [ %259, %258 ]
   %indvars.iv.i539 = phi i64 [ 0, %.lr.ph.i538 ], [ %indvars.iv.next.i542, %258 ]
   %251 = load ptr, ptr %27, align 8, !tbaa !106
-  %252 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv.i539
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %251, i64 %indvars.iv.i539
   %253 = load i32, ptr %252, align 4, !tbaa !52
   %.not18.i540 = icmp eq i32 %253, 0
   br i1 %.not18.i540, label %258, label %254
 
 254:                                              ; preds = %249
   %255 = load ptr, ptr %248, align 8, !tbaa !107
-  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv.i539
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %indvars.iv.i539
   %257 = load ptr, ptr %256, align 8, !tbaa !91
   call void @FLAC__metadata_object_delete(ptr noundef %257) #20
   %.pre.i541 = load i32, ptr %8, align 8, !tbaa !84
@@ -4441,7 +4438,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
 
 273:                                              ; preds = %239, %233
   %274 = add i64 %.0409668, 1
-  %275 = getelementptr inbounds nuw ptr, ptr %194, i64 %.0409668
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %.0409668
   store ptr %236, ptr %275, align 8, !tbaa !91
   br label %.critedge
 
@@ -4532,7 +4529,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
 308:                                              ; preds = %.lr.ph679, %428
   %.0401677 = phi i64 [ 0, %.lr.ph679 ], [ %.1402, %428 ]
   %.0404676 = phi i64 [ 0, %.lr.ph679 ], [ %429, %428 ]
-  %309 = getelementptr inbounds nuw ptr, ptr %307, i64 %.0404676
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %.0404676
   %310 = load ptr, ptr %309, align 8, !tbaa !91
   %311 = load i32, ptr %310, align 8, !tbaa !62
   %312 = icmp eq i32 %311, 5
@@ -4567,14 +4564,14 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %326 = phi i32 [ %323, %.lr.ph.i549 ], [ %335, %334 ]
   %indvars.iv.i550 = phi i64 [ 0, %.lr.ph.i549 ], [ %indvars.iv.next.i553, %334 ]
   %327 = load ptr, ptr %27, align 8, !tbaa !106
-  %328 = getelementptr inbounds nuw i32, ptr %327, i64 %indvars.iv.i550
+  %328 = getelementptr inbounds nuw [4 x i8], ptr %327, i64 %indvars.iv.i550
   %329 = load i32, ptr %328, align 4, !tbaa !52
   %.not18.i551 = icmp eq i32 %329, 0
   br i1 %.not18.i551, label %334, label %330
 
 330:                                              ; preds = %325
   %331 = load ptr, ptr %324, align 8, !tbaa !107
-  %332 = getelementptr inbounds nuw ptr, ptr %331, i64 %indvars.iv.i550
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %indvars.iv.i550
   %333 = load ptr, ptr %332, align 8, !tbaa !91
   call void @FLAC__metadata_object_delete(ptr noundef %333) #20
   %.pre.i552 = load i32, ptr %8, align 8, !tbaa !84
@@ -4626,7 +4623,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %352 = load ptr, ptr %351, align 8, !tbaa !97
   %353 = add i32 %349, -1
   %354 = zext i32 %353 to i64
-  %355 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %352, i64 %354
+  %355 = getelementptr inbounds nuw [32 x i8], ptr %352, i64 %354
   %356 = load i64, ptr %355, align 8, !tbaa !100
   %.not474 = icmp eq i64 %316, %356
   br i1 %.not474, label %.thread610, label %357
@@ -4652,14 +4649,14 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %365 = phi i32 [ %362, %.lr.ph.i560 ], [ %374, %373 ]
   %indvars.iv.i561 = phi i64 [ 0, %.lr.ph.i560 ], [ %indvars.iv.next.i564, %373 ]
   %366 = load ptr, ptr %27, align 8, !tbaa !106
-  %367 = getelementptr inbounds nuw i32, ptr %366, i64 %indvars.iv.i561
+  %367 = getelementptr inbounds nuw [4 x i8], ptr %366, i64 %indvars.iv.i561
   %368 = load i32, ptr %367, align 4, !tbaa !52
   %.not18.i562 = icmp eq i32 %368, 0
   br i1 %.not18.i562, label %373, label %369
 
 369:                                              ; preds = %364
   %370 = load ptr, ptr %363, align 8, !tbaa !107
-  %371 = getelementptr inbounds nuw ptr, ptr %370, i64 %indvars.iv.i561
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %indvars.iv.i561
   %372 = load ptr, ptr %371, align 8, !tbaa !91
   call void @FLAC__metadata_object_delete(ptr noundef %372) #20
   %.pre.i563 = load i32, ptr %8, align 8, !tbaa !84
@@ -4741,14 +4738,14 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %402 = phi i32 [ %399, %.lr.ph.i571 ], [ %411, %410 ]
   %indvars.iv.i572 = phi i64 [ 0, %.lr.ph.i571 ], [ %indvars.iv.next.i575, %410 ]
   %403 = load ptr, ptr %27, align 8, !tbaa !106
-  %404 = getelementptr inbounds nuw i32, ptr %403, i64 %indvars.iv.i572
+  %404 = getelementptr inbounds nuw [4 x i8], ptr %403, i64 %indvars.iv.i572
   %405 = load i32, ptr %404, align 4, !tbaa !52
   %.not18.i573 = icmp eq i32 %405, 0
   br i1 %.not18.i573, label %410, label %406
 
 406:                                              ; preds = %401
   %407 = load ptr, ptr %400, align 8, !tbaa !107
-  %408 = getelementptr inbounds nuw ptr, ptr %407, i64 %indvars.iv.i572
+  %408 = getelementptr inbounds nuw [8 x i8], ptr %407, i64 %indvars.iv.i572
   %409 = load ptr, ptr %408, align 8, !tbaa !91
   call void @FLAC__metadata_object_delete(ptr noundef %409) #20
   %.pre.i574 = load i32, ptr %8, align 8, !tbaa !84
@@ -4797,7 +4794,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
 
 425:                                              ; preds = %390, %.thread610
   %426 = add i64 %.0401677, 1
-  %427 = getelementptr inbounds nuw ptr, ptr %307, i64 %.0401677
+  %427 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %.0401677
   store ptr %387, ptr %427, align 8, !tbaa !91
   br label %428
 
@@ -4865,7 +4862,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %.0376688 = phi i32 [ 0, %.lr.ph690 ], [ %.2378, %479 ]
   %.0379687 = phi i64 [ 0, %.lr.ph690 ], [ %.1380, %479 ]
   %.0381686 = phi i64 [ 0, %.lr.ph690 ], [ %481, %479 ]
-  %452 = getelementptr inbounds nuw ptr, ptr %447, i64 %.0381686
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %447, i64 %.0381686
   %453 = load ptr, ptr %452, align 8, !tbaa !91
   %454 = load i32, ptr %453, align 8, !tbaa !62
   %455 = icmp eq i32 %454, 3
@@ -4920,7 +4917,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
 
 476:                                              ; preds = %456, %450
   %477 = add i64 %.0379687, 1
-  %478 = getelementptr inbounds nuw ptr, ptr %447, i64 %.0379687
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %447, i64 %.0379687
   store ptr %453, ptr %478, align 8, !tbaa !91
   br label %479
 
@@ -4995,7 +4992,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %.0367700 = phi i64 [ 0, %.lr.ph702 ], [ %.1368, %515 ]
   %.0369699 = phi i64 [ 0, %.lr.ph702 ], [ %517, %515 ]
   %.0370698 = phi i32 [ -1, %.lr.ph702 ], [ %.1371, %515 ]
-  %504 = getelementptr inbounds nuw ptr, ptr %501, i64 %.0369699
+  %504 = getelementptr inbounds nuw [8 x i8], ptr %501, i64 %.0369699
   %505 = load ptr, ptr %504, align 8, !tbaa !91
   %506 = load i32, ptr %505, align 8, !tbaa !62
   %507 = icmp eq i32 %506, 1
@@ -5013,7 +5010,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
 
 512:                                              ; preds = %502
   %513 = add i64 %.0367700, 1
-  %514 = getelementptr inbounds nuw ptr, ptr %501, i64 %.0367700
+  %514 = getelementptr inbounds nuw [8 x i8], ptr %501, i64 %.0367700
   store ptr %505, ptr %514, align 8, !tbaa !91
   br label %515
 
@@ -5078,7 +5075,7 @@ parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, 
   %544 = call ptr @FLAC__metadata_object_new(i32 noundef 1) #20
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %546 = load i64, ptr %193, align 8, !tbaa !111
-  %547 = getelementptr inbounds nuw ptr, ptr %545, i64 %546
+  %547 = getelementptr inbounds nuw [8 x i8], ptr %545, i64 %546
   store ptr %544, ptr %547, align 8, !tbaa !91
   %548 = icmp eq ptr %544, null
   br i1 %548, label %.critedge512, label %551
@@ -5148,9 +5145,9 @@ static_metadata_append.exit:                      ; preds = %578
   %586 = load ptr, ptr %570, align 8, !tbaa !107
   %587 = load i32, ptr %8, align 8, !tbaa !84
   %588 = zext i32 %587 to i64
-  %589 = getelementptr inbounds nuw ptr, ptr %586, i64 %588
+  %589 = getelementptr inbounds nuw [8 x i8], ptr %586, i64 %588
   store ptr %565, ptr %589, align 8, !tbaa !91
-  %590 = getelementptr inbounds nuw i32, ptr %584, i64 %588
+  %590 = getelementptr inbounds nuw [4 x i8], ptr %584, i64 %588
   store i32 0, ptr %590, align 4, !tbaa !52
   %591 = add i32 %587, 1
   store i32 %591, ptr %8, align 8, !tbaa !84
@@ -5195,9 +5192,9 @@ static_metadata_append.exit583:                   ; preds = %606
   %614 = load ptr, ptr %598, align 8, !tbaa !107
   %615 = load i32, ptr %8, align 8, !tbaa !84
   %616 = zext i32 %615 to i64
-  %617 = getelementptr inbounds nuw ptr, ptr %614, i64 %616
+  %617 = getelementptr inbounds nuw [8 x i8], ptr %614, i64 %616
   store ptr %596, ptr %617, align 8, !tbaa !91
-  %618 = getelementptr inbounds nuw i32, ptr %612, i64 %616
+  %618 = getelementptr inbounds nuw [4 x i8], ptr %612, i64 %616
   store i32 0, ptr %618, align 4, !tbaa !52
   %619 = add i32 %615, 1
   store i32 %619, ptr %8, align 8, !tbaa !84
@@ -5276,7 +5273,7 @@ static_metadata_append.exit583:                   ; preds = %606
   %652 = phi i32 [ %.pre733, %.lr.ph ], [ %678, %672 ]
   %653 = phi ptr [ %.pre732, %.lr.ph ], [ %673, %672 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %672 ]
-  %654 = getelementptr inbounds nuw ptr, ptr %649, i64 %indvars.iv
+  %654 = getelementptr inbounds nuw [8 x i8], ptr %649, i64 %indvars.iv
   %655 = load ptr, ptr %654, align 8, !tbaa !91
   %656 = zext i32 %652 to i64
   %657 = shl nuw nsw i64 %656, 3
@@ -5308,9 +5305,9 @@ static_metadata_append.exit583:                   ; preds = %606
   %673 = load ptr, ptr %650, align 8, !tbaa !107
   %674 = load i32, ptr %8, align 8, !tbaa !84
   %675 = zext i32 %674 to i64
-  %676 = getelementptr inbounds nuw ptr, ptr %673, i64 %675
+  %676 = getelementptr inbounds nuw [8 x i8], ptr %673, i64 %675
   store ptr %655, ptr %676, align 8, !tbaa !91
-  %677 = getelementptr inbounds nuw i32, ptr %667, i64 %675
+  %677 = getelementptr inbounds nuw [4 x i8], ptr %667, i64 %675
   store i32 0, ptr %677, align 4, !tbaa !52
   %678 = add i32 %674, 1
   store i32 %678, ptr %8, align 8, !tbaa !84
@@ -5384,14 +5381,14 @@ static_metadata_append.exit583:                   ; preds = %606
   %710 = load ptr, ptr %681, align 8, !tbaa !107
   %711 = load i32, ptr %8, align 8, !tbaa !84
   %712 = zext i32 %711 to i64
-  %713 = getelementptr inbounds nuw ptr, ptr %710, i64 %712
+  %713 = getelementptr inbounds nuw [8 x i8], ptr %710, i64 %712
   store ptr %687, ptr %713, align 8, !tbaa !91
-  %714 = getelementptr inbounds nuw i32, ptr %705, i64 %712
+  %714 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %712
   store i32 1, ptr %714, align 4, !tbaa !52
   %715 = add i32 %711, 1
   store i32 %715, ptr %8, align 8, !tbaa !84
   %716 = load ptr, ptr %684, align 8, !tbaa !126
-  %717 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %716, i64 %686
+  %717 = getelementptr inbounds nuw [16 x i8], ptr %716, i64 %686
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 8
   %719 = load i32, ptr %718, align 8, !tbaa !127
   %720 = add i32 %719, %683
@@ -5476,7 +5473,7 @@ static_metadata_append.exit583:                   ; preds = %606
   %indvars.iv.i590 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i593, %794 ]
   %.02745.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.128.i, %794 ]
   %.03244.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.133.i, %794 ]
-  %759 = getelementptr inbounds nuw ptr, ptr %.0361, i64 %indvars.iv.i590
+  %759 = getelementptr inbounds nuw [8 x i8], ptr %.0361, i64 %indvars.iv.i590
   %760 = load ptr, ptr %759, align 8, !tbaa !91
   %761 = load i32, ptr %760, align 8, !tbaa !62
   switch i32 %761, label %794 [
@@ -5583,14 +5580,14 @@ static_metadata_append.exit583:                   ; preds = %606
   %799 = phi i32 [ %796, %.lr.ph.i596 ], [ %808, %807 ]
   %indvars.iv.i597 = phi i64 [ 0, %.lr.ph.i596 ], [ %indvars.iv.next.i600, %807 ]
   %800 = load ptr, ptr %27, align 8, !tbaa !106
-  %801 = getelementptr inbounds nuw i32, ptr %800, i64 %indvars.iv.i597
+  %801 = getelementptr inbounds nuw [4 x i8], ptr %800, i64 %indvars.iv.i597
   %802 = load i32, ptr %801, align 4, !tbaa !52
   %.not18.i598 = icmp eq i32 %802, 0
   br i1 %.not18.i598, label %807, label %803
 
 803:                                              ; preds = %798
   %804 = load ptr, ptr %797, align 8, !tbaa !107
-  %805 = getelementptr inbounds nuw ptr, ptr %804, i64 %indvars.iv.i597
+  %805 = getelementptr inbounds nuw [8 x i8], ptr %804, i64 %indvars.iv.i597
   %806 = load ptr, ptr %805, align 8, !tbaa !91
   call void @FLAC__metadata_object_delete(ptr noundef %806) #20
   %.pre.i599 = load i32, ptr %8, align 8, !tbaa !84
@@ -5662,7 +5659,7 @@ verify_metadata.exit:                             ; preds = %794, %758
 840:                                              ; preds = %.lr.ph707, %921
   %841 = phi i64 [ 0, %.lr.ph707 ], [ %923, %921 ]
   %.0375706 = phi i32 [ 0, %.lr.ph707 ], [ %922, %921 ]
-  %842 = getelementptr inbounds nuw %struct.compression_setting_t, ptr %838, i64 %841
+  %842 = getelementptr inbounds nuw [16 x i8], ptr %838, i64 %841
   %843 = load i32, ptr %842, align 8, !tbaa !134
   switch i32 %843, label %921 [
     i32 0, label %844
@@ -6055,11 +6052,11 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !35
-  %11 = getelementptr inbounds nuw ptr, ptr @input_, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @input_, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !4
-  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %12, ptr %13, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6091,7 +6088,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .preheader3.us:                                   ; preds = %.preheader3.us.preheader, %._crit_edge112.us
   %indvars.iv306 = phi i64 [ 0, %.preheader3.us.preheader ], [ %indvars.iv.next307, %._crit_edge112.us ]
-  %17 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv306
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv306
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = trunc nuw i64 %indvars.iv306 to i32
   br label %20
@@ -6104,7 +6101,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %23 = load i8, ptr %22, align 1, !tbaa !30
   %24 = zext i8 %23 to i32
   %25 = add nsw i32 %24, -128
-  %26 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv301
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv301
   store i32 %25, ptr %26, align 4, !tbaa !52
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %27 = add i32 %.0244109.us, %3
@@ -6126,7 +6123,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .preheader1.us:                                   ; preds = %.preheader1.us.preheader, %._crit_edge117.us
   %indvars.iv316 = phi i64 [ 0, %.preheader1.us.preheader ], [ %indvars.iv.next317, %._crit_edge117.us ]
-  %28 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv316
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv316
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = trunc nuw i64 %indvars.iv316 to i32
   br label %31
@@ -6138,7 +6135,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %33 = getelementptr inbounds nuw i8, ptr @ubuffer, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !30
   %35 = sext i8 %34 to i32
-  %36 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv311
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv311
   store i32 %35, ptr %36, align 4, !tbaa !52
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %37 = add i32 %.1245114.us, %3
@@ -6170,7 +6167,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .preheader15.us:                                  ; preds = %.preheader15.us.preheader, %._crit_edge92.us
   %indvars.iv266 = phi i64 [ 0, %.preheader15.us.preheader ], [ %indvars.iv.next267, %._crit_edge92.us ]
-  %40 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv266
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv266
   %41 = load ptr, ptr %40, align 8, !tbaa !4
   %42 = trunc nuw i64 %indvars.iv266 to i32
   br label %43
@@ -6179,12 +6176,12 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv261 = phi i64 [ 0, %.preheader15.us ], [ %indvars.iv.next262, %43 ]
   %.224689.us = phi i32 [ %42, %.preheader15.us ], [ %51, %43 ]
   %44 = zext i32 %.224689.us to i64
-  %45 = getelementptr inbounds nuw i16, ptr @ubuffer, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr @ubuffer, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !30
   %47 = tail call i16 @llvm.bswap.i16(i16 %46)
   %48 = zext i16 %47 to i32
   %49 = add nsw i32 %48, -32768
-  %50 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv261
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv261
   store i32 %49, ptr %50, align 4, !tbaa !52
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %51 = add i32 %.224689.us, %3
@@ -6206,7 +6203,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .preheader12.us:                                  ; preds = %.preheader12.us.preheader, %._crit_edge97.us
   %indvars.iv276 = phi i64 [ 0, %.preheader12.us.preheader ], [ %indvars.iv.next277, %._crit_edge97.us ]
-  %52 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv276
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv276
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   %54 = trunc nuw i64 %indvars.iv276 to i32
   br label %55
@@ -6215,11 +6212,11 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv271 = phi i64 [ 0, %.preheader12.us ], [ %indvars.iv.next272, %55 ]
   %.324794.us = phi i32 [ %54, %.preheader12.us ], [ %62, %55 ]
   %56 = zext i32 %.324794.us to i64
-  %57 = getelementptr inbounds nuw i16, ptr @ubuffer, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr @ubuffer, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !30
   %59 = zext i16 %58 to i32
   %60 = add nsw i32 %59, -32768
-  %61 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv271
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv271
   store i32 %60, ptr %61, align 4, !tbaa !52
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %62 = add i32 %.324794.us, %3
@@ -6244,7 +6241,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .preheader9.us:                                   ; preds = %.preheader9.us.preheader, %._crit_edge102.us
   %indvars.iv286 = phi i64 [ 0, %.preheader9.us.preheader ], [ %indvars.iv.next287, %._crit_edge102.us ]
-  %64 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv286
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv286
   %65 = load ptr, ptr %64, align 8, !tbaa !4
   %66 = trunc nuw i64 %indvars.iv286 to i32
   br label %67
@@ -6253,11 +6250,11 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv281 = phi i64 [ 0, %.preheader9.us ], [ %indvars.iv.next282, %67 ]
   %.424899.us = phi i32 [ %66, %.preheader9.us ], [ %74, %67 ]
   %68 = zext i32 %.424899.us to i64
-  %69 = getelementptr inbounds nuw i16, ptr @ubuffer, i64 %68
+  %69 = getelementptr inbounds nuw [2 x i8], ptr @ubuffer, i64 %68
   %70 = load i16, ptr %69, align 2, !tbaa !30
   %71 = tail call i16 @llvm.bswap.i16(i16 %70)
   %72 = sext i16 %71 to i32
-  %73 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv281
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv281
   store i32 %72, ptr %73, align 4, !tbaa !52
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %74 = add i32 %.424899.us, %3
@@ -6279,7 +6276,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .preheader6.us:                                   ; preds = %.preheader6.us.preheader, %._crit_edge107.us
   %indvars.iv296 = phi i64 [ 0, %.preheader6.us.preheader ], [ %indvars.iv.next297, %._crit_edge107.us ]
-  %75 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv296
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv296
   %76 = load ptr, ptr %75, align 8, !tbaa !4
   %77 = trunc nuw i64 %indvars.iv296 to i32
   br label %78
@@ -6288,10 +6285,10 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv291 = phi i64 [ 0, %.preheader6.us ], [ %indvars.iv.next292, %78 ]
   %.5249104.us = phi i32 [ %77, %.preheader6.us ], [ %84, %78 ]
   %79 = zext i32 %.5249104.us to i64
-  %80 = getelementptr inbounds nuw i16, ptr @ubuffer, i64 %79
+  %80 = getelementptr inbounds nuw [2 x i8], ptr @ubuffer, i64 %79
   %81 = load i16, ptr %80, align 2, !tbaa !30
   %82 = sext i16 %81 to i32
-  %83 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv291
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv291
   store i32 %82, ptr %83, align 4, !tbaa !52
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %84 = add i32 %.5249104.us, %3
@@ -6338,7 +6335,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 .lr.ph78:                                         ; preds = %89
   %90 = trunc nuw i64 %indvars.iv246 to i32
   %91 = mul i32 %90, 3
-  %92 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv246
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv246
   %93 = load ptr, ptr %92, align 8, !tbaa !4
   br label %94
 
@@ -6364,7 +6361,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %111 = shl nuw nsw i32 %110, 16
   %112 = or disjoint i32 %105, %111
   %113 = add nsw i32 %112, -8388608
-  %114 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv241
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv241
   store i32 %113, ptr %114, align 4, !tbaa !52
   %115 = add i32 %.027175, %87
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
@@ -6383,7 +6380,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 .lr.ph85:                                         ; preds = %116
   %117 = trunc nuw i64 %indvars.iv256 to i32
   %118 = mul i32 %117, 3
-  %119 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv256
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv256
   %120 = load ptr, ptr %119, align 8, !tbaa !4
   br label %121
 
@@ -6408,7 +6405,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %137 = sext i8 %136 to i32
   %138 = shl nsw i32 %137, 16
   %139 = or disjoint i32 %132, %138
-  %140 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv251
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv251
   store i32 %139, ptr %140, align 4, !tbaa !52
   %141 = add i32 %.027082, %88
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
@@ -6450,7 +6447,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 .lr.ph64:                                         ; preds = %145
   %146 = trunc nuw i64 %indvars.iv226 to i32
   %147 = mul i32 %146, 3
-  %148 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv226
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv226
   %149 = load ptr, ptr %148, align 8, !tbaa !4
   br label %150
 
@@ -6476,7 +6473,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %167 = zext i8 %166 to i32
   %168 = or disjoint i32 %162, %167
   %169 = add nsw i32 %168, -8388608
-  %170 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv221
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv221
   store i32 %169, ptr %170, align 4, !tbaa !52
   %171 = add i32 %.025461, %143
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
@@ -6495,7 +6492,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 .lr.ph71:                                         ; preds = %172
   %173 = trunc nuw i64 %indvars.iv236 to i32
   %174 = mul i32 %173, 3
-  %175 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv236
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv236
   %176 = load ptr, ptr %175, align 8, !tbaa !4
   br label %177
 
@@ -6520,7 +6517,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %193 = load i8, ptr %192, align 1, !tbaa !30
   %194 = zext i8 %193 to i32
   %195 = or disjoint i32 %189, %194
-  %196 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv231
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %indvars.iv231
   store i32 %195, ptr %196, align 4, !tbaa !52
   %197 = add i32 %.024368, %144
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
@@ -6552,7 +6549,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .preheader35.us:                                  ; preds = %.preheader35.us.preheader, %._crit_edge44.us
   %indvars.iv186 = phi i64 [ 0, %.preheader35.us.preheader ], [ %indvars.iv.next187, %._crit_edge44.us ]
-  %200 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv186
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv186
   %201 = load ptr, ptr %200, align 8, !tbaa !4
   %202 = trunc nuw i64 %indvars.iv186 to i32
   br label %203
@@ -6561,11 +6558,11 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv181 = phi i64 [ 0, %.preheader35.us ], [ %indvars.iv.next182, %203 ]
   %.625041.us = phi i32 [ %202, %.preheader35.us ], [ %210, %203 ]
   %204 = zext i32 %.625041.us to i64
-  %205 = getelementptr inbounds nuw i32, ptr @ubuffer, i64 %204
+  %205 = getelementptr inbounds nuw [4 x i8], ptr @ubuffer, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !30
   %207 = xor i32 %206, 128
   %208 = tail call i32 @llvm.bswap.i32(i32 %207)
-  %209 = getelementptr inbounds nuw i32, ptr %201, i64 %indvars.iv181
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %indvars.iv181
   store i32 %208, ptr %209, align 4, !tbaa !52
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %210 = add i32 %.625041.us, %3
@@ -6587,7 +6584,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .preheader32.us:                                  ; preds = %.preheader32.us.preheader, %._crit_edge49.us
   %indvars.iv196 = phi i64 [ 0, %.preheader32.us.preheader ], [ %indvars.iv.next197, %._crit_edge49.us ]
-  %211 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv196
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv196
   %212 = load ptr, ptr %211, align 8, !tbaa !4
   %213 = trunc nuw i64 %indvars.iv196 to i32
   br label %214
@@ -6596,10 +6593,10 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv191 = phi i64 [ 0, %.preheader32.us ], [ %indvars.iv.next192, %214 ]
   %.725146.us = phi i32 [ %213, %.preheader32.us ], [ %220, %214 ]
   %215 = zext i32 %.725146.us to i64
-  %216 = getelementptr inbounds nuw i32, ptr @ubuffer, i64 %215
+  %216 = getelementptr inbounds nuw [4 x i8], ptr @ubuffer, i64 %215
   %217 = load i32, ptr %216, align 4, !tbaa !30
   %218 = xor i32 %217, -2147483648
-  %219 = getelementptr inbounds nuw i32, ptr %212, i64 %indvars.iv191
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %212, i64 %indvars.iv191
   store i32 %218, ptr %219, align 4, !tbaa !52
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %220 = add i32 %.725146.us, %3
@@ -6624,7 +6621,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .preheader29.us:                                  ; preds = %.preheader29.us.preheader, %._crit_edge54.us
   %indvars.iv206 = phi i64 [ 0, %.preheader29.us.preheader ], [ %indvars.iv.next207, %._crit_edge54.us ]
-  %222 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv206
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv206
   %223 = load ptr, ptr %222, align 8, !tbaa !4
   %224 = trunc nuw i64 %indvars.iv206 to i32
   br label %225
@@ -6633,10 +6630,10 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv201 = phi i64 [ 0, %.preheader29.us ], [ %indvars.iv.next202, %225 ]
   %.825251.us = phi i32 [ %224, %.preheader29.us ], [ %231, %225 ]
   %226 = zext i32 %.825251.us to i64
-  %227 = getelementptr inbounds nuw i32, ptr @ubuffer, i64 %226
+  %227 = getelementptr inbounds nuw [4 x i8], ptr @ubuffer, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !30
   %229 = tail call i32 @llvm.bswap.i32(i32 %228)
-  %230 = getelementptr inbounds nuw i32, ptr %223, i64 %indvars.iv201
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %223, i64 %indvars.iv201
   store i32 %229, ptr %230, align 4, !tbaa !52
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %231 = add i32 %.825251.us, %3
@@ -6658,7 +6655,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .preheader26.us:                                  ; preds = %.preheader26.us.preheader, %._crit_edge59.us
   %indvars.iv216 = phi i64 [ 0, %.preheader26.us.preheader ], [ %indvars.iv.next217, %._crit_edge59.us ]
-  %232 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv216
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv216
   %233 = load ptr, ptr %232, align 8, !tbaa !4
   %234 = trunc nuw i64 %indvars.iv216 to i32
   br label %235
@@ -6667,9 +6664,9 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %indvars.iv211 = phi i64 [ 0, %.preheader26.us ], [ %indvars.iv.next212, %235 ]
   %.925356.us = phi i32 [ %234, %.preheader26.us ], [ %240, %235 ]
   %236 = zext i32 %.925356.us to i64
-  %237 = getelementptr inbounds nuw i32, ptr @ubuffer, i64 %236
+  %237 = getelementptr inbounds nuw [4 x i8], ptr @ubuffer, i64 %236
   %238 = load i32, ptr %237, align 4, !tbaa !30
-  %239 = getelementptr inbounds nuw i32, ptr %233, i64 %indvars.iv211
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %233, i64 %indvars.iv211
   store i32 %238, ptr %239, align 4, !tbaa !52
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %240 = add i32 %.925356.us, %3
@@ -6707,9 +6704,9 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 
 .lr.ph120:                                        ; preds = %.preheader, %254
   %indvars.iv321 = phi i64 [ %indvars.iv.next322, %254 ], [ 0, %.preheader ]
-  %245 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv321
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv321
   %246 = load ptr, ptr %245, align 8, !tbaa !4
-  %247 = getelementptr inbounds nuw i32, ptr %246, i64 %indvars.iv326
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %246, i64 %indvars.iv326
   %248 = load i32, ptr %247, align 4, !tbaa !52
   %249 = and i32 %248, %244
   %.not298 = icmp eq i32 %249, 0
@@ -7264,7 +7261,7 @@ define internal void @flac_decoder_metadata_callback(ptr readnone captures(none)
   %11 = tail call ptr @FLAC__metadata_object_clone(ptr noundef %1) #20
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load i64, ptr %7, align 8, !tbaa !111
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   store ptr %11, ptr %14, align 8, !tbaa !91
   %15 = icmp eq ptr %11, null
   br i1 %15, label %16, label %17
@@ -7289,7 +7286,7 @@ define internal void @flac_decoder_error_callback(ptr readnone captures(none) %0
   tail call void @stats_print_name(i32 noundef 1, ptr noundef %5) #20
   %6 = load ptr, ptr @stderr, align 8, !tbaa !33
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr @FLAC__StreamDecoderErrorStatusString, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__StreamDecoderErrorStatusString, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.85, ptr noundef %9) #20
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -7362,7 +7359,7 @@ define internal fastcc void @EncoderSession_destroy(ptr noundef nonnull captures
 
 13:                                               ; preds = %.lr.ph, %13
   %.026 = phi i64 [ 0, %.lr.ph ], [ %16, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %.026
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.026
   %15 = load ptr, ptr %14, align 8, !tbaa !30
   tail call void @FLAC__metadata_object_delete(ptr noundef %15) #20
   %16 = add nuw i64 %.026, 1
@@ -7590,14 +7587,14 @@ define internal fastcc void @static_metadata_clear(ptr noundef nonnull captures(
   %6 = phi i32 [ %2, %.lr.ph ], [ %15, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %7 = load ptr, ptr %3, align 8, !tbaa !106
-  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !52
   %.not18 = icmp eq i32 %9, 0
   br i1 %.not18, label %14, label %10
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %4, align 8, !tbaa !107
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !91
   tail call void @FLAC__metadata_object_delete(ptr noundef %13) #20
   %.pre = load i32, ptr %0, align 8, !tbaa !84
@@ -7679,9 +7676,9 @@ define internal fastcc range(i32 0, 2) i32 @static_metadata_append(ptr noundef n
   %22 = load ptr, ptr %4, align 8, !tbaa !107
   %23 = load i32, ptr %0, align 8, !tbaa !84
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   store ptr %1, ptr %25, align 8, !tbaa !91
-  %26 = getelementptr inbounds nuw i32, ptr %19, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %24
   store i32 %2, ptr %26, align 4, !tbaa !52
   %27 = add i32 %23, 1
   store i32 %27, ptr %0, align 8, !tbaa !84
@@ -7828,7 +7825,7 @@ define internal fastcc void @print_error_with_init_status(ptr noundef nonnull re
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str.152, ptr noundef nonnull %4, ptr noundef nonnull @.str.138) #20
   %9 = load ptr, ptr @stderr, align 8, !tbaa !33
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @FLAC__StreamEncoderInitStatusString, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__StreamEncoderInitStatusString, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %9, i32 noundef 1, ptr noundef nonnull @.str.153, i32 noundef %7, ptr noundef nonnull @.str.99, ptr noundef %12) #20
   switch i32 %1, label %26 [

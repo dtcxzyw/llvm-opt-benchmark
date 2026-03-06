@@ -199,7 +199,7 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
   %102 = load ptr, ptr %75, align 8, !tbaa !27
   %103 = ashr i32 %99, 5
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds i32, ptr %102, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %102, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !32
   %107 = xor i32 %106, %101
   store i32 %107, ptr %105, align 4, !tbaa !32
@@ -211,7 +211,7 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
   %112 = load ptr, ptr %75, align 8, !tbaa !27
   %113 = ashr i32 %109, 5
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i32, ptr %112, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %112, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !32
   %117 = xor i32 %116, %111
   store i32 %117, ptr %115, align 4, !tbaa !32
@@ -223,7 +223,7 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
   %122 = load ptr, ptr %75, align 8, !tbaa !27
   %123 = ashr i32 %119, 5
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds i32, ptr %122, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %122, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !32
   %127 = xor i32 %126, %121
   store i32 %127, ptr %125, align 4, !tbaa !32
@@ -235,7 +235,7 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
   %132 = load ptr, ptr %75, align 8, !tbaa !27
   %133 = ashr i32 %129, 5
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds i32, ptr %132, i64 %134
+  %135 = getelementptr inbounds [4 x i8], ptr %132, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !32
   %137 = xor i32 %136, %131
   store i32 %137, ptr %135, align 4, !tbaa !32

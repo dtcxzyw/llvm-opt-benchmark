@@ -3,8 +3,6 @@ source_filename = "bench/openjdk/original/jquant2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.box = type { i32, i32, i32, i32, i32, i32, i32, i64 }
-
 ; Function Attrs: nounwind uwtable
 define hidden void @jI2Quant(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -49,7 +47,7 @@ define hidden void @jI2Quant(ptr noundef %0) local_unnamed_addr #0 {
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr %25(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 4096) #9
   %27 = load ptr, ptr %21, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store ptr %26, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -133,11 +131,11 @@ define hidden void @jI2Quant(ptr noundef %0) local_unnamed_addr #0 {
 73:                                               ; preds = %73, %57
   %indvars.iv.i = phi i64 [ 0, %57 ], [ %indvars.iv.next.i, %73 ]
   %indvars45.i = trunc i64 %indvars.iv.i to i32
-  %74 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i
   store i32 %indvars45.i, ptr %74, align 4
   %75 = sub nsw i32 0, %indvars45.i
   %76 = sub nsw i64 0, %indvars.iv.i
-  %77 = getelementptr inbounds i32, ptr %71, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %71, i64 %76
   store i32 %75, ptr %77, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -146,11 +144,11 @@ define hidden void @jI2Quant(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %73, %.lr.ph.i
   %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.lr.ph.i ], [ 16, %73 ]
   %.138.i = phi i32 [ %84, %.lr.ph.i ], [ 16, %73 ]
-  %78 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv48.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv48.i
   store i32 %.138.i, ptr %78, align 4
   %79 = sub nsw i32 0, %.138.i
   %80 = sub nsw i64 0, %indvars.iv48.i
-  %81 = getelementptr inbounds i32, ptr %71, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %71, i64 %80
   store i32 %79, ptr %81, align 4
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %82 = trunc nuw nsw i64 %indvars.iv48.i to i32
@@ -161,10 +159,10 @@ define hidden void @jI2Quant(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph41.i:                                       ; preds = %.lr.ph.i, %.lr.ph41.i
   %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %.lr.ph41.i ], [ 48, %.lr.ph.i ]
-  %85 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv52.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv52.i
   store i32 32, ptr %85, align 4
   %86 = sub nsw i64 0, %indvars.iv52.i
-  %87 = getelementptr inbounds i32, ptr %71, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %71, i64 %86
   store i32 -32, ptr %87, align 4
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, 256
@@ -277,11 +275,11 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
 58:                                               ; preds = %58, %50
   %indvars.iv.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i, %58 ]
   %indvars45.i = trunc i64 %indvars.iv.i to i32
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i
   store i32 %indvars45.i, ptr %59, align 4
   %60 = sub nsw i32 0, %indvars45.i
   %61 = sub nsw i64 0, %indvars.iv.i
-  %62 = getelementptr inbounds i32, ptr %56, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %56, i64 %61
   store i32 %60, ptr %62, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -290,11 +288,11 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.i
   %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.lr.ph.i ], [ 16, %58 ]
   %.138.i = phi i32 [ %69, %.lr.ph.i ], [ 16, %58 ]
-  %63 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv48.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv48.i
   store i32 %.138.i, ptr %63, align 4
   %64 = sub nsw i32 0, %.138.i
   %65 = sub nsw i64 0, %indvars.iv48.i
-  %66 = getelementptr inbounds i32, ptr %56, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %56, i64 %65
   store i32 %64, ptr %66, align 4
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %67 = trunc nuw nsw i64 %indvars.iv48.i to i32
@@ -305,10 +303,10 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
 
 .lr.ph41.i:                                       ; preds = %.lr.ph.i, %.lr.ph41.i
   %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %.lr.ph41.i ], [ 48, %.lr.ph.i ]
-  %70 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv52.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv52.i
   store i32 32, ptr %70, align 4
   %71 = sub nsw i64 0, %indvars.iv52.i
-  %72 = getelementptr inbounds i32, ptr %56, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %56, i64 %71
   store i32 -32, ptr %72, align 4
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, 256
@@ -329,7 +327,7 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
 
 .preheader:                                       ; preds = %74, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %74 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8
   tail call void @jZeroFar(ptr noundef %78, i64 noundef 4096) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -372,7 +370,7 @@ define internal void @prescan_quantize(ptr noundef readonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -382,18 +380,18 @@ define internal void @prescan_quantize(ptr noundef readonly captures(none) %0, p
   %15 = load i8, ptr %.021, align 1
   %16 = lshr i8 %15, 3
   %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.021, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = lshr i8 %21, 2
   %23 = zext nneg i8 %22 to i64
-  %24 = getelementptr inbounds nuw [32 x i16], ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %.021, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = lshr i8 %26, 3
   %28 = zext nneg i8 %27 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %24, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = add i16 %30, 1
   %32 = icmp eq i16 %31, 0
@@ -504,7 +502,7 @@ find_biggest_color_pop.exit.i.i:                  ; preds = %32, %.lr.ph.i67.i.i
   br i1 %38, label %find_biggest_color_pop.exit._crit_edge.loopexit.split.loop.exit.i.i, label %39
 
 39:                                               ; preds = %find_biggest_color_pop.exit.i.i
-  %40 = getelementptr inbounds nuw %struct.box, ptr %14, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %indvars.iv.i.i
   %41 = getelementptr inbounds nuw i8, ptr %.059.i.i, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -605,7 +603,7 @@ median_cut.exit.i:                                ; preds = %82, %find_biggest_c
 
 87:                                               ; preds = %compute_color.exit.i, %.lr.ph.i
   %indvars.iv52.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next53.i, %compute_color.exit.i ]
-  %88 = getelementptr inbounds nuw %struct.box, ptr %14, i64 %indvars.iv52.i
+  %88 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %indvars.iv52.i
   %89 = load ptr, ptr %2, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 48
   %91 = load ptr, ptr %90, align 8
@@ -650,9 +648,9 @@ median_cut.exit.i:                                ; preds = %82, %find_biggest_c
   %.05099.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %.353.i.i, %._crit_edge87.split.i.i ]
   %.05498.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %.357.i.i, %._crit_edge87.split.i.i ]
   %.05897.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %.361.i.i, %._crit_edge87.split.i.i ]
-  %109 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv131.i.i
+  %109 = getelementptr inbounds [8 x i8], ptr %91, i64 %indvars.iv131.i.i
   %110 = load ptr, ptr %109, align 8
-  %invariant.gep.i.i = getelementptr i16, ptr %110, i64 %103
+  %invariant.gep.i.i = getelementptr [2 x i8], ptr %110, i64 %103
   %111 = trunc nsw i64 %indvars.iv131.i.i to i32
   %112 = shl i32 %111, 3
   %113 = or disjoint i32 %112, 4
@@ -665,7 +663,7 @@ median_cut.exit.i:                                ; preds = %82, %find_biggest_c
   %.15184.i.i = phi i64 [ %.05099.i.i, %.preheader.i.i ], [ %.353.i.i, %._crit_edge.i.i ]
   %.15583.i.i = phi i64 [ %.05498.i.i, %.preheader.i.i ], [ %.357.i.i, %._crit_edge.i.i ]
   %.15982.i.i = phi i64 [ %.05897.i.i, %.preheader.i.i ], [ %.361.i.i, %._crit_edge.i.i ]
-  %gep.i.i = getelementptr [32 x i16], ptr %invariant.gep.i.i, i64 %indvars.iv126.i.i
+  %gep.i.i = getelementptr [64 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv126.i.i
   %115 = trunc nsw i64 %indvars.iv126.i.i to i32
   %116 = shl i32 %115, 2
   %117 = or disjoint i32 %116, 2
@@ -815,7 +813,7 @@ define internal void @pass2_fs_dither(ptr noundef readonly captures(none) %0, pt
   %33 = load ptr, ptr %28, align 8
   %storemerge.us = zext i1 %.not.us to i32
   %.0141.us.idx = select i1 %.not.us, i64 0, i64 %31
-  %.0141.us = getelementptr inbounds nuw i16, ptr %33, i64 %.0141.us.idx
+  %.0141.us = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %.0141.us.idx
   store i32 %storemerge.us, ptr %23, align 8
   store i16 0, ptr %.0141.us, align 2
   %34 = getelementptr inbounds nuw i8, ptr %.0141.us, i64 2
@@ -828,9 +826,9 @@ define internal void @pass2_fs_dither(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph166.split:                                  ; preds = %.lr.ph166.split.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph166.split.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %41, 0
@@ -840,7 +838,7 @@ define internal void @pass2_fs_dither(ptr noundef readonly captures(none) %0, pt
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 %26
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 %27
   %45 = load ptr, ptr %28, align 8
-  %46 = getelementptr inbounds nuw i16, ptr %45, i64 %31
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %31
   br label %.lr.ph
 
 47:                                               ; preds = %.lr.ph166.split
@@ -871,7 +869,7 @@ define internal void @pass2_fs_dither(ptr noundef readonly captures(none) %0, pt
   %.1150 = phi ptr [ %.0141, %.lr.ph ], [ %50, %113 ]
   %.1143149 = phi ptr [ %.0142, %.lr.ph ], [ %152, %113 ]
   %.1145148 = phi ptr [ %.0144, %.lr.ph ], [ %151, %113 ]
-  %50 = getelementptr inbounds i16, ptr %.1150, i64 %.0139
+  %50 = getelementptr inbounds [2 x i8], ptr %.1150, i64 %.0139
   %51 = load i16, ptr %50, align 2
   %52 = sext i16 %51 to i32
   %53 = add nsw i32 %.0160, 8
@@ -890,13 +888,13 @@ define internal void @pass2_fs_dither(ptr noundef readonly captures(none) %0, pt
   %66 = add nsw i32 %65, %64
   %67 = ashr i32 %66, 4
   %68 = sext i32 %55 to i64
-  %69 = getelementptr inbounds i32, ptr %14, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %14, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %61 to i64
-  %72 = getelementptr inbounds i32, ptr %14, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %14, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %67 to i64
-  %75 = getelementptr inbounds i32, ptr %14, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %14, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = load i8, ptr %.1145148, align 1
   %78 = zext i8 %77 to i32
@@ -923,14 +921,14 @@ define internal void @pass2_fs_dither(ptr noundef readonly captures(none) %0, pt
   %99 = zext i8 %98 to i32
   %100 = lshr i32 %91, 3
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw ptr, ptr %8, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = lshr i32 %95, 2
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [32 x i16], ptr %103, i64 %105
+  %106 = getelementptr inbounds nuw [64 x i8], ptr %103, i64 %105
   %107 = lshr i32 %99, 3
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i16, ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %106, i64 %108
   %110 = load i16, ptr %109, align 2
   %111 = icmp eq i16 %110, 0
   br i1 %111, label %112, label %113
@@ -1024,9 +1022,9 @@ define internal void @pass2_no_dither(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   br label %16
 
@@ -1044,12 +1042,12 @@ define internal void @pass2_no_dither(ptr noundef readonly captures(none) %0, pt
   %24 = load i8, ptr %20, align 1
   %25 = lshr i8 %24, 3
   %26 = zext nneg i8 %19 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %8, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i8 %22 to i64
-  %30 = getelementptr inbounds nuw [32 x i16], ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [64 x i8], ptr %28, i64 %29
   %31 = zext nneg i8 %25 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = icmp eq i16 %33, 0
   br i1 %34, label %35, label %39
@@ -1121,14 +1119,14 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
 
 .preheader15:                                     ; preds = %.preheader15.preheader, %._crit_edge30.split
   %indvars.iv156 = phi i64 [ %17, %.preheader15.preheader ], [ %indvars.iv.next157, %._crit_edge30.split ]
-  %19 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv156
+  %19 = getelementptr inbounds [8 x i8], ptr %.624.val.48.val, i64 %indvars.iv156
   %20 = load ptr, ptr %19, align 8
-  %invariant.gep = getelementptr i16, ptr %20, i64 %14
+  %invariant.gep = getelementptr [2 x i8], ptr %20, i64 %14
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader15, %._crit_edge
   %indvars.iv = phi i64 [ %15, %.preheader15 ], [ %indvars.iv.next, %._crit_edge ]
-  %gep = getelementptr [32 x i16], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [64 x i8], ptr %invariant.gep, i64 %indvars.iv
   br label %21
 
 21:                                               ; preds = %.lr.ph, %25
@@ -1182,14 +1180,14 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
 
 .preheader12:                                     ; preds = %.preheader12.preheader, %._crit_edge45.split
   %indvars.iv167 = phi i64 [ %32, %.preheader12.preheader ], [ %indvars.iv.next168, %._crit_edge45.split ]
-  %34 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv167
+  %34 = getelementptr inbounds [8 x i8], ptr %.624.val.48.val, i64 %indvars.iv167
   %35 = load ptr, ptr %34, align 8
-  %invariant.gep46 = getelementptr i16, ptr %35, i64 %29
+  %invariant.gep46 = getelementptr [2 x i8], ptr %35, i64 %29
   br label %.lr.ph40
 
 .lr.ph40:                                         ; preds = %.preheader12, %._crit_edge41
   %indvars.iv162 = phi i64 [ %30, %.preheader12 ], [ %indvars.iv.next163, %._crit_edge41 ]
-  %gep47 = getelementptr [32 x i16], ptr %invariant.gep46, i64 %indvars.iv162
+  %gep47 = getelementptr [64 x i8], ptr %invariant.gep46, i64 %indvars.iv162
   br label %36
 
 36:                                               ; preds = %.lr.ph40, %40
@@ -1247,10 +1245,10 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
 
 .lr.ph57:                                         ; preds = %.preheader9, %._crit_edge58
   %indvars.iv171 = phi i64 [ %45, %.preheader9 ], [ %indvars.iv.next172, %._crit_edge58 ]
-  %49 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv171
+  %49 = getelementptr inbounds [8 x i8], ptr %.624.val.48.val, i64 %indvars.iv171
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds [32 x i16], ptr %50, i64 %indvars.iv176
-  %52 = getelementptr inbounds i16, ptr %51, i64 %44
+  %51 = getelementptr inbounds [64 x i8], ptr %50, i64 %indvars.iv176
+  %52 = getelementptr inbounds [2 x i8], ptr %51, i64 %44
   br label %53
 
 53:                                               ; preds = %.lr.ph57, %57
@@ -1308,10 +1306,10 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
 
 .lr.ph72:                                         ; preds = %.preheader6, %._crit_edge73
   %indvars.iv183 = phi i64 [ %62, %.preheader6 ], [ %indvars.iv.next184, %._crit_edge73 ]
-  %66 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv183
+  %66 = getelementptr inbounds [8 x i8], ptr %.624.val.48.val, i64 %indvars.iv183
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds [32 x i16], ptr %67, i64 %indvars.iv188
-  %69 = getelementptr inbounds i16, ptr %68, i64 %61
+  %68 = getelementptr inbounds [64 x i8], ptr %67, i64 %indvars.iv188
+  %69 = getelementptr inbounds [2 x i8], ptr %68, i64 %61
   br label %70
 
 70:                                               ; preds = %.lr.ph72, %74
@@ -1369,10 +1367,10 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
 
 .lr.ph87:                                         ; preds = %.preheader3, %._crit_edge88
   %indvars.iv192 = phi i64 [ %79, %.preheader3 ], [ %indvars.iv.next193, %._crit_edge88 ]
-  %83 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv192
+  %83 = getelementptr inbounds [8 x i8], ptr %.624.val.48.val, i64 %indvars.iv192
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds [32 x i16], ptr %84, i64 %78
-  %86 = getelementptr inbounds i16, ptr %85, i64 %indvars.iv197
+  %85 = getelementptr inbounds [64 x i8], ptr %84, i64 %78
+  %86 = getelementptr inbounds [2 x i8], ptr %85, i64 %indvars.iv197
   br label %87
 
 87:                                               ; preds = %.lr.ph87, %91
@@ -1430,10 +1428,10 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
 
 .lr.ph102:                                        ; preds = %.preheader1, %._crit_edge103
   %indvars.iv204 = phi i64 [ %96, %.preheader1 ], [ %indvars.iv.next205, %._crit_edge103 ]
-  %100 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv204
+  %100 = getelementptr inbounds [8 x i8], ptr %.624.val.48.val, i64 %indvars.iv204
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds [32 x i16], ptr %101, i64 %95
-  %103 = getelementptr inbounds i16, ptr %102, i64 %indvars.iv209
+  %102 = getelementptr inbounds [64 x i8], ptr %101, i64 %95
+  %103 = getelementptr inbounds [2 x i8], ptr %102, i64 %indvars.iv209
   br label %104
 
 104:                                              ; preds = %.lr.ph102, %108
@@ -1499,15 +1497,15 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge124
   %indvars.iv218 = phi i64 [ %126, %.preheader.preheader ], [ %indvars.iv.next219, %._crit_edge124 ]
   %.0130 = phi i64 [ 0, %.preheader.preheader ], [ %.us-phi, %._crit_edge124 ]
-  %128 = getelementptr inbounds ptr, ptr %.624.val.48.val, i64 %indvars.iv218
+  %128 = getelementptr inbounds [8 x i8], ptr %.624.val.48.val, i64 %indvars.iv218
   %129 = load ptr, ptr %128, align 8
-  %invariant.gep126 = getelementptr i16, ptr %129, i64 %123
+  %invariant.gep126 = getelementptr [2 x i8], ptr %129, i64 %123
   br i1 %.not240113, label %._crit_edge124, label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %.preheader, %._crit_edge119
   %indvars.iv213 = phi i64 [ %indvars.iv.next214, %._crit_edge119 ], [ %124, %.preheader ]
   %.1122 = phi i64 [ %spec.select, %._crit_edge119 ], [ %.0130, %.preheader ]
-  %gep127 = getelementptr [32 x i16], ptr %invariant.gep126, i64 %indvars.iv213
+  %gep127 = getelementptr [64 x i8], ptr %invariant.gep126, i64 %indvars.iv213
   br label %130
 
 130:                                              ; preds = %.lr.ph118, %130
@@ -1693,7 +1691,7 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
   %98 = sub nsw i32 %84, %.sink207.i
   %99 = mul nsw i32 %98, %98
   %.2.i = add nuw nsw i32 %.1.i, %99
-  %100 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store i32 %.2136.i, ptr %100, align 4
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.2.i, i32 %.0137167.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1703,7 +1701,7 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
 .lr.ph170.i:                                      ; preds = %97, %108
   %indvars.iv173.i = phi i64 [ %indvars.iv.next174.i, %108 ], [ 0, %97 ]
   %.0139169.i = phi i32 [ %.1140.i, %108 ], [ 0, %97 ]
-  %101 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv173.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv173.i
   %102 = load i32, ptr %101, align 4
   %.not.i = icmp sgt i32 %102, %spec.select.i
   br i1 %.not.i, label %108, label %103
@@ -1851,22 +1849,22 @@ find_best_colors.exit:                            ; preds = %167, %.preheader71.
   %171 = zext nneg i32 %170 to i64
   %172 = zext nneg i32 %169 to i64
   %173 = zext nneg i32 %168 to i64
-  %invariant.gep = getelementptr inbounds nuw ptr, ptr %12, i64 %173
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %173
   br label %.preheader
 
 .preheader:                                       ; preds = %find_best_colors.exit, %186
   %indvars.iv56 = phi i64 [ 0, %find_best_colors.exit ], [ %indvars.iv.next57, %186 ]
   %.03351 = phi ptr [ %8, %find_best_colors.exit ], [ %180, %186 ]
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv56
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv56
   br label %174
 
 174:                                              ; preds = %.preheader, %185
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %185 ]
   %.149 = phi ptr [ %.03351, %.preheader ], [ %180, %185 ]
   %175 = load ptr, ptr %gep, align 8
-  %176 = getelementptr inbounds nuw [32 x i16], ptr %175, i64 %indvars.iv
-  %177 = getelementptr inbounds nuw [32 x i16], ptr %176, i64 %172
-  %178 = getelementptr inbounds nuw i16, ptr %177, i64 %171
+  %176 = getelementptr inbounds nuw [64 x i8], ptr %175, i64 %indvars.iv
+  %177 = getelementptr inbounds nuw [64 x i8], ptr %176, i64 %172
+  %178 = getelementptr inbounds nuw [2 x i8], ptr %177, i64 %171
   %scevgep = getelementptr i8, ptr %.149, i64 3
   br label %179
 

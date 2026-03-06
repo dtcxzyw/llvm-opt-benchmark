@@ -72,7 +72,7 @@ define dso_local { i64, float } @meshopt_analyzeOverdraw(ptr noundef readonly ca
 .lr.ph:                                           ; preds = %5, %31
   %.0114141 = phi i64 [ %32, %31 ], [ 0, %5 ]
   %29 = mul i64 %.0114141, %9
-  %30 = getelementptr inbounds nuw float, ptr %2, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %29
   br label %33
 
 31:                                               ; preds = %33
@@ -82,14 +82,14 @@ define dso_local { i64, float } @meshopt_analyzeOverdraw(ptr noundef readonly ca
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %35 = load float, ptr %34, align 4, !tbaa !4
-  %36 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !4
   %38 = fcmp olt float %35, %37
   %.135 = select i1 %38, float %35, float %37
   store float %.135, ptr %34, align 4, !tbaa !4
-  %39 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !4
   %41 = fcmp ogt float %40, %37
   %42 = select i1 %41, float %40, float %37
@@ -150,7 +150,7 @@ default.unreachable:                              ; preds = %.lr.ph147.us
   %indvars.iv185 = phi i64 [ 0, %.preheader.us ], [ 1, %52 ]
   %.sroa.0101.sroa.0.3156.us = phi i32 [ %.sroa.0101.sroa.0.2159.us, %.preheader.us ], [ %58, %52 ]
   %.sroa.0101.sroa.6.3155.us = phi i32 [ %.sroa.0101.sroa.6.2158.us, %.preheader.us ], [ %59, %52 ]
-  %54 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv185
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv185
   %55 = load i32, ptr %54, align 4, !tbaa !19
   %56 = icmp ne i32 %55, 0
   %57 = zext i1 %56 to i32
@@ -162,14 +162,14 @@ default.unreachable:                              ; preds = %.lr.ph147.us
   %indvars.iv188 = phi i64 [ 0, %.preheader138.us ], [ %indvars.iv.next189, %51 ]
   %.sroa.0101.sroa.0.2159.us = phi i32 [ %.sroa.0101.sroa.0.1162.us, %.preheader138.us ], [ %58, %51 ]
   %.sroa.0101.sroa.6.2158.us = phi i32 [ %.sroa.0101.sroa.6.1161.us, %.preheader138.us ], [ %59, %51 ]
-  %60 = getelementptr inbounds nuw [2 x i32], ptr %61, i64 %indvars.iv188
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv188
   br label %52
 
 .preheader138.us:                                 ; preds = %.preheader138.us.preheader, %50
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %50 ], [ 0, %.preheader138.us.preheader ]
   %.sroa.0101.sroa.0.1162.us = phi i32 [ %58, %50 ], [ %.sroa.0101.sroa.0.0165.us, %.preheader138.us.preheader ]
   %.sroa.0101.sroa.6.1161.us = phi i32 [ %59, %50 ], [ %.sroa.0101.sroa.6.0164.us, %.preheader138.us.preheader ]
-  %61 = getelementptr inbounds nuw [256 x [2 x i32]], ptr %47, i64 %indvars.iv192
+  %61 = getelementptr inbounds nuw [2048 x i8], ptr %47, i64 %indvars.iv192
   br label %.preheader.us
 
 .lr.ph147.split.us.us:                            ; preds = %.lr.ph147.us, %.lr.ph147.split.us.us
@@ -260,11 +260,11 @@ default.unreachable:                              ; preds = %.lr.ph147.us
 
 .lr.ph143:                                        ; preds = %_ZN17meshopt_Allocator8allocateIfEEPT_m.exit, %.lr.ph143
   %.0121142 = phi i64 [ %143, %.lr.ph143 ], [ 0, %_ZN17meshopt_Allocator8allocateIfEEPT_m.exit ]
-  %124 = getelementptr inbounds nuw i32, ptr %0, i64 %.0121142
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0121142
   %125 = load i32, ptr %124, align 4, !tbaa !19
   %126 = zext i32 %125 to i64
   %127 = mul i64 %9, %126
-  %128 = getelementptr inbounds nuw float, ptr %2, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %127
   %129 = load float, ptr %128, align 4, !tbaa !4
   %130 = fsub float %129, %14
   %131 = fmul float %22, %130
@@ -345,7 +345,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %149
   %indvars.iv204 = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next205, %163 ]
   %.sroa.0101.sroa.0.1162 = phi i32 [ %.sroa.0101.sroa.0.0165, %.preheader139 ], [ %171, %163 ]
   %.sroa.0101.sroa.6.1161 = phi i32 [ %.sroa.0101.sroa.6.0164, %.preheader139 ], [ %172, %163 ]
-  %159 = getelementptr inbounds nuw [256 x [2 x i32]], ptr %47, i64 %indvars.iv204
+  %159 = getelementptr inbounds nuw [2048 x i8], ptr %47, i64 %indvars.iv204
   br label %.preheader
 
 160:                                              ; preds = %163
@@ -357,7 +357,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %149
   %indvars.iv200 = phi i64 [ 0, %.preheader138 ], [ %indvars.iv.next201, %164 ]
   %.sroa.0101.sroa.0.2159 = phi i32 [ %.sroa.0101.sroa.0.1162, %.preheader138 ], [ %171, %164 ]
   %.sroa.0101.sroa.6.2158 = phi i32 [ %.sroa.0101.sroa.6.1161, %.preheader138 ], [ %172, %164 ]
-  %162 = getelementptr inbounds nuw [2 x i32], ptr %159, i64 %indvars.iv200
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv200
   br label %165
 
 163:                                              ; preds = %164
@@ -375,7 +375,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %149
   %indvars.iv197 = phi i64 [ 0, %.preheader ], [ 1, %165 ]
   %.sroa.0101.sroa.0.3156 = phi i32 [ %.sroa.0101.sroa.0.2159, %.preheader ], [ %171, %165 ]
   %.sroa.0101.sroa.6.3155 = phi i32 [ %.sroa.0101.sroa.6.2158, %.preheader ], [ %172, %165 ]
-  %167 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv197
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %indvars.iv197
   %168 = load i32, ptr %167, align 4, !tbaa !19
   %169 = icmp ne i32 %168, 0
   %170 = zext i1 %169 to i32
@@ -485,9 +485,9 @@ define internal fastcc void @_ZN7meshoptL9rasterizeEPNS_14OverdrawBufferEfffffff
   %75 = sub nsw i32 %41, %43
   %76 = icmp slt i32 %50, %56
   %77 = zext i1 %28 to i64
-  %invariant.gep255 = getelementptr float, ptr %0, i64 %77
+  %invariant.gep255 = getelementptr [4 x i8], ptr %0, i64 %77
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 524288
-  %invariant.gep = getelementptr i32, ptr %78, i64 %77
+  %invariant.gep = getelementptr [4 x i8], ptr %78, i64 %77
   %79 = shl i32 %75, 4
   %80 = shl i32 %73, 4
   %81 = shl i32 %71, 4
@@ -554,8 +554,8 @@ define internal fastcc void @_ZN7meshoptL9rasterizeEPNS_14OverdrawBufferEfffffff
   %.0201251.us = phi i32 [ %114, %.preheader.us.preheader ], [ %139, %._crit_edge.us ]
   %.0202250.us = phi i32 [ %106, %.preheader.us.preheader ], [ %138, %._crit_edge.us ]
   %.0203249.us = phi i32 [ %98, %.preheader.us.preheader ], [ %137, %._crit_edge.us ]
-  %gep256.us = getelementptr [256 x [2 x float]], ptr %invariant.gep255, i64 %indvars.iv269
-  %gep257.us = getelementptr [256 x [2 x i32]], ptr %invariant.gep, i64 %indvars.iv269
+  %gep256.us = getelementptr [2048 x i8], ptr %invariant.gep255, i64 %indvars.iv269
+  %gep257.us = getelementptr [2048 x i8], ptr %invariant.gep, i64 %indvars.iv269
   br label %122
 
 122:                                              ; preds = %.preheader.us, %132
@@ -570,14 +570,14 @@ define internal fastcc void @_ZN7meshoptL9rasterizeEPNS_14OverdrawBufferEfffffff
   br i1 %125, label %126, label %132
 
 126:                                              ; preds = %122
-  %gep.us = getelementptr [2 x float], ptr %gep256.us, i64 %indvars.iv
+  %gep.us = getelementptr [8 x i8], ptr %gep256.us, i64 %indvars.iv
   %127 = load float, ptr %gep.us, align 4, !tbaa !4
   %128 = fcmp ult float %.0195245.us, %127
   br i1 %128, label %132, label %129
 
 129:                                              ; preds = %126
   store float %.0195245.us, ptr %gep.us, align 4, !tbaa !4
-  %gep248.us = getelementptr [2 x i32], ptr %gep257.us, i64 %indvars.iv
+  %gep248.us = getelementptr [8 x i8], ptr %gep257.us, i64 %indvars.iv
   %130 = load i32, ptr %gep248.us, align 4, !tbaa !19
   %131 = add i32 %130, 1
   store i32 %131, ptr %gep248.us, align 4, !tbaa !19
@@ -618,7 +618,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
 .lr.ph:                                           ; preds = %1, %8
   %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
   %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !8
-  %5 = getelementptr ptr, ptr %0, i64 %.04
+  %5 = getelementptr [8 x i8], ptr %0, i64 %.04
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   invoke void %4(ptr noundef %7)

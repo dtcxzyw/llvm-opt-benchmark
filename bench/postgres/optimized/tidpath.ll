@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/tidpath.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @enable_tidscan = external local_unnamed_addr global i8, align 1
 @.str = private unnamed_addr constant [31 x i8] c"IS CURRENT OF within OR clause\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"tidpath.c\00", align 1
@@ -67,7 +65,7 @@ define dso_local noundef zeroext i1 @create_tidscan_paths(ptr noundef %0, ptr no
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %IsTidRangeClause.exit.thread.i ], [ 0, %.lr.ph.i ]
   %.0131923.i = phi ptr [ %.1.i, %IsTidRangeClause.exit.thread.i ], [ null, %.lr.ph.i ]
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
   %31 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef readonly %30, ptr noundef readonly %1)
   br i1 %31, label %IsTidRangeClause.exit.i, label %IsTidRangeClause.exit.thread.i
@@ -149,7 +147,7 @@ define internal fastcc ptr @TidQualFromRestrictInfoList(ptr noundef %0, ptr noun
   %.055135171 = phi ptr [ %.358.ph, %.critedge.thread ], [ null, %.lr.ph138 ]
   %indvars.iv147170 = phi i64 [ %indvars.iv.next148, %.critedge.thread ], [ 0, %.lr.ph138 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv147170
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv147170
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @restriction_is_or_clause(ptr noundef %13) #5
   br i1 %14, label %15, label %59
@@ -173,7 +171,7 @@ define internal fastcc ptr @TidQualFromRestrictInfoList(ptr noundef %0, ptr noun
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph ]
   %.069123127 = phi ptr [ %47, %46 ], [ null, %.lr.ph ]
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %is_andclause.exit.thread, label %27
@@ -378,7 +376,7 @@ define internal fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noun
 .lr.ph30:                                         ; preds = %.lr.ph, %IsTidEqualClause.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %IsTidEqualClause.exit.thread ], [ 0, %.lr.ph ]
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 18
   %14 = load i8, ptr %13, align 2, !range !4, !noundef !5

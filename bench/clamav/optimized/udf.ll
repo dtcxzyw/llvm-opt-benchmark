@@ -881,7 +881,7 @@ getFileSetDescriptor.exit:                        ; preds = %346
   %.sroa.10362.8.insert.mask = and i64 %.sroa.10362.6, -4294967296
   %.sroa.10362.8.insert.insert = or disjoint i64 %.sroa.10362.8.insert.mask, %.sroa.10362.8.insert.ext
   %383 = zext i32 %381 to i64
-  %384 = getelementptr inbounds nuw ptr, ptr %.pre.i27.i, i64 %383
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i27.i, i64 %383
   store ptr %.01323.i, ptr %384, align 8, !tbaa !32
   %385 = ptrtoint ptr %.01323.i to i64
   %386 = getelementptr i8, ptr %.01323.i, i64 19
@@ -964,7 +964,7 @@ findFileIdentifiers.exit:                         ; preds = %374
   %.sroa.10.8.insert.mask = and i64 %.sroa.10.6, -4294967296
   %.sroa.10.8.insert.insert = or disjoint i64 %.sroa.10.8.insert.mask, %.sroa.10.8.insert.ext
   %423 = zext i32 %421 to i64
-  %424 = getelementptr inbounds nuw ptr, ptr %.pre.i25.i, i64 %423
+  %424 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i25.i, i64 %423
   store ptr %.01322.i, ptr %424, align 8, !tbaa !32
   %425 = ptrtoint ptr %.01322.i to i64
   %426 = getelementptr i8, ptr %.01322.i, i64 168
@@ -1008,9 +1008,9 @@ findFileEntries.exit:                             ; preds = %414
 
 442:                                              ; preds = %.lr.ph, %parseFileEntryDescriptor.exit
   %.189885 = phi i64 [ 0, %.lr.ph ], [ %536, %parseFileEntryDescriptor.exit ]
-  %443 = getelementptr inbounds nuw ptr, ptr %.sroa.0.2, i64 %.189885
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.2, i64 %.189885
   %444 = load ptr, ptr %443, align 8, !tbaa !32
-  %445 = getelementptr inbounds nuw ptr, ptr %.sroa.0359.2, i64 %.189885
+  %445 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0359.2, i64 %.189885
   %446 = load ptr, ptr %445, align 8, !tbaa !32
   %.val26.i = load i16, ptr %444, align 1, !tbaa !29
   %.not.i329 = icmp eq i16 %.val26.i, 261

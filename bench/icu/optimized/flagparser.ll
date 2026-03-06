@@ -163,7 +163,7 @@ _ZL13getFlagOffsetPKci.exit.i.us:                 ; preds = %48, %49, %43
 
 73:                                               ; preds = %78, %.lr.ph53.i.us
   %indvars.iv59.i.us = phi i64 [ 0, %.lr.ph53.i.us ], [ %indvars.iv.next60.i.us, %78 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv59.i.us
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv59.i.us
   %75 = load ptr, ptr %74, align 8, !tbaa !14
   %76 = tail call i32 @strncmp(ptr noundef nonnull readonly %.253.us, ptr noundef %75, i64 noundef %72) #6
   %77 = icmp eq i32 %76, 0
@@ -204,7 +204,7 @@ _ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us: ; preds = %78, %.loopexit.loop
 .outer.us:                                        ; preds = %86, %84
   %.sink = phi i64 [ %88, %86 ], [ %85, %84 ]
   %.150.us = phi i32 [ %87, %86 ], [ %.049.ph94.us, %84 ]
-  %89 = getelementptr inbounds ptr, ptr %1, i64 %.sink
+  %89 = getelementptr inbounds [8 x i8], ptr %1, i64 %.sink
   %90 = load ptr, ptr %89, align 8, !tbaa !14
   %91 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(1) %14) #7
   %92 = icmp slt i32 %.150.us, %4

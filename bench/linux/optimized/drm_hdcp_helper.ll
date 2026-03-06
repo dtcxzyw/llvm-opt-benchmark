@@ -441,7 +441,7 @@ define dso_local ptr @drm_get_content_protection_name(i32 noundef %0) local_unna
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.drm_prop_enum_list, ptr @drm_cp_enum_list, i64 %6
+  %7 = getelementptr [16 x i8], ptr @drm_cp_enum_list, i64 %6
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -466,7 +466,7 @@ define dso_local ptr @drm_get_hdcp_content_type_name(i32 noundef %0) local_unnam
 3:                                                ; preds = %2, %1
   %4 = phi i1 [ true, %1 ], [ false, %2 ]
   %5 = phi i64 [ 0, %1 ], [ 1, %2 ]
-  %6 = getelementptr %struct.drm_prop_enum_list, ptr @drm_hdcp_content_type_enum_list, i64 %5
+  %6 = getelementptr [16 x i8], ptr @drm_hdcp_content_type_enum_list, i64 %5
   %7 = load i32, ptr %6, align 16
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2

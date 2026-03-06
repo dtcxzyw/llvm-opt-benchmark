@@ -132,7 +132,7 @@ default.unreachable28:                            ; preds = %4
 22:                                               ; preds = %4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
-  %24 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, i64, i64, i64 } }, ptr %2, i64 %3
+  %24 = getelementptr inbounds [56 x i8], ptr %2, i64 %3
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   store ptr %2, ptr %14, align 8
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -163,7 +163,7 @@ default.unreachable28:                            ; preds = %4
   %41 = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %43 = load i64, ptr %42, align 16, !noundef !4
-  %44 = getelementptr inbounds { i64, [15 x i64] }, ptr %41, i64 %43
+  %44 = getelementptr inbounds [128 x i8], ptr %41, i64 %43
   store ptr %41, ptr %8, align 8
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %44, ptr %45, align 8
@@ -184,7 +184,7 @@ default.unreachable28:                            ; preds = %4
   %52 = load ptr, ptr %51, align 16, !nonnull !4, !noundef !4
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %54 = load i64, ptr %53, align 8, !noundef !4
-  %55 = getelementptr inbounds { i64, [15 x i64] }, ptr %52, i64 %54
+  %55 = getelementptr inbounds [128 x i8], ptr %52, i64 %54
   store ptr %52, ptr %11, align 8
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %55, ptr %56, align 8
@@ -223,7 +223,7 @@ default.unreachable28:                            ; preds = %4
 
 68:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
-  %69 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, i64, i64, i64 } }, ptr %2, i64 %3
+  %69 = getelementptr inbounds [56 x i8], ptr %2, i64 %3
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   store ptr %2, ptr %19, align 8
   %70 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -383,7 +383,7 @@ default.unreachable72:                            ; preds = %4
   %32 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %34 = load i64, ptr %33, align 16, !noundef !4
-  %35 = getelementptr inbounds { i64, [15 x i64] }, ptr %32, i64 %34
+  %35 = getelementptr inbounds [128 x i8], ptr %32, i64 %34
   store ptr %32, ptr %10, align 8
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %35, ptr %36, align 8
@@ -404,7 +404,7 @@ default.unreachable72:                            ; preds = %4
   %44 = load ptr, ptr %43, align 16, !nonnull !4, !noundef !4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %46 = load i64, ptr %45, align 8, !noundef !4
-  %47 = getelementptr inbounds { i64, [15 x i64] }, ptr %44, i64 %46
+  %47 = getelementptr inbounds [128 x i8], ptr %44, i64 %46
   store ptr %44, ptr %14, align 8
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %47, ptr %48, align 8
@@ -422,7 +422,7 @@ default.unreachable72:                            ; preds = %4
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load i64, ptr %54, align 8, !noundef !4
   %56 = icmp ult i64 %55, %3
-  %57 = getelementptr inbounds { i64, [15 x i64] }, ptr %2, i64 %55
+  %57 = getelementptr inbounds [128 x i8], ptr %2, i64 %55
   %.0 = select i1 %56, ptr %57, ptr null
   tail call void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h2948a4a7cb7fe872E"(ptr sret({ i64, [15 x i64] }) align 16 %0, ptr align 16 %.0)
   br label %71
@@ -544,7 +544,7 @@ default.unreachable72:                            ; preds = %4
 define void @_ZN14cranelift_isle3ast7Pattern3pos17h626ba3966c53166bE(ptr writeonly sret({ i64, i64, i64, i64 }) align 8 captures(none) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #2 {
 switch.lookup:
   %2 = load i64, ptr %1, align 16, !range !3, !noundef !4
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN14cranelift_isle3ast7Pattern3pos17h626ba3966c53166bE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14cranelift_isle3ast7Pattern3pos17h626ba3966c53166bE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)

@@ -89,7 +89,7 @@ define hidden void @_ZN25ShenandoahCollectorPolicyC2Ev(ptr noundef nonnull align
 define hidden void @_ZN25ShenandoahCollectorPolicy23record_collection_causeEN7GCCause5CauseE(ptr noundef nonnull align 8 captures(none) dereferenceable(528) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -113,7 +113,7 @@ define hidden void @_ZN25ShenandoahCollectorPolicy35record_alloc_failure_to_dege
   store i64 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 1
   store i64 %10, ptr %8, align 8
@@ -310,7 +310,7 @@ define hidden void @_ZNK25ShenandoahCollectorPolicy14print_gc_statsEP12outputStr
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %21 ], [ 0, %2 ]
   %.087.us = phi i64 [ %.2.us, %21 ], [ 0, %2 ]
   %.06586.us = phi i64 [ %.267.us, %21 ], [ 0, %2 ]
-  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv94
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv94
   %13 = load i64, ptr %12, align 8
   %.not70.us = icmp eq i64 %13, 0
   br i1 %.not70.us, label %21, label %14
@@ -358,7 +358,7 @@ _Z14is_implicit_gcN7GCCause5CauseE.exit.thread.us: ; preds = %_Z14is_implicit_gc
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %2 ]
   %.087 = phi i64 [ %.2, %34 ], [ 0, %2 ]
   %.06586 = phi i64 [ %.267, %34 ], [ 0, %2 ]
-  %22 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   %.not70 = icmp eq i64 %23, 0
   br i1 %.not70, label %34, label %24
@@ -493,7 +493,7 @@ _Z14is_implicit_gcN7GCCause5CauseE.exit.thread:   ; preds = %_Z14is_implicit_gcN
 
 94:                                               ; preds = %59, %101
   %indvars.iv98 = phi i64 [ 0, %59 ], [ %indvars.iv.next99, %101 ]
-  %95 = getelementptr inbounds nuw i64, ptr %93, i64 %indvars.iv98
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv98
   %96 = load i64, ptr %95, align 8
   %.not = icmp eq i64 %96, 0
   br i1 %.not, label %101, label %97

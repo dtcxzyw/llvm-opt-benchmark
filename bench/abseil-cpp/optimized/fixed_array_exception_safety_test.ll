@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::container_internal::internal_compressed_tuple::Storage" }
 %"struct.absl::container_internal::internal_compressed_tuple::Storage" = type { i64 }
 %"class.std::allocator.16" = type { i8 }
-%"class.testing::ThrowingValue" = type { i32 }
 %"class.testing::exceptions_internal::ConstructorTracker" = type <{ %"class.std::unordered_map", i32, [4 x i8] }>
 %"class.std::unordered_map" = type { %"class.std::_Hashtable" }
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
@@ -55,7 +54,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::container_internal::CompressedTuple.56" = type { %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.57" }
 %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.57" = type { %"struct.absl::container_internal::internal_compressed_tuple::Storage" }
 %"class.std::allocator.59" = type { i8 }
-%"class.testing::ThrowingValue.67" = type { i32 }
 %"class.absl::FixedArray.68" = type { %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage" }
 %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::Storage" = type { %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::NonEmptyInlinedStorage", %"class.absl::container_internal::CompressedTuple.69", ptr }
 %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, 25, testing::ThrowingAllocator<testing::ThrowingValue<testing::TypeSpec::kNoThrowMove>, testing::AllocSpec::kEverythingThrows>>::NonEmptyInlinedStorage" = type { [100 x i8] }
@@ -63,6 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.70" = type { %"struct.absl::container_internal::internal_compressed_tuple::Storage", %"struct.absl::container_internal::internal_compressed_tuple::Storage.71" }
 %"struct.absl::container_internal::internal_compressed_tuple::Storage.71" = type { %"class.testing::ThrowingAllocator.72" }
 %"class.testing::ThrowingAllocator.72" = type { %"class.std::shared_ptr" }
+%"class.testing::ThrowingValue" = type { i32 }
 %"class.std::initializer_list.89" = type { ptr, i64 }
 %"class.absl::FixedArray.92" = type { %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3>::Storage" }
 %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3>::Storage" = type { %"class.absl::FixedArray<testing::ThrowingValue<testing::TypeSpec::kEverythingThrows>, 3>::NonEmptyInlinedStorage", %"class.absl::container_internal::CompressedTuple", ptr }
@@ -833,7 +832,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %19 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %20 = load ptr, ptr %9, align 8, !tbaa !21
   %21 = load i64, ptr %10, align 8, !tbaa !20
-  %22 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   %.not.i = icmp eq ptr %19, %22
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
@@ -874,7 +873,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %33 = getelementptr inbounds nuw i8, ptr %.08.i9, i64 4
   %34 = load ptr, ptr %23, align 8, !tbaa !21
   %35 = load i64, ptr %24, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   %.not.i11 = icmp eq ptr %33, %36
   br i1 %.not.i11, label %._crit_edge.i12, label %.lr.ph.i8, !llvm.loop !28
 
@@ -1063,7 +1062,7 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = load ptr, ptr %11, align 8, !tbaa !21
   %15 = load i64, ptr %12, align 8, !tbaa !20
-  %16 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2IPKS4_TnPNSt9enable_ifIXsr13base_internal24IsAtLeastForwardIteratorIT_EE5valueEvE4typeELPv0EEESB_SB_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef %14, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.critedge unwind label %31
 
@@ -1104,7 +1103,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %27 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %28 = load ptr, ptr %17, align 8, !tbaa !21
   %29 = load i64, ptr %18, align 8, !tbaa !20
-  %30 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   %.not.i = icmp eq ptr %27, %30
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
@@ -1190,7 +1189,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %12 = getelementptr inbounds nuw i8, ptr %.08, i64 4
   %13 = load ptr, ptr %2, align 8, !tbaa !21
   %14 = load i64, ptr %3, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %.not = icmp eq ptr %12, %15
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 }
@@ -1437,7 +1436,7 @@ define linkonce_odr dso_local void @_ZN7testing19exceptions_internal18Constructo
   %13 = load i64, ptr %12, align 8, !tbaa !41
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %9, align 8, !tbaa !34
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !65
   %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %18
@@ -1996,7 +1995,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEE
 31:                                               ; preds = %_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !34
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !65
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -2023,7 +2022,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEE
   %45 = load ptr, ptr %43, align 8, !tbaa !67
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !65
   br label %49
 
@@ -2119,7 +2118,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEE
   %16 = load ptr, ptr %15, align 8, !tbaa !67
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !65
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -2134,7 +2133,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_N7testing19exceptions_internal14TrackedAddressEE
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !65
   br label %29
 
@@ -2225,7 +2224,7 @@ define linkonce_odr dso_local void @_ZN7testing19exceptions_internal18Constructo
   %21 = load i64, ptr %20, align 8, !tbaa !41
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %7, align 8, !tbaa !34
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !65
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIPvN7testing19exceptions_internal14TrackedAddressESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE4findERS9_.exit.thread, label %26
@@ -2910,7 +2909,7 @@ define internal void @_ZN4absl12_GLOBAL__N_155FixedArrayExceptionSafety_CopyCons
   %.0.i.i.i = phi ptr [ %2, %1 ], [ %12, %.noexc.i._crit_edge.i ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %.0.i.i.i, ptr %17, align 8, !tbaa !96
-  %18 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i.i, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %16
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull %18)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EmRKS7_.exit unwind label %19
 
@@ -3025,7 +3024,7 @@ _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSp
   %.0.i.i.i15 = phi ptr [ %4, %48 ], [ %55, %.noexc.i._crit_edge.i13 ]
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr %.0.i.i.i15, ptr %60, align 8, !tbaa !96
-  %61 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i.i15, i64 %59
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i15, i64 %59
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull %.0.i.i.i15, ptr noundef nonnull %61)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EmRKS7_.exit18 unwind label %62
 
@@ -3136,7 +3135,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %101 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %102 = load ptr, ptr %60, align 8, !tbaa !96
   %103 = load i64, ptr %49, align 8, !tbaa !20
-  %104 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %103
   %.not.i = icmp eq ptr %101, %104
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %93, !llvm.loop !113
 
@@ -3177,7 +3176,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %115 = getelementptr inbounds nuw i8, ptr %.05.i27, i64 4
   %116 = load ptr, ptr %17, align 8, !tbaa !96
   %117 = load i64, ptr %6, align 8, !tbaa !20
-  %118 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %117
   %.not.i30 = icmp eq ptr %115, %118
   br i1 %.not.i30, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit31, label %107, !llvm.loop !113
 
@@ -3556,7 +3555,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %24 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %25 = load ptr, ptr %11, align 8, !tbaa !96
   %26 = load i64, ptr %12, align 8, !tbaa !20
-  %27 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   %.not.i = icmp eq ptr %24, %27
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %16, !llvm.loop !113
 
@@ -3646,7 +3645,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %15 = getelementptr inbounds nuw i8, ptr %.05, i64 4
   %16 = load ptr, ptr %2, align 8, !tbaa !96
   %17 = load i64, ptr %3, align 8, !tbaa !20
-  %18 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   %.not = icmp eq ptr %15, %18
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !113
 }
@@ -4441,7 +4440,7 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %5 = load ptr, ptr %4, align 8, !tbaa !96
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load i64, ptr %6, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %7, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -4653,7 +4652,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %22 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %23 = load ptr, ptr %12, align 8, !tbaa !21
   %24 = load i64, ptr %13, align 8, !tbaa !20
-  %25 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   %.not.i = icmp eq ptr %22, %25
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
@@ -4705,7 +4704,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %38 = getelementptr inbounds nuw i8, ptr %.08.i16, i64 4
   %39 = load ptr, ptr %28, align 8, !tbaa !21
   %40 = load i64, ptr %29, align 8, !tbaa !20
-  %41 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   %.not.i18 = icmp eq ptr %38, %41
   br i1 %.not.i18, label %._crit_edge.i19, label %.lr.ph.i15, !llvm.loop !28
 
@@ -4757,7 +4756,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destro
   %54 = getelementptr inbounds nuw i8, ptr %.08.i23, i64 4
   %55 = load ptr, ptr %44, align 8, !tbaa !131
   %56 = load i64, ptr %45, align 8, !tbaa !20
-  %57 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   %.not.i24 = icmp eq ptr %54, %57
   br i1 %.not.i24, label %._crit_edge.i25, label %.lr.ph.i22, !llvm.loop !137
 
@@ -4809,7 +4808,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destro
   %70 = getelementptr inbounds nuw i8, ptr %.08.i28, i64 4
   %71 = load ptr, ptr %60, align 8, !tbaa !131
   %72 = load i64, ptr %61, align 8, !tbaa !20
-  %73 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   %.not.i30 = icmp eq ptr %70, %73
   br i1 %.not.i30, label %._crit_edge.i31, label %.lr.ph.i27, !llvm.loop !137
 
@@ -4919,7 +4918,7 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = load ptr, ptr %11, align 8, !tbaa !21
   %14 = load i64, ptr %10, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2ISt13move_iteratorIPS4_ETnPNSt9enable_ifIXsr13base_internal24IsAtLeastForwardIteratorIT_EE5valueEvE4typeELPv0EEESC_SC_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr %13, ptr %15, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.critedge unwind label %30
 
@@ -4959,7 +4958,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %26 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %27 = load ptr, ptr %16, align 8, !tbaa !21
   %28 = load i64, ptr %17, align 8, !tbaa !20
-  %29 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   %.not.i = icmp eq ptr %26, %29
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
@@ -5120,7 +5119,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destro
   %36 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %37 = load ptr, ptr %29, align 8, !tbaa !131
   %38 = load i64, ptr %12, align 8, !tbaa !20
-  %39 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %38
   %.not.i = icmp eq ptr %36, %39
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !137
 
@@ -5338,7 +5337,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destro
   %12 = getelementptr inbounds nuw i8, ptr %.08, i64 4
   %13 = load ptr, ptr %2, align 8, !tbaa !131
   %14 = load i64, ptr %3, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %.not = icmp eq ptr %12, %15
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
 }
@@ -5942,7 +5941,7 @@ define internal void @_ZN4absl12_GLOBAL__N_155FixedArrayExceptionSafety_MoveCons
   %.0.i.i.i = phi ptr [ %2, %1 ], [ %16, %.noexc.i._crit_edge.i ]
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %.0.i.i.i, ptr %21, align 8, !tbaa !96
-  %22 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i.i, i64 %20
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %20
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull %22)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EmRKS7_.exit unwind label %23
 
@@ -5991,7 +5990,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %36 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %37 = load ptr, ptr %21, align 8, !tbaa !96
   %38 = load i64, ptr %10, align 8, !tbaa !20
-  %39 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %38
   %.not.i = icmp eq ptr %36, %39
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %28, !llvm.loop !113
 
@@ -6095,7 +6094,7 @@ _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSp
   %.0.i.i.i19 = phi ptr [ %4, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev.exit ], [ %72, %.noexc.i._crit_edge.i17 ]
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr %.0.i.i.i19, ptr %77, align 8, !tbaa !96
-  %78 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i.i19, i64 %76
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i19, i64 %76
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull %.0.i.i.i19, ptr noundef nonnull %78)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EmRKS7_.exit22 unwind label %79
 
@@ -6144,7 +6143,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %92 = getelementptr inbounds nuw i8, ptr %.05.i25, i64 4
   %93 = load ptr, ptr %77, align 8, !tbaa !96
   %94 = load i64, ptr %66, align 8, !tbaa !20
-  %95 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %94
   %.not.i28 = icmp eq ptr %92, %95
   br i1 %.not.i28, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit29, label %84, !llvm.loop !113
 
@@ -6248,7 +6247,7 @@ _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSp
   %.0.i.i.i41 = phi ptr [ %6, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EED2Ev.exit35 ], [ %128, %.noexc.i._crit_edge.i39 ]
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr %.0.i.i.i41, ptr %133, align 8, !tbaa !150
-  %134 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %.0.i.i.i41, i64 %132
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i41, i64 %132
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE2EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull %.0.i.i.i41, ptr noundef nonnull %134)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EmRKS7_.exit unwind label %135
 
@@ -6297,7 +6296,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %148 = getelementptr inbounds nuw i8, ptr %.05.i46, i64 4
   %149 = load ptr, ptr %133, align 8, !tbaa !150
   %150 = load i64, ptr %122, align 8, !tbaa !20
-  %151 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %150
   %.not.i47 = icmp eq ptr %148, %151
   br i1 %.not.i47, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %140, !llvm.loop !157
 
@@ -6401,7 +6400,7 @@ _ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSp
   %.0.i.i.i58 = phi ptr [ %8, %_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE2EEELNS_9AllocSpecE0EED2Ev.exit ], [ %184, %.noexc.i._crit_edge.i56 ]
   %189 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store ptr %.0.i.i.i58, ptr %189, align 8, !tbaa !150
-  %190 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %.0.i.i.i58, i64 %188
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i58, i64 %188
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE2EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull %.0.i.i.i58, ptr noundef nonnull %190)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EmRKS7_.exit61 unwind label %191
 
@@ -6450,7 +6449,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %204 = getelementptr inbounds nuw i8, ptr %.05.i64, i64 4
   %205 = load ptr, ptr %189, align 8, !tbaa !150
   %206 = load i64, ptr %178, align 8, !tbaa !20
-  %207 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %205, i64 %206
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %206
   %.not.i67 = icmp eq ptr %204, %207
   br i1 %.not.i67, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit68, label %196, !llvm.loop !157
 
@@ -6644,7 +6643,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %25 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %26 = load ptr, ptr %12, align 8, !tbaa !96
   %27 = load i64, ptr %13, align 8, !tbaa !20
-  %28 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   %.not.i = icmp eq ptr %25, %28
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %17, !llvm.loop !113
 
@@ -6757,7 +6756,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %25 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %26 = load ptr, ptr %12, align 8, !tbaa !150
   %27 = load i64, ptr %13, align 8, !tbaa !20
-  %28 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   %.not.i = icmp eq ptr %25, %28
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %17, !llvm.loop !157
 
@@ -7038,7 +7037,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %15 = getelementptr inbounds nuw i8, ptr %.05, i64 4
   %16 = load ptr, ptr %2, align 8, !tbaa !150
   %17 = load i64, ptr %3, align 8, !tbaa !20
-  %18 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   %.not = icmp eq ptr %15, %18
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !157
 }
@@ -7115,7 +7114,7 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %5 = load ptr, ptr %4, align 8, !tbaa !96
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load i64, ptr %6, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %7, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -7248,7 +7247,7 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %5 = load ptr, ptr %4, align 8, !tbaa !150
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load i64, ptr %6, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %7, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -8021,7 +8020,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %23 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %24 = load ptr, ptr %13, align 8, !tbaa !21
   %25 = load i64, ptr %14, align 8, !tbaa !20
-  %26 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   %.not.i = icmp eq ptr %23, %26
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
@@ -8169,7 +8168,7 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   %25 = phi i64 [ %17, %16 ], [ %.pre.i, %.noexc.i._crit_edge.i ]
   %.0.i.i.i = phi ptr [ %3, %16 ], [ %21, %.noexc.i._crit_edge.i ]
   store ptr %.0.i.i.i, ptr %13, align 8, !tbaa !96
-  %26 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i.i, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %25
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull %26)
           to label %.critedge unwind label %27
 
@@ -8277,7 +8276,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %65 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %66 = load ptr, ptr %13, align 8, !tbaa !96
   %67 = load i64, ptr %11, align 8, !tbaa !20
-  %68 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   %.not.i = icmp eq ptr %65, %68
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %57, !llvm.loop !113
 
@@ -8512,7 +8511,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %24 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %25 = load ptr, ptr %14, align 8, !tbaa !21
   %26 = load i64, ptr %15, align 8, !tbaa !20
-  %27 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   %.not.i = icmp eq ptr %24, %27
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
@@ -8851,7 +8850,7 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   %26 = phi i64 [ %18, %17 ], [ %.pre.i, %.noexc.i._crit_edge.i ]
   %.0.i.i.i = phi ptr [ %4, %17 ], [ %22, %.noexc.i._crit_edge.i ]
   store ptr %.0.i.i.i, ptr %14, align 8, !tbaa !96
-  %27 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i.i, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %26
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JS6_EEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull %27, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %.critedge unwind label %28
 
@@ -8959,7 +8958,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %66 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %67 = load ptr, ptr %14, align 8, !tbaa !96
   %68 = load i64, ptr %12, align 8, !tbaa !20
-  %69 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %68
   %.not.i = icmp eq ptr %66, %69
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %58, !llvm.loop !113
 
@@ -9147,7 +9146,7 @@ define internal void @_ZN4absl12_GLOBAL__N_150FixedArrayExceptionSafety_Iterator
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %13 = load i64, ptr %12, align 8, !tbaa !20
-  %14 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %13
   store ptr %14, ptr %5, align 8, !tbaa !183
   invoke void @_ZN7testing16TestThrowingCtorIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS5_EEEJPS5_S8_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %15 unwind label %47
@@ -9169,7 +9168,7 @@ define internal void @_ZN4absl12_GLOBAL__N_150FixedArrayExceptionSafety_Iterator
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %20 = load i64, ptr %19, align 8, !tbaa !20
-  %21 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %20
   store ptr %21, ptr %9, align 8, !tbaa !183
   invoke void @_ZN7testing16TestThrowingCtorIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ESaIS5_EEEJPS5_S8_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %22 unwind label %51
@@ -9210,7 +9209,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %31 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %32 = load ptr, ptr %17, align 8, !tbaa !21
   %33 = load i64, ptr %19, align 8, !tbaa !20
-  %34 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   %.not.i = icmp eq ptr %31, %34
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
@@ -9249,7 +9248,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %43 = getelementptr inbounds nuw i8, ptr %.08.i14, i64 4
   %44 = load ptr, ptr %10, align 8, !tbaa !21
   %45 = load i64, ptr %12, align 8, !tbaa !20
-  %46 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   %.not.i16 = icmp eq ptr %43, %46
   br i1 %.not.i16, label %._crit_edge.i17, label %.lr.ph.i13, !llvm.loop !28
 
@@ -9358,7 +9357,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %25 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %26 = load ptr, ptr %15, align 8, !tbaa !21
   %27 = load i64, ptr %16, align 8, !tbaa !20
-  %28 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   %.not.i = icmp eq ptr %25, %28
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
@@ -9584,7 +9583,7 @@ define internal void @_ZN4absl12_GLOBAL__N_159FixedArrayExceptionSafety_Iterator
   %.0.i.i.i = phi ptr [ %2, %1 ], [ %16, %.noexc.i._crit_edge.i ]
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %.0.i.i.i, ptr %21, align 8, !tbaa !96
-  %22 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i.i, i64 %20
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %20
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull %22)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EmRKS7_.exit unwind label %23
 
@@ -9662,7 +9661,7 @@ _ZNSt12__shared_ptrIKiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %47, 
   store ptr %52, ptr %4, align 8, !tbaa !183
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = load i64, ptr %10, align 8, !tbaa !20
-  %54 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store ptr %54, ptr %5, align 8, !tbaa !183
   invoke void @_ZN7testing16TestThrowingCtorIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS5_LNS_9AllocSpecE0EEEEEJPS5_SA_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %55 unwind label %131
@@ -9708,7 +9707,7 @@ _ZNSt12__shared_ptrIKiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %47, 
   %.0.i.i.i20 = phi ptr [ %6, %56 ], [ %63, %.noexc.i._crit_edge.i18 ]
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr %.0.i.i.i20, ptr %68, align 8, !tbaa !96
-  %69 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i.i20, i64 %67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i20, i64 %67
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JEEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull %.0.i.i.i20, ptr noundef nonnull %69)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EmRKS7_.exit23 unwind label %70
 
@@ -9786,7 +9785,7 @@ _ZNSt12__shared_ptrIKiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i28: ; preds = %94
   store ptr %99, ptr %8, align 8, !tbaa !183
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %100 = load i64, ptr %57, align 8, !tbaa !20
-  %101 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %100
   store ptr %101, ptr %9, align 8, !tbaa !183
   invoke void @_ZN7testing16TestThrowingCtorIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS5_LNS_9AllocSpecE0EEEEEJPS5_SA_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %102 unwind label %136
@@ -9828,7 +9827,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %113 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %114 = load ptr, ptr %68, align 8, !tbaa !96
   %115 = load i64, ptr %57, align 8, !tbaa !20
-  %116 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %115
   %.not.i = icmp eq ptr %113, %116
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %105, !llvm.loop !113
 
@@ -9869,7 +9868,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %127 = getelementptr inbounds nuw i8, ptr %.05.i32, i64 4
   %128 = load ptr, ptr %21, align 8, !tbaa !96
   %129 = load i64, ptr %10, align 8, !tbaa !20
-  %130 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %129
   %.not.i35 = icmp eq ptr %127, %130
   br i1 %.not.i35, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit36, label %119, !llvm.loop !113
 
@@ -10101,7 +10100,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %69 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %70 = load ptr, ptr %14, align 8, !tbaa !96
   %71 = load i64, ptr %12, align 8, !tbaa !20
-  %72 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %71
   %.not.i = icmp eq ptr %69, %72
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %61, !llvm.loop !113
 
@@ -10518,7 +10517,7 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !183
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %12 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm3ESaIS4_EEC2IPKS4_TnPNSt9enable_ifIXsr13base_internal24IsAtLeastForwardIteratorIT_EE5valueEvE4typeELPv0EEESB_SB_RKS5_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %.sroa.0.0.copyload, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.critedge unwind label %27
 
@@ -10559,7 +10558,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %23 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %24 = load ptr, ptr %13, align 8, !tbaa !193
   %25 = load i64, ptr %14, align 8, !tbaa !20
-  %26 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   %.not.i = icmp eq ptr %23, %26
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !196
 
@@ -10995,7 +10994,7 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
           to label %15 unwind label %67
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
   store i64 %.sroa.2.0.copyload, ptr %11, align 8, !tbaa !30
   call void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   %17 = load i64, ptr %11, align 8, !tbaa !20
@@ -11128,7 +11127,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %63 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %64 = load ptr, ptr %13, align 8, !tbaa !198
   %65 = load i64, ptr %11, align 8, !tbaa !20
-  %66 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %65
   %.not.i = icmp eq ptr %63, %66
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm3ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %55, !llvm.loop !201
 
@@ -11381,7 +11380,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %33 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 4
   %34 = load ptr, ptr %23, align 8, !tbaa !21
   %35 = load i64, ptr %24, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   %.not.i.i.i = icmp eq ptr %33, %36
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !28
 
@@ -11419,7 +11418,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %45 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %46 = load ptr, ptr %20, align 8, !tbaa !21
   %47 = load i64, ptr %19, align 8, !tbaa !20
-  %48 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   %.not.i = icmp eq ptr %45, %48
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
@@ -11670,7 +11669,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %122 = getelementptr inbounds nuw i8, ptr %.08.i.i.i48, i64 4
   %123 = load ptr, ptr %112, align 8, !tbaa !21
   %124 = load i64, ptr %113, align 8, !tbaa !20
-  %125 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %124
   %.not.i.i.i50 = icmp eq ptr %122, %125
   br i1 %.not.i.i.i50, label %._crit_edge.i.i.i51, label %.lr.ph.i.i.i47, !llvm.loop !28
 
@@ -11708,7 +11707,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %134 = getelementptr inbounds nuw i8, ptr %.08.i55, i64 4
   %135 = load ptr, ptr %109, align 8, !tbaa !21
   %136 = load i64, ptr %108, align 8, !tbaa !20
-  %137 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %136
   %.not.i57 = icmp eq ptr %134, %137
   br i1 %.not.i57, label %._crit_edge.i58, label %.lr.ph.i54, !llvm.loop !28
 
@@ -12135,7 +12134,7 @@ define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafety
   %4 = alloca %"class.testing::exceptions_internal::DefaultFactory", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %5 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.112.val, i64 %.104.val
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %.112.val, i64 %.104.val
   call void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2IPKS4_TnPNSt9enable_ifIXsr13base_internal24IsAtLeastForwardIteratorIT_EE5valueEvE4typeELPv0EEESB_SB_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef %.112.val, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -12144,7 +12143,7 @@ define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafety
   %.val3 = load ptr, ptr %7, align 8, !tbaa !21
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !213
-  %8 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.val3, i64 %.val
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.val
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2IPKS4_TnPNSt9enable_ifIXsr13base_internal24IsAtLeastForwardIteratorIT_EE5valueEvE4typeELPv0EEESB_SB_RKS5_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %.val3, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %9 unwind label %23
 
@@ -12185,7 +12184,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 4
   %20 = load ptr, ptr %7, align 8, !tbaa !21
   %21 = load i64, ptr %6, align 8, !tbaa !20
-  %22 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   %.not.i.i = icmp eq ptr %19, %22
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !28
 
@@ -12331,7 +12330,7 @@ define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafety
   %10 = load ptr, ptr %9, align 8, !tbaa !21, !noalias !216
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %12 = load i64, ptr %11, align 8, !tbaa !20, !noalias !216
-  %13 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %12
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2IPKS4_TnPNSt9enable_ifIXsr13base_internal24IsAtLeastForwardIteratorIT_EE5valueEvE4typeELPv0EEESB_SB_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef %10, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %_ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EEvEEC2IRKNS3_19exceptions_internal14DefaultFactoryIS8_EEvEEOT_.exit.i.i unwind label %.body.i.i.i, !noalias !216
 
@@ -12588,7 +12587,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %12 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 4
   %13 = load ptr, ptr %2, align 8, !tbaa !21
   %14 = load i64, ptr %3, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %.not.i.i = icmp eq ptr %12, %15
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !28
 
@@ -12749,7 +12748,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %12 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %13 = load ptr, ptr %2, align 8, !tbaa !21
   %14 = load i64, ptr %3, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %.not.i = icmp eq ptr %12, %15
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
@@ -13249,7 +13248,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %95 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 4
   %96 = load ptr, ptr %85, align 8, !tbaa !21
   %97 = load i64, ptr %86, align 8, !tbaa !20
-  %98 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %97
   %.not.i.i.i = icmp eq ptr %95, %98
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !28
 
@@ -13383,7 +13382,7 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFSt10unique_ptrIN4a
   %7 = load ptr, ptr %6, align 8, !tbaa !21, !noalias !265
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %9 = load i64, ptr %8, align 8, !tbaa !20, !noalias !265
-  %10 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %9
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2IPKS4_TnPNSt9enable_ifIXsr13base_internal24IsAtLeastForwardIteratorIT_EE5valueEvE4typeELPv0EEESB_SB_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef %7, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %_ZSt10__invoke_rISt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EERNS3_19exceptions_internal14DefaultFactoryIS8_EEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit unwind label %11, !noalias !265
 
@@ -13450,7 +13449,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt14_Function_base13_Base_m
   %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %14 = load i64, ptr %13, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2IPKS4_TnPNSt9enable_ifIXsr13base_internal24IsAtLeastForwardIteratorIT_EE5valueEvE4typeELPv0EEESB_SB_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef %12, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %_ZNSt14_Function_base13_Base_managerIN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS8_EEEEEE15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit unwind label %16
 
@@ -13506,7 +13505,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 4
   %33 = load ptr, ptr %22, align 8, !tbaa !21
   %34 = load i64, ptr %23, align 8, !tbaa !20
-  %35 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   %.not.i.i.i = icmp eq ptr %32, %35
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !28
 
@@ -14001,7 +14000,7 @@ _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destro
   %14 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 4
   %15 = load ptr, ptr %4, align 8, !tbaa !21
   %16 = load i64, ptr %5, align 8, !tbaa !20
-  %17 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   %.not.i.i = icmp eq ptr %14, %17
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !28
 
@@ -14116,7 +14115,7 @@ define internal void @_ZN4absl12_GLOBAL__N_144FixedArrayExceptionSafety_FillWith
   %.0.i.i.i = phi ptr [ %4, %18 ], [ %25, %.noexc.i._crit_edge.i ]
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr %.0.i.i.i, ptr %30, align 8, !tbaa !96
-  %31 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i.i, i64 %29
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %29
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JS6_EEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull %31, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EmRKS4_RKS7_.exit unwind label %32
 
@@ -14172,7 +14171,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %49 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 4
   %50 = load ptr, ptr %36, align 8, !tbaa !96
   %51 = load i64, ptr %37, align 8, !tbaa !20
-  %52 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %51
   %.not.i.i.i = icmp eq ptr %49, %52
   br i1 %.not.i.i.i, label %"_ZN7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEED2Ev.exit", label %41, !llvm.loop !113
 
@@ -14212,7 +14211,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %63 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %64 = load ptr, ptr %30, align 8, !tbaa !96
   %65 = load i64, ptr %19, align 8, !tbaa !20
-  %66 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %65
   %.not.i = icmp eq ptr %63, %66
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %55, !llvm.loop !113
 
@@ -14515,7 +14514,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %142, %_ZNKSt14defau
   %.0.i.i.i53 = phi ptr [ %12, %151 ], [ %158, %.noexc.i._crit_edge.i51 ]
   %163 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store ptr %.0.i.i.i53, ptr %163, align 8, !tbaa !96
-  %164 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i.i53, i64 %162
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i53, i64 %162
   invoke void @_ZN4absl15memory_internal14ConstructRangeIN7testing17ThrowingAllocatorINS2_13ThrowingValueILNS2_8TypeSpecE0EEELNS2_9AllocSpecE0EEEPS6_JS6_EEEvRT_T0_SC_DpRKT1_(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull %.0.i.i.i53, ptr noundef nonnull %164, ptr noundef nonnull align 4 dereferenceable(4) %13)
           to label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2EmRKS4_RKS7_.exit56 unwind label %165
 
@@ -14571,7 +14570,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %182 = getelementptr inbounds nuw i8, ptr %.05.i.i.i59, i64 4
   %183 = load ptr, ptr %169, align 8, !tbaa !96
   %184 = load i64, ptr %170, align 8, !tbaa !20
-  %185 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %183, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %184
   %.not.i.i.i62 = icmp eq ptr %182, %185
   br i1 %.not.i.i.i62, label %"_ZN7testing19exceptions_internal26ExceptionSafetyTestBuilderINS0_14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS7_LNS_9AllocSpecE0EEEEEEEZNS3_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0JPFNS_15AssertionResultEPSB_EEED2Ev.exit63", label %174, !llvm.loop !113
 
@@ -14611,7 +14610,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %196 = getelementptr inbounds nuw i8, ptr %.05.i66, i64 4
   %197 = load ptr, ptr %163, align 8, !tbaa !96
   %198 = load i64, ptr %152, align 8, !tbaa !20
-  %199 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %197, i64 %198
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %198
   %.not.i69 = icmp eq ptr %196, %199
   br i1 %.not.i69, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit70, label %188, !llvm.loop !113
 
@@ -15144,7 +15143,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %19 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 4
   %20 = load ptr, ptr %6, align 8, !tbaa !96
   %21 = load i64, ptr %7, align 8, !tbaa !20
-  %22 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   %.not.i.i = icmp eq ptr %19, %22
   br i1 %.not.i.i, label %_ZN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEED2Ev.exit, label %11, !llvm.loop !113
 
@@ -15428,7 +15427,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %15 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 4
   %16 = load ptr, ptr %2, align 8, !tbaa !96
   %17 = load i64, ptr %3, align 8, !tbaa !20
-  %18 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   %.not.i.i = icmp eq ptr %15, %18
   br i1 %.not.i.i, label %_ZN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEED2Ev.exit, label %7, !llvm.loop !113
 
@@ -15476,7 +15475,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %15 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %16 = load ptr, ptr %2, align 8, !tbaa !96
   %17 = load i64, ptr %3, align 8, !tbaa !20
-  %18 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   %.not.i = icmp eq ptr %15, %18
   br i1 %.not.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEED2Ev.exit, label %7, !llvm.loop !113
 
@@ -15979,7 +15978,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %98 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 4
   %99 = load ptr, ptr %85, align 8, !tbaa !96
   %100 = load i64, ptr %86, align 8, !tbaa !20
-  %101 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %100
   %.not.i.i.i = icmp eq ptr %98, %101
   br i1 %.not.i.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEclEPS9_.exit.i, label %90, !llvm.loop !113
 
@@ -16223,7 +16222,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %29 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 4
   %30 = load ptr, ptr %16, align 8, !tbaa !96
   %31 = load i64, ptr %17, align 8, !tbaa !20
-  %32 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %.not.i.i.i = icmp eq ptr %29, %32
   br i1 %.not.i.i.i, label %_ZN7testing19exceptions_internal14DefaultFactoryIN4absl10FixedArrayINS_13ThrowingValueILNS_8TypeSpecE0EEELm25ENS_17ThrowingAllocatorIS6_LNS_9AllocSpecE0EEEEEED2Ev.exit.i, label %21, !llvm.loop !113
 
@@ -16511,7 +16510,7 @@ _ZNSt16allocator_traitsIN7testing17ThrowingAllocatorINS0_13ThrowingValueILNS0_8T
   %17 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 4
   %18 = load ptr, ptr %4, align 8, !tbaa !96
   %19 = load i64, ptr %5, align 8, !tbaa !20
-  %20 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   %.not.i.i = icmp eq ptr %17, %20
   br i1 %.not.i.i, label %_ZNKSt14default_deleteIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEclEPS9_.exit, label %9, !llvm.loop !113
 

@@ -119,8 +119,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nf_ct_change
 %union.anon.63 = type { %struct.anon.64 }
 %struct.anon.64 = type { i32, i32 }
 %struct.anon.66 = type { i16, i16 }
-%struct.hlist_nulls_head = type { ptr }
-%struct.nf_conn_counter = type { %struct.atomic64_t, %struct.atomic64_t }
 %struct.nf_conntrack_tuple = type { %struct.nf_conntrack_man, %struct.anon.9 }
 %struct.nf_conntrack_man = type { %union.nf_inet_addr, %union.nf_conntrack_man_proto, i16 }
 %union.nf_inet_addr = type { [4 x i32] }
@@ -129,8 +127,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nf_ct_change
 %union.anon.10 = type { i16 }
 %struct.anon.17 = type {}
 %struct.nf_ct_iter_data = type { ptr, ptr, i32, i32 }
-%struct.nf_conntrack_tuple_hash = type { %struct.hlist_nulls_node, %struct.nf_conntrack_tuple }
-%struct.hlist_nulls_node = type { ptr, ptr }
 
 @nf_conntrack_locks = dso_local global [1024 x %struct.spinlock] zeroinitializer, section ".data..cacheline_aligned", align 64
 @__UNIQUE_ID___addressable_nf_conntrack_locks854 = internal global ptr @nf_conntrack_locks, section ".discard.addressable", align 8
@@ -639,7 +635,7 @@ define dso_local noundef ptr @nf_ct_tmpl_alloc(ptr noundef %0, ptr readnone capt
 10:                                               ; preds = %6, %3
   %11 = phi i64 [ 0, %3 ], [ %9, %6 ]
   %12 = or i32 %2, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %11
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %11
   %13 = getelementptr i8, ptr %.split, i64 64
   %14 = load ptr, ptr %13, align 16
   %15 = tail call noalias noundef align 8 dereferenceable_or_null(248) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %12, i64 noundef 248) #18
@@ -781,7 +777,7 @@ define dso_local void @nf_conntrack_free(ptr noundef %0) #0 align 16 {
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 2536
   %25 = load volatile ptr, ptr %24, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   tail call void @__rcu_read_unlock() #17
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, ptr elementtype(i32) %28) #17, !srcloc !22
@@ -941,7 +937,7 @@ define dso_local noundef zeroext i1 @nf_ct_delete(ptr noundef %0, i32 %1, i32 %2
   store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %75, align 8
   call void @nf_ct_remove_expectations(ptr noundef %0) #17
   %83 = and i64 %43, 1023
-  %84 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %83
+  %84 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %83
   call void @_raw_spin_unlock(ptr noundef %84) #17
   %85 = xor i32 %60, %44
   %86 = and i32 %85, 1023
@@ -950,7 +946,7 @@ define dso_local noundef zeroext i1 @nf_ct_delete(ptr noundef %0, i32 %1, i32 %2
 
 88:                                               ; preds = %82
   %89 = and i64 %59, 1023
-  %90 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %89
+  %90 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %89
   call void @_raw_spin_unlock(ptr noundef %90) #17
   br label %91
 
@@ -1070,7 +1066,7 @@ define internal fastcc ptr @__nf_conntrack_find_get(ptr noundef readonly capture
   %27 = mul nuw i64 %26, %4
   %28 = lshr i64 %27, 32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !37
-  %29 = getelementptr %struct.hlist_nulls_head, ptr %22, i64 %28
+  %29 = getelementptr [8 x i8], ptr %22, i64 %28
   %30 = load volatile ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, 1
@@ -1455,7 +1451,7 @@ define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(p
 69:                                               ; preds = %.preheader
   %70 = lshr i32 %66, 8
   %71 = load ptr, ptr @nf_conntrack_hash, align 8
-  %72 = getelementptr %struct.hlist_nulls_head, ptr %71, i64 %45
+  %72 = getelementptr [8 x i8], ptr %71, i64 %45
   %73 = load ptr, ptr %72, align 8
   %74 = ptrtoint ptr %73 to i64
   %75 = and i64 %74, 1
@@ -1558,7 +1554,7 @@ define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(p
   br i1 %exitcond, label %.loopexit4, label %88
 
 .loopexit8:                                       ; preds = %88, %69
-  %149 = getelementptr %struct.hlist_nulls_head, ptr %71, i64 %61
+  %149 = getelementptr [8 x i8], ptr %71, i64 %61
   %150 = load ptr, ptr %149, align 8
   %151 = ptrtoint ptr %150 to i64
   %152 = and i64 %151, 1
@@ -1681,7 +1677,7 @@ define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(p
   store volatile i32 2, ptr %0, align 4
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %236 = load ptr, ptr @nf_conntrack_hash, align 8
-  %237 = getelementptr %struct.hlist_nulls_head, ptr %236, i64 %45
+  %237 = getelementptr [8 x i8], ptr %236, i64 %45
   %238 = load ptr, ptr %237, align 8
   store volatile ptr %238, ptr %235, align 8
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1701,7 +1697,7 @@ define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(p
 245:                                              ; preds = %243, %234
   %246 = getelementptr i8, ptr %0, i64 72
   %247 = load ptr, ptr @nf_conntrack_hash, align 8
-  %248 = getelementptr %struct.hlist_nulls_head, ptr %247, i64 %61
+  %248 = getelementptr [8 x i8], ptr %247, i64 %61
   %249 = load ptr, ptr %248, align 8
   store volatile ptr %249, ptr %246, align 8
   %250 = getelementptr i8, ptr %0, i64 80
@@ -1720,7 +1716,7 @@ define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(p
 
 256:                                              ; preds = %254, %245
   %257 = and i64 %45, 1023
-  %258 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %257
+  %258 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %257
   call void @_raw_spin_unlock(ptr noundef %258) #17
   %259 = xor i32 %62, %46
   %260 = and i32 %259, 1023
@@ -1729,7 +1725,7 @@ define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(p
 
 262:                                              ; preds = %256
   %263 = and i64 %61, 1023
-  %264 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %263
+  %264 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %263
   call void @_raw_spin_unlock(ptr noundef %264) #17
   br label %265
 
@@ -1750,7 +1746,7 @@ define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(p
 .loopexit:                                        ; preds = %144, %221, %.loopexit4, %228
   %272 = phi i32 [ -28, %.loopexit4 ], [ -11, %228 ], [ -17, %221 ], [ -17, %144 ]
   %273 = and i64 %45, 1023
-  %274 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %273
+  %274 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %273
   call void @_raw_spin_unlock(ptr noundef %274) #17
   %275 = xor i32 %62, %46
   %276 = and i32 %275, 1023
@@ -1759,7 +1755,7 @@ define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(p
 
 278:                                              ; preds = %.loopexit
   %279 = and i64 %61, 1023
-  %280 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %279
+  %280 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %279
   call void @_raw_spin_unlock(ptr noundef %280) #17
   br label %281
 
@@ -1782,7 +1778,7 @@ define internal fastcc noundef zeroext i1 @nf_conntrack_double_lock(i32 noundef 
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %4 to i64
-  %9 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %8
+  %9 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %8
   tail call void @_raw_spin_lock(ptr noundef %9) #17
   %10 = load volatile i8, ptr @nf_conntrack_locks_all, align 1, !range !6, !noundef !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
@@ -1802,7 +1798,7 @@ define internal fastcc noundef zeroext i1 @nf_conntrack_double_lock(i32 noundef 
 
 15:                                               ; preds = %3
   %16 = zext nneg i32 %5 to i64
-  %17 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %16
+  %17 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %16
   tail call void @_raw_spin_lock(ptr noundef %17) #17
   %18 = load volatile i8, ptr @nf_conntrack_locks_all, align 1, !range !6, !noundef !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
@@ -1819,7 +1815,7 @@ define internal fastcc noundef zeroext i1 @nf_conntrack_double_lock(i32 noundef 
 21:                                               ; preds = %20, %15, %13
   %22 = phi i32 [ %5, %13 ], [ %4, %15 ], [ %4, %20 ]
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %23
+  %24 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %23
   tail call void @_raw_spin_lock(ptr noundef %24) #17
   br label %25
 
@@ -1831,14 +1827,14 @@ define internal fastcc noundef zeroext i1 @nf_conntrack_double_lock(i32 noundef 
 
 28:                                               ; preds = %25
   %29 = zext nneg i32 %4 to i64
-  %30 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %29
+  %30 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %29
   tail call void @_raw_spin_unlock(ptr noundef %30) #17
   %31 = icmp eq i32 %4, %5
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %28
   %33 = zext nneg i32 %5 to i64
-  %34 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %33
+  %34 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %33
   tail call void @_raw_spin_unlock(ptr noundef %34) #17
   br label %35
 
@@ -1851,14 +1847,14 @@ define internal fastcc void @nf_conntrack_double_unlock(i32 noundef range(i32 0,
   %3 = and i32 %0, 1023
   %4 = and i32 %1, 1023
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %5
+  %6 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %5
   tail call void @_raw_spin_unlock(ptr noundef %6) #17
   %7 = icmp eq i32 %3, %4
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %2
   %9 = zext nneg i32 %4 to i64
-  %10 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %9
+  %10 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %9
   tail call void @_raw_spin_unlock(ptr noundef %10) #17
   br label %11
 
@@ -1902,7 +1898,7 @@ define dso_local void @nf_ct_acct_add(ptr noundef readonly captures(none) %0, i3
 24:                                               ; preds = %21
   %25 = zext i32 %2 to i64
   %26 = zext i32 %1 to i64
-  %27 = getelementptr %struct.nf_conn_counter, ptr %22, i64 %26
+  %27 = getelementptr [16 x i8], ptr %22, i64 %26
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %27, i64 %25, ptr elementtype(i64) %27) #17, !srcloc !52
   %28 = zext i32 %3 to i64
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -2059,7 +2055,7 @@ define dso_local noundef range(i32 0, 2) i32 @__nf_conntrack_confirm(ptr noundef
 83:                                               ; preds = %.preheader
   %84 = lshr i32 %80, 8
   %85 = load ptr, ptr @nf_conntrack_hash, align 8
-  %86 = getelementptr %struct.hlist_nulls_head, ptr %85, i64 %31
+  %86 = getelementptr [8 x i8], ptr %85, i64 %31
   %87 = load ptr, ptr %86, align 8
   %88 = ptrtoint ptr %87 to i64
   %89 = and i64 %88, 1
@@ -2163,7 +2159,7 @@ define dso_local noundef range(i32 0, 2) i32 @__nf_conntrack_confirm(ptr noundef
   br i1 %exitcond, label %.loopexit6, label %103
 
 .loopexit10:                                      ; preds = %103, %83
-  %164 = getelementptr %struct.hlist_nulls_head, ptr %85, i64 %47
+  %164 = getelementptr [8 x i8], ptr %85, i64 %47
   %165 = load ptr, ptr %164, align 8
   %166 = ptrtoint ptr %165 to i64
   %167 = and i64 %166, 1
@@ -2300,7 +2296,7 @@ define dso_local noundef range(i32 0, 2) i32 @__nf_conntrack_confirm(ptr noundef
 259:                                              ; preds = %257, %253
   %260 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %261 = load ptr, ptr @nf_conntrack_hash, align 8
-  %262 = getelementptr %struct.hlist_nulls_head, ptr %261, i64 %31
+  %262 = getelementptr [8 x i8], ptr %261, i64 %31
   %263 = load ptr, ptr %262, align 8
   store volatile ptr %263, ptr %260, align 8
   %264 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -2320,7 +2316,7 @@ define dso_local noundef range(i32 0, 2) i32 @__nf_conntrack_confirm(ptr noundef
 270:                                              ; preds = %268, %259
   %271 = getelementptr i8, ptr %7, i64 72
   %272 = load ptr, ptr @nf_conntrack_hash, align 8
-  %273 = getelementptr %struct.hlist_nulls_head, ptr %272, i64 %47
+  %273 = getelementptr [8 x i8], ptr %272, i64 %47
   %274 = load ptr, ptr %273, align 8
   store volatile ptr %274, ptr %271, align 8
   store volatile ptr %273, ptr %14, align 8
@@ -2338,7 +2334,7 @@ define dso_local noundef range(i32 0, 2) i32 @__nf_conntrack_confirm(ptr noundef
 
 280:                                              ; preds = %278, %270
   %281 = and i64 %31, 1023
-  %282 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %281
+  %282 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %281
   call void @_raw_spin_unlock(ptr noundef %282) #17
   %283 = xor i32 %48, %32
   %284 = and i32 %283, 1023
@@ -2347,7 +2343,7 @@ define dso_local noundef range(i32 0, 2) i32 @__nf_conntrack_confirm(ptr noundef
 
 286:                                              ; preds = %280
   %287 = and i64 %47, 1023
-  %288 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %287
+  %288 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %287
   call void @_raw_spin_unlock(ptr noundef %288) #17
   br label %289
 
@@ -2401,7 +2397,7 @@ define dso_local noundef range(i32 0, 2) i32 @__nf_conntrack_confirm(ptr noundef
 315:                                              ; preds = %.loopexit, %.loopexit6, %74, %65
   %316 = phi i32 [ 0, %74 ], [ %314, %.loopexit ], [ 0, %.loopexit6 ], [ 0, %65 ]
   %317 = and i64 %31, 1023
-  %318 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %317
+  %318 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %317
   call void @_raw_spin_unlock(ptr noundef %318) #17
   %319 = xor i32 %48, %32
   %320 = and i32 %319, 1023
@@ -2410,7 +2406,7 @@ define dso_local noundef range(i32 0, 2) i32 @__nf_conntrack_confirm(ptr noundef
 
 322:                                              ; preds = %315
   %323 = and i64 %47, 1023
-  %324 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %323
+  %324 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %323
   call void @_raw_spin_unlock(ptr noundef %324) #17
   br label %325
 
@@ -2457,7 +2453,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_ct_resolve_clash(ptr noun
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @nf_conntrack_hash, align 8
   %31 = zext i32 %2 to i64
-  %32 = getelementptr %struct.hlist_nulls_head, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 1
@@ -2590,7 +2586,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_ct_resolve_clash(ptr noun
   store ptr inttoptr (i64 1 to ptr), ptr %125, align 8
   %127 = getelementptr i8, ptr %27, i64 72
   %128 = load ptr, ptr @nf_conntrack_hash, align 8
-  %129 = getelementptr %struct.hlist_nulls_head, ptr %128, i64 %31
+  %129 = getelementptr [8 x i8], ptr %128, i64 %31
   %130 = load ptr, ptr %129, align 8
   store volatile ptr %130, ptr %127, align 8
   %131 = getelementptr i8, ptr %27, i64 80
@@ -2714,7 +2710,7 @@ define dso_local noundef range(i32 0, 2) i32 @nf_conntrack_tuple_taken(ptr nound
   %50 = mul nuw i64 %48, %49
   %51 = lshr i64 %50, 32
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !72
-  %52 = getelementptr %struct.hlist_nulls_head, ptr %34, i64 %51
+  %52 = getelementptr [8 x i8], ptr %34, i64 %51
   %53 = load volatile ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %54, 1
@@ -3076,7 +3072,7 @@ define internal fastcc ptr @__nf_conntrack_alloc(ptr noundef %0, ptr noundef rea
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #17
   %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 1, ptr elementtype(i32) %11) #17, !srcloc !77
@@ -3389,7 +3385,7 @@ define dso_local range(i32 0, -2147483647) i32 @nf_conntrack_in(ptr noundef %0, 
   %140 = getelementptr inbounds nuw i8, ptr %109, i64 2536
   %141 = load volatile ptr, ptr %140, align 8
   %142 = zext i32 %139 to i64
-  %143 = getelementptr ptr, ptr %141, i64 %142
+  %143 = getelementptr [8 x i8], ptr %141, i64 %142
   %144 = load ptr, ptr %143, align 8
   call void @__rcu_read_unlock() #17
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
@@ -3668,7 +3664,7 @@ init_conntrack.exit.thread:                       ; preds = %125, %120
 
 301:                                              ; preds = %298
   %302 = zext i1 %280 to i64
-  %303 = getelementptr %struct.nf_conn_counter, ptr %299, i64 %302
+  %303 = getelementptr [16 x i8], ptr %299, i64 %302
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %303, i64 1, ptr elementtype(i64) %303) #17, !srcloc !52
   %304 = zext i32 %281 to i64
   %305 = getelementptr inbounds nuw i8, ptr %303, i64 8
@@ -3875,7 +3871,7 @@ define dso_local void @__nf_ct_refresh_acct(ptr noundef %0, i32 noundef %1, ptr 
 
 48:                                               ; preds = %45
   %49 = zext i1 %26 to i64
-  %50 = getelementptr %struct.nf_conn_counter, ptr %46, i64 %49
+  %50 = getelementptr [16 x i8], ptr %46, i64 %49
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50, i64 1, ptr elementtype(i64) %50) #17, !srcloc !52
   %51 = zext i32 %28 to i64
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -3924,7 +3920,7 @@ define dso_local noundef zeroext i1 @nf_ct_kill_acct(ptr noundef %0, i32 noundef
 
 26:                                               ; preds = %23
   %27 = zext i1 %4 to i64
-  %28 = getelementptr %struct.nf_conn_counter, ptr %24, i64 %27
+  %28 = getelementptr [16 x i8], ptr %24, i64 %27
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %28, i64 1, ptr elementtype(i64) %28) #17, !srcloc !52
   %29 = zext i32 %6 to i64
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4036,7 +4032,7 @@ define dso_local void @nf_ct_iterate_cleanup_net(ptr noundef readonly captures(n
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2536
   %6 = load volatile ptr, ptr %5, align 8
   %7 = zext i32 %4 to i64
-  %8 = getelementptr ptr, ptr %6, i64 %7
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void @__rcu_read_unlock() #17
   %10 = tail call i32 @__SCT__might_resched() #17
@@ -4072,7 +4068,7 @@ define internal fastcc void @nf_ct_iterate_cleanup(ptr noundef readonly captures
   %10 = phi i32 [ %6, %.lr.ph ], [ %53, %52 ]
   %11 = phi ptr [ %.pre25, %.lr.ph ], [ %54, %52 ]
   %12 = phi i64 [ %8, %.lr.ph ], [ %55, %52 ]
-  %13 = getelementptr %struct.hlist_nulls_head, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = load volatile ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, 1
@@ -4081,7 +4077,7 @@ define internal fastcc void @nf_ct_iterate_cleanup(ptr noundef readonly captures
 
 18:                                               ; preds = %9
   %19 = and i64 %12, 1023
-  %20 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %19
+  %20 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %19
   %21 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #19
   tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
@@ -4223,7 +4219,7 @@ define dso_local void @nf_ct_iterate_destroy(ptr noundef readonly captures(none)
   %8 = getelementptr i8, ptr %6, i64 2504
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #17
   %13 = load volatile i32, ptr %12, align 4
@@ -4347,7 +4343,7 @@ define dso_local void @nf_conntrack_cleanup_net_list(ptr noundef readonly captur
   %9 = getelementptr i8, ptr %5, i64 2488
   %10 = load volatile ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   tail call void @__rcu_read_unlock() #17
   store ptr %7, ptr %2, align 8
@@ -4355,7 +4351,7 @@ define dso_local void @nf_conntrack_cleanup_net_list(ptr noundef readonly captur
   tail call void @__rcu_read_lock() #17
   %15 = load volatile ptr, ptr %9, align 8
   %16 = zext i32 %14 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   tail call void @__rcu_read_unlock() #17
   %19 = tail call i32 @__SCT__might_resched() #17
@@ -4454,7 +4450,7 @@ define dso_local noalias ptr @nf_ct_alloc_hashtable(ptr noundef captures(none) %
   %17 = shl nuw nsw i64 %16, 1
   %18 = or disjoint i64 %17, 1
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr %struct.hlist_nulls_head, ptr %10, i64 %16
+  %20 = getelementptr [8 x i8], ptr %10, i64 %16
   store ptr %19, ptr %20, align 8
   %21 = add nuw nsw i64 %16, 1
   %22 = icmp eq i64 %21, %8
@@ -4490,7 +4486,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_hash_resize(i32 nou
   %14 = shl nuw nsw i64 %13, 1
   %15 = or disjoint i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr %struct.hlist_nulls_head, ptr %12, i64 %13
+  %17 = getelementptr [8 x i8], ptr %12, i64 %13
   store ptr %16, ptr %17, align 8
   %18 = add nuw nsw i64 %13, 1
   %19 = icmp eq i64 %18, %10
@@ -4517,7 +4513,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_hash_resize(i32 nou
 
 26:                                               ; preds = %26, %24
   %27 = phi i64 [ 0, %24 ], [ %29, %26 ]
-  %28 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %27
+  %28 = getelementptr [4 x i8], ptr @nf_conntrack_locks, i64 %27
   tail call void @_raw_spin_lock(ptr noundef %28) #17
   tail call void @_raw_spin_unlock(ptr noundef %28) #17
   %29 = add nuw nsw i64 %27, 1
@@ -4543,7 +4539,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_hash_resize(i32 nou
   %40 = phi ptr [ %.pre8, %36 ], [ %95, %.loopexit ]
   %41 = phi i32 [ 0, %36 ], [ %96, %.loopexit ]
   %42 = sext i32 %41 to i64
-  %43 = getelementptr %struct.hlist_nulls_head, ptr %40, i64 %42
+  %43 = getelementptr [8 x i8], ptr %40, i64 %42
   %44 = load volatile ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, 1
@@ -4609,7 +4605,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_hash_resize(i32 nou
   %77 = and i64 %76, 4294967295
   %78 = mul nuw nsw i64 %77, %10
   %79 = lshr i64 %78, 32
-  %80 = getelementptr %struct.hlist_nulls_head, ptr %12, i64 %79
+  %80 = getelementptr [8 x i8], ptr %12, i64 %79
   %81 = load ptr, ptr %80, align 8
   store volatile ptr %81, ptr %48, align 8
   store volatile ptr %80, ptr %55, align 8
@@ -4627,7 +4623,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_hash_resize(i32 nou
 
 87:                                               ; preds = %85, %70
   %88 = load ptr, ptr @nf_conntrack_hash, align 8
-  %89 = getelementptr %struct.hlist_nulls_head, ptr %88, i64 %42
+  %89 = getelementptr [8 x i8], ptr %88, i64 %42
   %90 = load volatile ptr, ptr %89, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, 1
@@ -4769,7 +4765,7 @@ thread-pre-split:                                 ; preds = %10, %0
   %23 = shl nuw nsw i64 %22, 1
   %24 = or disjoint i64 %23, 1
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr %struct.hlist_nulls_head, ptr %21, i64 %22
+  %26 = getelementptr [8 x i8], ptr %21, i64 %22
   store ptr %25, ptr %26, align 8
   %27 = add nuw nsw i64 %22, 1
   %28 = icmp eq i64 %27, %19
@@ -4866,7 +4862,7 @@ define dso_local range(i32 -2147483648, 1) i32 @nf_conntrack_init_net(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #17
   store volatile i32 0, ptr %7, align 4
@@ -5302,7 +5298,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nf_ct_resolve_clash(ptr no
   %155 = and i64 %10, 7
   %156 = icmp samesign ugt i64 %155, 2
   %157 = zext i1 %156 to i64
-  %.split = getelementptr %struct.nf_conn_counter, ptr %152, i64 %157
+  %.split = getelementptr [16 x i8], ptr %152, i64 %157
   %158 = getelementptr i8, ptr %.split, i64 8
   %159 = load volatile i64, ptr %158, align 8
   %160 = getelementptr i8, ptr %7, i64 160
@@ -5337,7 +5333,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nf_ct_resolve_clash(ptr no
   br i1 %178, label %.thread, label %179
 
 179:                                              ; preds = %176
-  %180 = getelementptr %struct.nf_conn_counter, ptr %177, i64 %157
+  %180 = getelementptr [16 x i8], ptr %177, i64 %157
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %180, i64 1, ptr elementtype(i64) %180) #17, !srcloc !52
   %181 = and i64 %159, 4294967295
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 8
@@ -5450,7 +5446,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @early_drop(ptr noundef reado
 32:                                               ; preds = %29, %24
   %33 = phi i32 [ %31, %29 ], [ %28, %24 ]
   %34 = zext i32 %33 to i64
-  %35 = getelementptr %struct.hlist_nulls_head, ptr %19, i64 %34
+  %35 = getelementptr [8 x i8], ptr %19, i64 %34
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !109
   %36 = load volatile ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
@@ -5827,7 +5823,7 @@ define internal void @gc_worker(ptr noundef %0) #0 align 16 {
 48:                                               ; preds = %46
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !113
   %49 = zext i32 %33 to i64
-  %50 = getelementptr %struct.hlist_nulls_head, ptr %43, i64 %49
+  %50 = getelementptr [8 x i8], ptr %43, i64 %49
   %51 = load volatile ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = and i64 %52, 1
@@ -5922,7 +5918,7 @@ define internal void @gc_worker(ptr noundef %0) #0 align 16 {
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 2536
   %117 = load volatile ptr, ptr %116, align 8
   %118 = zext i32 %115 to i64
-  %119 = getelementptr ptr, ptr %117, i64 %118
+  %119 = getelementptr [8 x i8], ptr %117, i64 %118
   %120 = load ptr, ptr %119, align 8
   tail call void @__rcu_read_unlock() #17
   %121 = load volatile i32, ptr %120, align 4
@@ -6627,7 +6623,7 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr noundef write
   %80 = getelementptr i8, ptr %79, i64 -16
   %81 = icmp eq i8 %76, 0
   %82 = zext i1 %81 to i64
-  %.split = getelementptr %struct.nf_conntrack_tuple_hash, ptr %79, i64 %82
+  %.split = getelementptr [56 x i8], ptr %79, i64 %82
   %83 = getelementptr i8, ptr %.split, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(40) %0, ptr noundef align 4 dereferenceable(40) %83, i64 40, i1 false)
   %84 = icmp eq ptr %80, null

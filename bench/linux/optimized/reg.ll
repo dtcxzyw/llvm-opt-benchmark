@@ -50,7 +50,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.ieee80211_power_rule = type { i32, i32 }
 %struct.ieee80211_wmm_rule = type { [4 x %struct.ieee80211_wmm_ac], [4 x %struct.ieee80211_wmm_ac] }
 %struct.ieee80211_wmm_ac = type { i16, i16, i16, i8 }
-%struct.fwdb_wmm_ac = type { i8, i8, i16 }
 %struct.ieee80211_channel = type { i32, i32, i16, i16, i32, i32, i32, i32, i8, i32, i32, i32, i32, i64, i32, i8 }
 %struct.platform_device_info = type { ptr, ptr, i8, ptr, i32, ptr, i32, ptr, i64, i64, ptr }
 %struct.cfg80211_chan_def = type { ptr, i32, i32, i32, %struct.ieee80211_edmg, i16 }
@@ -303,7 +302,7 @@ define dso_local i32 @reg_query_regdb_wmm(ptr noundef readonly captures(address_
 
 43:                                               ; preds = %.preheader, %66
   %44 = phi i64 [ %67, %66 ], [ 0, %.preheader ]
-  %45 = getelementptr i16, ptr %41, i64 %44
+  %45 = getelementptr [2 x i8], ptr %41, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = tail call i16 @llvm.bswap.i16(i16 %46)
   %48 = zext i16 %47 to i64
@@ -526,7 +525,7 @@ define internal fastcc noundef zeroext i1 @valid_regdb(ptr noundef %0, i32 nound
 
 .preheader7:                                      ; preds = %60, %.thread
   %62 = phi i64 [ %117, %.thread ], [ 0, %60 ]
-  %63 = getelementptr i16, ptr %51, i64 %62
+  %63 = getelementptr [2 x i8], ptr %51, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = call i16 @llvm.bswap.i16(i16 %64)
   %66 = zext i16 %65 to i64
@@ -580,7 +579,7 @@ define internal fastcc noundef zeroext i1 @valid_regdb(ptr noundef %0, i32 nound
   br i1 %100, label %.thread, label %101, !llvm.loop !11
 
 101:                                              ; preds = %.preheader
-  %102 = getelementptr %struct.fwdb_wmm_ac, ptr %85, i64 %99
+  %102 = getelementptr [4 x i8], ptr %85, i64 %99
   %103 = load i8, ptr %102, align 1
   %104 = lshr i8 %103, 4
   %105 = zext nneg i8 %104 to i32
@@ -1235,7 +1234,7 @@ define dso_local i32 @reg_get_max_bandwidth(ptr noundef readonly captures(addres
 7:                                                ; preds = %7, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
   %8 = icmp samesign uge i64 %indvars.iv, %6
-  %9 = getelementptr %struct.ieee80211_reg_rule, ptr %5, i64 %indvars.iv
+  %9 = getelementptr [96 x i8], ptr %5, i64 %indvars.iv
   %10 = icmp eq ptr %9, %1
   %11 = select i1 %8, i1 true, i1 %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1255,7 +1254,7 @@ define dso_local i32 @reg_get_max_bandwidth(ptr noundef readonly captures(addres
 
 18:                                               ; preds = %.preheader
   %19 = add nsw i64 %15, -1
-  %20 = getelementptr %struct.ieee80211_reg_rule, ptr %5, i64 %19
+  %20 = getelementptr [96 x i8], ptr %5, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, %.pre
@@ -1280,7 +1279,7 @@ define dso_local i32 @reg_get_max_bandwidth(ptr noundef readonly captures(addres
 
 32:                                               ; preds = %28
   %33 = add nuw nsw i64 %29, 1
-  %34 = getelementptr %struct.ieee80211_reg_rule, ptr %5, i64 %33
+  %34 = getelementptr [96 x i8], ptr %5, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %37 = load i32, ptr %36, align 4
@@ -1373,7 +1372,7 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #1 align 16 
   %32 = phi i8 [ %.fr, %28 ], [ 0, %.split.split ]
   %33 = phi i32 [ %29, %28 ], [ 0, %.split.split ]
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.ieee80211_reg_rule, ptr %18, i64 %34
+  %35 = getelementptr [96 x i8], ptr %18, i64 %34
   %36 = icmp eq i8 %32, 0
   br i1 %36, label %37, label %49
 
@@ -1415,7 +1414,7 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #1 align 16 
 .thread4:                                         ; preds = %53, %.thread, %55
   %57 = phi ptr [ %35, %55 ], [ inttoptr (i64 -22 to ptr), %53 ], [ inttoptr (i64 -34 to ptr), %.thread ]
   %58 = sext i32 %26 to i64
-  %59 = getelementptr i32, ptr @__freq_reg_info.bws, i64 %58
+  %59 = getelementptr [4 x i8], ptr @__freq_reg_info.bws, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = mul i32 %60, 1000
   %62 = icmp ult i32 %61, %4
@@ -1509,7 +1508,7 @@ define dso_local void @wiphy_apply_custom_regulatory(ptr noundef %0, ptr noundef
 12:                                               ; preds = %20, %8
   %13 = phi i64 [ 0, %8 ], [ %22, %20 ]
   %14 = phi i32 [ 0, %8 ], [ %21, %20 ]
-  %15 = getelementptr ptr, ptr %11, i64 %13
+  %15 = getelementptr [8 x i8], ptr %11, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %20, label %18
@@ -1610,7 +1609,7 @@ define internal fastcc void @handle_band_custom(ptr noundef readonly captures(no
 .thread6.us:                                      ; preds = %9, %29
   %14 = phi i64 [ %30, %29 ], [ 0, %9 ]
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr %struct.ieee80211_channel, ptr %15, i64 %14
+  %16 = getelementptr [64 x i8], ptr %15, i64 %14
   %17 = load i32, ptr %13, align 8
   %18 = and i32 %17, 128
   %19 = icmp eq i32 %18, 0
@@ -1642,7 +1641,7 @@ define internal fastcc void @handle_band_custom(ptr noundef readonly captures(no
 .split:                                           ; preds = %9, %203
   %34 = phi i64 [ %204, %203 ], [ 0, %9 ]
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr %struct.ieee80211_channel, ptr %35, i64 %34
+  %36 = getelementptr [64 x i8], ptr %35, i64 %34
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = mul i32 %38, 1000
@@ -1666,7 +1665,7 @@ define internal fastcc void @handle_band_custom(ptr noundef readonly captures(no
   %52 = phi i8 [ %70, %48 ], [ 0, %.split ]
   %53 = phi i32 [ %49, %48 ], [ 0, %.split ]
   %54 = sext i32 %53 to i64
-  %55 = getelementptr %struct.ieee80211_reg_rule, ptr %12, i64 %54
+  %55 = getelementptr [96 x i8], ptr %12, i64 %54
   %56 = icmp eq i8 %52, 0
   br i1 %56, label %57, label %69
 
@@ -2569,7 +2568,7 @@ define internal fastcc void @restore_regulatory_settings(i1 noundef zeroext %0, 
 
 123:                                              ; preds = %.loopexit, %121
   %124 = phi i64 [ 0, %121 ], [ %149, %.loopexit ]
-  %125 = getelementptr ptr, ptr %122, i64 %124
+  %125 = getelementptr [8 x i8], ptr %122, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
   br i1 %127, label %.loopexit, label %128
@@ -2583,7 +2582,7 @@ define internal fastcc void @restore_regulatory_settings(i1 noundef zeroext %0, 
 .preheader:                                       ; preds = %128, %.preheader
   %132 = phi i64 [ %145, %.preheader ], [ 0, %128 ]
   %133 = load ptr, ptr %126, align 8
-  %134 = getelementptr %struct.ieee80211_channel, ptr %133, i64 %132
+  %134 = getelementptr [64 x i8], ptr %133, i64 %132
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %136 = load i32, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 12
@@ -2994,7 +2993,7 @@ define dso_local noundef range(i32 -12, 1) i32 @regulatory_hint_found_beacon(ptr
 
 55:                                               ; preds = %51, %.critedge
   %56 = phi i64 [ 0, %.critedge ], [ %54, %51 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %56
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %56
   %57 = getelementptr i8, ptr %.split, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %58, i32 noundef %48, i64 noundef 80) #28
@@ -3207,7 +3206,7 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
 
 93:                                               ; preds = %90, %86
   %94 = phi i64 [ %91, %90 ], [ 0, %86 ]
-  %95 = getelementptr %struct.ieee80211_reg_rule, ptr %87, i64 %94
+  %95 = getelementptr [96 x i8], ptr %87, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %.thread33.sink.split.sink.split, label %98
@@ -3297,7 +3296,7 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
 
 144:                                              ; preds = %141, %137
   %145 = phi i64 [ %142, %141 ], [ 0, %137 ]
-  %146 = getelementptr %struct.ieee80211_reg_rule, ptr %138, i64 %145
+  %146 = getelementptr [96 x i8], ptr %138, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %.thread33.sink.split, label %149
@@ -3476,7 +3475,7 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
 
 241:                                              ; preds = %238, %234
   %242 = phi i64 [ %239, %238 ], [ 0, %234 ]
-  %243 = getelementptr %struct.ieee80211_reg_rule, ptr %235, i64 %242
+  %243 = getelementptr [96 x i8], ptr %235, i64 %242
   %244 = load i32, ptr %243, align 4
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %.thread33.sink.split, label %246
@@ -3767,7 +3766,7 @@ define internal fastcc i32 @__regulatory_set_wiphy_regd(ptr noundef captures(add
 
 26:                                               ; preds = %23, %19
   %27 = phi i64 [ %24, %23 ], [ 0, %19 ]
-  %28 = getelementptr %struct.ieee80211_reg_rule, ptr %20, i64 %27
+  %28 = getelementptr [96 x i8], ptr %20, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.loopexit, label %31
@@ -3938,7 +3937,7 @@ define internal fastcc void @reg_process_self_managed_hint(ptr noundef %0) unnam
 
 22:                                               ; preds = %22, %20
   %23 = phi i64 [ 0, %20 ], [ %26, %22 ]
-  %24 = getelementptr ptr, ptr %21, i64 %23
+  %24 = getelementptr [8 x i8], ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @handle_band_custom(ptr noundef nonnull %0, ptr noundef %25, ptr noundef nonnull %13)
   %26 = add nuw nsw i64 %23, 1
@@ -4107,7 +4106,7 @@ define internal fastcc void @wiphy_update_regulatory(ptr noundef %0, i32 noundef
 
 62:                                               ; preds = %.loopexit22, %52
   %63 = phi i64 [ 0, %52 ], [ %657, %.loopexit22 ]
-  %64 = getelementptr ptr, ptr %57, i64 %63
+  %64 = getelementptr [8 x i8], ptr %57, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.loopexit22, label %67
@@ -4121,7 +4120,7 @@ define internal fastcc void @wiphy_update_regulatory(ptr noundef %0, i32 noundef
 .preheader21:                                     ; preds = %67, %652
   %71 = phi i64 [ %653, %652 ], [ 0, %67 ]
   %72 = load ptr, ptr %65, align 8
-  %73 = getelementptr %struct.ieee80211_channel, ptr %72, i64 %71
+  %73 = getelementptr [64 x i8], ptr %72, i64 %71
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = mul i32 %75, 1000
@@ -4190,7 +4189,7 @@ define internal fastcc void @wiphy_update_regulatory(ptr noundef %0, i32 noundef
   %115 = phi i8 [ %.fr.i, %111 ], [ 0, %.split.split.i ]
   %116 = phi i32 [ %112, %111 ], [ 0, %.split.split.i ]
   %117 = sext i32 %116 to i64
-  %118 = getelementptr %struct.ieee80211_reg_rule, ptr %101, i64 %117
+  %118 = getelementptr [96 x i8], ptr %101, i64 %117
   %119 = icmp eq i8 %115, 0
   br i1 %119, label %120, label %132
 
@@ -4232,7 +4231,7 @@ define internal fastcc void @wiphy_update_regulatory(ptr noundef %0, i32 noundef
 .thread4.i:                                       ; preds = %138, %.thread.i, %136
   %140 = phi ptr [ %118, %138 ], [ inttoptr (i64 -22 to ptr), %136 ], [ inttoptr (i64 -34 to ptr), %.thread.i ]
   %141 = sext i32 %109 to i64
-  %142 = getelementptr i32, ptr @__freq_reg_info.bws, i64 %141
+  %142 = getelementptr [4 x i8], ptr @__freq_reg_info.bws, i64 %141
   %143 = load i32, ptr %142, align 4
   %144 = mul i32 %143, 1000
   %145 = icmp ult i32 %144, %88
@@ -4960,7 +4959,7 @@ freq_reg_info.exit.thread:                        ; preds = %.split.i, %96, %fre
   %668 = getelementptr inbounds nuw i8, ptr %667, i64 16
   %669 = load i32, ptr %668, align 8
   %670 = zext i32 %669 to i64
-  %671 = getelementptr ptr, ptr %57, i64 %670
+  %671 = getelementptr [8 x i8], ptr %57, i64 %670
   %672 = load ptr, ptr %671, align 8
   %673 = icmp eq ptr %672, null
   br i1 %673, label %.loopexit, label %674
@@ -4982,10 +4981,10 @@ freq_reg_info.exit.thread:                        ; preds = %.split.i, %96, %fre
   %681 = load volatile ptr, ptr @last_request, align 8
   %682 = load i32, ptr %668, align 8
   %683 = zext i32 %682 to i64
-  %684 = getelementptr ptr, ptr %57, i64 %683
+  %684 = getelementptr [8 x i8], ptr %57, i64 %683
   %685 = load ptr, ptr %684, align 8
   %686 = load ptr, ptr %685, align 8
-  %687 = getelementptr %struct.ieee80211_channel, ptr %686, i64 %indvars.iv
+  %687 = getelementptr [64 x i8], ptr %686, i64 %indvars.iv
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 4
   %689 = load i32, ptr %688, align 4
   %690 = load i32, ptr %678, align 4
@@ -5146,9 +5145,9 @@ define internal fastcc void @wiphy_all_share_dfs_chan_state(ptr noundef %0) unna
 
 39:                                               ; preds = %.loopexit7, %37
   %40 = phi i64 [ 0, %37 ], [ %107, %.loopexit7 ]
-  %41 = getelementptr ptr, ptr %18, i64 %40
+  %41 = getelementptr [8 x i8], ptr %18, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr ptr, ptr %38, i64 %40
+  %43 = getelementptr [8 x i8], ptr %38, i64 %40
   %44 = load ptr, ptr %43, align 8
   %45 = icmp ne ptr %42, null
   %46 = icmp ne ptr %44, null
@@ -5177,7 +5176,7 @@ define internal fastcc void @wiphy_all_share_dfs_chan_state(ptr noundef %0) unna
 
 61:                                               ; preds = %.split
   %62 = load ptr, ptr %42, align 8
-  %63 = getelementptr %struct.ieee80211_channel, ptr %62, i64 %59
+  %63 = getelementptr [64 x i8], ptr %62, i64 %59
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 44
@@ -5193,7 +5192,7 @@ define internal fastcc void @wiphy_all_share_dfs_chan_state(ptr noundef %0) unna
   %73 = phi i32 [ %57, %61 ], [ %97, %96 ]
   %74 = phi i64 [ 0, %61 ], [ %98, %96 ]
   %75 = load ptr, ptr %44, align 8
-  %76 = getelementptr %struct.ieee80211_channel, ptr %75, i64 %74
+  %76 = getelementptr [64 x i8], ptr %75, i64 %74
   br i1 %69, label %96, label %77
 
 77:                                               ; preds = %72
@@ -6085,7 +6084,7 @@ define internal fastcc void @set_wmm_rule(ptr noundef readonly captures(none) %0
   br i1 %26, label %.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %.preheader
-  %28 = getelementptr %struct.fwdb_wmm_ac, ptr %11, i64 %25
+  %28 = getelementptr [4 x i8], ptr %11, i64 %25
   %29 = load i8, ptr %28, align 1
   %30 = lshr i8 %29, 4
   %31 = zext nneg i8 %30 to i32
@@ -6128,13 +6127,13 @@ define internal fastcc void @set_wmm_rule(ptr noundef readonly captures(none) %0
 
 58:                                               ; preds = %58, %.thread
   %59 = phi i64 [ 0, %.thread ], [ %102, %58 ]
-  %60 = getelementptr %struct.fwdb_wmm_ac, ptr %11, i64 %59
+  %60 = getelementptr [4 x i8], ptr %11, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = lshr i8 %61, 4
   %63 = zext nneg i8 %62 to i16
   %64 = shl nsw i16 -1, %63
   %65 = xor i16 %64, -1
-  %66 = getelementptr %struct.ieee80211_wmm_ac, ptr %5, i64 %59
+  %66 = getelementptr [8 x i8], ptr %5, i64 %59
   store i16 %65, ptr %66, align 2
   %67 = load i8, ptr %60, align 1
   %68 = and i8 %67, 15
@@ -6153,13 +6152,13 @@ define internal fastcc void @set_wmm_rule(ptr noundef readonly captures(none) %0
   %79 = mul i16 %78, 1000
   %80 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i16 %79, ptr %80, align 2
-  %81 = getelementptr %struct.fwdb_wmm_ac, ptr %43, i64 %59
+  %81 = getelementptr [4 x i8], ptr %43, i64 %59
   %82 = load i8, ptr %81, align 1
   %83 = lshr i8 %82, 4
   %84 = zext nneg i8 %83 to i16
   %85 = shl nsw i16 -1, %84
   %86 = xor i16 %85, -1
-  %87 = getelementptr %struct.ieee80211_wmm_ac, ptr %44, i64 %59
+  %87 = getelementptr [8 x i8], ptr %44, i64 %59
   store i16 %86, ptr %87, align 2
   %88 = load i8, ptr %81, align 1
   %89 = and i8 %88, 15
@@ -6578,7 +6577,7 @@ define internal fastcc range(i32 0, 532480) i32 @reg_rule_to_chan_bw_flags(ptr n
 24:                                               ; preds = %24, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %19 ]
   %25 = icmp samesign uge i64 %indvars.iv, %23
-  %26 = getelementptr %struct.ieee80211_reg_rule, ptr %22, i64 %indvars.iv
+  %26 = getelementptr [96 x i8], ptr %22, i64 %indvars.iv
   %27 = icmp eq ptr %26, %1
   %28 = select i1 %25, i1 true, i1 %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6598,7 +6597,7 @@ define internal fastcc range(i32 0, 532480) i32 @reg_rule_to_chan_bw_flags(ptr n
 
 35:                                               ; preds = %.preheader5
   %36 = add nsw i64 %32, -1
-  %37 = getelementptr %struct.ieee80211_reg_rule, ptr %22, i64 %36
+  %37 = getelementptr [96 x i8], ptr %22, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp ult i32 %39, %.pre
@@ -6623,7 +6622,7 @@ define internal fastcc range(i32 0, 532480) i32 @reg_rule_to_chan_bw_flags(ptr n
 
 49:                                               ; preds = %45
   %50 = add nuw nsw i64 %46, 1
-  %51 = getelementptr %struct.ieee80211_reg_rule, ptr %22, i64 %50
+  %51 = getelementptr [96 x i8], ptr %22, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %54 = load i32, ptr %53, align 4
@@ -6947,13 +6946,13 @@ define internal fastcc i32 @query_regdb(ptr noundef readonly captures(address_is
   %64 = add nuw nsw i64 %63, 1
   %65 = and i64 %64, 510
   %66 = getelementptr i8, ptr %36, i64 %65
-  %67 = getelementptr i16, ptr %66, i64 %61
+  %67 = getelementptr [2 x i8], ptr %66, i64 %61
   %68 = load i16, ptr %67, align 2
   %69 = tail call i16 @llvm.bswap.i16(i16 %68)
   %70 = zext i16 %69 to i64
   %71 = shl nuw nsw i64 %70, 2
   %72 = getelementptr i8, ptr %9, i64 %71
-  %73 = getelementptr %struct.ieee80211_reg_rule, ptr %59, i64 %61
+  %73 = getelementptr [96 x i8], ptr %59, i64 %61
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = tail call i32 @llvm.bswap.i32(i32 %75)
@@ -7357,7 +7356,7 @@ notify_self_managed_wiphys.exit:                  ; preds = %43, %23
   %82 = getelementptr i8, ptr %80, i64 1264
   %83 = load i32, ptr %76, align 8
   %84 = zext i32 %83 to i64
-  %85 = getelementptr ptr, ptr %82, i64 %84
+  %85 = getelementptr [8 x i8], ptr %82, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %.loopexit, label %88
@@ -7381,10 +7380,10 @@ notify_self_managed_wiphys.exit:                  ; preds = %43, %23
   %97 = load volatile ptr, ptr @last_request, align 8
   %98 = load i32, ptr %76, align 8
   %99 = zext i32 %98 to i64
-  %100 = getelementptr ptr, ptr %82, i64 %99
+  %100 = getelementptr [8 x i8], ptr %82, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr %struct.ieee80211_channel, ptr %102, i64 %indvars.iv
+  %103 = getelementptr [64 x i8], ptr %102, i64 %indvars.iv
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = load i32, ptr %104, align 4
   %106 = load i32, ptr %77, align 4
@@ -7602,13 +7601,13 @@ define internal fastcc noalias ptr @regdom_intersect(ptr noundef nonnull readonl
 .preheader14:                                     ; preds = %9, %.loopexit15
   %17 = phi i64 [ %30, %.loopexit15 ], [ 0, %9 ]
   %18 = phi i32 [ %27, %.loopexit15 ], [ 0, %9 ]
-  %19 = getelementptr %struct.ieee80211_reg_rule, ptr %10, i64 %17
+  %19 = getelementptr [96 x i8], ptr %10, i64 %17
   br label %20
 
 20:                                               ; preds = %.preheader14, %20
   %21 = phi i64 [ %28, %20 ], [ 0, %.preheader14 ]
   %22 = phi i32 [ %27, %20 ], [ %18, %.preheader14 ]
-  %23 = getelementptr %struct.ieee80211_reg_rule, ptr %14, i64 %21
+  %23 = getelementptr [96 x i8], ptr %14, i64 %21
   %24 = call fastcc i32 @reg_rules_intersect(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %19, ptr noundef %23, ptr noundef nonnull %3), !range !82
   %25 = icmp eq i32 %24, 0
   %26 = zext i1 %25 to i32
@@ -7655,12 +7654,12 @@ define internal fastcc noalias ptr @regdom_intersect(ptr noundef nonnull readonl
 
 .preheader:                                       ; preds = %42, %.loopexit12
   %54 = phi i64 [ %123, %.loopexit12 ], [ 0, %42 ]
-  %55 = getelementptr %struct.ieee80211_reg_rule, ptr %10, i64 %54
+  %55 = getelementptr [96 x i8], ptr %10, i64 %54
   br label %56
 
 56:                                               ; preds = %.preheader, %.loopexit
   %57 = phi i64 [ %121, %.loopexit ], [ 0, %.preheader ]
-  %58 = getelementptr %struct.ieee80211_reg_rule, ptr %14, i64 %57
+  %58 = getelementptr [96 x i8], ptr %14, i64 %57
   %59 = call fastcc i32 @reg_rules_intersect(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %55, ptr noundef %58, ptr noundef nonnull %3), !range !82
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %.loopexit
@@ -7682,7 +7681,7 @@ define internal fastcc noalias ptr @regdom_intersect(ptr noundef nonnull readonl
 71:                                               ; preds = %115, %64
   %72 = phi i32 [ 0, %64 ], [ %116, %115 ]
   %73 = sext i32 %72 to i64
-  %74 = getelementptr %struct.ieee80211_reg_rule, ptr %45, i64 %73
+  %74 = getelementptr [96 x i8], ptr %45, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 84
   %76 = load i32, ptr %75, align 8
   %77 = icmp eq i32 %76, %65
@@ -7755,7 +7754,7 @@ define internal fastcc noalias ptr @regdom_intersect(ptr noundef nonnull readonl
 
 .loopexit11:                                      ; preds = %115, %61
   %118 = zext i32 %62 to i64
-  %119 = getelementptr %struct.ieee80211_reg_rule, ptr %45, i64 %118
+  %119 = getelementptr [96 x i8], ptr %45, i64 %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(96) %119, ptr noundef nonnull align 4 dereferenceable(96) %3, i64 96, i1 false)
   %120 = add i32 %62, 1
   store i32 %120, ptr %46, align 8
@@ -7837,7 +7836,7 @@ define internal fastcc void @print_rd_rules(ptr noundef readonly captures(none) 
 
 28:                                               ; preds = %.preheader
   %29 = add nsw i64 %25, -1
-  %30 = getelementptr %struct.ieee80211_reg_rule, ptr %8, i64 %29
+  %30 = getelementptr [96 x i8], ptr %8, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp ult i32 %32, %.pre
@@ -7861,7 +7860,7 @@ define internal fastcc void @print_rd_rules(ptr noundef readonly captures(none) 
 
 41:                                               ; preds = %37
   %42 = add nuw nsw i64 %38, 1
-  %43 = getelementptr %struct.ieee80211_reg_rule, ptr %8, i64 %42
+  %43 = getelementptr [96 x i8], ptr %8, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %46 = load i32, ptr %45, align 4
@@ -7970,7 +7969,7 @@ define internal fastcc range(i32 -22, 1) i32 @reg_rules_intersect(ptr noundef no
 34:                                               ; preds = %34, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %29 ]
   %35 = icmp samesign uge i64 %indvars.iv, %33
-  %36 = getelementptr %struct.ieee80211_reg_rule, ptr %32, i64 %indvars.iv
+  %36 = getelementptr [96 x i8], ptr %32, i64 %indvars.iv
   %37 = icmp eq ptr %36, %2
   %38 = select i1 %35, i1 true, i1 %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7990,7 +7989,7 @@ define internal fastcc range(i32 -22, 1) i32 @reg_rules_intersect(ptr noundef no
 
 45:                                               ; preds = %.preheader5
   %46 = add nsw i64 %42, -1
-  %47 = getelementptr %struct.ieee80211_reg_rule, ptr %32, i64 %46
+  %47 = getelementptr [96 x i8], ptr %32, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = icmp ult i32 %49, %.pre
@@ -8015,7 +8014,7 @@ define internal fastcc range(i32 -22, 1) i32 @reg_rules_intersect(ptr noundef no
 
 59:                                               ; preds = %55
   %60 = add nuw nsw i64 %56, 1
-  %61 = getelementptr %struct.ieee80211_reg_rule, ptr %32, i64 %60
+  %61 = getelementptr [96 x i8], ptr %32, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %64 = load i32, ptr %63, align 4
@@ -8065,7 +8064,7 @@ split:                                            ; preds = %59, %._crit_edge
 97:                                               ; preds = %97, %92
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %97 ], [ 0, %92 ]
   %98 = icmp samesign uge i64 %indvars.iv21, %96
-  %99 = getelementptr %struct.ieee80211_reg_rule, ptr %95, i64 %indvars.iv21
+  %99 = getelementptr [96 x i8], ptr %95, i64 %indvars.iv21
   %100 = icmp eq ptr %99, %3
   %101 = select i1 %98, i1 true, i1 %100
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
@@ -8085,7 +8084,7 @@ split:                                            ; preds = %59, %._crit_edge
 
 108:                                              ; preds = %.preheader
   %109 = add nsw i64 %105, -1
-  %110 = getelementptr %struct.ieee80211_reg_rule, ptr %95, i64 %109
+  %110 = getelementptr [96 x i8], ptr %95, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = icmp ult i32 %112, %.pre25
@@ -8110,7 +8109,7 @@ split:                                            ; preds = %59, %._crit_edge
 
 122:                                              ; preds = %118
   %123 = add nuw nsw i64 %119, 1
-  %124 = getelementptr %struct.ieee80211_reg_rule, ptr %95, i64 %123
+  %124 = getelementptr [96 x i8], ptr %95, i64 %123
   %125 = load i32, ptr %124, align 4
   %126 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %127 = load i32, ptr %126, align 4
@@ -8220,9 +8219,9 @@ split27:                                          ; preds = %122, %._crit_edge26
 
 200:                                              ; preds = %200, %196
   %201 = phi i64 [ 0, %196 ], [ %250, %200 ]
-  %202 = getelementptr %struct.ieee80211_wmm_ac, ptr %9, i64 %201
-  %203 = getelementptr %struct.ieee80211_wmm_ac, ptr %10, i64 %201
-  %204 = getelementptr %struct.ieee80211_wmm_ac, ptr %11, i64 %201
+  %202 = getelementptr [8 x i8], ptr %9, i64 %201
+  %203 = getelementptr [8 x i8], ptr %10, i64 %201
+  %204 = getelementptr [8 x i8], ptr %11, i64 %201
   %205 = load i16, ptr %202, align 2
   %206 = load i16, ptr %203, align 2
   %207 = tail call i16 @llvm.umax.i16(i16 %205, i16 %206)
@@ -8248,9 +8247,9 @@ split27:                                          ; preds = %122, %._crit_edge26
   %224 = tail call i8 @llvm.umax.i8(i8 %221, i8 %223)
   %225 = getelementptr inbounds nuw i8, ptr %204, i64 6
   store i8 %224, ptr %225, align 2
-  %226 = getelementptr %struct.ieee80211_wmm_ac, ptr %197, i64 %201
-  %227 = getelementptr %struct.ieee80211_wmm_ac, ptr %198, i64 %201
-  %228 = getelementptr %struct.ieee80211_wmm_ac, ptr %199, i64 %201
+  %226 = getelementptr [8 x i8], ptr %197, i64 %201
+  %227 = getelementptr [8 x i8], ptr %198, i64 %201
+  %228 = getelementptr [8 x i8], ptr %199, i64 %201
   %229 = load i16, ptr %226, align 2
   %230 = load i16, ptr %227, align 2
   %231 = tail call i16 @llvm.umax.i16(i16 %229, i16 %230)
@@ -8329,7 +8328,7 @@ define internal fastcc void @reg_process_ht_flags(ptr noundef %0) unnamed_addr #
 
 6:                                                ; preds = %.loopexit16, %3
   %7 = phi i64 [ 0, %3 ], [ %145, %.loopexit16 ]
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit16, label %11
@@ -8343,10 +8342,10 @@ define internal fastcc void @reg_process_ht_flags(ptr noundef %0) unnamed_addr #
 .preheader:                                       ; preds = %11, %140
   %15 = phi i64 [ %141, %140 ], [ 0, %11 ]
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr %struct.ieee80211_channel, ptr %16, i64 %15
+  %17 = getelementptr [64 x i8], ptr %16, i64 %15
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr ptr, ptr %4, i64 %19
+  %20 = getelementptr [8 x i8], ptr %4, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %17, null
   br i1 %22, label %.preheader._crit_edge, label %23
@@ -8391,7 +8390,7 @@ define internal fastcc void @reg_process_ht_flags(ptr noundef %0) unnamed_addr #
   %47 = phi i64 [ 0, %35 ], [ %57, %46 ]
   %48 = phi ptr [ null, %35 ], [ %56, %46 ]
   %49 = phi ptr [ null, %35 ], [ %54, %46 ]
-  %50 = getelementptr %struct.ieee80211_channel, ptr %36, i64 %47
+  %50 = getelementptr [64 x i8], ptr %36, i64 %47
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, %39
@@ -8434,7 +8433,7 @@ define internal fastcc void @reg_process_ht_flags(ptr noundef %0) unnamed_addr #
   %79 = phi i8 [ 0, %70 ], [ %97, %74 ]
   %80 = phi i32 [ 0, %70 ], [ %75, %74 ]
   %81 = sext i32 %80 to i64
-  %82 = getelementptr %struct.ieee80211_reg_rule, ptr %71, i64 %81
+  %82 = getelementptr [96 x i8], ptr %71, i64 %81
   %83 = icmp eq i8 %79, 0
   br i1 %83, label %84, label %96
 

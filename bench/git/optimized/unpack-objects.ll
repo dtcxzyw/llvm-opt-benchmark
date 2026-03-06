@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.input_zstream_data = type { ptr, [8192 x i8], i32 }
 %struct.input_stream = type { ptr, ptr, i32 }
-%struct.obj_info = type { i64, %struct.object_id, ptr }
 
 @quiet = internal unnamed_addr global i32 0, align 4
 @unpack_usage = internal constant [45 x i8] c"git unpack-objects [-n] [-q] [-r] [--strict]\00", align 16
@@ -110,7 +109,7 @@ define dso_local range(i32 0, 2) i32 @cmd_unpack_objects(i32 noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %66
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %66 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = load i8, ptr %19, align 1, !tbaa !13
   %21 = icmp eq i8 %20, 45
@@ -485,7 +484,7 @@ _.exit.i:                                         ; preds = %181, %178
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %unpack_one.exit.i ]
   %198 = load i64, ptr @consumed_bytes, align 8, !tbaa !16
   %199 = load ptr, ptr @obj_list, align 8, !tbaa !44
-  %200 = getelementptr inbounds nuw %struct.obj_info, ptr %199, i64 %indvars.iv.i
+  %200 = getelementptr inbounds nuw [56 x i8], ptr %199, i64 %indvars.iv.i
   store i64 %198, ptr %200, align 8, !tbaa !46
   %201 = load i32, ptr @len, align 4, !tbaa !9
   %.not.i.i.i = icmp eq i32 %201, 0
@@ -739,7 +738,7 @@ use.exit32.i.i:                                   ; preds = %293
   store i32 0, ptr %194, align 8, !tbaa !54
   store i32 0, ptr %195, align 4
   %310 = load ptr, ptr @obj_list, align 8, !tbaa !44
-  %311 = getelementptr inbounds nuw %struct.obj_info, ptr %310, i64 %indvars.iv.i
+  %311 = getelementptr inbounds nuw [56 x i8], ptr %310, i64 %indvars.iv.i
   store ptr %9, ptr %10, align 8, !tbaa !55
   call void @git_inflate_init(ptr noundef nonnull %9) #14
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
@@ -840,7 +839,7 @@ stream_blob.exit.i.i:                             ; preds = %327, %321
 
 355:                                              ; preds = %.preheader205, %357
   %.0811.i.i.i.i.i = phi i64 [ %358, %357 ], [ 0, %.preheader205 ]
-  %356 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i.i
+  %356 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq ptr %347, %356
   br i1 %.not.i.i.i.i.i, label %.split.loop.exit9.i.i.i.i.i, label %357
 
@@ -879,7 +878,7 @@ oidread.exit.i.i.i:                               ; preds = %357, %.split.loop.e
 
 371:                                              ; preds = %369
   %372 = load ptr, ptr @obj_list, align 8, !tbaa !44
-  %373 = getelementptr inbounds nuw %struct.obj_info, ptr %372, i64 %indvars.iv.i
+  %373 = getelementptr inbounds nuw [56 x i8], ptr %372, i64 %indvars.iv.i
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 400
@@ -889,7 +888,7 @@ oidread.exit.i.i.i:                               ; preds = %357, %.split.loop.e
 
 378:                                              ; preds = %380, %371
   %.0811.i.i79.i.i.i = phi i64 [ 0, %371 ], [ %381, %380 ]
-  %379 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i79.i.i.i
+  %379 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i79.i.i.i
   %.not.i.i80.i.i.i = icmp eq ptr %377, %379
   br i1 %.not.i.i80.i.i.i, label %.split.loop.exit9.i.i83.i.i.i, label %380
 
@@ -1154,7 +1153,7 @@ use.exit92.i.i.i:                                 ; preds = %485
 ._crit_edge.i.i.i:                                ; preds = %use.exit92.i.i.i, %use.exit.i.i.i
   %.056.lcssa.i.i.i = phi i64 [ %442, %use.exit.i.i.i ], [ %496, %use.exit92.i.i.i ]
   %497 = load ptr, ptr @obj_list, align 8, !tbaa !44
-  %498 = getelementptr inbounds nuw %struct.obj_info, ptr %497, i64 %indvars.iv.i
+  %498 = getelementptr inbounds nuw [56 x i8], ptr %497, i64 %indvars.iv.i
   %499 = load i64, ptr %498, align 8, !tbaa !46
   %500 = sub nsw i64 %499, %.056.lcssa.i.i.i
   %501 = icmp sgt i64 %500, 0
@@ -1187,7 +1186,7 @@ use.exit92.i.i.i:                                 ; preds = %485
   %507 = lshr i32 %506, 1
   %508 = add i32 %507, %.054115.i.i.i
   %509 = zext i32 %508 to i64
-  %510 = getelementptr inbounds nuw %struct.obj_info, ptr %.pre.i.i.i, i64 %509
+  %510 = getelementptr inbounds nuw [56 x i8], ptr %.pre.i.i.i, i64 %509
   %511 = load i64, ptr %510, align 8, !tbaa !46
   %512 = icmp slt i64 %500, %511
   br i1 %512, label %521, label %513
@@ -1217,7 +1216,7 @@ use.exit92.i.i.i:                                 ; preds = %485
   br i1 %522, label %.lr.ph117.i.i.i, label %.critedge.i.i.i, !llvm.loop !72
 
 .critedge.i.i.i:                                  ; preds = %521, %517, %.preheader.i.i.i
-  %523 = getelementptr inbounds nuw %struct.obj_info, ptr %.pre.i.i.i, i64 %indvars.iv.i
+  %523 = getelementptr inbounds nuw [56 x i8], ptr %.pre.i.i.i, i64 %indvars.iv.i
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 8
   %525 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 400
@@ -1227,7 +1226,7 @@ use.exit92.i.i.i:                                 ; preds = %485
 
 528:                                              ; preds = %530, %.critedge.i.i.i
   %.0811.i.i94.i.i.i = phi i64 [ 0, %.critedge.i.i.i ], [ %531, %530 ]
-  %529 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i94.i.i.i
+  %529 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i94.i.i.i
   %.not.i.i95.i.i.i = icmp eq ptr %527, %529
   br i1 %.not.i.i95.i.i.i, label %.split.loop.exit9.i.i98.i.i.i, label %530
 
@@ -1404,7 +1403,7 @@ unpack_all.exit:                                  ; preds = %stop_progress.exit.
   %599 = phi i32 [ %598, %.lr.ph.preheader.i ], [ %607, %606 ]
   %600 = phi ptr [ %.pre8.i, %.lr.ph.preheader.i ], [ %608, %606 ]
   %indvars.iv.i23 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i26, %606 ]
-  %601 = getelementptr inbounds nuw %struct.obj_info, ptr %600, i64 %indvars.iv.i23
+  %601 = getelementptr inbounds nuw [56 x i8], ptr %600, i64 %indvars.iv.i23
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 48
   %603 = load ptr, ptr %602, align 8, !tbaa !59
   %.not.i24 = icmp eq ptr %603, null
@@ -2056,7 +2055,7 @@ define internal fastcc void @write_object(i32 noundef %0, i32 noundef %1, ptr no
 9:                                                ; preds = %4
   %10 = load ptr, ptr @obj_list, align 8, !tbaa !44
   %11 = zext i32 %0 to i64
-  %12 = getelementptr inbounds nuw %struct.obj_info, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = tail call i32 @write_object_file_flags(ptr noundef nonnull %2, i64 noundef %3, i32 noundef %1, ptr noundef nonnull %13, ptr noundef null, i32 noundef 0) #14
   %15 = icmp slt i32 %14, 0
@@ -2076,7 +2075,7 @@ define internal fastcc void @write_object(i32 noundef %0, i32 noundef %1, ptr no
   %18 = phi ptr [ %39, %.backedge67 ], [ %.pre77, %.preheader66 ]
   %19 = phi ptr [ %40, %.backedge67 ], [ %16, %.preheader66 ]
   %.0.i69 = phi ptr [ %.0.i.be, %.backedge67 ], [ @delta_list, %.preheader66 ]
-  %20 = getelementptr inbounds nuw %struct.obj_info, ptr %18, i64 %11
+  %20 = getelementptr inbounds nuw [56 x i8], ptr %18, i64 %11
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %19, ptr noundef nonnull readonly dereferenceable(32) %21, i64 32)
   %.not.i56.not = icmp eq i32 %bcmp.i, 0
@@ -2131,7 +2130,7 @@ resolve_delta.exit:                               ; preds = %27
 added_object.exit:                                ; preds = %.backedge67, %.preheader66
   %43 = phi ptr [ %.pre77, %.preheader66 ], [ %39, %.backedge67 ]
   call void @free(ptr noundef nonnull %2) #14
-  %44 = getelementptr inbounds nuw %struct.obj_info, ptr %43, i64 %11
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %43, i64 %11
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   store ptr null, ptr %45, align 8, !tbaa !59
   br label %147
@@ -2143,7 +2142,7 @@ added_object.exit:                                ; preds = %.backedge67, %.preh
 48:                                               ; preds = %46
   %49 = load ptr, ptr @obj_list, align 8, !tbaa !44
   %50 = zext i32 %0 to i64
-  %51 = getelementptr inbounds nuw %struct.obj_info, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = tail call i32 @write_object_file_flags(ptr noundef nonnull %2, i64 noundef %3, i32 noundef 3, ptr noundef nonnull %52, ptr noundef null, i32 noundef 0) #14
   %54 = icmp slt i32 %53, 0
@@ -2163,7 +2162,7 @@ added_object.exit:                                ; preds = %.backedge67, %.preh
   %57 = phi ptr [ %78, %.backedge ], [ %.pre83, %.preheader ]
   %58 = phi ptr [ %79, %.backedge ], [ %55, %.preheader ]
   %.0.i4674 = phi ptr [ %.0.i46.be, %.backedge ], [ @delta_list, %.preheader ]
-  %59 = getelementptr inbounds nuw %struct.obj_info, ptr %57, i64 %50
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %57, i64 %50
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %bcmp.i59 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %58, ptr noundef nonnull readonly dereferenceable(32) %60, i64 32)
   %.not.i60.not = icmp eq i32 %bcmp.i59, 0
@@ -2219,7 +2218,7 @@ added_object.exit49:                              ; preds = %.backedge, %.prehea
   %82 = phi ptr [ %.pre83, %.preheader ], [ %78, %.backedge ]
   call void @free(ptr noundef nonnull %2) #14
   %83 = load ptr, ptr @the_repository, align 8, !tbaa !4
-  %84 = getelementptr inbounds nuw %struct.obj_info, ptr %82, i64 %50
+  %84 = getelementptr inbounds nuw [56 x i8], ptr %82, i64 %50
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = call ptr @lookup_blob(ptr noundef %83, ptr noundef nonnull %85) #14
   %.not45 = icmp eq ptr %86, null
@@ -2230,7 +2229,7 @@ added_object.exit49:                              ; preds = %.backedge, %.prehea
   %89 = or i32 %88, 33554432
   store i32 %89, ptr %86, align 4
   %90 = load ptr, ptr @obj_list, align 8, !tbaa !44
-  %91 = getelementptr inbounds nuw %struct.obj_info, ptr %90, i64 %50
+  %91 = getelementptr inbounds nuw [56 x i8], ptr %90, i64 %50
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
   store ptr null, ptr %92, align 8, !tbaa !59
   br label %147
@@ -2246,7 +2245,7 @@ added_object.exit49:                              ; preds = %.backedge, %.prehea
   %97 = load ptr, ptr %96, align 8, !tbaa !19
   %98 = load ptr, ptr @obj_list, align 8, !tbaa !44
   %99 = zext i32 %0 to i64
-  %100 = getelementptr inbounds nuw %struct.obj_info, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [56 x i8], ptr %98, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   tail call void @hash_object_file(ptr noundef %97, ptr noundef nonnull %2, i64 noundef %3, i32 noundef %1, ptr noundef nonnull %101) #14
   %102 = load ptr, ptr @delta_list, align 8, !tbaa !69
@@ -2258,7 +2257,7 @@ added_object.exit49:                              ; preds = %.backedge, %.prehea
   %103 = phi ptr [ %124, %.backedge65 ], [ %.pre80, %94 ]
   %104 = phi ptr [ %125, %.backedge65 ], [ %102, %94 ]
   %.0.i5071 = phi ptr [ %.0.i50.be, %.backedge65 ], [ @delta_list, %94 ]
-  %105 = getelementptr inbounds nuw %struct.obj_info, ptr %103, i64 %99
+  %105 = getelementptr inbounds nuw [56 x i8], ptr %103, i64 %99
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %bcmp.i63 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %104, ptr noundef nonnull readonly dereferenceable(32) %106, i64 32)
   %.not.i64.not = icmp eq i32 %bcmp.i63, 0
@@ -2313,7 +2312,7 @@ resolve_delta.exit62:                             ; preds = %112
 added_object.exit53:                              ; preds = %.backedge65, %94
   %128 = phi ptr [ %.pre80, %94 ], [ %124, %.backedge65 ]
   %129 = load ptr, ptr @the_repository, align 8, !tbaa !4
-  %130 = getelementptr inbounds nuw %struct.obj_info, ptr %128, i64 %99
+  %130 = getelementptr inbounds nuw [56 x i8], ptr %128, i64 %99
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = call ptr @parse_object_buffer(ptr noundef %129, ptr noundef nonnull %131, i32 noundef %1, i64 noundef %3, ptr noundef nonnull %2, ptr noundef nonnull %8) #14
   %.not = icmp eq ptr %132, null
@@ -2344,7 +2343,7 @@ add_object_buffer.exit:                           ; preds = %135
   %143 = or i32 %142, 16777216
   store i32 %143, ptr %132, align 4
   %144 = load ptr, ptr @obj_list, align 8, !tbaa !44
-  %145 = getelementptr inbounds nuw %struct.obj_info, ptr %144, i64 %99
+  %145 = getelementptr inbounds nuw [56 x i8], ptr %144, i64 %99
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 48
   store ptr %132, ptr %146, align 8, !tbaa !59
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

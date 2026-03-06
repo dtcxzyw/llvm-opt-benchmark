@@ -3,7 +3,6 @@ source_filename = "bench/hdf5/original/H5Fmount.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5F_mount_t = type { ptr, ptr }
 %struct.H5G_loc_t = type { ptr, ptr }
 %struct.H5G_name_t = type { ptr, ptr, i32 }
 %struct.H5O_loc_t = type { ptr, i64, i8 }
@@ -91,7 +90,7 @@ define range(i32 -1, 1) i32 @H5F__close_mounts(ptr noundef captures(address) %0)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !40
   %18 = zext i32 %.02327 to i64
-  %19 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
@@ -116,7 +115,7 @@ define range(i32 -1, 1) i32 @H5F__close_mounts(ptr noundef captures(address) %0)
   %34 = load ptr, ptr %9, align 8, !tbaa !10
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !40
-  %37 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %36, i64 %18
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %18
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !41
   %40 = tail call i32 @H5F_try_close(ptr noundef %39, ptr noundef null) #6
@@ -134,7 +133,7 @@ define range(i32 -1, 1) i32 @H5F__close_mounts(ptr noundef captures(address) %0)
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %50 = load ptr, ptr %49, align 8, !tbaa !40
-  %51 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %50, i64 %18
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %18
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %48, align 8, !tbaa !19
   %54 = sub i32 %53, %.023.in26
@@ -337,7 +336,7 @@ define range(i32 -1, 1) i32 @H5F_mount(ptr noundef %0, ptr noundef %1, ptr nound
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %92 = load ptr, ptr %91, align 8, !tbaa !40
   %93 = zext nneg i32 %89 to i64
-  %94 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !44
   %96 = call ptr @H5G_oloc(ptr noundef %95) #6
   %97 = load ptr, ptr %5, align 8, !tbaa !49
@@ -425,7 +424,7 @@ define range(i32 -1, 1) i32 @H5F_mount(ptr noundef %0, ptr noundef %1, ptr nound
   %135 = phi i32 [ %.pre157, %.thread121 ], [ %117, %._crit_edge153 ]
   %136 = phi ptr [ %126, %.thread121 ], [ %.pre155, %._crit_edge153 ]
   %137 = zext i32 %spec.select115183 to i64
-  %138 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %136, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = sub i32 %135, %spec.select115183
   %141 = zext i32 %140 to i64
@@ -442,7 +441,7 @@ define range(i32 -1, 1) i32 @H5F_mount(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 %149, ptr %147, align 8, !tbaa !46
   %150 = getelementptr inbounds nuw i8, ptr %143, i64 48
   %151 = load ptr, ptr %150, align 8, !tbaa !40
-  %152 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %151, i64 %137
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %151, i64 %137
   store ptr %49, ptr %152, align 8, !tbaa !44
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %2, ptr %153, align 8, !tbaa !41
@@ -653,7 +652,7 @@ define range(i32 -1, 1) i32 @H5F_unmount(ptr noundef %0, ptr noundef %1) local_u
 
 55:                                               ; preds = %.lr.ph114, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next, %62 ]
-  %56 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %53, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !41
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -682,7 +681,7 @@ define range(i32 -1, 1) i32 @H5F_unmount(ptr noundef %0, ptr noundef %1) local_u
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !40
   %72 = zext nneg i32 %68 to i64
-  %73 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !44
   %75 = call ptr @H5G_oloc(ptr noundef %74) #6
   %76 = load i64, ptr %41, align 8, !tbaa !58
@@ -724,14 +723,14 @@ define range(i32 -1, 1) i32 @H5F_unmount(ptr noundef %0, ptr noundef %1) local_u
   %92 = load ptr, ptr %33, align 8, !tbaa !10
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %94 = load ptr, ptr %93, align 8, !tbaa !40
-  %95 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %94, i64 %72
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %72
   %96 = load ptr, ptr %95, align 8, !tbaa !44
   %97 = call ptr @H5G_nameof(ptr noundef %96) #6
   store ptr %97, ptr %22, align 8, !tbaa !53
   %98 = load ptr, ptr %33, align 8, !tbaa !10
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 48
   %100 = load ptr, ptr %99, align 8, !tbaa !40
-  %101 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %100, i64 %72
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %72
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !41
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 56
@@ -760,7 +759,7 @@ define range(i32 -1, 1) i32 @H5F_unmount(ptr noundef %0, ptr noundef %1) local_u
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 48
   %113 = load ptr, ptr %112, align 8, !tbaa !40
   %114 = sext i32 %.175 to i64
-  %115 = getelementptr inbounds %struct.H5F_mount_t, ptr %113, i64 %114
+  %115 = getelementptr inbounds [16 x i8], ptr %113, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !44
   %117 = getelementptr inbounds nuw i8, ptr %.084, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !10
@@ -813,7 +812,7 @@ define range(i32 -1, 1) i32 @H5F_unmount(ptr noundef %0, ptr noundef %1) local_u
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 48
   %154 = load ptr, ptr %153, align 8, !tbaa !40
   %155 = zext i32 %.175 to i64
-  %156 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %154, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = load i32, ptr %152, align 8, !tbaa !19
   %159 = xor i32 %.175, -1
@@ -971,7 +970,7 @@ define internal fastcc void @H5F__mount_count_ids_recurse(ptr noundef readonly c
   %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %17 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !40
-  %32 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !41
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
@@ -995,7 +994,7 @@ define internal fastcc void @H5F__mount_count_ids_recurse(ptr noundef readonly c
   %46 = load ptr, ptr %25, align 8, !tbaa !10
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = load ptr, ptr %47, align 8, !tbaa !40
-  %49 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !41
   tail call fastcc void @H5F__mount_count_ids_recurse(ptr noundef %51, ptr noundef %1, ptr noundef nonnull %2)
@@ -1098,7 +1097,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__flush_mounts_recurse(ptr nound
   %.01112 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !40
-  %15 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !41
   %18 = tail call fastcc i32 @H5F__flush_mounts_recurse(ptr noundef %17)
@@ -1202,7 +1201,7 @@ define range(i32 -1, 1) i32 @H5F_traverse_mount(ptr noundef %0) local_unnamed_ad
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   %28 = zext nneg i32 %24 to i64
-  %29 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !44
   %31 = tail call ptr @H5G_oloc(ptr noundef %30) #6
   %32 = load i64, ptr %18, align 8, !tbaa !58
@@ -1244,7 +1243,7 @@ define range(i32 -1, 1) i32 @H5F_traverse_mount(ptr noundef %0) local_unnamed_ad
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !40
   %52 = zext nneg i32 %24 to i64
-  %53 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !41
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16

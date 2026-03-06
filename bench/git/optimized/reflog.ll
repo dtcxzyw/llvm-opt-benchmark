@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.worktree_reflogs = type { ptr, %struct.string_list }
 %struct.expire_reflog_policy_cb = type { i32, ptr, i64, %struct.cmd_reflog_expire_cb, ptr, ptr, i8 }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"show\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"list\00", align 1
@@ -574,7 +573,7 @@ _.exit:                                           ; preds = %132, %134
   %170 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %171 = load ptr, ptr %146, align 8, !tbaa !47
   %172 = load i64, ptr %163, align 8, !tbaa !48
-  %173 = getelementptr inbounds nuw %struct.string_list_item, ptr %171, i64 %172
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %172
   %174 = icmp ult ptr %162, %173
   br i1 %174, label %.lr.ph93, label %.critedge
 
@@ -682,7 +681,7 @@ set_reflog_expiry_param.exit:                     ; preds = %.lr.ph93, %190, %20
   %216 = getelementptr inbounds nuw i8, ptr %.0327091, i64 16
   %217 = load ptr, ptr %146, align 8, !tbaa !47
   %218 = load i64, ptr %163, align 8, !tbaa !48
-  %219 = getelementptr inbounds nuw %struct.string_list_item, ptr %217, i64 %218
+  %219 = getelementptr inbounds nuw [16 x i8], ptr %217, i64 %218
   %220 = icmp ult ptr %216, %219
   br i1 %220, label %.lr.ph93, label %.critedge
 
@@ -715,7 +714,7 @@ set_reflog_expiry_param.exit:                     ; preds = %.lr.ph93, %190, %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %223, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %224, i8 0, i64 24, i1 false)
   %229 = load ptr, ptr @the_repository, align 8, !tbaa !17
-  %230 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %231 = load ptr, ptr %230, align 8, !tbaa !20
   %232 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %231) #14
   %233 = trunc i64 %232 to i32
@@ -972,7 +971,7 @@ _.exit:                                           ; preds = %53, %55
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %.015 = phi i32 [ 0, %.preheader.preheader ], [ %63, %.preheader ]
-  %58 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !20
   %60 = load i32, ptr %5, align 4, !tbaa !19
   %61 = load i32, ptr %6, align 4, !tbaa !19

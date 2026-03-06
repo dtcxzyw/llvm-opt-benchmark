@@ -447,7 +447,7 @@ define internal i32 @dissect_gdsdb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %27 = load i32, ptr @hf_gdsdb_opcode, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.036, i32 noundef 4, i32 noundef 0)
   %29 = zext nneg i32 %18 to i64
-  %30 = getelementptr ptr, ptr @gdsdb_handle_opcode, i64 %29
+  %30 = getelementptr [8 x i8], ptr @gdsdb_handle_opcode, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = add nuw i32 %.036, 4
   %33 = tail call i32 %31(ptr noundef %0, ptr noundef %1, ptr noundef %26, i32 noundef %32)

@@ -75,9 +75,9 @@ define dso_local noundef zeroext i1 @__bitmap_equal(ptr noundef readonly capture
 
 8:                                                ; preds = %15, %5
   %9 = phi i64 [ 0, %5 ], [ %16, %15 ]
-  %10 = getelementptr i64, ptr %0, i64 %9
+  %10 = getelementptr [8 x i8], ptr %0, i64 %9
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr i64, ptr %1, i64 %9
+  %12 = getelementptr [8 x i8], ptr %1, i64 %9
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %11, %13
   br i1 %14, label %15, label %.loopexit
@@ -94,9 +94,9 @@ define dso_local noundef zeroext i1 @__bitmap_equal(ptr noundef readonly capture
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %.loopexit3
-  %22 = getelementptr i64, ptr %0, i64 %18
+  %22 = getelementptr [8 x i8], ptr %0, i64 %18
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr i64, ptr %1, i64 %18
+  %24 = getelementptr [8 x i8], ptr %1, i64 %18
   %25 = load i64, ptr %24, align 8
   %26 = xor i64 %25, %23
   %27 = sub i32 0, %2
@@ -127,12 +127,12 @@ define dso_local zeroext i1 @__bitmap_or_equal(ptr noundef readonly captures(non
 
 9:                                                ; preds = %19, %6
   %10 = phi i64 [ 0, %6 ], [ %20, %19 ]
-  %11 = getelementptr i64, ptr %0, i64 %10
+  %11 = getelementptr [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr i64, ptr %1, i64 %10
+  %13 = getelementptr [8 x i8], ptr %1, i64 %10
   %14 = load i64, ptr %13, align 8
   %15 = or i64 %14, %12
-  %16 = getelementptr i64, ptr %2, i64 %10
+  %16 = getelementptr [8 x i8], ptr %2, i64 %10
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %15, %17
   br i1 %18, label %19, label %.loopexit
@@ -149,12 +149,12 @@ define dso_local zeroext i1 @__bitmap_or_equal(ptr noundef readonly captures(non
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %.loopexit3
-  %26 = getelementptr i64, ptr %0, i64 %22
+  %26 = getelementptr [8 x i8], ptr %0, i64 %22
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr i64, ptr %1, i64 %22
+  %28 = getelementptr [8 x i8], ptr %1, i64 %22
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %29, %27
-  %31 = getelementptr i64, ptr %2, i64 %22
+  %31 = getelementptr [8 x i8], ptr %2, i64 %22
   %32 = load i64, ptr %31, align 8
   %33 = xor i64 %30, %32
   %34 = sub i32 0, %3
@@ -180,10 +180,10 @@ define dso_local void @__bitmap_complement(ptr noundef writeonly captures(none) 
 
 .preheader:                                       ; preds = %3, %.preheader
   %8 = phi i64 [ %13, %.preheader ], [ 0, %3 ]
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = xor i64 %10, -1
-  %12 = getelementptr i64, ptr %0, i64 %8
+  %12 = getelementptr [8 x i8], ptr %0, i64 %8
   store i64 %11, ptr %12, align 8
   %13 = add nuw nsw i64 %8, 1
   %14 = icmp eq i64 %13, %6
@@ -225,12 +225,12 @@ define dso_local void @__bitmap_shift_right(ptr noundef writeonly captures(none)
 .split.us:                                        ; preds = %15, %.split.us
   %28 = phi i64 [ %36, %.split.us ], [ 0, %15 ]
   %29 = add nuw nsw i64 %28, %23
-  %30 = getelementptr i64, ptr %1, i64 %29
+  %30 = getelementptr [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %29, %24
   %33 = select i1 %32, i64 %13, i64 -1
   %34 = and i64 %31, %33
-  %35 = getelementptr i64, ptr %0, i64 %28
+  %35 = getelementptr [8 x i8], ptr %0, i64 %28
   store i64 %34, ptr %35, align 8
   %36 = add nuw nsw i64 %28, 1
   %37 = icmp eq i64 %36, %27
@@ -244,7 +244,7 @@ define dso_local void @__bitmap_shift_right(ptr noundef writeonly captures(none)
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %.split
-  %43 = getelementptr i64, ptr %1, i64 %40
+  %43 = getelementptr [8 x i8], ptr %1, i64 %40
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %39, %25
   %46 = select i1 %45, i64 %13, i64 -1
@@ -254,14 +254,14 @@ define dso_local void @__bitmap_shift_right(ptr noundef writeonly captures(none)
 
 49:                                               ; preds = %42, %.split
   %50 = phi i64 [ %48, %42 ], [ 0, %.split ]
-  %51 = getelementptr i64, ptr %1, i64 %39
+  %51 = getelementptr [8 x i8], ptr %1, i64 %39
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %39, %24
   %54 = select i1 %53, i64 %13, i64 -1
   %55 = and i64 %52, %54
   %56 = lshr i64 %55, %22
   %57 = or i64 %56, %50
-  %58 = getelementptr i64, ptr %0, i64 %38
+  %58 = getelementptr [8 x i8], ptr %0, i64 %38
   store i64 %57, ptr %58, align 8
   %59 = add nuw nsw i64 %38, 1
   %60 = icmp eq i64 %59, %27
@@ -274,7 +274,7 @@ define dso_local void @__bitmap_shift_right(ptr noundef writeonly captures(none)
 62:                                               ; preds = %.loopexit
   %63 = sub nsw i32 %8, %9
   %64 = zext i32 %63 to i64
-  %65 = getelementptr i64, ptr %0, i64 %64
+  %65 = getelementptr [8 x i8], ptr %0, i64 %64
   %66 = shl nuw nsw i32 %9, 3
   %67 = zext nneg i32 %66 to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %65, i8 0, i64 %67, i1 false)
@@ -308,14 +308,14 @@ define dso_local void @__bitmap_shift_left(ptr noundef writeonly captures(none) 
   %18 = zext nneg i32 %15 to i64
   %19 = zext nneg i32 %11 to i64
   %20 = zext nneg i32 %9 to i64
-  %21 = getelementptr i64, ptr %0, i64 %20
+  %21 = getelementptr [8 x i8], ptr %0, i64 %20
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %14, %.split.us
   %22 = phi i64 [ %26, %.split.us ], [ %19, %14 ]
-  %23 = getelementptr i64, ptr %1, i64 %22
+  %23 = getelementptr [8 x i8], ptr %1, i64 %22
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr i64, ptr %21, i64 %22
+  %25 = getelementptr [8 x i8], ptr %21, i64 %22
   store i64 %24, ptr %25, align 8
   %26 = add nsw i64 %22, -1
   %27 = trunc i64 %22 to i32
@@ -328,22 +328,22 @@ define dso_local void @__bitmap_shift_left(ptr noundef writeonly captures(none) 
   br i1 %.not2, label %.thread, label %34
 
 .thread:                                          ; preds = %.split
-  %30 = getelementptr i64, ptr %1, i64 %29
+  %30 = getelementptr [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = shl i64 %31, %18
-  %33 = getelementptr i64, ptr %21, i64 %29
+  %33 = getelementptr [8 x i8], ptr %21, i64 %29
   store i64 %32, ptr %33, align 8
   br label %.loopexit
 
 34:                                               ; preds = %.split
-  %35 = getelementptr i64, ptr %12, i64 %29
+  %35 = getelementptr [8 x i8], ptr %12, i64 %29
   %36 = load i64, ptr %35, align 8
   %37 = lshr i64 %36, %17
-  %38 = getelementptr i64, ptr %1, i64 %29
+  %38 = getelementptr [8 x i8], ptr %1, i64 %29
   %39 = load i64, ptr %38, align 8
   %40 = shl i64 %39, %18
   %41 = or i64 %40, %37
-  %42 = getelementptr i64, ptr %21, i64 %29
+  %42 = getelementptr [8 x i8], ptr %21, i64 %29
   store i64 %41, ptr %42, align 8
   %43 = add nsw i64 %29, -1
   %44 = trunc i64 %29 to i32
@@ -377,7 +377,7 @@ define dso_local void @bitmap_cut(ptr noundef captures(none) %0, ptr noundef rea
 12:                                               ; preds = %5
   %13 = lshr i32 %2, 6
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr i64, ptr %1, i64 %14
+  %15 = getelementptr [8 x i8], ptr %1, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = sub nuw nsw i32 64, %10
   %18 = zext nneg i32 %17 to i64
@@ -415,13 +415,13 @@ define dso_local void @bitmap_cut(ptr noundef captures(none) %0, ptr noundef rea
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %32
-  %36 = getelementptr i64, ptr %26, i64 %33
+  %36 = getelementptr [8 x i8], ptr %26, i64 %33
   %37 = load i64, ptr %36, align 8
   br label %38
 
 38:                                               ; preds = %35, %32
   %39 = phi i64 [ %37, %35 ], [ 0, %32 ]
-  %40 = getelementptr i64, ptr %0, i64 %33
+  %40 = getelementptr [8 x i8], ptr %0, i64 %33
   %41 = load i64, ptr %40, align 8
   %42 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %41, i64 63)
   store i64 %42, ptr %40, align 8
@@ -438,7 +438,7 @@ define dso_local void @bitmap_cut(ptr noundef captures(none) %0, ptr noundef rea
   %.pre-phi8 = phi i64 [ %.pre7, %..loopexit5_crit_edge ], [ %29, %25 ], [ %29, %.loopexit.us ]
   %47 = zext nneg i32 %10 to i64
   %48 = shl nsw i64 -1, %47
-  %49 = getelementptr i64, ptr %0, i64 %.pre-phi8
+  %49 = getelementptr [8 x i8], ptr %0, i64 %.pre-phi8
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, %48
   %52 = or i64 %51, %22
@@ -462,12 +462,12 @@ define dso_local zeroext i1 @__bitmap_and(ptr noundef writeonly captures(none) %
 9:                                                ; preds = %9, %6
   %10 = phi i64 [ 0, %6 ], [ %19, %9 ]
   %11 = phi i64 [ 0, %6 ], [ %18, %9 ]
-  %12 = getelementptr i64, ptr %1, i64 %10
+  %12 = getelementptr [8 x i8], ptr %1, i64 %10
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr i64, ptr %2, i64 %10
+  %14 = getelementptr [8 x i8], ptr %2, i64 %10
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, %13
-  %17 = getelementptr i64, ptr %0, i64 %10
+  %17 = getelementptr [8 x i8], ptr %0, i64 %10
   store i64 %16, ptr %17, align 8
   %18 = or i64 %16, %11
   %19 = add nuw nsw i64 %10, 1
@@ -482,9 +482,9 @@ define dso_local zeroext i1 @__bitmap_and(ptr noundef writeonly captures(none) %
   br i1 %24, label %38, label %25
 
 25:                                               ; preds = %.loopexit
-  %26 = getelementptr i64, ptr %1, i64 %21
+  %26 = getelementptr [8 x i8], ptr %1, i64 %21
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr i64, ptr %2, i64 %21
+  %28 = getelementptr [8 x i8], ptr %2, i64 %21
   %29 = load i64, ptr %28, align 8
   %30 = sub i32 0, %3
   %31 = and i32 %30, 63
@@ -492,7 +492,7 @@ define dso_local zeroext i1 @__bitmap_and(ptr noundef writeonly captures(none) %
   %33 = lshr i64 -1, %32
   %34 = and i64 %27, %33
   %35 = and i64 %34, %29
-  %36 = getelementptr i64, ptr %0, i64 %21
+  %36 = getelementptr [8 x i8], ptr %0, i64 %21
   store i64 %35, ptr %36, align 8
   %37 = or i64 %35, %22
   br label %38
@@ -513,12 +513,12 @@ define dso_local void @__bitmap_or(ptr noundef writeonly captures(none) %0, ptr 
 
 .preheader:                                       ; preds = %4, %.preheader
   %9 = phi i64 [ %16, %.preheader ], [ 0, %4 ]
-  %10 = getelementptr i64, ptr %1, i64 %9
+  %10 = getelementptr [8 x i8], ptr %1, i64 %9
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr i64, ptr %2, i64 %9
+  %12 = getelementptr [8 x i8], ptr %2, i64 %9
   %13 = load i64, ptr %12, align 8
   %14 = or i64 %13, %11
-  %15 = getelementptr i64, ptr %0, i64 %9
+  %15 = getelementptr [8 x i8], ptr %0, i64 %9
   store i64 %14, ptr %15, align 8
   %16 = add nuw nsw i64 %9, 1
   %17 = icmp eq i64 %16, %7
@@ -538,12 +538,12 @@ define dso_local void @__bitmap_xor(ptr noundef writeonly captures(none) %0, ptr
 
 .preheader:                                       ; preds = %4, %.preheader
   %9 = phi i64 [ %16, %.preheader ], [ 0, %4 ]
-  %10 = getelementptr i64, ptr %1, i64 %9
+  %10 = getelementptr [8 x i8], ptr %1, i64 %9
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr i64, ptr %2, i64 %9
+  %12 = getelementptr [8 x i8], ptr %2, i64 %9
   %13 = load i64, ptr %12, align 8
   %14 = xor i64 %13, %11
-  %15 = getelementptr i64, ptr %0, i64 %9
+  %15 = getelementptr [8 x i8], ptr %0, i64 %9
   store i64 %14, ptr %15, align 8
   %16 = add nuw nsw i64 %9, 1
   %17 = icmp eq i64 %16, %7
@@ -566,13 +566,13 @@ define dso_local zeroext i1 @__bitmap_andnot(ptr noundef writeonly captures(none
 9:                                                ; preds = %9, %6
   %10 = phi i64 [ 0, %6 ], [ %20, %9 ]
   %11 = phi i64 [ 0, %6 ], [ %19, %9 ]
-  %12 = getelementptr i64, ptr %1, i64 %10
+  %12 = getelementptr [8 x i8], ptr %1, i64 %10
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr i64, ptr %2, i64 %10
+  %14 = getelementptr [8 x i8], ptr %2, i64 %10
   %15 = load i64, ptr %14, align 8
   %16 = xor i64 %15, -1
   %17 = and i64 %13, %16
-  %18 = getelementptr i64, ptr %0, i64 %10
+  %18 = getelementptr [8 x i8], ptr %0, i64 %10
   store i64 %17, ptr %18, align 8
   %19 = or i64 %17, %11
   %20 = add nuw nsw i64 %10, 1
@@ -587,9 +587,9 @@ define dso_local zeroext i1 @__bitmap_andnot(ptr noundef writeonly captures(none
   br i1 %25, label %40, label %26
 
 26:                                               ; preds = %.loopexit
-  %27 = getelementptr i64, ptr %1, i64 %22
+  %27 = getelementptr [8 x i8], ptr %1, i64 %22
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr i64, ptr %2, i64 %22
+  %29 = getelementptr [8 x i8], ptr %2, i64 %22
   %30 = load i64, ptr %29, align 8
   %31 = xor i64 %30, -1
   %32 = sub i32 0, %3
@@ -598,7 +598,7 @@ define dso_local zeroext i1 @__bitmap_andnot(ptr noundef writeonly captures(none
   %35 = lshr i64 -1, %34
   %36 = and i64 %28, %35
   %37 = and i64 %36, %31
-  %38 = getelementptr i64, ptr %0, i64 %22
+  %38 = getelementptr [8 x i8], ptr %0, i64 %22
   store i64 %37, ptr %38, align 8
   %39 = or i64 %37, %23
   br label %40
@@ -619,17 +619,17 @@ define dso_local void @__bitmap_replace(ptr noundef writeonly captures(none) %0,
 
 .preheader:                                       ; preds = %5, %.preheader
   %10 = phi i64 [ %22, %.preheader ], [ 0, %5 ]
-  %11 = getelementptr i64, ptr %1, i64 %10
+  %11 = getelementptr [8 x i8], ptr %1, i64 %10
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr i64, ptr %3, i64 %10
+  %13 = getelementptr [8 x i8], ptr %3, i64 %10
   %14 = load i64, ptr %13, align 8
   %15 = xor i64 %14, -1
   %16 = and i64 %12, %15
-  %17 = getelementptr i64, ptr %2, i64 %10
+  %17 = getelementptr [8 x i8], ptr %2, i64 %10
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %14
   %20 = or i64 %19, %16
-  %21 = getelementptr i64, ptr %0, i64 %10
+  %21 = getelementptr [8 x i8], ptr %0, i64 %10
   store i64 %20, ptr %21, align 8
   %22 = add nuw nsw i64 %10, 1
   %23 = icmp eq i64 %22, %8
@@ -651,9 +651,9 @@ define dso_local noundef zeroext i1 @__bitmap_intersects(ptr noundef readonly ca
 
 8:                                                ; preds = %16, %5
   %9 = phi i64 [ 0, %5 ], [ %17, %16 ]
-  %10 = getelementptr i64, ptr %0, i64 %9
+  %10 = getelementptr [8 x i8], ptr %0, i64 %9
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr i64, ptr %1, i64 %9
+  %12 = getelementptr [8 x i8], ptr %1, i64 %9
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, %11
   %15 = icmp eq i64 %14, 0
@@ -671,9 +671,9 @@ define dso_local noundef zeroext i1 @__bitmap_intersects(ptr noundef readonly ca
   br i1 %21, label %34, label %22
 
 22:                                               ; preds = %.loopexit3
-  %23 = getelementptr i64, ptr %0, i64 %19
+  %23 = getelementptr [8 x i8], ptr %0, i64 %19
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr i64, ptr %1, i64 %19
+  %25 = getelementptr [8 x i8], ptr %1, i64 %19
   %26 = load i64, ptr %25, align 8
   %27 = sub i32 0, %2
   %28 = and i32 %27, 63
@@ -704,9 +704,9 @@ define dso_local noundef zeroext i1 @__bitmap_subset(ptr noundef readonly captur
 
 8:                                                ; preds = %17, %5
   %9 = phi i64 [ 0, %5 ], [ %18, %17 ]
-  %10 = getelementptr i64, ptr %0, i64 %9
+  %10 = getelementptr [8 x i8], ptr %0, i64 %9
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr i64, ptr %1, i64 %9
+  %12 = getelementptr [8 x i8], ptr %1, i64 %9
   %13 = load i64, ptr %12, align 8
   %14 = xor i64 %13, -1
   %15 = and i64 %11, %14
@@ -725,9 +725,9 @@ define dso_local noundef zeroext i1 @__bitmap_subset(ptr noundef readonly captur
   br i1 %22, label %36, label %23
 
 23:                                               ; preds = %.loopexit3
-  %24 = getelementptr i64, ptr %0, i64 %20
+  %24 = getelementptr [8 x i8], ptr %0, i64 %20
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr i64, ptr %1, i64 %20
+  %26 = getelementptr [8 x i8], ptr %1, i64 %20
   %27 = load i64, ptr %26, align 8
   %28 = xor i64 %27, -1
   %29 = sub i32 0, %2
@@ -760,7 +760,7 @@ define dso_local i32 @__bitmap_weight(ptr noundef readonly captures(none) %0, i3
 7:                                                ; preds = %7, %4
   %8 = phi i64 [ 0, %4 ], [ %15, %7 ]
   %9 = phi i32 [ 0, %4 ], [ %14, %7 ]
-  %10 = getelementptr i64, ptr %0, i64 %8
+  %10 = getelementptr [8 x i8], ptr %0, i64 %8
   %11 = load i64, ptr %10, align 8
   %12 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %11) #11, !srcloc !21
   %13 = trunc i64 %12 to i32
@@ -777,7 +777,7 @@ define dso_local i32 @__bitmap_weight(ptr noundef readonly captures(none) %0, i3
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %.loopexit
-  %22 = getelementptr i64, ptr %0, i64 %17
+  %22 = getelementptr [8 x i8], ptr %0, i64 %17
   %23 = load i64, ptr %22, align 8
   %24 = sub i32 0, %1
   %25 = and i32 %24, 63
@@ -807,9 +807,9 @@ define dso_local i32 @__bitmap_weight_and(ptr noundef readonly captures(none) %0
 8:                                                ; preds = %8, %5
   %9 = phi i64 [ 0, %5 ], [ %19, %8 ]
   %10 = phi i32 [ 0, %5 ], [ %18, %8 ]
-  %11 = getelementptr i64, ptr %1, i64 %9
+  %11 = getelementptr [8 x i8], ptr %1, i64 %9
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr i64, ptr %0, i64 %9
+  %13 = getelementptr [8 x i8], ptr %0, i64 %9
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %12
   %16 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %15) #11, !srcloc !21
@@ -827,9 +827,9 @@ define dso_local i32 @__bitmap_weight_and(ptr noundef readonly captures(none) %0
   br i1 %24, label %39, label %25
 
 25:                                               ; preds = %.loopexit
-  %26 = getelementptr i64, ptr %1, i64 %21
+  %26 = getelementptr [8 x i8], ptr %1, i64 %21
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr i64, ptr %0, i64 %21
+  %28 = getelementptr [8 x i8], ptr %0, i64 %21
   %29 = load i64, ptr %28, align 8
   %30 = sub i32 0, %2
   %31 = and i32 %30, 63
@@ -851,7 +851,7 @@ define dso_local i32 @__bitmap_weight_and(ptr noundef readonly captures(none) %0
 define dso_local void @__bitmap_set(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = lshr i32 %1, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i64, ptr %0, i64 %5
+  %6 = getelementptr [8 x i8], ptr %0, i64 %5
   %7 = add i32 %1, %2
   %8 = or i32 %1, -64
   %9 = and i32 %1, 63
@@ -903,7 +903,7 @@ define dso_local void @__bitmap_set(ptr noundef captures(none) %0, i32 noundef %
 define dso_local void @__bitmap_clear(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = lshr i32 %1, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i64, ptr %0, i64 %5
+  %6 = getelementptr [8 x i8], ptr %0, i64 %5
   %7 = add i32 %1, %2
   %8 = or i32 %1, -64
   %9 = and i32 %1, 63
@@ -1006,7 +1006,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
 16:                                               ; preds = %16, %13
   %17 = phi i64 [ 0, %13 ], [ %24, %16 ]
   %18 = phi i32 [ 0, %13 ], [ %23, %16 ]
-  %19 = getelementptr i64, ptr %3, i64 %17
+  %19 = getelementptr [8 x i8], ptr %3, i64 %17
   %20 = load i64, ptr %19, align 8
   %21 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %20) #11, !srcloc !21
   %22 = trunc i64 %21 to i32
@@ -1023,7 +1023,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %29, label %41, label %30
 
 30:                                               ; preds = %.loopexit10
-  %31 = getelementptr i64, ptr %3, i64 %26
+  %31 = getelementptr [8 x i8], ptr %3, i64 %26
   %32 = load i64, ptr %31, align 8
   %33 = sub i32 0, %4
   %34 = and i32 %33, 63
@@ -1068,7 +1068,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 58:                                               ; preds = %58, %55
   %59 = phi i64 [ 0, %55 ], [ %63, %58 ]
-  %60 = getelementptr i64, ptr %2, i64 %59
+  %60 = getelementptr [8 x i8], ptr %2, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %61) #11, !srcloc !21
   %63 = add nuw nsw i64 %59, 1
@@ -1082,7 +1082,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %67, label %.thread.us, label %68
 
 68:                                               ; preds = %.loopexit.us
-  %69 = getelementptr i64, ptr %2, i64 %65
+  %69 = getelementptr [8 x i8], ptr %2, i64 %65
   %70 = load i64, ptr %69, align 8
   %71 = sub i64 0, %48
   %72 = and i64 %71, 63
@@ -1122,7 +1122,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
 92:                                               ; preds = %92, %89
   %93 = phi i64 [ 0, %89 ], [ %100, %92 ]
   %94 = phi i32 [ 0, %89 ], [ %99, %92 ]
-  %95 = getelementptr i64, ptr %2, i64 %93
+  %95 = getelementptr [8 x i8], ptr %2, i64 %93
   %96 = load i64, ptr %95, align 8
   %97 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %96) #11, !srcloc !21
   %98 = trunc i64 %97 to i32
@@ -1139,7 +1139,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %105, label %116, label %106
 
 106:                                              ; preds = %.loopexit
-  %107 = getelementptr i64, ptr %2, i64 %102
+  %107 = getelementptr [8 x i8], ptr %2, i64 %102
   %108 = load i64, ptr %107, align 8
   %109 = sub i64 0, %82
   %110 = and i64 %109, 63
@@ -1199,7 +1199,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
 9:                                                ; preds = %9, %6
   %10 = phi i64 [ 0, %6 ], [ %17, %9 ]
   %11 = phi i32 [ 0, %6 ], [ %16, %9 ]
-  %12 = getelementptr i64, ptr %2, i64 %10
+  %12 = getelementptr [8 x i8], ptr %2, i64 %10
   %13 = load i64, ptr %12, align 8
   %14 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %13) #11, !srcloc !21
   %15 = trunc i64 %14 to i32
@@ -1216,7 +1216,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   br i1 %22, label %34, label %23
 
 23:                                               ; preds = %.loopexit7
-  %24 = getelementptr i64, ptr %2, i64 %19
+  %24 = getelementptr [8 x i8], ptr %2, i64 %19
   %25 = load i64, ptr %24, align 8
   %26 = sub i32 0, %3
   %27 = and i32 %26, 63
@@ -1253,7 +1253,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
 47:                                               ; preds = %47, %44
   %48 = phi i64 [ 0, %44 ], [ %55, %47 ]
   %49 = phi i32 [ 0, %44 ], [ %54, %47 ]
-  %50 = getelementptr i64, ptr %1, i64 %48
+  %50 = getelementptr [8 x i8], ptr %1, i64 %48
   %51 = load i64, ptr %50, align 8
   %52 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %51) #11, !srcloc !21
   %53 = trunc i64 %52 to i32
@@ -1270,7 +1270,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   br i1 %60, label %72, label %61
 
 61:                                               ; preds = %.loopexit
-  %62 = getelementptr i64, ptr %1, i64 %57
+  %62 = getelementptr [8 x i8], ptr %1, i64 %57
   %63 = load i64, ptr %62, align 8
   %64 = sub i32 0, %0
   %65 = and i32 %64, 63
@@ -1502,18 +1502,18 @@ define dso_local void @bitmap_from_arr32(ptr noundef captures(none) %0, ptr noun
 
 9:                                                ; preds = %24, %7
   %10 = phi i64 [ 0, %7 ], [ %25, %24 ]
-  %11 = getelementptr i32, ptr %1, i64 %10
+  %11 = getelementptr [4 x i8], ptr %1, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
   %14 = lshr exact i64 %10, 1
-  %15 = getelementptr i64, ptr %0, i64 %14
+  %15 = getelementptr [8 x i8], ptr %0, i64 %14
   store i64 %13, ptr %15, align 8
   %16 = or disjoint i64 %10, 1
   %17 = icmp samesign ult i64 %16, %8
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %9
-  %19 = getelementptr i32, ptr %1, i64 %16
+  %19 = getelementptr [4 x i8], ptr %1, i64 %16
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
   %22 = shl nuw i64 %21, 32
@@ -1539,7 +1539,7 @@ define dso_local void @bitmap_from_arr32(ptr noundef captures(none) %0, ptr noun
   %34 = add nsw i32 %5, -1
   %35 = lshr i32 %34, 1
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr i64, ptr %0, i64 %36
+  %37 = getelementptr [8 x i8], ptr %0, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, %33
   store i64 %39, ptr %37, align 8
@@ -1563,10 +1563,10 @@ define dso_local void @bitmap_to_arr32(ptr noundef captures(none) %0, ptr nounde
 9:                                                ; preds = %23, %7
   %10 = phi i64 [ 0, %7 ], [ %24, %23 ]
   %11 = lshr exact i64 %10, 1
-  %12 = getelementptr i64, ptr %1, i64 %11
+  %12 = getelementptr [8 x i8], ptr %1, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr i32, ptr %0, i64 %10
+  %15 = getelementptr [4 x i8], ptr %0, i64 %10
   store i32 %14, ptr %15, align 4
   %16 = or disjoint i64 %10, 1
   %17 = icmp samesign ult i64 %16, %8
@@ -1576,7 +1576,7 @@ define dso_local void @bitmap_to_arr32(ptr noundef captures(none) %0, ptr nounde
   %19 = load i64, ptr %12, align 8
   %20 = lshr i64 %19, 32
   %21 = trunc nuw i64 %20 to i32
-  %22 = getelementptr i32, ptr %0, i64 %16
+  %22 = getelementptr [4 x i8], ptr %0, i64 %16
   store i32 %21, ptr %22, align 4
   br label %23
 
@@ -1596,7 +1596,7 @@ define dso_local void @bitmap_to_arr32(ptr noundef captures(none) %0, ptr nounde
   %31 = lshr i32 -1, %30
   %32 = add nsw i32 %5, -1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr i32, ptr %0, i64 %33
+  %34 = getelementptr [4 x i8], ptr %0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, %31
   store i32 %36, ptr %34, align 4

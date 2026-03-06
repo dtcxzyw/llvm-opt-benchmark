@@ -1045,7 +1045,7 @@ define internal i32 @get_message_len(ptr noundef %0, ptr noundef %1, i32 noundef
 
 switch.lookup:                                    ; preds = %13
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_message_len, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.get_message_len, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = load ptr, ptr %switch.load, align 16
   %.not8793 = icmp eq ptr %17, null

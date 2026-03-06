@@ -839,7 +839,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw i16, ptr @char_type, i64 %72
+  %81 = getelementptr inbounds nuw [2 x i8], ptr @char_type, i64 %72
   %82 = load i16, ptr %81, align 2, !tbaa !25
   %83 = and i16 %82, %73
   br label %84
@@ -1025,7 +1025,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 166:                                              ; preds = %162
   %167 = zext nneg i8 %164 to i64
-  %168 = getelementptr inbounds nuw i16, ptr @char_type, i64 %167
+  %168 = getelementptr inbounds nuw [2 x i8], ptr @char_type, i64 %167
   %169 = load i16, ptr %168, align 2, !tbaa !25
   %170 = and i16 %169, %161
   br label %171

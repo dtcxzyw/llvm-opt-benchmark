@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.string_list_item = type { ptr, ptr }
 
 @get_pathname.pathname_array = internal global [4 x %struct.strbuf] [%struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }], align 16
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -94,7 +93,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local nonnull ptr @get_pathname() local_unnamed_addr #0 {
   %1 = load i32, ptr @get_pathname.index, align 4, !tbaa !4
   %2 = zext nneg i32 %1 to i64
-  %3 = getelementptr inbounds nuw %struct.strbuf, ptr @get_pathname.pathname_array, i64 %2
+  %3 = getelementptr inbounds nuw [24 x i8], ptr @get_pathname.pathname_array, i64 %2
   %4 = add nuw nsw i32 %1, 1
   %5 = and i32 %4, 3
   store i32 %5, ptr @get_pathname.index, align 4, !tbaa !4
@@ -622,7 +621,7 @@ define dso_local ptr @mkpath(ptr noundef %0, ...) local_unnamed_addr #2 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr @get_pathname.index, align 4, !tbaa !4
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct.strbuf, ptr @get_pathname.pathname_array, i64 %4
+  %5 = getelementptr inbounds nuw [24 x i8], ptr @get_pathname.pathname_array, i64 %4
   %6 = add nuw nsw i32 %3, 1
   %7 = and i32 %6, 3
   store i32 %7, ptr @get_pathname.index, align 4, !tbaa !4
@@ -678,7 +677,7 @@ define dso_local ptr @worktree_git_path(ptr noundef readonly captures(address) %
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load i32, ptr @get_pathname.index, align 4, !tbaa !4
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.strbuf, ptr @get_pathname.pathname_array, i64 %6
+  %7 = getelementptr inbounds nuw [24 x i8], ptr @get_pathname.pathname_array, i64 %6
   %8 = add nuw nsw i32 %5, 1
   %9 = and i32 %8, 3
   store i32 %9, ptr @get_pathname.index, align 4, !tbaa !4
@@ -1306,7 +1305,7 @@ strbuf_setlen.exit71:                             ; preds = %strbuf_setlen.exit,
 33:                                               ; preds = %31, %54
   %34 = phi i64 [ %.pre88, %31 ], [ %55, %54 ]
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %54 ]
-  %35 = getelementptr inbounds nuw ptr, ptr @enter_repo.suffix, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @enter_repo.suffix, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = load ptr, ptr %35, align 8, !tbaa !65
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #31
@@ -2642,7 +2641,7 @@ sub_0:
 9:                                                ; preds = %.lr.ph, %32
   %.02332 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
   %.02431 = phi i32 [ -1, %.lr.ph ], [ %.1, %32 ]
-  %10 = getelementptr inbounds nuw %struct.string_list_item, ptr %8, i64 %.02332
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.02332
   %11 = load ptr, ptr %10, align 8, !tbaa !99
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #31
   %13 = trunc i64 %12 to i32
@@ -3490,7 +3489,7 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i, %.
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv.i.i
   %58 = load i8, ptr %57, align 1, !tbaa !14
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %.tr93.i.i, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.tr93.i.i, i64 %59
   store ptr %40, ptr %60, align 8, !tbaa !117
   %61 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %62 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 2072) #30
@@ -3517,7 +3516,7 @@ make_trie_node.exit.i.i:                          ; preds = %66, %52
   store ptr %.028.i, ptr %72, align 8, !tbaa !116
   %73 = load i8, ptr %38, align 1, !tbaa !14
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %.tr93.i.i, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.tr93.i.i, i64 %74
   store ptr %62, ptr %75, align 8, !tbaa !117
   br label %add_to_trie.exit.i
 
@@ -3537,7 +3536,7 @@ make_trie_node.exit.i.i:                          ; preds = %66, %52
   %78 = phi i8 [ %.pre.i, %.preheader.i.._crit_edge.thread.i_crit_edge.i ], [ %.pre.i.i, %._crit_edge.i.i ]
   %79 = getelementptr inbounds i8, ptr %.tr6994.i.i, i64 %.pre-phi.i
   %80 = zext i8 %78 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %.tr93.i.i, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.tr93.i.i, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !117
   %.not64.i.i = icmp eq ptr %82, null
   br i1 %.not64.i.i, label %85, label %tailrecurse.i.i
@@ -3578,7 +3577,7 @@ make_trie_node.exit68.i.i:                        ; preds = %92, %85
   %101 = getelementptr inbounds i8, ptr %.tr6994.i.i, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !14
   %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr %.tr93.i.i, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %.tr93.i.i, i64 %103
   store ptr %88, ptr %104, align 8, !tbaa !117
   br label %add_to_trie.exit.i
 
@@ -3758,7 +3757,7 @@ check_common.exit66:                              ; preds = %33
 
 .critedge:                                        ; preds = %.preheader, %39
   %43 = zext i8 %37 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !117
   %.not58 = icmp eq ptr %45, null
   br i1 %.not58, label %.thread, label %46

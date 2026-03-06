@@ -501,9 +501,9 @@ _ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit53: ; preds = %250
 273:                                              ; preds = %273, %272
   %.09.i.i.i = phi i64 [ 0, %272 ], [ %280, %273 ]
   %.078.i.i.i = phi i64 [ 0, %272 ], [ %279, %273 ]
-  %274 = getelementptr inbounds nuw i64, ptr %119, i64 %.09.i.i.i
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %.09.i.i.i
   %275 = load i64, ptr %274, align 8, !tbaa !19
-  %276 = getelementptr inbounds nuw i64, ptr %117, i64 %.09.i.i.i
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.09.i.i.i
   %277 = load i64, ptr %276, align 8, !tbaa !19
   %278 = xor i64 %277, %275
   %279 = or i64 %278, %.078.i.i.i
@@ -524,9 +524,9 @@ _ZNK6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE7is_zeroEv.exit.i: ; 
 283:                                              ; preds = %283, %282
   %.09.i.i2.i = phi i64 [ 0, %282 ], [ %290, %283 ]
   %.078.i.i3.i = phi i64 [ 0, %282 ], [ %289, %283 ]
-  %284 = getelementptr inbounds nuw i64, ptr %130, i64 %.09.i.i2.i
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %.09.i.i2.i
   %285 = load i64, ptr %284, align 8, !tbaa !19
-  %286 = getelementptr inbounds nuw i64, ptr %116, i64 %.09.i.i2.i
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %.09.i.i2.i
   %287 = load i64, ptr %286, align 8, !tbaa !19
   %288 = xor i64 %287, %285
   %289 = or i64 %288, %.078.i.i3.i
@@ -554,9 +554,9 @@ _ZN6evmmax5bn25411is_infinityERKNS_3ecc5PointINS1_13BaseFieldElemINS0_15BaseFiel
 293:                                              ; preds = %293, %.preheader.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i.i = phi i64 [ %300, %293 ], [ 0, %.preheader.i.i.i.i.i.i.i ]
   %.078.i.i.i.i.i.i.i.i.i = phi i64 [ %299, %293 ], [ 0, %.preheader.i.i.i.i.i.i.i ]
-  %294 = getelementptr inbounds nuw i64, ptr %.0810.i.i.i.i.ptr.i.i.i, i64 %.09.i.i.i.i.i.i.i.i.i
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %.0810.i.i.i.i.ptr.i.i.i, i64 %.09.i.i.i.i.i.i.i.i.i
   %295 = load i64, ptr %294, align 8, !tbaa !19
-  %296 = getelementptr inbounds nuw i64, ptr %.011.i.i.i.i.i.i.i, i64 %.09.i.i.i.i.i.i.i.i.i
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %.011.i.i.i.i.i.i.i, i64 %.09.i.i.i.i.i.i.i.i.i
   %297 = load i64, ptr %296, align 8, !tbaa !19
   %298 = xor i64 %297, %295
   %299 = or i64 %298, %.078.i.i.i.i.i.i.i.i.i
@@ -589,9 +589,9 @@ _ZN6evmmax3ecceqERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i: ; preds 
 304:                                              ; preds = %304, %.preheader.i.i.i.i.i.i2.i
   %.09.i.i.i.i.i.i.i.i6.i = phi i64 [ %311, %304 ], [ 0, %.preheader.i.i.i.i.i.i2.i ]
   %.078.i.i.i.i.i.i.i.i7.i = phi i64 [ %310, %304 ], [ 0, %.preheader.i.i.i.i.i.i2.i ]
-  %305 = getelementptr inbounds nuw i64, ptr %.0810.i.i.i.i.ptr.i.i5.i, i64 %.09.i.i.i.i.i.i.i.i6.i
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %.0810.i.i.i.i.ptr.i.i5.i, i64 %.09.i.i.i.i.i.i.i.i6.i
   %306 = load i64, ptr %305, align 8, !tbaa !19
-  %307 = getelementptr inbounds nuw i64, ptr %.011.i.i.i.i.i.i3.i, i64 %.09.i.i.i.i.i.i.i.i6.i
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %.011.i.i.i.i.i.i3.i, i64 %.09.i.i.i.i.i.i.i.i6.i
   %308 = load i64, ptr %307, align 8, !tbaa !19
   %309 = xor i64 %308, %306
   %310 = or i64 %309, %.078.i.i.i.i.i.i.i.i7.i
@@ -651,7 +651,7 @@ _ZN6evmmax5bn25414g2_is_infinityERKNS_3ecc5PointINS1_12ExtFieldElemINS0_9Fq2Conf
   %.04.i.sroa.phi.i.i = phi ptr [ %101, %323 ], [ %.04.i.sroa.gep2.i.i, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i ]
   %.04.i.i.i = phi i64 [ 0, %323 ], [ 1, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  %326 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %132, i64 %.04.i.i.i
+  %326 = getelementptr inbounds nuw [32 x i8], ptr %132, i64 %.04.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %100) #11, !noalias !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, i8 0, i64 32, i1 false), !noalias !43
   call void @llvm.lifetime.start.p0(ptr nonnull %97), !noalias !43
@@ -663,9 +663,9 @@ _ZN6evmmax5bn25414g2_is_infinityERKNS_3ecc5PointINS1_12ExtFieldElemINS0_9Fq2Conf
 327:                                              ; preds = %327, %324
   %.0.in11.i.i.i.i.i.i = phi i1 [ false, %324 ], [ %339, %327 ]
   %.0910.i.i.i.i.i.i = phi i64 [ 0, %324 ], [ %341, %327 ]
-  %328 = getelementptr inbounds nuw i64, ptr %100, i64 %.0910.i.i.i.i.i.i
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.0910.i.i.i.i.i.i
   %329 = load i64, ptr %328, align 8, !tbaa !19, !noalias !49
-  %330 = getelementptr inbounds nuw i64, ptr %326, i64 %.0910.i.i.i.i.i.i
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %.0910.i.i.i.i.i.i
   %331 = load i64, ptr %330, align 8, !tbaa !19, !noalias !49
   %332 = zext i1 %.0.in11.i.i.i.i.i.i to i64
   %333 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %329, i64 %331)
@@ -675,7 +675,7 @@ _ZN6evmmax5bn25414g2_is_infinityERKNS_3ecc5PointINS1_12ExtFieldElemINS0_9Fq2Conf
   %337 = extractvalue { i64, i1 } %336, 1
   %338 = extractvalue { i64, i1 } %336, 0
   %339 = or i1 %334, %337
-  %340 = getelementptr inbounds nuw i64, ptr %98, i64 %.0910.i.i.i.i.i.i
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %.0910.i.i.i.i.i.i
   store i64 %338, ptr %340, align 8, !tbaa !19, !noalias !49
   %341 = add nuw nsw i64 %.0910.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %341, 4
@@ -690,9 +690,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 342:                                              ; preds = %342, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i
   %.0.in11.i.i.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i ], [ %354, %342 ]
   %.0910.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i ], [ %356, %342 ]
-  %343 = getelementptr inbounds nuw i64, ptr %99, i64 %.0910.i.i.i.i.i.i.i
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.0910.i.i.i.i.i.i.i
   %344 = load i64, ptr %343, align 8, !tbaa !19, !noalias !53
-  %345 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i
+  %345 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i
   %346 = load i64, ptr %345, align 8, !tbaa !19, !noalias !53
   %347 = zext i1 %.0.in11.i.i.i.i.i.i.i to i64
   %348 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %344, i64 %346)
@@ -702,7 +702,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %352 = extractvalue { i64, i1 } %351, 1
   %353 = extractvalue { i64, i1 } %351, 0
   %354 = or i1 %349, %352
-  %355 = getelementptr inbounds nuw i64, ptr %97, i64 %.0910.i.i.i.i.i.i.i
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.0910.i.i.i.i.i.i.i
   store i64 %353, ptr %355, align 8, !noalias !46
   %356 = add nuw nsw i64 %.0910.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %356, 4
@@ -747,9 +747,9 @@ _ZN6evmmax3eccngERKNS0_5PointINS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEEEE.exit.i
 358:                                              ; preds = %358, %_ZN6evmmax3eccngERKNS0_5PointINS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEEEE.exit.i
   %.0.in11.i.i.i.i = phi i1 [ false, %_ZN6evmmax3eccngERKNS0_5PointINS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEEEE.exit.i ], [ %370, %358 ]
   %.0910.i.i.i.i = phi i64 [ 0, %_ZN6evmmax3eccngERKNS0_5PointINS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEEEE.exit.i ], [ %372, %358 ]
-  %359 = getelementptr inbounds nuw i64, ptr %96, i64 %.0910.i.i.i.i
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %.0910.i.i.i.i
   %360 = load i64, ptr %359, align 8, !tbaa !19, !noalias !77
-  %361 = getelementptr inbounds nuw i64, ptr %130, i64 %.0910.i.i.i.i
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %.0910.i.i.i.i
   %362 = load i64, ptr %361, align 8, !tbaa !19, !noalias !77
   %363 = zext i1 %.0.in11.i.i.i.i to i64
   %364 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %360, i64 %362)
@@ -759,7 +759,7 @@ _ZN6evmmax3eccngERKNS0_5PointINS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEEEE.exit.i
   %368 = extractvalue { i64, i1 } %367, 1
   %369 = extractvalue { i64, i1 } %367, 0
   %370 = or i1 %365, %368
-  %371 = getelementptr inbounds nuw i64, ptr %94, i64 %.0910.i.i.i.i
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.0910.i.i.i.i
   store i64 %369, ptr %371, align 8, !tbaa !19, !noalias !77
   %372 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %372, 4
@@ -774,9 +774,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 373:                                              ; preds = %373, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %385, %373 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %387, %373 ]
-  %374 = getelementptr inbounds nuw i64, ptr %95, i64 %.0910.i.i.i.i.i
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.0910.i.i.i.i.i
   %375 = load i64, ptr %374, align 8, !tbaa !19, !noalias !80
-  %376 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %376 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %377 = load i64, ptr %376, align 8, !tbaa !19, !noalias !80
   %378 = zext i1 %.0.in11.i.i.i.i.i to i64
   %379 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %375, i64 %377)
@@ -786,7 +786,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %383 = extractvalue { i64, i1 } %382, 1
   %384 = extractvalue { i64, i1 } %382, 0
   %385 = or i1 %380, %383
-  %386 = getelementptr inbounds nuw i64, ptr %93, i64 %.0910.i.i.i.i.i
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %.0910.i.i.i.i.i
   store i64 %384, ptr %386, align 8, !noalias !74
   %387 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %387, 4
@@ -817,7 +817,7 @@ _ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i: ; p
   %.04.i.sroa.phi.i21.i = phi ptr [ %92, %389 ], [ %.04.i.sroa.gep2.i20.i, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i30.i ]
   %.04.i.i22.i = phi i64 [ 0, %389 ], [ 1, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i30.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i19.i)
-  %392 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %139, i64 %.04.i.i22.i
+  %392 = getelementptr inbounds nuw [32 x i8], ptr %139, i64 %.04.i.i22.i
   call void @llvm.lifetime.start.p0(ptr nonnull %91) #11, !noalias !90
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 32, i1 false), !noalias !90
   call void @llvm.lifetime.start.p0(ptr nonnull %88), !noalias !90
@@ -829,9 +829,9 @@ _ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i: ; p
 393:                                              ; preds = %393, %390
   %.0.in11.i.i.i.i.i23.i = phi i1 [ false, %390 ], [ %405, %393 ]
   %.0910.i.i.i.i.i24.i = phi i64 [ 0, %390 ], [ %407, %393 ]
-  %394 = getelementptr inbounds nuw i64, ptr %91, i64 %.0910.i.i.i.i.i24.i
+  %394 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.0910.i.i.i.i.i24.i
   %395 = load i64, ptr %394, align 8, !tbaa !19, !noalias !96
-  %396 = getelementptr inbounds nuw i64, ptr %392, i64 %.0910.i.i.i.i.i24.i
+  %396 = getelementptr inbounds nuw [8 x i8], ptr %392, i64 %.0910.i.i.i.i.i24.i
   %397 = load i64, ptr %396, align 8, !tbaa !19, !noalias !96
   %398 = zext i1 %.0.in11.i.i.i.i.i23.i to i64
   %399 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %395, i64 %397)
@@ -841,7 +841,7 @@ _ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i: ; p
   %403 = extractvalue { i64, i1 } %402, 1
   %404 = extractvalue { i64, i1 } %402, 0
   %405 = or i1 %400, %403
-  %406 = getelementptr inbounds nuw i64, ptr %89, i64 %.0910.i.i.i.i.i24.i
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.0910.i.i.i.i.i24.i
   store i64 %404, ptr %406, align 8, !tbaa !19, !noalias !96
   %407 = add nuw nsw i64 %.0910.i.i.i.i.i24.i, 1
   %exitcond.not.i.i.i.i.i25.i = icmp eq i64 %407, 4
@@ -856,9 +856,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 408:                                              ; preds = %408, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i26.i
   %.0.in11.i.i.i.i.i.i27.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i26.i ], [ %420, %408 ]
   %.0910.i.i.i.i.i.i28.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i26.i ], [ %422, %408 ]
-  %409 = getelementptr inbounds nuw i64, ptr %90, i64 %.0910.i.i.i.i.i.i28.i
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.0910.i.i.i.i.i.i28.i
   %410 = load i64, ptr %409, align 8, !tbaa !19, !noalias !99
-  %411 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i28.i
+  %411 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i28.i
   %412 = load i64, ptr %411, align 8, !tbaa !19, !noalias !99
   %413 = zext i1 %.0.in11.i.i.i.i.i.i27.i to i64
   %414 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %410, i64 %412)
@@ -868,7 +868,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %418 = extractvalue { i64, i1 } %417, 1
   %419 = extractvalue { i64, i1 } %417, 0
   %420 = or i1 %415, %418
-  %421 = getelementptr inbounds nuw i64, ptr %88, i64 %.0910.i.i.i.i.i.i28.i
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.0910.i.i.i.i.i.i28.i
   store i64 %419, ptr %421, align 8, !noalias !93
   %422 = add nuw nsw i64 %.0910.i.i.i.i.i.i28.i, 1
   %exitcond.not.i.i.i.i.i.i29.i = icmp eq i64 %422, 4
@@ -982,7 +982,7 @@ _ZN6evmmax5bn25412_GLOBAL__N_111miller_loopERKNS_3ecc5PointINS2_12ExtFieldElemIN
 436:                                              ; preds = %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i.i, %.critedge26
   %.05.i.i.i = phi i64 [ 0, %.critedge26 ], [ %473, %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i56)
-  %437 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %435, i64 %.05.i.i.i
+  %437 = getelementptr inbounds nuw [64 x i8], ptr %435, i64 %.05.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %48) #11, !noalias !113
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %48, i8 0, i64 64, i1 false), !tbaa !19, !noalias !113
   br label %438
@@ -992,7 +992,7 @@ _ZN6evmmax5bn25412_GLOBAL__N_111miller_loopERKNS_3ecc5PointINS2_12ExtFieldElemIN
   %.04.i.sroa.phi.i.i.i = phi ptr [ %48, %436 ], [ %.04.i.sroa.gep4.i.i.i, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i.i ]
   %.04.i.i.i.i = phi i64 [ 0, %436 ], [ 1, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
-  %440 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %437, i64 %.04.i.i.i.i
+  %440 = getelementptr inbounds nuw [32 x i8], ptr %437, i64 %.04.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %47) #11, !noalias !118
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false), !noalias !118
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !118
@@ -1004,9 +1004,9 @@ _ZN6evmmax5bn25412_GLOBAL__N_111miller_loopERKNS_3ecc5PointINS2_12ExtFieldElemIN
 441:                                              ; preds = %441, %438
   %.0.in11.i.i.i.i.i.i.i57 = phi i1 [ false, %438 ], [ %453, %441 ]
   %.0910.i.i.i.i.i.i.i58 = phi i64 [ 0, %438 ], [ %455, %441 ]
-  %442 = getelementptr inbounds nuw i64, ptr %47, i64 %.0910.i.i.i.i.i.i.i58
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.0910.i.i.i.i.i.i.i58
   %443 = load i64, ptr %442, align 8, !tbaa !19, !noalias !124
-  %444 = getelementptr inbounds nuw i64, ptr %440, i64 %.0910.i.i.i.i.i.i.i58
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %440, i64 %.0910.i.i.i.i.i.i.i58
   %445 = load i64, ptr %444, align 8, !tbaa !19, !noalias !124
   %446 = zext i1 %.0.in11.i.i.i.i.i.i.i57 to i64
   %447 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %443, i64 %445)
@@ -1016,7 +1016,7 @@ _ZN6evmmax5bn25412_GLOBAL__N_111miller_loopERKNS_3ecc5PointINS2_12ExtFieldElemIN
   %451 = extractvalue { i64, i1 } %450, 1
   %452 = extractvalue { i64, i1 } %450, 0
   %453 = or i1 %448, %451
-  %454 = getelementptr inbounds nuw i64, ptr %45, i64 %.0910.i.i.i.i.i.i.i58
+  %454 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.0910.i.i.i.i.i.i.i58
   store i64 %452, ptr %454, align 8, !tbaa !19, !noalias !124
   %455 = add nuw nsw i64 %.0910.i.i.i.i.i.i.i58, 1
   %exitcond.not.i.i.i.i.i.i.i59 = icmp eq i64 %455, 4
@@ -1031,9 +1031,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 456:                                              ; preds = %456, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i.i
   %.0.in11.i.i.i.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i.i ], [ %468, %456 ]
   %.0910.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i.i ], [ %470, %456 ]
-  %457 = getelementptr inbounds nuw i64, ptr %46, i64 %.0910.i.i.i.i.i.i.i.i
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.0910.i.i.i.i.i.i.i.i
   %458 = load i64, ptr %457, align 8, !tbaa !19, !noalias !127
-  %459 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i.i
+  %459 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i.i
   %460 = load i64, ptr %459, align 8, !tbaa !19, !noalias !127
   %461 = zext i1 %.0.in11.i.i.i.i.i.i.i.i to i64
   %462 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %458, i64 %460)
@@ -1043,7 +1043,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %466 = extractvalue { i64, i1 } %465, 1
   %467 = extractvalue { i64, i1 } %465, 0
   %468 = or i1 %463, %466
-  %469 = getelementptr inbounds nuw i64, ptr %44, i64 %.0910.i.i.i.i.i.i.i.i
+  %469 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.0910.i.i.i.i.i.i.i.i
   store i64 %467, ptr %469, align 8, !noalias !121
   %470 = add nuw nsw i64 %.0910.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %470, 4
@@ -1062,7 +1062,7 @@ _ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i.
 _ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i.i: ; preds = %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i.i56, ptr noundef nonnull align 8 dereferenceable(64) %48, i64 64, i1 false), !tbaa.struct !17, !noalias !132
   call void @llvm.lifetime.end.p0(ptr nonnull %48) #11, !noalias !113
-  %472 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %49, i64 %.05.i.i.i
+  %472 = getelementptr inbounds nuw [64 x i8], ptr %49, i64 %.05.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %472, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i.i56, i64 64, i1 false), !noalias !110
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i56)
   %473 = add nuw nsw i64 %.05.i.i.i, 1
@@ -1123,7 +1123,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit.i: ; pred
 484:                                              ; preds = %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i15.i, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit.i
   %.05.i.i4.i = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit.i ], [ %521, %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i15.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i2.i)
-  %485 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %483, i64 %.05.i.i4.i
+  %485 = getelementptr inbounds nuw [64 x i8], ptr %483, i64 %.05.i.i4.i
   call void @llvm.lifetime.start.p0(ptr nonnull %39) #11, !noalias !140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %39, i8 0, i64 64, i1 false), !tbaa !19, !noalias !140
   br label %486
@@ -1133,7 +1133,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit.i: ; pred
   %.04.i.sroa.phi.i.i5.i = phi ptr [ %39, %484 ], [ %.04.i.sroa.gep4.i.i3.i, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i14.i ]
   %.04.i.i.i6.i = phi i64 [ 0, %484 ], [ 1, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i14.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i1.i)
-  %488 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %485, i64 %.04.i.i.i6.i
+  %488 = getelementptr inbounds nuw [32 x i8], ptr %485, i64 %.04.i.i.i6.i
   call void @llvm.lifetime.start.p0(ptr nonnull %38) #11, !noalias !145
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false), !noalias !145
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !145
@@ -1145,9 +1145,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit.i: ; pred
 489:                                              ; preds = %489, %486
   %.0.in11.i.i.i.i.i.i7.i = phi i1 [ false, %486 ], [ %501, %489 ]
   %.0910.i.i.i.i.i.i8.i = phi i64 [ 0, %486 ], [ %503, %489 ]
-  %490 = getelementptr inbounds nuw i64, ptr %38, i64 %.0910.i.i.i.i.i.i8.i
+  %490 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0910.i.i.i.i.i.i8.i
   %491 = load i64, ptr %490, align 8, !tbaa !19, !noalias !151
-  %492 = getelementptr inbounds nuw i64, ptr %488, i64 %.0910.i.i.i.i.i.i8.i
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %488, i64 %.0910.i.i.i.i.i.i8.i
   %493 = load i64, ptr %492, align 8, !tbaa !19, !noalias !151
   %494 = zext i1 %.0.in11.i.i.i.i.i.i7.i to i64
   %495 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %491, i64 %493)
@@ -1157,7 +1157,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit.i: ; pred
   %499 = extractvalue { i64, i1 } %498, 1
   %500 = extractvalue { i64, i1 } %498, 0
   %501 = or i1 %496, %499
-  %502 = getelementptr inbounds nuw i64, ptr %36, i64 %.0910.i.i.i.i.i.i8.i
+  %502 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.0910.i.i.i.i.i.i8.i
   store i64 %500, ptr %502, align 8, !tbaa !19, !noalias !151
   %503 = add nuw nsw i64 %.0910.i.i.i.i.i.i8.i, 1
   %exitcond.not.i.i.i.i.i.i9.i = icmp eq i64 %503, 4
@@ -1172,9 +1172,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 504:                                              ; preds = %504, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i10.i
   %.0.in11.i.i.i.i.i.i.i11.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i10.i ], [ %516, %504 ]
   %.0910.i.i.i.i.i.i.i12.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i10.i ], [ %518, %504 ]
-  %505 = getelementptr inbounds nuw i64, ptr %37, i64 %.0910.i.i.i.i.i.i.i12.i
+  %505 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0910.i.i.i.i.i.i.i12.i
   %506 = load i64, ptr %505, align 8, !tbaa !19, !noalias !154
-  %507 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i12.i
+  %507 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i12.i
   %508 = load i64, ptr %507, align 8, !tbaa !19, !noalias !154
   %509 = zext i1 %.0.in11.i.i.i.i.i.i.i11.i to i64
   %510 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %506, i64 %508)
@@ -1184,7 +1184,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %514 = extractvalue { i64, i1 } %513, 1
   %515 = extractvalue { i64, i1 } %513, 0
   %516 = or i1 %511, %514
-  %517 = getelementptr inbounds nuw i64, ptr %35, i64 %.0910.i.i.i.i.i.i.i12.i
+  %517 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.0910.i.i.i.i.i.i.i12.i
   store i64 %515, ptr %517, align 8, !noalias !148
   %518 = add nuw nsw i64 %.0910.i.i.i.i.i.i.i12.i, 1
   %exitcond.not.i.i.i.i.i.i.i13.i = icmp eq i64 %518, 4
@@ -1203,7 +1203,7 @@ _ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i1
 _ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i15.i: ; preds = %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i14.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i2.i, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !tbaa.struct !17, !noalias !159
   call void @llvm.lifetime.end.p0(ptr nonnull %39) #11, !noalias !140
-  %520 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %40, i64 %.05.i.i4.i
+  %520 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 %.05.i.i4.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %520, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i2.i, i64 64, i1 false), !noalias !137
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i2.i)
   %521 = add nuw nsw i64 %.05.i.i4.i, 1
@@ -1302,7 +1302,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit17.i: ; pr
 539:                                              ; preds = %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i36.i, %524
   %.05.i.i25.i = phi i64 [ 0, %524 ], [ %576, %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i36.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i23.i)
-  %540 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %538, i64 %.05.i.i25.i
+  %540 = getelementptr inbounds nuw [64 x i8], ptr %538, i64 %.05.i.i25.i
   call void @llvm.lifetime.start.p0(ptr nonnull %28) #11, !noalias !169
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 64, i1 false), !tbaa !19, !noalias !169
   br label %541
@@ -1312,7 +1312,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit17.i: ; pr
   %.04.i.sroa.phi.i.i26.i = phi ptr [ %28, %539 ], [ %.04.i.sroa.gep4.i.i24.i, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i35.i ]
   %.04.i.i.i27.i = phi i64 [ 0, %539 ], [ 1, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i35.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i22.i)
-  %543 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %540, i64 %.04.i.i.i27.i
+  %543 = getelementptr inbounds nuw [32 x i8], ptr %540, i64 %.04.i.i.i27.i
   call void @llvm.lifetime.start.p0(ptr nonnull %27) #11, !noalias !174
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false), !noalias !174
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !174
@@ -1324,9 +1324,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit17.i: ; pr
 544:                                              ; preds = %544, %541
   %.0.in11.i.i.i.i.i.i28.i = phi i1 [ false, %541 ], [ %556, %544 ]
   %.0910.i.i.i.i.i.i29.i = phi i64 [ 0, %541 ], [ %558, %544 ]
-  %545 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i.i.i.i.i.i29.i
+  %545 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0910.i.i.i.i.i.i29.i
   %546 = load i64, ptr %545, align 8, !tbaa !19, !noalias !180
-  %547 = getelementptr inbounds nuw i64, ptr %543, i64 %.0910.i.i.i.i.i.i29.i
+  %547 = getelementptr inbounds nuw [8 x i8], ptr %543, i64 %.0910.i.i.i.i.i.i29.i
   %548 = load i64, ptr %547, align 8, !tbaa !19, !noalias !180
   %549 = zext i1 %.0.in11.i.i.i.i.i.i28.i to i64
   %550 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %546, i64 %548)
@@ -1336,7 +1336,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit17.i: ; pr
   %554 = extractvalue { i64, i1 } %553, 1
   %555 = extractvalue { i64, i1 } %553, 0
   %556 = or i1 %551, %554
-  %557 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i.i.i.i.i.i29.i
+  %557 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0910.i.i.i.i.i.i29.i
   store i64 %555, ptr %557, align 8, !tbaa !19, !noalias !180
   %558 = add nuw nsw i64 %.0910.i.i.i.i.i.i29.i, 1
   %exitcond.not.i.i.i.i.i.i30.i = icmp eq i64 %558, 4
@@ -1351,9 +1351,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 559:                                              ; preds = %559, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i31.i
   %.0.in11.i.i.i.i.i.i.i32.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i31.i ], [ %571, %559 ]
   %.0910.i.i.i.i.i.i.i33.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i31.i ], [ %573, %559 ]
-  %560 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i.i.i.i33.i
+  %560 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0910.i.i.i.i.i.i.i33.i
   %561 = load i64, ptr %560, align 8, !tbaa !19, !noalias !183
-  %562 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i33.i
+  %562 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i33.i
   %563 = load i64, ptr %562, align 8, !tbaa !19, !noalias !183
   %564 = zext i1 %.0.in11.i.i.i.i.i.i.i32.i to i64
   %565 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %561, i64 %563)
@@ -1363,7 +1363,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %569 = extractvalue { i64, i1 } %568, 1
   %570 = extractvalue { i64, i1 } %568, 0
   %571 = or i1 %566, %569
-  %572 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i.i.i.i.i.i.i33.i
+  %572 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0910.i.i.i.i.i.i.i33.i
   store i64 %570, ptr %572, align 8, !noalias !177
   %573 = add nuw nsw i64 %.0910.i.i.i.i.i.i.i33.i, 1
   %exitcond.not.i.i.i.i.i.i.i34.i = icmp eq i64 %573, 4
@@ -1382,7 +1382,7 @@ _ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i3
 _ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i36.i: ; preds = %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i35.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i23.i, ptr noundef nonnull align 8 dereferenceable(64) %28, i64 64, i1 false), !tbaa.struct !17, !noalias !188
   call void @llvm.lifetime.end.p0(ptr nonnull %28) #11, !noalias !169
-  %575 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %29, i64 %.05.i.i25.i
+  %575 = getelementptr inbounds nuw [64 x i8], ptr %29, i64 %.05.i.i25.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %575, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i23.i, i64 64, i1 false), !noalias !166
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i23.i)
   %576 = add nuw nsw i64 %.05.i.i25.i, 1
@@ -1411,7 +1411,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit38.i: ; pr
 578:                                              ; preds = %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i53.i, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit38.i
   %.05.i.i42.i = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit38.i ], [ %615, %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i53.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i40.i)
-  %579 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %577, i64 %.05.i.i42.i
+  %579 = getelementptr inbounds nuw [64 x i8], ptr %577, i64 %.05.i.i42.i
   call void @llvm.lifetime.start.p0(ptr nonnull %21) #11, !noalias !192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, i8 0, i64 64, i1 false), !tbaa !19, !noalias !192
   br label %580
@@ -1421,7 +1421,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit38.i: ; pr
   %.04.i.sroa.phi.i.i43.i = phi ptr [ %21, %578 ], [ %.04.i.sroa.gep4.i.i41.i, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i52.i ]
   %.04.i.i.i44.i = phi i64 [ 0, %578 ], [ 1, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i52.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i39.i)
-  %582 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %579, i64 %.04.i.i.i44.i
+  %582 = getelementptr inbounds nuw [32 x i8], ptr %579, i64 %.04.i.i.i44.i
   call void @llvm.lifetime.start.p0(ptr nonnull %20) #11, !noalias !197
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false), !noalias !197
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !197
@@ -1433,9 +1433,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit38.i: ; pr
 583:                                              ; preds = %583, %580
   %.0.in11.i.i.i.i.i.i45.i = phi i1 [ false, %580 ], [ %595, %583 ]
   %.0910.i.i.i.i.i.i46.i = phi i64 [ 0, %580 ], [ %597, %583 ]
-  %584 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i.i.i.i46.i
+  %584 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i.i.i.i.i.i46.i
   %585 = load i64, ptr %584, align 8, !tbaa !19, !noalias !203
-  %586 = getelementptr inbounds nuw i64, ptr %582, i64 %.0910.i.i.i.i.i.i46.i
+  %586 = getelementptr inbounds nuw [8 x i8], ptr %582, i64 %.0910.i.i.i.i.i.i46.i
   %587 = load i64, ptr %586, align 8, !tbaa !19, !noalias !203
   %588 = zext i1 %.0.in11.i.i.i.i.i.i45.i to i64
   %589 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %585, i64 %587)
@@ -1445,7 +1445,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit38.i: ; pr
   %593 = extractvalue { i64, i1 } %592, 1
   %594 = extractvalue { i64, i1 } %592, 0
   %595 = or i1 %590, %593
-  %596 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i.i.i.i.i.i46.i
+  %596 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0910.i.i.i.i.i.i46.i
   store i64 %594, ptr %596, align 8, !tbaa !19, !noalias !203
   %597 = add nuw nsw i64 %.0910.i.i.i.i.i.i46.i, 1
   %exitcond.not.i.i.i.i.i.i47.i = icmp eq i64 %597, 4
@@ -1460,9 +1460,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 598:                                              ; preds = %598, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i48.i
   %.0.in11.i.i.i.i.i.i.i49.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i48.i ], [ %610, %598 ]
   %.0910.i.i.i.i.i.i.i50.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i48.i ], [ %612, %598 ]
-  %599 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i.i.i.i.i.i.i50.i
+  %599 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0910.i.i.i.i.i.i.i50.i
   %600 = load i64, ptr %599, align 8, !tbaa !19, !noalias !206
-  %601 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i50.i
+  %601 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i50.i
   %602 = load i64, ptr %601, align 8, !tbaa !19, !noalias !206
   %603 = zext i1 %.0.in11.i.i.i.i.i.i.i49.i to i64
   %604 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %600, i64 %602)
@@ -1472,7 +1472,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %608 = extractvalue { i64, i1 } %607, 1
   %609 = extractvalue { i64, i1 } %607, 0
   %610 = or i1 %605, %608
-  %611 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i.i.i.i.i.i.i50.i
+  %611 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0910.i.i.i.i.i.i.i50.i
   store i64 %609, ptr %611, align 8, !noalias !200
   %612 = add nuw nsw i64 %.0910.i.i.i.i.i.i.i50.i, 1
   %exitcond.not.i.i.i.i.i.i.i51.i = icmp eq i64 %612, 4
@@ -1491,7 +1491,7 @@ _ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i5
 _ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i53.i: ; preds = %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i52.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i40.i, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false), !tbaa.struct !17, !noalias !211
   call void @llvm.lifetime.end.p0(ptr nonnull %21) #11, !noalias !192
-  %614 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %22, i64 %.05.i.i42.i
+  %614 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %.05.i.i42.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %614, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i40.i, i64 64, i1 false), !noalias !189
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i40.i)
   %615 = add nuw nsw i64 %.05.i.i42.i, 1
@@ -1517,7 +1517,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit55.i: ; pr
 617:                                              ; preds = %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i70.i, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit55.i
   %.05.i.i59.i = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit55.i ], [ %654, %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i70.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i57.i)
-  %618 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %616, i64 %.05.i.i59.i
+  %618 = getelementptr inbounds nuw [64 x i8], ptr %616, i64 %.05.i.i59.i
   call void @llvm.lifetime.start.p0(ptr nonnull %14) #11, !noalias !215
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false), !tbaa !19, !noalias !215
   br label %619
@@ -1527,7 +1527,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit55.i: ; pr
   %.04.i.sroa.phi.i.i60.i = phi ptr [ %14, %617 ], [ %.04.i.sroa.gep4.i.i58.i, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i69.i ]
   %.04.i.i.i61.i = phi i64 [ 0, %617 ], [ 1, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i69.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i56.i)
-  %621 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %618, i64 %.04.i.i.i61.i
+  %621 = getelementptr inbounds nuw [32 x i8], ptr %618, i64 %.04.i.i.i61.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13) #11, !noalias !220
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !noalias !220
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !220
@@ -1539,9 +1539,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit55.i: ; pr
 622:                                              ; preds = %622, %619
   %.0.in11.i.i.i.i.i.i62.i = phi i1 [ false, %619 ], [ %634, %622 ]
   %.0910.i.i.i.i.i.i63.i = phi i64 [ 0, %619 ], [ %636, %622 ]
-  %623 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i.i.i63.i
+  %623 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i.i.i63.i
   %624 = load i64, ptr %623, align 8, !tbaa !19, !noalias !226
-  %625 = getelementptr inbounds nuw i64, ptr %621, i64 %.0910.i.i.i.i.i.i63.i
+  %625 = getelementptr inbounds nuw [8 x i8], ptr %621, i64 %.0910.i.i.i.i.i.i63.i
   %626 = load i64, ptr %625, align 8, !tbaa !19, !noalias !226
   %627 = zext i1 %.0.in11.i.i.i.i.i.i62.i to i64
   %628 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %624, i64 %626)
@@ -1551,7 +1551,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit55.i: ; pr
   %632 = extractvalue { i64, i1 } %631, 1
   %633 = extractvalue { i64, i1 } %631, 0
   %634 = or i1 %629, %632
-  %635 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i.i.i63.i
+  %635 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i.i.i63.i
   store i64 %633, ptr %635, align 8, !tbaa !19, !noalias !226
   %636 = add nuw nsw i64 %.0910.i.i.i.i.i.i63.i, 1
   %exitcond.not.i.i.i.i.i.i64.i = icmp eq i64 %636, 4
@@ -1566,9 +1566,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 637:                                              ; preds = %637, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i65.i
   %.0.in11.i.i.i.i.i.i.i66.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i65.i ], [ %649, %637 ]
   %.0910.i.i.i.i.i.i.i67.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i65.i ], [ %651, %637 ]
-  %638 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i.i.i.i.i67.i
+  %638 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i.i.i.i.i.i.i67.i
   %639 = load i64, ptr %638, align 8, !tbaa !19, !noalias !229
-  %640 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i67.i
+  %640 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i67.i
   %641 = load i64, ptr %640, align 8, !tbaa !19, !noalias !229
   %642 = zext i1 %.0.in11.i.i.i.i.i.i.i66.i to i64
   %643 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %639, i64 %641)
@@ -1578,7 +1578,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %647 = extractvalue { i64, i1 } %646, 1
   %648 = extractvalue { i64, i1 } %646, 0
   %649 = or i1 %644, %647
-  %650 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i.i.i67.i
+  %650 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i.i.i67.i
   store i64 %648, ptr %650, align 8, !noalias !223
   %651 = add nuw nsw i64 %.0910.i.i.i.i.i.i.i67.i, 1
   %exitcond.not.i.i.i.i.i.i.i68.i = icmp eq i64 %651, 4
@@ -1597,7 +1597,7 @@ _ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i6
 _ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i70.i: ; preds = %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i69.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i57.i, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false), !tbaa.struct !17, !noalias !234
   call void @llvm.lifetime.end.p0(ptr nonnull %14) #11, !noalias !215
-  %653 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %15, i64 %.05.i.i59.i
+  %653 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %.05.i.i59.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %653, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i57.i, i64 64, i1 false), !noalias !212
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i57.i)
   %654 = add nuw nsw i64 %.05.i.i59.i, 1
@@ -1625,7 +1625,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit72.i: ; pr
 656:                                              ; preds = %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i87.i, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit72.i
   %.05.i.i76.i = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit72.i ], [ %693, %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i87.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i74.i)
-  %657 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %655, i64 %.05.i.i76.i
+  %657 = getelementptr inbounds nuw [64 x i8], ptr %655, i64 %.05.i.i76.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7) #11, !noalias !238
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false), !tbaa !19, !noalias !238
   br label %658
@@ -1635,7 +1635,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit72.i: ; pr
   %.04.i.sroa.phi.i.i77.i = phi ptr [ %7, %656 ], [ %.04.i.sroa.gep4.i.i75.i, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i86.i ]
   %.04.i.i.i78.i = phi i64 [ 0, %656 ], [ 1, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i86.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i73.i)
-  %660 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %657, i64 %.04.i.i.i78.i
+  %660 = getelementptr inbounds nuw [32 x i8], ptr %657, i64 %.04.i.i.i78.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #11, !noalias !243
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !noalias !243
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !243
@@ -1647,9 +1647,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit72.i: ; pr
 661:                                              ; preds = %661, %658
   %.0.in11.i.i.i.i.i.i79.i = phi i1 [ false, %658 ], [ %673, %661 ]
   %.0910.i.i.i.i.i.i80.i = phi i64 [ 0, %658 ], [ %675, %661 ]
-  %662 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i.i.i80.i
+  %662 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i.i.i80.i
   %663 = load i64, ptr %662, align 8, !tbaa !19, !noalias !249
-  %664 = getelementptr inbounds nuw i64, ptr %660, i64 %.0910.i.i.i.i.i.i80.i
+  %664 = getelementptr inbounds nuw [8 x i8], ptr %660, i64 %.0910.i.i.i.i.i.i80.i
   %665 = load i64, ptr %664, align 8, !tbaa !19, !noalias !249
   %666 = zext i1 %.0.in11.i.i.i.i.i.i79.i to i64
   %667 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %663, i64 %665)
@@ -1659,7 +1659,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn25410Fq12ConfigEE9conjugateEv.exit72.i: ; pr
   %671 = extractvalue { i64, i1 } %670, 1
   %672 = extractvalue { i64, i1 } %670, 0
   %673 = or i1 %668, %671
-  %674 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i.i.i80.i
+  %674 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i.i.i80.i
   store i64 %672, ptr %674, align 8, !tbaa !19, !noalias !249
   %675 = add nuw nsw i64 %.0910.i.i.i.i.i.i80.i, 1
   %exitcond.not.i.i.i.i.i.i81.i = icmp eq i64 %675, 4
@@ -1674,9 +1674,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 676:                                              ; preds = %676, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i82.i
   %.0.in11.i.i.i.i.i.i.i83.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i82.i ], [ %688, %676 ]
   %.0910.i.i.i.i.i.i.i84.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i.i82.i ], [ %690, %676 ]
-  %677 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i.i.i.i84.i
+  %677 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i.i.i.i84.i
   %678 = load i64, ptr %677, align 8, !tbaa !19, !noalias !252
-  %679 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i84.i
+  %679 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i.i84.i
   %680 = load i64, ptr %679, align 8, !tbaa !19, !noalias !252
   %681 = zext i1 %.0.in11.i.i.i.i.i.i.i83.i to i64
   %682 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %678, i64 %680)
@@ -1686,7 +1686,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %686 = extractvalue { i64, i1 } %685, 1
   %687 = extractvalue { i64, i1 } %685, 0
   %688 = or i1 %683, %686
-  %689 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i.i.i.i.i.i.i84.i
+  %689 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i.i.i.i.i.i.i84.i
   store i64 %687, ptr %689, align 8, !noalias !246
   %690 = add nuw nsw i64 %.0910.i.i.i.i.i.i.i84.i, 1
   %exitcond.not.i.i.i.i.i.i.i85.i = icmp eq i64 %690, 4
@@ -1705,7 +1705,7 @@ _ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i8
 _ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i.i87.i: ; preds = %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i.i86.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i74.i, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !17, !noalias !257
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #11, !noalias !238
-  %692 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %8, i64 %.05.i.i76.i
+  %692 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %.05.i.i76.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %692, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i.i74.i, i64 64, i1 false), !noalias !235
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i74.i)
   %693 = add nuw nsw i64 %.05.i.i76.i, 1
@@ -1835,9 +1835,9 @@ _ZN6evmmax5bn25412_GLOBAL__N_19final_expERKNS_3ecc12ExtFieldElemINS0_10Fq12Confi
 701:                                              ; preds = %701, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %708, %701 ], [ 0, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.078.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %707, %701 ], [ 0, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %702 = getelementptr inbounds nuw i64, ptr %.0810.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %702 = getelementptr inbounds nuw [8 x i8], ptr %.0810.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %703 = load i64, ptr %702, align 8, !tbaa !19
-  %704 = getelementptr inbounds nuw i64, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %704 = getelementptr inbounds nuw [8 x i8], ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %705 = load i64, ptr %704, align 8, !tbaa !19
   %706 = xor i64 %705, %703
   %707 = or i64 %706, %.078.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1931,9 +1931,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6evmmax5bn25411is_on_curveERKN
 11:                                               ; preds = %11, %1
   %.0.in11.i.i.i = phi i1 [ false, %1 ], [ %23, %11 ]
   %.0910.i.i.i = phi i64 [ 0, %1 ], [ %25, %11 ]
-  %12 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i
   %13 = load i64, ptr %12, align 8, !tbaa !19, !noalias !275
-  %14 = getelementptr inbounds nuw i64, ptr @__const._ZN6evmmax5bn25411is_on_curveERKNS_3ecc5PointINS1_13BaseFieldElemINS0_15BaseFieldConfigEEEEE.B, i64 %.0910.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN6evmmax5bn25411is_on_curveERKNS_3ecc5PointINS1_13BaseFieldElemINS0_15BaseFieldConfigEEEEE.B, i64 %.0910.i.i.i
   %15 = load i64, ptr %14, align 8, !tbaa !19, !noalias !275
   %16 = zext i1 %.0.in11.i.i.i to i64
   %17 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %15)
@@ -1943,7 +1943,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6evmmax5bn25411is_on_curveERKN
   %21 = extractvalue { i64, i1 } %20, 1
   %22 = extractvalue { i64, i1 } %20, 0
   %23 = or i1 %18, %21
-  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i.i.i
   store i64 %22, ptr %24, align 8, !tbaa !19, !noalias !275
   %25 = add nuw nsw i64 %.0910.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %25, 4
@@ -1960,9 +1960,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 26:                                               ; preds = %26, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %.0.in11.i5.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i ], [ %38, %26 ]
   %.0910.i6.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i ], [ %40, %26 ]
-  %27 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i6.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i6.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !19, !noalias !278
-  %29 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i
   %30 = load i64, ptr %29, align 8, !tbaa !19, !noalias !278
   %31 = zext i1 %.0.in11.i5.i.i to i64
   %32 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %28, i64 %30)
@@ -1972,7 +1972,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %36 = extractvalue { i64, i1 } %35, 1
   %37 = extractvalue { i64, i1 } %35, 0
   %38 = or i1 %33, %36
-  %39 = getelementptr inbounds nuw i64, ptr %2, i64 %.0910.i6.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0910.i6.i.i
   store i64 %37, ptr %39, align 8, !tbaa !19, !noalias !278
   %40 = add nuw nsw i64 %.0910.i6.i.i, 1
   %exitcond.not.i7.i.i = icmp eq i64 %40, 4
@@ -1992,9 +1992,9 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit: ; 
 42:                                               ; preds = %42, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit
   %.09.i.i = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit ], [ %49, %42 ]
   %.078.i.i = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit ], [ %48, %42 ]
-  %43 = getelementptr inbounds nuw i64, ptr %8, i64 %.09.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !19
-  %45 = getelementptr inbounds nuw i64, ptr %9, i64 %.09.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.09.i.i
   %46 = load i64, ptr %45, align 8, !tbaa !19
   %47 = xor i64 %46, %44
   %48 = or i64 %47, %.078.i.i
@@ -2038,7 +2038,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6evmmax5bn25419is_on_twisted_c
   %.07.i.sroa.phi = phi ptr [ %6, %1 ], [ %.07.i.sroa.gep5, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   %.07.i = phi i64 [ 0, %1 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  %13 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr @_ZN6evmmax5bn2549Fq6Config10_3_ksi_invE, i64 %.07.i
+  %13 = getelementptr inbounds nuw [32 x i8], ptr @_ZN6evmmax5bn2549Fq6Config10_3_ksi_invE, i64 %.07.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #11, !noalias !281
   call void @llvm.lifetime.start.p0(ptr nonnull %3) #11, !noalias !288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !tbaa !19, !noalias !288
@@ -2047,9 +2047,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6evmmax5bn25419is_on_twisted_c
 14:                                               ; preds = %14, %11
   %.0.in11.i.i.i.i = phi i1 [ false, %11 ], [ %26, %14 ]
   %.0910.i.i.i.i = phi i64 [ 0, %11 ], [ %28, %14 ]
-  %15 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !19, !noalias !288
   %19 = zext i1 %.0.in11.i.i.i.i to i64
   %20 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %18)
@@ -2059,7 +2059,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6evmmax5bn25419is_on_twisted_c
   %24 = extractvalue { i64, i1 } %23, 1
   %25 = extractvalue { i64, i1 } %23, 0
   %26 = or i1 %21, %24
-  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i.i.i.i
   store i64 %25, ptr %27, align 8, !tbaa !19, !noalias !288
   %28 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %28, 4
@@ -2076,9 +2076,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 29:                                               ; preds = %29, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %41, %29 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %43, %29 ]
-  %30 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i6.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i6.i.i.i
   %31 = load i64, ptr %30, align 8, !tbaa !19, !noalias !291
-  %32 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %33 = load i64, ptr %32, align 8, !tbaa !19, !noalias !291
   %34 = zext i1 %.0.in11.i5.i.i.i to i64
   %35 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %31, i64 %33)
@@ -2088,7 +2088,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %39 = extractvalue { i64, i1 } %38, 1
   %40 = extractvalue { i64, i1 } %38, 0
   %41 = or i1 %36, %39
-  %42 = getelementptr inbounds nuw i64, ptr %2, i64 %.0910.i6.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0910.i6.i.i.i
   store i64 %40, ptr %42, align 8, !tbaa !19, !noalias !291
   %43 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %43, 4
@@ -2116,9 +2116,9 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i: 
 45:                                               ; preds = %45, %.preheader.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i = phi i64 [ %52, %45 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %.078.i.i.i.i.i.i.i.i = phi i64 [ %51, %45 ], [ 0, %.preheader.i.i.i.i.i.i ]
-  %46 = getelementptr inbounds nuw i64, ptr %.0810.i.i.i.i.ptr.i.i, i64 %.09.i.i.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.0810.i.i.i.i.ptr.i.i, i64 %.09.i.i.i.i.i.i.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !19
-  %48 = getelementptr inbounds nuw i64, ptr %.011.i.i.i.i.i.i, i64 %.09.i.i.i.i.i.i.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.011.i.i.i.i.i.i, i64 %.09.i.i.i.i.i.i.i.i
   %49 = load i64, ptr %48, align 8
   %50 = xor i64 %49, %47
   %51 = or i64 %50, %.078.i.i.i.i.i.i.i.i
@@ -2249,7 +2249,7 @@ define linkonce_odr hidden void @_ZNK6evmmax8ModArithIN4intx4uintILj256EEEE3mulE
   %28 = phi i64 [ 0, %4 ], [ %.sroa.011.i8.i49.0..sroa.011.i8.i49.0..sroa.011.i8.i49.0..sroa.011.i8.0..sroa.011.i8.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i14.i64.1, %_ZN6evmmax8ModArithIN4intx4uintILj256EEEE6addmulEmmmm.exit68.2 ]
   %29 = phi i64 [ 0, %4 ], [ %.sroa.011.i8.i49.0..sroa.011.i8.i49.0..sroa.011.i8.i49.0..sroa.011.i8.0..sroa.011.i8.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i14.i64, %_ZN6evmmax8ModArithIN4intx4uintILj256EEEE6addmulEmmmm.exit68.2 ]
   %.093 = phi i64 [ 0, %4 ], [ %237, %_ZN6evmmax8ModArithIN4intx4uintILj256EEEE6addmulEmmmm.exit68.2 ]
-  %30 = getelementptr inbounds nuw i64, ptr %3, i64 %.093
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.093
   %31 = load i64, ptr %30, align 8, !tbaa !19
   %32 = zext i64 %31 to i128
   %33 = mul nuw i128 %32, %16
@@ -2277,9 +2277,9 @@ _ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit.preheader: ; preds 
 _ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit: ; preds = %_ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit.preheader, %_ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit
   %.0.in11.i.i.i = phi i1 [ %45, %_ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit ], [ false, %_ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit.preheader ]
   %.0910.i.i.i = phi i64 [ %46, %_ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit ], [ 0, %_ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit.preheader ]
-  %38 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i
   %39 = load i64, ptr %38, align 8, !tbaa !19, !noalias !307
-  %40 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0910.i.i.i
   %41 = load i64, ptr %40, align 8, !tbaa !19, !noalias !307
   %42 = icmp ult i64 %39, %41
   %43 = icmp eq i64 %39, %41
@@ -2753,9 +2753,9 @@ _ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit72: ; preds = %_ZN4i
 239:                                              ; preds = %239, %_ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit72
   %.0.in11.i.i.i73 = phi i1 [ false, %_ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit72 ], [ %251, %239 ]
   %.0910.i.i.i74 = phi i64 [ 0, %_ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit72 ], [ %253, %239 ]
-  %240 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i74
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i74
   %241 = load i64, ptr %240, align 8, !tbaa !19, !noalias !325
-  %242 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i74
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i74
   %243 = load i64, ptr %242, align 8, !tbaa !19, !noalias !325
   %244 = zext i1 %.0.in11.i.i.i73 to i64
   %245 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %241, i64 %243)
@@ -2765,7 +2765,7 @@ _ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit72: ; preds = %_ZN4i
   %249 = extractvalue { i64, i1 } %248, 1
   %250 = extractvalue { i64, i1 } %248, 0
   %251 = or i1 %246, %249
-  %252 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i74
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i74
   store i64 %250, ptr %252, align 8
   %253 = add nuw nsw i64 %.0910.i.i.i74, 1
   %exitcond.not.i.i.i75 = icmp eq i64 %253, 5
@@ -2819,9 +2819,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldEl
 17:                                               ; preds = %17, %3
   %.0.in11.i.i.i = phi i1 [ false, %3 ], [ %29, %17 ]
   %.0910.i.i.i = phi i64 [ 0, %3 ], [ %31, %17 ]
-  %18 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !19, !noalias !336
-  %20 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i.i.i
   %21 = load i64, ptr %20, align 8, !tbaa !19, !noalias !336
   %22 = zext i1 %.0.in11.i.i.i to i64
   %23 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %19, i64 %21)
@@ -2831,7 +2831,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldEl
   %27 = extractvalue { i64, i1 } %26, 1
   %28 = extractvalue { i64, i1 } %26, 0
   %29 = or i1 %24, %27
-  %30 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i
   store i64 %28, ptr %30, align 8, !tbaa !19, !noalias !336
   %31 = add nuw nsw i64 %.0910.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %31, 4
@@ -2846,9 +2846,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 32:                                               ; preds = %32, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %.0.in11.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i ], [ %44, %32 ]
   %.0910.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i ], [ %46, %32 ]
-  %33 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i
   %34 = load i64, ptr %33, align 8, !tbaa !19, !noalias !339
-  %35 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i
   %36 = load i64, ptr %35, align 8, !tbaa !19, !noalias !339
   %37 = zext i1 %.0.in11.i.i.i.i to i64
   %38 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %34, i64 %36)
@@ -2858,7 +2858,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %42 = extractvalue { i64, i1 } %41, 1
   %43 = extractvalue { i64, i1 } %41, 0
   %44 = or i1 %39, %42
-  %45 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i.i
   store i64 %43, ptr %45, align 8, !noalias !333
   %46 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %46, 4
@@ -2881,9 +2881,9 @@ _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit: ; 
 48:                                               ; preds = %48, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit
   %.0.in11.i.i.i8 = phi i1 [ false, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit ], [ %60, %48 ]
   %.0910.i.i.i9 = phi i64 [ 0, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit ], [ %62, %48 ]
-  %49 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i9
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i9
   %50 = load i64, ptr %49, align 8, !tbaa !19, !noalias !349
-  %51 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i9
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i.i9
   %52 = load i64, ptr %51, align 8, !tbaa !19, !noalias !349
   %53 = zext i1 %.0.in11.i.i.i8 to i64
   %54 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %50, i64 %52)
@@ -2893,7 +2893,7 @@ _ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit: ; 
   %58 = extractvalue { i64, i1 } %57, 1
   %59 = extractvalue { i64, i1 } %57, 0
   %60 = or i1 %55, %58
-  %61 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i9
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i9
   store i64 %59, ptr %61, align 8, !tbaa !19, !noalias !349
   %62 = add nuw nsw i64 %.0910.i.i.i9, 1
   %exitcond.not.i.i.i10 = icmp eq i64 %62, 4
@@ -2910,9 +2910,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 63:                                               ; preds = %63, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %.0.in11.i5.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i ], [ %75, %63 ]
   %.0910.i6.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i ], [ %77, %63 ]
-  %64 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i6.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i6.i.i
   %65 = load i64, ptr %64, align 8, !tbaa !19, !noalias !352
-  %66 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i
   %67 = load i64, ptr %66, align 8, !tbaa !19, !noalias !352
   %68 = zext i1 %.0.in11.i5.i.i to i64
   %69 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %65, i64 %67)
@@ -2922,7 +2922,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %73 = extractvalue { i64, i1 } %72, 1
   %74 = extractvalue { i64, i1 } %72, 0
   %75 = or i1 %70, %73
-  %76 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i6.i.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i6.i.i
   store i64 %74, ptr %76, align 8, !tbaa !19, !noalias !352
   %77 = add nuw nsw i64 %.0910.i6.i.i, 1
   %exitcond.not.i7.i.i = icmp eq i64 %77, 4
@@ -3300,9 +3300,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2543addERKNS_3ecc8JacPointINS1_12E
 57:                                               ; preds = %57, %55
   %.0.in11.i.i.i.i = phi i1 [ false, %55 ], [ %69, %57 ]
   %.0910.i.i.i.i = phi i64 [ 0, %55 ], [ %71, %57 ]
-  %58 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi85, i64 %.0910.i.i.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi85, i64 %.0910.i.i.i.i
   %59 = load i64, ptr %58, align 8, !tbaa !19, !noalias !392
-  %60 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i
   %61 = load i64, ptr %60, align 8, !tbaa !19, !noalias !392
   %62 = zext i1 %.0.in11.i.i.i.i to i64
   %63 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %59, i64 %61)
@@ -3312,7 +3312,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2543addERKNS_3ecc8JacPointINS1_12E
   %67 = extractvalue { i64, i1 } %66, 1
   %68 = extractvalue { i64, i1 } %66, 0
   %69 = or i1 %64, %67
-  %70 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i.i.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0910.i.i.i.i
   store i64 %68, ptr %70, align 8, !tbaa !19, !noalias !392
   %71 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %71, 4
@@ -3327,9 +3327,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 72:                                               ; preds = %72, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %84, %72 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %86, %72 ]
-  %73 = getelementptr inbounds nuw i64, ptr %30, i64 %.0910.i.i.i.i.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0910.i.i.i.i.i
   %74 = load i64, ptr %73, align 8, !tbaa !19, !noalias !395
-  %75 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %76 = load i64, ptr %75, align 8, !tbaa !19, !noalias !395
   %77 = zext i1 %.0.in11.i.i.i.i.i to i64
   %78 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %74, i64 %76)
@@ -3339,7 +3339,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %82 = extractvalue { i64, i1 } %81, 1
   %83 = extractvalue { i64, i1 } %81, 0
   %84 = or i1 %79, %82
-  %85 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i.i.i.i.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0910.i.i.i.i.i
   store i64 %83, ptr %85, align 8, !noalias !389
   %86 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %86, 4
@@ -3378,9 +3378,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 90:                                               ; preds = %90, %88
   %.0.in11.i.i.i.i20 = phi i1 [ false, %88 ], [ %102, %90 ]
   %.0910.i.i.i.i21 = phi i64 [ 0, %88 ], [ %104, %90 ]
-  %91 = getelementptr inbounds nuw i64, ptr %.06.i19.sroa.phi88, i64 %.0910.i.i.i.i21
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %.06.i19.sroa.phi88, i64 %.0910.i.i.i.i21
   %92 = load i64, ptr %91, align 8, !tbaa !19, !noalias !410
-  %93 = getelementptr inbounds nuw i64, ptr %.06.i19.sroa.phi, i64 %.0910.i.i.i.i21
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.06.i19.sroa.phi, i64 %.0910.i.i.i.i21
   %94 = load i64, ptr %93, align 8, !tbaa !19, !noalias !410
   %95 = zext i1 %.0.in11.i.i.i.i20 to i64
   %96 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %92, i64 %94)
@@ -3390,7 +3390,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %100 = extractvalue { i64, i1 } %99, 1
   %101 = extractvalue { i64, i1 } %99, 0
   %102 = or i1 %97, %100
-  %103 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i.i.i.i21
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0910.i.i.i.i21
   store i64 %101, ptr %103, align 8, !tbaa !19, !noalias !410
   %104 = add nuw nsw i64 %.0910.i.i.i.i21, 1
   %exitcond.not.i.i.i.i22 = icmp eq i64 %104, 4
@@ -3405,9 +3405,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 105:                                              ; preds = %105, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i23
   %.0.in11.i.i.i.i.i24 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i23 ], [ %117, %105 ]
   %.0910.i.i.i.i.i25 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i23 ], [ %119, %105 ]
-  %106 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i.i25
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0910.i.i.i.i.i25
   %107 = load i64, ptr %106, align 8, !tbaa !19, !noalias !413
-  %108 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i25
+  %108 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i25
   %109 = load i64, ptr %108, align 8, !tbaa !19, !noalias !413
   %110 = zext i1 %.0.in11.i.i.i.i.i24 to i64
   %111 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %107, i64 %109)
@@ -3417,7 +3417,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %115 = extractvalue { i64, i1 } %114, 1
   %116 = extractvalue { i64, i1 } %114, 0
   %117 = or i1 %112, %115
-  %118 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i.i.i.i.i25
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0910.i.i.i.i.i25
   store i64 %116, ptr %118, align 8, !noalias !407
   %119 = add nuw nsw i64 %.0910.i.i.i.i.i25, 1
   %exitcond.not.i.i.i.i.i26 = icmp eq i64 %119, 4
@@ -3462,9 +3462,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds 
 123:                                              ; preds = %123, %121
   %.0.in11.i.i.i.i31 = phi i1 [ false, %121 ], [ %135, %123 ]
   %.0910.i.i.i.i32 = phi i64 [ 0, %121 ], [ %137, %123 ]
-  %124 = getelementptr inbounds nuw i64, ptr %.06.i30.sroa.phi91, i64 %.0910.i.i.i.i32
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %.06.i30.sroa.phi91, i64 %.0910.i.i.i.i32
   %125 = load i64, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i64, ptr %.06.i30.sroa.phi, i64 %.0910.i.i.i.i32
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %.06.i30.sroa.phi, i64 %.0910.i.i.i.i32
   %127 = load i64, ptr %126, align 8, !tbaa !19, !noalias !426
   %128 = zext i1 %.0.in11.i.i.i.i31 to i64
   %129 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %125, i64 %127)
@@ -3474,7 +3474,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds 
   %133 = extractvalue { i64, i1 } %132, 1
   %134 = extractvalue { i64, i1 } %132, 0
   %135 = or i1 %130, %133
-  %136 = getelementptr inbounds nuw i64, ptr %22, i64 %.0910.i.i.i.i32
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0910.i.i.i.i32
   store i64 %134, ptr %136, align 8, !tbaa !19, !noalias !426
   %137 = add nuw nsw i64 %.0910.i.i.i.i32, 1
   %exitcond.not.i.i.i.i33 = icmp eq i64 %137, 4
@@ -3489,9 +3489,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 138:                                              ; preds = %138, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34
   %.0.in11.i.i.i.i.i35 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %150, %138 ]
   %.0910.i.i.i.i.i36 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %152, %138 ]
-  %139 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i.i.i.i.i36
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0910.i.i.i.i.i36
   %140 = load i64, ptr %139, align 8, !tbaa !19, !noalias !429
-  %141 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i36
+  %141 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i36
   %142 = load i64, ptr %141, align 8, !tbaa !19, !noalias !429
   %143 = zext i1 %.0.in11.i.i.i.i.i35 to i64
   %144 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %140, i64 %142)
@@ -3501,7 +3501,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %148 = extractvalue { i64, i1 } %147, 1
   %149 = extractvalue { i64, i1 } %147, 0
   %150 = or i1 %145, %148
-  %151 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i.i.i.i36
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i.i.i.i.i36
   store i64 %149, ptr %151, align 8, !noalias !423
   %152 = add nuw nsw i64 %.0910.i.i.i.i.i36, 1
   %exitcond.not.i.i.i.i.i37 = icmp eq i64 %152, 4
@@ -3535,9 +3535,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39: ; preds 
 156:                                              ; preds = %156, %154
   %.0.in11.i.i.i.i41 = phi i1 [ false, %154 ], [ %168, %156 ]
   %.0910.i.i.i.i42 = phi i64 [ 0, %154 ], [ %170, %156 ]
-  %157 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi94, i64 %.0910.i.i.i.i42
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi94, i64 %.0910.i.i.i.i42
   %158 = load i64, ptr %157, align 8
-  %159 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i42
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i42
   %160 = load i64, ptr %159, align 8, !tbaa !19, !noalias !442
   %161 = zext i1 %.0.in11.i.i.i.i41 to i64
   %162 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %158, i64 %160)
@@ -3547,7 +3547,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39: ; preds 
   %166 = extractvalue { i64, i1 } %165, 1
   %167 = extractvalue { i64, i1 } %165, 0
   %168 = or i1 %163, %166
-  %169 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i.i.i.i42
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0910.i.i.i.i42
   store i64 %167, ptr %169, align 8, !tbaa !19, !noalias !442
   %170 = add nuw nsw i64 %.0910.i.i.i.i42, 1
   %exitcond.not.i.i.i.i43 = icmp eq i64 %170, 4
@@ -3564,9 +3564,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 171:                                              ; preds = %171, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %183, %171 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %185, %171 ]
-  %172 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i6.i.i.i
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0910.i6.i.i.i
   %173 = load i64, ptr %172, align 8, !tbaa !19, !noalias !445
-  %174 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
+  %174 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %175 = load i64, ptr %174, align 8, !tbaa !19, !noalias !445
   %176 = zext i1 %.0.in11.i5.i.i.i to i64
   %177 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %173, i64 %175)
@@ -3576,7 +3576,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %181 = extractvalue { i64, i1 } %180, 1
   %182 = extractvalue { i64, i1 } %180, 0
   %183 = or i1 %178, %181
-  %184 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i6.i.i.i
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i6.i.i.i
   store i64 %182, ptr %184, align 8, !tbaa !19, !noalias !445
   %185 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %185, 4
@@ -3614,9 +3614,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 189:                                              ; preds = %189, %187
   %.0.in11.i.i.i.i46 = phi i1 [ false, %187 ], [ %201, %189 ]
   %.0910.i.i.i.i47 = phi i64 [ 0, %187 ], [ %203, %189 ]
-  %190 = getelementptr inbounds nuw i64, ptr %.06.i45.sroa.phi97, i64 %.0910.i.i.i.i47
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %.06.i45.sroa.phi97, i64 %.0910.i.i.i.i47
   %191 = load i64, ptr %190, align 8
-  %192 = getelementptr inbounds nuw i64, ptr %.06.i45.sroa.phi, i64 %.0910.i.i.i.i47
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %.06.i45.sroa.phi, i64 %.0910.i.i.i.i47
   %193 = load i64, ptr %192, align 8
   %194 = zext i1 %.0.in11.i.i.i.i46 to i64
   %195 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %191, i64 %193)
@@ -3626,7 +3626,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %199 = extractvalue { i64, i1 } %198, 1
   %200 = extractvalue { i64, i1 } %198, 0
   %201 = or i1 %196, %199
-  %202 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i47
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i47
   store i64 %200, ptr %202, align 8, !tbaa !19, !noalias !457
   %203 = add nuw nsw i64 %.0910.i.i.i.i47, 1
   %exitcond.not.i.i.i.i48 = icmp eq i64 %203, 4
@@ -3641,9 +3641,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 204:                                              ; preds = %204, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i49
   %.0.in11.i.i.i.i.i50 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i49 ], [ %216, %204 ]
   %.0910.i.i.i.i.i51 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i49 ], [ %218, %204 ]
-  %205 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i.i51
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i.i.i.i51
   %206 = load i64, ptr %205, align 8, !tbaa !19, !noalias !460
-  %207 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i51
+  %207 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i51
   %208 = load i64, ptr %207, align 8, !tbaa !19, !noalias !460
   %209 = zext i1 %.0.in11.i.i.i.i.i50 to i64
   %210 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %206, i64 %208)
@@ -3653,7 +3653,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %214 = extractvalue { i64, i1 } %213, 1
   %215 = extractvalue { i64, i1 } %213, 0
   %216 = or i1 %211, %214
-  %217 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i.i.i51
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i.i.i.i.i51
   store i64 %215, ptr %217, align 8, !noalias !454
   %218 = add nuw nsw i64 %.0910.i.i.i.i.i51, 1
   %exitcond.not.i.i.i.i.i52 = icmp eq i64 %218, 4
@@ -3693,9 +3693,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54: ; preds 
 222:                                              ; preds = %222, %220
   %.0.in11.i.i.i.i57 = phi i1 [ false, %220 ], [ %234, %222 ]
   %.0910.i.i.i.i58 = phi i64 [ 0, %220 ], [ %236, %222 ]
-  %223 = getelementptr inbounds nuw i64, ptr %.06.i56.sroa.phi100, i64 %.0910.i.i.i.i58
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %.06.i56.sroa.phi100, i64 %.0910.i.i.i.i58
   %224 = load i64, ptr %223, align 8, !tbaa !19, !noalias !475
-  %225 = getelementptr inbounds nuw i64, ptr %.06.i56.sroa.phi, i64 %.0910.i.i.i.i58
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %.06.i56.sroa.phi, i64 %.0910.i.i.i.i58
   %226 = load i64, ptr %225, align 8
   %227 = zext i1 %.0.in11.i.i.i.i57 to i64
   %228 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %224, i64 %226)
@@ -3705,7 +3705,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54: ; preds 
   %232 = extractvalue { i64, i1 } %231, 1
   %233 = extractvalue { i64, i1 } %231, 0
   %234 = or i1 %229, %232
-  %235 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i58
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i58
   store i64 %233, ptr %235, align 8, !tbaa !19, !noalias !475
   %236 = add nuw nsw i64 %.0910.i.i.i.i58, 1
   %exitcond.not.i.i.i.i59 = icmp eq i64 %236, 4
@@ -3720,9 +3720,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 237:                                              ; preds = %237, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60
   %.0.in11.i.i.i.i.i61 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60 ], [ %249, %237 ]
   %.0910.i.i.i.i.i62 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60 ], [ %251, %237 ]
-  %238 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i62
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i62
   %239 = load i64, ptr %238, align 8, !tbaa !19, !noalias !478
-  %240 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i62
+  %240 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i62
   %241 = load i64, ptr %240, align 8, !tbaa !19, !noalias !478
   %242 = zext i1 %.0.in11.i.i.i.i.i61 to i64
   %243 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %239, i64 %241)
@@ -3732,7 +3732,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %247 = extractvalue { i64, i1 } %246, 1
   %248 = extractvalue { i64, i1 } %246, 0
   %249 = or i1 %244, %247
-  %250 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i62
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i.i.i62
   store i64 %248, ptr %250, align 8, !noalias !472
   %251 = add nuw nsw i64 %.0910.i.i.i.i.i62, 1
   %exitcond.not.i.i.i.i.i63 = icmp eq i64 %251, 4
@@ -3772,9 +3772,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit65: ; preds 
 255:                                              ; preds = %255, %253
   %.0.in11.i.i.i.i68 = phi i1 [ false, %253 ], [ %267, %255 ]
   %.0910.i.i.i.i69 = phi i64 [ 0, %253 ], [ %269, %255 ]
-  %256 = getelementptr inbounds nuw i64, ptr %.06.i67.sroa.phi103, i64 %.0910.i.i.i.i69
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %.06.i67.sroa.phi103, i64 %.0910.i.i.i.i69
   %257 = load i64, ptr %256, align 8
-  %258 = getelementptr inbounds nuw i64, ptr %.06.i67.sroa.phi, i64 %.0910.i.i.i.i69
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %.06.i67.sroa.phi, i64 %.0910.i.i.i.i69
   %259 = load i64, ptr %258, align 8, !tbaa !19, !noalias !491
   %260 = zext i1 %.0.in11.i.i.i.i68 to i64
   %261 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %257, i64 %259)
@@ -3784,7 +3784,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit65: ; preds 
   %265 = extractvalue { i64, i1 } %264, 1
   %266 = extractvalue { i64, i1 } %264, 0
   %267 = or i1 %262, %265
-  %268 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i69
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i69
   store i64 %266, ptr %268, align 8, !tbaa !19, !noalias !491
   %269 = add nuw nsw i64 %.0910.i.i.i.i69, 1
   %exitcond.not.i.i.i.i70 = icmp eq i64 %269, 4
@@ -3799,9 +3799,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 270:                                              ; preds = %270, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i71
   %.0.in11.i.i.i.i.i72 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i71 ], [ %282, %270 ]
   %.0910.i.i.i.i.i73 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i71 ], [ %284, %270 ]
-  %271 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i.i73
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i.i73
   %272 = load i64, ptr %271, align 8, !tbaa !19, !noalias !494
-  %273 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i73
+  %273 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i73
   %274 = load i64, ptr %273, align 8, !tbaa !19, !noalias !494
   %275 = zext i1 %.0.in11.i.i.i.i.i72 to i64
   %276 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %272, i64 %274)
@@ -3811,7 +3811,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %280 = extractvalue { i64, i1 } %279, 1
   %281 = extractvalue { i64, i1 } %279, 0
   %282 = or i1 %277, %280
-  %283 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i.i73
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i.i73
   store i64 %281, ptr %283, align 8, !noalias !488
   %284 = add nuw nsw i64 %.0910.i.i.i.i.i73, 1
   %exitcond.not.i.i.i.i.i74 = icmp eq i64 %284, 4
@@ -3997,9 +3997,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2543dblERKNS_3ecc8JacPointINS1_12E
 99:                                               ; preds = %99, %97
   %.0.in11.i.i.i.i = phi i1 [ false, %97 ], [ %111, %99 ]
   %.0910.i.i.i.i = phi i64 [ 0, %97 ], [ %113, %99 ]
-  %100 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi221, i64 %.0910.i.i.i.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi221, i64 %.0910.i.i.i.i
   %101 = load i64, ptr %100, align 8, !tbaa !19, !noalias !508
-  %102 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
   %103 = load i64, ptr %102, align 8, !tbaa !19, !noalias !508
   %104 = zext i1 %.0.in11.i.i.i.i to i64
   %105 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %101, i64 %103)
@@ -4009,7 +4009,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2543dblERKNS_3ecc8JacPointINS1_12E
   %109 = extractvalue { i64, i1 } %108, 1
   %110 = extractvalue { i64, i1 } %108, 0
   %111 = or i1 %106, %109
-  %112 = getelementptr inbounds nuw i64, ptr %76, i64 %.0910.i.i.i.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.0910.i.i.i.i
   store i64 %110, ptr %112, align 8, !tbaa !19, !noalias !508
   %113 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %113, 4
@@ -4026,9 +4026,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 114:                                              ; preds = %114, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %126, %114 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %128, %114 ]
-  %115 = getelementptr inbounds nuw i64, ptr %77, i64 %.0910.i6.i.i.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.0910.i6.i.i.i
   %116 = load i64, ptr %115, align 8, !tbaa !19, !noalias !511
-  %117 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %118 = load i64, ptr %117, align 8, !tbaa !19, !noalias !511
   %119 = zext i1 %.0.in11.i5.i.i.i to i64
   %120 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %116, i64 %118)
@@ -4038,7 +4038,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %124 = extractvalue { i64, i1 } %123, 1
   %125 = extractvalue { i64, i1 } %123, 0
   %126 = or i1 %121, %124
-  %127 = getelementptr inbounds nuw i64, ptr %75, i64 %.0910.i6.i.i.i
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.0910.i6.i.i.i
   store i64 %125, ptr %127, align 8, !tbaa !19, !noalias !511
   %128 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %128, 4
@@ -4077,9 +4077,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 132:                                              ; preds = %132, %130
   %.0.in11.i.i.i.i14 = phi i1 [ false, %130 ], [ %144, %132 ]
   %.0910.i.i.i.i15 = phi i64 [ 0, %130 ], [ %146, %132 ]
-  %133 = getelementptr inbounds nuw i64, ptr %.07.i13.sroa.phi224, i64 %.0910.i.i.i.i15
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %.07.i13.sroa.phi224, i64 %.0910.i.i.i.i15
   %134 = load i64, ptr %133, align 8, !tbaa !19, !noalias !522
-  %135 = getelementptr inbounds nuw i64, ptr %.07.i13.sroa.phi, i64 %.0910.i.i.i.i15
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %.07.i13.sroa.phi, i64 %.0910.i.i.i.i15
   %136 = load i64, ptr %135, align 8, !tbaa !19, !noalias !522
   %137 = zext i1 %.0.in11.i.i.i.i14 to i64
   %138 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %134, i64 %136)
@@ -4089,7 +4089,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %142 = extractvalue { i64, i1 } %141, 1
   %143 = extractvalue { i64, i1 } %141, 0
   %144 = or i1 %139, %142
-  %145 = getelementptr inbounds nuw i64, ptr %71, i64 %.0910.i.i.i.i15
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.0910.i.i.i.i15
   store i64 %143, ptr %145, align 8, !tbaa !19, !noalias !522
   %146 = add nuw nsw i64 %.0910.i.i.i.i15, 1
   %exitcond.not.i.i.i.i16 = icmp eq i64 %146, 4
@@ -4106,9 +4106,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 147:                                              ; preds = %147, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17
   %.0.in11.i5.i.i.i18 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17 ], [ %159, %147 ]
   %.0910.i6.i.i.i19 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17 ], [ %161, %147 ]
-  %148 = getelementptr inbounds nuw i64, ptr %72, i64 %.0910.i6.i.i.i19
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.0910.i6.i.i.i19
   %149 = load i64, ptr %148, align 8, !tbaa !19, !noalias !525
-  %150 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i19
+  %150 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i19
   %151 = load i64, ptr %150, align 8, !tbaa !19, !noalias !525
   %152 = zext i1 %.0.in11.i5.i.i.i18 to i64
   %153 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %149, i64 %151)
@@ -4118,7 +4118,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %157 = extractvalue { i64, i1 } %156, 1
   %158 = extractvalue { i64, i1 } %156, 0
   %159 = or i1 %154, %157
-  %160 = getelementptr inbounds nuw i64, ptr %70, i64 %.0910.i6.i.i.i19
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.0910.i6.i.i.i19
   store i64 %158, ptr %160, align 8, !tbaa !19, !noalias !525
   %161 = add nuw nsw i64 %.0910.i6.i.i.i19, 1
   %exitcond.not.i7.i.i.i20 = icmp eq i64 %161, 4
@@ -4157,9 +4157,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit24: ; preds 
 165:                                              ; preds = %165, %163
   %.0.in11.i.i.i.i27 = phi i1 [ false, %163 ], [ %177, %165 ]
   %.0910.i.i.i.i28 = phi i64 [ 0, %163 ], [ %179, %165 ]
-  %166 = getelementptr inbounds nuw i64, ptr %.07.i26.sroa.phi227, i64 %.0910.i.i.i.i28
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %.07.i26.sroa.phi227, i64 %.0910.i.i.i.i28
   %167 = load i64, ptr %166, align 8, !tbaa !19, !noalias !536
-  %168 = getelementptr inbounds nuw i64, ptr %.07.i26.sroa.phi, i64 %.0910.i.i.i.i28
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %.07.i26.sroa.phi, i64 %.0910.i.i.i.i28
   %169 = load i64, ptr %168, align 8, !tbaa !19, !noalias !536
   %170 = zext i1 %.0.in11.i.i.i.i27 to i64
   %171 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %167, i64 %169)
@@ -4169,7 +4169,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit24: ; preds 
   %175 = extractvalue { i64, i1 } %174, 1
   %176 = extractvalue { i64, i1 } %174, 0
   %177 = or i1 %172, %175
-  %178 = getelementptr inbounds nuw i64, ptr %66, i64 %.0910.i.i.i.i28
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.0910.i.i.i.i28
   store i64 %176, ptr %178, align 8, !tbaa !19, !noalias !536
   %179 = add nuw nsw i64 %.0910.i.i.i.i28, 1
   %exitcond.not.i.i.i.i29 = icmp eq i64 %179, 4
@@ -4186,9 +4186,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 180:                                              ; preds = %180, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i30
   %.0.in11.i5.i.i.i31 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i30 ], [ %192, %180 ]
   %.0910.i6.i.i.i32 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i30 ], [ %194, %180 ]
-  %181 = getelementptr inbounds nuw i64, ptr %67, i64 %.0910.i6.i.i.i32
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.0910.i6.i.i.i32
   %182 = load i64, ptr %181, align 8, !tbaa !19, !noalias !539
-  %183 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i32
+  %183 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i32
   %184 = load i64, ptr %183, align 8, !tbaa !19, !noalias !539
   %185 = zext i1 %.0.in11.i5.i.i.i31 to i64
   %186 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %182, i64 %184)
@@ -4198,7 +4198,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %190 = extractvalue { i64, i1 } %189, 1
   %191 = extractvalue { i64, i1 } %189, 0
   %192 = or i1 %187, %190
-  %193 = getelementptr inbounds nuw i64, ptr %65, i64 %.0910.i6.i.i.i32
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.0910.i6.i.i.i32
   store i64 %191, ptr %193, align 8, !tbaa !19, !noalias !539
   %194 = add nuw nsw i64 %.0910.i6.i.i.i32, 1
   %exitcond.not.i7.i.i.i33 = icmp eq i64 %194, 4
@@ -4240,9 +4240,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit37: ; preds 
 198:                                              ; preds = %198, %196
   %.0.in11.i.i.i.i40 = phi i1 [ false, %196 ], [ %210, %198 ]
   %.0910.i.i.i.i41 = phi i64 [ 0, %196 ], [ %212, %198 ]
-  %199 = getelementptr inbounds nuw i64, ptr %.07.i39.sroa.phi230, i64 %.0910.i.i.i.i41
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %.07.i39.sroa.phi230, i64 %.0910.i.i.i.i41
   %200 = load i64, ptr %199, align 8, !tbaa !19, !noalias !550
-  %201 = getelementptr inbounds nuw i64, ptr %.07.i39.sroa.phi, i64 %.0910.i.i.i.i41
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %.07.i39.sroa.phi, i64 %.0910.i.i.i.i41
   %202 = load i64, ptr %201, align 8, !tbaa !19, !noalias !550
   %203 = zext i1 %.0.in11.i.i.i.i40 to i64
   %204 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %200, i64 %202)
@@ -4252,7 +4252,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit37: ; preds 
   %208 = extractvalue { i64, i1 } %207, 1
   %209 = extractvalue { i64, i1 } %207, 0
   %210 = or i1 %205, %208
-  %211 = getelementptr inbounds nuw i64, ptr %61, i64 %.0910.i.i.i.i41
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.0910.i.i.i.i41
   store i64 %209, ptr %211, align 8, !tbaa !19, !noalias !550
   %212 = add nuw nsw i64 %.0910.i.i.i.i41, 1
   %exitcond.not.i.i.i.i42 = icmp eq i64 %212, 4
@@ -4269,9 +4269,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 213:                                              ; preds = %213, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i43
   %.0.in11.i5.i.i.i44 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i43 ], [ %225, %213 ]
   %.0910.i6.i.i.i45 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i43 ], [ %227, %213 ]
-  %214 = getelementptr inbounds nuw i64, ptr %62, i64 %.0910.i6.i.i.i45
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.0910.i6.i.i.i45
   %215 = load i64, ptr %214, align 8, !tbaa !19, !noalias !553
-  %216 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i45
+  %216 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i45
   %217 = load i64, ptr %216, align 8, !tbaa !19, !noalias !553
   %218 = zext i1 %.0.in11.i5.i.i.i44 to i64
   %219 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %215, i64 %217)
@@ -4281,7 +4281,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %223 = extractvalue { i64, i1 } %222, 1
   %224 = extractvalue { i64, i1 } %222, 0
   %225 = or i1 %220, %223
-  %226 = getelementptr inbounds nuw i64, ptr %60, i64 %.0910.i6.i.i.i45
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.0910.i6.i.i.i45
   store i64 %224, ptr %226, align 8, !tbaa !19, !noalias !553
   %227 = add nuw nsw i64 %.0910.i6.i.i.i45, 1
   %exitcond.not.i7.i.i.i46 = icmp eq i64 %227, 4
@@ -4323,9 +4323,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit50: ; preds 
 231:                                              ; preds = %231, %229
   %.0.in11.i.i.i.i53 = phi i1 [ false, %229 ], [ %243, %231 ]
   %.0910.i.i.i.i54 = phi i64 [ 0, %229 ], [ %245, %231 ]
-  %232 = getelementptr inbounds nuw i64, ptr %.07.i52.sroa.phi233, i64 %.0910.i.i.i.i54
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %.07.i52.sroa.phi233, i64 %.0910.i.i.i.i54
   %233 = load i64, ptr %232, align 8, !tbaa !19, !noalias !564
-  %234 = getelementptr inbounds nuw i64, ptr %.07.i52.sroa.phi, i64 %.0910.i.i.i.i54
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %.07.i52.sroa.phi, i64 %.0910.i.i.i.i54
   %235 = load i64, ptr %234, align 8, !tbaa !19, !noalias !564
   %236 = zext i1 %.0.in11.i.i.i.i53 to i64
   %237 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %233, i64 %235)
@@ -4335,7 +4335,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit50: ; preds 
   %241 = extractvalue { i64, i1 } %240, 1
   %242 = extractvalue { i64, i1 } %240, 0
   %243 = or i1 %238, %241
-  %244 = getelementptr inbounds nuw i64, ptr %56, i64 %.0910.i.i.i.i54
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.0910.i.i.i.i54
   store i64 %242, ptr %244, align 8, !tbaa !19, !noalias !564
   %245 = add nuw nsw i64 %.0910.i.i.i.i54, 1
   %exitcond.not.i.i.i.i55 = icmp eq i64 %245, 4
@@ -4352,9 +4352,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 246:                                              ; preds = %246, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i56
   %.0.in11.i5.i.i.i57 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i56 ], [ %258, %246 ]
   %.0910.i6.i.i.i58 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i56 ], [ %260, %246 ]
-  %247 = getelementptr inbounds nuw i64, ptr %57, i64 %.0910.i6.i.i.i58
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.0910.i6.i.i.i58
   %248 = load i64, ptr %247, align 8, !tbaa !19, !noalias !567
-  %249 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i58
+  %249 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i58
   %250 = load i64, ptr %249, align 8, !tbaa !19, !noalias !567
   %251 = zext i1 %.0.in11.i5.i.i.i57 to i64
   %252 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %248, i64 %250)
@@ -4364,7 +4364,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %256 = extractvalue { i64, i1 } %255, 1
   %257 = extractvalue { i64, i1 } %255, 0
   %258 = or i1 %253, %256
-  %259 = getelementptr inbounds nuw i64, ptr %55, i64 %.0910.i6.i.i.i58
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.0910.i6.i.i.i58
   store i64 %257, ptr %259, align 8, !tbaa !19, !noalias !567
   %260 = add nuw nsw i64 %.0910.i6.i.i.i58, 1
   %exitcond.not.i7.i.i.i59 = icmp eq i64 %260, 4
@@ -4408,9 +4408,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit63: ; preds 
 264:                                              ; preds = %264, %262
   %.0.in11.i.i.i.i65 = phi i1 [ false, %262 ], [ %276, %264 ]
   %.0910.i.i.i.i66 = phi i64 [ 0, %262 ], [ %278, %264 ]
-  %265 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi236, i64 %.0910.i.i.i.i66
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi236, i64 %.0910.i.i.i.i66
   %266 = load i64, ptr %265, align 8, !tbaa !19, !noalias !579
-  %267 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i66
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i66
   %268 = load i64, ptr %267, align 8, !tbaa !19, !noalias !579
   %269 = zext i1 %.0.in11.i.i.i.i65 to i64
   %270 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %266, i64 %268)
@@ -4420,7 +4420,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit63: ; preds 
   %274 = extractvalue { i64, i1 } %273, 1
   %275 = extractvalue { i64, i1 } %273, 0
   %276 = or i1 %271, %274
-  %277 = getelementptr inbounds nuw i64, ptr %52, i64 %.0910.i.i.i.i66
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.0910.i.i.i.i66
   store i64 %275, ptr %277, align 8, !tbaa !19, !noalias !579
   %278 = add nuw nsw i64 %.0910.i.i.i.i66, 1
   %exitcond.not.i.i.i.i67 = icmp eq i64 %278, 4
@@ -4435,9 +4435,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 279:                                              ; preds = %279, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %291, %279 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %293, %279 ]
-  %280 = getelementptr inbounds nuw i64, ptr %53, i64 %.0910.i.i.i.i.i
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.0910.i.i.i.i.i
   %281 = load i64, ptr %280, align 8, !tbaa !19, !noalias !582
-  %282 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %282 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %283 = load i64, ptr %282, align 8, !tbaa !19, !noalias !582
   %284 = zext i1 %.0.in11.i.i.i.i.i to i64
   %285 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %281, i64 %283)
@@ -4447,7 +4447,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %289 = extractvalue { i64, i1 } %288, 1
   %290 = extractvalue { i64, i1 } %288, 0
   %291 = or i1 %286, %289
-  %292 = getelementptr inbounds nuw i64, ptr %51, i64 %.0910.i.i.i.i.i
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.0910.i.i.i.i.i
   store i64 %290, ptr %292, align 8, !noalias !576
   %293 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %293, 4
@@ -4484,9 +4484,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 297:                                              ; preds = %297, %295
   %.0.in11.i.i.i.i70 = phi i1 [ false, %295 ], [ %309, %297 ]
   %.0910.i.i.i.i71 = phi i64 [ 0, %295 ], [ %311, %297 ]
-  %298 = getelementptr inbounds nuw i64, ptr %.06.i69.sroa.phi239, i64 %.0910.i.i.i.i71
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %.06.i69.sroa.phi239, i64 %.0910.i.i.i.i71
   %299 = load i64, ptr %298, align 8, !tbaa !19, !noalias !596
-  %300 = getelementptr inbounds nuw i64, ptr %.06.i69.sroa.phi, i64 %.0910.i.i.i.i71
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %.06.i69.sroa.phi, i64 %.0910.i.i.i.i71
   %301 = load i64, ptr %300, align 8, !tbaa !19, !noalias !596
   %302 = zext i1 %.0.in11.i.i.i.i70 to i64
   %303 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %299, i64 %301)
@@ -4496,7 +4496,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %307 = extractvalue { i64, i1 } %306, 1
   %308 = extractvalue { i64, i1 } %306, 0
   %309 = or i1 %304, %307
-  %310 = getelementptr inbounds nuw i64, ptr %48, i64 %.0910.i.i.i.i71
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.0910.i.i.i.i71
   store i64 %308, ptr %310, align 8, !tbaa !19, !noalias !596
   %311 = add nuw nsw i64 %.0910.i.i.i.i71, 1
   %exitcond.not.i.i.i.i72 = icmp eq i64 %311, 4
@@ -4511,9 +4511,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 312:                                              ; preds = %312, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i73
   %.0.in11.i.i.i.i.i74 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i73 ], [ %324, %312 ]
   %.0910.i.i.i.i.i75 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i73 ], [ %326, %312 ]
-  %313 = getelementptr inbounds nuw i64, ptr %49, i64 %.0910.i.i.i.i.i75
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.0910.i.i.i.i.i75
   %314 = load i64, ptr %313, align 8, !tbaa !19, !noalias !599
-  %315 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i75
+  %315 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i75
   %316 = load i64, ptr %315, align 8, !tbaa !19, !noalias !599
   %317 = zext i1 %.0.in11.i.i.i.i.i74 to i64
   %318 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %314, i64 %316)
@@ -4523,7 +4523,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %322 = extractvalue { i64, i1 } %321, 1
   %323 = extractvalue { i64, i1 } %321, 0
   %324 = or i1 %319, %322
-  %325 = getelementptr inbounds nuw i64, ptr %47, i64 %.0910.i.i.i.i.i75
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.0910.i.i.i.i.i75
   store i64 %323, ptr %325, align 8, !noalias !593
   %326 = add nuw nsw i64 %.0910.i.i.i.i.i75, 1
   %exitcond.not.i.i.i.i.i76 = icmp eq i64 %326, 4
@@ -4561,9 +4561,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78: ; preds 
 330:                                              ; preds = %330, %328
   %.0.in11.i.i.i.i81 = phi i1 [ false, %328 ], [ %342, %330 ]
   %.0910.i.i.i.i82 = phi i64 [ 0, %328 ], [ %344, %330 ]
-  %331 = getelementptr inbounds nuw i64, ptr %.07.i80.sroa.phi242, i64 %.0910.i.i.i.i82
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %.07.i80.sroa.phi242, i64 %.0910.i.i.i.i82
   %332 = load i64, ptr %331, align 8, !tbaa !19, !noalias !612
-  %333 = getelementptr inbounds nuw i64, ptr %.07.i80.sroa.phi, i64 %.0910.i.i.i.i82
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %.07.i80.sroa.phi, i64 %.0910.i.i.i.i82
   %334 = load i64, ptr %333, align 8, !tbaa !19, !noalias !612
   %335 = zext i1 %.0.in11.i.i.i.i81 to i64
   %336 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %332, i64 %334)
@@ -4573,7 +4573,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78: ; preds 
   %340 = extractvalue { i64, i1 } %339, 1
   %341 = extractvalue { i64, i1 } %339, 0
   %342 = or i1 %337, %340
-  %343 = getelementptr inbounds nuw i64, ptr %43, i64 %.0910.i.i.i.i82
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.0910.i.i.i.i82
   store i64 %341, ptr %343, align 8, !tbaa !19, !noalias !612
   %344 = add nuw nsw i64 %.0910.i.i.i.i82, 1
   %exitcond.not.i.i.i.i83 = icmp eq i64 %344, 4
@@ -4590,9 +4590,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 345:                                              ; preds = %345, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84
   %.0.in11.i5.i.i.i85 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84 ], [ %357, %345 ]
   %.0910.i6.i.i.i86 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84 ], [ %359, %345 ]
-  %346 = getelementptr inbounds nuw i64, ptr %44, i64 %.0910.i6.i.i.i86
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.0910.i6.i.i.i86
   %347 = load i64, ptr %346, align 8, !tbaa !19, !noalias !615
-  %348 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i86
+  %348 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i86
   %349 = load i64, ptr %348, align 8, !tbaa !19, !noalias !615
   %350 = zext i1 %.0.in11.i5.i.i.i85 to i64
   %351 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %347, i64 %349)
@@ -4602,7 +4602,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %355 = extractvalue { i64, i1 } %354, 1
   %356 = extractvalue { i64, i1 } %354, 0
   %357 = or i1 %352, %355
-  %358 = getelementptr inbounds nuw i64, ptr %42, i64 %.0910.i6.i.i.i86
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.0910.i6.i.i.i86
   store i64 %356, ptr %358, align 8, !tbaa !19, !noalias !615
   %359 = add nuw nsw i64 %.0910.i6.i.i.i86, 1
   %exitcond.not.i7.i.i.i87 = icmp eq i64 %359, 4
@@ -4641,9 +4641,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91: ; preds 
 363:                                              ; preds = %363, %361
   %.0.in11.i.i.i.i94 = phi i1 [ false, %361 ], [ %375, %363 ]
   %.0910.i.i.i.i95 = phi i64 [ 0, %361 ], [ %377, %363 ]
-  %364 = getelementptr inbounds nuw i64, ptr %.07.i93.sroa.phi245, i64 %.0910.i.i.i.i95
+  %364 = getelementptr inbounds nuw [8 x i8], ptr %.07.i93.sroa.phi245, i64 %.0910.i.i.i.i95
   %365 = load i64, ptr %364, align 8, !tbaa !19, !noalias !626
-  %366 = getelementptr inbounds nuw i64, ptr %.07.i93.sroa.phi, i64 %.0910.i.i.i.i95
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %.07.i93.sroa.phi, i64 %.0910.i.i.i.i95
   %367 = load i64, ptr %366, align 8, !tbaa !19, !noalias !626
   %368 = zext i1 %.0.in11.i.i.i.i94 to i64
   %369 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %365, i64 %367)
@@ -4653,7 +4653,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91: ; preds 
   %373 = extractvalue { i64, i1 } %372, 1
   %374 = extractvalue { i64, i1 } %372, 0
   %375 = or i1 %370, %373
-  %376 = getelementptr inbounds nuw i64, ptr %38, i64 %.0910.i.i.i.i95
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0910.i.i.i.i95
   store i64 %374, ptr %376, align 8, !tbaa !19, !noalias !626
   %377 = add nuw nsw i64 %.0910.i.i.i.i95, 1
   %exitcond.not.i.i.i.i96 = icmp eq i64 %377, 4
@@ -4670,9 +4670,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 378:                                              ; preds = %378, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i97
   %.0.in11.i5.i.i.i98 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i97 ], [ %390, %378 ]
   %.0910.i6.i.i.i99 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i97 ], [ %392, %378 ]
-  %379 = getelementptr inbounds nuw i64, ptr %39, i64 %.0910.i6.i.i.i99
+  %379 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.0910.i6.i.i.i99
   %380 = load i64, ptr %379, align 8, !tbaa !19, !noalias !629
-  %381 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i99
+  %381 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i99
   %382 = load i64, ptr %381, align 8, !tbaa !19, !noalias !629
   %383 = zext i1 %.0.in11.i5.i.i.i98 to i64
   %384 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %380, i64 %382)
@@ -4682,7 +4682,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %388 = extractvalue { i64, i1 } %387, 1
   %389 = extractvalue { i64, i1 } %387, 0
   %390 = or i1 %385, %388
-  %391 = getelementptr inbounds nuw i64, ptr %37, i64 %.0910.i6.i.i.i99
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0910.i6.i.i.i99
   store i64 %389, ptr %391, align 8, !tbaa !19, !noalias !629
   %392 = add nuw nsw i64 %.0910.i6.i.i.i99, 1
   %exitcond.not.i7.i.i.i100 = icmp eq i64 %392, 4
@@ -4715,7 +4715,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds
   %.07.i106.sroa.phi = phi ptr [ %36, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104 ], [ %.07.i106.sroa.gep248, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114 ]
   %.07.i106 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i114 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i105)
-  %396 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %96, i64 %.07.i106
+  %396 = getelementptr inbounds nuw [32 x i8], ptr %96, i64 %.07.i106
   call void @llvm.lifetime.start.p0(ptr nonnull %34) #11, !noalias !635
   call void @llvm.lifetime.start.p0(ptr nonnull %33) #11, !noalias !640
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false), !tbaa !19, !noalias !640
@@ -4724,9 +4724,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds
 397:                                              ; preds = %397, %394
   %.0.in11.i.i.i.i107 = phi i1 [ false, %394 ], [ %409, %397 ]
   %.0910.i.i.i.i108 = phi i64 [ 0, %394 ], [ %411, %397 ]
-  %398 = getelementptr inbounds nuw i64, ptr %.07.i106.sroa.phi, i64 %.0910.i.i.i.i108
+  %398 = getelementptr inbounds nuw [8 x i8], ptr %.07.i106.sroa.phi, i64 %.0910.i.i.i.i108
   %399 = load i64, ptr %398, align 8, !tbaa !19, !noalias !640
-  %400 = getelementptr inbounds nuw i64, ptr %396, i64 %.0910.i.i.i.i108
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %396, i64 %.0910.i.i.i.i108
   %401 = load i64, ptr %400, align 8, !tbaa !19, !noalias !640
   %402 = zext i1 %.0.in11.i.i.i.i107 to i64
   %403 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %399, i64 %401)
@@ -4736,7 +4736,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds
   %407 = extractvalue { i64, i1 } %406, 1
   %408 = extractvalue { i64, i1 } %406, 0
   %409 = or i1 %404, %407
-  %410 = getelementptr inbounds nuw i64, ptr %33, i64 %.0910.i.i.i.i108
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0910.i.i.i.i108
   store i64 %408, ptr %410, align 8, !tbaa !19, !noalias !640
   %411 = add nuw nsw i64 %.0910.i.i.i.i108, 1
   %exitcond.not.i.i.i.i109 = icmp eq i64 %411, 4
@@ -4753,9 +4753,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 412:                                              ; preds = %412, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110
   %.0.in11.i5.i.i.i111 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110 ], [ %424, %412 ]
   %.0910.i6.i.i.i112 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110 ], [ %426, %412 ]
-  %413 = getelementptr inbounds nuw i64, ptr %34, i64 %.0910.i6.i.i.i112
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0910.i6.i.i.i112
   %414 = load i64, ptr %413, align 8, !tbaa !19, !noalias !643
-  %415 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i112
+  %415 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i112
   %416 = load i64, ptr %415, align 8, !tbaa !19, !noalias !643
   %417 = zext i1 %.0.in11.i5.i.i.i111 to i64
   %418 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %414, i64 %416)
@@ -4765,7 +4765,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %422 = extractvalue { i64, i1 } %421, 1
   %423 = extractvalue { i64, i1 } %421, 0
   %424 = or i1 %419, %422
-  %425 = getelementptr inbounds nuw i64, ptr %32, i64 %.0910.i6.i.i.i112
+  %425 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0910.i6.i.i.i112
   store i64 %423, ptr %425, align 8, !tbaa !19, !noalias !643
   %426 = add nuw nsw i64 %.0910.i6.i.i.i112, 1
   %exitcond.not.i7.i.i.i113 = icmp eq i64 %426, 4
@@ -4809,9 +4809,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117: ; preds
 430:                                              ; preds = %430, %428
   %.0.in11.i.i.i.i120 = phi i1 [ false, %428 ], [ %442, %430 ]
   %.0910.i.i.i.i121 = phi i64 [ 0, %428 ], [ %444, %430 ]
-  %431 = getelementptr inbounds nuw i64, ptr %.07.i119.sroa.phi249, i64 %.0910.i.i.i.i121
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %.07.i119.sroa.phi249, i64 %.0910.i.i.i.i121
   %432 = load i64, ptr %431, align 8, !tbaa !19, !noalias !654
-  %433 = getelementptr inbounds nuw i64, ptr %.07.i119.sroa.phi, i64 %.0910.i.i.i.i121
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %.07.i119.sroa.phi, i64 %.0910.i.i.i.i121
   %434 = load i64, ptr %433, align 8
   %435 = zext i1 %.0.in11.i.i.i.i120 to i64
   %436 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %432, i64 %434)
@@ -4821,7 +4821,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117: ; preds
   %440 = extractvalue { i64, i1 } %439, 1
   %441 = extractvalue { i64, i1 } %439, 0
   %442 = or i1 %437, %440
-  %443 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i.i.i.i121
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0910.i.i.i.i121
   store i64 %441, ptr %443, align 8, !tbaa !19, !noalias !654
   %444 = add nuw nsw i64 %.0910.i.i.i.i121, 1
   %exitcond.not.i.i.i.i122 = icmp eq i64 %444, 4
@@ -4838,9 +4838,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 445:                                              ; preds = %445, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i123
   %.0.in11.i5.i.i.i124 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i123 ], [ %457, %445 ]
   %.0910.i6.i.i.i125 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i123 ], [ %459, %445 ]
-  %446 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i6.i.i.i125
+  %446 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0910.i6.i.i.i125
   %447 = load i64, ptr %446, align 8, !tbaa !19, !noalias !657
-  %448 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i125
+  %448 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i125
   %449 = load i64, ptr %448, align 8, !tbaa !19, !noalias !657
   %450 = zext i1 %.0.in11.i5.i.i.i124 to i64
   %451 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %447, i64 %449)
@@ -4850,7 +4850,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %455 = extractvalue { i64, i1 } %454, 1
   %456 = extractvalue { i64, i1 } %454, 0
   %457 = or i1 %452, %455
-  %458 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i6.i.i.i125
+  %458 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0910.i6.i.i.i125
   store i64 %456, ptr %458, align 8, !tbaa !19, !noalias !657
   %459 = add nuw nsw i64 %.0910.i6.i.i.i125, 1
   %exitcond.not.i7.i.i.i126 = icmp eq i64 %459, 4
@@ -4891,9 +4891,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130: ; preds
 463:                                              ; preds = %463, %461
   %.0.in11.i.i.i.i133 = phi i1 [ false, %461 ], [ %475, %463 ]
   %.0910.i.i.i.i134 = phi i64 [ 0, %461 ], [ %477, %463 ]
-  %464 = getelementptr inbounds nuw i64, ptr %.06.i132.sroa.phi252, i64 %.0910.i.i.i.i134
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %.06.i132.sroa.phi252, i64 %.0910.i.i.i.i134
   %465 = load i64, ptr %464, align 8
-  %466 = getelementptr inbounds nuw i64, ptr %.06.i132.sroa.phi, i64 %.0910.i.i.i.i134
+  %466 = getelementptr inbounds nuw [8 x i8], ptr %.06.i132.sroa.phi, i64 %.0910.i.i.i.i134
   %467 = load i64, ptr %466, align 8, !tbaa !19, !noalias !668
   %468 = zext i1 %.0.in11.i.i.i.i133 to i64
   %469 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %465, i64 %467)
@@ -4903,7 +4903,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130: ; preds
   %473 = extractvalue { i64, i1 } %472, 1
   %474 = extractvalue { i64, i1 } %472, 0
   %475 = or i1 %470, %473
-  %476 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i.i.i.i134
+  %476 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0910.i.i.i.i134
   store i64 %474, ptr %476, align 8, !tbaa !19, !noalias !668
   %477 = add nuw nsw i64 %.0910.i.i.i.i134, 1
   %exitcond.not.i.i.i.i135 = icmp eq i64 %477, 4
@@ -4918,9 +4918,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 478:                                              ; preds = %478, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136
   %.0.in11.i.i.i.i.i137 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136 ], [ %490, %478 ]
   %.0910.i.i.i.i.i138 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136 ], [ %492, %478 ]
-  %479 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i.i.i.i.i138
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0910.i.i.i.i.i138
   %480 = load i64, ptr %479, align 8, !tbaa !19, !noalias !671
-  %481 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i138
+  %481 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i138
   %482 = load i64, ptr %481, align 8, !tbaa !19, !noalias !671
   %483 = zext i1 %.0.in11.i.i.i.i.i137 to i64
   %484 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %480, i64 %482)
@@ -4930,7 +4930,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %488 = extractvalue { i64, i1 } %487, 1
   %489 = extractvalue { i64, i1 } %487, 0
   %490 = or i1 %485, %488
-  %491 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i.i.i.i.i138
+  %491 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0910.i.i.i.i.i138
   store i64 %489, ptr %491, align 8, !noalias !665
   %492 = add nuw nsw i64 %.0910.i.i.i.i.i138, 1
   %exitcond.not.i.i.i.i.i139 = icmp eq i64 %492, 4
@@ -4968,9 +4968,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit141: ; preds
 496:                                              ; preds = %496, %494
   %.0.in11.i.i.i.i144 = phi i1 [ false, %494 ], [ %508, %496 ]
   %.0910.i.i.i.i145 = phi i64 [ 0, %494 ], [ %510, %496 ]
-  %497 = getelementptr inbounds nuw i64, ptr %.06.i143.sroa.phi255, i64 %.0910.i.i.i.i145
+  %497 = getelementptr inbounds nuw [8 x i8], ptr %.06.i143.sroa.phi255, i64 %.0910.i.i.i.i145
   %498 = load i64, ptr %497, align 8
-  %499 = getelementptr inbounds nuw i64, ptr %.06.i143.sroa.phi, i64 %.0910.i.i.i.i145
+  %499 = getelementptr inbounds nuw [8 x i8], ptr %.06.i143.sroa.phi, i64 %.0910.i.i.i.i145
   %500 = load i64, ptr %499, align 8
   %501 = zext i1 %.0.in11.i.i.i.i144 to i64
   %502 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %498, i64 %500)
@@ -4980,7 +4980,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit141: ; preds
   %506 = extractvalue { i64, i1 } %505, 1
   %507 = extractvalue { i64, i1 } %505, 0
   %508 = or i1 %503, %506
-  %509 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i.i145
+  %509 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i.i.i.i145
   store i64 %507, ptr %509, align 8, !tbaa !19, !noalias !685
   %510 = add nuw nsw i64 %.0910.i.i.i.i145, 1
   %exitcond.not.i.i.i.i146 = icmp eq i64 %510, 4
@@ -4995,9 +4995,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 511:                                              ; preds = %511, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i147
   %.0.in11.i.i.i.i.i148 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i147 ], [ %523, %511 ]
   %.0910.i.i.i.i.i149 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i147 ], [ %525, %511 ]
-  %512 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i.i.i.i149
+  %512 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i.i.i.i.i149
   %513 = load i64, ptr %512, align 8, !tbaa !19, !noalias !688
-  %514 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i149
+  %514 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i149
   %515 = load i64, ptr %514, align 8, !tbaa !19, !noalias !688
   %516 = zext i1 %.0.in11.i.i.i.i.i148 to i64
   %517 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %513, i64 %515)
@@ -5007,7 +5007,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %521 = extractvalue { i64, i1 } %520, 1
   %522 = extractvalue { i64, i1 } %520, 0
   %523 = or i1 %518, %521
-  %524 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i.i.i.i.i149
+  %524 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0910.i.i.i.i.i149
   store i64 %522, ptr %524, align 8, !noalias !682
   %525 = add nuw nsw i64 %.0910.i.i.i.i.i149, 1
   %exitcond.not.i.i.i.i.i150 = icmp eq i64 %525, 4
@@ -5042,9 +5042,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit152: ; preds
 529:                                              ; preds = %529, %527
   %.0.in11.i.i.i.i155 = phi i1 [ false, %527 ], [ %541, %529 ]
   %.0910.i.i.i.i156 = phi i64 [ 0, %527 ], [ %543, %529 ]
-  %530 = getelementptr inbounds nuw i64, ptr %.07.i154.sroa.phi258, i64 %.0910.i.i.i.i156
+  %530 = getelementptr inbounds nuw [8 x i8], ptr %.07.i154.sroa.phi258, i64 %.0910.i.i.i.i156
   %531 = load i64, ptr %530, align 8
-  %532 = getelementptr inbounds nuw i64, ptr %.07.i154.sroa.phi, i64 %.0910.i.i.i.i156
+  %532 = getelementptr inbounds nuw [8 x i8], ptr %.07.i154.sroa.phi, i64 %.0910.i.i.i.i156
   %533 = load i64, ptr %532, align 8, !tbaa !19, !noalias !701
   %534 = zext i1 %.0.in11.i.i.i.i155 to i64
   %535 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %531, i64 %533)
@@ -5054,7 +5054,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit152: ; preds
   %539 = extractvalue { i64, i1 } %538, 1
   %540 = extractvalue { i64, i1 } %538, 0
   %541 = or i1 %536, %539
-  %542 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i.i156
+  %542 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i.i.i.i156
   store i64 %540, ptr %542, align 8, !tbaa !19, !noalias !701
   %543 = add nuw nsw i64 %.0910.i.i.i.i156, 1
   %exitcond.not.i.i.i.i157 = icmp eq i64 %543, 4
@@ -5071,9 +5071,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 544:                                              ; preds = %544, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i158
   %.0.in11.i5.i.i.i159 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i158 ], [ %556, %544 ]
   %.0910.i6.i.i.i160 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i158 ], [ %558, %544 ]
-  %545 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i6.i.i.i160
+  %545 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i6.i.i.i160
   %546 = load i64, ptr %545, align 8, !tbaa !19, !noalias !704
-  %547 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i160
+  %547 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i160
   %548 = load i64, ptr %547, align 8, !tbaa !19, !noalias !704
   %549 = zext i1 %.0.in11.i5.i.i.i159 to i64
   %550 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %546, i64 %548)
@@ -5083,7 +5083,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %554 = extractvalue { i64, i1 } %553, 1
   %555 = extractvalue { i64, i1 } %553, 0
   %556 = or i1 %551, %554
-  %557 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i6.i.i.i160
+  %557 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i6.i.i.i160
   store i64 %555, ptr %557, align 8, !tbaa !19, !noalias !704
   %558 = add nuw nsw i64 %.0910.i6.i.i.i160, 1
   %exitcond.not.i7.i.i.i161 = icmp eq i64 %558, 4
@@ -5122,9 +5122,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit165: ; preds
 562:                                              ; preds = %562, %560
   %.0.in11.i.i.i.i168 = phi i1 [ false, %560 ], [ %574, %562 ]
   %.0910.i.i.i.i169 = phi i64 [ 0, %560 ], [ %576, %562 ]
-  %563 = getelementptr inbounds nuw i64, ptr %.06.i167.sroa.phi261, i64 %.0910.i.i.i.i169
+  %563 = getelementptr inbounds nuw [8 x i8], ptr %.06.i167.sroa.phi261, i64 %.0910.i.i.i.i169
   %564 = load i64, ptr %563, align 8
-  %565 = getelementptr inbounds nuw i64, ptr %.06.i167.sroa.phi, i64 %.0910.i.i.i.i169
+  %565 = getelementptr inbounds nuw [8 x i8], ptr %.06.i167.sroa.phi, i64 %.0910.i.i.i.i169
   %566 = load i64, ptr %565, align 8
   %567 = zext i1 %.0.in11.i.i.i.i168 to i64
   %568 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %564, i64 %566)
@@ -5134,7 +5134,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit165: ; preds
   %572 = extractvalue { i64, i1 } %571, 1
   %573 = extractvalue { i64, i1 } %571, 0
   %574 = or i1 %569, %572
-  %575 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i169
+  %575 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i169
   store i64 %573, ptr %575, align 8, !tbaa !19, !noalias !716
   %576 = add nuw nsw i64 %.0910.i.i.i.i169, 1
   %exitcond.not.i.i.i.i170 = icmp eq i64 %576, 4
@@ -5149,9 +5149,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 577:                                              ; preds = %577, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i171
   %.0.in11.i.i.i.i.i172 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i171 ], [ %589, %577 ]
   %.0910.i.i.i.i.i173 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i171 ], [ %591, %577 ]
-  %578 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i.i.i173
+  %578 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i.i.i.i.i173
   %579 = load i64, ptr %578, align 8, !tbaa !19, !noalias !719
-  %580 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i173
+  %580 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i173
   %581 = load i64, ptr %580, align 8, !tbaa !19, !noalias !719
   %582 = zext i1 %.0.in11.i.i.i.i.i172 to i64
   %583 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %579, i64 %581)
@@ -5161,7 +5161,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %587 = extractvalue { i64, i1 } %586, 1
   %588 = extractvalue { i64, i1 } %586, 0
   %589 = or i1 %584, %587
-  %590 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i173
+  %590 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i173
   store i64 %588, ptr %590, align 8, !noalias !713
   %591 = add nuw nsw i64 %.0910.i.i.i.i.i173, 1
   %exitcond.not.i.i.i.i.i174 = icmp eq i64 %591, 4
@@ -5199,9 +5199,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit176: ; preds
 595:                                              ; preds = %595, %593
   %.0.in11.i.i.i.i179 = phi i1 [ false, %593 ], [ %607, %595 ]
   %.0910.i.i.i.i180 = phi i64 [ 0, %593 ], [ %609, %595 ]
-  %596 = getelementptr inbounds nuw i64, ptr %.06.i178.sroa.phi264, i64 %.0910.i.i.i.i180
+  %596 = getelementptr inbounds nuw [8 x i8], ptr %.06.i178.sroa.phi264, i64 %.0910.i.i.i.i180
   %597 = load i64, ptr %596, align 8
-  %598 = getelementptr inbounds nuw i64, ptr %.06.i178.sroa.phi, i64 %.0910.i.i.i.i180
+  %598 = getelementptr inbounds nuw [8 x i8], ptr %.06.i178.sroa.phi, i64 %.0910.i.i.i.i180
   %599 = load i64, ptr %598, align 8, !tbaa !19, !noalias !733
   %600 = zext i1 %.0.in11.i.i.i.i179 to i64
   %601 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %597, i64 %599)
@@ -5211,7 +5211,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit176: ; preds
   %605 = extractvalue { i64, i1 } %604, 1
   %606 = extractvalue { i64, i1 } %604, 0
   %607 = or i1 %602, %605
-  %608 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i180
+  %608 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i.i180
   store i64 %606, ptr %608, align 8, !tbaa !19, !noalias !733
   %609 = add nuw nsw i64 %.0910.i.i.i.i180, 1
   %exitcond.not.i.i.i.i181 = icmp eq i64 %609, 4
@@ -5226,9 +5226,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 610:                                              ; preds = %610, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i182
   %.0.in11.i.i.i.i.i183 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i182 ], [ %622, %610 ]
   %.0910.i.i.i.i.i184 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i182 ], [ %624, %610 ]
-  %611 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i184
+  %611 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i.i184
   %612 = load i64, ptr %611, align 8, !tbaa !19, !noalias !736
-  %613 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i184
+  %613 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i184
   %614 = load i64, ptr %613, align 8, !tbaa !19, !noalias !736
   %615 = zext i1 %.0.in11.i.i.i.i.i183 to i64
   %616 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %612, i64 %614)
@@ -5238,7 +5238,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %620 = extractvalue { i64, i1 } %619, 1
   %621 = extractvalue { i64, i1 } %619, 0
   %622 = or i1 %617, %620
-  %623 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i.i.i.i.i184
+  %623 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0910.i.i.i.i.i184
   store i64 %621, ptr %623, align 8, !noalias !730
   %624 = add nuw nsw i64 %.0910.i.i.i.i.i184, 1
   %exitcond.not.i.i.i.i.i185 = icmp eq i64 %624, 4
@@ -5272,9 +5272,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit187: ; preds
 628:                                              ; preds = %628, %626
   %.0.in11.i.i.i.i190 = phi i1 [ false, %626 ], [ %640, %628 ]
   %.0910.i.i.i.i191 = phi i64 [ 0, %626 ], [ %642, %628 ]
-  %629 = getelementptr inbounds nuw i64, ptr %.06.i189.sroa.phi267, i64 %.0910.i.i.i.i191
+  %629 = getelementptr inbounds nuw [8 x i8], ptr %.06.i189.sroa.phi267, i64 %.0910.i.i.i.i191
   %630 = load i64, ptr %629, align 8
-  %631 = getelementptr inbounds nuw i64, ptr %.06.i189.sroa.phi, i64 %.0910.i.i.i.i191
+  %631 = getelementptr inbounds nuw [8 x i8], ptr %.06.i189.sroa.phi, i64 %.0910.i.i.i.i191
   %632 = load i64, ptr %631, align 8, !tbaa !19, !noalias !750
   %633 = zext i1 %.0.in11.i.i.i.i190 to i64
   %634 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %630, i64 %632)
@@ -5284,7 +5284,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit187: ; preds
   %638 = extractvalue { i64, i1 } %637, 1
   %639 = extractvalue { i64, i1 } %637, 0
   %640 = or i1 %635, %638
-  %641 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i191
+  %641 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i191
   store i64 %639, ptr %641, align 8, !tbaa !19, !noalias !750
   %642 = add nuw nsw i64 %.0910.i.i.i.i191, 1
   %exitcond.not.i.i.i.i192 = icmp eq i64 %642, 4
@@ -5299,9 +5299,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 643:                                              ; preds = %643, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i193
   %.0.in11.i.i.i.i.i194 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i193 ], [ %655, %643 ]
   %.0910.i.i.i.i.i195 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i193 ], [ %657, %643 ]
-  %644 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i.i195
+  %644 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i.i195
   %645 = load i64, ptr %644, align 8, !tbaa !19, !noalias !753
-  %646 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i195
+  %646 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i195
   %647 = load i64, ptr %646, align 8, !tbaa !19, !noalias !753
   %648 = zext i1 %.0.in11.i.i.i.i.i194 to i64
   %649 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %645, i64 %647)
@@ -5311,7 +5311,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %653 = extractvalue { i64, i1 } %652, 1
   %654 = extractvalue { i64, i1 } %652, 0
   %655 = or i1 %650, %653
-  %656 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i.i.i.i.i195
+  %656 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i.i.i.i.i195
   store i64 %654, ptr %656, align 8, !noalias !747
   %657 = add nuw nsw i64 %.0910.i.i.i.i.i195, 1
   %exitcond.not.i.i.i.i.i196 = icmp eq i64 %657, 4
@@ -5379,9 +5379,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25412endomorphismILi1EEENS_3ecc8Ja
 21:                                               ; preds = %21, %2
   %.0.in11.i.i.i.i = phi i1 [ false, %2 ], [ %33, %21 ]
   %.0910.i.i.i.i = phi i64 [ 0, %2 ], [ %35, %21 ]
-  %22 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i.i.i.i
   %23 = load i64, ptr %22, align 8, !tbaa !19, !noalias !768
-  %24 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i.i.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !19, !noalias !768
   %26 = zext i1 %.0.in11.i.i.i.i to i64
   %27 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %23, i64 %25)
@@ -5391,7 +5391,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25412endomorphismILi1EEENS_3ecc8Ja
   %31 = extractvalue { i64, i1 } %30, 1
   %32 = extractvalue { i64, i1 } %30, 0
   %33 = or i1 %28, %31
-  %34 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i.i.i
   store i64 %32, ptr %34, align 8, !tbaa !19, !noalias !768
   %35 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %35, 4
@@ -5406,9 +5406,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 36:                                               ; preds = %36, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %48, %36 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %50, %36 ]
-  %37 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i.i.i.i.i
   %38 = load i64, ptr %37, align 8, !tbaa !19, !noalias !771
-  %39 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %40 = load i64, ptr %39, align 8, !tbaa !19, !noalias !771
   %41 = zext i1 %.0.in11.i.i.i.i.i to i64
   %42 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %38, i64 %40)
@@ -5418,7 +5418,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %46 = extractvalue { i64, i1 } %45, 1
   %47 = extractvalue { i64, i1 } %45, 0
   %48 = or i1 %43, %46
-  %49 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i.i
   store i64 %47, ptr %49, align 8, !noalias !765
   %50 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %50, 4
@@ -5449,9 +5449,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit: ; preds = 
 54:                                               ; preds = %54, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit
   %.0.in11.i.i.i.i3 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit ], [ %66, %54 ]
   %.0910.i.i.i.i4 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit ], [ %68, %54 ]
-  %55 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i4
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i4
   %56 = load i64, ptr %55, align 8, !tbaa !19, !noalias !785
-  %57 = getelementptr inbounds nuw i64, ptr %53, i64 %.0910.i.i.i.i4
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.0910.i.i.i.i4
   %58 = load i64, ptr %57, align 8, !tbaa !19, !noalias !785
   %59 = zext i1 %.0.in11.i.i.i.i3 to i64
   %60 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %56, i64 %58)
@@ -5461,7 +5461,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit: ; preds = 
   %64 = extractvalue { i64, i1 } %63, 1
   %65 = extractvalue { i64, i1 } %63, 0
   %66 = or i1 %61, %64
-  %67 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i4
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i4
   store i64 %65, ptr %67, align 8, !tbaa !19, !noalias !785
   %68 = add nuw nsw i64 %.0910.i.i.i.i4, 1
   %exitcond.not.i.i.i.i5 = icmp eq i64 %68, 4
@@ -5476,9 +5476,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 69:                                               ; preds = %69, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i6
   %.0.in11.i.i.i.i.i7 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i6 ], [ %81, %69 ]
   %.0910.i.i.i.i.i8 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i6 ], [ %83, %69 ]
-  %70 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i8
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i8
   %71 = load i64, ptr %70, align 8, !tbaa !19, !noalias !788
-  %72 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i8
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i8
   %73 = load i64, ptr %72, align 8, !tbaa !19, !noalias !788
   %74 = zext i1 %.0.in11.i.i.i.i.i7 to i64
   %75 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %71, i64 %73)
@@ -5488,7 +5488,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %79 = extractvalue { i64, i1 } %78, 1
   %80 = extractvalue { i64, i1 } %78, 0
   %81 = or i1 %76, %79
-  %82 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i8
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i.i.i8
   store i64 %80, ptr %82, align 8, !noalias !782
   %83 = add nuw nsw i64 %.0910.i.i.i.i.i8, 1
   %exitcond.not.i.i.i.i.i9 = icmp eq i64 %83, 4
@@ -5519,9 +5519,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit10: ; preds 
 88:                                               ; preds = %88, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit10
   %.0.in11.i.i.i.i11 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit10 ], [ %100, %88 ]
   %.0910.i.i.i.i12 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit10 ], [ %102, %88 ]
-  %89 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i12
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i12
   %90 = load i64, ptr %89, align 8, !tbaa !19, !noalias !802
-  %91 = getelementptr inbounds nuw i64, ptr %87, i64 %.0910.i.i.i.i12
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.0910.i.i.i.i12
   %92 = load i64, ptr %91, align 8, !tbaa !19, !noalias !802
   %93 = zext i1 %.0.in11.i.i.i.i11 to i64
   %94 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %90, i64 %92)
@@ -5531,7 +5531,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit10: ; preds 
   %98 = extractvalue { i64, i1 } %97, 1
   %99 = extractvalue { i64, i1 } %97, 0
   %100 = or i1 %95, %98
-  %101 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i12
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i12
   store i64 %99, ptr %101, align 8, !tbaa !19, !noalias !802
   %102 = add nuw nsw i64 %.0910.i.i.i.i12, 1
   %exitcond.not.i.i.i.i13 = icmp eq i64 %102, 4
@@ -5546,9 +5546,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 103:                                              ; preds = %103, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i14
   %.0.in11.i.i.i.i.i15 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i14 ], [ %115, %103 ]
   %.0910.i.i.i.i.i16 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i14 ], [ %117, %103 ]
-  %104 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i.i16
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i.i16
   %105 = load i64, ptr %104, align 8, !tbaa !19, !noalias !805
-  %106 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i16
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i16
   %107 = load i64, ptr %106, align 8, !tbaa !19, !noalias !805
   %108 = zext i1 %.0.in11.i.i.i.i.i15 to i64
   %109 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %105, i64 %107)
@@ -5558,7 +5558,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %113 = extractvalue { i64, i1 } %112, 1
   %114 = extractvalue { i64, i1 } %112, 0
   %115 = or i1 %110, %113
-  %116 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i.i.i.i.i16
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i.i.i.i.i16
   store i64 %114, ptr %116, align 8, !noalias !799
   %117 = add nuw nsw i64 %.0910.i.i.i.i.i16, 1
   %exitcond.not.i.i.i.i.i17 = icmp eq i64 %117, 4
@@ -5613,9 +5613,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6evmmax3ecceqERKNS0_8JacPointI
 13:                                               ; preds = %13, %.preheader.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i = phi i64 [ %20, %13 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %.078.i.i.i.i.i.i.i.i = phi i64 [ %19, %13 ], [ 0, %.preheader.i.i.i.i.i.i ]
-  %14 = getelementptr inbounds nuw i64, ptr %.0810.i.i.i.i.ptr.i.i, i64 %.09.i.i.i.i.i.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0810.i.i.i.i.ptr.i.i, i64 %.09.i.i.i.i.i.i.i.i
   %15 = load i64, ptr %14, align 8, !tbaa !19
-  %16 = getelementptr inbounds nuw i64, ptr %.011.i.i.i.i.i.i, i64 %.09.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.011.i.i.i.i.i.i, i64 %.09.i.i.i.i.i.i.i.i
   %17 = load i64, ptr %16, align 8, !tbaa !19
   %18 = xor i64 %17, %15
   %19 = or i64 %18, %.078.i.i.i.i.i.i.i.i
@@ -5652,9 +5652,9 @@ _ZN6evmmax3ecceqERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 26:                                               ; preds = %26, %.preheader.i.i.i.i.i.i10
   %.09.i.i.i.i.i.i.i.i14 = phi i64 [ %33, %26 ], [ 0, %.preheader.i.i.i.i.i.i10 ]
   %.078.i.i.i.i.i.i.i.i15 = phi i64 [ %32, %26 ], [ 0, %.preheader.i.i.i.i.i.i10 ]
-  %27 = getelementptr inbounds nuw i64, ptr %.0810.i.i.i.i.ptr.i.i13, i64 %.09.i.i.i.i.i.i.i.i14
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.0810.i.i.i.i.ptr.i.i13, i64 %.09.i.i.i.i.i.i.i.i14
   %28 = load i64, ptr %27, align 8, !tbaa !19
-  %29 = getelementptr inbounds nuw i64, ptr %.011.i.i.i.i.i.i11, i64 %.09.i.i.i.i.i.i.i.i14
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.011.i.i.i.i.i.i11, i64 %.09.i.i.i.i.i.i.i.i14
   %30 = load i64, ptr %29, align 8, !tbaa !19
   %31 = xor i64 %30, %28
   %32 = or i64 %31, %.078.i.i.i.i.i.i.i.i15
@@ -5753,8 +5753,8 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldEl
 44:                                               ; preds = %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i, %3
   %.08.i = phi i64 [ 0, %3 ], [ %81, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  %45 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %30, i64 %.08.i
-  %46 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %33, i64 %.08.i
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 %.08.i
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 %.08.i
   call void @llvm.lifetime.start.p0(ptr nonnull %29) #11, !noalias !810
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %45, i64 64, i1 false)
   br label %47
@@ -5764,7 +5764,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldEl
   %.07.i.sroa.phi.i = phi ptr [ %29, %44 ], [ %.07.i.sroa.gep6.i, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   %.07.i.i = phi i64 [ 0, %44 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  %49 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %46, i64 %.07.i.i
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %.07.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %27) #11, !noalias !815
   call void @llvm.lifetime.start.p0(ptr nonnull %26) #11, !noalias !820
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false), !tbaa !19, !noalias !820
@@ -5773,9 +5773,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldEl
 50:                                               ; preds = %50, %47
   %.0.in11.i.i.i.i.i = phi i1 [ false, %47 ], [ %62, %50 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %47 ], [ %64, %50 ]
-  %51 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi.i, i64 %.0910.i.i.i.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi.i, i64 %.0910.i.i.i.i.i
   %52 = load i64, ptr %51, align 8, !tbaa !19, !noalias !820
-  %53 = getelementptr inbounds nuw i64, ptr %49, i64 %.0910.i.i.i.i.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.0910.i.i.i.i.i
   %54 = load i64, ptr %53, align 8, !tbaa !19, !noalias !820
   %55 = zext i1 %.0.in11.i.i.i.i.i to i64
   %56 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %52, i64 %54)
@@ -5785,7 +5785,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldEl
   %60 = extractvalue { i64, i1 } %59, 1
   %61 = extractvalue { i64, i1 } %59, 0
   %62 = or i1 %57, %60
-  %63 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0910.i.i.i.i.i
   store i64 %61, ptr %63, align 8, !tbaa !19, !noalias !820
   %64 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %64, 4
@@ -5802,9 +5802,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 65:                                               ; preds = %65, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i
   %.0.in11.i5.i.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %77, %65 ]
   %.0910.i6.i.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %79, %65 ]
-  %66 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i6.i.i.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0910.i6.i.i.i.i
   %67 = load i64, ptr %66, align 8, !tbaa !19, !noalias !823
-  %68 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i
   %69 = load i64, ptr %68, align 8, !tbaa !19, !noalias !823
   %70 = zext i1 %.0.in11.i5.i.i.i.i to i64
   %71 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %67, i64 %69)
@@ -5814,7 +5814,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %75 = extractvalue { i64, i1 } %74, 1
   %76 = extractvalue { i64, i1 } %74, 0
   %77 = or i1 %72, %75
-  %78 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i6.i.i.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0910.i6.i.i.i.i
   store i64 %76, ptr %78, align 8, !tbaa !19, !noalias !823
   %79 = add nuw nsw i64 %.0910.i6.i.i.i.i, 1
   %exitcond.not.i7.i.i.i.i = icmp eq i64 %79, 4
@@ -5855,8 +5855,8 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
 82:                                               ; preds = %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i28, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit
   %.08.i15 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit ], [ %119, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i13)
-  %83 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %24, i64 %.08.i15
-  %84 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %38, i64 %.08.i15
+  %83 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %.08.i15
+  %84 = getelementptr inbounds nuw [64 x i8], ptr %38, i64 %.08.i15
   call void @llvm.lifetime.start.p0(ptr nonnull %23) #11, !noalias !831
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %83, i64 64, i1 false), !tbaa.struct !17, !noalias !831
   br label %85
@@ -5866,7 +5866,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
   %.07.i.sroa.phi.i16 = phi ptr [ %23, %82 ], [ %.07.i.sroa.gep6.i14, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i25 ]
   %.07.i.i17 = phi i64 [ 0, %82 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i12)
-  %87 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %84, i64 %.07.i.i17
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %84, i64 %.07.i.i17
   call void @llvm.lifetime.start.p0(ptr nonnull %21) #11, !noalias !834
   call void @llvm.lifetime.start.p0(ptr nonnull %20) #11, !noalias !839
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false), !tbaa !19, !noalias !839
@@ -5875,9 +5875,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
 88:                                               ; preds = %88, %85
   %.0.in11.i.i.i.i.i18 = phi i1 [ false, %85 ], [ %100, %88 ]
   %.0910.i.i.i.i.i19 = phi i64 [ 0, %85 ], [ %102, %88 ]
-  %89 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi.i16, i64 %.0910.i.i.i.i.i19
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi.i16, i64 %.0910.i.i.i.i.i19
   %90 = load i64, ptr %89, align 8, !tbaa !19, !noalias !839
-  %91 = getelementptr inbounds nuw i64, ptr %87, i64 %.0910.i.i.i.i.i19
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.0910.i.i.i.i.i19
   %92 = load i64, ptr %91, align 8, !tbaa !19, !noalias !839
   %93 = zext i1 %.0.in11.i.i.i.i.i18 to i64
   %94 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %90, i64 %92)
@@ -5887,7 +5887,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
   %98 = extractvalue { i64, i1 } %97, 1
   %99 = extractvalue { i64, i1 } %97, 0
   %100 = or i1 %95, %98
-  %101 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i.i.i19
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i.i.i.i.i19
   store i64 %99, ptr %101, align 8, !tbaa !19, !noalias !839
   %102 = add nuw nsw i64 %.0910.i.i.i.i.i19, 1
   %exitcond.not.i.i.i.i.i20 = icmp eq i64 %102, 4
@@ -5904,9 +5904,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 103:                                              ; preds = %103, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i21
   %.0.in11.i5.i.i.i.i22 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i21 ], [ %115, %103 ]
   %.0910.i6.i.i.i.i23 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i21 ], [ %117, %103 ]
-  %104 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i6.i.i.i.i23
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i6.i.i.i.i23
   %105 = load i64, ptr %104, align 8, !tbaa !19, !noalias !842
-  %106 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i23
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i23
   %107 = load i64, ptr %106, align 8, !tbaa !19, !noalias !842
   %108 = zext i1 %.0.in11.i5.i.i.i.i22 to i64
   %109 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %105, i64 %107)
@@ -5916,7 +5916,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %113 = extractvalue { i64, i1 } %112, 1
   %114 = extractvalue { i64, i1 } %112, 0
   %115 = or i1 %110, %113
-  %116 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i6.i.i.i.i23
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0910.i6.i.i.i.i23
   store i64 %114, ptr %116, align 8, !tbaa !19, !noalias !842
   %117 = add nuw nsw i64 %.0910.i6.i.i.i.i23, 1
   %exitcond.not.i7.i.i.i.i24 = icmp eq i64 %117, 4
@@ -5956,8 +5956,8 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit30: ; preds 
 120:                                              ; preds = %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i47, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit30
   %.08.i34 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit30 ], [ %157, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i47 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i32)
-  %121 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %18, i64 %.08.i34
-  %122 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %39, i64 %.08.i34
+  %121 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %.08.i34
+  %122 = getelementptr inbounds nuw [64 x i8], ptr %39, i64 %.08.i34
   call void @llvm.lifetime.start.p0(ptr nonnull %17) #11, !noalias !848
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %121, i64 64, i1 false), !tbaa.struct !17, !noalias !848
   br label %123
@@ -5967,7 +5967,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit30: ; preds 
   %.07.i.sroa.phi.i35 = phi ptr [ %17, %120 ], [ %.07.i.sroa.gep6.i33, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i44 ]
   %.07.i.i36 = phi i64 [ 0, %120 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i31)
-  %125 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %122, i64 %.07.i.i36
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %.07.i.i36
   call void @llvm.lifetime.start.p0(ptr nonnull %15) #11, !noalias !851
   call void @llvm.lifetime.start.p0(ptr nonnull %14) #11, !noalias !856
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false), !tbaa !19, !noalias !856
@@ -5976,9 +5976,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit30: ; preds 
 126:                                              ; preds = %126, %123
   %.0.in11.i.i.i.i.i37 = phi i1 [ false, %123 ], [ %138, %126 ]
   %.0910.i.i.i.i.i38 = phi i64 [ 0, %123 ], [ %140, %126 ]
-  %127 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi.i35, i64 %.0910.i.i.i.i.i38
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi.i35, i64 %.0910.i.i.i.i.i38
   %128 = load i64, ptr %127, align 8, !tbaa !19, !noalias !856
-  %129 = getelementptr inbounds nuw i64, ptr %125, i64 %.0910.i.i.i.i.i38
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %.0910.i.i.i.i.i38
   %130 = load i64, ptr %129, align 8, !tbaa !19, !noalias !856
   %131 = zext i1 %.0.in11.i.i.i.i.i37 to i64
   %132 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %128, i64 %130)
@@ -5988,7 +5988,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit30: ; preds 
   %136 = extractvalue { i64, i1 } %135, 1
   %137 = extractvalue { i64, i1 } %135, 0
   %138 = or i1 %133, %136
-  %139 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i.i38
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i.i.i.i38
   store i64 %137, ptr %139, align 8, !tbaa !19, !noalias !856
   %140 = add nuw nsw i64 %.0910.i.i.i.i.i38, 1
   %exitcond.not.i.i.i.i.i39 = icmp eq i64 %140, 4
@@ -6005,9 +6005,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 141:                                              ; preds = %141, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i40
   %.0.in11.i5.i.i.i.i41 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i40 ], [ %153, %141 ]
   %.0910.i6.i.i.i.i42 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i40 ], [ %155, %141 ]
-  %142 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i6.i.i.i.i42
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i6.i.i.i.i42
   %143 = load i64, ptr %142, align 8, !tbaa !19, !noalias !859
-  %144 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i42
+  %144 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i42
   %145 = load i64, ptr %144, align 8, !tbaa !19, !noalias !859
   %146 = zext i1 %.0.in11.i5.i.i.i.i41 to i64
   %147 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %143, i64 %145)
@@ -6017,7 +6017,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %151 = extractvalue { i64, i1 } %150, 1
   %152 = extractvalue { i64, i1 } %150, 0
   %153 = or i1 %148, %151
-  %154 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i6.i.i.i.i42
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i6.i.i.i.i42
   store i64 %152, ptr %154, align 8, !tbaa !19, !noalias !859
   %155 = add nuw nsw i64 %.0910.i6.i.i.i.i42, 1
   %exitcond.not.i7.i.i.i.i43 = icmp eq i64 %155, 4
@@ -6056,8 +6056,8 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit49: ; preds 
 158:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit49
   %.07.i = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit49 ], [ %195, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i51)
-  %159 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %8, i64 %.07.i
-  %160 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %31, i64 %.07.i
+  %159 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %.07.i
+  %160 = getelementptr inbounds nuw [64 x i8], ptr %31, i64 %.07.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12) #11, !noalias !862
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %159, i64 64, i1 false)
   br label %161
@@ -6067,7 +6067,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit49: ; preds 
   %.06.i.sroa.phi.i = phi ptr [ %12, %158 ], [ %.06.i.sroa.gep6.i, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %158 ], [ 1, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i50)
-  %163 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %160, i64 %.06.i.i
+  %163 = getelementptr inbounds nuw [32 x i8], ptr %160, i64 %.06.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !867
   call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !870
   call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !873
@@ -6077,9 +6077,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit49: ; preds 
 164:                                              ; preds = %164, %161
   %.0.in11.i.i.i.i.i52 = phi i1 [ false, %161 ], [ %176, %164 ]
   %.0910.i.i.i.i.i53 = phi i64 [ 0, %161 ], [ %178, %164 ]
-  %165 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi.i, i64 %.0910.i.i.i.i.i53
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi.i, i64 %.0910.i.i.i.i.i53
   %166 = load i64, ptr %165, align 8, !tbaa !19, !noalias !873
-  %167 = getelementptr inbounds nuw i64, ptr %163, i64 %.0910.i.i.i.i.i53
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %.0910.i.i.i.i.i53
   %168 = load i64, ptr %167, align 8, !tbaa !19, !noalias !873
   %169 = zext i1 %.0.in11.i.i.i.i.i52 to i64
   %170 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %166, i64 %168)
@@ -6089,7 +6089,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit49: ; preds 
   %174 = extractvalue { i64, i1 } %173, 1
   %175 = extractvalue { i64, i1 } %173, 0
   %176 = or i1 %171, %174
-  %177 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i53
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i53
   store i64 %175, ptr %177, align 8, !tbaa !19, !noalias !873
   %178 = add nuw nsw i64 %.0910.i.i.i.i.i53, 1
   %exitcond.not.i.i.i.i.i54 = icmp eq i64 %178, 4
@@ -6104,9 +6104,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 179:                                              ; preds = %179, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i
   %.0.in11.i.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %191, %179 ]
   %.0910.i.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %193, %179 ]
-  %180 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i.i.i
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i.i.i
   %181 = load i64, ptr %180, align 8, !tbaa !19, !noalias !876
-  %182 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i
+  %182 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i
   %183 = load i64, ptr %182, align 8, !tbaa !19, !noalias !876
   %184 = zext i1 %.0.in11.i.i.i.i.i.i to i64
   %185 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %181, i64 %183)
@@ -6116,7 +6116,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %189 = extractvalue { i64, i1 } %188, 1
   %190 = extractvalue { i64, i1 } %188, 0
   %191 = or i1 %186, %189
-  %192 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i.i
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i.i.i
   store i64 %190, ptr %192, align 8, !noalias !870
   %193 = add nuw nsw i64 %.0910.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %193, 4
@@ -6147,8 +6147,8 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
 196:                                              ; preds = %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i70, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit
   %.07.i59 = phi i64 [ 0, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit ], [ %233, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i57)
-  %197 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %8, i64 %.07.i59
-  %198 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %32, i64 %.07.i59
+  %197 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %.07.i59
+  %198 = getelementptr inbounds nuw [64 x i8], ptr %32, i64 %.07.i59
   call void @llvm.lifetime.start.p0(ptr nonnull %7) #11, !noalias !883
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %197, i64 64, i1 false)
   br label %199
@@ -6158,7 +6158,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
   %.06.i.sroa.phi.i60 = phi ptr [ %7, %196 ], [ %.06.i.sroa.gep6.i58, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i69 ]
   %.06.i.i61 = phi i64 [ 0, %196 ], [ 1, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i56)
-  %201 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %198, i64 %.06.i.i61
+  %201 = getelementptr inbounds nuw [32 x i8], ptr %198, i64 %.06.i.i61
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !888
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #11, !noalias !891
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #11, !noalias !894
@@ -6168,9 +6168,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
 202:                                              ; preds = %202, %199
   %.0.in11.i.i.i.i.i62 = phi i1 [ false, %199 ], [ %214, %202 ]
   %.0910.i.i.i.i.i63 = phi i64 [ 0, %199 ], [ %216, %202 ]
-  %203 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi.i60, i64 %.0910.i.i.i.i.i63
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi.i60, i64 %.0910.i.i.i.i.i63
   %204 = load i64, ptr %203, align 8, !tbaa !19, !noalias !894
-  %205 = getelementptr inbounds nuw i64, ptr %201, i64 %.0910.i.i.i.i.i63
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %.0910.i.i.i.i.i63
   %206 = load i64, ptr %205, align 8, !tbaa !19, !noalias !894
   %207 = zext i1 %.0.in11.i.i.i.i.i62 to i64
   %208 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %204, i64 %206)
@@ -6180,7 +6180,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
   %212 = extractvalue { i64, i1 } %211, 1
   %213 = extractvalue { i64, i1 } %211, 0
   %214 = or i1 %209, %212
-  %215 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i.i63
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i.i63
   store i64 %213, ptr %215, align 8, !tbaa !19, !noalias !894
   %216 = add nuw nsw i64 %.0910.i.i.i.i.i63, 1
   %exitcond.not.i.i.i.i.i64 = icmp eq i64 %216, 4
@@ -6195,9 +6195,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 217:                                              ; preds = %217, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i65
   %.0.in11.i.i.i.i.i.i66 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i65 ], [ %229, %217 ]
   %.0910.i.i.i.i.i.i67 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i65 ], [ %231, %217 ]
-  %218 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i.i.i67
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i.i.i67
   %219 = load i64, ptr %218, align 8, !tbaa !19, !noalias !897
-  %220 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i67
+  %220 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i67
   %221 = load i64, ptr %220, align 8, !tbaa !19, !noalias !897
   %222 = zext i1 %.0.in11.i.i.i.i.i.i66 to i64
   %223 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %219, i64 %221)
@@ -6207,7 +6207,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %227 = extractvalue { i64, i1 } %226, 1
   %228 = extractvalue { i64, i1 } %226, 0
   %229 = or i1 %224, %227
-  %230 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i.i.i67
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i.i.i67
   store i64 %228, ptr %230, align 8, !noalias !891
   %231 = add nuw nsw i64 %.0910.i.i.i.i.i.i67, 1
   %exitcond.not.i.i.i.i.i.i68 = icmp eq i64 %231, 4
@@ -6370,7 +6370,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldEl
   %.07.i.sroa.phi = phi ptr [ %70, %3 ], [ %.07.i.sroa.gep204, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   %.07.i = phi i64 [ 0, %3 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  %92 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %87, i64 %.07.i
+  %92 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %.07.i
   call void @llvm.lifetime.start.p0(ptr nonnull %68) #11, !noalias !906
   call void @llvm.lifetime.start.p0(ptr nonnull %67) #11, !noalias !911
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 32, i1 false), !tbaa !19, !noalias !911
@@ -6379,9 +6379,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldEl
 93:                                               ; preds = %93, %90
   %.0.in11.i.i.i.i = phi i1 [ false, %90 ], [ %105, %93 ]
   %.0910.i.i.i.i = phi i64 [ 0, %90 ], [ %107, %93 ]
-  %94 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
   %95 = load i64, ptr %94, align 8, !tbaa !19, !noalias !911
-  %96 = getelementptr inbounds nuw i64, ptr %92, i64 %.0910.i.i.i.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.0910.i.i.i.i
   %97 = load i64, ptr %96, align 8, !tbaa !19, !noalias !911
   %98 = zext i1 %.0.in11.i.i.i.i to i64
   %99 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %95, i64 %97)
@@ -6391,7 +6391,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548multiplyERKNS_3ecc12ExtFieldEl
   %103 = extractvalue { i64, i1 } %102, 1
   %104 = extractvalue { i64, i1 } %102, 0
   %105 = or i1 %100, %103
-  %106 = getelementptr inbounds nuw i64, ptr %67, i64 %.0910.i.i.i.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.0910.i.i.i.i
   store i64 %104, ptr %106, align 8, !tbaa !19, !noalias !911
   %107 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %107, 4
@@ -6408,9 +6408,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 108:                                              ; preds = %108, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %120, %108 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %122, %108 ]
-  %109 = getelementptr inbounds nuw i64, ptr %68, i64 %.0910.i6.i.i.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.0910.i6.i.i.i
   %110 = load i64, ptr %109, align 8, !tbaa !19, !noalias !914
-  %111 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %112 = load i64, ptr %111, align 8, !tbaa !19, !noalias !914
   %113 = zext i1 %.0.in11.i5.i.i.i to i64
   %114 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %110, i64 %112)
@@ -6420,7 +6420,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %118 = extractvalue { i64, i1 } %117, 1
   %119 = extractvalue { i64, i1 } %117, 0
   %120 = or i1 %115, %118
-  %121 = getelementptr inbounds nuw i64, ptr %66, i64 %.0910.i6.i.i.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.0910.i6.i.i.i
   store i64 %119, ptr %121, align 8, !tbaa !19, !noalias !914
   %122 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %122, 4
@@ -6453,7 +6453,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %.07.i25.sroa.phi = phi ptr [ %65, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.07.i25.sroa.gep205, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i33 ]
   %.07.i25 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i24)
-  %126 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %89, i64 %.07.i25
+  %126 = getelementptr inbounds nuw [32 x i8], ptr %89, i64 %.07.i25
   call void @llvm.lifetime.start.p0(ptr nonnull %63) #11, !noalias !920
   call void @llvm.lifetime.start.p0(ptr nonnull %62) #11, !noalias !925
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 0, i64 32, i1 false), !tbaa !19, !noalias !925
@@ -6462,9 +6462,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 127:                                              ; preds = %127, %124
   %.0.in11.i.i.i.i26 = phi i1 [ false, %124 ], [ %139, %127 ]
   %.0910.i.i.i.i27 = phi i64 [ 0, %124 ], [ %141, %127 ]
-  %128 = getelementptr inbounds nuw i64, ptr %.07.i25.sroa.phi, i64 %.0910.i.i.i.i27
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %.07.i25.sroa.phi, i64 %.0910.i.i.i.i27
   %129 = load i64, ptr %128, align 8, !tbaa !19, !noalias !925
-  %130 = getelementptr inbounds nuw i64, ptr %126, i64 %.0910.i.i.i.i27
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %.0910.i.i.i.i27
   %131 = load i64, ptr %130, align 8, !tbaa !19, !noalias !925
   %132 = zext i1 %.0.in11.i.i.i.i26 to i64
   %133 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %129, i64 %131)
@@ -6474,7 +6474,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %137 = extractvalue { i64, i1 } %136, 1
   %138 = extractvalue { i64, i1 } %136, 0
   %139 = or i1 %134, %137
-  %140 = getelementptr inbounds nuw i64, ptr %62, i64 %.0910.i.i.i.i27
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.0910.i.i.i.i27
   store i64 %138, ptr %140, align 8, !tbaa !19, !noalias !925
   %141 = add nuw nsw i64 %.0910.i.i.i.i27, 1
   %exitcond.not.i.i.i.i28 = icmp eq i64 %141, 4
@@ -6491,9 +6491,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 142:                                              ; preds = %142, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i29
   %.0.in11.i5.i.i.i30 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i29 ], [ %154, %142 ]
   %.0910.i6.i.i.i31 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i29 ], [ %156, %142 ]
-  %143 = getelementptr inbounds nuw i64, ptr %63, i64 %.0910.i6.i.i.i31
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.0910.i6.i.i.i31
   %144 = load i64, ptr %143, align 8, !tbaa !19, !noalias !928
-  %145 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i31
+  %145 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i31
   %146 = load i64, ptr %145, align 8, !tbaa !19, !noalias !928
   %147 = zext i1 %.0.in11.i5.i.i.i30 to i64
   %148 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %144, i64 %146)
@@ -6503,7 +6503,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %152 = extractvalue { i64, i1 } %151, 1
   %153 = extractvalue { i64, i1 } %151, 0
   %154 = or i1 %149, %152
-  %155 = getelementptr inbounds nuw i64, ptr %61, i64 %.0910.i6.i.i.i31
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.0910.i6.i.i.i31
   store i64 %153, ptr %155, align 8, !tbaa !19, !noalias !928
   %156 = add nuw nsw i64 %.0910.i6.i.i.i31, 1
   %exitcond.not.i7.i.i.i32 = icmp eq i64 %156, 4
@@ -6546,9 +6546,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit36: ; preds 
 160:                                              ; preds = %160, %158
   %.0.in11.i.i.i.i38 = phi i1 [ false, %158 ], [ %172, %160 ]
   %.0910.i.i.i.i39 = phi i64 [ 0, %158 ], [ %174, %160 ]
-  %161 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi206, i64 %.0910.i.i.i.i39
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi206, i64 %.0910.i.i.i.i39
   %162 = load i64, ptr %161, align 8, !tbaa !19, !noalias !940
-  %163 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i39
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i39
   %164 = load i64, ptr %163, align 8, !tbaa !19, !noalias !940
   %165 = zext i1 %.0.in11.i.i.i.i38 to i64
   %166 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %162, i64 %164)
@@ -6558,7 +6558,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit36: ; preds 
   %170 = extractvalue { i64, i1 } %169, 1
   %171 = extractvalue { i64, i1 } %169, 0
   %172 = or i1 %167, %170
-  %173 = getelementptr inbounds nuw i64, ptr %58, i64 %.0910.i.i.i.i39
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.0910.i.i.i.i39
   store i64 %171, ptr %173, align 8, !tbaa !19, !noalias !940
   %174 = add nuw nsw i64 %.0910.i.i.i.i39, 1
   %exitcond.not.i.i.i.i40 = icmp eq i64 %174, 4
@@ -6573,9 +6573,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 175:                                              ; preds = %175, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %187, %175 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %189, %175 ]
-  %176 = getelementptr inbounds nuw i64, ptr %59, i64 %.0910.i.i.i.i.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.0910.i.i.i.i.i
   %177 = load i64, ptr %176, align 8, !tbaa !19, !noalias !943
-  %178 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %178 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %179 = load i64, ptr %178, align 8, !tbaa !19, !noalias !943
   %180 = zext i1 %.0.in11.i.i.i.i.i to i64
   %181 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %177, i64 %179)
@@ -6585,7 +6585,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %185 = extractvalue { i64, i1 } %184, 1
   %186 = extractvalue { i64, i1 } %184, 0
   %187 = or i1 %182, %185
-  %188 = getelementptr inbounds nuw i64, ptr %57, i64 %.0910.i.i.i.i.i
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.0910.i.i.i.i.i
   store i64 %186, ptr %188, align 8, !noalias !937
   %189 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %189, 4
@@ -6622,9 +6622,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 193:                                              ; preds = %193, %191
   %.0.in11.i.i.i.i43 = phi i1 [ false, %191 ], [ %205, %193 ]
   %.0910.i.i.i.i44 = phi i64 [ 0, %191 ], [ %207, %193 ]
-  %194 = getelementptr inbounds nuw i64, ptr %.06.i42.sroa.phi209, i64 %.0910.i.i.i.i44
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %.06.i42.sroa.phi209, i64 %.0910.i.i.i.i44
   %195 = load i64, ptr %194, align 8, !tbaa !19, !noalias !957
-  %196 = getelementptr inbounds nuw i64, ptr %.06.i42.sroa.phi, i64 %.0910.i.i.i.i44
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %.06.i42.sroa.phi, i64 %.0910.i.i.i.i44
   %197 = load i64, ptr %196, align 8, !tbaa !19, !noalias !957
   %198 = zext i1 %.0.in11.i.i.i.i43 to i64
   %199 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %195, i64 %197)
@@ -6634,7 +6634,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %203 = extractvalue { i64, i1 } %202, 1
   %204 = extractvalue { i64, i1 } %202, 0
   %205 = or i1 %200, %203
-  %206 = getelementptr inbounds nuw i64, ptr %54, i64 %.0910.i.i.i.i44
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.0910.i.i.i.i44
   store i64 %204, ptr %206, align 8, !tbaa !19, !noalias !957
   %207 = add nuw nsw i64 %.0910.i.i.i.i44, 1
   %exitcond.not.i.i.i.i45 = icmp eq i64 %207, 4
@@ -6649,9 +6649,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 208:                                              ; preds = %208, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i46
   %.0.in11.i.i.i.i.i47 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i46 ], [ %220, %208 ]
   %.0910.i.i.i.i.i48 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i46 ], [ %222, %208 ]
-  %209 = getelementptr inbounds nuw i64, ptr %55, i64 %.0910.i.i.i.i.i48
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.0910.i.i.i.i.i48
   %210 = load i64, ptr %209, align 8, !tbaa !19, !noalias !960
-  %211 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i48
+  %211 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i48
   %212 = load i64, ptr %211, align 8, !tbaa !19, !noalias !960
   %213 = zext i1 %.0.in11.i.i.i.i.i47 to i64
   %214 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %210, i64 %212)
@@ -6661,7 +6661,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %218 = extractvalue { i64, i1 } %217, 1
   %219 = extractvalue { i64, i1 } %217, 0
   %220 = or i1 %215, %218
-  %221 = getelementptr inbounds nuw i64, ptr %53, i64 %.0910.i.i.i.i.i48
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.0910.i.i.i.i.i48
   store i64 %219, ptr %221, align 8, !noalias !954
   %222 = add nuw nsw i64 %.0910.i.i.i.i.i48, 1
   %exitcond.not.i.i.i.i.i49 = icmp eq i64 %222, 4
@@ -6698,9 +6698,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit51: ; preds 
 226:                                              ; preds = %226, %224
   %.0.in11.i.i.i.i54 = phi i1 [ false, %224 ], [ %238, %226 ]
   %.0910.i.i.i.i55 = phi i64 [ 0, %224 ], [ %240, %226 ]
-  %227 = getelementptr inbounds nuw i64, ptr %.07.i53.sroa.phi212, i64 %.0910.i.i.i.i55
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %.07.i53.sroa.phi212, i64 %.0910.i.i.i.i55
   %228 = load i64, ptr %227, align 8
-  %229 = getelementptr inbounds nuw i64, ptr %.07.i53.sroa.phi, i64 %.0910.i.i.i.i55
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %.07.i53.sroa.phi, i64 %.0910.i.i.i.i55
   %230 = load i64, ptr %229, align 8, !tbaa !19, !noalias !972
   %231 = zext i1 %.0.in11.i.i.i.i54 to i64
   %232 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %228, i64 %230)
@@ -6710,7 +6710,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit51: ; preds 
   %236 = extractvalue { i64, i1 } %235, 1
   %237 = extractvalue { i64, i1 } %235, 0
   %238 = or i1 %233, %236
-  %239 = getelementptr inbounds nuw i64, ptr %49, i64 %.0910.i.i.i.i55
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.0910.i.i.i.i55
   store i64 %237, ptr %239, align 8, !tbaa !19, !noalias !972
   %240 = add nuw nsw i64 %.0910.i.i.i.i55, 1
   %exitcond.not.i.i.i.i56 = icmp eq i64 %240, 4
@@ -6727,9 +6727,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 241:                                              ; preds = %241, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i57
   %.0.in11.i5.i.i.i58 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i57 ], [ %253, %241 ]
   %.0910.i6.i.i.i59 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i57 ], [ %255, %241 ]
-  %242 = getelementptr inbounds nuw i64, ptr %50, i64 %.0910.i6.i.i.i59
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.0910.i6.i.i.i59
   %243 = load i64, ptr %242, align 8, !tbaa !19, !noalias !975
-  %244 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i59
+  %244 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i59
   %245 = load i64, ptr %244, align 8, !tbaa !19, !noalias !975
   %246 = zext i1 %.0.in11.i5.i.i.i58 to i64
   %247 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %243, i64 %245)
@@ -6739,7 +6739,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %251 = extractvalue { i64, i1 } %250, 1
   %252 = extractvalue { i64, i1 } %250, 0
   %253 = or i1 %248, %251
-  %254 = getelementptr inbounds nuw i64, ptr %48, i64 %.0910.i6.i.i.i59
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.0910.i6.i.i.i59
   store i64 %252, ptr %254, align 8, !tbaa !19, !noalias !975
   %255 = add nuw nsw i64 %.0910.i6.i.i.i59, 1
   %exitcond.not.i7.i.i.i60 = icmp eq i64 %255, 4
@@ -6776,7 +6776,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit64: ; preds 
   %.07.i66.sroa.phi = phi ptr [ %47, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit64 ], [ %.07.i66.sroa.gep215, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i74 ]
   %.07.i66 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit64 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i74 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i65)
-  %259 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %86, i64 %.07.i66
+  %259 = getelementptr inbounds nuw [32 x i8], ptr %86, i64 %.07.i66
   call void @llvm.lifetime.start.p0(ptr nonnull %45) #11, !noalias !982
   call void @llvm.lifetime.start.p0(ptr nonnull %44) #11, !noalias !987
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 32, i1 false), !tbaa !19, !noalias !987
@@ -6785,9 +6785,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit64: ; preds 
 260:                                              ; preds = %260, %257
   %.0.in11.i.i.i.i67 = phi i1 [ false, %257 ], [ %272, %260 ]
   %.0910.i.i.i.i68 = phi i64 [ 0, %257 ], [ %274, %260 ]
-  %261 = getelementptr inbounds nuw i64, ptr %.07.i66.sroa.phi, i64 %.0910.i.i.i.i68
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %.07.i66.sroa.phi, i64 %.0910.i.i.i.i68
   %262 = load i64, ptr %261, align 8, !tbaa !19, !noalias !987
-  %263 = getelementptr inbounds nuw i64, ptr %259, i64 %.0910.i.i.i.i68
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %.0910.i.i.i.i68
   %264 = load i64, ptr %263, align 8, !tbaa !19, !noalias !987
   %265 = zext i1 %.0.in11.i.i.i.i67 to i64
   %266 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %262, i64 %264)
@@ -6797,7 +6797,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit64: ; preds 
   %270 = extractvalue { i64, i1 } %269, 1
   %271 = extractvalue { i64, i1 } %269, 0
   %272 = or i1 %267, %270
-  %273 = getelementptr inbounds nuw i64, ptr %44, i64 %.0910.i.i.i.i68
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.0910.i.i.i.i68
   store i64 %271, ptr %273, align 8, !tbaa !19, !noalias !987
   %274 = add nuw nsw i64 %.0910.i.i.i.i68, 1
   %exitcond.not.i.i.i.i69 = icmp eq i64 %274, 4
@@ -6814,9 +6814,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 275:                                              ; preds = %275, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i70
   %.0.in11.i5.i.i.i71 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i70 ], [ %287, %275 ]
   %.0910.i6.i.i.i72 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i70 ], [ %289, %275 ]
-  %276 = getelementptr inbounds nuw i64, ptr %45, i64 %.0910.i6.i.i.i72
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.0910.i6.i.i.i72
   %277 = load i64, ptr %276, align 8, !tbaa !19, !noalias !990
-  %278 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i72
+  %278 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i72
   %279 = load i64, ptr %278, align 8, !tbaa !19, !noalias !990
   %280 = zext i1 %.0.in11.i5.i.i.i71 to i64
   %281 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %277, i64 %279)
@@ -6826,7 +6826,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %285 = extractvalue { i64, i1 } %284, 1
   %286 = extractvalue { i64, i1 } %284, 0
   %287 = or i1 %282, %285
-  %288 = getelementptr inbounds nuw i64, ptr %43, i64 %.0910.i6.i.i.i72
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.0910.i6.i.i.i72
   store i64 %286, ptr %288, align 8, !tbaa !19, !noalias !990
   %289 = add nuw nsw i64 %.0910.i6.i.i.i72, 1
   %exitcond.not.i7.i.i.i73 = icmp eq i64 %289, 4
@@ -6859,7 +6859,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit77: ; preds 
   %.07.i79.sroa.phi = phi ptr [ %42, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit77 ], [ %.07.i79.sroa.gep216, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i87 ]
   %.07.i79 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit77 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i87 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i78)
-  %293 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %88, i64 %.07.i79
+  %293 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %.07.i79
   call void @llvm.lifetime.start.p0(ptr nonnull %40) #11, !noalias !996
   call void @llvm.lifetime.start.p0(ptr nonnull %39) #11, !noalias !1001
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1001
@@ -6868,9 +6868,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit77: ; preds 
 294:                                              ; preds = %294, %291
   %.0.in11.i.i.i.i80 = phi i1 [ false, %291 ], [ %306, %294 ]
   %.0910.i.i.i.i81 = phi i64 [ 0, %291 ], [ %308, %294 ]
-  %295 = getelementptr inbounds nuw i64, ptr %.07.i79.sroa.phi, i64 %.0910.i.i.i.i81
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %.07.i79.sroa.phi, i64 %.0910.i.i.i.i81
   %296 = load i64, ptr %295, align 8, !tbaa !19, !noalias !1001
-  %297 = getelementptr inbounds nuw i64, ptr %293, i64 %.0910.i.i.i.i81
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %.0910.i.i.i.i81
   %298 = load i64, ptr %297, align 8, !tbaa !19, !noalias !1001
   %299 = zext i1 %.0.in11.i.i.i.i80 to i64
   %300 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %296, i64 %298)
@@ -6880,7 +6880,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit77: ; preds 
   %304 = extractvalue { i64, i1 } %303, 1
   %305 = extractvalue { i64, i1 } %303, 0
   %306 = or i1 %301, %304
-  %307 = getelementptr inbounds nuw i64, ptr %39, i64 %.0910.i.i.i.i81
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.0910.i.i.i.i81
   store i64 %305, ptr %307, align 8, !tbaa !19, !noalias !1001
   %308 = add nuw nsw i64 %.0910.i.i.i.i81, 1
   %exitcond.not.i.i.i.i82 = icmp eq i64 %308, 4
@@ -6897,9 +6897,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 309:                                              ; preds = %309, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i83
   %.0.in11.i5.i.i.i84 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i83 ], [ %321, %309 ]
   %.0910.i6.i.i.i85 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i83 ], [ %323, %309 ]
-  %310 = getelementptr inbounds nuw i64, ptr %40, i64 %.0910.i6.i.i.i85
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0910.i6.i.i.i85
   %311 = load i64, ptr %310, align 8, !tbaa !19, !noalias !1004
-  %312 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i85
+  %312 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i85
   %313 = load i64, ptr %312, align 8, !tbaa !19, !noalias !1004
   %314 = zext i1 %.0.in11.i5.i.i.i84 to i64
   %315 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %311, i64 %313)
@@ -6909,7 +6909,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %319 = extractvalue { i64, i1 } %318, 1
   %320 = extractvalue { i64, i1 } %318, 0
   %321 = or i1 %316, %319
-  %322 = getelementptr inbounds nuw i64, ptr %38, i64 %.0910.i6.i.i.i85
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0910.i6.i.i.i85
   store i64 %320, ptr %322, align 8, !tbaa !19, !noalias !1004
   %323 = add nuw nsw i64 %.0910.i6.i.i.i85, 1
   %exitcond.not.i7.i.i.i86 = icmp eq i64 %323, 4
@@ -6951,9 +6951,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit90: ; preds 
 327:                                              ; preds = %327, %325
   %.0.in11.i.i.i.i93 = phi i1 [ false, %325 ], [ %339, %327 ]
   %.0910.i.i.i.i94 = phi i64 [ 0, %325 ], [ %341, %327 ]
-  %328 = getelementptr inbounds nuw i64, ptr %.06.i92.sroa.phi217, i64 %.0910.i.i.i.i94
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %.06.i92.sroa.phi217, i64 %.0910.i.i.i.i94
   %329 = load i64, ptr %328, align 8, !tbaa !19, !noalias !1016
-  %330 = getelementptr inbounds nuw i64, ptr %.06.i92.sroa.phi, i64 %.0910.i.i.i.i94
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %.06.i92.sroa.phi, i64 %.0910.i.i.i.i94
   %331 = load i64, ptr %330, align 8, !tbaa !19, !noalias !1016
   %332 = zext i1 %.0.in11.i.i.i.i93 to i64
   %333 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %329, i64 %331)
@@ -6963,7 +6963,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit90: ; preds 
   %337 = extractvalue { i64, i1 } %336, 1
   %338 = extractvalue { i64, i1 } %336, 0
   %339 = or i1 %334, %337
-  %340 = getelementptr inbounds nuw i64, ptr %35, i64 %.0910.i.i.i.i94
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.0910.i.i.i.i94
   store i64 %338, ptr %340, align 8, !tbaa !19, !noalias !1016
   %341 = add nuw nsw i64 %.0910.i.i.i.i94, 1
   %exitcond.not.i.i.i.i95 = icmp eq i64 %341, 4
@@ -6978,9 +6978,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 342:                                              ; preds = %342, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i96
   %.0.in11.i.i.i.i.i97 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i96 ], [ %354, %342 ]
   %.0910.i.i.i.i.i98 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i96 ], [ %356, %342 ]
-  %343 = getelementptr inbounds nuw i64, ptr %36, i64 %.0910.i.i.i.i.i98
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.0910.i.i.i.i.i98
   %344 = load i64, ptr %343, align 8, !tbaa !19, !noalias !1019
-  %345 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i98
+  %345 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i98
   %346 = load i64, ptr %345, align 8, !tbaa !19, !noalias !1019
   %347 = zext i1 %.0.in11.i.i.i.i.i97 to i64
   %348 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %344, i64 %346)
@@ -6990,7 +6990,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %352 = extractvalue { i64, i1 } %351, 1
   %353 = extractvalue { i64, i1 } %351, 0
   %354 = or i1 %349, %352
-  %355 = getelementptr inbounds nuw i64, ptr %34, i64 %.0910.i.i.i.i.i98
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0910.i.i.i.i.i98
   store i64 %353, ptr %355, align 8, !noalias !1013
   %356 = add nuw nsw i64 %.0910.i.i.i.i.i98, 1
   %exitcond.not.i.i.i.i.i99 = icmp eq i64 %356, 4
@@ -7026,9 +7026,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit101: ; preds
 360:                                              ; preds = %360, %358
   %.0.in11.i.i.i.i104 = phi i1 [ false, %358 ], [ %372, %360 ]
   %.0910.i.i.i.i105 = phi i64 [ 0, %358 ], [ %374, %360 ]
-  %361 = getelementptr inbounds nuw i64, ptr %.06.i103.sroa.phi220, i64 %.0910.i.i.i.i105
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %.06.i103.sroa.phi220, i64 %.0910.i.i.i.i105
   %362 = load i64, ptr %361, align 8, !tbaa !19, !noalias !1033
-  %363 = getelementptr inbounds nuw i64, ptr %.06.i103.sroa.phi, i64 %.0910.i.i.i.i105
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %.06.i103.sroa.phi, i64 %.0910.i.i.i.i105
   %364 = load i64, ptr %363, align 8, !tbaa !19, !noalias !1033
   %365 = zext i1 %.0.in11.i.i.i.i104 to i64
   %366 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %362, i64 %364)
@@ -7038,7 +7038,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit101: ; preds
   %370 = extractvalue { i64, i1 } %369, 1
   %371 = extractvalue { i64, i1 } %369, 0
   %372 = or i1 %367, %370
-  %373 = getelementptr inbounds nuw i64, ptr %31, i64 %.0910.i.i.i.i105
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.0910.i.i.i.i105
   store i64 %371, ptr %373, align 8, !tbaa !19, !noalias !1033
   %374 = add nuw nsw i64 %.0910.i.i.i.i105, 1
   %exitcond.not.i.i.i.i106 = icmp eq i64 %374, 4
@@ -7053,9 +7053,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 375:                                              ; preds = %375, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i107
   %.0.in11.i.i.i.i.i108 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i107 ], [ %387, %375 ]
   %.0910.i.i.i.i.i109 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i107 ], [ %389, %375 ]
-  %376 = getelementptr inbounds nuw i64, ptr %32, i64 %.0910.i.i.i.i.i109
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0910.i.i.i.i.i109
   %377 = load i64, ptr %376, align 8, !tbaa !19, !noalias !1036
-  %378 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i109
+  %378 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i109
   %379 = load i64, ptr %378, align 8, !tbaa !19, !noalias !1036
   %380 = zext i1 %.0.in11.i.i.i.i.i108 to i64
   %381 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %377, i64 %379)
@@ -7065,7 +7065,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %385 = extractvalue { i64, i1 } %384, 1
   %386 = extractvalue { i64, i1 } %384, 0
   %387 = or i1 %382, %385
-  %388 = getelementptr inbounds nuw i64, ptr %30, i64 %.0910.i.i.i.i.i109
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0910.i.i.i.i.i109
   store i64 %386, ptr %388, align 8, !noalias !1030
   %389 = add nuw nsw i64 %.0910.i.i.i.i.i109, 1
   %exitcond.not.i.i.i.i.i110 = icmp eq i64 %389, 4
@@ -7102,9 +7102,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit112: ; preds
 393:                                              ; preds = %393, %391
   %.0.in11.i.i.i.i115 = phi i1 [ false, %391 ], [ %405, %393 ]
   %.0910.i.i.i.i116 = phi i64 [ 0, %391 ], [ %407, %393 ]
-  %394 = getelementptr inbounds nuw i64, ptr %.07.i114.sroa.phi223, i64 %.0910.i.i.i.i116
+  %394 = getelementptr inbounds nuw [8 x i8], ptr %.07.i114.sroa.phi223, i64 %.0910.i.i.i.i116
   %395 = load i64, ptr %394, align 8
-  %396 = getelementptr inbounds nuw i64, ptr %.07.i114.sroa.phi, i64 %.0910.i.i.i.i116
+  %396 = getelementptr inbounds nuw [8 x i8], ptr %.07.i114.sroa.phi, i64 %.0910.i.i.i.i116
   %397 = load i64, ptr %396, align 8, !tbaa !19, !noalias !1048
   %398 = zext i1 %.0.in11.i.i.i.i115 to i64
   %399 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %395, i64 %397)
@@ -7114,7 +7114,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit112: ; preds
   %403 = extractvalue { i64, i1 } %402, 1
   %404 = extractvalue { i64, i1 } %402, 0
   %405 = or i1 %400, %403
-  %406 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i116
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0910.i.i.i.i116
   store i64 %404, ptr %406, align 8, !tbaa !19, !noalias !1048
   %407 = add nuw nsw i64 %.0910.i.i.i.i116, 1
   %exitcond.not.i.i.i.i117 = icmp eq i64 %407, 4
@@ -7131,9 +7131,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 408:                                              ; preds = %408, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i118
   %.0.in11.i5.i.i.i119 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i118 ], [ %420, %408 ]
   %.0910.i6.i.i.i120 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i118 ], [ %422, %408 ]
-  %409 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i6.i.i.i120
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0910.i6.i.i.i120
   %410 = load i64, ptr %409, align 8, !tbaa !19, !noalias !1051
-  %411 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i120
+  %411 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i120
   %412 = load i64, ptr %411, align 8, !tbaa !19, !noalias !1051
   %413 = zext i1 %.0.in11.i5.i.i.i119 to i64
   %414 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %410, i64 %412)
@@ -7143,7 +7143,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %418 = extractvalue { i64, i1 } %417, 1
   %419 = extractvalue { i64, i1 } %417, 0
   %420 = or i1 %415, %418
-  %421 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i6.i.i.i120
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0910.i6.i.i.i120
   store i64 %419, ptr %421, align 8, !tbaa !19, !noalias !1051
   %422 = add nuw nsw i64 %.0910.i6.i.i.i120, 1
   %exitcond.not.i7.i.i.i121 = icmp eq i64 %422, 4
@@ -7179,7 +7179,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit125: ; preds
   %.07.i127.sroa.phi = phi ptr [ %24, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit125 ], [ %.07.i127.sroa.gep226, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i135 ]
   %.07.i127 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit125 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i135 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i126)
-  %426 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %87, i64 %.07.i127
+  %426 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %.07.i127
   call void @llvm.lifetime.start.p0(ptr nonnull %22) #11, !noalias !1058
   call void @llvm.lifetime.start.p0(ptr nonnull %21) #11, !noalias !1063
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1063
@@ -7188,9 +7188,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit125: ; preds
 427:                                              ; preds = %427, %424
   %.0.in11.i.i.i.i128 = phi i1 [ false, %424 ], [ %439, %427 ]
   %.0910.i.i.i.i129 = phi i64 [ 0, %424 ], [ %441, %427 ]
-  %428 = getelementptr inbounds nuw i64, ptr %.07.i127.sroa.phi, i64 %.0910.i.i.i.i129
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %.07.i127.sroa.phi, i64 %.0910.i.i.i.i129
   %429 = load i64, ptr %428, align 8, !tbaa !19, !noalias !1063
-  %430 = getelementptr inbounds nuw i64, ptr %426, i64 %.0910.i.i.i.i129
+  %430 = getelementptr inbounds nuw [8 x i8], ptr %426, i64 %.0910.i.i.i.i129
   %431 = load i64, ptr %430, align 8, !tbaa !19, !noalias !1063
   %432 = zext i1 %.0.in11.i.i.i.i128 to i64
   %433 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %429, i64 %431)
@@ -7200,7 +7200,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit125: ; preds
   %437 = extractvalue { i64, i1 } %436, 1
   %438 = extractvalue { i64, i1 } %436, 0
   %439 = or i1 %434, %437
-  %440 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i.i.i129
+  %440 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i.i.i.i129
   store i64 %438, ptr %440, align 8, !tbaa !19, !noalias !1063
   %441 = add nuw nsw i64 %.0910.i.i.i.i129, 1
   %exitcond.not.i.i.i.i130 = icmp eq i64 %441, 4
@@ -7217,9 +7217,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 442:                                              ; preds = %442, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i131
   %.0.in11.i5.i.i.i132 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i131 ], [ %454, %442 ]
   %.0910.i6.i.i.i133 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i131 ], [ %456, %442 ]
-  %443 = getelementptr inbounds nuw i64, ptr %22, i64 %.0910.i6.i.i.i133
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0910.i6.i.i.i133
   %444 = load i64, ptr %443, align 8, !tbaa !19, !noalias !1066
-  %445 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i133
+  %445 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i133
   %446 = load i64, ptr %445, align 8, !tbaa !19, !noalias !1066
   %447 = zext i1 %.0.in11.i5.i.i.i132 to i64
   %448 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %444, i64 %446)
@@ -7229,7 +7229,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %452 = extractvalue { i64, i1 } %451, 1
   %453 = extractvalue { i64, i1 } %451, 0
   %454 = or i1 %449, %452
-  %455 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i6.i.i.i133
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i6.i.i.i133
   store i64 %453, ptr %455, align 8, !tbaa !19, !noalias !1066
   %456 = add nuw nsw i64 %.0910.i6.i.i.i133, 1
   %exitcond.not.i7.i.i.i134 = icmp eq i64 %456, 4
@@ -7262,7 +7262,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit138: ; preds
   %.07.i140.sroa.phi = phi ptr [ %19, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit138 ], [ %.07.i140.sroa.gep227, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i148 ]
   %.07.i140 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit138 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i148 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i139)
-  %460 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %89, i64 %.07.i140
+  %460 = getelementptr inbounds nuw [32 x i8], ptr %89, i64 %.07.i140
   call void @llvm.lifetime.start.p0(ptr nonnull %17) #11, !noalias !1072
   call void @llvm.lifetime.start.p0(ptr nonnull %16) #11, !noalias !1077
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1077
@@ -7271,9 +7271,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit138: ; preds
 461:                                              ; preds = %461, %458
   %.0.in11.i.i.i.i141 = phi i1 [ false, %458 ], [ %473, %461 ]
   %.0910.i.i.i.i142 = phi i64 [ 0, %458 ], [ %475, %461 ]
-  %462 = getelementptr inbounds nuw i64, ptr %.07.i140.sroa.phi, i64 %.0910.i.i.i.i142
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %.07.i140.sroa.phi, i64 %.0910.i.i.i.i142
   %463 = load i64, ptr %462, align 8, !tbaa !19, !noalias !1077
-  %464 = getelementptr inbounds nuw i64, ptr %460, i64 %.0910.i.i.i.i142
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %460, i64 %.0910.i.i.i.i142
   %465 = load i64, ptr %464, align 8, !tbaa !19, !noalias !1077
   %466 = zext i1 %.0.in11.i.i.i.i141 to i64
   %467 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %463, i64 %465)
@@ -7283,7 +7283,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit138: ; preds
   %471 = extractvalue { i64, i1 } %470, 1
   %472 = extractvalue { i64, i1 } %470, 0
   %473 = or i1 %468, %471
-  %474 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i.i.i142
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i.i.i.i142
   store i64 %472, ptr %474, align 8, !tbaa !19, !noalias !1077
   %475 = add nuw nsw i64 %.0910.i.i.i.i142, 1
   %exitcond.not.i.i.i.i143 = icmp eq i64 %475, 4
@@ -7300,9 +7300,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 476:                                              ; preds = %476, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i144
   %.0.in11.i5.i.i.i145 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i144 ], [ %488, %476 ]
   %.0910.i6.i.i.i146 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i144 ], [ %490, %476 ]
-  %477 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i6.i.i.i146
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0910.i6.i.i.i146
   %478 = load i64, ptr %477, align 8, !tbaa !19, !noalias !1080
-  %479 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i146
+  %479 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i146
   %480 = load i64, ptr %479, align 8, !tbaa !19, !noalias !1080
   %481 = zext i1 %.0.in11.i5.i.i.i145 to i64
   %482 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %478, i64 %480)
@@ -7312,7 +7312,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %486 = extractvalue { i64, i1 } %485, 1
   %487 = extractvalue { i64, i1 } %485, 0
   %488 = or i1 %483, %486
-  %489 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i6.i.i.i146
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i6.i.i.i146
   store i64 %487, ptr %489, align 8, !tbaa !19, !noalias !1080
   %490 = add nuw nsw i64 %.0910.i6.i.i.i146, 1
   %exitcond.not.i7.i.i.i147 = icmp eq i64 %490, 4
@@ -7353,9 +7353,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit151: ; preds
 494:                                              ; preds = %494, %492
   %.0.in11.i.i.i.i154 = phi i1 [ false, %492 ], [ %506, %494 ]
   %.0910.i.i.i.i155 = phi i64 [ 0, %492 ], [ %508, %494 ]
-  %495 = getelementptr inbounds nuw i64, ptr %.06.i153.sroa.phi228, i64 %.0910.i.i.i.i155
+  %495 = getelementptr inbounds nuw [8 x i8], ptr %.06.i153.sroa.phi228, i64 %.0910.i.i.i.i155
   %496 = load i64, ptr %495, align 8
-  %497 = getelementptr inbounds nuw i64, ptr %.06.i153.sroa.phi, i64 %.0910.i.i.i.i155
+  %497 = getelementptr inbounds nuw [8 x i8], ptr %.06.i153.sroa.phi, i64 %.0910.i.i.i.i155
   %498 = load i64, ptr %497, align 8, !tbaa !19, !noalias !1091
   %499 = zext i1 %.0.in11.i.i.i.i154 to i64
   %500 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %496, i64 %498)
@@ -7365,7 +7365,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit151: ; preds
   %504 = extractvalue { i64, i1 } %503, 1
   %505 = extractvalue { i64, i1 } %503, 0
   %506 = or i1 %501, %504
-  %507 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i155
+  %507 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i155
   store i64 %505, ptr %507, align 8, !tbaa !19, !noalias !1091
   %508 = add nuw nsw i64 %.0910.i.i.i.i155, 1
   %exitcond.not.i.i.i.i156 = icmp eq i64 %508, 4
@@ -7380,9 +7380,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 509:                                              ; preds = %509, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i157
   %.0.in11.i.i.i.i.i158 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i157 ], [ %521, %509 ]
   %.0910.i.i.i.i.i159 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i157 ], [ %523, %509 ]
-  %510 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i.i159
+  %510 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i.i.i.i159
   %511 = load i64, ptr %510, align 8, !tbaa !19, !noalias !1094
-  %512 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i159
+  %512 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i159
   %513 = load i64, ptr %512, align 8, !tbaa !19, !noalias !1094
   %514 = zext i1 %.0.in11.i.i.i.i.i158 to i64
   %515 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %511, i64 %513)
@@ -7392,7 +7392,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %519 = extractvalue { i64, i1 } %518, 1
   %520 = extractvalue { i64, i1 } %518, 0
   %521 = or i1 %516, %519
-  %522 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i.i.i159
+  %522 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i.i.i.i.i159
   store i64 %520, ptr %522, align 8, !noalias !1088
   %523 = add nuw nsw i64 %.0910.i.i.i.i.i159, 1
   %exitcond.not.i.i.i.i.i160 = icmp eq i64 %523, 4
@@ -7425,9 +7425,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit162: ; preds
 527:                                              ; preds = %527, %525
   %.0.in11.i.i.i.i165 = phi i1 [ false, %525 ], [ %539, %527 ]
   %.0910.i.i.i.i166 = phi i64 [ 0, %525 ], [ %541, %527 ]
-  %528 = getelementptr inbounds nuw i64, ptr %.06.i164.sroa.phi231, i64 %.0910.i.i.i.i166
+  %528 = getelementptr inbounds nuw [8 x i8], ptr %.06.i164.sroa.phi231, i64 %.0910.i.i.i.i166
   %529 = load i64, ptr %528, align 8
-  %530 = getelementptr inbounds nuw i64, ptr %.06.i164.sroa.phi, i64 %.0910.i.i.i.i166
+  %530 = getelementptr inbounds nuw [8 x i8], ptr %.06.i164.sroa.phi, i64 %.0910.i.i.i.i166
   %531 = load i64, ptr %530, align 8, !tbaa !19, !noalias !1108
   %532 = zext i1 %.0.in11.i.i.i.i165 to i64
   %533 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %529, i64 %531)
@@ -7437,7 +7437,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit162: ; preds
   %537 = extractvalue { i64, i1 } %536, 1
   %538 = extractvalue { i64, i1 } %536, 0
   %539 = or i1 %534, %537
-  %540 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i166
+  %540 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i166
   store i64 %538, ptr %540, align 8, !tbaa !19, !noalias !1108
   %541 = add nuw nsw i64 %.0910.i.i.i.i166, 1
   %exitcond.not.i.i.i.i167 = icmp eq i64 %541, 4
@@ -7452,9 +7452,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 542:                                              ; preds = %542, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i168
   %.0.in11.i.i.i.i.i169 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i168 ], [ %554, %542 ]
   %.0910.i.i.i.i.i170 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i168 ], [ %556, %542 ]
-  %543 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i.i170
+  %543 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i.i170
   %544 = load i64, ptr %543, align 8, !tbaa !19, !noalias !1111
-  %545 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i170
+  %545 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i170
   %546 = load i64, ptr %545, align 8, !tbaa !19, !noalias !1111
   %547 = zext i1 %.0.in11.i.i.i.i.i169 to i64
   %548 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %544, i64 %546)
@@ -7464,7 +7464,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %552 = extractvalue { i64, i1 } %551, 1
   %553 = extractvalue { i64, i1 } %551, 0
   %554 = or i1 %549, %552
-  %555 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i170
+  %555 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i.i170
   store i64 %553, ptr %555, align 8, !noalias !1105
   %556 = add nuw nsw i64 %.0910.i.i.i.i.i170, 1
   %exitcond.not.i.i.i.i.i171 = icmp eq i64 %556, 4
@@ -7496,9 +7496,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit173: ; preds
 560:                                              ; preds = %560, %558
   %.0.in11.i.i.i.i176 = phi i1 [ false, %558 ], [ %572, %560 ]
   %.0910.i.i.i.i177 = phi i64 [ 0, %558 ], [ %574, %560 ]
-  %561 = getelementptr inbounds nuw i64, ptr %.07.i175.sroa.phi234, i64 %.0910.i.i.i.i177
+  %561 = getelementptr inbounds nuw [8 x i8], ptr %.07.i175.sroa.phi234, i64 %.0910.i.i.i.i177
   %562 = load i64, ptr %561, align 8
-  %563 = getelementptr inbounds nuw i64, ptr %.07.i175.sroa.phi, i64 %.0910.i.i.i.i177
+  %563 = getelementptr inbounds nuw [8 x i8], ptr %.07.i175.sroa.phi, i64 %.0910.i.i.i.i177
   %564 = load i64, ptr %563, align 8, !tbaa !19, !noalias !1124
   %565 = zext i1 %.0.in11.i.i.i.i176 to i64
   %566 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %562, i64 %564)
@@ -7508,7 +7508,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit173: ; preds
   %570 = extractvalue { i64, i1 } %569, 1
   %571 = extractvalue { i64, i1 } %569, 0
   %572 = or i1 %567, %570
-  %573 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i177
+  %573 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i177
   store i64 %571, ptr %573, align 8, !tbaa !19, !noalias !1124
   %574 = add nuw nsw i64 %.0910.i.i.i.i177, 1
   %exitcond.not.i.i.i.i178 = icmp eq i64 %574, 4
@@ -7525,9 +7525,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 575:                                              ; preds = %575, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i179
   %.0.in11.i5.i.i.i180 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i179 ], [ %587, %575 ]
   %.0910.i6.i.i.i181 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i179 ], [ %589, %575 ]
-  %576 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i6.i.i.i181
+  %576 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i6.i.i.i181
   %577 = load i64, ptr %576, align 8, !tbaa !19, !noalias !1127
-  %578 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i181
+  %578 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i181
   %579 = load i64, ptr %578, align 8, !tbaa !19, !noalias !1127
   %580 = zext i1 %.0.in11.i5.i.i.i180 to i64
   %581 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %577, i64 %579)
@@ -7537,7 +7537,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %585 = extractvalue { i64, i1 } %584, 1
   %586 = extractvalue { i64, i1 } %584, 0
   %587 = or i1 %582, %585
-  %588 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i6.i.i.i181
+  %588 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i6.i.i.i181
   store i64 %586, ptr %588, align 8, !tbaa !19, !noalias !1127
   %589 = add nuw nsw i64 %.0910.i6.i.i.i181, 1
   %exitcond.not.i7.i.i.i182 = icmp eq i64 %589, 4
@@ -7725,9 +7725,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25416lin_func_and_dblERKNS_3ecc8Ja
 109:                                              ; preds = %109, %107
   %.0.in11.i.i.i.i = phi i1 [ false, %107 ], [ %121, %109 ]
   %.0910.i.i.i.i = phi i64 [ 0, %107 ], [ %123, %109 ]
-  %110 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi237, i64 %.0910.i.i.i.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi237, i64 %.0910.i.i.i.i
   %111 = load i64, ptr %110, align 8, !tbaa !19, !noalias !1139
-  %112 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !19, !noalias !1139
   %114 = zext i1 %.0.in11.i.i.i.i to i64
   %115 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %111, i64 %113)
@@ -7737,7 +7737,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25416lin_func_and_dblERKNS_3ecc8Ja
   %119 = extractvalue { i64, i1 } %118, 1
   %120 = extractvalue { i64, i1 } %118, 0
   %121 = or i1 %116, %119
-  %122 = getelementptr inbounds nuw i64, ptr %81, i64 %.0910.i.i.i.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.0910.i.i.i.i
   store i64 %120, ptr %122, align 8, !tbaa !19, !noalias !1139
   %123 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %123, 4
@@ -7754,9 +7754,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 124:                                              ; preds = %124, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %136, %124 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %138, %124 ]
-  %125 = getelementptr inbounds nuw i64, ptr %82, i64 %.0910.i6.i.i.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.0910.i6.i.i.i
   %126 = load i64, ptr %125, align 8, !tbaa !19, !noalias !1142
-  %127 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
+  %127 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %128 = load i64, ptr %127, align 8, !tbaa !19, !noalias !1142
   %129 = zext i1 %.0.in11.i5.i.i.i to i64
   %130 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %126, i64 %128)
@@ -7766,7 +7766,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %134 = extractvalue { i64, i1 } %133, 1
   %135 = extractvalue { i64, i1 } %133, 0
   %136 = or i1 %131, %134
-  %137 = getelementptr inbounds nuw i64, ptr %80, i64 %.0910.i6.i.i.i
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %.0910.i6.i.i.i
   store i64 %135, ptr %137, align 8, !tbaa !19, !noalias !1142
   %138 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %138, 4
@@ -7805,9 +7805,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 142:                                              ; preds = %142, %140
   %.0.in11.i.i.i.i18 = phi i1 [ false, %140 ], [ %154, %142 ]
   %.0910.i.i.i.i19 = phi i64 [ 0, %140 ], [ %156, %142 ]
-  %143 = getelementptr inbounds nuw i64, ptr %.07.i17.sroa.phi240, i64 %.0910.i.i.i.i19
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %.07.i17.sroa.phi240, i64 %.0910.i.i.i.i19
   %144 = load i64, ptr %143, align 8, !tbaa !19, !noalias !1153
-  %145 = getelementptr inbounds nuw i64, ptr %.07.i17.sroa.phi, i64 %.0910.i.i.i.i19
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %.07.i17.sroa.phi, i64 %.0910.i.i.i.i19
   %146 = load i64, ptr %145, align 8, !tbaa !19, !noalias !1153
   %147 = zext i1 %.0.in11.i.i.i.i18 to i64
   %148 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %144, i64 %146)
@@ -7817,7 +7817,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %152 = extractvalue { i64, i1 } %151, 1
   %153 = extractvalue { i64, i1 } %151, 0
   %154 = or i1 %149, %152
-  %155 = getelementptr inbounds nuw i64, ptr %76, i64 %.0910.i.i.i.i19
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.0910.i.i.i.i19
   store i64 %153, ptr %155, align 8, !tbaa !19, !noalias !1153
   %156 = add nuw nsw i64 %.0910.i.i.i.i19, 1
   %exitcond.not.i.i.i.i20 = icmp eq i64 %156, 4
@@ -7834,9 +7834,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 157:                                              ; preds = %157, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i21
   %.0.in11.i5.i.i.i22 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i21 ], [ %169, %157 ]
   %.0910.i6.i.i.i23 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i21 ], [ %171, %157 ]
-  %158 = getelementptr inbounds nuw i64, ptr %77, i64 %.0910.i6.i.i.i23
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.0910.i6.i.i.i23
   %159 = load i64, ptr %158, align 8, !tbaa !19, !noalias !1156
-  %160 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i23
+  %160 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i23
   %161 = load i64, ptr %160, align 8, !tbaa !19, !noalias !1156
   %162 = zext i1 %.0.in11.i5.i.i.i22 to i64
   %163 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %159, i64 %161)
@@ -7846,7 +7846,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %167 = extractvalue { i64, i1 } %166, 1
   %168 = extractvalue { i64, i1 } %166, 0
   %169 = or i1 %164, %167
-  %170 = getelementptr inbounds nuw i64, ptr %75, i64 %.0910.i6.i.i.i23
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.0910.i6.i.i.i23
   store i64 %168, ptr %170, align 8, !tbaa !19, !noalias !1156
   %171 = add nuw nsw i64 %.0910.i6.i.i.i23, 1
   %exitcond.not.i7.i.i.i24 = icmp eq i64 %171, 4
@@ -7885,9 +7885,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds 
 175:                                              ; preds = %175, %173
   %.0.in11.i.i.i.i31 = phi i1 [ false, %173 ], [ %187, %175 ]
   %.0910.i.i.i.i32 = phi i64 [ 0, %173 ], [ %189, %175 ]
-  %176 = getelementptr inbounds nuw i64, ptr %.07.i30.sroa.phi243, i64 %.0910.i.i.i.i32
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %.07.i30.sroa.phi243, i64 %.0910.i.i.i.i32
   %177 = load i64, ptr %176, align 8, !tbaa !19, !noalias !1167
-  %178 = getelementptr inbounds nuw i64, ptr %.07.i30.sroa.phi, i64 %.0910.i.i.i.i32
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %.07.i30.sroa.phi, i64 %.0910.i.i.i.i32
   %179 = load i64, ptr %178, align 8, !tbaa !19, !noalias !1167
   %180 = zext i1 %.0.in11.i.i.i.i31 to i64
   %181 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %177, i64 %179)
@@ -7897,7 +7897,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds 
   %185 = extractvalue { i64, i1 } %184, 1
   %186 = extractvalue { i64, i1 } %184, 0
   %187 = or i1 %182, %185
-  %188 = getelementptr inbounds nuw i64, ptr %71, i64 %.0910.i.i.i.i32
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.0910.i.i.i.i32
   store i64 %186, ptr %188, align 8, !tbaa !19, !noalias !1167
   %189 = add nuw nsw i64 %.0910.i.i.i.i32, 1
   %exitcond.not.i.i.i.i33 = icmp eq i64 %189, 4
@@ -7914,9 +7914,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 190:                                              ; preds = %190, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34
   %.0.in11.i5.i.i.i35 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %202, %190 ]
   %.0910.i6.i.i.i36 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %204, %190 ]
-  %191 = getelementptr inbounds nuw i64, ptr %72, i64 %.0910.i6.i.i.i36
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.0910.i6.i.i.i36
   %192 = load i64, ptr %191, align 8, !tbaa !19, !noalias !1170
-  %193 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i36
+  %193 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i36
   %194 = load i64, ptr %193, align 8, !tbaa !19, !noalias !1170
   %195 = zext i1 %.0.in11.i5.i.i.i35 to i64
   %196 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %192, i64 %194)
@@ -7926,7 +7926,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %200 = extractvalue { i64, i1 } %199, 1
   %201 = extractvalue { i64, i1 } %199, 0
   %202 = or i1 %197, %200
-  %203 = getelementptr inbounds nuw i64, ptr %70, i64 %.0910.i6.i.i.i36
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.0910.i6.i.i.i36
   store i64 %201, ptr %203, align 8, !tbaa !19, !noalias !1170
   %204 = add nuw nsw i64 %.0910.i6.i.i.i36, 1
   %exitcond.not.i7.i.i.i37 = icmp eq i64 %204, 4
@@ -7967,9 +7967,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit41: ; preds 
 208:                                              ; preds = %208, %206
   %.0.in11.i.i.i.i44 = phi i1 [ false, %206 ], [ %220, %208 ]
   %.0910.i.i.i.i45 = phi i64 [ 0, %206 ], [ %222, %208 ]
-  %209 = getelementptr inbounds nuw i64, ptr %.07.i43.sroa.phi246, i64 %.0910.i.i.i.i45
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %.07.i43.sroa.phi246, i64 %.0910.i.i.i.i45
   %210 = load i64, ptr %209, align 8, !tbaa !19, !noalias !1181
-  %211 = getelementptr inbounds nuw i64, ptr %.07.i43.sroa.phi, i64 %.0910.i.i.i.i45
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %.07.i43.sroa.phi, i64 %.0910.i.i.i.i45
   %212 = load i64, ptr %211, align 8, !tbaa !19, !noalias !1181
   %213 = zext i1 %.0.in11.i.i.i.i44 to i64
   %214 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %210, i64 %212)
@@ -7979,7 +7979,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit41: ; preds 
   %218 = extractvalue { i64, i1 } %217, 1
   %219 = extractvalue { i64, i1 } %217, 0
   %220 = or i1 %215, %218
-  %221 = getelementptr inbounds nuw i64, ptr %66, i64 %.0910.i.i.i.i45
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.0910.i.i.i.i45
   store i64 %219, ptr %221, align 8, !tbaa !19, !noalias !1181
   %222 = add nuw nsw i64 %.0910.i.i.i.i45, 1
   %exitcond.not.i.i.i.i46 = icmp eq i64 %222, 4
@@ -7996,9 +7996,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 223:                                              ; preds = %223, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i47
   %.0.in11.i5.i.i.i48 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i47 ], [ %235, %223 ]
   %.0910.i6.i.i.i49 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i47 ], [ %237, %223 ]
-  %224 = getelementptr inbounds nuw i64, ptr %67, i64 %.0910.i6.i.i.i49
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.0910.i6.i.i.i49
   %225 = load i64, ptr %224, align 8, !tbaa !19, !noalias !1184
-  %226 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i49
+  %226 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i49
   %227 = load i64, ptr %226, align 8, !tbaa !19, !noalias !1184
   %228 = zext i1 %.0.in11.i5.i.i.i48 to i64
   %229 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %225, i64 %227)
@@ -8008,7 +8008,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %233 = extractvalue { i64, i1 } %232, 1
   %234 = extractvalue { i64, i1 } %232, 0
   %235 = or i1 %230, %233
-  %236 = getelementptr inbounds nuw i64, ptr %65, i64 %.0910.i6.i.i.i49
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.0910.i6.i.i.i49
   store i64 %234, ptr %236, align 8, !tbaa !19, !noalias !1184
   %237 = add nuw nsw i64 %.0910.i6.i.i.i49, 1
   %exitcond.not.i7.i.i.i50 = icmp eq i64 %237, 4
@@ -8050,9 +8050,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54: ; preds 
 241:                                              ; preds = %241, %239
   %.0.in11.i.i.i.i57 = phi i1 [ false, %239 ], [ %253, %241 ]
   %.0910.i.i.i.i58 = phi i64 [ 0, %239 ], [ %255, %241 ]
-  %242 = getelementptr inbounds nuw i64, ptr %.07.i56.sroa.phi249, i64 %.0910.i.i.i.i58
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %.07.i56.sroa.phi249, i64 %.0910.i.i.i.i58
   %243 = load i64, ptr %242, align 8, !tbaa !19, !noalias !1195
-  %244 = getelementptr inbounds nuw i64, ptr %.07.i56.sroa.phi, i64 %.0910.i.i.i.i58
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %.07.i56.sroa.phi, i64 %.0910.i.i.i.i58
   %245 = load i64, ptr %244, align 8
   %246 = zext i1 %.0.in11.i.i.i.i57 to i64
   %247 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %243, i64 %245)
@@ -8062,7 +8062,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54: ; preds 
   %251 = extractvalue { i64, i1 } %250, 1
   %252 = extractvalue { i64, i1 } %250, 0
   %253 = or i1 %248, %251
-  %254 = getelementptr inbounds nuw i64, ptr %61, i64 %.0910.i.i.i.i58
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.0910.i.i.i.i58
   store i64 %252, ptr %254, align 8, !tbaa !19, !noalias !1195
   %255 = add nuw nsw i64 %.0910.i.i.i.i58, 1
   %exitcond.not.i.i.i.i59 = icmp eq i64 %255, 4
@@ -8079,9 +8079,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 256:                                              ; preds = %256, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60
   %.0.in11.i5.i.i.i61 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60 ], [ %268, %256 ]
   %.0910.i6.i.i.i62 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60 ], [ %270, %256 ]
-  %257 = getelementptr inbounds nuw i64, ptr %62, i64 %.0910.i6.i.i.i62
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.0910.i6.i.i.i62
   %258 = load i64, ptr %257, align 8, !tbaa !19, !noalias !1198
-  %259 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i62
+  %259 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i62
   %260 = load i64, ptr %259, align 8, !tbaa !19, !noalias !1198
   %261 = zext i1 %.0.in11.i5.i.i.i61 to i64
   %262 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %258, i64 %260)
@@ -8091,7 +8091,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %266 = extractvalue { i64, i1 } %265, 1
   %267 = extractvalue { i64, i1 } %265, 0
   %268 = or i1 %263, %266
-  %269 = getelementptr inbounds nuw i64, ptr %60, i64 %.0910.i6.i.i.i62
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.0910.i6.i.i.i62
   store i64 %267, ptr %269, align 8, !tbaa !19, !noalias !1198
   %270 = add nuw nsw i64 %.0910.i6.i.i.i62, 1
   %exitcond.not.i7.i.i.i63 = icmp eq i64 %270, 4
@@ -8136,9 +8136,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67: ; preds 
 274:                                              ; preds = %274, %272
   %.0.in11.i.i.i.i69 = phi i1 [ false, %272 ], [ %286, %274 ]
   %.0910.i.i.i.i70 = phi i64 [ 0, %272 ], [ %288, %274 ]
-  %275 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi252, i64 %.0910.i.i.i.i70
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi252, i64 %.0910.i.i.i.i70
   %276 = load i64, ptr %275, align 8, !tbaa !19, !noalias !1210
-  %277 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i70
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i70
   %278 = load i64, ptr %277, align 8, !tbaa !19, !noalias !1210
   %279 = zext i1 %.0.in11.i.i.i.i69 to i64
   %280 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %276, i64 %278)
@@ -8148,7 +8148,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67: ; preds 
   %284 = extractvalue { i64, i1 } %283, 1
   %285 = extractvalue { i64, i1 } %283, 0
   %286 = or i1 %281, %284
-  %287 = getelementptr inbounds nuw i64, ptr %57, i64 %.0910.i.i.i.i70
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.0910.i.i.i.i70
   store i64 %285, ptr %287, align 8, !tbaa !19, !noalias !1210
   %288 = add nuw nsw i64 %.0910.i.i.i.i70, 1
   %exitcond.not.i.i.i.i71 = icmp eq i64 %288, 4
@@ -8163,9 +8163,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 289:                                              ; preds = %289, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %301, %289 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %303, %289 ]
-  %290 = getelementptr inbounds nuw i64, ptr %58, i64 %.0910.i.i.i.i.i
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.0910.i.i.i.i.i
   %291 = load i64, ptr %290, align 8, !tbaa !19, !noalias !1213
-  %292 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %292 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %293 = load i64, ptr %292, align 8, !tbaa !19, !noalias !1213
   %294 = zext i1 %.0.in11.i.i.i.i.i to i64
   %295 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %291, i64 %293)
@@ -8175,7 +8175,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %299 = extractvalue { i64, i1 } %298, 1
   %300 = extractvalue { i64, i1 } %298, 0
   %301 = or i1 %296, %299
-  %302 = getelementptr inbounds nuw i64, ptr %56, i64 %.0910.i.i.i.i.i
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.0910.i.i.i.i.i
   store i64 %300, ptr %302, align 8, !noalias !1207
   %303 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %303, 4
@@ -8212,9 +8212,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 307:                                              ; preds = %307, %305
   %.0.in11.i.i.i.i74 = phi i1 [ false, %305 ], [ %319, %307 ]
   %.0910.i.i.i.i75 = phi i64 [ 0, %305 ], [ %321, %307 ]
-  %308 = getelementptr inbounds nuw i64, ptr %.06.i73.sroa.phi255, i64 %.0910.i.i.i.i75
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %.06.i73.sroa.phi255, i64 %.0910.i.i.i.i75
   %309 = load i64, ptr %308, align 8, !tbaa !19, !noalias !1227
-  %310 = getelementptr inbounds nuw i64, ptr %.06.i73.sroa.phi, i64 %.0910.i.i.i.i75
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %.06.i73.sroa.phi, i64 %.0910.i.i.i.i75
   %311 = load i64, ptr %310, align 8, !tbaa !19, !noalias !1227
   %312 = zext i1 %.0.in11.i.i.i.i74 to i64
   %313 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %309, i64 %311)
@@ -8224,7 +8224,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %317 = extractvalue { i64, i1 } %316, 1
   %318 = extractvalue { i64, i1 } %316, 0
   %319 = or i1 %314, %317
-  %320 = getelementptr inbounds nuw i64, ptr %53, i64 %.0910.i.i.i.i75
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.0910.i.i.i.i75
   store i64 %318, ptr %320, align 8, !tbaa !19, !noalias !1227
   %321 = add nuw nsw i64 %.0910.i.i.i.i75, 1
   %exitcond.not.i.i.i.i76 = icmp eq i64 %321, 4
@@ -8239,9 +8239,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 322:                                              ; preds = %322, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77
   %.0.in11.i.i.i.i.i78 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77 ], [ %334, %322 ]
   %.0910.i.i.i.i.i79 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77 ], [ %336, %322 ]
-  %323 = getelementptr inbounds nuw i64, ptr %54, i64 %.0910.i.i.i.i.i79
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.0910.i.i.i.i.i79
   %324 = load i64, ptr %323, align 8, !tbaa !19, !noalias !1230
-  %325 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i79
+  %325 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i79
   %326 = load i64, ptr %325, align 8, !tbaa !19, !noalias !1230
   %327 = zext i1 %.0.in11.i.i.i.i.i78 to i64
   %328 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %324, i64 %326)
@@ -8251,7 +8251,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %332 = extractvalue { i64, i1 } %331, 1
   %333 = extractvalue { i64, i1 } %331, 0
   %334 = or i1 %329, %332
-  %335 = getelementptr inbounds nuw i64, ptr %52, i64 %.0910.i.i.i.i.i79
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.0910.i.i.i.i.i79
   store i64 %333, ptr %335, align 8, !noalias !1224
   %336 = add nuw nsw i64 %.0910.i.i.i.i.i79, 1
   %exitcond.not.i.i.i.i.i80 = icmp eq i64 %336, 4
@@ -8289,9 +8289,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82: ; preds 
 340:                                              ; preds = %340, %338
   %.0.in11.i.i.i.i85 = phi i1 [ false, %338 ], [ %352, %340 ]
   %.0910.i.i.i.i86 = phi i64 [ 0, %338 ], [ %354, %340 ]
-  %341 = getelementptr inbounds nuw i64, ptr %.07.i84.sroa.phi258, i64 %.0910.i.i.i.i86
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %.07.i84.sroa.phi258, i64 %.0910.i.i.i.i86
   %342 = load i64, ptr %341, align 8, !tbaa !19, !noalias !1243
-  %343 = getelementptr inbounds nuw i64, ptr %.07.i84.sroa.phi, i64 %.0910.i.i.i.i86
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %.07.i84.sroa.phi, i64 %.0910.i.i.i.i86
   %344 = load i64, ptr %343, align 8, !tbaa !19, !noalias !1243
   %345 = zext i1 %.0.in11.i.i.i.i85 to i64
   %346 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %342, i64 %344)
@@ -8301,7 +8301,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82: ; preds 
   %350 = extractvalue { i64, i1 } %349, 1
   %351 = extractvalue { i64, i1 } %349, 0
   %352 = or i1 %347, %350
-  %353 = getelementptr inbounds nuw i64, ptr %48, i64 %.0910.i.i.i.i86
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.0910.i.i.i.i86
   store i64 %351, ptr %353, align 8, !tbaa !19, !noalias !1243
   %354 = add nuw nsw i64 %.0910.i.i.i.i86, 1
   %exitcond.not.i.i.i.i87 = icmp eq i64 %354, 4
@@ -8318,9 +8318,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 355:                                              ; preds = %355, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i88
   %.0.in11.i5.i.i.i89 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i88 ], [ %367, %355 ]
   %.0910.i6.i.i.i90 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i88 ], [ %369, %355 ]
-  %356 = getelementptr inbounds nuw i64, ptr %49, i64 %.0910.i6.i.i.i90
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.0910.i6.i.i.i90
   %357 = load i64, ptr %356, align 8, !tbaa !19, !noalias !1246
-  %358 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i90
+  %358 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i90
   %359 = load i64, ptr %358, align 8, !tbaa !19, !noalias !1246
   %360 = zext i1 %.0.in11.i5.i.i.i89 to i64
   %361 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %357, i64 %359)
@@ -8330,7 +8330,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %365 = extractvalue { i64, i1 } %364, 1
   %366 = extractvalue { i64, i1 } %364, 0
   %367 = or i1 %362, %365
-  %368 = getelementptr inbounds nuw i64, ptr %47, i64 %.0910.i6.i.i.i90
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.0910.i6.i.i.i90
   store i64 %366, ptr %368, align 8, !tbaa !19, !noalias !1246
   %369 = add nuw nsw i64 %.0910.i6.i.i.i90, 1
   %exitcond.not.i7.i.i.i91 = icmp eq i64 %369, 4
@@ -8369,9 +8369,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit95: ; preds 
 373:                                              ; preds = %373, %371
   %.0.in11.i.i.i.i98 = phi i1 [ false, %371 ], [ %385, %373 ]
   %.0910.i.i.i.i99 = phi i64 [ 0, %371 ], [ %387, %373 ]
-  %374 = getelementptr inbounds nuw i64, ptr %.07.i97.sroa.phi261, i64 %.0910.i.i.i.i99
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %.07.i97.sroa.phi261, i64 %.0910.i.i.i.i99
   %375 = load i64, ptr %374, align 8, !tbaa !19, !noalias !1257
-  %376 = getelementptr inbounds nuw i64, ptr %.07.i97.sroa.phi, i64 %.0910.i.i.i.i99
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %.07.i97.sroa.phi, i64 %.0910.i.i.i.i99
   %377 = load i64, ptr %376, align 8, !tbaa !19, !noalias !1257
   %378 = zext i1 %.0.in11.i.i.i.i98 to i64
   %379 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %375, i64 %377)
@@ -8381,7 +8381,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit95: ; preds 
   %383 = extractvalue { i64, i1 } %382, 1
   %384 = extractvalue { i64, i1 } %382, 0
   %385 = or i1 %380, %383
-  %386 = getelementptr inbounds nuw i64, ptr %43, i64 %.0910.i.i.i.i99
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.0910.i.i.i.i99
   store i64 %384, ptr %386, align 8, !tbaa !19, !noalias !1257
   %387 = add nuw nsw i64 %.0910.i.i.i.i99, 1
   %exitcond.not.i.i.i.i100 = icmp eq i64 %387, 4
@@ -8398,9 +8398,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 388:                                              ; preds = %388, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i101
   %.0.in11.i5.i.i.i102 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i101 ], [ %400, %388 ]
   %.0910.i6.i.i.i103 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i101 ], [ %402, %388 ]
-  %389 = getelementptr inbounds nuw i64, ptr %44, i64 %.0910.i6.i.i.i103
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.0910.i6.i.i.i103
   %390 = load i64, ptr %389, align 8, !tbaa !19, !noalias !1260
-  %391 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i103
+  %391 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i103
   %392 = load i64, ptr %391, align 8, !tbaa !19, !noalias !1260
   %393 = zext i1 %.0.in11.i5.i.i.i102 to i64
   %394 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %390, i64 %392)
@@ -8410,7 +8410,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %398 = extractvalue { i64, i1 } %397, 1
   %399 = extractvalue { i64, i1 } %397, 0
   %400 = or i1 %395, %398
-  %401 = getelementptr inbounds nuw i64, ptr %42, i64 %.0910.i6.i.i.i103
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.0910.i6.i.i.i103
   store i64 %399, ptr %401, align 8, !tbaa !19, !noalias !1260
   %402 = add nuw nsw i64 %.0910.i6.i.i.i103, 1
   %exitcond.not.i7.i.i.i104 = icmp eq i64 %402, 4
@@ -8443,7 +8443,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108: ; preds
   %.07.i110.sroa.phi = phi ptr [ %41, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108 ], [ %.07.i110.sroa.gep264, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i118 ]
   %.07.i110 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i109)
-  %406 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %106, i64 %.07.i110
+  %406 = getelementptr inbounds nuw [32 x i8], ptr %106, i64 %.07.i110
   call void @llvm.lifetime.start.p0(ptr nonnull %39) #11, !noalias !1266
   call void @llvm.lifetime.start.p0(ptr nonnull %38) #11, !noalias !1271
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1271
@@ -8452,9 +8452,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108: ; preds
 407:                                              ; preds = %407, %404
   %.0.in11.i.i.i.i111 = phi i1 [ false, %404 ], [ %419, %407 ]
   %.0910.i.i.i.i112 = phi i64 [ 0, %404 ], [ %421, %407 ]
-  %408 = getelementptr inbounds nuw i64, ptr %.07.i110.sroa.phi, i64 %.0910.i.i.i.i112
+  %408 = getelementptr inbounds nuw [8 x i8], ptr %.07.i110.sroa.phi, i64 %.0910.i.i.i.i112
   %409 = load i64, ptr %408, align 8, !tbaa !19, !noalias !1271
-  %410 = getelementptr inbounds nuw i64, ptr %406, i64 %.0910.i.i.i.i112
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %406, i64 %.0910.i.i.i.i112
   %411 = load i64, ptr %410, align 8, !tbaa !19, !noalias !1271
   %412 = zext i1 %.0.in11.i.i.i.i111 to i64
   %413 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %409, i64 %411)
@@ -8464,7 +8464,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit108: ; preds
   %417 = extractvalue { i64, i1 } %416, 1
   %418 = extractvalue { i64, i1 } %416, 0
   %419 = or i1 %414, %417
-  %420 = getelementptr inbounds nuw i64, ptr %38, i64 %.0910.i.i.i.i112
+  %420 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0910.i.i.i.i112
   store i64 %418, ptr %420, align 8, !tbaa !19, !noalias !1271
   %421 = add nuw nsw i64 %.0910.i.i.i.i112, 1
   %exitcond.not.i.i.i.i113 = icmp eq i64 %421, 4
@@ -8481,9 +8481,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 422:                                              ; preds = %422, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i114
   %.0.in11.i5.i.i.i115 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i114 ], [ %434, %422 ]
   %.0910.i6.i.i.i116 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i114 ], [ %436, %422 ]
-  %423 = getelementptr inbounds nuw i64, ptr %39, i64 %.0910.i6.i.i.i116
+  %423 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.0910.i6.i.i.i116
   %424 = load i64, ptr %423, align 8, !tbaa !19, !noalias !1274
-  %425 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i116
+  %425 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i116
   %426 = load i64, ptr %425, align 8, !tbaa !19, !noalias !1274
   %427 = zext i1 %.0.in11.i5.i.i.i115 to i64
   %428 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %424, i64 %426)
@@ -8493,7 +8493,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %432 = extractvalue { i64, i1 } %431, 1
   %433 = extractvalue { i64, i1 } %431, 0
   %434 = or i1 %429, %432
-  %435 = getelementptr inbounds nuw i64, ptr %37, i64 %.0910.i6.i.i.i116
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0910.i6.i.i.i116
   store i64 %433, ptr %435, align 8, !tbaa !19, !noalias !1274
   %436 = add nuw nsw i64 %.0910.i6.i.i.i116, 1
   %exitcond.not.i7.i.i.i117 = icmp eq i64 %436, 4
@@ -8538,9 +8538,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121: ; preds
 440:                                              ; preds = %440, %438
   %.0.in11.i.i.i.i124 = phi i1 [ false, %438 ], [ %452, %440 ]
   %.0910.i.i.i.i125 = phi i64 [ 0, %438 ], [ %454, %440 ]
-  %441 = getelementptr inbounds nuw i64, ptr %.07.i123.sroa.phi265, i64 %.0910.i.i.i.i125
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %.07.i123.sroa.phi265, i64 %.0910.i.i.i.i125
   %442 = load i64, ptr %441, align 8, !tbaa !19, !noalias !1285
-  %443 = getelementptr inbounds nuw i64, ptr %.07.i123.sroa.phi, i64 %.0910.i.i.i.i125
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %.07.i123.sroa.phi, i64 %.0910.i.i.i.i125
   %444 = load i64, ptr %443, align 8, !tbaa !19, !noalias !1285
   %445 = zext i1 %.0.in11.i.i.i.i124 to i64
   %446 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %442, i64 %444)
@@ -8550,7 +8550,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121: ; preds
   %450 = extractvalue { i64, i1 } %449, 1
   %451 = extractvalue { i64, i1 } %449, 0
   %452 = or i1 %447, %450
-  %453 = getelementptr inbounds nuw i64, ptr %33, i64 %.0910.i.i.i.i125
+  %453 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0910.i.i.i.i125
   store i64 %451, ptr %453, align 8, !tbaa !19, !noalias !1285
   %454 = add nuw nsw i64 %.0910.i.i.i.i125, 1
   %exitcond.not.i.i.i.i126 = icmp eq i64 %454, 4
@@ -8567,9 +8567,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 455:                                              ; preds = %455, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i127
   %.0.in11.i5.i.i.i128 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i127 ], [ %467, %455 ]
   %.0910.i6.i.i.i129 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i127 ], [ %469, %455 ]
-  %456 = getelementptr inbounds nuw i64, ptr %34, i64 %.0910.i6.i.i.i129
+  %456 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0910.i6.i.i.i129
   %457 = load i64, ptr %456, align 8, !tbaa !19, !noalias !1288
-  %458 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i129
+  %458 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i129
   %459 = load i64, ptr %458, align 8, !tbaa !19, !noalias !1288
   %460 = zext i1 %.0.in11.i5.i.i.i128 to i64
   %461 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %457, i64 %459)
@@ -8579,7 +8579,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %465 = extractvalue { i64, i1 } %464, 1
   %466 = extractvalue { i64, i1 } %464, 0
   %467 = or i1 %462, %465
-  %468 = getelementptr inbounds nuw i64, ptr %32, i64 %.0910.i6.i.i.i129
+  %468 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0910.i6.i.i.i129
   store i64 %466, ptr %468, align 8, !tbaa !19, !noalias !1288
   %469 = add nuw nsw i64 %.0910.i6.i.i.i129, 1
   %exitcond.not.i7.i.i.i130 = icmp eq i64 %469, 4
@@ -8621,9 +8621,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134: ; preds
 473:                                              ; preds = %473, %471
   %.0.in11.i.i.i.i137 = phi i1 [ false, %471 ], [ %485, %473 ]
   %.0910.i.i.i.i138 = phi i64 [ 0, %471 ], [ %487, %473 ]
-  %474 = getelementptr inbounds nuw i64, ptr %.06.i136.sroa.phi268, i64 %.0910.i.i.i.i138
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %.06.i136.sroa.phi268, i64 %.0910.i.i.i.i138
   %475 = load i64, ptr %474, align 8, !tbaa !19, !noalias !1300
-  %476 = getelementptr inbounds nuw i64, ptr %.06.i136.sroa.phi, i64 %.0910.i.i.i.i138
+  %476 = getelementptr inbounds nuw [8 x i8], ptr %.06.i136.sroa.phi, i64 %.0910.i.i.i.i138
   %477 = load i64, ptr %476, align 8, !tbaa !19, !noalias !1300
   %478 = zext i1 %.0.in11.i.i.i.i137 to i64
   %479 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %475, i64 %477)
@@ -8633,7 +8633,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134: ; preds
   %483 = extractvalue { i64, i1 } %482, 1
   %484 = extractvalue { i64, i1 } %482, 0
   %485 = or i1 %480, %483
-  %486 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i.i.i.i138
+  %486 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0910.i.i.i.i138
   store i64 %484, ptr %486, align 8, !tbaa !19, !noalias !1300
   %487 = add nuw nsw i64 %.0910.i.i.i.i138, 1
   %exitcond.not.i.i.i.i139 = icmp eq i64 %487, 4
@@ -8648,9 +8648,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 488:                                              ; preds = %488, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i140
   %.0.in11.i.i.i.i.i141 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i140 ], [ %500, %488 ]
   %.0910.i.i.i.i.i142 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i140 ], [ %502, %488 ]
-  %489 = getelementptr inbounds nuw i64, ptr %30, i64 %.0910.i.i.i.i.i142
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0910.i.i.i.i.i142
   %490 = load i64, ptr %489, align 8, !tbaa !19, !noalias !1303
-  %491 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i142
+  %491 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i142
   %492 = load i64, ptr %491, align 8, !tbaa !19, !noalias !1303
   %493 = zext i1 %.0.in11.i.i.i.i.i141 to i64
   %494 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %490, i64 %492)
@@ -8660,7 +8660,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %498 = extractvalue { i64, i1 } %497, 1
   %499 = extractvalue { i64, i1 } %497, 0
   %500 = or i1 %495, %498
-  %501 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i.i.i.i.i142
+  %501 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0910.i.i.i.i.i142
   store i64 %499, ptr %501, align 8, !noalias !1297
   %502 = add nuw nsw i64 %.0910.i.i.i.i.i142, 1
   %exitcond.not.i.i.i.i.i143 = icmp eq i64 %502, 4
@@ -8702,9 +8702,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit145: ; preds
 506:                                              ; preds = %506, %504
   %.0.in11.i.i.i.i148 = phi i1 [ false, %504 ], [ %518, %506 ]
   %.0910.i.i.i.i149 = phi i64 [ 0, %504 ], [ %520, %506 ]
-  %507 = getelementptr inbounds nuw i64, ptr %.06.i147.sroa.phi271, i64 %.0910.i.i.i.i149
+  %507 = getelementptr inbounds nuw [8 x i8], ptr %.06.i147.sroa.phi271, i64 %.0910.i.i.i.i149
   %508 = load i64, ptr %507, align 8, !tbaa !19, !noalias !1317
-  %509 = getelementptr inbounds nuw i64, ptr %.06.i147.sroa.phi, i64 %.0910.i.i.i.i149
+  %509 = getelementptr inbounds nuw [8 x i8], ptr %.06.i147.sroa.phi, i64 %.0910.i.i.i.i149
   %510 = load i64, ptr %509, align 8, !tbaa !19, !noalias !1317
   %511 = zext i1 %.0.in11.i.i.i.i148 to i64
   %512 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %508, i64 %510)
@@ -8714,7 +8714,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit145: ; preds
   %516 = extractvalue { i64, i1 } %515, 1
   %517 = extractvalue { i64, i1 } %515, 0
   %518 = or i1 %513, %516
-  %519 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i.i.i.i149
+  %519 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0910.i.i.i.i149
   store i64 %517, ptr %519, align 8, !tbaa !19, !noalias !1317
   %520 = add nuw nsw i64 %.0910.i.i.i.i149, 1
   %exitcond.not.i.i.i.i150 = icmp eq i64 %520, 4
@@ -8729,9 +8729,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 521:                                              ; preds = %521, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i151
   %.0.in11.i.i.i.i.i152 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i151 ], [ %533, %521 ]
   %.0910.i.i.i.i.i153 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i151 ], [ %535, %521 ]
-  %522 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i.i153
+  %522 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0910.i.i.i.i.i153
   %523 = load i64, ptr %522, align 8, !tbaa !19, !noalias !1320
-  %524 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i153
+  %524 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i153
   %525 = load i64, ptr %524, align 8, !tbaa !19, !noalias !1320
   %526 = zext i1 %.0.in11.i.i.i.i.i152 to i64
   %527 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %523, i64 %525)
@@ -8741,7 +8741,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %531 = extractvalue { i64, i1 } %530, 1
   %532 = extractvalue { i64, i1 } %530, 0
   %533 = or i1 %528, %531
-  %534 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i.i.i.i.i153
+  %534 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0910.i.i.i.i.i153
   store i64 %532, ptr %534, align 8, !noalias !1314
   %535 = add nuw nsw i64 %.0910.i.i.i.i.i153, 1
   %exitcond.not.i.i.i.i.i154 = icmp eq i64 %535, 4
@@ -8777,9 +8777,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156: ; preds
 539:                                              ; preds = %539, %537
   %.0.in11.i.i.i.i159 = phi i1 [ false, %537 ], [ %551, %539 ]
   %.0910.i.i.i.i160 = phi i64 [ 0, %537 ], [ %553, %539 ]
-  %540 = getelementptr inbounds nuw i64, ptr %.07.i158.sroa.phi274, i64 %.0910.i.i.i.i160
+  %540 = getelementptr inbounds nuw [8 x i8], ptr %.07.i158.sroa.phi274, i64 %.0910.i.i.i.i160
   %541 = load i64, ptr %540, align 8
-  %542 = getelementptr inbounds nuw i64, ptr %.07.i158.sroa.phi, i64 %.0910.i.i.i.i160
+  %542 = getelementptr inbounds nuw [8 x i8], ptr %.07.i158.sroa.phi, i64 %.0910.i.i.i.i160
   %543 = load i64, ptr %542, align 8, !tbaa !19, !noalias !1332
   %544 = zext i1 %.0.in11.i.i.i.i159 to i64
   %545 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %541, i64 %543)
@@ -8789,7 +8789,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit156: ; preds
   %549 = extractvalue { i64, i1 } %548, 1
   %550 = extractvalue { i64, i1 } %548, 0
   %551 = or i1 %546, %549
-  %552 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i.i160
+  %552 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i.i.i.i160
   store i64 %550, ptr %552, align 8, !tbaa !19, !noalias !1332
   %553 = add nuw nsw i64 %.0910.i.i.i.i160, 1
   %exitcond.not.i.i.i.i161 = icmp eq i64 %553, 4
@@ -8806,9 +8806,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 554:                                              ; preds = %554, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i162
   %.0.in11.i5.i.i.i163 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i162 ], [ %566, %554 ]
   %.0910.i6.i.i.i164 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i162 ], [ %568, %554 ]
-  %555 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i6.i.i.i164
+  %555 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i6.i.i.i164
   %556 = load i64, ptr %555, align 8, !tbaa !19, !noalias !1335
-  %557 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i164
+  %557 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i164
   %558 = load i64, ptr %557, align 8, !tbaa !19, !noalias !1335
   %559 = zext i1 %.0.in11.i5.i.i.i163 to i64
   %560 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %556, i64 %558)
@@ -8818,7 +8818,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %564 = extractvalue { i64, i1 } %563, 1
   %565 = extractvalue { i64, i1 } %563, 0
   %566 = or i1 %561, %564
-  %567 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i6.i.i.i164
+  %567 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0910.i6.i.i.i164
   store i64 %565, ptr %567, align 8, !tbaa !19, !noalias !1335
   %568 = add nuw nsw i64 %.0910.i6.i.i.i164, 1
   %exitcond.not.i7.i.i.i165 = icmp eq i64 %568, 4
@@ -8857,9 +8857,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit169: ; preds
 572:                                              ; preds = %572, %570
   %.0.in11.i.i.i.i172 = phi i1 [ false, %570 ], [ %584, %572 ]
   %.0910.i.i.i.i173 = phi i64 [ 0, %570 ], [ %586, %572 ]
-  %573 = getelementptr inbounds nuw i64, ptr %.06.i171.sroa.phi277, i64 %.0910.i.i.i.i173
+  %573 = getelementptr inbounds nuw [8 x i8], ptr %.06.i171.sroa.phi277, i64 %.0910.i.i.i.i173
   %574 = load i64, ptr %573, align 8
-  %575 = getelementptr inbounds nuw i64, ptr %.06.i171.sroa.phi, i64 %.0910.i.i.i.i173
+  %575 = getelementptr inbounds nuw [8 x i8], ptr %.06.i171.sroa.phi, i64 %.0910.i.i.i.i173
   %576 = load i64, ptr %575, align 8
   %577 = zext i1 %.0.in11.i.i.i.i172 to i64
   %578 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %574, i64 %576)
@@ -8869,7 +8869,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit169: ; preds
   %582 = extractvalue { i64, i1 } %581, 1
   %583 = extractvalue { i64, i1 } %581, 0
   %584 = or i1 %579, %582
-  %585 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i.i.i173
+  %585 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i.i.i.i173
   store i64 %583, ptr %585, align 8, !tbaa !19, !noalias !1347
   %586 = add nuw nsw i64 %.0910.i.i.i.i173, 1
   %exitcond.not.i.i.i.i174 = icmp eq i64 %586, 4
@@ -8884,9 +8884,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 587:                                              ; preds = %587, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i175
   %.0.in11.i.i.i.i.i176 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i175 ], [ %599, %587 ]
   %.0910.i.i.i.i.i177 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i175 ], [ %601, %587 ]
-  %588 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i.i.i.i.i177
+  %588 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0910.i.i.i.i.i177
   %589 = load i64, ptr %588, align 8, !tbaa !19, !noalias !1350
-  %590 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i177
+  %590 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i177
   %591 = load i64, ptr %590, align 8, !tbaa !19, !noalias !1350
   %592 = zext i1 %.0.in11.i.i.i.i.i176 to i64
   %593 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %589, i64 %591)
@@ -8896,7 +8896,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %597 = extractvalue { i64, i1 } %596, 1
   %598 = extractvalue { i64, i1 } %596, 0
   %599 = or i1 %594, %597
-  %600 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i.i.i177
+  %600 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i.i.i.i.i177
   store i64 %598, ptr %600, align 8, !noalias !1344
   %601 = add nuw nsw i64 %.0910.i.i.i.i.i177, 1
   %exitcond.not.i.i.i.i.i178 = icmp eq i64 %601, 4
@@ -8935,9 +8935,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit180: ; preds
 605:                                              ; preds = %605, %603
   %.0.in11.i.i.i.i183 = phi i1 [ false, %603 ], [ %617, %605 ]
   %.0910.i.i.i.i184 = phi i64 [ 0, %603 ], [ %619, %605 ]
-  %606 = getelementptr inbounds nuw i64, ptr %.06.i182.sroa.phi280, i64 %.0910.i.i.i.i184
+  %606 = getelementptr inbounds nuw [8 x i8], ptr %.06.i182.sroa.phi280, i64 %.0910.i.i.i.i184
   %607 = load i64, ptr %606, align 8
-  %608 = getelementptr inbounds nuw i64, ptr %.06.i182.sroa.phi, i64 %.0910.i.i.i.i184
+  %608 = getelementptr inbounds nuw [8 x i8], ptr %.06.i182.sroa.phi, i64 %.0910.i.i.i.i184
   %609 = load i64, ptr %608, align 8, !tbaa !19, !noalias !1364
   %610 = zext i1 %.0.in11.i.i.i.i183 to i64
   %611 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %607, i64 %609)
@@ -8947,7 +8947,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit180: ; preds
   %615 = extractvalue { i64, i1 } %614, 1
   %616 = extractvalue { i64, i1 } %614, 0
   %617 = or i1 %612, %615
-  %618 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i184
+  %618 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i184
   store i64 %616, ptr %618, align 8, !tbaa !19, !noalias !1364
   %619 = add nuw nsw i64 %.0910.i.i.i.i184, 1
   %exitcond.not.i.i.i.i185 = icmp eq i64 %619, 4
@@ -8962,9 +8962,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 620:                                              ; preds = %620, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i186
   %.0.in11.i.i.i.i.i187 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i186 ], [ %632, %620 ]
   %.0910.i.i.i.i.i188 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i186 ], [ %634, %620 ]
-  %621 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i.i188
+  %621 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i.i.i.i188
   %622 = load i64, ptr %621, align 8, !tbaa !19, !noalias !1367
-  %623 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i188
+  %623 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i188
   %624 = load i64, ptr %623, align 8, !tbaa !19, !noalias !1367
   %625 = zext i1 %.0.in11.i.i.i.i.i187 to i64
   %626 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %622, i64 %624)
@@ -8974,7 +8974,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %630 = extractvalue { i64, i1 } %629, 1
   %631 = extractvalue { i64, i1 } %629, 0
   %632 = or i1 %627, %630
-  %633 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i.i.i188
+  %633 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i.i.i.i.i188
   store i64 %631, ptr %633, align 8, !noalias !1361
   %634 = add nuw nsw i64 %.0910.i.i.i.i.i188, 1
   %exitcond.not.i.i.i.i.i189 = icmp eq i64 %634, 4
@@ -9008,9 +9008,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit191: ; preds
 638:                                              ; preds = %638, %636
   %.0.in11.i.i.i.i194 = phi i1 [ false, %636 ], [ %650, %638 ]
   %.0910.i.i.i.i195 = phi i64 [ 0, %636 ], [ %652, %638 ]
-  %639 = getelementptr inbounds nuw i64, ptr %.06.i193.sroa.phi283, i64 %.0910.i.i.i.i195
+  %639 = getelementptr inbounds nuw [8 x i8], ptr %.06.i193.sroa.phi283, i64 %.0910.i.i.i.i195
   %640 = load i64, ptr %639, align 8
-  %641 = getelementptr inbounds nuw i64, ptr %.06.i193.sroa.phi, i64 %.0910.i.i.i.i195
+  %641 = getelementptr inbounds nuw [8 x i8], ptr %.06.i193.sroa.phi, i64 %.0910.i.i.i.i195
   %642 = load i64, ptr %641, align 8, !tbaa !19, !noalias !1381
   %643 = zext i1 %.0.in11.i.i.i.i194 to i64
   %644 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %640, i64 %642)
@@ -9020,7 +9020,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit191: ; preds
   %648 = extractvalue { i64, i1 } %647, 1
   %649 = extractvalue { i64, i1 } %647, 0
   %650 = or i1 %645, %648
-  %651 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i195
+  %651 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i195
   store i64 %649, ptr %651, align 8, !tbaa !19, !noalias !1381
   %652 = add nuw nsw i64 %.0910.i.i.i.i195, 1
   %exitcond.not.i.i.i.i196 = icmp eq i64 %652, 4
@@ -9035,9 +9035,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 653:                                              ; preds = %653, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i197
   %.0.in11.i.i.i.i.i198 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i197 ], [ %665, %653 ]
   %.0910.i.i.i.i.i199 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i197 ], [ %667, %653 ]
-  %654 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i199
+  %654 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i199
   %655 = load i64, ptr %654, align 8, !tbaa !19, !noalias !1384
-  %656 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i199
+  %656 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i199
   %657 = load i64, ptr %656, align 8, !tbaa !19, !noalias !1384
   %658 = zext i1 %.0.in11.i.i.i.i.i198 to i64
   %659 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %655, i64 %657)
@@ -9047,7 +9047,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %663 = extractvalue { i64, i1 } %662, 1
   %664 = extractvalue { i64, i1 } %662, 0
   %665 = or i1 %660, %663
-  %666 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i199
+  %666 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i.i.i199
   store i64 %664, ptr %666, align 8, !noalias !1378
   %667 = add nuw nsw i64 %.0910.i.i.i.i.i199, 1
   %exitcond.not.i.i.i.i.i200 = icmp eq i64 %667, 4
@@ -9094,9 +9094,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit202: ; preds
 672:                                              ; preds = %672, %670
   %.0.in11.i.i.i.i205 = phi i1 [ false, %670 ], [ %684, %672 ]
   %.0910.i.i.i.i206 = phi i64 [ 0, %670 ], [ %686, %672 ]
-  %673 = getelementptr inbounds nuw i64, ptr %.06.i204.sroa.phi286, i64 %.0910.i.i.i.i206
+  %673 = getelementptr inbounds nuw [8 x i8], ptr %.06.i204.sroa.phi286, i64 %.0910.i.i.i.i206
   %674 = load i64, ptr %673, align 8
-  %675 = getelementptr inbounds nuw i64, ptr %.06.i204.sroa.phi, i64 %.0910.i.i.i.i206
+  %675 = getelementptr inbounds nuw [8 x i8], ptr %.06.i204.sroa.phi, i64 %.0910.i.i.i.i206
   %676 = load i64, ptr %675, align 8, !tbaa !19, !noalias !1398
   %677 = zext i1 %.0.in11.i.i.i.i205 to i64
   %678 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %674, i64 %676)
@@ -9106,7 +9106,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit202: ; preds
   %682 = extractvalue { i64, i1 } %681, 1
   %683 = extractvalue { i64, i1 } %681, 0
   %684 = or i1 %679, %682
-  %685 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i206
+  %685 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i206
   store i64 %683, ptr %685, align 8, !tbaa !19, !noalias !1398
   %686 = add nuw nsw i64 %.0910.i.i.i.i206, 1
   %exitcond.not.i.i.i.i207 = icmp eq i64 %686, 4
@@ -9121,9 +9121,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 687:                                              ; preds = %687, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i208
   %.0.in11.i.i.i.i.i209 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i208 ], [ %699, %687 ]
   %.0910.i.i.i.i.i210 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i208 ], [ %701, %687 ]
-  %688 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i.i210
+  %688 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i.i210
   %689 = load i64, ptr %688, align 8, !tbaa !19, !noalias !1401
-  %690 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i210
+  %690 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i210
   %691 = load i64, ptr %690, align 8, !tbaa !19, !noalias !1401
   %692 = zext i1 %.0.in11.i.i.i.i.i209 to i64
   %693 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %689, i64 %691)
@@ -9133,7 +9133,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %697 = extractvalue { i64, i1 } %696, 1
   %698 = extractvalue { i64, i1 } %696, 0
   %699 = or i1 %694, %697
-  %700 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i.i210
+  %700 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i.i210
   store i64 %698, ptr %700, align 8, !noalias !1395
   %701 = add nuw nsw i64 %.0910.i.i.i.i.i210, 1
   %exitcond.not.i.i.i.i.i211 = icmp eq i64 %701, 4
@@ -9229,8 +9229,8 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2546squareERKNS_3ecc12ExtFieldElem
 39:                                               ; preds = %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i, %2
   %.07.i = phi i64 [ 0, %2 ], [ %76, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  %40 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %30, i64 %.07.i
-  %41 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %38, i64 %.07.i
+  %40 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 %.07.i
+  %41 = getelementptr inbounds nuw [64 x i8], ptr %38, i64 %.07.i
   call void @llvm.lifetime.start.p0(ptr nonnull %29) #11, !noalias !1410
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %40, i64 64, i1 false), !tbaa.struct !17, !noalias !1410
   br label %42
@@ -9240,7 +9240,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2546squareERKNS_3ecc12ExtFieldElem
   %.06.i.sroa.phi.i = phi ptr [ %29, %39 ], [ %.06.i.sroa.gep6.i, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %39 ], [ 1, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  %44 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %41, i64 %.06.i.i
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %.06.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1413
   call void @llvm.lifetime.start.p0(ptr nonnull %28) #11, !noalias !1416
   call void @llvm.lifetime.start.p0(ptr nonnull %27) #11, !noalias !1419
@@ -9250,9 +9250,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2546squareERKNS_3ecc12ExtFieldElem
 45:                                               ; preds = %45, %42
   %.0.in11.i.i.i.i.i = phi i1 [ false, %42 ], [ %57, %45 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %42 ], [ %59, %45 ]
-  %46 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi.i, i64 %.0910.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi.i, i64 %.0910.i.i.i.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !19, !noalias !1419
-  %48 = getelementptr inbounds nuw i64, ptr %44, i64 %.0910.i.i.i.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.0910.i.i.i.i.i
   %49 = load i64, ptr %48, align 8, !tbaa !19, !noalias !1419
   %50 = zext i1 %.0.in11.i.i.i.i.i to i64
   %51 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %47, i64 %49)
@@ -9262,7 +9262,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2546squareERKNS_3ecc12ExtFieldElem
   %55 = extractvalue { i64, i1 } %54, 1
   %56 = extractvalue { i64, i1 } %54, 0
   %57 = or i1 %52, %55
-  %58 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i.i.i.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0910.i.i.i.i.i
   store i64 %56, ptr %58, align 8, !tbaa !19, !noalias !1419
   %59 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %59, 4
@@ -9277,9 +9277,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 60:                                               ; preds = %60, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i
   %.0.in11.i.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %72, %60 ]
   %.0910.i.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %74, %60 ]
-  %61 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i.i.i.i.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0910.i.i.i.i.i.i
   %62 = load i64, ptr %61, align 8, !tbaa !19, !noalias !1422
-  %63 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i
   %64 = load i64, ptr %63, align 8, !tbaa !19, !noalias !1422
   %65 = zext i1 %.0.in11.i.i.i.i.i.i to i64
   %66 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %62, i64 %64)
@@ -9289,7 +9289,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %70 = extractvalue { i64, i1 } %69, 1
   %71 = extractvalue { i64, i1 } %69, 0
   %72 = or i1 %67, %70
-  %73 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i.i.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0910.i.i.i.i.i.i
   store i64 %71, ptr %73, align 8, !noalias !1416
   %74 = add nuw nsw i64 %.0910.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %74, 4
@@ -9335,8 +9335,8 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
 81:                                               ; preds = %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i24, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit
   %.07.i13 = phi i64 [ 0, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit ], [ %118, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i11)
-  %82 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %25, i64 %.07.i13
-  %83 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %33, i64 %.07.i13
+  %82 = getelementptr inbounds nuw [64 x i8], ptr %25, i64 %.07.i13
+  %83 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 %.07.i13
   call void @llvm.lifetime.start.p0(ptr nonnull %24) #11, !noalias !1430
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %82, i64 64, i1 false), !tbaa.struct !17, !noalias !1430
   br label %84
@@ -9346,7 +9346,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
   %.06.i.sroa.phi.i14 = phi ptr [ %24, %81 ], [ %.06.i.sroa.gep6.i12, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i23 ]
   %.06.i.i15 = phi i64 [ 0, %81 ], [ 1, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i23 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i10)
-  %86 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %83, i64 %.06.i.i15
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %83, i64 %.06.i.i15
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1433
   call void @llvm.lifetime.start.p0(ptr nonnull %23) #11, !noalias !1436
   call void @llvm.lifetime.start.p0(ptr nonnull %22) #11, !noalias !1439
@@ -9356,9 +9356,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
 87:                                               ; preds = %87, %84
   %.0.in11.i.i.i.i.i16 = phi i1 [ false, %84 ], [ %99, %87 ]
   %.0910.i.i.i.i.i17 = phi i64 [ 0, %84 ], [ %101, %87 ]
-  %88 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi.i14, i64 %.0910.i.i.i.i.i17
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi.i14, i64 %.0910.i.i.i.i.i17
   %89 = load i64, ptr %88, align 8, !tbaa !19, !noalias !1439
-  %90 = getelementptr inbounds nuw i64, ptr %86, i64 %.0910.i.i.i.i.i17
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.0910.i.i.i.i.i17
   %91 = load i64, ptr %90, align 8, !tbaa !19, !noalias !1439
   %92 = zext i1 %.0.in11.i.i.i.i.i16 to i64
   %93 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %89, i64 %91)
@@ -9368,7 +9368,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
   %97 = extractvalue { i64, i1 } %96, 1
   %98 = extractvalue { i64, i1 } %96, 0
   %99 = or i1 %94, %97
-  %100 = getelementptr inbounds nuw i64, ptr %22, i64 %.0910.i.i.i.i.i17
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0910.i.i.i.i.i17
   store i64 %98, ptr %100, align 8, !tbaa !19, !noalias !1439
   %101 = add nuw nsw i64 %.0910.i.i.i.i.i17, 1
   %exitcond.not.i.i.i.i.i18 = icmp eq i64 %101, 4
@@ -9383,9 +9383,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 102:                                              ; preds = %102, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i19
   %.0.in11.i.i.i.i.i.i20 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i19 ], [ %114, %102 ]
   %.0910.i.i.i.i.i.i21 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i19 ], [ %116, %102 ]
-  %103 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i.i.i.i.i.i21
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0910.i.i.i.i.i.i21
   %104 = load i64, ptr %103, align 8, !tbaa !19, !noalias !1442
-  %105 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i21
+  %105 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i21
   %106 = load i64, ptr %105, align 8, !tbaa !19, !noalias !1442
   %107 = zext i1 %.0.in11.i.i.i.i.i.i20 to i64
   %108 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %104, i64 %106)
@@ -9395,7 +9395,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %112 = extractvalue { i64, i1 } %111, 1
   %113 = extractvalue { i64, i1 } %111, 0
   %114 = or i1 %109, %112
-  %115 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i.i.i.i.i21
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i.i.i.i.i.i21
   store i64 %113, ptr %115, align 8, !noalias !1436
   %116 = add nuw nsw i64 %.0910.i.i.i.i.i.i21, 1
   %exitcond.not.i.i.i.i.i.i22 = icmp eq i64 %116, 4
@@ -9435,8 +9435,8 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit26: ; preds 
 119:                                              ; preds = %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit26
   %.08.i = phi i64 [ 0, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit26 ], [ %156, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i28)
-  %120 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %20, i64 %.08.i
-  %121 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %35, i64 %.08.i
+  %120 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %.08.i
+  %121 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %.08.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19) #11, !noalias !1447
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %120, i64 64, i1 false)
   br label %122
@@ -9446,7 +9446,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit26: ; preds 
   %.07.i.sroa.phi.i = phi ptr [ %19, %119 ], [ %.07.i.sroa.gep6.i, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   %.07.i.i = phi i64 [ 0, %119 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i27)
-  %124 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %121, i64 %.07.i.i
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %.07.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %17) #11, !noalias !1452
   call void @llvm.lifetime.start.p0(ptr nonnull %16) #11, !noalias !1457
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1457
@@ -9455,9 +9455,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit26: ; preds 
 125:                                              ; preds = %125, %122
   %.0.in11.i.i.i.i.i29 = phi i1 [ false, %122 ], [ %137, %125 ]
   %.0910.i.i.i.i.i30 = phi i64 [ 0, %122 ], [ %139, %125 ]
-  %126 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi.i, i64 %.0910.i.i.i.i.i30
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi.i, i64 %.0910.i.i.i.i.i30
   %127 = load i64, ptr %126, align 8, !tbaa !19, !noalias !1457
-  %128 = getelementptr inbounds nuw i64, ptr %124, i64 %.0910.i.i.i.i.i30
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %.0910.i.i.i.i.i30
   %129 = load i64, ptr %128, align 8, !tbaa !19, !noalias !1457
   %130 = zext i1 %.0.in11.i.i.i.i.i29 to i64
   %131 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %127, i64 %129)
@@ -9467,7 +9467,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit26: ; preds 
   %135 = extractvalue { i64, i1 } %134, 1
   %136 = extractvalue { i64, i1 } %134, 0
   %137 = or i1 %132, %135
-  %138 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i.i.i.i30
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i.i.i.i.i30
   store i64 %136, ptr %138, align 8, !tbaa !19, !noalias !1457
   %139 = add nuw nsw i64 %.0910.i.i.i.i.i30, 1
   %exitcond.not.i.i.i.i.i31 = icmp eq i64 %139, 4
@@ -9484,9 +9484,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 140:                                              ; preds = %140, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i
   %.0.in11.i5.i.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %152, %140 ]
   %.0910.i6.i.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %154, %140 ]
-  %141 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i6.i.i.i.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0910.i6.i.i.i.i
   %142 = load i64, ptr %141, align 8, !tbaa !19, !noalias !1460
-  %143 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i
   %144 = load i64, ptr %143, align 8, !tbaa !19, !noalias !1460
   %145 = zext i1 %.0.in11.i5.i.i.i.i to i64
   %146 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %142, i64 %144)
@@ -9496,7 +9496,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %150 = extractvalue { i64, i1 } %149, 1
   %151 = extractvalue { i64, i1 } %149, 0
   %152 = or i1 %147, %150
-  %153 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i6.i.i.i.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i6.i.i.i.i
   store i64 %151, ptr %153, align 8, !tbaa !19, !noalias !1460
   %154 = add nuw nsw i64 %.0910.i6.i.i.i.i, 1
   %exitcond.not.i7.i.i.i.i = icmp eq i64 %154, 4
@@ -9534,8 +9534,8 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
 157:                                              ; preds = %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i49, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit
   %.08.i36 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit ], [ %194, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i34)
-  %158 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %14, i64 %.08.i36
-  %159 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %35, i64 %.08.i36
+  %158 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %.08.i36
+  %159 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %.08.i36
   call void @llvm.lifetime.start.p0(ptr nonnull %13) #11, !noalias !1464
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %158, i64 64, i1 false)
   br label %160
@@ -9545,7 +9545,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
   %.07.i.sroa.phi.i37 = phi ptr [ %13, %157 ], [ %.07.i.sroa.gep6.i35, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i46 ]
   %.07.i.i38 = phi i64 [ 0, %157 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i33)
-  %162 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %159, i64 %.07.i.i38
+  %162 = getelementptr inbounds nuw [32 x i8], ptr %159, i64 %.07.i.i38
   call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !1469
   call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !1474
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1474
@@ -9554,9 +9554,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
 163:                                              ; preds = %163, %160
   %.0.in11.i.i.i.i.i39 = phi i1 [ false, %160 ], [ %175, %163 ]
   %.0910.i.i.i.i.i40 = phi i64 [ 0, %160 ], [ %177, %163 ]
-  %164 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi.i37, i64 %.0910.i.i.i.i.i40
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi.i37, i64 %.0910.i.i.i.i.i40
   %165 = load i64, ptr %164, align 8, !tbaa !19, !noalias !1474
-  %166 = getelementptr inbounds nuw i64, ptr %162, i64 %.0910.i.i.i.i.i40
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %.0910.i.i.i.i.i40
   %167 = load i64, ptr %166, align 8, !tbaa !19, !noalias !1474
   %168 = zext i1 %.0.in11.i.i.i.i.i39 to i64
   %169 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %165, i64 %167)
@@ -9566,7 +9566,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
   %173 = extractvalue { i64, i1 } %172, 1
   %174 = extractvalue { i64, i1 } %172, 0
   %175 = or i1 %170, %173
-  %176 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i40
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i40
   store i64 %174, ptr %176, align 8, !tbaa !19, !noalias !1474
   %177 = add nuw nsw i64 %.0910.i.i.i.i.i40, 1
   %exitcond.not.i.i.i.i.i41 = icmp eq i64 %177, 4
@@ -9583,9 +9583,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 178:                                              ; preds = %178, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i42
   %.0.in11.i5.i.i.i.i43 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i42 ], [ %190, %178 ]
   %.0910.i6.i.i.i.i44 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i42 ], [ %192, %178 ]
-  %179 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i6.i.i.i.i44
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i6.i.i.i.i44
   %180 = load i64, ptr %179, align 8, !tbaa !19, !noalias !1477
-  %181 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i44
+  %181 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i44
   %182 = load i64, ptr %181, align 8, !tbaa !19, !noalias !1477
   %183 = zext i1 %.0.in11.i5.i.i.i.i43 to i64
   %184 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %180, i64 %182)
@@ -9595,7 +9595,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %188 = extractvalue { i64, i1 } %187, 1
   %189 = extractvalue { i64, i1 } %187, 0
   %190 = or i1 %185, %188
-  %191 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i6.i.i.i.i44
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i6.i.i.i.i44
   store i64 %189, ptr %191, align 8, !tbaa !19, !noalias !1477
   %192 = add nuw nsw i64 %.0910.i6.i.i.i.i44, 1
   %exitcond.not.i7.i.i.i.i45 = icmp eq i64 %192, 4
@@ -9641,8 +9641,8 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit51: ; preds 
 199:                                              ; preds = %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i68, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit51
   %.08.i55 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit51 ], [ %236, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i53)
-  %200 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %8, i64 %.08.i55
-  %201 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %35, i64 %.08.i55
+  %200 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %.08.i55
+  %201 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %.08.i55
   call void @llvm.lifetime.start.p0(ptr nonnull %7) #11, !noalias !1481
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %200, i64 64, i1 false)
   br label %202
@@ -9652,7 +9652,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit51: ; preds 
   %.07.i.sroa.phi.i56 = phi ptr [ %7, %199 ], [ %.07.i.sroa.gep6.i54, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i65 ]
   %.07.i.i57 = phi i64 [ 0, %199 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i52)
-  %204 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %201, i64 %.07.i.i57
+  %204 = getelementptr inbounds nuw [32 x i8], ptr %201, i64 %.07.i.i57
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #11, !noalias !1486
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #11, !noalias !1491
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !tbaa !19, !noalias !1491
@@ -9661,9 +9661,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit51: ; preds 
 205:                                              ; preds = %205, %202
   %.0.in11.i.i.i.i.i58 = phi i1 [ false, %202 ], [ %217, %205 ]
   %.0910.i.i.i.i.i59 = phi i64 [ 0, %202 ], [ %219, %205 ]
-  %206 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi.i56, i64 %.0910.i.i.i.i.i59
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi.i56, i64 %.0910.i.i.i.i.i59
   %207 = load i64, ptr %206, align 8, !tbaa !19, !noalias !1491
-  %208 = getelementptr inbounds nuw i64, ptr %204, i64 %.0910.i.i.i.i.i59
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %.0910.i.i.i.i.i59
   %209 = load i64, ptr %208, align 8, !tbaa !19, !noalias !1491
   %210 = zext i1 %.0.in11.i.i.i.i.i58 to i64
   %211 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %207, i64 %209)
@@ -9673,7 +9673,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit51: ; preds 
   %215 = extractvalue { i64, i1 } %214, 1
   %216 = extractvalue { i64, i1 } %214, 0
   %217 = or i1 %212, %215
-  %218 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i.i59
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i.i59
   store i64 %216, ptr %218, align 8, !tbaa !19, !noalias !1491
   %219 = add nuw nsw i64 %.0910.i.i.i.i.i59, 1
   %exitcond.not.i.i.i.i.i60 = icmp eq i64 %219, 4
@@ -9690,9 +9690,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 220:                                              ; preds = %220, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i61
   %.0.in11.i5.i.i.i.i62 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i61 ], [ %232, %220 ]
   %.0910.i6.i.i.i.i63 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i61 ], [ %234, %220 ]
-  %221 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i6.i.i.i.i63
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i6.i.i.i.i63
   %222 = load i64, ptr %221, align 8, !tbaa !19, !noalias !1494
-  %223 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i63
+  %223 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i.i63
   %224 = load i64, ptr %223, align 8, !tbaa !19, !noalias !1494
   %225 = zext i1 %.0.in11.i5.i.i.i.i62 to i64
   %226 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %222, i64 %224)
@@ -9702,7 +9702,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %230 = extractvalue { i64, i1 } %229, 1
   %231 = extractvalue { i64, i1 } %229, 0
   %232 = or i1 %227, %230
-  %233 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i6.i.i.i.i63
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i6.i.i.i.i63
   store i64 %231, ptr %233, align 8, !tbaa !19, !noalias !1494
   %234 = add nuw nsw i64 %.0910.i6.i.i.i.i63, 1
   %exitcond.not.i7.i.i.i.i64 = icmp eq i64 %234, 4
@@ -9907,9 +9907,9 @@ _ZN6evmmax3eccmlERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEERKNS0_13BaseFieldEle
 94:                                               ; preds = %94, %92
   %.0.in11.i.i.i.i = phi i1 [ false, %92 ], [ %106, %94 ]
   %.0910.i.i.i.i = phi i64 [ 0, %92 ], [ %108, %94 ]
-  %95 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi180, i64 %.0910.i.i.i.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi180, i64 %.0910.i.i.i.i
   %96 = load i64, ptr %95, align 8, !tbaa !19, !noalias !1512
-  %97 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
   %98 = load i64, ptr %97, align 8, !tbaa !19, !noalias !1512
   %99 = zext i1 %.0.in11.i.i.i.i to i64
   %100 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %96, i64 %98)
@@ -9919,7 +9919,7 @@ _ZN6evmmax3eccmlERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEERKNS0_13BaseFieldEle
   %104 = extractvalue { i64, i1 } %103, 1
   %105 = extractvalue { i64, i1 } %103, 0
   %106 = or i1 %101, %104
-  %107 = getelementptr inbounds nuw i64, ptr %58, i64 %.0910.i.i.i.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.0910.i.i.i.i
   store i64 %105, ptr %107, align 8, !tbaa !19, !noalias !1512
   %108 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %108, 4
@@ -9936,9 +9936,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 109:                                              ; preds = %109, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %121, %109 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %123, %109 ]
-  %110 = getelementptr inbounds nuw i64, ptr %59, i64 %.0910.i6.i.i.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.0910.i6.i.i.i
   %111 = load i64, ptr %110, align 8, !tbaa !19, !noalias !1515
-  %112 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %113 = load i64, ptr %112, align 8, !tbaa !19, !noalias !1515
   %114 = zext i1 %.0.in11.i5.i.i.i to i64
   %115 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %111, i64 %113)
@@ -9948,7 +9948,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %119 = extractvalue { i64, i1 } %118, 1
   %120 = extractvalue { i64, i1 } %118, 0
   %121 = or i1 %116, %119
-  %122 = getelementptr inbounds nuw i64, ptr %57, i64 %.0910.i6.i.i.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.0910.i6.i.i.i
   store i64 %120, ptr %122, align 8, !tbaa !19, !noalias !1515
   %123 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %123, 4
@@ -9991,9 +9991,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 128:                                              ; preds = %128, %126
   %.0.in11.i.i.i.i16 = phi i1 [ false, %126 ], [ %140, %128 ]
   %.0910.i.i.i.i17 = phi i64 [ 0, %126 ], [ %142, %128 ]
-  %129 = getelementptr inbounds nuw i64, ptr %.07.i15.sroa.phi183, i64 %.0910.i.i.i.i17
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %.07.i15.sroa.phi183, i64 %.0910.i.i.i.i17
   %130 = load i64, ptr %129, align 8, !tbaa !19, !noalias !1526
-  %131 = getelementptr inbounds nuw i64, ptr %.07.i15.sroa.phi, i64 %.0910.i.i.i.i17
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %.07.i15.sroa.phi, i64 %.0910.i.i.i.i17
   %132 = load i64, ptr %131, align 8, !tbaa !19, !noalias !1526
   %133 = zext i1 %.0.in11.i.i.i.i16 to i64
   %134 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %130, i64 %132)
@@ -10003,7 +10003,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %138 = extractvalue { i64, i1 } %137, 1
   %139 = extractvalue { i64, i1 } %137, 0
   %140 = or i1 %135, %138
-  %141 = getelementptr inbounds nuw i64, ptr %53, i64 %.0910.i.i.i.i17
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.0910.i.i.i.i17
   store i64 %139, ptr %141, align 8, !tbaa !19, !noalias !1526
   %142 = add nuw nsw i64 %.0910.i.i.i.i17, 1
   %exitcond.not.i.i.i.i18 = icmp eq i64 %142, 4
@@ -10020,9 +10020,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 143:                                              ; preds = %143, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i19
   %.0.in11.i5.i.i.i20 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i19 ], [ %155, %143 ]
   %.0910.i6.i.i.i21 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i19 ], [ %157, %143 ]
-  %144 = getelementptr inbounds nuw i64, ptr %54, i64 %.0910.i6.i.i.i21
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.0910.i6.i.i.i21
   %145 = load i64, ptr %144, align 8, !tbaa !19, !noalias !1529
-  %146 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i21
+  %146 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i21
   %147 = load i64, ptr %146, align 8, !tbaa !19, !noalias !1529
   %148 = zext i1 %.0.in11.i5.i.i.i20 to i64
   %149 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %145, i64 %147)
@@ -10032,7 +10032,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %153 = extractvalue { i64, i1 } %152, 1
   %154 = extractvalue { i64, i1 } %152, 0
   %155 = or i1 %150, %153
-  %156 = getelementptr inbounds nuw i64, ptr %52, i64 %.0910.i6.i.i.i21
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.0910.i6.i.i.i21
   store i64 %154, ptr %156, align 8, !tbaa !19, !noalias !1529
   %157 = add nuw nsw i64 %.0910.i6.i.i.i21, 1
   %exitcond.not.i7.i.i.i22 = icmp eq i64 %157, 4
@@ -10086,9 +10086,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit26: ; preds 
 163:                                              ; preds = %163, %161
   %.0.in11.i.i.i.i29 = phi i1 [ false, %161 ], [ %175, %163 ]
   %.0910.i.i.i.i30 = phi i64 [ 0, %161 ], [ %177, %163 ]
-  %164 = getelementptr inbounds nuw i64, ptr %.07.i28.sroa.phi186, i64 %.0910.i.i.i.i30
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %.07.i28.sroa.phi186, i64 %.0910.i.i.i.i30
   %165 = load i64, ptr %164, align 8, !tbaa !19, !noalias !1540
-  %166 = getelementptr inbounds nuw i64, ptr %.07.i28.sroa.phi, i64 %.0910.i.i.i.i30
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %.07.i28.sroa.phi, i64 %.0910.i.i.i.i30
   %167 = load i64, ptr %166, align 8, !tbaa !19, !noalias !1540
   %168 = zext i1 %.0.in11.i.i.i.i29 to i64
   %169 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %165, i64 %167)
@@ -10098,7 +10098,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit26: ; preds 
   %173 = extractvalue { i64, i1 } %172, 1
   %174 = extractvalue { i64, i1 } %172, 0
   %175 = or i1 %170, %173
-  %176 = getelementptr inbounds nuw i64, ptr %48, i64 %.0910.i.i.i.i30
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.0910.i.i.i.i30
   store i64 %174, ptr %176, align 8, !tbaa !19, !noalias !1540
   %177 = add nuw nsw i64 %.0910.i.i.i.i30, 1
   %exitcond.not.i.i.i.i31 = icmp eq i64 %177, 4
@@ -10115,9 +10115,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 178:                                              ; preds = %178, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i32
   %.0.in11.i5.i.i.i33 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i32 ], [ %190, %178 ]
   %.0910.i6.i.i.i34 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i32 ], [ %192, %178 ]
-  %179 = getelementptr inbounds nuw i64, ptr %49, i64 %.0910.i6.i.i.i34
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.0910.i6.i.i.i34
   %180 = load i64, ptr %179, align 8, !tbaa !19, !noalias !1543
-  %181 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i34
+  %181 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i34
   %182 = load i64, ptr %181, align 8, !tbaa !19, !noalias !1543
   %183 = zext i1 %.0.in11.i5.i.i.i33 to i64
   %184 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %180, i64 %182)
@@ -10127,7 +10127,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %188 = extractvalue { i64, i1 } %187, 1
   %189 = extractvalue { i64, i1 } %187, 0
   %190 = or i1 %185, %188
-  %191 = getelementptr inbounds nuw i64, ptr %47, i64 %.0910.i6.i.i.i34
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.0910.i6.i.i.i34
   store i64 %189, ptr %191, align 8, !tbaa !19, !noalias !1543
   %192 = add nuw nsw i64 %.0910.i6.i.i.i34, 1
   %exitcond.not.i7.i.i.i35 = icmp eq i64 %192, 4
@@ -10169,9 +10169,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39: ; preds 
 196:                                              ; preds = %196, %194
   %.0.in11.i.i.i.i42 = phi i1 [ false, %194 ], [ %208, %196 ]
   %.0910.i.i.i.i43 = phi i64 [ 0, %194 ], [ %210, %196 ]
-  %197 = getelementptr inbounds nuw i64, ptr %.07.i41.sroa.phi189, i64 %.0910.i.i.i.i43
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %.07.i41.sroa.phi189, i64 %.0910.i.i.i.i43
   %198 = load i64, ptr %197, align 8, !tbaa !19, !noalias !1554
-  %199 = getelementptr inbounds nuw i64, ptr %.07.i41.sroa.phi, i64 %.0910.i.i.i.i43
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %.07.i41.sroa.phi, i64 %.0910.i.i.i.i43
   %200 = load i64, ptr %199, align 8, !tbaa !19, !noalias !1554
   %201 = zext i1 %.0.in11.i.i.i.i42 to i64
   %202 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %198, i64 %200)
@@ -10181,7 +10181,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39: ; preds 
   %206 = extractvalue { i64, i1 } %205, 1
   %207 = extractvalue { i64, i1 } %205, 0
   %208 = or i1 %203, %206
-  %209 = getelementptr inbounds nuw i64, ptr %43, i64 %.0910.i.i.i.i43
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.0910.i.i.i.i43
   store i64 %207, ptr %209, align 8, !tbaa !19, !noalias !1554
   %210 = add nuw nsw i64 %.0910.i.i.i.i43, 1
   %exitcond.not.i.i.i.i44 = icmp eq i64 %210, 4
@@ -10198,9 +10198,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 211:                                              ; preds = %211, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i45
   %.0.in11.i5.i.i.i46 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i45 ], [ %223, %211 ]
   %.0910.i6.i.i.i47 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i45 ], [ %225, %211 ]
-  %212 = getelementptr inbounds nuw i64, ptr %44, i64 %.0910.i6.i.i.i47
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.0910.i6.i.i.i47
   %213 = load i64, ptr %212, align 8, !tbaa !19, !noalias !1557
-  %214 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i47
+  %214 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i47
   %215 = load i64, ptr %214, align 8, !tbaa !19, !noalias !1557
   %216 = zext i1 %.0.in11.i5.i.i.i46 to i64
   %217 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %213, i64 %215)
@@ -10210,7 +10210,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %221 = extractvalue { i64, i1 } %220, 1
   %222 = extractvalue { i64, i1 } %220, 0
   %223 = or i1 %218, %221
-  %224 = getelementptr inbounds nuw i64, ptr %42, i64 %.0910.i6.i.i.i47
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.0910.i6.i.i.i47
   store i64 %222, ptr %224, align 8, !tbaa !19, !noalias !1557
   %225 = add nuw nsw i64 %.0910.i6.i.i.i47, 1
   %exitcond.not.i7.i.i.i48 = icmp eq i64 %225, 4
@@ -10263,9 +10263,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit52: ; preds 
 231:                                              ; preds = %231, %229
   %.0.in11.i.i.i.i55 = phi i1 [ false, %229 ], [ %243, %231 ]
   %.0910.i.i.i.i56 = phi i64 [ 0, %229 ], [ %245, %231 ]
-  %232 = getelementptr inbounds nuw i64, ptr %.07.i54.sroa.phi192, i64 %.0910.i.i.i.i56
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %.07.i54.sroa.phi192, i64 %.0910.i.i.i.i56
   %233 = load i64, ptr %232, align 8, !tbaa !19, !noalias !1568
-  %234 = getelementptr inbounds nuw i64, ptr %.07.i54.sroa.phi, i64 %.0910.i.i.i.i56
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %.07.i54.sroa.phi, i64 %.0910.i.i.i.i56
   %235 = load i64, ptr %234, align 8, !tbaa !19, !noalias !1568
   %236 = zext i1 %.0.in11.i.i.i.i55 to i64
   %237 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %233, i64 %235)
@@ -10275,7 +10275,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit52: ; preds 
   %241 = extractvalue { i64, i1 } %240, 1
   %242 = extractvalue { i64, i1 } %240, 0
   %243 = or i1 %238, %241
-  %244 = getelementptr inbounds nuw i64, ptr %38, i64 %.0910.i.i.i.i56
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0910.i.i.i.i56
   store i64 %242, ptr %244, align 8, !tbaa !19, !noalias !1568
   %245 = add nuw nsw i64 %.0910.i.i.i.i56, 1
   %exitcond.not.i.i.i.i57 = icmp eq i64 %245, 4
@@ -10292,9 +10292,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 246:                                              ; preds = %246, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i58
   %.0.in11.i5.i.i.i59 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i58 ], [ %258, %246 ]
   %.0910.i6.i.i.i60 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i58 ], [ %260, %246 ]
-  %247 = getelementptr inbounds nuw i64, ptr %39, i64 %.0910.i6.i.i.i60
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.0910.i6.i.i.i60
   %248 = load i64, ptr %247, align 8, !tbaa !19, !noalias !1571
-  %249 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i60
+  %249 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i60
   %250 = load i64, ptr %249, align 8, !tbaa !19, !noalias !1571
   %251 = zext i1 %.0.in11.i5.i.i.i59 to i64
   %252 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %248, i64 %250)
@@ -10304,7 +10304,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %256 = extractvalue { i64, i1 } %255, 1
   %257 = extractvalue { i64, i1 } %255, 0
   %258 = or i1 %253, %256
-  %259 = getelementptr inbounds nuw i64, ptr %37, i64 %.0910.i6.i.i.i60
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0910.i6.i.i.i60
   store i64 %257, ptr %259, align 8, !tbaa !19, !noalias !1571
   %260 = add nuw nsw i64 %.0910.i6.i.i.i60, 1
   %exitcond.not.i7.i.i.i61 = icmp eq i64 %260, 4
@@ -10346,9 +10346,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit65: ; preds 
 264:                                              ; preds = %264, %262
   %.0.in11.i.i.i.i68 = phi i1 [ false, %262 ], [ %276, %264 ]
   %.0910.i.i.i.i69 = phi i64 [ 0, %262 ], [ %278, %264 ]
-  %265 = getelementptr inbounds nuw i64, ptr %.07.i67.sroa.phi195, i64 %.0910.i.i.i.i69
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %.07.i67.sroa.phi195, i64 %.0910.i.i.i.i69
   %266 = load i64, ptr %265, align 8, !tbaa !19, !noalias !1582
-  %267 = getelementptr inbounds nuw i64, ptr %.07.i67.sroa.phi, i64 %.0910.i.i.i.i69
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %.07.i67.sroa.phi, i64 %.0910.i.i.i.i69
   %268 = load i64, ptr %267, align 8, !tbaa !19, !noalias !1582
   %269 = zext i1 %.0.in11.i.i.i.i68 to i64
   %270 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %266, i64 %268)
@@ -10358,7 +10358,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit65: ; preds 
   %274 = extractvalue { i64, i1 } %273, 1
   %275 = extractvalue { i64, i1 } %273, 0
   %276 = or i1 %271, %274
-  %277 = getelementptr inbounds nuw i64, ptr %33, i64 %.0910.i.i.i.i69
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0910.i.i.i.i69
   store i64 %275, ptr %277, align 8, !tbaa !19, !noalias !1582
   %278 = add nuw nsw i64 %.0910.i.i.i.i69, 1
   %exitcond.not.i.i.i.i70 = icmp eq i64 %278, 4
@@ -10375,9 +10375,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 279:                                              ; preds = %279, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i71
   %.0.in11.i5.i.i.i72 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i71 ], [ %291, %279 ]
   %.0910.i6.i.i.i73 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i71 ], [ %293, %279 ]
-  %280 = getelementptr inbounds nuw i64, ptr %34, i64 %.0910.i6.i.i.i73
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0910.i6.i.i.i73
   %281 = load i64, ptr %280, align 8, !tbaa !19, !noalias !1585
-  %282 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i73
+  %282 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i73
   %283 = load i64, ptr %282, align 8, !tbaa !19, !noalias !1585
   %284 = zext i1 %.0.in11.i5.i.i.i72 to i64
   %285 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %281, i64 %283)
@@ -10387,7 +10387,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %289 = extractvalue { i64, i1 } %288, 1
   %290 = extractvalue { i64, i1 } %288, 0
   %291 = or i1 %286, %289
-  %292 = getelementptr inbounds nuw i64, ptr %32, i64 %.0910.i6.i.i.i73
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0910.i6.i.i.i73
   store i64 %290, ptr %292, align 8, !tbaa !19, !noalias !1585
   %293 = add nuw nsw i64 %.0910.i6.i.i.i73, 1
   %exitcond.not.i7.i.i.i74 = icmp eq i64 %293, 4
@@ -10437,9 +10437,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78: ; preds 
 298:                                              ; preds = %298, %296
   %.0.in11.i.i.i.i81 = phi i1 [ false, %296 ], [ %310, %298 ]
   %.0910.i.i.i.i82 = phi i64 [ 0, %296 ], [ %312, %298 ]
-  %299 = getelementptr inbounds nuw i64, ptr %.07.i80.sroa.phi198, i64 %.0910.i.i.i.i82
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %.07.i80.sroa.phi198, i64 %.0910.i.i.i.i82
   %300 = load i64, ptr %299, align 8
-  %301 = getelementptr inbounds nuw i64, ptr %.07.i80.sroa.phi, i64 %.0910.i.i.i.i82
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %.07.i80.sroa.phi, i64 %.0910.i.i.i.i82
   %302 = load i64, ptr %301, align 8, !tbaa !19, !noalias !1595
   %303 = zext i1 %.0.in11.i.i.i.i81 to i64
   %304 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %300, i64 %302)
@@ -10449,7 +10449,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit78: ; preds 
   %308 = extractvalue { i64, i1 } %307, 1
   %309 = extractvalue { i64, i1 } %307, 0
   %310 = or i1 %305, %308
-  %311 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i.i.i.i82
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0910.i.i.i.i82
   store i64 %309, ptr %311, align 8, !tbaa !19, !noalias !1595
   %312 = add nuw nsw i64 %.0910.i.i.i.i82, 1
   %exitcond.not.i.i.i.i83 = icmp eq i64 %312, 4
@@ -10466,9 +10466,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 313:                                              ; preds = %313, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84
   %.0.in11.i5.i.i.i85 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84 ], [ %325, %313 ]
   %.0910.i6.i.i.i86 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i84 ], [ %327, %313 ]
-  %314 = getelementptr inbounds nuw i64, ptr %30, i64 %.0910.i6.i.i.i86
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0910.i6.i.i.i86
   %315 = load i64, ptr %314, align 8, !tbaa !19, !noalias !1598
-  %316 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i86
+  %316 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i86
   %317 = load i64, ptr %316, align 8, !tbaa !19, !noalias !1598
   %318 = zext i1 %.0.in11.i5.i.i.i85 to i64
   %319 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %315, i64 %317)
@@ -10478,7 +10478,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %323 = extractvalue { i64, i1 } %322, 1
   %324 = extractvalue { i64, i1 } %322, 0
   %325 = or i1 %320, %323
-  %326 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i6.i.i.i86
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0910.i6.i.i.i86
   store i64 %324, ptr %326, align 8, !tbaa !19, !noalias !1598
   %327 = add nuw nsw i64 %.0910.i6.i.i.i86, 1
   %exitcond.not.i7.i.i.i87 = icmp eq i64 %327, 4
@@ -10517,9 +10517,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91: ; preds 
 331:                                              ; preds = %331, %329
   %.0.in11.i.i.i.i94 = phi i1 [ false, %329 ], [ %343, %331 ]
   %.0910.i.i.i.i95 = phi i64 [ 0, %329 ], [ %345, %331 ]
-  %332 = getelementptr inbounds nuw i64, ptr %.07.i93.sroa.phi201, i64 %.0910.i.i.i.i95
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %.07.i93.sroa.phi201, i64 %.0910.i.i.i.i95
   %333 = load i64, ptr %332, align 8
-  %334 = getelementptr inbounds nuw i64, ptr %.07.i93.sroa.phi, i64 %.0910.i.i.i.i95
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %.07.i93.sroa.phi, i64 %.0910.i.i.i.i95
   %335 = load i64, ptr %334, align 8, !tbaa !19, !noalias !1609
   %336 = zext i1 %.0.in11.i.i.i.i94 to i64
   %337 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %333, i64 %335)
@@ -10529,7 +10529,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit91: ; preds 
   %341 = extractvalue { i64, i1 } %340, 1
   %342 = extractvalue { i64, i1 } %340, 0
   %343 = or i1 %338, %341
-  %344 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i.i.i.i95
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0910.i.i.i.i95
   store i64 %342, ptr %344, align 8, !tbaa !19, !noalias !1609
   %345 = add nuw nsw i64 %.0910.i.i.i.i95, 1
   %exitcond.not.i.i.i.i96 = icmp eq i64 %345, 4
@@ -10546,9 +10546,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 346:                                              ; preds = %346, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i97
   %.0.in11.i5.i.i.i98 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i97 ], [ %358, %346 ]
   %.0910.i6.i.i.i99 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i97 ], [ %360, %346 ]
-  %347 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i6.i.i.i99
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0910.i6.i.i.i99
   %348 = load i64, ptr %347, align 8, !tbaa !19, !noalias !1612
-  %349 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i99
+  %349 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i99
   %350 = load i64, ptr %349, align 8, !tbaa !19, !noalias !1612
   %351 = zext i1 %.0.in11.i5.i.i.i98 to i64
   %352 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %348, i64 %350)
@@ -10558,7 +10558,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %356 = extractvalue { i64, i1 } %355, 1
   %357 = extractvalue { i64, i1 } %355, 0
   %358 = or i1 %353, %356
-  %359 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i6.i.i.i99
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0910.i6.i.i.i99
   store i64 %357, ptr %359, align 8, !tbaa !19, !noalias !1612
   %360 = add nuw nsw i64 %.0910.i6.i.i.i99, 1
   %exitcond.not.i7.i.i.i100 = icmp eq i64 %360, 4
@@ -10605,9 +10605,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds
 365:                                              ; preds = %365, %363
   %.0.in11.i.i.i.i107 = phi i1 [ false, %363 ], [ %377, %365 ]
   %.0910.i.i.i.i108 = phi i64 [ 0, %363 ], [ %379, %365 ]
-  %366 = getelementptr inbounds nuw i64, ptr %.07.i106.sroa.phi204, i64 %.0910.i.i.i.i108
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %.07.i106.sroa.phi204, i64 %.0910.i.i.i.i108
   %367 = load i64, ptr %366, align 8
-  %368 = getelementptr inbounds nuw i64, ptr %.07.i106.sroa.phi, i64 %.0910.i.i.i.i108
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %.07.i106.sroa.phi, i64 %.0910.i.i.i.i108
   %369 = load i64, ptr %368, align 8, !tbaa !19, !noalias !1623
   %370 = zext i1 %.0.in11.i.i.i.i107 to i64
   %371 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %367, i64 %369)
@@ -10617,7 +10617,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds
   %375 = extractvalue { i64, i1 } %374, 1
   %376 = extractvalue { i64, i1 } %374, 0
   %377 = or i1 %372, %375
-  %378 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i.i108
+  %378 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i.i.i.i108
   store i64 %376, ptr %378, align 8, !tbaa !19, !noalias !1623
   %379 = add nuw nsw i64 %.0910.i.i.i.i108, 1
   %exitcond.not.i.i.i.i109 = icmp eq i64 %379, 4
@@ -10634,9 +10634,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 380:                                              ; preds = %380, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110
   %.0.in11.i5.i.i.i111 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110 ], [ %392, %380 ]
   %.0910.i6.i.i.i112 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110 ], [ %394, %380 ]
-  %381 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i6.i.i.i112
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i6.i.i.i112
   %382 = load i64, ptr %381, align 8, !tbaa !19, !noalias !1626
-  %383 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i112
+  %383 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i112
   %384 = load i64, ptr %383, align 8, !tbaa !19, !noalias !1626
   %385 = zext i1 %.0.in11.i5.i.i.i111 to i64
   %386 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %382, i64 %384)
@@ -10646,7 +10646,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %390 = extractvalue { i64, i1 } %389, 1
   %391 = extractvalue { i64, i1 } %389, 0
   %392 = or i1 %387, %390
-  %393 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i6.i.i.i112
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0910.i6.i.i.i112
   store i64 %391, ptr %393, align 8, !tbaa !19, !noalias !1626
   %394 = add nuw nsw i64 %.0910.i6.i.i.i112, 1
   %exitcond.not.i7.i.i.i113 = icmp eq i64 %394, 4
@@ -10685,9 +10685,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117: ; preds
 398:                                              ; preds = %398, %396
   %.0.in11.i.i.i.i120 = phi i1 [ false, %396 ], [ %410, %398 ]
   %.0910.i.i.i.i121 = phi i64 [ 0, %396 ], [ %412, %398 ]
-  %399 = getelementptr inbounds nuw i64, ptr %.07.i119.sroa.phi207, i64 %.0910.i.i.i.i121
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %.07.i119.sroa.phi207, i64 %.0910.i.i.i.i121
   %400 = load i64, ptr %399, align 8
-  %401 = getelementptr inbounds nuw i64, ptr %.07.i119.sroa.phi, i64 %.0910.i.i.i.i121
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %.07.i119.sroa.phi, i64 %.0910.i.i.i.i121
   %402 = load i64, ptr %401, align 8, !tbaa !19, !noalias !1637
   %403 = zext i1 %.0.in11.i.i.i.i120 to i64
   %404 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %400, i64 %402)
@@ -10697,7 +10697,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit117: ; preds
   %408 = extractvalue { i64, i1 } %407, 1
   %409 = extractvalue { i64, i1 } %407, 0
   %410 = or i1 %405, %408
-  %411 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i.i121
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i.i.i.i121
   store i64 %409, ptr %411, align 8, !tbaa !19, !noalias !1637
   %412 = add nuw nsw i64 %.0910.i.i.i.i121, 1
   %exitcond.not.i.i.i.i122 = icmp eq i64 %412, 4
@@ -10714,9 +10714,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 413:                                              ; preds = %413, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i123
   %.0.in11.i5.i.i.i124 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i123 ], [ %425, %413 ]
   %.0910.i6.i.i.i125 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i123 ], [ %427, %413 ]
-  %414 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i6.i.i.i125
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i6.i.i.i125
   %415 = load i64, ptr %414, align 8, !tbaa !19, !noalias !1640
-  %416 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i125
+  %416 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i125
   %417 = load i64, ptr %416, align 8, !tbaa !19, !noalias !1640
   %418 = zext i1 %.0.in11.i5.i.i.i124 to i64
   %419 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %415, i64 %417)
@@ -10726,7 +10726,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %423 = extractvalue { i64, i1 } %422, 1
   %424 = extractvalue { i64, i1 } %422, 0
   %425 = or i1 %420, %423
-  %426 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i6.i.i.i125
+  %426 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i6.i.i.i125
   store i64 %424, ptr %426, align 8, !tbaa !19, !noalias !1640
   %427 = add nuw nsw i64 %.0910.i6.i.i.i125, 1
   %exitcond.not.i7.i.i.i126 = icmp eq i64 %427, 4
@@ -10773,9 +10773,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130: ; preds
 432:                                              ; preds = %432, %430
   %.0.in11.i.i.i.i133 = phi i1 [ false, %430 ], [ %444, %432 ]
   %.0910.i.i.i.i134 = phi i64 [ 0, %430 ], [ %446, %432 ]
-  %433 = getelementptr inbounds nuw i64, ptr %.07.i132.sroa.phi210, i64 %.0910.i.i.i.i134
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %.07.i132.sroa.phi210, i64 %.0910.i.i.i.i134
   %434 = load i64, ptr %433, align 8
-  %435 = getelementptr inbounds nuw i64, ptr %.07.i132.sroa.phi, i64 %.0910.i.i.i.i134
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %.07.i132.sroa.phi, i64 %.0910.i.i.i.i134
   %436 = load i64, ptr %435, align 8, !tbaa !19, !noalias !1651
   %437 = zext i1 %.0.in11.i.i.i.i133 to i64
   %438 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %434, i64 %436)
@@ -10785,7 +10785,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit130: ; preds
   %442 = extractvalue { i64, i1 } %441, 1
   %443 = extractvalue { i64, i1 } %441, 0
   %444 = or i1 %439, %442
-  %445 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i134
+  %445 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i134
   store i64 %443, ptr %445, align 8, !tbaa !19, !noalias !1651
   %446 = add nuw nsw i64 %.0910.i.i.i.i134, 1
   %exitcond.not.i.i.i.i135 = icmp eq i64 %446, 4
@@ -10802,9 +10802,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 447:                                              ; preds = %447, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136
   %.0.in11.i5.i.i.i137 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136 ], [ %459, %447 ]
   %.0910.i6.i.i.i138 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i136 ], [ %461, %447 ]
-  %448 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i6.i.i.i138
+  %448 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i6.i.i.i138
   %449 = load i64, ptr %448, align 8, !tbaa !19, !noalias !1654
-  %450 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i138
+  %450 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i138
   %451 = load i64, ptr %450, align 8, !tbaa !19, !noalias !1654
   %452 = zext i1 %.0.in11.i5.i.i.i137 to i64
   %453 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %449, i64 %451)
@@ -10814,7 +10814,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %457 = extractvalue { i64, i1 } %456, 1
   %458 = extractvalue { i64, i1 } %456, 0
   %459 = or i1 %454, %457
-  %460 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i6.i.i.i138
+  %460 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i6.i.i.i138
   store i64 %458, ptr %460, align 8, !tbaa !19, !noalias !1654
   %461 = add nuw nsw i64 %.0910.i6.i.i.i138, 1
   %exitcond.not.i7.i.i.i139 = icmp eq i64 %461, 4
@@ -10853,9 +10853,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit143: ; preds
 465:                                              ; preds = %465, %463
   %.0.in11.i.i.i.i146 = phi i1 [ false, %463 ], [ %477, %465 ]
   %.0910.i.i.i.i147 = phi i64 [ 0, %463 ], [ %479, %465 ]
-  %466 = getelementptr inbounds nuw i64, ptr %.07.i145.sroa.phi213, i64 %.0910.i.i.i.i147
+  %466 = getelementptr inbounds nuw [8 x i8], ptr %.07.i145.sroa.phi213, i64 %.0910.i.i.i.i147
   %467 = load i64, ptr %466, align 8
-  %468 = getelementptr inbounds nuw i64, ptr %.07.i145.sroa.phi, i64 %.0910.i.i.i.i147
+  %468 = getelementptr inbounds nuw [8 x i8], ptr %.07.i145.sroa.phi, i64 %.0910.i.i.i.i147
   %469 = load i64, ptr %468, align 8, !tbaa !19, !noalias !1665
   %470 = zext i1 %.0.in11.i.i.i.i146 to i64
   %471 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %467, i64 %469)
@@ -10865,7 +10865,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit143: ; preds
   %475 = extractvalue { i64, i1 } %474, 1
   %476 = extractvalue { i64, i1 } %474, 0
   %477 = or i1 %472, %475
-  %478 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i147
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i147
   store i64 %476, ptr %478, align 8, !tbaa !19, !noalias !1665
   %479 = add nuw nsw i64 %.0910.i.i.i.i147, 1
   %exitcond.not.i.i.i.i148 = icmp eq i64 %479, 4
@@ -10882,9 +10882,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 480:                                              ; preds = %480, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i149
   %.0.in11.i5.i.i.i150 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i149 ], [ %492, %480 ]
   %.0910.i6.i.i.i151 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i149 ], [ %494, %480 ]
-  %481 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i6.i.i.i151
+  %481 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0910.i6.i.i.i151
   %482 = load i64, ptr %481, align 8, !tbaa !19, !noalias !1668
-  %483 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i151
+  %483 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i151
   %484 = load i64, ptr %483, align 8, !tbaa !19, !noalias !1668
   %485 = zext i1 %.0.in11.i5.i.i.i150 to i64
   %486 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %482, i64 %484)
@@ -10894,7 +10894,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %490 = extractvalue { i64, i1 } %489, 1
   %491 = extractvalue { i64, i1 } %489, 0
   %492 = or i1 %487, %490
-  %493 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i6.i.i.i151
+  %493 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i6.i.i.i151
   store i64 %491, ptr %493, align 8, !tbaa !19, !noalias !1668
   %494 = add nuw nsw i64 %.0910.i6.i.i.i151, 1
   %exitcond.not.i7.i.i.i152 = icmp eq i64 %494, 4
@@ -11024,7 +11024,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25416lin_func_and_addERKNS_3ecc8Ja
   %.06.i.sroa.phi = phi ptr [ %45, %4 ], [ %.06.i.sroa.gep128, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   %.06.i = phi i64 [ 0, %4 ], [ 1, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  %73 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %1, i64 %.06.i
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.06.i
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !1675
   call void @llvm.lifetime.start.p0(ptr nonnull %44) #11, !noalias !1678
   call void @llvm.lifetime.start.p0(ptr nonnull %43) #11, !noalias !1681
@@ -11034,9 +11034,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25416lin_func_and_addERKNS_3ecc8Ja
 74:                                               ; preds = %74, %71
   %.0.in11.i.i.i.i = phi i1 [ false, %71 ], [ %86, %74 ]
   %.0910.i.i.i.i = phi i64 [ 0, %71 ], [ %88, %74 ]
-  %75 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i
   %76 = load i64, ptr %75, align 8, !tbaa !19, !noalias !1681
-  %77 = getelementptr inbounds nuw i64, ptr %73, i64 %.0910.i.i.i.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.0910.i.i.i.i
   %78 = load i64, ptr %77, align 8, !tbaa !19, !noalias !1681
   %79 = zext i1 %.0.in11.i.i.i.i to i64
   %80 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %76, i64 %78)
@@ -11046,7 +11046,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25416lin_func_and_addERKNS_3ecc8Ja
   %84 = extractvalue { i64, i1 } %83, 1
   %85 = extractvalue { i64, i1 } %83, 0
   %86 = or i1 %81, %84
-  %87 = getelementptr inbounds nuw i64, ptr %43, i64 %.0910.i.i.i.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.0910.i.i.i.i
   store i64 %85, ptr %87, align 8, !tbaa !19, !noalias !1681
   %88 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %88, 4
@@ -11061,9 +11061,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 89:                                               ; preds = %89, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %101, %89 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %103, %89 ]
-  %90 = getelementptr inbounds nuw i64, ptr %44, i64 %.0910.i.i.i.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.0910.i.i.i.i.i
   %91 = load i64, ptr %90, align 8, !tbaa !19, !noalias !1684
-  %92 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %93 = load i64, ptr %92, align 8, !tbaa !19, !noalias !1684
   %94 = zext i1 %.0.in11.i.i.i.i.i to i64
   %95 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %91, i64 %93)
@@ -11073,7 +11073,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %99 = extractvalue { i64, i1 } %98, 1
   %100 = extractvalue { i64, i1 } %98, 0
   %101 = or i1 %96, %99
-  %102 = getelementptr inbounds nuw i64, ptr %42, i64 %.0910.i.i.i.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.0910.i.i.i.i.i
   store i64 %100, ptr %102, align 8, !noalias !1678
   %103 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %103, 4
@@ -11103,7 +11103,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %.06.i25.sroa.phi = phi ptr [ %41, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.06.i25.sroa.gep129, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i33 ]
   %.06.i25 = phi i64 [ 0, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ 1, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i24)
-  %108 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %105, i64 %.06.i25
+  %108 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %.06.i25
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !1692
   call void @llvm.lifetime.start.p0(ptr nonnull %40) #11, !noalias !1695
   call void @llvm.lifetime.start.p0(ptr nonnull %39) #11, !noalias !1698
@@ -11113,9 +11113,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 109:                                              ; preds = %109, %106
   %.0.in11.i.i.i.i26 = phi i1 [ false, %106 ], [ %121, %109 ]
   %.0910.i.i.i.i27 = phi i64 [ 0, %106 ], [ %123, %109 ]
-  %110 = getelementptr inbounds nuw i64, ptr %.06.i25.sroa.phi, i64 %.0910.i.i.i.i27
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.06.i25.sroa.phi, i64 %.0910.i.i.i.i27
   %111 = load i64, ptr %110, align 8, !tbaa !19, !noalias !1698
-  %112 = getelementptr inbounds nuw i64, ptr %108, i64 %.0910.i.i.i.i27
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %.0910.i.i.i.i27
   %113 = load i64, ptr %112, align 8, !tbaa !19, !noalias !1698
   %114 = zext i1 %.0.in11.i.i.i.i26 to i64
   %115 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %111, i64 %113)
@@ -11125,7 +11125,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %119 = extractvalue { i64, i1 } %118, 1
   %120 = extractvalue { i64, i1 } %118, 0
   %121 = or i1 %116, %119
-  %122 = getelementptr inbounds nuw i64, ptr %39, i64 %.0910.i.i.i.i27
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.0910.i.i.i.i27
   store i64 %120, ptr %122, align 8, !tbaa !19, !noalias !1698
   %123 = add nuw nsw i64 %.0910.i.i.i.i27, 1
   %exitcond.not.i.i.i.i28 = icmp eq i64 %123, 4
@@ -11140,9 +11140,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 124:                                              ; preds = %124, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i29
   %.0.in11.i.i.i.i.i30 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i29 ], [ %136, %124 ]
   %.0910.i.i.i.i.i31 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i29 ], [ %138, %124 ]
-  %125 = getelementptr inbounds nuw i64, ptr %40, i64 %.0910.i.i.i.i.i31
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0910.i.i.i.i.i31
   %126 = load i64, ptr %125, align 8, !tbaa !19, !noalias !1701
-  %127 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i31
+  %127 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i31
   %128 = load i64, ptr %127, align 8, !tbaa !19, !noalias !1701
   %129 = zext i1 %.0.in11.i.i.i.i.i30 to i64
   %130 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %126, i64 %128)
@@ -11152,7 +11152,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %134 = extractvalue { i64, i1 } %133, 1
   %135 = extractvalue { i64, i1 } %133, 0
   %136 = or i1 %131, %134
-  %137 = getelementptr inbounds nuw i64, ptr %38, i64 %.0910.i.i.i.i.i31
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0910.i.i.i.i.i31
   store i64 %135, ptr %137, align 8, !noalias !1695
   %138 = add nuw nsw i64 %.0910.i.i.i.i.i31, 1
   %exitcond.not.i.i.i.i.i32 = icmp eq i64 %138, 4
@@ -11199,9 +11199,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit34: ; preds 
 142:                                              ; preds = %142, %140
   %.0.in11.i.i.i.i37 = phi i1 [ false, %140 ], [ %154, %142 ]
   %.0910.i.i.i.i38 = phi i64 [ 0, %140 ], [ %156, %142 ]
-  %143 = getelementptr inbounds nuw i64, ptr %.06.i36.sroa.phi130, i64 %.0910.i.i.i.i38
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %.06.i36.sroa.phi130, i64 %.0910.i.i.i.i38
   %144 = load i64, ptr %143, align 8, !tbaa !19, !noalias !1715
-  %145 = getelementptr inbounds nuw i64, ptr %.06.i36.sroa.phi, i64 %.0910.i.i.i.i38
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %.06.i36.sroa.phi, i64 %.0910.i.i.i.i38
   %146 = load i64, ptr %145, align 8, !tbaa !19, !noalias !1715
   %147 = zext i1 %.0.in11.i.i.i.i37 to i64
   %148 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %144, i64 %146)
@@ -11211,7 +11211,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit34: ; preds 
   %152 = extractvalue { i64, i1 } %151, 1
   %153 = extractvalue { i64, i1 } %151, 0
   %154 = or i1 %149, %152
-  %155 = getelementptr inbounds nuw i64, ptr %35, i64 %.0910.i.i.i.i38
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.0910.i.i.i.i38
   store i64 %153, ptr %155, align 8, !tbaa !19, !noalias !1715
   %156 = add nuw nsw i64 %.0910.i.i.i.i38, 1
   %exitcond.not.i.i.i.i39 = icmp eq i64 %156, 4
@@ -11226,9 +11226,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 157:                                              ; preds = %157, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i40
   %.0.in11.i.i.i.i.i41 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i40 ], [ %169, %157 ]
   %.0910.i.i.i.i.i42 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i40 ], [ %171, %157 ]
-  %158 = getelementptr inbounds nuw i64, ptr %36, i64 %.0910.i.i.i.i.i42
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.0910.i.i.i.i.i42
   %159 = load i64, ptr %158, align 8, !tbaa !19, !noalias !1718
-  %160 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i42
+  %160 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i42
   %161 = load i64, ptr %160, align 8, !tbaa !19, !noalias !1718
   %162 = zext i1 %.0.in11.i.i.i.i.i41 to i64
   %163 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %159, i64 %161)
@@ -11238,7 +11238,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %167 = extractvalue { i64, i1 } %166, 1
   %168 = extractvalue { i64, i1 } %166, 0
   %169 = or i1 %164, %167
-  %170 = getelementptr inbounds nuw i64, ptr %34, i64 %.0910.i.i.i.i.i42
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0910.i.i.i.i.i42
   store i64 %168, ptr %170, align 8, !noalias !1712
   %171 = add nuw nsw i64 %.0910.i.i.i.i.i42, 1
   %exitcond.not.i.i.i.i.i43 = icmp eq i64 %171, 4
@@ -11276,9 +11276,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit45: ; preds 
 175:                                              ; preds = %175, %173
   %.0.in11.i.i.i.i47 = phi i1 [ false, %173 ], [ %187, %175 ]
   %.0910.i.i.i.i48 = phi i64 [ 0, %173 ], [ %189, %175 ]
-  %176 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi133, i64 %.0910.i.i.i.i48
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi133, i64 %.0910.i.i.i.i48
   %177 = load i64, ptr %176, align 8, !tbaa !19, !noalias !1731
-  %178 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i48
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i48
   %179 = load i64, ptr %178, align 8, !tbaa !19, !noalias !1731
   %180 = zext i1 %.0.in11.i.i.i.i47 to i64
   %181 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %177, i64 %179)
@@ -11288,7 +11288,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit45: ; preds 
   %185 = extractvalue { i64, i1 } %184, 1
   %186 = extractvalue { i64, i1 } %184, 0
   %187 = or i1 %182, %185
-  %188 = getelementptr inbounds nuw i64, ptr %30, i64 %.0910.i.i.i.i48
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0910.i.i.i.i48
   store i64 %186, ptr %188, align 8, !tbaa !19, !noalias !1731
   %189 = add nuw nsw i64 %.0910.i.i.i.i48, 1
   %exitcond.not.i.i.i.i49 = icmp eq i64 %189, 4
@@ -11305,9 +11305,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 190:                                              ; preds = %190, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %202, %190 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %204, %190 ]
-  %191 = getelementptr inbounds nuw i64, ptr %31, i64 %.0910.i6.i.i.i
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.0910.i6.i.i.i
   %192 = load i64, ptr %191, align 8, !tbaa !19, !noalias !1734
-  %193 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
+  %193 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %194 = load i64, ptr %193, align 8, !tbaa !19, !noalias !1734
   %195 = zext i1 %.0.in11.i5.i.i.i to i64
   %196 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %192, i64 %194)
@@ -11317,7 +11317,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %200 = extractvalue { i64, i1 } %199, 1
   %201 = extractvalue { i64, i1 } %199, 0
   %202 = or i1 %197, %200
-  %203 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i6.i.i.i
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0910.i6.i.i.i
   store i64 %201, ptr %203, align 8, !tbaa !19, !noalias !1734
   %204 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %204, 4
@@ -11358,9 +11358,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 208:                                              ; preds = %208, %206
   %.0.in11.i.i.i.i52 = phi i1 [ false, %206 ], [ %220, %208 ]
   %.0910.i.i.i.i53 = phi i64 [ 0, %206 ], [ %222, %208 ]
-  %209 = getelementptr inbounds nuw i64, ptr %.06.i51.sroa.phi136, i64 %.0910.i.i.i.i53
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %.06.i51.sroa.phi136, i64 %.0910.i.i.i.i53
   %210 = load i64, ptr %209, align 8
-  %211 = getelementptr inbounds nuw i64, ptr %.06.i51.sroa.phi, i64 %.0910.i.i.i.i53
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %.06.i51.sroa.phi, i64 %.0910.i.i.i.i53
   %212 = load i64, ptr %211, align 8, !tbaa !19, !noalias !1745
   %213 = zext i1 %.0.in11.i.i.i.i52 to i64
   %214 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %210, i64 %212)
@@ -11370,7 +11370,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %218 = extractvalue { i64, i1 } %217, 1
   %219 = extractvalue { i64, i1 } %217, 0
   %220 = or i1 %215, %218
-  %221 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i53
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0910.i.i.i.i53
   store i64 %219, ptr %221, align 8, !tbaa !19, !noalias !1745
   %222 = add nuw nsw i64 %.0910.i.i.i.i53, 1
   %exitcond.not.i.i.i.i54 = icmp eq i64 %222, 4
@@ -11385,9 +11385,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 223:                                              ; preds = %223, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i55
   %.0.in11.i.i.i.i.i56 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i55 ], [ %235, %223 ]
   %.0910.i.i.i.i.i57 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i55 ], [ %237, %223 ]
-  %224 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i.i.i.i.i57
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0910.i.i.i.i.i57
   %225 = load i64, ptr %224, align 8, !tbaa !19, !noalias !1748
-  %226 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i57
+  %226 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i57
   %227 = load i64, ptr %226, align 8, !tbaa !19, !noalias !1748
   %228 = zext i1 %.0.in11.i.i.i.i.i56 to i64
   %229 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %225, i64 %227)
@@ -11397,7 +11397,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %233 = extractvalue { i64, i1 } %232, 1
   %234 = extractvalue { i64, i1 } %232, 0
   %235 = or i1 %230, %233
-  %236 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i.i.i.i.i57
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0910.i.i.i.i.i57
   store i64 %234, ptr %236, align 8, !noalias !1742
   %237 = add nuw nsw i64 %.0910.i.i.i.i.i57, 1
   %exitcond.not.i.i.i.i.i58 = icmp eq i64 %237, 4
@@ -11439,9 +11439,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit60: ; preds 
 241:                                              ; preds = %241, %239
   %.0.in11.i.i.i.i63 = phi i1 [ false, %239 ], [ %253, %241 ]
   %.0910.i.i.i.i64 = phi i64 [ 0, %239 ], [ %255, %241 ]
-  %242 = getelementptr inbounds nuw i64, ptr %.06.i62.sroa.phi139, i64 %.0910.i.i.i.i64
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %.06.i62.sroa.phi139, i64 %.0910.i.i.i.i64
   %243 = load i64, ptr %242, align 8, !tbaa !19, !noalias !1763
-  %244 = getelementptr inbounds nuw i64, ptr %.06.i62.sroa.phi, i64 %.0910.i.i.i.i64
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %.06.i62.sroa.phi, i64 %.0910.i.i.i.i64
   %245 = load i64, ptr %244, align 8
   %246 = zext i1 %.0.in11.i.i.i.i63 to i64
   %247 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %243, i64 %245)
@@ -11451,7 +11451,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit60: ; preds 
   %251 = extractvalue { i64, i1 } %250, 1
   %252 = extractvalue { i64, i1 } %250, 0
   %253 = or i1 %248, %251
-  %254 = getelementptr inbounds nuw i64, ptr %22, i64 %.0910.i.i.i.i64
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0910.i.i.i.i64
   store i64 %252, ptr %254, align 8, !tbaa !19, !noalias !1763
   %255 = add nuw nsw i64 %.0910.i.i.i.i64, 1
   %exitcond.not.i.i.i.i65 = icmp eq i64 %255, 4
@@ -11466,9 +11466,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 256:                                              ; preds = %256, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i66
   %.0.in11.i.i.i.i.i67 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i66 ], [ %268, %256 ]
   %.0910.i.i.i.i.i68 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i66 ], [ %270, %256 ]
-  %257 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i.i.i.i.i68
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0910.i.i.i.i.i68
   %258 = load i64, ptr %257, align 8, !tbaa !19, !noalias !1766
-  %259 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i68
+  %259 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i68
   %260 = load i64, ptr %259, align 8, !tbaa !19, !noalias !1766
   %261 = zext i1 %.0.in11.i.i.i.i.i67 to i64
   %262 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %258, i64 %260)
@@ -11478,7 +11478,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %266 = extractvalue { i64, i1 } %265, 1
   %267 = extractvalue { i64, i1 } %265, 0
   %268 = or i1 %263, %266
-  %269 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i.i.i.i68
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i.i.i.i.i68
   store i64 %267, ptr %269, align 8, !noalias !1760
   %270 = add nuw nsw i64 %.0910.i.i.i.i.i68, 1
   %exitcond.not.i.i.i.i.i69 = icmp eq i64 %270, 4
@@ -11518,9 +11518,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit71: ; preds 
 274:                                              ; preds = %274, %272
   %.0.in11.i.i.i.i74 = phi i1 [ false, %272 ], [ %286, %274 ]
   %.0910.i.i.i.i75 = phi i64 [ 0, %272 ], [ %288, %274 ]
-  %275 = getelementptr inbounds nuw i64, ptr %.06.i73.sroa.phi142, i64 %.0910.i.i.i.i75
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %.06.i73.sroa.phi142, i64 %.0910.i.i.i.i75
   %276 = load i64, ptr %275, align 8
-  %277 = getelementptr inbounds nuw i64, ptr %.06.i73.sroa.phi, i64 %.0910.i.i.i.i75
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %.06.i73.sroa.phi, i64 %.0910.i.i.i.i75
   %278 = load i64, ptr %277, align 8, !tbaa !19, !noalias !1779
   %279 = zext i1 %.0.in11.i.i.i.i74 to i64
   %280 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %276, i64 %278)
@@ -11530,7 +11530,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit71: ; preds 
   %284 = extractvalue { i64, i1 } %283, 1
   %285 = extractvalue { i64, i1 } %283, 0
   %286 = or i1 %281, %284
-  %287 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i.i.i.i75
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0910.i.i.i.i75
   store i64 %285, ptr %287, align 8, !tbaa !19, !noalias !1779
   %288 = add nuw nsw i64 %.0910.i.i.i.i75, 1
   %exitcond.not.i.i.i.i76 = icmp eq i64 %288, 4
@@ -11545,9 +11545,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 289:                                              ; preds = %289, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77
   %.0.in11.i.i.i.i.i78 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77 ], [ %301, %289 ]
   %.0910.i.i.i.i.i79 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77 ], [ %303, %289 ]
-  %290 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i.i.i.i.i79
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0910.i.i.i.i.i79
   %291 = load i64, ptr %290, align 8, !tbaa !19, !noalias !1782
-  %292 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i79
+  %292 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i79
   %293 = load i64, ptr %292, align 8, !tbaa !19, !noalias !1782
   %294 = zext i1 %.0.in11.i.i.i.i.i78 to i64
   %295 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %291, i64 %293)
@@ -11557,7 +11557,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %299 = extractvalue { i64, i1 } %298, 1
   %300 = extractvalue { i64, i1 } %298, 0
   %301 = or i1 %296, %299
-  %302 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i.i.i.i.i79
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0910.i.i.i.i.i79
   store i64 %300, ptr %302, align 8, !noalias !1776
   %303 = add nuw nsw i64 %.0910.i.i.i.i.i79, 1
   %exitcond.not.i.i.i.i.i80 = icmp eq i64 %303, 4
@@ -11604,9 +11604,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82: ; preds 
 307:                                              ; preds = %307, %305
   %.0.in11.i.i.i.i85 = phi i1 [ false, %305 ], [ %319, %307 ]
   %.0910.i.i.i.i86 = phi i64 [ 0, %305 ], [ %321, %307 ]
-  %308 = getelementptr inbounds nuw i64, ptr %.06.i84.sroa.phi145, i64 %.0910.i.i.i.i86
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %.06.i84.sroa.phi145, i64 %.0910.i.i.i.i86
   %309 = load i64, ptr %308, align 8
-  %310 = getelementptr inbounds nuw i64, ptr %.06.i84.sroa.phi, i64 %.0910.i.i.i.i86
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %.06.i84.sroa.phi, i64 %.0910.i.i.i.i86
   %311 = load i64, ptr %310, align 8, !tbaa !19, !noalias !1796
   %312 = zext i1 %.0.in11.i.i.i.i85 to i64
   %313 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %309, i64 %311)
@@ -11616,7 +11616,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit82: ; preds 
   %317 = extractvalue { i64, i1 } %316, 1
   %318 = extractvalue { i64, i1 } %316, 0
   %319 = or i1 %314, %317
-  %320 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i86
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i.i.i86
   store i64 %318, ptr %320, align 8, !tbaa !19, !noalias !1796
   %321 = add nuw nsw i64 %.0910.i.i.i.i86, 1
   %exitcond.not.i.i.i.i87 = icmp eq i64 %321, 4
@@ -11631,9 +11631,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 322:                                              ; preds = %322, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i88
   %.0.in11.i.i.i.i.i89 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i88 ], [ %334, %322 ]
   %.0910.i.i.i.i.i90 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i88 ], [ %336, %322 ]
-  %323 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i.i.i90
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i.i.i.i.i90
   %324 = load i64, ptr %323, align 8, !tbaa !19, !noalias !1799
-  %325 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i90
+  %325 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i90
   %326 = load i64, ptr %325, align 8, !tbaa !19, !noalias !1799
   %327 = zext i1 %.0.in11.i.i.i.i.i89 to i64
   %328 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %324, i64 %326)
@@ -11643,7 +11643,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %332 = extractvalue { i64, i1 } %331, 1
   %333 = extractvalue { i64, i1 } %331, 0
   %334 = or i1 %329, %332
-  %335 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i.i90
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i.i90
   store i64 %333, ptr %335, align 8, !noalias !1793
   %336 = add nuw nsw i64 %.0910.i.i.i.i.i90, 1
   %exitcond.not.i.i.i.i.i91 = icmp eq i64 %336, 4
@@ -11686,9 +11686,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit93: ; preds 
 340:                                              ; preds = %340, %338
   %.0.in11.i.i.i.i96 = phi i1 [ false, %338 ], [ %352, %340 ]
   %.0910.i.i.i.i97 = phi i64 [ 0, %338 ], [ %354, %340 ]
-  %341 = getelementptr inbounds nuw i64, ptr %.06.i95.sroa.phi148, i64 %.0910.i.i.i.i97
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %.06.i95.sroa.phi148, i64 %.0910.i.i.i.i97
   %342 = load i64, ptr %341, align 8
-  %343 = getelementptr inbounds nuw i64, ptr %.06.i95.sroa.phi, i64 %.0910.i.i.i.i97
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %.06.i95.sroa.phi, i64 %.0910.i.i.i.i97
   %344 = load i64, ptr %343, align 8, !tbaa !19, !noalias !1813
   %345 = zext i1 %.0.in11.i.i.i.i96 to i64
   %346 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %342, i64 %344)
@@ -11698,7 +11698,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit93: ; preds 
   %350 = extractvalue { i64, i1 } %349, 1
   %351 = extractvalue { i64, i1 } %349, 0
   %352 = or i1 %347, %350
-  %353 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i97
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i97
   store i64 %351, ptr %353, align 8, !tbaa !19, !noalias !1813
   %354 = add nuw nsw i64 %.0910.i.i.i.i97, 1
   %exitcond.not.i.i.i.i98 = icmp eq i64 %354, 4
@@ -11713,9 +11713,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 355:                                              ; preds = %355, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i99
   %.0.in11.i.i.i.i.i100 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i99 ], [ %367, %355 ]
   %.0910.i.i.i.i.i101 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i99 ], [ %369, %355 ]
-  %356 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i.i101
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i.i101
   %357 = load i64, ptr %356, align 8, !tbaa !19, !noalias !1816
-  %358 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i101
+  %358 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i101
   %359 = load i64, ptr %358, align 8, !tbaa !19, !noalias !1816
   %360 = zext i1 %.0.in11.i.i.i.i.i100 to i64
   %361 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %357, i64 %359)
@@ -11725,7 +11725,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %365 = extractvalue { i64, i1 } %364, 1
   %366 = extractvalue { i64, i1 } %364, 0
   %367 = or i1 %362, %365
-  %368 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i101
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i.i101
   store i64 %366, ptr %368, align 8, !noalias !1810
   %369 = add nuw nsw i64 %.0910.i.i.i.i.i101, 1
   %exitcond.not.i.i.i.i.i102 = icmp eq i64 %369, 4
@@ -11768,9 +11768,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds
 374:                                              ; preds = %374, %372
   %.0.in11.i.i.i.i107 = phi i1 [ false, %372 ], [ %386, %374 ]
   %.0910.i.i.i.i108 = phi i64 [ 0, %372 ], [ %388, %374 ]
-  %375 = getelementptr inbounds nuw i64, ptr %.06.i106.sroa.phi151, i64 %.0910.i.i.i.i108
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %.06.i106.sroa.phi151, i64 %.0910.i.i.i.i108
   %376 = load i64, ptr %375, align 8
-  %377 = getelementptr inbounds nuw i64, ptr %.06.i106.sroa.phi, i64 %.0910.i.i.i.i108
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %.06.i106.sroa.phi, i64 %.0910.i.i.i.i108
   %378 = load i64, ptr %377, align 8, !tbaa !19, !noalias !1830
   %379 = zext i1 %.0.in11.i.i.i.i107 to i64
   %380 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %376, i64 %378)
@@ -11780,7 +11780,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit104: ; preds
   %384 = extractvalue { i64, i1 } %383, 1
   %385 = extractvalue { i64, i1 } %383, 0
   %386 = or i1 %381, %384
-  %387 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i108
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i108
   store i64 %385, ptr %387, align 8, !tbaa !19, !noalias !1830
   %388 = add nuw nsw i64 %.0910.i.i.i.i108, 1
   %exitcond.not.i.i.i.i109 = icmp eq i64 %388, 4
@@ -11795,9 +11795,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 389:                                              ; preds = %389, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110
   %.0.in11.i.i.i.i.i111 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110 ], [ %401, %389 ]
   %.0910.i.i.i.i.i112 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i110 ], [ %403, %389 ]
-  %390 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i.i.i.i.i112
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0910.i.i.i.i.i112
   %391 = load i64, ptr %390, align 8, !tbaa !19, !noalias !1833
-  %392 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i112
+  %392 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i112
   %393 = load i64, ptr %392, align 8, !tbaa !19, !noalias !1833
   %394 = zext i1 %.0.in11.i.i.i.i.i111 to i64
   %395 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %391, i64 %393)
@@ -11807,7 +11807,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %399 = extractvalue { i64, i1 } %398, 1
   %400 = extractvalue { i64, i1 } %398, 0
   %401 = or i1 %396, %399
-  %402 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i.i112
+  %402 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i.i112
   store i64 %400, ptr %402, align 8, !noalias !1827
   %403 = add nuw nsw i64 %.0910.i.i.i.i.i112, 1
   %exitcond.not.i.i.i.i.i113 = icmp eq i64 %403, 4
@@ -11875,9 +11875,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25412endomorphismILi1EEENS_3ecc5Po
 16:                                               ; preds = %16, %2
   %.0.in11.i.i.i.i = phi i1 [ false, %2 ], [ %28, %16 ]
   %.0910.i.i.i.i = phi i64 [ 0, %2 ], [ %30, %16 ]
-  %17 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !19, !noalias !1848
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i.i.i.i
   %20 = load i64, ptr %19, align 8, !tbaa !19, !noalias !1848
   %21 = zext i1 %.0.in11.i.i.i.i to i64
   %22 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %18, i64 %20)
@@ -11887,7 +11887,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25412endomorphismILi1EEENS_3ecc5Po
   %26 = extractvalue { i64, i1 } %25, 1
   %27 = extractvalue { i64, i1 } %25, 0
   %28 = or i1 %23, %26
-  %29 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i
   store i64 %27, ptr %29, align 8, !tbaa !19, !noalias !1848
   %30 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %30, 4
@@ -11902,9 +11902,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 31:                                               ; preds = %31, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %43, %31 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %45, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i
   %33 = load i64, ptr %32, align 8, !tbaa !19, !noalias !1851
-  %34 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %35 = load i64, ptr %34, align 8, !tbaa !19, !noalias !1851
   %36 = zext i1 %.0.in11.i.i.i.i.i to i64
   %37 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %33, i64 %35)
@@ -11914,7 +11914,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %41 = extractvalue { i64, i1 } %40, 1
   %42 = extractvalue { i64, i1 } %40, 0
   %43 = or i1 %38, %41
-  %44 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i.i.i
   store i64 %42, ptr %44, align 8, !noalias !1845
   %45 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %45, 4
@@ -11945,9 +11945,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit: ; preds = 
 49:                                               ; preds = %49, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit
   %.0.in11.i.i.i.i2 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit ], [ %61, %49 ]
   %.0910.i.i.i.i3 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit ], [ %63, %49 ]
-  %50 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i3
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i3
   %51 = load i64, ptr %50, align 8, !tbaa !19, !noalias !1865
-  %52 = getelementptr inbounds nuw i64, ptr %48, i64 %.0910.i.i.i.i3
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.0910.i.i.i.i3
   %53 = load i64, ptr %52, align 8, !tbaa !19, !noalias !1865
   %54 = zext i1 %.0.in11.i.i.i.i2 to i64
   %55 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %51, i64 %53)
@@ -11957,7 +11957,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit: ; preds = 
   %59 = extractvalue { i64, i1 } %58, 1
   %60 = extractvalue { i64, i1 } %58, 0
   %61 = or i1 %56, %59
-  %62 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i3
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i3
   store i64 %60, ptr %62, align 8, !tbaa !19, !noalias !1865
   %63 = add nuw nsw i64 %.0910.i.i.i.i3, 1
   %exitcond.not.i.i.i.i4 = icmp eq i64 %63, 4
@@ -11972,9 +11972,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 64:                                               ; preds = %64, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i5
   %.0.in11.i.i.i.i.i6 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i5 ], [ %76, %64 ]
   %.0910.i.i.i.i.i7 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i5 ], [ %78, %64 ]
-  %65 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i.i7
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i.i7
   %66 = load i64, ptr %65, align 8, !tbaa !19, !noalias !1868
-  %67 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i7
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i7
   %68 = load i64, ptr %67, align 8, !tbaa !19, !noalias !1868
   %69 = zext i1 %.0.in11.i.i.i.i.i6 to i64
   %70 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %66, i64 %68)
@@ -11984,7 +11984,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %74 = extractvalue { i64, i1 } %73, 1
   %75 = extractvalue { i64, i1 } %73, 0
   %76 = or i1 %71, %74
-  %77 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i.i.i.i.i7
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i.i.i.i.i7
   store i64 %75, ptr %77, align 8, !noalias !1862
   %78 = add nuw nsw i64 %.0910.i.i.i.i.i7, 1
   %exitcond.not.i.i.i.i.i8 = icmp eq i64 %78, 4
@@ -12068,9 +12068,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548lin_funcERKNS_3ecc8JacPointINS
 31:                                               ; preds = %31, %29
   %.0.in11.i.i.i.i = phi i1 [ false, %29 ], [ %43, %31 ]
   %.0910.i.i.i.i = phi i64 [ 0, %29 ], [ %45, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi45, i64 %.0910.i.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi45, i64 %.0910.i.i.i.i
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i
   %35 = load i64, ptr %34, align 8, !tbaa !19, !noalias !1881
   %36 = zext i1 %.0.in11.i.i.i.i to i64
   %37 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %33, i64 %35)
@@ -12080,7 +12080,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2548lin_funcERKNS_3ecc8JacPointINS
   %41 = extractvalue { i64, i1 } %40, 1
   %42 = extractvalue { i64, i1 } %40, 0
   %43 = or i1 %38, %41
-  %44 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i
   store i64 %42, ptr %44, align 8, !tbaa !19, !noalias !1881
   %45 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %45, 4
@@ -12095,9 +12095,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 46:                                               ; preds = %46, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %58, %46 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %60, %46 ]
-  %47 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i.i.i.i
   %48 = load i64, ptr %47, align 8, !tbaa !19, !noalias !1884
-  %49 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %50 = load i64, ptr %49, align 8, !tbaa !19, !noalias !1884
   %51 = zext i1 %.0.in11.i.i.i.i.i to i64
   %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %48, i64 %50)
@@ -12107,7 +12107,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %56 = extractvalue { i64, i1 } %55, 1
   %57 = extractvalue { i64, i1 } %55, 0
   %58 = or i1 %53, %56
-  %59 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i.i.i.i.i
   store i64 %57, ptr %59, align 8, !noalias !1878
   %60 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %60, 4
@@ -12151,9 +12151,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 65:                                               ; preds = %65, %63
   %.0.in11.i.i.i.i20 = phi i1 [ false, %63 ], [ %77, %65 ]
   %.0910.i.i.i.i21 = phi i64 [ 0, %63 ], [ %79, %65 ]
-  %66 = getelementptr inbounds nuw i64, ptr %.06.i19.sroa.phi48, i64 %.0910.i.i.i.i21
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.06.i19.sroa.phi48, i64 %.0910.i.i.i.i21
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i64, ptr %.06.i19.sroa.phi, i64 %.0910.i.i.i.i21
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.06.i19.sroa.phi, i64 %.0910.i.i.i.i21
   %69 = load i64, ptr %68, align 8, !tbaa !19, !noalias !1898
   %70 = zext i1 %.0.in11.i.i.i.i20 to i64
   %71 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %67, i64 %69)
@@ -12163,7 +12163,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %75 = extractvalue { i64, i1 } %74, 1
   %76 = extractvalue { i64, i1 } %74, 0
   %77 = or i1 %72, %75
-  %78 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i21
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i21
   store i64 %76, ptr %78, align 8, !tbaa !19, !noalias !1898
   %79 = add nuw nsw i64 %.0910.i.i.i.i21, 1
   %exitcond.not.i.i.i.i22 = icmp eq i64 %79, 4
@@ -12178,9 +12178,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 80:                                               ; preds = %80, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i23
   %.0.in11.i.i.i.i.i24 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i23 ], [ %92, %80 ]
   %.0910.i.i.i.i.i25 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i23 ], [ %94, %80 ]
-  %81 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i25
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i25
   %82 = load i64, ptr %81, align 8, !tbaa !19, !noalias !1901
-  %83 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i25
+  %83 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i25
   %84 = load i64, ptr %83, align 8, !tbaa !19, !noalias !1901
   %85 = zext i1 %.0.in11.i.i.i.i.i24 to i64
   %86 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %82, i64 %84)
@@ -12190,7 +12190,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %90 = extractvalue { i64, i1 } %89, 1
   %91 = extractvalue { i64, i1 } %89, 0
   %92 = or i1 %87, %90
-  %93 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i25
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i.i.i25
   store i64 %91, ptr %93, align 8, !noalias !1895
   %94 = add nuw nsw i64 %.0910.i.i.i.i.i25, 1
   %exitcond.not.i.i.i.i.i26 = icmp eq i64 %94, 4
@@ -12233,9 +12233,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds 
 99:                                               ; preds = %99, %97
   %.0.in11.i.i.i.i31 = phi i1 [ false, %97 ], [ %111, %99 ]
   %.0910.i.i.i.i32 = phi i64 [ 0, %97 ], [ %113, %99 ]
-  %100 = getelementptr inbounds nuw i64, ptr %.06.i30.sroa.phi51, i64 %.0910.i.i.i.i32
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %.06.i30.sroa.phi51, i64 %.0910.i.i.i.i32
   %101 = load i64, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i64, ptr %.06.i30.sroa.phi, i64 %.0910.i.i.i.i32
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %.06.i30.sroa.phi, i64 %.0910.i.i.i.i32
   %103 = load i64, ptr %102, align 8, !tbaa !19, !noalias !1915
   %104 = zext i1 %.0.in11.i.i.i.i31 to i64
   %105 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %101, i64 %103)
@@ -12245,7 +12245,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds 
   %109 = extractvalue { i64, i1 } %108, 1
   %110 = extractvalue { i64, i1 } %108, 0
   %111 = or i1 %106, %109
-  %112 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i32
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i32
   store i64 %110, ptr %112, align 8, !tbaa !19, !noalias !1915
   %113 = add nuw nsw i64 %.0910.i.i.i.i32, 1
   %exitcond.not.i.i.i.i33 = icmp eq i64 %113, 4
@@ -12260,9 +12260,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 114:                                              ; preds = %114, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34
   %.0.in11.i.i.i.i.i35 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %126, %114 ]
   %.0910.i.i.i.i.i36 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %128, %114 ]
-  %115 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i.i36
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i.i36
   %116 = load i64, ptr %115, align 8, !tbaa !19, !noalias !1918
-  %117 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i36
+  %117 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i36
   %118 = load i64, ptr %117, align 8, !tbaa !19, !noalias !1918
   %119 = zext i1 %.0.in11.i.i.i.i.i35 to i64
   %120 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %116, i64 %118)
@@ -12272,7 +12272,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %124 = extractvalue { i64, i1 } %123, 1
   %125 = extractvalue { i64, i1 } %123, 0
   %126 = or i1 %121, %124
-  %127 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i.i36
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i.i36
   store i64 %125, ptr %127, align 8, !noalias !1912
   %128 = add nuw nsw i64 %.0910.i.i.i.i.i36, 1
   %exitcond.not.i.i.i.i.i37 = icmp eq i64 %128, 4
@@ -12611,9 +12611,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25412endomorphismILi1EEENS_3ecc12E
 41:                                               ; preds = %41, %2
   %.0.in11.i.i.i.i = phi i1 [ false, %2 ], [ %53, %41 ]
   %.0910.i.i.i.i = phi i64 [ 0, %2 ], [ %55, %41 ]
-  %42 = getelementptr inbounds nuw i64, ptr %31, i64 %.0910.i.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.0910.i.i.i.i
   %43 = load i64, ptr %42, align 8, !tbaa !19, !noalias !1961
-  %44 = getelementptr inbounds nuw i64, ptr %40, i64 %.0910.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0910.i.i.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !19, !noalias !1961
   %46 = zext i1 %.0.in11.i.i.i.i to i64
   %47 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %43, i64 %45)
@@ -12623,7 +12623,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25412endomorphismILi1EEENS_3ecc12E
   %51 = extractvalue { i64, i1 } %50, 1
   %52 = extractvalue { i64, i1 } %50, 0
   %53 = or i1 %48, %51
-  %54 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0910.i.i.i.i
   store i64 %52, ptr %54, align 8, !tbaa !19, !noalias !1961
   %55 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %55, 4
@@ -12638,9 +12638,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 56:                                               ; preds = %56, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %68, %56 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %70, %56 ]
-  %57 = getelementptr inbounds nuw i64, ptr %30, i64 %.0910.i.i.i.i.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0910.i.i.i.i.i
   %58 = load i64, ptr %57, align 8, !tbaa !19, !noalias !1964
-  %59 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %60 = load i64, ptr %59, align 8, !tbaa !19, !noalias !1964
   %61 = zext i1 %.0.in11.i.i.i.i.i to i64
   %62 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %58, i64 %60)
@@ -12650,7 +12650,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %66 = extractvalue { i64, i1 } %65, 1
   %67 = extractvalue { i64, i1 } %65, 0
   %68 = or i1 %63, %66
-  %69 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i.i.i.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0910.i.i.i.i.i
   store i64 %67, ptr %69, align 8, !noalias !1958
   %70 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %70, 4
@@ -12680,9 +12680,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit: ; preds = 
 74:                                               ; preds = %74, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit
   %.0.in11.i.i.i.i6 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit ], [ %86, %74 ]
   %.0910.i.i.i.i7 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit ], [ %88, %74 ]
-  %75 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i7
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0910.i.i.i.i7
   %76 = load i64, ptr %75, align 8, !tbaa !19, !noalias !1978
-  %77 = getelementptr inbounds nuw i64, ptr %73, i64 %.0910.i.i.i.i7
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.0910.i.i.i.i7
   %78 = load i64, ptr %77, align 8, !tbaa !19, !noalias !1978
   %79 = zext i1 %.0.in11.i.i.i.i6 to i64
   %80 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %76, i64 %78)
@@ -12692,7 +12692,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit: ; preds = 
   %84 = extractvalue { i64, i1 } %83, 1
   %85 = extractvalue { i64, i1 } %83, 0
   %86 = or i1 %81, %84
-  %87 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i.i.i.i7
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0910.i.i.i.i7
   store i64 %85, ptr %87, align 8, !tbaa !19, !noalias !1978
   %88 = add nuw nsw i64 %.0910.i.i.i.i7, 1
   %exitcond.not.i.i.i.i8 = icmp eq i64 %88, 4
@@ -12707,9 +12707,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 89:                                               ; preds = %89, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i9
   %.0.in11.i.i.i.i.i10 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i9 ], [ %101, %89 ]
   %.0910.i.i.i.i.i11 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i9 ], [ %103, %89 ]
-  %90 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i.i.i.i.i11
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0910.i.i.i.i.i11
   %91 = load i64, ptr %90, align 8, !tbaa !19, !noalias !1981
-  %92 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i11
+  %92 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i11
   %93 = load i64, ptr %92, align 8, !tbaa !19, !noalias !1981
   %94 = zext i1 %.0.in11.i.i.i.i.i10 to i64
   %95 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %91, i64 %93)
@@ -12719,7 +12719,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %99 = extractvalue { i64, i1 } %98, 1
   %100 = extractvalue { i64, i1 } %98, 0
   %101 = or i1 %96, %99
-  %102 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i.i.i.i.i11
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0910.i.i.i.i.i11
   store i64 %100, ptr %102, align 8, !noalias !1975
   %103 = add nuw nsw i64 %.0910.i.i.i.i.i11, 1
   %exitcond.not.i.i.i.i.i12 = icmp eq i64 %103, 4
@@ -12751,9 +12751,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit13: ; preds 
 108:                                              ; preds = %108, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit13
   %.0.in11.i.i.i.i14 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit13 ], [ %120, %108 ]
   %.0910.i.i.i.i15 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit13 ], [ %122, %108 ]
-  %109 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i.i.i15
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i.i.i.i15
   %110 = load i64, ptr %109, align 8, !tbaa !19, !noalias !1995
-  %111 = getelementptr inbounds nuw i64, ptr %107, i64 %.0910.i.i.i.i15
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.0910.i.i.i.i15
   %112 = load i64, ptr %111, align 8, !tbaa !19, !noalias !1995
   %113 = zext i1 %.0.in11.i.i.i.i14 to i64
   %114 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %110, i64 %112)
@@ -12763,7 +12763,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit13: ; preds 
   %118 = extractvalue { i64, i1 } %117, 1
   %119 = extractvalue { i64, i1 } %117, 0
   %120 = or i1 %115, %118
-  %121 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i.i.i.i15
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0910.i.i.i.i15
   store i64 %119, ptr %121, align 8, !tbaa !19, !noalias !1995
   %122 = add nuw nsw i64 %.0910.i.i.i.i15, 1
   %exitcond.not.i.i.i.i16 = icmp eq i64 %122, 4
@@ -12778,9 +12778,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 123:                                              ; preds = %123, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17
   %.0.in11.i.i.i.i.i18 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17 ], [ %135, %123 ]
   %.0910.i.i.i.i.i19 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17 ], [ %137, %123 ]
-  %124 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i.i.i19
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i.i.i.i.i19
   %125 = load i64, ptr %124, align 8, !tbaa !19, !noalias !1998
-  %126 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i19
+  %126 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i19
   %127 = load i64, ptr %126, align 8, !tbaa !19, !noalias !1998
   %128 = zext i1 %.0.in11.i.i.i.i.i18 to i64
   %129 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %125, i64 %127)
@@ -12790,7 +12790,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %133 = extractvalue { i64, i1 } %132, 1
   %134 = extractvalue { i64, i1 } %132, 0
   %135 = or i1 %130, %133
-  %136 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i.i.i.i.i19
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0910.i.i.i.i.i19
   store i64 %134, ptr %136, align 8, !noalias !1992
   %137 = add nuw nsw i64 %.0910.i.i.i.i.i19, 1
   %exitcond.not.i.i.i.i.i20 = icmp eq i64 %137, 4
@@ -12824,9 +12824,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit21: ; preds 
 142:                                              ; preds = %142, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit21
   %.0.in11.i.i.i.i22 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit21 ], [ %154, %142 ]
   %.0910.i.i.i.i23 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit21 ], [ %156, %142 ]
-  %143 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i.i.i23
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i.i.i.i23
   %144 = load i64, ptr %143, align 8, !tbaa !19, !noalias !2012
-  %145 = getelementptr inbounds nuw i64, ptr %141, i64 %.0910.i.i.i.i23
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %.0910.i.i.i.i23
   %146 = load i64, ptr %145, align 8, !tbaa !19, !noalias !2012
   %147 = zext i1 %.0.in11.i.i.i.i22 to i64
   %148 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %144, i64 %146)
@@ -12836,7 +12836,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit21: ; preds 
   %152 = extractvalue { i64, i1 } %151, 1
   %153 = extractvalue { i64, i1 } %151, 0
   %154 = or i1 %149, %152
-  %155 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i23
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i.i.i23
   store i64 %153, ptr %155, align 8, !tbaa !19, !noalias !2012
   %156 = add nuw nsw i64 %.0910.i.i.i.i23, 1
   %exitcond.not.i.i.i.i24 = icmp eq i64 %156, 4
@@ -12851,9 +12851,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 157:                                              ; preds = %157, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i25
   %.0.in11.i.i.i.i.i26 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i25 ], [ %169, %157 ]
   %.0910.i.i.i.i.i27 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i25 ], [ %171, %157 ]
-  %158 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i.i.i27
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i.i.i.i.i27
   %159 = load i64, ptr %158, align 8, !tbaa !19, !noalias !2015
-  %160 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i27
+  %160 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i27
   %161 = load i64, ptr %160, align 8, !tbaa !19, !noalias !2015
   %162 = zext i1 %.0.in11.i.i.i.i.i26 to i64
   %163 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %159, i64 %161)
@@ -12863,7 +12863,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %167 = extractvalue { i64, i1 } %166, 1
   %168 = extractvalue { i64, i1 } %166, 0
   %169 = or i1 %164, %167
-  %170 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i.i27
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i.i27
   store i64 %168, ptr %170, align 8, !noalias !2009
   %171 = add nuw nsw i64 %.0910.i.i.i.i.i27, 1
   %exitcond.not.i.i.i.i.i28 = icmp eq i64 %171, 4
@@ -12894,9 +12894,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit29: ; preds 
 175:                                              ; preds = %175, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit29
   %.0.in11.i.i.i.i30 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit29 ], [ %187, %175 ]
   %.0910.i.i.i.i31 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit29 ], [ %189, %175 ]
-  %176 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i31
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i31
   %177 = load i64, ptr %176, align 8, !tbaa !19, !noalias !2029
-  %178 = getelementptr inbounds nuw i64, ptr %174, i64 %.0910.i.i.i.i31
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.0910.i.i.i.i31
   %179 = load i64, ptr %178, align 8, !tbaa !19, !noalias !2029
   %180 = zext i1 %.0.in11.i.i.i.i30 to i64
   %181 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %177, i64 %179)
@@ -12906,7 +12906,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit29: ; preds 
   %185 = extractvalue { i64, i1 } %184, 1
   %186 = extractvalue { i64, i1 } %184, 0
   %187 = or i1 %182, %185
-  %188 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i31
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i31
   store i64 %186, ptr %188, align 8, !tbaa !19, !noalias !2029
   %189 = add nuw nsw i64 %.0910.i.i.i.i31, 1
   %exitcond.not.i.i.i.i32 = icmp eq i64 %189, 4
@@ -12921,9 +12921,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 190:                                              ; preds = %190, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i33
   %.0.in11.i.i.i.i.i34 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i33 ], [ %202, %190 ]
   %.0910.i.i.i.i.i35 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i33 ], [ %204, %190 ]
-  %191 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i35
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i35
   %192 = load i64, ptr %191, align 8, !tbaa !19, !noalias !2032
-  %193 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i35
+  %193 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i35
   %194 = load i64, ptr %193, align 8, !tbaa !19, !noalias !2032
   %195 = zext i1 %.0.in11.i.i.i.i.i34 to i64
   %196 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %192, i64 %194)
@@ -12933,7 +12933,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %200 = extractvalue { i64, i1 } %199, 1
   %201 = extractvalue { i64, i1 } %199, 0
   %202 = or i1 %197, %200
-  %203 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i35
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i.i.i35
   store i64 %201, ptr %203, align 8, !noalias !2026
   %204 = add nuw nsw i64 %.0910.i.i.i.i.i35, 1
   %exitcond.not.i.i.i.i.i36 = icmp eq i64 %204, 4
@@ -12965,9 +12965,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit37: ; preds 
 209:                                              ; preds = %209, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit37
   %.0.in11.i.i.i.i38 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit37 ], [ %221, %209 ]
   %.0910.i.i.i.i39 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit37 ], [ %223, %209 ]
-  %210 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i39
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i39
   %211 = load i64, ptr %210, align 8, !tbaa !19, !noalias !2046
-  %212 = getelementptr inbounds nuw i64, ptr %208, i64 %.0910.i.i.i.i39
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.0910.i.i.i.i39
   %213 = load i64, ptr %212, align 8, !tbaa !19, !noalias !2046
   %214 = zext i1 %.0.in11.i.i.i.i38 to i64
   %215 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %211, i64 %213)
@@ -12977,7 +12977,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit37: ; preds 
   %219 = extractvalue { i64, i1 } %218, 1
   %220 = extractvalue { i64, i1 } %218, 0
   %221 = or i1 %216, %219
-  %222 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i39
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i39
   store i64 %220, ptr %222, align 8, !tbaa !19, !noalias !2046
   %223 = add nuw nsw i64 %.0910.i.i.i.i39, 1
   %exitcond.not.i.i.i.i40 = icmp eq i64 %223, 4
@@ -12992,9 +12992,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 224:                                              ; preds = %224, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i41
   %.0.in11.i.i.i.i.i42 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i41 ], [ %236, %224 ]
   %.0910.i.i.i.i.i43 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i41 ], [ %238, %224 ]
-  %225 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i.i43
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i.i43
   %226 = load i64, ptr %225, align 8, !tbaa !19, !noalias !2049
-  %227 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i43
+  %227 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i43
   %228 = load i64, ptr %227, align 8, !tbaa !19, !noalias !2049
   %229 = zext i1 %.0.in11.i.i.i.i.i42 to i64
   %230 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %226, i64 %228)
@@ -13004,7 +13004,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %234 = extractvalue { i64, i1 } %233, 1
   %235 = extractvalue { i64, i1 } %233, 0
   %236 = or i1 %231, %234
-  %237 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i.i.i.i.i43
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i.i.i.i.i43
   store i64 %235, ptr %237, align 8, !noalias !2043
   %238 = add nuw nsw i64 %.0910.i.i.i.i.i43, 1
   %exitcond.not.i.i.i.i.i44 = icmp eq i64 %238, 4
@@ -13090,9 +13090,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25412endomorphismILi3EEENS_3ecc12E
 41:                                               ; preds = %41, %2
   %.0.in11.i.i.i.i = phi i1 [ false, %2 ], [ %53, %41 ]
   %.0910.i.i.i.i = phi i64 [ 0, %2 ], [ %55, %41 ]
-  %42 = getelementptr inbounds nuw i64, ptr %31, i64 %.0910.i.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.0910.i.i.i.i
   %43 = load i64, ptr %42, align 8, !tbaa !19, !noalias !2063
-  %44 = getelementptr inbounds nuw i64, ptr %40, i64 %.0910.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0910.i.i.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !19, !noalias !2063
   %46 = zext i1 %.0.in11.i.i.i.i to i64
   %47 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %43, i64 %45)
@@ -13102,7 +13102,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25412endomorphismILi3EEENS_3ecc12E
   %51 = extractvalue { i64, i1 } %50, 1
   %52 = extractvalue { i64, i1 } %50, 0
   %53 = or i1 %48, %51
-  %54 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i.i.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0910.i.i.i.i
   store i64 %52, ptr %54, align 8, !tbaa !19, !noalias !2063
   %55 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %55, 4
@@ -13117,9 +13117,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 56:                                               ; preds = %56, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %68, %56 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %70, %56 ]
-  %57 = getelementptr inbounds nuw i64, ptr %30, i64 %.0910.i.i.i.i.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0910.i.i.i.i.i
   %58 = load i64, ptr %57, align 8, !tbaa !19, !noalias !2066
-  %59 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %60 = load i64, ptr %59, align 8, !tbaa !19, !noalias !2066
   %61 = zext i1 %.0.in11.i.i.i.i.i to i64
   %62 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %58, i64 %60)
@@ -13129,7 +13129,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %66 = extractvalue { i64, i1 } %65, 1
   %67 = extractvalue { i64, i1 } %65, 0
   %68 = or i1 %63, %66
-  %69 = getelementptr inbounds nuw i64, ptr %28, i64 %.0910.i.i.i.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0910.i.i.i.i.i
   store i64 %67, ptr %69, align 8, !noalias !2060
   %70 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %70, 4
@@ -13159,9 +13159,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit: ; preds = 
 74:                                               ; preds = %74, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit
   %.0.in11.i.i.i.i6 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit ], [ %86, %74 ]
   %.0910.i.i.i.i7 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit ], [ %88, %74 ]
-  %75 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i7
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0910.i.i.i.i7
   %76 = load i64, ptr %75, align 8, !tbaa !19, !noalias !2080
-  %77 = getelementptr inbounds nuw i64, ptr %73, i64 %.0910.i.i.i.i7
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.0910.i.i.i.i7
   %78 = load i64, ptr %77, align 8, !tbaa !19, !noalias !2080
   %79 = zext i1 %.0.in11.i.i.i.i6 to i64
   %80 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %76, i64 %78)
@@ -13171,7 +13171,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit: ; preds = 
   %84 = extractvalue { i64, i1 } %83, 1
   %85 = extractvalue { i64, i1 } %83, 0
   %86 = or i1 %81, %84
-  %87 = getelementptr inbounds nuw i64, ptr %24, i64 %.0910.i.i.i.i7
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0910.i.i.i.i7
   store i64 %85, ptr %87, align 8, !tbaa !19, !noalias !2080
   %88 = add nuw nsw i64 %.0910.i.i.i.i7, 1
   %exitcond.not.i.i.i.i8 = icmp eq i64 %88, 4
@@ -13186,9 +13186,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 89:                                               ; preds = %89, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i9
   %.0.in11.i.i.i.i.i10 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i9 ], [ %101, %89 ]
   %.0910.i.i.i.i.i11 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i9 ], [ %103, %89 ]
-  %90 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i.i.i.i.i11
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0910.i.i.i.i.i11
   %91 = load i64, ptr %90, align 8, !tbaa !19, !noalias !2083
-  %92 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i11
+  %92 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i11
   %93 = load i64, ptr %92, align 8, !tbaa !19, !noalias !2083
   %94 = zext i1 %.0.in11.i.i.i.i.i10 to i64
   %95 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %91, i64 %93)
@@ -13198,7 +13198,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %99 = extractvalue { i64, i1 } %98, 1
   %100 = extractvalue { i64, i1 } %98, 0
   %101 = or i1 %96, %99
-  %102 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i.i.i.i.i11
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0910.i.i.i.i.i11
   store i64 %100, ptr %102, align 8, !noalias !2077
   %103 = add nuw nsw i64 %.0910.i.i.i.i.i11, 1
   %exitcond.not.i.i.i.i.i12 = icmp eq i64 %103, 4
@@ -13230,9 +13230,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit13: ; preds 
 108:                                              ; preds = %108, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit13
   %.0.in11.i.i.i.i14 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit13 ], [ %120, %108 ]
   %.0910.i.i.i.i15 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit13 ], [ %122, %108 ]
-  %109 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i.i.i15
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i.i.i.i15
   %110 = load i64, ptr %109, align 8, !tbaa !19, !noalias !2097
-  %111 = getelementptr inbounds nuw i64, ptr %107, i64 %.0910.i.i.i.i15
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.0910.i.i.i.i15
   %112 = load i64, ptr %111, align 8, !tbaa !19, !noalias !2097
   %113 = zext i1 %.0.in11.i.i.i.i14 to i64
   %114 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %110, i64 %112)
@@ -13242,7 +13242,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit13: ; preds 
   %118 = extractvalue { i64, i1 } %117, 1
   %119 = extractvalue { i64, i1 } %117, 0
   %120 = or i1 %115, %118
-  %121 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i.i.i.i15
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0910.i.i.i.i15
   store i64 %119, ptr %121, align 8, !tbaa !19, !noalias !2097
   %122 = add nuw nsw i64 %.0910.i.i.i.i15, 1
   %exitcond.not.i.i.i.i16 = icmp eq i64 %122, 4
@@ -13257,9 +13257,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 123:                                              ; preds = %123, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17
   %.0.in11.i.i.i.i.i18 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17 ], [ %135, %123 ]
   %.0910.i.i.i.i.i19 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i17 ], [ %137, %123 ]
-  %124 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i.i.i19
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i.i.i.i.i19
   %125 = load i64, ptr %124, align 8, !tbaa !19, !noalias !2100
-  %126 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i19
+  %126 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i19
   %127 = load i64, ptr %126, align 8, !tbaa !19, !noalias !2100
   %128 = zext i1 %.0.in11.i.i.i.i.i18 to i64
   %129 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %125, i64 %127)
@@ -13269,7 +13269,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %133 = extractvalue { i64, i1 } %132, 1
   %134 = extractvalue { i64, i1 } %132, 0
   %135 = or i1 %130, %133
-  %136 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i.i.i.i.i19
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0910.i.i.i.i.i19
   store i64 %134, ptr %136, align 8, !noalias !2094
   %137 = add nuw nsw i64 %.0910.i.i.i.i.i19, 1
   %exitcond.not.i.i.i.i.i20 = icmp eq i64 %137, 4
@@ -13303,9 +13303,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit21: ; preds 
 142:                                              ; preds = %142, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit21
   %.0.in11.i.i.i.i22 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit21 ], [ %154, %142 ]
   %.0910.i.i.i.i23 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit21 ], [ %156, %142 ]
-  %143 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i.i.i23
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i.i.i.i23
   %144 = load i64, ptr %143, align 8, !tbaa !19, !noalias !2114
-  %145 = getelementptr inbounds nuw i64, ptr %141, i64 %.0910.i.i.i.i23
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %.0910.i.i.i.i23
   %146 = load i64, ptr %145, align 8, !tbaa !19, !noalias !2114
   %147 = zext i1 %.0.in11.i.i.i.i22 to i64
   %148 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %144, i64 %146)
@@ -13315,7 +13315,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit21: ; preds 
   %152 = extractvalue { i64, i1 } %151, 1
   %153 = extractvalue { i64, i1 } %151, 0
   %154 = or i1 %149, %152
-  %155 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i23
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i.i.i23
   store i64 %153, ptr %155, align 8, !tbaa !19, !noalias !2114
   %156 = add nuw nsw i64 %.0910.i.i.i.i23, 1
   %exitcond.not.i.i.i.i24 = icmp eq i64 %156, 4
@@ -13330,9 +13330,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 157:                                              ; preds = %157, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i25
   %.0.in11.i.i.i.i.i26 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i25 ], [ %169, %157 ]
   %.0910.i.i.i.i.i27 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i25 ], [ %171, %157 ]
-  %158 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i.i.i27
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i.i.i.i.i27
   %159 = load i64, ptr %158, align 8, !tbaa !19, !noalias !2117
-  %160 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i27
+  %160 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i27
   %161 = load i64, ptr %160, align 8, !tbaa !19, !noalias !2117
   %162 = zext i1 %.0.in11.i.i.i.i.i26 to i64
   %163 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %159, i64 %161)
@@ -13342,7 +13342,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %167 = extractvalue { i64, i1 } %166, 1
   %168 = extractvalue { i64, i1 } %166, 0
   %169 = or i1 %164, %167
-  %170 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i.i27
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i.i27
   store i64 %168, ptr %170, align 8, !noalias !2111
   %171 = add nuw nsw i64 %.0910.i.i.i.i.i27, 1
   %exitcond.not.i.i.i.i.i28 = icmp eq i64 %171, 4
@@ -13373,9 +13373,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit29: ; preds 
 175:                                              ; preds = %175, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit29
   %.0.in11.i.i.i.i30 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit29 ], [ %187, %175 ]
   %.0910.i.i.i.i31 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit29 ], [ %189, %175 ]
-  %176 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i31
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i31
   %177 = load i64, ptr %176, align 8, !tbaa !19, !noalias !2131
-  %178 = getelementptr inbounds nuw i64, ptr %174, i64 %.0910.i.i.i.i31
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.0910.i.i.i.i31
   %179 = load i64, ptr %178, align 8, !tbaa !19, !noalias !2131
   %180 = zext i1 %.0.in11.i.i.i.i30 to i64
   %181 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %177, i64 %179)
@@ -13385,7 +13385,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit29: ; preds 
   %185 = extractvalue { i64, i1 } %184, 1
   %186 = extractvalue { i64, i1 } %184, 0
   %187 = or i1 %182, %185
-  %188 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i31
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i31
   store i64 %186, ptr %188, align 8, !tbaa !19, !noalias !2131
   %189 = add nuw nsw i64 %.0910.i.i.i.i31, 1
   %exitcond.not.i.i.i.i32 = icmp eq i64 %189, 4
@@ -13400,9 +13400,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 190:                                              ; preds = %190, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i33
   %.0.in11.i.i.i.i.i34 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i33 ], [ %202, %190 ]
   %.0910.i.i.i.i.i35 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i33 ], [ %204, %190 ]
-  %191 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i35
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i35
   %192 = load i64, ptr %191, align 8, !tbaa !19, !noalias !2134
-  %193 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i35
+  %193 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i35
   %194 = load i64, ptr %193, align 8, !tbaa !19, !noalias !2134
   %195 = zext i1 %.0.in11.i.i.i.i.i34 to i64
   %196 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %192, i64 %194)
@@ -13412,7 +13412,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %200 = extractvalue { i64, i1 } %199, 1
   %201 = extractvalue { i64, i1 } %199, 0
   %202 = or i1 %197, %200
-  %203 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i.i35
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i.i.i35
   store i64 %201, ptr %203, align 8, !noalias !2128
   %204 = add nuw nsw i64 %.0910.i.i.i.i.i35, 1
   %exitcond.not.i.i.i.i.i36 = icmp eq i64 %204, 4
@@ -13444,9 +13444,9 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit37: ; preds 
 209:                                              ; preds = %209, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit37
   %.0.in11.i.i.i.i38 = phi i1 [ false, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit37 ], [ %221, %209 ]
   %.0910.i.i.i.i39 = phi i64 [ 0, %_ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit37 ], [ %223, %209 ]
-  %210 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i39
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i39
   %211 = load i64, ptr %210, align 8, !tbaa !19, !noalias !2148
-  %212 = getelementptr inbounds nuw i64, ptr %208, i64 %.0910.i.i.i.i39
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %.0910.i.i.i.i39
   %213 = load i64, ptr %212, align 8, !tbaa !19, !noalias !2148
   %214 = zext i1 %.0.in11.i.i.i.i38 to i64
   %215 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %211, i64 %213)
@@ -13456,7 +13456,7 @@ _ZNK6evmmax3ecc12ExtFieldElemINS_5bn2549Fq2ConfigEE9conjugateEv.exit37: ; preds 
   %219 = extractvalue { i64, i1 } %218, 1
   %220 = extractvalue { i64, i1 } %218, 0
   %221 = or i1 %216, %219
-  %222 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i39
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i39
   store i64 %220, ptr %222, align 8, !tbaa !19, !noalias !2148
   %223 = add nuw nsw i64 %.0910.i.i.i.i39, 1
   %exitcond.not.i.i.i.i40 = icmp eq i64 %223, 4
@@ -13471,9 +13471,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 224:                                              ; preds = %224, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i41
   %.0.in11.i.i.i.i.i42 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i41 ], [ %236, %224 ]
   %.0910.i.i.i.i.i43 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i41 ], [ %238, %224 ]
-  %225 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i.i43
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i.i43
   %226 = load i64, ptr %225, align 8, !tbaa !19, !noalias !2151
-  %227 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i43
+  %227 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i43
   %228 = load i64, ptr %227, align 8, !tbaa !19, !noalias !2151
   %229 = zext i1 %.0.in11.i.i.i.i.i42 to i64
   %230 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %226, i64 %228)
@@ -13483,7 +13483,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %234 = extractvalue { i64, i1 } %233, 1
   %235 = extractvalue { i64, i1 } %233, 0
   %236 = or i1 %231, %234
-  %237 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i.i.i.i.i43
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i.i.i.i.i43
   store i64 %235, ptr %237, align 8, !noalias !2145
   %238 = add nuw nsw i64 %.0910.i.i.i.i.i43, 1
   %exitcond.not.i.i.i.i.i44 = icmp eq i64 %238, 4
@@ -13717,9 +13717,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25417cyclotomic_squareERKNS_3ecc12
 137:                                              ; preds = %137, %135
   %.0.in11.i.i.i.i = phi i1 [ false, %135 ], [ %149, %137 ]
   %.0910.i.i.i.i = phi i64 [ 0, %135 ], [ %151, %137 ]
-  %138 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi363, i64 %.0910.i.i.i.i
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi363, i64 %.0910.i.i.i.i
   %139 = load i64, ptr %138, align 8, !tbaa !19, !noalias !2164
-  %140 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
   %141 = load i64, ptr %140, align 8, !tbaa !19, !noalias !2164
   %142 = zext i1 %.0.in11.i.i.i.i to i64
   %143 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %139, i64 %141)
@@ -13729,7 +13729,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25417cyclotomic_squareERKNS_3ecc12
   %147 = extractvalue { i64, i1 } %146, 1
   %148 = extractvalue { i64, i1 } %146, 0
   %149 = or i1 %144, %147
-  %150 = getelementptr inbounds nuw i64, ptr %112, i64 %.0910.i.i.i.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.0910.i.i.i.i
   store i64 %148, ptr %150, align 8, !tbaa !19, !noalias !2164
   %151 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %151, 4
@@ -13746,9 +13746,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 152:                                              ; preds = %152, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %164, %152 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %166, %152 ]
-  %153 = getelementptr inbounds nuw i64, ptr %113, i64 %.0910.i6.i.i.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %.0910.i6.i.i.i
   %154 = load i64, ptr %153, align 8, !tbaa !19, !noalias !2167
-  %155 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %156 = load i64, ptr %155, align 8, !tbaa !19, !noalias !2167
   %157 = zext i1 %.0.in11.i5.i.i.i to i64
   %158 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %154, i64 %156)
@@ -13758,7 +13758,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %162 = extractvalue { i64, i1 } %161, 1
   %163 = extractvalue { i64, i1 } %161, 0
   %164 = or i1 %159, %162
-  %165 = getelementptr inbounds nuw i64, ptr %111, i64 %.0910.i6.i.i.i
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %.0910.i6.i.i.i
   store i64 %163, ptr %165, align 8, !tbaa !19, !noalias !2167
   %166 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %166, 4
@@ -13797,9 +13797,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 170:                                              ; preds = %170, %168
   %.0.in11.i.i.i.i44 = phi i1 [ false, %168 ], [ %182, %170 ]
   %.0910.i.i.i.i45 = phi i64 [ 0, %168 ], [ %184, %170 ]
-  %171 = getelementptr inbounds nuw i64, ptr %.07.i43.sroa.phi366, i64 %.0910.i.i.i.i45
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %.07.i43.sroa.phi366, i64 %.0910.i.i.i.i45
   %172 = load i64, ptr %171, align 8, !tbaa !19, !noalias !2178
-  %173 = getelementptr inbounds nuw i64, ptr %.07.i43.sroa.phi, i64 %.0910.i.i.i.i45
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %.07.i43.sroa.phi, i64 %.0910.i.i.i.i45
   %174 = load i64, ptr %173, align 8, !tbaa !19, !noalias !2178
   %175 = zext i1 %.0.in11.i.i.i.i44 to i64
   %176 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %172, i64 %174)
@@ -13809,7 +13809,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %180 = extractvalue { i64, i1 } %179, 1
   %181 = extractvalue { i64, i1 } %179, 0
   %182 = or i1 %177, %180
-  %183 = getelementptr inbounds nuw i64, ptr %107, i64 %.0910.i.i.i.i45
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.0910.i.i.i.i45
   store i64 %181, ptr %183, align 8, !tbaa !19, !noalias !2178
   %184 = add nuw nsw i64 %.0910.i.i.i.i45, 1
   %exitcond.not.i.i.i.i46 = icmp eq i64 %184, 4
@@ -13826,9 +13826,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 185:                                              ; preds = %185, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i47
   %.0.in11.i5.i.i.i48 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i47 ], [ %197, %185 ]
   %.0910.i6.i.i.i49 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i47 ], [ %199, %185 ]
-  %186 = getelementptr inbounds nuw i64, ptr %108, i64 %.0910.i6.i.i.i49
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %.0910.i6.i.i.i49
   %187 = load i64, ptr %186, align 8, !tbaa !19, !noalias !2181
-  %188 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i49
+  %188 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i49
   %189 = load i64, ptr %188, align 8, !tbaa !19, !noalias !2181
   %190 = zext i1 %.0.in11.i5.i.i.i48 to i64
   %191 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %187, i64 %189)
@@ -13838,7 +13838,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %195 = extractvalue { i64, i1 } %194, 1
   %196 = extractvalue { i64, i1 } %194, 0
   %197 = or i1 %192, %195
-  %198 = getelementptr inbounds nuw i64, ptr %106, i64 %.0910.i6.i.i.i49
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %.0910.i6.i.i.i49
   store i64 %196, ptr %198, align 8, !tbaa !19, !noalias !2181
   %199 = add nuw nsw i64 %.0910.i6.i.i.i49, 1
   %exitcond.not.i7.i.i.i50 = icmp eq i64 %199, 4
@@ -13871,7 +13871,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54: ; preds 
   %.07.i56.sroa.phi = phi ptr [ %105, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54 ], [ %.07.i56.sroa.gep369, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64 ]
   %.07.i56 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i55)
-  %203 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %1, i64 %.07.i56
+  %203 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.07.i56
   call void @llvm.lifetime.start.p0(ptr nonnull %103) #11, !noalias !2187
   call void @llvm.lifetime.start.p0(ptr nonnull %102) #11, !noalias !2192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2192
@@ -13880,9 +13880,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54: ; preds 
 204:                                              ; preds = %204, %201
   %.0.in11.i.i.i.i57 = phi i1 [ false, %201 ], [ %216, %204 ]
   %.0910.i.i.i.i58 = phi i64 [ 0, %201 ], [ %218, %204 ]
-  %205 = getelementptr inbounds nuw i64, ptr %.07.i56.sroa.phi, i64 %.0910.i.i.i.i58
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %.07.i56.sroa.phi, i64 %.0910.i.i.i.i58
   %206 = load i64, ptr %205, align 8, !tbaa !19, !noalias !2192
-  %207 = getelementptr inbounds nuw i64, ptr %203, i64 %.0910.i.i.i.i58
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %.0910.i.i.i.i58
   %208 = load i64, ptr %207, align 8, !tbaa !19, !noalias !2192
   %209 = zext i1 %.0.in11.i.i.i.i57 to i64
   %210 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %206, i64 %208)
@@ -13892,7 +13892,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit54: ; preds 
   %214 = extractvalue { i64, i1 } %213, 1
   %215 = extractvalue { i64, i1 } %213, 0
   %216 = or i1 %211, %214
-  %217 = getelementptr inbounds nuw i64, ptr %102, i64 %.0910.i.i.i.i58
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %.0910.i.i.i.i58
   store i64 %215, ptr %217, align 8, !tbaa !19, !noalias !2192
   %218 = add nuw nsw i64 %.0910.i.i.i.i58, 1
   %exitcond.not.i.i.i.i59 = icmp eq i64 %218, 4
@@ -13909,9 +13909,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 219:                                              ; preds = %219, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60
   %.0.in11.i5.i.i.i61 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60 ], [ %231, %219 ]
   %.0910.i6.i.i.i62 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i60 ], [ %233, %219 ]
-  %220 = getelementptr inbounds nuw i64, ptr %103, i64 %.0910.i6.i.i.i62
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %.0910.i6.i.i.i62
   %221 = load i64, ptr %220, align 8, !tbaa !19, !noalias !2195
-  %222 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i62
+  %222 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i62
   %223 = load i64, ptr %222, align 8, !tbaa !19, !noalias !2195
   %224 = zext i1 %.0.in11.i5.i.i.i61 to i64
   %225 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %221, i64 %223)
@@ -13921,7 +13921,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %229 = extractvalue { i64, i1 } %228, 1
   %230 = extractvalue { i64, i1 } %228, 0
   %231 = or i1 %226, %229
-  %232 = getelementptr inbounds nuw i64, ptr %101, i64 %.0910.i6.i.i.i62
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.0910.i6.i.i.i62
   store i64 %230, ptr %232, align 8, !tbaa !19, !noalias !2195
   %233 = add nuw nsw i64 %.0910.i6.i.i.i62, 1
   %exitcond.not.i7.i.i.i63 = icmp eq i64 %233, 4
@@ -13962,9 +13962,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67: ; preds 
 237:                                              ; preds = %237, %235
   %.0.in11.i.i.i.i69 = phi i1 [ false, %235 ], [ %249, %237 ]
   %.0910.i.i.i.i70 = phi i64 [ 0, %235 ], [ %251, %237 ]
-  %238 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi370, i64 %.0910.i.i.i.i70
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi370, i64 %.0910.i.i.i.i70
   %239 = load i64, ptr %238, align 8
-  %240 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i70
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i70
   %241 = load i64, ptr %240, align 8, !tbaa !19, !noalias !2206
   %242 = zext i1 %.0.in11.i.i.i.i69 to i64
   %243 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %239, i64 %241)
@@ -13974,7 +13974,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit67: ; preds 
   %247 = extractvalue { i64, i1 } %246, 1
   %248 = extractvalue { i64, i1 } %246, 0
   %249 = or i1 %244, %247
-  %250 = getelementptr inbounds nuw i64, ptr %98, i64 %.0910.i.i.i.i70
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %.0910.i.i.i.i70
   store i64 %248, ptr %250, align 8, !tbaa !19, !noalias !2206
   %251 = add nuw nsw i64 %.0910.i.i.i.i70, 1
   %exitcond.not.i.i.i.i71 = icmp eq i64 %251, 4
@@ -13989,9 +13989,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 252:                                              ; preds = %252, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %264, %252 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %266, %252 ]
-  %253 = getelementptr inbounds nuw i64, ptr %99, i64 %.0910.i.i.i.i.i
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.0910.i.i.i.i.i
   %254 = load i64, ptr %253, align 8, !tbaa !19, !noalias !2209
-  %255 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %255 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %256 = load i64, ptr %255, align 8, !tbaa !19, !noalias !2209
   %257 = zext i1 %.0.in11.i.i.i.i.i to i64
   %258 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %254, i64 %256)
@@ -14001,7 +14001,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %262 = extractvalue { i64, i1 } %261, 1
   %263 = extractvalue { i64, i1 } %261, 0
   %264 = or i1 %259, %262
-  %265 = getelementptr inbounds nuw i64, ptr %97, i64 %.0910.i.i.i.i.i
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.0910.i.i.i.i.i
   store i64 %263, ptr %265, align 8, !noalias !2203
   %266 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %266, 4
@@ -14039,9 +14039,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 270:                                              ; preds = %270, %268
   %.0.in11.i.i.i.i74 = phi i1 [ false, %268 ], [ %282, %270 ]
   %.0910.i.i.i.i75 = phi i64 [ 0, %268 ], [ %284, %270 ]
-  %271 = getelementptr inbounds nuw i64, ptr %.07.i73.sroa.phi373, i64 %.0910.i.i.i.i75
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %.07.i73.sroa.phi373, i64 %.0910.i.i.i.i75
   %272 = load i64, ptr %271, align 8, !tbaa !19, !noalias !2223
-  %273 = getelementptr inbounds nuw i64, ptr %.07.i73.sroa.phi, i64 %.0910.i.i.i.i75
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %.07.i73.sroa.phi, i64 %.0910.i.i.i.i75
   %274 = load i64, ptr %273, align 8, !tbaa !19, !noalias !2223
   %275 = zext i1 %.0.in11.i.i.i.i74 to i64
   %276 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %272, i64 %274)
@@ -14051,7 +14051,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %280 = extractvalue { i64, i1 } %279, 1
   %281 = extractvalue { i64, i1 } %279, 0
   %282 = or i1 %277, %280
-  %283 = getelementptr inbounds nuw i64, ptr %93, i64 %.0910.i.i.i.i75
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %.0910.i.i.i.i75
   store i64 %281, ptr %283, align 8, !tbaa !19, !noalias !2223
   %284 = add nuw nsw i64 %.0910.i.i.i.i75, 1
   %exitcond.not.i.i.i.i76 = icmp eq i64 %284, 4
@@ -14068,9 +14068,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 285:                                              ; preds = %285, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77
   %.0.in11.i5.i.i.i78 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77 ], [ %297, %285 ]
   %.0910.i6.i.i.i79 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i77 ], [ %299, %285 ]
-  %286 = getelementptr inbounds nuw i64, ptr %94, i64 %.0910.i6.i.i.i79
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.0910.i6.i.i.i79
   %287 = load i64, ptr %286, align 8, !tbaa !19, !noalias !2226
-  %288 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i79
+  %288 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i79
   %289 = load i64, ptr %288, align 8, !tbaa !19, !noalias !2226
   %290 = zext i1 %.0.in11.i5.i.i.i78 to i64
   %291 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %287, i64 %289)
@@ -14080,7 +14080,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %295 = extractvalue { i64, i1 } %294, 1
   %296 = extractvalue { i64, i1 } %294, 0
   %297 = or i1 %292, %295
-  %298 = getelementptr inbounds nuw i64, ptr %92, i64 %.0910.i6.i.i.i79
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.0910.i6.i.i.i79
   store i64 %296, ptr %298, align 8, !tbaa !19, !noalias !2226
   %299 = add nuw nsw i64 %.0910.i6.i.i.i79, 1
   %exitcond.not.i7.i.i.i80 = icmp eq i64 %299, 4
@@ -14119,9 +14119,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit84: ; preds 
 303:                                              ; preds = %303, %301
   %.0.in11.i.i.i.i87 = phi i1 [ false, %301 ], [ %315, %303 ]
   %.0910.i.i.i.i88 = phi i64 [ 0, %301 ], [ %317, %303 ]
-  %304 = getelementptr inbounds nuw i64, ptr %.07.i86.sroa.phi376, i64 %.0910.i.i.i.i88
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %.07.i86.sroa.phi376, i64 %.0910.i.i.i.i88
   %305 = load i64, ptr %304, align 8, !tbaa !19, !noalias !2237
-  %306 = getelementptr inbounds nuw i64, ptr %.07.i86.sroa.phi, i64 %.0910.i.i.i.i88
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %.07.i86.sroa.phi, i64 %.0910.i.i.i.i88
   %307 = load i64, ptr %306, align 8, !tbaa !19, !noalias !2237
   %308 = zext i1 %.0.in11.i.i.i.i87 to i64
   %309 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %305, i64 %307)
@@ -14131,7 +14131,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit84: ; preds 
   %313 = extractvalue { i64, i1 } %312, 1
   %314 = extractvalue { i64, i1 } %312, 0
   %315 = or i1 %310, %313
-  %316 = getelementptr inbounds nuw i64, ptr %88, i64 %.0910.i.i.i.i88
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.0910.i.i.i.i88
   store i64 %314, ptr %316, align 8, !tbaa !19, !noalias !2237
   %317 = add nuw nsw i64 %.0910.i.i.i.i88, 1
   %exitcond.not.i.i.i.i89 = icmp eq i64 %317, 4
@@ -14148,9 +14148,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 318:                                              ; preds = %318, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i90
   %.0.in11.i5.i.i.i91 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i90 ], [ %330, %318 ]
   %.0910.i6.i.i.i92 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i90 ], [ %332, %318 ]
-  %319 = getelementptr inbounds nuw i64, ptr %89, i64 %.0910.i6.i.i.i92
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.0910.i6.i.i.i92
   %320 = load i64, ptr %319, align 8, !tbaa !19, !noalias !2240
-  %321 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i92
+  %321 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i92
   %322 = load i64, ptr %321, align 8, !tbaa !19, !noalias !2240
   %323 = zext i1 %.0.in11.i5.i.i.i91 to i64
   %324 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %320, i64 %322)
@@ -14160,7 +14160,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %328 = extractvalue { i64, i1 } %327, 1
   %329 = extractvalue { i64, i1 } %327, 0
   %330 = or i1 %325, %328
-  %331 = getelementptr inbounds nuw i64, ptr %87, i64 %.0910.i6.i.i.i92
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.0910.i6.i.i.i92
   store i64 %329, ptr %331, align 8, !tbaa !19, !noalias !2240
   %332 = add nuw nsw i64 %.0910.i6.i.i.i92, 1
   %exitcond.not.i7.i.i.i93 = icmp eq i64 %332, 4
@@ -14193,7 +14193,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit97: ; preds 
   %.07.i99.sroa.phi = phi ptr [ %86, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit97 ], [ %.07.i99.sroa.gep379, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i107 ]
   %.07.i99 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit97 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i107 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i98)
-  %336 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %127, i64 %.07.i99
+  %336 = getelementptr inbounds nuw [32 x i8], ptr %127, i64 %.07.i99
   call void @llvm.lifetime.start.p0(ptr nonnull %84) #11, !noalias !2246
   call void @llvm.lifetime.start.p0(ptr nonnull %83) #11, !noalias !2251
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2251
@@ -14202,9 +14202,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit97: ; preds 
 337:                                              ; preds = %337, %334
   %.0.in11.i.i.i.i100 = phi i1 [ false, %334 ], [ %349, %337 ]
   %.0910.i.i.i.i101 = phi i64 [ 0, %334 ], [ %351, %337 ]
-  %338 = getelementptr inbounds nuw i64, ptr %.07.i99.sroa.phi, i64 %.0910.i.i.i.i101
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %.07.i99.sroa.phi, i64 %.0910.i.i.i.i101
   %339 = load i64, ptr %338, align 8, !tbaa !19, !noalias !2251
-  %340 = getelementptr inbounds nuw i64, ptr %336, i64 %.0910.i.i.i.i101
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %.0910.i.i.i.i101
   %341 = load i64, ptr %340, align 8, !tbaa !19, !noalias !2251
   %342 = zext i1 %.0.in11.i.i.i.i100 to i64
   %343 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %339, i64 %341)
@@ -14214,7 +14214,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit97: ; preds 
   %347 = extractvalue { i64, i1 } %346, 1
   %348 = extractvalue { i64, i1 } %346, 0
   %349 = or i1 %344, %347
-  %350 = getelementptr inbounds nuw i64, ptr %83, i64 %.0910.i.i.i.i101
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.0910.i.i.i.i101
   store i64 %348, ptr %350, align 8, !tbaa !19, !noalias !2251
   %351 = add nuw nsw i64 %.0910.i.i.i.i101, 1
   %exitcond.not.i.i.i.i102 = icmp eq i64 %351, 4
@@ -14231,9 +14231,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 352:                                              ; preds = %352, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i103
   %.0.in11.i5.i.i.i104 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i103 ], [ %364, %352 ]
   %.0910.i6.i.i.i105 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i103 ], [ %366, %352 ]
-  %353 = getelementptr inbounds nuw i64, ptr %84, i64 %.0910.i6.i.i.i105
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.0910.i6.i.i.i105
   %354 = load i64, ptr %353, align 8, !tbaa !19, !noalias !2254
-  %355 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i105
+  %355 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i105
   %356 = load i64, ptr %355, align 8, !tbaa !19, !noalias !2254
   %357 = zext i1 %.0.in11.i5.i.i.i104 to i64
   %358 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %354, i64 %356)
@@ -14243,7 +14243,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %362 = extractvalue { i64, i1 } %361, 1
   %363 = extractvalue { i64, i1 } %361, 0
   %364 = or i1 %359, %362
-  %365 = getelementptr inbounds nuw i64, ptr %82, i64 %.0910.i6.i.i.i105
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.0910.i6.i.i.i105
   store i64 %363, ptr %365, align 8, !tbaa !19, !noalias !2254
   %366 = add nuw nsw i64 %.0910.i6.i.i.i105, 1
   %exitcond.not.i7.i.i.i106 = icmp eq i64 %366, 4
@@ -14284,9 +14284,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit110: ; preds
 370:                                              ; preds = %370, %368
   %.0.in11.i.i.i.i113 = phi i1 [ false, %368 ], [ %382, %370 ]
   %.0910.i.i.i.i114 = phi i64 [ 0, %368 ], [ %384, %370 ]
-  %371 = getelementptr inbounds nuw i64, ptr %.06.i112.sroa.phi380, i64 %.0910.i.i.i.i114
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %.06.i112.sroa.phi380, i64 %.0910.i.i.i.i114
   %372 = load i64, ptr %371, align 8
-  %373 = getelementptr inbounds nuw i64, ptr %.06.i112.sroa.phi, i64 %.0910.i.i.i.i114
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %.06.i112.sroa.phi, i64 %.0910.i.i.i.i114
   %374 = load i64, ptr %373, align 8, !tbaa !19, !noalias !2265
   %375 = zext i1 %.0.in11.i.i.i.i113 to i64
   %376 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %372, i64 %374)
@@ -14296,7 +14296,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit110: ; preds
   %380 = extractvalue { i64, i1 } %379, 1
   %381 = extractvalue { i64, i1 } %379, 0
   %382 = or i1 %377, %380
-  %383 = getelementptr inbounds nuw i64, ptr %79, i64 %.0910.i.i.i.i114
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.0910.i.i.i.i114
   store i64 %381, ptr %383, align 8, !tbaa !19, !noalias !2265
   %384 = add nuw nsw i64 %.0910.i.i.i.i114, 1
   %exitcond.not.i.i.i.i115 = icmp eq i64 %384, 4
@@ -14311,9 +14311,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 385:                                              ; preds = %385, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i116
   %.0.in11.i.i.i.i.i117 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i116 ], [ %397, %385 ]
   %.0910.i.i.i.i.i118 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i116 ], [ %399, %385 ]
-  %386 = getelementptr inbounds nuw i64, ptr %80, i64 %.0910.i.i.i.i.i118
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %.0910.i.i.i.i.i118
   %387 = load i64, ptr %386, align 8, !tbaa !19, !noalias !2268
-  %388 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i118
+  %388 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i118
   %389 = load i64, ptr %388, align 8, !tbaa !19, !noalias !2268
   %390 = zext i1 %.0.in11.i.i.i.i.i117 to i64
   %391 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %387, i64 %389)
@@ -14323,7 +14323,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %395 = extractvalue { i64, i1 } %394, 1
   %396 = extractvalue { i64, i1 } %394, 0
   %397 = or i1 %392, %395
-  %398 = getelementptr inbounds nuw i64, ptr %78, i64 %.0910.i.i.i.i.i118
+  %398 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.0910.i.i.i.i.i118
   store i64 %396, ptr %398, align 8, !noalias !2262
   %399 = add nuw nsw i64 %.0910.i.i.i.i.i118, 1
   %exitcond.not.i.i.i.i.i119 = icmp eq i64 %399, 4
@@ -14361,9 +14361,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121: ; preds
 403:                                              ; preds = %403, %401
   %.0.in11.i.i.i.i124 = phi i1 [ false, %401 ], [ %415, %403 ]
   %.0910.i.i.i.i125 = phi i64 [ 0, %401 ], [ %417, %403 ]
-  %404 = getelementptr inbounds nuw i64, ptr %.07.i123.sroa.phi383, i64 %.0910.i.i.i.i125
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %.07.i123.sroa.phi383, i64 %.0910.i.i.i.i125
   %405 = load i64, ptr %404, align 8, !tbaa !19, !noalias !2282
-  %406 = getelementptr inbounds nuw i64, ptr %.07.i123.sroa.phi, i64 %.0910.i.i.i.i125
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %.07.i123.sroa.phi, i64 %.0910.i.i.i.i125
   %407 = load i64, ptr %406, align 8, !tbaa !19, !noalias !2282
   %408 = zext i1 %.0.in11.i.i.i.i124 to i64
   %409 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %405, i64 %407)
@@ -14373,7 +14373,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit121: ; preds
   %413 = extractvalue { i64, i1 } %412, 1
   %414 = extractvalue { i64, i1 } %412, 0
   %415 = or i1 %410, %413
-  %416 = getelementptr inbounds nuw i64, ptr %74, i64 %.0910.i.i.i.i125
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.0910.i.i.i.i125
   store i64 %414, ptr %416, align 8, !tbaa !19, !noalias !2282
   %417 = add nuw nsw i64 %.0910.i.i.i.i125, 1
   %exitcond.not.i.i.i.i126 = icmp eq i64 %417, 4
@@ -14390,9 +14390,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 418:                                              ; preds = %418, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i127
   %.0.in11.i5.i.i.i128 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i127 ], [ %430, %418 ]
   %.0910.i6.i.i.i129 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i127 ], [ %432, %418 ]
-  %419 = getelementptr inbounds nuw i64, ptr %75, i64 %.0910.i6.i.i.i129
+  %419 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.0910.i6.i.i.i129
   %420 = load i64, ptr %419, align 8, !tbaa !19, !noalias !2285
-  %421 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i129
+  %421 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i129
   %422 = load i64, ptr %421, align 8, !tbaa !19, !noalias !2285
   %423 = zext i1 %.0.in11.i5.i.i.i128 to i64
   %424 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %420, i64 %422)
@@ -14402,7 +14402,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %428 = extractvalue { i64, i1 } %427, 1
   %429 = extractvalue { i64, i1 } %427, 0
   %430 = or i1 %425, %428
-  %431 = getelementptr inbounds nuw i64, ptr %73, i64 %.0910.i6.i.i.i129
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.0910.i6.i.i.i129
   store i64 %429, ptr %431, align 8, !tbaa !19, !noalias !2285
   %432 = add nuw nsw i64 %.0910.i6.i.i.i129, 1
   %exitcond.not.i7.i.i.i130 = icmp eq i64 %432, 4
@@ -14441,9 +14441,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134: ; preds
 436:                                              ; preds = %436, %434
   %.0.in11.i.i.i.i137 = phi i1 [ false, %434 ], [ %448, %436 ]
   %.0910.i.i.i.i138 = phi i64 [ 0, %434 ], [ %450, %436 ]
-  %437 = getelementptr inbounds nuw i64, ptr %.07.i136.sroa.phi386, i64 %.0910.i.i.i.i138
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %.07.i136.sroa.phi386, i64 %.0910.i.i.i.i138
   %438 = load i64, ptr %437, align 8, !tbaa !19, !noalias !2296
-  %439 = getelementptr inbounds nuw i64, ptr %.07.i136.sroa.phi, i64 %.0910.i.i.i.i138
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %.07.i136.sroa.phi, i64 %.0910.i.i.i.i138
   %440 = load i64, ptr %439, align 8, !tbaa !19, !noalias !2296
   %441 = zext i1 %.0.in11.i.i.i.i137 to i64
   %442 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %438, i64 %440)
@@ -14453,7 +14453,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit134: ; preds
   %446 = extractvalue { i64, i1 } %445, 1
   %447 = extractvalue { i64, i1 } %445, 0
   %448 = or i1 %443, %446
-  %449 = getelementptr inbounds nuw i64, ptr %69, i64 %.0910.i.i.i.i138
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.0910.i.i.i.i138
   store i64 %447, ptr %449, align 8, !tbaa !19, !noalias !2296
   %450 = add nuw nsw i64 %.0910.i.i.i.i138, 1
   %exitcond.not.i.i.i.i139 = icmp eq i64 %450, 4
@@ -14470,9 +14470,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 451:                                              ; preds = %451, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i140
   %.0.in11.i5.i.i.i141 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i140 ], [ %463, %451 ]
   %.0910.i6.i.i.i142 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i140 ], [ %465, %451 ]
-  %452 = getelementptr inbounds nuw i64, ptr %70, i64 %.0910.i6.i.i.i142
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.0910.i6.i.i.i142
   %453 = load i64, ptr %452, align 8, !tbaa !19, !noalias !2299
-  %454 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i142
+  %454 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i142
   %455 = load i64, ptr %454, align 8, !tbaa !19, !noalias !2299
   %456 = zext i1 %.0.in11.i5.i.i.i141 to i64
   %457 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %453, i64 %455)
@@ -14482,7 +14482,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %461 = extractvalue { i64, i1 } %460, 1
   %462 = extractvalue { i64, i1 } %460, 0
   %463 = or i1 %458, %461
-  %464 = getelementptr inbounds nuw i64, ptr %68, i64 %.0910.i6.i.i.i142
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.0910.i6.i.i.i142
   store i64 %462, ptr %464, align 8, !tbaa !19, !noalias !2299
   %465 = add nuw nsw i64 %.0910.i6.i.i.i142, 1
   %exitcond.not.i7.i.i.i143 = icmp eq i64 %465, 4
@@ -14515,7 +14515,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit147: ; preds
   %.07.i149.sroa.phi = phi ptr [ %67, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit147 ], [ %.07.i149.sroa.gep389, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i157 ]
   %.07.i149 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit147 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i157 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i148)
-  %469 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %128, i64 %.07.i149
+  %469 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %.07.i149
   call void @llvm.lifetime.start.p0(ptr nonnull %65) #11, !noalias !2305
   call void @llvm.lifetime.start.p0(ptr nonnull %64) #11, !noalias !2310
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2310
@@ -14524,9 +14524,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit147: ; preds
 470:                                              ; preds = %470, %467
   %.0.in11.i.i.i.i150 = phi i1 [ false, %467 ], [ %482, %470 ]
   %.0910.i.i.i.i151 = phi i64 [ 0, %467 ], [ %484, %470 ]
-  %471 = getelementptr inbounds nuw i64, ptr %.07.i149.sroa.phi, i64 %.0910.i.i.i.i151
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %.07.i149.sroa.phi, i64 %.0910.i.i.i.i151
   %472 = load i64, ptr %471, align 8, !tbaa !19, !noalias !2310
-  %473 = getelementptr inbounds nuw i64, ptr %469, i64 %.0910.i.i.i.i151
+  %473 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %.0910.i.i.i.i151
   %474 = load i64, ptr %473, align 8, !tbaa !19, !noalias !2310
   %475 = zext i1 %.0.in11.i.i.i.i150 to i64
   %476 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %472, i64 %474)
@@ -14536,7 +14536,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit147: ; preds
   %480 = extractvalue { i64, i1 } %479, 1
   %481 = extractvalue { i64, i1 } %479, 0
   %482 = or i1 %477, %480
-  %483 = getelementptr inbounds nuw i64, ptr %64, i64 %.0910.i.i.i.i151
+  %483 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.0910.i.i.i.i151
   store i64 %481, ptr %483, align 8, !tbaa !19, !noalias !2310
   %484 = add nuw nsw i64 %.0910.i.i.i.i151, 1
   %exitcond.not.i.i.i.i152 = icmp eq i64 %484, 4
@@ -14553,9 +14553,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 485:                                              ; preds = %485, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i153
   %.0.in11.i5.i.i.i154 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i153 ], [ %497, %485 ]
   %.0910.i6.i.i.i155 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i153 ], [ %499, %485 ]
-  %486 = getelementptr inbounds nuw i64, ptr %65, i64 %.0910.i6.i.i.i155
+  %486 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.0910.i6.i.i.i155
   %487 = load i64, ptr %486, align 8, !tbaa !19, !noalias !2313
-  %488 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i155
+  %488 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i155
   %489 = load i64, ptr %488, align 8, !tbaa !19, !noalias !2313
   %490 = zext i1 %.0.in11.i5.i.i.i154 to i64
   %491 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %487, i64 %489)
@@ -14565,7 +14565,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %495 = extractvalue { i64, i1 } %494, 1
   %496 = extractvalue { i64, i1 } %494, 0
   %497 = or i1 %492, %495
-  %498 = getelementptr inbounds nuw i64, ptr %63, i64 %.0910.i6.i.i.i155
+  %498 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.0910.i6.i.i.i155
   store i64 %496, ptr %498, align 8, !tbaa !19, !noalias !2313
   %499 = add nuw nsw i64 %.0910.i6.i.i.i155, 1
   %exitcond.not.i7.i.i.i156 = icmp eq i64 %499, 4
@@ -14606,9 +14606,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit160: ; preds
 503:                                              ; preds = %503, %501
   %.0.in11.i.i.i.i163 = phi i1 [ false, %501 ], [ %515, %503 ]
   %.0910.i.i.i.i164 = phi i64 [ 0, %501 ], [ %517, %503 ]
-  %504 = getelementptr inbounds nuw i64, ptr %.06.i162.sroa.phi390, i64 %.0910.i.i.i.i164
+  %504 = getelementptr inbounds nuw [8 x i8], ptr %.06.i162.sroa.phi390, i64 %.0910.i.i.i.i164
   %505 = load i64, ptr %504, align 8
-  %506 = getelementptr inbounds nuw i64, ptr %.06.i162.sroa.phi, i64 %.0910.i.i.i.i164
+  %506 = getelementptr inbounds nuw [8 x i8], ptr %.06.i162.sroa.phi, i64 %.0910.i.i.i.i164
   %507 = load i64, ptr %506, align 8, !tbaa !19, !noalias !2324
   %508 = zext i1 %.0.in11.i.i.i.i163 to i64
   %509 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %505, i64 %507)
@@ -14618,7 +14618,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit160: ; preds
   %513 = extractvalue { i64, i1 } %512, 1
   %514 = extractvalue { i64, i1 } %512, 0
   %515 = or i1 %510, %513
-  %516 = getelementptr inbounds nuw i64, ptr %60, i64 %.0910.i.i.i.i164
+  %516 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.0910.i.i.i.i164
   store i64 %514, ptr %516, align 8, !tbaa !19, !noalias !2324
   %517 = add nuw nsw i64 %.0910.i.i.i.i164, 1
   %exitcond.not.i.i.i.i165 = icmp eq i64 %517, 4
@@ -14633,9 +14633,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 518:                                              ; preds = %518, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i166
   %.0.in11.i.i.i.i.i167 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i166 ], [ %530, %518 ]
   %.0910.i.i.i.i.i168 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i166 ], [ %532, %518 ]
-  %519 = getelementptr inbounds nuw i64, ptr %61, i64 %.0910.i.i.i.i.i168
+  %519 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.0910.i.i.i.i.i168
   %520 = load i64, ptr %519, align 8, !tbaa !19, !noalias !2327
-  %521 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i168
+  %521 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i168
   %522 = load i64, ptr %521, align 8, !tbaa !19, !noalias !2327
   %523 = zext i1 %.0.in11.i.i.i.i.i167 to i64
   %524 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %520, i64 %522)
@@ -14645,7 +14645,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %528 = extractvalue { i64, i1 } %527, 1
   %529 = extractvalue { i64, i1 } %527, 0
   %530 = or i1 %525, %528
-  %531 = getelementptr inbounds nuw i64, ptr %59, i64 %.0910.i.i.i.i.i168
+  %531 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.0910.i.i.i.i.i168
   store i64 %529, ptr %531, align 8, !noalias !2321
   %532 = add nuw nsw i64 %.0910.i.i.i.i.i168, 1
   %exitcond.not.i.i.i.i.i169 = icmp eq i64 %532, 4
@@ -14673,7 +14673,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit171: ; preds
   %.07.i173.sroa.phi = phi ptr [ %58, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit171 ], [ %.07.i173.sroa.gep393, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i181 ]
   %.07.i173 = phi i64 [ 0, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit171 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i181 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i172)
-  %536 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %126, i64 %.07.i173
+  %536 = getelementptr inbounds nuw [32 x i8], ptr %126, i64 %.07.i173
   call void @llvm.lifetime.start.p0(ptr nonnull %56) #11, !noalias !2336
   call void @llvm.lifetime.start.p0(ptr nonnull %55) #11, !noalias !2341
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2341
@@ -14682,9 +14682,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit171: ; preds
 537:                                              ; preds = %537, %534
   %.0.in11.i.i.i.i174 = phi i1 [ false, %534 ], [ %549, %537 ]
   %.0910.i.i.i.i175 = phi i64 [ 0, %534 ], [ %551, %537 ]
-  %538 = getelementptr inbounds nuw i64, ptr %.07.i173.sroa.phi, i64 %.0910.i.i.i.i175
+  %538 = getelementptr inbounds nuw [8 x i8], ptr %.07.i173.sroa.phi, i64 %.0910.i.i.i.i175
   %539 = load i64, ptr %538, align 8, !tbaa !19, !noalias !2341
-  %540 = getelementptr inbounds nuw i64, ptr %536, i64 %.0910.i.i.i.i175
+  %540 = getelementptr inbounds nuw [8 x i8], ptr %536, i64 %.0910.i.i.i.i175
   %541 = load i64, ptr %540, align 8, !tbaa !19, !noalias !2341
   %542 = zext i1 %.0.in11.i.i.i.i174 to i64
   %543 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %539, i64 %541)
@@ -14694,7 +14694,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit171: ; preds
   %547 = extractvalue { i64, i1 } %546, 1
   %548 = extractvalue { i64, i1 } %546, 0
   %549 = or i1 %544, %547
-  %550 = getelementptr inbounds nuw i64, ptr %55, i64 %.0910.i.i.i.i175
+  %550 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.0910.i.i.i.i175
   store i64 %548, ptr %550, align 8, !tbaa !19, !noalias !2341
   %551 = add nuw nsw i64 %.0910.i.i.i.i175, 1
   %exitcond.not.i.i.i.i176 = icmp eq i64 %551, 4
@@ -14711,9 +14711,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 552:                                              ; preds = %552, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i177
   %.0.in11.i5.i.i.i178 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i177 ], [ %564, %552 ]
   %.0910.i6.i.i.i179 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i177 ], [ %566, %552 ]
-  %553 = getelementptr inbounds nuw i64, ptr %56, i64 %.0910.i6.i.i.i179
+  %553 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.0910.i6.i.i.i179
   %554 = load i64, ptr %553, align 8, !tbaa !19, !noalias !2344
-  %555 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i179
+  %555 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i179
   %556 = load i64, ptr %555, align 8, !tbaa !19, !noalias !2344
   %557 = zext i1 %.0.in11.i5.i.i.i178 to i64
   %558 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %554, i64 %556)
@@ -14723,7 +14723,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %562 = extractvalue { i64, i1 } %561, 1
   %563 = extractvalue { i64, i1 } %561, 0
   %564 = or i1 %559, %562
-  %565 = getelementptr inbounds nuw i64, ptr %54, i64 %.0910.i6.i.i.i179
+  %565 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.0910.i6.i.i.i179
   store i64 %563, ptr %565, align 8, !tbaa !19, !noalias !2344
   %566 = add nuw nsw i64 %.0910.i6.i.i.i179, 1
   %exitcond.not.i7.i.i.i180 = icmp eq i64 %566, 4
@@ -14763,9 +14763,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit184: ; preds
 570:                                              ; preds = %570, %568
   %.0.in11.i.i.i.i187 = phi i1 [ false, %568 ], [ %582, %570 ]
   %.0910.i.i.i.i188 = phi i64 [ 0, %568 ], [ %584, %570 ]
-  %571 = getelementptr inbounds nuw i64, ptr %.07.i186.sroa.phi394, i64 %.0910.i.i.i.i188
+  %571 = getelementptr inbounds nuw [8 x i8], ptr %.07.i186.sroa.phi394, i64 %.0910.i.i.i.i188
   %572 = load i64, ptr %571, align 8, !tbaa !19, !noalias !2355
-  %573 = getelementptr inbounds nuw i64, ptr %.07.i186.sroa.phi, i64 %.0910.i.i.i.i188
+  %573 = getelementptr inbounds nuw [8 x i8], ptr %.07.i186.sroa.phi, i64 %.0910.i.i.i.i188
   %574 = load i64, ptr %573, align 8, !tbaa !19, !noalias !2355
   %575 = zext i1 %.0.in11.i.i.i.i187 to i64
   %576 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %572, i64 %574)
@@ -14775,7 +14775,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit184: ; preds
   %580 = extractvalue { i64, i1 } %579, 1
   %581 = extractvalue { i64, i1 } %579, 0
   %582 = or i1 %577, %580
-  %583 = getelementptr inbounds nuw i64, ptr %50, i64 %.0910.i.i.i.i188
+  %583 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.0910.i.i.i.i188
   store i64 %581, ptr %583, align 8, !tbaa !19, !noalias !2355
   %584 = add nuw nsw i64 %.0910.i.i.i.i188, 1
   %exitcond.not.i.i.i.i189 = icmp eq i64 %584, 4
@@ -14792,9 +14792,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 585:                                              ; preds = %585, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i190
   %.0.in11.i5.i.i.i191 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i190 ], [ %597, %585 ]
   %.0910.i6.i.i.i192 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i190 ], [ %599, %585 ]
-  %586 = getelementptr inbounds nuw i64, ptr %51, i64 %.0910.i6.i.i.i192
+  %586 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.0910.i6.i.i.i192
   %587 = load i64, ptr %586, align 8, !tbaa !19, !noalias !2358
-  %588 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i192
+  %588 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i192
   %589 = load i64, ptr %588, align 8, !tbaa !19, !noalias !2358
   %590 = zext i1 %.0.in11.i5.i.i.i191 to i64
   %591 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %587, i64 %589)
@@ -14804,7 +14804,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %595 = extractvalue { i64, i1 } %594, 1
   %596 = extractvalue { i64, i1 } %594, 0
   %597 = or i1 %592, %595
-  %598 = getelementptr inbounds nuw i64, ptr %49, i64 %.0910.i6.i.i.i192
+  %598 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.0910.i6.i.i.i192
   store i64 %596, ptr %598, align 8, !tbaa !19, !noalias !2358
   %599 = add nuw nsw i64 %.0910.i6.i.i.i192, 1
   %exitcond.not.i7.i.i.i193 = icmp eq i64 %599, 4
@@ -14843,9 +14843,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit197: ; preds
 603:                                              ; preds = %603, %601
   %.0.in11.i.i.i.i200 = phi i1 [ false, %601 ], [ %615, %603 ]
   %.0910.i.i.i.i201 = phi i64 [ 0, %601 ], [ %617, %603 ]
-  %604 = getelementptr inbounds nuw i64, ptr %.07.i199.sroa.phi397, i64 %.0910.i.i.i.i201
+  %604 = getelementptr inbounds nuw [8 x i8], ptr %.07.i199.sroa.phi397, i64 %.0910.i.i.i.i201
   %605 = load i64, ptr %604, align 8, !tbaa !19, !noalias !2369
-  %606 = getelementptr inbounds nuw i64, ptr %.07.i199.sroa.phi, i64 %.0910.i.i.i.i201
+  %606 = getelementptr inbounds nuw [8 x i8], ptr %.07.i199.sroa.phi, i64 %.0910.i.i.i.i201
   %607 = load i64, ptr %606, align 8, !tbaa !19, !noalias !2369
   %608 = zext i1 %.0.in11.i.i.i.i200 to i64
   %609 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %605, i64 %607)
@@ -14855,7 +14855,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit197: ; preds
   %613 = extractvalue { i64, i1 } %612, 1
   %614 = extractvalue { i64, i1 } %612, 0
   %615 = or i1 %610, %613
-  %616 = getelementptr inbounds nuw i64, ptr %45, i64 %.0910.i.i.i.i201
+  %616 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.0910.i.i.i.i201
   store i64 %614, ptr %616, align 8, !tbaa !19, !noalias !2369
   %617 = add nuw nsw i64 %.0910.i.i.i.i201, 1
   %exitcond.not.i.i.i.i202 = icmp eq i64 %617, 4
@@ -14872,9 +14872,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 618:                                              ; preds = %618, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i203
   %.0.in11.i5.i.i.i204 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i203 ], [ %630, %618 ]
   %.0910.i6.i.i.i205 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i203 ], [ %632, %618 ]
-  %619 = getelementptr inbounds nuw i64, ptr %46, i64 %.0910.i6.i.i.i205
+  %619 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.0910.i6.i.i.i205
   %620 = load i64, ptr %619, align 8, !tbaa !19, !noalias !2372
-  %621 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i205
+  %621 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i205
   %622 = load i64, ptr %621, align 8, !tbaa !19, !noalias !2372
   %623 = zext i1 %.0.in11.i5.i.i.i204 to i64
   %624 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %620, i64 %622)
@@ -14884,7 +14884,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %628 = extractvalue { i64, i1 } %627, 1
   %629 = extractvalue { i64, i1 } %627, 0
   %630 = or i1 %625, %628
-  %631 = getelementptr inbounds nuw i64, ptr %44, i64 %.0910.i6.i.i.i205
+  %631 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.0910.i6.i.i.i205
   store i64 %629, ptr %631, align 8, !tbaa !19, !noalias !2372
   %632 = add nuw nsw i64 %.0910.i6.i.i.i205, 1
   %exitcond.not.i7.i.i.i206 = icmp eq i64 %632, 4
@@ -14922,9 +14922,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit210: ; preds
 636:                                              ; preds = %636, %634
   %.0.in11.i.i.i.i213 = phi i1 [ false, %634 ], [ %648, %636 ]
   %.0910.i.i.i.i214 = phi i64 [ 0, %634 ], [ %650, %636 ]
-  %637 = getelementptr inbounds nuw i64, ptr %.07.i212.sroa.phi400, i64 %.0910.i.i.i.i214
+  %637 = getelementptr inbounds nuw [8 x i8], ptr %.07.i212.sroa.phi400, i64 %.0910.i.i.i.i214
   %638 = load i64, ptr %637, align 8
-  %639 = getelementptr inbounds nuw i64, ptr %.07.i212.sroa.phi, i64 %.0910.i.i.i.i214
+  %639 = getelementptr inbounds nuw [8 x i8], ptr %.07.i212.sroa.phi, i64 %.0910.i.i.i.i214
   %640 = load i64, ptr %639, align 8, !tbaa !19, !noalias !2382
   %641 = zext i1 %.0.in11.i.i.i.i213 to i64
   %642 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %638, i64 %640)
@@ -14934,7 +14934,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit210: ; preds
   %646 = extractvalue { i64, i1 } %645, 1
   %647 = extractvalue { i64, i1 } %645, 0
   %648 = or i1 %643, %646
-  %649 = getelementptr inbounds nuw i64, ptr %40, i64 %.0910.i.i.i.i214
+  %649 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0910.i.i.i.i214
   store i64 %647, ptr %649, align 8, !tbaa !19, !noalias !2382
   %650 = add nuw nsw i64 %.0910.i.i.i.i214, 1
   %exitcond.not.i.i.i.i215 = icmp eq i64 %650, 4
@@ -14951,9 +14951,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 651:                                              ; preds = %651, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i216
   %.0.in11.i5.i.i.i217 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i216 ], [ %663, %651 ]
   %.0910.i6.i.i.i218 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i216 ], [ %665, %651 ]
-  %652 = getelementptr inbounds nuw i64, ptr %41, i64 %.0910.i6.i.i.i218
+  %652 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.0910.i6.i.i.i218
   %653 = load i64, ptr %652, align 8, !tbaa !19, !noalias !2385
-  %654 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i218
+  %654 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i218
   %655 = load i64, ptr %654, align 8, !tbaa !19, !noalias !2385
   %656 = zext i1 %.0.in11.i5.i.i.i217 to i64
   %657 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %653, i64 %655)
@@ -14963,7 +14963,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %661 = extractvalue { i64, i1 } %660, 1
   %662 = extractvalue { i64, i1 } %660, 0
   %663 = or i1 %658, %661
-  %664 = getelementptr inbounds nuw i64, ptr %39, i64 %.0910.i6.i.i.i218
+  %664 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.0910.i6.i.i.i218
   store i64 %662, ptr %664, align 8, !tbaa !19, !noalias !2385
   %665 = add nuw nsw i64 %.0910.i6.i.i.i218, 1
   %exitcond.not.i7.i.i.i219 = icmp eq i64 %665, 4
@@ -14993,7 +14993,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit223: ; preds
   %.07.i225.sroa.phi = phi ptr [ %38, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit223 ], [ %.07.i225.sroa.gep403, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i233 ]
   %.07.i225 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit223 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i233 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i224)
-  %669 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %129, i64 %.07.i225
+  %669 = getelementptr inbounds nuw [32 x i8], ptr %129, i64 %.07.i225
   call void @llvm.lifetime.start.p0(ptr nonnull %36) #11, !noalias !2392
   call void @llvm.lifetime.start.p0(ptr nonnull %35) #11, !noalias !2397
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2397
@@ -15002,9 +15002,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit223: ; preds
 670:                                              ; preds = %670, %667
   %.0.in11.i.i.i.i226 = phi i1 [ false, %667 ], [ %682, %670 ]
   %.0910.i.i.i.i227 = phi i64 [ 0, %667 ], [ %684, %670 ]
-  %671 = getelementptr inbounds nuw i64, ptr %.07.i225.sroa.phi, i64 %.0910.i.i.i.i227
+  %671 = getelementptr inbounds nuw [8 x i8], ptr %.07.i225.sroa.phi, i64 %.0910.i.i.i.i227
   %672 = load i64, ptr %671, align 8, !tbaa !19, !noalias !2397
-  %673 = getelementptr inbounds nuw i64, ptr %669, i64 %.0910.i.i.i.i227
+  %673 = getelementptr inbounds nuw [8 x i8], ptr %669, i64 %.0910.i.i.i.i227
   %674 = load i64, ptr %673, align 8, !tbaa !19, !noalias !2397
   %675 = zext i1 %.0.in11.i.i.i.i226 to i64
   %676 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %672, i64 %674)
@@ -15014,7 +15014,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit223: ; preds
   %680 = extractvalue { i64, i1 } %679, 1
   %681 = extractvalue { i64, i1 } %679, 0
   %682 = or i1 %677, %680
-  %683 = getelementptr inbounds nuw i64, ptr %35, i64 %.0910.i.i.i.i227
+  %683 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.0910.i.i.i.i227
   store i64 %681, ptr %683, align 8, !tbaa !19, !noalias !2397
   %684 = add nuw nsw i64 %.0910.i.i.i.i227, 1
   %exitcond.not.i.i.i.i228 = icmp eq i64 %684, 4
@@ -15031,9 +15031,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 685:                                              ; preds = %685, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i229
   %.0.in11.i5.i.i.i230 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i229 ], [ %697, %685 ]
   %.0910.i6.i.i.i231 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i229 ], [ %699, %685 ]
-  %686 = getelementptr inbounds nuw i64, ptr %36, i64 %.0910.i6.i.i.i231
+  %686 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.0910.i6.i.i.i231
   %687 = load i64, ptr %686, align 8, !tbaa !19, !noalias !2400
-  %688 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i231
+  %688 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i231
   %689 = load i64, ptr %688, align 8, !tbaa !19, !noalias !2400
   %690 = zext i1 %.0.in11.i5.i.i.i230 to i64
   %691 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %687, i64 %689)
@@ -15043,7 +15043,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %695 = extractvalue { i64, i1 } %694, 1
   %696 = extractvalue { i64, i1 } %694, 0
   %697 = or i1 %692, %695
-  %698 = getelementptr inbounds nuw i64, ptr %34, i64 %.0910.i6.i.i.i231
+  %698 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0910.i6.i.i.i231
   store i64 %696, ptr %698, align 8, !tbaa !19, !noalias !2400
   %699 = add nuw nsw i64 %.0910.i6.i.i.i231, 1
   %exitcond.not.i7.i.i.i232 = icmp eq i64 %699, 4
@@ -15075,7 +15075,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit236: ; preds
   %.07.i238.sroa.phi = phi ptr [ %33, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit236 ], [ %.07.i238.sroa.gep404, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i246 ]
   %.07.i238 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit236 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i246 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i237)
-  %704 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %701, i64 %.07.i238
+  %704 = getelementptr inbounds nuw [32 x i8], ptr %701, i64 %.07.i238
   call void @llvm.lifetime.start.p0(ptr nonnull %31) #11, !noalias !2406
   call void @llvm.lifetime.start.p0(ptr nonnull %30) #11, !noalias !2411
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2411
@@ -15084,9 +15084,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit236: ; preds
 705:                                              ; preds = %705, %702
   %.0.in11.i.i.i.i239 = phi i1 [ false, %702 ], [ %717, %705 ]
   %.0910.i.i.i.i240 = phi i64 [ 0, %702 ], [ %719, %705 ]
-  %706 = getelementptr inbounds nuw i64, ptr %.07.i238.sroa.phi, i64 %.0910.i.i.i.i240
+  %706 = getelementptr inbounds nuw [8 x i8], ptr %.07.i238.sroa.phi, i64 %.0910.i.i.i.i240
   %707 = load i64, ptr %706, align 8, !tbaa !19, !noalias !2411
-  %708 = getelementptr inbounds nuw i64, ptr %704, i64 %.0910.i.i.i.i240
+  %708 = getelementptr inbounds nuw [8 x i8], ptr %704, i64 %.0910.i.i.i.i240
   %709 = load i64, ptr %708, align 8, !tbaa !19, !noalias !2411
   %710 = zext i1 %.0.in11.i.i.i.i239 to i64
   %711 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %707, i64 %709)
@@ -15096,7 +15096,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit236: ; preds
   %715 = extractvalue { i64, i1 } %714, 1
   %716 = extractvalue { i64, i1 } %714, 0
   %717 = or i1 %712, %715
-  %718 = getelementptr inbounds nuw i64, ptr %30, i64 %.0910.i.i.i.i240
+  %718 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0910.i.i.i.i240
   store i64 %716, ptr %718, align 8, !tbaa !19, !noalias !2411
   %719 = add nuw nsw i64 %.0910.i.i.i.i240, 1
   %exitcond.not.i.i.i.i241 = icmp eq i64 %719, 4
@@ -15113,9 +15113,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 720:                                              ; preds = %720, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i242
   %.0.in11.i5.i.i.i243 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i242 ], [ %732, %720 ]
   %.0910.i6.i.i.i244 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i242 ], [ %734, %720 ]
-  %721 = getelementptr inbounds nuw i64, ptr %31, i64 %.0910.i6.i.i.i244
+  %721 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.0910.i6.i.i.i244
   %722 = load i64, ptr %721, align 8, !tbaa !19, !noalias !2414
-  %723 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i244
+  %723 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i244
   %724 = load i64, ptr %723, align 8, !tbaa !19, !noalias !2414
   %725 = zext i1 %.0.in11.i5.i.i.i243 to i64
   %726 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %722, i64 %724)
@@ -15125,7 +15125,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %730 = extractvalue { i64, i1 } %729, 1
   %731 = extractvalue { i64, i1 } %729, 0
   %732 = or i1 %727, %730
-  %733 = getelementptr inbounds nuw i64, ptr %29, i64 %.0910.i6.i.i.i244
+  %733 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0910.i6.i.i.i244
   store i64 %731, ptr %733, align 8, !tbaa !19, !noalias !2414
   %734 = add nuw nsw i64 %.0910.i6.i.i.i244, 1
   %exitcond.not.i7.i.i.i245 = icmp eq i64 %734, 4
@@ -15155,7 +15155,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249: ; preds
   %.07.i251.sroa.phi = phi ptr [ %24, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249 ], [ %.07.i251.sroa.gep405, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i259 ]
   %.07.i251 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i259 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i250)
-  %738 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %701, i64 %.07.i251
+  %738 = getelementptr inbounds nuw [32 x i8], ptr %701, i64 %.07.i251
   call void @llvm.lifetime.start.p0(ptr nonnull %27) #11, !noalias !2417
   call void @llvm.lifetime.start.p0(ptr nonnull %26) #11, !noalias !2424
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2424
@@ -15164,9 +15164,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249: ; preds
 739:                                              ; preds = %739, %736
   %.0.in11.i.i.i.i252 = phi i1 [ false, %736 ], [ %751, %739 ]
   %.0910.i.i.i.i253 = phi i64 [ 0, %736 ], [ %753, %739 ]
-  %740 = getelementptr inbounds nuw i64, ptr %.07.i251.sroa.phi, i64 %.0910.i.i.i.i253
+  %740 = getelementptr inbounds nuw [8 x i8], ptr %.07.i251.sroa.phi, i64 %.0910.i.i.i.i253
   %741 = load i64, ptr %740, align 8
-  %742 = getelementptr inbounds nuw i64, ptr %738, i64 %.0910.i.i.i.i253
+  %742 = getelementptr inbounds nuw [8 x i8], ptr %738, i64 %.0910.i.i.i.i253
   %743 = load i64, ptr %742, align 8, !tbaa !19, !noalias !2424
   %744 = zext i1 %.0.in11.i.i.i.i252 to i64
   %745 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %741, i64 %743)
@@ -15176,7 +15176,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit249: ; preds
   %749 = extractvalue { i64, i1 } %748, 1
   %750 = extractvalue { i64, i1 } %748, 0
   %751 = or i1 %746, %749
-  %752 = getelementptr inbounds nuw i64, ptr %26, i64 %.0910.i.i.i.i253
+  %752 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0910.i.i.i.i253
   store i64 %750, ptr %752, align 8, !tbaa !19, !noalias !2424
   %753 = add nuw nsw i64 %.0910.i.i.i.i253, 1
   %exitcond.not.i.i.i.i254 = icmp eq i64 %753, 4
@@ -15193,9 +15193,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 754:                                              ; preds = %754, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i255
   %.0.in11.i5.i.i.i256 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i255 ], [ %766, %754 ]
   %.0910.i6.i.i.i257 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i255 ], [ %768, %754 ]
-  %755 = getelementptr inbounds nuw i64, ptr %27, i64 %.0910.i6.i.i.i257
+  %755 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0910.i6.i.i.i257
   %756 = load i64, ptr %755, align 8, !tbaa !19, !noalias !2427
-  %757 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i257
+  %757 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i257
   %758 = load i64, ptr %757, align 8, !tbaa !19, !noalias !2427
   %759 = zext i1 %.0.in11.i5.i.i.i256 to i64
   %760 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %756, i64 %758)
@@ -15205,7 +15205,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %764 = extractvalue { i64, i1 } %763, 1
   %765 = extractvalue { i64, i1 } %763, 0
   %766 = or i1 %761, %764
-  %767 = getelementptr inbounds nuw i64, ptr %25, i64 %.0910.i6.i.i.i257
+  %767 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0910.i6.i.i.i257
   store i64 %765, ptr %767, align 8, !tbaa !19, !noalias !2427
   %768 = add nuw nsw i64 %.0910.i6.i.i.i257, 1
   %exitcond.not.i7.i.i.i258 = icmp eq i64 %768, 4
@@ -15233,7 +15233,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262: ; preds
   %.07.i264.sroa.phi = phi ptr [ %24, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262 ], [ %.07.i264.sroa.gep406, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i272 ]
   %.07.i264 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i272 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i263)
-  %772 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %701, i64 %.07.i264
+  %772 = getelementptr inbounds nuw [32 x i8], ptr %701, i64 %.07.i264
   call void @llvm.lifetime.start.p0(ptr nonnull %22) #11, !noalias !2431
   call void @llvm.lifetime.start.p0(ptr nonnull %21) #11, !noalias !2438
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2438
@@ -15242,9 +15242,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262: ; preds
 773:                                              ; preds = %773, %770
   %.0.in11.i.i.i.i265 = phi i1 [ false, %770 ], [ %785, %773 ]
   %.0910.i.i.i.i266 = phi i64 [ 0, %770 ], [ %787, %773 ]
-  %774 = getelementptr inbounds nuw i64, ptr %.07.i264.sroa.phi, i64 %.0910.i.i.i.i266
+  %774 = getelementptr inbounds nuw [8 x i8], ptr %.07.i264.sroa.phi, i64 %.0910.i.i.i.i266
   %775 = load i64, ptr %774, align 8
-  %776 = getelementptr inbounds nuw i64, ptr %772, i64 %.0910.i.i.i.i266
+  %776 = getelementptr inbounds nuw [8 x i8], ptr %772, i64 %.0910.i.i.i.i266
   %777 = load i64, ptr %776, align 8, !tbaa !19, !noalias !2438
   %778 = zext i1 %.0.in11.i.i.i.i265 to i64
   %779 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %775, i64 %777)
@@ -15254,7 +15254,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit262: ; preds
   %783 = extractvalue { i64, i1 } %782, 1
   %784 = extractvalue { i64, i1 } %782, 0
   %785 = or i1 %780, %783
-  %786 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i.i.i266
+  %786 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i.i.i.i266
   store i64 %784, ptr %786, align 8, !tbaa !19, !noalias !2438
   %787 = add nuw nsw i64 %.0910.i.i.i.i266, 1
   %exitcond.not.i.i.i.i267 = icmp eq i64 %787, 4
@@ -15271,9 +15271,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 788:                                              ; preds = %788, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i268
   %.0.in11.i5.i.i.i269 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i268 ], [ %800, %788 ]
   %.0910.i6.i.i.i270 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i268 ], [ %802, %788 ]
-  %789 = getelementptr inbounds nuw i64, ptr %22, i64 %.0910.i6.i.i.i270
+  %789 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0910.i6.i.i.i270
   %790 = load i64, ptr %789, align 8, !tbaa !19, !noalias !2441
-  %791 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i270
+  %791 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i270
   %792 = load i64, ptr %791, align 8, !tbaa !19, !noalias !2441
   %793 = zext i1 %.0.in11.i5.i.i.i269 to i64
   %794 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %790, i64 %792)
@@ -15283,7 +15283,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %798 = extractvalue { i64, i1 } %797, 1
   %799 = extractvalue { i64, i1 } %797, 0
   %800 = or i1 %795, %798
-  %801 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i6.i.i.i270
+  %801 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i6.i.i.i270
   store i64 %799, ptr %801, align 8, !tbaa !19, !noalias !2441
   %802 = add nuw nsw i64 %.0910.i6.i.i.i270, 1
   %exitcond.not.i7.i.i.i271 = icmp eq i64 %802, 4
@@ -15312,7 +15312,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275: ; preds
   %.07.i277.sroa.phi = phi ptr [ %7, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275 ], [ %.07.i277.sroa.gep407, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i285 ]
   %.07.i277 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i285 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i276)
-  %806 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %130, i64 %.07.i277
+  %806 = getelementptr inbounds nuw [32 x i8], ptr %130, i64 %.07.i277
   call void @llvm.lifetime.start.p0(ptr nonnull %18) #11, !noalias !2445
   call void @llvm.lifetime.start.p0(ptr nonnull %17) #11, !noalias !2452
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2452
@@ -15321,9 +15321,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275: ; preds
 807:                                              ; preds = %807, %804
   %.0.in11.i.i.i.i278 = phi i1 [ false, %804 ], [ %819, %807 ]
   %.0910.i.i.i.i279 = phi i64 [ 0, %804 ], [ %821, %807 ]
-  %808 = getelementptr inbounds nuw i64, ptr %.07.i277.sroa.phi, i64 %.0910.i.i.i.i279
+  %808 = getelementptr inbounds nuw [8 x i8], ptr %.07.i277.sroa.phi, i64 %.0910.i.i.i.i279
   %809 = load i64, ptr %808, align 8
-  %810 = getelementptr inbounds nuw i64, ptr %806, i64 %.0910.i.i.i.i279
+  %810 = getelementptr inbounds nuw [8 x i8], ptr %806, i64 %.0910.i.i.i.i279
   %811 = load i64, ptr %810, align 8, !tbaa !19, !noalias !2452
   %812 = zext i1 %.0.in11.i.i.i.i278 to i64
   %813 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %809, i64 %811)
@@ -15333,7 +15333,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit275: ; preds
   %817 = extractvalue { i64, i1 } %816, 1
   %818 = extractvalue { i64, i1 } %816, 0
   %819 = or i1 %814, %817
-  %820 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i.i.i.i279
+  %820 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0910.i.i.i.i279
   store i64 %818, ptr %820, align 8, !tbaa !19, !noalias !2452
   %821 = add nuw nsw i64 %.0910.i.i.i.i279, 1
   %exitcond.not.i.i.i.i280 = icmp eq i64 %821, 4
@@ -15350,9 +15350,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 822:                                              ; preds = %822, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i281
   %.0.in11.i5.i.i.i282 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i281 ], [ %834, %822 ]
   %.0910.i6.i.i.i283 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i281 ], [ %836, %822 ]
-  %823 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i6.i.i.i283
+  %823 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0910.i6.i.i.i283
   %824 = load i64, ptr %823, align 8, !tbaa !19, !noalias !2455
-  %825 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i283
+  %825 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i283
   %826 = load i64, ptr %825, align 8, !tbaa !19, !noalias !2455
   %827 = zext i1 %.0.in11.i5.i.i.i282 to i64
   %828 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %824, i64 %826)
@@ -15362,7 +15362,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %832 = extractvalue { i64, i1 } %831, 1
   %833 = extractvalue { i64, i1 } %831, 0
   %834 = or i1 %829, %832
-  %835 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i6.i.i.i283
+  %835 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i6.i.i.i283
   store i64 %833, ptr %835, align 8, !tbaa !19, !noalias !2455
   %836 = add nuw nsw i64 %.0910.i6.i.i.i283, 1
   %exitcond.not.i7.i.i.i284 = icmp eq i64 %836, 4
@@ -15391,7 +15391,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288: ; preds
   %.07.i290.sroa.phi = phi ptr [ %7, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288 ], [ %.07.i290.sroa.gep408, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i298 ]
   %.07.i290 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i298 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i289)
-  %841 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %838, i64 %.07.i290
+  %841 = getelementptr inbounds nuw [32 x i8], ptr %838, i64 %.07.i290
   call void @llvm.lifetime.start.p0(ptr nonnull %14) #11, !noalias !2459
   call void @llvm.lifetime.start.p0(ptr nonnull %13) #11, !noalias !2466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2466
@@ -15400,9 +15400,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288: ; preds
 842:                                              ; preds = %842, %839
   %.0.in11.i.i.i.i291 = phi i1 [ false, %839 ], [ %854, %842 ]
   %.0910.i.i.i.i292 = phi i64 [ 0, %839 ], [ %856, %842 ]
-  %843 = getelementptr inbounds nuw i64, ptr %.07.i290.sroa.phi, i64 %.0910.i.i.i.i292
+  %843 = getelementptr inbounds nuw [8 x i8], ptr %.07.i290.sroa.phi, i64 %.0910.i.i.i.i292
   %844 = load i64, ptr %843, align 8
-  %845 = getelementptr inbounds nuw i64, ptr %841, i64 %.0910.i.i.i.i292
+  %845 = getelementptr inbounds nuw [8 x i8], ptr %841, i64 %.0910.i.i.i.i292
   %846 = load i64, ptr %845, align 8, !tbaa !19, !noalias !2466
   %847 = zext i1 %.0.in11.i.i.i.i291 to i64
   %848 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %844, i64 %846)
@@ -15412,7 +15412,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit288: ; preds
   %852 = extractvalue { i64, i1 } %851, 1
   %853 = extractvalue { i64, i1 } %851, 0
   %854 = or i1 %849, %852
-  %855 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i292
+  %855 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i292
   store i64 %853, ptr %855, align 8, !tbaa !19, !noalias !2466
   %856 = add nuw nsw i64 %.0910.i.i.i.i292, 1
   %exitcond.not.i.i.i.i293 = icmp eq i64 %856, 4
@@ -15429,9 +15429,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 857:                                              ; preds = %857, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i294
   %.0.in11.i5.i.i.i295 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i294 ], [ %869, %857 ]
   %.0910.i6.i.i.i296 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i294 ], [ %871, %857 ]
-  %858 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i6.i.i.i296
+  %858 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i6.i.i.i296
   %859 = load i64, ptr %858, align 8, !tbaa !19, !noalias !2469
-  %860 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i296
+  %860 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i296
   %861 = load i64, ptr %860, align 8, !tbaa !19, !noalias !2469
   %862 = zext i1 %.0.in11.i5.i.i.i295 to i64
   %863 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %859, i64 %861)
@@ -15441,7 +15441,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %867 = extractvalue { i64, i1 } %866, 1
   %868 = extractvalue { i64, i1 } %866, 0
   %869 = or i1 %864, %867
-  %870 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i6.i.i.i296
+  %870 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i6.i.i.i296
   store i64 %868, ptr %870, align 8, !tbaa !19, !noalias !2469
   %871 = add nuw nsw i64 %.0910.i6.i.i.i296, 1
   %exitcond.not.i7.i.i.i297 = icmp eq i64 %871, 4
@@ -15469,7 +15469,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301: ; preds
   %.07.i303.sroa.phi = phi ptr [ %7, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301 ], [ %.07.i303.sroa.gep409, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i311 ]
   %.07.i303 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i311 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i302)
-  %875 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %838, i64 %.07.i303
+  %875 = getelementptr inbounds nuw [32 x i8], ptr %838, i64 %.07.i303
   call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !2473
   call void @llvm.lifetime.start.p0(ptr nonnull %9) #11, !noalias !2480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2480
@@ -15478,9 +15478,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301: ; preds
 876:                                              ; preds = %876, %873
   %.0.in11.i.i.i.i304 = phi i1 [ false, %873 ], [ %888, %876 ]
   %.0910.i.i.i.i305 = phi i64 [ 0, %873 ], [ %890, %876 ]
-  %877 = getelementptr inbounds nuw i64, ptr %.07.i303.sroa.phi, i64 %.0910.i.i.i.i305
+  %877 = getelementptr inbounds nuw [8 x i8], ptr %.07.i303.sroa.phi, i64 %.0910.i.i.i.i305
   %878 = load i64, ptr %877, align 8
-  %879 = getelementptr inbounds nuw i64, ptr %875, i64 %.0910.i.i.i.i305
+  %879 = getelementptr inbounds nuw [8 x i8], ptr %875, i64 %.0910.i.i.i.i305
   %880 = load i64, ptr %879, align 8, !tbaa !19, !noalias !2480
   %881 = zext i1 %.0.in11.i.i.i.i304 to i64
   %882 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %878, i64 %880)
@@ -15490,7 +15490,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit301: ; preds
   %886 = extractvalue { i64, i1 } %885, 1
   %887 = extractvalue { i64, i1 } %885, 0
   %888 = or i1 %883, %886
-  %889 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i305
+  %889 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i305
   store i64 %887, ptr %889, align 8, !tbaa !19, !noalias !2480
   %890 = add nuw nsw i64 %.0910.i.i.i.i305, 1
   %exitcond.not.i.i.i.i306 = icmp eq i64 %890, 4
@@ -15507,9 +15507,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 891:                                              ; preds = %891, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i307
   %.0.in11.i5.i.i.i308 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i307 ], [ %903, %891 ]
   %.0910.i6.i.i.i309 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i307 ], [ %905, %891 ]
-  %892 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i6.i.i.i309
+  %892 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i6.i.i.i309
   %893 = load i64, ptr %892, align 8, !tbaa !19, !noalias !2483
-  %894 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i309
+  %894 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i309
   %895 = load i64, ptr %894, align 8, !tbaa !19, !noalias !2483
   %896 = zext i1 %.0.in11.i5.i.i.i308 to i64
   %897 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %893, i64 %895)
@@ -15519,7 +15519,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %901 = extractvalue { i64, i1 } %900, 1
   %902 = extractvalue { i64, i1 } %900, 0
   %903 = or i1 %898, %901
-  %904 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i6.i.i.i309
+  %904 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i6.i.i.i309
   store i64 %902, ptr %904, align 8, !tbaa !19, !noalias !2483
   %905 = add nuw nsw i64 %.0910.i6.i.i.i309, 1
   %exitcond.not.i7.i.i.i310 = icmp eq i64 %905, 4
@@ -15547,7 +15547,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314: ; preds
   %.07.i316.sroa.phi = phi ptr [ %7, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314 ], [ %.07.i316.sroa.gep410, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i324 ]
   %.07.i316 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314 ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i324 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i315)
-  %909 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %838, i64 %.07.i316
+  %909 = getelementptr inbounds nuw [32 x i8], ptr %838, i64 %.07.i316
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #11, !noalias !2487
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #11, !noalias !2494
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2494
@@ -15556,9 +15556,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314: ; preds
 910:                                              ; preds = %910, %907
   %.0.in11.i.i.i.i317 = phi i1 [ false, %907 ], [ %922, %910 ]
   %.0910.i.i.i.i318 = phi i64 [ 0, %907 ], [ %924, %910 ]
-  %911 = getelementptr inbounds nuw i64, ptr %.07.i316.sroa.phi, i64 %.0910.i.i.i.i318
+  %911 = getelementptr inbounds nuw [8 x i8], ptr %.07.i316.sroa.phi, i64 %.0910.i.i.i.i318
   %912 = load i64, ptr %911, align 8
-  %913 = getelementptr inbounds nuw i64, ptr %909, i64 %.0910.i.i.i.i318
+  %913 = getelementptr inbounds nuw [8 x i8], ptr %909, i64 %.0910.i.i.i.i318
   %914 = load i64, ptr %913, align 8, !tbaa !19, !noalias !2494
   %915 = zext i1 %.0.in11.i.i.i.i317 to i64
   %916 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %912, i64 %914)
@@ -15568,7 +15568,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit314: ; preds
   %920 = extractvalue { i64, i1 } %919, 1
   %921 = extractvalue { i64, i1 } %919, 0
   %922 = or i1 %917, %920
-  %923 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i318
+  %923 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i318
   store i64 %921, ptr %923, align 8, !tbaa !19, !noalias !2494
   %924 = add nuw nsw i64 %.0910.i.i.i.i318, 1
   %exitcond.not.i.i.i.i319 = icmp eq i64 %924, 4
@@ -15585,9 +15585,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 925:                                              ; preds = %925, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i320
   %.0.in11.i5.i.i.i321 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i320 ], [ %937, %925 ]
   %.0910.i6.i.i.i322 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i320 ], [ %939, %925 ]
-  %926 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i6.i.i.i322
+  %926 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i6.i.i.i322
   %927 = load i64, ptr %926, align 8, !tbaa !19, !noalias !2497
-  %928 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i322
+  %928 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i322
   %929 = load i64, ptr %928, align 8, !tbaa !19, !noalias !2497
   %930 = zext i1 %.0.in11.i5.i.i.i321 to i64
   %931 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %927, i64 %929)
@@ -15597,7 +15597,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %935 = extractvalue { i64, i1 } %934, 1
   %936 = extractvalue { i64, i1 } %934, 0
   %937 = or i1 %932, %935
-  %938 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i6.i.i.i322
+  %938 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i6.i.i.i322
   store i64 %936, ptr %938, align 8, !tbaa !19, !noalias !2497
   %939 = add nuw nsw i64 %.0910.i6.i.i.i322, 1
   %exitcond.not.i7.i.i.i323 = icmp eq i64 %939, 4
@@ -15691,8 +15691,8 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2547inverseERKNS_3ecc12ExtFieldEle
 26:                                               ; preds = %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i, %2
   %.07.i = phi i64 [ 0, %2 ], [ %63, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  %27 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %13, i64 %.07.i
-  %28 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %16, i64 %.07.i
+  %27 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %.07.i
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %16, i64 %.07.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12) #11, !noalias !2501
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %27, i64 64, i1 false)
   br label %29
@@ -15702,7 +15702,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2547inverseERKNS_3ecc12ExtFieldEle
   %.06.i.sroa.phi.i = phi ptr [ %12, %26 ], [ %.06.i.sroa.gep6.i, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   %.06.i.i = phi i64 [ 0, %26 ], [ 1, %_ZN6evmmax3eccmiERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  %31 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %28, i64 %.06.i.i
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %.06.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2506
   call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !2509
   call void @llvm.lifetime.start.p0(ptr nonnull %10) #11, !noalias !2512
@@ -15712,9 +15712,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2547inverseERKNS_3ecc12ExtFieldEle
 32:                                               ; preds = %32, %29
   %.0.in11.i.i.i.i.i = phi i1 [ false, %29 ], [ %44, %32 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %29 ], [ %46, %32 ]
-  %33 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi.i, i64 %.0910.i.i.i.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi.i, i64 %.0910.i.i.i.i.i
   %34 = load i64, ptr %33, align 8, !tbaa !19, !noalias !2512
-  %35 = getelementptr inbounds nuw i64, ptr %31, i64 %.0910.i.i.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.0910.i.i.i.i.i
   %36 = load i64, ptr %35, align 8, !tbaa !19, !noalias !2512
   %37 = zext i1 %.0.in11.i.i.i.i.i to i64
   %38 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %34, i64 %36)
@@ -15724,7 +15724,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2547inverseERKNS_3ecc12ExtFieldEle
   %42 = extractvalue { i64, i1 } %41, 1
   %43 = extractvalue { i64, i1 } %41, 0
   %44 = or i1 %39, %42
-  %45 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i.i.i
   store i64 %43, ptr %45, align 8, !tbaa !19, !noalias !2512
   %46 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %46, 4
@@ -15739,9 +15739,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 47:                                               ; preds = %47, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i
   %.0.in11.i.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %59, %47 ]
   %.0910.i.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i ], [ %61, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i.i.i
   %49 = load i64, ptr %48, align 8, !tbaa !19, !noalias !2515
-  %50 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i
   %51 = load i64, ptr %50, align 8, !tbaa !19, !noalias !2515
   %52 = zext i1 %.0.in11.i.i.i.i.i.i to i64
   %53 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %49, i64 %51)
@@ -15751,7 +15751,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %57 = extractvalue { i64, i1 } %56, 1
   %58 = extractvalue { i64, i1 } %56, 0
   %59 = or i1 %54, %57
-  %60 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i.i.i
   store i64 %58, ptr %60, align 8, !noalias !2509
   %61 = add nuw nsw i64 %.0910.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %61, 4
@@ -15794,7 +15794,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
 64:                                               ; preds = %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit
   %.05.i = phi i64 [ 0, %_ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit ], [ %101, %_ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i9)
-  %65 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %20, i64 %.05.i
+  %65 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %.05.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7) #11, !noalias !2521
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false), !tbaa !19, !noalias !2521
   br label %66
@@ -15804,7 +15804,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
   %.04.i.sroa.phi.i = phi ptr [ %7, %64 ], [ %.04.i.sroa.gep4.i, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i ]
   %.04.i.i = phi i64 [ 0, %64 ], [ 1, %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i8)
-  %68 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %65, i64 %.04.i.i
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %.04.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #11, !noalias !2526
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !noalias !2526
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2526
@@ -15816,9 +15816,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
 69:                                               ; preds = %69, %66
   %.0.in11.i.i.i.i.i10 = phi i1 [ false, %66 ], [ %81, %69 ]
   %.0910.i.i.i.i.i11 = phi i64 [ 0, %66 ], [ %83, %69 ]
-  %70 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i.i.i11
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i.i.i11
   %71 = load i64, ptr %70, align 8, !tbaa !19, !noalias !2532
-  %72 = getelementptr inbounds nuw i64, ptr %68, i64 %.0910.i.i.i.i.i11
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.0910.i.i.i.i.i11
   %73 = load i64, ptr %72, align 8, !tbaa !19, !noalias !2532
   %74 = zext i1 %.0.in11.i.i.i.i.i10 to i64
   %75 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %71, i64 %73)
@@ -15828,7 +15828,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit: ; preds = 
   %79 = extractvalue { i64, i1 } %78, 1
   %80 = extractvalue { i64, i1 } %78, 0
   %81 = or i1 %76, %79
-  %82 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i.i11
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i.i11
   store i64 %80, ptr %82, align 8, !tbaa !19, !noalias !2532
   %83 = add nuw nsw i64 %.0910.i.i.i.i.i11, 1
   %exitcond.not.i.i.i.i.i12 = icmp eq i64 %83, 4
@@ -15843,9 +15843,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 84:                                               ; preds = %84, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i13
   %.0.in11.i.i.i.i.i.i14 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i13 ], [ %96, %84 ]
   %.0910.i.i.i.i.i.i15 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i.i13 ], [ %98, %84 ]
-  %85 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i.i.i15
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i.i.i15
   %86 = load i64, ptr %85, align 8, !tbaa !19, !noalias !2535
-  %87 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i15
+  %87 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i.i15
   %88 = load i64, ptr %87, align 8, !tbaa !19, !noalias !2535
   %89 = zext i1 %.0.in11.i.i.i.i.i.i14 to i64
   %90 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %86, i64 %88)
@@ -15855,7 +15855,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %94 = extractvalue { i64, i1 } %93, 1
   %95 = extractvalue { i64, i1 } %93, 0
   %96 = or i1 %91, %94
-  %97 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i.i.i.i.i.i15
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i.i.i.i.i.i15
   store i64 %95, ptr %97, align 8, !noalias !2529
   %98 = add nuw nsw i64 %.0910.i.i.i.i.i.i15, 1
   %exitcond.not.i.i.i.i.i.i16 = icmp eq i64 %98, 4
@@ -15874,7 +15874,7 @@ _ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i: ;
 _ZN6evmmax3eccngERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEE.exit.i: ; preds = %_ZN6evmmax3eccngERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEE.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i9, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !17, !noalias !2540
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #11, !noalias !2521
-  %100 = getelementptr inbounds nuw %"struct.evmmax::ecc::ExtFieldElem", ptr %8, i64 %.05.i
+  %100 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %.05.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %100, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i9, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i9)
   %101 = add nuw nsw i64 %.05.i, 1
@@ -15980,9 +15980,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2547inverseERKNS_3ecc12ExtFieldEle
 48:                                               ; preds = %48, %46
   %.0.in11.i.i.i.i = phi i1 [ false, %46 ], [ %60, %48 ]
   %.0910.i.i.i.i = phi i64 [ 0, %46 ], [ %62, %48 ]
-  %49 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi62, i64 %.0910.i.i.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi62, i64 %.0910.i.i.i.i
   %50 = load i64, ptr %49, align 8, !tbaa !19, !noalias !2550
-  %51 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i
   %52 = load i64, ptr %51, align 8, !tbaa !19, !noalias !2550
   %53 = zext i1 %.0.in11.i.i.i.i to i64
   %54 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %50, i64 %52)
@@ -15992,7 +15992,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2547inverseERKNS_3ecc12ExtFieldEle
   %58 = extractvalue { i64, i1 } %57, 1
   %59 = extractvalue { i64, i1 } %57, 0
   %60 = or i1 %55, %58
-  %61 = getelementptr inbounds nuw i64, ptr %22, i64 %.0910.i.i.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0910.i.i.i.i
   store i64 %59, ptr %61, align 8, !tbaa !19, !noalias !2550
   %62 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %62, 4
@@ -16007,9 +16007,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 63:                                               ; preds = %63, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %75, %63 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %77, %63 ]
-  %64 = getelementptr inbounds nuw i64, ptr %23, i64 %.0910.i.i.i.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0910.i.i.i.i.i
   %65 = load i64, ptr %64, align 8, !tbaa !19, !noalias !2553
-  %66 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %67 = load i64, ptr %66, align 8, !tbaa !19, !noalias !2553
   %68 = zext i1 %.0.in11.i.i.i.i.i to i64
   %69 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %65, i64 %67)
@@ -16019,7 +16019,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %73 = extractvalue { i64, i1 } %72, 1
   %74 = extractvalue { i64, i1 } %72, 0
   %75 = or i1 %70, %73
-  %76 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i.i.i.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i.i.i.i.i
   store i64 %74, ptr %76, align 8, !noalias !2547
   %77 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %77, 4
@@ -16061,9 +16061,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 81:                                               ; preds = %81, %79
   %.0.in11.i.i.i.i20 = phi i1 [ false, %79 ], [ %93, %81 ]
   %.0910.i.i.i.i21 = phi i64 [ 0, %79 ], [ %95, %81 ]
-  %82 = getelementptr inbounds nuw i64, ptr %.06.i19.sroa.phi65, i64 %.0910.i.i.i.i21
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.06.i19.sroa.phi65, i64 %.0910.i.i.i.i21
   %83 = load i64, ptr %82, align 8, !tbaa !19, !noalias !2567
-  %84 = getelementptr inbounds nuw i64, ptr %.06.i19.sroa.phi, i64 %.0910.i.i.i.i21
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %.06.i19.sroa.phi, i64 %.0910.i.i.i.i21
   %85 = load i64, ptr %84, align 8, !tbaa !19, !noalias !2567
   %86 = zext i1 %.0.in11.i.i.i.i20 to i64
   %87 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %83, i64 %85)
@@ -16073,7 +16073,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %91 = extractvalue { i64, i1 } %90, 1
   %92 = extractvalue { i64, i1 } %90, 0
   %93 = or i1 %88, %91
-  %94 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i.i.i.i21
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0910.i.i.i.i21
   store i64 %92, ptr %94, align 8, !tbaa !19, !noalias !2567
   %95 = add nuw nsw i64 %.0910.i.i.i.i21, 1
   %exitcond.not.i.i.i.i22 = icmp eq i64 %95, 4
@@ -16088,9 +16088,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 96:                                               ; preds = %96, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i23
   %.0.in11.i.i.i.i.i24 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i23 ], [ %108, %96 ]
   %.0910.i.i.i.i.i25 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i23 ], [ %110, %96 ]
-  %97 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i.i.i.i.i25
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0910.i.i.i.i.i25
   %98 = load i64, ptr %97, align 8, !tbaa !19, !noalias !2570
-  %99 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i25
+  %99 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i25
   %100 = load i64, ptr %99, align 8, !tbaa !19, !noalias !2570
   %101 = zext i1 %.0.in11.i.i.i.i.i24 to i64
   %102 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %98, i64 %100)
@@ -16100,7 +16100,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %106 = extractvalue { i64, i1 } %105, 1
   %107 = extractvalue { i64, i1 } %105, 0
   %108 = or i1 %103, %106
-  %109 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i.i.i.i.i25
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0910.i.i.i.i.i25
   store i64 %107, ptr %109, align 8, !noalias !2564
   %110 = add nuw nsw i64 %.0910.i.i.i.i.i25, 1
   %exitcond.not.i.i.i.i.i26 = icmp eq i64 %110, 4
@@ -16140,9 +16140,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds 
 114:                                              ; preds = %114, %112
   %.0.in11.i.i.i.i31 = phi i1 [ false, %112 ], [ %126, %114 ]
   %.0910.i.i.i.i32 = phi i64 [ 0, %112 ], [ %128, %114 ]
-  %115 = getelementptr inbounds nuw i64, ptr %.06.i30.sroa.phi68, i64 %.0910.i.i.i.i32
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.06.i30.sroa.phi68, i64 %.0910.i.i.i.i32
   %116 = load i64, ptr %115, align 8, !tbaa !19, !noalias !2584
-  %117 = getelementptr inbounds nuw i64, ptr %.06.i30.sroa.phi, i64 %.0910.i.i.i.i32
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %.06.i30.sroa.phi, i64 %.0910.i.i.i.i32
   %118 = load i64, ptr %117, align 8, !tbaa !19, !noalias !2584
   %119 = zext i1 %.0.in11.i.i.i.i31 to i64
   %120 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %116, i64 %118)
@@ -16152,7 +16152,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit28: ; preds 
   %124 = extractvalue { i64, i1 } %123, 1
   %125 = extractvalue { i64, i1 } %123, 0
   %126 = or i1 %121, %124
-  %127 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i.i.i32
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i.i.i32
   store i64 %125, ptr %127, align 8, !tbaa !19, !noalias !2584
   %128 = add nuw nsw i64 %.0910.i.i.i.i32, 1
   %exitcond.not.i.i.i.i33 = icmp eq i64 %128, 4
@@ -16167,9 +16167,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 129:                                              ; preds = %129, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34
   %.0.in11.i.i.i.i.i35 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %141, %129 ]
   %.0910.i.i.i.i.i36 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i34 ], [ %143, %129 ]
-  %130 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i.i.i36
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i.i.i.i.i36
   %131 = load i64, ptr %130, align 8, !tbaa !19, !noalias !2587
-  %132 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i36
+  %132 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i36
   %133 = load i64, ptr %132, align 8, !tbaa !19, !noalias !2587
   %134 = zext i1 %.0.in11.i.i.i.i.i35 to i64
   %135 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %131, i64 %133)
@@ -16179,7 +16179,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %139 = extractvalue { i64, i1 } %138, 1
   %140 = extractvalue { i64, i1 } %138, 0
   %141 = or i1 %136, %139
-  %142 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i.i.i.i.i36
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i.i.i.i.i36
   store i64 %140, ptr %142, align 8, !noalias !2581
   %143 = add nuw nsw i64 %.0910.i.i.i.i.i36, 1
   %exitcond.not.i.i.i.i.i37 = icmp eq i64 %143, 4
@@ -16225,9 +16225,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39: ; preds 
 147:                                              ; preds = %147, %145
   %.0.in11.i.i.i.i41 = phi i1 [ false, %145 ], [ %159, %147 ]
   %.0910.i.i.i.i42 = phi i64 [ 0, %145 ], [ %161, %147 ]
-  %148 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi71, i64 %.0910.i.i.i.i42
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi71, i64 %.0910.i.i.i.i42
   %149 = load i64, ptr %148, align 8, !tbaa !19, !noalias !2600
-  %150 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i42
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i42
   %151 = load i64, ptr %150, align 8, !tbaa !19, !noalias !2600
   %152 = zext i1 %.0.in11.i.i.i.i41 to i64
   %153 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %149, i64 %151)
@@ -16237,7 +16237,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit39: ; preds 
   %157 = extractvalue { i64, i1 } %156, 1
   %158 = extractvalue { i64, i1 } %156, 0
   %159 = or i1 %154, %157
-  %160 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i42
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i42
   store i64 %158, ptr %160, align 8, !tbaa !19, !noalias !2600
   %161 = add nuw nsw i64 %.0910.i.i.i.i42, 1
   %exitcond.not.i.i.i.i43 = icmp eq i64 %161, 4
@@ -16254,9 +16254,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 162:                                              ; preds = %162, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %174, %162 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %176, %162 ]
-  %163 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i6.i.i.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i6.i.i.i
   %164 = load i64, ptr %163, align 8, !tbaa !19, !noalias !2603
-  %165 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
+  %165 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %166 = load i64, ptr %165, align 8, !tbaa !19, !noalias !2603
   %167 = zext i1 %.0.in11.i5.i.i.i to i64
   %168 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %164, i64 %166)
@@ -16266,7 +16266,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %172 = extractvalue { i64, i1 } %171, 1
   %173 = extractvalue { i64, i1 } %171, 0
   %174 = or i1 %169, %172
-  %175 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i6.i.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i6.i.i.i
   store i64 %173, ptr %175, align 8, !tbaa !19, !noalias !2603
   %176 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %176, 4
@@ -16308,9 +16308,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 180:                                              ; preds = %180, %178
   %.0.in11.i.i.i.i46 = phi i1 [ false, %178 ], [ %192, %180 ]
   %.0910.i.i.i.i47 = phi i64 [ 0, %178 ], [ %194, %180 ]
-  %181 = getelementptr inbounds nuw i64, ptr %.07.i45.sroa.phi74, i64 %.0910.i.i.i.i47
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %.07.i45.sroa.phi74, i64 %.0910.i.i.i.i47
   %182 = load i64, ptr %181, align 8, !tbaa !19, !noalias !2614
-  %183 = getelementptr inbounds nuw i64, ptr %.07.i45.sroa.phi, i64 %.0910.i.i.i.i47
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %.07.i45.sroa.phi, i64 %.0910.i.i.i.i47
   %184 = load i64, ptr %183, align 8, !tbaa !19, !noalias !2614
   %185 = zext i1 %.0.in11.i.i.i.i46 to i64
   %186 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %182, i64 %184)
@@ -16320,7 +16320,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %190 = extractvalue { i64, i1 } %189, 1
   %191 = extractvalue { i64, i1 } %189, 0
   %192 = or i1 %187, %190
-  %193 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i47
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i47
   store i64 %191, ptr %193, align 8, !tbaa !19, !noalias !2614
   %194 = add nuw nsw i64 %.0910.i.i.i.i47, 1
   %exitcond.not.i.i.i.i48 = icmp eq i64 %194, 4
@@ -16337,9 +16337,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 195:                                              ; preds = %195, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i49
   %.0.in11.i5.i.i.i50 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i49 ], [ %207, %195 ]
   %.0910.i6.i.i.i51 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i49 ], [ %209, %195 ]
-  %196 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i6.i.i.i51
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i6.i.i.i51
   %197 = load i64, ptr %196, align 8, !tbaa !19, !noalias !2617
-  %198 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i51
+  %198 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i51
   %199 = load i64, ptr %198, align 8, !tbaa !19, !noalias !2617
   %200 = zext i1 %.0.in11.i5.i.i.i50 to i64
   %201 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %197, i64 %199)
@@ -16349,7 +16349,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %205 = extractvalue { i64, i1 } %204, 1
   %206 = extractvalue { i64, i1 } %204, 0
   %207 = or i1 %202, %205
-  %208 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i6.i.i.i51
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i6.i.i.i51
   store i64 %206, ptr %208, align 8, !tbaa !19, !noalias !2617
   %209 = add nuw nsw i64 %.0910.i6.i.i.i51, 1
   %exitcond.not.i7.i.i.i52 = icmp eq i64 %209, 4
@@ -16429,9 +16429,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2547inverseERKNS_3ecc12ExtFieldEle
 17:                                               ; preds = %17, %2
   %.0.in11.i.i.i = phi i1 [ false, %2 ], [ %29, %17 ]
   %.0910.i.i.i = phi i64 [ 0, %2 ], [ %31, %17 ]
-  %18 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !19, !noalias !2625
-  %20 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i.i.i
   %21 = load i64, ptr %20, align 8, !tbaa !19, !noalias !2625
   %22 = zext i1 %.0.in11.i.i.i to i64
   %23 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %21)
@@ -16441,7 +16441,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn2547inverseERKNS_3ecc12ExtFieldEle
   %27 = extractvalue { i64, i1 } %26, 1
   %28 = extractvalue { i64, i1 } %26, 0
   %29 = or i1 %24, %27
-  %30 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i
   store i64 %28, ptr %30, align 8, !tbaa !19, !noalias !2625
   %31 = add nuw nsw i64 %.0910.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %31, 4
@@ -16458,9 +16458,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 32:                                               ; preds = %32, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %.0.in11.i5.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i ], [ %44, %32 ]
   %.0910.i6.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i ], [ %46, %32 ]
-  %33 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i6.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i6.i.i
   %34 = load i64, ptr %33, align 8, !tbaa !19, !noalias !2628
-  %35 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i
   %36 = load i64, ptr %35, align 8, !tbaa !19, !noalias !2628
   %37 = zext i1 %.0.in11.i5.i.i to i64
   %38 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %34, i64 %36)
@@ -16470,7 +16470,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %42 = extractvalue { i64, i1 } %41, 1
   %43 = extractvalue { i64, i1 } %41, 0
   %44 = or i1 %39, %42
-  %45 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i6.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0910.i6.i.i
   store i64 %43, ptr %45, align 8, !tbaa !19, !noalias !2628
   %46 = add nuw nsw i64 %.0910.i6.i.i, 1
   %exitcond.not.i7.i.i = icmp eq i64 %46, 4
@@ -16504,9 +16504,9 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit: ; 
 48:                                               ; preds = %48, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit
   %.0.in11.i.i.i8 = phi i1 [ false, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit ], [ %60, %48 ]
   %.0910.i.i.i9 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit ], [ %62, %48 ]
-  %49 = getelementptr inbounds nuw i64, ptr %6, i64 %.0910.i.i.i9
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0910.i.i.i9
   %50 = load i64, ptr %49, align 8, !tbaa !19, !noalias !2637
-  %51 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i9
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i.i.i9
   %52 = load i64, ptr %51, align 8, !tbaa !19, !noalias !2637
   %53 = zext i1 %.0.in11.i.i.i8 to i64
   %54 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %50, i64 %52)
@@ -16516,7 +16516,7 @@ _ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit: ; 
   %58 = extractvalue { i64, i1 } %57, 1
   %59 = extractvalue { i64, i1 } %57, 0
   %60 = or i1 %55, %58
-  %61 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i9
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i9
   store i64 %59, ptr %61, align 8, !tbaa !19, !noalias !2637
   %62 = add nuw nsw i64 %.0910.i.i.i9, 1
   %exitcond.not.i.i.i10 = icmp eq i64 %62, 4
@@ -16531,9 +16531,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 63:                                               ; preds = %63, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %.0.in11.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i ], [ %75, %63 ]
   %.0910.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i ], [ %77, %63 ]
-  %64 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i
   %65 = load i64, ptr %64, align 8, !tbaa !19, !noalias !2640
-  %66 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i
   %67 = load i64, ptr %66, align 8, !tbaa !19, !noalias !2640
   %68 = zext i1 %.0.in11.i.i.i.i to i64
   %69 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %65, i64 %67)
@@ -16543,7 +16543,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %73 = extractvalue { i64, i1 } %72, 1
   %74 = extractvalue { i64, i1 } %72, 0
   %75 = or i1 %70, %73
-  %76 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i.i.i.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i.i.i.i
   store i64 %74, ptr %76, align 8, !noalias !2634
   %77 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %77, 4
@@ -16629,9 +16629,9 @@ define linkonce_odr hidden void @_ZNK6evmmax8ModArithIN4intx4uintILj256EEEE3invE
 46:                                               ; preds = %46, %3
   %.0.in11.i.i = phi i1 [ false, %3 ], [ %58, %46 ]
   %.0910.i.i = phi i64 [ 0, %3 ], [ %60, %46 ]
-  %47 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i.i
   %48 = load i64, ptr %47, align 8, !tbaa !19, !noalias !2651
-  %49 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0910.i.i
   %50 = load i64, ptr %49, align 8, !tbaa !19, !noalias !2651
   %51 = zext i1 %.0.in11.i.i to i64
   %52 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %48, i64 %50)
@@ -16641,7 +16641,7 @@ define linkonce_odr hidden void @_ZNK6evmmax8ModArithIN4intx4uintILj256EEEE3invE
   %56 = extractvalue { i64, i1 } %55, 1
   %57 = extractvalue { i64, i1 } %55, 0
   %58 = or i1 %53, %56
-  %59 = getelementptr inbounds nuw i64, ptr %14, i64 %.0910.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0910.i.i
   store i64 %57, ptr %59, align 8, !noalias !2648
   %60 = add nuw nsw i64 %.0910.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %60, 4
@@ -16682,9 +16682,9 @@ _ZN4intxplERKNS_4uintILj256EEES3_.exit:           ; preds = %46
 72:                                               ; preds = %72, %71
   %.09.i = phi i64 [ 0, %71 ], [ %79, %72 ]
   %.078.i = phi i64 [ 0, %71 ], [ %78, %72 ]
-  %73 = getelementptr inbounds nuw i64, ptr %18, i64 %.09.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.09.i
   %74 = load i64, ptr %73, align 8, !tbaa !19
-  %75 = getelementptr inbounds nuw i64, ptr %22, i64 %.09.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.09.i
   %76 = load i64, ptr %75, align 8, !tbaa !19
   %77 = xor i64 %76, %74
   %78 = or i64 %77, %.078.i
@@ -16708,12 +16708,12 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit:           ; preds = %72
 
 82:                                               ; preds = %82, %81
   %.06.i = phi i64 [ 0, %81 ], [ %89, %82 ]
-  %83 = getelementptr inbounds nuw i64, ptr %18, i64 %.06.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.06.i
   %84 = load i64, ptr %83, align 8, !tbaa !19, !noalias !2654
-  %85 = getelementptr inbounds nuw i64, ptr %24, i64 %.06.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.06.i
   %86 = load i64, ptr %85, align 8, !tbaa !19, !noalias !2654
   %87 = and i64 %86, %84
-  %88 = getelementptr inbounds nuw i64, ptr %23, i64 %.06.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.06.i
   store i64 %87, ptr %88, align 8, !tbaa !19, !alias.scope !2654
   %89 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i2 = icmp eq i64 %89, 4
@@ -16727,9 +16727,9 @@ _ZN4intxanERKNS_4uintILj256EEES3_.exit:           ; preds = %82
 90:                                               ; preds = %90, %_ZN4intxanERKNS_4uintILj256EEES3_.exit
   %.09.i3 = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit ], [ %97, %90 ]
   %.078.i4 = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit ], [ %96, %90 ]
-  %91 = getelementptr inbounds nuw i64, ptr %23, i64 %.09.i3
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.09.i3
   %92 = load i64, ptr %91, align 8, !tbaa !19
-  %93 = getelementptr inbounds nuw i64, ptr %25, i64 %.09.i3
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.09.i3
   %94 = load i64, ptr %93, align 8, !tbaa !19
   %95 = xor i64 %94, %92
   %96 = or i64 %95, %.078.i4
@@ -16753,9 +16753,9 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit6:          ; preds = %90
 100:                                              ; preds = %100, %99
   %.0.in11.i = phi i1 [ false, %99 ], [ %112, %100 ]
   %.0910.i = phi i64 [ 0, %99 ], [ %114, %100 ]
-  %101 = getelementptr inbounds nuw i64, ptr %18, i64 %.0910.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0910.i
   %102 = load i64, ptr %101, align 8, !tbaa !19, !noalias !2658
-  %103 = getelementptr inbounds nuw i64, ptr %19, i64 %.0910.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0910.i
   %104 = load i64, ptr %103, align 8, !tbaa !19, !noalias !2658
   %105 = zext i1 %.0.in11.i to i64
   %106 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %102, i64 %104)
@@ -16765,7 +16765,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit6:          ; preds = %90
   %110 = extractvalue { i64, i1 } %109, 1
   %111 = extractvalue { i64, i1 } %109, 0
   %112 = or i1 %107, %110
-  %113 = getelementptr inbounds nuw i64, ptr %13, i64 %.0910.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910.i
   store i64 %111, ptr %113, align 8, !tbaa !19, !noalias !2658
   %114 = add nuw nsw i64 %.0910.i, 1
   %exitcond.not.i7 = icmp eq i64 %114, 4
@@ -16785,10 +16785,10 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit: ; 
 
 116:                                              ; preds = %116, %115
   %.04.i.i = phi i64 [ 0, %115 ], [ %121, %116 ]
-  %117 = getelementptr inbounds nuw i64, ptr %26, i64 %.04.i.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.04.i.i
   %118 = load i64, ptr %117, align 8, !tbaa !19, !noalias !2667
   %119 = xor i64 %118, -1
-  %120 = getelementptr inbounds nuw i64, ptr %11, i64 %.04.i.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.04.i.i
   store i64 %119, ptr %120, align 8, !tbaa !19, !alias.scope !2664, !noalias !2661
   %121 = add nuw nsw i64 %.04.i.i, 1
   %exitcond.not.i.i8 = icmp eq i64 %121, 4
@@ -16805,9 +16805,9 @@ _ZNK4intx4uintILj256EEcoEv.exit.i:                ; preds = %116
 122:                                              ; preds = %122, %_ZNK4intx4uintILj256EEcoEv.exit.i
   %.0.in11.i.i.i = phi i1 [ false, %_ZNK4intx4uintILj256EEcoEv.exit.i ], [ %134, %122 ]
   %.0910.i.i.i = phi i64 [ 0, %_ZNK4intx4uintILj256EEcoEv.exit.i ], [ %136, %122 ]
-  %123 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i
   %124 = load i64, ptr %123, align 8, !tbaa !19, !noalias !2672
-  %125 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i.i.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i.i.i
   %126 = load i64, ptr %125, align 8, !tbaa !19, !noalias !2672
   %127 = zext i1 %.0.in11.i.i.i to i64
   %128 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %124, i64 %126)
@@ -16817,7 +16817,7 @@ _ZNK4intx4uintILj256EEcoEv.exit.i:                ; preds = %116
   %132 = extractvalue { i64, i1 } %131, 1
   %133 = extractvalue { i64, i1 } %131, 0
   %134 = or i1 %129, %132
-  %135 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i.i.i
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i.i.i
   store i64 %133, ptr %135, align 8, !noalias !2669
   %136 = add nuw nsw i64 %.0910.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %136, 4
@@ -16850,9 +16850,9 @@ _ZNK4intx4uintILj256EEngEv.exit:                  ; preds = %122
 139:                                              ; preds = %139, %138
   %.0.in11.i.i9 = phi i1 [ false, %138 ], [ %151, %139 ]
   %.0910.i.i10 = phi i64 [ 0, %138 ], [ %153, %139 ]
-  %140 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i10
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i.i10
   %141 = load i64, ptr %140, align 8, !tbaa !19, !noalias !2678
-  %142 = getelementptr inbounds nuw i64, ptr %21, i64 %.0910.i.i10
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.0910.i.i10
   %143 = load i64, ptr %142, align 8, !tbaa !19, !noalias !2678
   %144 = zext i1 %.0.in11.i.i9 to i64
   %145 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %141, i64 %143)
@@ -16862,7 +16862,7 @@ _ZNK4intx4uintILj256EEngEv.exit:                  ; preds = %122
   %149 = extractvalue { i64, i1 } %148, 1
   %150 = extractvalue { i64, i1 } %148, 0
   %151 = or i1 %146, %149
-  %152 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i10
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i10
   store i64 %150, ptr %152, align 8, !tbaa !19, !noalias !2678
   %153 = add nuw nsw i64 %.0910.i.i10, 1
   %exitcond.not.i.i11 = icmp eq i64 %153, 4
@@ -16877,9 +16877,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i: 
 154:                                              ; preds = %154, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i
   %.0.in11.i.i.i12 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i ], [ %166, %154 ]
   %.0910.i.i.i13 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i ], [ %168, %154 ]
-  %155 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i13
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i13
   %156 = load i64, ptr %155, align 8, !tbaa !19, !noalias !2681
-  %157 = getelementptr inbounds nuw i64, ptr %1, i64 %.0910.i.i.i13
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0910.i.i.i13
   %158 = load i64, ptr %157, align 8, !tbaa !19, !noalias !2681
   %159 = zext i1 %.0.in11.i.i.i12 to i64
   %160 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %156, i64 %158)
@@ -16889,7 +16889,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i: 
   %164 = extractvalue { i64, i1 } %163, 1
   %165 = extractvalue { i64, i1 } %163, 0
   %166 = or i1 %161, %164
-  %167 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i.i.i13
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0910.i.i.i13
   store i64 %165, ptr %167, align 8, !noalias !2675
   %168 = add nuw nsw i64 %.0910.i.i.i13, 1
   %exitcond.not.i.i.i14 = icmp eq i64 %168, 4
@@ -16914,7 +16914,7 @@ _ZNK6evmmax8ModArithIN4intx4uintILj256EEEE3subERKS3_S6_.exit: ; preds = %154
 172:                                              ; preds = %172, %170
   %.09.i.i = phi i64 [ 1, %170 ], [ %176, %172 ]
   %.078.i.i = phi i64 [ 0, %170 ], [ %175, %172 ]
-  %173 = getelementptr inbounds nuw i64, ptr %6, i64 %.09.i.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.09.i.i
   %174 = load i64, ptr %173, align 8, !tbaa !19, !noalias !2687
   %175 = or i64 %174, %.078.i.i
   %176 = add nuw nsw i64 %.09.i.i, 1
@@ -16952,12 +16952,12 @@ _ZN4intx4uintILj256EErSES1_.exit:                 ; preds = %171, %177
 
 186:                                              ; preds = %186, %_ZN4intx4uintILj256EErSES1_.exit
   %.06.i16 = phi i64 [ 0, %_ZN4intx4uintILj256EErSES1_.exit ], [ %193, %186 ]
-  %187 = getelementptr inbounds nuw i64, ptr %20, i64 %.06.i16
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.06.i16
   %188 = load i64, ptr %187, align 8, !tbaa !19, !noalias !2694
-  %189 = getelementptr inbounds nuw i64, ptr %28, i64 %.06.i16
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.06.i16
   %190 = load i64, ptr %189, align 8, !tbaa !19, !noalias !2694
   %191 = and i64 %190, %188
-  %192 = getelementptr inbounds nuw i64, ptr %27, i64 %.06.i16
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.06.i16
   store i64 %191, ptr %192, align 8, !tbaa !19, !alias.scope !2694
   %193 = add nuw nsw i64 %.06.i16, 1
   %exitcond.not.i17 = icmp eq i64 %193, 4
@@ -16971,9 +16971,9 @@ _ZN4intxanERKNS_4uintILj256EEES3_.exit18:         ; preds = %186
 194:                                              ; preds = %194, %_ZN4intxanERKNS_4uintILj256EEES3_.exit18
   %.09.i19 = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit18 ], [ %201, %194 ]
   %.078.i20 = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit18 ], [ %200, %194 ]
-  %195 = getelementptr inbounds nuw i64, ptr %27, i64 %.09.i19
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.09.i19
   %196 = load i64, ptr %195, align 8, !tbaa !19
-  %197 = getelementptr inbounds nuw i64, ptr %29, i64 %.09.i19
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.09.i19
   %198 = load i64, ptr %197, align 8, !tbaa !19
   %199 = xor i64 %198, %196
   %200 = or i64 %199, %.078.i20
@@ -16997,7 +16997,7 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit22:         ; preds = %194
 204:                                              ; preds = %204, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit22
   %.09.i.i23 = phi i64 [ 1, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit22 ], [ %208, %204 ]
   %.078.i.i24 = phi i64 [ 0, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit22 ], [ %207, %204 ]
-  %205 = getelementptr inbounds nuw i64, ptr %5, i64 %.09.i.i23
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.09.i.i23
   %206 = load i64, ptr %205, align 8, !tbaa !19, !noalias !2697
   %207 = or i64 %206, %.078.i.i24
   %208 = add nuw nsw i64 %.09.i.i23, 1
@@ -17035,9 +17035,9 @@ _ZN4intx4uintILj256EErSES1_.exit34:               ; preds = %202, %209
 219:                                              ; preds = %219, %218
   %.0.in11.i.i.i35 = phi i1 [ false, %218 ], [ %231, %219 ]
   %.0910.i.i.i36 = phi i64 [ 0, %218 ], [ %233, %219 ]
-  %220 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i36
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0910.i.i.i36
   %221 = load i64, ptr %220, align 8, !tbaa !19, !noalias !2703
-  %222 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i36
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i.i.i36
   %223 = load i64, ptr %222, align 8, !tbaa !19, !noalias !2703
   %224 = zext i1 %.0.in11.i.i.i35 to i64
   %225 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %221, i64 %223)
@@ -17047,7 +17047,7 @@ _ZN4intx4uintILj256EErSES1_.exit34:               ; preds = %202, %209
   %229 = extractvalue { i64, i1 } %228, 1
   %230 = extractvalue { i64, i1 } %228, 0
   %231 = or i1 %226, %229
-  %232 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i36
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i36
   store i64 %230, ptr %232, align 8
   %233 = add nuw nsw i64 %.0910.i.i.i36, 1
   %exitcond.not.i.i.i37 = icmp eq i64 %233, 4
@@ -17071,9 +17071,9 @@ _ZN4intx4uintILj256EEpLERKS1_.exit:               ; preds = %219
 236:                                              ; preds = %236, %234
   %.09.i38 = phi i64 [ 0, %234 ], [ %243, %236 ]
   %.078.i39 = phi i64 [ 0, %234 ], [ %242, %236 ]
-  %237 = getelementptr inbounds nuw i64, ptr %19, i64 %.09.i38
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.09.i38
   %238 = load i64, ptr %237, align 8, !tbaa !19
-  %239 = getelementptr inbounds nuw i64, ptr %30, i64 %.09.i38
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.09.i38
   %240 = load i64, ptr %239, align 8, !tbaa !19
   %241 = xor i64 %240, %238
   %242 = or i64 %241, %.078.i39
@@ -17156,9 +17156,9 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25410fq4_squareERKSt4pairINS_3ecc1
 28:                                               ; preds = %28, %26
   %.0.in11.i.i.i.i = phi i1 [ false, %26 ], [ %40, %28 ]
   %.0910.i.i.i.i = phi i64 [ 0, %26 ], [ %42, %28 ]
-  %29 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi41, i64 %.0910.i.i.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi41, i64 %.0910.i.i.i.i
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i64, ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.07.i.sroa.phi, i64 %.0910.i.i.i.i
   %32 = load i64, ptr %31, align 8, !tbaa !19, !noalias !2716
   %33 = zext i1 %.0.in11.i.i.i.i to i64
   %34 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %30, i64 %32)
@@ -17168,7 +17168,7 @@ define linkonce_odr hidden void @_ZN6evmmax5bn25410fq4_squareERKSt4pairINS_3ecc1
   %38 = extractvalue { i64, i1 } %37, 1
   %39 = extractvalue { i64, i1 } %37, 0
   %40 = or i1 %35, %38
-  %41 = getelementptr inbounds nuw i64, ptr %16, i64 %.0910.i.i.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0910.i.i.i.i
   store i64 %39, ptr %41, align 8, !tbaa !19, !noalias !2716
   %42 = add nuw nsw i64 %.0910.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %42, 4
@@ -17185,9 +17185,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 43:                                               ; preds = %43, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i5.i.i.i = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %55, %43 ]
   %.0910.i6.i.i.i = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %57, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %17, i64 %.0910.i6.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0910.i6.i.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !19, !noalias !2719
-  %46 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !19, !noalias !2719
   %48 = zext i1 %.0.in11.i5.i.i.i to i64
   %49 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %45, i64 %47)
@@ -17197,7 +17197,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %53 = extractvalue { i64, i1 } %52, 1
   %54 = extractvalue { i64, i1 } %52, 0
   %55 = or i1 %50, %53
-  %56 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i6.i.i.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0910.i6.i.i.i
   store i64 %54, ptr %56, align 8, !tbaa !19, !noalias !2719
   %57 = add nuw nsw i64 %.0910.i6.i.i.i, 1
   %exitcond.not.i7.i.i.i = icmp eq i64 %57, 4
@@ -17229,7 +17229,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %.07.i9.sroa.phi = phi ptr [ %14, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ %.07.i9.sroa.gep44, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i17 ]
   %.07.i9 = phi i64 [ 0, %_ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit ], [ 1, %_ZN6evmmax3eccplERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i8)
-  %61 = getelementptr inbounds nuw %"class.evmmax::ecc::BaseFieldElem", ptr %25, i64 %.07.i9
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %.07.i9
   call void @llvm.lifetime.start.p0(ptr nonnull %12) #11, !noalias !2726
   call void @llvm.lifetime.start.p0(ptr nonnull %11) #11, !noalias !2731
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !tbaa !19, !noalias !2731
@@ -17238,9 +17238,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 62:                                               ; preds = %62, %59
   %.0.in11.i.i.i.i10 = phi i1 [ false, %59 ], [ %74, %62 ]
   %.0910.i.i.i.i11 = phi i64 [ 0, %59 ], [ %76, %62 ]
-  %63 = getelementptr inbounds nuw i64, ptr %.07.i9.sroa.phi, i64 %.0910.i.i.i.i11
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.07.i9.sroa.phi, i64 %.0910.i.i.i.i11
   %64 = load i64, ptr %63, align 8, !tbaa !19, !noalias !2731
-  %65 = getelementptr inbounds nuw i64, ptr %61, i64 %.0910.i.i.i.i11
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.0910.i.i.i.i11
   %66 = load i64, ptr %65, align 8, !tbaa !19, !noalias !2731
   %67 = zext i1 %.0.in11.i.i.i.i10 to i64
   %68 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %64, i64 %66)
@@ -17250,7 +17250,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %72 = extractvalue { i64, i1 } %71, 1
   %73 = extractvalue { i64, i1 } %71, 0
   %74 = or i1 %69, %72
-  %75 = getelementptr inbounds nuw i64, ptr %11, i64 %.0910.i.i.i.i11
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0910.i.i.i.i11
   store i64 %73, ptr %75, align 8, !tbaa !19, !noalias !2731
   %76 = add nuw nsw i64 %.0910.i.i.i.i11, 1
   %exitcond.not.i.i.i.i12 = icmp eq i64 %76, 4
@@ -17267,9 +17267,9 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 77:                                               ; preds = %77, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i13
   %.0.in11.i5.i.i.i14 = phi i1 [ false, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i13 ], [ %89, %77 ]
   %.0910.i6.i.i.i15 = phi i64 [ 0, %_ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i13 ], [ %91, %77 ]
-  %78 = getelementptr inbounds nuw i64, ptr %12, i64 %.0910.i6.i.i.i15
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0910.i6.i.i.i15
   %79 = load i64, ptr %78, align 8, !tbaa !19, !noalias !2734
-  %80 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i15
+  %80 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i6.i.i.i15
   %81 = load i64, ptr %80, align 8, !tbaa !19, !noalias !2734
   %82 = zext i1 %.0.in11.i5.i.i.i14 to i64
   %83 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %79, i64 %81)
@@ -17279,7 +17279,7 @@ _ZN4intx4addcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %87 = extractvalue { i64, i1 } %86, 1
   %88 = extractvalue { i64, i1 } %86, 0
   %89 = or i1 %84, %87
-  %90 = getelementptr inbounds nuw i64, ptr %10, i64 %.0910.i6.i.i.i15
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0910.i6.i.i.i15
   store i64 %88, ptr %90, align 8, !tbaa !19, !noalias !2734
   %91 = add nuw nsw i64 %.0910.i6.i.i.i15, 1
   %exitcond.not.i7.i.i.i16 = icmp eq i64 %91, 4
@@ -17321,9 +17321,9 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit20: ; preds 
 95:                                               ; preds = %95, %93
   %.0.in11.i.i.i.i22 = phi i1 [ false, %93 ], [ %107, %95 ]
   %.0910.i.i.i.i23 = phi i64 [ 0, %93 ], [ %109, %95 ]
-  %96 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi45, i64 %.0910.i.i.i.i23
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi45, i64 %.0910.i.i.i.i23
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i64, ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i23
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %.06.i.sroa.phi, i64 %.0910.i.i.i.i23
   %99 = load i64, ptr %98, align 8, !tbaa !19, !noalias !2745
   %100 = zext i1 %.0.in11.i.i.i.i22 to i64
   %101 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %97, i64 %99)
@@ -17333,7 +17333,7 @@ _ZN6evmmax3eccplERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit20: ; preds 
   %105 = extractvalue { i64, i1 } %104, 1
   %106 = extractvalue { i64, i1 } %104, 0
   %107 = or i1 %102, %105
-  %108 = getelementptr inbounds nuw i64, ptr %8, i64 %.0910.i.i.i.i23
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910.i.i.i.i23
   store i64 %106, ptr %108, align 8, !tbaa !19, !noalias !2745
   %109 = add nuw nsw i64 %.0910.i.i.i.i23, 1
   %exitcond.not.i.i.i.i24 = icmp eq i64 %109, 4
@@ -17348,9 +17348,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 110:                                              ; preds = %110, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i
   %.0.in11.i.i.i.i.i = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %122, %110 ]
   %.0910.i.i.i.i.i = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i ], [ %124, %110 ]
-  %111 = getelementptr inbounds nuw i64, ptr %9, i64 %.0910.i.i.i.i.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0910.i.i.i.i.i
   %112 = load i64, ptr %111, align 8, !tbaa !19, !noalias !2748
-  %113 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i
   %114 = load i64, ptr %113, align 8, !tbaa !19, !noalias !2748
   %115 = zext i1 %.0.in11.i.i.i.i.i to i64
   %116 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %112, i64 %114)
@@ -17360,7 +17360,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %120 = extractvalue { i64, i1 } %119, 1
   %121 = extractvalue { i64, i1 } %119, 0
   %122 = or i1 %117, %120
-  %123 = getelementptr inbounds nuw i64, ptr %7, i64 %.0910.i.i.i.i.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0910.i.i.i.i.i
   store i64 %121, ptr %123, align 8, !noalias !2742
   %124 = add nuw nsw i64 %.0910.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %124, 4
@@ -17394,9 +17394,9 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
 128:                                              ; preds = %128, %126
   %.0.in11.i.i.i.i27 = phi i1 [ false, %126 ], [ %140, %128 ]
   %.0910.i.i.i.i28 = phi i64 [ 0, %126 ], [ %142, %128 ]
-  %129 = getelementptr inbounds nuw i64, ptr %.06.i26.sroa.phi48, i64 %.0910.i.i.i.i28
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %.06.i26.sroa.phi48, i64 %.0910.i.i.i.i28
   %130 = load i64, ptr %129, align 8
-  %131 = getelementptr inbounds nuw i64, ptr %.06.i26.sroa.phi, i64 %.0910.i.i.i.i28
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %.06.i26.sroa.phi, i64 %.0910.i.i.i.i28
   %132 = load i64, ptr %131, align 8, !tbaa !19, !noalias !2762
   %133 = zext i1 %.0.in11.i.i.i.i27 to i64
   %134 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %130, i64 %132)
@@ -17406,7 +17406,7 @@ _ZN6evmmax3eccmiERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   %138 = extractvalue { i64, i1 } %137, 1
   %139 = extractvalue { i64, i1 } %137, 0
   %140 = or i1 %135, %138
-  %141 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i.i28
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0910.i.i.i.i28
   store i64 %139, ptr %141, align 8, !tbaa !19, !noalias !2762
   %142 = add nuw nsw i64 %.0910.i.i.i.i28, 1
   %exitcond.not.i.i.i.i29 = icmp eq i64 %142, 4
@@ -17421,9 +17421,9 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
 143:                                              ; preds = %143, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i30
   %.0.in11.i.i.i.i.i31 = phi i1 [ false, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i30 ], [ %155, %143 ]
   %.0910.i.i.i.i.i32 = phi i64 [ 0, %_ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i.i30 ], [ %157, %143 ]
-  %144 = getelementptr inbounds nuw i64, ptr %5, i64 %.0910.i.i.i.i.i32
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0910.i.i.i.i.i32
   %145 = load i64, ptr %144, align 8, !tbaa !19, !noalias !2765
-  %146 = getelementptr inbounds nuw i64, ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i32
+  %146 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6evmmax3ecc13BaseFieldElemINS_5bn25415BaseFieldConfigEE2FpE, i64 %.0910.i.i.i.i.i32
   %147 = load i64, ptr %146, align 8, !tbaa !19, !noalias !2765
   %148 = zext i1 %.0.in11.i.i.i.i.i31 to i64
   %149 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %145, i64 %147)
@@ -17433,7 +17433,7 @@ _ZN4intx4subcILj256EEENS_17result_with_carryINS_4uintIXT_EEEEERKS3_S6_b.exit.i.i
   %153 = extractvalue { i64, i1 } %152, 1
   %154 = extractvalue { i64, i1 } %152, 0
   %155 = or i1 %150, %153
-  %156 = getelementptr inbounds nuw i64, ptr %3, i64 %.0910.i.i.i.i.i32
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0910.i.i.i.i.i32
   store i64 %154, ptr %156, align 8, !noalias !2759
   %157 = add nuw nsw i64 %.0910.i.i.i.i.i32, 1
   %exitcond.not.i.i.i.i.i33 = icmp eq i64 %157, 4

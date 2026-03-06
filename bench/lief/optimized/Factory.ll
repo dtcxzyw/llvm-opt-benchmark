@@ -17,12 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.LIEF::PE::Header" = type { %"class.LIEF::Object", %"struct.std::array.29", i32, i16, i32, i32, i32, i16, i32 }
 %"struct.std::array.29" = type { [4 x i8] }
 %"class.LIEF::PE::OptionalHeader" = type { %"class.LIEF::Object", i16, i8, i8, i32, i32, i32, i32, i32, i32, i64, i32, i32, i16, i16, i16, i16, i16, i16, i32, i32, i32, i32, i64, i32, i64, i64, i64, i64, i32, i32 }
-%"class.std::unique_ptr.115" = type { %"struct.std::__uniq_ptr_data.116" }
-%"struct.std::__uniq_ptr_data.116" = type { %"class.std::__uniq_ptr_impl.117" }
-%"class.std::__uniq_ptr_impl.117" = type { %"class.std::tuple.118" }
-%"class.std::tuple.118" = type { %"struct.std::_Tuple_impl.119" }
-%"struct.std::_Tuple_impl.119" = type { %"struct.std::_Head_base.122" }
-%"struct.std::_Head_base.122" = type { ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -559,7 +553,7 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF2PE13DataDirectoryESt14default_deleteIS3_EESaI
 _ZNSt6vectorISt10unique_ptrIN4LIEF2PE13DataDirectoryESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF2PE13DataDirectoryESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %98
   store ptr %91, ptr %46, align 8, !tbaa !156
   store ptr %97, ptr %65, align 8, !tbaa !157
-  %99 = getelementptr inbounds nuw %"class.std::unique_ptr.115", ptr %91, i64 %89
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   store ptr %99, ptr %47, align 8, !tbaa !155
   br label %_ZNSt10unique_ptrIN4LIEF2PE13DataDirectoryESt14default_deleteIS2_EED2Ev.exit
 

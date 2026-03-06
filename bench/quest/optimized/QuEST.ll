@@ -1195,7 +1195,7 @@ define void @multiControlledPhaseShift(ptr noundef readonly byval(%struct.Qureg)
 11:                                               ; preds = %6, %4
   %12 = add nsw i32 %2, -1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %1, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %1, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !20
   tail call void @qasm_recordMultiControlledParamGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 11, ptr noundef %1, i32 noundef %12, i32 noundef %15, double noundef %3) #17
   ret void
@@ -1356,7 +1356,7 @@ define void @multiControlledPhaseFlip(ptr noundef readonly byval(%struct.Qureg) 
 9:                                                ; preds = %5, %3
   %10 = add nsw i32 %2, -1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %1, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %1, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !20
   tail call void @qasm_recordMultiControlledGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 2, ptr noundef %1, i32 noundef %10, i32 noundef %13) #17
   ret void
@@ -1842,7 +1842,7 @@ define void @applyFullQFT(ptr noundef readonly byval(%struct.Qureg) align 8 capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %7, ptr %6, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2752,10 +2752,10 @@ define void @createComplexMatrixN(ptr dead_on_unwind noalias writable sret(%stru
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #19
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !30
   %13 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #19
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store ptr %13, ptr %14, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2807,10 +2807,10 @@ define void @destroyComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMat
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !30
   tail call void @free(ptr noundef %12) #17
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   tail call void @free(ptr noundef %14) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2841,23 +2841,23 @@ define void @initComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMatrix
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %11 = shl i64 %indvars.iv21, %6
-  %12 = getelementptr inbounds double, ptr %1, i64 %11
-  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv21
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv21
   %14 = load ptr, ptr %13, align 8, !tbaa !30
-  %15 = getelementptr inbounds double, ptr %2, i64 %11
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv21
+  %15 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv21
   %17 = load ptr, ptr %16, align 8, !tbaa !30
   br label %18
 
 18:                                               ; preds = %.preheader.us, %18
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %20 = load double, ptr %19, align 8, !tbaa !31
-  %21 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store double %20, ptr %21, align 8, !tbaa !31
-  %22 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %23 = load double, ptr %22, align 8, !tbaa !31
-  %24 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   store double %23, ptr %24, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
@@ -3023,13 +3023,13 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
 
 .lr.ph80.us:                                      ; preds = %.lr.ph80.us.preheader, %._crit_edge81.us
   %indvars.iv93 = phi i64 [ 0, %.lr.ph80.us.preheader ], [ %indvars.iv.next94, %._crit_edge81.us ]
-  %41 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv93
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv93
   %42 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %41) #17
   %43 = icmp eq i32 %42, 1
   %44 = zext i1 %43 to i32
   call void @validateHamilFileCoeffParsed(i32 noundef %44, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
   %45 = mul nuw nsw i64 %indvars.iv93, %40
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %35, i64 %45
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %45
   br label %46
 
 46:                                               ; preds = %.lr.ph80.us, %46
@@ -3039,7 +3039,7 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
   %48 = icmp eq i32 %47, 1
   %49 = zext i1 %48 to i32
   %50 = load i32, ptr %4, align 4, !tbaa !20
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv88
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv88
   store i32 %50, ptr %gep, align 4, !tbaa !20
   call void @validateHamilFilePauliParsed(i32 noundef %49, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
   %51 = load i32, ptr %gep, align 4, !tbaa !20
@@ -3061,7 +3061,7 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
 
 .lr.ph83.split:                                   ; preds = %.lr.ph83, %.lr.ph83.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph83.split ], [ 0, %.lr.ph83 ]
-  %53 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %54 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %53) #17
   %55 = icmp eq i32 %54, 1
   %56 = zext i1 %55 to i32
@@ -3116,9 +3116,9 @@ define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align
 .lr.ph.us:                                        ; preds = %.lr.ph18, %._crit_edge.us
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %._crit_edge.us ], [ 0, %.lr.ph18 ]
   %.01215.us = phi i32 [ %18, %._crit_edge.us ], [ 0, %.lr.ph18 ]
-  %14 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %15 = load double, ptr %14, align 8, !tbaa !31
-  %16 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv27
   store double %15, ptr %16, align 8, !tbaa !31
   %17 = sext i32 %.01215.us to i64
   %18 = add i32 %5, %.01215.us
@@ -3126,9 +3126,9 @@ define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align
 
 19:                                               ; preds = %.lr.ph.us, %19
   %indvars.iv23 = phi i64 [ %17, %.lr.ph.us ], [ %indvars.iv.next24, %19 ]
-  %20 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv23
+  %20 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv23
   %21 = load i32, ptr %20, align 4, !tbaa !20
-  %22 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv23
+  %22 = getelementptr inbounds [4 x i8], ptr %13, i64 %indvars.iv23
   store i32 %21, ptr %22, align 4, !tbaa !20
   %indvars.iv.next24 = add nsw i64 %indvars.iv23, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next24 to i32
@@ -3145,9 +3145,9 @@ define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align
 
 .lr.ph18.split:                                   ; preds = %.lr.ph18, %.lr.ph18.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph18.split ], [ 0, %.lr.ph18 ]
-  %23 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %24 = load double, ptr %23, align 8, !tbaa !31
-  %25 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store double %24, ptr %25, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
@@ -3324,17 +3324,17 @@ define void @reportPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) ali
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv23 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next24, %._crit_edge.us ]
-  %12 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv23
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv23
   %13 = load double, ptr %12, align 8, !tbaa !31
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, double noundef %13)
   %putchar.us = tail call i32 @putchar(i32 9)
   %15 = mul nuw nsw i64 %indvars.iv23, %11
-  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %15
   br label %17
 
 17:                                               ; preds = %.lr.ph.us, %17
   %indvars.iv18 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next19, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv18
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv18
   %19 = load i32, ptr %18, align 4, !tbaa !20
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i32 noundef %19)
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
@@ -3352,7 +3352,7 @@ define void @reportPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) ali
 
 .lr.ph13.split:                                   ; preds = %.lr.ph13.split.preheader, %.lr.ph13.split
   %indvars.iv = phi i64 [ 0, %.lr.ph13.split.preheader ], [ %indvars.iv.next, %.lr.ph13.split ]
-  %21 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %22 = load double, ptr %21, align 8, !tbaa !31
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, double noundef %22)
   %putchar = tail call i32 @putchar(i32 9)

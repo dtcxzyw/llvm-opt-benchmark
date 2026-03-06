@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/cuddZddLin.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DdSubtable = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @empty = internal unnamed_addr global ptr null, align 8
 @zdd_entry = external local_unnamed_addr global ptr, align 8
 @zddTotalNumberSwapping = external local_unnamed_addr global i32, align 4
@@ -55,15 +53,15 @@ define range(i32 0, 2) i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1,
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !30
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.DdSubtable, ptr %20, i64 %26
+  %27 = getelementptr inbounds [56 x i8], ptr %20, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8, !tbaa !31
-  %30 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %29, ptr %30, align 4, !tbaa !30
-  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %32, ptr %31, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -94,10 +92,10 @@ define range(i32 0, 2) i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1,
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %37, align 8, !tbaa !28
-  %45 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv100
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv100
   %46 = load i32, ptr %45, align 4, !tbaa !30
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %44, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %44, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !30
   %50 = icmp slt i32 %49, %1
   %51 = icmp sgt i32 %49, %2
@@ -873,11 +871,11 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %7 = load ptr, ptr %6, align 8, !tbaa !60
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load ptr, ptr %11, align 8, !tbaa !29
-  %13 = getelementptr inbounds %struct.DdSubtable, ptr %12, i64 %8
+  %13 = getelementptr inbounds [56 x i8], ptr %12, i64 %8
   %14 = load ptr, ptr %13, align 8, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !31
@@ -886,9 +884,9 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !63
   %21 = sext i32 %2 to i64
-  %22 = getelementptr inbounds i32, ptr %7, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %7, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !30
-  %24 = getelementptr inbounds %struct.DdSubtable, ptr %12, i64 %21
+  %24 = getelementptr inbounds [56 x i8], ptr %12, i64 %21
   %25 = load ptr, ptr %24, align 8, !tbaa !61
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !31
@@ -917,7 +915,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.loopexit359 ]
   %.0374 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %.loopexit359 ]
   %.0299373 = phi ptr [ null, %.lr.ph.preheader ], [ %.1300, %.loopexit359 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit359, label %37
@@ -984,7 +982,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
 
 .lr.ph381:                                        ; preds = %.lr.ph381.preheader, %._crit_edge
   %indvars.iv435 = phi i64 [ 0, %.lr.ph381.preheader ], [ %indvars.iv.next436, %._crit_edge ]
-  %62 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv435
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv435
   %.1314376 = load ptr, ptr %62, align 8, !tbaa !25
   %.not343377 = icmp eq ptr %.1314376, null
   br i1 %.not343377, label %._crit_edge, label %.lr.ph379
@@ -1049,7 +1047,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %89 = mul i32 %88, 4256249
   %90 = lshr i32 %89, %31
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %25, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %25, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !25
   store ptr %93, ptr %68, align 8, !tbaa !48
   store ptr %.2315384, ptr %92, align 8, !tbaa !25
@@ -1137,7 +1135,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %141 = mul i32 %140, 4256249
   %142 = lshr i32 %141, %31
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds ptr, ptr %25, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %25, i64 %143
   %.1306387 = load ptr, ptr %144, align 8, !tbaa !25
   %cond388 = icmp eq ptr %.1306387, null
   br i1 %cond388, label %._crit_edge392, label %.lr.ph391
@@ -1227,7 +1225,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %195 = mul i32 %194, 4256249
   %196 = lshr i32 %195, %31
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds ptr, ptr %25, i64 %197
+  %198 = getelementptr inbounds [8 x i8], ptr %25, i64 %197
   %.1304393 = load ptr, ptr %198, align 8, !tbaa !25
   %cond351394 = icmp eq ptr %.1304393, null
   br i1 %cond351394, label %._crit_edge398, label %.lr.ph397
@@ -1313,7 +1311,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %247 = lshr i32 %246, %20
   %248 = add nuw nsw i32 %.0325400, 1
   %249 = sext i32 %247 to i64
-  %250 = getelementptr inbounds ptr, ptr %14, i64 %249
+  %250 = getelementptr inbounds [8 x i8], ptr %14, i64 %249
   %251 = load ptr, ptr %250, align 8, !tbaa !25
   store ptr %251, ptr %96, align 8, !tbaa !48
   store ptr %.3316402, ptr %250, align 8, !tbaa !25
@@ -1324,7 +1322,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %indvars.iv440 = phi i64 [ 0, %.lr.ph425 ], [ %indvars.iv.next441, %._crit_edge419 ]
   %.4324423 = phi i32 [ %.1321.lcssa, %.lr.ph425 ], [ %.5.lcssa, %._crit_edge419 ]
   %.1326422 = phi i32 [ %.0325.lcssa, %.lr.ph425 ], [ %.2327.lcssa, %._crit_edge419 ]
-  %253 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv440
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv440
   %254 = load ptr, ptr %253, align 8, !tbaa !25
   %.not339412 = icmp eq ptr %254, null
   br i1 %.not339412, label %._crit_edge419, label %.lr.ph418
@@ -1413,7 +1411,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %305 = mul i32 %304, 4256249
   %306 = lshr i32 %305, %31
   %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds ptr, ptr %25, i64 %307
+  %308 = getelementptr inbounds [8 x i8], ptr %25, i64 %307
   %.2307406 = load ptr, ptr %308, align 8, !tbaa !25
   %cond352407 = icmp eq ptr %.2307406, null
   br i1 %cond352407, label %._crit_edge411, label %.lr.ph410
@@ -1513,7 +1511,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %367 = lshr i32 %366, %20
   %368 = add nsw i32 %.2327413, 1
   %369 = sext i32 %367 to i64
-  %370 = getelementptr inbounds ptr, ptr %14, i64 %369
+  %370 = getelementptr inbounds [8 x i8], ptr %14, i64 %369
   %371 = load ptr, ptr %370, align 8, !tbaa !25
   store ptr %371, ptr %255, align 8, !tbaa !48
   store ptr %.4415, ptr %370, align 8, !tbaa !25
@@ -1537,10 +1535,10 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %.1326.lcssa = phi i32 [ %.0325.lcssa, %.preheader ], [ %.2327.lcssa, %._crit_edge419 ]
   %.4324.lcssa = phi i32 [ %.1321.lcssa, %.preheader ], [ %.5.lcssa, %._crit_edge419 ]
   %373 = load ptr, ptr %11, align 8, !tbaa !29
-  %374 = getelementptr inbounds %struct.DdSubtable, ptr %373, i64 %8
+  %374 = getelementptr inbounds [56 x i8], ptr %373, i64 %8
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 16
   store i32 %.1326.lcssa, ptr %375, align 8, !tbaa !31
-  %376 = getelementptr inbounds %struct.DdSubtable, ptr %373, i64 %21
+  %376 = getelementptr inbounds [56 x i8], ptr %373, i64 %21
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
   store i32 %.4324.lcssa, ptr %377, align 8, !tbaa !31
   %378 = add i32 %27, %16
@@ -1552,11 +1550,11 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   store i32 %383, ptr %379, align 8, !tbaa !36
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %385 = load ptr, ptr %384, align 8, !tbaa !78
-  %386 = getelementptr inbounds ptr, ptr %385, i64 %8
+  %386 = getelementptr inbounds [8 x i8], ptr %385, i64 %8
   %387 = load ptr, ptr %386, align 8, !tbaa !25
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 16
   %389 = load ptr, ptr %388, align 8, !tbaa !64
-  %390 = getelementptr inbounds ptr, ptr %385, i64 %21
+  %390 = getelementptr inbounds [8 x i8], ptr %385, i64 %21
   store ptr %389, ptr %390, align 8, !tbaa !25
   br label %394
 

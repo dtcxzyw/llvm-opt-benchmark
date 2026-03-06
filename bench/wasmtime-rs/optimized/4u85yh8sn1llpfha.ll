@@ -198,7 +198,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds { i32, i32 }, ptr %2, i64 %0
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -729,7 +729,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hae9f8c2238e2c5
   %.sroa.0.0.copyload.i.i.i.us = load ptr, ptr %10, align 8, !noalias !110, !nonnull !4, !noundef !4
   %.sroa.43.0.copyload.i.i.i.us = load i64, ptr %.sroa.43.0..sroa_idx.i.i.i, align 8, !noalias !110
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.us, i64 52
-  %12 = getelementptr inbounds i32, ptr %11, i64 %.sroa.43.0.copyload.i.i.i.us
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %.sroa.43.0.copyload.i.i.i.us
   store i32 %.sroa.6.0.copyload, ptr %12, align 4, !noalias !113
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6d9f3b000aaacfacE.exit.us"
 
@@ -776,7 +776,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17hf999d31e32
   %.sroa.0.0.copyload.i.i.i.us.i = load ptr, ptr %10, align 8, !noalias !132, !nonnull !4, !noundef !4
   %.sroa.43.0.copyload.i.i.i.us.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i.i.i, align 8, !noalias !132
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.us.i, i64 52
-  %12 = getelementptr inbounds i32, ptr %11, i64 %.sroa.43.0.copyload.i.i.i.us.i
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %.sroa.43.0.copyload.i.i.i.us.i
   store i32 %.sroa.6.0.copyload.i, ptr %12, align 4, !noalias !135
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6d9f3b000aaacfacE.exit.us.i"
 
@@ -2656,7 +2656,7 @@ define hidden noundef i32 @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList11
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !380
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 52
-  %19 = getelementptr inbounds i32, ptr %18, i64 %.sroa.43.0.copyload.i
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %.sroa.43.0.copyload.i
   store i32 %7, ptr %19, align 4, !noalias !383
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h8199e976d9f2e35cE.exit"
 
@@ -2784,7 +2784,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5alloc17h
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !407
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 52
-  %50 = getelementptr inbounds i32, ptr %49, i64 %.sroa.43.0.copyload.i.i
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %.sroa.43.0.copyload.i.i
   store i32 %39, ptr %50, align 4, !noalias !410
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h8199e976d9f2e35cE.exit.i"
 
@@ -3112,7 +3112,7 @@ select.unfold:                                    ; preds = %97, %94
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17hdf8b3c2f8e2e65e5E.exit": ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 52
-  %102 = getelementptr inbounds i32, ptr %101, i64 %.sroa.27.0.copyload.i
+  %102 = getelementptr inbounds [4 x i8], ptr %101, i64 %.sroa.27.0.copyload.i
   %103 = add i32 %80, %81
   %104 = sub i32 %103, %.sroa.319.0.ph
   store i32 %104, ptr %102, align 4
@@ -3151,7 +3151,7 @@ select.unfold173:                                 ; preds = %109, %106
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17hdf8b3c2f8e2e65e5E.exit52": ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i47, i64 52
-  %115 = getelementptr inbounds i32, ptr %114, i64 %.sroa.27.0.copyload.i49
+  %115 = getelementptr inbounds [4 x i8], ptr %114, i64 %.sroa.27.0.copyload.i49
   %116 = add i32 %39, %1
   %117 = sub i32 %116, %.sroa.319.0.ph
   store i32 %117, ptr %115, align 4
@@ -3185,7 +3185,7 @@ select.unfold173:                                 ; preds = %109, %106
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !469
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i55, i64 52
-  %128 = getelementptr inbounds i32, ptr %127, i64 %.sroa.43.0.copyload.i
+  %128 = getelementptr inbounds [4 x i8], ptr %127, i64 %.sroa.43.0.copyload.i
   store i32 %39, ptr %128, align 4, !noalias !472
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h8199e976d9f2e35cE.exit"
 
@@ -3220,7 +3220,7 @@ select.unfold173:                                 ; preds = %109, %106
   %.sroa.43.0..sroa_idx.i61 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.43.0.copyload.i62 = load i64, ptr %.sroa.43.0..sroa_idx.i61, align 8, !noalias !479
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i60, i64 52
-  %139 = getelementptr inbounds i32, ptr %138, i64 %.sroa.43.0.copyload.i62
+  %139 = getelementptr inbounds [4 x i8], ptr %138, i64 %.sroa.43.0.copyload.i62
   store i32 %131, ptr %139, align 4, !noalias !482
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h8199e976d9f2e35cE.exit63"
 
@@ -3292,7 +3292,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5reset17h
   %.sroa.0.0.copyload.i.i.i.us.i.i = load ptr, ptr %24, align 8, !noalias !500, !nonnull !4, !noundef !4
   %.sroa.43.0.copyload.i.i.i.us.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i.i.i.i, align 8, !noalias !500
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.us.i.i, i64 52
-  %26 = getelementptr inbounds i32, ptr %25, i64 %.sroa.43.0.copyload.i.i.i.us.i.i
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %.sroa.43.0.copyload.i.i.i.us.i.i
   store i32 %.013, ptr %26, align 4, !noalias !504
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6d9f3b000aaacfacE.exit.us.i.i"
 

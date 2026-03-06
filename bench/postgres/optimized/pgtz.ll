@@ -439,12 +439,12 @@ define dso_local void @pg_tzenumerate_end(ptr noundef %0) local_unnamed_addr #0 
 7:                                                ; preds = %.lr.ph, %7
   %8 = phi i32 [ %3, %.lr.ph ], [ %18, %7 ]
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @FreeDir(ptr noundef %11) #9
   %13 = load i32, ptr %2, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %6, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %6, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call void @pfree(ptr noundef %16) #9
   %17 = load i32, ptr %2, align 4
@@ -481,9 +481,9 @@ define dso_local ptr @pg_tzenumerate_next(ptr noundef %0) local_unnamed_addr #0 
   %11 = phi i32 [ %4, %.lr.ph ], [ %78, %77 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %7, i64 %12
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %12
   %16 = load ptr, ptr %15, align 8
   %17 = call ptr @ReadDir(ptr noundef %14, ptr noundef %16) #9
   %.not = icmp eq ptr %17, null
@@ -492,12 +492,12 @@ define dso_local ptr @pg_tzenumerate_next(ptr noundef %0) local_unnamed_addr #0 
 18:                                               ; preds = %10
   %19 = load i32, ptr %3, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %6, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %6, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @FreeDir(ptr noundef %22) #9
   %24 = load i32, ptr %3, align 4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %7, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %7, i64 %25
   %27 = load ptr, ptr %26, align 8
   call void @pfree(ptr noundef %27) #9
   %28 = load i32, ptr %3, align 4
@@ -514,7 +514,7 @@ define dso_local ptr @pg_tzenumerate_next(ptr noundef %0) local_unnamed_addr #0 
 34:                                               ; preds = %30
   %35 = load i32, ptr %3, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %7, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %7, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef nonnull @.str.8, ptr noundef %38, ptr noundef nonnull %31) #9
   %40 = call i32 @get_dirent_type(ptr noundef nonnull %2, ptr noundef nonnull %17, i1 noundef zeroext true, i32 noundef 21) #9
@@ -538,16 +538,16 @@ define dso_local ptr @pg_tzenumerate_next(ptr noundef %0) local_unnamed_addr #0 
   %50 = call ptr @pstrdup(ptr noundef nonnull %2) #9
   %51 = load i32, ptr %3, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %7, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %7, i64 %52
   store ptr %50, ptr %53, align 8
   %54 = call ptr @AllocateDir(ptr noundef nonnull %2) #9
   %55 = load i32, ptr %3, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %6, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %6, i64 %56
   store ptr %54, ptr %57, align 8
   %58 = load i32, ptr %3, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %6, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %6, i64 %59
   %61 = load ptr, ptr %60, align 8
   %.not35 = icmp eq ptr %61, null
   br i1 %.not35, label %62, label %77, !llvm.loop !8

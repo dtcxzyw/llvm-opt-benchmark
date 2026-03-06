@@ -474,7 +474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %64,
 
 .lr.ph:                                           ; preds = %.lr.ph51.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph51.split ]
-  %88 = getelementptr inbounds nuw float, ptr %79, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv
   %89 = load float, ptr %88, align 4, !tbaa !59
   %90 = fmul float %89, 2.550000e+02
   %91 = fcmp ogt float %90, 2.550000e+02

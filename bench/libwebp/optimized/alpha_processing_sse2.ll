@@ -43,7 +43,7 @@ define internal void @MultARGBRow_SSE2(ptr noundef %0, i32 noundef %1, i32 nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv34 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next35, %.lr.ph ]
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv34
   %6 = load i64, ptr %5, align 1, !tbaa !7
   %7 = insertelement <2 x i64> poison, i64 %6, i64 0
   %8 = bitcast <2 x i64> %7 to <16 x i8>
@@ -76,7 +76,7 @@ define internal void @MultARGBRow_SSE2(ptr noundef %0, i32 noundef %1, i32 nound
 
 23:                                               ; preds = %.loopexit
   %24 = zext nneg i32 %.0 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %24
   tail call void @WebPMultARGBRow_C(ptr noundef %25, i32 noundef %21, i32 noundef %2) #6
   br label %26
 
@@ -170,7 +170,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr noundef captures(none) %0, i32
 .lr.ph108.us:                                     ; preds = %.preheader.us, %.lr.ph108.us
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.lr.ph108.us ], [ 0, %.preheader.us ]
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph108.us ], [ 4, %.preheader.us ]
-  %13 = getelementptr inbounds nuw i32, ptr %.0112.us, i64 %indvars.iv138
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.0112.us, i64 %indvars.iv138
   %14 = load <16 x i8>, ptr %13, align 1, !tbaa !7
   %15 = shufflevector <16 x i8> %14, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %16 = shufflevector <16 x i8> %14, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -330,7 +330,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr noundef captures(none) %0, i32
 101:                                              ; preds = %.preheader102, %101
   %indvars.iv125 = phi i64 [ 0, %.preheader102 ], [ %indvars.iv.next126, %101 ]
   %indvars.iv = phi i64 [ 4, %.preheader102 ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds nuw i32, ptr %.0112, i64 %indvars.iv125
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.0112, i64 %indvars.iv125
   %103 = load <16 x i8>, ptr %102, align 1, !tbaa !7
   %104 = shufflevector <16 x i8> %103, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %105 = shufflevector <16 x i8> %103, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -575,7 +575,7 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias noundef readonly cap
 
 ._crit_edge.us:                                   ; preds = %.lr.ph49.us, %..preheader_crit_edge.us
   %14 = getelementptr inbounds i8, ptr %.052.us, i64 %10
-  %15 = getelementptr inbounds i32, ptr %.04351.us, i64 %11
+  %15 = getelementptr inbounds [4 x i8], ptr %.04351.us, i64 %11
   %16 = add nuw nsw i32 %.04550.us, 1
   %exitcond73.not = icmp eq i32 %16, %3
   br i1 %exitcond73.not, label %._crit_edge53, label %.preheader46.us, !llvm.loop !18
@@ -586,7 +586,7 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias noundef readonly cap
   %18 = load i8, ptr %17, align 1, !tbaa !7
   %19 = zext i8 %18 to i32
   %20 = shl nuw nsw i32 %19, 8
-  %21 = getelementptr inbounds nuw i32, ptr %.04351.us, i64 %indvars.iv70
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.04351.us, i64 %indvars.iv70
   store i32 %20, ptr %21, align 4, !tbaa !19
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %22 = icmp samesign ult i64 %indvars.iv.next71, %13
@@ -605,7 +605,7 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias noundef readonly cap
   %31 = shufflevector <8 x i16> %30, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %32 = shufflevector <8 x i16> %28, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %33 = shufflevector <8 x i16> %30, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %34 = getelementptr inbounds nuw i32, ptr %.04351.us, i64 %indvars.iv65
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.04351.us, i64 %indvars.iv65
   store <8 x i16> %29, ptr %34, align 1, !tbaa !7
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store <8 x i16> %32, ptr %35, align 1, !tbaa !7
@@ -643,7 +643,7 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias noundef readonly cap
   %44 = load i8, ptr %43, align 1, !tbaa !7
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
-  %47 = getelementptr inbounds nuw i32, ptr %.04351.us56, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.04351.us56, i64 %indvars.iv
   store i32 %46, ptr %47, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -651,7 +651,7 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias noundef readonly cap
 
 ._crit_edge.us60:                                 ; preds = %42
   %48 = getelementptr inbounds i8, ptr %.052.us55, i64 %10
-  %49 = getelementptr inbounds i32, ptr %.04351.us56, i64 %11
+  %49 = getelementptr inbounds [4 x i8], ptr %.04351.us56, i64 %11
   %50 = add nuw nsw i32 %.04550.us57, 1
   %exitcond64.not = icmp eq i32 %50, %3
   br i1 %exitcond64.not, label %._crit_edge53, label %.preheader46.us54, !llvm.loop !18
@@ -867,7 +867,7 @@ define internal void @ExtractGreen_SSE2(ptr noalias noundef readonly captures(no
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
   %indvars.iv73 = phi i64 [ %43, %.lr.ph65.preheader ], [ %indvars.iv.next74, %.lr.ph65 ]
-  %44 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv73
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv73
   %45 = load i32, ptr %44, align 4, !tbaa !19
   %46 = lshr i32 %45, 8
   %47 = trunc i32 %46 to i8
@@ -1030,7 +1030,7 @@ define internal void @AlphaReplace_SSE2(ptr noundef captures(none) %0, i32 nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv42 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next43, %.lr.ph ]
   %indvars.iv = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv42
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv42
   %11 = load <4 x i32>, ptr %10, align 1, !tbaa !7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load <2 x i64>, ptr %12, align 1, !tbaa !7
@@ -1053,7 +1053,7 @@ define internal void @AlphaReplace_SSE2(ptr noundef captures(none) %0, i32 nound
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %28
   %indvars.iv47 = phi i64 [ %9, %.lr.ph41.preheader ], [ %indvars.iv.next48, %28 ]
-  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv47
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv47
   %25 = load i32, ptr %24, align 4, !tbaa !19
   %26 = icmp ult i32 %25, 16777216
   br i1 %26, label %27, label %28

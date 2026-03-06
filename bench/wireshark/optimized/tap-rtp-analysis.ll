@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._key_value = type { i32, i32 }
-%struct._bw_history_item = type { double, i32 }
-%struct._mimetype_and_clock = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [16 x i8] c"telephone-event\00", align 1
 @clock_map = internal unnamed_addr constant [28 x %struct._key_value] [%struct._key_value { i32 0, i32 8000 }, %struct._key_value { i32 1, i32 8000 }, %struct._key_value { i32 2, i32 8000 }, %struct._key_value { i32 3, i32 8000 }, %struct._key_value { i32 4, i32 8000 }, %struct._key_value { i32 5, i32 8000 }, %struct._key_value { i32 6, i32 16000 }, %struct._key_value { i32 7, i32 8000 }, %struct._key_value { i32 8, i32 8000 }, %struct._key_value { i32 9, i32 8000 }, %struct._key_value { i32 10, i32 44100 }, %struct._key_value { i32 11, i32 44100 }, %struct._key_value { i32 12, i32 8000 }, %struct._key_value { i32 13, i32 8000 }, %struct._key_value { i32 14, i32 90000 }, %struct._key_value { i32 15, i32 8000 }, %struct._key_value { i32 15, i32 8000 }, %struct._key_value { i32 16, i32 11025 }, %struct._key_value { i32 17, i32 22050 }, %struct._key_value { i32 18, i32 8000 }, %struct._key_value { i32 19, i32 8000 }, %struct._key_value { i32 25, i32 90000 }, %struct._key_value { i32 26, i32 90000 }, %struct._key_value { i32 28, i32 90000 }, %struct._key_value { i32 31, i32 90000 }, %struct._key_value { i32 32, i32 90000 }, %struct._key_value { i32 33, i32 90000 }, %struct._key_value { i32 34, i32 90000 }], align 16
@@ -95,14 +93,14 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nounde
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4842
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i64
-  %37 = getelementptr %struct._bw_history_item, ptr %0, i64 %36
+  %37 = getelementptr [16 x i8], ptr %0, i64 %36
   %38 = getelementptr i8, ptr %37, i64 48
   %.356 = select i1 %31, i32 48, i32 28
   %39 = add i32 %33, %.356
   store i32 %39, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4842
-  %42 = getelementptr %struct._bw_history_item, ptr %40, i64 %36
+  %42 = getelementptr [16 x i8], ptr %40, i64 %36
   store double %5, ptr %42, align 8
   %43 = load i16, ptr %41, align 2
   %44 = add i16 %43, 1
@@ -290,13 +288,13 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .preheader:                                       ; preds = %133, %144
   %.07.i = phi i64 [ %145, %144 ], [ 0, %133 ]
-  %138 = getelementptr %struct._key_value, ptr @clock_map, i64 %.07.i
+  %138 = getelementptr [8 x i8], ptr @clock_map, i64 %.07.i
   %139 = load i32, ptr %138, align 8
   %140 = icmp eq i32 %139, %136
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %.preheader
-  %142 = getelementptr %struct._key_value, ptr @clock_map, i64 %.07.i
+  %142 = getelementptr [8 x i8], ptr @clock_map, i64 %.07.i
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   br label %get_clock_rate.exit
 
@@ -339,7 +337,7 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nounde
 
 161:                                              ; preds = %160, %158
   %indvars.iv.i = phi i64 [ 37, %158 ], [ %indvars.iv.next.i, %160 ]
-  %162 = getelementptr %struct._mimetype_and_clock, ptr @mimetype_and_clock_map, i64 %indvars.iv.i
+  %162 = getelementptr [16 x i8], ptr @mimetype_and_clock_map, i64 %indvars.iv.i
   %163 = load ptr, ptr %162, align 16
   %164 = tail call i64 @strlen(ptr noundef %163) #6
   %165 = tail call i32 @g_ascii_strncasecmp(ptr noundef %163, ptr noundef %159, i64 noundef %164)
@@ -462,19 +460,19 @@ get_clock_rate.exit.thread:                       ; preds = %160, %144, %152, %1
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 4842
   %235 = load i16, ptr %234, align 2
   %236 = zext i16 %235 to i64
-  %237 = getelementptr %struct._bw_history_item, ptr %0, i64 %236
+  %237 = getelementptr [16 x i8], ptr %0, i64 %236
   %238 = getelementptr i8, ptr %237, i64 48
   %.357 = select i1 %231, i32 48, i32 28
   %239 = add i32 %233, %.357
   store i32 %239, ptr %238, align 8
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 4842
-  %242 = getelementptr %struct._bw_history_item, ptr %240, i64 %236
+  %242 = getelementptr [16 x i8], ptr %240, i64 %236
   store double %5, ptr %242, align 8
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 4840
   %.promoted = load i16, ptr %243, align 8
   %244 = zext i16 %.promoted to i64
-  %245 = getelementptr %struct._bw_history_item, ptr %240, i64 %244
+  %245 = getelementptr [16 x i8], ptr %240, i64 %244
   %246 = load double, ptr %245, align 8
   %247 = fadd double %246, 1.000000e+03
   %248 = fcmp olt double %247, %5
@@ -489,7 +487,7 @@ get_clock_rate.exit.thread:                       ; preds = %160, %144, %152, %1
   %251 = phi i32 [ %.promoted317, %.lr.ph ], [ %256, %250 ]
   %252 = phi i64 [ %244, %.lr.ph ], [ %259, %250 ]
   %spec.select315316 = phi i16 [ %.promoted, %.lr.ph ], [ %spec.select, %250 ]
-  %253 = getelementptr %struct._bw_history_item, ptr %240, i64 %252
+  %253 = getelementptr [16 x i8], ptr %240, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %255 = load i32, ptr %254, align 8
   %256 = sub i32 %251, %255
@@ -499,7 +497,7 @@ get_clock_rate.exit.thread:                       ; preds = %160, %144, %152, %1
   %spec.select = select i1 %258, i16 0, i16 %257
   store i16 %spec.select, ptr %243, align 8
   %259 = zext i16 %spec.select to i64
-  %260 = getelementptr %struct._bw_history_item, ptr %240, i64 %259
+  %260 = getelementptr [16 x i8], ptr %240, i64 %259
   %261 = load double, ptr %260, align 8
   %262 = fadd double %261, 1.000000e+03
   %263 = fcmp olt double %262, %5

@@ -10,10 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.nlsat::simple_checker::imp::Endpoint" = type { ptr, i8, %class._scoped_numeral }
 %class._scoped_numeral = type { ptr, %"class.algebraic_numbers::anum" }
 %"class.algebraic_numbers::anum" = type { ptr }
-%"struct.nlsat::simple_checker::imp::Clause_Visit_Tag" = type { i8, %class.svector.8 }
-%class.svector.8 = type { %class.vector.9 }
-%class.vector.9 = type { ptr }
-%class.vector.16 = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -250,13 +246,13 @@ _ZN6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE3endEv.exit.i.i: 
   %.0.i3947 = phi i32 [ 0, %_ZNK6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE4sizeEv.exit.thread.i.thread ], [ %39, %_ZNK6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE4sizeEv.exit.thread.i ]
   %49 = phi ptr [ %42, %_ZNK6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE4sizeEv.exit.thread.i.thread ], [ %40, %_ZNK6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE4sizeEv.exit.thread.i ]
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %50
   %.not78.i.i = icmp eq i32 %.0.i3947, %48
   br i1 %.not78.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE3endEv.exit.i.i
   %52 = zext i32 %.0.i3947 to i64
-  %53 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %49, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %52
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5nlsat14simple_checker3imp16Clause_Visit_TagD2Ev.exit.i.i, %.lr.ph.preheader.i.i
@@ -316,13 +312,13 @@ _ZNK6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE8capacityEv.exit
   %70 = getelementptr inbounds i8, ptr %64, i64 -4
   store i32 %39, ptr %70, align 4, !tbaa !19
   %71 = zext i32 %39 to i64
-  %72 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %64, i64 %71
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %71
   %.not1218.i = icmp eq i32 %.0.i16.i.ph, %39
   br i1 %.not1218.i, label %_ZN6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE6resizeEj.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %69
   %73 = zext i32 %.0.i16.i.ph to i64
-  %74 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %64, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %73
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -490,13 +486,13 @@ _ZN6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE3endEv.
   %.0.i154957 = phi i32 [ 0, %_ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeEv.exit.thread.i.thread ], [ %119, %_ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeEv.exit.thread.i ]
   %129 = phi ptr [ %122, %_ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeEv.exit.thread.i.thread ], [ %120, %_ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeEv.exit.thread.i ]
   %130 = zext i32 %128 to i64
-  %131 = getelementptr inbounds nuw %class.vector.16, ptr %129, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %130
   %.not78.i.i18 = icmp eq i32 %.0.i154957, %128
   br i1 %.not78.i.i18, label %._crit_edge.i.i25, label %.lr.ph.preheader.i.i19
 
 .lr.ph.preheader.i.i19:                           ; preds = %_ZN6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE3endEv.exit.i.i
   %132 = zext i32 %.0.i154957 to i64
-  %133 = getelementptr inbounds nuw %class.vector.16, ptr %129, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %132
   br label %.lr.ph.i.i20
 
 .lr.ph.i.i20:                                     ; preds = %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjED2Ev.exit.i.i, %.lr.ph.preheader.i.i19
@@ -560,7 +556,7 @@ _ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE8capac
 .lr.ph.preheader.i31:                             ; preds = %148
   %150 = zext i32 %119 to i64
   %151 = zext i32 %.0.i16.i29.ph to i64
-  %152 = getelementptr %class.vector.16, ptr %143, i64 %151
+  %152 = getelementptr [8 x i8], ptr %143, i64 %151
   %153 = sub nsw i64 %150, %151
   %154 = shl nsw i64 %153, 3
   call void @llvm.memset.p0.i64(ptr align 8 %152, i8 0, i64 %154, i1 false), !tbaa !53
@@ -658,7 +654,7 @@ _ZNK6vectorIPN5nlsat6clauseELb0EjE4sizeEv.exit.i.i: ; preds = %.lr.ph.split.i
 15:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
   %16 = load ptr, ptr %5, align 8, !tbaa !36
-  %17 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %16, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv.i.i
   %18 = load i8, ptr %17, align 8, !tbaa !43, !range !58, !noundef !59
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %23, label %20
@@ -708,7 +704,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN6v
   %13 = phi i32 [ %.pre2, %11 ], [ %7, %5 ]
   %14 = phi ptr [ %.pre, %11 ], [ %3, %5 ]
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Var_Domain", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [144 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %1, align 8, !tbaa !64
   store ptr %17, ptr %16, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1098,7 +1094,7 @@ _ZNK6vectorIN5nlsat14simple_checker3imp10Var_DomainELb1EjE4sizeEv.exit: ; preds 
   store i32 %.0.i, ptr %53, align 4, !tbaa !19
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %55 = zext i32 %.0.i to i64
-  %56 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Var_Domain", ptr %48, i64 %55
+  %56 = getelementptr inbounds nuw [144 x i8], ptr %48, i64 %55
   %57 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN5nlsat14simple_checker3imp10Var_DomainEES5_ET0_T_S8_S7_(ptr %48, ptr %56, ptr noundef nonnull %54)
   %58 = load ptr, ptr %0, align 8, !tbaa !63
   %.not.i = icmp eq ptr %58, null
@@ -1875,13 +1871,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24ch
   %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = load ptr, ptr %4, align 8, !tbaa !32
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !86
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !88
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !36
-  %13 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %12, i64 %6
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %6
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = icmp eq ptr %15, null
@@ -1939,7 +1935,7 @@ _ZNK6vectorIbLb0EjE8capacityEv.exit.thread.i:     ; preds = %_ZNK6vectorIbLb0EjE
 _ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit:          ; preds = %20, %26, %.lr.ph.preheader.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw %class.vector.16, ptr %30, i64 %6
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %6
   %32 = load ptr, ptr %31, align 8, !tbaa !53
   %33 = icmp eq ptr %32, null
   br i1 %33, label %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i, label %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.thread.i
@@ -1947,7 +1943,7 @@ _ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit:          ; preds = %20, %26, %.lr.ph.pr
 _ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread:   ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !30
-  %36 = getelementptr inbounds nuw %class.vector.16, ptr %35, i64 %6
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %6
   %37 = load ptr, ptr %36, align 8, !tbaa !53
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.critedge, label %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.thread.i
@@ -1997,7 +1993,7 @@ _ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE8capacityEv.exi
 .lr.ph.preheader.i44:                             ; preds = %50
   %52 = zext i32 %10 to i64
   %53 = zext i32 %.0.i17.ph.i41 to i64
-  %54 = getelementptr i32, ptr %.pr.i40, i64 %53
+  %54 = getelementptr [4 x i8], ptr %.pr.i40, i64 %53
   %55 = sub nsw i64 %52, %53
   %56 = shl nsw i64 %55, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %54, i8 0, i64 %56, i1 false), !tbaa !93
@@ -2017,7 +2013,7 @@ _ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
   %.03255 = phi i32 [ %10, %.lr.ph ], [ %.1, %120 ]
   %60 = load ptr, ptr %11, align 8, !tbaa !36
-  %61 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %60, i64 %6
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %6
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !37
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv
@@ -2028,16 +2024,16 @@ _ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT
 67:                                               ; preds = %59
   %68 = load ptr, ptr %3, align 8, !tbaa !31
   %69 = load ptr, ptr %68, align 8, !tbaa !32
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %6
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %6
   %71 = load ptr, ptr %70, align 8, !tbaa !86
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %73 = getelementptr inbounds nuw %"class.sat::literal", ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4, !tbaa !19
   %75 = lshr i32 %74, 1
   %76 = load ptr, ptr %57, align 8, !tbaa !95
   %77 = load ptr, ptr %76, align 8, !tbaa !96
   %78 = zext nneg i32 %75 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !99
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %83
@@ -2059,7 +2055,7 @@ _ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit: ; preds = %83
   %87 = trunc i32 %74 to i1
   %88 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %80, i1 noundef zeroext %87)
   %.pre = load ptr, ptr %11, align 8, !tbaa !36
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %.pre, i64 %6
+  %.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %6
   br i1 %88, label %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, label %92
 
 _ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread: ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit
@@ -2077,10 +2073,10 @@ _ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread: ; preds
   store i8 1, ptr %95, align 1, !tbaa !91
   %96 = load ptr, ptr %3, align 8, !tbaa !31
   %97 = load ptr, ptr %96, align 8, !tbaa !32
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %6
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %6
   %99 = load ptr, ptr %98, align 8, !tbaa !86
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %101 = getelementptr inbounds nuw %"class.sat::literal", ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4, !tbaa !19
   %103 = xor i32 %102, 1
   %104 = load ptr, ptr %58, align 8, !tbaa !104
@@ -2108,7 +2104,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %107, %113
   %115 = phi ptr [ %.pre.i, %113 ], [ %105, %107 ]
   %116 = getelementptr inbounds i8, ptr %115, i64 -4
   %117 = zext i32 %114 to i64
-  %118 = getelementptr inbounds nuw %"class.sat::literal", ptr %115, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %117
   store i32 %103, ptr %118, align 4, !tbaa !19
   %119 = add i32 %114, 1
   store i32 %119, ptr %116, align 4, !tbaa !19
@@ -2148,11 +2144,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24co
   %9 = load ptr, ptr %8, align 8, !tbaa !31
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !86
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = zext i32 %2 to i64
-  %16 = getelementptr inbounds nuw %"class.sat::literal", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !19
   %18 = trunc i32 %17 to i1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2160,7 +2156,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24co
   %21 = lshr i32 %17, 1
   %22 = load ptr, ptr %20, align 8, !tbaa !96
   %23 = zext nneg i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !99
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !109
@@ -2170,9 +2166,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24co
 29:                                               ; preds = %3
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load ptr, ptr %30, align 8, !tbaa !30
-  %32 = getelementptr inbounds nuw %class.vector.16, ptr %31, i64 %11
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %11
   %33 = load ptr, ptr %32, align 8, !tbaa !53
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %15
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %15
   %35 = load i32, ptr %34, align 4, !tbaa !93
   %switch = icmp ult i32 %35, 2
   br i1 %switch, label %36, label %76
@@ -2209,12 +2205,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24co
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = load ptr, ptr %51, align 8, !tbaa !36
-  %53 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %52, i64 %11
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %11
   store i8 1, ptr %53, align 8, !tbaa !43
   %54 = load ptr, ptr %30, align 8, !tbaa !30
-  %55 = getelementptr inbounds nuw %class.vector.16, ptr %54, i64 %11
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %11
   %56 = load ptr, ptr %55, align 8, !tbaa !53
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %15
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %15
   store i32 1, ptr %57, align 4, !tbaa !93
   %58 = load i32, ptr %25, align 4, !tbaa !101
   %59 = icmp ult i32 %58, 3
@@ -2303,11 +2299,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp25co
   %13 = load ptr, ptr %12, align 8, !tbaa !31
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds nuw %"class.sat::literal", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !19
   %22 = trunc i32 %21 to i1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2315,7 +2311,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp25co
   %25 = lshr i32 %21, 1
   %26 = load ptr, ptr %24, align 8, !tbaa !96
   %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !99
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !109
@@ -2325,9 +2321,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp25co
 33:                                               ; preds = %3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !30
-  %36 = getelementptr inbounds nuw %class.vector.16, ptr %35, i64 %15
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %15
   %37 = load ptr, ptr %36, align 8, !tbaa !53
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %19
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %19
   %39 = load i32, ptr %38, align 4, !tbaa !93
   switch i32 %39, label %174 [
     i32 0, label %40
@@ -2393,7 +2389,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp25co
   %64 = phi i32 [ %.pre2.i, %.noexc ], [ %57, %55 ]
   %65 = phi ptr [ %.pre.i, %.noexc ], [ %53, %55 ]
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %class._scoped_numeral, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %66
   store ptr %63, ptr %67, align 8, !tbaa !11
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr null, ptr %68, align 8, !tbaa !48
@@ -2444,9 +2440,9 @@ _ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit: ; preds = %62
 
 84:                                               ; preds = %._crit_edge
   %85 = load ptr, ptr %34, align 8, !tbaa !30
-  %86 = getelementptr inbounds nuw %class.vector.16, ptr %85, i64 %15
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %15
   %87 = load ptr, ptr %86, align 8, !tbaa !53
-  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %19
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %19
   br i1 %83, label %92, label %89
 
 89:                                               ; preds = %84
@@ -2476,7 +2472,7 @@ _ZN6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4backEv.exit.i:
   %97 = phi i32 [ %109, %_ZN6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE8pop_backEv.exit ], [ %.pre59, %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.preheader ]
   %98 = add i32 %97, -1
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %class._scoped_numeral, ptr %96, i64 %99
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !50
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   invoke void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %101, ptr noundef nonnull align 8 dereferenceable(8) %102)
@@ -2559,7 +2555,7 @@ default.unreachable74:                            ; preds = %115
 121:                                              ; preds = %118
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %123 = load ptr, ptr %122, align 8, !tbaa !36
-  %124 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %123, i64 %15
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %123, i64 %15
   store i8 1, ptr %124, align 8, !tbaa !43
   %125 = load i32, ptr %4, align 4, !tbaa !120
   %126 = load ptr, ptr %6, align 8, !tbaa !113
@@ -2579,12 +2575,12 @@ _ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.i
 .lr.ph.i.i:                                       ; preds = %.noexc50, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc50 ]
   %131 = load ptr, ptr %6, align 8, !tbaa !113
-  %132 = getelementptr inbounds nuw %class._scoped_numeral, ptr %131, i64 %indvars.iv.i.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %indvars.iv.i.i
   %133 = load ptr, ptr %8, align 8, !tbaa !117
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv.i.i
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %indvars.iv.i.i
   %135 = load i32, ptr %134, align 4, !tbaa !19
   %136 = load ptr, ptr %9, align 8, !tbaa !117
-  %137 = getelementptr inbounds nuw i32, ptr %136, i64 %indvars.iv.i.i
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %indvars.iv.i.i
   %138 = load i32, ptr %137, align 4, !tbaa !19
   %139 = invoke noundef zeroext i1 @_ZN5nlsat14simple_checker3imp17update_var_domainENS1_9sign_kindERK15_scoped_numeralIN17algebraic_numbers7managerEEjjS8_(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %125, ptr noundef nonnull align 8 dereferenceable(16) %132, i32 noundef %135, i32 noundef %138, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %.noexc50 unwind label %.loopexit
@@ -3041,7 +3037,7 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.critedge.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge.us ], [ 1, %.lr.ph.split.us.preheader ]
   %.07291.us = phi i32 [ %.2.us, %.critedge.us ], [ %.0.i62, %.lr.ph.split.us.preheader ]
-  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !111
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, -8
@@ -3116,13 +3112,13 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
 
 switch.lookup:                                    ; preds = %38
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split.i.us
 
 switch.lookup111:                                 ; preds = %42
   %45 = zext nneg i32 %switch.tableidx108 to i64
-  %switch.gep115 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp12get_axb_signERK15_scoped_numeralIN17algebraic_numbers7managerEEjj, i64 %45
+  %switch.gep115 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5nlsat14simple_checker3imp12get_axb_signERK15_scoped_numeralIN17algebraic_numbers7managerEEjj, i64 %45
   %switch.load116 = load i32, ptr %switch.gep115, align 4
   br label %.sink.split.i.us
 
@@ -3147,7 +3143,7 @@ _ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us: ; pre
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread ], [ 1, %.lr.ph ]
   %.07291 = phi i32 [ %.278, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread ], [ %.0.i62, %.lr.ph ]
-  %47 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv96
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv96
   %48 = load ptr, ptr %47, align 8, !tbaa !111
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %49, -8
@@ -3222,13 +3218,13 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
 
 switch.lookup126:                                 ; preds = %63
   %69 = zext nneg i32 %switch.tableidx123 to i64
-  %switch.gep130 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp12get_axb_signERK15_scoped_numeralIN17algebraic_numbers7managerEEjj, i64 %69
+  %switch.gep130 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5nlsat14simple_checker3imp12get_axb_signERK15_scoped_numeralIN17algebraic_numbers7managerEEjj, i64 %69
   %switch.load131 = load i32, ptr %switch.gep130, align 4
   br label %.sink.split.i
 
 switch.lookup135:                                 ; preds = %65
   %70 = zext nneg i32 %switch.tableidx132 to i64
-  %switch.gep139 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 %70
+  %switch.gep139 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 %70
   %switch.load140 = load i32, ptr %switch.gep139, align 4
   br label %.sink.split.i
 
@@ -3747,7 +3743,7 @@ define linkonce_odr hidden void @_ZN5nlsat14simple_checker3imp19get_monomial_dom
   %25 = icmp eq i32 %24, 0
   %26 = load ptr, ptr %20, align 8
   %27 = zext i32 %22 to i64
-  %28 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Var_Domain", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [144 x i8], ptr %26, i64 %27
   %.idx = select i1 %25, i64 72, i64 0
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   %.not24 = icmp eq i32 %23, 0
@@ -3855,7 +3851,7 @@ define linkonce_odr hidden void @_ZN5nlsat14simple_checker3imp16merge_mul_domain
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !19
   %34 = zext i32 %.pre2.i to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %34
   store ptr %4, ptr %35, align 8, !tbaa !132
   %36 = add i32 %.pre2.i, 1
   store i32 %36, ptr %.phi.trans.insert.i, align 4, !tbaa !19
@@ -3879,7 +3875,7 @@ define linkonce_odr hidden void @_ZN5nlsat14simple_checker3imp16merge_mul_domain
   %43 = phi ptr [ %.pre.i24, %.noexc27 ], [ %.pre.i, %33 ]
   %44 = getelementptr inbounds i8, ptr %43, i64 -4
   %45 = zext i32 %42 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %45
   store ptr %5, ptr %46, align 8, !tbaa !132
   %47 = add i32 %42, 1
   store i32 %47, ptr %44, align 4, !tbaa !19
@@ -3903,7 +3899,7 @@ define linkonce_odr hidden void @_ZN5nlsat14simple_checker3imp16merge_mul_domain
   %54 = phi ptr [ %.pre.i29, %.noexc32 ], [ %43, %41 ]
   %55 = getelementptr inbounds i8, ptr %54, i64 -4
   %56 = zext i32 %53 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %56
   store ptr %6, ptr %57, align 8, !tbaa !132
   %58 = add i32 %53, 1
   store i32 %58, ptr %55, align 4, !tbaa !19
@@ -3927,7 +3923,7 @@ define linkonce_odr hidden void @_ZN5nlsat14simple_checker3imp16merge_mul_domain
   %65 = phi ptr [ %.pre.i34, %.noexc37 ], [ %54, %52 ]
   %66 = getelementptr inbounds i8, ptr %65, i64 -4
   %67 = zext i32 %64 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %67
   store ptr %7, ptr %68, align 8, !tbaa !132
   %69 = add i32 %64, 1
   store i32 %69, ptr %66, align 4, !tbaa !19
@@ -4347,7 +4343,7 @@ _ZNK6vectorIPN5nlsat14simple_checker3imp8EndpointELb0EjE4sizeEv.exit:
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread ]
   %9 = load ptr, ptr %3, align 8, !tbaa !132
   %10 = load ptr, ptr %1, align 8, !tbaa !129
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !132
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load i8, ptr %13, align 8
@@ -4421,14 +4417,14 @@ _ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit: ; preds = %40
 
 47:                                               ; preds = %38, %42, %26, %18, %44, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
   %48 = load ptr, ptr %1, align 8, !tbaa !129
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !132
   store ptr %50, ptr %3, align 8, !tbaa !132
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
 _ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread: ; preds = %16, %38, %42, %26, %18, %44, %47, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
   %51 = load ptr, ptr %1, align 8, !tbaa !129
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !132
   %54 = load ptr, ptr %2, align 8, !tbaa !132
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -4503,7 +4499,7 @@ _ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31: ; preds = %82
 
 89:                                               ; preds = %80, %84, %68, %60, %86, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31
   %90 = load ptr, ptr %1, align 8, !tbaa !129
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8, !tbaa !132
   store ptr %92, ptr %2, align 8, !tbaa !132
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
@@ -5007,7 +5003,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp17up
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !63
   %10 = zext i32 %3 to i64
-  %11 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Var_Domain", ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [144 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7115,7 +7111,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp14ch
   store i32 %25, ptr %6, align 4, !tbaa !19
   %26 = load ptr, ptr %2, align 8, !tbaa !113
   %27 = zext i32 %24 to i64
-  %28 = getelementptr inbounds nuw %class._scoped_numeral, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN10polynomial7manager5coeffEPKNS_10polynomialEj(ptr noundef %1, i32 noundef %.03045)
   tail call void @_ZN17algebraic_numbers7manager3setERNS_4anumERK3mpz(ptr noundef nonnull align 8 dereferenceable(17) %20, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(16) %30)
@@ -7144,7 +7140,7 @@ _ZN6vectorIjLb1EjE9push_backEOj.exit:             ; preds = %34, %40
   %42 = phi ptr [ %.pre.i, %40 ], [ %32, %34 ]
   %43 = getelementptr inbounds i8, ptr %42, i64 -4
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %44
   store i32 %31, ptr %45, align 4, !tbaa !19
   %46 = add i32 %41, 1
   store i32 %46, ptr %43, align 4, !tbaa !19
@@ -7173,7 +7169,7 @@ _ZN6vectorIjLb1EjE9push_backEOj.exit37:           ; preds = %50, %56
   %58 = phi ptr [ %.pre.i34, %56 ], [ %48, %50 ]
   %59 = getelementptr inbounds i8, ptr %58, i64 -4
   %60 = zext i32 %57 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %60
   store i32 %47, ptr %61, align 4, !tbaa !19
   %62 = add i32 %57, 1
   store i32 %62, ptr %59, align 4, !tbaa !19
@@ -7620,12 +7616,12 @@ _ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit: 
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
   %.0112146 = phi i32 [ %13, %.lr.ph.preheader ], [ %.2114.ph, %35 ]
   %20 = load ptr, ptr %2, align 8, !tbaa !113
-  %21 = getelementptr inbounds nuw %class._scoped_numeral, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %3, align 8, !tbaa !117
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !19
   %25 = load ptr, ptr %4, align 8, !tbaa !117
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !19
   %28 = tail call noundef i32 @_ZN5nlsat14simple_checker3imp12get_axb_signERK15_scoped_numeralIN17algebraic_numbers7managerEEjj(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef %24, i32 noundef %27)
   %29 = icmp eq i32 %28, 3
@@ -7931,7 +7927,7 @@ define linkonce_odr hidden noundef i32 @_ZN5nlsat14simple_checker3imp12get_axb_s
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !63
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Var_Domain", ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 3
@@ -8137,7 +8133,7 @@ _ZltRK15_scoped_numeralIN17algebraic_numbers7managerEERKi.exit: ; preds = %99
 
 switch.lookup:                                    ; preds = %106
   %108 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp12get_axb_signERK15_scoped_numeralIN17algebraic_numbers7managerEEjj, i64 %108
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5nlsat14simple_checker3imp12get_axb_signERK15_scoped_numeralIN17algebraic_numbers7managerEEjj, i64 %108
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5nlsat14simple_checker3imp8Endpoint7is_zeroEj.exit47.thread
 

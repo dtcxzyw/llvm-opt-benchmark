@@ -169,7 +169,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h644ba272a906eccb
 
 9:                                                ; preds = %6, %15
   %.sroa.0.014 = phi i64 [ 1, %6 ], [ %14, %15 ]
-  %10 = getelementptr { i32, i32 }, ptr %8, i64 %.sroa.0.014
+  %10 = getelementptr [8 x i8], ptr %8, i64 %.sroa.0.014
   %11 = getelementptr i8, ptr %10, i64 4
   %.val = load i32, ptr %11, align 4, !noundef !9
   %12 = getelementptr i8, ptr %10, i64 -4
@@ -197,8 +197,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h644ba272a906eccb
 .lr.ph:                                           ; preds = %16, %27
   %storemerge1517 = phi i64 [ %storemerge, %27 ], [ %14, %16 ]
   %18 = phi i64 [ %28, %27 ], [ %.sroa.0.014, %16 ]
-  %19 = getelementptr inbounds nuw { i32, i32 }, ptr %8, i64 %storemerge1517
-  %20 = getelementptr { i32, i32 }, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %storemerge1517
+  %20 = getelementptr [8 x i8], ptr %8, i64 %18
   %21 = getelementptr i8, ptr %19, i64 4
   %.val11 = load i32, ptr %21, align 4, !noundef !9
   %22 = getelementptr i8, ptr %20, i64 -4

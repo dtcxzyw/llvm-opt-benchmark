@@ -36,7 +36,7 @@ chacha_next32.exit:                               ; preds = %1, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = sub nsw i32 16, %6
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %7, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %7, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !3
   store i32 0, ptr %10, align 4, !tbaa !3
   %12 = load i32, ptr %2, align 4, !tbaa !7
@@ -56,7 +56,7 @@ chacha_next32.exit2:                              ; preds = %chacha_next32.exit,
   %18 = shl nuw i64 %17, 32
   %19 = sub nsw i32 16, %16
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %7, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %7, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !3
   store i32 0, ptr %21, align 4, !tbaa !3
   %23 = load i32, ptr %2, align 4, !tbaa !7
@@ -159,7 +159,7 @@ _mi_os_random_weak.exit:                          ; preds = %12, %_mi_os_random_
   %30 = lshr i64 %29, 31
   %31 = xor i64 %30, %29
   %32 = trunc i64 %31 to i32
-  %33 = getelementptr inbounds nuw i32, ptr %3, i64 %.013
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.013
   store i32 %32, ptr %33, align 4, !tbaa !3
   %34 = add nuw nsw i64 %.013, 1
   %exitcond.not = icmp eq i64 %34, 8
@@ -174,7 +174,7 @@ _mi_os_random_weak.exit:                          ; preds = %12, %_mi_os_random_
   %36 = shl nuw nsw i64 %.01819.i, 2
   %37 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %36
   %38 = load i32, ptr %37, align 1
-  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %.01819.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.01819.i
   store i32 %38, ptr %39, align 4, !tbaa !3
   %40 = add nuw nsw i64 %.01819.i, 1
   %exitcond.not.i11 = icmp eq i64 %40, 4
@@ -236,7 +236,7 @@ _mi_os_random_weak.exit.i:                        ; preds = %8, %_mi_os_random_w
   %26 = lshr i64 %25, 31
   %27 = xor i64 %26, %25
   %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %.013.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.013.i
   store i32 %28, ptr %29, align 4, !tbaa !3
   %30 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %30, 8
@@ -251,7 +251,7 @@ _mi_os_random_weak.exit.i:                        ; preds = %8, %_mi_os_random_w
   %33 = shl nuw nsw i64 %.01819.i.i, 2
   %34 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %33
   %35 = load i32, ptr %34, align 1
-  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %.01819.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.01819.i.i
   store i32 %35, ptr %36, align 4, !tbaa !3
   %37 = add nuw nsw i64 %.01819.i.i, 1
   %exitcond.not.i11.i = icmp eq i64 %37, 4
@@ -478,12 +478,12 @@ define internal fastcc void @chacha_block(ptr noundef captures(none) %0) unnamed
 
 139:                                              ; preds = %.preheader, %139
   %.054 = phi i64 [ 0, %.preheader ], [ %146, %139 ]
-  %140 = getelementptr inbounds nuw i32, ptr %1, i64 %.054
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.054
   %141 = load i32, ptr %140, align 4, !tbaa !3
-  %142 = getelementptr inbounds nuw i32, ptr %0, i64 %.054
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.054
   %143 = load i32, ptr %142, align 4, !tbaa !3
   %144 = add i32 %143, %141
-  %145 = getelementptr inbounds nuw i32, ptr %17, i64 %.054
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.054
   store i32 %144, ptr %145, align 4, !tbaa !3
   %146 = add nuw nsw i64 %.054, 1
   %exitcond.not = icmp eq i64 %146, 16

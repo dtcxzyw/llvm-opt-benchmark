@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.rocksdb::Slice" = type { ptr, i64 }
-%"struct.rocksdb::PlainTableIndexBuilder::IndexRecord" = type { i32, i32, ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<rocksdb::PlainTableIndexBuilder::IndexRecord *, std::allocator<rocksdb::PlainTableIndexBuilder::IndexRecord *>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::PlainTableIndexBuilder::IndexRecord *, std::allocator<rocksdb::PlainTableIndexBuilder::IndexRecord *>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::PlainTableIndexBuilder::IndexRecord *, std::allocator<rocksdb::PlainTableIndexBuilder::IndexRecord *>>::_Vector_impl_data" }
@@ -135,7 +134,7 @@ _ZN7rocksdb11GetVarint32EPNS_5SliceEPj.exit7:     ; preds = %_ZN7rocksdb14GetVar
   store i32 %39, ptr %40, align 4, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %.1.i14.i5, ptr %41, align 8, !tbaa !19
-  %42 = getelementptr inbounds nuw i32, ptr %.1.i14.i5, i64 %35
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.1.i14.i5, i64 %35
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %42, ptr %43, align 8, !tbaa !20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -154,7 +153,7 @@ define noundef range(i32 0, 3) i32 @_ZNK7rocksdb15PlainTableIndex9GetOffsetEjPj(
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !7
   store i32 %10, ptr %2, align 4, !tbaa !7
   %.not = icmp sgt i32 %10, -1
@@ -199,7 +198,7 @@ define void @_ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList9AddRecordEjj(p
   %13 = phi ptr [ %.pre, %._crit_edge ], [ %9, %8 ]
   %14 = add i64 %12, 1
   store i64 %14, ptr %4, align 8, !tbaa !26
-  %15 = getelementptr inbounds nuw %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %13, i64 %12
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   store i32 %1, ptr %15, align 8, !tbaa !37
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %2, ptr %16, align 4, !tbaa !39
@@ -273,7 +272,7 @@ _ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EE11_S_reloca
 _ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %27, ptr %7, align 8, !tbaa !44
   store ptr %31, ptr %8, align 8, !tbaa !41
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %10, align 8, !tbaa !42
   br label %_ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EE9push_backERKS3_.exit
 
@@ -512,7 +511,7 @@ _ZN7rocksdb22PlainTableIndexBuilder15IndexRecordList9AddRecordEjj.exit: ; preds 
   %104 = phi ptr [ %.pre.i8, %._crit_edge.i ], [ %101, %100 ]
   %105 = add i64 %103, 1
   store i64 %105, ptr %96, align 8, !tbaa !26
-  %106 = getelementptr inbounds nuw %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %104, i64 %103
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %103
   store i32 %95, ptr %106, align 8, !tbaa !37
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   store i32 %3, ptr %107, align 4, !tbaa !39
@@ -597,7 +596,7 @@ _ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit: ; preds = %8
   %24 = shl nuw nsw i64 %23, 3
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #17
   store ptr %25, ptr %2, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %26, ptr %27, align 8, !tbaa !42
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %25, i8 0, i64 %24, i1 false), !tbaa !43
@@ -617,7 +616,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZN7rocksdb22Plai
 
 .noexc15:                                         ; preds = %.noexc
   store ptr %31, ptr %3, align 8, !tbaa !153
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %23
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %23
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %32, ptr %33, align 8, !tbaa !155
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %31, i8 0, i64 %30, i1 false), !tbaa !7
@@ -661,19 +660,19 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZN7rocksdb22Plai
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.02734.i = phi i64 [ %72, %.lr.ph.i ], [ 0, %.loopexit ]
   %58 = udiv i64 %.02734.i, %52
-  %59 = getelementptr inbounds nuw ptr, ptr %46, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !43
   %61 = urem i64 %.02734.i, %52
-  %62 = getelementptr inbounds nuw %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %62, align 8, !tbaa !37
   %64 = urem i32 %63, %38
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %40, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !43
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %67, ptr %68, align 8, !tbaa !40
   store ptr %62, ptr %66, align 8, !tbaa !43
-  %69 = getelementptr inbounds nuw i32, ptr %39, i64 %65
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %65
   %70 = load i32, ptr %69, align 4, !tbaa !7
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 4, !tbaa !7
@@ -918,20 +917,20 @@ define void @_ZN7rocksdb22PlainTableIndexBuilder16BucketizeIndexesEPSt6vectorIPN
 26:                                               ; preds = %.lr.ph, %26
   %.02734 = phi i64 [ 0, %.lr.ph ], [ %42, %26 ]
   %27 = udiv i64 %.02734, %14
-  %28 = getelementptr inbounds nuw ptr, ptr %8, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !43
   %30 = urem i64 %.02734, %14
-  %31 = getelementptr inbounds nuw %"struct.rocksdb::PlainTableIndexBuilder::IndexRecord", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   %32 = load i32, ptr %31, align 8, !tbaa !37
   %33 = load i32, ptr %19, align 8, !tbaa !152
   %34 = urem i32 %32, %33
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %20, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !43
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %37, ptr %38, align 8, !tbaa !40
   store ptr %31, ptr %36, align 8, !tbaa !43
-  %39 = getelementptr inbounds nuw i32, ptr %21, i64 %35
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %35
   %40 = load i32, ptr %39, align 4, !tbaa !7
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4, !tbaa !7
@@ -1049,7 +1048,7 @@ _ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit: ; preds = %.lr.ph.i2.
   %39 = tail call noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef %37, i32 noundef %38)
   %40 = load i32, ptr %8, align 8, !tbaa !152
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %41
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %._crit_edge67, label %.lr.ph66
 
@@ -1108,9 +1107,9 @@ _ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit54: ; preds = %.lr.ph.i
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %102 ], [ 0, %_ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit ]
   %.04165 = phi i32 [ %.1, %102 ], [ 0, %_ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit ]
   %63 = load ptr, ptr %2, align 8, !tbaa !153
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv73
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv73
   %65 = load i32, ptr %64, align 4, !tbaa !7
-  %66 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv73
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv73
   switch i32 %65, label %74 [
     i32 0, label %67
     i32 1, label %68
@@ -1122,7 +1121,7 @@ _ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit54: ; preds = %.lr.ph.i
 
 68:                                               ; preds = %.lr.ph66
   %69 = load ptr, ptr %1, align 8, !tbaa !44
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv73
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv73
   %71 = load ptr, ptr %70, align 8, !tbaa !43
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load i32, ptr %72, align 4, !tbaa !7
@@ -1143,7 +1142,7 @@ _ZNK7rocksdb22PlainTableIndexBuilder12GetTotalSizeEv.exit54: ; preds = %.lr.ph.i
   %84 = zext i32 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %42, i64 %84
   %86 = load ptr, ptr %1, align 8, !tbaa !44
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv73
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv73
   %.060 = add i32 %65, -1
   %.04061 = load ptr, ptr %87, align 8, !tbaa !43
   %88 = icmp sgt i32 %.060, -1

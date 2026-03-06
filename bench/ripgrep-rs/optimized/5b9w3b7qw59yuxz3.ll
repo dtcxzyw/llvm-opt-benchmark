@@ -251,7 +251,7 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
 44:                                               ; preds = %.noexc23, %38
   %45 = phi i64 [ %.pre.i, %.noexc23 ], [ %28, %38 ]
   %46 = load ptr, ptr %21, align 8, !alias.scope !12, !noalias !15, !nonnull !8, !noundef !8
-  %47 = getelementptr inbounds { { ptr, i64 }, i64, i64 }, ptr %46, i64 %45
+  %47 = getelementptr inbounds [32 x i8], ptr %46, i64 %45
   store ptr %40, ptr %47, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %39, ptr %.sroa.4.0..sroa_idx, align 8

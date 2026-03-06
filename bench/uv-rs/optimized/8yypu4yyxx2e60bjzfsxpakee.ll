@@ -246,7 +246,7 @@ define hidden noundef zeroext i1 @"_ZN11uv_once_map24OnceMap$LT$K$C$V$C$H$GT$8re
   %39 = add i64 %38, 1
   store i64 %39, ptr %37, align 8, !alias.scope !45, !noalias !48
   %40 = sub nsw i64 0, %20
-  %41 = getelementptr inbounds { { { i64, [10 x i64] }, { { i64, [2 x i64] } } }, { { { i64, [1 x i64] } } } }, ptr %21, i64 %40
+  %41 = getelementptr inbounds [128 x i8], ptr %21, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %42, ptr noundef nonnull align 8 dereferenceable(136) %3, i64 112, i1 false), !noalias !42
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 -16
@@ -956,7 +956,7 @@ define hidden { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !25
   %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %3
+  %7 = getelementptr inbounds [16 x i8], ptr %0, i64 %3
   %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %6, 1
   ret { ptr, i64 } %9
@@ -1352,7 +1352,7 @@ define hidden void @"_ZN61_$LT$$u5b$V$u5d$$u20$as$u20$alloc..slice..Concat$LT$T$
 .preheader:                                       ; preds = %3, %.preheader
   %.sroa.07.0.i = phi i64 [ %10, %.preheader ], [ 0, %3 ]
   %.sroa.09.0.i = phi i64 [ %11, %.preheader ], [ 0, %3 ]
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %.sroa.09.0.i
+  %8 = getelementptr inbounds [16 x i8], ptr %1, i64 %.sroa.09.0.i
   %9 = getelementptr i8, ptr %8, i64 8
   %.val19.i = load i64, ptr %9, align 8, !alias.scope !224, !noundef !25
   %10 = add i64 %.val19.i, %.sroa.07.0.i
@@ -2439,7 +2439,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 10:                                               ; preds = %10, %5
   %.sroa.07.0 = phi i64 [ %2, %5 ], [ %13, %10 ]
   %.sroa.09.0 = phi i64 [ 0, %5 ], [ %14, %10 ]
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.sroa.09.0
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %.sroa.09.0
   %12 = getelementptr i8, ptr %11, i64 8
   %.val19 = load i64, ptr %12, align 8, !alias.scope !393, !noundef !25
   %13 = add i64 %.val19, %.sroa.07.0

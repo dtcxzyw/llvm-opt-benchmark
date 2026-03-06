@@ -729,7 +729,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
 
 210:                                              ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %195, ptr noundef nonnull align 8 dereferenceable(48) %117, i64 48, i1 false)
-  %211 = getelementptr inbounds { i64, [73 x i64] }, ptr %2, i64 %3
+  %211 = getelementptr inbounds [592 x i8], ptr %2, i64 %3
   store ptr %2, ptr %194, align 8
   %212 = getelementptr inbounds nuw i8, ptr %194, i64 8
   store ptr %211, ptr %212, align 8
@@ -2978,7 +2978,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
   %827 = load ptr, ptr %826, align 8, !noalias !9
   %828 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %829 = load i64, ptr %828, align 8, !noalias !9
-  %830 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %827, i64 %829
+  %830 = getelementptr inbounds [32 x i8], ptr %827, i64 %829
   store ptr %827, ptr %23, align 8, !noalias !9
   %831 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %830, ptr %831, align 8, !noalias !9
@@ -3033,7 +3033,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
   %847 = load ptr, ptr %846, align 8, !noalias !9
   %848 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %849 = load i64, ptr %848, align 8, !noalias !9
-  %850 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %847, i64 %849
+  %850 = getelementptr inbounds [32 x i8], ptr %847, i64 %849
   store ptr %847, ptr %20, align 8, !noalias !9
   %851 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %850, ptr %851, align 8, !noalias !9
@@ -3389,7 +3389,7 @@ _ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E.exit: ; pre
   %937 = load ptr, ptr %936, align 8, !noalias !12
   %938 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %939 = load i64, ptr %938, align 8, !noalias !12
-  %940 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %937, i64 %939
+  %940 = getelementptr inbounds [32 x i8], ptr %937, i64 %939
   store ptr %937, ptr %10, align 8, !noalias !12
   %941 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %940, ptr %941, align 8, !noalias !12
@@ -3444,7 +3444,7 @@ _ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E.exit: ; pre
   %957 = load ptr, ptr %956, align 8, !noalias !12
   %958 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %959 = load i64, ptr %958, align 8, !noalias !12
-  %960 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %957, i64 %959
+  %960 = getelementptr inbounds [32 x i8], ptr %957, i64 %959
   store ptr %957, ptr %7, align 8, !noalias !12
   %961 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %960, ptr %961, align 8, !noalias !12
@@ -3565,7 +3565,7 @@ _ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE.ex
 990:                                              ; preds = %986
   %991 = load ptr, ptr %200, align 8
   %992 = load i64, ptr %201, align 8
-  %993 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %991, i64 %992
+  %993 = getelementptr inbounds [32 x i8], ptr %991, i64 %992
   store ptr %991, ptr %129, align 8
   %994 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store ptr %993, ptr %994, align 8
@@ -3709,7 +3709,7 @@ _ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE.ex
 1029:                                             ; preds = %1028
   %1030 = load ptr, ptr %206, align 8
   %1031 = load i64, ptr %207, align 8
-  %1032 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %1030, i64 %1031
+  %1032 = getelementptr inbounds [32 x i8], ptr %1030, i64 %1031
   store ptr %1030, ptr %118, align 8
   %1033 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store ptr %1032, ptr %1033, align 8
@@ -3839,7 +3839,7 @@ _ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE.ex
   %1074 = load ptr, ptr %1073, align 8
   %1075 = getelementptr inbounds nuw i8, ptr %238, i64 416
   %1076 = load i64, ptr %1075, align 8
-  %1077 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %1074, i64 %1076
+  %1077 = getelementptr inbounds [256 x i8], ptr %1074, i64 %1076
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd5fddab12dac3facE"(ptr nonnull sret([24 x i8]) align 8 %158, ptr align 8 %1074, ptr %1077)
           to label %_ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit unwind label %1079
 
@@ -3886,7 +3886,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit: ; 
 1088:                                             ; preds = %1084
   %1089 = load ptr, ptr %228, align 8
   %1090 = load i64, ptr %229, align 8
-  %1091 = getelementptr inbounds ptr, ptr %1089, i64 %1090
+  %1091 = getelementptr inbounds [8 x i8], ptr %1089, i64 %1090
   store ptr %1089, ptr %152, align 8
   store ptr %1091, ptr %230, align 8
   br label %1092
@@ -3934,7 +3934,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit: ; 
 1101:                                             ; preds = %1100
   %1102 = load ptr, ptr %228, align 8
   %1103 = load i64, ptr %229, align 8
-  %1104 = getelementptr inbounds ptr, ptr %1102, i64 %1103
+  %1104 = getelementptr inbounds [8 x i8], ptr %1102, i64 %1103
   store ptr %1102, ptr %149, align 8
   store ptr %1104, ptr %231, align 8
   br label %1105
@@ -4205,7 +4205,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit: ; 
   %1175 = load ptr, ptr %1174, align 8
   %1176 = getelementptr inbounds nuw i8, ptr %238, i64 312
   %1177 = load i64, ptr %1176, align 8
-  %1178 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %1175, i64 %1177
+  %1178 = getelementptr inbounds [256 x i8], ptr %1175, i64 %1177
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd5fddab12dac3facE"(ptr nonnull sret([24 x i8]) align 8 %184, ptr align 8 %1175, ptr %1178)
           to label %_ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit180 unwind label %1188
 
@@ -4216,7 +4216,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit: ; 
   %1181 = load ptr, ptr %1180, align 8
   %1182 = getelementptr inbounds nuw i8, ptr %238, i64 312
   %1183 = load i64, ptr %1182, align 8
-  %1184 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %1181, i64 %1183
+  %1184 = getelementptr inbounds [256 x i8], ptr %1181, i64 %1183
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd5fddab12dac3facE"(ptr nonnull sret([24 x i8]) align 8 %169, ptr align 8 %1181, ptr %1184)
           to label %_ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit181 unwind label %1228
 
@@ -4253,7 +4253,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit180:
 1193:                                             ; preds = %_ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit180
   %1194 = load ptr, ptr %221, align 8
   %1195 = load i64, ptr %222, align 8
-  %1196 = getelementptr inbounds ptr, ptr %1194, i64 %1195
+  %1196 = getelementptr inbounds [8 x i8], ptr %1194, i64 %1195
   store ptr %1194, ptr %181, align 8
   store ptr %1196, ptr %223, align 8
   br label %1197
@@ -4301,7 +4301,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit180:
 1206:                                             ; preds = %1205
   %1207 = load ptr, ptr %221, align 8
   %1208 = load i64, ptr %222, align 8
-  %1209 = getelementptr inbounds ptr, ptr %1207, i64 %1208
+  %1209 = getelementptr inbounds [8 x i8], ptr %1207, i64 %1208
   store ptr %1207, ptr %178, align 8
   store ptr %1209, ptr %224, align 8
   br label %1210
@@ -4405,7 +4405,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit181:
 1233:                                             ; preds = %_ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit181
   %1234 = load ptr, ptr %217, align 8
   %1235 = load i64, ptr %218, align 8
-  %1236 = getelementptr inbounds ptr, ptr %1234, i64 %1235
+  %1236 = getelementptr inbounds [8 x i8], ptr %1234, i64 %1235
   store ptr %1234, ptr %166, align 8
   store ptr %1236, ptr %219, align 8
   br label %1237
@@ -4453,7 +4453,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit181:
 1246:                                             ; preds = %1245
   %1247 = load ptr, ptr %217, align 8
   %1248 = load i64, ptr %218, align 8
-  %1249 = getelementptr inbounds ptr, ptr %1247, i64 %1248
+  %1249 = getelementptr inbounds [8 x i8], ptr %1247, i64 %1248
   store ptr %1247, ptr %163, align 8
   store ptr %1249, ptr %220, align 8
   br label %1250
@@ -4527,7 +4527,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit181:
   %1268 = load ptr, ptr %1267, align 8
   %1269 = getelementptr inbounds nuw i8, ptr %238, i64 312
   %1270 = load i64, ptr %1269, align 8
-  %1271 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %1268, i64 %1270
+  %1271 = getelementptr inbounds [256 x i8], ptr %1268, i64 %1270
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd5fddab12dac3facE"(ptr nonnull sret([24 x i8]) align 8 %175, ptr align 8 %1268, ptr %1271)
           to label %_ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit182 unwind label %1264
 
@@ -4548,7 +4548,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit182:
 1275:                                             ; preds = %_ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit182
   %1276 = load ptr, ptr %214, align 8
   %1277 = load i64, ptr %215, align 8
-  %1278 = getelementptr inbounds ptr, ptr %1276, i64 %1277
+  %1278 = getelementptr inbounds [8 x i8], ptr %1276, i64 %1277
   store ptr %1276, ptr %172, align 8
   store ptr %1278, ptr %216, align 8
   br label %1279

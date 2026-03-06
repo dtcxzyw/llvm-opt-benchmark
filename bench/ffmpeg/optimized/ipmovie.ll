@@ -128,7 +128,7 @@ define internal range(i32 -2147483648, 1) i32 @ipmovie_read_header(ptr noundef %
 
 22:                                               ; preds = %17, %22
   %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store i32 -16777216, ptr %23, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -305,7 +305,7 @@ switch.lookup:                                    ; preds = %12
   %narrow = add nuw nsw i32 %.0, 3
   %18 = and i32 %narrow, 65535
   %19 = zext nneg i32 %18 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ipmovie_read_packet, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ipmovie_read_packet, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.loopexit
 
@@ -363,7 +363,7 @@ define internal fastcc range(i32 0, 65536) i32 @process_ipmovie_chunk(ptr nounde
 
 switch.lookup:                                    ; preds = %12
   %21 = zext nneg i16 %16 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.process_ipmovie_chunk, i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.process_ipmovie_chunk, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %19, i32 noundef 56, ptr noundef nonnull %switch.load) #6
   %.not272 = icmp eq i16 %13, 0
@@ -731,7 +731,7 @@ switch.lookup:                                    ; preds = %12
   %214 = or disjoint i32 %213, %211
   %215 = zext i8 %209 to i32
   %216 = or disjoint i32 %214, %215
-  %217 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %218 = lshr i32 %216, 6
   %219 = and i32 %218, 197379
   %220 = or disjoint i32 %216, %219

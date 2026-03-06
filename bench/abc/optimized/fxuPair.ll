@@ -84,10 +84,10 @@ define i32 @Fxu_PairHashKeyArray(ptr noundef readnone captures(none) %0, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.019 = phi i32 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i32, ptr @s_Primes, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @s_Primes, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %10 = load i32, ptr %9, align 4, !tbaa !17
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !17
   %13 = mul nsw i32 %12, %10
   %14 = xor i32 %13, %.019
@@ -98,10 +98,10 @@ define i32 @Fxu_PairHashKeyArray(ptr noundef readnone captures(none) %0, ptr nou
 .lr.ph22:                                         ; preds = %.lr.ph22.preheader, %.lr.ph22
   %indvars.iv26 = phi i64 [ 0, %.lr.ph22.preheader ], [ %indvars.iv.next27, %.lr.ph22 ]
   %.121 = phi i32 [ %.0.lcssa, %.lr.ph22.preheader ], [ %21, %.lr.ph22 ]
-  %15 = getelementptr inbounds nuw i32, ptr @s_Primes, i64 %indvars.iv26
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @s_Primes, i64 %indvars.iv26
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 800
   %17 = load i32, ptr %16, align 4, !tbaa !17
-  %18 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv26
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv26
   %19 = load i32, ptr %18, align 4, !tbaa !17
   %20 = mul nsw i32 %19, %17
   %21 = xor i32 %20, %.121
@@ -173,7 +173,7 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
 
 22:                                               ; preds = %20
   %23 = sext i32 %.056.ph65 to i64
-  %24 = getelementptr i32, ptr @s_Primes, i64 %23
+  %24 = getelementptr [4 x i8], ptr @s_Primes, i64 %23
   %25 = getelementptr i8, ptr %24, i64 400
   %26 = load i32, ptr %25, align 4, !tbaa !17
   %27 = mul nsw i32 %26, %13
@@ -181,7 +181,7 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
 
 28:                                               ; preds = %20
   %29 = sext i32 %.054 to i64
-  %30 = getelementptr i32, ptr @s_Primes, i64 %29
+  %30 = getelementptr [4 x i8], ptr @s_Primes, i64 %29
   %31 = getelementptr i8, ptr %30, i64 800
   %32 = load i32, ptr %31, align 4, !tbaa !17
   %33 = mul nsw i32 %32, %14
@@ -198,7 +198,7 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
 
 40:                                               ; preds = %38
   %41 = sext i32 %.056.ph65 to i64
-  %42 = getelementptr i32, ptr @s_Primes, i64 %41
+  %42 = getelementptr [4 x i8], ptr @s_Primes, i64 %41
   %43 = getelementptr i8, ptr %42, i64 400
   %44 = load i32, ptr %43, align 4, !tbaa !17
   %45 = load i32, ptr %.052.ph72, align 8, !tbaa !10
@@ -219,7 +219,7 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
 
 48:                                               ; preds = %47
   %49 = sext i32 %.054 to i64
-  %50 = getelementptr i32, ptr @s_Primes, i64 %49
+  %50 = getelementptr [4 x i8], ptr @s_Primes, i64 %49
   %51 = getelementptr i8, ptr %50, i64 800
   %52 = load i32, ptr %51, align 4, !tbaa !17
   %53 = load i32, ptr %.050, align 8, !tbaa !10
@@ -616,8 +616,8 @@ define void @Fxu_PairAllocStorage(ptr noundef writeonly captures(none) initializ
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.preheader ], [ %15, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr ptr, ptr %6, i64 %indvars.iv
-  %15 = getelementptr inbounds nuw ptr, ptr %store_forwarded, i64 %4
+  %14 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %store_forwarded, i64 %4
   store ptr %15, ptr %14, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -647,18 +647,18 @@ define void @Fxu_PairClearStorage(ptr noundef readonly captures(none) %0) local_
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   %9 = load i32, ptr %0, align 8, !tbaa !14
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !34
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr null, ptr %14, align 8, !tbaa !38
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !34
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %10
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %10
   store ptr null, ptr %17, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -729,16 +729,16 @@ define void @Fxu_PairAdd(ptr noundef %0) local_unnamed_addr #12 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8, !tbaa !40
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4, !tbaa !41
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   store ptr %0, ptr %16, align 8, !tbaa !38
-  %17 = getelementptr inbounds ptr, ptr %7, i64 %15
+  %17 = getelementptr inbounds [8 x i8], ptr %7, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !34
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %10
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %10
   store ptr %0, ptr %19, align 8, !tbaa !38
   ret void
 }

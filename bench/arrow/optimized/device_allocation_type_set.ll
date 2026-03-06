@@ -35,7 +35,7 @@ define noundef nonnull ptr @_ZN5arrow26DeviceAllocationTypeToCStrENS_20DeviceAll
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5arrow23DeviceAllocationTypeSet8ToStringB5cxx11Ev, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5arrow23DeviceAllocationTypeSet8ToStringB5cxx11Ev, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -127,7 +127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit19: ; preds = %_
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit19
   %25 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5arrow23DeviceAllocationTypeSet8ToStringB5cxx11Ev, i64 %25
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5arrow23DeviceAllocationTypeSet8ToStringB5cxx11Ev, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5arrow26DeviceAllocationTypeToCStrENS_20DeviceAllocationTypeE.exit
 

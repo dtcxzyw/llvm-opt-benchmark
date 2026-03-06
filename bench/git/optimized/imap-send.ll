@@ -3326,7 +3326,7 @@ next_arg.exit:                                    ; preds = %22, %.thread.i, %.c
 
 30:                                               ; preds = %next_arg.exit, %39
   %indvars.iv = phi i64 [ 0, %next_arg.exit ], [ %indvars.iv.next, %39 ]
-  %31 = getelementptr inbounds nuw ptr, ptr @cap_list, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @cap_list, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %.022.i) #25
   %.not10 = icmp eq i32 %33, 0

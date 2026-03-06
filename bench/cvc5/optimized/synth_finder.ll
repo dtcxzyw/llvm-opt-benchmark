@@ -328,7 +328,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers11SynthFinder18initiali
   %44 = load i64, ptr %43, align 8
   %45 = lshr i64 %44, 32
   %46 = and i64 %45, 67108863
-  %47 = getelementptr inbounds nuw ptr, ptr %42, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %46
   %.not9394 = icmp eq ptr %spec.select.i.i, %47
   br i1 %.not9394, label %.loopexit, label %.lr.ph
 
@@ -1241,7 +1241,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers11SynthFinder7runNextER
   br i1 %20, label %21, label %41
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %15, i64 %11
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %11
   %23 = load ptr, ptr %22, align 8, !tbaa !73
   store ptr %23, ptr %0, align 8, !tbaa !73
   %24 = load i64, ptr %23, align 8
@@ -2517,7 +2517,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !71
   store ptr %42, ptr %4, align 8, !tbaa !72
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !314
   ret void
 

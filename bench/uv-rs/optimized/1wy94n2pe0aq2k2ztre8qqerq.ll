@@ -126,7 +126,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 34:                                               ; preds = %13, %126
   %.val20 = phi i64 [ %128, %126 ], [ %.promoted, %13 ]
   %.sroa.06.0 = phi i64 [ %129, %126 ], [ 0, %13 ]
-  %35 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { i8, i8, i8, i8 }, [4 x i8] }, ptr %0, i64 %.sroa.06.0
+  %35 = getelementptr inbounds [80 x i8], ptr %0, i64 %.sroa.06.0
   %36 = getelementptr i8, ptr %35, i64 32
   %.val21 = load ptr, ptr %36, align 8
   %37 = getelementptr i8, ptr %35, i64 40
@@ -423,7 +423,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i.i.i.i: ; preds 
 126:                                              ; preds = %.noexc23, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !75
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !20
-  %127 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %28, i64 %.val20
+  %127 = getelementptr inbounds [24 x i8], ptr %28, i64 %.val20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !17
   %128 = add i64 %.val20, 1
   store i64 %128, ptr %29, align 8, !alias.scope !86, !noalias !91

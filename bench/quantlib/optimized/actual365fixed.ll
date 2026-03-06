@@ -988,7 +988,7 @@ entry:
   %sub.i = sub i32 %conv.i.i, %call5.i
   %call2 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %1 = sext i32 %call2 to i64
-  %2 = getelementptr i32, ptr @_ZZNK8QuantLib14Actual365Fixed7NL_Impl8dayCountERKNS_4DateES4_E11MonthOffset, i64 %1
+  %2 = getelementptr [4 x i8], ptr @_ZZNK8QuantLib14Actual365Fixed7NL_Impl8dayCountERKNS_4DateES4_E11MonthOffset, i64 %1
   %arrayidx = getelementptr i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx, align 4, !tbaa !22
   %add = add nsw i32 %sub.i, %3
@@ -1008,7 +1008,7 @@ entry:
   %sub.i20 = sub i32 %conv.i.i15, %call5.i19
   %call6 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %d2)
   %5 = sext i32 %call6 to i64
-  %6 = getelementptr i32, ptr @_ZZNK8QuantLib14Actual365Fixed7NL_Impl8dayCountERKNS_4DateES4_E11MonthOffset, i64 %5
+  %6 = getelementptr [4 x i8], ptr @_ZZNK8QuantLib14Actual365Fixed7NL_Impl8dayCountERKNS_4DateES4_E11MonthOffset, i64 %5
   %arrayidx9 = getelementptr i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx9, align 4, !tbaa !22
   %add10 = add nsw i32 %sub.i20, %7

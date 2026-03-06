@@ -157,14 +157,14 @@ define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readon
   %23 = load i32, ptr %4, align 4, !tbaa !14
   %24 = mul nsw i32 %23, %.fr96
   %25 = sext i32 %24 to i64
-  %invariant.gep = getelementptr double, ptr %22, i64 %25
+  %invariant.gep = getelementptr [8 x i8], ptr %22, i64 %25
   br label %26
 
 26:                                               ; preds = %.lr.ph.us, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %28 = load double, ptr %27, align 8, !tbaa !13
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   store double %28, ptr %gep, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -180,13 +180,13 @@ define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readon
   %31 = load double, ptr %.089.us, align 8, !tbaa !25
   %32 = load ptr, ptr %7, align 8, !tbaa !15
   %33 = sext i32 %23 to i64
-  %34 = getelementptr inbounds double, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   store double %31, ptr %34, align 8, !tbaa !13
   %35 = tail call double @point_distance(ptr noundef %2, ptr noundef nonnull %21, i32 noundef %.fr96) #19
   %36 = load ptr, ptr %8, align 8, !tbaa !15
   %37 = load i32, ptr %4, align 4, !tbaa !14
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds double, ptr %36, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %36, i64 %38
   store double %35, ptr %39, align 8, !tbaa !13
   %40 = add nsw i32 %37, 1
   store i32 %40, ptr %4, align 4, !tbaa !14
@@ -208,13 +208,13 @@ define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readon
   %47 = load ptr, ptr %7, align 8, !tbaa !15
   %48 = load i32, ptr %4, align 4, !tbaa !14
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds double, ptr %47, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %47, i64 %49
   store double %46, ptr %50, align 8, !tbaa !13
   %51 = tail call double @point_distance(ptr noundef %2, ptr noundef %45, i32 noundef %.fr96) #19
   %52 = load ptr, ptr %8, align 8, !tbaa !15
   %53 = load i32, ptr %4, align 4, !tbaa !14
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds double, ptr %52, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %52, i64 %54
   store double %51, ptr %55, align 8, !tbaa !13
   %56 = add nsw i32 %53, 1
   store i32 %56, ptr %4, align 4, !tbaa !14
@@ -265,14 +265,14 @@ define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readon
   %75 = mul nsw i32 %.pre, %.fr96
   %76 = sext i32 %75 to i64
   %wide.trip.count108 = zext nneg i32 %.fr96 to i64
-  %invariant.gep113 = getelementptr double, ptr %74, i64 %76
+  %invariant.gep113 = getelementptr [8 x i8], ptr %74, i64 %76
   br label %77
 
 77:                                               ; preds = %.lr.ph95, %77
   %indvars.iv105 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next106, %77 ]
-  %78 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv105
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv105
   %79 = load double, ptr %78, align 8, !tbaa !13
-  %gep114 = getelementptr double, ptr %invariant.gep113, i64 %indvars.iv105
+  %gep114 = getelementptr [8 x i8], ptr %invariant.gep113, i64 %indvars.iv105
   store double %79, ptr %gep114, align 8, !tbaa !13
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
@@ -283,13 +283,13 @@ define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readon
   %81 = load double, ptr %80, align 8, !tbaa !31
   %82 = load ptr, ptr %7, align 8, !tbaa !15
   %83 = sext i32 %.pre to i64
-  %84 = getelementptr inbounds double, ptr %82, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %82, i64 %83
   store double %81, ptr %84, align 8, !tbaa !13
   %85 = tail call double @point_distance(ptr noundef %73, ptr noundef %2, i32 noundef %.fr96) #19
   %86 = load ptr, ptr %8, align 8, !tbaa !15
   %87 = load i32, ptr %4, align 4, !tbaa !14
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds double, ptr %86, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %86, i64 %88
   store double %85, ptr %89, align 8, !tbaa !13
   %90 = add nsw i32 %87, 1
   store i32 %90, ptr %4, align 4, !tbaa !14
@@ -298,7 +298,7 @@ define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readon
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv100 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next101, %.lr.ph ]
   %91 = load ptr, ptr %59, align 8, !tbaa !26
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv100
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv100
   %93 = load ptr, ptr %92, align 8, !tbaa !32
   tail call fastcc void @QuadTree_get_supernodes_internal(ptr noundef %93, double noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %9)
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -334,7 +334,7 @@ define void @QuadTree_get_repulsive_force(ptr noundef %0, ptr noundef %1, ptr no
 
 15:                                               ; preds = %._crit_edge, %15
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !13
   %18 = fdiv double %17, %14
   store double %18, ptr %16, align 8, !tbaa !13
@@ -400,18 +400,18 @@ define internal fastcc void @QuadTree_repulsive_force_interact(ptr noundef %0, p
 
 .lr.ph251.split.us:                               ; preds = %.lr.ph251, %.lr.ph251.split.us
   %indvars.iv309 = phi i64 [ %indvars.iv.next310, %.lr.ph251.split.us ], [ 0, %.lr.ph251 ]
-  %47 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv309
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv309
   %48 = load double, ptr %47, align 8, !tbaa !13
-  %49 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv309
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv309
   %50 = load double, ptr %49, align 8, !tbaa !13
   %51 = fsub double %48, %50
   %52 = fmul double %44, %51
   %53 = fdiv double %52, %46
-  %54 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv309
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv309
   %55 = load double, ptr %54, align 8, !tbaa !13
   %56 = fadd double %53, %55
   store double %56, ptr %54, align 8, !tbaa !13
-  %57 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv309
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv309
   %58 = load double, ptr %57, align 8, !tbaa !13
   %59 = fsub double %58, %53
   store double %59, ptr %57, align 8, !tbaa !13
@@ -421,19 +421,19 @@ define internal fastcc void @QuadTree_repulsive_force_interact(ptr noundef %0, p
 
 .lr.ph251.split:                                  ; preds = %.lr.ph251, %.lr.ph251.split
   %indvars.iv304 = phi i64 [ %indvars.iv.next305, %.lr.ph251.split ], [ 0, %.lr.ph251 ]
-  %60 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv304
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv304
   %61 = load double, ptr %60, align 8, !tbaa !13
-  %62 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv304
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv304
   %63 = load double, ptr %62, align 8, !tbaa !13
   %64 = fsub double %61, %63
   %65 = fmul double %44, %64
   %66 = tail call double @pow(double noundef %22, double noundef %45) #19, !tbaa !14
   %67 = fdiv double %65, %66
-  %68 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv304
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv304
   %69 = load double, ptr %68, align 8, !tbaa !13
   %70 = fadd double %67, %69
   store double %70, ptr %68, align 8, !tbaa !13
-  %71 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv304
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv304
   %72 = load double, ptr %71, align 8, !tbaa !13
   %73 = fsub double %72, %67
   store double %73, ptr %71, align 8, !tbaa !13
@@ -472,7 +472,7 @@ define internal fastcc void @QuadTree_repulsive_force_interact(ptr noundef %0, p
 90:                                               ; preds = %82
   %91 = mul nsw i32 %87, %13
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds double, ptr %3, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %3, i64 %92
   store ptr %93, ptr %88, align 8, !tbaa !39
   br label %get_or_assign_node_force.exit
 
@@ -500,7 +500,7 @@ get_or_assign_node_force.exit:                    ; preds = %82, %90
 101:                                              ; preds = %.lr.ph244.split.us
   %102 = mul nsw i32 %98, %13
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds double, ptr %3, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %3, i64 %103
   store ptr %104, ptr %99, align 8, !tbaa !39
   br label %get_or_assign_node_force.exit217.us
 
@@ -524,19 +524,19 @@ get_or_assign_node_force.exit217.us:              ; preds = %101, %.lr.ph244.spl
 
 .lr.ph240.split.us248:                            ; preds = %.lr.ph240.us, %.lr.ph240.split.us248
   %indvars.iv294 = phi i64 [ %indvars.iv.next295, %.lr.ph240.split.us248 ], [ 0, %.lr.ph240.us ]
-  %113 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv294
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv294
   %114 = load double, ptr %113, align 8, !tbaa !13
-  %115 = getelementptr inbounds nuw double, ptr %95, i64 %indvars.iv294
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv294
   %116 = load double, ptr %115, align 8, !tbaa !13
   %117 = fsub double %114, %116
   %118 = fmul double %111, %117
   %119 = tail call double @pow(double noundef %109, double noundef %81) #19, !tbaa !14
   %120 = fdiv double %118, %119
-  %121 = getelementptr inbounds nuw double, ptr %.0.i, i64 %indvars.iv294
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv294
   %122 = load double, ptr %121, align 8, !tbaa !13
   %123 = fadd double %120, %122
   store double %123, ptr %121, align 8, !tbaa !13
-  %124 = getelementptr inbounds nuw double, ptr %.0.i216.us, i64 %indvars.iv294
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %.0.i216.us, i64 %indvars.iv294
   %125 = load double, ptr %124, align 8, !tbaa !13
   %126 = fsub double %125, %120
   store double %126, ptr %124, align 8, !tbaa !13
@@ -552,18 +552,18 @@ get_or_assign_node_force.exit217.us:              ; preds = %101, %.lr.ph244.spl
 
 .lr.ph240.split.us.us:                            ; preds = %.lr.ph240.us, %.lr.ph240.split.us.us
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %.lr.ph240.split.us.us ], [ 0, %.lr.ph240.us ]
-  %127 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv299
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv299
   %128 = load double, ptr %127, align 8, !tbaa !13
-  %129 = getelementptr inbounds nuw double, ptr %95, i64 %indvars.iv299
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv299
   %130 = load double, ptr %129, align 8, !tbaa !13
   %131 = fsub double %128, %130
   %132 = fmul double %111, %131
   %133 = fdiv double %132, %112
-  %134 = getelementptr inbounds nuw double, ptr %.0.i, i64 %indvars.iv299
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv299
   %135 = load double, ptr %134, align 8, !tbaa !13
   %136 = fadd double %133, %135
   store double %136, ptr %134, align 8, !tbaa !13
-  %137 = getelementptr inbounds nuw double, ptr %.0.i216.us, i64 %indvars.iv299
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %.0.i216.us, i64 %indvars.iv299
   %138 = load double, ptr %137, align 8, !tbaa !13
   %139 = fsub double %138, %133
   store double %139, ptr %137, align 8, !tbaa !13
@@ -583,7 +583,7 @@ get_or_assign_node_force.exit217.us:              ; preds = %101, %.lr.ph244.spl
 144:                                              ; preds = %.lr.ph244.split
   %145 = mul nsw i32 %141, %13
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds double, ptr %3, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %3, i64 %146
   store ptr %147, ptr %142, align 8, !tbaa !39
   br label %get_or_assign_node_force.exit217
 
@@ -630,14 +630,14 @@ get_or_assign_node_force.exit217:                 ; preds = %.lr.ph244.split, %1
 160:                                              ; preds = %.lr.ph238, %169
   %indvars.iv285 = phi i64 [ 0, %.lr.ph238 ], [ %indvars.iv.next286, %169 ]
   %161 = load ptr, ptr %158, align 8, !tbaa !26
-  %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv285
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %indvars.iv285
   %163 = load ptr, ptr %162, align 8, !tbaa !32
   br label %164
 
 164:                                              ; preds = %160, %164
   %indvars.iv287 = phi i64 [ %indvars.iv285, %160 ], [ %indvars.iv.next288, %164 ]
   %165 = load ptr, ptr %158, align 8, !tbaa !26
-  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv287
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %indvars.iv287
   %167 = load ptr, ptr %166, align 8, !tbaa !32
   tail call fastcc void @QuadTree_repulsive_force_interact(ptr noundef %163, ptr noundef %167, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef %7)
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
@@ -667,7 +667,7 @@ get_or_assign_node_force.exit217:                 ; preds = %.lr.ph244.split, %1
 174:                                              ; preds = %.lr.ph, %174
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %174 ]
   %175 = load ptr, ptr %173, align 8, !tbaa !26
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv
   %177 = load ptr, ptr %176, align 8, !tbaa !32
   tail call fastcc void @QuadTree_repulsive_force_interact(ptr noundef %177, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -692,7 +692,7 @@ get_or_assign_node_force.exit217:                 ; preds = %.lr.ph244.split, %1
 182:                                              ; preds = %.lr.ph231, %182
   %indvars.iv267 = phi i64 [ 0, %.lr.ph231 ], [ %indvars.iv.next268, %182 ]
   %183 = load ptr, ptr %181, align 8, !tbaa !26
-  %184 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv267
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv267
   %185 = load ptr, ptr %184, align 8, !tbaa !32
   tail call fastcc void @QuadTree_repulsive_force_interact(ptr noundef %185, ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef %7)
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
@@ -714,7 +714,7 @@ get_or_assign_node_force.exit217:                 ; preds = %.lr.ph244.split, %1
 189:                                              ; preds = %.lr.ph233, %189
   %indvars.iv273 = phi i64 [ 0, %.lr.ph233 ], [ %indvars.iv.next274, %189 ]
   %190 = load ptr, ptr %188, align 8, !tbaa !26
-  %191 = getelementptr inbounds nuw ptr, ptr %190, i64 %indvars.iv273
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv273
   %192 = load ptr, ptr %191, align 8, !tbaa !32
   tail call fastcc void @QuadTree_repulsive_force_interact(ptr noundef %192, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef %7)
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
@@ -734,7 +734,7 @@ get_or_assign_node_force.exit217:                 ; preds = %.lr.ph244.split, %1
 196:                                              ; preds = %.lr.ph235, %196
   %indvars.iv279 = phi i64 [ 0, %.lr.ph235 ], [ %indvars.iv.next280, %196 ]
   %197 = load ptr, ptr %195, align 8, !tbaa !26
-  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv279
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv279
   %199 = load ptr, ptr %198, align 8, !tbaa !32
   tail call fastcc void @QuadTree_repulsive_force_interact(ptr noundef %199, ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef %7)
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
@@ -781,7 +781,7 @@ define internal fastcc void @QuadTree_repulsive_force_accumulate(ptr noundef cap
   %19 = load i32, ptr %18, align 8, !tbaa !19
   %20 = mul nsw i32 %19, %7
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds double, ptr %1, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   store ptr %22, ptr %15, align 8, !tbaa !39
   br label %get_or_assign_node_force.exit.us
 
@@ -793,9 +793,9 @@ get_or_assign_node_force.exit.us:                 ; preds = %17, %.preheader52.s
 
 25:                                               ; preds = %get_or_assign_node_force.exit.us, %25
   %indvars.iv = phi i64 [ 0, %get_or_assign_node_force.exit.us ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %27 = load double, ptr %26, align 8, !tbaa !13
-  %28 = getelementptr inbounds nuw double, ptr %.0.i.us, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.us, i64 %indvars.iv
   %29 = load double, ptr %28, align 8, !tbaa !13
   %30 = tail call double @llvm.fmuladd.f64(double %24, double %27, double %29)
   store double %30, ptr %28, align 8, !tbaa !13
@@ -828,7 +828,7 @@ get_or_assign_node_force.exit.us:                 ; preds = %17, %.preheader52.s
 .lr.ph58.split.us:                                ; preds = %.lr.ph58.split.us.preheader, %49
   %indvars.iv75 = phi i64 [ 0, %.lr.ph58.split.us.preheader ], [ %indvars.iv.next76, %49 ]
   %36 = load ptr, ptr %34, align 8, !tbaa !26
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv75
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv75
   %38 = load ptr, ptr %37, align 8, !tbaa !32
   %.not50.us = icmp eq ptr %38, null
   br i1 %.not50.us, label %49, label %.lr.ph.us
@@ -842,9 +842,9 @@ get_or_assign_node_force.exit.us:                 ; preds = %17, %.preheader52.s
 
 43:                                               ; preds = %.lr.ph.us, %43
   %indvars.iv70 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next71, %43 ]
-  %44 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv70
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv70
   %45 = load double, ptr %44, align 8, !tbaa !13
-  %46 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv70
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv70
   %47 = load double, ptr %46, align 8, !tbaa !13
   %48 = tail call double @llvm.fmuladd.f64(double %42, double %45, double %47)
   store double %48, ptr %46, align 8, !tbaa !13
@@ -873,7 +873,7 @@ get_or_assign_node_force.exit.us:                 ; preds = %17, %.preheader52.s
   %54 = load i32, ptr %53, align 8, !tbaa !19
   %55 = mul nsw i32 %54, %7
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds double, ptr %1, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %1, i64 %56
   store ptr %57, ptr %50, align 8, !tbaa !39
   br label %get_or_assign_node_force.exit
 
@@ -886,7 +886,7 @@ get_or_assign_node_force.exit:                    ; preds = %.preheader52.split,
 .lr.ph58.split:                                   ; preds = %.lr.ph58, %65
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %65 ], [ 0, %.lr.ph58 ]
   %60 = load ptr, ptr %34, align 8, !tbaa !26
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv65
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv65
   %62 = load ptr, ptr %61, align 8, !tbaa !32
   %.not50 = icmp eq ptr %62, null
   br i1 %.not50, label %65, label %63
@@ -986,18 +986,18 @@ gv_calloc.exit100.thread:                         ; preds = %4
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv123 = phi i64 [ 1, %.preheader.us.preheader ], [ %indvars.iv.next124, %._crit_edge.us ]
   %41 = mul nuw nsw i64 %indvars.iv123, %40
-  %invariant.gep = getelementptr inbounds nuw double, ptr %3, i64 %41
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %41
   br label %42
 
 42:                                               ; preds = %.preheader.us, %42
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %44 = load double, ptr %43, align 8, !tbaa !13
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %45 = load double, ptr %gep, align 8, !tbaa !13
   %46 = tail call double @llvm.minnum.f64(double %44, double %45)
   store double %46, ptr %43, align 8, !tbaa !13
-  %47 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %48 = load double, ptr %47, align 8, !tbaa !13
   %49 = tail call double @llvm.maxnum.f64(double %48, double %45)
   store double %49, ptr %47, align 8, !tbaa !13
@@ -1026,13 +1026,13 @@ gv_calloc.exit100.thread:                         ; preds = %4
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
   %indvars.iv128 = phi i64 [ 0, %.lr.ph116.preheader ], [ %indvars.iv.next129, %.lr.ph116 ]
   %.084114 = phi double [ %55, %.lr.ph116.preheader ], [ %64, %.lr.ph116 ]
-  %56 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv128
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv128
   %57 = load double, ptr %56, align 8, !tbaa !13
-  %58 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv128
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv128
   %59 = load double, ptr %58, align 8, !tbaa !13
   %60 = fadd double %57, %59
   %61 = fmul double %60, 5.000000e-01
-  %62 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv128
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv128
   store double %61, ptr %62, align 8, !tbaa !13
   %63 = fsub double %59, %57
   %64 = tail call double @llvm.maxnum.f64(double %.084114, double %63)
@@ -1058,7 +1058,7 @@ QuadTree_add.exit.preheader:                      ; preds = %._crit_edge
 QuadTree_add.exit:                                ; preds = %QuadTree_add.exit.preheader, %QuadTree_add.exit
   %indvars.iv133 = phi i64 [ 0, %QuadTree_add.exit.preheader ], [ %indvars.iv.next134, %QuadTree_add.exit ]
   %72 = mul nsw i64 %indvars.iv133, %5
-  %73 = getelementptr inbounds double, ptr %3, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %3, i64 %72
   %74 = trunc nuw nsw i64 %indvars.iv133 to i32
   %75 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef nonnull %70, ptr noundef readonly %73, double noundef 1.000000e+00, i32 noundef %74, i32 noundef 0)
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
@@ -1195,7 +1195,7 @@ define void @QuadTree_delete(ptr noundef captures(address_is_null) %0) local_unn
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %14 = load ptr, ptr %11, align 8, !tbaa !26
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !32
   tail call void @QuadTree_delete(ptr noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1255,7 +1255,7 @@ define noalias nonnull ptr @QuadTree_new_in_quadrant(i32 noundef %0, ptr noundef
   %.01718 = phi i32 [ %4, %.lr.ph.preheader ], [ %15, %.lr.ph ]
   %11 = and i32 %.01718, 1
   %12 = icmp eq i32 %11, 0
-  %13 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %14 = load double, ptr %13, align 8, !tbaa !13
   %.sink.p = select i1 %12, double %10, double %2
   %.sink = fadd double %14, %.sink.p
@@ -1352,9 +1352,9 @@ gv_calloc.exit:                                   ; preds = %12
 
 45:                                               ; preds = %.lr.ph159, %45
   %indvars.iv168 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next169, %45 ]
-  %46 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv168
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv168
   %47 = load double, ptr %46, align 8, !tbaa !13
-  %48 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv168
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv168
   %49 = load double, ptr %48, align 8, !tbaa !13
   %50 = tail call double @llvm.fmuladd.f64(double %47, double %42, double %49)
   %51 = fdiv double %50, %44
@@ -1411,9 +1411,9 @@ gv_calloc.exit133:                                ; preds = %60
   %indvars.iv.i = phi i64 [ %71, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0910.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %72 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.next.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next.i
   %73 = load double, ptr %72, align 8, !tbaa !13
-  %74 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv.next.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv.next.i
   %75 = load double, ptr %74, align 8, !tbaa !13
   %76 = fcmp uge double %73, %75
   %77 = shl nsw i32 %.0910.i, 1
@@ -1425,7 +1425,7 @@ gv_calloc.exit133:                                ; preds = %60
 QuadTree_get_quadrant.exit:                       ; preds = %.lr.ph.i, %67
   %.09.lcssa.i = phi i32 [ 0, %67 ], [ %.1.i, %.lr.ph.i ]
   %80 = sext i32 %.09.lcssa.i to i64
-  %81 = getelementptr inbounds ptr, ptr %68, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %68, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !32
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %99
@@ -1449,7 +1449,7 @@ QuadTree_get_quadrant.exit:                       ; preds = %.lr.ph.i, %67
   %.01718.i = phi i32 [ %.09.lcssa.i, %.lr.ph.preheader.i134 ], [ %96, %.lr.ph.i135 ]
   %92 = and i32 %.01718.i, 1
   %93 = icmp eq i32 %92, 0
-  %94 = getelementptr inbounds nuw double, ptr %90, i64 %indvars.iv.i136
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv.i136
   %95 = load double, ptr %94, align 8, !tbaa !13
   %.sink.p.i = select i1 %93, double %91, double %87
   %.sink.i = fadd double %95, %.sink.p.i
@@ -1461,7 +1461,7 @@ QuadTree_get_quadrant.exit:                       ; preds = %.lr.ph.i, %67
 
 QuadTree_new_in_quadrant.exit:                    ; preds = %.lr.ph.i135, %84
   %97 = load ptr, ptr %52, align 8, !tbaa !26
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %80
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %80
   store ptr %88, ptr %98, align 8, !tbaa !32
   br label %99
 
@@ -1470,7 +1470,7 @@ QuadTree_new_in_quadrant.exit:                    ; preds = %.lr.ph.i135, %84
   %101 = add nsw i32 %4, 1
   %102 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef nonnull %100, ptr noundef %1, double noundef %2, i32 noundef %3, i32 noundef %101)
   %103 = load ptr, ptr %52, align 8, !tbaa !26
-  %104 = getelementptr inbounds ptr, ptr %103, i64 %80
+  %104 = getelementptr inbounds [8 x i8], ptr %103, i64 %80
   store ptr %100, ptr %104, align 8, !tbaa !32
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %106 = load ptr, ptr %105, align 8, !tbaa !37
@@ -1494,9 +1494,9 @@ QuadTree_new_in_quadrant.exit:                    ; preds = %.lr.ph.i135, %84
   %indvars.iv.i141 = phi i64 [ %114, %.lr.ph.preheader.i139 ], [ %indvars.iv.next.i143, %.lr.ph.i140 ]
   %.0910.i142 = phi i32 [ 0, %.lr.ph.preheader.i139 ], [ %.1.i144, %.lr.ph.i140 ]
   %indvars.iv.next.i143 = add nsw i64 %indvars.iv.i141, -1
-  %115 = getelementptr inbounds nuw double, ptr %111, i64 %indvars.iv.next.i143
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.next.i143
   %116 = load double, ptr %115, align 8, !tbaa !13
-  %117 = getelementptr inbounds nuw double, ptr %113, i64 %indvars.iv.next.i143
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv.next.i143
   %118 = load double, ptr %117, align 8, !tbaa !13
   %119 = fcmp uge double %116, %118
   %120 = shl nsw i32 %.0910.i142, 1
@@ -1508,7 +1508,7 @@ QuadTree_new_in_quadrant.exit:                    ; preds = %.lr.ph.i135, %84
 QuadTree_get_quadrant.exit145:                    ; preds = %.lr.ph.i140, %107
   %.09.lcssa.i138 = phi i32 [ 0, %107 ], [ %.1.i144, %.lr.ph.i140 ]
   %123 = sext i32 %.09.lcssa.i138 to i64
-  %124 = getelementptr inbounds ptr, ptr %103, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %103, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !32
   %126 = icmp eq ptr %125, null
   br i1 %126, label %127, label %144
@@ -1534,7 +1534,7 @@ QuadTree_get_quadrant.exit145:                    ; preds = %.lr.ph.i140, %107
   %.01718.i150 = phi i32 [ %.09.lcssa.i138, %.lr.ph.preheader.i146 ], [ %141, %.lr.ph.i148 ]
   %137 = and i32 %.01718.i150, 1
   %138 = icmp eq i32 %137, 0
-  %139 = getelementptr inbounds nuw double, ptr %134, i64 %indvars.iv.i149
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv.i149
   %140 = load double, ptr %139, align 8, !tbaa !13
   %.sink.p.i151 = select i1 %138, double %136, double %131
   %.sink.i152 = fadd double %140, %.sink.p.i151
@@ -1546,7 +1546,7 @@ QuadTree_get_quadrant.exit145:                    ; preds = %.lr.ph.i140, %107
 
 QuadTree_new_in_quadrant.exit155:                 ; preds = %.lr.ph.i148, %127
   %142 = load ptr, ptr %52, align 8, !tbaa !26
-  %143 = getelementptr inbounds ptr, ptr %142, i64 %123
+  %143 = getelementptr inbounds [8 x i8], ptr %142, i64 %123
   store ptr %132, ptr %143, align 8, !tbaa !32
   br label %144
 
@@ -1554,7 +1554,7 @@ QuadTree_new_in_quadrant.exit155:                 ; preds = %.lr.ph.i148, %127
   %145 = phi ptr [ %132, %QuadTree_new_in_quadrant.exit155 ], [ %125, %QuadTree_get_quadrant.exit145 ]
   %146 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef nonnull %145, ptr noundef %111, double noundef %112, i32 noundef %109, i32 noundef %101)
   %147 = load ptr, ptr %52, align 8, !tbaa !26
-  %148 = getelementptr inbounds ptr, ptr %147, i64 %123
+  %148 = getelementptr inbounds [8 x i8], ptr %147, i64 %123
   store ptr %145, ptr %148, align 8, !tbaa !32
   %.pr = load ptr, ptr %105, align 8, !tbaa !37
   %.not128161 = icmp eq ptr %.pr, null
@@ -1599,9 +1599,9 @@ QuadTree_new_in_quadrant.exit155:                 ; preds = %.lr.ph.i148, %127
 
 167:                                              ; preds = %.lr.ph, %167
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %167 ]
-  %168 = getelementptr inbounds nuw double, ptr %163, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %indvars.iv
   %169 = load double, ptr %168, align 8, !tbaa !13
-  %170 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %171 = load double, ptr %170, align 8, !tbaa !13
   %172 = tail call double @llvm.fmuladd.f64(double %169, double %164, double %171)
   %173 = fdiv double %172, %166
@@ -1907,7 +1907,7 @@ draw_polygon.exit:                                ; preds = %4, %176
   br label %192
 
 192:                                              ; preds = %191, %190
-  %193 = getelementptr inbounds nuw double, ptr %186, i64 %indvars.iv
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %indvars.iv
   %194 = load double, ptr %193, align 8, !tbaa !13
   %195 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, double noundef %194) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1962,7 +1962,7 @@ draw_polygon.exit:                                ; preds = %4, %176
   %indvars.iv52 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next53, %212 ]
   %213 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 7, i64 1, ptr nonnull %0)
   %214 = load ptr, ptr %208, align 8, !tbaa !26
-  %215 = getelementptr inbounds nuw ptr, ptr %214, i64 %indvars.iv52
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %indvars.iv52
   %216 = load ptr, ptr %215, align 8, !tbaa !32
   tail call fastcc void @QuadTree_print_internal(ptr noundef %0, ptr noundef %216, i32 noundef %211)
   %fputc39 = tail call i32 @fputc(i32 125, ptr nonnull %0)
@@ -2032,9 +2032,9 @@ define internal fastcc void @QuadTree_get_nearest_internal(ptr noundef readonly 
 
 20:                                               ; preds = %.lr.ph.us, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %22 = load double, ptr %21, align 8, !tbaa !13
-  %23 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %22, ptr %23, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2113,7 +2113,7 @@ define internal fastcc void @QuadTree_get_nearest_internal(ptr noundef readonly 
   %.06494 = phi double [ -1.000000e+00, %.lr.ph.preheader ], [ %.1, %64 ]
   %.06593 = phi i32 [ -1, %.lr.ph.preheader ], [ %.166, %64 ]
   %53 = load ptr, ptr %34, align 8, !tbaa !26
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv112
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv112
   %55 = load ptr, ptr %54, align 8, !tbaa !32
   %.not76 = icmp eq ptr %55, null
   br i1 %.not76, label %64, label %56
@@ -2145,7 +2145,7 @@ tailrecurse.loopexit:                             ; preds = %64
 tailrecurse:                                      ; preds = %tailrecurse.loopexit, %.preheader84
   %.065.lcssa = phi i64 [ -1, %.preheader84 ], [ %65, %tailrecurse.loopexit ]
   %66 = load ptr, ptr %34, align 8, !tbaa !26
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %.065.lcssa
+  %67 = getelementptr inbounds [8 x i8], ptr %66, i64 %.065.lcssa
   %68 = load ptr, ptr %67, align 8, !tbaa !32
   %.not = icmp eq ptr %68, null
   br i1 %.not, label %.loopexit, label %.lr.ph100
@@ -2153,7 +2153,7 @@ tailrecurse:                                      ; preds = %tailrecurse.loopexi
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv117 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next118, %.lr.ph103 ]
   %69 = load ptr, ptr %34, align 8, !tbaa !26
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv117
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv117
   %71 = load ptr, ptr %70, align 8, !tbaa !32
   tail call fastcc void @QuadTree_get_nearest_internal(ptr noundef %71, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i1 noundef zeroext false)
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1

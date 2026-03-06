@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.CDToonsSprite = type { i16, i16, i16, i16, i32, i32, ptr, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"cdtoons\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"CDToons video\00", align 1
@@ -126,7 +125,7 @@ define internal range(i32 44, 0) i32 @cdtoons_decode_frame(ptr noundef %0, ptr n
 
 59:                                               ; preds = %52
   %60 = zext nneg i16 %55 to i64
-  %61 = getelementptr inbounds nuw %struct.CDToonsSprite, ptr %45, i64 %60
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load i32, ptr %62, align 8, !tbaa !37
   %.not234 = icmp eq i32 %63, 0
@@ -394,7 +393,7 @@ split:                                            ; preds = %157, %._crit_edge
   br label %.thread
 
 .thread315:                                       ; preds = %.thread313, %199
-  %202 = getelementptr inbounds nuw %struct.CDToonsSprite, ptr %171, i64 %181
+  %202 = getelementptr inbounds nuw [32 x i8], ptr %171, i64 %181
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load ptr, ptr %203, align 8, !tbaa !44
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 24
@@ -462,7 +461,7 @@ split:                                            ; preds = %157, %._crit_edge
 235:                                              ; preds = %232
   %236 = getelementptr inbounds nuw i8, ptr %6, i64 1040
   %237 = zext nneg i16 %34 to i64
-  %238 = getelementptr inbounds nuw %struct.CDToonsSprite, ptr %236, i64 %237
+  %238 = getelementptr inbounds nuw [32 x i8], ptr %236, i64 %237
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 24
   %240 = load i32, ptr %239, align 8, !tbaa !37
   %.not227 = icmp eq i32 %240, 0
@@ -513,7 +512,7 @@ split:                                            ; preds = %157, %._crit_edge
   %263 = or disjoint i32 %261, %262
   %264 = or disjoint i32 %263, %260
   %265 = or disjoint i32 %264, -16777216
-  %266 = getelementptr inbounds nuw i32, ptr %250, i64 %indvars.iv
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %250, i64 %indvars.iv
   store i32 %265, ptr %266, align 4, !tbaa !50
   %267 = getelementptr inbounds nuw i8, ptr %.0185371, i64 6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -537,7 +536,7 @@ split:                                            ; preds = %157, %._crit_edge
 
 277:                                              ; preds = %.outer._crit_edge.thread436, %284
   %indvars.iv402 = phi i64 [ 0, %.outer._crit_edge.thread436 ], [ %indvars.iv.next403, %284 ]
-  %278 = getelementptr inbounds nuw %struct.CDToonsSprite, ptr %268, i64 %indvars.iv402
+  %278 = getelementptr inbounds nuw [32 x i8], ptr %268, i64 %indvars.iv402
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 6
   %280 = load i16, ptr %279, align 2, !tbaa !43
   %281 = icmp ult i16 %21, %280
@@ -575,7 +574,7 @@ define internal noundef i32 @cdtoons_decode_end(ptr noundef readonly captures(no
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.CDToonsSprite, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @av_freep(ptr noundef nonnull %8) #8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -598,7 +597,7 @@ define internal void @cdtoons_flush(ptr noundef readonly captures(none) %0) #2 {
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.CDToonsSprite, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1064
   store i32 0, ptr %8, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

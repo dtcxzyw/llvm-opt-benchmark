@@ -4,10 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { i64 }
-%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.anon = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [673 x i8] c"%s is free software; you can redistribute it and/or\0Amodify it under the terms of the GNU Lesser General Public\0ALicense as published by the Free Software Foundation; either\0Aversion 2.1 of the License, or (at your option) any later version.\0A\0A%s is distributed in the hope that it will be useful,\0Abut WITHOUT ANY WARRANTY; without even the implied warranty of\0AMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\0ALesser General Public License for more details.\0A\0AYou should have received a copy of the GNU Lesser General Public\0ALicense along with %s; if not, write to the Free Software\0AFoundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA\0A\00", align 1
 @program_name = external constant [0 x i8], align 1
@@ -1161,7 +1159,7 @@ define range(i32 -2147483648, 1) i32 @show_codecs(ptr noundef readnone captures(
 
 9:                                                ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !37
@@ -1187,7 +1185,7 @@ define range(i32 -2147483648, 1) i32 @show_codecs(ptr noundef readnone captures(
 
 switch.lookup:                                    ; preds = %15
   %25 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.print_codecs.21, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.print_codecs.21, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_media_type_char.exit
 
@@ -1335,7 +1333,7 @@ define internal fastcc i32 @get_codecs_sorted(ptr noundef nonnull writeonly capt
   %.023 = phi i32 [ %10, %.lr.ph ], [ 0, %.preheader ]
   %10 = add i32 %.023, 1
   %11 = zext i32 %.023 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %11
   store ptr %9, ptr %12, align 8, !tbaa !63
   %13 = tail call ptr @avcodec_descriptor_next(ptr noundef nonnull %9) #17
   %.not21 = icmp eq ptr %13, null
@@ -1476,7 +1474,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @print_codecs(i32 noundef r
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit37.us
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.loopexit37.us ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %2, align 8, !tbaa !61
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv51
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv51
   %11 = load ptr, ptr %10, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !37
@@ -1515,7 +1513,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @print_codecs(i32 noundef r
 
 switch.lookup:                                    ; preds = %next_codec_for_id.exit.loopexit.us.us
   %24 = zext nneg i32 %52 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.print_codecs.21, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.print_codecs.21, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_media_type_char.exit.us.us
 
@@ -1575,7 +1573,7 @@ next_codec_for_id.exit.loopexit.us.us:            ; preds = %22
 .lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit36
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit36 ], [ 0, %.lr.ph ]
   %54 = load ptr, ptr %2, align 8, !tbaa !61
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !37
@@ -1618,7 +1616,7 @@ next_codec_for_id.exit.loopexit35:                ; preds = %67
 
 switch.lookup75:                                  ; preds = %next_codec_for_id.exit.loopexit35
   %73 = zext nneg i32 %71 to i64
-  %switch.gep76 = getelementptr inbounds nuw i32, ptr @switch.table.print_codecs.21, i64 %73
+  %switch.gep76 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.print_codecs.21, i64 %73
   %switch.load77 = load i32, ptr %switch.gep76, align 4
   br label %get_media_type_char.exit
 
@@ -2256,7 +2254,7 @@ define noundef i32 @show_pix_fmts(ptr noundef readnone captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph25, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.lr.ph25 ]
-  %30 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %5, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [20 x i8], ptr %5, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load i32, ptr %31, align 4, !tbaa !97
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %32)
@@ -2949,7 +2947,7 @@ split:                                            ; preds = %40
 
 58:                                               ; preds = %55, %57
   %indvars.iv = phi i64 [ 0, %55 ], [ %indvars.iv.next, %57 ]
-  %59 = getelementptr inbounds nuw %struct.anon, ptr @__const.opt_loglevel.log_levels, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [16 x i8], ptr @__const.opt_loglevel.log_levels, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 16, !tbaa !124
   %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %56) #18
   %.not53 = icmp eq i32 %61, 0
@@ -2975,7 +2973,7 @@ split:                                            ; preds = %40
 
 72:                                               ; preds = %70, %72
   %indvars.iv58 = phi i64 [ 0, %70 ], [ %indvars.iv.next59, %72 ]
-  %73 = getelementptr inbounds nuw %struct.anon, ptr @__const.opt_loglevel.log_levels, i64 %indvars.iv58
+  %73 = getelementptr inbounds nuw [16 x i8], ptr @__const.opt_loglevel.log_levels, i64 %indvars.iv58
   %74 = load ptr, ptr %73, align 16, !tbaa !124
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.66, ptr noundef %74) #17
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
@@ -3574,7 +3572,7 @@ define internal fastcc void @print_codec(ptr noundef nonnull %0) unnamed_addr #2
 switch.lookup:                                    ; preds = %87
   %93 = lshr exact i32 %91, 12
   %94 = zext nneg i32 %93 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.print_codec, i64 %94
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.print_codec, i64 %94
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %95
 
@@ -3966,7 +3964,7 @@ define internal fastcc void @print_device_list(ptr noundef readonly captures(non
 6:                                                ; preds = %.lr.ph21, %.loopexit
   %indvars.iv23 = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next24, %.loopexit ]
   %7 = load ptr, ptr %0, align 8, !tbaa !154
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv23
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv23
   %9 = load ptr, ptr %8, align 8, !tbaa !155
   %10 = load i32, ptr %5, align 4, !tbaa !157
   %11 = zext i32 %10 to i64
@@ -3988,7 +3986,7 @@ define internal fastcc void @print_device_list(ptr noundef readonly captures(non
 22:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %23 = load ptr, ptr %21, align 8, !tbaa !162
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = tail call ptr @av_get_media_type_string(i32 noundef %25) #17
   %.not = icmp eq i64 %indvars.iv, 0

@@ -47,7 +47,7 @@ _ZNSt12_Vector_baseIN4node12CleanupQueue19CleanupHookCallbackESaIS2_EE11_M_alloc
   %mul.i.i.i.i.i = mul nuw nsw i64 %inc.i.i.i.i, 24
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #11
   store ptr %call5.i.i.i.i.i, ptr %agg.result, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %call5.i.i.i.i.i, i64 %inc.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i.i.i, i64 %inc.i.i.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body.i.i.i.i.i.i
@@ -95,7 +95,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19Cleanu
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__val.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__i.sroa.0.012.i.ptr.i.i.i, i64 24, i1 false)
   %add.ptr.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce.pn11.i.i.i.i, i64 48
   %sub.ptr.div.neg.i.i.i.i.i.i.i.i.i = sdiv exact i64 %__i.sroa.0.012.i.idx.i.i.i, -24
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %add.ptr.i2.i.i.i.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %add.ptr.i2.i.i.i.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i.i, i64 %__i.sroa.0.012.i.idx.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__val.i.i.i.i, i64 24, i1 false)
   br label %for.inc.i.i.i.i
@@ -193,7 +193,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19Cleanu
   %sub.ptr.lhs.cast.i.i.i.i.i.i46.i.i.i = ptrtoint ptr %__i.sroa.0.012.i25.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i47.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i46.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.neg.i.i.i.i.i.i48.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i47.i.i.i, -24
-  %add.ptr.i.i.i.i.i.i49.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %add.ptr.i2.i45.i.i.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i48.i.i.i
+  %add.ptr.i.i.i.i.i.i49.i.i.i = getelementptr inbounds [24 x i8], ptr %add.ptr.i2.i45.i.i.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i48.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i49.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i47.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__val.i17.i.i.i, i64 24, i1 false)
   br label %for.inc.i36.i.i.i
@@ -288,7 +288,7 @@ if.end15.i.i.i:                                   ; preds = %for.body
   %10 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %9, %10
   %11 = load ptr, ptr %cleanup_hooks_, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %rem.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %11, i64 %rem.i.i.i.i.i.i
   %12 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i, label %for.inc, label %if.end.i.i.i.i.i
@@ -428,7 +428,7 @@ if.end:                                           ; preds = %for.body.i, %for.co
   %13 = load i64, ptr %add.ptr.i.i, align 8
   %rem.i.i.i = urem i64 %13, %12
   %.pre = load ptr, ptr %this, align 8
-  %arrayidx.i17.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %rem.i.i.i
+  %arrayidx.i17.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre, i64 %rem.i.i.i
   %.pre39 = load ptr, ptr %arrayidx.i17.phi.trans.insert, align 8
   br label %if.end13
 
@@ -440,7 +440,7 @@ if.else:                                          ; preds = %entry
   %16 = load i64, ptr %_M_bucket_count.i10, align 8
   %rem.i.i.i11 = urem i64 %15, %16
   %17 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %17, i64 %rem.i.i.i11
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %17, i64 %rem.i.i.i11
   %18 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i12 = icmp eq ptr %18, null
   br i1 %tobool.not.i12, label %return, label %if.end.i
@@ -504,10 +504,10 @@ cond.end.i:                                       ; preds = %if.then.i
   br i1 %cmp.not.i.i, label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb1EEE.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
-  %arrayidx5.i.i = getelementptr inbounds ptr, ptr %30, i64 %rem.i.i.i.i22
+  %arrayidx5.i.i = getelementptr inbounds [8 x i8], ptr %30, i64 %rem.i.i.i.i22
   store ptr %29, ptr %arrayidx5.i.i, align 8
   %.pre.i23 = load ptr, ptr %this, align 8
-  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i23, i64 %__bkt.0
+  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds [8 x i8], ptr %.pre.i23, i64 %__bkt.0
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
   br label %if.end.i.i
 
@@ -515,7 +515,7 @@ if.end.i.i:                                       ; preds = %if.then3.i.i, %if.t
   %33 = phi ptr [ %29, %if.then.i ], [ %.pre24.i, %if.then3.i.i ]
   %34 = phi ptr [ %30, %if.then.i ], [ %.pre.i23, %if.then3.i.i ]
   %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %34, i64 %__bkt.0
+  %arrayidx7.i.i = getelementptr inbounds [8 x i8], ptr %34, i64 %__bkt.0
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %33
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
 
@@ -538,7 +538,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br i1 %cmp10.not.i, label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb1EEE.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then6.i
-  %arrayidx13.i = getelementptr inbounds ptr, ptr %30, i64 %rem.i.i.i15.i
+  %arrayidx13.i = getelementptr inbounds [8 x i8], ptr %30, i64 %rem.i.i.i15.i
   store ptr %__prev_n.0, ptr %arrayidx13.i, align 8
   br label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb1EEE.exit
 
@@ -609,13 +609,13 @@ if.end.i.i.i:                                     ; preds = %while.body
   %and.i.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 1
   %cmp16.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   %sub24.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %sub24.i.i.i.i
-  %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %div56.i.i.i
+  %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %__first.coerce, i64 %sub24.i.i.i.i
+  %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %__first.coerce, i64 %div56.i.i.i
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", %if.end.i.i.i
   %__parent.0.i.i.i = phi i64 [ %div56.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i" ]
-  %phi.call.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__parent.0.i.i.i
+  %phi.call.i.i.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__parent.0.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp611.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp611.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %phi.call.i.i.i, i64 16, i1 false)
   %__value.sroa.2.0.ref.tmp.sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i.i.i, i64 16
@@ -627,17 +627,17 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %__holeIndex.addr.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
   %add.i.i.i.i = shl i64 %__holeIndex.addr.030.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %mul.i.i.i.i
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr.i17.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %sub3.i.i.i.i
+  %add.ptr.i17.i.i.i.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %sub3.i.i.i.i
   %2 = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 16
   %call.val.i.i.i.i.i = load i64, ptr %2, align 8
   %3 = getelementptr i8, ptr %add.ptr.i17.i.i.i.i, i64 16
   %call3.val.i.i.i.i.i = load i64, ptr %3, align 8
   %cmp.i.i.i.i.i.i = icmp ugt i64 %call.val.i.i.i.i.i, %call3.val.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr.i18.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %spec.select.i.i.i.i
-  %add.ptr.i19.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.030.i.i.i.i
+  %add.ptr.i18.i.i.i.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %spec.select.i.i.i.i
+  %add.ptr.i19.i.i.i.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.030.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i18.i.i.i.i, i64 24, i1 false)
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i7.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !14
@@ -661,21 +661,21 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end33.i.i.i.i, %
   %__holeIndex.addr.07.i.i.i.i.i = phi i64 [ %__parent.08.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ]
   %__parent.08.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.07.i.i.i.i.i, -1
   %__parent.08.i.i.i.i.i = sdiv i64 %__parent.08.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__parent.08.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %__first.coerce, i64 %__parent.08.i.i.i.i.i
   %4 = getelementptr i8, ptr %add.ptr.i.i.i.i.i.i, i64 16
   %call.val.i.i.i.i.i.i = load i64, ptr %4, align 8
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %call.val.i.i.i.i.i.i, %__value.sroa.2.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i.i.i
+  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i.i, i64 24, i1 false)
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.08.i.i.i.i.i, %__parent.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", !llvm.loop !15
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ %__holeIndex.addr.07.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.08.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp611.sroa.0.i.i.i, i64 16, i1 false)
   %agg.tmp3522.sroa.4.0.add.ptr.i9.i.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i.i.i.i.i, i64 16
   store i64 %__value.sroa.2.0.copyload.i.i.i, ptr %agg.tmp3522.sroa.4.0.add.ptr.i9.i.sroa_idx.i.i.i.i, align 8
@@ -704,17 +704,17 @@ while.body.i.i.i38.i:                             ; preds = %while.body.i.i, %wh
   %__holeIndex.addr.030.i.i.i39.i = phi i64 [ %spec.select.i.i.i48.i, %while.body.i.i.i38.i ], [ 0, %while.body.i.i ]
   %add.i.i.i40.i = shl i64 %__holeIndex.addr.030.i.i.i39.i, 1
   %mul.i.i.i41.i = add i64 %add.i.i.i40.i, 2
-  %add.ptr.i.i.i.i42.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %mul.i.i.i41.i
+  %add.ptr.i.i.i.i42.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %mul.i.i.i41.i
   %sub3.i.i.i43.i = or disjoint i64 %add.i.i.i40.i, 1
-  %add.ptr.i17.i.i.i44.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %sub3.i.i.i43.i
+  %add.ptr.i17.i.i.i44.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %sub3.i.i.i43.i
   %5 = getelementptr i8, ptr %add.ptr.i.i.i.i42.i, i64 16
   %call.val.i.i.i.i45.i = load i64, ptr %5, align 8
   %6 = getelementptr i8, ptr %add.ptr.i17.i.i.i44.i, i64 16
   %call3.val.i.i.i.i46.i = load i64, ptr %6, align 8
   %cmp.i.i.i.i.i47.i = icmp ugt i64 %call.val.i.i.i.i45.i, %call3.val.i.i.i.i46.i
   %spec.select.i.i.i48.i = select i1 %cmp.i.i.i.i.i47.i, i64 %sub3.i.i.i43.i, i64 %mul.i.i.i41.i
-  %add.ptr.i18.i.i.i49.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %spec.select.i.i.i48.i
-  %add.ptr.i19.i.i.i50.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.030.i.i.i39.i
+  %add.ptr.i18.i.i.i49.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %spec.select.i.i.i48.i
+  %add.ptr.i19.i.i.i50.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.030.i.i.i39.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i19.i.i.i50.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i18.i.i.i49.i, i64 24, i1 false)
   %cmp.i.i.i51.i = icmp slt i64 %spec.select.i.i.i48.i, %div.i.i.i8.i
   br i1 %cmp.i.i.i51.i, label %while.body.i.i.i38.i, label %while.end.i.i.i10.i, !llvm.loop !14
@@ -734,8 +734,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i10.i
 if.end33.i.thread.i.i34.i:                        ; preds = %land.lhs.true.i.i.i.i
   %add21.i.i.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i.i11.i, 1
   %sub24.i.i.i35.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i20.i.i.i36.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %sub24.i.i.i35.i
-  %add.ptr.i21.i.i.i37.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i11.i
+  %add.ptr.i20.i.i.i36.i = getelementptr inbounds nuw [24 x i8], ptr %__first.coerce, i64 %sub24.i.i.i35.i
+  %add.ptr.i21.i.i.i37.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i11.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i21.i.i.i37.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i20.i.i.i36.i, i64 24, i1 false)
   br label %land.rhs.i.i.i.i18.i.preheader
 
@@ -751,21 +751,21 @@ land.rhs.i.i.i.i18.i:                             ; preds = %land.rhs.i.i.i.i18.
   %__holeIndex.addr.07.i.i.i.i19.i = phi i64 [ %__parent.08.i.i34.i.i21.i, %while.body.i.i.i.i29.i ], [ %__holeIndex.addr.07.i.i.i.i19.i.ph, %land.rhs.i.i.i.i18.i.preheader ]
   %__parent.08.in.i.i.i.i20.i = add nsw i64 %__holeIndex.addr.07.i.i.i.i19.i, -1
   %__parent.08.i.i34.i.i21.i = lshr i64 %__parent.08.in.i.i.i.i20.i, 1
-  %add.ptr.i.i.i.i.i22.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__parent.08.i.i34.i.i21.i
+  %add.ptr.i.i.i.i.i22.i = getelementptr inbounds nuw [24 x i8], ptr %__first.coerce, i64 %__parent.08.i.i34.i.i21.i
   %7 = getelementptr i8, ptr %add.ptr.i.i.i.i.i22.i, i64 16
   %call.val.i.i.i.i.i23.i = load i64, ptr %7, align 8
   %cmp.i.i.i.i.i.i24.i = icmp ugt i64 %call.val.i.i.i.i.i23.i, %__value.sroa.2.0.copyload.i.i3.i
   br i1 %cmp.i.i.i.i.i.i24.i, label %while.body.i.i.i.i29.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i"
 
 while.body.i.i.i.i29.i:                           ; preds = %land.rhs.i.i.i.i18.i
-  %add.ptr.i8.i.i.i.i30.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i.i19.i
+  %add.ptr.i8.i.i.i.i30.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i.i19.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i8.i.i.i.i30.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i22.i, i64 24, i1 false)
   %cmp.i.i.not.i.i31.i = icmp eq i64 %__parent.08.i.i34.i.i21.i, 0
   br i1 %cmp.i.i.not.i.i31.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i", label %land.rhs.i.i.i.i18.i, !llvm.loop !15
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_SE_RT0_.exit.i25.i": ; preds = %while.body.i.i.i.i29.i, %land.rhs.i.i.i.i18.i, %if.end33.i.i.i14.i
   %__holeIndex.addr.0.lcssa.i.i.i.i26.i = phi i64 [ 0, %if.end33.i.i.i14.i ], [ %__holeIndex.addr.07.i.i.i.i19.i, %land.rhs.i.i.i.i18.i ], [ 0, %while.body.i.i.i.i29.i ]
-  %add.ptr.i9.i.i.i.i27.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i26.i
+  %add.ptr.i9.i.i.i.i27.i = getelementptr inbounds [24 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i26.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i.i.i.i27.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp61.sroa.0.i.i1.i, i64 16, i1 false)
   %agg.tmp3522.sroa.4.0.add.ptr.i9.i.sroa_idx.i.i.i28.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i.i.i.i27.i, i64 16
   store i64 %__value.sroa.2.0.copyload.i.i3.i, ptr %agg.tmp3522.sroa.4.0.add.ptr.i9.i.sroa_idx.i.i.i28.i, align 8
@@ -776,7 +776,7 @@ while.body.i.i.i.i29.i:                           ; preds = %land.rhs.i.i.i.i18.
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.017, -1
   %div.i = udiv i64 %sub.ptr.sub.i.i.i.fr.i18, 48
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce, i64 %div.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %__first.coerce, i64 %div.i
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge16, i64 -24
   %call.val.i.i.i = load i64, ptr %0, align 8
   %8 = getelementptr i8, ptr %add.ptr.i.i, i64 16

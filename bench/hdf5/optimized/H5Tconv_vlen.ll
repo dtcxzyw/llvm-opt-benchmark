@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { %struct.H5T_conv_ctx_conv_fields }
 %struct.H5T_conv_ctx_conv_fields = type { %struct.H5T_conv_cb_t, i64, i64, i64, i8 }
 %struct.H5T_conv_cb_t = type { ptr, ptr }
-%struct.H5T_cmemb_t = type { ptr, i64, i64, ptr }
 
 @H5T_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -1159,7 +1158,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__conv_vlen_nested_free(
   %37 = phi ptr [ %32, %31 ], [ %11, %.preheader ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = load ptr, ptr %38, align 8, !tbaa !28
-  %40 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !52
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 %42

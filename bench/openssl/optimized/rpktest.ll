@@ -423,13 +423,13 @@ define internal i32 @test_rpk(i32 noundef %0) #1 {
 
 switch.lookup:                                    ; preds = %26
   %30 = zext nneg i16 %16 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.test_rpk, i64 %30
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.test_rpk, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   %31 = zext nneg i16 %16 to i64
-  %switch.gep357 = getelementptr inbounds nuw ptr, ptr @switch.table.test_rpk.1, i64 %31
+  %switch.gep357 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.test_rpk.1, i64 %31
   %switch.load358 = load ptr, ptr %switch.gep357, align 8
   %32 = zext nneg i16 %16 to i64
-  %switch.gep359 = getelementptr inbounds nuw ptr, ptr @switch.table.test_rpk.2, i64 %32
+  %switch.gep359 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.test_rpk.2, i64 %32
   %switch.load360 = load ptr, ptr %switch.gep359, align 8
   %.0187 = load ptr, ptr %switch.load360, align 8, !tbaa !4
   %.0188 = load ptr, ptr %switch.load358, align 8, !tbaa !4

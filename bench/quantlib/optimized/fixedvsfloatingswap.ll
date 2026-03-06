@@ -64,7 +64,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.boost::shared_ptr.17" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.std::allocator.32" = type { i8 }
 %"class.boost::shared_ptr.75" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::shared_ptr.76" = type { ptr, %"class.boost::detail::shared_count" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, boost::any>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, boost::any>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
@@ -1327,7 +1326,7 @@ if.then.i.i.i83:                                  ; preds = %_ZNSt6vectorIN5boos
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %103, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %103, i64 %idx.neg.i.i.i
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #30
   store ptr null, ptr %isRegular_.i81, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 104
@@ -2260,7 +2259,7 @@ if.then.i.i.i57:                                  ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %42, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %42, i64 %idx.neg.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #30
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -2355,7 +2354,7 @@ if.then.i.i:                                      ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %idx.neg.i.i = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i, i64 noundef %sub.ptr.sub.i.i) #30
   store ptr null, ptr %isRegular_, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -2753,7 +2752,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIN
 if.then.i.i.i.i.i29:                              ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i, 1
   %call5.i.i.i.i2.i.i30 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #31
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i30, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i30, i64 %sub.ptr.div.i
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i30, align 8, !tbaa !115
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i30, i64 8
   %sub.i.i.i.i.i = add nsw i64 %sub.ptr.div.i, -1
@@ -2834,7 +2833,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %i.093 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %coupon)
   %22 = load ptr, ptr %5, align 8, !tbaa !107
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.76", ptr %22, i64 %i.093
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %i.093
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %23 = load ptr, ptr %add.ptr.i, align 8, !tbaa !132, !noalias !129
   %24 = icmp eq ptr %23, null
@@ -2874,11 +2873,11 @@ invoke.cont33:                                    ; preds = %cond.true.i, %if.th
 
 invoke.cont47:                                    ; preds = %invoke.cont33
   %31 = load ptr, ptr %fixedPayDates, align 8, !tbaa !97
-  %add.ptr.i63 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %31, i64 %i.093
+  %add.ptr.i63 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %i.093
   store i64 %call36, ptr %add.ptr.i63, align 8, !tbaa !36
   %accrualStartDate_.i89 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %32 = load ptr, ptr %fixedResetDates, align 8, !tbaa !97
-  %add.ptr.i6990 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %32, i64 %i.093
+  %add.ptr.i6990 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %i.093
   %33 = load i64, ptr %accrualStartDate_.i89, align 8, !tbaa !36
   store i64 %33, ptr %add.ptr.i6990, align 8, !tbaa !36
   %vtable49.pre = load ptr, ptr %28, align 8, !tbaa !32
@@ -2889,7 +2888,7 @@ invoke.cont47:                                    ; preds = %invoke.cont33
 
 invoke.cont55:                                    ; preds = %invoke.cont47
   %34 = load ptr, ptr %fixedCoupons20, align 8, !tbaa !92
-  %add.ptr.i75 = getelementptr inbounds nuw double, ptr %34, i64 %i.093
+  %add.ptr.i75 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %i.093
   store double %call52, ptr %add.ptr.i75, align 8, !tbaa !115
   %vtable57.pre = load ptr, ptr %28, align 8, !tbaa !32
   %vfn58.phi.trans.insert = getelementptr inbounds nuw i8, ptr %vtable57.pre, i64 64
@@ -2899,7 +2898,7 @@ invoke.cont55:                                    ; preds = %invoke.cont47
 
 invoke.cont59:                                    ; preds = %invoke.cont55
   %35 = load ptr, ptr %fixedNominals, align 8, !tbaa !92
-  %add.ptr.i81 = getelementptr inbounds nuw double, ptr %35, i64 %i.093
+  %add.ptr.i81 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %i.093
   store double %call60, ptr %add.ptr.i81, align 8, !tbaa !115
   %cmp.not.i.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit, label %if.then.i.i82
@@ -3150,7 +3149,7 @@ _ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vec
   store ptr %call5.i.i.i.i2.i, ptr %this, align 8, !tbaa !97
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %_M_finish.i.i, align 8, !tbaa !98
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i2.i, i64 %__n
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i, i64 %__n
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !99
   br label %for.body.i.i.i.i
@@ -7443,12 +7442,12 @@ if.then.i:                                        ; preds = %entry
 
 call5.i.i.i.i.noexc:                              ; preds = %if.then.i
   %div1.i.i = lshr i64 %sub.i.i.i, 6
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i4, i64 %div1.i.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i4, i64 %div1.i.i
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !114
   store ptr %call5.i.i.i.i4, ptr %this, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i, align 8
   %div.i.i.i.i = sdiv i64 %add.i.i, 64
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i4, i64 %div.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i4, i64 %div.i.i.i.i
   %4 = and i64 %add.i.i, -9223372036854775745
   %cmp.i.i.i.i = icmp ugt i64 %4, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 0
@@ -7568,7 +7567,7 @@ if.then.i:                                        ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i, i64 noundef %sub.ptr.sub.i) #30
   store ptr null, ptr %this, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8

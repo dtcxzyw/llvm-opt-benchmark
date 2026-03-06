@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.xl_xact_parsed_commit = type { i64, i32, i32, i32, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, [200 x i8], i32, ptr, i32, ptr, i64, i64 }
 %struct.xl_xact_parsed_abort = type { i64, i32, i32, i32, i32, ptr, i32, ptr, i32, ptr, i32, [200 x i8], i64, i64 }
-%struct.RelFileLocator = type { i32, i32, i32 }
-%struct.xl_xact_stats_item = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"xtop %u: \00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"COMMIT\00", align 1
@@ -475,7 +473,7 @@ define dso_local void @xact_desc(ptr noundef %0, ptr noundef readonly captures(n
 
 29:                                               ; preds = %29, %28
   %indvars.iv.i.i = phi i64 [ 0, %28 ], [ %indvars.iv.next.i.i, %29 ]
-  %30 = getelementptr inbounds nuw %struct.RelFileLocator, ptr %26, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %indvars.iv.i.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr %30, align 4
@@ -503,7 +501,7 @@ xact_desc_relations.exit.i:                       ; preds = %29, %20
 
 43:                                               ; preds = %43, %42
   %indvars.iv.i16.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i17.i, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i16.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i16.i
   %45 = load i32, ptr %44, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %45) #10
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
@@ -525,7 +523,7 @@ xact_desc_subxacts.exit.i:                        ; preds = %43, %xact_desc_rela
 
 52:                                               ; preds = %52, %51
   %indvars.iv.i20.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i21.i, %52 ]
-  %53 = getelementptr inbounds nuw %struct.xl_xact_stats_item, ptr %49, i64 %indvars.iv.i20.i
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv.i20.i
   %54 = getelementptr i8, ptr %53, i64 8
   %55 = load i64, ptr %54, align 4
   %56 = load i32, ptr %53, align 4
@@ -625,7 +623,7 @@ xact_desc_commit.exit:                            ; preds = %77, %80
 
 105:                                              ; preds = %105, %104
   %indvars.iv.i.i42 = phi i64 [ 0, %104 ], [ %indvars.iv.next.i.i43, %105 ]
-  %106 = getelementptr inbounds nuw %struct.RelFileLocator, ptr %102, i64 %indvars.iv.i.i42
+  %106 = getelementptr inbounds nuw [12 x i8], ptr %102, i64 %indvars.iv.i.i42
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %108 = load i32, ptr %107, align 4
   %109 = load i32, ptr %106, align 4
@@ -653,7 +651,7 @@ xact_desc_relations.exit.i38:                     ; preds = %105, %96
 
 119:                                              ; preds = %119, %118
   %indvars.iv.i11.i = phi i64 [ 0, %118 ], [ %indvars.iv.next.i12.i, %119 ]
-  %120 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv.i11.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i11.i
   %121 = load i32, ptr %120, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %121) #10
   %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i11.i, 1
@@ -695,7 +693,7 @@ xact_desc_subxacts.exit.i39:                      ; preds = %119, %xact_desc_rel
 
 142:                                              ; preds = %142, %141
   %indvars.iv.i15.i = phi i64 [ 0, %141 ], [ %indvars.iv.next.i16.i, %142 ]
-  %143 = getelementptr inbounds nuw %struct.xl_xact_stats_item, ptr %139, i64 %indvars.iv.i15.i
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %139, i64 %indvars.iv.i15.i
   %144 = getelementptr i8, ptr %143, i64 8
   %145 = load i64, ptr %144, align 4
   %146 = load i32, ptr %143, align 4
@@ -813,7 +811,7 @@ xact_desc_abort.exit:                             ; preds = %142, %135
 
 225:                                              ; preds = %225, %224
   %indvars.iv.i.i50 = phi i64 [ 0, %224 ], [ %indvars.iv.next.i.i51, %225 ]
-  %226 = getelementptr inbounds nuw %struct.RelFileLocator, ptr %222, i64 %indvars.iv.i.i50
+  %226 = getelementptr inbounds nuw [12 x i8], ptr %222, i64 %indvars.iv.i.i50
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 4
   %228 = load i32, ptr %227, align 4
   %229 = load i32, ptr %226, align 4
@@ -839,7 +837,7 @@ xact_desc_relations.exit.i45:                     ; preds = %225, %149
 
 237:                                              ; preds = %237, %236
   %indvars.iv.i14.i = phi i64 [ 0, %236 ], [ %indvars.iv.next.i15.i, %237 ]
-  %238 = getelementptr inbounds nuw %struct.RelFileLocator, ptr %234, i64 %indvars.iv.i14.i
+  %238 = getelementptr inbounds nuw [12 x i8], ptr %234, i64 %indvars.iv.i14.i
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 4
   %240 = load i32, ptr %239, align 4
   %241 = load i32, ptr %238, align 4
@@ -866,7 +864,7 @@ xact_desc_relations.exit17.i:                     ; preds = %237, %xact_desc_rel
 
 250:                                              ; preds = %250, %249
   %indvars.iv.i19.i = phi i64 [ 0, %249 ], [ %indvars.iv.next.i20.i, %250 ]
-  %251 = getelementptr inbounds nuw %struct.xl_xact_stats_item, ptr %247, i64 %indvars.iv.i19.i
+  %251 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv.i19.i
   %252 = getelementptr i8, ptr %251, i64 8
   %253 = load i64, ptr %252, align 4
   %254 = load i32, ptr %251, align 4
@@ -891,7 +889,7 @@ xact_desc_stats.exit.i46:                         ; preds = %250, %xact_desc_rel
 
 262:                                              ; preds = %262, %261
   %indvars.iv.i23.i = phi i64 [ 0, %261 ], [ %indvars.iv.next.i24.i, %262 ]
-  %263 = getelementptr inbounds nuw %struct.xl_xact_stats_item, ptr %259, i64 %indvars.iv.i23.i
+  %263 = getelementptr inbounds nuw [16 x i8], ptr %259, i64 %indvars.iv.i23.i
   %264 = getelementptr i8, ptr %263, i64 8
   %265 = load i64, ptr %264, align 4
   %266 = load i32, ptr %263, align 4
@@ -915,7 +913,7 @@ xact_desc_stats.exit26.i:                         ; preds = %262, %xact_desc_sta
 
 273:                                              ; preds = %273, %272
   %indvars.iv.i28.i = phi i64 [ 0, %272 ], [ %indvars.iv.next.i29.i, %273 ]
-  %274 = getelementptr inbounds nuw i32, ptr %270, i64 %indvars.iv.i28.i
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %270, i64 %indvars.iv.i28.i
   %275 = load i32, ptr %274, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %275) #10
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 1
@@ -965,7 +963,7 @@ xact_desc_prepare.exit:                           ; preds = %xact_desc_subxacts.
 
 298:                                              ; preds = %298, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %298 ]
-  %299 = getelementptr inbounds nuw i32, ptr %297, i64 %indvars.iv.i
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %297, i64 %indvars.iv.i
   %300 = load i32, ptr %299, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %300) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -997,7 +995,7 @@ switch.lookup:
   %1 = lshr i8 %0, 4
   %2 = and i8 %1, 7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xact_identify, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xact_identify, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

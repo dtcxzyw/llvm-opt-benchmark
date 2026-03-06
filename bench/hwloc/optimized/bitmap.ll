@@ -360,7 +360,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef
   %.088131.in = phi i32 [ %23, %.lr.ph132 ], [ %.088131, %32 ]
   %.088131 = add nsw i32 %.088131.in, -1
   %28 = zext nneg i32 %.088131 to i64
-  %29 = getelementptr inbounds nuw i64, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !12
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %32, label %.lr.ph145
@@ -373,7 +373,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef
   %.290128.in = phi i32 [ %11, %.lr.ph ], [ %.290128, %39 ]
   %.290128 = add nsw i32 %.290128.in, -1
   %35 = zext nneg i32 %.290128 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %14, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !12
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %39, label %.lr.ph145
@@ -407,7 +407,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef
   %45 = load ptr, ptr %41, align 8, !tbaa !11
   %46 = add nsw i32 %.3140, -1
   %47 = sext i32 %.3140 to i64
-  %48 = getelementptr inbounds i64, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   %49 = load i64, ptr %48, align 8, !tbaa !12
   br label %50
 
@@ -689,7 +689,7 @@ hwloc_flsl_manual.exit.i.i:                       ; preds = %35, %31
   %76 = load ptr, ptr %63, align 8, !tbaa !11
   %77 = ashr exact i32 %68, 1
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i64, ptr %76, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %76, i64 %78
   store i64 %73, ptr %79, align 8, !tbaa !12
   br label %80
 
@@ -908,7 +908,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_snprintf(ptr noalias no
 
 .preheader.split.us.i:                            ; preds = %.preheader.split.us.i.preheader, %26
   %indvars.iv = phi i64 [ %20, %.preheader.split.us.i.preheader ], [ %indvars.iv.next, %26 ]
-  %24 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !12
   %.not28.us.i = icmp eq i64 %25, 0
   br i1 %.not28.us.i, label %26, label %.loopexit.i
@@ -925,7 +925,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_snprintf(ptr noalias no
 
 .preheader.split.i:                               ; preds = %.preheader.split.i.preheader, %33
   %indvars.iv124 = phi i64 [ %22, %.preheader.split.i.preheader ], [ %indvars.iv.next125, %33 ]
-  %29 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv124
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv124
   %30 = load i64, ptr %29, align 8, !tbaa !12
   %31 = icmp eq i64 %indvars.iv124, %23
   %32 = select i1 %31, i64 %19, i64 -1
@@ -987,7 +987,7 @@ hwloc_bitmap_next.exit.thread81:                  ; preds = %.split.us.i, %hwloc
 
 .preheader.split.us.i66:                          ; preds = %.preheader.split.us.i66.preheader, %55
   %indvars.iv127 = phi i64 [ %49, %.preheader.split.us.i66.preheader ], [ %indvars.iv.next128, %55 ]
-  %53 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv127
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv127
   %54 = load i64, ptr %53, align 8, !tbaa !12
   %.not28.us.i68 = icmp eq i64 %54, -1
   br i1 %.not28.us.i68, label %55, label %.loopexit.loopexit36.i
@@ -1005,7 +1005,7 @@ hwloc_bitmap_next.exit.thread81:                  ; preds = %.split.us.i, %hwloc
 
 .preheader.split.i76:                             ; preds = %63, %.preheader.split.preheader.i
   %indvars.iv.i = phi i64 [ %51, %.preheader.split.preheader.i ], [ %indvars.iv.next.i, %63 ]
-  %58 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   %59 = load i64, ptr %58, align 8, !tbaa !12
   %60 = xor i64 %59, -1
   %61 = icmp eq i64 %indvars.iv.i, %52
@@ -1110,7 +1110,7 @@ define i32 @hwloc_bitmap_next(ptr noundef readonly captures(none) %0, i32 nounde
 .preheader.split.us:                              ; preds = %.preheader, %18
   %.02233.us = phi i32 [ %19, %18 ], [ %4, %.preheader ]
   %15 = zext i32 %.02233.us to i64
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !12
   %.not28.us = icmp eq i64 %17, 0
   br i1 %.not28.us, label %18, label %.loopexit
@@ -1130,7 +1130,7 @@ define i32 @hwloc_bitmap_next(ptr noundef readonly captures(none) %0, i32 nounde
 .preheader.split:                                 ; preds = %.preheader, %28
   %.02233 = phi i32 [ %29, %28 ], [ %4, %.preheader ]
   %23 = zext i32 %.02233 to i64
-  %24 = getelementptr inbounds nuw i64, ptr %7, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !12
   %26 = icmp eq i32 %9, %.02233
   %27 = select i1 %26, i64 %14, i64 -1
@@ -1194,7 +1194,7 @@ define i32 @hwloc_bitmap_next_unset(ptr noundef readonly captures(none) %0, i32 
 .preheader.split.us:                              ; preds = %.preheader, %20
   %.02233.us = phi i32 [ %21, %20 ], [ %4, %.preheader ]
   %17 = zext i32 %.02233.us to i64
-  %18 = getelementptr inbounds nuw i64, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !12
   %.not28.us = icmp eq i64 %19, -1
   br i1 %.not28.us, label %20, label %.loopexit.loopexit36
@@ -1213,7 +1213,7 @@ define i32 @hwloc_bitmap_next_unset(ptr noundef readonly captures(none) %0, i32 
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %30
   %indvars.iv = phi i64 [ %15, %.preheader.split.preheader ], [ %indvars.iv.next, %30 ]
-  %25 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8, !tbaa !12
   %27 = xor i64 %26, -1
   %28 = icmp eq i64 %indvars.iv, %16
@@ -1401,7 +1401,7 @@ hwloc_bitmap_zero.exit:                           ; preds = %hwloc_bitmap_reset_
   %52 = shl nsw i64 -1, %51
   %53 = load ptr, ptr %19, align 8, !tbaa !11
   %54 = zext nneg i32 %46 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !12
   %57 = or i64 %56, %52
   store i64 %57, ptr %55, align 8, !tbaa !12
@@ -1446,7 +1446,7 @@ hwloc_bitmap_zero.exit:                           ; preds = %hwloc_bitmap_reset_
   %80 = shl nuw i64 1, %79
   %81 = load ptr, ptr %19, align 8, !tbaa !11
   %82 = zext nneg i32 %69 to i64
-  %83 = getelementptr inbounds nuw i64, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !12
   %85 = or i64 %84, %80
   store i64 %85, ptr %83, align 8, !tbaa !12
@@ -1557,7 +1557,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr noundef captures(none) %
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !11
   %25 = zext nneg i32 %15 to i64
-  %26 = getelementptr inbounds nuw i64, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !12
   %28 = or i64 %27, %22
   store i64 %28, ptr %26, align 8, !tbaa !12
@@ -1622,7 +1622,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr noundef captures(none) %
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !11
   %67 = zext nneg i32 %48 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !12
   %70 = or i64 %69, %64
   store i64 %70, ptr %68, align 8, !tbaa !12
@@ -1636,7 +1636,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr noundef captures(none) %
   %.sink72 = phi ptr [ %66, %61 ], [ %60, %50 ]
   %.sink71 = phi i64 [ %74, %61 ], [ %58, %50 ]
   %76 = zext nneg i32 %43 to i64
-  %77 = getelementptr inbounds nuw i64, ptr %.sink72, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %.sink72, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !12
   %79 = or i64 %78, %.sink71
   store i64 %79, ptr %77, align 8, !tbaa !12
@@ -1690,7 +1690,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set(ptr noundef captures(none) %0, i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !11
   %19 = zext nneg i32 %3 to i64
-  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !12
   %22 = or i64 %21, %16
   store i64 %22, ptr %20, align 8, !tbaa !12
@@ -1756,7 +1756,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias
 29:                                               ; preds = %.lr.ph116, %34
   %.068115 = phi i32 [ %25, %.lr.ph116 ], [ %35, %34 ]
   %30 = zext nneg i32 %.068115 to i64
-  %31 = getelementptr inbounds nuw i64, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !12
   %33 = icmp eq i64 %32, -1
   br i1 %33, label %34, label %.lr.ph127
@@ -1769,7 +1769,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias
 37:                                               ; preds = %.lr.ph, %42
   %.270112 = phi i32 [ %12, %.lr.ph ], [ %43, %42 ]
   %38 = zext nneg i32 %.270112 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %15, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !12
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %42, label %.lr.ph127
@@ -1802,7 +1802,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias
   %.185121 = phi ptr [ %.084145158, %.lr.ph127 ], [ %73, %.thread ]
   %.188120 = phi i64 [ %.087143159, %.lr.ph127 ], [ %74, %.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !12
   %.not97 = icmp eq i32 %.172125, 0
   br i1 %.not97, label %59, label %52
@@ -2107,7 +2107,7 @@ hwloc_flsl_manual.exit.i.i:                       ; preds = %58, %50
 93:                                               ; preds = %.lr.ph.split.us
   %94 = load ptr, ptr %85, align 8, !tbaa !11
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %95 = getelementptr inbounds i64, ptr %94, i64 %indvars.iv.next
+  %95 = getelementptr inbounds [8 x i8], ptr %94, i64 %indvars.iv.next
   store i64 %90, ptr %95, align 8, !tbaa !12
   %96 = getelementptr inbounds i8, ptr %.268.us, i64 %88
   %97 = sub nsw i32 %.04169.us, %spec.store.select.us
@@ -2139,7 +2139,7 @@ hwloc_flsl_manual.exit.i.i:                       ; preds = %58, %50
 105:                                              ; preds = %.lr.ph.split
   %106 = load ptr, ptr %85, align 8, !tbaa !11
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -1
-  %107 = getelementptr inbounds i64, ptr %106, i64 %indvars.iv.next79
+  %107 = getelementptr inbounds [8 x i8], ptr %106, i64 %indvars.iv.next79
   %108 = shl nsw i32 %spec.store.select, 2
   %109 = zext nneg i32 %108 to i64
   %110 = shl nsw i64 -1, %109
@@ -2303,7 +2303,7 @@ hwloc_flsl_manual.exit.i.i._crit_edge:            ; preds = %hwloc_flsl_manual.e
   %33 = phi ptr [ %31, %32 ], [ %27, %hwloc_flsl_manual.exit.i.i ]
   store i32 %4, ptr %0, align 8, !tbaa !3
   %34 = zext i32 %1 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   store i64 %2, ptr %35, align 8, !tbaa !12
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -2396,9 +2396,9 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8, !tbaa !12
-  %37 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   store i64 %36, ptr %37, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
@@ -2432,7 +2432,7 @@ define i64 @hwloc_bitmap_to_ith_ulong(ptr noundef readonly captures(none) %0, i3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !12
   br label %15
 
@@ -2468,7 +2468,7 @@ define noundef i32 @hwloc_bitmap_to_ulongs(ptr noundef readonly captures(none) %
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %6, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !12
   br label %17
 
@@ -2480,7 +2480,7 @@ define noundef i32 @hwloc_bitmap_to_ulongs(ptr noundef readonly captures(none) %
 
 17:                                               ; preds = %14, %10
   %18 = phi i64 [ %13, %10 ], [ %16, %14 ]
-  %19 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 %18, ptr %19, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2512,7 +2512,7 @@ define range(i32 -1, 67108864) i32 @hwloc_bitmap_nr_ulongs(ptr noundef readonly 
 11:                                               ; preds = %8
   %12 = add nsw i64 %indvars.iv.i, -1
   %13 = load ptr, ptr %6, align 8, !tbaa !11
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8, !tbaa !12
   %.not13.i = icmp eq i64 %15, 0
   br i1 %.not13.i, label %8, label %.thread.i, !llvm.loop !35
@@ -2581,7 +2581,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last(ptr noundef readonly ca
 11:                                               ; preds = %8
   %12 = add nsw i64 %indvars.iv, -1
   %13 = load ptr, ptr %6, align 8, !tbaa !11
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8, !tbaa !12
   %.not13 = icmp eq i64 %15, 0
   br i1 %.not13, label %8, label %.thread, !llvm.loop !35
@@ -2696,7 +2696,7 @@ hwloc_bitmap__zero.exit:                          ; preds = %hwloc_flsl_manual.e
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw i64 1, %34
   %36 = zext nneg i32 %3 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %29, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !12
   %39 = or i64 %38, %35
   store i64 %39, ptr %37, align 8, !tbaa !12
@@ -2777,7 +2777,7 @@ hwloc_bitmap__fill.exit:                          ; preds = %hwloc_flsl_manual.e
   %35 = shl nuw i64 1, %34
   %36 = xor i64 %35, -1
   %37 = zext nneg i32 %3 to i64
-  %38 = getelementptr inbounds nuw i64, ptr %29, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !12
   %40 = and i64 %39, %36
   store i64 %40, ptr %38, align 8, !tbaa !12
@@ -2867,7 +2867,7 @@ hwloc_flsl_manual.exit.i:                         ; preds = %7, %4
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ %38, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store i64 %35, ptr %40, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
@@ -2893,7 +2893,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_ith_ulong(ptr noundef captures(non
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   store i64 %2, ptr %11, align 8, !tbaa !12
   br label %12
 
@@ -2930,7 +2930,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr(ptr noundef captures(none) %0, i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !12
   %23 = and i64 %22, %17
   store i64 %23, ptr %21, align 8, !tbaa !12
@@ -2981,7 +2981,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr noundef captures(none) %
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   %26 = zext nneg i32 %15 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !12
   %29 = and i64 %28, %23
   store i64 %29, ptr %27, align 8, !tbaa !12
@@ -3047,7 +3047,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr noundef captures(none) %
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !11
   %68 = zext nneg i32 %48 to i64
-  %69 = getelementptr inbounds nuw i64, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !12
   %71 = and i64 %70, %65
   store i64 %71, ptr %69, align 8, !tbaa !12
@@ -3062,7 +3062,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr noundef captures(none) %
   %.sink71.in = phi i64 [ %75, %61 ], [ %58, %50 ]
   %.sink71 = xor i64 %.sink71.in, -1
   %77 = zext nneg i32 %43 to i64
-  %78 = getelementptr inbounds nuw i64, ptr %.sink72, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.sink72, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !12
   %80 = and i64 %79, %.sink71
   store i64 %80, ptr %78, align 8, !tbaa !12
@@ -3100,7 +3100,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isset(ptr noundef readonly captures(non
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = zext nneg i32 %3 to i64
-  %10 = getelementptr inbounds nuw i64, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !12
   br label %16
 
@@ -3146,7 +3146,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_iszero(ptr noundef readonly captures(no
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !12
   %.not7 = icmp eq i64 %10, 0
   br i1 %.not7, label %7, label %.loopexit
@@ -3181,7 +3181,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isfull(ptr noundef readonly captures(no
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !12
   %.not7 = icmp eq i64 %10, -1
   br i1 %.not7, label %7, label %.loopexit
@@ -3214,9 +3214,9 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isequal(ptr noundef readonly captures(n
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !12
   %.not45 = icmp eq i64 %13, %15
   br i1 %.not45, label %10, label %.critedge
@@ -3266,7 +3266,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isequal(ptr noundef readonly captures(n
 
 30:                                               ; preds = %.lr.ph51, %25
   %indvars.iv58 = phi i64 [ %24, %.lr.ph51 ], [ %indvars.iv.next59, %25 ]
-  %31 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv58
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv58
   %32 = load i64, ptr %31, align 8, !tbaa !12
   %.not43 = icmp eq i64 %32, %20
   br i1 %.not43, label %25, label %.critedge
@@ -3279,7 +3279,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isequal(ptr noundef readonly captures(n
 
 34:                                               ; preds = %.lr.ph53, %33
   %indvars.iv62 = phi i64 [ %29, %.lr.ph53 ], [ %indvars.iv.next63, %33 ]
-  %35 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv62
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv62
   %36 = load i64, ptr %35, align 8, !tbaa !12
   %.not42 = icmp eq i64 %36, %17
   br i1 %.not42, label %33, label %.critedge
@@ -3318,9 +3318,9 @@ define range(i32 0, 2) i32 @hwloc_bitmap_intersects(ptr noundef readonly capture
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !12
   %16 = and i64 %15, %13
   %.not39 = icmp eq i64 %16, 0
@@ -3357,7 +3357,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_intersects(ptr noundef readonly capture
 
 25:                                               ; preds = %.lr.ph47, %24
   %indvars.iv55 = phi i64 [ %23, %.lr.ph47 ], [ %indvars.iv.next56, %24 ]
-  %26 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv55
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv55
   %27 = load i64, ptr %26, align 8, !tbaa !12
   %.not38 = icmp eq i64 %27, 0
   br i1 %.not38, label %24, label %.loopexit40
@@ -3384,7 +3384,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_intersects(ptr noundef readonly capture
 
 35:                                               ; preds = %.lr.ph49, %34
   %indvars.iv59 = phi i64 [ %33, %.lr.ph49 ], [ %indvars.iv.next60, %34 ]
-  %36 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv59
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv59
   %37 = load i64, ptr %36, align 8, !tbaa !12
   %.not37 = icmp eq i64 %37, 0
   br i1 %.not37, label %34, label %.loopexit40
@@ -3431,9 +3431,9 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isincluded(ptr noundef readonly capture
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !12
   %16 = or i64 %15, %13
   %.not43 = icmp eq i64 %13, %16
@@ -3470,7 +3470,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isincluded(ptr noundef readonly capture
 
 25:                                               ; preds = %.lr.ph51, %24
   %indvars.iv59 = phi i64 [ %23, %.lr.ph51 ], [ %indvars.iv.next60, %24 ]
-  %26 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv59
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv59
   %27 = load i64, ptr %26, align 8, !tbaa !12
   %.not38 = icmp eq i64 %27, 0
   br i1 %.not38, label %24, label %.loopexit44
@@ -3497,7 +3497,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isincluded(ptr noundef readonly capture
 
 35:                                               ; preds = %.lr.ph53, %34
   %indvars.iv63 = phi i64 [ %33, %.lr.ph53 ], [ %indvars.iv.next64, %34 ]
-  %36 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv63
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv63
   %37 = load i64, ptr %36, align 8, !tbaa !12
   %.not42 = icmp eq i64 %37, -1
   br i1 %.not42, label %34, label %.loopexit44
@@ -3603,12 +3603,12 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8, !tbaa !12
-  %45 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8, !tbaa !12
   %47 = or i64 %46, %44
-  %48 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   store i64 %47, ptr %48, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3640,9 +3640,9 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 60:                                               ; preds = %.lr.ph62, %60
   %indvars.iv73 = phi i64 [ %umin72, %.lr.ph62 ], [ %indvars.iv.next74, %60 ]
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv73
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv73
   %62 = load i64, ptr %61, align 8, !tbaa !12
-  %63 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv73
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv73
   store i64 %62, ptr %63, align 8, !tbaa !12
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %lftr.wideiv75 = trunc i64 %indvars.iv.next74 to i32
@@ -3671,9 +3671,9 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 74:                                               ; preds = %.lr.ph60, %74
   %indvars.iv67 = phi i64 [ %umin, %.lr.ph60 ], [ %indvars.iv.next68, %74 ]
-  %75 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv67
   %76 = load i64, ptr %75, align 8, !tbaa !12
-  %77 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv67
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv67
   store i64 %76, ptr %77, align 8, !tbaa !12
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next68 to i32
@@ -3790,12 +3790,12 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8, !tbaa !12
-  %45 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8, !tbaa !12
   %47 = and i64 %46, %44
-  %48 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   store i64 %47, ptr %48, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3827,9 +3827,9 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 60:                                               ; preds = %.lr.ph62, %60
   %indvars.iv73 = phi i64 [ %umin72, %.lr.ph62 ], [ %indvars.iv.next74, %60 ]
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv73
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv73
   %62 = load i64, ptr %61, align 8, !tbaa !12
-  %63 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv73
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv73
   store i64 %62, ptr %63, align 8, !tbaa !12
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %lftr.wideiv75 = trunc i64 %indvars.iv.next74 to i32
@@ -3858,9 +3858,9 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 74:                                               ; preds = %.lr.ph60, %74
   %indvars.iv67 = phi i64 [ %umin, %.lr.ph60 ], [ %indvars.iv.next68, %74 ]
-  %75 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv67
   %76 = load i64, ptr %75, align 8, !tbaa !12
-  %77 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv67
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv67
   store i64 %76, ptr %77, align 8, !tbaa !12
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next68 to i32
@@ -3977,13 +3977,13 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8, !tbaa !12
-  %45 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8, !tbaa !12
   %47 = xor i64 %46, -1
   %48 = and i64 %44, %47
-  %49 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   store i64 %48, ptr %49, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4015,9 +4015,9 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 61:                                               ; preds = %.lr.ph63, %61
   %indvars.iv73 = phi i64 [ %umin72, %.lr.ph63 ], [ %indvars.iv.next74, %61 ]
-  %62 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv73
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv73
   %63 = load i64, ptr %62, align 8, !tbaa !12
-  %64 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv73
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv73
   store i64 %63, ptr %64, align 8, !tbaa !12
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %lftr.wideiv75 = trunc i64 %indvars.iv.next74 to i32
@@ -4046,10 +4046,10 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 75:                                               ; preds = %.lr.ph61, %75
   %indvars.iv67 = phi i64 [ %umin, %.lr.ph61 ], [ %indvars.iv.next68, %75 ]
-  %76 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv67
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv67
   %77 = load i64, ptr %76, align 8, !tbaa !12
   %78 = xor i64 %77, -1
-  %79 = getelementptr inbounds nuw i64, ptr %72, i64 %indvars.iv67
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv67
   store i64 %78, ptr %79, align 8, !tbaa !12
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next68 to i32
@@ -4166,12 +4166,12 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8, !tbaa !12
-  %45 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8, !tbaa !12
   %47 = xor i64 %46, %44
-  %48 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   store i64 %47, ptr %48, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4201,10 +4201,10 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 62:                                               ; preds = %51, %62
   %indvars.iv68 = phi i64 [ %59, %51 ], [ %indvars.iv.next69, %62 ]
-  %63 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv68
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv68
   %64 = load i64, ptr %63, align 8, !tbaa !12
   %65 = xor i64 %64, %54
-  %66 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv68
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv68
   store i64 %65, ptr %66, align 8, !tbaa !12
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %lftr.wideiv70 = trunc i64 %indvars.iv.next69 to i32
@@ -4231,10 +4231,10 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 79:                                               ; preds = %.lr.ph59, %79
   %indvars.iv64 = phi i64 [ %76, %.lr.ph59 ], [ %indvars.iv.next65, %79 ]
-  %80 = getelementptr inbounds nuw i64, ptr %73, i64 %indvars.iv64
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv64
   %81 = load i64, ptr %80, align 8, !tbaa !12
   %82 = xor i64 %81, %70
-  %83 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv64
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv64
   store i64 %82, ptr %83, align 8, !tbaa !12
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next65 to i32
@@ -4335,10 +4335,10 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %hwloc_flsl_manual.e
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %38 = load i64, ptr %37, align 8, !tbaa !12
   %39 = xor i64 %38, -1
-  %40 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   store i64 %39, ptr %40, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
@@ -4372,7 +4372,7 @@ define i32 @hwloc_bitmap_first(ptr noundef readonly captures(none) %0) local_unn
 
 5:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !12
   %.not15 = icmp eq i64 %7, 0
   br i1 %.not15, label %8, label %.loopexit
@@ -4420,7 +4420,7 @@ define i32 @hwloc_bitmap_first_unset(ptr noundef readonly captures(none) %0) loc
 
 5:                                                ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !12
   %.not15 = icmp eq i64 %7, -1
   br i1 %.not15, label %15, label %8
@@ -4474,7 +4474,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last_unset(ptr noundef reado
 11:                                               ; preds = %8
   %12 = add nsw i64 %indvars.iv, -1
   %13 = load ptr, ptr %6, align 8, !tbaa !11
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8, !tbaa !12
   %.not13 = icmp eq i64 %15, -1
   br i1 %.not13, label %8, label %.thread, !llvm.loop !63
@@ -4537,7 +4537,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_singlify(ptr noundef captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.02127 = phi i32 [ 0, %.lr.ph ], [ %.1, %11 ]
   %.not25 = icmp eq i32 %.02127, 0
-  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   br i1 %.not25, label %7, label %.sink.split
 
 7:                                                ; preds = %5
@@ -4594,7 +4594,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_singlify(ptr noundef captures(none) %0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !11
   %27 = zext nneg i32 %20 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !12
   %30 = or i64 %29, 1
   store i64 %30, ptr %28, align 8, !tbaa !12
@@ -4628,9 +4628,9 @@ define range(i32 -64, 65) i32 @hwloc_bitmap_compare_first(ptr noundef readonly c
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !12
   %16 = icmp eq i64 %13, 0
   %17 = icmp eq i64 %15, 0
@@ -4683,7 +4683,7 @@ define range(i32 -64, 65) i32 @hwloc_bitmap_compare_first(ptr noundef readonly c
 
 .lr.ph99.split.us:                                ; preds = %.lr.ph99.split.us.preheader, %43
   %indvars.iv108 = phi i64 [ %umin, %.lr.ph99.split.us.preheader ], [ %indvars.iv.next109, %43 ]
-  %41 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv108
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv108
   %42 = load i64, ptr %41, align 8, !tbaa !12
   %.not71.us = icmp eq i64 %42, 0
   br i1 %.not71.us, label %43, label %.loopexit88
@@ -4711,7 +4711,7 @@ define range(i32 -64, 65) i32 @hwloc_bitmap_compare_first(ptr noundef readonly c
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %53
   %indvars.iv112 = phi i64 [ %umin111, %.preheader.split.us.preheader ], [ %indvars.iv.next113, %53 ]
-  %51 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv112
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv112
   %52 = load i64, ptr %51, align 8, !tbaa !12
   %.not74.us = icmp eq i64 %52, 0
   br i1 %.not74.us, label %53, label %.loopexit88
@@ -4724,7 +4724,7 @@ define range(i32 -64, 65) i32 @hwloc_bitmap_compare_first(ptr noundef readonly c
 
 .preheader.split:                                 ; preds = %.preheader
   %54 = zext i32 %5 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %45, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !12
   %57 = trunc i64 %56 to i32
   %58 = or i32 %57, -2
@@ -4733,7 +4733,7 @@ define range(i32 -64, 65) i32 @hwloc_bitmap_compare_first(ptr noundef readonly c
 
 .lr.ph99.split:                                   ; preds = %.lr.ph99
   %59 = zext i32 %5 to i64
-  %60 = getelementptr inbounds nuw i64, ptr %35, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !12
   %62 = trunc i64 %61 to i32
   %63 = and i32 %62, 1
@@ -4801,7 +4801,7 @@ define range(i32 -1, 2) i32 @hwloc_bitmap_compare(ptr noundef readonly captures(
 26:                                               ; preds = %25
   %indvars.iv.next99 = add nsw i64 %indvars.iv98, -1
   %27 = load ptr, ptr %24, align 8, !tbaa !11
-  %28 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv.next99
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv.next99
   %29 = load i64, ptr %28, align 8, !tbaa !12
   %30 = icmp eq i64 %29, %23
   br i1 %30, label %25, label %.thread.loopexit81, !llvm.loop !68
@@ -4819,7 +4819,7 @@ define range(i32 -1, 2) i32 @hwloc_bitmap_compare(ptr noundef readonly captures(
 35:                                               ; preds = %34
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %36 = load ptr, ptr %33, align 8, !tbaa !11
-  %37 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv.next
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %indvars.iv.next
   %38 = load i64, ptr %37, align 8, !tbaa !12
   %39 = icmp eq i64 %38, %32
   br i1 %39, label %34, label %.thread.loopexit83, !llvm.loop !69
@@ -4840,10 +4840,10 @@ define range(i32 -1, 2) i32 @hwloc_bitmap_compare(ptr noundef readonly captures(
 46:                                               ; preds = %43
   %47 = add nsw i64 %indvars.iv101, -1
   %48 = load ptr, ptr %40, align 8, !tbaa !11
-  %49 = getelementptr inbounds nuw i64, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = load i64, ptr %49, align 8, !tbaa !12
   %51 = load ptr, ptr %41, align 8, !tbaa !11
-  %52 = getelementptr inbounds nuw i64, ptr %51, i64 %47
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %47
   %53 = load i64, ptr %52, align 8, !tbaa !12
   %54 = icmp eq i64 %50, %53
   br i1 %54, label %43, label %.thread.loopexit.split.loop.exit, !llvm.loop !70
@@ -4889,7 +4889,7 @@ define i32 @hwloc_bitmap_weight(ptr noundef readonly captures(none) %0) local_un
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.0810 = phi i32 [ 0, %.lr.ph ], [ %12, %7 ]
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !12
   %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
   %11 = trunc nuw nsw i64 %10 to i32
@@ -4931,7 +4931,7 @@ define i32 @hwloc_bitmap_compare_inclusion(ptr noundef readonly captures(none) %
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %6, align 8, !tbaa !11
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8, !tbaa !12
   br label %20
 
@@ -4948,7 +4948,7 @@ define i32 @hwloc_bitmap_compare_inclusion(ptr noundef readonly captures(none) %
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %8, align 8, !tbaa !11
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8, !tbaa !12
   br label %30
 

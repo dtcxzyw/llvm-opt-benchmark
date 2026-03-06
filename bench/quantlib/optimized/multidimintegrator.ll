@@ -501,7 +501,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i21, ptr %varBuffer_, align 8, !tbaa !22
-  %add.ptr.i.i.i17 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i21, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i17 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i21, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i.i.i17, ptr %_M_end_of_storage.i.i.i18, align 8, !tbaa !24
   %10 = and i64 %mul.i.i.i.i.i.i, -8

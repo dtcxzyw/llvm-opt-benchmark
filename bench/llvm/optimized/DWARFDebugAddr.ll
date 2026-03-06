@@ -253,7 +253,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i: ; preds = %29
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %39, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i
   store ptr %38, ptr %22, align 8, !tbaa !21
   store ptr %38, ptr %24, align 8, !tbaa !22
-  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %18
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %18
   store ptr %40, ptr %30, align 8, !tbaa !23
   br label %_ZNSt6vectorImSaImEE7reserveEm.exit
 
@@ -322,7 +322,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %65, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %67, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %62, ptr %22, align 8, !tbaa !21
   store ptr %66, ptr %24, align 8, !tbaa !22
-  %68 = getelementptr inbounds nuw i64, ptr %62, i64 %60
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %60
   store ptr %68, ptr %30, align 8, !tbaa !23
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -1474,7 +1474,7 @@ switch.lookup:                                    ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %105 = load i8, ptr %104, align 2, !tbaa !7
   %106 = sext i8 %105 to i64
-  %107 = getelementptr ptr, ptr @switch.table._ZNK4llvm19DWARFDebugAddrTable4dumpERNS_11raw_ostreamENS_13DIDumpOptionsE, i64 %106
+  %107 = getelementptr [8 x i8], ptr @switch.table._ZNK4llvm19DWARFDebugAddrTable4dumpERNS_11raw_ostreamENS_13DIDumpOptionsE, i64 %106
   %switch.gep = getelementptr i8, ptr %107, i64 -16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1569,7 +1569,7 @@ define dso_local void @_ZNK4llvm19DWARFDebugAddrTable12getAddrEntryEj(ptr dead_o
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds nuw i64, ptr %12, i64 %8
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i8, ptr %20, align 8
   %22 = and i8 %21, -2

@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/dca_exss.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DCAExssAsset = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [30 x i8] c"Invalid EXSS header checksum\0A\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"Packet too short for EXSS frame\0A\00", align 1
 @.str.2 = private unnamed_addr constant [23 x i8] c"%d audio presentations\00", align 1
@@ -369,7 +367,7 @@ ff_dca_check_crc.exit.thread153:                  ; preds = %57, %ff_dca_check_c
   %249 = lshr i32 %248, 16
   %250 = add nuw nsw i32 %249, %248
   %251 = and i32 %250, 63
-  %252 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv206
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %indvars.iv206
   store i32 %251, ptr %252, align 4, !tbaa !59
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
@@ -424,7 +422,7 @@ ff_dca_check_crc.exit.thread153:                  ; preds = %57, %ff_dca_check_c
   %279 = phi i32 [ %11, %.lr.ph190 ], [ %997, %set_exss_offsets.exit ]
   %.val.i = phi i32 [ %267, %.lr.ph190 ], [ %.0.i.i.v.i.i, %set_exss_offsets.exit ]
   %indvars.iv216 = phi i64 [ 0, %.lr.ph190 ], [ %indvars.iv.next217, %set_exss_offsets.exit ]
-  %280 = getelementptr inbounds nuw %struct.DCAExssAsset, ptr %272, i64 %indvars.iv216
+  %280 = getelementptr inbounds nuw [120 x i8], ptr %272, i64 %indvars.iv216
   %281 = load ptr, ptr %5, align 8, !tbaa !4
   %282 = lshr i32 %.val.i, 3
   %283 = zext nneg i32 %282 to i64
@@ -557,7 +555,7 @@ ff_dca_check_crc.exit.thread153:                  ; preds = %57, %ff_dca_check_c
   %380 = tail call i32 @llvm.umin.i32(i32 %279, i32 %379)
   store i32 %380, ptr %16, align 8, !tbaa !14
   %381 = zext nneg i32 %378 to i64
-  %382 = getelementptr inbounds nuw i32, ptr @ff_dca_sampling_freqs, i64 %381
+  %382 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_sampling_freqs, i64 %381
   %383 = load i32, ptr %382, align 4, !tbaa !59
   %384 = getelementptr inbounds nuw i8, ptr %280, i64 16
   store i32 %383, ptr %384, align 4, !tbaa !67
@@ -759,7 +757,7 @@ ff_dca_check_crc.exit.thread153:                  ; preds = %57, %ff_dca_check_c
   %524 = lshr i32 %523, 16
   %525 = add nuw nsw i32 %524, %523
   %526 = and i32 %525, 63
-  %527 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %527 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store i32 %526, ptr %527, align 4, !tbaa !59
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -780,7 +778,7 @@ ff_dca_check_crc.exit.thread153:                  ; preds = %57, %ff_dca_check_c
   %538 = tail call i32 @llvm.umin.i32(i32 %279, i32 %537)
   store i32 %538, ptr %16, align 8, !tbaa !14
   %539 = add nuw nsw i32 %536, 1
-  %540 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv276.i
+  %540 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv276.i
   %541 = load i32, ptr %540, align 4, !tbaa !59
   %542 = icmp sgt i32 %541, 0
   br i1 %542, label %.lr.ph247.i, label %._crit_edge.i
@@ -1035,7 +1033,7 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph247.i, %get_b
 713:                                              ; preds = %713, %.lr.ph255.i
   %indvars.iv281.i = phi i64 [ 0, %.lr.ph255.i ], [ %indvars.iv.next282.i, %713 ]
   %714 = phi i32 [ %spec.select.i222.i, %.lr.ph255.i ], [ %721, %713 ]
-  %715 = getelementptr inbounds nuw i32, ptr %275, i64 %indvars.iv281.i
+  %715 = getelementptr inbounds nuw [4 x i8], ptr %275, i64 %indvars.iv281.i
   %716 = load i32, ptr %715, align 4, !tbaa !59
   %717 = mul nsw i32 %716, 6
   %718 = sub nsw i32 0, %714
@@ -1089,7 +1087,7 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph247.i, %get_b
 .lr.ph265.split.us.i:                             ; preds = %.lr.ph265.i, %._crit_edge260.us.i
   %.promoted261.us.i = phi i32 [ %770, %._crit_edge260.us.i ], [ %.promoted261.us299.i, %.lr.ph265.i ]
   %indvars.iv292.i = phi i64 [ %indvars.iv.next293.i, %._crit_edge260.us.i ], [ 0, %.lr.ph265.i ]
-  %737 = getelementptr inbounds nuw i32, ptr %275, i64 %indvars.iv292.i
+  %737 = getelementptr inbounds nuw [4 x i8], ptr %275, i64 %indvars.iv292.i
   %738 = load i32, ptr %737, align 4, !tbaa !59
   %.not191.us.i = icmp eq i32 %738, 0
   br i1 %.not191.us.i, label %.split.us.i, label %.preheader.us.i
@@ -1145,7 +1143,7 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph247.i, %get_b
 
 .lr.ph265.split.i:                                ; preds = %.lr.ph265.i, %.preheader.i
   %indvars.iv286.i = phi i64 [ %indvars.iv.next287.i, %.preheader.i ], [ 0, %.lr.ph265.i ]
-  %773 = getelementptr inbounds nuw i32, ptr %275, i64 %indvars.iv286.i
+  %773 = getelementptr inbounds nuw [4 x i8], ptr %275, i64 %indvars.iv286.i
   %774 = load i32, ptr %773, align 4, !tbaa !59
   %.not191.i = icmp eq i32 %774, 0
   br i1 %.not191.i, label %.split.us.i, label %.preheader.i

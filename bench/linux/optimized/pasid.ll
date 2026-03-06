@@ -11,9 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.atomic_t = type { i32 }
 %struct.static_call_key = type { ptr, %union.anon.8 }
 %union.anon.8 = type { i64 }
-%struct.pasid_dir_entry = type { i64 }
 %struct.qi_desc = type { i64, i64, i64, i64 }
-%struct.pasid_entry = type { [8 x i64] }
 
 @intel_pasid_max_id = dso_local local_unnamed_addr global i32 1048576, align 4
 @pci_bus_type = external dso_local global %struct.bus_type, align 8
@@ -218,7 +216,7 @@ define dso_local void @intel_pasid_free_table(ptr noundef readonly captures(none
 
 25:                                               ; preds = %37, %22
   %26 = phi i64 [ 0, %22 ], [ %39, %37 ]
-  %27 = getelementptr %struct.pasid_dir_entry, ptr %18, i64 %26
+  %27 = getelementptr [8 x i8], ptr %18, i64 %26
   %28 = load volatile i64, ptr %27, align 8
   %29 = and i64 %28, 1
   %30 = icmp eq i64 %29, 0
@@ -504,7 +502,7 @@ define internal fastcc ptr @intel_pasid_get_entry(ptr readonly captures(address_
   %17 = lshr i32 %0, 6
   %18 = and i32 %0, 63
   %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr %struct.pasid_dir_entry, ptr %16, i64 %19
+  %20 = getelementptr [8 x i8], ptr %16, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 40
   br label %22
 
@@ -568,7 +566,7 @@ define internal fastcc ptr @intel_pasid_get_entry(ptr readonly captures(address_
 58:                                               ; preds = %.loopexit, %56, %50
   %59 = phi ptr [ %35, %50 ], [ %35, %56 ], [ %57, %.loopexit ]
   %60 = zext nneg i32 %18 to i64
-  %61 = getelementptr %struct.pasid_entry, ptr %59, i64 %60
+  %61 = getelementptr [64 x i8], ptr %59, i64 %60
   br label %.loopexit3
 
 .loopexit3:                                       ; preds = %.thread2, %58, %.critedge

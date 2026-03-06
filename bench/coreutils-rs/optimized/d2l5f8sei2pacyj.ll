@@ -1216,7 +1216,7 @@ common.resume:                                    ; preds = %32, %18
 
 .loopexit.sink.split.i:                           ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17heebb2d7d3177bb0dE.exit.i", %88
   %anon.c26689b4b3f0ec1139c0701bc8b1e935.44.sink.i = phi ptr [ @anon.c26689b4b3f0ec1139c0701bc8b1e935.44, %88 ], [ @anon.c26689b4b3f0ec1139c0701bc8b1e935.46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17heebb2d7d3177bb0dE.exit.i" ]
-  %78 = getelementptr inbounds nuw double, ptr %anon.c26689b4b3f0ec1139c0701bc8b1e935.44.sink.i, i64 %.011.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %anon.c26689b4b3f0ec1139c0701bc8b1e935.44.sink.i, i64 %.011.i.i
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load double, ptr %79, align 8, !noalias !235, !noundef !5
   %81 = call i64 @llvm.fptoui.sat.i64.f64(double %80)

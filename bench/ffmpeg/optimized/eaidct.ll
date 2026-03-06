@@ -14,8 +14,8 @@ define void @ff_ea_idct_put_c(ptr noundef writeonly captures(none) %0, i64 nound
 
 7:                                                ; preds = %3, %ea_idct_col.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %ea_idct_col.exit ]
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i16, ptr %10, align 2, !tbaa !4
   %12 = sext i16 %11 to i32

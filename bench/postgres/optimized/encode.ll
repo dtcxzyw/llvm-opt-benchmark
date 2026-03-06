@@ -54,7 +54,7 @@ define dso_local i64 @binary_encode(ptr noundef readonly captures(none) %0) loca
 
 11:                                               ; preds = %10, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %10 ]
-  %12 = getelementptr inbounds nuw %struct.anon.1, ptr @enclist, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [40 x i8], ptr @enclist, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @pg_strcasecmp(ptr noundef %13, ptr noundef %9) #6
   %15 = icmp eq i32 %14, 0
@@ -179,7 +179,7 @@ define dso_local i64 @binary_decode(ptr noundef readonly captures(none) %0) loca
 
 11:                                               ; preds = %10, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %10 ]
-  %12 = getelementptr inbounds nuw %struct.anon.1, ptr @enclist, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [40 x i8], ptr @enclist, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @pg_strcasecmp(ptr noundef %13, ptr noundef %9) #6
   %15 = icmp eq i32 %14, 0

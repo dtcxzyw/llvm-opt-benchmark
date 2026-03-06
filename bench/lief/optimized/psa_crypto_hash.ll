@@ -409,7 +409,7 @@ define hidden i32 @mbedtls_psa_hash_finish(ptr noundef %0, ptr noundef %1, i64 n
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_psa_hash_finish, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_psa_hash_finish, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %8
 

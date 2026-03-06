@@ -189,19 +189,19 @@ define internal void @maskedclamp16(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2, !tbaa !51
   %11 = zext i16 %10 to i32
-  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2, !tbaa !51
   %14 = zext i16 %13 to i32
   %15 = sub nsw i32 %14, %5
   %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 %11)
   %17 = trunc i32 %16 to i16
-  %18 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %17, ptr %18, align 2, !tbaa !51
   %19 = and i32 %16, 65535
-  %20 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !51
   %22 = zext i16 %21 to i32
   %23 = add nsw i32 %6, %22
@@ -476,38 +476,38 @@ define internal noundef i32 @maskedclamp_slice(ptr noundef readonly captures(non
   %indvars.iv = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next, %.loopexit ]
   %22 = load ptr, ptr %1, align 8, !tbaa !74
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !41
   %26 = sext i32 %25 to i64
   %27 = load ptr, ptr %10, align 8, !tbaa !77
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !41
   %31 = sext i32 %30 to i64
   %32 = load ptr, ptr %11, align 8, !tbaa !76
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !41
   %36 = sext i32 %35 to i64
   %37 = load ptr, ptr %12, align 8, !tbaa !78
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !41
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !41
-  %44 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !41
   %46 = mul nsw i32 %45, %2
   %47 = sdiv i32 %46, %3
   %48 = mul nsw i32 %45, %15
   %49 = sdiv i32 %48, %3
-  %50 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !85
   %52 = sext i32 %47 to i64
   %53 = mul nsw i64 %52, %26
   %54 = getelementptr inbounds i8, ptr %51, i64 %53
-  %55 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !85
   %57 = mul nsw i64 %52, %41
   %58 = getelementptr inbounds i8, ptr %56, i64 %57
@@ -521,7 +521,7 @@ define internal noundef i32 @maskedclamp_slice(ptr noundef readonly captures(non
   br i1 %.not, label %65, label %69
 
 65:                                               ; preds = %21
-  %66 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !41
   %68 = sub nsw i32 %49, %47
   tail call void @av_image_copy_plane(ptr noundef %58, i32 noundef %40, ptr noundef %54, i32 noundef %25, i32 noundef %67, i32 noundef %68) #8
@@ -532,11 +532,11 @@ define internal noundef i32 @maskedclamp_slice(ptr noundef readonly captures(non
   br i1 %70, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %69
-  %71 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !85
   %73 = mul nsw i64 %52, %36
   %74 = getelementptr inbounds i8, ptr %72, i64 %73
-  %75 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8, !tbaa !85
   %77 = mul nsw i64 %52, %31
   %78 = getelementptr inbounds i8, ptr %76, i64 %77

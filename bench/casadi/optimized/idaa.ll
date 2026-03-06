@@ -101,7 +101,7 @@ define range(i32 -22, 1) i32 @IDAAdjInit(ptr noundef %0, i64 noundef %1, i32 nou
 .lr.ph.i:                                         ; preds = %16, %33
   %.0214.i = phi i64 [ %35, %33 ], [ 0, %16 ]
   %27 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0214.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0214.i
   store ptr %27, ptr %28, align 8, !tbaa !24
   %29 = icmp eq ptr %27, null
   br i1 %29, label %.preheader.i, label %33
@@ -112,7 +112,7 @@ define range(i32 -22, 1) i32 @IDAAdjInit(ptr noundef %0, i64 noundef %1, i32 nou
 
 .lr.ph6.i:                                        ; preds = %.preheader.i, %.lr.ph6.i
   %.05.i = phi i64 [ %32, %.lr.ph6.i ], [ 0, %.preheader.i ]
-  %30 = getelementptr inbounds nuw ptr, ptr %25, i64 %.05.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.05.i
   %31 = load ptr, ptr %30, align 8, !tbaa !24
   tail call void @free(ptr noundef %31) #9
   %32 = add nuw nsw i64 %.05.i, 1
@@ -344,7 +344,7 @@ define internal range(i32 0, 2) i32 @IDAAhermiteMalloc(ptr noundef readonly capt
   br label %.loopexit100.sink.split
 
 83:                                               ; preds = %70, %58
-  %84 = getelementptr inbounds nuw ptr, ptr %40, i64 %.087121
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.087121
   %85 = load ptr, ptr %84, align 8, !tbaa !24
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %45, ptr %86, align 8, !tbaa !28
@@ -383,7 +383,7 @@ define internal range(i32 0, 2) i32 @IDAAhermiteMalloc(ptr noundef readonly capt
 
 .lr.ph123:                                        ; preds = %99, %115
   %.1122 = phi i64 [ %121, %115 ], [ 0, %99 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %40, i64 %.1122
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.1122
   %101 = load ptr, ptr %100, align 8, !tbaa !24
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !28
@@ -466,7 +466,7 @@ define internal void @IDAAhermiteFree(ptr noundef readonly captures(none) %0) #0
 24:                                               ; preds = %.lr.ph, %48
   %25 = phi i64 [ %22, %.lr.ph ], [ %49, %48 ]
   %.030 = phi i64 [ 0, %.lr.ph ], [ %50, %48 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %.030
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.030
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !28
@@ -558,7 +558,7 @@ define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr noundef readonly cap
   %.0173 = phi i32 [ 0, %28 ], [ 1, %24 ]
   %.051.i = phi i64 [ %30, %28 ], [ %27, %24 ]
   %32 = select i1 %21, double 1.000000e+00, double -1.000000e+00
-  %33 = getelementptr ptr, ptr %10, i64 %.051.i
+  %33 = getelementptr [8 x i8], ptr %10, i64 %.051.i
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %36 = load double, ptr %35, align 8, !tbaa !66
@@ -573,7 +573,7 @@ define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr noundef readonly cap
 
 .lr.ph.i:                                         ; preds = %40, %50
   %storemerge5461.i = phi i64 [ %51, %50 ], [ %.051.i, %40 ]
-  %42 = getelementptr ptr, ptr %10, i64 %storemerge5461.i
+  %42 = getelementptr [8 x i8], ptr %10, i64 %storemerge5461.i
   %43 = getelementptr i8, ptr %42, i64 -8
   %44 = load ptr, ptr %43, align 8, !tbaa !24
   %45 = load double, ptr %44, align 8, !tbaa !66
@@ -616,7 +616,7 @@ define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr noundef readonly cap
 
 .preheader:                                       ; preds = %61, %.preheader
   %storemerge.i = phi i64 [ %73, %.preheader ], [ %.051.i, %61 ]
-  %67 = getelementptr inbounds ptr, ptr %10, i64 %storemerge.i
+  %67 = getelementptr inbounds [8 x i8], ptr %10, i64 %storemerge.i
   %68 = load ptr, ptr %67, align 8, !tbaa !24
   %69 = load double, ptr %68, align 8, !tbaa !66
   %70 = fsub double %1, %69
@@ -636,7 +636,7 @@ define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr noundef readonly cap
   br i1 %77, label %.thread, label %.loopexit195._crit_edge
 
 .loopexit195._crit_edge:                          ; preds = %.loopexit195
-  %.phi.trans.insert = getelementptr ptr, ptr %10, i64 %.0176.ph
+  %.phi.trans.insert = getelementptr [8 x i8], ptr %10, i64 %.0176.ph
   %.phi.trans.insert224 = getelementptr i8, ptr %.phi.trans.insert, i64 -8
   %.pre = load ptr, ptr %.phi.trans.insert224, align 8, !tbaa !24
   %.pre225 = load double, ptr %.pre, align 8, !tbaa !66
@@ -664,15 +664,15 @@ define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr noundef readonly cap
 88:                                               ; preds = %.lr.ph205, %88
   %indvars.iv219 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next220, %88 ]
   %89 = load ptr, ptr %86, align 8, !tbaa !56
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv219
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv219
   %91 = load ptr, ptr %90, align 8, !tbaa !68
-  %92 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv219
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv219
   %93 = load ptr, ptr %92, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %91, ptr noundef %93) #9
   %94 = load ptr, ptr %87, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv219
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv219
   %96 = load ptr, ptr %95, align 8, !tbaa !68
-  %97 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv219
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv219
   %98 = load ptr, ptr %97, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %96, ptr noundef %98) #9
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
@@ -738,31 +738,31 @@ define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr noundef readonly cap
 
 137:                                              ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
-  %138 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv
   %139 = load ptr, ptr %138, align 8, !tbaa !68
-  %140 = getelementptr inbounds nuw ptr, ptr %.0164, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.0164, i64 %indvars.iv
   %141 = load ptr, ptr %140, align 8, !tbaa !68
   %142 = load ptr, ptr %135, align 8, !tbaa !70
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv
   %144 = load ptr, ptr %143, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %139, double noundef -1.000000e+00, ptr noundef %141, ptr noundef %144) #9
-  %145 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv
   %146 = load ptr, ptr %145, align 8, !tbaa !68
-  %147 = getelementptr inbounds nuw ptr, ptr %.0163, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %.0163, i64 %indvars.iv
   %148 = load ptr, ptr %147, align 8, !tbaa !68
   %149 = load ptr, ptr %136, align 8, !tbaa !70
-  %150 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv
   %151 = load ptr, ptr %150, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %146, double noundef 1.000000e+00, ptr noundef %148, ptr noundef %151) #9
   %152 = load ptr, ptr %136, align 8, !tbaa !70
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv
   %154 = load ptr, ptr %153, align 8, !tbaa !68
   %155 = load ptr, ptr %135, align 8, !tbaa !70
-  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %indvars.iv
   %157 = load ptr, ptr %156, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef %104, ptr noundef %154, double noundef -2.000000e+00, ptr noundef %157, ptr noundef %154) #9
   %158 = load ptr, ptr %135, align 8, !tbaa !70
-  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %indvars.iv
   %160 = load ptr, ptr %159, align 8, !tbaa !68
   %161 = load ptr, ptr %147, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %160, double noundef %129, ptr noundef %161, ptr noundef %160) #9
@@ -795,21 +795,21 @@ define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr noundef readonly cap
 
 175:                                              ; preds = %.lr.ph199, %175
   %indvars.iv209 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next210, %175 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %.0164, i64 %indvars.iv209
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %.0164, i64 %indvars.iv209
   %177 = load ptr, ptr %176, align 8, !tbaa !68
-  %178 = getelementptr inbounds nuw ptr, ptr %.0163, i64 %indvars.iv209
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %.0163, i64 %indvars.iv209
   %179 = load ptr, ptr %178, align 8, !tbaa !68
-  %180 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv209
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv209
   %181 = load ptr, ptr %180, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %177, double noundef %162, ptr noundef %179, ptr noundef %181) #9
   %182 = load ptr, ptr %180, align 8, !tbaa !68
   %183 = load ptr, ptr %173, align 8, !tbaa !70
-  %184 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv209
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv209
   %185 = load ptr, ptr %184, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %182, double noundef %164, ptr noundef %185, ptr noundef %182) #9
   %186 = load ptr, ptr %180, align 8, !tbaa !68
   %187 = load ptr, ptr %174, align 8, !tbaa !70
-  %188 = getelementptr inbounds nuw ptr, ptr %187, i64 %indvars.iv209
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %indvars.iv209
   %189 = load ptr, ptr %188, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %186, double noundef %167, ptr noundef %189, ptr noundef %186) #9
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
@@ -838,17 +838,17 @@ define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr noundef readonly cap
 
 201:                                              ; preds = %.lr.ph202, %201
   %indvars.iv214 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next215, %201 ]
-  %202 = getelementptr inbounds nuw ptr, ptr %.0163, i64 %indvars.iv214
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %.0163, i64 %indvars.iv214
   %203 = load ptr, ptr %202, align 8, !tbaa !68
   %204 = load ptr, ptr %199, align 8, !tbaa !70
-  %205 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv214
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv214
   %206 = load ptr, ptr %205, align 8, !tbaa !68
-  %207 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv214
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv214
   %208 = load ptr, ptr %207, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %203, double noundef %196, ptr noundef %206, ptr noundef %208) #9
   %209 = load ptr, ptr %207, align 8, !tbaa !68
   %210 = load ptr, ptr %200, align 8, !tbaa !70
-  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv214
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv214
   %212 = load ptr, ptr %211, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %209, double noundef %195, ptr noundef %212, ptr noundef %209) #9
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
@@ -889,10 +889,10 @@ define internal noundef i32 @IDAAhermiteStorePnt(ptr noundef readonly captures(n
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = load ptr, ptr %15, align 8, !tbaa !70
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !68
   %21 = load ptr, ptr %16, align 8, !tbaa !56
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %20, ptr noundef %23) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -934,7 +934,7 @@ define internal noundef i32 @IDAAhermiteStorePnt(ptr noundef readonly captures(n
   %.033.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %48, %40 ]
   %.02532.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %45, %40 ]
   %.02631.i = phi double [ 1.000000e+00, %.lr.ph.i ], [ %46, %40 ]
-  %41 = getelementptr double, ptr %38, i64 %indvars.iv.i
+  %41 = getelementptr [8 x i8], ptr %38, i64 %indvars.iv.i
   %42 = getelementptr i8, ptr %41, i64 -8
   %43 = load double, ptr %42, align 8, !tbaa !77
   %44 = fdiv double %.02631.i, %43
@@ -942,7 +942,7 @@ define internal noundef i32 @IDAAhermiteStorePnt(ptr noundef readonly captures(n
   %46 = fmul double %.033.i, %.02631.i
   %47 = load double, ptr %41, align 8, !tbaa !77
   %48 = fdiv double %43, %47
-  %49 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %28, double noundef %45, ptr noundef %50, ptr noundef %28) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1131,7 +1131,7 @@ define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr noundef readonly c
   br label %88
 
 88:                                               ; preds = %86, %75, %61
-  %89 = getelementptr inbounds nuw ptr, ptr %40, i64 %.098131175
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.098131175
   %90 = load ptr, ptr %89, align 8, !tbaa !24
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %.0100, ptr %91, align 8, !tbaa !28
@@ -1152,7 +1152,7 @@ define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr noundef readonly c
   %97 = load i32, ptr %43, align 4, !tbaa !50
   tail call void @N_VDestroyVectorArray(ptr noundef %96, i32 noundef %97) #9
   tail call void @free(ptr noundef nonnull %.0100) #9
-  %98 = getelementptr inbounds nuw ptr, ptr %40, i64 %.098131175
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.098131175
   %99 = load ptr, ptr %98, align 8, !tbaa !24
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store ptr null, ptr %100, align 8, !tbaa !28
@@ -1201,7 +1201,7 @@ define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr noundef readonly c
 
 116:                                              ; preds = %.lr.ph135, %135
   %.199133 = phi i64 [ 0, %.lr.ph135 ], [ %141, %135 ]
-  %117 = getelementptr inbounds nuw ptr, ptr %40, i64 %.199133
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.199133
   %118 = load ptr, ptr %117, align 8, !tbaa !24
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !28
@@ -1295,7 +1295,7 @@ define internal void @IDAApolynomialFree(ptr noundef readonly captures(none) %0)
 24:                                               ; preds = %.lr.ph, %51
   %25 = phi i64 [ %22, %.lr.ph ], [ %52, %51 ]
   %.036 = phi i64 [ 0, %.lr.ph ], [ %53, %51 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %.036
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.036
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !28
@@ -1399,7 +1399,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   %.0220 = phi i32 [ 0, %28 ], [ 1, %24 ]
   %.051.i = phi i64 [ %30, %28 ], [ %27, %24 ]
   %32 = select i1 %21, double 1.000000e+00, double -1.000000e+00
-  %33 = getelementptr ptr, ptr %10, i64 %.051.i
+  %33 = getelementptr [8 x i8], ptr %10, i64 %.051.i
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %36 = load double, ptr %35, align 8, !tbaa !66
@@ -1414,7 +1414,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 
 .lr.ph.i:                                         ; preds = %40, %50
   %storemerge5461.i = phi i64 [ %51, %50 ], [ %.051.i, %40 ]
-  %42 = getelementptr ptr, ptr %10, i64 %storemerge5461.i
+  %42 = getelementptr [8 x i8], ptr %10, i64 %storemerge5461.i
   %43 = getelementptr i8, ptr %42, i64 -8
   %44 = load ptr, ptr %43, align 8, !tbaa !24
   %45 = load double, ptr %44, align 8, !tbaa !66
@@ -1457,7 +1457,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 
 .preheader252:                                    ; preds = %61, %.preheader252
   %storemerge.i = phi i64 [ %73, %.preheader252 ], [ %.051.i, %61 ]
-  %67 = getelementptr inbounds ptr, ptr %10, i64 %storemerge.i
+  %67 = getelementptr inbounds [8 x i8], ptr %10, i64 %storemerge.i
   %68 = load ptr, ptr %67, align 8, !tbaa !24
   %69 = load double, ptr %68, align 8, !tbaa !66
   %70 = fsub double %1, %69
@@ -1476,7 +1476,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   br i1 %76, label %.thread, label %.loopexit253._crit_edge
 
 .loopexit253._crit_edge:                          ; preds = %.loopexit253
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %10, i64 %.0223.ph
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %10, i64 %.0223.ph
   %.phi.trans.insert372 = getelementptr i8, ptr %.phi.trans.insert, i64 -8
   %.pre = load ptr, ptr %.phi.trans.insert372, align 8, !tbaa !24
   %.pre373 = load double, ptr %.pre, align 8, !tbaa !66
@@ -1504,15 +1504,15 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 87:                                               ; preds = %.lr.ph296, %87
   %indvars.iv367 = phi i64 [ 0, %.lr.ph296 ], [ %indvars.iv.next368, %87 ]
   %88 = load ptr, ptr %85, align 8, !tbaa !82
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv367
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv367
   %90 = load ptr, ptr %89, align 8, !tbaa !68
-  %91 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv367
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv367
   %92 = load ptr, ptr %91, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %90, ptr noundef %92) #9
   %93 = load ptr, ptr %86, align 8, !tbaa !83
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv367
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv367
   %95 = load ptr, ptr %94, align 8, !tbaa !68
-  %96 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv367
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv367
   %97 = load ptr, ptr %96, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %95, ptr noundef %97) #9
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
@@ -1533,7 +1533,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 
 106:                                              ; preds = %98
   %107 = add nsw i64 %.0223.ph238, -1
-  %108 = getelementptr inbounds ptr, ptr %10, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %10, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !24
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !28
@@ -1544,7 +1544,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   br i1 %or.cond, label %.loopexit247, label %.lr.ph258
 
 .thread377:                                       ; preds = %98
-  %114 = getelementptr inbounds ptr, ptr %10, i64 %.0223.ph238
+  %114 = getelementptr inbounds [8 x i8], ptr %10, i64 %.0223.ph238
   %115 = load ptr, ptr %114, align 8, !tbaa !24
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !28
@@ -1565,7 +1565,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   %.neg = xor i64 %124, -1
   %126 = add i64 %122, %.neg
   %.0194 = select i1 %125, i64 %126, i64 %107
-  %127 = getelementptr ptr, ptr %10, i64 %.0194
+  %127 = getelementptr [8 x i8], ptr %10, i64 %.0194
   %128 = getelementptr i8, ptr %127, i64 -8
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %130 = getelementptr inbounds nuw i8, ptr %8, i64 176
@@ -1589,31 +1589,31 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 139:                                              ; preds = %.lr.ph265, %._crit_edge262
   %indvars.iv313 = phi i64 [ 0, %.lr.ph265 ], [ %indvars.iv.next314, %._crit_edge262 ]
   %140 = sub nsw i64 %spec.select, %indvars.iv313
-  %141 = getelementptr inbounds ptr, ptr %10, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %10, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !24
   %143 = load double, ptr %142, align 8, !tbaa !66
-  %144 = getelementptr inbounds nuw double, ptr %134, i64 %indvars.iv313
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv313
   store double %143, ptr %144, align 8, !tbaa !77
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !28
   %147 = load ptr, ptr %146, align 8, !tbaa !79
-  %148 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv313
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv313
   %149 = load ptr, ptr %148, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %147, ptr noundef %149) #9
   br i1 %136, label %.lr.ph261, label %._crit_edge262
 
 .lr.ph261:                                        ; preds = %139
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %151 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv313
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv313
   br label %152
 
 152:                                              ; preds = %.lr.ph261, %152
   %indvars.iv308 = phi i64 [ 0, %.lr.ph261 ], [ %indvars.iv.next309, %152 ]
   %153 = load ptr, ptr %150, align 8, !tbaa !82
-  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv308
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv308
   %155 = load ptr, ptr %154, align 8, !tbaa !68
   %156 = load ptr, ptr %151, align 8, !tbaa !70
-  %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv308
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv308
   %158 = load ptr, ptr %157, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %155, ptr noundef %158) #9
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
@@ -1627,31 +1627,31 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 
 159:                                              ; preds = %.lr.ph258, %._crit_edge
   %indvars.iv303 = phi i64 [ 0, %.lr.ph258 ], [ %indvars.iv.next304, %._crit_edge ]
-  %160 = getelementptr ptr, ptr %128, i64 %indvars.iv303
+  %160 = getelementptr [8 x i8], ptr %128, i64 %indvars.iv303
   %161 = load ptr, ptr %160, align 8, !tbaa !24
   %162 = load double, ptr %161, align 8, !tbaa !66
-  %163 = getelementptr inbounds nuw double, ptr %129, i64 %indvars.iv303
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv303
   store double %162, ptr %163, align 8, !tbaa !77
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %165 = load ptr, ptr %164, align 8, !tbaa !28
   %166 = load ptr, ptr %165, align 8, !tbaa !79
-  %167 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv303
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv303
   %168 = load ptr, ptr %167, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %166, ptr noundef %168) #9
   br i1 %131, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %159
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %170 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv303
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv303
   br label %171
 
 171:                                              ; preds = %.lr.ph, %171
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %171 ]
   %172 = load ptr, ptr %169, align 8, !tbaa !82
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv
   %174 = load ptr, ptr %173, align 8, !tbaa !68
   %175 = load ptr, ptr %170, align 8, !tbaa !70
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv
   %177 = load ptr, ptr %176, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %174, ptr noundef %177) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1688,31 +1688,31 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 
 .lr.ph268.us.us:                                  ; preds = %..loopexit245_crit_edge.us.us, %.preheader246.us
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %..loopexit245_crit_edge.us.us ], [ %182, %.preheader246.us ]
-  %184 = getelementptr inbounds double, ptr %178, i64 %indvars.iv331
+  %184 = getelementptr inbounds [8 x i8], ptr %178, i64 %indvars.iv331
   %185 = load double, ptr %184, align 8, !tbaa !77
   %186 = sub nsw i64 %indvars.iv331, %indvars.iv334
-  %187 = getelementptr inbounds nuw double, ptr %178, i64 %186
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %186
   %188 = load double, ptr %187, align 8, !tbaa !77
   %189 = fsub double %185, %188
   %190 = fdiv double %102, %189
-  %191 = getelementptr inbounds ptr, ptr %179, i64 %indvars.iv331
+  %191 = getelementptr inbounds [8 x i8], ptr %179, i64 %indvars.iv331
   %192 = load ptr, ptr %191, align 8, !tbaa !68
   %193 = fneg double %190
   %indvars.iv.next332 = add nsw i64 %indvars.iv331, -1
-  %194 = getelementptr inbounds ptr, ptr %179, i64 %indvars.iv.next332
+  %194 = getelementptr inbounds [8 x i8], ptr %179, i64 %indvars.iv.next332
   %195 = load ptr, ptr %194, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef %190, ptr noundef %192, double noundef %193, ptr noundef %195, ptr noundef %192) #9
-  %196 = getelementptr inbounds ptr, ptr %181, i64 %indvars.iv331
-  %197 = getelementptr inbounds ptr, ptr %181, i64 %indvars.iv.next332
+  %196 = getelementptr inbounds [8 x i8], ptr %181, i64 %indvars.iv331
+  %197 = getelementptr inbounds [8 x i8], ptr %181, i64 %indvars.iv.next332
   br label %198
 
 198:                                              ; preds = %198, %.lr.ph268.us.us
   %indvars.iv326 = phi i64 [ %indvars.iv.next327, %198 ], [ 0, %.lr.ph268.us.us ]
   %199 = load ptr, ptr %196, align 8, !tbaa !70
-  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %indvars.iv326
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %indvars.iv326
   %201 = load ptr, ptr %200, align 8, !tbaa !68
   %202 = load ptr, ptr %197, align 8, !tbaa !70
-  %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv326
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %indvars.iv326
   %204 = load ptr, ptr %203, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef %190, ptr noundef %201, double noundef %193, ptr noundef %204, ptr noundef %201) #9
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
@@ -1734,18 +1734,18 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 
 .loopexit245:                                     ; preds = %.preheader246, %.loopexit245
   %indvars.iv318 = phi i64 [ %182, %.preheader246 ], [ %indvars.iv.next319, %.loopexit245 ]
-  %205 = getelementptr inbounds double, ptr %178, i64 %indvars.iv318
+  %205 = getelementptr inbounds [8 x i8], ptr %178, i64 %indvars.iv318
   %206 = load double, ptr %205, align 8, !tbaa !77
   %207 = sub nsw i64 %indvars.iv318, %indvars.iv321
-  %208 = getelementptr inbounds nuw double, ptr %178, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %207
   %209 = load double, ptr %208, align 8, !tbaa !77
   %210 = fsub double %206, %209
   %211 = fdiv double %102, %210
-  %212 = getelementptr inbounds ptr, ptr %179, i64 %indvars.iv318
+  %212 = getelementptr inbounds [8 x i8], ptr %179, i64 %indvars.iv318
   %213 = load ptr, ptr %212, align 8, !tbaa !68
   %214 = fneg double %211
   %indvars.iv.next319 = add nsw i64 %indvars.iv318, -1
-  %215 = getelementptr inbounds ptr, ptr %179, i64 %indvars.iv.next319
+  %215 = getelementptr inbounds [8 x i8], ptr %179, i64 %indvars.iv.next319
   %216 = load ptr, ptr %215, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef %211, ptr noundef %213, double noundef %214, ptr noundef %216, ptr noundef %213) #9
   %.not216.not = icmp sgt i64 %indvars.iv318, %indvars.iv321
@@ -1760,7 +1760,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   %.0202381 = phi i32 [ %119, %.thread377 ], [ %.0202380387, %.split.us.us ], [ %113, %106 ], [ %.0202380387, %.loopexit249 ], [ %.0202380387, %.split ]
   %217 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %218 = sext i32 %.0202381 to i64
-  %219 = getelementptr inbounds ptr, ptr %217, i64 %218
+  %219 = getelementptr inbounds [8 x i8], ptr %217, i64 %218
   %220 = load ptr, ptr %219, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %220, ptr noundef %2) #9
   %221 = icmp sgt i32 %.fr297, 0
@@ -1768,7 +1768,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 
 .lr.ph274:                                        ; preds = %.loopexit247
   %222 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  %223 = getelementptr inbounds ptr, ptr %222, i64 %218
+  %223 = getelementptr inbounds [8 x i8], ptr %222, i64 %218
   %wide.trip.count342 = zext nneg i32 %.fr297 to i64
   br label %228
 
@@ -1786,9 +1786,9 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 228:                                              ; preds = %.lr.ph274, %228
   %indvars.iv339 = phi i64 [ 0, %.lr.ph274 ], [ %indvars.iv.next340, %228 ]
   %229 = load ptr, ptr %223, align 8, !tbaa !70
-  %230 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv339
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv339
   %231 = load ptr, ptr %230, align 8, !tbaa !68
-  %232 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv339
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv339
   %233 = load ptr, ptr %232, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %231, ptr noundef %233) #9
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
@@ -1802,25 +1802,25 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 235:                                              ; preds = %.lr.ph280, %.loopexit243
   %indvars.iv349 = phi i64 [ %227, %.lr.ph280 ], [ %indvars.iv.next350, %.loopexit243 ]
   %indvars.iv.next350 = add nsw i64 %indvars.iv349, -1
-  %236 = getelementptr inbounds nuw double, ptr %225, i64 %indvars.iv.next350
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %indvars.iv.next350
   %237 = load double, ptr %236, align 8, !tbaa !77
   %238 = fsub double %1, %237
   %239 = fdiv double %238, %102
-  %240 = getelementptr inbounds nuw ptr, ptr %217, i64 %indvars.iv.next350
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %indvars.iv.next350
   %241 = load ptr, ptr %240, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef %239, ptr noundef %2, double noundef 1.000000e+00, ptr noundef %241, ptr noundef %2) #9
   br i1 %221, label %.lr.ph277, label %.loopexit243
 
 .lr.ph277:                                        ; preds = %235
-  %242 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv.next350
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %indvars.iv.next350
   br label %243
 
 243:                                              ; preds = %.lr.ph277, %243
   %indvars.iv344 = phi i64 [ 0, %.lr.ph277 ], [ %indvars.iv.next345, %243 ]
-  %244 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv344
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv344
   %245 = load ptr, ptr %244, align 8, !tbaa !68
   %246 = load ptr, ptr %242, align 8, !tbaa !70
-  %247 = getelementptr inbounds nuw ptr, ptr %246, i64 %indvars.iv344
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %indvars.iv344
   %248 = load ptr, ptr %247, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef %239, ptr noundef %245, double noundef 1.000000e+00, ptr noundef %248, ptr noundef %245) #9
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
@@ -1848,7 +1848,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
 
 .lr.ph284:                                        ; preds = %.lr.ph284.preheader, %.lr.ph284
   %indvars.iv352 = phi i64 [ 0, %.lr.ph284.preheader ], [ %indvars.iv.next353, %.lr.ph284 ]
-  %251 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv352
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv352
   %252 = load ptr, ptr %251, align 8, !tbaa !68
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %252) #9
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
@@ -1859,7 +1859,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   %indvars.iv362 = phi i64 [ 1, %.lr.ph293 ], [ %indvars.iv.next363, %._crit_edge288 ]
   %.0292 = phi double [ 0.000000e+00, %.lr.ph293 ], [ %260, %._crit_edge288 ]
   %.0192291 = phi double [ 1.000000e+00, %.lr.ph293 ], [ %261, %._crit_edge288 ]
-  %254 = getelementptr double, ptr %8, i64 %indvars.iv362
+  %254 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv362
   %255 = getelementptr i8, ptr %254, i64 264
   %256 = load double, ptr %255, align 8, !tbaa !77
   %257 = fsub double %1, %256
@@ -1867,21 +1867,21 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr noundef readonly 
   %259 = fdiv double %.0192291, %102
   %260 = tail call double @llvm.fmuladd.f64(double %258, double %.0292, double %259)
   %261 = fmul double %.0192291, %258
-  %262 = getelementptr inbounds nuw ptr, ptr %217, i64 %indvars.iv362
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %indvars.iv362
   %263 = load ptr, ptr %262, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %3, double noundef %260, ptr noundef %263, ptr noundef %3) #9
   br i1 %221, label %.lr.ph287, label %._crit_edge288
 
 .lr.ph287:                                        ; preds = %253
-  %264 = getelementptr inbounds nuw ptr, ptr %249, i64 %indvars.iv362
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %indvars.iv362
   br label %265
 
 265:                                              ; preds = %.lr.ph287, %265
   %indvars.iv357 = phi i64 [ 0, %.lr.ph287 ], [ %indvars.iv.next358, %265 ]
-  %266 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv357
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv357
   %267 = load ptr, ptr %266, align 8, !tbaa !68
   %268 = load ptr, ptr %264, align 8, !tbaa !70
-  %269 = getelementptr inbounds nuw ptr, ptr %268, i64 %indvars.iv357
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %indvars.iv357
   %270 = load ptr, ptr %269, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %267, double noundef %260, ptr noundef %270, ptr noundef %267) #9
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
@@ -1944,7 +1944,7 @@ define internal noundef i32 @IDAApolynomialStorePnt(ptr noundef readonly capture
   %.033.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %32, %24 ]
   %.02532.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %29, %24 ]
   %.02631.i = phi double [ 1.000000e+00, %.lr.ph.i ], [ %30, %24 ]
-  %25 = getelementptr double, ptr %22, i64 %indvars.iv.i
+  %25 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv.i
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load double, ptr %26, align 8, !tbaa !77
   %28 = fdiv double %.02631.i, %27
@@ -1952,7 +1952,7 @@ define internal noundef i32 @IDAApolynomialStorePnt(ptr noundef readonly capture
   %30 = fmul double %.033.i, %.02631.i
   %31 = load double, ptr %25, align 8, !tbaa !77
   %32 = fdiv double %27, %31
-  %33 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %34 = load ptr, ptr %33, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef nonnull %11, double noundef %29, ptr noundef %34, ptr noundef nonnull %11) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1979,10 +1979,10 @@ IDAAGettnSolutionYp.exit:                         ; preds = %24, %19, %16, %2
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %43 = load ptr, ptr %40, align 8, !tbaa !70
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !68
   %46 = load ptr, ptr %41, align 8, !tbaa !82
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %45, ptr noundef %48) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2078,7 +2078,7 @@ define internal fastcc void @IDAAckpntDelete(ptr noundef captures(none) %0) unna
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !68
   tail call void @N_VDestroy(ptr noundef %12) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2102,7 +2102,7 @@ define internal fastcc void @IDAAckpntDelete(ptr noundef captures(none) %0) unna
 
 21:                                               ; preds = %.lr.ph39, %21
   %indvars.iv45 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next46, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv45
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv45
   %23 = load ptr, ptr %22, align 8, !tbaa !68
   tail call void @N_VDestroy(ptr noundef %23) #9
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
@@ -2127,7 +2127,7 @@ define internal fastcc void @IDAAckpntDelete(ptr noundef captures(none) %0) unna
 
 33:                                               ; preds = %.lr.ph41, %33
   %indvars.iv48 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next49, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv48
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv48
   %35 = load ptr, ptr %34, align 8, !tbaa !70
   %36 = load i32, ptr %32, align 4, !tbaa !113
   tail call void @N_VDestroyVectorArray(ptr noundef %35, i32 noundef %36) #9
@@ -2153,7 +2153,7 @@ define internal fastcc void @IDAAckpntDelete(ptr noundef captures(none) %0) unna
 
 46:                                               ; preds = %.lr.ph43, %46
   %indvars.iv51 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next52, %46 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv51
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv51
   %48 = load ptr, ptr %47, align 8, !tbaa !70
   %49 = load i32, ptr %45, align 4, !tbaa !113
   tail call void @N_VDestroyVectorArray(ptr noundef %48, i32 noundef %49) #9
@@ -2217,11 +2217,11 @@ define void @IDAAdjFree(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %._crit_edge.thread, %.lr.ph.i
   %19 = phi ptr [ %22, %.lr.ph.i ], [ %.pre15.i, %._crit_edge.thread ]
   %.014.i = phi i64 [ %24, %.lr.ph.i ], [ 0, %._crit_edge.thread ]
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.014.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.014.i
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   tail call void @free(ptr noundef %21) #9
   %22 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !23
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.014.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.014.i
   store ptr null, ptr %23, align 8, !tbaa !24
   %24 = add nuw nsw i64 %.014.i, 1
   %25 = load i64, ptr %17, align 8, !tbaa !22
@@ -2487,9 +2487,9 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
 
 101:                                              ; preds = %.preheader148, %101
   %indvars.iv = phi i64 [ 0, %.preheader148 ], [ %indvars.iv.next, %101 ]
-  %102 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8, !tbaa !68
-  %104 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv
   store ptr %103, ptr %104, align 8, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -2508,9 +2508,9 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
 
 110:                                              ; preds = %.preheader, %110
   %indvars.iv158 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next159, %110 ]
-  %111 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv158
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv158
   %112 = load ptr, ptr %111, align 8, !tbaa !70
-  %113 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv158
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv158
   store ptr %112, ptr %113, align 8, !tbaa !70
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 6
@@ -2750,7 +2750,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   br label %266
 
 263:                                              ; preds = %180
-  %264 = getelementptr inbounds ptr, ptr %31, i64 %183
+  %264 = getelementptr inbounds [8 x i8], ptr %31, i64 %183
   %265 = load ptr, ptr %264, align 8, !tbaa !24
   store double %185, ptr %265, align 8, !tbaa !66
   br label %266
@@ -3869,16 +3869,16 @@ define i32 @IDACalcICBS(ptr noundef %0, i32 noundef %1, double noundef %2, ptr n
 
 47:                                               ; preds = %.lr.ph54, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !68
   %50 = load ptr, ptr %45, align 8, !tbaa !51
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %49, ptr noundef %52) #9
-  %53 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !68
   %55 = load ptr, ptr %46, align 8, !tbaa !52
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %54, ptr noundef %57) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4465,9 +4465,9 @@ define internal fastcc range(i32 -106, 1) i32 @IDAAdataStore(ptr noundef nonnull
 
 103:                                              ; preds = %103, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %103 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv.i
   %105 = load ptr, ptr %104, align 8, !tbaa !68
-  %106 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv.i
   %107 = load ptr, ptr %106, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %105, ptr noundef %107) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4491,9 +4491,9 @@ define internal fastcc range(i32 -106, 1) i32 @IDAAdataStore(ptr noundef nonnull
 
 116:                                              ; preds = %116, %.lr.ph148.i
   %indvars.iv161.i = phi i64 [ 0, %.lr.ph148.i ], [ %indvars.iv.next162.i, %116 ]
-  %117 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv161.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv161.i
   %118 = load ptr, ptr %117, align 8, !tbaa !68
-  %119 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv161.i
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %indvars.iv161.i
   %120 = load ptr, ptr %119, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %118, ptr noundef %120) #9
   %indvars.iv.next162.i = add nuw nsw i64 %indvars.iv161.i, 1
@@ -4530,13 +4530,13 @@ define internal fastcc range(i32 -106, 1) i32 @IDAAdataStore(ptr noundef nonnull
 
 .lr.ph150.i:                                      ; preds = %.preheader141.i, %.lr.ph150.i
   %indvars.iv164.i = phi i64 [ %indvars.iv.next165.i, %.lr.ph150.i ], [ 0, %.preheader141.i ]
-  %136 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv164.i
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv164.i
   %137 = load ptr, ptr %136, align 8, !tbaa !70
-  %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv167.i
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv167.i
   %139 = load ptr, ptr %138, align 8, !tbaa !68
-  %140 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv164.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv164.i
   %141 = load ptr, ptr %140, align 8, !tbaa !70
-  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv167.i
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv167.i
   %143 = load ptr, ptr %142, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %139, ptr noundef %143) #9
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
@@ -4585,13 +4585,13 @@ define internal fastcc range(i32 -106, 1) i32 @IDAAdataStore(ptr noundef nonnull
 
 .lr.ph154.i:                                      ; preds = %.preheader.i, %.lr.ph154.i
   %indvars.iv170.i = phi i64 [ %indvars.iv.next171.i, %.lr.ph154.i ], [ 0, %.preheader.i ]
-  %163 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv170.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv170.i
   %164 = load ptr, ptr %163, align 8, !tbaa !70
-  %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv173.i
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %indvars.iv173.i
   %166 = load ptr, ptr %165, align 8, !tbaa !68
-  %167 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv170.i
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %indvars.iv170.i
   %168 = load ptr, ptr %167, align 8, !tbaa !70
-  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv173.i
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %indvars.iv173.i
   %170 = load ptr, ptr %169, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %166, ptr noundef %170) #9
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
@@ -4627,25 +4627,25 @@ define internal fastcc range(i32 -106, 1) i32 @IDAAdataStore(ptr noundef nonnull
 
 188:                                              ; preds = %188, %.loopexit.i
   %indvars.iv176.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next177.i, %188 ]
-  %189 = getelementptr inbounds nuw double, ptr %178, i64 %indvars.iv176.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv176.i
   %190 = load double, ptr %189, align 8, !tbaa !77
-  %191 = getelementptr inbounds nuw double, ptr %179, i64 %indvars.iv176.i
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %indvars.iv176.i
   store double %190, ptr %191, align 8, !tbaa !77
-  %192 = getelementptr inbounds nuw double, ptr %180, i64 %indvars.iv176.i
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv176.i
   %193 = load double, ptr %192, align 8, !tbaa !77
-  %194 = getelementptr inbounds nuw double, ptr %181, i64 %indvars.iv176.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %indvars.iv176.i
   store double %193, ptr %194, align 8, !tbaa !77
-  %195 = getelementptr inbounds nuw double, ptr %182, i64 %indvars.iv176.i
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv176.i
   %196 = load double, ptr %195, align 8, !tbaa !77
-  %197 = getelementptr inbounds nuw double, ptr %183, i64 %indvars.iv176.i
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv176.i
   store double %196, ptr %197, align 8, !tbaa !77
-  %198 = getelementptr inbounds nuw double, ptr %184, i64 %indvars.iv176.i
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %indvars.iv176.i
   %199 = load double, ptr %198, align 8, !tbaa !77
-  %200 = getelementptr inbounds nuw double, ptr %185, i64 %indvars.iv176.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %indvars.iv176.i
   store double %199, ptr %200, align 8, !tbaa !77
-  %201 = getelementptr inbounds nuw double, ptr %186, i64 %indvars.iv176.i
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %indvars.iv176.i
   %202 = load double, ptr %201, align 8, !tbaa !77
-  %203 = getelementptr inbounds nuw double, ptr %187, i64 %indvars.iv176.i
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %indvars.iv176.i
   store double %202, ptr %203, align 8, !tbaa !77
   %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next177.i, 6
@@ -4696,7 +4696,7 @@ IDAAckpntGet.exit:                                ; preds = %204, %42, %39
 
 231:                                              ; preds = %225
   %232 = load double, ptr %3, align 8, !tbaa !77
-  %233 = getelementptr inbounds nuw ptr, ptr %7, i64 %.034
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.034
   %234 = load ptr, ptr %233, align 8, !tbaa !24
   store double %232, ptr %234, align 8, !tbaa !66
   %235 = load ptr, ptr %208, align 8, !tbaa !34
@@ -4910,7 +4910,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !47
   %10 = tail call ptr @N_VClone(ptr noundef %9) #9
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %10, ptr %11, align 8, !tbaa !68
   %12 = icmp eq ptr %10, null
   br i1 %12, label %.preheader, label %14
@@ -4949,7 +4949,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
   %indvars.iv178 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next179, %37 ]
   %25 = load ptr, ptr %22, align 8, !tbaa !211
   %26 = tail call ptr @N_VClone(ptr noundef %25) #9
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv178
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv178
   store ptr %26, ptr %27, align 8, !tbaa !68
   %28 = icmp eq ptr %26, null
   br i1 %28, label %.preheader121, label %37
@@ -5007,7 +5007,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
   %49 = load i32, ptr %45, align 4, !tbaa !50
   %50 = load ptr, ptr %46, align 8, !tbaa !47
   %51 = tail call ptr @N_VCloneVectorArray(i32 noundef %49, ptr noundef %50) #9
-  %52 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv181
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv181
   store ptr %51, ptr %52, align 8, !tbaa !70
   %53 = icmp eq ptr %51, null
   br i1 %53, label %.preheader116, label %75
@@ -5022,7 +5022,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %.lr.ph145
   %indvars.iv184 = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next185, %.lr.ph145 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv184
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv184
   %55 = load ptr, ptr %54, align 8, !tbaa !70
   %56 = load i32, ptr %45, align 4, !tbaa !50
   tail call void @N_VDestroyVectorArray(ptr noundef %55, i32 noundef %56) #9
@@ -5046,7 +5046,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
 
 60:                                               ; preds = %.lr.ph148, %60
   %indvars.iv190 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next191, %60 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv190
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv190
   %62 = load ptr, ptr %61, align 8, !tbaa !68
   tail call void @N_VDestroy(ptr noundef %62) #9
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
@@ -5066,7 +5066,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
 
 69:                                               ; preds = %.lr.ph151, %69
   %indvars.iv193 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next194, %69 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv193
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv193
   %71 = load ptr, ptr %70, align 8, !tbaa !68
   tail call void @N_VDestroy(ptr noundef %71) #9
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
@@ -5104,7 +5104,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
   %87 = load i32, ptr %83, align 4, !tbaa !50
   %88 = load ptr, ptr %84, align 8, !tbaa !211
   %89 = tail call ptr @N_VCloneVectorArray(i32 noundef %87, ptr noundef %88) #9
-  %90 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv196
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv196
   store ptr %89, ptr %90, align 8, !tbaa !70
   %91 = icmp eq ptr %89, null
   br i1 %91, label %.preheader110, label %124
@@ -5128,7 +5128,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
 
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %.lr.ph155
   %indvars.iv199 = phi i64 [ 0, %.lr.ph155.preheader ], [ %indvars.iv.next200, %.lr.ph155 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv199
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv199
   %96 = load ptr, ptr %95, align 8, !tbaa !70
   %97 = load i32, ptr %83, align 4, !tbaa !50
   tail call void @N_VDestroyVectorArray(ptr noundef %96, i32 noundef %97) #9
@@ -5138,7 +5138,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
 
 98:                                               ; preds = %.lr.ph157, %98
   %indvars.iv207 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next208, %98 ]
-  %99 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv207
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv207
   %100 = load ptr, ptr %99, align 8, !tbaa !70
   %101 = load i32, ptr %83, align 4, !tbaa !50
   tail call void @N_VDestroyVectorArray(ptr noundef %100, i32 noundef %101) #9
@@ -5164,7 +5164,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
 
 109:                                              ; preds = %.lr.ph160, %109
   %indvars.iv210 = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next211, %109 ]
-  %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv210
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv210
   %111 = load ptr, ptr %110, align 8, !tbaa !68
   tail call void @N_VDestroy(ptr noundef %111) #9
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -5184,7 +5184,7 @@ define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr noundef no
 
 118:                                              ; preds = %.lr.ph163, %118
   %indvars.iv213 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next214, %118 ]
-  %119 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv213
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv213
   %120 = load ptr, ptr %119, align 8, !tbaa !68
   tail call void @N_VDestroy(ptr noundef %120) #9
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
@@ -5220,9 +5220,9 @@ define internal fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull readonly c
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !68
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %10, ptr noundef %12) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5247,9 +5247,9 @@ define internal fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull readonly c
 
 22:                                               ; preds = %.lr.ph52, %22
   %indvars.iv64 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next65, %22 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv64
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv64
   %24 = load ptr, ptr %23, align 8, !tbaa !68
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv64
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv64
   %26 = load ptr, ptr %25, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %24, ptr noundef %26) #9
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
@@ -5286,13 +5286,13 @@ define internal fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull readonly c
 
 .lr.ph54:                                         ; preds = %.preheader45, %.lr.ph54
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.lr.ph54 ], [ 0, %.preheader45 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv67
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv67
   %43 = load ptr, ptr %42, align 8, !tbaa !70
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv70
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv70
   %45 = load ptr, ptr %44, align 8, !tbaa !68
-  %46 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv67
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv67
   %47 = load ptr, ptr %46, align 8, !tbaa !70
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv70
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv70
   %49 = load ptr, ptr %48, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %45, ptr noundef %49) #9
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
@@ -5341,13 +5341,13 @@ define internal fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull readonly c
 
 .lr.ph58:                                         ; preds = %.preheader, %.lr.ph58
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.lr.ph58 ], [ 0, %.preheader ]
-  %69 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv73
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv73
   %70 = load ptr, ptr %69, align 8, !tbaa !70
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv76
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv76
   %72 = load ptr, ptr %71, align 8, !tbaa !68
-  %73 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv73
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv73
   %74 = load ptr, ptr %73, align 8, !tbaa !70
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv76
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv76
   %76 = load ptr, ptr %75, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %72, ptr noundef %76) #9
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
@@ -5405,9 +5405,9 @@ define internal fastcc void @IDAAGettnSolutionYpS(ptr noundef readonly captures(
 10:                                               ; preds = %.lr.ph60, %10
   %indvars.iv73 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next74, %10 ]
   %11 = load ptr, ptr %9, align 8, !tbaa !70
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv73
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv73
   %13 = load ptr, ptr %12, align 8, !tbaa !68
-  %14 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv73
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv73
   %15 = load ptr, ptr %14, align 8, !tbaa !68
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %13, ptr noundef %15) #9
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
@@ -5418,7 +5418,7 @@ define internal fastcc void @IDAAGettnSolutionYpS(ptr noundef readonly captures(
 
 .lr.ph:                                           ; preds = %.preheader46, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader46 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !68
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %20) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5452,7 +5452,7 @@ define internal fastcc void @IDAAGettnSolutionYpS(ptr noundef readonly captures(
   %.056 = phi double [ 0.000000e+00, %.lr.ph58.split.preheader ], [ %39, %._crit_edge51 ]
   %.04055 = phi double [ 0.000000e+00, %.lr.ph58.split.preheader ], [ %36, %._crit_edge51 ]
   %.04154 = phi double [ 1.000000e+00, %.lr.ph58.split.preheader ], [ %37, %._crit_edge51 ]
-  %32 = getelementptr double, ptr %27, i64 %indvars.iv70
+  %32 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv70
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load double, ptr %33, align 8, !tbaa !77
   %35 = fdiv double %.04154, %34
@@ -5464,15 +5464,15 @@ define internal fastcc void @IDAAGettnSolutionYpS(ptr noundef readonly captures(
   br i1 %40, label %.lr.ph50, label %._crit_edge51
 
 .lr.ph50:                                         ; preds = %.lr.ph58.split
-  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv70
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv70
   br label %42
 
 42:                                               ; preds = %.lr.ph50, %42
   %indvars.iv67 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next68, %42 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv67
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv67
   %44 = load ptr, ptr %43, align 8, !tbaa !68
   %45 = load ptr, ptr %41, align 8, !tbaa !70
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv67
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv67
   %47 = load ptr, ptr %46, align 8, !tbaa !68
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %44, double noundef %36, ptr noundef %47, ptr noundef %44) #9
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1

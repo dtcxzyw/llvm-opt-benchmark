@@ -1049,13 +1049,13 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %.136 = tail call i32 @llvm.smin.i32(i32 %47, i32 %37)
   %.136.fr = freeze i32 %.136
   %48 = sext i32 %.0118161 to i64
-  %49 = getelementptr inbounds i16, ptr %.0110171, i64 %48
-  %50 = getelementptr inbounds i16, ptr %.0117169, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %.0110171, i64 %48
+  %50 = getelementptr inbounds [2 x i8], ptr %.0117169, i64 %48
   %51 = sext i8 %41 to i64
-  %52 = getelementptr inbounds i16, ptr %50, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %50, i64 %51
   %53 = mul nsw i32 %38, %46
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i16, ptr %52, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %52, i64 %54
   %56 = add nsw i32 %.0118161, %42
   %.fr = freeze i32 %56
   %57 = add nsw i32 %.0119168, %46
@@ -1112,13 +1112,13 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   br i1 %or.cond230, label %77, label %80
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i16, ptr %.0143.us, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %.0143.us, i64 %indvars.iv
   %79 = load i16, ptr %78, align 2, !tbaa !85
   br label %80
 
 80:                                               ; preds = %74, %77
   %.sink = phi i16 [ %79, %77 ], [ 0, %74 ]
-  %81 = getelementptr inbounds nuw i16, ptr %.0107141.us, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %.0107141.us, i64 %indvars.iv
   store i16 %.sink, ptr %81, align 2, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1131,8 +1131,8 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
 ..loopexit_crit_edge.us:                          ; preds = %80, %82, %72
   %83 = load i32, ptr %18, align 8, !tbaa !34
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i16, ptr %.0107141.us, i64 %84
-  %86 = getelementptr inbounds i16, ptr %.0143.us, i64 %84
+  %85 = getelementptr inbounds [2 x i8], ptr %.0107141.us, i64 %84
+  %86 = getelementptr inbounds [2 x i8], ptr %.0143.us, i64 %84
   %87 = add nuw nsw i32 %.0111140.us, 1
   %exitcond189.not = icmp eq i32 %87, %.
   br i1 %exitcond189.not, label %._crit_edge, label %.lr.ph145.split.us, !llvm.loop !88
@@ -1169,8 +1169,8 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
 .loopexit.us151:                                  ; preds = %93, %95, %94
   %96 = load i32, ptr %18, align 8, !tbaa !34
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i16, ptr %.0107141.us147, i64 %97
-  %99 = getelementptr inbounds i16, ptr %.0143.us146, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %.0107141.us147, i64 %97
+  %99 = getelementptr inbounds [2 x i8], ptr %.0143.us146, i64 %97
   %100 = add nuw nsw i32 %.0111140.us148, 1
   %exitcond186.not = icmp eq i32 %100, %.
   br i1 %exitcond186.not, label %._crit_edge, label %.lr.ph145.split.split.us, !llvm.loop !88
@@ -1198,7 +1198,7 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %108 = phi i32 [ %101, %105 ], [ %.pre200, %107 ]
   %109 = phi i32 [ %102, %105 ], [ %.pre200, %107 ]
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i16, ptr %.0107141, i64 %110
+  %111 = getelementptr inbounds [2 x i8], ptr %.0107141, i64 %110
   %112 = add nuw nsw i32 %.0111140, 1
   %exitcond.not = icmp eq i32 %112, %.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph145.split.split, !llvm.loop !88
@@ -1230,7 +1230,7 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %indvars.iv190 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next191, %118 ]
   %.4154.us = phi ptr [ %.3157.us, %.preheader.us ], [ %123, %118 ]
   %119 = load i16, ptr %.4154.us, align 2, !tbaa !85
-  %120 = getelementptr inbounds nuw i16, ptr %.1158.us, i64 %indvars.iv190
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %.1158.us, i64 %indvars.iv190
   %121 = load i16, ptr %120, align 2, !tbaa !85
   %122 = xor i16 %121, %119
   store i16 %122, ptr %120, align 2, !tbaa !85
@@ -1240,7 +1240,7 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   br i1 %exitcond194.not, label %._crit_edge155.us, label %118, !llvm.loop !89
 
 ._crit_edge155.us:                                ; preds = %118
-  %124 = getelementptr inbounds i16, ptr %.1158.us, i64 %117
+  %124 = getelementptr inbounds [2 x i8], ptr %.1158.us, i64 %117
   %125 = add nuw nsw i32 %.1112156.us, 1
   %exitcond195.not = icmp eq i32 %125, %.
   br i1 %exitcond195.not, label %.loopexit138, label %.preheader.us, !llvm.loop !90
@@ -1268,8 +1268,8 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %.1109.lcssa = phi ptr [ %.0108172, %.lr.ph174.split ], [ %.2, %._crit_edge165.loopexit ]
   %135 = mul nsw i32 %132, %134
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i16, ptr %.0110171, i64 %136
-  %138 = getelementptr inbounds i16, ptr %.0117169, i64 %136
+  %137 = getelementptr inbounds [2 x i8], ptr %.0110171, i64 %136
+  %138 = getelementptr inbounds [2 x i8], ptr %.0117169, i64 %136
   %139 = add nsw i32 %132, %.0119168
   %140 = icmp slt i32 %139, %131
   br i1 %140, label %.lr.ph174.split, label %._crit_edge175.loopexit, !llvm.loop !92
@@ -1376,13 +1376,13 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %.136 = tail call i32 @llvm.smin.i32(i32 %47, i32 %37)
   %.136.fr = freeze i32 %.136
   %48 = sext i32 %.0118161 to i64
-  %49 = getelementptr inbounds i32, ptr %.0110171, i64 %48
-  %50 = getelementptr inbounds i32, ptr %.0117169, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %.0110171, i64 %48
+  %50 = getelementptr inbounds [4 x i8], ptr %.0117169, i64 %48
   %51 = sext i8 %41 to i64
-  %52 = getelementptr inbounds i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %50, i64 %51
   %53 = mul nsw i32 %38, %46
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %52, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %52, i64 %54
   %56 = add nsw i32 %.0118161, %42
   %.fr = freeze i32 %56
   %57 = add nsw i32 %.0119168, %46
@@ -1439,13 +1439,13 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   br i1 %.not135.us, label %78, label %81
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i32, ptr %.0143.us, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.0143.us, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4, !tbaa !76
   br label %81
 
 81:                                               ; preds = %.lr.ph.us, %75, %78
   %.sink = phi i32 [ %80, %78 ], [ 0, %75 ], [ 0, %.lr.ph.us ]
-  %82 = getelementptr inbounds nuw i32, ptr %.0107141.us, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.0107141.us, i64 %indvars.iv
   store i32 %.sink, ptr %82, align 4, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1458,8 +1458,8 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
 ..loopexit_crit_edge.us:                          ; preds = %81, %83, %72
   %84 = load i32, ptr %18, align 8, !tbaa !34
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i32, ptr %.0107141.us, i64 %85
-  %87 = getelementptr inbounds i32, ptr %.0143.us, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.0107141.us, i64 %85
+  %87 = getelementptr inbounds [4 x i8], ptr %.0143.us, i64 %85
   %88 = add nuw nsw i32 %.0111140.us, 1
   %exitcond189.not = icmp eq i32 %88, %.
   br i1 %exitcond189.not, label %._crit_edge, label %.lr.ph145.split.us, !llvm.loop !94
@@ -1496,8 +1496,8 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
 .loopexit.us151:                                  ; preds = %94, %96, %95
   %97 = load i32, ptr %18, align 8, !tbaa !34
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i32, ptr %.0107141.us147, i64 %98
-  %100 = getelementptr inbounds i32, ptr %.0143.us146, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %.0107141.us147, i64 %98
+  %100 = getelementptr inbounds [4 x i8], ptr %.0143.us146, i64 %98
   %101 = add nuw nsw i32 %.0111140.us148, 1
   %exitcond186.not = icmp eq i32 %101, %.
   br i1 %exitcond186.not, label %._crit_edge, label %.lr.ph145.split.split.us, !llvm.loop !94
@@ -1525,7 +1525,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %109 = phi i32 [ %102, %106 ], [ %.pre200, %108 ]
   %110 = phi i32 [ %103, %106 ], [ %.pre200, %108 ]
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds i32, ptr %.0107141, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %.0107141, i64 %111
   %113 = add nuw nsw i32 %.0111140, 1
   %exitcond.not = icmp eq i32 %113, %.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph145.split.split, !llvm.loop !94
@@ -1552,7 +1552,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %indvars.iv190 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next191, %116 ]
   %.4154.us = phi ptr [ %.3157.us, %.preheader.us ], [ %121, %116 ]
   %117 = load i32, ptr %.4154.us, align 4, !tbaa !76
-  %118 = getelementptr inbounds nuw i32, ptr %.1158.us, i64 %indvars.iv190
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %.1158.us, i64 %indvars.iv190
   %119 = load i32, ptr %118, align 4, !tbaa !76
   %120 = xor i32 %119, %117
   store i32 %120, ptr %118, align 4, !tbaa !76
@@ -1564,7 +1564,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
 ._crit_edge155.us:                                ; preds = %116
   %122 = load i32, ptr %18, align 8, !tbaa !34
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %.1158.us, i64 %123
+  %124 = getelementptr inbounds [4 x i8], ptr %.1158.us, i64 %123
   %125 = add nuw nsw i32 %.1112156.us, 1
   %exitcond195.not = icmp eq i32 %125, %.
   br i1 %exitcond195.not, label %.loopexit138, label %.preheader.us, !llvm.loop !96
@@ -1592,8 +1592,8 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %.1109.lcssa = phi ptr [ %.0108172, %.lr.ph174.split ], [ %.2, %._crit_edge165.loopexit ]
   %135 = mul nsw i32 %132, %134
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i32, ptr %.0110171, i64 %136
-  %138 = getelementptr inbounds i32, ptr %.0117169, i64 %136
+  %137 = getelementptr inbounds [4 x i8], ptr %.0110171, i64 %136
+  %138 = getelementptr inbounds [4 x i8], ptr %.0117169, i64 %136
   %139 = add nsw i32 %132, %.0119168
   %140 = icmp slt i32 %139, %131
   br i1 %140, label %.lr.ph174.split, label %._crit_edge175.loopexit, !llvm.loop !98

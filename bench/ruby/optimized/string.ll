@@ -10179,7 +10179,7 @@ define hidden i64 @rb_str_concat_literals(i64 noundef %0, ptr noundef readonly c
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.02633 = phi i64 [ %14, %.lr.ph ], [ 0, %2 ]
   %.02732 = phi i64 [ %13, %.lr.ph ], [ 1, %2 ]
-  %8 = getelementptr i64, ptr %1, i64 %.02633
+  %8 = getelementptr [8 x i8], ptr %1, i64 %.02633
   %9 = load i64, ptr %8, align 8, !tbaa !26
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -10245,7 +10245,7 @@ rb_str_buf_new.exit:                              ; preds = %20, %22
 
 46:                                               ; preds = %.lr.ph35, %63
   %.134 = phi i64 [ 0, %.lr.ph35 ], [ %64, %63 ]
-  %47 = getelementptr i64, ptr %1, i64 %.134
+  %47 = getelementptr [8 x i8], ptr %1, i64 %.134
   %48 = load i64, ptr %47, align 8, !tbaa !26
   %49 = inttoptr i64 %48 to ptr
   %50 = load i64, ptr %49, align 8, !tbaa !7
@@ -10496,7 +10496,7 @@ RSTRING_END.exit:                                 ; preds = %str_ensure_availabl
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %123 ]
   %.068118 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %123 ]
-  %94 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %94 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %95 = load i64, ptr %94, align 8, !tbaa !26
   %96 = icmp eq i64 %95, 0
   %97 = and i64 %95, 7
@@ -10518,7 +10518,7 @@ RSTRING_END.exit:                                 ; preds = %str_ensure_availabl
   br i1 %104, label %rb_type.exit.thread89, label %106
 
 rb_type.exit.thread89:                            ; preds = %103
-  %105 = getelementptr i32, ptr %18, i64 %indvars.iv
+  %105 = getelementptr [4 x i8], ptr %18, i64 %indvars.iv
   store i32 21, ptr %105, align 4, !tbaa !49
   br label %115
 
@@ -10529,13 +10529,13 @@ rb_type.exit.thread89:                            ; preds = %103
   br label %rb_type.exit.thread
 
 switch.lookup:                                    ; preds = %100
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_str_append_as_bytes, i64 %101
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_str_append_as_bytes, i64 %101
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit.thread
 
 rb_type.exit.thread:                              ; preds = %switch.lookup, %106
   %.0.i.ph = phi i32 [ %switch.load, %switch.lookup ], [ %spec.select, %106 ]
-  %109 = getelementptr i32, ptr %18, i64 %indvars.iv
+  %109 = getelementptr [4 x i8], ptr %18, i64 %indvars.iv
   store i32 %.0.i.ph, ptr %109, align 4, !tbaa !49
   br label %.loopexit97
 
@@ -10544,7 +10544,7 @@ rb_type.exit:                                     ; preds = %.lr.ph
   %111 = load i64, ptr %110, align 8, !tbaa !7
   %112 = trunc i64 %111 to i32
   %113 = and i32 %112, 31
-  %114 = getelementptr i32, ptr %18, i64 %indvars.iv
+  %114 = getelementptr [4 x i8], ptr %18, i64 %indvars.iv
   store i32 %113, ptr %114, align 4, !tbaa !49
   switch i32 %113, label %.loopexit97 [
     i32 21, label %115
@@ -10596,9 +10596,9 @@ rb_type.exit:                                     ; preds = %.lr.ph
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %ruby_nonempty_memcpy.exit
   %indvars.iv143 = phi i64 [ 0, %.lr.ph121.preheader ], [ %indvars.iv.next144, %ruby_nonempty_memcpy.exit ]
   %.071120 = phi ptr [ %93, %.lr.ph121.preheader ], [ %148, %ruby_nonempty_memcpy.exit ]
-  %128 = getelementptr i64, ptr %1, i64 %indvars.iv143
+  %128 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv143
   %129 = load i64, ptr %128, align 8, !tbaa !26
-  %130 = getelementptr i32, ptr %20, i64 %indvars.iv143
+  %130 = getelementptr [4 x i8], ptr %20, i64 %indvars.iv143
   %131 = load i32, ptr %130, align 4, !tbaa !49
   switch i32 %131, label %147 [
     i32 21, label %132
@@ -10703,9 +10703,9 @@ ruby_nonempty_memcpy.exit:                        ; preds = %146, %rbimpl_rstrin
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %182
   %indvars.iv148 = phi i64 [ 0, %.lr.ph125.preheader ], [ %indvars.iv.next149, %182 ]
-  %166 = getelementptr i64, ptr %1, i64 %indvars.iv148
+  %166 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv148
   %167 = load i64, ptr %166, align 8, !tbaa !26
-  %168 = getelementptr i32, ptr %20, i64 %indvars.iv148
+  %168 = getelementptr [4 x i8], ptr %20, i64 %indvars.iv148
   %169 = load i32, ptr %168, align 4, !tbaa !49
   switch i32 %169, label %181 [
     i32 21, label %170
@@ -16110,7 +16110,7 @@ define internal i64 @rb_str_split_m(i32 noundef %0, ptr noundef readonly capture
 
 12:                                               ; preds = %.preheader400
   %13 = sext i32 %.185.i406 to i64
-  %14 = getelementptr i64, ptr %1, i64 %13
+  %14 = getelementptr [8 x i8], ptr %1, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !26
   store i64 %15, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !26
   %16 = add nsw i32 %.185.i406, 1
@@ -16812,14 +16812,14 @@ default.unreachable:                              ; preds = %RSTRING_END.exit
   %.0222409.us = phi i64 [ %368, %split_string.exit.us ], [ 1, %.lr.ph ]
   %.17408.us = phi i64 [ %.18.us, %split_string.exit.us ], [ %.16, %.lr.ph ]
   %313 = load ptr, ptr %275, align 8, !tbaa !450
-  %314 = getelementptr i64, ptr %313, i64 %.0222409.us
+  %314 = getelementptr [8 x i8], ptr %313, i64 %.0222409.us
   %315 = load i64, ptr %314, align 8, !tbaa !26
   %316 = icmp eq i64 %315, -1
   br i1 %316, label %split_string.exit.us, label %317
 
 317:                                              ; preds = %.lr.ph.split.us
   %318 = load ptr, ptr %311, align 8, !tbaa !452
-  %319 = getelementptr i64, ptr %318, i64 %.0222409.us
+  %319 = getelementptr [8 x i8], ptr %318, i64 %.0222409.us
   %320 = load i64, ptr %319, align 8, !tbaa !26
   %321 = sub i64 %320, %315
   %322 = icmp sgt i64 %.17408.us, -1
@@ -16950,14 +16950,14 @@ split_string.exit.us:                             ; preds = %365, %.loopexit.i.u
   %.0222409 = phi i64 [ %427, %split_string.exit ], [ 1, %.lr.ph ]
   %.17408 = phi i64 [ %.18, %split_string.exit ], [ %.16, %.lr.ph ]
   %372 = load ptr, ptr %275, align 8, !tbaa !450
-  %373 = getelementptr i64, ptr %372, i64 %.0222409
+  %373 = getelementptr [8 x i8], ptr %372, i64 %.0222409
   %374 = load i64, ptr %373, align 8, !tbaa !26
   %375 = icmp eq i64 %374, -1
   br i1 %375, label %split_string.exit, label %376
 
 376:                                              ; preds = %.lr.ph.split
   %377 = load ptr, ptr %311, align 8, !tbaa !452
-  %378 = getelementptr i64, ptr %377, i64 %.0222409
+  %378 = getelementptr [8 x i8], ptr %377, i64 %.0222409
   %379 = load i64, ptr %378, align 8, !tbaa !26
   %380 = sub i64 %379, %374
   %381 = icmp sgt i64 %.17408, -1
@@ -18392,10 +18392,10 @@ RSTRING_PTR.exit355:                              ; preds = %264, %269
 
 switch.lookup:                                    ; preds = %272
   %274 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.enc_str_scrub, i64 %274
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.enc_str_scrub, i64 %274
   %switch.load = load ptr, ptr %switch.gep, align 8
   %275 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep581 = getelementptr inbounds nuw i64, ptr @switch.table.enc_str_scrub.10, i64 %275
+  %switch.gep581 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.enc_str_scrub.10, i64 %275
   %switch.load582 = load i64, ptr %switch.gep581, align 8
   br label %276
 
@@ -20087,7 +20087,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3
 
 10:                                               ; preds = %rb_scan_args_n_opt.exit
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr i64, ptr %1, i64 %11
+  %12 = getelementptr [8 x i8], ptr %1, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load i64, ptr %13, align 8, !tbaa !26
   %15 = tail call i32 @rb_keyword_given_p() #30
@@ -20407,7 +20407,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %rbimpl_intern_const
 
 11:                                               ; preds = %rb_scan_args_n_opt.exit
   %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr i64, ptr %1, i64 %12
+  %13 = getelementptr [8 x i8], ptr %1, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !26
   %16 = tail call i32 @rb_keyword_given_p() #30
@@ -25483,7 +25483,7 @@ str_modifiable.exit:                              ; preds = %3, %CHILLED_STRING_
 
 25:                                               ; preds = %22, %25
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !26
   %28 = tail call i64 @rb_str_concat(i64 noundef %24, i64 noundef %27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -25550,7 +25550,7 @@ str_modifiable.exit:                              ; preds = %3, %CHILLED_STRING_
 
 25:                                               ; preds = %22, %rb_str_append.exit
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %rb_str_append.exit ]
-  %26 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %26 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %27, ptr %4, align 8, !tbaa !26
@@ -25832,7 +25832,7 @@ define internal range(i64 0, 21) i64 @rb_str_start_with(i32 noundef %0, ptr noun
 9:                                                ; preds = %.lr.ph, %.thread41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread41 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %10 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %10 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !26
   store i64 %11, ptr %4, align 8, !tbaa !26
   %12 = icmp eq i64 %11, 0
@@ -25953,7 +25953,7 @@ define internal range(i64 0, 21) i64 @rb_str_end_with(i32 noundef %0, ptr nounde
 9:                                                ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %10 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %10 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !26
   store i64 %11, ptr %4, align 8, !tbaa !26
   %.0..0..0. = load volatile i64, ptr %4, align 8, !tbaa !26
@@ -27970,7 +27970,7 @@ RSTRING_END.exit:                                 ; preds = %.thread, %RSTRING_P
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %rb_string_value.exit80
   %indvars.iv = phi i64 [ 1, %.lr.ph140.preheader ], [ %indvars.iv.next, %rb_string_value.exit80 ]
-  %93 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %93 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %94 = load i64, ptr %93, align 8, !tbaa !26
   store i64 %94, ptr %7, align 8, !tbaa !26
   %.0..0..0.99 = load volatile i64, ptr %7, align 8, !tbaa !26
@@ -28281,7 +28281,7 @@ rb_check_arity.exit.preheader.preheader:          ; preds = %RSTRING_PTR.exit.th
 rb_check_arity.exit.preheader:                    ; preds = %rb_check_arity.exit.preheader.preheader, %rb_string_value.exit
   %indvars.iv = phi i64 [ 0, %rb_check_arity.exit.preheader.preheader ], [ %indvars.iv.next, %rb_string_value.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %19 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %19 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !26
   store i64 %20, ptr %7, align 8, !tbaa !26
   %.0..0..0. = load volatile i64, ptr %7, align 8, !tbaa !26
@@ -28581,7 +28581,7 @@ get_encoding.exit:                                ; preds = %13, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
   %.176147 = phi i32 [ %10, %.lr.ph.preheader ], [ %.277, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %23 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %23 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8, !tbaa !26
   store i64 %24, ptr %7, align 8, !tbaa !26
   %.0..0..0. = load volatile i64, ptr %7, align 8, !tbaa !26
@@ -29284,12 +29284,12 @@ rbimpl_RB_TYPE_P_fastpath.exit83:                 ; preds = %rb_check_arity.exit
   %38 = getelementptr i8, ptr %22, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !450
   %40 = zext nneg i32 %.166 to i64
-  %41 = getelementptr i64, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !26
   store i64 %42, ptr %4, align 8, !tbaa !26
   %43 = getelementptr i8, ptr %22, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !452
-  %45 = getelementptr i64, ptr %44, i64 %40
+  %45 = getelementptr [8 x i8], ptr %44, i64 %40
   %46 = load i64, ptr %45, align 8, !tbaa !26
   %47 = sub i64 %46, %42
   store i64 %47, ptr %5, align 8, !tbaa !26
@@ -33018,7 +33018,7 @@ define internal fastcc void @rb_str_subpat_set(i64 noundef %0, i64 noundef %1, i
   %23 = getelementptr i8, ptr %13, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !450
   %25 = sext i32 %spec.select to i64
-  %26 = getelementptr i64, ptr %24, i64 %25
+  %26 = getelementptr [8 x i8], ptr %24, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !26
   %28 = icmp eq i64 %27, -1
   br i1 %28, label %29, label %31
@@ -33031,7 +33031,7 @@ define internal fastcc void @rb_str_subpat_set(i64 noundef %0, i64 noundef %1, i
 31:                                               ; preds = %21
   %32 = getelementptr i8, ptr %13, i64 48
   %33 = load ptr, ptr %32, align 8, !tbaa !452
-  %34 = getelementptr i64, ptr %33, i64 %25
+  %34 = getelementptr [8 x i8], ptr %33, i64 %25
   %35 = load i64, ptr %34, align 8, !tbaa !26
   %.0..0..0. = load volatile i64, ptr %5, align 8, !tbaa !26
   %36 = icmp eq i64 %.0..0..0., 0
@@ -33901,7 +33901,7 @@ rb_scan_args_n_opt.exit:
 
 10:                                               ; preds = %rb_scan_args_n_opt.exit
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr i64, ptr %1, i64 %11
+  %12 = getelementptr [8 x i8], ptr %1, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load i64, ptr %13, align 8, !tbaa !26
   %15 = tail call i32 @rb_keyword_given_p() #30
@@ -34908,10 +34908,10 @@ get_cached_reg_grapheme_cluster.exit.thread:      ; preds = %33, %get_cached_reg
 
 switch.lookup:                                    ; preds = %get_cached_reg_grapheme_cluster.exit.thread
   %49 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.rb_str_each_grapheme_cluster_size, i64 %49
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rb_str_each_grapheme_cluster_size, i64 %49
   %switch.load = load i64, ptr %switch.gep, align 8
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep71 = getelementptr inbounds nuw ptr, ptr @switch.table.rb_str_each_grapheme_cluster_size.12, i64 %50
+  %switch.gep71 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rb_str_each_grapheme_cluster_size.12, i64 %50
   %switch.load72 = load ptr, ptr %switch.gep71, align 8
   br label %51
 
@@ -35162,14 +35162,14 @@ RSTRING_END.exit:                                 ; preds = %44, %48
 68:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %69 = load ptr, ptr %66, align 8, !tbaa !450
-  %70 = getelementptr i64, ptr %69, i64 %indvars.iv
+  %70 = getelementptr [8 x i8], ptr %69, i64 %indvars.iv
   %71 = load i64, ptr %70, align 8, !tbaa !26
   %72 = icmp sgt i64 %71, -1
   br i1 %72, label %73, label %79
 
 73:                                               ; preds = %68
   %74 = load ptr, ptr %67, align 8, !tbaa !452
-  %75 = getelementptr i64, ptr %74, i64 %indvars.iv
+  %75 = getelementptr [8 x i8], ptr %74, i64 %indvars.iv
   %76 = load i64, ptr %75, align 8, !tbaa !26
   %77 = sub i64 %76, %71
   %78 = tail call fastcc i64 @str_subseq(i64 noundef %0, i64 noundef %71, i64 noundef %77)
@@ -37155,7 +37155,7 @@ RSTRING_PTR.exit384:                              ; preds = %76, %81
 
 .preheader433:                                    ; preds = %RSTRING_PTR.exit384, %.preheader433
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader433 ], [ 0, %RSTRING_PTR.exit384 ]
-  %93 = getelementptr i32, ptr %7, i64 %indvars.iv
+  %93 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv
   store i32 1, ptr %93, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -37173,7 +37173,7 @@ RSTRING_PTR.exit384:                              ; preds = %76, %81
 
 96:                                               ; preds = %.lr.ph
   %97 = zext nneg i32 %94 to i64
-  %98 = getelementptr i32, ptr %7, i64 %97
+  %98 = getelementptr [4 x i8], ptr %7, i64 %97
   store i32 -1, ptr %98, align 4, !tbaa !49
   br label %107
 
@@ -37210,7 +37210,7 @@ RSTRING_PTR.exit384:                              ; preds = %76, %81
 
 113:                                              ; preds = %111, %113
   %indvars.iv495 = phi i64 [ 0, %111 ], [ %indvars.iv.next496, %113 ]
-  %114 = getelementptr i32, ptr %7, i64 %indvars.iv495
+  %114 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv495
   %115 = load i32, ptr %114, align 4, !tbaa !49
   %.not356 = icmp eq i32 %115, -1
   %spec.store.select = select i1 %.not356, i32 -1, i32 %112
@@ -37232,7 +37232,7 @@ RSTRING_PTR.exit384:                              ; preds = %76, %81
 
 121:                                              ; preds = %.lr.ph452
   %122 = zext nneg i32 %116 to i64
-  %123 = getelementptr i32, ptr %7, i64 %122
+  %123 = getelementptr [4 x i8], ptr %7, i64 %122
   store i32 %spec.select, ptr %123, align 4, !tbaa !49
   %124 = call i32 @rb_enc_codelen(i32 noundef %spec.select, ptr noundef %.0253) #30
   %.not334 = icmp eq i32 %124, 1
@@ -37360,7 +37360,7 @@ RSTRING_END.exit:                                 ; preds = %rb_enc_asciicompat.
 
 173:                                              ; preds = %168
   %174 = zext nneg i32 %165 to i64
-  %175 = getelementptr i32, ptr %7, i64 %174
+  %175 = getelementptr [4 x i8], ptr %7, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !49
   br label %193
 
@@ -37574,7 +37574,7 @@ RB_FL_ABLE.exit.i395:                             ; preds = %RB_FL_ABLE.exit.i
   %263 = load i8, ptr %.1276483.us, align 1, !tbaa !19
   %264 = zext i8 %263 to i32
   %265 = zext i8 %263 to i64
-  %266 = getelementptr i32, ptr %7, i64 %265
+  %266 = getelementptr [4 x i8], ptr %7, i64 %265
   %267 = load i32, ptr %266, align 4, !tbaa !49
   %.not344.us = icmp eq i32 %267, -1
   br i1 %.not344.us, label %270, label %268
@@ -37601,7 +37601,7 @@ RB_FL_ABLE.exit.i395:                             ; preds = %RB_FL_ABLE.exit.i
   %.6294482 = phi i32 [ %.7295, %279 ], [ %.0288, %.lr.ph486 ]
   %274 = load i8, ptr %.1276483, align 1, !tbaa !19
   %275 = zext i8 %274 to i64
-  %276 = getelementptr i32, ptr %7, i64 %275
+  %276 = getelementptr [4 x i8], ptr %7, i64 %275
   %277 = load i32, ptr %276, align 4, !tbaa !49
   %.not344 = icmp eq i32 %277, -1
   br i1 %.not344, label %279, label %278
@@ -37672,7 +37672,7 @@ RB_FL_ABLE.exit.i395:                             ; preds = %RB_FL_ABLE.exit.i
 
 309:                                              ; preds = %306
   %310 = zext nneg i32 %303 to i64
-  %311 = getelementptr i32, ptr %7, i64 %310
+  %311 = getelementptr [4 x i8], ptr %7, i64 %310
   %312 = load i32, ptr %311, align 4, !tbaa !49
   br label %329
 
@@ -38375,10 +38375,10 @@ get_cached_reg_grapheme_cluster.exit.thread:      ; preds = %30, %get_cached_reg
 
 switch.lookup:                                    ; preds = %get_cached_reg_grapheme_cluster.exit.thread
   %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.rb_str_each_grapheme_cluster_size, i64 %45
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rb_str_each_grapheme_cluster_size, i64 %45
   %switch.load = load i64, ptr %switch.gep, align 8
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep53 = getelementptr inbounds nuw ptr, ptr @switch.table.rb_str_each_grapheme_cluster_size.12, i64 %46
+  %switch.gep53 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rb_str_each_grapheme_cluster_size.12, i64 %46
   %switch.load54 = load ptr, ptr %switch.gep53, align 8
   br label %47
 

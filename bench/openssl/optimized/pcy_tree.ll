@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/pcy_tree.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.X509_POLICY_LEVEL_st = type { ptr, ptr, ptr, i32 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/x509/pcy_tree.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -707,7 +705,7 @@ tree_evaluate.exit:                               ; preds = %303
   %312 = phi i32 [ %133, %130 ], [ %310, %308 ]
   %313 = phi ptr [ %.pre, %130 ], [ %306, %308 ]
   %314 = sext i32 %312 to i64
-  %315 = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %313, i64 %314
+  %315 = getelementptr inbounds [32 x i8], ptr %313, i64 %314
   %316 = getelementptr inbounds i8, ptr %315, i64 -16
   %317 = load ptr, ptr %316, align 8, !tbaa !21
   %.not.i29 = icmp eq ptr %317, null
@@ -841,7 +839,7 @@ tree_calculate_authority_set.exit.thread71:       ; preds = %._crit_edge57.i.tre
   %375 = load ptr, ptr %131, align 8, !tbaa !15
   %376 = load i32, ptr %132, align 8, !tbaa !14
   %377 = sext i32 %376 to i64
-  %378 = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %375, i64 %377
+  %378 = getelementptr [32 x i8], ptr %375, i64 %377
   %379 = getelementptr i8, ptr %378, i64 -16
   %380 = load ptr, ptr %379, align 8, !tbaa !21
   %.fr.i = freeze ptr %380

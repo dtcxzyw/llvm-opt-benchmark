@@ -773,30 +773,30 @@ define internal void @_ZNK4ncnn15Flatten_x86_avx7forwardERKNS_3MatERS1_RKNS_6Opt
   %34 = shl i32 %33, 3
   %35 = mul i32 %34, %24
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds float, ptr %32, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %32, i64 %36
   %38 = shl nsw i64 %indvars.iv, 3
   %39 = or disjoint i64 %38, 1
   %40 = sext i32 %24 to i64
   %41 = mul nsw i64 %39, %40
-  %42 = getelementptr inbounds float, ptr %32, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %32, i64 %41
   %43 = or disjoint i64 %38, 2
   %44 = mul nsw i64 %43, %40
-  %45 = getelementptr inbounds float, ptr %32, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %32, i64 %44
   %46 = or disjoint i64 %38, 3
   %47 = mul nsw i64 %46, %40
-  %48 = getelementptr inbounds float, ptr %32, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %32, i64 %47
   %49 = or disjoint i64 %38, 4
   %50 = mul nsw i64 %49, %40
-  %51 = getelementptr inbounds float, ptr %32, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %32, i64 %50
   %52 = or disjoint i64 %38, 5
   %53 = mul nsw i64 %52, %40
-  %54 = getelementptr inbounds float, ptr %32, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %32, i64 %53
   %55 = or disjoint i64 %38, 6
   %56 = mul nsw i64 %55, %40
-  %57 = getelementptr inbounds float, ptr %32, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %32, i64 %56
   %58 = or disjoint i64 %38, 7
   %59 = mul nsw i64 %58, %40
-  %60 = getelementptr inbounds float, ptr %32, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %32, i64 %59
   %61 = icmp sgt i32 %24, 7
   br i1 %61, label %.lr.ph, label %.preheader
 
@@ -1035,17 +1035,17 @@ define internal void @_ZNK4ncnn15Flatten_x86_avx7forwardERKNS_3MatERS1_RKNS_6Opt
   %35 = trunc nsw i64 %indvars.iv to i32
   %.reass105.us = mul i32 %factor.op.mul104, %35
   %36 = sext i32 %.reass105.us to i64
-  %37 = getelementptr inbounds float, ptr %29, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %29, i64 %36
   %38 = shl nsw i64 %indvars.iv, 2
   %39 = or disjoint i64 %38, 1
   %40 = mul nsw i64 %39, %32
-  %41 = getelementptr inbounds float, ptr %29, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %29, i64 %40
   %42 = or disjoint i64 %38, 2
   %43 = mul nsw i64 %42, %32
-  %44 = getelementptr inbounds float, ptr %29, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %29, i64 %43
   %45 = or disjoint i64 %38, 3
   %46 = mul nsw i64 %45, %32
-  %47 = getelementptr inbounds float, ptr %29, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %29, i64 %46
   br label %48
 
 48:                                               ; preds = %.preheader.us.us, %48
@@ -1096,18 +1096,18 @@ define internal void @_ZNK4ncnn15Flatten_x86_avx7forwardERKNS_3MatERS1_RKNS_6Opt
   %72 = shl i32 %71, 2
   %73 = mul i32 %72, %62
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds float, ptr %70, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %70, i64 %74
   %76 = shl nsw i64 %indvars.iv118, 2
   %77 = or disjoint i64 %76, 1
   %78 = sext i32 %62 to i64
   %79 = mul nsw i64 %77, %78
-  %80 = getelementptr inbounds float, ptr %70, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %70, i64 %79
   %81 = or disjoint i64 %76, 2
   %82 = mul nsw i64 %81, %78
-  %83 = getelementptr inbounds float, ptr %70, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %70, i64 %82
   %84 = or disjoint i64 %76, 3
   %85 = mul nsw i64 %84, %78
-  %86 = getelementptr inbounds float, ptr %70, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %70, i64 %85
   %87 = icmp sgt i32 %62, 3
   br i1 %87, label %.lr.ph, label %.preheader
 
@@ -1255,30 +1255,30 @@ define internal void @_ZNK4ncnn15Flatten_x86_avx7forwardERKNS_3MatERS1_RKNS_6Opt
   %32 = shl i32 %31, 3
   %33 = mul i32 %32, %23
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds float, ptr %30, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %30, i64 %34
   %36 = shl nsw i64 %indvars.iv, 3
   %37 = or disjoint i64 %36, 1
   %38 = sext i32 %23 to i64
   %39 = mul nsw i64 %37, %38
-  %40 = getelementptr inbounds float, ptr %30, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %30, i64 %39
   %41 = or disjoint i64 %36, 2
   %42 = mul nsw i64 %41, %38
-  %43 = getelementptr inbounds float, ptr %30, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %30, i64 %42
   %44 = or disjoint i64 %36, 3
   %45 = mul nsw i64 %44, %38
-  %46 = getelementptr inbounds float, ptr %30, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %30, i64 %45
   %47 = or disjoint i64 %36, 4
   %48 = mul nsw i64 %47, %38
-  %49 = getelementptr inbounds float, ptr %30, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %30, i64 %48
   %50 = or disjoint i64 %36, 5
   %51 = mul nsw i64 %50, %38
-  %52 = getelementptr inbounds float, ptr %30, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %30, i64 %51
   %53 = or disjoint i64 %36, 6
   %54 = mul nsw i64 %53, %38
-  %55 = getelementptr inbounds float, ptr %30, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %30, i64 %54
   %56 = or disjoint i64 %36, 7
   %57 = mul nsw i64 %56, %38
-  %58 = getelementptr inbounds float, ptr %30, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %30, i64 %57
   %59 = icmp sgt i32 %23, 7
   br i1 %59, label %.lr.ph, label %.preheader
 
@@ -1499,17 +1499,17 @@ define internal void @_ZNK4ncnn15Flatten_x86_avx7forwardERKNS_3MatERS1_RKNS_6Opt
   %34 = trunc nsw i64 %indvars.iv to i32
   %.reass110.us = mul i32 %factor.op.mul109, %34
   %35 = sext i32 %.reass110.us to i64
-  %36 = getelementptr inbounds float, ptr %28, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %28, i64 %35
   %37 = shl nsw i64 %indvars.iv, 2
   %38 = or disjoint i64 %37, 1
   %39 = mul nsw i64 %38, %31
-  %40 = getelementptr inbounds float, ptr %28, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %28, i64 %39
   %41 = or disjoint i64 %37, 2
   %42 = mul nsw i64 %41, %31
-  %43 = getelementptr inbounds float, ptr %28, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %28, i64 %42
   %44 = or disjoint i64 %37, 3
   %45 = mul nsw i64 %44, %31
-  %46 = getelementptr inbounds float, ptr %28, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %28, i64 %45
   br label %47
 
 47:                                               ; preds = %.noexc.us.us, %47
@@ -1559,18 +1559,18 @@ define internal void @_ZNK4ncnn15Flatten_x86_avx7forwardERKNS_3MatERS1_RKNS_6Opt
   %70 = shl i32 %69, 2
   %71 = mul i32 %70, %61
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds float, ptr %68, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %68, i64 %72
   %74 = shl nsw i64 %indvars.iv123, 2
   %75 = or disjoint i64 %74, 1
   %76 = sext i32 %61 to i64
   %77 = mul nsw i64 %75, %76
-  %78 = getelementptr inbounds float, ptr %68, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %68, i64 %77
   %79 = or disjoint i64 %74, 2
   %80 = mul nsw i64 %79, %76
-  %81 = getelementptr inbounds float, ptr %68, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %68, i64 %80
   %82 = or disjoint i64 %74, 3
   %83 = mul nsw i64 %82, %76
-  %84 = getelementptr inbounds float, ptr %68, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %68, i64 %83
   %85 = icmp sgt i32 %61, 3
   br i1 %85, label %.lr.ph, label %.preheader
 
@@ -1728,7 +1728,7 @@ define internal void @_ZNK4ncnn15Flatten_x86_avx7forwardERKNS_3MatERS1_RKNS_6Opt
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 %.reass.us
   %34 = mul nsw i64 %indvars.iv, %31
-  %35 = getelementptr inbounds float, ptr %28, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %28, i64 %34
   br label %36
 
 36:                                               ; preds = %.noexc.us.us, %36
@@ -1761,7 +1761,7 @@ define internal void @_ZNK4ncnn15Flatten_x86_avx7forwardERKNS_3MatERS1_RKNS_6Opt
   %48 = load ptr, ptr %4, align 8, !tbaa !17
   %49 = sext i32 %41 to i64
   %50 = mul nsw i64 %indvars.iv65, %49
-  %51 = getelementptr inbounds float, ptr %48, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %48, i64 %50
   %52 = icmp sgt i32 %41, 7
   br i1 %52, label %.lr.ph, label %.preheader
 

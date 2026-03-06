@@ -306,7 +306,7 @@ define range(i32 -1, 16) i32 @OPENSSL_hexchar2int(i8 noundef zeroext %0) local_u
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.OPENSSL_hexchar2int, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.OPENSSL_hexchar2int, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

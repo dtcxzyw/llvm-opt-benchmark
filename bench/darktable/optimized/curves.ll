@@ -16,7 +16,7 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   br i1 %.not, label %194, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %10
   store ptr %13, ptr %11, align 8, !tbaa !6
   %14 = icmp sgt i32 %3, 0
   br i1 %14, label %.lr.ph.preheader, label %._crit_edge195.thread
@@ -30,8 +30,8 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %16 = mul nuw nsw i64 %indvars.iv, %15
-  %17 = getelementptr inbounds nuw float, ptr %13, i64 %16
-  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr %17, ptr %18, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -42,38 +42,38 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %22 = sext i32 %3 to i64
-  %23 = getelementptr inbounds float, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = add i32 %3, -1
   br label %.preheader
 
 .lr.ph194.preheader:                              ; preds = %.lr.ph
   %25 = mul nuw nsw i32 %smax, %smax
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw float, ptr %13, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %26
   %28 = zext nneg i32 %smax to i64
-  %29 = getelementptr inbounds nuw float, ptr %27, i64 %28
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %28
-  %31 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %28
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   %32 = zext nneg i32 %3 to i64
-  %33 = getelementptr inbounds nuw float, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   %wide.trip.count228 = zext nneg i32 %3 to i64
   br label %.lr.ph194
 
 .lr.ph194:                                        ; preds = %.lr.ph194.preheader, %.lr.ph194
   %indvars.iv225 = phi i64 [ 0, %.lr.ph194.preheader ], [ %indvars.iv.next226, %.lr.ph194 ]
-  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv225
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv225
   %35 = load i32, ptr %34, align 4, !tbaa !13
   %36 = sitofp i32 %35 to double
   %37 = fmul reassoc nnan nsz arcp contract afn double %36, 0x3EF0001000100010
   %38 = fptrunc reassoc nsz arcp contract afn double %37 to float
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv225
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv225
   store float %38, ptr %39, align 4, !tbaa !15
-  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv225
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv225
   %41 = load i32, ptr %40, align 4, !tbaa !13
   %42 = sitofp i32 %41 to double
   %43 = fmul reassoc nnan nsz arcp contract afn double %42, 0x3EF0001000100010
   %44 = fptrunc reassoc nsz arcp contract afn double %43 to float
-  %45 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv225
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv225
   store float %44, ptr %45, align 4, !tbaa !15
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
@@ -99,24 +99,24 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %.lr.ph198
   %indvars.iv230 = phi i64 [ %47, %.lr.ph198.preheader ], [ %indvars.iv.next231, %.lr.ph198 ]
-  %50 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv230
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv230
   %51 = load float, ptr %50, align 4, !tbaa !15
   %indvars.iv.next231 = add nsw i64 %indvars.iv230, -1
-  %52 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.next231
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.next231
   %53 = load float, ptr %52, align 4, !tbaa !15
   %54 = fsub reassoc nsz arcp contract afn float %51, %53
   %55 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %54)
   %56 = fcmp reassoc nsz arcp contract afn olt float %55, 0x3CD203AFA0000000
   %.0175 = select nsz i1 %56, float 1.000000e+00, float %54
-  %57 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv230
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv230
   %58 = load float, ptr %57, align 4, !tbaa !15
-  %59 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.next231
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.next231
   %60 = load float, ptr %59, align 4, !tbaa !15
   %61 = fsub reassoc nsz arcp contract afn float %58, %60
   %62 = fdiv reassoc nsz arcp contract afn float %61, %.0175
-  %63 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv230
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv230
   store float %62, ptr %63, align 4, !tbaa !15
-  %64 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv.next231
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.next231
   store float %.0175, ptr %64, align 4, !tbaa !15
   %65 = icmp samesign ugt i64 %indvars.iv230, 1
   br i1 %65, label %.lr.ph198, label %.preheader190, !llvm.loop !18
@@ -137,22 +137,22 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   %68 = phi ptr [ %.pre, %.lr.ph204.us.preheader ], [ %70, %..loopexit_crit_edge.us ]
   %indvars.iv243 = phi i64 [ 1, %.lr.ph204.us.preheader ], [ %indvars.iv.next244, %..loopexit_crit_edge.us ]
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
-  %69 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.next244
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next244
   %70 = load ptr, ptr %69, align 8, !tbaa !6
-  %71 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv243
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv243
   %72 = load float, ptr %71, align 4, !tbaa !15
-  %73 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv243
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv243
   %74 = load float, ptr %73, align 4, !tbaa !15
   %75 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %74
   br label %76
 
 76:                                               ; preds = %.lr.ph204.us, %76
   %indvars.iv238 = phi i64 [ 1, %.lr.ph204.us ], [ %indvars.iv.next239, %76 ]
-  %77 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv238
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv238
   %78 = load float, ptr %77, align 4, !tbaa !15
   %79 = fmul reassoc nsz arcp contract afn float %72, %78
   %80 = fmul reassoc nsz arcp contract afn float %79, %75
-  %81 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv238
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv238
   %82 = load float, ptr %81, align 4, !tbaa !15
   %83 = fsub reassoc nsz arcp contract afn float %82, %80
   store float %83, ptr %81, align 4, !tbaa !15
@@ -167,38 +167,38 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 84:                                               ; preds = %.lr.ph200, %102
   %indvars.iv233 = phi i64 [ 1, %.lr.ph200 ], [ %indvars.iv.next234, %102 ]
   %85 = add nsw i64 %indvars.iv233, -1
-  %86 = getelementptr inbounds float, ptr %30, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %30, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !15
-  %88 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv233
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv233
   %89 = load float, ptr %88, align 4, !tbaa !15
   %90 = fadd reassoc nsz arcp contract afn float %89, %87
   %91 = fmul reassoc nsz arcp contract afn float %90, 2.000000e+00
-  %92 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv233
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv233
   %93 = load ptr, ptr %92, align 8, !tbaa !6
-  %94 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv233
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv233
   store float %91, ptr %94, align 4, !tbaa !15
   %95 = icmp samesign ugt i64 %indvars.iv233, 1
   br i1 %95, label %96, label %102
 
 96:                                               ; preds = %84
   %97 = load float, ptr %86, align 4, !tbaa !15
-  %98 = getelementptr inbounds float, ptr %93, i64 %85
+  %98 = getelementptr inbounds [4 x i8], ptr %93, i64 %85
   store float %97, ptr %98, align 4, !tbaa !15
-  %99 = getelementptr inbounds ptr, ptr %11, i64 %85
+  %99 = getelementptr inbounds [8 x i8], ptr %11, i64 %85
   %100 = load ptr, ptr %99, align 8, !tbaa !6
-  %101 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv233
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv233
   store float %97, ptr %101, align 4, !tbaa !15
   br label %102
 
 102:                                              ; preds = %96, %84
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
-  %103 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv.next234
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv.next234
   %104 = load float, ptr %103, align 4, !tbaa !15
-  %105 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv233
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv233
   %106 = load float, ptr %105, align 4, !tbaa !15
   %107 = fsub reassoc nsz arcp contract afn float %104, %106
   %108 = fmul reassoc nsz arcp contract afn float %107, 6.000000e+00
-  %109 = getelementptr inbounds nuw float, ptr %93, i64 %49
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %49
   store float %108, ptr %109, align 4, !tbaa !15
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
   br i1 %exitcond237.not, label %.preheader189, label %84, !llvm.loop !21
@@ -212,7 +212,7 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 .preheader187:                                    ; preds = %.preheader187.lr.ph, %._crit_edge212
   %indvars.iv248 = phi i64 [ %111, %.preheader187.lr.ph ], [ %indvars.iv.next249, %._crit_edge212 ]
   %.not185208 = icmp sgt i64 %indvars.iv248, %112
-  %.phi.trans.insert263 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv248
+  %.phi.trans.insert263 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv248
   %.pre264 = load ptr, ptr %.phi.trans.insert263, align 8, !tbaa !6
   br i1 %.not185208, label %._crit_edge212, label %.lr.ph211
 
@@ -230,9 +230,9 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 .lr.ph211:                                        ; preds = %.preheader187, %.lr.ph211
   %indvars.iv250 = phi i64 [ %indvars.iv.next251, %.lr.ph211 ], [ %indvars.iv248, %.preheader187 ]
   %.0174209 = phi float [ %125, %.lr.ph211 ], [ 0.000000e+00, %.preheader187 ]
-  %120 = getelementptr inbounds nuw float, ptr %.pre264, i64 %indvars.iv250
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %.pre264, i64 %indvars.iv250
   %121 = load float, ptr %120, align 4, !tbaa !15
-  %122 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv250
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv250
   %123 = load float, ptr %122, align 4, !tbaa !15
   %124 = fmul reassoc nsz arcp contract afn float %123, %121
   %125 = fadd reassoc nsz arcp contract afn float %124, %.0174209
@@ -243,13 +243,13 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 
 ._crit_edge212:                                   ; preds = %.lr.ph211, %.preheader187
   %.0174.lcssa = phi float [ 0.000000e+00, %.preheader187 ], [ %125, %.lr.ph211 ]
-  %127 = getelementptr inbounds float, ptr %.pre264, i64 %110
+  %127 = getelementptr inbounds [4 x i8], ptr %.pre264, i64 %110
   %128 = load float, ptr %127, align 4, !tbaa !15
   %129 = fsub reassoc nsz arcp contract afn float %128, %.0174.lcssa
-  %130 = getelementptr inbounds nuw float, ptr %.pre264, i64 %indvars.iv248
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %.pre264, i64 %indvars.iv248
   %131 = load float, ptr %130, align 4, !tbaa !15
   %132 = fdiv reassoc nsz arcp contract afn float %129, %131
-  %133 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv248
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv248
   store float %132, ptr %133, align 4, !tbaa !15
   %indvars.iv.next249 = add nsw i64 %indvars.iv248, -1
   %134 = icmp sgt i64 %indvars.iv248, 1
@@ -266,32 +266,32 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 .lr.ph218:                                        ; preds = %135, %.lr.ph218._crit_edge
   %indvars.iv254 = phi i64 [ %.pre265, %.lr.ph218._crit_edge ], [ 0, %135 ]
   %.0169216 = phi float [ %.1170, %.lr.ph218._crit_edge ], [ 0.000000e+00, %135 ]
-  %140 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv254
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv254
   %141 = load float, ptr %140, align 4, !tbaa !15
   %142 = fcmp reassoc nsz arcp contract afn ugt float %141, %139
   %.pre265 = add nuw nsw i64 %indvars.iv254, 1
   br i1 %142, label %.lr.ph218._crit_edge, label %143
 
 143:                                              ; preds = %.lr.ph218
-  %144 = getelementptr inbounds nuw float, ptr %114, i64 %.pre265
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %.pre265
   %145 = load float, ptr %144, align 4, !tbaa !15
   %146 = fcmp reassoc nsz arcp contract afn ult float %145, %139
   br i1 %146, label %.lr.ph218._crit_edge, label %147
 
 147:                                              ; preds = %143
   %148 = fsub reassoc nsz arcp contract afn float %139, %141
-  %149 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv254
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %indvars.iv254
   %150 = load float, ptr %149, align 4, !tbaa !15
-  %151 = getelementptr inbounds nuw float, ptr %113, i64 %.pre265
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %.pre265
   %152 = load float, ptr %151, align 4, !tbaa !15
   %153 = fsub reassoc nsz arcp contract afn float %152, %150
-  %154 = getelementptr inbounds nuw float, ptr %115, i64 %indvars.iv254
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv254
   %155 = load float, ptr %154, align 4, !tbaa !15
   %156 = fdiv reassoc nsz arcp contract afn float %153, %155
-  %157 = getelementptr inbounds nuw float, ptr %116, i64 %indvars.iv254
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv254
   %158 = load float, ptr %157, align 4, !tbaa !15
   %159 = fmul reassoc nsz arcp contract afn float %158, 2.000000e+00
-  %160 = getelementptr inbounds nuw float, ptr %116, i64 %.pre265
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %.pre265
   %161 = load float, ptr %160, align 4, !tbaa !15
   %reass.add = fadd reassoc nsz arcp contract afn float %161, %159
   %reass.mul = fmul reassoc nsz arcp contract afn float %155, 0x3FC5555560000000
@@ -340,7 +340,7 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 
 190:                                              ; preds = %.thread, %183, %._crit_edge219
   %191 = phi i16 [ 0, %._crit_edge219 ], [ %189, %.thread ], [ -1, %183 ]
-  %192 = getelementptr inbounds nuw i16, ptr %119, i64 %indvars.iv259
+  %192 = getelementptr inbounds nuw [2 x i8], ptr %119, i64 %indvars.iv259
   store i16 %191, ptr %192, align 2, !tbaa !25
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next260, 65536
@@ -496,7 +496,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
 
 .preheader.split.us.split.us:                     ; preds = %.preheader.split.us.split.us.preheader, %88
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %88 ], [ 0, %.preheader.split.us.split.us.preheader ]
-  %71 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv113
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv113
   store i16 -1, ptr %71, align 2, !tbaa !25
   %72 = trunc nuw nsw i64 %indvars.iv113 to i32
   %73 = uitofp nneg i32 %72 to double
@@ -532,7 +532,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
 
 .preheader.split.us.split:                        ; preds = %.preheader.split.us.split.preheader, %106
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %106 ], [ 0, %.preheader.split.us.split.preheader ]
-  %89 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv109
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv109
   store i16 -1, ptr %89, align 2, !tbaa !25
   %90 = trunc nuw nsw i64 %indvars.iv109 to i32
   %91 = uitofp nneg i32 %90 to double
@@ -571,7 +571,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %124
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %124 ], [ 0, %.preheader.split ]
-  %107 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv105
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv105
   store i16 -1, ptr %107, align 2, !tbaa !25
   %108 = trunc nuw nsw i64 %indvars.iv105 to i32
   %109 = uitofp nneg i32 %108 to double
@@ -624,7 +624,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
 
 .preheader.split.split:                           ; preds = %.preheader.split, %144
   %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ 0, %.preheader.split ]
-  %127 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv
   store i16 -1, ptr %127, align 2, !tbaa !25
   %128 = trunc nuw nsw i64 %indvars.iv to i32
   %129 = uitofp nneg i32 %128 to double
@@ -701,7 +701,7 @@ define void @_ZN6LibRaw12linear_tableEj(ptr noundef nonnull align 8 dereferencea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %umin, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr i16, ptr %8, i64 %indvars.iv
+  %11 = getelementptr [2 x i8], ptr %8, i64 %indvars.iv
   store i16 %load_initial, ptr %11, align 2, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
@@ -714,7 +714,7 @@ define void @_ZN6LibRaw12linear_tableEj(ptr noundef nonnull align 8 dereferencea
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread, %7
   %.01015 = phi i64 [ 65536, %.thread ], [ 65536, %7 ], [ %13, %._crit_edge.loopexit ]
-  %14 = getelementptr i16, ptr %0, i64 %.01015
+  %14 = getelementptr [2 x i8], ptr %0, i64 %.01015
   %15 = getelementptr i8, ptr %14, i64 5502
   %16 = load i16, ptr %15, align 2, !tbaa !25
   %17 = zext i16 %16 to i32

@@ -68,9 +68,9 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__12HioGetFormatEjNS_7Hio
   %or.cond3 = and i1 %2, %20
   %21 = zext i32 %1 to i64
   %22 = select i1 %or.cond3, i64 1, i64 %21
-  %23 = getelementptr inbounds nuw [4 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L11_hioFormatsE, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L11_hioFormatsE, i64 %22
   %24 = zext nneg i32 %0 to i64
-  %25 = getelementptr i32, ptr %23, i64 %24
+  %25 = getelementptr [4 x i8], ptr %23, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -4
   %27 = load i32, ptr %26, align 4
   br label %28
@@ -308,7 +308,7 @@ define noundef range(i64 0, 9) i64 @_ZN32pxrInternal_v0_24__pxrReserved__20HioGe
 
 switch.lookup:                                    ; preds = %1
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__20HioGetDataSizeOfTypeENS_7HioTypeE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__20HioGetDataSizeOfTypeENS_7HioTypeE, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %10
 
@@ -322,7 +322,7 @@ define noundef range(i64 1, 9) i64 @_ZN32pxrInternal_v0_24__pxrReserved__20HioGe
 switch.lookup:
   %1 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__13HioGetHioTypeENS_9HioFormatE(i32 noundef %0)
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__20HioGetDataSizeOfTypeENS_9HioFormatE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__20HioGetDataSizeOfTypeENS_9HioFormatE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }

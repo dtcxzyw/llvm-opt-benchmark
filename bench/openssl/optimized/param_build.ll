@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%union.OSSL_PARAM_ALIGNED_BLOCK = type { double }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/param_build.c\00", align 1
 @__func__.OSSL_PARAM_BLD_to_param = private unnamed_addr constant [24 x i8] c"OSSL_PARAM_BLD_to_param\00", align 1
@@ -698,7 +697,7 @@ define ptr @OSSL_PARAM_BLD_to_param(ptr noundef captures(none) %0) local_unnamed
   br i1 %27, label %.lr.ph.preheader.i, label %param_bld_convert.exit
 
 .lr.ph.preheader.i:                               ; preds = %24
-  %28 = getelementptr inbounds nuw %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %21, i64 %9
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %9
   %wide.trip.count.i = zext nneg i32 %26 to i64
   br label %.lr.ph.i
 
@@ -710,7 +709,7 @@ define ptr @OSSL_PARAM_BLD_to_param(ptr noundef captures(none) %0) local_unnamed
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
   %31 = tail call ptr @OPENSSL_sk_value(ptr noundef %29, i32 noundef %30) #7
   %32 = load ptr, ptr %31, align 8, !tbaa !14
-  %33 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %21, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %indvars.iv.i
   store ptr %32, ptr %33, align 8, !tbaa !29
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !18
@@ -728,9 +727,9 @@ define ptr @OSSL_PARAM_BLD_to_param(ptr noundef captures(none) %0) local_unnamed
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %44 = load i64, ptr %43, align 8, !tbaa !20
   %.162.idx.i = select i1 %.not.i, i64 0, i64 %44
-  %.162.i = getelementptr inbounds nuw %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %.06173.i, i64 %.162.idx.i
+  %.162.i = getelementptr inbounds nuw [8 x i8], ptr %.06173.i, i64 %.162.idx.i
   %.1.idx.i = select i1 %.not.i, i64 %44, i64 0
-  %.1.i = getelementptr inbounds nuw %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %.06074.i, i64 %.1.idx.i
+  %.1.i = getelementptr inbounds nuw [8 x i8], ptr %.06074.i, i64 %.1.idx.i
   %.0.i = select i1 %.not.i, ptr %.06074.i, ptr %.06173.i
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %.0.i, ptr %45, align 8, !tbaa !34
@@ -815,7 +814,7 @@ define ptr @OSSL_PARAM_BLD_to_param(ptr noundef captures(none) %0) local_unnamed
 
 param_bld_convert.exit:                           ; preds = %76, %24
   %.063.lcssa.i = phi i64 [ 0, %24 ], [ %wide.trip.count.i, %76 ]
-  %77 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %21, i64 %.063.lcssa.i
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %.063.lcssa.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !38

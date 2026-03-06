@@ -20,8 +20,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_framebuf
 %struct.list_head = type { ptr, ptr }
 %struct.drm_modeset_acquire_ctx = type { %struct.ww_acquire_ctx, ptr, i32, %struct.list_head, i8, i8 }
 %struct.ww_acquire_ctx = type { ptr, i64, i32, i16, i16 }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.__drm_connnectors_state = type { ptr, ptr, ptr, ptr, ptr }
 %struct.drm_printer = type { ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [71 x i8] c"Invalid source coordinates %u.%06ux%u.%06u+%u.%06u+%u.%06u (fb %ux%u)\0A\00", align 1
@@ -581,7 +579,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br i1 %154, label %164, label %155
 
 155:                                              ; preds = %.thread17
-  %156 = getelementptr i64, ptr %107, i64 %127
+  %156 = getelementptr [8 x i8], ptr %107, i64 %127
   %157 = load i64, ptr %156, align 8
   %158 = icmp eq i64 %157, 0
   br i1 %158, label %159, label %164
@@ -599,7 +597,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br label %.thread20
 
 164:                                              ; preds = %155, %.thread17
-  %165 = getelementptr i32, ptr %110, i64 %127
+  %165 = getelementptr [4 x i8], ptr %110, i64 %127
   %166 = load i32, ptr %165, align 4
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %168, label %173
@@ -622,11 +620,11 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
 
 175:                                              ; preds = %173
   %176 = zext i32 %149 to i64
-  %177 = getelementptr i32, ptr %111, i64 %127
+  %177 = getelementptr [4 x i8], ptr %111, i64 %127
   %178 = load i32, ptr %177, align 4
   %179 = zext i32 %178 to i64
   %180 = mul nuw i64 %179, %176
-  %181 = getelementptr i32, ptr %112, i64 %127
+  %181 = getelementptr [4 x i8], ptr %112, i64 %127
   %182 = load i32, ptr %181, align 4
   %183 = zext i32 %182 to i64
   %184 = add nuw i64 %180, %183
@@ -651,7 +649,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br label %.thread20
 
 194:                                              ; preds = %186
-  %195 = getelementptr i64, ptr %107, i64 %127
+  %195 = getelementptr [8 x i8], ptr %107, i64 %127
   %196 = load i64, ptr %195, align 8
   %197 = icmp eq i64 %196, 0
   %.pre = load i32, ptr %4, align 8
@@ -730,7 +728,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
 
 233:                                              ; preds = %286, %.thread
   %234 = phi i64 [ %125, %.thread ], [ %287, %286 ]
-  %235 = getelementptr i64, ptr %121, i64 %234
+  %235 = getelementptr [8 x i8], ptr %121, i64 %234
   %236 = load i64, ptr %235, align 8
   %237 = icmp eq i64 %236, 0
   br i1 %237, label %246, label %238
@@ -757,7 +755,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br i1 %249, label %286, label %250
 
 250:                                              ; preds = %246
-  %251 = getelementptr i32, ptr %122, i64 %234
+  %251 = getelementptr [4 x i8], ptr %122, i64 %234
   %252 = load i32, ptr %251, align 4
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %262, label %254
@@ -778,7 +776,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br label %.thread20
 
 262:                                              ; preds = %250
-  %263 = getelementptr i32, ptr %123, i64 %234
+  %263 = getelementptr [4 x i8], ptr %123, i64 %234
   %264 = load i32, ptr %263, align 4
   %265 = icmp eq i32 %264, 0
   br i1 %265, label %274, label %266
@@ -799,7 +797,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br label %.thread20
 
 274:                                              ; preds = %262
-  %275 = getelementptr i32, ptr %124, i64 %234
+  %275 = getelementptr [4 x i8], ptr %124, i64 %234
   %276 = load i32, ptr %275, align 4
   %277 = icmp eq i32 %276, 0
   br i1 %277, label %286, label %278
@@ -1378,13 +1376,13 @@ define dso_local i32 @drm_mode_getfb2_ioctl(ptr noundef %0, ptr noundef %1, ptr 
 
 64:                                               ; preds = %77, %58
   %65 = phi i64 [ 0, %58 ], [ %78, %77 ]
-  %66 = getelementptr i32, ptr %59, i64 %65
+  %66 = getelementptr [4 x i8], ptr %59, i64 %65
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr i32, ptr %60, i64 %65
+  %68 = getelementptr [4 x i8], ptr %60, i64 %65
   store i32 %67, ptr %68, align 4
-  %69 = getelementptr i32, ptr %61, i64 %65
+  %69 = getelementptr [4 x i8], ptr %61, i64 %65
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr i32, ptr %62, i64 %65
+  %71 = getelementptr [4 x i8], ptr %62, i64 %65
   store i32 %70, ptr %71, align 4
   %72 = load i8, ptr %48, align 1, !range !5, !noundef !6
   %73 = icmp eq i8 %72, 0
@@ -1392,7 +1390,7 @@ define dso_local i32 @drm_mode_getfb2_ioctl(ptr noundef %0, ptr noundef %1, ptr 
 
 74:                                               ; preds = %64
   %75 = load i64, ptr %63, align 8
-  %76 = getelementptr i64, ptr %53, i64 %65
+  %76 = getelementptr [8 x i8], ptr %53, i64 %65
   store i64 %75, ptr %76, align 8
   br label %77
 
@@ -1430,7 +1428,7 @@ define dso_local i32 @drm_mode_getfb2_ioctl(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %96, label %.loopexit17, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr ptr, ptr %21, i64 %95
+  %98 = getelementptr [8 x i8], ptr %21, i64 %95
   %99 = load ptr, ptr %98, align 8
   br label %103
 
@@ -1441,26 +1439,26 @@ define dso_local i32 @drm_mode_getfb2_ioctl(ptr noundef %0, ptr noundef %1, ptr 
 
 103:                                              ; preds = %100, %97
   %104 = phi i64 [ 0, %97 ], [ %101, %100 ]
-  %105 = getelementptr ptr, ptr %21, i64 %104
+  %105 = getelementptr [8 x i8], ptr %21, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %99, %106
   br i1 %107, label %108, label %100
 
 108:                                              ; preds = %103
-  %109 = getelementptr i32, ptr %52, i64 %104
+  %109 = getelementptr [4 x i8], ptr %52, i64 %104
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr i32, ptr %52, i64 %95
+  %111 = getelementptr [4 x i8], ptr %52, i64 %95
   store i32 %110, ptr %111, align 4
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %100, %108, %94
-  %112 = getelementptr i32, ptr %52, i64 %95
+  %112 = getelementptr [4 x i8], ptr %52, i64 %95
   %113 = load i32, ptr %112, align 4
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %select.unfold
 
 115:                                              ; preds = %.loopexit17
-  %116 = getelementptr ptr, ptr %21, i64 %95
+  %116 = getelementptr [8 x i8], ptr %21, i64 %95
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
   br i1 %118, label %121, label %119
@@ -1512,7 +1510,7 @@ select.unfold:                                    ; preds = %128, %.loopexit17
 141:                                              ; preds = %.loopexit, %.thread14
   %142 = phi i64 [ 0, %.thread14 ], [ %150, %.loopexit ]
   %143 = phi i64 [ 1, %.thread14 ], [ %139, %.loopexit ]
-  %144 = getelementptr i32, ptr %138, i64 %142
+  %144 = getelementptr [4 x i8], ptr %138, i64 %142
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %149, label %147
@@ -1528,7 +1526,7 @@ select.unfold:                                    ; preds = %128, %.loopexit17
 
 .preheader:                                       ; preds = %149, %158
   %152 = phi i64 [ %159, %158 ], [ %143, %149 ]
-  %153 = getelementptr i32, ptr %138, i64 %152
+  %153 = getelementptr [4 x i8], ptr %138, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = load i32, ptr %144, align 4
   %156 = icmp eq i32 %154, %155
@@ -2058,7 +2056,7 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 144
   %111 = load i32, ptr %110, align 8
   %112 = zext i32 %111 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %109, i64 %112
+  %.split = getelementptr [56 x i8], ptr %109, i64 %112
   %113 = getelementptr i8, ptr %.split, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = call i32 @drm_atomic_add_affected_connectors(ptr noundef nonnull %51, ptr noundef %108) #6
@@ -2095,7 +2093,7 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   %132 = phi i32 [ %144, %143 ], [ %66, %.loopexit34 ]
   %133 = phi i64 [ %145, %143 ], [ 0, %.loopexit34 ]
   %134 = load ptr, ptr %57, align 8
-  %135 = getelementptr %struct.__drm_connnectors_state, ptr %134, i64 %133
+  %135 = getelementptr [40 x i8], ptr %134, i64 %133
   %136 = load ptr, ptr %135, align 8
   %137 = icmp eq ptr %136, null
   br i1 %137, label %143, label %138
@@ -2400,13 +2398,13 @@ define dso_local void @drm_framebuffer_print_info(ptr noundef %0, i32 noundef %1
   %51 = phi i32 [ %49, %42 ], [ 0, %32 ], [ 0, %25 ], [ %spec.select, %.thread5 ]
   %52 = trunc i64 %26 to i32
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %20, ptr noundef nonnull @.str.13, i32 noundef %52, i32 noundef %50, i32 noundef %51) #6
-  %53 = getelementptr i32, ptr %21, i64 %26
+  %53 = getelementptr [4 x i8], ptr %21, i64 %26
   %54 = load i32, ptr %53, align 4
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %20, ptr noundef nonnull @.str.13, i32 noundef %52, i32 noundef %54) #6
-  %55 = getelementptr i32, ptr %22, i64 %26
+  %55 = getelementptr [4 x i8], ptr %22, i64 %26
   %56 = load i32, ptr %55, align 4
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %20, ptr noundef nonnull @.str.13, i32 noundef %52, i32 noundef %56) #6
-  %57 = getelementptr ptr, ptr %23, i64 %26
+  %57 = getelementptr [8 x i8], ptr %23, i64 %26
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   %60 = select i1 %59, ptr @.str.24, ptr @.str.23

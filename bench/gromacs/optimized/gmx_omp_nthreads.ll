@@ -903,7 +903,7 @@ define internal fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleM
   %5 = alloca %"class.gmx::LogEntryWriter", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @__const._ZL28enumValueToEnvVariableString17ModuleMultiThread.moduleMultiThreadEnvVariableNames, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL28enumValueToEnvVariableString17ModuleMultiThread.moduleMultiThreadEnvVariableNames, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !58
   %9 = tail call ptr @getenv(ptr noundef %8) #14
   %.not = icmp eq ptr %9, null
@@ -948,7 +948,7 @@ define internal fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleM
   store i64 0, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 1, ptr %27, align 8, !tbaa !59
-  %28 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValueToString17ModuleMultiThread.moduleMultiThreadNames, i64 %6
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValueToString17ModuleMultiThread.moduleMultiThreadNames, i64 %6
   %29 = load ptr, ptr %28, align 8, !tbaa !58
   %30 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.16, ptr noundef %8, i32 noundef %.pre, ptr noundef %29)
           to label %31 unwind label %39
@@ -1004,7 +1004,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit21:               ; preds = %39, %_ZNKSt7__cxx11
 
 50:                                               ; preds = %16, %_ZN3gmx14LogEntryWriterD2Ev.exit, %20, %45
   %51 = phi i32 [ %.pre23, %_ZN3gmx14LogEntryWriterD2Ev.exit ], [ %.pre, %20 ], [ %.pre, %16 ], [ %49, %45 ]
-  %52 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL5modth, i64 8), i64 %6
+  %52 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL5modth, i64 8), i64 %6
   store i32 %51, ptr %52, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -1023,7 +1023,7 @@ define void @_Z20gmx_omp_nthreads_set17ModuleMultiThreadi(i32 noundef %0, i32 no
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL5modth, i64 8), i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL5modth, i64 8), i64 %5
   store i32 %1, ptr %6, align 4, !tbaa !4
   ret void
 }
@@ -1037,7 +1037,7 @@ define noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef %0) 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL5modth, i64 8), i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL5modth, i64 8), i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !4
   br label %6
 

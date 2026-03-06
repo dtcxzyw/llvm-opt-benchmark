@@ -198,7 +198,7 @@ define void @jpeg_idct_float(ptr noundef readonly captures(none) %0, ptr noundef
 146:                                              ; preds = %.preheader, %146
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %146 ]
   %.2206 = phi ptr [ %6, %.preheader ], [ %247, %146 ]
-  %147 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %148 = load ptr, ptr %147, align 8, !tbaa !37
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 %11
   %150 = load float, ptr %.2206, align 4, !tbaa !33

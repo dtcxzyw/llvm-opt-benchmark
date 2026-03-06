@@ -3,9 +3,6 @@ source_filename = "bench/abc/original/bacCom.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Bac_Ntk_t_ = type { ptr, i32, i32, i32, i32, i32, i32, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Str_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_ }
-%struct.Vec_Str_t_ = type { i32, i32, ptr }
-%struct.Vec_Int_t_ = type { i32, i32, ptr }
 %struct.Cec_ParCec_t_ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -257,7 +254,7 @@ define internal range(i32 0, 2) i32 @Bac_CommandRead(ptr noundef captures(none) 
 
 16:                                               ; preds = %12
   %17 = sext i32 %13 to i64
-  %18 = getelementptr inbounds ptr, ptr %2, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = tail call noalias ptr @fopen(ptr noundef %19, ptr noundef nonnull @.str.15)
   %21 = icmp eq ptr %20, null
@@ -495,7 +492,7 @@ define internal range(i32 0, 2) i32 @Bac_CommandWrite(ptr noundef readonly captu
 
 20:                                               ; preds = %16
   %21 = sext i32 %17 to i64
-  %22 = getelementptr inbounds ptr, ptr %2, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %2, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !26
   br label %29
 
@@ -623,7 +620,7 @@ define internal range(i32 0, 2) i32 @Bac_CommandPs(ptr noundef readonly captures
 
 10:                                               ; preds = %7
   %11 = sext i32 %8 to i64
-  %12 = getelementptr inbounds ptr, ptr %2, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = tail call i64 @strtol(ptr noundef nonnull captures(none) %13, ptr noundef null, i32 noundef 10) #14
   %15 = trunc i64 %14 to i32
@@ -660,7 +657,7 @@ Bac_ManNtkIsOk.exit.i.i.i:                        ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !47
   %31 = zext nneg i32 %25 to i64
-  %32 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [208 x i8], ptr %30, i64 %31
   br label %Bac_ManRoot.exit.i
 
 Bac_ManRoot.exit.i:                               ; preds = %28, %Bac_ManNtkIsOk.exit.i.i.i, %23
@@ -696,7 +693,7 @@ Bac_ManNtk.exit.lr.ph.i.i:                        ; preds = %Bac_ManRoot.exit.i
 Bac_ManNtk.exit.i.i:                              ; preds = %Bac_NtkBoxNum.exit.i.i, %Bac_ManNtk.exit.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %Bac_NtkBoxNum.exit.i.i ]
   %.010.i.i = phi i32 [ 0, %Bac_ManNtk.exit.lr.ph.i.i ], [ %61, %Bac_NtkBoxNum.exit.i.i ]
-  %49 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %47, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw [208 x i8], ptr %47, i64 %indvars.iv.i.i
   %50 = getelementptr i8, ptr %49, i64 84
   %.val.i.i.i = load i32, ptr %50, align 4, !tbaa !50
   %51 = icmp sgt i32 %.val.i.i.i, 0
@@ -745,7 +742,7 @@ Bac_ManNtk.exit.lr.ph.i24.i:                      ; preds = %Bac_ManNodeNum.exit
 Bac_ManNtk.exit.i26.i:                            ; preds = %Bac_ManNtk.exit.i26.i, %Bac_ManNtk.exit.lr.ph.i24.i
   %indvars.iv.i27.i = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph.i24.i ], [ %indvars.iv.next.i28.i, %Bac_ManNtk.exit.i26.i ]
   %.011.i.i = phi i32 [ 0, %Bac_ManNtk.exit.lr.ph.i24.i ], [ %68, %Bac_ManNtk.exit.i26.i ]
-  %66 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %64, i64 %indvars.iv.i27.i
+  %66 = getelementptr inbounds nuw [208 x i8], ptr %64, i64 %indvars.iv.i27.i
   %67 = getelementptr i8, ptr %66, i64 84
   %.val8.i.i = load i32, ptr %67, align 4, !tbaa !50
   %68 = add nsw i32 %.val8.i.i, %.011.i.i
@@ -802,7 +799,7 @@ Bac_ManNtk.exit.lr.ph.i32.i:                      ; preds = %82
 Bac_ManNtk.exit.i34.i:                            ; preds = %Bac_ManNtk.exit.i34.i, %Bac_ManNtk.exit.lr.ph.i32.i
   %indvars.iv.i35.i = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph.i32.i ], [ %indvars.iv.next.i36.i, %Bac_ManNtk.exit.i34.i ]
   %.224.i.i = phi i32 [ %89, %Bac_ManNtk.exit.lr.ph.i32.i ], [ %157, %Bac_ManNtk.exit.i34.i ]
-  %93 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %91, i64 %indvars.iv.i35.i
+  %93 = getelementptr inbounds nuw [208 x i8], ptr %91, i64 %indvars.iv.i35.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load i32, ptr %94, align 8, !tbaa !58
   %96 = sext i32 %95 to i64
@@ -890,7 +887,7 @@ Bac_ManNtk.exit.lr.ph.i39.i:                      ; preds = %Bac_ManMemory.exit.
 
 Bac_ManNtk.exit.i41.i:                            ; preds = %Bac_ManNtk.exit.i41.i, %Bac_ManNtk.exit.lr.ph.i39.i
   %indvars.iv.i42.i = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph.i39.i ], [ %indvars.iv.next.i43.i, %Bac_ManNtk.exit.i41.i ]
-  %164 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %162, i64 %indvars.iv.i42.i
+  %164 = getelementptr inbounds nuw [208 x i8], ptr %162, i64 %indvars.iv.i42.i
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
   store i32 -1, ptr %165, align 8, !tbaa !61
   %indvars.iv.next.i43.i = add nuw nsw i64 %indvars.iv.i42.i, 1
@@ -908,7 +905,7 @@ Bac_ManNtk.exit.i41.i:                            ; preds = %Bac_ManNtk.exit.i41
   %169 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %170 = load ptr, ptr %169, align 8, !tbaa !47
   %171 = zext nneg i32 %166 to i64
-  %172 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw [208 x i8], ptr %170, i64 %171
   br label %Bac_ManBoxNum.exit.i
 
 Bac_ManBoxNum.exit.i:                             ; preds = %168, %.critedge.i.i
@@ -927,7 +924,7 @@ Bac_ManNtk.exit.lr.ph.i:                          ; preds = %Bac_ManBoxNum.exit.
 Bac_ManNtk.exit.i:                                ; preds = %Bac_NtkPrintStats.exit.i, %Bac_ManNtk.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph.i ], [ %indvars.iv.next.i, %Bac_NtkPrintStats.exit.i ]
   %178 = load ptr, ptr %175, align 8, !tbaa !47
-  %179 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %178, i64 %indvars.iv.i
+  %179 = getelementptr inbounds nuw [208 x i8], ptr %178, i64 %indvars.iv.i
   %180 = icmp eq i64 %indvars.iv.i, %177
   br i1 %180, label %Bac_ManPrintStats.exit, label %181
 
@@ -995,7 +992,7 @@ Bac_ManNtkIsOk.exit.i.i14.i.i:                    ; preds = %Bac_ManNtkIsOk.exit
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %214 = load ptr, ptr %213, align 8, !tbaa !47
   %215 = zext nneg i32 %209 to i64
-  %216 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %214, i64 %215
+  %216 = getelementptr inbounds nuw [208 x i8], ptr %214, i64 %215
   %.val12.i.i = load ptr, ptr %216, align 8, !tbaa !65
   %217 = getelementptr i8, ptr %216, i64 8
   %.val13.i.i = load i32, ptr %217, align 8, !tbaa !66
@@ -1301,7 +1298,7 @@ define internal range(i32 0, 2) i32 @Bac_CommandCec(ptr noundef captures(none) %
 
 23:                                               ; preds = %15
   %24 = sext i32 %16 to i64
-  %25 = getelementptr inbounds ptr, ptr %2, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !26
   br label %27
 
@@ -1488,7 +1485,7 @@ Bac_ManNtk.exit.lr.ph:                            ; preds = %1
 Bac_ManNtk.exit:                                  ; preds = %Bac_ManNtk.exit.lr.ph, %Bac_NtkFree.exit
   %indvars.iv = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph ], [ %indvars.iv.next, %Bac_NtkFree.exit ]
   %4 = load ptr, ptr %3, align 8, !tbaa !47
-  %5 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [208 x i8], ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !80
@@ -1884,7 +1881,7 @@ define internal fastcc void @Psr_ManVecFree(ptr noundef captures(none) %0) unnam
 5:                                                ; preds = %.lr.ph, %Psr_NtkFree.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Psr_NtkFree.exit ]
   %.val6 = load ptr, ptr %4, align 8, !tbaa !86
-  %6 = getelementptr inbounds nuw ptr, ptr %.val6, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %.val6, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !87
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !88
@@ -2195,7 +2192,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr noun
 16:                                               ; preds = %15
   %.val20 = load ptr, ptr %0, align 8, !tbaa !65
   %.val21 = load ptr, ptr %8, align 8, !tbaa !80
-  %17 = getelementptr inbounds nuw i32, ptr %.val21, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.val21, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_BoxNtk.exit
@@ -2210,7 +2207,7 @@ Bac_ManNtkIsOk.exit.i.i:                          ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %.val20, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !47
   %24 = zext nneg i32 %18 to i64
-  %25 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [208 x i8], ptr %23, i64 %24
   br label %Bac_BoxNtk.exit
 
 Bac_BoxNtk.exit:                                  ; preds = %16, %Bac_ManNtkIsOk.exit.i.i, %21

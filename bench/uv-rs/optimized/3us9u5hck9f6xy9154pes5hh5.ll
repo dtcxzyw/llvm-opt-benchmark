@@ -179,7 +179,7 @@ common.resume:                                    ; preds = %38, %25, %111
   %48 = urem i64 %2, %33
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8, !nonnull !8, !noundef !8
-  %51 = getelementptr inbounds nuw { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, [4 x i64] }, ptr %50, i64 %48
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %52 = cmpxchg ptr %51, i32 0, i32 1 acquire monotonic, align 4, !noalias !16
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %52, 1
@@ -231,7 +231,7 @@ common.resume:                                    ; preds = %38, %25, %111
   %73 = load ptr, ptr %72, align 8, !nonnull !8, !noundef !8
   %74 = icmp ult i64 %65, 1152921504606846977
   tail call void @llvm.assume(i1 %74)
-  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %69
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %69
   %76 = load ptr, ptr %75, align 8, !nonnull !8, !align !10, !noundef !8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %77, align 8
@@ -1520,7 +1520,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(72) ptr @"_ZN9has
   %52 = add i64 %.sroa.01.0.i.i, %51
   %53 = and i64 %52, %43
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %44, i64 %54
+  %55 = getelementptr inbounds [72 x i8], ptr %44, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -56
   %.val5.i.i = load i64, ptr %56, align 8, !alias.scope !193, !noalias !200, !noundef !8
   %.not.i.i.i.i.i.i = icmp eq i64 %2, %.val5.i.i
@@ -1853,7 +1853,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4512bb2dbf32f5f8E.exit.i.i.i.i.i: ; pre
 
 138:                                              ; preds = %134
   %139 = load ptr, ptr %126, align 8, !noalias !256, !nonnull !8, !noundef !8
-  %140 = getelementptr inbounds nuw { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, [4 x i64] }, ptr %139, i64 %125
+  %140 = getelementptr inbounds nuw [64 x i8], ptr %139, i64 %125
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
   %141 = cmpxchg ptr %140, i32 0, i32 1 acquire monotonic, align 4, !noalias !269
   %.sroa.18.0.in.i.i.i.i.i = extractvalue { i32, i1 } %141, 1
@@ -1926,7 +1926,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4512bb2dbf32f5f8E.exit.i.i.i.i.i: ; pre
 165:                                              ; preds = %160, %154
   %166 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %167 = load ptr, ptr %166, align 8, !alias.scope !271, !noalias !274, !nonnull !8, !noundef !8
-  %168 = getelementptr inbounds ptr, ptr %167, i64 %157
+  %168 = getelementptr inbounds [8 x i8], ptr %167, i64 %157
   store ptr %.sroa.46.0.copyload.i.i, ptr %168, align 8, !noalias !274
   %169 = add i64 %157, 1
   store i64 %169, ptr %156, align 8, !alias.scope !271, !noalias !276
@@ -2342,7 +2342,7 @@ common.resume:                                    ; preds = %.body, %440, %331, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false), !noalias !337
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !316
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %282 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %5, i64 %6
+  %282 = getelementptr inbounds [24 x i8], ptr %5, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !338
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) @anon.27424d4101a04a50f059183b2ade9e02.3, i64 32, i1 false), !noalias !338
   call void @llvm.experimental.noalias.scope.decl(metadata !341)
@@ -3340,7 +3340,7 @@ define void @_ZN16uv_install_wheel6script16scripts_from_ini17hd1d4fb2360f9439bE(
 
 137:                                              ; preds = %132, %124
   %138 = load ptr, ptr %96, align 8, !alias.scope !494, !noalias !497, !nonnull !8, !noundef !8
-  %139 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %138, i64 %129
+  %139 = getelementptr inbounds [72 x i8], ptr %138, i64 %129
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %139, ptr noundef nonnull align 8 dereferenceable(72) %22, i64 72, i1 false)
   %140 = add i64 %129, 1
   store i64 %140, ptr %98, align 8, !alias.scope !494, !noalias !497

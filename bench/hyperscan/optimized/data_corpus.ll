@@ -24,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, unsigned int>, std::_Select1st<std::pair<const unsigned int, unsigned int>>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%class.DataBlock = type { i32, i32, i32, %"class.std::__cxx11::basic_string" }
 
 $_ZN15DataCorpusErrorD2Ev = comdat any
 
@@ -1503,7 +1502,7 @@ _ZNSt12_Vector_baseI9DataBlockSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZN
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %26, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i38, ptr %8, align 8
-  %92 = getelementptr inbounds nuw %class.DataBlock, ptr %26, i64 %20
+  %92 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %20
   store ptr %92, ptr %91, align 8
   ret void
 }

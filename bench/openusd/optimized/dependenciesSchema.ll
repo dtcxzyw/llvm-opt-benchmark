@@ -631,7 +631,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18HdDependencySchemaD2Ev.exit: ; preds = %.
   %157 = load ptr, ptr %0, align 8
   %spec.select.i.i.i.i = select i1 %156, ptr %0, ptr %157
   %158 = zext i32 %154 to i64
-  %159 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i.i, i64 %158
+  %159 = getelementptr inbounds nuw [24 x i8], ptr %spec.select.i.i.i.i, i64 %158
   store i64 %143, ptr %159, align 8
   store i64 0, ptr %6, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8

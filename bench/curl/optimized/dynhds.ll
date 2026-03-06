@@ -36,7 +36,7 @@ define hidden void @Curl_dynhds_free(ptr noundef captures(none) %0) local_unname
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.012 = phi i64 [ %10, %.lr.ph ], [ 0, %3 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !14
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.012
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.012
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = load ptr, ptr @Curl_cfree, align 8, !tbaa !18
   tail call void %9(ptr noundef %8) #9
@@ -73,12 +73,12 @@ define hidden void @Curl_dynhds_reset(ptr noundef captures(none) %0) local_unnam
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %4 = phi ptr [ %8, %.lr.ph ], [ %.pre, %.lr.ph.preheader ]
   %.09 = phi i64 [ %10, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.09
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = load ptr, ptr @Curl_cfree, align 8, !tbaa !18
   tail call void %7(ptr noundef %6) #9
   %8 = load ptr, ptr %0, align 8, !tbaa !14
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.09
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09
   store ptr null, ptr %9, align 8, !tbaa !16
   %10 = add nuw i64 %.09, 1
   %11 = load i64, ptr %2, align 8, !tbaa !15
@@ -115,7 +115,7 @@ define hidden ptr @Curl_dynhds_getn(ptr noundef readonly captures(none) %0, i64 
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !tbaa !14
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   br label %10
 
@@ -135,7 +135,7 @@ define hidden ptr @Curl_dynhds_get(ptr noundef readonly captures(none) %0, ptr n
   %6 = phi i64 [ %21, %20 ], [ %5, %3 ]
   %.015 = phi i64 [ %22, %20 ], [ 0, %3 ]
   %7 = load ptr, ptr %0, align 8, !tbaa !14
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.015
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.015
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !22
@@ -154,7 +154,7 @@ define hidden ptr @Curl_dynhds_get(ptr noundef readonly captures(none) %0, ptr n
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !14
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.015
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.015
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   br label %.loopexit
 
@@ -183,7 +183,7 @@ define hidden ptr @Curl_dynhds_cget(ptr noundef readonly captures(none) %0, ptr 
   %6 = phi i64 [ %21, %20 ], [ %5, %2 ]
   %.015.i = phi i64 [ %22, %20 ], [ 0, %2 ]
   %7 = load ptr, ptr %0, align 8, !tbaa !14
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.015.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.015.i
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !22
@@ -202,7 +202,7 @@ define hidden ptr @Curl_dynhds_cget(ptr noundef readonly captures(none) %0, ptr 
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !14
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.015.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.015.i
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   br label %Curl_dynhds_get.exit
 
@@ -325,7 +325,7 @@ define hidden range(i32 0, 28) i32 @Curl_dynhds_add(ptr noundef captures(none) %
   %56 = phi i64 [ %38, %._crit_edge ], [ %.pre66, %.thread ]
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %47, %.thread ]
   store i64 %.pre-phi, ptr %37, align 8, !tbaa !15
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   store ptr %24, ptr %58, align 8, !tbaa !16
   %59 = load i64, ptr %12, align 8, !tbaa !3
   %60 = add i64 %14, %59
@@ -390,7 +390,7 @@ define hidden range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captures
 
 .critedge:                                        ; preds = %.preheader
   %14 = load ptr, ptr %0, align 8, !tbaa !14
-  %15 = getelementptr ptr, ptr %14, i64 %10
+  %15 = getelementptr [8 x i8], ptr %14, i64 %10
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -432,7 +432,7 @@ define hidden range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captures
   store i64 %21, ptr %43, align 8, !tbaa !28
   %44 = load ptr, ptr %0, align 8, !tbaa !14
   %45 = load i64, ptr %9, align 8, !tbaa !15
-  %46 = getelementptr ptr, ptr %44, i64 %45
+  %46 = getelementptr [8 x i8], ptr %44, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -8
   store ptr %27, ptr %47, align 8, !tbaa !16
   %48 = load ptr, ptr @Curl_cfree, align 8, !tbaa !18
@@ -529,7 +529,7 @@ define hidden i32 @Curl_dynhds_h1_dprint(ptr noundef readonly captures(none) %0,
 .lr.ph:                                           ; preds = %2, %5
   %.021 = phi i64 [ %6, %5 ], [ 0, %2 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !14
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.021
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.021
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !22

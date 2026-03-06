@@ -388,7 +388,7 @@ invoke.cont39:                                    ; preds = %invoke.cont39.lr.ph
   %sub.i.i.i.i.i.i = add i64 %37, -1
   %38 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
   %elements.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i.i, i64 %indvars.iv
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements.i.i.i.i.i, i64 %indvars.iv
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %proto_file_.i.i, ptr %arrayidx.i.i.i.i.i
   %39 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   %call42 = invoke noundef ptr @_ZN6google8protobuf14DescriptorPool9BuildFileERKNS0_19FileDescriptorProtoE(ptr noundef nonnull align 8 dereferenceable(96) %pool, ptr noundef nonnull align 8 dereferenceable(224) %39)
@@ -430,7 +430,7 @@ invoke.cont55:                                    ; preds = %invoke.cont55.lr.ph
   %sub.i.i.i.i.i.i43 = add i64 %47, -1
   %48 = inttoptr i64 %sub.i.i.i.i.i.i43 to ptr
   %elements.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %arrayidx.i.i.i.i.i46 = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i.i44, i64 %indvars.iv104
+  %arrayidx.i.i.i.i.i46 = getelementptr inbounds nuw [8 x i8], ptr %elements.i.i.i.i.i44, i64 %indvars.iv104
   %retval.0.i.i.i.i.i47 = select i1 %cmp.i.i.i.i.i.i42, ptr %file_to_generate_.i.i, ptr %arrayidx.i.i.i.i.i46
   %49 = load ptr, ptr %retval.0.i.i.i.i.i47, align 8
   %call57 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %49) #18
@@ -498,7 +498,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPKN6go
 _ZNSt6vectorIPKN6google8protobuf14FileDescriptorESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPKN6google8protobuf14FileDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i49, ptr %parsed_files, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i49, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i49, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont60
 
@@ -522,7 +522,7 @@ invoke.cont68:                                    ; preds = %invoke.cont60
   %sub.i.i.i.i.i.i55 = add i64 %59, -1
   %60 = inttoptr i64 %sub.i.i.i.i.i.i55 to ptr
   %elements.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %arrayidx.i.i.i.i.i58 = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i.i56, i64 %indvars.iv104
+  %arrayidx.i.i.i.i.i58 = getelementptr inbounds nuw [8 x i8], ptr %elements.i.i.i.i.i56, i64 %indvars.iv104
   %retval.0.i.i.i.i.i59 = select i1 %cmp.i.i.i.i.i.i54, ptr %file_to_generate_.i.i, ptr %arrayidx.i.i.i.i.i58
   %61 = load ptr, ptr %retval.0.i.i.i.i.i59, align 8
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %61) #18

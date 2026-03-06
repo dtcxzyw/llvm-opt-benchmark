@@ -11657,7 +11657,7 @@ define hidden void @nds_defrag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 10:                                               ; preds = %7, %17
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %17 ]
-  %11 = getelementptr %struct.frag_info, ptr @frags, i64 %indvars.iv
+  %11 = getelementptr [28 x i8], ptr @frags, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
@@ -11793,7 +11793,7 @@ define hidden void @nds_defrag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 73:                                               ; preds = %71, %85
   %indvars.iv259 = phi i64 [ 0, %71 ], [ %indvars.iv.next260, %85 ]
-  %74 = getelementptr %struct.frag_info, ptr @frags, i64 %indvars.iv259
+  %74 = getelementptr [28 x i8], ptr @frags, i64 %indvars.iv259
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 20
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, %72
@@ -11850,7 +11850,7 @@ define hidden void @nds_defrag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 103:                                              ; preds = %97, %93
   %104 = and i64 %indvars.iv259, 4294967295
-  %105 = getelementptr %struct.frag_info, ptr @frags, i64 %104
+  %105 = getelementptr [28 x i8], ptr @frags, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 20
   %107 = load i32, ptr %106, align 4
   %108 = icmp eq i32 %107, -1
@@ -12000,7 +12000,7 @@ define hidden void @nds_defrag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 190:                                              ; preds = %188, %195
   %indvars.iv263 = phi i64 [ 0, %188 ], [ %indvars.iv.next264, %195 ]
-  %191 = getelementptr %struct.frag_info, ptr @frags, i64 %indvars.iv263
+  %191 = getelementptr [28 x i8], ptr @frags, i64 %indvars.iv263
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 20
   %193 = load i32, ptr %192, align 4
   %194 = icmp eq i32 %193, %189
@@ -12013,7 +12013,7 @@ define hidden void @nds_defrag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 196:                                              ; preds = %190
   %197 = and i64 %indvars.iv263, 4294967295
-  %198 = getelementptr %struct.frag_info, ptr @frags, i64 %197
+  %198 = getelementptr [28 x i8], ptr @frags, i64 %197
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %200 = load i32, ptr %199, align 4
   %201 = getelementptr inbounds nuw i8, ptr %.0209, i64 312
@@ -12086,7 +12086,7 @@ define hidden void @nds_defrag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 240:                                              ; preds = %237
   %241 = and i64 %.0208.in, 4294967295
-  %242 = getelementptr %struct.frag_info, ptr @frags, i64 %241
+  %242 = getelementptr [28 x i8], ptr @frags, i64 %241
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   store i32 0, ptr %243, align 4
   call void @dissect_ncp_reply(ptr noundef nonnull %.0211, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6)
@@ -12435,7 +12435,7 @@ ncp_hash_lookup.exit272:                          ; preds = %.lr.ph.i270
 .lr.ph.i278._crit_edge:                           ; preds = %.lr.ph.i278, %.lr.ph.i278.preheader
   %.lcssa355 = phi i32 [ %148, %.lr.ph.i278.preheader ], [ %152, %.lr.ph.i278 ]
   %156 = sext i32 %.lcssa355 to i64
-  %157 = getelementptr ptr, ptr @ncp_errors, i64 %156
+  %157 = getelementptr [8 x i8], ptr @ncp_errors, i64 %156
   %158 = load ptr, ptr %157, align 8
   br label %ncp_error_string.exit
 
@@ -14465,7 +14465,7 @@ define hidden void @dissect_ncp_request(ptr noundef %0, ptr noundef %1, i32 noun
 
 28:                                               ; preds = %27, %26
   %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %27 ]
-  %29 = getelementptr %struct.conditional_record, ptr @req_conds, i64 %indvars.iv.i
+  %29 = getelementptr [16 x i8], ptr @req_conds, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 16
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = call zeroext i1 @dfilter_compile_full(ptr noundef %30, ptr noundef nonnull %31, ptr noundef nonnull %10, i32 noundef 6, ptr noundef nonnull @__func__.ncp2222_compile_dfilters)
@@ -14783,7 +14783,7 @@ ncp_record_find.exit:                             ; preds = %64, %68, %71
   %163 = phi i32 [ %169, %.lr.ph ], [ %162, %159 ]
   %.0185228 = phi ptr [ %168, %.lr.ph ], [ %161, %159 ]
   %164 = sext i32 %163 to i64
-  %165 = getelementptr %struct.conditional_record, ptr @req_conds, i64 %164
+  %165 = getelementptr [16 x i8], ptr @req_conds, i64 %164
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
   %.0..0..0..0.106 = load volatile ptr, ptr %11, align 8
@@ -14892,7 +14892,7 @@ ncp_record_find.exit:                             ; preds = %64, %68, %71
   %206 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.51, i64 16
   %207 = load i32, ptr %206, align 8
   %208 = sext i32 %207 to i64
-  %209 = getelementptr ptr, ptr @ncp_groups, i64 %208
+  %209 = getelementptr [8 x i8], ptr @ncp_groups, i64 %208
   %210 = load ptr, ptr %209, align 8
   %211 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0..0..0..0.114, i32 noundef %203, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %205, ptr noundef nonnull @.str.11, ptr noundef %210)
   %.not.i220 = icmp eq ptr %211, null
@@ -15044,7 +15044,7 @@ proto_item_set_generated.exit:                    ; preds = %215, %212, %202, %1
   %262 = phi i32 [ %273, %.lr.ph231 ], [ %261, %256 ]
   %.0183230 = phi ptr [ %272, %.lr.ph231 ], [ %260, %256 ]
   %263 = sext i32 %262 to i64
-  %264 = getelementptr %struct.conditional_record, ptr @req_conds, i64 %263
+  %264 = getelementptr [16 x i8], ptr @req_conds, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8
   %.0..0..0..0.115 = load volatile ptr, ptr %11, align 8
@@ -15508,7 +15508,7 @@ process_struct_sub_ptvc_record.exit43:            ; preds = %56, %66
 
 71:                                               ; preds = %40
   %72 = zext nneg i16 %38 to i64
-  %73 = getelementptr i32, ptr @repeat_vars, i64 %72
+  %73 = getelementptr [4 x i8], ptr @repeat_vars, i64 %72
   %74 = load i32, ptr %73, align 4
   %.not59 = icmp eq i32 %74, 0
   br i1 %.not59, label %_process_ptvc_record.exit, label %.lr.ph
@@ -15602,7 +15602,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %91, %101
 113:                                              ; preds = %110
   %114 = load i32, ptr %10, align 4
   %115 = zext nneg i16 %112 to i64
-  %116 = getelementptr i32, ptr @repeat_vars, i64 %115
+  %116 = getelementptr [4 x i8], ptr @repeat_vars, i64 %115
   store i32 %114, ptr %116, align 4
   br label %_process_ptvc_record.exit
 
@@ -15640,7 +15640,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %91, %101
 
 133:                                              ; preds = %108
   %134 = zext nneg i16 %38 to i64
-  %135 = getelementptr i32, ptr @repeat_vars, i64 %134
+  %135 = getelementptr [4 x i8], ptr @repeat_vars, i64 %134
   %136 = load i32, ptr %135, align 4
   %.not61 = icmp eq i32 %136, 0
   br i1 %.031.shrunk45, label %.preheader, label %.preheader46
@@ -20950,7 +20950,7 @@ define internal void @ncp_init_protocol() #7 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr %struct.frag_info, ptr @frags, i64 %indvars.iv
+  %2 = getelementptr [28 x i8], ptr @frags, i64 %indvars.iv
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -16, ptr %3, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

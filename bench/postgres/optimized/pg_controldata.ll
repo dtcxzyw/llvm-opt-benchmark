@@ -228,7 +228,7 @@ sub_1116:                                         ; preds = %.tail.thread, %.thr
   %48 = add nsw i32 %.pre, 1
   store i32 %48, ptr @optind, align 4
   %49 = sext i32 %.pre to i64
-  %50 = getelementptr inbounds ptr, ptr %1, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %1, i64 %49
   %51 = load ptr, ptr %50, align 8
   br label %54
 
@@ -244,7 +244,7 @@ sub_1116:                                         ; preds = %.tail.thread, %.thr
 
 57:                                               ; preds = %54
   %58 = sext i32 %55 to i64
-  %59 = getelementptr inbounds ptr, ptr %1, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %1, i64 %58
   %60 = load ptr, ptr %59, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %60) #9
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %12) #9
@@ -380,7 +380,7 @@ sub_1116:                                         ; preds = %.tail.thread, %.thr
 
 switch.lookup:                                    ; preds = %121
   %133 = zext nneg i32 %131 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.main, i64 %133
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.main, i64 %133
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dbState.exit
 
@@ -487,7 +487,7 @@ dbState.exit:                                     ; preds = %121, %switch.lookup
 
 switch.lookup134:                                 ; preds = %dbState.exit
   %231 = zext nneg i32 %229 to i64
-  %switch.gep135 = getelementptr inbounds nuw ptr, ptr @switch.table.main.1, i64 %231
+  %switch.gep135 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.main.1, i64 %231
   %switch.load136 = load ptr, ptr %switch.gep135, align 8
   br label %wal_level_str.exit
 

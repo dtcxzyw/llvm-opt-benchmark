@@ -18,19 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform" = type { %"class.std::__cxx11::basic_string", %"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData" }
-%"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData" = type { i32, %"class.std::function", %"class.std::function.5", %"class.std::function.7", %"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData::VectorFloat", %"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData::VectorInt" }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::function.5" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.7" = type { %"class.std::_Function_base", ptr }
-%"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData::VectorFloat" = type { %"class.std::function.9", %"class.std::function.11" }
-%"class.std::function.9" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.11" = type { %"class.std::_Function_base", ptr }
-%"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData::VectorInt" = type { %"class.std::function.9", %"class.std::function.13" }
-%"class.std::function.13" = type { %"class.std::_Function_base", ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -39,6 +26,19 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::function.7" = type { %"class.std::_Function_base", ptr }
+%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
+%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
+%"union.std::_Nocopy_types" = type { { i64, i64 } }
+%"class.std::function.5" = type { %"class.std::_Function_base", ptr }
+%"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"class.std::function.11" = type { %"class.std::_Function_base", ptr }
+%"class.std::function.9" = type { %"class.std::_Function_base", ptr }
+%"class.std::function.13" = type { %"class.std::_Function_base", ptr }
+%"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform" = type { %"class.std::__cxx11::basic_string", %"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData" }
+%"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData" = type { i32, %"class.std::function", %"class.std::function.5", %"class.std::function.7", %"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData::VectorFloat", %"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData::VectorInt" }
+%"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData::VectorFloat" = type { %"class.std::function.9", %"class.std::function.11" }
+%"struct.OpenColorIO_v2_5dev::GpuShaderDesc::UniformData::VectorInt" = type { %"class.std::function.9", %"class.std::function.13" }
 
 $__clang_call_terminate = comdat any
 
@@ -537,11 +537,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %34
 
 43:                                               ; preds = %3
   %44 = zext i32 %1 to i64
-  %45 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform", ptr %9, i64 %44
+  %45 = getelementptr inbounds nuw [264 x i8], ptr %9, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN19OpenColorIO_v2_5dev13GpuShaderDesc11UniformDataaSERKS1_(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull align 8 dereferenceable(232) %46)
   %48 = load ptr, ptr %6, align 8, !tbaa !44
-  %49 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform", ptr %48, i64 %44
+  %49 = getelementptr inbounds nuw [264 x i8], ptr %48, i64 %44
   %50 = load ptr, ptr %49, align 8, !tbaa !45
   ret ptr %50
 
@@ -1073,7 +1073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %41
   br label %91
 
 50:                                               ; preds = %9
-  %51 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Texture", ptr %18, i64 %14
+  %51 = getelementptr inbounds nuw [112 x i8], ptr %18, i64 %14
   %52 = load ptr, ptr %51, align 8, !tbaa !45
   store ptr %52, ptr %2, align 8, !tbaa !51
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 32
@@ -1289,7 +1289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
   resume { ptr, i32 } %.pn.pn
 
 42:                                               ; preds = %3
-  %43 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Texture", ptr %10, i64 %6
+  %43 = getelementptr inbounds nuw [112 x i8], ptr %10, i64 %6
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %45 = load ptr, ptr %44, align 8, !tbaa !58
   store ptr %45, ptr %2, align 8, !tbaa !78
@@ -1601,7 +1601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %36
   resume { ptr, i32 } %.pn.pn
 
 45:                                               ; preds = %6
-  %46 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Texture", ptr %13, i64 %9
+  %46 = getelementptr inbounds nuw [112 x i8], ptr %13, i64 %9
   %47 = load ptr, ptr %46, align 8, !tbaa !45
   store ptr %47, ptr %2, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -1725,7 +1725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
   resume { ptr, i32 } %.pn.pn
 
 42:                                               ; preds = %3
-  %43 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Texture", ptr %10, i64 %6
+  %43 = getelementptr inbounds nuw [112 x i8], ptr %10, i64 %6
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %45 = load ptr, ptr %44, align 8, !tbaa !58
   store ptr %45, ptr %2, align 8, !tbaa !78
@@ -3620,7 +3620,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformES3_EvT
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformES3_EvT_S5_RSaIT0_E.exit, %37
   store ptr %23, ptr %0, align 8, !tbaa !44
   store ptr %28, ptr %5, align 8, !tbaa !43
-  %41 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform", ptr %23, i64 %17
+  %41 = getelementptr inbounds nuw [264 x i8], ptr %23, i64 %17
   store ptr %41, ptr %36, align 8, !tbaa !52
   ret void
 
@@ -4085,7 +4085,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformES3_EvT
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformES3_EvT_S5_RSaIT0_E.exit, %37
   store ptr %23, ptr %0, align 8, !tbaa !44
   store ptr %28, ptr %5, align 8, !tbaa !43
-  %41 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform", ptr %23, i64 %17
+  %41 = getelementptr inbounds nuw [264 x i8], ptr %23, i64 %17
   store ptr %41, ptr %36, align 8, !tbaa !52
   ret void
 
@@ -4303,7 +4303,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformES3_EvT
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformES3_EvT_S5_RSaIT0_E.exit, %37
   store ptr %23, ptr %0, align 8, !tbaa !44
   store ptr %28, ptr %5, align 8, !tbaa !43
-  %41 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform", ptr %23, i64 %17
+  %41 = getelementptr inbounds nuw [264 x i8], ptr %23, i64 %17
   store ptr %41, ptr %36, align 8, !tbaa !52
   ret void
 
@@ -4521,7 +4521,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformES3_EvT
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformES3_EvT_S5_RSaIT0_E.exit, %38
   store ptr %24, ptr %0, align 8, !tbaa !44
   store ptr %29, ptr %6, align 8, !tbaa !43
-  %42 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform", ptr %24, i64 %18
+  %42 = getelementptr inbounds nuw [264 x i8], ptr %24, i64 %18
   store ptr %42, ptr %37, align 8, !tbaa !52
   ret void
 
@@ -4812,7 +4812,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformES3_EvT
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7UniformES3_EvT_S5_RSaIT0_E.exit, %38
   store ptr %24, ptr %0, align 8, !tbaa !44
   store ptr %29, ptr %6, align 8, !tbaa !43
-  %42 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Uniform", ptr %24, i64 %18
+  %42 = getelementptr inbounds nuw [264 x i8], ptr %24, i64 %18
   store ptr %42, ptr %37, align 8, !tbaa !52
   ret void
 
@@ -5479,9 +5479,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !58
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !111
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !61
   br label %41
 
@@ -5734,7 +5734,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7TextureESaIS3_EE
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7TextureESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev13GPUShaderImpl11PrivateImpl7TextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40, %106
   store ptr %20, ptr %0, align 8, !tbaa !56
   store ptr %.0.lcssa.i.i.i.i39, ptr %4, align 8, !tbaa !55
-  %110 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::GPUShaderImpl::PrivateImpl::Texture", ptr %20, i64 %16
+  %110 = getelementptr inbounds nuw [112 x i8], ptr %20, i64 %16
   store ptr %110, ptr %105, align 8, !tbaa !57
   ret void
 

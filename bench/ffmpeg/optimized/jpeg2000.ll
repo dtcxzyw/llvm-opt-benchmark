@@ -3,12 +3,6 @@ source_filename = "bench/ffmpeg/original/jpeg2000.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Jpeg2000TgtNode = type { i8, i8, i8, ptr }
-%struct.Jpeg2000ResLevel = type { i8, [2 x [2 x i32]], i32, i32, i8, i8, ptr }
-%struct.Jpeg2000Band = type { [2 x [2 x i32]], i16, i16, i32, float, ptr }
-%struct.Jpeg2000Prec = type { i32, i32, ptr, ptr, ptr, i32, [2 x [2 x i32]] }
-%struct.Jpeg2000Cblk = type { i8, i8, i8, i8, i16, ptr, i8, i8, ptr, i64, i32, i32, ptr, ptr, ptr, [2 x [2 x i32]], i32, [2 x i32], i8, i8 }
-
 @ff_jpeg2000_init_tier1_luts.init_static_once = internal global i32 0, align 4
 @.str = private unnamed_addr constant [47 x i8] c"nreslevels2decode %d invalid or uninitialized\0A\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"component size too large\0A\00", align 1
@@ -71,7 +65,7 @@ tag_tree_size.exit:                               ; preds = %14
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw %struct.Jpeg2000TgtNode, ptr %0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   store i8 %25, ptr %27, align 8, !tbaa !6
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 0, ptr %28, align 1, !tbaa !12
@@ -228,36 +222,36 @@ getsigctxno.exit:                                 ; preds = %25, %28, %23, %26, 
   %.not12.i = icmp samesign ult i64 %indvars.iv36, 8
   %44 = select i1 %.not12.i, i64 2, i64 1
   %45 = select i1 %.not.i20, i64 0, i64 %44
-  %46 = getelementptr inbounds nuw [3 x i32], ptr @contribtab, i64 %45
+  %46 = getelementptr inbounds nuw [12 x i8], ptr @contribtab, i64 %45
   %47 = trunc nuw nsw i64 %indvars.iv36 to i32
   %48 = and i32 %47, 4
   %.not14.i = icmp eq i32 %48, 0
   %49 = select i1 %.not14.i, i64 2, i64 1
   %50 = select i1 %.not13.i, i64 0, i64 %49
-  %51 = getelementptr inbounds nuw i32, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !18
   %53 = add nsw i32 %52, 1
   %54 = and i32 %47, 2
   %.not16.i = icmp eq i32 %54, 0
   %55 = select i1 %.not16.i, i64 2, i64 1
   %56 = select i1 %.not15.i, i64 0, i64 %55
-  %57 = getelementptr inbounds nuw [3 x i32], ptr @contribtab, i64 %56
+  %57 = getelementptr inbounds nuw [12 x i8], ptr @contribtab, i64 %56
   %58 = and i32 %47, 1
   %.not18.i = icmp eq i32 %58, 0
   %59 = select i1 %.not18.i, i64 2, i64 1
   %60 = select i1 %.not17.i, i64 0, i64 %59
-  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !18
   %63 = add nsw i32 %62, 1
   %64 = sext i32 %53 to i64
-  %65 = getelementptr inbounds [3 x i32], ptr @xorbittab, i64 %64
+  %65 = getelementptr inbounds [12 x i8], ptr @xorbittab, i64 %64
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !18
   %69 = trunc i32 %68 to i8
   store i8 %69, ptr %43, align 1, !tbaa !15
-  %70 = getelementptr inbounds [3 x i32], ptr @ctxlbltab, i64 %64
-  %71 = getelementptr inbounds i32, ptr %70, i64 %66
+  %70 = getelementptr inbounds [12 x i8], ptr @ctxlbltab, i64 %64
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !18
   %73 = trunc i32 %72 to i8
   %74 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv36
@@ -285,7 +279,7 @@ define void @ff_jpeg2000_set_significance(ptr noundef captures(none) %0, i32 nou
   %10 = mul nsw i32 %9, %6
   %11 = add nsw i32 %10, %5
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %7, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %7, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !26
   %15 = or i16 %14, 8192
   store i16 %15, ptr %13, align 2, !tbaa !26
@@ -294,16 +288,16 @@ define void @ff_jpeg2000_set_significance(ptr noundef captures(none) %0, i32 nou
   %17 = load i16, ptr %16, align 2, !tbaa !26
   %18 = add i32 %10, %1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %7, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %7, i64 %19
   %21 = add nsw i32 %2, 2
   %22 = mul nsw i32 %9, %21
   %23 = add nsw i32 %22, %5
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr %7, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %7, i64 %24
   %26 = mul nsw i32 %9, %2
   %27 = add nsw i32 %26, %5
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i16, ptr %7, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %7, i64 %28
   %. = select i1 %.not, i16 4, i16 1028
   %.67 = select i1 %.not, i16 2, i16 2050
   %.68 = select i1 %.not, i16 1, i16 257
@@ -319,25 +313,25 @@ define void @ff_jpeg2000_set_significance(ptr noundef captures(none) %0, i32 nou
   %35 = load i16, ptr %29, align 2, !tbaa !26
   %36 = or i16 %35, %.69
   store i16 %36, ptr %29, align 2, !tbaa !26
-  %37 = getelementptr i16, ptr %7, i64 %24
+  %37 = getelementptr [2 x i8], ptr %7, i64 %24
   %38 = getelementptr i8, ptr %37, i64 2
   %39 = load i16, ptr %38, align 2, !tbaa !26
   %40 = or i16 %39, 32
   store i16 %40, ptr %38, align 2, !tbaa !26
   %41 = add i32 %22, %1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i16, ptr %7, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %7, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !26
   %45 = or i16 %44, 16
   store i16 %45, ptr %43, align 2, !tbaa !26
-  %46 = getelementptr i16, ptr %7, i64 %28
+  %46 = getelementptr [2 x i8], ptr %7, i64 %28
   %47 = getelementptr i8, ptr %46, i64 2
   %48 = load i16, ptr %47, align 2, !tbaa !26
   %49 = or i16 %48, 128
   store i16 %49, ptr %47, align 2, !tbaa !26
   %50 = add i32 %26, %1
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i16, ptr %7, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %7, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !26
   %54 = or i16 %53, 64
   store i16 %54, ptr %52, align 2, !tbaa !26
@@ -454,7 +448,7 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   %73 = phi i32 [ %59, %.lr.ph154 ], [ %469, %._crit_edge ]
   %.0108152 = phi i32 [ 0, %.lr.ph154 ], [ %.2110.lcssa, %._crit_edge ]
   %74 = load ptr, ptr %0, align 8, !tbaa !39
-  %75 = getelementptr inbounds nuw %struct.Jpeg2000ResLevel, ptr %74, i64 %indvars.iv184
+  %75 = getelementptr inbounds nuw [40 x i8], ptr %74, i64 %indvars.iv184
   %76 = trunc nuw nsw i64 %indvars.iv184 to i32
   %77 = xor i32 %76, -1
   %78 = add i32 %73, %77
@@ -465,8 +459,8 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
 .preheader:                                       ; preds = %72, %.preheader
   %81 = phi i1 [ true, %72 ], [ false, %.preheader ]
   %indvars.iv174 = phi i64 [ 0, %72 ], [ 1, %.preheader ]
-  %82 = getelementptr inbounds nuw [2 x i32], ptr %61, i64 %indvars.iv174
-  %83 = getelementptr inbounds nuw [2 x i32], ptr %80, i64 %indvars.iv174
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv174
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv174
   %84 = load i32, ptr %82, align 4, !tbaa !18
   %85 = sext i32 %84 to i64
   %86 = sub nsw i64 0, %85
@@ -577,7 +571,7 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   %indvars.iv179 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next180, %init_band.exit ]
   %indvars.iv177 = phi i64 [ %155, %.lr.ph ], [ %indvars.iv.next178, %init_band.exit ]
   %158 = load ptr, ptr %141, align 8, !tbaa !48
-  %159 = getelementptr inbounds nuw %struct.Jpeg2000Band, ptr %158, i64 %indvars.iv179
+  %159 = getelementptr inbounds nuw [40 x i8], ptr %158, i64 %indvars.iv179
   %160 = load i32, ptr %1, align 4, !tbaa !38
   %161 = sub nsw i32 %160, %76
   %162 = load i8, ptr %65, align 2, !tbaa !66
@@ -601,7 +595,7 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   %171 = add i32 %170, 1065353216
   %172 = bitcast i32 %171 to float
   %173 = getelementptr inbounds nuw i8, ptr %159, i64 24
-  %174 = getelementptr inbounds i16, ptr %67, i64 %indvars.iv177
+  %174 = getelementptr inbounds [2 x i8], ptr %67, i64 %indvars.iv177
   %175 = load i16, ptr %174, align 2, !tbaa !26
   %176 = uitofp i16 %175 to double
   %177 = fmul nnan nsz double %176, 0x3F40000000000000
@@ -694,8 +688,8 @@ init_band_stepsize.exit.i:                        ; preds = %206, %203
 .preheader110.i:                                  ; preds = %init_band_stepsize.exit.i, %.preheader110.i
   %218 = phi i1 [ false, %.preheader110.i ], [ true, %init_band_stepsize.exit.i ]
   %indvars.iv136.i = phi i64 [ 1, %.preheader110.i ], [ 0, %init_band_stepsize.exit.i ]
-  %219 = getelementptr inbounds nuw [2 x i32], ptr %61, i64 %indvars.iv136.i
-  %220 = getelementptr inbounds nuw [2 x i32], ptr %159, i64 %indvars.iv136.i
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv136.i
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv136.i
   %221 = load i32, ptr %219, align 4, !tbaa !18
   %222 = sext i32 %221 to i64
   %223 = sub nsw i64 0, %222
@@ -732,14 +726,14 @@ init_band_stepsize.exit.i:                        ; preds = %206, %203
 .preheader112.i:                                  ; preds = %.preheader112.i, %.preheader113.i
   %244 = phi i1 [ true, %.preheader113.i ], [ false, %.preheader112.i ]
   %indvars.iv130.i = phi i64 [ 0, %.preheader113.i ], [ 1, %.preheader112.i ]
-  %245 = getelementptr inbounds nuw [2 x i32], ptr %61, i64 %indvars.iv130.i
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv130.i
   %246 = trunc nuw nsw i64 %indvars.iv130.i to i32
   %247 = lshr i32 %217, %246
   %248 = and i32 %247, 1
   %249 = zext nneg i32 %248 to i64
   %250 = shl nuw i64 %249, %214
   %251 = trunc i64 %250 to i32
-  %252 = getelementptr inbounds nuw [2 x i32], ptr %159, i64 %indvars.iv130.i
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv130.i
   %253 = load i32, ptr %245, align 4, !tbaa !18
   %254 = sub i32 %253, %251
   %255 = sext i32 %254 to i64
@@ -832,7 +826,7 @@ init_band_stepsize.exit.i:                        ; preds = %206, %203
 312:                                              ; preds = %init_prec.exit.i, %.lr.ph.i
   %indvars.iv139.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next140.i, %init_prec.exit.i ]
   %313 = load ptr, ptr %299, align 8, !tbaa !78
-  %314 = getelementptr inbounds nuw %struct.Jpeg2000Prec, ptr %313, i64 %indvars.iv139.i
+  %314 = getelementptr inbounds nuw [56 x i8], ptr %313, i64 %indvars.iv139.i
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 32
   store i32 0, ptr %315, align 8, !tbaa !79
   %316 = load i32, ptr %80, align 4, !tbaa !18
@@ -948,7 +942,7 @@ init_band_stepsize.exit.i:                        ; preds = %206, %203
 391:                                              ; preds = %.critedge.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.critedge.i.i ]
   %392 = load ptr, ptr %389, align 8, !tbaa !86
-  %393 = getelementptr inbounds nuw %struct.Jpeg2000Cblk, ptr %392, i64 %indvars.iv.i.i
+  %393 = getelementptr inbounds nuw [104 x i8], ptr %392, i64 %indvars.iv.i.i
   %394 = load i32, ptr %325, align 4, !tbaa !18
   %395 = load i16, ptr %306, align 8, !tbaa !74
   %396 = zext i16 %395 to i32
@@ -992,7 +986,7 @@ init_band_stepsize.exit.i:                        ; preds = %206, %203
 
 428:                                              ; preds = %391
   %429 = load ptr, ptr %0, align 8, !tbaa !39
-  %430 = getelementptr %struct.Jpeg2000ResLevel, ptr %429, i64 %indvars.iv184
+  %430 = getelementptr [40 x i8], ptr %429, i64 %indvars.iv184
   %431 = getelementptr i8, ptr %430, i64 -36
   %432 = getelementptr i8, ptr %430, i64 -32
   %433 = load i32, ptr %432, align 4, !tbaa !18
@@ -1012,7 +1006,7 @@ init_band_stepsize.exit.i:                        ; preds = %206, %203
 
 442:                                              ; preds = %441
   %443 = load ptr, ptr %0, align 8, !tbaa !39
-  %444 = getelementptr %struct.Jpeg2000ResLevel, ptr %443, i64 %indvars.iv184
+  %444 = getelementptr [40 x i8], ptr %443, i64 %indvars.iv184
   %445 = getelementptr i8, ptr %444, i64 -28
   %446 = getelementptr i8, ptr %444, i64 -24
   %447 = load i32, ptr %446, align 4, !tbaa !18
@@ -1103,7 +1097,7 @@ define void @ff_jpeg2000_reinit(ptr noundef readonly captures(none) %0, ptr noun
 
 6:                                                ; preds = %.lr.ph, %._crit_edge54
   %indvars.iv72 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next73, %._crit_edge54 ]
-  %7 = getelementptr inbounds nuw %struct.Jpeg2000ResLevel, ptr %5, i64 %indvars.iv72
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %indvars.iv72
   %8 = load i8, ptr %7, align 8, !tbaa !45
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %._crit_edge54, label %.lr.ph53
@@ -1126,14 +1120,14 @@ define void @ff_jpeg2000_reinit(ptr noundef readonly captures(none) %0, ptr noun
 
 .lr.ph49.us:                                      ; preds = %.lr.ph49.us.preheader, %._crit_edge50.us
   %indvars.iv67 = phi i64 [ 0, %.lr.ph49.us.preheader ], [ %indvars.iv.next68, %._crit_edge50.us ]
-  %17 = getelementptr inbounds nuw %struct.Jpeg2000Band, ptr %10, i64 %indvars.iv67
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv67
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !78
   br label %20
 
 20:                                               ; preds = %.lr.ph49.us, %._crit_edge.us
   %indvars.iv62 = phi i64 [ 0, %.lr.ph49.us ], [ %indvars.iv.next63, %._crit_edge.us ]
-  %21 = getelementptr inbounds nuw %struct.Jpeg2000Prec, ptr %19, i64 %indvars.iv62
+  %21 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %indvars.iv62
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !85
   %24 = load i32, ptr %21, align 8, !tbaa !82
@@ -1178,7 +1172,7 @@ tag_tree_size.exit.i.us:                          ; preds = %35
 
 46:                                               ; preds = %46, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %46 ]
-  %47 = getelementptr inbounds nuw %struct.Jpeg2000TgtNode, ptr %23, i64 %indvars.iv.i.us
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv.i.us
   store i8 0, ptr %47, align 8, !tbaa !6
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store i8 0, ptr %48, align 1, !tbaa !12
@@ -1227,7 +1221,7 @@ tag_tree_size.exit.i42.us:                        ; preds = %57
 
 68:                                               ; preds = %68, %.lr.ph.i32.us
   %indvars.iv.i35.us = phi i64 [ 0, %.lr.ph.i32.us ], [ %indvars.iv.next.i36.us, %68 ]
-  %69 = getelementptr inbounds nuw %struct.Jpeg2000TgtNode, ptr %51, i64 %indvars.iv.i35.us
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv.i35.us
   store i8 0, ptr %69, align 8, !tbaa !6
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   store i8 0, ptr %70, align 1, !tbaa !12
@@ -1249,7 +1243,7 @@ ff_tag_tree_zero.exit43.us:                       ; preds = %68, %tag_tree_size.
 
 74:                                               ; preds = %.lr.ph.us, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %74 ]
-  %75 = getelementptr inbounds nuw %struct.Jpeg2000Cblk, ptr %79, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [104 x i8], ptr %79, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store i16 0, ptr %76, align 4, !tbaa !91
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 17
@@ -1303,7 +1297,7 @@ define void @ff_jpeg2000_cleanup(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %.lr.ph62
-  %9 = getelementptr inbounds nuw %struct.Jpeg2000ResLevel, ptr %4, i64 %indvars.iv74
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %indvars.iv74
   %10 = load i8, ptr %9, align 8, !tbaa !45
   %.not64 = icmp eq i8 %10, 0
   br i1 %.not64, label %._crit_edge58, label %.lr.ph57
@@ -1328,7 +1322,7 @@ define void @ff_jpeg2000_cleanup(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %.not47, label %53, label %18
 
 18:                                               ; preds = %.lr.ph57.split
-  %19 = getelementptr inbounds nuw %struct.Jpeg2000Band, ptr %16, i64 %indvars.iv71
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %indvars.iv71
   %20 = load i32, ptr %12, align 4, !tbaa !46
   %21 = load i32, ptr %13, align 8, !tbaa !47
   %22 = mul nsw i32 %21, %20
@@ -1352,7 +1346,7 @@ define void @ff_jpeg2000_cleanup(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %.not48, label %46, label %28
 
 28:                                               ; preds = %.lr.ph53.split
-  %29 = getelementptr inbounds nuw %struct.Jpeg2000Prec, ptr %27, i64 %indvars.iv68
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %indvars.iv68
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !83
   %32 = load i32, ptr %29, align 8, !tbaa !82
@@ -1377,7 +1371,7 @@ define void @ff_jpeg2000_cleanup(ptr noundef %0, ptr noundef readonly captures(n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %39 = load ptr, ptr %36, align 8, !tbaa !86
-  %40 = getelementptr inbounds nuw %struct.Jpeg2000Cblk, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [104 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   tail call void @av_freep(ptr noundef nonnull %41) #8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 56
@@ -1512,7 +1506,7 @@ tag_tree_size.exit.thread:                        ; preds = %2
   %30 = ashr i32 %29, 1
   %31 = mul nsw i32 %.03444, %.03642
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.Jpeg2000TgtNode, ptr %.03543, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %.03543, i64 %32
   %34 = icmp sgt i32 %.03642, 0
   %35 = icmp sgt i32 %.03444, 0
   %or.cond = select i1 %34, i1 %35, i1 false
@@ -1529,7 +1523,7 @@ tag_tree_size.exit.thread:                        ; preds = %2
   %38 = lshr i32 %37, 1
   %39 = mul nuw nsw i32 %38, %28
   %40 = mul nuw nsw i64 %indvars.iv49, %36
-  %invariant.gep = getelementptr inbounds nuw %struct.Jpeg2000TgtNode, ptr %.03543, i64 %40
+  %invariant.gep = getelementptr inbounds nuw [16 x i8], ptr %.03543, i64 %40
   br label %41
 
 41:                                               ; preds = %.preheader.us, %41
@@ -1538,8 +1532,8 @@ tag_tree_size.exit.thread:                        ; preds = %2
   %43 = lshr i32 %42, 1
   %44 = add nuw nsw i32 %43, %39
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw %struct.Jpeg2000TgtNode, ptr %33, i64 %45
-  %gep = getelementptr inbounds nuw %struct.Jpeg2000TgtNode, ptr %invariant.gep, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %45
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   store ptr %46, ptr %47, align 8, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

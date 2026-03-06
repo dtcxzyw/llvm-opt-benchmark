@@ -300,7 +300,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   %136 = icmp ult i32 %135, 2
   %narrow = select i1 %136, i32 %134, i32 0
   %.idx = zext nneg i32 %narrow to i64
-  %137 = getelementptr %struct.callback_op, ptr @callback_ops, i64 %.idx
+  %137 = getelementptr [32 x i8], ptr @callback_ops, i64 %.idx
   br i1 %136, label %138, label %.thread32
 
 138:                                              ; preds = %133

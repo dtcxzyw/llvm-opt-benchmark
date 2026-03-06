@@ -189,8 +189,8 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17haef846f5a897b93cE(p
   br i1 %12, label %46, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %4
-  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %1
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %4
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   %.not = icmp ugt i64 %4, %11
   %.16 = select i1 %.not, ptr %14, ptr %0
   %16 = shl i64 %.sroa.0.0.sroa.speculated.i, 4
@@ -221,9 +221,9 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17haef846f5a897b93cE(p
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %..i, i64 16, i1 false), !noalias !43
   %28 = xor i1 %27, true
   %29 = zext i1 %28 to i64
-  %30 = getelementptr inbounds nuw { i64, i64 }, ptr %24, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %29
   %31 = zext i1 %27 to i64
-  %32 = getelementptr inbounds nuw { i64, i64 }, ptr %25, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %31
   %33 = icmp eq ptr %30, %0
   %34 = icmp eq ptr %32, %2
   %or.cond.i = select i1 %33, i1 true, i1 %34
@@ -254,9 +254,9 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17haef846f5a897b93cE(p
   %.sroa.05.0.i = select i1 %37, ptr %.sroa.0.02.i, ptr %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.0.i, i64 16, i1 false), !noalias !46
   %39 = zext i1 %38 to i64
-  %40 = getelementptr inbounds nuw { i64, i64 }, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %39
   %41 = zext i1 %37 to i64
-  %42 = getelementptr inbounds nuw { i64, i64 }, ptr %.sroa.0.02.i, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.02.i, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %44 = icmp ne ptr %40, %17
   %45 = icmp ne ptr %42, %15
@@ -398,7 +398,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$std..collections..hash..map..HashMa
   %82 = add i64 %.sroa.01.0.i.i.i.i.i.i, %81
   %83 = and i64 %82, %11
   %84 = sub nsw i64 0, %83
-  %85 = getelementptr inbounds { i32, [1 x i32], { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } } }, ptr %12, i64 %84
+  %85 = getelementptr inbounds [104 x i8], ptr %12, i64 %84
   %86 = getelementptr inbounds i8, ptr %85, i64 -104
   %87 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h626d1b10e9ddf97fE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %86), !noalias !79
   br i1 %87, label %97, label %91, !prof !82
@@ -525,7 +525,7 @@ define void @"_ZN4raft7tracker197_$LT$impl$u20$raft..quorum..AckedIndexer$u20$fo
   %21 = add i64 %.sroa.01.0.i.i.i, %20
   %22 = and i64 %21, %13
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds { i64, { { { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, i64, i64, i64 }, i64, i64, i64, i64, i64, i64, i8, i8, i8, [5 x i8] } }, ptr %14, i64 %23
+  %24 = getelementptr inbounds [128 x i8], ptr %14, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -128
   %26 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h6a75ed91bc90ef73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %25), !noalias !120
   br i1 %26, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h092b83c8ffb0da23E.exit", label %30, !prof !82

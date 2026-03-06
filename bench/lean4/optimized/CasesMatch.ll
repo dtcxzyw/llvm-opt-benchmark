@@ -44,7 +44,7 @@ define internal fastcc ptr @lean_array_set(ptr noundef %0, ptr noundef %1, ptr n
 lean_ensure_exclusive_array.exit.i:               ; preds = %12, %10
   %.0.i.i = phi ptr [ %13, %12 ], [ %0, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %7
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %7
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i1
@@ -3002,7 +3002,7 @@ lean_dec.exit47:                                  ; preds = %.._crit_edge_crit_e
   %.03673 = phi i64 [ %5, %.lr.ph ], [ %100, %lean_nat_add.exit.thread ]
   %.03872 = phi ptr [ %6, %.lr.ph ], [ %.0.i63, %lean_nat_add.exit.thread ]
   %.04071 = phi ptr [ %11, %.lr.ph ], [ %64, %lean_nat_add.exit.thread ]
-  %27 = getelementptr inbounds nuw ptr, ptr %13, i64 %.03673
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.03673
   %28 = load ptr, ptr %27, align 8, !tbaa !11
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i1

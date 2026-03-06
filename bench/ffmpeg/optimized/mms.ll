@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/mms.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.MMSStream = type { i32 }
-
 @ff_asf_header = external constant [16 x i8], align 16
 @.str = private unnamed_addr constant [46 x i8] c"Corrupt stream (invalid ASF header, size=%d)\0A\00", align 1
 @ff_asf_data_header = external constant [16 x i8], align 16
@@ -191,7 +189,7 @@ define range(i32 -1094995529, 1) i32 @ff_mms_asf_header_parser(ptr noundef initi
 58:                                               ; preds = %52
   %59 = load i32, ptr %4, align 8, !tbaa !17
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %struct.MMSStream, ptr %57, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %57, i64 %60
   store i32 %46, ptr %61, align 4, !tbaa !22
   %62 = add nsw i32 %59, 1
   store i32 %62, ptr %4, align 8, !tbaa !17

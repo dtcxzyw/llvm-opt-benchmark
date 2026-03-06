@@ -286,7 +286,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 
 29:                                               ; preds = %"_ZN20ruff_python_semantic3cfg9visualize12MermaidGraph10draw_graph28_$u7b$$u7b$closure$u7d$$u7d$17hd461bacde1c0399fE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !10
-  %30 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %16, i64 %.val6
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %.val6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !22
   %31 = add i64 %.val6, 1
   store i64 %31, ptr %17, align 8, !alias.scope !23, !noalias !28
@@ -1009,7 +1009,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi i64 [ %6, %.lr.ph ], [ %32, %.backedge ]
   %12 = load ptr, ptr %1, align 8, !nonnull !3, !align !9, !noundef !3
-  %13 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %11
   %14 = tail call noundef zeroext i1 @_ZN8bitflags6traits5Flags8is_empty17h0dd653692c3aee8cE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8)
   br i1 %14, label %22, label %16
 
@@ -1083,7 +1083,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi i64 [ %6, %.lr.ph ], [ %32, %.backedge ]
   %12 = load ptr, ptr %1, align 8, !nonnull !3, !align !9, !noundef !3
-  %13 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %11
   %14 = tail call noundef zeroext i1 @_ZN8bitflags6traits5Flags8is_empty17h1f93e4cfdb5a3e64E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8)
   br i1 %14, label %22, label %16
 
@@ -1157,7 +1157,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi i64 [ %6, %.lr.ph ], [ %32, %.backedge ]
   %12 = load ptr, ptr %1, align 8, !nonnull !3, !align !9, !noundef !3
-  %13 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %11
   %14 = tail call noundef zeroext i1 @_ZN8bitflags6traits5Flags8is_empty17h993563b0930dbd19E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8)
   br i1 %14, label %22, label %16
 
@@ -1231,7 +1231,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi i64 [ %6, %.lr.ph ], [ %32, %.backedge ]
   %12 = load ptr, ptr %1, align 8, !nonnull !3, !align !9, !noundef !3
-  %13 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %11
   %14 = tail call noundef zeroext i1 @_ZN8bitflags6traits5Flags8is_empty17h446433583cf5e304E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8)
   br i1 %14, label %22, label %16
 
@@ -1305,7 +1305,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi i64 [ %6, %.lr.ph ], [ %32, %.backedge ]
   %12 = load ptr, ptr %1, align 8, !nonnull !3, !align !9, !noundef !3
-  %13 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %11
   %14 = tail call noundef zeroext i1 @_ZN8bitflags6traits5Flags8is_empty17hf3a1596ac19fc3f5E(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %8)
   br i1 %14, label %22, label %16
 
@@ -1379,7 +1379,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi i64 [ %6, %.lr.ph ], [ %32, %.backedge ]
   %12 = load ptr, ptr %1, align 8, !nonnull !3, !align !9, !noundef !3
-  %13 = getelementptr inbounds nuw { { ptr, i64 }, i32, [1 x i32] }, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %11
   %14 = tail call noundef zeroext i1 @_ZN8bitflags6traits5Flags8is_empty17h3e082c3370e0842bE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8)
   br i1 %14, label %22, label %16
 
@@ -1453,7 +1453,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi i64 [ %6, %.lr.ph ], [ %32, %.backedge ]
   %12 = load ptr, ptr %1, align 8, !nonnull !3, !align !9, !noundef !3
-  %13 = getelementptr inbounds nuw { { ptr, i64 }, i32, [1 x i32] }, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %11
   %14 = tail call noundef zeroext i1 @_ZN8bitflags6traits5Flags8is_empty17h64ab68424ba34bf6E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8)
   br i1 %14, label %22, label %16
 
@@ -1748,7 +1748,7 @@ common.resume:                                    ; preds = %.body, %330, %56
   br label %.invoke
 
 120:                                              ; preds = %97, %110, %117, %104
-  %121 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %2, i64 %3
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %3
   %122 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -1906,7 +1906,7 @@ common.resume:                                    ; preds = %.body, %330, %56
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h30645195c70acfcbE.exit.i.i.i.i": ; preds = %170, %166
   %171 = load ptr, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx2.sroa_idx.i.i.i.i, align 8, !alias.scope !121, !noalias !124, !nonnull !3, !noundef !3
-  %172 = getelementptr inbounds nuw { ptr, i64 }, ptr %171, i64 %167
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %167
   store ptr %.val4.i, ptr %172, align 8, !noalias !128
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i64 %152, ptr %173, align 8, !noalias !114
@@ -1971,7 +1971,7 @@ common.resume:                                    ; preds = %.body, %330, %56
   unreachable
 
 _ZN15ruff_python_ast4name13SegmentsStack4push17h2d63f62767ae4f7bE.exit.thread.i.i.i.i: ; preds = %175
-  %196 = getelementptr inbounds nuw { ptr, i64 }, ptr %19, i64 %176
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %176
   store ptr %.val4.i, ptr %196, align 8, !alias.scope !132, !noalias !133
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   store i64 %152, ptr %197, align 8, !alias.scope !132, !noalias !133
@@ -1982,7 +1982,7 @@ _ZN15ruff_python_ast4name13SegmentsStack4push17h2d63f62767ae4f7bE.exit.thread.i.
 
 _ZN15ruff_python_ast4name13SegmentsStack4push17h2d63f62767ae4f7bE.exit.i.i.i.i: ; preds = %193, %189
   %200 = load ptr, ptr %132, align 8, !alias.scope !141, !noalias !144, !nonnull !3, !noundef !3
-  %201 = getelementptr inbounds nuw { ptr, i64 }, ptr %200, i64 %190
+  %201 = getelementptr inbounds nuw [16 x i8], ptr %200, i64 %190
   store ptr %.val4.i, ptr %201, align 8, !noalias !147
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
   store i64 %152, ptr %202, align 8, !noalias !148
@@ -2293,7 +2293,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.thread.
           to label %.body.thread.i.i.i unwind label %232, !noalias !179
 
 293:                                              ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he9701d5b4fac9157E.exit.i.i21.i.i.i"
-  %294 = getelementptr inbounds nuw { ptr, i64 }, ptr %19, i64 %289
+  %294 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %289
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hcab3cff49c652787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(136) %19, ptr noundef nonnull %294, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2b5b11705821689e869012ad6d5a2677.37)
           to label %295 unwind label %.loopexit.i, !noalias !179
 
@@ -2309,7 +2309,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.thread.
 
 300:                                              ; preds = %299, %295
   %301 = load ptr, ptr %142, align 8, !alias.scope !208, !noalias !211, !nonnull !3, !noundef !3
-  %302 = getelementptr inbounds nuw { ptr, i64 }, ptr %301, i64 %296
+  %302 = getelementptr inbounds nuw [16 x i8], ptr %301, i64 %296
   store ptr %.sroa.0.1.i.i20.i.i.i.i.i, ptr %302, align 8, !noalias !214
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i64 %.sroa.4.1.i.i19.i.i.i.i.i, ptr %303, align 8, !noalias !179
@@ -2320,7 +2320,7 @@ _ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.thread.
           to label %_ZN15ruff_python_ast4name13SegmentsStack6extend17h94d5f455d8bf2ba1E.exit.i.i.i.i unwind label %.loopexit.i, !noalias !179
 
 305:                                              ; preds = %273
-  %306 = getelementptr inbounds nuw { ptr, i64 }, ptr %19, i64 %274
+  %306 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %274
   store ptr %.sroa.0.1.i.i.i.i.i.i.i, ptr %306, align 8, !alias.scope !203, !noalias !204
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store i64 %.sroa.4.1.i.i.i.i.i.i.i, ptr %307, align 8, !alias.scope !203, !noalias !204
@@ -2454,7 +2454,7 @@ _ZN15ruff_python_ast4name13QualifiedName16from_dotted_name17hc15ce0727ca61b69E.e
 
 334:                                              ; preds = %332
   %335 = extractvalue { ptr, i64 } %329, 0
-  %336 = getelementptr { ptr, i64 }, ptr %335, i64 %333
+  %336 = getelementptr [16 x i8], ptr %335, i64 %333
   %337 = getelementptr i8, ptr %336, i64 -16
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %335) ]
   %338 = getelementptr i8, ptr %336, i64 -8
@@ -2745,13 +2745,13 @@ switch.lookup:
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val13 = load i8, ptr %18, align 8, !range !232, !noundef !3
   %19 = zext nneg i8 %.val13 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE", i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE", i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = zext nneg i8 %.val13 to i64
-  %switch.gep43 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE.32", i64 %20
+  %switch.gep43 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE.32", i64 %20
   %switch.load44 = load i64, ptr %switch.gep43, align 8
   %21 = zext nneg i8 %.val13 to i64
-  %switch.gep45 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE.33", i64 %21
+  %switch.gep45 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN88_$LT$ruff_python_semantic..cfg..visualize..MermaidNode$u20$as$u20$core..fmt..Display$GT$3fmt17hdae73f7d494f070eE.33", i64 %21
   %switch.load46 = load ptr, ptr %switch.gep45, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %switch.load, ptr %17, align 8
@@ -3165,7 +3165,7 @@ define void @"_ZN122_$LT$ruff_python_semantic..cfg..visualize..CFGWithSource$u20
   %11 = tail call { ptr, i64 } @_ZN20ruff_python_semantic3cfg5graph16ControlFlowGraph5stmts17ha5594d8ede980ab7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2)
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
-  %14 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [120 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !align !53, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3384,7 +3384,7 @@ define void @"_ZN122_$LT$ruff_python_semantic..cfg..visualize..CFGWithSource$u20
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !340, !noalias !337
   %13 = icmp ult i64 %.sroa.5.0.copyload.i, 230584300921369396
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw { i32, [1 x i32], { { { { { i64, ptr, {} }, {} }, i64 } }, i8, [7 x i8] } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   %15 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %15)
   store ptr %.sroa.4.0.copyload.i, ptr %0, align 8, !alias.scope !337, !noalias !340

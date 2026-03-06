@@ -93,7 +93,7 @@ define noundef zeroext i1 @_ZNK5faiss15IDSelectorArray9is_memberEl(ptr noundef n
 
 7:                                                ; preds = %7, %.lr.ph
   %.069 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %.069
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.069
   %9 = load i64, ptr %8, align 8, !tbaa !16
   %10 = icmp eq i64 %9, %1
   %11 = add nuw i64 %.069, 1
@@ -158,7 +158,7 @@ define noundef zeroext i1 @_ZNK5faiss15IDSelectorBatch9is_memberEl(ptr noundef n
   %29 = load i64, ptr %28, align 8, !tbaa !39
   %30 = urem i64 %1, %29
   %31 = load ptr, ptr %27, align 8, !tbaa !40
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !41
   %.not.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i.i, label %_ZNKSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEE5countERKl.exit, label %34
@@ -382,7 +382,7 @@ define void @_ZNK5faiss15IDSelectorRange22find_sorted_ids_boundsEmPKlPmS3_(ptr n
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !4
-  %21 = getelementptr i64, ptr %2, i64 %1
+  %21 = getelementptr [8 x i8], ptr %2, i64 %1
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load i64, ptr %22, align 8, !tbaa !16
   %24 = icmp sgt i64 %20, %23
@@ -406,7 +406,7 @@ define void @_ZNK5faiss15IDSelectorRange22find_sorted_ids_boundsEmPKlPmS3_(ptr n
   %.04152 = phi i64 [ %.041., %.lr.ph ], [ %1, %.preheader51 ]
   %27 = add i64 %.053, %.04152
   %28 = lshr i64 %27, 1
-  %29 = getelementptr inbounds nuw i64, ptr %2, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !16
   %.not48 = icmp slt i64 %30, %20
   %.041. = select i1 %.not48, i64 %.04152, i64 %28
@@ -422,7 +422,7 @@ define void @_ZNK5faiss15IDSelectorRange22find_sorted_ids_boundsEmPKlPmS3_(ptr n
   br i1 %33, label %40, label %34
 
 34:                                               ; preds = %.loopexit
-  %35 = getelementptr inbounds nuw i64, ptr %2, i64 %storemerge
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %storemerge
   %36 = load i64, ptr %35, align 8, !tbaa !16
   %37 = load i64, ptr %15, align 8, !tbaa !51
   %.not49 = icmp slt i64 %36, %37
@@ -442,7 +442,7 @@ define void @_ZNK5faiss15IDSelectorRange22find_sorted_ids_boundsEmPKlPmS3_(ptr n
   %.03954 = phi i64 [ %..039, %.lr.ph56 ], [ %storemerge, %.preheader ]
   %41 = add i64 %.03755, %.03954
   %42 = lshr i64 %41, 1
-  %43 = getelementptr inbounds nuw i64, ptr %2, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !16
   %.not50 = icmp slt i64 %44, %37
   %..039 = select i1 %.not50, i64 %42, i64 %.03954
@@ -538,7 +538,7 @@ _ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %17
 .lr.ph:                                           ; preds = %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit, %32
   %.0914 = phi i64 [ %44, %32 ], [ 0, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %29 = getelementptr inbounds nuw i64, ptr %2, i64 %.0914
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0914
   %30 = load i64, ptr %29, align 8, !tbaa !16
   store i64 %30, ptr %6, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -824,7 +824,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIllSaIlENSt8__detail9_Identity
   %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = urem i64 %7, %9
   %11 = load ptr, ptr %0, align 8, !tbaa !40
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !41
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %.critedge, label %26
@@ -958,7 +958,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
 31:                                               ; preds = %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !40
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !41
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -984,7 +984,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %44 = load i64, ptr %9, align 8, !tbaa !39
   %45 = load i64, ptr %43, align 8, !tbaa !16
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !41
   br label %48
 
@@ -1048,7 +1048,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !16
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -1063,7 +1063,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !41
   br label %28
 

@@ -365,10 +365,10 @@ select.unfold:                                    ; preds = %86, %90, %76, %81
 
 122:                                              ; preds = %122, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %122 ]
-  %123 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv.i
   %124 = load i32, ptr %123, align 4, !tbaa !28
   %125 = sitofp i32 %124 to float
-  %126 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i
   store float %125, ptr %126, align 4, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -415,7 +415,7 @@ _ZL16convert_int_realiP15t_compare_value.exit:    ; preds = %122, %116
 
 switch.lookup:                                    ; preds = %136
   %144 = zext nneg i32 %.0.i63.ph to i64
-  %145 = getelementptr i32, ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 %144
+  %145 = getelementptr [4 x i8], ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 %144
   %switch.gep = getelementptr i8, ptr %145, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL23reverse_comparison_type14e_comparison_t.exit
@@ -443,10 +443,10 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %136, %switch.looku
 
 153:                                              ; preds = %153, %.lr.ph.i65
   %indvars.iv.i67 = phi i64 [ 0, %.lr.ph.i65 ], [ %indvars.iv.next.i68, %153 ]
-  %154 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv.i67
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %indvars.iv.i67
   %155 = load i32, ptr %154, align 4, !tbaa !28
   %156 = sitofp i32 %155 to float
-  %157 = getelementptr inbounds nuw float, ptr %149, i64 %indvars.iv.i67
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv.i67
   store float %156, ptr %157, align 4, !tbaa !29
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, %wide.trip.count.i66
@@ -569,10 +569,10 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %.03342.i = phi i32 [ 0, %.lr.ph.i ], [ %.134.i, %.critedge.i ]
   %.03541.i = phi i32 [ 0, %.lr.ph.i ], [ %.136.i, %.critedge.i ]
   %26 = zext nneg i32 %.03243.i to i64
-  %27 = getelementptr inbounds nuw i32, ptr %15, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !28
   %29 = zext nneg i32 %.03541.i to i64
-  %30 = getelementptr inbounds nuw i32, ptr %17, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !28
   switch i32 %19, label %.critedge.i [
     i32 6, label %40
@@ -609,14 +609,14 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
 
 41:                                               ; preds = %40, %38, %37, %35, %34, %32
   %42 = load ptr, ptr %20, align 8, !tbaa !41
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i
   %44 = load i32, ptr %43, align 4, !tbaa !28
   %45 = load ptr, ptr %21, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !41
   %48 = add nsw i32 %.03342.i, 1
   %49 = sext i32 %.03342.i to i64
-  %50 = getelementptr inbounds i32, ptr %47, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %47, i64 %49
   store i32 %44, ptr %50, align 4, !tbaa !28
   %.pre.i = load i32, ptr %1, align 8, !tbaa !39
   %.pre = load i32, ptr %5, align 8, !tbaa !37
@@ -659,7 +659,7 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %.03842.i = phi i32 [ 0, %.lr.ph.i9 ], [ %.139.i, %.critedge.i12 ]
   %69 = load ptr, ptr %61, align 8, !tbaa !34
   %70 = zext nneg i32 %.03544.i to i64
-  %71 = getelementptr inbounds nuw float, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %70
   %72 = load float, ptr %71, align 4, !tbaa !29
   %73 = and i32 %68, 4
   %.not.i = icmp eq i32 %73, 0
@@ -668,13 +668,13 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
 
 75:                                               ; preds = %67
   %76 = load ptr, ptr %62, align 8, !tbaa !33
-  %77 = getelementptr inbounds nuw float, ptr %76, i64 %74
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %74
   %78 = load float, ptr %77, align 4, !tbaa !29
   br label %84
 
 79:                                               ; preds = %67
   %80 = load ptr, ptr %63, align 8, !tbaa !36
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %74
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %74
   %82 = load i32, ptr %81, align 4, !tbaa !28
   %83 = sitofp i32 %82 to float
   br label %84
@@ -721,14 +721,14 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
 
 103:                                              ; preds = %99, %95, %93, %91, %89, %87
   %104 = load ptr, ptr %65, align 8, !tbaa !41
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv.i11
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv.i11
   %106 = load i32, ptr %105, align 4, !tbaa !28
   %107 = load ptr, ptr %66, align 8, !tbaa !4
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8, !tbaa !41
   %110 = add nsw i32 %.03643.i, 1
   %111 = sext i32 %.03643.i to i64
-  %112 = getelementptr inbounds i32, ptr %109, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %109, i64 %111
   store i32 %106, ptr %112, align 4, !tbaa !28
   br label %.critedge.i12
 
@@ -964,7 +964,7 @@ define internal fastcc void @_ZL16convert_real_intiP15t_compare_value14e_compari
 
 switch.lookup:                                    ; preds = %11
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL23reverse_comparison_type14e_comparison_t.exit
 
@@ -994,11 +994,11 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
 
 19:                                               ; preds = %19, %.lr.ph.split.split.us
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %19 ], [ 0, %.lr.ph.split.split.us ]
-  %20 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv66
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv66
   %21 = load float, ptr %20, align 4, !tbaa !29
   %22 = tail call noundef float @llvm.ceil.f32(float %21)
   %23 = fptosi float %22 to i32
-  %24 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv66
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv66
   store i32 %23, ptr %24, align 4, !tbaa !28
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count70
@@ -1012,11 +1012,11 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
 
 27:                                               ; preds = %27, %.lr.ph.split.split.us61
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.lr.ph.split.split.us61 ]
-  %28 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !29
   %30 = tail call noundef float @llvm.floor.f32(float %29)
   %31 = fptosi float %30 to i32
-  %32 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %31, ptr %32, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

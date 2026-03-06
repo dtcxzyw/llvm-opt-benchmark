@@ -961,7 +961,7 @@ define hidden i32 @mbedtls_ssl_handshake_client_step(ptr noundef %0) local_unnam
 
 256:                                              ; preds = %262, %248
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %262 ], [ 0, %248 ]
-  %257 = getelementptr inbounds nuw i32, ptr %255, i64 %indvars.iv.i
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %255, i64 %indvars.iv.i
   %258 = load i32, ptr %257, align 4, !tbaa !77
   %259 = icmp eq i32 %258, 0
   br i1 %259, label %260, label %262

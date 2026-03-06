@@ -287,7 +287,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   %96 = load i8, ptr %95, align 1, !tbaa !13
   %97 = sext i8 %96 to i64
   %98 = sub nsw i64 1, %97
-  %99 = getelementptr inbounds %"struct.cmExprParserHelper::ParserType", ptr %.0193, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %.0193, i64 %98
   %100 = load i64, ptr %99, align 8, !tbaa !4
   %101 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
   %.not238 = icmp eq i32 %101, 0
@@ -496,7 +496,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   %199 = icmp eq i32 %.0192, 0
   %.str.19..str.20.i = select i1 %199, ptr @.str.19, ptr @.str.20
   %200 = sext i8 %198 to i64
-  %201 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !16
   %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i, ptr noundef %202) #16
   %fputc.i = call i32 @fputc(i32 41, ptr %196)
@@ -507,7 +507,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 205:                                              ; preds = %._crit_edge376, %193
   %.pre-phi = phi i64 [ %.pre379, %._crit_edge376 ], [ %200, %193 ]
   %206 = sub nsw i64 0, %97
-  %207 = getelementptr inbounds %"struct.cmExprParserHelper::ParserType", ptr %.0193, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %.0193, i64 %206
   %.0202.add = sub nsw i64 %.0202.idx, %97
   %.ptr227 = getelementptr inbounds i8, ptr %3, i64 %.0202.add
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
@@ -626,7 +626,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   %262 = icmp slt i32 %237, 17
   %.str.19..str.20.i.i = select i1 %262, ptr @.str.19, ptr @.str.20
   %263 = sext i32 %237 to i64
-  %264 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %263
+  %264 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %263
   %265 = load ptr, ptr %264, align 8, !tbaa !16
   %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %261, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i, ptr noundef %265) #16
   %fputc.i.i = call i32 @fputc(i32 41, ptr %261)
@@ -693,7 +693,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
   %.not338 = icmp eq i64 %294, 0
   %.str.19..str.20.i.i260 = select i1 %.not338, ptr @.str.20, ptr @.str.19
   %295 = sext i8 %290 to i64
-  %296 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %295
+  %296 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %295
   %297 = load ptr, ptr %296, align 8, !tbaa !16
   %298 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %293, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i260, ptr noundef %297) #16
   %fputc.i.i261 = call i32 @fputc(i32 41, ptr %293)
@@ -773,7 +773,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
   %325 = icmp slt i32 %319, 17
   %.str.19..str.20.i.i267 = select i1 %325, ptr @.str.19, ptr @.str.20
   %326 = sext i32 %319 to i64
-  %327 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %326
+  %327 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %326
   %328 = load ptr, ptr %327, align 8, !tbaa !16
   %329 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %324, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i267, ptr noundef %328) #16
   %fputc.i.i268 = call i32 @fputc(i32 41, ptr %324)
@@ -822,7 +822,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit270
   %.not341 = icmp eq i64 %344, 0
   %.str.19..str.20.i.i272 = select i1 %.not341, ptr @.str.20, ptr @.str.19
   %345 = sext i8 %339 to i64
-  %346 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %345
+  %346 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %345
   %347 = load ptr, ptr %346, align 8, !tbaa !16
   %348 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %342, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i272, ptr noundef %347) #16
   %fputc.i.i273 = call i32 @fputc(i32 41, ptr %342)
@@ -887,7 +887,7 @@ define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPKN1
   %3 = icmp slt i32 %1, 17
   %.str.19..str.20 = select i1 %3, ptr @.str.19, ptr @.str.20
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20, ptr noundef %6) #17
   %fputc = tail call i32 @fputc(i32 41, ptr %0)
@@ -932,7 +932,7 @@ define internal fastcc void @_ZL15yy_reduce_printPaPN18cmExprParserHelper10Parse
   %.not = icmp eq i64 %25, 0
   %.str.19..str.20.i = select i1 %.not, ptr @.str.20, ptr @.str.19
   %26 = sext i8 %23 to i64
-  %27 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !16
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i, ptr noundef %28) #16
   %fputc.i = tail call i32 @fputc(i32 41, ptr %17)
@@ -1019,7 +1019,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
 26:                                               ; preds = %24
   %27 = add i32 %.1365.i.i, 1
   %28 = sext i32 %.1365.i.i to i64
-  %29 = getelementptr inbounds i32, ptr %4, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %4, i64 %28
   store i32 %20, ptr %29, align 4, !tbaa !24
   br label %30
 
@@ -1083,10 +1083,10 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL9yytnamerrPcPKc.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL9yytnamerrPcPKc.exit.thread ]
   %.04921 = phi i64 [ %40, %.lr.ph.preheader ], [ %.15013, %_ZL9yytnamerrPcPKc.exit.thread ]
-  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !24
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !16
   %46 = load i8, ptr %45, align 1, !tbaa !13
   %47 = icmp eq i8 %46, 34
@@ -1162,10 +1162,10 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
 66:                                               ; preds = %61
   %67 = add nsw i32 %.0, 1
   %68 = sext i32 %.0 to i64
-  %69 = getelementptr inbounds i32, ptr %2, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %2, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !24
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !16
   %74 = load i8, ptr %73, align 1, !tbaa !13
   %75 = icmp eq i8 %74, 34

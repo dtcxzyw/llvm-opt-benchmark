@@ -22,7 +22,7 @@ define void @_ZN6LibRaw19setPhaseOneFeaturesEy(ptr noundef nonnull align 8 deref
 
 .preheader:                                       ; preds = %4, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw19setPhaseOneFeaturesEyE9p1_unique, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [48 x i8], ptr @_ZZN6LibRaw19setPhaseOneFeaturesEyE9p1_unique, i64 %indvars.iv
   %8 = load i64, ptr %7, align 16, !tbaa !72
   %9 = icmp eq i64 %1, %8
   br i1 %9, label %10, label %25

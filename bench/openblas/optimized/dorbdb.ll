@@ -27,19 +27,19 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %29 = load i32, ptr %6, align 4, !tbaa !3
   %narrow = xor i32 %29, -1
   %30 = sext i32 %narrow to i64
-  %31 = getelementptr inbounds double, ptr %5, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %5, i64 %30
   %32 = load i32, ptr %8, align 4, !tbaa !3
   %narrow1358 = xor i32 %32, -1
   %33 = sext i32 %narrow1358 to i64
-  %34 = getelementptr inbounds double, ptr %7, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %7, i64 %33
   %35 = load i32, ptr %10, align 4, !tbaa !3
   %narrow1359 = xor i32 %35, -1
   %36 = sext i32 %narrow1359 to i64
-  %37 = getelementptr inbounds double, ptr %9, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %9, i64 %36
   %38 = load i32, ptr %12, align 4, !tbaa !3
   %narrow1360 = xor i32 %38, -1
   %39 = sext i32 %narrow1360 to i64
-  %40 = getelementptr inbounds double, ptr %11, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %11, i64 %39
   %41 = getelementptr inbounds i8, ptr %13, i64 -8
   %42 = getelementptr inbounds i8, ptr %14, i64 -8
   %43 = getelementptr inbounds i8, ptr %15, i64 -8
@@ -169,10 +169,10 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %95 = add i32 %29, 1
   %96 = add i32 %35, 1
   %97 = sext i32 %29 to i64
-  %98 = getelementptr double, ptr %31, i64 %97
+  %98 = getelementptr [8 x i8], ptr %31, i64 %97
   %99 = getelementptr i8, ptr %98, i64 8
   %100 = sext i32 %35 to i64
-  %101 = getelementptr double, ptr %37, i64 %100
+  %101 = getelementptr [8 x i8], ptr %37, i64 %100
   %102 = getelementptr i8, ptr %101, i64 8
   %103 = add i32 %32, 1
   %104 = add i32 %38, 1
@@ -206,7 +206,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %117, ptr %24, align 4, !tbaa !3
   %118 = load double, ptr %27, align 8, !tbaa !7
   %119 = add nsw i32 %indvars1545, -1
-  %120 = getelementptr double, ptr %42, i64 %indvars.iv1541
+  %120 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv1541
   %121 = getelementptr i8, ptr %120, i64 -8
   %122 = load double, ptr %121, align 8, !tbaa !7
   %123 = call double @cos(double noundef %122) #5, !tbaa !3
@@ -214,7 +214,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %124, ptr %26, align 8, !tbaa !7
   %125 = mul i32 %95, %indvars1545
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds double, ptr %31, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %31, i64 %126
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %127, ptr noundef nonnull @c__1) #5
   %128 = load i32, ptr %3, align 4, !tbaa !3
   %129 = add i32 %116, %128
@@ -228,8 +228,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %135, ptr %26, align 8, !tbaa !7
   %136 = mul nsw i32 %119, %32
   %137 = sext i32 %136 to i64
-  %138 = getelementptr double, ptr %34, i64 %indvars.iv1541
-  %139 = getelementptr double, ptr %138, i64 %137
+  %138 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv1541
+  %139 = getelementptr [8 x i8], ptr %138, i64 %137
   call void @daxpy_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %139, ptr noundef nonnull @c__1, ptr noundef %127, ptr noundef nonnull @c__1) #5
   %140 = load i32, ptr %2, align 4, !tbaa !3
   %141 = load i32, ptr %3, align 4, !tbaa !3
@@ -243,7 +243,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %147, ptr %26, align 8, !tbaa !7
   %148 = mul i32 %96, %indvars1545
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds double, ptr %37, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr %37, i64 %149
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %150, ptr noundef nonnull @c__1) #5
   %151 = load i32, ptr %2, align 4, !tbaa !3
   %152 = load i32, ptr %3, align 4, !tbaa !3
@@ -259,8 +259,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %160, ptr %26, align 8, !tbaa !7
   %161 = mul nsw i32 %119, %38
   %162 = sext i32 %161 to i64
-  %163 = getelementptr double, ptr %40, i64 %indvars.iv1541
-  %164 = getelementptr double, ptr %163, i64 %162
+  %163 = getelementptr [8 x i8], ptr %40, i64 %indvars.iv1541
+  %164 = getelementptr [8 x i8], ptr %163, i64 %162
   call void @daxpy_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %164, ptr noundef nonnull @c__1, ptr noundef %150, ptr noundef nonnull @c__1) #5
   br label %165
 
@@ -276,16 +276,16 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %171 = mul nsw i64 %indvars.iv1541, %100
   %172 = mul nsw i32 %35, %indvars1545
   %173 = sext i32 %172 to i64
-  %174 = getelementptr double, ptr %37, i64 %indvars.iv1541
-  %175 = getelementptr double, ptr %174, i64 %173
+  %174 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv1541
+  %175 = getelementptr [8 x i8], ptr %174, i64 %173
   %176 = call double @dnrm2_(ptr noundef nonnull %24, ptr noundef %175, ptr noundef nonnull @c__1) #5
   %177 = mul nsw i32 %29, %indvars1545
   %178 = sext i32 %177 to i64
-  %179 = getelementptr double, ptr %31, i64 %indvars.iv1541
-  %180 = getelementptr double, ptr %179, i64 %178
+  %179 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv1541
+  %180 = getelementptr [8 x i8], ptr %179, i64 %178
   %181 = call double @dnrm2_(ptr noundef nonnull %25, ptr noundef %180, ptr noundef nonnull @c__1) #5
   %182 = call double @atan2(double noundef %176, double noundef %181) #5, !tbaa !3
-  %183 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv1541
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv1541
   store double %182, ptr %183, align 8, !tbaa !7
   %184 = load i32, ptr %3, align 4, !tbaa !3
   %185 = sext i32 %184 to i64
@@ -296,9 +296,9 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %188 = mul nsw i64 %indvars.iv1541, %97
   %189 = add i32 %.neg1457.pre-phi, %184
   store i32 %189, ptr %24, align 4, !tbaa !3
-  %190 = getelementptr double, ptr %31, i64 %indvars.iv1541
+  %190 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv1541
   %191 = getelementptr i8, ptr %190, i64 8
-  %192 = getelementptr double, ptr %191, i64 %188
+  %192 = getelementptr [8 x i8], ptr %191, i64 %188
   br label %.sink.split
 
 193:                                              ; preds = %165
@@ -312,7 +312,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 .sink.split:                                      ; preds = %187, %196
   %.sink1624 = phi ptr [ %180, %196 ], [ %192, %187 ]
-  %197 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv1541
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv1541
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %180, ptr noundef %.sink1624, ptr noundef nonnull @c__1, ptr noundef nonnull %197) #5
   br label %198
 
@@ -328,9 +328,9 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 204:                                              ; preds = %198
   %205 = add i32 %.neg1457.pre-phi, %201
   store i32 %205, ptr %24, align 4, !tbaa !3
-  %206 = getelementptr double, ptr %37, i64 %indvars.iv1541
+  %206 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv1541
   %207 = getelementptr i8, ptr %206, i64 8
-  %208 = getelementptr double, ptr %207, i64 %171
+  %208 = getelementptr [8 x i8], ptr %207, i64 %171
   br label %.sink.split1626
 
 209:                                              ; preds = %198
@@ -344,7 +344,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 .sink.split1626:                                  ; preds = %204, %212
   %.sink1627 = phi ptr [ %175, %212 ], [ %208, %204 ]
-  %213 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv1541
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv1541
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %175, ptr noundef %.sink1627, ptr noundef nonnull @c__1, ptr noundef nonnull %213) #5
   br label %214
 
@@ -361,12 +361,12 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %220, ptr %24, align 4, !tbaa !3
   %221 = sub nsw i32 %215, %indvars1545
   store i32 %221, ptr %25, align 4, !tbaa !3
-  %222 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv1541
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv1541
   %223 = add nuw nsw i32 %indvars1545, 1
   %224 = mul nsw i32 %223, %29
   %225 = sext i32 %224 to i64
-  %226 = getelementptr double, ptr %31, i64 %indvars.iv1541
-  %227 = getelementptr double, ptr %226, i64 %225
+  %226 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv1541
+  %227 = getelementptr [8 x i8], ptr %226, i64 %225
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %180, ptr noundef nonnull @c__1, ptr noundef nonnull %222, ptr noundef %227, ptr noundef nonnull %6, ptr noundef %19) #5
   %.pre1564 = load i32, ptr %4, align 4, !tbaa !3
   br label %228
@@ -386,10 +386,10 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %236 = add i32 %.neg1457.pre-phi, %230
   %237 = sub i32 %236, %229
   store i32 %237, ptr %25, align 4, !tbaa !3
-  %238 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv1541
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv1541
   %239 = mul i32 %103, %indvars1545
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds double, ptr %34, i64 %240
+  %241 = getelementptr inbounds [8 x i8], ptr %34, i64 %240
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %180, ptr noundef nonnull @c__1, ptr noundef nonnull %238, ptr noundef %241, ptr noundef nonnull %8, ptr noundef %19) #5
   %.pre1565 = load i32, ptr %4, align 4, !tbaa !3
   %.pre1567.pre = load i32, ptr %2, align 4, !tbaa !3
@@ -409,12 +409,12 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %249, ptr %24, align 4, !tbaa !3
   %250 = sub nsw i32 %243, %indvars1545
   store i32 %250, ptr %25, align 4, !tbaa !3
-  %251 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv1541
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv1541
   %252 = add nuw nsw i32 %indvars1545, 1
   %253 = mul nsw i32 %252, %35
   %254 = sext i32 %253 to i64
-  %255 = getelementptr double, ptr %37, i64 %indvars.iv1541
-  %256 = getelementptr double, ptr %255, i64 %254
+  %255 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv1541
+  %256 = getelementptr [8 x i8], ptr %255, i64 %254
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %175, ptr noundef nonnull @c__1, ptr noundef nonnull %251, ptr noundef %256, ptr noundef nonnull %10, ptr noundef %19) #5
   %.pre1566 = load i32, ptr %2, align 4, !tbaa !3
   %.pre1568 = load i32, ptr %4, align 4, !tbaa !3
@@ -435,10 +435,10 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %265, ptr %24, align 4, !tbaa !3
   %266 = sub i32 %264, %258
   store i32 %266, ptr %25, align 4, !tbaa !3
-  %267 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv1541
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv1541
   %268 = mul i32 %104, %indvars1545
   %269 = sext i32 %268 to i64
-  %270 = getelementptr inbounds double, ptr %40, i64 %269
+  %270 = getelementptr inbounds [8 x i8], ptr %40, i64 %269
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %175, ptr noundef nonnull @c__1, ptr noundef nonnull %267, ptr noundef %270, ptr noundef nonnull %12, ptr noundef %19) #5
   %.pre1569 = load i32, ptr %4, align 4, !tbaa !3
   br label %271
@@ -461,8 +461,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %282 = add nuw nsw i32 %indvars1545, 1
   %283 = mul nsw i32 %282, %29
   %284 = sext i32 %283 to i64
-  %285 = getelementptr double, ptr %31, i64 %indvars.iv1541
-  %286 = getelementptr double, ptr %285, i64 %284
+  %285 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv1541
+  %286 = getelementptr [8 x i8], ptr %285, i64 %284
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %286, ptr noundef nonnull %6) #5
   %287 = load i32, ptr %4, align 4, !tbaa !3
   %288 = sub nsw i32 %287, %indvars1545
@@ -474,8 +474,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %292, ptr %26, align 8, !tbaa !7
   %293 = mul nsw i32 %282, %35
   %294 = sext i32 %293 to i64
-  %295 = getelementptr double, ptr %37, i64 %indvars.iv1541
-  %296 = getelementptr double, ptr %295, i64 %294
+  %295 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv1541
+  %296 = getelementptr [8 x i8], ptr %295, i64 %294
   call void @daxpy_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %296, ptr noundef nonnull %10, ptr noundef %286, ptr noundef nonnull %6) #5
   %.pre1570 = load i32, ptr %4, align 4, !tbaa !3
   br label %297
@@ -496,8 +496,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %308 = mul nsw i64 %indvars.iv1541, %105
   %309 = mul nsw i32 %32, %indvars1545
   %310 = sext i32 %309 to i64
-  %311 = getelementptr double, ptr %34, i64 %indvars.iv1541
-  %312 = getelementptr double, ptr %311, i64 %310
+  %311 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv1541
+  %312 = getelementptr [8 x i8], ptr %311, i64 %310
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %312, ptr noundef nonnull %8) #5
   %313 = load i32, ptr %2, align 4, !tbaa !3
   %314 = load i32, ptr %4, align 4, !tbaa !3
@@ -513,8 +513,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %322 = mul nsw i64 %indvars.iv1541, %106
   %323 = mul nsw i32 %38, %indvars1545
   %324 = sext i32 %323 to i64
-  %325 = getelementptr double, ptr %40, i64 %indvars.iv1541
-  %326 = getelementptr double, ptr %325, i64 %324
+  %325 = getelementptr [8 x i8], ptr %40, i64 %indvars.iv1541
+  %326 = getelementptr [8 x i8], ptr %325, i64 %324
   call void @daxpy_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %326, ptr noundef nonnull %12, ptr noundef %312, ptr noundef nonnull %8) #5
   %327 = load i32, ptr %4, align 4, !tbaa !3
   %328 = sext i32 %327 to i64
@@ -531,12 +531,12 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %335 = add nuw nsw i32 %indvars1545, 1
   %336 = mul nsw i32 %335, %29
   %337 = sext i32 %336 to i64
-  %338 = getelementptr double, ptr %31, i64 %indvars.iv1541
-  %339 = getelementptr double, ptr %338, i64 %337
+  %338 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv1541
+  %339 = getelementptr [8 x i8], ptr %338, i64 %337
   %340 = call double @dnrm2_(ptr noundef nonnull %24, ptr noundef %339, ptr noundef nonnull %6) #5
   %341 = call double @dnrm2_(ptr noundef nonnull %25, ptr noundef %312, ptr noundef nonnull %8) #5
   %342 = call double @atan2(double noundef %340, double noundef %341) #5, !tbaa !3
-  %343 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv1541
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv1541
   store double %342, ptr %343, align 8, !tbaa !7
   %.pre1571 = load i32, ptr %4, align 4, !tbaa !3
   %.pre1584 = sext i32 %.pre1571 to i64
@@ -550,7 +550,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %349 = mul nsw i32 %348, %29
   %350 = sext i32 %349 to i64
   %351 = add nsw i64 %indvars.iv1541, %350
-  %352 = getelementptr inbounds double, ptr %31, i64 %351
+  %352 = getelementptr inbounds [8 x i8], ptr %31, i64 %351
   br i1 %347, label %353, label %354
 
 353:                                              ; preds = %345
@@ -562,15 +562,15 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %355 = add nuw nsw i32 %indvars1545, 2
   %356 = mul nsw i32 %355, %29
   %357 = sext i32 %356 to i64
-  %358 = getelementptr double, ptr %31, i64 %indvars.iv1541
-  %359 = getelementptr double, ptr %358, i64 %357
+  %358 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv1541
+  %359 = getelementptr [8 x i8], ptr %358, i64 %357
   br label %360
 
 360:                                              ; preds = %354, %353
   %.sink1629 = phi ptr [ %359, %354 ], [ %352, %353 ]
-  %361 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv1541
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv1541
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %352, ptr noundef %.sink1629, ptr noundef nonnull %6, ptr noundef nonnull %361) #5
-  %362 = getelementptr inbounds double, ptr %31, i64 %351
+  %362 = getelementptr inbounds [8 x i8], ptr %31, i64 %351
   store double 1.000000e+00, ptr %362, align 8, !tbaa !7
   %.pre1572 = load i32, ptr %4, align 4, !tbaa !3
   br label %.thread
@@ -598,13 +598,13 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %373 = add nuw nsw i32 %indvars1545, 1
   %374 = mul nsw i32 %373, %32
   %375 = sext i32 %374 to i64
-  %376 = getelementptr double, ptr %34, i64 %indvars.iv1541
-  %377 = getelementptr double, ptr %376, i64 %375
+  %376 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv1541
+  %377 = getelementptr [8 x i8], ptr %376, i64 %375
   br label %.sink.split1631
 
 .sink.split1631:                                  ; preds = %371, %370
   %.sink1632 = phi ptr [ %312, %370 ], [ %377, %371 ]
-  %378 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv1541
+  %378 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv1541
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %312, ptr noundef %.sink1632, ptr noundef nonnull %8, ptr noundef nonnull %378) #5
   br label %379
 
@@ -625,11 +625,11 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %388 = add nuw nsw i32 %indvars1545, 1
   %389 = mul nsw i32 %388, %29
   %390 = sext i32 %389 to i64
-  %391 = getelementptr double, ptr %31, i64 %indvars.iv1541
-  %392 = getelementptr double, ptr %391, i64 %390
-  %393 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv1541
-  %394 = getelementptr double, ptr %31, i64 %387
-  %395 = getelementptr double, ptr %394, i64 %390
+  %391 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv1541
+  %392 = getelementptr [8 x i8], ptr %391, i64 %390
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv1541
+  %394 = getelementptr [8 x i8], ptr %31, i64 %387
+  %395 = getelementptr [8 x i8], ptr %394, i64 %390
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %392, ptr noundef nonnull %6, ptr noundef nonnull %393, ptr noundef %395, ptr noundef nonnull %6, ptr noundef %19) #5
   %396 = load i32, ptr %2, align 4, !tbaa !3
   %397 = load i32, ptr %3, align 4, !tbaa !3
@@ -642,7 +642,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %401 = trunc nsw i64 %387 to i32
   %402 = mul i32 %96, %401
   %403 = sext i32 %402 to i64
-  %404 = getelementptr inbounds double, ptr %37, i64 %403
+  %404 = getelementptr inbounds [8 x i8], ptr %37, i64 %403
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %392, ptr noundef nonnull %6, ptr noundef nonnull %393, ptr noundef %404, ptr noundef nonnull %10, ptr noundef %19) #5
   br label %405
 
@@ -660,10 +660,10 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %412 = add i32 %.neg1457.pre-phi, %.pre1574
   %413 = sub i32 %412, %411
   store i32 %413, ptr %25, align 4, !tbaa !3
-  %414 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv1541
-  %415 = getelementptr double, ptr %34, i64 %indvars.iv1541
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv1541
+  %415 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv1541
   %416 = getelementptr i8, ptr %415, i64 8
-  %417 = getelementptr double, ptr %416, i64 %308
+  %417 = getelementptr [8 x i8], ptr %416, i64 %308
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %312, ptr noundef nonnull %8, ptr noundef nonnull %414, ptr noundef %417, ptr noundef nonnull %8, ptr noundef %19) #5
   %.pre1573 = load i32, ptr %2, align 4, !tbaa !3
   %.pre1575 = load i32, ptr %3, align 4, !tbaa !3
@@ -688,10 +688,10 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %427 = add i32 %.neg1457.pre-phi, %420
   %428 = sub i32 %427, %426
   store i32 %428, ptr %25, align 4, !tbaa !3
-  %429 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv1541
+  %429 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv1541
   %430 = add nuw nsw i64 %indvars.iv1541, 1
-  %431 = getelementptr double, ptr %40, i64 %430
-  %432 = getelementptr double, ptr %431, i64 %322
+  %431 = getelementptr [8 x i8], ptr %40, i64 %430
+  %432 = getelementptr [8 x i8], ptr %431, i64 %322
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %312, ptr noundef nonnull %8, ptr noundef nonnull %429, ptr noundef %432, ptr noundef nonnull %12, ptr noundef %19) #5
   br label %433
 
@@ -737,8 +737,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %447, ptr %26, align 8, !tbaa !7
   %448 = mul nsw i32 %32, %indvars1548
   %449 = sext i32 %448 to i64
-  %450 = getelementptr double, ptr %34, i64 %indvars.iv.next1547
-  %451 = getelementptr double, ptr %450, i64 %449
+  %450 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv.next1547
+  %451 = getelementptr [8 x i8], ptr %450, i64 %449
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %451, ptr noundef nonnull %8) #5
   %452 = load i32, ptr %2, align 4, !tbaa !3
   %453 = load i32, ptr %4, align 4, !tbaa !3
@@ -749,10 +749,10 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %456, ptr %24, align 4, !tbaa !3
   %457 = add nsw i64 %indvars.iv1546, 2
   %458 = mul nsw i64 %457, %439
-  %459 = getelementptr double, ptr %34, i64 %458
-  %460 = getelementptr double, ptr %459, i64 %indvars.iv.next1547
+  %459 = getelementptr [8 x i8], ptr %34, i64 %458
+  %460 = getelementptr [8 x i8], ptr %459, i64 %indvars.iv.next1547
   %.sink1634 = select i1 %.not1375, ptr %460, ptr %451
-  %461 = getelementptr double, ptr %18, i64 %indvars.iv1546
+  %461 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv1546
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %451, ptr noundef %.sink1634, ptr noundef nonnull %8, ptr noundef nonnull %461) #5
   store double 1.000000e+00, ptr %451, align 8, !tbaa !7
   %462 = load i32, ptr %3, align 4, !tbaa !3
@@ -769,10 +769,10 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %470 = add i32 %.neg1491, %468
   %471 = sub i32 %470, %469
   store i32 %471, ptr %25, align 4, !tbaa !3
-  %472 = getelementptr double, ptr %18, i64 %indvars.iv1546
-  %473 = getelementptr double, ptr %34, i64 %indvars.iv1546
+  %472 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv1546
+  %473 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv1546
   %474 = getelementptr i8, ptr %473, i64 16
-  %475 = getelementptr double, ptr %474, i64 %466
+  %475 = getelementptr [8 x i8], ptr %474, i64 %466
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %451, ptr noundef nonnull %8, ptr noundef nonnull %472, ptr noundef %475, ptr noundef nonnull %8, ptr noundef %19) #5
   %.pre1578 = load i32, ptr %3, align 4, !tbaa !3
   br label %476
@@ -791,13 +791,13 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %484 = add i32 %.neg1491, %478
   %485 = sub i32 %484, %479
   store i32 %485, ptr %25, align 4, !tbaa !3
-  %486 = getelementptr double, ptr %18, i64 %indvars.iv1546
+  %486 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv1546
   %487 = trunc i64 %indvars.iv.next1547 to i32
   %488 = mul i32 %38, %487
   %489 = add i32 %488, 1
   %490 = add i32 %489, %479
   %491 = sext i32 %490 to i64
-  %492 = getelementptr inbounds double, ptr %40, i64 %491
+  %492 = getelementptr inbounds [8 x i8], ptr %40, i64 %491
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %451, ptr noundef nonnull %8, ptr noundef nonnull %486, ptr noundef %492, ptr noundef nonnull %12, ptr noundef %19) #5
   br label %493
 
@@ -840,7 +840,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %509 = mul nsw i32 %508, %38
   %510 = add nsw i32 %507, %509
   %511 = sext i32 %510 to i64
-  %512 = getelementptr inbounds double, ptr %40, i64 %511
+  %512 = getelementptr inbounds [8 x i8], ptr %40, i64 %511
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %512, ptr noundef nonnull %12) #5
   %513 = load i32, ptr %2, align 4, !tbaa !3
   %514 = load i32, ptr %3, align 4, !tbaa !3
@@ -857,9 +857,9 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %522 = mul nsw i32 %521, %38
   %523 = add nsw i32 %520, %522
   %524 = sext i32 %523 to i64
-  %525 = getelementptr inbounds double, ptr %40, i64 %524
+  %525 = getelementptr inbounds [8 x i8], ptr %40, i64 %524
   %526 = sext i32 %521 to i64
-  %527 = getelementptr inbounds double, ptr %46, i64 %526
+  %527 = getelementptr inbounds [8 x i8], ptr %46, i64 %526
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %525, ptr noundef %525, ptr noundef nonnull %12, ptr noundef nonnull %527) #5
   br label %543
 
@@ -871,14 +871,14 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %532 = mul nsw i32 %531, %38
   %533 = add nsw i32 %530, %532
   %534 = sext i32 %533 to i64
-  %535 = getelementptr inbounds double, ptr %40, i64 %534
+  %535 = getelementptr inbounds [8 x i8], ptr %40, i64 %534
   %536 = add nsw i32 %531, 1
   %537 = mul nsw i32 %536, %38
   %538 = add nsw i32 %537, %530
   %539 = sext i32 %538 to i64
-  %540 = getelementptr inbounds double, ptr %40, i64 %539
+  %540 = getelementptr inbounds [8 x i8], ptr %40, i64 %539
   %541 = sext i32 %531 to i64
-  %542 = getelementptr inbounds double, ptr %46, i64 %541
+  %542 = getelementptr inbounds [8 x i8], ptr %46, i64 %541
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %535, ptr noundef %540, ptr noundef nonnull %12, ptr noundef nonnull %542) #5
   br label %543
 
@@ -890,7 +890,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %548 = mul nsw i32 %547, %38
   %549 = add i32 %548, %545
   %550 = sext i32 %549 to i64
-  %551 = getelementptr inbounds double, ptr %40, i64 %550
+  %551 = getelementptr inbounds [8 x i8], ptr %40, i64 %550
   store double 1.000000e+00, ptr %551, align 8, !tbaa !7
   %552 = load i32, ptr %2, align 4, !tbaa !3
   %553 = add i32 %546, %544
@@ -905,10 +905,10 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %559 = add i32 %558, %552
   store i32 %559, ptr %25, align 4, !tbaa !3
   %560 = sext i32 %547 to i64
-  %561 = getelementptr inbounds double, ptr %46, i64 %560
+  %561 = getelementptr inbounds [8 x i8], ptr %46, i64 %560
   %562 = add i32 %549, 1
   %563 = sext i32 %562 to i64
-  %564 = getelementptr inbounds double, ptr %40, i64 %563
+  %564 = getelementptr inbounds [8 x i8], ptr %40, i64 %563
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %551, ptr noundef nonnull %12, ptr noundef nonnull %561, ptr noundef %564, ptr noundef nonnull %12, ptr noundef %19) #5
   br label %565
 
@@ -925,10 +925,10 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %568 = add i32 %29, 1
   %569 = add i32 %35, 1
   %570 = sext i32 %29 to i64
-  %571 = getelementptr double, ptr %31, i64 %570
+  %571 = getelementptr [8 x i8], ptr %31, i64 %570
   %572 = getelementptr i8, ptr %571, i64 8
   %573 = sext i32 %35 to i64
-  %574 = getelementptr double, ptr %37, i64 %573
+  %574 = getelementptr [8 x i8], ptr %37, i64 %573
   %575 = getelementptr i8, ptr %574, i64 8
   %576 = add i32 %32, 1
   %577 = add i32 %38, 1
@@ -962,14 +962,14 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %590, ptr %24, align 4, !tbaa !3
   %591 = load double, ptr %27, align 8, !tbaa !7
   %592 = add nsw i64 %indvars.iv, -1
-  %593 = getelementptr inbounds double, ptr %42, i64 %592
+  %593 = getelementptr inbounds [8 x i8], ptr %42, i64 %592
   %594 = load double, ptr %593, align 8, !tbaa !7
   %595 = call double @cos(double noundef %594) #5, !tbaa !3
   %596 = fmul double %591, %595
   store double %596, ptr %26, align 8, !tbaa !7
   %597 = mul i32 %568, %indvars1536
   %598 = sext i32 %597 to i64
-  %599 = getelementptr inbounds double, ptr %31, i64 %598
+  %599 = getelementptr inbounds [8 x i8], ptr %31, i64 %598
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %599, ptr noundef nonnull %6) #5
   %600 = load i32, ptr %3, align 4, !tbaa !3
   %601 = add i32 %589, %600
@@ -982,8 +982,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %607 = fmul double %604, %606
   store double %607, ptr %26, align 8, !tbaa !7
   %608 = mul nsw i64 %indvars.iv, %579
-  %609 = getelementptr double, ptr %34, i64 %592
-  %610 = getelementptr double, ptr %609, i64 %608
+  %609 = getelementptr [8 x i8], ptr %34, i64 %592
+  %610 = getelementptr [8 x i8], ptr %609, i64 %608
   call void @daxpy_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %610, ptr noundef nonnull %8, ptr noundef %599, ptr noundef nonnull %6) #5
   %611 = load i32, ptr %2, align 4, !tbaa !3
   %612 = load i32, ptr %3, align 4, !tbaa !3
@@ -997,7 +997,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %618, ptr %26, align 8, !tbaa !7
   %619 = mul i32 %569, %indvars1536
   %620 = sext i32 %619 to i64
-  %621 = getelementptr inbounds double, ptr %37, i64 %620
+  %621 = getelementptr inbounds [8 x i8], ptr %37, i64 %620
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %621, ptr noundef nonnull %10) #5
   %622 = load i32, ptr %2, align 4, !tbaa !3
   %623 = load i32, ptr %3, align 4, !tbaa !3
@@ -1012,8 +1012,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %631 = fmul double %628, %630
   store double %631, ptr %26, align 8, !tbaa !7
   %632 = mul nsw i64 %indvars.iv, %578
-  %633 = getelementptr double, ptr %40, i64 %592
-  %634 = getelementptr double, ptr %633, i64 %632
+  %633 = getelementptr [8 x i8], ptr %40, i64 %592
+  %634 = getelementptr [8 x i8], ptr %633, i64 %632
   call void @daxpy_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %634, ptr noundef nonnull %12, ptr noundef %621, ptr noundef nonnull %10) #5
   br label %635
 
@@ -1029,17 +1029,17 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %641 = mul nsw i64 %indvars.iv, %573
   %642 = mul nsw i32 %35, %indvars1536
   %643 = sext i32 %642 to i64
-  %644 = getelementptr double, ptr %37, i64 %indvars.iv
-  %645 = getelementptr double, ptr %644, i64 %643
+  %644 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv
+  %645 = getelementptr [8 x i8], ptr %644, i64 %643
   %646 = call double @dnrm2_(ptr noundef nonnull %24, ptr noundef %645, ptr noundef nonnull %10) #5
   %647 = mul nsw i64 %indvars.iv, %570
   %648 = mul nsw i32 %29, %indvars1536
   %649 = sext i32 %648 to i64
-  %650 = getelementptr double, ptr %31, i64 %indvars.iv
-  %651 = getelementptr double, ptr %650, i64 %649
+  %650 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv
+  %651 = getelementptr [8 x i8], ptr %650, i64 %649
   %652 = call double @dnrm2_(ptr noundef nonnull %25, ptr noundef %651, ptr noundef nonnull %6) #5
   %653 = call double @atan2(double noundef %646, double noundef %652) #5, !tbaa !3
-  %654 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv
+  %654 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   store double %653, ptr %654, align 8, !tbaa !7
   %655 = load i32, ptr %3, align 4, !tbaa !3
   %656 = add i32 %.neg1409.pre-phi, %655
@@ -1048,9 +1048,9 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %indvars = trunc i64 %indvars.iv.next to i32
   %657 = mul nsw i32 %29, %indvars
   %658 = sext i32 %657 to i64
-  %659 = getelementptr double, ptr %31, i64 %indvars.iv
-  %660 = getelementptr double, ptr %659, i64 %658
-  %661 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv
+  %659 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv
+  %660 = getelementptr [8 x i8], ptr %659, i64 %658
+  %661 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %651, ptr noundef %660, ptr noundef nonnull %6, ptr noundef nonnull %661) #5
   store double 1.000000e+00, ptr %651, align 8, !tbaa !7
   %662 = load i32, ptr %2, align 4, !tbaa !3
@@ -1068,13 +1068,13 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %669 = add i32 %.neg1409.pre-phi, %664
   store i32 %669, ptr %24, align 4, !tbaa !3
   %670 = mul nsw i64 %indvars.iv.next, %573
-  %671 = getelementptr double, ptr %37, i64 %670
-  %672 = getelementptr double, ptr %671, i64 %indvars.iv
+  %671 = getelementptr [8 x i8], ptr %37, i64 %670
+  %672 = getelementptr [8 x i8], ptr %671, i64 %indvars.iv
   br label %673
 
 673:                                              ; preds = %668, %667
   %.sink1636 = phi ptr [ %672, %668 ], [ %645, %667 ]
-  %674 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv
+  %674 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %645, ptr noundef %.sink1636, ptr noundef nonnull %10, ptr noundef nonnull %674) #5
   store double 1.000000e+00, ptr %645, align 8, !tbaa !7
   %675 = load i32, ptr %4, align 4, !tbaa !3
@@ -1088,8 +1088,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %680 = load i32, ptr %3, align 4, !tbaa !3
   %681 = add i32 %.neg1409.pre-phi, %680
   store i32 %681, ptr %25, align 4, !tbaa !3
-  %682 = getelementptr double, ptr %31, i64 %indvars.iv.next
-  %683 = getelementptr double, ptr %682, i64 %647
+  %682 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv.next
+  %683 = getelementptr [8 x i8], ptr %682, i64 %647
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %651, ptr noundef nonnull %6, ptr noundef nonnull %661, ptr noundef %683, ptr noundef nonnull %6, ptr noundef %19) #5
   %.pre = load i32, ptr %4, align 4, !tbaa !3
   br label %684
@@ -1110,7 +1110,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %692, ptr %25, align 4, !tbaa !3
   %693 = mul i32 %576, %indvars1536
   %694 = sext i32 %693 to i64
-  %695 = getelementptr inbounds double, ptr %34, i64 %694
+  %695 = getelementptr inbounds [8 x i8], ptr %34, i64 %694
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %651, ptr noundef nonnull %6, ptr noundef nonnull %661, ptr noundef %695, ptr noundef nonnull %8, ptr noundef %19) #5
   %.pre1550 = load i32, ptr %4, align 4, !tbaa !3
   %.pre1552.pre = load i32, ptr %2, align 4, !tbaa !3
@@ -1130,9 +1130,9 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %703 = add i32 %.neg1409.pre-phi, %.pre1552
   %704 = sub i32 %703, %702
   store i32 %704, ptr %25, align 4, !tbaa !3
-  %705 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv
-  %706 = getelementptr double, ptr %37, i64 %indvars.iv.next
-  %707 = getelementptr double, ptr %706, i64 %641
+  %705 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
+  %706 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv.next
+  %707 = getelementptr [8 x i8], ptr %706, i64 %641
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %645, ptr noundef nonnull %10, ptr noundef nonnull %705, ptr noundef %707, ptr noundef nonnull %10, ptr noundef %19) #5
   %.pre1551 = load i32, ptr %2, align 4, !tbaa !3
   %.pre1553 = load i32, ptr %4, align 4, !tbaa !3
@@ -1153,10 +1153,10 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %716 = add i32 %.neg1409.pre-phi, %710
   %717 = sub i32 %716, %715
   store i32 %717, ptr %25, align 4, !tbaa !3
-  %718 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv
+  %718 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %719 = mul i32 %577, %indvars1536
   %720 = sext i32 %719 to i64
-  %721 = getelementptr inbounds double, ptr %40, i64 %720
+  %721 = getelementptr inbounds [8 x i8], ptr %40, i64 %720
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %645, ptr noundef nonnull %10, ptr noundef nonnull %718, ptr noundef %721, ptr noundef nonnull %12, ptr noundef %19) #5
   %.pre1554 = load i32, ptr %4, align 4, !tbaa !3
   br label %722
@@ -1176,8 +1176,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %731 = call double @sin(double noundef %730) #5, !tbaa !3
   %732 = fmul double %731, %729
   store double %732, ptr %26, align 8, !tbaa !7
-  %733 = getelementptr double, ptr %31, i64 %indvars.iv.next
-  %734 = getelementptr double, ptr %733, i64 %647
+  %733 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv.next
+  %734 = getelementptr [8 x i8], ptr %733, i64 %647
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %734, ptr noundef nonnull @c__1) #5
   %735 = load i32, ptr %4, align 4, !tbaa !3
   %736 = sub nsw i32 %735, %indvars1536
@@ -1187,8 +1187,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %739 = call double @cos(double noundef %738) #5, !tbaa !3
   %740 = fmul double %737, %739
   store double %740, ptr %26, align 8, !tbaa !7
-  %741 = getelementptr double, ptr %37, i64 %indvars.iv.next
-  %742 = getelementptr double, ptr %741, i64 %641
+  %741 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv.next
+  %742 = getelementptr [8 x i8], ptr %741, i64 %641
   call void @daxpy_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %742, ptr noundef nonnull @c__1, ptr noundef %734, ptr noundef nonnull @c__1) #5
   %.pre1555 = load i32, ptr %4, align 4, !tbaa !3
   br label %743
@@ -1209,8 +1209,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %754 = mul nsw i64 %indvars.iv, %579
   %755 = mul nsw i32 %32, %indvars1536
   %756 = sext i32 %755 to i64
-  %757 = getelementptr double, ptr %34, i64 %indvars.iv
-  %758 = getelementptr double, ptr %757, i64 %756
+  %757 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv
+  %758 = getelementptr [8 x i8], ptr %757, i64 %756
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %758, ptr noundef nonnull @c__1) #5
   %759 = load i32, ptr %2, align 4, !tbaa !3
   %760 = load i32, ptr %4, align 4, !tbaa !3
@@ -1225,7 +1225,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %767, ptr %26, align 8, !tbaa !7
   %768 = mul i32 %577, %indvars1536
   %769 = sext i32 %768 to i64
-  %770 = getelementptr inbounds double, ptr %40, i64 %769
+  %770 = getelementptr inbounds [8 x i8], ptr %40, i64 %769
   call void @daxpy_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %770, ptr noundef nonnull @c__1, ptr noundef %758, ptr noundef nonnull @c__1) #5
   %771 = load i32, ptr %4, align 4, !tbaa !3
   %772 = sext i32 %771 to i64
@@ -1239,12 +1239,12 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %777 = sub i32 %.neg1409.pre-phi, %771
   %778 = add i32 %777, %776
   store i32 %778, ptr %25, align 4, !tbaa !3
-  %779 = getelementptr double, ptr %31, i64 %indvars.iv.next
-  %780 = getelementptr double, ptr %779, i64 %647
+  %779 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv.next
+  %780 = getelementptr [8 x i8], ptr %779, i64 %647
   %781 = call double @dnrm2_(ptr noundef nonnull %24, ptr noundef %780, ptr noundef nonnull @c__1) #5
   %782 = call double @dnrm2_(ptr noundef nonnull %25, ptr noundef %758, ptr noundef nonnull @c__1) #5
   %783 = call double @atan2(double noundef %781, double noundef %782) #5, !tbaa !3
-  %784 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv
+  %784 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   store double %783, ptr %784, align 8, !tbaa !7
   %.pre1556 = load i32, ptr %4, align 4, !tbaa !3
   %.pre1590 = sext i32 %.pre1556 to i64
@@ -1255,7 +1255,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %787 = sub nsw i32 %.pre1556, %indvars1536
   %788 = icmp eq i32 %787, 1
   %789 = add nsw i64 %indvars.iv.next, %647
-  %790 = getelementptr inbounds double, ptr %31, i64 %789
+  %790 = getelementptr inbounds [8 x i8], ptr %31, i64 %789
   br i1 %788, label %791, label %792
 
 791:                                              ; preds = %786
@@ -1264,16 +1264,16 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 792:                                              ; preds = %786
   store i32 %787, ptr %24, align 4, !tbaa !3
-  %793 = getelementptr double, ptr %31, i64 %indvars.iv
+  %793 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv
   %794 = getelementptr i8, ptr %793, i64 16
-  %795 = getelementptr double, ptr %794, i64 %647
+  %795 = getelementptr [8 x i8], ptr %794, i64 %647
   br label %796
 
 796:                                              ; preds = %792, %791
   %.sink1638 = phi ptr [ %795, %792 ], [ %790, %791 ]
-  %797 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv
+  %797 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %790, ptr noundef %.sink1638, ptr noundef nonnull @c__1, ptr noundef nonnull %797) #5
-  %798 = getelementptr inbounds double, ptr %31, i64 %789
+  %798 = getelementptr inbounds [8 x i8], ptr %31, i64 %789
   store double 1.000000e+00, ptr %798, align 8, !tbaa !7
   %.pre1557 = load i32, ptr %4, align 4, !tbaa !3
   br label %.thread1621
@@ -1286,10 +1286,10 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %803 = icmp slt i64 %indvars.iv, %802
   %804 = add i32 %.neg1409.pre-phi, %801
   store i32 %804, ptr %24, align 4, !tbaa !3
-  %805 = getelementptr double, ptr %34, i64 %indvars.iv.next
-  %806 = getelementptr double, ptr %805, i64 %754
+  %805 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv.next
+  %806 = getelementptr [8 x i8], ptr %805, i64 %754
   %.sink1640 = select i1 %803, ptr %806, ptr %758
-  %807 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
+  %807 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %758, ptr noundef %.sink1640, ptr noundef nonnull @c__1, ptr noundef nonnull %807) #5
   store double 1.000000e+00, ptr %758, align 8, !tbaa !7
   %808 = load i32, ptr %4, align 4, !tbaa !3
@@ -1303,11 +1303,11 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %813 = load i32, ptr %3, align 4, !tbaa !3
   %814 = sub nsw i32 %813, %indvars1536
   store i32 %814, ptr %25, align 4, !tbaa !3
-  %815 = getelementptr double, ptr %31, i64 %indvars.iv.next
-  %816 = getelementptr double, ptr %815, i64 %647
-  %817 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv
-  %818 = getelementptr double, ptr %31, i64 %indvars.iv.next
-  %819 = getelementptr double, ptr %818, i64 %658
+  %815 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv.next
+  %816 = getelementptr [8 x i8], ptr %815, i64 %647
+  %817 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
+  %818 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv.next
+  %819 = getelementptr [8 x i8], ptr %818, i64 %658
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %816, ptr noundef nonnull @c__1, ptr noundef nonnull %817, ptr noundef %819, ptr noundef nonnull %6, ptr noundef %19) #5
   %820 = load i32, ptr %4, align 4, !tbaa !3
   %821 = sub nsw i32 %820, %indvars1536
@@ -1319,7 +1319,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %824, ptr %25, align 4, !tbaa !3
   %825 = mul i32 %569, %indvars
   %826 = sext i32 %825 to i64
-  %827 = getelementptr inbounds double, ptr %37, i64 %826
+  %827 = getelementptr inbounds [8 x i8], ptr %37, i64 %826
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %816, ptr noundef nonnull @c__1, ptr noundef nonnull %817, ptr noundef %827, ptr noundef nonnull %10, ptr noundef %19) #5
   %.pre1558 = load i32, ptr %4, align 4, !tbaa !3
   br label %828
@@ -1333,11 +1333,11 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %833 = load i32, ptr %3, align 4, !tbaa !3
   %834 = sub nsw i32 %833, %indvars1536
   store i32 %834, ptr %25, align 4, !tbaa !3
-  %835 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
+  %835 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %836 = mul nsw i32 %32, %indvars
   %837 = sext i32 %836 to i64
-  %838 = getelementptr double, ptr %34, i64 %indvars.iv
-  %839 = getelementptr double, ptr %838, i64 %837
+  %838 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv
+  %839 = getelementptr [8 x i8], ptr %838, i64 %837
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %758, ptr noundef nonnull @c__1, ptr noundef nonnull %835, ptr noundef %839, ptr noundef nonnull %8, ptr noundef %19) #5
   %840 = load i32, ptr %2, align 4, !tbaa !3
   %841 = load i32, ptr %3, align 4, !tbaa !3
@@ -1354,8 +1354,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %842, ptr %25, align 4, !tbaa !3
   %848 = mul nsw i32 %38, %indvars
   %849 = sext i32 %848 to i64
-  %850 = getelementptr double, ptr %40, i64 %indvars.iv
-  %851 = getelementptr double, ptr %850, i64 %849
+  %850 = getelementptr [8 x i8], ptr %40, i64 %indvars.iv
+  %851 = getelementptr [8 x i8], ptr %850, i64 %849
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %758, ptr noundef nonnull @c__1, ptr noundef nonnull %835, ptr noundef %851, ptr noundef nonnull %12, ptr noundef %19) #5
   br label %852
 
@@ -1399,8 +1399,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %868 = mul nsw i64 %indvars.iv1537, %859
   %869 = mul nsw i32 %32, %indvars1540
   %870 = sext i32 %869 to i64
-  %871 = getelementptr double, ptr %34, i64 %indvars.iv1537
-  %872 = getelementptr double, ptr %871, i64 %870
+  %871 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv1537
+  %872 = getelementptr [8 x i8], ptr %871, i64 %870
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %872, ptr noundef nonnull @c__1) #5
   %873 = load i32, ptr %2, align 4, !tbaa !3
   %874 = load i32, ptr %4, align 4, !tbaa !3
@@ -1408,9 +1408,9 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %876 = sub i32 %873, %875
   store i32 %876, ptr %24, align 4, !tbaa !3
   %indvars.iv.next1538 = add nsw i64 %indvars.iv1537, 1
-  %877 = getelementptr double, ptr %34, i64 %indvars.iv.next1538
-  %878 = getelementptr double, ptr %877, i64 %868
-  %879 = getelementptr inbounds double, ptr %46, i64 %indvars.iv1537
+  %877 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv.next1538
+  %878 = getelementptr [8 x i8], ptr %877, i64 %868
+  %879 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv1537
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %872, ptr noundef %878, ptr noundef nonnull @c__1, ptr noundef nonnull %879) #5
   store double 1.000000e+00, ptr %872, align 8, !tbaa !7
   %880 = load i32, ptr %3, align 4, !tbaa !3
@@ -1427,8 +1427,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %888 = sub nsw i32 %880, %indvars1540
   store i32 %888, ptr %25, align 4, !tbaa !3
   %889 = mul nsw i64 %indvars.iv.next1538, %859
-  %890 = getelementptr double, ptr %34, i64 %889
-  %891 = getelementptr double, ptr %890, i64 %indvars.iv1537
+  %890 = getelementptr [8 x i8], ptr %34, i64 %889
+  %891 = getelementptr [8 x i8], ptr %890, i64 %indvars.iv1537
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %872, ptr noundef nonnull @c__1, ptr noundef nonnull %879, ptr noundef %891, ptr noundef nonnull %8, ptr noundef %19) #5
   %.pre1561 = load i32, ptr %3, align 4, !tbaa !3
   br label %892
@@ -1450,8 +1450,8 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %902 = add nsw i32 %895, 1
   %903 = mul nsw i32 %902, %38
   %904 = sext i32 %903 to i64
-  %905 = getelementptr double, ptr %40, i64 %indvars.iv1537
-  %906 = getelementptr double, ptr %905, i64 %904
+  %905 = getelementptr [8 x i8], ptr %40, i64 %indvars.iv1537
+  %906 = getelementptr [8 x i8], ptr %905, i64 %904
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %872, ptr noundef nonnull @c__1, ptr noundef nonnull %879, ptr noundef %906, ptr noundef nonnull %12, ptr noundef %19) #5
   br label %907
 
@@ -1492,7 +1492,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %922 = mul nsw i32 %921, %38
   %923 = add nsw i32 %920, %922
   %924 = sext i32 %923 to i64
-  %925 = getelementptr inbounds double, ptr %40, i64 %924
+  %925 = getelementptr inbounds [8 x i8], ptr %40, i64 %924
   call void @dscal_(ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %925, ptr noundef nonnull @c__1) #5
   %926 = load i32, ptr %2, align 4, !tbaa !3
   %927 = load i32, ptr %3, align 4, !tbaa !3
@@ -1509,9 +1509,9 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %935 = mul nsw i32 %934, %38
   %936 = add nsw i32 %935, %933
   %937 = sext i32 %936 to i64
-  %938 = getelementptr inbounds double, ptr %40, i64 %937
+  %938 = getelementptr inbounds [8 x i8], ptr %40, i64 %937
   %939 = sext i32 %933 to i64
-  %940 = getelementptr inbounds double, ptr %46, i64 %939
+  %940 = getelementptr inbounds [8 x i8], ptr %46, i64 %939
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %938, ptr noundef %938, ptr noundef nonnull @c__1, ptr noundef nonnull %940) #5
   br label %973
 
@@ -1523,12 +1523,12 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %945 = mul nsw i32 %944, %38
   %946 = add i32 %945, %943
   %947 = sext i32 %946 to i64
-  %948 = getelementptr inbounds double, ptr %40, i64 %947
+  %948 = getelementptr inbounds [8 x i8], ptr %40, i64 %947
   %949 = add i32 %946, 1
   %950 = sext i32 %949 to i64
-  %951 = getelementptr inbounds double, ptr %40, i64 %950
+  %951 = getelementptr inbounds [8 x i8], ptr %40, i64 %950
   %952 = sext i32 %943 to i64
-  %953 = getelementptr inbounds double, ptr %46, i64 %952
+  %953 = getelementptr inbounds [8 x i8], ptr %46, i64 %952
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %948, ptr noundef %951, ptr noundef nonnull @c__1, ptr noundef nonnull %953) #5
   %954 = load i32, ptr %2, align 4, !tbaa !3
   %955 = load i32, ptr %3, align 4, !tbaa !3
@@ -1544,14 +1544,14 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %962 = mul nsw i32 %961, %38
   %963 = add nsw i32 %962, %960
   %964 = sext i32 %963 to i64
-  %965 = getelementptr inbounds double, ptr %40, i64 %964
+  %965 = getelementptr inbounds [8 x i8], ptr %40, i64 %964
   %966 = sext i32 %960 to i64
-  %967 = getelementptr inbounds double, ptr %46, i64 %966
+  %967 = getelementptr inbounds [8 x i8], ptr %46, i64 %966
   %968 = add nsw i32 %961, 1
   %969 = mul nsw i32 %968, %38
   %970 = add nsw i32 %969, %960
   %971 = sext i32 %970 to i64
-  %972 = getelementptr inbounds double, ptr %40, i64 %971
+  %972 = getelementptr inbounds [8 x i8], ptr %40, i64 %971
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %965, ptr noundef nonnull @c__1, ptr noundef nonnull %967, ptr noundef %972, ptr noundef nonnull %12, ptr noundef %19) #5
   br label %973
 
@@ -1563,7 +1563,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %978 = mul nsw i32 %977, %38
   %979 = add nsw i32 %975, %978
   %980 = sext i32 %979 to i64
-  %981 = getelementptr inbounds double, ptr %40, i64 %980
+  %981 = getelementptr inbounds [8 x i8], ptr %40, i64 %980
   store double 1.000000e+00, ptr %981, align 8, !tbaa !7
   %982 = add nuw nsw i32 %.51510, 1
   %.5.neg = xor i32 %.51510, -1

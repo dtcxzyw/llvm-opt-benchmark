@@ -46,7 +46,7 @@ define hidden void @PrintWebPError(ptr noundef %0, i32 noundef %1) local_unnamed
 7:                                                ; preds = %2
   %8 = load ptr, ptr @stderr, align 8, !tbaa !4
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @kStatusMessages, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @kStatusMessages, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef %11) #6
   br label %13
@@ -379,7 +379,7 @@ DecodeWebP.exit:                                  ; preds = %94, %98
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %117 = getelementptr inbounds nuw i32, ptr %.0142, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.0142, i64 %indvars.iv
   %118 = load i32, ptr %117, align 4, !tbaa !40
   %119 = or i32 %118, -16777216
   store i32 %119, ptr %117, align 4, !tbaa !40
@@ -398,7 +398,7 @@ DecodeWebP.exit:                                  ; preds = %94, %98
   %124 = phi i32 [ %120, %._crit_edge.loopexit ], [ %115, %.preheader ]
   %125 = load i32, ptr %109, align 8, !tbaa !31
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i32, ptr %.0142, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %.0142, i64 %126
   %128 = add nuw nsw i32 %.0102141, 1
   %129 = icmp slt i32 %128, %123
   br i1 %129, label %.preheader, label %.loopexit, !llvm.loop !43

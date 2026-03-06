@@ -410,7 +410,7 @@ tailrecurse:                                      ; preds = %4, %tailrecurse
   %9 = load ptr, ptr %8, align 8
   %10 = tail call fastcc i32 @avlCollectFields(ptr noundef %0, ptr noundef %9, ptr noundef %2, i32 noundef %.tr1719)
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct._pivot_field, ptr %2, i64 %11
+  %12 = getelementptr inbounds [24 x i8], ptr %2, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.tr1518, i64 24, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %.tr1518, i64 40
   %14 = load ptr, ptr %13, align 8
@@ -442,7 +442,7 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr noundef captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
-  %7 = getelementptr inbounds nuw %struct._pivot_field, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
@@ -476,7 +476,7 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr noundef captures(none)
   %indvars.iv.tr46 = trunc i64 %indvars.iv to i32
   %26 = shl i32 %indvars.iv.tr46, 1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %5, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %5, i64 %27
   store i32 %.sink48, ptr %28, align 4
   %29 = getelementptr i8, ptr %28, i64 4
   %30 = trunc nuw nsw i64 %indvars.iv to i32
@@ -495,11 +495,11 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr noundef captures(none)
   %indvars.iv40.tr = trunc i64 %indvars.iv40 to i32
   %31 = shl i32 %indvars.iv40.tr, 1
   %32 = sext i32 %31 to i64
-  %33 = getelementptr i32, ptr %5, i64 %32
+  %33 = getelementptr [4 x i8], ptr %5, i64 %32
   %34 = getelementptr i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct._pivot_field, ptr %1, i64 %36
+  %37 = getelementptr inbounds [24 x i8], ptr %1, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = trunc nuw nsw i64 %indvars.iv40 to i32
   store i32 %39, ptr %38, align 8
@@ -539,11 +539,11 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = getelementptr inbounds nuw %struct._pivot_field, ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %19, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %19, i64 %24
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %26, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -559,10 +559,10 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 
 30:                                               ; preds = %._crit_edge, %30
   %indvars.iv191 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next192, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv191
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv191
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct._pivot_field, ptr %2, i64 %33
+  %34 = getelementptr inbounds [24 x i8], ptr %2, i64 %33
   %35 = load ptr, ptr %34, align 8
   %.not112 = icmp eq ptr %35, null
   %36 = load ptr, ptr %29, align 8
@@ -592,7 +592,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 
 44:                                               ; preds = %.lr.ph153, %44
   %indvars.iv196 = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next197, %44 ]
-  %45 = getelementptr inbounds nuw %struct._pivot_field, ptr %5, i64 %indvars.iv196
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv196
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = load ptr, ptr %45, align 8
@@ -604,7 +604,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   %52 = load ptr, ptr %43, align 8
   %53 = mul i32 %47, %13
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %52, i64 %54
   store ptr %51, ptr %55, align 8
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
@@ -785,7 +785,7 @@ bsearch.exit123.loopexit.split.loop.exit170:      ; preds = %111
   %123 = add i32 %122, %117
   %124 = load ptr, ptr %62, align 8
   %125 = sext i32 %123 to i64
-  %126 = getelementptr inbounds ptr, ptr %124, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %124, i64 %125
   %127 = load ptr, ptr %126, align 8
   %.not103 = icmp eq ptr %127, null
   br i1 %.not103, label %128, label %138
@@ -808,7 +808,7 @@ bsearch.exit123.loopexit.split.loop.exit170:      ; preds = %111
 .thread141:                                       ; preds = %130, %132
   %135 = phi ptr [ %131, %130 ], [ %134, %132 ]
   %136 = load ptr, ptr %62, align 8
-  %137 = getelementptr inbounds ptr, ptr %136, i64 %125
+  %137 = getelementptr inbounds [8 x i8], ptr %136, i64 %125
   store ptr %135, ptr %137, align 8
   br label %144
 
@@ -834,7 +834,7 @@ bsearch.exit123.loopexit.split.loop.exit170:      ; preds = %111
   %149 = phi i64 [ 0, %.lr.ph178 ], [ %158, %155 ]
   %.3177 = phi i32 [ 0, %.lr.ph178 ], [ %157, %155 ]
   %150 = load ptr, ptr %68, align 8
-  %151 = getelementptr inbounds ptr, ptr %150, i64 %149
+  %151 = getelementptr inbounds [8 x i8], ptr %150, i64 %149
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
   br i1 %153, label %154, label %155
@@ -1022,7 +1022,7 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
   %37 = sub nsw i32 1, %36
   %38 = sdiv i32 %37, 2
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %30, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %30, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 32
   %.val19.i = load ptr, ptr %42, align 8
@@ -1040,13 +1040,13 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
 49:                                               ; preds = %35
   %.not15.i = icmp ult i32 %36, 3
   %50 = zext i1 %.not15.i to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %42, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %50
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %40, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %.not.i.i = xor i1 %.not15.i, true
   %54 = zext i1 %.not.i.i to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %51, align 8
   %57 = load ptr, ptr %42, align 8
@@ -1062,7 +1062,7 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
   store ptr %41, ptr %55, align 8
   %.pre.i = load ptr, ptr %1, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 32
-  %.phi.trans.insert24.i = getelementptr inbounds ptr, ptr %.phi.trans.insert.i, i64 %39
+  %.phi.trans.insert24.i = getelementptr inbounds [8 x i8], ptr %.phi.trans.insert.i, i64 %39
   %.pre25.i = load ptr, ptr %.phi.trans.insert24.i, align 8
   br label %._crit_edge.i
 
@@ -1070,12 +1070,12 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
   %65 = phi ptr [ %.pre25.i, %49 ], [ %41, %35 ]
   %66 = phi ptr [ %.pre.i, %49 ], [ %29, %35 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %39
+  %68 = getelementptr inbounds [8 x i8], ptr %67, i64 %39
   store ptr %65, ptr %1, align 8
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %.not.i21.i = icmp ult i32 %36, 3
   %70 = zext i1 %.not.i21.i to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %70
   %72 = load ptr, ptr %71, align 8
   store ptr %72, ptr %68, align 8
   %73 = load ptr, ptr %67, align 8

@@ -73,7 +73,7 @@ define internal void @X11_XsettingsNotify(ptr noundef %0, i32 noundef %1, ptr no
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   tail call void @SDL_SetDisplayContentScale(ptr noundef %29, float noundef %.014) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

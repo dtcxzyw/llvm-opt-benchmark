@@ -317,7 +317,7 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
 
 132:                                              ; preds = %.lr.ph
   %133 = call i32 @avio_rl32(ptr noundef nonnull %4) #7
-  %134 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv
   store i32 %133, ptr %134, align 4, !tbaa !59
   %135 = add nsw i64 %.0151226, -4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -367,7 +367,7 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
 
 154:                                              ; preds = %146
   %155 = zext nneg i32 %.0155229 to i64
-  %156 = getelementptr i32, ptr %.0157228, i64 %155
+  %156 = getelementptr [4 x i8], ptr %.0157228, i64 %155
   %157 = getelementptr i8, ptr %156, i64 -4
   %158 = load i32, ptr %157, align 4, !tbaa !59
   %159 = udiv i32 %158, %152
@@ -388,7 +388,7 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
   %168 = mul nsw i32 %166, %167
   %169 = sext i32 %168 to i64
   %170 = add nsw i64 %162, %169
-  %171 = getelementptr inbounds nuw i32, ptr %.0157228, i64 %indvars.iv261
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %.0157228, i64 %indvars.iv261
   %172 = load i32, ptr %171, align 4, !tbaa !59
   %173 = udiv i32 %172, %152
   %174 = zext i32 %173 to i64

@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union._zend_value = type { i64 }
 %union.anon.0 = type { i32 }
 %union.anon.3 = type { i32 }
-%struct.browscap_kv = type { ptr, ptr }
 %struct._zend_file_handle = type { %union.anon.7, ptr, ptr, i8, i8, i8, ptr, i64 }
 %union.anon.7 = type { %struct._zend_stream }
 %struct._zend_stream = type { ptr, i32, ptr, ptr, ptr }
@@ -115,7 +114,7 @@ define internal fastcc void @browscap_bdata_dtor(ptr noundef captures(none) %0, 
 12:                                               ; preds = %.lr.ph, %zend_string_release.exit20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %zend_string_release.exit20 ]
   %13 = load ptr, ptr %11, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw %struct.browscap_kv, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !4
@@ -147,7 +146,7 @@ define internal fastcc void @browscap_bdata_dtor(ptr noundef captures(none) %0, 
 
 zend_string_release.exit:                         ; preds = %12, %19, %26, %27
   %28 = load ptr, ptr %11, align 8, !tbaa !13
-  %29 = getelementptr inbounds nuw %struct.browscap_kv, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !19
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
@@ -985,7 +984,7 @@ zend_string_release_ex.exit.i:                    ; preds = %241, %236, %zend_in
   %indvars.iv.i.i = phi i64 [ %261, %.lr.ph.i64.i ], [ %indvars.iv.next.i.i, %273 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %263 = load ptr, ptr %259, align 8, !tbaa !13
-  %264 = getelementptr inbounds nuw %struct.browscap_kv, ptr %263, i64 %indvars.iv.i.i
+  %264 = getelementptr inbounds nuw [16 x i8], ptr %263, i64 %indvars.iv.i.i
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8, !tbaa !19
   store ptr %266, ptr %4, align 8, !tbaa !4
@@ -1080,7 +1079,7 @@ browscap_entry_to_array.exit:                     ; preds = %273, %255
   %indvars.iv.i146 = phi i64 [ %311, %.lr.ph.i ], [ %indvars.iv.next.i149, %323 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %313 = load ptr, ptr %298, align 8, !tbaa !13
-  %314 = getelementptr inbounds nuw %struct.browscap_kv, ptr %313, i64 %indvars.iv.i146
+  %314 = getelementptr inbounds nuw [16 x i8], ptr %313, i64 %indvars.iv.i146
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
   %316 = load ptr, ptr %315, align 8, !tbaa !19
   store ptr %316, ptr %3, align 8, !tbaa !4
@@ -1187,7 +1186,7 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
   br i1 %.not, label %90, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv
   %40 = load i16, ptr %39, align 2, !tbaa !57
   %41 = zext i16 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 %41
@@ -1995,7 +1994,7 @@ browscap_add_kv.exit:                             ; preds = %._crit_edge.i, %164
   %166 = phi i32 [ %151, %._crit_edge.i ], [ %.pre15.i, %164 ]
   %167 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %165, %164 ]
   %168 = zext i32 %166 to i64
-  %169 = getelementptr inbounds nuw %struct.browscap_kv, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %167, i64 %168
   store ptr %149, ptr %169, align 8, !tbaa !14
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store ptr %.092, ptr %170, align 8, !tbaa !19
@@ -2201,7 +2200,7 @@ browscap_compute_prefix_len.exit:                 ; preds = %zend_string_copy.ex
 259:                                              ; preds = %browscap_compute_prefix_len.exit, %browscap_compute_contains.exit
   %indvars.iv = phi i64 [ 0, %browscap_compute_prefix_len.exit ], [ %indvars.iv.next, %browscap_compute_contains.exit ]
   %.089144 = phi i64 [ %255, %browscap_compute_prefix_len.exit ], [ %.1.lcssa.i, %browscap_compute_contains.exit ]
-  %260 = getelementptr inbounds nuw i16, ptr %256, i64 %indvars.iv
+  %260 = getelementptr inbounds nuw [2 x i8], ptr %256, i64 %indvars.iv
   %261 = getelementptr inbounds nuw i8, ptr %257, i64 %indvars.iv
   %262 = load i64, ptr %244, align 8, !tbaa !40
   %263 = icmp ult i64 %.089144, %262

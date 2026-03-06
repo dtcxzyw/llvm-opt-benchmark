@@ -2021,7 +2021,7 @@ define hidden ptr @lj_lex_token2str(ptr noundef readonly captures(none) %0, i32 
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr ptr, ptr @tokennames, i64 %5
+  %6 = getelementptr [8 x i8], ptr @tokennames, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -2056
   %8 = load ptr, ptr %7, align 8, !tbaa !66
   br label %20
@@ -2094,7 +2094,7 @@ lj_buf_more.exit:                                 ; preds = %8, %18
 
 25:                                               ; preds = %23
   %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr ptr, ptr @tokennames, i64 %26
+  %27 = getelementptr [8 x i8], ptr @tokennames, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -2056
   %29 = load ptr, ptr %28, align 8, !tbaa !66
   br label %lj_lex_token2str.exit
@@ -2142,7 +2142,7 @@ define hidden void @lj_lex_init(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @tokennames, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @tokennames, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !66
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
   %6 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %5) #11

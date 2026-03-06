@@ -1635,7 +1635,7 @@ define dso_local void @_ZNK25SimpleRuleBasedPathFilter4Tree5printERSoi(ptr nound
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.12, i64 noundef 10)
   %6 = load i32, ptr %0, align 8, !tbaa !60
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr @_ZN10PathFilter16kEInclusionNamesE, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10PathFilter16kEInclusionNamesE, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !101
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %18

@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sigaction = type { %union.anon.6, %struct.__sigset_t, i32, ptr }
 %union.anon.6 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.GDBProcess = type { i32, i8, ptr }
 
 @gdbserver_system_state = dso_local global %struct.GDBSystemState zeroinitializer, align 8
 @gdbserver_state = external global %struct.GDBState, align 8
@@ -761,7 +760,7 @@ define internal void @gdb_chr_event(ptr noundef captures(none) %0, i32 noundef %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.not = icmp eq i64 %indvars.iv, 0
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw %struct.GDBProcess, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = zext i1 %.not to i8
   store i8 %11, ptr %10, align 4
@@ -1489,7 +1488,7 @@ define internal i32 @find_cpu_clusters(ptr noundef %0, ptr noundef %1) #2 {
   %17 = load i32, ptr %6, align 8
   %18 = add i32 %17, -1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.GDBProcess, ptr %12, i64 %19
+  %20 = getelementptr inbounds [16 x i8], ptr %12, i64 %19
   %21 = add nuw i32 %14, 1
   store i32 %21, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4

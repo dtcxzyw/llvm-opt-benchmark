@@ -3,10 +3,6 @@ source_filename = "bench/boost/original/text_ostream_backend.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.boost::shared_ptr" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::detail::shared_count" = type { ptr }
-%"class.boost::shared_ptr.12" = type { ptr, %"class.boost::detail::shared_count" }
-
 $_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backendIcE14implementationC5ENS2_17auto_newline_modeEb = comdat any
 
 $_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backendIcEC5Ev = comdat any
@@ -1086,7 +1082,7 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   br i1 %or.cond, label %21, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr i32, ptr %4, i64 %6
+  %17 = getelementptr [4 x i8], ptr %4, i64 %6
   %18 = getelementptr i8, ptr %17, i64 -4
   %19 = load i32, ptr %18, align 4, !tbaa !68
   %.fr = freeze i32 %19
@@ -1343,7 +1339,7 @@ _ZNSt6vectorIN5boost10shared_ptrISoEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
 _ZNSt12_Vector_baseIN5boost10shared_ptrISoEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrISoEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %43
   store ptr %20, ptr %0, align 8, !tbaa !17
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !18
-  %47 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %20, i64 %16
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %47, ptr %42, align 8, !tbaa !25
   ret void
 }
@@ -1575,7 +1571,7 @@ _ZNSt6vectorIN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESaIS6_E
 _ZNSt12_Vector_baseIN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %43
   store ptr %20, ptr %0, align 8, !tbaa !57
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !58
-  %47 = getelementptr inbounds nuw %"class.boost::shared_ptr.12", ptr %20, i64 %16
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %47, ptr %42, align 8, !tbaa !60
   ret void
 }

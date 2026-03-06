@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.Elf64_Ehdr = type { [16 x i8], i16, i16, i32, i64, i64, i64, i32, i16, i16, i16, i16, i16, i16 }
-%struct.elf_section = type { ptr, ptr }
-%struct.elf_symbol = type { ptr, i64, i64 }
 
 @gnu_debuglink_crc32.crc32_table = internal unnamed_addr constant [256 x i32] [i32 0, i32 1996959894, i32 -301047508, i32 -1727442502, i32 124634137, i32 1886057615, i32 -379345611, i32 -1637575261, i32 249268274, i32 2044508324, i32 -522852066, i32 -1747789432, i32 162941995, i32 2125561021, i32 -407360249, i32 -1866523247, i32 498536548, i32 1789927666, i32 -205950648, i32 -2067906082, i32 450548861, i32 1843258603, i32 -187386543, i32 -2083289657, i32 325883990, i32 1684777152, i32 -43845254, i32 -1973040660, i32 335633487, i32 1661365465, i32 -99664541, i32 -1928851979, i32 997073096, i32 1281953886, i32 -715111964, i32 -1570279054, i32 1006888145, i32 1258607687, i32 -770865667, i32 -1526024853, i32 901097722, i32 1119000684, i32 -608450090, i32 -1396901568, i32 853044451, i32 1172266101, i32 -589951537, i32 -1412350631, i32 651767980, i32 1373503546, i32 -925412992, i32 -1076862698, i32 565507253, i32 1454621731, i32 -809855591, i32 -1195530993, i32 671266974, i32 1594198024, i32 -972236366, i32 -1324619484, i32 795835527, i32 1483230225, i32 -1050600021, i32 -1234817731, i32 1994146192, i32 31158534, i32 -1731059524, i32 -271249366, i32 1907459465, i32 112637215, i32 -1614814043, i32 -390540237, i32 2013776290, i32 251722036, i32 -1777751922, i32 -519137256, i32 2137656763, i32 141376813, i32 -1855689577, i32 -429695999, i32 1802195444, i32 476864866, i32 -2056965928, i32 -228458418, i32 1812370925, i32 453092731, i32 -2113342271, i32 -183516073, i32 1706088902, i32 314042704, i32 -1950435094, i32 -54949764, i32 1658658271, i32 366619977, i32 -1932296973, i32 -69972891, i32 1303535960, i32 984961486, i32 -1547960204, i32 -725929758, i32 1256170817, i32 1037604311, i32 -1529756563, i32 -740887301, i32 1131014506, i32 879679996, i32 -1385723834, i32 -631195440, i32 1141124467, i32 855842277, i32 -1442165665, i32 -586318647, i32 1342533948, i32 654459306, i32 -1106571248, i32 -921952122, i32 1466479909, i32 544179635, i32 -1184443383, i32 -832445281, i32 1591671054, i32 702138776, i32 -1328506846, i32 -942167884, i32 1504918807, i32 783551873, i32 -1212326853, i32 -1061524307, i32 -306674912, i32 -1698712650, i32 62317068, i32 1957810842, i32 -355121351, i32 -1647151185, i32 81470997, i32 1943803523, i32 -480048366, i32 -1805370492, i32 225274430, i32 2053790376, i32 -468791541, i32 -1828061283, i32 167816743, i32 2097651377, i32 -267414716, i32 -2029476910, i32 503444072, i32 1762050814, i32 -144550051, i32 -2140837941, i32 426522225, i32 1852507879, i32 -19653770, i32 -1982649376, i32 282753626, i32 1742555852, i32 -105259153, i32 -1900089351, i32 397917763, i32 1622183637, i32 -690576408, i32 -1580100738, i32 953729732, i32 1340076626, i32 -776247311, i32 -1497606297, i32 1068828381, i32 1219638859, i32 -670225446, i32 -1358292148, i32 906185462, i32 1090812512, i32 -547295293, i32 -1469587627, i32 829329135, i32 1181335161, i32 -882789492, i32 -1134132454, i32 628085408, i32 1382605366, i32 -871598187, i32 -1156888829, i32 570562233, i32 1426400815, i32 -977650754, i32 -1296233688, i32 733239954, i32 1555261956, i32 -1026031705, i32 -1244606671, i32 752459403, i32 1541320221, i32 -1687895376, i32 -328994266, i32 1969922972, i32 40735498, i32 -1677130071, i32 -351390145, i32 1913087877, i32 83908371, i32 -1782625662, i32 -491226604, i32 2075208622, i32 213261112, i32 -1831694693, i32 -438977011, i32 2094854071, i32 198958881, i32 -2032938284, i32 -237706686, i32 1759359992, i32 534414190, i32 -2118248755, i32 -155638181, i32 1873836001, i32 414664567, i32 -2012718362, i32 -15766928, i32 1711684554, i32 285281116, i32 -1889165569, i32 -127750551, i32 1634467795, i32 376229701, i32 -1609899400, i32 -686959890, i32 1308918612, i32 956543938, i32 -1486412191, i32 -799009033, i32 1231636301, i32 1047427035, i32 -1362007478, i32 -640263460, i32 1088359270, i32 936918000, i32 -1447252397, i32 -558129467, i32 1202900863, i32 817233897, i32 -1111625188, i32 -893730166, i32 1404277552, i32 615818150, i32 -1160759803, i32 -841546093, i32 1423857449, i32 601450431, i32 -1285129682, i32 -1000256840, i32 1567103746, i32 711928724, i32 -1274298825, i32 -1022587231, i32 1510334235, i32 755167117], align 16
 @.str = private unnamed_addr constant [14 x i8] c"%s/.build-id/\00", align 1
@@ -32,7 +30,7 @@ define hidden i32 @gnu_debuglink_crc32(i32 noundef %0, ptr noundef readonly capt
   %.0.tr = trunc i32 %.011 to i8
   %.narrow = xor i8 %7, %.0.tr
   %8 = zext i8 %.narrow to i64
-  %9 = getelementptr inbounds nuw i32, ptr @gnu_debuglink_crc32.crc32_table, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @gnu_debuglink_crc32.crc32_table, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %.011, 8
   %12 = xor i32 %10, %11
@@ -92,7 +90,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader164 ]
   %.0117177 = phi ptr [ %32, %28 ], [ %9, %.preheader164 ]
   %.0119176 = phi i32 [ %spec.select, %28 ], [ 11, %.preheader164 ]
-  %21 = getelementptr inbounds nuw %struct.elf_section, ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   store ptr %.0117177, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %.0117177, i64 4
   %23 = load i32, ptr %22, align 4
@@ -129,7 +127,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
 .lr.ph184:                                        ; preds = %.preheader163, %.loopexit162
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %.loopexit162 ], [ 1, %.preheader163 ]
   %.1183 = phi ptr [ %.2, %.loopexit162 ], [ null, %.preheader163 ]
-  %35 = getelementptr inbounds nuw %struct.elf_section, ptr %17, i64 %indvars.iv207
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv207
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
@@ -163,7 +161,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %struct.elf_section, ptr %17, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load i64, ptr %64, align 8
@@ -213,7 +211,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
   br i1 %88, label %99, label %89
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds %struct.elf_symbol, ptr %72, i64 %.0121180
+  %90 = getelementptr inbounds [24 x i8], ptr %72, i64 %.0121180
   store ptr %77, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.0122179, i64 16
   %92 = load i64, ptr %91, align 8
@@ -265,7 +263,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
   br i1 %110, label %111, label %build_symtab_from_build_id.exit
 
 111:                                              ; preds = %.lr.ph188
-  %112 = getelementptr inbounds nuw %struct.elf_section, ptr %17, i64 %indvars.iv210
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv210
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
@@ -368,7 +366,7 @@ build_symtab_from_build_id.exit:                  ; preds = %118, %153, %111, %.
   %166 = shl i64 %165, 30
   %sext.i.i = add i64 %166, 4294967296
   %167 = ashr i64 %sext.i.i, 32
-  %168 = getelementptr inbounds i32, ptr %164, i64 %167
+  %168 = getelementptr inbounds [4 x i8], ptr %164, i64 %167
   %169 = load i32, ptr %168, align 4
   store i32 %169, ptr @open_file_from_debug_link.crc, align 4
   %170 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #17
@@ -490,7 +488,7 @@ build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debu
 .lr.ph193:                                        ; preds = %.preheader, %217
   %212 = phi i16 [ %218, %217 ], [ %211, %.preheader ]
   %indvars.iv213 = phi i64 [ %indvars.iv.next214, %217 ], [ 0, %.preheader ]
-  %213 = getelementptr inbounds nuw %struct.elf_section, ptr %17, i64 %indvars.iv213
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv213
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %215 = load ptr, ptr %214, align 8
   %.not139 = icmp eq ptr %215, null
@@ -639,7 +637,7 @@ define hidden ptr @nearest_symbol(ptr noundef readonly captures(address_is_null)
 
 8:                                                ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %9 = getelementptr inbounds nuw %struct.elf_symbol, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not22 = icmp eq ptr %10, null
   br i1 %.not22, label %22, label %11
@@ -751,7 +749,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @open_debug_file(ptr nound
   %.0.tr.i = trunc i32 %.011.i to i8
   %.narrow.i = xor i8 %15, %.0.tr.i
   %16 = zext i8 %.narrow.i to i64
-  %17 = getelementptr inbounds nuw i32, ptr @gnu_debuglink_crc32.crc32_table, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @gnu_debuglink_crc32.crc32_table, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = lshr i32 %.011.i, 8
   %20 = xor i32 %18, %19

@@ -303,7 +303,7 @@ define internal i32 @i801_probe(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %48, label %52, label %49
 
 49:                                               ; preds = %40
-  %50 = getelementptr ptr, ptr @i801_feature_names, i64 %42
+  %50 = getelementptr [8 x i8], ptr @i801_feature_names, i64 %42
   %51 = load ptr, ptr %50, align 8
   tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %9, ptr noundef nonnull @.str.3, ptr noundef %51) #17
   %.pre = load i32, ptr @disable_features, align 4
@@ -1254,7 +1254,7 @@ define internal fastcc void @i801_probe_optional_slaves(ptr noundef nonnull %0) 
 
 31:                                               ; preds = %37, %29
   %32 = phi i64 [ 0, %29 ], [ %38, %37 ]
-  %33 = getelementptr %struct.anon.5, ptr @dell_lis3lv02d_devices, i64 %32
+  %33 = getelementptr [16 x i8], ptr @dell_lis3lv02d_devices, i64 %32
   %34 = load ptr, ptr %33, align 16
   %35 = call i32 @strcmp(ptr noundef %30, ptr noundef %34) #15
   %36 = icmp eq i32 %35, 0
@@ -2748,7 +2748,7 @@ define internal void @dmi_check_onboard_devices(ptr noundef readonly captures(no
 
 45:                                               ; preds = %62, %43
   %46 = phi i64 [ 0, %43 ], [ %63, %62 ]
-  %47 = getelementptr %struct.dmi_onboard_device_info, ptr @dmi_devices, i64 %46
+  %47 = getelementptr [24 x i8], ptr @dmi_devices, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i8, ptr %48, align 8
   %50 = icmp eq i8 %44, %49

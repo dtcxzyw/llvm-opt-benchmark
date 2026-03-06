@@ -16,19 +16,15 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.config_include_data = type { i32, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.config_options = type { i8, ptr, ptr, ptr, ptr, i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.hashmap_iter = type { ptr, ptr, i32 }
 %struct.config_set_element = type { %struct.hashmap_entry, ptr, %struct.string_list }
 %struct.hashmap_entry = type { ptr, i32 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.configset_list_item = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.lock_file = type { ptr }
 %struct.config_store_data = type { i64, ptr, i32, ptr, ptr, i32, ptr, i32, i32, ptr, i32, i32, i8 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.anon = type { i64, i64, i32, i32 }
-%struct.fsync_component_name = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [26 x i8] c"invalid config format: %s\00", align 1
 @.str.1 = private unnamed_addr constant [59 x i8] c"missing environment variable name for configuration '%.*s'\00", align 1
@@ -5782,7 +5778,7 @@ include_by_branch.exit.i:                         ; preds = %68, %add_trailing_s
   %115 = getelementptr inbounds nuw i8, ptr %.0912.i7.i.i, i64 16
   %116 = load ptr, ptr %107, align 8, !tbaa !97
   %117 = load i64, ptr %112, align 8, !tbaa !100
-  %118 = getelementptr inbounds nuw %struct.string_list_item, ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %117
   %119 = icmp ult ptr %115, %118
   br i1 %119, label %.lr.ph.i.i, label %at_least_one_url_matches_glob.exit.i.i
 
@@ -6068,7 +6064,7 @@ xstrdup_or_null.exit.i:                           ; preds = %25, %23
   %45 = phi ptr [ %42, %36 ], [ %.pre.i, %xstrdup_or_null.exit.i ]
   store i32 %.pre-phi.i, ptr %30, align 8, !tbaa !116
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw %struct.configset_list_item, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %46
   store ptr %.038.i, ptr %47, align 8, !tbaa !118
   %48 = getelementptr inbounds nuw i8, ptr %.038.i, i64 32
   %49 = load i64, ptr %48, align 8, !tbaa !121
@@ -6120,7 +6116,7 @@ configset_find_element.exit.i:                    ; preds = %4
   %16 = load ptr, ptr %15, align 8, !tbaa !97
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !100
-  %19 = getelementptr %struct.string_list_item, ptr %16, i64 %18
+  %19 = getelementptr [16 x i8], ptr %16, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -16
   %.sroa.0.0.copyload = load ptr, ptr %20, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %19, i64 -8
@@ -6312,7 +6308,7 @@ configset_find_element.exit.i.i:                  ; preds = %3
   %15 = load ptr, ptr %14, align 8, !tbaa !97
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %17 = load i64, ptr %16, align 8, !tbaa !100
-  %18 = getelementptr %struct.string_list_item, ptr %15, i64 %17
+  %18 = getelementptr [16 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -16
   %.sroa.0.0.copyload.i = load ptr, ptr %19, align 8, !tbaa !17
   %.not.i = icmp eq ptr %.sroa.0.0.copyload.i, null
@@ -6380,7 +6376,7 @@ configset_find_element.exit.i.i:                  ; preds = %3
   %17 = load ptr, ptr %16, align 8, !tbaa !97
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %19 = load i64, ptr %18, align 8, !tbaa !100
-  %20 = getelementptr %struct.string_list_item, ptr %17, i64 %19
+  %20 = getelementptr [16 x i8], ptr %17, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -16
   %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %20, i64 -8
@@ -6445,7 +6441,7 @@ configset_find_element.exit.i.i:                  ; preds = %3
   %17 = load ptr, ptr %16, align 8, !tbaa !97
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %19 = load i64, ptr %18, align 8, !tbaa !100
-  %20 = getelementptr %struct.string_list_item, ptr %17, i64 %19
+  %20 = getelementptr [16 x i8], ptr %17, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -16
   %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %20, i64 -8
@@ -6507,7 +6503,7 @@ configset_find_element.exit.i.i:                  ; preds = %3
   %15 = load ptr, ptr %14, align 8, !tbaa !97
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %17 = load i64, ptr %16, align 8, !tbaa !100
-  %18 = getelementptr %struct.string_list_item, ptr %15, i64 %17
+  %18 = getelementptr [16 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -16
   %.sroa.0.0.copyload.i = load ptr, ptr %19, align 8, !tbaa !17
   %20 = call i32 @git_parse_maybe_bool(ptr noundef %.sroa.0.0.copyload.i) #31
@@ -6566,7 +6562,7 @@ configset_find_element.exit.i.i:                  ; preds = %4
   %18 = load ptr, ptr %17, align 8, !tbaa !97
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %20 = load i64, ptr %19, align 8, !tbaa !100
-  %21 = getelementptr %struct.string_list_item, ptr %18, i64 %20
+  %21 = getelementptr [16 x i8], ptr %18, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -16
   %.sroa.0.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %21, i64 -8
@@ -6642,7 +6638,7 @@ configset_find_element.exit.i.i:                  ; preds = %3
   %15 = load ptr, ptr %14, align 8, !tbaa !97
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %17 = load i64, ptr %16, align 8, !tbaa !100
-  %18 = getelementptr %struct.string_list_item, ptr %15, i64 %17
+  %18 = getelementptr [16 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -16
   %.sroa.0.0.copyload.i = load ptr, ptr %19, align 8, !tbaa !17
   %20 = call i32 @git_parse_maybe_bool(ptr noundef %.sroa.0.0.copyload.i) #31
@@ -6691,7 +6687,7 @@ configset_find_element.exit.i.i:                  ; preds = %3
   %15 = load ptr, ptr %14, align 8, !tbaa !97
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %17 = load i64, ptr %16, align 8, !tbaa !100
-  %18 = getelementptr %struct.string_list_item, ptr %15, i64 %17
+  %18 = getelementptr [16 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -16
   %.sroa.0.0.copyload.i = load ptr, ptr %19, align 8, !tbaa !17
   %.not.i = icmp eq ptr %.sroa.0.0.copyload.i, null
@@ -6772,14 +6768,14 @@ define dso_local void @repo_config(ptr noundef %0, ptr noundef readonly captures
 .lr.ph.i:                                         ; preds = %3, %10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %10 ], [ 0, %3 ]
   %14 = load ptr, ptr %7, align 8, !tbaa !129
-  %15 = getelementptr inbounds nuw %struct.configset_list_item, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !118
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !122
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !97
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds %struct.string_list_item, ptr %20, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !124
   store ptr %24, ptr %4, align 8, !tbaa !28
@@ -6946,7 +6942,7 @@ configset_find_element.exit.i.i:                  ; preds = %3
   %17 = load ptr, ptr %16, align 8, !tbaa !97
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %19 = load i64, ptr %18, align 8, !tbaa !100
-  %20 = getelementptr %struct.string_list_item, ptr %17, i64 %19
+  %20 = getelementptr [16 x i8], ptr %17, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -16
   %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !17
   store ptr %.sroa.0.0.copyload.i, ptr %2, align 8, !tbaa !17
@@ -7117,7 +7113,7 @@ configset_find_element.exit.i.i:                  ; preds = %9
   %22 = load ptr, ptr %21, align 8, !tbaa !97
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %24 = load i64, ptr %23, align 8, !tbaa !100
-  %25 = getelementptr %struct.string_list_item, ptr %22, i64 %24
+  %25 = getelementptr [16 x i8], ptr %22, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load ptr, ptr %26, align 8, !tbaa !124
   %28 = load ptr, ptr %27, align 8, !tbaa !20
@@ -7165,7 +7161,7 @@ configset_find_element.exit.i.i.i:                ; preds = %3
   %17 = load ptr, ptr %16, align 8, !tbaa !97
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %19 = load i64, ptr %18, align 8, !tbaa !100
-  %20 = getelementptr %struct.string_list_item, ptr %17, i64 %19
+  %20 = getelementptr [16 x i8], ptr %17, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -16
   %.sroa.0.0.copyload.i.i = load ptr, ptr %21, align 8, !tbaa !17
   %.not5.i = icmp eq ptr %.sroa.0.0.copyload.i.i, null
@@ -7269,7 +7265,7 @@ configset_find_element.exit.i.i.i:                ; preds = %3
   %17 = load ptr, ptr %16, align 8, !tbaa !97
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %19 = load i64, ptr %18, align 8, !tbaa !100
-  %20 = getelementptr %struct.string_list_item, ptr %17, i64 %19
+  %20 = getelementptr [16 x i8], ptr %17, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -16
   %.sroa.0.0.copyload.i.i = load ptr, ptr %21, align 8, !tbaa !17
   %22 = call i32 @git_parse_maybe_bool(ptr noundef %.sroa.0.0.copyload.i.i) #31
@@ -7336,14 +7332,14 @@ define dso_local void @git_protected_config(ptr noundef readonly captures(none) 
 .lr.ph.i:                                         ; preds = %8, %10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %10 ], [ 0, %8 ]
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @protected_config, i64 56), align 8, !tbaa !129
-  %15 = getelementptr inbounds nuw %struct.configset_list_item, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !118
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !122
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !97
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds %struct.string_list_item, ptr %20, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !124
   store ptr %24, ptr %3, align 8, !tbaa !28
@@ -7969,14 +7965,14 @@ _.exit173:                                        ; preds = %150, %152
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %174 = load ptr, ptr %171, align 8, !tbaa !151
   %175 = sext i32 %storemerge203 to i64
-  %176 = getelementptr inbounds i32, ptr %174, i64 %175
+  %176 = getelementptr inbounds [4 x i8], ptr %174, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !14
   %178 = load i8, ptr %172, align 8
   %179 = and i8 %178, 1
   %.not139 = icmp eq i8 %179, 0
   %180 = load ptr, ptr %92, align 8, !tbaa !139
   %181 = sext i32 %177 to i64
-  %182 = getelementptr inbounds %struct.anon, ptr %180, i64 %181
+  %182 = getelementptr inbounds [24 x i8], ptr %180, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load i64, ptr %183, align 8, !tbaa !140
   br i1 %.not139, label %185, label %196
@@ -8646,7 +8642,7 @@ define internal range(i32 -1, 1) i32 @store_aux_event(i32 noundef %0, i64 nounde
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %20, %12 ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw %struct.anon, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %25
   store i64 %1, ptr %26, align 8, !tbaa !153
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %2, ptr %27, align 8, !tbaa !140
@@ -8713,7 +8709,7 @@ _.exit:                                           ; preds = %.critedge, %41
   %59 = phi i32 [ %.pre71, %50 ], [ %22, %46 ]
   %60 = phi ptr [ %.pre70, %50 ], [ %23, %46 ]
   %61 = phi i32 [ %57, %50 ], [ 0, %46 ]
-  %62 = getelementptr inbounds nuw %struct.anon, ptr %60, i64 %.pre-phi
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %60, i64 %.pre-phi
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 20
   store i32 %61, ptr %63, align 4, !tbaa !162
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -8763,7 +8759,7 @@ _.exit:                                           ; preds = %.critedge, %41
   %89 = phi ptr [ %86, %78 ], [ %.pre75, %._crit_edge73 ]
   %90 = phi i32 [ %.pre72, %78 ], [ %59, %._crit_edge73 ]
   %91 = zext i32 %88 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %89, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %91
   store i32 %90, ptr %92, align 4, !tbaa !14
   %.pre77 = load i32, ptr %6, align 8, !tbaa !152
   br label %93
@@ -8895,7 +8891,7 @@ _.exit:                                           ; preds = %37, %39
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %60 = load i32, ptr %59, align 8, !tbaa !152
   %61 = zext i32 %57 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %58, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %61
   store i32 %60, ptr %62, align 4, !tbaa !14
   %63 = load i32, ptr %30, align 8, !tbaa !142
   %64 = add i32 %63, 1
@@ -8942,7 +8938,7 @@ _.exit:                                           ; preds = %37, %39
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %87 = load i32, ptr %86, align 8, !tbaa !152
   %88 = zext i32 %84 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %85, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %88
   store i32 %87, ptr %89, align 4, !tbaa !14
   %90 = load i8, ptr %5, align 8
   %91 = or i8 %90, 2
@@ -9028,7 +9024,7 @@ define internal fastcc void @maybe_remove_section(ptr noundef nonnull readonly c
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !151
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !14
   %11 = icmp sgt i32 %10, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -9042,7 +9038,7 @@ define internal fastcc void @maybe_remove_section(ptr noundef nonnull readonly c
 15:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %.04986 = phi i32 [ 0, %.lr.ph ], [ %.251, %24 ]
-  %16 = getelementptr %struct.anon, ptr %13, i64 %indvars.iv
+  %16 = getelementptr [24 x i8], ptr %13, i64 %indvars.iv
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i32, ptr %17, align 8, !tbaa !157
   switch i32 %18, label %24 [
@@ -9075,7 +9071,7 @@ define internal fastcc void @maybe_remove_section(ptr noundef nonnull readonly c
 .thread63:                                        ; preds = %24, %.thread63.loopexit.split.loop.exit, %4, %19
   %.083 = phi i32 [ %20, %19 ], [ %10, %4 ], [ %26, %.thread63.loopexit.split.loop.exit ], [ 0, %24 ]
   %27 = sext i32 %.083 to i64
-  %28 = getelementptr inbounds %struct.anon, ptr %13, i64 %27
+  %28 = getelementptr inbounds [24 x i8], ptr %13, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !153
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load i32, ptr %30, align 8, !tbaa !152
@@ -9091,7 +9087,7 @@ define internal fastcc void @maybe_remove_section(ptr noundef nonnull readonly c
   %.192 = phi i32 [ %.190, %.lr.ph93 ], [ %.1, %51 ]
   %.04791 = phi i32 [ %5, %.lr.ph93 ], [ %.2.ph, %51 ]
   %35 = sext i32 %.192 to i64
-  %36 = getelementptr inbounds %struct.anon, ptr %13, i64 %35
+  %36 = getelementptr inbounds [24 x i8], ptr %13, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !157
   switch i32 %38, label %51 [
@@ -9114,7 +9110,7 @@ define internal fastcc void @maybe_remove_section(ptr noundef nonnull readonly c
 
 46:                                               ; preds = %42
   %47 = sext i32 %43 to i64
-  %48 = getelementptr inbounds i32, ptr %7, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %7, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !14
   %50 = icmp eq i32 %.192, %49
   br i1 %50, label %51, label %.thread
@@ -9134,10 +9130,10 @@ define internal fastcc void @maybe_remove_section(ptr noundef nonnull readonly c
   %53 = icmp ult i32 %.1.lcssa, %52
   %54 = add i32 %52, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct.anon, ptr %13, i64 %55
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = sext i32 %.1.lcssa to i64
-  %59 = getelementptr inbounds %struct.anon, ptr %13, i64 %58
+  %59 = getelementptr inbounds [24 x i8], ptr %13, i64 %58
   %storemerge.in = select i1 %53, ptr %59, ptr %57
   %storemerge = load i64, ptr %storemerge.in, align 8, !tbaa !16
   store i64 %storemerge, ptr %2, align 8, !tbaa !16
@@ -9831,7 +9827,7 @@ define dso_local noundef nonnull ptr @config_origin_type_name(i32 noundef %0) lo
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_origin_type_name, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_origin_type_name, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -9844,7 +9840,7 @@ define dso_local noundef nonnull ptr @config_scope_name(i32 noundef %0) local_un
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_scope_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_scope_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -9864,7 +9860,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @lookup_config(ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -9963,7 +9959,7 @@ define internal fastcc i32 @parse_fsync_components(ptr noundef %0, ptr noundef n
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %28 ], [ 0, %13 ]
   %.03784.us = phi i32 [ %.138.us, %28 ], [ 0, %13 ]
   %.45081.us = phi i32 [ %.551.us, %28 ], [ %.04687, %13 ]
-  %21 = getelementptr inbounds nuw %struct.fsync_component_name, ptr @fsync_component_names, i64 %indvars.iv96
+  %21 = getelementptr inbounds nuw [16 x i8], ptr @fsync_component_names, i64 %indvars.iv96
   %22 = load ptr, ptr %21, align 16, !tbaa !175
   %23 = tail call i32 @strncmp(ptr noundef %22, ptr noundef nonnull %14, i64 noundef %15) #30
   %.not60.us = icmp eq i32 %23, 0
@@ -9986,7 +9982,7 @@ define internal fastcc i32 @parse_fsync_components(ptr noundef %0, ptr noundef n
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %20 ]
   %.03784 = phi i32 [ %.138, %36 ], [ 0, %20 ]
   %.483 = phi i32 [ %.5, %36 ], [ %.04088, %20 ]
-  %29 = getelementptr inbounds nuw %struct.fsync_component_name, ptr @fsync_component_names, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr @fsync_component_names, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 16, !tbaa !175
   %31 = tail call i32 @strncmp(ptr noundef %30, ptr noundef nonnull %5, i64 noundef %9) #30
   %.not60 = icmp eq i32 %31, 0

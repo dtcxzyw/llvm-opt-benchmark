@@ -194,7 +194,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #1 {
 
 10:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   tail call void @av_frame_free(ptr noundef nonnull %11) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1243,7 +1243,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
 
 479:                                              ; preds = %.thread481, %.thread483
   %indvars.iv = phi i64 [ 0, %.thread481 ], [ %indvars.iv.next, %.thread483 ]
-  %480 = getelementptr inbounds nuw ptr, ptr %478, i64 %indvars.iv
+  %480 = getelementptr inbounds nuw [8 x i8], ptr %478, i64 %indvars.iv
   %481 = load ptr, ptr %480, align 8, !tbaa !35
   %.not473 = icmp eq ptr %481, null
   br i1 %.not473, label %482, label %.thread483
@@ -1377,7 +1377,7 @@ switch.lookup:                                    ; preds = %528, %523, %518, %5
   %switch.tableidx543.sink548 = phi i32 [ %switch.tableidx538, %523 ], [ %switch.tableidx533, %518 ], [ %switch.tableidx528, %513 ], [ %switch.tableidx523, %508 ], [ %switch.tableidx518, %503 ], [ %switch.tableidx, %498 ], [ %switch.tableidx543, %528 ]
   %switch.table.config_filter.6.sink = phi ptr [ @switch.table.config_filter.5, %523 ], [ @switch.table.config_filter.4, %518 ], [ @switch.table.config_filter.3, %513 ], [ @switch.table.config_filter.2, %508 ], [ @switch.table.config_filter.1, %503 ], [ @switch.table.config_filter, %498 ], [ @switch.table.config_filter.6, %528 ]
   %534 = zext nneg i32 %switch.tableidx543.sink548 to i64
-  %switch.gep545 = getelementptr inbounds nuw ptr, ptr %switch.table.config_filter.6.sink, i64 %534
+  %switch.gep545 = getelementptr inbounds nuw [8 x i8], ptr %switch.table.config_filter.6.sink, i64 %534
   %switch.load546 = load ptr, ptr %switch.gep545, align 8
   %switch.offset547 = add nuw nsw i32 %switch.tableidx543.sink548, 6
   %535 = getelementptr inbounds nuw i8, ptr %5, i64 304
@@ -1804,7 +1804,7 @@ define internal void @biquad_s16(ptr noundef readonly captures(none) %0, ptr nou
   %34 = or disjoint i64 %indvars.iv, 1
   %35 = fmul nsz float %24, %.0145
   %36 = tail call nsz float @llvm.fmuladd.f32(float %.0129143, float %26, float %35)
-  %37 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %38 = load i16, ptr %37, align 2, !tbaa !76
   %39 = sitofp i16 %38 to float
   %40 = tail call nsz float @llvm.fmuladd.f32(float %39, float %22, float %36)
@@ -1840,11 +1840,11 @@ define internal void @biquad_s16(ptr noundef readonly captures(none) %0, ptr nou
 
 57:                                               ; preds = %33, %47, %55, %52
   %.sink = phi i16 [ -32768, %47 ], [ %56, %55 ], [ 32767, %52 ], [ %38, %33 ]
-  %58 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %.sink, ptr %58, align 2, !tbaa !76
   %59 = fmul nsz float %24, %39
   %60 = tail call nsz float @llvm.fmuladd.f32(float %.0145, float %26, float %59)
-  %61 = getelementptr inbounds nuw i16, ptr %1, i64 %34
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %34
   %62 = load i16, ptr %61, align 2, !tbaa !76
   %63 = sitofp i16 %62 to float
   %64 = tail call nsz float @llvm.fmuladd.f32(float %63, float %22, float %60)
@@ -1880,7 +1880,7 @@ define internal void @biquad_s16(ptr noundef readonly captures(none) %0, ptr nou
 
 81:                                               ; preds = %57, %76, %79, %71
   %.sink162 = phi i16 [ -32768, %71 ], [ 32767, %76 ], [ %80, %79 ], [ %62, %57 ]
-  %82 = getelementptr inbounds nuw i16, ptr %2, i64 %34
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %34
   store i16 %.sink162, ptr %82, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %83 = or disjoint i64 %indvars.iv.next, 1
@@ -1902,7 +1902,7 @@ define internal void @biquad_s16(ptr noundef readonly captures(none) %0, ptr nou
 
 87:                                               ; preds = %._crit_edge
   %88 = zext nneg i32 %.0128.lcssa to i64
-  %89 = getelementptr inbounds nuw i16, ptr %1, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !76
   %91 = sitofp i16 %90 to float
   %92 = fmul nsz float %24, %.0.lcssa
@@ -1941,7 +1941,7 @@ define internal void @biquad_s16(ptr noundef readonly captures(none) %0, ptr nou
 
 .sink.split:                                      ; preds = %87, %101, %109, %106
   %.sink164 = phi i16 [ -32768, %101 ], [ 32767, %106 ], [ %110, %109 ], [ %90, %87 ]
-  %111 = getelementptr inbounds nuw i16, ptr %2, i64 %88
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %88
   store i16 %.sink164, ptr %111, align 2, !tbaa !76
   br label %112
 
@@ -1998,7 +1998,7 @@ define internal void @biquad_s32(ptr noundef readonly captures(none) %0, ptr nou
   %33 = or disjoint i64 %indvars.iv, 1
   %34 = fmul nsz double %24, %.0145
   %35 = tail call nsz double @llvm.fmuladd.f64(double %.0129143, double %26, double %34)
-  %36 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !30
   %38 = sitofp i32 %37 to double
   %39 = tail call nsz double @llvm.fmuladd.f64(double %38, double %22, double %35)
@@ -2034,11 +2034,11 @@ define internal void @biquad_s32(ptr noundef readonly captures(none) %0, ptr nou
 
 56:                                               ; preds = %32, %46, %54, %51
   %.sink = phi i32 [ -2147483648, %46 ], [ %55, %54 ], [ 2147483647, %51 ], [ %37, %32 ]
-  %57 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %.sink, ptr %57, align 4, !tbaa !30
   %58 = fmul nsz double %24, %38
   %59 = tail call nsz double @llvm.fmuladd.f64(double %.0145, double %26, double %58)
-  %60 = getelementptr inbounds nuw i32, ptr %1, i64 %33
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %33
   %61 = load i32, ptr %60, align 4, !tbaa !30
   %62 = sitofp i32 %61 to double
   %63 = tail call nsz double @llvm.fmuladd.f64(double %62, double %22, double %59)
@@ -2074,7 +2074,7 @@ define internal void @biquad_s32(ptr noundef readonly captures(none) %0, ptr nou
 
 80:                                               ; preds = %56, %75, %78, %70
   %.sink162 = phi i32 [ -2147483648, %70 ], [ 2147483647, %75 ], [ %79, %78 ], [ %61, %56 ]
-  %81 = getelementptr inbounds nuw i32, ptr %2, i64 %33
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %33
   store i32 %.sink162, ptr %81, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %82 = or disjoint i64 %indvars.iv.next, 1
@@ -2096,7 +2096,7 @@ define internal void @biquad_s32(ptr noundef readonly captures(none) %0, ptr nou
 
 86:                                               ; preds = %._crit_edge
   %87 = zext nneg i32 %.0128.lcssa to i64
-  %88 = getelementptr inbounds nuw i32, ptr %1, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !30
   %90 = sitofp i32 %89 to double
   %91 = fmul nsz double %24, %.0.lcssa
@@ -2135,7 +2135,7 @@ define internal void @biquad_s32(ptr noundef readonly captures(none) %0, ptr nou
 
 .sink.split:                                      ; preds = %86, %100, %108, %105
   %.sink164 = phi i32 [ -2147483648, %100 ], [ 2147483647, %105 ], [ %109, %108 ], [ %89, %86 ]
-  %110 = getelementptr inbounds nuw i32, ptr %2, i64 %87
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %87
   store i32 %.sink164, ptr %110, align 4, !tbaa !30
   br label %111
 
@@ -2193,25 +2193,25 @@ define internal void @biquad_flt(ptr noundef readonly captures(none) %0, ptr nou
   %33 = or disjoint i64 %indvars.iv138, 1
   %34 = fmul nsz float %24, %.0118.us
   %35 = tail call nsz float @llvm.fmuladd.f32(float %.0105116.us, float %26, float %34)
-  %36 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv138
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv138
   %37 = load float, ptr %36, align 4, !tbaa !73
   %38 = tail call nsz float @llvm.fmuladd.f32(float %37, float %22, float %35)
   %39 = tail call nsz float @llvm.fmuladd.f32(float %.0109114.us, float %21, float %38)
   %40 = tail call nsz float @llvm.fmuladd.f32(float %.0107115.us, float %18, float %39)
   %41 = fmul nsz float %30, %37
   %42 = tail call nsz float @llvm.fmuladd.f32(float %40, float %29, float %41)
-  %43 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv138
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv138
   store float %42, ptr %43, align 4, !tbaa !73
   %44 = fmul nsz float %24, %37
   %45 = tail call nsz float @llvm.fmuladd.f32(float %.0118.us, float %26, float %44)
-  %46 = getelementptr inbounds nuw float, ptr %1, i64 %33
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %33
   %47 = load float, ptr %46, align 4, !tbaa !73
   %48 = tail call nsz float @llvm.fmuladd.f32(float %47, float %22, float %45)
   %49 = tail call nsz float @llvm.fmuladd.f32(float %.0107115.us, float %21, float %48)
   %50 = tail call nsz float @llvm.fmuladd.f32(float %40, float %18, float %49)
   %51 = fmul nsz float %30, %47
   %52 = tail call nsz float @llvm.fmuladd.f32(float %50, float %29, float %51)
-  %53 = getelementptr inbounds nuw float, ptr %2, i64 %33
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %33
   store float %52, ptr %53, align 4, !tbaa !73
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 2
   %54 = or disjoint i64 %indvars.iv.next139, 1
@@ -2227,21 +2227,21 @@ define internal void @biquad_flt(ptr noundef readonly captures(none) %0, ptr nou
   %56 = or disjoint i64 %indvars.iv, 1
   %57 = fmul nsz float %24, %.0118
   %58 = tail call nsz float @llvm.fmuladd.f32(float %.0105116, float %26, float %57)
-  %59 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %60 = load float, ptr %59, align 4, !tbaa !73
   %61 = tail call nsz float @llvm.fmuladd.f32(float %60, float %22, float %58)
   %62 = tail call nsz float @llvm.fmuladd.f32(float %.0109114, float %21, float %61)
   %63 = tail call nsz float @llvm.fmuladd.f32(float %.0107115, float %18, float %62)
-  %64 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %60, ptr %64, align 4, !tbaa !73
   %65 = fmul nsz float %24, %60
   %66 = tail call nsz float @llvm.fmuladd.f32(float %.0118, float %26, float %65)
-  %67 = getelementptr inbounds nuw float, ptr %1, i64 %56
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %56
   %68 = load float, ptr %67, align 4, !tbaa !73
   %69 = tail call nsz float @llvm.fmuladd.f32(float %68, float %22, float %66)
   %70 = tail call nsz float @llvm.fmuladd.f32(float %.0107115, float %21, float %69)
   %71 = tail call nsz float @llvm.fmuladd.f32(float %63, float %18, float %70)
-  %72 = getelementptr inbounds nuw float, ptr %2, i64 %56
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %56
   store float %68, ptr %72, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %73 = or disjoint i64 %indvars.iv.next, 1
@@ -2267,7 +2267,7 @@ define internal void @biquad_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 .sink.split:                                      ; preds = %._crit_edge
   %78 = zext nneg i32 %.0104.lcssa to i64
-  %79 = getelementptr inbounds nuw float, ptr %1, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !73
   %81 = fmul nsz float %24, %.0.lcssa
   %82 = tail call nsz float @llvm.fmuladd.f32(float %80, float %22, float %81)
@@ -2278,7 +2278,7 @@ define internal void @biquad_flt(ptr noundef readonly captures(none) %0, ptr nou
   %86 = fmul nsz float %30, %80
   %87 = tail call nsz float @llvm.fmuladd.f32(float %85, float %29, float %86)
   %.sink = select i1 %.not, float %87, float %80
-  %88 = getelementptr inbounds nuw float, ptr %2, i64 %78
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %78
   store float %.sink, ptr %88, align 4, !tbaa !73
   br label %89
 
@@ -2335,25 +2335,25 @@ define internal void @biquad_dbl(ptr noundef readonly captures(none) %0, ptr nou
   %32 = or disjoint i64 %indvars.iv138, 1
   %33 = fmul nsz double %24, %.0118.us
   %34 = tail call nsz double @llvm.fmuladd.f64(double %.0105116.us, double %26, double %33)
-  %35 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv138
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv138
   %36 = load double, ptr %35, align 8, !tbaa !53
   %37 = tail call nsz double @llvm.fmuladd.f64(double %36, double %22, double %34)
   %38 = tail call nsz double @llvm.fmuladd.f64(double %.0109114.us, double %21, double %37)
   %39 = tail call nsz double @llvm.fmuladd.f64(double %.0107115.us, double %18, double %38)
   %40 = fmul nsz double %29, %36
   %41 = tail call nsz double @llvm.fmuladd.f64(double %39, double %28, double %40)
-  %42 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv138
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv138
   store double %41, ptr %42, align 8, !tbaa !53
   %43 = fmul nsz double %24, %36
   %44 = tail call nsz double @llvm.fmuladd.f64(double %.0118.us, double %26, double %43)
-  %45 = getelementptr inbounds nuw double, ptr %1, i64 %32
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %32
   %46 = load double, ptr %45, align 8, !tbaa !53
   %47 = tail call nsz double @llvm.fmuladd.f64(double %46, double %22, double %44)
   %48 = tail call nsz double @llvm.fmuladd.f64(double %.0107115.us, double %21, double %47)
   %49 = tail call nsz double @llvm.fmuladd.f64(double %39, double %18, double %48)
   %50 = fmul nsz double %29, %46
   %51 = tail call nsz double @llvm.fmuladd.f64(double %49, double %28, double %50)
-  %52 = getelementptr inbounds nuw double, ptr %2, i64 %32
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %32
   store double %51, ptr %52, align 8, !tbaa !53
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 2
   %53 = or disjoint i64 %indvars.iv.next139, 1
@@ -2369,21 +2369,21 @@ define internal void @biquad_dbl(ptr noundef readonly captures(none) %0, ptr nou
   %55 = or disjoint i64 %indvars.iv, 1
   %56 = fmul nsz double %24, %.0118
   %57 = tail call nsz double @llvm.fmuladd.f64(double %.0105116, double %26, double %56)
-  %58 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %59 = load double, ptr %58, align 8, !tbaa !53
   %60 = tail call nsz double @llvm.fmuladd.f64(double %59, double %22, double %57)
   %61 = tail call nsz double @llvm.fmuladd.f64(double %.0109114, double %21, double %60)
   %62 = tail call nsz double @llvm.fmuladd.f64(double %.0107115, double %18, double %61)
-  %63 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %59, ptr %63, align 8, !tbaa !53
   %64 = fmul nsz double %24, %59
   %65 = tail call nsz double @llvm.fmuladd.f64(double %.0118, double %26, double %64)
-  %66 = getelementptr inbounds nuw double, ptr %1, i64 %55
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %55
   %67 = load double, ptr %66, align 8, !tbaa !53
   %68 = tail call nsz double @llvm.fmuladd.f64(double %67, double %22, double %65)
   %69 = tail call nsz double @llvm.fmuladd.f64(double %.0107115, double %21, double %68)
   %70 = tail call nsz double @llvm.fmuladd.f64(double %62, double %18, double %69)
-  %71 = getelementptr inbounds nuw double, ptr %2, i64 %55
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %55
   store double %67, ptr %71, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %72 = or disjoint i64 %indvars.iv.next, 1
@@ -2409,7 +2409,7 @@ define internal void @biquad_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 .sink.split:                                      ; preds = %._crit_edge
   %77 = zext nneg i32 %.0104.lcssa to i64
-  %78 = getelementptr inbounds nuw double, ptr %1, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %77
   %79 = load double, ptr %78, align 8, !tbaa !53
   %80 = fmul nsz double %24, %.0.lcssa
   %81 = tail call nsz double @llvm.fmuladd.f64(double %79, double %22, double %80)
@@ -2420,7 +2420,7 @@ define internal void @biquad_dbl(ptr noundef readonly captures(none) %0, ptr nou
   %85 = fmul nsz double %29, %79
   %86 = tail call nsz double @llvm.fmuladd.f64(double %84, double %28, double %85)
   %.sink = select i1 %.not, double %86, double %79
-  %87 = getelementptr inbounds nuw double, ptr %2, i64 %77
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %77
   store double %.sink, ptr %87, align 8, !tbaa !53
   br label %88
 
@@ -2469,7 +2469,7 @@ define internal void @biquad_dii_s16(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %49 ], [ 0, %.lr.ph ]
   %.05458.us = phi float [ %32, %49 ], [ %20, %.lr.ph ]
   %.05557.us = phi float [ %.05458.us, %49 ], [ %22, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv65
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv65
   %29 = load i16, ptr %28, align 2, !tbaa !76
   %30 = sitofp i16 %29 to float
   %31 = tail call nsz float @llvm.fmuladd.f32(float %11, float %.05458.us, float %30)
@@ -2504,7 +2504,7 @@ define internal void @biquad_dii_s16(ptr noundef readonly captures(none) %0, ptr
 
 49:                                               ; preds = %46, %43, %41
   %.sink = phi i16 [ -32768, %46 ], [ 32767, %43 ], [ %42, %41 ]
-  %50 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv65
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv65
   store i16 %.sink, ptr %50, align 2, !tbaa !76
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
@@ -2521,12 +2521,12 @@ define internal void @biquad_dii_s16(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.05458 = phi float [ %55, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.05557 = phi float [ %.05458, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %51 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %52 = load i16, ptr %51, align 2, !tbaa !76
   %53 = sitofp i16 %52 to float
   %54 = tail call nsz float @llvm.fmuladd.f32(float %11, float %.05458, float %53)
   %55 = tail call nsz float @llvm.fmuladd.f32(float %14, float %.05557, float %54)
-  %56 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %52, ptr %56, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count68
@@ -2565,7 +2565,7 @@ define internal void @biquad_dii_s32(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %48 ], [ 0, %.lr.ph ]
   %.05458.us = phi double [ %31, %48 ], [ %20, %.lr.ph ]
   %.05557.us = phi double [ %.05458.us, %48 ], [ %22, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv65
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv65
   %28 = load i32, ptr %27, align 4, !tbaa !30
   %29 = sitofp i32 %28 to double
   %30 = tail call nsz double @llvm.fmuladd.f64(double %11, double %.05458.us, double %29)
@@ -2600,7 +2600,7 @@ define internal void @biquad_dii_s32(ptr noundef readonly captures(none) %0, ptr
 
 48:                                               ; preds = %45, %42, %40
   %.sink = phi i32 [ -2147483648, %45 ], [ 2147483647, %42 ], [ %41, %40 ]
-  %49 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv65
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv65
   store i32 %.sink, ptr %49, align 4, !tbaa !30
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
@@ -2617,12 +2617,12 @@ define internal void @biquad_dii_s32(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.05458 = phi double [ %54, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.05557 = phi double [ %.05458, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %50 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = sitofp i32 %51 to double
   %53 = tail call nsz double @llvm.fmuladd.f64(double %11, double %.05458, double %52)
   %54 = tail call nsz double @llvm.fmuladd.f64(double %14, double %.05557, double %53)
-  %55 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %51, ptr %55, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count68
@@ -2662,7 +2662,7 @@ define internal void @biquad_dii_flt(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.04649.us = phi float [ %31, %.lr.ph.split.us ], [ %20, %.lr.ph ]
   %.04748.us = phi float [ %.04649.us, %.lr.ph.split.us ], [ %22, %.lr.ph ]
-  %28 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv56
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv56
   %29 = load float, ptr %28, align 4, !tbaa !73
   %30 = tail call nsz float @llvm.fmuladd.f32(float %11, float %.04649.us, float %29)
   %31 = tail call nsz float @llvm.fmuladd.f32(float %14, float %.04748.us, float %30)
@@ -2671,7 +2671,7 @@ define internal void @biquad_dii_flt(ptr noundef readonly captures(none) %0, ptr
   %34 = tail call nsz float @llvm.fmuladd.f32(float %19, float %.04748.us, float %33)
   %35 = fmul nsz float %26, %29
   %36 = tail call nsz float @llvm.fmuladd.f32(float %34, float %25, float %35)
-  %37 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv56
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv56
   store float %36, ptr %37, align 4, !tbaa !73
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
@@ -2688,11 +2688,11 @@ define internal void @biquad_dii_flt(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.04649 = phi float [ %41, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.04748 = phi float [ %.04649, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %38 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !73
   %40 = tail call nsz float @llvm.fmuladd.f32(float %11, float %.04649, float %39)
   %41 = tail call nsz float @llvm.fmuladd.f32(float %14, float %.04748, float %40)
-  %42 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %39, ptr %42, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
@@ -2731,7 +2731,7 @@ define internal void @biquad_dii_dbl(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.04649.us = phi double [ %30, %.lr.ph.split.us ], [ %20, %.lr.ph ]
   %.04748.us = phi double [ %.04649.us, %.lr.ph.split.us ], [ %22, %.lr.ph ]
-  %27 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv56
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv56
   %28 = load double, ptr %27, align 8, !tbaa !53
   %29 = tail call nsz double @llvm.fmuladd.f64(double %11, double %.04649.us, double %28)
   %30 = tail call nsz double @llvm.fmuladd.f64(double %14, double %.04748.us, double %29)
@@ -2740,7 +2740,7 @@ define internal void @biquad_dii_dbl(ptr noundef readonly captures(none) %0, ptr
   %33 = tail call nsz double @llvm.fmuladd.f64(double %19, double %.04748.us, double %32)
   %34 = fmul nsz double %25, %28
   %35 = tail call nsz double @llvm.fmuladd.f64(double %33, double %24, double %34)
-  %36 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv56
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv56
   store double %35, ptr %36, align 8, !tbaa !53
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
@@ -2757,11 +2757,11 @@ define internal void @biquad_dii_dbl(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.04649 = phi double [ %40, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.04748 = phi double [ %.04649, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %37 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %38 = load double, ptr %37, align 8, !tbaa !53
   %39 = tail call nsz double @llvm.fmuladd.f64(double %11, double %.04649, double %38)
   %40 = tail call nsz double @llvm.fmuladd.f64(double %14, double %.04748, double %39)
-  %41 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %38, ptr %41, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
@@ -2807,7 +2807,7 @@ define internal void @biquad_tdi_s16(ptr noundef readonly captures(none) %0, ptr
   %.06573.us = phi float [ %37, %54 ], [ %22, %.lr.ph ]
   %.06672.us = phi float [ %38, %54 ], [ %24, %.lr.ph ]
   %.06771.us = phi float [ %39, %54 ], [ %26, %.lr.ph ]
-  %32 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv89
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv89
   %33 = load i16, ptr %32, align 2, !tbaa !76
   %34 = sitofp i16 %33 to float
   %35 = fadd nsz float %.074.us, %34
@@ -2843,7 +2843,7 @@ define internal void @biquad_tdi_s16(ptr noundef readonly captures(none) %0, ptr
 
 54:                                               ; preds = %51, %48, %46
   %.sink = phi i16 [ -32768, %51 ], [ 32767, %48 ], [ %47, %46 ]
-  %55 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv89
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv89
   store i16 %.sink, ptr %55, align 2, !tbaa !76
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
@@ -2869,7 +2869,7 @@ define internal void @biquad_tdi_s16(ptr noundef readonly captures(none) %0, ptr
   %.074 = phi float [ %61, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.06573 = phi float [ %62, %.lr.ph.split ], [ %22, %.lr.ph ]
   %.06771 = phi float [ %63, %.lr.ph.split ], [ %26, %.lr.ph ]
-  %57 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %58 = load i16, ptr %57, align 2, !tbaa !76
   %59 = sitofp i16 %58 to float
   %60 = fadd nsz float %.074, %59
@@ -2877,7 +2877,7 @@ define internal void @biquad_tdi_s16(ptr noundef readonly captures(none) %0, ptr
   %62 = fmul nsz float %60, %14
   %63 = fmul nsz float %19, %60
   %64 = fptosi float %60 to i16
-  %65 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %64, ptr %65, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count92
@@ -2922,7 +2922,7 @@ define internal void @biquad_tdi_s32(ptr noundef readonly captures(none) %0, ptr
   %.06573.us = phi double [ %36, %53 ], [ %22, %.lr.ph ]
   %.06672.us = phi double [ %37, %53 ], [ %24, %.lr.ph ]
   %.06771.us = phi double [ %38, %53 ], [ %26, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv89
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv89
   %32 = load i32, ptr %31, align 4, !tbaa !30
   %33 = sitofp i32 %32 to double
   %34 = fadd nsz double %.074.us, %33
@@ -2958,7 +2958,7 @@ define internal void @biquad_tdi_s32(ptr noundef readonly captures(none) %0, ptr
 
 53:                                               ; preds = %50, %47, %45
   %.sink = phi i32 [ -2147483648, %50 ], [ 2147483647, %47 ], [ %46, %45 ]
-  %54 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv89
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv89
   store i32 %.sink, ptr %54, align 4, !tbaa !30
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
@@ -2984,7 +2984,7 @@ define internal void @biquad_tdi_s32(ptr noundef readonly captures(none) %0, ptr
   %.074 = phi double [ %60, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.06573 = phi double [ %61, %.lr.ph.split ], [ %22, %.lr.ph ]
   %.06771 = phi double [ %62, %.lr.ph.split ], [ %26, %.lr.ph ]
-  %56 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !30
   %58 = sitofp i32 %57 to double
   %59 = fadd nsz double %.074, %58
@@ -2992,7 +2992,7 @@ define internal void @biquad_tdi_s32(ptr noundef readonly captures(none) %0, ptr
   %61 = fmul nsz double %59, %14
   %62 = fmul nsz double %19, %59
   %63 = fptosi double %59 to i32
-  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %63, ptr %64, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count92
@@ -3038,7 +3038,7 @@ define internal void @biquad_tdi_flt(ptr noundef readonly captures(none) %0, ptr
   %.05764.us = phi float [ %36, %.lr.ph.split.us ], [ %22, %.lr.ph ]
   %.05863.us = phi float [ %37, %.lr.ph.split.us ], [ %24, %.lr.ph ]
   %.05962.us = phi float [ %38, %.lr.ph.split.us ], [ %26, %.lr.ph ]
-  %32 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv80
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv80
   %33 = load float, ptr %32, align 4, !tbaa !73
   %34 = fadd nsz float %.065.us, %33
   %35 = tail call nsz float @llvm.fmuladd.f32(float %34, float %11, float %.05764.us)
@@ -3048,7 +3048,7 @@ define internal void @biquad_tdi_flt(ptr noundef readonly captures(none) %0, ptr
   %39 = tail call nsz float @llvm.fmuladd.f32(float %15, float %34, float %.05863.us)
   %40 = fmul nsz float %30, %34
   %41 = tail call nsz float @llvm.fmuladd.f32(float %39, float %29, float %40)
-  %42 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv80
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv80
   store float %41, ptr %42, align 4, !tbaa !73
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -3074,13 +3074,13 @@ define internal void @biquad_tdi_flt(ptr noundef readonly captures(none) %0, ptr
   %.065 = phi float [ %47, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.05764 = phi float [ %48, %.lr.ph.split ], [ %22, %.lr.ph ]
   %.05962 = phi float [ %49, %.lr.ph.split ], [ %26, %.lr.ph ]
-  %44 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %45 = load float, ptr %44, align 4, !tbaa !73
   %46 = fadd nsz float %.065, %45
   %47 = tail call nsz float @llvm.fmuladd.f32(float %46, float %11, float %.05764)
   %48 = fmul nsz float %46, %14
   %49 = fmul nsz float %19, %46
-  %50 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %46, ptr %50, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count83
@@ -3125,7 +3125,7 @@ define internal void @biquad_tdi_dbl(ptr noundef readonly captures(none) %0, ptr
   %.05764.us = phi double [ %35, %.lr.ph.split.us ], [ %22, %.lr.ph ]
   %.05863.us = phi double [ %36, %.lr.ph.split.us ], [ %24, %.lr.ph ]
   %.05962.us = phi double [ %37, %.lr.ph.split.us ], [ %26, %.lr.ph ]
-  %31 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv80
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv80
   %32 = load double, ptr %31, align 8, !tbaa !53
   %33 = fadd nsz double %.065.us, %32
   %34 = tail call nsz double @llvm.fmuladd.f64(double %33, double %11, double %.05764.us)
@@ -3135,7 +3135,7 @@ define internal void @biquad_tdi_dbl(ptr noundef readonly captures(none) %0, ptr
   %38 = tail call nsz double @llvm.fmuladd.f64(double %15, double %33, double %.05863.us)
   %39 = fmul nsz double %29, %33
   %40 = tail call nsz double @llvm.fmuladd.f64(double %38, double %28, double %39)
-  %41 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv80
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv80
   store double %40, ptr %41, align 8, !tbaa !53
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -3161,13 +3161,13 @@ define internal void @biquad_tdi_dbl(ptr noundef readonly captures(none) %0, ptr
   %.065 = phi double [ %46, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.05764 = phi double [ %47, %.lr.ph.split ], [ %22, %.lr.ph ]
   %.05962 = phi double [ %48, %.lr.ph.split ], [ %26, %.lr.ph ]
-  %43 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %44 = load double, ptr %43, align 8, !tbaa !53
   %45 = fadd nsz double %.065, %44
   %46 = tail call nsz double @llvm.fmuladd.f64(double %45, double %11, double %.05764)
   %47 = fmul nsz double %45, %14
   %48 = fmul nsz double %19, %45
-  %49 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %45, ptr %49, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count83
@@ -3207,7 +3207,7 @@ define internal void @biquad_tdii_s16(ptr noundef readonly captures(none) %0, pt
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %49 ], [ 0, %.lr.ph ]
   %.05357.us = phi float [ %33, %49 ], [ %20, %.lr.ph ]
   %.05456.us = phi float [ %35, %49 ], [ %22, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv66
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv66
   %29 = load i16, ptr %28, align 2, !tbaa !76
   %30 = sitofp i16 %29 to float
   %31 = tail call nsz float @llvm.fmuladd.f32(float %15, float %30, float %.05357.us)
@@ -3242,7 +3242,7 @@ define internal void @biquad_tdii_s16(ptr noundef readonly captures(none) %0, pt
 
 49:                                               ; preds = %46, %43, %41
   %.sink = phi i16 [ -32768, %46 ], [ 32767, %43 ], [ %42, %41 ]
-  %50 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv66
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv66
   store i16 %.sink, ptr %50, align 2, !tbaa !76
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
@@ -3259,7 +3259,7 @@ define internal void @biquad_tdii_s16(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.05357 = phi float [ %56, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.05456 = phi float [ %58, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %51 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %52 = load i16, ptr %51, align 2, !tbaa !76
   %53 = sitofp i16 %52 to float
   %54 = tail call nsz float @llvm.fmuladd.f32(float %15, float %53, float %.05357)
@@ -3267,7 +3267,7 @@ define internal void @biquad_tdii_s16(ptr noundef readonly captures(none) %0, pt
   %56 = tail call nsz float @llvm.fmuladd.f32(float %11, float %54, float %55)
   %57 = fmul nsz float %54, %14
   %58 = tail call nsz float @llvm.fmuladd.f32(float %19, float %53, float %57)
-  %59 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %52, ptr %59, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count69
@@ -3306,7 +3306,7 @@ define internal void @biquad_tdii_s32(ptr noundef readonly captures(none) %0, pt
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %48 ], [ 0, %.lr.ph ]
   %.05357.us = phi double [ %32, %48 ], [ %20, %.lr.ph ]
   %.05456.us = phi double [ %34, %48 ], [ %22, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv66
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv66
   %28 = load i32, ptr %27, align 4, !tbaa !30
   %29 = sitofp i32 %28 to double
   %30 = tail call nsz double @llvm.fmuladd.f64(double %15, double %29, double %.05357.us)
@@ -3341,7 +3341,7 @@ define internal void @biquad_tdii_s32(ptr noundef readonly captures(none) %0, pt
 
 48:                                               ; preds = %45, %42, %40
   %.sink = phi i32 [ -2147483648, %45 ], [ 2147483647, %42 ], [ %41, %40 ]
-  %49 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv66
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv66
   store i32 %.sink, ptr %49, align 4, !tbaa !30
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
@@ -3358,7 +3358,7 @@ define internal void @biquad_tdii_s32(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.05357 = phi double [ %55, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.05456 = phi double [ %57, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %50 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = sitofp i32 %51 to double
   %53 = tail call nsz double @llvm.fmuladd.f64(double %15, double %52, double %.05357)
@@ -3366,7 +3366,7 @@ define internal void @biquad_tdii_s32(ptr noundef readonly captures(none) %0, pt
   %55 = tail call nsz double @llvm.fmuladd.f64(double %11, double %53, double %54)
   %56 = fmul nsz double %53, %14
   %57 = tail call nsz double @llvm.fmuladd.f64(double %19, double %52, double %56)
-  %58 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %51, ptr %58, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count69
@@ -3406,7 +3406,7 @@ define internal void @biquad_tdii_flt(ptr noundef readonly captures(none) %0, pt
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.04548.us = phi float [ %32, %.lr.ph.split.us ], [ %20, %.lr.ph ]
   %.04647.us = phi float [ %34, %.lr.ph.split.us ], [ %22, %.lr.ph ]
-  %28 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv57
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv57
   %29 = load float, ptr %28, align 4, !tbaa !73
   %30 = tail call nsz float @llvm.fmuladd.f32(float %15, float %29, float %.04548.us)
   %31 = tail call nsz float @llvm.fmuladd.f32(float %17, float %29, float %.04647.us)
@@ -3415,7 +3415,7 @@ define internal void @biquad_tdii_flt(ptr noundef readonly captures(none) %0, pt
   %34 = tail call nsz float @llvm.fmuladd.f32(float %19, float %29, float %33)
   %35 = fmul nsz float %26, %29
   %36 = tail call nsz float @llvm.fmuladd.f32(float %30, float %25, float %35)
-  %37 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv57
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv57
   store float %36, ptr %37, align 4, !tbaa !73
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
@@ -3432,14 +3432,14 @@ define internal void @biquad_tdii_flt(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.04548 = phi float [ %42, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.04647 = phi float [ %44, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %38 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !73
   %40 = tail call nsz float @llvm.fmuladd.f32(float %15, float %39, float %.04548)
   %41 = tail call nsz float @llvm.fmuladd.f32(float %17, float %39, float %.04647)
   %42 = tail call nsz float @llvm.fmuladd.f32(float %11, float %40, float %41)
   %43 = fmul nsz float %40, %14
   %44 = tail call nsz float @llvm.fmuladd.f32(float %19, float %39, float %43)
-  %45 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %39, ptr %45, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count60
@@ -3478,7 +3478,7 @@ define internal void @biquad_tdii_dbl(ptr noundef readonly captures(none) %0, pt
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.04548.us = phi double [ %31, %.lr.ph.split.us ], [ %20, %.lr.ph ]
   %.04647.us = phi double [ %33, %.lr.ph.split.us ], [ %22, %.lr.ph ]
-  %27 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv57
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv57
   %28 = load double, ptr %27, align 8, !tbaa !53
   %29 = tail call nsz double @llvm.fmuladd.f64(double %15, double %28, double %.04548.us)
   %30 = tail call nsz double @llvm.fmuladd.f64(double %17, double %28, double %.04647.us)
@@ -3487,7 +3487,7 @@ define internal void @biquad_tdii_dbl(ptr noundef readonly captures(none) %0, pt
   %33 = tail call nsz double @llvm.fmuladd.f64(double %19, double %28, double %32)
   %34 = fmul nsz double %25, %28
   %35 = tail call nsz double @llvm.fmuladd.f64(double %29, double %24, double %34)
-  %36 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv57
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv57
   store double %35, ptr %36, align 8, !tbaa !53
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
@@ -3504,14 +3504,14 @@ define internal void @biquad_tdii_dbl(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.04548 = phi double [ %41, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.04647 = phi double [ %43, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %37 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %38 = load double, ptr %37, align 8, !tbaa !53
   %39 = tail call nsz double @llvm.fmuladd.f64(double %15, double %38, double %.04548)
   %40 = tail call nsz double @llvm.fmuladd.f64(double %17, double %38, double %.04647)
   %41 = tail call nsz double @llvm.fmuladd.f64(double %11, double %39, double %40)
   %42 = fmul nsz double %39, %14
   %43 = tail call nsz double @llvm.fmuladd.f64(double %19, double %38, double %42)
-  %44 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %38, ptr %44, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count60
@@ -3551,7 +3551,7 @@ define internal void @biquad_latt_s16(ptr noundef readonly captures(none) %0, pt
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %51 ], [ 0, %.lr.ph ]
   %.06468.us = phi float [ %35, %51 ], [ %18, %.lr.ph ]
   %.06567.us = phi float [ %34, %51 ], [ %20, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv77
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv77
   %29 = load i16, ptr %28, align 2, !tbaa !76
   %30 = sitofp i16 %29 to float
   %31 = tail call nsz float @llvm.fmuladd.f32(float %26, float %.06468.us, float %30)
@@ -3588,7 +3588,7 @@ define internal void @biquad_latt_s16(ptr noundef readonly captures(none) %0, pt
 
 51:                                               ; preds = %48, %45, %43
   %.sink = phi i16 [ -32768, %48 ], [ 32767, %45 ], [ %44, %43 ]
-  %52 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv77
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv77
   store i16 %.sink, ptr %52, align 2, !tbaa !76
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
@@ -3605,13 +3605,13 @@ define internal void @biquad_latt_s16(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.06468 = phi float [ %58, %.lr.ph.split ], [ %18, %.lr.ph ]
   %.06567 = phi float [ %57, %.lr.ph.split ], [ %20, %.lr.ph ]
-  %53 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %54 = load i16, ptr %53, align 2, !tbaa !76
   %55 = sitofp i16 %54 to float
   %56 = tail call nsz float @llvm.fmuladd.f32(float %26, float %.06468, float %55)
   %57 = tail call nsz float @llvm.fmuladd.f32(float %27, float %.06567, float %56)
   %58 = tail call nsz float @llvm.fmuladd.f32(float %57, float %10, float %.06567)
-  %59 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %54, ptr %59, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count80
@@ -3650,7 +3650,7 @@ define internal void @biquad_latt_s32(ptr noundef readonly captures(none) %0, pt
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %50 ], [ 0, %.lr.ph ]
   %.06468.us = phi double [ %34, %50 ], [ %18, %.lr.ph ]
   %.06567.us = phi double [ %33, %50 ], [ %20, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv77
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv77
   %28 = load i32, ptr %27, align 4, !tbaa !30
   %29 = sitofp i32 %28 to double
   %30 = tail call nsz double @llvm.fmuladd.f64(double %25, double %.06468.us, double %29)
@@ -3687,7 +3687,7 @@ define internal void @biquad_latt_s32(ptr noundef readonly captures(none) %0, pt
 
 50:                                               ; preds = %47, %44, %42
   %.sink = phi i32 [ -2147483648, %47 ], [ 2147483647, %44 ], [ %43, %42 ]
-  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv77
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv77
   store i32 %.sink, ptr %51, align 4, !tbaa !30
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
@@ -3704,13 +3704,13 @@ define internal void @biquad_latt_s32(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.06468 = phi double [ %57, %.lr.ph.split ], [ %18, %.lr.ph ]
   %.06567 = phi double [ %56, %.lr.ph.split ], [ %20, %.lr.ph ]
-  %52 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !30
   %54 = sitofp i32 %53 to double
   %55 = tail call nsz double @llvm.fmuladd.f64(double %25, double %.06468, double %54)
   %56 = tail call nsz double @llvm.fmuladd.f64(double %26, double %.06567, double %55)
   %57 = tail call nsz double @llvm.fmuladd.f64(double %56, double %10, double %.06567)
-  %58 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %53, ptr %58, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count80
@@ -3750,7 +3750,7 @@ define internal void @biquad_latt_flt(ptr noundef readonly captures(none) %0, pt
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.05659.us = phi float [ %32, %.lr.ph.split.us ], [ %18, %.lr.ph ]
   %.05758.us = phi float [ %31, %.lr.ph.split.us ], [ %20, %.lr.ph ]
-  %28 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv68
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv68
   %29 = load float, ptr %28, align 4, !tbaa !73
   %30 = tail call nsz float @llvm.fmuladd.f32(float %26, float %.05659.us, float %29)
   %31 = tail call nsz float @llvm.fmuladd.f32(float %27, float %.05758.us, float %30)
@@ -3761,7 +3761,7 @@ define internal void @biquad_latt_flt(ptr noundef readonly captures(none) %0, pt
   %36 = tail call nsz float @llvm.fmuladd.f32(float %31, float %13, float %35)
   %37 = fmul nsz float %24, %29
   %38 = tail call nsz float @llvm.fmuladd.f32(float %36, float %23, float %37)
-  %39 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv68
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv68
   store float %38, ptr %39, align 4, !tbaa !73
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
@@ -3778,12 +3778,12 @@ define internal void @biquad_latt_flt(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.05659 = phi float [ %44, %.lr.ph.split ], [ %18, %.lr.ph ]
   %.05758 = phi float [ %43, %.lr.ph.split ], [ %20, %.lr.ph ]
-  %40 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !73
   %42 = tail call nsz float @llvm.fmuladd.f32(float %26, float %.05659, float %41)
   %43 = tail call nsz float @llvm.fmuladd.f32(float %27, float %.05758, float %42)
   %44 = tail call nsz float @llvm.fmuladd.f32(float %43, float %10, float %.05758)
-  %45 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %41, ptr %45, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
@@ -3822,7 +3822,7 @@ define internal void @biquad_latt_dbl(ptr noundef readonly captures(none) %0, pt
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.05659.us = phi double [ %31, %.lr.ph.split.us ], [ %18, %.lr.ph ]
   %.05758.us = phi double [ %30, %.lr.ph.split.us ], [ %20, %.lr.ph ]
-  %27 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv68
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv68
   %28 = load double, ptr %27, align 8, !tbaa !53
   %29 = tail call nsz double @llvm.fmuladd.f64(double %25, double %.05659.us, double %28)
   %30 = tail call nsz double @llvm.fmuladd.f64(double %26, double %.05758.us, double %29)
@@ -3833,7 +3833,7 @@ define internal void @biquad_latt_dbl(ptr noundef readonly captures(none) %0, pt
   %35 = tail call nsz double @llvm.fmuladd.f64(double %30, double %13, double %34)
   %36 = fmul nsz double %23, %28
   %37 = tail call nsz double @llvm.fmuladd.f64(double %35, double %22, double %36)
-  %38 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv68
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv68
   store double %37, ptr %38, align 8, !tbaa !53
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
@@ -3850,12 +3850,12 @@ define internal void @biquad_latt_dbl(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.05659 = phi double [ %43, %.lr.ph.split ], [ %18, %.lr.ph ]
   %.05758 = phi double [ %42, %.lr.ph.split ], [ %20, %.lr.ph ]
-  %39 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %40 = load double, ptr %39, align 8, !tbaa !53
   %41 = tail call nsz double @llvm.fmuladd.f64(double %25, double %.05659, double %40)
   %42 = tail call nsz double @llvm.fmuladd.f64(double %26, double %.05758, double %41)
   %43 = tail call nsz double @llvm.fmuladd.f64(double %42, double %10, double %.05758)
-  %44 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %40, ptr %44, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
@@ -3893,7 +3893,7 @@ define internal void @biquad_svf_s16(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %48 ], [ 0, %.lr.ph ]
   %.05559.us = phi float [ %32, %48 ], [ %18, %.lr.ph ]
   %.05658.us = phi float [ %34, %48 ], [ %20, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv68
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv68
   %27 = load i16, ptr %26, align 2, !tbaa !76
   %28 = sitofp i16 %27 to float
   %29 = tail call nsz float @llvm.fmuladd.f32(float %17, float %28, float %.05559.us)
@@ -3929,7 +3929,7 @@ define internal void @biquad_svf_s16(ptr noundef readonly captures(none) %0, ptr
 
 48:                                               ; preds = %45, %42, %40
   %.sink = phi i16 [ -32768, %45 ], [ 32767, %42 ], [ %41, %40 ]
-  %49 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv68
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv68
   store i16 %.sink, ptr %49, align 2, !tbaa !76
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
@@ -3946,7 +3946,7 @@ define internal void @biquad_svf_s16(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.05559 = phi float [ %55, %.lr.ph.split ], [ %18, %.lr.ph ]
   %.05658 = phi float [ %57, %.lr.ph.split ], [ %20, %.lr.ph ]
-  %50 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %51 = load i16, ptr %50, align 2, !tbaa !76
   %52 = sitofp i16 %51 to float
   %53 = fmul nsz float %10, %.05559
@@ -3954,7 +3954,7 @@ define internal void @biquad_svf_s16(ptr noundef readonly captures(none) %0, ptr
   %55 = fadd nsz float %.05658, %54
   %56 = fmul nsz float %12, %.05559
   %57 = tail call nsz float @llvm.fmuladd.f32(float %15, float %52, float %56)
-  %58 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %51, ptr %58, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
@@ -3991,7 +3991,7 @@ define internal void @biquad_svf_s32(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %47 ], [ 0, %.lr.ph ]
   %.05559.us = phi double [ %31, %47 ], [ %18, %.lr.ph ]
   %.05658.us = phi double [ %33, %47 ], [ %20, %.lr.ph ]
-  %25 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv68
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv68
   %26 = load i32, ptr %25, align 4, !tbaa !30
   %27 = sitofp i32 %26 to double
   %28 = tail call nsz double @llvm.fmuladd.f64(double %17, double %27, double %.05559.us)
@@ -4027,7 +4027,7 @@ define internal void @biquad_svf_s32(ptr noundef readonly captures(none) %0, ptr
 
 47:                                               ; preds = %44, %41, %39
   %.sink = phi i32 [ -2147483648, %44 ], [ 2147483647, %41 ], [ %40, %39 ]
-  %48 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv68
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv68
   store i32 %.sink, ptr %48, align 4, !tbaa !30
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
@@ -4044,7 +4044,7 @@ define internal void @biquad_svf_s32(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.05559 = phi double [ %54, %.lr.ph.split ], [ %18, %.lr.ph ]
   %.05658 = phi double [ %56, %.lr.ph.split ], [ %20, %.lr.ph ]
-  %49 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !30
   %51 = sitofp i32 %50 to double
   %52 = fmul nsz double %10, %.05559
@@ -4052,7 +4052,7 @@ define internal void @biquad_svf_s32(ptr noundef readonly captures(none) %0, ptr
   %54 = fadd nsz double %.05658, %53
   %55 = fmul nsz double %12, %.05559
   %56 = tail call nsz double @llvm.fmuladd.f64(double %15, double %51, double %55)
-  %57 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %50, ptr %57, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
@@ -4090,7 +4090,7 @@ define internal void @biquad_svf_flt(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.04750.us = phi float [ %30, %.lr.ph.split.us ], [ %18, %.lr.ph ]
   %.04849.us = phi float [ %32, %.lr.ph.split.us ], [ %20, %.lr.ph ]
-  %26 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv59
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv59
   %27 = load float, ptr %26, align 4, !tbaa !73
   %28 = fmul nsz float %10, %.04750.us
   %29 = tail call nsz float @llvm.fmuladd.f32(float %13, float %27, float %28)
@@ -4100,7 +4100,7 @@ define internal void @biquad_svf_flt(ptr noundef readonly captures(none) %0, ptr
   %33 = tail call nsz float @llvm.fmuladd.f32(float %17, float %27, float %.04750.us)
   %34 = fmul nsz float %24, %27
   %35 = tail call nsz float @llvm.fmuladd.f32(float %33, float %23, float %34)
-  %36 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv59
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv59
   store float %35, ptr %36, align 4, !tbaa !73
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
@@ -4117,14 +4117,14 @@ define internal void @biquad_svf_flt(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.04750 = phi float [ %41, %.lr.ph.split ], [ %18, %.lr.ph ]
   %.04849 = phi float [ %43, %.lr.ph.split ], [ %20, %.lr.ph ]
-  %37 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !73
   %39 = fmul nsz float %10, %.04750
   %40 = tail call nsz float @llvm.fmuladd.f32(float %13, float %38, float %39)
   %41 = fadd nsz float %.04849, %40
   %42 = fmul nsz float %12, %.04750
   %43 = tail call nsz float @llvm.fmuladd.f32(float %15, float %38, float %42)
-  %44 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %38, ptr %44, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count62
@@ -4161,7 +4161,7 @@ define internal void @biquad_svf_dbl(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.04750.us = phi double [ %29, %.lr.ph.split.us ], [ %18, %.lr.ph ]
   %.04849.us = phi double [ %31, %.lr.ph.split.us ], [ %20, %.lr.ph ]
-  %25 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv59
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv59
   %26 = load double, ptr %25, align 8, !tbaa !53
   %27 = fmul nsz double %10, %.04750.us
   %28 = tail call nsz double @llvm.fmuladd.f64(double %13, double %26, double %27)
@@ -4171,7 +4171,7 @@ define internal void @biquad_svf_dbl(ptr noundef readonly captures(none) %0, ptr
   %32 = tail call nsz double @llvm.fmuladd.f64(double %17, double %26, double %.04750.us)
   %33 = fmul nsz double %23, %26
   %34 = tail call nsz double @llvm.fmuladd.f64(double %32, double %22, double %33)
-  %35 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv59
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv59
   store double %34, ptr %35, align 8, !tbaa !53
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
@@ -4188,14 +4188,14 @@ define internal void @biquad_svf_dbl(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.04750 = phi double [ %40, %.lr.ph.split ], [ %18, %.lr.ph ]
   %.04849 = phi double [ %42, %.lr.ph.split ], [ %20, %.lr.ph ]
-  %36 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %37 = load double, ptr %36, align 8, !tbaa !53
   %38 = fmul nsz double %10, %.04750
   %39 = tail call nsz double @llvm.fmuladd.f64(double %13, double %37, double %38)
   %40 = fadd nsz double %.04849, %39
   %41 = fmul nsz double %12, %.04750
   %42 = tail call nsz double @llvm.fmuladd.f64(double %15, double %37, double %41)
-  %43 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %37, ptr %43, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count62
@@ -4235,7 +4235,7 @@ define internal void @biquad_zdf_s16(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %56 ], [ 0, %.lr.ph ]
   %.069.us = phi float [ %37, %56 ], [ %20, %.lr.ph ]
   %.06468.us = phi float [ %39, %56 ], [ %22, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv77
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv77
   %29 = load i16, ptr %28, align 2, !tbaa !76
   %30 = sitofp i16 %29 to float
   %31 = fsub nsz float %30, %.06468.us
@@ -4277,7 +4277,7 @@ define internal void @biquad_zdf_s16(ptr noundef readonly captures(none) %0, ptr
 
 56:                                               ; preds = %53, %50, %48
   %.sink = phi i16 [ -32768, %53 ], [ 32767, %50 ], [ %49, %48 ]
-  %57 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv77
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv77
   store i16 %.sink, ptr %57, align 2, !tbaa !76
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
@@ -4294,7 +4294,7 @@ define internal void @biquad_zdf_s16(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.069 = phi float [ %67, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.06468 = phi float [ %69, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %58 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %59 = load i16, ptr %58, align 2, !tbaa !76
   %60 = sitofp i16 %59 to float
   %61 = fsub nsz float %60, %.06468
@@ -4306,7 +4306,7 @@ define internal void @biquad_zdf_s16(ptr noundef readonly captures(none) %0, ptr
   %67 = tail call nsz float @llvm.fmuladd.f32(float %63, float 2.000000e+00, float %66)
   %68 = fneg nsz float %.06468
   %69 = tail call nsz float @llvm.fmuladd.f32(float %65, float 2.000000e+00, float %68)
-  %70 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %59, ptr %70, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count80
@@ -4345,7 +4345,7 @@ define internal void @biquad_zdf_s32(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %55 ], [ 0, %.lr.ph ]
   %.069.us = phi double [ %36, %55 ], [ %20, %.lr.ph ]
   %.06468.us = phi double [ %38, %55 ], [ %22, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv77
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv77
   %28 = load i32, ptr %27, align 4, !tbaa !30
   %29 = sitofp i32 %28 to double
   %30 = fsub nsz double %29, %.06468.us
@@ -4387,7 +4387,7 @@ define internal void @biquad_zdf_s32(ptr noundef readonly captures(none) %0, ptr
 
 55:                                               ; preds = %52, %49, %47
   %.sink = phi i32 [ -2147483648, %52 ], [ 2147483647, %49 ], [ %48, %47 ]
-  %56 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv77
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv77
   store i32 %.sink, ptr %56, align 4, !tbaa !30
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
@@ -4404,7 +4404,7 @@ define internal void @biquad_zdf_s32(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.069 = phi double [ %66, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.06468 = phi double [ %68, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %57 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !30
   %59 = sitofp i32 %58 to double
   %60 = fsub nsz double %59, %.06468
@@ -4416,7 +4416,7 @@ define internal void @biquad_zdf_s32(ptr noundef readonly captures(none) %0, ptr
   %66 = tail call nsz double @llvm.fmuladd.f64(double %62, double 2.000000e+00, double %65)
   %67 = fneg nsz double %.06468
   %68 = tail call nsz double @llvm.fmuladd.f64(double %64, double 2.000000e+00, double %67)
-  %69 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %58, ptr %69, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count80
@@ -4456,7 +4456,7 @@ define internal void @biquad_zdf_flt(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.060.us = phi float [ %36, %.lr.ph.split.us ], [ %20, %.lr.ph ]
   %.05659.us = phi float [ %38, %.lr.ph.split.us ], [ %22, %.lr.ph ]
-  %28 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv68
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv68
   %29 = load float, ptr %28, align 4, !tbaa !73
   %30 = fsub nsz float %29, %.05659.us
   %31 = fmul nsz float %17, %30
@@ -4472,7 +4472,7 @@ define internal void @biquad_zdf_flt(ptr noundef readonly captures(none) %0, ptr
   %41 = tail call nsz float @llvm.fmuladd.f32(float %14, float %34, float %40)
   %42 = fmul nsz float %26, %29
   %43 = tail call nsz float @llvm.fmuladd.f32(float %41, float %25, float %42)
-  %44 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv68
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv68
   store float %43, ptr %44, align 4, !tbaa !73
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
@@ -4489,7 +4489,7 @@ define internal void @biquad_zdf_flt(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.060 = phi float [ %53, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.05659 = phi float [ %55, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %45 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %46 = load float, ptr %45, align 4, !tbaa !73
   %47 = fsub nsz float %46, %.05659
   %48 = fmul nsz float %17, %47
@@ -4500,7 +4500,7 @@ define internal void @biquad_zdf_flt(ptr noundef readonly captures(none) %0, ptr
   %53 = tail call nsz float @llvm.fmuladd.f32(float %49, float 2.000000e+00, float %52)
   %54 = fneg nsz float %.05659
   %55 = tail call nsz float @llvm.fmuladd.f32(float %51, float 2.000000e+00, float %54)
-  %56 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %46, ptr %56, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
@@ -4539,7 +4539,7 @@ define internal void @biquad_zdf_dbl(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.060.us = phi double [ %35, %.lr.ph.split.us ], [ %20, %.lr.ph ]
   %.05659.us = phi double [ %37, %.lr.ph.split.us ], [ %22, %.lr.ph ]
-  %27 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv68
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv68
   %28 = load double, ptr %27, align 8, !tbaa !53
   %29 = fsub nsz double %28, %.05659.us
   %30 = fmul nsz double %17, %29
@@ -4555,7 +4555,7 @@ define internal void @biquad_zdf_dbl(ptr noundef readonly captures(none) %0, ptr
   %40 = tail call nsz double @llvm.fmuladd.f64(double %14, double %33, double %39)
   %41 = fmul nsz double %25, %28
   %42 = tail call nsz double @llvm.fmuladd.f64(double %40, double %24, double %41)
-  %43 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv68
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv68
   store double %42, ptr %43, align 8, !tbaa !53
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
@@ -4572,7 +4572,7 @@ define internal void @biquad_zdf_dbl(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.060 = phi double [ %52, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.05659 = phi double [ %54, %.lr.ph.split ], [ %22, %.lr.ph ]
-  %44 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %45 = load double, ptr %44, align 8, !tbaa !53
   %46 = fsub nsz double %45, %.05659
   %47 = fmul nsz double %17, %46
@@ -4583,7 +4583,7 @@ define internal void @biquad_zdf_dbl(ptr noundef readonly captures(none) %0, ptr
   %52 = tail call nsz double @llvm.fmuladd.f64(double %48, double 2.000000e+00, double %51)
   %53 = fneg nsz double %.05659
   %54 = tail call nsz double @llvm.fmuladd.f64(double %50, double 2.000000e+00, double %53)
-  %55 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %45, ptr %55, align 8, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
@@ -4739,7 +4739,7 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1, i32 nou
 61:                                               ; preds = %.lr.ph, %68
   %62 = phi ptr [ %.pre63, %.lr.ph ], [ %69, %68 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !30
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %66, label %68
@@ -4752,7 +4752,7 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1, i32 nou
 
 68:                                               ; preds = %66, %61
   %69 = phi ptr [ %.pre64, %66 ], [ %62, %61 ]
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv
   store i32 0, ptr %70, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = load i32, ptr %54, align 4, !tbaa !59
@@ -4890,10 +4890,10 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr %25, align 8, !tbaa !60
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !115
   %49 = load ptr, ptr %30, align 8, !tbaa !60
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !115
   %52 = load i32, ptr %31, align 8, !tbaa !65
   %53 = load i32, ptr %27, align 8, !tbaa !72
@@ -4910,19 +4910,19 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %32, align 8, !tbaa !71
   %60 = load ptr, ptr %30, align 8, !tbaa !60
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !115
   %63 = load ptr, ptr %25, align 8, !tbaa !60
-  %64 = getelementptr inbounds ptr, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !115
   %66 = load i32, ptr %31, align 8, !tbaa !65
   %67 = load ptr, ptr %33, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 96
   %69 = load ptr, ptr %68, align 8, !tbaa !60
-  %70 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds [8 x i8], ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !115
   %72 = load ptr, ptr %34, align 8, !tbaa !58
-  %73 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds [4 x i8], ptr %72, i64 %indvars.iv
   %74 = load i32, ptr %35, align 8, !tbaa !116
   tail call void %59(ptr noundef nonnull %7, ptr noundef %62, ptr noundef %65, i32 noundef %66, ptr noundef %71, ptr noundef %73, i32 noundef %74) #15
   br label %238
@@ -4934,12 +4934,12 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %25, align 8, !tbaa !60
-  %79 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds [8 x i8], ptr %78, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !115
   %81 = load ptr, ptr %26, align 8, !tbaa !35
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 96
   %83 = load ptr, ptr %82, align 8, !tbaa !60
-  %84 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds [8 x i8], ptr %83, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !115
   %86 = load i32, ptr %27, align 8, !tbaa !72
   %87 = mul nsw i32 %86, %57
@@ -4955,14 +4955,14 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %94 = load ptr, ptr %29, align 8, !tbaa !35
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 96
   %96 = load ptr, ptr %95, align 8, !tbaa !60
-  %97 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv
+  %97 = getelementptr inbounds [8 x i8], ptr %96, i64 %indvars.iv
   %98 = load ptr, ptr %97, align 8, !tbaa !115
   %99 = load i32, ptr %27, align 8, !tbaa !72
   %100 = mul nsw i32 %99, %57
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i8, ptr %98, i64 %101
   %103 = load ptr, ptr %30, align 8, !tbaa !60
-  %104 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds [8 x i8], ptr %103, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !115
   %106 = load i32, ptr %31, align 8, !tbaa !65
   %107 = mul nsw i32 %106, %99
@@ -4971,7 +4971,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %109 = load ptr, ptr %29, align 8, !tbaa !35
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   %111 = load ptr, ptr %110, align 8, !tbaa !60
-  %112 = getelementptr inbounds ptr, ptr %111, i64 %indvars.iv
+  %112 = getelementptr inbounds [8 x i8], ptr %111, i64 %indvars.iv
   %113 = load ptr, ptr %112, align 8, !tbaa !115
   %114 = load i32, ptr %27, align 8, !tbaa !72
   %115 = load i32, ptr %23, align 8, !tbaa !37
@@ -4988,21 +4988,21 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %125 = load ptr, ptr %29, align 8, !tbaa !35
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 96
   %127 = load ptr, ptr %126, align 8, !tbaa !60
-  %128 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv
+  %128 = getelementptr inbounds [8 x i8], ptr %127, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8, !tbaa !115
   %130 = load ptr, ptr %26, align 8, !tbaa !35
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 96
   %132 = load ptr, ptr %131, align 8, !tbaa !60
-  %133 = getelementptr inbounds ptr, ptr %132, i64 %indvars.iv
+  %133 = getelementptr inbounds [8 x i8], ptr %132, i64 %indvars.iv
   %134 = load ptr, ptr %133, align 8, !tbaa !115
   %135 = load i32, ptr %23, align 8, !tbaa !37
   %136 = load ptr, ptr %33, align 8, !tbaa !35
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 96
   %138 = load ptr, ptr %137, align 8, !tbaa !60
-  %139 = getelementptr inbounds ptr, ptr %138, i64 %indvars.iv
+  %139 = getelementptr inbounds [8 x i8], ptr %138, i64 %indvars.iv
   %140 = load ptr, ptr %139, align 8, !tbaa !115
   %141 = load ptr, ptr %34, align 8, !tbaa !58
-  %142 = getelementptr inbounds i32, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds [4 x i8], ptr %141, i64 %indvars.iv
   %143 = load i32, ptr %35, align 8, !tbaa !116
   tail call void %124(ptr noundef nonnull %7, ptr noundef %129, ptr noundef %134, i32 noundef %135, ptr noundef %140, ptr noundef %142, i32 noundef %143) #15
   %144 = load ptr, ptr %36, align 8, !tbaa !35
@@ -5022,7 +5022,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %158 = load ptr, ptr %29, align 8, !tbaa !35
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 96
   %160 = load ptr, ptr %159, align 8, !tbaa !60
-  %161 = getelementptr inbounds ptr, ptr %160, i64 %indvars.iv
+  %161 = getelementptr inbounds [8 x i8], ptr %160, i64 %indvars.iv
   %162 = load ptr, ptr %161, align 8, !tbaa !115
   %163 = load i32, ptr %23, align 8, !tbaa !37
   %164 = load i32, ptr %27, align 8, !tbaa !72
@@ -5032,16 +5032,16 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %168 = load ptr, ptr %26, align 8, !tbaa !35
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 96
   %170 = load ptr, ptr %169, align 8, !tbaa !60
-  %171 = getelementptr inbounds ptr, ptr %170, i64 %indvars.iv
+  %171 = getelementptr inbounds [8 x i8], ptr %170, i64 %indvars.iv
   %172 = load ptr, ptr %171, align 8, !tbaa !115
   %173 = getelementptr inbounds i8, ptr %172, i64 %166
   %174 = load ptr, ptr %36, align 8, !tbaa !35
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 96
   %176 = load ptr, ptr %175, align 8, !tbaa !60
-  %177 = getelementptr inbounds ptr, ptr %176, i64 %indvars.iv
+  %177 = getelementptr inbounds [8 x i8], ptr %176, i64 %indvars.iv
   %178 = load ptr, ptr %177, align 8, !tbaa !115
   %179 = load ptr, ptr %34, align 8, !tbaa !58
-  %180 = getelementptr inbounds i32, ptr %179, i64 %indvars.iv
+  %180 = getelementptr inbounds [4 x i8], ptr %179, i64 %indvars.iv
   %181 = load i32, ptr %35, align 8, !tbaa !116
   tail call void %157(ptr noundef nonnull %7, ptr noundef %167, ptr noundef %173, i32 noundef %163, ptr noundef %178, ptr noundef %180, i32 noundef %181) #15
   %182 = load ptr, ptr %37, align 8, !tbaa !35
@@ -5063,17 +5063,17 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %197 = load ptr, ptr %37, align 8, !tbaa !35
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 96
   %199 = load ptr, ptr %198, align 8, !tbaa !60
-  %200 = getelementptr inbounds ptr, ptr %199, i64 %indvars.iv
+  %200 = getelementptr inbounds [8 x i8], ptr %199, i64 %indvars.iv
   %201 = load ptr, ptr %200, align 8, !tbaa !115
   %202 = load i32, ptr %23, align 8, !tbaa !37
   %203 = shl nsw i32 %202, 1
   %204 = load ptr, ptr %36, align 8, !tbaa !35
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 96
   %206 = load ptr, ptr %205, align 8, !tbaa !60
-  %207 = getelementptr inbounds ptr, ptr %206, i64 %indvars.iv
+  %207 = getelementptr inbounds [8 x i8], ptr %206, i64 %indvars.iv
   %208 = load ptr, ptr %207, align 8, !tbaa !115
   %209 = load ptr, ptr %34, align 8, !tbaa !58
-  %210 = getelementptr inbounds i32, ptr %209, i64 %indvars.iv
+  %210 = getelementptr inbounds [4 x i8], ptr %209, i64 %indvars.iv
   %211 = load i32, ptr %35, align 8, !tbaa !116
   tail call void %196(ptr noundef nonnull %7, ptr noundef %201, ptr noundef %201, i32 noundef %203, ptr noundef %208, ptr noundef %210, i32 noundef %211) #15
   %212 = load ptr, ptr %26, align 8, !tbaa !35
@@ -5082,12 +5082,12 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %215 = shl nsw i32 %214, 1
   tail call fastcc void @reverse_samples(ptr noundef %212, ptr noundef %213, i32 noundef %40, i32 noundef %215)
   %216 = load ptr, ptr %25, align 8, !tbaa !60
-  %217 = getelementptr inbounds ptr, ptr %216, i64 %indvars.iv
+  %217 = getelementptr inbounds [8 x i8], ptr %216, i64 %indvars.iv
   %218 = load ptr, ptr %217, align 8, !tbaa !115
   %219 = load ptr, ptr %26, align 8, !tbaa !35
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 96
   %221 = load ptr, ptr %220, align 8, !tbaa !60
-  %222 = getelementptr inbounds ptr, ptr %221, i64 %indvars.iv
+  %222 = getelementptr inbounds [8 x i8], ptr %221, i64 %indvars.iv
   %223 = load ptr, ptr %222, align 8, !tbaa !115
   %224 = load i32, ptr %23, align 8, !tbaa !37
   %225 = load i32, ptr %27, align 8, !tbaa !72
@@ -5097,7 +5097,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %228 = load ptr, ptr %29, align 8, !tbaa !35
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 96
   %230 = load ptr, ptr %229, align 8, !tbaa !60
-  %231 = getelementptr inbounds ptr, ptr %230, i64 %indvars.iv
+  %231 = getelementptr inbounds [8 x i8], ptr %230, i64 %indvars.iv
   %232 = load ptr, ptr %231, align 8, !tbaa !115
   %233 = load i32, ptr %27, align 8, !tbaa !72
   %234 = load i32, ptr %23, align 8, !tbaa !37
@@ -5144,11 +5144,11 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !60
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !115
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %13, align 8, !tbaa !60
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %10
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %10
   %16 = load ptr, ptr %15, align 8, !tbaa !115
   %17 = icmp sgt i32 %3, 0
   br i1 %17, label %.lr.ph80.preheader, label %.loopexit
@@ -5162,9 +5162,9 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   %indvars.iv109 = phi i64 [ %18, %.lr.ph80.preheader ], [ %indvars.iv.next110, %.lr.ph80 ]
   %indvars.iv107 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next108, %.lr.ph80 ]
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, -1
-  %19 = getelementptr inbounds i16, ptr %12, i64 %indvars.iv.next110
+  %19 = getelementptr inbounds [2 x i8], ptr %12, i64 %indvars.iv.next110
   %20 = load i16, ptr %19, align 2, !tbaa !76
-  %21 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv107
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv107
   store i16 %20, ptr %21, align 2, !tbaa !76
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count114
@@ -5174,11 +5174,11 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %24 = load ptr, ptr %23, align 8, !tbaa !60
   %25 = sext i32 %2 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !115
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load ptr, ptr %28, align 8, !tbaa !60
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %25
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %25
   %31 = load ptr, ptr %30, align 8, !tbaa !115
   %32 = icmp sgt i32 %3, 0
   br i1 %32, label %.lr.ph77.preheader, label %.loopexit
@@ -5192,9 +5192,9 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   %indvars.iv100 = phi i64 [ %33, %.lr.ph77.preheader ], [ %indvars.iv.next101, %.lr.ph77 ]
   %indvars.iv98 = phi i64 [ 0, %.lr.ph77.preheader ], [ %indvars.iv.next99, %.lr.ph77 ]
   %indvars.iv.next101 = add nsw i64 %indvars.iv100, -1
-  %34 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.next101
+  %34 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv.next101
   %35 = load i32, ptr %34, align 4, !tbaa !30
-  %36 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv98
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv98
   store i32 %35, ptr %36, align 4, !tbaa !30
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count105
@@ -5204,11 +5204,11 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %39 = load ptr, ptr %38, align 8, !tbaa !60
   %40 = sext i32 %2 to i64
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !115
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %44 = load ptr, ptr %43, align 8, !tbaa !60
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %40
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %40
   %46 = load ptr, ptr %45, align 8, !tbaa !115
   %47 = icmp sgt i32 %3, 0
   br i1 %47, label %.lr.ph74.preheader, label %.loopexit
@@ -5222,9 +5222,9 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   %indvars.iv91 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next92, %.lr.ph74 ]
   %indvars.iv89 = phi i64 [ %48, %.lr.ph74.preheader ], [ %indvars.iv.next90, %.lr.ph74 ]
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, -1
-  %49 = getelementptr inbounds float, ptr %42, i64 %indvars.iv.next90
+  %49 = getelementptr inbounds [4 x i8], ptr %42, i64 %indvars.iv.next90
   %50 = load float, ptr %49, align 4, !tbaa !73
-  %51 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv91
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv91
   store float %50, ptr %51, align 4, !tbaa !73
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count96
@@ -5234,11 +5234,11 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %54 = load ptr, ptr %53, align 8, !tbaa !60
   %55 = sext i32 %2 to i64
-  %56 = getelementptr inbounds ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !115
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %59 = load ptr, ptr %58, align 8, !tbaa !60
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %55
+  %60 = getelementptr inbounds [8 x i8], ptr %59, i64 %55
   %61 = load ptr, ptr %60, align 8, !tbaa !115
   %62 = icmp sgt i32 %3, 0
   br i1 %62, label %.lr.ph.preheader, label %.loopexit
@@ -5252,9 +5252,9 @@ define internal fastcc void @reverse_samples(ptr noundef readonly captures(none)
   %indvars.iv84 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next85, %.lr.ph ]
   %indvars.iv = phi i64 [ %63, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %64 = getelementptr inbounds double, ptr %57, i64 %indvars.iv.next
+  %64 = getelementptr inbounds [8 x i8], ptr %57, i64 %indvars.iv.next
   %65 = load double, ptr %64, align 8, !tbaa !53
-  %66 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv84
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv84
   store double %65, ptr %66, align 8, !tbaa !53
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count

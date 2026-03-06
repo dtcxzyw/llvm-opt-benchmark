@@ -59,8 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%"union.absl::lts_20240722::container_internal::map_slot_type" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { i32, ptr }
 %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20240722::Span.366", %"class.absl::lts_20240722::Span.366", %"class.absl::lts_20240722::Span.366" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
@@ -70,14 +68,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::strings_internal::StringifySink" = type { %"class.std::__cxx11::basic_string" }
 %"struct.grpc_core::BasicMemoryQuota::PressureInfo" = type { double, double, i64 }
 %"class.grpc_core::RandomEarlyDetection" = type { i64, i64 }
-%"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"struct.std::atomic.187", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_1800000_40", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20" }
-%"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_65536_26" = type { [26 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_1800000_40" = type { [40 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_100000_20" = type { [20 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_100_20" = type { [20 x %"struct.std::atomic.187"] }
-%"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic.187"] }
 
 $_ZN4absl12lts_202407226StatusD2Ev = comdat any
 
@@ -1496,7 +1486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102.i: ; preds = %
   %522 = zext nneg i16 %521 to i64
   %523 = add i64 %.sroa.6.0.i.i.i.i.i, %522
   %524 = and i64 %523, %487
-  %525 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %524
+  %525 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %524
   %526 = load i32, ptr %525, align 4, !tbaa !253, !noalias !276
   %527 = icmp eq i32 %526, %485
   br i1 %527, label %.thread29.i.i.i.i.i, label %529, !prof !295
@@ -2190,7 +2180,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit115.i: ; preds = %725,
   %780 = zext nneg i16 %779 to i64
   %781 = add i64 %.sroa.6.0.i.i.i.i120.i, %780
   %782 = and i64 %781, %745
-  %783 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i117.i, i64 %782
+  %783 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i117.i, i64 %782
   %784 = load i32, ptr %783, align 4, !tbaa !253, !noalias !439
   %785 = icmp eq i32 %784, %743
   br i1 %785, label %.thread29.i.i.i.i140.i, label %787, !prof !295
@@ -2666,7 +2656,7 @@ _ZL26init_settings_frame_parserP21grpc_chttp2_transport.exit.i: ; preds = %_ZN4a
   %966 = zext nneg i16 %965 to i64
   %967 = add i64 %.sroa.6.0.i.i.i.i156.i, %966
   %968 = and i64 %967, %931
-  %969 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i153.i, i64 %968
+  %969 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i153.i, i64 %968
   %970 = load i32, ptr %969, align 4, !tbaa !253, !noalias !461
   %971 = icmp eq i32 %970, %928
   br i1 %971, label %.thread29.i.i.i.i177.i, label %973, !prof !295
@@ -4190,7 +4180,7 @@ _ZN9grpc_core31IsCallTracerTransportFixEnabledEv.exit.thread: ; preds = %15, %_Z
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2
   %36 = zext i16 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %36
   %.0.in.i = select i1 %30, ptr %31, ptr %37
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !434
   br label %45
@@ -4201,7 +4191,7 @@ _ZN9grpc_core31IsCallTracerTransportFixEnabledEv.exit.thread41: ; preds = %25, %
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %41 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_29CallTracerAnnotationInterfaceEE3id_E, align 2, !tbaa !519
   %42 = zext i16 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !434
   br label %45
 
@@ -4317,9 +4307,9 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 87:                                               ; preds = %61
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 392
   %89 = zext i8 %63 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %89
   store i32 2, ptr %90, align 4, !tbaa !526
-  %91 = getelementptr inbounds nuw ptr, ptr @_ZL20maybe_complete_funcs, i64 %89
+  %91 = getelementptr inbounds nuw [8 x i8], ptr @_ZL20maybe_complete_funcs, i64 %89
   %92 = load ptr, ptr %91, align 8, !tbaa !434
   invoke void %92(ptr noundef %2, ptr noundef nonnull %3)
           to label %93 unwind label %54
@@ -4658,7 +4648,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !553
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !551
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !554
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -5153,7 +5143,7 @@ define internal fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transpo
   %92 = zext nneg i16 %91 to i64
   %93 = add i64 %.sroa.6.0.i.i.i, %92
   %94 = and i64 %93, %57
-  %95 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !253
   %97 = icmp eq i32 %96, %55
   br i1 %97, label %.thread29.i.i.i, label %99, !prof !295
@@ -6441,7 +6431,7 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
   %22 = load i64, ptr %21, align 8, !tbaa !555
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !565
-  %25 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [6632 x i8], ptr %24, i64 %23
   ret ptr %25
 }
 
@@ -6863,7 +6853,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURB
   %16 = load i64, ptr %5, align 8, !tbaa !641
   %17 = add i64 %16, 1
   store i64 %17, ptr %5, align 8, !tbaa !641
-  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %16
   %19 = load i64, ptr %18, align 8, !tbaa !246
   ret i64 %19
 }

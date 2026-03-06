@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.anon.2 = type { ptr, i32, i32 }
 %union.YYSTYPE = type { i64 }
-%union.yyalloc = type { %union.YYSTYPE }
 
 @yypact = internal unnamed_addr constant [88 x i16] [i16 64, i16 -33, i16 -33, i16 -33, i16 -33, i16 -33, i16 -33, i16 64, i16 -19, i16 64, i16 64, i16 46, i16 64, i16 13, i16 205, i16 -33, i16 -22, i16 258, i16 64, i16 -6, i16 11, i16 -33, i16 -33, i16 -33, i16 92, i16 -33, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 3, i16 -33, i16 -33, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 121, i16 64, i16 64, i16 -33, i16 -33, i16 258, i16 233, i16 283, i16 283, i16 283, i16 11, i16 11, i16 -33, i16 -33, i16 5, i16 283, i16 283, i16 283, i16 11, i16 11, i16 11, i16 -9, i16 -9, i16 -33, i16 -33, i16 -33, i16 -32, i16 205, i16 64, i16 149, i16 177, i16 -33, i16 -33, i16 64, i16 -33, i16 205, i16 64, i16 -33, i16 205, i16 205], align 16
 @yytranslate = internal unnamed_addr constant [282 x i8] c"\00\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\1E\02%\1F\02()#!'\22\02$\02\02\02\02\02\02\02\02\02\02\02\02\1A\1C\1B\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\1D\02 \02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19&", align 16
@@ -120,7 +119,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 1 %.0296, i64 %16, i1 false)
   %24 = add nsw i64 %spec.store.select, 7
   %25 = sdiv i64 %24, 8
-  %26 = getelementptr inbounds %union.yyalloc, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = shl i64 %16, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr align 8 %.0284, i64 %27, i1 false)
   %.not315 = icmp eq ptr %.0296, %4
@@ -132,7 +131,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
 
 29:                                               ; preds = %23, %28
   %30 = getelementptr inbounds i8, ptr %22, i64 %15
-  %31 = getelementptr inbounds %union.YYSTYPE, ptr %26, i64 %16
+  %31 = getelementptr inbounds [8 x i8], ptr %26, i64 %16
   %32 = getelementptr inbounds i8, ptr %31, i64 -8
   %33 = add nsw i64 %spec.store.select, -1
   %.not316 = icmp sgt i64 %33, %15
@@ -149,7 +148,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
 
 35:                                               ; preds = %.thread360
   %36 = sext i32 %.0262 to i64
-  %37 = getelementptr inbounds i16, ptr @yypact, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr @yypact, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = sext i16 %38 to i32
   %40 = icmp eq i16 %38, -33
@@ -235,7 +234,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
   %83 = load i8, ptr %82, align 1
   %84 = sext i8 %83 to i64
   %85 = sub nsw i64 1, %84
-  %86 = getelementptr inbounds %union.YYSTYPE, ptr %.2278, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %.2278, i64 %85
   %.sroa.0.0.copyload = load i64, ptr %86, align 8
   switch i32 %.0275, label %510 [
     i32 2, label %87
@@ -413,7 +412,7 @@ make_elist.exit323:                               ; preds = %116, %117
 
 151:                                              ; preds = %156, %149
   %indvars.iv.i.i = phi i64 [ 0, %149 ], [ %indvars.iv.next.i.i, %156 ]
-  %152 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i.i
+  %152 = getelementptr inbounds nuw [16 x i8], ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i.i
   %153 = load ptr, ptr %152, align 16
   %154 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef %153) #10
   %155 = icmp eq i32 %154, 0
@@ -629,7 +628,7 @@ make_uop.exit:                                    ; preds = %163, %164
 
 295:                                              ; preds = %300, %288
   %indvars.iv.i.i324 = phi i64 [ 0, %288 ], [ %indvars.iv.next.i.i325, %300 ]
-  %296 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i.i324
+  %296 = getelementptr inbounds nuw [16 x i8], ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i.i324
   %297 = load ptr, ptr %296, align 16
   %298 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef %297) #10
   %299 = icmp eq i32 %298, 0
@@ -701,7 +700,7 @@ make_uop.exit328:                                 ; preds = %307, %308
 
 331:                                              ; preds = %336, %324
   %indvars.iv.i.i329 = phi i64 [ 0, %324 ], [ %indvars.iv.next.i.i330, %336 ]
-  %332 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i.i329
+  %332 = getelementptr inbounds nuw [16 x i8], ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i.i329
   %333 = load ptr, ptr %332, align 16
   %334 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef %333) #10
   %335 = icmp eq i32 %334, 0
@@ -775,7 +774,7 @@ make_uop.exit333:                                 ; preds = %343, %344
 
 369:                                              ; preds = %374, %361
   %indvars.iv.i.i334 = phi i64 [ 0, %361 ], [ %indvars.iv.next.i.i335, %374 ]
-  %370 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i.i334
+  %370 = getelementptr inbounds nuw [16 x i8], ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i.i334
   %371 = load ptr, ptr %370, align 16
   %372 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef %371) #10
   %373 = icmp eq i32 %372, 0
@@ -1027,7 +1026,7 @@ make_elist.exit346:                               ; preds = %479, %480
 
 501:                                              ; preds = %506, %499
   %indvars.iv.i = phi i64 [ 0, %499 ], [ %indvars.iv.next.i, %506 ]
-  %502 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i
+  %502 = getelementptr inbounds nuw [16 x i8], ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i
   %503 = load ptr, ptr %502, align 16
   %504 = call i32 @pg_strcasecmp(ptr noundef %500, ptr noundef %503) #10
   %505 = icmp eq i32 %504, 0
@@ -1052,7 +1051,7 @@ find_func.exit:                                   ; preds = %501
 510:                                              ; preds = %80, %find_func.exit, %492, %484, %make_elist.exit346, %make_elist.exit342, %426, %418, %413, %407, %401, %395, %390, %make_uop.exit338, %352, %make_uop.exit333, %316, %make_uop.exit328, %280, %274, %268, %262, %256, %250, %244, %238, %232, %226, %220, %214, %208, %202, %196, %190, %184, %178, %172, %make_uop.exit, %142, %137, %130, %127, %123, %make_elist.exit323, %make_elist.exit, %89, %87
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %80 ], [ %.sroa.0.0.copyload, %87 ], [ 0, %89 ], [ %103, %make_elist.exit ], [ %122, %make_elist.exit323 ], [ %126, %123 ], [ %129, %127 ], [ %136, %130 ], [ %141, %137 ], [ %148, %142 ], [ %171, %make_uop.exit ], [ %177, %172 ], [ %183, %178 ], [ %189, %184 ], [ %195, %190 ], [ %201, %196 ], [ %207, %202 ], [ %213, %208 ], [ %219, %214 ], [ %225, %220 ], [ %231, %226 ], [ %237, %232 ], [ %243, %238 ], [ %249, %244 ], [ %255, %250 ], [ %261, %256 ], [ %267, %262 ], [ %273, %268 ], [ %279, %274 ], [ %287, %280 ], [ %315, %make_uop.exit328 ], [ %323, %316 ], [ %351, %make_uop.exit333 ], [ %360, %352 ], [ %389, %make_uop.exit338 ], [ %394, %390 ], [ %400, %395 ], [ %406, %401 ], [ %412, %407 ], [ %417, %413 ], [ %425, %418 ], [ %428, %426 ], [ %458, %make_elist.exit342 ], [ %483, %make_elist.exit346 ], [ %491, %484 ], [ %498, %492 ], [ %508, %find_func.exit ]
   %511 = sub nsw i64 0, %84
-  %512 = getelementptr inbounds %union.YYSTYPE, ptr %.2278, i64 %511
+  %512 = getelementptr inbounds [8 x i8], ptr %.2278, i64 %511
   %513 = getelementptr inbounds i8, ptr %.2290, i64 %511
   %514 = getelementptr inbounds nuw i8, ptr %512, i64 8
   store i64 %.sroa.0.0, ptr %514, align 8
@@ -1134,7 +1133,7 @@ define internal fastcc ptr @make_op(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 5:                                                ; preds = %10, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %10 ]
-  %6 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 16
   %8 = tail call i32 @pg_strcasecmp(ptr noundef %1, ptr noundef %7) #10
   %9 = icmp eq i32 %8, 0
@@ -1222,7 +1221,7 @@ elist_length.exit:                                ; preds = %.lr.ph.i, %3, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ 0, %3 ], [ %6, %.lr.ph.i ]
   %9 = tail call ptr @pg_malloc(i64 noundef 24) #10
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %10
+  %11 = getelementptr inbounds [16 x i8], ptr @PGBENCH_FUNCTIONS, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %64 [
@@ -1398,7 +1397,7 @@ define internal fastcc ptr @make_case(ptr noundef %0, ptr noundef %1, ptr nounde
 
 4:                                                ; preds = %9, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %9 ]
-  %5 = getelementptr inbounds nuw %struct.anon.2, ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @PGBENCH_FUNCTIONS, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 16
   %7 = tail call i32 @pg_strcasecmp(ptr noundef nonnull @.str.42, ptr noundef %6) #10
   %8 = icmp eq i32 %7, 0

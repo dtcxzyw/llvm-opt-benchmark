@@ -1174,7 +1174,7 @@ paritystr.exit.i:                                 ; preds = %421, %420, %389
   %495 = select i1 %494, i64 0, i64 %493
   %496 = icmp ne i64 %495, -1
   call void @llvm.assume(i1 %496)
-  %497 = getelementptr i32, ptr %7, i64 %indvars.iv.i
+  %497 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv.i
   %498 = load i32, ptr %497, align 4
   %499 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %498) #8, !srcloc !8
   %500 = zext i32 %499 to i64

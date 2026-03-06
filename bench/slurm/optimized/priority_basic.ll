@@ -205,14 +205,14 @@ define dso_local void @priority_p_job_end(ptr noundef readonly captures(none) %0
 15:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, -3
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %15
   %21 = mul i64 %7, %18
-  %22 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store i64 %21, ptr %22, align 8
   br label %23
 
@@ -254,12 +254,12 @@ define dso_local void @priority_p_job_end(ptr noundef readonly captures(none) %0
 
 45:                                               ; preds = %.lr.ph82, %96
   %indvars.iv93 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next94, %96 ]
-  %46 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv93
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv93
   %47 = load i64, ptr %46, align 8
   %48 = load ptr, ptr %27, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv93
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv93
   %52 = load i64, ptr %51, align 8
   %53 = icmp ugt i64 %47, %52
   br i1 %53, label %54, label %62
@@ -273,7 +273,7 @@ define dso_local void @priority_p_job_end(ptr noundef readonly captures(none) %0
 57:                                               ; preds = %54
   %58 = load ptr, ptr %42, align 8
   %59 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv93
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv93
   %61 = load ptr, ptr %60, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.priority_p_job_end, ptr noundef %58, ptr noundef %61) #8
   br label %64
@@ -286,7 +286,7 @@ define dso_local void @priority_p_job_end(ptr noundef readonly captures(none) %0
 64:                                               ; preds = %54, %57, %62
   %65 = load i64, ptr %46, align 8
   %66 = load ptr, ptr %43, align 8
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv93
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv93
   %68 = load i64, ptr %67, align 8
   %69 = icmp ugt i64 %65, %68
   br i1 %69, label %70, label %78
@@ -300,7 +300,7 @@ define dso_local void @priority_p_job_end(ptr noundef readonly captures(none) %0
 73:                                               ; preds = %70
   %74 = load ptr, ptr %42, align 8
   %75 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv93
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv93
   %77 = load ptr, ptr %76, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.3, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.priority_p_job_end, ptr noundef %74, ptr noundef %77) #8
   br label %80
@@ -313,7 +313,7 @@ define dso_local void @priority_p_job_end(ptr noundef readonly captures(none) %0
 80:                                               ; preds = %70, %73, %78
   %81 = load i64, ptr %46, align 8
   %82 = load ptr, ptr %44, align 8
-  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv93
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv93
   %84 = load i64, ptr %83, align 8
   %85 = icmp ugt i64 %81, %84
   br i1 %85, label %86, label %94
@@ -327,7 +327,7 @@ define dso_local void @priority_p_job_end(ptr noundef readonly captures(none) %0
 89:                                               ; preds = %86
   %90 = load ptr, ptr %42, align 8
   %91 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv93
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv93
   %93 = load ptr, ptr %92, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.priority_p_job_end, ptr noundef %90, ptr noundef %93) #8
   br label %96
@@ -369,12 +369,12 @@ define dso_local void @priority_p_job_end(ptr noundef readonly captures(none) %0
 
 107:                                              ; preds = %.lr.ph84, %141
   %indvars.iv96 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next97, %141 ]
-  %108 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv96
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv96
   %109 = load i64, ptr %108, align 8
   %110 = load ptr, ptr %105, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds nuw i64, ptr %112, i64 %indvars.iv96
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv96
   %114 = load i64, ptr %113, align 8
   %115 = icmp ugt i64 %109, %114
   br i1 %115, label %116, label %124
@@ -388,7 +388,7 @@ define dso_local void @priority_p_job_end(ptr noundef readonly captures(none) %0
 119:                                              ; preds = %116
   %120 = load ptr, ptr %106, align 8
   %121 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv96
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv96
   %123 = load ptr, ptr %122, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.5, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.priority_p_job_end, ptr noundef %120, ptr noundef %123) #8
   br label %141
@@ -402,16 +402,16 @@ define dso_local void @priority_p_job_end(ptr noundef readonly captures(none) %0
 
 128:                                              ; preds = %124
   %129 = load i32, ptr %100, align 8
-  %130 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv96
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv96
   %131 = load i64, ptr %130, align 8
   %132 = load ptr, ptr %106, align 8
   %133 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv96
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv96
   %135 = load ptr, ptr %134, align 8
   %136 = load ptr, ptr %105, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 40
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i64, ptr %138, i64 %indvars.iv96
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv96
   %140 = load i64, ptr %139, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.priority_p_job_end, i32 noundef %129, i64 noundef %131, ptr noundef %132, ptr noundef %135, i64 noundef %140) #8
   br label %141

@@ -260,9 +260,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %48,
   store i64 %spec.select, ptr %10, align 8, !tbaa !36
   store i64 %3, ptr %61, align 8, !tbaa !40
   %72 = mul nsw i64 %.03651, %3
-  %73 = getelementptr inbounds i64, ptr %5, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %5, i64 %72
   store ptr %73, ptr %62, align 8, !tbaa !41
-  %74 = getelementptr inbounds i32, ptr %4, i64 %72
+  %74 = getelementptr inbounds [4 x i8], ptr %4, i64 %72
   store ptr %74, ptr %63, align 8, !tbaa !42
   %75 = load i32, ptr %58, align 4, !tbaa !14
   %76 = sext i32 %75 to i64
@@ -283,8 +283,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %48,
   %87 = load ptr, ptr %59, align 8, !tbaa !7
   %88 = load i64, ptr %60, align 8, !tbaa !20
   %89 = mul nsw i64 %.03651, %3
-  %90 = getelementptr inbounds i32, ptr %4, i64 %89
-  %91 = getelementptr inbounds i64, ptr %5, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %4, i64 %89
+  %91 = getelementptr inbounds [8 x i8], ptr %5, i64 %89
   call void @_ZN5faiss15hammings_knn_mcEPKhS1_mmmmPiPl(ptr noundef %86, ptr noundef %87, i64 noundef %spec.select, i64 noundef %88, i64 noundef %3, i64 noundef %84, ptr noundef %90, ptr noundef %91)
   br label %92
 

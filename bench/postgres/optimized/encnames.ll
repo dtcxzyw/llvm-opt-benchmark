@@ -3,9 +3,6 @@ source_filename = "bench/postgres/original/encnames.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pg_encname = type { ptr, i32 }
-%struct.pg_enc2name = type { ptr, i32 }
-
 @.str = private unnamed_addr constant [10 x i8] c"SQL_ASCII\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"EUC_JP\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"EUC_CN\00", align 1
@@ -188,7 +185,7 @@ define dso_local ptr @get_encoding_name_for_icu(i32 noundef %0) local_unnamed_ad
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @pg_enc2icu_tbl, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @pg_enc2icu_tbl, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -232,7 +229,7 @@ define dso_local i32 @pg_char_to_encoding_private(ptr noundef readonly captures(
   %.01317.i = phi ptr [ %0, %.lr.ph.i ], [ %22, %21 ]
   %13 = load ptr, ptr %10, align 8
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 8
   %.not15.i = icmp eq i16 %17, 0
@@ -267,7 +264,7 @@ clean_encoding_name.exit:                         ; preds = %21
   %28 = ptrtoint ptr %.02229 to i64
   %29 = sub i64 %27, %28
   %30 = ashr i64 %29, 5
-  %31 = getelementptr inbounds %struct.pg_encname, ptr %.02229, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr %.02229, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
@@ -329,7 +326,7 @@ define dso_local ptr @pg_encoding_to_char_private(i32 noundef %0) local_unnamed_
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %3
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %3
   %5 = load ptr, ptr %4, align 16
   br label %6
 

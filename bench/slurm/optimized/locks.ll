@@ -333,7 +333,7 @@ define dso_local i32 @report_locks_set() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_report_lock_set(ptr noundef nonnull writeonly captures(none) %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw %union.pthread_rwlock_t, ptr @slurmctld_locks, i64 %3
+  %4 = getelementptr inbounds nuw [56 x i8], ptr @slurmctld_locks, i64 %3
   %5 = tail call i32 @pthread_rwlock_tryrdlock(ptr noundef nonnull %4) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %.sink.split

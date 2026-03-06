@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/h265_profile_level.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H265ProfileDescriptor = type { ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, float, float, i8 }
-%struct.H265LevelDescriptor = type { [4 x i8], i8, i32, i32, i32, i16, i8, i8, i32, i32, i32, i8, i8 }
-
 @.str = private unnamed_addr constant [11 x i8] c"Monochrome\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"Monochrome 10\00", align 1
 @.str.2 = private unnamed_addr constant [14 x i8] c"Monochrome 12\00", align 1
@@ -70,7 +67,7 @@ define ptr @ff_h265_get_profile(ptr noundef readonly captures(none) %0) local_un
 
 16:                                               ; preds = %.preheader, %71
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %71 ]
-  %17 = getelementptr inbounds nuw %struct.H265ProfileDescriptor, ptr @h265_profiles, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [40 x i8], ptr @h265_profiles, i64 %indvars.iv
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !9
   br i1 %.not55, label %._crit_edge, label %18
@@ -251,7 +248,7 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
 
 36:                                               ; preds = %31, %.thread93
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %.thread93 ]
-  %37 = getelementptr inbounds nuw %struct.H265LevelDescriptor, ptr @h265_levels, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [40 x i8], ptr @h265_levels, i64 %indvars.iv
   %.not81 = icmp samesign ugt i64 %indvars.iv, 4
   %or.cond.not = select i1 %.065, i1 true, i1 %.not81
   br i1 %or.cond.not, label %38, label %.thread93

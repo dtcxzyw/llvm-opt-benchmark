@@ -236,7 +236,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %32 = phi i32 [ %35, %.lr.ph ], [ %30, %19 ]
   %33 = call ptr @xsignal(i32 noundef %32, ptr noundef nonnull @_signal_while_allocating) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw i32, ptr @sig_array, i64 %indvars.iv.next
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @sig_array, i64 %indvars.iv.next
   %35 = load i32, ptr %34, align 4
   %.not57 = icmp eq i32 %35, 0
   br i1 %.not57, label %.preheader, label %.lr.ph, !llvm.loop !11
@@ -1093,7 +1093,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   %40 = phi i32 [ %43, %.lr.ph151 ], [ %39, %30 ]
   %41 = call ptr @xsignal(i32 noundef %40, ptr noundef nonnull @_signal_while_allocating) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = getelementptr inbounds nuw i32, ptr @sig_array, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @sig_array, i64 %indvars.iv.next
   %43 = load i32, ptr %42, align 4
   %.not108 = icmp eq i32 %43, 0
   br i1 %.not108, label %._crit_edge152, label %.lr.ph151, !llvm.loop !14

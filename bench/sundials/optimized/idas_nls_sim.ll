@@ -241,27 +241,27 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
 
 114:                                              ; preds = %.lr.ph, %114
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
-  %115 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv
   %116 = load ptr, ptr %115, align 8, !tbaa !40
   %117 = load ptr, ptr %89, align 8, !tbaa !31
   %118 = load ptr, ptr %117, align 8, !tbaa !35
   %119 = load ptr, ptr %118, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.next
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv.next
   store ptr %116, ptr %120, align 8, !tbaa !40
-  %121 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv
   %122 = load ptr, ptr %121, align 8, !tbaa !40
   %123 = load ptr, ptr %95, align 8, !tbaa !32
   %124 = load ptr, ptr %123, align 8, !tbaa !35
   %125 = load ptr, ptr %124, align 8, !tbaa !38
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv.next
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv.next
   store ptr %122, ptr %126, align 8, !tbaa !40
-  %127 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv
   %128 = load ptr, ptr %127, align 8, !tbaa !40
   %129 = load ptr, ptr %101, align 8, !tbaa !33
   %130 = load ptr, ptr %129, align 8, !tbaa !35
   %131 = load ptr, ptr %130, align 8, !tbaa !38
-  %132 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv.next
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv.next
   store ptr %128, ptr %132, align 8, !tbaa !40
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %114
@@ -671,10 +671,10 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolveSensSim(ptr noundef readonly 
 34:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %35 = load ptr, ptr %9, align 8, !tbaa !73
-  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !40
   %38 = load ptr, ptr %29, align 8, !tbaa !45
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !40
   %41 = load ptr, ptr %13, align 8, !tbaa !48
   %42 = load ptr, ptr %15, align 8, !tbaa !51

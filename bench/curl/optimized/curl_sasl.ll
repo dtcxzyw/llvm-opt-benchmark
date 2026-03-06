@@ -3,7 +3,6 @@ source_filename = "bench/curl/original/curl_sasl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon.0 = type { ptr, i64, i16 }
 %struct.bufref = type { ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [2 x i8] c"*\00", align 1
@@ -48,7 +47,7 @@ define hidden zeroext i16 @Curl_sasl_decode_mech(ptr noundef readonly captures(n
 .split.us:                                        ; preds = %3, %16
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %16 ], [ 0, %3 ]
   %4 = phi ptr [ %18, %16 ], [ @.str.8, %3 ]
-  %5 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv61
+  %5 = getelementptr inbounds nuw [24 x i8], ptr @mechtable, i64 %indvars.iv61
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !3
   %.not39.us = icmp ult i64 %1, %7
@@ -82,7 +81,7 @@ switch.early.test.us:                             ; preds = %11
 
 16:                                               ; preds = %switch.early.test.us, %switch.early.test.us, %11, %8, %.split.us
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %17 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv.next62
+  %17 = getelementptr inbounds nuw [24 x i8], ptr @mechtable, i64 %indvars.iv.next62
   %18 = load ptr, ptr %17, align 8, !tbaa !12
   %.not.us = icmp eq i64 %indvars.iv.next62, 11
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !13
@@ -90,7 +89,7 @@ switch.early.test.us:                             ; preds = %11
 .split:                                           ; preds = %3, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %3 ]
   %19 = phi ptr [ %33, %31 ], [ @.str.8, %3 ]
-  %20 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr @mechtable, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %.not39 = icmp ult i64 %1, %22
@@ -125,14 +124,14 @@ switch.early.test:                                ; preds = %26
 
 31:                                               ; preds = %switch.early.test, %switch.early.test, %.split, %23, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw [24 x i8], ptr @mechtable, i64 %indvars.iv.next
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %.not = icmp eq i64 %indvars.iv.next, 11
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %switch.early.test, %24, %switch.early.test.us, %9
   %.sink = phi i64 [ %indvars.iv61, %switch.early.test.us ], [ %indvars.iv61, %9 ], [ %indvars.iv, %24 ], [ %indvars.iv, %switch.early.test ]
-  %34 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %.sink
+  %34 = getelementptr inbounds nuw [24 x i8], ptr @mechtable, i64 %.sink
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i16, ptr %35, align 8, !tbaa !16
   br label %.loopexit
@@ -174,7 +173,7 @@ define hidden range(i32 0, 4) i32 @Curl_sasl_parse_url_auth_option(ptr noundef c
 .split.i:                                         ; preds = %11, %27
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %11 ]
   %15 = phi ptr [ %29, %27 ], [ @.str.8, %11 ]
-  %16 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [24 x i8], ptr @mechtable, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !3
   %.not39.i = icmp ult i64 %2, %18
@@ -208,7 +207,7 @@ switch.early.test.i:                              ; preds = %22
 
 27:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %22, %19, %.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = getelementptr inbounds nuw %struct.anon.0, ptr @mechtable, i64 %indvars.iv.next.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr @mechtable, i64 %indvars.iv.next.i
   %29 = load ptr, ptr %28, align 8, !tbaa !12
   %.not.i = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %.not.i, label %Curl_sasl_decode_mech.exit.thread, label %.split.i, !llvm.loop !13

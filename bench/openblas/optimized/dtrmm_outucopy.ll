@@ -14,7 +14,7 @@ define noundef i32 @dtrmm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %11 = icmp sgt i64 %10, 0
   %12 = and i64 %0, 1
   %.not147 = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds double, ptr %2, i64 %4
+  %13 = getelementptr inbounds [8 x i8], ptr %2, i64 %4
   %14 = mul nsw i64 %4, %3
   %15 = add nsw i64 %4, 1
   %16 = mul nsw i64 %15, %3
@@ -35,16 +35,16 @@ define noundef i32 @dtrmm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 20:                                               ; preds = %.preheader152.split.us
   %21 = mul nsw i64 %.1123.us, %3
-  %22 = getelementptr inbounds double, ptr %13, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %13, i64 %21
   %23 = add nsw i64 %.1123.us, 1
   %24 = mul nsw i64 %23, %3
-  %25 = getelementptr inbounds double, ptr %13, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %13, i64 %24
   br label %.preheader150.us.preheader
 
 26:                                               ; preds = %.preheader152.split.us
-  %27 = getelementptr inbounds double, ptr %2, i64 %.1123.us
-  %28 = getelementptr inbounds double, ptr %27, i64 %14
-  %29 = getelementptr inbounds double, ptr %27, i64 %16
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %.1123.us
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %14
+  %29 = getelementptr inbounds [8 x i8], ptr %27, i64 %16
   br label %.preheader150.us.preheader
 
 .preheader150.us.preheader:                       ; preds = %26, %20
@@ -74,8 +74,8 @@ define noundef i32 @dtrmm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   store double %34, ptr %36, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %.3133.us, i64 24
   store double 1.000000e+00, ptr %37, align 8, !tbaa !3
-  %38 = getelementptr inbounds double, ptr %.2120.us, i64 %17
-  %39 = getelementptr inbounds double, ptr %.2.us, i64 %17
+  %38 = getelementptr inbounds [8 x i8], ptr %.2120.us, i64 %17
+  %39 = getelementptr inbounds [8 x i8], ptr %.2.us, i64 %17
   br label %55
 
 40:                                               ; preds = %31
@@ -92,8 +92,8 @@ define noundef i32 @dtrmm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   store double %44, ptr %48, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %.3133.us, i64 24
   store double %46, ptr %49, align 8, !tbaa !3
-  %50 = getelementptr inbounds double, ptr %.2120.us, i64 %17
-  %51 = getelementptr inbounds double, ptr %.2.us, i64 %17
+  %50 = getelementptr inbounds [8 x i8], ptr %.2120.us, i64 %17
+  %51 = getelementptr inbounds [8 x i8], ptr %.2.us, i64 %17
   br label %55
 
 52:                                               ; preds = %.preheader150.us
@@ -150,7 +150,7 @@ define noundef i32 @dtrmm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %.not147, label %74, label %59
 
 .preheader152.split:                              ; preds = %.preheader152
-  %invariant.gep = getelementptr double, ptr %2, i64 %14
+  %invariant.gep = getelementptr [8 x i8], ptr %2, i64 %14
   br i1 %.not147, label %.preheader152.split.split.us.preheader, label %.preheader152.split.split
 
 .preheader152.split.split.us.preheader:           ; preds = %.preheader152.split
@@ -162,7 +162,7 @@ define noundef i32 @dtrmm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.1131 = phi ptr [ %.5135, %87 ], [ %6, %.preheader152.split ]
   %.0127 = phi i64 [ %89, %87 ], [ %8, %.preheader152.split ]
   %.1123 = phi i64 [ %88, %87 ], [ %5, %.preheader152.split ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.1123
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %.1123
   %80 = icmp slt i64 %4, %.1123
   br i1 %80, label %87, label %81
 
@@ -201,12 +201,12 @@ define noundef i32 @dtrmm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .preheader.preheader:                             ; preds = %.loopexit153
   %.not149 = icmp sgt i64 %4, %.0122
-  %92 = getelementptr inbounds double, ptr %2, i64 %.0122
+  %92 = getelementptr inbounds [8 x i8], ptr %2, i64 %.0122
   %93 = mul nsw i64 %4, %3
-  %94 = getelementptr inbounds double, ptr %92, i64 %93
-  %95 = getelementptr inbounds double, ptr %2, i64 %4
+  %94 = getelementptr inbounds [8 x i8], ptr %92, i64 %93
+  %95 = getelementptr inbounds [8 x i8], ptr %2, i64 %4
   %96 = mul nsw i64 %.0122, %3
-  %97 = getelementptr inbounds double, ptr %95, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %95, i64 %96
   %.4 = select i1 %.not149, ptr %94, ptr %97
   br label %.preheader
 
@@ -229,12 +229,12 @@ define noundef i32 @dtrmm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 103:                                              ; preds = %101
   %104 = load double, ptr %.5, align 8, !tbaa !3
   store double %104, ptr %.6136, align 8, !tbaa !3
-  %105 = getelementptr inbounds double, ptr %.5, i64 %3
+  %105 = getelementptr inbounds [8 x i8], ptr %.5, i64 %3
   br label %108
 
 106:                                              ; preds = %101
   store double 1.000000e+00, ptr %.6136, align 8, !tbaa !3
-  %107 = getelementptr inbounds double, ptr %.5, i64 %3
+  %107 = getelementptr inbounds [8 x i8], ptr %.5, i64 %3
   br label %108
 
 108:                                              ; preds = %103, %106, %99

@@ -17,7 +17,7 @@ define i32 @hash(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 nou
   %.012 = add nsw i32 %.012.in15, -1
   %5 = load i8, ptr %.01314, align 1, !tbaa !3
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw i32, ptr @byte_to_int32, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @byte_to_int32, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !6
   %9 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 %.012)
   %10 = xor i32 %9, %.016
@@ -36,7 +36,7 @@ define i32 @hash(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 nou
   %.0.lcssa = phi i32 [ %0, %3 ], [ %10, %._crit_edge.loopexit ]
   %15 = load i8, ptr %.013.lcssa, align 1, !tbaa !3
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @byte_to_int32, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @byte_to_int32, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !6
   %19 = xor i32 %18, %.0.lcssa
   ret i32 %19
@@ -88,7 +88,7 @@ define void @yr_hash_table_destroy(ptr noundef captures(none) %0, ptr noundef re
 .lr.ph24.split.us:                                ; preds = %.lr.ph24, %._crit_edge.split.us.us
   %6 = phi i32 [ %9, %._crit_edge.split.us.us ], [ %3, %.lr.ph24 ]
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %._crit_edge.split.us.us ], [ 0, %.lr.ph24 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv28
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv28
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %.not20.us = icmp eq ptr %8, null
   br i1 %.not20.us, label %._crit_edge.split.us.us, label %.lr.ph.us
@@ -127,7 +127,7 @@ define void @yr_hash_table_destroy(ptr noundef captures(none) %0, ptr noundef re
 .lr.ph24.split:                                   ; preds = %.lr.ph24, %._crit_edge.split
   %19 = phi i32 [ %32, %._crit_edge.split ], [ %3, %.lr.ph24 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %.lr.ph24 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %.not20 = icmp eq ptr %21, null
   br i1 %.not20, label %._crit_edge.split, label %.lr.ph
@@ -188,7 +188,7 @@ define ptr @yr_hash_table_lookup(ptr noundef readonly captures(none) %0, ptr nou
   %.012.i = add nsw i32 %.012.in15.i, -1
   %7 = load i8, ptr %.01314.i, align 1, !tbaa !3
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr @byte_to_int32, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @byte_to_int32, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !6
   %11 = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 %.012.i)
   %12 = xor i32 %11, %.016.i
@@ -207,7 +207,7 @@ hash.exit:                                        ; preds = %3, %._crit_edge.loo
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %12, %._crit_edge.loopexit.i ]
   %17 = load i8, ptr %.013.lcssa.i, align 1, !tbaa !3
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @byte_to_int32, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @byte_to_int32, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !6
   %21 = xor i32 %20, %.0.lcssa.i
   %.not = icmp eq ptr %2, null
@@ -226,7 +226,7 @@ hash.exit:                                        ; preds = %3, %._crit_edge.loo
   %.012.i30 = add nsw i32 %.012.in15.i28, -1
   %26 = load i8, ptr %.01314.i29, align 1, !tbaa !3
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr @byte_to_int32, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @byte_to_int32, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !6
   %30 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 %.012.i30)
   %31 = xor i32 %30, %.016.i27
@@ -245,7 +245,7 @@ hash.exit33:                                      ; preds = %22, %._crit_edge.lo
   %.0.lcssa.i25 = phi i32 [ %21, %22 ], [ %31, %._crit_edge.loopexit.i31 ]
   %36 = load i8, ptr %.013.lcssa.i24, align 1, !tbaa !3
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr @byte_to_int32, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @byte_to_int32, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !6
   %40 = xor i32 %39, %.0.lcssa.i25
   br label %41
@@ -256,7 +256,7 @@ hash.exit33:                                      ; preds = %22, %._crit_edge.lo
   %43 = urem i32 %.0, %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   %.01936 = load ptr, ptr %46, align 8, !tbaa !10
   %.not2337 = icmp eq ptr %.01936, null
   br i1 %.not2337, label %.loopexit, label %.lr.ph
@@ -354,7 +354,7 @@ define range(i32 0, 2) i32 @yr_hash_table_add(ptr noundef captures(none) %0, ptr
   %.012.i = add nsw i32 %.012.in15.i, -1
   %25 = load i8, ptr %.01314.i, align 1, !tbaa !3
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw i32, ptr @byte_to_int32, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @byte_to_int32, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !6
   %29 = tail call i32 @llvm.fshl.i32(i32 %28, i32 %28, i32 %.012.i)
   %30 = xor i32 %29, %.016.i
@@ -373,7 +373,7 @@ hash.exit:                                        ; preds = %20, %._crit_edge.lo
   %.0.lcssa.i = phi i32 [ 0, %20 ], [ %30, %._crit_edge.loopexit.i ]
   %35 = load i8, ptr %.013.lcssa.i, align 1, !tbaa !3
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr @byte_to_int32, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @byte_to_int32, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !6
   %39 = xor i32 %38, %.0.lcssa.i
   br i1 %.not, label %59, label %40
@@ -391,7 +391,7 @@ hash.exit:                                        ; preds = %20, %._crit_edge.lo
   %.012.i37 = add nsw i32 %.012.in15.i35, -1
   %44 = load i8, ptr %.01314.i36, align 1, !tbaa !3
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr @byte_to_int32, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @byte_to_int32, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !6
   %48 = tail call i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 %.012.i37)
   %49 = xor i32 %48, %.016.i34
@@ -410,7 +410,7 @@ hash.exit40:                                      ; preds = %40, %._crit_edge.lo
   %.0.lcssa.i32 = phi i32 [ %39, %40 ], [ %49, %._crit_edge.loopexit.i38 ]
   %54 = load i8, ptr %.013.lcssa.i31, align 1, !tbaa !3
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr @byte_to_int32, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @byte_to_int32, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !6
   %58 = xor i32 %57, %.0.lcssa.i32
   br label %59
@@ -421,7 +421,7 @@ hash.exit40:                                      ; preds = %40, %._crit_edge.lo
   %61 = urem i32 %.0, %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !10
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %65, ptr %66, align 8, !tbaa !15

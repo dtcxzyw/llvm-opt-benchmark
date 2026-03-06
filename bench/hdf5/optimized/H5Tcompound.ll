@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5T_vlen_alloc_info_t = type { ptr, ptr, ptr, ptr }
 %struct.H5T_conv_cb_t = type { ptr, ptr }
 %struct.H5VL_connector_prop_t = type { ptr, ptr }
-%struct.H5T_cmemb_t = type { ptr, i64, i64, ptr }
 
 @H5_libinit_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -165,7 +164,7 @@ define i64 @H5Tget_member_offset(i64 noundef %0, i32 noundef %1) local_unnamed_a
   %58 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %59 = load ptr, ptr %58, align 8, !tbaa !28
   %60 = zext i32 %1 to i64
-  %61 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %59, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8, !tbaa !30
   %64 = call i32 @H5CX_pop(i1 noundef zeroext true) #8
@@ -207,7 +206,7 @@ define i64 @H5T_get_member_offset(ptr noundef readonly captures(none) %0, i32 no
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !30
   ret i64 %10
@@ -308,7 +307,7 @@ define i32 @H5Tget_member_class(i64 noundef %0, i32 noundef %1) local_unnamed_ad
   %57 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %58 = load ptr, ptr %57, align 8, !tbaa !28
   %59 = zext i32 %1 to i64
-  %60 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !33
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
@@ -450,7 +449,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tget_member_type(i64 noundef %
   %64 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %65 = load ptr, ptr %64, align 8, !tbaa !28
   %66 = zext i32 %1 to i64
-  %67 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8, !tbaa !33
   %70 = call ptr @H5T_copy_reopen(ptr noundef %69) #8
@@ -556,7 +555,7 @@ define ptr @H5T_get_member_type(ptr noundef readonly captures(none) %0, i32 noun
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   %23 = zext i32 %1 to i64
-  %24 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = tail call ptr @H5T_copy(ptr noundef %26, i32 noundef 0) #8
@@ -583,7 +582,7 @@ define i64 @H5T__get_member_size(ptr noundef readonly captures(none) %0, i32 nou
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -780,7 +779,7 @@ define range(i32 -1, 1) i32 @H5T__insert(ptr noundef %0, ptr noundef %1, i64 nou
 
 18:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %19 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %16, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !38
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %1) #9
   %.not88 = icmp eq i32 %21, 0
@@ -813,7 +812,7 @@ define range(i32 -1, 1) i32 @H5T__insert(ptr noundef %0, ptr noundef %1, i64 nou
 
 37:                                               ; preds = %._crit_edge, %52
   %indvars.iv110 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next111, %52 ]
-  %38 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %31, i64 %indvars.iv110
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %indvars.iv110
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !30
   %.not86 = icmp ule i64 %2, %40
@@ -899,18 +898,18 @@ define range(i32 -1, 1) i32 @H5T__insert(ptr noundef %0, ptr noundef %1, i64 nou
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %84 = load ptr, ptr %83, align 8, !tbaa !28
   %85 = zext i32 %81 to i64
-  %86 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %84, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 %2, ptr %87, align 8, !tbaa !30
   %88 = load ptr, ptr %83, align 8, !tbaa !28
-  %89 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %88, i64 %85
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %85
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store i64 %53, ptr %90, align 8, !tbaa !39
   %91 = tail call noalias ptr @H5MM_xstrdup(ptr noundef %1) #8
   %92 = load ptr, ptr %11, align 8, !tbaa !14
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 64
   %94 = load ptr, ptr %93, align 8, !tbaa !28
-  %95 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %94, i64 %85
+  %95 = getelementptr inbounds nuw [32 x i8], ptr %94, i64 %85
   store ptr %91, ptr %95, align 8, !tbaa !38
   %96 = icmp eq ptr %91, null
   br i1 %96, label %97, label %101
@@ -926,7 +925,7 @@ define range(i32 -1, 1) i32 @H5T__insert(ptr noundef %0, ptr noundef %1, i64 nou
   %103 = load ptr, ptr %11, align 8, !tbaa !14
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 64
   %105 = load ptr, ptr %104, align 8, !tbaa !28
-  %106 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %105, i64 %85
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %85
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   store ptr %102, ptr %107, align 8, !tbaa !33
   %108 = icmp eq ptr %102, null
@@ -985,7 +984,7 @@ define range(i32 -1, 1) i32 @H5T__insert(ptr noundef %0, ptr noundef %1, i64 nou
 
 143:                                              ; preds = %H5T__is_packed.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %H5T__is_packed.exit.thread.i ]
-  %144 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %142, i64 %indvars.iv.i
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %indvars.iv.i
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
   %146 = load ptr, ptr %145, align 8, !tbaa !33
   br label %.preheader.i.i
@@ -1309,7 +1308,7 @@ H5T__is_packed.exit:                              ; preds = %22
   %85 = phi ptr [ %98, %97 ], [ %30, %.preheader57 ]
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 64
   %87 = load ptr, ptr %86, align 8, !tbaa !28
-  %88 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %87, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %indvars.iv
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load ptr, ptr %89, align 8, !tbaa !33
   %91 = tail call fastcc i32 @H5T__pack(ptr noundef %90)
@@ -1326,7 +1325,7 @@ H5T__is_packed.exit:                              ; preds = %22
   %98 = load ptr, ptr %29, align 8, !tbaa !14
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 64
   %100 = load ptr, ptr %99, align 8, !tbaa !28
-  %101 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [32 x i8], ptr %100, i64 %indvars.iv
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = load ptr, ptr %102, align 8, !tbaa !33
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 40
@@ -1369,11 +1368,11 @@ H5T__is_packed.exit:                              ; preds = %22
   %124 = phi ptr [ %.pre, %.lr.ph62 ], [ %127, %123 ]
   %indvars.iv69 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next70, %123 ]
   %.04660 = phi i64 [ 0, %.lr.ph62 ], [ %131, %123 ]
-  %125 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %124, i64 %indvars.iv69
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %124, i64 %indvars.iv69
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i64 %.04660, ptr %126, align 8, !tbaa !30
   %127 = load ptr, ptr %118, align 8, !tbaa !28
-  %128 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %127, i64 %indvars.iv69
+  %128 = getelementptr inbounds nuw [32 x i8], ptr %127, i64 %indvars.iv69
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load i64, ptr %129, align 8, !tbaa !39
   %131 = add i64 %130, %.04660
@@ -1444,7 +1443,7 @@ define void @H5T__update_packed(ptr noundef readonly captures(none) %0) local_un
 
 23:                                               ; preds = %.lr.ph, %H5T__is_packed.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %H5T__is_packed.exit.thread ]
-  %24 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !33
   br label %.preheader.i

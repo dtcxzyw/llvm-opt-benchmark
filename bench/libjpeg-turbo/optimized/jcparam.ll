@@ -3,8 +3,6 @@ source_filename = "bench/libjpeg-turbo/original/jcparam.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.jpeg_component_info = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
-
 @std_luminance_quant_tbl = internal unnamed_addr constant [64 x i32] [i32 16, i32 11, i32 10, i32 16, i32 24, i32 40, i32 51, i32 61, i32 12, i32 12, i32 14, i32 19, i32 26, i32 58, i32 60, i32 55, i32 14, i32 13, i32 16, i32 24, i32 40, i32 57, i32 69, i32 56, i32 14, i32 17, i32 22, i32 29, i32 51, i32 87, i32 80, i32 62, i32 18, i32 22, i32 37, i32 56, i32 68, i32 109, i32 103, i32 77, i32 24, i32 35, i32 55, i32 64, i32 81, i32 104, i32 113, i32 92, i32 49, i32 64, i32 78, i32 87, i32 103, i32 121, i32 120, i32 101, i32 72, i32 92, i32 95, i32 98, i32 112, i32 100, i32 103, i32 99], align 16
 @std_chrominance_quant_tbl = internal unnamed_addr constant [64 x i32] [i32 17, i32 18, i32 24, i32 47, i32 99, i32 99, i32 99, i32 99, i32 18, i32 21, i32 26, i32 66, i32 99, i32 99, i32 99, i32 99, i32 24, i32 26, i32 56, i32 99, i32 99, i32 99, i32 99, i32 99, i32 47, i32 66, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99], align 16
 @std_huff_tables.bits_dc_luminance = internal unnamed_addr constant [17 x i8] c"\00\00\01\05\01\01\01\01\01\01\00\00\00\00\00\00\00", align 16
@@ -51,7 +49,7 @@ define void @jpeg_add_quant_table(ptr noundef %0, i32 noundef %1, ptr noundef re
 21:                                               ; preds = %14, %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = sext i32 %1 to i64
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !31
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29
@@ -69,7 +67,7 @@ define void @jpeg_add_quant_table(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 .split.us:                                        ; preds = %29, %.split.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.split.us ], [ 0, %29 ]
-  %32 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv41
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv41
   %33 = load i32, ptr %32, align 4, !tbaa !32
   %34 = zext i32 %33 to i64
   %35 = mul nsw i64 %34, %31
@@ -78,7 +76,7 @@ define void @jpeg_add_quant_table(ptr noundef %0, i32 noundef %1, ptr noundef re
   %spec.store.select.us = tail call i64 @llvm.smax.i64(i64 %37, i64 1)
   %spec.store.select4.us = tail call i64 @llvm.umin.i64(i64 %spec.store.select.us, i64 32767)
   %38 = trunc nuw nsw i64 %spec.store.select4.us to i16
-  %39 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv41
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv41
   store i16 %38, ptr %39, align 2, !tbaa !33
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 64
@@ -86,7 +84,7 @@ define void @jpeg_add_quant_table(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 .split:                                           ; preds = %29, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %29 ]
-  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !32
   %42 = zext i32 %41 to i64
   %43 = mul nsw i64 %42, %31
@@ -97,7 +95,7 @@ define void @jpeg_add_quant_table(ptr noundef %0, i32 noundef %1, ptr noundef re
   %46 = icmp sgt i64 %43, 25549
   %47 = trunc nuw nsw i64 %spec.store.select4 to i16
   %spec.select = select i1 %46, i16 255, i16 %47
-  %48 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   store i16 %spec.select, ptr %48, align 2, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -148,7 +146,7 @@ define void @jpeg_set_linear_quality(ptr noundef %0, i32 noundef %1, i32 noundef
 
 .split.us.i:                                      ; preds = %18, %.split.us.i
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.split.us.i ], [ 0, %18 ]
-  %21 = getelementptr inbounds nuw i32, ptr @std_luminance_quant_tbl, i64 %indvars.iv41.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @std_luminance_quant_tbl, i64 %indvars.iv41.i
   %22 = load i32, ptr %21, align 4, !tbaa !32
   %23 = zext i32 %22 to i64
   %24 = mul nsw i64 %23, %20
@@ -157,7 +155,7 @@ define void @jpeg_set_linear_quality(ptr noundef %0, i32 noundef %1, i32 noundef
   %spec.store.select.us.i = tail call i64 @llvm.smax.i64(i64 %26, i64 1)
   %spec.store.select4.us.i = tail call i64 @llvm.umin.i64(i64 %spec.store.select.us.i, i64 32767)
   %27 = trunc nuw nsw i64 %spec.store.select4.us.i to i16
-  %28 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv41.i
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %indvars.iv41.i
   store i16 %27, ptr %28, align 2, !tbaa !33
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next42.i, 64
@@ -165,7 +163,7 @@ define void @jpeg_set_linear_quality(ptr noundef %0, i32 noundef %1, i32 noundef
 
 .split.i:                                         ; preds = %18, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %18 ]
-  %29 = getelementptr inbounds nuw i32, ptr @std_luminance_quant_tbl, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @std_luminance_quant_tbl, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4, !tbaa !32
   %31 = zext i32 %30 to i64
   %32 = mul nsw i64 %31, %20
@@ -176,7 +174,7 @@ define void @jpeg_set_linear_quality(ptr noundef %0, i32 noundef %1, i32 noundef
   %35 = icmp sgt i64 %32, 25549
   %36 = trunc nuw nsw i64 %spec.store.select4.i to i16
   %spec.select.i = select i1 %35, i16 255, i16 %36
-  %37 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %indvars.iv.i
   store i16 %spec.select.i, ptr %37, align 2, !tbaa !33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -217,7 +215,7 @@ jpeg_add_quant_table.exit:                        ; preds = %.split.i, %.split.u
 
 .split.us.i14:                                    ; preds = %52, %.split.us.i14
   %indvars.iv41.i15 = phi i64 [ %indvars.iv.next42.i18, %.split.us.i14 ], [ 0, %52 ]
-  %54 = getelementptr inbounds nuw i32, ptr @std_chrominance_quant_tbl, i64 %indvars.iv41.i15
+  %54 = getelementptr inbounds nuw [4 x i8], ptr @std_chrominance_quant_tbl, i64 %indvars.iv41.i15
   %55 = load i32, ptr %54, align 4, !tbaa !32
   %56 = zext i32 %55 to i64
   %57 = mul nsw i64 %56, %20
@@ -226,7 +224,7 @@ jpeg_add_quant_table.exit:                        ; preds = %.split.i, %.split.u
   %spec.store.select.us.i16 = tail call i64 @llvm.smax.i64(i64 %59, i64 1)
   %spec.store.select4.us.i17 = tail call i64 @llvm.umin.i64(i64 %spec.store.select.us.i16, i64 32767)
   %60 = trunc nuw nsw i64 %spec.store.select4.us.i17 to i16
-  %61 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv41.i15
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv41.i15
   store i16 %60, ptr %61, align 2, !tbaa !33
   %indvars.iv.next42.i18 = add nuw nsw i64 %indvars.iv41.i15, 1
   %exitcond44.not.i19 = icmp eq i64 %indvars.iv.next42.i18, 64
@@ -234,7 +232,7 @@ jpeg_add_quant_table.exit:                        ; preds = %.split.i, %.split.u
 
 .split.i7:                                        ; preds = %52, %.split.i7
   %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i12, %.split.i7 ], [ 0, %52 ]
-  %62 = getelementptr inbounds nuw i32, ptr @std_chrominance_quant_tbl, i64 %indvars.iv.i8
+  %62 = getelementptr inbounds nuw [4 x i8], ptr @std_chrominance_quant_tbl, i64 %indvars.iv.i8
   %63 = load i32, ptr %62, align 4, !tbaa !32
   %64 = zext i32 %63 to i64
   %65 = mul nsw i64 %64, %20
@@ -245,7 +243,7 @@ jpeg_add_quant_table.exit:                        ; preds = %.split.i, %.split.u
   %68 = icmp sgt i64 %65, 25549
   %69 = trunc nuw nsw i64 %spec.store.select4.i10 to i16
   %spec.select.i11 = select i1 %68, i16 255, i16 %69
-  %70 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv.i8
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv.i8
   store i16 %spec.select.i11, ptr %70, align 2, !tbaa !33
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 64
@@ -976,7 +974,7 @@ jpeg_set_colorspace.exit21:                       ; preds = %161, %164
 
 228:                                              ; preds = %228, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %228 ]
-  %229 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %227, i64 %indvars.iv.i
+  %229 = getelementptr inbounds nuw [96 x i8], ptr %227, i64 %indvars.iv.i
   %230 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %230, ptr %229, align 8, !tbaa !64
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
@@ -1288,7 +1286,7 @@ define void @jpeg_set_colorspace(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 137:                                              ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
-  %138 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %136, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [96 x i8], ptr %136, i64 %indvars.iv
   %139 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %139, ptr %138, align 8, !tbaa !64
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
@@ -1423,7 +1421,7 @@ define void @jpeg_simple_progression(ptr noundef %0) local_unnamed_addr #0 {
 
 55:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i
   %57 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %57, ptr %56, align 4, !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1533,7 +1531,7 @@ fill_scans.exit76:                                ; preds = %.lr.ph.i72
 
 92:                                               ; preds = %92, %.lr.ph.i83
   %indvars.iv.i85 = phi i64 [ 0, %.lr.ph.i83 ], [ %indvars.iv.next.i86, %92 ]
-  %93 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv.i85
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i85
   %94 = trunc nuw nsw i64 %indvars.iv.i85 to i32
   store i32 %94, ptr %93, align 4, !tbaa !32
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
@@ -1604,7 +1602,7 @@ fill_scans.exit76:                                ; preds = %.lr.ph.i72
 
 .split55:                                         ; preds = %114, %.split55
   %indvars.iv.i97 = phi i64 [ %indvars.iv.next.i98, %.split55 ], [ 0, %114 ]
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.i97
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i97
   %120 = trunc nuw nsw i64 %indvars.iv.i97 to i32
   store i32 %120, ptr %119, align 4, !tbaa !32
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
@@ -1687,7 +1685,7 @@ fill_scans.exit123:                               ; preds = %.lr.ph.i117
 
 148:                                              ; preds = %148, %fill_scans.exit123
   %indvars.iv.i125 = phi i64 [ 0, %fill_scans.exit123 ], [ %indvars.iv.next.i126, %148 ]
-  %149 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv.i125
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %indvars.iv.i125
   %150 = trunc nuw nsw i64 %indvars.iv.i125 to i32
   store i32 %150, ptr %149, align 4, !tbaa !32
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i125, 1
@@ -1727,7 +1725,7 @@ fill_dc_scans.exit130:                            ; preds = %148
 
 .preheader:                                       ; preds = %114, %.preheader
   %indvars.iv.i139 = phi i64 [ %indvars.iv.next.i140, %.preheader ], [ 0, %114 ]
-  %163 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.i139
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i139
   %164 = trunc nuw nsw i64 %indvars.iv.i139 to i32
   store i32 %164, ptr %163, align 4, !tbaa !32
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i139, 1
@@ -1810,7 +1808,7 @@ fill_dc_scans.exit144:                            ; preds = %.preheader
 
 201:                                              ; preds = %201, %fill_dc_scans.exit144
   %indvars.iv.i146 = phi i64 [ 0, %fill_dc_scans.exit144 ], [ %indvars.iv.next.i147, %201 ]
-  %202 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv.i146
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %indvars.iv.i146
   %203 = trunc nuw nsw i64 %indvars.iv.i146 to i32
   store i32 %203, ptr %202, align 4, !tbaa !32
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i146, 1

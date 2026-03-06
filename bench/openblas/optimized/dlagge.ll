@@ -25,7 +25,7 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %16 = load i32, ptr %6, align 4, !tbaa !3
   %narrow = xor i32 %16, -1
   %17 = sext i32 %narrow to i64
-  %18 = getelementptr inbounds double, ptr %5, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %5, i64 %17
   %19 = getelementptr inbounds i8, ptr %8, i64 -8
   store i32 0, ptr %9, align 4, !tbaa !3
   %20 = load i32, ptr %0, align 4, !tbaa !3
@@ -92,12 +92,12 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 46:                                               ; preds = %.lr.ph631, %46
   %indvars.iv = phi i64 [ 1, %.lr.ph631 ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %48 = load double, ptr %47, align 8, !tbaa !7
   %49 = trunc nuw nsw i64 %indvars.iv to i32
   %50 = mul i32 %44, %49
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds double, ptr %18, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %18, i64 %51
   store double %48, ptr %52, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond669.not = icmp eq i64 %indvars.iv.next, %wide.trip.count668
@@ -166,9 +166,9 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %84, ptr %12, align 4, !tbaa !3
   %85 = mul i32 %55, %63
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds double, ptr %18, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %18, i64 %86
   %88 = sext i32 %81 to i64
-  %89 = getelementptr double, ptr %19, i64 %88
+  %89 = getelementptr [8 x i8], ptr %19, i64 %88
   %90 = getelementptr i8, ptr %89, i64 8
   call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @c_b11, ptr noundef %87, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b13, ptr noundef %90, ptr noundef nonnull @c__1) #5
   %91 = load i32, ptr %0, align 4, !tbaa !3
@@ -182,7 +182,7 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %95 = fneg double %.0
   store double %95, ptr %14, align 8, !tbaa !7
   %96 = sext i32 %91 to i64
-  %97 = getelementptr double, ptr %19, i64 %96
+  %97 = getelementptr [8 x i8], ptr %19, i64 %96
   %98 = getelementptr i8, ptr %97, i64 8
   call void @dger_(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef nonnull @c__1, ptr noundef %98, ptr noundef nonnull @c__1, ptr noundef %87, ptr noundef nonnull %6) #5
   br label %99
@@ -237,9 +237,9 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %125, ptr %12, align 4, !tbaa !3
   %126 = mul i32 %55, %104
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds double, ptr %18, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %18, i64 %127
   %129 = sext i32 %124 to i64
-  %130 = getelementptr double, ptr %19, i64 %129
+  %130 = getelementptr [8 x i8], ptr %19, i64 %129
   %131 = getelementptr i8, ptr %130, i64 8
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @c_b11, ptr noundef %128, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b13, ptr noundef %131, ptr noundef nonnull @c__1) #5
   %132 = load i32, ptr %0, align 4, !tbaa !3
@@ -253,7 +253,7 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %136 = fneg double %.1
   store double %136, ptr %14, align 8, !tbaa !7
   %137 = sext i32 %134 to i64
-  %138 = getelementptr double, ptr %19, i64 %137
+  %138 = getelementptr [8 x i8], ptr %19, i64 %137
   %139 = getelementptr i8, ptr %138, i64 8
   call void @dger_(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %139, ptr noundef nonnull @c__1, ptr noundef nonnull %8, ptr noundef nonnull @c__1, ptr noundef %128, ptr noundef nonnull %6) #5
   br label %140
@@ -315,14 +315,14 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %164 = mul nsw i64 %indvars.iv676, %150
   %165 = mul nsw i32 %16, %indvars685
   %166 = sext i32 %162 to i64
-  %167 = getelementptr double, ptr %18, i64 %164
-  %168 = getelementptr double, ptr %167, i64 %166
+  %167 = getelementptr [8 x i8], ptr %18, i64 %164
+  %168 = getelementptr [8 x i8], ptr %167, i64 %166
   %169 = call double @dnrm2_(ptr noundef nonnull %12, ptr noundef %168, ptr noundef nonnull @c__1) #5
   %170 = load i32, ptr %2, align 4, !tbaa !3
   %171 = add i32 %170, %indvars685
   %172 = sext i32 %171 to i64
   %173 = add nsw i64 %164, %172
-  %174 = getelementptr inbounds double, ptr %18, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %18, i64 %173
   %175 = load double, ptr %174, align 8, !tbaa !7
   %176 = fcmp ult double %175, 0.000000e+00
   %177 = fcmp oge double %169, 0.000000e+00
@@ -347,13 +347,13 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %187 = add i32 %171, %186
   %188 = add i32 %187, 1
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds double, ptr %18, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr %18, i64 %189
   call void @dscal_(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %190, ptr noundef nonnull @c__1) #5
   %191 = load i32, ptr %2, align 4, !tbaa !3
   %192 = add i32 %165, %indvars685
   %193 = add i32 %192, %191
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds double, ptr %18, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr %18, i64 %194
   store double 1.000000e+00, ptr %195, align 8, !tbaa !7
   %196 = fdiv double %182, %179
   %.pre709 = add i32 %191, %indvars685
@@ -376,9 +376,9 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %202, ptr %13, align 4, !tbaa !3
   %203 = add nuw nsw i64 %indvars.iv676, 1
   %204 = mul nsw i64 %203, %150
-  %205 = getelementptr double, ptr %18, i64 %.pre-phi712
-  %206 = getelementptr double, ptr %205, i64 %204
-  %207 = getelementptr inbounds double, ptr %18, i64 %.pre-phi714
+  %205 = getelementptr [8 x i8], ptr %18, i64 %.pre-phi712
+  %206 = getelementptr [8 x i8], ptr %205, i64 %204
+  %207 = getelementptr inbounds [8 x i8], ptr %18, i64 %.pre-phi714
   call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @c_b11, ptr noundef %206, ptr noundef nonnull %6, ptr noundef %207, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b13, ptr noundef %8, ptr noundef nonnull @c__1) #5
   %208 = load i32, ptr %0, align 4, !tbaa !3
   %209 = load i32, ptr %2, align 4, !tbaa !3
@@ -392,16 +392,16 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %215 = fneg double %.2
   store double %215, ptr %14, align 8, !tbaa !7
   %216 = sext i32 %210 to i64
-  %217 = getelementptr double, ptr %18, i64 %164
-  %218 = getelementptr double, ptr %217, i64 %216
-  %219 = getelementptr double, ptr %18, i64 %204
-  %220 = getelementptr double, ptr %219, i64 %216
+  %217 = getelementptr [8 x i8], ptr %18, i64 %164
+  %218 = getelementptr [8 x i8], ptr %217, i64 %216
+  %219 = getelementptr [8 x i8], ptr %18, i64 %204
+  %220 = getelementptr [8 x i8], ptr %219, i64 %216
   call void @dger_(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %218, ptr noundef nonnull @c__1, ptr noundef %8, ptr noundef nonnull @c__1, ptr noundef %220, ptr noundef nonnull %6) #5
   %221 = fneg double %179
   %222 = load i32, ptr %2, align 4, !tbaa !3
   %223 = add i32 %.pre-phi719, %222
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds double, ptr %18, i64 %224
+  %225 = getelementptr inbounds [8 x i8], ptr %18, i64 %224
   store double %221, ptr %225, align 8, !tbaa !7
   %.pre689 = load i32, ptr %1, align 4, !tbaa !3
   %.pre690 = load i32, ptr %3, align 4, !tbaa !3
@@ -427,15 +427,15 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %236, ptr %12, align 4, !tbaa !3
   %237 = mul nsw i32 %234, %16
   %238 = sext i32 %237 to i64
-  %239 = getelementptr double, ptr %18, i64 %indvars.iv676
-  %240 = getelementptr double, ptr %239, i64 %238
+  %239 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv676
+  %240 = getelementptr [8 x i8], ptr %239, i64 %238
   %241 = call double @dnrm2_(ptr noundef nonnull %12, ptr noundef %240, ptr noundef nonnull %6) #5
   %242 = load i32, ptr %3, align 4, !tbaa !3
   %243 = add i32 %242, %indvars685
   %244 = mul nsw i32 %243, %16
   %245 = sext i32 %244 to i64
   %246 = add nsw i64 %indvars.iv676, %245
-  %247 = getelementptr inbounds double, ptr %18, i64 %246
+  %247 = getelementptr inbounds [8 x i8], ptr %18, i64 %246
   %248 = load double, ptr %247, align 8, !tbaa !7
   %249 = fcmp ult double %248, 0.000000e+00
   %250 = fcmp oge double %241, 0.000000e+00
@@ -455,15 +455,15 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %259 = add nsw i32 %243, 1
   %260 = mul nsw i32 %259, %16
   %261 = sext i32 %260 to i64
-  %262 = getelementptr double, ptr %18, i64 %indvars.iv676
-  %263 = getelementptr double, ptr %262, i64 %261
+  %262 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv676
+  %263 = getelementptr [8 x i8], ptr %262, i64 %261
   call void @dscal_(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %263, ptr noundef nonnull %6) #5
   %264 = load i32, ptr %3, align 4, !tbaa !3
   %265 = add i32 %264, %indvars685
   %266 = mul nsw i32 %265, %16
   %267 = sext i32 %266 to i64
   %268 = add nsw i64 %indvars.iv676, %267
-  %269 = getelementptr inbounds double, ptr %18, i64 %268
+  %269 = getelementptr inbounds [8 x i8], ptr %18, i64 %268
   store double 1.000000e+00, ptr %269, align 8, !tbaa !7
   %270 = fdiv double %255, %252
   br label %271
@@ -481,9 +481,9 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %276 = sub i32 %275, %.pre-phi705
   store i32 %276, ptr %13, align 4, !tbaa !3
   %277 = add nuw nsw i64 %indvars.iv676, 1
-  %278 = getelementptr double, ptr %18, i64 %.pre-phi707
-  %279 = getelementptr double, ptr %278, i64 %277
-  %280 = getelementptr inbounds double, ptr %18, i64 %.pre-phi708
+  %278 = getelementptr [8 x i8], ptr %18, i64 %.pre-phi707
+  %279 = getelementptr [8 x i8], ptr %278, i64 %277
+  %280 = getelementptr inbounds [8 x i8], ptr %18, i64 %.pre-phi708
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @c_b11, ptr noundef %279, ptr noundef nonnull %6, ptr noundef %280, ptr noundef nonnull %6, ptr noundef nonnull @c_b13, ptr noundef %8, ptr noundef nonnull @c__1) #5
   %281 = load i32, ptr %0, align 4, !tbaa !3
   %282 = sub nsw i32 %281, %indvars685
@@ -498,18 +498,18 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %288, ptr %14, align 8, !tbaa !7
   %289 = mul nsw i32 %285, %16
   %290 = sext i32 %289 to i64
-  %291 = getelementptr double, ptr %18, i64 %indvars.iv676
-  %292 = getelementptr double, ptr %291, i64 %290
-  %293 = getelementptr double, ptr %18, i64 %277
-  %294 = getelementptr double, ptr %293, i64 %290
+  %291 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv676
+  %292 = getelementptr [8 x i8], ptr %291, i64 %290
+  %293 = getelementptr [8 x i8], ptr %18, i64 %277
+  %294 = getelementptr [8 x i8], ptr %293, i64 %290
   call void @dger_(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %8, ptr noundef nonnull @c__1, ptr noundef %292, ptr noundef nonnull %6, ptr noundef %294, ptr noundef nonnull %6) #5
   %295 = fneg double %252
   %296 = load i32, ptr %3, align 4, !tbaa !3
   %297 = add nsw i32 %296, %indvars685
   %298 = mul nsw i32 %297, %16
   %299 = sext i32 %298 to i64
-  %300 = getelementptr double, ptr %18, i64 %indvars.iv676
-  %301 = getelementptr double, ptr %300, i64 %299
+  %300 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv676
+  %301 = getelementptr [8 x i8], ptr %300, i64 %299
   store double %295, ptr %301, align 8, !tbaa !7
   br label %447
 
@@ -528,15 +528,15 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %308, ptr %12, align 4, !tbaa !3
   %309 = mul nsw i32 %307, %16
   %310 = sext i32 %309 to i64
-  %311 = getelementptr double, ptr %18, i64 %indvars.iv676
-  %312 = getelementptr double, ptr %311, i64 %310
+  %311 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv676
+  %312 = getelementptr [8 x i8], ptr %311, i64 %310
   %313 = call double @dnrm2_(ptr noundef nonnull %12, ptr noundef %312, ptr noundef nonnull %6) #5
   %314 = load i32, ptr %3, align 4, !tbaa !3
   %315 = add i32 %314, %indvars685
   %316 = mul nsw i32 %315, %16
   %317 = sext i32 %316 to i64
   %318 = add nsw i64 %indvars.iv676, %317
-  %319 = getelementptr inbounds double, ptr %18, i64 %318
+  %319 = getelementptr inbounds [8 x i8], ptr %18, i64 %318
   %320 = load double, ptr %319, align 8, !tbaa !7
   %321 = fcmp ult double %320, 0.000000e+00
   %322 = fcmp oge double %313, 0.000000e+00
@@ -556,15 +556,15 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %331 = add nsw i32 %315, 1
   %332 = mul nsw i32 %331, %16
   %333 = sext i32 %332 to i64
-  %334 = getelementptr double, ptr %18, i64 %indvars.iv676
-  %335 = getelementptr double, ptr %334, i64 %333
+  %334 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv676
+  %335 = getelementptr [8 x i8], ptr %334, i64 %333
   call void @dscal_(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %335, ptr noundef nonnull %6) #5
   %336 = load i32, ptr %3, align 4, !tbaa !3
   %337 = add i32 %336, %indvars685
   %338 = mul nsw i32 %337, %16
   %339 = sext i32 %338 to i64
   %340 = add nsw i64 %indvars.iv676, %339
-  %341 = getelementptr inbounds double, ptr %18, i64 %340
+  %341 = getelementptr inbounds [8 x i8], ptr %18, i64 %340
   store double 1.000000e+00, ptr %341, align 8, !tbaa !7
   %342 = fdiv double %327, %324
   br label %343
@@ -582,9 +582,9 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %348 = sub i32 %347, %.pre-phi701
   store i32 %348, ptr %13, align 4, !tbaa !3
   %349 = add nuw nsw i64 %indvars.iv676, 1
-  %350 = getelementptr double, ptr %18, i64 %.pre-phi703
-  %351 = getelementptr double, ptr %350, i64 %349
-  %352 = getelementptr inbounds double, ptr %18, i64 %.pre-phi704
+  %350 = getelementptr [8 x i8], ptr %18, i64 %.pre-phi703
+  %351 = getelementptr [8 x i8], ptr %350, i64 %349
+  %352 = getelementptr inbounds [8 x i8], ptr %18, i64 %.pre-phi704
   call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @c_b11, ptr noundef %351, ptr noundef nonnull %6, ptr noundef %352, ptr noundef nonnull %6, ptr noundef nonnull @c_b13, ptr noundef %8, ptr noundef nonnull @c__1) #5
   %353 = load i32, ptr %0, align 4, !tbaa !3
   %354 = sub nsw i32 %353, %indvars685
@@ -599,18 +599,18 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %360, ptr %14, align 8, !tbaa !7
   %361 = mul nsw i32 %357, %16
   %362 = sext i32 %361 to i64
-  %363 = getelementptr double, ptr %18, i64 %indvars.iv676
-  %364 = getelementptr double, ptr %363, i64 %362
-  %365 = getelementptr double, ptr %18, i64 %349
-  %366 = getelementptr double, ptr %365, i64 %362
+  %363 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv676
+  %364 = getelementptr [8 x i8], ptr %363, i64 %362
+  %365 = getelementptr [8 x i8], ptr %18, i64 %349
+  %366 = getelementptr [8 x i8], ptr %365, i64 %362
   call void @dger_(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %8, ptr noundef nonnull @c__1, ptr noundef %364, ptr noundef nonnull %6, ptr noundef %366, ptr noundef nonnull %6) #5
   %367 = fneg double %324
   %368 = load i32, ptr %3, align 4, !tbaa !3
   %369 = add nsw i32 %368, %indvars685
   %370 = mul nsw i32 %369, %16
   %371 = sext i32 %370 to i64
-  %372 = getelementptr double, ptr %18, i64 %indvars.iv676
-  %373 = getelementptr double, ptr %372, i64 %371
+  %372 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv676
+  %373 = getelementptr [8 x i8], ptr %372, i64 %371
   store double %367, ptr %373, align 8, !tbaa !7
   %.pre692 = load i32, ptr %0, align 4, !tbaa !3
   %.pre693 = load i32, ptr %2, align 4, !tbaa !3
@@ -637,14 +637,14 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %385 = mul nsw i64 %indvars.iv676, %150
   %386 = mul nsw i32 %16, %indvars685
   %387 = sext i32 %382 to i64
-  %388 = getelementptr double, ptr %18, i64 %385
-  %389 = getelementptr double, ptr %388, i64 %387
+  %388 = getelementptr [8 x i8], ptr %18, i64 %385
+  %389 = getelementptr [8 x i8], ptr %388, i64 %387
   %390 = call double @dnrm2_(ptr noundef nonnull %12, ptr noundef %389, ptr noundef nonnull @c__1) #5
   %391 = load i32, ptr %2, align 4, !tbaa !3
   %392 = add i32 %391, %indvars685
   %393 = sext i32 %392 to i64
   %394 = add nsw i64 %385, %393
-  %395 = getelementptr inbounds double, ptr %18, i64 %394
+  %395 = getelementptr inbounds [8 x i8], ptr %18, i64 %394
   %396 = load double, ptr %395, align 8, !tbaa !7
   %397 = fcmp ult double %396, 0.000000e+00
   %398 = fcmp oge double %390, 0.000000e+00
@@ -669,13 +669,13 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %408 = add i32 %392, %407
   %409 = add i32 %408, 1
   %410 = sext i32 %409 to i64
-  %411 = getelementptr inbounds double, ptr %18, i64 %410
+  %411 = getelementptr inbounds [8 x i8], ptr %18, i64 %410
   call void @dscal_(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %411, ptr noundef nonnull @c__1) #5
   %412 = load i32, ptr %2, align 4, !tbaa !3
   %413 = add i32 %386, %indvars685
   %414 = add i32 %413, %412
   %415 = sext i32 %414 to i64
-  %416 = getelementptr inbounds double, ptr %18, i64 %415
+  %416 = getelementptr inbounds [8 x i8], ptr %18, i64 %415
   store double 1.000000e+00, ptr %416, align 8, !tbaa !7
   %417 = fdiv double %403, %400
   %.pre696 = add i32 %412, %indvars685
@@ -698,9 +698,9 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %423, ptr %13, align 4, !tbaa !3
   %424 = add nuw nsw i64 %indvars.iv676, 1
   %425 = mul nsw i64 %424, %150
-  %426 = getelementptr double, ptr %18, i64 %.pre-phi698
-  %427 = getelementptr double, ptr %426, i64 %425
-  %428 = getelementptr inbounds double, ptr %18, i64 %.pre-phi700
+  %426 = getelementptr [8 x i8], ptr %18, i64 %.pre-phi698
+  %427 = getelementptr [8 x i8], ptr %426, i64 %425
+  %428 = getelementptr inbounds [8 x i8], ptr %18, i64 %.pre-phi700
   call void @dgemv_(ptr noundef nonnull @.str.1, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @c_b11, ptr noundef %427, ptr noundef nonnull %6, ptr noundef %428, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b13, ptr noundef %8, ptr noundef nonnull @c__1) #5
   %429 = load i32, ptr %0, align 4, !tbaa !3
   %430 = load i32, ptr %2, align 4, !tbaa !3
@@ -714,16 +714,16 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %436 = fneg double %.5
   store double %436, ptr %14, align 8, !tbaa !7
   %437 = sext i32 %431 to i64
-  %438 = getelementptr double, ptr %18, i64 %385
-  %439 = getelementptr double, ptr %438, i64 %437
-  %440 = getelementptr double, ptr %18, i64 %425
-  %441 = getelementptr double, ptr %440, i64 %437
+  %438 = getelementptr [8 x i8], ptr %18, i64 %385
+  %439 = getelementptr [8 x i8], ptr %438, i64 %437
+  %440 = getelementptr [8 x i8], ptr %18, i64 %425
+  %441 = getelementptr [8 x i8], ptr %440, i64 %437
   call void @dger_(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %439, ptr noundef nonnull @c__1, ptr noundef %8, ptr noundef nonnull @c__1, ptr noundef %441, ptr noundef nonnull %6) #5
   %442 = fneg double %400
   %443 = load i32, ptr %2, align 4, !tbaa !3
   %444 = add i32 %.pre-phi717, %443
   %445 = sext i32 %444 to i64
-  %446 = getelementptr inbounds double, ptr %18, i64 %445
+  %446 = getelementptr inbounds [8 x i8], ptr %18, i64 %445
   store double %442, ptr %446, align 8, !tbaa !7
   br label %447
 
@@ -770,14 +770,14 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph646.preheader:                              ; preds = %463
   %466 = sext i32 %464 to i64
   %467 = add nsw i64 %indvars.iv676, %466
-  %invariant.gep = getelementptr double, ptr %18, i64 %indvars.iv676
+  %invariant.gep = getelementptr [8 x i8], ptr %18, i64 %indvars.iv676
   br label %.lr.ph646
 
 .lr.ph646:                                        ; preds = %.lr.ph646.preheader, %.lr.ph646
   %indvars.iv681 = phi i64 [ %467, %.lr.ph646.preheader ], [ %indvars.iv.next682, %.lr.ph646 ]
   %indvars.iv.next682 = add nsw i64 %indvars.iv681, 1
   %468 = mul nsw i64 %indvars.iv.next682, %150
-  %gep = getelementptr double, ptr %invariant.gep, i64 %468
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %468
   store double 0.000000e+00, ptr %gep, align 8, !tbaa !7
   %lftr.wideiv = trunc i64 %indvars.iv.next682 to i32
   %exitcond684.not = icmp eq i32 %448, %lftr.wideiv

@@ -23,8 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.qspinlock = type { %union.anon }
 %union.anon = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
-%struct.anon.3 = type <{ i8, i16 }>
-%struct.irq_info = type { i8, i8, [4 x %struct.anon.3], i8, i8 }
 
 @pcibios_irq_mask = dso_local local_unnamed_addr global i32 65528, align 4
 @pcibios_enable_irq = dso_local local_unnamed_addr global ptr @pirq_enable_irq, align 8
@@ -387,7 +385,7 @@ define dso_local void @pcibios_fixup_irqs() local_unnamed_addr #2 section ".init
 9:                                                ; preds = %8, %.preheader4
   %10 = phi i32 [ 0, %8 ], [ %6, %.preheader4 ]
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr i32, ptr @pirq_penalty, i64 %11
+  %12 = getelementptr [4 x i8], ptr @pirq_penalty, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, -100
   %15 = icmp ult i32 %14, 99900
@@ -496,7 +494,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   %27 = load i8, ptr %4, align 1
   %28 = zext i8 %27 to i64
   %29 = getelementptr i8, ptr %24, i64 -1
-  %30 = getelementptr %struct.anon.3, ptr %29, i64 %28
+  %30 = getelementptr [3 x i8], ptr %29, i64 %28
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %.loopexit, label %33
@@ -591,10 +589,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   br i1 %90, label %102, label %91
 
 91:                                               ; preds = %.preheader
-  %92 = getelementptr i32, ptr @pirq_penalty, i64 %85
+  %92 = getelementptr [4 x i8], ptr @pirq_penalty, i64 %85
   %93 = load i32, ptr %92, align 4
   %94 = sext i32 %86 to i64
-  %95 = getelementptr i32, ptr @pirq_penalty, i64 %94
+  %95 = getelementptr [4 x i8], ptr @pirq_penalty, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = icmp slt i32 %93, %96
   br i1 %97, label %98, label %102
@@ -722,7 +720,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
 
 172:                                              ; preds = %.thread21
   %173 = sext i32 %164 to i64
-  %174 = getelementptr i32, ptr @pirq_penalty, i64 %173
+  %174 = getelementptr [4 x i8], ptr @pirq_penalty, i64 %173
   br label %175
 
 175:                                              ; preds = %204, %172
@@ -742,7 +740,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   %184 = load i8, ptr %4, align 1
   %185 = zext i8 %184 to i64
   %186 = getelementptr i8, ptr %181, i64 -1
-  %187 = getelementptr %struct.anon.3, ptr %186, i64 %185
+  %187 = getelementptr [3 x i8], ptr %186, i64 %185
   %188 = load i8, ptr %187, align 1
   %189 = icmp eq i8 %188, %68
   br i1 %189, label %190, label %204
@@ -838,7 +836,7 @@ define dso_local void @pcibios_irq_init() local_unnamed_addr #2 section ".init.t
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %14
-  %21 = getelementptr i32, ptr @pirq_penalty, i64 %15
+  %21 = getelementptr [4 x i8], ptr @pirq_penalty, i64 %15
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 100
   store i32 %23, ptr %21, align 4
@@ -1137,7 +1135,7 @@ define internal fastcc void @pirq_peer_trick() unnamed_addr #2 section ".init.te
 11:                                               ; preds = %11, %9
   %12 = phi i64 [ 0, %9 ], [ %19, %11 ]
   %13 = phi i32 [ 0, %9 ], [ %18, %11 ]
-  %14 = getelementptr %struct.irq_info, ptr %10, i64 %12
+  %14 = getelementptr [16 x i8], ptr %10, i64 %12
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %1, i64 %16
@@ -1260,7 +1258,7 @@ define dso_local void @pcibios_penalize_isa_irq(i32 noundef %0, i32 noundef %1) 
 8:                                                ; preds = %6
   %9 = icmp eq i32 %1, 0
   %10 = sext i32 %0 to i64
-  %11 = getelementptr i32, ptr @pirq_penalty, i64 %10
+  %11 = getelementptr [4 x i8], ptr @pirq_penalty, i64 %10
   %12 = load i32, ptr %11, align 4
   br i1 %9, label %15, label %13
 
@@ -2347,7 +2345,7 @@ define internal range(i32 0, 16) i32 @pirq_via586_get(ptr noundef %0, ptr readno
 7:                                                ; preds = %6, %3
   %8 = add i32 %2, -1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr i32, ptr @pirq_via586_set.pirqmap, i64 %9
+  %10 = getelementptr [4 x i8], ptr @pirq_via586_set.pirqmap, i64 %9
   %11 = load i32, ptr %10, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !annotation !14
@@ -2379,7 +2377,7 @@ define internal noundef i32 @pirq_via586_set(ptr noundef %0, ptr readnone captur
 8:                                                ; preds = %7, %4
   %9 = add i32 %2, -1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr i32, ptr @pirq_via586_set.pirqmap, i64 %10
+  %11 = getelementptr [4 x i8], ptr @pirq_via586_set.pirqmap, i64 %10
   %12 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !annotation !14

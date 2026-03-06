@@ -78,7 +78,7 @@ define void @Fraig_MemFixedStop(ptr noundef captures(address_is_null) %0, i32 no
   %26 = phi i32 [ %34, %33 ], [ %23, %21 ]
   %27 = phi ptr [ %35, %33 ], [ %.pre, %21 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %21 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %.not27 = icmp eq ptr %29, null
   br i1 %.not27, label %33, label %30
@@ -86,7 +86,7 @@ define void @Fraig_MemFixedStop(ptr noundef captures(address_is_null) %0, i32 no
 30:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %29) #12
   %31 = load ptr, ptr %25, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   store ptr null, ptr %32, align 8, !tbaa !19
   %.pre30 = load i32, ptr %22, align 8, !tbaa !12
   br label %33
@@ -200,7 +200,7 @@ define noundef ptr @Fraig_MemFixedEntryFetch(ptr noundef captures(none) %0) loca
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %8, align 8, !tbaa !12
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   store ptr %31, ptr %46, align 8, !tbaa !19
   %47 = load i32, ptr %4, align 4, !tbaa !22
   %48 = add nsw i32 %47, %28
@@ -258,7 +258,7 @@ define void @Fraig_MemFixedRestart(ptr noundef captures(none) %0) local_unnamed_
   %6 = phi i32 [ %14, %13 ], [ %3, %1 ]
   %7 = phi ptr [ %15, %13 ], [ %.pre, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 1, %1 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %13, label %10
@@ -266,7 +266,7 @@ define void @Fraig_MemFixedRestart(ptr noundef captures(none) %0) local_unnamed_
 10:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %9) #12
   %11 = load ptr, ptr %5, align 8, !tbaa !13
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr null, ptr %12, align 8, !tbaa !19
   %.pre39 = load i32, ptr %2, align 8, !tbaa !12
   br label %13

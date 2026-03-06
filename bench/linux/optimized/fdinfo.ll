@@ -3,26 +3,6 @@ source_filename = "bench/linux/original/fdinfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.io_uring_sqe = type { i8, i8, i16, i32, %union.anon.10, %union.anon.12, i32, %union.anon.14, i64, %union.anon.15, i16, %union.anon.16, %union.anon.18 }
-%union.anon.10 = type { i64 }
-%union.anon.12 = type { i64 }
-%union.anon.14 = type { i32 }
-%union.anon.15 = type { i16 }
-%union.anon.16 = type { i32 }
-%union.anon.18 = type { %struct.anon.19 }
-%struct.anon.19 = type { i64, [1 x i64] }
-%struct.io_uring_cqe = type { i64, i32, i32, [0 x i64] }
-%struct.io_fixed_file = type { i64 }
-%struct.io_hash_bucket = type { %struct.spinlock, %struct.hlist_head, [48 x i8] }
-%struct.spinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.hlist_head = type { ptr }
-%struct.kgid_t = type { i32 }
-
 @.str = private unnamed_addr constant [14 x i8] c"SqMask:\090x%x\0A\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"SqHead:\09%u\0A\00", align 1
 @.str.2 = private unnamed_addr constant [12 x i8] c"SqTail:\09%u\0A\00", align 1
@@ -125,7 +105,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   %46 = load ptr, ptr %38, align 32
   %47 = and i32 %45, %11
   %48 = zext i32 %47 to i64
-  %49 = getelementptr i32, ptr %46, i64 %48
+  %49 = getelementptr [4 x i8], ptr %46, i64 %48
   %50 = load volatile i32, ptr %49, align 4
   %51 = icmp ugt i32 %50, %11
   br i1 %51, label %84, label %52
@@ -134,7 +114,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   %53 = load ptr, ptr %39, align 8
   %54 = shl i32 %50, %28
   %55 = zext i32 %54 to i64
-  %56 = getelementptr %struct.io_uring_sqe, ptr %53, i64 %55
+  %56 = getelementptr [64 x i8], ptr %53, i64 %55
   %57 = load i8, ptr %56, align 8
   %58 = tail call ptr @io_uring_get_opcode(i8 noundef zeroext %57) #4
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
@@ -197,7 +177,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   %96 = and i32 %95, %14
   %97 = shl i32 %96, %25
   %98 = zext i32 %97 to i64
-  %99 = getelementptr %struct.io_uring_cqe, ptr %92, i64 %98
+  %99 = getelementptr [16 x i8], ptr %92, i64 %98
   %100 = load i64, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load i32, ptr %101, align 8
@@ -256,7 +236,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
 .lr.ph:                                           ; preds = %126, %160
   %133 = phi i64 [ %161, %160 ], [ 0, %126 ]
   %134 = load ptr, ptr %131, align 8
-  %135 = getelementptr %struct.io_fixed_file, ptr %134, i64 %133
+  %135 = getelementptr [8 x i8], ptr %134, i64 %133
   %136 = load i64, ptr %135, align 8
   %137 = and i64 %136, -4
   %138 = inttoptr i64 %137 to ptr
@@ -323,7 +303,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
 .lr.ph25:                                         ; preds = %._crit_edge, %.lr.ph25
   %173 = phi i64 [ %183, %.lr.ph25 ], [ 0, %._crit_edge ]
   %174 = load ptr, ptr %171, align 8
-  %175 = getelementptr ptr, ptr %174, i64 %173
+  %175 = getelementptr [8 x i8], ptr %174, i64 %173
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load i64, ptr %177, align 8
@@ -377,7 +357,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   %203 = phi i32 [ 0, %199 ], [ %.be, %.backedge.backedge ]
   %204 = load ptr, ptr %201, align 64
   %205 = zext i32 %203 to i64
-  %206 = getelementptr %struct.io_hash_bucket, ptr %204, i64 %205
+  %206 = getelementptr [64 x i8], ptr %204, i64 %205
   %207 = load ptr, ptr %202, align 32
   call void @_raw_spin_lock(ptr noundef %206) #4
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
@@ -413,7 +393,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   br i1 %114, label %.thread13, label %230
 
 230:                                              ; preds = %.loopexit18
-  %.split = getelementptr %struct.io_hash_bucket, ptr %207, i64 %205
+  %.split = getelementptr [64 x i8], ptr %207, i64 %205
   %231 = getelementptr i8, ptr %.split, i64 8
   %232 = load ptr, ptr %231, align 8
   %233 = icmp eq ptr %232, null
@@ -578,7 +558,7 @@ define internal fastcc void @io_uring_show_cred(ptr noundef %0, i32 noundef %1, 
   %60 = phi i64 [ 0, %57 ], [ %69, %59 ]
   %61 = icmp eq i64 %60, 0
   %62 = select i1 %61, ptr @.str.33, ptr @.str.32
-  %63 = getelementptr %struct.kgid_t, ptr %58, i64 %60
+  %63 = getelementptr [4 x i8], ptr %58, i64 %60
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, -1
   %66 = load i32, ptr @overflowgid, align 4

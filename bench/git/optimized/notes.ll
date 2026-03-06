@@ -2010,7 +2010,7 @@ define internal range(i32 -3, 2) i32 @merge(i32 noundef %0, ptr noundef %1, ptr 
 
 134:                                              ; preds = %136, %130
   %.0811.i.i.i = phi i64 [ 0, %130 ], [ %137, %136 ]
-  %135 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %135 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %133, %135
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %136
 
@@ -2700,11 +2700,11 @@ st_mult.exit:                                     ; preds = %21
   %32 = phi i64 [ %13, %._crit_edge ], [ %.pre30, %st_mult.exit ]
   %33 = phi ptr [ %.pre, %._crit_edge ], [ %30, %st_mult.exit ]
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %32
   store i64 0, ptr %35, align 8
   store i64 %14, ptr %12, align 8, !tbaa !28
   %36 = load ptr, ptr %34, align 8, !tbaa !80
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %13
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %13
   store ptr %6, ptr %37, align 8, !tbaa !81
   store i32 1, ptr %6, align 8, !tbaa !83
   ret i32 0
@@ -2803,11 +2803,11 @@ st_mult.exit:                                     ; preds = %32
   %43 = phi i64 [ %24, %._crit_edge ], [ %.pre35, %st_mult.exit ]
   %44 = phi ptr [ %.pre, %._crit_edge ], [ %41, %st_mult.exit ]
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %43
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   store i64 0, ptr %46, align 8
   store i64 %25, ptr %23, align 8, !tbaa !28
   %47 = load ptr, ptr %45, align 8, !tbaa !80
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %24
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %24
   store ptr %6, ptr %48, align 8, !tbaa !81
   store i32 1, ptr %6, align 8, !tbaa !83
   ret i32 0
@@ -2939,11 +2939,11 @@ st_mult.exit:                                     ; preds = %39
   %50 = phi i64 [ %31, %._crit_edge ], [ %.pre42, %st_mult.exit ]
   %51 = phi ptr [ %.pre, %._crit_edge ], [ %48, %st_mult.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
   store i64 0, ptr %53, align 8
   store i64 %32, ptr %30, align 8, !tbaa !28
   %54 = load ptr, ptr %52, align 8, !tbaa !80
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %31
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %31
   store ptr %9, ptr %55, align 8, !tbaa !81
   store i32 0, ptr %9, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3016,7 +3016,7 @@ define internal fastcc void @concat_messages(ptr noundef nonnull %0) unnamed_add
 
 append_separator.exit:                            ; preds = %23, %22, %13, %11
   %24 = load ptr, ptr %7, align 8, !tbaa !80
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.014
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.014
   %26 = load ptr, ptr %25, align 8, !tbaa !81
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !87
@@ -3032,7 +3032,7 @@ append_separator.exit:                            ; preds = %23, %22, %13, %11
 
 32:                                               ; preds = %append_separator.exit
   %33 = load ptr, ptr %7, align 8, !tbaa !80
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.014
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.014
   %35 = load ptr, ptr %34, align 8, !tbaa !81
   %36 = load i32, ptr %35, align 8, !tbaa !83
   %37 = icmp eq i32 %36, 1
@@ -3094,13 +3094,13 @@ define internal fastcc void @free_note_data(ptr noundef nonnull %0) unnamed_addr
 13:                                               ; preds = %.lr.ph, %13
   %14 = phi i64 [ %11, %.lr.ph ], [ %24, %13 ]
   %15 = load ptr, ptr %12, align 8, !tbaa !80
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !81
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   tail call void @strbuf_release(ptr noundef nonnull %18) #16
   %19 = load ptr, ptr %12, align 8, !tbaa !80
   %20 = load i64, ptr %9, align 8, !tbaa !28
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !81
   tail call void @free(ptr noundef %22) #16
   %23 = load i64, ptr %9, align 8, !tbaa !28

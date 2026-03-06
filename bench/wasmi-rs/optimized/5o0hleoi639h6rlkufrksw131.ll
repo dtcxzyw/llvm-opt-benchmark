@@ -95,7 +95,7 @@ default.unreachable:                              ; preds = %13
 
 28:                                               ; preds = %.noexc23.i, %.noexc22.i, %19, %18, %17, %16, %15
   store i8 %.val21.i, ptr %4, align 8, !noalias !11
-  %29 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %.sroa.9.0.copyload, i64 %.val20.i
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.9.0.copyload, i64 %.val20.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !11
   %30 = add i64 %.val20.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8

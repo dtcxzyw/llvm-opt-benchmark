@@ -442,7 +442,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit51:        ; preds = %.preheader
 80:                                               ; preds = %66, %74
   %81 = phi i32 [ %.0.i, %74 ], [ %70, %66 ]
   %82 = trunc i32 %81 to i16
-  %83 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv75
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv75
   store i16 %82, ptr %83, align 2, !tbaa !108
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %16
@@ -504,7 +504,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr noundef no
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv112 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next113, %._crit_edge.us ]
   %32 = mul nuw nsw i64 %indvars.iv112, %31
-  %33 = getelementptr inbounds nuw i16, ptr %8, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %32
   br label %34
 
 34:                                               ; preds = %.preheader.us, %111
@@ -673,7 +673,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit51.i.us:   ; preds = %.preheader.i.us
 106:                                              ; preds = %100, %92
   %107 = phi i32 [ %.0.i.i.us, %100 ], [ %96, %92 ]
   %108 = trunc i32 %107 to i16
-  %109 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv75.i.us
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv75.i.us
   store i16 %108, ptr %109, align 2, !tbaa !108, !alias.scope !119
   %indvars.iv.next76.i.us = add nuw nsw i64 %indvars.iv75.i.us, 1
   %exitcond79.not.i.us = icmp eq i64 %indvars.iv.next76.i.us, %47
@@ -696,11 +696,11 @@ _ZN8rawspeed17KodakDecompressor13decodeSegmentEj.exit.us: ; preds = %106
 _ZNSt5arrayIiLm2EE4fillERKi.exit.preheader.us:    ; preds = %_ZN8rawspeed17KodakDecompressor13decodeSegmentEj.exit.us, %_ZNSt5arrayIiLm2EE4fillERKi.exit.us
   %indvars.iv107 = phi i64 [ %110, %_ZN8rawspeed17KodakDecompressor13decodeSegmentEj.exit.us ], [ %indvars.iv.next108, %_ZNSt5arrayIiLm2EE4fillERKi.exit.us ]
   %indvars.iv = phi i64 [ 0, %_ZN8rawspeed17KodakDecompressor13decodeSegmentEj.exit.us ], [ %indvars.iv.next, %_ZNSt5arrayIiLm2EE4fillERKi.exit.us ]
-  %114 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %115 = load i16, ptr %114, align 2, !tbaa !108
   %116 = sext i16 %115 to i32
   %117 = and i64 %indvars.iv, 1
-  %118 = getelementptr inbounds nuw i32, ptr %5, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !103
   %120 = add nsw i32 %119, %116
   store i32 %120, ptr %118, align 4, !tbaa !103
@@ -724,7 +724,7 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit.preheader.us:    ; preds = %_ZN8rawspeed17Kodak
   call void @llvm.assume(i1 %132)
   %133 = icmp samesign ult i64 %indvars.iv107, %30
   call void @llvm.assume(i1 %133)
-  %134 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv107
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv107
   %135 = load ptr, ptr %129, align 8, !tbaa !100
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
   %137 = load ptr, ptr %136, align 8
@@ -738,7 +738,7 @@ _ZNSt5arrayIiLm2EE4fillERKi.exit.preheader.us:    ; preds = %_ZN8rawspeed17Kodak
   call void @llvm.assume(i1 %141)
   %142 = icmp samesign ult i64 %indvars.iv107, %30
   call void @llvm.assume(i1 %142)
-  %143 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv107
+  %143 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv107
   store i16 %139, ptr %143, align 2, !tbaa !108
   br label %_ZNSt5arrayIiLm2EE4fillERKi.exit.us
 

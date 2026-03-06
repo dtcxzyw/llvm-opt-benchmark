@@ -11,15 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.avifAlphaParams = type { i32, i32, i32, ptr, i32, i32, i32, i32, ptr, i32, i32, i32 }
 %struct.YUVToRGBThreadDataArray = type { ptr, i32, i32, i32 }
 %struct.avifCropRect = type { i32, i32, i32, i32 }
-%struct.YUVToRGBThreadData = type { i64, %struct.avifImage, %struct.avifRGBImage, ptr, i32, i32, i32 }
-%struct.avifImage = type { i32, i32, i32, i32, i32, i32, [3 x ptr], [3 x i32], i32, ptr, i32, i32, i32, %struct.avifRWData, i16, i16, i16, %struct.avifContentLightLevelInformationBox, i32, %struct.avifPixelAspectRatioBox, %struct.avifCleanApertureBox, %struct.avifImageRotation, %struct.avifImageMirror, %struct.avifRWData, %struct.avifRWData }
-%struct.avifContentLightLevelInformationBox = type { i16, i16 }
-%struct.avifPixelAspectRatioBox = type { i32, i32 }
-%struct.avifCleanApertureBox = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.avifImageRotation = type { i8 }
-%struct.avifImageMirror = type { i8 }
-%struct.avifRWData = type { ptr, i64 }
-%struct.avifRGBImage = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @avifGetRGBColorSpaceInfo(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -632,7 +623,7 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   %indvars.iv557 = phi i64 [ 0, %152 ], [ %indvars.iv.next558, %360 ]
   %156 = trunc nuw nsw i64 %indvars.iv557 to i32
   %157 = add i32 %.0299548, %156
-  %invariant.gep = getelementptr inbounds nuw %struct.YUVBlock, ptr %4, i64 %indvars.iv557
+  %invariant.gep = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv557
   br label %158
 
 158:                                              ; preds = %.preheader518, %359
@@ -757,7 +748,7 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   ]
 
 233:                                              ; preds = %231
-  %gep525 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep, i64 %indvars.iv
+  %gep525 = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %.sroa.17.1, ptr %gep525, align 4
   %234 = getelementptr inbounds nuw i8, ptr %gep525, i64 4
   store float %.sroa.32.1, ptr %234, align 4
@@ -767,7 +758,7 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   %236 = fadd float %.sroa.0.1, %.sroa.32.1
   %237 = fmul float %236, 2.500000e-01
   %238 = call float @llvm.fmuladd.f32(float %.sroa.17.1, float 5.000000e-01, float %237)
-  %gep = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %238, ptr %gep, align 4
   %239 = fneg float %237
   %240 = call float @llvm.fmuladd.f32(float %.sroa.17.1, float 5.000000e-01, float %239)
@@ -781,7 +772,7 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   %245 = fmul float %121, %.sroa.17.1
   %246 = call float @llvm.fmuladd.f32(float %119, float %.sroa.0.1, float %245)
   %247 = call float @llvm.fmuladd.f32(float %123, float %.sroa.32.1, float %246)
-  %gep527 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep, i64 %indvars.iv
+  %gep527 = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %247, ptr %gep527, align 4
   %248 = fsub float %.sroa.32.1, %247
   %249 = fdiv float %248, %136
@@ -795,7 +786,7 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   %.sink = phi float [ %243, %235 ], [ %252, %244 ], [ %.sroa.0.1, %233 ]
   %254 = phi float [ %240, %235 ], [ %249, %244 ], [ %.sroa.32.1, %233 ]
   %255 = phi float [ %238, %235 ], [ %247, %244 ], [ %.sroa.17.1, %233 ]
-  %256 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep, i64 %indvars.iv
+  %256 = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep, i64 %indvars.iv
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   store float %.sink, ptr %257, align 4
   %258 = load i32, ptr %129, align 4
@@ -971,14 +962,14 @@ avifYUVColorSpaceInfoUVToUNorm.exit361:           ; preds = %avifYUVColorSpaceIn
   %indvars.iv568 = phi i64 [ %indvars.iv.next569, %372 ], [ 0, %361 ]
   %.0310540 = phi float [ %368, %372 ], [ 0.000000e+00, %361 ]
   %.0312539 = phi float [ %371, %372 ], [ 0.000000e+00, %361 ]
-  %invariant.gep533 = getelementptr inbounds nuw %struct.YUVBlock, ptr %4, i64 %indvars.iv568
+  %invariant.gep533 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv568
   br label %365
 
 365:                                              ; preds = %.preheader517, %365
   %indvars.iv563 = phi i64 [ 0, %.preheader517 ], [ %indvars.iv.next564, %365 ]
   %.1311537 = phi float [ %.0310540, %.preheader517 ], [ %368, %365 ]
   %.1313536 = phi float [ %.0312539, %.preheader517 ], [ %371, %365 ]
-  %gep534 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep533, i64 %indvars.iv563
+  %gep534 = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep533, i64 %indvars.iv563
   %366 = getelementptr inbounds nuw i8, ptr %gep534, i64 4
   %367 = load float, ptr %366, align 4
   %368 = fadd float %.1311537, %367
@@ -1105,14 +1096,14 @@ avifYUVColorSpaceInfoUVToUNorm.exit381:           ; preds = %373
 
 .preheader:                                       ; preds = %.preheader519, %524
   %indvars.iv578 = phi i64 [ 0, %.preheader519 ], [ %indvars.iv.next579, %524 ]
-  %invariant.gep541 = getelementptr inbounds nuw %struct.YUVBlock, ptr %4, i64 %indvars.iv578
+  %invariant.gep541 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv578
   br label %446
 
 446:                                              ; preds = %.preheader, %446
   %indvars.iv573 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next574, %446 ]
   %.0302544 = phi float [ 0.000000e+00, %.preheader ], [ %452, %446 ]
   %.0303543 = phi float [ 0.000000e+00, %.preheader ], [ %449, %446 ]
-  %gep542 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep541, i64 %indvars.iv573
+  %gep542 = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep541, i64 %indvars.iv573
   %447 = getelementptr inbounds nuw i8, ptr %gep542, i64 4
   %448 = load float, ptr %447, align 4
   %449 = fadd float %.0303543, %448
@@ -1645,7 +1636,7 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   %indvars.iv128 = phi i64 [ 0, %137 ], [ %indvars.iv.next129, %177 ]
   %indvars.iv = phi i64 [ 0, %137 ], [ %indvars.iv.next, %177 ]
   %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds nuw %struct.YUVToRGBThreadData, ptr %151, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw [296 x i8], ptr %151, i64 %indvars.iv
   store i32 0, ptr %5, align 4
   %153 = trunc nuw i64 %indvars.iv128 to i32
   store i32 %153, ptr %144, align 4
@@ -1721,7 +1712,7 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %197 ], [ 0, %.preheader ]
   %.074122 = phi i32 [ %spec.select105, %197 ], [ 0, %.preheader ]
   %191 = load ptr, ptr %4, align 8
-  %192 = getelementptr inbounds nuw %struct.YUVToRGBThreadData, ptr %191, i64 %indvars.iv131
+  %192 = getelementptr inbounds nuw [296 x i8], ptr %191, i64 %indvars.iv131
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 288
   %194 = load i32, ptr %193, align 8
   %.not98 = icmp eq i32 %194, 0
@@ -2048,7 +2039,7 @@ define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1
   %155 = fsub float %153, %154
   %156 = load float, ptr %150, align 4
   %157 = fdiv float %155, %156
-  %158 = getelementptr inbounds nuw float, ptr %148, i64 %152
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %152
   store float %157, ptr %158, align 4
   %159 = add i32 %.02938.i.i, 1
   %160 = zext i32 %159 to i64
@@ -2079,7 +2070,7 @@ define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1
   %174 = fsub float %172, %173
   %175 = load float, ptr %169, align 4
   %176 = fdiv float %174, %175
-  %177 = getelementptr inbounds nuw float, ptr %167, i64 %171
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %171
   store float %176, ptr %177, align 4
   %178 = add i32 %.039.i.i, 1
   %179 = zext i32 %178 to i64
@@ -2231,7 +2222,7 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   br label %292
 
 286:                                              ; preds = %278
-  %287 = getelementptr inbounds nuw i16, ptr %251, i64 %indvars.iv435.i
+  %287 = getelementptr inbounds nuw [2 x i8], ptr %251, i64 %indvars.iv435.i
   %288 = load i16, ptr %287, align 2
   %289 = zext i16 %288 to i32
   %290 = icmp samesign ugt i32 %220, %289
@@ -2241,7 +2232,7 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
 292:                                              ; preds = %286, %282
   %.0354.i = phi i16 [ %285, %282 ], [ %291, %286 ]
   %293 = zext i16 %.0354.i to i64
-  %294 = getelementptr inbounds nuw float, ptr %148, i64 %293
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %293
   %295 = load float, ptr %294, align 4
   br i1 %207, label %296, label %.thread404.i
 
@@ -2267,12 +2258,12 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   br label %.thread.i
 
 311:                                              ; preds = %302
-  %312 = getelementptr inbounds nuw i16, ptr %254, i64 %303
+  %312 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %303
   %313 = load i16, ptr %312, align 2
   %314 = zext i16 %313 to i32
   %315 = icmp samesign ugt i32 %220, %314
   %316 = select i1 %315, i16 %313, i16 %221
-  %317 = getelementptr inbounds nuw i16, ptr %257, i64 %303
+  %317 = getelementptr inbounds nuw [2 x i8], ptr %257, i64 %303
   %318 = load i16, ptr %317, align 2
   %319 = zext i16 %318 to i32
   %320 = icmp samesign ugt i32 %220, %319
@@ -2283,10 +2274,10 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   %.0352.i = phi i16 [ %307, %304 ], [ %316, %311 ]
   %.0351.i = phi i16 [ %310, %304 ], [ %321, %311 ]
   %322 = zext i16 %.0352.i to i64
-  %323 = getelementptr inbounds nuw float, ptr %.0394.i, i64 %322
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %.0394.i, i64 %322
   %324 = load float, ptr %323, align 4
   %325 = zext i16 %.0351.i to i64
-  %326 = getelementptr inbounds nuw float, ptr %.0394.i, i64 %325
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %.0394.i, i64 %325
   %327 = load float, ptr %326, align 4
   br label %473
 
@@ -2429,13 +2420,13 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
 415:                                              ; preds = %415, %.preheader.i
   %416 = phi i1 [ true, %.preheader.i ], [ false, %415 ]
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 1, %415 ]
-  %gep.i = getelementptr inbounds nuw [2 x i16], ptr %indvars.iv432.i.sroa.phi127, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %indvars.iv432.i.sroa.phi127, i64 %indvars.iv.i
   %417 = load i16, ptr %gep.i, align 2
   %418 = zext i16 %417 to i32
   %419 = icmp samesign ugt i32 %220, %418
   %420 = select i1 %419, i16 %417, i16 %221
   store i16 %420, ptr %gep.i, align 2
-  %gep412.i = getelementptr inbounds nuw [2 x i16], ptr %indvars.iv432.i.sroa.phi, i64 %indvars.iv.i
+  %gep412.i = getelementptr inbounds nuw [4 x i8], ptr %indvars.iv432.i.sroa.phi, i64 %indvars.iv.i
   %421 = load i16, ptr %gep412.i, align 2
   %422 = zext i16 %421 to i32
   %423 = icmp samesign ugt i32 %220, %422
@@ -2454,7 +2445,7 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   %426 = phi i16 [ %.pre, %.loopexit.i.loopexit ], [ %348, %346 ]
   %427 = load i32, ptr %231, align 8
   %428 = zext i16 %426 to i64
-  %429 = getelementptr inbounds nuw float, ptr %.0394.i, i64 %428
+  %429 = getelementptr inbounds nuw [4 x i8], ptr %.0394.i, i64 %428
   %430 = load float, ptr %429, align 4
   switch i32 %427, label %436 [
     i32 1, label %431
@@ -2464,45 +2455,45 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
 431:                                              ; preds = %.loopexit.i, %.loopexit.i
   %432 = load i16, ptr %6, align 2
   %433 = zext i16 %432 to i64
-  %434 = getelementptr inbounds nuw float, ptr %.0394.i, i64 %433
+  %434 = getelementptr inbounds nuw [4 x i8], ptr %.0394.i, i64 %433
   %435 = load float, ptr %434, align 4
   br label %473
 
 436:                                              ; preds = %.loopexit.i
   %437 = load i16, ptr %227, align 2
   %438 = zext i16 %437 to i64
-  %439 = getelementptr inbounds nuw float, ptr %.0394.i, i64 %438
+  %439 = getelementptr inbounds nuw [4 x i8], ptr %.0394.i, i64 %438
   %440 = load float, ptr %439, align 4
   %441 = fmul float %440, 1.875000e-01
   %442 = call float @llvm.fmuladd.f32(float %430, float 5.625000e-01, float %441)
   %443 = load i16, ptr %indvars.iv432.i.sroa.gep129, align 2
   %444 = zext i16 %443 to i64
-  %445 = getelementptr inbounds nuw float, ptr %.0394.i, i64 %444
+  %445 = getelementptr inbounds nuw [4 x i8], ptr %.0394.i, i64 %444
   %446 = load float, ptr %445, align 4
   %447 = call float @llvm.fmuladd.f32(float %446, float 1.875000e-01, float %442)
   %448 = load i16, ptr %229, align 2
   %449 = zext i16 %448 to i64
-  %450 = getelementptr inbounds nuw float, ptr %.0394.i, i64 %449
+  %450 = getelementptr inbounds nuw [4 x i8], ptr %.0394.i, i64 %449
   %451 = load float, ptr %450, align 4
   %452 = call float @llvm.fmuladd.f32(float %451, float 6.250000e-02, float %447)
   %453 = load i16, ptr %6, align 2
   %454 = zext i16 %453 to i64
-  %455 = getelementptr inbounds nuw float, ptr %.0394.i, i64 %454
+  %455 = getelementptr inbounds nuw [4 x i8], ptr %.0394.i, i64 %454
   %456 = load float, ptr %455, align 4
   %457 = load i16, ptr %228, align 2
   %458 = zext i16 %457 to i64
-  %459 = getelementptr inbounds nuw float, ptr %.0394.i, i64 %458
+  %459 = getelementptr inbounds nuw [4 x i8], ptr %.0394.i, i64 %458
   %460 = load float, ptr %459, align 4
   %461 = fmul float %460, 1.875000e-01
   %462 = call float @llvm.fmuladd.f32(float %456, float 5.625000e-01, float %461)
   %463 = load i16, ptr %indvars.iv432.i.sroa.gep126, align 2
   %464 = zext i16 %463 to i64
-  %465 = getelementptr inbounds nuw float, ptr %.0394.i, i64 %464
+  %465 = getelementptr inbounds nuw [4 x i8], ptr %.0394.i, i64 %464
   %466 = load float, ptr %465, align 4
   %467 = call float @llvm.fmuladd.f32(float %466, float 1.875000e-01, float %462)
   %468 = load i16, ptr %230, align 2
   %469 = zext i16 %468 to i64
-  %470 = getelementptr inbounds nuw float, ptr %.0394.i, i64 %469
+  %470 = getelementptr inbounds nuw [4 x i8], ptr %.0394.i, i64 %469
   %471 = load float, ptr %470, align 4
   %472 = call float @llvm.fmuladd.f32(float %471, float 6.250000e-02, float %467)
   br label %473
@@ -2561,7 +2552,7 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   br label %511
 
 505:                                              ; preds = %500
-  %506 = getelementptr inbounds nuw i16, ptr %260, i64 %indvars.iv435.i
+  %506 = getelementptr inbounds nuw [2 x i8], ptr %260, i64 %indvars.iv435.i
   %507 = load i16, ptr %506, align 2
   %508 = zext i16 %507 to i32
   %509 = icmp samesign ugt i32 %220, %508
@@ -2800,7 +2791,7 @@ avifImageYUVAnyToRGBAnySlow.exit:                 ; preds = %.thread131, %avifCr
 ._crit_edge.i123:                                 ; preds = %._crit_edge.loopexit.i122, %.preheader.i120
   %624 = phi i32 [ %.pre37.i, %._crit_edge.loopexit.i122 ], [ %610, %.preheader.i120 ]
   %625 = phi i32 [ %621, %._crit_edge.loopexit.i122 ], [ %611, %.preheader.i120 ]
-  %626 = getelementptr inbounds nuw i16, ptr %.02733.i, i64 %609
+  %626 = getelementptr inbounds nuw [2 x i8], ptr %.02733.i, i64 %609
   %627 = add nuw i32 %.02534.i, 1
   %628 = icmp ult i32 %627, %624
   br i1 %628, label %.preheader.i120, label %avifRGBImageToF16.exit, !llvm.loop !23
@@ -3540,7 +3531,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB16Color(ptr noun
   %24 = fsub float %22, %23
   %25 = load float, ptr %19, align 4
   %26 = fdiv float %24, %25
-  %27 = getelementptr inbounds nuw float, ptr %17, i64 %21
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %21
   store float %26, ptr %27, align 4
   %28 = add i32 %.02938.i, 1
   %29 = zext i32 %28 to i64
@@ -3571,7 +3562,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB16Color(ptr noun
   %43 = fsub float %41, %42
   %44 = load float, ptr %38, align 4
   %45 = fdiv float %43, %44
-  %46 = getelementptr inbounds nuw float, ptr %36, i64 %40
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %40
   store float %45, ptr %46, align 4
   %47 = add i32 %.039.i, 1
   %48 = zext i32 %47 to i64
@@ -3666,30 +3657,30 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %113 = load i32, ptr %68, align 4
   %114 = trunc nuw i64 %indvars.iv to i32
   %115 = lshr i32 %114, %113
-  %116 = getelementptr inbounds nuw i16, ptr %87, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
   %119 = icmp samesign ugt i32 %69, %118
   %120 = select i1 %119, i16 %117, i16 %70
   %121 = zext i32 %115 to i64
-  %122 = getelementptr inbounds nuw i16, ptr %92, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %121
   %123 = load i16, ptr %122, align 2
   %124 = zext i16 %123 to i32
   %125 = icmp samesign ugt i32 %69, %124
   %126 = select i1 %125, i16 %123, i16 %70
-  %127 = getelementptr inbounds nuw i16, ptr %97, i64 %121
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %121
   %128 = load i16, ptr %127, align 2
   %129 = zext i16 %128 to i32
   %130 = icmp samesign ugt i32 %69, %129
   %131 = select i1 %130, i16 %128, i16 %70
   %132 = zext i16 %120 to i64
-  %133 = getelementptr inbounds nuw float, ptr %17, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %132
   %134 = load float, ptr %133, align 4
   %135 = zext i16 %126 to i64
-  %136 = getelementptr inbounds nuw float, ptr %.0119, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.0119, i64 %135
   %137 = load float, ptr %136, align 4
   %138 = zext i16 %131 to i64
-  %139 = getelementptr inbounds nuw float, ptr %.0119, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %.0119, i64 %138
   %140 = load float, ptr %139, align 4
   %141 = tail call float @llvm.fmuladd.f32(float %72, float %140, float %134)
   %142 = tail call float @llvm.fmuladd.f32(float %74, float %137, float %134)
@@ -3788,7 +3779,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB16Mono(ptr nound
   %23 = fsub float %21, %22
   %24 = load float, ptr %18, align 4
   %25 = fdiv float %23, %24
-  %26 = getelementptr inbounds nuw float, ptr %16, i64 %20
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %20
   store float %25, ptr %26, align 4
   %27 = add i32 %.02938.i, 1
   %28 = zext i32 %27 to i64
@@ -3866,13 +3857,13 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %.07187 = phi ptr [ %78, %.lr.ph.preheader ], [ %108, %.lr.ph ]
   %.07286 = phi ptr [ %74, %.lr.ph.preheader ], [ %109, %.lr.ph ]
   %.07385 = phi ptr [ %70, %.lr.ph.preheader ], [ %110, %.lr.ph ]
-  %79 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
   %82 = icmp samesign ugt i32 %43, %81
   %83 = select i1 %82, i16 %80, i16 %44
   %84 = zext i16 %83 to i64
-  %85 = getelementptr inbounds nuw float, ptr %16, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = tail call float @llvm.fmuladd.f32(float %46, float 0.000000e+00, float %86)
   %88 = tail call float @llvm.fmuladd.f32(float %48, float 0.000000e+00, float %86)
@@ -3959,7 +3950,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB8Color(ptr nound
   %24 = fsub float %22, %23
   %25 = load float, ptr %19, align 4
   %26 = fdiv float %24, %25
-  %27 = getelementptr inbounds nuw float, ptr %17, i64 %21
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %21
   store float %26, ptr %27, align 4
   %28 = add i32 %.02938.i, 1
   %29 = zext i32 %28 to i64
@@ -3990,7 +3981,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB8Color(ptr nound
   %43 = fsub float %41, %42
   %44 = load float, ptr %38, align 4
   %45 = fdiv float %43, %44
-  %46 = getelementptr inbounds nuw float, ptr %36, i64 %40
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %40
   store float %45, ptr %46, align 4
   %47 = add i32 %.039.i, 1
   %48 = zext i32 %47 to i64
@@ -4086,30 +4077,30 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %114 = load i32, ptr %68, align 4
   %115 = trunc nuw i64 %indvars.iv to i32
   %116 = lshr i32 %115, %114
-  %117 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %indvars.iv
   %118 = load i16, ptr %117, align 2
   %119 = zext i16 %118 to i32
   %120 = icmp samesign ugt i32 %69, %119
   %121 = select i1 %120, i16 %118, i16 %70
   %122 = zext i32 %116 to i64
-  %123 = getelementptr inbounds nuw i16, ptr %93, i64 %122
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %122
   %124 = load i16, ptr %123, align 2
   %125 = zext i16 %124 to i32
   %126 = icmp samesign ugt i32 %69, %125
   %127 = select i1 %126, i16 %124, i16 %70
-  %128 = getelementptr inbounds nuw i16, ptr %98, i64 %122
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %122
   %129 = load i16, ptr %128, align 2
   %130 = zext i16 %129 to i32
   %131 = icmp samesign ugt i32 %69, %130
   %132 = select i1 %131, i16 %129, i16 %70
   %133 = zext i16 %121 to i64
-  %134 = getelementptr inbounds nuw float, ptr %17, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %133
   %135 = load float, ptr %134, align 4
   %136 = zext i16 %127 to i64
-  %137 = getelementptr inbounds nuw float, ptr %.0120, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.0120, i64 %136
   %138 = load float, ptr %137, align 4
   %139 = zext i16 %132 to i64
-  %140 = getelementptr inbounds nuw float, ptr %.0120, i64 %139
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %.0120, i64 %139
   %141 = load float, ptr %140, align 4
   %142 = tail call float @llvm.fmuladd.f32(float %72, float %141, float %135)
   %143 = tail call float @llvm.fmuladd.f32(float %74, float %138, float %135)
@@ -4230,7 +4221,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB8Mono(ptr nounde
   %23 = fsub float %21, %22
   %24 = load float, ptr %18, align 4
   %25 = fdiv float %23, %24
-  %26 = getelementptr inbounds nuw float, ptr %16, i64 %20
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %20
   store float %25, ptr %26, align 4
   %27 = add i32 %.02938.i, 1
   %28 = zext i32 %27 to i64
@@ -4309,13 +4300,13 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %.07288 = phi ptr [ %79, %.lr.ph.preheader ], [ %123, %avifStoreRGB8Pixel.exit ]
   %.07387 = phi ptr [ %75, %.lr.ph.preheader ], [ %124, %avifStoreRGB8Pixel.exit ]
   %.07486 = phi ptr [ %71, %.lr.ph.preheader ], [ %125, %avifStoreRGB8Pixel.exit ]
-  %80 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %83 = icmp samesign ugt i32 %43, %82
   %84 = select i1 %83, i16 %81, i16 %44
   %85 = zext i16 %84 to i64
-  %86 = getelementptr inbounds nuw float, ptr %16, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %85
   %87 = load float, ptr %86, align 4
   %88 = tail call float @llvm.fmuladd.f32(float %46, float 0.000000e+00, float %87)
   %89 = tail call float @llvm.fmuladd.f32(float %48, float 0.000000e+00, float %87)
@@ -4424,7 +4415,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB16Color(ptr nound
   %24 = fsub float %22, %23
   %25 = load float, ptr %19, align 4
   %26 = fdiv float %24, %25
-  %27 = getelementptr inbounds nuw float, ptr %17, i64 %21
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %21
   store float %26, ptr %27, align 4
   %28 = add i32 %.02938.i, 1
   %29 = zext i32 %28 to i64
@@ -4455,7 +4446,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB16Color(ptr nound
   %43 = fsub float %41, %42
   %44 = load float, ptr %38, align 4
   %45 = fdiv float %43, %44
-  %46 = getelementptr inbounds nuw float, ptr %36, i64 %40
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %40
   store float %45, ptr %46, align 4
   %47 = add i32 %.039.i, 1
   %48 = zext i32 %47 to i64
@@ -4549,18 +4540,18 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %112 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds nuw float, ptr %17, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %114
   %116 = load float, ptr %115, align 4
   %117 = zext i32 %111 to i64
   %118 = getelementptr inbounds nuw i8, ptr %88, i64 %117
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds nuw float, ptr %.099, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.099, i64 %120
   %122 = load float, ptr %121, align 4
   %123 = getelementptr inbounds nuw i8, ptr %93, i64 %117
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds nuw float, ptr %.099, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.099, i64 %125
   %127 = load float, ptr %126, align 4
   %128 = tail call float @llvm.fmuladd.f32(float %68, float %127, float %116)
   %129 = tail call float @llvm.fmuladd.f32(float %70, float %122, float %116)
@@ -4659,7 +4650,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB16Mono(ptr nounde
   %23 = fsub float %21, %22
   %24 = load float, ptr %18, align 4
   %25 = fdiv float %23, %24
-  %26 = getelementptr inbounds nuw float, ptr %16, i64 %20
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %20
   store float %25, ptr %26, align 4
   %27 = add i32 %.02938.i, 1
   %28 = zext i32 %27 to i64
@@ -4736,7 +4727,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %75 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw float, ptr %16, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %77
   %79 = load float, ptr %78, align 4
   %80 = tail call float @llvm.fmuladd.f32(float %42, float 0.000000e+00, float %79)
   %81 = tail call float @llvm.fmuladd.f32(float %44, float 0.000000e+00, float %79)
@@ -4823,7 +4814,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB8Color(ptr nounde
   %24 = fsub float %22, %23
   %25 = load float, ptr %19, align 4
   %26 = fdiv float %24, %25
-  %27 = getelementptr inbounds nuw float, ptr %17, i64 %21
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %21
   store float %26, ptr %27, align 4
   %28 = add i32 %.02938.i, 1
   %29 = zext i32 %28 to i64
@@ -4854,7 +4845,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB8Color(ptr nounde
   %43 = fsub float %41, %42
   %44 = load float, ptr %38, align 4
   %45 = fdiv float %43, %44
-  %46 = getelementptr inbounds nuw float, ptr %36, i64 %40
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %40
   store float %45, ptr %46, align 4
   %47 = add i32 %.039.i, 1
   %48 = zext i32 %47 to i64
@@ -4949,18 +4940,18 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %113 = getelementptr inbounds nuw i8, ptr %84, i64 %indvars.iv
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw float, ptr %17, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %115
   %117 = load float, ptr %116, align 4
   %118 = zext i32 %112 to i64
   %119 = getelementptr inbounds nuw i8, ptr %89, i64 %118
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i64
-  %122 = getelementptr inbounds nuw float, ptr %.0100, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.0100, i64 %121
   %123 = load float, ptr %122, align 4
   %124 = getelementptr inbounds nuw i8, ptr %94, i64 %118
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i64
-  %127 = getelementptr inbounds nuw float, ptr %.0100, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.0100, i64 %126
   %128 = load float, ptr %127, align 4
   %129 = tail call float @llvm.fmuladd.f32(float %68, float %128, float %117)
   %130 = tail call float @llvm.fmuladd.f32(float %70, float %123, float %117)
@@ -5081,7 +5072,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB8Mono(ptr noundef
   %23 = fsub float %21, %22
   %24 = load float, ptr %18, align 4
   %25 = fdiv float %23, %24
-  %26 = getelementptr inbounds nuw float, ptr %16, i64 %20
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %20
   store float %25, ptr %26, align 4
   %27 = add i32 %.02938.i, 1
   %28 = zext i32 %27 to i64
@@ -5159,7 +5150,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %76 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw float, ptr %16, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %78
   %80 = load float, ptr %79, align 4
   %81 = tail call float @llvm.fmuladd.f32(float %42, float 0.000000e+00, float %80)
   %82 = tail call float @llvm.fmuladd.f32(float %44, float 0.000000e+00, float %80)

@@ -181,7 +181,7 @@ lpad:                                             ; preds = %init
 
 switch.lookup:                                    ; preds = %init.end
   %5 = zext nneg i32 %type to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8proxygen23getTraceEventTypeStringB5cxx11ENS_14TraceEventTypeE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8proxygen23getTraceEventTypeStringB5cxx11ENS_14TraceEventTypeE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 

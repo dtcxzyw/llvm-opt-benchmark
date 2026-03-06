@@ -7988,7 +7988,7 @@ _ZN6casadi10DaeBuilderptEv.exit:                  ; preds = %2
   unreachable
 
 24:                                               ; preds = %.noexc
-  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %14
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %14
   %26 = load ptr, ptr %25, align 8, !tbaa !105
   ret ptr %26
 
@@ -8313,7 +8313,7 @@ _ZNK6casadi10DaeBuilderptEv.exit:                 ; preds = %2
   unreachable
 
 24:                                               ; preds = %.noexc
-  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %14
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %14
   %26 = load ptr, ptr %25, align 8, !tbaa !105
   ret ptr %26
 
@@ -8634,7 +8634,7 @@ _ZN6casadi10DaeBuilderptEv.exit:                  ; preds = %2
   unreachable
 
 23:                                               ; preds = %_ZN6casadi10DaeBuilderptEv.exit
-  %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %1
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %1
   %25 = load ptr, ptr %24, align 8, !tbaa !105
   ret ptr %25
 
@@ -8955,7 +8955,7 @@ _ZNK6casadi10DaeBuilderptEv.exit:                 ; preds = %2
   unreachable
 
 23:                                               ; preds = %_ZNK6casadi10DaeBuilderptEv.exit
-  %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %1
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %1
   %25 = load ptr, ptr %24, align 8, !tbaa !105
   ret ptr %25
 
@@ -11659,7 +11659,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %105, %_Z
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %107, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %102, ptr %81, align 8, !tbaa !33
   store ptr %106, ptr %83, align 8, !tbaa !30
-  %108 = getelementptr inbounds nuw i64, ptr %102, i64 %100
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %100
   store ptr %108, ptr %85, align 8, !tbaa !135
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -11738,7 +11738,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !33
   store ptr %29, ptr %6, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !135
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -11808,7 +11808,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !33
   store ptr %29, ptr %6, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !135
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -11878,7 +11878,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !33
   store ptr %29, ptr %6, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !135
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -11948,7 +11948,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !33
   store ptr %29, ptr %6, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !135
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -12018,7 +12018,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !33
   store ptr %29, ptr %6, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !135
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -12088,7 +12088,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !33
   store ptr %29, ptr %6, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !135
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -12158,7 +12158,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !33
   store ptr %29, ptr %6, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !135
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -12228,7 +12228,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !33
   store ptr %29, ptr %6, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !135
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -12298,7 +12298,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !33
   store ptr %29, ptr %6, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !135
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -12368,7 +12368,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !33
   store ptr %29, ptr %6, align 8, !tbaa !30
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !135
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -17306,7 +17306,7 @@ _ZN6casadi10DaeBuilderptEv.exit:                  ; preds = %3
   unreachable
 
 25:                                               ; preds = %.noexc
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %15
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %15
   %27 = load ptr, ptr %26, align 8, !tbaa !105
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 392
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -19805,7 +19805,7 @@ _ZNK6casadi10DaeBuilderptEv.exit:                 ; preds = %3
   unreachable
 
 25:                                               ; preds = %.noexc
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %15
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %15
   %27 = load ptr, ptr %26, align 8, !tbaa !105
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 384
   %29 = load ptr, ptr %28, align 8, !tbaa !22
@@ -20144,7 +20144,7 @@ _ZNK6casadi10DaeBuilderptEv.exit65:               ; preds = %26
   br i1 %.not.i.i.i, label %36, label %.invoke
 
 36:                                               ; preds = %_ZNK6casadi10DaeBuilderptEv.exit65
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %25
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %25
   %38 = load ptr, ptr %37, align 8, !tbaa !105
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 264
   %40 = load i64, ptr %39, align 8, !tbaa !166
@@ -20411,7 +20411,7 @@ _ZNK6casadi10DaeBuilderptEv.exit85:               ; preds = %108
   unreachable
 
 120:                                              ; preds = %_ZNK6casadi10DaeBuilderptEv.exit85
-  %121 = getelementptr inbounds nuw ptr, ptr %113, i64 %40
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %40
   %122 = load ptr, ptr %121, align 8, !tbaa !105
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22134,13 +22134,13 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.01384 = phi i64 [ 0, %.lr.ph ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = load ptr, ptr %2, align 8, !tbaa !15
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %37, i64 %.01384
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %.01384
   invoke void @_ZNK6casadi10DaeBuilder3derERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %39 unwind label %80
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %0, align 8, !tbaa !15
-  %41 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %40, i64 %.01384
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %.01384
   %42 = load ptr, ptr %41, align 8, !tbaa !11
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = icmp eq ptr %42, %43
@@ -22613,13 +22613,13 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.01384 = phi i64 [ 0, %.lr.ph ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = load ptr, ptr %2, align 8, !tbaa !15
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %37, i64 %.01384
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %.01384
   invoke void @_ZNK6casadi10DaeBuilder3preERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %39 unwind label %80
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %0, align 8, !tbaa !15
-  %41 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %40, i64 %.01384
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %.01384
   %42 = load ptr, ptr %41, align 8, !tbaa !11
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = icmp eq ptr %42, %43
@@ -23051,7 +23051,7 @@ _ZNK6casadi10DaeBuilderptEv.exit:                 ; preds = %2
   unreachable
 
 24:                                               ; preds = %.noexc
-  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %14
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %14
   %26 = load ptr, ptr %25, align 8, !tbaa !105
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 392
   %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
@@ -23385,7 +23385,7 @@ _ZNK6casadi10DaeBuilderptEv.exit:                 ; preds = %3
   unreachable
 
 25:                                               ; preds = %.noexc
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %15
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %15
   %27 = load ptr, ptr %26, align 8, !tbaa !105
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 392
   %29 = load ptr, ptr %28, align 8, !tbaa !22
@@ -24616,7 +24616,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZNK6casadi10DaeBuilder15value_refe
   unreachable
 
 _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %4
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %15 = load ptr, ptr %14, align 8, !tbaa !105
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load i32, ptr %16, align 8, !tbaa !199
@@ -24645,7 +24645,7 @@ define void @_ZN6casadi10DaeBuilder19set_value_referenceERKNSt7__cxx1112basic_st
 
 _ZN6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3
   %15 = trunc i64 %2 to i32
-  %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %5
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %5
   %17 = load ptr, ptr %16, align 8, !tbaa !105
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store i32 %15, ptr %18, align 8, !tbaa !199
@@ -24673,7 +24673,7 @@ define void @_ZNK6casadi10DaeBuilder11descriptionERKNSt7__cxx1112basic_stringIcS
   unreachable
 
 _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %6
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %6
   %17 = load ptr, ptr %16, align 8, !tbaa !105
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24740,7 +24740,7 @@ define void @_ZN6casadi10DaeBuilder15set_descriptionERKNSt7__cxx1112basic_string
   unreachable
 
 _ZN6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3
-  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %5
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %5
   %16 = load ptr, ptr %15, align 8, !tbaa !105
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -25008,7 +25008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
   unreachable
 
 _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %93
-  %95 = getelementptr inbounds nuw ptr, ptr %88, i64 %84
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %84
   %96 = load ptr, ptr %95, align 8, !tbaa !105
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 112
   %98 = load i32, ptr %97, align 8, !tbaa !203
@@ -25024,7 +25024,7 @@ _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_t
   unreachable
 
 _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit49: ; preds = %100
-  %102 = getelementptr inbounds nuw ptr, ptr %88, i64 %84
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %84
   %103 = load ptr, ptr %102, align 8, !tbaa !105
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 112
   %105 = load i32, ptr %104, align 8, !tbaa !203
@@ -25210,7 +25210,7 @@ _ZN6casadi10DaeBuilderptEv.exit:                  ; preds = %53
   unreachable
 
 65:                                               ; preds = %.noexc27
-  %66 = getelementptr inbounds nuw ptr, ptr %59, i64 %55
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %55
   %67 = load ptr, ptr %66, align 8, !tbaa !105
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store i32 %52, ptr %68, align 8, !tbaa !203
@@ -25283,7 +25283,7 @@ _ZN6casadi10DaeBuilderptEv.exit37:                ; preds = %82
   unreachable
 
 94:                                               ; preds = %.noexc39
-  %95 = getelementptr inbounds nuw ptr, ptr %88, i64 %84
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %84
   %96 = load ptr, ptr %95, align 8, !tbaa !105
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 112
   store i32 %81, ptr %97, align 8, !tbaa !203
@@ -28252,7 +28252,7 @@ define void @_ZNK6casadi10DaeBuilder7initialERKNSt7__cxx1112basic_stringIcSt11ch
   unreachable
 
 _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3
-  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %5
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %5
   %16 = load ptr, ptr %15, align 8, !tbaa !105
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 192
   %18 = load i32, ptr %17, align 8, !tbaa !216
@@ -28303,7 +28303,7 @@ _ZN6casadi10DaeBuilderptEv.exit:                  ; preds = %7
   unreachable
 
 19:                                               ; preds = %.noexc7
-  %20 = getelementptr inbounds nuw ptr, ptr %13, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %9
   %21 = load ptr, ptr %20, align 8, !tbaa !105
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 192
   store i32 %6, ptr %22, align 8, !tbaa !216
@@ -28795,7 +28795,7 @@ define void @_ZNK6casadi10DaeBuilder4unitERKNSt7__cxx1112basic_stringIcSt11char_
   unreachable
 
 _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %6
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %6
   %17 = load ptr, ptr %16, align 8, !tbaa !105
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -28862,7 +28862,7 @@ define void @_ZN6casadi10DaeBuilder8set_unitERKNSt7__cxx1112basic_stringIcSt11ch
   unreachable
 
 _ZN6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3
-  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %5
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %5
   %16 = load ptr, ptr %15, align 8, !tbaa !105
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -28890,7 +28890,7 @@ define void @_ZNK6casadi10DaeBuilder12display_unitERKNSt7__cxx1112basic_stringIc
   unreachable
 
 _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %6
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %6
   %17 = load ptr, ptr %16, align 8, !tbaa !105
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 160
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -28957,7 +28957,7 @@ define void @_ZN6casadi10DaeBuilder16set_display_unitERKNSt7__cxx1112basic_strin
   unreachable
 
 _ZN6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3
-  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %5
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %5
   %16 = load ptr, ptr %15, align 8, !tbaa !105
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -28984,7 +28984,7 @@ define noundef i64 @_ZNK6casadi10DaeBuilder5numelERKNSt7__cxx1112basic_stringIcS
   unreachable
 
 _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %4
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %15 = load ptr, ptr %14, align 8, !tbaa !105
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load i64, ptr %16, align 8, !tbaa !222
@@ -29011,7 +29011,7 @@ define void @_ZNK6casadi10DaeBuilder9dimensionERKNSt7__cxx1112basic_stringIcSt11
   unreachable
 
 _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %3
-  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %5
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %5
   %16 = load ptr, ptr %15, align 8, !tbaa !105
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 48
@@ -38662,7 +38662,7 @@ _ZNK6casadi10DaeBuilderptEv.exit:                 ; preds = %2
   unreachable
 
 24:                                               ; preds = %.noexc
-  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %14
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %14
   %26 = load ptr, ptr %25, align 8, !tbaa !105
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 200
   %28 = load double, ptr %27, align 8, !tbaa !244
@@ -39293,7 +39293,7 @@ _ZN6casadi10DaeBuilderptEv.exit:                  ; preds = %3
   unreachable
 
 25:                                               ; preds = %.noexc
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %15
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %15
   %27 = load ptr, ptr %26, align 8, !tbaa !105
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 200
   store double %2, ptr %28, align 8, !tbaa !244
@@ -39924,7 +39924,7 @@ _ZNK6casadi10DaeBuilderptEv.exit:                 ; preds = %2
   unreachable
 
 24:                                               ; preds = %.noexc
-  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %14
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %14
   %26 = load ptr, ptr %25, align 8, !tbaa !105
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 208
   %28 = load double, ptr %27, align 8, !tbaa !245
@@ -40555,7 +40555,7 @@ _ZN6casadi10DaeBuilderptEv.exit:                  ; preds = %3
   unreachable
 
 25:                                               ; preds = %.noexc
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %15
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %15
   %27 = load ptr, ptr %26, align 8, !tbaa !105
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 208
   store double %2, ptr %28, align 8, !tbaa !245
@@ -41186,7 +41186,7 @@ _ZNK6casadi10DaeBuilderptEv.exit:                 ; preds = %2
   unreachable
 
 24:                                               ; preds = %.noexc
-  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %14
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %14
   %26 = load ptr, ptr %25, align 8, !tbaa !105
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 216
   %28 = load double, ptr %27, align 8, !tbaa !246
@@ -41817,7 +41817,7 @@ _ZN6casadi10DaeBuilderptEv.exit:                  ; preds = %3
   unreachable
 
 25:                                               ; preds = %.noexc
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %15
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %15
   %27 = load ptr, ptr %26, align 8, !tbaa !105
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 216
   store double %2, ptr %28, align 8, !tbaa !246
@@ -47235,7 +47235,7 @@ _ZNSt12_Vector_baseIN6casadi11GenericTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   store ptr %19, ptr %0, align 8, !tbaa !249
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   store ptr %32, ptr %15, align 8, !tbaa !251
-  %33 = getelementptr inbounds nuw %"class.casadi::GenericType", ptr %19, i64 %1
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %1
   store ptr %33, ptr %6, align 8, !tbaa !253
   br label %34
 
@@ -48884,7 +48884,7 @@ _ZSt8_DestroyIPN6casadi11GenericTypeES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_D
 _ZNSt12_Vector_baseIN6casadi11GenericTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN6casadi11GenericTypeES1_EvT_S3_RSaIT0_E.exit, %57
   store ptr %20, ptr %0, align 8, !tbaa !249
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !251
-  %61 = getelementptr inbounds nuw %"class.casadi::GenericType", ptr %20, i64 %16
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %61, ptr %56, align 8, !tbaa !253
   ret void
 

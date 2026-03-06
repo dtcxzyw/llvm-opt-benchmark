@@ -40,7 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.46" = type { %"struct.std::_Vector_base<rocksdb::Env::FileAttributes, std::allocator<rocksdb::Env::FileAttributes>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::Env::FileAttributes, std::allocator<rocksdb::Env::FileAttributes>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::Env::FileAttributes, std::allocator<rocksdb::Env::FileAttributes>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<rocksdb::Env::FileAttributes, std::allocator<rocksdb::Env::FileAttributes>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.rocksdb::Env::FileAttributes" = type <{ %"class.std::__cxx11::basic_string", i64, i8, [7 x i8] }>
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
@@ -49,6 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__detail::_AllocNode.106" = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"struct.__gnu_cxx::__ops::_Iter_less_val" = type { i8 }
+%"struct.rocksdb::Env::FileAttributes" = type <{ %"class.std::__cxx11::basic_string", i64, i8, [7 x i8] }>
 
 $_ZNSt13unordered_setIN7rocksdb8FileTypeESt4hashIS1_ESt8equal_toIS1_ESaIS1_EED2Ev = comdat any
 
@@ -442,7 +442,7 @@ _ZNSt13unordered_setIN7rocksdb8FileTypeESt4hashIS1_ESt8equal_toIS1_ESaIS1_EEC2ES
   %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7rocksdb18OnDemandFileSystem17NewSequentialFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11FileOptionsEPSt10unique_ptrINS_16FSSequentialFileESt14default_deleteISD_EEPNS_14IODebugContextEE11valid_types, i64 8), align 8, !tbaa !34
   %36 = urem i64 %34, %35
   %37 = load ptr, ptr @_ZZN7rocksdb18OnDemandFileSystem17NewSequentialFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11FileOptionsEPSt10unique_ptrINS_16FSSequentialFileESt14default_deleteISD_EEPNS_14IODebugContextEE11valid_types, align 8, !tbaa !35
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %36
   %39 = load ptr, ptr %38, align 8, !tbaa !36
   %.not.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i, label %.critedge, label %40
@@ -2370,7 +2370,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %152 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %151, ptr %11, align 8, !tbaa !138
   store ptr %151, ptr %152, align 8, !tbaa !136
-  %153 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %151, i64 %145
+  %153 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %145
   store ptr %153, ptr %149, align 8, !tbaa !139
   br label %154
 
@@ -2961,7 +2961,7 @@ _ZNSt12_Vector_baseIN7rocksdb3Env14FileAttributesESaIS2_EE13_M_deallocateEPS2_m.
   %156 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %155, ptr %16, align 8, !tbaa !141
   store ptr %155, ptr %156, align 8, !tbaa !147
-  %157 = getelementptr inbounds nuw %"struct.rocksdb::Env::FileAttributes", ptr %155, i64 %149
+  %157 = getelementptr inbounds nuw [48 x i8], ptr %155, i64 %149
   store ptr %157, ptr %153, align 8, !tbaa !148
   br label %158
 
@@ -5918,7 +5918,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !102
   %42 = urem i64 %37, %41
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   store ptr %38, ptr %43, align 8, !tbaa !36
   %.02837 = load ptr, ptr %19, align 8, !tbaa !29
   %.not3038 = icmp eq ptr %.02837, null
@@ -5971,7 +5971,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %60 = load i64, ptr %40, align 8, !tbaa !102
   %61 = urem i64 %59, %60
   %62 = load ptr, ptr %0, align 8, !tbaa !101
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !36
   %.not32 = icmp eq ptr %64, null
   br i1 %.not32, label %65, label %70
@@ -6518,7 +6518,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN7rocksdb8FileTypeES1_SaIS1_E
   %10 = load i64, ptr %9, align 8, !tbaa !34
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !35
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !36
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -6655,7 +6655,7 @@ _ZNSt10_HashtableIN7rocksdb8FileTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equal_t
 31:                                               ; preds = %_ZNSt10_HashtableIN7rocksdb8FileTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIN7rocksdb8FileTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !35
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !36
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -6682,7 +6682,7 @@ _ZNSt10_HashtableIN7rocksdb8FileTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equal_t
   %45 = load i32, ptr %43, align 4, !tbaa !30
   %46 = zext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !36
   br label %49
 
@@ -6747,7 +6747,7 @@ _ZNSt10_HashtableIN7rocksdb8FileTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equal_t
   %16 = load i32, ptr %15, align 8, !tbaa !30
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !36
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -6762,7 +6762,7 @@ _ZNSt10_HashtableIN7rocksdb8FileTypeES1_SaIS1_ENSt8__detail9_IdentityESt8equal_t
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !36
   br label %29
 
@@ -6843,7 +6843,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIc
 
 21:                                               ; preds = %13
   %22 = lshr i64 %14, 1
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %storemerge14, i64 -32
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_SF_SF_T0_(ptr %0, ptr nonnull %11, ptr %23, ptr nonnull %24)
   br label %25
@@ -6954,7 +6954,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPNSt7
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %11
   %.08 = phi i64 [ %13, %11 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.08
+  %19 = getelementptr inbounds [32 x i8], ptr %0, i64 %.08
   store ptr %14, ptr %4, align 8, !tbaa !16
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -7262,9 +7262,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNS
   %.047 = phi i64 [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %1, %4 ]
   %10 = shl i64 %.047, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -7291,8 +7291,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   %.0.i.i.i = phi i32 [ %22, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %.0.i6.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i ]
   %24 = icmp slt i32 %.0.i.i.i, 0
   %spec.select = select i1 %24, i64 %13, i64 %11
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %spec.select
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.047
+  %25 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select
+  %26 = getelementptr inbounds [32 x i8], ptr %0, i64 %.047
   %27 = load ptr, ptr %26, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = icmp eq ptr %27, %28
@@ -7394,8 +7394,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %33
 65:                                               ; preds = %61
   %66 = shl nsw i64 %.0.lcssa, 1
   %67 = or disjoint i64 %66, 1
-  %68 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %67
-  %69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0.lcssa
+  %68 = getelementptr inbounds [32 x i8], ptr %0, i64 %67
+  %69 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %70 = load ptr, ptr %69, align 8, !tbaa !4
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %72 = icmp eq ptr %70, %71
@@ -7565,7 +7565,7 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPNSt7
   %.027 = phi i64 [ %1, %.lr.ph ], [ %.0928, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ]
   %.0928.in = add nsw i64 %.027, -1
   %.0928 = sdiv i64 %.0928.in, 2
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0928
+  %9 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0928
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !12
   %12 = load i64, ptr %7, align 8, !tbaa !12
@@ -7593,7 +7593,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basi
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.027
+  %20 = getelementptr inbounds [32 x i8], ptr %0, i64 %.027
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = icmp eq ptr %21, %22
@@ -7675,7 +7675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %27
 
 .critedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0928, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %.027, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit ]
-  %46 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0.lcssa
+  %46 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %47 = load ptr, ptr %46, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = icmp eq ptr %47, %48
@@ -9015,7 +9015,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !138
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !136
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !139
   ret void
 
@@ -9094,7 +9094,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 32:                                               ; preds = %_ZN7rocksdb3Env14FileAttributesD2Ev.exit15.i.i.i, %22
   %.010.i.i.i = phi i64 [ %25, %22 ], [ %56, %_ZN7rocksdb3Env14FileAttributesD2Ev.exit15.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %33 = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %0, i64 %.010.i.i.i
+  %33 = getelementptr inbounds [48 x i8], ptr %0, i64 %.010.i.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = icmp eq ptr %34, %35
@@ -9335,7 +9335,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb3Env14FileAttributesES
 117:                                              ; preds = %19
   %118 = add nsw i64 %.038, -1
   %119 = udiv i64 %20, 96
-  %120 = getelementptr inbounds nuw %"struct.rocksdb::Env::FileAttributes", ptr %0, i64 %119
+  %120 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %119
   %121 = getelementptr inbounds i8, ptr %storemerge37, i64 -48
   %.val1.i.i.i = load i64, ptr %14, align 8, !tbaa !12
   %122 = getelementptr i8, ptr %120, i64 8
@@ -9727,9 +9727,9 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %.050 = phi i64 [ %spec.select, %_ZN7rocksdb3Env14FileAttributesaSEOS1_.exit ], [ %1, %4 ]
   %9 = shl i64 %.050, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %0, i64 %10
+  %11 = getelementptr inbounds [48 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %0, i64 %12
+  %13 = getelementptr inbounds [48 x i8], ptr %0, i64 %12
   %14 = getelementptr i8, ptr %11, i64 8
   %.val1.i = load i64, ptr %14, align 8, !tbaa !12
   %15 = getelementptr i8, ptr %13, i64 8
@@ -9756,8 +9756,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb18OnDemandFileSystem25GetChildren
   %.0.i.i.i.i = phi i32 [ %17, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
   %19 = icmp slt i32 %.0.i.i.i.i, 0
   %spec.select = select i1 %19, i64 %12, i64 %10
-  %20 = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %0, i64 %spec.select
-  %21 = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %0, i64 %.050
+  %20 = getelementptr inbounds [48 x i8], ptr %0, i64 %spec.select
+  %21 = getelementptr inbounds [48 x i8], ptr %0, i64 %.050
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = icmp eq ptr %22, %23
@@ -9862,8 +9862,8 @@ _ZN7rocksdb3Env14FileAttributesaSEOS1_.exit:      ; preds = %28, %_ZNSt7__cxx111
 62:                                               ; preds = %58
   %63 = shl nsw i64 %.0.lcssa, 1
   %64 = or disjoint i64 %63, 1
-  %65 = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %0, i64 %64
-  %66 = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %0, i64 %.0.lcssa
+  %65 = getelementptr inbounds [48 x i8], ptr %0, i64 %64
+  %66 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0.lcssa
   %67 = load ptr, ptr %66, align 8, !tbaa !4
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %69 = icmp eq ptr %67, %68
@@ -9996,7 +9996,7 @@ _ZN7rocksdb3Env14FileAttributesC2EOS1_.exit:      ; preds = %105, %_ZNKSt7__cxx1
   %.010.i = phi i64 [ %.0911.i, %_ZN7rocksdb3Env14FileAttributesaSEOS1_.exit.i ], [ %.1, %_ZN7rocksdb3Env14FileAttributesC2EOS1_.exit ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %117 = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %0, i64 %.0911.i
+  %117 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0911.i
   %.val10.i = load i64, ptr %113, align 8, !tbaa !12
   %118 = getelementptr i8, ptr %117, i64 8
   %.val2.i.i = load i64, ptr %118, align 8, !tbaa !12
@@ -10024,7 +10024,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb18OnDemandFileSystem25GetChildrenF
   br i1 %122, label %123, label %.critedge.i
 
 123:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESH_EEbT_RT0_.exit.i
-  %124 = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %0, i64 %.010.i
+  %124 = getelementptr inbounds [48 x i8], ptr %0, i64 %.010.i
   %125 = load ptr, ptr %124, align 8, !tbaa !4
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %127 = icmp eq ptr %125, %126
@@ -10109,7 +10109,7 @@ _ZN7rocksdb3Env14FileAttributesaSEOS1_.exit.i:    ; preds = %147, %146, %_ZNSt7_
 
 .critedge.i:                                      ; preds = %_ZN7rocksdb3Env14FileAttributesaSEOS1_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESH_EEbT_RT0_.exit.i, %_ZN7rocksdb3Env14FileAttributesC2EOS1_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN7rocksdb3Env14FileAttributesC2EOS1_.exit ], [ %.010.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN7rocksdb18OnDemandFileSystem25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_9IOOptionsEPSt6vectorINS2_3Env14FileAttributesESaISH_EEPNS2_14IODebugContextEE19FileAttributeSorterEclINS_17__normal_iteratorIPSH_SJ_EESH_EEbT_RT0_.exit.i ], [ %.0911.i, %_ZN7rocksdb3Env14FileAttributesaSEOS1_.exit.i ]
-  %152 = getelementptr inbounds %"struct.rocksdb::Env::FileAttributes", ptr %0, i64 %.0.lcssa.i
+  %152 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0.lcssa.i
   %153 = load ptr, ptr %152, align 8, !tbaa !4
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %155 = icmp eq ptr %153, %154
@@ -11106,7 +11106,7 @@ _ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt12_Vector_baseIN7rocksdb3Env14FileAttributesESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %79
   store ptr %23, ptr %0, align 8, !tbaa !141
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !147
-  %83 = getelementptr inbounds nuw %"struct.rocksdb::Env::FileAttributes", ptr %23, i64 %17
+  %83 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %17
   store ptr %83, ptr %78, align 8, !tbaa !148
   ret void
 

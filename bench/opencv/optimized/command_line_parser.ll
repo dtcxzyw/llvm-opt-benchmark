@@ -6,11 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.cv::CommandLineParserParams" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.3", i32, [4 x i8] }>
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -23,6 +18,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::allocator" = type { i8 }
+%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
+%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.cv::CommandLineParserParams" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.3", i32, [4 x i8] }>
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"struct.__gnu_cxx::__ops::_Iter_less_val" = type { i8 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { ptr }
@@ -181,7 +181,7 @@ define void @_ZNK2cv17CommandLineParser9getByNameERKNSt7__cxx1112basic_stringIcS
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.split.us.us
   %.0127.us = phi i64 [ %40, %._crit_edge.split.us.us ], [ 0, %.preheader.lr.ph ]
-  %31 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %23, i64 %.0127.us
+  %31 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %.0127.us
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %34 = load ptr, ptr %33, align 8, !tbaa !18
@@ -203,7 +203,7 @@ define void @_ZNK2cv17CommandLineParser9getByNameERKNSt7__cxx1112basic_stringIcS
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread118.us.us
   %.034125.us.us = phi i64 [ %45, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread118.us.us ], [ 0, %.lr.ph.us.preheader ]
-  %41 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %35, i64 %.034125.us.us
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.034125.us.us
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !24
   %44 = icmp eq i64 %43, 0
@@ -216,7 +216,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge.split
   %.0127 = phi i64 [ %268, %._crit_edge.split ], [ 0, %.preheader.lr.ph ]
-  %46 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %23, i64 %.0127
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %.0127
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %49 = load ptr, ptr %48, align 8, !tbaa !18
@@ -233,7 +233,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread118
   %.034125 = phi i64 [ %267, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread118 ], [ 0, %.lr.ph.preheader ]
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %50, i64 %.034125
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %.034125
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !24
   %58 = icmp eq i64 %.fr131, %57
@@ -1665,7 +1665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   br label %187
 
 133:                                              ; preds = %.preheader
-  %134 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %135 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %134)
           to label %_ZNSirsERd.exit68 unwind label %131
 
@@ -1729,7 +1729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %141
 
 switch.lookup:                                    ; preds = %153
   %156 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cvL8from_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ParamEPv, i64 %156
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cvL8from_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ParamEPv, i64 %156
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN2cvL13get_type_nameENS_5ParamE.exit
 
@@ -1875,7 +1875,7 @@ define void @_ZNK2cv17CommandLineParser10getByIndexEibNS_5ParamEPv(ptr noundef n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %.089 = phi i64 [ %26, %25 ], [ 0, %.lr.ph.preheader ]
-  %27 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %20, i64 %.089
+  %27 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %.089
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %29 = load i32, ptr %28, align 8, !tbaa !70
   %30 = icmp eq i32 %29, %1
@@ -3359,7 +3359,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138: ; preds = %_Z
   %.041332 = phi i32 [ 0, %.lr.ph ], [ %.142, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit169 ]
   %.047331 = phi i64 [ 0, %.lr.ph ], [ %441, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit169 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %336 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %335, i64 %.047331
+  %336 = getelementptr inbounds nuw [32 x i8], ptr %335, i64 %.047331
   invoke void @_ZNK2cv17CommandLineParser4Impl12split_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcb(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.3") align 8 %25, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %336, i8 noundef signext 124, i1 noundef zeroext true)
           to label %337 unwind label %396
 
@@ -3743,7 +3743,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %indvars.iv = phi i64 [ 1, %.lr.ph335 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ]
   %.344334 = phi i32 [ 0, %.lr.ph335 ], [ %.445, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %453 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %453 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %454 = load ptr, ptr %453, align 8, !tbaa !79
   store ptr %321, ptr %29, align 8, !tbaa !26
   %455 = icmp eq ptr %454, null
@@ -4197,7 +4197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222: ; preds = %_Z
   %588 = phi ptr [ %611, %.loopexit.i ], [ %587, %582 ]
   %589 = phi ptr [ %612, %.loopexit.i ], [ %586, %582 ]
   %.01014.i = phi i64 [ %613, %.loopexit.i ], [ 0, %582 ]
-  %590 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %588, i64 %.01014.i
+  %590 = getelementptr inbounds nuw [96 x i8], ptr %588, i64 %.01014.i
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 64
   %592 = getelementptr inbounds nuw i8, ptr %590, i64 72
   %593 = load ptr, ptr %592, align 8, !tbaa !18
@@ -4216,7 +4216,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222: ; preds = %_Z
 
 601:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit.thread.i, %.lr.ph.i
   %.013.i = phi i64 [ 0, %.lr.ph.i ], [ %610, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit.thread.i ]
-  %602 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %594, i64 %.013.i
+  %602 = getelementptr inbounds nuw [32 x i8], ptr %594, i64 %.013.i
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 8
   %604 = load i64, ptr %603, align 8, !tbaa !24
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %604, i64 %599)
@@ -4378,7 +4378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237: ; preds = %_Z
 
 .lr.ph.i242:                                      ; preds = %652, %.lr.ph.preheader.i
   %.05.i = phi i64 [ %653, %652 ], [ 0, %.lr.ph.preheader.i ]
-  %654 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %647, i64 %.05.i
+  %654 = getelementptr inbounds nuw [96 x i8], ptr %647, i64 %.05.i
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 88
   %656 = load i32, ptr %655, align 8, !tbaa !70
   %657 = icmp eq i32 %656, %.344334
@@ -7099,7 +7099,7 @@ define void @_ZN2cv17CommandLineParser4Impl12apply_paramsERKNSt7__cxx1112basic_s
   %9 = phi ptr [ %7, %.preheader.lr.ph ], [ %32, %.loopexit ]
   %10 = phi ptr [ %6, %.preheader.lr.ph ], [ %33, %.loopexit ]
   %.01014 = phi i64 [ 0, %.preheader.lr.ph ], [ %34, %.loopexit ]
-  %11 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %9, i64 %.01014
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %.01014
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %14 = load ptr, ptr %13, align 8, !tbaa !18
@@ -7121,7 +7121,7 @@ define void @_ZN2cv17CommandLineParser4Impl12apply_paramsERKNSt7__cxx1112basic_s
 
 22:                                               ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit.thread
   %.013 = phi i64 [ 0, %.lr.ph ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit.thread ]
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %.013
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %.013
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !24
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %25, i64 %20)
@@ -7187,7 +7187,7 @@ define void @_ZN2cv17CommandLineParser4Impl12apply_paramsEiNSt7__cxx1112basic_st
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %.05 = phi i64 [ %13, %12 ], [ 0, %.lr.ph.preheader ]
-  %14 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %7, i64 %.05
+  %14 = getelementptr inbounds nuw [96 x i8], ptr %7, i64 %.05
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load i32, ptr %15, align 8, !tbaa !70
   %17 = icmp eq i32 %16, %1
@@ -7253,7 +7253,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vecto
 .lr.ph:                                           ; preds = %1, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
   %15 = phi ptr [ %36, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ], [ %5, %1 ]
   %.013 = phi i64 [ %34, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ], [ 0, %1 ]
-  %16 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %15, i64 %.013
+  %16 = getelementptr inbounds nuw [96 x i8], ptr %15, i64 %.013
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !121
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 72
@@ -7593,7 +7593,7 @@ define noundef zeroext i1 @_ZNK2cv17CommandLineParser3hasERKNSt7__cxx1112basic_s
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.split.us.us
   %.01533.us = phi i64 [ %26, %._crit_edge.split.us.us ], [ 0, %.preheader.lr.ph ]
-  %17 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %9, i64 %.01533.us
+  %17 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %.01533.us
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !18
@@ -7615,7 +7615,7 @@ define noundef zeroext i1 @_ZNK2cv17CommandLineParser3hasERKNSt7__cxx1112basic_s
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23.us.us
   %.01631.us.us = phi i64 [ %31, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23.us.us ], [ 0, %.lr.ph.us.preheader ]
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %21, i64 %.01631.us.us
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %.01631.us.us
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !24
   %30 = icmp eq i64 %29, 0
@@ -7628,7 +7628,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge.split
   %.01533 = phi i64 [ %61, %._crit_edge.split ], [ 0, %.preheader.lr.ph ]
-  %32 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %9, i64 %.01533
+  %32 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %.01533
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !18
@@ -7645,7 +7645,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23
   %.01631 = phi i64 [ %60, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread23 ], [ 0, %.lr.ph.preheader ]
-  %41 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %36, i64 %.01631
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.01631
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !24
   %44 = icmp eq i64 %.fr37, %43
@@ -7822,7 +7822,7 @@ define void @_ZNK2cv17CommandLineParser12printMessageEv(ptr noundef nonnull read
   %40 = phi ptr [ %24, %.lr.ph ], [ %71, %70 ]
   %41 = phi ptr [ %28, %.lr.ph ], [ %76, %70 ]
   %.02979 = phi i64 [ 0, %.lr.ph ], [ %72, %70 ]
-  %42 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %41, i64 %.02979
+  %42 = getelementptr inbounds nuw [96 x i8], ptr %41, i64 %.02979
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 88
   %44 = load i32, ptr %43, align 8, !tbaa !70
   %45 = icmp sgt i32 %44, -1
@@ -7933,7 +7933,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %93 = phi ptr [ %31, %.lr.ph86 ], [ %179, %178 ]
   %94 = phi ptr [ %35, %.lr.ph86 ], [ %184, %178 ]
   %.02684 = phi i64 [ 0, %.lr.ph86 ], [ %180, %178 ]
-  %95 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %94, i64 %.02684
+  %95 = getelementptr inbounds nuw [96 x i8], ptr %94, i64 %.02684
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 88
   %97 = load i32, ptr %96, align 8, !tbaa !70
   %98 = icmp eq i32 %97, -1
@@ -7944,7 +7944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %100 = load ptr, ptr %0, align 8, !tbaa !3
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 136
   %102 = load ptr, ptr %101, align 8, !tbaa !12
-  %103 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %102, i64 %.02684
+  %103 = getelementptr inbounds nuw [96 x i8], ptr %102, i64 %.02684
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 64
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 72
   %106 = load ptr, ptr %105, align 8, !tbaa !18
@@ -7968,7 +7968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %111 = phi ptr [ %160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %107, %99 ]
   %.02580 = phi i64 [ %152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ 0, %99 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %112 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %111, i64 %.02580
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %111, i64 %.02580
   store ptr %36, ptr %7, align 8, !tbaa !26
   %113 = load ptr, ptr %112, align 8, !tbaa !13
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -8026,7 +8026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %134 = load ptr, ptr %0, align 8, !tbaa !3
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 136
   %136 = load ptr, ptr %135, align 8, !tbaa !12
-  %137 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %136, i64 %.02684
+  %137 = getelementptr inbounds nuw [96 x i8], ptr %136, i64 %.02684
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 64
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 72
   %140 = load ptr, ptr %139, align 8, !tbaa !18
@@ -8058,7 +8058,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %149
   %153 = load ptr, ptr %0, align 8, !tbaa !3
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 136
   %155 = load ptr, ptr %154, align 8, !tbaa !12
-  %156 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %155, i64 %.02684
+  %156 = getelementptr inbounds nuw [96 x i8], ptr %155, i64 %.02684
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 64
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 72
   %159 = load ptr, ptr %158, align 8, !tbaa !18
@@ -8079,7 +8079,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %149
   %170 = load ptr, ptr %0, align 8, !tbaa !3
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 136
   %172 = load ptr, ptr %171, align 8, !tbaa !12
-  %173 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %172, i64 %.02684
+  %173 = getelementptr inbounds nuw [96 x i8], ptr %172, i64 %.02684
   %174 = load ptr, ptr %173, align 8, !tbaa !13
   %175 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %174)
   %176 = load ptr, ptr %8, align 8, !tbaa !13
@@ -8116,7 +8116,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %169
   %191 = phi ptr [ %82, %.lr.ph90 ], [ %287, %286 ]
   %192 = phi ptr [ %86, %.lr.ph90 ], [ %292, %286 ]
   %.088 = phi i64 [ 0, %.lr.ph90 ], [ %288, %286 ]
-  %193 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %192, i64 %.088
+  %193 = getelementptr inbounds nuw [96 x i8], ptr %192, i64 %.088
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 88
   %195 = load i32, ptr %194, align 8, !tbaa !70
   %.not = icmp eq i32 %195, -1
@@ -8128,7 +8128,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %169
   %197 = load ptr, ptr %0, align 8, !tbaa !3
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 136
   %199 = load ptr, ptr %198, align 8, !tbaa !12
-  %200 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %199, i64 %.088
+  %200 = getelementptr inbounds nuw [96 x i8], ptr %199, i64 %.088
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 64
   %202 = load ptr, ptr %201, align 8, !tbaa !21
   store ptr %87, ptr %9, align 8, !tbaa !26
@@ -8312,7 +8312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   %258 = load ptr, ptr %0, align 8, !tbaa !3
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 136
   %260 = load ptr, ptr %259, align 8, !tbaa !12
-  %261 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %260, i64 %.088
+  %261 = getelementptr inbounds nuw [96 x i8], ptr %260, i64 %.088
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 32
   %.val = load ptr, ptr %262, align 8
   %263 = getelementptr i8, ptr %261, i64 40
@@ -8355,7 +8355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   %273 = load ptr, ptr %0, align 8, !tbaa !3
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 136
   %275 = load ptr, ptr %274, align 8, !tbaa !12
-  %276 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %275, i64 %.088
+  %276 = getelementptr inbounds nuw [96 x i8], ptr %275, i64 %.088
   %277 = load ptr, ptr %276, align 8, !tbaa !13
   %278 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %277)
   %279 = load ptr, ptr %11, align 8, !tbaa !13
@@ -8961,7 +8961,7 @@ _ZNSt12_Vector_baseIN2cv23CommandLineParserParamsESaIS1_EE13_M_deallocateEPS1_m.
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !12
   store ptr %.0.lcssa.i.i.i.i39, ptr %4, align 8, !tbaa !9
-  %109 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %20, i64 %16
+  %109 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %109, ptr %108, align 8, !tbaa !88
   ret void
 
@@ -9338,7 +9338,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIc
 
 21:                                               ; preds = %13
   %22 = lshr i64 %14, 1
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %storemerge14, i64 -32
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_SF_SF_T0_(ptr %0, ptr nonnull %11, ptr %23, ptr nonnull %24)
   br label %25
@@ -9449,7 +9449,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %11
   %.08 = phi i64 [ %13, %11 ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.08
+  %19 = getelementptr inbounds [32 x i8], ptr %0, i64 %.08
   store ptr %14, ptr %4, align 8, !tbaa !26
   %20 = load ptr, ptr %19, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -9741,9 +9741,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %.047 = phi i64 [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %1, %4 ]
   %10 = shl i64 %.047, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9770,8 +9770,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   %.0.i.i.i = phi i32 [ %22, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %.0.i6.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i ]
   %24 = icmp slt i32 %.0.i.i.i, 0
   %spec.select = select i1 %24, i64 %13, i64 %11
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %spec.select
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.047
+  %25 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select
+  %26 = getelementptr inbounds [32 x i8], ptr %0, i64 %.047
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = icmp eq ptr %27, %28
@@ -9873,8 +9873,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %33
 65:                                               ; preds = %61
   %66 = shl nsw i64 %.0.lcssa, 1
   %67 = or disjoint i64 %66, 1
-  %68 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %67
-  %69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0.lcssa
+  %68 = getelementptr inbounds [32 x i8], ptr %0, i64 %67
+  %69 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %70 = load ptr, ptr %69, align 8, !tbaa !13
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %72 = icmp eq ptr %70, %71
@@ -10040,7 +10040,7 @@ define linkonce_odr hidden void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iterato
   %.027 = phi i64 [ %1, %.lr.ph ], [ %.0928, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ]
   %.0928.in = add nsw i64 %.027, -1
   %.0928 = sdiv i64 %.0928.in, 2
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0928
+  %9 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0928
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !24
   %12 = load i64, ptr %7, align 8, !tbaa !24
@@ -10068,7 +10068,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basi
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.027
+  %20 = getelementptr inbounds [32 x i8], ptr %0, i64 %.027
   %21 = load ptr, ptr %20, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = icmp eq ptr %21, %22
@@ -10150,7 +10150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %27
 
 .critedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0928, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %.027, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit ]
-  %46 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0.lcssa
+  %46 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %47 = load ptr, ptr %46, align 8, !tbaa !13
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = icmp eq ptr %47, %48
@@ -10936,7 +10936,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserPara
 30:                                               ; preds = %22
   %31 = add nsw i64 %.019, -1
   %32 = udiv i64 %23, 192
-  %33 = getelementptr inbounds nuw %"struct.cv::CommandLineParserParams", ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [96 x i8], ptr %0, i64 %32
   %34 = getelementptr inbounds i8, ptr %storemerge18, i64 -96
   %35 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(92) %12, ptr noundef nonnull align 8 dereferenceable(92) %33)
   br i1 %35, label %36, label %38
@@ -11163,7 +11163,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 32:                                               ; preds = %_ZN2cv23CommandLineParserParamsD2Ev.exit32, %11
   %.010 = phi i64 [ %13, %11 ], [ %90, %_ZN2cv23CommandLineParserParamsD2Ev.exit32 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %33 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %0, i64 %.010
+  %33 = getelementptr inbounds [96 x i8], ptr %0, i64 %.010
   %34 = load ptr, ptr %33, align 8, !tbaa !13
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = icmp eq ptr %34, %35
@@ -11714,13 +11714,13 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %.037 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %5 ]
   %10 = shl i64 %.037, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %0, i64 %11
+  %12 = getelementptr inbounds [96 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %0, i64 %13
+  %14 = getelementptr inbounds [96 x i8], ptr %0, i64 %13
   %15 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(92) %12, ptr noundef nonnull align 8 dereferenceable(92) %14)
   %spec.select = select i1 %15, i64 %13, i64 %11
-  %16 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %0, i64 %spec.select
-  %17 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %0, i64 %.037
+  %16 = getelementptr inbounds [96 x i8], ptr %0, i64 %spec.select
+  %17 = getelementptr inbounds [96 x i8], ptr %0, i64 %.037
   %18 = tail call noundef nonnull align 8 dereferenceable(92) ptr @_ZN2cv23CommandLineParserParamsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(92) %17, ptr noundef nonnull align 8 dereferenceable(92) %16) #30
   %19 = icmp slt i64 %spec.select, %8
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !173
@@ -11740,8 +11740,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
 26:                                               ; preds = %22
   %27 = shl nsw i64 %.0.lcssa, 1
   %28 = or disjoint i64 %27, 1
-  %29 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %0, i64 %28
-  %30 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %0, i64 %.0.lcssa
+  %29 = getelementptr inbounds [96 x i8], ptr %0, i64 %28
+  %30 = getelementptr inbounds [96 x i8], ptr %0, i64 %.0.lcssa
   %31 = tail call noundef nonnull align 8 dereferenceable(92) ptr @_ZN2cv23CommandLineParserParamsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(92) %30, ptr noundef nonnull align 8 dereferenceable(92) %29) #30
   br label %32
 
@@ -11837,7 +11837,7 @@ _ZN2cv23CommandLineParserParamsC2EOS0_.exit:      ; preds = %52, %_ZNKSt7__cxx11
   %.018.i = phi i64 [ %.0919.i, %76 ], [ %.1, %_ZN2cv23CommandLineParserParamsC2EOS0_.exit ]
   %.0919.in.i = add nsw i64 %.018.i, -1
   %.0919.i = sdiv i64 %.0919.in.i, 2
-  %74 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %0, i64 %.0919.i
+  %74 = getelementptr inbounds [96 x i8], ptr %0, i64 %.0919.i
   %75 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(92) %74, ptr noundef nonnull align 8 dereferenceable(92) %6)
           to label %.noexc unwind label %94
 
@@ -11845,14 +11845,14 @@ _ZN2cv23CommandLineParserParamsC2EOS0_.exit:      ; preds = %52, %_ZNKSt7__cxx11
   br i1 %75, label %76, label %.loopexit
 
 76:                                               ; preds = %.noexc
-  %77 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %0, i64 %.018.i
+  %77 = getelementptr inbounds [96 x i8], ptr %0, i64 %.018.i
   %78 = call noundef nonnull align 8 dereferenceable(92) ptr @_ZN2cv23CommandLineParserParamsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(92) %77, ptr noundef nonnull align 8 dereferenceable(92) %74) #30
   %79 = icmp sgt i64 %.0919.i, %1
   br i1 %79, label %.lr.ph.i, label %.loopexit, !llvm.loop !174
 
 .loopexit:                                        ; preds = %76, %.noexc, %_ZN2cv23CommandLineParserParamsC2EOS0_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN2cv23CommandLineParserParamsC2EOS0_.exit ], [ %.018.i, %.noexc ], [ %.0919.i, %76 ]
-  %80 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %0, i64 %.0.lcssa.i
+  %80 = getelementptr inbounds [96 x i8], ptr %0, i64 %.0.lcssa.i
   %81 = call noundef nonnull align 8 dereferenceable(92) ptr @_ZN2cv23CommandLineParserParamsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(92) %80, ptr noundef nonnull align 8 dereferenceable(92) %6) #30
   %82 = load ptr, ptr %61, align 8, !tbaa !21
   %83 = load ptr, ptr %64, align 8, !tbaa !18
@@ -12830,7 +12830,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !21
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !18
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !86
   ret void
 

@@ -3319,7 +3319,7 @@ _ZNSt6vectorIxSaIxEE11_S_relocateEPxS2_S2_RS0_.exit16.i.i: ; preds = %46, %.noex
 
 _ZNSt6vectorIxSaIxEE17_M_realloc_insertIJRKxEEEvN9__gnu_cxx17__normal_iteratorIPxS1_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorIxSaIxEE11_S_relocateEPxS2_S2_RS0_.exit16.i.i
   store ptr %47, ptr %9, align 8, !tbaa !66
-  %49 = getelementptr inbounds nuw i64, ptr %43, i64 %41
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   store ptr %49, ptr %10, align 8, !tbaa !70
   br label %_ZNSt6vectorIxSaIxEE9push_backERKx.exit
 
@@ -4208,7 +4208,7 @@ define noundef zeroext i1 @_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb(ptr noundef 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %26
   %.039132.us = phi i64 [ %25, %26 ], [ -1, %.lr.ph ]
   %.064131.us = phi i64 [ %27, %26 ], [ 0, %.lr.ph ]
-  %21 = getelementptr inbounds nuw i64, ptr %16, i64 %.064131.us
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.064131.us
   %22 = load i64, ptr %21, align 8, !tbaa !10
   %23 = icmp slt i64 %22, 1
   br i1 %23, label %.split.us, label %24
@@ -4226,7 +4226,7 @@ define noundef zeroext i1 @_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb(ptr noundef 
 .lr.ph.split:                                     ; preds = %.lr.ph, %114
   %.039132 = phi i64 [ %30, %114 ], [ -1, %.lr.ph ]
   %.064131 = phi i64 [ %115, %114 ], [ 0, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i64, ptr %16, i64 %.064131
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.064131
   %29 = load i64, ptr %28, align 8, !tbaa !10
   %30 = add i64 %29, %.neg
   %.not = icmp sgt i64 %30, %.039132
@@ -4257,7 +4257,7 @@ define noundef zeroext i1 @_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb(ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %35 = load ptr, ptr %0, align 8, !tbaa !69
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %.064131.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.064131.us
   invoke void @_ZN6casadi3strIxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %36)
           to label %37 unwind label %47
 
@@ -4539,7 +4539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
 
 .lr.ph140:                                        ; preds = %.lr.ph140, %.lr.ph140.preheader
   %.0139 = phi i64 [ %133, %.lr.ph140 ], [ 2, %.lr.ph140.preheader ]
-  %128 = getelementptr inbounds nuw i64, ptr %16, i64 %.0139
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0139
   %129 = load i64, ptr %128, align 8, !tbaa !10
   %130 = add i64 %129, %.neg144
   %131 = mul nsw i64 %.0139, %127
@@ -4583,7 +4583,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
 .lr.ph.split.i:                                   ; preds = %1, %21
   %.039132.i = phi i64 [ %20, %21 ], [ -1, %1 ]
   %.064131.i = phi i64 [ %22, %21 ], [ 0, %1 ]
-  %19 = getelementptr inbounds nuw i64, ptr %14, i64 %.064131.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.064131.i
   %20 = load i64, ptr %19, align 8, !tbaa !10
   %.not.i = icmp sgt i64 %20, %.039132.i
   br i1 %.not.i, label %21, label %.lr.ph.preheader
@@ -4620,7 +4620,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
 
 .lr.ph140.i:                                      ; preds = %31, %.lr.ph140.preheader.i
   %.0139.i = phi i64 [ %32, %31 ], [ 2, %.lr.ph140.preheader.i ]
-  %33 = getelementptr inbounds nuw i64, ptr %14, i64 %.0139.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0139.i
   %34 = load i64, ptr %33, align 8, !tbaa !10
   %35 = mul nsw i64 %.0139.i, %30
   %36 = add nsw i64 %35, %26
@@ -4638,7 +4638,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %.087171 = phi i64 [ %40, %37 ], [ -1, %.lr.ph.preheader ]
   %.088170 = phi i64 [ %38, %37 ], [ 0, %.lr.ph.preheader ]
-  %39 = getelementptr inbounds nuw i64, ptr %14, i64 %.088170
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.088170
   %40 = load i64, ptr %39, align 8, !tbaa !10
   %.not = icmp sgt i64 %40, %.087171
   br i1 %.not, label %37, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread
@@ -4660,7 +4660,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
   %.083172 = phi i64 [ %47, %46 ], [ 2, %.critedge ]
   %48 = mul nsw i64 %.083172, %44
   %49 = add nsw i64 %48, %41
-  %50 = getelementptr inbounds nuw i64, ptr %14, i64 %.083172
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.083172
   %51 = load i64, ptr %50, align 8, !tbaa !10
   %.not98 = icmp eq i64 %51, %49
   br i1 %.not98, label %46, label %52
@@ -5221,7 +5221,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
 .lr.ph.split.i:                                   ; preds = %82, %92
   %.039132.i = phi i64 [ %91, %92 ], [ -1, %82 ]
   %.064131.i = phi i64 [ %93, %92 ], [ 0, %82 ]
-  %90 = getelementptr inbounds nuw i64, ptr %85, i64 %.064131.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.064131.i
   %91 = load i64, ptr %90, align 8, !tbaa !10
   %.not.i = icmp sgt i64 %91, %.039132.i
   br i1 %.not.i, label %92, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread78
@@ -5254,7 +5254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
 
 .lr.ph140.i:                                      ; preds = %101, %.lr.ph140.preheader.i
   %.0139.i = phi i64 [ %102, %101 ], [ 2, %.lr.ph140.preheader.i ]
-  %103 = getelementptr inbounds nuw i64, ptr %85, i64 %.0139.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.0139.i
   %104 = load i64, ptr %103, align 8, !tbaa !10
   %105 = mul nsw i64 %.0139.i, %100
   %106 = add nsw i64 %105, %97
@@ -5299,7 +5299,7 @@ _ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread78: ; preds = %.lr.ph.split.
   %.02085 = phi i64 [ %123, %.critedge ], [ 2, %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread78 ]
   %119 = mul nsw i64 %.02085, %115
   %120 = add nsw i64 %119, %112
-  %121 = getelementptr inbounds nuw i64, ptr %85, i64 %.02085
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.02085
   %122 = load i64, ptr %121, align 8, !tbaa !10
   %.not = icmp eq i64 %122, %120
   br i1 %.not, label %.critedge, label %.loopexit
@@ -5314,7 +5314,7 @@ _ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread78: ; preds = %.lr.ph.split.
   br label %129
 
 .loopexit:                                        ; preds = %.lr.ph
-  %125 = getelementptr inbounds nuw i64, ptr %85, i64 %.02085
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.02085
   store i64 %120, ptr %117, align 8, !tbaa !8
   %126 = load i64, ptr %125, align 8, !tbaa !10
   %127 = sub nsw i64 %126, %112

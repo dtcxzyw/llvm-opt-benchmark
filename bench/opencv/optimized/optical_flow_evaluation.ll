@@ -45,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.24" = type { i8 }
-%"class.cv::Point_.23" = type { float, float }
 %"struct.cv::Ptr.36" = type { %"class.std::shared_ptr.37" }
 %"class.std::shared_ptr.37" = type { %"class.std::__shared_ptr.38" }
 %"class.std::__shared_ptr.38" = type { ptr, %"class.std::__shared_count" }
@@ -4910,9 +4909,9 @@ define internal fastcc void @_ZL13endpointErrorRKN2cv4Mat_INS_6Point_IfEEEES5_(p
 
 36:                                               ; preds = %.preheader.us, %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us ]
-  %37 = getelementptr inbounds nuw %"class.cv::Point_.23", ptr %31, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %38 = load <2 x float>, ptr %37, align 4
-  %39 = getelementptr inbounds nuw %"class.cv::Point_.23", ptr %33, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %40 = load <2 x float>, ptr %39, align 4
   %.sroa.0.0.vec.extract.i.us = extractelement <2 x float> %38, i64 0
   %41 = fcmp ord float %.sroa.0.0.vec.extract.i.us, 0.000000e+00
@@ -4955,7 +4954,7 @@ define internal fastcc void @_ZL13endpointErrorRKN2cv4Mat_INS_6Point_IfEEEES5_(p
 
 _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %42, %47, %49, %54
   %sqrt.us.sink = phi float [ %sqrt.us, %54 ], [ 0x7FF8000000000000, %49 ], [ 0x7FF8000000000000, %47 ], [ 0x7FF8000000000000, %42 ], [ 0x7FF8000000000000, %36 ]
-  %62 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   store float %sqrt.us.sink, ptr %62, align 4, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5036,11 +5035,11 @@ define internal fastcc void @_ZL12angularErrorRKN2cv4Mat_INS_6Point_IfEEEES5_(pt
 40:                                               ; preds = %.lr.ph, %87
   %41 = phi i32 [ %26, %.lr.ph ], [ %88, %87 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
-  %42 = getelementptr inbounds nuw %"class.cv::Point_.23", ptr %31, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %.sroa.08.0.copyload = load float, ptr %42, align 4, !tbaa !113
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 4
   %.sroa.49.0.copyload = load float, ptr %.sroa.49.0..sroa_idx, align 4, !tbaa !113
-  %43 = getelementptr inbounds nuw %"class.cv::Point_.23", ptr %34, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %.sroa.07.0.copyload = load float, ptr %43, align 4, !tbaa !113
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !113
@@ -5094,7 +5093,7 @@ _Z13isFlowCorrectN2cv7Point3_IfEE.exit32:         ; preds = %53
   %77 = load i64, ptr %76, align 8, !tbaa !10
   %78 = mul i64 %77, %indvars.iv59
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 %78
-  %80 = getelementptr inbounds nuw float, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv
   store float %74, ptr %80, align 4, !tbaa !113
   %.pre = load i32, ptr %12, align 4, !tbaa !111
   br label %87
@@ -5105,7 +5104,7 @@ _Z13isFlowCorrectN2cv7Point3_IfEE.exit.thread:    ; preds = %53, %46, %40
   %83 = load i64, ptr %82, align 8, !tbaa !10
   %84 = mul i64 %83, %indvars.iv59
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 %84
-  %86 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv
   store float 0x7FF8000000000000, ptr %86, align 4, !tbaa !113
   br label %87
 
@@ -5554,7 +5553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %110
 143:                                              ; preds = %125, %209
   %indvars.iv = phi i64 [ 0, %125 ], [ %indvars.iv.next, %209 ]
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(96) %0)
-  %144 = getelementptr inbounds nuw float, ptr @__const._ZL14calculateStatsN2cv3MatES0_b.R_thresholds, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZL14calculateStatsN2cv3MatES0_b.R_thresholds, i64 %indvars.iv
   %145 = load float, ptr %144, align 4, !tbaa !113
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull align 8 dereferenceable(96) %1)
           to label %146 unwind label %215
@@ -5657,7 +5656,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %163
   %188 = load i64, ptr %180, align 8, !tbaa !10
   %189 = mul i64 %188, %indvars.iv55.i
   %190 = getelementptr inbounds nuw i8, ptr %179, i64 %189
-  %191 = getelementptr inbounds nuw float, ptr %190, i64 %indvars.iv.i
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %indvars.iv.i
   %192 = load float, ptr %191, align 4, !tbaa !113
   %193 = fcmp ogt float %192, %145
   br i1 %193, label %194, label %196
@@ -5859,7 +5858,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %2
 
 251:                                              ; preds = %239, %_ZL7stat_AXN2cv3MatEif.exit
   %indvars.iv106 = phi i64 [ 0, %239 ], [ %indvars.iv.next107, %_ZL7stat_AXN2cv3MatEif.exit ]
-  %252 = getelementptr inbounds nuw float, ptr @__const._ZL14calculateStatsN2cv3MatES0_b.A_thresholds, i64 %indvars.iv106
+  %252 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZL14calculateStatsN2cv3MatES0_b.A_thresholds, i64 %indvars.iv106
   %253 = load float, ptr %252, align 4, !tbaa !113
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %35, ptr noundef nonnull align 8 dereferenceable(96) %27)
           to label %254 unwind label %285

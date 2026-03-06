@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
 %class.NativeCallStack = type { [4 x ptr] }
-%class.JfrHashtableBucket = type { ptr }
-%class.JfrHashtableBucket.31 = type { ptr }
 
 $_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS2_ = comdat any
 
@@ -250,7 +248,7 @@ define hidden void @_ZN14JfrSymbolTableD2Ev(ptr noundef nonnull align 8 captures
 8:                                                ; preds = %._crit_edge.i.i, %.lr.ph14.i.i
   %.012.i.i = phi i64 [ 0, %.lr.ph14.i.i ], [ %17, %._crit_edge.i.i ]
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %class.JfrHashtableBucket, ptr %9, i64 %.012.i.i
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %.012.i.i
   %11 = load ptr, ptr %10, align 8
   %.not10.i.i = icmp eq ptr %11, null
   br i1 %.not10.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -301,7 +299,7 @@ _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EED2Ev.exit: ; pred
 29:                                               ; preds = %._crit_edge.i.i10, %.lr.ph14.i.i4
   %.012.i.i5 = phi i64 [ 0, %.lr.ph14.i.i4 ], [ %40, %._crit_edge.i.i10 ]
   %30 = load ptr, ptr %23, align 8
-  %31 = getelementptr inbounds %class.JfrHashtableBucket.31, ptr %30, i64 %.012.i.i5
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %.012.i.i5
   %32 = load ptr, ptr %31, align 8
   %.not10.i.i6 = icmp eq ptr %32, null
   br i1 %.not10.i.i6, label %._crit_edge.i.i10, label %.lr.ph.i.i7
@@ -365,7 +363,7 @@ define hidden void @_ZN14JfrSymbolTable5clearEv(ptr noundef nonnull align 8 capt
 .lr.ph14.i:                                       ; preds = %5, %._crit_edge.i
   %.012.i = phi i64 [ %16, %._crit_edge.i ], [ 0, %5 ]
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %class.JfrHashtableBucket, ptr %8, i64 %.012.i
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %.012.i
   %10 = load ptr, ptr %9, align 8
   %.not10.i = icmp eq ptr %10, null
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
@@ -408,7 +406,7 @@ _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv
 .lr.ph14.i2:                                      ; preds = %23, %._crit_edge.i8
   %.012.i3 = phi i64 [ %36, %._crit_edge.i8 ], [ 0, %23 ]
   %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds %class.JfrHashtableBucket.31, ptr %26, i64 %.012.i3
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %.012.i3
   %28 = load ptr, ptr %27, align 8
   %.not10.i4 = icmp eq ptr %28, null
   br i1 %.not10.i4, label %._crit_edge.i8, label %.lr.ph.i5
@@ -678,7 +676,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(43) ptr @_ZN1
   %5 = load i64, ptr %4, align 8
   %6 = urem i64 %1, %5
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds %class.JfrHashtableBucket, ptr %7, i64 %6
+  %8 = getelementptr inbounds [8 x i8], ptr %7, i64 %6
   %9 = load volatile ptr, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   %.not11.i = icmp eq ptr %9, null
@@ -750,12 +748,12 @@ _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE3putEmRKS2_.exit:
   store ptr %46, ptr %47, align 8
   store ptr %24, ptr %45, align 8
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds %class.JfrHashtableBucket, ptr %48, i64 %32
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %32
   %50 = load volatile ptr, ptr %49, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   store ptr %50, ptr %24, align 8
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds %class.JfrHashtableBucket, ptr %51, i64 %32
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   store volatile ptr %24, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -806,7 +804,7 @@ _ZL11string_hashPKc.exit:                         ; preds = %3, %_ZN16java_lang_
   %20 = load i64, ptr %19, align 8
   %21 = urem i64 %.0.lcssa.i.i, %20
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds nuw %class.JfrHashtableBucket.31, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load volatile ptr, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   %.not11.i.i.i = icmp eq ptr %24, null
@@ -882,7 +880,7 @@ define hidden noundef i64 @_ZN14JfrSymbolTable4markEmPKcb(ptr noundef nonnull al
   %10 = load i64, ptr %9, align 8
   %11 = urem i64 %1, %10
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds %class.JfrHashtableBucket.31, ptr %12, i64 %11
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %11
   %14 = load volatile ptr, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   %.not11.i.i = icmp eq ptr %14, null
@@ -1091,7 +1089,7 @@ _ZL26create_hidden_klass_symbolPK13InstanceKlassm.exit: ; preds = %_ZN14JfrSymbo
   %50 = load i64, ptr %49, align 8
   %51 = urem i64 %.0.i.i, %50
   %52 = load ptr, ptr %48, align 8
-  %53 = getelementptr inbounds %class.JfrHashtableBucket.31, ptr %52, i64 %51
+  %53 = getelementptr inbounds [8 x i8], ptr %52, i64 %51
   %54 = load volatile ptr, ptr %53, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   %.not11.i.i.i = icmp eq ptr %54, null
@@ -1418,7 +1416,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm544836EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #15
@@ -1469,7 +1467,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %17 = lshr i64 %15, %16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %17
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
   %.not.i25.i.i = icmp ult ptr %3, %21
   br i1 %.not.i25.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread.i.i
@@ -1489,7 +1487,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i: ; preds = %11
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = lshr i64 %30, 6
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %32, %37
   %.not32.i.i = icmp eq i64 %38, 0
@@ -1709,7 +1707,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -1723,7 +1721,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -1763,7 +1761,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
   %41 = lshr i64 %40, 21
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   %45 = load volatile ptr, ptr %44, align 8
   %.not.i6.i.i = icmp eq ptr %45, null
   %46 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1789,7 +1787,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -1868,7 +1866,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %17 = lshr i64 %15, %16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %17
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
   %.not.i25.i.i = icmp ult ptr %3, %21
   br i1 %.not.i25.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread.i.i
@@ -1888,7 +1886,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i: ; preds = %11
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = lshr i64 %30, 6
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %32, %37
   %.not32.i.i = icmp eq i64 %38, 0
@@ -2044,12 +2042,12 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE9new_entryEmRKS1_.exit:
   store ptr %31, ptr %32, align 8
   store ptr %4, ptr %30, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds %class.JfrHashtableBucket.31, ptr %33, i64 %13
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %13
   %35 = load volatile ptr, ptr %34, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   store ptr %35, ptr %4, align 8
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds %class.JfrHashtableBucket.31, ptr %36, i64 %13
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   store volatile ptr %4, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24

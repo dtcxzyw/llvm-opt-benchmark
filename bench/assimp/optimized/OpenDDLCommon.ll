@@ -273,10 +273,10 @@ define hidden void @_ZN10ODDLParser9ReferenceC2EmPPNS_4NameE(ptr noundef nonnull
 
 10:                                               ; preds = %5, %10
   %.010 = phi i64 [ 0, %5 ], [ %15, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %.010
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.010
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.010
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.010
   store ptr %12, ptr %14, align 8
   %15 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %15, %1
@@ -307,7 +307,7 @@ define hidden void @_ZN10ODDLParser9ReferenceC2ERKS0_(ptr noundef nonnull align 
   %.011 = phi i64 [ 0, %.lr.ph ], [ %36, %32 ]
   %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #11
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.011
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.011
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %11, align 8
@@ -351,7 +351,7 @@ define hidden void @_ZN10ODDLParser9ReferenceC2ERKS0_(ptr noundef nonnull align 
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %16, ptr %33, align 8
   %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.011
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.011
   store ptr %11, ptr %35, align 8
   %36 = add nuw i64 %.011, 1
   %37 = load i64, ptr %0, align 8
@@ -393,7 +393,7 @@ define hidden void @_ZN10ODDLParser9ReferenceD2Ev(ptr noundef nonnull align 8 ca
   %8 = phi i64 [ %2, %.lr.ph ], [ %23, %22 ]
   %.05 = phi i64 [ 0, %.lr.ph ], [ %24, %22 ]
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.05
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.05
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %22, label %13
@@ -452,7 +452,7 @@ define hidden noundef i64 @_ZN10ODDLParser9Reference11sizeInBytesEv(ptr noundef 
 6:                                                ; preds = %.preheader, %15
   %.0812 = phi i64 [ 0, %.preheader ], [ %16, %15 ]
   %.0911 = phi i64 [ 0, %.preheader ], [ %.1, %15 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0812
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0812
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %15, label %9
@@ -541,7 +541,7 @@ _ZN10ODDLParser4TextD2Ev.exit:                    ; preds = %4, %8
   %23 = phi i64 [ %17, %.lr.ph.i ], [ %38, %37 ]
   %.05.i = phi i64 [ 0, %.lr.ph.i ], [ %39, %37 ]
   %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.05.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.05.i
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %37, label %28
@@ -658,7 +658,7 @@ define hidden void @_ZN10ODDLParser13DataArrayListD2Ev(ptr noundef nonnull reado
   %20 = phi i64 [ %14, %.lr.ph.i ], [ %35, %34 ]
   %.05.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %34 ]
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.05.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.05.i
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %34, label %25

@@ -2140,10 +2140,10 @@ switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !20
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !20
   %8 = zext nneg i16 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11ruff_linter8registry42_$LT$impl$u20$ruff_linter..codes..Rule$GT$3url17h79c61e8b570188f1E", i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN11ruff_linter8registry42_$LT$impl$u20$ruff_linter..codes..Rule$GT$3url17h79c61e8b570188f1E", i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = zext nneg i16 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11ruff_linter8registry42_$LT$impl$u20$ruff_linter..codes..Rule$GT$3url17h79c61e8b570188f1E.25", i64 %9
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN11ruff_linter8registry42_$LT$impl$u20$ruff_linter..codes..Rule$GT$3url17h79c61e8b570188f1E.25", i64 %9
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   store ptr %switch.load2, ptr %4, align 8, !noalias !20
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -11541,7 +11541,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZN11ruff_linter5codes14R
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !32, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11ruff_linter5codes14RuleCodePrefix6linter17h5abfb07640614cf5E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11ruff_linter5codes14RuleCodePrefix6linter17h5abfb07640614cf5E, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -11627,7 +11627,7 @@ switch.lookup:                                    ; preds = %1
   %narrow201 = add nuw nsw i8 %9, 1
   %switch.offset = zext nneg i8 %narrow201 to i64
   %10 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11635,10 +11635,10 @@ switch.lookup71:                                  ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1, !range !37, !alias.scope !38, !noundef !3
   %13 = zext nneg i8 %12 to i64
-  %switch.gep72 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %13
+  %switch.gep72 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %13
   %switch.load73 = load i64, ptr %switch.gep72, align 8
   %14 = zext nneg i8 %12 to i64
-  %switch.gep74 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %14
+  %switch.gep74 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %14
   %switch.load75 = load ptr, ptr %switch.gep74, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11676,7 +11676,7 @@ switch.lookup76:                                  ; preds = %1
   %narrow200 = add nuw nsw i8 %36, 1
   %switch.offset78 = zext nneg i8 %narrow200 to i64
   %37 = zext nneg i8 %36 to i64
-  %switch.gep79 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %37
+  %switch.gep79 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %37
   %switch.load80 = load ptr, ptr %switch.gep79, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11684,10 +11684,10 @@ switch.lookup81:                                  ; preds = %1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %39 = load i8, ptr %38, align 1, !range !37, !alias.scope !44, !noundef !3
   %40 = zext nneg i8 %39 to i64
-  %switch.gep82 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %40
+  %switch.gep82 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %40
   %switch.load83 = load i64, ptr %switch.gep82, align 8
   %41 = zext nneg i8 %39 to i64
-  %switch.gep84 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %41
+  %switch.gep84 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %41
   %switch.load85 = load ptr, ptr %switch.gep84, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11702,10 +11702,10 @@ switch.lookup86:                                  ; preds = %1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %48 = load i8, ptr %47, align 1, !range !47, !alias.scope !48, !noundef !3
   %49 = zext nneg i8 %48 to i64
-  %switch.gep87 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E", i64 %49
+  %switch.gep87 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E", i64 %49
   %switch.load88 = load i64, ptr %switch.gep87, align 8
   %50 = zext nneg i8 %48 to i64
-  %switch.gep89 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E.87", i64 %50
+  %switch.gep89 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E.87", i64 %50
   %switch.load90 = load ptr, ptr %switch.gep89, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11713,10 +11713,10 @@ switch.lookup91:                                  ; preds = %1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %52 = load i8, ptr %51, align 1, !range !37, !alias.scope !51, !noundef !3
   %53 = zext nneg i8 %52 to i64
-  %switch.gep92 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %53
+  %switch.gep92 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %53
   %switch.load93 = load i64, ptr %switch.gep92, align 8
   %54 = zext nneg i8 %52 to i64
-  %switch.gep94 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Commas$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hccaa7e5e3fdf2385E.89", i64 %54
+  %switch.gep94 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Commas$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hccaa7e5e3fdf2385E.89", i64 %54
   %switch.load95 = load ptr, ptr %switch.gep94, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11733,7 +11733,7 @@ switch.lookup96:                                  ; preds = %1
   %narrow199 = add nuw nsw i8 %61, 1
   %switch.offset98 = zext nneg i8 %narrow199 to i64
   %62 = zext nneg i8 %61 to i64
-  %switch.gep99 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %62
+  %switch.gep99 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %62
   %switch.load100 = load ptr, ptr %switch.gep99, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11755,10 +11755,10 @@ switch.lookup101:                                 ; preds = %1
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %74 = load i8, ptr %73, align 1, !range !37, !alias.scope !57, !noundef !3
   %75 = zext nneg i8 %74 to i64
-  %switch.gep102 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %75
+  %switch.gep102 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %75
   %switch.load103 = load i64, ptr %switch.gep102, align 8
   %76 = zext nneg i8 %74 to i64
-  %switch.gep104 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8ErrMsg$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h8e26c335d2b3da7dE.97", i64 %76
+  %switch.gep104 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8ErrMsg$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h8e26c335d2b3da7dE.97", i64 %76
   %switch.load105 = load ptr, ptr %switch.gep104, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11766,10 +11766,10 @@ switch.lookup106:                                 ; preds = %1
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %78 = load i8, ptr %77, align 1, !range !60, !alias.scope !61, !noundef !3
   %79 = zext nneg i8 %78 to i64
-  %switch.gep107 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %79
+  %switch.gep107 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %79
   %switch.load108 = load i64, ptr %switch.gep107, align 8
   %80 = zext nneg i8 %78 to i64
-  %switch.gep109 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %80
+  %switch.gep109 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %80
   %switch.load110 = load ptr, ptr %switch.gep109, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11777,10 +11777,10 @@ switch.lookup111:                                 ; preds = %1
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %82 = load i8, ptr %81, align 1, !range !64, !alias.scope !65, !noundef !3
   %83 = zext nneg i8 %82 to i64
-  %switch.gep112 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E", i64 %83
+  %switch.gep112 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E", i64 %83
   %switch.load113 = load i64, ptr %switch.gep112, align 8
   %84 = zext nneg i8 %82 to i64
-  %switch.gep114 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E.101", i64 %84
+  %switch.gep114 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E.101", i64 %84
   %switch.load115 = load ptr, ptr %switch.gep114, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11788,10 +11788,10 @@ switch.lookup116:                                 ; preds = %1
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %86 = load i8, ptr %85, align 1, !range !68, !alias.scope !69, !noundef !3
   %87 = zext nneg i8 %86 to i64
-  %switch.gep117 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %87
+  %switch.gep117 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %87
   %switch.load118 = load i64, ptr %switch.gep117, align 8
   %88 = zext nneg i8 %86 to i64
-  %switch.gep119 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8FutureAnnotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2a65dd4fb39cf010E.103", i64 %88
+  %switch.gep119 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8FutureAnnotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2a65dd4fb39cf010E.103", i64 %88
   %switch.load120 = load ptr, ptr %switch.gep119, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11799,10 +11799,10 @@ switch.lookup121:                                 ; preds = %1
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %90 = load i8, ptr %89, align 1, !range !37, !alias.scope !72, !noundef !3
   %91 = zext nneg i8 %90 to i64
-  %switch.gep122 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %91
+  %switch.gep122 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %91
   %switch.load123 = load i64, ptr %switch.gep122, align 8
   %92 = zext nneg i8 %90 to i64
-  %switch.gep124 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %92
+  %switch.gep124 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %92
   %switch.load125 = load ptr, ptr %switch.gep124, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11810,10 +11810,10 @@ switch.lookup126:                                 ; preds = %1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %94 = load i8, ptr %93, align 1, !range !37, !alias.scope !75, !noundef !3
   %95 = zext nneg i8 %94 to i64
-  %switch.gep127 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %95
+  %switch.gep127 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %95
   %switch.load128 = load i64, ptr %switch.gep127, align 8
   %96 = zext nneg i8 %94 to i64
-  %switch.gep129 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %96
+  %switch.gep129 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %96
   %switch.load130 = load ptr, ptr %switch.gep129, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11821,10 +11821,10 @@ switch.lookup131:                                 ; preds = %1
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %98 = load i8, ptr %97, align 1, !range !37, !alias.scope !78, !noundef !3
   %99 = zext nneg i8 %98 to i64
-  %switch.gep132 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %99
+  %switch.gep132 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %99
   %switch.load133 = load i64, ptr %switch.gep132, align 8
   %100 = zext nneg i8 %98 to i64
-  %switch.gep134 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %100
+  %switch.gep134 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %100
   %switch.load135 = load ptr, ptr %switch.gep134, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11848,7 +11848,7 @@ switch.lookup136:                                 ; preds = %1
   %narrow198 = add nuw nsw i8 %112, 1
   %switch.offset138 = zext nneg i8 %narrow198 to i64
   %113 = zext nneg i8 %112 to i64
-  %switch.gep139 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %113
+  %switch.gep139 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %113
   %switch.load140 = load ptr, ptr %switch.gep139, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11884,10 +11884,10 @@ switch.lookup141:                                 ; preds = %1
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %134 = load i8, ptr %133, align 1, !range !60, !alias.scope !88, !noundef !3
   %135 = zext nneg i8 %134 to i64
-  %switch.gep142 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %135
+  %switch.gep142 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %135
   %switch.load143 = load i64, ptr %switch.gep142, align 8
   %136 = zext nneg i8 %134 to i64
-  %switch.gep144 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Quotes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h706884b740afc12bE.121", i64 %136
+  %switch.gep144 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Quotes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h706884b740afc12bE.121", i64 %136
   %switch.load145 = load ptr, ptr %switch.gep144, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11897,7 +11897,7 @@ switch.lookup146:                                 ; preds = %1
   %narrow197 = add nuw nsw i8 %138, 1
   %switch.offset148 = zext nneg i8 %narrow197 to i64
   %139 = zext nneg i8 %138 to i64
-  %switch.gep149 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Raise$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5052691881a16ea1E", i64 %139
+  %switch.gep149 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Raise$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5052691881a16ea1E", i64 %139
   %switch.load150 = load ptr, ptr %switch.gep149, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11914,7 +11914,7 @@ switch.lookup151:                                 ; preds = %1
   %narrow196 = add nuw nsw i8 %146, 1
   %switch.offset153 = zext nneg i8 %narrow196 to i64
   %147 = zext nneg i8 %146 to i64
-  %switch.gep154 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %147
+  %switch.gep154 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %147
   %switch.load155 = load ptr, ptr %switch.gep154, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11929,10 +11929,10 @@ switch.lookup156:                                 ; preds = %1
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %154 = load i8, ptr %153, align 1, !range !37, !alias.scope !97, !noundef !3
   %155 = zext nneg i8 %154 to i64
-  %switch.gep157 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %155
+  %switch.gep157 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %155
   %switch.load158 = load i64, ptr %switch.gep157, align 8
   %156 = zext nneg i8 %154 to i64
-  %switch.gep159 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Slots$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5ff05cd2ad1ebdbfE.127", i64 %156
+  %switch.gep159 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Slots$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5ff05cd2ad1ebdbfE.127", i64 %156
   %switch.load160 = load ptr, ptr %switch.gep159, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11940,10 +11940,10 @@ switch.lookup161:                                 ; preds = %1
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %158 = load i8, ptr %157, align 1, !range !37, !alias.scope !100, !noundef !3
   %159 = zext nneg i8 %158 to i64
-  %switch.gep162 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %159
+  %switch.gep162 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %159
   %switch.load163 = load i64, ptr %switch.gep162, align 8
   %160 = zext nneg i8 %158 to i64
-  %switch.gep164 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE.129", i64 %160
+  %switch.gep164 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE.129", i64 %160
   %switch.load165 = load ptr, ptr %switch.gep164, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11951,10 +11951,10 @@ switch.lookup166:                                 ; preds = %1
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %162 = load i8, ptr %161, align 1, !range !103, !alias.scope !104, !noundef !3
   %163 = zext nneg i8 %162 to i64
-  %switch.gep167 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE", i64 %163
+  %switch.gep167 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE", i64 %163
   %switch.load168 = load i64, ptr %switch.gep167, align 8
   %164 = zext nneg i8 %162 to i64
-  %switch.gep169 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE.131", i64 %164
+  %switch.gep169 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE.131", i64 %164
   %switch.load170 = load ptr, ptr %switch.gep169, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11969,10 +11969,10 @@ switch.lookup171:                                 ; preds = %1
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %171 = load i8, ptr %170, align 1, !range !60, !alias.scope !107, !noundef !3
   %172 = zext nneg i8 %171 to i64
-  %switch.gep172 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %172
+  %switch.gep172 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %172
   %switch.load173 = load i64, ptr %switch.gep172, align 8
   %173 = zext nneg i8 %171 to i64
-  %switch.gep174 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %173
+  %switch.gep174 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %173
   %switch.load175 = load ptr, ptr %switch.gep174, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11989,7 +11989,7 @@ switch.lookup176:                                 ; preds = %1
   %narrow = add nuw nsw i8 %180, 1
   %switch.offset178 = zext nneg i8 %narrow to i64
   %181 = zext nneg i8 %180 to i64
-  %switch.gep179 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Flynt$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he7c796e3a89c3d96E", i64 %181
+  %switch.gep179 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Flynt$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he7c796e3a89c3d96E", i64 %181
   %switch.load180 = load ptr, ptr %switch.gep179, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -11997,10 +11997,10 @@ switch.lookup181:                                 ; preds = %1
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %183 = load i8, ptr %182, align 1, !range !68, !alias.scope !113, !noundef !3
   %184 = zext nneg i8 %183 to i64
-  %switch.gep182 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %184
+  %switch.gep182 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %184
   %switch.load183 = load i64, ptr %switch.gep182, align 8
   %185 = zext nneg i8 %183 to i64
-  %switch.gep184 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E.139", i64 %185
+  %switch.gep184 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E.139", i64 %185
   %switch.load185 = load ptr, ptr %switch.gep184, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -12011,10 +12011,10 @@ switch.lookup186:                                 ; preds = %1
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %188 = load i8, ptr %187, align 1, !range !47, !alias.scope !116, !noundef !3
   %189 = zext nneg i8 %188 to i64
-  %switch.gep187 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE", i64 %189
+  %switch.gep187 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE", i64 %189
   %switch.load188 = load i64, ptr %switch.gep187, align 8
   %190 = zext nneg i8 %188 to i64
-  %switch.gep189 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE.141", i64 %190
+  %switch.gep189 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE.141", i64 %190
   %switch.load190 = load ptr, ptr %switch.gep189, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -12071,10 +12071,10 @@ switch.lookup191:                                 ; preds = %1
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %227 = load i8, ptr %226, align 1, !range !60, !alias.scope !119, !noundef !3
   %228 = zext nneg i8 %227 to i64
-  %switch.gep192 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %228
+  %switch.gep192 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %228
   %switch.load193 = load i64, ptr %switch.gep192, align 8
   %229 = zext nneg i8 %227 to i64
-  %switch.gep194 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %229
+  %switch.gep194 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %229
   %switch.load195 = load ptr, ptr %switch.gep194, align 8
   br label %"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$LT$$RF$ruff_linter..codes..Eradicate$GT$$u20$for$u20$$RF$str$GT$4from17h4b0475144af01b1fE.exit"
 
@@ -12178,10 +12178,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes96_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !122, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN79_$LT$ruff_linter..codes..Airflow$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h128011f15fdad1d4E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN79_$LT$ruff_linter..codes..Airflow$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h128011f15fdad1d4E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN79_$LT$ruff_linter..codes..Airflow$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h128011f15fdad1d4E.71", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN79_$LT$ruff_linter..codes..Airflow$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h128011f15fdad1d4E.71", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -12193,10 +12193,10 @@ define { ptr, i64 } @"_ZN79_$LT$ruff_linter..codes..Airflow$u20$as$u20$core..con
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !122, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN79_$LT$ruff_linter..codes..Airflow$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h128011f15fdad1d4E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN79_$LT$ruff_linter..codes..Airflow$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h128011f15fdad1d4E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN79_$LT$ruff_linter..codes..Airflow$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h128011f15fdad1d4E.71", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN79_$LT$ruff_linter..codes..Airflow$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h128011f15fdad1d4E.71", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -12235,7 +12235,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -12249,7 +12249,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -12294,10 +12294,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes96_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -12309,10 +12309,10 @@ define { ptr, i64 } @"_ZN79_$LT$ruff_linter..codes..FastApi$u20$as$u20$core..con
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -12401,10 +12401,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes99_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !123, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake82020$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h98f28627d1b1f0beE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake82020$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h98f28627d1b1f0beE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake82020$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h98f28627d1b1f0beE.75", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake82020$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h98f28627d1b1f0beE.75", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -12416,10 +12416,10 @@ define { ptr, i64 } @"_ZN82_$LT$ruff_linter..codes..Flake82020$u20$as$u20$core..
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !123, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake82020$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h98f28627d1b1f0beE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake82020$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h98f28627d1b1f0beE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake82020$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h98f28627d1b1f0beE.75", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake82020$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h98f28627d1b1f0beE.75", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -12520,10 +12520,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes106_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !124, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8Annotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hca2aecf9a7799f11E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8Annotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hca2aecf9a7799f11E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8Annotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hca2aecf9a7799f11E.77", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8Annotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hca2aecf9a7799f11E.77", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -12535,10 +12535,10 @@ define { ptr, i64 } @"_ZN89_$LT$ruff_linter..codes..Flake8Annotations$u20$as$u20
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !124, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8Annotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hca2aecf9a7799f11E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8Annotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hca2aecf9a7799f11E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8Annotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hca2aecf9a7799f11E.77", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8Annotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hca2aecf9a7799f11E.77", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -12643,10 +12643,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes100_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !125, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Async$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h37b62775118805b2E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Async$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h37b62775118805b2E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Async$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h37b62775118805b2E.79", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Async$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h37b62775118805b2E.79", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -12658,10 +12658,10 @@ define { ptr, i64 } @"_ZN83_$LT$ruff_linter..codes..Flake8Async$u20$as$u20$core.
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !125, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Async$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h37b62775118805b2E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Async$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h37b62775118805b2E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Async$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h37b62775118805b2E.79", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Async$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h37b62775118805b2E.79", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13054,10 +13054,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes101_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !126, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Bandit$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h03bc886930f9c398E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Bandit$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h03bc886930f9c398E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Bandit$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h03bc886930f9c398E.81", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Bandit$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h03bc886930f9c398E.81", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13069,10 +13069,10 @@ define { ptr, i64 } @"_ZN84_$LT$ruff_linter..codes..Flake8Bandit$u20$as$u20$core
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !126, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Bandit$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h03bc886930f9c398E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Bandit$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h03bc886930f9c398E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Bandit$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h03bc886930f9c398E.81", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Bandit$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h03bc886930f9c398E.81", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13111,7 +13111,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -13125,7 +13125,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -13170,10 +13170,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes106_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13185,10 +13185,10 @@ define { ptr, i64 } @"_ZN89_$LT$ruff_linter..codes..Flake8BooleanTrap$u20$as$u20
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13409,10 +13409,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes102_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !127, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Bugbear$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d43eacabfabd4aE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Bugbear$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d43eacabfabd4aE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Bugbear$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d43eacabfabd4aE.85", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Bugbear$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d43eacabfabd4aE.85", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13424,10 +13424,10 @@ define { ptr, i64 } @"_ZN85_$LT$ruff_linter..codes..Flake8Bugbear$u20$as$u20$cor
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !127, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Bugbear$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d43eacabfabd4aE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Bugbear$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d43eacabfabd4aE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Bugbear$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d43eacabfabd4aE.85", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Bugbear$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d43eacabfabd4aE.85", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13484,10 +13484,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes103_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !47, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E.87", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E.87", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13499,10 +13499,10 @@ define { ptr, i64 } @"_ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$co
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !47, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E.87", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Builtins$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17heb1afc5242faab40E.87", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13547,10 +13547,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes101_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Commas$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hccaa7e5e3fdf2385E.89", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Commas$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hccaa7e5e3fdf2385E.89", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13562,10 +13562,10 @@ define { ptr, i64 } @"_ZN84_$LT$ruff_linter..codes..Flake8Commas$u20$as$u20$core
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Commas$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hccaa7e5e3fdf2385E.89", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Commas$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hccaa7e5e3fdf2385E.89", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13678,10 +13678,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes109_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !128, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN92_$LT$ruff_linter..codes..Flake8Comprehensions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h496d61e824c62a37E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN92_$LT$ruff_linter..codes..Flake8Comprehensions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h496d61e824c62a37E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN92_$LT$ruff_linter..codes..Flake8Comprehensions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h496d61e824c62a37E.91", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN92_$LT$ruff_linter..codes..Flake8Comprehensions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h496d61e824c62a37E.91", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13693,10 +13693,10 @@ define { ptr, i64 } @"_ZN92_$LT$ruff_linter..codes..Flake8Comprehensions$u20$as$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !128, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN92_$LT$ruff_linter..codes..Flake8Comprehensions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h496d61e824c62a37E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN92_$LT$ruff_linter..codes..Flake8Comprehensions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h496d61e824c62a37E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN92_$LT$ruff_linter..codes..Flake8Comprehensions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h496d61e824c62a37E.91", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN92_$LT$ruff_linter..codes..Flake8Comprehensions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h496d61e824c62a37E.91", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13735,7 +13735,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -13749,7 +13749,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -13834,10 +13834,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes104_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !129, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_linter..codes..Flake8Datetimez$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4f4f8a58f3c0ac9cE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN87_$LT$ruff_linter..codes..Flake8Datetimez$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4f4f8a58f3c0ac9cE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN87_$LT$ruff_linter..codes..Flake8Datetimez$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4f4f8a58f3c0ac9cE.93", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN87_$LT$ruff_linter..codes..Flake8Datetimez$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4f4f8a58f3c0ac9cE.93", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13849,10 +13849,10 @@ define { ptr, i64 } @"_ZN87_$LT$ruff_linter..codes..Flake8Datetimez$u20$as$u20$c
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !129, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_linter..codes..Flake8Datetimez$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4f4f8a58f3c0ac9cE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN87_$LT$ruff_linter..codes..Flake8Datetimez$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4f4f8a58f3c0ac9cE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN87_$LT$ruff_linter..codes..Flake8Datetimez$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4f4f8a58f3c0ac9cE.93", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN87_$LT$ruff_linter..codes..Flake8Datetimez$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4f4f8a58f3c0ac9cE.93", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13939,10 +13939,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes101_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !130, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Django$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2972eb0f90c7bb11E.95", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Django$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2972eb0f90c7bb11E.95", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -13954,10 +13954,10 @@ define { ptr, i64 } @"_ZN84_$LT$ruff_linter..codes..Flake8Django$u20$as$u20$core
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !130, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Django$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2972eb0f90c7bb11E.95", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Django$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2972eb0f90c7bb11E.95", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14002,10 +14002,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes101_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8ErrMsg$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h8e26c335d2b3da7dE.97", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8ErrMsg$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h8e26c335d2b3da7dE.97", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14017,10 +14017,10 @@ define { ptr, i64 } @"_ZN84_$LT$ruff_linter..codes..Flake8ErrMsg$u20$as$u20$core
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8ErrMsg$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h8e26c335d2b3da7dE.97", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8ErrMsg$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h8e26c335d2b3da7dE.97", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14073,10 +14073,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes105_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !60, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14088,10 +14088,10 @@ define { ptr, i64 } @"_ZN88_$LT$ruff_linter..codes..Flake8Executable$u20$as$u20$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !60, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14140,10 +14140,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes100_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !64, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E.101", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E.101", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14155,10 +14155,10 @@ define { ptr, i64 } @"_ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core.
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !64, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E.101", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Fixme$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h26888cc3d3e28b36E.101", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14199,10 +14199,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes112_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !68, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8FutureAnnotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2a65dd4fb39cf010E.103", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8FutureAnnotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2a65dd4fb39cf010E.103", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14214,10 +14214,10 @@ define { ptr, i64 } @"_ZN95_$LT$ruff_linter..codes..Flake8FutureAnnotations$u20$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !68, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8FutureAnnotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2a65dd4fb39cf010E.103", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8FutureAnnotations$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2a65dd4fb39cf010E.103", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14262,10 +14262,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes102_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14277,10 +14277,10 @@ define { ptr, i64 } @"_ZN85_$LT$ruff_linter..codes..Flake8GetText$u20$as$u20$cor
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14325,10 +14325,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes112_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14340,10 +14340,10 @@ define { ptr, i64 } @"_ZN95_$LT$ruff_linter..codes..Flake8ImplicitStrConcat$u20$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14388,10 +14388,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes112_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14403,10 +14403,10 @@ define { ptr, i64 } @"_ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN95_$LT$ruff_linter..codes..Flake8ImportConventions$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3bfc1f240203a969E.109", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14471,10 +14471,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes102_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !130, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE.111", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE.111", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14486,10 +14486,10 @@ define { ptr, i64 } @"_ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$cor
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !130, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE.111", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$ruff_linter..codes..Flake8Logging$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha782489a0abc287bE.111", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14574,10 +14574,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes108_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !129, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN91_$LT$ruff_linter..codes..Flake8LoggingFormat$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9db1dc5574397c4dE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN91_$LT$ruff_linter..codes..Flake8LoggingFormat$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9db1dc5574397c4dE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN91_$LT$ruff_linter..codes..Flake8LoggingFormat$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9db1dc5574397c4dE.113", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN91_$LT$ruff_linter..codes..Flake8LoggingFormat$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9db1dc5574397c4dE.113", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14589,10 +14589,10 @@ define { ptr, i64 } @"_ZN91_$LT$ruff_linter..codes..Flake8LoggingFormat$u20$as$u
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !129, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN91_$LT$ruff_linter..codes..Flake8LoggingFormat$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9db1dc5574397c4dE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN91_$LT$ruff_linter..codes..Flake8LoggingFormat$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9db1dc5574397c4dE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN91_$LT$ruff_linter..codes..Flake8LoggingFormat$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9db1dc5574397c4dE.113", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN91_$LT$ruff_linter..codes..Flake8LoggingFormat$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9db1dc5574397c4dE.113", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14631,7 +14631,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -14645,7 +14645,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -14722,10 +14722,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !131, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pie$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hb737f0e96c9aab35E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pie$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hb737f0e96c9aab35E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pie$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hb737f0e96c9aab35E.115", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pie$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hb737f0e96c9aab35E.115", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -14737,10 +14737,10 @@ define { ptr, i64 } @"_ZN81_$LT$ruff_linter..codes..Flake8Pie$u20$as$u20$core..c
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !131, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pie$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hb737f0e96c9aab35E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pie$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hb737f0e96c9aab35E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pie$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hb737f0e96c9aab35E.115", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pie$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hb737f0e96c9aab35E.115", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15059,10 +15059,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !132, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pyi$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h23e2ab4540ac88f8E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pyi$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h23e2ab4540ac88f8E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pyi$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h23e2ab4540ac88f8E.117", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pyi$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h23e2ab4540ac88f8E.117", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15074,10 +15074,10 @@ define { ptr, i64 } @"_ZN81_$LT$ruff_linter..codes..Flake8Pyi$u20$as$u20$core..c
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !132, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pyi$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h23e2ab4540ac88f8E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pyi$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h23e2ab4540ac88f8E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pyi$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h23e2ab4540ac88f8E.117", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Flake8Pyi$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h23e2ab4540ac88f8E.117", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15246,10 +15246,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes106_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !133, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8PytestStyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h96a17dd019fce6f1E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8PytestStyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h96a17dd019fce6f1E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8PytestStyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h96a17dd019fce6f1E.119", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8PytestStyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h96a17dd019fce6f1E.119", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15261,10 +15261,10 @@ define { ptr, i64 } @"_ZN89_$LT$ruff_linter..codes..Flake8PytestStyle$u20$as$u20
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !133, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8PytestStyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h96a17dd019fce6f1E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8PytestStyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h96a17dd019fce6f1E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8PytestStyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h96a17dd019fce6f1E.119", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8PytestStyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h96a17dd019fce6f1E.119", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15317,10 +15317,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes101_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !60, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Quotes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h706884b740afc12bE.121", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Quotes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h706884b740afc12bE.121", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15332,10 +15332,10 @@ define { ptr, i64 } @"_ZN84_$LT$ruff_linter..codes..Flake8Quotes$u20$as$u20$core
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !60, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Quotes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h706884b740afc12bE.121", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Quotes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h706884b740afc12bE.121", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15374,7 +15374,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Raise$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5052691881a16ea1E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Raise$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5052691881a16ea1E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -15388,7 +15388,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Raise$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5052691881a16ea1E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Raise$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5052691881a16ea1E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -15453,10 +15453,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes101_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !130, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Return$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3ef78bc0899f262eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Return$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3ef78bc0899f262eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Return$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3ef78bc0899f262eE.123", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Return$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3ef78bc0899f262eE.123", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15468,10 +15468,10 @@ define { ptr, i64 } @"_ZN84_$LT$ruff_linter..codes..Flake8Return$u20$as$u20$core
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !130, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Return$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3ef78bc0899f262eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Return$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3ef78bc0899f262eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Return$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3ef78bc0899f262eE.123", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN84_$LT$ruff_linter..codes..Flake8Return$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h3ef78bc0899f262eE.123", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15510,7 +15510,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -15524,7 +15524,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Flake8Self$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2fc2ea09d3b91c79E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -15725,10 +15725,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes103_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !134, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Simplify$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7d0fcb700c5031bbE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Simplify$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7d0fcb700c5031bbE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Simplify$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7d0fcb700c5031bbE.125", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Simplify$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7d0fcb700c5031bbE.125", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15740,10 +15740,10 @@ define { ptr, i64 } @"_ZN86_$LT$ruff_linter..codes..Flake8Simplify$u20$as$u20$co
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !134, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Simplify$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7d0fcb700c5031bbE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Simplify$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7d0fcb700c5031bbE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Simplify$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7d0fcb700c5031bbE.125", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN86_$LT$ruff_linter..codes..Flake8Simplify$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7d0fcb700c5031bbE.125", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15788,10 +15788,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes100_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Slots$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5ff05cd2ad1ebdbfE.127", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Slots$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5ff05cd2ad1ebdbfE.127", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15803,10 +15803,10 @@ define { ptr, i64 } @"_ZN83_$LT$ruff_linter..codes..Flake8Slots$u20$as$u20$core.
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Slots$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5ff05cd2ad1ebdbfE.127", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Slots$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h5ff05cd2ad1ebdbfE.127", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15851,10 +15851,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes106_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE.129", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE.129", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15866,10 +15866,10 @@ define { ptr, i64 } @"_ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !37, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE.129", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$ruff_linter..codes..Flake8TidyImports$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h7940d26cdf248d3eE.129", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15930,10 +15930,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes100_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !103, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE.131", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE.131", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15945,10 +15945,10 @@ define { ptr, i64 } @"_ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core.
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !103, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE.131", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Flake8Todos$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd688d8e4a98f5beeE.131", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16021,10 +16021,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes107_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !135, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN90_$LT$ruff_linter..codes..Flake8TypeChecking$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h16528383982fedeaE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN90_$LT$ruff_linter..codes..Flake8TypeChecking$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h16528383982fedeaE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN90_$LT$ruff_linter..codes..Flake8TypeChecking$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h16528383982fedeaE.133", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN90_$LT$ruff_linter..codes..Flake8TypeChecking$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h16528383982fedeaE.133", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16036,10 +16036,10 @@ define { ptr, i64 } @"_ZN90_$LT$ruff_linter..codes..Flake8TypeChecking$u20$as$u2
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !135, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN90_$LT$ruff_linter..codes..Flake8TypeChecking$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h16528383982fedeaE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN90_$LT$ruff_linter..codes..Flake8TypeChecking$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h16528383982fedeaE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN90_$LT$ruff_linter..codes..Flake8TypeChecking$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h16528383982fedeaE.133", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN90_$LT$ruff_linter..codes..Flake8TypeChecking$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h16528383982fedeaE.133", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16092,10 +16092,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes110_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !60, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16107,10 +16107,10 @@ define { ptr, i64 } @"_ZN93_$LT$ruff_linter..codes..Flake8UnusedArguments$u20$as
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !60, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16299,10 +16299,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes105_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !136, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN88_$LT$ruff_linter..codes..Flake8UsePathlib$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he39703bd253abc04E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN88_$LT$ruff_linter..codes..Flake8UsePathlib$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he39703bd253abc04E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$ruff_linter..codes..Flake8UsePathlib$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he39703bd253abc04E.137", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN88_$LT$ruff_linter..codes..Flake8UsePathlib$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he39703bd253abc04E.137", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16314,10 +16314,10 @@ define { ptr, i64 } @"_ZN88_$LT$ruff_linter..codes..Flake8UsePathlib$u20$as$u20$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !136, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN88_$LT$ruff_linter..codes..Flake8UsePathlib$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he39703bd253abc04E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN88_$LT$ruff_linter..codes..Flake8UsePathlib$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he39703bd253abc04E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$ruff_linter..codes..Flake8UsePathlib$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he39703bd253abc04E.137", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN88_$LT$ruff_linter..codes..Flake8UsePathlib$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he39703bd253abc04E.137", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16356,7 +16356,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Flynt$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he7c796e3a89c3d96E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Flynt$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he7c796e3a89c3d96E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -16370,7 +16370,7 @@ switch.lookup:
   %narrow = add nuw nsw i8 %1, 1
   %switch.offset = zext nneg i8 %narrow to i64
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Flynt$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he7c796e3a89c3d96E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Flynt$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17he7c796e3a89c3d96E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.offset, 1
@@ -16411,10 +16411,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes94_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !68, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E.139", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E.139", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16426,10 +16426,10 @@ define { ptr, i64 } @"_ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..conve
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !68, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E.139", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Isort$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9b732f25eab646b5E.139", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16508,10 +16508,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes94_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !47, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE.141", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE.141", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16523,10 +16523,10 @@ define { ptr, i64 } @"_ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..conve
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !47, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE.141", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_linter..codes..Numpy$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17haceec3d2639e635eE.141", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16635,10 +16635,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes99_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !137, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..PEP8Naming$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h70182f0c493bd6a6E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..PEP8Naming$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h70182f0c493bd6a6E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..PEP8Naming$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h70182f0c493bd6a6E.143", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..PEP8Naming$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h70182f0c493bd6a6E.143", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16650,10 +16650,10 @@ define { ptr, i64 } @"_ZN82_$LT$ruff_linter..codes..PEP8Naming$u20$as$u20$core..
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !137, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..PEP8Naming$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h70182f0c493bd6a6E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..PEP8Naming$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h70182f0c493bd6a6E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..PEP8Naming$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h70182f0c493bd6a6E.143", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..PEP8Naming$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h70182f0c493bd6a6E.143", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16758,10 +16758,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !125, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..PandasVet$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h311df029f4c122fcE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..PandasVet$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h311df029f4c122fcE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..PandasVet$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h311df029f4c122fcE.145", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..PandasVet$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h311df029f4c122fcE.145", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16773,10 +16773,10 @@ define { ptr, i64 } @"_ZN81_$LT$ruff_linter..codes..PandasVet$u20$as$u20$core..c
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !125, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..PandasVet$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h311df029f4c122fcE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..PandasVet$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h311df029f4c122fcE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..PandasVet$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h311df029f4c122fcE.145", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..PandasVet$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h311df029f4c122fcE.145", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16849,10 +16849,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes97_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !135, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Perflint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d7c86ce0c74425E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Perflint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d7c86ce0c74425E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Perflint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d7c86ce0c74425E.147", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Perflint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d7c86ce0c74425E.147", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16864,10 +16864,10 @@ define { ptr, i64 } @"_ZN80_$LT$ruff_linter..codes..Perflint$u20$as$u20$core..co
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !135, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Perflint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d7c86ce0c74425E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Perflint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d7c86ce0c74425E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Perflint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d7c86ce0c74425E.147", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Perflint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd0d7c86ce0c74425E.147", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -17316,10 +17316,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes100_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !138, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Pycodestyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h6825522610a5d338E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Pycodestyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h6825522610a5d338E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Pycodestyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h6825522610a5d338E.149", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Pycodestyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h6825522610a5d338E.149", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -17331,10 +17331,10 @@ define { ptr, i64 } @"_ZN83_$LT$ruff_linter..codes..Pycodestyle$u20$as$u20$core.
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !138, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Pycodestyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h6825522610a5d338E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Pycodestyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h6825522610a5d338E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Pycodestyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h6825522610a5d338E.149", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Pycodestyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h6825522610a5d338E.149", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -17407,10 +17407,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !135, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pydoclint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h51a561b3c4c32ee5E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pydoclint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h51a561b3c4c32ee5E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pydoclint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h51a561b3c4c32ee5E.151", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pydoclint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h51a561b3c4c32ee5E.151", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -17422,10 +17422,10 @@ define { ptr, i64 } @"_ZN81_$LT$ruff_linter..codes..Pydoclint$u20$as$u20$core..c
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !135, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pydoclint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h51a561b3c4c32ee5E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pydoclint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h51a561b3c4c32ee5E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pydoclint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h51a561b3c4c32ee5E.151", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pydoclint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h51a561b3c4c32ee5E.151", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -17674,10 +17674,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes99_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !139, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Pydocstyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h17d9733a8a1f4220E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Pydocstyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h17d9733a8a1f4220E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Pydocstyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h17d9733a8a1f4220E.153", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Pydocstyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h17d9733a8a1f4220E.153", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -17689,10 +17689,10 @@ define { ptr, i64 } @"_ZN82_$LT$ruff_linter..codes..Pydocstyle$u20$as$u20$core..
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !139, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Pydocstyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h17d9733a8a1f4220E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Pydocstyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h17d9733a8a1f4220E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Pydocstyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h17d9733a8a1f4220E.153", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$ruff_linter..codes..Pydocstyle$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h17d9733a8a1f4220E.153", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -17965,10 +17965,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes97_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !140, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Pyflakes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h06d4733fdc239d15E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Pyflakes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h06d4733fdc239d15E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Pyflakes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h06d4733fdc239d15E.155", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Pyflakes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h06d4733fdc239d15E.155", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -17980,10 +17980,10 @@ define { ptr, i64 } @"_ZN80_$LT$ruff_linter..codes..Pyflakes$u20$as$u20$core..co
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !140, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Pyflakes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h06d4733fdc239d15E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Pyflakes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h06d4733fdc239d15E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Pyflakes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h06d4733fdc239d15E.155", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN80_$LT$ruff_linter..codes..Pyflakes$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h06d4733fdc239d15E.155", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -18036,10 +18036,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes100_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !60, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -18051,10 +18051,10 @@ define { ptr, i64 } @"_ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core.
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !60, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..PygrepHooks$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h9fdd304986aacd9aE.157", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19032,10 +19032,10 @@ switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !141, !noundef !3
   %switch.tableidx = xor i8 %1, -128
   %2 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E.159", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E.159", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19048,10 +19048,10 @@ switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !141, !noundef !3
   %switch.tableidx = xor i8 %1, -128
   %2 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E.159", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Pylint$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17ha022f1b2d047b914E.159", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19284,10 +19284,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes98_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !142, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pyupgrade$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h405b52b912a30c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pyupgrade$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h405b52b912a30c79E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pyupgrade$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h405b52b912a30c79E.161", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pyupgrade$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h405b52b912a30c79E.161", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19299,10 +19299,10 @@ define { ptr, i64 } @"_ZN81_$LT$ruff_linter..codes..Pyupgrade$u20$as$u20$core..c
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !142, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pyupgrade$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h405b52b912a30c79E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pyupgrade$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h405b52b912a30c79E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pyupgrade$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h405b52b912a30c79E.161", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN81_$LT$ruff_linter..codes..Pyupgrade$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h405b52b912a30c79E.161", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19515,10 +19515,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes95_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !143, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Refurb$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4906870ec319f8e5E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Refurb$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4906870ec319f8e5E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Refurb$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4906870ec319f8e5E.163", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Refurb$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4906870ec319f8e5E.163", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19530,10 +19530,10 @@ define { ptr, i64 } @"_ZN78_$LT$ruff_linter..codes..Refurb$u20$as$u20$core..conv
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !143, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Refurb$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4906870ec319f8e5E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Refurb$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4906870ec319f8e5E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Refurb$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4906870ec319f8e5E.163", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$ruff_linter..codes..Refurb$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h4906870ec319f8e5E.163", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19838,10 +19838,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes93_$LT$impl$u20$core..convert..From$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !144, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Ruff$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h422dc44aef032ab5E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Ruff$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h422dc44aef032ab5E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Ruff$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h422dc44aef032ab5E.165", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Ruff$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h422dc44aef032ab5E.165", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19853,10 +19853,10 @@ define { ptr, i64 } @"_ZN76_$LT$ruff_linter..codes..Ruff$u20$as$u20$core..conver
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !144, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Ruff$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h422dc44aef032ab5E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Ruff$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h422dc44aef032ab5E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Ruff$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h422dc44aef032ab5E.165", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Ruff$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h422dc44aef032ab5E.165", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19953,10 +19953,10 @@ define { ptr, i64 } @"_ZN11ruff_linter5codes100_$LT$impl$u20$core..convert..From
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !145, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Tryceratops$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h904176d47f56a47bE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Tryceratops$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h904176d47f56a47bE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Tryceratops$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h904176d47f56a47bE.167", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Tryceratops$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h904176d47f56a47bE.167", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -19968,10 +19968,10 @@ define { ptr, i64 } @"_ZN83_$LT$ruff_linter..codes..Tryceratops$u20$as$u20$core.
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !145, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Tryceratops$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h904176d47f56a47bE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Tryceratops$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h904176d47f56a47bE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Tryceratops$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h904176d47f56a47bE.167", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN83_$LT$ruff_linter..codes..Tryceratops$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h904176d47f56a47bE.167", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -45831,13 +45831,13 @@ define void @_ZN11ruff_linter5codes4Rule9noqa_code17h7ae51bd12564769dE(ptr dead_
 switch.lookup:
   %2 = load i16, ptr %1, align 2, !range !19, !noundef !3
   %3 = zext nneg i16 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11ruff_linter5codes4Rule9noqa_code17h7ae51bd12564769dE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11ruff_linter5codes4Rule9noqa_code17h7ae51bd12564769dE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i16 %2 to i64
-  %switch.gep6 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11ruff_linter5codes4Rule9noqa_code17h7ae51bd12564769dE.168, i64 %4
+  %switch.gep6 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11ruff_linter5codes4Rule9noqa_code17h7ae51bd12564769dE.168, i64 %4
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   %5 = zext nneg i16 %2 to i64
-  %switch.gep8 = getelementptr inbounds nuw i64, ptr @switch.table._ZN11ruff_linter5codes4Rule9noqa_code17h7ae51bd12564769dE.169, i64 %5
+  %switch.gep8 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11ruff_linter5codes4Rule9noqa_code17h7ae51bd12564769dE.169, i64 %5
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -46140,7 +46140,7 @@ define void @_ZN11ruff_linter5codes14RuleCodePrefix4iter17h48f9acc9aaccba48E(ptr
   %.sroa.5.0.copyload = load i64, ptr %4, align 8
   %64 = icmp ult i64 %.sroa.5.0.copyload, 4611686018427387904
   call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw { i8, [1 x i8] }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   %66 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %66)
   store ptr %.sroa.4.0.copyload, ptr %0, align 8, !alias.scope !156, !noalias !159

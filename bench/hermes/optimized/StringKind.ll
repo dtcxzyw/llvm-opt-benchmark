@@ -3,8 +3,6 @@ source_filename = "bench/hermes/original/StringKind.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.hermes::StringKind::Entry" = type { i32 }
-
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 @_ZN6hermes10StringKind5EntryC1ENS0_4KindEj = hidden unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6hermes10StringKind5EntryC2ENS0_4KindEj
@@ -139,7 +137,7 @@ if.then.i20.i.i39:                                ; preds = %_ZNSt6vectorIN6herm
 _ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE17_M_realloc_insertIJRNS1_4KindEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i40: ; preds = %if.then.i20.i.i39, %_ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i35
   store ptr %call5.i.i.i.i.i25, ptr %this, align 8
   store ptr %incdec.ptr.i.i37, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i41 = getelementptr inbounds nuw %"struct.hermes::StringKind::Entry", ptr %call5.i.i.i.i.i25, i64 %cond.i.i.i22
+  %add.ptr19.i.i41 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i25, i64 %cond.i.i.i22
   store ptr %add.ptr19.i.i41, ptr %_M_end_of_storage.i7, align 8
   br label %if.end13
 

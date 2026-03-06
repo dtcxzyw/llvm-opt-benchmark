@@ -197,7 +197,7 @@ define internal noundef zeroext i1 @capsa_read(ptr noundef readonly captures(non
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %34 = zext nneg i32 %15 to i64
-  %35 = getelementptr i32, ptr %33, i64 %34
+  %35 = getelementptr [4 x i8], ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
   %38 = add i64 %32, %37

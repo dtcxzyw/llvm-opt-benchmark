@@ -45,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.29" = type { %"struct.std::_Vector_base<gmx::DataFileInfo, std::allocator<gmx::DataFileInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx::DataFileInfo, std::allocator<gmx::DataFileInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::DataFileInfo, std::allocator<gmx::DataFileInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx::DataFileInfo, std::allocator<gmx::DataFileInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::DataFileInfo" = type <{ %"class.std::filesystem::__cxx11::path", %"class.std::filesystem::__cxx11::path", i8, [7 x i8] }>
 
 $_ZNSt10filesystem7__cxx114pathC2IA4_cS1_EERKT_NS1_6formatE = comdat any
 
@@ -2534,7 +2533,7 @@ _ZNSt16allocator_traitsISaIN3gmx12DataFileInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_
 _ZNSt12_Vector_baseIN3gmx12DataFileInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN3gmx12DataFileInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, %26
   store ptr %20, ptr %0, align 8, !tbaa !85
   store ptr %24, ptr %4, align 8, !tbaa !82
-  %30 = getelementptr inbounds nuw %"struct.gmx::DataFileInfo", ptr %20, i64 %16
+  %30 = getelementptr inbounds nuw [88 x i8], ptr %20, i64 %16
   store ptr %30, ptr %25, align 8, !tbaa !84
   ret void
 

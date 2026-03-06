@@ -793,31 +793,31 @@ check_retval.exit43.preheader:                    ; preds = %14
 check_retval.exit43:                              ; preds = %check_retval.exit43.preheader, %check_retval.exit43
   %.048 = phi i64 [ %42, %check_retval.exit43 ], [ 0, %check_retval.exit43.preheader ]
   %18 = mul nuw nsw i64 %.048, 3
-  %19 = getelementptr inbounds nuw double, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %18
   %20 = load double, ptr %19, align 8, !tbaa !25
   %21 = add nuw nsw i64 %18, 1
-  %22 = getelementptr inbounds nuw double, ptr %12, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %21
   %23 = load double, ptr %22, align 8, !tbaa !25
   %24 = add nuw nsw i64 %18, 2
-  %25 = getelementptr inbounds nuw double, ptr %12, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !25
   %27 = fadd double %26, 1.000000e+00
   %28 = fneg double %27
   %29 = tail call double @llvm.fmuladd.f64(double %28, double %20, double %7)
   %30 = fmul double %20, %23
   %31 = tail call double @llvm.fmuladd.f64(double %30, double %20, double %29)
-  %32 = getelementptr inbounds nuw double, ptr %15, i64 %18
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   store double %31, ptr %32, align 8, !tbaa !25
   %33 = fneg double %20
   %34 = fmul double %30, %33
   %35 = tail call double @llvm.fmuladd.f64(double %26, double %20, double %34)
-  %36 = getelementptr inbounds nuw double, ptr %15, i64 %21
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %21
   store double %35, ptr %36, align 8, !tbaa !25
   %37 = fsub double %9, %26
   %38 = fdiv double %37, %11
   %39 = fneg double %26
   %40 = tail call double @llvm.fmuladd.f64(double %39, double %20, double %38)
-  %41 = getelementptr inbounds nuw double, ptr %15, i64 %24
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %24
   store double %40, ptr %41, align 8, !tbaa !25
   %42 = add nuw nsw i64 %.048, 1
   %exitcond.not = icmp eq i64 %42, %5
@@ -873,21 +873,21 @@ check_retval.exit.thread:                         ; preds = %8
 check_retval.exit:                                ; preds = %.lr.ph, %check_retval.exit
   %.06972 = phi i64 [ 0, %.lr.ph ], [ %57, %check_retval.exit ]
   %23 = mul nuw nsw i64 %.06972, 3
-  %24 = getelementptr inbounds nuw double, ptr %12, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %23
   %25 = load double, ptr %24, align 8, !tbaa !25
   %26 = add nuw nsw i64 %23, 1
-  %27 = getelementptr inbounds nuw double, ptr %12, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %26
   %28 = load double, ptr %27, align 8, !tbaa !25
   %29 = add nuw nsw i64 %23, 2
-  %30 = getelementptr inbounds nuw double, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %29
   %31 = load double, ptr %30, align 8, !tbaa !25
   %32 = fmul double %25, 2.000000e+00
   %33 = fadd double %31, 1.000000e+00
   %34 = fneg double %33
   %35 = tail call double @llvm.fmuladd.f64(double %32, double %28, double %34)
-  %36 = getelementptr inbounds nuw ptr, ptr %17, i64 %23
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %23
   %37 = load ptr, ptr %36, align 8, !tbaa !35
-  %38 = getelementptr inbounds double, ptr %37, i64 %19
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %19
   store double %35, ptr %38, align 8, !tbaa !25
   %39 = fneg double %32
   %40 = tail call double @llvm.fmuladd.f64(double %39, double %28, double %31)
@@ -897,17 +897,17 @@ check_retval.exit:                                ; preds = %.lr.ph, %check_retv
   %43 = getelementptr i8, ptr %38, i64 16
   store double %42, ptr %43, align 8, !tbaa !25
   %44 = fmul double %25, %25
-  %45 = getelementptr inbounds nuw ptr, ptr %17, i64 %26
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %26
   %46 = load ptr, ptr %45, align 8, !tbaa !35
-  %47 = getelementptr double, ptr %46, i64 %19
+  %47 = getelementptr [8 x i8], ptr %46, i64 %19
   %48 = getelementptr i8, ptr %47, i64 -8
   store double %44, ptr %48, align 8, !tbaa !25
   %49 = fneg double %25
   %50 = fmul double %25, %49
   store double %50, ptr %47, align 8, !tbaa !25
-  %51 = getelementptr inbounds nuw ptr, ptr %17, i64 %29
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %29
   %52 = load ptr, ptr %51, align 8, !tbaa !35
-  %53 = getelementptr double, ptr %52, i64 %19
+  %53 = getelementptr [8 x i8], ptr %52, i64 %19
   %54 = getelementptr i8, ptr %53, i64 -16
   store double %49, ptr %54, align 8, !tbaa !25
   %55 = getelementptr i8, ptr %53, i64 -8
@@ -990,31 +990,31 @@ check_retval.exit98:                              ; preds = %14
 .lr.ph107:                                        ; preds = %23, %.lr.ph107
   %.0105 = phi i64 [ %69, %.lr.ph107 ], [ 1, %23 ]
   %45 = mul nuw nsw i64 %.0105, 3
-  %46 = getelementptr inbounds nuw double, ptr %10, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %45
   %47 = load double, ptr %46, align 8, !tbaa !25
   %48 = getelementptr i8, ptr %46, i64 -24
   %49 = load double, ptr %48, align 8, !tbaa !25
   %50 = fsub double %47, %49
   %51 = fmul double %21, %50
-  %52 = getelementptr inbounds nuw double, ptr %15, i64 %45
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %45
   store double %51, ptr %52, align 8, !tbaa !25
   %53 = add nuw nsw i64 %45, 1
-  %54 = getelementptr inbounds nuw double, ptr %10, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %53
   %55 = load double, ptr %54, align 8, !tbaa !25
   %56 = getelementptr i8, ptr %46, i64 -16
   %57 = load double, ptr %56, align 8, !tbaa !25
   %58 = fsub double %55, %57
   %59 = fmul double %21, %58
-  %60 = getelementptr inbounds nuw double, ptr %15, i64 %53
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %53
   store double %59, ptr %60, align 8, !tbaa !25
   %61 = add nuw nsw i64 %45, 2
-  %62 = getelementptr inbounds nuw double, ptr %10, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %61
   %63 = load double, ptr %62, align 8, !tbaa !25
   %64 = getelementptr i8, ptr %46, i64 -8
   %65 = load double, ptr %64, align 8, !tbaa !25
   %66 = fsub double %63, %65
   %67 = fmul double %21, %66
-  %68 = getelementptr inbounds nuw double, ptr %15, i64 %61
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %61
   store double %67, ptr %68, align 8, !tbaa !25
   %69 = add nuw nsw i64 %.0105, 1
   %exitcond108.not = icmp eq i64 %69, %5
@@ -1036,59 +1036,59 @@ check_retval.exit98:                              ; preds = %14
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %76 = load double, ptr %75, align 8, !tbaa !25
   %77 = mul nuw nsw i64 %.1104, 3
-  %78 = getelementptr inbounds nuw double, ptr %10, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %77
   %79 = load double, ptr %78, align 8, !tbaa !25
   %80 = fsub double %76, %79
   %81 = fmul double %21, %80
-  %82 = getelementptr inbounds nuw double, ptr %15, i64 %77
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %77
   store double %81, ptr %82, align 8, !tbaa !25
   %83 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %84 = load double, ptr %83, align 8, !tbaa !25
   %85 = add nuw nsw i64 %77, 1
-  %86 = getelementptr inbounds nuw double, ptr %10, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %85
   %87 = load double, ptr %86, align 8, !tbaa !25
   %88 = fsub double %84, %87
   %89 = fmul double %21, %88
-  %90 = getelementptr inbounds nuw double, ptr %15, i64 %85
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %85
   store double %89, ptr %90, align 8, !tbaa !25
   %91 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %92 = load double, ptr %91, align 8, !tbaa !25
   %93 = add nuw nsw i64 %77, 2
-  %94 = getelementptr inbounds nuw double, ptr %10, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %93
   %95 = load double, ptr %94, align 8, !tbaa !25
   %96 = fsub double %92, %95
   %97 = fmul double %21, %96
-  %98 = getelementptr inbounds nuw double, ptr %15, i64 %93
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %93
   store double %97, ptr %98, align 8, !tbaa !25
   %exitcond.not = icmp eq i64 %74, %72
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %99 = mul nsw i64 %72, 3
-  %100 = getelementptr inbounds double, ptr %10, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %10, i64 %99
   %101 = load double, ptr %100, align 8, !tbaa !25
   %102 = load double, ptr %10, align 8, !tbaa !25
   %103 = fsub double %101, %102
   %104 = fmul double %21, %103
-  %105 = getelementptr inbounds double, ptr %15, i64 %99
+  %105 = getelementptr inbounds [8 x i8], ptr %15, i64 %99
   store double %104, ptr %105, align 8, !tbaa !25
   %106 = add nsw i64 %99, 1
-  %107 = getelementptr inbounds double, ptr %10, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %10, i64 %106
   %108 = load double, ptr %107, align 8, !tbaa !25
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %110 = load double, ptr %109, align 8, !tbaa !25
   %111 = fsub double %108, %110
   %112 = fmul double %21, %111
-  %113 = getelementptr inbounds double, ptr %15, i64 %106
+  %113 = getelementptr inbounds [8 x i8], ptr %15, i64 %106
   store double %112, ptr %113, align 8, !tbaa !25
   %114 = add nsw i64 %99, 2
-  %115 = getelementptr inbounds double, ptr %10, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %10, i64 %114
   %116 = load double, ptr %115, align 8, !tbaa !25
   %117 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %118 = load double, ptr %117, align 8, !tbaa !25
   %119 = fsub double %116, %118
   %120 = fmul double %21, %119
-  %121 = getelementptr inbounds double, ptr %15, i64 %114
+  %121 = getelementptr inbounds [8 x i8], ptr %15, i64 %114
   store double %120, ptr %121, align 8, !tbaa !25
   br label %.loopexit
 

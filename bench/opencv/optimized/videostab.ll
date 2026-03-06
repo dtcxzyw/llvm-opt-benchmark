@@ -17375,7 +17375,7 @@ _ZNSt12_Vector_baseIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE13_M_deallo
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !651
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !418
-  %49 = getelementptr inbounds nuw %"struct.cv::Ptr.29", ptr %20, i64 %16
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %49, ptr %48, align 8, !tbaa !421
   ret void
 }

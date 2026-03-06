@@ -2708,7 +2708,7 @@ define hidden noundef zeroext i1 @"_ZN13ruff_notebook4cell45_$LT$impl$u20$ruff_n
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %22
   %24 = tail call noundef zeroext i1 @"_ZN13ruff_notebook4cell45_$LT$impl$u20$ruff_notebook..schema..Cell$GT$13is_magic_cell17h384e1cd7863c13ccE"(ptr noundef nonnull %20, ptr noundef nonnull %23)
   br label %31
 

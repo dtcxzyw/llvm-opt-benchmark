@@ -3,10 +3,6 @@ source_filename = "bench/ffmpeg/original/dynamic_hdr_vivid.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVHDRVividColorToneMappingParams = type { %struct.AVRational, i32, %struct.AVRational, %struct.AVRational, %struct.AVRational, %struct.AVRational, %struct.AVRational, i32, i32, i32, i32, %struct.AVRational, i32, i32, [2 x %struct.AVHDRVivid3SplineParams] }
-%struct.AVRational = type { i32, i32 }
-%struct.AVHDRVivid3SplineParams = type { i32, %struct.AVRational, %struct.AVRational, %struct.AVRational, %struct.AVRational, %struct.AVRational }
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
@@ -109,7 +105,7 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
 54:                                               ; preds = %.lr.ph344, %.loopexit
   %indvars.iv356 = phi i64 [ 0, %.lr.ph344 ], [ %indvars.iv.next357, %.loopexit ]
   %.sroa.34.4342 = phi i32 [ 58, %.lr.ph344 ], [ %.sroa.34.6, %.loopexit ]
-  %55 = getelementptr inbounds nuw %struct.AVHDRVividColorToneMappingParams, ptr %53, i64 %indvars.iv356
+  %55 = getelementptr inbounds nuw [172 x i8], ptr %53, i64 %indvars.iv356
   %56 = icmp sgt i32 %.sroa.34.4342, %invariant.op340
   br i1 %56, label %.thread321, label %57
 
@@ -330,7 +326,7 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
 223:                                              ; preds = %.lr.ph, %249
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %249 ]
   %.sroa.34.10338 = phi i32 [ %220, %.lr.ph ], [ %293, %249 ]
-  %224 = getelementptr inbounds nuw %struct.AVHDRVivid3SplineParams, ptr %221, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw [44 x i8], ptr %221, i64 %indvars.iv
   %225 = lshr i32 %.sroa.34.10338, 3
   %226 = zext nneg i32 %225 to i64
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 %226
@@ -487,7 +483,7 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
 328:                                              ; preds = %.lr.ph348, %328
   %indvars.iv359 = phi i64 [ 0, %.lr.ph348 ], [ %indvars.iv.next360, %328 ]
   %.sroa.34.12346 = phi i32 [ %325, %.lr.ph348 ], [ %339, %328 ]
-  %329 = getelementptr inbounds nuw %struct.AVRational, ptr %326, i64 %indvars.iv359
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %indvars.iv359
   %330 = lshr i32 %.sroa.34.12346, 3
   %331 = zext nneg i32 %330 to i64
   %332 = getelementptr inbounds nuw i8, ptr %1, i64 %331

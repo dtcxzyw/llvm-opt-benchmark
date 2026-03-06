@@ -1315,7 +1315,7 @@ strbuf_setlen.exit198.i:                          ; preds = %508, %506
   %.0122425.i = phi i32 [ %.1123.ph.i, %588 ], [ %.0122425.ph.i, %.outer.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %529 = load ptr, ptr %21, align 8, !tbaa !86
-  %530 = getelementptr inbounds nuw ptr, ptr %529, i64 %.3111426.i
+  %530 = getelementptr inbounds nuw [8 x i8], ptr %529, i64 %.3111426.i
   %531 = load ptr, ptr %530, align 8, !tbaa !87
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 108
   call void @llvm.lifetime.start.p0(ptr nonnull %31)

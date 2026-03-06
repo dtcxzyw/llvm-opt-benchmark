@@ -3,7 +3,6 @@ source_filename = "bench/lvgl/original/lv_anim_timeline.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lv_anim_timeline_dsc_t = type { %struct._lv_anim_t, i32, i8 }
 %struct._lv_anim_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, %union._lv_anim_path_para_t, i32, i32, i32, i8 }
 %union._lv_anim_path_para_t = type { %struct.lv_anim_bezier3_para_t }
 %struct.lv_anim_bezier3_para_t = type { i16, i16, i16, i16 }
@@ -82,13 +81,13 @@ define void @lv_anim_timeline_add(ptr noundef captures(address_is_null) %0, i32 
   %13 = load i32, ptr %5, align 8, !tbaa !10
   %14 = add i32 %13, -1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %11, i64 %15
+  %16 = getelementptr inbounds nuw [144 x i8], ptr %11, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false), !tbaa.struct !11
   %17 = load ptr, ptr %0, align 8, !tbaa !3
   %18 = load i32, ptr %5, align 8, !tbaa !10
   %19 = add i32 %18, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [144 x i8], ptr %17, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 136
   store i32 %1, ptr %22, align 8, !tbaa !15
   ret void
@@ -122,14 +121,14 @@ define i32 @lv_anim_timeline_start(ptr noundef %0) local_unnamed_addr #0 {
   %5 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %9, %8 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
   %.01935.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %8 ]
-  %6 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [144 x i8], ptr %5, i64 %indvars.iv.i
   %7 = tail call i32 @lv_anim_get_playtime(ptr noundef %6) #7
   %.not29.i = icmp eq i32 %7, -1
   br i1 %.not29.i, label %lv_anim_timeline_get_playtime.exit, label %8
 
 8:                                                ; preds = %.lr.ph.i
   %9 = load ptr, ptr %0, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [144 x i8], ptr %9, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %13 = add i32 %12, %7
@@ -169,13 +168,13 @@ lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %8, %.pre
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %29 ]
   %31 = load ptr, ptr %0, align 8, !tbaa !3
-  %32 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [144 x i8], ptr %31, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 140
   %34 = load i8, ptr %33, align 4
   %35 = and i8 %34, -2
   store i8 %35, ptr %33, align 4
   %36 = load ptr, ptr %0, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [144 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 140
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, -3
@@ -228,14 +227,14 @@ define i32 @lv_anim_timeline_get_playtime(ptr noundef readonly captures(address_
   %4 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %8, %7 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
   %.01935 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %7 ]
-  %5 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [144 x i8], ptr %4, i64 %indvars.iv
   %6 = tail call i32 @lv_anim_get_playtime(ptr noundef %5) #7
   %.not29 = icmp eq i32 %6, -1
   br i1 %.not29, label %.thread, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = load ptr, ptr %0, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [144 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load i32, ptr %10, align 8, !tbaa !15
   %12 = add i32 %11, %6
@@ -356,14 +355,14 @@ define void @lv_anim_timeline_set_progress(ptr noundef %0, i16 noundef zeroext %
   %5 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %9, %8 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
   %.01935.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %8 ]
-  %6 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [144 x i8], ptr %5, i64 %indvars.iv.i
   %7 = tail call i32 @lv_anim_get_playtime(ptr noundef %6) #7
   %.not29.i = icmp eq i32 %7, -1
   br i1 %.not29.i, label %lv_anim_timeline_get_playtime.exit, label %8
 
 8:                                                ; preds = %.lr.ph.i
   %9 = load ptr, ptr %0, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [144 x i8], ptr %9, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %13 = add i32 %12, %7
@@ -405,7 +404,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
 8:                                                ; preds = %.lr.ph, %174
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %174 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [144 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %13 = icmp ult i32 %1, %12
@@ -809,14 +808,14 @@ define zeroext i16 @lv_anim_timeline_get_progress(ptr noundef readonly captures(
   %4 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %8, %7 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %.01935.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %7 ]
-  %5 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %4, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [144 x i8], ptr %4, i64 %indvars.iv.i
   %6 = tail call i32 @lv_anim_get_playtime(ptr noundef %5) #7
   %.not29.i = icmp eq i32 %6, -1
   br i1 %.not29.i, label %lv_anim_timeline_get_playtime.exit, label %7
 
 7:                                                ; preds = %.lr.ph.i
   %8 = load ptr, ptr %0, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [144 x i8], ptr %8, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load i32, ptr %10, align 8, !tbaa !15
   %12 = add i32 %11, %6

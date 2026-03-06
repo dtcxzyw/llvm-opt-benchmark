@@ -592,7 +592,7 @@ CalculateCopyStreamSleeptime.exit.i:              ; preds = %CalculateCopyStream
   %239 = shl nuw i64 1, %238
   %240 = lshr i32 %235, 6
   %241 = zext nneg i32 %240 to i64
-  %242 = getelementptr inbounds nuw i64, ptr %3, i64 %241
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %241
   %243 = load i64, ptr %242, align 8
   %244 = or i64 %243, %239
   store i64 %244, ptr %242, align 8
@@ -610,7 +610,7 @@ CalculateCopyStreamSleeptime.exit.i:              ; preds = %CalculateCopyStream
   %250 = shl nuw i64 1, %249
   %251 = sdiv i32 %231, 64
   %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds i64, ptr %3, i64 %252
+  %253 = getelementptr inbounds [8 x i8], ptr %3, i64 %252
   %254 = load i64, ptr %253, align 8
   %255 = or i64 %254, %250
   store i64 %255, ptr %253, align 8

@@ -1546,7 +1546,7 @@ define dso_local void @drm_print_memory_stats(ptr noundef %0, ptr noundef readon
   br i1 %28, label %.preheader11, label %.loopexit12.loopexit, !llvm.loop !31
 
 .loopexit12.loopexit:                             ; preds = %.preheader11
-  %.phi.trans.insert = getelementptr ptr, ptr %9, i64 %21
+  %.phi.trans.insert = getelementptr [8 x i8], ptr %9, i64 %21
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.loopexit12
 
@@ -1581,7 +1581,7 @@ define dso_local void @drm_print_memory_stats(ptr noundef %0, ptr noundef readon
   br i1 %46, label %.preheader9, label %.loopexit10.loopexit, !llvm.loop !31
 
 .loopexit10.loopexit:                             ; preds = %.preheader9
-  %.phi.trans.insert31 = getelementptr ptr, ptr %8, i64 %39
+  %.phi.trans.insert31 = getelementptr [8 x i8], ptr %8, i64 %39
   %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8
   br label %.loopexit10
 
@@ -1617,7 +1617,7 @@ define dso_local void @drm_print_memory_stats(ptr noundef %0, ptr noundef readon
   br i1 %65, label %.preheader7, label %.loopexit8.loopexit, !llvm.loop !31
 
 .loopexit8.loopexit:                              ; preds = %.preheader7
-  %.phi.trans.insert33 = getelementptr ptr, ptr %7, i64 %58
+  %.phi.trans.insert33 = getelementptr [8 x i8], ptr %7, i64 %58
   %.pre34 = load ptr, ptr %.phi.trans.insert33, align 8
   br label %.loopexit8
 
@@ -1658,7 +1658,7 @@ define dso_local void @drm_print_memory_stats(ptr noundef %0, ptr noundef readon
   br i1 %87, label %.preheader5, label %.loopexit6.loopexit, !llvm.loop !31
 
 .loopexit6.loopexit:                              ; preds = %.preheader5
-  %.phi.trans.insert35 = getelementptr ptr, ptr %6, i64 %80
+  %.phi.trans.insert35 = getelementptr [8 x i8], ptr %6, i64 %80
   %.pre36 = load ptr, ptr %.phi.trans.insert35, align 8
   br label %.loopexit6
 
@@ -1702,7 +1702,7 @@ define dso_local void @drm_print_memory_stats(ptr noundef %0, ptr noundef readon
   br i1 %110, label %.preheader, label %.loopexit.loopexit, !llvm.loop !31
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %.phi.trans.insert37 = getelementptr ptr, ptr %5, i64 %103
+  %.phi.trans.insert37 = getelementptr [8 x i8], ptr %5, i64 %103
   %.pre38 = load ptr, ptr %.phi.trans.insert37, align 8
   br label %.loopexit
 

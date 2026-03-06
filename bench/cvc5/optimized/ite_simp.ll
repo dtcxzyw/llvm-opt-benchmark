@@ -1812,7 +1812,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing6passes7ITESim
   %.0682716 = phi i64 [ %260, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit224 ], [ 0, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %72 = load ptr, ptr %64, align 8, !tbaa !9
-  %73 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %72, i64 %.0682716
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.0682716
   %74 = load ptr, ptr %73, align 8, !tbaa !12
   store ptr %74, ptr %4, align 8, !tbaa !12
   %75 = load i64, ptr %74, align 8
@@ -2299,7 +2299,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit224: ; preds = %247, %250, %256
   %.0683718 = phi i64 [ %284, %283 ], [ 0, %.lr.ph720.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %287 = load ptr, ptr %64, align 8, !tbaa !9
-  %288 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %287, i64 %.0683718
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %.0683718
   %289 = load ptr, ptr %288, align 8, !tbaa !12
   store ptr %289, ptr %13, align 8, !tbaa !12
   %290 = load i64, ptr %289, align 8
@@ -2687,7 +2687,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit349: ; preds = %_ZN4cvc58internal1
   %.0684724 = phi i64 [ %644, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit480 ], [ 0, %._crit_edge721 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %454 = load ptr, ptr %64, align 8, !tbaa !9
-  %455 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %454, i64 %.0684724
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %454, i64 %.0684724
   %456 = load ptr, ptr %455, align 8, !tbaa !12
   store ptr %456, ptr %22, align 8, !tbaa !12
   %457 = load i64, ptr %456, align 8
@@ -3420,7 +3420,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   call void @_ZN4cvc58internal13preprocessing24PreprocessingPassContext13spendResourceENS0_8ResourceE(ptr noundef nonnull align 8 dereferenceable(168) %21, i32 noundef 10)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = load ptr, ptr %8, align 8, !tbaa !9
-  %23 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %.02329
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.02329
   %24 = load ptr, ptr %23, align 8, !tbaa !12
   store ptr %24, ptr %4, align 8, !tbaa !21
   call void @_ZN4cvc58internal13preprocessing6passes7ITESimp7simpITEEPNS1_4util12ITEUtilitiesENS0_12NodeTemplateILb0EEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %3, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %16, ptr noundef nonnull %4)
@@ -3899,7 +3899,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !9
   store ptr %42, ptr %4, align 8, !tbaa !3
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !28
   ret void
 

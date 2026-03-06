@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5HF_hdr_cache_ud_t = type { ptr }
-%struct.H5HF_indirect_ent_t = type { i64 }
 
 @H5HF_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -334,7 +333,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_finish_init_phase2(ptr noundef %0) local_
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %12, align 8, !tbaa !44
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !10
   %26 = load i8, ptr %16, align 1, !tbaa !45, !range !7, !noundef !8
   %27 = shl nuw nsw i8 %26, 2
@@ -348,7 +347,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_finish_init_phase2(ptr noundef %0) local_
   %34 = add nuw nsw i64 %33, %32
   %35 = sub i64 %25, %34
   %36 = load ptr, ptr %14, align 8, !tbaa !46
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   store i64 %35, ptr %37, align 8, !tbaa !10
   %38 = load ptr, ptr %15, align 8, !tbaa !47
   br label %H5HF__hdr_compute_free_space.exit.sink.split
@@ -362,7 +361,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_finish_init_phase2(ptr noundef %0) local_
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr %12, align 8, !tbaa !44
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load i64, ptr %46, align 8, !tbaa !10
   %.not.i = icmp eq i64 %47, 0
   br i1 %.not.i, label %.._crit_edge_crit_edge.i, label %.lr.ph.i
@@ -385,15 +384,15 @@ define range(i32 -1, 1) i32 @H5HF__hdr_finish_init_phase2(ptr noundef %0) local_
   %.02529.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i, %52 ]
   %.02628.i = phi i64 [ 0, %.lr.ph.i ], [ %61, %52 ]
   %53 = zext i32 %.02430.i to i64
-  %54 = getelementptr inbounds nuw i64, ptr %45, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !10
   %56 = mul i64 %55, %49
   %57 = add i64 %56, %.031.i
-  %58 = getelementptr inbounds nuw i64, ptr %50, i64 %53
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %53
   %59 = load i64, ptr %58, align 8, !tbaa !10
   %60 = mul i64 %59, %49
   %61 = add i64 %60, %.02628.i
-  %62 = getelementptr inbounds nuw i64, ptr %51, i64 %53
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %53
   %63 = load i64, ptr %62, align 8, !tbaa !10
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %63, i64 %.02529.i)
   %64 = add i32 %.02430.i, 1
@@ -405,14 +404,14 @@ define range(i32 -1, 1) i32 @H5HF__hdr_finish_init_phase2(ptr noundef %0) local_
   %67 = phi ptr [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %50, %52 ]
   %.026.lcssa.i = phi i64 [ 0, %.._crit_edge_crit_edge.i ], [ %61, %52 ]
   %.025.lcssa.i = phi i64 [ 0, %.._crit_edge_crit_edge.i ], [ %spec.select.i, %52 ]
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   store i64 %.026.lcssa.i, ptr %68, align 8, !tbaa !10
   br label %H5HF__hdr_compute_free_space.exit.sink.split
 
 H5HF__hdr_compute_free_space.exit.sink.split:     ; preds = %22, %._crit_edge.i
   %.sink34 = phi ptr [ %66, %._crit_edge.i ], [ %38, %22 ]
   %.025.lcssa.i.sink = phi i64 [ %.025.lcssa.i, %._crit_edge.i ], [ %35, %22 ]
-  %69 = getelementptr inbounds nuw i64, ptr %.sink34, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.sink34, i64 %indvars.iv
   store i64 %.025.lcssa.i.sink, ptr %69, align 8, !tbaa !10
   br label %H5HF__hdr_compute_free_space.exit
 
@@ -1522,7 +1521,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_update_iter(ptr noundef %0, i64 noundef %
   %76 = mul i64 %1, 125613361
   %77 = lshr i64 %76, 27
   %78 = and i64 %77, 31
-  %79 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %78
   br label %80
 
 80:                                               ; preds = %215, %72
@@ -1601,13 +1600,13 @@ define range(i32 -1, 1) i32 @H5HF__hdr_update_iter(ptr noundef %0, i64 noundef %
 123:                                              ; preds = %._crit_edge
   %124 = load ptr, ptr %74, align 8, !tbaa !44
   %125 = zext i32 %.lcssa to i64
-  %126 = getelementptr inbounds nuw i64, ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %125
   %127 = load i64, ptr %126, align 8, !tbaa !10
   %128 = call i32 @H5HF__dtable_size_to_rows(ptr noundef nonnull %15, i64 noundef %127) #7
   %129 = load ptr, ptr %74, align 8, !tbaa !44
   %130 = add i32 %128, -1
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw i64, ptr %129, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !10
   %134 = icmp ult i64 %133, %1
   br i1 %134, label %135, label %162
@@ -1618,7 +1617,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_update_iter(ptr noundef %0, i64 noundef %
   %138 = mul i64 %137, 125613361
   %139 = lshr i64 %138, 27
   %140 = and i64 %139, 31
-  %141 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !78
   %143 = load i32, ptr %4, align 4, !tbaa !78
   %144 = add i32 %136, 2
@@ -1847,7 +1846,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
 44:                                               ; preds = %.lr.ph, %.critedge3
   %.068100 = phi i32 [ %40, %.lr.ph ], [ %49, %.critedge3 ]
   %45 = zext nneg i32 %.068100 to i64
-  %46 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !91
   %48 = icmp eq i64 %47, %1
   %.not77 = icmp eq i64 %47, -1
@@ -1936,12 +1935,12 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   %95 = load i32, ptr %34, align 8, !tbaa !48
   %96 = udiv i32 %94, %95
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw i64, ptr %93, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !10
   %100 = add i64 %99, %92
   store i64 %100, ptr %37, align 8, !tbaa !75
   %101 = load ptr, ptr %36, align 8, !tbaa !44
-  %102 = getelementptr inbounds nuw i64, ptr %101, i64 %97
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %97
   %103 = load i64, ptr %102, align 8, !tbaa !10
   %104 = urem i32 %94, %95
   %105 = zext i32 %104 to i64
@@ -1954,7 +1953,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %109 = load ptr, ptr %36, align 8, !tbaa !44
   %110 = zext nneg i32 %78 to i64
-  %111 = getelementptr inbounds nuw i64, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %110
   %112 = load i64, ptr %111, align 8, !tbaa !10
   %113 = call i32 @H5HF__dtable_size_to_rows(ptr noundef nonnull %34, i64 noundef %112) #7
   %114 = load ptr, ptr %3, align 8, !tbaa !79
@@ -1962,7 +1961,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   %116 = load ptr, ptr %115, align 8, !tbaa !90
   %117 = load i32, ptr %4, align 4, !tbaa !78
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %118
   %120 = load i64, ptr %119, align 8, !tbaa !91
   %121 = call ptr @H5HF__man_iblock_protect(ptr noundef nonnull %0, i64 noundef %120, i32 noundef %113, ptr noundef %114, i32 noundef %117, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %5) #7
   %122 = icmp eq ptr %121, null

@@ -240,7 +240,7 @@ Vec_PtrPush.exit.i:                               ; preds = %Vec_PtrPush.exitthr
   %98 = add nsw i32 %29, 1
   store i32 %98, ptr %7, align 4, !tbaa !24
   %99 = sext i32 %29 to i64
-  %100 = getelementptr inbounds ptr, ptr %97, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %97, i64 %99
   store ptr %.03365.i, ptr %100, align 8, !tbaa !48
   %101 = icmp eq i32 %98, %96
   br i1 %101, label %102, label %.Vec_PtrGrow.exit11_crit_edge.i41.i
@@ -299,7 +299,7 @@ Vec_PtrPush.exit47.i:                             ; preds = %120, %Vec_PtrGrow.e
   %123 = phi ptr [ %.pre.i43.i, %.Vec_PtrGrow.exit11_crit_edge.i41.i ], [ %121, %120 ], [ %110, %Vec_PtrGrow.exit.i46.i ]
   %124 = add nsw i32 %29, 2
   %125 = sext i32 %98 to i64
-  %126 = getelementptr inbounds ptr, ptr %123, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %123, i64 %125
   store ptr %.07195, ptr %126, align 8, !tbaa !48
   %127 = sext i32 %75 to i64
   %128 = inttoptr i64 %127 to ptr
@@ -361,7 +361,7 @@ Vec_PtrPush.exit54.i:                             ; preds = %148, %Vec_PtrGrow.e
   %152 = add nsw i32 %29, 3
   store i32 %152, ptr %7, align 4, !tbaa !24
   %153 = sext i32 %124 to i64
-  %154 = getelementptr inbounds ptr, ptr %151, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %151, i64 %153
   store ptr %128, ptr %154, align 8, !tbaa !48
   br label %155
 
@@ -403,7 +403,7 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %155, %13, %._crit_e
 
 170:                                              ; preds = %.lr.ph98, %184
   %indvars.iv = phi i64 [ 2, %.lr.ph98 ], [ %indvars.iv.next, %184 ]
-  %171 = getelementptr inbounds nuw ptr, ptr %.val81, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %.val81, i64 %indvars.iv
   %172 = load ptr, ptr %171, align 8, !tbaa !48
   %173 = ptrtoint ptr %172 to i64
   %174 = trunc i64 %173 to i32
@@ -437,7 +437,7 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %155, %13, %._crit_e
   %.0100 = phi i32 [ %191, %190 ], [ 999, %.preheader.preheader ]
   %.06799 = phi i32 [ %189, %190 ], [ 0, %.preheader.preheader ]
   %186 = zext nneg i32 %.0100 to i64
-  %187 = getelementptr inbounds nuw i32, ptr %calloc, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %calloc, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !52
   %189 = add nsw i32 %188, %.06799
   %.not76 = icmp slt i32 %189, %2
@@ -460,7 +460,7 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %155, %13, %._crit_e
 193:                                              ; preds = %.lr.ph104, %212
   %indvars.iv113 = phi i64 [ 2, %.lr.ph104 ], [ %indvars.iv.next114, %212 ]
   %.068101 = phi i32 [ 0, %.lr.ph104 ], [ %.2, %212 ]
-  %194 = getelementptr ptr, ptr %.val82, i64 %indvars.iv113
+  %194 = getelementptr [8 x i8], ptr %.val82, i64 %indvars.iv113
   %195 = load ptr, ptr %194, align 8, !tbaa !48
   %196 = ptrtoint ptr %195 to i64
   %197 = trunc i64 %196 to i32
@@ -471,7 +471,7 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %155, %13, %._crit_e
   %200 = getelementptr i8, ptr %194, i64 -16
   %201 = load ptr, ptr %200, align 8, !tbaa !48
   %202 = sext i32 %.068101 to i64
-  %203 = getelementptr ptr, ptr %.val82, i64 %202
+  %203 = getelementptr [8 x i8], ptr %.val82, i64 %202
   store ptr %201, ptr %203, align 8, !tbaa !48
   %204 = getelementptr i8, ptr %194, i64 -8
   %205 = load ptr, ptr %204, align 8, !tbaa !48
@@ -505,7 +505,7 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %155, %13, %._crit_e
 
 .lr.ph110:                                        ; preds = %215, %.lr.ph110
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph110 ], [ 0, %215 ]
-  %217 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv116
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv116
   %218 = load ptr, ptr %217, align 8, !tbaa !48
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %220 = load ptr, ptr %219, align 8, !tbaa !48

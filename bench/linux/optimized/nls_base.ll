@@ -799,7 +799,7 @@ define internal noundef range(i32 -36, 2) i32 @uni2char(i16 noundef zeroext %0, 
 define internal range(i32 -22, 2) i32 @char2uni(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 2)) %2) #7 align 16 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr i16, ptr @charset2uni, i64 %5
+  %6 = getelementptr [2 x i8], ptr @charset2uni, i64 %5
   %7 = load i16, ptr %6, align 2
   store i16 %7, ptr %2, align 2
   %8 = icmp eq i8 %4, 0

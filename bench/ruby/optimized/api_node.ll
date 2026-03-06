@@ -3,8 +3,6 @@ source_filename = "bench/ruby/original/api_node.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pm_constant_t = type { ptr, i64 }
-
 @rb_cPrismToken = external local_unnamed_addr global i64, align 8
 @pm_integer_new.rbimpl_id = internal unnamed_addr global i64 0, align 8
 @.str = private unnamed_addr constant [5 x i8] c"to_i\00", align 1
@@ -491,7 +489,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %._crit_e
   %.02541 = phi i64 [ %40, %27 ], [ %21, %.lr.ph.preheader ]
   %.02740 = phi i64 [ %28, %27 ], [ 0, %.lr.ph.preheader ]
   %24 = load ptr, ptr %2, align 8, !tbaa !34
-  %25 = getelementptr i32, ptr %24, i64 %.02740
+  %25 = getelementptr [4 x i8], ptr %24, i64 %.02740
   %26 = load i32, ptr %25, align 4, !tbaa !47
   br label %31
 
@@ -578,7 +576,7 @@ define hidden i64 @pm_source_new(ptr noundef readonly captures(none) %0, ptr nou
 17:                                               ; preds = %.lr.ph, %rb_ulong2num_inline.exit
   %.020 = phi i64 [ 0, %.lr.ph ], [ %28, %rb_ulong2num_inline.exit ]
   %18 = load ptr, ptr %16, align 8, !tbaa !56
-  %19 = getelementptr i64, ptr %18, i64 %.020
+  %19 = getelementptr [8 x i8], ptr %18, i64 %.020
   %20 = load i64, ptr %19, align 8, !tbaa !16
   %21 = icmp ult i64 %20, 4611686018427387904
   br i1 %21, label %22, label %25
@@ -2907,7 +2905,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
 2257:                                             ; preds = %.lr.ph, %2269
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %2269 ]
   %2258 = load ptr, ptr %540, align 8, !tbaa !66
-  %2259 = getelementptr %struct.pm_constant_t, ptr %2258, i64 %indvars.iv
+  %2259 = getelementptr [16 x i8], ptr %2258, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %383)
   store i32 0, ptr %383, align 4, !tbaa !47
   %2260 = load ptr, ptr %2259, align 8, !tbaa !67
@@ -3313,7 +3311,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041156177 = phi i64 [ 0, %.lr.ph6178 ], [ %2386, %2379 ]
   %.16176 = phi ptr [ %.057666294, %.lr.ph6178 ], [ %2383, %2379 ]
   %2380 = load ptr, ptr %2334, align 8, !tbaa !123
-  %2381 = getelementptr ptr, ptr %2380, i64 %.041156177
+  %2381 = getelementptr [8 x i8], ptr %2380, i64 %.041156177
   %2382 = load ptr, ptr %2381, align 8, !tbaa !124
   %2383 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.16176, ptr %2383, align 8, !tbaa !60
@@ -3330,7 +3328,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041166173 = phi i64 [ 0, %.lr.ph6174 ], [ %2396, %2389 ]
   %.26172 = phi ptr [ %.057666294, %.lr.ph6174 ], [ %2393, %2389 ]
   %2390 = load ptr, ptr %2331, align 8, !tbaa !126
-  %2391 = getelementptr ptr, ptr %2390, i64 %.041166173
+  %2391 = getelementptr [8 x i8], ptr %2390, i64 %.041166173
   %2392 = load ptr, ptr %2391, align 8, !tbaa !124
   %2393 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.26172, ptr %2393, align 8, !tbaa !60
@@ -3384,7 +3382,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041176162 = phi i64 [ 0, %.lr.ph6164 ], [ %2423, %2416 ]
   %.36161 = phi ptr [ %2402, %.lr.ph6164 ], [ %2420, %2416 ]
   %2417 = load ptr, ptr %2407, align 8, !tbaa !133
-  %2418 = getelementptr ptr, ptr %2417, i64 %.041176162
+  %2418 = getelementptr [8 x i8], ptr %2417, i64 %.041176162
   %2419 = load ptr, ptr %2418, align 8, !tbaa !124
   %2420 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.36161, ptr %2420, align 8, !tbaa !60
@@ -3401,7 +3399,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041186168 = phi i64 [ 0, %.lr.ph6170 ], [ %2433, %2426 ]
   %.46167 = phi ptr [ %2410, %.lr.ph6170 ], [ %2430, %2426 ]
   %2427 = load ptr, ptr %2415, align 8, !tbaa !135
-  %2428 = getelementptr ptr, ptr %2427, i64 %.041186168
+  %2428 = getelementptr [8 x i8], ptr %2427, i64 %.041186168
   %2429 = load ptr, ptr %2428, align 8, !tbaa !124
   %2430 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.46167, ptr %2430, align 8, !tbaa !60
@@ -3531,7 +3529,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041196157 = phi i64 [ 0, %.lr.ph6159 ], [ %2507, %2500 ]
   %.56156 = phi ptr [ %2494, %.lr.ph6159 ], [ %2504, %2500 ]
   %2501 = load ptr, ptr %2499, align 8, !tbaa !159
-  %2502 = getelementptr ptr, ptr %2501, i64 %.041196157
+  %2502 = getelementptr [8 x i8], ptr %2501, i64 %.041196157
   %2503 = load ptr, ptr %2502, align 8, !tbaa !124
   %2504 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.56156, ptr %2504, align 8, !tbaa !60
@@ -3703,7 +3701,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041216151 = phi i64 [ 0, %.lr.ph6153 ], [ %2603, %2596 ]
   %.66150 = phi ptr [ %2585, %.lr.ph6153 ], [ %2600, %2596 ]
   %2597 = load ptr, ptr %2590, align 8, !tbaa !187
-  %2598 = getelementptr ptr, ptr %2597, i64 %.041216151
+  %2598 = getelementptr [8 x i8], ptr %2597, i64 %.041216151
   %2599 = load ptr, ptr %2598, align 8, !tbaa !124
   %2600 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.66150, ptr %2600, align 8, !tbaa !60
@@ -3750,7 +3748,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041226145 = phi i64 [ 0, %.lr.ph6147 ], [ %2627, %2620 ]
   %.76144 = phi ptr [ %2609, %.lr.ph6147 ], [ %2624, %2620 ]
   %2621 = load ptr, ptr %2614, align 8, !tbaa !193
-  %2622 = getelementptr ptr, ptr %2621, i64 %.041226145
+  %2622 = getelementptr [8 x i8], ptr %2621, i64 %.041226145
   %2623 = load ptr, ptr %2622, align 8, !tbaa !124
   %2624 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.76144, ptr %2624, align 8, !tbaa !60
@@ -4100,7 +4098,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041236139 = phi i64 [ 0, %.lr.ph6141 ], [ %2822, %2815 ]
   %.86138 = phi ptr [ %2804, %.lr.ph6141 ], [ %2819, %2815 ]
   %2816 = load ptr, ptr %2809, align 8, !tbaa !252
-  %2817 = getelementptr ptr, ptr %2816, i64 %.041236139
+  %2817 = getelementptr [8 x i8], ptr %2816, i64 %.041236139
   %2818 = load ptr, ptr %2817, align 8, !tbaa !124
   %2819 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.86138, ptr %2819, align 8, !tbaa !60
@@ -4218,7 +4216,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041246135 = phi i64 [ 0, %.lr.ph6136 ], [ %2889, %2882 ]
   %.96134 = phi ptr [ %.057666294, %.lr.ph6136 ], [ %2886, %2882 ]
   %2883 = load ptr, ptr %2328, align 8, !tbaa !272
-  %2884 = getelementptr ptr, ptr %2883, i64 %.041246135
+  %2884 = getelementptr [8 x i8], ptr %2883, i64 %.041246135
   %2885 = load ptr, ptr %2884, align 8, !tbaa !124
   %2886 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.96134, ptr %2886, align 8, !tbaa !60
@@ -4265,7 +4263,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041256129 = phi i64 [ 0, %.lr.ph6131 ], [ %2913, %2906 ]
   %.106128 = phi ptr [ %2895, %.lr.ph6131 ], [ %2910, %2906 ]
   %2907 = load ptr, ptr %2900, align 8, !tbaa !278
-  %2908 = getelementptr ptr, ptr %2907, i64 %.041256129
+  %2908 = getelementptr [8 x i8], ptr %2907, i64 %.041256129
   %2909 = load ptr, ptr %2908, align 8, !tbaa !124
   %2910 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.106128, ptr %2910, align 8, !tbaa !60
@@ -4526,7 +4524,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041266125 = phi i64 [ 0, %.lr.ph6126 ], [ %3065, %3058 ]
   %.116124 = phi ptr [ %.057666294, %.lr.ph6126 ], [ %3062, %3058 ]
   %3059 = load ptr, ptr %2325, align 8, !tbaa !319
-  %3060 = getelementptr ptr, ptr %3059, i64 %.041266125
+  %3060 = getelementptr [8 x i8], ptr %3059, i64 %.041266125
   %3061 = load ptr, ptr %3060, align 8, !tbaa !124
   %3062 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.116124, ptr %3062, align 8, !tbaa !60
@@ -4543,7 +4541,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041286121 = phi i64 [ 0, %.lr.ph6122 ], [ %3075, %3068 ]
   %.126120 = phi ptr [ %.057666294, %.lr.ph6122 ], [ %3072, %3068 ]
   %3069 = load ptr, ptr %2322, align 8, !tbaa !321
-  %3070 = getelementptr ptr, ptr %3069, i64 %.041286121
+  %3070 = getelementptr [8 x i8], ptr %3069, i64 %.041286121
   %3071 = load ptr, ptr %3070, align 8, !tbaa !124
   %3072 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.126120, ptr %3072, align 8, !tbaa !60
@@ -4560,7 +4558,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041296117 = phi i64 [ 0, %.lr.ph6118 ], [ %3085, %3078 ]
   %.136116 = phi ptr [ %.057666294, %.lr.ph6118 ], [ %3082, %3078 ]
   %3079 = load ptr, ptr %2319, align 8, !tbaa !323
-  %3080 = getelementptr ptr, ptr %3079, i64 %.041296117
+  %3080 = getelementptr [8 x i8], ptr %3079, i64 %.041296117
   %3081 = load ptr, ptr %3080, align 8, !tbaa !124
   %3082 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.136116, ptr %3082, align 8, !tbaa !60
@@ -4577,7 +4575,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041306113 = phi i64 [ 0, %.lr.ph6114 ], [ %3095, %3088 ]
   %.146112 = phi ptr [ %.057666294, %.lr.ph6114 ], [ %3092, %3088 ]
   %3089 = load ptr, ptr %2316, align 8, !tbaa !325
-  %3090 = getelementptr ptr, ptr %3089, i64 %.041306113
+  %3090 = getelementptr [8 x i8], ptr %3089, i64 %.041306113
   %3091 = load ptr, ptr %3090, align 8, !tbaa !124
   %3092 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.146112, ptr %3092, align 8, !tbaa !60
@@ -4594,7 +4592,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041316109 = phi i64 [ 0, %.lr.ph6110 ], [ %3105, %3098 ]
   %.156108 = phi ptr [ %.057666294, %.lr.ph6110 ], [ %3102, %3098 ]
   %3099 = load ptr, ptr %2313, align 8, !tbaa !327
-  %3100 = getelementptr ptr, ptr %3099, i64 %.041316109
+  %3100 = getelementptr [8 x i8], ptr %3099, i64 %.041316109
   %3101 = load ptr, ptr %3100, align 8, !tbaa !124
   %3102 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.156108, ptr %3102, align 8, !tbaa !60
@@ -4611,7 +4609,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041326105 = phi i64 [ 0, %.lr.ph6106 ], [ %3115, %3108 ]
   %.166104 = phi ptr [ %.057666294, %.lr.ph6106 ], [ %3112, %3108 ]
   %3109 = load ptr, ptr %2310, align 8, !tbaa !329
-  %3110 = getelementptr ptr, ptr %3109, i64 %.041326105
+  %3110 = getelementptr [8 x i8], ptr %3109, i64 %.041326105
   %3111 = load ptr, ptr %3110, align 8, !tbaa !124
   %3112 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.166104, ptr %3112, align 8, !tbaa !60
@@ -4747,7 +4745,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041336100 = phi i64 [ 0, %.lr.ph6102 ], [ %3191, %3184 ]
   %.176099 = phi ptr [ %3178, %.lr.ph6102 ], [ %3188, %3184 ]
   %3185 = load ptr, ptr %3183, align 8, !tbaa !352
-  %3186 = getelementptr ptr, ptr %3185, i64 %.041336100
+  %3186 = getelementptr [8 x i8], ptr %3185, i64 %.041336100
   %3187 = load ptr, ptr %3186, align 8, !tbaa !124
   %3188 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.176099, ptr %3188, align 8, !tbaa !60
@@ -4802,7 +4800,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041346090 = phi i64 [ 0, %.lr.ph6091 ], [ %3220, %3213 ]
   %.186089 = phi ptr [ %.057666294, %.lr.ph6091 ], [ %3217, %3213 ]
   %3214 = load ptr, ptr %2307, align 8, !tbaa !359
-  %3215 = getelementptr ptr, ptr %3214, i64 %.041346090
+  %3215 = getelementptr [8 x i8], ptr %3214, i64 %.041346090
   %3216 = load ptr, ptr %3215, align 8, !tbaa !124
   %3217 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.186089, ptr %3217, align 8, !tbaa !60
@@ -4819,7 +4817,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041356095 = phi i64 [ 0, %.lr.ph6097 ], [ %3230, %3223 ]
   %.196094 = phi ptr [ %3207, %.lr.ph6097 ], [ %3227, %3223 ]
   %3224 = load ptr, ptr %3212, align 8, !tbaa !361
-  %3225 = getelementptr ptr, ptr %3224, i64 %.041356095
+  %3225 = getelementptr [8 x i8], ptr %3224, i64 %.041356095
   %3226 = load ptr, ptr %3225, align 8, !tbaa !124
   %3227 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.196094, ptr %3227, align 8, !tbaa !60
@@ -4855,7 +4853,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041366079 = phi i64 [ 0, %.lr.ph6080 ], [ %3248, %3241 ]
   %.206078 = phi ptr [ %.057666294, %.lr.ph6080 ], [ %3245, %3241 ]
   %3242 = load ptr, ptr %2304, align 8, !tbaa !365
-  %3243 = getelementptr ptr, ptr %3242, i64 %.041366079
+  %3243 = getelementptr [8 x i8], ptr %3242, i64 %.041366079
   %3244 = load ptr, ptr %3243, align 8, !tbaa !124
   %3245 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.206078, ptr %3245, align 8, !tbaa !60
@@ -4884,7 +4882,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041386084 = phi i64 [ 0, %.lr.ph6086 ], [ %3263, %3256 ]
   %.216083 = phi ptr [ %3235, %.lr.ph6086 ], [ %3260, %3256 ]
   %3257 = load ptr, ptr %3240, align 8, !tbaa !368
-  %3258 = getelementptr ptr, ptr %3257, i64 %.041386084
+  %3258 = getelementptr [8 x i8], ptr %3257, i64 %.041386084
   %3259 = load ptr, ptr %3258, align 8, !tbaa !124
   %3260 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.216083, ptr %3260, align 8, !tbaa !60
@@ -4964,7 +4962,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041396060 = phi i64 [ 0, %.lr.ph6061 ], [ %3305, %3298 ]
   %.226059 = phi ptr [ %.057666294, %.lr.ph6061 ], [ %3302, %3298 ]
   %3299 = load ptr, ptr %2301, align 8, !tbaa !380
-  %3300 = getelementptr ptr, ptr %3299, i64 %.041396060
+  %3300 = getelementptr [8 x i8], ptr %3299, i64 %.041396060
   %3301 = load ptr, ptr %3300, align 8, !tbaa !124
   %3302 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.226059, ptr %3302, align 8, !tbaa !60
@@ -5000,7 +4998,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041406064 = phi i64 [ 0, %.lr.ph6065 ], [ %3323, %3316 ]
   %.236063 = phi ptr [ %.22.lcssa, %.lr.ph6065 ], [ %3320, %3316 ]
   %3317 = load ptr, ptr %3297, align 8, !tbaa !384
-  %3318 = getelementptr ptr, ptr %3317, i64 %.041406064
+  %3318 = getelementptr [8 x i8], ptr %3317, i64 %.041406064
   %3319 = load ptr, ptr %3318, align 8, !tbaa !124
   %3320 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.236063, ptr %3320, align 8, !tbaa !60
@@ -5028,7 +5026,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041416069 = phi i64 [ 0, %.lr.ph6071 ], [ %3336, %3329 ]
   %.246068 = phi ptr [ %3310, %.lr.ph6071 ], [ %3333, %3329 ]
   %3330 = load ptr, ptr %3315, align 8, !tbaa !387
-  %3331 = getelementptr ptr, ptr %3330, i64 %.041416069
+  %3331 = getelementptr [8 x i8], ptr %3330, i64 %.041416069
   %3332 = load ptr, ptr %3331, align 8, !tbaa !124
   %3333 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.246068, ptr %3333, align 8, !tbaa !60
@@ -5065,7 +5063,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041426074 = phi i64 [ 0, %.lr.ph6075 ], [ %3356, %3349 ]
   %.256073 = phi ptr [ %.24.lcssa, %.lr.ph6075 ], [ %3353, %3349 ]
   %3350 = load ptr, ptr %3328, align 8, !tbaa !391
-  %3351 = getelementptr ptr, ptr %3350, i64 %.041426074
+  %3351 = getelementptr [8 x i8], ptr %3350, i64 %.041426074
   %3352 = load ptr, ptr %3351, align 8, !tbaa !124
   %3353 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.256073, ptr %3353, align 8, !tbaa !60
@@ -5214,7 +5212,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041436055 = phi i64 [ 0, %.lr.ph6056 ], [ %3439, %3432 ]
   %.266054 = phi ptr [ %.057666294, %.lr.ph6056 ], [ %3436, %3432 ]
   %3433 = load ptr, ptr %2298, align 8, !tbaa !414
-  %3434 = getelementptr ptr, ptr %3433, i64 %.041436055
+  %3434 = getelementptr [8 x i8], ptr %3433, i64 %.041436055
   %3435 = load ptr, ptr %3434, align 8, !tbaa !124
   %3436 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.266054, ptr %3436, align 8, !tbaa !60
@@ -5283,7 +5281,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041446051 = phi i64 [ 0, %.lr.ph6052 ], [ %3478, %3471 ]
   %.276050 = phi ptr [ %.057666294, %.lr.ph6052 ], [ %3475, %3471 ]
   %3472 = load ptr, ptr %2295, align 8, !tbaa !425
-  %3473 = getelementptr ptr, ptr %3472, i64 %.041446051
+  %3473 = getelementptr [8 x i8], ptr %3472, i64 %.041446051
   %3474 = load ptr, ptr %3473, align 8, !tbaa !124
   %3475 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.276050, ptr %3475, align 8, !tbaa !60
@@ -5319,7 +5317,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041456047 = phi i64 [ 0, %.lr.ph6048 ], [ %3499, %3492 ]
   %.286046 = phi ptr [ %.057666294, %.lr.ph6048 ], [ %3496, %3492 ]
   %3493 = load ptr, ptr %2292, align 8, !tbaa !430
-  %3494 = getelementptr ptr, ptr %3493, i64 %.041456047
+  %3494 = getelementptr [8 x i8], ptr %3493, i64 %.041456047
   %3495 = load ptr, ptr %3494, align 8, !tbaa !124
   %3496 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.286046, ptr %3496, align 8, !tbaa !60
@@ -5394,7 +5392,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %.041476043 = phi i64 [ 0, %.lr.ph6044 ], [ %3541, %3534 ]
   %.296042 = phi ptr [ %.057666294, %.lr.ph6044 ], [ %3538, %3534 ]
   %3535 = load ptr, ptr %2289, align 8, !tbaa !440
-  %3536 = getelementptr ptr, ptr %3535, i64 %.041476043
+  %3536 = getelementptr [8 x i8], ptr %3535, i64 %.041476043
   %3537 = load ptr, ptr %3536, align 8, !tbaa !124
   %3538 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #6
   store ptr %.296042, ptr %3538, align 8, !tbaa !60
@@ -7135,7 +7133,7 @@ rb_array_const_ptr.exit:                          ; preds = %pm_location_new.exi
   %4535 = load i32, ptr %4534, align 8, !tbaa !475
   %4536 = add i32 %4535, -1
   %4537 = zext i32 %4536 to i64
-  %4538 = getelementptr i64, ptr %.0.i4313, i64 %4537
+  %4538 = getelementptr [8 x i8], ptr %.0.i4313, i64 %4537
   %4539 = load i64, ptr %4538, align 8, !tbaa !16
   store i64 %4539, ptr %2164, align 16, !tbaa !16
   %4540 = load i64, ptr @rb_cPrismBackReferenceReadNode, align 8, !tbaa !16
@@ -7579,7 +7577,7 @@ rb_array_const_ptr.exit4334:                      ; preds = %pm_location_new.exi
   %4817 = load i32, ptr %4816, align 8, !tbaa !483
   %4818 = add i32 %4817, -1
   %4819 = zext i32 %4818 to i64
-  %4820 = getelementptr i64, ptr %.0.i4333, i64 %4819
+  %4820 = getelementptr [8 x i8], ptr %.0.i4333, i64 %4819
   %4821 = load i64, ptr %4820, align 8, !tbaa !16
   store i64 %4821, ptr %2134, align 16, !tbaa !16
   %4822 = load i64, ptr @rb_cPrismBlockLocalVariableNode, align 8, !tbaa !16
@@ -7692,11 +7690,11 @@ pm_location_new.exit4337:                         ; preds = %4838, %4863, %4866
 rb_array_const_ptr.exit4341:                      ; preds = %4878, %4882
   %.0.i4340 = phi ptr [ %4883, %4882 ], [ %736, %4878 ]
   %4884 = load ptr, ptr %4877, align 8, !tbaa !486
-  %4885 = getelementptr i32, ptr %4884, i64 %.041526278
+  %4885 = getelementptr [4 x i8], ptr %4884, i64 %.041526278
   %4886 = load i32, ptr %4885, align 4, !tbaa !47
   %4887 = add i32 %4886, -1
   %4888 = zext i32 %4887 to i64
-  %4889 = getelementptr i64, ptr %.0.i4340, i64 %4888
+  %4889 = getelementptr [8 x i8], ptr %.0.i4340, i64 %4888
   %4890 = load i64, ptr %4889, align 8, !tbaa !16
   %4891 = call i64 @rb_ary_push(i64 noundef %4879, i64 noundef %4890) #5
   %4892 = add nuw i64 %.041526278, 1
@@ -7918,7 +7916,7 @@ rb_array_const_ptr.exit4352:                      ; preds = %5026, %5029
   %.0.i4351 = phi ptr [ %5030, %5029 ], [ %736, %5026 ]
   %5031 = add i32 %5024, -1
   %5032 = zext i32 %5031 to i64
-  %5033 = getelementptr i64, ptr %.0.i4351, i64 %5032
+  %5033 = getelementptr [8 x i8], ptr %.0.i4351, i64 %5032
   %5034 = load i64, ptr %5033, align 8, !tbaa !16
   br label %5035
 
@@ -8652,7 +8650,7 @@ rb_array_const_ptr.exit4381:                      ; preds = %pm_location_new.exi
   %5495 = load i32, ptr %5494, align 8, !tbaa !509
   %5496 = add i32 %5495, -1
   %5497 = zext i32 %5496 to i64
-  %5498 = getelementptr i64, ptr %.0.i4380, i64 %5497
+  %5498 = getelementptr [8 x i8], ptr %.0.i4380, i64 %5497
   %5499 = load i64, ptr %5498, align 8, !tbaa !16
   store i64 %5499, ptr %2075, align 8, !tbaa !16
   %5500 = load i64, ptr %735, align 8, !tbaa !40
@@ -8670,7 +8668,7 @@ rb_array_const_ptr.exit4384:                      ; preds = %rb_array_const_ptr.
   %5505 = load i32, ptr %5504, align 4, !tbaa !510
   %5506 = add i32 %5505, -1
   %5507 = zext i32 %5506 to i64
-  %5508 = getelementptr i64, ptr %.0.i4383, i64 %5507
+  %5508 = getelementptr [8 x i8], ptr %.0.i4383, i64 %5507
   %5509 = load i64, ptr %5508, align 8, !tbaa !16
   store i64 %5509, ptr %2076, align 16, !tbaa !16
   %5510 = getelementptr inbounds nuw i8, ptr %2279, i64 72
@@ -8880,7 +8878,7 @@ rb_array_const_ptr.exit4395:                      ; preds = %pm_location_new.exi
   %5639 = load i32, ptr %5638, align 8, !tbaa !515
   %5640 = add i32 %5639, -1
   %5641 = zext i32 %5640 to i64
-  %5642 = getelementptr i64, ptr %.0.i4394, i64 %5641
+  %5642 = getelementptr [8 x i8], ptr %.0.i4394, i64 %5641
   %5643 = load i64, ptr %5642, align 8, !tbaa !16
   store i64 %5643, ptr %2051, align 16, !tbaa !16
   %5644 = getelementptr inbounds nuw i8, ptr %2279, i64 56
@@ -9288,7 +9286,7 @@ rb_array_const_ptr.exit4412:                      ; preds = %pm_location_new.exi
   %5898 = load i32, ptr %5897, align 8, !tbaa !526
   %5899 = add i32 %5898, -1
   %5900 = zext i32 %5899 to i64
-  %5901 = getelementptr i64, ptr %.0.i4411, i64 %5900
+  %5901 = getelementptr [8 x i8], ptr %.0.i4411, i64 %5900
   %5902 = load i64, ptr %5901, align 8, !tbaa !16
   store i64 %5902, ptr %2035, align 8, !tbaa !16
   %5903 = load i64, ptr %735, align 8, !tbaa !40
@@ -9306,7 +9304,7 @@ rb_array_const_ptr.exit4415:                      ; preds = %rb_array_const_ptr.
   %5908 = load i32, ptr %5907, align 4, !tbaa !527
   %5909 = add i32 %5908, -1
   %5910 = zext i32 %5909 to i64
-  %5911 = getelementptr i64, ptr %.0.i4414, i64 %5910
+  %5911 = getelementptr [8 x i8], ptr %.0.i4414, i64 %5910
   %5912 = load i64, ptr %5911, align 8, !tbaa !16
   store i64 %5912, ptr %2036, align 16, !tbaa !16
   %5913 = load i64, ptr %735, align 8, !tbaa !40
@@ -9324,7 +9322,7 @@ rb_array_const_ptr.exit4418:                      ; preds = %rb_array_const_ptr.
   %5918 = load i32, ptr %5917, align 8, !tbaa !528
   %5919 = add i32 %5918, -1
   %5920 = zext i32 %5919 to i64
-  %5921 = getelementptr i64, ptr %.0.i4417, i64 %5920
+  %5921 = getelementptr [8 x i8], ptr %.0.i4417, i64 %5920
   %5922 = load i64, ptr %5921, align 8, !tbaa !16
   store i64 %5922, ptr %2037, align 8, !tbaa !16
   %5923 = getelementptr inbounds nuw i8, ptr %2279, i64 80
@@ -9602,7 +9600,7 @@ rb_array_const_ptr.exit4431:                      ; preds = %pm_location_new.exi
   %6094 = load i32, ptr %6093, align 8, !tbaa !535
   %6095 = add i32 %6094, -1
   %6096 = zext i32 %6095 to i64
-  %6097 = getelementptr i64, ptr %.0.i4430, i64 %6096
+  %6097 = getelementptr [8 x i8], ptr %.0.i4430, i64 %6096
   %6098 = load i64, ptr %6097, align 8, !tbaa !16
   store i64 %6098, ptr %2017, align 8, !tbaa !16
   %6099 = load i64, ptr %735, align 8, !tbaa !40
@@ -9620,7 +9618,7 @@ rb_array_const_ptr.exit4434:                      ; preds = %rb_array_const_ptr.
   %6104 = load i32, ptr %6103, align 4, !tbaa !536
   %6105 = add i32 %6104, -1
   %6106 = zext i32 %6105 to i64
-  %6107 = getelementptr i64, ptr %.0.i4433, i64 %6106
+  %6107 = getelementptr [8 x i8], ptr %.0.i4433, i64 %6106
   %6108 = load i64, ptr %6107, align 8, !tbaa !16
   store i64 %6108, ptr %2018, align 16, !tbaa !16
   %6109 = getelementptr inbounds nuw i8, ptr %2279, i64 72
@@ -9826,7 +9824,7 @@ rb_array_const_ptr.exit4445:                      ; preds = %pm_location_new.exi
   %6235 = load i32, ptr %6234, align 8, !tbaa !541
   %6236 = add i32 %6235, -1
   %6237 = zext i32 %6236 to i64
-  %6238 = getelementptr i64, ptr %.0.i4444, i64 %6237
+  %6238 = getelementptr [8 x i8], ptr %.0.i4444, i64 %6237
   %6239 = load i64, ptr %6238, align 8, !tbaa !16
   store i64 %6239, ptr %2001, align 16, !tbaa !16
   %6240 = getelementptr inbounds nuw i8, ptr %2279, i64 56
@@ -10561,11 +10559,11 @@ pm_location_new.exit4472:                         ; preds = %6657, %6682, %6685
 rb_array_const_ptr.exit4476:                      ; preds = %6697, %6701
   %.0.i4475 = phi ptr [ %6702, %6701 ], [ %736, %6697 ]
   %6703 = load ptr, ptr %6696, align 8, !tbaa !557
-  %6704 = getelementptr i32, ptr %6703, i64 %.041576266
+  %6704 = getelementptr [4 x i8], ptr %6703, i64 %.041576266
   %6705 = load i32, ptr %6704, align 4, !tbaa !47
   %6706 = add i32 %6705, -1
   %6707 = zext i32 %6706 to i64
-  %6708 = getelementptr i64, ptr %.0.i4475, i64 %6707
+  %6708 = getelementptr [8 x i8], ptr %.0.i4475, i64 %6707
   %6709 = load i64, ptr %6708, align 8, !tbaa !16
   %6710 = call i64 @rb_ary_push(i64 noundef %6698, i64 noundef %6709) #5
   %6711 = add nuw i64 %.041576266, 1
@@ -10758,7 +10756,7 @@ rb_array_const_ptr.exit4485:                      ; preds = %pm_location_new.exi
   %6833 = load i32, ptr %6832, align 8, !tbaa !565
   %6834 = add i32 %6833, -1
   %6835 = zext i32 %6834 to i64
-  %6836 = getelementptr i64, ptr %.0.i4484, i64 %6835
+  %6836 = getelementptr [8 x i8], ptr %.0.i4484, i64 %6835
   %6837 = load i64, ptr %6836, align 8, !tbaa !16
   store i64 %6837, ptr %1953, align 8, !tbaa !16
   %6838 = load i64, ptr @rb_cPrismClassNode, align 8, !tbaa !16
@@ -10856,7 +10854,7 @@ rb_array_const_ptr.exit4492:                      ; preds = %pm_location_new.exi
   %6894 = load i32, ptr %6893, align 8, !tbaa !566
   %6895 = add i32 %6894, -1
   %6896 = zext i32 %6895 to i64
-  %6897 = getelementptr i64, ptr %.0.i4491, i64 %6896
+  %6897 = getelementptr [8 x i8], ptr %.0.i4491, i64 %6896
   %6898 = load i64, ptr %6897, align 8, !tbaa !16
   store i64 %6898, ptr %1927, align 16, !tbaa !16
   %6899 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -11060,7 +11058,7 @@ rb_array_const_ptr.exit4503:                      ; preds = %pm_location_new.exi
   %7025 = load i32, ptr %7024, align 8, !tbaa !571
   %7026 = add i32 %7025, -1
   %7027 = zext i32 %7026 to i64
-  %7028 = getelementptr i64, ptr %.0.i4502, i64 %7027
+  %7028 = getelementptr [8 x i8], ptr %.0.i4502, i64 %7027
   %7029 = load i64, ptr %7028, align 8, !tbaa !16
   store i64 %7029, ptr %1913, align 16, !tbaa !16
   %7030 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -11184,7 +11182,7 @@ rb_array_const_ptr.exit4510:                      ; preds = %pm_location_new.exi
   %7105 = load i32, ptr %7104, align 8, !tbaa !576
   %7106 = add i32 %7105, -1
   %7107 = zext i32 %7106 to i64
-  %7108 = getelementptr i64, ptr %.0.i4509, i64 %7107
+  %7108 = getelementptr [8 x i8], ptr %.0.i4509, i64 %7107
   %7109 = load i64, ptr %7108, align 8, !tbaa !16
   store i64 %7109, ptr %1921, align 16, !tbaa !16
   %7110 = load i64, ptr @rb_cPrismClassVariableOperatorWriteNode, align 8, !tbaa !16
@@ -11282,7 +11280,7 @@ rb_array_const_ptr.exit4517:                      ; preds = %pm_location_new.exi
   %7166 = load i32, ptr %7165, align 8, !tbaa !577
   %7167 = add i32 %7166, -1
   %7168 = zext i32 %7167 to i64
-  %7169 = getelementptr i64, ptr %.0.i4516, i64 %7168
+  %7169 = getelementptr [8 x i8], ptr %.0.i4516, i64 %7168
   %7170 = load i64, ptr %7169, align 8, !tbaa !16
   store i64 %7170, ptr %1900, align 16, !tbaa !16
   %7171 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -11486,7 +11484,7 @@ rb_array_const_ptr.exit4528:                      ; preds = %pm_location_new.exi
   %7297 = load i32, ptr %7296, align 8, !tbaa !582
   %7298 = add i32 %7297, -1
   %7299 = zext i32 %7298 to i64
-  %7300 = getelementptr i64, ptr %.0.i4527, i64 %7299
+  %7300 = getelementptr [8 x i8], ptr %.0.i4527, i64 %7299
   %7301 = load i64, ptr %7300, align 8, !tbaa !16
   store i64 %7301, ptr %1894, align 16, !tbaa !16
   %7302 = load i64, ptr @rb_cPrismClassVariableReadNode, align 8, !tbaa !16
@@ -11584,7 +11582,7 @@ rb_array_const_ptr.exit4535:                      ; preds = %pm_location_new.exi
   %7358 = load i32, ptr %7357, align 8, !tbaa !584
   %7359 = add i32 %7358, -1
   %7360 = zext i32 %7359 to i64
-  %7361 = getelementptr i64, ptr %.0.i4534, i64 %7360
+  %7361 = getelementptr [8 x i8], ptr %.0.i4534, i64 %7360
   %7362 = load i64, ptr %7361, align 8, !tbaa !16
   store i64 %7362, ptr %1888, align 16, !tbaa !16
   %7363 = load i64, ptr @rb_cPrismClassVariableTargetNode, align 8, !tbaa !16
@@ -11682,7 +11680,7 @@ rb_array_const_ptr.exit4542:                      ; preds = %pm_location_new.exi
   %7419 = load i32, ptr %7418, align 8, !tbaa !586
   %7420 = add i32 %7419, -1
   %7421 = zext i32 %7420 to i64
-  %7422 = getelementptr i64, ptr %.0.i4541, i64 %7421
+  %7422 = getelementptr [8 x i8], ptr %.0.i4541, i64 %7421
   %7423 = load i64, ptr %7422, align 8, !tbaa !16
   store i64 %7423, ptr %1875, align 16, !tbaa !16
   %7424 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -11887,7 +11885,7 @@ rb_array_const_ptr.exit4553:                      ; preds = %pm_location_new.exi
   %7551 = load i32, ptr %7550, align 8, !tbaa !591
   %7552 = add i32 %7551, -1
   %7553 = zext i32 %7552 to i64
-  %7554 = getelementptr i64, ptr %.0.i4552, i64 %7553
+  %7554 = getelementptr [8 x i8], ptr %.0.i4552, i64 %7553
   %7555 = load i64, ptr %7554, align 8, !tbaa !16
   store i64 %7555, ptr %1862, align 16, !tbaa !16
   %7556 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -12091,7 +12089,7 @@ rb_array_const_ptr.exit4564:                      ; preds = %pm_location_new.exi
   %7682 = load i32, ptr %7681, align 8, !tbaa !596
   %7683 = add i32 %7682, -1
   %7684 = zext i32 %7683 to i64
-  %7685 = getelementptr i64, ptr %.0.i4563, i64 %7684
+  %7685 = getelementptr [8 x i8], ptr %.0.i4563, i64 %7684
   %7686 = load i64, ptr %7685, align 8, !tbaa !16
   store i64 %7686, ptr %1848, align 16, !tbaa !16
   %7687 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -12215,7 +12213,7 @@ rb_array_const_ptr.exit4571:                      ; preds = %pm_location_new.exi
   %7762 = load i32, ptr %7761, align 8, !tbaa !601
   %7763 = add i32 %7762, -1
   %7764 = zext i32 %7763 to i64
-  %7765 = getelementptr i64, ptr %.0.i4570, i64 %7764
+  %7765 = getelementptr [8 x i8], ptr %.0.i4570, i64 %7764
   %7766 = load i64, ptr %7765, align 8, !tbaa !16
   store i64 %7766, ptr %1856, align 16, !tbaa !16
   %7767 = load i64, ptr @rb_cPrismConstantOperatorWriteNode, align 8, !tbaa !16
@@ -12313,7 +12311,7 @@ rb_array_const_ptr.exit4578:                      ; preds = %pm_location_new.exi
   %7823 = load i32, ptr %7822, align 8, !tbaa !602
   %7824 = add i32 %7823, -1
   %7825 = zext i32 %7824 to i64
-  %7826 = getelementptr i64, ptr %.0.i4577, i64 %7825
+  %7826 = getelementptr [8 x i8], ptr %.0.i4577, i64 %7825
   %7827 = load i64, ptr %7826, align 8, !tbaa !16
   store i64 %7827, ptr %1835, align 16, !tbaa !16
   %7828 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -12659,7 +12657,7 @@ rb_array_const_ptr.exit4595:                      ; preds = %8040, %8043
   %.0.i4594 = phi ptr [ %8044, %8043 ], [ %736, %8040 ]
   %8045 = add i32 %8038, -1
   %8046 = zext i32 %8045 to i64
-  %8047 = getelementptr i64, ptr %.0.i4594, i64 %8046
+  %8047 = getelementptr [8 x i8], ptr %.0.i4594, i64 %8046
   %8048 = load i64, ptr %8047, align 8, !tbaa !16
   br label %8049
 
@@ -12922,7 +12920,7 @@ rb_array_const_ptr.exit4608:                      ; preds = %pm_location_new.exi
   %8214 = load i32, ptr %8213, align 8, !tbaa !616
   %8215 = add i32 %8214, -1
   %8216 = zext i32 %8215 to i64
-  %8217 = getelementptr i64, ptr %.0.i4607, i64 %8216
+  %8217 = getelementptr [8 x i8], ptr %.0.i4607, i64 %8216
   %8218 = load i64, ptr %8217, align 8, !tbaa !16
   store i64 %8218, ptr %1806, align 8, !tbaa !16
   %8219 = load i64, ptr @rb_cPrismConstantPathOperatorWriteNode, align 8, !tbaa !16
@@ -13162,7 +13160,7 @@ rb_array_const_ptr.exit4621:                      ; preds = %8361, %8364
   %.0.i4620 = phi ptr [ %8365, %8364 ], [ %736, %8361 ]
   %8366 = add i32 %8359, -1
   %8367 = zext i32 %8366 to i64
-  %8368 = getelementptr i64, ptr %.0.i4620, i64 %8367
+  %8368 = getelementptr [8 x i8], ptr %.0.i4620, i64 %8367
   %8369 = load i64, ptr %8368, align 8, !tbaa !16
   br label %8370
 
@@ -13505,7 +13503,7 @@ rb_array_const_ptr.exit4638:                      ; preds = %pm_location_new.exi
   %8586 = load i32, ptr %8585, align 8, !tbaa !626
   %8587 = add i32 %8586, -1
   %8588 = zext i32 %8587 to i64
-  %8589 = getelementptr i64, ptr %.0.i4637, i64 %8588
+  %8589 = getelementptr [8 x i8], ptr %.0.i4637, i64 %8588
   %8590 = load i64, ptr %8589, align 8, !tbaa !16
   store i64 %8590, ptr %1762, align 16, !tbaa !16
   %8591 = load i64, ptr @rb_cPrismConstantReadNode, align 8, !tbaa !16
@@ -13603,7 +13601,7 @@ rb_array_const_ptr.exit4645:                      ; preds = %pm_location_new.exi
   %8647 = load i32, ptr %8646, align 8, !tbaa !628
   %8648 = add i32 %8647, -1
   %8649 = zext i32 %8648 to i64
-  %8650 = getelementptr i64, ptr %.0.i4644, i64 %8649
+  %8650 = getelementptr [8 x i8], ptr %.0.i4644, i64 %8649
   %8651 = load i64, ptr %8650, align 8, !tbaa !16
   store i64 %8651, ptr %1756, align 16, !tbaa !16
   %8652 = load i64, ptr @rb_cPrismConstantTargetNode, align 8, !tbaa !16
@@ -13701,7 +13699,7 @@ rb_array_const_ptr.exit4652:                      ; preds = %pm_location_new.exi
   %8708 = load i32, ptr %8707, align 8, !tbaa !630
   %8709 = add i32 %8708, -1
   %8710 = zext i32 %8709 to i64
-  %8711 = getelementptr i64, ptr %.0.i4651, i64 %8710
+  %8711 = getelementptr [8 x i8], ptr %.0.i4651, i64 %8710
   %8712 = load i64, ptr %8711, align 8, !tbaa !16
   store i64 %8712, ptr %1743, align 16, !tbaa !16
   %8713 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -13906,7 +13904,7 @@ rb_array_const_ptr.exit4663:                      ; preds = %pm_location_new.exi
   %8840 = load i32, ptr %8839, align 8, !tbaa !635
   %8841 = add i32 %8840, -1
   %8842 = zext i32 %8841 to i64
-  %8843 = getelementptr i64, ptr %.0.i4662, i64 %8842
+  %8843 = getelementptr [8 x i8], ptr %.0.i4662, i64 %8842
   %8844 = load i64, ptr %8843, align 8, !tbaa !16
   store i64 %8844, ptr %1712, align 16, !tbaa !16
   %8845 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -13997,11 +13995,11 @@ pm_location_new.exit4665:                         ; preds = %8849, %8874, %8877
 rb_array_const_ptr.exit4668:                      ; preds = %8887, %8891
   %.0.i4667 = phi ptr [ %8892, %8891 ], [ %736, %8887 ]
   %8893 = load ptr, ptr %8886, align 8, !tbaa !639
-  %8894 = getelementptr i32, ptr %8893, i64 %.041586263
+  %8894 = getelementptr [4 x i8], ptr %8893, i64 %.041586263
   %8895 = load i32, ptr %8894, align 4, !tbaa !47
   %8896 = add i32 %8895, -1
   %8897 = zext i32 %8896 to i64
-  %8898 = getelementptr i64, ptr %.0.i4667, i64 %8897
+  %8898 = getelementptr [8 x i8], ptr %.0.i4667, i64 %8897
   %8899 = load i64, ptr %8898, align 8, !tbaa !16
   %8900 = call i64 @rb_ary_push(i64 noundef %8888, i64 noundef %8899) #5
   %8901 = add nuw i64 %.041586263, 1
@@ -16555,7 +16553,7 @@ rb_array_const_ptr.exit4773:                      ; preds = %pm_location_new.exi
   %10528 = load i32, ptr %10527, align 8, !tbaa !691
   %10529 = add i32 %10528, -1
   %10530 = zext i32 %10529 to i64
-  %10531 = getelementptr i64, ptr %.0.i4772, i64 %10530
+  %10531 = getelementptr [8 x i8], ptr %.0.i4772, i64 %10530
   %10532 = load i64, ptr %10531, align 8, !tbaa !16
   store i64 %10532, ptr %1567, align 16, !tbaa !16
   %10533 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -16759,7 +16757,7 @@ rb_array_const_ptr.exit4784:                      ; preds = %pm_location_new.exi
   %10659 = load i32, ptr %10658, align 8, !tbaa !696
   %10660 = add i32 %10659, -1
   %10661 = zext i32 %10660 to i64
-  %10662 = getelementptr i64, ptr %.0.i4783, i64 %10661
+  %10662 = getelementptr [8 x i8], ptr %.0.i4783, i64 %10661
   %10663 = load i64, ptr %10662, align 8, !tbaa !16
   store i64 %10663, ptr %1553, align 16, !tbaa !16
   %10664 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -16883,7 +16881,7 @@ rb_array_const_ptr.exit4791:                      ; preds = %pm_location_new.exi
   %10739 = load i32, ptr %10738, align 8, !tbaa !701
   %10740 = add i32 %10739, -1
   %10741 = zext i32 %10740 to i64
-  %10742 = getelementptr i64, ptr %.0.i4790, i64 %10741
+  %10742 = getelementptr [8 x i8], ptr %.0.i4790, i64 %10741
   %10743 = load i64, ptr %10742, align 8, !tbaa !16
   store i64 %10743, ptr %1561, align 16, !tbaa !16
   %10744 = load i64, ptr @rb_cPrismGlobalVariableOperatorWriteNode, align 8, !tbaa !16
@@ -16981,7 +16979,7 @@ rb_array_const_ptr.exit4798:                      ; preds = %pm_location_new.exi
   %10800 = load i32, ptr %10799, align 8, !tbaa !702
   %10801 = add i32 %10800, -1
   %10802 = zext i32 %10801 to i64
-  %10803 = getelementptr i64, ptr %.0.i4797, i64 %10802
+  %10803 = getelementptr [8 x i8], ptr %.0.i4797, i64 %10802
   %10804 = load i64, ptr %10803, align 8, !tbaa !16
   store i64 %10804, ptr %1540, align 16, !tbaa !16
   %10805 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -17185,7 +17183,7 @@ rb_array_const_ptr.exit4809:                      ; preds = %pm_location_new.exi
   %10931 = load i32, ptr %10930, align 8, !tbaa !707
   %10932 = add i32 %10931, -1
   %10933 = zext i32 %10932 to i64
-  %10934 = getelementptr i64, ptr %.0.i4808, i64 %10933
+  %10934 = getelementptr [8 x i8], ptr %.0.i4808, i64 %10933
   %10935 = load i64, ptr %10934, align 8, !tbaa !16
   store i64 %10935, ptr %1534, align 16, !tbaa !16
   %10936 = load i64, ptr @rb_cPrismGlobalVariableReadNode, align 8, !tbaa !16
@@ -17283,7 +17281,7 @@ rb_array_const_ptr.exit4816:                      ; preds = %pm_location_new.exi
   %10992 = load i32, ptr %10991, align 8, !tbaa !709
   %10993 = add i32 %10992, -1
   %10994 = zext i32 %10993 to i64
-  %10995 = getelementptr i64, ptr %.0.i4815, i64 %10994
+  %10995 = getelementptr [8 x i8], ptr %.0.i4815, i64 %10994
   %10996 = load i64, ptr %10995, align 8, !tbaa !16
   store i64 %10996, ptr %1528, align 16, !tbaa !16
   %10997 = load i64, ptr @rb_cPrismGlobalVariableTargetNode, align 8, !tbaa !16
@@ -17381,7 +17379,7 @@ rb_array_const_ptr.exit4823:                      ; preds = %pm_location_new.exi
   %11053 = load i32, ptr %11052, align 8, !tbaa !711
   %11054 = add i32 %11053, -1
   %11055 = zext i32 %11054 to i64
-  %11056 = getelementptr i64, ptr %.0.i4822, i64 %11055
+  %11056 = getelementptr [8 x i8], ptr %.0.i4822, i64 %11055
   %11057 = load i64, ptr %11056, align 8, !tbaa !16
   store i64 %11057, ptr %1515, align 16, !tbaa !16
   %11058 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -19261,7 +19259,7 @@ rb_array_const_ptr.exit4898:                      ; preds = %pm_location_new.exi
   %12248 = load i32, ptr %12247, align 8, !tbaa !750
   %12249 = add i32 %12248, -1
   %12250 = zext i32 %12249 to i64
-  %12251 = getelementptr i64, ptr %.0.i4897, i64 %12250
+  %12251 = getelementptr [8 x i8], ptr %.0.i4897, i64 %12250
   %12252 = load i64, ptr %12251, align 8, !tbaa !16
   store i64 %12252, ptr %1411, align 16, !tbaa !16
   %12253 = getelementptr inbounds nuw i8, ptr %2279, i64 104
@@ -19920,7 +19918,7 @@ rb_array_const_ptr.exit4927:                      ; preds = %pm_location_new.exi
   %12670 = load i32, ptr %12669, align 8, !tbaa !765
   %12671 = add i32 %12670, -1
   %12672 = zext i32 %12671 to i64
-  %12673 = getelementptr i64, ptr %.0.i4926, i64 %12672
+  %12673 = getelementptr [8 x i8], ptr %.0.i4926, i64 %12672
   %12674 = load i64, ptr %12673, align 8, !tbaa !16
   store i64 %12674, ptr %1351, align 16, !tbaa !16
   %12675 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -20124,7 +20122,7 @@ rb_array_const_ptr.exit4938:                      ; preds = %pm_location_new.exi
   %12801 = load i32, ptr %12800, align 8, !tbaa !770
   %12802 = add i32 %12801, -1
   %12803 = zext i32 %12802 to i64
-  %12804 = getelementptr i64, ptr %.0.i4937, i64 %12803
+  %12804 = getelementptr [8 x i8], ptr %.0.i4937, i64 %12803
   %12805 = load i64, ptr %12804, align 8, !tbaa !16
   store i64 %12805, ptr %1337, align 16, !tbaa !16
   %12806 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -20248,7 +20246,7 @@ rb_array_const_ptr.exit4945:                      ; preds = %pm_location_new.exi
   %12881 = load i32, ptr %12880, align 8, !tbaa !775
   %12882 = add i32 %12881, -1
   %12883 = zext i32 %12882 to i64
-  %12884 = getelementptr i64, ptr %.0.i4944, i64 %12883
+  %12884 = getelementptr [8 x i8], ptr %.0.i4944, i64 %12883
   %12885 = load i64, ptr %12884, align 8, !tbaa !16
   store i64 %12885, ptr %1345, align 16, !tbaa !16
   %12886 = load i64, ptr @rb_cPrismInstanceVariableOperatorWriteNode, align 8, !tbaa !16
@@ -20346,7 +20344,7 @@ rb_array_const_ptr.exit4952:                      ; preds = %pm_location_new.exi
   %12942 = load i32, ptr %12941, align 8, !tbaa !776
   %12943 = add i32 %12942, -1
   %12944 = zext i32 %12943 to i64
-  %12945 = getelementptr i64, ptr %.0.i4951, i64 %12944
+  %12945 = getelementptr [8 x i8], ptr %.0.i4951, i64 %12944
   %12946 = load i64, ptr %12945, align 8, !tbaa !16
   store i64 %12946, ptr %1324, align 16, !tbaa !16
   %12947 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -20550,7 +20548,7 @@ rb_array_const_ptr.exit4963:                      ; preds = %pm_location_new.exi
   %13073 = load i32, ptr %13072, align 8, !tbaa !781
   %13074 = add i32 %13073, -1
   %13075 = zext i32 %13074 to i64
-  %13076 = getelementptr i64, ptr %.0.i4962, i64 %13075
+  %13076 = getelementptr [8 x i8], ptr %.0.i4962, i64 %13075
   %13077 = load i64, ptr %13076, align 8, !tbaa !16
   store i64 %13077, ptr %1318, align 16, !tbaa !16
   %13078 = load i64, ptr @rb_cPrismInstanceVariableReadNode, align 8, !tbaa !16
@@ -20648,7 +20646,7 @@ rb_array_const_ptr.exit4970:                      ; preds = %pm_location_new.exi
   %13134 = load i32, ptr %13133, align 8, !tbaa !783
   %13135 = add i32 %13134, -1
   %13136 = zext i32 %13135 to i64
-  %13137 = getelementptr i64, ptr %.0.i4969, i64 %13136
+  %13137 = getelementptr [8 x i8], ptr %.0.i4969, i64 %13136
   %13138 = load i64, ptr %13137, align 8, !tbaa !16
   store i64 %13138, ptr %1312, align 16, !tbaa !16
   %13139 = load i64, ptr @rb_cPrismInstanceVariableTargetNode, align 8, !tbaa !16
@@ -20746,7 +20744,7 @@ rb_array_const_ptr.exit4977:                      ; preds = %pm_location_new.exi
   %13195 = load i32, ptr %13194, align 8, !tbaa !785
   %13196 = add i32 %13195, -1
   %13197 = zext i32 %13196 to i64
-  %13198 = getelementptr i64, ptr %.0.i4976, i64 %13197
+  %13198 = getelementptr [8 x i8], ptr %.0.i4976, i64 %13197
   %13199 = load i64, ptr %13198, align 8, !tbaa !16
   store i64 %13199, ptr %1299, align 16, !tbaa !16
   %13200 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -20995,7 +20993,7 @@ rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i, %._crit
   %.02541.i = phi i64 [ %13361, %13348 ], [ %13342, %.lr.ph.preheader.i ]
   %.02740.i = phi i64 [ %13349, %13348 ], [ 0, %.lr.ph.preheader.i ]
   %13345 = load ptr, ptr %13323, align 8, !tbaa !34
-  %13346 = getelementptr i32, ptr %13345, i64 %.02740.i
+  %13346 = getelementptr [4 x i8], ptr %13345, i64 %.02740.i
   %13347 = load i32, ptr %13346, align 4, !tbaa !47
   br label %13352
 
@@ -22497,7 +22495,7 @@ rb_array_const_ptr.exit5046:                      ; preds = %14289, %14292
   %.0.i5045 = phi ptr [ %14293, %14292 ], [ %736, %14289 ]
   %14294 = add i32 %14287, -1
   %14295 = zext i32 %14294 to i64
-  %14296 = getelementptr i64, ptr %.0.i5045, i64 %14295
+  %14296 = getelementptr [8 x i8], ptr %.0.i5045, i64 %14295
   %14297 = load i64, ptr %14296, align 8, !tbaa !16
   br label %14298
 
@@ -22740,11 +22738,11 @@ pm_location_new.exit5053:                         ; preds = %14399, %14424, %144
 rb_array_const_ptr.exit5057:                      ; preds = %14439, %14443
   %.0.i5056 = phi ptr [ %14444, %14443 ], [ %736, %14439 ]
   %14445 = load ptr, ptr %14438, align 8, !tbaa !826
-  %14446 = getelementptr i32, ptr %14445, i64 %.041686233
+  %14446 = getelementptr [4 x i8], ptr %14445, i64 %.041686233
   %14447 = load i32, ptr %14446, align 4, !tbaa !47
   %14448 = add i32 %14447, -1
   %14449 = zext i32 %14448 to i64
-  %14450 = getelementptr i64, ptr %.0.i5056, i64 %14449
+  %14450 = getelementptr [8 x i8], ptr %.0.i5056, i64 %14449
   %14451 = load i64, ptr %14450, align 8, !tbaa !16
   %14452 = call i64 @rb_ary_push(i64 noundef %14440, i64 noundef %14451) #5
   %14453 = add nuw i64 %.041686233, 1
@@ -23117,7 +23115,7 @@ rb_array_const_ptr.exit5074:                      ; preds = %pm_location_new.exi
   %14694 = load i32, ptr %14693, align 8, !tbaa !838
   %14695 = add i32 %14694, -1
   %14696 = zext i32 %14695 to i64
-  %14697 = getelementptr i64, ptr %.0.i5073, i64 %14696
+  %14697 = getelementptr [8 x i8], ptr %.0.i5073, i64 %14696
   %14698 = load i64, ptr %14697, align 8, !tbaa !16
   store i64 %14698, ptr %1181, align 8, !tbaa !16
   %14699 = getelementptr inbounds nuw i8, ptr %2279, i64 68
@@ -23327,7 +23325,7 @@ rb_array_const_ptr.exit5086:                      ; preds = %pm_location_new.exi
   %14830 = load i32, ptr %14829, align 8, !tbaa !844
   %14831 = add i32 %14830, -1
   %14832 = zext i32 %14831 to i64
-  %14833 = getelementptr i64, ptr %.0.i5085, i64 %14832
+  %14833 = getelementptr [8 x i8], ptr %.0.i5085, i64 %14832
   %14834 = load i64, ptr %14833, align 8, !tbaa !16
   store i64 %14834, ptr %1166, align 8, !tbaa !16
   %14835 = load i64, ptr %735, align 8, !tbaa !40
@@ -23345,7 +23343,7 @@ rb_array_const_ptr.exit5089:                      ; preds = %rb_array_const_ptr.
   %14840 = load i32, ptr %14839, align 4, !tbaa !845
   %14841 = add i32 %14840, -1
   %14842 = zext i32 %14841 to i64
-  %14843 = getelementptr i64, ptr %.0.i5088, i64 %14842
+  %14843 = getelementptr [8 x i8], ptr %.0.i5088, i64 %14842
   %14844 = load i64, ptr %14843, align 8, !tbaa !16
   store i64 %14844, ptr %1167, align 16, !tbaa !16
   %14845 = getelementptr inbounds nuw i8, ptr %2279, i64 72
@@ -23555,7 +23553,7 @@ rb_array_const_ptr.exit5101:                      ; preds = %pm_location_new.exi
   %14976 = load i32, ptr %14975, align 8, !tbaa !851
   %14977 = add i32 %14976, -1
   %14978 = zext i32 %14977 to i64
-  %14979 = getelementptr i64, ptr %.0.i5100, i64 %14978
+  %14979 = getelementptr [8 x i8], ptr %.0.i5100, i64 %14978
   %14980 = load i64, ptr %14979, align 8, !tbaa !16
   store i64 %14980, ptr %1152, align 8, !tbaa !16
   %14981 = getelementptr inbounds nuw i8, ptr %2279, i64 68
@@ -23659,7 +23657,7 @@ rb_array_const_ptr.exit5109:                      ; preds = %pm_location_new.exi
   %15042 = load i32, ptr %15041, align 8, !tbaa !853
   %15043 = add i32 %15042, -1
   %15044 = zext i32 %15043 to i64
-  %15045 = getelementptr i64, ptr %.0.i5108, i64 %15044
+  %15045 = getelementptr [8 x i8], ptr %.0.i5108, i64 %15044
   %15046 = load i64, ptr %15045, align 8, !tbaa !16
   store i64 %15046, ptr %1138, align 16, !tbaa !16
   %15047 = getelementptr inbounds nuw i8, ptr %2279, i64 28
@@ -23763,7 +23761,7 @@ rb_array_const_ptr.exit5117:                      ; preds = %pm_location_new.exi
   %15108 = load i32, ptr %15107, align 8, !tbaa !856
   %15109 = add i32 %15108, -1
   %15110 = zext i32 %15109 to i64
-  %15111 = getelementptr i64, ptr %.0.i5116, i64 %15110
+  %15111 = getelementptr [8 x i8], ptr %.0.i5116, i64 %15110
   %15112 = load i64, ptr %15111, align 8, !tbaa !16
   store i64 %15112, ptr %1131, align 16, !tbaa !16
   %15113 = getelementptr inbounds nuw i8, ptr %2279, i64 28
@@ -23867,7 +23865,7 @@ rb_array_const_ptr.exit5125:                      ; preds = %pm_location_new.exi
   %15174 = load i32, ptr %15173, align 8, !tbaa !859
   %15175 = add i32 %15174, -1
   %15176 = zext i32 %15175 to i64
-  %15177 = getelementptr i64, ptr %.0.i5124, i64 %15176
+  %15177 = getelementptr [8 x i8], ptr %.0.i5124, i64 %15176
   %15178 = load i64, ptr %15177, align 8, !tbaa !16
   store i64 %15178, ptr %1117, align 16, !tbaa !16
   %15179 = getelementptr inbounds nuw i8, ptr %2279, i64 28
@@ -24798,11 +24796,11 @@ pm_location_new.exit5163:                         ; preds = %15728, %15753, %157
 rb_array_const_ptr.exit5167:                      ; preds = %15768, %15772
   %.0.i5166 = phi ptr [ %15773, %15772 ], [ %736, %15768 ]
   %15774 = load ptr, ptr %15767, align 8, !tbaa !878
-  %15775 = getelementptr i32, ptr %15774, i64 %.041706227
+  %15775 = getelementptr [4 x i8], ptr %15774, i64 %.041706227
   %15776 = load i32, ptr %15775, align 4, !tbaa !47
   %15777 = add i32 %15776, -1
   %15778 = zext i32 %15777 to i64
-  %15779 = getelementptr i64, ptr %.0.i5166, i64 %15778
+  %15779 = getelementptr [8 x i8], ptr %.0.i5166, i64 %15778
   %15780 = load i64, ptr %15779, align 8, !tbaa !16
   %15781 = call i64 @rb_ary_push(i64 noundef %15769, i64 noundef %15780) #5
   %15782 = add nuw i64 %.041706227, 1
@@ -24937,7 +24935,7 @@ rb_array_const_ptr.exit5174:                      ; preds = %pm_location_new.exi
   %15866 = load i32, ptr %15865, align 8, !tbaa !884
   %15867 = add i32 %15866, -1
   %15868 = zext i32 %15867 to i64
-  %15869 = getelementptr i64, ptr %.0.i5173, i64 %15868
+  %15869 = getelementptr [8 x i8], ptr %.0.i5173, i64 %15868
   %15870 = load i64, ptr %15869, align 8, !tbaa !16
   store i64 %15870, ptr %1064, align 8, !tbaa !16
   %15871 = load i64, ptr @rb_cPrismModuleNode, align 8, !tbaa !16
@@ -26197,7 +26195,7 @@ rb_array_const_ptr.exit5226:                      ; preds = %pm_location_new.exi
   %16659 = load i32, ptr %16658, align 8, !tbaa !910
   %16660 = add i32 %16659, -1
   %16661 = zext i32 %16660 to i64
-  %16662 = getelementptr i64, ptr %.0.i5225, i64 %16661
+  %16662 = getelementptr [8 x i8], ptr %.0.i5225, i64 %16661
   %16663 = load i64, ptr %16662, align 8, !tbaa !16
   store i64 %16663, ptr %976, align 16, !tbaa !16
   %16664 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -26349,7 +26347,7 @@ rb_array_const_ptr.exit5235:                      ; preds = %pm_location_new.exi
   %16755 = load i32, ptr %16754, align 8, !tbaa !913
   %16756 = add i32 %16755, -1
   %16757 = zext i32 %16756 to i64
-  %16758 = getelementptr i64, ptr %.0.i5234, i64 %16757
+  %16758 = getelementptr [8 x i8], ptr %.0.i5234, i64 %16757
   %16759 = load i64, ptr %16758, align 8, !tbaa !16
   store i64 %16759, ptr %963, align 16, !tbaa !16
   %16760 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -27938,11 +27936,11 @@ pm_location_new.exit5296:                         ; preds = %17730, %17755, %177
 rb_array_const_ptr.exit5300:                      ; preds = %17770, %17774
   %.0.i5299 = phi ptr [ %17775, %17774 ], [ %736, %17770 ]
   %17776 = load ptr, ptr %17769, align 8, !tbaa !949
-  %17777 = getelementptr i32, ptr %17776, i64 %.041726195
+  %17777 = getelementptr [4 x i8], ptr %17776, i64 %.041726195
   %17778 = load i32, ptr %17777, align 4, !tbaa !47
   %17779 = add i32 %17778, -1
   %17780 = zext i32 %17779 to i64
-  %17781 = getelementptr i64, ptr %.0.i5299, i64 %17780
+  %17781 = getelementptr [8 x i8], ptr %.0.i5299, i64 %17780
   %17782 = load i64, ptr %17781, align 8, !tbaa !16
   %17783 = call i64 @rb_ary_push(i64 noundef %17771, i64 noundef %17782) #5
   %17784 = add nuw i64 %.041726195, 1
@@ -28234,7 +28232,7 @@ rbimpl_intern_const.exit.i5326:                   ; preds = %.lr.ph.i.i5336, %._
   %.02541.i5318 = phi i64 [ %17971, %17958 ], [ %17952, %.lr.ph.preheader.i5316 ]
   %.02740.i5319 = phi i64 [ %17959, %17958 ], [ 0, %.lr.ph.preheader.i5316 ]
   %17955 = load ptr, ptr %17933, align 8, !tbaa !34
-  %17956 = getelementptr i32, ptr %17955, i64 %.02740.i5319
+  %17956 = getelementptr [4 x i8], ptr %17955, i64 %.02740.i5319
   %17957 = load i32, ptr %17956, align 4, !tbaa !47
   br label %17962
 
@@ -28347,7 +28345,7 @@ rbimpl_intern_const.exit.i5354:                   ; preds = %.lr.ph.i.i5364, %._
   %.02541.i5346 = phi i64 [ %18020, %18007 ], [ %18001, %.lr.ph.preheader.i5344 ]
   %.02740.i5347 = phi i64 [ %18008, %18007 ], [ 0, %.lr.ph.preheader.i5344 ]
   %18004 = load ptr, ptr %17982, align 8, !tbaa !34
-  %18005 = getelementptr i32, ptr %18004, i64 %.02740.i5347
+  %18005 = getelementptr [4 x i8], ptr %18004, i64 %.02740.i5347
   %18006 = load i32, ptr %18005, align 4, !tbaa !47
   br label %18011
 
@@ -28818,7 +28816,7 @@ rb_array_const_ptr.exit5387:                      ; preds = %pm_location_new.exi
   %18297 = load i32, ptr %18296, align 8, !tbaa !966
   %18298 = add i32 %18297, -1
   %18299 = zext i32 %18298 to i64
-  %18300 = getelementptr i64, ptr %.0.i5386, i64 %18299
+  %18300 = getelementptr [8 x i8], ptr %.0.i5386, i64 %18299
   %18301 = load i64, ptr %18300, align 8, !tbaa !16
   store i64 %18301, ptr %822, align 16, !tbaa !16
   %18302 = getelementptr inbounds nuw i8, ptr %2279, i64 32
@@ -28969,7 +28967,7 @@ rb_array_const_ptr.exit5396:                      ; preds = %pm_location_new.exi
   %18394 = load i32, ptr %18393, align 8, !tbaa !970
   %18395 = add i32 %18394, -1
   %18396 = zext i32 %18395 to i64
-  %18397 = getelementptr i64, ptr %.0.i5395, i64 %18396
+  %18397 = getelementptr [8 x i8], ptr %.0.i5395, i64 %18396
   %18398 = load i64, ptr %18397, align 8, !tbaa !16
   store i64 %18398, ptr %816, align 16, !tbaa !16
   %18399 = load i64, ptr @rb_cPrismRequiredParameterNode, align 8, !tbaa !16
@@ -29430,7 +29428,7 @@ rb_array_const_ptr.exit5417:                      ; preds = %18682, %18685
   %.0.i5416 = phi ptr [ %18686, %18685 ], [ %736, %18682 ]
   %18687 = add i32 %18680, -1
   %18688 = zext i32 %18687 to i64
-  %18689 = getelementptr i64, ptr %.0.i5416, i64 %18688
+  %18689 = getelementptr [8 x i8], ptr %.0.i5416, i64 %18688
   %18690 = load i64, ptr %18689, align 8, !tbaa !16
   br label %18691
 
@@ -30049,11 +30047,11 @@ pm_location_new.exit5442:                         ; preds = %19032, %19057, %190
 rb_array_const_ptr.exit5446:                      ; preds = %19072, %19076
   %.0.i5445 = phi ptr [ %19077, %19076 ], [ %736, %19072 ]
   %19078 = load ptr, ptr %19071, align 8, !tbaa !988
-  %19079 = getelementptr i32, ptr %19078, i64 %.041466189
+  %19079 = getelementptr [4 x i8], ptr %19078, i64 %.041466189
   %19080 = load i32, ptr %19079, align 4, !tbaa !47
   %19081 = add i32 %19080, -1
   %19082 = zext i32 %19081 to i64
-  %19083 = getelementptr i64, ptr %.0.i5445, i64 %19082
+  %19083 = getelementptr [8 x i8], ptr %.0.i5445, i64 %19082
   %19084 = load i64, ptr %19083, align 8, !tbaa !16
   %19085 = call i64 @rb_ary_push(i64 noundef %19073, i64 noundef %19084) #5
   %19086 = add nuw i64 %.041466189, 1

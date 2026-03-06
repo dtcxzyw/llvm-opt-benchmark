@@ -112,7 +112,7 @@ vararr_detach.exit.thread:                        ; preds = %insertArr.exit
   br i1 %42, label %55, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw %struct.pathpoint, ptr %41, i64 %.sroa.22.1
+  %44 = getelementptr inbounds nuw [64 x i8], ptr %41, i64 %.sroa.22.1
   %45 = sub i64 %spec.select.i.i.i.i, %.sroa.22.1
   %46 = shl i64 %45, 6
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %44, i8 0, i64 %46, i1 false), !noalias !14
@@ -123,8 +123,8 @@ vararr_detach.exit.thread:                        ; preds = %insertArr.exit
 49:                                               ; preds = %43
   %50 = sub i64 %.sroa.22.1, %.sroa.13.1
   %51 = sub i64 %spec.select.i.i.i.i, %50
-  %52 = getelementptr inbounds nuw %struct.pathpoint, ptr %41, i64 %51
-  %53 = getelementptr inbounds nuw %struct.pathpoint, ptr %41, i64 %.sroa.13.1
+  %52 = getelementptr inbounds nuw [64 x i8], ptr %41, i64 %51
+  %53 = getelementptr inbounds nuw [64 x i8], ptr %41, i64 %.sroa.13.1
   %54 = shl i64 %50, 6
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 8 %53, i64 %54, i1 false), !noalias !14
   br label %insertArr.exit.i
@@ -143,7 +143,7 @@ insertArr.exit.i:                                 ; preds = %43, %49, %25
   %.sroa.29.2 = phi i64 [ %.sroa.29.1, %25 ], [ %spec.select.i.i.i.i, %49 ], [ %spec.select.i.i.i.i, %43 ]
   %59 = add i64 %.sroa.13.2, %.sroa.22.1
   %60 = urem i64 %59, %.sroa.29.2
-  %61 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.2, i64 %60
+  %61 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.2, i64 %60
   store double %29, ptr %61, align 8, !noalias !14
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   store double %30, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !14
@@ -177,7 +177,7 @@ pathtolines.exit:                                 ; preds = %.loopexit.i
   %.0.in11.i.i = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.sroa.29.2, %.lr.ph14.split.i.i ]
   %.0.i.i = add i64 %.0.in11.i.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %65 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.2, i64 %.0.i.i
+  %65 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.2, i64 %.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %65, i64 64, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %65, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !25
@@ -186,7 +186,7 @@ pathtolines.exit:                                 ; preds = %.loopexit.i
   br i1 %.not9.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !31
 
 vararr_detach.exit:                               ; preds = %._crit_edge.i.i, %pathtolines.exit
-  %66 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.2, i64 %.sroa.22.1
+  %66 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.2, i64 %.sroa.22.1
   %.not247 = icmp eq i64 %62, 0
   br i1 %.not247, label %._crit_edge.thread, label %.lr.ph.preheader
 
@@ -215,7 +215,7 @@ vararr_detach.exit:                               ; preds = %._crit_edge.i.i, %p
   %72 = add nuw i64 %.0174230, 1
   %73 = icmp eq i64 %72, %.sroa.22.2227267
   %74 = select i1 %73, i64 0, i64 %72
-  %75 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.3226269, i64 %.0174230
+  %75 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.3226269, i64 %.0174230
   %.sroa.0107.0.copyload = load double, ptr %75, align 8, !tbaa !20
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 8
   %.sroa.8.0.copyload = load double, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !20
@@ -226,7 +226,7 @@ vararr_detach.exit:                               ; preds = %._crit_edge.i.i, %p
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 40
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 48
   %.sroa.18144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 56
-  %76 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.3226269, i64 %74
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.3226269, i64 %74
   %.sroa.0.0.copyload = load double, ptr %76, align 8, !tbaa !20
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !20
@@ -248,7 +248,7 @@ vararr_detach.exit:                               ; preds = %._crit_edge.i.i, %p
 
 myatan.exit:                                      ; preds = %.lr.ph, %81, %84
   %.0.i = phi double [ %85, %84 ], [ 0.000000e+00, %.lr.ph ], [ %82, %81 ]
-  %86 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.3226269, i64 %71
+  %86 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.3226269, i64 %71
   %.sroa.0104.0.copyload = load double, ptr %86, align 8, !tbaa !20
   %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 8
   %.sroa.4105.0.copyload = load double, ptr %.sroa.4105.0..sroa_idx, align 8, !tbaa !20
@@ -367,7 +367,7 @@ mymod.exit198:                                    ; preds = %124, %mymod.exit, %
 
 .lr.ph236:                                        ; preds = %._crit_edge, %148
   %.0172234 = phi i64 [ %149, %148 ], [ 0, %._crit_edge ]
-  %137 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.3226269, i64 %.0172234
+  %137 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.3226269, i64 %.0172234
   %.sroa.0107.0.copyload110 = load double, ptr %137, align 8, !tbaa !20
   %.sroa.8.0..sroa_idx112 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %.sroa.8.0.copyload113 = load double, ptr %.sroa.8.0..sroa_idx112, align 8, !tbaa !20
@@ -411,7 +411,7 @@ mymod.exit198:                                    ; preds = %124, %mymod.exit, %
 
 .lr.ph245:                                        ; preds = %._crit_edge237, %163
   %.0170243 = phi i64 [ %164, %163 ], [ %.sroa.22.2227268281, %._crit_edge237 ]
-  %150 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.3226270280, i64 %.0170243
+  %150 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.3226270280, i64 %.0170243
   %.sroa.0107.0.copyload111 = load double, ptr %150, align 8, !tbaa !20
   %.sroa.8.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %.sroa.8.0.copyload115 = load double, ptr %.sroa.8.0..sroa_idx114, align 8, !tbaa !20
@@ -507,7 +507,7 @@ gv_recalloc.exit:                                 ; preds = %16, %23, %25
   %27 = load i64, ptr %0, align 8, !tbaa !46
   %28 = add i64 %27, 1
   store i64 %28, ptr %0, align 8, !tbaa !46
-  %29 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0.i.i, i64 %27
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %27
   store double %1, ptr %29, align 8, !tbaa !20
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   store double %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !20

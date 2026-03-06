@@ -58,18 +58,18 @@ define hidden void @aom_yv12_extend_frame_borders_c(ptr noundef readonly capture
   %21 = zext i1 %20 to i32
   %22 = load i32, ptr %7, align 8
   %23 = ashr i32 %22, %21
-  %24 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = zext i1 %20 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %9, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds nuw i32, ptr %10, i64 %26
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %26
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds nuw i32, ptr %11, i64 %26
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %26
   %32 = load i32, ptr %31, align 4
   %33 = sub i32 %23, %30
   %34 = add i32 %33, %32
-  %35 = getelementptr inbounds nuw i32, ptr %0, i64 %26
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %26
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, %23
   %38 = add i32 %37, %23
@@ -78,16 +78,16 @@ define hidden void @aom_yv12_extend_frame_borders_c(ptr noundef readonly capture
   %41 = inttoptr i64 %40 to ptr
   %42 = sext i32 %23 to i64
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds i16, ptr %41, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %41, i64 %43
   %45 = icmp sgt i32 %30, 0
   br i1 %45, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %19
-  %46 = getelementptr inbounds nuw i32, ptr %12, i64 %26
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %26
   %47 = load i32, ptr %46, align 4
   %48 = sub nsw i32 %37, %47
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds i16, ptr %41, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %41, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -2
   %52 = sext i32 %48 to i64
   %53 = sext i32 %28 to i64
@@ -105,10 +105,10 @@ define hidden void @aom_yv12_extend_frame_borders_c(ptr noundef readonly capture
   %58 = load i16, ptr %.05966.i, align 2
   %59 = zext i16 %58 to i32
   %60 = tail call ptr @aom_memset16(ptr noundef %.068.i, i32 noundef %59, i64 noundef %52) #6
-  %61 = getelementptr inbounds i16, ptr %.06065.i, i64 %53
-  %62 = getelementptr inbounds i16, ptr %.05966.i, i64 %53
-  %63 = getelementptr inbounds i16, ptr %.05767.i, i64 %53
-  %64 = getelementptr inbounds i16, ptr %.068.i, i64 %53
+  %61 = getelementptr inbounds [2 x i8], ptr %.06065.i, i64 %53
+  %62 = getelementptr inbounds [2 x i8], ptr %.05966.i, i64 %53
+  %63 = getelementptr inbounds [2 x i8], ptr %.05767.i, i64 %53
+  %64 = getelementptr inbounds [2 x i8], ptr %.068.i, i64 %53
   %65 = add nuw nsw i32 %.06164.i, 1
   %exitcond.not.i = icmp eq i32 %65, %30
   br i1 %exitcond.not.i, label %._crit_edge.i, label %54, !llvm.loop !4
@@ -117,12 +117,12 @@ define hidden void @aom_yv12_extend_frame_borders_c(ptr noundef readonly capture
   %66 = add nsw i32 %30, -1
   %67 = mul nsw i32 %66, %28
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i16, ptr %41, i64 %68
-  %70 = getelementptr inbounds i16, ptr %69, i64 %43
+  %69 = getelementptr inbounds [2 x i8], ptr %41, i64 %68
+  %70 = getelementptr inbounds [2 x i8], ptr %69, i64 %43
   %71 = mul nsw i32 %30, %28
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i16, ptr %41, i64 %72
-  %74 = getelementptr inbounds i16, ptr %73, i64 %43
+  %73 = getelementptr inbounds [2 x i8], ptr %41, i64 %72
+  %74 = getelementptr inbounds [2 x i8], ptr %73, i64 %43
   %75 = icmp sgt i32 %23, 0
   br i1 %75, label %.lr.ph72.i, label %.preheader.i
 
@@ -130,8 +130,8 @@ define hidden void @aom_yv12_extend_frame_borders_c(ptr noundef readonly capture
   %76 = mul i32 %23, %28
   %77 = sub i32 0, %76
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i16, ptr %41, i64 %78
-  %80 = getelementptr inbounds i16, ptr %79, i64 %43
+  %79 = getelementptr inbounds [2 x i8], ptr %41, i64 %78
+  %80 = getelementptr inbounds [2 x i8], ptr %79, i64 %43
   %81 = sext i32 %38 to i64
   %82 = shl nsw i64 %81, 1
   %83 = sext i32 %28 to i64
@@ -151,7 +151,7 @@ define hidden void @aom_yv12_extend_frame_borders_c(ptr noundef readonly capture
   %.15870.i = phi ptr [ %80, %.lr.ph72.i ], [ %89, %88 ]
   %.16269.i = phi i32 [ 0, %.lr.ph72.i ], [ %90, %88 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.15870.i, ptr nonnull align 2 %44, i64 %82, i1 false)
-  %89 = getelementptr inbounds i16, ptr %.15870.i, i64 %83
+  %89 = getelementptr inbounds [2 x i8], ptr %.15870.i, i64 %83
   %90 = add nuw nsw i32 %.16269.i, 1
   %exitcond77.not.i = icmp eq i32 %90, %23
   br i1 %exitcond77.not.i, label %.preheader.i, label %88, !llvm.loop !6
@@ -160,7 +160,7 @@ define hidden void @aom_yv12_extend_frame_borders_c(ptr noundef readonly capture
   %.174.i = phi ptr [ %74, %.lr.ph75.i ], [ %92, %91 ]
   %.273.i = phi i32 [ 0, %.lr.ph75.i ], [ %93, %91 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.174.i, ptr align 2 %70, i64 %86, i1 false)
-  %92 = getelementptr inbounds i16, ptr %.174.i, i64 %87
+  %92 = getelementptr inbounds [2 x i8], ptr %.174.i, i64 %87
   %93 = add nuw nsw i32 %.273.i, 1
   %exitcond78.not.i = icmp eq i32 %93, %34
   br i1 %exitcond78.not.i, label %extend_plane_high.exit, label %91, !llvm.loop !7
@@ -176,18 +176,18 @@ extend_plane_high.exit:                           ; preds = %91, %.preheader.i
   %96 = zext i1 %95 to i32
   %97 = load i32, ptr %13, align 8
   %98 = ashr i32 %97, %96
-  %99 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv66
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv66
   %100 = load ptr, ptr %99, align 8
   %101 = zext i1 %95 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %15, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %101
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds nuw i32, ptr %16, i64 %101
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %101
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds nuw i32, ptr %17, i64 %101
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %101
   %107 = load i32, ptr %106, align 4
   %108 = sub i32 %98, %105
   %109 = add i32 %108, %107
-  %110 = getelementptr inbounds nuw i32, ptr %0, i64 %101
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %101
   %111 = load i32, ptr %110, align 4
   %112 = add nsw i32 %111, %98
   %113 = add i32 %112, %98
@@ -198,7 +198,7 @@ extend_plane_high.exit:                           ; preds = %91, %.preheader.i
   br i1 %117, label %.lr.ph.i56, label %._crit_edge.i53
 
 .lr.ph.i56:                                       ; preds = %94
-  %118 = getelementptr inbounds nuw i32, ptr %18, i64 %101
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %101
   %119 = load i32, ptr %118, align 4
   %120 = sub nsw i32 %112, %119
   %121 = sext i32 %119 to i64
@@ -343,18 +343,18 @@ define internal fastcc void @extend_frame(ptr noundef readonly captures(none) %0
   %31 = select i1 %28, i32 %8, i32 0
   %32 = ashr i32 %1, %31
   %33 = zext i1 %28 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %9, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %35, %30
-  %37 = getelementptr inbounds nuw i32, ptr %19, i64 %33
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %33
   %38 = load i32, ptr %37, align 4
   %39 = sub i32 %36, %38
-  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %33
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %33
   %41 = load i32, ptr %40, align 4
   %42 = add nsw i32 %41, %32
-  %43 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i32, ptr %21, i64 %33
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %33
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %42, %32
   %48 = ptrtoint ptr %44 to i64
@@ -362,16 +362,16 @@ define internal fastcc void @extend_frame(ptr noundef readonly captures(none) %0
   %50 = inttoptr i64 %49 to ptr
   %51 = sext i32 %32 to i64
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds i16, ptr %50, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %50, i64 %52
   %54 = icmp sgt i32 %38, 0
   br i1 %54, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %27
-  %55 = getelementptr inbounds nuw i32, ptr %22, i64 %33
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %33
   %56 = load i32, ptr %55, align 4
   %57 = sub nsw i32 %42, %56
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds i16, ptr %50, i64 %58
+  %59 = getelementptr inbounds [2 x i8], ptr %50, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 -2
   %61 = sext i32 %57 to i64
   %62 = sext i32 %46 to i64
@@ -389,10 +389,10 @@ define internal fastcc void @extend_frame(ptr noundef readonly captures(none) %0
   %67 = load i16, ptr %.05966.i, align 2
   %68 = zext i16 %67 to i32
   %69 = tail call ptr @aom_memset16(ptr noundef %.068.i, i32 noundef %68, i64 noundef %61) #6
-  %70 = getelementptr inbounds i16, ptr %.06065.i, i64 %62
-  %71 = getelementptr inbounds i16, ptr %.05966.i, i64 %62
-  %72 = getelementptr inbounds i16, ptr %.05767.i, i64 %62
-  %73 = getelementptr inbounds i16, ptr %.068.i, i64 %62
+  %70 = getelementptr inbounds [2 x i8], ptr %.06065.i, i64 %62
+  %71 = getelementptr inbounds [2 x i8], ptr %.05966.i, i64 %62
+  %72 = getelementptr inbounds [2 x i8], ptr %.05767.i, i64 %62
+  %73 = getelementptr inbounds [2 x i8], ptr %.068.i, i64 %62
   %74 = add nuw nsw i32 %.06164.i, 1
   %exitcond.not.i = icmp eq i32 %74, %38
   br i1 %exitcond.not.i, label %._crit_edge.i, label %63, !llvm.loop !4
@@ -401,12 +401,12 @@ define internal fastcc void @extend_frame(ptr noundef readonly captures(none) %0
   %75 = add nsw i32 %38, -1
   %76 = mul nsw i32 %46, %75
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i16, ptr %50, i64 %77
-  %79 = getelementptr inbounds i16, ptr %78, i64 %52
+  %78 = getelementptr inbounds [2 x i8], ptr %50, i64 %77
+  %79 = getelementptr inbounds [2 x i8], ptr %78, i64 %52
   %80 = mul nsw i32 %46, %38
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i16, ptr %50, i64 %81
-  %83 = getelementptr inbounds i16, ptr %82, i64 %52
+  %82 = getelementptr inbounds [2 x i8], ptr %50, i64 %81
+  %83 = getelementptr inbounds [2 x i8], ptr %82, i64 %52
   %84 = icmp sgt i32 %30, 0
   br i1 %84, label %.lr.ph72.i, label %.preheader.i
 
@@ -414,8 +414,8 @@ define internal fastcc void @extend_frame(ptr noundef readonly captures(none) %0
   %85 = mul i32 %30, %46
   %86 = sub i32 0, %85
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i16, ptr %50, i64 %87
-  %89 = getelementptr inbounds i16, ptr %88, i64 %52
+  %88 = getelementptr inbounds [2 x i8], ptr %50, i64 %87
+  %89 = getelementptr inbounds [2 x i8], ptr %88, i64 %52
   %90 = sext i32 %47 to i64
   %91 = shl nsw i64 %90, 1
   %92 = sext i32 %46 to i64
@@ -435,7 +435,7 @@ define internal fastcc void @extend_frame(ptr noundef readonly captures(none) %0
   %.15870.i = phi ptr [ %89, %.lr.ph72.i ], [ %98, %97 ]
   %.16269.i = phi i32 [ 0, %.lr.ph72.i ], [ %99, %97 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.15870.i, ptr align 2 %53, i64 %91, i1 false)
-  %98 = getelementptr inbounds i16, ptr %.15870.i, i64 %92
+  %98 = getelementptr inbounds [2 x i8], ptr %.15870.i, i64 %92
   %99 = add nuw nsw i32 %.16269.i, 1
   %exitcond77.not.i = icmp eq i32 %99, %30
   br i1 %exitcond77.not.i, label %.preheader.i, label %97, !llvm.loop !6
@@ -444,7 +444,7 @@ define internal fastcc void @extend_frame(ptr noundef readonly captures(none) %0
   %.174.i = phi ptr [ %83, %.lr.ph75.i ], [ %101, %100 ]
   %.273.i = phi i32 [ 0, %.lr.ph75.i ], [ %102, %100 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.174.i, ptr align 2 %79, i64 %95, i1 false)
-  %101 = getelementptr inbounds i16, ptr %.174.i, i64 %96
+  %101 = getelementptr inbounds [2 x i8], ptr %.174.i, i64 %96
   %102 = add nuw nsw i32 %.273.i, 1
   %exitcond78.not.i = icmp eq i32 %102, %39
   br i1 %exitcond78.not.i, label %extend_plane_high.exit, label %100, !llvm.loop !7
@@ -462,18 +462,18 @@ extend_plane_high.exit:                           ; preds = %100, %.preheader.i
   %107 = select i1 %104, i32 %8, i32 0
   %108 = ashr i32 %1, %107
   %109 = zext i1 %104 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %9, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %109
   %111 = load i32, ptr %110, align 4
   %112 = add nsw i32 %111, %106
-  %113 = getelementptr inbounds nuw i32, ptr %23, i64 %109
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %109
   %114 = load i32, ptr %113, align 4
   %115 = sub i32 %112, %114
-  %116 = getelementptr inbounds nuw i32, ptr %0, i64 %109
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %109
   %117 = load i32, ptr %116, align 4
   %118 = add nsw i32 %117, %108
-  %119 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv82
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv82
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i32, ptr %25, i64 %109
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %109
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %118, %108
   %124 = sext i32 %108 to i64
@@ -483,7 +483,7 @@ extend_plane_high.exit:                           ; preds = %100, %.preheader.i
   br i1 %127, label %.lr.ph.i72, label %._crit_edge.i69
 
 .lr.ph.i72:                                       ; preds = %103
-  %128 = getelementptr inbounds nuw i32, ptr %26, i64 %109
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %109
   %129 = load i32, ptr %128, align 4
   %130 = sub nsw i32 %118, %129
   %131 = sext i32 %129 to i64
@@ -608,7 +608,7 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %23 = inttoptr i64 %22 to ptr
   %24 = sext i32 %3 to i64
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds i16, ptr %23, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %23, i64 %25
   %27 = icmp sgt i32 %12, 0
   br i1 %27, label %.lr.ph.i, label %._crit_edge.i
 
@@ -617,7 +617,7 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %29 = load i32, ptr %28, align 8
   %30 = sub nsw i32 %18, %29
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i16, ptr %23, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %23, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -2
   %34 = sext i32 %30 to i64
   %35 = sext i32 %10 to i64
@@ -635,10 +635,10 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %40 = load i16, ptr %.05966.i, align 2
   %41 = zext i16 %40 to i32
   %42 = tail call ptr @aom_memset16(ptr noundef %.068.i, i32 noundef %41, i64 noundef %34) #6
-  %43 = getelementptr inbounds i16, ptr %.06065.i, i64 %35
-  %44 = getelementptr inbounds i16, ptr %.05966.i, i64 %35
-  %45 = getelementptr inbounds i16, ptr %.05767.i, i64 %35
-  %46 = getelementptr inbounds i16, ptr %.068.i, i64 %35
+  %43 = getelementptr inbounds [2 x i8], ptr %.06065.i, i64 %35
+  %44 = getelementptr inbounds [2 x i8], ptr %.05966.i, i64 %35
+  %45 = getelementptr inbounds [2 x i8], ptr %.05767.i, i64 %35
+  %46 = getelementptr inbounds [2 x i8], ptr %.068.i, i64 %35
   %47 = add nuw nsw i32 %.06164.i, 1
   %exitcond.not.i = icmp eq i32 %47, %12
   br i1 %exitcond.not.i, label %._crit_edge.i, label %36, !llvm.loop !4
@@ -647,12 +647,12 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %48 = add nsw i32 %12, -1
   %49 = mul nsw i32 %48, %10
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i16, ptr %23, i64 %50
-  %52 = getelementptr inbounds i16, ptr %51, i64 %25
+  %51 = getelementptr inbounds [2 x i8], ptr %23, i64 %50
+  %52 = getelementptr inbounds [2 x i8], ptr %51, i64 %25
   %53 = mul nsw i32 %12, %10
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i16, ptr %23, i64 %54
-  %56 = getelementptr inbounds i16, ptr %55, i64 %25
+  %55 = getelementptr inbounds [2 x i8], ptr %23, i64 %54
+  %56 = getelementptr inbounds [2 x i8], ptr %55, i64 %25
   %57 = icmp sgt i32 %3, 0
   br i1 %57, label %.lr.ph72.i, label %.preheader.i
 
@@ -660,8 +660,8 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %58 = mul i32 %3, %10
   %59 = sub i32 0, %58
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i16, ptr %23, i64 %60
-  %62 = getelementptr inbounds i16, ptr %61, i64 %25
+  %61 = getelementptr inbounds [2 x i8], ptr %23, i64 %60
+  %62 = getelementptr inbounds [2 x i8], ptr %61, i64 %25
   %63 = sext i32 %19 to i64
   %64 = shl nsw i64 %63, 1
   %65 = sext i32 %10 to i64
@@ -681,7 +681,7 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %.15870.i = phi ptr [ %62, %.lr.ph72.i ], [ %71, %70 ]
   %.16269.i = phi i32 [ 0, %.lr.ph72.i ], [ %72, %70 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.15870.i, ptr nonnull align 2 %26, i64 %64, i1 false)
-  %71 = getelementptr inbounds i16, ptr %.15870.i, i64 %65
+  %71 = getelementptr inbounds [2 x i8], ptr %.15870.i, i64 %65
   %72 = add nuw nsw i32 %.16269.i, 1
   %exitcond77.not.i = icmp eq i32 %72, %3
   br i1 %exitcond77.not.i, label %.preheader.i, label %70, !llvm.loop !6
@@ -690,7 +690,7 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %.174.i = phi ptr [ %56, %.lr.ph75.i ], [ %74, %73 ]
   %.273.i = phi i32 [ 0, %.lr.ph75.i ], [ %75, %73 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.174.i, ptr align 2 %52, i64 %68, i1 false)
-  %74 = getelementptr inbounds i16, ptr %.174.i, i64 %69
+  %74 = getelementptr inbounds [2 x i8], ptr %.174.i, i64 %69
   %75 = add nuw nsw i32 %.273.i, 1
   %exitcond78.not.i = icmp eq i32 %75, %16
   br i1 %exitcond78.not.i, label %extend_plane_high.exit, label %73, !llvm.loop !7
@@ -822,19 +822,19 @@ define hidden void @aom_yv12_copy_frame_c(ptr noundef readonly captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next, %._crit_edge ]
   %19 = icmp ne i64 %indvars.iv, 0
   %20 = zext i1 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %10, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18
-  %24 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %20
-  %29 = getelementptr inbounds nuw i32, ptr %11, i64 %20
-  %30 = getelementptr inbounds nuw i32, ptr %12, i64 %20
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %20
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %20
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %20
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
@@ -871,19 +871,19 @@ define hidden void @aom_yv12_copy_frame_c(ptr noundef readonly captures(none) %0
   %indvars.iv73 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next74, %._crit_edge68 ]
   %51 = icmp ne i64 %indvars.iv73, 0
   %52 = zext i1 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %15, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph67, label %._crit_edge68
 
 .lr.ph67:                                         ; preds = %50
-  %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv73
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv73
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv73
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv73
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i32, ptr %0, i64 %52
-  %61 = getelementptr inbounds nuw i32, ptr %16, i64 %52
-  %62 = getelementptr inbounds nuw i32, ptr %17, i64 %52
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %52
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %52
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %52
   br label %63
 
 63:                                               ; preds = %.lr.ph67, %63
@@ -964,10 +964,10 @@ define hidden void @aom_yv12_copy_y_c(ptr noundef readonly captures(none) %0, pt
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.031, ptr align 2 %.02430, i64 %27, i1 false)
   %28 = load i32, ptr %22, align 8
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i16, ptr %.02430, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %.02430, i64 %29
   %31 = load i32, ptr %23, align 8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i16, ptr %.031, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %.031, i64 %32
   %34 = add nuw nsw i32 %.02729, 1
   %35 = load i32, ptr %10, align 8
   %36 = icmp slt i32 %34, %35
@@ -1044,10 +1044,10 @@ define hidden void @aom_yv12_copy_u_c(ptr noundef readonly captures(none) %0, pt
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.031, ptr align 2 %.02430, i64 %29, i1 false)
   %30 = load i32, ptr %24, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i16, ptr %.02430, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %.02430, i64 %31
   %33 = load i32, ptr %25, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i16, ptr %.031, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %.031, i64 %34
   %36 = add nuw nsw i32 %.02729, 1
   %37 = load i32, ptr %10, align 4
   %38 = icmp slt i32 %36, %37
@@ -1124,10 +1124,10 @@ define hidden void @aom_yv12_copy_v_c(ptr noundef readonly captures(none) %0, pt
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.031, ptr align 2 %.02430, i64 %29, i1 false)
   %30 = load i32, ptr %24, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i16, ptr %.02430, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %.02430, i64 %31
   %33 = load i32, ptr %25, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i16, ptr %.031, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %.031, i64 %34
   %36 = add nuw nsw i32 %.02729, 1
   %37 = load i32, ptr %10, align 4
   %38 = icmp slt i32 %36, %37
@@ -1204,10 +1204,10 @@ define hidden void @aom_yv12_partial_copy_y_c(ptr noundef readonly captures(none
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.049, ptr align 2 %.04248, i64 %40, i1 false)
   %42 = load i32, ptr %16, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %.04248, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %.04248, i64 %43
   %45 = load i32, ptr %17, align 8
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i16, ptr %.049, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %.049, i64 %46
   %48 = add nsw i32 %.04547, 1
   %exitcond.not = icmp eq i32 %48, %4
   br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !25
@@ -1299,10 +1299,10 @@ define hidden void @aom_yv12_partial_coloc_copy_y_c(ptr noundef readonly capture
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.049.i, ptr align 2 %.04248.i, i64 %37, i1 false)
   %39 = load i32, ptr %14, align 8
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i16, ptr %.04248.i, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %.04248.i, i64 %40
   %42 = load i32, ptr %15, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %.049.i, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %.049.i, i64 %43
   %45 = add nsw i32 %.04547.i, 1
   %exitcond.not.i = icmp eq i32 %45, %5
   br i1 %exitcond.not.i, label %aom_yv12_partial_copy_y_c.exit, label %38, !llvm.loop !25
@@ -1394,10 +1394,10 @@ define hidden void @aom_yv12_partial_copy_u_c(ptr noundef readonly captures(none
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.049, ptr align 2 %.04248, i64 %40, i1 false)
   %42 = load i32, ptr %16, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %.04248, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %.04248, i64 %43
   %45 = load i32, ptr %17, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i16, ptr %.049, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %.049, i64 %46
   %48 = add nsw i32 %.04547, 1
   %exitcond.not = icmp eq i32 %48, %4
   br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !27
@@ -1489,10 +1489,10 @@ define hidden void @aom_yv12_partial_coloc_copy_u_c(ptr noundef readonly capture
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.049.i, ptr align 2 %.04248.i, i64 %37, i1 false)
   %39 = load i32, ptr %14, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i16, ptr %.04248.i, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %.04248.i, i64 %40
   %42 = load i32, ptr %15, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %.049.i, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %.049.i, i64 %43
   %45 = add nsw i32 %.04547.i, 1
   %exitcond.not.i = icmp eq i32 %45, %5
   br i1 %exitcond.not.i, label %aom_yv12_partial_copy_u_c.exit, label %38, !llvm.loop !27
@@ -1584,10 +1584,10 @@ define hidden void @aom_yv12_partial_copy_v_c(ptr noundef readonly captures(none
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.049, ptr align 2 %.04248, i64 %40, i1 false)
   %42 = load i32, ptr %16, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %.04248, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %.04248, i64 %43
   %45 = load i32, ptr %17, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i16, ptr %.049, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %.049, i64 %46
   %48 = add nsw i32 %.04547, 1
   %exitcond.not = icmp eq i32 %48, %4
   br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !29
@@ -1679,10 +1679,10 @@ define hidden void @aom_yv12_partial_coloc_copy_v_c(ptr noundef readonly capture
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.049.i, ptr align 2 %.04248.i, i64 %37, i1 false)
   %39 = load i32, ptr %14, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i16, ptr %.04248.i, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %.04248.i, i64 %40
   %42 = load i32, ptr %15, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %.049.i, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %.049.i, i64 %43
   %45 = add nsw i32 %.04547.i, 1
   %exitcond.not.i = icmp eq i32 %45, %5
   br i1 %exitcond.not.i, label %aom_yv12_partial_copy_v_c.exit, label %38, !llvm.loop !29
@@ -1787,18 +1787,18 @@ define hidden i32 @aom_yv12_realloc_with_new_border_c(ptr noundef %0, i32 nounde
   %indvars.iv.i = phi i64 [ 0, %.lr.ph61.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %36 = icmp ne i64 %indvars.iv.i, 0
   %37 = zext i1 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %29, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %35
-  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i32, ptr %0, i64 %37
-  %46 = getelementptr inbounds nuw i32, ptr %30, i64 %37
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %37
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %37
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %36, i64 36, i64 32
   %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.sel.v.sroa.sel.v.sroa.sel.v
   br label %47
@@ -1837,18 +1837,18 @@ define hidden i32 @aom_yv12_realloc_with_new_border_c(ptr noundef %0, i32 nounde
   %indvars.iv73.i = phi i64 [ 0, %.lr.ph70.i ], [ %indvars.iv.next74.i, %._crit_edge68.i ]
   %67 = icmp ne i64 %indvars.iv73.i, 0
   %68 = zext i1 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %33, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.lr.ph67.i, label %._crit_edge68.i
 
 .lr.ph67.i:                                       ; preds = %66
-  %72 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv73.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv73.i
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv73.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv73.i
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i32, ptr %0, i64 %68
-  %77 = getelementptr inbounds nuw i32, ptr %34, i64 %68
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %68
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %68
   %.sroa.sel24.v.sroa.sel.v.sroa.sel.v = select i1 %67, i64 36, i64 32
   %.sroa.sel24.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.sel24.v.sroa.sel.v.sroa.sel.v
   br label %78

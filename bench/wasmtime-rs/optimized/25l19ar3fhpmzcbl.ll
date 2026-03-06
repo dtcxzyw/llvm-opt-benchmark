@@ -179,7 +179,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   %67 = load ptr, ptr %51, align 8, !nonnull !3, !noundef !3
   %68 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %69 = load i64, ptr %68, align 8, !noundef !3
-  %70 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %67, i64 %69
+  %70 = getelementptr inbounds [136 x i8], ptr %67, i64 %69
   store ptr %67, ptr %44, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %70, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -211,7 +211,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   %77 = load ptr, ptr %58, align 8, !nonnull !3, !noundef !3
   %78 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %79 = load i64, ptr %78, align 8, !noundef !3
-  %80 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %77, i64 %79
+  %80 = getelementptr inbounds [136 x i8], ptr %77, i64 %79
   store ptr %77, ptr %42, align 8
   %.sroa.215.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %80, ptr %.sroa.215.0..sroa_idx.i, align 8
@@ -437,7 +437,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 161:                                              ; preds = %157
   %162 = load ptr, ptr %96, align 8, !nonnull !3, !noundef !3
-  %163 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 } }, ptr %162, i64 %159
+  %163 = getelementptr inbounds [120 x i8], ptr %162, i64 %159
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 72
   %165 = getelementptr inbounds nuw i8, ptr %105, i64 72
   %166 = load ptr, ptr %164, align 8, !nonnull !3, !align !5, !noundef !3
@@ -577,7 +577,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   br i1 %201, label %256, label %267
 
 202:                                              ; preds = %.critedge.i.i
-  %203 = getelementptr inbounds i64, ptr %189, i64 %198
+  %203 = getelementptr inbounds [8 x i8], ptr %189, i64 %198
   %204 = load i64, ptr %203, align 8, !noundef !3
   %205 = icmp ult i64 %204, %69
   br i1 %205, label %210, label %213, !prof !7
@@ -597,7 +597,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   unreachable
 
 210:                                              ; preds = %202
-  %211 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %67, i64 %204
+  %211 = getelementptr inbounds [136 x i8], ptr %67, i64 %204
   %212 = invoke align 8 ptr @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8type_var17h570939bbb99aa11dE(ptr nonnull align 8 %211)
           to label %214 unwind label %207
 
@@ -1122,7 +1122,7 @@ define zeroext i1 @"_ZN101_$LT$cranelift_codegen_meta..cdsl..instructions..Instr
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
-  %21 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %20, i64 %10
+  %21 = getelementptr inbounds [136 x i8], ptr %20, i64 %10
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h75ee247e881a1543E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %7, ptr nonnull %20, ptr nonnull %21)
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !noundef !3
@@ -1179,7 +1179,7 @@ define zeroext i1 @"_ZN101_$LT$cranelift_codegen_meta..cdsl..instructions..Instr
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load ptr, ptr %47, align 8, !nonnull !3, !noundef !3
-  %49 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %48, i64 %44
+  %49 = getelementptr inbounds [136 x i8], ptr %48, i64 %44
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hc679feaad56e7bb1E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %5, ptr nonnull %48, ptr nonnull %49)
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load ptr, ptr %50, align 8, !nonnull !3, !noundef !3
@@ -1445,7 +1445,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_
   store ptr inttoptr (i64 8 to ptr), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %2, i64 %3
+  %25 = getelementptr inbounds [136 x i8], ptr %2, i64 %3
   store ptr %2, ptr %20, align 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %25, ptr %26, align 8
@@ -1481,7 +1481,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %4, i64 %5
+  %32 = getelementptr inbounds [136 x i8], ptr %4, i64 %5
   store ptr %4, ptr %9, align 8
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %32, ptr %33, align 8

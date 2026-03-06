@@ -9,14 +9,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Base_bitset" = type { i64 }
 %"struct.std::piecewise_construct_t" = type { i8 }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"struct.std::pair.0" = type { %"class.std::basic_string_view", %"class.std::function" }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"class.std::function.23" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.std::pair.18" = type { i64, %"class.std::function.9" }
-%"class.std::function.9" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.23" = type { %"class.std::_Function_base", ptr }
 %"struct.std::pair.213" = type { %"class.std::basic_string_view", ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -28,12 +24,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::__cxx11::basic_string<char>>>, std::less<std::basic_string_view<char>>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::vector<std::pair<std::basic_string_view<char>, std::function<void (ArgumentParser::Instance &)>>>::_Temporary_value" = type { ptr, %"union.std::vector<std::pair<std::basic_string_view<char>, std::function<void (ArgumentParser::Instance &)>>>::_Temporary_value::_Storage" }
 %"union.std::vector<std::pair<std::basic_string_view<char>, std::function<void (ArgumentParser::Instance &)>>>::_Temporary_value::_Storage" = type { %"struct.std::pair.0" }
+%"struct.std::pair.0" = type { %"class.std::basic_string_view", %"class.std::function" }
+%"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"struct.std::vector<std::pair<unsigned long, std::function<void (ArgumentParser::Instance &, unsigned long, std::basic_string_view<char>)>>>::_Temporary_value" = type { ptr, %"union.std::vector<std::pair<unsigned long, std::function<void (ArgumentParser::Instance &, unsigned long, std::basic_string_view<char>)>>>::_Temporary_value::_Storage" }
 %"union.std::vector<std::pair<unsigned long, std::function<void (ArgumentParser::Instance &, unsigned long, std::basic_string_view<char>)>>>::_Temporary_value::_Storage" = type { %"struct.std::pair.18" }
-%"class.std::vector.33" = type { %"struct.std::_Vector_base.34" }
-%"struct.std::_Vector_base.34" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.std::pair.18" = type { i64, %"class.std::function.9" }
+%"class.std::function.9" = type { %"class.std::_Function_base", ptr }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRSt17basic_string_viewIcS3_EEEERS5_DpOT_ = comdat any
 
@@ -129,7 +125,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairISt17basic_string_viewIcSt11
   %.04.i.i = phi i64 [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN14ArgumentParser16KeywordActionMap7EmplaceESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS2_8InstanceEEEE3$_0EclINS_17__normal_iteratorIPSt4pairIS7_SC_ESt6vectorISI_SaISI_EEEEKS7_EEbT_RT0_.exit.i.i" ], [ %14, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i ]
   %.sroa.02.03.i.i = phi ptr [ %.sroa.02.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN14ArgumentParser16KeywordActionMap7EmplaceESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS2_8InstanceEEEE3$_0EclINS_17__normal_iteratorIPSt4pairIS7_SC_ESt6vectorISI_SaISI_EEEEKS7_EEbT_RT0_.exit.i.i" ], [ %7, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i ]
   %15 = lshr i64 %.04.i.i, 1
-  %16 = getelementptr inbounds nuw %"struct.std::pair.0", ptr %.sroa.02.03.i.i, i64 %15
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.02.03.i.i, i64 %15
   %.val.i.i.i = load i64, ptr %16, align 8, !tbaa !9
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %.val.i.i.i)
   %17 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
@@ -215,7 +211,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt1
   %.04.i.i = phi i64 [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14ArgumentParser16KeywordActionMap4FindESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKSt4pairIS7_St8functionIFvRNS2_8InstanceEEEESt6vectorISI_SaISI_EEEEKS7_EEbT_RT0_.exit.i.i" ], [ %11, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i ]
   %.sroa.02.03.i.i = phi ptr [ %.sroa.02.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14ArgumentParser16KeywordActionMap4FindESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKSt4pairIS7_St8functionIFvRNS2_8InstanceEEEESt6vectorISI_SaISI_EEEEKS7_EEbT_RT0_.exit.i.i" ], [ %4, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i ]
   %12 = lshr i64 %.04.i.i, 1
-  %13 = getelementptr inbounds nuw %"struct.std::pair.0", ptr %.sroa.02.03.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.02.03.i.i, i64 %12
   %.val.i.i.i = load i64, ptr %13, align 8, !tbaa !9
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %.val.i.i.i)
   %14 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
@@ -296,7 +292,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImSt8functionIFvRN14Argument
   %.04.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i ], [ %12, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i ]
   %.sroa.02.03.i.i = phi ptr [ %.sroa.02.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i ], [ %5, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i ]
   %13 = lshr i64 %.04.i.i, 1
-  %14 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %.sroa.02.03.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.02.03.i.i, i64 %13
   %.val.i.i.i = load i64, ptr %14, align 8, !tbaa !18
   %15 = icmp ult i64 %.val.i.i.i, %1
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -348,7 +344,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImSt8functionIFvRN14Argumen
   %.04.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i ], [ %10, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i ]
   %.sroa.02.03.i.i = phi ptr [ %.sroa.02.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i ], [ %3, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i ]
   %11 = lshr i64 %.04.i.i, 1
-  %12 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %.sroa.02.03.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.02.03.i.i, i64 %11
   %.val.i.i.i = load i64, ptr %12, align 8, !tbaa !18
   %13 = icmp ult i64 %.val.i.i.i, %1
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -777,7 +773,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt1
   %.04.i.i.i = phi i64 [ %.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14ArgumentParser16KeywordActionMap4FindESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKSt4pairIS7_St8functionIFvRNS2_8InstanceEEEESt6vectorISI_SaISI_EEEEKS7_EEbT_RT0_.exit.i.i.i" ], [ %21, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i.i ]
   %.sroa.02.03.i.i.i = phi ptr [ %.sroa.02.1.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14ArgumentParser16KeywordActionMap4FindESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKSt4pairIS7_St8functionIFvRNS2_8InstanceEEEESt6vectorISI_SaISI_EEEEKS7_EEbT_RT0_.exit.i.i.i" ], [ %14, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i.i ]
   %22 = lshr i64 %.04.i.i.i, 1
-  %23 = getelementptr inbounds nuw %"struct.std::pair.0", ptr %.sroa.02.03.i.i.i, i64 %22
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.02.03.i.i.i, i64 %22
   %.val.i.i.i.i = load i64, ptr %23, align 8, !tbaa !9
   %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %.val.i.i.i.i)
   %24 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i, 0
@@ -1010,7 +1006,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImSt8functionIFvRN14Argumen
   %.04.i.i.i21 = phi i64 [ %.1.i.i.i27, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i ], [ %115, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i.i ]
   %.sroa.02.03.i.i.i22 = phi ptr [ %.sroa.02.1.i.i.i26, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i ], [ %108, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.preheader.i.i.i ]
   %116 = lshr i64 %.04.i.i.i21, 1
-  %117 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %.sroa.02.03.i.i.i22, i64 %116
+  %117 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.02.03.i.i.i22, i64 %116
   %.val.i.i.i.i25 = load i64, ptr %117, align 8, !tbaa !18
   %118 = icmp ult i64 %.val.i.i.i.i25, %1
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 40
@@ -2427,7 +2423,7 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN1
 _ZNSt12_Vector_baseISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE13_M_deallocateEPSB_m.exit: ; preds = %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit36, %53
   store ptr %21, ptr %0, align 8, !tbaa !110
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !104
-  %57 = getelementptr inbounds nuw %"struct.std::pair.0", ptr %21, i64 %17
+  %57 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %17
   store ptr %57, ptr %52, align 8, !tbaa !106
   ret void
 }
@@ -2865,7 +2861,7 @@ _ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_strin
 _ZNSt12_Vector_baseISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESaISB_EE13_M_deallocateEPSB_m.exit: ; preds = %_ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit36, %56
   store ptr %21, ptr %0, align 8, !tbaa !131
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !125
-  %60 = getelementptr inbounds nuw %"struct.std::pair.18", ptr %21, i64 %17
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %17
   store ptr %60, ptr %55, align 8, !tbaa !127
   ret void
 }
@@ -3648,7 +3644,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit37, %73
   store ptr %23, ptr %0, align 8, !tbaa !163
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !59
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !62
   ret void
 
@@ -3861,7 +3857,7 @@ _ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS
 _ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, %41
   store ptr %19, ptr %0, align 8, !tbaa !185
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !38
-  %45 = getelementptr inbounds nuw %"class.std::vector.33", ptr %19, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   store ptr %45, ptr %40, align 8, !tbaa !40
   ret void
 }

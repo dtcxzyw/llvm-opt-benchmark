@@ -1713,7 +1713,7 @@ define hidden ptr @je_hpdata_reserve_alloc(ptr noundef captures(none) %0, i64 no
   %.0 = phi i64 [ 0, %2 ], [ %38, %37 ]
   %6 = lshr i64 %.0, 6
   %7 = and i64 %.0, 63
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %9 = load i64, ptr %8, align 8, !tbaa !32
   %10 = xor i64 %9, -1
   %notmask.i4.i = shl nsw i64 -1, %7
@@ -1728,7 +1728,7 @@ define hidden ptr @je_hpdata_reserve_alloc(ptr noundef captures(none) %0, i64 no
   br i1 %13, label %fb_urange_iter.exit, label %14
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw i64, ptr %4, i64 %12
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   %16 = load i64, ptr %15, align 8, !tbaa !32
   %17 = icmp eq i64 %16, -1
   br i1 %17, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !33
@@ -1748,7 +1748,7 @@ define hidden ptr @je_hpdata_reserve_alloc(ptr noundef captures(none) %0, i64 no
 
 22:                                               ; preds = %._crit_edge.i
   %23 = and i64 %.039.i7.lcssa.i, 288230376151711743
-  %24 = getelementptr inbounds nuw i64, ptr %4, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !32
   %notmask.i.i = shl nsw i64 -1, %19
   %.040.i.i = and i64 %25, %notmask.i.i
@@ -1762,7 +1762,7 @@ define hidden ptr @je_hpdata_reserve_alloc(ptr noundef captures(none) %0, i64 no
   br i1 %28, label %fb_find_impl.exit.i, label %29
 
 29:                                               ; preds = %.lr.ph19.i
-  %30 = getelementptr inbounds nuw i64, ptr %4, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %27
   %31 = load i64, ptr %30, align 8, !tbaa !32
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %.lr.ph19.i, label %._crit_edge20.i, !llvm.loop !33
@@ -1801,7 +1801,7 @@ fb_urange_iter.exit:                              ; preds = %.lr.ph.i, %._crit_e
   %46 = sub nsw i64 64, %45
   %47 = lshr i64 -1, %46
   %48 = shl i64 %47, %41
-  %49 = getelementptr inbounds nuw i64, ptr %4, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %40
   %50 = load i64, ptr %49, align 8, !tbaa !32
   %51 = or i64 %50, %48
   store i64 %51, ptr %49, align 8, !tbaa !32
@@ -1838,7 +1838,7 @@ fb_assign_visitor.exit.preheader.i:               ; preds = %39
 fb_assign_visitor.exit4.i:                        ; preds = %._crit_edge.i45
   %66 = sub nuw nsw i64 64, %.0.i.lcssa.i
   %67 = lshr i64 -1, %66
-  %68 = getelementptr inbounds nuw i64, ptr %4, i64 %.029.i.lcssa.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.029.i.lcssa.i
   %69 = load i64, ptr %68, align 8, !tbaa !32
   %70 = or i64 %69, %67
   store i64 %70, ptr %68, align 8, !tbaa !32
@@ -1850,7 +1850,7 @@ fb_set_range.exit:                                ; preds = %._crit_edge.i45, %f
   %73 = add i64 %72, %3
   store i64 %73, ptr %71, align 8, !tbaa !34
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %40
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %40
   %76 = load i64, ptr %75, align 8, !tbaa !32
   %77 = and i64 %76, %48
   %78 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %77)
@@ -1860,7 +1860,7 @@ fb_set_range.exit:                                ; preds = %._crit_edge.i45, %f
   %.029.i.i130 = phi i64 [ %.029.i.i, %.lr.ph ], [ %.029.i9.i, %fb_set_range.exit ]
   %.0.i.i129 = phi i64 [ %83, %.lr.ph ], [ %52, %fb_set_range.exit ]
   %.098128 = phi i64 [ %82, %.lr.ph ], [ %78, %fb_set_range.exit ]
-  %79 = getelementptr inbounds nuw i64, ptr %74, i64 %.029.i.i130
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.029.i.i130
   %80 = load i64, ptr %79, align 8, !tbaa !32
   %81 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %80)
   %82 = add i64 %81, %.098128
@@ -1884,7 +1884,7 @@ fb_scount.exit:                                   ; preds = %.lr.ph, %._crit_edg
   %.098.lcssa172 = phi i64 [ %78, %._crit_edge ], [ %82, %.lr.ph ]
   %86 = sub nuw nsw i64 64, %.0.i.i.lcssa173
   %87 = lshr i64 -1, %86
-  %88 = getelementptr inbounds nuw i64, ptr %74, i64 %.029.i.i.lcssa174
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.029.i.i.lcssa174
   %89 = load i64, ptr %88, align 8, !tbaa !32
   %90 = and i64 %89, %87
   %91 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %90)
@@ -1923,7 +1923,7 @@ fb_assign_visitor.exit.preheader.i53:             ; preds = %fb_scount.exit
 fb_assign_visitor.exit4.i52:                      ; preds = %._crit_edge.i48
   %107 = sub nuw nsw i64 64, %.0.i.lcssa.i49
   %108 = lshr i64 -1, %107
-  %109 = getelementptr inbounds nuw i64, ptr %74, i64 %.029.i.lcssa.i50
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.029.i.lcssa.i50
   %110 = load i64, ptr %109, align 8, !tbaa !32
   %111 = or i64 %110, %108
   store i64 %111, ptr %109, align 8, !tbaa !32
@@ -1949,7 +1949,7 @@ fb_set_range.exit56:                              ; preds = %._crit_edge.i48, %f
   %.335133 = phi i64 [ %spec.select40, %153 ], [ %.032, %117 ]
   %120 = lshr i64 %.2134, 6
   %121 = and i64 %.2134, 63
-  %122 = getelementptr inbounds nuw i64, ptr %4, i64 %120
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %120
   %123 = load i64, ptr %122, align 8, !tbaa !32
   %124 = xor i64 %123, -1
   %notmask.i4.i57 = shl nsw i64 -1, %121
@@ -1964,7 +1964,7 @@ fb_set_range.exit56:                              ; preds = %._crit_edge.i48, %f
   br i1 %127, label %.thread108, label %128
 
 128:                                              ; preds = %.lr.ph.i72
-  %129 = getelementptr inbounds nuw i64, ptr %4, i64 %126
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %126
   %130 = load i64, ptr %129, align 8, !tbaa !32
   %131 = icmp eq i64 %130, -1
   br i1 %131, label %.lr.ph.i72, label %._crit_edge.loopexit.i74, !llvm.loop !33
@@ -1979,7 +1979,7 @@ fb_set_range.exit56:                              ; preds = %._crit_edge.i48, %f
   %134 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.141.i6.lcssa.i60, i1 true)
   %135 = shl nuw nsw i64 %.039.i7.lcssa.i61, 6
   %136 = or disjoint i64 %135, %134
-  %137 = getelementptr inbounds nuw i64, ptr %4, i64 %.039.i7.lcssa.i61
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.039.i7.lcssa.i61
   %138 = load i64, ptr %137, align 8, !tbaa !32
   %notmask.i.i63 = shl nsw i64 -1, %134
   %.040.i.i64 = and i64 %138, %notmask.i.i63
@@ -1993,7 +1993,7 @@ fb_set_range.exit56:                              ; preds = %._crit_edge.i48, %f
   br i1 %141, label %.loopexit.thread, label %142
 
 142:                                              ; preds = %.lr.ph19.i70
-  %143 = getelementptr inbounds nuw i64, ptr %4, i64 %140
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %140
   %144 = load i64, ptr %143, align 8, !tbaa !32
   %145 = icmp eq i64 %144, 0
   br i1 %145, label %.lr.ph19.i70, label %.loopexit, !llvm.loop !33
@@ -2054,7 +2054,7 @@ define hidden void @je_hpdata_unreserve(ptr noundef captures(none) %0, ptr nound
   %17 = sub nsw i64 64, %16
   %18 = lshr i64 -1, %17
   %19 = shl i64 %18, %12
-  %20 = getelementptr inbounds nuw i64, ptr %10, i64 %11
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %21 = xor i64 %19, -1
   %22 = load i64, ptr %20, align 8, !tbaa !32
   %23 = and i64 %22, %21
@@ -2092,7 +2092,7 @@ fb_assign_visitor.exit.preheader.i:               ; preds = %3
 fb_assign_visitor.exit4.i:                        ; preds = %._crit_edge.i
   %38 = sub nuw nsw i64 64, %.0.i.lcssa.i
   %39 = lshr i64 -1, %38
-  %40 = getelementptr inbounds nuw i64, ptr %10, i64 %.029.i.lcssa.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.029.i.lcssa.i
   %41 = xor i64 %39, -1
   %42 = load i64, ptr %40, align 8, !tbaa !32
   %43 = and i64 %42, %41
@@ -2115,7 +2115,7 @@ fb_unset_range.exit:                              ; preds = %._crit_edge.i, %fb_
 
 49:                                               ; preds = %.lr.ph.i
   %50 = add nsw i64 %.039.i4.i, -1
-  %51 = getelementptr inbounds nuw i64, ptr %10, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !32
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %.lr.ph.i, label %._crit_edge.i22, !llvm.loop !33
@@ -2135,7 +2135,7 @@ fb_fls.exit:                                      ; preds = %.lr.ph.i, %._crit_e
   %59 = add nsw i64 %58, %7
   %60 = lshr i64 %59, 6
   %61 = and i64 %59, 63
-  %62 = getelementptr inbounds nuw i64, ptr %10, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %60
   %63 = load i64, ptr %62, align 8, !tbaa !32
   %notmask.i.i = shl nsw i64 -1, %61
   %.040.i.i23 = and i64 %63, %notmask.i.i
@@ -2149,7 +2149,7 @@ fb_fls.exit:                                      ; preds = %.lr.ph.i, %._crit_e
   br i1 %66, label %fb_ffs.exit, label %67
 
 67:                                               ; preds = %.lr.ph.i28
-  %68 = getelementptr inbounds nuw i64, ptr %10, i64 %65
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %65
   %69 = load i64, ptr %68, align 8, !tbaa !32
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %.lr.ph.i28, label %._crit_edge.i24, !llvm.loop !33
@@ -2193,10 +2193,10 @@ define hidden i64 @je_hpdata_purge_begin(ptr noundef readonly captures(none) %0,
 
 6:                                                ; preds = %6, %2
   %.08.i = phi i64 [ 0, %2 ], [ %11, %6 ]
-  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %.08.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.08.i
   %8 = load i64, ptr %7, align 8, !tbaa !32
   %9 = xor i64 %8, -1
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %.08.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.08.i
   store i64 %9, ptr %10, align 8, !tbaa !32
   %11 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %11, 8
@@ -2208,9 +2208,9 @@ fb_bit_not.exit:                                  ; preds = %6
 
 13:                                               ; preds = %13, %fb_bit_not.exit
   %.010.i = phi i64 [ 0, %fb_bit_not.exit ], [ %19, %13 ]
-  %14 = getelementptr inbounds nuw i64, ptr %3, i64 %.010.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.010.i
   %15 = load i64, ptr %14, align 8, !tbaa !32
-  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %.010.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.010.i
   %17 = load i64, ptr %16, align 8, !tbaa !32
   %18 = and i64 %17, %15
   store i64 %18, ptr %14, align 8, !tbaa !32
@@ -2227,7 +2227,7 @@ fb_bit_and.exit:                                  ; preds = %13
   %.053 = phi i64 [ 0, %fb_bit_and.exit ], [ %101, %100 ]
   %22 = lshr i64 %.053, 6
   %23 = and i64 %.053, 63
-  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !32
   %notmask.i.i = shl nsw i64 -1, %23
   %.040.i.i = and i64 %25, %notmask.i.i
@@ -2241,7 +2241,7 @@ fb_bit_and.exit:                                  ; preds = %13
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds nuw i64, ptr %3, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %27
   %31 = load i64, ptr %30, align 8, !tbaa !32
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %.lr.ph.i, label %fb_ffs.exit, !llvm.loop !33
@@ -2257,7 +2257,7 @@ fb_ffs.exit:                                      ; preds = %29, %21
 
 37:                                               ; preds = %fb_ffs.exit
   %38 = and i64 %.039.i.lcssa.i, 288230376151711743
-  %39 = getelementptr inbounds nuw i64, ptr %5, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !32
   %notmask.i.i26 = shl nsw i64 -1, %33
   %.040.i.i27 = and i64 %40, %notmask.i.i26
@@ -2271,7 +2271,7 @@ fb_ffs.exit:                                      ; preds = %29, %21
   br i1 %43, label %fb_ffs.exit34, label %44
 
 44:                                               ; preds = %.lr.ph.i32
-  %45 = getelementptr inbounds nuw i64, ptr %5, i64 %42
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %42
   %46 = load i64, ptr %45, align 8, !tbaa !32
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %.lr.ph.i32, label %._crit_edge.i28, !llvm.loop !33
@@ -2289,7 +2289,7 @@ fb_ffs.exit34:                                    ; preds = %.lr.ph.i32, %._crit
   %51 = add i64 %.0.i.i31, -1
   %52 = lshr i64 %51, 6
   %53 = and i64 %51, 63
-  %54 = getelementptr inbounds nuw i64, ptr %3, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %52
   %55 = load i64, ptr %54, align 8, !tbaa !32
   %56 = shl i64 2, %53
   %57 = add i64 %56, -1
@@ -2304,7 +2304,7 @@ fb_ffs.exit34:                                    ; preds = %.lr.ph.i32, %._crit
 
 60:                                               ; preds = %.lr.ph.i40
   %61 = add nsw i64 %.039.i4.i41, -1
-  %62 = getelementptr inbounds nuw i64, ptr %3, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !32
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %.lr.ph.i40, label %._crit_edge.i36, !llvm.loop !33
@@ -2329,7 +2329,7 @@ fb_fls.exit:                                      ; preds = %.lr.ph.i40, %._crit
   %75 = sub i64 64, %74
   %76 = lshr i64 -1, %75
   %77 = shl i64 %76, %33
-  %78 = getelementptr inbounds nuw i64, ptr %20, i64 %38
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %38
   %79 = load i64, ptr %78, align 8, !tbaa !32
   %80 = or i64 %77, %79
   store i64 %80, ptr %78, align 8, !tbaa !32
@@ -2366,7 +2366,7 @@ fb_assign_visitor.exit.preheader.i:               ; preds = %fb_fls.exit
 fb_assign_visitor.exit4.i:                        ; preds = %._crit_edge.i42
   %95 = sub nuw nsw i64 64, %.0.i.lcssa.i
   %96 = lshr i64 -1, %95
-  %97 = getelementptr inbounds nuw i64, ptr %20, i64 %.029.i.lcssa.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.029.i.lcssa.i
   %98 = load i64, ptr %97, align 8, !tbaa !32
   %99 = or i64 %98, %96
   store i64 %99, ptr %97, align 8, !tbaa !32
@@ -2400,7 +2400,7 @@ define hidden noundef zeroext i1 @je_hpdata_purge_next(ptr noundef readonly capt
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = lshr i64 %6, 6
   %11 = and i64 %6, 63
-  %12 = getelementptr inbounds nuw i64, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %13 = load i64, ptr %12, align 8, !tbaa !32
   %notmask.i4.i = shl nsw i64 -1, %11
   %.040.i5.i = and i64 %13, %notmask.i4.i
@@ -2414,7 +2414,7 @@ define hidden noundef zeroext i1 @je_hpdata_purge_next(ptr noundef readonly capt
   br i1 %16, label %fb_srange_iter.exit.thread, label %17
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds nuw i64, ptr %9, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   %19 = load i64, ptr %18, align 8, !tbaa !32
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %.lr.ph.i, label %fb_find_impl.exit10.i, !llvm.loop !33
@@ -2430,7 +2430,7 @@ fb_find_impl.exit10.i:                            ; preds = %17, %8
 
 24:                                               ; preds = %fb_find_impl.exit10.i
   %25 = and i64 %.039.i7.lcssa.i, 288230376151711743
-  %26 = getelementptr inbounds nuw i64, ptr %9, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !32
   %28 = xor i64 %27, -1
   %notmask.i.i = shl nsw i64 -1, %21
@@ -2445,7 +2445,7 @@ fb_find_impl.exit10.i:                            ; preds = %17, %8
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %.lr.ph19.i
-  %33 = getelementptr inbounds nuw i64, ptr %9, i64 %30
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %30
   %34 = load i64, ptr %33, align 8, !tbaa !32
   %35 = icmp eq i64 %34, -1
   br i1 %35, label %.lr.ph19.i, label %._crit_edge.loopexit.i, !llvm.loop !33
@@ -2490,7 +2490,7 @@ define hidden void @je_hpdata_purge_end(ptr noundef captures(none) %0, ptr nound
 
 4:                                                ; preds = %4, %2
   %.08.i = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %.08.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.08.i
   %6 = load i64, ptr %5, align 8, !tbaa !32
   %7 = xor i64 %6, -1
   store i64 %7, ptr %5, align 8, !tbaa !32
@@ -2504,9 +2504,9 @@ fb_bit_not.exit:                                  ; preds = %4
 
 10:                                               ; preds = %10, %fb_bit_not.exit
   %.010.i = phi i64 [ 0, %fb_bit_not.exit ], [ %16, %10 ]
-  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %.010.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.010.i
   %12 = load i64, ptr %11, align 8, !tbaa !32
-  %13 = getelementptr inbounds nuw i64, ptr %3, i64 %.010.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.010.i
   %14 = load i64, ptr %13, align 8, !tbaa !32
   %15 = and i64 %14, %12
   store i64 %15, ptr %11, align 8, !tbaa !32

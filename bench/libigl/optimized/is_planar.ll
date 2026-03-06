@@ -29,7 +29,7 @@ define dso_local noundef zeroext i1 @_ZN3igl9is_planarERKN5Eigen6MatrixIdLin1ELi
 
 12:                                               ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %13 = load double, ptr %gep, align 8, !tbaa !13
   %14 = fcmp oeq double %13, 0.000000e+00
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

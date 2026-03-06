@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.44" = type { %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { %"class.base::BasicStringPiece", %"class.base::BasicStringPiece" }
 
 $__clang_call_terminate = comdat any
 
@@ -613,7 +612,7 @@ _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11cha
 _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i
   store ptr %48, ptr %1, align 8, !tbaa !69
   store ptr %52, ptr %28, align 8, !tbaa !74
-  %54 = getelementptr inbounds nuw %"struct.std::pair", ptr %48, i64 %46
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %46
   store ptr %54, ptr %30, align 8, !tbaa !75
   br label %96
 
@@ -694,7 +693,7 @@ _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11cha
 _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i37: ; preds = %84, %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i34
   store ptr %79, ptr %1, align 8, !tbaa !69
   store ptr %83, ptr %22, align 8, !tbaa !74
-  %85 = getelementptr inbounds nuw %"struct.std::pair", ptr %79, i64 %77
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %79, i64 %77
   store ptr %85, ptr %23, align 8, !tbaa !75
   br label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE9push_backEOSA_.exit38
 
@@ -814,7 +813,7 @@ _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11cha
 _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i
   store ptr %32, ptr %1, align 8, !tbaa !69
   store ptr %36, ptr %4, align 8, !tbaa !74
-  %38 = getelementptr inbounds nuw %"struct.std::pair", ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %30
   store ptr %38, ptr %5, align 8, !tbaa !75
   br label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EE9push_backEOSA_.exit
 

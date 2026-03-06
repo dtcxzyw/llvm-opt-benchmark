@@ -661,7 +661,7 @@ _ZNSt12_Vector_baseIN4llvm6WeakVHESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = 
   store ptr %19, ptr %0, align 8, !tbaa !64
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %39, ptr %14, align 8, !tbaa !59
-  %40 = getelementptr inbounds nuw %"class.llvm::WeakVH", ptr %19, i64 %1
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %1
   store ptr %40, ptr %6, align 8, !tbaa !61
   br label %41
 
@@ -836,7 +836,7 @@ _ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN
 _ZNSt12_Vector_baseIN4llvm6WeakVHESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit, %53
   store ptr %20, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i.i.i25, ptr %4, align 8, !tbaa !59
-  %57 = getelementptr inbounds nuw %"class.llvm::WeakVH", ptr %20, i64 %16
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %57, ptr %52, align 8, !tbaa !61
   ret void
 }

@@ -3,9 +3,6 @@ source_filename = "bench/postgres/original/queryjumblefuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.LocationLen = type { i32, i32 }
-%union.ListCell = type { ptr }
-
 @compute_query_id = dso_local local_unnamed_addr global i32 2, align 4
 @query_id_enabled = dso_local local_unnamed_addr global i8 0, align 1
 @.str = private unnamed_addr constant [27 x i8] c"unrecognized node type: %d\00", align 1
@@ -2247,12 +2244,12 @@ AppendJumble.exit:                                ; preds = %10
   %34 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %31, %25 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds %struct.LocationLen, ptr %34, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %34, i64 %36
   store i32 %18, ptr %37, align 4
   %38 = load ptr, ptr %35, align 8
   %39 = load i32, ptr %21, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.LocationLen, ptr %38, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %38, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 -1, ptr %42, align 4
   %43 = load i32, ptr %21, align 4
@@ -11801,12 +11798,12 @@ AppendJumble.exit28:                              ; preds = %.lr.ph.i21, %45
   %67 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %64, %58 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = sext i32 %66 to i64
-  %70 = getelementptr inbounds %struct.LocationLen, ptr %67, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %67, i64 %69
   store i32 %51, ptr %70, align 4
   %71 = load ptr, ptr %68, align 8
   %72 = load i32, ptr %54, align 4
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %struct.LocationLen, ptr %71, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %71, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 -1, ptr %75, align 4
   %76 = load i32, ptr %54, align 4
@@ -18528,12 +18525,12 @@ AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %23
   %45 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %42, %36 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = sext i32 %44 to i64
-  %48 = getelementptr inbounds %struct.LocationLen, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   store i32 %29, ptr %48, align 4
   %49 = load ptr, ptr %46, align 8
   %50 = load i32, ptr %32, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.LocationLen, ptr %49, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %49, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 -1, ptr %53, align 4
   %54 = load i32, ptr %32, align 4
@@ -20080,12 +20077,12 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   %29 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %26, %20 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds %struct.LocationLen, ptr %29, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %29, i64 %31
   store i32 %13, ptr %32, align 4
   %33 = load ptr, ptr %30, align 8
   %34 = load i32, ptr %16, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.LocationLen, ptr %33, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 -1, ptr %37, align 4
   %38 = load i32, ptr %16, align 4
@@ -21203,7 +21200,7 @@ define internal fastcc void @_jumbleList(ptr noundef %0, ptr noundef nonnull rea
 19:                                               ; preds = %.lr.ph84, %19
   %indvars.iv97 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next98, %19 ]
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds nuw %union.ListCell, ptr %20, i64 %indvars.iv97
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv97
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %22)
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
@@ -21216,7 +21213,7 @@ define internal fastcc void @_jumbleList(ptr noundef %0, ptr noundef nonnull rea
   %26 = phi i64 [ %.pre101, %.lr.ph81 ], [ %37, %AppendJumble.exit ]
   %indvars.iv94 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next95, %AppendJumble.exit ]
   %27 = load ptr, ptr %14, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv94
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv94
   %29 = load ptr, ptr %0, align 8
   br label %.lr.ph.i
 
@@ -21256,7 +21253,7 @@ AppendJumble.exit:                                ; preds = %33
   %43 = phi i64 [ %.pre100, %.lr.ph78 ], [ %54, %AppendJumble.exit58 ]
   %indvars.iv91 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next92, %AppendJumble.exit58 ]
   %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds nuw %union.ListCell, ptr %44, i64 %indvars.iv91
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv91
   %46 = load ptr, ptr %0, align 8
   br label %.lr.ph.i52
 
@@ -21296,7 +21293,7 @@ AppendJumble.exit58:                              ; preds = %50
   %60 = phi i64 [ %.pre, %.lr.ph ], [ %71, %AppendJumble.exit65 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %AppendJumble.exit65 ]
   %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds nuw %union.ListCell, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %0, align 8
   br label %.lr.ph.i59
 

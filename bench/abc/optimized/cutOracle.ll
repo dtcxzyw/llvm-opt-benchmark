@@ -105,7 +105,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %35, %Vec_PtrAlloc.e
 40:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
   %41 = load ptr, ptr %38, align 8, !tbaa !27
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i
   store ptr null, ptr %42, align 8, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -441,7 +441,7 @@ define void @Cut_OracleNodeSetTriv(ptr noundef captures(none) %0, i32 noundef %1
   %28 = lshr i32 %20, 24
   %29 = and i32 %28, 15
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %23, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %33 = load i32, ptr %32, align 4, !tbaa !38
   %34 = icmp sgt i32 %33, 0
@@ -449,7 +449,7 @@ define void @Cut_OracleNodeSetTriv(ptr noundef captures(none) %0, i32 noundef %1
 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %27 ]
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 -1431655766, ptr %35, align 4, !tbaa !47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = load i32, ptr %32, align 4, !tbaa !38
@@ -465,7 +465,7 @@ Cut_CutTriv.exit:                                 ; preds = %.lr.ph.i, %2, %27
   %42 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %42, align 8, !tbaa !27
   %43 = sext i32 %1 to i64
-  %44 = getelementptr inbounds ptr, ptr %.val, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %.val, i64 %43
   store ptr %7, ptr %44, align 8, !tbaa !29
   ret void
 }
@@ -496,10 +496,10 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %17 = getelementptr i8, ptr %16, i64 8
   %.val61 = load ptr, ptr %17, align 8, !tbaa !27
   %18 = sext i32 %2 to i64
-  %19 = getelementptr inbounds ptr, ptr %.val61, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.val61, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %21 = sext i32 %3 to i64
-  %22 = getelementptr inbounds ptr, ptr %.val61, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %.val61, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = load i32, ptr %20, align 8
   %25 = lshr i32 %24, 22
@@ -585,7 +585,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %39, align 4, !tbaa !32
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds ptr, ptr %65, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %65, i64 %68
   store ptr %.05683, ptr %69, align 8, !tbaa !29
   %70 = getelementptr inbounds nuw i8, ptr %.05683, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !59
@@ -666,7 +666,7 @@ Vec_PtrPush.exit74:                               ; preds = %.Vec_PtrGrow.exit11
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %78, align 4, !tbaa !32
   %107 = sext i32 %105 to i64
-  %108 = getelementptr inbounds ptr, ptr %104, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %104, i64 %107
   store ptr %.184, ptr %108, align 8, !tbaa !29
   %109 = getelementptr inbounds nuw i8, ptr %.184, i64 16
   %110 = load ptr, ptr %109, align 8, !tbaa !59
@@ -679,13 +679,13 @@ Vec_PtrPush.exit74:                               ; preds = %.Vec_PtrGrow.exit11
   %114 = getelementptr i8, ptr %113, i64 8
   %.val65 = load ptr, ptr %114, align 8, !tbaa !44
   %115 = sext i32 %1 to i64
-  %116 = getelementptr inbounds i32, ptr %.val65, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %.val65, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !47
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %119 = load ptr, ptr %118, align 8, !tbaa !20
   %120 = getelementptr i8, ptr %119, i64 8
   %.val66 = load ptr, ptr %120, align 8, !tbaa !44
-  %121 = getelementptr inbounds i32, ptr %.val66, i64 %115
+  %121 = getelementptr inbounds [4 x i8], ptr %.val66, i64 %115
   %122 = load i32, ptr %121, align 4, !tbaa !47
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %124 = load ptr, ptr %123, align 8, !tbaa !39
@@ -721,7 +721,7 @@ Vec_PtrPush.exit74:                               ; preds = %.Vec_PtrGrow.exit11
   %145 = lshr i32 %137, 24
   %146 = and i32 %145, 15
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw i32, ptr %140, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %150 = load i32, ptr %149, align 4, !tbaa !38
   %151 = icmp sgt i32 %150, 0
@@ -729,7 +729,7 @@ Vec_PtrPush.exit74:                               ; preds = %.Vec_PtrGrow.exit11
 
 .lr.ph.i:                                         ; preds = %144, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %144 ]
-  %152 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv.i
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv.i
   store i32 -1431655766, ptr %152, align 4, !tbaa !47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %153 = load i32, ptr %149, align 4, !tbaa !38
@@ -758,22 +758,22 @@ Cut_CutTriv.exit:                                 ; preds = %.lr.ph.i, %111, %14
   %163 = load ptr, ptr %160, align 8, !tbaa !22
   %164 = getelementptr i8, ptr %163, i64 8
   %.val67 = load ptr, ptr %164, align 8, !tbaa !44
-  %165 = getelementptr i32, ptr %.val67, i64 %indvars.iv
-  %166 = getelementptr i32, ptr %165, i64 %161
+  %165 = getelementptr [4 x i8], ptr %.val67, i64 %indvars.iv
+  %166 = getelementptr [4 x i8], ptr %165, i64 %161
   %167 = load i32, ptr %166, align 4, !tbaa !47
   %168 = load ptr, ptr %34, align 8, !tbaa !33
   %169 = and i32 %167, 65535
   %170 = getelementptr i8, ptr %168, i64 8
   %.val63 = load ptr, ptr %170, align 8, !tbaa !27
   %171 = zext nneg i32 %169 to i64
-  %172 = getelementptr inbounds nuw ptr, ptr %.val63, i64 %171
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %.val63, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !29
   %174 = load ptr, ptr %73, align 8, !tbaa !34
   %175 = ashr i32 %167, 16
   %176 = getelementptr i8, ptr %174, i64 8
   %.val64 = load ptr, ptr %176, align 8, !tbaa !27
   %177 = sext i32 %175 to i64
-  %178 = getelementptr inbounds ptr, ptr %.val64, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %.val64, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !29
   %180 = load ptr, ptr %123, align 8, !tbaa !39
   %181 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %180) #18
@@ -826,9 +826,9 @@ Cut_CutTriv.exit:                                 ; preds = %.lr.ph.i, %111, %14
 209:                                              ; preds = %205
   %210 = add nsw i32 %.05259.i, 1
   %211 = sext i32 %.05259.i to i64
-  %212 = getelementptr inbounds i32, ptr %195, i64 %211
+  %212 = getelementptr inbounds [4 x i8], ptr %195, i64 %211
   %213 = load i32, ptr %212, align 4, !tbaa !47
-  %214 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.i76
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %indvars.iv.i76
   store i32 %213, ptr %214, align 4, !tbaa !47
   br label %240
 
@@ -838,21 +838,21 @@ Cut_CutTriv.exit:                                 ; preds = %.lr.ph.i, %111, %14
 216:                                              ; preds = %215
   %217 = add nsw i32 %.05160.i, 1
   %218 = sext i32 %.05160.i to i64
-  %219 = getelementptr inbounds i32, ptr %196, i64 %218
+  %219 = getelementptr inbounds [4 x i8], ptr %196, i64 %218
   %220 = load i32, ptr %219, align 4, !tbaa !47
-  %221 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.i76
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %indvars.iv.i76
   store i32 %220, ptr %221, align 4, !tbaa !47
   br label %240
 
 222:                                              ; preds = %215
   %223 = sext i32 %.05259.i to i64
-  %224 = getelementptr inbounds i32, ptr %195, i64 %223
+  %224 = getelementptr inbounds [4 x i8], ptr %195, i64 %223
   %225 = load i32, ptr %224, align 4, !tbaa !47
   %226 = sext i32 %.05160.i to i64
-  %227 = getelementptr inbounds i32, ptr %196, i64 %226
+  %227 = getelementptr inbounds [4 x i8], ptr %196, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !47
   %229 = icmp slt i32 %225, %228
-  %230 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.i76
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %indvars.iv.i76
   br i1 %229, label %231, label %233
 
 231:                                              ; preds = %222
@@ -915,7 +915,7 @@ Cut_CutMerge.exit:                                ; preds = %162, %._crit_edge.l
   %249 = load ptr, ptr %15, align 8, !tbaa !28
   %250 = getelementptr i8, ptr %249, i64 8
   %.val = load ptr, ptr %250, align 8, !tbaa !27
-  %251 = getelementptr inbounds ptr, ptr %.val, i64 %115
+  %251 = getelementptr inbounds [8 x i8], ptr %.val, i64 %115
   store ptr %125, ptr %251, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %252 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #18
@@ -951,7 +951,7 @@ define void @Cut_OracleFreeCuts(ptr noundef readonly captures(none) %0, i32 noun
   %5 = getelementptr i8, ptr %4, i64 8
   %.val17 = load ptr, ptr %5, align 8, !tbaa !27
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %.val17, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %.val17, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = icmp eq ptr %8, null
   br i1 %9, label %18, label %10
@@ -973,7 +973,7 @@ define void @Cut_OracleFreeCuts(ptr noundef readonly captures(none) %0, i32 noun
   %15 = load ptr, ptr %3, align 8, !tbaa !28
   %16 = getelementptr i8, ptr %15, i64 8
   %.val = load ptr, ptr %16, align 8, !tbaa !27
-  %17 = getelementptr inbounds ptr, ptr %.val, i64 %6
+  %17 = getelementptr inbounds [8 x i8], ptr %.val, i64 %6
   store ptr %8, ptr %17, align 8, !tbaa !29
   br label %18
 
@@ -990,7 +990,7 @@ define void @Cut_OracleTryDroppingCuts(ptr noundef readonly captures(none) %0, i
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8, !tbaa !44
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i32, ptr %.val, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %.val, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !47
   %9 = add nsw i32 %8, -1
   %10 = icmp eq i32 %9, 0
@@ -1005,7 +1005,7 @@ define void @Cut_OracleTryDroppingCuts(ptr noundef readonly captures(none) %0, i
   %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = getelementptr i8, ptr %12, i64 8
   %.val17.i = load ptr, ptr %13, align 8, !tbaa !27
-  %14 = getelementptr inbounds ptr, ptr %.val17.i, i64 %6
+  %14 = getelementptr inbounds [8 x i8], ptr %.val17.i, i64 %6
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = icmp eq ptr %15, null
   br i1 %16, label %Cut_OracleFreeCuts.exit, label %17
@@ -1027,7 +1027,7 @@ define void @Cut_OracleTryDroppingCuts(ptr noundef readonly captures(none) %0, i
   %22 = load ptr, ptr %11, align 8, !tbaa !28
   %23 = getelementptr i8, ptr %22, i64 8
   %.val.i = load ptr, ptr %23, align 8, !tbaa !27
-  %24 = getelementptr inbounds ptr, ptr %.val.i, i64 %6
+  %24 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %6
   store ptr %15, ptr %24, align 8, !tbaa !29
   %.pre = load ptr, ptr %3, align 8, !tbaa !43
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 8
@@ -1036,7 +1036,7 @@ define void @Cut_OracleTryDroppingCuts(ptr noundef readonly captures(none) %0, i
 
 Cut_OracleFreeCuts.exit:                          ; preds = %.split8, %21
   %.val9 = phi ptr [ %.val, %.split8 ], [ %.val9.pre, %21 ]
-  %25 = getelementptr inbounds i32, ptr %.val9, i64 %6
+  %25 = getelementptr inbounds [4 x i8], ptr %.val9, i64 %6
   store i32 0, ptr %25, align 4, !tbaa !47
   br label %26
 

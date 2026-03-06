@@ -155,7 +155,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %30 = trunc nuw i64 %26 to i32
   call void %29(i32 noundef %30, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %31 = load i64, ptr %2, align 8
-  %32 = getelementptr %struct.var_mtrr_range_state, ptr @range_state, i64 %26
+  %32 = getelementptr [24 x i8], ptr @range_state, i64 %26
   store i64 %31, ptr %32, align 8
   %33 = load i64, ptr %3, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -172,7 +172,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
 .preheader18:                                     ; preds = %24, %53
   %41 = phi i64 [ %55, %53 ], [ 0, %24 ]
   %42 = phi i64 [ %54, %53 ], [ 0, %24 ]
-  %43 = getelementptr %struct.var_mtrr_range_state, ptr @range_state, i64 %41
+  %43 = getelementptr [24 x i8], ptr @range_state, i64 %41
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i8, ptr %44, align 8
   %46 = icmp eq i8 %45, 6
@@ -209,7 +209,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
 
 61:                                               ; preds = %76, %60
   %62 = phi i64 [ %78, %76 ], [ 0, %60 ]
-  %63 = getelementptr %struct.var_mtrr_range_state, ptr @range_state, i64 %62
+  %63 = getelementptr [24 x i8], ptr @range_state, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i8, ptr %64, align 8
   %66 = icmp ugt i8 %65, 6
@@ -222,7 +222,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %70 = icmp eq i64 %69, 0
   %71 = select i1 %70, i8 7, i8 %65
   %72 = zext nneg i8 %71 to i64
-  %73 = getelementptr i32, ptr %5, i64 %72
+  %73 = getelementptr [4 x i8], ptr %5, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 4
@@ -288,11 +288,11 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %108 = phi i32 [ %124, %123 ], [ %105, %104 ]
   %109 = phi i64 [ %113, %123 ], [ 0, %104 ]
   %110 = phi i64 [ %125, %123 ], [ %106, %104 ]
-  %.split = getelementptr %struct.range, ptr @range, i64 %109
+  %.split = getelementptr [16 x i8], ptr @range, i64 %109
   %111 = getelementptr i8, ptr %.split, i64 8
   %112 = load i64, ptr %111, align 8
   %113 = add nuw i64 %109, 1
-  %114 = getelementptr %struct.range, ptr @range, i64 %113
+  %114 = getelementptr [16 x i8], ptr @range, i64 %113
   %115 = load i64, ptr %114, align 16
   %116 = icmp ult i64 %112, %115
   br i1 %116, label %117, label %123
@@ -317,7 +317,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
 .loopexit:                                        ; preds = %123, %104
   %129 = phi i64 [ %106, %104 ], [ %125, %123 ]
   %130 = phi i64 [ 0, %104 ], [ %127, %123 ]
-  %.split16 = getelementptr %struct.range, ptr @range, i64 %130
+  %.split16 = getelementptr [16 x i8], ptr @range, i64 %130
   %131 = getelementptr i8, ptr %.split16, i64 8
   %132 = load i64, ptr %131, align 8
   %133 = icmp ult i64 %132, %0
@@ -380,7 +380,7 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
   %5 = phi i32 [ %20, %18 ], [ %0, %1 ]
   %6 = phi i32 [ %21, %18 ], [ 0, %1 ]
   %7 = sext i32 %6 to i64
-  %8 = getelementptr %struct.var_mtrr_range_state, ptr @range_state, i64 %7
+  %8 = getelementptr [24 x i8], ptr @range_state, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 6
@@ -433,7 +433,7 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr %struct.range, ptr @range, i64 %36
+  %39 = getelementptr [16 x i8], ptr @range, i64 %36
   %40 = load i64, ptr %39, align 16
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i64, ptr %41, align 8
@@ -450,7 +450,7 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
 .preheader:                                       ; preds = %.loopexit11, %78
   %48 = phi i32 [ %79, %78 ], [ 0, %.loopexit11 ]
   %49 = sext i32 %48 to i64
-  %50 = getelementptr %struct.var_mtrr_range_state, ptr @range_state, i64 %49
+  %50 = getelementptr [24 x i8], ptr @range_state, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i8, ptr %51, align 8
   switch i8 %52, label %78 [
@@ -519,7 +519,7 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
 86:                                               ; preds = %.preheader32, %98
   %87 = phi i8 [ %99, %98 ], [ %.ph, %.preheader32 ]
   %88 = phi i64 [ %100, %98 ], [ 0, %.preheader32 ]
-  %89 = getelementptr %struct.range, ptr @range, i64 %88
+  %89 = getelementptr [16 x i8], ptr @range, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = icmp eq i64 %91, 0
@@ -565,7 +565,7 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
   br i1 %115, label %122, label %116
 
 116:                                              ; preds = %112
-  %117 = getelementptr %struct.range, ptr @range, i64 %114
+  %117 = getelementptr [16 x i8], ptr @range, i64 %114
   %118 = load i64, ptr %117, align 16
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %120 = load i64, ptr %119, align 8

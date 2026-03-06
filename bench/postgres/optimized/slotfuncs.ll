@@ -302,7 +302,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %51 = phi i32 [ %11, %.lr.ph ], [ %203, %202 ]
   %52 = phi ptr [ %.pre112, %.lr.ph ], [ %204, %202 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %202 ]
-  %53 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [280 x i8], ptr %52, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -539,7 +539,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %150 = mul i64 %149, %140
   %151 = sub i64 %150, %7
   %152 = zext nneg i32 %.8 to i64
-  %153 = getelementptr inbounds nuw i64, ptr %3, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %152
   store i64 %151, ptr %153, align 8
   br label %154
 
@@ -549,7 +549,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %155 = load i8, ptr %44, align 8, !range !4, !noundef !5
   %156 = zext nneg i8 %155 to i64
   %157 = add nuw nsw i32 %.8106, 2
-  %158 = getelementptr inbounds nuw i64, ptr %3, i64 %.pre-phi
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.pre-phi
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i64 %156, ptr %159, align 8
   %160 = load i64, ptr %45, align 8
@@ -558,7 +558,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   br i1 %161, label %163, label %165
 
 163:                                              ; preds = %154
-  %164 = getelementptr inbounds nuw i64, ptr %3, i64 %162
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %162
   store i64 %160, ptr %164, align 8
   br label %167
 
@@ -584,7 +584,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %175 = and i32 %168, -2
   %or.cond3 = icmp eq i32 %175, 2
   %176 = zext nneg i32 %.12 to i64
-  %177 = getelementptr inbounds nuw i64, ptr %3, i64 %176
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %176
   br i1 %or.cond3, label %.thread107, label %178
 
 .thread107:                                       ; preds = %174
@@ -610,12 +610,12 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
 184:                                              ; preds = %.thread107, %179
   %.13109 = phi i32 [ %.13108, %.thread107 ], [ %.13, %179 ]
   %185 = zext i32 %168 to i64
-  %186 = getelementptr inbounds nuw ptr, ptr @SlotInvalidationCauses, i64 %185
+  %186 = getelementptr inbounds nuw [8 x i8], ptr @SlotInvalidationCauses, i64 %185
   %187 = load ptr, ptr %186, align 8
   %188 = call ptr @cstring_to_text(ptr noundef %187) #8
   %189 = ptrtoint ptr %188 to i64
   %190 = zext nneg i32 %.13109 to i64
-  %191 = getelementptr inbounds nuw i64, ptr %3, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %190
   store i64 %189, ptr %191, align 8
   br label %192
 
@@ -911,7 +911,7 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
 
 29:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %30 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %28, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [280 x i8], ptr %28, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %32 = load i8, ptr %31, align 1, !range !4, !noundef !5
   %33 = trunc nuw i8 %32 to i1

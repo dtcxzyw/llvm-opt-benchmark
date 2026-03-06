@@ -271,24 +271,24 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 66:                                               ; preds = %63
   %67 = sext i32 %64 to i64
-  %68 = getelementptr inbounds ptr, ptr %1, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %1, i64 %67
   %69 = load ptr, ptr %68, align 8
   br label %83
 
 70:                                               ; preds = %63
   %71 = sext i32 %64 to i64
-  %72 = getelementptr inbounds ptr, ptr %1, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %1, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = add i32 %64, 1
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %1, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %1, i64 %75
   %77 = load ptr, ptr %76, align 8
   br label %83
 
 78:                                               ; preds = %63
   %79 = add i32 %64, 2
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %1, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %1, i64 %80
   %82 = load ptr, ptr %81, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef %82) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.22, ptr noundef %8) #8

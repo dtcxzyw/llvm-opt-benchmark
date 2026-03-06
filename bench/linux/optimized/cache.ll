@@ -382,7 +382,7 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
 .preheader:                                       ; preds = %.loopexit124, %166
   %160 = phi i32 [ %167, %166 ], [ %158, %.loopexit124 ]
   %161 = phi i64 [ %168, %166 ], [ 0, %.loopexit124 ]
-  %162 = getelementptr ptr, ptr %109, i64 %161
+  %162 = getelementptr [8 x i8], ptr %109, i64 %161
   %163 = load ptr, ptr %162, align 8
   %164 = icmp eq ptr %163, null
   br i1 %164, label %166, label %165

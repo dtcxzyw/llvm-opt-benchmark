@@ -3166,7 +3166,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i: ; preds = %274, %_
   %306 = sub i64 %304, %305
   %307 = sdiv exact i64 %306, 56
   %.not87.i.i.i = icmp eq i64 %299, %307
-  %308 = getelementptr %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %302, i64 %299
+  %308 = getelementptr [56 x i8], ptr %302, i64 %299
   %309 = getelementptr i8, ptr %308, i64 -96
   %310 = load double, ptr %309, align 8
   br i1 %.not87.i.i.i, label %350, label %311
@@ -3957,7 +3957,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i79: ; preds = %665, 
   %697 = sub i64 %695, %696
   %698 = sdiv exact i64 %697, 56
   %.not87.i.i.i82 = icmp eq i64 %690, %698
-  %699 = getelementptr %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %693, i64 %690
+  %699 = getelementptr [56 x i8], ptr %693, i64 %690
   %700 = getelementptr i8, ptr %699, i64 -96
   %701 = load double, ptr %700, align 8
   br i1 %.not87.i.i.i82, label %741, label %702
@@ -6306,7 +6306,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE12_M_ch
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE12_M_check_lenEmPKc.exit, %32
   store ptr %20, ptr %0, align 8
   store ptr %30, ptr %4, align 8
-  %36 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %20, i64 %16
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %36, ptr %31, align 8
   ret void
 }

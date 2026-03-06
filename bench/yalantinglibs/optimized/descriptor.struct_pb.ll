@@ -8,185 +8,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" }
 %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.struct_pb::UnknownFields::Field" = type { ptr, i64 }
 %"class.std::allocator.6" = type { i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.google::protobuf::DescriptorProto::ExtensionRange" = type { %"class.std::optional.110", %"class.std::optional.110", %"class.std::unique_ptr.166" }
-%"class.std::optional.110" = type { %"struct.std::_Optional_base.111" }
-%"struct.std::_Optional_base.111" = type { %"struct.std::_Optional_payload.113" }
-%"struct.std::_Optional_payload.113" = type { %"struct.std::_Optional_payload_base.base.115", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.115" = type <{ %"union.std::_Optional_payload_base<int>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<int>::_Storage" = type { i32 }
-%"class.std::unique_ptr.166" = type { %"struct.std::__uniq_ptr_data.167" }
-%"struct.std::__uniq_ptr_data.167" = type { %"class.std::__uniq_ptr_impl.168" }
-%"class.std::__uniq_ptr_impl.168" = type { %"class.std::tuple.169" }
-%"class.std::tuple.169" = type { %"struct.std::_Tuple_impl.170" }
-%"struct.std::_Tuple_impl.170" = type { %"struct.std::_Head_base.173" }
-%"struct.std::_Head_base.173" = type { ptr }
-%"struct.google::protobuf::DescriptorProto::ReservedRange" = type { %"class.std::optional.110", %"class.std::optional.110" }
-%"struct.google::protobuf::EnumDescriptorProto::EnumReservedRange" = type { %"class.std::optional.110", %"class.std::optional.110" }
-%"struct.google::protobuf::FileDescriptorProto" = type { %"class.std::optional", %"class.std::optional", %"class.std::vector.10", %"class.std::vector.15", %"class.std::vector.15", %"class.std::vector.20", %"class.std::vector.25", %"class.std::vector.30", %"class.std::vector.35", %"class.std::unique_ptr", %"class.std::unique_ptr.42", %"class.std::optional", %"class.std::optional" }
-%"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
-%"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
-%"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
-%"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<google::protobuf::DescriptorProto, std::allocator<google::protobuf::DescriptorProto>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::DescriptorProto, std::allocator<google::protobuf::DescriptorProto>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::DescriptorProto, std::allocator<google::protobuf::DescriptorProto>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::DescriptorProto, std::allocator<google::protobuf::DescriptorProto>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.25" = type { %"struct.std::_Vector_base.26" }
-%"struct.std::_Vector_base.26" = type { %"struct.std::_Vector_base<google::protobuf::EnumDescriptorProto, std::allocator<google::protobuf::EnumDescriptorProto>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::EnumDescriptorProto, std::allocator<google::protobuf::EnumDescriptorProto>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::EnumDescriptorProto, std::allocator<google::protobuf::EnumDescriptorProto>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::EnumDescriptorProto, std::allocator<google::protobuf::EnumDescriptorProto>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
-%"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<google::protobuf::ServiceDescriptorProto, std::allocator<google::protobuf::ServiceDescriptorProto>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::ServiceDescriptorProto, std::allocator<google::protobuf::ServiceDescriptorProto>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::ServiceDescriptorProto, std::allocator<google::protobuf::ServiceDescriptorProto>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::ServiceDescriptorProto, std::allocator<google::protobuf::ServiceDescriptorProto>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.35" = type { %"struct.std::_Vector_base.36" }
-%"struct.std::_Vector_base.36" = type { %"struct.std::_Vector_base<google::protobuf::FieldDescriptorProto, std::allocator<google::protobuf::FieldDescriptorProto>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::FieldDescriptorProto, std::allocator<google::protobuf::FieldDescriptorProto>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::FieldDescriptorProto, std::allocator<google::protobuf::FieldDescriptorProto>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::FieldDescriptorProto, std::allocator<google::protobuf::FieldDescriptorProto>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.41" }
-%"struct.std::_Head_base.41" = type { ptr }
-%"class.std::unique_ptr.42" = type { %"struct.std::__uniq_ptr_data.43" }
-%"struct.std::__uniq_ptr_data.43" = type { %"class.std::__uniq_ptr_impl.44" }
-%"class.std::__uniq_ptr_impl.44" = type { %"class.std::tuple.45" }
-%"class.std::tuple.45" = type { %"struct.std::_Tuple_impl.46" }
-%"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.49" }
-%"struct.std::_Head_base.49" = type { ptr }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%"struct.google::protobuf::DescriptorProto" = type { %"class.std::optional", %"class.std::vector.35", %"class.std::vector.35", %"class.std::vector.20", %"class.std::vector.25", %"class.std::vector.53", %"class.std::vector.58", %"class.std::unique_ptr.63", %"class.std::vector.71", %"class.std::vector.10" }
-%"class.std::vector.53" = type { %"struct.std::_Vector_base.54" }
-%"struct.std::_Vector_base.54" = type { %"struct.std::_Vector_base<google::protobuf::DescriptorProto::ExtensionRange, std::allocator<google::protobuf::DescriptorProto::ExtensionRange>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::DescriptorProto::ExtensionRange, std::allocator<google::protobuf::DescriptorProto::ExtensionRange>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::DescriptorProto::ExtensionRange, std::allocator<google::protobuf::DescriptorProto::ExtensionRange>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::DescriptorProto::ExtensionRange, std::allocator<google::protobuf::DescriptorProto::ExtensionRange>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.58" = type { %"struct.std::_Vector_base.59" }
-%"struct.std::_Vector_base.59" = type { %"struct.std::_Vector_base<google::protobuf::OneofDescriptorProto, std::allocator<google::protobuf::OneofDescriptorProto>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::OneofDescriptorProto, std::allocator<google::protobuf::OneofDescriptorProto>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::OneofDescriptorProto, std::allocator<google::protobuf::OneofDescriptorProto>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::OneofDescriptorProto, std::allocator<google::protobuf::OneofDescriptorProto>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.63" = type { %"struct.std::__uniq_ptr_data.64" }
-%"struct.std::__uniq_ptr_data.64" = type { %"class.std::__uniq_ptr_impl.65" }
-%"class.std::__uniq_ptr_impl.65" = type { %"class.std::tuple.66" }
-%"class.std::tuple.66" = type { %"struct.std::_Tuple_impl.67" }
-%"struct.std::_Tuple_impl.67" = type { %"struct.std::_Head_base.70" }
-%"struct.std::_Head_base.70" = type { ptr }
-%"class.std::vector.71" = type { %"struct.std::_Vector_base.72" }
-%"struct.std::_Vector_base.72" = type { %"struct.std::_Vector_base<google::protobuf::DescriptorProto::ReservedRange, std::allocator<google::protobuf::DescriptorProto::ReservedRange>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::DescriptorProto::ReservedRange, std::allocator<google::protobuf::DescriptorProto::ReservedRange>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::DescriptorProto::ReservedRange, std::allocator<google::protobuf::DescriptorProto::ReservedRange>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::DescriptorProto::ReservedRange, std::allocator<google::protobuf::DescriptorProto::ReservedRange>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.google::protobuf::EnumDescriptorProto" = type { %"class.std::optional", %"class.std::vector.77", %"class.std::unique_ptr.82", %"class.std::vector.90", %"class.std::vector.10" }
-%"class.std::vector.77" = type { %"struct.std::_Vector_base.78" }
-%"struct.std::_Vector_base.78" = type { %"struct.std::_Vector_base<google::protobuf::EnumValueDescriptorProto, std::allocator<google::protobuf::EnumValueDescriptorProto>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::EnumValueDescriptorProto, std::allocator<google::protobuf::EnumValueDescriptorProto>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::EnumValueDescriptorProto, std::allocator<google::protobuf::EnumValueDescriptorProto>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::EnumValueDescriptorProto, std::allocator<google::protobuf::EnumValueDescriptorProto>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.82" = type { %"struct.std::__uniq_ptr_data.83" }
-%"struct.std::__uniq_ptr_data.83" = type { %"class.std::__uniq_ptr_impl.84" }
-%"class.std::__uniq_ptr_impl.84" = type { %"class.std::tuple.85" }
-%"class.std::tuple.85" = type { %"struct.std::_Tuple_impl.86" }
-%"struct.std::_Tuple_impl.86" = type { %"struct.std::_Head_base.89" }
-%"struct.std::_Head_base.89" = type { ptr }
-%"class.std::vector.90" = type { %"struct.std::_Vector_base.91" }
-%"struct.std::_Vector_base.91" = type { %"struct.std::_Vector_base<google::protobuf::EnumDescriptorProto::EnumReservedRange, std::allocator<google::protobuf::EnumDescriptorProto::EnumReservedRange>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::EnumDescriptorProto::EnumReservedRange, std::allocator<google::protobuf::EnumDescriptorProto::EnumReservedRange>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::EnumDescriptorProto::EnumReservedRange, std::allocator<google::protobuf::EnumDescriptorProto::EnumReservedRange>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::EnumDescriptorProto::EnumReservedRange, std::allocator<google::protobuf::EnumDescriptorProto::EnumReservedRange>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.google::protobuf::ServiceDescriptorProto" = type { %"class.std::optional", %"class.std::vector.96", %"class.std::unique_ptr.101" }
-%"class.std::vector.96" = type { %"struct.std::_Vector_base.97" }
-%"struct.std::_Vector_base.97" = type { %"struct.std::_Vector_base<google::protobuf::MethodDescriptorProto, std::allocator<google::protobuf::MethodDescriptorProto>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::MethodDescriptorProto, std::allocator<google::protobuf::MethodDescriptorProto>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::MethodDescriptorProto, std::allocator<google::protobuf::MethodDescriptorProto>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::MethodDescriptorProto, std::allocator<google::protobuf::MethodDescriptorProto>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.101" = type { %"struct.std::__uniq_ptr_data.102" }
-%"struct.std::__uniq_ptr_data.102" = type { %"class.std::__uniq_ptr_impl.103" }
-%"class.std::__uniq_ptr_impl.103" = type { %"class.std::tuple.104" }
-%"class.std::tuple.104" = type { %"struct.std::_Tuple_impl.105" }
-%"struct.std::_Tuple_impl.105" = type { %"struct.std::_Head_base.108" }
-%"struct.std::_Head_base.108" = type { ptr }
-%"struct.google::protobuf::FieldDescriptorProto" = type <{ %"class.std::optional", %"class.std::optional.110", %"class.std::optional.118", %"class.std::optional.126", %"class.std::optional", %"class.std::optional", %"class.std::optional", %"class.std::optional.110", %"class.std::optional", %"class.std::unique_ptr.134", %"class.std::optional.142", [6 x i8] }>
-%"class.std::optional.118" = type { %"struct.std::_Optional_base.119" }
-%"struct.std::_Optional_base.119" = type { %"struct.std::_Optional_payload.121" }
-%"struct.std::_Optional_payload.121" = type { %"struct.std::_Optional_payload_base.base.123", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.123" = type <{ %"union.std::_Optional_payload_base<google::protobuf::FieldDescriptorProto::Label>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<google::protobuf::FieldDescriptorProto::Label>::_Storage" = type { i32 }
-%"class.std::optional.126" = type { %"struct.std::_Optional_base.127" }
-%"struct.std::_Optional_base.127" = type { %"struct.std::_Optional_payload.129" }
-%"struct.std::_Optional_payload.129" = type { %"struct.std::_Optional_payload_base.base.131", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.131" = type <{ %"union.std::_Optional_payload_base<google::protobuf::FieldDescriptorProto::Type>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<google::protobuf::FieldDescriptorProto::Type>::_Storage" = type { i32 }
-%"class.std::unique_ptr.134" = type { %"struct.std::__uniq_ptr_data.135" }
-%"struct.std::__uniq_ptr_data.135" = type { %"class.std::__uniq_ptr_impl.136" }
-%"class.std::__uniq_ptr_impl.136" = type { %"class.std::tuple.137" }
-%"class.std::tuple.137" = type { %"struct.std::_Tuple_impl.138" }
-%"struct.std::_Tuple_impl.138" = type { %"struct.std::_Head_base.141" }
-%"struct.std::_Head_base.141" = type { ptr }
-%"class.std::optional.142" = type { %"struct.std::_Optional_base.143" }
-%"struct.std::_Optional_base.143" = type { %"struct.std::_Optional_payload.145" }
-%"struct.std::_Optional_payload.145" = type { %"struct.std::_Optional_payload_base.146" }
-%"struct.std::_Optional_payload_base.146" = type { %"union.std::_Optional_payload_base<bool>::_Storage", i8 }
-%"union.std::_Optional_payload_base<bool>::_Storage" = type { %"struct.std::_Optional_payload_base<bool>::_Empty_byte" }
-%"struct.std::_Optional_payload_base<bool>::_Empty_byte" = type { i8 }
-%"struct.google::protobuf::OneofDescriptorProto" = type { %"class.std::optional", %"class.std::unique_ptr.176" }
-%"class.std::unique_ptr.176" = type { %"struct.std::__uniq_ptr_data.177" }
-%"struct.std::__uniq_ptr_data.177" = type { %"class.std::__uniq_ptr_impl.178" }
-%"class.std::__uniq_ptr_impl.178" = type { %"class.std::tuple.179" }
-%"class.std::tuple.179" = type { %"struct.std::_Tuple_impl.180" }
-%"struct.std::_Tuple_impl.180" = type { %"struct.std::_Head_base.183" }
-%"struct.std::_Head_base.183" = type { ptr }
-%"struct.google::protobuf::UninterpretedOption" = type { %"class.std::vector.186", %"class.std::optional", %"class.std::optional.191", %"class.std::optional.199", %"class.std::optional.207", %"class.std::optional", %"class.std::optional" }
-%"class.std::vector.186" = type { %"struct.std::_Vector_base.187" }
-%"struct.std::_Vector_base.187" = type { %"struct.std::_Vector_base<google::protobuf::UninterpretedOption::NamePart, std::allocator<google::protobuf::UninterpretedOption::NamePart>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::UninterpretedOption::NamePart, std::allocator<google::protobuf::UninterpretedOption::NamePart>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::UninterpretedOption::NamePart, std::allocator<google::protobuf::UninterpretedOption::NamePart>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::UninterpretedOption::NamePart, std::allocator<google::protobuf::UninterpretedOption::NamePart>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::optional.191" = type { %"struct.std::_Optional_base.192" }
-%"struct.std::_Optional_base.192" = type { %"struct.std::_Optional_payload.194" }
-%"struct.std::_Optional_payload.194" = type { %"struct.std::_Optional_payload_base.base.196", [7 x i8] }
-%"struct.std::_Optional_payload_base.base.196" = type <{ %"union.std::_Optional_payload_base<unsigned long>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<unsigned long>::_Storage" = type { i64 }
-%"class.std::optional.199" = type { %"struct.std::_Optional_base.200" }
-%"struct.std::_Optional_base.200" = type { %"struct.std::_Optional_payload.202" }
-%"struct.std::_Optional_payload.202" = type { %"struct.std::_Optional_payload_base.base.204", [7 x i8] }
-%"struct.std::_Optional_payload_base.base.204" = type <{ %"union.std::_Optional_payload_base<long>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<long>::_Storage" = type { i64 }
-%"class.std::optional.207" = type { %"struct.std::_Optional_base.208" }
-%"struct.std::_Optional_base.208" = type { %"struct.std::_Optional_payload.210" }
-%"struct.std::_Optional_payload.210" = type { %"struct.std::_Optional_payload_base.base.212", [7 x i8] }
-%"struct.std::_Optional_payload_base.base.212" = type <{ %"union.std::_Optional_payload_base<double>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<double>::_Storage" = type { double }
-%"struct.google::protobuf::EnumValueDescriptorProto" = type { %"class.std::optional", %"class.std::optional.110", %"class.std::unique_ptr.232" }
-%"class.std::unique_ptr.232" = type { %"struct.std::__uniq_ptr_data.233" }
-%"struct.std::__uniq_ptr_data.233" = type { %"class.std::__uniq_ptr_impl.234" }
-%"class.std::__uniq_ptr_impl.234" = type { %"class.std::tuple.235" }
-%"class.std::tuple.235" = type { %"struct.std::_Tuple_impl.236" }
-%"struct.std::_Tuple_impl.236" = type { %"struct.std::_Head_base.239" }
-%"struct.std::_Head_base.239" = type { ptr }
-%"struct.google::protobuf::MethodDescriptorProto" = type <{ %"class.std::optional", %"class.std::optional", %"class.std::optional", %"class.std::unique_ptr.242", %"class.std::optional.142", %"class.std::optional.142", [4 x i8] }>
-%"class.std::unique_ptr.242" = type { %"struct.std::__uniq_ptr_data.243" }
-%"struct.std::__uniq_ptr_data.243" = type { %"class.std::__uniq_ptr_impl.244" }
-%"class.std::__uniq_ptr_impl.244" = type { %"class.std::tuple.245" }
-%"class.std::tuple.245" = type { %"struct.std::_Tuple_impl.246" }
-%"struct.std::_Tuple_impl.246" = type { %"struct.std::_Head_base.249" }
-%"struct.std::_Head_base.249" = type { ptr }
-%"struct.google::protobuf::UninterpretedOption::NamePart" = type { %"class.std::optional", %"class.std::optional.142", [6 x i8] }
-%"struct.google::protobuf::SourceCodeInfo::Location" = type { %"class.std::vector.15", %"class.std::vector.15", %"class.std::optional", %"class.std::optional", %"class.std::vector.10" }
-%"struct.google::protobuf::GeneratedCodeInfo::Annotation" = type { %"class.std::vector.15", %"class.std::optional", %"class.std::optional.110", %"class.std::optional.110", %"class.std::optional.260" }
-%"class.std::optional.260" = type { %"struct.std::_Optional_base.261" }
-%"struct.std::_Optional_base.261" = type { %"struct.std::_Optional_payload.263" }
-%"struct.std::_Optional_payload.263" = type { %"struct.std::_Optional_payload_base.base.265", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.265" = type <{ %"union.std::_Optional_payload_base<google::protobuf::GeneratedCodeInfo::Annotation::Semantic>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<google::protobuf::GeneratedCodeInfo::Annotation::Semantic>::_Storage" = type { i32 }
 
 $_ZN9struct_pb8internal19deserialize_unknownEPKcRmmjRNS_13UnknownFieldsE = comdat any
 
@@ -2372,7 +2197,7 @@ if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorIN9stru
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %unknown_fields, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.struct_pb::UnknownFields::Field", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %return
 
@@ -2447,7 +2272,7 @@ if.then.i18.i.i.i.i204:                           ; preds = %_ZNSt6vectorIN9stru
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205: ; preds = %if.then.i18.i.i.i.i204, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i201
   store ptr %call5.i.i.i.i.i.i.i197, ptr %unknown_fields, align 8
   store ptr %incdec.ptr.i.i.i.i202, ptr %_M_finish.i.i.i178, align 8
-  %add.ptr19.i.i.i.i206 = getelementptr inbounds nuw %"struct.struct_pb::UnknownFields::Field", ptr %call5.i.i.i.i.i.i.i197, i64 %cond.i.i.i.i.i194
+  %add.ptr19.i.i.i.i206 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i197, i64 %cond.i.i.i.i.i194
   store ptr %add.ptr19.i.i.i.i206, ptr %_M_end_of_storage.i.i.i179, align 8
   br label %return
 
@@ -2695,7 +2520,7 @@ if.then.i18.i.i.i.i238:                           ; preds = %_ZNSt6vectorIN9stru
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239: ; preds = %if.then.i18.i.i.i.i238, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i235
   store ptr %call5.i.i.i.i.i.i.i231, ptr %unknown_fields, align 8
   store ptr %incdec.ptr.i.i.i.i236, ptr %_M_finish.i.i.i212, align 8
-  %add.ptr19.i.i.i.i240 = getelementptr inbounds nuw %"struct.struct_pb::UnknownFields::Field", ptr %call5.i.i.i.i.i.i.i231, i64 %cond.i.i.i.i.i228
+  %add.ptr19.i.i.i.i240 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i231, i64 %cond.i.i.i.i.i228
   store ptr %add.ptr19.i.i.i.i240, ptr %_M_end_of_storage.i.i.i213, align 8
   br label %return
 
@@ -2770,7 +2595,7 @@ if.then.i18.i.i.i.i272:                           ; preds = %_ZNSt6vectorIN9stru
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273: ; preds = %if.then.i18.i.i.i.i272, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i269
   store ptr %call5.i.i.i.i.i.i.i265, ptr %unknown_fields, align 8
   store ptr %incdec.ptr.i.i.i.i270, ptr %_M_finish.i.i.i246, align 8
-  %add.ptr19.i.i.i.i274 = getelementptr inbounds nuw %"struct.struct_pb::UnknownFields::Field", ptr %call5.i.i.i.i.i.i.i265, i64 %cond.i.i.i.i.i262
+  %add.ptr19.i.i.i.i274 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i265, i64 %cond.i.i.i.i.i262
   store ptr %add.ptr19.i.i.i.i274, ptr %_M_end_of_storage.i.i.i247, align 8
   br label %return
 
@@ -10258,7 +10083,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %public_dependency85, align 8
   store ptr %incdec.ptr.i.i1536, ptr %_M_finish.i1538, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i1539, align 8
   br label %sw.epilog
 
@@ -10650,7 +10475,7 @@ if.then.i18.i.i1563:                              ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1564: ; preds = %if.then.i18.i.i1563, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i1560
   store ptr %call5.i.i.i.i.i1557, ptr %public_dependency85, align 8
   store ptr %incdec.ptr.i.i1561, ptr %_M_finish.i1538, align 8
-  %add.ptr19.i.i1565 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i1557, i64 %cond.i.i.i1554
+  %add.ptr19.i.i1565 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i1557, i64 %cond.i.i.i1554
   store ptr %add.ptr19.i.i1565, ptr %_M_end_of_storage.i1539, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit1568
 
@@ -10869,7 +10694,7 @@ if.then.i18.i.i1594:                              ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1595: ; preds = %if.then.i18.i.i1594, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i1591
   store ptr %call5.i.i.i.i.i1588, ptr %weak_dependency115, align 8
   store ptr %incdec.ptr.i.i1592, ptr %_M_finish.i1600, align 8
-  %add.ptr19.i.i1596 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i1588, i64 %cond.i.i.i1585
+  %add.ptr19.i.i1596 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i1588, i64 %cond.i.i.i1585
   store ptr %add.ptr19.i.i1596, ptr %_M_end_of_storage.i1601, align 8
   br label %sw.epilog
 
@@ -11261,7 +11086,7 @@ if.then.i18.i.i1625:                              ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i1626: ; preds = %if.then.i18.i.i1625, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i1622
   store ptr %call5.i.i.i.i.i1619, ptr %weak_dependency115, align 8
   store ptr %incdec.ptr.i.i1623, ptr %_M_finish.i1600, align 8
-  %add.ptr19.i.i1627 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i1619, i64 %cond.i.i.i1616
+  %add.ptr19.i.i1627 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i1619, i64 %cond.i.i.i1616
   store ptr %add.ptr19.i.i1627, ptr %_M_end_of_storage.i1601, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit1630
 
@@ -18089,7 +17914,7 @@ _ZNSt6vectorIN6google8protobuf15DescriptorProto14ExtensionRangeESaIS3_EE17_M_rea
   %.pre1401 = phi i64 [ %.pre1401.pre, %if.then.i22.i.i ], [ %160, %_ZNSt6vectorIN6google8protobuf15DescriptorProto14ExtensionRangeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i ]
   store ptr %call5.i.i.i.i.i, ptr %extension_range, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i974, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw %"struct.google::protobuf::DescriptorProto::ExtensionRange", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i975, align 8
   br label %_ZNSt6vectorIN6google8protobuf15DescriptorProto14ExtensionRangeESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
 
@@ -18927,7 +18752,7 @@ _ZNSt6vectorIN6google8protobuf15DescriptorProto13ReservedRangeESaIS3_EE17_M_real
   %.pre1398 = phi i64 [ %.pre1398.pre, %if.then.i20.i.i ], [ %245, %_ZNSt6vectorIN6google8protobuf15DescriptorProto13ReservedRangeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i ]
   store ptr %call5.i.i.i.i.i1065, ptr %reserved_range, align 8
   store ptr %incdec.ptr.i.i1075, ptr %_M_finish.i1047, align 8
-  %add.ptr19.i.i1077 = getelementptr inbounds nuw %"struct.google::protobuf::DescriptorProto::ReservedRange", ptr %call5.i.i.i.i.i1065, i64 %cond.i.i.i1062
+  %add.ptr19.i.i1077 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i1065, i64 %cond.i.i.i1062
   store ptr %add.ptr19.i.i1077, ptr %_M_end_of_storage.i1048, align 8
   br label %_ZNSt6vectorIN6google8protobuf15DescriptorProto13ReservedRangeESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
 
@@ -27343,7 +27168,7 @@ _ZNSt6vectorIN6google8protobuf19EnumDescriptorProto17EnumReservedRangeESaIS3_EE1
   %.pre731 = phi i64 [ %.pre731.pre, %if.then.i20.i.i ], [ %113, %_ZNSt6vectorIN6google8protobuf19EnumDescriptorProto17EnumReservedRangeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i ]
   store ptr %call5.i.i.i.i.i, ptr %reserved_range, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i515, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw %"struct.google::protobuf::EnumDescriptorProto::EnumReservedRange", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i516, align 8
   br label %_ZNSt6vectorIN6google8protobuf19EnumDescriptorProto17EnumReservedRangeESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
 
@@ -47833,7 +47658,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %t, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i781, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i782, align 8
   br label %sw.epilog
 
@@ -48225,7 +48050,7 @@ if.then.i18.i.i806:                               ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i807: ; preds = %if.then.i18.i.i806, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i803
   store ptr %call5.i.i.i.i.i800, ptr %t, align 8
   store ptr %incdec.ptr.i.i804, ptr %_M_finish.i781, align 8
-  %add.ptr19.i.i808 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i800, i64 %cond.i.i.i797
+  %add.ptr19.i.i808 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i800, i64 %cond.i.i.i797
   store ptr %add.ptr19.i.i808, ptr %_M_end_of_storage.i782, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit811
 
@@ -48444,7 +48269,7 @@ if.then.i18.i.i837:                               ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i838: ; preds = %if.then.i18.i.i837, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i834
   store ptr %call5.i.i.i.i.i831, ptr %span53, align 8
   store ptr %incdec.ptr.i.i835, ptr %_M_finish.i843, align 8
-  %add.ptr19.i.i839 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i831, i64 %cond.i.i.i828
+  %add.ptr19.i.i839 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i831, i64 %cond.i.i.i828
   store ptr %add.ptr19.i.i839, ptr %_M_end_of_storage.i844, align 8
   br label %sw.epilog
 
@@ -48836,7 +48661,7 @@ if.then.i18.i.i868:                               ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i869: ; preds = %if.then.i18.i.i868, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i865
   store ptr %call5.i.i.i.i.i862, ptr %span53, align 8
   store ptr %incdec.ptr.i.i866, ptr %_M_finish.i843, align 8
-  %add.ptr19.i.i870 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i862, i64 %cond.i.i.i859
+  %add.ptr19.i.i870 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i862, i64 %cond.i.i.i859
   store ptr %add.ptr19.i.i870, ptr %_M_end_of_storage.i844, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit873
 
@@ -51256,7 +51081,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %t, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i617, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i618, align 8
   br label %sw.epilog
 
@@ -51648,7 +51473,7 @@ if.then.i18.i.i642:                               ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i643: ; preds = %if.then.i18.i.i642, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i639
   store ptr %call5.i.i.i.i.i636, ptr %t, align 8
   store ptr %incdec.ptr.i.i640, ptr %_M_finish.i617, align 8
-  %add.ptr19.i.i644 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i636, i64 %cond.i.i.i633
+  %add.ptr19.i.i644 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i636, i64 %cond.i.i.i633
   store ptr %add.ptr19.i.i644, ptr %_M_end_of_storage.i618, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit647
 
@@ -53234,7 +53059,7 @@ _ZNSt12_Vector_baseIN6google8protobuf19FileDescriptorProtoESaIS2_EE13_M_dealloca
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::FileDescriptorProto", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [344 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -55516,7 +55341,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %cond.i10, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -55594,7 +55419,7 @@ _ZNSt12_Vector_baseIN6google8protobuf15DescriptorProtoESaIS2_EE13_M_deallocateEP
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::DescriptorProto", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [240 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -55802,7 +55627,7 @@ _ZNSt12_Vector_baseIN6google8protobuf19EnumDescriptorProtoESaIS2_EE13_M_dealloca
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %call3.i.i11, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::EnumDescriptorProto", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [120 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -56119,7 +55944,7 @@ _ZNSt12_Vector_baseIN6google8protobuf22ServiceDescriptorProtoESaIS2_EE13_M_deall
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i30, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::ServiceDescriptorProto", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [72 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -56197,7 +56022,7 @@ _ZNSt12_Vector_baseIN6google8protobuf20FieldDescriptorProtoESaIS2_EE13_M_dealloc
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::FieldDescriptorProto", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [248 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -57141,7 +56966,7 @@ _ZNSt12_Vector_baseIN6google8protobuf20OneofDescriptorProtoESaIS2_EE13_M_dealloc
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i26, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::OneofDescriptorProto", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -57219,7 +57044,7 @@ _ZNSt12_Vector_baseIN6google8protobuf19UninterpretedOptionESaIS2_EE13_M_dealloca
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::UninterpretedOption", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [192 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -57602,7 +57427,7 @@ _ZNSt12_Vector_baseIN6google8protobuf24EnumValueDescriptorProtoESaIS2_EE13_M_dea
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i28, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::EnumValueDescriptorProto", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -57680,7 +57505,7 @@ _ZNSt12_Vector_baseIN6google8protobuf21MethodDescriptorProtoESaIS2_EE13_M_deallo
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::MethodDescriptorProto", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [136 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -58046,7 +57871,7 @@ _ZNSt12_Vector_baseIN6google8protobuf19UninterpretedOption8NamePartESaIS3_EE13_M
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i26, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::UninterpretedOption::NamePart", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -58124,7 +57949,7 @@ _ZNSt12_Vector_baseIN6google8protobuf14SourceCodeInfo8LocationESaIS3_EE13_M_deal
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::SourceCodeInfo::Location", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [152 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -58333,7 +58158,7 @@ _ZNSt12_Vector_baseIN6google8protobuf17GeneratedCodeInfo10AnnotationESaIS3_EE13_
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.google::protobuf::GeneratedCodeInfo::Annotation", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [88 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

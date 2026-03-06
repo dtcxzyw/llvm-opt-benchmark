@@ -149,7 +149,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %Vec_PtrGrow.exit.si
 Vec_PtrSetEntry.exit:                             ; preds = %25, %Vec_PtrGrow.exit.i.i
   %.val.i = load ptr, ptr %8, align 8, !tbaa !26
   %53 = sext i32 %26 to i64
-  %54 = getelementptr inbounds ptr, ptr %.val.i, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %53
   store ptr %.1, ptr %54, align 8, !tbaa !30
   %55 = tail call ptr @Bbl_ManObjNext(ptr noundef %0, ptr noundef nonnull %.03850) #14
   %.not = icmp eq ptr %55, null
@@ -171,11 +171,11 @@ Vec_PtrSetEntry.exit:                             ; preds = %25, %Vec_PtrGrow.ex
   %.03753 = phi ptr [ %67, %.lr.ph55 ], [ %58, %.lr.ph60 ]
   %59 = tail call i32 @Bbl_ObjId(ptr noundef nonnull %.13958) #14
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %56, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %56, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !30
   %63 = tail call i32 @Bbl_ObjId(ptr noundef nonnull %.03753) #14
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %56, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %56, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !30
   tail call void @Abc_ObjAddFanin(ptr noundef %62, ptr noundef %66) #14
   %67 = tail call ptr @Bbl_ObjFaninNext(ptr noundef nonnull %.13958, ptr noundef nonnull %.03753) #14
@@ -334,7 +334,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %9, align 4, !tbaa !27
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %35, i64 %38
   store ptr %0, ptr %39, align 8, !tbaa !30
   br label %40
 
@@ -398,7 +398,7 @@ Abc_Clock.exit:
   %.072119 = phi ptr [ %21, %20 ], [ %8, %Abc_Clock.exit ]
   %9 = call i32 @Bbl_ObjFncHandle(ptr noundef nonnull %.072119) #14
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %20
@@ -408,7 +408,7 @@ Abc_Clock.exit:
   %16 = call ptr @Dec_Factor(ptr noundef %15) #14
   %17 = call i32 @Bbl_ObjFncHandle(ptr noundef nonnull %.072119) #14
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %7, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %7, i64 %18
   store ptr %16, ptr %19, align 8, !tbaa !37
   br label %20
 
@@ -517,7 +517,7 @@ Vec_PtrSetEntry.exit:                             ; preds = %34, %Vec_PtrGrow.ex
   %62 = phi i32 [ %31, %34 ], [ %57, %Vec_PtrGrow.exit.i.i ]
   %63 = phi i32 [ %32, %34 ], [ %37, %Vec_PtrGrow.exit.i.i ]
   %64 = sext i32 %35 to i64
-  %65 = getelementptr inbounds ptr, ptr %.val.i, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %64
   store ptr %36, ptr %65, align 8, !tbaa !30
   br label %66
 
@@ -587,7 +587,7 @@ Bbl_ManDfs.exit:                                  ; preds = %Bbl_ManDfs.exit.loo
   %89 = phi i32 [ %72, %.lr.ph130.preheader ], [ %158, %Vec_PtrSetEntry.exit108 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph130.preheader ], [ %indvars.iv.next, %Vec_PtrSetEntry.exit108 ]
   %.val85 = load ptr, ptr %77, align 8, !tbaa !26
-  %90 = getelementptr inbounds nuw ptr, ptr %.val85, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %.val85, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8, !tbaa !30
   store i32 0, ptr %84, align 4, !tbaa !27
   %92 = call ptr @Bbl_ObjFaninFirst(ptr noundef %91) #14
@@ -599,7 +599,7 @@ Bbl_ManDfs.exit:                                  ; preds = %Bbl_ManDfs.exit.loo
   %93 = call i32 @Bbl_ObjId(ptr noundef nonnull %.074125) #14
   %.val84 = load ptr, ptr %28, align 8, !tbaa !26
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds ptr, ptr %.val84, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %.val84, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !30
   %97 = load i32, ptr %84, align 4, !tbaa !27
   %98 = load i32, ptr %83, align 8, !tbaa !24
@@ -661,7 +661,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %84, align 4, !tbaa !27
   %123 = sext i32 %121 to i64
-  %124 = getelementptr inbounds ptr, ptr %120, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %120, i64 %123
   store ptr %96, ptr %124, align 8, !tbaa !30
   %125 = call ptr @Bbl_ObjFaninNext(ptr noundef %91, ptr noundef nonnull %.074125) #14
   %.not82 = icmp eq ptr %125, null
@@ -670,7 +670,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 ._crit_edge128:                                   ; preds = %Vec_PtrPush.exit, %.lr.ph130
   %126 = call i32 @Bbl_ObjFncHandle(ptr noundef %91) #14
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds ptr, ptr %7, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %7, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !37
   %130 = call ptr @Dec_GraphToAig(ptr noundef %22, ptr noundef %129, ptr noundef nonnull %83) #14
   %131 = call i32 @Bbl_ObjId(ptr noundef %91) #14
@@ -744,7 +744,7 @@ Vec_PtrSetEntry.exit108:                          ; preds = %._crit_edge128, %Ve
   %158 = phi i32 [ %89, %._crit_edge128 ], [ %132, %Vec_PtrGrow.exit.i.i98 ]
   %.val.i106 = load ptr, ptr %28, align 8, !tbaa !26
   %159 = sext i32 %131 to i64
-  %160 = getelementptr inbounds ptr, ptr %.val.i106, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %.val.i106, i64 %159
   store ptr %130, ptr %160, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -790,7 +790,7 @@ Vec_PtrFree.exit111:                              ; preds = %Vec_PtrFree.exit, %
   %169 = call i32 @Bbl_ObjId(ptr noundef %168) #14
   %.val = load ptr, ptr %28, align 8, !tbaa !26
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds ptr, ptr %.val, i64 %170
+  %171 = getelementptr inbounds [8 x i8], ptr %.val, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !30
   %173 = call ptr @Abc_NtkCreateObj(ptr noundef %22, i32 noundef 3) #14
   call void @Abc_ObjAddFanin(ptr noundef %173, ptr noundef %172) #14
@@ -816,7 +816,7 @@ Vec_PtrFree.exit111:                              ; preds = %Vec_PtrFree.exit, %
 .lr.ph138:                                        ; preds = %.lr.ph138.preheader, %188
   %indvars.iv142 = phi i64 [ %181, %.lr.ph138.preheader ], [ %indvars.iv.next143, %188 ]
   %indvars.iv.next143 = add nsw i64 %indvars.iv142, -1
-  %182 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next143
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next143
   %183 = load ptr, ptr %182, align 8, !tbaa !37
   %.not80 = icmp eq ptr %183, null
   br i1 %.not80, label %188, label %184

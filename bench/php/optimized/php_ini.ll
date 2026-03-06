@@ -858,7 +858,7 @@ zend_string_release_ex.exit:                      ; preds = %103, %98, %94, %80
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %177 ]
   %.1135226 = phi i32 [ %.0134228, %.preheader ], [ %.2, %177 ]
   %138 = load ptr, ptr %6, align 8, !tbaa !81
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv
   %140 = load ptr, ptr %139, align 8, !tbaa !83
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 19
   %142 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %141, i32 noundef 46) #17
@@ -934,7 +934,7 @@ zend_string_release_ex.exit:                      ; preds = %103, %98, %94, %80
 173:                                              ; preds = %155, %172, %152
   %.3 = phi i32 [ %.4, %172 ], [ %.1135226, %155 ], [ %.1135226, %152 ]
   %174 = load ptr, ptr %6, align 8, !tbaa !81
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv
   %176 = load ptr, ptr %175, align 8, !tbaa !83
   br label %177
 

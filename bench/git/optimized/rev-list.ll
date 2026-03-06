@@ -23,8 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.decoration = type { ptr, i32, i32, ptr }
 %struct.rev_list_info = type { ptr, i32, i32, i32, ptr }
 %struct.setup_revision_opt = type { ptr, ptr, i8, i32 }
-%struct.object_array_entry = type { ptr, ptr, ptr, i32 }
-%struct.object_id = type { [32 x i8], i32 }
 %struct.object_info = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, %union.anon }
 %union.anon = type { %struct.anon }
 %struct.anon = type { ptr, i64, i32 }
@@ -154,7 +152,7 @@ define dso_local range(i32 0, 2) i32 @cmd_rev_list(i32 noundef %0, ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !63
   %30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(27) @.str) #12
   %.not = icmp eq i32 %30, 0
@@ -179,7 +177,7 @@ define dso_local range(i32 0, 2) i32 @cmd_rev_list(i32 noundef %0, ptr noundef %
 
 .lr.ph291.split.us:                               ; preds = %.lr.ph291, %parse_missing_action_value.exit.thread.us
   %indvars.iv338 = phi i64 [ %indvars.iv.next339, %parse_missing_action_value.exit.thread.us ], [ 1, %.lr.ph291 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv338
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv338
   %39 = load ptr, ptr %38, align 8, !tbaa !63
   %scevgep = getelementptr i8, ptr %39, i64 10
   br label %40
@@ -226,7 +224,7 @@ parse_missing_action_value.exit.thread.us:        ; preds = %41, %52
 
 .lr.ph291.split:                                  ; preds = %.lr.ph291, %parse_missing_action_value.exit.thread.loopexit
   %indvars.iv332 = phi i64 [ %indvars.iv.next333, %parse_missing_action_value.exit.thread.loopexit ], [ 1, %.lr.ph291 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv332
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv332
   %55 = load ptr, ptr %54, align 8, !tbaa !63
   br label %56
 
@@ -320,7 +318,7 @@ parse_missing_action_value.exit.thread.loopexit:  ; preds = %57
   %.084293 = phi i32 [ 0, %.lr.ph300 ], [ %.185.ph, %skip_prefix.exit166.thread ]
   %86 = phi i32 [ %.promoted, %.lr.ph300 ], [ %157, %skip_prefix.exit166.thread ]
   %87 = phi i64 [ %73, %.lr.ph300 ], [ %156, %skip_prefix.exit166.thread ]
-  %88 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv348
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv348
   %89 = load ptr, ptr %88, align 8, !tbaa !63
   %90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(9) @.str.4) #12
   %.not132 = icmp eq i32 %90, 0
@@ -939,7 +937,7 @@ try_bitmap_traversal.exit.thread:                 ; preds = %274, %267, %271, %2
 321:                                              ; preds = %.lr.ph308, %321
   %indvars.iv353 = phi i64 [ 0, %.lr.ph308 ], [ %indvars.iv.next354, %321 ]
   %322 = load ptr, ptr %320, align 8, !tbaa !88
-  %323 = getelementptr inbounds nuw %struct.object_array_entry, ptr %322, i64 %indvars.iv353
+  %323 = getelementptr inbounds nuw [32 x i8], ptr %322, i64 %indvars.iv353
   %324 = load ptr, ptr %323, align 8, !tbaa !89
   %325 = load i32, ptr %324, align 4
   %326 = or i32 %325, 536870912
@@ -1003,7 +1001,7 @@ try_bitmap_traversal.exit.thread:                 ; preds = %274, %267, %271, %2
   %346 = phi i32 [ %.sroa.4191.0314, %.lr.ph.i ], [ %356, %355 ]
   %347 = lshr i32 %346, 4
   %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr inbounds nuw i32, ptr %344, i64 %348
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %344, i64 %348
   %350 = load i32, ptr %349, align 4, !tbaa !9
   %351 = shl i32 %346, 1
   %352 = and i32 %351, 30
@@ -1024,7 +1022,7 @@ oidset_iter_next.exit:                            ; preds = %345
 
 358:                                              ; preds = %oidset_iter_next.exit
   %359 = zext i32 %346 to i64
-  %360 = getelementptr inbounds nuw %struct.object_id, ptr %357, i64 %359
+  %360 = getelementptr inbounds nuw [36 x i8], ptr %357, i64 %359
   %361 = add i32 %346, 1
   %362 = call ptr @oid_to_hex(ptr noundef nonnull %360) #11
   %363 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef %362)
@@ -1056,7 +1054,7 @@ oidset_iter_next.exit.thread:                     ; preds = %oidset_iter_next.ex
   %372 = phi i32 [ %.sroa.4.0316, %.lr.ph.i184 ], [ %382, %381 ]
   %373 = lshr i32 %372, 4
   %374 = zext nneg i32 %373 to i64
-  %375 = getelementptr inbounds nuw i32, ptr %370, i64 %374
+  %375 = getelementptr inbounds nuw [4 x i8], ptr %370, i64 %374
   %376 = load i32, ptr %375, align 4, !tbaa !9
   %377 = shl i32 %372, 1
   %378 = and i32 %377, 30
@@ -1077,7 +1075,7 @@ oidset_iter_next.exit188:                         ; preds = %371
 
 384:                                              ; preds = %oidset_iter_next.exit188
   %385 = zext i32 %372 to i64
-  %386 = getelementptr inbounds nuw %struct.object_id, ptr %383, i64 %385
+  %386 = getelementptr inbounds nuw [36 x i8], ptr %383, i64 %385
   %387 = add i32 %372, 1
   %388 = call ptr @oid_to_hex(ptr noundef nonnull %386) #11
   %389 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %388)

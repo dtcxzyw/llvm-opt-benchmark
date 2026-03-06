@@ -18,7 +18,7 @@ define i32 @ff_fmt_ff2v4l(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
 
 .split.us.split:                                  ; preds = %.split.us, %9
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %9 ], [ 0, %.split.us ]
-  %5 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv40
+  %5 = getelementptr inbounds nuw [12 x i8], ptr @ff_fmt_conversion_table, i64 %indvars.iv40
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = icmp eq i32 %7, %1
@@ -34,7 +34,7 @@ define i32 @ff_fmt_ff2v4l(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
 
 .split.split.us:                                  ; preds = %.split, %13
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %13 ], [ 0, %.split ]
-  %10 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv37
+  %10 = getelementptr inbounds nuw [12 x i8], ptr @ff_fmt_conversion_table, i64 %indvars.iv37
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = icmp eq i32 %11, %0
   br i1 %12, label %.split17.us, label %13
@@ -46,7 +46,7 @@ define i32 @ff_fmt_ff2v4l(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
 
 .split.split:                                     ; preds = %.split, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.split ]
-  %14 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [12 x i8], ptr @ff_fmt_conversion_table, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = icmp eq i32 %16, %1
@@ -84,7 +84,7 @@ define i32 @ff_fmt_v4l2ff(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [12 x i8], ptr @ff_fmt_conversion_table, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -114,7 +114,7 @@ define i32 @ff_fmt_v4l2codec(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [12 x i8], ptr @ff_fmt_conversion_table, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = icmp eq i32 %6, %0

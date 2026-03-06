@@ -26,7 +26,7 @@ define hidden void @_sodium_argon2_finalize(ptr noundef readonly captures(addres
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct.block_, ptr %11, i64 %14
+  %15 = getelementptr [1024 x i8], ptr %11, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -1024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, ptr noundef nonnull readonly align 1 dereferenceable(1024) %16, i64 noundef 1024, i1 noundef false) #10
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -45,14 +45,14 @@ define hidden void @_sodium_argon2_finalize(ptr noundef readonly captures(addres
   %23 = mul i32 %13, %22
   %24 = add i32 %20, %23
   %25 = zext i32 %24 to i64
-  %26 = getelementptr %struct.block_, ptr %11, i64 %25
+  %26 = getelementptr [1024 x i8], ptr %11, i64 %25
   br label %27
 
 27:                                               ; preds = %27, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr i64, ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv.i
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr i64, ptr %4, i64 %indvars.iv.i
+  %30 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i
   %31 = load i64, ptr %30, align 8
   %32 = xor i64 %31, %29
   store i64 %32, ptr %30, align 8
@@ -73,7 +73,7 @@ xor_block.exit:                                   ; preds = %27
   %indvars.iv.i18 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i19, %33 ]
   %34 = shl nuw nsw i64 %indvars.iv.i18, 3
   %35 = getelementptr i8, ptr %5, i64 %34
-  %36 = getelementptr i64, ptr %4, i64 %indvars.iv.i18
+  %36 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i18
   %37 = load i64, ptr %36, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %37, ptr %3, align 8
@@ -522,7 +522,7 @@ argon2_initial_hash.exit:                         ; preds = %105, %111
   %126 = load i32, ptr %120, align 8
   %127 = mul i32 %126, %.018.i
   %128 = zext i32 %127 to i64
-  %129 = getelementptr %struct.block_, ptr %125, i64 %128
+  %129 = getelementptr [1024 x i8], ptr %125, i64 %128
   br label %130
 
 130:                                              ; preds = %130, %121
@@ -530,7 +530,7 @@ argon2_initial_hash.exit:                         ; preds = %105, %111
   %131 = shl nuw nsw i64 %indvars.iv.i.i, 3
   %132 = getelementptr i8, ptr %3, i64 %131
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr i64, ptr %129, i64 %indvars.iv.i.i
+  %134 = getelementptr [8 x i8], ptr %129, i64 %indvars.iv.i.i
   store i64 %133, ptr %134, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
@@ -546,7 +546,7 @@ load_block.exit.i:                                ; preds = %130
   %140 = mul i32 %139, %.018.i
   %141 = add i32 %140, 1
   %142 = zext i32 %141 to i64
-  %143 = getelementptr %struct.block_, ptr %138, i64 %142
+  %143 = getelementptr [1024 x i8], ptr %138, i64 %142
   br label %144
 
 144:                                              ; preds = %144, %load_block.exit.i
@@ -554,7 +554,7 @@ load_block.exit.i:                                ; preds = %130
   %145 = shl nuw nsw i64 %indvars.iv.i14.i, 3
   %146 = getelementptr i8, ptr %3, i64 %145
   %147 = load i64, ptr %146, align 8
-  %148 = getelementptr i64, ptr %143, i64 %indvars.iv.i14.i
+  %148 = getelementptr [8 x i8], ptr %143, i64 %indvars.iv.i14.i
   store i64 %147, ptr %148, align 8
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 128

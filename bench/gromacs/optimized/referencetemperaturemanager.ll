@@ -3,10 +3,6 @@ source_filename = "bench/gromacs/original/referencetemperaturemanager.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
 %"struct.gmx::ArrayRefIter" = type { ptr }
 
@@ -295,7 +291,7 @@ _ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAl
 _ZNSt12_Vector_baseISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvN3gmx8ArrayRefIKfEENS1_35ReferenceTemperatureChangeAlgorithmEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !15
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !16
-  %51 = getelementptr inbounds nuw %"class.std::function", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !21
   ret void
 }
@@ -347,7 +343,7 @@ define void @_ZN3gmx27ReferenceTemperatureManager23setReferenceTemperatureENS_8A
 
 _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us: ; preds = %.lr.ph, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us
   %.018.us = phi i64 [ %30, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us ], [ 0, %.lr.ph ]
-  %26 = getelementptr inbounds nuw float, ptr %1, i64 %.018.us
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.018.us
   %27 = load float, ptr %26, align 4, !tbaa !72
   %sext17.us = shl i64 %.018.us, 32
   %28 = ashr exact i64 %sext17.us, 30
@@ -375,7 +371,7 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.us: ; preds = %.lr.p
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
   %.018 = phi i64 [ %44, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit ], [ 0, %.lr.ph ]
-  %37 = getelementptr inbounds nuw float, ptr %1, i64 %.018
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.018
   %38 = load float, ptr %37, align 4, !tbaa !72
   %sext17 = shl i64 %.018, 32
   %39 = ashr exact i64 %sext17, 30

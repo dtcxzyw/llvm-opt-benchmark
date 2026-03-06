@@ -763,7 +763,7 @@ _ZNSt6vectorIN4cvc58internal11NodeVisitorINS1_18SharedTermsVisitorEE13stack_elem
   %76 = load i64, ptr %43, align 8
   %77 = lshr i64 %76, 32
   %78 = and i64 %77, 67108863
-  %79 = getelementptr inbounds nuw ptr, ptr %52, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %78
   %.not = icmp eq ptr %75, %79
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !135
 
@@ -996,7 +996,7 @@ _ZNSt6vectorIN4cvc58internal11NodeVisitorINS1_18PreRegisterVisitorEE13stack_elem
   %75 = load i64, ptr %42, align 8
   %76 = lshr i64 %75, 32
   %77 = and i64 %76, 67108863
-  %78 = getelementptr inbounds nuw ptr, ptr %51, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %77
   %.not = icmp eq ptr %74, %78
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !148
 
@@ -1107,7 +1107,7 @@ define hidden void @_ZN4cvc58internal6theory12SharedSolver19preNotifySharedFactE
   %31 = load i32, ptr %8, align 4, !tbaa !151
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !77
   store ptr %21, ptr %9, align 8, !tbaa !121
   call void @_ZN4cvc58internal6theory6Theory13addSharedTermENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(280) %35, ptr noundef nonnull %9)
@@ -1634,7 +1634,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory12SharedSolver8isShar
   %17 = load i64, ptr %16, align 8, !tbaa !183, !noalias !179
   %18 = urem i64 %15, %17
   %19 = load ptr, ptr %14, align 8, !tbaa !184, !noalias !179
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !185, !noalias !179
   %.not.i.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4cvc58internal19SharedTermsDatabase8isSharedENS0_12NodeTemplateILb0EEE.exit, label %22
@@ -3010,7 +3010,7 @@ _ZNSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KbESaIS7_ENSt8
   %26 = load i64, ptr %25, align 8, !tbaa !232
   %27 = urem i64 %24, %26
   %28 = load ptr, ptr %0, align 8, !tbaa !231
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !185
   %.not.i25 = icmp eq ptr %30, null
   br i1 %.not.i25, label %.critedge, label %31
@@ -3066,7 +3066,7 @@ _ZNKSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KbESaIS7_ENSt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KbESaIS7_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !231
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !185
   %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8, !tbaa !107
@@ -3086,7 +3086,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIKN4cvc58internal12NodeTemplate
   br i1 %.not9.i, label %_ZNSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KbESaIS7_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS9_10_Hash_nodeIS7_Lb1EEEm.exit, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %16
   store ptr %7, ptr %18, align 8, !tbaa !185
   br label %._crit_edge.i
 
@@ -3116,7 +3116,7 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIKN4cvc58internal12NodeTemplate
   br i1 %.not17, label %_ZNSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KbESaIS7_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS9_10_Hash_nodeIS7_Lb1EEEm.exit, label %30
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw ptr, ptr %5, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %29
   store ptr %2, ptr %31, align 8, !tbaa !185
   br label %_ZNSt10_HashtableIKN4cvc58internal12NodeTemplateILb1EEESt4pairIS4_KbESaIS7_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS9_10_Hash_nodeIS7_Lb1EEEm.exit
 
@@ -3604,7 +3604,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal11NodeVisitorINS1_18Sha
 _ZNSt12_Vector_baseIN4cvc58internal11NodeVisitorINS1_18SharedTermsVisitorEE13stack_elementESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal11NodeVisitorINS1_18SharedTermsVisitorEE13stack_elementES6_SaIS5_EET0_T_S9_S8_RT1_.exit34, %49
   store ptr %20, ptr %0, align 8, !tbaa !137
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !132
-  %53 = getelementptr inbounds nuw %"struct.cvc5::internal::NodeVisitor<cvc5::internal::SharedTermsVisitor>::stack_element", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !134
   ret void
 }
@@ -3720,7 +3720,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal11NodeVisitorINS1_18Pre
 _ZNSt12_Vector_baseIN4cvc58internal11NodeVisitorINS1_18PreRegisterVisitorEE13stack_elementESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal11NodeVisitorINS1_18PreRegisterVisitorEE13stack_elementES6_SaIS5_EET0_T_S9_S8_RT1_.exit34, %49
   store ptr %20, ptr %0, align 8, !tbaa !150
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !145
-  %53 = getelementptr inbounds nuw %"struct.cvc5::internal::NodeVisitor<cvc5::internal::PreRegisterVisitor>::stack_element", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !147
   ret void
 }

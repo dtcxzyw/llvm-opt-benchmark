@@ -7898,7 +7898,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   store ptr %29, ptr %18, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !83
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store double 0.000000e+00, ptr %19, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -8901,7 +8901,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   store ptr %29, ptr %18, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !83
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store double 0.000000e+00, ptr %19, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -9904,7 +9904,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   store ptr %29, ptr %18, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !83
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store double 0.000000e+00, ptr %19, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -10907,7 +10907,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   store ptr %29, ptr %18, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !83
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store double 0.000000e+00, ptr %19, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -11910,7 +11910,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   store ptr %29, ptr %18, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !83
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store double 0.000000e+00, ptr %19, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -12913,7 +12913,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux22default_filter_
   store ptr %29, ptr %18, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !83
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store double 0.000000e+00, ptr %19, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -15264,7 +15264,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i: ; preds = %_ZN
 .thread.i.i:                                      ; preds = %179
   %181 = uitofp i64 %176 to double
   %182 = zext nneg i32 %177 to i64
-  %183 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %182
   %184 = load double, ptr %183, align 8, !tbaa !12
   %185 = fmul double %184, %181
   br label %.critedge
@@ -15286,7 +15286,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i: ; preds = %_ZN
   %195 = fdiv double %194, 0x7FAC7B1F3CAC7433
   %196 = sub nuw nsw i32 -307, %177
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %197
   %199 = load double, ptr %198, align 8, !tbaa !12
   %200 = fdiv double %195, %199
   br label %.critedge
@@ -15295,7 +15295,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i: ; preds = %_ZN
   %202 = uitofp i64 %176 to double
   %203 = sub nsw i32 0, %177
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %204
+  %205 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %204
   %206 = load double, ptr %205, align 8, !tbaa !12
   %207 = fdiv double %202, %206
   br label %.critedge
@@ -15315,7 +15315,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit: ; pre
 .thread.i90:                                      ; preds = %212
   %214 = uitofp i64 %210 to double
   %215 = zext nneg i32 %209 to i64
-  %216 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %215
   %217 = load double, ptr %216, align 8, !tbaa !12
   %218 = fmul double %217, %214
   br label %.critedge
@@ -15336,7 +15336,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit: ; pre
 
 .thread22.i:                                      ; preds = %221
   %229 = zext nneg i32 %208 to i64
-  %230 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %229
+  %230 = getelementptr [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %229
   %231 = getelementptr i8, ptr %230, i64 -2456
   %232 = load double, ptr %231, align 8, !tbaa !12
   %233 = fdiv double %227, %232
@@ -15345,7 +15345,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit: ; pre
 234:                                              ; preds = %219
   %235 = uitofp i64 %210 to double
   %236 = zext nneg i32 %208 to i64
-  %237 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %236
   %238 = load double, ptr %237, align 8, !tbaa !12
   %239 = fdiv double %235, %238
   br label %.critedge
@@ -15377,7 +15377,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
 .thread.i95:                                      ; preds = %245
   %247 = uitofp i64 %243 to double
   %248 = zext nneg i32 %242 to i64
-  %249 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %248
   %250 = load double, ptr %249, align 8, !tbaa !12
   %251 = fmul double %250, %247
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -15398,7 +15398,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
 
 .thread22.i94:                                    ; preds = %254
   %262 = zext nneg i32 %240 to i64
-  %263 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %262
+  %263 = getelementptr [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %262
   %264 = getelementptr i8, ptr %263, i64 -2456
   %265 = load double, ptr %264, align 8, !tbaa !12
   %266 = fdiv double %260, %265
@@ -15407,7 +15407,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
 267:                                              ; preds = %252
   %268 = uitofp i64 %243 to double
   %269 = zext nneg i32 %240 to i64
-  %270 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %269
+  %270 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %269
   %271 = load double, ptr %270, align 8, !tbaa !12
   %272 = fdiv double %268, %271
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -15427,7 +15427,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
 .thread.i101:                                     ; preds = %277
   %279 = uitofp i64 %274 to double
   %280 = zext nneg i32 %.050187196200 to i64
-  %281 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %280
+  %281 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %280
   %282 = load double, ptr %281, align 8, !tbaa !12
   %283 = fmul double %282, %279
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -15449,7 +15449,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   %293 = fdiv double %292, 0x7FAC7B1F3CAC7433
   %294 = sub nuw nsw i32 -307, %.050187196200
   %295 = zext nneg i32 %294 to i64
-  %296 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %295
+  %296 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %295
   %297 = load double, ptr %296, align 8, !tbaa !12
   %298 = fdiv double %293, %297
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -15458,7 +15458,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   %300 = uitofp i64 %274 to double
   %301 = sub nsw i32 0, %.050187196200
   %302 = zext nneg i32 %301 to i64
-  %303 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %302
+  %303 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %302
   %304 = load double, ptr %303, align 8, !tbaa !12
   %305 = fdiv double %300, %304
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -16372,7 +16372,7 @@ _ZN5boost6fusion13vector_detail5storeILm0ENSt7__cxx1112basic_stringIcSt11char_tr
   %37 = phi i64 [ %29, %._crit_edge.i.i.i4 ], [ %29, %31 ], [ %.pre6.i.i.i, %33 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %37, ptr %38, align 8, !tbaa !83
-  %39 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   store i32 0, ptr %39, align 4, !tbaa !84
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -16968,7 +16968,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPSt4pairIN5boost9typeind
 
 13:                                               ; preds = %13, %.lr.ph._crit_edge
   %.015.i.i = phi i64 [ %12, %.lr.ph._crit_edge ], [ %15, %13 ]
-  %14 = getelementptr inbounds nuw %"struct.std::pair.227", ptr %0, i64 %.015.i.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.015.i.i
   %.sroa.02.0.copyload.i.i = load ptr, ptr %14, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -17107,7 +17107,7 @@ define linkonce_odr hidden noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pa
   %5 = sub i64 %3, %4
   %6 = ashr exact i64 %5, 4
   %7 = sdiv i64 %6, 2
-  %8 = getelementptr inbounds %"struct.std::pair.227", ptr %0, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZSt22__move_median_to_firstIPSt4pairIN5boost9typeindex14stl_type_indexEPvEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_SF_SF_SF_T0_(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %8, ptr noundef nonnull %10)
@@ -17214,8 +17214,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPSt4pairIN5boost9typeindex1
   %.031 = phi i64 [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit.thread ], [ %1, %5 ]
   %9 = shl i64 %.031, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.std::pair.227", ptr %0, i64 %10
-  %12 = getelementptr %"struct.std::pair.227", ptr %0, i64 %9
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %10
+  %12 = getelementptr [16 x i8], ptr %0, i64 %9
   %13 = getelementptr i8, ptr %12, i64 16
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -17241,15 +17241,15 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_m
   %28 = icmp slt i32 %.fr, 0
   %29 = or disjoint i64 %9, 1
   %spec.select = select i1 %28, i64 %29, i64 %10
-  %.phi.trans.insert = getelementptr inbounds %"struct.std::pair.227", ptr %0, i64 %spec.select
+  %.phi.trans.insert = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit.thread
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit, %.lr.ph
   %30 = phi i64 [ %26, %.lr.ph ], [ %.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit ]
   %31 = phi i64 [ %10, %.lr.ph ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit ]
-  %32 = getelementptr inbounds %"struct.std::pair.227", ptr %0, i64 %31
-  %33 = getelementptr inbounds %"struct.std::pair.227", ptr %0, i64 %.031
+  %32 = getelementptr inbounds [16 x i8], ptr %0, i64 %31
+  %33 = getelementptr inbounds [16 x i8], ptr %0, i64 %.031
   store i64 %30, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !10
@@ -17273,8 +17273,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_m
 44:                                               ; preds = %40
   %45 = shl nsw i64 %.0.lcssa, 1
   %46 = or disjoint i64 %45, 1
-  %47 = getelementptr inbounds %"struct.std::pair.227", ptr %0, i64 %46
-  %48 = getelementptr inbounds %"struct.std::pair.227", ptr %0, i64 %.0.lcssa
+  %47 = getelementptr inbounds [16 x i8], ptr %0, i64 %46
+  %48 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa
   %49 = load i64, ptr %47, align 8
   store i64 %49, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -17296,7 +17296,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_m
   %.01316.i = phi i64 [ %.1, %.lr.ph.i ], [ %.017.i, %71 ]
   %.017.in.i = add nsw i64 %.01316.i, -1
   %.017.i = sdiv i64 %.017.in.i, 2
-  %57 = getelementptr inbounds %"struct.std::pair.227", ptr %0, i64 %.017.i
+  %57 = getelementptr inbounds [16 x i8], ptr %0, i64 %.017.i
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !148
@@ -17319,7 +17319,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_ma
   br i1 %70, label %71, label %_ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit
 
 71:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i
-  %72 = getelementptr inbounds %"struct.std::pair.227", ptr %0, i64 %.01316.i
+  %72 = getelementptr inbounds [16 x i8], ptr %0, i64 %.01316.i
   store i64 %68, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !10
@@ -17330,7 +17330,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_ma
 
 _ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit: ; preds = %56, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i, %71, %53
   %.013.lcssa.i = phi i64 [ %.1, %53 ], [ %.01316.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i ], [ %.017.i, %71 ], [ %.01316.i, %56 ]
-  %77 = getelementptr inbounds %"struct.std::pair.227", ptr %0, i64 %.013.lcssa.i
+  %77 = getelementptr inbounds [16 x i8], ptr %0, i64 %.013.lcssa.i
   %78 = ptrtoint ptr %3 to i64
   store i64 %78, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -17586,7 +17586,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZN5boost3log11v2_mt_posix3aux29type_se
   %4 = load ptr, ptr %3, align 8, !tbaa !113
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !115
-  %7 = getelementptr inbounds nuw %"struct.std::pair.227", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %6
   %8 = icmp sgt i64 %6, 0
   br i1 %8, label %_ZSt7advanceIPKSt4pairIN5boost9typeindex14stl_type_indexEPvElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11lower_boundIPKSt4pairIN5boost9typeindex14stl_type_indexEPvES5_NS1_3log11v2_mt_posix3aux21dispatching_map_orderEET_SC_SC_RKT0_T1_.exit
 
@@ -17603,7 +17603,7 @@ _ZSt7advanceIPKSt4pairIN5boost9typeindex14stl_type_indexEPvElEvRT_T0_.exit.i.i: 
   %.022.i.i = phi ptr [ %4, %_ZSt7advanceIPKSt4pairIN5boost9typeindex14stl_type_indexEPvElEvRT_T0_.exit.lr.ph.i.i ], [ %28, %.thread.i.i ]
   %.01121.i.i = phi i64 [ %6, %_ZSt7advanceIPKSt4pairIN5boost9typeindex14stl_type_indexEPvElEvRT_T0_.exit.lr.ph.i.i ], [ %27, %.thread.i.i ]
   %14 = lshr i64 %.01121.i.i, 1
-  %15 = getelementptr inbounds nuw %"struct.std::pair.227", ptr %.022.i.i, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %.022.i.i, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !126
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !148
@@ -32476,11 +32476,11 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   %5 = load ptr, ptr %1, align 8, !tbaa !34, !noalias !302
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !83, !noalias !302
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %4, align 8, !tbaa !34, !noalias !305
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !83, !noalias !305
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   br label %13
 
 13:                                               ; preds = %16, %2
@@ -32515,11 +32515,11 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   %5 = load ptr, ptr %1, align 8, !tbaa !142, !noalias !309
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !144, !noalias !309
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %4, align 8, !tbaa !34, !noalias !312
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !83, !noalias !312
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   br label %13
 
 13:                                               ; preds = %16, %2
@@ -33892,7 +33892,7 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIiwEEbRT_T0_N4mpl_5bo
 .thread.i.i:                                      ; preds = %284
   %286 = uitofp i64 %281 to double
   %287 = zext nneg i32 %282 to i64
-  %288 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %287
+  %288 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %287
   %289 = load double, ptr %288, align 8, !tbaa !12
   %290 = fmul double %289, %286
   br label %.critedge
@@ -33914,7 +33914,7 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIiwEEbRT_T0_N4mpl_5bo
   %300 = fdiv double %299, 0x7FAC7B1F3CAC7433
   %301 = sub nuw nsw i32 -307, %282
   %302 = zext nneg i32 %301 to i64
-  %303 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %302
+  %303 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %302
   %304 = load double, ptr %303, align 8, !tbaa !12
   %305 = fdiv double %300, %304
   br label %.critedge
@@ -33923,7 +33923,7 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIiwEEbRT_T0_N4mpl_5bo
   %307 = uitofp i64 %281 to double
   %308 = sub nsw i32 0, %282
   %309 = zext nneg i32 %308 to i64
-  %310 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %309
+  %310 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %309
   %311 = load double, ptr %310, align 8, !tbaa !12
   %312 = fdiv double %307, %311
   br label %.critedge
@@ -33943,7 +33943,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit: ; pre
 .thread.i90:                                      ; preds = %317
   %319 = uitofp i64 %315 to double
   %320 = zext nneg i32 %314 to i64
-  %321 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %320
+  %321 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %320
   %322 = load double, ptr %321, align 8, !tbaa !12
   %323 = fmul double %322, %319
   br label %.critedge
@@ -33964,7 +33964,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit: ; pre
 
 .thread22.i:                                      ; preds = %326
   %334 = zext nneg i32 %313 to i64
-  %335 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %334
+  %335 = getelementptr [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %334
   %336 = getelementptr i8, ptr %335, i64 -2456
   %337 = load double, ptr %336, align 8, !tbaa !12
   %338 = fdiv double %332, %337
@@ -33973,7 +33973,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit: ; pre
 339:                                              ; preds = %324
   %340 = uitofp i64 %315 to double
   %341 = zext nneg i32 %313 to i64
-  %342 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %341
+  %342 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %341
   %343 = load double, ptr %342, align 8, !tbaa !12
   %344 = fdiv double %340, %343
   br label %.critedge
@@ -34005,7 +34005,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
 .thread.i95:                                      ; preds = %350
   %352 = uitofp i64 %348 to double
   %353 = zext nneg i32 %347 to i64
-  %354 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %353
+  %354 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %353
   %355 = load double, ptr %354, align 8, !tbaa !12
   %356 = fmul double %355, %352
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -34026,7 +34026,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
 
 .thread22.i94:                                    ; preds = %359
   %367 = zext nneg i32 %345 to i64
-  %368 = getelementptr double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %367
+  %368 = getelementptr [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %367
   %369 = getelementptr i8, ptr %368, i64 -2456
   %370 = load double, ptr %369, align 8, !tbaa !12
   %371 = fdiv double %365, %370
@@ -34035,7 +34035,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
 372:                                              ; preds = %357
   %373 = uitofp i64 %348 to double
   %374 = zext nneg i32 %345 to i64
-  %375 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %374
+  %375 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %374
   %376 = load double, ptr %375, align 8, !tbaa !12
   %377 = fdiv double %373, %376
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -34055,7 +34055,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
 .thread.i101:                                     ; preds = %382
   %384 = uitofp i64 %379 to double
   %385 = zext nneg i32 %.050263276283 to i64
-  %386 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %385
+  %386 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %385
   %387 = load double, ptr %386, align 8, !tbaa !12
   %388 = fmul double %387, %384
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -34077,7 +34077,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   %398 = fdiv double %397, 0x7FAC7B1F3CAC7433
   %399 = sub nuw nsw i32 -307, %.050263276283
   %400 = zext nneg i32 %399 to i64
-  %401 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %400
+  %401 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %400
   %402 = load double, ptr %401, align 8, !tbaa !12
   %403 = fdiv double %398, %402
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96
@@ -34086,7 +34086,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   %405 = uitofp i64 %379 to double
   %406 = sub nsw i32 0, %.050263276283
   %407 = zext nneg i32 %406 to i64
-  %408 = getelementptr inbounds nuw double, ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %407
+  %408 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost6spirit6traits12pow10_helperIdvE4callEjE9exponents, i64 %407
   %409 = load double, ptr %408, align 8, !tbaa !12
   %410 = fdiv double %405, %409
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit96

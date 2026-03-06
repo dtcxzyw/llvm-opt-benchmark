@@ -55,7 +55,7 @@ define void @_Z24tmpi_errors_are_fatal_fnPP10tmpi_comm_Pi(ptr noundef readnone c
 5:                                                ; preds = %2
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %4, i32 27)
   %6 = zext nneg i32 %spec.store.select.i to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZL11tmpi_errmsg, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZL11tmpi_errmsg, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   %9 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256) #18
   br label %_Z17tMPI_Error_stringiPcPi.exit
@@ -87,7 +87,7 @@ define void @_Z21tmpi_errors_return_fnPP10tmpi_comm_Pi(ptr noundef readnone capt
 5:                                                ; preds = %2
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %4, i32 27)
   %6 = zext nneg i32 %spec.store.select.i to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZL11tmpi_errmsg, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZL11tmpi_errmsg, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   %9 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256) #18
   br label %_Z17tMPI_Error_stringiPcPi.exit
@@ -140,7 +140,7 @@ define noundef i32 @_Z17tMPI_Error_stringiPcPi(i32 noundef %0, ptr noundef %1, p
 4:                                                ; preds = %3
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %0, i32 27)
   %5 = zext nneg i32 %spec.store.select to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @_ZL11tmpi_errmsg, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZL11tmpi_errmsg, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %7, i64 noundef 256) #18
   br label %14

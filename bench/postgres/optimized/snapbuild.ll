@@ -425,7 +425,7 @@ define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr noundef readonly capt
   %99 = load i32, ptr %2, align 4
   %100 = add nsw i32 %.025, 1
   %101 = sext i32 %.025 to i64
-  %102 = getelementptr inbounds i32, ptr %74, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %74, i64 %101
   store i32 %99, ptr %102, align 4
   br label %bsearch.exit
 
@@ -857,7 +857,7 @@ thread-pre-split:                                 ; preds = %10
   %.076136 = phi i32 [ %2, %.lr.ph ], [ %.1, %109 ]
   %.077135 = phi i1 [ false, %.lr.ph ], [ %.178, %109 ]
   %.081134 = phi i1 [ false, %.lr.ph ], [ %.182, %109 ]
-  %40 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %41, ptr %8, align 4
@@ -950,7 +950,7 @@ SnapBuildAddCommittedTxn.exit:                    ; preds = %._crit_edge.i, %75
   %81 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %79, %75 ]
   %82 = add i64 %80, 1
   store i64 %82, ptr %37, align 8
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %80
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %80
   store i32 %41, ptr %83, align 4
   %84 = sub i32 %41, %.076136
   %85 = icmp sgt i32 %84, 0
@@ -999,7 +999,7 @@ SnapBuildAddCommittedTxn.exit97:                  ; preds = %._crit_edge.i93, %9
   %104 = phi ptr [ %.pre.i95, %._crit_edge.i93 ], [ %102, %98 ]
   %105 = add i64 %103, 1
   store i64 %105, ptr %37, align 8
-  %106 = getelementptr inbounds nuw i32, ptr %104, i64 %103
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %103
   store i32 %41, ptr %106, align 4
   %107 = sub i32 %41, %.076136
   %108 = icmp sgt i32 %107, 0
@@ -1118,7 +1118,7 @@ SnapBuildAddCommittedTxn.exit112:                 ; preds = %._crit_edge.i108, %
   %156 = phi ptr [ %.pre.i110, %._crit_edge.i108 ], [ %154, %149 ]
   %157 = add i64 %155, 1
   store i64 %157, ptr %136, align 8
-  %158 = getelementptr inbounds nuw i32, ptr %156, i64 %155
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %155
   store i32 %2, ptr %158, align 4
   br label %.critedge
 
@@ -1177,7 +1177,7 @@ SnapBuildAddCommittedTxn.exit117:                 ; preds = %._crit_edge.i113, %
   %184 = phi ptr [ %.pre.i115, %._crit_edge.i113 ], [ %182, %177 ]
   %185 = add i64 %183, 1
   store i64 %185, ptr %164, align 8
-  %186 = getelementptr inbounds nuw i32, ptr %184, i64 %183
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %183
   store i32 %2, ptr %186, align 4
   br label %.critedge
 
@@ -1235,7 +1235,7 @@ SnapBuildAddCommittedTxn.exit122:                 ; preds = %._crit_edge.i118, %
   %213 = phi ptr [ %.pre.i120, %._crit_edge.i118 ], [ %211, %206 ]
   %214 = add i64 %212, 1
   store i64 %214, ptr %193, align 8
-  %215 = getelementptr inbounds nuw i32, ptr %213, i64 %212
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %213, i64 %212
   store i32 %2, ptr %215, align 4
   br label %.critedge
 
@@ -1653,7 +1653,7 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %74, %94, %97, %102,
   %.050.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %137 ]
   %.04449.i = phi i32 [ 0, %.lr.ph.i ], [ %139, %137 ]
   %127 = load ptr, ptr %123, align 8
-  %128 = getelementptr inbounds i32, ptr %127, i64 %126
+  %128 = getelementptr inbounds [4 x i8], ptr %127, i64 %126
   %129 = load i32, ptr %128, align 4
   %130 = load i32, ptr %113, align 8
   %131 = sub i32 %129, %130
@@ -1663,7 +1663,7 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %74, %94, %97, %102,
 133:                                              ; preds = %124
   %134 = add i32 %.050.i, 1
   %135 = sext i32 %.050.i to i64
-  %136 = getelementptr inbounds i32, ptr %121, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %121, i64 %135
   store i32 %129, ptr %136, align 4
   %.pre.i = load i64, ptr %118, align 8
   br label %137
@@ -1712,7 +1712,7 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %74, %94, %97, %102,
   %159 = phi i64 [ 0, %.lr.ph52.i ], [ %167, %165 ]
   %.14551.i = phi i32 [ 0, %.lr.ph52.i ], [ %166, %165 ]
   %160 = load ptr, ptr %157, align 8
-  %161 = getelementptr inbounds i32, ptr %160, i64 %159
+  %161 = getelementptr inbounds [4 x i8], ptr %160, i64 %159
   %162 = load i32, ptr %161, align 4
   %163 = load i32, ptr %113, align 8
   %164 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %162, i32 noundef %163) #13
@@ -1735,7 +1735,7 @@ SnapBuildFindSnapshot.exit.thread:                ; preds = %74, %94, %97, %102,
   br i1 %171, label %173, label %177
 
 173:                                              ; preds = %._crit_edge53.i
-  %174 = getelementptr inbounds i32, ptr %172, i64 %.lcssa.ph.i
+  %174 = getelementptr inbounds [4 x i8], ptr %172, i64 %.lcssa.ph.i
   %175 = zext nneg i32 %170 to i64
   %176 = shl nuw nsw i64 %175, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %174, i64 %176, i1 false)
@@ -2695,7 +2695,7 @@ define internal fastcc void @SnapBuildWaitSnapshot(ptr noundef readonly captures
 
 6:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %8) #13
   br i1 %9, label %10, label %13

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ossl_record_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_record_template_st = type { i8, i32, ptr, i64 }
@@ -58,7 +57,7 @@ define range(i32 0, 2) i32 @RECORD_LAYER_clear(ptr noundef %0) local_unnamed_add
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %11 = add nuw i64 %9, 1
   store i64 %11, ptr %2, align 8, !tbaa !16
-  %12 = getelementptr inbounds nuw %struct.tls_record_st, ptr %7, i64 %9
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %9
   %13 = load ptr, ptr %12, align 8, !tbaa !18
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %32, label %14
@@ -765,7 +764,7 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
 206:                                              ; preds = %205, %218
   %.0227 = phi i64 [ 0, %205 ], [ %.1, %218 ]
   %.0137226 = phi i64 [ 0, %205 ], [ %219, %218 ]
-  %207 = getelementptr inbounds nuw %struct.ossl_dispatch_st, ptr @rlayer_dispatch, i64 %.0137226
+  %207 = getelementptr inbounds nuw [16 x i8], ptr @rlayer_dispatch, i64 %.0137226
   %208 = load i32, ptr %207, align 16, !tbaa !125
   switch i32 %208, label %215 [
     i32 2, label %209
@@ -784,7 +783,7 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
 
 215:                                              ; preds = %206, %212, %209
   %216 = add i64 %.0227, 1
-  %217 = getelementptr inbounds nuw %struct.ossl_dispatch_st, ptr %40, i64 %.0227
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %.0227
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %217, ptr noundef nonnull align 16 dereferenceable(16) %207, i64 16, i1 false), !tbaa.struct !129
   br label %218
 
@@ -1054,7 +1053,7 @@ define i64 @ssl3_pending(ptr noundef %0) local_unnamed_addr #1 {
 38:                                               ; preds = %.lr.ph40, %42
   %.02438 = phi i64 [ 0, %.lr.ph40 ], [ %46, %42 ]
   %.237 = phi i64 [ %.025, %.lr.ph40 ], [ %45, %42 ]
-  %39 = getelementptr inbounds nuw %struct.tls_record_st, ptr %37, i64 %.02438
+  %39 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %.02438
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i8, ptr %40, align 4, !tbaa !173
   %.not32 = icmp eq i8 %41, 23
@@ -1541,7 +1540,7 @@ tls_write_check_pending.exit:                     ; preds = %56, %62, %65
 
 150:                                              ; preds = %.preheader, %150
   %.0154220 = phi i64 [ 0, %.preheader ], [ %157, %150 ]
-  %151 = getelementptr inbounds nuw %struct.ossl_record_template_st, ptr %7, i64 %.0154220
+  %151 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.0154220
   store i8 %1, ptr %151, align 8, !tbaa !199
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   store i32 %.0161, ptr %152, align 4, !tbaa !201
@@ -1570,7 +1569,7 @@ tls_write_check_pending.exit:                     ; preds = %56, %62, %65
   %.0223 = phi i64 [ 0, %160 ], [ %169, %163 ]
   %.1222 = phi i64 [ 0, %160 ], [ %170, %163 ]
   %.1158221 = phi i64 [ %spec.select203, %160 ], [ %spec.select204, %163 ]
-  %164 = getelementptr inbounds nuw %struct.ossl_record_template_st, ptr %7, i64 %.1222
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.1222
   store i8 %1, ptr %164, align 8, !tbaa !199
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   store i32 %.0161, ptr %165, align 4, !tbaa !201
@@ -2029,7 +2028,7 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
 
 101:                                              ; preds = %124, %100
   %102 = phi i64 [ %125, %124 ], [ 0, %100 ]
-  %103 = getelementptr inbounds nuw %struct.tls_record_st, ptr %74, i64 %102
+  %103 = getelementptr inbounds nuw [64 x i8], ptr %74, i64 %102
   %104 = load ptr, ptr %75, align 8, !tbaa !22
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 64
   %106 = load ptr, ptr %105, align 8, !tbaa !216
@@ -2068,7 +2067,7 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
 
 .critedge11:                                      ; preds = %.critedge11.loopexit, %.backedge
   %127 = phi i64 [ %.pre, %.critedge11.loopexit ], [ %98, %.backedge ]
-  %128 = getelementptr inbounds nuw %struct.tls_record_st, ptr %74, i64 %127
+  %128 = getelementptr inbounds nuw [64 x i8], ptr %74, i64 %127
   %129 = load i64, ptr %77, align 8, !tbaa !212
   %.not344 = icmp eq i64 %129, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %128, i64 12

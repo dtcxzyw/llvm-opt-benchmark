@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/amapLiberty.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Amap_Item_t_ = type { i32, i32, %struct.Amap_Pair_t_, %struct.Amap_Pair_t_, %struct.Amap_Pair_t_, i32, i32 }
-%struct.Amap_Pair_t_ = type { i32, i32 }
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -156,7 +154,7 @@ Amap_LibertyItem.exit:                            ; preds = %Amap_PrintWord.exit
 
 Amap_LibertyItem.exit62:                          ; preds = %Amap_LibertyItem.exit
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %41, i64 %42
   tail call void @Amap_LibertyPrintLibertyItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %43, i32 noundef %8)
   br label %Amap_LibertyItem.exit.thread
 
@@ -313,7 +311,7 @@ Amap_LibertyItem.exit95:                          ; preds = %104
 
 Amap_LibertyItem.exit96:                          ; preds = %Amap_LibertyItem.exit95
   %109 = zext nneg i32 %106 to i64
-  %110 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [40 x i8], ptr %108, i64 %109
   br label %tailrecurse
 
 Amap_LibertyItem.exit95.thread:                   ; preds = %104, %Amap_LibertyItem.exit95
@@ -414,7 +412,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
 
 .lr.ph:                                           ; preds = %Amap_LibertyItem.exit
   %8 = zext nneg i32 %4 to i64
-  %9 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %8
   %10 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -447,7 +445,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
 Amap_LibertyItem.exit15:                          ; preds = %21
   %25 = load ptr, ptr %11, align 8, !tbaa !19
   %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %26
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !23
 
@@ -471,7 +469,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
 
 .lr.ph:                                           ; preds = %Amap_LibertyItem.exit
   %8 = zext nneg i32 %4 to i64
-  %9 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %8
   %10 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -499,7 +497,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
 Amap_LibertyItem.exit9:                           ; preds = %19
   %23 = load ptr, ptr %11, align 8, !tbaa !19
   %24 = zext nneg i32 %21 to i64
-  %25 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %24
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !24
 
@@ -523,7 +521,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
 
 .lr.ph:                                           ; preds = %Amap_LibertyItem.exit
   %8 = zext nneg i32 %4 to i64
-  %9 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %8
   %10 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -551,7 +549,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
 Amap_LibertyItem.exit11:                          ; preds = %19
   %23 = load ptr, ptr %11, align 8, !tbaa !19
   %24 = zext nneg i32 %21 to i64
-  %25 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %24
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !25
 
@@ -575,7 +573,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
 
 .lr.ph:                                           ; preds = %Amap_LibertyItem.exit
   %8 = zext nneg i32 %4 to i64
-  %9 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %8
   %10 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -608,7 +606,7 @@ Amap_LibertyItem.exit.i:                          ; preds = %19
 .lr.ph.i:                                         ; preds = %Amap_LibertyItem.exit.i, %30
   %.pn.in = phi i32 [ %32, %30 ], [ %21, %Amap_LibertyItem.exit.i ]
   %.pn = zext nneg i32 %.pn.in to i64
-  %.013.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %23, i64 %.pn
+  %.013.i = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %.pn
   %24 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %25 = load i64, ptr %24, align 4
   %sext.i.i = shl i64 %25, 32
@@ -635,7 +633,7 @@ Amap_LibertyPinFunction.exit.thread:              ; preds = %30, %19, %Amap_Libe
 Amap_LibertyItem.exit14:                          ; preds = %Amap_LibertyPinFunction.exit.thread
   %37 = load ptr, ptr %11, align 8, !tbaa !19
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %37, i64 %38
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %Amap_LibertyPinFunction.exit, label %12, !llvm.loop !26
 
@@ -666,7 +664,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
 
 .lr.ph:                                           ; preds = %Amap_LibertyItem.exit
   %12 = zext nneg i32 %8 to i64
-  %13 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
@@ -701,7 +699,7 @@ Amap_LibertyItem.exit.i:                          ; preds = %25
 .lr.ph.i:                                         ; preds = %Amap_LibertyItem.exit.i, %36
   %.pn.in = phi i32 [ %38, %36 ], [ %27, %Amap_LibertyItem.exit.i ]
   %.pn = zext nneg i32 %.pn.in to i64
-  %.013.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %29, i64 %.pn
+  %.013.i = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %.pn
   %30 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %31 = load i64, ptr %30, align 4
   %sext.i.i = shl i64 %31, 32
@@ -778,7 +776,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %63 = add nsw i32 %18, 1
   store i32 %63, ptr %4, align 4, !tbaa !27
   %64 = sext i32 %18 to i64
-  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %62, i64 %64
   store ptr %.018, ptr %65, align 8, !tbaa !31
   br label %Amap_LibertyPinFunction.exit.thread
 
@@ -793,7 +791,7 @@ Amap_LibertyPinFunction.exit.thread:              ; preds = %36, %25, %Amap_Libe
 Amap_LibertyItem.exit14:                          ; preds = %Amap_LibertyPinFunction.exit.thread
   %71 = load ptr, ptr %15, align 8, !tbaa !19
   %72 = zext nneg i32 %69 to i64
-  %73 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %72
   %.not = icmp eq ptr %71, null
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !32
 
@@ -816,7 +814,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
 
 .lr.ph:                                           ; preds = %Amap_LibertyItem.exit
   %8 = zext nneg i32 %4 to i64
-  %9 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %8
   %10 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -844,7 +842,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
 Amap_LibertyItem.exit11:                          ; preds = %19
   %23 = load ptr, ptr %11, align 8, !tbaa !19
   %24 = zext nneg i32 %21 to i64
-  %25 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %24
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !33
 
@@ -868,7 +866,7 @@ Amap_LibertyItem.exit:                            ; preds = %2
 
 .lr.ph:                                           ; preds = %Amap_LibertyItem.exit
   %8 = zext nneg i32 %4 to i64
-  %9 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %8
   %10 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -902,7 +900,7 @@ Amap_LibertyItem.exit.i:                          ; preds = %19
 .lr.ph.i:                                         ; preds = %Amap_LibertyItem.exit.i, %30
   %.pn.in = phi i32 [ %32, %30 ], [ %21, %Amap_LibertyItem.exit.i ]
   %.pn = zext nneg i32 %.pn.in to i64
-  %.013.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %23, i64 %.pn
+  %.013.i = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %.pn
   %24 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %25 = load i64, ptr %24, align 4
   %sext.i.i = shl i64 %25, 32
@@ -935,7 +933,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %.lr.ph.i, %30, %19,
 Amap_LibertyItem.exit13:                          ; preds = %34
   %38 = load ptr, ptr %11, align 8, !tbaa !19
   %39 = zext nneg i32 %36 to i64
-  %40 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %39
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !34
 
@@ -1048,7 +1046,7 @@ Amap_LibertyItem.exit:                            ; preds = %8, %6
 
 .lr.ph218:                                        ; preds = %Amap_LibertyItem.exit
   %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %.val, i64 %46
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %.val, i64 %46
   %.not109 = icmp eq i32 %2, 0
   br label %48
 
@@ -1080,7 +1078,7 @@ Amap_LibertyItem.exit.i:                          ; preds = %55
 .lr.ph.i:                                         ; preds = %Amap_LibertyItem.exit.i, %68
   %.pn.in = phi i32 [ %70, %68 ], [ %57, %Amap_LibertyItem.exit.i ]
   %.pn = zext nneg i32 %.pn.in to i64
-  %.017.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %59, i64 %.pn
+  %.017.i = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %.pn
   %60 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %61 = load i64, ptr %60, align 4
   %sext.i.i = shl i64 %61, 32
@@ -1123,7 +1121,7 @@ Amap_LibertyCellIsFlop.exit:                      ; preds = %66, %.lr.ph.i
 .lr.ph.i126:                                      ; preds = %68, %87
   %.pn200.in = phi i32 [ %89, %87 ], [ %57, %68 ]
   %.pn200 = zext nneg i32 %.pn200.in to i64
-  %.011.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %59, i64 %.pn200
+  %.011.i = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %.pn200
   %81 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %82 = load i64, ptr %81, align 4
   %sext.i.i128 = shl i64 %82, 32
@@ -1162,7 +1160,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i126
   %.016.i = phi i32 [ %.1.i, %120 ], [ 0, %87 ]
   %.pn201.in = phi i32 [ %122, %120 ], [ %57, %87 ]
   %.pn201 = zext nneg i32 %.pn201.in to i64
-  %.01015.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %59, i64 %.pn201
+  %.01015.i = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %.pn201
   %100 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 8
   %101 = load i64, ptr %100, align 4
   %sext.i.i136 = shl i64 %101, 32
@@ -1183,7 +1181,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i126
 .lr.ph.i.i:                                       ; preds = %106, %116
   %.pn.in.i = phi i32 [ %118, %116 ], [ %108, %106 ]
   %.pn.i = zext nneg i32 %.pn.in.i to i64
-  %.013.i.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %59, i64 %.pn.i
+  %.013.i.i = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %.pn.i
   %110 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %111 = load i64, ptr %110, align 4
   %sext.i.i.i = shl i64 %111, 32
@@ -1237,7 +1235,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
 .lr.ph.i143:                                      ; preds = %Amap_LibertyCellCountOutputs.exit, %140
   %.pn202.in = phi i32 [ %142, %140 ], [ %57, %Amap_LibertyCellCountOutputs.exit ]
   %.pn202 = zext nneg i32 %.pn202.in to i64
-  %.013.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %59, i64 %.pn202
+  %.013.i = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %.pn202
   %134 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %135 = load i64, ptr %134, align 4
   %sext.i.i145 = shl i64 %135, 32
@@ -1289,7 +1287,7 @@ Amap_LibertyItem.exit.i152.lr.ph:                 ; preds = %Amap_LibertyCellAre
 
 Amap_LibertyItem.exit.i152:                       ; preds = %Amap_LibertyItem.exit.i152.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %Amap_LibertyItem.exit.i152.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %159 = getelementptr inbounds nuw ptr, ptr %.val120, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %.val120, i64 %indvars.iv
   %160 = load ptr, ptr %159, align 8, !tbaa !31
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 36
   %162 = load i32, ptr %161, align 4, !tbaa !18
@@ -1298,7 +1296,7 @@ Amap_LibertyItem.exit.i152:                       ; preds = %Amap_LibertyItem.ex
   %164 = load ptr, ptr %20, align 8, !tbaa !19, !nonnull !36, !noundef !36
   %.val.i155 = load ptr, ptr %23, align 8, !tbaa !11
   %.pn203206 = zext nneg i32 %162 to i64
-  %.013.i156207 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %164, i64 %.pn203206
+  %.013.i156207 = getelementptr inbounds nuw [40 x i8], ptr %164, i64 %.pn203206
   %165 = getelementptr inbounds nuw i8, ptr %.013.i156207, i64 8
   %166 = load i64, ptr %165, align 4
   %sext.i.i157208 = shl i64 %166, 32
@@ -1312,13 +1310,13 @@ Amap_LibertyItem.exit.i152:                       ; preds = %Amap_LibertyItem.ex
 
 Amap_LibertyItem.exit11.i160:                     ; preds = %Amap_LibertyItem.exit.i152, %Amap_LibertyItem.exit11.i160
   %171 = phi i64 [ %.pn203, %Amap_LibertyItem.exit11.i160 ], [ %.pn203206, %Amap_LibertyItem.exit.i152 ]
-  %172 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %164, i64 %171
+  %172 = getelementptr inbounds nuw [40 x i8], ptr %164, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %174 = load i32, ptr %173, align 4, !tbaa !20
   %175 = icmp sgt i32 %174, -1
   call void @llvm.assume(i1 %175)
   %.pn203 = zext nneg i32 %174 to i64
-  %.013.i156 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %164, i64 %.pn203
+  %.013.i156 = getelementptr inbounds nuw [40 x i8], ptr %164, i64 %.pn203
   %176 = getelementptr inbounds nuw i8, ptr %.013.i156, i64 8
   %177 = load i64, ptr %176, align 4
   %sext.i.i157 = shl i64 %177, 32
@@ -1332,7 +1330,7 @@ Amap_LibertyItem.exit11.i160:                     ; preds = %Amap_LibertyItem.ex
 
 Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.exit11.i160, %Amap_LibertyItem.exit.i152
   %182 = phi i64 [ %.pn203206, %Amap_LibertyItem.exit.i152 ], [ %.pn203, %Amap_LibertyItem.exit11.i160 ]
-  %183 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %164, i64 %182
+  %183 = getelementptr inbounds nuw [40 x i8], ptr %164, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load i64, ptr %184, align 4
   %sext.i163 = shl i64 %185, 32
@@ -1428,7 +1426,7 @@ Amap_LibertyItem.exit176:                         ; preds = %204
 
 .lr.ph.preheader:                                 ; preds = %Amap_LibertyItem.exit176
   %244 = zext nneg i32 %241 to i64
-  %245 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %243, i64 %244
+  %245 = getelementptr inbounds nuw [40 x i8], ptr %243, i64 %244
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Amap_LibertyItem.exit183
@@ -1437,7 +1435,7 @@ Amap_LibertyItem.exit176:                         ; preds = %204
 
 246:                                              ; preds = %250, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %250 ]
-  %247 = getelementptr inbounds nuw ptr, ptr %.val120, i64 %indvars.iv.i
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %.val120, i64 %indvars.iv.i
   %248 = load ptr, ptr %247, align 8, !tbaa !31
   %249 = icmp eq ptr %248, %.096213
   br i1 %249, label %Vec_PtrFind.exit, label %250
@@ -1483,7 +1481,7 @@ Vec_PtrFind.exit:                                 ; preds = %246, %Vec_PtrFind.e
 Amap_LibertyItem.exit183:                         ; preds = %Vec_PtrFind.exit
   %269 = load ptr, ptr %20, align 8, !tbaa !19
   %270 = zext nneg i32 %267 to i64
-  %271 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %269, i64 %270
+  %271 = getelementptr inbounds nuw [40 x i8], ptr %269, i64 %270
   %.not110 = icmp eq ptr %269, null
   br i1 %.not110, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
@@ -1513,7 +1511,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %272
 Amap_LibertyItem.exit185:                         ; preds = %273
   %277 = load ptr, ptr %20, align 8, !tbaa !19
   %278 = zext nneg i32 %275 to i64
-  %279 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %277, i64 %278
+  %279 = getelementptr inbounds nuw [40 x i8], ptr %277, i64 %278
   %.not = icmp eq ptr %277, null
   br i1 %.not, label %._crit_edge, label %48, !llvm.loop !40
 
@@ -1699,7 +1697,7 @@ Vec_StrPrintStr.exit116:                          ; preds = %Vec_StrPush.exit.i1
 
 .lr.ph388:                                        ; preds = %Vec_StrPrintStr.exit116
   %70 = zext nneg i32 %68 to i64
-  %71 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %.val, i64 %70
+  %71 = getelementptr inbounds nuw [40 x i8], ptr %.val, i64 %70
   %72 = getelementptr i8, ptr %0, i64 8
   %.not93 = icmp eq i32 %1, 0
   br label %73
@@ -1732,7 +1730,7 @@ Amap_LibertyItem.exit.i:                          ; preds = %80
 .lr.ph.i117:                                      ; preds = %Amap_LibertyItem.exit.i, %93
   %.pn.in = phi i32 [ %95, %93 ], [ %82, %Amap_LibertyItem.exit.i ]
   %.pn = zext nneg i32 %.pn.in to i64
-  %.017.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %84, i64 %.pn
+  %.017.i = getelementptr inbounds nuw [40 x i8], ptr %84, i64 %.pn
   %85 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %86 = load i64, ptr %85, align 4
   %sext.i.i = shl i64 %86, 32
@@ -1775,7 +1773,7 @@ Amap_LibertyCellIsFlop.exit:                      ; preds = %91, %.lr.ph.i117
 .lr.ph.i121:                                      ; preds = %93, %112
   %.pn368.in = phi i32 [ %114, %112 ], [ %82, %93 ]
   %.pn368 = zext nneg i32 %.pn368.in to i64
-  %.011.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %84, i64 %.pn368
+  %.011.i = getelementptr inbounds nuw [40 x i8], ptr %84, i64 %.pn368
   %106 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %107 = load i64, ptr %106, align 4
   %sext.i.i123 = shl i64 %107, 32
@@ -1814,7 +1812,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i121
   %.016.i = phi i32 [ %.1.i, %145 ], [ 0, %112 ]
   %.pn369.in = phi i32 [ %147, %145 ], [ %82, %112 ]
   %.pn369 = zext nneg i32 %.pn369.in to i64
-  %.01015.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %84, i64 %.pn369
+  %.01015.i = getelementptr inbounds nuw [40 x i8], ptr %84, i64 %.pn369
   %125 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 8
   %126 = load i64, ptr %125, align 4
   %sext.i.i131 = shl i64 %126, 32
@@ -1835,7 +1833,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i121
 .lr.ph.i.i:                                       ; preds = %131, %141
   %.pn.in.i = phi i32 [ %143, %141 ], [ %133, %131 ]
   %.pn.i = zext nneg i32 %.pn.in.i to i64
-  %.013.i.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %84, i64 %.pn.i
+  %.013.i.i = getelementptr inbounds nuw [40 x i8], ptr %84, i64 %.pn.i
   %135 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %136 = load i64, ptr %135, align 4
   %sext.i.i.i = shl i64 %136, 32
@@ -1889,7 +1887,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
 .lr.ph.i138:                                      ; preds = %Amap_LibertyCellCountOutputs.exit, %165
   %.pn370.in = phi i32 [ %167, %165 ], [ %82, %Amap_LibertyCellCountOutputs.exit ]
   %.pn370 = zext nneg i32 %.pn370.in to i64
-  %.013.i = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %84, i64 %.pn370
+  %.013.i = getelementptr inbounds nuw [40 x i8], ptr %84, i64 %.pn370
   %159 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %160 = load i64, ptr %159, align 4
   %sext.i.i140 = shl i64 %160, 32
@@ -1940,7 +1938,7 @@ Amap_LibertyItem.exit.i147.lr.ph:                 ; preds = %Amap_LibertyCellAre
 Amap_LibertyItem.exit.i147:                       ; preds = %Amap_LibertyItem.exit.i147.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %Amap_LibertyItem.exit.i147.lr.ph ], [ %indvars.iv.next, %.loopexit ]
   %.val103 = load ptr, ptr %181, align 8, !tbaa !30
-  %184 = getelementptr inbounds nuw ptr, ptr %.val103, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %.val103, i64 %indvars.iv
   %185 = load ptr, ptr %184, align 8, !tbaa !31
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 36
   %187 = load i32, ptr %186, align 4, !tbaa !18
@@ -1949,7 +1947,7 @@ Amap_LibertyItem.exit.i147:                       ; preds = %Amap_LibertyItem.ex
   %189 = load ptr, ptr %66, align 8, !tbaa !19, !nonnull !36, !noundef !36
   %.val.i150 = load ptr, ptr %72, align 8, !tbaa !11
   %.pn371375 = zext nneg i32 %187 to i64
-  %.013.i151376 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %189, i64 %.pn371375
+  %.013.i151376 = getelementptr inbounds nuw [40 x i8], ptr %189, i64 %.pn371375
   %190 = getelementptr inbounds nuw i8, ptr %.013.i151376, i64 8
   %191 = load i64, ptr %190, align 4
   %sext.i.i152377 = shl i64 %191, 32
@@ -1963,13 +1961,13 @@ Amap_LibertyItem.exit.i147:                       ; preds = %Amap_LibertyItem.ex
 
 Amap_LibertyItem.exit11.i155:                     ; preds = %Amap_LibertyItem.exit.i147, %Amap_LibertyItem.exit11.i155
   %196 = phi i64 [ %.pn371, %Amap_LibertyItem.exit11.i155 ], [ %.pn371375, %Amap_LibertyItem.exit.i147 ]
-  %197 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %189, i64 %196
+  %197 = getelementptr inbounds nuw [40 x i8], ptr %189, i64 %196
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 32
   %199 = load i32, ptr %198, align 4, !tbaa !20
   %200 = icmp sgt i32 %199, -1
   tail call void @llvm.assume(i1 %200)
   %.pn371 = zext nneg i32 %199 to i64
-  %.013.i151 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %189, i64 %.pn371
+  %.013.i151 = getelementptr inbounds nuw [40 x i8], ptr %189, i64 %.pn371
   %201 = getelementptr inbounds nuw i8, ptr %.013.i151, i64 8
   %202 = load i64, ptr %201, align 4
   %sext.i.i152 = shl i64 %202, 32
@@ -1983,7 +1981,7 @@ Amap_LibertyItem.exit11.i155:                     ; preds = %Amap_LibertyItem.ex
 
 Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.exit11.i155, %Amap_LibertyItem.exit.i147
   %207 = phi i64 [ %.pn371375, %Amap_LibertyItem.exit.i147 ], [ %.pn371, %Amap_LibertyItem.exit11.i155 ]
-  %208 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %189, i64 %207
+  %208 = getelementptr inbounds nuw [40 x i8], ptr %189, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load i64, ptr %209, align 4
   %sext.i158 = shl i64 %210, 32
@@ -2714,7 +2712,7 @@ Amap_LibertyItem.exit288:                         ; preds = %Vec_StrPrintStr.exi
 
 .lr.ph.preheader:                                 ; preds = %Amap_LibertyItem.exit288
   %535 = zext nneg i32 %532 to i64
-  %536 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %534, i64 %535
+  %536 = getelementptr inbounds nuw [40 x i8], ptr %534, i64 %535
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Amap_LibertyItem.exit338
@@ -2730,7 +2728,7 @@ Amap_LibertyItem.exit288:                         ; preds = %Vec_StrPrintStr.exi
 
 540:                                              ; preds = %544, %.lr.ph.i290
   %indvars.iv.i292 = phi i64 [ 0, %.lr.ph.i290 ], [ %indvars.iv.next.i293, %544 ]
-  %541 = getelementptr inbounds nuw ptr, ptr %539, i64 %indvars.iv.i292
+  %541 = getelementptr inbounds nuw [8 x i8], ptr %539, i64 %indvars.iv.i292
   %542 = load ptr, ptr %541, align 8, !tbaa !31
   %543 = icmp eq ptr %542, %.082382
   br i1 %543, label %Vec_StrPrintStr.exit337, label %544
@@ -2993,7 +2991,7 @@ Vec_StrPrintStr.exit337:                          ; preds = %540, %Vec_StrPush.e
 Amap_LibertyItem.exit338:                         ; preds = %Vec_StrPrintStr.exit337
   %653 = load ptr, ptr %66, align 8, !tbaa !19
   %654 = zext nneg i32 %651 to i64
-  %655 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %653, i64 %654
+  %655 = getelementptr inbounds nuw [40 x i8], ptr %653, i64 %654
   %.not94 = icmp eq ptr %653, null
   br i1 %.not94, label %.loopexit, label %.lr.ph, !llvm.loop !46
 
@@ -3027,7 +3025,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %660
 Amap_LibertyItem.exit340:                         ; preds = %661
   %665 = load ptr, ptr %66, align 8, !tbaa !19
   %666 = zext nneg i32 %663 to i64
-  %667 = getelementptr inbounds nuw %struct.Amap_Item_t_, ptr %665, i64 %666
+  %667 = getelementptr inbounds nuw [40 x i8], ptr %665, i64 %666
   %.not = icmp eq ptr %665, null
   br i1 %.not, label %.lr.ph.i341.preheader, label %73, !llvm.loop !48
 
@@ -3534,7 +3532,7 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load i32, ptr %80, align 8, !tbaa !59
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.Amap_Item_t_, ptr %79, i64 %82
+  %83 = getelementptr inbounds [40 x i8], ptr %79, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store i32 %77, ptr %84, align 4, !tbaa !60
   store i32 2, ptr %83, align 4, !tbaa !3
@@ -3591,7 +3589,7 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %116 = load i32, ptr %115, align 8, !tbaa !59
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.Amap_Item_t_, ptr %114, i64 %117
+  %118 = getelementptr inbounds [40 x i8], ptr %114, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i32 %112, ptr %119, align 4, !tbaa !60
   store i32 3, ptr %118, align 4, !tbaa !3
@@ -3644,7 +3642,7 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %149 = load i32, ptr %148, align 8, !tbaa !59
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds %struct.Amap_Item_t_, ptr %147, i64 %150
+  %151 = getelementptr inbounds [40 x i8], ptr %147, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   store i32 %145, ptr %152, align 4, !tbaa !60
   store i32 1, ptr %151, align 4, !tbaa !3
@@ -3704,7 +3702,7 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %180 = load i32, ptr %179, align 8, !tbaa !59
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds %struct.Amap_Item_t_, ptr %178, i64 %181
+  %182 = getelementptr inbounds [40 x i8], ptr %178, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   store i32 %176, ptr %183, align 4, !tbaa !60
   store i32 3, ptr %182, align 4, !tbaa !3

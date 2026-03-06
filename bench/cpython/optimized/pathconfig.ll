@@ -362,7 +362,7 @@ define hidden void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind noalias writab
 64:                                               ; preds = %.lr.ph, %64
   %.03960 = phi i64 [ 1, %.lr.ph ], [ %69, %64 ]
   %.04059 = phi i64 [ 0, %.lr.ph ], [ %70, %64 ]
-  %65 = getelementptr ptr, ptr %58, i64 %.04059
+  %65 = getelementptr [8 x i8], ptr %58, i64 %.04059
   %66 = load ptr, ptr %65, align 8, !tbaa !38
   %67 = call i64 @wcslen(ptr noundef %66) #13
   %68 = add i64 %.03960, 1
@@ -375,7 +375,7 @@ define hidden void @_PyPathConfig_UpdateGlobal(ptr dead_on_unwind noalias writab
   %.03762 = phi i64 [ 0, %.lr.ph63 ], [ %78, %71 ]
   %.03861 = phi ptr [ %60, %.lr.ph63 ], [ %77, %71 ]
   %72 = load ptr, ptr %63, align 8, !tbaa !37
-  %73 = getelementptr ptr, ptr %72, i64 %.03762
+  %73 = getelementptr [8 x i8], ptr %72, i64 %.03762
   %74 = load ptr, ptr %73, align 8, !tbaa !38
   %75 = call ptr @wcscpy(ptr noundef nonnull %.03861, ptr noundef %74) #12
   %76 = call ptr @wcschr(ptr noundef nonnull %.03861, i32 noundef 0) #13
@@ -693,7 +693,7 @@ define hidden range(i32 -1, 2) i32 @_PyPathConfig_ComputeSysPath0(ptr noundef re
 
 22:                                               ; preds = %19
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr i32, ptr %4, i64 %23
+  %24 = getelementptr [4 x i8], ptr %4, i64 %23
   store i32 0, ptr %24, align 4, !tbaa !29
   %25 = load i32, ptr %4, align 16, !tbaa !29
   %26 = icmp eq i32 %25, 47

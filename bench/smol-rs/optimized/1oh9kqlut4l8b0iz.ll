@@ -1731,7 +1731,7 @@ default.unreachable:                              ; preds = %351, %54
   %193 = phi i64 [ %185, %175 ], [ %.pre.i.i.i.i, %.noexc.i.i.i ]
   %194 = getelementptr inbounds nuw i8, ptr %55, i64 232
   %195 = load ptr, ptr %194, align 8, !alias.scope !241, !noalias !249, !nonnull !14, !noundef !14
-  %196 = getelementptr inbounds { { { i32, i32 }, i32, i32 }, i32, i32, i32 }, ptr %195, i64 %193
+  %196 = getelementptr inbounds [28 x i8], ptr %195, i64 %193
   %197 = mul i64 %183, 28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %196, ptr nonnull align 4 %181, i64 %197, i1 false), !noalias !244
   %198 = load i64, ptr %184, align 8, !alias.scope !241, !noalias !249, !noundef !14
@@ -1809,7 +1809,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i: ; preds = %207
 231:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !231
   %.val100.i.i.i = load ptr, ptr %217, align 8, !noalias !231, !nonnull !14, !noundef !14
-  %232 = getelementptr inbounds { { { i32, i32 }, i32, i32 }, i32, i32, i32 }, ptr %.val100.i.i.i, i64 %225
+  %232 = getelementptr inbounds [28 x i8], ptr %.val100.i.i.i, i64 %225
   invoke void @_ZN3std7process5Child8try_wait17h309081c7df6a7d00E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 4 dereferenceable(28) %232)
           to label %236 unwind label %234
 
@@ -1879,7 +1879,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i: ; preds = %207
 
 252:                                              ; preds = %242
   %253 = load ptr, ptr %217, align 8, !alias.scope !251, !noalias !254, !nonnull !14, !noundef !14
-  %254 = getelementptr inbounds { { { i32, i32 }, i32, i32 }, i32, i32, i32 }, ptr %253, i64 %241
+  %254 = getelementptr inbounds [28 x i8], ptr %253, i64 %241
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %254, i64 12
   %.sroa.4.0.copyload.i.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !noalias !251
   %.sroa.5154.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %254, i64 16
@@ -1889,7 +1889,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i: ; preds = %207
   %.sroa.9158.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %254, i64 24
   %.sroa.9158.0.copyload.i.i.i = load i32, ptr %.sroa.9158.0..sroa_idx.i.i.i, align 4, !noalias !251
   %255 = add i64 %243, -1
-  %256 = getelementptr inbounds { { { i32, i32 }, i32, i32 }, i32, i32, i32 }, ptr %253, i64 %255
+  %256 = getelementptr inbounds [28 x i8], ptr %253, i64 %255
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %254, ptr noundef nonnull align 4 dereferenceable(28) %256, i64 28, i1 false), !noalias !266
   store i64 %255, ptr %216, align 8, !alias.scope !251, !noalias !254
   %257 = icmp eq i32 %.sroa.4.0.copyload.i.i.i, -1
@@ -2068,7 +2068,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i: ; preds = %207
   %322 = phi i64 [ %314, %305 ], [ %.pre.i119.i.i.i, %.noexc120.i.i.i ]
   %323 = getelementptr inbounds nuw i8, ptr %307, i64 16
   %324 = load ptr, ptr %323, align 8, !alias.scope !276, !noalias !279, !nonnull !14, !noundef !14
-  %325 = getelementptr inbounds { { { i32, i32 }, i32, i32 }, i32, i32, i32 }, ptr %324, i64 %322
+  %325 = getelementptr inbounds [28 x i8], ptr %324, i64 %322
   %326 = mul i64 %312, 28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %325, ptr nonnull align 4 %311, i64 %326, i1 false), !noalias !279
   %327 = load i64, ptr %313, align 8, !alias.scope !276, !noalias !279, !noundef !14

@@ -25,10 +25,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::BuildPreset>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function", i8, [7 x i8] }>
-%"class.std::basic_string_view" = type { i64, ptr }
 %class.anon.55 = type <{ %"class.std::function.2", %"class.cmJSONHelperBuilder::Object", [8 x i8] }>
 %"struct.std::pair" = type { %"class.std::basic_string_view", ptr }
+%"class.std::basic_string_view" = type { i64, ptr }
 %class.cmAlphaNum = type { ptr, %"class.std::basic_string_view", [32 x i8] }
 %"class.Json::ValueConstIterator" = type { %"class.Json::ValueIteratorBase.base", [7 x i8] }
 %"class.Json::ValueIteratorBase.base" = type <{ %"struct.std::_Rb_tree_iterator", i8 }>
@@ -2652,7 +2651,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph11BuildPresetEE
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph11BuildPresetEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph11BuildPresetEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !37
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !15
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::BuildPreset>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !18
   ret void
 }
@@ -5945,7 +5944,7 @@ _ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE11_S_relocateEPS1_S4_S4
 _ZNSt12_Vector_baseIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19cmCMakePresetsGraph11BuildPresetESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %32
   store ptr %20, ptr %0, align 8, !tbaa !110
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !113
-  %36 = getelementptr inbounds nuw %"class.cmCMakePresetsGraph::BuildPreset", ptr %20, i64 %16
+  %36 = getelementptr inbounds nuw [360 x i8], ptr %20, i64 %16
   store ptr %36, ptr %31, align 8, !tbaa !164
   ret void
 }

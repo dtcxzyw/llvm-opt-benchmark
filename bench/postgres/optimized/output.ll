@@ -410,7 +410,7 @@ define dso_local void @output_statement(ptr noundef %0, i32 noundef %1, i32 noun
   %spec.store.select = select i1 %or.cond, i32 %2, i32 0
   %16 = load ptr, ptr @base_yyout, align 8
   %17 = zext i32 %spec.store.select to i64
-  %18 = getelementptr inbounds nuw ptr, ptr @ecpg_statement_type_name, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @ecpg_statement_type_name, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %16, ptr noundef nonnull @.str.9, ptr noundef %19) #7
   %21 = add i32 %spec.store.select, -1

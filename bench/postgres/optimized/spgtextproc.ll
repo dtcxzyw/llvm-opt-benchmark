@@ -3,10 +3,6 @@ source_filename = "bench/postgres/original/spgtextproc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.spgNodePtr = type { i64, i32, i16 }
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"unrecognized strategy number: %d\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"spgtextproc.c\00", align 1
 @__func__.spg_text_inner_consistent = private unnamed_addr constant [26 x i8] c"spg_text_inner_consistent\00", align 1
@@ -289,7 +285,7 @@ formTextDatum.exit124:                            ; preds = %127, %123
   %145 = add i32 %.02227.i, %.01928.i
   %146 = ashr i32 %145, 1
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds i64, ptr %141, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %141, i64 %147
   %149 = load i64, ptr %148, align 8
   %150 = trunc i64 %149 to i16
   %151 = icmp slt i16 %.2, %150
@@ -471,7 +467,7 @@ define dso_local noundef i64 @spg_text_picksplit(ptr noundef readonly captures(n
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %commonPrefix.exit ]
   %.0130177 = phi i32 [ %33, %.lr.ph ], [ %spec.select, %commonPrefix.exit ]
   %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8
   %44 = inttoptr i64 %43 to ptr
   %45 = tail call ptr @pg_detoast_datum_packed(ptr noundef %44) #8
@@ -642,7 +638,7 @@ formTextDatum.exit:                               ; preds = %120, %116
 133:                                              ; preds = %.lr.ph181, %169
   %indvars.iv190 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next191, %169 ]
   %134 = load ptr, ptr %8, align 8
-  %135 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv190
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv190
   %136 = load i64, ptr %135, align 8
   %137 = inttoptr i64 %136 to ptr
   %138 = tail call ptr @pg_detoast_datum_packed(ptr noundef %137) #8
@@ -696,15 +692,15 @@ formTextDatum.exit:                               ; preds = %120, %116
 
 169:                                              ; preds = %160, %163
   %.sink = phi i16 [ %168, %163 ], [ -1, %160 ]
-  %170 = getelementptr inbounds nuw %struct.spgNodePtr, ptr %129, i64 %indvars.iv190
+  %170 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %indvars.iv190
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 12
   store i16 %.sink, ptr %171, align 4
-  %172 = getelementptr inbounds nuw %struct.spgNodePtr, ptr %129, i64 %indvars.iv190
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %indvars.iv190
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = trunc nuw nsw i64 %indvars.iv190 to i32
   store i32 %174, ptr %173, align 8
   %175 = load ptr, ptr %8, align 8
-  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %indvars.iv190
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv190
   %177 = load i64, ptr %176, align 8
   store i64 %177, ptr %172, align 8
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
@@ -747,7 +743,7 @@ formTextDatum.exit:                               ; preds = %120, %116
 
 201:                                              ; preds = %.lr.ph186, %formTextDatum.exit173
   %indvars.iv193 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next194, %formTextDatum.exit173 ]
-  %202 = getelementptr %struct.spgNodePtr, ptr %129, i64 %indvars.iv193
+  %202 = getelementptr [16 x i8], ptr %129, i64 %indvars.iv193
   %203 = load i64, ptr %202, align 8
   %204 = inttoptr i64 %203 to ptr
   %205 = tail call ptr @pg_detoast_datum_packed(ptr noundef %204) #8
@@ -767,7 +763,7 @@ formTextDatum.exit:                               ; preds = %120, %116
   %211 = load ptr, ptr %186, align 8
   %212 = load i32, ptr %181, align 8
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds i64, ptr %211, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %211, i64 %213
   store i64 %210, ptr %214, align 8
   %215 = load i32, ptr %181, align 8
   %216 = add i32 %215, 1
@@ -876,14 +872,14 @@ formTextDatum.exit173:                            ; preds = %.sink.split.i170, %
   %275 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %276 = load i32, ptr %275, align 8
   %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds i64, ptr %274, i64 %277
+  %278 = getelementptr inbounds [8 x i8], ptr %274, i64 %277
   store i64 %.0, ptr %278, align 8
   %279 = load i32, ptr %181, align 8
   %280 = add i32 %279, -1
   %281 = load ptr, ptr %191, align 8
   %282 = load i32, ptr %275, align 8
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds i32, ptr %281, i64 %283
+  %284 = getelementptr inbounds [4 x i8], ptr %281, i64 %283
   store i32 %280, ptr %284, align 4
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %285 = load i32, ptr %4, align 8
@@ -1051,7 +1047,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
 96:                                               ; preds = %.lr.ph139, %.thread132
   %indvars.iv144 = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next145, %.thread132 ]
   %97 = load ptr, ptr %89, align 8
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv144
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv144
   %99 = load i64, ptr %98, align 8
   %100 = trunc i64 %99 to i16
   %101 = icmp slt i16 %100, 1
@@ -1072,7 +1068,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %107 = phi i32 [ %163, %select.unfold ], [ %105, %104 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold ], [ 0, %104 ]
   %108 = load ptr, ptr %4, align 8
-  %109 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %108, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [72 x i8], ptr %108, i64 %indvars.iv
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 6
   %111 = load i16, ptr %110, align 2
   %112 = icmp ugt i16 %111, 10
@@ -1159,7 +1155,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
 154:                                              ; preds = %141
   %155 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %156 = load ptr, ptr %4, align 8
-  %157 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %156, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [72 x i8], ptr %156, i64 %indvars.iv
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 6
   %159 = load i16, ptr %158, align 2
   %160 = zext i16 %159 to i32
@@ -1186,7 +1182,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   %166 = load ptr, ptr %76, align 8
   %167 = load i32, ptr %7, align 8
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds i32, ptr %166, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %166, i64 %168
   %170 = trunc nuw nsw i64 %indvars.iv144 to i32
   store i32 %170, ptr %169, align 4
   %171 = load i32, ptr %17, align 8
@@ -1194,7 +1190,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   %173 = load ptr, ptr %81, align 8
   %174 = load i32, ptr %7, align 8
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds i32, ptr %173, i64 %175
+  %176 = getelementptr inbounds [4 x i8], ptr %173, i64 %175
   store i32 %172, ptr %176, align 4
   %177 = shl i32 %.0106, 2
   %178 = add i32 %177, 16
@@ -1203,7 +1199,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   %180 = load ptr, ptr %86, align 8
   %181 = load i32, ptr %7, align 8
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds i64, ptr %180, i64 %182
+  %183 = getelementptr inbounds [8 x i8], ptr %180, i64 %182
   store i64 %179, ptr %183, align 8
   %184 = load i32, ptr %7, align 8
   %185 = add i32 %184, 1
@@ -1407,7 +1403,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
 98:                                               ; preds = %.lr.ph, %.thread163
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread163 ]
   %99 = load ptr, ptr %4, align 8
-  %100 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %99, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [72 x i8], ptr %99, i64 %indvars.iv
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 6
   %102 = load i16, ptr %101, align 2
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 64
@@ -1522,7 +1518,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
 160:                                              ; preds = %151
   %161 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %162 = load ptr, ptr %4, align 8
-  %163 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %162, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [72 x i8], ptr %162, i64 %indvars.iv
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 6
   %165 = load i16, ptr %164, align 2
   %166 = zext i16 %165 to i32

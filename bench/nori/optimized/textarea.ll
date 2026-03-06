@@ -66,10 +66,10 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i:
 
 13:                                               ; preds = %13, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i
   %.05.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i ], [ %18, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %.05.i.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i.i.i
   %15 = load i32, ptr %14, align 4
   %16 = sitofp i32 %15 to float
-  %17 = getelementptr inbounds nuw float, ptr %8, i64 %.05.i.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.05.i.i.i
   store float %16, ptr %17, align 4
   %18 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %18, 3
@@ -77,7 +77,7 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i:
 
 _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %13, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
   %.04.i.i.i = phi i64 [ %20, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i ], [ 0, %13 ]
-  %19 = getelementptr inbounds nuw float, ptr %9, i64 %.04.i.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.04.i.i.i
   store float 2.550000e+02, ptr %19, align 4
   %20 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i2.i.i = icmp eq i64 %20, 3
@@ -89,12 +89,12 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIf
 
 21:                                               ; preds = %21, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i
   %.06.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i ], [ %28, %21 ]
-  %22 = getelementptr inbounds nuw float, ptr %8, i64 %.06.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.06.i.i.i
   %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds nuw float, ptr %9, i64 %.06.i.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.06.i.i.i
   %25 = load float, ptr %24, align 4
   %26 = fdiv float %23, %25
-  %27 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i.i.i
   store float %26, ptr %27, align 4
   %28 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i3.i.i = icmp eq i64 %28, 3
@@ -126,10 +126,10 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i7:             ; preds = %21
 
 30:                                               ; preds = %30, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i7
   %.05.i.i.i8 = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i7 ], [ %35, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %6, i64 %.05.i.i.i8
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.05.i.i.i8
   %32 = load i32, ptr %31, align 4
   %33 = sitofp i32 %32 to float
-  %34 = getelementptr inbounds nuw float, ptr %4, i64 %.05.i.i.i8
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.05.i.i.i8
   store float %33, ptr %34, align 4
   %35 = add nuw nsw i64 %.05.i.i.i8, 1
   %exitcond.not.i.i.i9 = icmp eq i64 %35, 3
@@ -137,7 +137,7 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i7:             ; preds = %21
 
 _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i10: ; preds = %30, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i10
   %.04.i.i.i11 = phi i64 [ %37, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i10 ], [ 0, %30 ]
-  %36 = getelementptr inbounds nuw float, ptr %5, i64 %.04.i.i.i11
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.04.i.i.i11
   store float 2.550000e+02, ptr %36, align 4
   %37 = add nuw nsw i64 %.04.i.i.i11, 1
   %exitcond.not.i2.i.i12 = icmp eq i64 %37, 3
@@ -149,12 +149,12 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i13:          ; preds = %_ZN7nanogui5ArrayIf
 
 38:                                               ; preds = %38, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i13
   %.06.i.i.i14 = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i13 ], [ %45, %38 ]
-  %39 = getelementptr inbounds nuw float, ptr %4, i64 %.06.i.i.i14
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.06.i.i.i14
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds nuw float, ptr %5, i64 %.06.i.i.i14
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.06.i.i.i14
   %42 = load float, ptr %41, align 4
   %43 = fdiv float %40, %42
-  %44 = getelementptr inbounds nuw float, ptr %3, i64 %.06.i.i.i14
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.06.i.i.i14
   store float %43, ptr %44, align 4
   %45 = add nuw nsw i64 %.06.i.i.i14, 1
   %exitcond.not.i3.i.i15 = icmp eq i64 %45, 3
@@ -183,7 +183,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i13:          ; preds = %_ZN7nanogui5ArrayIf
 
 48:                                               ; preds = %48, %46
   %.04.i.i25 = phi i64 [ 0, %46 ], [ %50, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %2, i64 %.04.i.i25
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.04.i.i25
   store float 5.000000e-01, ptr %49, align 4
   %50 = add nuw nsw i64 %.04.i.i25, 1
   %exitcond.not.i.i26 = icmp eq i64 %50, 3
@@ -612,7 +612,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui8TextArea14keyboard_eventEiiii(ptr 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit:                ; preds = %.preheader107, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit
   %.not8.i.i = phi i1 [ false, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit ], [ true, %.preheader107 ]
   %.07.i.i = phi i64 [ 1, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit ], [ 0, %.preheader107 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %.07.i.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.07.i.i
   %26 = load i32, ptr %25, align 4
   %.not.i.i = icmp eq i32 %26, -1
   %or.cond.i.i = and i1 %.not8.i.i, %.not.i.i
@@ -628,7 +628,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit:           ; preds = %_ZN7nanogui5ArrayIi
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit42:              ; preds = %.preheader, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit42
   %.not8.i.i43 = phi i1 [ false, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit42 ], [ true, %.preheader ]
   %.07.i.i44 = phi i64 [ 1, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit42 ], [ 0, %.preheader ]
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.07.i.i44
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.07.i.i44
   %29 = load i32, ptr %28, align 4
   %.not.i.i45 = icmp eq i32 %29, -1
   %or.cond.i.i46 = and i1 %.not8.i.i43, %.not.i.i45
@@ -675,11 +675,11 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47:         ; preds = %_ZN7nanogui5ArrayIi
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %sext104 = shl nuw i64 %.sroa.8.0, 32
   %40 = ashr exact i64 %sext104, 32
-  %41 = getelementptr inbounds %struct.NVGglyphPosition, ptr %7, i64 %40
+  %41 = getelementptr inbounds [24 x i8], ptr %7, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %sext105 = shl nuw i64 %.sroa.9.0, 32
   %43 = ashr exact i64 %sext105, 32
-  %44 = getelementptr inbounds %struct.NVGglyphPosition, ptr %7, i64 %43
+  %44 = getelementptr inbounds [24 x i8], ptr %7, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %47 = sext i32 %.sroa.069.0 to i64
@@ -695,7 +695,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47:         ; preds = %_ZN7nanogui5ArrayIi
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %50
-  %53 = getelementptr %"struct.nanogui::TextArea::Block", ptr %.pre97, i64 %indvars.iv
+  %53 = getelementptr [64 x i8], ptr %.pre97, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr i8, ptr %53, i64 -60
@@ -727,7 +727,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47:         ; preds = %_ZN7nanogui5ArrayIi
           to label %63 unwind label %.loopexit
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds %"struct.nanogui::TextArea::Block", ptr %61, i64 %indvars.iv
+  %64 = getelementptr inbounds [64 x i8], ptr %61, i64 %indvars.iv
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 152
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %64, align 4
@@ -745,7 +745,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47:         ; preds = %_ZN7nanogui5ArrayIi
   %77 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #17
   %78 = getelementptr inbounds i8, ptr %76, i64 %77
   %79 = sext i32 %74 to i64
-  %80 = getelementptr inbounds %struct.NVGglyphPosition, ptr %7, i64 %79
+  %80 = getelementptr inbounds [24 x i8], ptr %7, i64 %79
   store ptr %78, ptr %80, align 8
   %81 = icmp eq i64 %indvars.iv, %47
   br i1 %81, label %82, label %103
@@ -883,7 +883,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit58:
 
 116:                                              ; preds = %103
   %117 = load ptr, ptr %39, align 8
-  %118 = getelementptr inbounds %"struct.nanogui::TextArea::Block", ptr %117, i64 %indvars.iv
+  %118 = getelementptr inbounds [64 x i8], ptr %117, i64 %indvars.iv
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %119)
           to label %121 unwind label %.loopexit
@@ -1005,7 +1005,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorI
   %.015.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i ], [ %31, %22 ]
   %.sroa.013.014.i.i = phi ptr [ %.sroa.013.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i ], [ %19, %22 ]
   %33 = lshr i64 %.015.i.i, 1
-  %34 = getelementptr inbounds nuw %"struct.nanogui::TextArea::Block", ptr %.sroa.013.014.i.i, i64 %33
+  %34 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.013.014.i.i, i64 %33
   %35 = getelementptr i8, ptr %34, i64 4
   %.val2.i.i.i = load i32, ptr %35, align 4
   %36 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
@@ -1034,7 +1034,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorI
   %.04.i.i = phi i64 [ %.1.i.i57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i54 ], [ %.pre219, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNS3_4drawEP10NVGcontextE3$_0ET_SD_SD_RKT0_T1_.exit" ]
   %.sroa.02.03.i.i = phi ptr [ %.sroa.02.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i54 ], [ %.pre, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNS3_4drawEP10NVGcontextE3$_0ET_SD_SD_RKT0_T1_.exit" ]
   %45 = lshr i64 %.04.i.i, 1
-  %46 = getelementptr inbounds nuw %"struct.nanogui::TextArea::Block", ptr %.sroa.02.03.i.i, i64 %45
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.02.03.i.i, i64 %45
   %47 = getelementptr i8, ptr %46, i64 4
   %.val.i.i.i = load i32, ptr %47, align 4
   %48 = icmp slt i32 %43, %.val.i.i.i
@@ -1099,7 +1099,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %57, %"_ZSt11upper_b
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit59:              ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit59
   %.not8.i.i = phi i1 [ false, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit59 ], [ true, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
   %.07.i.i = phi i64 [ 1, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit59 ], [ 0, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
-  %83 = getelementptr inbounds nuw i32, ptr %71, i64 %.07.i.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.07.i.i
   %84 = load i32, ptr %83, align 4
   %.not.i.i = icmp eq i32 %84, -1
   %or.cond.i.i = and i1 %.not8.i.i, %.not.i.i
@@ -1164,7 +1164,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit67.preheader.critedge: ; preds = %_ZN7nanogui5A
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit67:              ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit67.preheader.critedge, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit67
   %.not8.i.i68 = phi i1 [ false, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit67 ], [ true, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit67.preheader.critedge ]
   %.07.i.i69 = phi i64 [ 1, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit67 ], [ 0, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit67.preheader.critedge ]
-  %109 = getelementptr inbounds nuw i32, ptr %71, i64 %.07.i.i69
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.07.i.i69
   %110 = load i32, ptr %109, align 4
   %.not.i.i70 = icmp eq i32 %110, -1
   %or.cond.i.i71 = and i1 %.not8.i.i68, %.not.i.i70
@@ -1176,7 +1176,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit72:         ; preds = %_ZN7nanogui5ArrayIi
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit74:              ; preds = %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit72, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit74
   %.not8.i.i75 = phi i1 [ false, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit74 ], [ true, %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit72 ]
   %.07.i.i76 = phi i64 [ 1, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit74 ], [ 0, %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit72 ]
-  %111 = getelementptr inbounds nuw i32, ptr %71, i64 %.07.i.i76
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.07.i.i76
   %112 = load i32, ptr %111, align 4
   %.not.i.i77 = icmp eq i32 %112, -1
   %or.cond.i.i78 = and i1 %.not8.i.i75, %.not.i.i77
@@ -1209,7 +1209,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit79:         ; preds = %_ZN7nanogui5ArrayIi
   %124 = load i32, ptr %.0, align 4
   %125 = sext i32 %124 to i64
   %126 = load ptr, ptr %53, align 8
-  %127 = getelementptr inbounds %"struct.nanogui::TextArea::Block", ptr %126, i64 %125
+  %127 = getelementptr inbounds [64 x i8], ptr %126, i64 %125
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i32, ptr %128, align 8
   %130 = load i32, ptr %75, align 8
@@ -1272,10 +1272,10 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i:              ; preds = %.lr.ph, %.critedge2
 
 155:                                              ; preds = %155, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i
   %.05.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i ], [ %160, %155 ]
-  %156 = getelementptr inbounds nuw i32, ptr %6, i64 %.05.i.i.i
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.05.i.i.i
   %157 = load i32, ptr %156, align 4
   %158 = sitofp i32 %157 to float
-  %159 = getelementptr inbounds nuw float, ptr %4, i64 %.05.i.i.i
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.05.i.i.i
   store float %158, ptr %159, align 4
   %160 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %160, 3
@@ -1283,7 +1283,7 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i:              ; preds = %.lr.ph, %.critedge2
 
 _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %155, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
   %.04.i.i.i = phi i64 [ %162, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i ], [ 0, %155 ]
-  %161 = getelementptr inbounds nuw float, ptr %5, i64 %.04.i.i.i
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.04.i.i.i
   store float 2.550000e+02, ptr %161, align 4
   %162 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i2.i.i = icmp eq i64 %162, 3
@@ -1295,12 +1295,12 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIf
 
 163:                                              ; preds = %163, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i
   %.06.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i ], [ %170, %163 ]
-  %164 = getelementptr inbounds nuw float, ptr %4, i64 %.06.i.i.i
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.06.i.i.i
   %165 = load float, ptr %164, align 4
-  %166 = getelementptr inbounds nuw float, ptr %5, i64 %.06.i.i.i
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.06.i.i.i
   %167 = load float, ptr %166, align 4
   %168 = fdiv float %165, %167
-  %169 = getelementptr inbounds nuw float, ptr %3, i64 %.06.i.i.i
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.06.i.i.i
   store float %168, ptr %169, align 4
   %170 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i3.i.i = icmp eq i64 %170, 3
@@ -1323,9 +1323,9 @@ _ZN7nanogui5ColorC2Eii.exit:                      ; preds = %163
 
 171:                                              ; preds = %171, %_ZN7nanogui5ColorC2Eii.exit
   %.07.i = phi i64 [ 0, %_ZN7nanogui5ColorC2Eii.exit ], [ %177, %171 ]
-  %172 = getelementptr inbounds nuw float, ptr %7, i64 %.07.i
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.07.i
   %173 = load float, ptr %172, align 4
-  %174 = getelementptr inbounds nuw float, ptr %8, i64 %.07.i
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.07.i
   %175 = load float, ptr %174, align 4
   %176 = fcmp oeq float %173, %175
   %177 = add nuw nsw i64 %.07.i, 1
@@ -1358,7 +1358,7 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge: ; preds = %178, %_ZNK7nano
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit88:              ; preds = %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit88
   %.not8.i.i89 = phi i1 [ false, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit88 ], [ true, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge ]
   %.07.i.i90 = phi i64 [ 1, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit88 ], [ 0, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge ]
-  %191 = getelementptr inbounds nuw i32, ptr %71, i64 %.07.i.i90
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.07.i.i90
   %192 = load i32, ptr %191, align 4
   %.not.i.i91 = icmp eq i32 %192, -1
   %or.cond.i.i92 = and i1 %.not8.i.i89, %.not.i.i91
@@ -1370,7 +1370,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93:         ; preds = %_ZN7nanogui5ArrayIi
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit95:              ; preds = %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit95
   %.not8.i.i96 = phi i1 [ false, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit95 ], [ true, %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93 ]
   %.07.i.i97 = phi i64 [ 1, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit95 ], [ 0, %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93 ]
-  %193 = getelementptr inbounds nuw i32, ptr %71, i64 %.07.i.i97
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.07.i.i97
   %194 = load i32, ptr %193, align 4
   %.not.i.i98 = icmp eq i32 %194, -1
   %or.cond.i.i99 = and i1 %.not8.i.i96, %.not.i.i98
@@ -1451,7 +1451,7 @@ define hidden i64 @_ZNK7nanogui8TextArea17block_to_positionERKNS_5ArrayIiLm2EEE(
   %20 = load i32, ptr %1, align 4
   %21 = sext i32 %20 to i64
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds %"struct.nanogui::TextArea::Block", ptr %22, i64 %21
+  %23 = getelementptr inbounds [64 x i8], ptr %22, i64 %21
   %24 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
   %25 = sitofp i32 %24 to float
   tail call void @nvgFontSize(ptr noundef %19, float noundef %25)
@@ -1473,7 +1473,7 @@ define hidden i64 @_ZNK7nanogui8TextArea17block_to_positionERKNS_5ArrayIiLm2EEE(
 
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %16
   %39 = sext i32 %35 to i64
-  %40 = getelementptr %struct.NVGglyphPosition, ptr %3, i64 %39
+  %40 = getelementptr [24 x i8], ptr %3, i64 %39
   %41 = getelementptr i8, ptr %40, i64 -8
   %42 = load float, ptr %41, align 8
   %43 = fadd float %42, 1.000000e+00
@@ -1490,7 +1490,7 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %16
 
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit18.critedge: ; preds = %49
   %51 = sext i32 %37 to i64
-  %52 = getelementptr inbounds %struct.NVGglyphPosition, ptr %3, i64 %51
+  %52 = getelementptr inbounds [24 x i8], ptr %3, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load float, ptr %53, align 8
   %55 = fptosi float %54 to i32
@@ -1588,7 +1588,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vector
   %.015.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i ], [ %15, %2 ]
   %.sroa.013.014.i.i = phi ptr [ %.sroa.013.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i ], [ %8, %2 ]
   %17 = lshr i64 %.015.i.i, 1
-  %18 = getelementptr inbounds nuw %"struct.nanogui::TextArea::Block", ptr %.sroa.013.014.i.i, i64 %17
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.013.014.i.i, i64 %17
   %.val10.i.i = load i32, ptr %11, align 4
   %19 = getelementptr i8, ptr %18, i64 4
   %.val2.i.i.i = load i32, ptr %19, align 4
@@ -1670,7 +1670,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vector
 64:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %.235 = phi i32 [ %.139, %.lr.ph ], [ %.3, %64 ]
-  %65 = getelementptr inbounds nuw %struct.NVGglyphPosition, ptr %3, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %67 = load float, ptr %66, align 4
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
@@ -1721,7 +1721,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.preheader.critedge:
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit:                ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.preheader.critedge, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit
   %.not8.i.i = phi i1 [ false, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit ], [ true, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.preheader.critedge ]
   %.07.i.i = phi i64 [ 1, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit ], [ 0, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.preheader.critedge ]
-  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %.07.i.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.07.i.i
   %8 = load i32, ptr %7, align 4
   %.not.i.i = icmp eq i32 %8, -1
   %or.cond.i.i = and i1 %.not8.i.i, %.not.i.i
@@ -2055,7 +2055,7 @@ _ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE13_M_deallocateEPS2_m.exit:
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %41 = getelementptr inbounds nuw %"struct.nanogui::TextArea::Block", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %16
   store ptr %41, ptr %40, align 8
   ret void
 }

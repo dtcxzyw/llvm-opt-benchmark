@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.pmi2_job_info = type { %struct.slurm_step_id_msg, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
-%struct.pmix_ring_msg = type { i32, ptr, ptr }
 
 @pmix_stepd_rank = internal unnamed_addr global i32 -1, align 4
 @pmix_stepd_width = internal unnamed_addr global i32 16, align 4
@@ -122,14 +121,14 @@ define dso_local noundef i32 @pmix_ring_init(ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %37 = load ptr, ptr @pmix_ring_msgs, align 8
-  %38 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %indvars.iv
   store i32 0, ptr %38, align 8
   %39 = load ptr, ptr @pmix_ring_msgs, align 8
-  %40 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr null, ptr %41, align 8
   %42 = load ptr, ptr @pmix_ring_msgs, align 8
-  %43 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr null, ptr %44, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -165,7 +164,7 @@ define dso_local noundef i32 @pmix_ring_finalize() local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
   %4 = load ptr, ptr @pmix_ring_msgs, align 8
-  %5 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -250,7 +249,7 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %12, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -266,16 +265,16 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
   %indvars.iv115 = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next116, %.lr.ph101 ]
   %.0100 = phi i32 [ %0, %.lr.ph101.preheader ], [ %25, %.lr.ph101 ]
   %.07399 = phi ptr [ %1, %.lr.ph101.preheader ], [ %spec.select, %.lr.ph101 ]
-  %21 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %12, i64 %indvars.iv115
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv115
   store i32 %.0100, ptr %21, align 8
   %22 = load ptr, ptr @pmix_ring_msgs, align 8
-  %23 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %22, i64 %indvars.iv115
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %indvars.iv115
   %24 = load i32, ptr %23, align 8
   %25 = add nsw i32 %24, %.0100
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %.07399, ptr %26, align 8
   %27 = load ptr, ptr @pmix_ring_msgs, align 8
-  %28 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %27, i64 %indvars.iv115
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %indvars.iv115
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %.not92 = icmp eq ptr %30, null
@@ -293,11 +292,11 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
   %indvars.iv118 = phi i64 [ %20, %.lr.ph104.preheader ], [ %indvars.iv.next119, %.lr.ph104 ]
   %.074103 = phi ptr [ %2, %.lr.ph104.preheader ], [ %spec.select93, %.lr.ph104 ]
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, -1
-  %34 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %12, i64 %indvars.iv.next119
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv.next119
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %.074103, ptr %35, align 8
   %36 = load ptr, ptr @pmix_ring_msgs, align 8
-  %37 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %36, i64 %indvars.iv.next119
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %indvars.iv.next119
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not91 = icmp eq ptr %39, null
@@ -315,7 +314,7 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
   %43 = load i32, ptr @pmix_app_children, align 4
   %44 = add nsw i32 %43, %.3105
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %struct.pmix_ring_msg, ptr %12, i64 %45
+  %46 = getelementptr inbounds [24 x i8], ptr %12, i64 %45
   %47 = tail call ptr @slurm_init_buf(i32 noundef 1024) #9
   tail call void @slurm_pack16(i16 noundef zeroext 8, ptr noundef %47) #9
   %48 = load i32, ptr %46, align 8
@@ -378,7 +377,7 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
 
 .lr.ph108:                                        ; preds = %.preheader, %.lr.ph108
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.lr.ph108 ], [ 0, %.preheader ]
-  %82 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %12, i64 %indvars.iv121
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv121
   %83 = tail call ptr @client_resp_new() #9
   %84 = load i32, ptr %82, align 8
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -407,7 +406,7 @@ define dso_local noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr 
 .lr.ph111:                                        ; preds = %._crit_edge, %107
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %107 ], [ 0, %._crit_edge ]
   %98 = load ptr, ptr @pmix_ring_msgs, align 8
-  %99 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %98, i64 %indvars.iv124
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %98, i64 %indvars.iv124
   store i32 0, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
@@ -525,7 +524,7 @@ define dso_local noundef i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr n
 9:                                                ; preds = %7, %4
   %10 = load ptr, ptr @pmix_ring_msgs, align 8
   %11 = sext i32 %0 to i64
-  %12 = getelementptr inbounds %struct.pmix_ring_msg, ptr %10, i64 %11
+  %12 = getelementptr inbounds [24 x i8], ptr %10, i64 %11
   store i32 %1, ptr %12, align 8
   %13 = tail call ptr @slurm_xstrdup(ptr noundef %2) #9
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -545,7 +544,7 @@ define dso_local noundef i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr n
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %18 to i64
-  %26 = getelementptr %struct.pmix_ring_msg, ptr %22, i64 %25
+  %26 = getelementptr [24 x i8], ptr %22, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp sgt i32 %17, -1
@@ -558,7 +557,7 @@ define dso_local noundef i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04654 = phi i32 [ 0, %.lr.ph.preheader ], [ %32, %.lr.ph ]
-  %30 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %22, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %indvars.iv
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, %.04654
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

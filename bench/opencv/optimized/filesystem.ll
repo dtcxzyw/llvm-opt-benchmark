@@ -1002,7 +1002,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2ERKS4_mm.exit: ; preds = 
   %23 = phi i64 [ %16, %._crit_edge.i.i ], [ %16, %18 ], [ %.pre11.i.i, %20 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %23, ptr %24, align 8, !tbaa !31
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 0, ptr %25, align 4, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %26
@@ -1405,7 +1405,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %33,
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %39
   %37 = phi ptr [ %42, %39 ], [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %.03781 = phi i64 [ %40, %39 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %37, i64 %.03781
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %.03781
   invoke void @_ZN2cv5utils2fs10remove_allERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %39 unwind label %48
 
@@ -4369,7 +4369,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416: ; preds = %53
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit418: ; preds = %573
   %575 = load ptr, ptr %25, align 8, !tbaa !43
-  %576 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %575, i64 %.0148590
+  %576 = getelementptr inbounds nuw [32 x i8], ptr %575, i64 %.0148590
   %577 = load ptr, ptr %576, align 8, !tbaa !12
   %578 = getelementptr inbounds nuw i8, ptr %576, i64 8
   %579 = load i64, ptr %578, align 8, !tbaa !3

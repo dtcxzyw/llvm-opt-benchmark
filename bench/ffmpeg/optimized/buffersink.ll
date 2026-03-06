@@ -718,7 +718,7 @@ define internal range(i32 -2147483648, 1) i32 @init_video(ptr noundef %0) #0 {
   store ptr %11, ptr %4, align 8, !tbaa !72
   %13 = load i32, ptr %7, align 8, !tbaa !73
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   store i32 -1, ptr %15, align 4, !tbaa !47
   br label %16
 
@@ -741,7 +741,7 @@ define internal range(i32 -2147483648, 1) i32 @init_video(ptr noundef %0) #0 {
   store ptr %24, ptr %17, align 8, !tbaa !74
   %26 = load i32, ptr %20, align 8, !tbaa !75
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %27
   store i32 -1, ptr %28, align 4, !tbaa !47
   br label %29
 
@@ -764,7 +764,7 @@ define internal range(i32 -2147483648, 1) i32 @init_video(ptr noundef %0) #0 {
   store ptr %37, ptr %30, align 8, !tbaa !76
   %39 = load i32, ptr %33, align 8, !tbaa !77
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   store i32 -1, ptr %41, align 4, !tbaa !47
   br label %42
 
@@ -872,7 +872,7 @@ define internal range(i32 -2147483648, 1) i32 @vsink_query_formats(ptr noundef %
   %47 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
   %.0113 = phi i32 [ 0, %.lr.ph ], [ %40, %39 ]
   %48 = load ptr, ptr %38, align 8, !tbaa !82
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %47
   %50 = load i32, ptr %49, align 4, !tbaa !47
   %51 = sext i32 %50 to i64
   %52 = call i32 @ff_add_format(ptr noundef nonnull %4, i64 noundef %51) #10
@@ -923,7 +923,7 @@ define internal range(i32 -2147483648, 1) i32 @vsink_query_formats(ptr noundef %
   %70 = phi i64 [ 0, %.lr.ph116 ], [ %64, %62 ]
   %.1114 = phi i32 [ 0, %.lr.ph116 ], [ %63, %62 ]
   %71 = load ptr, ptr %61, align 8, !tbaa !85
-  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %70
   %73 = load i32, ptr %72, align 4, !tbaa !47
   %74 = zext i32 %73 to i64
   %75 = call i32 @ff_add_format(ptr noundef nonnull %5, i64 noundef %74) #10
@@ -974,7 +974,7 @@ define internal range(i32 -2147483648, 1) i32 @vsink_query_formats(ptr noundef %
   %93 = phi i64 [ 0, %.lr.ph120 ], [ %87, %85 ]
   %.2118 = phi i32 [ 0, %.lr.ph120 ], [ %86, %85 ]
   %94 = load ptr, ptr %84, align 8, !tbaa !88
-  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %93
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %93
   %96 = load i32, ptr %95, align 4, !tbaa !47
   %97 = zext i32 %96 to i64
   %98 = call i32 @ff_add_format(ptr noundef nonnull %6, i64 noundef %97) #10
@@ -1026,7 +1026,7 @@ define internal range(i32 -2147483648, 1) i32 @init_audio(ptr noundef %0) #0 {
   store ptr %11, ptr %4, align 8, !tbaa !89
   %13 = load i32, ptr %7, align 8, !tbaa !90
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   store i32 -1, ptr %15, align 4, !tbaa !47
   br label %16
 
@@ -1049,7 +1049,7 @@ define internal range(i32 -2147483648, 1) i32 @init_audio(ptr noundef %0) #0 {
   store ptr %24, ptr %17, align 8, !tbaa !91
   %26 = load i32, ptr %20, align 8, !tbaa !92
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %27
   store i32 -1, ptr %28, align 4, !tbaa !47
   br label %29
 
@@ -1072,7 +1072,7 @@ define internal range(i32 -2147483648, 1) i32 @init_audio(ptr noundef %0) #0 {
   store ptr %37, ptr %30, align 8, !tbaa !93
   %39 = load i32, ptr %33, align 8, !tbaa !94
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   br label %42
 
@@ -1169,7 +1169,7 @@ define internal range(i32 -2147483648, 1) i32 @asink_query_formats(ptr noundef %
   %44 = phi i64 [ 0, %.lr.ph ], [ %38, %36 ]
   %.082 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
   %45 = load ptr, ptr %35, align 8, !tbaa !97
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %44
   %47 = load i32, ptr %46, align 4, !tbaa !47
   %48 = sext i32 %47 to i64
   %49 = call i32 @ff_add_format(ptr noundef nonnull %4, i64 noundef %48) #10
@@ -1226,7 +1226,7 @@ define internal range(i32 -2147483648, 1) i32 @asink_query_formats(ptr noundef %
   %73 = phi i64 [ 0, %.lr.ph85 ], [ %67, %65 ]
   %.183 = phi i32 [ 0, %.lr.ph85 ], [ %66, %65 ]
   %74 = load ptr, ptr %64, align 8, !tbaa !100
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %73
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %73
   %76 = load i32, ptr %75, align 4, !tbaa !47
   %77 = sext i32 %76 to i64
   %78 = call i32 @ff_add_format(ptr noundef nonnull %4, i64 noundef %77) #10
@@ -1472,14 +1472,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @common_init(ptr noundef %0
   store ptr %80, ptr %68, align 8, !tbaa !93
   %82 = load i32, ptr %69, align 8, !tbaa !94
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %80, i64 %83
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %80, i64 %83
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %84, i8 0, i64 48, i1 false)
   %85 = load i32, ptr %69, align 8, !tbaa !94
   %86 = add i32 %85, 1
   store i32 %86, ptr %69, align 8, !tbaa !94
   %87 = load ptr, ptr %68, align 8, !tbaa !93
   %88 = zext i32 %85 to i64
-  %89 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %88
   %90 = tail call i32 @av_channel_layout_from_string(ptr noundef %89, ptr noundef nonnull %.065) #10
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %92, label %70, !llvm.loop !106
@@ -1496,7 +1496,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @common_init(ptr noundef %0
 95:                                               ; preds = %93
   %96 = load ptr, ptr %68, align 8, !tbaa !93
   %97 = zext i32 %94 to i64
-  %98 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %96, i64 %97
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
   br label %.thread106
 

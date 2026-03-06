@@ -33,14 +33,14 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone cap
 6:                                                ; preds = %2, %113
   %indvars.iv206 = phi i64 [ 0, %2 ], [ %indvars.iv.next207, %113 ]
   %.0106192 = phi i32 [ 0, %2 ], [ %112, %113 ]
-  %7 = getelementptr inbounds nuw i32, ptr @test_values, i64 %indvars.iv206
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @test_values, i64 %indvars.iv206
   %8 = load i32, ptr %7, align 4, !tbaa !11
   br label %9
 
 9:                                                ; preds = %6, %test_binary_op_8.exit166
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %test_binary_op_8.exit166 ]
   %.1107189 = phi i32 [ %.0106192, %6 ], [ %112, %test_binary_op_8.exit166 ]
-  %10 = getelementptr inbounds nuw i32, ptr @test_values, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @test_values, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = icmp ult i32 %8, %11
   %13 = xor i32 %11, %8

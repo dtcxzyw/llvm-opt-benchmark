@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.helptxt = type { ptr, ptr, i32 }
-%struct.category_descriptors = type { ptr, ptr, i32 }
 
 @stdout = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [135 x i8] c"\0AThis is not the full help; this menu is split into categories.\0AUse \22--help category\22 to get an overview of all categories, which are:\00", align 1
@@ -285,7 +284,7 @@ define dso_local void @tool_help(ptr noundef %0) local_unnamed_addr #6 {
   %. = select i1 %13, i64 %12, i64 %11
   %14 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull %.str.34..str.35, ptr noundef nonnull %10) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i67, 1
-  %15 = getelementptr inbounds nuw %struct.category_descriptors, ptr @categories, i64 %indvars.iv.next.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr @categories, i64 %indvars.iv.next.i
   %16 = load ptr, ptr %15, align 8, !tbaa !23
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
   %18 = icmp eq i64 %indvars.iv.next.i, 24
@@ -316,7 +315,7 @@ get_categories_list.exit:                         ; preds = %8
 
 .preheader60:                                     ; preds = %27, %.preheader60
   %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i44, %.preheader60 ], [ 0, %27 ]
-  %29 = getelementptr inbounds nuw %struct.category_descriptors, ptr @categories, i64 %indvars.iv.i43
+  %29 = getelementptr inbounds nuw [24 x i8], ptr @categories, i64 %indvars.iv.i43
   %30 = load ptr, ptr %29, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !26
@@ -433,7 +432,7 @@ sub_1:                                            ; preds = %sub_0
 
 .preheader:                                       ; preds = %34, %79
   %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i46, %79 ], [ 0, %34 ]
-  %80 = getelementptr inbounds nuw %struct.category_descriptors, ptr @categories, i64 %indvars.iv.i45
+  %80 = getelementptr inbounds nuw [24 x i8], ptr @categories, i64 %indvars.iv.i45
   %81 = load ptr, ptr %80, align 8, !tbaa !23
   %82 = tail call i32 @curl_strequal(ptr noundef %81, ptr noundef nonnull %0) #16
   %.not.i = icmp eq i32 %82, 0
@@ -454,7 +453,7 @@ get_category_content.exit:                        ; preds = %79
 
 89:                                               ; preds = %89, %get_category_content.exit
   %indvars.iv.i48 = phi i64 [ 0, %get_category_content.exit ], [ %indvars.iv.next.i49, %89 ]
-  %90 = getelementptr inbounds nuw %struct.category_descriptors, ptr @categories, i64 %indvars.iv.i48
+  %90 = getelementptr inbounds nuw [24 x i8], ptr @categories, i64 %indvars.iv.i48
   %91 = load ptr, ptr %90, align 8, !tbaa !23
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !26
@@ -502,7 +501,7 @@ define internal fastcc void @print_category(i32 noundef %0, i32 noundef %1) unna
   %.135 = phi i64 [ %.2, %9 ], [ %.03452, %.lr.ph ]
   %15 = add i32 %.053, 1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.helptxt, ptr @helptext, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr @helptext, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !36
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
@@ -546,7 +545,7 @@ define internal fastcc void @print_category(i32 noundef %0, i32 noundef %1) unna
 42:                                               ; preds = %27, %33
   %43 = add i32 %.156, 1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.helptxt, ptr @helptext, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr @helptext, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !36
   %.not45 = icmp eq ptr %46, null
   br i1 %.not45, label %._crit_edge59, label %27, !llvm.loop !41
@@ -696,7 +695,7 @@ is_debug.exit.thread:                             ; preds = %3, %0, %is_debug.ex
 
 51:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 8 %44, i64 %48, i1 false)
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %47
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %47
   store ptr null, ptr %52, align 8, !tbaa !44
   tail call void @qsort(ptr noundef nonnull %50, i64 noundef %47, i64 noundef 8, ptr noundef nonnull @struplocompare4sort) #16
   %53 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.25) #16

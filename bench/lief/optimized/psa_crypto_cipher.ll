@@ -149,7 +149,7 @@ define hidden range(i32 -134, 1) i32 @mbedtls_cipher_values_from_psa(i32 noundef
 
 switch.lookup:                                    ; preds = %39
   %43 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mbedtls_cipher_values_from_psa, i64 %43
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mbedtls_cipher_values_from_psa, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %mbedtls_cipher_validate_values.exit
 

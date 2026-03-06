@@ -390,7 +390,7 @@ define dso_local noalias noundef ptr @client_test(ptr noundef captures(none) ini
 
 47:                                               ; preds = %.thread1.i
   %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds ptr, ptr %34, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %34, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !16
   %51 = icmp eq ptr %50, null
   br i1 %51, label %57, label %52
@@ -427,7 +427,7 @@ define dso_local noalias noundef ptr @client_test(ptr noundef captures(none) ini
 
 65:                                               ; preds = %62
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds ptr, ptr %34, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %34, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !16
   br label %mygetopt_long.exit.thread634.sink.split
 
@@ -461,7 +461,7 @@ define dso_local noalias noundef ptr @client_test(ptr noundef captures(none) ini
 83:                                               ; preds = %81
   %84 = icmp eq i32 %80, 1
   %.phi.trans.insert.i = sext i32 %78 to i64
-  %.phi.trans.insert14.i = getelementptr inbounds ptr, ptr %34, i64 %.phi.trans.insert.i
+  %.phi.trans.insert14.i = getelementptr inbounds [8 x i8], ptr %34, i64 %.phi.trans.insert.i
   %.pre15.i = load ptr, ptr %.phi.trans.insert14.i, align 8, !tbaa !16
   br i1 %84, label %._crit_edge.i, label %85
 
@@ -532,7 +532,7 @@ define dso_local noalias noundef ptr @client_test(ptr noundef captures(none) ini
 
 111:                                              ; preds = %109
   %112 = sext i32 %95 to i64
-  %113 = getelementptr inbounds ptr, ptr %34, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %34, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !16
   store ptr %114, ptr @myoptarg, align 8, !tbaa !16
   %115 = add nsw i32 %95, 1
@@ -556,7 +556,7 @@ define dso_local noalias noundef ptr @client_test(ptr noundef captures(none) ini
 
 121:                                              ; preds = %119
   %122 = sext i32 %95 to i64
-  %123 = getelementptr inbounds ptr, ptr %34, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %34, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !16
   %.not69.i = icmp eq ptr %124, null
   br i1 %.not69.i, label %mygetopt_long.exit.thread, label %125
@@ -1561,7 +1561,7 @@ current_time.exit.i:                              ; preds = %375
 .thread645:                                       ; preds = %401
   %404 = add nuw nsw i32 %.0.i6253143, 1
   %405 = zext nneg i32 %.0.i6253143 to i64
-  %406 = getelementptr inbounds nuw i32, ptr %2, i64 %405
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %405
   store i32 256, ptr %406, align 4, !tbaa !4
   br label %408
 
@@ -1645,9 +1645,9 @@ current_time.exit126.i:                           ; preds = %416
   %444 = shl nuw i64 1, %443
   %445 = sdiv i32 %390, 64
   %446 = sext i32 %445 to i64
-  %447 = getelementptr inbounds i64, ptr %15, i64 %446
+  %447 = getelementptr inbounds [8 x i8], ptr %15, i64 %446
   %448 = add nsw i32 %390, 1
-  %449 = getelementptr inbounds i64, ptr %16, i64 %446
+  %449 = getelementptr inbounds [8 x i8], ptr %16, i64 %446
   %450 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %451 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %456
@@ -2045,7 +2045,7 @@ SetKeyShare.exit:                                 ; preds = %585, %586, %590
   %607 = load ptr, ptr %606, align 8, !tbaa !38
   %608 = load i8, ptr %.04037693001, align 1, !tbaa !18
   %609 = zext i8 %608 to i64
-  %610 = getelementptr inbounds nuw i16, ptr %607, i64 %609
+  %610 = getelementptr inbounds nuw [2 x i8], ptr %607, i64 %609
   %611 = load i16, ptr %610, align 2, !tbaa !40
   %612 = and i16 %611, 1024
   %.not18.i.i = icmp eq i16 %612, 0
@@ -2484,13 +2484,13 @@ StartTLS_Init.exit:                               ; preds = %692
   %798 = shl nuw i64 1, %797
   %799 = sdiv i32 %794, 64
   %800 = sext i32 %799 to i64
-  %801 = getelementptr inbounds i64, ptr %7, i64 %800
+  %801 = getelementptr inbounds [8 x i8], ptr %7, i64 %800
   %802 = load i64, ptr %801, align 8, !tbaa !36
   %803 = or i64 %802, %798
   store i64 %803, ptr %801, align 8, !tbaa !36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false), !tbaa !36
   %804 = add nsw i32 %794, 1
-  %805 = getelementptr inbounds i64, ptr %8, i64 %800
+  %805 = getelementptr inbounds [8 x i8], ptr %8, i64 %800
   %806 = load i64, ptr %805, align 8, !tbaa !36
   %807 = or i64 %806, %798
   store i64 %807, ptr %805, align 8, !tbaa !36
@@ -2648,13 +2648,13 @@ ClientWrite.exit:                                 ; preds = %.thread.i621, %836
   %861 = shl nuw i64 1, %860
   %862 = sdiv i32 %858, 64
   %863 = sext i32 %862 to i64
-  %864 = getelementptr inbounds i64, ptr %3, i64 %863
+  %864 = getelementptr inbounds [8 x i8], ptr %3, i64 %863
   %865 = load i64, ptr %864, align 8, !tbaa !36
   %866 = or i64 %865, %861
   store i64 %866, ptr %864, align 8, !tbaa !36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false), !tbaa !36
   %867 = add nsw i32 %858, 1
-  %868 = getelementptr inbounds i64, ptr %4, i64 %863
+  %868 = getelementptr inbounds [8 x i8], ptr %4, i64 %863
   %869 = load i64, ptr %868, align 8, !tbaa !36
   %870 = or i64 %869, %861
   store i64 %870, ptr %868, align 8, !tbaa !36
@@ -2888,7 +2888,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 define internal fastcc void @Usage() unnamed_addr #2 {
   %1 = load i32, ptr @lng_index, align 4, !tbaa !4
   %2 = sext i32 %1 to i64
-  %3 = getelementptr inbounds [78 x ptr], ptr @client_usage_msg, i64 %2
+  %3 = getelementptr inbounds [624 x i8], ptr @client_usage_msg, i64 %2
   %4 = load ptr, ptr %3, align 16, !tbaa !16
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3239,7 +3239,7 @@ define internal fastcc void @ClientBenchmarkConnections(ptr noundef nonnull %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %20 = load i32, ptr @lng_index, align 4, !tbaa !4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [5 x ptr], ptr @client_bench_conmsg, i64 %21
+  %22 = getelementptr inbounds [40 x i8], ptr @client_bench_conmsg, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = icmp sgt i32 %4, 0
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -3379,7 +3379,7 @@ current_time.exit81.us:                           ; preds = %66
 .thread.us:                                       ; preds = %88
   %91 = add nuw nsw i32 %.0.i.us85, 1
   %92 = zext nneg i32 %.0.i.us85 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %11, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %92
   store i32 256, ptr %93, align 4, !tbaa !4
   br label %94
 
@@ -3632,7 +3632,7 @@ define internal fastcc void @tcp_connect(ptr noundef nonnull captures(none) %0, 
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = load i8, ptr %1, align 1, !tbaa !18
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !40
   %15 = and i16 %14, 1024
   %.not18.i = icmp eq i16 %15, 0
@@ -3758,7 +3758,7 @@ define internal fastcc void @udp_connect(ptr noundef nonnull readonly captures(n
   %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = load i8, ptr %1, align 1, !tbaa !18
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !40
   %12 = and i16 %11, 1024
   %.not18.i = icmp eq i16 %12, 0
@@ -3872,12 +3872,12 @@ define internal fastcc i32 @NonBlockingSSL_Connect(ptr noundef nonnull %0) unnam
   %16 = shl nuw i64 1, %15
   %17 = sdiv i32 %10, 64
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr %5, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %5, i64 %18
   %20 = add nsw i32 %10, 1
-  %21 = getelementptr inbounds i64, ptr %6, i64 %18
+  %21 = getelementptr inbounds [8 x i8], ptr %6, i64 %18
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %23 = getelementptr inbounds i64, ptr %2, i64 %18
-  %24 = getelementptr inbounds i64, ptr %3, i64 %18
+  %23 = getelementptr inbounds [8 x i8], ptr %2, i64 %18
+  %24 = getelementptr inbounds [8 x i8], ptr %3, i64 %18
   br label %25
 
 25:                                               ; preds = %.lr.ph, %72
@@ -4032,7 +4032,7 @@ declare ptr @wolfSSL_ERR_error_string(i64 noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc void @showPeerEx(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #8 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [9 x ptr], ptr @client_showpeer_msg, i64 %3
+  %4 = getelementptr inbounds [72 x i8], ptr @client_showpeer_msg, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = tail call ptr @wolfSSL_get_version(ptr noundef nonnull %0) #21
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.82, ptr noundef %5, ptr noundef %6)
@@ -4170,13 +4170,13 @@ ClientWrite.exit.thread100:                       ; preds = %.thread.i.thread, %
   %36 = shl nuw i64 1, %35
   %37 = sdiv i32 %33, 64
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i64, ptr %11, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %11, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !36
   %41 = or i64 %40, %36
   store i64 %41, ptr %39, align 8, !tbaa !36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 128, i1 false), !tbaa !36
   %42 = add nsw i32 %33, 1
-  %43 = getelementptr inbounds i64, ptr %12, i64 %38
+  %43 = getelementptr inbounds [8 x i8], ptr %12, i64 %38
   %44 = load i64, ptr %43, align 8, !tbaa !36
   %45 = or i64 %44, %36
   store i64 %45, ptr %43, align 8, !tbaa !36
@@ -4189,7 +4189,7 @@ ClientWrite.exit.thread100:                       ; preds = %.thread.i.thread, %
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i64, ptr %11, i64 %38
+  %51 = getelementptr inbounds [8 x i8], ptr %11, i64 %38
   %52 = load i64, ptr %51, align 8, !tbaa !36
   %53 = and i64 %52, %36
   %.not33.i.i = icmp eq i64 %53, 0

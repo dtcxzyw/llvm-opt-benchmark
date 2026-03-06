@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.string_list_item = type { ptr, ptr }
 
 @cmd_mailsplit.stdin_only = internal unnamed_addr global [2 x ptr] [ptr @.str, ptr null], align 16
 @.str = private unnamed_addr constant [2 x i8] c"-\00", align 1
@@ -361,7 +360,7 @@ populate_maildir_list.exit.i:                     ; preds = %115
   %.03370.i = phi i32 [ %129, %128 ], [ %.4184, %populate_maildir_list.exit.i ]
   call void @free(ptr noundef %.13171.i) #16
   %119 = load ptr, ptr %5, align 8, !tbaa !25
-  %120 = getelementptr inbounds nuw %struct.string_list_item, ptr %119, i64 %.02672.i
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %119, i64 %.02672.i
   %121 = load ptr, ptr %120, align 8, !tbaa !26
   %122 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.25, ptr noundef nonnull %71, ptr noundef %121) #16
   %123 = call ptr @git_fopen(ptr noundef %122, ptr noundef nonnull @.str.10) #16

@@ -46,7 +46,7 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = zext i32 %14 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !29
   br label %22
 
@@ -61,7 +61,7 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %29 = load ptr, ptr %28, align 8, !tbaa !28
   %30 = zext i32 %25 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !29
   br label %33
 

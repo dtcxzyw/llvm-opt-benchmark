@@ -17,9 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
 %struct._GdkRGBA = type { double, double, double, double }
 %struct._RsvgDimensionData = type { i32, i32, double, double }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"DejaVu Sans 10\00", align 1
@@ -1264,8 +1261,8 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
 473:                                              ; preds = %.lr.ph, %473
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %473 ]
   %474 = mul nsw i64 %indvars.iv, %472
-  %475 = getelementptr inbounds float, ptr %2, i64 %474
-  %476 = getelementptr inbounds float, ptr %3, i64 %474
+  %475 = getelementptr inbounds [4 x i8], ptr %2, i64 %474
+  %476 = getelementptr inbounds [4 x i8], ptr %3, i64 %474
   %477 = shl nsw i64 %indvars.iv, 2
   %478 = getelementptr inbounds nuw i8, ptr %171, i64 %477
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 3
@@ -1547,9 +1544,9 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef %
 
 44:                                               ; preds = %4, %44
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %46 = load float, ptr %45, align 4, !tbaa !24
-  %47 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   store float %46, ptr %47, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1591,7 +1588,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i32, ptr %10, align 4, !tbaa !174
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %7, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %7, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !178
   %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %8) #19
   tail call void @gtk_toggle_button_set_active(ptr noundef %15, i32 noundef 1) #19
@@ -1675,7 +1672,7 @@ _combo_box_set_active_text.exit:                  ; preds = %21, %9, %19
 
 59:                                               ; preds = %1, %59
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !178
   %62 = tail call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %8) #19
   tail call void @gtk_toggle_button_set_active(ptr noundef %62, i32 noundef 0) #19
@@ -2013,7 +2010,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %6
   %170 = trunc nuw nsw i64 %indvars.iv to i32
   %171 = shl nuw nsw i32 16384, %170
   %172 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_alignment, i32 noundef %171, ptr noundef null) #19
-  %173 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv
   store ptr %172, ptr %173, align 8, !tbaa !178
   %174 = call ptr @g_type_check_instance_cast(ptr noundef %126, i64 noundef %13) #19
   %175 = load ptr, ptr %173, align 8, !tbaa !178
@@ -2181,7 +2178,7 @@ define internal void @_alignment_callback(ptr noundef readnone captures(address)
 15:                                               ; preds = %6, %29
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %29 ]
   %.02021 = phi i32 [ -1, %6 ], [ %.1, %29 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !178
   %18 = tail call i32 @g_signal_handlers_block_matched(ptr noundef %17, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_alignment_callback, ptr noundef %1) #19
   %19 = load ptr, ptr %16, align 8, !tbaa !178
@@ -2420,7 +2417,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

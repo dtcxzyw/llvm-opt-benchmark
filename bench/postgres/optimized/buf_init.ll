@@ -6,13 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.WritebackContext = type { ptr, i32, [256 x %struct.PendingWriteback] }
 %struct.PendingWriteback = type { %struct.buftag }
 %struct.buftag = type { i32, i32, i32, i32, i32 }
-%union.BufferDescPadded = type { %struct.BufferDesc, [12 x i8] }
-%struct.BufferDesc = type { %struct.buftag, i32, %struct.pg_atomic_uint32, i32, i32, %struct.LWLock }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
-%union.ConditionVariableMinimallyPadded = type { %struct.ConditionVariable, [4 x i8] }
-%struct.ConditionVariable = type { i8, %struct.proclist_head }
 
 @.str = private unnamed_addr constant [19 x i8] c"Buffer Descriptors\00", align 1
 @NBuffers = external local_unnamed_addr global i32, align 4
@@ -82,7 +75,7 @@ define dso_local void @BufferManagerShmemInit() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %36 = load ptr, ptr @BufferDescriptors, align 8
-  %37 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [64 x i8], ptr %36, i64 %indvars.iv
   store i32 0, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 0, ptr %38, align 4
@@ -108,7 +101,7 @@ define dso_local void @BufferManagerShmemInit() local_unnamed_addr #0 {
   %.val = load i32, ptr %44, align 4
   %49 = load ptr, ptr @BufferIOCVArray, align 8
   %50 = sext i32 %.val to i64
-  %51 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %49, i64 %50
+  %51 = getelementptr inbounds [16 x i8], ptr %49, i64 %50
   call void @ConditionVariableInit(ptr noundef %51) #3
   %52 = load i32, ptr @NBuffers, align 4
   %53 = sext i32 %52 to i64
@@ -126,7 +119,7 @@ define dso_local void @BufferManagerShmemInit() local_unnamed_addr #0 {
   %56 = add i32 %.lcssa, -1
   %57 = load ptr, ptr @BufferDescriptors, align 8
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [64 x i8], ptr %57, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store i32 -1, ptr %60, align 4
   br label %61

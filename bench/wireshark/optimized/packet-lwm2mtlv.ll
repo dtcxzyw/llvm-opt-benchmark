@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct._lwm2m_allocated_fields_t = type { ptr, i32, ptr, ptr, i32 }
-%struct._value_string = type { i32, ptr }
-%struct._lwm2m_object_name_t = type { i32, ptr }
-%struct._lwm2m_resource_t = type { i32, i32, ptr, i32, ptr, i32, ptr }
 %struct.nstime_t = type { i64, i32 }
 
 @proto_register_lwm2mtlv.hf = internal global [22 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_lwm2mtlv_object_name, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_resource_name, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_header, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_type_type, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr @identifiers, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_type_length_of_identifier, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 1, ptr @length_identifier, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_type_length_of_length, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 1, ptr @length_type, i64 24, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_type_length, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_type_ignored, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_identifier, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_length, %struct._header_field_info { ptr @.str.12, ptr @.str.18, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_value, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_value_string, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_value_integer, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 19, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_value_unsigned_integer, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_value_float, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 22, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_value_double, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_value_boolean, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_value_timestamp, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_object_instance, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_resource_instance, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_resource_array, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lwm2mtlv_resource, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -496,7 +493,7 @@ define internal void @resource_data_type_set_cb(ptr noundef writeonly captures(n
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -536,7 +533,7 @@ define internal void @resource_data_type_tostr_cb(ptr noundef readonly captures(
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -844,7 +841,7 @@ define internal i32 @dissect_lwm2mtlv(ptr noundef %0, ptr noundef %1, ptr nounde
 
 40:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %41 = getelementptr %struct._lwm2m_object_name_t, ptr %38, i64 %indvars.iv
+  %41 = getelementptr [16 x i8], ptr %38, i64 %indvars.iv
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %.0, %42
   br i1 %43, label %44, label %39
@@ -942,7 +939,7 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
 17:                                               ; preds = %3, %25
   %18 = phi i32 [ 0, %3 ], [ %26, %25 ]
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %25 ]
-  %19 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv
+  %19 = getelementptr [48 x i8], ptr %1, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 4
@@ -975,11 +972,11 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   %indvars.iv85 = phi i64 [ 0, %6 ], [ %indvars.iv.next86, %56 ]
   %.07381 = phi i32 [ 0, %6 ], [ %.1, %56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %36 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv85
+  %36 = getelementptr [48 x i8], ptr %1, i64 %indvars.iv85
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %37, ptr %4, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr %struct.hf_register_info, ptr %38, i64 %indvars.iv85
+  %39 = getelementptr [80 x i8], ptr %38, i64 %indvars.iv85
   call fastcc void @lwm2m_add_resource(ptr noundef %36, ptr noundef %39, i1 noundef zeroext false)
   %40 = load ptr, ptr %12, align 8
   %41 = call ptr @g_array_append_vals(ptr noundef %40, ptr noundef nonnull %4, i32 noundef 1)
@@ -992,14 +989,14 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   %46 = add i32 %.07381, %2
   %47 = load ptr, ptr %16, align 8
   %48 = zext i32 %.07381 to i64
-  %49 = getelementptr %struct._lwm2m_resource_t, ptr %47, i64 %48
+  %49 = getelementptr [48 x i8], ptr %47, i64 %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(48) %49, ptr noundef align 1 dereferenceable(48) %36, i64 noundef 48, i1 noundef false) #12
   %50 = load ptr, ptr %16, align 8
   %51 = add i32 %.07381, 1
-  %52 = getelementptr %struct._lwm2m_resource_t, ptr %50, i64 %48
+  %52 = getelementptr [48 x i8], ptr %50, i64 %48
   %53 = load ptr, ptr %0, align 8
   %54 = zext i32 %46 to i64
-  %55 = getelementptr %struct.hf_register_info, ptr %53, i64 %54
+  %55 = getelementptr [80 x i8], ptr %53, i64 %54
   call fastcc void @lwm2m_add_resource(ptr noundef %52, ptr noundef %55, i1 noundef zeroext true)
   br label %56
 
@@ -1016,7 +1013,7 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
 58:                                               ; preds = %27, %71
   %indvars.iv90 = phi i64 [ 0, %27 ], [ %indvars.iv.next91, %71 ]
   %.282 = phi i32 [ 0, %27 ], [ %.3, %71 ]
-  %59 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv90
+  %59 = getelementptr [48 x i8], ptr %1, i64 %indvars.iv90
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %61, 4
@@ -1028,7 +1025,7 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   %66 = load ptr, ptr %16, align 8
   %67 = add i32 %.282, 1
   %68 = zext i32 %.282 to i64
-  %69 = getelementptr %struct._lwm2m_resource_t, ptr %66, i64 %68
+  %69 = getelementptr [48 x i8], ptr %66, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store i32 %65, ptr %70, align 8
   br label %71
@@ -1110,12 +1107,12 @@ define internal fastcc void @lwm2m_free_fields(ptr noundef captures(none) %0) un
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %6 = load i32, ptr @proto_lwm2mtlv, align 4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr %struct.hf_register_info, ptr %7, i64 %indvars.iv
+  %8 = getelementptr [80 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 4
   tail call void @proto_deregister_field(i32 noundef %6, i32 noundef %10)
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr %struct.hf_register_info, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [80 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   tail call void @g_free(ptr noundef %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1254,7 +1251,7 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
 
 .lr.ph.i35:                                       ; preds = %61, %.lr.ph.preheader.i
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i37, %61 ]
-  %38 = getelementptr %struct._lwm2m_resource_t, ptr %36, i64 %indvars.iv.i36
+  %38 = getelementptr [48 x i8], ptr %36, i64 %indvars.iv.i36
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %3, %39
   br i1 %40, label %41, label %61
@@ -1285,7 +1282,7 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
 
 52:                                               ; preds = %60, %.lr.ph.i.i41
   %indvars.iv.i.i43 = phi i64 [ 0, %.lr.ph.i.i41 ], [ %indvars.iv.next.i.i44, %60 ]
-  %53 = getelementptr %struct._lwm2m_resource_t, ptr %uat_allocated_fields.val.i, i64 %indvars.iv.i.i43
+  %53 = getelementptr [48 x i8], ptr %uat_allocated_fields.val.i, i64 %indvars.iv.i.i43
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %3, %54
   br i1 %55, label %56, label %60
@@ -1322,7 +1319,7 @@ lwm2m_search_fields.exit46.thread:                ; preds = %61, %60, %35, %51, 
 
 .lr.ph.i:                                         ; preds = %87, %lwm2m_search_fields.exit46.thread
   %indvars.iv.i = phi i64 [ 0, %lwm2m_search_fields.exit46.thread ], [ %indvars.iv.next.i, %87 ]
-  %64 = getelementptr %struct._lwm2m_resource_t, ptr @lwm2m_oma_resources, i64 %indvars.iv.i
+  %64 = getelementptr [48 x i8], ptr @lwm2m_oma_resources, i64 %indvars.iv.i
   %65 = load i32, ptr %64, align 16
   %66 = icmp eq i32 %3, %65
   br i1 %66, label %67, label %87
@@ -1353,7 +1350,7 @@ lwm2m_search_fields.exit46.thread:                ; preds = %61, %60, %35, %51, 
 
 78:                                               ; preds = %86, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %86 ]
-  %79 = getelementptr %struct._lwm2m_resource_t, ptr %oma_allocated_fields.val.i, i64 %indvars.iv.i.i
+  %79 = getelementptr [48 x i8], ptr %oma_allocated_fields.val.i, i64 %indvars.iv.i.i
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %3, %80
   br i1 %81, label %82, label %86

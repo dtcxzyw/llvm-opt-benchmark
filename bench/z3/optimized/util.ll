@@ -147,11 +147,11 @@ define hidden noundef zeroext i1 @_Z21product_iterator_nextjPKjPj(i32 noundef %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %4 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = add i32 %5, 1
   store i32 %6, ptr %4, align 4, !tbaa !3
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = icmp ult i32 %6, %8
   br i1 %9, label %._crit_edge, label %10

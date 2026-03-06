@@ -54,7 +54,7 @@ define hidden range(i32 -1, 2) i32 @file_is_tar(ptr noundef %0, ptr noundef read
   %.014.i.i = phi i64 [ 8, %19 ], [ %31, %29 ]
   %24 = load i8, ptr %.015.i.i, align 1, !tbaa !24
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !25
   %28 = and i16 %27, 8192
   %.not.i.i = icmp eq i16 %28, 0
@@ -95,7 +95,7 @@ define hidden range(i32 -1, 2) i32 @file_is_tar(ptr noundef %0, ptr noundef read
 
 41:                                               ; preds = %.critedge.i.i
   %42 = zext i8 %33 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %22, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !25
   %45 = and i16 %44, 8192
   %.not22.i.i = icmp eq i16 %45, 0

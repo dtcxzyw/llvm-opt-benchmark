@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/tasn_fre.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden void @ASN1_item_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
@@ -138,7 +136,7 @@ tailrecurse:                                      ; preds = %19
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %.tr108145, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw %struct.ASN1_TEMPLATE_st, ptr %48, i64 %42
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %48, i64 %42
   %50 = tail call ptr @asn1_get_field_ptr(ptr noundef nonnull %0, ptr noundef %49) #4
   tail call void @ASN1_template_free(ptr noundef %50, ptr noundef %49)
   br label %51
@@ -211,7 +209,7 @@ tailrecurse:                                      ; preds = %19
 .lr.ph179.preheader:                              ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %.tr108145, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !20
-  %77 = getelementptr inbounds nuw %struct.ASN1_TEMPLATE_st, ptr %76, i64 %73
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %76, i64 %73
   br label %.lr.ph179
 
 .lr.ph179:                                        ; preds = %.lr.ph179.preheader, %ASN1_template_free.exit107

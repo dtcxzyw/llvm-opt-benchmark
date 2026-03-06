@@ -63,47 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::ArrayRefIter.641" = type { ptr }
 %"class.gmx::FixedCapacityVector" = type { %"struct.std::array.682", i64 }
 %"struct.std::array.682" = type { [2 x ptr] }
-%struct.wallcc_t = type { i32, i64, i64 }
-%class.ListedForces = type { ptr, i32, %class.InteractionDefinitions, %"class.std::unique_ptr.624", %"class.std::bitset", %"class.std::vector.60", %"class.std::vector", %"class.std::unique_ptr.632", %"class.gmx::ArrayRef.607", %"class.std::vector", %"class.std::vector" }
-%class.InteractionDefinitions = type { ptr, ptr, %"class.std::vector.353", %"class.std::vector.353", %"struct.std::array.358", %"struct.std::array.359", i32, %struct.gmx_cmap_t }
-%"class.std::vector.353" = type { %"struct.std::_Vector_base.354" }
-%"struct.std::_Vector_base.354" = type { %"struct.std::_Vector_base<t_iparams, std::allocator<t_iparams>>::_Vector_impl" }
-%"struct.std::_Vector_base<t_iparams, std::allocator<t_iparams>>::_Vector_impl" = type { %"struct.std::_Vector_base<t_iparams, std::allocator<t_iparams>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<t_iparams, std::allocator<t_iparams>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array.358" = type { [95 x %struct.InteractionList] }
-%struct.InteractionList = type { %"class.std::vector.29" }
-%"class.std::vector.29" = type { %"struct.std::_Vector_base.30" }
-%"struct.std::_Vector_base.30" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array.359" = type { [95 x i32] }
-%struct.gmx_cmap_t = type { i32, %"class.std::vector.360" }
-%"class.std::vector.360" = type { %"struct.std::_Vector_base.361" }
-%"struct.std::_Vector_base.361" = type { %"struct.std::_Vector_base<gmx_cmapdata_t, std::allocator<gmx_cmapdata_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx_cmapdata_t, std::allocator<gmx_cmapdata_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx_cmapdata_t, std::allocator<gmx_cmapdata_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx_cmapdata_t, std::allocator<gmx_cmapdata_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.624" = type { %"struct.std::__uniq_ptr_data.625" }
-%"struct.std::__uniq_ptr_data.625" = type { %"class.std::__uniq_ptr_impl.626" }
-%"class.std::__uniq_ptr_impl.626" = type { %"class.std::tuple.627" }
-%"class.std::tuple.627" = type { %"struct.std::_Tuple_impl.628" }
-%"struct.std::_Tuple_impl.628" = type { %"struct.std::_Head_base.631" }
-%"struct.std::_Head_base.631" = type { ptr }
-%"class.std::bitset" = type { %"struct.std::_Base_bitset" }
-%"struct.std::_Base_bitset" = type { i64 }
-%"class.std::vector.60" = type { %"struct.std::_Vector_base.61" }
-%"struct.std::_Vector_base.61" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.632" = type { %"struct.std::__uniq_ptr_data.633" }
-%"struct.std::__uniq_ptr_data.633" = type { %"class.std::__uniq_ptr_impl.634" }
-%"class.std::__uniq_ptr_impl.634" = type { %"class.std::tuple.635" }
-%"class.std::tuple.635" = type { %"struct.std::_Tuple_impl.636" }
-%"struct.std::_Tuple_impl.636" = type { %"struct.std::_Head_base.639" }
-%"struct.std::_Head_base.639" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"struct.std::filesystem::__cxx11::path::_List" = type { %"class.std::unique_ptr.763" }
 %"class.std::unique_ptr.763" = type { %"struct.std::__uniq_ptr_data.764" }
@@ -486,7 +445,7 @@ _ZN3gmxL17getLocalAtomCountEPK12gmx_domdec_tRK9t_mdatomsb.exit.i: ; preds = %165
   %191 = getelementptr inbounds nuw i8, ptr %19, i64 640
   %192 = load i32, ptr %191, align 8, !tbaa !153
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds %"class.gmx::BasicVector.497", ptr %144, i64 %193
+  %194 = getelementptr inbounds [12 x i8], ptr %144, i64 %193
   %195 = icmp eq ptr %147, %149
   br i1 %195, label %196, label %197
 
@@ -495,7 +454,7 @@ _ZN3gmxL17getLocalAtomCountEPK12gmx_domdec_tRK9t_mdatomsb.exit.i: ; preds = %165
   br label %200
 
 197:                                              ; preds = %186
-  %198 = getelementptr inbounds %"class.gmx::BasicVector.497", ptr %147, i64 %193
+  %198 = getelementptr inbounds [12 x i8], ptr %147, i64 %193
   store ptr %147, ptr %50, align 8
   %199 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %198, ptr %199, align 8
@@ -532,7 +491,7 @@ _ZN3gmxL17getLocalAtomCountEPK12gmx_domdec_tRK9t_mdatomsb.exit.i: ; preds = %165
 
 _ZN3gmx33MDModulesAtomsRedistributedSignalC2EPA3_KfNS_8ArrayRefIKNS_11BasicVectorIfEEEE.exit.i: ; preds = %208
   %212 = sext i32 %210 to i64
-  %213 = getelementptr inbounds %"class.gmx::BasicVector.497", ptr %144, i64 %212
+  %213 = getelementptr inbounds [12 x i8], ptr %144, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store ptr %51, ptr %214, align 8, !tbaa !205, !alias.scope !202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef nonnull readonly align 4 dereferenceable(36) %13, i64 36, i1 false), !tbaa !145
@@ -637,7 +596,7 @@ _ZNK3gmx17MDModulesNotifierIKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51M
   %266 = load i32, ptr %265, align 4, !tbaa !246
   %267 = mul nsw i32 %266, 60
   %268 = sext i32 %267 to i64
-  %269 = getelementptr %struct.wallcc_t, ptr %255, i64 %268
+  %269 = getelementptr [24 x i8], ptr %255, i64 %268
   %270 = getelementptr i8, ptr %269, i64 192
   %271 = load i32, ptr %270, align 8, !tbaa !247
   %272 = add nsw i32 %271, 1
@@ -872,7 +831,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.thread.i: ; preds = %3
   %412 = load i32, ptr %411, align 4, !tbaa !246
   %413 = mul nsw i32 %412, 60
   %414 = sext i32 %413 to i64
-  %415 = getelementptr %struct.wallcc_t, ptr %402, i64 %414
+  %415 = getelementptr [24 x i8], ptr %402, i64 %414
   %416 = getelementptr i8, ptr %415, i64 216
   %417 = load i32, ptr %416, align 8, !tbaa !247
   %418 = add nsw i32 %417, 1
@@ -988,7 +947,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit145.i: ; preds = %454, 
   %485 = load i32, ptr %484, align 4, !tbaa !246
   %486 = mul nsw i32 %485, 60
   %487 = sext i32 %486 to i64
-  %488 = getelementptr %struct.wallcc_t, ptr %474, i64 %487
+  %488 = getelementptr [24 x i8], ptr %474, i64 %487
   %489 = getelementptr i8, ptr %488, i64 192
   %490 = load i32, ptr %489, align 8, !tbaa !247
   %491 = add nsw i32 %490, 1
@@ -1171,7 +1130,7 @@ _ZN3gmxL30setupNonLocalGpuForceReductionERKNS_21MdrunScheduleWorkloadEPNS_18nonb
   %600 = load i32, ptr %599, align 4, !tbaa !246
   %601 = mul nsw i32 %600, 60
   %602 = sext i32 %601 to i64
-  %603 = getelementptr %struct.wallcc_t, ptr %589, i64 %602
+  %603 = getelementptr [24 x i8], ptr %589, i64 %602
   %604 = getelementptr i8, ptr %603, i64 192
   %605 = load i32, ptr %604, align 8, !tbaa !247
   %606 = add nsw i32 %605, 1
@@ -1595,7 +1554,7 @@ _ZN3gmxL46getExpectedLocalXReadyOnDeviceConsumptionCountERKNS_18SimulationWorklo
   %857 = load i32, ptr %856, align 4, !tbaa !246
   %858 = mul nsw i32 %857, 60
   %859 = sext i32 %858 to i64
-  %860 = getelementptr %struct.wallcc_t, ptr %846, i64 %859
+  %860 = getelementptr [24 x i8], ptr %846, i64 %859
   %861 = getelementptr i8, ptr %860, i64 456
   %862 = load i32, ptr %861, align 8, !tbaa !247
   %863 = add nsw i32 %862, 1
@@ -1766,7 +1725,7 @@ _ZNK22DDBalanceRegionHandler29openBeforeForceComputationGpuEv.exit: ; preds = %9
   %963 = load i32, ptr %962, align 4, !tbaa !246
   %964 = mul nsw i32 %963, 60
   %965 = sext i32 %964 to i64
-  %966 = getelementptr %struct.wallcc_t, ptr %952, i64 %965
+  %966 = getelementptr [24 x i8], ptr %952, i64 %965
   %967 = getelementptr i8, ptr %966, i64 216
   %968 = load i32, ptr %967, align 8, !tbaa !247
   %969 = add nsw i32 %968, 1
@@ -1887,7 +1846,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNK22DDBa
   %1041 = load i32, ptr %1040, align 4, !tbaa !246
   %1042 = mul nsw i32 %1041, 60
   %1043 = sext i32 %1042 to i64
-  %1044 = getelementptr %struct.wallcc_t, ptr %1030, i64 %1043
+  %1044 = getelementptr [24 x i8], ptr %1030, i64 %1043
   %1045 = getelementptr i8, ptr %1044, i64 216
   %1046 = load i32, ptr %1045, align 8, !tbaa !247
   %1047 = add nsw i32 %1046, 1
@@ -1998,7 +1957,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit988.thread: ; preds = %
   %1110 = load i32, ptr %1109, align 4, !tbaa !246
   %1111 = mul nsw i32 %1110, 60
   %1112 = sext i32 %1111 to i64
-  %1113 = getelementptr %struct.wallcc_t, ptr %1099, i64 %1112
+  %1113 = getelementptr [24 x i8], ptr %1099, i64 %1112
   %1114 = getelementptr i8, ptr %1113, i64 456
   %1115 = load i32, ptr %1114, align 8, !tbaa !247
   %1116 = add nsw i32 %1115, 1
@@ -2156,7 +2115,7 @@ _ZN3gmxL24launchPmeGpuFftAndGatherEP9gmx_pme_tfP13gmx_wallcycleRKNS_12StepWorklo
   %1210 = load i32, ptr %1209, align 4, !tbaa !246
   %1211 = mul nsw i32 %1210, 60
   %1212 = sext i32 %1211 to i64
-  %1213 = getelementptr %struct.wallcc_t, ptr %1199, i64 %1212
+  %1213 = getelementptr [24 x i8], ptr %1199, i64 %1212
   %1214 = getelementptr i8, ptr %1213, i64 240
   %1215 = load i32, ptr %1214, align 8, !tbaa !247
   %1216 = add nsw i32 %1215, 1
@@ -2338,7 +2297,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1000: ; preds = %_Z14wa
   %1327 = load i32, ptr %1326, align 4, !tbaa !246
   %1328 = mul nsw i32 %1327, 60
   %1329 = sext i32 %1328 to i64
-  %1330 = getelementptr %struct.wallcc_t, ptr %1316, i64 %1329
+  %1330 = getelementptr [24 x i8], ptr %1316, i64 %1329
   %1331 = getelementptr i8, ptr %1330, i64 216
   %1332 = load i32, ptr %1331, align 8, !tbaa !247
   %1333 = add nsw i32 %1332, 1
@@ -2454,7 +2413,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1011: ; preds = %1368, 
   %1403 = load i32, ptr %1402, align 4, !tbaa !246
   %1404 = mul nsw i32 %1403, 60
   %1405 = sext i32 %1404 to i64
-  %1406 = getelementptr %struct.wallcc_t, ptr %1392, i64 %1405
+  %1406 = getelementptr [24 x i8], ptr %1392, i64 %1405
   %1407 = getelementptr i8, ptr %1406, i64 216
   %1408 = load i32, ptr %1407, align 8, !tbaa !247
   %1409 = add nsw i32 %1408, 1
@@ -2578,7 +2537,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1017.thread: ; preds = 
   %1482 = load i32, ptr %1481, align 4, !tbaa !246
   %1483 = mul nsw i32 %1482, 60
   %1484 = sext i32 %1483 to i64
-  %1485 = getelementptr %struct.wallcc_t, ptr %1471, i64 %1484
+  %1485 = getelementptr [24 x i8], ptr %1471, i64 %1484
   %1486 = getelementptr i8, ptr %1485, i64 216
   %1487 = load i32, ptr %1486, align 8, !tbaa !247
   %1488 = add nsw i32 %1487, 1
@@ -2759,7 +2718,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1023: ; preds = %1507, 
   %1595 = load i32, ptr %1594, align 4, !tbaa !246
   %1596 = mul nsw i32 %1595, 60
   %1597 = sext i32 %1596 to i64
-  %1598 = getelementptr %struct.wallcc_t, ptr %1584, i64 %1597
+  %1598 = getelementptr [24 x i8], ptr %1584, i64 %1597
   %1599 = getelementptr i8, ptr %1598, i64 264
   %1600 = load i32, ptr %1599, align 8, !tbaa !247
   %1601 = add nsw i32 %1600, 1
@@ -3060,7 +3019,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1030: ; preds = %1683, 
   %1774 = phi i1 [ false, %1779 ], [ true, %.preheader27.i.preheader ]
   %indvars.iv32.i.sroa.phi = phi ptr [ %indvars.iv32.i.sroa.gep1212, %1779 ], [ %63, %.preheader27.i.preheader ]
   %indvars.iv32.i = phi i64 [ 1, %1779 ], [ 0, %.preheader27.i.preheader ]
-  %1775 = getelementptr inbounds nuw %"class.gmx::BasicVector.497", ptr %1724, i64 %indvars.iv32.i
+  %1775 = getelementptr inbounds nuw [12 x i8], ptr %1724, i64 %indvars.iv32.i
   br label %1780
 
 1776:                                             ; preds = %1779
@@ -3076,10 +3035,10 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1030: ; preds = %1683, 
 
 1780:                                             ; preds = %1780, %.preheader27.i
   %indvars.iv.i = phi i64 [ 0, %.preheader27.i ], [ %indvars.iv.next.i, %1780 ]
-  %1781 = getelementptr inbounds nuw double, ptr %indvars.iv32.i.sroa.phi, i64 %indvars.iv.i
+  %1781 = getelementptr inbounds nuw [8 x i8], ptr %indvars.iv32.i.sroa.phi, i64 %indvars.iv.i
   %1782 = load double, ptr %1781, align 8, !tbaa !200
   %1783 = fptrunc double %1782 to float
-  %1784 = getelementptr inbounds nuw float, ptr %1775, i64 %indvars.iv.i
+  %1784 = getelementptr inbounds nuw [4 x i8], ptr %1775, i64 %indvars.iv.i
   store float %1783, ptr %1784, align 4, !tbaa !145
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -3101,16 +3060,16 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1030: ; preds = %1683, 
   %1792 = load float, ptr %1777, align 4, !tbaa !145
   %1793 = fpext float %1792 to double
   %1794 = fsub double 1.000000e+00, %1793
-  %1795 = getelementptr inbounds nuw float, ptr %1724, i64 %indvars.iv35.i
+  %1795 = getelementptr inbounds nuw [4 x i8], ptr %1724, i64 %indvars.iv35.i
   %1796 = load float, ptr %1795, align 4, !tbaa !145
   %1797 = fpext float %1796 to double
-  %1798 = getelementptr inbounds nuw float, ptr %1778, i64 %indvars.iv35.i
+  %1798 = getelementptr inbounds nuw [4 x i8], ptr %1778, i64 %indvars.iv35.i
   %1799 = load float, ptr %1798, align 4, !tbaa !145
   %1800 = fmul float %1792, %1799
   %1801 = fpext float %1800 to double
   %1802 = call double @llvm.fmuladd.f64(double %1794, double %1797, double %1801)
   %1803 = fptrunc double %1802 to float
-  %1804 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv35.i
+  %1804 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv35.i
   store float %1803, ptr %1804, align 4, !tbaa !145
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 3
@@ -3161,7 +3120,7 @@ _ZN3gmxL20reduceAndUpdateMuTotEPNS_10DipoleDataEPK9t_commrecbNS_8ArrayRefIKfEEPf
   %1832 = load i32, ptr %1831, align 4, !tbaa !246
   %1833 = mul nsw i32 %1832, 60
   %1834 = sext i32 %1833 to i64
-  %1835 = getelementptr %struct.wallcc_t, ptr %1821, i64 %1834
+  %1835 = getelementptr [24 x i8], ptr %1821, i64 %1834
   %1836 = getelementptr i8, ptr %1835, i64 48
   %1837 = load i32, ptr %1836, align 8, !tbaa !247
   %1838 = add nsw i32 %1837, 1
@@ -3220,7 +3179,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit1033: ; preds = %1810,
   %1872 = load i32, ptr %1871, align 4, !tbaa !246
   %1873 = mul nsw i32 %1872, 60
   %1874 = sext i32 %1873 to i64
-  %1875 = getelementptr %struct.wallcc_t, ptr %1861, i64 %1874
+  %1875 = getelementptr [24 x i8], ptr %1861, i64 %1874
   %1876 = getelementptr i8, ptr %1875, i64 1296
   %1877 = load i32, ptr %1876, align 8, !tbaa !247
   %1878 = add nsw i32 %1877, 1
@@ -3354,7 +3313,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1042.thread: ;
   %1957 = load i32, ptr %1956, align 4, !tbaa !246
   %1958 = mul nsw i32 %1957, 60
   %1959 = sext i32 %1958 to i64
-  %1960 = getelementptr %struct.wallcc_t, ptr %1946, i64 %1959
+  %1960 = getelementptr [24 x i8], ptr %1946, i64 %1959
   %1961 = getelementptr i8, ptr %1960, i64 264
   %1962 = load i32, ptr %1961, align 8, !tbaa !247
   %1963 = add nsw i32 %1962, 1
@@ -3473,7 +3432,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1046: ; preds = %_Z14wa
   %2033 = load i32, ptr %2032, align 4, !tbaa !246
   %2034 = mul nsw i32 %2033, 60
   %2035 = sext i32 %2034 to i64
-  %2036 = getelementptr %struct.wallcc_t, ptr %2022, i64 %2035
+  %2036 = getelementptr [24 x i8], ptr %2022, i64 %2035
   %2037 = getelementptr i8, ptr %2036, i64 264
   %2038 = load i32, ptr %2037, align 8, !tbaa !247
   %2039 = add nsw i32 %2038, 1
@@ -3722,7 +3681,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1052: ; preds = %2162, 
   %2200 = load i32, ptr %2199, align 4, !tbaa !246
   %2201 = mul nsw i32 %2200, 60
   %2202 = sext i32 %2201 to i64
-  %2203 = getelementptr %struct.wallcc_t, ptr %2190, i64 %2202
+  %2203 = getelementptr [24 x i8], ptr %2190, i64 %2202
   %2204 = getelementptr i8, ptr %2203, i64 264
   %2205 = load i32, ptr %2204, align 8, !tbaa !247
   %2206 = add nsw i32 %2205, 1
@@ -3940,7 +3899,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1054: ; preds 
   %2342 = phi i1 [ true, %2309 ], [ false, %2375 ]
   %indvars.iv = phi i64 [ 0, %2309 ], [ 1, %2375 ]
   %2343 = load ptr, ptr %2291, align 8, !tbaa !455
-  %2344 = getelementptr inbounds nuw %class.ListedForces, ptr %2343, i64 %indvars.iv
+  %2344 = getelementptr inbounds nuw [2912 x i8], ptr %2343, i64 %indvars.iv
   %2345 = select i1 %2342, ptr %58, ptr %1656
   %2346 = load ptr, ptr %2310, align 8, !tbaa !20, !noalias !456
   %2347 = load ptr, ptr %2311, align 8, !tbaa !19, !noalias !456
@@ -4156,8 +4115,8 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1064: ; preds = %2418, 
 
 2476:                                             ; preds = %.preheader, %2476
   %indvars.iv.i1065 = phi i64 [ %indvars.iv.next.i1066, %2476 ], [ 0, %.preheader ]
-  %2477 = getelementptr inbounds nuw [3 x float], ptr %18, i64 %indvars.iv.i1065
-  %2478 = getelementptr inbounds nuw float, ptr %2477, i64 %indvars.iv.i1065
+  %2477 = getelementptr inbounds nuw [12 x i8], ptr %18, i64 %indvars.iv.i1065
+  %2478 = getelementptr inbounds nuw [4 x i8], ptr %2477, i64 %indvars.iv.i1065
   %2479 = load float, ptr %2478, align 4, !tbaa !145
   %2480 = fadd float %.sroa.01192.0.vec.extract, %2479
   store float %2480, ptr %2478, align 4, !tbaa !145
@@ -4265,10 +4224,10 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit: ; preds = %2
   %2541 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %2542 = load ptr, ptr %2541, align 8, !tbaa !254
   %2543 = sext i32 %2540 to i64
-  %2544 = getelementptr inbounds float, ptr %2542, i64 %2543
+  %2544 = getelementptr inbounds [4 x i8], ptr %2542, i64 %2543
   %2545 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %2546 = load ptr, ptr %2545, align 8, !tbaa !443
-  %2547 = getelementptr inbounds float, ptr %2546, i64 %2543
+  %2547 = getelementptr inbounds [4 x i8], ptr %2546, i64 %2543
   store ptr %2517, ptr %46, align 8, !tbaa !213
   %2548 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %2523, ptr %2548, align 8, !tbaa !213
@@ -4397,7 +4356,7 @@ _ZN3gmxL18forceGroupMtsLevelENS_8ArrayRefIKNS_8MtsLevelEEENS_14MtsForceGroupsE.e
   %2620 = load i32, ptr %2619, align 4, !tbaa !246
   %2621 = mul nsw i32 %2620, 60
   %2622 = sext i32 %2621 to i64
-  %2623 = getelementptr %struct.wallcc_t, ptr %2609, i64 %2622
+  %2623 = getelementptr [24 x i8], ptr %2609, i64 %2622
   %2624 = getelementptr i8, ptr %2623, i64 1080
   %2625 = load i32, ptr %2624, align 8, !tbaa !247
   %2626 = add nsw i32 %2625, 1
@@ -4644,7 +4603,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit95.i:                ; preds = %2729, %_ZNSt6vector
   %2760 = load i32, ptr %2759, align 4, !tbaa !246
   %2761 = mul nsw i32 %2760, 60
   %2762 = sext i32 %2761 to i64
-  %2763 = getelementptr %struct.wallcc_t, ptr %2749, i64 %2762
+  %2763 = getelementptr [24 x i8], ptr %2749, i64 %2762
   %2764 = getelementptr i8, ptr %2763, i64 1080
   %2765 = load i32, ptr %2764, align 8, !tbaa !247
   %2766 = add nsw i32 %2765, 1
@@ -4776,7 +4735,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.thread.critedge.i: ; p
   %2848 = load i32, ptr %2847, align 4, !tbaa !246
   %2849 = mul nsw i32 %2848, 60
   %2850 = sext i32 %2849 to i64
-  %2851 = getelementptr %struct.wallcc_t, ptr %2837, i64 %2850
+  %2851 = getelementptr [24 x i8], ptr %2837, i64 %2850
   %2852 = getelementptr i8, ptr %2851, i64 1320
   %2853 = load i32, ptr %2852, align 8, !tbaa !247
   %2854 = add nsw i32 %2853, 1
@@ -4970,7 +4929,7 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit1087.thread: ;
   %2957 = load i32, ptr %2956, align 4, !tbaa !246
   %2958 = mul nsw i32 %2957, 60
   %2959 = sext i32 %2958 to i64
-  %2960 = getelementptr %struct.wallcc_t, ptr %2946, i64 %2959
+  %2960 = getelementptr [24 x i8], ptr %2946, i64 %2959
   %2961 = getelementptr i8, ptr %2960, i64 264
   %2962 = load i32, ptr %2961, align 8, !tbaa !247
   %2963 = add nsw i32 %2962, 1
@@ -5147,7 +5106,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1091: ; preds = %2931, 
   %3069 = load i32, ptr %3068, align 4, !tbaa !246
   %3070 = mul nsw i32 %3069, 60
   %3071 = sext i32 %3070 to i64
-  %3072 = getelementptr %struct.wallcc_t, ptr %3058, i64 %3071
+  %3072 = getelementptr [24 x i8], ptr %3058, i64 %3071
   %3073 = getelementptr i8, ptr %3072, i64 264
   %3074 = load i32, ptr %3073, align 8, !tbaa !247
   %3075 = add nsw i32 %3074, 1
@@ -5364,7 +5323,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1111: ; preds 
 3186:                                             ; preds = %3180
   %3187 = call noundef ptr @_ZN3gmx22StatePropagatorDataGpu14fReadyOnDeviceENS_12AtomLocalityE(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef 0)
   %3188 = load i64, ptr %3183, align 8, !tbaa !500
-  %3189 = getelementptr inbounds nuw ptr, ptr %88, i64 %3188
+  %3189 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %3188
   store ptr %3187, ptr %3189, align 8, !tbaa !503
   %3190 = add i64 %3188, 1
   store i64 %3190, ptr %3183, align 8, !tbaa !500
@@ -5373,7 +5332,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1111: ; preds 
 3191:                                             ; preds = %3180, %3186
   %3192 = call noundef ptr @_ZN3gmx22StatePropagatorDataGpu16fReducedOnDeviceENS_12AtomLocalityE(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef 1)
   %3193 = load i64, ptr %3183, align 8, !tbaa !500
-  %3194 = getelementptr inbounds nuw ptr, ptr %88, i64 %3193
+  %3194 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %3193
   store ptr %3192, ptr %3194, align 8, !tbaa !503
   %3195 = add i64 %3193, 1
   store i64 %3195, ptr %3183, align 8, !tbaa !500
@@ -5462,7 +5421,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1111: ; preds 
   %3243 = load i32, ptr %3221, align 4, !tbaa !246
   %3244 = mul nsw i32 %3243, 60
   %3245 = sext i32 %3244 to i64
-  %3246 = getelementptr %struct.wallcc_t, ptr %3235, i64 %3245
+  %3246 = getelementptr [24 x i8], ptr %3235, i64 %3245
   %3247 = getelementptr i8, ptr %3246, i64 456
   %3248 = load i32, ptr %3247, align 8, !tbaa !247
   %3249 = add nsw i32 %3248, 1
@@ -5550,7 +5509,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1111: ; preds 
   %3298 = load i32, ptr %3221, align 4, !tbaa !246
   %3299 = mul nsw i32 %3298, 60
   %3300 = sext i32 %3299 to i64
-  %3301 = getelementptr %struct.wallcc_t, ptr %3290, i64 %3300
+  %3301 = getelementptr [24 x i8], ptr %3290, i64 %3300
   %3302 = getelementptr i8, ptr %3301, i64 984
   %3303 = load i32, ptr %3302, align 8, !tbaa !247
   %3304 = add nsw i32 %3303, 1
@@ -5686,7 +5645,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationGpuEf27DdBalanceRegionWa
   %3376 = load i32, ptr %3375, align 4, !tbaa !246
   %3377 = mul nsw i32 %3376, 60
   %3378 = sext i32 %3377 to i64
-  %3379 = getelementptr %struct.wallcc_t, ptr %3365, i64 %3378
+  %3379 = getelementptr [24 x i8], ptr %3365, i64 %3378
   %3380 = getelementptr i8, ptr %3379, i64 264
   %3381 = load i32, ptr %3380, align 8, !tbaa !247
   %3382 = add nsw i32 %3381, 1
@@ -5938,7 +5897,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit1121: ; preds = %_Z14wa
   %3516 = load i32, ptr %3515, align 4, !tbaa !246
   %3517 = mul nsw i32 %3516, 60
   %3518 = sext i32 %3517 to i64
-  %3519 = getelementptr %struct.wallcc_t, ptr %3505, i64 %3518
+  %3519 = getelementptr [24 x i8], ptr %3505, i64 %3518
   %3520 = getelementptr i8, ptr %3519, i64 216
   %3521 = load i32, ptr %3520, align 8, !tbaa !247
   %3522 = add nsw i32 %3521, 1
@@ -6044,7 +6003,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.i1127: ; preds = %3558
   %3585 = load i32, ptr %3584, align 4, !tbaa !246
   %3586 = mul nsw i32 %3585, 60
   %3587 = sext i32 %3586 to i64
-  %3588 = getelementptr %struct.wallcc_t, ptr %3574, i64 %3587
+  %3588 = getelementptr [24 x i8], ptr %3574, i64 %3587
   %3589 = getelementptr i8, ptr %3588, i64 456
   %3590 = load i32, ptr %3589, align 8, !tbaa !247
   %3591 = add nsw i32 %3590, 1
@@ -6344,10 +6303,10 @@ _ZNRSt8optionalIN3gmx12ForceOutputsEE5valueEv.exit1134: ; preds = %3680, %3679
   %.02230.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i1146 ], [ %.1.i.i, %3771 ]
   %.02329.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i1146 ], [ %.124.i.i, %3771 ]
   %.02528.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i1146 ], [ %.126.i.i, %3771 ]
-  %3753 = getelementptr inbounds nuw float, ptr %3747, i64 %indvars.iv.i.i
+  %3753 = getelementptr inbounds nuw [4 x i8], ptr %3747, i64 %indvars.iv.i.i
   %3754 = load float, ptr %3753, align 4, !tbaa !145
   %3755 = fcmp ult float %3754, 0.000000e+00
-  %3756 = getelementptr inbounds nuw float, ptr %3749, i64 %indvars.iv.i.i
+  %3756 = getelementptr inbounds nuw [4 x i8], ptr %3749, i64 %indvars.iv.i.i
   %3757 = load float, ptr %3756, align 4, !tbaa !145
   br i1 %3755, label %3769, label %3758
 
@@ -6355,7 +6314,7 @@ _ZNRSt8optionalIN3gmx12ForceOutputsEE5valueEv.exit1134: ; preds = %3680, %3679
   %3759 = fadd float %.02528.i.i, %3757
   %3760 = fpext float %3757 to double
   %3761 = fmul double %3760, 5.000000e-01
-  %3762 = getelementptr inbounds nuw float, ptr %3751, i64 %indvars.iv.i.i
+  %3762 = getelementptr inbounds nuw [4 x i8], ptr %3751, i64 %indvars.iv.i.i
   %3763 = load float, ptr %3762, align 4, !tbaa !145
   %3764 = fpext float %3763 to double
   %3765 = fmul double %3761, %3764
@@ -6695,7 +6654,7 @@ define internal fastcc void @_ZN3gmxL12do_nb_verletEP10t_forcerecPK19interaction
   %44 = load i8, ptr %43, align 8, !tbaa !526, !range !141, !noundef !142
   %45 = trunc nuw i8 %44 to i1
   %46 = select i1 %45, i64 2, i64 1
-  %47 = getelementptr inbounds nuw %"class.std::vector.60", ptr %42, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !443
   store ptr %48, ptr %10, align 8, !tbaa !254
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7017,7 +6976,7 @@ define internal fastcc void @_ZN3gmxL19pmeGpuWaitAndReduceEP9gmx_pme_tRKNS_12Ste
   %25 = load i32, ptr %24, align 4, !tbaa !246
   %26 = mul nsw i32 %25, 60
   %27 = sext i32 %26 to i64
-  %28 = getelementptr %struct.wallcc_t, ptr %14, i64 %27
+  %28 = getelementptr [24 x i8], ptr %14, i64 %27
   %29 = getelementptr i8, ptr %28, i64 456
   %30 = load i32, ptr %29, align 8, !tbaa !247
   %31 = add nsw i32 %30, 1
@@ -7199,7 +7158,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.thread: ; preds = %7
   %73 = load i32, ptr %72, align 4, !tbaa !246
   %74 = mul nsw i32 %73, 60
   %75 = sext i32 %74 to i64
-  %76 = getelementptr %struct.wallcc_t, ptr %63, i64 %75
+  %76 = getelementptr [24 x i8], ptr %63, i64 %75
   %77 = getelementptr i8, ptr %76, i64 912
   %78 = load i32, ptr %77, align 8, !tbaa !247
   %79 = add nsw i32 %78, 1
@@ -7466,8 +7425,8 @@ define internal fastcc void @_ZN3gmxL17postProcessForcesEPK9t_commreclP6t_nrnbP1
 
 .preheader.i:                                     ; preds = %41, %.preheader10.i
   %indvars.iv14.i = phi i64 [ 0, %.preheader10.i ], [ %indvars.iv.next15.i, %41 ]
-  %39 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv14.i
-  %40 = getelementptr inbounds nuw [3 x float], ptr %38, i64 %indvars.iv14.i
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %indvars.iv14.i
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %indvars.iv14.i
   br label %42
 
 41:                                               ; preds = %42
@@ -7477,9 +7436,9 @@ define internal fastcc void @_ZN3gmxL17postProcessForcesEPK9t_commreclP6t_nrnbP1
 
 42:                                               ; preds = %42, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %42 ]
-  %43 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i
   %44 = load float, ptr %43, align 4, !tbaa !145
-  %45 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i
   %46 = load float, ptr %45, align 4, !tbaa !145
   %47 = fadd float %44, %46
   store float %47, ptr %45, align 4, !tbaa !145
@@ -7615,7 +7574,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %41, %26
   %128 = phi i32 [ %124, %.lr.ph.i ], [ %152, %151 ]
   %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i26, %151 ]
   %.04.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i, %151 ]
-  %129 = getelementptr inbounds nuw %"class.gmx::BasicVector.497", ptr %18, i64 %indvars.iv.i25
+  %129 = getelementptr inbounds nuw [12 x i8], ptr %18, i64 %indvars.iv.i25
   %.sroa.04.0.copyload.i = load <2 x float>, ptr %129, align 4
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %129, i64 8
   %.sroa.25.0.copyload.i = load float, ptr %.sroa.25.0..sroa_idx.i, align 4, !tbaa !12
@@ -7634,7 +7593,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %41, %26
   %137 = load ptr, ptr %126, align 8, !tbaa !178
   %138 = trunc nuw nsw i64 %indvars.iv.i25 to i32
   %139 = call noundef i32 @_Z8ddglatnrPK12gmx_domdec_ti(ptr noundef %137, i32 noundef %138)
-  %140 = getelementptr inbounds nuw %"class.gmx::BasicVector.497", ptr %.0.val, i64 %indvars.iv.i25
+  %140 = getelementptr inbounds nuw [12 x i8], ptr %.0.val, i64 %indvars.iv.i25
   %141 = load float, ptr %140, align 4, !tbaa !145
   %142 = fpext float %141 to double
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 4
@@ -7797,7 +7756,7 @@ define internal void @_ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.
   %.012 = phi i64 [ %26, %.lr.ph ], [ %20, %14 ]
   %21 = load i64, ptr %2, align 8
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds %"class.gmx::BasicVector.497", ptr %22, i64 %.012
+  %23 = getelementptr inbounds [12 x i8], ptr %22, i64 %.012
   store float 0.000000e+00, ptr %23, align 4, !tbaa !145
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float 0.000000e+00, ptr %24, align 4, !tbaa !145
@@ -7936,7 +7895,7 @@ define internal void @_ZN3gmxL16combineMtsForcesEiNS_8ArrayRefINS_11BasicVectorI
   %indvars.iv = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %20 = load i64, ptr %3, align 8
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds %"class.gmx::BasicVector.497", ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds [12 x i8], ptr %21, i64 %indvars.iv
   %.sroa.027.0.copyload = load float, ptr %22, align 4
   %.sroa.4.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx28, align 4
@@ -7944,7 +7903,7 @@ define internal void @_ZN3gmxL16combineMtsForcesEiNS_8ArrayRefINS_11BasicVectorI
   %.sroa.529.0.copyload = load float, ptr %.sroa.529.0..sroa_idx, align 4, !tbaa !12
   %23 = load i64, ptr %4, align 8
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds %"class.gmx::BasicVector.497", ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds [12 x i8], ptr %24, i64 %indvars.iv
   %26 = load float, ptr %25, align 4, !tbaa !145
   %27 = fadd float %.sroa.027.0.copyload, %26
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -7959,7 +7918,7 @@ define internal void @_ZN3gmxL16combineMtsForcesEiNS_8ArrayRefINS_11BasicVectorI
   store float %33, ptr %.sroa.529.0..sroa_idx, align 4, !tbaa !12
   %34 = load i64, ptr %4, align 8
   %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds %"class.gmx::BasicVector.497", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds [12 x i8], ptr %35, i64 %indvars.iv
   %37 = load float, ptr %5, align 4, !tbaa !145
   %38 = load float, ptr %36, align 4, !tbaa !145
   %39 = fmul float %37, %38
@@ -8057,10 +8016,10 @@ define internal void @_ZN3gmxL10sum_forcesENS_8ArrayRefINS_11BasicVectorIfEEEENS
   %indvars.iv = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %20 = load i64, ptr %3, align 8
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds %"class.gmx::BasicVector.497", ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds [12 x i8], ptr %21, i64 %indvars.iv
   %23 = load i64, ptr %4, align 8
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds %"class.gmx::BasicVector.497", ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds [12 x i8], ptr %24, i64 %indvars.iv
   %26 = load float, ptr %22, align 4, !tbaa !145
   %27 = load float, ptr %25, align 4, !tbaa !145
   %28 = fadd float %26, %27

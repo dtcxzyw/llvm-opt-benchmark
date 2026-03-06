@@ -906,7 +906,7 @@ define dso_local zeroext i1 @efi_is_table_address(i64 noundef %0) local_unnamed_
 
 .preheader:                                       ; preds = %1, %.preheader
   %3 = phi i64 [ %8, %.preheader ], [ 0, %1 ]
-  %4 = getelementptr ptr, ptr @efi_tables, i64 %3
+  %4 = getelementptr [8 x i8], ptr @efi_tables, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, %0

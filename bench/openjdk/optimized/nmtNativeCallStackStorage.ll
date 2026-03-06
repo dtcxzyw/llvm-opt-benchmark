@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.ArrayWithFreeList<NativeCallStackStorage::TableEntry, MEMFLAGS::mtNMT>::BackingElement" = type { %"struct.NativeCallStackStorage::TableEntry" }
 %"struct.NativeCallStackStorage::TableEntry" = type { i32, %"struct.NativeCallStackStorage::StackIndex" }
 %"struct.NativeCallStackStorage::StackIndex" = type { i32 }
-%class.NativeCallStack = type { [4 x ptr] }
 
 $_ZN26GrowableArrayWithAllocatorI15NativeCallStack18GrowableArrayCHeapIS0_L8MEMFLAGS12EEE6appendERKS0_ = comdat any
 
@@ -25,7 +24,7 @@ define hidden i32 @_ZN22NativeCallStackStorage3putERK15NativeCallStack(ptr nound
 4:                                                ; preds = %4, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
   %.056.i = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = add i64 %.056.i, %7
@@ -41,7 +40,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %12 to i64
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -57,12 +56,12 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %4
 
 23:                                               ; preds = %22
   %24 = sext i32 %.0 to i64
-  %25 = getelementptr inbounds %"union.ArrayWithFreeList<NativeCallStackStorage::TableEntry, MEMFLAGS::mtNMT>::BackingElement", ptr %18, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.02.0.copyload = load i32, ptr %26, align 4
   %27 = icmp eq i32 %.sroa.02.0.copyload, -1
   %28 = sext i32 %.sroa.02.0.copyload to i64
-  %29 = getelementptr inbounds %class.NativeCallStack, ptr %21, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %21, i64 %28
   %.0.i = select i1 %27, ptr %19, ptr %29
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %.0.i, i64 32)
   %30 = icmp eq i32 %bcmp.i, 0
@@ -72,7 +71,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = tail call noundef i32 @_ZN26GrowableArrayWithAllocatorI15NativeCallStack18GrowableArrayCHeapIS0_L8MEMFLAGS12EEE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %34 = load ptr, ptr %13, align 8
-  %35 = getelementptr inbounds i32, ptr %34, i64 %15
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %15
   %36 = load i32, ptr %35, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -83,7 +82,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %4
 39:                                               ; preds = %31
   %40 = load ptr, ptr %17, align 8
   %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds %"union.ArrayWithFreeList<NativeCallStackStorage::TableEntry, MEMFLAGS::mtNMT>::BackingElement", ptr %40, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %37, align 8
   br label %_ZN17ArrayWithFreeListIN22NativeCallStackStorage10TableEntryEL8MEMFLAGS12EE8allocateIJiNS0_10StackIndexEEEEiDpT_.exit
@@ -93,7 +92,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %4
   %45 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIN17ArrayWithFreeListIN22NativeCallStackStorage10TableEntryEL8MEMFLAGS12EE14BackingElementE18GrowableArrayCHeapIS5_LS3_12EEE6appendERKS5_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
   %46 = load ptr, ptr %17, align 8
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds %"union.ArrayWithFreeList<NativeCallStackStorage::TableEntry, MEMFLAGS::mtNMT>::BackingElement", ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   br label %_ZN17ArrayWithFreeListIN22NativeCallStackStorage10TableEntryEL8MEMFLAGS12EE8allocateIJiNS0_10StackIndexEEEEiDpT_.exit
 
 _ZN17ArrayWithFreeListIN22NativeCallStackStorage10TableEntryEL8MEMFLAGS12EE8allocateIJiNS0_10StackIndexEEEEiDpT_.exit: ; preds = %39, %44
@@ -104,7 +103,7 @@ _ZN17ArrayWithFreeListIN22NativeCallStackStorage10TableEntryEL8MEMFLAGS12EE8allo
   store i32 %33, ptr %49, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %50 = load ptr, ptr %13, align 8
-  %51 = getelementptr inbounds i32, ptr %50, i64 %15
+  %51 = getelementptr inbounds [4 x i8], ptr %50, i64 %15
   store i32 %.0.i16, ptr %51, align 4
   br label %.loopexit
 
@@ -165,9 +164,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorI15Native
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw %class.NativeCallStack, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds nuw %class.NativeCallStack, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %27 = load i32, ptr %0, align 8
@@ -183,7 +182,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorI15Native
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %32 = getelementptr inbounds nuw %class.NativeCallStack, ptr %15, i64 %indvars.iv20.i.i
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvars.iv20.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %33 = load i32, ptr %4, align 4
@@ -206,7 +205,7 @@ _ZN26GrowableArrayWithAllocatorI15NativeCallStack18GrowableArrayCHeapIS0_L8MEMFL
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %0, align 8
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds %class.NativeCallStack, ptr %38, i64 %41
+  %42 = getelementptr inbounds [32 x i8], ptr %38, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret i32 %39
 }
@@ -245,7 +244,7 @@ define hidden void @_ZN22NativeCallStackStorageC2Ebi(ptr noundef nonnull align 8
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %13 ]
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store i32 -1, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %9, align 8
@@ -373,9 +372,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN17Array
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw %"union.ArrayWithFreeList<NativeCallStackStorage::TableEntry, MEMFLAGS::mtNMT>::BackingElement", ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds nuw %"union.ArrayWithFreeList<NativeCallStackStorage::TableEntry, MEMFLAGS::mtNMT>::BackingElement", ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = load i64, ptr %26, align 4
   store i64 %27, ptr %24, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -392,7 +391,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN17Array
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds nuw %"union.ArrayWithFreeList<NativeCallStackStorage::TableEntry, MEMFLAGS::mtNMT>::BackingElement", ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv20.i.i
   store i64 0, ptr %33, align 4
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4
@@ -415,7 +414,7 @@ _ZN26GrowableArrayWithAllocatorIN17ArrayWithFreeListIN22NativeCallStackStorage10
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %0, align 8
   %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds %"union.ArrayWithFreeList<NativeCallStackStorage::TableEntry, MEMFLAGS::mtNMT>::BackingElement", ptr %39, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %39, i64 %42
   %44 = load i64, ptr %1, align 4
   store i64 %44, ptr %43, align 4
   ret i32 %40

@@ -19,7 +19,7 @@ define hidden noundef i64 @_ZN14pingora_limits9estimator9Estimator4incr17h9c16ee
 .preheader:                                       ; preds = %3, %"_ZN14pingora_limits9estimator9Estimator4incr28_$u7b$$u7b$closure$u7d$$u7d$17hee0924780bc6b6d4E.exit.i"
   %.sroa.07.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN14pingora_limits9estimator9Estimator4incr28_$u7b$$u7b$closure$u7d$$u7d$17hee0924780bc6b6d4E.exit.i" ], [ 9223372036854775807, %3 ]
   %.sroa.09.0.i = phi i64 [ %30, %"_ZN14pingora_limits9estimator9Estimator4incr28_$u7b$$u7b$closure$u7d$$u7d$17hee0924780bc6b6d4E.exit.i" ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i64, i64, i64, i64 } }, ptr %4, i64 %.sroa.09.0.i
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %.sroa.09.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !alias.scope !5, !noalias !8, !noundef !3
@@ -48,7 +48,7 @@ define hidden noundef i64 @_ZN14pingora_limits9estimator9Estimator4incr17h9c16ee
   %24 = xor i128 %23, %22
   %25 = trunc i128 %24 to i64
   %26 = urem i64 %25, %10
-  %27 = getelementptr inbounds nuw { i64 }, ptr %13, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %26
   %28 = atomicrmw add ptr %27, i64 %2 monotonic, align 8, !noalias !12
   %29 = add i64 %28, %2
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %29, i64 %.sroa.07.0.i)
@@ -104,7 +104,7 @@ define hidden void @_ZN14pingora_limits9estimator9Estimator4decr17hdc7224a44a6c1
   %26 = trunc i128 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.02.06, i64 48
   %28 = urem i64 %26, %10
-  %29 = getelementptr inbounds nuw { i64 }, ptr %14, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %28
   %30 = atomicrmw sub ptr %29, i64 %2 monotonic, align 8
   %31 = icmp eq ptr %27, %7
   br i1 %31, label %._crit_edge, label %.lr.ph
@@ -121,7 +121,7 @@ define hidden noundef i64 @_ZN14pingora_limits9estimator9Estimator3get17h101e299
 .preheader:                                       ; preds = %2, %"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E.exit.i"
   %.sroa.07.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E.exit.i" ], [ 9223372036854775807, %2 ]
   %.sroa.09.0.i = phi i64 [ %28, %"_ZN14pingora_limits9estimator9Estimator3get28_$u7b$$u7b$closure$u7d$$u7d$17h0324e2c35c0d0342E.exit.i" ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i64, i64, i64, i64 } }, ptr %3, i64 %.sroa.09.0.i
+  %7 = getelementptr inbounds nuw [48 x i8], ptr %3, i64 %.sroa.09.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !13, !noalias !16, !noundef !3
@@ -150,7 +150,7 @@ define hidden noundef i64 @_ZN14pingora_limits9estimator9Estimator3get17h101e299
   %23 = xor i128 %22, %21
   %24 = trunc i128 %23 to i64
   %25 = urem i64 %24, %9
-  %26 = getelementptr inbounds nuw { i64 }, ptr %12, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %25
   %27 = load atomic i64, ptr %26 monotonic, align 8, !noalias !19
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %27, i64 %.sroa.07.0.i)
   %28 = add nuw i64 %.sroa.09.0.i, 1

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 
 @TopMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -119,7 +118,7 @@ define dso_local ptr @PortalGetPrimaryStmt(ptr noundef readonly captures(none) %
 
 10:                                               ; preds = %.lr.ph30, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next, %9 ]
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 18
   %14 = load i8, ptr %13, align 2, !range !4, !noundef !5

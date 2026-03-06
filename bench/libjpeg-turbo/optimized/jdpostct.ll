@@ -217,7 +217,7 @@ define internal void @post_process_1pass(ptr noundef %0, ptr noundef %1, ptr nou
   %25 = load ptr, ptr %19, align 8, !tbaa !56
   %26 = load i32, ptr %5, align 4, !tbaa !64
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %27
   %29 = load i32, ptr %8, align 4, !tbaa !64
   call void %24(ptr noundef %0, ptr noundef %25, ptr noundef %28, i32 noundef %29) #5
   %30 = load i32, ptr %8, align 4, !tbaa !64
@@ -282,7 +282,7 @@ define internal void @post_process_prepass(ptr noundef %0, ptr noundef %1, ptr n
   %43 = load ptr, ptr %42, align 8, !tbaa !66
   %44 = load ptr, ptr %38, align 8, !tbaa !56
   %45 = zext i32 %28 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   tail call void %43(ptr noundef nonnull %0, ptr noundef %46, ptr noundef null, i32 noundef %39) #5
   %47 = load i32, ptr %5, align 4, !tbaa !64
   %48 = add i32 %47, %39
@@ -359,9 +359,9 @@ define internal void @post_process_2pass(ptr noundef %0, ptr readnone captures(n
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !66
   %43 = zext i32 %28 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %27, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %43
   %45 = zext i32 %32 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %4, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %45
   tail call void %42(ptr noundef nonnull %0, ptr noundef %44, ptr noundef %46, i32 noundef %.1) #5
   %47 = load i32, ptr %5, align 4, !tbaa !64
   %48 = add i32 %47, %.1

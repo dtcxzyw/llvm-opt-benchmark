@@ -194,7 +194,7 @@ define i32 @pmix_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   store ptr %1, ptr %18, align 8, !tbaa !22
   %19 = add nsw i32 %12, -1
   store i32 %19, ptr %4, align 4, !tbaa !13
@@ -205,7 +205,7 @@ define i32 @pmix_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %25 = load ptr, ptr %24, align 8, !tbaa !18
   %26 = zext nneg i32 %20 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !23
   %29 = or i64 %28, %23
   store i64 %29, ptr %27, align 8, !tbaa !23
@@ -215,7 +215,7 @@ define i32 @pmix_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
 .preheader:                                       ; preds = %11, %.preheader
   %.056 = phi i32 [ %35, %.preheader ], [ %20, %11 ]
   %31 = zext i32 %.056 to i64
-  %32 = getelementptr inbounds nuw i64, ptr %25, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !23
   %34 = icmp eq i64 %33, -1
   %35 = add i32 %.056, 1
@@ -331,7 +331,7 @@ pmix_tma_realloc.exit:                            ; preds = %18, %22
 .lr.ph:                                           ; preds = %25, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %33, %25 ]
   %34 = load ptr, ptr %14, align 8, !tbaa !20
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %indvars.iv
   store ptr null, ptr %35, align 8, !tbaa !22
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
@@ -420,7 +420,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !22
   %.not74 = icmp eq ptr %16, null
   br i1 %11, label %17, label %37
@@ -450,7 +450,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %32 = load ptr, ptr %31, align 8, !tbaa !18
   %33 = zext nneg i32 %27 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !23
   %36 = xor i64 %35, %30
   store i64 %36, ptr %34, align 8, !tbaa !23
@@ -471,7 +471,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8, !tbaa !18
   %48 = zext nneg i32 %42 to i64
-  %49 = getelementptr inbounds nuw i64, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !23
   %51 = or i64 %50, %45
   store i64 %51, ptr %49, align 8, !tbaa !23
@@ -491,7 +491,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
 .preheader:                                       ; preds = %55, %.preheader
   %.070 = phi i32 [ %63, %.preheader ], [ %42, %55 ]
   %59 = zext i32 %.070 to i64
-  %60 = getelementptr inbounds nuw i64, ptr %47, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !23
   %62 = icmp eq i64 %61, -1
   %63 = add i32 %.070, 1
@@ -540,7 +540,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   br label %89
 
 89:                                               ; preds = %88, %38, %37, %17, %23
-  %90 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   store ptr %2, ptr %90, align 8, !tbaa !22
   br label %91
 
@@ -560,7 +560,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.thread, label %67
@@ -578,7 +578,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
 .thread:                                          ; preds = %..thread_crit_edge, %7
   %.pre-phi = phi i64 [ %.pre67, %..thread_crit_edge ], [ %10, %7 ]
   %15 = phi ptr [ %.pre, %..thread_crit_edge ], [ %9, %7 ]
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %.pre-phi
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %.pre-phi
   store ptr %2, ptr %16, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %18 = load i32, ptr %17, align 4, !tbaa !13
@@ -591,7 +591,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %25 = load ptr, ptr %24, align 8, !tbaa !18
   %26 = zext nneg i32 %20 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !23
   %29 = or i64 %28, %23
   store i64 %29, ptr %27, align 8, !tbaa !23
@@ -607,7 +607,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
 .preheader:                                       ; preds = %31, %.preheader
   %.060 = phi i32 [ %39, %.preheader ], [ %20, %31 ]
   %35 = zext i32 %.060 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !23
   %38 = icmp eq i64 %37, -1
   %39 = add i32 %.060, 1

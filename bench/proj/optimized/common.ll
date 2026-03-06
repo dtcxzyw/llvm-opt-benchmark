@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
 %"struct.osgeo::proj::io::JSONFormatter::ObjectContext" = type { ptr }
-%struct.PJ_UNITS = type { ptr, ptr, ptr, double }
 %"class.osgeo::proj::common::DateTime" = type { %"class.std::unique_ptr.37" }
 %"class.std::unique_ptr.37" = type { %"struct.std::__uniq_ptr_data.38" }
 %"struct.std::__uniq_ptr_data.38" = type { %"class.std::__uniq_ptr_impl.39" }
@@ -1299,7 +1298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %31,
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5osgeo4proj6common13UnitOfMeasure13_exportToJSONEPNS0_2io13JSONFormatterE, i64 %39
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5osgeo4proj6common13UnitOfMeasure13_exportToJSONEPNS0_2io13JSONFormatterE, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.invoke
 
@@ -1822,13 +1821,13 @@ define hidden void @_ZNK5osgeo4proj6common13UnitOfMeasure18exportToPROJStringB5c
 .lr.ph70:                                         ; preds = %.lr.ph47, %23
   %indvars.iv5369 = phi i64 [ %indvars.iv.next54, %23 ], [ 0, %.lr.ph47 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv5369, 1
-  %21 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %10, i64 %indvars.iv.next54
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv.next54
   %22 = load ptr, ptr %21, align 8, !tbaa !49
   %.not29.not = icmp eq ptr %22, null
   br i1 %.not29.not, label %.thread, label %23, !llvm.loop !52
 
 23:                                               ; preds = %.lr.ph70
-  %24 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %10, i64 %indvars.iv.next54
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv.next54
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load double, ptr %25, align 8, !tbaa !51
   %27 = fsub double %26, %14
@@ -1900,13 +1899,13 @@ define hidden void @_ZNK5osgeo4proj6common13UnitOfMeasure18exportToPROJStringB5c
 .lr.ph68:                                         ; preds = %.lr.ph, %58
   %indvars.iv67 = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv67, 1
-  %56 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %45, i64 %indvars.iv.next
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %indvars.iv.next
   %57 = load ptr, ptr %56, align 8, !tbaa !49
   %.not.not = icmp eq ptr %57, null
   br i1 %.not.not, label %.thread, label %58, !llvm.loop !54
 
 58:                                               ; preds = %.lr.ph68
-  %59 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %45, i64 %indvars.iv.next
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %indvars.iv.next
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load double, ptr %60, align 8, !tbaa !51
   %62 = fsub double %61, %49
@@ -12447,7 +12446,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata10Identifie
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata10IdentifierEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata10IdentifierEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !160
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !161
-  %44 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.53", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !163
   ret void
 }
@@ -12550,7 +12549,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util11GenericNameEE
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util11GenericNameEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util11GenericNameEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !173
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !174
-  %44 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.75", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !176
   ret void
 }
@@ -12897,7 +12896,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common12ObjectDomai
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common12ObjectDomainEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common12ObjectDomainEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !273
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !270
-  %44 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.137", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !274
   ret void
 }

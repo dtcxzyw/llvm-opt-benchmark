@@ -26,9 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ExceptionInfo" = type { %"class.gmx::internal::IExceptionInfo", %"struct.gmx::ThrowLocation" }
 %"class.gmx::internal::IExceptionInfo" = type { ptr }
 %"struct.gmx::ThrowLocation" = type <{ ptr, ptr, i32, [4 x i8] }>
-%struct.partition = type { i32, ptr }
-%struct.spheresurfacebin = type { i32, i32, ptr }
-%struct.t_partition_item = type { float, i32 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -276,7 +273,7 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
   %65 = fdiv double %62, %64
   %66 = fptosi double %65 to i32
   %67 = load ptr, ptr %41, align 8, !tbaa !32
-  %68 = getelementptr inbounds nuw %struct.partition, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = add nsw i32 %66, 2
   %71 = sext i32 %70 to i64
@@ -324,7 +321,7 @@ define internal void @_ZL22free_data_insolidanglePv(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %7 = load ptr, ptr %2, align 8, !tbaa !32
-  %8 = getelementptr inbounds nuw %struct.partition, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, i32 noundef 440, ptr noundef %10)
@@ -355,7 +352,7 @@ define internal void @_ZL22free_data_insolidanglePv(ptr noundef %0) #0 {
   %20 = phi i32 [ %27, %26 ], [ %17, %15 ]
   %21 = phi ptr [ %28, %26 ], [ %.pre.i, %15 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 0, %15 ]
-  %22 = getelementptr inbounds nuw %struct.spheresurfacebin, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !42
   %.not.i = icmp eq ptr %24, null
@@ -370,7 +367,7 @@ define internal void @_ZL22free_data_insolidanglePv(ptr noundef %0) #0 {
 26:                                               ; preds = %25, %.lr.ph.i
   %27 = phi i32 [ %.pre14.i, %25 ], [ %20, %.lr.ph.i ]
   %28 = phi ptr [ %.pre13.i, %25 ], [ %21, %.lr.ph.i ]
-  %29 = getelementptr inbounds nuw %struct.spheresurfacebin, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 0, ptr %30, align 4, !tbaa !44
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -408,7 +405,7 @@ define internal void @_ZL23init_frame_insolidangleRKN3gmx20SelMethodEvalContextE
   %9 = phi i32 [ %5, %.lr.ph.i ], [ %16, %15 ]
   %10 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %17, %15 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %11 = getelementptr inbounds nuw %struct.spheresurfacebin, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !42
   %.not.i = icmp eq ptr %13, null
@@ -423,7 +420,7 @@ define internal void @_ZL23init_frame_insolidangleRKN3gmx20SelMethodEvalContextE
 15:                                               ; preds = %14, %8
   %16 = phi i32 [ %.pre14.i, %14 ], [ %9, %8 ]
   %17 = phi ptr [ %.pre13.i, %14 ], [ %10, %8 ]
-  %18 = getelementptr inbounds nuw %struct.spheresurfacebin, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %19, align 4, !tbaa !44
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -471,7 +468,7 @@ _ZL19free_surface_pointsP23methoddata_insolidangle.exit: ; preds = %15, %2
   %48 = fptosi double %47 to i32
   %49 = tail call i32 @llvm.smax.i32(i32 %48, i32 0)
   %spec.store.select.i = add nuw i32 %49, 1
-  %50 = getelementptr inbounds nuw %struct.partition, ptr %32, i64 %indvars.iv41.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv41.i
   store i32 %spec.store.select.i, ptr %50, align 8, !tbaa !46
   %51 = uitofp nneg i32 %spec.store.select.i to double
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -491,12 +488,12 @@ _ZL19free_surface_pointsP23methoddata_insolidangle.exit: ; preds = %15, %2
   %60 = fadd double %59, 0xC00921FB54442D18
   %61 = fadd double %60, -1.000000e-04
   %62 = fptrunc double %61 to float
-  %63 = getelementptr inbounds nuw %struct.t_partition_item, ptr %53, i64 %indvars.iv.i18
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i18
   store float %62, ptr %63, align 4, !tbaa !47
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = trunc nsw i64 %indvars.iv36.i to i32
   store i32 %65, ptr %64, align 4, !tbaa !49
-  %66 = getelementptr inbounds %struct.spheresurfacebin, ptr %34, i64 %indvars.iv36.i
+  %66 = getelementptr inbounds [16 x i8], ptr %34, i64 %indvars.iv36.i
   store i32 0, ptr %66, align 8, !tbaa !50
   %indvars.iv.next37.i = add nsw i64 %indvars.iv36.i, 1
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
@@ -506,7 +503,7 @@ _ZL19free_surface_pointsP23methoddata_insolidangle.exit: ; preds = %15, %2
 67:                                               ; preds = %55
   %68 = trunc nsw i64 %indvars.iv.next37.i to i32
   store i32 %68, ptr %4, align 4, !tbaa !36
-  %69 = getelementptr inbounds nuw %struct.t_partition_item, ptr %53, i64 %wide.trip.count.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %wide.trip.count.i
   store float 0x4009222FC0000000, ptr %69, align 4, !tbaa !47
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 -1, ptr %70, align 4, !tbaa !49
@@ -537,7 +534,7 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %67, %_ZL19f
   %86 = load ptr, ptr %78, align 8, !tbaa !54
   %.not = icmp eq ptr %86, null
   %87 = load ptr, ptr %74, align 8, !tbaa !59
-  %88 = getelementptr inbounds nuw [3 x float], ptr %87, i64 %indvars.iv30
+  %88 = getelementptr inbounds nuw [12 x i8], ptr %87, i64 %indvars.iv30
   %89 = load ptr, ptr %1, align 8, !tbaa !60
   br i1 %.not, label %91, label %90
 
@@ -695,7 +692,7 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %67, %_ZL19f
   %193 = fpext float %192 to double
   %194 = fcmp ult double %193, 0xC00921FB54442D18
   %195 = load ptr, ptr %83, align 8, !tbaa !32
-  %196 = getelementptr inbounds nuw %struct.partition, ptr %195, i64 %indvars.iv
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %195, i64 %indvars.iv
   br i1 %194, label %212, label %197
 
 197:                                              ; preds = %187
@@ -715,7 +712,7 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %67, %_ZL19f
   %204 = sdiv i32 %203, 2
   %205 = add nsw i32 %204, %.01214.i.i
   %206 = sext i32 %205 to i64
-  %207 = getelementptr inbounds %struct.t_partition_item, ptr %201, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %201, i64 %206
   %208 = load float, ptr %207, align 4, !tbaa !47
   %209 = fcmp ugt float %208, %192
   %.012..i.i = select i1 %209, i32 %.01214.i.i, i32 %205
@@ -743,7 +740,7 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %67, %_ZL19f
   %221 = sdiv i32 %220, 2
   %222 = add nsw i32 %221, %.01214.i81.i
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds %struct.t_partition_item, ptr %218, i64 %223
+  %224 = getelementptr inbounds [8 x i8], ptr %218, i64 %223
   %225 = load float, ptr %224, align 4, !tbaa !47
   %226 = fcmp ugt float %225, %214
   %.012..i82.i = select i1 %226, i32 %.01214.i81.i, i32 %222
@@ -782,7 +779,7 @@ _ZL18find_partition_binP9partitionf.exit.i:       ; preds = %202, %_ZL18find_par
   %240 = sdiv i32 %239, 2
   %241 = add nsw i32 %240, %.01214.i88.i
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds %struct.t_partition_item, ptr %237, i64 %242
+  %243 = getelementptr inbounds [8 x i8], ptr %237, i64 %242
   %244 = load float, ptr %243, align 4, !tbaa !47
   %245 = fcmp ugt float %244, %231
   %.012..i89.i = select i1 %245, i32 %.01214.i88.i, i32 %241
@@ -809,7 +806,7 @@ _ZL18find_partition_binP9partitionf.exit.i:       ; preds = %202, %_ZL18find_par
   %256 = sdiv i32 %255, 2
   %257 = add nsw i32 %256, %.01214.i95.i
   %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds %struct.t_partition_item, ptr %253, i64 %258
+  %259 = getelementptr inbounds [8 x i8], ptr %253, i64 %258
   %260 = load float, ptr %259, align 4, !tbaa !47
   %261 = fcmp ugt float %260, %250
   %.012..i96.i = select i1 %261, i32 %.01214.i95.i, i32 %257
@@ -851,7 +848,7 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %238, %_ZL18find_par
   %.067110.i = phi float [ %270, %.lr.ph.i25 ], [ %.168.i, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
   %.170109.i = phi float [ %.069.i, %.lr.ph.i25 ], [ %.271.i, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
   %277 = load ptr, ptr %83, align 8, !tbaa !32
-  %278 = getelementptr inbounds nuw %struct.partition, ptr %277, i64 %indvars.iv
+  %278 = getelementptr inbounds nuw [16 x i8], ptr %277, i64 %indvars.iv
   %279 = load i32, ptr %278, align 8, !tbaa !46
   %280 = icmp eq i32 %.1112.i, %279
   br i1 %280, label %281, label %288
@@ -872,7 +869,7 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %238, %_ZL18find_par
   %289 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %290 = load ptr, ptr %289, align 8, !tbaa !38
   %291 = sext i32 %.2.i to i64
-  %292 = getelementptr inbounds %struct.t_partition_item, ptr %290, i64 %291
+  %292 = getelementptr inbounds [8 x i8], ptr %290, i64 %291
   %293 = load float, ptr %292, align 4, !tbaa !47
   %294 = fcmp ult float %293, %.271.i
   br i1 %294, label %._crit_edge113.i, label %295
@@ -892,7 +889,7 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %238, %_ZL18find_par
   %300 = getelementptr inbounds nuw i8, ptr %292, i64 4
   %301 = load i32, ptr %300, align 4, !tbaa !49
   %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds %struct.spheresurfacebin, ptr %.pre114.i, i64 %302
+  %303 = getelementptr inbounds [16 x i8], ptr %.pre114.i, i64 %302
   store i32 -1, ptr %303, align 8, !tbaa !50
   br label %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i
 
@@ -901,7 +898,7 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %238, %_ZL18find_par
   %306 = getelementptr inbounds nuw i8, ptr %292, i64 4
   %307 = load i32, ptr %306, align 4, !tbaa !49
   %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds %struct.spheresurfacebin, ptr %305, i64 %308
+  %309 = getelementptr inbounds [16 x i8], ptr %305, i64 %308
   %310 = load i32, ptr %309, align 8, !tbaa !50
   %311 = icmp eq i32 %310, -1
   br i1 %311, label %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i, label %312
@@ -921,18 +918,18 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %238, %_ZL18find_par
   %321 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.7, i32 noundef 752, ptr noundef %320, i64 noundef range(i64 -2147483648, 2147483648) %319, i64 noundef 12)
   store ptr %321, ptr %318, align 8, !tbaa !63
   %.pre.i.i = load ptr, ptr %84, align 8, !tbaa !41
-  %.phi.trans.insert.i.i = getelementptr inbounds %struct.spheresurfacebin, ptr %.pre.i.i, i64 %308
+  %.phi.trans.insert.i.i = getelementptr inbounds [16 x i8], ptr %.pre.i.i, i64 %308
   %.pre22.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !50
   br label %322
 
 322:                                              ; preds = %316, %312
   %323 = phi i32 [ %.pre22.i.i, %316 ], [ %310, %312 ]
   %324 = phi ptr [ %.pre.i.i, %316 ], [ %305, %312 ]
-  %325 = getelementptr inbounds %struct.spheresurfacebin, ptr %324, i64 %308
+  %325 = getelementptr inbounds [16 x i8], ptr %324, i64 %308
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
   %327 = load ptr, ptr %326, align 8, !tbaa !42
   %328 = sext i32 %323 to i64
-  %329 = getelementptr inbounds [3 x float], ptr %327, i64 %328
+  %329 = getelementptr inbounds [12 x i8], ptr %327, i64 %328
   %330 = load float, ptr %3, align 4, !tbaa !61
   store float %330, ptr %329, align 4, !tbaa !61
   %331 = load float, ptr %79, align 4, !tbaa !61
@@ -1007,7 +1004,7 @@ define internal void @_ZL21evaluate_insolidangleRKN3gmx20SelMethodEvalContextEP1
 17:                                               ; preds = %.lr.ph, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %100 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !70
-  %19 = getelementptr inbounds nuw [3 x float], ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %11, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %20, null
@@ -1063,7 +1060,7 @@ define internal void @_ZL21evaluate_insolidangleRKN3gmx20SelMethodEvalContextEP1
   %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %53, i32 %55)
   %56 = load ptr, ptr %14, align 8, !tbaa !32
   %57 = sext i32 %spec.select.i.i.i to i64
-  %58 = getelementptr inbounds %struct.partition, ptr %56, i64 %57
+  %58 = getelementptr inbounds [16 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 8, !tbaa !46
   %60 = icmp sgt i32 %59, 1
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -1077,7 +1074,7 @@ define internal void @_ZL21evaluate_insolidangleRKN3gmx20SelMethodEvalContextEP1
   %64 = sdiv i32 %63, 2
   %65 = add nsw i32 %64, %.01214.i.i.i.i
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds %struct.t_partition_item, ptr %62, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %62, i64 %66
   %68 = load float, ptr %67, align 4, !tbaa !47
   %69 = fcmp ugt float %68, %49
   %.012..i.i.i.i = select i1 %69, i32 %.01214.i.i.i.i, i32 %65
@@ -1092,12 +1089,12 @@ _ZL18find_partition_binP9partitionf.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i
 
 _ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i: ; preds = %_ZL18find_partition_binP9partitionf.exit.loopexit.i.i.i, %37
   %.012.lcssa.i.i.i.i = phi i64 [ %72, %_ZL18find_partition_binP9partitionf.exit.loopexit.i.i.i ], [ 0, %37 ]
-  %73 = getelementptr inbounds %struct.t_partition_item, ptr %62, i64 %.012.lcssa.i.i.i.i
+  %73 = getelementptr inbounds [8 x i8], ptr %62, i64 %.012.lcssa.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !49
   %76 = load ptr, ptr %15, align 8, !tbaa !41
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds %struct.spheresurfacebin, ptr %76, i64 %77
+  %78 = getelementptr inbounds [16 x i8], ptr %76, i64 %77
   %79 = load i32, ptr %78, align 8, !tbaa !50
   %80 = icmp eq i32 %79, -1
   br i1 %80, label %.loopexit, label %.preheader.i.i
@@ -1120,7 +1117,7 @@ _ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i: ; preds = %_ZL18find
 
 86:                                               ; preds = %85, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %85 ]
-  %87 = getelementptr inbounds nuw [3 x float], ptr %83, i64 %indvars.iv.i.i
+  %87 = getelementptr inbounds nuw [12 x i8], ptr %83, i64 %indvars.iv.i.i
   %88 = load float, ptr %87, align 4, !tbaa !61
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %90 = load float, ptr %89, align 4, !tbaa !61
@@ -1868,7 +1865,7 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
   %36 = fmul float %22, %35
   %37 = tail call noundef float @cosf(float noundef %36) #19, !tbaa !25
   %38 = fsub float %33, %37
-  %39 = getelementptr inbounds nuw %struct.partition, ptr %24, i64 %indvars.iv39.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv39.i
   %40 = load i32, ptr %39, align 8, !tbaa !46
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph.i, label %.loopexit.i
@@ -1886,14 +1883,14 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
   %.132.i = phi float [ %.03034.i, %.lr.ph.i ], [ %.2.i, %65 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %47 = getelementptr inbounds nuw %struct.t_partition_item, ptr %43, i64 %indvars.iv.next.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.next.i
   %48 = load float, ptr %47, align 4, !tbaa !47
-  %49 = getelementptr inbounds nuw %struct.t_partition_item, ptr %43, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %50 = fsub float %48, %46
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !49
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %struct.spheresurfacebin, ptr %44, i64 %53
+  %54 = getelementptr inbounds [16 x i8], ptr %44, i64 %53
   %55 = load i32, ptr %54, align 8, !tbaa !50
   %56 = icmp eq i32 %55, -1
   br i1 %56, label %57, label %59

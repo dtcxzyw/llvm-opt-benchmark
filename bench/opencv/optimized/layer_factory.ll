@@ -563,7 +563,7 @@ _ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202412235LayerEEERNS3_11LayerParamsEESaI
 _ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202412235LayerEEERNS3_11LayerParamsEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i: ; preds = %117, %_ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202412235LayerEEERNS3_11LayerParamsEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit16.i.i
   store ptr %112, ptr %65, align 8, !tbaa !44
   store ptr %116, ptr %66, align 8, !tbaa !43
-  %118 = getelementptr inbounds nuw ptr, ptr %112, i64 %110
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %110
   store ptr %118, ptr %94, align 8, !tbaa !41
   br label %_ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202412235LayerEEERNS3_11LayerParamsEESaIS9_EE9push_backERKS9_.exit
 

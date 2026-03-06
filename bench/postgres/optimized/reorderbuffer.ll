@@ -8,19 +8,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%union.SharedInvalidationMessage = type { %struct.SharedInvalSmgrMsg }
-%struct.SharedInvalSmgrMsg = type { i8, i8, i16, %struct.RelFileLocator }
-%struct.RelFileLocator = type { i32, i32, i32 }
 %struct.LogicalRewriteMappingData = type { %struct.RelFileLocator, %struct.RelFileLocator, %struct.ItemPointerData, %struct.ItemPointerData }
+%struct.RelFileLocator = type { i32, i32, i32 }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
 %struct.ReorderBufferTupleCidKey = type { %struct.RelFileLocator, %struct.ItemPointerData }
-%union.ListCell = type { ptr }
 %struct.varatt_external = type { i32, i32, i32, i32 }
-%struct.ReorderBufferIterTXNEntry = type { i64, ptr, ptr, %struct.TXNEntryFile, i64 }
-%struct.TXNEntryFile = type { i32, i64 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 %struct.iovec = type { ptr, i64 }
 
@@ -2043,7 +2036,7 @@ ReorderBufferTXNByXid.exit.thread46:              ; preds = %16, %ReorderBufferT
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.i
   %.04.i = phi i32 [ %63, %.lr.ph.i ], [ 0, %56 ]
   %61 = sext i32 %.04.i to i64
-  %62 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %60, i64 %61
+  %62 = getelementptr inbounds [16 x i8], ptr %60, i64 %61
   call void @LocalExecuteInvalidationMessage(ptr noundef %62) #18
   %63 = add nuw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %63, %58
@@ -2457,7 +2450,7 @@ ReorderBufferTXNByXid.exit.thread21:              ; preds = %10, %ReorderBufferT
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.07.i = phi i32 [ %40, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %38 = sext i32 %.07.i to i64
-  %39 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %35, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %35, i64 %38
   call void @LocalExecuteInvalidationMessage(ptr noundef %39) #18
   %40 = add nuw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %40, %32
@@ -2497,7 +2490,7 @@ define dso_local void @ReorderBufferImmediateInvalidation(ptr noundef readnone c
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
   %.07 = phi i32 [ %8, %.lr.ph ], [ 0, %.critedge ]
   %6 = sext i32 %.07 to i64
-  %7 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %2, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %2, i64 %6
   tail call void @LocalExecuteInvalidationMessage(ptr noundef %7) #18
   %8 = add nuw i32 %.07, 1
   %exitcond.not = icmp eq i32 %8, %1
@@ -2661,7 +2654,7 @@ ReorderBufferTXNByXid.exit.thread15:              ; preds = %9, %ReorderBufferTX
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.07.i = phi i32 [ %37, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %35 = sext i32 %.07.i to i64
-  %36 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %32, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %32, i64 %35
   call void @LocalExecuteInvalidationMessage(ptr noundef %36) #18
   %37 = add nuw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %37, %29
@@ -2762,7 +2755,7 @@ ReorderBufferTXNByXid.exit.thread11:              ; preds = %9, %ReorderBufferTX
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.07.i = phi i32 [ %36, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %34 = sext i32 %.07.i to i64
-  %35 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %31, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %31, i64 %34
   call void @LocalExecuteInvalidationMessage(ptr noundef %35) #18
   %36 = add nuw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %36, %28
@@ -3003,7 +2996,7 @@ define dso_local void @ReorderBufferAddInvalidations(ptr noundef %0, i32 noundef
   store ptr %26, ptr %21, align 8
   %27 = load i32, ptr %12, align 4
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %union.SharedInvalidationMessage, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %28
   %30 = shl i64 %3, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %29, ptr align 4 %4, i64 %30, i1 false)
   %31 = load i32, ptr %12, align 4
@@ -3145,7 +3138,7 @@ define dso_local ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef readonly c
   %11 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 -252
   %12 = load i32, ptr %11, align 4
   %13 = add i64 %.01419, 1
-  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %.01419
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.01419
   store i32 %12, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -3586,7 +3579,7 @@ TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
 .lr.ph:                                           ; preds = %.lr.ph.i, %ApplyLogicalMappingFile.exit.i
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i, %ApplyLogicalMappingFile.exit.i ], [ 0, %.lr.ph.i ]
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv.i35
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i35
   %95 = load ptr, ptr %94, align 8
   %96 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
   br i1 %96, label %97, label %102
@@ -3893,7 +3886,7 @@ ReorderBufferTransferSnapToParent.exit:           ; preds = %14, %.thread.i, %42
   %75 = zext i32 %74 to i64
   %76 = shl nuw nsw i64 %75, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %69, ptr align 4 %72, i64 %76, i1 false)
-  %77 = getelementptr inbounds nuw i32, ptr %69, i64 %75
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %75
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3915,7 +3908,7 @@ ReorderBufferTransferSnapToParent.exit:           ; preds = %14, %.thread.i, %42
   %85 = load ptr, ptr %78, align 8
   %86 = add i32 %.02.i, 1
   %87 = sext i32 %.02.i to i64
-  %88 = getelementptr inbounds i32, ptr %85, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %85, i64 %87
   store i32 %84, ptr %88, align 4
   %89 = load i32, ptr %81, align 8
   %90 = add i32 %89, 1
@@ -3971,7 +3964,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %53, %._crit_edge.lo
   %121 = zext i32 %120 to i64
   %122 = shl nuw nsw i64 %121, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %115, ptr align 4 %118, i64 %122, i1 false)
-  %123 = getelementptr inbounds nuw i32, ptr %115, i64 %121
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %121
   %124 = getelementptr inbounds nuw i8, ptr %111, i64 32
   store ptr %123, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3995,7 +3988,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %53, %._crit_edge.lo
   %133 = load ptr, ptr %124, align 8
   %134 = add i32 %.02.i51, 1
   %135 = sext i32 %.02.i51 to i64
-  %136 = getelementptr inbounds i32, ptr %133, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %133, i64 %135
   store i32 %132, ptr %136, align 4
   %137 = load i32, ptr %127, align 8
   %138 = add i32 %137, 1
@@ -4266,7 +4259,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %54, %6, %22, %28
 95:                                               ; preds = %95, %.lr.ph106.i
   %96 = phi i64 [ 0, %.lr.ph106.i ], [ %101, %95 ]
   %.082104.i = phi i32 [ 0, %.lr.ph106.i ], [ %100, %95 ]
-  %97 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %94, i64 %96
+  %97 = getelementptr inbounds [48 x i8], ptr %94, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   store i32 -1, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 40
@@ -4352,7 +4345,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %54, %6, %22, %28
 132:                                              ; preds = %129
   call fastcc void @ReorderBufferSerializeTXN(ptr noundef %0, ptr noundef nonnull %126)
   %133 = sext i32 %.284110.i to i64
-  %134 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %124, i64 %133
+  %134 = getelementptr inbounds [48 x i8], ptr %124, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %137 = call fastcc i64 @ReorderBufferRestoreChanges(ptr noundef %0, ptr noundef nonnull %126, ptr noundef nonnull %135, ptr noundef nonnull %136)
@@ -4364,7 +4357,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %54, %6, %22, %28
   %.val.i = load ptr, ptr %139, align 8
   %140 = getelementptr inbounds i8, ptr %.val.i, i64 -64
   %141 = load i64, ptr %140, align 8
-  %142 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %124, i64 %.pre-phi.i
+  %142 = getelementptr inbounds [48 x i8], ptr %124, i64 %.pre-phi.i
   store i64 %141, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store ptr %140, ptr %143, align 8
@@ -4420,7 +4413,7 @@ ReorderBufferIterTXNInit.exit:                    ; preds = %147, %122
   %172 = getelementptr inbounds nuw i8, ptr %.0.386, i64 32
   %sext.i = shl i64 %171, 32
   %173 = ashr exact i64 %sext.i, 32
-  %174 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %172, i64 %173
+  %174 = getelementptr inbounds [48 x i8], ptr %172, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %.0.386, i64 16
   %176 = getelementptr inbounds nuw i8, ptr %.0.386, i64 24
   %177 = load ptr, ptr %176, align 8
@@ -4856,7 +4849,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %3
   %415 = shl nsw i64 %414, 4
   %416 = getelementptr i8, ptr %380, i64 %415
   %417 = getelementptr i8, ptr %416, i64 24
-  %418 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %417, i64 %indvars.iv.i
+  %418 = getelementptr inbounds nuw [100 x i8], ptr %417, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 74
   %420 = load i16, ptr %419, align 2
@@ -4882,7 +4875,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %3
   br i1 %432, label %526, label %433
 
 433:                                              ; preds = %429
-  %434 = getelementptr inbounds nuw i64, ptr %398, i64 %indvars.iv.i
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %398, i64 %indvars.iv.i
   %435 = load i64, ptr %434, align 8
   %436 = inttoptr i64 %435 to ptr
   %437 = load i8, ptr %436, align 1
@@ -5084,7 +5077,7 @@ fastgetattr.exit.i:                               ; preds = %500, %497, %495, %4
   br i1 %543, label %544, label %548
 
 544:                                              ; preds = %.lr.ph123.i
-  %545 = getelementptr inbounds nuw i64, ptr %398, i64 %indvars.iv128.i
+  %545 = getelementptr inbounds nuw [8 x i8], ptr %398, i64 %indvars.iv128.i
   %546 = load i64, ptr %545, align 8
   %547 = inttoptr i64 %546 to ptr
   call void @pfree(ptr noundef %547) #18
@@ -5372,7 +5365,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %ReorderBuffer
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %702 ]
   %.0232379 = phi i32 [ 0, %.lr.ph ], [ %.1233, %702 ]
   %677 = load ptr, ptr %675, align 8
-  %678 = getelementptr inbounds nuw i32, ptr %677, i64 %indvars.iv
+  %678 = getelementptr inbounds nuw [4 x i8], ptr %677, i64 %indvars.iv
   %679 = load i32, ptr %678, align 4
   %680 = call ptr @RelationIdGetRelation(i32 noundef %679) #18
   %.not251 = icmp eq ptr %680, null
@@ -5410,7 +5403,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %ReorderBuffer
 698:                                              ; preds = %696
   %699 = add i32 %.0232379, 1
   %700 = sext i32 %.0232379 to i64
-  %701 = getelementptr inbounds ptr, ptr %672, i64 %700
+  %701 = getelementptr inbounds [8 x i8], ptr %672, i64 %700
   store ptr %680, ptr %701, align 8
   br label %702
 
@@ -5432,7 +5425,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %ReorderBuffer
 
 .lr.ph383:                                        ; preds = %.lr.ph383.preheader, %.lr.ph383
   %indvars.iv416 = phi i64 [ 0, %.lr.ph383.preheader ], [ %indvars.iv.next417, %.lr.ph383 ]
-  %705 = getelementptr inbounds nuw ptr, ptr %672, i64 %indvars.iv416
+  %705 = getelementptr inbounds nuw [8 x i8], ptr %672, i64 %indvars.iv416
   %706 = load ptr, ptr %705, align 8
   call void @RelationClose(ptr noundef %706) #18
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
@@ -5462,7 +5455,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %ReorderBuffer
 .lr.ph.i281:                                      ; preds = %716, %.lr.ph.i281
   %.04.i = phi i32 [ %723, %.lr.ph.i281 ], [ 0, %716 ]
   %721 = sext i32 %.04.i to i64
-  %722 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %720, i64 %721
+  %722 = getelementptr inbounds [16 x i8], ptr %720, i64 %721
   call void @LocalExecuteInvalidationMessage(ptr noundef %722) #18
   %723 = add nuw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %723, %718
@@ -5523,7 +5516,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %732, %733
   %755 = zext i32 %754 to i64
   %756 = shl nuw nsw i64 %755, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %749, ptr align 4 %752, i64 %756, i1 false)
-  %757 = getelementptr inbounds nuw i32, ptr %749, i64 %755
+  %757 = getelementptr inbounds nuw [4 x i8], ptr %749, i64 %755
   %758 = getelementptr inbounds nuw i8, ptr %745, i64 32
   store ptr %757, ptr %758, align 8
   %759 = load i32, ptr %158, align 4
@@ -5544,7 +5537,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %732, %733
   %764 = load ptr, ptr %758, align 8
   %765 = add i32 %.02.i, 1
   %766 = sext i32 %.02.i to i64
-  %767 = getelementptr inbounds i32, ptr %764, i64 %766
+  %767 = getelementptr inbounds [4 x i8], ptr %764, i64 %766
   store i32 %763, ptr %767, align 4
   %768 = load i32, ptr %760, align 8
   %769 = add i32 %768, 1
@@ -5603,7 +5596,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSn
   %801 = zext i32 %800 to i64
   %802 = shl nuw nsw i64 %801, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %795, ptr align 4 %798, i64 %802, i1 false)
-  %803 = getelementptr inbounds nuw i32, ptr %795, i64 %801
+  %803 = getelementptr inbounds nuw [4 x i8], ptr %795, i64 %801
   %804 = getelementptr inbounds nuw i8, ptr %791, i64 32
   store ptr %803, ptr %804, align 8
   %805 = load i32, ptr %158, align 4
@@ -5624,7 +5617,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSn
   %810 = load ptr, ptr %804, align 8
   %811 = add i32 %.02.i293, 1
   %812 = sext i32 %.02.i293 to i64
-  %813 = getelementptr inbounds i32, ptr %810, i64 %812
+  %813 = getelementptr inbounds [4 x i8], ptr %810, i64 %812
   store i32 %809, ptr %813, align 4
   %814 = load i32, ptr %806, align 8
   %815 = add i32 %814, 1
@@ -5706,7 +5699,7 @@ ReorderBufferCopySnap.exit298:                    ; preds = %781, %._crit_edge.l
   %852 = zext i32 %851 to i64
   %853 = shl nuw nsw i64 %852, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %846, ptr align 4 %849, i64 %853, i1 false)
-  %854 = getelementptr inbounds nuw i32, ptr %846, i64 %852
+  %854 = getelementptr inbounds nuw [4 x i8], ptr %846, i64 %852
   %855 = getelementptr inbounds nuw i8, ptr %842, i64 32
   store ptr %854, ptr %855, align 8
   %856 = load i32, ptr %158, align 4
@@ -5727,7 +5720,7 @@ ReorderBufferCopySnap.exit298:                    ; preds = %781, %._crit_edge.l
   %861 = load ptr, ptr %855, align 8
   %862 = add i32 %.02.i304, 1
   %863 = sext i32 %.02.i304 to i64
-  %864 = getelementptr inbounds i32, ptr %861, i64 %863
+  %864 = getelementptr inbounds [4 x i8], ptr %861, i64 %863
   store i32 %860, ptr %864, align 4
   %865 = load i32, ptr %857, align 8
   %866 = add i32 %865, 1
@@ -5799,7 +5792,7 @@ ReorderBufferIterTXNNext.exit:                    ; preds = %884, %ReorderBuffer
   %890 = phi i64 [ %897, %896 ], [ %889, %ReorderBufferIterTXNNext.exit ]
   %891 = phi i64 [ %899, %896 ], [ 0, %ReorderBufferIterTXNNext.exit ]
   %.014.i = phi i32 [ %898, %896 ], [ 0, %ReorderBufferIterTXNNext.exit ]
-  %892 = getelementptr %struct.ReorderBufferIterTXNEntry, ptr %.0..0..0.346, i64 %891
+  %892 = getelementptr [48 x i8], ptr %.0..0..0.346, i64 %891
   %893 = getelementptr i8, ptr %892, i64 56
   %894 = load i32, ptr %893, align 8
   %.not.i311 = icmp eq i32 %894, -1
@@ -5953,7 +5946,7 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i313, %
   %975 = zext i32 %974 to i64
   %976 = shl nuw nsw i64 %975, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %969, ptr align 4 %972, i64 %976, i1 false)
-  %977 = getelementptr inbounds nuw i32, ptr %969, i64 %975
+  %977 = getelementptr inbounds nuw [4 x i8], ptr %969, i64 %975
   %978 = getelementptr inbounds nuw i8, ptr %965, i64 32
   store ptr %977, ptr %978, align 8
   %979 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5975,7 +5968,7 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i313, %
   %985 = load ptr, ptr %978, align 8
   %986 = add i32 %.02.i.i, 1
   %987 = sext i32 %.02.i.i to i64
-  %988 = getelementptr inbounds i32, ptr %985, i64 %987
+  %988 = getelementptr inbounds [4 x i8], ptr %985, i64 %987
   store i32 %984, ptr %988, align 4
   %989 = load i32, ptr %981, align 8
   %990 = add i32 %989, 1
@@ -6038,7 +6031,7 @@ ReorderBufferFreeSnap.exit319:                    ; preds = %1007, %1006, %998, 
 .lr.ph.i321:                                      ; preds = %ReorderBufferFreeSnap.exit319, %.lr.ph.i321
   %.04.i322 = phi i32 [ %1014, %.lr.ph.i321 ], [ 0, %ReorderBufferFreeSnap.exit319 ]
   %1012 = sext i32 %.04.i322 to i64
-  %1013 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %1011, i64 %1012
+  %1013 = getelementptr inbounds [16 x i8], ptr %1011, i64 %1012
   call void @LocalExecuteInvalidationMessage(ptr noundef %1013) #18
   %1014 = add nuw i32 %.04.i322, 1
   %exitcond.not.i323 = icmp eq i32 %1014, %1009
@@ -6115,7 +6108,7 @@ ReorderBufferMaybeMarkTXNStreamed.exit:           ; preds = %.ReorderBufferMaybe
   %1039 = phi i64 [ %1046, %1045 ], [ %1038, %1036 ]
   %1040 = phi i64 [ %1048, %1045 ], [ 0, %1036 ]
   %.014.i329 = phi i32 [ %1047, %1045 ], [ 0, %1036 ]
-  %1041 = getelementptr %struct.ReorderBufferIterTXNEntry, ptr %.0..0..0.348, i64 %1040
+  %1041 = getelementptr [48 x i8], ptr %.0..0..0.348, i64 %1040
   %1042 = getelementptr i8, ptr %1041, i64 56
   %1043 = load i32, ptr %1042, align 8
   %.not.i330 = icmp eq i32 %1043, -1
@@ -6173,7 +6166,7 @@ ReorderBufferIterTXNFinish.exit334:               ; preds = %._crit_edge.i332, %
 .lr.ph.i336:                                      ; preds = %1063, %.lr.ph.i336
   %.04.i337 = phi i32 [ %1070, %.lr.ph.i336 ], [ 0, %1063 ]
   %1068 = sext i32 %.04.i337 to i64
-  %1069 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %1067, i64 %1068
+  %1069 = getelementptr inbounds [16 x i8], ptr %1067, i64 %1068
   call void @LocalExecuteInvalidationMessage(ptr noundef %1069) #18
   %1070 = add nuw i32 %.04.i337, 1
   %exitcond.not.i338 = icmp eq i32 %1070, %1065
@@ -6297,7 +6290,7 @@ ReorderBufferMaybeMarkTXNStreamed.exit342:        ; preds = %1092, %1089, %1081
   %1131 = zext i32 %1130 to i64
   %1132 = shl nuw nsw i64 %1131, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1125, ptr align 4 %1128, i64 %1132, i1 false)
-  %1133 = getelementptr inbounds nuw i32, ptr %1125, i64 %1131
+  %1133 = getelementptr inbounds nuw [4 x i8], ptr %1125, i64 %1131
   %1134 = getelementptr inbounds nuw i8, ptr %1121, i64 32
   store ptr %1133, ptr %1134, align 8
   %1135 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6321,7 +6314,7 @@ ReorderBufferMaybeMarkTXNStreamed.exit342:        ; preds = %1092, %1089, %1081
   %1143 = load ptr, ptr %1134, align 8
   %1144 = add i32 %.02.i.i.i, 1
   %1145 = sext i32 %.02.i.i.i to i64
-  %1146 = getelementptr inbounds i32, ptr %1143, i64 %1145
+  %1146 = getelementptr inbounds [4 x i8], ptr %1143, i64 %1145
   store i32 %1142, ptr %1146, align 4
   %1147 = load i32, ptr %1137, align 8
   %1148 = add i32 %1147, 1
@@ -7117,11 +7110,11 @@ define internal range(i32 -1, 2) i32 @ReorderBufferIterCompare(i64 noundef %0, i
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %sext = shl i64 %0, 32
   %5 = ashr exact i64 %sext, 32
-  %6 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %4, i64 %5
+  %6 = getelementptr inbounds [48 x i8], ptr %4, i64 %5
   %7 = load i64, ptr %6, align 8
   %sext11 = shl i64 %1, 32
   %8 = ashr exact i64 %sext11, 32
-  %9 = getelementptr inbounds %struct.ReorderBufferIterTXNEntry, ptr %4, i64 %8
+  %9 = getelementptr inbounds [48 x i8], ptr %4, i64 %8
   %10 = load i64, ptr %9, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %10, i64 %7)
   ret i32 %.0
@@ -8102,7 +8095,7 @@ ReorderBufferSerializeReserve.exit76:             ; preds = %116, %.sink.split.i
   %226 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %227 = load i32, ptr %226, align 8
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw i32, ptr %224, i64 %228
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %228
   %230 = getelementptr inbounds nuw i8, ptr %222, i64 32
   store ptr %229, ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %222, i64 46

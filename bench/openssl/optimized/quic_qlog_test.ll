@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.qlog_trace_info_st = type { %struct.quic_conn_id_st, ptr, ptr, ptr, i32, ptr, ptr, i64, ptr }
 %struct.quic_conn_id_st = type { i8, [20 x i8] }
-%struct.filter_spec = type { ptr, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"test_qlog\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"test_qlog_filter\00", align 1
@@ -236,7 +235,7 @@ define internal range(i32 0, 2) i32 @test_qlog_filter(i32 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.filter_spec, ptr @filters, i64 %7
+  %8 = getelementptr inbounds [24 x i8], ptr @filters, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   %10 = call i32 @ossl_qlog_set_filter(ptr noundef %4, ptr noundef %9) #6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8

@@ -91,7 +91,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 10:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcae6771d5a6ad230E.exit.i", %5
   %.sroa.06.0.i = phi i64 [ 0, %5 ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcae6771d5a6ad230E.exit.i" ]
-  %11 = getelementptr inbounds { i8, [55 x i8] }, ptr %0, i64 %.sroa.06.0.i
+  %11 = getelementptr inbounds [56 x i8], ptr %0, i64 %.sroa.06.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %11, align 8, !alias.scope !19, !noalias !22
   %12 = icmp samesign ugt i8 %.sroa.0.0.copyload.i.i.i, 5
@@ -386,7 +386,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcae6771d5a6ad230E.exit", %5
   %.sroa.06.0 = phi i64 [ 0, %5 ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcae6771d5a6ad230E.exit" ]
-  %11 = getelementptr inbounds { i8, [55 x i8] }, ptr %0, i64 %.sroa.06.0
+  %11 = getelementptr inbounds [56 x i8], ptr %0, i64 %.sroa.06.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %.sroa.0.0.copyload.i.i = load i8, ptr %11, align 8, !alias.scope !70
   %12 = icmp samesign ugt i8 %.sroa.0.0.copyload.i.i, 5

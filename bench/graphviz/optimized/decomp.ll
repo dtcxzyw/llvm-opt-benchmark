@@ -58,7 +58,7 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 360
   %26 = load i32, ptr %25, align 8, !tbaa !41
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !42
   br label %32
 
@@ -102,7 +102,7 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %48, label %61, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %.sroa.29.052
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.sroa.29.052
   %51 = sub i64 %spec.select.i.i.i.i, %.sroa.29.052
   %52 = shl i64 %51, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %50, i8 0, i64 %52, i1 false)
@@ -113,8 +113,8 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 55:                                               ; preds = %49
   %56 = sub i64 %.sroa.29.052, %.sroa.12.050
   %57 = sub i64 %spec.select.i.i.i.i, %56
-  %58 = getelementptr inbounds nuw ptr, ptr %47, i64 %57
-  %59 = getelementptr inbounds nuw ptr, ptr %47, i64 %.sroa.12.050
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %57
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.sroa.12.050
   %60 = shl i64 %56, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %58, ptr nonnull align 8 %59, i64 %60, i1 false)
   br label %push.exit
@@ -133,7 +133,7 @@ push.exit:                                        ; preds = %49, %55, %38
   %.sroa.29.10 = phi i64 [ %.sroa.29.052, %38 ], [ %spec.select.i.i.i.i, %55 ], [ %spec.select.i.i.i.i, %49 ]
   %65 = add i64 %.sroa.12.12, %.sroa.20.051
   %66 = urem i64 %65, %.sroa.29.10
-  %67 = getelementptr inbounds nuw ptr, ptr %.sroa.0.10, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.10, i64 %66
   store ptr %.0, ptr %67, align 8, !tbaa !42
   %68 = add i64 %.sroa.20.051, 1
   %69 = icmp eq i64 %68, 0
@@ -147,7 +147,7 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   %70 = add i64 %.val.i50.i, -1
   %71 = add i64 %70, %.sroa.12.2
   %72 = urem i64 %71, %.sroa.29.2
-  %73 = getelementptr inbounds nuw ptr, ptr %.sroa.0.2, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.2, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !42
   %.not.i = icmp eq ptr %74, null
   br i1 %.not.i, label %search_component.exit, label %75
@@ -200,7 +200,7 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   %.sroa.20.2 = phi i64 [ %70, %83 ], [ %.sroa.20.5, %.loopexit.i ]
   %.sroa.29.3 = phi i64 [ %.sroa.29.2, %83 ], [ %.sroa.29.6, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 3, %83 ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %95 = getelementptr inbounds nuw %struct.elist, ptr %3, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i
   %96 = load ptr, ptr %95, align 16, !tbaa !53
   %.not39.i = icmp eq ptr %96, null
   br i1 %.not39.i, label %.loopexit.i, label %97
@@ -213,7 +213,7 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
 
 100:                                              ; preds = %97
   %101 = add i64 %99, -1
-  %102 = getelementptr inbounds nuw ptr, ptr %96, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %101
   br label %103
 
 103:                                              ; preds = %159, %100
@@ -278,7 +278,7 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   br i1 %138, label %151, label %139
 
 139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw ptr, ptr %137, i64 %.sroa.20.3
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %.sroa.20.3
   %141 = sub i64 %spec.select.i.i.i.i.i, %.sroa.20.3
   %142 = shl i64 %141, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %140, i8 0, i64 %142, i1 false)
@@ -289,8 +289,8 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
 145:                                              ; preds = %139
   %146 = sub i64 %.sroa.20.3, %.sroa.12.4
   %147 = sub i64 %spec.select.i.i.i.i.i, %146
-  %148 = getelementptr inbounds nuw ptr, ptr %137, i64 %147
-  %149 = getelementptr inbounds nuw ptr, ptr %137, i64 %.sroa.12.4
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %147
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %.sroa.12.4
   %150 = shl i64 %146, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %148, ptr nonnull align 8 %149, i64 %150, i1 false)
   br label %push.exit.i
@@ -309,7 +309,7 @@ push.exit.i:                                      ; preds = %139, %145, %126
   %.sroa.29.8 = phi i64 [ %.sroa.29.4, %126 ], [ %spec.select.i.i.i.i.i, %145 ], [ %spec.select.i.i.i.i.i, %139 ]
   %155 = add i64 %.sroa.12.8, %.sroa.20.3
   %156 = urem i64 %155, %.sroa.29.8
-  %157 = getelementptr inbounds nuw ptr, ptr %.sroa.0.8, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.8, i64 %156
   store ptr %.033.i, ptr %157, align 8, !tbaa !42
   %158 = add i64 %.sroa.20.3, 1
   br label %159
@@ -385,7 +385,7 @@ end_component.exit:                               ; preds = %181, %183
   store ptr %176, ptr %186, align 8, !tbaa !62
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 256
   %188 = load ptr, ptr %187, align 8, !tbaa !44
-  %189 = getelementptr inbounds nuw ptr, ptr %176, i64 %164
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %164
   store ptr %188, ptr %189, align 8, !tbaa !42
   br label %190
 

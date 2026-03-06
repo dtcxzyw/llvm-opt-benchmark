@@ -122,7 +122,7 @@ define hidden void @SDL_SYS_SetupThread(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %16, %18
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr @sig_list, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @sig_list, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef %20) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

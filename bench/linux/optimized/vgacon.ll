@@ -2435,7 +2435,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
 
 84:                                               ; preds = %95, %56
   %85 = phi i64 [ 0, %56 ], [ %96, %95 ]
-  %86 = getelementptr %struct.vc, ptr @vc_cons, i64 %85
+  %86 = getelementptr [40 x i8], ptr @vc_cons, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %95, label %89
@@ -2550,7 +2550,7 @@ define internal fastcc void @vgacon_adjust_height(i32 %.432.val, i32 noundef %0)
 
 60:                                               ; preds = %79, %1
   %61 = phi i64 [ 0, %1 ], [ %80, %79 ]
-  %62 = getelementptr %struct.vc, ptr @vc_cons, i64 %61
+  %62 = getelementptr [40 x i8], ptr @vc_cons, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %79, label %65

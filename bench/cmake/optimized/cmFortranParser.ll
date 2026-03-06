@@ -125,7 +125,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 11:                                               ; preds = %9
   %12 = sext i32 %.0217357 to i64
-  %13 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr @_ZL6yypact, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !12
   %15 = sext i16 %14 to i32
   %16 = icmp eq i16 %14, -39
@@ -208,7 +208,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   %57 = load i8, ptr %56, align 1, !tbaa !11
   %58 = sext i8 %57 to i64
   %59 = sub nsw i64 1, %58
-  %60 = getelementptr inbounds %struct.cmFortran_yystype, ptr %.0229354, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %.0229354, i64 %59
   %.sroa.0.0.copyload = load ptr, ptr %60, align 8, !tbaa !4
   switch i32 %.0235, label %180 [
     i32 4, label %61
@@ -459,7 +459,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 180:                                              ; preds = %54, %178, %176, %174, %172, %170, %168, %163, %158, %153, %148, %143, %138, %133, %128, %124, %102, %100, %96, %92, %81, %73, %68, %63, %61
   %181 = sub nsw i64 0, %58
-  %182 = getelementptr inbounds %struct.cmFortran_yystype, ptr %.0229354, i64 %181
+  %182 = getelementptr inbounds [8 x i8], ptr %.0229354, i64 %181
   %.0223.add = sub nsw i64 %.0223.idx355, %58
   %.ptr254 = getelementptr inbounds i8, ptr %3, i64 %.0223.add
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
@@ -761,7 +761,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val.val.i = load i8, ptr %.0.val1, align 1, !tbaa !11
   %5 = sext i8 %.val.val.i to i64
-  %6 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr @_ZL6yypact, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !12
   %8 = icmp eq i16 %7, -39
   br i1 %8, label %.critedge.thread.i.i, label %9
@@ -802,7 +802,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
 26:                                               ; preds = %24
   %27 = add i32 %.1365.i.i, 1
   %28 = sext i32 %.1365.i.i to i64
-  %29 = getelementptr inbounds i32, ptr %4, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %4, i64 %28
   store i32 %20, ptr %29, align 4, !tbaa !19
   br label %30
 
@@ -866,10 +866,10 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL9yytnamerrPcPKc.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL9yytnamerrPcPKc.exit.thread ]
   %.04921 = phi i64 [ %40, %.lr.ph.preheader ], [ %.15013, %_ZL9yytnamerrPcPKc.exit.thread ]
-  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !19
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = load i8, ptr %45, align 1, !tbaa !11
   %47 = icmp eq i8 %46, 34
@@ -945,10 +945,10 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
 66:                                               ; preds = %61
   %67 = add nsw i32 %.0, 1
   %68 = sext i32 %.0 to i64
-  %69 = getelementptr inbounds i32, ptr %2, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %2, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !19
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr @_ZL7yytname, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !4
   %74 = load i8, ptr %73, align 1, !tbaa !11
   %75 = icmp eq i8 %74, 34

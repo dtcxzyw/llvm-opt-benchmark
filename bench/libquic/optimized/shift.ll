@@ -37,7 +37,7 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %23 = load i32, ptr %11, align 8, !tbaa !13
   %24 = add nsw i32 %23, %10
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i64, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   store i64 0, ptr %26, align 8, !tbaa !15
   %27 = icmp eq i32 %19, 0
   %28 = icmp sgt i32 %23, 0
@@ -52,8 +52,8 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %31 = zext nneg i32 %23 to i64
   %32 = zext nneg i32 %10 to i64
   %33 = zext nneg i32 %10 to i64
-  %invariant.gep = getelementptr i64, ptr %22, i64 %32
-  %invariant.gep61 = getelementptr i64, ptr %22, i64 %33
+  %invariant.gep = getelementptr [8 x i8], ptr %22, i64 %32
+  %invariant.gep61 = getelementptr [8 x i8], ptr %22, i64 %33
   %34 = add nuw nsw i64 %32, %31
   %35 = shl nuw nsw i64 %34, 3
   %scevgep = getelementptr i8, ptr %22, i64 %35
@@ -66,15 +66,15 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
 .lr.ph51.preheader:                               ; preds = %.preheader
   %36 = zext nneg i32 %23 to i64
   %37 = zext nneg i32 %10 to i64
-  %invariant.gep63 = getelementptr i64, ptr %22, i64 %37
+  %invariant.gep63 = getelementptr [8 x i8], ptr %22, i64 %37
   br label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
   %indvars.iv54 = phi i64 [ %36, %.lr.ph51.preheader ], [ %indvars.iv.next55, %.lr.ph51 ]
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, -1
-  %38 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.next55
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next55
   %39 = load i64, ptr %38, align 8, !tbaa !15
-  %gep64 = getelementptr i64, ptr %invariant.gep63, i64 %indvars.iv.next55
+  %gep64 = getelementptr [8 x i8], ptr %invariant.gep63, i64 %indvars.iv.next55
   store i64 %39, ptr %gep64, align 8, !tbaa !15
   %40 = icmp samesign ugt i64 %indvars.iv54, 1
   br i1 %40, label %.lr.ph51, label %.loopexit, !llvm.loop !17
@@ -83,14 +83,14 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %store_forwarded = phi i64 [ %load_initial, %.lr.ph ], [ %46, %41 ]
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %42 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next
   %43 = load i64, ptr %42, align 8, !tbaa !15
   %44 = lshr i64 %43, %29
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %45 = or i64 %store_forwarded, %44
   store i64 %45, ptr %gep, align 8, !tbaa !15
   %46 = shl i64 %43, %30
-  %gep62 = getelementptr i64, ptr %invariant.gep61, i64 %indvars.iv.next
+  %gep62 = getelementptr [8 x i8], ptr %invariant.gep61, i64 %indvars.iv.next
   store i64 %46, ptr %gep62, align 8, !tbaa !15
   %47 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %47, label %41, label %.loopexit, !llvm.loop !19
@@ -247,7 +247,7 @@ define hidden range(i32 0, 2) i32 @BN_rshift(ptr noundef %0, ptr noundef %1, i32
 26:                                               ; preds = %24, %17
   %27 = load ptr, ptr %1, align 8, !tbaa !14
   %28 = zext nneg i32 %7 to i64
-  %29 = getelementptr inbounds nuw i64, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %0, align 8, !tbaa !14
   %31 = load i32, ptr %10, align 8, !tbaa !13
   %32 = sub nsw i32 %31, %7
@@ -334,7 +334,7 @@ define hidden range(i32 0, 2) i32 @BN_rshift1(ptr noundef %0, ptr noundef %1) lo
   %7 = load i32, ptr %6, align 8, !tbaa !13
   %8 = load ptr, ptr %1, align 8, !tbaa !14
   %9 = sext i32 %7 to i64
-  %10 = getelementptr i64, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8, !tbaa !15
   %13 = icmp eq i64 %12, 1
@@ -360,14 +360,14 @@ define hidden range(i32 0, 2) i32 @BN_rshift1(ptr noundef %0, ptr noundef %1) lo
   %24 = load ptr, ptr %0, align 8, !tbaa !14
   %25 = add nsw i32 %7, -1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i64, ptr %8, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %8, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !15
   %29 = lshr i64 %28, 1
   %.not38 = icmp eq i64 %29, 0
   br i1 %.not38, label %32, label %30
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i64, ptr %24, i64 %26
+  %31 = getelementptr inbounds [8 x i8], ptr %24, i64 %26
   store i64 %29, ptr %31, align 8, !tbaa !15
   br label %32
 
@@ -383,10 +383,10 @@ define hidden range(i32 0, 2) i32 @BN_rshift1(ptr noundef %0, ptr noundef %1) lo
   %indvars.iv = phi i64 [ %34, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.032.in40 = phi i64 [ %28, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %35 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   %36 = load i64, ptr %35, align 8, !tbaa !15
   %37 = tail call i64 @llvm.fshl.i64(i64 %.032.in40, i64 %36, i64 63)
-  %38 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.next
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.next
   store i64 %37, ptr %38, align 8, !tbaa !15
   %39 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !23
@@ -449,7 +449,7 @@ define hidden range(i32 0, 2) i32 @BN_set_bit(ptr noundef %0, i32 noundef %1) lo
   %25 = shl nuw i64 1, %24
   %26 = load ptr, ptr %0, align 8, !tbaa !14
   %27 = zext nneg i32 %5 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !15
   %30 = or i64 %29, %25
   store i64 %30, ptr %28, align 8, !tbaa !15
@@ -479,7 +479,7 @@ define hidden range(i32 0, 2) i32 @BN_clear_bit(ptr noundef %0, i32 noundef %1) 
   %12 = xor i64 %11, -1
   %13 = load ptr, ptr %0, align 8, !tbaa !14
   %14 = zext nneg i32 %5 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !15
   %17 = and i64 %16, %12
   store i64 %17, ptr %15, align 8, !tbaa !15
@@ -507,7 +507,7 @@ define hidden range(i32 0, 2) i32 @BN_is_bit_set(ptr noundef readonly captures(n
   %9 = and i32 %1, 63
   %10 = load ptr, ptr %0, align 8, !tbaa !14
   %11 = zext nneg i32 %5 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !15
   %14 = zext nneg i32 %9 to i64
   %15 = lshr i64 %13, %14
@@ -544,7 +544,7 @@ define hidden range(i32 0, 2) i32 @BN_mask_bits(ptr noundef %0, i32 noundef %1) 
   %15 = xor i64 %14, -1
   %16 = load ptr, ptr %0, align 8, !tbaa !14
   %17 = zext nneg i32 %5 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !15
   %20 = and i64 %19, %15
   store i64 %20, ptr %18, align 8, !tbaa !15

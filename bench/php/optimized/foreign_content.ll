@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.lexbor_str_t = type { ptr, i64 }
-%struct.lxb_html_tag_fixname_t = type { ptr, i32 }
 
 @lexbor_str_res_ansi_replacement_character = internal constant [4 x i8] c"\EF\BF\BD\00", align 1
 @lexbor_tokenizer_chars_map = internal unnamed_addr constant [256 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\02\02\FF\02\02\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\02\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\FF\FF\FF\FF\FF\FF\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", align 16
@@ -71,7 +70,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr %.val.i, align 8, !tbaa !24
-  %16 = getelementptr ptr, ptr %15, i64 %11
+  %16 = getelementptr [8 x i8], ptr %15, i64 %11
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   br label %lxb_html_tree_current_node.exit.i
@@ -105,7 +104,7 @@ lxb_html_tree_current_node.exit.i:                ; preds = %14, %13
   br i1 %cond.i.i, label %.loopexit.i.i, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !32
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !26
@@ -137,7 +136,7 @@ lxb_html_tree_current_node.exit.i:                ; preds = %14, %13
 
 46:                                               ; preds = %40
   %47 = add i64 %.0.i9.i, -1
-  %48 = getelementptr inbounds nuw ptr, ptr %30, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !32
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i64, ptr %50, align 8, !tbaa !30
@@ -172,7 +171,7 @@ lxb_html_tree_current_node.exit.i:                ; preds = %14, %13
   br i1 %cond.i, label %.loopexit.i, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   %69 = load ptr, ptr %68, align 8, !tbaa !32
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !26
@@ -204,7 +203,7 @@ lxb_html_tree_current_node.exit.i:                ; preds = %14, %13
 
 81:                                               ; preds = %75
   %82 = add i64 %.0.i18, -1
-  %83 = getelementptr inbounds nuw ptr, ptr %65, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !32
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = load i64, ptr %85, align 8, !tbaa !30
@@ -332,7 +331,7 @@ lxb_html_tree_current_node.exit.i:                ; preds = %14, %13
 
 lxb_html_tree_current_node.exit.i22:              ; preds = %110
   %115 = load ptr, ptr %.val.i21, align 8, !tbaa !24
-  %116 = getelementptr ptr, ptr %115, i64 %113
+  %116 = getelementptr [8 x i8], ptr %115, i64 %113
   %117 = getelementptr i8, ptr %116, i64 -8
   %118 = load ptr, ptr %117, align 8, !tbaa !25
   %.not28.i = icmp eq ptr %118, null
@@ -520,7 +519,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
   %6 = icmp ne i64 %.pre.i, 0
   tail call void @llvm.assume(i1 %6)
   %7 = load ptr, ptr %.val.pre.i, align 8, !tbaa !24
-  %8 = getelementptr ptr, ptr %7, i64 %.pre.i
+  %8 = getelementptr [8 x i8], ptr %7, i64 %.pre.i
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8, !tbaa !25
   br label %lxb_html_tree_adjusted_current_node.exit
@@ -565,7 +564,7 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !65
   %28 = icmp ugt i64 %27, 195
-  %29 = getelementptr inbounds nuw %struct.lxb_html_tag_fixname_t, ptr @lxb_html_tag_res_fixname_svg, i64 %27
+  %29 = getelementptr inbounds nuw [16 x i8], ptr @lxb_html_tag_res_fixname_svg, i64 %27
   br i1 %28, label %37, label %30
 
 30:                                               ; preds = %25
@@ -598,7 +597,7 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %.val, align 8, !tbaa !24
-  %49 = getelementptr ptr, ptr %48, i64 %45
+  %49 = getelementptr [8 x i8], ptr %48, i64 %45
   %50 = getelementptr i8, ptr %49, i64 -8
   %51 = load ptr, ptr %50, align 8, !tbaa !25
   br label %lxb_html_tree_current_node.exit
@@ -621,7 +620,7 @@ lxb_html_tree_current_node.exit:                  ; preds = %43, %47
 
 60:                                               ; preds = %59
   %61 = load ptr, ptr %.val, align 8, !tbaa !24
-  %62 = getelementptr ptr, ptr %61, i64 %45
+  %62 = getelementptr [8 x i8], ptr %61, i64 %45
   %63 = getelementptr i8, ptr %62, i64 -8
   %64 = load ptr, ptr %63, align 8, !tbaa !25
   br label %lxb_html_tree_current_node.exit.i
@@ -655,7 +654,7 @@ lxb_html_tree_current_node.exit.i:                ; preds = %60, %59
   br i1 %cond.i.i, label %.loopexit.i.i, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !32
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !26
@@ -687,7 +686,7 @@ lxb_html_tree_current_node.exit.i:                ; preds = %60, %59
 
 92:                                               ; preds = %86
   %93 = add i64 %.0.i9.i, -1
-  %94 = getelementptr inbounds nuw ptr, ptr %76, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !32
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load i64, ptr %96, align 8, !tbaa !30

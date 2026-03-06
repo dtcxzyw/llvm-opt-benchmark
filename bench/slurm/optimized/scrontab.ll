@@ -248,7 +248,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 55:                                               ; preds = %53
   store i1 true, ptr @first_form, align 1
   %56 = sext i32 %45 to i64
-  %57 = getelementptr inbounds ptr, ptr %1, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %1, i64 %56
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr @infile, align 8
   br label %_parse_args.exit
@@ -703,7 +703,7 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
   %.1101.i = phi i32 [ %spec.select.i, %166 ], [ %.0100185.i, %168 ], [ %.0100185.i, %.thread.i ], [ -1, %_entry_to_job.exit.i ], [ %.0100185.i, %155 ], [ %.0100185.i, %155 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %228 = load ptr, ptr %5, align 8
-  %229 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv.next.i
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %indvars.iv.next.i
   %230 = load ptr, ptr %229, align 8
   %.not126.i = icmp eq ptr %230, null
   br i1 %.not126.i, label %.thread153.i, label %146
@@ -763,7 +763,7 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
   %sext142.i = shl i32 %.0111.i, 24
   %246 = ashr exact i32 %sext142.i, 24
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds i32, ptr %245, i64 %247
+  %248 = getelementptr inbounds [4 x i8], ptr %245, i64 %247
   %249 = load i32, ptr %248, align 4
   switch i32 %249, label %250 [
     i32 121, label %.critedge4.i
@@ -846,7 +846,7 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
   %sext.i = shl i32 %.0103.i, 24
   %281 = ashr exact i32 %sext.i, 24
   %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds i32, ptr %280, i64 %282
+  %283 = getelementptr inbounds [4 x i8], ptr %280, i64 %282
   %284 = load i32, ptr %283, align 4
   switch i32 %284, label %285 [
     i32 121, label %.critedge6.i
@@ -906,7 +906,7 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
 305:                                              ; preds = %305, %.lr.ph188.i
   %indvars.iv215.i = phi i64 [ 0, %.lr.ph188.i ], [ %indvars.iv.next216.i, %305 ]
   %306 = load ptr, ptr %304, align 8
-  %307 = getelementptr inbounds nuw i32, ptr %306, i64 %indvars.iv215.i
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %306, i64 %indvars.iv215.i
   %308 = load i32, ptr %307, align 4
   call void @cli_filter_g_post_submit(i32 noundef 0, i32 noundef %308, i32 noundef -2) #16
   %indvars.iv.next216.i = add nuw nsw i64 %indvars.iv215.i, 1
@@ -997,7 +997,7 @@ define internal fastcc void @_update_crontab_with_disabled_lines(ptr noundef non
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 1, %14 ]
   %23 = call i32 @slurm_bit_test(ptr noundef %18, i64 noundef %indvars.iv) #16
   %.not16 = icmp eq i32 %23, 0
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   br i1 %.not16, label %27, label %26
 
@@ -1011,7 +1011,7 @@ define internal fastcc void @_update_crontab_with_disabled_lines(ptr noundef non
 
 28:                                               ; preds = %26, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16

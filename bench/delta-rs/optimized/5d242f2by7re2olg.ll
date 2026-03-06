@@ -1190,10 +1190,10 @@ define internal noundef zeroext i1 @"_ZN104_$LT$aws_smithy_runtime_api..client..
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !12, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN104_$LT$aws_smithy_runtime_api..client..interceptors..context..phase..Phase$u20$as$u20$core..fmt..Debug$GT$3fmt17hebd271314a5ab5b7E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN104_$LT$aws_smithy_runtime_api..client..interceptors..context..phase..Phase$u20$as$u20$core..fmt..Debug$GT$3fmt17hebd271314a5ab5b7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN104_$LT$aws_smithy_runtime_api..client..interceptors..context..phase..Phase$u20$as$u20$core..fmt..Debug$GT$3fmt17hebd271314a5ab5b7E.81", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN104_$LT$aws_smithy_runtime_api..client..interceptors..context..phase..Phase$u20$as$u20$core..fmt..Debug$GT$3fmt17hebd271314a5ab5b7E.81", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -10057,10 +10057,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !577, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !1225, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h381f10c8d0002da3E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h381f10c8d0002da3E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h381f10c8d0002da3E.82", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h381f10c8d0002da3E.82", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -10745,10 +10745,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !577, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !1130, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha5b5d818c6013302E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha5b5d818c6013302E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha5b5d818c6013302E.83", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha5b5d818c6013302E.83", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -23593,10 +23593,10 @@ define internal { ptr, i64 } @"_ZN70_$LT$core..num..error..ParseIntError$u20$as$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !1130, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hd2528a5b1092f989E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hd2528a5b1092f989E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hd2528a5b1092f989E.84", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hd2528a5b1092f989E.84", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -24658,7 +24658,7 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %21, i64 %15
+  %22 = getelementptr inbounds [104 x i8], ptr %21, i64 %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   br i1 %13, label %28, label %26
@@ -24699,7 +24699,7 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %38 = load ptr, ptr %37, align 8, !nonnull !5, !noundef !5
-  %39 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %38, i64 %24
+  %39 = getelementptr inbounds [72 x i8], ptr %38, i64 %24
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i64, ptr %40, align 8, !range !112, !noundef !5
   %trunc = trunc nuw i64 %41 to i1
@@ -24773,7 +24773,7 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { { { i64, [5 x i64] } }, { i64, [2 x i64] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %21, i64 %15
+  %22 = getelementptr inbounds [112 x i8], ptr %21, i64 %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   br i1 %13, label %29, label %26
@@ -24811,7 +24811,7 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %37 = load ptr, ptr %36, align 8, !nonnull !5, !noundef !5
-  %38 = getelementptr inbounds { { { i64, [5 x i64] } }, { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %37, i64 %24
+  %38 = getelementptr inbounds [80 x i8], ptr %37, i64 %24
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %40 = load i64, ptr %39, align 8, !range !112, !noundef !5
   %trunc = trunc nuw i64 %40 to i1
@@ -25943,10 +25943,10 @@ define internal noundef zeroext i1 @"_ZN99_$LT$aws_smithy_runtime_api..client..i
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !3753, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE.85", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE.85", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -26971,7 +26971,7 @@ define void @"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
   ret void
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..query..QueryError$C$R$GT$$GT$$GT$4from17hc905857accca37deE.llvm.11792392190407745568", i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..query..QueryError$C$R$GT$$GT$$GT$4from17hc905857accca37deE.llvm.11792392190407745568", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %0, align 8
   tail call void @"_ZN4core3ptr72drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$17hac5a8dbc66e41031E.llvm.11792392190407745568"(ptr noalias noundef nonnull align 8 dereferenceable(128) %1)
@@ -27030,7 +27030,7 @@ define void @"_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core.
   ret void
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..query..QueryError$C$R$GT$$GT$$GT$4from17hc905857accca37deE.llvm.11792392190407745568", i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..query..QueryError$C$R$GT$$GT$$GT$4from17hc905857accca37deE.llvm.11792392190407745568", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %0, align 8
   tail call void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$17hc4986e1e699a468eE.llvm.11792392190407745568"(ptr noalias noundef nonnull align 8 dereferenceable(128) %1)
@@ -27691,7 +27691,7 @@ define hidden void @"_ZN201_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   br label %"_ZN137_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$$GT$4from17hb4d335ac18e44451E.exit"
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..query..QueryError$C$R$GT$$GT$$GT$4from17hc905857accca37deE.llvm.11792392190407745568", i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..query..QueryError$C$R$GT$$GT$$GT$4from17hc905857accca37deE.llvm.11792392190407745568", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %0, align 8, !alias.scope !3878, !noalias !3881
   call void @"_ZN4core3ptr72drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..GetItemError$GT$17hac5a8dbc66e41031E.llvm.11792392190407745568"(ptr noalias noundef nonnull align 8 dereferenceable(128) %5), !noalias !3878
@@ -27928,7 +27928,7 @@ define hidden void @"_ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u2
   br label %"_ZN132_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$$GT$4from17hc64da102dc3fbb36E.exit"
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..query..QueryError$C$R$GT$$GT$$GT$4from17hc905857accca37deE.llvm.11792392190407745568", i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN196_$LT$deltalake_aws..errors..LockClientError$u20$as$u20$core..convert..From$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..query..QueryError$C$R$GT$$GT$$GT$4from17hc905857accca37deE.llvm.11792392190407745568", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %0, align 8, !alias.scope !3897, !noalias !3900
   call void @"_ZN4core3ptr67drop_in_place$LT$aws_sdk_dynamodb..operation..query..QueryError$GT$17hc4986e1e699a468eE.llvm.11792392190407745568"(ptr noalias noundef nonnull align 8 dereferenceable(128) %5), !noalias !3897

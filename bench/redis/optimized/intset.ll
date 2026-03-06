@@ -66,7 +66,7 @@ _intsetGetEncoded.exit.us31.i:                    ; preds = %.lr.ph.i, %_intsetS
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_intsetSet.exit.us33.i ], [ %25, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %26 = add nsw i64 %indvars.iv.next.i, %.lobit.i
-  %27 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.next.i
+  %27 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv.next.i
   %.0.copyload1.i.us.i = load i32, ptr %27, align 4
   %28 = load i32, ptr %23, align 4, !tbaa !5
   switch i32 %28, label %34 [
@@ -75,19 +75,19 @@ _intsetGetEncoded.exit.us31.i:                    ; preds = %.lr.ph.i, %_intsetS
   ]
 
 29:                                               ; preds = %_intsetGetEncoded.exit.us31.i
-  %30 = getelementptr inbounds i32, ptr %24, i64 %26
+  %30 = getelementptr inbounds [4 x i8], ptr %24, i64 %26
   store i32 %.0.copyload1.i.us.i, ptr %30, align 4, !tbaa !5
   br label %_intsetSet.exit.us33.i
 
 31:                                               ; preds = %_intsetGetEncoded.exit.us31.i
   %32 = sext i32 %.0.copyload1.i.us.i to i64
-  %33 = getelementptr inbounds i64, ptr %24, i64 %26
+  %33 = getelementptr inbounds [8 x i8], ptr %24, i64 %26
   store i64 %32, ptr %33, align 4, !tbaa !10
   br label %_intsetSet.exit.us33.i
 
 34:                                               ; preds = %_intsetGetEncoded.exit.us31.i
   %35 = trunc i32 %.0.copyload1.i.us.i to i16
-  %36 = getelementptr inbounds i16, ptr %24, i64 %26
+  %36 = getelementptr inbounds [2 x i8], ptr %24, i64 %26
   store i16 %35, ptr %36, align 2, !tbaa !12
   br label %_intsetSet.exit.us33.i
 
@@ -99,7 +99,7 @@ _intsetGetEncoded.exit.i:                         ; preds = %.lr.ph.i, %_intsetS
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %_intsetSet.exit.i ], [ %25, %.lr.ph.i ]
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, -1
   %37 = add nsw i64 %indvars.iv.next42.i, %.lobit.i
-  %38 = getelementptr inbounds i16, ptr %24, i64 %indvars.iv.next42.i
+  %38 = getelementptr inbounds [2 x i8], ptr %24, i64 %indvars.iv.next42.i
   %.0.copyload.i.i = load i16, ptr %38, align 2
   %39 = load i32, ptr %23, align 4, !tbaa !5
   switch i32 %39, label %46 [
@@ -109,18 +109,18 @@ _intsetGetEncoded.exit.i:                         ; preds = %.lr.ph.i, %_intsetS
 
 40:                                               ; preds = %_intsetGetEncoded.exit.i
   %41 = sext i16 %.0.copyload.i.i to i64
-  %42 = getelementptr inbounds i64, ptr %24, i64 %37
+  %42 = getelementptr inbounds [8 x i8], ptr %24, i64 %37
   store i64 %41, ptr %42, align 4, !tbaa !10
   br label %_intsetSet.exit.i
 
 43:                                               ; preds = %_intsetGetEncoded.exit.i
   %44 = sext i16 %.0.copyload.i.i to i32
-  %45 = getelementptr inbounds i32, ptr %24, i64 %37
+  %45 = getelementptr inbounds [4 x i8], ptr %24, i64 %37
   store i32 %44, ptr %45, align 4, !tbaa !5
   br label %_intsetSet.exit.i
 
 46:                                               ; preds = %_intsetGetEncoded.exit.i
-  %47 = getelementptr inbounds i16, ptr %24, i64 %37
+  %47 = getelementptr inbounds [2 x i8], ptr %24, i64 %37
   store i16 %.0.copyload.i.i, ptr %47, align 2, !tbaa !12
   br label %_intsetSet.exit.i
 
@@ -167,7 +167,7 @@ _intsetSet.exit.i:                                ; preds = %46, %43, %40
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %64 = sext i32 %60 to i64
-  %65 = getelementptr inbounds i64, ptr %63, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %63, i64 %64
   store i64 %1, ptr %65, align 4, !tbaa !10
   br label %intsetUpgradeAndAdd.exit
 
@@ -175,7 +175,7 @@ _intsetSet.exit.i:                                ; preds = %46, %43, %40
   %67 = trunc i64 %1 to i32
   %68 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %69 = sext i32 %60 to i64
-  %70 = getelementptr inbounds i32, ptr %68, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %68, i64 %69
   store i32 %67, ptr %70, align 4, !tbaa !5
   br label %intsetUpgradeAndAdd.exit
 
@@ -183,7 +183,7 @@ _intsetSet.exit.i:                                ; preds = %46, %43, %40
   %72 = trunc i64 %1 to i16
   %73 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %74 = sext i32 %60 to i64
-  %75 = getelementptr inbounds i16, ptr %73, i64 %74
+  %75 = getelementptr inbounds [2 x i8], ptr %73, i64 %74
   store i16 %72, ptr %75, align 2, !tbaa !12
   br label %intsetUpgradeAndAdd.exit
 
@@ -233,18 +233,18 @@ intsetUpgradeAndAdd.exit:                         ; preds = %50, %52, %55, %62, 
   ]
 
 101:                                              ; preds = %96
-  %102 = getelementptr inbounds nuw i64, ptr %98, i64 %99
-  %103 = getelementptr inbounds nuw i64, ptr %98, i64 %100
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %99
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %100
   br label %intsetMoveTail.exit
 
 104:                                              ; preds = %96
-  %105 = getelementptr inbounds nuw i32, ptr %98, i64 %99
-  %106 = getelementptr inbounds nuw i32, ptr %98, i64 %100
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %99
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %100
   br label %intsetMoveTail.exit
 
 107:                                              ; preds = %96
-  %108 = getelementptr inbounds nuw i16, ptr %98, i64 %99
-  %109 = getelementptr inbounds nuw i16, ptr %98, i64 %100
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %99
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %100
   br label %intsetMoveTail.exit
 
 intsetMoveTail.exit:                              ; preds = %101, %104, %107
@@ -266,7 +266,7 @@ intsetMoveTail.exit:                              ; preds = %101, %104, %107
 114:                                              ; preds = %113
   %115 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %116 = sext i32 %92 to i64
-  %117 = getelementptr inbounds i64, ptr %115, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %115, i64 %116
   store i64 %1, ptr %117, align 4, !tbaa !10
   br label %_intsetSet.exit
 
@@ -274,7 +274,7 @@ intsetMoveTail.exit:                              ; preds = %101, %104, %107
   %119 = trunc i64 %1 to i32
   %120 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %121 = sext i32 %92 to i64
-  %122 = getelementptr inbounds i32, ptr %120, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %120, i64 %121
   store i32 %119, ptr %122, align 4, !tbaa !5
   %.pre27 = load i32, ptr %93, align 4, !tbaa !5
   br label %_intsetSet.exit
@@ -283,7 +283,7 @@ intsetMoveTail.exit:                              ; preds = %101, %104, %107
   %124 = trunc i64 %1 to i16
   %125 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %126 = sext i32 %92 to i64
-  %127 = getelementptr inbounds i16, ptr %125, i64 %126
+  %127 = getelementptr inbounds [2 x i8], ptr %125, i64 %126
   store i16 %124, ptr %127, align 2, !tbaa !12
   br label %_intsetSet.exit
 
@@ -322,18 +322,18 @@ define internal fastcc zeroext range(i8 0, 2) i8 @intsetSearch(ptr noundef reado
   ]
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i64, ptr %12, i64 %13
+  %15 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %.0.copyload3.i.i = load i64, ptr %15, align 8
   br label %_intsetGet.exit
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i32, ptr %12, i64 %13
+  %17 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %.0.copyload1.i.i = load i32, ptr %17, align 4
   %18 = sext i32 %.0.copyload1.i.i to i64
   br label %_intsetGet.exit
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds i16, ptr %12, i64 %13
+  %20 = getelementptr inbounds [2 x i8], ptr %12, i64 %13
   %.0.copyload.i.i = load i16, ptr %20, align 2
   %21 = sext i16 %.0.copyload.i.i to i64
   br label %_intsetGet.exit
@@ -388,7 +388,7 @@ _intsetGet.exit59.us:                             ; preds = %.lr.ph, %42
   %31 = add i32 %.03662.us, %.03861.us
   %32 = lshr i32 %31, 1
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %12, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %33
   %.0.copyload3.i.i57.us = load i64, ptr %34, align 8
   %35 = icmp sgt i64 %1, %.0.copyload3.i.i57.us
   br i1 %35, label %40, label %36
@@ -417,7 +417,7 @@ _intsetGet.exit59.us77:                           ; preds = %.lr.ph, %55
   %43 = add i32 %.03662.us75, %.03861.us76
   %44 = lshr i32 %43, 1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %12, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %45
   %.0.copyload1.i.i55.us = load i32, ptr %46, align 4
   %47 = sext i32 %.0.copyload1.i.i55.us to i64
   %48 = icmp sgt i64 %1, %47
@@ -451,7 +451,7 @@ _intsetGet.exit59:                                ; preds = %.lr.ph, %69
   %57 = add i32 %.03662, %.03861
   %58 = lshr i32 %57, 1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i16, ptr %12, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %59
   %.0.copyload.i.i58 = load i16, ptr %60, align 2
   %61 = sext i16 %.0.copyload.i.i58 to i64
   %62 = icmp sgt i64 %1, %61
@@ -552,18 +552,18 @@ define dso_local ptr @intsetRemove(ptr noundef %0, i64 noundef %1, ptr noundef w
   ]
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i64, ptr %25, i64 %26
-  %30 = getelementptr inbounds nuw i64, ptr %25, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   br label %intsetMoveTail.exit
 
 31:                                               ; preds = %22
-  %32 = getelementptr inbounds nuw i32, ptr %25, i64 %26
-  %33 = getelementptr inbounds nuw i32, ptr %25, i64 %27
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %27
   br label %intsetMoveTail.exit
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds nuw i16, ptr %25, i64 %26
-  %36 = getelementptr inbounds nuw i16, ptr %25, i64 %27
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %26
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %27
   br label %intsetMoveTail.exit
 
 intsetMoveTail.exit:                              ; preds = %28, %31, %34
@@ -638,18 +638,18 @@ define dso_local i64 @intsetRandom(ptr noundef readonly captures(none) %0) local
   ]
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i64, ptr %10, i64 %11
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %.0.copyload3.i.i = load i64, ptr %13, align 8
   br label %_intsetGet.exit
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i32, ptr %10, i64 %11
+  %15 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %.0.copyload1.i.i = load i32, ptr %15, align 4
   %16 = sext i32 %.0.copyload1.i.i to i64
   br label %_intsetGet.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i16, ptr %10, i64 %11
+  %18 = getelementptr inbounds [2 x i8], ptr %10, i64 %11
   %.0.copyload.i.i = load i16, ptr %18, align 2
   %19 = sext i16 %.0.copyload.i.i to i64
   br label %_intsetGet.exit
@@ -682,18 +682,18 @@ define dso_local i64 @intsetMax(ptr noundef readonly captures(none) %0) local_un
   ]
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i64, ptr %7, i64 %8
+  %10 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %.0.copyload3.i.i = load i64, ptr %10, align 8
   br label %_intsetGet.exit
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i32, ptr %7, i64 %8
+  %12 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %.0.copyload1.i.i = load i32, ptr %12, align 4
   %13 = sext i32 %.0.copyload1.i.i to i64
   br label %_intsetGet.exit
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i16, ptr %7, i64 %8
+  %15 = getelementptr inbounds [2 x i8], ptr %7, i64 %8
   %.0.copyload.i.i = load i16, ptr %15, align 2
   %16 = sext i16 %.0.copyload.i.i to i64
   br label %_intsetGet.exit
@@ -750,18 +750,18 @@ define dso_local zeroext range(i8 0, 2) i8 @intsetGet(ptr noundef readonly captu
   ]
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i64, ptr %10, i64 %11
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %.0.copyload3.i.i = load i64, ptr %13, align 8
   br label %_intsetGet.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i32, ptr %10, i64 %11
+  %15 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %.0.copyload1.i.i = load i32, ptr %15, align 4
   %16 = sext i32 %.0.copyload1.i.i to i64
   br label %_intsetGet.exit
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i16, ptr %10, i64 %11
+  %18 = getelementptr inbounds [2 x i8], ptr %10, i64 %11
   %.0.copyload.i.i = load i16, ptr %18, align 2
   %19 = sext i16 %.0.copyload.i.i to i64
   br label %_intsetGet.exit
@@ -871,7 +871,7 @@ _intsetGet.exit:                                  ; preds = %20, %21, %23
 
 _intsetGet.exit41.us:                             ; preds = %.lr.ph69
   %26 = sext i32 %29 to i64
-  %27 = getelementptr inbounds i64, ptr %19, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %19, i64 %26
   %.0.copyload3.i.i39.us = load i64, ptr %27, align 8
   %.not35.us = icmp sgt i64 %.0.copyload3.i.i39.us, %.0.copyload3.i.i39.us68
   %28 = add i32 %29, 1
@@ -892,7 +892,7 @@ _intsetGet.exit41.us:                             ; preds = %.lr.ph69
 
 _intsetGet.exit41.us55:                           ; preds = %.lr.ph73
   %32 = sext i32 %36 to i64
-  %33 = getelementptr inbounds i32, ptr %19, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %19, i64 %32
   %.0.copyload1.i.i37.us = load i32, ptr %33, align 4
   %34 = sext i32 %.0.copyload1.i.i37.us to i64
   %.not35.us57 = icmp slt i64 %37, %34
@@ -920,7 +920,7 @@ _intsetGet.exit41.us55:                           ; preds = %.lr.ph73
 
 _intsetGet.exit41:                                ; preds = %.lr.ph64
   %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds i16, ptr %19, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %19, i64 %42
   %.0.copyload.i.i40 = load i16, ptr %43, align 2
   %44 = sext i16 %.0.copyload.i.i40 to i64
   %.not35 = icmp slt i64 %41, %44

@@ -539,7 +539,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc6:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf872089ece68d261E.exit.i.i", %.lr.ph.i.i
   %19 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !79, !noalias !84, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %19, i64 %16
+  %20 = getelementptr inbounds [16 x i8], ptr %19, i64 %16
   store ptr %.fca.0.extract9.i.i, ptr %20, align 8, !noalias !84
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %.fca.1.extract10.i.i, ptr %21, align 8, !noalias !84
@@ -1381,7 +1381,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h1170479e3892
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds i64, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 

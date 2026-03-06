@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.RuntimeAddress = type { %class.AddressLiteral }
 %class.Address = type { %class.Register, %class.Register, %class.XMMRegister, i32, i32, i8, [3 x i8], %class.RelocationHolder }
 %class.XMMRegister = type { i32 }
-%class.OptoRegPair = type { i16, i16 }
 %class.FusedPatternMatcher = type <{ ptr, ptr, i32, [4 x i8] }>
 %class.FusedPatternMatcher.47 = type <{ ptr, ptr, i32, [4 x i8] }>
 %class.InternalAddress = type { %class.AddressLiteral }
@@ -3474,7 +3473,7 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
   %8 = xor i64 %7, -1
   %9 = lshr i32 %4, 6
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i64, ptr @_ANY_REG_mask, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ANY_REG_mask, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, %8
   store i64 %13, ptr %11, align 8
@@ -3485,7 +3484,7 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
   %18 = xor i64 %17, -1
   %19 = lshr i32 %14, 6
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i64, ptr @_ANY_REG_mask, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @_ANY_REG_mask, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, %18
   store i64 %23, ptr %21, align 8
@@ -3504,7 +3503,7 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
   %32 = xor i64 %31, -1
   %33 = lshr i32 %28, 6
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i64, ptr @_ANY_REG_mask, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ANY_REG_mask, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, %32
   store i64 %37, ptr %35, align 8
@@ -3515,7 +3514,7 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
   %42 = xor i64 %41, -1
   %43 = lshr i32 %38, 6
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw i64, ptr @_ANY_REG_mask, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @_ANY_REG_mask, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, %42
   store i64 %47, ptr %45, align 8
@@ -3530,7 +3529,7 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
   %53 = xor i64 %52, -1
   %54 = lshr i32 %49, 6
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr @_PTR_REG_mask, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_REG_mask, i64 %55
   %57 = load i64, ptr %56, align 8
   %58 = and i64 %57, %53
   store i64 %58, ptr %56, align 8
@@ -3541,7 +3540,7 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
   %63 = xor i64 %62, -1
   %64 = lshr i32 %59, 6
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i64, ptr @_PTR_REG_mask, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_REG_mask, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = and i64 %67, %63
   store i64 %68, ptr %66, align 8
@@ -3552,7 +3551,7 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
   %73 = xor i64 %72, -1
   %74 = lshr i32 %69, 6
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw i64, ptr @_PTR_REG_mask, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_REG_mask, i64 %75
   %77 = load i64, ptr %76, align 8
   %78 = and i64 %77, %73
   store i64 %78, ptr %76, align 8
@@ -3563,7 +3562,7 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
   %83 = xor i64 %82, -1
   %84 = lshr i32 %79, 6
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i64, ptr @_PTR_REG_mask, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_REG_mask, i64 %85
   %87 = load i64, ptr %86, align 8
   %88 = and i64 %87, %83
   store i64 %88, ptr %86, align 8
@@ -3573,10 +3572,10 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
 
 .preheader51:                                     ; preds = %48, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12 ], [ 0, %48 ]
-  %91 = getelementptr inbounds nuw %class.Register, ptr @__const._Z13reg_mask_initv.egprs, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [4 x i8], ptr @__const._Z13reg_mask_initv.egprs, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %93
+  %94 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %93
   %95 = ptrtoint ptr %94 to i64
   %96 = trunc i64 %95 to i32
   %97 = sub i32 %96, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
@@ -3595,7 +3594,7 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
 105:                                              ; preds = %.preheader51
   %106 = sub i32 %102, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr @_ZN7OptoReg7vm2optoE, i64 %107
   %109 = load i32, ptr %108, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -3607,7 +3606,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %103, %105
   %113 = xor i64 %112, -1
   %114 = lshr i32 %.0.i, 6
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw i64, ptr @_PTR_REG_mask, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_REG_mask, i64 %115
   %117 = load i64, ptr %116, align 8
   %118 = and i64 %117, %113
   store i64 %118, ptr %116, align 8
@@ -3628,7 +3627,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %103, %105
 
 126:                                              ; preds = %124
   %127 = sext i32 %125 to i64
-  %128 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr @_ZN7OptoReg7vm2optoE, i64 %127
   %129 = load i32, ptr %128, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12
 
@@ -3640,7 +3639,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12:       ; preds = %122, %124, %126
   %133 = xor i64 %132, -1
   %134 = lshr i32 %.0.i11, 6
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw i64, ptr @_PTR_REG_mask, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_REG_mask, i64 %135
   %137 = load i64, ptr %136, align 8
   %138 = and i64 %137, %133
   store i64 %138, ptr %136, align 8
@@ -3678,9 +3677,9 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12:       ; preds = %122, %124, %126
 .lr.ph.i:                                         ; preds = %149, %.lr.ph.i
   %.012.i = phi i32 [ %157, %.lr.ph.i ], [ %144, %149 ]
   %151 = zext i32 %.012.i to i64
-  %152 = getelementptr inbounds nuw i64, ptr @_STACK_OR_STACK_SLOTS_mask, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr @_STACK_OR_STACK_SLOTS_mask, i64 %151
   %153 = load i64, ptr %152, align 8
-  %154 = getelementptr inbounds nuw i64, ptr @_STACK_OR_PTR_REG_mask, i64 %151
+  %154 = getelementptr inbounds nuw [8 x i8], ptr @_STACK_OR_PTR_REG_mask, i64 %151
   %155 = load i64, ptr %154, align 8
   %156 = or i64 %155, %153
   store i64 %156, ptr %154, align 8
@@ -3698,7 +3697,7 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %149
   %163 = xor i64 %162, -1
   %164 = lshr i32 %159, 6
   %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw i64, ptr @_PTR_REG_NO_RBP_mask, i64 %165
+  %166 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_REG_NO_RBP_mask, i64 %165
   %167 = load i64, ptr %166, align 8
   %168 = and i64 %167, %163
   store i64 %168, ptr %166, align 8
@@ -3709,7 +3708,7 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %149
   %173 = xor i64 %172, -1
   %174 = lshr i32 %169, 6
   %175 = zext nneg i32 %174 to i64
-  %176 = getelementptr inbounds nuw i64, ptr @_PTR_REG_NO_RBP_mask, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_REG_NO_RBP_mask, i64 %175
   %177 = load i64, ptr %176, align 8
   %178 = and i64 %177, %173
   store i64 %178, ptr %176, align 8
@@ -3721,7 +3720,7 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %149
   %183 = xor i64 %182, -1
   %184 = lshr i32 %179, 6
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_REG_mask, i64 %185
+  %186 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_NO_RAX_REG_mask, i64 %185
   %187 = load i64, ptr %186, align 8
   %188 = and i64 %187, %183
   store i64 %188, ptr %186, align 8
@@ -3732,7 +3731,7 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %149
   %193 = xor i64 %192, -1
   %194 = lshr i32 %189, 6
   %195 = zext nneg i32 %194 to i64
-  %196 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_REG_mask, i64 %195
+  %196 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_NO_RAX_REG_mask, i64 %195
   %197 = load i64, ptr %196, align 8
   %198 = and i64 %197, %193
   store i64 %198, ptr %196, align 8
@@ -3744,7 +3743,7 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %149
   %203 = xor i64 %202, -1
   %204 = lshr i32 %199, 6
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_RBX_REG_mask, i64 %205
+  %206 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_NO_RAX_RBX_REG_mask, i64 %205
   %207 = load i64, ptr %206, align 8
   %208 = and i64 %207, %203
   store i64 %208, ptr %206, align 8
@@ -3755,7 +3754,7 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %149
   %213 = xor i64 %212, -1
   %214 = lshr i32 %209, 6
   %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_RBX_REG_mask, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr @_PTR_NO_RAX_RBX_REG_mask, i64 %215
   %217 = load i64, ptr %216, align 8
   %218 = and i64 %217, %213
   store i64 %218, ptr %216, align 8
@@ -3787,9 +3786,9 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %149
 .lr.ph.i21:                                       ; preds = %227, %.lr.ph.i21
   %.012.i22 = phi i32 [ %235, %.lr.ph.i21 ], [ %223, %227 ]
   %229 = zext i32 %.012.i22 to i64
-  %230 = getelementptr inbounds nuw i64, ptr @_STACK_OR_STACK_SLOTS_mask, i64 %229
+  %230 = getelementptr inbounds nuw [8 x i8], ptr @_STACK_OR_STACK_SLOTS_mask, i64 %229
   %231 = load i64, ptr %230, align 8
-  %232 = getelementptr inbounds nuw i64, ptr @_STACK_OR_LONG_REG_mask, i64 %229
+  %232 = getelementptr inbounds nuw [8 x i8], ptr @_STACK_OR_LONG_REG_mask, i64 %229
   %233 = load i64, ptr %232, align 8
   %234 = or i64 %233, %231
   store i64 %234, ptr %232, align 8
@@ -3800,11 +3799,11 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %149
 
 _ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %227
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_LONG_NO_RAX_RDX_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
-  %237 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %185
+  %237 = getelementptr inbounds nuw [8 x i8], ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %185
   %238 = load i64, ptr %237, align 8
   %239 = and i64 %238, %183
   store i64 %239, ptr %237, align 8
-  %240 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %195
+  %240 = getelementptr inbounds nuw [8 x i8], ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %195
   %241 = load i64, ptr %240, align 8
   %242 = and i64 %241, %193
   store i64 %242, ptr %240, align 8
@@ -3815,7 +3814,7 @@ _ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %227
   %247 = xor i64 %246, -1
   %248 = lshr i32 %243, 6
   %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %249
+  %250 = getelementptr inbounds nuw [8 x i8], ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %249
   %251 = load i64, ptr %250, align 8
   %252 = and i64 %251, %247
   store i64 %252, ptr %250, align 8
@@ -3826,7 +3825,7 @@ _ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %227
   %257 = xor i64 %256, -1
   %258 = lshr i32 %253, 6
   %259 = zext nneg i32 %258 to i64
-  %260 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %259
+  %260 = getelementptr inbounds nuw [8 x i8], ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %259
   %261 = load i64, ptr %260, align 8
   %262 = and i64 %261, %257
   store i64 %262, ptr %260, align 8
@@ -3838,7 +3837,7 @@ _ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %227
   %267 = xor i64 %266, -1
   %268 = lshr i32 %263, 6
   %269 = zext nneg i32 %268 to i64
-  %270 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RCX_REG_mask, i64 %269
+  %270 = getelementptr inbounds nuw [8 x i8], ptr @_LONG_NO_RCX_REG_mask, i64 %269
   %271 = load i64, ptr %270, align 8
   %272 = and i64 %271, %267
   store i64 %272, ptr %270, align 8
@@ -3849,16 +3848,16 @@ _ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %227
   %277 = xor i64 %276, -1
   %278 = lshr i32 %273, 6
   %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RCX_REG_mask, i64 %279
+  %280 = getelementptr inbounds nuw [8 x i8], ptr @_LONG_NO_RCX_REG_mask, i64 %279
   %281 = load i64, ptr %280, align 8
   %282 = and i64 %281, %277
   store i64 %282, ptr %280, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_LONG_NO_RBP_R13_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
-  %283 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %165
+  %283 = getelementptr inbounds nuw [8 x i8], ptr @_LONG_NO_RBP_R13_REG_mask, i64 %165
   %284 = load i64, ptr %283, align 8
   %285 = and i64 %284, %163
   store i64 %285, ptr %283, align 8
-  %286 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %175
+  %286 = getelementptr inbounds nuw [8 x i8], ptr @_LONG_NO_RBP_R13_REG_mask, i64 %175
   %287 = load i64, ptr %286, align 8
   %288 = and i64 %287, %173
   store i64 %288, ptr %286, align 8
@@ -3869,7 +3868,7 @@ _ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %227
   %293 = xor i64 %292, -1
   %294 = lshr i32 %289, 6
   %295 = zext nneg i32 %294 to i64
-  %296 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %295
+  %296 = getelementptr inbounds nuw [8 x i8], ptr @_LONG_NO_RBP_R13_REG_mask, i64 %295
   %297 = load i64, ptr %296, align 8
   %298 = and i64 %297, %293
   store i64 %298, ptr %296, align 8
@@ -3880,7 +3879,7 @@ _ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %227
   %303 = xor i64 %302, -1
   %304 = lshr i32 %299, 6
   %305 = zext nneg i32 %304 to i64
-  %306 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %305
+  %306 = getelementptr inbounds nuw [8 x i8], ptr @_LONG_NO_RBP_R13_REG_mask, i64 %305
   %307 = load i64, ptr %306, align 8
   %308 = and i64 %307, %303
   store i64 %308, ptr %306, align 8
@@ -3889,10 +3888,10 @@ _ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %227
 
 .preheader:                                       ; preds = %_ZN7RegMask2ORERKS_.exit24, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38 ], [ 0, %_ZN7RegMask2ORERKS_.exit24 ]
-  %309 = getelementptr inbounds nuw %class.Register, ptr @__const._Z13reg_mask_initv.egprs, i64 %indvars.iv56
+  %309 = getelementptr inbounds nuw [4 x i8], ptr @__const._Z13reg_mask_initv.egprs, i64 %indvars.iv56
   %310 = load i32, ptr %309, align 4
   %311 = sext i32 %310 to i64
-  %312 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %311
+  %312 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %311
   %313 = ptrtoint ptr %312 to i64
   %314 = trunc i64 %313 to i32
   %315 = sub i32 %314, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
@@ -3911,7 +3910,7 @@ _ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %227
 323:                                              ; preds = %.preheader
   %324 = sub i32 %320, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %325
+  %326 = getelementptr inbounds [4 x i8], ptr @_ZN7OptoReg7vm2optoE, i64 %325
   %327 = load i32, ptr %326, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38
 
@@ -3923,7 +3922,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38:       ; preds = %321, %323
   %331 = xor i64 %330, -1
   %332 = lshr i32 %.0.i36, 6
   %333 = zext nneg i32 %332 to i64
-  %334 = getelementptr inbounds nuw i64, ptr @_INT_REG_mask, i64 %333
+  %334 = getelementptr inbounds nuw [8 x i8], ptr @_INT_REG_mask, i64 %333
   %335 = load i64, ptr %334, align 8
   %336 = and i64 %335, %331
   store i64 %336, ptr %334, align 8
@@ -3935,7 +3934,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38:       ; preds = %321, %323
   br i1 %2, label %337, label %341
 
 337:                                              ; preds = %.loopexit
-  %338 = getelementptr inbounds nuw i64, ptr @_INT_REG_mask, i64 %165
+  %338 = getelementptr inbounds nuw [8 x i8], ptr @_INT_REG_mask, i64 %165
   %339 = load i64, ptr %338, align 8
   %340 = and i64 %339, %163
   store i64 %340, ptr %338, align 8
@@ -3952,7 +3951,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38:       ; preds = %321, %323
   %347 = xor i64 %346, -1
   %348 = lshr i32 %343, 6
   %349 = zext nneg i32 %348 to i64
-  %350 = getelementptr inbounds nuw i64, ptr @_INT_REG_mask, i64 %349
+  %350 = getelementptr inbounds nuw [8 x i8], ptr @_INT_REG_mask, i64 %349
   %351 = load i64, ptr %350, align 8
   %352 = and i64 %351, %347
   store i64 %352, ptr %350, align 8
@@ -3986,9 +3985,9 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38:       ; preds = %321, %323
 .lr.ph.i42:                                       ; preds = %362, %.lr.ph.i42
   %.012.i43 = phi i32 [ %370, %.lr.ph.i42 ], [ %358, %362 ]
   %364 = zext i32 %.012.i43 to i64
-  %365 = getelementptr inbounds nuw i64, ptr @_STACK_OR_STACK_SLOTS_mask, i64 %364
+  %365 = getelementptr inbounds nuw [8 x i8], ptr @_STACK_OR_STACK_SLOTS_mask, i64 %364
   %366 = load i64, ptr %365, align 8
-  %367 = getelementptr inbounds nuw i64, ptr @_STACK_OR_INT_REG_mask, i64 %364
+  %367 = getelementptr inbounds nuw [8 x i8], ptr @_STACK_OR_INT_REG_mask, i64 %364
   %368 = load i64, ptr %367, align 8
   %369 = or i64 %368, %366
   store i64 %369, ptr %367, align 8
@@ -3999,25 +3998,25 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38:       ; preds = %321, %323
 
 _ZN7RegMask2ORERKS_.exit45:                       ; preds = %.lr.ph.i42, %362
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_INT_NO_RAX_RDX_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_INT_REG_mask, i64 96, i1 false)
-  %372 = getelementptr inbounds nuw i64, ptr @_INT_NO_RAX_RDX_REG_mask, i64 %185
+  %372 = getelementptr inbounds nuw [8 x i8], ptr @_INT_NO_RAX_RDX_REG_mask, i64 %185
   %373 = load i64, ptr %372, align 8
   %374 = and i64 %373, %183
   store i64 %374, ptr %372, align 8
-  %375 = getelementptr inbounds nuw i64, ptr @_INT_NO_RAX_RDX_REG_mask, i64 %249
+  %375 = getelementptr inbounds nuw [8 x i8], ptr @_INT_NO_RAX_RDX_REG_mask, i64 %249
   %376 = load i64, ptr %375, align 8
   %377 = and i64 %376, %247
   store i64 %377, ptr %375, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_INT_NO_RCX_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_INT_REG_mask, i64 96, i1 false)
-  %378 = getelementptr inbounds nuw i64, ptr @_INT_NO_RCX_REG_mask, i64 %269
+  %378 = getelementptr inbounds nuw [8 x i8], ptr @_INT_NO_RCX_REG_mask, i64 %269
   %379 = load i64, ptr %378, align 8
   %380 = and i64 %379, %267
   store i64 %380, ptr %378, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_INT_NO_RBP_R13_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_INT_REG_mask, i64 96, i1 false)
-  %381 = getelementptr inbounds nuw i64, ptr @_INT_NO_RBP_R13_REG_mask, i64 %165
+  %381 = getelementptr inbounds nuw [8 x i8], ptr @_INT_NO_RBP_R13_REG_mask, i64 %165
   %382 = load i64, ptr %381, align 8
   %383 = and i64 %382, %163
   store i64 %383, ptr %381, align 8
-  %384 = getelementptr inbounds nuw i64, ptr @_INT_NO_RBP_R13_REG_mask, i64 %295
+  %384 = getelementptr inbounds nuw [8 x i8], ptr @_INT_NO_RBP_R13_REG_mask, i64 %295
   %385 = load i64, ptr %384, align 8
   %386 = and i64 %385, %293
   store i64 %386, ptr %384, align 8
@@ -4541,7 +4540,7 @@ _ZN11PhaseOutput8add_stubEP10C2CodeStub.exit:     ; preds = %71, %78
   %88 = getelementptr inbounds nuw i8, ptr %72, i64 528
   %89 = load ptr, ptr %88, align 8
   %90 = sext i32 %86 to i64
-  %91 = getelementptr inbounds ptr, ptr %89, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %89, i64 %90
   store ptr %50, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %50, i64 8
   br label %93
@@ -4642,7 +4641,7 @@ _ZL8rc_classi.exit:
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %class.OptoRegPair, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = sext i16 %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -4651,7 +4650,7 @@ _ZL8rc_classi.exit:
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %class.OptoRegPair, ptr %48, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = sext i16 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 2
@@ -4666,7 +4665,7 @@ _ZL8rc_classi.exit:
 
 _ZN7OptoReg8as_VMRegEi.exit.i448:                 ; preds = %67
   %69 = sext i16 %56 to i64
-  %70 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr @_ZN7OptoReg7opto2vmE, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = load i8, ptr @UseAPX, align 1
   %73 = trunc i8 %72 to i1
@@ -4697,7 +4696,7 @@ _ZL8rc_classi.exit454:                            ; preds = %_ZL8rc_classi.exit,
 
 _ZN7OptoReg8as_VMRegEi.exit.i464:                 ; preds = %82
   %84 = sext i16 %65 to i64
-  %85 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr @_ZN7OptoReg7opto2vmE, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = load i8, ptr @UseAPX, align 1
   %88 = trunc i8 %87 to i1
@@ -5278,11 +5277,11 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
   %344 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %343
   %345 = load i8, ptr %344, align 1
   %346 = zext i8 %342 to i64
-  %347 = getelementptr inbounds nuw %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %346
+  %347 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %346
   %348 = ptrtoint ptr %347 to i64
   %349 = trunc i64 %348 to i32
   %350 = zext i8 %345 to i64
-  %351 = getelementptr inbounds nuw %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %350
+  %351 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %350
   %352 = ptrtoint ptr %351 to i64
   %353 = trunc i64 %352 to i32
   %.not.i.i = icmp eq i32 %349, %353
@@ -6775,11 +6774,11 @@ declare void @_ZN9Assembler5movdlE8Register11XMMRegister(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14MacroAssembler6movdblE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #3 comdat align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
+  %5 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
   %7 = trunc i64 %6 to i32
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %8
+  %9 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %8
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i32
   %12 = icmp eq i32 %7, %11
@@ -6805,11 +6804,11 @@ define linkonce_odr hidden void @_ZN14MacroAssembler6movdblE11XMMRegisterS0_(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14MacroAssembler6movfltE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #3 comdat align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
+  %5 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
   %7 = trunc i64 %6 to i32
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %8
+  %9 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %8
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i32
   %12 = icmp eq i32 %7, %11
@@ -6868,7 +6867,7 @@ define hidden void @_ZNK11BoxLockNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 .lr.ph.i:                                         ; preds = %3, %22
   %.0712.i = phi i32 [ %23, %22 ], [ %11, %3 ]
   %14 = zext i32 %.0712.i to i64
-  %15 = getelementptr inbounds nuw i64, ptr %9, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %14
   %16 = load i64, ptr %15, align 8
   %.not9.i = icmp eq i64 %16, 0
   br i1 %.not9.i, label %22, label %17
@@ -6893,7 +6892,7 @@ _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %22, %3, %17
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %class.OptoRegPair, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i64
@@ -6943,7 +6942,7 @@ define hidden noundef range(i32 5, 9) i32 @_ZNK11BoxLockNode4sizeEP13PhaseRegAll
 .lr.ph.i:                                         ; preds = %2, %19
   %.0712.i = phi i32 [ %20, %19 ], [ %8, %2 ]
   %11 = zext i32 %.0712.i to i64
-  %12 = getelementptr inbounds nuw i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = load i64, ptr %12, align 8
   %.not9.i = icmp eq i64 %13, 0
   br i1 %.not9.i, label %19, label %14
@@ -7002,7 +7001,7 @@ define hidden range(i32 4194369, 4194384) i32 @_ZN7Matcher19vector_return_valueE
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7Matcher19vector_return_valueEj, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN7Matcher19vector_return_valueEj, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.fold.split
 
@@ -7688,7 +7687,7 @@ define hidden noundef zeroext i1 @_ZN7Matcher27match_rule_supported_vectorEii9Ba
 5:                                                ; preds = %3
   %6 = tail call noundef i32 @_ZN7Matcher21vector_width_in_bytesE9BasicType(i8 noundef zeroext %2)
   %7 = zext i8 %2 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = sdiv i32 %6, %9
   %.not.i = icmp slt i32 %10, %1
@@ -8306,7 +8305,7 @@ define hidden noundef zeroext i1 @_ZN7Matcher34match_rule_supported_vector_maske
 
 5:                                                ; preds = %3
   %6 = zext i8 %2 to i64
-  %7 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = mul nsw i32 %8, %1
   %.not = icmp eq i32 %9, 64
@@ -9173,7 +9172,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN7Matcher21vector_width_i
 define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN7Matcher15max_vector_sizeE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef i32 @_ZN7Matcher21vector_width_in_bytesE9BasicType(i8 noundef zeroext %0)
   %3 = zext i8 %0 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = sdiv i32 %2, %5
   ret i32 %6
@@ -9183,7 +9182,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN7Matcher15max_
 define hidden noundef range(i32 -2147483647, 5) i32 @_ZN7Matcher15min_vector_sizeE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef i32 @_ZN7Matcher21vector_width_in_bytesE9BasicType(i8 noundef zeroext %0)
   %3 = zext i8 %0 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = sdiv i32 %2, %5
   %7 = icmp eq i32 %5, 1
@@ -9199,7 +9198,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN7Matcher34max_
   %2 = tail call noundef zeroext i1 @_ZN10VM_Version29is_default_intel_cascade_lakeEv() #24
   %3 = tail call noundef i32 @_ZN7Matcher21vector_width_in_bytesE9BasicType(i8 noundef zeroext %0)
   %4 = zext i8 %0 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sdiv i32 %3, %6
   br i1 %2, label %8, label %11
@@ -9393,7 +9392,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %12, %17
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %15 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = or i32 %24, %19
   store i32 %25, ptr %23, align 4
@@ -9463,7 +9462,7 @@ _ZN7Matcher10is_visitedEP4Node.exit:              ; preds = %54
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %63 = load ptr, ptr %62, align 8
   %64 = zext nneg i32 %58 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, %61
   %.not68 = icmp eq i32 %67, 0
@@ -9483,7 +9482,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %_ZN7Matcher10is_vis
   %71 = shl nuw i32 1, %70
   %72 = load ptr, ptr %20, align 8
   %73 = zext nneg i32 %58 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = or i32 %75, %71
   store i32 %76, ptr %74, align 4
@@ -9639,7 +9638,7 @@ _ZN9VectorSet8test_setEj.exit60:                  ; preds = %134, %139
   %142 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = zext nneg i32 %137 to i64
-  %145 = getelementptr inbounds nuw i32, ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %144
   %146 = load i32, ptr %145, align 4
   %147 = or i32 %146, %141
   store i32 %147, ptr %145, align 4
@@ -9712,7 +9711,7 @@ define linkonce_odr hidden void @_ZN9VectorSet3setEj(ptr noundef nonnull align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %3 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = or i32 %13, %8
   store i32 %14, ptr %12, align 4
@@ -9770,7 +9769,7 @@ _ZN7Matcher10is_visitedEP4Node.exit:              ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %33 = load ptr, ptr %32, align 8
   %34 = zext nneg i32 %28 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, %31
   %.not34 = icmp eq i32 %37, 0
@@ -9791,7 +9790,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %_ZN7Matcher10is_vis
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = zext nneg i32 %28 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %46, %41
   store i32 %47, ptr %45, align 4
@@ -9847,7 +9846,7 @@ _ZN7Matcher10is_visitedEP4Node.exit25:            ; preds = %71
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %79 = load ptr, ptr %78, align 8
   %80 = zext nneg i32 %74 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, %77
   %.not35 = icmp eq i32 %83, 0
@@ -10878,7 +10877,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -10991,7 +10990,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -11106,7 +11105,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -11217,7 +11216,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -11328,7 +11327,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -11439,7 +11438,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -11550,7 +11549,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -11661,7 +11660,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -11772,7 +11771,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -11883,7 +11882,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -11994,7 +11993,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -12105,7 +12104,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -12216,7 +12215,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -12327,7 +12326,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -12438,7 +12437,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -12549,7 +12548,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -12660,7 +12659,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -12771,7 +12770,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -12882,7 +12881,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -12993,7 +12992,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -13104,7 +13103,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -13215,7 +13214,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -13326,7 +13325,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -13437,7 +13436,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -13548,7 +13547,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -13659,7 +13658,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -13770,7 +13769,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -13881,7 +13880,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -13992,7 +13991,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -14103,7 +14102,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -14207,7 +14206,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %48, %50
 
 56:                                               ; preds = %53, %_ZN8MachOpernwEm.exit
   %57 = zext i32 %33 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %26, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %57
   store ptr %.0.i.i.i7, ptr %58, align 8
   ret ptr %.0.i.i.i
 }
@@ -14311,7 +14310,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %48, %50
 
 56:                                               ; preds = %53, %_ZN8MachOpernwEm.exit
   %57 = zext i32 %33 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %26, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %57
   store ptr %.0.i.i.i7, ptr %58, align 8
   ret ptr %.0.i.i.i
 }
@@ -14428,7 +14427,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 64:                                               ; preds = %61, %_ZN8MachOpernwEm.exit
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   %66 = zext i32 %41 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   store ptr %.0.i.i.i7, ptr %67, align 8
   ret ptr %.0.i.i.i
 }
@@ -14545,7 +14544,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 64:                                               ; preds = %61, %_ZN8MachOpernwEm.exit
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   %66 = zext i32 %41 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   store ptr %.0.i.i.i7, ptr %67, align 8
   ret ptr %.0.i.i.i
 }
@@ -14662,7 +14661,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 64:                                               ; preds = %61, %_ZN8MachOpernwEm.exit
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   %66 = zext i32 %41 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   store ptr %.0.i.i.i7, ptr %67, align 8
   ret ptr %.0.i.i.i
 }
@@ -14779,7 +14778,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 64:                                               ; preds = %61, %_ZN8MachOpernwEm.exit
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   %66 = zext i32 %41 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   store ptr %.0.i.i.i7, ptr %67, align 8
   ret ptr %.0.i.i.i
 }
@@ -14890,7 +14889,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -15001,7 +15000,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -15112,7 +15111,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -15223,7 +15222,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -15334,7 +15333,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -15445,7 +15444,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -15556,7 +15555,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -15667,7 +15666,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -15778,7 +15777,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -15889,7 +15888,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -16000,7 +15999,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -16111,7 +16110,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -16222,7 +16221,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -16333,7 +16332,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -16444,7 +16443,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -16555,7 +16554,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -16670,7 +16669,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -16785,7 +16784,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -16900,7 +16899,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -17015,7 +17014,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -17126,7 +17125,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -17237,7 +17236,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -17352,7 +17351,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -17467,7 +17466,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -17578,7 +17577,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -17689,7 +17688,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -17800,7 +17799,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -17911,7 +17910,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -18022,7 +18021,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -18133,7 +18132,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -18244,7 +18243,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -18687,7 +18686,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -18802,7 +18801,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -18917,7 +18916,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -19032,7 +19031,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -19147,7 +19146,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -19262,7 +19261,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -19377,7 +19376,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -19492,7 +19491,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -19607,7 +19606,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -19722,7 +19721,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -19837,7 +19836,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -19952,7 +19951,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -20067,7 +20066,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -20182,7 +20181,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -20297,7 +20296,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -20412,7 +20411,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -20529,7 +20528,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 64:                                               ; preds = %61, %_ZN8MachOpernwEm.exit
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   %66 = zext i32 %41 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   store ptr %.0.i.i.i7, ptr %67, align 8
   ret ptr %.0.i.i.i
 }
@@ -20646,7 +20645,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 64:                                               ; preds = %61, %_ZN8MachOpernwEm.exit
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   %66 = zext i32 %41 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   store ptr %.0.i.i.i7, ptr %67, align 8
   ret ptr %.0.i.i.i
 }
@@ -20767,7 +20766,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 64:                                               ; preds = %61, %_ZN8MachOpernwEm.exit
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   %66 = zext i32 %41 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   store ptr %.0.i.i.i7, ptr %67, align 8
   ret ptr %.0.i.i.i
 }
@@ -20888,7 +20887,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 64:                                               ; preds = %61, %_ZN8MachOpernwEm.exit
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
   %66 = zext i32 %41 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   store ptr %.0.i.i.i7, ptr %67, align 8
   ret ptr %.0.i.i.i
 }
@@ -20999,7 +20998,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -21110,7 +21109,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 59:                                               ; preds = %56, %_ZN8MachOpernwEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %61 = zext i32 %36 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   store ptr %.0.i.i.i6, ptr %62, align 8
   ret ptr %.0.i.i.i
 }
@@ -25508,12 +25507,12 @@ define internal fastcc void @_ZL15emit_fp_min_maxP14MacroAssembler11XMMRegisterS
 
 31:                                               ; preds = %30, %29
   %32 = sext i32 %1 to i64
-  %33 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %32
+  %33 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %32
   %34 = ptrtoint ptr %33 to i64
   %35 = trunc i64 %34 to i32
   %.sroa.speculated = select i1 %6, i32 %3, i32 %2
   %36 = sext i32 %.sroa.speculated to i64
-  %37 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %36
+  %37 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
   %39 = trunc i64 %38 to i32
   %.not = icmp eq i32 %35, %39
@@ -25532,7 +25531,7 @@ define internal fastcc void @_ZL15emit_fp_min_maxP14MacroAssembler11XMMRegisterS
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(33) %11, ptr noundef nonnull @.str, i32 noundef 692) #24
   call void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 %4, i32 %4, i32 noundef 0) #24
   %43 = sext i32 %2 to i64
-  %44 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %43
+  %44 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %43
   %45 = ptrtoint ptr %44 to i64
   %46 = trunc i64 %45 to i32
   %47 = icmp eq i32 %35, %46
@@ -25644,7 +25643,7 @@ _ZN14MacroAssembler6movfltE11XMMRegisterS0_.exit93: ; preds = %74, %73, %69, %68
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %11) #24
   %.sroa.06.0.copyload = select i1 %6, i32 %2, i32 %3
   %78 = sext i32 %.sroa.06.0.copyload to i64
-  %79 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %78
+  %79 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %78
   %80 = ptrtoint ptr %79 to i64
   %81 = trunc i64 %80 to i32
   %82 = icmp eq i32 %35, %81
@@ -32360,11 +32359,11 @@ define hidden void @_ZNK13cmovF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   %or.cond.i.i11 = icmp ult i32 %45, 32
   %spec.select.i.i12 = select i1 %or.cond.i.i11, i32 %45, i32 -1
   %46 = sext i32 %spec.select.i.i to i64
-  %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
+  %47 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
   %49 = trunc i64 %48 to i32
   %50 = sext i32 %spec.select.i.i12 to i64
-  %51 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
+  %51 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %49, %53
@@ -32442,11 +32441,11 @@ define hidden void @_ZNK14cmovF_regUNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   %or.cond.i.i11 = icmp ult i32 %45, 32
   %spec.select.i.i12 = select i1 %or.cond.i.i11, i32 %45, i32 -1
   %46 = sext i32 %spec.select.i.i to i64
-  %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
+  %47 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
   %49 = trunc i64 %48 to i32
   %50 = sext i32 %spec.select.i.i12 to i64
-  %51 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
+  %51 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %49, %53
@@ -32524,11 +32523,11 @@ define hidden void @_ZNK13cmovD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   %or.cond.i.i11 = icmp ult i32 %45, 32
   %spec.select.i.i12 = select i1 %or.cond.i.i11, i32 %45, i32 -1
   %46 = sext i32 %spec.select.i.i to i64
-  %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
+  %47 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
   %49 = trunc i64 %48 to i32
   %50 = sext i32 %spec.select.i.i12 to i64
-  %51 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
+  %51 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %49, %53
@@ -32606,11 +32605,11 @@ define hidden void @_ZNK14cmovD_regUNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   %or.cond.i.i11 = icmp ult i32 %45, 32
   %spec.select.i.i12 = select i1 %or.cond.i.i11, i32 %45, i32 -1
   %46 = sext i32 %spec.select.i.i to i64
-  %47 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
+  %47 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %46
   %48 = ptrtoint ptr %47 to i64
   %49 = trunc i64 %48 to i32
   %50 = sext i32 %spec.select.i.i12 to i64
-  %51 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
+  %51 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %49, %53
@@ -53019,7 +53018,7 @@ define hidden void @_ZNK33partialSubtypeCheckConstSuperNode4emitEP17C2_MacroAsse
 
 96:                                               ; preds = %3
   %97 = zext i8 %49 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr @_ZN12StubRoutines36_lookup_secondary_supers_table_stubsE, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12StubRoutines36_lookup_secondary_supers_table_stubsE, i64 %97
   %99 = load ptr, ptr %98, align 8
   call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %99, i32 noundef 6) #24
   %100 = load ptr, ptr %5, align 8
@@ -57918,7 +57917,7 @@ define hidden void @_ZNK13vconvF2HFNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %11) #24
   %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %12)
@@ -57939,7 +57938,7 @@ define hidden void @_ZNK13vconvF2HFNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -57977,7 +57976,7 @@ define hidden void @_ZNK21vconvF2HF_mem_regNode4emitEP17C2_MacroAssemblerP13Phas
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %18) #24
   %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %19)
@@ -57998,7 +57997,7 @@ define hidden void @_ZNK21vconvF2HF_mem_regNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %26
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   %27 = add i32 %10, 2
   %28 = load ptr, ptr %5, align 8
@@ -58085,7 +58084,7 @@ define hidden void @_ZNK21vconvHF2F_reg_memNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
@@ -58149,7 +58148,7 @@ define hidden void @_ZNK13vconvHF2FNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -58209,7 +58208,7 @@ define hidden void @_ZNK24reinterpret_mask_W2BNode4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -58284,7 +58283,7 @@ define hidden void @_ZNK24reinterpret_mask_D2BNode4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -58355,7 +58354,7 @@ define hidden void @_ZNK24reinterpret_mask_Q2BNode4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -58874,7 +58873,7 @@ define hidden void @_ZNK15vroundD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
@@ -58968,7 +58967,7 @@ define hidden void @_ZNK15vroundD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
@@ -59527,7 +59526,7 @@ define hidden void @_ZNK10gatherNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
 
 switch.lookup:                                    ; preds = %.split.i.i
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %37
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   %38 = add i32 %11, 2
   %39 = add i32 %17, %38
@@ -59685,7 +59684,7 @@ define hidden void @_ZNK12evgatherNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %37
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   %38 = add i32 %11, 2
   %39 = add i32 %17, %38
@@ -60037,7 +60036,7 @@ define hidden void @_ZNK23vgather_subwordLE8BNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %37
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   %38 = add i32 %11, 2
   %39 = add i32 %17, %38
@@ -60206,7 +60205,7 @@ define hidden void @_ZNK23vgather_subwordGT8BNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %73 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %73
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %73
   %switch.load = load i32, ptr %switch.gep, align 4
   %74 = add i32 %11, 2
   %75 = add i32 %17, %74
@@ -60388,7 +60387,7 @@ define hidden void @_ZNK27vgather_subwordLE8B_offNode4emitEP17C2_MacroAssemblerP
 
 switch.lookup:                                    ; preds = %.split.i.i
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %37
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   %38 = add i32 %11, 2
   %39 = add i32 %17, %38
@@ -60562,7 +60561,7 @@ define hidden void @_ZNK27vgather_subwordGT8B_offNode4emitEP17C2_MacroAssemblerP
 
 switch.lookup:                                    ; preds = %.split.i.i
   %73 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %73
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %73
   %switch.load = load i32, ptr %switch.gep, align 4
   %74 = add i32 %11, 2
   %75 = add i32 %17, %74
@@ -60767,7 +60766,7 @@ define hidden void @_ZNK35vgather_masked_subwordLE8B_avx3Node4emitEP17C2_MacroAs
 
 switch.lookup:                                    ; preds = %.split.i.i
   %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %55
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %55
   %switch.load = load i32, ptr %switch.gep, align 4
   %56 = add i32 %11, 2
   %57 = add i32 %17, %56
@@ -61001,7 +61000,7 @@ define hidden void @_ZNK35vgather_masked_subwordGT8B_avx3Node4emitEP17C2_MacroAs
 
 switch.lookup:                                    ; preds = %.split.i.i
   %91 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %91
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %91
   %switch.load = load i32, ptr %switch.gep, align 4
   %92 = add i32 %11, 2
   %93 = add i32 %17, %92
@@ -61246,7 +61245,7 @@ define hidden void @_ZNK39vgather_masked_subwordLE8B_off_avx3Node4emitEP17C2_Mac
 
 switch.lookup:                                    ; preds = %.split.i.i
   %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %55
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %55
   %switch.load = load i32, ptr %switch.gep, align 4
   %56 = add i32 %11, 2
   %57 = add i32 %17, %56
@@ -61485,7 +61484,7 @@ define hidden void @_ZNK39vgather_masked_subwordGT8B_off_avx3Node4emitEP17C2_Mac
 
 switch.lookup:                                    ; preds = %.split.i.i
   %91 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %91
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %91
   %switch.load = load i32, ptr %switch.gep, align 4
   %92 = add i32 %11, 2
   %93 = add i32 %17, %92
@@ -61744,7 +61743,7 @@ define hidden void @_ZNK35vgather_masked_subwordLE8B_avx2Node4emitEP17C2_MacroAs
 
 switch.lookup:                                    ; preds = %.split.i.i
   %62 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %62
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %62
   %switch.load = load i32, ptr %switch.gep, align 4
   %63 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
   %64 = load ptr, ptr %41, align 8
@@ -62022,7 +62021,7 @@ define hidden void @_ZNK35vgather_masked_subwordGT8B_avx2Node4emitEP17C2_MacroAs
 
 switch.lookup:                                    ; preds = %.split.i.i
   %103 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %103
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %103
   %switch.load = load i32, ptr %switch.gep, align 4
   %104 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef nonnull %0) #24
   %105 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
@@ -62299,7 +62298,7 @@ define hidden void @_ZNK39vgather_masked_subwordLE8B_off_avx2Node4emitEP17C2_Mac
 
 switch.lookup:                                    ; preds = %.split.i.i
   %62 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %62
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %62
   %switch.load = load i32, ptr %switch.gep, align 4
   %63 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
   %64 = load ptr, ptr %41, align 8
@@ -62580,7 +62579,7 @@ define hidden void @_ZNK39vgather_masked_subwordGT8B_off_avx2Node4emitEP17C2_Mac
 
 switch.lookup:                                    ; preds = %.split.i.i
   %103 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %103
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %103
   %switch.load = load i32, ptr %switch.gep, align 4
   %104 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef nonnull %0) #24
   %105 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
@@ -62842,7 +62841,7 @@ define hidden void @_ZNK11scatterNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %38) #24
   %40 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %39)
@@ -62863,7 +62862,7 @@ define hidden void @_ZNK11scatterNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %46
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   %47 = add i32 %13, 2
   %48 = add i32 %19, %47
@@ -63011,7 +63010,7 @@ define hidden void @_ZNK18scatter_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRe
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %42) #24
   %44 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %43)
@@ -63032,7 +63031,7 @@ define hidden void @_ZNK18scatter_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRe
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %50
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %50
   %switch.load = load i32, ptr %switch.gep, align 4
   %51 = add i32 %11, 2
   %52 = add i32 %17, %51
@@ -63159,7 +63158,7 @@ define hidden void @_ZNK14vReplB_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   %16 = icmp eq i32 %4, 64
   br i1 %16, label %21, label %17
@@ -63330,7 +63329,7 @@ define hidden void @_ZNK13ReplB_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
@@ -63395,7 +63394,7 @@ define hidden void @_ZNK14vReplS_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = load i32, ptr @UseAVX, align 4
   %14 = icmp sgt i32 %13, 1
@@ -63550,7 +63549,7 @@ define hidden void @_ZNK13ReplS_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
@@ -63615,7 +63614,7 @@ define hidden void @_ZNK13ReplI_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = icmp eq i32 %4, 16
   br i1 %13, label %17, label %14
@@ -63722,7 +63721,7 @@ define hidden void @_ZNK13ReplI_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %15 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %16 = and i64 %15, 524288
@@ -63897,7 +63896,7 @@ define hidden void @_ZN13ReplI_immNode13eval_constantEP7Compile(ptr noundef nonn
   %17 = select i1 %.not, i32 4, i32 8
   %18 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = sdiv i32 %17, %21
   %23 = tail call fastcc noundef ptr @_ZL14vreplicate_immIlEP13GrowableArrayI6jvalueE9BasicTypeT_i(i8 noundef zeroext %8, i64 noundef %14, i32 noundef %22)
@@ -64035,7 +64034,7 @@ _ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit: 
   store i32 %39, ptr %4, align 8
   %40 = load ptr, ptr %7, align 8
   %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds %union.jvalue, ptr %40, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %41
   store i32 %.sroa.0.sroa.0.sroa.0.0.insert.insert, ptr %42, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 %.sroa.0.sroa.7.0, ptr %.sroa_idx, align 4
@@ -64149,7 +64148,7 @@ define hidden void @_ZNK12ReplI_M1Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -64187,7 +64186,7 @@ define hidden void @_ZNK13ReplL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = icmp eq i32 %4, 8
   br i1 %13, label %17, label %14
@@ -64300,7 +64299,7 @@ switch.lookup:                                    ; preds = %.split.i.i
 
 16:                                               ; preds = %switch.lookup
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
@@ -64567,7 +64566,7 @@ define hidden void @_ZNK12ReplL_M1Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -64603,7 +64602,7 @@ define hidden void @_ZNK14vReplF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = icmp ult i32 %4, 5
   br i1 %13, label %14, label %27
@@ -64740,7 +64739,7 @@ define hidden void @_ZNK13ReplF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
@@ -64871,7 +64870,7 @@ _ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit.i
   store i32 %35, ptr %15, align 8
   %36 = load ptr, ptr %18, align 8
   %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds %union.jvalue, ptr %36, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %36, i64 %37
   store float %11, ptr %38, align 8
   %39 = add nuw nsw i32 %.013.i, 1
   %exitcond.not.i = icmp eq i32 %39, %14
@@ -64991,7 +64990,7 @@ define hidden void @_ZNK14vReplD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = icmp ult i32 %4, 3
   br i1 %13, label %14, label %27
@@ -65134,7 +65133,7 @@ define hidden void @_ZNK13ReplD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %16
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -65300,7 +65299,7 @@ _ZL14vreplicate_immIdEP13GrowableArrayI6jvalueE9BasicTypeT_i.exit: ; preds = %2,
   store i32 %30, ptr %12, align 8
   %31 = load ptr, ptr %15, align 8
   %32 = sext i32 %28 to i64
-  %33 = getelementptr inbounds %union.jvalue, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   store double %11, ptr %33, align 8
   call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueE(ptr dead_on_unwind nonnull writable sret(%"class.ConstantTable::Constant") align 8 %3, ptr noundef nonnull align 8 dereferenceable(36) %29, ptr noundef nonnull %0, i8 noundef zeroext 7, ptr noundef nonnull %12) #24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -65461,7 +65460,7 @@ define hidden void @_ZNK12insert32Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %25 = add i32 %18, %24
   %26 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = sdiv i32 16, %29
   %31 = sitofp i32 %30 to double
@@ -65630,7 +65629,7 @@ define hidden void @_ZNK12insert64Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %25 = add i32 %18, %24
   %26 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = sdiv i32 16, %29
   %31 = sitofp i32 %30 to double
@@ -71965,7 +71964,7 @@ define hidden void @_ZNK13vaddB_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72025,7 +72024,7 @@ define hidden void @_ZNK13vaddB_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72104,7 +72103,7 @@ define hidden void @_ZNK15vaddB_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72210,7 +72209,7 @@ define hidden void @_ZNK13vaddS_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72270,7 +72269,7 @@ define hidden void @_ZNK13vaddS_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72349,7 +72348,7 @@ define hidden void @_ZNK15vaddS_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72455,7 +72454,7 @@ define hidden void @_ZNK13vaddI_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72514,7 +72513,7 @@ define hidden void @_ZNK13vaddI_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = add i32 %11, 2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72601,7 +72600,7 @@ define hidden void @_ZNK15vaddI_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = add i32 %11, 2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72716,7 +72715,7 @@ define hidden void @_ZNK13vaddL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72776,7 +72775,7 @@ define hidden void @_ZNK13vaddL_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72855,7 +72854,7 @@ define hidden void @_ZNK15vaddL_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -72961,7 +72960,7 @@ define hidden void @_ZNK13vaddF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73021,7 +73020,7 @@ define hidden void @_ZNK13vaddF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73100,7 +73099,7 @@ define hidden void @_ZNK15vaddF_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73204,7 +73203,7 @@ define hidden void @_ZNK13vaddD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73264,7 +73263,7 @@ define hidden void @_ZNK13vaddD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73343,7 +73342,7 @@ define hidden void @_ZNK15vaddD_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73449,7 +73448,7 @@ define hidden void @_ZNK13vsubB_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73509,7 +73508,7 @@ define hidden void @_ZNK13vsubB_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73617,7 +73616,7 @@ define hidden void @_ZNK13vsubS_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73677,7 +73676,7 @@ define hidden void @_ZNK13vsubS_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73785,7 +73784,7 @@ define hidden void @_ZNK13vsubI_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73845,7 +73844,7 @@ define hidden void @_ZNK13vsubI_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -73953,7 +73952,7 @@ define hidden void @_ZNK13vsubL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -74013,7 +74012,7 @@ define hidden void @_ZNK13vsubL_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -74121,7 +74120,7 @@ define hidden void @_ZNK13vsubF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -74181,7 +74180,7 @@ define hidden void @_ZNK13vsubF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -74289,7 +74288,7 @@ define hidden void @_ZNK13vsubD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -74349,7 +74348,7 @@ define hidden void @_ZNK13vsubD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -74711,7 +74710,7 @@ define hidden void @_ZNK13vmulB_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   %30 = add i32 %9, 1
   %31 = add i32 %15, %30
@@ -74925,7 +74924,7 @@ define hidden void @_ZNK13vmulS_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -74983,7 +74982,7 @@ define hidden void @_ZNK13vmulS_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -75062,7 +75061,7 @@ define hidden void @_ZNK15vmulS_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -75168,7 +75167,7 @@ define hidden void @_ZNK13vmulI_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -75227,7 +75226,7 @@ define hidden void @_ZNK13vmulI_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = add i32 %11, 2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -75314,7 +75313,7 @@ define hidden void @_ZNK15vmulI_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = add i32 %11, 2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -75399,7 +75398,7 @@ define hidden void @_ZNK14evmulL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -75459,7 +75458,7 @@ define hidden void @_ZNK14evmulL_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -75538,7 +75537,7 @@ define hidden void @_ZNK16evmulL_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegA
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -75770,7 +75769,7 @@ define hidden void @_ZNK13vmulL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   %30 = add i32 %9, 1
   %31 = add i32 %15, %30
@@ -75976,7 +75975,7 @@ define hidden void @_ZNK13vmulF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76036,7 +76035,7 @@ define hidden void @_ZNK13vmulF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76115,7 +76114,7 @@ define hidden void @_ZNK15vmulF_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76219,7 +76218,7 @@ define hidden void @_ZNK13vmulD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76279,7 +76278,7 @@ define hidden void @_ZNK13vmulD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76358,7 +76357,7 @@ define hidden void @_ZNK15vmulD_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76464,7 +76463,7 @@ define hidden void @_ZNK13vdivF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76524,7 +76523,7 @@ define hidden void @_ZNK13vdivF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76632,7 +76631,7 @@ define hidden void @_ZNK13vdivD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76692,7 +76691,7 @@ define hidden void @_ZNK13vdivD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76842,7 +76841,7 @@ define hidden void @_ZNK15vminmax_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -76906,7 +76905,7 @@ define hidden void @_ZNK17vminmax_reg_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -77064,7 +77063,7 @@ define hidden void @_ZNK20vminmaxL_reg_avxNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -77132,7 +77131,7 @@ define hidden void @_ZNK22vminmaxL_reg_avx_0Node4emitEP17C2_MacroAssemblerP13Pha
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -77194,7 +77193,7 @@ define hidden void @_ZNK21vminmaxL_reg_evexNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -77256,7 +77255,7 @@ define hidden void @_ZNK23vminmaxL_reg_evex_0Node4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -77340,7 +77339,7 @@ define hidden void @_ZNK16minmaxFP_regNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 
 switch.lookup:                                    ; preds = %.split.i.i
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   %40 = add i32 %9, 1
   %41 = add i32 %15, %40
@@ -77444,7 +77443,7 @@ define hidden void @_ZNK18minmaxFP_reg_0Node4emitEP17C2_MacroAssemblerP13PhaseRe
 
 switch.lookup:                                    ; preds = %.split.i.i
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   %40 = add i32 %9, 1
   %41 = add i32 %15, %40
@@ -77554,7 +77553,7 @@ define hidden void @_ZNK23evminmaxFP_reg_eavxNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %45
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   %46 = add i32 %9, 1
   %47 = add i32 %15, %46
@@ -77666,7 +77665,7 @@ define hidden void @_ZNK25evminmaxFP_reg_eavx_0Node4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %45
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   %46 = add i32 %9, 1
   %47 = add i32 %15, %46
@@ -77864,7 +77863,7 @@ define hidden void @_ZNK19signumV_reg_avxNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   %40 = add i32 %9, 1
   %41 = add i32 %15, %40
@@ -77961,7 +77960,7 @@ define hidden void @_ZNK21signumV_reg_avx_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   %40 = add i32 %9, 1
   %41 = add i32 %15, %40
@@ -78056,7 +78055,7 @@ define hidden void @_ZNK20signumV_reg_evexNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   %40 = add i32 %9, 1
   %41 = add i32 %15, %40
@@ -78153,7 +78152,7 @@ define hidden void @_ZNK22signumV_reg_evex_0Node4emitEP17C2_MacroAssemblerP13Pha
 
 switch.lookup:                                    ; preds = %.split.i.i
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   %40 = add i32 %9, 1
   %41 = add i32 %15, %40
@@ -78567,7 +78566,7 @@ define hidden void @_ZNK14vsqrtF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -78613,7 +78612,7 @@ define hidden void @_ZNK14vsqrtF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
@@ -78677,7 +78676,7 @@ define hidden void @_ZNK14vsqrtD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -78723,7 +78722,7 @@ define hidden void @_ZNK14vsqrtD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
@@ -81772,7 +81771,7 @@ define hidden void @_ZNK11vshiftSNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 
 switch.lookup:                                    ; preds = %.split.i.i
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -81823,11 +81822,11 @@ switch.lookup:                                    ; preds = %.split.i.i
 
 62:                                               ; preds = %49
   %63 = sext i32 %spec.select.i.i81 to i64
-  %64 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %63
+  %64 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %63
   %65 = ptrtoint ptr %64 to i64
   %66 = trunc i64 %65 to i32
   %67 = sext i32 %spec.select.i.i83 to i64
-  %68 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %67
+  %68 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %67
   %69 = ptrtoint ptr %68 to i64
   %70 = trunc i64 %69 to i32
   %71 = icmp eq i32 %66, %70
@@ -81866,11 +81865,11 @@ _ZN14MacroAssembler6movfltE11XMMRegisterS0_.exit: ; preds = %62, %75, %76
 
 87:                                               ; preds = %49
   %88 = sext i32 %spec.select.i.i81 to i64
-  %89 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %88
+  %89 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %88
   %90 = ptrtoint ptr %89 to i64
   %91 = trunc i64 %90 to i32
   %92 = sext i32 %spec.select.i.i83 to i64
-  %93 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %92
+  %93 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %92
   %94 = ptrtoint ptr %93 to i64
   %95 = trunc i64 %94 to i32
   %96 = icmp eq i32 %91, %95
@@ -81974,7 +81973,7 @@ define hidden void @_ZNK13vshiftS_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -82025,11 +82024,11 @@ switch.lookup:                                    ; preds = %.split.i.i
 
 62:                                               ; preds = %49
   %63 = sext i32 %spec.select.i.i81 to i64
-  %64 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %63
+  %64 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %63
   %65 = ptrtoint ptr %64 to i64
   %66 = trunc i64 %65 to i32
   %67 = sext i32 %spec.select.i.i83 to i64
-  %68 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %67
+  %68 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %67
   %69 = ptrtoint ptr %68 to i64
   %70 = trunc i64 %69 to i32
   %71 = icmp eq i32 %66, %70
@@ -82068,11 +82067,11 @@ _ZN14MacroAssembler6movfltE11XMMRegisterS0_.exit: ; preds = %62, %75, %76
 
 87:                                               ; preds = %49
   %88 = sext i32 %spec.select.i.i81 to i64
-  %89 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %88
+  %89 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %88
   %90 = ptrtoint ptr %89 to i64
   %91 = trunc i64 %90 to i32
   %92 = sext i32 %spec.select.i.i83 to i64
-  %93 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %92
+  %93 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %92
   %94 = ptrtoint ptr %93 to i64
   %95 = trunc i64 %94 to i32
   %96 = icmp eq i32 %91, %95
@@ -82176,7 +82175,7 @@ define hidden void @_ZNK13vshiftS_1Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -82227,11 +82226,11 @@ switch.lookup:                                    ; preds = %.split.i.i
 
 62:                                               ; preds = %49
   %63 = sext i32 %spec.select.i.i81 to i64
-  %64 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %63
+  %64 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %63
   %65 = ptrtoint ptr %64 to i64
   %66 = trunc i64 %65 to i32
   %67 = sext i32 %spec.select.i.i83 to i64
-  %68 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %67
+  %68 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %67
   %69 = ptrtoint ptr %68 to i64
   %70 = trunc i64 %69 to i32
   %71 = icmp eq i32 %66, %70
@@ -82270,11 +82269,11 @@ _ZN14MacroAssembler6movfltE11XMMRegisterS0_.exit: ; preds = %62, %75, %76
 
 87:                                               ; preds = %49
   %88 = sext i32 %spec.select.i.i81 to i64
-  %89 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %88
+  %89 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %88
   %90 = ptrtoint ptr %89 to i64
   %91 = trunc i64 %90 to i32
   %92 = sext i32 %spec.select.i.i83 to i64
-  %93 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %92
+  %93 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %92
   %94 = ptrtoint ptr %93 to i64
   %95 = trunc i64 %94 to i32
   %96 = icmp eq i32 %91, %95
@@ -82378,7 +82377,7 @@ define hidden void @_ZNK11vshiftINode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 
 switch.lookup:                                    ; preds = %.split.i.i
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -82427,11 +82426,11 @@ switch.lookup:                                    ; preds = %.split.i.i
 
 63:                                               ; preds = %49
   %64 = sext i32 %spec.select.i.i49 to i64
-  %65 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %64
+  %65 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %64
   %66 = ptrtoint ptr %65 to i64
   %67 = trunc i64 %66 to i32
   %68 = sext i32 %spec.select.i.i51 to i64
-  %69 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %68
+  %69 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %68
   %70 = ptrtoint ptr %69 to i64
   %71 = trunc i64 %70 to i32
   %72 = icmp eq i32 %67, %71
@@ -82539,7 +82538,7 @@ define hidden void @_ZNK13vshiftI_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -82588,11 +82587,11 @@ switch.lookup:                                    ; preds = %.split.i.i
 
 63:                                               ; preds = %49
   %64 = sext i32 %spec.select.i.i49 to i64
-  %65 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %64
+  %65 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %64
   %66 = ptrtoint ptr %65 to i64
   %67 = trunc i64 %66 to i32
   %68 = sext i32 %spec.select.i.i51 to i64
-  %69 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %68
+  %69 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %68
   %70 = ptrtoint ptr %69 to i64
   %71 = trunc i64 %70 to i32
   %72 = icmp eq i32 %67, %71
@@ -82696,7 +82695,7 @@ define hidden void @_ZNK13vshiftI_1Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -82745,11 +82744,11 @@ switch.lookup:                                    ; preds = %.split.i.i
 
 63:                                               ; preds = %49
   %64 = sext i32 %spec.select.i.i49 to i64
-  %65 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %64
+  %65 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %64
   %66 = ptrtoint ptr %65 to i64
   %67 = trunc i64 %66 to i32
   %68 = sext i32 %spec.select.i.i51 to i64
-  %69 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %68
+  %69 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %68
   %70 = ptrtoint ptr %69 to i64
   %71 = trunc i64 %70 to i32
   %72 = icmp eq i32 %67, %71
@@ -82846,7 +82845,7 @@ define hidden void @_ZNK15vshiftI_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = load ptr, ptr %4, align 8
   %27 = load ptr, ptr %26, align 8
@@ -82893,11 +82892,11 @@ switch.lookup:                                    ; preds = %.split.i.i
 
 56:                                               ; preds = %43
   %57 = sext i32 %spec.select.i.i32 to i64
-  %58 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %57
+  %58 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %57
   %59 = ptrtoint ptr %58 to i64
   %60 = trunc i64 %59 to i32
   %61 = sext i32 %spec.select.i.i34 to i64
-  %62 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %61
+  %62 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %61
   %63 = ptrtoint ptr %62 to i64
   %64 = trunc i64 %63 to i32
   %65 = icmp eq i32 %60, %64
@@ -82998,7 +82997,7 @@ define hidden void @_ZNK17vshiftI_imm_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = load ptr, ptr %4, align 8
   %27 = load ptr, ptr %26, align 8
@@ -83045,11 +83044,11 @@ switch.lookup:                                    ; preds = %.split.i.i
 
 56:                                               ; preds = %43
   %57 = sext i32 %spec.select.i.i32 to i64
-  %58 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %57
+  %58 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %57
   %59 = ptrtoint ptr %58 to i64
   %60 = trunc i64 %59 to i32
   %61 = sext i32 %spec.select.i.i34 to i64
-  %62 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %61
+  %62 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %61
   %63 = ptrtoint ptr %62 to i64
   %64 = trunc i64 %63 to i32
   %65 = icmp eq i32 %60, %64
@@ -83146,7 +83145,7 @@ define hidden void @_ZNK17vshiftI_imm_1Node4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = load ptr, ptr %4, align 8
   %27 = load ptr, ptr %26, align 8
@@ -83193,11 +83192,11 @@ switch.lookup:                                    ; preds = %.split.i.i
 
 56:                                               ; preds = %43
   %57 = sext i32 %spec.select.i.i32 to i64
-  %58 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %57
+  %58 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %57
   %59 = ptrtoint ptr %58 to i64
   %60 = trunc i64 %59 to i32
   %61 = sext i32 %spec.select.i.i34 to i64
-  %62 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %61
+  %62 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %61
   %63 = ptrtoint ptr %62 to i64
   %64 = trunc i64 %63 to i32
   %65 = icmp eq i32 %60, %64
@@ -83301,7 +83300,7 @@ define hidden void @_ZNK11vshiftLNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 
 switch.lookup:                                    ; preds = %.split.i.i
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -83414,7 +83413,7 @@ define hidden void @_ZNK13vshiftL_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -83516,7 +83515,7 @@ define hidden void @_ZNK15vshiftL_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = load ptr, ptr %4, align 8
   %27 = load ptr, ptr %26, align 8
@@ -83620,7 +83619,7 @@ define hidden void @_ZNK17vshiftL_imm_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = load ptr, ptr %4, align 8
   %27 = load ptr, ptr %26, align 8
@@ -83956,7 +83955,7 @@ define hidden void @_ZNK26vshiftL_arith_reg_evexNode4emitEP17C2_MacroAssemblerP1
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -85929,7 +85928,7 @@ define hidden void @_ZNK23vshiftB_var_evex_bwNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = add i32 %9, 1
   %35 = add i32 %15, %34
@@ -86012,7 +86011,7 @@ define hidden void @_ZNK25vshiftB_var_evex_bw_0Node4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = add i32 %9, 1
   %35 = add i32 %15, %34
@@ -86093,7 +86092,7 @@ define hidden void @_ZNK25vshiftB_var_evex_bw_1Node4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = add i32 %9, 1
   %35 = add i32 %15, %34
@@ -88095,7 +88094,7 @@ define hidden void @_ZNK25vshift16S_var_evex_bwNode4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -88162,7 +88161,7 @@ define hidden void @_ZNK27vshift16S_var_evex_bw_0Node4emitEP17C2_MacroAssemblerP
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -88227,7 +88226,7 @@ define hidden void @_ZNK27vshift16S_var_evex_bw_1Node4emitEP17C2_MacroAssemblerP
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -88292,7 +88291,7 @@ define hidden void @_ZNK15vshiftI_varNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -88353,7 +88352,7 @@ define hidden void @_ZNK17vshiftI_var_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -88414,7 +88413,7 @@ define hidden void @_ZNK17vshiftI_var_1Node4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -88475,7 +88474,7 @@ define hidden void @_ZNK15vshiftL_varNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -88538,7 +88537,7 @@ define hidden void @_ZNK17vshiftL_var_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -88611,7 +88610,7 @@ define hidden void @_ZNK21vshiftL_arith_varNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = add i32 %9, 1
   %35 = add i32 %15, %34
@@ -88680,7 +88679,7 @@ define hidden void @_ZNK26vshiftL_arith_var_evexNode4emitEP17C2_MacroAssemblerP1
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -88765,7 +88764,7 @@ define hidden void @_ZNK12vand_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -88824,7 +88823,7 @@ define hidden void @_ZNK12vand_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = add i32 %11, 2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -88911,7 +88910,7 @@ define hidden void @_ZNK14vand_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = add i32 %11, 2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -89024,7 +89023,7 @@ define hidden void @_ZNK11vor_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -89082,7 +89081,7 @@ define hidden void @_ZNK11vor_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -89161,7 +89160,7 @@ define hidden void @_ZNK13vor_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = add i32 %10, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -89575,7 +89574,7 @@ define hidden void @_ZNK13vcastBtoXNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
@@ -89620,7 +89619,7 @@ define hidden void @_ZNK13vcastBtoDNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -89737,7 +89736,7 @@ define hidden void @_ZNK13vcastStoXNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %28
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   %29 = load ptr, ptr %13, align 8
   %30 = load ptr, ptr %29, align 8
@@ -89842,7 +89841,7 @@ define hidden void @_ZNK18vcastStoX_evexNode4emitEP17C2_MacroAssemblerP13PhaseRe
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %13) #24
   %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
@@ -89863,7 +89862,7 @@ define hidden void @_ZNK18vcastStoX_evexNode4emitEP17C2_MacroAssemblerP13PhaseRe
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %0) #24
   %23 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %22)
@@ -89884,7 +89883,7 @@ switch.lookup:                                    ; preds = %.split.i.i.i
 
 switch.lookup75:                                  ; preds = %.split.i.i
   %29 = zext nneg i32 %switch.tableidx74 to i64
-  %switch.gep78 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
+  %switch.gep78 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
   %switch.load79 = load i32, ptr %switch.gep78, align 4
   switch i8 %4, label %106 [
     i8 8, label %30
@@ -89983,7 +89982,7 @@ switch.lookup75:                                  ; preds = %.split.i.i
 
 84:                                               ; preds = %switch.lookup75
   %85 = zext nneg i32 %switch.tableidx74 to i64
-  %switch.gep76 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK18vcastStoX_evexNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.5, i64 %85
+  %switch.gep76 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK18vcastStoX_evexNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.5, i64 %85
   %switch.load77 = load i32, ptr %switch.gep76, align 4
   %86 = load ptr, ptr %5, align 8
   %87 = load ptr, ptr %86, align 8
@@ -90051,7 +90050,7 @@ define hidden void @_ZNK12castItoXNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %17) #24
   %19 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
@@ -90072,7 +90071,7 @@ define hidden void @_ZNK12castItoXNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = icmp eq i8 %8, 8
   %27 = load ptr, ptr %9, align 8
@@ -90217,7 +90216,7 @@ define hidden void @_ZNK13vcastItoXNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = zext i32 %24 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %29) #24
   %31 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %30)
@@ -90238,7 +90237,7 @@ define hidden void @_ZNK13vcastItoXNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %37
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   %38 = icmp eq i8 %22, 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -90450,7 +90449,7 @@ define hidden void @_ZNK18vcastItoX_evexNode4emitEP17C2_MacroAssemblerP13PhaseRe
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %13) #24
   %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
@@ -90471,7 +90470,7 @@ define hidden void @_ZNK18vcastItoX_evexNode4emitEP17C2_MacroAssemblerP13PhaseRe
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %0) #24
   %23 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %22)
@@ -90492,7 +90491,7 @@ switch.lookup:                                    ; preds = %.split.i.i.i
 
 switch.lookup56:                                  ; preds = %.split.i.i
   %29 = zext nneg i32 %switch.tableidx55 to i64
-  %switch.gep57 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
+  %switch.gep57 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
   %switch.load58 = load i32, ptr %switch.gep57, align 4
   switch i8 %4, label %89 [
     i8 8, label %30
@@ -90773,7 +90772,7 @@ define hidden void @_ZNK18vcastLtoX_evexNode4emitEP17C2_MacroAssemblerP13PhaseRe
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %15) #24
   %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
@@ -90794,7 +90793,7 @@ define hidden void @_ZNK18vcastLtoX_evexNode4emitEP17C2_MacroAssemblerP13PhaseRe
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   switch i8 %4, label %_ZN14MacroAssembler6movfltE11XMMRegisterS0_.exit [
     i8 8, label %24
@@ -90895,11 +90894,11 @@ switch.lookup:                                    ; preds = %.split.i.i.i
   %or.cond.i.i89 = icmp ult i32 %78, 32
   %spec.select.i.i90 = select i1 %or.cond.i.i89, i32 %78, i32 -1
   %79 = sext i32 %spec.select.i.i88 to i64
-  %80 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %79
+  %80 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %79
   %81 = ptrtoint ptr %80 to i64
   %82 = trunc i64 %81 to i32
   %83 = sext i32 %spec.select.i.i90 to i64
-  %84 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %83
+  %84 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %83
   %85 = ptrtoint ptr %84 to i64
   %86 = trunc i64 %85 to i32
   %87 = icmp eq i32 %82, %86
@@ -91085,7 +91084,7 @@ define hidden void @_ZNK17vcastFtoD_regNode4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -91148,7 +91147,7 @@ define hidden void @_ZNK20castFtoX_reg_avxNode4emitEP17C2_MacroAssemblerP13Phase
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %42) #24
   %44 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %43)
@@ -91169,7 +91168,7 @@ define hidden void @_ZNK20castFtoX_reg_avxNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %50
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %50
   %switch.load = load i32, ptr %switch.gep, align 4
   %51 = add i32 %11, 1
   %52 = add i32 %17, %51
@@ -91302,7 +91301,7 @@ define hidden void @_ZNK21castFtoX_reg_evexNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %53 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %53
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
   %54 = load ptr, ptr %15, align 8
   %55 = load ptr, ptr %54, align 8
@@ -91367,7 +91366,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = zext i32 %94 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %99) #24
   %101 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %100)
@@ -91388,7 +91387,7 @@ switch.lookup:                                    ; preds = %.split.i.i
 
 switch.lookup72:                                  ; preds = %.split.i.i.i
   %107 = zext nneg i32 %switch.tableidx71 to i64
-  %switch.gep73 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %107
+  %switch.gep73 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %107
   %switch.load74 = load i32, ptr %switch.gep73, align 4
   %108 = load ptr, ptr %15, align 8
   %109 = load ptr, ptr %108, align 8
@@ -91463,7 +91462,7 @@ define hidden void @_ZNK17vcastDtoF_regNode4emitEP17C2_MacroAssemblerP13PhaseReg
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %11) #24
   %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %12)
@@ -91484,7 +91483,7 @@ define hidden void @_ZNK17vcastDtoF_regNode4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -91552,7 +91551,7 @@ define hidden void @_ZNK20castDtoX_reg_avxNode4emitEP17C2_MacroAssemblerP13Phase
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %48) #24
   %50 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %49)
@@ -91573,7 +91572,7 @@ define hidden void @_ZNK20castDtoX_reg_avxNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %56 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %56
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   %57 = add i32 %11, 1
   %58 = add i32 %17, %57
@@ -91689,7 +91688,7 @@ define hidden void @_ZNK21castDtoX_reg_evexNode4emitEP17C2_MacroAssemblerP13Phas
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %43) #24
   %45 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %44)
@@ -91710,7 +91709,7 @@ define hidden void @_ZNK21castDtoX_reg_evexNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
   %53 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -91814,7 +91813,7 @@ define hidden void @_ZNK10vucastNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
 
 switch.lookup:                                    ; preds = %.split.i.i
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -91862,7 +91861,7 @@ define hidden void @_ZNK12vucast_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -91908,7 +91907,7 @@ define hidden void @_ZNK12vucast_1Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -91990,7 +91989,7 @@ define hidden void @_ZNK20vround_float_avxNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i
   %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = add i32 %13, 1
   %53 = add i32 %19, %52
@@ -92158,7 +92157,7 @@ define hidden void @_ZNK21vround_float_evexNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = add i32 %13, 1
   %53 = add i32 %19, %52
@@ -92326,7 +92325,7 @@ define hidden void @_ZNK19vround_reg_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = add i32 %13, 1
   %53 = add i32 %19, %52
@@ -92454,7 +92453,7 @@ define hidden void @_ZNK10vcmpFDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %19 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %24) #24
   %26 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %25)
@@ -92475,7 +92474,7 @@ define hidden void @_ZNK10vcmpFDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -92499,7 +92498,7 @@ switch.lookup:                                    ; preds = %.split.i.i.i
 
 switch.lookup34:                                  ; preds = %switch.lookup
   %43 = and i64 %38, 7
-  %switch.gep35 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.22, i64 %43
+  %switch.gep35 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.22, i64 %43
   %switch.load36 = load i32, ptr %switch.gep35, align 4
   %44 = load ptr, ptr %5, align 8
   %45 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %44) #24
@@ -92592,7 +92591,7 @@ define hidden void @_ZNK13evcmpFD64Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %3
   %39 = and i64 %34, 7
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.22, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.22, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   %40 = load ptr, ptr %9, align 8
   %41 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %40) #24
@@ -92714,7 +92713,7 @@ define hidden void @_ZNK11evcmpFDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %19 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %24) #24
   %26 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %25)
@@ -92735,7 +92734,7 @@ define hidden void @_ZNK11evcmpFDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -92759,7 +92758,7 @@ switch.lookup:                                    ; preds = %.split.i.i.i
 
 switch.lookup38:                                  ; preds = %switch.lookup
   %43 = and i64 %38, 7
-  %switch.gep39 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.22, i64 %43
+  %switch.gep39 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.22, i64 %43
   %switch.load40 = load i32, ptr %switch.gep39, align 4
   %44 = load ptr, ptr %5, align 8
   %45 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %44) #24
@@ -92818,7 +92817,7 @@ define hidden void @_ZNK15vcmp_directNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %22) #24
   %24 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %23)
@@ -92839,7 +92838,7 @@ define hidden void @_ZNK15vcmp_directNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %32 = load ptr, ptr %31, align 8
@@ -92862,7 +92861,7 @@ switch.lookup:                                    ; preds = %.split.i.i.i
 
 switch.lookup20:                                  ; preds = %switch.lookup
   %41 = and i64 %36, 31
-  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %41
+  %switch.gep21 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %41
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = add i32 %9, 1
@@ -92929,7 +92928,7 @@ define hidden void @_ZNK15vcmp_negateNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext i32 %29 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %34) #24
   %36 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %35)
@@ -92950,7 +92949,7 @@ define hidden void @_ZNK15vcmp_negateNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %42 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %42
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %42
   %switch.load = load i32, ptr %switch.gep, align 4
   %43 = load ptr, ptr %16, align 8
   %44 = load ptr, ptr %43, align 8
@@ -92972,7 +92971,7 @@ switch.lookup:                                    ; preds = %.split.i.i.i
 
 switch.lookup27:                                  ; preds = %switch.lookup
   %52 = and i64 %47, 31
-  %switch.gep28 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %52
+  %switch.gep28 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %52
   %switch.load29 = load i32, ptr %switch.gep28, align 4
   %53 = add i32 %9, 1
   %54 = add i32 %15, %53
@@ -93064,7 +93063,7 @@ define hidden void @_ZNK9vcmpuNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %50) #24
   %52 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %51)
@@ -93116,7 +93115,7 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %.split.i.i.i, 
 
 switch.lookup:                                    ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %69 = and i64 %64, 31
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %69
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   %70 = load ptr, ptr %7, align 8
   %71 = call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %70) #24
@@ -93279,7 +93278,7 @@ define hidden void @_ZN9vcmpuNode13eval_constantEP7Compile(ptr noundef nonnull a
 
 switch.lookup:                                    ; preds = %2
   %12 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9vcmpuNode13eval_constantEP7Compile, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9vcmpuNode13eval_constantEP7Compile, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 632
   call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue(ptr dead_on_unwind nonnull writable sret(%"class.ConstantTable::Constant") align 8 %3, ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull %0, i8 noundef zeroext 11, i64 %switch.load) #24
@@ -93321,7 +93320,7 @@ define hidden void @_ZNK10vcmp64Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %36) #24
   %38 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %37)
@@ -93342,7 +93341,7 @@ define hidden void @_ZNK10vcmp64Node4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   %45 = load ptr, ptr %23, align 8
   %46 = load ptr, ptr %45, align 8
@@ -93364,7 +93363,7 @@ switch.lookup:                                    ; preds = %.split.i.i.i
 
 switch.lookup71:                                  ; preds = %switch.lookup
   %54 = and i64 %49, 31
-  %switch.gep72 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %54
+  %switch.gep72 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %54
   %switch.load73 = load i32, ptr %switch.gep72, align 4
   %55 = load ptr, ptr %23, align 8
   %56 = load ptr, ptr %55, align 8
@@ -93509,7 +93508,7 @@ define hidden void @_ZNK9evcmpNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %19 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %24) #24
   %26 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %25)
@@ -93530,7 +93529,7 @@ define hidden void @_ZNK9evcmpNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -93553,7 +93552,7 @@ switch.lookup:                                    ; preds = %.split.i.i.i
 
 switch.lookup77:                                  ; preds = %switch.lookup
   %43 = and i64 %38, 31
-  %switch.gep78 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %43
+  %switch.gep78 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %43
   %switch.load79 = load i32, ptr %switch.gep78, align 4
   %44 = load ptr, ptr %33, align 8
   %45 = load ptr, ptr %44, align 8
@@ -94367,7 +94366,7 @@ define hidden void @_ZNK13vblendvpINode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -94440,7 +94439,7 @@ define hidden void @_ZNK14vblendvpFDNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -94525,7 +94524,7 @@ define hidden void @_ZNK12vblendvpNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = add i32 %9, 1
   %37 = add i32 %15, %36
@@ -94726,7 +94725,7 @@ define hidden void @_ZNK22evblendvp64_maskedNode4emitEP17C2_MacroAssemblerP13Pha
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -94811,7 +94810,7 @@ define hidden void @_ZNK13vabsB_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %27
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load ptr, ptr %28, align 8
@@ -94886,7 +94885,7 @@ define hidden void @_ZNK13vabsS_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %27
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load ptr, ptr %28, align 8
@@ -94961,7 +94960,7 @@ define hidden void @_ZNK13vabsI_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %27
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load ptr, ptr %28, align 8
@@ -95011,7 +95010,7 @@ define hidden void @_ZNK13vabsL_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %13 = and i64 %12, 8589934592
@@ -95089,7 +95088,7 @@ define hidden void @_ZNK12vabsnegFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %31
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
@@ -95168,7 +95167,7 @@ define hidden void @_ZNK14vabsnegF_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %31
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
@@ -95293,7 +95292,7 @@ define hidden void @_ZNK12vabsnegDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %31
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
@@ -95372,7 +95371,7 @@ define hidden void @_ZNK14vabsnegD_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %31
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
@@ -95710,7 +95709,7 @@ define hidden void @_ZNK17loadMask_evexNode4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -95780,7 +95779,7 @@ define hidden void @_ZNK16vstoreMask1BNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %33) #24
   %35 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %34)
@@ -95801,7 +95800,7 @@ define hidden void @_ZNK16vstoreMask1BNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %41
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   %42 = load ptr, ptr %4, align 8
   %43 = load ptr, ptr %42, align 8
@@ -96509,7 +96508,7 @@ define hidden void @_ZNK32vstoreMask4B_evex_novectmaskNode4emitEP17C2_MacroAssem
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %16) #24
   %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
@@ -96530,7 +96529,7 @@ define hidden void @_ZNK32vstoreMask4B_evex_novectmaskNode4emitEP17C2_MacroAssem
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %0) #24
   %26 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %25)
@@ -96551,7 +96550,7 @@ switch.lookup:                                    ; preds = %.split.i.i.i
 
 switch.lookup20:                                  ; preds = %.split.i.i
   %32 = zext nneg i32 %switch.tableidx19 to i64
-  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep21 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -96604,7 +96603,7 @@ define hidden void @_ZNK32vstoreMask8B_evex_novectmaskNode4emitEP17C2_MacroAssem
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %16) #24
   %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
@@ -96625,7 +96624,7 @@ define hidden void @_ZNK32vstoreMask8B_evex_novectmaskNode4emitEP17C2_MacroAssem
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %0) #24
   %26 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %25)
@@ -96646,7 +96645,7 @@ switch.lookup:                                    ; preds = %.split.i.i.i
 
 switch.lookup20:                                  ; preds = %.split.i.i
   %32 = zext nneg i32 %switch.tableidx19 to i64
-  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
+  %switch.gep21 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %32
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -96782,7 +96781,7 @@ define hidden void @_ZNK19vstoreMask_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -96918,7 +96917,7 @@ define hidden void @_ZNK23VectorPopulateIndexNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = add i32 %9, 1
   %32 = add i32 %31, %15
@@ -97017,7 +97016,7 @@ define hidden void @_ZNK24VectorPopulateLIndexNode4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = add i32 %9, 1
   %32 = add i32 %31, %15
@@ -97331,7 +97330,7 @@ define hidden void @_ZNK19rearrangeB_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %53 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %53
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
   %54 = add i32 %9, 1
   %55 = add i32 %15, %54
@@ -97430,7 +97429,7 @@ define hidden void @_ZNK24rearrangeB_evex_vbmiNode4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -97606,7 +97605,7 @@ define hidden void @_ZNK16loadShuffleSNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 
 switch.lookup:                                    ; preds = %.split.i.i
   %97 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %97
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %97
   %switch.load = load i32, ptr %switch.gep, align 4
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %99 = load ptr, ptr %98, align 8
@@ -97916,7 +97915,7 @@ define hidden void @_ZNK21loadShuffleS_evexNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %13 = and i64 %12, 8589934592
@@ -97969,7 +97968,7 @@ define hidden void @_ZNK19rearrangeS_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -98205,7 +98204,7 @@ define hidden void @_ZNK20loadShuffleI_avxNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -98256,7 +98255,7 @@ define hidden void @_ZNK18rearrangeI_avxNode4emitEP17C2_MacroAssemblerP13PhaseRe
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -98324,7 +98323,7 @@ define hidden void @_ZNK16loadShuffleLNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 
 switch.lookup:                                    ; preds = %.split.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = add i32 %11, 1
   %27 = add i32 %17, %26
@@ -98456,7 +98455,7 @@ define hidden void @_ZNK14rearrangeLNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -98507,7 +98506,7 @@ define hidden void @_ZNK21loadShuffleL_evexNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -98556,7 +98555,7 @@ define hidden void @_ZNK19rearrangeL_evexNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK19rearrangeL_evexNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK19rearrangeL_evexNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -98619,7 +98618,7 @@ define hidden void @_ZNK13vfmaF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -98692,7 +98691,7 @@ define hidden void @_ZNK13vfmaF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -98783,7 +98782,7 @@ define hidden void @_ZNK13vfmaD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -98856,7 +98855,7 @@ define hidden void @_ZNK13vfmaD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -98971,7 +98970,7 @@ define hidden void @_ZNK22vmuladdS2I_reg_avxNode4emitEP17C2_MacroAssemblerP13Pha
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -99036,7 +99035,7 @@ define hidden void @_ZNK21vmuladdaddS2I_regNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -99101,7 +99100,7 @@ define hidden void @_ZNK23vmuladdaddS2I_reg_0Node4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -99143,7 +99142,7 @@ define hidden void @_ZNK31vpopcount_integral_reg_evexNode4emitEP17C2_MacroAssemb
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %15) #24
   %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
@@ -99164,7 +99163,7 @@ define hidden void @_ZNK31vpopcount_integral_reg_evexNode4emitEP17C2_MacroAssemb
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %8, align 8
@@ -99201,7 +99200,7 @@ define hidden void @_ZNK33vpopcount_integral_reg_evex_0Node4emitEP17C2_MacroAsse
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %15) #24
   %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
@@ -99222,7 +99221,7 @@ define hidden void @_ZNK33vpopcount_integral_reg_evex_0Node4emitEP17C2_MacroAsse
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %8, align 8
@@ -99259,7 +99258,7 @@ define hidden void @_ZNK38vpopcount_integral_reg_evex_maskedNode4emitEP17C2_Macr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %17) #24
   %19 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
@@ -99280,7 +99279,7 @@ define hidden void @_ZNK38vpopcount_integral_reg_evex_maskedNode4emitEP17C2_Macr
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = load ptr, ptr %5, align 8
   %27 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %26) #24
@@ -99299,11 +99298,11 @@ switch.lookup:                                    ; preds = %.split.i.i.i
   %or.cond.i.i18 = icmp ult i32 %37, 32
   %spec.select.i.i19 = select i1 %or.cond.i.i18, i32 %37, i32 -1
   %38 = sext i32 %spec.select.i.i to i64
-  %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
+  %39 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
   %41 = trunc i64 %40 to i32
   %42 = sext i32 %spec.select.i.i19 to i64
-  %43 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
+  %43 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
   %45 = trunc i64 %44 to i32
   %.not.i = icmp eq i32 %41, %45
@@ -99355,7 +99354,7 @@ define hidden void @_ZNK40vpopcount_integral_reg_evex_masked_0Node4emitEP17C2_Ma
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %17) #24
   %19 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
@@ -99376,7 +99375,7 @@ define hidden void @_ZNK40vpopcount_integral_reg_evex_masked_0Node4emitEP17C2_Ma
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = load ptr, ptr %5, align 8
   %27 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %26) #24
@@ -99395,11 +99394,11 @@ switch.lookup:                                    ; preds = %.split.i.i.i
   %or.cond.i.i18 = icmp ult i32 %37, 32
   %spec.select.i.i19 = select i1 %or.cond.i.i18, i32 %37, i32 -1
   %38 = sext i32 %spec.select.i.i to i64
-  %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
+  %39 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
   %41 = trunc i64 %40 to i32
   %42 = sext i32 %spec.select.i.i19 to i64
-  %43 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
+  %43 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
   %45 = trunc i64 %44 to i32
   %.not.i = icmp eq i32 %41, %45
@@ -99472,7 +99471,7 @@ define hidden void @_ZNK21vpopcount_avx_regNode4emitEP17C2_MacroAssemblerP13Phas
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %38) #24
   %40 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %39)
@@ -99493,7 +99492,7 @@ define hidden void @_ZNK21vpopcount_avx_regNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %46
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   %47 = add i32 %9, 1
   %48 = add i32 %15, %47
@@ -99578,7 +99577,7 @@ define hidden void @_ZNK23vpopcount_avx_reg_0Node4emitEP17C2_MacroAssemblerP13Ph
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %38) #24
   %40 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %39)
@@ -99599,7 +99598,7 @@ define hidden void @_ZNK23vpopcount_avx_reg_0Node4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %46
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   %47 = add i32 %9, 1
   %48 = add i32 %15, %47
@@ -99672,7 +99671,7 @@ define hidden void @_ZNK34vcount_trailing_zeros_reg_evexNode4emitEP17C2_MacroAss
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %28) #24
   %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
@@ -99693,7 +99692,7 @@ define hidden void @_ZNK34vcount_trailing_zeros_reg_evexNode4emitEP17C2_MacroAss
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %36
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %37 = add i32 %9, 1
   %38 = add i32 %15, %37
@@ -99772,7 +99771,7 @@ define hidden void @_ZNK40vcount_trailing_zeros_short_reg_evexNode4emitEP17C2_Ma
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %40) #24
   %42 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %41)
@@ -99793,7 +99792,7 @@ define hidden void @_ZNK40vcount_trailing_zeros_short_reg_evexNode4emitEP17C2_Ma
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %48
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = add i32 %9, 1
   %50 = add i32 %15, %49
@@ -99898,7 +99897,7 @@ define hidden void @_ZNK39vcount_trailing_zeros_byte_reg_evexNode4emitEP17C2_Mac
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = zext i32 %47 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %52) #24
   %54 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %53)
@@ -99919,7 +99918,7 @@ define hidden void @_ZNK39vcount_trailing_zeros_byte_reg_evexNode4emitEP17C2_Mac
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %60 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %60
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   %61 = add i32 %9, 1
   %62 = add i32 %15, %61
@@ -100028,7 +100027,7 @@ define hidden void @_ZNK33vcount_trailing_zeros_reg_avxNode4emitEP17C2_MacroAsse
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %40) #24
   %42 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %41)
@@ -100049,7 +100048,7 @@ define hidden void @_ZNK33vcount_trailing_zeros_reg_avxNode4emitEP17C2_MacroAsse
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %48
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = add i32 %9, 1
   %50 = add i32 %15, %49
@@ -100146,7 +100145,7 @@ define hidden void @_ZNK13vpternlogNode4emitEP17C2_MacroAssemblerP13PhaseRegAllo
 
 switch.lookup:                                    ; preds = %.split.i.i
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   %30 = add i32 %9, 1
   %31 = add i32 %15, %30
@@ -100222,7 +100221,7 @@ define hidden void @_ZNK17vpternlog_memNode4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = add i32 %10, 2
   %32 = add i32 %16, %31
@@ -100310,7 +100309,7 @@ define hidden void @_ZNK18vprotate_immI8Node4emitEP17C2_MacroAssemblerP13PhaseRe
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %0, align 8
@@ -100378,7 +100377,7 @@ define hidden void @_ZNK20vprotate_immI8_0Node4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %0, align 8
@@ -100444,7 +100443,7 @@ define hidden void @_ZNK12vprorateNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -100514,7 +100513,7 @@ define hidden void @_ZNK14vprorate_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -100586,7 +100585,7 @@ define hidden void @_ZNK32vmasked_load_avx_non_subwordNode4emitEP17C2_MacroAssem
 
 switch.lookup:                                    ; preds = %.split.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = add i32 %10, 2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -100672,7 +100671,7 @@ define hidden void @_ZNK21vmasked_load_evexNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = add i32 %10, 2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -100743,7 +100742,7 @@ define hidden void @_ZNK33vmasked_store_avx_non_subwordNode4emitEP17C2_MacroAsse
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %18 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %23) #24
   %25 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %24)
@@ -100764,7 +100763,7 @@ define hidden void @_ZNK33vmasked_store_avx_non_subwordNode4emitEP17C2_MacroAsse
 
 switch.lookup:                                    ; preds = %.split.i.i
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %31
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = add i32 %10, 2
   %33 = add i32 %16, %32
@@ -100844,7 +100843,7 @@ define hidden void @_ZNK22vmasked_store_evexNode4emitEP17C2_MacroAssemblerP13Pha
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %18 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -100872,7 +100871,7 @@ define hidden void @_ZNK22vmasked_store_evexNode4emitEP17C2_MacroAssemblerP13Pha
 
 switch.lookup:                                    ; preds = %.split.i.i
   %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %38
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   %39 = add i32 %10, 2
   %40 = add i32 %16, %39
@@ -101005,7 +101004,7 @@ define hidden void @_ZNK18vmask_cmp_nodeNode4emitEP17C2_MacroAssemblerP13PhaseRe
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %44) #24
   %46 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %45)
@@ -101026,7 +101025,7 @@ define hidden void @_ZNK18vmask_cmp_nodeNode4emitEP17C2_MacroAssemblerP13PhaseRe
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %52 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %52
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %52
   %switch.load = load i32, ptr %switch.gep, align 4
   %53 = add i32 %10, 1
   %54 = add i32 %16, %53
@@ -101251,14 +101250,14 @@ define hidden void @_ZNK21vmask_tolong_evexNode4emitEP17C2_MacroAssemblerP13Phas
   %16 = load ptr, ptr %4, align 8
   %17 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %16) #24
   %18 = zext i8 %15 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = load ptr, ptr %4, align 8
   %22 = tail call noundef i32 @_ZNK8MachNode13operand_indexEPK8MachOper(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %21) #24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %27) #24
   %29 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %28)
@@ -101279,7 +101278,7 @@ define hidden void @_ZNK21vmask_tolong_evexNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = mul nsw i32 %20, %17
   %37 = add i32 %9, 1
@@ -101338,7 +101337,7 @@ define hidden void @_ZNK21vmask_tolong_boolNode4emitEP17C2_MacroAssemblerP13Phas
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = zext i32 %25 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %30) #24
   %32 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %31)
@@ -101359,7 +101358,7 @@ define hidden void @_ZNK21vmask_tolong_boolNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %38
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   %39 = add i32 %9, 1
   %40 = add i32 %15, %39
@@ -101431,7 +101430,7 @@ define hidden void @_ZNK20vmask_tolong_avxNode4emitEP17C2_MacroAssemblerP13Phase
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %36) #24
   %38 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %37)
@@ -101452,7 +101451,7 @@ define hidden void @_ZNK20vmask_tolong_avxNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   %45 = add i32 %9, 1
   %46 = add i32 %45, %15
@@ -101513,14 +101512,14 @@ define hidden void @_ZNK24vmask_truecount_evexNode4emitEP17C2_MacroAssemblerP13P
   %22 = load ptr, ptr %4, align 8
   %23 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %22) #24
   %24 = zext i8 %21 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = load ptr, ptr %4, align 8
   %28 = tail call noundef i32 @_ZNK8MachNode13operand_indexEPK8MachOper(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %27) #24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %33) #24
   %35 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %34)
@@ -101541,7 +101540,7 @@ define hidden void @_ZNK24vmask_truecount_evexNode4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %41
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   %42 = mul nsw i32 %26, %23
   %43 = add i32 %9, 1
@@ -101605,7 +101604,7 @@ define hidden void @_ZNK24vmask_truecount_boolNode4emitEP17C2_MacroAssemblerP13P
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %36) #24
   %38 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %37)
@@ -101626,7 +101625,7 @@ define hidden void @_ZNK24vmask_truecount_boolNode4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   %45 = add i32 %9, 1
   %46 = add i32 %15, %45
@@ -101703,7 +101702,7 @@ define hidden void @_ZNK23vmask_truecount_avxNode4emitEP17C2_MacroAssemblerP13Ph
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %42) #24
   %44 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %43)
@@ -101724,7 +101723,7 @@ define hidden void @_ZNK23vmask_truecount_avxNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %50
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %50
   %switch.load = load i32, ptr %switch.gep, align 4
   %51 = add i32 %9, 1
   %52 = add i32 %51, %15
@@ -101786,14 +101785,14 @@ define hidden void @_ZNK33vmask_first_or_last_true_evexNode4emitEP17C2_MacroAsse
   %22 = load ptr, ptr %4, align 8
   %23 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %22) #24
   %24 = zext i8 %21 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = load ptr, ptr %4, align 8
   %28 = tail call noundef i32 @_ZNK8MachNode13operand_indexEPK8MachOper(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %27) #24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %33) #24
   %35 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %34)
@@ -101814,7 +101813,7 @@ define hidden void @_ZNK33vmask_first_or_last_true_evexNode4emitEP17C2_MacroAsse
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %41
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   %42 = mul nsw i32 %26, %23
   %43 = add i32 %9, 1
@@ -101868,14 +101867,14 @@ define hidden void @_ZNK35vmask_first_or_last_true_evex_0Node4emitEP17C2_MacroAs
   %22 = load ptr, ptr %4, align 8
   %23 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %22) #24
   %24 = zext i8 %21 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = load ptr, ptr %4, align 8
   %28 = tail call noundef i32 @_ZNK8MachNode13operand_indexEPK8MachOper(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %27) #24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %33) #24
   %35 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %34)
@@ -101896,7 +101895,7 @@ define hidden void @_ZNK35vmask_first_or_last_true_evex_0Node4emitEP17C2_MacroAs
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %41
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   %42 = mul nsw i32 %26, %23
   %43 = add i32 %9, 1
@@ -101960,7 +101959,7 @@ define hidden void @_ZNK33vmask_first_or_last_true_boolNode4emitEP17C2_MacroAsse
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %36) #24
   %38 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %37)
@@ -101981,7 +101980,7 @@ define hidden void @_ZNK33vmask_first_or_last_true_boolNode4emitEP17C2_MacroAsse
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   %45 = add i32 %9, 1
   %46 = add i32 %15, %45
@@ -102052,7 +102051,7 @@ define hidden void @_ZNK35vmask_first_or_last_true_bool_0Node4emitEP17C2_MacroAs
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %36) #24
   %38 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %37)
@@ -102073,7 +102072,7 @@ define hidden void @_ZNK35vmask_first_or_last_true_bool_0Node4emitEP17C2_MacroAs
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   %45 = add i32 %9, 1
   %46 = add i32 %15, %45
@@ -102150,7 +102149,7 @@ define hidden void @_ZNK32vmask_first_or_last_true_avxNode4emitEP17C2_MacroAssem
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %42) #24
   %44 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %43)
@@ -102171,7 +102170,7 @@ define hidden void @_ZNK32vmask_first_or_last_true_avxNode4emitEP17C2_MacroAssem
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %50
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %50
   %switch.load = load i32, ptr %switch.gep, align 4
   %51 = add i32 %9, 1
   %52 = add i32 %51, %15
@@ -102249,7 +102248,7 @@ define hidden void @_ZNK34vmask_first_or_last_true_avx_0Node4emitEP17C2_MacroAss
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %42) #24
   %44 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %43)
@@ -102270,7 +102269,7 @@ define hidden void @_ZNK34vmask_first_or_last_true_avx_0Node4emitEP17C2_MacroAss
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %50
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %50
   %switch.load = load i32, ptr %switch.gep, align 4
   %51 = add i32 %9, 1
   %52 = add i32 %51, %15
@@ -102370,7 +102369,7 @@ define hidden void @_ZNK21vcompress_reg_avxNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = add i32 %9, 1
   %53 = add i32 %15, %52
@@ -102496,7 +102495,7 @@ define hidden void @_ZNK23vcompress_reg_avx_0Node4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = add i32 %9, 1
   %53 = add i32 %15, %52
@@ -102590,7 +102589,7 @@ define hidden void @_ZNK29vcompress_expand_reg_evexNode4emitEP17C2_MacroAssemble
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -102654,7 +102653,7 @@ define hidden void @_ZNK31vcompress_expand_reg_evex_0Node4emitEP17C2_MacroAssemb
 
 switch.lookup:                                    ; preds = %.split.i.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %22 = add i32 %9, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -102783,7 +102782,7 @@ define hidden void @_ZNK16vreverse_regNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 
 switch.lookup:                                    ; preds = %.split.i.i
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = add i32 %9, 1
   %37 = add i32 %15, %36
@@ -102867,7 +102866,7 @@ define hidden void @_ZNK21vreverse_reg_gfniNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = add i32 %11, 1
   %27 = add i32 %17, %26
@@ -102958,7 +102957,7 @@ _ZL14vreplicate_immImEP13GrowableArrayI6jvalueE9BasicTypeT_i.exit: ; preds = %2,
   store i32 %24, ptr %6, align 8
   %25 = load ptr, ptr %9, align 8
   %26 = sext i32 %22 to i64
-  %27 = getelementptr inbounds %union.jvalue, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   store i64 -9205322385119247871, ptr %27, align 8
   call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueE(ptr dead_on_unwind nonnull writable sret(%"class.ConstantTable::Constant") align 8 %3, ptr noundef nonnull align 8 dereferenceable(36) %23, ptr noundef nonnull %0, i8 noundef zeroext 11, ptr noundef nonnull %6) #24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -102993,7 +102992,7 @@ define hidden void @_ZNK21vreverse_byte_regNode4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
@@ -103063,7 +103062,7 @@ define hidden void @_ZNK23vreverse_byte64_regNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = add i32 %9, 1
   %37 = add i32 %15, %36
@@ -103120,7 +103119,7 @@ define hidden void @_ZNK36vcount_leading_zeros_IL_reg_evexNode4emitEP17C2_MacroA
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %11) #24
   %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %12)
@@ -103141,7 +103140,7 @@ define hidden void @_ZNK36vcount_leading_zeros_IL_reg_evexNode4emitEP17C2_MacroA
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %4, align 8
@@ -103180,7 +103179,7 @@ define hidden void @_ZNK43vcount_leading_zeros_IL_reg_evex_maskedNode4emitEP17C2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %17) #24
   %19 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
@@ -103201,7 +103200,7 @@ define hidden void @_ZNK43vcount_leading_zeros_IL_reg_evex_maskedNode4emitEP17C2
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = load ptr, ptr %5, align 8
   %27 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %26) #24
@@ -103220,11 +103219,11 @@ switch.lookup:                                    ; preds = %.split.i.i.i
   %or.cond.i.i22 = icmp ult i32 %37, 32
   %spec.select.i.i23 = select i1 %or.cond.i.i22, i32 %37, i32 -1
   %38 = sext i32 %spec.select.i.i to i64
-  %39 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
+  %39 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %38
   %40 = ptrtoint ptr %39 to i64
   %41 = trunc i64 %40 to i32
   %42 = sext i32 %spec.select.i.i23 to i64
-  %43 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
+  %43 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
   %45 = trunc i64 %44 to i32
   %.not.i = icmp eq i32 %41, %45
@@ -103287,7 +103286,7 @@ define hidden void @_ZNK39vcount_leading_zeros_short_reg_evexNode4emitEP17C2_Mac
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %28) #24
   %30 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
@@ -103308,7 +103307,7 @@ define hidden void @_ZNK39vcount_leading_zeros_short_reg_evexNode4emitEP17C2_Mac
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %36
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %37 = add i32 %9, 1
   %38 = add i32 %15, %37
@@ -103391,7 +103390,7 @@ define hidden void @_ZNK38vcount_leading_zeros_byte_reg_evexNode4emitEP17C2_Macr
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %46) #24
   %48 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %47)
@@ -103412,7 +103411,7 @@ define hidden void @_ZNK38vcount_leading_zeros_byte_reg_evexNode4emitEP17C2_Macr
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %54 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %54
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
   %55 = add i32 %9, 1
   %56 = add i32 %15, %55
@@ -103507,7 +103506,7 @@ define hidden void @_ZNK36vcount_leading_zeros_int_reg_avxNode4emitEP17C2_MacroA
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext i32 %29 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %34) #24
   %36 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %35)
@@ -103528,7 +103527,7 @@ define hidden void @_ZNK36vcount_leading_zeros_int_reg_avxNode4emitEP17C2_MacroA
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %42 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %42
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %42
   %switch.load = load i32, ptr %switch.gep, align 4
   %43 = add i32 %9, 1
   %44 = add i32 %15, %43
@@ -103615,7 +103614,7 @@ define hidden void @_ZNK32vcount_leading_zeros_reg_avxNode4emitEP17C2_MacroAssem
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %40) #24
   %42 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %41)
@@ -103636,7 +103635,7 @@ define hidden void @_ZNK32vcount_leading_zeros_reg_avxNode4emitEP17C2_MacroAssem
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %48
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = add i32 %9, 1
   %50 = add i32 %15, %49
@@ -103725,7 +103724,7 @@ define hidden void @_ZNK19vadd_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -103802,7 +103801,7 @@ define hidden void @_ZNK21vadd_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -103877,7 +103876,7 @@ define hidden void @_ZNK21vadd_reg_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -103952,7 +103951,7 @@ define hidden void @_ZNK21vadd_reg_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -104027,7 +104026,7 @@ define hidden void @_ZNK21vadd_reg_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -104102,7 +104101,7 @@ define hidden void @_ZNK21vadd_reg_masked_4Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -104178,7 +104177,7 @@ define hidden void @_ZNK19vadd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -104275,7 +104274,7 @@ define hidden void @_ZNK21vadd_mem_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -104370,7 +104369,7 @@ define hidden void @_ZNK21vadd_mem_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -104465,7 +104464,7 @@ define hidden void @_ZNK21vadd_mem_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -104560,7 +104559,7 @@ define hidden void @_ZNK21vadd_mem_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -104655,7 +104654,7 @@ define hidden void @_ZNK21vadd_mem_masked_4Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -104749,7 +104748,7 @@ define hidden void @_ZNK19vxor_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -104825,7 +104824,7 @@ define hidden void @_ZNK19vxor_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -104919,7 +104918,7 @@ define hidden void @_ZNK18vor_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRe
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -104995,7 +104994,7 @@ define hidden void @_ZNK18vor_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRe
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -105089,7 +105088,7 @@ define hidden void @_ZNK19vand_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -105165,7 +105164,7 @@ define hidden void @_ZNK19vand_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -105259,7 +105258,7 @@ define hidden void @_ZNK19vsub_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -105334,7 +105333,7 @@ define hidden void @_ZNK21vsub_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -105409,7 +105408,7 @@ define hidden void @_ZNK21vsub_reg_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -105484,7 +105483,7 @@ define hidden void @_ZNK21vsub_reg_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -105559,7 +105558,7 @@ define hidden void @_ZNK21vsub_reg_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -105634,7 +105633,7 @@ define hidden void @_ZNK21vsub_reg_masked_4Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -105710,7 +105709,7 @@ define hidden void @_ZNK19vsub_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -105805,7 +105804,7 @@ define hidden void @_ZNK21vsub_mem_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -105900,7 +105899,7 @@ define hidden void @_ZNK21vsub_mem_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -105995,7 +105994,7 @@ define hidden void @_ZNK21vsub_mem_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -106090,7 +106089,7 @@ define hidden void @_ZNK21vsub_mem_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -106185,7 +106184,7 @@ define hidden void @_ZNK21vsub_mem_masked_4Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -106279,7 +106278,7 @@ define hidden void @_ZNK19vmul_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -106354,7 +106353,7 @@ define hidden void @_ZNK21vmul_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -106429,7 +106428,7 @@ define hidden void @_ZNK21vmul_reg_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -106504,7 +106503,7 @@ define hidden void @_ZNK21vmul_reg_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -106579,7 +106578,7 @@ define hidden void @_ZNK21vmul_reg_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -106655,7 +106654,7 @@ define hidden void @_ZNK19vmul_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -106750,7 +106749,7 @@ define hidden void @_ZNK21vmul_mem_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -106845,7 +106844,7 @@ define hidden void @_ZNK21vmul_mem_masked_1Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -106940,7 +106939,7 @@ define hidden void @_ZNK21vmul_mem_masked_2Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -107035,7 +107034,7 @@ define hidden void @_ZNK21vmul_mem_masked_3Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -107123,7 +107122,7 @@ define hidden void @_ZNK20vsqrt_reg_maskedNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
@@ -107191,7 +107190,7 @@ define hidden void @_ZNK22vsqrt_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Pha
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
@@ -107265,7 +107264,7 @@ define hidden void @_ZNK19vdiv_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -107340,7 +107339,7 @@ define hidden void @_ZNK21vdiv_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -107416,7 +107415,7 @@ define hidden void @_ZNK19vdiv_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -107511,7 +107510,7 @@ define hidden void @_ZNK21vdiv_mem_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -107605,7 +107604,7 @@ define hidden void @_ZNK19vrol_imm_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -107681,7 +107680,7 @@ define hidden void @_ZNK21vrol_imm_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -107755,7 +107754,7 @@ define hidden void @_ZNK19vrol_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -107830,7 +107829,7 @@ define hidden void @_ZNK21vrol_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -107905,7 +107904,7 @@ define hidden void @_ZNK22vlshift_imm_maskedNode4emitEP17C2_MacroAssemblerP13Pha
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -107979,7 +107978,7 @@ define hidden void @_ZNK24vlshift_imm_masked_0Node4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -108053,7 +108052,7 @@ define hidden void @_ZNK24vlshift_imm_masked_1Node4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -108127,7 +108126,7 @@ define hidden void @_ZNK22vlshift_reg_maskedNode4emitEP17C2_MacroAssemblerP13Pha
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -108202,7 +108201,7 @@ define hidden void @_ZNK24vlshift_reg_masked_0Node4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -108277,7 +108276,7 @@ define hidden void @_ZNK24vlshift_reg_masked_1Node4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -108352,7 +108351,7 @@ define hidden void @_ZNK23vlshiftv_reg_maskedNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -108427,7 +108426,7 @@ define hidden void @_ZNK25vlshiftv_reg_masked_0Node4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -108502,7 +108501,7 @@ define hidden void @_ZNK25vlshiftv_reg_masked_1Node4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -108577,7 +108576,7 @@ define hidden void @_ZNK22vrshift_imm_maskedNode4emitEP17C2_MacroAssemblerP13Pha
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -108651,7 +108650,7 @@ define hidden void @_ZNK24vrshift_imm_masked_0Node4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -108725,7 +108724,7 @@ define hidden void @_ZNK24vrshift_imm_masked_1Node4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -108799,7 +108798,7 @@ define hidden void @_ZNK22vrshift_reg_maskedNode4emitEP17C2_MacroAssemblerP13Pha
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -108874,7 +108873,7 @@ define hidden void @_ZNK24vrshift_reg_masked_0Node4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -108949,7 +108948,7 @@ define hidden void @_ZNK24vrshift_reg_masked_1Node4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -109024,7 +109023,7 @@ define hidden void @_ZNK23vrshiftv_reg_maskedNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -109099,7 +109098,7 @@ define hidden void @_ZNK25vrshiftv_reg_masked_0Node4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -109174,7 +109173,7 @@ define hidden void @_ZNK25vrshiftv_reg_masked_1Node4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -109249,7 +109248,7 @@ define hidden void @_ZNK23vurshift_imm_maskedNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -109323,7 +109322,7 @@ define hidden void @_ZNK25vurshift_imm_masked_0Node4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -109397,7 +109396,7 @@ define hidden void @_ZNK25vurshift_imm_masked_1Node4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %24, %15
@@ -109471,7 +109470,7 @@ define hidden void @_ZNK23vurshift_reg_maskedNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -109546,7 +109545,7 @@ define hidden void @_ZNK25vurshift_reg_masked_0Node4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -109621,7 +109620,7 @@ define hidden void @_ZNK25vurshift_reg_masked_1Node4emitEP17C2_MacroAssemblerP13
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -109696,7 +109695,7 @@ define hidden void @_ZNK24vurshiftv_reg_maskedNode4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -109771,7 +109770,7 @@ define hidden void @_ZNK26vurshiftv_reg_masked_0Node4emitEP17C2_MacroAssemblerP1
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -109846,7 +109845,7 @@ define hidden void @_ZNK26vurshiftv_reg_masked_1Node4emitEP17C2_MacroAssemblerP1
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -109921,7 +109920,7 @@ define hidden void @_ZNK20vmaxv_reg_maskedNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -109997,7 +109996,7 @@ define hidden void @_ZNK20vmaxv_mem_maskedNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -110091,7 +110090,7 @@ define hidden void @_ZNK20vminv_reg_maskedNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -110167,7 +110166,7 @@ define hidden void @_ZNK20vminv_mem_maskedNode4emitEP17C2_MacroAssemblerP13Phase
 
 switch.lookup:                                    ; preds = %.split.i.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = add i32 %10, 2
   %26 = add i32 %16, %25
@@ -110261,7 +110260,7 @@ define hidden void @_ZNK26vrearrangev_reg_maskedNode4emitEP17C2_MacroAssemblerP1
 
 switch.lookup:                                    ; preds = %.split.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = add i32 %9, 1
   %25 = add i32 %15, %24
@@ -110330,7 +110329,7 @@ define hidden void @_ZNK15vabs_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
@@ -110398,7 +110397,7 @@ define hidden void @_ZNK17vabs_masked_0Node4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
@@ -110466,7 +110465,7 @@ define hidden void @_ZNK17vabs_masked_1Node4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
@@ -110534,7 +110533,7 @@ define hidden void @_ZNK17vabs_masked_2Node4emitEP17C2_MacroAssemblerP13PhaseReg
 
 switch.lookup:                                    ; preds = %.split.i.i
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = add i32 %9, 1
   %19 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
@@ -110614,7 +110613,7 @@ define hidden void @_ZNK19vfma_reg_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   %30 = add i32 %9, 1
   %31 = add i32 %15, %30
@@ -110696,7 +110695,7 @@ define hidden void @_ZNK21vfma_reg_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   %30 = add i32 %9, 1
   %31 = add i32 %15, %30
@@ -110779,7 +110778,7 @@ define hidden void @_ZNK19vfma_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
 
 switch.lookup:                                    ; preds = %.split.i.i
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = add i32 %10, 2
   %32 = add i32 %16, %31
@@ -110881,7 +110880,7 @@ define hidden void @_ZNK21vfma_mem_masked_0Node4emitEP17C2_MacroAssemblerP13Phas
 
 switch.lookup:                                    ; preds = %.split.i.i
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = add i32 %10, 2
   %32 = add i32 %16, %31
@@ -110972,7 +110971,7 @@ define hidden void @_ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %32) #24
   %34 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %33)
@@ -110993,7 +110992,7 @@ define hidden void @_ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegA
 
 switch.lookup:                                    ; preds = %.split.i.i.i
   %40 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %40
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %40
   %switch.load = load i32, ptr %switch.gep, align 4
   %41 = load ptr, ptr %5, align 8
   %42 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK8MachNodePK8MachOper(ptr noundef nonnull %0, ptr noundef %41) #24
@@ -111034,7 +111033,7 @@ switch.lookup150:                                 ; preds = %43
   %58 = and i64 %48, 16
   %.not148 = icmp eq i64 %58, 0
   %59 = and i64 %53, 31
-  %switch.gep151 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %59
+  %switch.gep151 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %59
   %switch.load152 = load i32, ptr %switch.gep151, align 4
   %60 = load ptr, ptr %4, align 8
   %61 = load ptr, ptr %60, align 8
@@ -111096,7 +111095,7 @@ switch.lookup154:                                 ; preds = %81
   %96 = and i64 %86, 16
   %.not147 = icmp eq i64 %96, 0
   %97 = and i64 %91, 31
-  %switch.gep157 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %97
+  %switch.gep157 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %97
   %switch.load158 = load i32, ptr %switch.gep157, align 4
   %98 = load ptr, ptr %4, align 8
   %99 = load ptr, ptr %98, align 8
@@ -111158,7 +111157,7 @@ switch.lookup161:                                 ; preds = %119
   %134 = and i64 %124, 16
   %.not146 = icmp eq i64 %134, 0
   %135 = and i64 %129, 31
-  %switch.gep164 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %135
+  %switch.gep164 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %135
   %switch.load165 = load i32, ptr %switch.gep164, align 4
   %136 = load ptr, ptr %4, align 8
   %137 = load ptr, ptr %136, align 8
@@ -111220,7 +111219,7 @@ switch.lookup168:                                 ; preds = %157
   %172 = and i64 %162, 16
   %.not = icmp eq i64 %172, 0
   %173 = and i64 %167, 31
-  %switch.gep171 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %173
+  %switch.gep171 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.20, i64 %173
   %switch.load172 = load i32, ptr %switch.gep171, align 4
   %174 = load ptr, ptr %4, align 8
   %175 = load ptr, ptr %174, align 8
@@ -111276,7 +111275,7 @@ switch.lookup168:                                 ; preds = %157
 
 switch.lookup175:                                 ; preds = %195
   %205 = and i64 %200, 7
-  %switch.gep178 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.22, i64 %205
+  %switch.gep178 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.22, i64 %205
   %switch.load179 = load i32, ptr %switch.gep178, align 4
   %206 = load ptr, ptr %4, align 8
   %207 = load ptr, ptr %206, align 8
@@ -111332,7 +111331,7 @@ switch.lookup175:                                 ; preds = %195
 
 switch.lookup182:                                 ; preds = %227
   %237 = and i64 %232, 7
-  %switch.gep186 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.22, i64 %237
+  %switch.gep186 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.22, i64 %237
   %switch.load187 = load i32, ptr %switch.gep186, align 4
   %238 = load ptr, ptr %4, align 8
   %239 = load ptr, ptr %238, align 8
@@ -111532,7 +111531,7 @@ define hidden void @_ZNK23long_to_maskLE8_avxNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = add i32 %9, 1
   %37 = add i32 %15, %36
@@ -111616,7 +111615,7 @@ define hidden void @_ZNK23long_to_maskGT8_avxNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = add i32 %9, 1
   %37 = add i32 %15, %36
@@ -111923,7 +111922,7 @@ define hidden void @_ZNK23vternlog_reg_maskedNode4emitEP17C2_MacroAssemblerP13Ph
 
 switch.lookup:                                    ; preds = %.split.i.i
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = add i32 %9, 1
   %37 = add i32 %15, %36
@@ -112017,7 +112016,7 @@ define hidden void @_ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13P
 
 switch.lookup:                                    ; preds = %.split.i.i
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %36
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24vternlogd_mem_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %37 = add i32 %10, 1
   %38 = add i32 %16, %37
@@ -118101,9 +118100,9 @@ define hidden noundef i32 @_ZNK7Compile26varargs_C_out_slots_killedEv(ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i32 @_ZN7Matcher12return_valueEj(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw i32, ptr @_ZZN7Matcher14c_return_valueEjE2hi, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7Matcher14c_return_valueEjE2hi, i64 %2
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds nuw i32, ptr @_ZZN7Matcher14c_return_valueEjE2lo, i64 %2
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7Matcher14c_return_valueEjE2lo, i64 %2
   %6 = load i32, ptr %5, align 4
   %.sroa.2.0.insert.ext = shl i32 %6, 16
   %.sroa.0.0.insert.ext = and i32 %4, 65535
@@ -118114,9 +118113,9 @@ define hidden i32 @_ZN7Matcher12return_valueEj(i32 noundef %0) local_unnamed_add
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i32 @_ZN7Matcher14c_return_valueEj(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw i32, ptr @_ZZN7Matcher14c_return_valueEjE2hi, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7Matcher14c_return_valueEjE2hi, i64 %2
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds nuw i32, ptr @_ZZN7Matcher14c_return_valueEjE2lo, i64 %2
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7Matcher14c_return_valueEjE2lo, i64 %2
   %6 = load i32, ptr %5, align 4
   %.sroa.2.0.insert.ext = shl i32 %6, 16
   %.sroa.0.0.insert.ext = and i32 %4, 65535
@@ -118235,7 +118234,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8MachNode9ideal_regEv(ptr noundef no
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4Type10_type_infoE, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i32, ptr %16, align 4
   br label %18
@@ -118408,7 +118407,7 @@ define linkonce_odr hidden noundef i32 @_ZNK17MachSpillCopyNode9ideal_regEv(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4Type10_type_infoE, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %9 = load i32, ptr %8, align 4
   ret i32 %9
@@ -118575,7 +118574,7 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegIOper3regEP13PhaseRegAllocPK4No
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = sext i16 %11 to i32
@@ -118588,14 +118587,14 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegIOper3regEP13PhaseRegAllocPK4No
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
@@ -118621,7 +118620,7 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegPOper3regEP13PhaseRegAllocPK4No
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = sext i16 %11 to i32
@@ -118634,14 +118633,14 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegPOper3regEP13PhaseRegAllocPK4No
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
@@ -118663,7 +118662,7 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegFOper3regEP13PhaseRegAllocPK4No
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = sext i16 %11 to i32
@@ -118676,14 +118675,14 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegFOper3regEP13PhaseRegAllocPK4No
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
@@ -118705,7 +118704,7 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegDOper3regEP13PhaseRegAllocPK4No
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = sext i16 %11 to i32
@@ -118718,14 +118717,14 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegDOper3regEP13PhaseRegAllocPK4No
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
@@ -118747,7 +118746,7 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegLOper3regEP13PhaseRegAllocPK4No
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = sext i16 %11 to i32
@@ -118760,14 +118759,14 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegLOper3regEP13PhaseRegAllocPK4No
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
@@ -119255,14 +119254,14 @@ define linkonce_odr hidden noundef i32 @_ZNK12indirectOper4baseEP13PhaseRegAlloc
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -119315,14 +119314,14 @@ define linkonce_odr hidden noundef i32 @_ZNK14indOffset8Oper4baseEP13PhaseRegAll
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -119383,14 +119382,14 @@ define linkonce_odr hidden noundef i32 @_ZNK15indOffset32Oper4baseEP13PhaseRegAl
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -119456,14 +119455,14 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexOffsetOper4baseEP13PhaseRe
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -119479,14 +119478,14 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexOffsetOper5indexEP13PhaseR
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -119552,14 +119551,14 @@ define linkonce_odr hidden noundef i32 @_ZNK12indIndexOper4baseEP13PhaseRegAlloc
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -119575,14 +119574,14 @@ define linkonce_odr hidden noundef i32 @_ZNK12indIndexOper5indexEP13PhaseRegAllo
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -119634,14 +119633,14 @@ define linkonce_odr hidden noundef i32 @_ZNK17indIndexScaleOper4baseEP13PhaseReg
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -119657,14 +119656,14 @@ define linkonce_odr hidden noundef i32 @_ZNK17indIndexScaleOper5indexEP13PhaseRe
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -119725,14 +119724,14 @@ define linkonce_odr hidden noundef i32 @_ZNK20indPosIndexScaleOper4baseEP13Phase
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -119748,14 +119747,14 @@ define linkonce_odr hidden noundef i32 @_ZNK20indPosIndexScaleOper5indexEP13Phas
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -119816,14 +119815,14 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleOffsetOper4baseEP13Ph
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -119839,14 +119838,14 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleOffsetOper5indexEP13P
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -119913,14 +119912,14 @@ define linkonce_odr hidden noundef i32 @_ZNK21indPosIndexOffsetOper4baseEP13Phas
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -119936,14 +119935,14 @@ define linkonce_odr hidden noundef i32 @_ZNK21indPosIndexOffsetOper5indexEP13Pha
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -120009,14 +120008,14 @@ define linkonce_odr hidden noundef i32 @_ZNK26indPosIndexScaleOffsetOper4baseEP1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -120032,14 +120031,14 @@ define linkonce_odr hidden noundef i32 @_ZNK26indPosIndexScaleOffsetOper5indexEP
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -120106,14 +120105,14 @@ define linkonce_odr hidden noundef i32 @_ZNK26indCompressedOopOffsetOper5indexEP
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -120169,14 +120168,14 @@ define linkonce_odr hidden noundef i32 @_ZNK18indirectNarrowOper4baseEP13PhaseRe
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -120223,14 +120222,14 @@ define linkonce_odr hidden noundef i32 @_ZNK20indOffset8NarrowOper4baseEP13Phase
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -120291,14 +120290,14 @@ define linkonce_odr hidden noundef i32 @_ZNK21indOffset32NarrowOper4baseEP13Phas
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -120364,14 +120363,14 @@ define linkonce_odr hidden noundef i32 @_ZNK24indIndexOffsetNarrowOper4baseEP13P
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -120387,14 +120386,14 @@ define linkonce_odr hidden noundef i32 @_ZNK24indIndexOffsetNarrowOper5indexEP13
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -120460,14 +120459,14 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexNarrowOper4baseEP13PhaseRe
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -120483,14 +120482,14 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexNarrowOper5indexEP13PhaseR
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -120542,14 +120541,14 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleNarrowOper4baseEP13Ph
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -120565,14 +120564,14 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleNarrowOper5indexEP13P
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -120633,14 +120632,14 @@ define linkonce_odr hidden noundef i32 @_ZNK29indIndexScaleOffsetNarrowOper4base
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -120656,14 +120655,14 @@ define linkonce_odr hidden noundef i32 @_ZNK29indIndexScaleOffsetNarrowOper5inde
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -120730,14 +120729,14 @@ define linkonce_odr hidden noundef i32 @_ZNK27indPosIndexOffsetNarrowOper4baseEP
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -120753,14 +120752,14 @@ define linkonce_odr hidden noundef i32 @_ZNK27indPosIndexOffsetNarrowOper5indexE
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -120826,14 +120825,14 @@ define linkonce_odr hidden noundef i32 @_ZNK32indPosIndexScaleOffsetNarrowOper4b
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
@@ -120849,14 +120848,14 @@ define linkonce_odr hidden noundef i32 @_ZNK32indPosIndexScaleOffsetNarrowOper5i
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i64
@@ -120937,7 +120936,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotPOper4dispEP13PhaseRegAll
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -120948,7 +120947,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotPOper4dispEP13PhaseRegAll
   %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32
@@ -120998,7 +120997,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotIOper4dispEP13PhaseRegAll
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -121009,7 +121008,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotIOper4dispEP13PhaseRegAll
   %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32
@@ -121059,7 +121058,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotFOper4dispEP13PhaseRegAll
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -121070,7 +121069,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotFOper4dispEP13PhaseRegAll
   %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32
@@ -121120,7 +121119,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotDOper4dispEP13PhaseRegAll
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -121131,7 +121130,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotDOper4dispEP13PhaseRegAll
   %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32
@@ -121181,7 +121180,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotLOper4dispEP13PhaseRegAll
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -121192,7 +121191,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotLOper4dispEP13PhaseRegAll
   %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32
@@ -121540,9 +121539,9 @@ _ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -121559,7 +121558,7 @@ _ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -121679,7 +121678,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19FusedPatternMatcherI7TypeInt
 
 43:                                               ; preds = %28
   %44 = zext i32 %2 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %20, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
@@ -121694,7 +121693,7 @@ _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit: ; preds = %43, %35
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = zext nneg i32 %51 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %12, align 8
@@ -121703,7 +121702,7 @@ _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit: ; preds = %43, %35
 
 61:                                               ; preds = %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit
   %62 = zext i32 %.0.i to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %54, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load i32, ptr %65, align 8
@@ -121749,7 +121748,7 @@ _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit: ; preds = %43, %35
 
 95:                                               ; preds = %80
   %96 = zext i32 %4 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %72, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %99, align 8
@@ -121762,7 +121761,7 @@ _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit25: ; preds = %95, %
   %103 = and i32 %.0.i24, 1
   %104 = load ptr, ptr %71, align 8
   %105 = zext nneg i32 %103 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %12, align 8
@@ -121771,7 +121770,7 @@ _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit25: ; preds = %95, %
 
 111:                                              ; preds = %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit25
   %112 = zext i32 %.0.i24 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %104, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
@@ -121850,7 +121849,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19FusedPatternMatcherI8TypeLon
 
 43:                                               ; preds = %28
   %44 = zext i32 %2 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %20, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
@@ -121865,7 +121864,7 @@ _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit: ; preds = %43, %3
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = zext nneg i32 %51 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %12, align 8
@@ -121874,7 +121873,7 @@ _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit: ; preds = %43, %3
 
 61:                                               ; preds = %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit
   %62 = zext i32 %.0.i to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %54, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load i32, ptr %65, align 8
@@ -121920,7 +121919,7 @@ _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit: ; preds = %43, %3
 
 95:                                               ; preds = %80
   %96 = zext i32 %4 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %72, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %99, align 8
@@ -121933,7 +121932,7 @@ _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit25: ; preds = %95, 
   %103 = and i32 %.0.i24, 1
   %104 = load ptr, ptr %71, align 8
   %105 = zext nneg i32 %103 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %12, align 8
@@ -121942,7 +121941,7 @@ _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit25: ; preds = %95, 
 
 111:                                              ; preds = %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit25
   %112 = zext i32 %.0.i24 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %104, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
@@ -122233,9 +122232,9 @@ _ZN13GrowableArrayI6jvalueE8allocateEv.exit:      ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw %union.jvalue, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw %union.jvalue, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -122252,7 +122251,7 @@ _ZN13GrowableArrayI6jvalueE8allocateEv.exit:      ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw %union.jvalue, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store i64 0, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

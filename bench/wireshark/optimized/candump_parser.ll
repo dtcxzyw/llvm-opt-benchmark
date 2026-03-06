@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.msg_t = type { %struct.nstime_t, i32, i8, i8, %struct.msg_data_t }
 %struct.nstime_t = type { i64, i32 }
 %struct.msg_data_t = type { i8, [64 x i8] }
-%struct.yyStackEntry = type { i8, i8, %union.YYMINORTYPE }
 
 @yyRuleInfoNRhs = internal unnamed_addr constant [54 x i8] c"\FE\FF\FA\FA\F9\FF\FF\FF\FF\FF\00\FF\FE\FD\FC\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\FE\00\FE\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", align 16
 @yy_shift_ofst = internal unnamed_addr constant [25 x i8] c"a\0EE\0E\0E\0E\0E\0E\0E\0E&Y\0E\0E\0E\1FZ\0E\0E\0E\0E\0E\0E][", align 16
@@ -390,7 +389,7 @@ yyStackOverflow.exit:                             ; preds = %124, %115, %108, %1
   %142 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %139
   %143 = load i8, ptr %142, align 1
   %144 = sext i8 %143 to i64
-  %145 = getelementptr %struct.yyStackEntry, ptr %.pre, i64 %144
+  %145 = getelementptr [96 x i8], ptr %.pre, i64 %144
   %146 = load i8, ptr %145, align 8
   %147 = zext i8 %146 to i64
   %148 = getelementptr i8, ptr @yy_reduce_ofst, i64 %147

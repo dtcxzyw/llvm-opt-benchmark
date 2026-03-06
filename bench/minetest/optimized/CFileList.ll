@@ -1295,7 +1295,7 @@ entry:
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %cmp.not = icmp ult i32 %index, %conv.i
   %conv.i5 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5
+  %add.ptr.i.i = getelementptr inbounds nuw [80 x i8], ptr %1, i64 %conv.i5
   %retval.0 = select i1 %cmp.not, ptr %add.ptr.i.i, ptr @_ZN3irr2ioL18emptyFileListEntryE
   ret ptr %retval.0
 }
@@ -1314,7 +1314,7 @@ entry:
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %cmp.not = icmp ult i32 %index, %conv.i
   %conv.i5 = zext i32 %index to i64
-  %FullName.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5
+  %FullName.split = getelementptr inbounds nuw [80 x i8], ptr %1, i64 %conv.i5
   %FullName = getelementptr inbounds nuw i8, ptr %FullName.split, i64 32
   %retval.0 = select i1 %cmp.not, ptr %FullName, ptr @_ZN3irr2ioL18emptyFileListEntryE
   ret ptr %retval.0
@@ -2128,7 +2128,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %conv.i5 = zext i32 %index to i64
-  %ID.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5
+  %ID.split = getelementptr inbounds nuw [80 x i8], ptr %1, i64 %conv.i5
   %ID = getelementptr inbounds nuw i8, ptr %ID.split, i64 68
   %2 = load i32, ptr %ID, align 4, !tbaa !48
   br label %cond.end
@@ -2155,7 +2155,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i6 = zext i32 %index to i64
-  %IsDirectory.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i6
+  %IsDirectory.split = getelementptr inbounds nuw [80 x i8], ptr %1, i64 %conv.i6
   %IsDirectory = getelementptr inbounds nuw i8, ptr %IsDirectory.split, i64 76
   %2 = load i8, ptr %IsDirectory, align 4, !tbaa !54, !range !43, !noundef !44
   %3 = icmp ne i8 %2, 0
@@ -2183,7 +2183,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %conv.i5 = zext i32 %index to i64
-  %Size.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5
+  %Size.split = getelementptr inbounds nuw [80 x i8], ptr %1, i64 %conv.i5
   %Size = getelementptr inbounds nuw i8, ptr %Size.split, i64 64
   %2 = load i32, ptr %Size, align 8, !tbaa !51
   br label %cond.end
@@ -2210,7 +2210,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %conv.i5 = zext i32 %index to i64
-  %Offset.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %1, i64 %conv.i5
+  %Offset.split = getelementptr inbounds nuw [80 x i8], ptr %1, i64 %conv.i5
   %Offset = getelementptr inbounds nuw i8, ptr %Offset.split, i64 72
   %2 = load i32, ptr %Offset, align 8, !tbaa !50
   br label %cond.end
@@ -3062,7 +3062,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.030, -1
   %div.i = udiv i64 %sub.ptr.sub.i31, 160
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %div.i
+  %add.ptr.i.i = getelementptr inbounds nuw [80 x i8], ptr %__first.coerce, i64 %div.i
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge29, i64 -80
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i28.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i29.i)
   %call25.i = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_SC_T0_(ptr nonnull %add.ptr.i28.i, ptr %storemerge29, ptr %__first.coerce)
@@ -3108,7 +3108,7 @@ if.end:                                           ; preds = %entry
 while.cond:                                       ; preds = %_ZN3irr2io14SFileListEntryD2Ev.exit44, %if.end
   %__parent.0 = phi i64 [ %div4849, %if.end ], [ %dec, %_ZN3irr2io14SFileListEntryD2Ev.exit44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %__value)
-  %add.ptr.i = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %__parent.0
+  %add.ptr.i = getelementptr inbounds [80 x i8], ptr %__first.coerce, i64 %__parent.0
   store ptr %0, ptr %__value, align 8, !tbaa !23
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !24
   store i8 0, ptr %0, align 8, !tbaa !25
@@ -3316,9 +3316,9 @@ while.body:                                       ; preds = %entry, %_ZN3irr2io1
   %__holeIndex.addr.080 = phi i64 [ %spec.select, %_ZN3irr2io14SFileListEntryaSEOS1_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.080, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [80 x i8], ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
-  %add.ptr.i56 = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %sub3
+  %add.ptr.i56 = getelementptr inbounds [80 x i8], ptr %__first.coerce, i64 %sub3
   %IsDirectory.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 76
   %0 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %IsDirectory2.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i56, i64 76
@@ -3390,8 +3390,8 @@ cleanup16.loopexit.i.i.i:                         ; preds = %for.body.i.i.i
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit: ; preds = %cleanup16.loopexit.i.i.i, %for.end.i.i.i, %if.then.i.i
   %retval.0.i.i = phi i1 [ %tobool.i.i, %if.then.i.i ], [ %cmp15.i.i.i, %for.end.i.i.i ], [ %cmp.le.i.i.i, %cleanup16.loopexit.i.i.i ]
   %spec.select = select i1 %retval.0.i.i, i64 %sub3, i64 %mul
-  %add.ptr.i57 = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %spec.select
-  %add.ptr.i58 = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %__holeIndex.addr.080
+  %add.ptr.i57 = getelementptr inbounds [80 x i8], ptr %__first.coerce, i64 %spec.select
+  %add.ptr.i58 = getelementptr inbounds [80 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.080
   %cmp.i.i = icmp eq i64 %__holeIndex.addr.080, %spec.select
   br i1 %cmp.i.i, label %_ZN3irr2io14SFileListEntryaSEOS1_.exit, label %if.end.i9.i
 
@@ -3424,8 +3424,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then21:                                        ; preds = %land.lhs.true
   %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
-  %add.ptr.i59 = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %sub25
-  %add.ptr.i60 = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i59 = getelementptr inbounds [80 x i8], ptr %__first.coerce, i64 %sub25
+  %add.ptr.i60 = getelementptr inbounds [80 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %cmp.i.i61 = icmp eq i64 %__holeIndex.addr.0.lcssa, %sub25
   br i1 %cmp.i.i61, label %_ZN3irr2io14SFileListEntryaSEOS1_.exit67, label %if.end.i9.i62
 
@@ -3519,7 +3519,7 @@ land.rhs:                                         ; preds = %_ZN3irr2io14SFileLi
   %__holeIndex.addr.041 = phi i64 [ %__holeIndex, %land.rhs.lr.ph ], [ %__parent.044, %_ZN3irr2io14SFileListEntryaSEOS1_.exit ]
   %__parent.044.in = add nsw i64 %__holeIndex.addr.041, -1
   %__parent.044 = sdiv i64 %__parent.044.in, 2
-  %add.ptr.i = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %__parent.044
+  %add.ptr.i = getelementptr inbounds [80 x i8], ptr %__first.coerce, i64 %__parent.044
   %IsDirectory.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 76
   %0 = load i8, ptr %IsDirectory.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %1 = load i8, ptr %IsDirectory2.i.i, align 4, !tbaa !54, !range !43, !noundef !44
@@ -3586,7 +3586,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr2io14SFileLi
   br i1 %cmp.le.i.i.i, label %while.body, label %while.end
 
 while.body:                                       ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit, %for.end.i.i.i, %if.then.i.i
-  %add.ptr.i26 = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %__holeIndex.addr.041
+  %add.ptr.i26 = getelementptr inbounds [80 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.041
   %cmp.i.i = icmp eq i64 %__holeIndex.addr.041, %__parent.044
   br i1 %cmp.i.i, label %_ZN3irr2io14SFileListEntryaSEOS1_.exit, label %if.end.i9.i
 
@@ -3606,7 +3606,7 @@ _ZN3irr2io14SFileListEntryaSEOS1_.exit:           ; preds = %if.end.i9.i, %while
 
 while.end:                                        ; preds = %_ZN3irr2io14SFileListEntryaSEOS1_.exit, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit, %for.end.i.i.i, %if.then.i.i, %entry
   %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %__holeIndex.addr.041, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr2io14SFileListEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit ], [ %__parent.044, %_ZN3irr2io14SFileListEntryaSEOS1_.exit ], [ %__holeIndex.addr.041, %if.then.i.i ], [ %__holeIndex.addr.041, %for.end.i.i.i ]
-  %add.ptr.i27 = getelementptr inbounds %"struct.irr::io::SFileListEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i27 = getelementptr inbounds [80 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %cmp.i.i28 = icmp eq ptr %add.ptr.i27, %__value
   br i1 %cmp.i.i28, label %_ZN3irr2io14SFileListEntryaSEOS1_.exit34, label %if.end.i9.i29
 
@@ -4790,7 +4790,7 @@ _ZNSt12_Vector_baseIN3irr2io14SFileListEntryESaIS2_EE13_M_deallocateEPS2_m.exit:
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !40
   store ptr %__cur.0.lcssa.i.i.i.i.i51, ptr %_M_finish.i.i, align 8, !tbaa !41
-  %add.ptr20 = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [80 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !63
   ret void
 }
@@ -4831,7 +4831,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %__len.019.i.i = phi i64 [ %add.ptr.i.i.i.i42.idx12, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %if.end.i.i ]
   %__first.sroa.0.018.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %if.end.i.i ]
   %shr.i.i = lshr i64 %__len.019.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %__first.sroa.0.018.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [80 x i8], ptr %__first.sroa.0.018.i.i, i64 %shr.i.i
   %IsDirectory.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 76
   %4 = load i8, ptr %IsDirectory.i.i.i.i, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i.i.i.i = icmp eq i8 %4, %1

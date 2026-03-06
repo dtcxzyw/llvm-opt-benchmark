@@ -135,7 +135,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr noundef captures(none) %0, pt
 .preheader:                                       ; preds = %.preheader114, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.preheader114 ]
   %.189121 = phi ptr [ %.391.ph, %43 ], [ %.088, %.preheader114 ]
-  %23 = getelementptr %struct.headerLineParseMapping_t, ptr @headerLineParseMapping, i64 %indvars.iv
+  %23 = getelementptr [16 x i8], ptr @headerLineParseMapping, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 16
   %25 = call i64 @strlen(ptr noundef %24) #11
   %26 = call i32 @strncmp(ptr noundef %.189121, ptr noundef %24, i64 noundef %25) #11
@@ -228,7 +228,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr noundef captures(none) %0, pt
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %54
-  %58 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
+  %58 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldTS, ptr %58, align 8
   br label %59
 
@@ -239,7 +239,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr noundef captures(none) %0, pt
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %59
-  %63 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
+  %63 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldLost, ptr %63, align 8
   br label %64
 
@@ -250,7 +250,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr noundef captures(none) %0, pt
   br i1 %66, label %67, label %sub_0.i
 
 67:                                               ; preds = %64
-  %68 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
+  %68 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldMsgType, ptr %68, align 8
   br label %sub_0.i
 
@@ -273,7 +273,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %74, label %75, label %.tail.thread.i
 
 75:                                               ; preds = %.tail.i
-  %76 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
+  %76 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldID, ptr %76, align 8
   br label %.tail.thread.i
 
@@ -284,7 +284,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %.tail.thread.i
-  %80 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
+  %80 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldLength, ptr %80, align 8
   br label %81
 
@@ -306,7 +306,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %.critedge, !llvm.loop !10
 
 .thread109:                                       ; preds = %81
-  %87 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
+  %87 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldData, ptr %87, align 8
   %88 = icmp samesign ult i64 %indvars.iv.i, 6
   %89 = and i1 %88, %51
@@ -637,7 +637,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_valueSeparator(ptr no
   %12 = getelementptr i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr i16, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 64
   %.not11.i = icmp eq i16 %17, 0
@@ -718,7 +718,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_timeSeparator(ptr nou
   %12 = getelementptr i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr i16, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 64
   %.not11.i = icmp eq i16 %17, 0
@@ -763,7 +763,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_timeSeparatorMs(ptr n
   %12 = getelementptr i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr i16, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 64
   %.not11.i = icmp eq i16 %17, 0
@@ -808,7 +808,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_dateSeparator(ptr nou
   %12 = getelementptr i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr i16, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 64
   %.not11.i = icmp eq i16 %17, 0
@@ -853,7 +853,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_timeAndDateSeparator(
   %12 = getelementptr i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr i16, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 64
   %.not11.i = icmp eq i16 %17, 0
@@ -1481,7 +1481,7 @@ define internal fastcc noundef zeroext i1 @cllog_read_common(ptr %.96.val, ptr n
 
 21:                                               ; preds = %.thread.i, %19
   %.044.i = phi ptr [ %.043.i, %.thread.i ], [ null, %19 ]
-  %22 = getelementptr ptr, ptr %13, i64 %indvars.iv.i
+  %22 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %.not33.i = icmp eq ptr %23, null
   br i1 %.not33.i, label %26, label %24

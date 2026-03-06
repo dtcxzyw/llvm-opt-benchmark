@@ -3,8 +3,6 @@ source_filename = "bench/duckdb/original/huffman.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.duckdb_brotli::HuffmanCode" = type { i8, i16 }
-
 @_ZL12kReverseBits = internal unnamed_addr constant [256 x i8] c"\00\80@\C0 \A0`\E0\10\90P\D00\B0p\F0\08\88H\C8(\A8h\E8\18\98X\D88\B8x\F8\04\84D\C4$\A4d\E4\14\94T\D44\B4t\F4\0C\8CL\CC,\ACl\EC\1C\9C\\\DC<\BC|\FC\02\82B\C2\22\A2b\E2\12\92R\D22\B2r\F2\0A\8AJ\CA*\AAj\EA\1A\9AZ\DA:\BAz\FA\06\86F\C6&\A6f\E6\16\96V\D66\B6v\F6\0E\8EN\CE.\AEn\EE\1E\9E^\DE>\BE~\FE\01\81A\C1!\A1a\E1\11\91Q\D11\B1q\F1\09\89I\C9)\A9i\E9\19\99Y\D99\B9y\F9\05\85E\C5%\A5e\E5\15\95U\D55\B5u\F5\0D\8DM\CD-\ADm\ED\1D\9D]\DD=\BD}\FD\03\83C\C3#\A3c\E3\13\93S\D33\B3s\F3\0B\8BK\CB+\ABk\EB\1B\9B[\DB;\BB{\FB\07\87G\C7'\A7g\E7\17\97W\D77\B7w\F7\0F\8FO\CF/\AFo\EF\1F\9F_\DF?\BF\7F\FF", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -52,72 +50,72 @@ define void @_ZN13duckdb_brotli34BrotliBuildCodeLengthsHuffmanTableEPNS_11Huffma
   %33 = getelementptr inbounds i8, ptr %1, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !9
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %5, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !7
   %38 = add nsw i32 %37, -1
   store i32 %38, ptr %36, align 4, !tbaa !7
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds i32, ptr %4, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %4, i64 %39
   %41 = trunc nuw nsw i64 %32 to i32
   store i32 %41, ptr %40, align 4, !tbaa !7
   %42 = add nsw i64 %indvars.iv, -2
   %43 = getelementptr inbounds i8, ptr %1, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !9
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !7
   %48 = add nsw i32 %47, -1
   store i32 %48, ptr %46, align 4, !tbaa !7
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds i32, ptr %4, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %4, i64 %49
   %51 = trunc nuw nsw i64 %42 to i32
   store i32 %51, ptr %50, align 4, !tbaa !7
   %52 = add nsw i64 %indvars.iv, -3
   %53 = getelementptr inbounds i8, ptr %1, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !9
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %5, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !7
   %58 = add nsw i32 %57, -1
   store i32 %58, ptr %56, align 4, !tbaa !7
   %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds i32, ptr %4, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %4, i64 %59
   %61 = trunc nuw nsw i64 %52 to i32
   store i32 %61, ptr %60, align 4, !tbaa !7
   %62 = add nsw i64 %indvars.iv, -4
   %63 = getelementptr inbounds i8, ptr %1, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !9
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %5, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !7
   %68 = add nsw i32 %67, -1
   store i32 %68, ptr %66, align 4, !tbaa !7
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds i32, ptr %4, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %4, i64 %69
   %71 = trunc nuw nsw i64 %62 to i32
   store i32 %71, ptr %70, align 4, !tbaa !7
   %72 = add nsw i64 %indvars.iv, -5
   %73 = getelementptr inbounds i8, ptr %1, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !9
   %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !7
   %78 = add nsw i32 %77, -1
   store i32 %78, ptr %76, align 4, !tbaa !7
   %79 = sext i32 %77 to i64
-  %80 = getelementptr inbounds i32, ptr %4, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %4, i64 %79
   %81 = trunc nuw nsw i64 %72 to i32
   store i32 %81, ptr %80, align 4, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, -6
   %82 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
   %83 = load i8, ptr %82, align 1, !tbaa !9
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %5, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !7
   %87 = add nsw i32 %86, -1
   store i32 %87, ptr %85, align 4, !tbaa !7
   %88 = sext i32 %86 to i64
-  %89 = getelementptr inbounds i32, ptr %4, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %4, i64 %88
   %90 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %90, ptr %89, align 4, !tbaa !7
   %.not = icmp eq i64 %indvars.iv.next, 0
@@ -135,7 +133,7 @@ define void @_ZN13duckdb_brotli34BrotliBuildCodeLengthsHuffmanTableEPNS_11Huffma
 
 96:                                               ; preds = %94, %96
   %.07794 = phi i64 [ 0, %94 ], [ %98, %96 ]
-  %97 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanCode", ptr %0, i64 %.07794
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.07794
   store i32 %.sroa.22.0.insert.ext.i, ptr %97, align 2
   %98 = add nuw nsw i64 %.07794, 1
   %exitcond108.not = icmp eq i64 %98, 32
@@ -147,7 +145,7 @@ define void @_ZN13duckdb_brotli34BrotliBuildCodeLengthsHuffmanTableEPNS_11Huffma
   %.082 = phi i64 [ %122, %._crit_edge ], [ 128, %91 ]
   %.178 = phi i64 [ %.279.lcssa, %._crit_edge ], [ 0, %91 ]
   %.1 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 0, %91 ]
-  %99 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv104
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv104
   %100 = load i16, ptr %99, align 2, !tbaa !3
   %.not8589 = icmp eq i16 %100, 0
   br i1 %.not8589, label %._crit_edge, label %.lr.ph
@@ -165,21 +163,21 @@ define void @_ZN13duckdb_brotli34BrotliBuildCodeLengthsHuffmanTableEPNS_11Huffma
   %indvars.iv101 = phi i64 [ %105, %.lr.ph ], [ %indvars.iv.next102, %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit ]
   %.27991 = phi i64 [ %.178, %.lr.ph ], [ %118, %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit ]
   %.08090 = phi i32 [ %101, %.lr.ph ], [ %119, %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit ]
-  %108 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv101
+  %108 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv101
   %109 = load i32, ptr %108, align 4, !tbaa !7
   %.sroa.22.0.insert.ext.i86 = shl i32 %109, 16
   %.sroa.0.0.insert.insert.i = or disjoint i32 %.sroa.22.0.insert.ext.i86, %106
   %110 = getelementptr inbounds nuw i8, ptr @_ZL12kReverseBits, i64 %.27991
   %111 = load i8, ptr %110, align 1, !tbaa !9
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanCode", ptr %0, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %112
   br label %114
 
 114:                                              ; preds = %114, %107
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %114 ], [ 32, %107 ]
   %115 = sub nsw i64 %indvars.iv98, %104
   %indvars.iv.next99 = add nsw i64 %indvars.iv98, %103
-  %116 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %113, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %113, i64 %115
   store i32 %.sroa.0.0.insert.insert.i, ptr %116, align 2
   %117 = icmp sgt i64 %115, 0
   br i1 %117, label %114, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit, !llvm.loop !13
@@ -220,7 +218,7 @@ define noundef i32 @_ZN13duckdb_brotli23BrotliBuildHuffmanTableEPNS_11HuffmanCod
 5:                                                ; preds = %5, %4
   %indvars.iv200 = phi i32 [ %indvars.iv.next201, %5 ], [ 15, %4 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ -1, %4 ]
-  %6 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds [2 x i8], ptr %2, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !3
   %8 = icmp eq i16 %7, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -243,7 +241,7 @@ define noundef i32 @_ZN13duckdb_brotli23BrotliBuildHuffmanTableEPNS_11HuffmanCod
   %.0110 = phi i64 [ %40, %._crit_edge ], [ 128, %9 ]
   %.0104 = phi i32 [ %39, %._crit_edge ], [ 2, %9 ]
   %.089 = phi i64 [ %.190.lcssa, %._crit_edge ], [ 0, %9 ]
-  %17 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv188
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv188
   %18 = load i16, ptr %17, align 2, !tbaa !3
   %.not131 = icmp eq i16 %18, 0
   br i1 %.not131, label %._crit_edge, label %.lr.ph
@@ -260,7 +258,7 @@ define noundef i32 @_ZN13duckdb_brotli23BrotliBuildHuffmanTableEPNS_11HuffmanCod
   %.190133 = phi i64 [ %.089, %.lr.ph ], [ %37, %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129 ]
   %.092132 = phi i32 [ %19, %.lr.ph ], [ %38, %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129 ]
   %24 = sext i32 %.087134 to i64
-  %25 = getelementptr inbounds i16, ptr %2, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %2, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %.sroa.22.0.insert.shift.i125 = shl nuw i32 %27, 16
@@ -268,14 +266,14 @@ define noundef i32 @_ZN13duckdb_brotli23BrotliBuildHuffmanTableEPNS_11HuffmanCod
   %28 = getelementptr inbounds nuw i8, ptr @_ZL12kReverseBits, i64 %.190133
   %29 = load i8, ptr %28, align 1, !tbaa !9
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanCode", ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %30
   br label %32
 
 32:                                               ; preds = %32, %23
   %.0.i128 = phi i32 [ %spec.select119, %23 ], [ %33, %32 ]
   %33 = sub nsw i32 %.0.i128, %.0104
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %31, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %31, i64 %34
   store i32 %.sroa.0.0.insert.insert.i127, ptr %35, align 2
   %36 = icmp sgt i32 %33, 0
   br i1 %36, label %32, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129, !llvm.loop !13
@@ -301,7 +299,7 @@ _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129: ; preds = %32
 .lr.ph137:                                        ; preds = %.preheader, %.lr.ph137
   %.199136 = phi i32 [ %44, %.lr.ph137 ], [ %spec.select119, %.preheader ]
   %41 = sext i32 %.199136 to i64
-  %42 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %0, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %0, i64 %41
   %43 = shl nsw i64 %41, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %42, ptr align 2 %0, i64 %43, i1 false)
   %44 = shl i32 %.199136, 1
@@ -334,7 +332,7 @@ _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129: ; preds = %32
   %indvars.iv192 = add nsw i64 %indvars.iv192.in, 1
   %indvars.iv.next198 = add nsw i64 %indvars.iv197, 1
   %51 = add nsw i64 %indvars.iv197, -15
-  %52 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.next198
+  %52 = getelementptr inbounds [2 x i8], ptr %3, i64 %indvars.iv.next198
   %53 = load i16, ptr %52, align 2, !tbaa !3
   %.not118147 = icmp eq i16 %53, 0
   br i1 %.not118147, label %._crit_edge156, label %.lr.ph155
@@ -363,13 +361,13 @@ _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit129: ; preds = %32
 
 .lr.ph143.us:                                     ; preds = %.lr.ph155.split.us
   %60 = sext i32 %.3101149.us to i64
-  %61 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %.1153.us, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %.1153.us, i64 %60
   br label %62
 
 62:                                               ; preds = %.lr.ph143.us, %68
   %indvars.iv194 = phi i64 [ %indvars.iv192, %.lr.ph143.us ], [ %indvars.iv.next195, %68 ]
   %.0.i130141.us = phi i32 [ %56, %.lr.ph143.us ], [ %69, %68 ]
-  %63 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv194
+  %63 = getelementptr inbounds [2 x i8], ptr %3, i64 %indvars.iv194
   %64 = load i16, ptr %63, align 2, !tbaa !3
   %65 = zext i16 %64 to i32
   %66 = sub nsw i32 %.0.i130141.us, %65
@@ -404,7 +402,7 @@ _ZL16NextTableBitSizePKtii.exit.us:               ; preds = %68, %_ZL16NextTable
   %.sroa.22.0.insert.ext.i120.us = shl i32 %83, 16
   %.sroa.0.0.insert.ext.i122.us = and i32 %.010.i.lcssa.us, 255
   %.sroa.0.0.insert.insert.i123.us = or disjoint i32 %.sroa.22.0.insert.ext.i120.us, %.sroa.0.0.insert.ext.i122.us
-  %84 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanCode", ptr %0, i64 %77
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %77
   store i32 %.sroa.0.0.insert.insert.i123.us, ptr %84, align 2
   br label %85
 
@@ -415,7 +413,7 @@ _ZL16NextTableBitSizePKtii.exit.us:               ; preds = %68, %_ZL16NextTable
   %.4.us = phi i64 [ %78, %_ZL16NextTableBitSizePKtii.exit.us ], [ %.3151.us, %.lr.ph155.split.us ]
   %.2.us = phi ptr [ %61, %_ZL16NextTableBitSizePKtii.exit.us ], [ %.1153.us, %.lr.ph155.split.us ]
   %86 = sext i32 %.188152.us to i64
-  %87 = getelementptr inbounds i16, ptr %2, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %2, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !3
   %89 = zext i16 %88 to i32
   %.sroa.22.0.insert.shift.i.us = shl nuw i32 %89, 16
@@ -423,14 +421,14 @@ _ZL16NextTableBitSizePKtii.exit.us:               ; preds = %68, %_ZL16NextTable
   %90 = getelementptr inbounds nuw i8, ptr @_ZL12kReverseBits, i64 %.2109.us
   %91 = load i8, ptr %90, align 1, !tbaa !9
   %92 = zext i8 %91 to i64
-  %93 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanCode", ptr %.2.us, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.2.us, i64 %92
   br label %94
 
 94:                                               ; preds = %94, %85
   %.0.i.us = phi i32 [ %.4102.us, %85 ], [ %95, %94 ]
   %95 = sub nsw i32 %.0.i.us, %.1105171
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %93, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %93, i64 %96
   store i32 %.sroa.0.0.insert.insert.i.us, ptr %97, align 2
   %98 = icmp sgt i32 %95, 0
   br i1 %98, label %94, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit.us, !llvm.loop !13
@@ -461,7 +459,7 @@ _ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit.us: ; preds = %94
 
 _ZL16NextTableBitSizePKtii.exit:                  ; preds = %104
   %106 = sext i32 %.3101149 to i64
-  %107 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %.1153, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %.1153, i64 %106
   %108 = add nsw i32 %56, %.196150
   %109 = getelementptr inbounds nuw i8, ptr @_ZL12kReverseBits, i64 %.3151
   %110 = load i8, ptr %109, align 1, !tbaa !9
@@ -474,7 +472,7 @@ _ZL16NextTableBitSizePKtii.exit:                  ; preds = %104
   %117 = trunc i64 %116 to i32
   %.sroa.22.0.insert.ext.i120 = shl i32 %117, 16
   %.sroa.0.0.insert.insert.i123 = or disjoint i32 %.sroa.22.0.insert.ext.i120, %.sroa.0.0.insert.ext.i122
-  %118 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanCode", ptr %0, i64 %111
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %111
   store i32 %.sroa.0.0.insert.insert.i123, ptr %118, align 2
   br label %119
 
@@ -485,7 +483,7 @@ _ZL16NextTableBitSizePKtii.exit:                  ; preds = %104
   %.4 = phi i64 [ %112, %_ZL16NextTableBitSizePKtii.exit ], [ %.3151, %104 ]
   %.2 = phi ptr [ %107, %_ZL16NextTableBitSizePKtii.exit ], [ %.1153, %104 ]
   %120 = sext i32 %.188152 to i64
-  %121 = getelementptr inbounds i16, ptr %2, i64 %120
+  %121 = getelementptr inbounds [2 x i8], ptr %2, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !3
   %123 = zext i16 %122 to i32
   %.sroa.22.0.insert.shift.i = shl nuw i32 %123, 16
@@ -493,14 +491,14 @@ _ZL16NextTableBitSizePKtii.exit:                  ; preds = %104
   %124 = getelementptr inbounds nuw i8, ptr @_ZL12kReverseBits, i64 %.2109
   %125 = load i8, ptr %124, align 1, !tbaa !9
   %126 = zext i8 %125 to i64
-  %127 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanCode", ptr %.2, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.2, i64 %126
   br label %128
 
 128:                                              ; preds = %128, %119
   %.0.i = phi i32 [ %.4102, %119 ], [ %129, %128 ]
   %129 = sub nsw i32 %.0.i, %.1105171
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %127, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %127, i64 %130
   store i32 %.sroa.0.0.insert.insert.i, ptr %131, align 2
   %132 = icmp sgt i32 %129, 0
   br i1 %132, label %128, label %_ZL14ReplicateValuePN13duckdb_brotli11HuffmanCodeEiiS0_.exit, !llvm.loop !13
@@ -633,14 +631,14 @@ define noundef range(i32 1, -2147483647) i32 @_ZN13duckdb_brotli29BrotliBuildSim
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.loopexit ], [ 0, %4 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 1, %4 ]
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %33 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv183
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv183
   %.pre = load i16, ptr %33, align 2, !tbaa !3
   br label %34
 
 34:                                               ; preds = %.lr.ph, %40
   %35 = phi i16 [ %.pre, %.lr.ph ], [ %41, %40 ]
   %indvars.iv180 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next181, %40 ]
-  %36 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv180
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv180
   %37 = load i16, ptr %36, align 2, !tbaa !3
   %38 = icmp ult i16 %37, %35
   br i1 %38, label %39, label %40
@@ -757,7 +755,7 @@ define noundef range(i32 1, -2147483647) i32 @_ZN13duckdb_brotli29BrotliBuildSim
 .lr.ph179:                                        ; preds = %77, %.lr.ph179
   %.1178 = phi i32 [ %81, %.lr.ph179 ], [ %.0, %77 ]
   %78 = zext i32 %.1178 to i64
-  %79 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanCode", ptr %0, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %78
   %80 = shl nuw nsw i64 %78, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %79, ptr align 2 %0, i64 %80, i1 false)
   %81 = shl i32 %.1178, 1

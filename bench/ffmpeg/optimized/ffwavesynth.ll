@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.ws_interval = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"wavesynth\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"Wave synthesis pseudo-codec\00", align 1
@@ -72,7 +71,7 @@ define internal range(i32 -22, 1) i32 @wavesynth_init(ptr noundef %0) #0 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %150 ]
   %.083121.i = phi i64 [ -9223372036854775808, %.lr.ph.i ], [ %38, %150 ]
   %.085120.i = phi ptr [ %19, %.lr.ph.i ], [ %.1.i, %150 ]
-  %33 = getelementptr inbounds nuw %struct.ws_interval, ptr %27, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %indvars.iv.i
   %34 = ptrtoint ptr %.085120.i to i64
   %35 = sub i64 %22, %34
   %36 = icmp slt i64 %35, 24
@@ -205,7 +204,7 @@ frac64.exit116.i:                                 ; preds = %.preheader.i111.i, 
   br i1 %.not99.i, label %112, label %.loopexit
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds nuw %struct.ws_interval, ptr %27, i64 %111
+  %113 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %111
   %114 = load i64, ptr %113, align 8, !tbaa !35
   %115 = sub i64 %38, %114
   %116 = and i64 %115, 1
@@ -305,7 +304,7 @@ wavesynth_parse_extradata.exit:                   ; preds = %._crit_edge.i
   %166 = fmul nsz double %165, 3.276700e+04
   %167 = tail call nsz double @llvm.floor.f64(double %166)
   %168 = fptosi double %167 to i32
-  %169 = getelementptr inbounds nuw i32, ptr %159, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %indvars.iv
   store i32 %168, ptr %169, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
@@ -328,7 +327,7 @@ wavesynth_parse_extradata.exit:                   ; preds = %._crit_edge.i
 176:                                              ; preds = %.lr.ph, %176
   %indvars.iv36 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next37, %176 ]
   %177 = phi i32 [ %.promoted, %.lr.ph ], [ %183, %176 ]
-  %178 = getelementptr inbounds nuw %struct.ws_interval, ptr %174, i64 %indvars.iv36
+  %178 = getelementptr inbounds nuw [96 x i8], ptr %174, i64 %indvars.iv36
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 84
   %180 = load i32, ptr %179, align 4, !tbaa !38
   %181 = icmp eq i32 %180, 1397313358
@@ -439,7 +438,7 @@ define internal i32 @wavesynth_decode(ptr noundef %0, ptr noundef %1, ptr nounde
 47:                                               ; preds = %47, %.lr.ph.i
   %.03340.i = phi i32 [ %.pre86, %.lr.ph.i ], [ %.033.i, %47 ]
   %48 = zext nneg i32 %.03340.i to i64
-  %49 = getelementptr inbounds nuw %struct.ws_interval, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [96 x i8], ptr %46, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 88
   %.033.i = load i32, ptr %50, align 4, !tbaa !50
   %51 = icmp sgt i32 %.033.i, -1
@@ -465,7 +464,7 @@ define internal i32 @wavesynth_decode(ptr noundef %0, ptr noundef %1, ptr nounde
   %59 = phi i32 [ %54, %.lr.ph44.i ], [ %79, %78 ]
   %indvars.iv.i = phi i64 [ %57, %.lr.ph44.i ], [ %indvars.iv.next.i, %78 ]
   %.142.i = phi ptr [ %.0.lcssa.i, %.lr.ph44.i ], [ %.2.i, %78 ]
-  %60 = getelementptr inbounds %struct.ws_interval, ptr %56, i64 %indvars.iv.i
+  %60 = getelementptr inbounds [96 x i8], ptr %56, i64 %indvars.iv.i
   %61 = load i64, ptr %60, align 8, !tbaa !35
   %62 = icmp slt i64 %.04064, %61
   br i1 %62, label %83, label %63
@@ -516,7 +515,7 @@ define internal i32 @wavesynth_decode(ptr noundef %0, ptr noundef %1, ptr nounde
 83:                                               ; preds = %58
   %84 = trunc nsw i64 %indvars.iv.i to i32
   store i32 %84, ptr %31, align 8, !tbaa !71
-  %85 = getelementptr inbounds %struct.ws_interval, ptr %56, i64 %indvars.iv.i
+  %85 = getelementptr inbounds [96 x i8], ptr %56, i64 %indvars.iv.i
   %86 = load i64, ptr %85, align 8, !tbaa !35
   br label %wavesynth_enter_intervals.exit
 
@@ -565,7 +564,7 @@ wavesynth_enter_intervals.exit:                   ; preds = %._crit_edge45.i, %8
   br i1 %.not20.i.i, label %102, label %110
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i
   %104 = load i32, ptr %103, align 4, !tbaa !50
   %105 = sub i32 %.122.i.i, %104
   %106 = mul i32 %98, 1284865837
@@ -584,7 +583,7 @@ wavesynth_enter_intervals.exit:                   ; preds = %._crit_edge45.i, %8
   %113 = add i32 %112, -144211633
   %114 = ashr i32 %113, 3
   %115 = add nsw i32 %114, %.1.lcssa.i.i
-  %116 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv27.i.i
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv27.i.i
   store i32 %115, ptr %116, align 4, !tbaa !50
   %indvars.iv.next28.i.i = add nuw nsw i64 %indvars.iv27.i.i, 1
   %exitcond30.not.i.i = icmp eq i64 %indvars.iv.next28.i.i, 128
@@ -607,7 +606,7 @@ pink_fill.exit.i:                                 ; preds = %117, %93
   %122 = add i32 %121, 1
   store i32 %122, ptr %33, align 4, !tbaa !56
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %36, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !50
   %126 = ashr i32 %125, 16
   %127 = icmp sgt i32 %89, -1
@@ -640,7 +639,7 @@ pink_fill.exit.i:                                 ; preds = %117, %93
 133:                                              ; preds = %140, %.lr.ph.i46
   %.05060.i = phi i32 [ %.050.ph67.i, %.lr.ph.i46 ], [ %137, %140 ]
   %134 = zext nneg i32 %.05060.i to i64
-  %135 = getelementptr inbounds nuw %struct.ws_interval, ptr %131, i64 %134
+  %135 = getelementptr inbounds nuw [96 x i8], ptr %131, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 88
   %137 = load i32, ptr %136, align 8, !tbaa !79
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 8
@@ -675,7 +674,7 @@ pink_fill.exit.i:                                 ; preds = %117, %93
   %155 = getelementptr inbounds nuw i8, ptr %135, i64 56
   %156 = load i64, ptr %155, align 8, !tbaa !72
   %157 = lshr i64 %156, 50
-  %158 = getelementptr inbounds nuw i32, ptr %154, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !50
   %160 = mul i32 %159, %147
   %161 = getelementptr inbounds nuw i8, ptr %135, i64 64
@@ -763,7 +762,7 @@ wavesynth_synth_sample.exit:                      ; preds = %189, %.outer._crit_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.163 = phi ptr [ %.067, %.lr.ph.preheader ], [ %198, %.lr.ph ]
-  %194 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %195 = load i32, ptr %194, align 4, !tbaa !50
   %196 = lshr i32 %195, 16
   %197 = trunc nuw i32 %196 to i16
@@ -834,7 +833,7 @@ define internal fastcc void @wavesynth_seek(ptr noundef captures(none) %0, i64 n
   %11 = phi i32 [ %6, %.lr.ph ], [ %54, %53 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
   %.072 = phi ptr [ %4, %.lr.ph ], [ %.1, %53 ]
-  %12 = getelementptr inbounds nuw %struct.ws_interval, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !35
   %14 = icmp slt i64 %1, %13
   br i1 %14, label %59, label %15
@@ -919,7 +918,7 @@ phi_at.exit:                                      ; preds = %23, %27
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store i32 %60, ptr %61, align 8, !tbaa !71
   %62 = and i64 %indvars.iv, 4294967295
-  %63 = getelementptr inbounds nuw %struct.ws_interval, ptr %9, i64 %62
+  %63 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !35
   br label %65
 
@@ -1024,7 +1023,7 @@ lcg_seek.exit66:                                  ; preds = %.lr.ph.i57, %83
   br i1 %.not20.i, label %109, label %117
 
 109:                                              ; preds = %104
-  %110 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %111 = load i32, ptr %110, align 4, !tbaa !50
   %112 = sub i32 %.122.i, %111
   %113 = mul i32 %105, 1284865837
@@ -1043,7 +1042,7 @@ lcg_seek.exit66:                                  ; preds = %.lr.ph.i57, %83
   %120 = add i32 %119, -144211633
   %121 = ashr i32 %120, 3
   %122 = add nsw i32 %121, %.1.lcssa.i
-  %123 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv27.i
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv27.i
   store i32 %122, ptr %123, align 4, !tbaa !50
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next28.i, 128

@@ -645,7 +645,7 @@ define void @_ZN6icu_7717GregorianCalendar19handleComputeFieldsEiR10UErrorCode(p
   %38 = sdiv i32 %37, 367
   %39 = sext i32 %38 to i64
   %.in.v = select i1 %32, ptr @_ZL12kLeapNumDays, ptr @_ZL8kNumDays
-  %.in = getelementptr inbounds i16, ptr %.in.v, i64 %39
+  %.in = getelementptr inbounds [2 x i8], ptr %.in.v, i64 %39
   %40 = load i16, ptr %.in, align 2, !tbaa !31
   %41 = sext i16 %40 to i32
   %reass.sub = sub i32 %30, %41
@@ -956,7 +956,7 @@ define noundef i64 @_ZNK6icu_7717GregorianCalendar23handleComputeMonthStartEiiaR
 56:                                               ; preds = %54
   %57 = sext i32 %55 to i64
   %.in.v = select i1 %.016, ptr @_ZL8kNumDays, ptr @_ZL12kLeapNumDays
-  %.in = getelementptr inbounds i16, ptr %.in.v, i64 %57
+  %.in = getelementptr inbounds [2 x i8], ptr %.in.v, i64 %57
   %58 = load i16, ptr %.in, align 2, !tbaa !31
   %59 = sext i16 %58 to i64
   %60 = add nsw i64 %.014, %59
@@ -1181,7 +1181,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717GregorianCalendar14valida
   br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !32
   %13 = load ptr, ptr %0, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
@@ -1740,9 +1740,9 @@ define noundef i32 @_ZNK6icu_7717GregorianCalendar16getActualMinimumE19UCalendar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK6icu_7717GregorianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [4 x i32], ptr @_ZL24kGregorianCalendarLimits, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @_ZL24kGregorianCalendarLimits, i64 %4
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !32
   ret i32 %8
 }

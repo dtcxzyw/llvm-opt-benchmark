@@ -368,7 +368,7 @@ define dso_local void @convert_pp_tokens(ptr noundef captures(none) %0) local_un
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %.lr.ph ]
-  %7 = getelementptr inbounds nuw ptr, ptr @is_keyword.kw, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @is_keyword.kw, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !39
   tail call void @hashmap_put(ptr noundef nonnull @is_keyword.map, ptr noundef %8, ptr noundef nonnull inttoptr (i64 1 to ptr)) #27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -407,7 +407,7 @@ is_keyword.exit:                                  ; preds = %.preheader.i, %.lr.
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %25 = load i8, ptr %24, align 1, !tbaa !18
   %26 = sext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !43
   %29 = and i16 %28, 4096
   %.not34.i.i = icmp eq i16 %29, 0
@@ -857,7 +857,7 @@ string_literal_end.exit:                          ; preds = %4
   %41 = trunc i32 %40 to i16
   %42 = add nsw i32 %.029, 1
   %43 = sext i32 %.029 to i64
-  %44 = getelementptr inbounds i16, ptr %12, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %12, i64 %43
   store i16 %41, ptr %44, align 2, !tbaa !43
   br label %.backedge
 
@@ -876,7 +876,7 @@ string_literal_end.exit:                          ; preds = %4
   %51 = trunc nuw i32 %48 to i16
   %52 = add nsw i32 %.029, 1
   %53 = sext i32 %.029 to i64
-  %54 = getelementptr inbounds i16, ptr %12, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr %12, i64 %53
   store i16 %51, ptr %54, align 2, !tbaa !43
   br label %.backedge
 
@@ -887,7 +887,7 @@ string_literal_end.exit:                          ; preds = %4
   %59 = and i16 %58, 1023
   %60 = or disjoint i16 %59, -10240
   %61 = sext i32 %.029 to i64
-  %62 = getelementptr inbounds i16, ptr %12, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %12, i64 %61
   store i16 %60, ptr %62, align 2, !tbaa !43
   %63 = trunc i32 %48 to i16
   %64 = and i16 %63, 1023
@@ -997,7 +997,7 @@ string_literal_end.exit:                          ; preds = %5
 
 42:                                               ; preds = %40, %37
   %.sink = phi i32 [ %39, %37 ], [ %41, %40 ]
-  %43 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %.sink, ptr %43, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load ptr, ptr %4, align 8, !tbaa !39
@@ -1087,7 +1087,7 @@ sub_0:                                            ; preds = %1, %.backedge
   %28 = tail call ptr @__ctype_b_loc() #31
   %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = sext i8 %6 to i64
-  %31 = getelementptr inbounds i16, ptr %29, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %29, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !43
   %33 = zext i16 %32 to i32
   %34 = and i32 %33, 8192
@@ -1118,7 +1118,7 @@ sub_0:                                            ; preds = %1, %.backedge
   %41 = getelementptr inbounds nuw i8, ptr %.0157, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !18
   %43 = sext i8 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %29, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %29, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !43
   %46 = and i16 %45, 2048
   %.not117 = icmp eq i16 %46, 0
@@ -1157,7 +1157,7 @@ sub_0:                                            ; preds = %1, %.backedge
 
 60:                                               ; preds = %57, %56, %52, %49
   %61 = sext i8 %50 to i64
-  %62 = getelementptr inbounds i16, ptr %29, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %29, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !43
   %64 = and i16 %63, 8
   %.not127 = icmp ne i16 %64, 0
@@ -1744,7 +1744,7 @@ define internal fastcc i32 @read_punct(ptr noundef readonly captures(none) %0) u
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @read_punct.kw, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @read_punct.kw, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !39
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #30
   %7 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef nonnull readonly %5, i64 noundef %6) #30
@@ -1760,7 +1760,7 @@ define internal fastcc i32 @read_punct(ptr noundef readonly captures(none) %0) u
   %13 = load ptr, ptr %12, align 8, !tbaa !41
   %14 = load i8, ptr %0, align 1, !tbaa !18
   %15 = sext i8 %14 to i64
-  %16 = getelementptr inbounds i16, ptr %13, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !43
   %18 = lshr i16 %17, 2
   %.lobit = and i16 %18, 1
@@ -2035,7 +2035,7 @@ sub_0.i:                                          ; preds = %remove_backslash_ne
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 %indvars.iv.i.i
   %96 = load i8, ptr %95, align 1, !tbaa !18
   %97 = sext i8 %96 to i64
-  %98 = getelementptr inbounds i16, ptr %93, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %93, i64 %97
   %99 = load i16, ptr %98, align 2, !tbaa !43
   %100 = and i16 %99, 4096
   %.not.i.i = icmp eq i16 %100, 0
@@ -2084,7 +2084,7 @@ read_universal_char.exit.thread.i:                ; preds = %94, %read_universal
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 %indvars.iv.i35.i
   %120 = load i8, ptr %119, align 1, !tbaa !18
   %121 = sext i8 %120 to i64
-  %122 = getelementptr inbounds i16, ptr %117, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr %117, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !43
   %124 = and i16 %123, 4096
   %.not.i37.i = icmp eq i16 %124, 0
@@ -2162,7 +2162,7 @@ convert_universal_chars.exit:                     ; preds = %145, %remove_backsl
   %157 = call ptr @realloc(ptr noundef %153, i64 noundef %156) #33
   store ptr %157, ptr @input_files, align 8, !tbaa !12
   %158 = sext i32 %147 to i64
-  %159 = getelementptr inbounds ptr, ptr %157, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %157, i64 %158
   store ptr %149, ptr %159, align 8, !tbaa !12
   %160 = getelementptr i8, ptr %159, i64 8
   store ptr null, ptr %160, align 8, !tbaa !12
@@ -2244,7 +2244,7 @@ define internal fastcc i32 @read_escaped_char(ptr noundef nonnull writeonly capt
   %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load i8, ptr %25, align 1, !tbaa !18
   %30 = sext i8 %29 to i64
-  %31 = getelementptr inbounds i16, ptr %28, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %28, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !43
   %33 = and i16 %32, 4096
   %.not = icmp eq i16 %33, 0
@@ -2271,7 +2271,7 @@ define internal fastcc i32 @read_escaped_char(ptr noundef nonnull writeonly capt
   %42 = getelementptr inbounds nuw i8, ptr %.141, i64 1
   %43 = load i8, ptr %42, align 1, !tbaa !18
   %44 = sext i8 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %28, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %28, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !43
   %47 = and i16 %46, 4096
   %.not35 = icmp eq i16 %47, 0

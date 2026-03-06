@@ -1518,7 +1518,7 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
   %346 = getelementptr i8, ptr %271, i64 47
   store i8 0, ptr %346, align 1
   %347 = zext nneg i8 %.0372.i to i64
-  %348 = getelementptr float, ptr @get_legacy_rate.canonical_rate_legacy, i64 %347
+  %348 = getelementptr [4 x i8], ptr @get_legacy_rate.canonical_rate_legacy, i64 %347
   %349 = load float, ptr %348, align 4
   %350 = fmul float %349, 1.000000e+01
   %351 = fptoui float %350 to i16
@@ -1777,7 +1777,7 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
 
 519:                                              ; preds = %515
   %520 = zext nneg i8 %516 to i64
-  %521 = getelementptr float, ptr @get_legacy_rate.canonical_rate_legacy, i64 %520
+  %521 = getelementptr [4 x i8], ptr @get_legacy_rate.canonical_rate_legacy, i64 %520
   %522 = load float, ptr %521, align 4
   br label %get_legacy_rate.exit.i
 
@@ -1792,14 +1792,14 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
   %529 = select i1 %.not443.not.i, i16 256, i16 0
   %530 = or disjoint i16 %527, %529
   %531 = zext nneg i8 %524 to i64
-  %532 = getelementptr i32, ptr @nss_for_mcs, i64 %531
+  %532 = getelementptr [4 x i8], ptr @nss_for_mcs, i64 %531
   %533 = load i32, ptr %532, align 4
   %534 = trunc i32 %533 to i8
   %..i.i60 = select i1 %.not443.not.i, float 0x400CCCCCC0000000, float 4.000000e+00
   %535 = and i8 %415, 7
   %536 = zext nneg i8 %535 to i64
   %.0.in.v.i.i = select i1 %.not442.i, ptr @get_ht_rate.canonical_ndbps_20_ht, ptr @get_ht_rate.canonical_ndbps_40_ht
-  %.0.in.i.i = getelementptr i32, ptr %.0.in.v.i.i, i64 %536
+  %.0.in.i.i = getelementptr [4 x i8], ptr %.0.in.v.i.i, i64 %536
   %.0.i463.i = load i32, ptr %.0.in.i.i, align 4
   %537 = lshr i8 %524, 3
   %narrow.i.i = add nuw nsw i8 %537, 1
@@ -1819,14 +1819,14 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
   %547 = select i1 %.not441.not.i, i16 256, i16 0
   %548 = or disjoint i16 %545, %547
   %549 = zext nneg i8 %543 to i64
-  %550 = getelementptr i32, ptr @nss_for_mcs, i64 %549
+  %550 = getelementptr [4 x i8], ptr @nss_for_mcs, i64 %549
   %551 = load i32, ptr %550, align 4
   %552 = trunc i32 %551 to i8
   %..i465.i = select i1 %.not441.not.i, float 0x400CCCCCC0000000, float 4.000000e+00
   %553 = and i8 %415, 7
   %554 = zext nneg i8 %553 to i64
   %.0.in.v.i467.i = select i1 %.not440.i, ptr @get_ht_rate.canonical_ndbps_20_ht, ptr @get_ht_rate.canonical_ndbps_40_ht
-  %.0.in.i468.i = getelementptr i32, ptr %.0.in.v.i467.i, i64 %554
+  %.0.in.i468.i = getelementptr [4 x i8], ptr %.0.in.v.i467.i, i64 %554
   %.0.i469.i = load i32, ptr %.0.in.i468.i, align 4
   %555 = lshr i8 %543, 3
   %narrow.i470.i = add nuw nsw i8 %555, 1
@@ -1874,7 +1874,7 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
 
 577:                                              ; preds = %575
   %578 = zext nneg i8 %562 to i64
-  %579 = getelementptr i32, ptr @get_vht_rate.canonical_ndbps_40_vht, i64 %578
+  %579 = getelementptr [4 x i8], ptr @get_vht_rate.canonical_ndbps_40_vht, i64 %578
   %580 = load i32, ptr %579, align 4
   %581 = zext nneg i8 %narrow.i to i32
   %582 = mul i32 %580, %581
@@ -1888,7 +1888,7 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
 
 586:                                              ; preds = %585
   %587 = zext nneg i8 %562 to i64
-  %588 = getelementptr i32, ptr @get_vht_rate.canonical_ndbps_80_vht, i64 %587
+  %588 = getelementptr [4 x i8], ptr @get_vht_rate.canonical_ndbps_80_vht, i64 %587
   %589 = load i32, ptr %588, align 4
   %590 = zext nneg i8 %narrow.i to i32
   %591 = mul i32 %589, %590
@@ -1916,7 +1916,7 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
 
 601:                                              ; preds = %594
   %602 = zext nneg i8 %562 to i64
-  %603 = getelementptr i32, ptr @get_vht_rate.canonical_ndbps_20_vht, i64 %602
+  %603 = getelementptr [4 x i8], ptr @get_vht_rate.canonical_ndbps_20_vht, i64 %602
   %604 = load i32, ptr %603, align 4
   %605 = zext nneg i8 %narrow.i to i32
   %606 = mul i32 %604, %605
@@ -2512,7 +2512,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
 961:                                              ; preds = %949, %949
   %962 = and i8 %955, 63
   %963 = zext nneg i8 %962 to i64
-  %964 = getelementptr i32, ptr @nss_for_mcs, i64 %963
+  %964 = getelementptr [4 x i8], ptr @nss_for_mcs, i64 %963
   %965 = load i32, ptr %964, align 4
   %966 = trunc i32 %965 to i8
   br label %971
@@ -2687,7 +2687,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
 
 1078:                                             ; preds = %1076
   %1079 = zext nneg i8 %.0729.i to i64
-  %1080 = getelementptr float, ptr @get_legacy_rate.canonical_rate_legacy, i64 %1079
+  %1080 = getelementptr [4 x i8], ptr @get_legacy_rate.canonical_rate_legacy, i64 %1079
   %1081 = load float, ptr %1080, align 4
   br label %get_legacy_rate.exit.i66
 
@@ -2701,7 +2701,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
   %1086 = and i8 %.0729.i, 7
   %1087 = zext nneg i8 %1086 to i64
   %.0.in.v.i.i92 = select i1 %.not758.i, ptr @get_ht_rate.canonical_ndbps_20_ht, ptr @get_ht_rate.canonical_ndbps_40_ht
-  %.0.in.i.i93 = getelementptr i32, ptr %.0.in.v.i.i92, i64 %1087
+  %.0.in.i.i93 = getelementptr [4 x i8], ptr %.0.in.v.i.i92, i64 %1087
   %.0.i797.i = load i32, ptr %.0.in.i.i93, align 4
   %1088 = lshr i8 %.0729.i, 3
   %narrow.i.i94 = add nuw nsw i8 %1088, 1
@@ -2720,7 +2720,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
   %1096 = and i8 %.0729.i, 7
   %1097 = zext nneg i8 %1096 to i64
   %.0.in.v.i801.i = select i1 %.not756.i, ptr @get_ht_rate.canonical_ndbps_20_ht, ptr @get_ht_rate.canonical_ndbps_40_ht
-  %.0.in.i802.i = getelementptr i32, ptr %.0.in.v.i801.i, i64 %1097
+  %.0.in.i802.i = getelementptr [4 x i8], ptr %.0.in.v.i801.i, i64 %1097
   %.0.i803.i = load i32, ptr %.0.in.i802.i, align 4
   %1098 = lshr i8 %.0729.i, 3
   %narrow.i804.i = add nuw nsw i8 %1098, 1
@@ -2764,7 +2764,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
 
 1117:                                             ; preds = %1115
   %1118 = zext nneg i8 %.0729.i to i64
-  %1119 = getelementptr i32, ptr @get_vht_rate.canonical_ndbps_40_vht, i64 %1118
+  %1119 = getelementptr [4 x i8], ptr @get_vht_rate.canonical_ndbps_40_vht, i64 %1118
   %1120 = load i32, ptr %1119, align 4
   %1121 = zext i8 %.1728.i to i32
   %1122 = mul i32 %1120, %1121
@@ -2778,7 +2778,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
 
 1126:                                             ; preds = %1125
   %1127 = zext nneg i8 %.0729.i to i64
-  %1128 = getelementptr i32, ptr @get_vht_rate.canonical_ndbps_80_vht, i64 %1127
+  %1128 = getelementptr [4 x i8], ptr @get_vht_rate.canonical_ndbps_80_vht, i64 %1127
   %1129 = load i32, ptr %1128, align 4
   %1130 = zext i8 %.1728.i to i32
   %1131 = mul i32 %1129, %1130
@@ -2806,7 +2806,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
 
 1141:                                             ; preds = %1134
   %1142 = zext nneg i8 %.0729.i to i64
-  %1143 = getelementptr i32, ptr @get_vht_rate.canonical_ndbps_20_vht, i64 %1142
+  %1143 = getelementptr [4 x i8], ptr @get_vht_rate.canonical_ndbps_20_vht, i64 %1142
   %1144 = load i32, ptr %1143, align 4
   %1145 = zext i8 %.1728.i to i32
   %1146 = mul i32 %1144, %1145

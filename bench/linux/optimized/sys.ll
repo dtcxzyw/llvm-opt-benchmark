@@ -105,7 +105,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_fs_overflowg
 %struct.sysinfo = type { i64, [3 x i64], i64, i64, i64, i64, i64, i64, i16, i16, i64, i64, i32, [0 x i8] }
 %struct.compat_sysinfo = type { i32, [3 x i32], i32, i32, i32, i32, i32, i32, i16, i16, i32, i32, i32, [8 x i8] }
 %struct.prctl_mm_map = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, i32, i32 }
-%struct.upid = type { i32, ptr }
 %struct.timespec64 = type { i64, i64 }
 
 @overflowuid = dso_local global i32 65534, align 4
@@ -3578,7 +3577,7 @@ define dso_local range(i64 -22, 1) i64 @__x64_sys_getrlimit(ptr noundef readonly
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 672
   %18 = and i64 %14, %13
-  %19 = getelementptr %struct.rlimit, ptr %17, i64 %18
+  %19 = getelementptr [16 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 1376
   %21 = load ptr, ptr %20, align 32
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2056
@@ -3621,7 +3620,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_sys_getrlimit(ptr noundef readonl
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 672
   %19 = and i64 %15, %14
-  %20 = getelementptr %struct.rlimit, ptr %18, i64 %19
+  %20 = getelementptr [16 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 1376
   %22 = load ptr, ptr %21, align 32
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2056
@@ -3707,7 +3706,7 @@ define dso_local noundef range(i64 -22, 1) i64 @__ia32_compat_sys_getrlimit(ptr 
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 672
   %19 = and i64 %15, %14
-  %20 = getelementptr %struct.rlimit, ptr %18, i64 %19
+  %20 = getelementptr [16 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 1376
   %22 = load ptr, ptr %21, align 32
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2056
@@ -3763,7 +3762,7 @@ define dso_local range(i64 -22, 1) i64 @__x64_sys_old_getrlimit(ptr noundef read
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 672
   %21 = and i64 %12, %11
-  %22 = getelementptr %struct.rlimit, ptr %20, i64 %21
+  %22 = getelementptr [16 x i8], ptr %20, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef align 8 dereferenceable(16) %22, i64 16, i1 false)
   %23 = load ptr, ptr %15, align 32
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2056
@@ -3825,7 +3824,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_sys_old_getrlimit(ptr noundef rea
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 672
   %22 = and i64 %13, %12
-  %23 = getelementptr %struct.rlimit, ptr %21, i64 %22
+  %23 = getelementptr [16 x i8], ptr %21, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef align 8 dereferenceable(16) %23, i64 16, i1 false)
   %24 = load ptr, ptr %16, align 32
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 2056
@@ -3885,7 +3884,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_old_getrlimit(ptr noun
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 672
   %21 = and i64 %12, %11
-  %22 = getelementptr %struct.rlimit, ptr %20, i64 %21
+  %22 = getelementptr [16 x i8], ptr %20, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i64, ptr %24, align 8
@@ -5267,7 +5266,7 @@ define dso_local range(i64 -14, 1) i64 @__x64_sys_getcpu(ptr noundef readonly ca
 
 20:                                               ; preds = %17
   %21 = sext i32 %7 to i64
-  %22 = getelementptr i64, ptr @__per_cpu_offset, i64 %21
+  %22 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, ptrtoint (ptr @numa_node to i64)
   %25 = inttoptr i64 %24 to ptr
@@ -5320,7 +5319,7 @@ define dso_local range(i64 -14, 1) i64 @__ia32_sys_getcpu(ptr noundef readonly c
 
 22:                                               ; preds = %19
   %23 = sext i32 %9 to i64
-  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
+  %24 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, ptrtoint (ptr @numa_node to i64)
   %27 = inttoptr i64 %26 to ptr
@@ -5665,7 +5664,7 @@ define internal fastcc i32 @do_prlimit(ptr noundef %0, i32 noundef %1, ptr nound
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 672
   %26 = zext nneg i32 %10 to i64
-  %27 = getelementptr %struct.rlimit, ptr %25, i64 %26
+  %27 = getelementptr [16 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %29 = load ptr, ptr %28, align 32
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 2056
@@ -6203,7 +6202,7 @@ define internal noundef range(i32 0, 2) i32 @propagate_has_child_subreaper(ptr n
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = getelementptr %struct.upid, ptr %12, i64 %15
+  %16 = getelementptr [16 x i8], ptr %12, i64 %15
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %21, label %19

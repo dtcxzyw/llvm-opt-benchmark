@@ -80,7 +80,7 @@ define ptr @Hop_TableLookup(ptr noundef readonly captures(none) %0, ptr noundef 
   %40 = xor i64 %39, %37
   %41 = sext i32 %20 to i64
   %42 = urem i64 %40, %41
-  %43 = getelementptr inbounds nuw ptr, ptr %18, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %42
   %.028 = load ptr, ptr %43, align 8, !tbaa !19
   %.not1929 = icmp eq ptr %.028, null
   br i1 %.not1929, label %.loopexit, label %.lr.ph
@@ -192,7 +192,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
 
 .lr.ph50.i:                                       ; preds = %._crit_edge.i, %.lr.ph50.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph50.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %.not32.i = icmp eq ptr %35, null
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
@@ -236,7 +236,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   %65 = xor i64 %64, %62
   %66 = sext i32 %.val39.i to i64
   %67 = urem i64 %65, %66
-  %68 = getelementptr inbounds nuw ptr, ptr %.val38.i, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.val38.i, i64 %67
   br label %69
 
 69:                                               ; preds = %69, %.lr.ph.i
@@ -305,7 +305,7 @@ Hop_TableResize.exit:                             ; preds = %73, %._crit_edge51.
   %103 = xor i64 %102, %100
   %104 = sext i32 %.val10 to i64
   %105 = urem i64 %103, %104
-  %106 = getelementptr inbounds nuw ptr, ptr %.val9, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %.val9, i64 %105
   br label %107
 
 107:                                              ; preds = %107, %Hop_TableResize.exit
@@ -361,7 +361,7 @@ define void @Hop_TableDelete(ptr noundef readonly captures(none) %0, ptr noundef
   %32 = xor i64 %31, %29
   %33 = sext i32 %.val5 to i64
   %34 = urem i64 %32, %33
-  %35 = getelementptr inbounds nuw ptr, ptr %.val, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %34
   br label %36
 
 36:                                               ; preds = %36, %2
@@ -397,7 +397,7 @@ define range(i32 -2147483647, -2147483648) i32 @Hop_TableCountEntries(ptr nounde
 7:                                                ; preds = %.lr.ph17, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph17 ], [ %indvars.iv.next, %._crit_edge ]
   %.015 = phi i32 [ 0, %.lr.ph17 ], [ %.1.lcssa, %._crit_edge ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %.0910 = load ptr, ptr %8, align 8, !tbaa !19
   %.not11 = icmp eq ptr %.0910, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -437,7 +437,7 @@ define void @Hop_TableProfile(ptr noundef readonly captures(none) %0) local_unna
   %7 = phi i32 [ %3, %.lr.ph18 ], [ %13, %._crit_edge.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph18 ], [ %indvars.iv.next, %._crit_edge.thread ]
   %8 = load ptr, ptr %5, align 8, !tbaa !16
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %.01012 = load ptr, ptr %9, align 8, !tbaa !19
   %.not13 = icmp eq ptr %.01012, null
   br i1 %.not13, label %._crit_edge.thread, label %.lr.ph

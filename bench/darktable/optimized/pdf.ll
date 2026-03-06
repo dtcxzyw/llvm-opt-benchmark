@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct.anon = type { ptr, float, float }
-%struct.anon.0 = type { ptr, i32 }
 
 @darktable = external local_unnamed_addr global %struct.darktable_t, align 8
 @.str = private unnamed_addr constant [53 x i8] c"[imageio_format_pdf] could not export to file: `%s'!\00", align 1
@@ -364,10 +363,10 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
 
 131:                                              ; preds = %.preheader188.us, %131
   %indvars.iv = phi i64 [ 0, %.preheader188.us ], [ %indvars.iv.next, %131 ]
-  %132 = getelementptr inbounds nuw i16, ptr %.1155197.us, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %.1155197.us, i64 %indvars.iv
   %133 = load i16, ptr %132, align 2, !tbaa !47
   %rev.us = call i16 @llvm.bswap.i16(i16 %133)
-  %134 = getelementptr inbounds nuw i16, ptr %.1153198.us, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %.1153198.us, i64 %indvars.iv
   store i16 %rev.us, ptr %134, align 2, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -448,7 +447,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %167, ptr %168, align 8, !tbaa !57
   %169 = load ptr, ptr %137, align 8, !tbaa !26
   %170 = call ptr @dt_pdf_add_page(ptr noundef %169, ptr noundef nonnull %17, i32 noundef 1) #16
-  %171 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv234
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv234
   store ptr %170, ptr %171, align 8, !tbaa !58
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -459,7 +458,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph221:                                        ; preds = %.lr.ph221.preheader, %.lr.ph221
   %indvars.iv237 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next238, %.lr.ph221 ]
-  %173 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv237
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv237
   %174 = load ptr, ptr %173, align 8, !tbaa !58
   call void @free(ptr noundef %174) #16
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
@@ -832,7 +831,7 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
 
 88:                                               ; preds = %1, %88
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %88 ]
-  %89 = getelementptr inbounds nuw %struct.anon, ptr @dt_pdf_paper_sizes, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [16 x i8], ptr @dt_pdf_paper_sizes, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 16, !tbaa !121
   %91 = load ptr, ptr %32, align 8, !tbaa !113
   %92 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %90, i32 noundef 5) #16
@@ -872,7 +871,7 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
 112:                                              ; preds = %33, %112
   %indvars.iv123 = phi i64 [ 0, %33 ], [ %indvars.iv.next124, %112 ]
   %.0114120 = phi i32 [ 0, %33 ], [ %spec.select, %112 ]
-  %113 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %indvars.iv123
+  %113 = getelementptr inbounds nuw [16 x i8], ptr @_pdf_bpp, i64 %indvars.iv123
   %114 = load ptr, ptr %113, align 16, !tbaa !125
   %115 = load ptr, ptr %85, align 8, !tbaa !120
   %116 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %114, i32 noundef 5) #16
@@ -936,7 +935,7 @@ define internal void @size_toggle_callback(ptr noundef %0, ptr noundef %1) #1 {
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw %struct.anon, ptr @dt_pdf_paper_sizes, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @dt_pdf_paper_sizes, i64 %6
   %8 = load ptr, ptr %7, align 16, !tbaa !121
   br label %11
 
@@ -993,7 +992,7 @@ tailrecurse.backedge:                             ; preds = %6, %tailrecurse
   br i1 %18, label %20, label %24
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw %struct.anon, ptr @dt_pdf_paper_sizes, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr @dt_pdf_paper_sizes, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 16, !tbaa !121
   %23 = tail call i32 @strcasecmp(ptr noundef nonnull %.tr39, ptr noundef %22) #20
   %.not = icmp eq i32 %23, 0
@@ -1156,7 +1155,7 @@ define internal void @bpp_toggle_callback(ptr noundef %0, ptr readnone captures(
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @_pdf_bpp, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !127
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.43, i32 noundef %9) #16
@@ -1241,7 +1240,7 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
 
 41:                                               ; preds = %1
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw %struct.anon, ptr @dt_pdf_paper_sizes, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr @dt_pdf_paper_sizes, i64 %42
   %44 = load ptr, ptr %43, align 16, !tbaa !121
   br label %size_toggle_callback.exit
 
@@ -1267,7 +1266,7 @@ size_toggle_callback.exit:                        ; preds = %41, %45
 
 57:                                               ; preds = %size_toggle_callback.exit
   %58 = zext nneg i32 %55 to i64
-  %59 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr @_pdf_bpp, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !127
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.43, i32 noundef %61) #16
@@ -1456,7 +1455,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
 57:                                               ; preds = %8, %66
   %.not42 = phi i1 [ false, %8 ], [ true, %66 ]
   %indvars.iv = phi i64 [ 0, %8 ], [ 1, %66 ]
-  %58 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [16 x i8], ptr @_pdf_bpp, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8, !tbaa !127
   %61 = load i32, ptr %11, align 8, !tbaa !42

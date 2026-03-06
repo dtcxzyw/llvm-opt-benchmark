@@ -706,7 +706,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %238, %.noe
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %240, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %235, ptr %15, align 8, !tbaa !62
   store ptr %239, ptr %160, align 8, !tbaa !59
-  %241 = getelementptr inbounds nuw i32, ptr %235, i64 %233
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %233
   store ptr %241, ptr %161, align 8, !tbaa !61
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1134,7 +1134,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33: ; preds = %.
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %66
   store ptr %20, ptr %0, align 8, !tbaa !70
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !50
-  %70 = getelementptr inbounds nuw %"class.std::vector.8", ptr %20, i64 %16
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %70, ptr %65, align 8, !tbaa !53
   ret void
 
@@ -1323,7 +1323,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33: ; preds = %.
 _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %66
   store ptr %20, ptr %0, align 8, !tbaa !83
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !63
-  %70 = getelementptr inbounds nuw %"class.std::vector.13", ptr %20, i64 %16
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %70, ptr %65, align 8, !tbaa !66
   ret void
 

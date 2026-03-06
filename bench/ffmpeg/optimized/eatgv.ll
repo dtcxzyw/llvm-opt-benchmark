@@ -130,7 +130,7 @@ define internal range(i32 8, 0) i32 @tgv_decode_frame(ptr noundef %0, ptr nounde
   %65 = or disjoint i32 %57, %61
   %66 = or disjoint i32 %65, %64
   %67 = or disjoint i32 %66, -16777216
-  %68 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   store i32 %67, ptr %68, align 4, !tbaa !31
   %69 = getelementptr inbounds nuw i8, ptr %.296127, i64 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -513,7 +513,7 @@ unpack.exit:                                      ; preds = %181, %197, %210, %1
   %308 = ashr exact i32 %307, 22
   %309 = add nuw nsw i32 %.sroa.11.0193.i, 10
   %310 = tail call i32 @llvm.umin.i32(i32 %297, i32 %309)
-  %311 = getelementptr inbounds nuw [2 x i32], ptr %299, i64 %indvars.iv.i
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %indvars.iv.i
   store i32 %308, ptr %311, align 4, !tbaa !31
   %312 = lshr i32 %310, 3
   %313 = zext nneg i32 %312 to i64
@@ -569,7 +569,7 @@ unpack.exit:                                      ; preds = %181, %197, %210, %1
   %340 = and i32 %339, 255
   %341 = add i32 %.sroa.11.2195.i, 8
   %342 = tail call i32 @llvm.umin.i32(i32 %330, i32 %341)
-  %343 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv218.i
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv218.i
   store i32 %340, ptr %343, align 4, !tbaa !31
   %indvars.iv.next219.i = add nuw nsw i64 %indvars.iv218.i, 1
   %exitcond221.not.i = icmp eq i64 %indvars.iv.next219.i, 4
@@ -588,7 +588,7 @@ unpack.exit:                                      ; preds = %181, %197, %210, %1
   %351 = add nuw i32 %.sroa.11.3197.i, 2
   %352 = tail call i32 @llvm.umin.i32(i32 %330, i32 %351)
   %353 = zext nneg i32 %350 to i64
-  %354 = getelementptr inbounds nuw i32, ptr %5, i64 %353
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %353
   %355 = load i32, ptr %354, align 4, !tbaa !31
   %356 = trunc i32 %355 to i8
   %357 = load ptr, ptr %331, align 8, !tbaa !59
@@ -667,7 +667,7 @@ unpack.exit:                                      ; preds = %181, %197, %210, %1
 397:                                              ; preds = %384
   %398 = load ptr, ptr %376, align 8, !tbaa !56
   %399 = zext nneg i32 %393 to i64
-  %400 = getelementptr inbounds nuw [2 x i32], ptr %398, i64 %399
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %398, i64 %399
   %401 = load i32, ptr %400, align 4, !tbaa !31
   %indvars.iv239.tr.i = trunc i64 %indvars.iv239.i to i32
   %402 = shl i32 %indvars.iv239.tr.i, 2

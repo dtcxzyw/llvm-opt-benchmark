@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.external_diff = type { ptr, i8 }
 %struct.userdiff_funcname = type { ptr, ptr, i32 }
-%struct.userdiff_driver = type { ptr, %struct.external_diff, ptr, ptr, i32, %struct.userdiff_funcname, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
 %struct.regmatch_t = type { i32, i32 }
 
@@ -175,7 +174,7 @@ define dso_local i32 @userdiff_config(ptr noundef %0, ptr noundef %1) local_unna
 
 .lr.ph.i.i.i:                                     ; preds = %15, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %15 ]
-  %16 = getelementptr inbounds nuw %struct.userdiff_driver, ptr %12, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 %indvars.iv.i.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = call i32 @xstrncmpz(ptr noundef %17, ptr noundef nonnull %8, i64 noundef %11) #10
   %.not.i2.i = icmp eq i32 %18, 0
@@ -183,7 +182,7 @@ define dso_local i32 @userdiff_config(ptr noundef %0, ptr noundef %1) local_unna
 
 .lr.ph.i12.i.i:                                   ; preds = %.lr.ph.i12.i.i.preheader, %userdiff_find_by_namelen_cb.exit.i
   %indvars.iv.i13.i.i = phi i64 [ %indvars.iv.next.i16.i.i, %userdiff_find_by_namelen_cb.exit.i ], [ 0, %.lr.ph.i12.i.i.preheader ]
-  %19 = getelementptr inbounds nuw %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i13.i.i
+  %19 = getelementptr inbounds nuw [128 x i8], ptr @builtin_drivers, i64 %indvars.iv.i13.i.i
   %20 = load ptr, ptr %19, align 16, !tbaa !15
   %21 = call i32 @xstrncmpz(ptr noundef %20, ptr noundef nonnull %8, i64 noundef %11) #10
   %.not.i.i = icmp eq i32 %21, 0
@@ -233,7 +232,7 @@ st_mult.exit:                                     ; preds = %24
   %38 = add nsw i32 %36, 1
   store i32 %38, ptr @ndrivers, align 4, !tbaa !11
   %39 = sext i32 %36 to i64
-  %40 = getelementptr inbounds %struct.userdiff_driver, ptr %37, i64 %39
+  %40 = getelementptr inbounds [128 x i8], ptr %37, i64 %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %40, i8 0, i64 128, i1 false)
   %41 = load ptr, ptr %3, align 8, !tbaa !21
   %42 = load i64, ptr %5, align 8, !tbaa !4
@@ -456,7 +455,7 @@ define dso_local noundef ptr @userdiff_find_by_name(ptr noundef %0) local_unname
 
 .lr.ph.i.i.i:                                     ; preds = %9, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %9 ]
-  %10 = getelementptr inbounds nuw %struct.userdiff_driver, ptr %6, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %indvars.iv.i.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = tail call i32 @xstrncmpz(ptr noundef %11, ptr noundef nonnull %0, i64 noundef %5) #10
   %.not.i2.i = icmp eq i32 %12, 0
@@ -464,7 +463,7 @@ define dso_local noundef ptr @userdiff_find_by_name(ptr noundef %0) local_unname
 
 .lr.ph.i12.i.i:                                   ; preds = %.lr.ph.i12.i.i.preheader, %userdiff_find_by_namelen_cb.exit.i
   %indvars.iv.i13.i.i = phi i64 [ %indvars.iv.next.i16.i.i, %userdiff_find_by_namelen_cb.exit.i ], [ 0, %.lr.ph.i12.i.i.preheader ]
-  %13 = getelementptr inbounds nuw %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i13.i.i
+  %13 = getelementptr inbounds nuw [128 x i8], ptr @builtin_drivers, i64 %indvars.iv.i13.i.i
   %14 = load ptr, ptr %13, align 16, !tbaa !15
   %15 = tail call i32 @xstrncmpz(ptr noundef %14, ptr noundef nonnull %0, i64 noundef %5) #10
   %.not.i.i = icmp eq i32 %15, 0
@@ -665,14 +664,14 @@ define dso_local i32 @for_each_userdiff_driver(ptr noundef readonly captures(non
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw %struct.userdiff_driver, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 %indvars.iv.i
   %8 = tail call i32 %0(ptr noundef %7, i32 noundef 2, ptr noundef %1) #10
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %6, label %for_each_userdiff_driver_list.exit
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12.preheader, %.lr.ph.i12
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i16, %.lr.ph.i12 ], [ 0, %.lr.ph.i12.preheader ]
-  %9 = getelementptr inbounds nuw %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i13
+  %9 = getelementptr inbounds nuw [128 x i8], ptr @builtin_drivers, i64 %indvars.iv.i13
   %10 = tail call i32 %0(ptr noundef nonnull %9, i32 noundef 1, ptr noundef %1) #10
   %.not.i14 = icmp ne i32 %10, 0
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i13, 1

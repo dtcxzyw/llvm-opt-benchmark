@@ -28,7 +28,7 @@ define internal i32 @film_write_packet(ptr noundef readonly captures(none) %0, p
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i32, ptr %11, align 4, !tbaa !31
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !34
@@ -178,7 +178,7 @@ define internal i32 @film_write_header(ptr noundef %0) #0 {
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !52
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %26, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %26, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !32
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !34
@@ -222,7 +222,7 @@ define internal i32 @film_write_header(ptr noundef %0) #0 {
 53:                                               ; preds = %38
   %54 = load ptr, ptr %25, align 8, !tbaa !30
   %55 = zext nneg i32 %51 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !32
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !34
@@ -326,7 +326,7 @@ define internal range(i32 -2147483648, 1) i32 @film_init(ptr noundef %0) #0 {
 10:                                               ; preds = %.lr.ph, %31
   %11 = phi i32 [ -1, %.lr.ph ], [ %32, %31 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !34

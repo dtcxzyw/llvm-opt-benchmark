@@ -411,7 +411,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_formatArray___spec__1___rarg(
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %lean_dec.exit.us
   %.02439.us = phi i64 [ %31, %lean_dec.exit.us ], [ %2, %.lr.ph ]
   %.02638.us = phi ptr [ %26, %lean_dec.exit.us ], [ %4, %.lr.ph ]
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02439.us
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02439.us
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i1
@@ -471,7 +471,7 @@ lean_dec.exit.us:                                 ; preds = %lean_alloc_ctor.exi
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.02439 = phi i64 [ %65, %lean_dec.exit ], [ %2, %.lr.ph ]
   %.02638 = phi ptr [ %54, %lean_dec.exit ], [ %4, %.lr.ph ]
-  %32 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02439
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02439
   %33 = load ptr, ptr %32, align 8, !tbaa !9
   %34 = ptrtoint ptr %33 to i64
   %35 = trunc i64 %34 to i1
@@ -1883,7 +1883,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Compiler_IR_Format_0__
 6:                                                ; preds = %.lr.ph, %28
   %.02135 = phi i64 [ %1, %.lr.ph ], [ %32, %28 ]
   %.02334 = phi ptr [ %3, %.lr.ph ], [ %25, %28 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02135
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02135
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -6893,7 +6893,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_formatParams___spec__2(ptr no
 6:                                                ; preds = %.lr.ph, %28
   %.02135 = phi i64 [ %1, %.lr.ph ], [ %32, %28 ]
   %.02334 = phi ptr [ %3, %.lr.ph ], [ %25, %28 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02135
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02135
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -10177,7 +10177,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_formatFnBody_loop___spec__1(p
 9:                                                ; preds = %.lr.ph, %lean_dec.exit
   %.02848 = phi i64 [ %2, %.lr.ph ], [ %60, %lean_dec.exit ]
   %.03047 = phi ptr [ %4, %.lr.ph ], [ %47, %lean_dec.exit ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02848
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02848
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i1

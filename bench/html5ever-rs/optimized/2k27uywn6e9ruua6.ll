@@ -443,7 +443,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue10push_front17h033e
   store i64 %28, ptr %11, align 8, !alias.scope !48, !noalias !51
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !48, !noalias !51, !nonnull !8, !noundef !8
-  %31 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %30, i64 %..i.i
+  %31 = getelementptr inbounds [16 x i8], ptr %30, i64 %..i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %20
@@ -515,7 +515,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue9push_back17hdb0fb6
   %.0.i.i = sub nuw i64 %26, %27
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !alias.scope !56, !noalias !59, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %29, i64 %.0.i.i
+  %30 = getelementptr inbounds [16 x i8], ptr %29, i64 %.0.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %31 = load i64, ptr %11, align 8, !alias.scope !56, !noalias !59, !noundef !8
   %32 = add i64 %31, 1
@@ -543,7 +543,7 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
   %.0.i.i = sub nuw i64 %6, %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !64, !nonnull !8, !noundef !8
-  %11 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %10, i64 %.0.i.i
+  %11 = getelementptr inbounds [16 x i8], ptr %10, i64 %.0.i.i
   %12 = load i64, ptr %11, align 8, !range !7, !noundef !8
   %13 = icmp eq i64 %12, 15
   br i1 %13, label %.thread.i, label %14
@@ -650,7 +650,7 @@ define noundef range(i32 0, 2097152) i32 @_ZN11markup5ever4util12buffer_queue11B
   %.0.i.i = sub nuw i64 %7, %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !76, !nonnull !8, !noundef !8
-  %12 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %11, i64 %.0.i.i
+  %12 = getelementptr inbounds [16 x i8], ptr %11, i64 %.0.i.i
   %13 = tail call fastcc noundef i32 @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$14pop_front_char17hdcb8058b3672ab95E"(ptr noalias noundef align 8 dereferenceable(16) %12), !range !82
   %14 = icmp eq i32 %13, 1114112
   br i1 %14, label %15, label %16
@@ -689,7 +689,7 @@ define noundef range(i32 0, 2097152) i32 @_ZN11markup5ever4util12buffer_queue11B
   store i64 %.0.i.i8, ptr %6, align 8, !alias.scope !86, !noalias !83
   %27 = add i64 %4, -1
   store i64 %27, ptr %3, align 8, !alias.scope !86, !noalias !83
-  %28 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %11, i64 %7
+  %28 = getelementptr inbounds [16 x i8], ptr %11, i64 %7
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !noalias !86
   store i64 1, ptr %2, align 8, !alias.scope !83, !noalias !86
@@ -720,7 +720,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue15pop_except_from17
   %.0.i.i = sub nuw i64 %12, %14
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !88, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %16, i64 %.0.i.i
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %.0.i.i
   %18 = load i64, ptr %17, align 8, !range !7, !noundef !8
   %19 = icmp eq i64 %18, 15
   br i1 %19, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit", label %20
@@ -1088,7 +1088,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   store i64 %.0.i.i43, ptr %11, align 8, !alias.scope !128, !noalias !125
   %160 = add i64 %9, -1
   store i64 %160, ptr %8, align 8, !alias.scope !128, !noalias !125
-  %161 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %16, i64 %12
+  %161 = getelementptr inbounds [16 x i8], ptr %16, i64 %12
   %162 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull align 8 dereferenceable(16) %161, i64 16, i1 false), !noalias !128
   store i64 1, ptr %5, align 8, !alias.scope !125, !noalias !128

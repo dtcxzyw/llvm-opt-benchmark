@@ -34,8 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Matx" = type { [4 x double] }
 %"class.cv::colormap::UserColorMap" = type { %"class.cv::colormap::ColorMap" }
 %"class.cv::colormap::ColorMap" = type { ptr, %"class.cv::Mat" }
-%"class.cv::Vec.4" = type { %"class.cv::Matx.5" }
-%"class.cv::Matx.5" = type { [3 x i8] }
 
 $_ZN2cv5utils5trace7details6RegionD2Ev = comdat any
 
@@ -5142,7 +5140,7 @@ _ZNK2cv11_InputArray6getMatEi.exit38.i:           ; preds = %71, %69
   %89 = phi ptr [ %74, %.lr.ph.i ], [ %100, %97 ]
   %.044.i = phi i64 [ 0, %.lr.ph.i ], [ %98, %97 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %.044.i
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.044.i
   %91 = load i32, ptr %90, align 4, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !194
   %92 = add nsw i32 %91, 1
@@ -11709,7 +11707,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_8colormap8
   %38 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 1
   %39 = load i8, ptr %.01113.i.i.i, align 1, !tbaa !91
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.cv::Vec.4", ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [3 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %.01014.i.i.i, i64 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.01014.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) %41, i64 3, i1 false)
   %43 = add nuw nsw i32 %.015.i.i.i, 1

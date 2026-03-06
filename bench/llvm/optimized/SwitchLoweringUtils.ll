@@ -5,15 +5,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.llvm::APInt" = type <{ %union.anon.0, i32, [4 x i8] }>
 %union.anon.0 = type { i64 }
-%"struct.llvm::SwitchCG::CaseCluster" = type <{ i32, [4 x i8], ptr, ptr, %union.anon, %"class.llvm::BranchProbability", [4 x i8] }>
-%union.anon = type { ptr }
-%"class.llvm::BranchProbability" = type { i32 }
 %"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
 %"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
 %"class.llvm::SmallVectorTemplateBase" = type { %"class.llvm::SmallVectorTemplateCommon" }
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [32 x i8] }
+%"struct.llvm::SwitchCG::CaseCluster" = type <{ i32, [4 x i8], ptr, ptr, %union.anon, %"class.llvm::BranchProbability", [4 x i8] }>
+%union.anon = type { ptr }
+%"class.llvm::BranchProbability" = type { i32 }
 %"class.std::vector.107" = type { %"struct.std::_Vector_base.108" }
 %"struct.std::_Vector_base.108" = type { %"struct.std::_Vector_base<llvm::MachineBasicBlock *, std::allocator<llvm::MachineBasicBlock *>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::MachineBasicBlock *, std::allocator<llvm::MachineBasicBlock *>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::MachineBasicBlock *, std::allocator<llvm::MachineBasicBlock *>>::_Vector_impl_data" }
@@ -35,8 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
 %"struct.llvm::SwitchCG::JumpTableHeader" = type <{ %"class.llvm::APInt", %"class.llvm::APInt", ptr, ptr, i8, i8, [6 x i8] }>
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.base.346", [4 x i8] }
-%"struct.std::pair.base.346" = type <{ ptr, %"class.llvm::BranchProbability" }>
 %"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
 %"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
 %"class.llvm::BitVector" = type <{ %"class.llvm::SmallVector.140", i32, [4 x i8] }>
@@ -54,9 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SwitchCG::BitTestCase" = type <{ i64, ptr, ptr, %"class.llvm::BranchProbability", [4 x i8] }>
 %"struct.llvm::SwitchCG::SwitchLowering::SplitWorkItemInfo" = type { %"class.__gnu_cxx::__normal_iterator.332", %"class.__gnu_cxx::__normal_iterator.332", %"class.llvm::BranchProbability", %"class.llvm::BranchProbability" }
 %"class.__gnu_cxx::__normal_iterator.332" = type { ptr }
-%"struct.std::pair.318" = type { %"struct.llvm::SwitchCG::JumpTableHeader", %"struct.llvm::SwitchCG::JumpTable" }
-%"struct.llvm::SwitchCG::BitTestBlock" = type <{ %"class.llvm::APInt", %"class.llvm::APInt", ptr, %"class.llvm::Register", %"class.llvm::MVT", i8, i8, ptr, ptr, %"class.llvm::SmallVector.324", %"class.llvm::BranchProbability", %"class.llvm::BranchProbability", i8, [7 x i8] }>
-%"class.llvm::MVT" = type { i16 }
 
 $_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabilityENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_EixERKS3_ = comdat any
 
@@ -92,12 +87,12 @@ define dso_local noundef range(i64 1, 184467440737095518) i64 @_ZN4llvm8SwitchCG
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = zext i32 %1 to i64
   %7 = load ptr, ptr %0, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = zext i32 %2 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -179,7 +174,7 @@ _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZNK4llvm5APInt15ge
 define dso_local noundef range(i64 0, 4294967296) i64 @_ZN4llvm8SwitchCG20getJumpTableNumCasesERKNS_15SmallVectorImplIjEEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = zext i32 %2 to i64
   %5 = load ptr, ptr %0, align 8, !tbaa !22
-  %6 = getelementptr inbounds nuw i32, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %4
   %7 = load i32, ptr %6, align 4, !tbaa !24
   %8 = icmp eq i32 %1, 0
   br i1 %8, label %14, label %9
@@ -187,7 +182,7 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZN4llvm8SwitchCG20getJum
 9:                                                ; preds = %3
   %10 = add i32 %1, -1
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !24
   br label %14
 
@@ -267,7 +262,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i, %44
   %49 = phi ptr [ %.pre.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ %45, %44 ]
   %.pre-phi.i.i3.i = phi i64 [ %.pre13.i.i.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ 0, %44 ]
-  %50 = getelementptr i32, ptr %49, i64 %.pre-phi.i.i3.i
+  %50 = getelementptr [4 x i8], ptr %49, i64 %.pre-phi.i.i3.i
   %51 = sub nsw i64 %39, %.pre-phi.i.i3.i
   %52 = shl nsw i64 %51, 2
   call void @llvm.memset.p0.i64(ptr align 4 %50, i8 0, i64 %52, i1 false), !tbaa !24
@@ -286,7 +281,7 @@ _ZN4llvm11SmallVectorIjLj8EEC2Em.exit:            ; preds = %_ZN4llvm15SmallVect
   %59 = call noundef i64 @_ZN4llvm8SwitchCG17getJumpTableRangeERKSt6vectorINS0_11CaseClusterESaIS2_EEjj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 0, i32 noundef %58)
   %60 = and i64 %57, 4294967295
   %61 = load ptr, ptr %8, align 8, !tbaa !22
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !24
   %64 = zext i32 %63 to i64
   %65 = load ptr, ptr %16, align 8, !tbaa !25
@@ -300,7 +295,7 @@ _ZN4llvm11SmallVectorIjLj8EEC2Em.exit:            ; preds = %_ZN4llvm15SmallVect
   %71 = phi i64 [ 0, %_ZN4llvm11SmallVectorIjLj8EEC2Em.exit ], [ %122, %120 ]
   %.0119173 = phi i32 [ 0, %_ZN4llvm11SmallVectorIjLj8EEC2Em.exit ], [ %121, %120 ]
   %72 = load ptr, ptr %1, align 8, !tbaa !3
-  %73 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [40 x i8], ptr %72, i64 %71
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !15
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
@@ -351,7 +346,7 @@ _ZNK4llvm5APInt3ugtEm.exit.i:                     ; preds = %_ZNK4llvm5APInt13ge
 _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i
   %96 = phi i32 [ 0, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ %95, %_ZNK4llvm5APInt3ugtEm.exit.i ]
   %97 = load ptr, ptr %8, align 8, !tbaa !22
-  %98 = getelementptr inbounds nuw i32, ptr %97, i64 %71
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %71
   store i32 %96, ptr %98, align 4, !tbaa !24
   %99 = load i32, ptr %55, align 8, !tbaa !16
   %100 = icmp ugt i32 %99, 64
@@ -389,9 +384,9 @@ _ZN4llvm5APIntD2Ev.exit135:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %112 = add i32 %.0119173, -1
   %113 = zext i32 %112 to i64
   %114 = load ptr, ptr %8, align 8, !tbaa !22
-  %115 = getelementptr inbounds nuw i32, ptr %114, i64 %113
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %113
   %116 = load i32, ptr %115, align 4, !tbaa !24
-  %117 = getelementptr inbounds nuw i32, ptr %114, i64 %71
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %71
   %118 = load i32, ptr %117, align 4, !tbaa !24
   %119 = add i32 %118, %116
   store i32 %119, ptr %117, align 4, !tbaa !24
@@ -491,7 +486,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i
 156:                                              ; preds = %149, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i143
   %157 = phi ptr [ %.pre.i144, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i143 ], [ %150, %149 ]
   %.pre-phi.i.i3.i137 = phi i64 [ %.pre13.i.i.i141, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i143 ], [ 0, %149 ]
-  %158 = getelementptr i32, ptr %157, i64 %.pre-phi.i.i3.i137
+  %158 = getelementptr [4 x i8], ptr %157, i64 %.pre-phi.i.i3.i137
   %159 = sub nsw i64 %39, %.pre-phi.i.i3.i137
   %160 = shl nsw i64 %159, 2
   call void @llvm.memset.p0.i64(ptr align 4 %158, i8 0, i64 %160, i1 false), !tbaa !24
@@ -534,7 +529,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i
   %171 = phi ptr [ %165, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i153 ], [ %161, %156 ]
   %172 = phi ptr [ %.pre.i154, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i153 ], [ %161, %156 ]
   %.pre-phi.i.i3.i147 = phi i64 [ %.pre13.i.i.i151, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i153 ], [ 0, %156 ]
-  %173 = getelementptr i32, ptr %172, i64 %.pre-phi.i.i3.i147
+  %173 = getelementptr [4 x i8], ptr %172, i64 %.pre-phi.i.i3.i147
   %174 = sub nsw i64 %39, %.pre-phi.i.i3.i147
   %175 = shl nsw i64 %174, 2
   call void @llvm.memset.p0.i64(ptr align 4 %173, i8 0, i64 %175, i1 false), !tbaa !24
@@ -565,7 +560,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i159: ; preds = %.thread171, %16
   %184 = phi ptr [ %171, %169 ], [ %181, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i159 ]
   %185 = phi ptr [ %176, %169 ], [ %.pre, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i159 ]
   %.pre-phi.i.i3.i157 = phi i64 [ 0, %169 ], [ %.pre13.i.i.i161, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i159 ]
-  %186 = getelementptr i32, ptr %185, i64 %.pre-phi.i.i3.i157
+  %186 = getelementptr [4 x i8], ptr %185, i64 %.pre-phi.i.i3.i157
   %187 = sub nsw i64 %39, %.pre-phi.i.i3.i157
   %188 = shl nsw i64 %187, 2
   call void @llvm.memset.p0.i64(ptr align 4 %186, i8 0, i64 %188, i1 false), !tbaa !24
@@ -578,12 +573,12 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i159: ; preds = %.thread171, %16
   %192 = phi ptr [ %184, %.lr.ph.preheader.i.i.i156 ], [ %181, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i159 ]
   store i32 %53, ptr %190, align 8, !tbaa !74
   %193 = load ptr, ptr %12, align 8, !tbaa !22
-  %194 = getelementptr inbounds nuw i32, ptr %193, i64 %57
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %57
   store i32 1, ptr %194, align 4, !tbaa !24
   %195 = load ptr, ptr %13, align 8, !tbaa !22
-  %196 = getelementptr inbounds nuw i32, ptr %195, i64 %57
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %57
   store i32 %58, ptr %196, align 4, !tbaa !24
-  %197 = getelementptr inbounds nuw i32, ptr %189, i64 %57
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %57
   store i32 2, ptr %197, align 4, !tbaa !24
   %198 = add nsw i64 %39, -2
   %invariant.op = add nsw i64 %42, -1
@@ -598,20 +593,20 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i159: ; preds = %.thread171, %16
   %.0124175 = phi i64 [ %198, %.lr.ph176 ], [ %220, %._crit_edge ]
   %202 = add nuw nsw i64 %.0124175, 1
   %203 = load ptr, ptr %12, align 8, !tbaa !22
-  %204 = getelementptr inbounds nuw i32, ptr %203, i64 %202
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %202
   %205 = load i32, ptr %204, align 4, !tbaa !24
   %206 = add i32 %205, 1
-  %207 = getelementptr inbounds nuw i32, ptr %203, i64 %.0124175
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %.0124175
   store i32 %206, ptr %207, align 4, !tbaa !24
   %208 = trunc nuw i64 %.0124175 to i32
   %209 = load ptr, ptr %13, align 8, !tbaa !22
-  %210 = getelementptr inbounds nuw i32, ptr %209, i64 %.0124175
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %.0124175
   store i32 %208, ptr %210, align 4, !tbaa !24
   %211 = load ptr, ptr %14, align 8, !tbaa !22
-  %212 = getelementptr inbounds nuw i32, ptr %211, i64 %202
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %202
   %213 = load i32, ptr %212, align 4, !tbaa !24
   %214 = add i32 %213, 2
-  %215 = getelementptr inbounds nuw i32, ptr %211, i64 %.0124175
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %.0124175
   store i32 %214, ptr %215, align 4, !tbaa !24
   %216 = icmp sgt i64 %57, %.0124175
   br i1 %216, label %.lr.ph, label %._crit_edge
@@ -633,12 +628,12 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i159: ; preds = %.thread171, %16
   %224 = call noundef i64 @_ZN4llvm8SwitchCG17getJumpTableRangeERKSt6vectorINS0_11CaseClusterESaIS2_EEjj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %208, i32 noundef %223)
   %225 = and i64 %.0123174, 4294967295
   %226 = load ptr, ptr %8, align 8, !tbaa !22
-  %227 = getelementptr inbounds nuw i32, ptr %226, i64 %225
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %225
   %228 = load i32, ptr %227, align 4, !tbaa !24
   br i1 %217, label %_ZN4llvm8SwitchCG20getJumpTableNumCasesERKNS_15SmallVectorImplIjEEjj.exit, label %229
 
 229:                                              ; preds = %222
-  %230 = getelementptr inbounds nuw i32, ptr %226, i64 %219
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %219
   %231 = load i32, ptr %230, align 4, !tbaa !24
   br label %_ZN4llvm8SwitchCG20getJumpTableNumCasesERKNS_15SmallVectorImplIjEEjj.exit
 
@@ -659,12 +654,12 @@ _ZN4llvm8SwitchCG20getJumpTableNumCasesERKNS_15SmallVectorImplIjEEjj.exit: ; pre
   br i1 %241, label %.thread172, label %242
 
 242:                                              ; preds = %240
-  %243 = getelementptr inbounds nuw i32, ptr %.pre187, i64 %.0123174
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %.pre187, i64 %.0123174
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
   %245 = load i32, ptr %244, align 4, !tbaa !24
   %246 = add i32 %245, 1
   %247 = load ptr, ptr %14, align 8, !tbaa !22
-  %248 = getelementptr inbounds nuw i32, ptr %247, i64 %.0123174
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %247, i64 %.0123174
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
   %250 = load i32, ptr %249, align 4, !tbaa !24
   br label %.thread172
@@ -678,7 +673,7 @@ _ZN4llvm8SwitchCG20getJumpTableNumCasesERKNS_15SmallVectorImplIjEEjj.exit: ; pre
   %narrow = select i1 %.not132.not, i1 true, i1 %.not133
   %.0122.v = zext i1 %narrow to i32
   %.0122 = add i32 %252, %.0122.v
-  %254 = getelementptr inbounds nuw i32, ptr %.pre187, i64 %.0124175
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %.pre187, i64 %.0124175
   %255 = load i32, ptr %254, align 4, !tbaa !24
   %256 = icmp ult i32 %251, %255
   br i1 %256, label %.thread172._crit_edge, label %257
@@ -693,7 +688,7 @@ _ZN4llvm8SwitchCG20getJumpTableNumCasesERKNS_15SmallVectorImplIjEEjj.exit: ; pre
 
 259:                                              ; preds = %257
   %260 = load ptr, ptr %14, align 8, !tbaa !22
-  %261 = getelementptr inbounds nuw i32, ptr %260, i64 %.0124175
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %260, i64 %.0124175
   %262 = load i32, ptr %261, align 4, !tbaa !24
   %263 = icmp ugt i32 %.0122, %262
   br i1 %263, label %264, label %269
@@ -702,9 +697,9 @@ _ZN4llvm8SwitchCG20getJumpTableNumCasesERKNS_15SmallVectorImplIjEEjj.exit: ; pre
   %265 = phi ptr [ %.pre188, %.thread172._crit_edge ], [ %260, %259 ]
   store i32 %251, ptr %254, align 4, !tbaa !24
   %266 = load ptr, ptr %13, align 8, !tbaa !22
-  %267 = getelementptr inbounds nuw i32, ptr %266, i64 %.0124175
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %.0124175
   store i32 %223, ptr %267, align 4, !tbaa !24
-  %268 = getelementptr inbounds nuw i32, ptr %265, i64 %.0124175
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %265, i64 %.0124175
   store i32 %.0122, ptr %268, align 4, !tbaa !24
   br label %269
 
@@ -734,7 +729,7 @@ _ZN4llvm8SwitchCG20getJumpTableNumCasesERKNS_15SmallVectorImplIjEEjj.exit: ; pre
   br i1 %283, label %284, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit167
 
 284:                                              ; preds = %282
-  %285 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %274, i64 %272
+  %285 = getelementptr inbounds nuw [40 x i8], ptr %274, i64 %272
   %.not.i.i166 = icmp eq ptr %273, %285
   br i1 %.not.i.i166, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit167, label %286
 
@@ -780,7 +775,7 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit169:         ; preds = %_ZN4llvm11SmallVect
   %.0120183 = phi i32 [ 0, %.lr.ph184 ], [ %317, %.loopexit ]
   %.0121182 = phi i32 [ 0, %.lr.ph184 ], [ %.1, %.loopexit ]
   %298 = load ptr, ptr %13, align 8, !tbaa !22
-  %299 = getelementptr inbounds nuw i32, ptr %298, i64 %297
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %298, i64 %297
   %300 = load i32, ptr %299, align 4, !tbaa !24
   %reass.sub = sub i32 %300, %.0120183
   %301 = add i32 %reass.sub, 1
@@ -797,7 +792,7 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit169:         ; preds = %_ZN4llvm11SmallVect
   %305 = add i32 %.0121182, 1
   %306 = zext i32 %.0121182 to i64
   %307 = load ptr, ptr %1, align 8, !tbaa !3
-  %308 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %307, i64 %306
+  %308 = getelementptr inbounds nuw [40 x i8], ptr %307, i64 %306
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %308, ptr noundef nonnull align 8 dereferenceable(36) %15, i64 36, i1 false), !tbaa.struct !82
   br label %.loopexit
 
@@ -811,9 +806,9 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit169:         ; preds = %_ZN4llvm11SmallVect
   %310 = add i32 %.2178, 1
   %311 = zext i32 %.2178 to i64
   %312 = load ptr, ptr %1, align 8, !tbaa !3
-  %313 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %312, i64 %311
+  %313 = getelementptr inbounds nuw [40 x i8], ptr %312, i64 %311
   %314 = zext i32 %.0179 to i64
-  %315 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %312, i64 %314
+  %315 = getelementptr inbounds nuw [40 x i8], ptr %312, i64 %314
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %313, ptr noundef nonnull align 8 dereferenceable(40) %315, i64 40, i1 false)
   %316 = add i32 %.0179, 1
   %.not131 = icmp ugt i32 %316, %300
@@ -880,7 +875,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8SwitchCG14SwitchLowering14buildJum
   %.072157 = phi i32 [ %34, %.lr.ph ], [ %2, %8 ]
   %29 = zext i32 %.072157 to i64
   %30 = load ptr, ptr %1, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabilityENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(8) %32)
   store i32 0, ptr %33, align 4, !tbaa !24
@@ -897,12 +892,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm8SwitchCG14SwitchLowering14buildJum
   %38 = load ptr, ptr %37, align 8, !tbaa !25
   %39 = zext i32 %2 to i64
   %40 = load ptr, ptr %1, align 8, !tbaa !3
-  %41 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !9
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = zext i32 %3 to i64
-  %46 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %40, i64 %45
+  %46 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !15
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -935,7 +930,7 @@ _ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10Dat
   %.sroa.0128.0163 = phi i32 [ 0, %.lr.ph166 ], [ %spec.select.i, %._crit_edge ]
   %63 = zext i32 %.073164 to i64
   %64 = load ptr, ptr %1, align 8, !tbaa !3
-  %65 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %64, i64 %63
+  %65 = getelementptr inbounds nuw [40 x i8], ptr %64, i64 %63
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %.sroa.023.0.copyload = load i32, ptr %66, align 8, !tbaa !24
   %67 = zext i32 %.sroa.0128.0163 to i64
@@ -975,7 +970,7 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %81, %85
 89:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit
   %90 = add i32 %.073164, -1
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %64, i64 %91
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %64, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !15
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
@@ -1107,7 +1102,7 @@ _ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %139, %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %134, ptr %10, align 8, !tbaa !214
   store ptr %138, ptr %25, align 8, !tbaa !208
-  %140 = getelementptr inbounds nuw ptr, ptr %134, i64 %132
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %132
   store ptr %140, ptr %26, align 8, !tbaa !211
   br label %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EE9push_backERKS2_.exit
 
@@ -1195,7 +1190,7 @@ _ZN4llvm5APIntD2Ev.exit91:                        ; preds = %_ZNK4llvm5APInt15ge
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EE9push_backERKS2_.exit100, %_ZN4llvm5APIntD2Ev.exit91
   %168 = load ptr, ptr %1, align 8, !tbaa !3
-  %169 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %168, i64 %63
+  %169 = getelementptr inbounds nuw [40 x i8], ptr %168, i64 %63
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %.sroa.010.0.copyload = load i32, ptr %170, align 8, !tbaa !24
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 24
@@ -1217,7 +1212,7 @@ _ZN4llvm5APIntD2Ev.exit91:                        ; preds = %_ZNK4llvm5APInt15ge
   %181 = phi ptr [ %210, %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EE9push_backERKS2_.exit100 ], [ %.pre185, %.lr.ph161.preheader ]
   %.075160 = phi i64 [ %211, %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EE9push_backERKS2_.exit100 ], [ 0, %.lr.ph161.preheader ]
   %182 = load ptr, ptr %1, align 8, !tbaa !3
-  %183 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %182, i64 %63
+  %183 = getelementptr inbounds nuw [40 x i8], ptr %182, i64 %63
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %.not.i93 = icmp eq ptr %181, %180
   br i1 %.not.i93, label %188, label %185
@@ -1274,7 +1269,7 @@ _ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i99: ; preds = %207, %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i97
   store ptr %201, ptr %10, align 8, !tbaa !214
   store ptr %206, ptr %25, align 8, !tbaa !208
-  %208 = getelementptr inbounds nuw ptr, ptr %201, i64 %199
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %199
   store ptr %208, ptr %26, align 8, !tbaa !211
   br label %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EE9push_backERKS2_.exit100
 
@@ -1507,7 +1502,7 @@ _ZNSt14_Optional_baseIN4llvm5SDLocELb0ELb0EED2Ev.exit: ; preds = %_ZN4llvm8Switc
   %307 = phi ptr [ %284, %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit.thread ], [ %293, %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit ], [ %293, %303 ], [ %293, %305 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %308 = load ptr, ptr %1, align 8, !tbaa !3
-  %309 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %308, i64 %39
+  %309 = getelementptr inbounds nuw [40 x i8], ptr %308, i64 %39
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %311 = load ptr, ptr %310, align 8, !tbaa !9
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 24
@@ -1530,7 +1525,7 @@ _ZNSt14_Optional_baseIN4llvm5SDLocELb0ELb0EED2Ev.exit: ; preds = %_ZN4llvm8Switc
 
 _ZN4llvm5APIntC2ERKS0_.exit102:                   ; preds = %317, %319
   %320 = phi ptr [ %308, %317 ], [ %.pre190, %319 ]
-  %321 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %320, i64 %45
+  %321 = getelementptr inbounds nuw [40 x i8], ptr %320, i64 %45
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 16
   %323 = load ptr, ptr %322, align 8, !tbaa !15
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 24
@@ -1642,10 +1637,10 @@ _ZNSt6vectorISt4pairIN4llvm8SwitchCG15JumpTableHeaderENS2_9JumpTableEESaIS5_EE12
   %372 = phi i1 [ false, %_ZNSt16allocator_traitsISaISt4pairIN4llvm8SwitchCG15JumpTableHeaderENS2_9JumpTableEEEE9constructIS5_JS3_S4_EEEvRS6_PT_DpOT0_.exit.i ], [ %371, %370 ]
   %373 = phi ptr [ %369, %_ZNSt16allocator_traitsISaISt4pairIN4llvm8SwitchCG15JumpTableHeaderENS2_9JumpTableEEEE9constructIS5_JS3_S4_EEEvRS6_PT_DpOT0_.exit.i ], [ %.pre193, %370 ]
   %374 = load ptr, ptr %1, align 8, !tbaa !3
-  %375 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %374, i64 %39
+  %375 = getelementptr inbounds nuw [40 x i8], ptr %374, i64 %39
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %377 = load ptr, ptr %376, align 8, !tbaa !9
-  %378 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %374, i64 %45
+  %378 = getelementptr inbounds nuw [40 x i8], ptr %374, i64 %45
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 16
   %380 = load ptr, ptr %379, align 8, !tbaa !15
   %381 = load ptr, ptr %346, align 8, !tbaa !338
@@ -1863,7 +1858,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %15 = add i32 %6, -1
   %.02944.i = and i32 %14, %15
   %16 = zext nneg i32 %.02944.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !212
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.loopexit, label %.lr.ph.i, !prof !347
@@ -1891,7 +1886,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %29 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %29, %15
   %30 = zext i32 %.029.i to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !212
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !349, !llvm.loop !350
@@ -2000,7 +1995,7 @@ define dso_local void @_ZN4llvm8SwitchCG14SwitchLowering19findBitTestClustersERS
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %27 = zext i16 %24 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !353
   %.not.i.not = icmp eq ptr %29, null
   br i1 %.not.i.not, label %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit.thread, label %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit
@@ -2016,7 +2011,7 @@ _ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit: ; preds = %_ZNK4
 _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = zext i16 %24 to i64
-  %35 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %34
+  %35 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %36, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %35, i64 -8
@@ -2087,7 +2082,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i
 60:                                               ; preds = %54, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i
   %61 = phi ptr [ %.pre.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ %45, %54 ]
   %.pre-phi.i.i3.i = phi i64 [ %.pre13.i.i.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ 0, %54 ]
-  %62 = getelementptr i32, ptr %61, i64 %.pre-phi.i.i3.i
+  %62 = getelementptr [4 x i8], ptr %61, i64 %.pre-phi.i.i3.i
   %63 = sub nsw i64 %44, %.pre-phi.i.i3.i
   %64 = shl nsw i64 %63, 2
   call void @llvm.memset.p0.i64(ptr align 4 %62, i8 0, i64 %64, i1 false), !tbaa !24
@@ -2119,7 +2114,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i82: ; preds = %.thread, %60
   %74 = phi i32 [ %65, %60 ], [ %71, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i82 ]
   %75 = phi ptr [ %66, %60 ], [ %.pre116.pre, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i82 ]
   %.pre-phi.i.i3.i80 = phi i64 [ 0, %60 ], [ %.pre13.i.i.i84, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i82 ]
-  %76 = getelementptr i32, ptr %75, i64 %.pre-phi.i.i3.i80
+  %76 = getelementptr [4 x i8], ptr %75, i64 %.pre-phi.i.i3.i80
   %77 = sub nsw i64 %44, %.pre-phi.i.i3.i80
   %78 = shl nsw i64 %77, 2
   call void @llvm.memset.p0.i64(ptr align 4 %76, i8 0, i64 %78, i1 false), !tbaa !24
@@ -2133,10 +2128,10 @@ _ZN4llvm11SmallVectorIjLj8EEC2Em.exit88:          ; preds = %_ZN4llvm15SmallVect
   store i32 %81, ptr %79, align 8, !tbaa !74
   %.pre = load ptr, ptr %7, align 8, !tbaa !22
   %82 = add nsw i64 %44, -1
-  %83 = getelementptr inbounds nuw i32, ptr %.pre, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %82
   store i32 1, ptr %83, align 4, !tbaa !24
   %84 = trunc i64 %82 to i32
-  %85 = getelementptr inbounds nuw i32, ptr %.pre116, i64 %82
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.pre116, i64 %82
   store i32 %84, ptr %85, align 4, !tbaa !24
   %86 = icmp sgt i64 %43, 40
   br i1 %86, label %.lr.ph110, label %.preheader
@@ -2166,14 +2161,14 @@ _ZN4llvm11SmallVectorIjLj8EEC2Em.exit88:          ; preds = %_ZN4llvm15SmallVect
 99:                                               ; preds = %.lr.ph110, %.loopexit
   %.067108 = phi i64 [ %87, %.lr.ph110 ], [ %217, %.loopexit ]
   %100 = load ptr, ptr %7, align 8, !tbaa !22
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %.067108
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.067108
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !24
   %104 = add i32 %103, 1
   store i32 %104, ptr %101, align 4, !tbaa !24
   %105 = trunc i64 %.067108 to i32
   %106 = load ptr, ptr %8, align 8, !tbaa !22
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %.067108
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %.067108
   store i32 %105, ptr %107, align 4, !tbaa !24
   %108 = add i64 %89, %.067108
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %108, i64 %82)
@@ -2183,11 +2178,11 @@ _ZN4llvm11SmallVectorIjLj8EEC2Em.exit88:          ; preds = %_ZN4llvm15SmallVect
 .lr.ph107:                                        ; preds = %99, %211
   %.070105 = phi i64 [ %212, %211 ], [ %.sroa.speculated, %99 ]
   %110 = load ptr, ptr %1, align 8, !tbaa !3
-  %111 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %110, i64 %.067108
+  %111 = getelementptr inbounds nuw [40 x i8], ptr %110, i64 %.067108
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !9
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  %115 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %110, i64 %.070105
+  %115 = getelementptr inbounds nuw [40 x i8], ptr %110, i64 %.070105
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !15
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
@@ -2314,7 +2309,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %148
 
 168:                                              ; preds = %.lr.ph, %171
   %.071104 = phi i64 [ %.067108, %.lr.ph ], [ %184, %171 ]
-  %169 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %166, i64 %.071104
+  %169 = getelementptr inbounds nuw [40 x i8], ptr %166, i64 %.071104
   %170 = load i32, ptr %169, align 8, !tbaa !364
   %.not75 = icmp eq i32 %170, 0
   br i1 %.not75, label %171, label %.critedge77.loopexit
@@ -2329,7 +2324,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %148
   %178 = shl nuw i64 1, %177
   %179 = lshr i32 %175, 6
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw i64, ptr %167, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %180
   %182 = load i64, ptr %181, align 8, !tbaa !362
   %183 = or i64 %178, %182
   store i64 %183, ptr %181, align 8, !tbaa !362
@@ -2365,7 +2360,7 @@ _ZNK4llvm9BitVector5countEv.exit.thread:          ; preds = %.critedge, %_ZNK4ll
   br i1 %193, label %199, label %194
 
 194:                                              ; preds = %_ZNK4llvm9BitVector5countEv.exit.thread
-  %195 = getelementptr inbounds nuw i32, ptr %.pre118, i64 %.070105
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %.pre118, i64 %.070105
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %197 = load i32, ptr %196, align 4, !tbaa !24
   %198 = add i32 %197, 1
@@ -2373,7 +2368,7 @@ _ZNK4llvm9BitVector5countEv.exit.thread:          ; preds = %.critedge, %_ZNK4ll
 
 199:                                              ; preds = %_ZNK4llvm9BitVector5countEv.exit.thread, %194
   %200 = phi i32 [ %198, %194 ], [ 1, %_ZNK4llvm9BitVector5countEv.exit.thread ]
-  %201 = getelementptr inbounds nuw i32, ptr %.pre118, i64 %.067108
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %.pre118, i64 %.067108
   %202 = load i32, ptr %201, align 4, !tbaa !24
   %203 = icmp ult i32 %200, %202
   br i1 %203, label %204, label %208
@@ -2382,7 +2377,7 @@ _ZNK4llvm9BitVector5countEv.exit.thread:          ; preds = %.critedge, %_ZNK4ll
   store i32 %200, ptr %201, align 4, !tbaa !24
   %205 = trunc i64 %.070105 to i32
   %206 = load ptr, ptr %8, align 8, !tbaa !22
-  %207 = getelementptr inbounds nuw i32, ptr %206, i64 %.067108
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %.067108
   store i32 %205, ptr %207, align 4, !tbaa !24
   br label %208
 
@@ -2461,7 +2456,7 @@ _ZN4llvm9BitVectorD2Ev.exit91:                    ; preds = %.critedge77, %216
   br i1 %240, label %241, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit
 
 241:                                              ; preds = %235
-  %242 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %237, i64 %.069.lcssa136
+  %242 = getelementptr inbounds nuw [40 x i8], ptr %237, i64 %.069.lcssa136
   %.not.i.i92 = icmp eq ptr %238, %242
   br i1 %.not.i.i92, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit, label %243
 
@@ -2498,7 +2493,7 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit93:          ; preds = %_ZN4llvm11SmallVect
   %.068112 = phi i32 [ 0, %.lr.ph113 ], [ %273, %272 ]
   %.069111 = phi i32 [ 0, %.lr.ph113 ], [ %.1, %272 ]
   %253 = load ptr, ptr %8, align 8, !tbaa !22
-  %254 = getelementptr inbounds nuw i32, ptr %253, i64 %252
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %252
   %255 = load i32, ptr %254, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 -1, ptr %98, align 8, !tbaa !81
@@ -2509,7 +2504,7 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit93:          ; preds = %_ZN4llvm11SmallVect
   %258 = add i32 %.069111, 1
   %259 = zext i32 %.069111 to i64
   %260 = load ptr, ptr %1, align 8, !tbaa !3
-  %261 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %260, i64 %259
+  %261 = getelementptr inbounds nuw [40 x i8], ptr %260, i64 %259
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %261, ptr noundef nonnull align 8 dereferenceable(36) %10, i64 36, i1 false), !tbaa.struct !82
   br label %272
 
@@ -2519,8 +2514,8 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit93:          ; preds = %_ZN4llvm11SmallVect
   %265 = zext i32 %264 to i64
   %266 = zext i32 %.069111 to i64
   %267 = load ptr, ptr %1, align 8, !tbaa !3
-  %268 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %267, i64 %266
-  %269 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %267, i64 %252
+  %268 = getelementptr inbounds nuw [40 x i8], ptr %267, i64 %266
+  %269 = getelementptr inbounds nuw [40 x i8], ptr %267, i64 %252
   %270 = mul nuw nsw i64 %265, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %268, ptr nonnull align 8 %269, i64 %270, i1 false)
   %271 = add i32 %264, %.069111
@@ -2728,7 +2723,7 @@ _ZNK4llvm9BitVector5countEv.exit:                 ; preds = %.lr.ph.i, %._crit_e
   %.0.lcssa.i = phi i32 [ 0, %._crit_edge ], [ %63, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %65 = load ptr, ptr %1, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %65, i64 %56
+  %66 = getelementptr inbounds nuw [40 x i8], ptr %65, i64 %56
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !9
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
@@ -2752,7 +2747,7 @@ _ZNK4llvm9BitVector5countEv.exit:                 ; preds = %.lr.ph.i, %._crit_e
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %74, %76
   %77 = phi ptr [ %65, %74 ], [ %.pre, %76 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %78 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %77, i64 %57
+  %78 = getelementptr inbounds nuw [40 x i8], ptr %77, i64 %57
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8, !tbaa !15
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
@@ -2801,7 +2796,7 @@ _ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10Dat
 103:                                              ; preds = %.lr.ph, %103
   %.078206 = phi i32 [ 0, %.lr.ph ], [ %123, %103 ]
   %.079205 = phi i64 [ %56, %.lr.ph ], [ %124, %103 ]
-  %104 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %58, i64 %.079205
+  %104 = getelementptr inbounds nuw [40 x i8], ptr %58, i64 %.079205
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8, !tbaa !18
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
@@ -2811,7 +2806,7 @@ _ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10Dat
   %111 = shl nuw i64 1, %110
   %112 = lshr i32 %108, 6
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw i64, ptr %54, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %113
   %115 = load i64, ptr %114, align 8, !tbaa !362
   %116 = or i64 %111, %115
   store i64 %116, ptr %114, align 8, !tbaa !362
@@ -2843,7 +2838,7 @@ _ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10Dat
   %131 = load ptr, ptr %130, align 8
   %132 = call i16 %131(ptr noundef nonnull align 8 dereferenceable(412423) %127, ptr noundef nonnull align 8 dereferenceable(496) %128, i32 noundef 0) #21
   %133 = zext i16 %132 to i64
-  %134 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %133
+  %134 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %133
   %135 = getelementptr i8, ptr %134, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %135, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %134, i64 -8
@@ -2873,7 +2868,7 @@ _ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10Dat
 143:                                              ; preds = %.lr.ph210, %141
   %.080209 = phi i64 [ %138, %.lr.ph210 ], [ %142, %141 ]
   %144 = load ptr, ptr %1, align 8, !tbaa !3
-  %145 = getelementptr %"struct.llvm::SwitchCG::CaseCluster", ptr %144, i64 %.080209
+  %145 = getelementptr [40 x i8], ptr %144, i64 %.080209
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !9
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
@@ -2959,7 +2954,7 @@ _ZN4llvm5APIntD2Ev.exit92:                        ; preds = %_ZNK4llvm5APIntneER
   %184 = load ptr, ptr %10, align 8
   %185 = lshr i32 %179, 6
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw i64, ptr %184, i64 %186
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %186
   %.in.i.i.i.i.i = select i1 %183, ptr %187, ptr %10
   %188 = load i64, ptr %.in.i.i.i.i.i, align 8, !tbaa !18
   %189 = and i64 %182, %188
@@ -2994,7 +2989,7 @@ _ZNK4llvm5APInt18isStrictlyPositiveEv.exit:       ; preds = %191
   %205 = load ptr, ptr %11, align 8
   %206 = lshr i32 %201, 6
   %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds nuw i64, ptr %205, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %207
   %209 = load i64, ptr %208, align 8, !tbaa !18
   %210 = and i64 %209, %204
   %.not.i.i.i = icmp eq i64 %210, 0
@@ -3194,7 +3189,7 @@ _ZN4llvm5APIntD2Ev.exit101:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %278 = sdiv exact i64 %277, 24
   %.not = icmp eq ptr %.sroa.12.0223, %.sroa.0156.0224
   %279 = zext i32 %.081225 to i64
-  %280 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %.pre242.pre, i64 %279
+  %280 = getelementptr inbounds nuw [40 x i8], ptr %.pre242.pre, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 24
   %282 = load ptr, ptr %281, align 8, !tbaa !18
   br i1 %.not, label %.thread, label %.lr.ph212
@@ -3269,7 +3264,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.019.i.ptr.i.i.i.i.i, i64 24, i1 false), !tbaa.struct !427
   %312 = getelementptr inbounds nuw i8, ptr %.pn18.i.i.i.i.i.i, i64 48
   %.neg.i.i.i.i.i.i.i.i.i.i.i = sdiv exact i64 %.sroa.0.019.i.idx.i.i.i.i.i, -24
-  %313 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %312, i64 %.neg.i.i.i.i.i.i.i.i.i.i.i
+  %313 = getelementptr inbounds [24 x i8], ptr %312, i64 %.neg.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %313, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0156.1, i64 %.sroa.0.019.i.idx.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0156.1, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !427
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3439,7 +3434,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6
   %359 = ptrtoint ptr %.sroa.0.019.i33.i.i.i.i.i to i64
   %360 = sub i64 %359, %289
   %.neg.i.i.i.i.i.i57.i.i.i.i.i = sdiv exact i64 %360, -24
-  %361 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %358, i64 %.neg.i.i.i.i.i.i57.i.i.i.i.i
+  %361 = getelementptr inbounds [24 x i8], ptr %358, i64 %.neg.i.i.i.i.i.i57.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %361, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0156.1, i64 %360, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0156.1, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !427
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3515,7 +3510,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6
 .lr.ph212:                                        ; preds = %.preheader, %381
   %385 = phi i64 [ %383, %381 ], [ 0, %.preheader ]
   %.082211 = phi i32 [ %382, %381 ], [ 0, %.preheader ]
-  %386 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseBits", ptr %.sroa.0156.0224, i64 %385
+  %386 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0156.0224, i64 %385
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   %388 = load ptr, ptr %387, align 8, !tbaa !432
   %389 = icmp eq ptr %388, %282
@@ -3528,7 +3523,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6
   br i1 %390, label %392, label %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE9push_backEOS2_.exit
 
 392:                                              ; preds = %._crit_edge213
-  %393 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %.pre242.pre, i64 %391
+  %393 = getelementptr inbounds nuw [40 x i8], ptr %.pre242.pre, i64 %391
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 24
   %395 = load ptr, ptr %394, align 8, !tbaa !18
   %.not.i.i103 = icmp eq ptr %.sroa.12.0223, %.sroa.20.0222
@@ -3600,7 +3595,7 @@ _ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 
 _ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %412, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   %.pre241 = phi ptr [ %.pre241.pre, %412 ], [ %.pre242.pre, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i ]
-  %413 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseBits", ptr %407, i64 %405
+  %413 = getelementptr inbounds nuw [24 x i8], ptr %407, i64 %405
   br label %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE9push_backEOS2_.exit: ; preds = %._crit_edge213, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %396
@@ -3610,8 +3605,8 @@ _ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE9push_backEOS2_.exit: ; preds = %.
   %.sroa.20.1 = phi ptr [ %.sroa.20.0222, %396 ], [ %413, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.20.0222, %._crit_edge213 ]
   %.sroa.12.1 = phi ptr [ %399, %396 ], [ %411, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.12.0223, %._crit_edge213 ]
   %.sroa.0156.1 = phi ptr [ %.sroa.0156.0224, %396 ], [ %407, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.0156.0224, %._crit_edge213 ]
-  %415 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseBits", ptr %.sroa.0156.1, i64 %.lcssa197319
-  %416 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %414, i64 %.pre-phi
+  %415 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0156.1, i64 %.lcssa197319
+  %416 = getelementptr inbounds nuw [40 x i8], ptr %414, i64 %.pre-phi
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   %418 = load ptr, ptr %417, align 8, !tbaa !9
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 24
@@ -3658,7 +3653,7 @@ _ZN4llvm5APIntD2Ev.exit109:                       ; preds = %_ZN4llvm5APIntC2ERK
 _ZN4llvm5APIntD2Ev.exit110:                       ; preds = %_ZN4llvm5APIntC2ERKS0_.exit107, %_ZN4llvm5APIntD2Ev.exit109, %432, %435
   %.0.i108179183 = phi i64 [ %.0.i108.else.val, %435 ], [ %.0.i108.else.val, %_ZN4llvm5APIntD2Ev.exit109 ], [ %.0.i108.else.val, %432 ], [ %428, %_ZN4llvm5APIntC2ERKS0_.exit107 ]
   %436 = load ptr, ptr %1, align 8, !tbaa !3
-  %437 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %436, i64 %.pre-phi
+  %437 = getelementptr inbounds nuw [40 x i8], ptr %436, i64 %.pre-phi
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 16
   %439 = load ptr, ptr %438, align 8, !tbaa !15
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 24
@@ -3718,7 +3713,7 @@ _ZN4llvm5APIntD2Ev.exit115:                       ; preds = %_ZN4llvm5APIntC2ERK
   %467 = add i32 %466, %464
   store i32 %467, ptr %463, align 8, !tbaa !424
   %468 = load ptr, ptr %1, align 8, !tbaa !3
-  %469 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %468, i64 %.pre-phi
+  %469 = getelementptr inbounds nuw [40 x i8], ptr %468, i64 %.pre-phi
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 32
   %.sroa.09.0.copyload = load i32, ptr %470, align 8, !tbaa !24
   %471 = getelementptr inbounds nuw i8, ptr %415, i64 20
@@ -3791,10 +3786,10 @@ _ZNSt6vectorIN4llvm8SwitchCG12BitTestBlockESaIS2_EE12emplace_backIJNS0_5APIntES6
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %499 = load ptr, ptr %1, align 8, !tbaa !3
-  %500 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %499, i64 %56
+  %500 = getelementptr inbounds nuw [40 x i8], ptr %499, i64 %56
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 8
   %502 = load ptr, ptr %501, align 8, !tbaa !9
-  %503 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %499, i64 %57
+  %503 = getelementptr inbounds nuw [40 x i8], ptr %499, i64 %57
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 16
   %505 = load ptr, ptr %504, align 8, !tbaa !15
   %506 = load ptr, ptr %486, align 8, !tbaa !453
@@ -3894,7 +3889,7 @@ _ZN4llvm5APIntD2Ev.exit120:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit, label %545, !prof !348
 
 545:                                              ; preds = %531
-  %546 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::BitTestCase", ptr %.pre3.i, i64 %542
+  %546 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %542
   %547 = icmp uge ptr %24, %.pre3.i
   %548 = icmp ult ptr %24, %546
   %spec.select.i.i.i.i.i = and i1 %547, %548
@@ -3918,7 +3913,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2
   %.016.i.i.i = phi ptr [ %24, %531 ], [ %553, %549 ], [ %24, %.critedge.i.i.i ]
   %555 = load i32, ptr %285, align 8, !tbaa !74
   %556 = zext i32 %555 to i64
-  %557 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::BitTestCase", ptr %554, i64 %556
+  %557 = getelementptr inbounds nuw [32 x i8], ptr %554, i64 %556
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %557, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
   %558 = load i32, ptr %285, align 8, !tbaa !74
   %559 = add i32 %558, 1
@@ -4026,7 +4021,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.019.i.ptr.i.i.i.i.i, i64 40, i1 false), !tbaa.struct !82
   %23 = getelementptr inbounds nuw i8, ptr %.pn18.i.i.i.i.i.i, i64 80
   %.neg.i.i.i.i.i.i.i.i.i.i.i = sdiv exact i64 %.sroa.0.019.i.idx.i.i.i.i.i, -40
-  %24 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %23, i64 %.neg.i.i.i.i.i.i.i.i.i.i.i
+  %24 = getelementptr inbounds [40 x i8], ptr %23, i64 %.neg.i.i.i.i.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(1) %.val, i64 %.sroa.0.019.i.idx.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.val, ptr noundef nonnull align 8 dereferenceable(36) %3, i64 36, i1 false), !tbaa.struct !82
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4142,7 +4137,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   %56 = ptrtoint ptr %.sroa.0.019.i30.i.i.i.i.i to i64
   %57 = sub i64 %56, %9
   %.neg.i.i.i.i.i.i47.i.i.i.i.i = sdiv exact i64 %57, -40
-  %58 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %55, i64 %.neg.i.i.i.i.i.i47.i.i.i.i.i
+  %58 = getelementptr inbounds [40 x i8], ptr %55, i64 %.neg.i.i.i.i.i.i47.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %58, ptr noundef nonnull align 8 dereferenceable(1) %.val, i64 %57, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.val, ptr noundef nonnull align 8 dereferenceable(36) %2, i64 36, i1 false), !tbaa.struct !82
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -4228,7 +4223,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   br i1 %85, label %86, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit
 
 86:                                               ; preds = %._crit_edge.thread
-  %87 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %84, i64 %.0.lcssa66
+  %87 = getelementptr inbounds nuw [40 x i8], ptr %84, i64 %.0.lcssa66
   %.not.i.i = icmp eq ptr %83, %87
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit, label %88
 
@@ -4243,7 +4238,7 @@ _ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit: ; preds = %81,
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %148 ]
   %.040 = phi i32 [ 0, %.lr.ph ], [ %.1, %148 ]
   %90 = load ptr, ptr %0, align 8, !tbaa !3
-  %91 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [40 x i8], ptr %90, i64 %indvars.iv
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !9
   %.not = icmp eq i32 %.040, 0
@@ -4254,7 +4249,7 @@ _ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit: ; preds = %81,
   %96 = load ptr, ptr %95, align 8, !tbaa !18
   %97 = add i32 %.040, -1
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %90, i64 %98
+  %99 = getelementptr inbounds nuw [40 x i8], ptr %90, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load ptr, ptr %100, align 8, !tbaa !18
   %102 = icmp eq ptr %101, %96
@@ -4281,7 +4276,7 @@ _ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit: ; preds = %81,
 
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %108, %110
   %111 = phi ptr [ %90, %108 ], [ %.pre, %110 ]
-  %112 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %111, i64 %98
+  %112 = getelementptr inbounds nuw [40 x i8], ptr %111, i64 %98
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load ptr, ptr %113, align 8, !tbaa !15
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
@@ -4348,7 +4343,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge.thread
 
 132:                                              ; preds = %.critedge, %131, %_ZN4llvm5APIntD2Ev.exit.thread, %.critedge34
   %.pre4576 = phi ptr [ %.pre4575, %_ZN4llvm5APIntD2Ev.exit.thread ], [ %.pre45, %.critedge34 ], [ %.pre4577, %131 ], [ %.pre457578, %.critedge ]
-  %133 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %.pre4576, i64 %98
+  %133 = getelementptr inbounds nuw [40 x i8], ptr %.pre4576, i64 %98
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %93, ptr %134, align 8, !tbaa !15
   %135 = getelementptr inbounds nuw i8, ptr %91, i64 32
@@ -4368,8 +4363,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge.thread
   %143 = phi ptr [ %90, %94 ], [ %90, %89 ], [ %.pre45, %.critedge34 ], [ %.pre4575, %_ZN4llvm5APIntD2Ev.exit.thread ], [ %.pre4577, %131 ], [ %.pre457578, %.critedge ]
   %144 = add i32 %.040, 1
   %145 = zext i32 %.040 to i64
-  %146 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %143, i64 %145
-  %147 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %143, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [40 x i8], ptr %143, i64 %145
+  %147 = getelementptr inbounds nuw [40 x i8], ptr %143, i64 %indvars.iv
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %146, ptr noundef nonnull align 8 dereferenceable(40) %147, i64 40, i1 false)
   br label %148
 
@@ -4873,9 +4868,9 @@ _ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 
 _ZNSt12_Vector_baseIN4llvm8SwitchCG11CaseClusterESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %35
   store ptr %28, ptr %0, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !73
-  %38 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %28, i64 %26
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %28, i64 %26
   store ptr %38, ptr %11, align 8, !tbaa !470
   br label %39
 
@@ -4908,7 +4903,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !212
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !347
@@ -4936,7 +4931,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !212
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !349, !llvm.loop !350
@@ -5043,7 +5038,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabili
   %47 = add i32 %41, -1
   %.02944.i.i = and i32 %47, %46
   %48 = zext nneg i32 %.02944.i.i to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !212
   %51 = icmp eq ptr %39, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabilityENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit.i, label %.lr.ph.i15.i, !prof !347
@@ -5071,7 +5066,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabili
   %61 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %61, %47
   %62 = zext i32 %.029.i.i to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !212
   %65 = icmp eq ptr %39, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_17BranchProbabilityENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit.i, label %.lr.ph.i15.i, !prof !349, !llvm.loop !350
@@ -5423,7 +5418,7 @@ _ZSt8_DestroyIPSt4pairIN4llvm8SwitchCG15JumpTableHeaderENS2_9JumpTableEES5_EvT_S
 _ZNSt12_Vector_baseISt4pairIN4llvm8SwitchCG15JumpTableHeaderENS2_9JumpTableEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN4llvm8SwitchCG15JumpTableHeaderENS2_9JumpTableEES5_EvT_S7_RSaIT0_E.exit, %144
   store ptr %21, ptr %0, align 8, !tbaa !338
   store ptr %.0.lcssa.i.i.i.i.i27, ptr %5, align 8, !tbaa !336
-  %148 = getelementptr inbounds nuw %"struct.std::pair.318", ptr %21, i64 %17
+  %148 = getelementptr inbounds nuw [104 x i8], ptr %21, i64 %17
   store ptr %148, ptr %143, align 8, !tbaa !337
   ret void
 }
@@ -5469,7 +5464,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 28:                                               ; preds = %28, %24
   %.08.i.i.i = phi i64 [ %27, %24 ], [ %30, %28 ]
-  %29 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %0, i64 %.08.i.i.i
+  %29 = getelementptr inbounds [24 x i8], ptr %0, i64 %.08.i.i.i
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_14SwitchLowering13buildBitTestsERS6_INS3_11CaseClusterESaISD_EEjjPKNS2_10SwitchInstERSD_E3$_0EEEvT_T0_SO_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %25, ptr noundef nonnull byval(%"struct.llvm::SwitchCG::CaseBits") align 8 %29)
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %30 = add nsw i64 %.08.i.i.i, -1
@@ -5492,7 +5487,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 36:                                               ; preds = %21
   %37 = add nsw i64 %.023, -1
   %38 = udiv i64 %22, 48
-  %39 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseBits", ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %38
   %40 = getelementptr inbounds i8, ptr %storemerge22, i64 -24
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %.sroa.01.0.copyload.i.i.i.i = load i32, ptr %41, align 4, !tbaa !24
@@ -5786,9 +5781,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.044 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8SwitchCG14SwitchLowering13buildBitTestsERSt6vectorINS3_11CaseClusterESaIS6_EEjjPKNS2_10SwitchInstERS6_E3$_0EclINS_17__normal_iteratorIPNS3_8CaseBitsES5_ISI_SaISI_EEEESM_EEbT_T0_.exit" ], [ %1, %4 ]
   %8 = shl i64 %.044, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %0, i64 %9
+  %10 = getelementptr inbounds [24 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %0, i64 %11
+  %12 = getelementptr inbounds [24 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %.sroa.01.0.copyload.i.i = load i32, ptr %14, align 4, !tbaa !24
@@ -5821,8 +5816,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8SwitchCG14SwitchLowering13buildBitTestsERSt6vectorINS3_11CaseClusterESaIS6_EEjjPKNS2_10SwitchInstERS6_E3$_0EclINS_17__normal_iteratorIPNS3_8CaseBitsES5_ISI_SaISI_EEEESM_EEbT_T0_.exit": ; preds = %16, %23, %25
   %.0.i.i = phi i1 [ %17, %16 ], [ %24, %23 ], [ %28, %25 ]
   %spec.select = select i1 %.0.i.i, i64 %11, i64 %9
-  %29 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %0, i64 %spec.select
-  %30 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %0, i64 %.044
+  %29 = getelementptr inbounds [24 x i8], ptr %0, i64 %spec.select
+  %30 = getelementptr inbounds [24 x i8], ptr %0, i64 %.044
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false), !tbaa.struct !427
   %31 = icmp slt i64 %spec.select, %6
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !487
@@ -5842,8 +5837,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 38:                                               ; preds = %34
   %39 = shl nsw i64 %.0.lcssa, 1
   %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %0, i64 %40
-  %42 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %0, i64 %.0.lcssa
+  %41 = getelementptr inbounds [24 x i8], ptr %0, i64 %40
+  %42 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false), !tbaa.struct !427
   br label %43
 
@@ -5863,7 +5858,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.010.i = phi i64 [ %.0911.i, %57 ], [ %.1, %43 ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %45 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %0, i64 %.0911.i
+  %45 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0911.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %47 = load i32, ptr %46, align 4, !tbaa !81
   %.not1.i.i.i = icmp eq i32 %47, %.sroa.4.0.copyload
@@ -5889,14 +5884,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %56, label %57, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_14SwitchLowering13buildBitTestsERS6_INS3_11CaseClusterESaISD_EEjjPKNS2_10SwitchInstERSD_E3$_0EEEvT_T0_SO_T1_RT2_.exit"
 
 57:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8SwitchCG14SwitchLowering13buildBitTestsERSt6vectorINS3_11CaseClusterESaIS6_EEjjPKNS2_10SwitchInstERS6_E3$_0EclINS_17__normal_iteratorIPNS3_8CaseBitsES5_ISI_SaISI_EEEESI_EEbT_RT0_.exit.i", %53, %48
-  %58 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %0, i64 %.010.i
+  %58 = getelementptr inbounds [24 x i8], ptr %0, i64 %.010.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false), !tbaa.struct !427
   %59 = icmp sgt i64 %.0911.i, %1
   br i1 %59, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_14SwitchLowering13buildBitTestsERS6_INS3_11CaseClusterESaISD_EEjjPKNS2_10SwitchInstERSD_E3$_0EEEvT_T0_SO_T1_RT2_.exit", !llvm.loop !488
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_comp_valIZNS3_14SwitchLowering13buildBitTestsERS6_INS3_11CaseClusterESaISD_EEjjPKNS2_10SwitchInstERSD_E3$_0EEEvT_T0_SO_T1_RT2_.exit": ; preds = %48, %53, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8SwitchCG14SwitchLowering13buildBitTestsERSt6vectorINS3_11CaseClusterESaIS6_EEjjPKNS2_10SwitchInstERS6_E3$_0EclINS_17__normal_iteratorIPNS3_8CaseBitsES5_ISI_SaISI_EEEESI_EEbT_RT0_.exit.i", %57, %43
   %.0.lcssa.i = phi i64 [ %.1, %43 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8SwitchCG14SwitchLowering13buildBitTestsERSt6vectorINS3_11CaseClusterESaIS6_EEjjPKNS2_10SwitchInstERS6_E3$_0EclINS_17__normal_iteratorIPNS3_8CaseBitsES5_ISI_SaISI_EEEESI_EEbT_RT0_.exit.i" ], [ %.0911.i, %57 ], [ %.010.i, %48 ], [ %.010.i, %53 ]
-  %60 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseBits", ptr %0, i64 %.0.lcssa.i
+  %60 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0.lcssa.i
   store i64 %.sroa.043.0.copyload, ptr %60, align 8, !tbaa !362
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !212
@@ -6012,7 +6007,7 @@ _ZSt8_DestroyIPN4llvm8SwitchCG12BitTestBlockES2_EvT_S4_RSaIT0_E.exit: ; preds = 
 _ZNSt12_Vector_baseIN4llvm8SwitchCG12BitTestBlockESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm8SwitchCG12BitTestBlockES2_EvT_S4_RSaIT0_E.exit, %59
   store ptr %32, ptr %0, align 8, !tbaa !453
   store ptr %36, ptr %14, align 8, !tbaa !451
-  %63 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::BitTestBlock", ptr %32, i64 %26
+  %63 = getelementptr inbounds nuw [192 x i8], ptr %32, i64 %26
   store ptr %63, ptr %58, align 8, !tbaa !452
   ret void
 }
@@ -6246,7 +6241,7 @@ _ZSt4moveIPN4llvm8SwitchCG11BitTestCaseES3_ET0_T_S5_S4_.exit35: ; preds = %37, %
   %.idx40 = shl nuw nsw i64 %.026, 5
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !22
-  %45 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::BitTestCase", ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -6404,13 +6399,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %27 = and i64 %22, 1
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %29
-  %31 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %24
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %24
   br label %32
 
 32:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %21
   %.08.i.i.i = phi i64 [ %24, %21 ], [ %64, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
-  %33 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.08.i.i.i
+  %33 = getelementptr inbounds [40 x i8], ptr %0, i64 %.08.i.i.i
   %.sroa.09.0.copyload.i.i.i = load i64, ptr %33, align 8
   %.sroa.410.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.410.0.copyload.i.i.i = load ptr, ptr %.sroa.410.0..sroa.0.0..sroa_idx.i.i.i, align 8, !tbaa !84
@@ -6424,9 +6419,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.040.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i, %32 ]
   %35 = shl i64 %.040.i.i.i.i, 1
   %36 = add i64 %35, 2
-  %37 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %36
+  %37 = getelementptr inbounds [40 x i8], ptr %0, i64 %36
   %38 = or disjoint i64 %35, 1
-  %39 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %38
+  %39 = getelementptr inbounds [40 x i8], ptr %0, i64 %38
   %40 = getelementptr i8, ptr %37, i64 8
   %.val.i.i.i.i.i = load ptr, ptr %40, align 8, !tbaa !9
   %41 = getelementptr i8, ptr %39, i64 8
@@ -6436,8 +6431,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %44 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %42, ptr noundef nonnull readonly align 8 dereferenceable(12) %43) #22
   %45 = icmp slt i32 %44, 0
   %spec.select.i.i.i.i = select i1 %45, i64 %38, i64 %36
-  %46 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %spec.select.i.i.i.i
-  %47 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.040.i.i.i.i
+  %46 = getelementptr inbounds [40 x i8], ptr %0, i64 %spec.select.i.i.i.i
+  %47 = getelementptr inbounds [40 x i8], ptr %0, i64 %.040.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %47, ptr noundef nonnull align 8 dereferenceable(36) %46, i64 36, i1 false), !tbaa.struct !82
   %48 = icmp slt i64 %spec.select.i.i.i.i, %26
   br i1 %48, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !502
@@ -6465,7 +6460,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %60 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %55 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.0911.i.i.i.i.i
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %.0911.i.i.i.i.i
   %56 = getelementptr i8, ptr %55, i64 8
   %.val.i.i.i.i.i.i = load ptr, ptr %56, align 8, !tbaa !9
   %57 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i, i64 24
@@ -6474,14 +6469,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %59, label %60, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.010.i.i.i.i.i
+  %61 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %.010.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %61, ptr noundef nonnull align 8 dereferenceable(36) %55, i64 36, i1 false), !tbaa.struct !82
   %62 = icmp sgt i64 %.0911.i.i.i.i.i, %.08.i.i.i
   br i1 %62, label %54, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !503
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %60, %54, %51
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %51 ], [ %.010.i.i.i.i.i, %54 ], [ %.0911.i.i.i.i.i, %60 ]
-  %63 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %63 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store i64 %.sroa.09.0.copyload.i.i.i, ptr %63, align 8
   %.sroa.4.0..sroa_idx36.i.i.i.i = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %.sroa.410.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx36.i.i.i.i, align 8, !tbaa !84
@@ -6514,9 +6509,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.040.i.i.i29.i = phi i64 [ %spec.select.i.i.i32.i, %.lr.ph.i.i.i28.i ], [ 0, %.lr.ph.i10.i ]
   %72 = shl i64 %.040.i.i.i29.i, 1
   %73 = add i64 %72, 2
-  %74 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %73
+  %74 = getelementptr inbounds [40 x i8], ptr %0, i64 %73
   %75 = or disjoint i64 %72, 1
-  %76 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %75
+  %76 = getelementptr inbounds [40 x i8], ptr %0, i64 %75
   %77 = getelementptr i8, ptr %74, i64 8
   %.val.i.i.i.i30.i = load ptr, ptr %77, align 8, !tbaa !9
   %78 = getelementptr i8, ptr %76, i64 8
@@ -6526,8 +6521,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %81 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %79, ptr noundef nonnull readonly align 8 dereferenceable(12) %80) #22
   %82 = icmp slt i32 %81, 0
   %spec.select.i.i.i32.i = select i1 %82, i64 %75, i64 %73
-  %83 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %spec.select.i.i.i32.i
-  %84 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.040.i.i.i29.i
+  %83 = getelementptr inbounds [40 x i8], ptr %0, i64 %spec.select.i.i.i32.i
+  %84 = getelementptr inbounds [40 x i8], ptr %0, i64 %.040.i.i.i29.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %84, ptr noundef nonnull align 8 dereferenceable(36) %83, i64 36, i1 false), !tbaa.struct !82
   %85 = icmp slt i64 %spec.select.i.i.i32.i, %70
   br i1 %85, label %.lr.ph.i.i.i28.i, label %._crit_edge.i.i.i13.i, !llvm.loop !502
@@ -6547,8 +6542,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .thread.i.i27.i:                                  ; preds = %88
   %92 = shl nuw nsw i64 %.0.lcssa.i.i.i14.i, 1
   %93 = or disjoint i64 %92, 1
-  %94 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %93
-  %95 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.0.lcssa.i.i.i14.i
+  %94 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %93
+  %95 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa.i.i.i14.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %95, ptr noundef nonnull align 8 dereferenceable(36) %94, i64 36, i1 false), !tbaa.struct !82
   br label %.lr.ph.i.i.i.i16.i
 
@@ -6565,7 +6560,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i18.i = phi i64 [ %.1.i13.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ %.0911.i.i1415.i.i20.i, %104 ]
   %.0911.in.i.i.i.i19.i = add nsw i64 %.010.i.i.i.i18.i, -1
   %.0911.i.i1415.i.i20.i = lshr i64 %.0911.in.i.i.i.i19.i, 1
-  %99 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.0911.i.i1415.i.i20.i
+  %99 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %.0911.i.i1415.i.i20.i
   %100 = getelementptr i8, ptr %99, i64 8
   %.val.i.i.i.i.i21.i = load ptr, ptr %100, align 8, !tbaa !9
   %101 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i21.i, i64 24
@@ -6574,14 +6569,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %103, label %104, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_SF_SF_RT0_.exit.i22.i"
 
 104:                                              ; preds = %98
-  %105 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.010.i.i.i.i18.i
+  %105 = getelementptr inbounds [40 x i8], ptr %0, i64 %.010.i.i.i.i18.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %105, ptr noundef nonnull align 8 dereferenceable(36) %99, i64 36, i1 false), !tbaa.struct !82
   %.not16.i.i26.i = icmp eq i64 %.0911.i.i1415.i.i20.i, 0
   br i1 %.not16.i.i26.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_SF_SF_RT0_.exit.i22.i", label %98, !llvm.loop !503
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_SF_SF_RT0_.exit.i22.i": ; preds = %104, %98, %96
   %.0.lcssa.i.i.i.i23.i = phi i64 [ 0, %96 ], [ %.010.i.i.i.i18.i, %98 ], [ 0, %104 ]
-  %106 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.0.lcssa.i.i.i.i23.i
+  %106 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i23.i
   store i64 %.sroa.08.0.copyload.i.i11.i, ptr %106, align 8
   %.sroa.4.0..sroa_idx36.i.i.i24.i = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %.sroa.49.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx36.i.i.i24.i, align 8, !tbaa !84
@@ -6594,7 +6589,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 108:                                              ; preds = %18
   %109 = add nsw i64 %.024, -1
   %110 = udiv i64 %19, 80
-  %111 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %110
+  %111 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %110
   %112 = getelementptr inbounds i8, ptr %storemerge23, i64 -40
   %.val.i.i.i = load ptr, ptr %16, align 8, !tbaa !9
   %113 = getelementptr i8, ptr %111, i64 8

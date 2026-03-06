@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.analysis_options = type { i32, i32 }
 %struct.FLAC__FrameHeader = type { i32, i32, i32, i32, i32, i32, %union.anon.3, i8 }
 %union.anon.3 = type { i64 }
-%struct.foreign_block_t = type { i64, i32 }
 
 @.str.1 = private unnamed_addr constant [3 x i8] c"wb\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -474,7 +473,7 @@ fread.inline.exit73.i:                            ; preds = %137
 .preheader.i:                                     ; preds = %170, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %170 ]
   %173 = load ptr, ptr %83, align 8, !tbaa !70
-  %174 = getelementptr inbounds nuw ptr, ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 %indvars.iv.i
+  %174 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 %indvars.iv.i
   %175 = load ptr, ptr %174, align 8, !tbaa !72
   %176 = call i32 @FLAC__stream_decoder_set_metadata_respond_application(ptr noundef %173, ptr noundef %175) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -564,7 +563,7 @@ sub_181.i:                                        ; preds = %sub_080.i
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %208, i32 noundef 1, ptr noundef nonnull @.str.63, ptr noundef nonnull %.val.i, ptr noundef nonnull @.str.11) #15
   %209 = load ptr, ptr @stderr, align 8, !tbaa !68
   %210 = zext i32 %.052.i to i64
-  %211 = getelementptr inbounds nuw ptr, ptr @FLAC__StreamDecoderInitStatusString, i64 %210
+  %211 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__StreamDecoderInitStatusString, i64 %210
   %212 = load ptr, ptr %211, align 8, !tbaa !72
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %209, i32 noundef 1, ptr noundef nonnull @.str.64, i32 noundef %207, ptr noundef nonnull @.str.26, ptr noundef %212) #15
   %213 = icmp eq i32 %.052.i, 4
@@ -718,7 +717,7 @@ print_error_with_state.exit:                      ; preds = %254, %266
 
 switch.lookup:                                    ; preds = %283
   %287 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.flac__decode_file, i64 %287
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.flac__decode_file, i64 %287
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %80, align 4, !tbaa !63
   br label %288
@@ -919,7 +918,7 @@ switch.lookup:                                    ; preds = %283
 
 switch.lookup77:                                  ; preds = %373
   %376 = zext nneg i32 %switch.tableidx76 to i64
-  %switch.gep78 = getelementptr inbounds nuw ptr, ptr @switch.table.flac__decode_file.2, i64 %376
+  %switch.gep78 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.flac__decode_file.2, i64 %376
   %switch.load79 = load ptr, ptr %switch.gep78, align 8
   br label %377
 
@@ -1051,7 +1050,7 @@ sub_0.i31:                                        ; preds = %419
 
 switch.lookup81:                                  ; preds = %.tail.thread.i29
   %427 = zext nneg i32 %416 to i64
-  %428 = getelementptr ptr, ptr @switch.table.flac__decode_file.3, i64 %427
+  %428 = getelementptr [8 x i8], ptr @switch.table.flac__decode_file.3, i64 %427
   %switch.gep82 = getelementptr i8, ptr %428, i64 -8
   %switch.load83 = load ptr, ptr %switch.gep82, align 8
   br label %429
@@ -1633,9 +1632,9 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 
 229:                                              ; preds = %.preheader548.us, %229
   %indvars.iv = phi i64 [ 0, %.preheader548.us ], [ %indvars.iv.next, %229 ]
-  %230 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %231 = load ptr, ptr %230, align 8, !tbaa !99
-  %232 = getelementptr inbounds nuw i32, ptr %231, i64 %indvars.iv676
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %231, i64 %indvars.iv676
   %233 = load i32, ptr %232, align 4, !tbaa !69
   %234 = shl i32 %233, %14
   store i32 %234, ptr %232, align 4, !tbaa !69
@@ -1694,7 +1693,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 262:                                              ; preds = %258, %262
   %indvars.iv826 = phi i64 [ 0, %258 ], [ %indvars.iv.next827, %262 ]
   %.0450631 = phi ptr [ getelementptr inbounds nuw (i8, ptr @write_callback.ubuf, i64 2), %258 ], [ %266, %262 ]
-  %263 = getelementptr inbounds nuw i32, ptr %.pre834, i64 %indvars.iv826
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %.pre834, i64 %indvars.iv826
   %264 = load i32, ptr %263, align 4, !tbaa !69
   %265 = trunc i32 %264 to i16
   store i16 %265, ptr %.0450631, align 2, !tbaa !109
@@ -1722,7 +1721,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 273:                                              ; preds = %.preheader, %273
   %indvars.iv820 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next821, %273 ]
   %.0449629 = phi ptr [ @write_callback.ubuf, %.preheader ], [ %277, %273 ]
-  %274 = getelementptr inbounds nuw i32, ptr %272, i64 %indvars.iv820
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %indvars.iv820
   %275 = load i32, ptr %274, align 4, !tbaa !69
   %276 = trunc i32 %275 to i16
   %277 = getelementptr inbounds nuw i8, ptr %.0449629, i64 2
@@ -1760,22 +1759,22 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   %indvars.iv792 = phi i64 [ 0, %.preheader517 ], [ %indvars.iv.next793, %287 ]
   %.2422615 = phi i32 [ 0, %.preheader517 ], [ %301, %287 ]
   %288 = load ptr, ptr %2, align 8, !tbaa !99
-  %289 = getelementptr inbounds nuw i32, ptr %288, i64 %indvars.iv792
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %288, i64 %indvars.iv792
   %290 = load i32, ptr %289, align 4, !tbaa !69
   %291 = trunc i32 %290 to i16
   %292 = xor i16 %291, -32768
   %293 = or disjoint i32 %.2422615, 1
   %294 = zext i32 %.2422615 to i64
-  %295 = getelementptr inbounds nuw i16, ptr @write_callback.ubuf, i64 %294
+  %295 = getelementptr inbounds nuw [2 x i8], ptr @write_callback.ubuf, i64 %294
   store i16 %292, ptr %295, align 4, !tbaa !14
   %296 = load ptr, ptr %286, align 8, !tbaa !99
-  %297 = getelementptr inbounds nuw i32, ptr %296, i64 %indvars.iv792
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %296, i64 %indvars.iv792
   %298 = load i32, ptr %297, align 4, !tbaa !69
   %299 = trunc i32 %298 to i16
   %300 = xor i16 %299, -32768
   %301 = add i32 %.2422615, 2
   %302 = zext i32 %293 to i64
-  %303 = getelementptr inbounds nuw i16, ptr @write_callback.ubuf, i64 %302
+  %303 = getelementptr inbounds nuw [2 x i8], ptr @write_callback.ubuf, i64 %302
   store i16 %300, ptr %303, align 2, !tbaa !14
   %indvars.iv.next793 = add nuw nsw i64 %indvars.iv792, 1
   %exitcond797.not = icmp eq i64 %indvars.iv.next793, %188
@@ -1792,12 +1791,12 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 .preheader515:                                    ; preds = %304, %.preheader515
   %indvars.iv798 = phi i64 [ %indvars.iv.next799, %.preheader515 ], [ 0, %304 ]
   %305 = load ptr, ptr %2, align 8, !tbaa !99
-  %306 = getelementptr inbounds nuw i32, ptr %305, i64 %indvars.iv798
+  %306 = getelementptr inbounds nuw [4 x i8], ptr %305, i64 %indvars.iv798
   %307 = load i32, ptr %306, align 4, !tbaa !69
   %308 = trunc i32 %307 to i16
   %309 = xor i16 %308, -32768
   %indvars.iv.next799 = add nuw nsw i64 %indvars.iv798, 1
-  %310 = getelementptr inbounds nuw i16, ptr @write_callback.ubuf, i64 %indvars.iv798
+  %310 = getelementptr inbounds nuw [2 x i8], ptr @write_callback.ubuf, i64 %indvars.iv798
   store i16 %309, ptr %310, align 2, !tbaa !14
   %exitcond805.not = icmp eq i64 %indvars.iv.next799, %188
   br i1 %exitcond805.not, label %.loopexit514, label %.preheader515, !llvm.loop !113
@@ -1810,14 +1809,14 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 .lr.ph621:                                        ; preds = %.preheader512, %.lr.ph621
   %indvars.iv806 = phi i64 [ %indvars.iv.next807, %.lr.ph621 ], [ 0, %.preheader512 ]
   %.5425620 = phi i32 [ %319, %.lr.ph621 ], [ %.4424624, %.preheader512 ]
-  %311 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv806
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv806
   %312 = load ptr, ptr %311, align 8, !tbaa !99
-  %313 = getelementptr inbounds nuw i32, ptr %312, i64 %indvars.iv811
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %312, i64 %indvars.iv811
   %314 = load i32, ptr %313, align 4, !tbaa !69
   %315 = trunc i32 %314 to i16
   %316 = xor i16 %315, -32768
   %317 = zext i32 %.5425620 to i64
-  %318 = getelementptr inbounds nuw i16, ptr @write_callback.ubuf, i64 %317
+  %318 = getelementptr inbounds nuw [2 x i8], ptr @write_callback.ubuf, i64 %317
   store i16 %316, ptr %318, align 2, !tbaa !14
   %indvars.iv.next807 = add nuw nsw i64 %indvars.iv806, 1
   %319 = add i32 %.5425620, 1
@@ -1841,20 +1840,20 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   %indvars.iv767 = phi i64 [ 0, %.preheader524 ], [ %indvars.iv.next768, %322 ]
   %.7427604 = phi i32 [ 0, %.preheader524 ], [ %334, %322 ]
   %323 = load ptr, ptr %2, align 8, !tbaa !99
-  %324 = getelementptr inbounds nuw i32, ptr %323, i64 %indvars.iv767
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %323, i64 %indvars.iv767
   %325 = load i32, ptr %324, align 4, !tbaa !69
   %326 = trunc i32 %325 to i16
   %327 = or disjoint i32 %.7427604, 1
   %328 = zext i32 %.7427604 to i64
-  %329 = getelementptr inbounds nuw i16, ptr @write_callback.ubuf, i64 %328
+  %329 = getelementptr inbounds nuw [2 x i8], ptr @write_callback.ubuf, i64 %328
   store i16 %326, ptr %329, align 4, !tbaa !14
   %330 = load ptr, ptr %321, align 8, !tbaa !99
-  %331 = getelementptr inbounds nuw i32, ptr %330, i64 %indvars.iv767
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %330, i64 %indvars.iv767
   %332 = load i32, ptr %331, align 4, !tbaa !69
   %333 = trunc i32 %332 to i16
   %334 = add i32 %.7427604, 2
   %335 = zext i32 %327 to i64
-  %336 = getelementptr inbounds nuw i16, ptr @write_callback.ubuf, i64 %335
+  %336 = getelementptr inbounds nuw [2 x i8], ptr @write_callback.ubuf, i64 %335
   store i16 %333, ptr %336, align 2, !tbaa !14
   %indvars.iv.next768 = add nuw nsw i64 %indvars.iv767, 1
   %exitcond772.not = icmp eq i64 %indvars.iv.next768, %188
@@ -1871,11 +1870,11 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 .preheader522:                                    ; preds = %337, %.preheader522
   %indvars.iv773 = phi i64 [ %indvars.iv.next774, %.preheader522 ], [ 0, %337 ]
   %338 = load ptr, ptr %2, align 8, !tbaa !99
-  %339 = getelementptr inbounds nuw i32, ptr %338, i64 %indvars.iv773
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %338, i64 %indvars.iv773
   %340 = load i32, ptr %339, align 4, !tbaa !69
   %341 = trunc i32 %340 to i16
   %indvars.iv.next774 = add nuw nsw i64 %indvars.iv773, 1
-  %342 = getelementptr inbounds nuw i16, ptr @write_callback.ubuf, i64 %indvars.iv773
+  %342 = getelementptr inbounds nuw [2 x i8], ptr @write_callback.ubuf, i64 %indvars.iv773
   store i16 %341, ptr %342, align 2, !tbaa !14
   %exitcond780.not = icmp eq i64 %indvars.iv.next774, %188
   br i1 %exitcond780.not, label %.loopexit514, label %.preheader522, !llvm.loop !117
@@ -1888,13 +1887,13 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 .lr.ph610:                                        ; preds = %.preheader519, %.lr.ph610
   %indvars.iv781 = phi i64 [ %indvars.iv.next782, %.lr.ph610 ], [ 0, %.preheader519 ]
   %.10430609 = phi i32 [ %350, %.lr.ph610 ], [ %.9429613, %.preheader519 ]
-  %343 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv781
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv781
   %344 = load ptr, ptr %343, align 8, !tbaa !99
-  %345 = getelementptr inbounds nuw i32, ptr %344, i64 %indvars.iv786
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %344, i64 %indvars.iv786
   %346 = load i32, ptr %345, align 4, !tbaa !69
   %347 = trunc i32 %346 to i16
   %348 = zext i32 %.10430609 to i64
-  %349 = getelementptr inbounds nuw i16, ptr @write_callback.ubuf, i64 %348
+  %349 = getelementptr inbounds nuw [2 x i8], ptr @write_callback.ubuf, i64 %348
   store i16 %347, ptr %349, align 2, !tbaa !14
   %indvars.iv.next782 = add nuw nsw i64 %indvars.iv781, 1
   %350 = add i32 %.10430609, 1
@@ -1957,12 +1956,12 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 362:                                              ; preds = %.preheader532.us, %362
   %indvars.iv728 = phi i64 [ 0, %.preheader532.us ], [ %indvars.iv.next729, %362 ]
   %.15583.us = phi i32 [ %.14585.us, %.preheader532.us ], [ %369, %362 ]
-  %363 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv728
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv728
   %364 = load ptr, ptr %363, align 8, !tbaa !99
-  %365 = getelementptr inbounds nuw i32, ptr %364, i64 %indvars.iv733
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %364, i64 %indvars.iv733
   %366 = load i32, ptr %365, align 4, !tbaa !69
   %367 = zext i32 %.15583.us to i64
-  %368 = getelementptr inbounds nuw i32, ptr @write_callback.ubuf, i64 %367
+  %368 = getelementptr inbounds nuw [4 x i8], ptr @write_callback.ubuf, i64 %367
   store i32 %366, ptr %368, align 4, !tbaa !14
   %indvars.iv.next729 = add nuw nsw i64 %indvars.iv728, 1
   %369 = add i32 %.15583.us, 1
@@ -1986,13 +1985,13 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 .lr.ph592:                                        ; preds = %.preheader529, %.lr.ph592
   %indvars.iv739 = phi i64 [ %indvars.iv.next740, %.lr.ph592 ], [ 0, %.preheader529 ]
   %.12432591 = phi i32 [ %377, %.lr.ph592 ], [ %.11431593, %.preheader529 ]
-  %370 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv739
+  %370 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv739
   %371 = load ptr, ptr %370, align 8, !tbaa !99
-  %372 = getelementptr inbounds nuw i32, ptr %371, i64 %indvars.iv744
+  %372 = getelementptr inbounds nuw [4 x i8], ptr %371, i64 %indvars.iv744
   %373 = load i32, ptr %372, align 4, !tbaa !69
   %374 = add nsw i32 %373, 8388608
   %375 = zext i32 %.12432591 to i64
-  %376 = getelementptr inbounds nuw i32, ptr @write_callback.ubuf, i64 %375
+  %376 = getelementptr inbounds nuw [4 x i8], ptr @write_callback.ubuf, i64 %375
   store i32 %374, ptr %376, align 4, !tbaa !14
   %indvars.iv.next740 = add nuw nsw i64 %indvars.iv739, 1
   %377 = add i32 %.12432591, 1
@@ -2123,9 +2122,9 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 427:                                              ; preds = %.preheader538.us, %427
   %indvars.iv706 = phi i64 [ 0, %.preheader538.us ], [ %indvars.iv.next707, %427 ]
   %.20567.us = phi i32 [ %.19569.us, %.preheader538.us ], [ %435, %427 ]
-  %428 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv706
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv706
   %429 = load ptr, ptr %428, align 8, !tbaa !99
-  %430 = getelementptr inbounds nuw i32, ptr %429, i64 %indvars.iv711
+  %430 = getelementptr inbounds nuw [4 x i8], ptr %429, i64 %indvars.iv711
   %431 = load i32, ptr %430, align 4, !tbaa !69
   %432 = trunc i32 %431 to i8
   %433 = zext i32 %.20567.us to i64
@@ -2156,9 +2155,9 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 436:                                              ; preds = %.preheader535.us, %436
   %indvars.iv717 = phi i64 [ 0, %.preheader535.us ], [ %indvars.iv.next718, %436 ]
   %.17575.us = phi i32 [ %.16577.us, %.preheader535.us ], [ %445, %436 ]
-  %437 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv717
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv717
   %438 = load ptr, ptr %437, align 8, !tbaa !99
-  %439 = getelementptr inbounds nuw i32, ptr %438, i64 %indvars.iv722
+  %439 = getelementptr inbounds nuw [4 x i8], ptr %438, i64 %indvars.iv722
   %440 = load i32, ptr %439, align 4, !tbaa !69
   %441 = trunc i32 %440 to i8
   %442 = xor i8 %441, -128
@@ -2199,12 +2198,12 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 448:                                              ; preds = %.preheader545.us, %448
   %indvars.iv681 = phi i64 [ 0, %.preheader545.us ], [ %indvars.iv.next682, %448 ]
   %.25554.us = phi i32 [ %.24555.us, %.preheader545.us ], [ %455, %448 ]
-  %449 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv681
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv681
   %450 = load ptr, ptr %449, align 8, !tbaa !99
-  %451 = getelementptr inbounds nuw i32, ptr %450, i64 %indvars.iv686
+  %451 = getelementptr inbounds nuw [4 x i8], ptr %450, i64 %indvars.iv686
   %452 = load i32, ptr %451, align 4, !tbaa !69
   %453 = zext i32 %.25554.us to i64
-  %454 = getelementptr inbounds nuw i32, ptr @write_callback.ubuf, i64 %453
+  %454 = getelementptr inbounds nuw [4 x i8], ptr @write_callback.ubuf, i64 %453
   store i32 %452, ptr %454, align 4, !tbaa !14
   %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 1
   %455 = add i32 %.25554.us, 1
@@ -2231,12 +2230,12 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 456:                                              ; preds = %.preheader542.us, %456
   %indvars.iv692 = phi i64 [ 0, %.preheader542.us ], [ %indvars.iv.next693, %456 ]
   %.22559.us = phi i32 [ %.21560.us, %.preheader542.us ], [ %463, %456 ]
-  %457 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv692
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv692
   %458 = load ptr, ptr %457, align 8, !tbaa !99
-  %459 = getelementptr inbounds nuw i32, ptr %458, i64 %indvars.iv697
+  %459 = getelementptr inbounds nuw [4 x i8], ptr %458, i64 %indvars.iv697
   %460 = load i32, ptr %459, align 4, !tbaa !69
   %461 = zext i32 %.22559.us to i64
-  %462 = getelementptr inbounds nuw i32, ptr @write_callback.ubuf, i64 %461
+  %462 = getelementptr inbounds nuw [4 x i8], ptr @write_callback.ubuf, i64 %461
   store i32 %460, ptr %462, align 4, !tbaa !14
   %indvars.iv.next693 = add nuw nsw i64 %indvars.iv692, 1
   %463 = add i32 %.22559.us, 1
@@ -2745,11 +2744,11 @@ define internal void @metadata_callback(ptr readnone captures(none) %0, ptr noun
   %245 = load double, ptr %227, align 8, !tbaa !142
   %246 = load i32, ptr %237, align 4, !tbaa !104
   %247 = zext i32 %246 to i64
-  %248 = getelementptr inbounds nuw ptr, ptr @__const.metadata_callback.ns, i64 %247
+  %248 = getelementptr inbounds nuw [8 x i8], ptr @__const.metadata_callback.ns, i64 %247
   %249 = load ptr, ptr %248, align 8, !tbaa !72
   %250 = load i32, ptr %229, align 8, !tbaa !103
   %251 = zext i32 %250 to i64
-  %252 = getelementptr inbounds nuw ptr, ptr @__const.metadata_callback.ls, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr @__const.metadata_callback.ls, i64 %251
   %253 = load ptr, ptr %252, align 8, !tbaa !72
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %239, i32 noundef 1, ptr noundef nonnull @.str.53, ptr noundef %241, ptr noundef nonnull %243, double noundef %244, double noundef %245, ptr noundef %249, ptr noundef %253) #15
   %254 = load ptr, ptr @stderr, align 8, !tbaa !68
@@ -2812,7 +2811,7 @@ define internal void @error_callback(ptr noundef %0, i32 noundef %1, ptr noundef
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1224
   %9 = load ptr, ptr %8, align 8, !tbaa !54
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @FLAC__StreamDecoderErrorStatusString, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__StreamDecoderErrorStatusString, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !72
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1248
   %14 = load i64, ptr %13, align 8, !tbaa !57
@@ -3255,7 +3254,7 @@ define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef captur
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr %97, align 8, !tbaa !148
-  %103 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %102, i64 %.0289
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %.0289
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 8, !tbaa !149
   %106 = add i32 %105, %.1198288
@@ -3482,7 +3481,7 @@ define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef captur
 195:                                              ; preds = %.lr.ph294, %191
   %.1292 = phi i64 [ %186, %.lr.ph294 ], [ %192, %191 ]
   %196 = load ptr, ptr %190, align 8, !tbaa !148
-  %197 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %196, i64 %.1292
+  %197 = getelementptr inbounds nuw [16 x i8], ptr %196, i64 %.1292
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load i32, ptr %198, align 8, !tbaa !149
   %200 = zext i32 %199 to i64
@@ -3561,7 +3560,7 @@ define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef captur
 
 236:                                              ; preds = %233
   %237 = load ptr, ptr %232, align 8, !tbaa !148
-  %238 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %237, i64 %.2
+  %238 = getelementptr inbounds nuw [16 x i8], ptr %237, i64 %.2
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %240 = load i32, ptr %239, align 8, !tbaa !149
   %241 = zext i32 %240 to i64
@@ -3684,7 +3683,7 @@ define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef captur
 294:                                              ; preds = %.lr.ph291, %290
   %.3290 = phi i64 [ 1, %.lr.ph291 ], [ %291, %290 ]
   %295 = load ptr, ptr %289, align 8, !tbaa !148
-  %296 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %295, i64 %.3290
+  %296 = getelementptr inbounds nuw [16 x i8], ptr %295, i64 %.3290
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %298 = load i32, ptr %297, align 8, !tbaa !149
   %299 = zext i32 %298 to i64
@@ -3930,7 +3929,7 @@ write_aiff_form_comm_chunk.exit:                  ; preds = %397, %395, %388
 
 410:                                              ; preds = %407
   %411 = load ptr, ptr %406, align 8, !tbaa !148
-  %412 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %411, i64 %.4
+  %412 = getelementptr inbounds nuw [16 x i8], ptr %411, i64 %.4
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 8
   %414 = load i32, ptr %413, align 8, !tbaa !149
   %415 = zext i32 %414 to i64

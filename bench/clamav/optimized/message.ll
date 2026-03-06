@@ -210,7 +210,7 @@ define void @messageReset(ptr noundef captures(address_is_null) %0) local_unname
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.028 = phi i64 [ %19, %.lr.ph ], [ 0, %.preheader ]
   %16 = load ptr, ptr %12, align 8, !tbaa !15
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.028
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.028
   %18 = load ptr, ptr %17, align 8, !tbaa !17
   tail call void @free(ptr noundef %18) #21
   %19 = add nuw i64 %.028, 1
@@ -313,7 +313,7 @@ define range(i32 0, 2) i32 @messageSetMimeType(ptr noundef captures(address_is_n
   %.040 = phi ptr [ %1, %8 ], [ %18, %17 ]
   %12 = load i8, ptr %.040, align 1, !tbaa !24
   %13 = sext i8 %12 to i64
-  %14 = getelementptr inbounds i16, ptr %10, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %10, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !25
   %16 = and i16 %15, 1024
   %.not = icmp eq i16 %16, 0
@@ -617,11 +617,11 @@ pop.exit54:                                       ; preds = %36, %42
   %.18690.i = phi ptr [ %.085108.i, %.lr.ph.i ], [ %.287.i, %94 ]
   %56 = load i8, ptr %.06397.i, align 1, !tbaa !24
   %57 = sext i8 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %54, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %54, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !39
   %60 = load i8, ptr %.06696.i, align 1, !tbaa !24
   %61 = sext i8 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %54, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %54, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !39
   %64 = icmp eq i32 %59, %63
   br i1 %64, label %.preheader.i, label %92
@@ -641,11 +641,11 @@ pop.exit54:                                       ; preds = %36, %42
   %70 = add i32 %.0.i56, 1
   %71 = load i8, ptr %68, align 1, !tbaa !24
   %72 = sext i8 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %54, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %54, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !39
   %75 = load i8, ptr %69, align 1, !tbaa !24
   %76 = sext i8 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %54, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %54, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !39
   %79 = icmp eq i32 %74, %78
   br i1 %79, label %.preheader.i, label %80
@@ -962,7 +962,7 @@ define void @messageSetDispositionType(ptr noundef captures(address_is_null) %0,
   %16 = phi i8 [ %11, %.lr.ph ], [ %23, %21 ]
   %.025 = phi ptr [ %1, %.lr.ph ], [ %22, %21 ]
   %17 = sext i8 %16 to i64
-  %18 = getelementptr inbounds i16, ptr %13, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %13, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !25
   %20 = and i16 %19, 8192
   %.not20 = icmp eq i16 %20, 0
@@ -1025,7 +1025,7 @@ define void @messageAddArgument(ptr noundef captures(address_is_null) %0, ptr no
   %.0 = phi ptr [ %15, %9 ], [ %1, %.preheader63 ]
   %10 = load i8, ptr %.0, align 1, !tbaa !24
   %11 = sext i8 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %8, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %8, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !25
   %14 = and i16 %13, 8192
   %.not = icmp eq i16 %14, 0
@@ -1055,7 +1055,7 @@ define void @messageAddArgument(ptr noundef captures(address_is_null) %0, ptr no
 
 24:                                               ; preds = %.lr.ph, %31
   %.04376 = phi i64 [ 0, %.lr.ph ], [ %32, %31 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.04376
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.04376
   %26 = load ptr, ptr %25, align 8, !tbaa !17
   %27 = icmp eq ptr %26, null
   br i1 %27, label %._crit_edge, label %28
@@ -1267,7 +1267,7 @@ thread-pre-split.i:                               ; preds = %44
   %97 = load ptr, ptr %7, align 8, !tbaa !22
   %98 = sext i8 %95 to i32
   %99 = sext i8 %95 to i64
-  %100 = getelementptr inbounds i16, ptr %97, i64 %99
+  %100 = getelementptr inbounds [2 x i8], ptr %97, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !25
   %102 = and i16 %101, 2048
   %.not.i.i = icmp eq i16 %102, 0
@@ -1318,7 +1318,7 @@ hex.exit.i:                                       ; preds = %113, %111, %107, %1
   %120 = load ptr, ptr %7, align 8, !tbaa !22
   %121 = sext i8 %115 to i32
   %122 = sext i8 %115 to i64
-  %123 = getelementptr inbounds i16, ptr %120, i64 %122
+  %123 = getelementptr inbounds [2 x i8], ptr %120, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !25
   %125 = and i16 %124, 2048
   %.not.i98.i = icmp eq i16 %125, 0
@@ -1396,7 +1396,7 @@ rfc2231.exit.thread:                              ; preds = %.lr.ph123.i, %146, 
   %.178.i.ph = phi ptr [ %76, %146 ], [ %68, %67 ], [ %47, %.loopexit111.i ], [ %68, %.lr.ph123.i ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %148 = load ptr, ptr %147, align 8, !tbaa !15
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %.043.lcssa105
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %.043.lcssa105
   store ptr %.178.i.ph, ptr %149, align 8, !tbaa !17
   br label %158
 
@@ -1405,7 +1405,7 @@ rfc2231.exit.thread59:                            ; preds = %.thread.i, %44
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull %.str.127.sink) #21
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %151 = load ptr, ptr %150, align 8, !tbaa !15
-  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %.043.lcssa105
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %.043.lcssa105
   store ptr null, ptr %152, align 8, !tbaa !17
   br label %157
 
@@ -1415,7 +1415,7 @@ rfc2231.exit:                                     ; preds = %145
   %153 = tail call ptr @cli_safer_strdup(ptr noundef nonnull @.str.13) #21
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %155 = load ptr, ptr %154, align 8, !tbaa !15
-  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %.043.lcssa105
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %.043.lcssa105
   store ptr %153, ptr %156, align 8, !tbaa !17
   %.not52 = icmp eq ptr %153, null
   br i1 %.not52, label %157, label %158
@@ -1464,11 +1464,11 @@ rfc2231.exit:                                     ; preds = %145
 
 175:                                              ; preds = %174, %172
   %176 = phi ptr [ %.pre, %174 ], [ %159, %172 ]
-  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %.043.lcssa105
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %.043.lcssa105
   %178 = load ptr, ptr %177, align 8, !tbaa !17
   tail call void @free(ptr noundef %178) #21
   %179 = load ptr, ptr %160, align 8, !tbaa !15
-  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %.043.lcssa105
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %.043.lcssa105
   store ptr null, ptr %180, align 8, !tbaa !17
   br label %.loopexit
 
@@ -1582,7 +1582,7 @@ define void @messageAddArguments(ptr noundef captures(address_is_null) %0, ptr n
   %.0139 = phi ptr [ %1, %.lr.ph140 ], [ %.1, %.thread ]
   %9 = load ptr, ptr %5, align 8, !tbaa !22
   %10 = zext i8 %8 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !25
   %13 = and i16 %12, 8192
   %.not102 = icmp ne i16 %13, 0
@@ -1617,7 +1617,7 @@ define void @messageAddArguments(ptr noundef captures(address_is_null) %0, ptr n
   %.2 = getelementptr inbounds nuw i8, ptr %.088.pn, i64 1
   %24 = load i8, ptr %.2, align 1, !tbaa !24
   %25 = sext i8 %24 to i64
-  %26 = getelementptr inbounds i16, ptr %9, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %9, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !25
   %28 = and i16 %27, 8192
   %.not103 = icmp eq i16 %28, 0
@@ -1724,7 +1724,7 @@ define void @messageAddArguments(ptr noundef captures(address_is_null) %0, ptr n
   %65 = phi i8 [ %72, %70 ], [ %64, %.preheader ]
   %.8135 = phi ptr [ %71, %70 ], [ %29, %.preheader ]
   %66 = sext i8 %65 to i64
-  %67 = getelementptr inbounds i16, ptr %9, i64 %66
+  %67 = getelementptr inbounds [2 x i8], ptr %9, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !25
   %69 = and i16 %68, 8192
   %.not107 = icmp eq i16 %69, 0
@@ -1807,7 +1807,7 @@ define ptr @messageFindArgument(ptr noundef readonly captures(address_is_null) %
 
 12:                                               ; preds = %.lr.ph, %52
   %.03555 = phi i64 [ 0, %.lr.ph ], [ %53, %52 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %.03555
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.03555
   %14 = load ptr, ptr %13, align 8, !tbaa !17
   %.not10.i = icmp eq ptr %14, null
   %spec.select.i = select i1 %.not10.i, ptr @.str.13, ptr %14
@@ -1830,7 +1830,7 @@ define ptr @messageFindArgument(ptr noundef readonly captures(address_is_null) %
   %.036 = phi ptr [ %21, %20 ], [ %30, %24 ]
   %25 = load i8, ptr %.036, align 1, !tbaa !24
   %26 = sext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !25
   %29 = and i16 %28, 8192
   %.not = icmp eq i16 %29, 0
@@ -1948,7 +1948,7 @@ define internal fastcc range(i32 0, 2) i32 @messageHasArgument(ptr noundef reado
 
 12:                                               ; preds = %.lr.ph, %32
   %.02538 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %.02538
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.02538
   %14 = load ptr, ptr %13, align 8, !tbaa !17
   %.not10.i = icmp eq ptr %14, null
   %spec.select.i = select i1 %.not10.i, ptr @.str.13, ptr %14
@@ -1971,7 +1971,7 @@ define internal fastcc range(i32 0, 2) i32 @messageHasArgument(ptr noundef reado
   %.0 = phi ptr [ %21, %20 ], [ %30, %24 ]
   %25 = load i8, ptr %.0, align 1, !tbaa !24
   %26 = sext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !25
   %29 = and i16 %28, 8192
   %.not = icmp eq i16 %29, 0
@@ -2016,7 +2016,7 @@ define void @messageSetEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %.0 = phi ptr [ %14, %8 ], [ %1, %.preheader92 ]
   %9 = load i8, ptr %.0, align 1, !tbaa !24
   %10 = sext i8 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %6, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %6, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !25
   %13 = and i16 %12, 1
   %.not = icmp eq i16 %13, 0
@@ -2057,13 +2057,13 @@ define void @messageSetEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %27 = load ptr, ptr %21, align 8, !tbaa !37
   %28 = load i8, ptr %23, align 1, !tbaa !24
   %29 = sext i8 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %27, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %27, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !39
   %sext = shl i32 %31, 24
   %32 = ashr exact i32 %sext, 24
   %33 = load i8, ptr %26, align 1, !tbaa !24
   %34 = sext i8 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %27, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %27, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !39
   %37 = icmp ne i32 %32, %36
   %38 = icmp ne i32 %sext, 2013265920
@@ -2099,7 +2099,7 @@ define void @messageSetEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 50:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %51 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !39
   %53 = icmp eq i32 %52, %48
   br i1 %53, label %54, label %49
@@ -2124,7 +2124,7 @@ define void @messageSetEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %22, align 4, !tbaa !21
   %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds i32, ptr %58, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %58, i64 %65
   store i32 %62, ptr %66, align 4, !tbaa !39
   %67 = load i32, ptr %22, align 4, !tbaa !21
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.45, i32 noundef %67, ptr noundef nonnull %23) #21
@@ -2416,7 +2416,7 @@ define range(i32 -1, 2) i32 @messageAddStr(ptr noundef captures(address_is_null)
   %15 = phi i8 [ %7, %.lr.ph ], [ %.fr, %11 ]
   %.067 = phi ptr [ %1, %.lr.ph ], [ %12, %11 ]
   %16 = zext nneg i8 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !25
   %19 = and i16 %18, 8192
   %.not58 = icmp eq i16 %19, 0
@@ -2989,21 +2989,21 @@ define internal fastcc ptr @decode(ptr noundef captures(none) %0, ptr noundef re
   %54 = load ptr, ptr %53, align 8, !tbaa !22
   %55 = zext i8 %.0117172 to i32
   %56 = zext i8 %.0117172 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !25
   %59 = and i16 %58, 8
   %.not156 = icmp eq i16 %59, 0
   %60 = select i1 %.not156, i32 64, i32 %55
   %61 = zext i8 %.1116173 to i32
   %62 = zext i8 %.1116173 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %54, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !25
   %65 = and i16 %64, 8
   %.not157 = icmp eq i16 %65, 0
   %66 = select i1 %.not157, i32 64, i32 %61
   %67 = zext i8 %.2174 to i32
   %68 = zext i8 %.2174 to i64
-  %69 = getelementptr inbounds nuw i16, ptr %54, i64 %68
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %68
   %70 = load i16, ptr %69, align 2, !tbaa !25
   %71 = and i16 %70, 8
   %.not158 = icmp eq i16 %71, 0
@@ -3298,7 +3298,7 @@ messageGetBody.exit215.i:                         ; preds = %31
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %177 ]
   %.0153318.i = phi ptr [ %15, %.lr.ph.i ], [ %.2155232257.i, %177 ]
   %49 = load ptr, ptr %0, align 8, !tbaa !20
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4, !tbaa !39
   %.not198.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not198.i, label %.thread227.i, label %52
@@ -3371,7 +3371,7 @@ messageGetBody.exit215.i:                         ; preds = %31
 74:                                               ; preds = %72
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #21
   %75 = load ptr, ptr %0, align 8, !tbaa !20
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.i
   store i32 0, ptr %76, align 4, !tbaa !39
   br label %77
 
@@ -3804,7 +3804,7 @@ messageGetBody.exit215.i:                         ; preds = %27
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %193 ]
   %.0153318.i = phi ptr [ %11, %.lr.ph.i ], [ %.2155232257.i, %193 ]
   %46 = load ptr, ptr %0, align 8, !tbaa !20
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i
   %48 = load i32, ptr %47, align 4, !tbaa !39
   %.not198.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not198.i, label %.thread227.i, label %49
@@ -3877,7 +3877,7 @@ messageGetBody.exit215.i:                         ; preds = %27
 71:                                               ; preds = %69
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #21
   %72 = load ptr, ptr %0, align 8, !tbaa !20
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i
   store i32 0, ptr %73, align 4, !tbaa !39
   br label %74
 
@@ -4326,7 +4326,7 @@ messageGetBody.exit215.i:                         ; preds = %26
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %187 ]
   %.0153318.i = phi ptr [ %10, %.lr.ph.i ], [ %.2155232257.i, %187 ]
   %40 = load ptr, ptr %0, align 8, !tbaa !20
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4, !tbaa !39
   %.not198.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not198.i, label %.thread227.i, label %43
@@ -4399,7 +4399,7 @@ messageGetBody.exit215.i:                         ; preds = %26
 65:                                               ; preds = %63
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #21
   %66 = load ptr, ptr %0, align 8, !tbaa !20
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.i
   store i32 0, ptr %67, align 4, !tbaa !39
   br label %68
 
@@ -4861,7 +4861,7 @@ messageGetBody.exit:                              ; preds = %6
   %.2109223 = phi ptr [ null, %.lr.ph225 ], [ %.5, %.loopexit185 ]
   %.2117222 = phi ptr [ null, %.lr.ph225 ], [ %.5120, %.loopexit185 ]
   %34 = load ptr, ptr %0, align 8, !tbaa !20
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !39
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.64, i32 noundef %37, i32 noundef %36) #21
@@ -5291,7 +5291,7 @@ define ptr @decodeLine(ptr noundef captures(address_is_null) %0, i32 noundef %1,
   %26 = load ptr, ptr %25, align 8, !tbaa !22
   %27 = sext i8 %23 to i32
   %28 = sext i8 %23 to i64
-  %29 = getelementptr inbounds i16, ptr %26, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %26, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !25
   %31 = and i16 %30, 2048
   %.not.i = icmp eq i16 %31, 0
@@ -5346,7 +5346,7 @@ hex.exit:                                         ; preds = %32, %36, %40, %42
   %50 = load ptr, ptr %25, align 8, !tbaa !22
   %51 = sext i8 %44 to i32
   %52 = sext i8 %44 to i64
-  %53 = getelementptr inbounds i16, ptr %50, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %50, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !25
   %55 = and i16 %54, 2048
   %.not.i127 = icmp eq i16 %55, 0
@@ -5864,7 +5864,7 @@ define range(i32 0, 2) i32 @isuuencodebegin(ptr noundef readonly captures(none) 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %13 = load i8, ptr %12, align 1, !tbaa !24
   %14 = sext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %11, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !25
   %17 = and i16 %16, 2048
   %.not7 = icmp eq i16 %17, 0
@@ -5874,7 +5874,7 @@ define range(i32 0, 2) i32 @isuuencodebegin(ptr noundef readonly captures(none) 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %20 = load i8, ptr %19, align 1, !tbaa !24
   %21 = sext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %11, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %11, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !25
   %24 = and i16 %23, 2048
   %.not8 = icmp eq i16 %24, 0
@@ -5884,7 +5884,7 @@ define range(i32 0, 2) i32 @isuuencodebegin(ptr noundef readonly captures(none) 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i8, ptr %26, align 1, !tbaa !24
   %28 = sext i8 %27 to i64
-  %29 = getelementptr inbounds i16, ptr %11, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %11, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !25
   %31 = and i16 %30, 2048
   %.not9 = icmp eq i16 %31, 0

@@ -547,9 +547,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.06 = phi i64 [ %35, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %.06
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.06
   %33 = load ptr, ptr %32, align 8, !tbaa !93
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %.06
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.06
   store ptr %33, ptr %34, align 8, !tbaa !100
   %35 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %35, %27

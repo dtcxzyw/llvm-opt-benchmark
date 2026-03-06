@@ -1076,7 +1076,7 @@ define internal fastcc noundef ptr @dissect_eth_common(ptr noundef %0, ptr nound
   %spec.store.select = select i1 %10, i32 0, i32 %9
   store i32 %spec.store.select, ptr @dissect_eth_common.ehdr_num, align 4
   %11 = sext i32 %spec.store.select to i64
-  %12 = getelementptr %struct._eth_hdr, ptr @dissect_eth_common.ehdrs, i64 %11
+  %12 = getelementptr [56 x i8], ptr @dissect_eth_common.ehdrs, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 35, ptr noundef nonnull @.str.77)

@@ -198,7 +198,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 
 .loopexit435:                                     ; preds = %.lr.ph, %.lr.ph457
   %.1263.lcssa = phi i32 [ %.0262456, %.lr.ph457 ], [ %36, %.lr.ph ]
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next557
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.next557
   %31 = load ptr, ptr %30, align 8
   %.not376 = icmp eq ptr %31, null
   br i1 %.not376, label %._crit_edge, label %.lr.ph457, !llvm.loop !6
@@ -219,7 +219,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %.1263453 = phi i32 [ %36, %.lr.ph ], [ %.0262456, %.lr.ph457 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = add nsw i32 %.1263453, 1
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.next
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.next
   %38 = load ptr, ptr %37, align 8
   %.not403 = icmp eq ptr %38, null
   br i1 %.not403, label %.loopexit435, label %.lr.ph, !llvm.loop !7
@@ -315,14 +315,14 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 
 72:                                               ; preds = %._crit_edge605, %.lr.ph462.split
   %73 = phi ptr [ %.pre606, %._crit_edge605 ], [ %63, %.lr.ph462.split ]
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.next560
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.next560
   %75 = load ptr, ptr %74, align 8
   %.not542 = icmp eq ptr %75, null
   br i1 %.not542, label %.loopexit433, label %.lr.ph462.split, !llvm.loop !8
 
 .loopexit433:                                     ; preds = %72, %59
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv.next563
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv.next563
   %78 = load ptr, ptr %77, align 8
   %.not661 = icmp eq ptr %78, null
   br i1 %.not661, label %._crit_edge468, label %.lr.ph467, !llvm.loop !9
@@ -365,7 +365,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.10, ptr noundef %91, ptr noundef nonnull %94) #8
   %indvars.iv.next566 = add nuw nsw i64 %indvars.iv565, 1
   %95 = load ptr, ptr %86, align 8
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv.next566
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv.next566
   %97 = load ptr, ptr %96, align 8
   %.not401 = icmp eq ptr %97, null
   br i1 %.not401, label %._crit_edge477, label %.lr.ph476, !llvm.loop !10
@@ -373,7 +373,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 ._crit_edge477:                                   ; preds = %.lr.ph476, %85
   %indvars.iv.next569 = add nuw nsw i64 %indvars.iv568, 1
   %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv.next569
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv.next569
   %100 = load ptr, ptr %99, align 8
   %.not399 = icmp eq ptr %100, null
   br i1 %.not399, label %._crit_edge482, label %.lr.ph481, !llvm.loop !11
@@ -402,7 +402,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 106:                                              ; preds = %106, %104
   %indvars.iv577 = phi i32 [ %indvars.iv.next578, %106 ], [ 0, %104 ]
   %indvars.iv571 = phi i64 [ %indvars.iv.next572, %106 ], [ 0, %104 ]
-  %107 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv571
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv571
   %108 = load ptr, ptr %107, align 8
   %.not382 = icmp eq ptr %108, null
   %indvars.iv.next572 = add nuw nsw i64 %indvars.iv571, 1
@@ -432,7 +432,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 
 .lr.ph484:                                        ; preds = %.lr.ph484.preheader, %.lr.ph484
   %indvars.iv574 = phi i64 [ 0, %.lr.ph484.preheader ], [ %indvars.iv.next575, %.lr.ph484 ]
-  %116 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv574
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv574
   %117 = trunc nuw nsw i64 %indvars.iv574 to i32
   store i32 %117, ptr %116, align 4
   %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
@@ -478,10 +478,10 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 
 133:                                              ; preds = %127
   %134 = sext i32 %130 to i64
-  %135 = getelementptr inbounds i32, ptr %112, i64 %134
+  %135 = getelementptr inbounds [4 x i8], ptr %112, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = sext i32 %129 to i64
-  %138 = getelementptr inbounds i32, ptr %112, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %112, i64 %137
   %139 = load i32, ptr %138, align 4
   store i32 %139, ptr %135, align 4
   store i32 %136, ptr %138, align 4
@@ -500,11 +500,11 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %.0309529 = phi i32 [ 0, %.lr.ph534 ], [ %.6315, %326 ]
   %.0317528 = phi i32 [ 0, %.lr.ph534 ], [ %.5322, %326 ]
   %.0323527 = phi i1 [ false, %.lr.ph534 ], [ %.5328, %326 ]
-  %143 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv594
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv594
   %144 = load i32, ptr %143, align 4
   %145 = load ptr, ptr %0, align 8
   %146 = sext i32 %144 to i64
-  %147 = getelementptr inbounds ptr, ptr %145, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %145, i64 %146
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %148, align 8
   %.not386 = icmp eq ptr %149, null
@@ -530,7 +530,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 157:                                              ; preds = %157, %154
   %indvars.iv585 = phi i32 [ %indvars.iv.next586, %157 ], [ 0, %154 ]
   %indvars.iv579 = phi i64 [ %indvars.iv.next580, %157 ], [ 0, %154 ]
-  %158 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv579
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv579
   %159 = load ptr, ptr %158, align 8
   %.not389 = icmp eq ptr %159, null
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
@@ -565,7 +565,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 
 .lr.ph487:                                        ; preds = %.lr.ph487.preheader, %.lr.ph487
   %indvars.iv582 = phi i64 [ 0, %.lr.ph487.preheader ], [ %indvars.iv.next583, %.lr.ph487 ]
-  %167 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv582
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv582
   %168 = trunc nuw nsw i64 %indvars.iv582 to i32
   store i32 %168, ptr %167, align 4
   %indvars.iv.next583 = add nuw nsw i64 %indvars.iv582, 1
@@ -582,10 +582,10 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 
 175:                                              ; preds = %169
   %176 = sext i32 %172 to i64
-  %177 = getelementptr inbounds i32, ptr %163, i64 %176
+  %177 = getelementptr inbounds [4 x i8], ptr %163, i64 %176
   %178 = load i32, ptr %177, align 4
   %179 = sext i32 %171 to i64
-  %180 = getelementptr inbounds i32, ptr %163, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %163, i64 %179
   %181 = load i32, ptr %180, align 4
   store i32 %181, ptr %177, align 4
   store i32 %178, ptr %180, align 4
@@ -622,11 +622,11 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %.2311507 = phi i32 [ %.0309529, %.lr.ph516 ], [ %.5314, %.thread419 ]
   %.2319506 = phi i32 [ %.0317528, %.lr.ph516 ], [ %.4321, %.thread419 ]
   %.2325505 = phi i1 [ %.0323527, %.lr.ph516 ], [ %.4327, %.thread419 ]
-  %193 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv589
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv589
   %194 = load i32, ptr %193, align 4
   %195 = load ptr, ptr %155, align 8
   %196 = sext i32 %194 to i64
-  %197 = getelementptr inbounds ptr, ptr %195, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %195, i64 %196
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8
@@ -931,7 +931,7 @@ SDLTest_RunTest.exit:                             ; preds = %269, %272, %274, %2
 308:                                              ; preds = %305
   call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull %spec.select404, ptr noundef nonnull @.str.30) #8
   %309 = sext i32 %.2266514 to i64
-  %310 = getelementptr inbounds ptr, ptr %43, i64 %309
+  %310 = getelementptr inbounds [8 x i8], ptr %43, i64 %309
   store ptr %198, ptr %310, align 8
   %311 = add nsw i32 %.2266514, 1
   br label %.thread419
@@ -1043,7 +1043,7 @@ SDLTest_RunTest.exit:                             ; preds = %269, %272, %274, %2
 
 343:                                              ; preds = %342, %343
   %indvars.iv599 = phi i64 [ 0, %342 ], [ %indvars.iv.next600, %343 ]
-  %344 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv599
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv599
   %345 = load ptr, ptr %344, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %347 = load ptr, ptr %346, align 8
@@ -1215,7 +1215,7 @@ declare noalias ptr @SDL_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @SDLTest_TestSuiteCommonArg(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds ptr, ptr %1, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %1, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @SDL_strcasecmp(ptr noundef %6, ptr noundef nonnull @.str.62) #8
   %8 = icmp eq i32 %7, 0

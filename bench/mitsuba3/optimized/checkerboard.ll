@@ -210,8 +210,8 @@ define weak_odr void @_ZN7mitsuba12CheckerboardIfN5drjit6MatrixINS_8SpectrumIfLm
 
 13:                                               ; preds = %13, %2
   %.017.i.i = phi i64 [ 0, %2 ], [ %16, %13 ]
-  %14 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %12, i64 %.017.i.i
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %.017.i.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.017.i.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.017.i.i
   store float 1.000000e+00, ptr %15, align 4, !alias.scope !9
   %16 = add nuw nsw i64 %.017.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %16, 3
@@ -224,8 +224,8 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 18:                                               ; preds = %18, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i
   %.017.i1.i = phi i64 [ 0, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i ], [ %21, %18 ]
-  %19 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %17, i64 %.017.i1.i
-  %20 = getelementptr inbounds nuw float, ptr %19, i64 %.017.i1.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %.017.i1.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.017.i1.i
   store float 1.000000e+00, ptr %20, align 4, !alias.scope !17
   %21 = add nuw nsw i64 %.017.i1.i, 1
   %exitcond.not.i2.i = icmp eq i64 %21, 3
@@ -315,8 +315,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 34:                                               ; preds = %34, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit15
   %.017.i.i16 = phi i64 [ 0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit15 ], [ %37, %34 ]
-  %35 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %9, i64 %.017.i.i16
-  %36 = getelementptr inbounds nuw float, ptr %35, i64 %.017.i.i16
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.017.i.i16
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %.017.i.i16
   store float 1.000000e+00, ptr %36, align 4, !alias.scope !18
   %37 = add nuw nsw i64 %.017.i.i16, 1
   %exitcond.not.i.i17 = icmp eq i64 %37, 3
@@ -329,8 +329,8 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 39:                                               ; preds = %39, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i18
   %.017.i1.i19 = phi i64 [ 0, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i18 ], [ %42, %39 ]
-  %40 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %38, i64 %.017.i1.i19
-  %41 = getelementptr inbounds nuw float, ptr %40, i64 %.017.i1.i19
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %.017.i1.i19
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %.017.i1.i19
   store float 1.000000e+00, ptr %41, align 4, !alias.scope !26
   %42 = add nuw nsw i64 %.017.i1.i19, 1
   %exitcond.not.i2.i20 = icmp eq i64 %42, 3
@@ -2259,7 +2259,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -2817,7 +2817,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -2910,7 +2910,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8
@@ -3595,14 +3595,14 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %4, %10
   store i8 91, ptr %24, align 1
   %26 = load ptr, ptr %5, align 8
   store i8 0, ptr %26, align 1
-  %invariant.gep = getelementptr float, ptr %1, i64 %3
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %3
   %27 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %52
   %.014 = phi i64 [ %31, %52 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %gep = getelementptr %"struct.drjit::Array", ptr %invariant.gep, i64 %.014
+  %gep = getelementptr [16 x i8], ptr %invariant.gep, i64 %.014
   %28 = load float, ptr %gep, align 4
   %29 = fpext float %28 to double
   %30 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5drjit12StringBuffer3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.22, double noundef %29)

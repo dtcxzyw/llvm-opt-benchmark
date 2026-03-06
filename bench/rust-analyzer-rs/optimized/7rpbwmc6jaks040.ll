@@ -1513,7 +1513,7 @@ define hidden noundef ptr @_ZN4stdx7process3imp5read217h85ec80f14ea92412E(i32 no
           to label %121 unwind label %.loopexit.split-lp
 
 104:                                              ; preds = %.split
-  %105 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %14, i64 %.040.ph
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.040.ph
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 6
   %107 = load i16, ptr %106, align 2, !noundef !7
   %108 = icmp eq i16 %107, 0

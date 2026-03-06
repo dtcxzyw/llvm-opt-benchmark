@@ -144,7 +144,7 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef capt
   %.065 = phi ptr [ %0, %.lr.ph ], [ %19, %18 ]
   %13 = load i8, ptr %.065, align 1, !tbaa !12
   %14 = sext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %10, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %10, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !15
   %17 = and i16 %16, 8192
   %.not = icmp eq i16 %17, 0
@@ -165,7 +165,7 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef capt
   %23 = load ptr, ptr %22, align 8, !tbaa !13
   %24 = load i8, ptr %.0.lcssa, align 1, !tbaa !12
   %25 = sext i8 %24 to i64
-  %26 = getelementptr inbounds i16, ptr %23, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %23, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !15
   %28 = and i16 %27, 2048
   %.not54 = icmp eq i16 %28, 0
@@ -181,7 +181,7 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef capt
 30:                                               ; preds = %.preheader64
   %31 = load i8, ptr %storemerge, align 1, !tbaa !12
   %32 = sext i8 %31 to i64
-  %33 = getelementptr inbounds i16, ptr %23, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %23, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !15
   %35 = and i16 %34, 8192
   %.not55 = icmp eq i16 %35, 0
@@ -219,7 +219,7 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef capt
   %.168 = phi ptr [ %45, %.lr.ph69 ], [ %57, %56 ]
   %51 = load i8, ptr %.168, align 1, !tbaa !12
   %52 = sext i8 %51 to i64
-  %53 = getelementptr inbounds i16, ptr %48, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %48, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !15
   %55 = and i16 %54, 8192
   %.not57 = icmp eq i16 %55, 0
@@ -239,7 +239,7 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef capt
   %60 = load ptr, ptr %22, align 8, !tbaa !13
   %61 = load i8, ptr %.1.lcssa, align 1, !tbaa !12
   %62 = sext i8 %61 to i64
-  %63 = getelementptr inbounds i16, ptr %60, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %60, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !15
   %65 = and i16 %64, 2048
   %.not58 = icmp eq i16 %65, 0
@@ -255,7 +255,7 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef capt
 67:                                               ; preds = %.preheader
   %68 = load i8, ptr %storemerge59, align 1, !tbaa !12
   %69 = sext i8 %68 to i64
-  %70 = getelementptr inbounds i16, ptr %60, i64 %69
+  %70 = getelementptr inbounds [2 x i8], ptr %60, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !15
   %72 = and i16 %71, 8192
   %.not60 = icmp eq i16 %72, 0
@@ -295,7 +295,7 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef capt
   %.273 = phi ptr [ %84, %.lr.ph74 ], [ %96, %95 ]
   %90 = load i8, ptr %.273, align 1, !tbaa !12
   %91 = sext i8 %90 to i64
-  %92 = getelementptr inbounds i16, ptr %87, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr %87, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !15
   %94 = and i16 %93, 8192
   %.not62 = icmp eq i16 %94, 0
@@ -402,7 +402,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 %18
   %30 = load i8, ptr %29, align 1, !tbaa !12
   %31 = sext i8 %30 to i64
-  %32 = getelementptr inbounds i16, ptr %28, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %28, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !15
   %34 = and i16 %33, 2048
   %.not125 = icmp eq i16 %34, 0
@@ -412,7 +412,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   %36 = getelementptr i8, ptr %20, i64 2
   %37 = load i8, ptr %36, align 1, !tbaa !12
   %38 = sext i8 %37 to i64
-  %39 = getelementptr inbounds i16, ptr %28, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %28, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !15
   %41 = and i16 %40, 2048
   %.not126 = icmp eq i16 %41, 0
@@ -422,7 +422,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 %24
   %44 = load i8, ptr %43, align 1, !tbaa !12
   %45 = sext i8 %44 to i64
-  %46 = getelementptr inbounds i16, ptr %28, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %28, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !15
   %48 = and i16 %47, 2048
   %.not127 = icmp eq i16 %48, 0
@@ -807,7 +807,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %57 = load ptr, ptr %56, align 8, !tbaa !13
   %58 = load i8, ptr %.1231, align 1, !tbaa !12
   %59 = sext i8 %58 to i64
-  %60 = getelementptr inbounds i16, ptr %57, i64 %59
+  %60 = getelementptr inbounds [2 x i8], ptr %57, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !15
   %62 = and i16 %61, 8192
   %.not273453 = icmp eq i16 %62, 0
@@ -816,7 +816,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 63:                                               ; preds = %.lr.ph455
   %64 = load i8, ptr %69, align 1, !tbaa !12
   %65 = sext i8 %64 to i64
-  %66 = getelementptr inbounds i16, ptr %57, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %57, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !15
   %68 = and i16 %67, 8192
   %.not273 = icmp eq i16 %68, 0
@@ -998,7 +998,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.0232345 = phi ptr [ %137, %.preheader317 ], [ %160, %159 ]
   %154 = load i8, ptr %.0232345, align 1, !tbaa !12
   %155 = sext i8 %154 to i64
-  %156 = getelementptr inbounds i16, ptr %147, i64 %155
+  %156 = getelementptr inbounds [2 x i8], ptr %147, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !15
   %158 = and i16 %157, 8192
   %.not303 = icmp eq i16 %158, 0
@@ -1497,7 +1497,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %.1242358 = phi ptr [ %.0241394, %78 ], [ %87, %86 ]
   %81 = load i8, ptr %.1242358, align 1, !tbaa !12
   %82 = sext i8 %81 to i64
-  %83 = getelementptr inbounds i16, ptr %79, i64 %82
+  %83 = getelementptr inbounds [2 x i8], ptr %79, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !15
   %85 = and i16 %84, 8192
   %.not278 = icmp eq i16 %85, 0
@@ -1524,7 +1524,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %.0213360 = phi i32 [ %.2.ph, %102 ], [ 0, %.preheader337 ]
   %91 = load i8, ptr %storemerge361, align 1, !tbaa !12
   %92 = sext i8 %91 to i64
-  %93 = getelementptr inbounds i16, ptr %79, i64 %92
+  %93 = getelementptr inbounds [2 x i8], ptr %79, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !15
   %95 = and i16 %94, 8192
   %.not279 = icmp eq i16 %95, 0
@@ -1645,7 +1645,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %.3244385 = phi ptr [ %136, %.lr.ph386 ], [ %146, %145 ]
   %140 = load i8, ptr %.3244385, align 1, !tbaa !12
   %141 = sext i8 %140 to i64
-  %142 = getelementptr inbounds i16, ptr %138, i64 %141
+  %142 = getelementptr inbounds [2 x i8], ptr %138, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !15
   %144 = and i16 %143, 8192
   %.not283 = icmp eq i16 %144, 0
@@ -2078,7 +2078,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %61 = phi ptr [ %.promoted, %.lr.ph203 ], [ %68, %67 ]
   %62 = load i8, ptr %61, align 1, !tbaa !12
   %63 = sext i8 %62 to i64
-  %64 = getelementptr inbounds i16, ptr %59, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %59, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !15
   %66 = and i16 %65, 8192
   %.not153 = icmp eq i16 %66, 0
@@ -2158,7 +2158,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %98 = load ptr, ptr %97, align 8, !tbaa !13
   %99 = load i8, ptr %storemerge, align 1, !tbaa !12
   %100 = sext i8 %99 to i64
-  %101 = getelementptr inbounds i16, ptr %98, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %98, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !15
   %103 = and i16 %102, 8192
   %.not155 = icmp eq i16 %103, 0

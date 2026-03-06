@@ -3,8 +3,6 @@ source_filename = "bench/luajit/original/lib_io.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.TValue = type { i64 }
-
 @lj_lib_init_io_method = internal constant [73 x i8] c"`9\0A\05close\04read\05write\05flush\04seek\07setvbuf\05lines\04__gc\0A__tostring\FC\01\C7__index\FA\FF", align 16
 @lj_lib_cf_io_method = internal constant [9 x ptr] [ptr @lj_cf_io_method_close, ptr @lj_cf_io_method_read, ptr @lj_cf_io_method_write, ptr @lj_cf_io_method_flush, ptr @lj_cf_io_method_seek, ptr @lj_cf_io_method_setvbuf, ptr @lj_cf_io_method_lines, ptr @lj_cf_io_method___gc, ptr @lj_cf_io_method___tostring], align 16
 @.str = private unnamed_addr constant [6 x i8] c"FILE*\00", align 1
@@ -743,7 +741,7 @@ define internal fastcc i32 @io_file_read(ptr noundef %0, ptr %.0.val, i32 nounde
   %.1506 = phi i32 [ 1, %17 ], [ %.3, %io_file_readall.exit ]
   %23 = add nsw i32 %.in, -1
   %24 = load ptr, ptr %6, align 8, !tbaa !25
-  %25 = getelementptr inbounds nuw %union.TValue, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8, !tbaa !14
   %27 = ashr i64 %26, 47
   %28 = icmp eq i64 %27, -5
@@ -1140,7 +1138,7 @@ lj_state_checkstack.exit:                         ; preds = %22, %29
   %33 = shl nsw i64 %32, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr nonnull align 8 %31, i64 %33, i1 false)
   %34 = load ptr, ptr %21, align 8, !tbaa !4
-  %35 = getelementptr inbounds %union.TValue, ptr %34, i64 %32
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %32
   store ptr %35, ptr %21, align 8, !tbaa !4
   %.val.pre = load ptr, ptr %12, align 8, !tbaa !20
   br label %36

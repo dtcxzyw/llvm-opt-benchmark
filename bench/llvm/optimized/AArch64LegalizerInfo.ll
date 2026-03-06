@@ -19672,7 +19672,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm20AArch64LegalizerInfo14legalizeCu
   %76 = getelementptr inbounds nuw i8, ptr %20, i64 448
   %77 = zext nneg i32 %71 to i64
   %78 = load ptr, ptr %76, align 8, !tbaa !19
-  %79 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %77
   %80 = load i64, ptr %79, align 8, !tbaa !28
   br label %_ZNK4llvm20AArch64LegalizerInfo12legalizeCTTZERNS_12MachineInstrERNS_15LegalizerHelperE.exit
 
@@ -19771,7 +19771,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i: ; preds = %121
   %126 = getelementptr inbounds nuw i8, ptr %20, i64 448
   %127 = zext nneg i32 %122 to i64
   %128 = load ptr, ptr %126, align 8, !tbaa !19
-  %129 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %128, i64 %127
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %127
   %130 = load i64, ptr %129, align 8, !tbaa !28
   %131 = and i64 %130, 12
   %or.cond.i = icmp eq i64 %131, 12
@@ -19955,7 +19955,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm20AArch64LegalizerInfo13legalizeVa
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %51 = zext nneg i32 %45 to i64
   %52 = load ptr, ptr %50, align 8, !tbaa !19
-  %53 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !28
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -20131,7 +20131,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit75:            ; preds = %72, %74
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %126 = zext nneg i32 %120 to i64
   %127 = load ptr, ptr %125, align 8, !tbaa !19
-  %128 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %127, i64 %126
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %126
   %129 = load i64, ptr %128, align 8, !tbaa !28
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit77
 
@@ -20293,7 +20293,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %34 = zext nneg i32 %29 to i64
   %35 = load ptr, ptr %33, align 8, !tbaa !19
-  %36 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %34
   %37 = load i64, ptr %36, align 8, !tbaa !28
   %spec.select.i = icmp eq i64 %37, 549755813889
   br i1 %spec.select.i, label %38, label %172
@@ -21032,7 +21032,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm20AArch64LegalizerInfo19legalizeFu
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %32 = zext nneg i32 %26 to i64
   %33 = load ptr, ptr %31, align 8, !tbaa !19
-  %34 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %32
   %35 = load i64, ptr %34, align 8, !tbaa !28
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -21057,7 +21057,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %6, %25, %3
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %47 = zext nneg i32 %41 to i64
   %48 = load ptr, ptr %46, align 8, !tbaa !19
-  %49 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = load i64, ptr %49, align 8, !tbaa !28
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit56
 
@@ -21592,7 +21592,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm20AArch64LegalizerInfo13legalizeCT
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %51 = zext nneg i32 %45 to i64
   %52 = load ptr, ptr %50, align 8, !tbaa !19
-  %53 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !28
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -22288,7 +22288,7 @@ _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit: ; preds = %74
 
 switch.lookup:                                    ; preds = %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit
   %84 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm20AArch64LegalizerInfo24legalizeAtomicCmpxchg128ERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_15LegalizerHelperE, i64 %84
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvm20AArch64LegalizerInfo24legalizeAtomicCmpxchg128ERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_15LegalizerHelperE, i64 %84
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit.thread
 
@@ -22498,7 +22498,7 @@ _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109: ; preds = %167
 
 switch.lookup182:                                 ; preds = %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109
   %177 = zext nneg i16 %switch.tableidx181 to i64
-  %switch.gep183 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm20AArch64LegalizerInfo24legalizeAtomicCmpxchg128ERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_15LegalizerHelperE.770, i64 %177
+  %switch.gep183 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvm20AArch64LegalizerInfo24legalizeAtomicCmpxchg128ERNS_12MachineInstrERNS_19MachineRegisterInfoERNS_15LegalizerHelperE.770, i64 %177
   %switch.load184 = load i32, ptr %switch.gep183, align 4
   br label %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109.thread
 
@@ -22623,7 +22623,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm20AArch64LegalizerInfo12legalizeCT
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 448
   %23 = zext nneg i32 %17 to i64
   %24 = load ptr, ptr %22, align 8, !tbaa !19
-  %25 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load i64, ptr %25, align 8, !tbaa !28
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -22739,7 +22739,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %24 = zext nneg i32 %19 to i64
   %25 = load ptr, ptr %23, align 8, !tbaa !19
-  %26 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8, !tbaa !28
   %28 = and i64 %27, 12
   %or.cond = icmp eq i64 %28, 12
@@ -22845,7 +22845,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %17
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 448
   %45 = zext nneg i32 %39 to i64
   %46 = load ptr, ptr %44, align 8, !tbaa !19
-  %47 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load i64, ptr %47, align 8, !tbaa !28
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -22972,7 +22972,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm20AArch64LegalizerInfo12legalizeIC
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %29 = zext nneg i32 %23 to i64
   %30 = load ptr, ptr %28, align 8, !tbaa !19
-  %31 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %29
   %32 = load i64, ptr %31, align 8, !tbaa !28
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -22992,7 +22992,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %4, %22, %2
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %41 = zext nneg i32 %35 to i64
   %42 = load ptr, ptr %40, align 8, !tbaa !19
-  %43 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = load i64, ptr %43, align 8, !tbaa !28
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit38
 
@@ -23126,7 +23126,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit62:            ; preds = %71, %72
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %91 = zext nneg i32 %85 to i64
   %92 = load ptr, ptr %90, align 8, !tbaa !19
-  %93 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %92, i64 %91
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %91
   %94 = load i64, ptr %93, align 8, !tbaa !28
   br label %95
 
@@ -23168,7 +23168,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit62:            ; preds = %71, %72
   %113 = getelementptr inbounds nuw i8, ptr %106, i64 448
   %114 = zext nneg i32 %108 to i64
   %115 = load ptr, ptr %113, align 8, !tbaa !19
-  %116 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %115, i64 %114
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %114
   %117 = load i64, ptr %116, align 8, !tbaa !28
   br label %_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit
 
@@ -23354,7 +23354,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm20AArch64LegalizerInfo17legalizeIn
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %70 = load ptr, ptr %69, align 8, !tbaa !390
   %71 = zext i32 %68 to i64
-  %72 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %70, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load i32, ptr %73, align 8, !tbaa !28
   switch i32 %74, label %498 [
@@ -23629,7 +23629,7 @@ switch.edge:                                      ; preds = %176, %176, %176, %1
   %191 = getelementptr inbounds nuw i8, ptr %178, i64 448
   %192 = zext nneg i32 %186 to i64
   %193 = load ptr, ptr %191, align 8, !tbaa !19
-  %194 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %193, i64 %192
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %192
   %195 = load i64, ptr %194, align 8, !tbaa !28
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -23651,7 +23651,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit159: ; preds = %199
   %204 = getelementptr inbounds nuw i8, ptr %178, i64 448
   %205 = zext nneg i32 %200 to i64
   %206 = load ptr, ptr %204, align 8, !tbaa !19
-  %207 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %206, i64 %205
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %205
   %208 = load i64, ptr %207, align 8, !tbaa !28
   %209 = and i64 %208, 2
   %.not.i = icmp eq i64 %209, 0
@@ -23813,7 +23813,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit167: ; preds = %271
   %276 = getelementptr inbounds nuw i8, ptr %262, i64 448
   %277 = zext nneg i32 %272 to i64
   %278 = load ptr, ptr %276, align 8, !tbaa !19
-  %279 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %278, i64 %277
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %277
   %280 = load i64, ptr %279, align 8, !tbaa !28
   %281 = trunc i64 %280 to i1
   br i1 %281, label %282, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit167.thread
@@ -24416,18 +24416,18 @@ define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstr
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = load i32, ptr %18, align 8, !tbaa !683
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %29 = load i8, ptr %28, align 4, !tbaa !684, !range !182, !noundef !183
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 5
   %31 = load i8, ptr %30, align 1, !tbaa !685, !range !182, !noundef !183
   %narrow.i.i.i.i.i.i.i = add nuw nsw i8 %31, %29
   %32 = zext nneg i8 %narrow.i.i.i.i.i.i.i to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 6
   %35 = load i8, ptr %34, align 2, !tbaa !686, !range !182, !noundef !183
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !687
   br label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i
 
@@ -24456,21 +24456,21 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %23, %19, %15, %2
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %52 = load i32, ptr %45, align 8, !tbaa !683
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %56 = load i8, ptr %55, align 4, !tbaa !684, !range !182, !noundef !183
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 5
   %58 = load i8, ptr %57, align 1, !tbaa !685, !range !182, !noundef !183
   %narrow.i.i.i.i.i.i7.i = add nuw nsw i8 %58, %56
   %59 = zext nneg i8 %narrow.i.i.i.i.i.i7.i to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %54, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 6
   %62 = load i8, ptr %61, align 2, !tbaa !686, !range !182, !noundef !183
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 7
   %64 = load i8, ptr %63, align 1, !tbaa !681, !range !182, !noundef !183
   %narrow.i.i.i = add nuw nsw i8 %64, %62
   %65 = zext nneg i8 %narrow.i.i.i to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %60, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !687
   br label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
 
@@ -24559,7 +24559,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3LLTELb1EE28reserveForParamAndGetAddressERS
   %11 = phi i32 [ %4, %2 ], [ %.pre, %7 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !19
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   store i64 %1, ptr %14, align 1
   %15 = load i32, ptr %3, align 8, !tbaa !20
   %16 = add i32 %15, 1
@@ -24845,7 +24845,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_12Legalize
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGetAddressERKS1_m.exit, label %9, !prof !691
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"class.llvm::LegalizeRule", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [72 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -24870,7 +24870,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGet
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !20
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::LegalizeRule", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [72 x i8], ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, i8 0, i64 32, i1 false)
   %24 = load ptr, ptr %23, align 8, !tbaa !190
@@ -25197,7 +25197,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   %5 = load i32, ptr %0, align 8, !tbaa !698
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %4, align 8, !tbaa !700
-  %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8, !tbaa !28
   %10 = and i64 %9, -7
   %spec.select.i.i.i.i.i.i = icmp ne i64 %10, 0
@@ -25277,7 +25277,7 @@ define linkonce_odr hidden { i32, i64 } @_ZNSt17_Function_handlerIFSt4pairIjN4ll
   %4 = load i32, ptr %0, align 8, !tbaa !706
   %5 = zext i32 %4 to i64
   %6 = load ptr, ptr %3, align 8, !tbaa !700
-  %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %5
   %8 = load i64, ptr %7, align 8, !tbaa !28
   %9 = and i64 %8, 8
   %.not.i.i.i.i = icmp eq i64 %9, 0
@@ -25339,7 +25339,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   %5 = load i32, ptr %3, align 8, !tbaa !709
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %4, align 8, !tbaa !700
-  %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8, !tbaa !28
   %10 = and i64 %9, -7
   %spec.select.i.i.i.i.i.i = icmp ne i64 %10, 0
@@ -25424,7 +25424,7 @@ define linkonce_odr hidden { i32, i64 } @_ZNSt17_Function_handlerIFSt4pairIjN4ll
   %4 = load i32, ptr %0, align 8, !tbaa !713
   %5 = zext i32 %4 to i64
   %6 = load ptr, ptr %3, align 8, !tbaa !700
-  %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %5
   %8 = load i64, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !715
@@ -25557,13 +25557,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   %5 = load i32, ptr %0, align 8, !tbaa !716
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %4, align 8, !tbaa !700
-  %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !718
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, -7
   %spec.select.i.i.i3.i.i.i = icmp ne i64 %15, 0
@@ -25762,7 +25762,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZSt13__invoke_implIbRZN4llvm15Le
   %6 = load i32, ptr %0, align 8, !tbaa !342
   %7 = zext i32 %6 to i64
   %8 = load ptr, ptr %5, align 8, !tbaa !700
-  %9 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load i64, ptr %9, align 8, !tbaa !28
   %11 = trunc i64 %10 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -25861,7 +25861,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   %5 = load i32, ptr %3, align 8, !tbaa !345
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %4, align 8, !tbaa !700
-  %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 2
   %.not.i.i.i.i.i = icmp ne i64 %10, 0
@@ -25873,7 +25873,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !347
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 2
   %.not.i.i4.i.i.i = icmp ne i64 %18, 0
@@ -25983,7 +25983,7 @@ define linkonce_odr hidden { i32, i64 } @_ZNSt17_Function_handlerIFSt4pairIjN4ll
   %4 = load i32, ptr %0, align 8, !tbaa !719
   %5 = zext i32 %4 to i64
   %6 = load ptr, ptr %3, align 8, !tbaa !700
-  %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %5
   %8 = load i64, ptr %7, align 8, !tbaa !28
   %9 = and i64 %8, 2
   %.not.i.i.i.i = icmp eq i64 %9, 0
@@ -26045,7 +26045,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   %5 = load i32, ptr %3, align 8, !tbaa !721
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %4, align 8, !tbaa !700
-  %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8, !tbaa !28
   %10 = and i64 %9, -7
   %spec.select.i.i.i.i.i.i = icmp ne i64 %10, 0
@@ -26124,7 +26124,7 @@ define linkonce_odr hidden { i32, i64 } @_ZNSt17_Function_handlerIFSt4pairIjN4ll
   %4 = load i32, ptr %0, align 8, !tbaa !724
   %5 = zext i32 %4 to i64
   %6 = load ptr, ptr %3, align 8, !tbaa !700
-  %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %5
   %8 = load i64, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !726
@@ -26485,13 +26485,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   %5 = load i32, ptr %0, align 8, !tbaa !733
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %4, align 8, !tbaa !700
-  %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !735
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, -7
   %spec.select.i.i.i3.i.i.i = icmp ne i64 %15, 0
@@ -26817,7 +26817,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   %5 = load i32, ptr %3, align 8, !tbaa !351
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %4, align 8, !tbaa !700
-  %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 2
   %.not.i.i.i.i.i = icmp ne i64 %10, 0
@@ -26829,7 +26829,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !353
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 2
   %.not.i.i4.i.i.i = icmp ne i64 %18, 0
@@ -26939,7 +26939,7 @@ define linkonce_odr hidden { i32, i64 } @_ZNSt17_Function_handlerIFSt4pairIjN4ll
   %4 = load i32, ptr %0, align 8, !tbaa !743
   %5 = zext i32 %4 to i64
   %6 = load ptr, ptr %3, align 8, !tbaa !700
-  %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %5
   %8 = load i64, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !188
@@ -30397,7 +30397,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %6 = load i32, ptr %0, align 8, !tbaa !779
   %7 = zext i32 %6 to i64
   %8 = load ptr, ptr %5, align 8, !tbaa !700
-  %9 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, -7
   %spec.select.i.i.i.i.i.i = icmp ne i64 %11, 0
@@ -30450,7 +30450,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %18, %16
   %29 = load i32, ptr %28, align 4, !tbaa !781
   %30 = zext i32 %29 to i64
   %31 = load ptr, ptr %5, align 8, !tbaa !700
-  %32 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, -7
   %spec.select.i.i.i8.i.i.i = icmp ne i64 %34, 0

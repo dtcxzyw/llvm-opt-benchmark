@@ -774,7 +774,7 @@ if.then.i44.i.i.i.i:                              ; preds = %_ZSt34__uninitializ
 _ZNSt6vectorIN3irr4core8CMatrix4IfEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i44.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN3irr4core8CMatrix4IfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit43.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %PretransitingSave, align 8, !tbaa !72
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !103
-  %add.ptr20.i.i.i.i = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr20.i.i.i.i = getelementptr inbounds nuw [64 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr20.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !95
   br label %_ZN3irr4core5arrayINS0_8CMatrix4IfEEE9push_backEOS3_.exit
 
@@ -814,14 +814,14 @@ for.body19:                                       ; preds = %if.end12, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body19 ], [ 0, %if.end12 ]
   %17 = phi ptr [ %22, %for.body19 ], [ %14, %if.end12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20)
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %18 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !93
   %vtable = load ptr, ptr %18, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %19 = load ptr, ptr %vfn, align 8
   call void %19(ptr dead_on_unwind nonnull writable sret(%"class.irr::core::CMatrix4") align 4 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(222) %18) #21
   %20 = load ptr, ptr %PretransitingSave, align 8, !tbaa !72
-  %add.ptr.i.i61 = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %20, i64 %indvars.iv
+  %add.ptr.i.i61 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %add.ptr.i.i61, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp20, i64 64, i1 false), !tbaa.struct !96
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1067,7 +1067,7 @@ cond.true11:                                      ; preds = %for.body
 
 cond.false19:                                     ; preds = %for.body
   %14 = load ptr, ptr %Materials20, align 8, !tbaa !74
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %14, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [184 x i8], ptr %14, i64 %indvars.iv
   br label %cond.end22
 
 cond.end22:                                       ; preds = %cond.false19, %cond.true11
@@ -1259,7 +1259,7 @@ for.body:                                         ; preds = %if.then27, %for.inc
   %18 = phi ptr [ %23, %for.inc ], [ %16, %if.then27 ]
   %19 = phi ptr [ %24, %for.inc ], [ %15, %if.then27 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.then27 ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !93
   %Parent.i = getelementptr inbounds nuw i8, ptr %20, i64 192
   %21 = load ptr, ptr %Parent.i, align 8, !tbaa !22
@@ -1478,7 +1478,7 @@ for.cond.cleanup:                                 ; preds = %if.end59, %if.then9
 for.body:                                         ; preds = %if.end59, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end59 ]
   %13 = load ptr, ptr %Materials, align 8, !tbaa !74
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %13, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [184 x i8], ptr %13, i64 %indvars.iv
   %vtable21 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 824
   %14 = load ptr, ptr %vfn22, align 8
@@ -1504,7 +1504,7 @@ cond.true:                                        ; preds = %if.then29
 
 cond.false:                                       ; preds = %if.then29
   %19 = load ptr, ptr %Materials, align 8, !tbaa !74
-  %add.ptr.i.i320 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %19, i64 %indvars.iv
+  %add.ptr.i.i320 = getelementptr inbounds nuw [184 x i8], ptr %19, i64 %indvars.iv
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -2107,7 +2107,7 @@ for.body183:                                      ; preds = %for.cond.cleanup192
   %264 = load ptr, ptr %vfn186, align 8
   %call187 = call noundef nonnull align 8 dereferenceable(25) ptr %264(ptr noundef nonnull align 8 dereferenceable(8) %263) #21
   %265 = load ptr, ptr %call187, align 8, !tbaa !148
-  %add.ptr.i.i445 = getelementptr inbounds nuw ptr, ptr %265, i64 %indvars.iv559
+  %add.ptr.i.i445 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %indvars.iv559
   %266 = load ptr, ptr %add.ptr.i.i445, align 8, !tbaa !93
   %Children = getelementptr inbounds nuw i8, ptr %266, i64 104
   %_M_finish.i.i446 = getelementptr inbounds nuw i8, ptr %266, i64 112
@@ -2152,7 +2152,7 @@ for.body193:                                      ; preds = %for.body193, %for.b
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %ref.tmp194, align 8
   store float %277, ptr %tmp.coerce.sroa.2.0.ref.tmp194.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp196)
-  %add.ptr.i.i453 = getelementptr inbounds nuw ptr, ptr %275, i64 %indvars.iv556
+  %add.ptr.i.i453 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %indvars.iv556
   %278 = load ptr, ptr %add.ptr.i.i453, align 8, !tbaa !93
   %arrayidx.i454 = getelementptr inbounds nuw i8, ptr %278, i64 408
   %279 = load <4 x float>, ptr %arrayidx.i454, align 4
@@ -2479,7 +2479,7 @@ entry:
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %cmp.not = icmp ult i32 %i, %conv.i
   %conv.i7 = zext i32 %i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %1, i64 %conv.i7
+  %add.ptr.i.i = getelementptr inbounds nuw [184 x i8], ptr %1, i64 %conv.i7
   %retval.0 = select i1 %cmp.not, ptr %add.ptr.i.i, ptr @_ZN3irr5video16IdentityMaterialE
   ret ptr %retval.0
 }
@@ -2620,7 +2620,7 @@ if.then15:                                        ; preds = %if.end11
 
 if.end16:                                         ; preds = %if.end11
   %conv.i24 = and i64 %call7, 4294967295
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %13, i64 %conv.i24
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %conv.i24
   %14 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !93
   br label %return
 
@@ -2692,7 +2692,7 @@ _ZN3irr4core5arrayIPNS_5scene14IBoneSceneNodeEE5clearEv.exit: ; preds = %if.then
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %9 = phi ptr [ %13, %for.body ], [ %4, %for.cond.preheader ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %10 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !93
   %vtable9 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 144
@@ -2755,7 +2755,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %conv.i10 = zext i32 %jointID to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %conv.i10
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv.i10
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !93
   br label %return
 
@@ -2870,13 +2870,13 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.cond, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !93
   %cmp6 = icmp eq ptr %11, %child
   br i1 %cmp6, label %if.then7, label %for.cond
 
 if.then7:                                         ; preds = %for.body
-  %add.ptr.i.i.le = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %add.ptr.i.i.le = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr null, ptr %add.ptr.i.i.le, align 8, !tbaa !93
   br label %return
 
@@ -3843,7 +3843,7 @@ if.then.i44.i.i.i.i:                              ; preds = %_ZSt34__uninitializ
 _ZNSt6vectorIN3irr4core8CMatrix4IfEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i44.i.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN3irr4core8CMatrix4IfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit43.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %PretransitingSave, align 8, !tbaa !72
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !103
-  %add.ptr20.i.i.i.i = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr20.i.i.i.i = getelementptr inbounds nuw [64 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr20.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !95
   br label %_ZN3irr4core5arrayINS0_8CMatrix4IfEEE9push_backEOS3_.exit
 
@@ -3883,11 +3883,11 @@ for.body29.lr.ph:                                 ; preds = %if.end
 for.body29:                                       ; preds = %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit, %for.body29.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body29.lr.ph ], [ %indvars.iv.next, %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit ]
   %20 = phi ptr [ %18, %for.body29.lr.ph ], [ %210, %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %21 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp32)
   %22 = load ptr, ptr %PretransitingSave, align 8, !tbaa !72
-  %arrayidx.i.split = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %22, i64 %indvars.iv
+  %arrayidx.i.split = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %indvars.iv
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.split, i64 48
   %23 = load <4 x float>, ptr %arrayidx.i, align 4
   %24 = extractelement <4 x float> %23, i64 2
@@ -3919,7 +3919,7 @@ for.body29:                                       ; preds = %_ZNK3irr4core10quat
   call void %37(ptr noundef nonnull align 8 dereferenceable(222) %21, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp32) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp32)
   %38 = load ptr, ptr %PretransitingSave, align 8, !tbaa !72
-  %add.ptr.i.i141 = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %38, i64 %indvars.iv
+  %add.ptr.i.i141 = getelementptr inbounds nuw [64 x i8], ptr %38, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %scale.i)
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i141, i64 4
   %39 = load <2 x float>, ptr %arrayidx.i.i, align 4, !tbaa !10
@@ -4088,7 +4088,7 @@ _ZNK3irr4core8CMatrix4IfE18getRotationDegreesEv.exit: ; preds = %if.else19.threa
   %106 = fmul <2 x float> %105, %98
   %107 = fmul <2 x float> %105, %88
   %108 = load ptr, ptr %JointChildSceneNodes, align 8, !tbaa !73
-  %add.ptr.i.i151 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv
+  %add.ptr.i.i151 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv
   %109 = load ptr, ptr %add.ptr.i.i151, align 8, !tbaa !93
   %vtable57 = load ptr, ptr %109, align 8, !tbaa !3
   %vfn58 = getelementptr inbounds nuw i8, ptr %vtable57, i64 200
@@ -4321,7 +4321,7 @@ _ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit: ; preds = %if.then.i1
   %mul3.i224 = fmul float %203, 0x404CA5DC00000000
   store float %mul3.i224, ptr %Z.i219, align 8, !tbaa !170
   %206 = load ptr, ptr %JointChildSceneNodes, align 8, !tbaa !73
-  %add.ptr.i.i226 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv
+  %add.ptr.i.i226 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv
   %207 = load ptr, ptr %add.ptr.i.i226, align 8, !tbaa !93
   %vtable68 = load ptr, ptr %207, align 8, !tbaa !3
   %vfn69 = getelementptr inbounds nuw i8, ptr %vtable68, i64 208
@@ -4357,7 +4357,7 @@ for.body82:                                       ; preds = %for.cond77.preheade
   %215 = phi ptr [ %220, %for.inc93 ], [ %213, %for.cond77.preheader ]
   %216 = phi ptr [ %221, %for.inc93 ], [ %212, %for.cond77.preheader ]
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %for.inc93 ], [ 0, %for.cond77.preheader ]
-  %add.ptr.i.i234 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv269
+  %add.ptr.i.i234 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %indvars.iv269
   %217 = load ptr, ptr %add.ptr.i.i234, align 8, !tbaa !93
   %Parent.i = getelementptr inbounds nuw i8, ptr %217, i64 192
   %218 = load ptr, ptr %Parent.i, align 8, !tbaa !22
@@ -4843,9 +4843,9 @@ if.then.i65.i.i:                                  ; preds = %_ZNSt6vectorIN3irr4
 
 _ZNSt12_Vector_baseIN3irr4core8vector3dIfEESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; preds = %if.then.i65.i.i, %_ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i
   store ptr %call5.i.i.i.i.i, ptr %edges, align 8, !tbaa !181
-  %add.ptr34.i.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %add.ptr.i.i, i64 %sub.i
+  %add.ptr34.i.i = getelementptr inbounds nuw [12 x i8], ptr %add.ptr.i.i, i64 %sub.i
   store ptr %add.ptr34.i.i, ptr %_M_finish.i.i, align 8, !tbaa !179
-  %add.ptr37.i.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i.i, i64 %add.i.i.i
+  %add.ptr37.i.i = getelementptr inbounds nuw [12 x i8], ptr %call5.i.i.i.i.i, i64 %add.i.i.i
   store ptr %add.ptr37.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !182
   br label %_ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit
 
@@ -5855,7 +5855,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
-  %add.ptr = getelementptr inbounds %"class.irr::video::SMaterial", ptr %1, i64 %__new_size
+  %add.ptr = getelementptr inbounds [184 x i8], ptr %1, i64 %__new_size
   %tobool.not.i = icmp eq ptr %0, %add.ptr
   br i1 %tobool.not.i, label %if.end6, label %for.body.i.i.i.i
 
@@ -6022,7 +6022,7 @@ _ZNSt12_Vector_baseIN3irr5video9SMaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !74
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i36
   store ptr %add.ptr, ptr %_M_finish.i, align 8, !tbaa !75
-  %add.ptr26 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %call5.i.i.i.i, i64 %__n
+  %add.ptr26 = getelementptr inbounds nuw [184 x i8], ptr %call5.i.i.i.i, i64 %__n
   store ptr %add.ptr26, ptr %_M_end_of_storage.i, align 8, !tbaa !161
   br label %if.end29
 
@@ -6329,9 +6329,9 @@ if.then.i66:                                      ; preds = %_ZSt8_DestroyIPN3ir
 
 _ZNSt12_Vector_baseIN3irr5video9SMaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i66, %_ZSt8_DestroyIPN3irr5video9SMaterialES2_EvT_S4_RSaIT0_E.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !74
-  %add.ptr36 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %add.ptr, i64 %__n
+  %add.ptr36 = getelementptr inbounds nuw [184 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr36, ptr %_M_finish.i, align 8, !tbaa !75
-  %add.ptr39 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %call5.i.i.i, i64 %3
+  %add.ptr39 = getelementptr inbounds nuw [184 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr39, ptr %_M_end_of_storage, align 8, !tbaa !161
   br label %if.end43
 
@@ -6679,7 +6679,7 @@ _ZNSt12_Vector_baseIN3irr5video9SMaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !74
   store ptr %__cur.0.lcssa.i.i.i.i.i42, ptr %_M_finish.i.i, align 8, !tbaa !75
-  %add.ptr20 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [184 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !161
   ret void
 }
@@ -6805,7 +6805,7 @@ _ZNSt12_Vector_baseIN3irr5video9SMaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !74
   store ptr %__cur.0.lcssa.i.i.i.i.i42, ptr %_M_finish.i.i, align 8, !tbaa !75
-  %add.ptr20 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [184 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !161
   ret void
 }

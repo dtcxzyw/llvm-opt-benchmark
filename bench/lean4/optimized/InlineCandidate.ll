@@ -1115,7 +1115,7 @@ define ptr @l_Lean_Compiler_LCNF_Simp_inlineCandidate_x3f___lambda__8(ptr nounde
 
 lean_dec.exit.i:                                  ; preds = %29, %28, %26, %20
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %17
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %17
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   %33 = ptrtoint ptr %32 to i64
   %34 = trunc i64 %33 to i1

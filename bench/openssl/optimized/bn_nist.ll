@@ -113,9 +113,9 @@ define i32 @BN_nist_mod_192(ptr noundef %0, ptr noundef %1, ptr readnone capture
 
 33:                                               ; preds = %33, %31
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %33 ]
-  %34 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %35 = load i64, ptr %34, align 8, !tbaa !11
-  %36 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   store i64 %35, ptr %36, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -225,7 +225,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 107:                                              ; preds = %._crit_edge
   %108 = add nuw nsw i64 %106, 4294967295
   %109 = and i64 %108, 4294967295
-  %110 = getelementptr inbounds nuw [3 x i64], ptr @_nist_p_192, i64 %109
+  %110 = getelementptr inbounds nuw [24 x i8], ptr @_nist_p_192, i64 %109
   %111 = tail call i64 @bn_sub_words(ptr noundef nonnull %.0105, ptr noundef nonnull %.0105, ptr noundef nonnull %110, i32 noundef 3) #7
   %112 = and i64 %111, 4294967295
   %113 = icmp ne i64 %112, 0
@@ -241,9 +241,9 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 
 118:                                              ; preds = %118, %114
   %indvars.iv.i119 = phi i64 [ 0, %114 ], [ %indvars.iv.next.i120, %118 ]
-  %119 = getelementptr inbounds nuw i64, ptr %117, i64 %indvars.iv.i119
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv.i119
   %120 = load i64, ptr %119, align 8, !tbaa !11
-  %121 = getelementptr inbounds nuw i64, ptr %.0105, i64 %indvars.iv.i119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.0105, i64 %indvars.iv.i119
   store i64 %120, ptr %121, align 8, !tbaa !11
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, 3
@@ -336,9 +336,9 @@ define i32 @BN_nist_mod_224(ptr noundef %0, ptr noundef %1, ptr readnone capture
 
 33:                                               ; preds = %33, %31
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %33 ]
-  %34 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %35 = load i64, ptr %34, align 8, !tbaa !11
-  %36 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   store i64 %35, ptr %36, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -372,9 +372,9 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %45 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8, !tbaa !11
-  %47 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 %46, ptr %47, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -436,7 +436,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 80:                                               ; preds = %._crit_edge
   %81 = add nuw nsw i64 %77, 4294967295
   %82 = and i64 %81, 4294967295
-  %83 = getelementptr inbounds nuw [4 x i64], ptr @_nist_p_224, i64 %82
+  %83 = getelementptr inbounds nuw [32 x i8], ptr @_nist_p_224, i64 %82
   %84 = call i64 @bn_sub_words(ptr noundef nonnull %.085, ptr noundef nonnull %.085, ptr noundef nonnull %83, i32 noundef 4) #7
   %85 = load i64, ptr %59, align 8, !tbaa !11
   %86 = lshr i64 %85, 32
@@ -451,7 +451,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 
 92:                                               ; preds = %90
   %93 = xor i64 %77, 4294967295
-  %94 = getelementptr inbounds nuw [4 x i64], ptr @_nist_p_224, i64 %93
+  %94 = getelementptr inbounds nuw [32 x i8], ptr @_nist_p_224, i64 %93
   %95 = call i64 @bn_add_words(ptr noundef nonnull %.085, ptr noundef nonnull %.085, ptr noundef nonnull %94, i32 noundef 4) #7
   %96 = trunc i64 %95 to i32
   %.not94 = icmp eq i32 %96, 0
@@ -470,9 +470,9 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 
 103:                                              ; preds = %103, %98
   %indvars.iv.i95 = phi i64 [ 0, %98 ], [ %indvars.iv.next.i96, %103 ]
-  %104 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv.i95
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv.i95
   %105 = load i64, ptr %104, align 8, !tbaa !11
-  %106 = getelementptr inbounds nuw i64, ptr %.085, i64 %indvars.iv.i95
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %.085, i64 %indvars.iv.i95
   store i64 %105, ptr %106, align 8, !tbaa !11
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, 4
@@ -551,9 +551,9 @@ define i32 @BN_nist_mod_256(ptr noundef %0, ptr noundef %1, ptr readnone capture
 
 33:                                               ; preds = %33, %31
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %33 ]
-  %34 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %35 = load i64, ptr %34, align 8, !tbaa !11
-  %36 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   store i64 %35, ptr %36, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -713,7 +713,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 148:                                              ; preds = %._crit_edge
   %149 = add nuw nsw i64 %145, 4294967295
   %150 = and i64 %149, 4294967295
-  %151 = getelementptr inbounds nuw [4 x i64], ptr @_nist_p_256, i64 %150
+  %151 = getelementptr inbounds nuw [32 x i8], ptr @_nist_p_256, i64 %150
   %152 = tail call i64 @bn_sub_words(ptr noundef nonnull %.0203, ptr noundef nonnull %.0203, ptr noundef nonnull %151, i32 noundef 4) #7
   %153 = trunc i64 %152 to i32
   br label %162
@@ -724,7 +724,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 
 156:                                              ; preds = %154
   %157 = xor i64 %145, 4294967295
-  %158 = getelementptr inbounds nuw [4 x i64], ptr @_nist_p_256, i64 %157
+  %158 = getelementptr inbounds nuw [32 x i8], ptr @_nist_p_256, i64 %157
   %159 = tail call i64 @bn_add_words(ptr noundef nonnull %.0203, ptr noundef nonnull %.0203, ptr noundef nonnull %158, i32 noundef 4) #7
   %160 = trunc i64 %159 to i32
   %.not218 = icmp eq i32 %160, 0
@@ -743,9 +743,9 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 
 167:                                              ; preds = %167, %162
   %indvars.iv.i225 = phi i64 [ 0, %162 ], [ %indvars.iv.next.i226, %167 ]
-  %168 = getelementptr inbounds nuw i64, ptr %166, i64 %indvars.iv.i225
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %indvars.iv.i225
   %169 = load i64, ptr %168, align 8, !tbaa !11
-  %170 = getelementptr inbounds nuw i64, ptr %.0203, i64 %indvars.iv.i225
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %.0203, i64 %indvars.iv.i225
   store i64 %169, ptr %170, align 8, !tbaa !11
   %indvars.iv.next.i226 = add nuw nsw i64 %indvars.iv.i225, 1
   %exitcond.not.i227 = icmp eq i64 %indvars.iv.next.i226, 4
@@ -823,9 +823,9 @@ define i32 @BN_nist_mod_384(ptr noundef %0, ptr noundef %1, ptr readnone capture
 
 33:                                               ; preds = %33, %31
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %33 ]
-  %34 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %35 = load i64, ptr %34, align 8, !tbaa !11
-  %36 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   store i64 %35, ptr %36, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -1044,7 +1044,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 199:                                              ; preds = %._crit_edge
   %200 = add nuw nsw i64 %196, 4294967295
   %201 = and i64 %200, 4294967295
-  %202 = getelementptr inbounds nuw [6 x i64], ptr @_nist_p_384, i64 %201
+  %202 = getelementptr inbounds nuw [48 x i8], ptr @_nist_p_384, i64 %201
   %203 = tail call i64 @bn_sub_words(ptr noundef nonnull %.0245, ptr noundef nonnull %.0245, ptr noundef nonnull %202, i32 noundef 6) #7
   %204 = trunc i64 %203 to i32
   br label %213
@@ -1055,7 +1055,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 
 207:                                              ; preds = %205
   %208 = xor i64 %196, 4294967295
-  %209 = getelementptr inbounds nuw [6 x i64], ptr @_nist_p_384, i64 %208
+  %209 = getelementptr inbounds nuw [48 x i8], ptr @_nist_p_384, i64 %208
   %210 = tail call i64 @bn_add_words(ptr noundef nonnull %.0245, ptr noundef nonnull %.0245, ptr noundef nonnull %209, i32 noundef 6) #7
   %211 = trunc i64 %210 to i32
   %.not259 = icmp eq i32 %211, 0
@@ -1074,9 +1074,9 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
 
 218:                                              ; preds = %218, %213
   %indvars.iv.i270 = phi i64 [ 0, %213 ], [ %indvars.iv.next.i271, %218 ]
-  %219 = getelementptr inbounds nuw i64, ptr %217, i64 %indvars.iv.i270
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %indvars.iv.i270
   %220 = load i64, ptr %219, align 8, !tbaa !11
-  %221 = getelementptr inbounds nuw i64, ptr %.0245, i64 %indvars.iv.i270
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %.0245, i64 %indvars.iv.i270
   store i64 %220, ptr %221, align 8, !tbaa !11
   %indvars.iv.next.i271 = add nuw nsw i64 %indvars.iv.i270, 1
   %exitcond.not.i272 = icmp eq i64 %indvars.iv.next.i271, 6
@@ -1152,9 +1152,9 @@ define i32 @BN_nist_mod_521(ptr noundef %0, ptr noundef %1, ptr readnone capture
 
 32:                                               ; preds = %32, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %32 ]
-  %33 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %34 = load i64, ptr %33, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   store i64 %34, ptr %35, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
@@ -1188,9 +1188,9 @@ nist_cp_bn.exit:                                  ; preds = %32, %27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %44 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8, !tbaa !11
-  %46 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 %45, ptr %46, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1204,10 +1204,10 @@ nist_cp_bn.exit:                                  ; preds = %32, %27
   %indvars.iv78 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next79, %48 ]
   %.05470 = phi i64 [ %47, %._crit_edge ], [ %50, %48 ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %49 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next79
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next79
   %50 = load i64, ptr %49, align 8, !tbaa !11
   %51 = tail call i64 @llvm.fshl.i64(i64 %50, i64 %.05470, i64 55)
-  %52 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv78
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv78
   store i64 %51, ptr %52, align 8, !tbaa !11
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 8
   br i1 %exitcond81.not, label %53, label %48, !llvm.loop !20
@@ -1228,9 +1228,9 @@ nist_cp_bn.exit:                                  ; preds = %32, %27
 
 62:                                               ; preds = %62, %53
   %indvars.iv.i63 = phi i64 [ 0, %53 ], [ %indvars.iv.next.i64, %62 ]
-  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv.i63
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i63
   %64 = load i64, ptr %63, align 8, !tbaa !11
-  %65 = getelementptr inbounds nuw i64, ptr %.055, i64 %indvars.iv.i63
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.055, i64 %indvars.iv.i63
   store i64 %64, ptr %65, align 8, !tbaa !11
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, 9

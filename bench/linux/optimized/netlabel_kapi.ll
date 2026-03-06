@@ -634,7 +634,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly captures(address_i
   %26 = select i1 %21, i32 %24, i32 0
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = zext nneg i32 %25 to i64
-  %29 = getelementptr i64, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = zext nneg i32 %26 to i64
   %32 = lshr i64 %30, %31
@@ -685,7 +685,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly captures(address_i
   %61 = phi i32 [ %53, %.preheader7 ], [ 0, %55 ]
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = zext nneg i32 %61 to i64
-  %64 = getelementptr i64, ptr %62, i64 %63
+  %64 = getelementptr [8 x i8], ptr %62, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %.preheader7, label %.loopexit8, !llvm.loop !9
@@ -755,7 +755,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly captures(addres
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ %36, %29 ]
   %38 = phi i32 [ 0, %51 ], [ %33, %29 ]
   %39 = phi i64 [ 1, %51 ], [ %34, %29 ]
-  %40 = getelementptr i64, ptr %35, i64 %indvars.iv
+  %40 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %39
   %43 = icmp eq i64 %42, 0
@@ -783,7 +783,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly captures(addres
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %84 ], [ %36, %29 ]
   %52 = phi i32 [ 0, %84 ], [ %33, %29 ]
   %53 = phi i64 [ 1, %84 ], [ %34, %29 ]
-  %54 = getelementptr i64, ptr %35, i64 %indvars.iv90
+  %54 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv90
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, %53
   %57 = icmp eq i64 %56, 0
@@ -936,7 +936,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_getlong(ptr nounde
   %38 = phi i64 [ 0, %33 ], [ %36, %34 ]
   %39 = lshr i64 %38, 6
   %40 = getelementptr inbounds nuw i8, ptr %.ph, i64 8
-  %41 = getelementptr i64, ptr %40, i64 %39
+  %41 = getelementptr [8 x i8], ptr %40, i64 %39
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %38, 63
   %44 = lshr i64 %42, %43
@@ -1002,7 +1002,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setbit(ptr noundef
 34:                                               ; preds = %30, %.loopexit
   %35 = phi i64 [ 0, %.loopexit ], [ %33, %30 ]
   %36 = or i32 %2, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %35
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %35
   %37 = getelementptr i8, ptr %.split, i64 48
   %38 = load ptr, ptr %37, align 16
   %39 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %38, i32 noundef %36, i64 noundef 48) #14
@@ -1032,7 +1032,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setbit(ptr noundef
   %54 = shl nuw i64 1, %53
   %55 = getelementptr inbounds nuw i8, ptr %.ph, i64 8
   %56 = zext nneg i32 %51 to i64
-  %57 = getelementptr i64, ptr %55, i64 %56
+  %57 = getelementptr [8 x i8], ptr %55, i64 %56
   %58 = load i64, ptr %57, align 8
   %59 = or i64 %54, %58
   store i64 %59, ptr %57, align 8
@@ -1113,7 +1113,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setrng(ptr noundef
 
 45:                                               ; preds = %44, %.loopexit.i
   %46 = phi i64 [ 0, %.loopexit.i ], [ %10, %44 ]
-  %.split.i = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %46
+  %.split.i = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %46
   %47 = getelementptr i8, ptr %.split.i, i64 48
   %48 = load ptr, ptr %47, align 16
   %49 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %48, i32 noundef %11, i64 noundef 48) #14
@@ -1143,7 +1143,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setrng(ptr noundef
   %64 = shl nsw i64 -1, %63
   %65 = getelementptr inbounds nuw i8, ptr %.ph.i, i64 8
   %66 = zext nneg i32 %61 to i64
-  %67 = getelementptr i64, ptr %65, i64 %66
+  %67 = getelementptr [8 x i8], ptr %65, i64 %66
   %68 = load i64, ptr %67, align 8
   %69 = or i64 %64, %68
   store i64 %69, ptr %67, align 8
@@ -1202,7 +1202,7 @@ netlbl_catmap_setlong.exit:                       ; preds = %45, %58
 
 99:                                               ; preds = %98, %.loopexit.i5
   %100 = phi i64 [ 0, %.loopexit.i5 ], [ %10, %98 ]
-  %.split.i6 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %100
+  %.split.i6 = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %100
   %101 = getelementptr i8, ptr %.split.i6, i64 48
   %102 = load ptr, ptr %101, align 16
   %103 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %102, i32 noundef %11, i64 noundef 48) #14
@@ -1232,7 +1232,7 @@ netlbl_catmap_setlong.exit:                       ; preds = %45, %58
   %118 = shl nuw i64 1, %117
   %119 = getelementptr inbounds nuw i8, ptr %.ph.i4, i64 8
   %120 = zext nneg i32 %115 to i64
-  %121 = getelementptr i64, ptr %119, i64 %120
+  %121 = getelementptr [8 x i8], ptr %119, i64 %120
   %122 = load i64, ptr %121, align 8
   %123 = or i64 %118, %122
   store i64 %123, ptr %121, align 8
@@ -1310,7 +1310,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_setlong(ptr nounde
 38:                                               ; preds = %34, %.loopexit
   %39 = phi i64 [ 0, %.loopexit ], [ %37, %34 ]
   %40 = or i32 %3, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %39
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %39
   %41 = getelementptr i8, ptr %.split, i64 48
   %42 = load ptr, ptr %41, align 16
   %43 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %42, i32 noundef %40, i64 noundef 48) #14
@@ -1340,7 +1340,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_setlong(ptr nounde
   %58 = shl i64 %2, %57
   %59 = getelementptr inbounds nuw i8, ptr %.ph, i64 8
   %60 = zext nneg i32 %55 to i64
-  %61 = getelementptr i64, ptr %59, i64 %60
+  %61 = getelementptr [8 x i8], ptr %59, i64 %60
   %62 = load i64, ptr %61, align 8
   %63 = or i64 %58, %62
   store i64 %63, ptr %61, align 8

@@ -35,7 +35,7 @@ define hidden void @SharpYuvInitGammaTables() local_unnamed_addr #0 {
   %.016 = phi double [ %7, %6 ], [ %11, %8 ]
   %13 = tail call double @llvm.fmuladd.f64(double %.016, double 6.553600e+04, double 5.000000e-01)
   %14 = fptoui double %13 to i32
-  %15 = getelementptr inbounds nuw i32, ptr @kGammaToLinearTabS, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @kGammaToLinearTabS, i64 %indvars.iv
   store i32 %14, ptr %15, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1025
@@ -67,7 +67,7 @@ define hidden void @SharpYuvInitGammaTables() local_unnamed_addr #0 {
   %.0 = phi double [ %24, %23 ], [ %27, %25 ]
   %29 = tail call double @llvm.fmuladd.f64(double %.0, double 6.553600e+04, double 5.000000e-01)
   %30 = fptoui double %29 to i32
-  %31 = getelementptr inbounds nuw i32, ptr @kLinearToGammaTabS, i64 %indvars.iv24
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @kLinearToGammaTabS, i64 %indvars.iv24
   store i32 %30, ptr %31, align 4, !tbaa !3
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 513
@@ -103,7 +103,7 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
   %9 = sub nsw i32 10, %1
   %10 = shl i32 %7, %9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr @kGammaToLinearTabS, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr @kGammaToLinearTabS, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !3
   br label %ToLinearSrgb.exit
 
@@ -113,7 +113,7 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
   %16 = shl i32 %15, %.neg.i
   %17 = sub i32 %7, %16
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @kGammaToLinearTabS, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @kGammaToLinearTabS, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !3
@@ -365,7 +365,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   %7 = ashr i32 %0, 7
   %8 = and i32 %0, 127
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds nuw i32, ptr @kLinearToGammaTabS, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @kLinearToGammaTabS, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = shl i32 %11, %6
   %13 = sub nsw i32 16, %1
@@ -374,7 +374,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   %16 = select i1 %15, i32 %14, i32 %12
   %17 = add nsw i32 %7, 1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @kLinearToGammaTabS, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @kLinearToGammaTabS, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !3
   %21 = shl i32 %20, %6
   %22 = ashr i32 %20, %13

@@ -345,7 +345,7 @@ invoke.cont79:                                    ; preds = %if.then.i.i.i.i.i, 
   %42 = phi i8 [ %.pre139, %if.then.i.i.i.i.i ], [ %storedv, %do.end ]
   %43 = phi ptr [ %.pre, %if.then.i.i.i.i.i ], [ %12, %do.end ]
   %conv91 = zext nneg i8 %42 to i64
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %43, i64 %conv91
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %conv91
   %44 = load ptr, ptr %_M_finish.i27, align 8, !tbaa !13
   %tobool.not.i.i.i.i.i104 = icmp eq ptr %44, %add.ptr.i
   br i1 %tobool.not.i.i.i.i.i104, label %invoke.cont113, label %if.then.i.i.i.i.i105
@@ -386,14 +386,14 @@ for.body.lr.ph:                                   ; preds = %invoke.cont113
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.0138 = phi i64 [ 0, %for.body.lr.ph ], [ %add124, %for.body ]
   %add124 = add nuw i64 %i.0138, 1
-  %add.ptr.i113 = getelementptr inbounds nuw double, ptr %49, i64 %add124
+  %add.ptr.i113 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %add124
   %51 = load double, ptr %add.ptr.i113, align 8, !tbaa !9
-  %add.ptr.i114 = getelementptr inbounds nuw double, ptr %49, i64 %i.0138
+  %add.ptr.i114 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %i.0138
   %52 = load double, ptr %add.ptr.i114, align 8, !tbaa !9
   %sub128 = fsub double %51, %52
-  %add.ptr.i115 = getelementptr inbounds nuw double, ptr %.pre140, i64 %add124
+  %add.ptr.i115 = getelementptr inbounds nuw [8 x i8], ptr %.pre140, i64 %add124
   store double %sub128, ptr %add.ptr.i115, align 8, !tbaa !9
-  %add.ptr.i116 = getelementptr inbounds nuw double, ptr %50, i64 %i.0138
+  %add.ptr.i116 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %i.0138
   store double %sub128, ptr %add.ptr.i116, align 8, !tbaa !9
   %exitcond.not = icmp eq i64 %add124, %sub121
   br i1 %exitcond.not, label %invoke.cont134, label %for.body, !llvm.loop !27
@@ -431,7 +431,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %size, 3
   %call5.i.i.i.i2.i.i5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
   store ptr %call5.i.i.i.i2.i.i5, ptr %locations_, align 8, !tbaa !8
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i5, i64 %size
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i5, i64 %size
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !29
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i5, align 8, !tbaa !9
@@ -457,7 +457,7 @@ if.then.i.i.i.i.i9:                               ; preds = %if.then.i.i.i.i.i, 
 
 call5.i.i.i.i2.i.i.noexc24:                       ; preds = %if.then.i.i.i.i.i9
   store ptr %call5.i.i.i.i2.i.i25, ptr %dplus_57, align 8, !tbaa !8
-  %add.ptr.i.i.i11 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i25, i64 %size
+  %add.ptr.i.i.i11 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i25, i64 %size
   %_M_end_of_storage.i.i.i12 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %add.ptr.i.i.i11, ptr %_M_end_of_storage.i.i.i12, align 8, !tbaa !29
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i25, align 8, !tbaa !9
@@ -485,7 +485,7 @@ if.then.i.i.i.i.i30:                              ; preds = %call5.i.i.i.i2.i.i.
 
 call5.i.i.i.i2.i.i.noexc45:                       ; preds = %if.then.i.i.i.i.i30
   store ptr %call5.i.i.i.i2.i.i46, ptr %dminus_63, align 8, !tbaa !8
-  %add.ptr.i.i.i32 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i46, i64 %size
+  %add.ptr.i.i.i32 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i46, i64 %size
   %_M_end_of_storage.i.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %add.ptr.i.i.i32, ptr %_M_end_of_storage.i.i.i33, align 8, !tbaa !29
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i46, align 8, !tbaa !9

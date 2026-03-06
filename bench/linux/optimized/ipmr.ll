@@ -42,8 +42,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ipmr_rule_de
 %union.anon.59 = type { %struct.anon.60 }
 %struct.anon.60 = type { i32, i32 }
 %struct.netdev_phys_item_id = type { [32 x i8], i8 }
-%struct.vif_device = type { ptr, %struct.netdevice_tracker, i64, i64, i64, i64, i64, i8, i16, i32, %struct.netdev_phys_item_id, i32, i32 }
-%struct.netdevice_tracker = type {}
 %struct.mfc_entry_notifier_info = type { %struct.fib_notifier_info, ptr, i32 }
 %struct.sioc_vif_req = type { i16, i64, i64, i64, i64 }
 %struct.sioc_sg_req = type { %struct.in_addr, %struct.in_addr, i64, i64, i64 }
@@ -483,7 +481,7 @@ define internal fastcc i32 @vif_add(ptr noundef %0, ptr noundef nonnull %1, ptr 
   %10 = zext i16 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = zext i16 %9 to i64
-  %13 = getelementptr %struct.vif_device, ptr %11, i64 %12
+  %13 = getelementptr [104 x i8], ptr %11, i64 %12
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %.thread18
@@ -903,7 +901,7 @@ define internal fastcc noundef range(i32 -99, 1) i32 @vif_delete(ptr noundef %0,
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr %struct.vif_device, ptr %14, i64 %15
+  %16 = getelementptr [104 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %82, label %19
@@ -975,7 +973,7 @@ define internal fastcc noundef range(i32 -99, 1) i32 @vif_delete(ptr noundef %0,
 
 51:                                               ; preds = %.preheader
   %52 = add nsw i64 %48, -1
-  %53 = getelementptr %struct.vif_device, ptr %14, i64 %52
+  %53 = getelementptr [104 x i8], ptr %14, i64 %52
   %54 = load volatile ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.preheader, label %56, !llvm.loop !27
@@ -1171,7 +1169,7 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   %33 = phi i32 [ 0, %30 ], [ %56, %55 ]
   %34 = phi i32 [ 32, %30 ], [ %57, %55 ]
   %35 = phi i64 [ 0, %30 ], [ %58, %55 ]
-  %36 = getelementptr %struct.vif_device, ptr %31, i64 %35
+  %36 = getelementptr [104 x i8], ptr %31, i64 %35
   %37 = load volatile ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %55, label %39
@@ -1320,7 +1318,7 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   %117 = phi i32 [ 0, %113 ], [ %140, %139 ]
   %118 = phi i32 [ 32, %113 ], [ %141, %139 ]
   %119 = phi i64 [ 0, %113 ], [ %142, %139 ]
-  %120 = getelementptr %struct.vif_device, ptr %114, i64 %119
+  %120 = getelementptr [104 x i8], ptr %114, i64 %119
   %121 = load volatile ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
   br i1 %122, label %139, label %123
@@ -1431,7 +1429,7 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
 197:                                              ; preds = %151
   %198 = getelementptr inbounds nuw i8, ptr %153, i64 64
   %199 = zext i32 %191 to i64
-  %200 = getelementptr ptr, ptr %198, i64 %199
+  %200 = getelementptr [8 x i8], ptr %198, i64 %199
   br label %201
 
 201:                                              ; preds = %197, %195
@@ -2311,7 +2309,7 @@ define dso_local noundef range(i32 -515, 1) i32 @ipmr_ioctl(ptr noundef readonly
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %24 = load i16, ptr %2, align 8
   %25 = zext i16 %24 to i64
-  %26 = getelementptr %struct.vif_device, ptr %23, i64 %25
+  %26 = getelementptr [104 x i8], ptr %23, i64 %25
   %27 = load volatile ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %61, label %29
@@ -2423,7 +2421,7 @@ define dso_local range(i32 -515, 1) i32 @ipmr_compat_ioctl(ptr noundef readonly 
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %29 = load i16, ptr %6, align 4
   %30 = zext i16 %29 to i64
-  %31 = getelementptr %struct.vif_device, ptr %28, i64 %30
+  %31 = getelementptr [104 x i8], ptr %28, i64 %30
   %32 = load volatile ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %54, label %34
@@ -2635,7 +2633,7 @@ define dso_local i32 @ip_mr_input(ptr noundef %0) local_unnamed_addr #1 align 16
 
 85:                                               ; preds = %80
   %86 = and i64 %82, 2147483647
-  %87 = getelementptr %struct.vif_device, ptr %78, i64 %86
+  %87 = getelementptr [104 x i8], ptr %78, i64 %86
   %88 = load volatile ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, %25
   br i1 %89, label %90, label %80, !llvm.loop !74
@@ -2692,7 +2690,7 @@ define dso_local i32 @ip_mr_input(ptr noundef %0) local_unnamed_addr #1 align 16
 
 119:                                              ; preds = %114
   %120 = and i64 %116, 2147483647
-  %121 = getelementptr %struct.vif_device, ptr %78, i64 %120
+  %121 = getelementptr [104 x i8], ptr %78, i64 %120
   %122 = load volatile ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, %25
   br i1 %123, label %124, label %114, !llvm.loop !74
@@ -2947,7 +2945,7 @@ define internal fastcc void @ip_mr_forward(ptr noundef %0, ptr noundef %1, ptr n
 
 18:                                               ; preds = %13
   %19 = and i64 %15, 2147483647
-  %20 = getelementptr %struct.vif_device, ptr %9, i64 %19
+  %20 = getelementptr [104 x i8], ptr %9, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %2
   br i1 %22, label %23, label %13, !llvm.loop !74
@@ -2998,7 +2996,7 @@ define internal fastcc void @ip_mr_forward(ptr noundef %0, ptr noundef %1, ptr n
 
 54:                                               ; preds = %48, %44, %23
   %55 = zext i16 %26 to i64
-  %56 = getelementptr %struct.vif_device, ptr %9, i64 %55
+  %56 = getelementptr [104 x i8], ptr %9, i64 %55
   %57 = load volatile ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, %2
   br i1 %58, label %100, label %59
@@ -3064,7 +3062,7 @@ define internal fastcc void @ip_mr_forward(ptr noundef %0, ptr noundef %1, ptr n
 
 100:                                              ; preds = %._crit_edge, %54
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %55, %54 ]
-  %101 = getelementptr %struct.vif_device, ptr %9, i64 %.pre-phi
+  %101 = getelementptr [104 x i8], ptr %9, i64 %.pre-phi
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = load i64, ptr %102, align 8
   %104 = add i64 %103, 1
@@ -3306,7 +3304,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__pim_rcv(ptr noundef %0, pt
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %31 = zext nneg i32 %27 to i64
-  %32 = getelementptr %struct.vif_device, ptr %30, i64 %31
+  %32 = getelementptr [104 x i8], ptr %30, i64 %31
   %33 = load volatile ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread, label %35
@@ -3415,7 +3413,7 @@ define dso_local i32 @ipmr_get_route(ptr noundef readonly captures(none) %0, ptr
 
 30:                                               ; preds = %25
   %31 = and i64 %27, 2147483647
-  %32 = getelementptr %struct.vif_device, ptr %23, i64 %31
+  %32 = getelementptr [104 x i8], ptr %23, i64 %31
   %33 = load volatile ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %18
   br i1 %34, label %35, label %25, !llvm.loop !74
@@ -3467,7 +3465,7 @@ define dso_local i32 @ipmr_get_route(ptr noundef readonly captures(none) %0, ptr
 
 57:                                               ; preds = %52
   %58 = and i64 %54, 2147483647
-  %59 = getelementptr %struct.vif_device, ptr %50, i64 %58
+  %59 = getelementptr [104 x i8], ptr %50, i64 %58
   %60 = load volatile ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %45
   br i1 %61, label %62, label %52, !llvm.loop !74
@@ -3739,7 +3737,7 @@ define internal i32 @ipmr_rtm_getroute(ptr noundef %0, ptr noundef %1, ptr nound
 
 80:                                               ; preds = %.preheader, %90
   %81 = phi i64 [ %91, %90 ], [ 0, %.preheader ]
-  %82 = getelementptr ptr, ptr %5, i64 %81
+  %82 = getelementptr [8 x i8], ptr %5, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %90, label %85
@@ -4152,7 +4150,7 @@ define internal i32 @ipmr_rtm_route(ptr noundef readonly captures(none) %0, ptr 
 
 125:                                              ; preds = %120
   %126 = and i64 %122, 2147483647
-  %127 = getelementptr %struct.vif_device, ptr %118, i64 %126
+  %127 = getelementptr [104 x i8], ptr %118, i64 %126
   %128 = load volatile ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, %.lcssa26.ph
   br i1 %129, label %130, label %120, !llvm.loop !74
@@ -4496,7 +4494,7 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   br i1 %189, label %290, label %190
 
 190:                                              ; preds = %186
-  %191 = getelementptr %struct.vif_device, ptr %168, i64 %188
+  %191 = getelementptr [104 x i8], ptr %168, i64 %188
   %192 = load ptr, ptr %191, align 8
   %193 = icmp eq ptr %192, null
   br i1 %193, label %290, label %194
@@ -5281,7 +5279,7 @@ define internal fastcc void @rhltable_remove(ptr noundef %0, ptr noundef %1, ptr
 55:                                               ; preds = %45
   %56 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %57 = zext i32 %49 to i64
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   br label %59
 
 59:                                               ; preds = %55, %53
@@ -5903,7 +5901,7 @@ define internal fastcc void @ipmr_queue_xmit(ptr noundef %0, ptr noundef %1, ptr
   %12 = getelementptr i8, ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %14 = sext i32 %3 to i64
-  %15 = getelementptr %struct.vif_device, ptr %13, i64 %14
+  %15 = getelementptr [104 x i8], ptr %13, i64 %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false), !annotation !6
   %16 = load volatile ptr, ptr %15, align 8
@@ -6987,7 +6985,7 @@ define internal noundef i32 @ipmr_mfc_seq_show(ptr noundef %0, ptr noundef reado
 37:                                               ; preds = %50, %33
   %38 = phi i32 [ %31, %33 ], [ %51, %50 ]
   %39 = phi i64 [ %36, %33 ], [ %52, %50 ]
-  %40 = getelementptr %struct.vif_device, ptr %34, i64 %39
+  %40 = getelementptr [104 x i8], ptr %34, i64 %39
   %41 = load volatile ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %50, label %43

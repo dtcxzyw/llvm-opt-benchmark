@@ -1230,7 +1230,7 @@ define internal fastcc void @"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem
 define noundef range(i32 0, 4) i32 @_ZN6quiche6crypto5Level10from_epoch17h7fa039ca3e280d6dE(i8 noundef range(i8 0, 3) %0) unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6quiche6crypto5Level10from_epoch17h7fa039ca3e280d6dE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6quiche6crypto5Level10from_epoch17h7fa039ca3e280d6dE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1331,19 +1331,19 @@ define internal fastcc void @_ZN6quiche6crypto4Open3new17h8628e9b83b034276E(ptr 
 
 27:                                               ; preds = %16
   %28 = zext nneg i32 %17 to i64
-  %29 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %28
   %30 = load i64, ptr %29, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %10, i64 %30, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.0..0..0..0. = load i32, ptr %11, align 8
   %31 = zext i32 %.0..0..0..0. to i64
-  %32 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %31
   %33 = load i64, ptr %32, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %11, i64 %33, i1 false)
   %.0..0..0..0.29 = load i32, ptr %9, align 8
   %34 = zext i32 %.0..0..0..0.29 to i64
-  %35 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %34
   %36 = load i64, ptr %35, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %9, i64 %36, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1542,19 +1542,19 @@ define hidden void @_ZN6quiche6crypto4Open11from_secret17hc5fca2b5ca435eeeE(ptr 
 
 33:                                               ; preds = %23
   %34 = zext nneg i32 %24 to i64
-  %35 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %34
   %36 = load i64, ptr %35, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %8, i64 %36, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.0..0..0..0. = load i32, ptr %9, align 8
   %37 = zext i32 %.0..0..0..0. to i64
-  %38 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %37
   %39 = load i64, ptr %38, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr nonnull align 8 %9, i64 %39, i1 false)
   %.0..0..0..0.26 = load i32, ptr %7, align 8
   %40 = zext i32 %.0..0..0..0.26 to i64
-  %41 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %40
   %42 = load i64, ptr %41, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %7, i64 %42, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1864,19 +1864,19 @@ define internal fastcc void @_ZN6quiche6crypto4Seal3new17hc33ae2990493b2d0E(ptr 
 
 27:                                               ; preds = %16
   %28 = zext nneg i32 %17 to i64
-  %29 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %28
   %30 = load i64, ptr %29, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %10, i64 %30, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.0..0..0..0. = load i32, ptr %11, align 8
   %31 = zext i32 %.0..0..0..0. to i64
-  %32 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %31
   %33 = load i64, ptr %32, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %11, i64 %33, i1 false)
   %.0..0..0..0.29 = load i32, ptr %9, align 8
   %34 = zext i32 %.0..0..0..0.29 to i64
-  %35 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %34
   %36 = load i64, ptr %35, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %9, i64 %36, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2075,19 +2075,19 @@ define hidden void @_ZN6quiche6crypto4Seal11from_secret17h80d0b9f4d46941c4E(ptr 
 
 33:                                               ; preds = %23
   %34 = zext nneg i32 %24 to i64
-  %35 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %34
   %36 = load i64, ptr %35, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %8, i64 %36, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.0..0..0..0. = load i32, ptr %9, align 8
   %37 = zext i32 %.0..0..0..0. to i64
-  %38 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %37
   %39 = load i64, ptr %38, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr nonnull align 8 %9, i64 %39, i1 false)
   %.0..0..0..0.26 = load i32, ptr %7, align 8
   %40 = zext i32 %.0..0..0..0.26 to i64
-  %41 = getelementptr inbounds nuw i64, ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.20, i64 %40
   %42 = load i64, ptr %41, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %7, i64 %42, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3756,7 +3756,7 @@ define { i64, i64 } @_ZN6quiche5dgram13DatagramQueue14peek_front_len17h50bf29a76
   %.sroa.01.0.i = sub nuw i64 %9, %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !166, !nonnull !3, !noundef !3
-  %13 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %12, i64 %.sroa.01.0.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.sroa.01.0.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = icmp sgt i64 %15, -1
@@ -3782,7 +3782,7 @@ define void @_ZN6quiche5dgram13DatagramQueue16peek_front_bytes17h036b92f7940ec41
   %.sroa.01.0.i = sub nuw i64 %11, %12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !169, !nonnull !3, !noundef !3
-  %15 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %14, i64 %.sroa.01.0.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.sroa.01.0.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !3
   %18 = icmp sgt i64 %17, -1
@@ -4287,7 +4287,7 @@ _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit.thread: ; pr
   br label %385
 
 _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit: ; preds = %173
-  %177 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.d3532c359de83a36efb23c8f8954d829.200, i64 %174
+  %177 = getelementptr inbounds nuw [32 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.200, i64 %174
   %.sroa.9219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 24
   %.sroa.9219.0.copyload = load i64, ptr %.sroa.9219.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 8
@@ -4327,7 +4327,7 @@ _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit: ; preds = %
 
 189:                                              ; preds = %184, %180
   %190 = load ptr, ptr %52, align 8, !alias.scope !186, !noalias !189, !nonnull !3, !noundef !3
-  %191 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %190, i64 %181
+  %191 = getelementptr inbounds nuw [48 x i8], ptr %190, i64 %181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %191, ptr noundef nonnull align 8 dereferenceable(48) %36, i64 48, i1 false)
   %192 = add i64 %181, 1
   store i64 %192, ptr %53, align 8, !alias.scope !186, !noalias !189
@@ -4652,7 +4652,7 @@ _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit: ; preds = %
 
 292:                                              ; preds = %287, %283
   %293 = load ptr, ptr %52, align 8, !alias.scope !202, !noalias !205, !nonnull !3, !noundef !3
-  %294 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %293, i64 %284
+  %294 = getelementptr inbounds nuw [48 x i8], ptr %293, i64 %284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %294, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false)
   %295 = add i64 %284, 1
   store i64 %295, ptr %53, align 8, !alias.scope !202, !noalias !205
@@ -4804,7 +4804,7 @@ _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210.thread: ;
           to label %362 unwind label %.loopexit.split-lp
 
 _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210: ; preds = %333
-  %337 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.d3532c359de83a36efb23c8f8954d829.200, i64 %334
+  %337 = getelementptr inbounds nuw [32 x i8], ptr @anon.d3532c359de83a36efb23c8f8954d829.200, i64 %334
   %.sroa.0220.0.copyload = load ptr, ptr %337, align 8
   %.sroa.5.0..sroa_idx221 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %.sroa.5.0.copyload222 = load i64, ptr %.sroa.5.0..sroa_idx221, align 8
@@ -4867,7 +4867,7 @@ _ZN6quiche2h35qpack7decoder13lookup_static17h833a3596c0b21a01E.exit210: ; preds 
 
 358:                                              ; preds = %353, %347
   %359 = load ptr, ptr %52, align 8, !alias.scope !216, !noalias !219, !nonnull !3, !noundef !3
-  %360 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %359, i64 %350
+  %360 = getelementptr inbounds nuw [48 x i8], ptr %359, i64 %350
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %360, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
   %361 = add i64 %350, 1
   store i64 %361, ptr %53, align 8, !alias.scope !216, !noalias !219
@@ -5958,7 +5958,7 @@ define hidden noundef nonnull align 16 dereferenceable(160) ptr @"_ZN6quiche6pac
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw { { { { i64, i32, [1 x i32] } } }, { i128, i64, [1 x i64] }, { i64, [10 x i64] }, i64, i64, i8, [7 x i8] }, ptr %0, i64 %5
+  %8 = getelementptr inbounds nuw [160 x i8], ptr %0, i64 %5
   ret ptr %8
 
 9:                                                ; preds = %4
@@ -5973,7 +5973,7 @@ define hidden noundef nonnull align 8 dereferenceable(4080) ptr @"_ZN6quiche6pac
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw { { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, i64, i64, i64, { [2 x i32], i32, [1 x i32] } }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i8, [7 x i8] }, { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr, i64, i8, i8, i8, i8, [4 x i8] }, { i64, [118 x i64] }, { i64, [114 x i64] }, { i64, [114 x i64] }, { i64, [114 x i64] } }, ptr %0, i64 %5
+  %8 = getelementptr inbounds nuw [4080 x i8], ptr %0, i64 %5
   ret ptr %8
 
 9:                                                ; preds = %4
@@ -5988,7 +5988,7 @@ define hidden noundef nonnull align 16 dereferenceable(160) ptr @"_ZN6quiche6pac
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw { { { { i64, i32, [1 x i32] } } }, { i128, i64, [1 x i64] }, { i64, [10 x i64] }, i64, i64, i8, [7 x i8] }, ptr %0, i64 %5
+  %8 = getelementptr inbounds nuw [160 x i8], ptr %0, i64 %5
   ret ptr %8
 
 9:                                                ; preds = %4
@@ -6003,7 +6003,7 @@ define hidden noundef nonnull align 8 dereferenceable(4080) ptr @"_ZN6quiche6pac
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw { { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, i64, i64, i64, { [2 x i32], i32, [1 x i32] } }, { { ptr, [1 x i64] }, i64, { {} }, {} }, i64, i64, i8, [7 x i8] }, { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64, i64 }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr, i64, i8, i8, i8, i8, [4 x i8] }, { i64, [118 x i64] }, { i64, [114 x i64] }, { i64, [114 x i64] }, { i64, [114 x i64] } }, ptr %0, i64 %5
+  %8 = getelementptr inbounds nuw [4080 x i8], ptr %0, i64 %5
   ret ptr %8
 
 9:                                                ; preds = %4
@@ -6617,7 +6617,7 @@ define void @_ZN6quiche6packet6Header10from_bytes17he442f438081c0428E(ptr dead_o
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h14cfca39a7f0791bE.exit": ; preds = %189, %185
   %190 = load ptr, ptr %114, align 8, !alias.scope !282, !nonnull !3, !noundef !3
-  %191 = getelementptr inbounds nuw i32, ptr %190, i64 %186
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %186
   store i32 %182, ptr %191, align 4
   %192 = add i64 %186, 1
   br label %168
@@ -9823,10 +9823,10 @@ define internal noundef zeroext i1 @"_ZN57_$LT$quiche..packet..Type$u20$as$u20$c
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !185, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN57_$LT$quiche..packet..Type$u20$as$u20$core..fmt..Debug$GT$3fmt17h7966af86eb2e3fc7E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN57_$LT$quiche..packet..Type$u20$as$u20$core..fmt..Debug$GT$3fmt17h7966af86eb2e3fc7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN57_$LT$quiche..packet..Type$u20$as$u20$core..fmt..Debug$GT$3fmt17h7966af86eb2e3fc7E.21", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN57_$LT$quiche..packet..Type$u20$as$u20$core..fmt..Debug$GT$3fmt17h7966af86eb2e3fc7E.21", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

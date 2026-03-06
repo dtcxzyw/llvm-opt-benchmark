@@ -261,7 +261,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit.preheader: ; preds = %8
 
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit.preheader, %_ZNK8facebook4yoga4Node8getChildEm.exit
   %.018 = phi i64 [ %20, %_ZNK8facebook4yoga4Node8getChildEm.exit ], [ 0, %_ZNK8facebook4yoga4Node8getChildEm.exit.preheader ]
-  %17 = getelementptr inbounds nuw ptr, ptr %12, i64 %.018
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.018
   %18 = load ptr, ptr %17, align 8, !tbaa !69
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 528
   store ptr null, ptr %19, align 8, !tbaa !62
@@ -313,7 +313,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i: ; preds = %24, %._crit_e
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds i64, ptr %37, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %42
   call void @_ZdlPvm(ptr noundef %43, i64 noundef %40) #15
   store ptr null, ptr %33, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -391,7 +391,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
   %22 = phi ptr [ %6, %_ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph ], [ %47, %46 ]
   %23 = phi ptr [ %5, %_ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph ], [ %48, %46 ]
   %.012 = phi i64 [ 0, %_ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph ], [ %.1, %46 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %.012
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.012
   %25 = load ptr, ptr %24, align 8, !tbaa !69
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 528
   %27 = load ptr, ptr %26, align 8, !tbaa !62
@@ -617,7 +617,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i: ; preds = %8, %1
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 3
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds i64, ptr %21, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %21, i64 %26
   call void @_ZdlPvm(ptr noundef %27, i64 noundef %24) #15
   store ptr null, ptr %17, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -814,7 +814,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %1
   unreachable
 
 _ZNK8facebook4yoga4Node8getChildEm.exit21:        ; preds = %32
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %.026
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.026
   %41 = load ptr, ptr %40, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %2, i8 0, i64 324, i1 false)
@@ -1336,7 +1336,7 @@ define ptr @YGNodeGetChild(ptr noundef readonly captures(none) %0, i64 noundef %
   br i1 %11, label %_ZNK8facebook4yoga4Node8getChildEm.exit, label %14
 
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %2
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !69
   br label %14
 
@@ -1505,7 +1505,7 @@ define noundef zeroext i1 @YGNodeCanUseCachedMeasurement(i32 noundef %0, float n
 switch.lookup:                                    ; preds = %13
   %.mask = and i32 %0, 3
   %17 = zext nneg i32 %.mask to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %18 = trunc i32 %2 to i8
   %19 = icmp ult i8 %18, 3
@@ -1518,7 +1518,7 @@ switch.lookup:                                    ; preds = %13
 switch.lookup21:                                  ; preds = %switch.lookup
   %.mask27 = and i32 %2, 3
   %21 = zext nneg i32 %.mask27 to i64
-  %switch.gep22 = getelementptr inbounds nuw i32, ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 %21
+  %switch.gep22 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 %21
   %switch.load23 = load i32, ptr %switch.gep22, align 4
   %22 = trunc i32 %4 to i8
   %23 = icmp ult i8 %22, 3
@@ -1540,11 +1540,11 @@ switch.lookup18:                                  ; preds = %switch.lookup21
 switch.lookup24:                                  ; preds = %switch.lookup18
   %.mask28 = and i32 %4, 3
   %28 = zext nneg i32 %.mask28 to i64
-  %switch.gep19 = getelementptr inbounds nuw i32, ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 %28
+  %switch.gep19 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 %28
   %switch.load20 = load i32, ptr %switch.gep19, align 4
   %.mask29 = and i32 %6, 3
   %29 = zext nneg i32 %.mask29 to i64
-  %switch.gep25 = getelementptr inbounds nuw i32, ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 %29
+  %switch.gep25 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 %29
   %switch.load26 = load i32, ptr %switch.gep25, align 4
   %30 = tail call noundef zeroext i1 @_ZN8facebook4yoga23canUseCachedMeasurementENS0_10SizingModeEfS1_fS1_fS1_fffffPKNS0_6ConfigE(i32 noundef %switch.load, float noundef %1, i32 noundef %switch.load23, float noundef %3, i32 noundef %switch.load20, float noundef %5, i32 noundef %switch.load26, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, ptr noundef %12)
   ret i1 %30
@@ -1576,7 +1576,7 @@ define linkonce_odr void @_ZN8facebook4yoga5StyleD2Ev(ptr noundef nonnull align 
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds i64, ptr %9, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %9, i64 %14
   tail call void @_ZdlPvm(ptr noundef %15, i64 noundef %12) #15
   store ptr null, ptr %5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1729,7 +1729,7 @@ _ZSt11make_uniqueIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEJRS4_EENSt8__
   %54 = sub i64 %52, %53
   %55 = ashr exact i64 %54, 3
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds i64, ptr %51, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %51, i64 %56
   tail call void @_ZdlPvm(ptr noundef %57, i64 noundef %54) #15
   store ptr null, ptr %47, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -1783,7 +1783,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBu
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
   %13 = sub nsw i64 0, %12
-  %14 = getelementptr inbounds i64, ptr %8, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %8, i64 %13
   tail call void @_ZdlPvm(ptr noundef %14, i64 noundef %11) #15
   store ptr null, ptr %4, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1852,12 +1852,12 @@ define linkonce_odr void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align
 
 .noexc:                                           ; preds = %18
   %23 = lshr i64 %19, 6
-  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   store ptr %24, ptr %6, align 8, !tbaa !78
   store ptr %22, ptr %0, align 8
   store i32 0, ptr %3, align 8
   %25 = sdiv i64 %17, 64
-  %26 = getelementptr inbounds i64, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = and i64 %17, -9223372036854775745
   %28 = icmp ugt i64 %27, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %28, i64 -8, i64 0
@@ -1969,7 +1969,7 @@ define linkonce_odr void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull al
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #15
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8

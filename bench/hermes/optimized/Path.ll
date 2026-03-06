@@ -1418,7 +1418,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; pr
   %5 = phi i32 [ %.pre.i, %if.then.i ], [ %3, %if.then ]
   %6 = load ptr, ptr %components, align 8
   %conv.i3.i = zext i32 %5 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %6, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %conv.i3.i
   store ptr %1, ptr %add.ptr.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store i64 %2, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
@@ -1452,7 +1452,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit46: ; 
   %14 = phi i32 [ %.pre.i42, %if.then.i40 ], [ %12, %if.then3 ]
   %15 = load ptr, ptr %components, align 8
   %conv.i3.i43 = zext i32 %14 to i64
-  %add.ptr.i.i44 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %15, i64 %conv.i3.i43
+  %add.ptr.i.i44 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %conv.i3.i43
   store ptr %10, ptr %add.ptr.i.i44, align 1
   %ref.tmp4.sroa.2.0.add.ptr.i.i44.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i44, i64 8
   store i64 %11, ptr %ref.tmp4.sroa.2.0.add.ptr.i.i44.sroa_idx, align 1
@@ -1486,7 +1486,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit58: ; 
   %23 = phi i32 [ %.pre.i54, %if.then.i52 ], [ %21, %if.then8 ]
   %24 = load ptr, ptr %components, align 8
   %conv.i3.i55 = zext i32 %23 to i64
-  %add.ptr.i.i56 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %24, i64 %conv.i3.i55
+  %add.ptr.i.i56 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %conv.i3.i55
   store ptr %19, ptr %add.ptr.i.i56, align 1
   %ref.tmp9.sroa.2.0.add.ptr.i.i56.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i56, i64 8
   store i64 %20, ptr %ref.tmp9.sroa.2.0.add.ptr.i.i56.sroa_idx, align 1
@@ -1520,7 +1520,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit70: ; 
   %32 = phi i32 [ %.pre.i66, %if.then.i64 ], [ %30, %if.then13 ]
   %33 = load ptr, ptr %components, align 8
   %conv.i3.i67 = zext i32 %32 to i64
-  %add.ptr.i.i68 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %33, i64 %conv.i3.i67
+  %add.ptr.i.i68 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %conv.i3.i67
   store ptr %28, ptr %add.ptr.i.i68, align 1
   %ref.tmp14.sroa.2.0.add.ptr.i.i68.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i68, i64 8
   store i64 %29, ptr %ref.tmp14.sroa.2.0.add.ptr.i.i68.sroa_idx, align 1
@@ -3871,7 +3871,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.us.i:
   %13 = phi i32 [ %.pre.i.us.i, %if.then.i.us.i ], [ %11, %if.end26.us.i ]
   %14 = load ptr, ptr %components.i, align 8, !noalias !52
   %conv.i3.i.us.i = zext i32 %13 to i64
-  %add.ptr.i.i32.us.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %14, i64 %conv.i3.i.us.i
+  %add.ptr.i.i32.us.i = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %conv.i3.i.us.i
   store ptr %C.sroa.0.0.copyload.us.i, ptr %add.ptr.i.i32.us.i, align 1, !noalias !52
   %C.sroa.4.0.add.ptr.i.i32.sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i32.us.i, i64 8
   store i64 %C.sroa.4.0.copyload.us.i, ptr %C.sroa.4.0.add.ptr.i.i32.sroa_idx.us.i, align 1, !noalias !52
@@ -3915,7 +3915,7 @@ if.then13.i:                                      ; preds = %if.end.i.i99.i
 land.lhs.true15.i:                                ; preds = %if.then13.i
   %21 = load ptr, ptr %components.i, align 8, !noalias !52
   %conv.i.i28.i = zext i32 %20 to i64
-  %add.ptr.i.i29.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %21, i64 %conv.i.i28.i
+  %add.ptr.i.i29.i = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %conv.i.i28.i
   %agg.tmp16.sroa.2.0.call17.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i29.i, i64 -8
   %agg.tmp16.sroa.2.0.copyload.i = load i64, ptr %agg.tmp16.sroa.2.0.call17.sroa_idx.i, align 8, !noalias !52
   %cmp.i114.i = icmp eq i64 %agg.tmp16.sroa.2.0.copyload.i, 2
@@ -3954,7 +3954,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.i: ; 
   %24 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %22, %if.end26.i ]
   %25 = load ptr, ptr %components.i, align 8, !noalias !52
   %conv.i3.i.i = zext i32 %24 to i64
-  %add.ptr.i.i32.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %25, i64 %conv.i3.i.i
+  %add.ptr.i.i32.i = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %conv.i3.i.i
   store ptr %C.sroa.0.0.copyload.i, ptr %add.ptr.i.i32.i, align 1, !noalias !52
   %C.sroa.4.0.add.ptr.i.i32.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i32.i, i64 8
   store i64 %C.sroa.4.0.copyload.i, ptr %C.sroa.4.0.add.ptr.i.i32.sroa_idx.i, align 1, !noalias !52
@@ -5715,7 +5715,7 @@ if.end6.i:                                        ; preds = %entry
 switch.lookup:                                    ; preds = %if.end6.i
   %4 = lshr exact i32 %2, 12
   %5 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
@@ -7523,7 +7523,7 @@ if.end6:                                          ; preds = %entry
 switch.lookup:                                    ; preds = %if.end6
   %4 = lshr exact i32 %2, 12
   %5 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvh3sys2fsL11typeForModeEj.exit
 
@@ -8018,7 +8018,7 @@ if.end:                                           ; preds = %if.then7, %land.lhs
 switch.lookup:                                    ; preds = %if.end
   %12 = lshr exact i32 %10, 12
   %13 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit
 
@@ -8153,7 +8153,7 @@ if.end6.i:                                        ; preds = %entry
 switch.lookup:                                    ; preds = %if.end6.i
   %6 = lshr exact i32 %4, 12
   %7 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvh3sys2fsL11typeForModeEj.exit.i
 
@@ -10144,7 +10144,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorISt10un
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %Payloads15, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
@@ -10237,7 +10237,7 @@ if.then.i20.i.i.i51:                              ; preds = %_ZNSt6vectorISt10un
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i52: ; preds = %if.then.i20.i.i.i51, %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i47
   store ptr %call5.i.i.i.i.i.i38, ptr %Payloads17, align 8
   store ptr %incdec.ptr.i.i.i49, ptr %_M_finish.i.i20, align 8
-  %add.ptr19.i.i.i53 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i.i.i38, i64 %cond.i.i.i.i35
+  %add.ptr19.i.i.i53 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i38, i64 %cond.i.i.i.i35
   store ptr %add.ptr19.i.i.i53, ptr %_M_end_of_storage.i.i21, align 8
   br label %if.end18
 
@@ -10497,7 +10497,7 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10un
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i, %if.then.i20.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18.i, ptr %_M_finish, align 8
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage, align 8
   br label %if.end29
 

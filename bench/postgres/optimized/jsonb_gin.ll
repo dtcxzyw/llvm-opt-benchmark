@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.GinEntries = type { ptr, i32, i32 }
 %struct.PathHashStack = type { i32, ptr }
 %union.JsonPathGinPath = type { ptr }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [33 x i8] c"unrecognized strategy number: %d\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"jsonb_gin.c\00", align 1
@@ -259,7 +258,7 @@ init_gin_entries.exit:                            ; preds = %1
   %.sroa.27.1.ph = phi i32 [ %.sroa.27.0.ph, %33 ], [ %.sroa.27.0.ph, %23 ], [ %27, %26 ], [ 8, %31 ], [ %39, %38 ], [ 8, %43 ], [ %49, %48 ], [ 8, %53 ], [ %.sroa.27.0.ph, %45 ]
   %55 = add i32 %.sroa.16.0.ph, 1
   %56 = sext i32 %.sroa.16.0.ph to i64
-  %57 = getelementptr inbounds i64, ptr %.sroa.0.4.sink, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %.sroa.0.4.sink, i64 %56
   store i64 %.sink, ptr %57, align 8
   br label %.outer, !llvm.loop !4
 
@@ -528,7 +527,7 @@ make_text_key.exit:                               ; preds = %.thread, %49, %52
 
 81:                                               ; preds = %.lr.ph
   %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   %84 = load i64, ptr %83, align 8
   %85 = inttoptr i64 %84 to ptr
   %86 = load i8, ptr %85, align 1
@@ -596,7 +595,7 @@ make_text_key.exit82:                             ; preds = %.thread83, %107, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %121 = add i32 %.06684, 1
   %122 = sext i32 %.06684 to i64
-  %123 = getelementptr inbounds i64, ptr %73, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %73, i64 %122
   store i64 %120, ptr %123, align 8
   %.pre = load i32, ptr %6, align 4
   br label %124
@@ -877,7 +876,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr noundef readonly cap
 12:                                               ; preds = %.lr.ph43, %17
   %indvars.iv49 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next50, %17 ]
   %.03041 = phi i8 [ 1, %.lr.ph43 ], [ %.131, %17 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv49
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv49
   %14 = load ptr, ptr %13, align 8
   %15 = tail call fastcc signext i8 @execute_jsp_gin_node(ptr noundef %14, ptr noundef %1)
   switch i8 %15, label %17 [
@@ -899,7 +898,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr noundef readonly cap
 21:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.237 = phi i8 [ 0, %.lr.ph ], [ %.3, %26 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = tail call fastcc signext i8 @execute_jsp_gin_node(ptr noundef %23, ptr noundef %1)
   switch i8 %24, label %26 [
@@ -1133,7 +1132,7 @@ add_gin_entry.exit:                               ; preds = %30, %34, %39
   %.sroa.0.2 = phi ptr [ %38, %34 ], [ %40, %39 ], [ %.sroa.0.0.ph, %30 ]
   %41 = add i32 %.sroa.8.0.ph, 1
   %42 = sext i32 %.sroa.8.0.ph to i64
-  %43 = getelementptr inbounds i64, ptr %.sroa.0.2, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %.sroa.0.2, i64 %42
   store i64 %32, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.ph51, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -1716,10 +1715,10 @@ extract_jsp_path_expr_nodes.exit:                 ; preds = %16, %21
 42:                                               ; preds = %42, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
   %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %46 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i
   store ptr %45, ptr %46, align 8
   %47 = load i32, ptr %28, align 4
   %48 = sext i32 %47 to i64
@@ -1940,7 +1939,7 @@ add_gin_entry.exit:                               ; preds = %._crit_edge.i, %12,
   %22 = add i32 %21, 1
   store i32 %22, ptr %7, align 8
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds i64, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   store i64 %6, ptr %24, align 8
   store i32 %8, ptr %5, align 8
   br label %.loopexit
@@ -1957,7 +1956,7 @@ add_gin_entry.exit:                               ; preds = %._crit_edge.i, %12,
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @emit_jsp_gin_entries(ptr noundef %32, ptr noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

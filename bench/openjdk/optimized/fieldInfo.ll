@@ -3,15 +3,15 @@ source_filename = "bench/openjdk/original/fieldInfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%class.FieldInfo = type <{ i32, i16, i16, i32, %class.AccessFlags, %"class.FieldInfo::FieldFlags", i16, i16, i16, [2 x i8] }>
-%class.AccessFlags = type { i32 }
-%"class.FieldInfo::FieldFlags" = type { i32 }
 %"class.UNSIGNED5::Sizer" = type { i32, i32 }
 %class.Mapper = type <{ ptr, i32, [4 x i8] }>
 %"class.UNSIGNED5::Writer" = type <{ ptr, ptr, i32, [4 x i8] }>
 %class.Mapper.3 = type <{ ptr, i32, [4 x i8] }>
 %class.FieldInfoReader = type <{ %"class.UNSIGNED5::Reader", i32, [4 x i8] }>
 %"class.UNSIGNED5::Reader" = type { ptr, i32, i32 }
+%class.FieldInfo = type <{ i32, i16, i16, i32, %class.AccessFlags, %"class.FieldInfo::FieldFlags", i16, i16, i16, [2 x i8] }>
+%class.AccessFlags = type { i32 }
+%"class.FieldInfo::FieldFlags" = type { i32 }
 
 $_ZN6MapperIN9UNSIGNED55SizerIiEEE14map_field_infoERK9FieldInfo = comdat any
 
@@ -35,48 +35,45 @@ define hidden void @_ZN9FieldInfo5printEP12outputStreamP12ConstantPool(ptr nound
   %9 = and i32 %8, 2
   %.not.i = icmp eq i32 %9, 0
   %10 = zext i16 %6 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %10
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %10
-  %.0.in.i = select i1 %.not.i, ptr %13, ptr %11
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %.0.in.v.i = select i1 %.not.i, ptr %11, ptr @_ZN6Symbol11_vm_symbolsE
+  %.0.in.i = getelementptr inbounds nuw [8 x i8], ptr %.0.in.v.i, i64 %10
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  %14 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i) #6
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %16 = load i16, ptr %15, align 2
-  %17 = load i32, ptr %7, align 4
-  %18 = and i32 %17, 2
-  %.not.i5 = icmp eq i32 %18, 0
-  %19 = zext i16 %16 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %19
-  %21 = getelementptr inbounds nuw i64, ptr %12, i64 %19
-  %.0.in.i6 = select i1 %.not.i5, ptr %21, ptr %20
-  %.0.i7 = load ptr, ptr %.0.in.i6, align 8
-  %22 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i7) #6
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.sroa.0.0.copyload.i = load i32, ptr %25, align 4
-  %.sroa.0.0.copyload.i8 = load i32, ptr %7, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %27 = load i16, ptr %26, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %29 = load i16, ptr %28, align 2
-  %30 = and i32 %.sroa.0.0.copyload.i8, 2
-  %.not = icmp eq i32 %30, 0
-  %31 = zext i16 %29 to i64
-  %32 = getelementptr inbounds nuw i64, ptr %12, i64 %31
-  %33 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %31
-  %.sink.in = select i1 %.not, ptr %32, ptr %33
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %34 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.sink) #6
-  %35 = zext i16 %29 to i32
-  %36 = zext i16 %27 to i32
-  %37 = zext i16 %16 to i32
-  %38 = zext i16 %6 to i32
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load i16, ptr %39, align 4
-  %41 = zext i16 %40 to i32
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i32 noundef %4, i32 noundef %38, ptr noundef %14, i32 noundef %37, ptr noundef %22, i32 noundef %24, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.0.0.copyload.i8, i32 noundef %36, i32 noundef %35, ptr noundef %34, i32 noundef %41) #6
+  %12 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i) #6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %14 = load i16, ptr %13, align 2
+  %15 = load i32, ptr %7, align 4
+  %16 = and i32 %15, 2
+  %.not.i5 = icmp eq i32 %16, 0
+  %17 = zext i16 %14 to i64
+  %.0.in.v.i6 = select i1 %.not.i5, ptr %11, ptr @_ZN6Symbol11_vm_symbolsE
+  %.0.in.i7 = getelementptr inbounds nuw [8 x i8], ptr %.0.in.v.i6, i64 %17
+  %.0.i8 = load ptr, ptr %.0.in.i7, align 8
+  %18 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i8) #6
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.0.0.copyload.i = load i32, ptr %21, align 4
+  %.sroa.0.0.copyload.i9 = load i32, ptr %7, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %23 = load i16, ptr %22, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  %25 = load i16, ptr %24, align 2
+  %26 = and i32 %.sroa.0.0.copyload.i9, 2
+  %.not = icmp eq i32 %26, 0
+  %27 = zext i16 %25 to i64
+  %._ZN6Symbol11_vm_symbolsE = select i1 %.not, ptr %11, ptr @_ZN6Symbol11_vm_symbolsE
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %._ZN6Symbol11_vm_symbolsE, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %29) #6
+  %31 = zext i16 %25 to i32
+  %32 = zext i16 %23 to i32
+  %33 = zext i16 %14 to i32
+  %34 = zext i16 %6 to i32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = load i16, ptr %35, align 4
+  %37 = zext i16 %36 to i32
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i32 noundef %4, i32 noundef %34, ptr noundef %12, i32 noundef %33, ptr noundef %18, i32 noundef %20, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.0.0.copyload.i9, i32 noundef %32, i32 noundef %31, ptr noundef %30, i32 noundef %37) #6
   ret void
 }
 
@@ -90,20 +87,66 @@ define hidden void @_ZN9FieldInfo25print_from_growable_arrayEP12outputStreamP13G
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %7
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  br label %8
 
-7:                                                ; preds = %.lr.ph, %7
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw %class.FieldInfo, ptr %8, i64 %indvars.iv
-  tail call void @_ZN9FieldInfo5printEP12outputStreamP12ConstantPool(ptr noundef nonnull align 4 dereferenceable(26) %9, ptr noundef %0, ptr noundef %2)
+8:                                                ; preds = %.lr.ph, %8
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds nuw [28 x i8], ptr %9, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = load i16, ptr %12, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %15 = load i32, ptr %14, align 4
+  %16 = and i32 %15, 2
+  %.not.i.i = icmp eq i32 %16, 0
+  %17 = zext i16 %13 to i64
+  %.0.in.v.i.i = select i1 %.not.i.i, ptr %7, ptr @_ZN6Symbol11_vm_symbolsE
+  %.0.in.i.i = getelementptr inbounds nuw [8 x i8], ptr %.0.in.v.i.i, i64 %17
+  %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
+  %18 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i) #6
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 6
+  %20 = load i16, ptr %19, align 2
+  %21 = load i32, ptr %14, align 4
+  %22 = and i32 %21, 2
+  %.not.i5.i = icmp eq i32 %22, 0
+  %23 = zext i16 %20 to i64
+  %.0.in.v.i6.i = select i1 %.not.i5.i, ptr %7, ptr @_ZN6Symbol11_vm_symbolsE
+  %.0.in.i7.i = getelementptr inbounds nuw [8 x i8], ptr %.0.in.v.i6.i, i64 %23
+  %.0.i8.i = load ptr, ptr %.0.in.i7.i, align 8
+  %24 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i8.i) #6
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %26 = load i32, ptr %25, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %.sroa.0.0.copyload.i.i = load i32, ptr %27, align 4
+  %.sroa.0.0.copyload.i9.i = load i32, ptr %14, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %29 = load i16, ptr %28, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 22
+  %31 = load i16, ptr %30, align 2
+  %32 = and i32 %.sroa.0.0.copyload.i9.i, 2
+  %.not.i = icmp eq i32 %32, 0
+  %33 = zext i16 %31 to i64
+  %._ZN6Symbol11_vm_symbolsE.i = select i1 %.not.i, ptr %7, ptr @_ZN6Symbol11_vm_symbolsE
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %._ZN6Symbol11_vm_symbolsE.i, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %35) #6
+  %37 = zext i16 %31 to i32
+  %38 = zext i16 %29 to i32
+  %39 = zext i16 %20 to i32
+  %40 = zext i16 %13 to i32
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %42 = load i16, ptr %41, align 4
+  %43 = zext i16 %42 to i32
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str, i32 noundef %11, i32 noundef %40, ptr noundef %18, i32 noundef %39, ptr noundef %24, i32 noundef %26, i32 noundef %.sroa.0.0.copyload.i.i, i32 noundef %.sroa.0.0.copyload.i9.i, i32 noundef %38, i32 noundef %37, ptr noundef %36, i32 noundef %43) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load i32, ptr %1, align 8
-  %11 = sext i32 %10 to i64
-  %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %7, label %._crit_edge, !llvm.loop !6
+  %44 = load i32, ptr %1, align 8
+  %45 = sext i32 %44 to i64
+  %46 = icmp slt i64 %indvars.iv.next, %45
+  br i1 %46, label %8, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %7, %3
+._crit_edge:                                      ; preds = %8, %3
   ret void
 }
 
@@ -180,7 +223,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit29:     ; preds = %_ZN9UNSIGNED55Sizer
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %38 = load ptr, ptr %36, align 8
-  %39 = getelementptr inbounds nuw %class.FieldInfo, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [28 x i8], ptr %38, i64 %indvars.iv
   call void @_ZN6MapperIN9UNSIGNED55SizerIiEEE14map_field_infoERK9FieldInfo(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(26) %39)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %0, align 8
@@ -306,7 +349,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit43: ; pr
 86:                                               ; preds = %.lr.ph47, %86
   %indvars.iv51 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next52, %86 ]
   %87 = load ptr, ptr %85, align 8
-  %88 = getelementptr inbounds nuw %class.FieldInfo, ptr %87, i64 %indvars.iv51
+  %88 = getelementptr inbounds nuw [28 x i8], ptr %87, i64 %indvars.iv51
   call void @_ZN6MapperIN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS4_iEEEE14map_field_infoERK9FieldInfo(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(26) %88)
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %89 = load i32, ptr %0, align 8
@@ -1165,7 +1208,7 @@ _ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit: ; preds = %.lr.ph.i.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %57 = getelementptr inbounds nuw %class.FieldInfo, ptr %53, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw [28 x i8], ptr %53, i64 %indvars.iv.i.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %58, i8 0, i64 22, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1374,7 +1417,7 @@ _ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exi
   store i32 %157, ptr %52, align 8
   %158 = load ptr, ptr %55, align 8
   %159 = sext i32 %156 to i64
-  %160 = getelementptr inbounds %class.FieldInfo, ptr %158, i64 %159
+  %160 = getelementptr inbounds [28 x i8], ptr %158, i64 %159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(26) %160, ptr noundef nonnull align 4 dereferenceable(26) %5, i64 26, i1 false)
   %.pre = load ptr, ptr %4, align 8
   %.pre46 = load i32, ptr %61, align 4
@@ -2013,41 +2056,38 @@ _ZN15FieldInfoReader8has_nextEv.exit.thread24:    ; preds = %71, %.lr.ph30.i.i.i
   %80 = and i32 %79, 2
   %.not.i.i = icmp eq i32 %80, 0
   %81 = zext i16 %78 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %81
-  %83 = getelementptr inbounds nuw i64, ptr %39, i64 %81
-  %.0.in.i.i = select i1 %.not.i.i, ptr %83, ptr %82
+  %.0.in.v.i.i = select i1 %.not.i.i, ptr %39, ptr @_ZN6Symbol11_vm_symbolsE
+  %.0.in.i.i = getelementptr inbounds nuw [8 x i8], ptr %.0.in.v.i.i, i64 %81
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
-  %84 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i) #6
-  %85 = load i16, ptr %40, align 2
-  %86 = load i32, ptr %38, align 4
-  %87 = and i32 %86, 2
-  %.not.i5.i = icmp eq i32 %87, 0
-  %88 = zext i16 %85 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %88
-  %90 = getelementptr inbounds nuw i64, ptr %39, i64 %88
-  %.0.in.i6.i = select i1 %.not.i5.i, ptr %90, ptr %89
-  %.0.i7.i = load ptr, ptr %.0.in.i6.i, align 8
-  %91 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i7.i) #6
-  %92 = load i32, ptr %41, align 4
+  %82 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i) #6
+  %83 = load i16, ptr %40, align 2
+  %84 = load i32, ptr %38, align 4
+  %85 = and i32 %84, 2
+  %.not.i5.i = icmp eq i32 %85, 0
+  %86 = zext i16 %83 to i64
+  %.0.in.v.i6.i = select i1 %.not.i5.i, ptr %39, ptr @_ZN6Symbol11_vm_symbolsE
+  %.0.in.i7.i = getelementptr inbounds nuw [8 x i8], ptr %.0.in.v.i6.i, i64 %86
+  %.0.i8.i = load ptr, ptr %.0.in.i7.i, align 8
+  %87 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i8.i) #6
+  %88 = load i32, ptr %41, align 4
   %.sroa.0.0.copyload.i.i = load i32, ptr %42, align 4
-  %.sroa.0.0.copyload.i8.i = load i32, ptr %38, align 4
-  %93 = load i16, ptr %43, align 4
-  %94 = load i16, ptr %44, align 2
-  %95 = and i32 %.sroa.0.0.copyload.i8.i, 2
-  %.not.i = icmp eq i32 %95, 0
-  %96 = zext i16 %94 to i64
-  %97 = getelementptr inbounds nuw i64, ptr %39, i64 %96
-  %98 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %96
-  %.sink.in.i = select i1 %.not.i, ptr %97, ptr %98
-  %.sink.i = load ptr, ptr %.sink.in.i, align 8
-  %99 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.sink.i) #6
-  %100 = zext i16 %94 to i32
-  %101 = zext i16 %93 to i32
-  %102 = zext i16 %85 to i32
-  %103 = zext i16 %78 to i32
-  %104 = load i16, ptr %45, align 4
-  %105 = zext i16 %104 to i32
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i32 noundef %77, i32 noundef %103, ptr noundef %84, i32 noundef %102, ptr noundef %91, i32 noundef %92, i32 noundef %.sroa.0.0.copyload.i.i, i32 noundef %.sroa.0.0.copyload.i8.i, i32 noundef %101, i32 noundef %100, ptr noundef %99, i32 noundef %105) #6
+  %.sroa.0.0.copyload.i9.i = load i32, ptr %38, align 4
+  %89 = load i16, ptr %43, align 4
+  %90 = load i16, ptr %44, align 2
+  %91 = and i32 %.sroa.0.0.copyload.i9.i, 2
+  %.not.i = icmp eq i32 %91, 0
+  %92 = zext i16 %90 to i64
+  %._ZN6Symbol11_vm_symbolsE.i = select i1 %.not.i, ptr %39, ptr @_ZN6Symbol11_vm_symbolsE
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %._ZN6Symbol11_vm_symbolsE.i, i64 %92
+  %94 = load ptr, ptr %93, align 8
+  %95 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %94) #6
+  %96 = zext i16 %90 to i32
+  %97 = zext i16 %89 to i32
+  %98 = zext i16 %83 to i32
+  %99 = zext i16 %78 to i32
+  %100 = load i16, ptr %45, align 4
+  %101 = zext i16 %100 to i32
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i32 noundef %77, i32 noundef %99, ptr noundef %82, i32 noundef %98, ptr noundef %87, i32 noundef %88, i32 noundef %.sroa.0.0.copyload.i.i, i32 noundef %.sroa.0.0.copyload.i9.i, i32 noundef %97, i32 noundef %96, ptr noundef %95, i32 noundef %101) #6
   %.pre = load ptr, ptr %3, align 8
   %.pre34 = load i32, ptr %10, align 4
   %.pre35 = load i32, ptr %9, align 8
@@ -2122,9 +2162,9 @@ _ZN13GrowableArrayI9FieldInfoE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw %class.FieldInfo, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [28 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw %class.FieldInfo, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [28 x i8], ptr %27, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %26, ptr noundef nonnull align 4 dereferenceable(28) %28, i64 28, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %0, align 8
@@ -2140,7 +2180,7 @@ _ZN13GrowableArrayI9FieldInfoE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %34 = getelementptr inbounds nuw %class.FieldInfo, ptr %.0.i, i64 %indvars.iv20
+  %34 = getelementptr inbounds nuw [28 x i8], ptr %.0.i, i64 %indvars.iv20
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %35, i8 0, i64 22, i1 false)
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1

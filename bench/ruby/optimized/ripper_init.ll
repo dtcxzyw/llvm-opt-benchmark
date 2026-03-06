@@ -237,7 +237,7 @@ define internal noundef i64 @ripper_initialize(i32 noundef %0, ptr noundef reado
   %16 = phi i1 [ true, %.preheader ], [ false, %29 ]
   %.185.i26 = phi i32 [ 1, %.preheader ], [ %.286.i, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = icmp slt i32 %.185.i26, %0
   %.not103.i = icmp eq ptr %18, null
@@ -248,7 +248,7 @@ define internal noundef i64 @ripper_initialize(i32 noundef %0, ptr noundef reado
 
 21:                                               ; preds = %20
   %22 = sext i32 %.185.i26 to i64
-  %23 = getelementptr inbounds i64, ptr %1, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %1, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !6
   store i64 %24, ptr %18, align 8, !tbaa !6
   br label %25

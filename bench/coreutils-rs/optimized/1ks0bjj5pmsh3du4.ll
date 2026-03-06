@@ -322,7 +322,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %100 = load ptr, ptr %0, align 8, !alias.scope !57, !noalias !58, !nonnull !7, !noundef !7
   %101 = sub nsw i64 0, %98
-  %102 = getelementptr inbounds { { i128, i64, [1 x i64] }, {} }, ptr %100, i64 %101
+  %102 = getelementptr inbounds [32 x i8], ptr %100, i64 %101
   %103 = getelementptr inbounds i8, ptr %102, i64 -32
   %.val4.i = load i128, ptr %103, align 16, !alias.scope !59, !noalias !64, !noundef !7
   %104 = getelementptr i8, ptr %102, i64 -16
@@ -356,8 +356,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 
 107:                                              ; preds = %107, %.thread71
   %.05.i = phi i64 [ 0, %.thread71 ], [ %112, %107 ]
-  %108 = getelementptr inbounds nuw i64, ptr %0, i64 %.05.i
-  %109 = getelementptr inbounds nuw i64, ptr %.sroa.617.0..sroa_idx.i.i, i64 %.05.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.05.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.617.0..sroa_idx.i.i, i64 %.05.i
   %110 = load i64, ptr %108, align 8
   %111 = load i64, ptr %109, align 8
   store i64 %111, ptr %108, align 8
@@ -599,7 +599,7 @@ _ZN4core3ptr19swap_nonoverlapping17he04c57dfea707dcbE.exit.loopexit.i: ; preds =
 _ZN4core3ptr19swap_nonoverlapping17he04c57dfea707dcbE.exit.i: ; preds = %_ZN4core3ptr19swap_nonoverlapping17he04c57dfea707dcbE.exit.loopexit.i, %210
   %215 = phi ptr [ %.pre.i26, %_ZN4core3ptr19swap_nonoverlapping17he04c57dfea707dcbE.exit.loopexit.i ], [ %207, %210 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  %216 = getelementptr inbounds { { i128, i64, [1 x i64] }, {} }, ptr %215, i64 %214
+  %216 = getelementptr inbounds [32 x i8], ptr %215, i64 %214
   %217 = getelementptr inbounds i8, ptr %216, i64 -32
   %.val4.i.i = load i128, ptr %217, align 16, !alias.scope !126, !noalias !131, !noundef !7
   %218 = getelementptr i8, ptr %216, i64 -16

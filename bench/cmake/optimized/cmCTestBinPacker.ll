@@ -217,7 +217,7 @@ define dso_local noundef zeroext i1 @_Z34cmAllocateCTestResourcesRoundRobinRKSt3
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %27 = shl nuw nsw i64 %22, 3
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #23
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %22
   br label %45
 
 30:                                               ; preds = %_ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE9push_backEOS1_.exit.i
@@ -334,7 +334,7 @@ _ZNKSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE12_M_check_lenEmPKc.exit.i.i.
 
 _ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %65, %.noexc24.i
   tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %53) #26
-  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %60
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %60
   br label %_ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE9push_backEOS1_.exit.i
 
 _ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, %49
@@ -393,7 +393,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %80, ptr %15, align 8, !tbaa !31
   store ptr %80, ptr %81, align 8, !tbaa !34
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %80, i64 %74
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %80, i64 %74
   store ptr %82, ptr %78, align 8, !tbaa !35
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.i
 
@@ -720,7 +720,7 @@ define dso_local noundef zeroext i1 @_Z29cmAllocateCTestResourcesBlockRKSt3mapIN
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %27 = shl nuw nsw i64 %22, 3
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #23
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %22
   br label %45
 
 30:                                               ; preds = %_ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE9push_backEOS1_.exit.i
@@ -837,7 +837,7 @@ _ZNKSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE12_M_check_lenEmPKc.exit.i.i.
 
 _ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %65, %.noexc24.i
   tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %53) #26
-  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %60
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %60
   br label %_ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE9push_backEOS1_.exit.i
 
 _ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIP26cmCTestBinPackerAllocationSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, %49
@@ -896,7 +896,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %80, ptr %15, align 8, !tbaa !31
   store ptr %80, ptr %81, align 8, !tbaa !34
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %80, i64 %74
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %80, i64 %74
   store ptr %82, ptr %78, align 8, !tbaa !35
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.i
 
@@ -1226,14 +1226,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122AllocateCTestResou
 27:                                               ; preds = %.lr.ph, %.critedge
   %28 = phi ptr [ %12, %.lr.ph ], [ %205, %.critedge ]
   %.043199 = phi i64 [ 0, %.lr.ph ], [ %.us-phi, %.critedge ]
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %.043199
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %.043199
   %30 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %29)
   %31 = load i32, ptr %30, align 4, !tbaa !59
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !61
   %34 = sub i32 %31, %33
   %35 = load ptr, ptr %3, align 8, !tbaa !51
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %2
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %2
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !14
@@ -1242,7 +1242,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122AllocateCTestResou
 
 40:                                               ; preds = %27
   %41 = load ptr, ptr %1, align 8, !tbaa !31
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %41, i64 %.043199
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %.043199
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %42)
   %44 = load ptr, ptr %14, align 8, !tbaa !62
@@ -1343,11 +1343,11 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 75:                                               ; preds = %.noexc52
   store ptr %71, ptr %22, align 8, !tbaa !34
   %76 = load ptr, ptr %3, align 8, !tbaa !51
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %2
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %2
   %78 = load ptr, ptr %77, align 8, !tbaa !25
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !14
-  %81 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %69, i64 %.043199
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %69, i64 %.043199
   %82 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(32) %81)
           to label %83 unwind label %171
 
@@ -1358,7 +1358,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store i32 %86, ptr %84, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %87 = load ptr, ptr %9, align 8, !tbaa !31
-  %88 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %87, i64 %.043199
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %.043199
   store ptr %24, ptr %6, align 8, !tbaa !49
   %89 = load ptr, ptr %88, align 8, !tbaa !16
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -1415,7 +1415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i: ; preds = 
 
 108:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i
   %109 = add nuw i64 %.0.i, 1
-  %110 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %87, i64 %109
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %109
   %111 = load ptr, ptr %16, align 8, !tbaa !64
   %.not10.i.i.i.i97 = icmp eq ptr %111, null
   br i1 %.not10.i.i.i.i97, label %.critedge.i86.invoke, label %.lr.ph.i.i.i.i98
@@ -1587,7 +1587,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %158, label %159, label %.critedge.i
 
 159:                                              ; preds = %153
-  %160 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %87, i64 %.0.i
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %.0.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(32) %110)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i unwind label %.loopexit.i.loopexit
 
@@ -1623,7 +1623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %.lo
   br label %.body55
 
 .critedge.i:                                      ; preds = %153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i
-  %165 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %87, i64 %.0.i
+  %165 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %.0.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit17.i unwind label %.loopexit.split-lp.i
 
@@ -1714,7 +1714,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResource
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit._crit_edge: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit
   %.pre = load ptr, ptr %3, align 8, !tbaa !51
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %2
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %2
   %.pre242 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !25
   br label %186
 
@@ -1746,7 +1746,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResource
   unreachable
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit: ; preds = %186
-  %198 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %192, i64 %.043199
+  %198 = getelementptr inbounds nuw [32 x i8], ptr %192, i64 %.043199
   %199 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %198)
   %200 = load i32, ptr %199, align 4, !tbaa !59
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 4
@@ -1780,7 +1780,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
   br i1 %exitcond.not, label %.critedge50, label %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit62
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit62: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.split
-  %215 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %205, i64 %214
+  %215 = getelementptr inbounds nuw [32 x i8], ptr %205, i64 %214
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load i64, ptr %216, align 8, !tbaa !15
   %218 = load ptr, ptr %215, align 8
@@ -2028,7 +2028,7 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
 45:                                               ; preds = %2
   %46 = lshr i64 %12, 1
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %47
   store i64 %9, ptr %3, align 8, !tbaa !23
   %49 = ptrtoint ptr %48 to i64
   store i64 %49, ptr %4, align 8, !tbaa !23
@@ -2076,7 +2076,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN
   %19 = add nsw i64 %18, 1
   %20 = sdiv i64 %19, 2
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %21
   %23 = icmp sgt i64 %20, %3
   %24 = ptrtoint ptr %22 to i64
   br i1 %23, label %25, label %27
@@ -2169,7 +2169,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %32 = inttoptr i64 %18 to ptr
   %33 = sdiv i64 %2, 2
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds ptr, ptr %32, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %32, i64 %34
   %36 = load i64, ptr %1, align 8, !tbaa !23
   %37 = sub i64 %.0.val, %36
   %38 = ashr exact i64 %37, 3
@@ -2190,7 +2190,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %44 = lshr i64 %.06.i, 1
   %45 = inttoptr i64 %43 to ptr
   %46 = sub nsw i64 0, %44
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
   %49 = load ptr, ptr %48, align 8, !tbaa !25, !noalias !91
   %50 = getelementptr i8, ptr %49, i64 8
@@ -2216,7 +2216,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %62 = inttoptr i64 %.0.val to ptr
   %63 = sdiv i64 %3, 2
   %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %62, i64 %64
   %66 = sub i64 %18, %.0.val
   %67 = ashr exact i64 %66, 3
   %68 = icmp sgt i64 %67, 0
@@ -2236,7 +2236,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %73 = lshr i64 %.06.i33, 1
   %74 = inttoptr i64 %72 to ptr
   %75 = sub nsw i64 0, %73
-  %76 = getelementptr inbounds ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 -8
   %78 = load ptr, ptr %77, align 8, !tbaa !25, !noalias !95
   %79 = getelementptr i8, ptr %78, i64 8
@@ -2346,7 +2346,7 @@ _ZSt11swap_rangesISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTes
   %27 = sub i64 %7, %14
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %29
   store ptr %30, ptr %0, align 8, !tbaa !23, !alias.scope !106
   br label %31
 
@@ -2394,7 +2394,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPack
 
 .lr.ph101.preheader:                              ; preds = %47
   %49 = sub i64 0, %.087
-  %50 = getelementptr inbounds ptr, ptr %.sroa.047.0, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %.sroa.047.0, i64 %49
   br label %.lr.ph101
 
 ._crit_edge102:                                   ; preds = %.lr.ph101, %47
@@ -2424,7 +2424,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPack
 59:                                               ; preds = %31
   %60 = icmp eq i64 %32, 1
   %61 = sub i64 0, %.086
-  %62 = getelementptr inbounds ptr, ptr %.sroa.047.0, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %.sroa.047.0, i64 %61
   br i1 %60, label %63, label %71
 
 63:                                               ; preds = %59
@@ -2451,7 +2451,7 @@ _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
   br label %.critedge
 
 71:                                               ; preds = %59
-  %72 = getelementptr inbounds ptr, ptr %62, i64 %32
+  %72 = getelementptr inbounds [8 x i8], ptr %62, i64 %32
   %73 = icmp sgt i64 %.087, 0
   br i1 %73, label %.lr.ph, label %._crit_edge
 
@@ -2676,7 +2676,7 @@ _ZSt22__chunk_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
   %.060.i = phi ptr [ %2, %.lr.ph.i ], [ %.04.lcssa.i.i.i.i.i7.i.i, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
   %81 = inttoptr i64 %80 to ptr
   %82 = getelementptr inbounds i8, ptr %81, i64 %.neg.i
-  %83 = getelementptr inbounds ptr, ptr %81, i64 %78
+  %83 = getelementptr inbounds [8 x i8], ptr %81, i64 %78
   %84 = ptrtoint ptr %82 to i64
   br i1 %.not22.i.i, label %.critedge.i.i, label %.lr.ph.i.i16
 
@@ -2927,7 +2927,7 @@ _ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__norm
   %186 = sub i64 %172, %185
   %187 = ashr exact i64 %186, 3
   %188 = sub nsw i64 0, %187
-  %189 = getelementptr inbounds ptr, ptr %.pre-phi75.i, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %.pre-phi75.i, i64 %188
   %190 = ptrtoint ptr %189 to i64
   %191 = ptrtoint ptr %162 to i64
   %192 = ptrtoint ptr %.014.lcssa.i.i to i64
@@ -2957,7 +2957,7 @@ _ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cx
   %204 = sub i64 %190, %203
   %205 = ashr exact i64 %204, 3
   %206 = sub nsw i64 0, %205
-  %207 = getelementptr inbounds ptr, ptr %189, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %189, i64 %206
   %208 = ptrtoint ptr %207 to i64
   %209 = sub i64 %75, %191
   %210 = ashr exact i64 %209, 3
@@ -3044,7 +3044,7 @@ _ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__norm
   %243 = sub i64 %225, %238
   %244 = ashr exact i64 %243, 3
   %245 = sub nsw i64 0, %244
-  %246 = getelementptr inbounds ptr, ptr %.pre-phi.i, i64 %245
+  %246 = getelementptr inbounds [8 x i8], ptr %.pre-phi.i, i64 %245
   br label %.lr.ph.i.i.i.i.i16.i26.i
 
 .lr.ph.i.i.i.i.i16.i26.i:                         ; preds = %.lr.ph.i.i.i.i.i16.i26.i, %.lr.ph.i.i.i.i.i16.i26.preheader.i
@@ -3279,7 +3279,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %107 = inttoptr i64 %106 to ptr
   %108 = sdiv i64 %2, 2
   %109 = sub nsw i64 0, %108
-  %110 = getelementptr inbounds ptr, ptr %107, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %107, i64 %109
   %111 = load i64, ptr %1, align 8, !tbaa !23
   %112 = sub i64 %.0.val, %111
   %113 = ashr exact i64 %112, 3
@@ -3300,7 +3300,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %119 = lshr i64 %.06.i, 1
   %120 = inttoptr i64 %118 to ptr
   %121 = sub nsw i64 0, %119
-  %122 = getelementptr inbounds ptr, ptr %120, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %120, i64 %121
   %123 = getelementptr inbounds i8, ptr %122, i64 -8
   %124 = load ptr, ptr %123, align 8, !tbaa !25, !noalias !251
   %125 = getelementptr i8, ptr %124, i64 8
@@ -3326,7 +3326,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %137 = inttoptr i64 %.0.val to ptr
   %138 = sdiv i64 %3, 2
   %139 = sub nsw i64 0, %138
-  %140 = getelementptr inbounds ptr, ptr %137, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %137, i64 %139
   %141 = sub i64 %106, %.0.val
   %142 = ashr exact i64 %141, 3
   %143 = icmp sgt i64 %142, 0
@@ -3346,7 +3346,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %148 = lshr i64 %.06.i69, 1
   %149 = inttoptr i64 %147 to ptr
   %150 = sub nsw i64 0, %148
-  %151 = getelementptr inbounds ptr, ptr %149, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %149, i64 %150
   %152 = getelementptr inbounds i8, ptr %151, i64 -8
   %153 = load ptr, ptr %152, align 8, !tbaa !25, !noalias !254
   %154 = getelementptr i8, ptr %153, i64 8
@@ -3492,7 +3492,7 @@ _ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__norm
   %52 = sub i64 %27, %51
   %53 = ashr exact i64 %52, 3
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds ptr, ptr %38, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %38, i64 %54
   store ptr %55, ptr %0, align 8, !tbaa !23, !alias.scope !281
   br label %108
 
@@ -3590,7 +3590,7 @@ _ZSt13move_backwardIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_c
   %98 = sub i64 %73, %97
   %99 = ashr exact i64 %98, 3
   %100 = sub nsw i64 0, %99
-  %101 = getelementptr inbounds ptr, ptr %84, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %84, i64 %100
   store ptr %101, ptr %0, align 8, !tbaa !23, !alias.scope !310
   br label %108
 
@@ -3808,7 +3808,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !31
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !34
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !35
   ret void
 
@@ -3902,7 +3902,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   br i1 %11, label %_ZSt20get_temporary_bufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !332
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %.010.i
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %.010.i
   %16 = load i64, ptr %1, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %16, ptr %4, align 8, !tbaa !37
@@ -3976,7 +3976,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN
 19:                                               ; preds = %3
   %20 = lshr i64 %16, 1
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0.0.copyload.i.i, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %21
   store i64 %13, ptr %6, align 8, !tbaa !37
   %23 = ptrtoint ptr %22 to i64
   store i64 %23, ptr %7, align 8, !tbaa !37
@@ -4023,7 +4023,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorI
   %21 = add nsw i64 %20, 1
   %22 = sdiv i64 %21, 2
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0.0.copyload.i.i, i64 %23
+  %24 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %23
   %25 = icmp sgt i64 %22, %3
   %26 = ptrtoint ptr %24 to i64
   br i1 %25, label %27, label %29
@@ -4998,7 +4998,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorI
 _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit: ; preds = %47
   %53 = sdiv i64 %3, 2
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %49, i64 %54
+  %55 = getelementptr inbounds [32 x i8], ptr %49, i64 %54
   %56 = load i64, ptr %2, align 8, !tbaa !37
   %57 = getelementptr inbounds i8, ptr %55, i64 -32
   %58 = sub i64 %50, %56
@@ -5011,7 +5011,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %.07.i = phi i64 [ %.1.i, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit.i ], [ %59, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit ]
   %61 = lshr i64 %.07.i, 1
   %62 = sub nsw i64 0, %61
-  %63 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.052.0, i64 %62
+  %63 = getelementptr inbounds [32 x i8], ptr %.sroa.052.0, i64 %62
   %64 = getelementptr inbounds i8, ptr %63, i64 -32
   %65 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %64), !noalias !348
   %66 = load i32, ptr %65, align 4, !tbaa !59, !noalias !348
@@ -5047,7 +5047,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
 _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit32: ; preds = %47
   %85 = sdiv i64 %4, 2
   %86 = sub nsw i64 0, %85
-  %87 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %51, i64 %86
+  %87 = getelementptr inbounds [32 x i8], ptr %51, i64 %86
   %88 = getelementptr inbounds i8, ptr %87, i64 -32
   %89 = sub i64 %48, %50
   %90 = ashr exact i64 %89, 5
@@ -5059,7 +5059,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %.07.i34 = phi i64 [ %.1.i37, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit.i33 ], [ %90, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit32 ]
   %92 = lshr i64 %.07.i34, 1
   %93 = sub nsw i64 0, %92
-  %94 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.045.0, i64 %93
+  %94 = getelementptr inbounds [32 x i8], ptr %.sroa.045.0, i64 %93
   %95 = getelementptr inbounds i8, ptr %94, i64 -32
   %96 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %88), !noalias !352
   %97 = load i32, ptr %96, align 4, !tbaa !59, !noalias !352
@@ -5261,7 +5261,7 @@ define linkonce_odr dso_local void @_ZNSt3_V28__rotateISt16reverse_iteratorIN9__
   %21 = sub i64 %7, %11
   %22 = ashr exact i64 %21, 5
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0.0.copyload.i.i, i64 %23
+  %24 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %23
   store ptr %24, ptr %0, align 8, !tbaa !37, !alias.scope !363
   br label %25
 
@@ -5279,7 +5279,7 @@ define linkonce_odr dso_local void @_ZNSt3_V28__rotateISt16reverse_iteratorIN9__
 
 .lr.ph62.preheader:                               ; preds = %28
   %30 = sub i64 0, %.053
-  %31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.028.0, i64 %30
+  %31 = getelementptr inbounds [32 x i8], ptr %.sroa.028.0, i64 %30
   br label %.lr.ph62
 
 ._crit_edge63:                                    ; preds = %.lr.ph62, %28
@@ -5305,8 +5305,8 @@ define linkonce_odr dso_local void @_ZNSt3_V28__rotateISt16reverse_iteratorIN9__
 
 38:                                               ; preds = %25
   %39 = sub i64 0, %.052
-  %40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.028.0, i64 %39
-  %41 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %40, i64 %26
+  %40 = getelementptr inbounds [32 x i8], ptr %.sroa.028.0, i64 %39
+  %41 = getelementptr inbounds [32 x i8], ptr %40, i64 %26
   %42 = icmp sgt i64 %.053, 0
   br i1 %42, label %.lr.ph, label %._crit_edge
 
@@ -5440,13 +5440,13 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %.020.i = phi ptr [ %2, %.lr.ph.i14 ], [ %49, %45 ]
   store i64 %46, ptr %9, align 8, !tbaa !37
   %.cast.i15 = inttoptr i64 %46 to ptr
-  %47 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.cast.i15, i64 %43
+  %47 = getelementptr inbounds [32 x i8], ptr %.cast.i15, i64 %43
   store ptr %47, ptr %10, align 8, !tbaa !37, !alias.scope !373
   store ptr %47, ptr %11, align 8, !tbaa !37, !alias.scope !376
-  %48 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.cast.i15, i64 %44
+  %48 = getelementptr inbounds [32 x i8], ptr %.cast.i15, i64 %44
   store ptr %48, ptr %12, align 8, !tbaa !37, !alias.scope !379
   %49 = call fastcc noundef ptr @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %.020.i, ptr %3)
-  %50 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.023.0, i64 %44
+  %50 = getelementptr inbounds [32 x i8], ptr %.sroa.023.0, i64 %44
   %51 = ptrtoint ptr %50 to i64
   %52 = sub i64 %51, %38
   %53 = ashr exact i64 %52, 5
@@ -5461,7 +5461,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   store i64 %54, ptr %13, align 8, !tbaa !37
   %.cast16.i = inttoptr i64 %54 to ptr
   %55 = sub nsw i64 0, %.sroa.speculated.i
-  %56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.cast16.i, i64 %55
+  %56 = getelementptr inbounds [32 x i8], ptr %.cast16.i, i64 %55
   store ptr %56, ptr %14, align 8, !tbaa !37, !alias.scope !383
   store ptr %56, ptr %15, align 8, !tbaa !37, !alias.scope !386
   store i64 %38, ptr %16, align 8, !tbaa !37
@@ -5485,8 +5485,8 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %60 = phi i64 [ %63, %.lr.ph.i17 ], [ %58, %"_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_.exit" ]
   %.024.i = phi ptr [ %62, %.lr.ph.i17 ], [ %2, %"_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %61 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.024.i, i64 %39
-  %62 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.024.i, i64 %59
+  %61 = getelementptr inbounds [32 x i8], ptr %.024.i, i64 %39
+  %62 = getelementptr inbounds [32 x i8], ptr %.024.i, i64 %59
   store i64 %60, ptr %6, align 8, !tbaa !37
   call fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %.024.i, ptr noundef nonnull %61, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef %6, i64 %.pre.i)
   %63 = load i64, ptr %5, align 8
@@ -5502,7 +5502,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %.0.lcssa.i19 = phi ptr [ %2, %"_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_.exit" ], [ %62, %.lr.ph.i17 ]
   %.lcssa.i20 = phi i64 [ %24, %"_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_.exit" ], [ %66, %.lr.ph.i17 ]
   %.sroa.speculated.i21 = tail call i64 @llvm.smin.i64(i64 %39, i64 %.lcssa.i20)
-  %68 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.0.lcssa.i19, i64 %.sroa.speculated.i21
+  %68 = getelementptr inbounds [32 x i8], ptr %.0.lcssa.i19, i64 %.sroa.speculated.i21
   store i64 %67, ptr %7, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_128RoundRobinAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %.0.lcssa.i19, ptr noundef %68, ptr noundef %68, ptr noundef %25, ptr noundef %7, i64 %.pre.i)
@@ -6494,7 +6494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit40.i: ; preds =
 _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit: ; preds = %401
   %406 = sdiv i64 %3, 2
   %407 = sub nsw i64 0, %406
-  %408 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %403, i64 %407
+  %408 = getelementptr inbounds [32 x i8], ptr %403, i64 %407
   %409 = load i64, ptr %2, align 8, !tbaa !37
   %410 = getelementptr inbounds i8, ptr %408, i64 -32
   %411 = sub i64 %404, %409
@@ -6507,7 +6507,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %.07.i = phi i64 [ %.1.i85, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit.i ], [ %412, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit ]
   %414 = lshr i64 %.07.i, 1
   %415 = sub nsw i64 0, %414
-  %416 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0107.0, i64 %415
+  %416 = getelementptr inbounds [32 x i8], ptr %.sroa.0107.0, i64 %415
   %417 = getelementptr inbounds i8, ptr %416, i64 -32
   %418 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %417), !noalias !429
   %419 = load i32, ptr %418, align 4, !tbaa !59, !noalias !429
@@ -6543,7 +6543,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
 _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit90: ; preds = %401
   %438 = sdiv i64 %4, 2
   %439 = sub nsw i64 0, %438
-  %440 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %405, i64 %439
+  %440 = getelementptr inbounds [32 x i8], ptr %405, i64 %439
   %441 = getelementptr inbounds i8, ptr %440, i64 -32
   %442 = sub i64 %402, %404
   %443 = ashr exact i64 %442, 5
@@ -6555,7 +6555,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %.07.i92 = phi i64 [ %.1.i95, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit.i91 ], [ %443, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit90 ]
   %445 = lshr i64 %.07.i92, 1
   %446 = sub nsw i64 0, %445
-  %447 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0100.0, i64 %446
+  %447 = getelementptr inbounds [32 x i8], ptr %.sroa.0100.0, i64 %446
   %448 = getelementptr inbounds i8, ptr %447, i64 -32
   %449 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %441), !noalias !432
   %450 = load i32, ptr %449, align 4, !tbaa !59, !noalias !432
@@ -7399,7 +7399,7 @@ _ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_itera
   %141 = sub i64 %97, %140
   %142 = ashr exact i64 %141, 5
   %143 = sub nsw i64 0, %142
-  %144 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %98, i64 %143
+  %144 = getelementptr inbounds [32 x i8], ptr %98, i64 %143
   tail call void @llvm.experimental.noalias.scope.decl(metadata !450)
   %145 = ptrtoint ptr %144 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
@@ -7512,7 +7512,7 @@ _ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_itera
   %188 = sub i64 %145, %187
   %189 = ashr exact i64 %188, 5
   %190 = sub nsw i64 0, %189
-  %191 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %144, i64 %190
+  %191 = getelementptr inbounds [32 x i8], ptr %144, i64 %190
   store ptr %191, ptr %0, align 8, !tbaa !37, !alias.scope !463
   ret void
 }
@@ -7866,7 +7866,7 @@ _ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_itera
   %143 = sub i64 %99, %142
   %144 = ashr exact i64 %143, 5
   %145 = sub nsw i64 0, %144
-  %146 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %100, i64 %145
+  %146 = getelementptr inbounds [32 x i8], ptr %100, i64 %145
   store ptr %146, ptr %0, align 8, !tbaa !37, !alias.scope !492
   br label %289
 
@@ -8218,7 +8218,7 @@ _ZSt13move_backwardIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16rev
   %279 = sub i64 %236, %.sroa.0.1.i.i.i.i70
   %280 = ashr exact i64 %279, 5
   %281 = sub nsw i64 0, %280
-  %282 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %237, i64 %281
+  %282 = getelementptr inbounds [32 x i8], ptr %237, i64 %281
   store ptr %282, ptr %0, align 8, !tbaa !37, !alias.scope !522
   br label %289
 
@@ -9242,14 +9242,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122AllocateCTestResou
 27:                                               ; preds = %.lr.ph, %.critedge
   %28 = phi ptr [ %12, %.lr.ph ], [ %152, %.critedge ]
   %.04398 = phi i64 [ 0, %.lr.ph ], [ %.us-phi, %.critedge ]
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %.04398
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %.04398
   %30 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %29)
   %31 = load i32, ptr %30, align 4, !tbaa !59
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !61
   %34 = sub i32 %31, %33
   %35 = load ptr, ptr %3, align 8, !tbaa !51
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %2
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %2
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !14
@@ -9258,7 +9258,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122AllocateCTestResou
 
 40:                                               ; preds = %27
   %41 = load ptr, ptr %1, align 8, !tbaa !31
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %41, i64 %.04398
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %.04398
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %42)
   %44 = load ptr, ptr %14, align 8, !tbaa !62
@@ -9359,11 +9359,11 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 75:                                               ; preds = %.noexc52
   store ptr %71, ptr %22, align 8, !tbaa !34
   %76 = load ptr, ptr %3, align 8, !tbaa !51
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %2
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %2
   %78 = load ptr, ptr %77, align 8, !tbaa !25
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !14
-  %81 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %69, i64 %.04398
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %69, i64 %.04398
   %82 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(32) %81)
           to label %83 unwind label %117
 
@@ -9374,7 +9374,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store i32 %86, ptr %84, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %87 = load ptr, ptr %9, align 8, !tbaa !31
-  %88 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %87, i64 %.04398
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %.04398
   store ptr %24, ptr %6, align 8, !tbaa !49
   %89 = load ptr, ptr %88, align 8, !tbaa !16
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -9426,8 +9426,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i: ; preds = 
 
 102:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i
   %103 = add i64 %.0.i, -1
-  %104 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %87, i64 %103
-  %105 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %87, i64 %.0.i
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %103
+  %105 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %.0.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %104)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i unwind label %.loopexit.i, !llvm.loop !542
 
@@ -9542,7 +9542,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResource
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit._crit_edge: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit
   %.pre = load ptr, ptr %3, align 8, !tbaa !51
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %2
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %2
   %.pre118 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !25
   br label %133
 
@@ -9574,7 +9574,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResource
   unreachable
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit: ; preds = %133
-  %145 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %139, i64 %.04398
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %139, i64 %.04398
   %146 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %145)
   %147 = load i32, ptr %146, align 4, !tbaa !59
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 4
@@ -9608,7 +9608,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
   br i1 %exitcond.not, label %.critedge50, label %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit62
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit62: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.split
-  %162 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %152, i64 %161
+  %162 = getelementptr inbounds nuw [32 x i8], ptr %152, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load i64, ptr %163, align 8, !tbaa !15
   %165 = load ptr, ptr %162, align 8
@@ -9793,7 +9793,7 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
 45:                                               ; preds = %2
   %46 = lshr i64 %12, 1
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %47
   store i64 %9, ptr %3, align 8, !tbaa !23
   %49 = ptrtoint ptr %48 to i64
   store i64 %49, ptr %4, align 8, !tbaa !23
@@ -9838,7 +9838,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveISt16reverse_iteratorIN
   %19 = add nsw i64 %18, 1
   %20 = sdiv i64 %19, 2
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %21
   %23 = icmp sgt i64 %20, %3
   %24 = ptrtoint ptr %22 to i64
   br i1 %23, label %25, label %27
@@ -9924,7 +9924,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %32 = inttoptr i64 %18 to ptr
   %33 = sdiv i64 %2, 2
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds ptr, ptr %32, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %32, i64 %34
   %36 = load i64, ptr %1, align 8, !tbaa !23
   %37 = sub i64 %.0.val, %36
   %38 = ashr exact i64 %37, 3
@@ -9945,7 +9945,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %44 = lshr i64 %.06.i, 1
   %45 = inttoptr i64 %43 to ptr
   %46 = sub nsw i64 0, %44
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
   %49 = load ptr, ptr %48, align 8, !tbaa !25, !noalias !558
   %50 = getelementptr i8, ptr %49, i64 8
@@ -9971,7 +9971,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %62 = inttoptr i64 %.0.val to ptr
   %63 = sdiv i64 %3, 2
   %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %62, i64 %64
   %66 = sub i64 %18, %.0.val
   %67 = ashr exact i64 %66, 3
   %68 = icmp sgt i64 %67, 0
@@ -9991,7 +9991,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %73 = lshr i64 %.06.i33, 1
   %74 = inttoptr i64 %72 to ptr
   %75 = sub nsw i64 0, %73
-  %76 = getelementptr inbounds ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 -8
   %78 = load ptr, ptr %77, align 8, !tbaa !25, !noalias !562
   %79 = getelementptr i8, ptr %78, i64 8
@@ -10239,7 +10239,7 @@ _ZSt22__chunk_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
   %.060.i = phi ptr [ %2, %.lr.ph.i ], [ %.04.lcssa.i.i.i.i.i7.i.i, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
   %81 = inttoptr i64 %80 to ptr
   %82 = getelementptr inbounds i8, ptr %81, i64 %.neg.i
-  %83 = getelementptr inbounds ptr, ptr %81, i64 %78
+  %83 = getelementptr inbounds [8 x i8], ptr %81, i64 %78
   %84 = ptrtoint ptr %82 to i64
   br i1 %.not22.i.i, label %.critedge.i.i, label %.lr.ph.i.i16
 
@@ -10490,7 +10490,7 @@ _ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__norm
   %186 = sub i64 %172, %185
   %187 = ashr exact i64 %186, 3
   %188 = sub nsw i64 0, %187
-  %189 = getelementptr inbounds ptr, ptr %.pre-phi75.i, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %.pre-phi75.i, i64 %188
   %190 = ptrtoint ptr %189 to i64
   %191 = ptrtoint ptr %162 to i64
   %192 = ptrtoint ptr %.014.lcssa.i.i to i64
@@ -10520,7 +10520,7 @@ _ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cx
   %204 = sub i64 %190, %203
   %205 = ashr exact i64 %204, 3
   %206 = sub nsw i64 0, %205
-  %207 = getelementptr inbounds ptr, ptr %189, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %189, i64 %206
   %208 = ptrtoint ptr %207 to i64
   %209 = sub i64 %75, %191
   %210 = ashr exact i64 %209, 3
@@ -10607,7 +10607,7 @@ _ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__norm
   %243 = sub i64 %225, %238
   %244 = ashr exact i64 %243, 3
   %245 = sub nsw i64 0, %244
-  %246 = getelementptr inbounds ptr, ptr %.pre-phi.i, i64 %245
+  %246 = getelementptr inbounds [8 x i8], ptr %.pre-phi.i, i64 %245
   br label %.lr.ph.i.i.i.i.i16.i26.i
 
 .lr.ph.i.i.i.i.i16.i26.i:                         ; preds = %.lr.ph.i.i.i.i.i16.i26.i, %.lr.ph.i.i.i.i.i16.i26.preheader.i
@@ -10842,7 +10842,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %107 = inttoptr i64 %106 to ptr
   %108 = sdiv i64 %2, 2
   %109 = sub nsw i64 0, %108
-  %110 = getelementptr inbounds ptr, ptr %107, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %107, i64 %109
   %111 = load i64, ptr %1, align 8, !tbaa !23
   %112 = sub i64 %.0.val, %111
   %113 = ashr exact i64 %112, 3
@@ -10863,7 +10863,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %119 = lshr i64 %.06.i, 1
   %120 = inttoptr i64 %118 to ptr
   %121 = sub nsw i64 0, %119
-  %122 = getelementptr inbounds ptr, ptr %120, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %120, i64 %121
   %123 = getelementptr inbounds i8, ptr %122, i64 -8
   %124 = load ptr, ptr %123, align 8, !tbaa !25, !noalias !682
   %125 = getelementptr i8, ptr %124, i64 8
@@ -10889,7 +10889,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %137 = inttoptr i64 %.0.val to ptr
   %138 = sdiv i64 %3, 2
   %139 = sub nsw i64 0, %138
-  %140 = getelementptr inbounds ptr, ptr %137, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %137, i64 %139
   %141 = sub i64 %106, %.0.val
   %142 = ashr exact i64 %141, 3
   %143 = icmp sgt i64 %142, 0
@@ -10909,7 +10909,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinP
   %148 = lshr i64 %.06.i69, 1
   %149 = inttoptr i64 %147 to ptr
   %150 = sub nsw i64 0, %148
-  %151 = getelementptr inbounds ptr, ptr %149, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %149, i64 %150
   %152 = getelementptr inbounds i8, ptr %151, i64 -8
   %153 = load ptr, ptr %152, align 8, !tbaa !25, !noalias !685
   %154 = getelementptr i8, ptr %153, i64 8
@@ -10989,7 +10989,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortISt16reverse_iteratorIN
 19:                                               ; preds = %3
   %20 = lshr i64 %16, 1
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0.0.copyload.i.i, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %21
   store i64 %13, ptr %6, align 8, !tbaa !37
   %23 = ptrtoint ptr %22 to i64
   store i64 %23, ptr %7, align 8, !tbaa !37
@@ -11036,7 +11036,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveISt16reverse_iteratorI
   %21 = add nsw i64 %20, 1
   %22 = sdiv i64 %21, 2
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0.0.copyload.i.i, i64 %23
+  %24 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %23
   %25 = icmp sgt i64 %22, %3
   %26 = ptrtoint ptr %24 to i64
   br i1 %25, label %27, label %29
@@ -11792,7 +11792,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferISt16reverse_iteratorI
 _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit: ; preds = %47
   %53 = sdiv i64 %3, 2
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %49, i64 %54
+  %55 = getelementptr inbounds [32 x i8], ptr %49, i64 %54
   %56 = load i64, ptr %2, align 8, !tbaa !37
   %57 = getelementptr inbounds i8, ptr %55, i64 -32
   %58 = sub i64 %50, %56
@@ -11805,7 +11805,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %.07.i = phi i64 [ %.1.i, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit.i ], [ %59, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit ]
   %61 = lshr i64 %.07.i, 1
   %62 = sub nsw i64 0, %61
-  %63 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.052.0, i64 %62
+  %63 = getelementptr inbounds [32 x i8], ptr %.sroa.052.0, i64 %62
   %64 = getelementptr inbounds i8, ptr %63, i64 -32
   %65 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %64), !noalias !701
   %66 = load i32, ptr %65, align 4, !tbaa !59, !noalias !701
@@ -11841,7 +11841,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
 _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit32: ; preds = %47
   %85 = sdiv i64 %4, 2
   %86 = sub nsw i64 0, %85
-  %87 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %51, i64 %86
+  %87 = getelementptr inbounds [32 x i8], ptr %51, i64 %86
   %88 = getelementptr inbounds i8, ptr %87, i64 -32
   %89 = sub i64 %48, %50
   %90 = ashr exact i64 %89, 5
@@ -11853,7 +11853,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %.07.i34 = phi i64 [ %.1.i37, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit.i33 ], [ %90, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit32 ]
   %92 = lshr i64 %.07.i34, 1
   %93 = sub nsw i64 0, %92
-  %94 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.045.0, i64 %93
+  %94 = getelementptr inbounds [32 x i8], ptr %.sroa.045.0, i64 %93
   %95 = getelementptr inbounds i8, ptr %94, i64 -32
   %96 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %88), !noalias !705
   %97 = load i32, ptr %96, align 4, !tbaa !59, !noalias !705
@@ -12019,13 +12019,13 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %.020.i = phi ptr [ %2, %.lr.ph.i14 ], [ %49, %45 ]
   store i64 %46, ptr %9, align 8, !tbaa !37
   %.cast.i15 = inttoptr i64 %46 to ptr
-  %47 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.cast.i15, i64 %43
+  %47 = getelementptr inbounds [32 x i8], ptr %.cast.i15, i64 %43
   store ptr %47, ptr %10, align 8, !tbaa !37, !alias.scope !716
   store ptr %47, ptr %11, align 8, !tbaa !37, !alias.scope !719
-  %48 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.cast.i15, i64 %44
+  %48 = getelementptr inbounds [32 x i8], ptr %.cast.i15, i64 %44
   store ptr %48, ptr %12, align 8, !tbaa !37, !alias.scope !722
   %49 = call fastcc noundef ptr @"_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %.020.i, ptr %3)
-  %50 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.023.0, i64 %44
+  %50 = getelementptr inbounds [32 x i8], ptr %.sroa.023.0, i64 %44
   %51 = ptrtoint ptr %50 to i64
   %52 = sub i64 %51, %38
   %53 = ashr exact i64 %52, 5
@@ -12040,7 +12040,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   store i64 %54, ptr %13, align 8, !tbaa !37
   %.cast16.i = inttoptr i64 %54 to ptr
   %55 = sub nsw i64 0, %.sroa.speculated.i
-  %56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.cast16.i, i64 %55
+  %56 = getelementptr inbounds [32 x i8], ptr %.cast16.i, i64 %55
   store ptr %56, ptr %14, align 8, !tbaa !37, !alias.scope !726
   store ptr %56, ptr %15, align 8, !tbaa !37, !alias.scope !729
   store i64 %38, ptr %16, align 8, !tbaa !37
@@ -12064,8 +12064,8 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %60 = phi i64 [ %63, %.lr.ph.i17 ], [ %58, %"_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_.exit" ]
   %.024.i = phi ptr [ %62, %.lr.ph.i17 ], [ %2, %"_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %61 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.024.i, i64 %39
-  %62 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.024.i, i64 %59
+  %61 = getelementptr inbounds [32 x i8], ptr %.024.i, i64 %39
+  %62 = getelementptr inbounds [32 x i8], ptr %.024.i, i64 %59
   store i64 %60, ptr %6, align 8, !tbaa !37
   call fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %.024.i, ptr noundef nonnull %61, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef %6, i64 %.pre.i)
   %63 = load i64, ptr %5, align 8
@@ -12081,7 +12081,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %.0.lcssa.i19 = phi ptr [ %2, %"_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_.exit" ], [ %62, %.lr.ph.i17 ]
   %.lcssa.i20 = phi i64 [ %24, %"_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS8_N24cmCTestResourceAllocator8ResourceESt4lessIS8_ESaISt4pairIKS8_SL_EEERSC_E3$_0EEEvT_SY_T0_T1_T2_.exit" ], [ %66, %.lr.ph.i17 ]
   %.sroa.speculated.i21 = tail call i64 @llvm.smin.i64(i64 %39, i64 %.lcssa.i20)
-  %68 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.0.lcssa.i19, i64 %.sroa.speculated.i21
+  %68 = getelementptr inbounds [32 x i8], ptr %.0.lcssa.i19, i64 %.sroa.speculated.i21
   store i64 %67, ptr %7, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call fastcc void @"_ZSt12__move_mergeIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEENS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123BlockAllocationStrategy11InitialSortERKSt3mapIS5_N24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_SL_EEERSC_E3$_0EEET0_T_SZ_SZ_SZ_SY_T1_"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %.0.lcssa.i19, ptr noundef %68, ptr noundef %68, ptr noundef %25, ptr noundef %7, i64 %.pre.i)
@@ -13073,7 +13073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit40.i: ; preds =
 _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit: ; preds = %401
   %406 = sdiv i64 %3, 2
   %407 = sub nsw i64 0, %406
-  %408 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %403, i64 %407
+  %408 = getelementptr inbounds [32 x i8], ptr %403, i64 %407
   %409 = load i64, ptr %2, align 8, !tbaa !37
   %410 = getelementptr inbounds i8, ptr %408, i64 -32
   %411 = sub i64 %404, %409
@@ -13086,7 +13086,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %.07.i = phi i64 [ %.1.i85, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit.i ], [ %412, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit ]
   %414 = lshr i64 %.07.i, 1
   %415 = sub nsw i64 0, %414
-  %416 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0107.0, i64 %415
+  %416 = getelementptr inbounds [32 x i8], ptr %.sroa.0107.0, i64 %415
   %417 = getelementptr inbounds i8, ptr %416, i64 -32
   %418 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %417), !noalias !769
   %419 = load i32, ptr %418, align 4, !tbaa !59, !noalias !769
@@ -13122,7 +13122,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
 _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit90: ; preds = %401
   %438 = sdiv i64 %4, 2
   %439 = sub nsw i64 0, %438
-  %440 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %405, i64 %439
+  %440 = getelementptr inbounds [32 x i8], ptr %405, i64 %439
   %441 = getelementptr inbounds i8, ptr %440, i64 -32
   %442 = sub i64 %402, %404
   %443 = ashr exact i64 %442, 5
@@ -13134,7 +13134,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112b
   %.07.i92 = phi i64 [ %.1.i95, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit.i91 ], [ %443, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEElEvRT_T0_.exit90 ]
   %445 = lshr i64 %.07.i92, 1
   %446 = sub nsw i64 0, %445
-  %447 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.0100.0, i64 %446
+  %447 = getelementptr inbounds [32 x i8], ptr %.sroa.0100.0, i64 %446
   %448 = getelementptr inbounds i8, ptr %447, i64 -32
   %449 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessIS5_ESaISt4pairIKS5_S7_EEE2atERSB_(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %441), !noalias !772
   %450 = load i32, ptr %449, align 4, !tbaa !59, !noalias !772
@@ -13978,7 +13978,7 @@ _ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_itera
   %141 = sub i64 %97, %140
   %142 = ashr exact i64 %141, 5
   %143 = sub nsw i64 0, %142
-  %144 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %98, i64 %143
+  %144 = getelementptr inbounds [32 x i8], ptr %98, i64 %143
   tail call void @llvm.experimental.noalias.scope.decl(metadata !788)
   %145 = ptrtoint ptr %144 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !791)
@@ -14091,7 +14091,7 @@ _ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16reverse_itera
   %188 = sub i64 %145, %187
   %189 = ashr exact i64 %188, 5
   %190 = sub nsw i64 0, %189
-  %191 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %144, i64 %190
+  %191 = getelementptr inbounds [32 x i8], ptr %144, i64 %190
   store ptr %191, ptr %0, align 8, !tbaa !37, !alias.scope !801
   ret void
 }

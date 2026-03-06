@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::internal::LocalOpenPointer" = type { %"class.icu_77::LocalPointerBase" }
 %"class.icu_77::LocalPointerBase" = type { ptr }
 %"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
-%struct.CurrencyNameStruct = type { ptr, ptr, i32, i32 }
 %"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
 %"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
 %"class.icu_77::UObject" = type { ptr }
@@ -2146,7 +2145,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %21
   %.sink = phi ptr [ %25, %45 ], [ %29, %51 ]
   %.sink49 = phi i32 [ %47, %45 ], [ %46, %51 ]
   %55 = sext i32 %.sink52 to i64
-  %56 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %.sink, i64 %55
+  %56 = getelementptr inbounds [24 x i8], ptr %.sink, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !52
   call void @u_charsToUChars_77(ptr noundef %57, ptr noundef %5, i32 noundef 4)
   %58 = add nsw i32 %.sink49, %31
@@ -2219,7 +2218,7 @@ define internal fastcc noundef ptr @_ZL13getCacheEntryPKcR10UErrorCode(ptr nound
 
 34:                                               ; preds = %2, %40
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %40 ]
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9currCache, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !56
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %40, label %37
@@ -2236,7 +2235,7 @@ define internal fastcc noundef ptr @_ZL13getCacheEntryPKcR10UErrorCode(ptr nound
 
 41:                                               ; preds = %37
   %42 = and i64 %indvars.iv, 255
-  %43 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9currCache, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !56
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 188
   %46 = load i32, ptr %45, align 4, !tbaa !55
@@ -2937,7 +2936,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   %268 = load i32, ptr %27, align 4, !tbaa !12
   %269 = add i32 %.6, 1
   %270 = sext i32 %.6 to i64
-  %271 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %219, i64 %270
+  %271 = getelementptr inbounds [24 x i8], ptr %219, i64 %270
   store ptr %256, ptr %271, align 8, !tbaa !66
   %.sroa.431.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %271, i64 8
   store ptr %254, ptr %.sroa.431.0..sroa_idx.i, align 8, !tbaa !67
@@ -3046,7 +3045,7 @@ _ZN6icu_7713EquivIterator4nextEv.exit.i:          ; preds = %.noexc208._ZN6icu_7
   %320 = load i32, ptr %319, align 4
   %321 = select i1 %316, i32 %320, i32 %318
   %indvars.iv.next235 = add nsw i64 %indvars.iv234, 1
-  %322 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %219, i64 %indvars.iv234
+  %322 = getelementptr inbounds [24 x i8], ptr %219, i64 %indvars.iv234
   store ptr %256, ptr %322, align 8, !tbaa !66
   %.sroa.526.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %322, i64 8
   store ptr %.0.i210.i, ptr %.sroa.526.0..sroa_idx.i, align 8, !tbaa !67
@@ -3132,7 +3131,7 @@ _ZN6icu_7713EquivIterator4nextEv.exit.i:          ; preds = %.noexc208._ZN6icu_7
   %351 = load i32, ptr %27, align 4, !tbaa !12
   %352 = add nsw i32 %.12119, 1
   %353 = sext i32 %.12119 to i64
-  %354 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %212, i64 %353
+  %354 = getelementptr inbounds [24 x i8], ptr %212, i64 %353
   store ptr %256, ptr %354, align 8, !tbaa !66
   %.sroa.420.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %354, i64 8
   store ptr %339, ptr %.sroa.420.0..sroa_idx.i, align 8, !tbaa !67
@@ -3163,7 +3162,7 @@ _ZN6icu_7713EquivIterator4nextEv.exit.i:          ; preds = %.noexc208._ZN6icu_7
 362:                                              ; preds = %361
   %363 = add nsw i32 %.9, 1
   %364 = sext i32 %.9 to i64
-  %365 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %219, i64 %364
+  %365 = getelementptr inbounds [24 x i8], ptr %219, i64 %364
   store ptr %256, ptr %365, align 8, !tbaa !66
   %.sroa.413.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %365, i64 8
   store ptr %355, ptr %.sroa.413.0..sroa_idx.i, align 8, !tbaa !67
@@ -3354,7 +3353,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %423 = load i32, ptr %33, align 4, !tbaa !12
   %indvars.iv.next238 = add nsw i64 %indvars.iv237, 1
-  %424 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %212, i64 %indvars.iv237
+  %424 = getelementptr inbounds [24 x i8], ptr %212, i64 %indvars.iv237
   store ptr %385, ptr %424, align 8, !tbaa !66
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %424, i64 8
   store ptr %410, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !67
@@ -3590,7 +3589,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
 
 .lr.ph.i230.i:                                    ; preds = %.noexc234.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc234.i ]
-  %473 = getelementptr inbounds nuw %struct.CurrencyNameStruct, ptr %212, i64 %indvars.iv.i.i
+  %473 = getelementptr inbounds nuw [24 x i8], ptr %212, i64 %indvars.iv.i.i
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 20
   %475 = load i32, ptr %474, align 4, !tbaa !73
   %476 = and i32 %475, 1
@@ -3622,7 +3621,7 @@ _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit.i: ; preds = %._crit_edge.i2
 
 .lr.ph.i238.i:                                    ; preds = %.noexc244.i, %.lr.ph.preheader.i236.i
   %indvars.iv.i239.i = phi i64 [ 0, %.lr.ph.preheader.i236.i ], [ %indvars.iv.next.i241.i, %.noexc244.i ]
-  %481 = getelementptr inbounds nuw %struct.CurrencyNameStruct, ptr %219, i64 %indvars.iv.i239.i
+  %481 = getelementptr inbounds nuw [24 x i8], ptr %219, i64 %indvars.iv.i239.i
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 20
   %483 = load i32, ptr %482, align 4, !tbaa !73
   %484 = and i32 %483, 1
@@ -3728,7 +3727,7 @@ _ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit: ; 
 
 501:                                              ; preds = %500, %507
   %indvars.iv240 = phi i64 [ 0, %500 ], [ %indvars.iv.next241, %507 ]
-  %502 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %indvars.iv240
+  %502 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9currCache, i64 %indvars.iv240
   %503 = load ptr, ptr %502, align 8, !tbaa !56
   %.not48 = icmp eq ptr %503, null
   br i1 %.not48, label %507, label %504
@@ -3746,7 +3745,7 @@ _ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit: ; 
 .thread291:                                       ; preds = %507
   %508 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1, !tbaa !27
   %509 = zext nneg i8 %508 to i64
-  %510 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %509
+  %510 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9currCache, i64 %509
   %511 = load ptr, ptr %510, align 8, !tbaa !56
   %.not49 = icmp eq ptr %511, null
   br i1 %.not49, label %518, label %512
@@ -3777,7 +3776,7 @@ _ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit: ; 
 522:                                              ; preds = %518
   %523 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1, !tbaa !27
   %524 = zext nneg i8 %523 to i64
-  %525 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %524
+  %525 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9currCache, i64 %524
   store ptr %519, ptr %525, align 8, !tbaa !56
   %526 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %519, ptr noundef nonnull dereferenceable(1) %0) #20
   %527 = getelementptr inbounds nuw i8, ptr %519, i64 160
@@ -3806,7 +3805,7 @@ _ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit: ; 
 
 .lr.ph.i51:                                       ; preds = %543, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %543 ]
-  %536 = getelementptr inbounds nuw %struct.CurrencyNameStruct, ptr %.0104, i64 %indvars.iv.i
+  %536 = getelementptr inbounds nuw [24 x i8], ptr %.0104, i64 %indvars.iv.i
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 20
   %538 = load i32, ptr %537, align 4, !tbaa !73
   %539 = and i32 %538, 1
@@ -3835,7 +3834,7 @@ _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit: ; preds = %543, %534
 
 .lr.ph.i56:                                       ; preds = %552, %.lr.ph.preheader.i54
   %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.preheader.i54 ], [ %indvars.iv.next.i59, %552 ]
-  %545 = getelementptr inbounds nuw %struct.CurrencyNameStruct, ptr %.098, i64 %indvars.iv.i57
+  %545 = getelementptr inbounds nuw [24 x i8], ptr %.098, i64 %indvars.iv.i57
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 20
   %547 = load i32, ptr %546, align 4, !tbaa !73
   %548 = and i32 %547, 1
@@ -3894,7 +3893,7 @@ define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsi
   br i1 %exitcond.not, label %_ZL12linearSearchPK18CurrencyNameStructiiPKDsiPiS4_S4_.exit, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !31
   %.not97.i = icmp sgt i32 %.039, %.038
   br i1 %.not97.i, label %_ZL12linearSearchPK18CurrencyNameStructiiPKDsiPiS4_S4_.exit, label %.lr.ph.i
@@ -3905,7 +3904,7 @@ define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsi
   %13 = add nsw i32 %.08298.i, %.07199.i
   %14 = sdiv i32 %13, 2
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %0, i64 %15
+  %16 = getelementptr inbounds [24 x i8], ptr %0, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !77
   %19 = sext i32 %18 to i64
@@ -3919,7 +3918,7 @@ define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsi
 22:                                               ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !74
-  %25 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !31
   %27 = icmp ugt i16 %12, %26
   br i1 %27, label %28, label %30
@@ -3946,7 +3945,7 @@ define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsi
   %36 = add nsw i32 %.078100.i, %.074101.i
   %37 = sdiv i32 %36, 2
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %0, i64 %38
+  %39 = getelementptr inbounds [24 x i8], ptr %0, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8, !tbaa !77
   %42 = sext i32 %41 to i64
@@ -3960,7 +3959,7 @@ define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsi
 45:                                               ; preds = %.lr.ph103.i
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !74
-  %48 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv
   %49 = load i16, ptr %48, align 2, !tbaa !31
   %50 = icmp ult i16 %49, %12
   %51 = add nsw i32 %37, 1
@@ -3985,7 +3984,7 @@ define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsi
   %55 = add nsw i32 %.280105.i, %.276106.i
   %56 = sdiv i32 %55, 2
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %0, i64 %57
+  %58 = getelementptr inbounds [24 x i8], ptr %0, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i32, ptr %59, align 8, !tbaa !77
   %61 = sext i32 %60 to i64
@@ -3999,7 +3998,7 @@ define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsi
 65:                                               ; preds = %.lr.ph108.i
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !74
-  %68 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %indvars.iv
   %69 = load i16, ptr %68, align 2, !tbaa !31
   %70 = icmp ugt i16 %69, %12
   %71 = add nsw i32 %56, 1
@@ -4022,16 +4021,16 @@ define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsi
 _ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit: ; preds = %72, %._crit_edge104.i
   %.276.lcssa.i = phi i32 [ %.038, %._crit_edge104.i ], [ %.377.i, %72 ]
   %75 = sext i32 %.276.lcssa.i to i64
-  %76 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %0, i64 %75
+  %76 = getelementptr inbounds [24 x i8], ptr %0, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !74
-  %79 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %indvars.iv
   %80 = load i16, ptr %79, align 2, !tbaa !31
   %81 = icmp ugt i16 %80, %12
   %82 = sext i1 %81 to i32
   %storemerge.i = add nsw i32 %.276.lcssa.i, %82
   %83 = sext i32 %.078.lcssa.i to i64
-  %84 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %0, i64 %83
+  %84 = getelementptr inbounds [24 x i8], ptr %0, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load i32, ptr %85, align 8, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4071,7 +4070,7 @@ _ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit: ; preds = %72, %._crit_edg
 
 .lr.ph54.i:                                       ; preds = %.loopexit.i, %.lr.ph54.preheader.i
   %indvars.iv56.i = phi i64 [ %83, %.lr.ph54.preheader.i ], [ %indvars.iv.next57.i, %.loopexit.i ]
-  %101 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %0, i64 %indvars.iv56.i
+  %101 = getelementptr inbounds [24 x i8], ptr %0, i64 %indvars.iv56.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load i32, ptr %102, align 8, !tbaa !77
   %104 = load i32, ptr %5, align 4, !tbaa !12
@@ -4110,9 +4109,9 @@ _ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit: ; preds = %72, %._crit_edg
 
 120:                                              ; preds = %125, %.lr.ph.i31
   %indvars.iv.i = phi i64 [ %99, %.lr.ph.i31 ], [ %indvars.iv.next.i, %125 ]
-  %121 = getelementptr inbounds i16, ptr %119, i64 %indvars.iv.i
+  %121 = getelementptr inbounds [2 x i8], ptr %119, i64 %indvars.iv.i
   %122 = load i16, ptr %121, align 2, !tbaa !31
-  %123 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %123 = getelementptr inbounds [2 x i8], ptr %2, i64 %indvars.iv.i
   %124 = load i16, ptr %123, align 2, !tbaa !31
   %.not46.i = icmp eq i16 %122, %124
   br i1 %.not46.i, label %125, label %.loopexit.i
@@ -4171,7 +4170,7 @@ define void @_Z21uprv_currencyLeads_77PKcRN6icu_7710UnicodeSetER10UErrorCode(ptr
 18:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %19 = load ptr, ptr %13, align 8, !tbaa !47
-  %20 = getelementptr inbounds nuw %struct.CurrencyNameStruct, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !74
   %23 = load i16, ptr %22, align 2, !tbaa !31
@@ -4229,7 +4228,7 @@ _ZL17releaseCacheEntryP22CurrencyNameCacheEntry.exit: ; preds = %._crit_edge, %4
 49:                                               ; preds = %.lr.ph45, %70
   %indvars.iv47 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next48, %70 ]
   %50 = load ptr, ptr %17, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw %struct.CurrencyNameStruct, ptr %50, i64 %indvars.iv47
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %indvars.iv47
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !74
   %54 = load i16, ptr %53, align 2, !tbaa !31
@@ -4555,7 +4554,7 @@ define double @ucurr_getRoundingIncrement_77(ptr noundef %0, ptr noundef nonnull
 11:                                               ; preds = %9
   %12 = uitofp nneg i32 %.019.i to double
   %13 = zext nneg i32 %.020.i to i64
-  %14 = getelementptr inbounds nuw i32, ptr @_ZL5POW10, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @_ZL5POW10, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %16 = sitofp i32 %15 to double
   %17 = fdiv double %12, %16
@@ -4607,7 +4606,7 @@ define double @ucurr_getRoundingIncrementForUsage_77(ptr noundef %0, i32 noundef
 15:                                               ; preds = %13
   %16 = uitofp nneg i32 %.019 to double
   %17 = zext nneg i32 %.020 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL5POW10, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL5POW10, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %20 = sitofp i32 %19 to double
   %21 = fdiv double %16, %20
@@ -6662,7 +6661,7 @@ _ZN4CReg7cleanupEv.exit.preheader:                ; preds = %.lr.ph.i, %0
 
 _ZN4CReg7cleanupEv.exit:                          ; preds = %_ZN4CReg7cleanupEv.exit.preheader, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %_ZN4CReg7cleanupEv.exit.preheader ]
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZL9currCache, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9currCache, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8, !tbaa !56
   %.not.i1 = icmp eq ptr %6, null
   br i1 %.not.i1, label %8, label %7
@@ -6741,7 +6740,7 @@ define internal fastcc void @_ZL16deleteCacheEntryP22CurrencyNameCacheEntry(ptr 
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %14 ]
-  %7 = getelementptr inbounds nuw %struct.CurrencyNameStruct, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !73
   %10 = and i32 %9, 1
@@ -6774,7 +6773,7 @@ _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit: ; preds = %14, %1
 
 .lr.ph.i7:                                        ; preds = %27, %.lr.ph.preheader.i5
   %indvars.iv.i8 = phi i64 [ 0, %.lr.ph.preheader.i5 ], [ %indvars.iv.next.i10, %27 ]
-  %20 = getelementptr inbounds nuw %struct.CurrencyNameStruct, ptr %16, i64 %indvars.iv.i8
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv.i8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !73
   %23 = and i32 %22, 1
@@ -6813,7 +6812,7 @@ define internal fastcc void @_ZL19deleteCurrencyNamesP18CurrencyNameStructi(ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
-  %4 = getelementptr inbounds nuw %struct.CurrencyNameStruct, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !73
   %7 = and i32 %6, 1
@@ -7807,9 +7806,9 @@ define internal noundef range(i32 -1, 2) i32 @_ZL22currencyNameComparatorPKvS0_(
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv
   %14 = load i16, ptr %13, align 2, !tbaa !31
-  %15 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %16 = load i16, ptr %15, align 2, !tbaa !31
   %17 = icmp ult i16 %14, %16
   br i1 %17, label %.thread, label %18
@@ -7947,7 +7946,7 @@ define internal noundef i32 @_ZL23ucurr_countCurrencyListP12UEnumerationP10UErro
 .split:                                           ; preds = %2, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %2 ]
   %.0911 = phi i32 [ %spec.select, %.split ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @_ZL13gCurrencyList, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !119
   %10 = and i32 %9, %5
@@ -7981,7 +7980,7 @@ define internal noundef ptr @_ZL22ucurr_nextCurrencyListP12UEnumerationPiP10UErr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %10, ptr %6, align 4, !tbaa !100
-  %11 = getelementptr inbounds nuw %struct.CurrencyList, ptr @_ZL13gCurrencyList, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @_ZL13gCurrencyList, i64 %indvars.iv
   %12 = load i32, ptr %5, align 4, !tbaa !98
   %13 = icmp eq i32 %12, 2147483647
   br i1 %13, label %19, label %14

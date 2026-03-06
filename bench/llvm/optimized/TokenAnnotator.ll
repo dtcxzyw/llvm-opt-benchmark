@@ -437,7 +437,7 @@ define dso_local void @_ZN5clang6format14TokenAnnotator8annotateERNS0_13Annotate
   br i1 %.not.not.i.i.i.i, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParserC2ERKNS0_11FormatStyleERNS0_13AnnotatedLineERKNS0_18AdditionalKeywordsERN4llvm11SmallVectorINS0_9ScopeTypeELj12EEE.exit, label %51, !prof !236
 
 51:                                               ; preds = %11
-  %52 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.pre4.i.i, i64 %48
+  %52 = getelementptr inbounds nuw [56 x i8], ptr %.val.pre4.i.i, i64 %48
   %53 = icmp uge ptr %3, %.val.pre4.i.i
   %54 = icmp ult ptr %3, %52
   %spec.select.i.i.i.i.i.i = and i1 %53, %54
@@ -462,7 +462,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParserC2ERKNS0_11FormatStyleERNS0_13An
   %.016.i.i.i.i = phi ptr [ %3, %11 ], [ %59, %55 ], [ %3, %.critedge.i.i.i.i ]
   %.val3.i.i = load i32, ptr %17, align 8, !tbaa !20
   %60 = zext i32 %.val3.i.i to i64
-  %61 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i, i64 %60
+  %61 = getelementptr inbounds nuw [56 x i8], ptr %.val.i.i, i64 %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %61, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
   %62 = load i32, ptr %17, align 8, !tbaa !20
   %63 = add i32 %62, 1
@@ -498,7 +498,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.e
   %78 = phi i32 [ %71, %69 ], [ %.pre.i, %74 ]
   %79 = load ptr, ptr %12, align 8, !tbaa !3
   %80 = zext i32 %78 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %80
   store i32 2, ptr %81, align 1
   %82 = load i32, ptr %70, align 8, !tbaa !20
   %83 = add i32 %82, 1
@@ -802,7 +802,7 @@ _ZN5clang6formatL15getFunctionNameERKNS0_13AnnotatedLineERPNS0_11FormatTokenE.ex
 189:                                              ; preds = %_ZN5clang6formatL15getFunctionNameERKNS0_13AnnotatedLineERPNS0_11FormatTokenE.exit
   %190 = load ptr, ptr %12, align 8, !tbaa !3
   %191 = zext i32 %188 to i64
-  %192 = getelementptr inbounds nuw i32, ptr %190, i64 %191
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %191
   %193 = getelementptr inbounds i8, ptr %192, i64 -4
   %194 = load i32, ptr %193, align 4, !tbaa !248
   %195 = icmp eq i32 %194, 0
@@ -1235,7 +1235,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit100:    ; preds = %._ZNK5clang5Token17
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val17.i = load i32, ptr %78, align 8, !tbaa !20
   %79 = zext i32 %.val17.i to i64
-  %80 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i, i64 %79
+  %80 = getelementptr inbounds nuw [56 x i8], ptr %.val.i, i64 %79
   %81 = getelementptr inbounds i8, ptr %80, i64 -48
   store i8 1, ptr %81, align 8, !tbaa !233
   tail call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
@@ -1906,7 +1906,7 @@ _ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit: ; pr
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val64 = load i32, ptr %324, align 8, !tbaa !20
   %325 = zext i32 %.val64 to i64
-  %326 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val63, i64 %325
+  %326 = getelementptr inbounds nuw [56 x i8], ptr %.val63, i64 %325
   %327 = getelementptr inbounds i8, ptr %326, i64 -32
   %328 = load ptr, ptr %327, align 8, !tbaa !280
   %.not54 = icmp eq ptr %328, null
@@ -1967,7 +1967,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE28reserveForPara
   %11 = phi i32 [ %4, %2 ], [ %.pre, %7 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !3
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   store i32 %1, ptr %14, align 1
   %15 = load i32, ptr %3, align 8, !tbaa !20
   %16 = add i32 %15, 1
@@ -2246,7 +2246,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES
   %90 = phi i32 [ %85, %.lr.ph1166 ], [ %.pre.i292, %87 ]
   %91 = load ptr, ptr %3, align 8, !tbaa !3
   %92 = zext i32 %90 to i64
-  %93 = getelementptr inbounds nuw ptr, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %92
   %94 = ptrtoint ptr %84 to i64
   store i64 %94, ptr %93, align 1
   %95 = load i32, ptr %79, align 8, !tbaa !20
@@ -2346,7 +2346,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4prec5LevelELb1EE9push_backES3_.exit.i2
   %134 = phi i32 [ %127, %124 ], [ %.pre.i.i267, %130 ]
   %135 = load ptr, ptr %125, align 8, !tbaa !3
   %136 = zext i32 %134 to i64
-  %137 = getelementptr inbounds nuw i32, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %136
   store i32 0, ptr %137, align 1
   %138 = load i32, ptr %126, align 8, !tbaa !20
   %139 = add i32 %138, 1
@@ -3118,7 +3118,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4prec5LevelELb1EE9push_backES3_.exit.i3
   %396 = phi i32 [ %389, %386 ], [ %.pre.i.i328, %392 ]
   %397 = load ptr, ptr %387, align 8, !tbaa !3
   %398 = zext i32 %396 to i64
-  %399 = getelementptr inbounds nuw i32, ptr %397, i64 %398
+  %399 = getelementptr inbounds nuw [4 x i8], ptr %397, i64 %398
   store i32 1, ptr %399, align 1
   %400 = load i32, ptr %388, align 8, !tbaa !20
   %401 = add i32 %400, 1
@@ -3610,7 +3610,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4prec5LevelELb1EE9push_backES3_.exit.i:
   %582 = phi i32 [ %575, %572 ], [ %.pre.i.i, %578 ]
   %583 = load ptr, ptr %573, align 8, !tbaa !3
   %584 = zext i32 %582 to i64
-  %585 = getelementptr inbounds nuw i32, ptr %583, i64 %584
+  %585 = getelementptr inbounds nuw [4 x i8], ptr %583, i64 %584
   store i32 %1, ptr %585, align 1
   %586 = load i32, ptr %574, align 8, !tbaa !20
   %587 = add i32 %586, 1
@@ -4205,7 +4205,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4prec5LevelELb1EE9push_backES3_.exit.i1
   %803 = phi i32 [ %796, %793 ], [ %.pre.i.i196, %799 ]
   %804 = load ptr, ptr %794, align 8, !tbaa !3
   %805 = zext i32 %803 to i64
-  %806 = getelementptr inbounds nuw i32, ptr %804, i64 %805
+  %806 = getelementptr inbounds nuw [4 x i8], ptr %804, i64 %805
   store i32 1, ptr %806, align 1
   %807 = load i32, ptr %795, align 8, !tbaa !20
   %808 = add i32 %807, 1
@@ -4327,7 +4327,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4prec5LevelELb1EE9push_backES3_.exit.i2
   %864 = phi i32 [ %857, %854 ], [ %.pre.i.i212, %860 ]
   %865 = load ptr, ptr %855, align 8, !tbaa !3
   %866 = zext i32 %864 to i64
-  %867 = getelementptr inbounds nuw i32, ptr %865, i64 %866
+  %867 = getelementptr inbounds nuw [4 x i8], ptr %865, i64 %866
   store i32 0, ptr %867, align 1
   %868 = load i32, ptr %856, align 8, !tbaa !20
   %869 = add i32 %868, 1
@@ -4385,7 +4385,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4prec5LevelELb1EE9push_backES3_.exit.i2
   %890 = phi i32 [ %883, %880 ], [ %.pre.i.i225, %886 ]
   %891 = load ptr, ptr %881, align 8, !tbaa !3
   %892 = zext i32 %890 to i64
-  %893 = getelementptr inbounds nuw i32, ptr %891, i64 %892
+  %893 = getelementptr inbounds nuw [4 x i8], ptr %891, i64 %892
   store i32 %1, ptr %893, align 1
   %894 = load i32, ptr %882, align 8, !tbaa !20
   %895 = add i32 %894, 1
@@ -5672,7 +5672,7 @@ _ZNK5clang6format11FormatToken10opensScopeEv.exit.thread: ; preds = %.thread.i29
 495:                                              ; preds = %.loopexit353
   %496 = load ptr, ptr %492, align 8, !tbaa !3
   %497 = zext i32 %494 to i64
-  %498 = getelementptr inbounds nuw ptr, ptr %496, i64 %497
+  %498 = getelementptr inbounds nuw [8 x i8], ptr %496, i64 %497
   %499 = getelementptr inbounds i8, ptr %498, i64 -8
   %500 = load ptr, ptr %499, align 8, !tbaa !21
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 8
@@ -15294,7 +15294,7 @@ switch.hole_check:                                ; preds = %460
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %481 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv, i64 %481
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv, i64 %481
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %thread-pre-split.thread
 
@@ -16703,7 +16703,7 @@ switch.hole_check:                                ; preds = %8
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %16 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv, i64 %16
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv, i64 %16
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread
 
@@ -17795,7 +17795,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %7
   %29 = load i64, ptr %28, align 8, !tbaa !504
   %30 = urem i64 %27, %29
   %31 = load ptr, ptr %26, align 8, !tbaa !505
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !506
   %.not.i.i.i.i6 = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i6, label %_ZNKSt13unordered_setIPN5clang14IdentifierInfoESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit, label %34
@@ -19975,7 +19975,7 @@ define internal fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser4ne
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 124
   store i32 %9, ptr %10, align 4, !tbaa !432
   %.val = load ptr, ptr %0, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val, i64 %8
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %.val, i64 %8
   %12 = getelementptr inbounds i8, ptr %11, i64 -52
   %13 = load i32, ptr %12, align 4, !tbaa !232
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -20039,7 +20039,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.i.i: ; preds = %33, %.p
   %.val.i.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val14.i.i = load i32, ptr %6, align 8, !tbaa !20
   %40 = zext i32 %.val14.i.i to i64
-  %41 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i, i64 %40
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %.val.i.i, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -56
   %43 = load i16, ptr %42, align 8, !tbaa !230
   %44 = icmp eq i16 %43, 47
@@ -20257,7 +20257,7 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatT
   %.pre-phi = phi i64 [ %.pre104, %_ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenEENKUlvE_clEv.exit.i._ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenEENKUlvE_clEv.exit.thread93.i_crit_edge ], [ %40, %45 ], [ %40, %53 ]
   %.val75.i = phi ptr [ %.val75.i.pre, %_ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenEENKUlvE_clEv.exit.i._ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenEENKUlvE_clEv.exit.thread93.i_crit_edge ], [ %.val.i.i, %45 ], [ %.val.i.i, %53 ]
   %.039112.old.i = phi ptr [ %111, %_ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenEENKUlvE_clEv.exit.i._ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenEENKUlvE_clEv.exit.thread93.i_crit_edge ], [ %29, %45 ], [ %29, %53 ]
-  %114 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val75.i, i64 %.pre-phi
+  %114 = getelementptr inbounds nuw [56 x i8], ptr %.val75.i, i64 %.pre-phi
   %115 = getelementptr inbounds i8, ptr %114, i64 -48
   store i8 1, ptr %115, align 8, !tbaa !233
   %.not.i80.i = icmp eq ptr %24, null
@@ -20267,7 +20267,7 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatT
   %.val75158.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val76159.i = load i32, ptr %6, align 8, !tbaa !20
   %116 = zext i32 %.val76159.i to i64
-  %117 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val75158.i, i64 %116
+  %117 = getelementptr inbounds nuw [56 x i8], ptr %.val75158.i, i64 %116
   %118 = getelementptr inbounds i8, ptr %117, i64 -48
   store i8 1, ptr %118, align 8, !tbaa !233
   %.not.i80160.i = icmp eq ptr %24, null
@@ -20451,7 +20451,7 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatT
   %.val73.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val74.i = load i32, ptr %6, align 8, !tbaa !20
   %183 = zext i32 %.val74.i to i64
-  %184 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val73.i, i64 %183
+  %184 = getelementptr inbounds nuw [56 x i8], ptr %.val73.i, i64 %183
   %185 = getelementptr inbounds i8, ptr %184, i64 -48
   store i8 1, ptr %185, align 8, !tbaa !233
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenE.exit
@@ -20460,7 +20460,7 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatT
   %.val71.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val72.i = load i32, ptr %6, align 8, !tbaa !20
   %187 = zext i32 %.val72.i to i64
-  %188 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val71.i, i64 %187
+  %188 = getelementptr inbounds nuw [56 x i8], ptr %.val71.i, i64 %187
   %189 = getelementptr inbounds i8, ptr %188, i64 -48
   store i8 1, ptr %189, align 8, !tbaa !233
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenE.exit
@@ -20475,7 +20475,7 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatT
   %.val69.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val70.i = load i32, ptr %6, align 8, !tbaa !20
   %195 = zext i32 %.val70.i to i64
-  %196 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val69.i, i64 %195
+  %196 = getelementptr inbounds nuw [56 x i8], ptr %.val69.i, i64 %195
   %197 = getelementptr inbounds i8, ptr %196, i64 -48
   store i8 0, ptr %197, align 8, !tbaa !233
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenE.exit
@@ -20525,7 +20525,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_
   %.val67.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val68.i = load i32, ptr %6, align 8, !tbaa !20
   %214 = zext i32 %.val68.i to i64
-  %215 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val67.i, i64 %214
+  %215 = getelementptr inbounds nuw [56 x i8], ptr %.val67.i, i64 %214
   %216 = getelementptr inbounds i8, ptr %215, i64 -48
   %217 = zext i1 %213 to i8
   store i8 %217, ptr %216, align 8, !tbaa !233
@@ -20549,7 +20549,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_
   %.val65.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val66.i = load i32, ptr %6, align 8, !tbaa !20
   %224 = zext i32 %.val66.i to i64
-  %225 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val65.i, i64 %224
+  %225 = getelementptr inbounds nuw [56 x i8], ptr %.val65.i, i64 %224
   %226 = getelementptr inbounds i8, ptr %225, i64 -48
   store i8 1, ptr %226, align 8, !tbaa !233
   %227 = getelementptr inbounds i8, ptr %225, i64 -4
@@ -20560,7 +20560,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_
   %.val61.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val62.i = load i32, ptr %6, align 8, !tbaa !20
   %229 = zext i32 %.val62.i to i64
-  %230 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val61.i, i64 %229
+  %230 = getelementptr inbounds nuw [56 x i8], ptr %.val61.i, i64 %229
   %231 = getelementptr inbounds i8, ptr %230, i64 -4
   store i32 3, ptr %231, align 4, !tbaa !235
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenE.exit
@@ -20626,7 +20626,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit90.i: ; preds = %246, 
 252:                                              ; preds = %249
   %.val60.i = load i32, ptr %6, align 8, !tbaa !20
   %253 = zext i32 %.val60.i to i64
-  %254 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val79.i, i64 %253
+  %254 = getelementptr inbounds nuw [56 x i8], ptr %.val79.i, i64 %253
   %255 = getelementptr inbounds i8, ptr %254, i64 -48
   store i8 0, ptr %255, align 8, !tbaa !233
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenE.exit
@@ -20635,7 +20635,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit90.i: ; preds = %246, 
   %.val57.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val58.i = load i32, ptr %6, align 8, !tbaa !20
   %257 = zext i32 %.val58.i to i64
-  %258 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val57.i, i64 %257
+  %258 = getelementptr inbounds nuw [56 x i8], ptr %.val57.i, i64 %257
   %259 = getelementptr inbounds i8, ptr %258, i64 -16
   store i8 0, ptr %259, align 8, !tbaa !234
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenE.exit
@@ -20653,7 +20653,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit90.i: ; preds = %246, 
   %.val.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val56.i = load i32, ptr %6, align 8, !tbaa !20
   %265 = zext i32 %.val56.i to i64
-  %266 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i, i64 %265
+  %266 = getelementptr inbounds nuw [56 x i8], ptr %.val.i, i64 %265
   %267 = getelementptr inbounds i8, ptr %266, i64 -48
   store i8 1, ptr %267, align 8, !tbaa !233
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser13modifyContextERKNS0_11FormatTokenE.exit
@@ -20992,7 +20992,7 @@ switch.hole_check:                                ; preds = %362
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %375 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv, i64 %375
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv, i64 %375
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %.thread.i20
 
@@ -21185,7 +21185,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit72.preheader.i.i: ; 
   %.val.i.i25 = load ptr, ptr %0, align 8, !tbaa !3
   %.val60.i.i = load i32, ptr %6, align 8, !tbaa !20
   %452 = zext i32 %.val60.i.i to i64
-  %453 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i25, i64 %452
+  %453 = getelementptr inbounds nuw [56 x i8], ptr %.val.i.i25, i64 %452
   %454 = getelementptr inbounds i8, ptr %453, i64 -56
   %455 = load i16, ptr %454, align 8, !tbaa !230
   %.not54.i.i = icmp eq i16 %455, 24
@@ -21310,7 +21310,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser13isStartOfNameERKNS0_11FormatTo
   %.val202.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val203.i = load i32, ptr %6, align 8, !tbaa !20
   %509 = zext i32 %.val203.i to i64
-  %510 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val202.i, i64 %509
+  %510 = getelementptr inbounds nuw [56 x i8], ptr %.val202.i, i64 %509
   %511 = getelementptr inbounds i8, ptr %510, i64 -24
   store ptr %268, ptr %511, align 8, !tbaa !542
   %512 = getelementptr inbounds nuw i8, ptr %268, i64 256
@@ -21339,7 +21339,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser13isStartOfNameERKNS0_11FormatTo
   %.val200.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val201.i = load i32, ptr %6, align 8, !tbaa !20
   %521 = zext i32 %.val201.i to i64
-  %522 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val200.i, i64 %521
+  %522 = getelementptr inbounds nuw [56 x i8], ptr %.val200.i, i64 %521
   %523 = getelementptr inbounds i8, ptr %522, i64 -24
   store ptr null, ptr %523, align 8, !tbaa !542
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser18determineTokenTypeERNS0_11FormatTokenE.exit
@@ -21657,7 +21657,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11Format
   %.val198.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val199.i = load i32, ptr %6, align 8, !tbaa !20
   %668 = zext i32 %.val199.i to i64
-  %669 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val198.i, i64 %668
+  %669 = getelementptr inbounds nuw [56 x i8], ptr %.val198.i, i64 %668
   %670 = getelementptr inbounds i8, ptr %669, i64 -16
   %671 = load i8, ptr %670, align 8, !tbaa !234, !range !203, !noundef !204
   %672 = trunc nuw i8 %671 to i1
@@ -21727,7 +21727,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit238.i: ; preds = %_ZN5
   %.val192.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val193.i = load i32, ptr %6, align 8, !tbaa !20
   %708 = zext i32 %.val193.i to i64
-  %709 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val192.i, i64 %708
+  %709 = getelementptr inbounds nuw [56 x i8], ptr %.val192.i, i64 %708
   %710 = getelementptr inbounds i8, ptr %709, i64 -15
   store i8 1, ptr %710, align 1, !tbaa !545
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser18determineTokenTypeERNS0_11FormatTokenE.exit
@@ -21827,7 +21827,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser23determineIncrementUsageERKNS0_
   %.val190.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val191.i = load i32, ptr %6, align 8, !tbaa !20
   %749 = zext i32 %.val191.i to i64
-  %750 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val190.i, i64 %749
+  %750 = getelementptr inbounds nuw [56 x i8], ptr %.val190.i, i64 %749
   %751 = getelementptr inbounds i8, ptr %750, i64 -48
   %752 = load i8, ptr %751, align 8, !tbaa !233, !range !203, !noundef !204
   %753 = trunc nuw i8 %752 to i1
@@ -21967,7 +21967,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %814, %_ZN5cla
   %.val186.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val187.i = load i32, ptr %6, align 8, !tbaa !20
   %818 = zext i32 %.val187.i to i64
-  %819 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val186.i, i64 %818
+  %819 = getelementptr inbounds nuw [56 x i8], ptr %.val186.i, i64 %818
   %820 = getelementptr inbounds i8, ptr %819, i64 -12
   store i8 1, ptr %820, align 4, !tbaa !546
   br label %821
@@ -22060,7 +22060,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread378.i: ; preds = %_ZNK4llvm9Stri
   %.val.i4 = load ptr, ptr %0, align 8, !tbaa !3
   %.val185.i = load i32, ptr %6, align 8, !tbaa !20
   %859 = zext i32 %.val185.i to i64
-  %860 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i4, i64 %859
+  %860 = getelementptr inbounds nuw [56 x i8], ptr %.val.i4, i64 %859
   %861 = getelementptr inbounds i8, ptr %860, i64 -11
   %862 = load i8, ptr %861, align 1, !tbaa !547, !range !203, !noundef !204
   %863 = trunc nuw i8 %862 to i1
@@ -22957,7 +22957,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val147 = load i32, ptr %64, align 8, !tbaa !20
   %65 = zext i32 %.val147 to i64
-  %66 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val, i64 %65
+  %66 = getelementptr inbounds nuw [56 x i8], ptr %.val, i64 %65
   %67 = getelementptr inbounds i8, ptr %66, i64 -56
   %68 = getelementptr inbounds i8, ptr %66, i64 -40
   %69 = load i8, ptr %68, align 8, !tbaa !550, !range !203, !noundef !204
@@ -23026,7 +23026,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val159 = load i32, ptr %103, align 8, !tbaa !20
   %104 = zext i32 %.val159 to i64
-  %105 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val158, i64 %104
+  %105 = getelementptr inbounds nuw [56 x i8], ptr %.val158, i64 %104
   %106 = getelementptr inbounds i8, ptr %105, i64 -13
   %107 = load i8, ptr %106, align 1, !tbaa !551, !range !203, !noundef !204
   %108 = trunc nuw i8 %107 to i1
@@ -23101,7 +23101,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val163 = load i32, ptr %147, align 8, !tbaa !20
   %148 = zext i32 %.val163 to i64
-  %149 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val162, i64 %148
+  %149 = getelementptr inbounds nuw [56 x i8], ptr %.val162, i64 %148
   %150 = getelementptr inbounds i8, ptr %149, i64 -56
   %151 = load i16, ptr %150, align 8, !tbaa !230
   %152 = icmp eq i16 %151, 20
@@ -23303,7 +23303,7 @@ _ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thr
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val167 = load i32, ptr %247, align 8, !tbaa !20
   %248 = zext i32 %.val167 to i64
-  %249 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val166, i64 %248
+  %249 = getelementptr inbounds nuw [56 x i8], ptr %.val166, i64 %248
   %250 = getelementptr inbounds i8, ptr %249, i64 -39
   %251 = load i8, ptr %250, align 1, !tbaa !552, !range !203, !noundef !204
   %252 = trunc nuw i8 %251 to i1
@@ -23824,7 +23824,7 @@ _ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val189 = load i32, ptr %487, align 8, !tbaa !20
   %488 = zext i32 %.val189 to i64
-  %489 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val188, i64 %488
+  %489 = getelementptr inbounds nuw [56 x i8], ptr %.val188, i64 %488
   %490 = getelementptr inbounds i8, ptr %489, i64 -48
   %491 = load i8, ptr %490, align 8, !tbaa !233, !range !203, !noundef !204
   %492 = trunc nuw i8 %491 to i1
@@ -24019,7 +24019,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit295.thread: ; preds
   %573 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val191687 = load i32, ptr %573, align 8, !tbaa !20
   %574 = zext i32 %.val191687 to i64
-  %575 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val190686, i64 %574
+  %575 = getelementptr inbounds nuw [56 x i8], ptr %.val190686, i64 %574
   %576 = getelementptr inbounds i8, ptr %575, i64 -40
   store i8 1, ptr %576, align 8, !tbaa !550
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
@@ -24035,7 +24035,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit295.thread: ; preds
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val191691 = load i32, ptr %581, align 8, !tbaa !20
   %582 = zext i32 %.val191691 to i64
-  %583 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val190690, i64 %582
+  %583 = getelementptr inbounds nuw [56 x i8], ptr %.val190690, i64 %582
   %584 = getelementptr inbounds i8, ptr %583, i64 -40
   store i8 1, ptr %584, align 8, !tbaa !550
   br label %592
@@ -24051,7 +24051,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit295.thread: ; preds
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val191 = load i32, ptr %588, align 8, !tbaa !20
   %589 = zext i32 %.val191 to i64
-  %590 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val190, i64 %589
+  %590 = getelementptr inbounds nuw [56 x i8], ptr %.val190, i64 %589
   %591 = getelementptr inbounds i8, ptr %590, i64 -40
   store i8 1, ptr %591, align 8, !tbaa !550
   %.not124 = icmp eq ptr %587, null
@@ -24812,7 +24812,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_EEEbT_T
   %932 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val195 = load i32, ptr %932, align 8, !tbaa !20
   %933 = zext i32 %.val195 to i64
-  %934 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val194, i64 %933
+  %934 = getelementptr inbounds nuw [56 x i8], ptr %.val194, i64 %933
   %935 = getelementptr inbounds i8, ptr %934, i64 -48
   %936 = load i8, ptr %935, align 8, !tbaa !233, !range !203, !noundef !204
   %937 = trunc nuw i8 %936 to i1
@@ -24901,7 +24901,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_EEEbT_T
   %980 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val197 = load i32, ptr %980, align 8, !tbaa !20
   %981 = zext i32 %.val197 to i64
-  %982 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val196, i64 %981
+  %982 = getelementptr inbounds nuw [56 x i8], ptr %.val196, i64 %981
   %983 = getelementptr inbounds i8, ptr %982, i64 -48
   %984 = load i8, ptr %983, align 8, !tbaa !233, !range !203, !noundef !204
   %985 = trunc nuw i8 %984 to i1
@@ -24965,7 +24965,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_EEEbT_T
   %1014 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val199 = load i32, ptr %1014, align 8, !tbaa !20
   %1015 = zext i32 %.val199 to i64
-  %1016 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val198, i64 %1015
+  %1016 = getelementptr inbounds nuw [56 x i8], ptr %.val198, i64 %1015
   %1017 = getelementptr inbounds i8, ptr %1016, i64 -4
   %1018 = load i32, ptr %1017, align 4, !tbaa !235
   switch i32 %1018, label %1043 [
@@ -25134,7 +25134,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit384: ; preds = %_ZNK5c
   %.val204 = load ptr, ptr %0, align 8, !tbaa !3
   %.val205 = load i32, ptr %1014, align 8, !tbaa !20
   %1096 = zext i32 %.val205 to i64
-  %1097 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val204, i64 %1096
+  %1097 = getelementptr inbounds nuw [56 x i8], ptr %.val204, i64 %1096
   %1098 = getelementptr inbounds i8, ptr %1097, i64 -4
   %1099 = load i32, ptr %1098, align 4, !tbaa !235
   %1100 = icmp eq i32 %1099, 2
@@ -25900,7 +25900,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit: ; preds = %9, %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val279 = load i32, ptr %14, align 8, !tbaa !20
   %15 = zext i32 %.val279 to i64
-  %16 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val278, i64 %15
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %.val278, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -56
   %18 = load i16, ptr %17, align 8, !tbaa !230
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 104
@@ -25959,7 +25959,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
   %.016.i.i.i.i = phi ptr [ %3, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ %43, %38 ], [ %3, %.critedge.i.i.i.i ]
   %.val3.i.i = load i32, ptr %14, align 8, !tbaa !20
   %45 = zext i32 %.val3.i.i to i64
-  %46 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i, i64 %45
+  %46 = getelementptr inbounds nuw [56 x i8], ptr %.val.i.i, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %46, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
   %47 = load i32, ptr %14, align 8, !tbaa !20
   %48 = add i32 %47, 1
@@ -25977,7 +25977,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
 
 54:                                               ; preds = %51, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_3tok9TokenKindEj.exit
   %55 = phi i8 [ 0, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_3tok9TokenKindEj.exit ], [ %53, %51 ]
-  %56 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val276.pre, i64 %49
+  %56 = getelementptr inbounds nuw [56 x i8], ptr %.val276.pre, i64 %49
   %57 = getelementptr inbounds i8, ptr %56, i64 -40
   store i8 %55, ptr %57, align 8, !tbaa !550
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 208
@@ -26073,7 +26073,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
   %.val274 = load ptr, ptr %0, align 8, !tbaa !3
   %.val275 = load i32, ptr %14, align 8, !tbaa !20
   %105 = zext i32 %.val275 to i64
-  %106 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val274, i64 %105
+  %106 = getelementptr inbounds nuw [56 x i8], ptr %.val274, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 -48
   store i8 %104, ptr %107, align 8, !tbaa !233
   br label %357
@@ -26082,7 +26082,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
   %.val272 = load ptr, ptr %0, align 8, !tbaa !3
   %.val273 = load i32, ptr %14, align 8, !tbaa !20
   %109 = zext i32 %.val273 to i64
-  %110 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val272, i64 %109
+  %110 = getelementptr inbounds nuw [56 x i8], ptr %.val272, i64 %109
   %111 = getelementptr inbounds i8, ptr %110, i64 -48
   store i8 1, ptr %111, align 8, !tbaa !233
   %112 = getelementptr inbounds i8, ptr %110, i64 -4
@@ -26252,7 +26252,7 @@ tailrecurse.i.i.i.i.i:                            ; preds = %_ZNK5clang6format11
   %.val268 = load ptr, ptr %0, align 8, !tbaa !3
   %.val269 = load i32, ptr %14, align 8, !tbaa !20
   %169 = zext i32 %.val269 to i64
-  %170 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val268, i64 %169
+  %170 = getelementptr inbounds nuw [56 x i8], ptr %.val268, i64 %169
   %171 = getelementptr inbounds i8, ptr %170, i64 -48
   store i8 0, ptr %171, align 8, !tbaa !233
   br label %357
@@ -26372,7 +26372,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_NS0_9To
   %.val266 = load ptr, ptr %0, align 8, !tbaa !3
   %.val267 = load i32, ptr %14, align 8, !tbaa !20
   %207 = zext i32 %.val267 to i64
-  %208 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val266, i64 %207
+  %208 = getelementptr inbounds nuw [56 x i8], ptr %.val266, i64 %207
   %209 = getelementptr inbounds i8, ptr %208, i64 -48
   store i8 1, ptr %209, align 8, !tbaa !233
   br label %357
@@ -26420,7 +26420,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread: ; preds = 
   %.val264 = load ptr, ptr %0, align 8, !tbaa !3
   %.val265 = load i32, ptr %14, align 8, !tbaa !20
   %221 = zext i32 %.val265 to i64
-  %222 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val264, i64 %221
+  %222 = getelementptr inbounds nuw [56 x i8], ptr %.val264, i64 %221
   %223 = getelementptr inbounds i8, ptr %222, i64 -48
   store i8 0, ptr %223, align 8, !tbaa !233
   br label %357
@@ -26447,7 +26447,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread: ; preds = 
   %.val262 = load ptr, ptr %0, align 8, !tbaa !3
   %.val263 = load i32, ptr %14, align 8, !tbaa !20
   %231 = zext i32 %.val263 to i64
-  %232 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val262, i64 %231
+  %232 = getelementptr inbounds nuw [56 x i8], ptr %.val262, i64 %231
   %233 = getelementptr inbounds i8, ptr %232, i64 -48
   store i8 0, ptr %233, align 8, !tbaa !233
   br label %357
@@ -26519,7 +26519,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %253, %260
   %.val260 = load ptr, ptr %0, align 8, !tbaa !3
   %.val261 = load i32, ptr %14, align 8, !tbaa !20
   %261 = zext i32 %.val261 to i64
-  %262 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val260, i64 %261
+  %262 = getelementptr inbounds nuw [56 x i8], ptr %.val260, i64 %261
   %263 = getelementptr inbounds i8, ptr %262, i64 -48
   store i8 0, ptr %263, align 8, !tbaa !233
   br label %357
@@ -26545,7 +26545,7 @@ _ZN5clang6format12_GLOBAL__N_121isLambdaParameterListEPKNS0_11FormatTokenE.exit.
   %.val258 = load ptr, ptr %0, align 8, !tbaa !3
   %.val259 = load i32, ptr %14, align 8, !tbaa !20
   %271 = zext i32 %.val259 to i64
-  %272 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val258, i64 %271
+  %272 = getelementptr inbounds nuw [56 x i8], ptr %.val258, i64 %271
   %273 = getelementptr inbounds i8, ptr %272, i64 -48
   store i8 0, ptr %273, align 8, !tbaa !233
   br label %357
@@ -26563,7 +26563,7 @@ _ZN5clang6format12_GLOBAL__N_121isLambdaParameterListEPKNS0_11FormatTokenE.exit.
   %.val256 = load ptr, ptr %0, align 8, !tbaa !3
   %.val257 = load i32, ptr %14, align 8, !tbaa !20
   %280 = zext i32 %.val257 to i64
-  %281 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val256, i64 %280
+  %281 = getelementptr inbounds nuw [56 x i8], ptr %.val256, i64 %280
   %282 = getelementptr inbounds i8, ptr %281, i64 -4
   store i32 6, ptr %282, align 4, !tbaa !235
   %283 = getelementptr inbounds i8, ptr %281, i64 -48
@@ -26592,7 +26592,7 @@ _ZN5clang6format12_GLOBAL__N_121isLambdaParameterListEPKNS0_11FormatTokenE.exit.
   %.val252 = load ptr, ptr %0, align 8, !tbaa !3
   %.val253 = load i32, ptr %14, align 8, !tbaa !20
   %295 = zext i32 %.val253 to i64
-  %296 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val252, i64 %295
+  %296 = getelementptr inbounds nuw [56 x i8], ptr %.val252, i64 %295
   %297 = getelementptr inbounds i8, ptr %296, i64 -48
   store i8 1, ptr %297, align 8, !tbaa !233
   br label %357
@@ -26601,7 +26601,7 @@ _ZN5clang6format12_GLOBAL__N_121isLambdaParameterListEPKNS0_11FormatTokenE.exit.
   %299 = load i32, ptr %14, align 8, !tbaa !20
   %300 = zext i32 %299 to i64
   %.val281 = load ptr, ptr %0, align 8, !tbaa !3
-  %301 = getelementptr %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val281, i64 %300
+  %301 = getelementptr [56 x i8], ptr %.val281, i64 %300
   %302 = getelementptr i8, ptr %301, i64 -71
   %303 = load i8, ptr %302, align 1, !tbaa !545, !range !203, !noundef !204
   %304 = trunc nuw i8 %303 to i1
@@ -26611,7 +26611,7 @@ _ZN5clang6format12_GLOBAL__N_121isLambdaParameterListEPKNS0_11FormatTokenE.exit.
   %305 = load i32, ptr %14, align 8, !tbaa !20
   %306 = zext i32 %305 to i64
   %.val281661 = load ptr, ptr %0, align 8, !tbaa !3
-  %307 = getelementptr %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val281661, i64 %306
+  %307 = getelementptr [56 x i8], ptr %.val281661, i64 %306
   %308 = getelementptr i8, ptr %307, i64 -71
   %309 = load i8, ptr %308, align 1, !tbaa !545, !range !203, !noundef !204
   %310 = trunc nuw i8 %309 to i1
@@ -26726,7 +26726,7 @@ _ZN5clang6format12_GLOBAL__N_121isLambdaParameterListEPKNS0_11FormatTokenE.exit.
 
 369:                                              ; preds = %365
   %370 = zext i32 %358 to i64
-  %371 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val283, i64 %370
+  %371 = getelementptr inbounds nuw [56 x i8], ptr %.val283, i64 %370
   %372 = getelementptr inbounds i8, ptr %371, i64 -8
   store i8 1, ptr %372, align 8, !tbaa !583
   br label %.thread390.sink.split
@@ -26737,7 +26737,7 @@ _ZN5clang6format12_GLOBAL__N_121isLambdaParameterListEPKNS0_11FormatTokenE.exit.
 
 375:                                              ; preds = %373
   %376 = zext i32 %358 to i64
-  %377 = getelementptr %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val283, i64 %376
+  %377 = getelementptr [56 x i8], ptr %.val283, i64 %376
   %378 = getelementptr i8, ptr %377, i64 -65
   %379 = load i8, ptr %378, align 1, !tbaa !584, !range !203, !noundef !204
   %380 = trunc nuw i8 %379 to i1
@@ -26826,7 +26826,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thr
 
 .thread390.sink.split:                            ; preds = %369, %381
   %420 = phi i64 [ %376, %381 ], [ %370, %369 ]
-  %421 = getelementptr %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val283, i64 %420
+  %421 = getelementptr [56 x i8], ptr %.val283, i64 %420
   %422 = getelementptr inbounds i8, ptr %421, i64 -48
   store i8 1, ptr %422, align 8, !tbaa !233
   br label %.thread390
@@ -26912,7 +26912,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit321: ; preds = %_ZNK5c
 
 456:                                              ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit321, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit321
   %457 = zext i32 %358 to i64
-  %458 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val283, i64 %457
+  %458 = getelementptr inbounds nuw [56 x i8], ptr %.val283, i64 %457
   %459 = getelementptr inbounds i8, ptr %458, i64 -48
   store i8 1, ptr %459, align 8, !tbaa !233
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit317
@@ -26922,7 +26922,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit317: ; preds = %_ZN5cl
   br i1 %.0125, label %461, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit324
 
 461:                                              ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit317
-  %462 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val283, i64 %460
+  %462 = getelementptr inbounds nuw [56 x i8], ptr %.val283, i64 %460
   %463 = getelementptr inbounds i8, ptr %462, i64 -38
   store i8 1, ptr %463, align 2, !tbaa !554
   %464 = getelementptr inbounds nuw i8, ptr %8, i64 256
@@ -26939,7 +26939,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit317: ; preds = %_ZN5cl
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit324
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit324: ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit317, %470, %461
-  %471 = getelementptr %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val283, i64 %460
+  %471 = getelementptr [56 x i8], ptr %.val283, i64 %460
   %472 = getelementptr i8, ptr %471, i64 -104
   %473 = load i8, ptr %472, align 8, !tbaa !233, !range !203, !noundef !204
   %474 = xor i8 %473, 1
@@ -26997,7 +26997,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit324: ; preds = %_ZN5cl
   %.val228 = load ptr, ptr %0, align 8, !tbaa !3
   %.val229 = load i32, ptr %14, align 8, !tbaa !20
   %503 = zext i32 %.val229 to i64
-  %504 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val228, i64 %503
+  %504 = getelementptr inbounds nuw [56 x i8], ptr %.val228, i64 %503
   %505 = getelementptr inbounds i8, ptr %504, i64 -48
   store i8 1, ptr %505, align 8, !tbaa !233
   br label %506
@@ -27171,7 +27171,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit332: ; preds = %579, %
   %.val226 = load ptr, ptr %0, align 8, !tbaa !3
   %.val227 = load i32, ptr %14, align 8, !tbaa !20
   %588 = zext i32 %.val227 to i64
-  %589 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val226, i64 %588
+  %589 = getelementptr inbounds nuw [56 x i8], ptr %.val226, i64 %588
   %590 = getelementptr inbounds i8, ptr %589, i64 -32
   %591 = load ptr, ptr %590, align 8, !tbaa !280
   %.not206 = icmp eq ptr %591, null
@@ -27433,7 +27433,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
   %.val220 = load ptr, ptr %0, align 8, !tbaa !3
   %.val221 = load i32, ptr %14, align 8, !tbaa !20
   %716 = zext i32 %.val221 to i64
-  %717 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val220, i64 %716
+  %717 = getelementptr inbounds nuw [56 x i8], ptr %.val220, i64 %716
   %718 = getelementptr inbounds i8, ptr %717, i64 -48
   store i8 0, ptr %718, align 8, !tbaa !233
   br label %719
@@ -27579,7 +27579,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit358: ; preds = %.lr.ph
   %.val218 = load ptr, ptr %0, align 8, !tbaa !3
   %.val219 = load i32, ptr %14, align 8, !tbaa !20
   %775 = zext i32 %.val219 to i64
-  %776 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val218, i64 %775
+  %776 = getelementptr inbounds nuw [56 x i8], ptr %.val218, i64 %775
   %777 = getelementptr inbounds i8, ptr %776, i64 -16
   store i8 1, ptr %777, align 8, !tbaa !234
   %778 = load ptr, ptr %86, align 8, !tbaa !255
@@ -27619,7 +27619,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit358: ; preds = %.lr.ph
   %.val = load ptr, ptr %0, align 8, !tbaa !3
   %.val215 = load i32, ptr %14, align 8, !tbaa !20
   %799 = zext i32 %.val215 to i64
-  %800 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val, i64 %799
+  %800 = getelementptr inbounds nuw [56 x i8], ptr %.val, i64 %799
   %801 = getelementptr inbounds i8, ptr %800, i64 -8
   %802 = load i8, ptr %801, align 8, !tbaa !583, !range !203, !noundef !204
   %803 = trunc nuw i8 %802 to i1
@@ -27697,7 +27697,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thr
   %.val2.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val3.i = load i32, ptr %14, align 8, !tbaa !20
   %827 = zext i32 %.val3.i to i64
-  %828 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val2.i, i64 %827
+  %828 = getelementptr inbounds nuw [56 x i8], ptr %.val2.i, i64 %827
   %829 = getelementptr inbounds i8, ptr %828, i64 -4
   %830 = load i32, ptr %829, align 4, !tbaa !235
   %831 = icmp eq i32 %830, 4
@@ -27707,7 +27707,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thr
   %833 = add i32 %.val3.i, -1
   store i32 %833, ptr %14, align 8, !tbaa !20
   %834 = zext i32 %833 to i64
-  %835 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val2.i, i64 %834
+  %835 = getelementptr inbounds nuw [56 x i8], ptr %.val2.i, i64 %834
   %836 = getelementptr inbounds i8, ptr %835, i64 -4
   store i32 4, ptr %836, align 4, !tbaa !235
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorD2Ev.exit
@@ -28911,7 +28911,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.e
   %42 = phi i32 [ %35, %_ZNK5clang6format12_GLOBAL__N_116AnnotatingParser12getScopeTypeERKNS0_11FormatTokenE.exit38 ], [ %.pre.i, %38 ]
   %43 = load ptr, ptr %31, align 8, !tbaa !3
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   store i32 %.0.i37, ptr %45, align 1
   %46 = load i32, ptr %34, align 8, !tbaa !20
   %47 = add i32 %46, 1
@@ -29031,14 +29031,14 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30..thread_crit_edge: 
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val25.i = load i32, ptr %98, align 8, !tbaa !20
   %99 = zext i32 %.val25.i to i64
-  %100 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val24.i, i64 %99
+  %100 = getelementptr inbounds nuw [56 x i8], ptr %.val24.i, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 -9
   store i8 1, ptr %101, align 1, !tbaa !584
   %102 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser11parseParensEb(ptr noundef nonnull align 8 dereferenceable(1524) %0, i1 noundef zeroext false)
   %.val.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val23.i = load i32, ptr %98, align 8, !tbaa !20
   %103 = zext i32 %.val23.i to i64
-  %104 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i, i64 %103
+  %104 = getelementptr inbounds nuw [56 x i8], ptr %.val.i, i64 %103
   %105 = getelementptr inbounds i8, ptr %104, i64 -9
   store i8 0, ptr %105, align 1, !tbaa !584
   br i1 %102, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
@@ -29284,7 +29284,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.e
   %201 = phi i32 [ %194, %_ZNK5clang6format12_GLOBAL__N_116AnnotatingParser12getScopeTypeERKNS0_11FormatTokenE.exit ], [ %.pre.i82, %197 ]
   %202 = load ptr, ptr %189, align 8, !tbaa !3
   %203 = zext i32 %201 to i64
-  %204 = getelementptr inbounds nuw i32, ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %203
   store i32 %.0.i26, ptr %204, align 1
   %205 = load i32, ptr %193, align 8, !tbaa !20
   %206 = add i32 %205, 1
@@ -29732,7 +29732,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116Annot
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val191 = load i32, ptr %8, align 8, !tbaa !20
   %9 = zext i32 %.val191 to i64
-  %10 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val190, i64 %9
+  %10 = getelementptr inbounds nuw [56 x i8], ptr %.val190, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -56
   %12 = load i16, ptr %11, align 8, !tbaa !230
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -29922,7 +29922,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_PNS_14Identif
   %.val180 = load ptr, ptr %0, align 8, !tbaa !3
   %.val181 = load i32, ptr %8, align 8, !tbaa !20
   %94 = zext i32 %.val181 to i64
-  %95 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val180, i64 %94
+  %95 = getelementptr inbounds nuw [56 x i8], ptr %.val180, i64 %94
   %96 = getelementptr inbounds i8, ptr %95, i64 -13
   %97 = load i8, ptr %96, align 1, !tbaa !551, !range !203, !noundef !204
   %98 = trunc nuw i8 %97 to i1
@@ -30008,7 +30008,7 @@ _ZNK5clang6format11FormatToken22isCppStructuredBindingEb.exit: ; preds = %.prehe
   %.val178 = load ptr, ptr %0, align 8, !tbaa !3
   %.val179 = load i32, ptr %8, align 8, !tbaa !20
   %126 = zext i32 %.val179 to i64
-  %127 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val178, i64 %126
+  %127 = getelementptr inbounds nuw [56 x i8], ptr %.val178, i64 %126
   %128 = getelementptr inbounds i8, ptr %127, i64 -16
   %129 = load i8, ptr %128, align 8, !tbaa !234, !range !203, !noundef !204
   %130 = trunc nuw i8 %129 to i1
@@ -30168,7 +30168,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit212: ; preds = %186, %
   %.val176 = load ptr, ptr %0, align 8, !tbaa !3
   %.val177 = load i32, ptr %8, align 8, !tbaa !20
   %206 = zext i32 %.val177 to i64
-  %207 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val176, i64 %206
+  %207 = getelementptr inbounds nuw [56 x i8], ptr %.val176, i64 %206
   %208 = getelementptr inbounds i8, ptr %207, i64 -56
   %209 = load i16, ptr %208, align 8, !tbaa !230
   %210 = icmp eq i16 %209, 24
@@ -30205,7 +30205,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit212: ; preds = %186, %
   %.val174 = load ptr, ptr %0, align 8, !tbaa !3
   %.val175 = load i32, ptr %8, align 8, !tbaa !20
   %226 = zext i32 %.val175 to i64
-  %227 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val174, i64 %226
+  %227 = getelementptr inbounds nuw [56 x i8], ptr %.val174, i64 %226
   %228 = getelementptr inbounds i8, ptr %227, i64 -56
   %229 = load i16, ptr %228, align 8, !tbaa !230
   %230 = icmp eq i16 %229, 24
@@ -30391,7 +30391,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %312, %305
   %.val7.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val8.i = load i32, ptr %8, align 8, !tbaa !20
   %313 = zext i32 %.val8.i to i64
-  %314 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val7.i, i64 %313
+  %314 = getelementptr inbounds nuw [56 x i8], ptr %.val7.i, i64 %313
   %315 = getelementptr inbounds i8, ptr %314, i64 -52
   %316 = load i32, ptr %315, align 4, !tbaa !232
   %317 = add i32 %316, %.0122
@@ -30445,7 +30445,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
   %.016.i.i.i.i = phi ptr [ %2, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %338, %333 ], [ %2, %.critedge.i.i.i.i ]
   %.val3.i.i = load i32, ptr %8, align 8, !tbaa !20
   %340 = zext i32 %.val3.i.i to i64
-  %341 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i, i64 %340
+  %341 = getelementptr inbounds nuw [56 x i8], ptr %.val.i.i, i64 %340
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %341, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
   %342 = load i32, ptr %8, align 8, !tbaa !20
   %343 = add i32 %342, 1
@@ -30453,7 +30453,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.val172 = load ptr, ptr %0, align 8, !tbaa !3
   %344 = zext i32 %343 to i64
-  %345 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val172, i64 %344
+  %345 = getelementptr inbounds nuw [56 x i8], ptr %.val172, i64 %344
   %346 = getelementptr inbounds i8, ptr %345, i64 -48
   store i8 1, ptr %346, align 8, !tbaa !233
   %347 = load ptr, ptr %51, align 8, !tbaa !255
@@ -30743,7 +30743,7 @@ _ZN5clang6format11FormatToken18overwriteFixedTypeENS0_9TokenTypeE.exit246: ; pre
   %.val162 = load ptr, ptr %0, align 8, !tbaa !3
   %.val163 = load i32, ptr %8, align 8, !tbaa !20
   %485 = zext i32 %.val163 to i64
-  %486 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val162, i64 %485
+  %486 = getelementptr inbounds nuw [56 x i8], ptr %.val162, i64 %485
   %487 = getelementptr inbounds i8, ptr %486, i64 -32
   %488 = load ptr, ptr %487, align 8, !tbaa !280
   %.not145 = icmp eq ptr %488, null
@@ -30932,7 +30932,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit267: ; preds = %564, %
   %.val = load ptr, ptr %0, align 8, !tbaa !3
   %.val149 = load i32, ptr %8, align 8, !tbaa !20
   %570 = zext i32 %.val149 to i64
-  %571 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val, i64 %570
+  %571 = getelementptr inbounds nuw [56 x i8], ptr %.val, i64 %570
   %572 = getelementptr inbounds i8, ptr %571, i64 -38
   store i8 1, ptr %572, align 2, !tbaa !554
   br i1 %.not.i.not.not.not.not.not, label %573, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit264
@@ -31034,7 +31034,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
   %.val2.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val3.i = load i32, ptr %8, align 8, !tbaa !20
   %611 = zext i32 %.val3.i to i64
-  %612 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val2.i, i64 %611
+  %612 = getelementptr inbounds nuw [56 x i8], ptr %.val2.i, i64 %611
   %613 = getelementptr inbounds i8, ptr %612, i64 -4
   %614 = load i32, ptr %613, align 4, !tbaa !235
   %615 = icmp eq i32 %614, 4
@@ -31044,7 +31044,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
   %617 = add i32 %.val3.i, -1
   store i32 %617, ptr %8, align 8, !tbaa !20
   %618 = zext i32 %617 to i64
-  %619 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val2.i, i64 %618
+  %619 = getelementptr inbounds nuw [56 x i8], ptr %.val2.i, i64 %618
   %620 = getelementptr inbounds i8, ptr %619, i64 -4
   store i32 4, ptr %620, align 4, !tbaa !235
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorD2Ev.exit
@@ -31075,7 +31075,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116Annot
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val57 = load i32, ptr %8, align 8, !tbaa !20
   %9 = zext i32 %.val57 to i64
-  %10 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val56, i64 %9
+  %10 = getelementptr inbounds nuw [56 x i8], ptr %.val56, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -56
   %12 = load i16, ptr %11, align 8, !tbaa !230
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -31111,7 +31111,7 @@ _ZN5clang6format11FormatToken18overwriteFixedTypeENS0_9TokenTypeE.exit: ; preds 
   %.pre-phi = phi i64 [ %.pre109, %24 ], [ %9, %17 ], [ %9, %5 ]
   %.val53 = phi i32 [ %.val53.pre, %24 ], [ %.val57, %17 ], [ %.val57, %5 ]
   %.val52 = phi ptr [ %.val52.pre, %24 ], [ %.val56, %17 ], [ %.val56, %5 ]
-  %29 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val52, i64 %.pre-phi
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %.val52, i64 %.pre-phi
   %30 = getelementptr inbounds i8, ptr %29, i64 -15
   store i8 0, ptr %30, align 1, !tbaa !545
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -31168,7 +31168,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
   %.016.i.i.i.i = phi ptr [ %2, %_ZN5clang6format11FormatToken18overwriteFixedTypeENS0_9TokenTypeE.exit ], [ %54, %49 ], [ %2, %.critedge.i.i.i.i ]
   %.val3.i.i = load i32, ptr %8, align 8, !tbaa !20
   %56 = zext i32 %.val3.i.i to i64
-  %57 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i, i64 %56
+  %57 = getelementptr inbounds nuw [56 x i8], ptr %.val.i.i, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %57, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
   %58 = load i32, ptr %8, align 8, !tbaa !20
   %59 = add i32 %58, 1
@@ -31176,7 +31176,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.val50 = load ptr, ptr %0, align 8, !tbaa !3
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val50, i64 %60
+  %61 = getelementptr inbounds nuw [56 x i8], ptr %.val50, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 -39
   store i8 1, ptr %62, align 1, !tbaa !552
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 65
@@ -31339,7 +31339,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %
 127:                                              ; preds = %125
   %.val58 = load ptr, ptr %0, align 8
   %128 = zext i32 %.val59 to i64
-  %129 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val58, i64 %128
+  %129 = getelementptr inbounds nuw [56 x i8], ptr %.val58, i64 %128
   br label %130
 
 130:                                              ; preds = %130, %127
@@ -31440,7 +31440,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit78: ; preds = %154, 
   %.val = load ptr, ptr %0, align 8, !tbaa !3
   %.val39 = load i32, ptr %8, align 8, !tbaa !20
   %163 = zext i32 %.val39 to i64
-  %164 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val, i64 %163
+  %164 = getelementptr inbounds nuw [56 x i8], ptr %.val, i64 %163
   %165 = getelementptr inbounds i8, ptr %164, i64 -39
   %166 = load i8, ptr %165, align 1, !tbaa !552, !range !203, !noundef !204
   %167 = trunc nuw i8 %166 to i1
@@ -31606,7 +31606,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit85.thread: ; preds = %
   %.val2.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val3.i = load i32, ptr %8, align 8, !tbaa !20
   %231 = zext i32 %.val3.i to i64
-  %232 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val2.i, i64 %231
+  %232 = getelementptr inbounds nuw [56 x i8], ptr %.val2.i, i64 %231
   %233 = getelementptr inbounds i8, ptr %232, i64 -4
   %234 = load i32, ptr %233, align 4, !tbaa !235
   %235 = icmp eq i32 %234, 4
@@ -31616,7 +31616,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit85.thread: ; preds = %
   %237 = add i32 %.val3.i, -1
   store i32 %237, ptr %8, align 8, !tbaa !20
   %238 = zext i32 %237 to i64
-  %239 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val2.i, i64 %238
+  %239 = getelementptr inbounds nuw [56 x i8], ptr %.val2.i, i64 %238
   %240 = getelementptr inbounds i8, ptr %239, i64 -4
   store i32 4, ptr %240, align 4, !tbaa !235
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorD2Ev.exit
@@ -31737,7 +31737,7 @@ _ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE5countEPKS3_.exit.threa
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val86 = load i32, ptr %46, align 8, !tbaa !20
   %47 = zext i32 %.val86 to i64
-  %48 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val85, i64 %47
+  %48 = getelementptr inbounds nuw [56 x i8], ptr %.val85, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 -56
   %50 = load i16, ptr %49, align 8, !tbaa !230
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -31796,7 +31796,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
   %.016.i.i.i.i = phi ptr [ %2, %.thread ], [ %75, %70 ], [ %2, %.critedge.i.i.i.i ]
   %.val3.i.i = load i32, ptr %46, align 8, !tbaa !20
   %77 = zext i32 %.val3.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i.i, i64 %77
+  %78 = getelementptr inbounds nuw [56 x i8], ptr %.val.i.i, i64 %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %78, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
   %79 = load i32, ptr %46, align 8, !tbaa !20
   %80 = add i32 %79, 1
@@ -31804,7 +31804,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.val83 = load ptr, ptr %0, align 8, !tbaa !3
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val83, i64 %81
+  %82 = getelementptr inbounds nuw [56 x i8], ptr %.val83, i64 %81
   %83 = getelementptr inbounds i8, ptr %82, i64 -48
   store i8 0, ptr %83, align 8, !tbaa !233
   br i1 %26, label %84, label %89
@@ -31858,7 +31858,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
   %107 = load i32, ptr %46, align 8, !tbaa !20
   %108 = zext i32 %107 to i64
   %.val87 = load ptr, ptr %0, align 8, !tbaa !3
-  %109 = getelementptr %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val87, i64 %108
+  %109 = getelementptr [56 x i8], ptr %.val87, i64 %108
   %110 = getelementptr i8, ptr %109, i64 -104
   %111 = load i8, ptr %110, align 8, !tbaa !233, !range !203, !noundef !204
   %112 = getelementptr inbounds nuw i8, ptr %106, i64 16
@@ -32202,7 +32202,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   %.val2.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val3.i = load i32, ptr %46, align 8, !tbaa !20
   %251 = zext i32 %.val3.i to i64
-  %252 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val2.i, i64 %251
+  %252 = getelementptr inbounds nuw [56 x i8], ptr %.val2.i, i64 %251
   %253 = getelementptr inbounds i8, ptr %252, i64 -4
   %254 = load i32, ptr %253, align 4, !tbaa !235
   %255 = icmp eq i32 %254, 4
@@ -32212,7 +32212,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   %257 = add i32 %.val3.i, -1
   store i32 %257, ptr %46, align 8, !tbaa !20
   %258 = zext i32 %257 to i64
-  %259 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val2.i, i64 %258
+  %259 = getelementptr inbounds nuw [56 x i8], ptr %.val2.i, i64 %258
   %260 = getelementptr inbounds i8, ptr %259, i64 -4
   store i32 4, ptr %260, align 4, !tbaa !235
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorD2Ev.exit
@@ -33094,7 +33094,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit112: ; preds = %94
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val95 = load i32, ptr %113, align 8, !tbaa !20
   %114 = zext i32 %.val95 to i64
-  %115 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val, i64 %114
+  %115 = getelementptr inbounds nuw [56 x i8], ptr %.val, i64 %114
   %116 = getelementptr inbounds i8, ptr %115, i64 -15
   %117 = load i8, ptr %116, align 1, !tbaa !545, !range !203, !noundef !204
   %118 = trunc nuw i8 %117 to i1
@@ -33111,7 +33111,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit112: ; preds = %94
 124:                                              ; preds = %119
   %125 = load ptr, ptr %121, align 8, !tbaa !3
   %126 = zext i32 %123 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %126
   %128 = getelementptr inbounds i8, ptr %127, i64 -4
   %129 = load i32, ptr %128, align 4, !tbaa !248
   %130 = icmp eq i32 %129, 0
@@ -33190,7 +33190,7 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser21determineStarAmpUsageERKNS0_1
 151:                                              ; preds = %150
   %152 = load ptr, ptr %121, align 8, !tbaa !3
   %153 = zext i32 %123 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %152, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %153
   %155 = getelementptr inbounds i8, ptr %154, i64 -4
   %156 = load i32, ptr %155, align 4, !tbaa !248
   %157 = icmp eq i32 %156, 1
@@ -34623,7 +34623,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPN5clang6format11Form
   store i32 %19, ptr %9, align 4, !tbaa !226
   store ptr %2, ptr %12, align 8, !tbaa !627
   %20 = load ptr, ptr %1, align 8, !tbaa !224
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %11
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %11
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread: ; preds = %.lr.ph.i, %18
@@ -34655,7 +34655,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   %32 = phi ptr [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
   %33 = phi i32 [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
   %.v.i5.i = zext i32 %33 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.v.i5.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.v.i5.i
   %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract14, %34
   br i1 %.not3.i4.i.i6.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i
 
@@ -35262,7 +35262,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4prec5LevelELb1EE9push_backES3_.exit: ;
   %18 = phi i32 [ %11, %8 ], [ %.pre.i, %14 ]
   %19 = load ptr, ptr %9, align 8, !tbaa !3
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 %2, ptr %21, align 1
   %22 = load i32, ptr %10, align 8, !tbaa !20
   %23 = add i32 %22, 1
@@ -36658,7 +36658,7 @@ define linkonce_odr hidden ptr @_ZNKSt13unordered_setIPN5clang14IdentifierInfoES
   %17 = load i64, ptr %16, align 8, !tbaa !504
   %18 = urem i64 %15, %17
   %19 = load ptr, ptr %0, align 8, !tbaa !505
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !506
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZNKSt10_HashtableIPN5clang14IdentifierInfoES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE4findERKS2_.exit, label %22

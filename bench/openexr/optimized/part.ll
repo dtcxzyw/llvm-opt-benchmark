@@ -117,7 +117,7 @@ define i32 @exr_get_storage(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !28
@@ -218,7 +218,7 @@ define i32 @exr_add_part(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 36:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !27
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %40 = load ptr, ptr %39, align 8, !tbaa !29
@@ -276,10 +276,10 @@ define i32 @exr_add_part(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 switch.lookup:                                    ; preds = %.loopexit
   %69 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.exr_add_part, i64 %69
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.exr_add_part, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   %70 = zext nneg i32 %2 to i64
-  %switch.gep166 = getelementptr inbounds nuw ptr, ptr @switch.table.exr_add_part.1, i64 %70
+  %switch.gep166 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.exr_add_part.1, i64 %70
   %switch.load167 = load ptr, ptr %switch.gep166, align 8
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 112
@@ -466,7 +466,7 @@ define i32 @exr_get_tile_levels(ptr noundef %0, i32 noundef %1, ptr noundef writ
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %28 = load ptr, ptr %27, align 8, !tbaa !26
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !28
@@ -614,7 +614,7 @@ define i32 @exr_get_tile_counts(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !28
@@ -700,7 +700,7 @@ define i32 @exr_get_tile_counts(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 76:                                               ; preds = %75
   %77 = zext nneg i32 %2 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %49, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !24
   store i32 %79, ptr %4, align 4, !tbaa !24
   br label %80
@@ -711,7 +711,7 @@ define i32 @exr_get_tile_counts(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 81:                                               ; preds = %80
   %82 = zext nneg i32 %3 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %52, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !24
   store i32 %84, ptr %5, align 4, !tbaa !24
   br label %85
@@ -792,7 +792,7 @@ define i32 @exr_get_tile_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !28
@@ -882,7 +882,7 @@ define i32 @exr_get_tile_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %79 = getelementptr inbounds nuw i8, ptr %33, i64 216
   %80 = load ptr, ptr %79, align 8, !tbaa !44
   %81 = zext nneg i32 %2 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !24
   %84 = load i32, ptr %77, align 1, !tbaa !45
   %. = tail call i32 @llvm.umin.i32(i32 %84, i32 %83)
@@ -897,7 +897,7 @@ define i32 @exr_get_tile_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %87 = getelementptr inbounds nuw i8, ptr %33, i64 224
   %88 = load ptr, ptr %87, align 8, !tbaa !47
   %89 = zext nneg i32 %3 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !24
   %92 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %93 = load i32, ptr %92, align 1, !tbaa !48
@@ -981,7 +981,7 @@ define i32 @exr_get_level_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !28
@@ -1069,7 +1069,7 @@ define i32 @exr_get_level_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %77 = getelementptr inbounds nuw i8, ptr %33, i64 216
   %78 = load ptr, ptr %77, align 8, !tbaa !44
   %79 = zext nneg i32 %2 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !24
   store i32 %81, ptr %4, align 4, !tbaa !24
   br label %82
@@ -1082,7 +1082,7 @@ define i32 @exr_get_level_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %84 = getelementptr inbounds nuw i8, ptr %33, i64 224
   %85 = load ptr, ptr %84, align 8, !tbaa !47
   %86 = zext nneg i32 %3 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !24
   store i32 %88, ptr %5, align 4, !tbaa !24
   br label %89
@@ -1163,7 +1163,7 @@ define i32 @exr_get_chunk_count(ptr noundef %0, i32 noundef %1, ptr noundef writ
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %.not55 = icmp eq ptr %2, null
   br i1 %.not55, label %31, label %41
@@ -1361,7 +1361,7 @@ define i32 @exr_get_chunk_table(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = zext nneg i32 %1 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !27
   %37 = call i32 @extract_chunk_table(ptr noundef nonnull %0, ptr noundef %36, ptr noundef nonnull %2, ptr noundef nonnull %5) #6
   br label %.sink.split
@@ -1427,7 +1427,7 @@ define i32 @exr_validate_chunk_table(ptr noundef %0, i32 noundef %1) local_unnam
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %28 = load ptr, ptr %27, align 8, !tbaa !26
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !27
   %32 = call i32 @extract_chunk_table(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull %4, ptr noundef nonnull %3) #6
   %.not38 = icmp eq i32 %32, 0
@@ -1456,7 +1456,7 @@ define i32 @exr_validate_chunk_table(ptr noundef %0, i32 noundef %1) local_unnam
 
 43:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %44 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8, !tbaa !56
   %46 = icmp uge i64 %45, %41
   %.not39 = icmp ult i64 %45, %spec.select
@@ -1515,7 +1515,7 @@ define i32 @exr_get_scanlines_per_chunk(ptr noundef %0, i32 noundef %1, ptr noun
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %.not32 = icmp eq ptr %2, null
   br i1 %.not32, label %31, label %37
@@ -1624,7 +1624,7 @@ define i32 @exr_get_chunk_unpacked_size(ptr noundef %0, i32 noundef %1, ptr noun
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 232
   %32 = load i64, ptr %31, align 8, !tbaa !59
@@ -1705,7 +1705,7 @@ define i32 @exr_get_zip_compression_level(ptr noundef %0, i32 noundef %1, ptr no
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load i32, ptr %31, align 8, !tbaa !60
@@ -1764,7 +1764,7 @@ define i32 @exr_set_zip_compression_level(ptr noundef %0, i32 noundef %1, i32 no
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   %22 = load i8, ptr %0, align 8, !tbaa !22
   switch i8 %22, label %23 [
@@ -1852,7 +1852,7 @@ define i32 @exr_get_dwa_compression_level(ptr noundef %0, i32 noundef %1, ptr no
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 188
   %32 = load float, ptr %31, align 4, !tbaa !61
@@ -1911,7 +1911,7 @@ define i32 @exr_set_dwa_compression_level(ptr noundef %0, i32 noundef %1, float 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   %22 = load i8, ptr %0, align 8, !tbaa !22
   switch i8 %22, label %23 [

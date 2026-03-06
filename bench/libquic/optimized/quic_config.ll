@@ -3537,7 +3537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %63,
   %77 = phi ptr [ %.pre, %.lr.ph ], [ %106, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %.047 = phi i64 [ 0, %.lr.ph ], [ %107, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %78 = load ptr, ptr %5, align 8, !tbaa !46
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.047
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.047
   %.not.i23 = icmp eq ptr %77, %76
   br i1 %.not.i23, label %83, label %80
 
@@ -3595,7 +3595,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre49 = phi i64 [ %.pre49.pre, %102 ], [ %.pre4950, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
   store ptr %96, ptr %71, align 8, !tbaa !51
   store ptr %101, ptr %72, align 8, !tbaa !58
-  %103 = getelementptr inbounds nuw i32, ptr %96, i64 %94
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %94
   store ptr %103, ptr %73, align 8, !tbaa !59
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 

@@ -208,7 +208,7 @@ define internal noundef i32 @pmain(ptr noundef %0) #0 {
 27:                                               ; preds = %22
   %28 = add nsw i32 %.045.i, 1
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %2, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %2, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = icmp eq ptr %31, null
   br i1 %32, label %collectargs.exit.thread, label %37
@@ -232,7 +232,7 @@ define internal noundef i32 @pmain(ptr noundef %0) #0 {
   %.1.i = phi i32 [ %.045.i, %.sink.split.i ], [ %28, %27 ], [ %.045.i, %22 ], [ %.045.i, %7 ]
   %38 = add nsw i32 %.1.i, 1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %2, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %2, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !4
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %collectargs.exit, label %.lr.ph.i, !llvm.loop !19
@@ -277,7 +277,7 @@ collectargs.exit.thread:                          ; preds = %27, %14, %18, %7, %
 
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i44 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef %52) #9
   %53 = trunc i64 %indvars.iv.i to i32
@@ -356,7 +356,7 @@ handle_luainit.exit:                              ; preds = %58
 .lr.ph.i45:                                       ; preds = %77, %dolibrary.exit.i
   %.04263.i = phi i32 [ %161, %dolibrary.exit.i ], [ 1, %77 ]
   %79 = sext i32 %.04263.i to i64
-  %80 = getelementptr inbounds ptr, ptr %2, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %2, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !4
   %82 = icmp eq ptr %81, null
   br i1 %82, label %dolibrary.exit.i, label %83
@@ -381,7 +381,7 @@ handle_luainit.exit:                              ; preds = %58
 90:                                               ; preds = %86
   %91 = add nsw i32 %.04263.i, 1
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds ptr, ptr %2, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %2, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !4
   br label %95
 
@@ -401,7 +401,7 @@ handle_luainit.exit:                              ; preds = %58
 101:                                              ; preds = %97
   %102 = add nsw i32 %.04263.i, 1
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds ptr, ptr %2, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %2, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !4
   br label %106
 
@@ -428,7 +428,7 @@ handle_luainit.exit:                              ; preds = %58
 115:                                              ; preds = %111
   %116 = add nsw i32 %.04263.i, 1
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds ptr, ptr %2, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %2, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !4
   br label %120
 
@@ -491,7 +491,7 @@ dojitcmd.exit.i:                                  ; preds = %134, %132
   br i1 %.not.i47, label %dolibrary.exit.i, label %runargs.exit.thread
 
 141:                                              ; preds = %83
-  %142 = getelementptr inbounds ptr, ptr %2, i64 %79
+  %142 = getelementptr inbounds [8 x i8], ptr %2, i64 %79
   tail call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.20, i64 noundef 6) #9
   %143 = tail call fastcc i32 @loadjitmodule(ptr noundef %0)
   %.not.i54.i = icmp eq i32 %143, 0
@@ -569,7 +569,7 @@ runargs.exit.thread:                              ; preds = %dojitcmd.exit.i, %1
 
 167:                                              ; preds = %.loopexit
   %168 = zext nneg i32 %.030.i7074 to i64
-  %169 = getelementptr inbounds nuw ptr, ptr %2, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !4
   %171 = load i8, ptr %170, align 1
   %.not33.i50 = icmp eq i8 %171, 45

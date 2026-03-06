@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%struct.highCardType = type { i32, i32 }
-%struct.relRanksType = type { [15 x [4 x %struct.absRankType]] }
-%struct.absRankType = type { i8, i8 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -32,7 +29,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %10 = sext i32 %4 to i64
-  %11 = getelementptr inbounds %struct.highCardType, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %93
@@ -44,7 +41,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 16:                                               ; preds = %14, %38
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %38 ]
   %.0166199 = phi i32 [ 0, %14 ], [ %.1, %38 ]
-  %17 = getelementptr inbounds nuw %struct.highCardType, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1484
   %19 = load i32, ptr %18, align 4
   %.not184 = icmp eq i32 %19, -1
@@ -52,7 +49,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 
 20:                                               ; preds = %16
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i32, ptr %5, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %5, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %25, label %38
@@ -60,7 +57,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 25:                                               ; preds = %20
   %26 = getelementptr inbounds [4 x i8], ptr %15, i64 %21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
-  %28 = getelementptr inbounds i32, ptr @partner, i64 %21
+  %28 = getelementptr inbounds [4 x i8], ptr @partner, i64 %21
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds [4 x i8], ptr %15, i64 %30
@@ -97,12 +94,12 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %50 = sext i32 %2 to i64
-  %51 = getelementptr inbounds [4 x i16], ptr %49, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %49, i64 %50
   br label %52
 
 52:                                               ; preds = %.preheader, %91
   %indvars.iv208 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next209, %91 ]
-  %53 = getelementptr inbounds nuw %struct.highCardType, ptr %48, i64 %indvars.iv208
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv208
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, -1
@@ -110,37 +107,37 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 
 57:                                               ; preds = %52
   %58 = sext i32 %55 to i64
-  %59 = getelementptr inbounds i32, ptr %5, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %5, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %91
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i32, ptr @partner, i64 %58
+  %63 = getelementptr inbounds [4 x i8], ptr @partner, i64 %58
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [4 x i16], ptr %0, i64 %65
-  %67 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv208
+  %66 = getelementptr inbounds [8 x i8], ptr %0, i64 %65
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %indvars.iv208
   %68 = load i16, ptr %67, align 2
   %69 = icmp eq i16 %68, 0
   br i1 %69, label %70, label %86
 
 70:                                               ; preds = %62
-  %71 = getelementptr inbounds i32, ptr @lho, i64 %58
+  %71 = getelementptr inbounds [4 x i8], ptr @lho, i64 %58
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [4 x i16], ptr %0, i64 %73
-  %75 = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv208
+  %74 = getelementptr inbounds [8 x i8], ptr %0, i64 %73
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %indvars.iv208
   %76 = load i16, ptr %75, align 2
   %77 = icmp eq i16 %76, 0
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %70
-  %79 = getelementptr inbounds i32, ptr @rho, i64 %58
+  %79 = getelementptr inbounds [4 x i8], ptr @rho, i64 %58
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds [4 x i16], ptr %0, i64 %81
-  %83 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv208
+  %82 = getelementptr inbounds [8 x i8], ptr %0, i64 %81
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %82, i64 %indvars.iv208
   %84 = load i16, ptr %83, align 2
   %85 = icmp eq i16 %84, 0
   br i1 %85, label %91, label %86
@@ -148,13 +145,13 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 86:                                               ; preds = %78, %70, %62
   %87 = load i32, ptr %53, align 4
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i16, ptr @bitMapRank, i64 %88
+  %89 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %88
   %90 = load i16, ptr %89, align 2
   br label %91
 
 91:                                               ; preds = %57, %78, %52, %86
   %.sink = phi i16 [ 0, %78 ], [ 0, %52 ], [ %90, %86 ], [ 0, %57 ]
-  %92 = getelementptr inbounds nuw i16, ptr %51, i64 %indvars.iv208
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %indvars.iv208
   store i16 %.sink, ptr %92, align 2
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next209, 4
@@ -164,7 +161,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds i32, ptr %5, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %5, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %190
@@ -179,7 +176,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
   br i1 %106, label %107, label %140
 
 107:                                              ; preds = %100
-  %108 = getelementptr inbounds i32, ptr @partner, i64 %102
+  %108 = getelementptr inbounds [4 x i8], ptr @partner, i64 %102
   %109 = load i32, ptr %108, align 4
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds [4 x i8], ptr %101, i64 %110
@@ -192,12 +189,12 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 1476
   %117 = load i32, ptr %116, align 4
   %118 = ashr i32 %2, 2
-  %119 = getelementptr inbounds i32, ptr @lho, i64 %102
+  %119 = getelementptr inbounds [4 x i8], ptr @lho, i64 %102
   %120 = load i32, ptr %119, align 4
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds [4 x i8], ptr %101, i64 %121
   %123 = getelementptr inbounds i8, ptr %122, i64 %10
-  %124 = getelementptr inbounds i32, ptr @rho, i64 %102
+  %124 = getelementptr inbounds [4 x i8], ptr @rho, i64 %102
   %125 = load i32, ptr %124, align 4
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds [4 x i8], ptr %101, i64 %126
@@ -215,7 +212,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 .preheader188:                                    ; preds = %115
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %138 = sext i32 %2 to i64
-  %139 = getelementptr inbounds [4 x i16], ptr %137, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %137, i64 %138
   store i64 0, ptr %139, align 4
   br label %.loopexit
 
@@ -230,13 +227,13 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 .preheader190:                                    ; preds = %140
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %147 = sext i32 %2 to i64
-  %148 = getelementptr inbounds [4 x i16], ptr %146, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %146, i64 %147
   store i64 0, ptr %148, align 4
   %149 = load i32, ptr %11, align 4
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds i16, ptr @bitMapRank, i64 %150
+  %151 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %150
   %152 = load i16, ptr %151, align 2
-  %153 = getelementptr inbounds i16, ptr %148, i64 %10
+  %153 = getelementptr inbounds [2 x i8], ptr %148, i64 %10
   store i16 %152, ptr %153, align 2
   br label %.loopexit
 
@@ -246,7 +243,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 
 156:                                              ; preds = %154
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 1512
-  %158 = getelementptr inbounds %struct.highCardType, ptr %157, i64 %10
+  %158 = getelementptr inbounds [8 x i8], ptr %157, i64 %10
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %160 = load i32, ptr %159, align 4
   %161 = icmp eq i32 %160, -1
@@ -255,7 +252,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 162:                                              ; preds = %156
   %163 = load i32, ptr %158, align 4
   %164 = sext i32 %160 to i64
-  %165 = getelementptr inbounds i32, ptr %5, i64 %164
+  %165 = getelementptr inbounds [4 x i8], ptr %5, i64 %164
   %166 = load i32, ptr %165, align 4
   %167 = icmp eq i32 %166, 0
   %168 = icmp ne i32 %163, 0
@@ -270,7 +267,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
   br i1 %173, label %182, label %174
 
 174:                                              ; preds = %169
-  %175 = getelementptr inbounds i32, ptr @partner, i64 %164
+  %175 = getelementptr inbounds [4 x i8], ptr @partner, i64 %164
   %176 = load i32, ptr %175, align 4
   %177 = sext i32 %176 to i64
   %178 = getelementptr inbounds [4 x i8], ptr %101, i64 %177
@@ -282,18 +279,18 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 182:                                              ; preds = %174, %169
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %184 = sext i32 %2 to i64
-  %185 = getelementptr inbounds [4 x i16], ptr %183, i64 %184
+  %185 = getelementptr inbounds [8 x i8], ptr %183, i64 %184
   store i64 0, ptr %185, align 4
   %186 = sext i32 %163 to i64
-  %187 = getelementptr inbounds i16, ptr @bitMapRank, i64 %186
+  %187 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %186
   %188 = load i16, ptr %187, align 2
-  %189 = getelementptr inbounds i16, ptr %185, i64 %10
+  %189 = getelementptr inbounds [2 x i8], ptr %185, i64 %10
   store i16 %188, ptr %189, align 2
   br label %.loopexit
 
 190:                                              ; preds = %93
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 1512
-  %192 = getelementptr inbounds %struct.highCardType, ptr %191, i64 %10
+  %192 = getelementptr inbounds [8 x i8], ptr %191, i64 %10
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %194 = load i32, ptr %193, align 4
   %195 = icmp eq i32 %194, -1
@@ -301,7 +298,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 
 196:                                              ; preds = %190
   %197 = sext i32 %194 to i64
-  %198 = getelementptr inbounds i32, ptr %5, i64 %197
+  %198 = getelementptr inbounds [4 x i8], ptr %5, i64 %197
   %199 = load i32, ptr %198, align 4
   %.not = icmp eq i32 %199, 0
   br i1 %.not, label %200, label %.loopexit
@@ -315,7 +312,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
   br i1 %205, label %.loopexit, label %206
 
 206:                                              ; preds = %200
-  %207 = getelementptr inbounds i32, ptr @rho, i64 %197
+  %207 = getelementptr inbounds [4 x i8], ptr @rho, i64 %197
   %208 = load i32, ptr %207, align 4
   %209 = icmp eq i32 %95, %208
   br i1 %209, label %210, label %224
@@ -331,24 +328,24 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 .preheader191:                                    ; preds = %210
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %217 = sext i32 %2 to i64
-  %218 = getelementptr inbounds [4 x i16], ptr %216, i64 %217
+  %218 = getelementptr inbounds [8 x i8], ptr %216, i64 %217
   store i64 0, ptr %218, align 4
   %219 = load i32, ptr %192, align 4
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds i16, ptr @bitMapRank, i64 %220
+  %221 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %220
   %222 = load i16, ptr %221, align 2
-  %223 = getelementptr inbounds i16, ptr %218, i64 %10
+  %223 = getelementptr inbounds [2 x i8], ptr %218, i64 %10
   store i16 %222, ptr %223, align 2
   br label %.loopexit
 
 224:                                              ; preds = %206
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %226 = getelementptr inbounds i16, ptr %225, i64 %10
+  %226 = getelementptr inbounds [2 x i8], ptr %225, i64 %10
   %227 = load i16, ptr %226, align 2
   %228 = zext i16 %227 to i64
-  %229 = getelementptr inbounds nuw %struct.relRanksType, ptr %5, i64 %228
+  %229 = getelementptr inbounds nuw [120 x i8], ptr %5, i64 %228
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 4968
-  %231 = getelementptr inbounds %struct.absRankType, ptr %230, i64 %10
+  %231 = getelementptr inbounds [2 x i8], ptr %230, i64 %10
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 1
   %233 = load i8, ptr %232, align 1
   %234 = icmp eq i8 %233, -1
@@ -356,7 +353,7 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 
 235:                                              ; preds = %224
   %236 = sext i8 %233 to i64
-  %237 = getelementptr inbounds i32, ptr %5, i64 %236
+  %237 = getelementptr inbounds [4 x i8], ptr %5, i64 %236
   %238 = load i32, ptr %237, align 4
   %239 = icmp eq i32 %238, 0
   br i1 %239, label %240, label %.loopexit
@@ -372,13 +369,13 @@ define noundef zeroext i1 @_Z14LaterTricksMINR3posiiiiRK10ThreadData(ptr noundef
 .preheader192:                                    ; preds = %240
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %247 = sext i32 %2 to i64
-  %248 = getelementptr inbounds [4 x i16], ptr %246, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %246, i64 %247
   store i64 0, ptr %248, align 4
   %249 = load i8, ptr %231, align 2
   %250 = sext i8 %249 to i64
-  %251 = getelementptr inbounds i16, ptr @bitMapRank, i64 %250
+  %251 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %250
   %252 = load i16, ptr %251, align 2
-  %253 = getelementptr inbounds i16, ptr %248, i64 %10
+  %253 = getelementptr inbounds [2 x i8], ptr %248, i64 %10
   store i16 %252, ptr %253, align 2
   br label %.loopexit
 
@@ -395,7 +392,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %10 = sext i32 %4 to i64
-  %11 = getelementptr inbounds %struct.highCardType, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %94
@@ -407,7 +404,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 16:                                               ; preds = %14, %38
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %38 ]
   %.0160203 = phi i32 [ 0, %14 ], [ %.1, %38 ]
-  %17 = getelementptr inbounds nuw %struct.highCardType, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1484
   %19 = load i32, ptr %18, align 4
   %.not181 = icmp eq i32 %19, -1
@@ -415,7 +412,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 
 20:                                               ; preds = %16
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i32, ptr %5, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %5, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %38
@@ -423,7 +420,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 25:                                               ; preds = %20
   %26 = getelementptr inbounds [4 x i8], ptr %15, i64 %21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
-  %28 = getelementptr inbounds i32, ptr @partner, i64 %21
+  %28 = getelementptr inbounds [4 x i8], ptr @partner, i64 %21
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds [4 x i8], ptr %15, i64 %30
@@ -459,12 +456,12 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %51 = sext i32 %2 to i64
-  %52 = getelementptr inbounds [4 x i16], ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   br label %53
 
 53:                                               ; preds = %.preheader, %92
   %indvars.iv212 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next213, %92 ]
-  %54 = getelementptr inbounds nuw %struct.highCardType, ptr %49, i64 %indvars.iv212
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv212
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, -1
@@ -472,37 +469,37 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 
 58:                                               ; preds = %53
   %59 = sext i32 %56 to i64
-  %60 = getelementptr inbounds i32, ptr %5, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %5, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %63, label %92
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i32, ptr @partner, i64 %59
+  %64 = getelementptr inbounds [4 x i8], ptr @partner, i64 %59
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [4 x i16], ptr %0, i64 %66
-  %68 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv212
+  %67 = getelementptr inbounds [8 x i8], ptr %0, i64 %66
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %indvars.iv212
   %69 = load i16, ptr %68, align 2
   %70 = icmp eq i16 %69, 0
   br i1 %70, label %71, label %87
 
 71:                                               ; preds = %63
-  %72 = getelementptr inbounds i32, ptr @lho, i64 %59
+  %72 = getelementptr inbounds [4 x i8], ptr @lho, i64 %59
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [4 x i16], ptr %0, i64 %74
-  %76 = getelementptr inbounds nuw i16, ptr %75, i64 %indvars.iv212
+  %75 = getelementptr inbounds [8 x i8], ptr %0, i64 %74
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %indvars.iv212
   %77 = load i16, ptr %76, align 2
   %78 = icmp eq i16 %77, 0
   br i1 %78, label %79, label %87
 
 79:                                               ; preds = %71
-  %80 = getelementptr inbounds i32, ptr @rho, i64 %59
+  %80 = getelementptr inbounds [4 x i8], ptr @rho, i64 %59
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [4 x i16], ptr %0, i64 %82
-  %84 = getelementptr inbounds nuw i16, ptr %83, i64 %indvars.iv212
+  %83 = getelementptr inbounds [8 x i8], ptr %0, i64 %82
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %83, i64 %indvars.iv212
   %85 = load i16, ptr %84, align 2
   %86 = icmp eq i16 %85, 0
   br i1 %86, label %92, label %87
@@ -510,13 +507,13 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 87:                                               ; preds = %79, %71, %63
   %88 = load i32, ptr %54, align 4
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i16, ptr @bitMapRank, i64 %89
+  %90 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %89
   %91 = load i16, ptr %90, align 2
   br label %92
 
 92:                                               ; preds = %58, %79, %53, %87
   %.sink = phi i16 [ 0, %79 ], [ 0, %53 ], [ %91, %87 ], [ 0, %58 ]
-  %93 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv212
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %indvars.iv212
   store i16 %.sink, ptr %93, align 2
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next213, 4
@@ -526,7 +523,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i32, ptr %5, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %5, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 1
   br i1 %100, label %101, label %185
@@ -541,7 +538,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
   br i1 %107, label %108, label %137
 
 108:                                              ; preds = %101
-  %109 = getelementptr inbounds i32, ptr @partner, i64 %103
+  %109 = getelementptr inbounds [4 x i8], ptr @partner, i64 %103
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds [4 x i8], ptr %102, i64 %111
@@ -551,12 +548,12 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
   br i1 %115, label %116, label %137
 
 116:                                              ; preds = %108
-  %117 = getelementptr inbounds i32, ptr @lho, i64 %103
+  %117 = getelementptr inbounds [4 x i8], ptr @lho, i64 %103
   %118 = load i32, ptr %117, align 4
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds [4 x i8], ptr %102, i64 %119
   %121 = getelementptr inbounds i8, ptr %120, i64 %10
-  %122 = getelementptr inbounds i32, ptr @rho, i64 %103
+  %122 = getelementptr inbounds [4 x i8], ptr @rho, i64 %103
   %123 = load i32, ptr %122, align 4
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds [4 x i8], ptr %102, i64 %124
@@ -574,7 +571,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 .preheader191:                                    ; preds = %116
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %135 = sext i32 %2 to i64
-  %136 = getelementptr inbounds [4 x i16], ptr %134, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %134, i64 %135
   store i64 0, ptr %136, align 4
   br label %.loopexit
 
@@ -588,19 +585,19 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 .preheader194:                                    ; preds = %137
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %142 = sext i32 %2 to i64
-  %143 = getelementptr inbounds [4 x i16], ptr %141, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %141, i64 %142
   store i64 0, ptr %143, align 4
   %144 = load i32, ptr %11, align 4
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds i16, ptr @bitMapRank, i64 %145
+  %146 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %145
   %147 = load i16, ptr %146, align 2
-  %148 = getelementptr inbounds i16, ptr %143, i64 %10
+  %148 = getelementptr inbounds [2 x i8], ptr %143, i64 %10
   store i16 %147, ptr %148, align 2
   br label %.loopexit
 
 149:                                              ; preds = %137
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 1512
-  %151 = getelementptr inbounds %struct.highCardType, ptr %150, i64 %10
+  %151 = getelementptr inbounds [8 x i8], ptr %150, i64 %10
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = load i32, ptr %152, align 4
   %154 = icmp eq i32 %153, -1
@@ -608,7 +605,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 
 155:                                              ; preds = %149
   %156 = sext i32 %153 to i64
-  %157 = getelementptr inbounds i32, ptr %5, i64 %156
+  %157 = getelementptr inbounds [4 x i8], ptr %5, i64 %156
   %158 = load i32, ptr %157, align 4
   %159 = icmp eq i32 %158, 1
   br i1 %159, label %160, label %.loopexit
@@ -626,7 +623,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
   br i1 %166, label %176, label %167
 
 167:                                              ; preds = %162
-  %168 = getelementptr inbounds i32, ptr @partner, i64 %156
+  %168 = getelementptr inbounds [4 x i8], ptr @partner, i64 %156
   %169 = load i32, ptr %168, align 4
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds [4 x i8], ptr %102, i64 %170
@@ -646,19 +643,19 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 .preheader193:                                    ; preds = %176, %167
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %178 = sext i32 %2 to i64
-  %179 = getelementptr inbounds [4 x i16], ptr %177, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %177, i64 %178
   store i64 0, ptr %179, align 4
   %180 = load i32, ptr %151, align 4
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds i16, ptr @bitMapRank, i64 %181
+  %182 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %181
   %183 = load i16, ptr %182, align 2
-  %184 = getelementptr inbounds i16, ptr %179, i64 %10
+  %184 = getelementptr inbounds [2 x i8], ptr %179, i64 %10
   store i16 %183, ptr %184, align 2
   br label %.loopexit
 
 185:                                              ; preds = %94
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 1512
-  %187 = getelementptr inbounds %struct.highCardType, ptr %186, i64 %10
+  %187 = getelementptr inbounds [8 x i8], ptr %186, i64 %10
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 4
   %189 = load i32, ptr %188, align 4
   %190 = icmp eq i32 %189, -1
@@ -666,7 +663,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 
 191:                                              ; preds = %185
   %192 = sext i32 %189 to i64
-  %193 = getelementptr inbounds i32, ptr %5, i64 %192
+  %193 = getelementptr inbounds [4 x i8], ptr %5, i64 %192
   %194 = load i32, ptr %193, align 4
   %.not = icmp eq i32 %194, 1
   br i1 %.not, label %195, label %.loopexit
@@ -680,7 +677,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
   br i1 %200, label %.loopexit, label %201
 
 201:                                              ; preds = %195
-  %202 = getelementptr inbounds i32, ptr @rho, i64 %192
+  %202 = getelementptr inbounds [4 x i8], ptr @rho, i64 %192
   %203 = load i32, ptr %202, align 4
   %204 = icmp eq i32 %96, %203
   br i1 %204, label %205, label %217
@@ -695,24 +692,24 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 .preheader195:                                    ; preds = %205
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %210 = sext i32 %2 to i64
-  %211 = getelementptr inbounds [4 x i16], ptr %209, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %209, i64 %210
   store i64 0, ptr %211, align 4
   %212 = load i32, ptr %187, align 4
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds i16, ptr @bitMapRank, i64 %213
+  %214 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %213
   %215 = load i16, ptr %214, align 2
-  %216 = getelementptr inbounds i16, ptr %211, i64 %10
+  %216 = getelementptr inbounds [2 x i8], ptr %211, i64 %10
   store i16 %215, ptr %216, align 2
   br label %.loopexit
 
 217:                                              ; preds = %201
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %219 = getelementptr inbounds i16, ptr %218, i64 %10
+  %219 = getelementptr inbounds [2 x i8], ptr %218, i64 %10
   %220 = load i16, ptr %219, align 2
   %221 = zext i16 %220 to i64
-  %222 = getelementptr inbounds nuw %struct.relRanksType, ptr %5, i64 %221
+  %222 = getelementptr inbounds nuw [120 x i8], ptr %5, i64 %221
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 4968
-  %224 = getelementptr inbounds %struct.absRankType, ptr %223, i64 %10
+  %224 = getelementptr inbounds [2 x i8], ptr %223, i64 %10
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 1
   %226 = load i8, ptr %225, align 1
   %227 = icmp eq i8 %226, -1
@@ -720,7 +717,7 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 
 228:                                              ; preds = %217
   %229 = sext i8 %226 to i64
-  %230 = getelementptr inbounds i32, ptr %5, i64 %229
+  %230 = getelementptr inbounds [4 x i8], ptr %5, i64 %229
   %231 = load i32, ptr %230, align 4
   %232 = icmp eq i32 %231, 1
   br i1 %232, label %233, label %.loopexit
@@ -735,13 +732,13 @@ define noundef zeroext i1 @_Z14LaterTricksMAXR3posiiiiRK10ThreadData(ptr noundef
 .preheader196:                                    ; preds = %233
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %238 = sext i32 %2 to i64
-  %239 = getelementptr inbounds [4 x i16], ptr %237, i64 %238
+  %239 = getelementptr inbounds [8 x i8], ptr %237, i64 %238
   store i64 0, ptr %239, align 4
   %240 = load i8, ptr %224, align 2
   %241 = sext i8 %240 to i64
-  %242 = getelementptr inbounds i16, ptr @bitMapRank, i64 %241
+  %242 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %241
   %243 = load i16, ptr %242, align 2
-  %244 = getelementptr inbounds i16, ptr %239, i64 %10
+  %244 = getelementptr inbounds [2 x i8], ptr %239, i64 %10
   store i16 %243, ptr %244, align 2
   br label %.loopexit
 

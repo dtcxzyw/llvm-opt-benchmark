@@ -2266,7 +2266,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %169 = shl nsw i32 %99, 3
   %170 = sext i32 %169 to i64
   %171 = sub nsw i64 0, %170
-  %172 = getelementptr inbounds float, ptr %.094.lcssa.i, i64 %171
+  %172 = getelementptr inbounds [4 x i8], ptr %.094.lcssa.i, i64 %171
   %173 = icmp sgt i32 %133, 0
   br i1 %173, label %.lr.ph91.i, label %_ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit
 
@@ -2393,7 +2393,7 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   %206 = shl i32 %99, 3
   %207 = mul i32 %206, %202
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds float, ptr %108, i64 %208
+  %209 = getelementptr inbounds [4 x i8], ptr %108, i64 %208
   %210 = icmp sgt i32 %202, 0
   br i1 %210, label %.preheader9.lr.ph.i, label %.preheader6.i40
 
@@ -2418,7 +2418,7 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
 
 ._crit_edge.us.i58:                               ; preds = %219, %.preheader7.us.i
   %.3100.lcssa.us.i = phi ptr [ %.299.lcssa.us.i, %.preheader7.us.i ], [ %222, %219 ]
-  %217 = getelementptr inbounds float, ptr %.024.us.i, i64 %216
+  %217 = getelementptr inbounds [4 x i8], ptr %.024.us.i, i64 %216
   %218 = add nuw nsw i32 %.010222.us.i, 1
   %exitcond134.not.i = icmp eq i32 %218, %202
   br i1 %exitcond134.not.i, label %.preheader6.i40, label %.preheader9.us.i, !llvm.loop !94
@@ -2519,7 +2519,7 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   br label %236
 
 ._crit_edge.us46.i:                               ; preds = %236
-  %245 = getelementptr inbounds float, ptr %.024.us29.i, i64 %234
+  %245 = getelementptr inbounds [4 x i8], ptr %.024.us29.i, i64 %234
   %246 = add nuw nsw i32 %.010222.us31.i, 1
   %exitcond123.not.i = icmp eq i32 %246, %202
   br i1 %exitcond123.not.i, label %.preheader6.i40, label %.preheader9.us28.i, !llvm.loop !94
@@ -2566,7 +2566,7 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   br label %.preheader5.i48
 
 .preheader7.i:                                    ; preds = %.lr.ph15.i
-  %263 = getelementptr inbounds float, ptr %.024.i, i64 %249
+  %263 = getelementptr inbounds [4 x i8], ptr %.024.i, i64 %249
   %264 = add nuw nsw i32 %.010222.i, 1
   %exitcond.not.i57 = icmp eq i32 %264, %202
   br i1 %exitcond.not.i57, label %.preheader6.i40, label %.preheader9.i, !llvm.loop !98
@@ -2599,7 +2599,7 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   %270 = shl nsw i32 %99, 4
   %271 = sext i32 %270 to i64
   %272 = sub nsw i64 0, %271
-  %273 = getelementptr inbounds float, ptr %.1.lcssa.i, i64 %272
+  %273 = getelementptr inbounds [4 x i8], ptr %.1.lcssa.i, i64 %272
   %274 = icmp sgt i32 %204, 0
   %275 = icmp sgt i32 %205, 0
   %276 = zext i32 %204 to i64
@@ -2711,7 +2711,7 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
 
 ._crit_edge93.i:                                  ; preds = %305, %.preheader.i45
   %.11.lcssa.i47 = phi ptr [ %.10.lcssa.i46, %.preheader.i45 ], [ %308, %305 ]
-  %303 = getelementptr inbounds float, ptr %.397.i, i64 %279
+  %303 = getelementptr inbounds [4 x i8], ptr %.397.i, i64 %279
   %304 = add nuw nsw i32 %.010595.i, 1
   %exitcond155.not.i = icmp eq i32 %304, %203
   br i1 %exitcond155.not.i, label %_ZN4ncnn3MatD2Ev.exit, label %.preheader2.i42, !llvm.loop !105
@@ -3623,7 +3623,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %169 = shl nsw i32 %99, 2
   %170 = sext i32 %169 to i64
   %171 = sub nsw i64 0, %170
-  %172 = getelementptr inbounds float, ptr %.094.lcssa.i, i64 %171
+  %172 = getelementptr inbounds [4 x i8], ptr %.094.lcssa.i, i64 %171
   %173 = icmp sgt i32 %133, 0
   br i1 %173, label %.lr.ph91.i, label %_ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit
 
@@ -3750,7 +3750,7 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   %206 = shl i32 %99, 2
   %207 = mul i32 %206, %202
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds float, ptr %108, i64 %208
+  %209 = getelementptr inbounds [4 x i8], ptr %108, i64 %208
   %210 = icmp sgt i32 %202, 0
   br i1 %210, label %.preheader9.lr.ph.i, label %.preheader6.i40
 
@@ -3775,7 +3775,7 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
 
 ._crit_edge.us.i58:                               ; preds = %219, %.preheader7.us.i
   %.3100.lcssa.us.i = phi ptr [ %.299.lcssa.us.i, %.preheader7.us.i ], [ %222, %219 ]
-  %217 = getelementptr inbounds float, ptr %.024.us.i, i64 %216
+  %217 = getelementptr inbounds [4 x i8], ptr %.024.us.i, i64 %216
   %218 = add nuw nsw i32 %.010222.us.i, 1
   %exitcond134.not.i = icmp eq i32 %218, %202
   br i1 %exitcond134.not.i, label %.preheader6.i40, label %.preheader9.us.i, !llvm.loop !143
@@ -3876,7 +3876,7 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   br label %236
 
 ._crit_edge.us46.i:                               ; preds = %236
-  %245 = getelementptr inbounds float, ptr %.024.us29.i, i64 %234
+  %245 = getelementptr inbounds [4 x i8], ptr %.024.us29.i, i64 %234
   %246 = add nuw nsw i32 %.010222.us31.i, 1
   %exitcond123.not.i = icmp eq i32 %246, %202
   br i1 %exitcond123.not.i, label %.preheader6.i40, label %.preheader9.us28.i, !llvm.loop !143
@@ -3923,7 +3923,7 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   br label %.preheader5.i48
 
 .preheader7.i:                                    ; preds = %.lr.ph15.i
-  %263 = getelementptr inbounds float, ptr %.024.i, i64 %249
+  %263 = getelementptr inbounds [4 x i8], ptr %.024.i, i64 %249
   %264 = add nuw nsw i32 %.010222.i, 1
   %exitcond.not.i57 = icmp eq i32 %264, %202
   br i1 %exitcond.not.i57, label %.preheader6.i40, label %.preheader9.i, !llvm.loop !147
@@ -3956,7 +3956,7 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   %270 = shl nsw i32 %99, 3
   %271 = sext i32 %270 to i64
   %272 = sub nsw i64 0, %271
-  %273 = getelementptr inbounds float, ptr %.1.lcssa.i, i64 %272
+  %273 = getelementptr inbounds [4 x i8], ptr %.1.lcssa.i, i64 %272
   %274 = icmp sgt i32 %204, 0
   %275 = icmp sgt i32 %205, 0
   %276 = zext i32 %204 to i64
@@ -4068,7 +4068,7 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
 
 ._crit_edge93.i:                                  ; preds = %305, %.preheader.i45
   %.11.lcssa.i47 = phi ptr [ %.10.lcssa.i46, %.preheader.i45 ], [ %308, %305 ]
-  %303 = getelementptr inbounds float, ptr %.397.i, i64 %279
+  %303 = getelementptr inbounds [4 x i8], ptr %.397.i, i64 %279
   %304 = add nuw nsw i32 %.010595.i, 1
   %exitcond155.not.i = icmp eq i32 %304, %203
   br i1 %exitcond155.not.i, label %_ZN4ncnn3MatD2Ev.exit27, label %.preheader2.i42, !llvm.loop !154
@@ -4754,7 +4754,7 @@ define internal void @_ZNK4ncnn15Padding_x86_fma12forward_int8ERKNS_3MatERS1_RKN
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %100 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   store i64 %79, ptr %100, align 8, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5000,7 +5000,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %.073.lcssa.i = phi ptr [ %110, %.preheader6.i ], [ %.174.lcssa.i, %._crit_edge.i ]
   %.4.lcssa.i = phi ptr [ %.072.lcssa.i, %.preheader6.i ], [ %.7.lcssa.i, %._crit_edge.i ]
   %176 = sub nsw i64 0, %113
-  %177 = getelementptr inbounds i64, ptr %.073.lcssa.i, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %.073.lcssa.i, i64 %176
   %178 = icmp sgt i32 %134, 0
   br i1 %178, label %.preheader2.lr.ph.i, label %_ZN4ncnn3MatD2Ev.exit35
 
@@ -5126,7 +5126,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %208 = load i32, ptr %54, align 4, !tbaa !46
   %209 = mul i32 %205, %101
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds i64, ptr %110, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %110, i64 %210
   %212 = icmp sgt i32 %205, 0
   br i1 %212, label %.preheader9.lr.ph.i65, label %.preheader6.i47
 
@@ -5153,7 +5153,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %indvars.iv147.i = phi i64 [ 0, %.preheader7.us.i72 ], [ %indvars.iv.next148.i, %218 ]
   %.318.us.i74 = phi ptr [ %.2.lcssa.us.i73, %.preheader7.us.i72 ], [ %222, %218 ]
   %219 = sub nuw nsw i64 -2, %indvars.iv147.i
-  %220 = getelementptr inbounds i64, ptr %.086.lcssa.us.i, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %.086.lcssa.us.i, i64 %219
   %221 = load i64, ptr %220, align 8, !tbaa !57
   %222 = getelementptr inbounds nuw i8, ptr %.318.us.i74, i64 8
   store i64 %221, ptr %.318.us.i74, align 8, !tbaa !57
@@ -5177,7 +5177,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %indvars.iv141.i = phi i64 [ %indvars.iv.next142.i, %.lr.ph.us.i ], [ 0, %.preheader9.us.i71 ]
   %.110.us.i78 = phi ptr [ %230, %.lr.ph.us.i ], [ %.08823.us.i, %.preheader9.us.i71 ]
   %227 = sub nsw i64 %217, %indvars.iv141.i
-  %228 = getelementptr inbounds nuw i64, ptr %.08922.us.i, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %.08922.us.i, i64 %227
   %229 = load i64, ptr %228, align 8, !tbaa !57
   %230 = getelementptr inbounds nuw i8, ptr %.110.us.i78, i64 8
   store i64 %229, ptr %.110.us.i78, align 8, !tbaa !57
@@ -5195,7 +5195,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   br i1 %214, label %.lr.ph15.us.i76, label %.preheader7.us.i72
 
 ._crit_edge.us.i75:                               ; preds = %218
-  %231 = getelementptr inbounds i64, ptr %.08922.us.i, i64 %216
+  %231 = getelementptr inbounds [8 x i8], ptr %.08922.us.i, i64 %216
   %232 = add nuw nsw i32 %.08724.us.i, 1
   %exitcond152.not.i = icmp eq i32 %232, %205
   br i1 %exitcond152.not.i, label %.preheader6.i47, label %.preheader9.us.i71, !llvm.loop !189
@@ -5229,7 +5229,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %indvars.iv134.i = phi i64 [ %indvars.iv.next135.i, %238 ], [ 0, %.preheader9.us28.us.i ]
   %.110.us36.us.i = phi ptr [ %242, %238 ], [ %.08823.us30.us.i, %.preheader9.us28.us.i ]
   %239 = sub nsw i64 %233, %indvars.iv134.i
-  %240 = getelementptr inbounds nuw i64, ptr %.08922.us31.us.i, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %.08922.us31.us.i, i64 %239
   %241 = load i64, ptr %240, align 8, !tbaa !57
   %242 = getelementptr inbounds nuw i8, ptr %.110.us36.us.i, i64 8
   store i64 %241, ptr %.110.us36.us.i, align 8, !tbaa !57
@@ -5238,7 +5238,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   br i1 %exitcond138.not.i, label %..preheader8_crit_edge.us42.us.i, label %238, !llvm.loop !188
 
 ..preheader7_crit_edge.us45.us.i:                 ; preds = %..preheader8_crit_edge.us42.us.i
-  %243 = getelementptr inbounds i64, ptr %.08922.us31.us.i, i64 %216
+  %243 = getelementptr inbounds [8 x i8], ptr %.08922.us31.us.i, i64 %216
   %244 = add nuw nsw i32 %.08724.us29.us.i, 1
   %exitcond140.not.i = icmp eq i32 %244, %205
   br i1 %exitcond140.not.i, label %.preheader6.i47, label %.preheader9.us28.us.i, !llvm.loop !189
@@ -5253,7 +5253,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %indvars.iv.i = phi i64 [ 0, %.preheader9.us28.i ], [ %indvars.iv.next.i, %245 ]
   %.110.us36.i = phi ptr [ %.08823.us30.i, %.preheader9.us28.i ], [ %249, %245 ]
   %246 = sub nsw i64 %233, %indvars.iv.i
-  %247 = getelementptr inbounds nuw i64, ptr %.08922.us31.i, i64 %246
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %.08922.us31.i, i64 %246
   %248 = load i64, ptr %247, align 8, !tbaa !57
   %249 = getelementptr inbounds nuw i8, ptr %.110.us36.i, i64 8
   store i64 %248, ptr %.110.us36.i, align 8, !tbaa !57
@@ -5262,7 +5262,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   br i1 %exitcond132.not.i, label %..preheader8_crit_edge.us42.i, label %245, !llvm.loop !188
 
 ..preheader8_crit_edge.us42.i:                    ; preds = %245
-  %250 = getelementptr inbounds i64, ptr %.08922.us31.i, i64 %216
+  %250 = getelementptr inbounds [8 x i8], ptr %.08922.us31.i, i64 %216
   %251 = add nuw nsw i32 %.08724.us29.i, 1
   %exitcond133.not.i = icmp eq i32 %251, %205
   br i1 %exitcond133.not.i, label %.preheader6.i47, label %.preheader9.us28.i, !llvm.loop !189
@@ -5300,7 +5300,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   br i1 %exitcond.not.i68, label %..preheader7_crit_edge.us61.i, label %259, !llvm.loop !187
 
 ..preheader7_crit_edge.us61.i:                    ; preds = %259
-  %264 = getelementptr inbounds i64, ptr %.08922.us54.i, i64 %216
+  %264 = getelementptr inbounds [8 x i8], ptr %.08922.us54.i, i64 %216
   %265 = add nuw nsw i32 %.08724.us52.i, 1
   %exitcond130.not.i69 = icmp eq i32 %265, %205
   br i1 %exitcond130.not.i69, label %.preheader6.i47, label %.preheader9.us51.i, !llvm.loop !189
@@ -5336,7 +5336,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %272 = shl nsw i32 %101, 1
   %273 = sext i32 %272 to i64
   %274 = sub nsw i64 0, %273
-  %275 = getelementptr inbounds i64, ptr %.190.lcssa.i, i64 %274
+  %275 = getelementptr inbounds [8 x i8], ptr %.190.lcssa.i, i64 %274
   %276 = icmp sgt i32 %207, 0
   %277 = icmp sgt i32 %101, 0
   %278 = icmp sgt i32 %208, 0
@@ -5354,7 +5354,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %indvars.iv153.i = phi i64 [ %indvars.iv.next154.i, %.lr.ph.i64 ], [ 0, %.preheader5.i57 ]
   %.569.i = phi ptr [ %284, %.lr.ph.i64 ], [ %.482.i, %.preheader5.i57 ]
   %281 = sub nsw i64 %270, %indvars.iv153.i
-  %282 = getelementptr inbounds nuw i64, ptr %.19081.i, i64 %281
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %.19081.i, i64 %281
   %283 = load i64, ptr %282, align 8, !tbaa !57
   %284 = getelementptr inbounds nuw i8, ptr %.569.i, i64 8
   store i64 %283, ptr %.569.i, align 8, !tbaa !57
@@ -5389,7 +5389,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %indvars.iv159.i = phi i64 [ %indvars.iv.next160.i, %.lr.ph79.i ], [ 0, %.preheader3.i60 ]
   %.777.i = phi ptr [ %293, %.lr.ph79.i ], [ %.6.lcssa.i61, %.preheader3.i60 ]
   %290 = sub nuw nsw i64 -2, %indvars.iv159.i
-  %291 = getelementptr inbounds i64, ptr %.291.lcssa.i, i64 %290
+  %291 = getelementptr inbounds [8 x i8], ptr %.291.lcssa.i, i64 %290
   %292 = load i64, ptr %291, align 8, !tbaa !57
   %293 = getelementptr inbounds nuw i8, ptr %.777.i, i64 8
   store i64 %292, ptr %.777.i, align 8, !tbaa !57
@@ -5411,7 +5411,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %indvars.iv165.i = phi i64 [ %indvars.iv.next166.i, %.lr.ph89.i ], [ 0, %.preheader2.i50 ]
   %.987.i = phi ptr [ %297, %.lr.ph89.i ], [ %.8103.i, %.preheader2.i50 ]
   %294 = sub nsw i64 %280, %indvars.iv165.i
-  %295 = getelementptr inbounds nuw i64, ptr %.392102.i, i64 %294
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %.392102.i, i64 %294
   %296 = load i64, ptr %295, align 8, !tbaa !57
   %297 = getelementptr inbounds nuw i8, ptr %.987.i, i64 8
   store i64 %296, ptr %.987.i, align 8, !tbaa !57
@@ -5438,7 +5438,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
 
 ._crit_edge100.i:                                 ; preds = %.lr.ph99.i, %.preheader.i53
   %.11.lcssa.i55 = phi ptr [ %.10.lcssa.i54, %.preheader.i53 ], [ %307, %.lr.ph99.i ]
-  %302 = getelementptr inbounds i64, ptr %.392102.i, i64 %279
+  %302 = getelementptr inbounds [8 x i8], ptr %.392102.i, i64 %279
   %303 = add nuw nsw i32 %.078104.i, 1
   %exitcond176.not.i = icmp eq i32 %303, %206
   br i1 %exitcond176.not.i, label %_ZN4ncnn3MatD2Ev.exit35, label %.preheader2.i50, !llvm.loop !196
@@ -5447,7 +5447,7 @@ thread-pre-split:                                 ; preds = %_ZNK4ncnn3Mat7chann
   %indvars.iv171.i = phi i64 [ %indvars.iv.next172.i, %.lr.ph99.i ], [ 0, %.preheader.i53 ]
   %.1197.i = phi ptr [ %307, %.lr.ph99.i ], [ %.10.lcssa.i54, %.preheader.i53 ]
   %304 = sub nuw nsw i64 -2, %indvars.iv171.i
-  %305 = getelementptr inbounds i64, ptr %.077.lcssa.i, i64 %304
+  %305 = getelementptr inbounds [8 x i8], ptr %.077.lcssa.i, i64 %304
   %306 = load i64, ptr %305, align 8, !tbaa !57
   %307 = getelementptr inbounds nuw i8, ptr %.1197.i, i64 8
   store i64 %306, ptr %.1197.i, align 8, !tbaa !57
@@ -5596,7 +5596,7 @@ define internal void @_ZNK4ncnn15Padding_x86_fma12forward_int8ERKNS_3MatERS1_RKN
 
 .lr.ph.us:                                        ; preds = %85, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 0, %85 ]
-  %86 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   store i64 %37, ptr %86, align 8, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

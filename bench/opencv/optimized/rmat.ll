@@ -376,7 +376,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.critedge
 
 .noexc34:                                         ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !33
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %25
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8, !tbaa !45
   %32 = shl i64 %22, 1
@@ -427,8 +427,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
 60:                                               ; preds = %.lr.ph, %60
   %store_forwarded = phi i64 [ %load_initial, %.lr.ph ], [ %65, %60 ]
   %indvars.iv = phi i64 [ %56, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
-  %62 = getelementptr inbounds nuw i32, ptr %.sroa.039.049, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.039.049, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !51
   %64 = sext i32 %63 to i64
   %65 = mul i64 %store_forwarded, %64

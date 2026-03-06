@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.Assimp::LWO::Key" = type <{ double, float, i32, [5 x float], [4 x i8] }>
 %"class.Assimp::LWO::AnimResolver" = type { ptr, double, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, double, double, i8, ptr, ptr, ptr, %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator", i8, i8, i8, i32, double }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
-%"struct.Assimp::AttachmentInfo" = type { ptr, ptr }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -1124,7 +1123,7 @@ _ZNSt12_Vector_baseIN6Assimp3LWO3KeyESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; pre
   store ptr %37, ptr %11, align 8
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %35
   store ptr %41, ptr %32, align 8
-  %42 = getelementptr inbounds nuw %"struct.Assimp::LWO::Key", ptr %37, i64 %23
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %37, i64 %23
   store ptr %42, ptr %24, align 8
   br label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE7reserveEm.exit
 
@@ -1295,7 +1294,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit40:              ; preds = %.lr.ph.i33
 
 _ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit46:       ; preds = %99, %101
   %.0.lcssa.i.i45 = phi ptr [ %.0.i.i42, %99 ], [ %scevgep.i.i41, %101 ]
-  %104 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv
   %105 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef %.0.lcssa.i.i45, ptr noundef nonnull align 4 dereferenceable(4) %104, i1 noundef zeroext true)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.025.ph
@@ -1495,7 +1494,7 @@ _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i: ; p
 _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i, %33
   store ptr %25, ptr %0, align 8
   store ptr %32, ptr %2, align 8
-  %34 = getelementptr inbounds nuw %"struct.Assimp::LWO::Key", ptr %25, i64 %23
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %23
   store ptr %34, ptr %4, align 8
   br label %35
 
@@ -1678,7 +1677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %68 = uitofp i64 %67 to double
   %69 = load i32, ptr %6, align 4
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
   %72 = load double, ptr %71, align 8
   %73 = fmul double %72, %68
   %74 = fptrunc double %73 to float
@@ -1960,7 +1959,7 @@ _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ;
 _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %104, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %99, ptr %62, align 8
   store ptr %103, ptr %63, align 8
-  %105 = getelementptr inbounds nuw %"struct.Assimp::LWO::Key", ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [40 x i8], ptr %99, i64 %97
   store ptr %105, ptr %64, align 8
   br label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -2567,7 +2566,7 @@ _ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit3
 _ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE17_M_realloc_insertIJRP7aiSceneRP6aiNodeEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %155, %_ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %149, ptr %3, align 8
   store ptr %154, ptr %128, align 8
-  %156 = getelementptr inbounds nuw %"struct.Assimp::AttachmentInfo", ptr %149, i64 %147
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %147
   store ptr %156, ptr %130, align 8
   br label %_ZNSt6vectorIN6Assimp14AttachmentInfoESaIS1_EE12emplace_backIJRP7aiSceneRP6aiNodeEEERS1_DpOT_.exit
 
@@ -2851,7 +2850,7 @@ _ZNSt6vectorIP10aiNodeAnimSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pre
 _ZNSt6vectorIP10aiNodeAnimSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %287, %_ZNSt6vectorIP10aiNodeAnimSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %281, ptr %7, align 8
   store ptr %286, ptr %260, align 8
-  %288 = getelementptr inbounds nuw ptr, ptr %281, i64 %279
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %279
   store ptr %288, ptr %262, align 8
   br label %_ZNSt6vectorIP10aiNodeAnimSaIS1_EE9push_backERKS1_.exit
 
@@ -2890,7 +2889,7 @@ _ZNSt6vectorIP10aiNodeAnimSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vector
   %306 = add i32 %305, 1
   store i32 %306, ptr %300, align 8
   %307 = zext i32 %305 to i64
-  %308 = getelementptr inbounds nuw ptr, ptr %304, i64 %307
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %307
   store ptr %302, ptr %308, align 8
   %309 = getelementptr inbounds nuw i8, ptr %302, i64 1096
   store ptr %.0129, ptr %309, align 8
@@ -7359,7 +7358,7 @@ _ZNK6Assimp3LWS8NodeDesceqEj.exit.thread:         ; preds = %1133, %1132, %_ZNK6
   %1230 = add i32 %1229, 1
   store i32 %1230, ptr %1213, align 8
   %1231 = zext i32 %1229 to i64
-  %1232 = getelementptr inbounds nuw ptr, ptr %1228, i64 %1231
+  %1232 = getelementptr inbounds nuw [8 x i8], ptr %1228, i64 %1231
   store ptr %1225, ptr %1232, align 8
   %1233 = getelementptr inbounds nuw i8, ptr %1225, i64 1096
   store ptr %1174, ptr %1233, align 8

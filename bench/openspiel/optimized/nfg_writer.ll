@@ -166,7 +166,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %35
   %42 = mul nuw nsw i64 %40, 24
   %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
   store ptr %43, ptr %6, align 8
-  %44 = getelementptr inbounds nuw %"class.std::vector.8", ptr %43, i64 %40
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %40
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %43, i8 0, i64 %42, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %43, i64 %42
   br label %_ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EEC2EmRKS3_.exit.thread.i
@@ -205,7 +205,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
           to label %60 unwind label %.loopexit96
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds nuw %"class.std::vector.8", ptr %.pr.i, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %.pr.i, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -376,7 +376,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %indvars.iv122 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next123, %125 ]
   store ptr @.str.7, ptr %18, align 8
   store i64 1, ptr %106, align 8
-  %111 = getelementptr inbounds nuw %"class.std::vector.8", ptr %.pr.i, i64 %indvars.iv122
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %.pr.i, i64 %indvars.iv122
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %111, align 8
@@ -573,7 +573,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit66: ; pre
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE130560EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_130560EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit: ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit66, %193
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %193 ], [ 0, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit66 ]
   %190 = phi ptr [ %195, %193 ], [ %189, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit66 ]
-  %191 = getelementptr inbounds nuw double, ptr %190, i64 %indvars.iv128
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv128
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %191, align 8
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %3, align 8

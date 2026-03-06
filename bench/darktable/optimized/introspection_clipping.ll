@@ -17,9 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_iop_roi_t = type { i32, i32, i32, i32, float }
 %struct.dt_iop_clipping_aspect_t = type { ptr, i32, i32 }
 %struct._PangoRectangle = type { i32, i32, i32, i32 }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [107 x i8] c"this module is deprecated. please use the crop, orientation and/or rotate and perspective modules instead.\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"crop and rotate\00", align 1
@@ -596,7 +593,7 @@ define noundef i32 @distort_transform(ptr noundef %0, ptr noundef %1, ptr noalia
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.099.us = phi i64 [ %155, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %120 = getelementptr inbounds nuw float, ptr %2, i64 %.099.us
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.099.us
   %121 = load float, ptr %120, align 4, !tbaa !111
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %123 = load float, ptr %122, align 4, !tbaa !111
@@ -643,7 +640,7 @@ define noundef i32 @distort_transform(ptr noundef %0, ptr noundef %1, ptr noalia
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.099 = phi i64 [ %176, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %157 = getelementptr inbounds nuw float, ptr %2, i64 %.099
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.099
   %158 = load float, ptr %157, align 4, !tbaa !111
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 4
   %160 = load float, ptr %159, align 4, !tbaa !111
@@ -993,7 +990,7 @@ define noundef i32 @distort_backtransform(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.0101.us = phi i64 [ %160, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %125 = getelementptr inbounds nuw float, ptr %2, i64 %.0101.us
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0101.us
   %126 = load float, ptr %125, align 4, !tbaa !111
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %128 = load float, ptr %127, align 4, !tbaa !111
@@ -1041,7 +1038,7 @@ define noundef i32 @distort_backtransform(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.0101 = phi i64 [ %180, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %162 = getelementptr inbounds nuw float, ptr %2, i64 %.0101
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0101
   %163 = load float, ptr %162, align 4, !tbaa !111
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %165 = load float, ptr %164, align 4, !tbaa !111
@@ -1263,7 +1260,7 @@ define void @distort_mask(ptr noundef readnone captures(none) %0, ptr noundef re
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %._crit_edge ], [ 0, %.lr.ph149 ]
   %131 = sext i32 %130 to i64
   %132 = mul nsw i64 %indvars.iv153, %131
-  %133 = getelementptr inbounds nuw float, ptr %3, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %132
   %134 = icmp sgt i32 %130, 0
   br i1 %134, label %.lr.ph, label %._crit_edge
 
@@ -1391,7 +1388,7 @@ define void @distort_mask(ptr noundef readnone captures(none) %0, ptr noundef re
 
 220:                                              ; preds = %205, %216
   %221 = phi reassoc nsz arcp contract afn float [ %219, %216 ], [ 1.000000e+00, %205 ]
-  %222 = getelementptr inbounds nuw float, ptr %133, i64 %indvars.iv
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %indvars.iv
   store float %221, ptr %222, align 4, !tbaa !111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %223 = load i32, ptr %99, align 4, !tbaa !96
@@ -1584,11 +1581,11 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %110 = shl nuw nsw i32 %.0257301, 1
   %111 = and i32 %110, 2
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw float, ptr %6, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %112
   %114 = load float, ptr %113, align 8, !tbaa !111
   %115 = and i32 %.0257301, 2
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw float, ptr %6, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load float, ptr %118, align 4, !tbaa !111
   %120 = fmul reassoc nsz arcp contract afn float %114, %.sroa.9.0
@@ -1629,7 +1626,7 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %141 = fcmp reassoc nsz arcp contract afn ogt float %indvars.iv311.sroa.phi.sroa.speculated, 0.000000e+00
   %.sroa.sel.idx = select i1 %141, i64 8, i64 0
   %.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.sel.idx
-  %142 = getelementptr inbounds nuw float, ptr %.sroa.sel, i64 %indvars.iv311
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.sel, i64 %indvars.iv311
   %143 = load float, ptr %142, align 4, !tbaa !111
   %144 = fdiv reassoc nsz arcp contract afn float %143, %indvars.iv311.sroa.phi.sroa.speculated
   %145 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %.1259298, float %144)
@@ -1768,9 +1765,9 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
 
 230:                                              ; preds = %230, %.split.us
   %indvars.iv307 = phi i64 [ %indvars.iv.next308, %230 ], [ 0, %.split.us ]
-  %231 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv307
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv307
   %232 = load float, ptr %231, align 4, !tbaa !111
-  %233 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv307
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv307
   %234 = load float, ptr %233, align 4, !tbaa !111
   %235 = fmul reassoc nsz arcp contract afn float %232, %228
   %236 = fmul reassoc nsz arcp contract afn float %234, %229
@@ -1808,9 +1805,9 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %268 = fmul reassoc nsz arcp contract afn float %267, %259
   %269 = fadd reassoc nsz arcp contract afn float %268, %198
   %270 = fadd reassoc nsz arcp contract afn float %265, %199
-  %271 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv307
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv307
   store float %269, ptr %271, align 4, !tbaa !111
-  %272 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv307
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv307
   store float %270, ptr %272, align 4, !tbaa !111
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %exitcond310.not = icmp eq i64 %indvars.iv.next308, 4
@@ -1866,9 +1863,9 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
 
 .split:                                           ; preds = %182, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %182 ]
-  %314 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %315 = load float, ptr %314, align 4, !tbaa !111
-  %316 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %317 = load float, ptr %316, align 4, !tbaa !111
   %318 = fsub reassoc nsz arcp contract afn float %315, %198
   %319 = fsub reassoc nsz arcp contract afn float %317, %199
@@ -1886,9 +1883,9 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %331 = fmul reassoc nsz arcp contract afn float %330, %322
   %332 = fadd reassoc nsz arcp contract afn float %331, %198
   %333 = fadd reassoc nsz arcp contract afn float %328, %199
-  %334 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store float %332, ptr %334, align 4, !tbaa !111
-  %335 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %335 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store float %333, ptr %335, align 4, !tbaa !111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -2198,11 +2195,11 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %85 = shl nuw nsw i32 %.0153, 1
   %86 = and i32 %85, 2
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw float, ptr %5, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %87
   %89 = load float, ptr %88, align 8, !tbaa !111
   %90 = and i32 %.0153, 2
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw float, ptr %5, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load float, ptr %93, align 4, !tbaa !111
   %. = select i1 %.not116, float %67, float %69
@@ -2548,7 +2545,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %136 = shl nuw nsw i64 %indvars.iv155, 2
   %137 = sext i32 %135 to i64
   %138 = mul i64 %136, %137
-  %139 = getelementptr inbounds nuw float, ptr %3, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %138
   %140 = icmp sgt i32 %135, 0
   br i1 %140, label %.lr.ph, label %._crit_edge
 
@@ -4961,7 +4958,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %4
 162:                                              ; preds = %_iop_gui_alloc.exit, %format_aspect.exit
   %indvars.iv = phi i64 [ 0, %_iop_gui_alloc.exit ], [ %indvars.iv.next, %format_aspect.exit ]
   %163 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #27
-  %164 = getelementptr inbounds nuw %struct.dt_iop_clipping_aspect_t, ptr %2, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 16, !tbaa !277
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 12
@@ -9469,7 +9466,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !276
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

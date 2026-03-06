@@ -3,8 +3,6 @@ source_filename = "bench/llvm/original/AArch64MCExpr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::pair" = type { ptr, i64 }
-
 $_ZN4llvm13AArch64MCExprD0Ev = comdat any
 
 $_ZNK4llvm12MCTargetExpr9isEqualToEPKNS_6MCExprE = comdat any
@@ -629,7 +627,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %34
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %38 = load i8, ptr %37, align 2, !tbaa !54
   %39 = zext nneg i8 %38 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm17AArch64AuthMCExpr9printImplERNS_11raw_ostreamEPKNS_9MCAsmInfoE, i64 %39
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm17AArch64AuthMCExpr9printImplERNS_11raw_ostreamEPKNS_9MCAsmInfoE, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !37
@@ -835,7 +833,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !61
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -876,7 +874,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !61
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !59

@@ -2348,7 +2348,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEP
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, %54
   store ptr %47, ptr %21, align 8
   store ptr %53, ptr %27, align 8
-  %58 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %47, i64 %45
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %45
   store ptr %58, ptr %29, align 8
   %.pre71 = load ptr, ptr %7, align 8
   %59 = ptrtoint ptr %.pre71 to i64
@@ -2548,7 +2548,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEP
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backEOS1_.exit30: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i56, %132
   store ptr %125, ptr %99, align 8
   store ptr %131, ptr %105, align 8
-  %136 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %125, i64 %123
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %123
   store ptr %136, ptr %107, align 8
   %.pre = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %.pre to i64
@@ -2808,7 +2808,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %15, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %11
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %18, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -7684,7 +7684,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %75 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %76 = sub nuw nsw i64 %9, %20
-  %77 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexPluginRegistry::_Entry", ptr %75, i64 %76
+  %77 = getelementptr inbounds [56 x i8], ptr %75, i64 %76
   store ptr %77, ptr %12, align 8
   %.not11.i.i.i.i.i54 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i54, label %_ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryES3_SaIS2_EET0_T_S6_S5_RT1_.exit62, label %.lr.ph.i.i.i.i.i55
@@ -7956,7 +7956,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryES2_EvT_S4_RSaIT0_E.exit, %174
   store ptr %121, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i98, ptr %12, align 8
-  %178 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexPluginRegistry::_Entry", ptr %121, i64 %117
+  %178 = getelementptr inbounds nuw [56 x i8], ptr %121, i64 %117
   store ptr %178, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit
 
@@ -9336,7 +9336,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_En
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24, %76
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i23, ptr %4, align 8
-  %80 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexPluginRegistry::_Entry", ptr %20, i64 %16
+  %80 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %80, ptr %75, align 8
   ret void
 }
@@ -9530,7 +9530,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_En
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, %84
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i34, ptr %5, align 8
-  %88 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexPluginRegistry::_Entry", ptr %21, i64 %17
+  %88 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %17
   store ptr %88, ptr %83, align 8
   ret void
 }
@@ -9687,7 +9687,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_En
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HdSceneIndexPluginRegistry6_EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, %63
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i34, ptr %5, align 8
-  %67 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexPluginRegistry::_Entry", ptr %23, i64 %17
+  %67 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %17
   store ptr %67, ptr %62, align 8
   ret void
 

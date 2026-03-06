@@ -166,7 +166,7 @@ define range(i32 -12, 1) i32 @ff_ass_add_rect2(ptr noundef captures(none) %0, pt
   %30 = add i32 %29, 1
   store i32 %30, ptr %10, align 4, !tbaa !33
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %.033, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.033, i64 %31
   store ptr %27, ptr %32, align 8, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 76
   store i32 3, ptr %33, align 4, !tbaa !37
@@ -219,7 +219,7 @@ define range(i32 -12, 1) i32 @ff_ass_add_rect(ptr noundef captures(none) %0, ptr
   %18 = add i32 %17, 1
   store i32 %18, ptr %8, align 4, !tbaa !33
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %19
   store ptr %15, ptr %20, align 8, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 76
   store i32 3, ptr %21, align 4, !tbaa !37

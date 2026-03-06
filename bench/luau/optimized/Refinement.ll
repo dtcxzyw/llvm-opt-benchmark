@@ -3,8 +3,6 @@ source_filename = "bench/luau/original/Refinement.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.Luau::Variant" = type { i32, [4 x i8], [24 x i8] }
-
 $_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE11appendBlockEv = comdat any
 
 @_ZTISt9bad_alloc = external constant ptr
@@ -66,7 +64,7 @@ _ZN4Luau8VariadicD2Ev.exit:                       ; preds = %_ZNSt6vectorIPN4Lua
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = load ptr, ptr %24, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %25, i64 %21
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %21
   store i32 0, ptr %26, align 8, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %15, ptr %27, align 8, !tbaa !24
@@ -113,7 +111,7 @@ _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11Conjunction
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   %12 = load ptr, ptr %11, align 8, !tbaa !10
-  %13 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %12, i64 %8
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %8
   store i32 1, ptr %13, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = ptrtoint ptr %1 to i64
@@ -151,7 +149,7 @@ _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11Conjunction
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
-  %16 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %11
   store i32 2, ptr %16, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %17, align 8, !tbaa !10
@@ -190,7 +188,7 @@ _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11Conjunction
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
-  %16 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %11
   store i32 3, ptr %16, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %17, align 8, !tbaa !10
@@ -229,7 +227,7 @@ _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11Conjunction
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
-  %16 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %11
   store i32 4, ptr %16, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %17, align 8, !tbaa !10
@@ -266,7 +264,7 @@ _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11Conjunction
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !10
-  %14 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %9
   store i32 5, ptr %14, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %1, ptr %15, align 8, !tbaa !27
@@ -364,7 +362,7 @@ _ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_
 _ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit16.i.i
   store ptr %26, ptr %6, align 8, !tbaa !24
   store ptr %30, ptr %7, align 8, !tbaa !25
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %32, ptr %9, align 8, !tbaa !26
   br label %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit
 

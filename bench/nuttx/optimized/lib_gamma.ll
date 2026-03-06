@@ -45,7 +45,7 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %18
   %21 = fptosi double %0 to i32
   %22 = sext i32 %21 to i64
-  %23 = getelementptr double, ptr @g_fact, i64 %22
+  %23 = getelementptr [8 x i8], ptr @g_fact, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load double, ptr %24, align 8
   br label %105
@@ -91,10 +91,10 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 12, %39 ]
   %.01831.i = phi double [ %54, %.preheader.i ], [ 0.000000e+00, %39 ]
   %.02030.i = phi double [ %51, %.preheader.i ], [ 0.000000e+00, %39 ]
-  %49 = getelementptr inbounds nuw double, ptr @g_snum, i64 %indvars.iv38.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @g_snum, i64 %indvars.iv38.i
   %50 = load double, ptr %49, align 8
   %51 = tail call double @llvm.fmuladd.f64(double %.02030.i, double %40, double %50)
-  %52 = getelementptr inbounds nuw double, ptr @g_sden, i64 %indvars.iv38.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @g_sden, i64 %indvars.iv38.i
   %53 = load double, ptr %52, align 8
   %54 = tail call double @llvm.fmuladd.f64(double %.01831.i, double %40, double %53)
   %indvars.iv.next39.i = add nsw i64 %indvars.iv38.i, -1
@@ -106,11 +106,11 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
   %.228.i = phi double [ %62, %.preheader25.i ], [ 0.000000e+00, %39 ]
   %.22227.i = phi double [ %58, %.preheader25.i ], [ 0.000000e+00, %39 ]
   %55 = fdiv double %.22227.i, %40
-  %56 = getelementptr inbounds nuw double, ptr @g_snum, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @g_snum, i64 %indvars.iv.i
   %57 = load double, ptr %56, align 8
   %58 = fadd double %55, %57
   %59 = fdiv double %.228.i, %40
-  %60 = getelementptr inbounds nuw double, ptr @g_sden, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr @g_sden, i64 %indvars.iv.i
   %61 = load double, ptr %60, align 8
   %62 = fadd double %59, %61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

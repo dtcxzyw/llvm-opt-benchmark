@@ -16,8 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pbrt::Tuple3.2" = type { float, float, float }
 %"class.pbrt::LightSampler" = type { %"class.pbrt::TaggedPointer.3" }
 %"class.pbrt::TaggedPointer.3" = type { i64 }
-%"class.pbrt::Light" = type { %"class.pbrt::TaggedPointer" }
-%"class.pbrt::TaggedPointer" = type { i64 }
 %"class.pbrt::SampledSpectrum" = type { %"class.pstd::array" }
 %"class.pstd::array" = type { [4 x float] }
 %"class.pstd::vector.11" = type { %"class.pstd::pmr::polymorphic_allocator.12", ptr, i64, i64 }
@@ -26,25 +24,22 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pbrt::AliasTable" = type { %"class.pstd::vector.9" }
 %"class.pstd::vector.9" = type { %"class.pstd::pmr::polymorphic_allocator.10", ptr, i64, i64 }
 %"class.pstd::pmr::polymorphic_allocator.10" = type { ptr }
-%"class.pstd::optional.39" = type { %"union.std::aligned_storage<16, 8>::type", i8, [7 x i8] }
-%"union.std::aligned_storage<16, 8>::type" = type { [16 x i8] }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<int, pbrt::LightBounds>, std::allocator<std::pair<int, pbrt::LightBounds>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<int, pbrt::LightBounds>, std::allocator<std::pair<int, pbrt::LightBounds>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<int, pbrt::LightBounds>, std::allocator<std::pair<int, pbrt::LightBounds>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<int, pbrt::LightBounds>, std::allocator<std::pair<int, pbrt::LightBounds>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.pbrt::Light" = type { %"class.pbrt::TaggedPointer" }
+%"class.pbrt::TaggedPointer" = type { i64 }
 %"class.pstd::optional" = type { %"union.std::aligned_storage<52, 4>::type", i8, [3 x i8] }
 %"union.std::aligned_storage<52, 4>::type" = type { [52 x i8] }
 %"class.pbrt::LightBounds" = type <{ %"class.pbrt::Bounds3", float, %"class.pbrt::Vector3", float, float, i8, [3 x i8] }>
 %"struct.std::pair" = type { i32, %"class.pbrt::LightBounds" }
-%"class.pstd::optional.44" = type { %"union.std::aligned_storage<16, 8>::type", i8, [7 x i8] }
 %"class.pbrt::DirectionCone" = type { %"class.pbrt::Vector3", float }
 %"class.pbrt::CompactLightBounds" = type { %"class.pbrt::OctahedralVector", float, %struct.anon, [2 x [3 x i16]] }
 %"class.pbrt::OctahedralVector" = type { i16, i16 }
 %struct.anon = type { i32 }
-%"struct.pbrt::LightBVHNode" = type { %"class.pbrt::CompactLightBounds", %struct.anon.29, [4 x i8] }
-%struct.anon.29 = type { i32 }
 %"class.pstd::optional.33" = type { %"union.std::aligned_storage<16, 8>::type", i8, [7 x i8] }
-%"struct.pbrt::AliasTable::Bin" = type { float, float, i32 }
+%"union.std::aligned_storage<16, 8>::type" = type { [16 x i8] }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -759,8 +754,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.ex
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i.i.i.i ]
-  %31 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %23, i64 %indvars.iv.i.i.i.i.i
-  %32 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %.pre.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
   store i64 0, ptr %31, align 8, !tbaa !4
   %33 = load i64, ptr %32, align 8, !tbaa !4
   store i64 %33, ptr %31, align 8, !tbaa !4
@@ -776,7 +771,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.ex
 34:                                               ; preds = %34, %.lr.ph.i.i.i.i
   %.013.i.i.i.i = phi ptr [ %2, %.lr.ph.i.i.i.i ], [ %37, %34 ]
   %.01012.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %38, %34 ]
-  %35 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %23, i64 %.01012.i.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.01012.i.i.i.i
   store i64 0, ptr %35, align 8, !tbaa !4
   %36 = load i64, ptr %.013.i.i.i.i, align 8, !tbaa !4
   store i64 %36, ptr %35, align 8, !tbaa !4
@@ -1075,8 +1070,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.ex
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i ]
-  %29 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %21, i64 %indvars.iv.i.i
-  %30 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   store i64 0, ptr %29, align 8, !tbaa !4
   %31 = load i64, ptr %30, align 8, !tbaa !4
   store i64 %31, ptr %29, align 8, !tbaa !4
@@ -1092,7 +1087,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.ex
 32:                                               ; preds = %32, %.lr.ph.i
   %.013.i = phi ptr [ %1, %.lr.ph.i ], [ %35, %32 ]
   %.01012.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %32 ]
-  %33 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %21, i64 %.01012.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.01012.i
   store i64 0, ptr %33, align 8, !tbaa !4
   %34 = load i64, ptr %.013.i, align 8, !tbaa !4
   store i64 %34, ptr %33, align 8, !tbaa !4
@@ -1127,8 +1122,8 @@ _ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEEC2IPKS2_EET_SA
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i.i.i.i ], [ 0, %.noexc ]
-  %45 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %44, i64 %indvars.iv.i.i.i.i
-  %46 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %indvars.iv.i.i.i.i
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = load i8, ptr %48, align 8, !tbaa !103, !range !106, !noundef !107
@@ -1169,7 +1164,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEmEEENS_3pmr21polymorphic_alloc
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i.i: ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i.i, %.lr.ph.i.i.i
   %.017.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %63, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i.i ]
-  %61 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %44, i64 %.017.i.i.i
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %.017.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i8 0, ptr %62, align 8, !tbaa !103
   %63 = add nuw nsw i64 %.017.i.i.i, 1
@@ -1222,7 +1217,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9cons
   %85 = call noundef float @atanhf(float noundef %84) #27, !tbaa !25, !noalias !117
   %86 = fmul float %85, 0x40615C71C0000000
   %87 = fsub float 5.380000e+02, %86
-  %88 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   store float %87, ptr %88, align 4
   %89 = fcmp olt float %87, 3.600000e+02
   %90 = fcmp ogt float %87, 8.300000e+02
@@ -1239,7 +1234,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9cons
 
 _ZN4pbrt21VisibleWavelengthsPDFEf.exit.i:         ; preds = %91, %76
   %.0.i.i = phi float [ %96, %91 ], [ 0.000000e+00, %76 ]
-  %97 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.i
   store float %.0.i.i, ptr %97, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1265,7 +1260,7 @@ _ZN4pbrt21VisibleWavelengthsPDFEf.exit.i:         ; preds = %91, %76
 
 105:                                              ; preds = %70, %107
   %storemerge71 = phi i64 [ 0, %70 ], [ %109, %107 ]
-  %106 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %1, i64 %storemerge71
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %storemerge71
   invoke void @_ZN4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE6InsertERKS1_RKm(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %107 unwind label %103
 
@@ -1319,20 +1314,20 @@ _ZSt10accumulateIPffET0_T_S2_S1_.exit:            ; preds = %.lr.ph.i29
 
 124:                                              ; preds = %132, %121
   %indvars.iv.i31 = phi i64 [ 0, %121 ], [ %indvars.iv.next.i32, %132 ]
-  %125 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i31
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i31
   %126 = load float, ptr %125, align 4, !tbaa !27
   %127 = fcmp une float %126, 0.000000e+00
   br i1 %127, label %128, label %132
 
 128:                                              ; preds = %124
-  %129 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i31
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i31
   %130 = load float, ptr %129, align 4, !tbaa !27
   %131 = fdiv float %130, %126
   br label %132
 
 132:                                              ; preds = %128, %124
   %133 = phi float [ %131, %128 ], [ 0.000000e+00, %124 ]
-  %134 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i31
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i31
   store float %133, ptr %134, align 4, !tbaa !27
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 4
@@ -1352,7 +1347,7 @@ _ZSt10accumulateIPffET0_T_S2_S1_.exit:            ; preds = %.lr.ph.i29
 137:                                              ; preds = %137, %135
   %indvars.iv.i36 = phi i64 [ 1, %135 ], [ %indvars.iv.next.i37, %137 ]
   %.056.i = phi float [ %136, %135 ], [ %140, %137 ]
-  %138 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i36
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i36
   %139 = load float, ptr %138, align 4, !tbaa !27
   %140 = fadd float %.056.i, %139
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
@@ -1420,8 +1415,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i: ; p
 
 .lr.ph.i.i41:                                     ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i, %.lr.ph.i.i41
   %indvars.iv.i.i42 = phi i64 [ %indvars.iv.next.i.i43, %.lr.ph.i.i41 ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i ]
-  %160 = getelementptr inbounds nuw float, ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i42
-  %161 = getelementptr inbounds nuw float, ptr %.pre.i.i40, i64 %indvars.iv.i.i42
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i42
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i40, i64 %indvars.iv.i.i42
   %162 = load float, ptr %161, align 4, !tbaa !27
   store float %162, ptr %160, align 4, !tbaa !27
   %indvars.iv.next.i.i43 = add nuw nsw i64 %indvars.iv.i.i42, 1
@@ -1432,7 +1427,7 @@ _ZN4pbrt18SampledWavelengths13SampleVisibleEf.exit: ; preds = %_ZN4pstd3pmr21pol
   %163 = phi ptr [ %.0.i.i.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %117, %144 ], [ %117, %141 ]
   %164 = phi i64 [ %spec.select.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %118, %144 ], [ %119, %141 ]
   %165 = phi i64 [ %.pre2.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %118, %144 ], [ %118, %141 ]
-  %166 = getelementptr inbounds nuw float, ptr %163, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %165
   store float %142, ptr %166, align 4, !tbaa !27
   %167 = add i64 %165, 1
   store i64 %167, ptr %102, align 8, !tbaa !125
@@ -1584,7 +1579,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4ps
   %20 = and i64 %16, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !102
-  %23 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %22, i64 %20
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i8, ptr %24, align 8, !tbaa !103, !range !106, !noundef !107
   %26 = trunc nuw i8 %25 to i1
@@ -1606,7 +1601,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4ps
   %34 = zext nneg i32 %33 to i64
   %35 = add i64 %31, %34
   %36 = and i64 %35, %19
-  %37 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %22, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i8, ptr %38, align 8, !tbaa !103, !range !106, !noundef !107
   %40 = trunc nuw i8 %39 to i1
@@ -1649,7 +1644,7 @@ _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   %62 = add i64 %61, -1
   %63 = and i64 %60, %62
   %64 = load ptr, ptr %21, align 8, !tbaa !102
-  %65 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %64, i64 %63
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %63
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i8, ptr %66, align 8, !tbaa !103, !range !106, !noundef !107
   %68 = trunc nuw i8 %67 to i1
@@ -1671,7 +1666,7 @@ _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   %76 = zext nneg i32 %75 to i64
   %77 = add i64 %73, %76
   %78 = and i64 %77, %62
-  %79 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %64, i64 %78
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load i8, ptr %80, align 8, !tbaa !103, !range !106, !noundef !107
   %82 = trunc nuw i8 %81 to i1
@@ -1690,7 +1685,7 @@ _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   %85 = phi i64 [ %48, %.lr.ph.i7 ], [ %4, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit ], [ %48, %47 ], [ %48, %.lr.ph.i7.preheader ], [ %48, %._ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %4, %.lr.ph.i ]
   %.0 = phi i64 [ %78, %.lr.ph.i7 ], [ %.118.i, %_ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit ], [ %63, %47 ], [ %63, %.lr.ph.i7.preheader ], [ %78, %._ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_mEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %20, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
   %86 = load i64, ptr %2, align 8, !tbaa !76, !noalias !142
-  %87 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %84, i64 %.0
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %84, i64 %.0
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store i64 %85, ptr %87, align 8, !tbaa !4
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -1776,7 +1771,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4ps
 
 .lr.ph.i.i:                                       ; preds = %1, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i.i ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %.pre.i, i64 %indvars.iv.i.i
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i, i64 %indvars.iv.i.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8, !tbaa !103, !range !106, !noundef !107
   %7 = trunc nuw i8 %6 to i1
@@ -1927,8 +1922,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.ex
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i ]
-  %25 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %17, i64 %indvars.iv.i.i
-  %26 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   store i64 0, ptr %25, align 8, !tbaa !4
   %27 = load i64, ptr %26, align 8, !tbaa !4
   store i64 %27, ptr %25, align 8, !tbaa !4
@@ -1944,7 +1939,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.ex
 28:                                               ; preds = %28, %.lr.ph.i
   %.013.i = phi ptr [ %1, %.lr.ph.i ], [ %31, %28 ]
   %.01012.i = phi i64 [ 0, %.lr.ph.i ], [ %32, %28 ]
-  %29 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %17, i64 %.01012.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.01012.i
   store i64 0, ptr %29, align 8, !tbaa !4
   %30 = load i64, ptr %.013.i, align 8, !tbaa !4
   store i64 %30, ptr %29, align 8, !tbaa !4
@@ -1999,8 +1994,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.ex
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i.i.i.i ], [ 0, %.noexc ]
-  %51 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %50, i64 %indvars.iv.i.i.i.i
-  %52 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %indvars.iv.i.i.i.i
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %55 = load i8, ptr %54, align 8, !tbaa !154, !range !106, !noundef !107
@@ -2041,7 +2036,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEjEEENS_3pmr21polymorphic_alloc
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i.i: ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i.i, %.lr.ph.i.i.i
   %.017.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %69, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i.i ]
-  %67 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %50, i64 %.017.i.i.i
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %.017.i.i.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i8 0, ptr %68, align 8, !tbaa !154
   %69 = add nuw nsw i64 %.017.i.i.i, 1
@@ -2082,7 +2077,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE9cons
   %83 = phi ptr [ null, %.lr.ph ], [ %174, %_ZN4pstd8optionalIN4pbrt11LightBoundsEED2Ev.exit ]
   %storemerge66 = phi i64 [ 0, %.lr.ph ], [ %175, %_ZN4pstd8optionalIN4pbrt11LightBoundsEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %84 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %1, i64 %storemerge66
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %storemerge66
   %85 = load i64, ptr %84, align 8, !tbaa !4
   store i64 %85, ptr %6, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2151,8 +2146,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.ex
 
 .lr.ph.i.i18:                                     ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i15, %.lr.ph.i.i18
   %indvars.iv.i.i19 = phi i64 [ %indvars.iv.next.i.i20, %.lr.ph.i.i18 ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i15 ]
-  %111 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i19
-  %112 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %.pre.i.i17, i64 %indvars.iv.i.i19
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i19
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i17, i64 %indvars.iv.i.i19
   store i64 0, ptr %111, align 8, !tbaa !4
   %113 = load i64, ptr %112, align 8, !tbaa !4
   store i64 %113, ptr %111, align 8, !tbaa !4
@@ -2250,7 +2245,7 @@ _ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %144, %_ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %139, ptr %5, align 8, !tbaa !177
   store ptr %143, ptr %76, align 8, !tbaa !176
-  %145 = getelementptr inbounds nuw %"struct.std::pair", ptr %139, i64 %137
+  %145 = getelementptr inbounds nuw [56 x i8], ptr %139, i64 %137
   store ptr %145, ptr %77, align 8, !tbaa !174
   br label %_ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EE9push_backEOS3_.exit
 
@@ -2332,7 +2327,7 @@ _ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EE9push_backEOS3_.exit: ; preds
 .thread86:                                        ; preds = %93, %89
   %.ph85 = phi i64 [ %91, %89 ], [ %90, %93 ]
   %166 = load ptr, ptr %34, align 8, !tbaa !51
-  %167 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %166, i64 %.ph85
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %.ph85
   store i64 0, ptr %167, align 8, !tbaa !4
   %168 = load i64, ptr %6, align 8, !tbaa !4
   store i64 %168, ptr %167, align 8, !tbaa !4
@@ -2344,7 +2339,7 @@ _ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EE9push_backEOS3_.exit: ; preds
   %.pre2.i = phi i64 [ %.pre2.pre.i, %.noexc26 ], [ 0, %._crit_edge.i.i23 ]
   store i64 %spec.select.i, ptr %73, align 8, !tbaa !52
   store ptr %.0.i.i.i.i.i, ptr %34, align 8, !tbaa !51
-  %171 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %.0.i.i.i.i.i, i64 %.pre2.i
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %.pre2.i
   store i64 0, ptr %171, align 8, !tbaa !4
   %172 = load i64, ptr %6, align 8, !tbaa !4
   store i64 %172, ptr %171, align 8, !tbaa !4
@@ -2501,12 +2496,12 @@ define dso_local void @_ZN4pbrt15BVHLightSampler8buildBVHERSt6vectorISt4pairIiNS
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %39 = sext i32 %3 to i64
   %40 = load ptr, ptr %2, align 8, !tbaa !177
-  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %40, i64 %39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @_ZN4pbrt18CompactLightBoundsC2ERKNS_11LightBoundsERKNS_7Bounds3IfEE(ptr noundef nonnull align 4 dereferenceable(24) %20, ptr noundef nonnull align 4 dereferenceable(49) %42, ptr noundef nonnull align 4 dereferenceable(24) %43)
   %44 = load ptr, ptr %2, align 8, !tbaa !177
-  %45 = getelementptr inbounds nuw %"struct.std::pair", ptr %44, i64 %39
+  %45 = getelementptr inbounds nuw [56 x i8], ptr %44, i64 %39
   %46 = load i32, ptr %45, align 4, !tbaa !191
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0602)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %.sroa.0602, ptr noundef nonnull align 4 dereferenceable(24) %20, i64 24, i1 false), !tbaa.struct !193
@@ -2574,9 +2569,9 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt12LightBVHNodeEE17deallocate_objectIS3
 
 74:                                               ; preds = %74, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %74 ]
-  %75 = getelementptr inbounds nuw %"struct.pbrt::LightBVHNode", ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
   %76 = load ptr, ptr %64, align 8, !tbaa !196
-  %77 = getelementptr inbounds nuw %"struct.pbrt::LightBVHNode", ptr %76, i64 %indvars.iv.i.i
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %indvars.iv.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %75, ptr noundef nonnull align 32 dereferenceable(32) %77, i64 32, i1 false), !tbaa.struct !197
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %78 = load i64, ptr %36, align 8, !tbaa !187
@@ -2587,7 +2582,7 @@ _ZN4pstd6vectorIN4pbrt12LightBVHNodeENS_3pmr21polymorphic_allocatorIS2_EEE9push_
   %80 = phi i64 [ %.pre2.i, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt12LightBVHNodeEE17deallocate_objectIS3_EEvPT_m.exit.i.i ], [ %49, %52 ], [ %50, %34 ]
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %82 = load ptr, ptr %81, align 8, !tbaa !196
-  %83 = getelementptr inbounds nuw %"struct.pbrt::LightBVHNode", ptr %82, i64 %80
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %82, i64 %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %83, ptr noundef nonnull align 32 dereferenceable(24) %.sroa.0602, i64 24, i1 false), !tbaa.struct !197
   %.sroa.4603.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 24
   store i32 %47, ptr %.sroa.4603.0..sroa_idx, align 8, !tbaa !20
@@ -2599,10 +2594,10 @@ _ZN4pstd6vectorIN4pbrt12LightBVHNodeENS_3pmr21polymorphic_allocatorIS2_EEE9push_
   %87 = sext i32 %46 to i64
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !51
-  %90 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %89, i64 %87
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %87
   call void @_ZN4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE6InsertERKS1_RKj(ptr noundef nonnull align 8 dereferenceable(40) %86, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull align 4 dereferenceable(4) %19)
   %91 = load ptr, ptr %2, align 8, !tbaa !177
-  %92 = getelementptr inbounds nuw %"struct.std::pair", ptr %91, i64 %39
+  %92 = getelementptr inbounds nuw [56 x i8], ptr %91, i64 %39
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   store i32 %38, ptr %0, align 4, !tbaa !191
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2667,7 +2662,7 @@ _ZN4pstd6vectorIN4pbrt12LightBVHNodeENS_3pmr21polymorphic_allocatorIS2_EEE9push_
   %.sroa.10568.0638 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.sroa.speculated.i.i128, %114 ]
   %.sroa.15569.0637 = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %.lr.ph ], [ %.sroa.015.4.vec.insert.i35.i, %114 ]
   %.sroa.23.0636 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph ], [ %.sroa.speculated.i33.i, %114 ]
-  %115 = getelementptr inbounds nuw %"struct.std::pair", ptr %32, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [56 x i8], ptr %32, i64 %indvars.iv
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %.sroa.018.0.copyload.i = load <2 x float>, ptr %116, align 4
   %.sroa.219.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %115, i64 12
@@ -2798,7 +2793,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit135:        ; preds = %148, %_ZN4pbrt6Tupl
 .lr.ph653:                                        ; preds = %.preheader624, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit
   %indvars.iv719 = phi i64 [ %indvars.iv.next720, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit ], [ %.pre-phi, %.preheader624 ]
   %160 = load ptr, ptr %2, align 8, !tbaa !177
-  %161 = getelementptr inbounds nuw %"struct.std::pair", ptr %160, i64 %indvars.iv719
+  %161 = getelementptr inbounds nuw [56 x i8], ptr %160, i64 %indvars.iv719
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %.sroa.09.0.copyload.i136 = load <2 x float>, ptr %163, align 4
@@ -2851,7 +2846,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %.lr.ph653, %177, %1
   %185 = icmp eq i32 %184, 12
   %spec.store.select = select i1 %185, i32 11, i32 %184
   %186 = sext i32 %spec.store.select to i64
-  %187 = getelementptr inbounds %"class.pbrt::LightBounds", ptr %21, i64 %186
+  %187 = getelementptr inbounds [52 x i8], ptr %21, i64 %186
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %189 = load float, ptr %188, align 4, !tbaa !168, !noalias !203
   %190 = fcmp oeq float %189, 0.000000e+00
@@ -3081,7 +3076,7 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit:       ; preds = %191, %196, %197
   %.sroa.37497.3657 = phi float [ %.sroa.37497.2689, %.preheader ], [ %.sroa.12447.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
   %.sroa.41499.3656 = phi float [ %.sroa.41499.2688, %.preheader ], [ %.sroa.13452.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
   %.sroa.25491.0654 = phi float [ 0.000000e+00, %.preheader ], [ %.sroa.9432.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit206 ]
-  %259 = getelementptr inbounds nuw %"class.pbrt::LightBounds", ptr %21, i64 %indvars.iv723
+  %259 = getelementptr inbounds nuw [52 x i8], ptr %21, i64 %indvars.iv723
   %260 = fcmp oeq float %.sroa.25491.0654, 0.000000e+00
   br i1 %260, label %261, label %262
 
@@ -3379,7 +3374,7 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
   %394 = fmul float %393, 2.000000e+00
   %395 = fmul float %394, %385
   %396 = fadd float %366, %395
-  %397 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv734
+  %397 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv734
   store float %396, ptr %397, align 4, !tbaa !27
   %indvars.iv.next730 = add nuw nsw i64 %indvars.iv729, 1
   %exitcond736.not = icmp eq i64 %indvars.iv.next735, 11
@@ -3396,7 +3391,7 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
   %.sroa.37.3668 = phi float [ %.sroa.37.2692, %.lr.ph677.preheader ], [ %.sroa.12.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
   %.sroa.41.3667 = phi float [ %.sroa.41.2691, %.lr.ph677.preheader ], [ %.sroa.13.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
   %.sroa.25.0665 = phi float [ 0.000000e+00, %.lr.ph677.preheader ], [ %.sroa.9.0, %_ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290 ]
-  %398 = getelementptr inbounds nuw %"class.pbrt::LightBounds", ptr %21, i64 %indvars.iv731
+  %398 = getelementptr inbounds nuw [52 x i8], ptr %21, i64 %indvars.iv731
   %399 = fcmp oeq float %.sroa.25.0665, 0.000000e+00
   br i1 %399, label %400, label %401
 
@@ -3556,7 +3551,7 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit290:    ; preds = %401, %400, %405
   %.2696 = phi float [ %.3, %.preheader623 ], [ %.0104707, %_ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.exit234 ]
   %.2108695 = phi i32 [ %.3109, %.preheader623 ], [ %.0106706, %_ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.exit234 ]
   %.2112694 = phi i32 [ %.3113, %.preheader623 ], [ %.0110705, %_ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.exit234 ]
-  %456 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv737
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv737
   %457 = load float, ptr %456, align 4, !tbaa !27
   %458 = fcmp ogt float %457, 0.000000e+00
   %459 = fcmp olt float %457, %.2696
@@ -3831,9 +3826,9 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt12LightBVHNodeEE17deallocate_objectIS3
 
 574:                                              ; preds = %574, %.lr.ph.i.i302
   %indvars.iv.i.i303 = phi i64 [ 0, %.lr.ph.i.i302 ], [ %indvars.iv.next.i.i304, %574 ]
-  %575 = getelementptr inbounds nuw %"struct.pbrt::LightBVHNode", ptr %.0.i.i.i.i.i300, i64 %indvars.iv.i.i303
+  %575 = getelementptr inbounds nuw [32 x i8], ptr %.0.i.i.i.i.i300, i64 %indvars.iv.i.i303
   %576 = load ptr, ptr %564, align 8, !tbaa !196
-  %577 = getelementptr inbounds nuw %"struct.pbrt::LightBVHNode", ptr %576, i64 %indvars.iv.i.i303
+  %577 = getelementptr inbounds nuw [32 x i8], ptr %576, i64 %indvars.iv.i.i303
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %575, ptr noundef nonnull align 32 dereferenceable(32) %577, i64 32, i1 false), !tbaa.struct !197
   %indvars.iv.next.i.i304 = add nuw nsw i64 %indvars.iv.i.i303, 1
   %578 = load i64, ptr %546, align 8, !tbaa !187
@@ -3844,7 +3839,7 @@ _ZN4pstd6vectorIN4pbrt12LightBVHNodeENS_3pmr21polymorphic_allocatorIS2_EEE9push_
   %580 = phi i64 [ %.pre2.i310, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt12LightBVHNodeEE17deallocate_objectIS3_EEvPT_m.exit.i.i309 ], [ %547, %552 ], [ %547, %544 ]
   %581 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %582 = load ptr, ptr %581, align 8, !tbaa !196
-  %583 = getelementptr inbounds nuw %"struct.pbrt::LightBVHNode", ptr %582, i64 %580
+  %583 = getelementptr inbounds nuw [32 x i8], ptr %582, i64 %580
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %583, i8 0, i64 32, i1 false)
   %584 = load i64, ptr %546, align 8, !tbaa !187
   %585 = add i64 %584, 1
@@ -4082,7 +4077,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4ps
 
 .lr.ph.i.i:                                       ; preds = %1, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i.i ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %.pre.i, i64 %indvars.iv.i.i
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i, i64 %indvars.iv.i.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8, !tbaa !154, !range !106, !noundef !107
   %7 = trunc nuw i8 %6 to i1
@@ -4357,7 +4352,7 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit42:        ; preds = %_ZNK4pbrt6Tuple3INS
 
 _ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit: ; preds = %106, %108
   %.0.i44 = phi i16 [ %117, %108 ], [ 0, %106 ]
-  %118 = getelementptr inbounds nuw i16, ptr %95, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %95, i64 %indvars.iv
   store i16 %.0.i44, ptr %118, align 2, !tbaa !35
   %.sroa.01.0.copyload.i45 = load <2 x float>, ptr %96, align 4
   switch i32 %100, label %120 [
@@ -4411,7 +4406,7 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit57:        ; preds = %_ZNK4pbrt6Tuple3INS
 
 _ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit61: ; preds = %124, %126
   %.0.i60 = phi i16 [ %135, %126 ], [ 0, %124 ]
-  %136 = getelementptr inbounds nuw i16, ptr %97, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %indvars.iv
   store i16 %.0.i60, ptr %136, align 2, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -4439,7 +4434,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4ps
   %20 = and i64 %16, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !153
-  %23 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %22, i64 %20
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i8, ptr %24, align 8, !tbaa !154, !range !106, !noundef !107
   %26 = trunc nuw i8 %25 to i1
@@ -4461,7 +4456,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4ps
   %34 = zext nneg i32 %33 to i64
   %35 = add i64 %31, %34
   %36 = and i64 %35, %19
-  %37 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %22, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i8, ptr %38, align 8, !tbaa !154, !range !106, !noundef !107
   %40 = trunc nuw i8 %39 to i1
@@ -4504,7 +4499,7 @@ _ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   %62 = add i64 %61, -1
   %63 = and i64 %60, %62
   %64 = load ptr, ptr %21, align 8, !tbaa !153
-  %65 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %64, i64 %63
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %63
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i8, ptr %66, align 8, !tbaa !154, !range !106, !noundef !107
   %68 = trunc nuw i8 %67 to i1
@@ -4526,7 +4521,7 @@ _ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   %76 = zext nneg i32 %75 to i64
   %77 = add i64 %73, %76
   %78 = and i64 %77, %62
-  %79 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %64, i64 %78
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load i8, ptr %80, align 8, !tbaa !154, !range !106, !noundef !107
   %82 = trunc nuw i8 %81 to i1
@@ -4545,7 +4540,7 @@ _ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   %85 = phi i64 [ %48, %.lr.ph.i7 ], [ %4, %_ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit ], [ %48, %47 ], [ %48, %.lr.ph.i7.preheader ], [ %48, %._ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %4, %.lr.ph.i ]
   %.0 = phi i64 [ %78, %.lr.ph.i7 ], [ %.118.i, %_ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit ], [ %63, %47 ], [ %63, %.lr.ph.i7.preheader ], [ %78, %._ZNK4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8optionalISt4pairIS1_jEEEEEE10FindOffsetERKS1_.exit10.loopexit_crit_edge ], [ %20, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
   %86 = load i32, ptr %2, align 4, !tbaa !25, !noalias !248
-  %87 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %84, i64 %.0
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %84, i64 %.0
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store i64 %85, ptr %87, align 8, !tbaa !4
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -4726,8 +4721,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.ex
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i ]
-  %23 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %15, i64 %indvars.iv.i.i
-  %24 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   store i64 0, ptr %23, align 8, !tbaa !4
   %25 = load i64, ptr %24, align 8, !tbaa !4
   store i64 %25, ptr %23, align 8, !tbaa !4
@@ -4743,7 +4738,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.ex
 26:                                               ; preds = %26, %.lr.ph.i
   %.013.i = phi ptr [ %1, %.lr.ph.i ], [ %29, %26 ]
   %.01012.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %26 ]
-  %27 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %15, i64 %.01012.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01012.i
   store i64 0, ptr %27, align 8, !tbaa !4
   %28 = load i64, ptr %.013.i, align 8, !tbaa !4
   store i64 %28, ptr %27, align 8, !tbaa !4
@@ -4790,8 +4785,8 @@ _ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEEC2IPKS2_EET_SA
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i.i.i.i ], [ 0, %.noexc ]
-  %45 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %44, i64 %indvars.iv.i.i.i.i
-  %46 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %indvars.iv.i.i.i.i
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = load i8, ptr %48, align 8, !tbaa !103, !range !106, !noundef !107
@@ -4832,7 +4827,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEmEEENS_3pmr21polymorphic_alloc
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i.i: ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i.i, %.lr.ph.i.i.i
   %.017.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %63, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i.i ]
-  %61 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %44, i64 %.017.i.i.i
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %.017.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i8 0, ptr %62, align 8, !tbaa !103
   %63 = add nuw nsw i64 %.017.i.i.i, 1
@@ -4958,9 +4953,9 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt11LightBoundsEE17deallocate_objectIS3_
 
 .lr.ph.i.i22:                                     ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt11LightBoundsEE15allocate_objectIS3_EEPT_m.exit.i.i, %.lr.ph.i.i22
   %indvars.iv.i.i23 = phi i64 [ %indvars.iv.next.i.i24, %.lr.ph.i.i22 ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt11LightBoundsEE15allocate_objectIS3_EEPT_m.exit.i.i ]
-  %108 = getelementptr inbounds nuw %"class.pbrt::LightBounds", ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i23
+  %108 = getelementptr inbounds nuw [52 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i23
   %109 = load ptr, ptr %36, align 8, !tbaa !266
-  %110 = getelementptr inbounds nuw %"class.pbrt::LightBounds", ptr %109, i64 %indvars.iv.i.i23
+  %110 = getelementptr inbounds nuw [52 x i8], ptr %109, i64 %indvars.iv.i.i23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %108, ptr noundef nonnull align 4 dereferenceable(52) %110, i64 52, i1 false)
   %indvars.iv.next.i.i24 = add nuw nsw i64 %indvars.iv.i.i23, 1
   %111 = load i64, ptr %71, align 8, !tbaa !264
@@ -4970,7 +4965,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt11LightBoundsEE17deallocate_objectIS3_
 113:                                              ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt11LightBoundsEE17deallocate_objectIS3_EEvPT_m.exit.i.i, %88, %_ZN4pstd8optionalIN4pbrt11LightBoundsEEdeEv.exit
   %114 = phi i64 [ %.pre2.i, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt11LightBoundsEE17deallocate_objectIS3_EEvPT_m.exit.i.i ], [ %85, %88 ], [ %86, %_ZN4pstd8optionalIN4pbrt11LightBoundsEEdeEv.exit ]
   %115 = load ptr, ptr %36, align 8, !tbaa !266
-  %116 = getelementptr inbounds nuw %"class.pbrt::LightBounds", ptr %115, i64 %114
+  %116 = getelementptr inbounds nuw [52 x i8], ptr %115, i64 %114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %116, ptr noundef nonnull align 4 dereferenceable(52) %5, i64 52, i1 false)
   %117 = load i64, ptr %71, align 8, !tbaa !264
   %118 = add i64 %117, 1
@@ -5037,8 +5032,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m
 
 .lr.ph.i.i37:                                     ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i32, %.lr.ph.i.i37
   %indvars.iv.i.i38 = phi i64 [ %indvars.iv.next.i.i39, %.lr.ph.i.i37 ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i32 ]
-  %140 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %.0.i.i.i.i.i34, i64 %indvars.iv.i.i38
-  %141 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %.pre.i.i36, i64 %indvars.iv.i.i38
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i34, i64 %indvars.iv.i.i38
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i36, i64 %indvars.iv.i.i38
   store i64 0, ptr %140, align 8, !tbaa !4
   %142 = load i64, ptr %141, align 8, !tbaa !4
   store i64 %142, ptr %140, align 8, !tbaa !4
@@ -5049,7 +5044,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m
 _ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit: ; preds = %113, %122, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i
   %143 = phi i64 [ %.pre2.i43, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i ], [ %119, %122 ], [ %120, %113 ]
   %144 = load ptr, ptr %32, align 8, !tbaa !51
-  %145 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %143
   store i64 0, ptr %145, align 8, !tbaa !4
   %146 = load i64, ptr %.01591, align 8, !tbaa !4
   store i64 %146, ptr %145, align 8, !tbaa !4
@@ -5141,8 +5136,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m
 
 .lr.ph.i.i57:                                     ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i51, %.lr.ph.i.i57
   %indvars.iv.i.i58 = phi i64 [ %indvars.iv.next.i.i59, %.lr.ph.i.i57 ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i51 ]
-  %174 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %.0.i.i.i.i.i53, i64 %indvars.iv.i.i58
-  %175 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %.pre.i.i56, i64 %indvars.iv.i.i58
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i53, i64 %indvars.iv.i.i58
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i56, i64 %indvars.iv.i.i58
   store i64 0, ptr %174, align 8, !tbaa !4
   %176 = load i64, ptr %175, align 8, !tbaa !4
   store i64 %176, ptr %174, align 8, !tbaa !4
@@ -5153,7 +5148,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m
 _ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit69: ; preds = %152, %156, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i63
   %177 = phi i64 [ %.pre2.i64, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m.exit.i.i63 ], [ %153, %156 ], [ %154, %152 ]
   %178 = load ptr, ptr %34, align 8, !tbaa !51
-  %179 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %178, i64 %177
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %177
   store i64 0, ptr %179, align 8, !tbaa !4
   %180 = load i64, ptr %.01591, align 8, !tbaa !4
   store i64 %180, ptr %179, align 8, !tbaa !4
@@ -5239,7 +5234,7 @@ define dso_local void @_ZNK4pbrt22ExhaustiveLightSampler6SampleERKNS_18LightSamp
   %23 = sext i32 %.sroa.speculated42 to i64
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %25 = load ptr, ptr %24, align 8, !tbaa !51
-  %26 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %25, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   %27 = load i64, ptr %26, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %28, align 8, !tbaa !268
@@ -5306,7 +5301,7 @@ define dso_local void @_ZNK4pbrt22ExhaustiveLightSampler6SampleERKNS_18LightSamp
   %.sroa.033.052 = add i64 %.pn46.pn, %47
   %64 = load ptr, ptr %59, align 8, !tbaa !51
   %65 = load ptr, ptr %60, align 8, !tbaa !266
-  %66 = getelementptr inbounds nuw %"class.pbrt::LightBounds", ptr %65, i64 %.051
+  %66 = getelementptr inbounds nuw [52 x i8], ptr %65, i64 %.051
   %.sroa.0.sroa.0.0.copyload.i = load float, ptr %2, align 4
   %.sroa.0.sroa.2.0.copyload.i = load float, ptr %.sroa.0.sroa.2.0..sroa_idx.i, align 4
   %.sroa.0.sroa.3.0.copyload.i = load float, ptr %.sroa.0.sroa.3.0..sroa_idx.i, align 4
@@ -5341,7 +5336,7 @@ define dso_local void @_ZNK4pbrt22ExhaustiveLightSampler6SampleERKNS_18LightSamp
   br i1 %86, label %87, label %_ZN4pbrt24WeightedReservoirSamplerINS_5LightEE3AddERKS1_f.exit
 
 87:                                               ; preds = %63
-  %88 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %64, i64 %.051
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.051
   %89 = load i64, ptr %88, align 8, !tbaa !4
   br label %_ZN4pbrt24WeightedReservoirSamplerINS_5LightEE3AddERKS1_f.exit
 
@@ -5394,7 +5389,7 @@ define dso_local noundef float @_ZNK4pbrt22ExhaustiveLightSampler3PMFERKNS_18Lig
   %20 = and i64 %16, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = load ptr, ptr %21, align 8, !tbaa !102
-  %23 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %22, i64 %20
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i8, ptr %24, align 8, !tbaa !103, !range !106, !noundef !107
   %26 = trunc nuw i8 %25 to i1
@@ -5416,7 +5411,7 @@ define dso_local noundef float @_ZNK4pbrt22ExhaustiveLightSampler3PMFERKNS_18Lig
   %34 = zext nneg i32 %33 to i64
   %35 = add i64 %31, %34
   %36 = and i64 %35, %19
-  %37 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %22, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i8, ptr %38, align 8, !tbaa !103, !range !106, !noundef !107
   %40 = trunc nuw i8 %39 to i1
@@ -5488,7 +5483,7 @@ _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   %.02326 = phi float [ 0.000000e+00, %.lr.ph ], [ %spec.select, %74 ]
   %.02425 = phi i64 [ 0, %.lr.ph ], [ %90, %74 ]
   %75 = load ptr, ptr %44, align 8, !tbaa !266
-  %76 = getelementptr inbounds nuw %"class.pbrt::LightBounds", ptr %75, i64 %.02425
+  %76 = getelementptr inbounds nuw [52 x i8], ptr %75, i64 %.02425
   %.sroa.0.sroa.0.0.copyload.i = load float, ptr %1, align 4
   %.sroa.0.sroa.2.0.copyload.i = load float, ptr %.sroa.0.sroa.2.0..sroa_idx.i, align 4
   %.sroa.0.sroa.3.0.copyload.i = load float, ptr %.sroa.0.sroa.3.0..sroa_idx.i, align 4
@@ -5508,7 +5503,7 @@ _ZNK4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4pstd3pmr21polymorphic_allocatorINS4_8
   %83 = tail call noundef float @_ZNK4pbrt11LightBounds10ImportanceENS_6Point3IfEENS_7Normal3IfEE(ptr noundef nonnull align 4 dereferenceable(49) %76, <2 x float> %.sroa.01.4.vec.insert.i, float %82, <2 x float> %.sroa.04.0.copyload, float %.sroa.25.0.copyload)
   %84 = fadd float %.02227, %83
   %85 = load ptr, ptr %46, align 8, !tbaa !51
-  %86 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %85, i64 %.02425
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.02425
   %87 = load i64, ptr %2, align 8, !tbaa !4
   %88 = load i64, ptr %86, align 8, !tbaa !4
   %89 = icmp eq i64 %87, %88
@@ -5688,9 +5683,9 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10AliasTable3BinEE17deallocate_objectI
 
 45:                                               ; preds = %45, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %45 ]
-  %46 = getelementptr inbounds nuw %"struct.pbrt::AliasTable::Bin", ptr %33, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %indvars.iv.i
   %47 = load ptr, ptr %35, align 8, !tbaa !137
-  %48 = getelementptr inbounds nuw %"struct.pbrt::AliasTable::Bin", ptr %47, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [12 x i8], ptr %47, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(12) %48, i64 12, i1 false), !tbaa.struct !278
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %49 = load i64, ptr %22, align 8, !tbaa !133
@@ -5715,9 +5710,9 @@ _ZN4pstd6vectorIN4pbrt10AliasTable3BinENS_3pmr21polymorphic_allocatorIS3_EEE7res
 54:                                               ; preds = %.lr.ph, %54
   %.017 = phi i64 [ 0, %.lr.ph ], [ %59, %54 ]
   %55 = load ptr, ptr %52, align 8, !tbaa !137
-  %56 = getelementptr inbounds nuw %"struct.pbrt::AliasTable::Bin", ptr %55, i64 %.017
+  %56 = getelementptr inbounds nuw [12 x i8], ptr %55, i64 %.017
   %57 = load ptr, ptr %53, align 8, !tbaa !137
-  %58 = getelementptr inbounds nuw %"struct.pbrt::AliasTable::Bin", ptr %57, i64 %.017
+  %58 = getelementptr inbounds nuw [12 x i8], ptr %57, i64 %.017
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %56, ptr noundef nonnull align 4 dereferenceable(12) %58, i64 12, i1 false), !tbaa.struct !278
   %59 = add nuw i64 %.017, 1
   %60 = load i64, ptr %23, align 8, !tbaa !133
@@ -5739,7 +5734,7 @@ define linkonce_odr dso_local void @_ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5
 
 .lr.ph.i:                                         ; preds = %1, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %.pre, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8, !tbaa !103, !range !106, !noundef !107
   %7 = trunc nuw i8 %6 to i1
@@ -6333,7 +6328,7 @@ define linkonce_odr dso_local void @_ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5
 
 .lr.ph.i:                                         ; preds = %1, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %.pre, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8, !tbaa !154, !range !106, !noundef !107
   %7 = trunc nuw i8 %6 to i1
@@ -18777,7 +18772,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapINS_5LightEmSt4hashIS1_EN4ps
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i: ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i, %.lr.ph.i.i
   %.017.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %19, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i ]
-  %17 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %16, i64 %.017.i.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %.017.i.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i8 0, ptr %18, align 8, !tbaa !103
   %19 = add nuw i64 %.017.i.i, 1
@@ -18801,7 +18796,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEmEEENS_3pmr21polymorphic_alloc
 
 24:                                               ; preds = %.lr.ph, %63
   %.036 = phi i64 [ 0, %.lr.ph ], [ %64, %63 ]
-  %25 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %21, i64 %.036
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %.036
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i8, ptr %26, align 8, !tbaa !103, !range !106, !noundef !107
   %28 = trunc nuw i8 %27 to i1
@@ -18834,7 +18829,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEmEEENS_3pmr21polymorphic_alloc
   %49 = zext nneg i32 %48 to i64
   %50 = add i64 %46, %49
   %51 = and i64 %50, %22
-  %52 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %16, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i8, ptr %53, align 8, !tbaa !103, !range !106, !noundef !107
   %55 = trunc nuw i8 %54 to i1
@@ -18866,7 +18861,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEmEEENS_3pmr21polymorphic_alloc
 
 .lr.ph.i.i27:                                     ; preds = %65, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i.i ], [ 0, %65 ]
-  %67 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %.pre.i, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i, i64 %indvars.iv.i.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load i8, ptr %68, align 8, !tbaa !103, !range !106, !noundef !107
   %70 = trunc nuw i8 %69 to i1
@@ -18963,7 +18958,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 
 26:                                               ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i ]
-  %27 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %25, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %indvars.iv.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i8, ptr %28, align 8, !tbaa !103, !range !106, !noundef !107
   %30 = trunc nuw i8 %29 to i1
@@ -19038,8 +19033,8 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE17dea
 
 .lr.ph.i18:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i20
   %indvars.iv.i19 = phi i64 [ %indvars.iv.next.i21, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i20 ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i ]
-  %48 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %41, i64 %indvars.iv.i19
-  %49 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %.pre.i, i64 %indvars.iv.i19
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %indvars.iv.i19
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i, i64 %indvars.iv.i19
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = load i8, ptr %51, align 8, !tbaa !103, !range !106, !noundef !107
@@ -19081,8 +19076,8 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEmEEENS_3pmr21polymorphic_alloc
 
 63:                                               ; preds = %.lr.ph, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9constructIS7_JS7_EEEvPT_DpOT0_.exit
   %.023 = phi i64 [ 0, %.lr.ph ], [ %74, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9constructIS7_JS7_EEEvPT_DpOT0_.exit ]
-  %64 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %60, i64 %.023
-  %65 = getelementptr inbounds nuw %"class.pstd::optional.39", ptr %62, i64 %.023
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %60, i64 %.023
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %.023
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %68 = load i8, ptr %67, align 8, !tbaa !103, !range !106, !noundef !107
@@ -19517,7 +19512,7 @@ define linkonce_odr dso_local void @_ZN4pbrt7HashMapINS_5LightEjSt4hashIS1_EN4ps
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i: ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i, %.lr.ph.i.i
   %.017.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %19, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i.i ]
-  %17 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %16, i64 %.017.i.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %.017.i.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i8 0, ptr %18, align 8, !tbaa !154
   %19 = add nuw i64 %.017.i.i, 1
@@ -19541,7 +19536,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEjEEENS_3pmr21polymorphic_alloc
 
 24:                                               ; preds = %.lr.ph, %63
   %.036 = phi i64 [ 0, %.lr.ph ], [ %64, %63 ]
-  %25 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %21, i64 %.036
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %.036
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i8, ptr %26, align 8, !tbaa !154, !range !106, !noundef !107
   %28 = trunc nuw i8 %27 to i1
@@ -19574,7 +19569,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEjEEENS_3pmr21polymorphic_alloc
   %49 = zext nneg i32 %48 to i64
   %50 = add i64 %46, %49
   %51 = and i64 %50, %22
-  %52 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %16, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i8, ptr %53, align 8, !tbaa !154, !range !106, !noundef !107
   %55 = trunc nuw i8 %54 to i1
@@ -19606,7 +19601,7 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEjEEENS_3pmr21polymorphic_alloc
 
 .lr.ph.i.i27:                                     ; preds = %65, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i.i ], [ 0, %65 ]
-  %67 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %.pre.i, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i, i64 %indvars.iv.i.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load i8, ptr %68, align 8, !tbaa !154, !range !106, !noundef !107
   %70 = trunc nuw i8 %69 to i1
@@ -19703,7 +19698,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 
 26:                                               ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i ]
-  %27 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %25, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %indvars.iv.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i8, ptr %28, align 8, !tbaa !154, !range !106, !noundef !107
   %30 = trunc nuw i8 %29 to i1
@@ -19778,8 +19773,8 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE17dea
 
 .lr.ph.i18:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i20
   %indvars.iv.i19 = phi i64 [ %indvars.iv.next.i21, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i20 ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i ]
-  %48 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %41, i64 %indvars.iv.i19
-  %49 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %.pre.i, i64 %indvars.iv.i19
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %indvars.iv.i19
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i, i64 %indvars.iv.i19
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = load i8, ptr %51, align 8, !tbaa !154, !range !106, !noundef !107
@@ -19821,8 +19816,8 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEjEEENS_3pmr21polymorphic_alloc
 
 63:                                               ; preds = %.lr.ph, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE9constructIS7_JS7_EEEvPT_DpOT0_.exit
   %.023 = phi i64 [ 0, %.lr.ph ], [ %74, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE9constructIS7_JS7_EEEvPT_DpOT0_.exit ]
-  %64 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %60, i64 %.023
-  %65 = getelementptr inbounds nuw %"class.pstd::optional.44", ptr %62, i64 %.023
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %60, i64 %.023
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %.023
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %68 = load i8, ptr %67, align 8, !tbaa !154, !range !106, !noundef !107
@@ -22974,7 +22969,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 14:                                               ; preds = %.lr.ph, %44
   %.014 = phi i64 [ 0, %.lr.ph ], [ %46, %44 ]
-  %15 = getelementptr inbounds nuw %"struct.pbrt::LightBVHNode", ptr %8, i64 %.014
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %.014
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !815)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !815
@@ -24308,7 +24303,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 12:                                               ; preds = %.lr.ph, %32
   %.011 = phi i64 [ 0, %.lr.ph ], [ %34, %32 ]
-  %13 = getelementptr inbounds nuw %"class.pbrt::LightBounds", ptr %6, i64 %.011
+  %13 = getelementptr inbounds nuw [52 x i8], ptr %6, i64 %.011
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4pbrt11LightBounds8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(49) %13)
   %14 = load ptr, ptr %3, align 8, !tbaa !9

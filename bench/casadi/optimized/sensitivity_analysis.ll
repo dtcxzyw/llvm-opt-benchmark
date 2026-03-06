@@ -9766,7 +9766,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSolsEPFRSoS
 
 .noexc1125:                                       ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   store ptr %1886, ptr %87, align 8, !tbaa !71
-  %1887 = getelementptr inbounds nuw double, ptr %1886, i64 %1882
+  %1887 = getelementptr inbounds nuw [8 x i8], ptr %1886, i64 %1882
   store ptr %1887, ptr %556, align 8, !tbaa !70
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %1886, i8 0, i64 %1885, i1 false), !tbaa !92
   %1888 = getelementptr inbounds nuw i8, ptr %1886, i64 %1885
@@ -20207,7 +20207,7 @@ _ZNSt6vectorI6SolverSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32: ; preds = %_ZSt
 _ZNSt12_Vector_baseI6SolverSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI6SolverSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, %135
   store ptr %22, ptr %0, align 8, !tbaa !118
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !104
-  %139 = getelementptr inbounds nuw %struct.Solver, ptr %22, i64 %16
+  %139 = getelementptr inbounds nuw [88 x i8], ptr %22, i64 %16
   store ptr %139, ptr %134, align 8, !tbaa !107
   ret void
 }
@@ -20553,7 +20553,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
 
 .split9:                                          ; preds = %14
   %16 = load ptr, ptr %1, align 8, !tbaa !71
-  %17 = getelementptr inbounds nuw double, ptr %16, i64 %.013
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.013
   br label %.split
 
 18:                                               ; preds = %.split, %14

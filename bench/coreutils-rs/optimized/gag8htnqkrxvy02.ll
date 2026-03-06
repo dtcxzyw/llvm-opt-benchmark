@@ -3007,7 +3007,7 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = icmp ult i64 %1, %8
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %6, i64 %1
+  %10 = getelementptr inbounds [40 x i8], ptr %6, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %6, ptr %11, align 8
@@ -3043,11 +3043,11 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %.0.in36 = phi i64 [ %.0.in33, %.lr.ph ], [ %.0.in, %53 ]
   %20 = load ptr, ptr %11, align 8, !nonnull !4, !align !44, !noundef !4
   %21 = load i64, ptr %12, align 8, !noundef !4
-  %22 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %20, i64 %.037
+  %22 = getelementptr inbounds [40 x i8], ptr %20, i64 %.037
   %23 = add nuw i64 %.0.in36, 2
   %24 = icmp ult i64 %23, %21
   call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %20, i64 %23
+  %25 = getelementptr inbounds [40 x i8], ptr %20, i64 %23
   %26 = invoke noundef i8 @"_ZN104_$LT$uu_sort..merge..FileComparator$u20$as$u20$compare..Compare$LT$uu_sort..merge..MergeableFile$GT$$GT$7compare17h22a217427b1386b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %25)
           to label %43 unwind label %.loopexit
 
@@ -3056,14 +3056,14 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %29 = load i64, ptr %12, align 8, !noundef !4
   %30 = icmp ult i64 %.0.lcssa, %29
   call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %.pre43, i64 %.0.lcssa
+  %31 = getelementptr inbounds [40 x i8], ptr %.pre43, i64 %.0.lcssa
   %32 = invoke noundef i8 @"_ZN104_$LT$uu_sort..merge..FileComparator$u20$as$u20$compare..Compare$LT$uu_sort..merge..MergeableFile$GT$$GT$7compare17h22a217427b1386b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %31)
           to label %37 unwind label %.loopexit.split-lp
 
 33:                                               ; preds = %37, %._crit_edge, %39
   %34 = phi ptr [ %.pre42, %37 ], [ %.pre43, %._crit_edge ], [ %.pre41, %39 ]
   %35 = phi i64 [ %.pre, %37 ], [ %16, %._crit_edge ], [ %.0.lcssa, %39 ]
-  %36 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %34, i64 %35
+  %36 = getelementptr inbounds [40 x i8], ptr %34, i64 %35
   br label %42
 
 37:                                               ; preds = %27
@@ -3073,8 +3073,8 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   br i1 %38, label %39, label %33
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %.pre42, i64 %.0.lcssa
-  %41 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %.pre42, i64 %.pre
+  %40 = getelementptr inbounds [40 x i8], ptr %.pre42, i64 %.0.lcssa
+  %41 = getelementptr inbounds [40 x i8], ptr %.pre42, i64 %.pre
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %40, i64 40, i1 false)
   %.pre41 = load ptr, ptr %11, align 8, !alias.scope !322
   br label %33
@@ -3093,7 +3093,7 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %48 = load i64, ptr %12, align 8, !noundef !4
   %49 = icmp ult i64 %46, %48
   call void @llvm.assume(i1 %49)
-  %50 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %47, i64 %46
+  %50 = getelementptr inbounds [40 x i8], ptr %47, i64 %46
   %51 = invoke noundef i8 @"_ZN104_$LT$uu_sort..merge..FileComparator$u20$as$u20$compare..Compare$LT$uu_sort..merge..MergeableFile$GT$$GT$7compare17h22a217427b1386b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %50)
           to label %52 unwind label %.loopexit
 
@@ -3103,9 +3103,9 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
 
 53:                                               ; preds = %52
   %54 = load ptr, ptr %11, align 8, !nonnull !4, !align !44, !noundef !4
-  %55 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %54, i64 %46
+  %55 = getelementptr inbounds [40 x i8], ptr %54, i64 %46
   %56 = load i64, ptr %13, align 8, !noundef !4
-  %57 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %54, i64 %56
+  %57 = getelementptr inbounds [40 x i8], ptr %54, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %55, i64 40, i1 false)
   store i64 %46, ptr %13, align 8
   %.0.in = shl i64 %46, 1
@@ -3116,7 +3116,7 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
 58:                                               ; preds = %52
   %59 = load i64, ptr %13, align 8, !alias.scope !327, !noundef !4
   %60 = load ptr, ptr %11, align 8, !alias.scope !327, !nonnull !4, !align !44, !noundef !4
-  %61 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %60, i64 %59
+  %61 = getelementptr inbounds [40 x i8], ptr %60, i64 %59
   br label %42
 
 .loopexit:                                        ; preds = %43, %19
@@ -3133,7 +3133,7 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %63 = load i64, ptr %13, align 8, !alias.scope !332, !noundef !4
   %64 = load ptr, ptr %11, align 8, !alias.scope !332, !nonnull !4, !align !44, !noundef !4
-  %65 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %64, i64 %63
+  %65 = getelementptr inbounds [40 x i8], ptr %64, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef nonnull readonly align 8 dereferenceable(64) %4, i64 40, i1 false)
   resume { ptr, i32 } %lpad.phi
 }
@@ -3194,7 +3194,7 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = icmp ult i64 %1, %5
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %7, i64 %1
+  %9 = getelementptr inbounds [40 x i8], ptr %7, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
   %10 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 2)
   %.0.in43 = shl i64 %1, 1
@@ -3218,24 +3218,24 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %.048 = phi i64 [ %.044, %.lr.ph ], [ %.0, %59 ]
   %.0.in47 = phi i64 [ %.0.in43, %.lr.ph ], [ %.0.in, %59 ]
   %.sroa.12.046 = phi i64 [ %1, %.lr.ph ], [ %62, %59 ]
-  %15 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %7, i64 %.048
+  %15 = getelementptr inbounds [40 x i8], ptr %7, i64 %.048
   %16 = add nuw i64 %.0.in47, 2
   %17 = icmp ult i64 %16, %5
   tail call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %7, i64 %16
+  %18 = getelementptr inbounds [40 x i8], ptr %7, i64 %16
   %19 = invoke noundef i8 @"_ZN104_$LT$uu_sort..merge..FileComparator$u20$as$u20$compare..Compare$LT$uu_sort..merge..MergeableFile$GT$$GT$7compare17h22a217427b1386b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %18)
           to label %59 unwind label %.body.thread
 
 20:                                               ; preds = %._crit_edge
-  %21 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %7, i64 %.0.lcssa
-  %22 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %7, i64 %.sroa.12.0.lcssa
+  %21 = getelementptr inbounds [40 x i8], ptr %7, i64 %.0.lcssa
+  %22 = getelementptr inbounds [40 x i8], ptr %7, i64 %.sroa.12.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false)
   br label %29
 
 .body.thread:                                     ; preds = %14
   %23 = landingpad { ptr, i32 }
           cleanup
-  %24 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %7, i64 %.sroa.12.046
+  %24 = getelementptr inbounds [40 x i8], ptr %7, i64 %.sroa.12.046
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0, i64 40, i1 false)
   br label %65
 
@@ -3244,13 +3244,13 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
           cleanup
   %26 = load i64, ptr %37, align 8, !alias.scope !340, !noalias !345, !noundef !4
   %27 = load ptr, ptr %35, align 8, !alias.scope !340, !noalias !345, !nonnull !4, !align !44, !noundef !4
-  %28 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %27, i64 %26
+  %28 = getelementptr inbounds [40 x i8], ptr %27, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull readonly align 8 dereferenceable(64) %3, i64 40, i1 false)
   br label %65
 
 29:                                               ; preds = %20, %._crit_edge
   %.sroa.12.1 = phi i64 [ %.0.lcssa, %20 ], [ %.sroa.12.0.lcssa, %._crit_edge ]
-  %30 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %7, i64 %.sroa.12.1
+  %30 = getelementptr inbounds [40 x i8], ptr %7, i64 %.sroa.12.1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0, i64 40, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !345
@@ -3258,7 +3258,7 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %32 = load i64, ptr %4, align 8, !alias.scope !345, !noundef !4
   %33 = icmp ult i64 %.sroa.12.1, %32
   tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %31, i64 %.sroa.12.1
+  %34 = getelementptr inbounds [40 x i8], ptr %31, i64 %.sroa.12.1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false), !noalias !345
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %31, ptr %35, align 8, !noalias !345
@@ -3281,7 +3281,7 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %45 = load i64, ptr %36, align 8, !noalias !345, !noundef !4
   %46 = icmp ult i64 %43, %45
   call void @llvm.assume(i1 %46)
-  %47 = getelementptr inbounds nuw { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %44, i64 %43
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %44, i64 %43
   %48 = invoke noundef i8 @"_ZN104_$LT$uu_sort..merge..FileComparator$u20$as$u20$compare..Compare$LT$uu_sort..merge..MergeableFile$GT$$GT$7compare17h22a217427b1386b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %47)
           to label %49 unwind label %.body
 
@@ -3297,8 +3297,8 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %35, align 8, !noalias !345, !nonnull !4, !align !44, !noundef !4
-  %52 = getelementptr inbounds nuw { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %51, i64 %43
-  %53 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %51, i64 %.pre.pre.i
+  %52 = getelementptr inbounds nuw [40 x i8], ptr %51, i64 %43
+  %53 = getelementptr inbounds [40 x i8], ptr %51, i64 %.pre.pre.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %52, i64 40, i1 false)
   store i64 %43, ptr %37, align 8, !noalias !345
   %54 = icmp ugt i64 %43, %1
@@ -3307,7 +3307,7 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
 55:                                               ; preds = %._crit_edge.loopexit.i, %29
   %56 = phi ptr [ %.pre10.i, %._crit_edge.loopexit.i ], [ %31, %29 ]
   %57 = phi i64 [ %.pre.i, %._crit_edge.loopexit.i ], [ %.sroa.12.1, %29 ]
-  %58 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %56, i64 %57
+  %58 = getelementptr inbounds [40 x i8], ptr %56, i64 %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull readonly align 8 dereferenceable(64) %3, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !345
   ret void
@@ -3316,8 +3316,8 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %60 = icmp ne i8 %19, 1
   %61 = zext i1 %60 to i64
   %62 = add nuw i64 %.048, %61
-  %63 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %7, i64 %62
-  %64 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %7, i64 %.sroa.12.046
+  %63 = getelementptr inbounds [40 x i8], ptr %7, i64 %62
+  %64 = getelementptr inbounds [40 x i8], ptr %7, i64 %.sroa.12.046
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %63, i64 40, i1 false)
   %.0.in = shl i64 %62, 1
   %.0 = or disjoint i64 %.0.in, 1
@@ -3347,7 +3347,7 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !353, !noalias !356, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [40 x i8], ptr %12, i64 %8
   %.sroa.0.0.copyload1 = load i64, ptr %13, align 8, !noalias !353
   %14 = icmp eq i64 %.sroa.0.0.copyload1, 3
   br i1 %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h0b20deb5fe6187f9E.llvm.12150801376095413471.exit.thread", label %15
@@ -3370,8 +3370,8 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
   %.05.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ 0, %15 ]
-  %17 = getelementptr inbounds nuw i64, ptr %3, i64 %.05.i.i
-  %18 = getelementptr inbounds nuw i64, ptr %12, i64 %.05.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.05.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.05.i.i
   %19 = load i64, ptr %17, align 8, !alias.scope !361, !noalias !363
   %20 = load i64, ptr %18, align 8, !noalias !365
   store i64 %20, ptr %17, align 8, !alias.scope !361, !noalias !363
@@ -3428,8 +3428,8 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %8
   %.05.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %8 ]
-  %11 = getelementptr inbounds nuw i64, ptr %2, i64 %.05.i
-  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %.05.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.05.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.05.i
   %13 = load i64, ptr %11, align 8
   %14 = load i64, ptr %12, align 8
   store i64 %14, ptr %11, align 8
@@ -5695,8 +5695,8 @@ define hidden void @_ZN4core3ptr19swap_nonoverlapping17hdcbc1ba93f2c0665E.llvm.1
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.05 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
-  %5 = getelementptr inbounds i64, ptr %0, i64 %.05
-  %6 = getelementptr inbounds i64, ptr %1, i64 %.05
+  %5 = getelementptr inbounds [8 x i8], ptr %0, i64 %.05
+  %6 = getelementptr inbounds [8 x i8], ptr %1, i64 %.05
   %7 = load i64, ptr %5, align 8
   %8 = load i64, ptr %6, align 8
   store i64 %8, ptr %5, align 8
@@ -6272,7 +6272,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h0b20deb5fe6187f9E.llv
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { { { { i64, [1 x i64] } } }, ptr, i64, i64 }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [40 x i8], ptr %12, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
   br label %14
 

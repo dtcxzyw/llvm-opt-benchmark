@@ -1505,7 +1505,7 @@ copy_address.exit50:                              ; preds = %copy_address.exit50
   %88 = load i32, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %90 = zext i1 %75 to i64
-  %91 = getelementptr i32, ptr %89, i64 %90
+  %91 = getelementptr [4 x i8], ptr %89, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %92, %88
   store i32 %93, ptr %91, align 4

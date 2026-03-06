@@ -176,7 +176,7 @@ define hidden zeroext i16 @FLAC__bitreader_get_read_crc16(ptr noundef captures(n
   %12 = add nuw i32 %5, 1
   store i32 %12, ptr %4, align 8, !tbaa !19
   %13 = zext i32 %5 to i64
-  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !18
@@ -201,7 +201,7 @@ define hidden zeroext i16 @FLAC__bitreader_get_read_crc16(ptr noundef captures(n
   %28 = select i1 %24, i32 %27, i32 0
   %29 = xor i32 %28, %23
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr @FLAC__crc16_table, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr @FLAC__crc16_table, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !23
   %33 = zext i16 %32 to i32
   %34 = xor i32 %22, %33
@@ -223,7 +223,7 @@ crc16_update_word_.exit.i:                        ; preds = %.lr.ph.i.i, %10
 39:                                               ; preds = %36
   %40 = load ptr, ptr %0, align 8, !tbaa !3
   %41 = zext i32 %37 to i64
-  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = sub nuw i32 %3, %37
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %45 = load i32, ptr %44, align 4, !tbaa !18
@@ -244,7 +244,7 @@ crc16_update_block_.exit:                         ; preds = %36, %39
   %52 = load ptr, ptr %0, align 8, !tbaa !3
   %53 = load i32, ptr %2, align 4, !tbaa !16
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !21
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.promoted = load i32, ptr %57, align 4, !tbaa !20
@@ -269,7 +269,7 @@ crc16_update_block_.exit:                         ; preds = %36, %39
   %70 = and i32 %69, 255
   %71 = xor i32 %65, %70
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw i16, ptr @FLAC__crc16_table, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr @FLAC__crc16_table, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !23
   %75 = zext i16 %74 to i32
   %76 = xor i32 %64, %75
@@ -433,7 +433,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
 41:                                               ; preds = %38
   %42 = load ptr, ptr %0, align 8, !tbaa !3
   %43 = zext i32 %24 to i64
-  %44 = getelementptr inbounds nuw i64, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !21
   %46 = zext nneg i32 %30 to i64
   %47 = lshr i64 -1, %46
@@ -490,7 +490,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
   %75 = load ptr, ptr %0, align 8, !tbaa !3
   %76 = load i32, ptr %19, align 4, !tbaa !16
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i64, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !21
   %80 = zext nneg i32 %67 to i64
   %81 = lshr i64 %79, %80
@@ -507,7 +507,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
 86:                                               ; preds = %37
   %87 = load ptr, ptr %0, align 8, !tbaa !3
   %88 = zext i32 %24 to i64
-  %89 = getelementptr inbounds nuw i64, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !21
   %91 = icmp ult i32 %2, 64
   br i1 %91, label %92, label %97
@@ -532,7 +532,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_raw_uint32(ptr noundef c
 101:                                              ; preds = %35
   %102 = load ptr, ptr %0, align 8, !tbaa !3
   %103 = zext i32 %24 to i64
-  %104 = getelementptr inbounds nuw i64, ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %103
   %105 = load i64, ptr %104, align 8, !tbaa !21
   br i1 %.not91, label %117, label %106
 
@@ -604,7 +604,7 @@ define internal fastcc range(i32 0, 2) i32 @bitreader_read_from_client_(ptr noun
   %14 = add nuw i32 %8, 1
   store i32 %14, ptr %7, align 8, !tbaa !19
   %15 = zext i32 %8 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %.pre56.pre61, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.pre56.pre61, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4, !tbaa !18
@@ -629,7 +629,7 @@ define internal fastcc range(i32 0, 2) i32 @bitreader_read_from_client_(ptr noun
   %30 = select i1 %26, i32 %29, i32 0
   %31 = xor i32 %30, %25
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr @FLAC__crc16_table, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @FLAC__crc16_table, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !23
   %35 = zext i16 %34 to i32
   %36 = xor i32 %24, %35
@@ -651,7 +651,7 @@ crc16_update_word_.exit.i:                        ; preds = %.lr.ph.i.i, %13
 
 41:                                               ; preds = %38
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %.pre56, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.pre56, i64 %42
   %44 = sub nuw i32 %4, %39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %46 = load i32, ptr %45, align 4, !tbaa !18
@@ -674,7 +674,7 @@ crc16_update_block_.exit:                         ; preds = %38, %41
   %.not50 = icmp ne i32 %55, 0
   %56 = zext i1 %.not50 to i32
   %57 = zext i32 %51 to i64
-  %58 = getelementptr inbounds nuw i64, ptr %50, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %57
   %59 = sub i32 %53, %51
   %60 = add i32 %59, %56
   %61 = shl i32 %60, 3
@@ -704,7 +704,7 @@ crc16_update_block_.exit:                         ; preds = %38, %41
 77:                                               ; preds = %65
   %78 = load ptr, ptr %0, align 8, !tbaa !3
   %79 = zext i32 %66 to i64
-  %80 = getelementptr inbounds nuw i64, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %79
   %81 = zext i32 %73 to i64
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 %81
   %83 = load i64, ptr %80, align 8, !tbaa !21
@@ -729,7 +729,7 @@ crc16_update_block_.exit:                         ; preds = %38, %41
   %93 = load ptr, ptr %0, align 8, !tbaa !3
   %94 = load i32, ptr %69, align 4, !tbaa !28
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw i64, ptr %93, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %95
   store i64 %83, ptr %96, align 8, !tbaa !21
   br label %117
 
@@ -754,7 +754,7 @@ crc16_update_block_.exit:                         ; preds = %38, %41
 
 110:                                              ; preds = %.lr.ph, %110
   %indvars.iv = phi i64 [ %109, %.lr.ph ], [ %indvars.iv.next, %110 ]
-  %111 = getelementptr inbounds nuw i64, ptr %108, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv
   %112 = load i64, ptr %111, align 8, !tbaa !21
   %113 = call i64 @llvm.bswap.i64(i64 %112)
   store i64 %113, ptr %111, align 8, !tbaa !21
@@ -1232,7 +1232,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_byte_block_aligned_no_cr
   %34 = add nuw i32 %29, 1
   store i32 %34, ptr %18, align 4, !tbaa !16
   %35 = zext i32 %29 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !21
   %38 = lshr i64 %37, 56
   %39 = trunc nuw i64 %38 to i8
@@ -1338,7 +1338,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nound
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr %0, align 8, !tbaa !3
   %16 = zext i32 %12 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !21
   %19 = zext nneg i32 %11 to i64
   %20 = shl i64 %18, %19
@@ -1388,7 +1388,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nound
 42:                                               ; preds = %._crit_edge
   %43 = load ptr, ptr %0, align 8, !tbaa !3
   %44 = zext i32 %.lcssa to i64
-  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !21
   %47 = sub i32 64, %40
   %48 = zext nneg i32 %47 to i64
@@ -1480,7 +1480,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
   %27 = load i32, ptr %26, align 8, !tbaa !17
   %28 = load ptr, ptr %0, align 8, !tbaa !3
   %29 = zext i32 %22 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !21
   %32 = zext nneg i32 %27 to i64
   %33 = shl i64 %31, %32
@@ -1522,7 +1522,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
 43:                                               ; preds = %.preheader140
   %44 = load ptr, ptr %0, align 8, !tbaa !3
   %45 = zext i32 %42 to i64
-  %46 = getelementptr inbounds nuw i64, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !21
   %48 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %47, i1 false)
   %49 = trunc nuw nsw i64 %48 to i32
@@ -1562,7 +1562,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
 66:                                               ; preds = %64
   %67 = load ptr, ptr %0, align 8, !tbaa !3
   %68 = zext i32 %65 to i64
-  %69 = getelementptr inbounds nuw i64, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !21
   %71 = add i32 %56, %35
   %72 = zext nneg i32 %71 to i64
@@ -1652,7 +1652,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
 119:                                              ; preds = %102
   %120 = load ptr, ptr %0, align 8, !tbaa !3
   %121 = zext i32 %112 to i64
-  %122 = getelementptr inbounds nuw i64, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %121
   %123 = load i64, ptr %122, align 8, !tbaa !21
   %124 = zext nneg i32 %115 to i64
   %125 = shl i64 %123, %124
@@ -1738,7 +1738,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
   %27 = load i32, ptr %26, align 8, !tbaa !17
   %28 = load ptr, ptr %0, align 8, !tbaa !3
   %29 = zext i32 %22 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !21
   %32 = zext nneg i32 %27 to i64
   %33 = shl i64 %31, %32
@@ -1780,7 +1780,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
 43:                                               ; preds = %.preheader140
   %44 = load ptr, ptr %0, align 8, !tbaa !3
   %45 = zext i32 %42 to i64
-  %46 = getelementptr inbounds nuw i64, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !21
   %48 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %47, i1 false)
   %49 = trunc nuw nsw i64 %48 to i32
@@ -1820,7 +1820,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
 66:                                               ; preds = %64
   %67 = load ptr, ptr %0, align 8, !tbaa !3
   %68 = zext i32 %65 to i64
-  %69 = getelementptr inbounds nuw i64, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !21
   %71 = add i32 %56, %35
   %72 = zext nneg i32 %71 to i64
@@ -1910,7 +1910,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
 119:                                              ; preds = %102
   %120 = load ptr, ptr %0, align 8, !tbaa !3
   %121 = zext i32 %112 to i64
-  %122 = getelementptr inbounds nuw i64, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %121
   %123 = load i64, ptr %122, align 8, !tbaa !21
   %124 = zext nneg i32 %115 to i64
   %125 = shl i64 %123, %124

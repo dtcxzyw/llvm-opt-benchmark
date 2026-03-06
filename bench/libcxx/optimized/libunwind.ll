@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.libunwind::dl_iterate_cb_data" = type { ptr, ptr, i64 }
 %"struct.libunwind::UnwindInfoSections" = type { i64, i64, i64, i64, i64, i64 }
 %struct.ParseInfo = type { i64, i64, i64 }
-%struct.Elf64_Phdr = type { i32, i32, i64, i64, i64, i64, i64, i64 }
 
 $_ZN9libunwind13DwarfFDECacheINS_17LocalAddressSpaceEE19iterateCacheEntriesEPFvmmmmE = comdat any
 
@@ -1142,7 +1141,7 @@ define linkonce_odr hidden void @_ZN9libunwind13DwarfFDECacheINS_17LocalAddressS
 24:                                               ; preds = %23, %15
   store ptr %22, ptr @_ZN9libunwind13DwarfFDECacheINS_17LocalAddressSpaceEE7_bufferE, align 8, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 %19
-  %26 = getelementptr inbounds nuw %"struct.libunwind::DwarfFDECache<libunwind::LocalAddressSpace>::entry", ptr %22, i64 %20
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %20
   store ptr %26, ptr @_ZN9libunwind13DwarfFDECacheINS_17LocalAddressSpaceEE10_bufferEndE, align 8, !tbaa !26
   br label %27
 
@@ -1860,7 +1859,7 @@ define linkonce_odr hidden void @_ZN9libunwind12UnwindCursorINS_17LocalAddressSp
 
 switch.lookup:                                    ; preds = %3
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE6setRegEim, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE6setRegEim, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   store i64 %2, ptr %11, align 8, !tbaa !18
@@ -2213,7 +2212,7 @@ define linkonce_odr hidden noundef ptr @_ZN9libunwind12UnwindCursorINS_17LocalAd
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE15getRegisterNameEi, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE15getRegisterNameEi, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9libunwind16Registers_x86_6415getRegisterNameEi.exit
 
@@ -2311,7 +2310,7 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17Lo
   %.sroa.19.0139 = phi i64 [ %.sroa.19.0.copyload, %.preheader ], [ %.sroa.19.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
   %.sroa.20.0138 = phi i64 [ %.sroa.20.0.copyload, %.preheader ], [ %.sroa.20.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
   %.sroa.21.0137 = phi i64 [ %.sroa.21.0.copyload, %.preheader ], [ %.sroa.21.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
-  %22 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %19, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv
   %23 = load i32, ptr %22, align 8, !tbaa !110
   %.not = icmp eq i32 %23, 0
   %24 = load i8, ptr %16, align 2, !tbaa !60
@@ -2925,14 +2924,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit284: ; preds = %169
   br label %.loopexit
 
 183:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit284
-  %184 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %145
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %145
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
   %186 = load i8, ptr %185, align 4, !tbaa !118, !range !10, !noundef !44
   %187 = trunc nuw i8 %186 to i1
   br i1 %187, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit, label %188
 
 188:                                              ; preds = %183
-  %189 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %145
+  %189 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef nonnull align 8 dereferenceable(16) %184, i64 16, i1 false), !tbaa.struct !119
   store i8 1, ptr %185, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit
@@ -3023,14 +3022,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit294: ; preds = %220
   br label %.loopexit
 
 231:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit294
-  %232 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %221
+  %232 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %221
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 4
   %234 = load i8, ptr %233, align 4, !tbaa !118, !range !10, !noundef !44
   %235 = trunc nuw i8 %234 to i1
   br i1 %235, label %236, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
 
 236:                                              ; preds = %231
-  %237 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %221
+  %237 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %221
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %232, ptr noundef nonnull align 8 dereferenceable(16) %237, i64 16, i1 false), !tbaa.struct !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
 
@@ -3117,14 +3116,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit304: ; preds = %267
   br label %.loopexit
 
 278:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit304
-  %279 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %268
+  %279 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %268
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 4
   %281 = load i8, ptr %280, align 4, !tbaa !118, !range !10, !noundef !44
   %282 = trunc nuw i8 %281 to i1
   br i1 %282, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit, label %283
 
 283:                                              ; preds = %278
-  %284 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %268
+  %284 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %268
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %284, ptr noundef nonnull align 8 dereferenceable(16) %279, i64 16, i1 false), !tbaa.struct !119
   store i8 1, ptr %280, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit
@@ -3213,14 +3212,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit314: ; preds = %314
   br label %.loopexit
 
 325:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit314
-  %326 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %315
+  %326 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %315
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 4
   %328 = load i8, ptr %327, align 4, !tbaa !118, !range !10, !noundef !44
   %329 = trunc nuw i8 %328 to i1
   br i1 %329, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit315, label %330
 
 330:                                              ; preds = %325
-  %331 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %315
+  %331 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %315
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %331, ptr noundef nonnull align 8 dereferenceable(16) %326, i64 16, i1 false), !tbaa.struct !119
   store i8 1, ptr %327, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit315
@@ -3368,14 +3367,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit331: ; preds = %386
   br label %.loopexit
 
 404:                                              ; preds = %397
-  %405 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %362
+  %405 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %362
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 4
   %407 = load i8, ptr %406, align 4, !tbaa !118, !range !10, !noundef !44
   %408 = trunc nuw i8 %407 to i1
   br i1 %408, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit332, label %409
 
 409:                                              ; preds = %404
-  %410 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %362
+  %410 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %362
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %410, ptr noundef nonnull align 8 dereferenceable(16) %405, i64 16, i1 false), !tbaa.struct !119
   store i8 1, ptr %406, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit332
@@ -3895,14 +3894,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit396: ; preds = %644
   br label %.loopexit
 
 655:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit396
-  %656 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %645
+  %656 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %645
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 4
   %658 = load i8, ptr %657, align 4, !tbaa !118, !range !10, !noundef !44
   %659 = trunc nuw i8 %658 to i1
   br i1 %659, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit397, label %660
 
 660:                                              ; preds = %655
-  %661 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %645
+  %661 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %645
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %661, ptr noundef nonnull align 8 dereferenceable(16) %656, i64 16, i1 false), !tbaa.struct !119
   store i8 1, ptr %657, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit397
@@ -4089,14 +4088,14 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %737
   %750 = load i32, ptr %30, align 4, !tbaa !59
   %751 = sext i32 %750 to i64
   %752 = mul nsw i64 %.1.i, %751
-  %753 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %721
+  %753 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %721
   %754 = getelementptr inbounds nuw i8, ptr %753, i64 4
   %755 = load i8, ptr %754, align 4, !tbaa !118, !range !10, !noundef !44
   %756 = trunc nuw i8 %755 to i1
   br i1 %756, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit419, label %757
 
 757:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit
-  %758 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %721
+  %758 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %721
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %758, ptr noundef nonnull align 8 dereferenceable(16) %753, i64 16, i1 false), !tbaa.struct !119
   store i8 1, ptr %754, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit419
@@ -4427,14 +4426,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit465: ; preds = %917
   %922 = load i32, ptr %30, align 4, !tbaa !59
   %923 = sext i32 %922 to i64
   %924 = mul nsw i64 %918, %923
-  %925 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %888
+  %925 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %888
   %926 = getelementptr inbounds nuw i8, ptr %925, i64 4
   %927 = load i8, ptr %926, align 4, !tbaa !118, !range !10, !noundef !44
   %928 = trunc nuw i8 %927 to i1
   br i1 %928, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit466, label %929
 
 929:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit465
-  %930 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %888
+  %930 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %888
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %930, ptr noundef nonnull align 8 dereferenceable(16) %925, i64 16, i1 false), !tbaa.struct !119
   store i8 1, ptr %926, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit466
@@ -4563,14 +4562,14 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit484: ; preds = %978
   %991 = load i32, ptr %30, align 4, !tbaa !59
   %992 = sext i32 %991 to i64
   %993 = mul nsw i64 %.1.i483, %992
-  %994 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %962
+  %994 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %962
   %995 = getelementptr inbounds nuw i8, ptr %994, i64 4
   %996 = load i8, ptr %995, align 4, !tbaa !118, !range !10, !noundef !44
   %997 = trunc nuw i8 %996 to i1
   br i1 %997, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit485, label %998
 
 998:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit484
-  %999 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %962
+  %999 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %962
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %999, ptr noundef nonnull align 8 dereferenceable(16) %994, i64 16, i1 false), !tbaa.struct !119
   store i8 1, ptr %995, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit485
@@ -4661,14 +4660,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit495: ; preds = %1030
   br label %.loopexit
 
 1041:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit495
-  %1042 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1031
+  %1042 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %1031
   %1043 = getelementptr inbounds nuw i8, ptr %1042, i64 4
   %1044 = load i8, ptr %1043, align 4, !tbaa !118, !range !10, !noundef !44
   %1045 = trunc nuw i8 %1044 to i1
   br i1 %1045, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit496, label %1046
 
 1046:                                             ; preds = %1041
-  %1047 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1031
+  %1047 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %1031
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1047, ptr noundef nonnull align 8 dereferenceable(16) %1042, i64 16, i1 false), !tbaa.struct !119
   store i8 1, ptr %1043, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit496
@@ -4939,14 +4938,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit528: ; preds = %1171
   %1177 = sext i32 %1176 to i64
   %1178 = mul nsw i64 %1172, %1177
   %1179 = sub nsw i64 0, %1178
-  %1180 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1142
+  %1180 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %1142
   %1181 = getelementptr inbounds nuw i8, ptr %1180, i64 4
   %1182 = load i8, ptr %1181, align 4, !tbaa !118, !range !10, !noundef !44
   %1183 = trunc nuw i8 %1182 to i1
   br i1 %1183, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit529, label %1184
 
 1184:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit528
-  %1185 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1142
+  %1185 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %1142
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1185, ptr noundef nonnull align 8 dereferenceable(16) %1180, i64 16, i1 false), !tbaa.struct !119
   store i8 1, ptr %1181, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit529
@@ -5052,14 +5051,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit539: ; preds = %1228
   %1233 = load i32, ptr %30, align 4, !tbaa !59
   %1234 = sext i32 %1233 to i64
   %1235 = mul nsw i64 %1229, %1234
-  %1236 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1199
+  %1236 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %1199
   %1237 = getelementptr inbounds nuw i8, ptr %1236, i64 4
   %1238 = load i8, ptr %1237, align 4, !tbaa !118, !range !10, !noundef !44
   %1239 = trunc nuw i8 %1238 to i1
   br i1 %1239, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit540, label %1240
 
 1240:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit539
-  %1241 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1199
+  %1241 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %1199
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1241, ptr noundef nonnull align 8 dereferenceable(16) %1236, i64 16, i1 false), !tbaa.struct !119
   store i8 1, ptr %1237, align 4, !tbaa !118
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit540
@@ -5130,14 +5129,14 @@ logDWARF.exit548:                                 ; preds = %1251
   br label %.loopexit
 
 1272:                                             ; preds = %1264
-  %1273 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %31, i64 %1265
+  %1273 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %1265
   %1274 = getelementptr inbounds nuw i8, ptr %1273, i64 4
   %1275 = load i8, ptr %1274, align 4, !tbaa !118, !range !10, !noundef !44
   %1276 = trunc nuw i8 %1275 to i1
   br i1 %1276, label %1277, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit549
 
 1277:                                             ; preds = %1272
-  %1278 = getelementptr inbounds nuw %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation", ptr %32, i64 %1265
+  %1278 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %1265
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1273, ptr noundef nonnull align 8 dereferenceable(16) %1278, i64 16, i1 false), !tbaa.struct !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit549
 
@@ -6159,7 +6158,7 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %139
   %164 = zext i8 %.0.copyload.i218 to i64
   %165 = add i64 %.0304346, 2
   %166 = sub nsw i64 0, %164
-  %167 = getelementptr inbounds i64, ptr %.0194347, i64 %166
+  %167 = getelementptr inbounds [8 x i8], ptr %.0194347, i64 %166
   %168 = load i64, ptr %167, align 8, !tbaa !18
   %169 = getelementptr inbounds nuw i8, ptr %.0194347, i64 8
   store i64 %168, ptr %169, align 8, !tbaa !18
@@ -7377,7 +7376,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN9libunwindL24findUnwindSectionsB
 
 15:                                               ; preds = %.preheader, %28
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %28 ]
-  %16 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %indvars.iv
   %17 = load i32, ptr %16, align 8, !tbaa !140
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %28
@@ -7414,7 +7413,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN9libunwindL24findUnwindSectionsB
   %34 = load ptr, ptr %13, align 8, !tbaa !139
   %35 = add nuw nsw i64 %indvars.iv48, 4294967295
   %36 = and i64 %35, 4294967295
-  %37 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %36
   %38 = load i32, ptr %37, align 8, !tbaa !140
   %39 = icmp eq i32 %38, 1685382480
   br i1 %39, label %40, label %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread

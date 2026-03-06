@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.strvec = type { ptr, i64, i64 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
-%struct.object_id = type { [32 x i8], i32 }
 
 @.str = private unnamed_addr constant [40 x i8] c"could not fetch %s from promisor remote\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"remote\00", align 1
@@ -393,7 +392,7 @@ _.exit.i:                                         ; preds = %34, %32
 
 .lr.ph.i:                                         ; preds = %57, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %57 ]
-  %58 = getelementptr inbounds nuw %struct.object_id, ptr %.04476, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [36 x i8], ptr %.04476, i64 %indvars.iv.i
   %59 = call ptr @oid_to_hex(ptr noundef %58) #11
   %60 = call i32 @fputs(ptr noundef %59, ptr noundef %54)
   %61 = icmp slt i32 %60, 0
@@ -453,13 +452,13 @@ fetch_objects.exit:                               ; preds = %._crit_edge.i
 .lr.ph.i34:                                       ; preds = %85, %.lr.ph.preheader.i32
   %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.preheader.i32 ], [ %indvars.iv.next.i36, %85 ]
   %.02935.i = phi i32 [ 0, %.lr.ph.preheader.i32 ], [ %.130.i, %85 ]
-  %80 = getelementptr inbounds nuw %struct.object_id, ptr %.04476, i64 %indvars.iv.i35
+  %80 = getelementptr inbounds nuw [36 x i8], ptr %.04476, i64 %indvars.iv.i35
   %81 = call i32 @oid_object_info_extended(ptr noundef %0, ptr noundef %80, ptr noundef null, i32 noundef 16) #11
   %.not34.i = icmp eq i32 %81, 0
   br i1 %.not34.i, label %85, label %82
 
 82:                                               ; preds = %.lr.ph.i34
-  %83 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv.i35
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv.i35
   store i32 1, ptr %83, align 4, !tbaa !39
   %84 = add nsw i32 %.02935.i, 1
   br label %85
@@ -482,7 +481,7 @@ fetch_objects.exit:                               ; preds = %._crit_edge.i
 .lr.ph40.i:                                       ; preds = %99, %86
   %indvars.iv43.i = phi i64 [ 0, %86 ], [ %indvars.iv.next44.i, %99 ]
   %.038.i = phi i32 [ 0, %86 ], [ %.1.i, %99 ]
-  %89 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv43.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv43.i
   %90 = load i32, ptr %89, align 4, !tbaa !39
   %.not33.i = icmp eq i32 %90, 0
   br i1 %.not33.i, label %99, label %91
@@ -490,8 +489,8 @@ fetch_objects.exit:                               ; preds = %._crit_edge.i
 91:                                               ; preds = %.lr.ph40.i
   %92 = add nsw i32 %.038.i, 1
   %93 = sext i32 %.038.i to i64
-  %94 = getelementptr inbounds %struct.object_id, ptr %88, i64 %93
-  %95 = getelementptr inbounds nuw %struct.object_id, ptr %.04476, i64 %indvars.iv43.i
+  %94 = getelementptr inbounds [36 x i8], ptr %88, i64 %93
+  %95 = getelementptr inbounds nuw [36 x i8], ptr %.04476, i64 %indvars.iv43.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %94, ptr noundef nonnull readonly align 4 dereferenceable(32) %95, i64 32, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load i32, ptr %96, align 4, !tbaa !49
@@ -536,7 +535,7 @@ remove_fetched_oids.exit:                         ; preds = %._crit_edge41.i, %1
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next, %102 ]
-  %103 = getelementptr inbounds nuw %struct.object_id, ptr %.044.lcssa, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [36 x i8], ptr %.044.lcssa, i64 %indvars.iv
   %104 = call i32 @is_promisor_object(ptr noundef %0, ptr noundef %103) #11
   %.not27 = icmp eq i32 %104, 0
   br i1 %.not27, label %102, label %105

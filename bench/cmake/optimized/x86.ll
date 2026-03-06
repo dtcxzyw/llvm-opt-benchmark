@@ -139,7 +139,7 @@ define internal i64 @x86_code(ptr noundef captures(none) %0, i32 noundef %1, i1 
 
 .split:                                           ; preds = %36
   %55 = zext nneg i32 %34 to i64
-  %56 = getelementptr inbounds nuw i32, ptr @x86_code.MASK_TO_BIT_NUMBER, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @x86_code.MASK_TO_BIT_NUMBER, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !19
   %58 = shl i32 %57, 3
   %59 = sub i32 24, %58

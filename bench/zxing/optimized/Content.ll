@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.ZXing::Content::Encoding" = type { i32, i32 }
 %class.anon.12 = type { ptr, ptr, ptr, ptr, ptr }
 %"class.ZXing::ByteArray" = type { %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
@@ -63,7 +62,7 @@ $_ZSt9__find_ifISt19_Bit_const_iteratorN9__gnu_cxx5__ops16_Iter_equals_valIKbEEE
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ZXing8ToStringB5cxx11ENS_11ContentTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds ptr, ptr @__const._ZN5ZXing8ToStringB5cxx11ENS_11ContentTypeE.t2s, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @__const._ZN5ZXing8ToStringB5cxx11ENS_11ContentTypeE.t2s, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !8
@@ -225,7 +224,7 @@ _ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
 _ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %45, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %40, ptr %14, align 8, !tbaa !17
   store ptr %44, ptr %21, align 8, !tbaa !20
-  %46 = getelementptr inbounds nuw %"struct.ZXing::Content::Encoding", ptr %40, i64 %38
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   store ptr %46, ptr %22, align 8, !tbaa !24
   br label %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE9push_backEOS2_.exit
 
@@ -397,7 +396,7 @@ _ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
 _ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %58, %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %53, ptr %20, align 8, !tbaa !17
   store ptr %57, ptr %22, align 8, !tbaa !20
-  %59 = getelementptr inbounds nuw %"struct.ZXing::Content::Encoding", ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %51
   store ptr %59, ptr %23, align 8, !tbaa !24
   br label %_ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EE9push_backEOS2_.exit
 
@@ -946,7 +945,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %131 = phi ptr [ %152, %150 ], [ %123, %.noexc ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %150 ], [ 0, %.noexc ]
   %132 = phi i64 [ %156, %150 ], [ %127, %.noexc ]
-  %133 = getelementptr inbounds nuw %"struct.ZXing::Content::Encoding", ptr %130, i64 %indvars.iv.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %133, align 4, !tbaa !50
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %133, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !52
@@ -965,7 +964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %147
 
 143:                                              ; preds = %.lr.ph.i
-  %144 = getelementptr inbounds nuw %"struct.ZXing::Content::Encoding", ptr %130, i64 %indvars.iv.next.i
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.next.i
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %146 = load i32, ptr %145, align 4, !tbaa !46
   br label %147
@@ -1257,7 +1256,7 @@ define noundef zeroext i8 @_ZNK5ZXing7Content13guessEncodingEv(ptr noundef nonnu
   %42 = phi ptr [ %30, %.lr.ph.i ], [ %74, %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i" ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i" ]
   %43 = phi i64 [ %35, %.lr.ph.i ], [ %78, %"_ZZNK5ZXing7Content13guessEncodingEvENK3$_0clENS_3ECIEii.exit19.i" ]
-  %44 = getelementptr inbounds nuw %"struct.ZXing::Content::Encoding", ptr %41, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %44, align 4, !tbaa !50
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !52
@@ -1276,7 +1275,7 @@ define noundef zeroext i8 @_ZNK5ZXing7Content13guessEncodingEv(ptr noundef nonnu
   br label %58
 
 54:                                               ; preds = %40
-  %55 = getelementptr inbounds nuw %"struct.ZXing::Content::Encoding", ptr %41, i64 %indvars.iv.next.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.next.i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !46
   br label %58
@@ -1947,7 +1946,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %99 = phi ptr [ %120, %118 ], [ %91, %.noexc ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %118 ], [ 0, %.noexc ]
   %100 = phi i64 [ %124, %118 ], [ %95, %.noexc ]
-  %101 = getelementptr inbounds nuw %"struct.ZXing::Content::Encoding", ptr %98, i64 %indvars.iv.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %101, align 4, !tbaa !50
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !52
@@ -1966,7 +1965,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %115
 
 111:                                              ; preds = %.lr.ph.i
-  %112 = getelementptr inbounds nuw %"struct.ZXing::Content::Encoding", ptr %98, i64 %indvars.iv.next.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv.next.i
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %114 = load i32, ptr %113, align 4, !tbaa !46
   br label %115
@@ -2072,7 +2071,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %154 = sub i64 %152, %153
   %155 = ashr exact i64 %154, 3
   %156 = sub nsw i64 0, %155
-  %157 = getelementptr inbounds i64, ptr %151, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %151, i64 %156
   call void @_ZdlPvm(ptr noundef %157, i64 noundef %154) #22
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -2094,7 +2093,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %148, %150
   %164 = sub i64 %162, %163
   %165 = ashr exact i64 %164, 3
   %166 = sub nsw i64 0, %165
-  %167 = getelementptr inbounds i64, ptr %161, i64 %166
+  %167 = getelementptr inbounds [8 x i8], ptr %161, i64 %166
   call void @_ZdlPvm(ptr noundef %167, i64 noundef %164) #22
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit18
 
@@ -2415,7 +2414,7 @@ define void @_ZNK5ZXing7Content8bytesECIEv(ptr dead_on_unwind noalias writable w
   %39 = phi ptr [ %60, %58 ], [ %31, %.noexc ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %58 ], [ 0, %.noexc ]
   %40 = phi i64 [ %64, %58 ], [ %35, %.noexc ]
-  %41 = getelementptr inbounds nuw %"struct.ZXing::Content::Encoding", ptr %38, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %41, align 4, !tbaa !50
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !52
@@ -2434,7 +2433,7 @@ define void @_ZNK5ZXing7Content8bytesECIEv(ptr dead_on_unwind noalias writable w
   br label %55
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds nuw %"struct.ZXing::Content::Encoding", ptr %38, i64 %indvars.iv.next.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.next.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !46
   br label %55
@@ -3984,7 +3983,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %12
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 63
   %24 = lshr i64 %21, 6
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %24
   br label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i
 
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
@@ -4236,13 +4235,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
 136:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %137 = ashr exact i64 %60, 3
   %138 = sub nsw i64 0, %137
-  %139 = getelementptr inbounds i64, ptr %8, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %8, i64 %138
   tail call void @_ZdlPvm(ptr noundef %139, i64 noundef %60) #22
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %136
   %140 = lshr i64 %70, 6
-  %141 = getelementptr inbounds nuw i64, ptr %73, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %140
   store ptr %141, ptr %7, align 8, !tbaa !69
   store ptr %73, ptr %0, align 8
   %.sroa.588.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 8

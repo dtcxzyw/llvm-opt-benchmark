@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.frog_color_managed_surface_listener = type { ptr }
 %struct.wl_interface = type { ptr, i32, i32, ptr, i32, ptr }
 %struct.xdg_activation_token_v1_listener = type { ptr }
-%struct.Wayland_SHMBuffer = type { ptr, ptr, i32 }
 %struct.SDL_HDROutputProperties = type { float, float }
 
 @WAYLAND_wl_display_roundtrip = external local_unnamed_addr global ptr, align 8
@@ -121,7 +120,7 @@ define hidden void @Wayland_RemoveOutputFromWindow(ptr noundef captures(none) %0
   %.028 = phi i32 [ 0, %.lr.ph ], [ %31, %29 ]
   %10 = load ptr, ptr %6, align 8
   %11 = sext i32 %.028 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %15, label %29
@@ -207,7 +206,7 @@ define hidden void @Wayland_RemoveOutputFromWindow(ptr noundef captures(none) %0
 56:                                               ; preds = %56, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
   %.018.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.0..i, %56 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load double, ptr %59, align 8
@@ -253,7 +252,7 @@ define internal fastcc void @Wayland_move_window(ptr noundef %0) unnamed_addr #0
 
 9:                                                ; preds = %6
   %10 = sext i32 %8 to i64
-  %11 = getelementptr ptr, ptr %5, i64 %10
+  %11 = getelementptr [8 x i8], ptr %5, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @SDL_GetDisplays_REAL(ptr noundef null) #15
@@ -267,7 +266,7 @@ define internal fastcc void @Wayland_move_window(ptr noundef %0) unnamed_addr #0
 
 16:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.next
   %18 = load i32, ptr %17, align 4
   %.not32 = icmp eq i32 %18, 0
   br i1 %.not32, label %.loopexit, label %.lr.ph, !llvm.loop !8
@@ -280,7 +279,7 @@ define internal fastcc void @Wayland_move_window(ptr noundef %0) unnamed_addr #0
   br i1 %21, label %22, label %16
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 364
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr %23, align 4
@@ -3171,7 +3170,7 @@ define hidden noundef zeroext i1 @Wayland_CreateWindow(ptr noundef %0, ptr nound
 87:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
   %88 = phi double [ 1.000000e+00, %.lr.ph ], [ %., %87 ]
-  %89 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 128
   %92 = load ptr, ptr %91, align 8
@@ -4583,7 +4582,7 @@ define hidden zeroext i1 @Wayland_SetWindowIcon(ptr noundef readonly captures(no
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %53 = load ptr, ptr %37, align 8
-  %54 = getelementptr inbounds nuw %struct.Wayland_SHMBuffer, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %indvars.iv
   call void @Wayland_ReleaseSHMBuffer(ptr noundef %54) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %34, align 8
@@ -4593,7 +4592,7 @@ define hidden zeroext i1 @Wayland_SetWindowIcon(ptr noundef readonly captures(no
 
 .lr.ph112:                                        ; preds = %.preheader, %105
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %105 ], [ 0, %.preheader ]
-  %58 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv119
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv119
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 8
@@ -4606,7 +4605,7 @@ define hidden zeroext i1 @Wayland_SetWindowIcon(ptr noundef readonly captures(no
   %66 = load ptr, ptr %38, align 8
   %67 = load i32, ptr %34, align 8
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.Wayland_SHMBuffer, ptr %66, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %66, i64 %68
   %70 = call zeroext i1 @Wayland_AllocSHMBuffer(i32 noundef %61, i32 noundef %61, ptr noundef %69) #15
   br i1 %70, label %.thread, label %109
 
@@ -4714,7 +4713,7 @@ define hidden zeroext i1 @Wayland_SetWindowIcon(ptr noundef readonly captures(no
 .lr.ph116:                                        ; preds = %133, %.lr.ph116
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph116 ], [ 0, %133 ]
   %137 = load ptr, ptr %38, align 8
-  %138 = getelementptr inbounds nuw %struct.Wayland_SHMBuffer, ptr %137, i64 %indvars.iv122
+  %138 = getelementptr inbounds nuw [24 x i8], ptr %137, i64 %indvars.iv122
   call void @Wayland_ReleaseSHMBuffer(ptr noundef %138) #15
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %139 = load i32, ptr %34, align 8
@@ -5330,7 +5329,7 @@ define hidden void @Wayland_DestroyWindow(ptr noundef %0, ptr noundef captures(n
 137:                                              ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
   %138 = load ptr, ptr %130, align 8
-  %139 = getelementptr inbounds nuw %struct.Wayland_SHMBuffer, ptr %138, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %indvars.iv
   tail call void @Wayland_ReleaseSHMBuffer(ptr noundef %139) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %140 = load i32, ptr %127, align 8
@@ -7237,7 +7236,7 @@ define internal void @handle_xdg_toplevel_wm_capabilities(ptr noundef writeonly 
 
 switch.lookup:                                    ; preds = %.lr.ph
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.handle_xdg_toplevel_wm_capabilities, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.handle_xdg_toplevel_wm_capabilities, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = or i32 %8, %switch.load
   store i32 %12, ptr %4, align 8
@@ -7462,7 +7461,7 @@ define internal void @handle_surface_enter(ptr noundef captures(none) %0, ptr no
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %12, align 8
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds ptr, ptr %17, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %17, i64 %21
   store ptr %5, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 397
   %24 = load i8, ptr %23, align 1, !range !5, !noundef !6
@@ -7507,7 +7506,7 @@ define internal void @handle_surface_enter(ptr noundef captures(none) %0, ptr no
 43:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
   %.018.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.0..i, %43 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load double, ptr %46, align 8

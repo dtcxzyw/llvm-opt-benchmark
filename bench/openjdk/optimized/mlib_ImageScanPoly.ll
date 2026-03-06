@@ -111,7 +111,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   store ptr %.val, ptr %80, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -119,7 +119,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 
 ._crit_edge:                                      ; preds = %.lr.ph, %76
   %81 = sext i32 %78 to i64
-  %82 = getelementptr inbounds ptr, ptr %77, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %77, i64 %81
   %83 = add i32 %.val997, -1
   %84 = icmp sgt i32 %.val997, 1
   br i1 %84, label %.lr.ph1097, label %.preheader1090
@@ -143,7 +143,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 89:                                               ; preds = %.lr.ph1097, %89
   %indvars.iv1143 = phi i64 [ 0, %.lr.ph1097 ], [ %indvars.iv.next1144, %89 ]
   %.08651094 = phi ptr [ %.val, %.lr.ph1097 ], [ %91, %89 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv1143
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv1143
   store ptr %.08651094, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %.08651094, i64 %85
   %indvars.iv.next1144 = add nuw nsw i64 %indvars.iv1143, 1
@@ -152,7 +152,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 
 .lr.ph1101:                                       ; preds = %.lr.ph1101.preheader, %.lr.ph1101
   %indvars.iv1148 = phi i64 [ %88, %.lr.ph1101.preheader ], [ %indvars.iv.next1149, %.lr.ph1101 ]
-  %92 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv1148
+  %92 = getelementptr inbounds [8 x i8], ptr %82, i64 %indvars.iv1148
   store ptr %.0865.lcssa, ptr %92, align 8
   %indvars.iv.next1149 = add nsw i64 %indvars.iv1148, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1149 to i32
@@ -309,11 +309,11 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 184:                                              ; preds = %150, %184
   %indvars.iv1153 = phi i64 [ 1, %150 ], [ %indvars.iv.next1154, %184 ]
   %.08451103 = phi i32 [ 0, %150 ], [ %.1846, %184 ]
-  %185 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %indvars.iv1153
+  %185 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv1153
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load double, ptr %186, align 8
   %188 = zext nneg i32 %.08451103 to i64
-  %189 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %188
+  %189 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %188
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load double, ptr %190, align 8
   %192 = fcmp olt double %187, %191
@@ -325,7 +325,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 
 194:                                              ; preds = %184
   %195 = zext nneg i32 %.1846 to i64
-  %196 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %195
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load double, ptr %197, align 8
   %.inv = fcmp oge double %198, 0x41DFFFFFFFC00000
@@ -350,7 +350,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %207 = add nuw nsw i32 %.1846, 1
   %208 = and i32 %207, 3
   %209 = zext nneg i32 %208 to i64
-  %210 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %209
+  %210 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %212 = load double, ptr %211, align 8
   %213 = fcmp oeq double %198, %212
@@ -370,7 +370,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %221 = add nuw nsw i32 %.1846, 3
   %222 = and i32 %221, 3
   %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %223
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load double, ptr %225, align 8
   %227 = fcmp oeq double %198, %226
@@ -397,7 +397,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %239 = zext i1 %238 to i32
   %240 = add nsw i32 %239, %236
   %241 = sext i32 %199 to i64
-  %242 = getelementptr inbounds i32, ptr %.0789, i64 %241
+  %242 = getelementptr inbounds [4 x i8], ptr %.0789, i64 %241
   %storemerge = select i1 %235, i32 2147483647, i32 %240
   store i32 %storemerge, ptr %242, align 4
   %.inv1003 = fcmp oge double %.1869, 0x41DFFFFFFFC00000
@@ -405,7 +405,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %.inv1004 = fcmp ole double %.4833, 0xC1E0000000000000
   %.5834 = select i1 %.inv1004, double 0xC1E0000000000000, double %.4833
   %243 = fptosi double %.5834 to i32
-  %244 = getelementptr inbounds i32, ptr %73, i64 %241
+  %244 = getelementptr inbounds [4 x i8], ptr %73, i64 %241
   store i32 %243, ptr %244, align 4
   br label %247
 
@@ -424,14 +424,14 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %251 = sub nsw i32 %.1846, %.48561109
   %252 = and i32 %251, 3
   %253 = zext nneg i32 %252 to i64
-  %254 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %253
+  %254 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %253
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load double, ptr %255, align 8
   %257 = load double, ptr %254, align 16
   %258 = add i32 %251, 3
   %259 = and i32 %258, 3
   %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %260
+  %261 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %260
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load double, ptr %262, align 8
   %264 = fcmp oeq double %256, %263
@@ -488,7 +488,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %286 = fcmp ugt double %.08641105, %285
   %287 = zext i1 %286 to i32
   %288 = add nsw i32 %287, %284
-  %289 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1157
+  %289 = getelementptr inbounds [4 x i8], ptr %.0789, i64 %indvars.iv1157
   %storemerge955 = select i1 %283, i32 2147483647, i32 %288
   store i32 %storemerge955, ptr %289, align 4
   %290 = fadd double %269, %.08641105
@@ -507,14 +507,14 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %292 = add nuw nsw i32 %.58571115, %.1846
   %293 = and i32 %292, 3
   %294 = zext nneg i32 %293 to i64
-  %295 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %294
+  %295 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %294
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %297 = load double, ptr %296, align 8
   %298 = load double, ptr %295, align 16
   %299 = add nuw nsw i32 %292, 1
   %300 = and i32 %299, 3
   %301 = zext nneg i32 %300 to i64
-  %302 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %301
+  %302 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %301
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
   %304 = load double, ptr %303, align 8
   %305 = fcmp oeq double %297, %304
@@ -567,7 +567,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %.inv1073 = fcmp ole double %.16, 0xC1E0000000000000
   %.17 = select i1 %.inv1073, double 0xC1E0000000000000, double %.16
   %324 = fptosi double %.17 to i32
-  %325 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1162
+  %325 = getelementptr inbounds [4 x i8], ptr %73, i64 %indvars.iv1162
   store i32 %324, ptr %325, align 4
   %326 = fadd double %310, %.08401112
   %indvars.iv.next1163 = add nsw i64 %indvars.iv1162, 1
@@ -659,9 +659,9 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %.08211130 = phi i32 [ %350, %.lr.ph1131 ], [ %.1822, %._crit_edge1189 ]
   %.08241129 = phi i32 [ %355, %.lr.ph1131 ], [ %.1825, %._crit_edge1189 ]
   %.08471128 = phi i32 [ 0, %.lr.ph1131 ], [ %spec.select972, %._crit_edge1189 ]
-  %376 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1173
+  %376 = getelementptr inbounds [4 x i8], ptr %.0789, i64 %indvars.iv1173
   %377 = load i32, ptr %376, align 4
-  %378 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1173
+  %378 = getelementptr inbounds [4 x i8], ptr %73, i64 %indvars.iv1173
   %379 = load i32, ptr %378, align 4
   %380 = tail call i32 @llvm.smax.i32(i32 %377, i32 0)
   %381 = tail call i32 @llvm.smin.i32(i32 %379, i32 %366)
@@ -805,9 +805,9 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %.1822 = phi i32 [ %.2823, %452 ], [ %.2823, %448 ], [ %.2823, %454 ], [ %.08211130, %423 ]
   store i32 %.0815, ptr %376, align 4
   store i32 %.1813, ptr %378, align 4
-  %456 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv1173
+  %456 = getelementptr inbounds [4 x i8], ptr %74, i64 %indvars.iv1173
   store i32 %.0811, ptr %456, align 4
-  %457 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1173
+  %457 = getelementptr inbounds [4 x i8], ptr %75, i64 %indvars.iv1173
   store i32 %.0810, ptr %457, align 4
   %458 = add i32 %.pre, 1
   %spec.select972 = tail call i32 @llvm.smax.i32(i32 %.08471128, i32 %458)
@@ -821,9 +821,9 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %.41121 = phi i32 [ %350, %.lr.ph1122 ], [ %.5, %._crit_edge1188 ]
   %.38271120 = phi i32 [ %355, %.lr.ph1122 ], [ %.4828, %._crit_edge1188 ]
   %.38501119 = phi i32 [ 0, %.lr.ph1122 ], [ %spec.select989, %._crit_edge1188 ]
-  %460 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1167
+  %460 = getelementptr inbounds [4 x i8], ptr %.0789, i64 %indvars.iv1167
   %461 = load i32, ptr %460, align 4
-  %462 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1167
+  %462 = getelementptr inbounds [4 x i8], ptr %73, i64 %indvars.iv1167
   %463 = load i32, ptr %462, align 4
   %464 = tail call i32 @llvm.smax.i32(i32 %461, i32 0)
   %465 = tail call i32 @llvm.smin.i32(i32 %463, i32 %357)
@@ -967,9 +967,9 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %.5 = phi i32 [ %.6, %536 ], [ %.6, %532 ], [ %.6, %538 ], [ %.41121, %507 ]
   store i32 %.0797, ptr %460, align 4
   store i32 %.1, ptr %462, align 4
-  %540 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv1167
+  %540 = getelementptr inbounds [4 x i8], ptr %74, i64 %indvars.iv1167
   store i32 %.0795, ptr %540, align 4
-  %541 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1167
+  %541 = getelementptr inbounds [4 x i8], ptr %75, i64 %indvars.iv1167
   store i32 %.0794, ptr %541, align 4
   %542 = add i32 %.pre1190, 1
   %spec.select989 = tail call i32 @llvm.smax.i32(i32 %.38501119, i32 %542)
@@ -988,9 +988,9 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 
 545:                                              ; preds = %545, %.loopexit1084
   %indvars.iv1179 = phi i64 [ %indvars.iv.next1180, %545 ], [ %543, %.loopexit1084 ]
-  %546 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1179
+  %546 = getelementptr inbounds [4 x i8], ptr %.0789, i64 %indvars.iv1179
   %547 = load i32, ptr %546, align 4
-  %548 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1179
+  %548 = getelementptr inbounds [4 x i8], ptr %73, i64 %indvars.iv1179
   %549 = load i32, ptr %548, align 4
   %550 = icmp sgt i32 %547, %549
   %551 = icmp sle i64 %indvars.iv1179, %544
@@ -1005,9 +1005,9 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 
 .preheader:                                       ; preds = %553, %.preheader
   %indvars.iv1182 = phi i64 [ %indvars.iv.next1183, %.preheader ], [ %544, %553 ]
-  %556 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1182
+  %556 = getelementptr inbounds [4 x i8], ptr %.0789, i64 %indvars.iv1182
   %557 = load i32, ptr %556, align 4
-  %558 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv1182
+  %558 = getelementptr inbounds [4 x i8], ptr %73, i64 %indvars.iv1182
   %559 = load i32, ptr %558, align 4
   %560 = icmp sgt i32 %557, %559
   %indvars.iv.next1183 = add nsw i64 %indvars.iv1182, -1

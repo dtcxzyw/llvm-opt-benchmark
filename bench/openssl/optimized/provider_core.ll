@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ossl_provider_st = type { i8, ptr, %struct.CRYPTO_REF_COUNT, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i8, ptr, ptr }
 %struct.CRYPTO_REF_COUNT = type { i32 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.ossl_item_st = type { i32, ptr }
-%struct.ERR_string_data_st = type { i64, ptr }
 
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/provider_core.c\00", align 1
 @__func__.ossl_provider_info_add_to_store = private unnamed_addr constant [32 x i8] c"ossl_provider_info_add_to_store\00", align 1
@@ -99,7 +97,7 @@ define void @ossl_provider_store_free(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %.lr.ph, %20
   %.015 = phi i64 [ 0, %.lr.ph ], [ %28, %20 ]
   %21 = load ptr, ptr %19, align 8, !tbaa !27
-  %22 = getelementptr inbounds nuw %struct.OSSL_PROVIDER_INFO, ptr %21, i64 %.015
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %.015
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   tail call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 282) #11
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -341,7 +339,7 @@ get_provider_store.exit.thread:                   ; preds = %2
   %35 = phi ptr [ %.pre, %._crit_edge ], [ %32, %.thread31 ], [ %19, %22 ]
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %37 = load i64, ptr %36, align 8, !tbaa !26
-  %38 = getelementptr inbounds nuw %struct.OSSL_PROVIDER_INFO, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !42
   %39 = load i64, ptr %36, align 8, !tbaa !26
   %40 = add i64 %39, 1
@@ -743,7 +741,7 @@ get_provider_store.exit:                          ; preds = %5
 .lr.ph88:                                         ; preds = %.critedge74.preheader, %.critedge74
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge74 ], [ 0, %.critedge74.preheader ]
   %56 = phi ptr [ %67, %.critedge74 ], [ %55, %.critedge74.preheader ]
-  %57 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %3, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !63
   %.not65 = icmp eq i32 %59, 4
@@ -763,7 +761,7 @@ get_provider_store.exit:                          ; preds = %5
 
 .critedge74:                                      ; preds = %60, %.lr.ph88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %3, i64 %indvars.iv.next
+  %66 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %indvars.iv.next
   %67 = load ptr, ptr %66, align 8, !tbaa !61
   %.not64 = icmp eq ptr %67, null
   br i1 %.not64, label %.loopexit, label %.lr.ph88, !llvm.loop !65
@@ -1878,7 +1876,7 @@ get_provider_store.exit.i:                        ; preds = %25
 
 125:                                              ; preds = %.lr.ph.i
   %126 = add i64 %.083156.i, 1
-  %127 = getelementptr inbounds nuw %struct.ossl_item_st, ptr %122, i64 %126
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %126
   %128 = load i32, ptr %127, align 8, !tbaa !92
   %.not112.i = icmp eq i32 %128, 0
   br i1 %.not112.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !94
@@ -1914,11 +1912,11 @@ get_provider_store.exit.i:                        ; preds = %25
 
 .lr.ph160.i:                                      ; preds = %.lr.ph160.i, %.lr.ph160.preheader.i
   %.0158.i = phi i64 [ %152, %.lr.ph160.i ], [ 1, %.lr.ph160.preheader.i ]
-  %144 = getelementptr %struct.ossl_item_st, ptr %122, i64 %.0158.i
+  %144 = getelementptr [16 x i8], ptr %122, i64 %.0158.i
   %145 = getelementptr i8, ptr %144, i64 -16
   %146 = load i32, ptr %145, align 8, !tbaa !92
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds nuw %struct.ERR_string_data_st, ptr %131, i64 %.0158.i
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %.0158.i
   store i64 %147, ptr %148, align 8, !tbaa !95
   %149 = getelementptr i8, ptr %144, i64 -8
   %150 = load ptr, ptr %149, align 8, !tbaa !98

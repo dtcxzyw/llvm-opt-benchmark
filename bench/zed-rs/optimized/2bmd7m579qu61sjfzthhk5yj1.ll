@@ -4036,7 +4036,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN4gpui3app10ent
   %16 = icmp ugt i64 %14, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !694, !noalias !695, !nonnull !4
-  %19 = getelementptr inbounds nuw { i32, [5 x i32] }, ptr %18, i64 %15
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %15
   %.sroa.03.0.i.i = select i1 %16, ptr %19, ptr null
   %20 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option15Option$LT$T$GT$6filter17h0643e674ebf1d316E.llvm.6743433871146222037"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %.sroa.03.0.i.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %3), !noalias !693
   %21 = icmp eq ptr %20, null
@@ -4096,7 +4096,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17h0a11c624ffea3368E
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !699, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds nuw { i32, [5 x i32] }, ptr %19, i64 %15
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   %21 = load i32, ptr %20, align 8, !range !702, !noalias !699, !noundef !4
   %trunc.i = trunc nuw i32 %21 to i1
   br i1 %trunc.i, label %25, label %22
@@ -4173,7 +4173,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17hc86ff075fad9fe6cE
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !703, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds nuw { i32, [5 x i32] }, ptr %19, i64 %15
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   %21 = load i32, ptr %20, align 8, !range !702, !noalias !703, !noundef !4
   %trunc.i = trunc nuw i32 %21 to i1
   br i1 %trunc.i, label %25, label %22
@@ -13782,7 +13782,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN84_$LT$gpui..
 define void @"_ZN2ui10components6button11button_like128_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..TintColor$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h55eef2808b318dd1E"(ptr dead_on_unwind noalias noundef writable writeonly sret([20 x i8]) align 4 captures(none) dereferenceable(20) %0, i8 noundef %1) unnamed_addr #17 {
 switch.lookup:
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %0, align 4
   ret void
@@ -13798,7 +13798,7 @@ define void @"_ZN2ui10components6button11button_like130_$LT$impl$u20$core..conve
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @"switch.table._ZN2ui10components6button11button_like130_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..ButtonStyle$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h6eb5e43acf21098cE", i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZN2ui10components6button11button_like128_$LT$impl$u20$core..convert..From$LT$ui..components..button..button_like..TintColor$GT$$u20$for$u20$ui..styles..color..Color$GT$4from17h55eef2808b318dd1E.exit"
 
@@ -19562,7 +19562,7 @@ define void @_ZN2ui6styles9elevation14ElevationIndex6shadow17hf1587c30f0e3bc72E(
   %39 = phi i64 [ %.pre.i, %.noexc ], [ %34, %29 ]
   %.sroa.01.0.i = phi ptr [ %33, %.noexc ], [ %.sink9.i.i, %29 ]
   %.sroa.0.0.i = phi ptr [ %37, %.noexc ], [ %.sink10.i.i, %29 ]
-  %40 = getelementptr inbounds { { float, float, float, float }, { float, float }, float, float }, ptr %.sroa.0.0.i, i64 %39
+  %40 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.i, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0, i64 16, i1 false)
   %.sroa.4.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store float %22, ptr %.sroa.4.0..sroa_idx23, align 4

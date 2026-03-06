@@ -703,9 +703,9 @@ define i32 @N_VLinearCombination(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %17 = load ptr, ptr %5, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %19 = load ptr, ptr %18, align 8, !tbaa !24
-  %20 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !69
-  %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !71
   tail call void %19(double noundef %21, ptr noundef %23, double noundef 1.000000e+00, ptr noundef nonnull %3, ptr noundef nonnull %3) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -743,11 +743,11 @@ define i32 @N_VScaleAddMulti(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %13 = load ptr, ptr %6, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !69
-  %18 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !71
-  %20 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !71
   tail call void %15(double noundef %17, ptr noundef nonnull %2, double noundef 1.000000e+00, ptr noundef %19, ptr noundef %21) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -785,10 +785,10 @@ define i32 @N_VDotProdMulti(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %12 = load ptr, ptr %5, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load ptr, ptr %13, align 8, !tbaa !32
-  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !71
   %17 = tail call double %14(ptr noundef nonnull %1, ptr noundef %16) #13
-  %18 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store double %17, ptr %18, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -828,11 +828,11 @@ define i32 @N_VLinearSumVectorArray(i32 noundef %0, double noundef %1, ptr nound
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %19 = load ptr, ptr %18, align 8, !tbaa !24
-  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !71
-  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !71
-  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !71
   tail call void %19(double noundef %1, ptr noundef %21, double noundef %3, ptr noundef %23, ptr noundef %25) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -873,11 +873,11 @@ define i32 @N_VScaleVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %17 = load ptr, ptr %16, align 8, !tbaa !28
-  %18 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %19 = load double, ptr %18, align 8, !tbaa !69
-  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !71
-  %22 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !71
   tail call void %17(double noundef %19, ptr noundef %21, ptr noundef %23) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -918,7 +918,7 @@ define i32 @N_VConstVectorArray(i32 noundef %0, double noundef %1, ptr noundef %
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = load ptr, ptr %15, align 8, !tbaa !25
-  %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   tail call void %16(double noundef %1, ptr noundef %18) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -959,12 +959,12 @@ define i32 @N_VWrmsNormVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef %
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %17 = load ptr, ptr %16, align 8, !tbaa !34
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !71
-  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !71
   %22 = tail call double %17(ptr noundef %19, ptr noundef %21) #13
-  %23 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store double %22, ptr %23, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1001,12 +1001,12 @@ define i32 @N_VWrmsNormMaskVectorArray(i32 noundef %0, ptr noundef %1, ptr nound
   %13 = load ptr, ptr %6, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 176
   %15 = load ptr, ptr %14, align 8, !tbaa !35
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !71
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !71
   %20 = tail call double %15(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %3) #13
-  %21 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store double %20, ptr %21, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1050,7 +1050,7 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us74
   %indvars.iv94 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next95, %._crit_edge.us74 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv94
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv94
   br label %20
 
 20:                                               ; preds = %.preheader.us, %20
@@ -1060,16 +1060,16 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %25 = load ptr, ptr %24, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv89
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv89
   %27 = load double, ptr %26, align 8, !tbaa !69
   %28 = load ptr, ptr %19, align 8, !tbaa !71
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv89
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv89
   %30 = load ptr, ptr %29, align 8, !tbaa !73
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv94
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv94
   %32 = load ptr, ptr %31, align 8, !tbaa !71
-  %33 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv89
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv89
   %34 = load ptr, ptr %33, align 8, !tbaa !73
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv94
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv94
   %36 = load ptr, ptr %35, align 8, !tbaa !71
   tail call void %25(double noundef %27, ptr noundef %28, double noundef 1.000000e+00, ptr noundef %32, ptr noundef %36) #13
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
@@ -1104,17 +1104,17 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
 
 44:                                               ; preds = %.preheader65.us, %44
   %indvars.iv79 = phi i64 [ 0, %.preheader65.us ], [ %indvars.iv.next80, %44 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv79
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv79
   %46 = load ptr, ptr %45, align 8, !tbaa !73
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv84
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv84
   %48 = load ptr, ptr %47, align 8, !tbaa !71
-  %49 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv79
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv79
   store ptr %48, ptr %49, align 8, !tbaa !71
-  %50 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv79
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv79
   %51 = load ptr, ptr %50, align 8, !tbaa !73
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv84
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv84
   %53 = load ptr, ptr %52, align 8, !tbaa !71
-  %54 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv79
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv79
   store ptr %53, ptr %54, align 8, !tbaa !71
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
@@ -1131,7 +1131,7 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
   %58 = load ptr, ptr %57, align 8, !tbaa !3
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 248
   %60 = load ptr, ptr %59, align 8, !tbaa !44
-  %61 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv84
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv84
   %62 = load ptr, ptr %61, align 8, !tbaa !71
   %63 = tail call i32 %60(i32 noundef %1, ptr noundef %2, ptr noundef %62, ptr noundef nonnull %40, ptr noundef nonnull %41) #13
   %.not63.us = icmp eq i32 %63, 0
@@ -1149,7 +1149,7 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
   %67 = load ptr, ptr %66, align 8, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 248
   %69 = load ptr, ptr %68, align 8, !tbaa !44
-  %70 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !71
   %72 = tail call i32 %69(i32 noundef %1, ptr noundef %2, ptr noundef %71, ptr noundef %40, ptr noundef %41) #13
   %.not63 = icmp eq i32 %72, 0
@@ -1208,9 +1208,9 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   %23 = load double, ptr %2, align 8, !tbaa !69
   %24 = load ptr, ptr %3, align 8, !tbaa !73
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv95
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv95
   %26 = load ptr, ptr %25, align 8, !tbaa !71
-  %27 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv95
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv95
   %28 = load ptr, ptr %27, align 8, !tbaa !71
   tail call void %22(double noundef %23, ptr noundef %26, ptr noundef %28) #13
   br label %29
@@ -1222,11 +1222,11 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %34 = load ptr, ptr %33, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv90
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv90
   %36 = load double, ptr %35, align 8, !tbaa !69
-  %37 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv90
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv90
   %38 = load ptr, ptr %37, align 8, !tbaa !73
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv95
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv95
   %40 = load ptr, ptr %39, align 8, !tbaa !71
   %41 = load ptr, ptr %27, align 8, !tbaa !71
   tail call void %34(double noundef %36, ptr noundef %40, double noundef 1.000000e+00, ptr noundef %41, ptr noundef %41) #13
@@ -1261,11 +1261,11 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 
 48:                                               ; preds = %.preheader60.us, %48
   %indvars.iv75 = phi i64 [ 0, %.preheader60.us ], [ %indvars.iv.next76, %48 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv75
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv75
   %50 = load ptr, ptr %49, align 8, !tbaa !73
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv80
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv80
   %52 = load ptr, ptr %51, align 8, !tbaa !71
-  %53 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv75
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv75
   store ptr %52, ptr %53, align 8, !tbaa !71
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
@@ -1282,7 +1282,7 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   %57 = load ptr, ptr %56, align 8, !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 240
   %59 = load ptr, ptr %58, align 8, !tbaa !43
-  %60 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv80
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv80
   %61 = load ptr, ptr %60, align 8, !tbaa !71
   %62 = tail call i32 %59(i32 noundef %1, ptr noundef %2, ptr noundef nonnull %45, ptr noundef %61) #13
   %.not59.us = icmp eq i32 %62, 0
@@ -1300,7 +1300,7 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   %66 = load ptr, ptr %65, align 8, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 240
   %68 = load ptr, ptr %67, align 8, !tbaa !43
-  %69 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !71
   %71 = tail call i32 %68(i32 noundef %1, ptr noundef %2, ptr noundef %45, ptr noundef %70) #13
   %.not59 = icmp eq i32 %71, 0
@@ -1320,9 +1320,9 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   %76 = load ptr, ptr %75, align 8, !tbaa !28
   %77 = load double, ptr %2, align 8, !tbaa !69
   %78 = load ptr, ptr %3, align 8, !tbaa !73
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv85
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv85
   %80 = load ptr, ptr %79, align 8, !tbaa !71
-  %81 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv85
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv85
   %82 = load ptr, ptr %81, align 8, !tbaa !71
   tail call void %76(double noundef %77, ptr noundef %80, ptr noundef %82) #13
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
@@ -1454,10 +1454,10 @@ define i32 @N_VDotProdMultiLocal(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %15 = load ptr, ptr %5, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 320
   %17 = load ptr, ptr %16, align 8, !tbaa !53
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !71
   %20 = tail call double %17(ptr noundef nonnull %1, ptr noundef %19) #13
-  %21 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store double %20, ptr %21, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1547,7 +1547,7 @@ define noalias noundef ptr @N_VCloneEmptyVectorArray(i32 noundef %0, ptr noundef
   br label %N_VCloneEmpty.exit
 
 N_VCloneEmpty.exit:                               ; preds = %10, %15
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %14, ptr %18, align 8, !tbaa !71
   %19 = tail call i32 @SUNContext_PeekLastError(ptr noundef %4) #13
   %20 = icmp slt i32 %19, 0
@@ -1564,7 +1564,7 @@ N_VCloneEmpty.exit:                               ; preds = %10, %15
 
 .lr.ph.i:                                         ; preds = %N_VDestroy.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %N_VDestroy.exit.i ]
-  %23 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8, !tbaa !71
   %25 = icmp eq ptr %24, null
   br i1 %25, label %N_VDestroy.exit.i, label %26
@@ -1639,7 +1639,7 @@ define void @N_VDestroyVectorArray(ptr noundef captures(address_is_null) %0, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %N_VDestroy.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %N_VDestroy.exit ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !71
   %7 = icmp eq ptr %6, null
   br i1 %7, label %N_VDestroy.exit, label %8
@@ -1722,7 +1722,7 @@ define noalias noundef ptr @N_VCloneVectorArray(i32 noundef %0, ptr noundef %1) 
   br label %N_VClone.exit
 
 N_VClone.exit:                                    ; preds = %10, %15
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %14, ptr %18, align 8, !tbaa !71
   %19 = tail call i32 @SUNContext_PeekLastError(ptr noundef %4) #13
   %20 = icmp slt i32 %19, 0
@@ -1739,7 +1739,7 @@ N_VClone.exit:                                    ; preds = %10, %15
 
 .lr.ph.i:                                         ; preds = %N_VDestroy.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %N_VDestroy.exit.i ]
-  %23 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8, !tbaa !71
   %25 = icmp eq ptr %24, null
   br i1 %25, label %N_VDestroy.exit.i, label %26
@@ -1800,7 +1800,7 @@ N_VDestroyVectorArray.exit:                       ; preds = %N_VDestroy.exit.i, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @N_VGetVecAtIndexVectorArray(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds ptr, ptr %0, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !71
   ret ptr %5
 }
@@ -1808,7 +1808,7 @@ define ptr @N_VGetVecAtIndexVectorArray(ptr noundef readonly captures(none) %0, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @N_VSetVecAtIndexVectorArray(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #9 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %0, i64 %4
   store ptr %2, ptr %5, align 8, !tbaa !71
   ret void
 }

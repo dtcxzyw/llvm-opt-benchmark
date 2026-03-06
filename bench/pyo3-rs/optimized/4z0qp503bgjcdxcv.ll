@@ -4694,7 +4694,7 @@ _ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exi
 .noexc26:                                         ; preds = %.noexc25
   %238 = load ptr, ptr %184, align 8, !noalias !24
   %239 = load i64, ptr %186, align 8, !noalias !24
-  %240 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %238, i64 %239
+  %240 = getelementptr inbounds [256 x i8], ptr %238, i64 %239
   store ptr %238, ptr %114, align 8, !noalias !24
   %241 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store ptr %240, ptr %241, align 8, !noalias !24
@@ -5057,7 +5057,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   %310 = load ptr, ptr %309, align 8, !noalias !33
   %311 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %312 = load i64, ptr %311, align 8, !noalias !33
-  %313 = getelementptr inbounds { { { i64, [6 x i64] }, { [16 x i8], i8, [15 x i8] } }, ptr }, ptr %310, i64 %312
+  %313 = getelementptr inbounds [96 x i8], ptr %310, i64 %312
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %92)
           to label %316 unwind label %.loopexit.split-lp.i.i, !noalias !33
 
@@ -5246,7 +5246,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   store ptr %.sroa.339.sroa.0.sroa.4.0..sroa.339.0..sroa_idx.sroa_idx, ptr %81, align 8, !noalias !33
   %363 = load ptr, ptr %309, align 8, !noalias !33
   %364 = load i64, ptr %311, align 8, !noalias !33
-  %365 = getelementptr inbounds { { { i64, [6 x i64] }, { [16 x i8], i8, [15 x i8] } }, ptr }, ptr %363, i64 %364
+  %365 = getelementptr inbounds [96 x i8], ptr %363, i64 %364
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %76)
           to label %370 unwind label %368, !noalias !33
 
@@ -6264,7 +6264,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   %627 = load ptr, ptr %104, align 8, !noalias !33
   %628 = load ptr, ptr %309, align 8, !noalias !33
   %629 = load i64, ptr %311, align 8, !noalias !33
-  %630 = getelementptr inbounds { { { i64, [6 x i64] }, { [16 x i8], i8, [15 x i8] } }, ptr }, ptr %628, i64 %629
+  %630 = getelementptr inbounds [96 x i8], ptr %628, i64 %629
   store ptr %628, ptr %55, align 8, !noalias !33
   %631 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %630, ptr %631, align 8, !noalias !33
@@ -7750,7 +7750,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum
   %274 = load ptr, ptr %273, align 8
   %275 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %276 = load i64, ptr %275, align 8
-  %277 = getelementptr inbounds { i64, [15 x i64] }, ptr %274, i64 %276
+  %277 = getelementptr inbounds [128 x i8], ptr %274, i64 %276
   store ptr %274, ptr %175, align 8
   %278 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store ptr %277, ptr %278, align 8
@@ -7789,7 +7789,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum
 _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.exit: ; preds = %280
   %292 = load ptr, ptr %273, align 8
   %293 = load i64, ptr %275, align 8
-  %294 = getelementptr inbounds { i64, [15 x i64] }, ptr %292, i64 %293
+  %294 = getelementptr inbounds [128 x i8], ptr %292, i64 %293
   store ptr %292, ptr %172, align 8
   %295 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store ptr %294, ptr %295, align 8
@@ -7996,7 +7996,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %355 = load i64, ptr %354, align 8
-  %356 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %353, i64 %355
+  %356 = getelementptr inbounds [32 x i8], ptr %353, i64 %355
   store ptr %353, ptr %162, align 8
   %357 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store ptr %356, ptr %357, align 8
@@ -8526,7 +8526,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
 544:                                              ; preds = %543
   %545 = load ptr, ptr %405, align 8
   %546 = load i64, ptr %406, align 8
-  %547 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %545, i64 %546
+  %547 = getelementptr inbounds [32 x i8], ptr %545, i64 %546
   store ptr %545, ptr %109, align 8
   %548 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %547, ptr %548, align 8
@@ -8543,7 +8543,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
 553:                                              ; preds = %551
   %554 = load ptr, ptr %407, align 8
   %555 = load i64, ptr %408, align 8
-  %556 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %554, i64 %555
+  %556 = getelementptr inbounds [32 x i8], ptr %554, i64 %555
   store ptr %554, ptr %108, align 8
   %557 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store ptr %556, ptr %557, align 8
@@ -8564,7 +8564,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
 563:                                              ; preds = %561
   %564 = load ptr, ptr %409, align 8
   %565 = load i64, ptr %410, align 8
-  %566 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %564, i64 %565
+  %566 = getelementptr inbounds [32 x i8], ptr %564, i64 %565
   store ptr %564, ptr %107, align 8
   %567 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %566, ptr %567, align 8
@@ -8585,7 +8585,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
 573:                                              ; preds = %571
   %574 = load ptr, ptr %411, align 8
   %575 = load i64, ptr %412, align 8
-  %576 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %574, i64 %575
+  %576 = getelementptr inbounds [32 x i8], ptr %574, i64 %575
   store ptr %574, ptr %106, align 8
   %577 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %576, ptr %577, align 8
@@ -9915,7 +9915,7 @@ _ZN19pyo3_macros_backend7pyclass31complex_enum_struct_variant_new17h9ee762c91a75
 901:                                              ; preds = %900
   %902 = load ptr, ptr %428, align 8, !noalias !62
   %903 = load i64, ptr %429, align 8, !noalias !62
-  %904 = getelementptr inbounds { ptr, i32, [1 x i32] }, ptr %902, i64 %903
+  %904 = getelementptr inbounds [16 x i8], ptr %902, i64 %903
   store ptr %902, ptr %33, align 8, !noalias !62
   store ptr %904, ptr %.sroa.221.0..sroa_idx.i.i, align 8, !noalias !62
   store i64 0, ptr %.sroa.322.0..sroa_idx.i.i, align 8, !noalias !62
@@ -11260,7 +11260,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
 261:                                              ; preds = %260
   %262 = load ptr, ptr %191, align 8, !noalias !66
   %263 = load i64, ptr %192, align 8, !noalias !66
-  %264 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %262, i64 %263
+  %264 = getelementptr inbounds [32 x i8], ptr %262, i64 %263
   store ptr %262, ptr %126, align 8, !noalias !66
   %265 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %264, ptr %265, align 8, !noalias !66
@@ -11356,7 +11356,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
 290:                                              ; preds = %289
   %291 = load ptr, ptr %189, align 8, !noalias !66
   %292 = load i64, ptr %190, align 8, !noalias !66
-  %293 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %291, i64 %292
+  %293 = getelementptr inbounds [24 x i8], ptr %291, i64 %292
   store ptr %291, ptr %121, align 8, !noalias !66
   %294 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %293, ptr %294, align 8, !noalias !66
@@ -11467,7 +11467,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
 323:                                              ; preds = %322
   %324 = load ptr, ptr %195, align 8, !noalias !66
   %325 = load i64, ptr %196, align 8, !noalias !66
-  %326 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %324, i64 %325
+  %326 = getelementptr inbounds [32 x i8], ptr %324, i64 %325
   store ptr %324, ptr %116, align 8, !noalias !66
   %327 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr %326, ptr %327, align 8, !noalias !66
@@ -12208,7 +12208,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
   store ptr inttoptr (i64 8 to ptr), ptr %476, align 8, !noalias !72
   %477 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i64 0, ptr %477, align 8, !noalias !72
-  %478 = getelementptr inbounds { ptr, i32, [1 x i32] }, ptr %.val.i, i64 %.val75.i
+  %478 = getelementptr inbounds [16 x i8], ptr %.val.i, i64 %.val75.i
   store ptr %.val.i, ptr %69, align 8, !noalias !72
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %478, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !72
@@ -12524,7 +12524,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
 567:                                              ; preds = %566
   %568 = load ptr, ptr %487, align 8, !noalias !72
   %569 = load i64, ptr %488, align 8, !noalias !72
-  %570 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %568, i64 %569
+  %570 = getelementptr inbounds [32 x i8], ptr %568, i64 %569
   store ptr %568, ptr %46, align 8, !noalias !72
   store ptr %570, ptr %489, align 8, !noalias !72
   br label %571
@@ -13343,7 +13343,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
   %741 = load ptr, ptr %740, align 8, !noalias !78
   %742 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %743 = load i64, ptr %742, align 8, !noalias !78
-  %744 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %741, i64 %743
+  %744 = getelementptr inbounds [32 x i8], ptr %741, i64 %743
   store ptr %741, ptr %10, align 8, !noalias !78
   %745 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %744, ptr %745, align 8, !noalias !78
@@ -13798,13 +13798,13 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
 846:                                              ; preds = %845
   %847 = load ptr, ptr %468, align 8, !noalias !69
   %848 = load i64, ptr %469, align 8, !noalias !69
-  %849 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %847, i64 %848
+  %849 = getelementptr inbounds [24 x i8], ptr %847, i64 %848
   store ptr %847, ptr %86, align 8, !noalias !69
   %850 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %849, ptr %850, align 8, !noalias !69
   %851 = load ptr, ptr %470, align 8, !noalias !69
   %852 = load i64, ptr %471, align 8, !noalias !69
-  %853 = getelementptr inbounds { i64, [27 x i64] }, ptr %851, i64 %852
+  %853 = getelementptr inbounds [224 x i8], ptr %851, i64 %852
   store ptr %851, ptr %85, align 8, !noalias !69
   %854 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %853, ptr %854, align 8, !noalias !69
@@ -13908,7 +13908,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
 883:                                              ; preds = %882
   %884 = load ptr, ptr %468, align 8, !noalias !69
   %885 = load i64, ptr %469, align 8, !noalias !69
-  %886 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %884, i64 %885
+  %886 = getelementptr inbounds [24 x i8], ptr %884, i64 %885
   store ptr %884, ptr %80, align 8, !noalias !69
   %887 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %886, ptr %887, align 8, !noalias !69
@@ -14029,7 +14029,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
   %920 = load ptr, ptr %919, align 8, !noalias !69
   %921 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %922 = load i64, ptr %921, align 8, !noalias !69
-  %923 = getelementptr inbounds { { { i64, [2 x i64] }, { { { { i64, ptr, {} }, i64 }, ptr }, { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] } }, { { { i64, ptr, {} }, i64 }, ptr }, { i64, [7 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { { [16 x i8], i8, [7 x i8] }, { {} } }, { ptr, [1 x i64] }, i32, { { { [2 x i32], i32 }, { {} } } } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, { i32, [1 x i32] }, { i32, [7 x i32] } }, ptr %920, i64 %922
+  %923 = getelementptr inbounds [392 x i8], ptr %920, i64 %922
   store ptr %920, ptr %75, align 8, !noalias !69
   %924 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %923, ptr %924, align 8, !noalias !69
@@ -14271,7 +14271,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %27, i64 %29
+  %30 = getelementptr inbounds [24 x i8], ptr %27, i64 %29
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %23)
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %23, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.100, i64 5)
           to label %34 unwind label %32
@@ -14344,7 +14344,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass36impl_complex_enum
 50:                                               ; preds = %49
   %51 = load ptr, ptr %26, align 8
   %52 = load i64, ptr %28, align 8
-  %53 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %51, i64 %52
+  %53 = getelementptr inbounds [24 x i8], ptr %51, i64 %52
   store ptr %51, ptr %15, align 8
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %53, ptr %54, align 8
@@ -20473,12 +20473,12 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   %363 = load ptr, ptr %362, align 8
   %364 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %365 = load i64, ptr %364, align 8
-  %366 = getelementptr inbounds { { { i64, [3 x i64] }, { {} } }, { { i64, [3 x i64] }, { {} } } }, ptr %363, i64 %365
+  %366 = getelementptr inbounds [64 x i8], ptr %363, i64 %365
   %367 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %368 = load ptr, ptr %367, align 8
   %369 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %370 = load i64, ptr %369, align 8
-  %371 = getelementptr inbounds { { { i64, [3 x i64] }, { {} } }, { { i64, [3 x i64] }, { {} } } }, ptr %368, i64 %370
+  %371 = getelementptr inbounds [64 x i8], ptr %368, i64 %370
   invoke void @_ZN4core4iter6traits8iterator8Iterator5chain17h2a8b53f82af90bcdE(ptr nonnull sret([32 x i8]) align 8 %98, ptr %363, ptr %366, ptr %368, ptr %371)
           to label %595 unwind label %593
 
@@ -22798,7 +22798,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
   %959 = load ptr, ptr %958, align 8
   %960 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %961 = load i64, ptr %960, align 8
-  %962 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %959, i64 %961
+  %962 = getelementptr inbounds [32 x i8], ptr %959, i64 %961
   store ptr %959, ptr %69, align 8
   %963 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %962, ptr %963, align 8

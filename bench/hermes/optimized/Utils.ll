@@ -287,7 +287,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes8CallInstELb1EE9push_backERKS3_.exit:
   %11 = phi i32 [ %.pre.i, %if.then.i ], [ %9, %if.then ]
   %12 = load ptr, ptr %callsites, align 8
   %conv.i3.i = zext i32 %11 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %12, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %conv.i3.i
   %13 = ptrtoint ptr %5 to i64
   store i64 %13, ptr %add.ptr.i.i, align 1
   %14 = load i32, ptr %Size.i.i, align 8
@@ -420,7 +420,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes8CallInstELb1EE9push_backERKS3_.exit7
   %32 = phi i32 [ %.pre.i67, %if.then.i65 ], [ %30, %if.then53 ]
   %33 = load ptr, ptr %callsites, align 8
   %conv.i3.i69 = zext i32 %32 to i64
-  %add.ptr.i.i70 = getelementptr inbounds nuw ptr, ptr %33, i64 %conv.i3.i69
+  %add.ptr.i.i70 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %conv.i3.i69
   %34 = ptrtoint ptr %sub.ptr.i.i.i to i64
   store i64 %34, ptr %add.ptr.i.i70, align 1
   %35 = load i32, ptr %Size.i.i, align 8

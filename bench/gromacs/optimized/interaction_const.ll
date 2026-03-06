@@ -30,18 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.134" = type { %"struct.std::_Head_base.137" }
 %"struct.std::_Head_base.137" = type { ptr }
 %"class.std::allocator.127" = type { i8 }
-%struct.gmx_moltype_t = type { ptr, %struct.t_atoms, %"struct.std::array", %"class.gmx::ListOfLists" }
-%struct.t_atoms = type { i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i8, i8, i8, i8 }
-%"struct.std::array" = type { [95 x %struct.InteractionList] }
-%struct.InteractionList = type { %"class.std::vector.77" }
-%"class.std::vector.77" = type { %"struct.std::_Vector_base.78" }
-%"struct.std::_Vector_base.78" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::ListOfLists" = type { %"class.std::vector.77", %"class.std::vector.77" }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
-%union.t_iparams = type { %struct.anon.167 }
-%struct.anon.167 = type { [3 x float], [3 x float], [3 x float], [3 x float] }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -281,7 +269,7 @@ _ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit51: ; 
   %.054120.i = phi i64 [ 0, %.lr.ph.i ], [ %116, %._crit_edge108.i ]
   %.055119.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %.1.lcssa.i, %._crit_edge108.i ]
   %.056118.i = phi float [ -1.000000e+00, %.lr.ph.i ], [ %.157.lcssa.i, %._crit_edge108.i ]
-  %62 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %53, i64 %.054120.i
+  %62 = getelementptr inbounds nuw [2408 x i8], ptr %53, i64 %.054120.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i32, ptr %63, align 8, !tbaa !231
   %65 = icmp sgt i32 %64, 0
@@ -299,7 +287,7 @@ _ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit51: ; 
   %indvars.iv142.i = phi i64 [ %indvars.iv.next143.i, %._crit_edge100.us.i ], [ 0, %.lr.ph107.i ]
   %.1105.us.i = phi float [ %.3.lcssa.us.i, %._crit_edge100.us.i ], [ %.055119.i, %.lr.ph107.i ]
   %.157104.us.i = phi float [ %.359.lcssa.us.i, %._crit_edge100.us.i ], [ %.056118.i, %.lr.ph107.i ]
-  %69 = getelementptr inbounds nuw %struct.t_atom, ptr %67, i64 %indvars.iv142.i
+  %69 = getelementptr inbounds nuw [36 x i8], ptr %67, i64 %indvars.iv142.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i16, ptr %70, align 4, !tbaa !237
   %72 = zext i16 %71 to i32
@@ -310,7 +298,7 @@ _ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit51: ; 
   %.098.us.i = phi i64 [ %.054120.i, %.preheader.us.i ], [ %78, %._crit_edge.us.i ]
   %.297.us.i = phi float [ %.1105.us.i, %.preheader.us.i ], [ %.3.lcssa.us.i, %._crit_edge.us.i ]
   %.25896.us.i = phi float [ %.157104.us.i, %.preheader.us.i ], [ %.359.lcssa.us.i, %._crit_edge.us.i ]
-  %74 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %53, i64 %.098.us.i
+  %74 = getelementptr inbounds nuw [2408 x i8], ptr %53, i64 %.098.us.i
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i32, ptr %75, align 8, !tbaa !231
   %77 = icmp sgt i32 %76, 0
@@ -327,7 +315,7 @@ _ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit51: ; 
   %indvars.iv137.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next138.i, %85 ]
   %.394.us.i = phi float [ %.297.us.i, %.lr.ph.us.i ], [ %.4.us.i, %85 ]
   %.35993.us.i = phi float [ %.25896.us.i, %.lr.ph.us.i ], [ %.460.us.i, %85 ]
-  %81 = getelementptr inbounds nuw %struct.t_atom, ptr %96, i64 %indvars.iv137.i
+  %81 = getelementptr inbounds nuw [36 x i8], ptr %96, i64 %indvars.iv137.i
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i16, ptr %82, align 4, !tbaa !237
   %84 = zext i16 %83 to i32
@@ -337,7 +325,7 @@ _ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit51: ; 
 85:                                               ; preds = %80
   %86 = add nuw nsw i32 %94, %84
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw %union.t_iparams, ptr %59, i64 %87
+  %88 = getelementptr inbounds nuw [48 x i8], ptr %59, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load float, ptr %89, align 4, !tbaa !243
   %91 = fcmp ogt float %90, %.394.us.i
@@ -367,7 +355,7 @@ _ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit51: ; 
 
 .lr.ph107.split.i:                                ; preds = %.lr.ph107.i, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %.lr.ph107.i ]
-  %97 = getelementptr inbounds nuw %struct.t_atom, ptr %67, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw [36 x i8], ptr %67, i64 %indvars.iv.i
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i16, ptr %98, align 4, !tbaa !237
   %100 = zext i16 %99 to i32

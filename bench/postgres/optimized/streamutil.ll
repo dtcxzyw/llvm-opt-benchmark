@@ -157,10 +157,10 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
 
 29:                                               ; preds = %27
   %30 = sext i32 %.0107142 to i64
-  %31 = getelementptr inbounds ptr, ptr %21, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %21, i64 %30
   store ptr %24, ptr %31, align 8
   %32 = load ptr, ptr %25, align 8
-  %33 = getelementptr inbounds ptr, ptr %22, i64 %30
+  %33 = getelementptr inbounds [8 x i8], ptr %22, i64 %30
   store ptr %32, ptr %33, align 8
   %34 = add i32 %.0107142, 1
   br label %35
@@ -188,19 +188,19 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
   %.0105 = phi ptr [ %40, %38 ], [ %22, %._crit_edge ], [ %22, %35 ]
   %.0100 = phi ptr [ null, %38 ], [ %5, %._crit_edge ], [ %5, %35 ]
   %44 = sext i32 %.2109 to i64
-  %45 = getelementptr inbounds ptr, ptr %.0106, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %.0106, i64 %44
   store ptr @.str.2, ptr %45, align 8
   %46 = load ptr, ptr @dbname, align 8
   %47 = icmp eq ptr %46, null
   %48 = select i1 %47, ptr @.str.3, ptr @.str.4
-  %49 = getelementptr inbounds ptr, ptr %.0105, i64 %44
+  %49 = getelementptr inbounds [8 x i8], ptr %.0105, i64 %44
   store ptr %48, ptr %49, align 8
   %50 = add i32 %.2109, 1
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %.0106, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %.0106, i64 %51
   store ptr @.str.5, ptr %52, align 8
   %53 = load ptr, ptr @progname, align 8
-  %54 = getelementptr inbounds ptr, ptr %.0105, i64 %51
+  %54 = getelementptr inbounds [8 x i8], ptr %.0105, i64 %51
   store ptr %53, ptr %54, align 8
   %55 = add i32 %.2109, 2
   %56 = load ptr, ptr @dbhost, align 8
@@ -209,10 +209,10 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
 
 57:                                               ; preds = %.loopexit
   %58 = sext i32 %55 to i64
-  %59 = getelementptr inbounds ptr, ptr %.0106, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %.0106, i64 %58
   store ptr @.str.6, ptr %59, align 8
   %60 = load ptr, ptr @dbhost, align 8
-  %61 = getelementptr inbounds ptr, ptr %.0105, i64 %58
+  %61 = getelementptr inbounds [8 x i8], ptr %.0105, i64 %58
   store ptr %60, ptr %61, align 8
   %62 = add i32 %.2109, 3
   br label %63
@@ -225,10 +225,10 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
 
 65:                                               ; preds = %63
   %66 = sext i32 %.3 to i64
-  %67 = getelementptr inbounds ptr, ptr %.0106, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %.0106, i64 %66
   store ptr @.str.7, ptr %67, align 8
   %68 = load ptr, ptr @dbuser, align 8
-  %69 = getelementptr inbounds ptr, ptr %.0105, i64 %66
+  %69 = getelementptr inbounds [8 x i8], ptr %.0105, i64 %66
   store ptr %68, ptr %69, align 8
   %70 = add i32 %.3, 1
   br label %71
@@ -241,10 +241,10 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
 
 73:                                               ; preds = %71
   %74 = sext i32 %.4 to i64
-  %75 = getelementptr inbounds ptr, ptr %.0106, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %.0106, i64 %74
   store ptr @.str.8, ptr %75, align 8
   %76 = load ptr, ptr @dbport, align 8
-  %77 = getelementptr inbounds ptr, ptr %.0105, i64 %74
+  %77 = getelementptr inbounds [8 x i8], ptr %.0105, i64 %74
   store ptr %76, ptr %77, align 8
   %78 = add i32 %.4, 1
   br label %79
@@ -257,8 +257,8 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
   %.not122 = icmp eq ptr %82, null
   %83 = select i1 %81, i1 %.not122, i1 false
   %84 = sext i32 %.5 to i64
-  %85 = getelementptr inbounds ptr, ptr %.0106, i64 %84
-  %86 = getelementptr inbounds ptr, ptr %.0105, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %.0106, i64 %84
+  %86 = getelementptr inbounds [8 x i8], ptr %.0105, i64 %84
   br label %87
 
 87:                                               ; preds = %104, %79

@@ -593,7 +593,7 @@ find_next_boundary.exit.i:                        ; preds = %179, %161
 
 212:                                              ; preds = %231, %210
   %indvars.iv.i.i = phi i64 [ 1, %210 ], [ %indvars.iv.next.i.i, %231 ]
-  %213 = getelementptr %struct.multipart_header_t, ptr @multipart_headers, i64 %indvars.iv.i.i
+  %213 = getelementptr [16 x i8], ptr @multipart_headers, i64 %indvars.iv.i.i
   %214 = load ptr, ptr %213, align 16
   %215 = call i64 @strlen(ptr noundef %214) #8
   %216 = icmp eq i64 %215, %211

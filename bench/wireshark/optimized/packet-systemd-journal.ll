@@ -1254,7 +1254,7 @@ define internal noundef i32 @dissect_systemd_journal_line_entry(ptr noundef %0, 
 
 38:                                               ; preds = %.lr.ph
   %39 = load ptr, ptr @jf_to_hf, align 8
-  %40 = getelementptr %struct._journal_field_hf_map, ptr %39, i64 %34
+  %40 = getelementptr [16 x i8], ptr %39, i64 %34
   %41 = load i32, ptr %40, align 8
   %42 = call i32 @proto_registrar_get_ftype(i32 noundef %41)
   switch i32 %42, label %73 [
@@ -1316,7 +1316,7 @@ dissect_sjle_time_usecs.exit:                     ; preds = %47, %54
 
 68:                                               ; preds = %38
   %69 = load ptr, ptr @jf_to_hf, align 8
-  %70 = getelementptr %struct._journal_field_hf_map, ptr %69, i64 %34
+  %70 = getelementptr [16 x i8], ptr %69, i64 %34
   %71 = load i32, ptr %70, align 8
   %72 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %71, ptr noundef %0, i32 noundef %24, i32 noundef %26, i32 noundef 2)
   br label %77
@@ -1346,7 +1346,7 @@ dissect_sjle_time_usecs.exit:                     ; preds = %47, %54
   %86 = add i32 %.0140151, 1
   %87 = load ptr, ptr @jf_to_hf, align 8
   %88 = sext i32 %86 to i64
-  %89 = getelementptr %struct._journal_field_hf_map, ptr %87, i64 %88
+  %89 = getelementptr [16 x i8], ptr %87, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   %.not = icmp eq ptr %91, null
@@ -1400,7 +1400,7 @@ dissect_sjle_time_usecs.exit:                     ; preds = %47, %54
 
 122:                                              ; preds = %118
   %123 = load ptr, ptr @jf_to_hf, align 8
-  %124 = getelementptr %struct._journal_field_hf_map, ptr %123, i64 %111
+  %124 = getelementptr [16 x i8], ptr %123, i64 %111
   %125 = load i32, ptr %124, align 8
   %126 = add i32 %.0156, %113
   %127 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %126)
@@ -1450,7 +1450,7 @@ dissect_sjle_time_usecs.exit:                     ; preds = %47, %54
   %160 = add i32 %.0141154, 1
   %161 = load ptr, ptr @jf_to_hf, align 8
   %162 = sext i32 %160 to i64
-  %163 = getelementptr %struct._journal_field_hf_map, ptr %161, i64 %162
+  %163 = getelementptr [16 x i8], ptr %161, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load ptr, ptr %164, align 8
   %.not146 = icmp eq ptr %165, null

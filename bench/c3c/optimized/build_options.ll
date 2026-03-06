@@ -438,7 +438,7 @@ define dso_local void @append_file(ptr noundef captures(none) %0) local_unnamed_
   %37 = load i32, ptr %.1.i, align 4
   %38 = add i32 %37, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %39
   store ptr %36, ptr %40, align 8
   ret void
 }
@@ -468,7 +468,7 @@ define dso_local void @update_feature_flags(ptr noundef captures(none) %0, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @str_eq(ptr noundef %11, ptr noundef %2) #17
   br i1 %12, label %13, label %28
@@ -490,10 +490,10 @@ define dso_local void @update_feature_flags(ptr noundef captures(none) %0, ptr n
   %.01519.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %.01517.i, %15 ]
   %.015.in18.i = phi i32 [ %.01519.i, %.lr.ph.i ], [ %16, %15 ]
   %20 = sext i32 %.01519.i to i64
-  %21 = getelementptr inbounds ptr, ptr %14, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = sext i32 %.015.in18.i to i64
-  %24 = getelementptr inbounds ptr, ptr %14, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %14, i64 %23
   store ptr %22, ptr %24, align 8
   %.015.i = add nuw i32 %.01519.i, 1
   %exitcond.not.i = icmp eq i32 %.015.i, %18
@@ -534,7 +534,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %13, %15
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %34
   %indvars.iv62 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next63, %34 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv62
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv62
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @str_eq(ptr noundef %36, ptr noundef %2) #17
   br i1 %37, label %.loopexit, label %34
@@ -594,7 +594,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %13, %15
   %64 = load i32, ptr %.1.i, align 4
   %65 = add i32 %64, -1
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %66
   store ptr %2, ptr %67, align 8
   br label %.loopexit
 
@@ -658,7 +658,7 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
 
 30:                                               ; preds = %.preheader57, %30
   %indvars.iv = phi i64 [ 1, %.preheader57 ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store i32 1, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
@@ -732,7 +732,7 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
 
 .preheader56:                                     ; preds = %30, %.preheader56
   %indvars.iv377 = phi i64 [ %indvars.iv.next378, %.preheader56 ], [ 13, %30 ]
-  %91 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv377
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv377
   store i32 2, ptr %91, align 4
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %exitcond380.not = icmp eq i64 %indvars.iv.next378, 18
@@ -743,7 +743,7 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
   %storemerge217 = phi i32 [ 1, %.lr.ph ], [ %1360, %parse_option.exit ]
   %94 = load ptr, ptr @args, align 8
   %95 = sext i32 %storemerge217 to i64
-  %96 = getelementptr inbounds ptr, ptr %94, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8
   store ptr %97, ptr @current_arg, align 8
   %98 = load i8, ptr %97, align 1
@@ -863,7 +863,7 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
   %136 = add nsw i32 %storemerge217, 1
   store i32 %136, ptr @arg_index, align 4
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds ptr, ptr %94, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %94, i64 %137
   %139 = load ptr, ptr %138, align 8
   store ptr %139, ptr @current_arg, align 8
   %140 = load i32, ptr %48, align 8
@@ -878,7 +878,7 @@ add_linker_arg.exit.i:                            ; preds = %135
   %143 = add nsw i32 %140, 1
   store i32 %143, ptr %48, align 8
   %144 = sext i32 %140 to i64
-  %145 = getelementptr inbounds ptr, ptr %49, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %49, i64 %144
   store ptr %139, ptr %145, align 8
   br label %parse_option.exit
 
@@ -901,7 +901,7 @@ add_linker_arg.exit.i:                            ; preds = %135
   %154 = add nsw i32 %storemerge217, 1
   store i32 %154, ptr @arg_index, align 4
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds ptr, ptr %94, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %94, i64 %155
   %157 = load ptr, ptr %156, align 8
   store ptr %157, ptr @current_arg, align 8
   store ptr %157, ptr %47, align 8
@@ -965,7 +965,7 @@ sub_1285.i:                                       ; preds = %100
   %180 = add nsw i32 %storemerge217, 1
   store i32 %180, ptr @arg_index, align 4
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds ptr, ptr %94, i64 %181
+  %182 = getelementptr inbounds [8 x i8], ptr %94, i64 %181
   %183 = load ptr, ptr %182, align 8
   store ptr %183, ptr @current_arg, align 8
   %184 = tail call zeroext i1 @str_is_valid_constant(ptr noundef %183) #17
@@ -998,7 +998,7 @@ sub_1285.i:                                       ; preds = %100
   %195 = add nsw i32 %storemerge217, 1
   store i32 %195, ptr @arg_index, align 4
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds ptr, ptr %94, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %94, i64 %196
   %198 = load ptr, ptr %197, align 8
   store ptr %198, ptr @current_arg, align 8
   %199 = tail call zeroext i1 @str_is_valid_constant(ptr noundef %198) #17
@@ -1166,7 +1166,7 @@ sub_1308.i:                                       ; preds = %100
   %263 = add nsw i32 %262, 1
   store i32 %263, ptr %43, align 8
   %264 = sext i32 %262 to i64
-  %265 = getelementptr inbounds ptr, ptr %42, i64 %264
+  %265 = getelementptr inbounds [8 x i8], ptr %42, i64 %264
   store ptr %255, ptr %265, align 8
   br label %parse_option.exit
 
@@ -1200,7 +1200,7 @@ sub_1308.i:                                       ; preds = %100
   %281 = add nsw i32 %280, 1
   store i32 %281, ptr %41, align 8
   %282 = sext i32 %280 to i64
-  %283 = getelementptr inbounds ptr, ptr %40, i64 %282
+  %283 = getelementptr inbounds [8 x i8], ptr %40, i64 %282
   store ptr %274, ptr %283, align 8
   br label %parse_option.exit
 
@@ -1273,7 +1273,7 @@ sub_1308.i:                                       ; preds = %100
 315:                                              ; preds = %310
   %316 = load ptr, ptr @args, align 8
   %317 = sext i32 %311 to i64
-  %318 = getelementptr ptr, ptr %316, i64 %317
+  %318 = getelementptr [8 x i8], ptr %316, i64 %317
   %319 = getelementptr i8, ptr %318, i64 8
   %320 = load ptr, ptr %319, align 8
   %321 = load i8, ptr %320, align 1
@@ -1449,7 +1449,7 @@ match_argopt.exit.thread:                         ; preds = %match_argopt.exit24
 393:                                              ; preds = %388
   %394 = load ptr, ptr @args, align 8
   %395 = sext i32 %389 to i64
-  %396 = getelementptr ptr, ptr %394, i64 %395
+  %396 = getelementptr [8 x i8], ptr %394, i64 %395
   %397 = getelementptr i8, ptr %396, i64 8
   %398 = load ptr, ptr %397, align 8
   %399 = load i8, ptr %398, align 1
@@ -1507,7 +1507,7 @@ match_argopt.exit.thread:                         ; preds = %match_argopt.exit24
 419:                                              ; preds = %414
   %420 = load ptr, ptr @args, align 8
   %421 = sext i32 %415 to i64
-  %422 = getelementptr ptr, ptr %420, i64 %421
+  %422 = getelementptr [8 x i8], ptr %420, i64 %421
   %423 = getelementptr i8, ptr %422, i64 8
   %424 = load ptr, ptr %423, align 8
   %425 = load i8, ptr %424, align 1
@@ -1523,7 +1523,7 @@ match_argopt.exit.thread:                         ; preds = %match_argopt.exit24
   %429 = add nsw i32 %415, 1
   store i32 %429, ptr @arg_index, align 4
   %430 = sext i32 %429 to i64
-  %431 = getelementptr inbounds ptr, ptr %420, i64 %430
+  %431 = getelementptr inbounds [8 x i8], ptr %420, i64 %430
   %432 = load ptr, ptr %431, align 8
   store ptr %432, ptr @current_arg, align 8
   store ptr %432, ptr %50, align 8
@@ -1778,7 +1778,7 @@ match_argopt.exit.thread:                         ; preds = %match_argopt.exit24
 548:                                              ; preds = %543
   %549 = load ptr, ptr @args, align 8
   %550 = sext i32 %544 to i64
-  %551 = getelementptr ptr, ptr %549, i64 %550
+  %551 = getelementptr [8 x i8], ptr %549, i64 %550
   %552 = getelementptr i8, ptr %551, i64 8
   %553 = load ptr, ptr %552, align 8
   %554 = load i8, ptr %553, align 1
@@ -1831,7 +1831,7 @@ match_argopt.exit.thread:                         ; preds = %match_argopt.exit24
 578:                                              ; preds = %573
   %579 = load ptr, ptr @args, align 8
   %580 = sext i32 %574 to i64
-  %581 = getelementptr ptr, ptr %579, i64 %580
+  %581 = getelementptr [8 x i8], ptr %579, i64 %580
   %582 = getelementptr i8, ptr %581, i64 8
   %583 = load ptr, ptr %582, align 8
   %584 = load i8, ptr %583, align 1
@@ -1850,7 +1850,7 @@ match_argopt.exit.thread:                         ; preds = %match_argopt.exit24
 
 589:                                              ; preds = %594, %587
   %indvars.iv.i.i = phi i64 [ 1, %587 ], [ %indvars.iv.next.i.i, %594 ]
-  %590 = getelementptr inbounds nuw ptr, ptr @arch_os_target, i64 %indvars.iv.i.i
+  %590 = getelementptr inbounds nuw [8 x i8], ptr @arch_os_target, i64 %indvars.iv.i.i
   %591 = load ptr, ptr %590, align 8
   %592 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %591, ptr noundef nonnull readonly dereferenceable(1) %583) #18
   %593 = icmp eq i32 %592, 0
@@ -1878,7 +1878,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 602:                                              ; preds = %602, %arch_os_target_from_string.exit.thread.i
   %indvars.iv.i = phi i64 [ 1, %arch_os_target_from_string.exit.thread.i ], [ %indvars.iv.next.i, %602 ]
   %603 = load ptr, ptr @stderr, align 8
-  %604 = getelementptr inbounds nuw ptr, ptr @arch_os_target, i64 %indvars.iv.i
+  %604 = getelementptr inbounds nuw [8 x i8], ptr @arch_os_target, i64 %indvars.iv.i
   %605 = load ptr, ptr %604, align 8
   %606 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %603, ptr noundef nonnull @.str.229, ptr noundef %605) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1966,7 +1966,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 647:                                              ; preds = %642
   %648 = load ptr, ptr @args, align 8
   %649 = sext i32 %643 to i64
-  %650 = getelementptr ptr, ptr %648, i64 %649
+  %650 = getelementptr [8 x i8], ptr %648, i64 %649
   %651 = getelementptr i8, ptr %650, i64 8
   %652 = load ptr, ptr %651, align 8
   %653 = load i8, ptr %652, align 1
@@ -2000,7 +2000,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 667:                                              ; preds = %662
   %668 = load ptr, ptr @args, align 8
   %669 = sext i32 %663 to i64
-  %670 = getelementptr ptr, ptr %668, i64 %669
+  %670 = getelementptr [8 x i8], ptr %668, i64 %669
   %671 = getelementptr i8, ptr %670, i64 8
   %672 = load ptr, ptr %671, align 8
   %673 = load i8, ptr %672, align 1
@@ -2036,7 +2036,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 688:                                              ; preds = %683
   %689 = load ptr, ptr @args, align 8
   %690 = sext i32 %684 to i64
-  %691 = getelementptr ptr, ptr %689, i64 %690
+  %691 = getelementptr [8 x i8], ptr %689, i64 %690
   %692 = getelementptr i8, ptr %691, i64 8
   %693 = load ptr, ptr %692, align 8
   %694 = load i8, ptr %693, align 1
@@ -2070,7 +2070,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 708:                                              ; preds = %703
   %709 = load ptr, ptr @args, align 8
   %710 = sext i32 %704 to i64
-  %711 = getelementptr ptr, ptr %709, i64 %710
+  %711 = getelementptr [8 x i8], ptr %709, i64 %710
   %712 = getelementptr i8, ptr %711, i64 8
   %713 = load ptr, ptr %712, align 8
   %714 = load i8, ptr %713, align 1
@@ -2104,7 +2104,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 728:                                              ; preds = %723
   %729 = load ptr, ptr @args, align 8
   %730 = sext i32 %724 to i64
-  %731 = getelementptr ptr, ptr %729, i64 %730
+  %731 = getelementptr [8 x i8], ptr %729, i64 %730
   %732 = getelementptr i8, ptr %731, i64 8
   %733 = load ptr, ptr %732, align 8
   %734 = load i8, ptr %733, align 1
@@ -2138,7 +2138,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 748:                                              ; preds = %743
   %749 = load ptr, ptr @args, align 8
   %750 = sext i32 %744 to i64
-  %751 = getelementptr ptr, ptr %749, i64 %750
+  %751 = getelementptr [8 x i8], ptr %749, i64 %750
   %752 = getelementptr i8, ptr %751, i64 8
   %753 = load ptr, ptr %752, align 8
   %754 = load i8, ptr %753, align 1
@@ -2173,7 +2173,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 769:                                              ; preds = %764
   %770 = load ptr, ptr @args, align 8
   %771 = sext i32 %765 to i64
-  %772 = getelementptr ptr, ptr %770, i64 %771
+  %772 = getelementptr [8 x i8], ptr %770, i64 %771
   %773 = getelementptr i8, ptr %772, i64 8
   %774 = load ptr, ptr %773, align 8
   %775 = load i8, ptr %774, align 1
@@ -2218,7 +2218,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 794:                                              ; preds = %789
   %795 = load ptr, ptr @args, align 8
   %796 = sext i32 %790 to i64
-  %797 = getelementptr ptr, ptr %795, i64 %796
+  %797 = getelementptr [8 x i8], ptr %795, i64 %796
   %798 = getelementptr i8, ptr %797, i64 8
   %799 = load ptr, ptr %798, align 8
   %800 = load i8, ptr %799, align 1
@@ -2262,7 +2262,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 818:                                              ; preds = %813
   %819 = load ptr, ptr @args, align 8
   %820 = sext i32 %814 to i64
-  %821 = getelementptr ptr, ptr %819, i64 %820
+  %821 = getelementptr [8 x i8], ptr %819, i64 %820
   %822 = getelementptr i8, ptr %821, i64 8
   %823 = load ptr, ptr %822, align 8
   %824 = load i8, ptr %823, align 1
@@ -2296,7 +2296,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 838:                                              ; preds = %833
   %839 = load ptr, ptr @args, align 8
   %840 = sext i32 %834 to i64
-  %841 = getelementptr ptr, ptr %839, i64 %840
+  %841 = getelementptr [8 x i8], ptr %839, i64 %840
   %842 = getelementptr i8, ptr %841, i64 8
   %843 = load ptr, ptr %842, align 8
   %844 = load i8, ptr %843, align 1
@@ -2330,7 +2330,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 858:                                              ; preds = %853
   %859 = load ptr, ptr @args, align 8
   %860 = sext i32 %854 to i64
-  %861 = getelementptr ptr, ptr %859, i64 %860
+  %861 = getelementptr [8 x i8], ptr %859, i64 %860
   %862 = getelementptr i8, ptr %861, i64 8
   %863 = load ptr, ptr %862, align 8
   %864 = load i8, ptr %863, align 1
@@ -2364,7 +2364,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 878:                                              ; preds = %873
   %879 = load ptr, ptr @args, align 8
   %880 = sext i32 %874 to i64
-  %881 = getelementptr ptr, ptr %879, i64 %880
+  %881 = getelementptr [8 x i8], ptr %879, i64 %880
   %882 = getelementptr i8, ptr %881, i64 8
   %883 = load ptr, ptr %882, align 8
   %884 = load i8, ptr %883, align 1
@@ -2398,7 +2398,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 898:                                              ; preds = %893
   %899 = load ptr, ptr @args, align 8
   %900 = sext i32 %894 to i64
-  %901 = getelementptr ptr, ptr %899, i64 %900
+  %901 = getelementptr [8 x i8], ptr %899, i64 %900
   %902 = getelementptr i8, ptr %901, i64 8
   %903 = load ptr, ptr %902, align 8
   %904 = load i8, ptr %903, align 1
@@ -2432,7 +2432,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 918:                                              ; preds = %913
   %919 = load ptr, ptr @args, align 8
   %920 = sext i32 %914 to i64
-  %921 = getelementptr ptr, ptr %919, i64 %920
+  %921 = getelementptr [8 x i8], ptr %919, i64 %920
   %922 = getelementptr i8, ptr %921, i64 8
   %923 = load ptr, ptr %922, align 8
   %924 = load i8, ptr %923, align 1
@@ -2466,7 +2466,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 938:                                              ; preds = %933
   %939 = load ptr, ptr @args, align 8
   %940 = sext i32 %934 to i64
-  %941 = getelementptr ptr, ptr %939, i64 %940
+  %941 = getelementptr [8 x i8], ptr %939, i64 %940
   %942 = getelementptr i8, ptr %941, i64 8
   %943 = load ptr, ptr %942, align 8
   %944 = load i8, ptr %943, align 1
@@ -2500,7 +2500,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 958:                                              ; preds = %953
   %959 = load ptr, ptr @args, align 8
   %960 = sext i32 %954 to i64
-  %961 = getelementptr ptr, ptr %959, i64 %960
+  %961 = getelementptr [8 x i8], ptr %959, i64 %960
   %962 = getelementptr i8, ptr %961, i64 8
   %963 = load ptr, ptr %962, align 8
   %964 = load i8, ptr %963, align 1
@@ -2567,7 +2567,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   %990 = add nsw i32 %989, 1
   store i32 %990, ptr %58, align 8
   %991 = sext i32 %989 to i64
-  %992 = getelementptr inbounds ptr, ptr %57, i64 %991
+  %992 = getelementptr inbounds [8 x i8], ptr %57, i64 %991
   store ptr %963, ptr %992, align 8
   br label %parse_option.exit
 
@@ -2587,7 +2587,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 1002:                                             ; preds = %997
   %1003 = load ptr, ptr @args, align 8
   %1004 = sext i32 %998 to i64
-  %1005 = getelementptr ptr, ptr %1003, i64 %1004
+  %1005 = getelementptr [8 x i8], ptr %1003, i64 %1004
   %1006 = getelementptr i8, ptr %1005, i64 8
   %1007 = load ptr, ptr %1006, align 8
   %1008 = load i8, ptr %1007, align 1
@@ -2616,7 +2616,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   %1019 = add nsw i32 %1018, 1
   store i32 %1019, ptr %56, align 8
   %1020 = sext i32 %1018 to i64
-  %1021 = getelementptr inbounds ptr, ptr %0, i64 %1020
+  %1021 = getelementptr inbounds [8 x i8], ptr %0, i64 %1020
   store ptr %1007, ptr %1021, align 8
   br label %parse_option.exit
 
@@ -2657,7 +2657,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 1041:                                             ; preds = %1036
   %1042 = load ptr, ptr @args, align 8
   %1043 = sext i32 %1037 to i64
-  %1044 = getelementptr ptr, ptr %1042, i64 %1043
+  %1044 = getelementptr [8 x i8], ptr %1042, i64 %1043
   %1045 = getelementptr i8, ptr %1044, i64 8
   %1046 = load ptr, ptr %1045, align 8
   %1047 = load i8, ptr %1046, align 1
@@ -2691,7 +2691,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 1061:                                             ; preds = %1056
   %1062 = load ptr, ptr @args, align 8
   %1063 = sext i32 %1057 to i64
-  %1064 = getelementptr ptr, ptr %1062, i64 %1063
+  %1064 = getelementptr [8 x i8], ptr %1062, i64 %1063
   %1065 = getelementptr i8, ptr %1064, i64 8
   %1066 = load ptr, ptr %1065, align 8
   %1067 = load i8, ptr %1066, align 1
@@ -2726,7 +2726,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 1082:                                             ; preds = %1077
   %1083 = load ptr, ptr @args, align 8
   %1084 = sext i32 %1078 to i64
-  %1085 = getelementptr ptr, ptr %1083, i64 %1084
+  %1085 = getelementptr [8 x i8], ptr %1083, i64 %1084
   %1086 = getelementptr i8, ptr %1085, i64 8
   %1087 = load ptr, ptr %1086, align 8
   %1088 = load i8, ptr %1087, align 1
@@ -2761,7 +2761,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 1103:                                             ; preds = %1098
   %1104 = load ptr, ptr @args, align 8
   %1105 = sext i32 %1099 to i64
-  %1106 = getelementptr ptr, ptr %1104, i64 %1105
+  %1106 = getelementptr [8 x i8], ptr %1104, i64 %1105
   %1107 = getelementptr i8, ptr %1106, i64 8
   %1108 = load ptr, ptr %1107, align 8
   %1109 = load i8, ptr %1108, align 1
@@ -2977,7 +2977,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   %1204 = phi i32 [ %1245, %expand_.exit ], [ %storemerge217, %1198 ]
   %1205 = load ptr, ptr @args, align 8
   %1206 = sext i32 %1204 to i64
-  %1207 = getelementptr ptr, ptr %1205, i64 %1206
+  %1207 = getelementptr [8 x i8], ptr %1205, i64 %1206
   %1208 = getelementptr i8, ptr %1207, i64 8
   %1209 = load ptr, ptr %1208, align 8
   %1210 = load i8, ptr %1209, align 1
@@ -3041,7 +3041,7 @@ expand_.exit:                                     ; preds = %1220, %1224
   %1241 = load i32, ptr %.1.i, align 4
   %1242 = add i32 %1241, -1
   %1243 = zext i32 %1242 to i64
-  %1244 = getelementptr inbounds nuw ptr, ptr %1240, i64 %1243
+  %1244 = getelementptr inbounds nuw [8 x i8], ptr %1240, i64 %1243
   store ptr %1209, ptr %1244, align 8
   %1245 = load i32, ptr @arg_index, align 4
   %1246 = load i32, ptr @arg_count, align 4
@@ -3586,7 +3586,7 @@ define dso_local range(i32 0, 25) i32 @arch_os_target_from_string(ptr noundef re
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @arch_os_target, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @arch_os_target, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #18
   %6 = icmp eq i32 %5, 0
@@ -3728,7 +3728,7 @@ define internal fastcc void @print_all_targets() unnamed_addr #4 {
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr @stdout, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @arch_os_target, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @arch_os_target, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.229, ptr noundef %6) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

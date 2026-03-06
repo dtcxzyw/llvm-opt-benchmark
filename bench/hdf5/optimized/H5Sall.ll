@@ -320,12 +320,12 @@ define internal noundef i32 @H5S__all_bounds(ptr noundef readonly captures(none)
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i64 0, ptr %16, align 8, !tbaa !29
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !29
   %19 = add i64 %18, -1
-  %20 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 %19, ptr %20, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -414,10 +414,10 @@ define internal range(i32 0, 2) i32 @H5S__all_shape_same(ptr noundef readonly ca
 24:                                               ; preds = %18
   %25 = add nsw i64 %indvars.iv24, -1
   %26 = load ptr, ptr %14, align 8, !tbaa !31
-  %27 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv.next
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv.next
   %28 = load i64, ptr %27, align 8, !tbaa !29
   %29 = load ptr, ptr %15, align 8, !tbaa !31
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %25
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %25
   %31 = load i64, ptr %30, align 8, !tbaa !29
   %.not15 = icmp eq i64 %28, %31
   br i1 %.not15, label %18, label %.loopexit, !llvm.loop !34
@@ -430,7 +430,7 @@ define internal range(i32 0, 2) i32 @H5S__all_shape_same(ptr noundef readonly ca
 35:                                               ; preds = %.lr.ph, %32
   %.118 = phi i32 [ %22, %.lr.ph ], [ %33, %32 ]
   %36 = zext nneg i32 %.118 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !29
   %.not = icmp eq i64 %38, 1
   br i1 %.not, label %32, label %.loopexit
@@ -758,12 +758,12 @@ define internal noundef i32 @H5S__all_iter_block(ptr noundef readonly captures(n
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i64 0, ptr %14, align 8, !tbaa !29
-  %15 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8, !tbaa !29
   %17 = add i64 %16, -1
-  %18 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 %17, ptr %18, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

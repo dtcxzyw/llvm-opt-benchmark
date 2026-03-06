@@ -399,8 +399,8 @@ set_digest.exit:                                  ; preds = %.set_digest.exit_cr
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 %60
-  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %69
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %69
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %69
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %69
   %88 = trunc i64 %32 to i32
   %89 = trunc i64 %34 to i32
   %90 = trunc nuw nsw i64 %60 to i32
@@ -415,7 +415,7 @@ set_digest.exit:                                  ; preds = %.set_digest.exit_cr
   %95 = shl nuw nsw i64 %36, 5
   %96 = add nsw i64 %95, -32
   %97 = mul i64 %96, %38
-  %98 = getelementptr inbounds nuw i32, ptr %87, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %97
   %99 = getelementptr i8, ptr %85, i64 %93
   %100 = getelementptr i8, ptr %99, i64 -64
   br i1 %.not.i.i, label %.preheader69.i.us.i, label %.lr.ph.i.preheader.i
@@ -487,10 +487,10 @@ scryptROMix.exit.loopexit.us.i:                   ; preds = %.split.i.us.i
 .preheader69.i.loopexit.i:                        ; preds = %.lr.ph.i.i, %.preheader69.i.loopexit.i
   %.16275.i.i = phi ptr [ %129, %.preheader69.i.loopexit.i ], [ %126, %.lr.ph.i.i ]
   %.16574.i.i = phi i64 [ %128, %.preheader69.i.loopexit.i ], [ 1, %.lr.ph.i.i ]
-  %127 = getelementptr inbounds i32, ptr %.16275.i.i, i64 %94
+  %127 = getelementptr inbounds [4 x i8], ptr %.16275.i.i, i64 %94
   tail call fastcc void @scryptBlockMix(ptr noundef %.16275.i.i, ptr noundef %127, i64 noundef range(i64 1, 0) %38)
   %128 = add nuw i64 %.16574.i.i, 1
-  %129 = getelementptr inbounds nuw i32, ptr %.16275.i.i, i64 %69
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %.16275.i.i, i64 %69
   %exitcond86.not.i.i = icmp eq i64 %128, %36
   br i1 %exitcond86.not.i.i, label %.lr.ph78.us.i.preheader.i, label %.preheader69.i.loopexit.i, !llvm.loop !22
 
@@ -504,18 +504,18 @@ scryptROMix.exit.loopexit.us.i:                   ; preds = %.split.i.us.i
   %131 = zext i32 %130 to i64
   %132 = urem i64 %131, %36
   %133 = mul i64 %132, %69
-  %134 = getelementptr inbounds nuw i32, ptr %87, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %133
   br label %135
 
 135:                                              ; preds = %135, %.lr.ph78.us.i.i
   %.277.us.i.i = phi ptr [ %134, %.lr.ph78.us.i.i ], [ %138, %135 ]
   %.06376.us.i.i = phi i64 [ 0, %.lr.ph78.us.i.i ], [ %142, %135 ]
-  %136 = getelementptr inbounds nuw i32, ptr %85, i64 %.06376.us.i.i
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %.06376.us.i.i
   %137 = load i32, ptr %136, align 4, !tbaa !27
   %138 = getelementptr inbounds nuw i8, ptr %.277.us.i.i, i64 4
   %139 = load i32, ptr %.277.us.i.i, align 4, !tbaa !27
   %140 = xor i32 %139, %137
-  %141 = getelementptr inbounds nuw i32, ptr %86, i64 %.06376.us.i.i
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %.06376.us.i.i
   store i32 %140, ptr %141, align 4, !tbaa !27
   %142 = add nuw i64 %.06376.us.i.i, 1
   %exitcond87.not.i.i = icmp eq i64 %142, %69
@@ -530,7 +530,7 @@ scryptROMix.exit.loopexit.us.i:                   ; preds = %.split.i.us.i
 .lr.ph82.i.i:                                     ; preds = %._crit_edge.us.i.i, %.lr.ph82.i.i
   %.181.i.i = phi ptr [ %146, %.lr.ph82.i.i ], [ %106, %._crit_edge.us.i.i ]
   %.380.i.i = phi i64 [ %147, %.lr.ph82.i.i ], [ 0, %._crit_edge.us.i.i ]
-  %144 = getelementptr inbounds nuw i32, ptr %85, i64 %.380.i.i
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %.380.i.i
   %145 = load i32, ptr %144, align 4, !tbaa !27
   store i32 %145, ptr %.181.i.i, align 1
   %146 = getelementptr inbounds nuw i8, ptr %.181.i.i, i64 4
@@ -872,7 +872,7 @@ define internal fastcc void @scryptBlockMix(ptr noundef nonnull writeonly captur
   %.01331 = phi i64 [ 0, %.preheader ], [ %30, %24 ]
   %25 = getelementptr inbounds nuw i8, ptr %.132, i64 4
   %26 = load i32, ptr %.132, align 4, !tbaa !27
-  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %.01331
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.01331
   %28 = load i32, ptr %27, align 4, !tbaa !27
   %29 = xor i32 %28, %26
   store i32 %29, ptr %27, align 4, !tbaa !27
@@ -1040,9 +1040,9 @@ define internal fastcc void @scryptBlockMix(ptr noundef nonnull writeonly captur
 
 147:                                              ; preds = %147, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %147 ]
-  %148 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %149 = load i32, ptr %148, align 4, !tbaa !27
-  %150 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %151 = load i32, ptr %150, align 4, !tbaa !27
   %152 = add i32 %151, %149
   store i32 %152, ptr %150, align 4, !tbaa !27

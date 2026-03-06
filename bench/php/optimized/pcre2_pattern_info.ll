@@ -276,7 +276,7 @@ define dso_local range(i32 -55, 9) i32 @php_pcre2_pattern_info(ptr noundef %0, i
 
 switch.lookup:                                    ; preds = %3
   %122 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.php_pcre2_pattern_info, i64 %122
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.php_pcre2_pattern_info, i64 %122
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %123
 

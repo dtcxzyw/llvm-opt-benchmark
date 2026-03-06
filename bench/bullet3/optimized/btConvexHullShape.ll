@@ -3,7 +3,6 @@ source_filename = "bench/bullet3/original/btConvexHullShape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%class.btVector3 = type { [4 x float] }
 %class.btConvexHullComputer = type { %class.btAlignedObjectArray, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.2, %class.btAlignedObjectArray.0 }
 %class.btAlignedObjectArray = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btAlignedObjectArray.2 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
@@ -81,9 +80,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %11
 
 16:                                               ; preds = %16, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %16 ]
-  %17 = getelementptr inbounds nuw %class.btVector3, ptr %14, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %18 = load ptr, ptr %6, align 8, !tbaa !15
-  %19 = getelementptr inbounds nuw %class.btVector3, ptr %18, i64 %indvars.iv.i.i.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !20
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -132,7 +131,7 @@ _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %16, %_ZN
   %31 = load float, ptr %28, align 4, !tbaa !25
   %32 = load float, ptr %29, align 4, !tbaa !25
   %33 = load ptr, ptr %6, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw %class.btVector3, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv
   store float %30, ptr %34, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 4
   store float %31, ptr %.sroa.4.0..sroa_idx, align 4
@@ -253,9 +252,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %14, %13
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %23 = load ptr, ptr %20, align 8, !tbaa !15
-  %24 = getelementptr inbounds nuw %class.btVector3, ptr %23, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !20
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -287,7 +286,7 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit: ; preds = %3, %9, %_
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %33 = load ptr, ptr %32, align 8, !tbaa !15
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds %class.btVector3, ptr %33, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %33, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !20
   %36 = load i32, ptr %4, align 4, !tbaa !16
   %37 = add nsw i32 %36, 1
@@ -333,7 +332,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK17btConvexHullShape37localGet
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
   %.019.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.i ], [ %.1.i, %23 ]
   %.01218.i = phi i32 [ -1, %.lr.ph.i ], [ %.113.i, %23 ]
-  %24 = getelementptr inbounds nuw %class.btVector3, ptr %21, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i
   %25 = load float, ptr %24, align 4, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load float, ptr %26, align 4, !tbaa !25
@@ -352,7 +351,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK17btConvexHullShape37localGet
 
 _ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %23
   %35 = sext i32 %.113.i to i64
-  %36 = getelementptr inbounds %class.btVector3, ptr %21, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %21, i64 %35
   %37 = load float, ptr %36, align 4, !tbaa !25
   %38 = fmul float %8, %37
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -395,7 +394,7 @@ define dso_local void @_ZNK17btConvexHullShape49batchedUnitVectorGetSupportingVe
 
 .lr.ph21.split.us:                                ; preds = %.lr.ph21, %.lr.ph21.split.us
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.lr.ph21.split.us ], [ 0, %.lr.ph21 ]
-  %13 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv24
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv24
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store float 0xC3ABC16D60000000, ptr %14, align 4, !tbaa !25
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
@@ -404,7 +403,7 @@ define dso_local void @_ZNK17btConvexHullShape49batchedUnitVectorGetSupportingVe
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store float 0xC3ABC16D60000000, ptr %16, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -416,7 +415,7 @@ define dso_local void @_ZNK17btConvexHullShape49batchedUnitVectorGetSupportingVe
 
 .lr.ph21.split:                                   ; preds = %.lr.ph21, %56
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %56 ], [ 0, %.lr.ph21 ]
-  %17 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv29
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv29
   %18 = load float, ptr %17, align 4, !tbaa !25
   %19 = load float, ptr %6, align 8, !tbaa !25
   %20 = fmul float %18, %19
@@ -441,7 +440,7 @@ define dso_local void @_ZNK17btConvexHullShape49batchedUnitVectorGetSupportingVe
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
   %.019.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.i ], [ %.1.i, %33 ]
   %.01218.i = phi i32 [ -1, %.lr.ph.i ], [ %.113.i, %33 ]
-  %34 = getelementptr inbounds nuw %class.btVector3, ptr %31, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %indvars.iv.i
   %35 = load float, ptr %34, align 4, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %37 = load float, ptr %36, align 4, !tbaa !25
@@ -460,7 +459,7 @@ define dso_local void @_ZNK17btConvexHullShape49batchedUnitVectorGetSupportingVe
 
 _ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %33
   %45 = sext i32 %.113.i to i64
-  %46 = getelementptr inbounds %class.btVector3, ptr %31, i64 %45
+  %46 = getelementptr inbounds [16 x i8], ptr %31, i64 %45
   %47 = load float, ptr %46, align 4, !tbaa !25
   %48 = fmul float %19, %47
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
@@ -472,7 +471,7 @@ _ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %33
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %48, i64 0
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %51, i64 1
   %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %54, i64 0
-  %55 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv29
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv29
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %55, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !21
@@ -480,7 +479,7 @@ _ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %33
 
 56:                                               ; preds = %.lr.ph21.split, %_ZNK9btVector36maxDotEPKS_lRf.exit
   %.sink = phi float [ %.1.i, %_ZNK9btVector36maxDotEPKS_lRf.exit ], [ 0xC3ABC16D60000000, %.lr.ph21.split ]
-  %57 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv29
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv29
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
   store float %.sink, ptr %58, align 4, !tbaa !25
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
@@ -653,7 +652,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %35, %_Z
   %44 = phi i32 [ 0, %.lr.ph ], [ %74, %68 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %45 = load ptr, ptr %4, align 8, !tbaa !15
-  %46 = getelementptr inbounds nuw %class.btVector3, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv
   %47 = load i32, ptr %37, align 8, !tbaa !17
   %48 = icmp eq i32 %44, %47
   br i1 %48, label %49, label %68
@@ -691,9 +690,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %.noexc20, 
 
 60:                                               ; preds = %60, %.lr.ph.i.i.i15
   %indvars.iv.i.i.i17 = phi i64 [ 0, %.lr.ph.i.i.i15 ], [ %indvars.iv.next.i.i.i18, %60 ]
-  %61 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i17
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i17
   %62 = load ptr, ptr %19, align 8, !tbaa !15
-  %63 = getelementptr inbounds nuw %class.btVector3, ptr %62, i64 %indvars.iv.i.i.i17
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv.i.i.i17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %61, ptr noundef nonnull align 4 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !20
   %indvars.iv.next.i.i.i18 = add nuw nsw i64 %indvars.iv.i.i.i17, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %indvars.iv.next.i.i.i18, %wide.trip.count.i.i.i16
@@ -722,7 +721,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i14: ; preds = %67, %
   %69 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i14 ], [ %44, %49 ], [ %44, %43 ]
   %70 = load ptr, ptr %19, align 8, !tbaa !15
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %class.btVector3, ptr %70, i64 %71
+  %72 = getelementptr inbounds [16 x i8], ptr %70, i64 %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %72, ptr noundef nonnull align 4 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !20
   %73 = load i32, ptr %21, align 4, !tbaa !16
   %74 = add nsw i32 %73, 1
@@ -880,7 +879,7 @@ define dso_local void @_ZNK17btConvexHullShape7getEdgeEiR9btVector3S1_(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = sext i32 %7 to i64
-  %13 = getelementptr inbounds %class.btVector3, ptr %11, i64 %12
+  %13 = getelementptr inbounds [16 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load float, ptr %13, align 4, !tbaa !25
   %16 = load float, ptr %14, align 8, !tbaa !25
@@ -903,7 +902,7 @@ define dso_local void @_ZNK17btConvexHullShape7getEdgeEiR9btVector3S1_(ptr nound
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %.sroa.42.0..sroa_idx, align 4, !tbaa !21
   %28 = load ptr, ptr %10, align 8, !tbaa !15
   %29 = sext i32 %9 to i64
-  %30 = getelementptr inbounds %class.btVector3, ptr %28, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %28, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !25
   %32 = load float, ptr %14, align 8, !tbaa !25
   %33 = fmul float %31, %32
@@ -929,7 +928,7 @@ define dso_local void @_ZNK17btConvexHullShape9getVertexEiR9btVector3(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %class.btVector3, ptr %5, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load float, ptr %7, align 4, !tbaa !25
   %10 = load float, ptr %8, align 8, !tbaa !25
@@ -977,9 +976,9 @@ define dso_local noundef nonnull ptr @_ZNK17btConvexHullShape9serializeEPvP12btS
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i
   %9 = load float, ptr %8, align 4, !tbaa !25
-  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i
   store float %9, ptr %10, align 4, !tbaa !25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -992,9 +991,9 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i: ; preds = %7
 
 13:                                               ; preds = %13, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i
   %indvars.iv.i8.i = phi i64 [ 0, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i ], [ %indvars.iv.next.i9.i, %13 ]
-  %14 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i8.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i8.i
   %15 = load float, ptr %14, align 4, !tbaa !25
-  %16 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i8.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i8.i
   store float %15, ptr %16, align 4, !tbaa !25
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i9.i, 4
@@ -1049,14 +1048,14 @@ _ZNK21btConvexInternalShape9serializeEPvP12btSerializer.exit: ; preds = %13
 43:                                               ; preds = %.lr.ph, %_ZNK9btVector39serializeER18btVector3FloatData.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK9btVector39serializeER18btVector3FloatData.exit ]
   %.02325 = phi ptr [ %39, %.lr.ph ], [ %49, %_ZNK9btVector39serializeER18btVector3FloatData.exit ]
-  %44 = getelementptr inbounds nuw %class.btVector3, ptr %.pre, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv
   br label %45
 
 45:                                               ; preds = %45, %43
   %indvars.iv.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i, %45 ]
-  %46 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i
   %47 = load float, ptr %46, align 4, !tbaa !25
-  %48 = getelementptr inbounds nuw float, ptr %.02325, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.02325, i64 %indvars.iv.i
   store float %47, ptr %48, align 4, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1128,7 +1127,7 @@ define dso_local void @_ZNK17btConvexHullShape7projectERK11btTransformRK9btVecto
 31:                                               ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
   %32 = load ptr, ptr %11, align 8, !tbaa !15
-  %33 = getelementptr inbounds nuw %class.btVector3, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !25
   %35 = load float, ptr %12, align 8, !tbaa !25
   %36 = fmul float %34, %35

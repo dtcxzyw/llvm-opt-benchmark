@@ -2333,7 +2333,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %32
   br i1 %47, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %38
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %38
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -2404,7 +2404,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i33:           ; preds = %.noexc37, %_ZNSt3__
   br i1 %73, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i35, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i34
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i35: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i33
-  %74 = getelementptr inbounds nuw ptr, ptr %68, i64 %64
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %64
   %75 = load ptr, ptr %74, align 8, !tbaa !46
   %.not.i.i.i36 = icmp eq ptr %75, null
   br i1 %.not.i.i.i36, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i34, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIcEEEERKT_RKNS_6localeE.exit
@@ -8697,7 +8697,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %13
   br i1 %28, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %19
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %19
   %30 = load ptr, ptr %29, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -9482,7 +9482,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %32
   br i1 %47, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %38
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %38
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -9553,7 +9553,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i33:           ; preds = %.noexc37, %_ZNSt3__
   br i1 %73, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i35, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i34
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i35: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i33
-  %74 = getelementptr inbounds nuw ptr, ptr %68, i64 %64
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %64
   %75 = load ptr, ptr %74, align 8, !tbaa !46
   %.not.i.i.i36 = icmp eq ptr %75, null
   br i1 %.not.i.i.i36, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i34, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIwEEEERKT_RKNS_6localeE.exit
@@ -10015,7 +10015,7 @@ _ZNKSt3__15ctypeIwE7toupperB8ne210000Ew.exit:     ; preds = %112, %_ZNKSt3__119i
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %.076177, i64 4
   %.pn.i = select i1 %125, ptr %127, ptr %128
-  %.0.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.079
+  %.0.i = getelementptr inbounds nuw [4 x i8], ptr %.pn.i, i64 %.079
   %129 = load i32, ptr %.0.i, align 4, !tbaa !10
   br i1 %6, label %_ZNKSt3__15ctypeIwE7toupperB8ne210000Ew.exit138, label %130
 
@@ -15999,7 +15999,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %13
   br i1 %28, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %19
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %19
   %30 = load ptr, ptr %29, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -16712,7 +16712,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %5
   br i1 %27, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %18
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %18
   %29 = load ptr, ptr %28, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -16769,7 +16769,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i13:           ; preds = %.noexc17, %_ZNKSt3_
   br i1 %48, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i15, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i14
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i15: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i13
-  %49 = getelementptr inbounds nuw ptr, ptr %43, i64 %39
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %39
   %50 = load ptr, ptr %49, align 8, !tbaa !46
   %.not.i.i.i16 = icmp eq ptr %50, null
   br i1 %.not.i.i.i16, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i14, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIcEEEERKT_RKNS_6localeE.exit
@@ -16969,11 +16969,11 @@ toupper.exit:                                     ; preds = %70
   %75 = tail call ptr @__ctype_toupper_loc() #50
   %76 = load ptr, ptr %75, align 8, !tbaa !73
   %77 = sext i8 %74 to i64
-  %78 = getelementptr inbounds i32, ptr %76, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %76, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !27
   %80 = load i8, ptr %2, align 1, !tbaa !4
   %81 = sext i8 %80 to i64
-  %82 = getelementptr inbounds i32, ptr %76, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %76, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !27
   %84 = icmp eq i32 %79, %83
   br i1 %84, label %85, label %129
@@ -16996,7 +16996,7 @@ toupper.exit63:                                   ; preds = %66
   %89 = tail call ptr @__ctype_toupper_loc() #50
   %90 = load ptr, ptr %89, align 8, !tbaa !73
   %91 = sext i8 %68 to i64
-  %92 = getelementptr inbounds i32, ptr %90, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %90, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !27
   %94 = load i8, ptr %2, align 1, !tbaa !4
   %95 = sext i8 %94 to i32
@@ -17007,7 +17007,7 @@ tolower.exit:                                     ; preds = %toupper.exit63
   %97 = tail call ptr @__ctype_tolower_loc() #50
   %98 = load ptr, ptr %97, align 8, !tbaa !73
   %99 = sext i8 %94 to i64
-  %100 = getelementptr inbounds i32, ptr %98, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %98, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !27
   %102 = trunc i32 %101 to i8
   store i8 %102, ptr %2, align 1, !tbaa !4
@@ -17109,7 +17109,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %4
   br i1 %26, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -17166,7 +17166,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i11:           ; preds = %.noexc15, %_ZNKSt3_
   br i1 %47, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i13, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i12
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i13: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i11
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %38
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %38
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %.not.i.i.i14 = icmp eq ptr %49, null
   br i1 %.not.i.i.i14, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i12, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIcEEEERKT_RKNS_6localeE.exit
@@ -17297,7 +17297,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %5
   br i1 %27, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %18
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %18
   %29 = load ptr, ptr %28, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -17354,7 +17354,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i13:           ; preds = %.noexc17, %_ZNKSt3_
   br i1 %48, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i15, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i14
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i15: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i13
-  %49 = getelementptr inbounds nuw ptr, ptr %43, i64 %39
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %39
   %50 = load ptr, ptr %49, align 8, !tbaa !46
   %.not.i.i.i16 = icmp eq ptr %50, null
   br i1 %.not.i.i.i16, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i14, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIwEEEERKT_RKNS_6localeE.exit
@@ -17554,11 +17554,11 @@ toupper.exit:                                     ; preds = %70
   %75 = tail call ptr @__ctype_toupper_loc() #50
   %76 = load ptr, ptr %75, align 8, !tbaa !73
   %77 = sext i8 %74 to i64
-  %78 = getelementptr inbounds i32, ptr %76, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %76, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !27
   %80 = load i8, ptr %2, align 1, !tbaa !4
   %81 = sext i8 %80 to i64
-  %82 = getelementptr inbounds i32, ptr %76, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %76, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !27
   %84 = icmp eq i32 %79, %83
   br i1 %84, label %85, label %128
@@ -17577,7 +17577,7 @@ toupper.exit63:                                   ; preds = %66
   %88 = tail call ptr @__ctype_toupper_loc() #50
   %89 = load ptr, ptr %88, align 8, !tbaa !73
   %90 = sext i8 %68 to i64
-  %91 = getelementptr inbounds i32, ptr %89, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %89, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !27
   %93 = load i8, ptr %2, align 1, !tbaa !4
   %94 = sext i8 %93 to i32
@@ -17588,7 +17588,7 @@ tolower.exit:                                     ; preds = %toupper.exit63
   %96 = tail call ptr @__ctype_tolower_loc() #50
   %97 = load ptr, ptr %96, align 8, !tbaa !73
   %98 = sext i8 %93 to i64
-  %99 = getelementptr inbounds i32, ptr %97, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %97, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !27
   %101 = trunc i32 %100 to i8
   store i8 %101, ptr %2, align 1, !tbaa !4
@@ -17690,7 +17690,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %4
   br i1 %26, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -17747,7 +17747,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i11:           ; preds = %.noexc15, %_ZNKSt3_
   br i1 %47, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i13, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i12
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i13: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i11
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %38
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %38
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %.not.i.i.i14 = icmp eq ptr %49, null
   br i1 %.not.i.i.i14, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i12, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIwEEEERKT_RKNS_6localeE.exit
@@ -17891,7 +17891,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %21
   br i1 %36, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %27
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %27
   %38 = load ptr, ptr %37, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIcEEEERKT_RKNS_6localeE.exit
@@ -19746,7 +19746,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %21
   br i1 %36, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %27
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %27
   %38 = load ptr, ptr %37, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIwEEEERKT_RKNS_6localeE.exit
@@ -19893,7 +19893,7 @@ _ZNSt3__119ostreambuf_iteratorIwNS_11char_traitsIwEEEaSB8ne210000Ew.exit: ; pred
   %102 = lshr i8 %98, 1
   %103 = zext nneg i8 %102 to i64
   %104 = select i1 %100, i64 %96, i64 %103
-  %105 = getelementptr inbounds nuw i32, ptr %101, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %104
   %106 = icmp eq ptr %99, %105
   br i1 %106, label %._crit_edge, label %.lr.ph, !llvm.loop !126
 
@@ -21592,7 +21592,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %18, %7
   br i1 %30, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %21
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %21
   %32 = load ptr, ptr %31, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -21636,7 +21636,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i81:           ; preds = %35, %_ZNSt3__19use_
   br i1 %47, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i83, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i82
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i83: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i81
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %38
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %38
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %.not.i.i.i84 = icmp eq ptr %49, null
   br i1 %.not.i.i.i84, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i82, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIcEEEERKT_RKNS_6localeE.exit
@@ -21979,7 +21979,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %18, %7
   br i1 %30, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %21
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %21
   %32 = load ptr, ptr %31, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -22023,7 +22023,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i114:          ; preds = %35, %_ZNSt3__19use_
   br i1 %47, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i116, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i115
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i116: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i114
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %38
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %38
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %.not.i.i.i117 = icmp eq ptr %49, null
   br i1 %.not.i.i.i117, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i115, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIcEEEERKT_RKNS_6localeE.exit
@@ -22140,7 +22140,7 @@ _ZNKSt3__15ctypeIcE5widenB8ne210000Ec.exit119:    ; preds = %_ZNKSt3__15ctypeIcE
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 104
   %99 = load ptr, ptr %98, align 8, !tbaa !140
   %100 = sext i8 %89 to i64
-  %101 = getelementptr inbounds i16, ptr %99, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %99, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !70
   %103 = and i16 %102, 4096
   %.not107 = icmp eq i16 %103, 0
@@ -22192,7 +22192,7 @@ _ZNKSt3__15ctypeIcE5widenB8ne210000Ec.exit119:    ; preds = %_ZNKSt3__15ctypeIcE
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 104
   %118 = load ptr, ptr %117, align 8, !tbaa !140
   %119 = sext i8 %108 to i64
-  %120 = getelementptr inbounds i16, ptr %118, i64 %119
+  %120 = getelementptr inbounds [2 x i8], ptr %118, i64 %119
   %121 = load i16, ptr %120, align 2, !tbaa !70
   %122 = and i16 %121, 2048
   %.not = icmp eq i16 %122, 0
@@ -22502,7 +22502,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %18, %7
   br i1 %30, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %21
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %21
   %32 = load ptr, ptr %31, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -22546,7 +22546,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i81:           ; preds = %35, %_ZNSt3__19use_
   br i1 %47, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i83, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i82
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i83: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i81
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %38
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %38
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %.not.i.i.i84 = icmp eq ptr %49, null
   br i1 %.not.i.i.i84, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i82, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIwEEEERKT_RKNS_6localeE.exit
@@ -22581,7 +22581,7 @@ _ZNSt3__19use_facetB8ne210000INS_8numpunctIwEEEERKT_RKNS_6localeE.exit: ; preds 
 _ZNKSt3__15ctypeIwE5widenB8ne210000EPKcS3_Pw.exit: ; preds = %61
   %66 = ptrtoint ptr %0 to i64
   %67 = sub i64 %8, %66
-  %68 = getelementptr inbounds i32, ptr %3, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %3, i64 %67
   store ptr %68, ptr %5, align 8, !tbaa !128
   br label %_ZNSt3__17reverseB8ne210000IPwEEvT_S2_.exit
 
@@ -22717,7 +22717,7 @@ _ZNKSt3__18numpunctIwE13thousands_sepB8ne210000Ev.exit._crit_edge: ; preds = %_Z
   %126 = phi ptr [ %.pre, %_ZNKSt3__18numpunctIwE13thousands_sepB8ne210000Ev.exit.preheader._ZNKSt3__18numpunctIwE13thousands_sepB8ne210000Ev.exit._crit_edge_crit_edge ], [ %125, %_ZNKSt3__18numpunctIwE13thousands_sepB8ne210000Ev.exit._crit_edge.loopexit ]
   %127 = ptrtoint ptr %0 to i64
   %128 = sub i64 %.167100.pre-phi, %127
-  %129 = getelementptr inbounds i32, ptr %3, i64 %128
+  %129 = getelementptr inbounds [4 x i8], ptr %3, i64 %128
   %.not.i.i.i88 = icmp ne ptr %129, %126
   %130 = getelementptr inbounds i8, ptr %126, i64 -4
   %131 = icmp ult ptr %129, %130
@@ -22810,7 +22810,7 @@ _ZNSt3__17reverseB8ne210000IPwEEvT_S2_.exit:      ; preds = %.lr.ph.i.i.i90, %_Z
   %174 = icmp eq ptr %1, %2
   %175 = ptrtoint ptr %1 to i64
   %176 = sub i64 %175, %.pre-phi
-  %177 = getelementptr inbounds i32, ptr %3, i64 %176
+  %177 = getelementptr inbounds [4 x i8], ptr %3, i64 %176
   %178 = load ptr, ptr %5, align 8
   %storemerge = select i1 %174, ptr %178, ptr %177
   store ptr %storemerge, ptr %4, align 8, !tbaa !128
@@ -22893,7 +22893,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %18, %7
   br i1 %30, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %21
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %21
   %32 = load ptr, ptr %31, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -22937,7 +22937,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i114:          ; preds = %35, %_ZNSt3__19use_
   br i1 %47, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i116, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i115
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i116: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i114
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %38
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %38
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %.not.i.i.i117 = icmp eq ptr %49, null
   br i1 %.not.i.i.i117, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i115, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIwEEEERKT_RKNS_6localeE.exit
@@ -23054,7 +23054,7 @@ _ZNKSt3__15ctypeIwE5widenB8ne210000Ec.exit119:    ; preds = %_ZNKSt3__15ctypeIwE
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 104
   %99 = load ptr, ptr %98, align 8, !tbaa !140
   %100 = sext i8 %89 to i64
-  %101 = getelementptr inbounds i16, ptr %99, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %99, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !70
   %103 = and i16 %102, 4096
   %.not107 = icmp eq i16 %103, 0
@@ -23106,7 +23106,7 @@ _ZNKSt3__15ctypeIwE5widenB8ne210000Ec.exit119:    ; preds = %_ZNKSt3__15ctypeIwE
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 104
   %118 = load ptr, ptr %117, align 8, !tbaa !140
   %119 = sext i8 %108 to i64
-  %120 = getelementptr inbounds i16, ptr %118, i64 %119
+  %120 = getelementptr inbounds [2 x i8], ptr %118, i64 %119
   %121 = load i16, ptr %120, align 2, !tbaa !70
   %122 = and i16 %121, 2048
   %.not = icmp eq i16 %122, 0
@@ -23143,7 +23143,7 @@ _ZNKSt3__15ctypeIwE5widenB8ne210000Ec.exit119:    ; preds = %_ZNKSt3__15ctypeIwE
 _ZNKSt3__15ctypeIwE5widenB8ne210000EPKcS3_Pw.exit: ; preds = %133
   %139 = sub i64 %.194161, %.192162
   %140 = load ptr, ptr %5, align 8, !tbaa !128
-  %141 = getelementptr inbounds i32, ptr %140, i64 %139
+  %141 = getelementptr inbounds [4 x i8], ptr %140, i64 %139
   store ptr %141, ptr %5, align 8, !tbaa !128
   br label %_ZNSt3__17reverseB8ne210000IPwEEvT_S2_.exit
 
@@ -23194,7 +23194,7 @@ _ZNKSt3__18numpunctIwE13thousands_sepB8ne210000Ev.exit._crit_edge: ; preds = %_Z
   %159 = phi ptr [ %.pre, %_ZNKSt3__18numpunctIwE13thousands_sepB8ne210000Ev.exit.preheader._ZNKSt3__18numpunctIwE13thousands_sepB8ne210000Ev.exit._crit_edge_crit_edge ], [ %158, %_ZNKSt3__18numpunctIwE13thousands_sepB8ne210000Ev.exit._crit_edge.loopexit ]
   %160 = ptrtoint ptr %0 to i64
   %161 = sub i64 %.192162, %160
-  %162 = getelementptr inbounds i32, ptr %3, i64 %161
+  %162 = getelementptr inbounds [4 x i8], ptr %3, i64 %161
   %.not.i.i.i123 = icmp ne ptr %162, %159
   %163 = getelementptr inbounds i8, ptr %159, i64 -4
   %164 = icmp ult ptr %162, %163
@@ -23341,13 +23341,13 @@ _ZNKSt3__15ctypeIwE5widenB8ne210000EPKcS3_Pw.exit132: ; preds = %.loopexit
   %234 = ptrtoint ptr %.3 to i64
   %235 = sub i64 %8, %234
   %236 = load ptr, ptr %5, align 8, !tbaa !128
-  %237 = getelementptr inbounds i32, ptr %236, i64 %235
+  %237 = getelementptr inbounds [4 x i8], ptr %236, i64 %235
   store ptr %237, ptr %5, align 8, !tbaa !128
   %238 = icmp eq ptr %1, %2
   %239 = ptrtoint ptr %1 to i64
   %240 = ptrtoint ptr %0 to i64
   %241 = sub i64 %239, %240
-  %242 = getelementptr inbounds i32, ptr %3, i64 %241
+  %242 = getelementptr inbounds [4 x i8], ptr %3, i64 %241
   %storemerge = select i1 %238, ptr %237, ptr %242
   store ptr %storemerge, ptr %4, align 8, !tbaa !128
   %243 = load i8, ptr %15, align 8
@@ -23431,7 +23431,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %8
   br i1 %28, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %19
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %19
   %30 = load ptr, ptr %29, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -23609,7 +23609,7 @@ _ZNSt3__16localeD2Ev.exit67:                      ; preds = %66, %69, %73
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit:         ; preds = %109
   %112 = load ptr, ptr %40, align 8, !tbaa !159
   %113 = zext nneg i8 %110 to i64
-  %114 = getelementptr inbounds nuw i16, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !70
   %116 = and i16 %115, 8192
   %.not115 = icmp eq i16 %116, 0
@@ -23634,7 +23634,7 @@ _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit:         ; preds = %109
 
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit68:       ; preds = %118
   %121 = zext nneg i8 %119 to i64
-  %122 = getelementptr inbounds nuw i16, ptr %112, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !70
   %124 = and i16 %123, 8192
   %.not116 = icmp eq i16 %124, 0
@@ -23726,7 +23726,7 @@ _ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit: ; pre
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit79:       ; preds = %_ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit
   %164 = load ptr, ptr %40, align 8, !tbaa !159
   %165 = zext nneg i8 %.0.i.i to i64
-  %166 = getelementptr inbounds nuw i16, ptr %164, i64 %165
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %164, i64 %165
   %167 = load i16, ptr %166, align 2, !tbaa !70
   %168 = and i16 %167, 8192
   %.not117 = icmp eq i16 %168, 0
@@ -23976,7 +23976,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %6
   br i1 %26, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -24129,7 +24129,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %6
   br i1 %26, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -24284,7 +24284,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %6
   br i1 %26, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -24439,7 +24439,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %8
   br i1 %33, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %24
   %35 = load ptr, ptr %34, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -25183,7 +25183,7 @@ _ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit..crite
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit:         ; preds = %_ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit
   %49 = load ptr, ptr %6, align 8, !tbaa !159
   %50 = zext nneg i8 %.0.i.i to i64
-  %51 = getelementptr inbounds nuw i16, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %50
   %52 = load i16, ptr %51, align 2, !tbaa !70
   %53 = and i16 %52, 8192
   %.not = icmp eq i16 %53, 0
@@ -25678,7 +25678,7 @@ _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit:         ; preds = %_ZNKSt3__119istream
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !159
   %51 = zext nneg i8 %.0.i.i to i64
-  %52 = getelementptr inbounds nuw i16, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !70
   %54 = and i16 %53, 2048
   %.not = icmp eq i16 %54, 0
@@ -25807,7 +25807,7 @@ _ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit38: ; p
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit39:       ; preds = %_ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit38
   %119 = load ptr, ptr %49, align 8, !tbaa !159
   %120 = zext nneg i8 %.0.i.i37 to i64
-  %121 = getelementptr inbounds nuw i16, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [2 x i8], ptr %119, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !70
   %123 = and i16 %122, 2048
   %.not58 = icmp eq i16 %123, 0
@@ -25959,7 +25959,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %8
   br i1 %27, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %18
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %18
   %29 = load ptr, ptr %28, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -26460,7 +26460,7 @@ define weak_odr dso_local ptr @_ZNKSt3__18time_getIwNS_19istreambuf_iteratorIwNS
   %20 = lshr i8 %12, 1
   %21 = zext nneg i8 %20 to i64
   %22 = select i1 %13, i64 %19, i64 %21
-  %23 = getelementptr inbounds nuw i32, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %22
   %24 = tail call ptr @_ZNKSt3__18time_getIwNS_19istreambuf_iteratorIwNS_11char_traitsIwEEEEE3getES4_S4_RNS_8ios_baseERjP2tmPKwSC_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef %5, ptr noundef %17, ptr noundef %23)
   ret ptr %24
 }
@@ -26512,7 +26512,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %6
   br i1 %26, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -26665,7 +26665,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %6
   br i1 %26, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -26820,7 +26820,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %6
   br i1 %26, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -26975,7 +26975,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %8
   br i1 %33, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %24
   %35 = load ptr, ptr %34, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -27123,7 +27123,7 @@ _ZNSt3__16localeD2Ev.exit120:                     ; preds = %45, %48, %52
   %103 = lshr i8 %95, 1
   %104 = zext nneg i8 %103 to i64
   %105 = select i1 %96, i64 %102, i64 %104
-  %106 = getelementptr inbounds nuw i32, ptr %100, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %105
   %107 = call ptr @_ZNKSt3__18time_getIwNS_19istreambuf_iteratorIwNS_11char_traitsIwEEEEE3getES4_S4_RNS_8ios_baseERjP2tmPKwSC_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.036.0.copyload, ptr %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef %5, ptr noundef %100, ptr noundef %106)
   store ptr %107, ptr %12, align 8
   br label %_ZNKSt3__18time_getIwNS_19istreambuf_iteratorIwNS_11char_traitsIwEEEEE17__get_weekdaynameERiRS4_S4_RjRKNS_5ctypeIwEE.exit
@@ -27421,7 +27421,7 @@ _ZNSt3__16localeD2Ev.exit120:                     ; preds = %45, %48, %52
   %267 = lshr i8 %259, 1
   %268 = zext nneg i8 %267 to i64
   %269 = select i1 %260, i64 %266, i64 %268
-  %270 = getelementptr inbounds nuw i32, ptr %264, i64 %269
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %264, i64 %269
   %271 = call ptr @_ZNKSt3__18time_getIwNS_19istreambuf_iteratorIwNS_11char_traitsIwEEEEE3getES4_S4_RNS_8ios_baseERjP2tmPKwSC_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %.sroa.04.0.copyload, ptr %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef %5, ptr noundef %264, ptr noundef %270)
   store ptr %271, ptr %12, align 8
   br label %_ZNKSt3__18time_getIwNS_19istreambuf_iteratorIwNS_11char_traitsIwEEEEE17__get_weekdaynameERiRS4_S4_RjRKNS_5ctypeIwEE.exit
@@ -28562,7 +28562,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %7
   br i1 %26, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -28942,7 +28942,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %7
   br i1 %26, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -29300,7 +29300,7 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   unreachable
 
 29:                                               ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit
-  %30 = getelementptr inbounds nuw i32, ptr %1, i64 %24
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %24
   store ptr %30, ptr %2, align 8, !tbaa !128
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -30094,7 +30094,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %22
   br i1 %37, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %28
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %28
   %39 = load ptr, ptr %38, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -30693,7 +30693,7 @@ _ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit: ; pre
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit:         ; preds = %_ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit
   %125 = load ptr, ptr %56, align 8, !tbaa !159
   %126 = zext nneg i8 %.0.i.i to i64
-  %127 = getelementptr inbounds nuw i16, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %125, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !70
   %129 = and i16 %128, 8192
   %.not508 = icmp eq i16 %129, 0
@@ -30925,7 +30925,7 @@ _ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit214: ; 
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit215:      ; preds = %_ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit214
   %226 = load ptr, ptr %56, align 8, !tbaa !159
   %227 = zext nneg i8 %.0.i.i212 to i64
-  %228 = getelementptr inbounds nuw i16, ptr %226, i64 %227
+  %228 = getelementptr inbounds nuw [2 x i8], ptr %226, i64 %227
   %229 = load i16, ptr %228, align 2, !tbaa !70
   %230 = and i16 %229, 8192
   %.not509 = icmp eq i16 %230, 0
@@ -31310,7 +31310,7 @@ _ZNSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEppB8ne210000Ev.exit252: ; p
 
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit253:      ; preds = %422
   %425 = zext nneg i8 %423 to i64
-  %426 = getelementptr inbounds nuw i16, ptr %421, i64 %425
+  %426 = getelementptr inbounds nuw [2 x i8], ptr %421, i64 %425
   %427 = load i16, ptr %426, align 2, !tbaa !70
   %428 = and i16 %427, 8192
   %.not507 = icmp eq i16 %428, 0
@@ -31628,7 +31628,7 @@ _ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit285: ; 
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit286:      ; preds = %_ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit285
   %588 = load ptr, ptr %56, align 8, !tbaa !159
   %589 = zext nneg i8 %.0.i.i283 to i64
-  %590 = getelementptr inbounds nuw i16, ptr %588, i64 %589
+  %590 = getelementptr inbounds nuw [2 x i8], ptr %588, i64 %589
   %591 = load i16, ptr %590, align 2, !tbaa !70
   %592 = and i16 %591, 2048
   %.not505 = icmp eq i16 %592, 0
@@ -31776,7 +31776,7 @@ _ZNSt3__119__double_or_nothingB8ne210000IjEEvRNS_10unique_ptrIT_PFvPvEEERPS2_S9_
   %storemerge.i294 = phi ptr [ %malloc.i296, %641 ], [ %639, %.thread30.i293 ]
   %642 = lshr i64 %636, 2
   %643 = getelementptr inbounds nuw i8, ptr %storemerge.i294, i64 %632
-  %644 = getelementptr inbounds nuw i32, ptr %storemerge.i294, i64 %642
+  %644 = getelementptr inbounds nuw [4 x i8], ptr %storemerge.i294, i64 %642
   br label %645
 
 645:                                              ; preds = %_ZNSt3__119__double_or_nothingB8ne210000IjEEvRNS_10unique_ptrIT_PFvPvEEERPS2_S9_.exit, %627
@@ -31867,7 +31867,7 @@ _ZNSt3__119__double_or_nothingB8ne210000IjEEvRNS_10unique_ptrIT_PFvPvEEERPS2_S9_
   %storemerge.i306 = phi ptr [ %malloc.i308, %679 ], [ %676, %.thread30.i304 ]
   %680 = lshr i64 %673, 2
   %681 = getelementptr inbounds nuw i8, ptr %storemerge.i306, i64 %669
-  %682 = getelementptr inbounds nuw i32, ptr %storemerge.i306, i64 %680
+  %682 = getelementptr inbounds nuw [4 x i8], ptr %storemerge.i306, i64 %680
   br label %683
 
 683:                                              ; preds = %_ZNSt3__119__double_or_nothingB8ne210000IjEEvRNS_10unique_ptrIT_PFvPvEEERPS2_S9_.exit310, %664
@@ -32110,7 +32110,7 @@ _ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit342: ; 
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit343:      ; preds = %_ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEdeB8ne210000Ev.exit342
   %793 = load ptr, ptr %56, align 8, !tbaa !159
   %794 = zext nneg i8 %.0.i.i340 to i64
-  %795 = getelementptr inbounds nuw i16, ptr %793, i64 %794
+  %795 = getelementptr inbounds nuw [2 x i8], ptr %793, i64 %794
   %796 = load i16, ptr %795, align 2, !tbaa !70
   %797 = and i16 %796, 2048
   %.not506 = icmp eq i16 %797, 0
@@ -32782,7 +32782,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %19
   br i1 %34, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %25
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %25
   %36 = load ptr, ptr %35, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -33420,7 +33420,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %28, %26
   br i1 %40, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %41 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %42 = load ptr, ptr %41, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_10moneypunctIcLb1EEEEERKT_RKNS_6localeE.exit
@@ -33561,7 +33561,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i42:           ; preds = %97, %95
   br i1 %109, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i44, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i43
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i44: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i42
-  %110 = getelementptr inbounds nuw ptr, ptr %104, i64 %100
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %100
   %111 = load ptr, ptr %110, align 8, !tbaa !46
   %.not.i.i.i45 = icmp eq ptr %111, null
   br i1 %.not.i.i.i45, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i43, label %_ZNSt3__19use_facetB8ne210000INS_10moneypunctIcLb0EEEEERKT_RKNS_6localeE.exit
@@ -33847,7 +33847,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %22
   br i1 %37, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %28
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %28
   %39 = load ptr, ptr %38, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -34529,7 +34529,7 @@ _ZNKSt3__15ctypeIwE2isB8ne210000Etw.exit:         ; preds = %_ZNKSt3__119istream
 .thread:                                          ; preds = %162, %.thread24.i
   %.01323.i = phi i64 [ %164, %162 ], [ %.01321.i, %.thread24.i ]
   %.pn.i = phi ptr [ %72, %162 ], [ %166, %.thread24.i ]
-  %.0.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.01323.i
+  %.0.i = getelementptr inbounds nuw [4 x i8], ptr %.pn.i, i64 %.01323.i
   store i32 %.0.i.i200, ptr %.0.i, align 4, !tbaa !10
   br label %.preheader519.sink.split
 
@@ -34716,7 +34716,7 @@ _ZNKSt3__15ctypeIwE2isB8ne210000Etw.exit221:      ; preds = %_ZNKSt3__119istream
 254:                                              ; preds = %.thread24.i233, %248
   %.01323.i228 = phi i64 [ %250, %248 ], [ %.01321.i234, %.thread24.i233 ]
   %.pn.i229 = phi ptr [ %72, %248 ], [ %252, %.thread24.i233 ]
-  %.0.i230 = getelementptr inbounds nuw i32, ptr %.pn.i229, i64 %.01323.i228
+  %.0.i230 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i229, i64 %.01323.i228
   store i32 %.0.i.i222, ptr %.0.i230, align 4, !tbaa !10
   br label %.preheader519.sink.split, !llvm.loop !240
 
@@ -34969,7 +34969,7 @@ _ZNSt3__119istreambuf_iteratorIwNS_11char_traitsIwEEEppB8ne210000Ev.exit250: ; p
   %391 = lshr i8 %384, 1
   %392 = zext nneg i8 %391 to i64
   %393 = select i1 %388, i64 %390, i64 %392
-  %394 = getelementptr inbounds nuw i32, ptr %389, i64 %393
+  %394 = getelementptr inbounds nuw [4 x i8], ptr %389, i64 %393
   %395 = icmp eq ptr %385, %394
   br i1 %395, label %.critedge12, label %.lr.ph696
 
@@ -35000,7 +35000,7 @@ _ZNKSt3__15ctypeIwE2isB8ne210000Etw.exit252..critedge12.loopexit_crit_edge: ; pr
   %406 = lshr i8 %.pre824.pre, 1
   %407 = zext nneg i8 %406 to i64
   %408 = select i1 %403, i64 %405, i64 %407
-  %409 = getelementptr inbounds nuw i32, ptr %404, i64 %408
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %404, i64 %408
   %410 = icmp eq ptr %402, %409
   br i1 %410, label %.critedge12, label %.lr.ph696, !llvm.loop !241
 
@@ -35030,9 +35030,9 @@ _ZNKSt3__15ctypeIwE2isB8ne210000Etw.exit252..critedge12.loopexit_crit_edge: ; pr
 425:                                              ; preds = %.critedge12
   %426 = load ptr, ptr %71, align 8
   %427 = select i1 %419, ptr %426, ptr %72
-  %428 = getelementptr inbounds nuw i32, ptr %427, i64 %423
+  %428 = getelementptr inbounds nuw [4 x i8], ptr %427, i64 %423
   %429 = sub nsw i64 0, %417
-  %430 = getelementptr inbounds i32, ptr %428, i64 %429
+  %430 = getelementptr inbounds [4 x i8], ptr %428, i64 %429
   %bcmp.i.i.i.i = call i32 @bcmp(ptr %430, ptr %.pre-phi845, i64 %416)
   %431 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %431, label %._crit_edge, label %.critedge14
@@ -35049,7 +35049,7 @@ _ZNKSt3__15ctypeIwE2isB8ne210000Etw.exit252..critedge12.loopexit_crit_edge: ; pr
   %434 = lshr i8 %432, 1
   %435 = zext nneg i8 %434 to i64
   %436 = select i1 %.pre-phi847, i64 %433, i64 %435
-  %437 = getelementptr inbounds nuw i32, ptr %.pre-phi849, i64 %436
+  %437 = getelementptr inbounds nuw [4 x i8], ptr %.pre-phi849, i64 %436
   %438 = icmp eq ptr %.sroa.0417.0, %437
   br i1 %438, label %.critedge16, label %.lr.ph701
 
@@ -35185,7 +35185,7 @@ _ZNSt3__119istreambuf_iteratorIwNS_11char_traitsIwEEEppB8ne210000Ev.exit271: ; p
   %509 = lshr i8 %504, 1
   %510 = zext nneg i8 %509 to i64
   %511 = select i1 %505, i64 %508, i64 %510
-  %512 = getelementptr inbounds nuw i32, ptr %507, i64 %511
+  %512 = getelementptr inbounds nuw [4 x i8], ptr %507, i64 %511
   %513 = icmp eq ptr %503, %512
   br i1 %513, label %.critedge16, label %.lr.ph701, !llvm.loop !242
 
@@ -35213,7 +35213,7 @@ _ZNSt3__119istreambuf_iteratorIwNS_11char_traitsIwEEEppB8ne210000Ev.exit271: ; p
   %524 = lshr i8 %519, 1
   %525 = zext nneg i8 %524 to i64
   %526 = select i1 %520, i64 %523, i64 %525
-  %527 = getelementptr inbounds nuw i32, ptr %522, i64 %526
+  %527 = getelementptr inbounds nuw [4 x i8], ptr %522, i64 %526
   %528 = icmp eq ptr %.sroa.0407.0.lcssa, %527
   br i1 %528, label %.critedge7, label %.critedge180.sink.split
 
@@ -35377,7 +35377,7 @@ _ZNSt3__119__double_or_nothingB8ne210000IwEEvRNS_10unique_ptrIT_PFvPvEEERPS2_S9_
   %600 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %589
   store ptr %600, ptr %9, align 8, !tbaa !128
   %601 = load ptr, ptr %8, align 8, !tbaa !236
-  %602 = getelementptr inbounds nuw i32, ptr %601, i64 %599
+  %602 = getelementptr inbounds nuw [4 x i8], ptr %601, i64 %599
   br label %603
 
 .loopexit522:                                     ; preds = %752, %769, %786, %_ZNKSt3__119istreambuf_iteratorIwNS_11char_traitsIwEEEdeB8ne210000Ev.exit352, %828, %845
@@ -35473,7 +35473,7 @@ _ZNSt3__119__double_or_nothingB8ne210000IjEEvRNS_10unique_ptrIT_PFvPvEEERPS2_S9_
   %storemerge.i300 = phi ptr [ %malloc.i302, %632 ], [ %630, %.thread30.i298 ]
   %633 = lshr i64 %627, 2
   %634 = getelementptr inbounds nuw i8, ptr %storemerge.i300, i64 %623
-  %635 = getelementptr inbounds nuw i32, ptr %storemerge.i300, i64 %633
+  %635 = getelementptr inbounds nuw [4 x i8], ptr %storemerge.i300, i64 %633
   br label %636
 
 636:                                              ; preds = %_ZNSt3__119__double_or_nothingB8ne210000IjEEvRNS_10unique_ptrIT_PFvPvEEERPS2_S9_.exit, %618
@@ -35564,7 +35564,7 @@ _ZNSt3__119__double_or_nothingB8ne210000IjEEvRNS_10unique_ptrIT_PFvPvEEERPS2_S9_
   %storemerge.i312 = phi ptr [ %malloc.i314, %670 ], [ %667, %.thread30.i310 ]
   %671 = lshr i64 %664, 2
   %672 = getelementptr inbounds nuw i8, ptr %storemerge.i312, i64 %660
-  %673 = getelementptr inbounds nuw i32, ptr %storemerge.i312, i64 %671
+  %673 = getelementptr inbounds nuw [4 x i8], ptr %storemerge.i312, i64 %671
   br label %674
 
 674:                                              ; preds = %_ZNSt3__119__double_or_nothingB8ne210000IjEEvRNS_10unique_ptrIT_PFvPvEEERPS2_S9_.exit316, %655
@@ -35865,7 +35865,7 @@ _ZNSt3__119__double_or_nothingB8ne210000IwEEvRNS_10unique_ptrIT_PFvPvEEERPS2_S9_
   %817 = getelementptr inbounds nuw i8, ptr %storemerge.i361, i64 %805
   store ptr %817, ptr %9, align 8, !tbaa !128
   %818 = load ptr, ptr %8, align 8, !tbaa !236
-  %819 = getelementptr inbounds nuw i32, ptr %818, i64 %816
+  %819 = getelementptr inbounds nuw [4 x i8], ptr %818, i64 %816
   br label %820
 
 820:                                              ; preds = %_ZNSt3__119__double_or_nothingB8ne210000IwEEvRNS_10unique_ptrIT_PFvPvEEERPS2_S9_.exit365, %797
@@ -36080,7 +36080,7 @@ _ZNKSt3__119istreambuf_iteratorIwNS_11char_traitsIwEEEdeB8ne210000Ev.exit387: ; 
   %917 = trunc i8 %916 to i1
   %918 = load ptr, ptr %864, align 8
   %.pn.i388 = select i1 %917, ptr %918, ptr %865
-  %.0.i389 = getelementptr inbounds nuw i32, ptr %.pn.i388, i64 %867
+  %.0.i389 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i388, i64 %867
   %919 = load i32, ptr %.0.i389, align 4, !tbaa !10
   %.not164 = icmp eq i32 %.0.i.i385, %919
   br i1 %.not164, label %922, label %.critedge180.sink.split
@@ -36481,7 +36481,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %19
   br i1 %34, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %25
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %25
   %36 = load ptr, ptr %35, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -36578,7 +36578,7 @@ _ZNKSt3__15ctypeIwE5widenB8ne210000Ec.exit:       ; preds = %52
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit: ; preds = %67, %.thread24.i
   %.01323.i = phi i64 [ %69, %67 ], [ %.01321.i, %.thread24.i ]
   %.pn.i = phi ptr [ %70, %67 ], [ %73, %.thread24.i ]
-  %.0.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.01323.i
+  %.0.i = getelementptr inbounds nuw [4 x i8], ptr %.pn.i, i64 %.01323.i
   store i32 %56, ptr %.0.i, align 4, !tbaa !10
   %76 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i32 0, ptr %76, align 4, !tbaa !10
@@ -36845,7 +36845,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %26 = lshr i64 %12, 1
   %27 = and i64 %26, 127
   %28 = select i1 %21, i64 %8, i64 %27
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = icmp uge ptr %1, %25
   %32 = icmp ult ptr %1, %30
@@ -36870,7 +36870,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE28__copy_non_overlapping_rangeB8ne210000IPwS7_EES7_T_T0_S7_.exit: ; preds = %33, %37
   %.pre-phi30 = phi ptr [ %.pre29, %37 ], [ %25, %33 ]
-  %39 = getelementptr inbounds nuw i32, ptr %.pre-phi30, i64 %11
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.pre-phi30, i64 %11
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %39, ptr nonnull align 4 %1, i64 %18, i1 false)
   %40 = getelementptr inbounds i8, ptr %39, i64 %18
   store i32 0, ptr %40, align 4, !tbaa !10
@@ -36967,7 +36967,7 @@ _ZNSt3__118__char_traits_baseIwjLj4294967295EE4copyB8ne210000EPwPKwm.exit.i: ; p
   br label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE10__set_sizeB8ne210000Em.exit.i
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE10__set_sizeB8ne210000Em.exit.i: ; preds = %85, %84
-  %88 = getelementptr inbounds nuw i32, ptr %25, i64 %81
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %81
   store i32 0, ptr %88, align 4, !tbaa !10
   br label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE6appendEPKwm.exit
 
@@ -37074,7 +37074,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %28, %26
   br i1 %40, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %41 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %42 = load ptr, ptr %41, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_10moneypunctIwLb1EEEEERKT_RKNS_6localeE.exit
@@ -37218,7 +37218,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i40:           ; preds = %100, %98
   br i1 %112, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i42, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i41
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i42: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i40
-  %113 = getelementptr inbounds nuw ptr, ptr %107, i64 %103
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %103
   %114 = load ptr, ptr %113, align 8, !tbaa !46
   %.not.i.i.i43 = icmp eq ptr %114, null
   br i1 %.not.i.i.i43, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i41, label %_ZNSt3__19use_facetB8ne210000INS_10moneypunctIwLb0EEEEERKT_RKNS_6localeE.exit
@@ -37464,7 +37464,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %47
   br i1 %62, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %53
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %53
   %64 = load ptr, ptr %63, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -37905,7 +37905,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %28, %26
   br i1 %40, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %41 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %42 = load ptr, ptr %41, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_10moneypunctIcLb1EEEEERKT_RKNS_6localeE.exit
@@ -38059,7 +38059,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i50:           ; preds = %103, %101
   br i1 %115, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i52, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i51
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i52: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i50
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %106
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %106
   %117 = load ptr, ptr %116, align 8, !tbaa !46
   %.not.i.i.i53 = icmp eq ptr %117, null
   br i1 %.not.i.i.i53, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i51, label %_ZNSt3__19use_facetB8ne210000INS_10moneypunctIcLb0EEEEERKT_RKNS_6localeE.exit
@@ -38312,7 +38312,7 @@ _ZNSt3__14copyB8ne210000INS_11__wrap_iterIPKcEEPcEET0_T_S7_S6_.exit: ; preds = %
 
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit:         ; preds = %79
   %82 = zext nneg i8 %80 to i64
-  %83 = getelementptr inbounds nuw i16, ptr %77, i64 %82
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !70
   %85 = and i16 %84, 2048
   %.not112 = icmp eq i16 %85, 0
@@ -38715,7 +38715,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %6
   br i1 %35, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %26
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %26
   %37 = load ptr, ptr %36, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit
@@ -39184,7 +39184,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %48
   br i1 %63, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %64 = getelementptr inbounds nuw ptr, ptr %58, i64 %54
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %54
   %65 = load ptr, ptr %64, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -39327,7 +39327,7 @@ _ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit54: ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %141 = load i32, ptr %140, align 8, !tbaa !14
-  %142 = getelementptr inbounds i32, ptr %.0, i64 %67
+  %142 = getelementptr inbounds [4 x i8], ptr %.0, i64 %67
   %143 = load i32, ptr %15, align 4, !tbaa !10
   %144 = load i32, ptr %16, align 4, !tbaa !10
   invoke void @_ZNSt3__111__money_putIwE8__formatEPwRS2_S3_jPKwS5_RKNS_5ctypeIwEEbRKNS_10money_base7patternEwwRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERKNSE_IwNSF_IwEENSH_IwEEEESQ_i(ptr noundef nonnull %.031, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %141, ptr noundef nonnull %.0, ptr noundef nonnull %142, ptr noundef nonnull align 8 dereferenceable(16) %65, i1 noundef zeroext %79, ptr noundef nonnull align 1 dereferenceable(4) %14, i32 noundef signext %143, i32 noundef signext %144, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 noundef %81)
@@ -39607,7 +39607,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %28, %26
   br i1 %40, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %41 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %42 = load ptr, ptr %41, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_10moneypunctIwLb1EEEEERKT_RKNS_6localeE.exit
@@ -39764,7 +39764,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i48:           ; preds = %106, %104
   br i1 %118, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i50, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i49
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i50: ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i48
-  %119 = getelementptr inbounds nuw ptr, ptr %113, i64 %109
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %109
   %120 = load ptr, ptr %119, align 8, !tbaa !46
   %.not.i.i.i51 = icmp eq ptr %120, null
   br i1 %.not.i.i.i51, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i49, label %_ZNSt3__19use_facetB8ne210000INS_10moneypunctIwLb0EEEEERKT_RKNS_6localeE.exit
@@ -40309,7 +40309,7 @@ define linkonce_odr hidden ptr @_ZNSt3__116__pad_and_outputB8ne210000IwNS_11char
   br i1 %.not.i.i.i.i.i, label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEC2B8ne210000Emw.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !326
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEC2B8ne210000Emw.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %47 = getelementptr inbounds nuw i32, ptr %.018.i.i, i64 %16
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.018.i.i, i64 %16
   store i32 0, ptr %47, align 4, !tbaa !10
   %48 = load i8, ptr %7, align 8
   %49 = trunc i8 %48 to i1
@@ -40438,7 +40438,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %6
   br i1 %35, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %26
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %26
   %37 = load ptr, ptr %36, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -40599,7 +40599,7 @@ _ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit: ; preds = %108
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %129 = select i1 %59, ptr %127, ptr %128
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %63
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %63
   %131 = load i32, ptr %12, align 4, !tbaa !10
   %132 = load i32, ptr %13, align 4, !tbaa !10
   invoke void @_ZNSt3__111__money_putIwE8__formatEPwRS2_S3_jPKwS5_RKNS_5ctypeIwEEbRKNS_10money_base7patternEwwRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERKNSE_IwNSF_IwEENSH_IwEEEESQ_i(ptr noundef nonnull %.028, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %125, ptr noundef %129, ptr noundef %130, ptr noundef nonnull align 8 dereferenceable(16) %37, i1 noundef zeroext %56, ptr noundef nonnull align 1 dereferenceable(4) %11, i32 noundef signext %131, i32 noundef signext %132, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %65)
@@ -41136,7 +41136,7 @@ define weak_odr dso_local void @_ZNKSt3__18messagesIwE6do_getEliiRKNS_12basic_st
   %19 = lshr i8 %11, 1
   %20 = zext nneg i8 %19 to i64
   %21 = select i1 %12, i64 %18, i64 %20
-  %22 = getelementptr inbounds nuw i32, ptr %16, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %21
   %23 = invoke ptr @_ZNKSt3__116__narrow_to_utf8ILm32EEclB8ne210000INS_20back_insert_iteratorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEwEET_SB_PKT0_SE_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %7, ptr noundef %16, ptr noundef %22)
           to label %24 unwind label %44
 
@@ -41525,7 +41525,7 @@ _ZNSt3__120back_insert_iteratorINS_12basic_stringIwNS_11char_traitsIwEENS_9alloc
   %65 = phi ptr [ %33, %60 ], [ %.pre29, %.thread24.i.i ]
   %.01323.i.i = phi i64 [ %62, %60 ], [ %.01321.i.i, %.thread24.i.i ]
   %.pn.i.i = phi ptr [ %12, %60 ], [ %64, %.thread24.i.i ]
-  %.0.i.i = getelementptr inbounds nuw i32, ptr %.pn.i.i, i64 %.01323.i.i
+  %.0.i.i = getelementptr inbounds nuw [4 x i8], ptr %.pn.i.i, i64 %.01323.i.i
   store i32 %34, ptr %.0.i.i, align 4, !tbaa !10
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 0, ptr %66, align 4, !tbaa !10
@@ -42078,7 +42078,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -42105,7 +42105,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -42125,7 +42125,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -42188,7 +42188,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -42215,7 +42215,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -42235,7 +42235,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -42298,7 +42298,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -42325,7 +42325,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -42345,7 +42345,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -42408,7 +42408,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -42435,7 +42435,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -42455,7 +42455,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -42518,7 +42518,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -42545,7 +42545,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -42565,7 +42565,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -42628,7 +42628,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -42655,7 +42655,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -42675,7 +42675,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -42738,7 +42738,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -42765,7 +42765,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -42785,7 +42785,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -42848,7 +42848,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -42875,7 +42875,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -42895,7 +42895,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -42958,7 +42958,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -42985,7 +42985,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -43005,7 +43005,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -43068,7 +43068,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -43095,7 +43095,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -43115,7 +43115,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -43178,7 +43178,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -43205,7 +43205,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -43225,7 +43225,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -43288,7 +43288,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -43315,7 +43315,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -43335,7 +43335,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -43398,7 +43398,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -43425,7 +43425,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -43445,7 +43445,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -43508,7 +43508,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -43535,7 +43535,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -43555,7 +43555,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -43618,7 +43618,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -43645,7 +43645,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -43665,7 +43665,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -43728,7 +43728,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -43755,7 +43755,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -43775,7 +43775,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -43838,7 +43838,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -43865,7 +43865,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -43885,7 +43885,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -43948,7 +43948,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -43975,7 +43975,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -43995,7 +43995,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -44058,7 +44058,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -44085,7 +44085,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -44105,7 +44105,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -44168,7 +44168,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -44195,7 +44195,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -44215,7 +44215,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -44278,7 +44278,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -44305,7 +44305,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -44325,7 +44325,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -44388,7 +44388,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -44415,7 +44415,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -44435,7 +44435,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -44498,7 +44498,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -44525,7 +44525,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -44545,7 +44545,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -44608,7 +44608,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -44635,7 +44635,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -44655,7 +44655,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -44718,7 +44718,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -44745,7 +44745,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -44765,7 +44765,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -44828,7 +44828,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -44855,7 +44855,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -44875,7 +44875,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -44938,7 +44938,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -44965,7 +44965,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -44985,7 +44985,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -45048,7 +45048,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -45075,7 +45075,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -45095,7 +45095,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -45158,7 +45158,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -45185,7 +45185,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -45205,7 +45205,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -45268,7 +45268,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -45295,7 +45295,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -45315,7 +45315,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -45452,7 +45452,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000E
   %47 = phi ptr [ %56, %54 ], [ %39, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
   %48 = phi i64 [ %58, %54 ], [ 0, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
   %.01336 = phi i32 [ %57, %54 ], [ 0, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !46
   %.not22 = icmp eq ptr %50, null
   br i1 %.not22, label %54, label %51
@@ -45891,7 +45891,7 @@ _ZNSt3__115numpunct_bynameIwEC2ERKNS_12basic_stringIcNS_11char_traitsIcEENS_9all
   %205 = phi ptr [ %220, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ %204, %.body ]
   %206 = phi i64 [ %218, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ 0, %.body ]
   %.037 = phi i32 [ %217, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ 0, %.body ]
-  %207 = getelementptr inbounds nuw ptr, ptr %205, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %206
   %208 = load ptr, ptr %207, align 8, !tbaa !46
   %.not = icmp eq ptr %208, null
   br i1 %.not, label %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit, label %209
@@ -46049,7 +46049,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -46076,7 +46076,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -46096,7 +46096,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -46162,7 +46162,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -46189,7 +46189,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -46209,7 +46209,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -46272,7 +46272,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -46299,7 +46299,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -46319,7 +46319,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -46382,7 +46382,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -46409,7 +46409,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -46429,7 +46429,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -46492,7 +46492,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -46519,7 +46519,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -46539,7 +46539,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -46602,7 +46602,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -46629,7 +46629,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -46649,7 +46649,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -46712,7 +46712,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -46739,7 +46739,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -46759,7 +46759,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -46822,7 +46822,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -46849,7 +46849,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -46869,7 +46869,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -46932,7 +46932,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -46959,7 +46959,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -46979,7 +46979,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -47042,7 +47042,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -47069,7 +47069,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -47089,7 +47089,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -47152,7 +47152,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -47179,7 +47179,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -47199,7 +47199,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -47262,7 +47262,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -47289,7 +47289,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -47309,7 +47309,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -47372,7 +47372,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -47399,7 +47399,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -47419,7 +47419,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -47564,7 +47564,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -47591,7 +47591,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -47611,7 +47611,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -47756,7 +47756,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -47783,7 +47783,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -47803,7 +47803,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -47951,7 +47951,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -47978,7 +47978,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -47998,7 +47998,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -48146,7 +48146,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -48173,7 +48173,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -48193,7 +48193,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -48256,7 +48256,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -48283,7 +48283,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -48303,7 +48303,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -48366,7 +48366,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -48393,7 +48393,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -48413,7 +48413,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -48476,7 +48476,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -48503,7 +48503,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -48523,7 +48523,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -48586,7 +48586,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -48613,7 +48613,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -48633,7 +48633,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -48696,7 +48696,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %27, label %28, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   store ptr %29, ptr %14, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -48723,7 +48723,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %28, %26, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNSt3__16locale2id5__getEv.exit
   %39 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %16, %28 ], [ %16, %26 ], [ %16, %_ZNSt3__16locale2id5__getEv.exit ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %10
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %41, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %42
@@ -48743,7 +48743,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %42, %46
   %50 = load ptr, ptr %13, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %10
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %10
   store ptr %1, ptr %51, align 8, !tbaa !46
   ret void
 }
@@ -48823,7 +48823,7 @@ _ZNSt3__19allocatorIPNS_6locale5facetEE8allocateB8ne210000Em.exit.i.i.i.i.i: ; p
   %.idx.i.pre-phi.i = phi i64 [ 240, %23 ], [ %12, %_ZNSt3__19allocatorIPNS_6locale5facetEE8allocateB8ne210000Em.exit.i.i.i.i.i ]
   %.0.i.i.i.i.i = phi ptr [ %16, %23 ], [ %24, %_ZNSt3__19allocatorIPNS_6locale5facetEE8allocateB8ne210000Em.exit.i.i.i.i.i ]
   store ptr %.0.i.i.i.i.i, ptr %5, align 8, !tbaa !45
-  %28 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i, i64 %.sroa.speculated
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %.sroa.speculated
   store ptr %28, ptr %15, align 8, !tbaa !340
   %29 = getelementptr i8, ptr %.0.i.i.i.i.i, i64 %.idx.i.pre-phi.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i, i8 0, i64 %.idx.i.pre-phi.i, i1 false), !tbaa !46
@@ -48895,7 +48895,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000E
   %61 = phi ptr [ %70, %68 ], [ %47, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
   %62 = phi i64 [ %72, %68 ], [ 0, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
   %.020 = phi i32 [ %71, %68 ], [ 0, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
-  %63 = getelementptr inbounds nuw ptr, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !46
   %.not = icmp eq ptr %64, null
   br i1 %.not, label %68, label %65
@@ -48992,7 +48992,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000E
   %31 = phi ptr [ %40, %38 ], [ %23, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
   %32 = phi i64 [ %42, %38 ], [ 0, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
   %.04370 = phi i32 [ %41, %38 ], [ 0, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !46
   %.not60 = icmp eq ptr %34, null
   br i1 %.not60, label %38, label %35
@@ -49467,7 +49467,7 @@ _ZNSt3__115numpunct_bynameIwEC2ERKNS_12basic_stringIcNS_11char_traitsIcEENS_9all
   %206 = phi ptr [ %221, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ %205, %202 ]
   %207 = phi i64 [ %219, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ 0, %202 ]
   %.071 = phi i32 [ %218, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ 0, %202 ]
-  %208 = getelementptr inbounds nuw ptr, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !46
   %.not59 = icmp eq ptr %209, null
   br i1 %.not59, label %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit, label %210
@@ -49695,7 +49695,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000E
   %32 = phi ptr [ %41, %39 ], [ %24, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
   %33 = phi i64 [ %43, %39 ], [ 0, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
   %.05168 = phi i32 [ %42, %39 ], [ 0, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !46
   %.not67 = icmp eq ptr %35, null
   br i1 %.not67, label %39, label %36
@@ -49882,7 +49882,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000E
   %95 = phi ptr [ %110, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ %56, %51 ]
   %96 = phi i64 [ %108, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ 0, %51 ]
   %.069 = phi i32 [ %107, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ 0, %51 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !46
   %.not66 = icmp eq ptr %98, null
   br i1 %.not66, label %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit, label %99
@@ -49990,7 +49990,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -50032,7 +50032,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -50055,7 +50055,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -50075,7 +50075,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -50118,7 +50118,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -50160,7 +50160,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -50183,7 +50183,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -50203,7 +50203,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -50246,7 +50246,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -50288,7 +50288,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -50311,7 +50311,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -50331,7 +50331,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -50374,7 +50374,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -50416,7 +50416,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -50439,7 +50439,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -50459,7 +50459,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -50502,7 +50502,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -50544,7 +50544,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -50567,7 +50567,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -50587,7 +50587,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -50630,7 +50630,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -50672,7 +50672,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -50695,7 +50695,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -50715,7 +50715,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -50758,7 +50758,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -50800,7 +50800,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -50823,7 +50823,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -50843,7 +50843,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -50886,7 +50886,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -50928,7 +50928,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -50951,7 +50951,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -50971,7 +50971,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -51014,7 +51014,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -51056,7 +51056,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -51079,7 +51079,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -51099,7 +51099,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -51142,7 +51142,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -51184,7 +51184,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -51207,7 +51207,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -51227,7 +51227,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -51270,7 +51270,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -51312,7 +51312,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -51335,7 +51335,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -51355,7 +51355,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -51398,7 +51398,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -51440,7 +51440,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -51463,7 +51463,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -51483,7 +51483,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -51526,7 +51526,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -51568,7 +51568,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -51591,7 +51591,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -51611,7 +51611,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -51654,7 +51654,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -51696,7 +51696,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -51719,7 +51719,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -51739,7 +51739,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -51782,7 +51782,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -51824,7 +51824,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -51847,7 +51847,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -51867,7 +51867,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -51910,7 +51910,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -51952,7 +51952,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -51975,7 +51975,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -51995,7 +51995,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -52038,7 +52038,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -52080,7 +52080,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -52103,7 +52103,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -52123,7 +52123,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -52166,7 +52166,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -52208,7 +52208,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -52231,7 +52231,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -52251,7 +52251,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -52294,7 +52294,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -52336,7 +52336,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -52359,7 +52359,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -52379,7 +52379,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -52422,7 +52422,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -52464,7 +52464,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -52487,7 +52487,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -52507,7 +52507,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -52550,7 +52550,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -52592,7 +52592,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -52615,7 +52615,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -52635,7 +52635,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -52678,7 +52678,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -52720,7 +52720,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -52743,7 +52743,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -52763,7 +52763,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -52806,7 +52806,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -52848,7 +52848,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -52871,7 +52871,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -52891,7 +52891,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -52934,7 +52934,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -52976,7 +52976,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -52999,7 +52999,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -53019,7 +53019,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -53062,7 +53062,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -53104,7 +53104,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -53127,7 +53127,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -53147,7 +53147,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -53190,7 +53190,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -53232,7 +53232,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -53255,7 +53255,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -53275,7 +53275,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -53318,7 +53318,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -53360,7 +53360,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -53383,7 +53383,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -53403,7 +53403,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -53446,7 +53446,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -53488,7 +53488,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -53511,7 +53511,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -53531,7 +53531,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -53574,7 +53574,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -53616,7 +53616,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -53639,7 +53639,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -53659,7 +53659,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -53702,7 +53702,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %7
   br i1 %19, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -53744,7 +53744,7 @@ _ZNKSt3__16locale5__imp9use_facetEl.exit:         ; preds = %_ZNKSt3__16locale5_
   br i1 %38, label %39, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %33
   store ptr %40, ptr %25, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -53767,7 +53767,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %39, %37, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %_ZNKSt3__16locale5__imp9use_facetEl.exit
   %49 = phi ptr [ %.pre.i, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %27, %39 ], [ %27, %37 ], [ %27, %_ZNKSt3__16locale5__imp9use_facetEl.exit ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %10
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %51, null
   br i1 %.not9.i, label %_ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit, label %52
@@ -53787,7 +53787,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__16locale5__imp7installEPNS0_5facetEl.exit: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i, %52, %56
   %60 = load ptr, ptr %24, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %10
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %10
   store ptr %21, ptr %61, align 8, !tbaa !46
   ret void
 }
@@ -53853,7 +53853,7 @@ _ZNSt3__19allocatorIPNS_6locale5facetEE8allocateB8ne210000Em.exit.i.i.i.i.i: ; p
   %.idx.i.pre-phi.i = phi i64 [ 240, %26 ], [ %27, %_ZNSt3__19allocatorIPNS_6locale5facetEE8allocateB8ne210000Em.exit.i.i.i.i.i ]
   %.0.i.i.i.i.i = phi ptr [ %19, %26 ], [ %28, %_ZNSt3__19allocatorIPNS_6locale5facetEE8allocateB8ne210000Em.exit.i.i.i.i.i ]
   store ptr %.0.i.i.i.i.i, ptr %7, align 8, !tbaa !45
-  %32 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i, i64 %.sroa.speculated
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %.sroa.speculated
   store ptr %32, ptr %18, align 8, !tbaa !340
   %33 = getelementptr i8, ptr %.0.i.i.i.i.i, i64 %.idx.i.pre-phi.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i, i8 0, i64 %.idx.i.pre-phi.i, i1 false), !tbaa !46
@@ -53916,7 +53916,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000E
   br i1 %61, label %62, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw ptr, ptr %50, i64 %56
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %56
   store ptr %63, ptr %17, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
 
@@ -53940,7 +53940,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i: ; preds = %62, %60, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i, %._crit_edge
   %73 = phi ptr [ %.pre.i22, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge.i ], [ %50, %62 ], [ %50, %60 ], [ %50, %._crit_edge ]
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %3
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %3
   %75 = load ptr, ptr %74, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %75, null
   br i1 %.not9.i, label %117, label %76
@@ -53997,7 +53997,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
   %100 = phi i64 [ %111, %107 ], [ 0, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
   %.038 = phi i32 [ %110, %107 ], [ 0, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEEaSB8ne210000ERKS6_.exit ]
   %101 = load ptr, ptr %7, align 8, !tbaa !45
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %100
   %103 = load ptr, ptr %102, align 8, !tbaa !46
   %.not = icmp eq ptr %103, null
   br i1 %.not, label %107, label %104
@@ -54023,7 +54023,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 117:                                              ; preds = %80, %76, %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit.i
   %118 = load ptr, ptr %7, align 8, !tbaa !45
-  %119 = getelementptr inbounds nuw ptr, ptr %118, i64 %3
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %3
   store ptr %2, ptr %119, align 8, !tbaa !46
   %.not.i.i25 = icmp eq ptr %2, null
   br i1 %.not.i.i25, label %_ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000Ev.exit26, label %120
@@ -54087,7 +54087,7 @@ define hidden void @_ZNSt3__16locale5__imp7installEPNS0_5facetEl(ptr noundef non
   br i1 %20, label %21, label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw ptr, ptr %9, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   store ptr %22, ptr %7, align 8, !tbaa !40
   br label %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit
 
@@ -54114,7 +54114,7 @@ _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000E
 
 _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit: ; preds = %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge, %21, %19, %3
   %32 = phi ptr [ %.pre, %._ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit_crit_edge ], [ %9, %21 ], [ %9, %19 ], [ %9, %3 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %2
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %2
   %34 = load ptr, ptr %33, align 8, !tbaa !46
   %.not9 = icmp eq ptr %34, null
   br i1 %.not9, label %_ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000Ev.exit11, label %35
@@ -54134,7 +54134,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne21
 
 _ZNSt3__110unique_ptrINS_6locale5facetENS_12_GLOBAL__N_18releaserEED2B8ne210000Ev.exit11: ; preds = %_ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE6resizeB8ne210000Em.exit, %35, %39
   %43 = load ptr, ptr %6, align 8, !tbaa !45
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %2
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %2
   store ptr %1, ptr %44, align 8, !tbaa !46
   ret void
 }
@@ -54198,7 +54198,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEED2B8ne210000E
   %27 = phi ptr [ %42, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ %5, %1 ]
   %28 = phi i64 [ %40, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ 0, %1 ]
   %.06 = phi i32 [ %39, %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit ], [ 0, %1 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !46
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit, label %31
@@ -54250,7 +54250,7 @@ define hidden noundef nonnull ptr @_ZNKSt3__16locale5__imp9use_facetEl(ptr nound
   br i1 %11, label %_ZNKSt3__16locale5__imp9has_facetEl.exit, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit:         ; preds = %2
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !46
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread, label %14
@@ -55077,7 +55077,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %8
   br i1 %21, label %22, label %_ZNKSt3__16locale5__imp9has_facetEl.exit
 
 22:                                               ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %12
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %12
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   %25 = icmp ne ptr %24, null
   br label %_ZNKSt3__16locale5__imp9has_facetEl.exit
@@ -55157,7 +55157,7 @@ _ZNSt3__16locale2id5__getEv.exit:                 ; preds = %2, %8
   br i1 %21, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i:       ; preds = %_ZNSt3__16locale2id5__getEv.exit
-  %22 = getelementptr inbounds nuw ptr, ptr %16, i64 %12
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %12
   %23 = load ptr, ptr %22, align 8, !tbaa !46
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i, label %_ZNKSt3__16locale5__imp9use_facetEl.exit
@@ -56218,7 +56218,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEC2B8ne210000IPKwT
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.preheader.i.i, %52
   %.019.i.i = phi ptr [ %55, %52 ], [ %.018.i.i, %.lr.ph.i.i.i.preheader.i.i ]
-  %57 = getelementptr inbounds nuw i32, ptr %.019.i.i, i64 %38
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.019.i.i, i64 %38
   store i32 0, ptr %57, align 4, !tbaa !10
   %58 = load i8, ptr %0, align 8
   %59 = trunc i8 %58 to i1
@@ -56307,7 +56307,7 @@ _ZNSt3__15ctypeIcE13classic_tableEv.exit:         ; preds = %5, %8, %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8, !tbaa !140
   %15 = zext nneg i32 %2 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !70
   %18 = and i16 %17, %1
   %19 = icmp ne i16 %18, 0
@@ -56376,7 +56376,7 @@ _ZNSt3__15ctypeIcE13classic_tableEv.exit:         ; preds = %7, %10, %12
   %16 = load ptr, ptr %15, align 8, !tbaa !140
   %17 = load i32, ptr %.0810, align 4, !tbaa !10
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i16, ptr %16, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %16, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !70
   br label %21
 
@@ -56426,7 +56426,7 @@ _ZNSt3__15ctypeIcE13classic_tableEv.exit:         ; preds = %7, %10, %12
   %16 = load ptr, ptr %15, align 8, !tbaa !140
   %17 = load i32, ptr %.08, align 4, !tbaa !10
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i16, ptr %16, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %16, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !70
   %21 = and i16 %20, %1
   %.not6 = icmp eq i16 %21, 0
@@ -56475,7 +56475,7 @@ _ZNSt3__15ctypeIcE13classic_tableEv.exit:         ; preds = %7, %10, %12
   %16 = load ptr, ptr %15, align 8, !tbaa !140
   %17 = load i32, ptr %.08, align 4, !tbaa !10
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i16, ptr %16, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %16, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !70
   %21 = and i16 %20, %1
   %.not6 = icmp eq i16 %21, 0
@@ -56517,7 +56517,7 @@ _ZNSt3__15ctypeIcE21__classic_upper_tableEv.exit: ; preds = %4, %7, %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load ptr, ptr %12, align 8, !tbaa !384
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !27
   br label %17
 
@@ -56583,7 +56583,7 @@ _ZNSt3__15ctypeIcE21__classic_upper_tableEv.exit: ; preds = %6, %9, %11
   %15 = load ptr, ptr %14, align 8, !tbaa !384
   %16 = load i32, ptr %.09, align 4, !tbaa !10
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   %.pre = load i32, ptr %18, align 4, !tbaa !4
   br label %19
 
@@ -56625,7 +56625,7 @@ _ZNSt3__15ctypeIcE21__classic_lower_tableEv.exit: ; preds = %4, %7, %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8, !tbaa !386
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !27
   br label %17
 
@@ -56691,7 +56691,7 @@ _ZNSt3__15ctypeIcE21__classic_lower_tableEv.exit: ; preds = %6, %9, %11
   %15 = load ptr, ptr %14, align 8, !tbaa !386
   %16 = load i32, ptr %.09, align 4, !tbaa !10
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   %.pre = load i32, ptr %18, align 4, !tbaa !4
   br label %19
 
@@ -56878,7 +56878,7 @@ _ZNSt3__15ctypeIcE21__classic_upper_tableEv.exit: ; preds = %4, %7, %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load ptr, ptr %12, align 8, !tbaa !384
   %14 = zext nneg i8 %1 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = trunc i32 %16 to i8
   br label %18
@@ -56921,7 +56921,7 @@ _ZNSt3__15ctypeIcE21__classic_upper_tableEv.exit: ; preds = %6, %9, %11
   %15 = load ptr, ptr %14, align 8, !tbaa !384
   %16 = load i8, ptr %.09, align 1, !tbaa !4
   %17 = sext i8 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = trunc i32 %19 to i8
   br label %21
@@ -56964,7 +56964,7 @@ _ZNSt3__15ctypeIcE21__classic_lower_tableEv.exit: ; preds = %4, %7, %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8, !tbaa !386
   %14 = zext nneg i8 %1 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = trunc i32 %16 to i8
   br label %18
@@ -57007,7 +57007,7 @@ _ZNSt3__15ctypeIcE21__classic_lower_tableEv.exit: ; preds = %6, %9, %11
   %15 = load ptr, ptr %14, align 8, !tbaa !386
   %16 = load i8, ptr %.09, align 1, !tbaa !4
   %17 = sext i8 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = trunc i32 %19 to i8
   br label %21
@@ -57724,7 +57724,7 @@ _ZNSt3__15ctypeIcE13classic_tableEv.exit:         ; preds = %9, %12, %14
   %18 = load ptr, ptr %17, align 8, !tbaa !140
   %19 = load i32, ptr %.043, align 4, !tbaa !10
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %18, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %18, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !70
   br label %.sink.split
 
@@ -58843,7 +58843,7 @@ _ZNSt3__18__locale9__mbrtowcB8ne210000EPwPKcmP11__mbstate_tP15__locale_struct.ex
 
 54:                                               ; preds = %_ZNSt3__18__locale12__mbsnrtowcsB8ne210000EPwPPKcmmP11__mbstate_tP15__locale_struct.exit
   %55 = load ptr, ptr %7, align 8, !tbaa !128
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %32
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %32
   store ptr %56, ptr %7, align 8, !tbaa !128
   %57 = icmp eq ptr %56, %6
   br i1 %57, label %76, label %58
@@ -64863,7 +64863,7 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE6__initEPKwm.exit: ; preds = %17, %21
   %.018.i = phi ptr [ %20, %17 ], [ %.017.i, %21 ]
-  %23 = getelementptr inbounds nuw i32, ptr %.018.i, i64 %3
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.018.i, i64 %3
   store i32 0, ptr %23, align 4, !tbaa !10
   ret void
 }
@@ -67525,7 +67525,7 @@ define dso_local void @_ZNSt3__118__time_get_storageIcE9__analyzeEcRKNS_5ctypeIc
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit:         ; preds = %39
   %42 = load ptr, ptr %24, align 8, !tbaa !159
   %43 = zext nneg i8 %40 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !70
   %46 = and i16 %45, 8192
   %.not668 = icmp eq i16 %46, 0
@@ -67634,7 +67634,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9push_backEc.exit
 
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit38:       ; preds = %85
   %88 = zext nneg i8 %86 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %83, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %83, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !70
   %91 = and i16 %90, 8192
   %.not672 = icmp eq i16 %91, 0
@@ -68231,7 +68231,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9push_backEc.exit
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit149:      ; preds = %304
   %313 = load ptr, ptr %24, align 8, !tbaa !159
   %314 = zext nneg i8 %311 to i64
-  %315 = getelementptr inbounds nuw i16, ptr %313, i64 %314
+  %315 = getelementptr inbounds nuw [2 x i8], ptr %313, i64 %314
   %316 = load i16, ptr %315, align 2, !tbaa !70
   %317 = and i16 %316, 2048
   %.not671 = icmp eq i16 %317, 0
@@ -68462,7 +68462,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE25__grow_by_witho
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit186:      ; preds = %418
   %421 = load ptr, ptr %24, align 8, !tbaa !159
   %422 = zext nneg i8 %419 to i64
-  %423 = getelementptr inbounds nuw i16, ptr %421, i64 %422
+  %423 = getelementptr inbounds nuw [2 x i8], ptr %421, i64 %422
   %424 = load i16, ptr %423, align 2, !tbaa !70
   %425 = and i16 %424, 2048
   %.not669 = icmp eq i16 %425, 0
@@ -68494,7 +68494,7 @@ _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit.i:       ; preds = %_ZNKSt3__15ctypeIcE
 _ZNKSt3__15ctypeIcE2isB8ne210000Etc.exit32.i:     ; preds = %.lr.ph.i
   %433 = load ptr, ptr %24, align 8, !tbaa !159
   %434 = zext nneg i8 %431 to i64
-  %435 = getelementptr inbounds nuw i16, ptr %433, i64 %434
+  %435 = getelementptr inbounds nuw [2 x i8], ptr %433, i64 %434
   %436 = load i16, ptr %435, align 2, !tbaa !70
   %437 = and i16 %436, 2048
   %.not33.i = icmp eq i16 %437, 0
@@ -71213,7 +71213,7 @@ _ZNKSt3__15ctypeIwE2isB8ne210000Etw.exit:         ; preds = %49
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit: ; preds = %65, %.thread24.i
   %.01323.i = phi i64 [ %67, %65 ], [ %.01321.i, %.thread24.i ]
   %.pn.i = phi ptr [ %45, %65 ], [ %69, %.thread24.i ]
-  %.0.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.01323.i
+  %.0.i = getelementptr inbounds nuw [4 x i8], ptr %.pn.i, i64 %.01323.i
   store i32 32, ptr %.0.i, align 4, !tbaa !10
   %71 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i32 0, ptr %71, align 4, !tbaa !10
@@ -71304,7 +71304,7 @@ _ZNKSt3__15ctypeIwE2isB8ne210000Etw.exit42:       ; preds = %73
 101:                                              ; preds = %.thread24.i48, %95
   %.01323.i43 = phi i64 [ %97, %95 ], [ %.01321.i49, %.thread24.i48 ]
   %.pn.i44 = phi ptr [ %45, %95 ], [ %99, %.thread24.i48 ]
-  %.0.i45 = getelementptr inbounds nuw i32, ptr %.pn.i44, i64 %.01323.i43
+  %.0.i45 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i44, i64 %.01323.i43
   store i32 37, ptr %.0.i45, align 4, !tbaa !10
   %102 = getelementptr inbounds nuw i8, ptr %.0.i45, i64 4
   store i32 0, ptr %102, align 4, !tbaa !10
@@ -71350,7 +71350,7 @@ _ZNKSt3__15ctypeIwE2isB8ne210000Etw.exit42:       ; preds = %73
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit62: ; preds = %114, %.thread24.i58
   %.01323.i53 = phi i64 [ %116, %114 ], [ %.01321.i59, %.thread24.i58 ]
   %.pn.i54 = phi ptr [ %45, %114 ], [ %118, %.thread24.i58 ]
-  %.0.i55 = getelementptr inbounds nuw i32, ptr %.pn.i54, i64 %.01323.i53
+  %.0.i55 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i54, i64 %.01323.i53
   store i32 65, ptr %.0.i55, align 4, !tbaa !10
   br label %134
 
@@ -71412,7 +71412,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit72: ; preds = %128, %.thread24.i68
   %.01323.i63 = phi i64 [ %130, %128 ], [ %.01321.i69, %.thread24.i68 ]
   %.pn.i64 = phi ptr [ %45, %128 ], [ %132, %.thread24.i68 ]
-  %.0.i65 = getelementptr inbounds nuw i32, ptr %.pn.i64, i64 %.01323.i63
+  %.0.i65 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i64, i64 %.01323.i63
   store i32 97, ptr %.0.i65, align 4, !tbaa !10
   br label %134
 
@@ -71473,7 +71473,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 159:                                              ; preds = %.thread24.i78, %153
   %.01323.i73 = phi i64 [ %155, %153 ], [ %.01321.i79, %.thread24.i78 ]
   %.pn.i74 = phi ptr [ %45, %153 ], [ %157, %.thread24.i78 ]
-  %.0.i75 = getelementptr inbounds nuw i32, ptr %.pn.i74, i64 %.01323.i73
+  %.0.i75 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i74, i64 %.01323.i73
   store i32 37, ptr %.0.i75, align 4, !tbaa !10
   %160 = getelementptr inbounds nuw i8, ptr %.0.i75, i64 4
   store i32 0, ptr %160, align 4, !tbaa !10
@@ -71519,7 +71519,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit92: ; preds = %172, %.thread24.i88
   %.01323.i83 = phi i64 [ %174, %172 ], [ %.01321.i89, %.thread24.i88 ]
   %.pn.i84 = phi ptr [ %45, %172 ], [ %176, %.thread24.i88 ]
-  %.0.i85 = getelementptr inbounds nuw i32, ptr %.pn.i84, i64 %.01323.i83
+  %.0.i85 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i84, i64 %.01323.i83
   store i32 66, ptr %.0.i85, align 4, !tbaa !10
   br label %192
 
@@ -71560,7 +71560,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit102: ; preds = %186, %.thread24.i98
   %.01323.i93 = phi i64 [ %188, %186 ], [ %.01321.i99, %.thread24.i98 ]
   %.pn.i94 = phi ptr [ %45, %186 ], [ %190, %.thread24.i98 ]
-  %.0.i95 = getelementptr inbounds nuw i32, ptr %.pn.i94, i64 %.01323.i93
+  %.0.i95 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i94, i64 %.01323.i93
   store i32 98, ptr %.0.i95, align 4, !tbaa !10
   br label %192
 
@@ -71597,7 +71597,7 @@ _ZNKSt3__15ctypeIwE2isB8ne210000Etw.exit106:      ; preds = %194
   %212 = lshr i8 %207, 1
   %213 = zext nneg i8 %212 to i64
   %214 = select i1 %208, i64 %211, i64 %213
-  %215 = getelementptr inbounds nuw i32, ptr %210, i64 %214
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %214
   %216 = getelementptr inbounds i8, ptr %215, i64 -4
   store i32 109, ptr %216, align 4, !tbaa !10
   br label %217
@@ -71673,7 +71673,7 @@ _ZNKSt3__15ctypeIwE2isB8ne210000Etw.exit106:      ; preds = %194
 255:                                              ; preds = %.thread24.i112, %249
   %.01323.i107 = phi i64 [ %251, %249 ], [ %.01321.i113, %.thread24.i112 ]
   %.pn.i108 = phi ptr [ %45, %249 ], [ %253, %.thread24.i112 ]
-  %.0.i109 = getelementptr inbounds nuw i32, ptr %.pn.i108, i64 %.01323.i107
+  %.0.i109 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i108, i64 %.01323.i107
   store i32 37, ptr %.0.i109, align 4, !tbaa !10
   %256 = getelementptr inbounds nuw i8, ptr %.0.i109, i64 4
   store i32 0, ptr %256, align 4, !tbaa !10
@@ -71715,7 +71715,7 @@ _ZNKSt3__15ctypeIwE2isB8ne210000Etw.exit106:      ; preds = %194
 272:                                              ; preds = %.thread24.i122, %266
   %.01323.i117 = phi i64 [ %268, %266 ], [ %.01321.i123, %.thread24.i122 ]
   %.pn.i118 = phi ptr [ %45, %266 ], [ %270, %.thread24.i122 ]
-  %.0.i119 = getelementptr inbounds nuw i32, ptr %.pn.i118, i64 %.01323.i117
+  %.0.i119 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i118, i64 %.01323.i117
   store i32 112, ptr %.0.i119, align 4, !tbaa !10
   %273 = getelementptr inbounds nuw i8, ptr %.0.i119, i64 4
   store i32 0, ptr %273, align 4, !tbaa !10
@@ -71871,7 +71871,7 @@ _ZNSt3__120__get_up_to_n_digitsB8ne210000IwPwEEiRT0_S2_RjRKNS_5ctypeIT_EEi.exit:
 329:                                              ; preds = %.thread24.i140, %323
   %.01323.i135 = phi i64 [ %325, %323 ], [ %.01321.i141, %.thread24.i140 ]
   %.pn.i136 = phi ptr [ %45, %323 ], [ %327, %.thread24.i140 ]
-  %.0.i137 = getelementptr inbounds nuw i32, ptr %.pn.i136, i64 %.01323.i135
+  %.0.i137 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i136, i64 %.01323.i135
   store i32 37, ptr %.0.i137, align 4, !tbaa !10
   %330 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 4
   store i32 0, ptr %330, align 4, !tbaa !10
@@ -71913,7 +71913,7 @@ _ZNSt3__120__get_up_to_n_digitsB8ne210000IwPwEEiRT0_S2_RjRKNS_5ctypeIT_EEi.exit:
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit154: ; preds = %340, %.thread24.i150
   %.01323.i145 = phi i64 [ %342, %340 ], [ %.01321.i151, %.thread24.i150 ]
   %.pn.i146 = phi ptr [ %45, %340 ], [ %344, %.thread24.i150 ]
-  %.0.i147 = getelementptr inbounds nuw i32, ptr %.pn.i146, i64 %.01323.i145
+  %.0.i147 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i146, i64 %.01323.i145
   store i32 119, ptr %.0.i147, align 4, !tbaa !10
   %346 = getelementptr inbounds nuw i8, ptr %.0.i147, i64 4
   store i32 0, ptr %346, align 4, !tbaa !10
@@ -71958,7 +71958,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 363:                                              ; preds = %.thread24.i160, %357
   %.01323.i155 = phi i64 [ %359, %357 ], [ %.01321.i161, %.thread24.i160 ]
   %.pn.i156 = phi ptr [ %45, %357 ], [ %361, %.thread24.i160 ]
-  %.0.i157 = getelementptr inbounds nuw i32, ptr %.pn.i156, i64 %.01323.i155
+  %.0.i157 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i156, i64 %.01323.i155
   store i32 37, ptr %.0.i157, align 4, !tbaa !10
   %364 = getelementptr inbounds nuw i8, ptr %.0.i157, i64 4
   store i32 0, ptr %364, align 4, !tbaa !10
@@ -72000,7 +72000,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit174: ; preds = %374, %.thread24.i170
   %.01323.i165 = phi i64 [ %376, %374 ], [ %.01321.i171, %.thread24.i170 ]
   %.pn.i166 = phi ptr [ %45, %374 ], [ %378, %.thread24.i170 ]
-  %.0.i167 = getelementptr inbounds nuw i32, ptr %.pn.i166, i64 %.01323.i165
+  %.0.i167 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i166, i64 %.01323.i165
   store i32 117, ptr %.0.i167, align 4, !tbaa !10
   %380 = getelementptr inbounds nuw i8, ptr %.0.i167, i64 4
   store i32 0, ptr %380, align 4, !tbaa !10
@@ -72045,7 +72045,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 397:                                              ; preds = %.thread24.i180, %391
   %.01323.i175 = phi i64 [ %393, %391 ], [ %.01321.i181, %.thread24.i180 ]
   %.pn.i176 = phi ptr [ %45, %391 ], [ %395, %.thread24.i180 ]
-  %.0.i177 = getelementptr inbounds nuw i32, ptr %.pn.i176, i64 %.01323.i175
+  %.0.i177 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i176, i64 %.01323.i175
   store i32 37, ptr %.0.i177, align 4, !tbaa !10
   %398 = getelementptr inbounds nuw i8, ptr %.0.i177, i64 4
   store i32 0, ptr %398, align 4, !tbaa !10
@@ -72087,7 +72087,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit194: ; preds = %408, %.thread24.i190
   %.01323.i185 = phi i64 [ %410, %408 ], [ %.01321.i191, %.thread24.i190 ]
   %.pn.i186 = phi ptr [ %45, %408 ], [ %412, %.thread24.i190 ]
-  %.0.i187 = getelementptr inbounds nuw i32, ptr %.pn.i186, i64 %.01323.i185
+  %.0.i187 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i186, i64 %.01323.i185
   store i32 73, ptr %.0.i187, align 4, !tbaa !10
   %414 = getelementptr inbounds nuw i8, ptr %.0.i187, i64 4
   store i32 0, ptr %414, align 4, !tbaa !10
@@ -72132,7 +72132,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 431:                                              ; preds = %.thread24.i200, %425
   %.01323.i195 = phi i64 [ %427, %425 ], [ %.01321.i201, %.thread24.i200 ]
   %.pn.i196 = phi ptr [ %45, %425 ], [ %429, %.thread24.i200 ]
-  %.0.i197 = getelementptr inbounds nuw i32, ptr %.pn.i196, i64 %.01323.i195
+  %.0.i197 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i196, i64 %.01323.i195
   store i32 37, ptr %.0.i197, align 4, !tbaa !10
   %432 = getelementptr inbounds nuw i8, ptr %.0.i197, i64 4
   store i32 0, ptr %432, align 4, !tbaa !10
@@ -72174,7 +72174,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit214: ; preds = %442, %.thread24.i210
   %.01323.i205 = phi i64 [ %444, %442 ], [ %.01321.i211, %.thread24.i210 ]
   %.pn.i206 = phi ptr [ %45, %442 ], [ %446, %.thread24.i210 ]
-  %.0.i207 = getelementptr inbounds nuw i32, ptr %.pn.i206, i64 %.01323.i205
+  %.0.i207 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i206, i64 %.01323.i205
   store i32 109, ptr %.0.i207, align 4, !tbaa !10
   %448 = getelementptr inbounds nuw i8, ptr %.0.i207, i64 4
   store i32 0, ptr %448, align 4, !tbaa !10
@@ -72219,7 +72219,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 465:                                              ; preds = %.thread24.i220, %459
   %.01323.i215 = phi i64 [ %461, %459 ], [ %.01321.i221, %.thread24.i220 ]
   %.pn.i216 = phi ptr [ %45, %459 ], [ %463, %.thread24.i220 ]
-  %.0.i217 = getelementptr inbounds nuw i32, ptr %.pn.i216, i64 %.01323.i215
+  %.0.i217 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i216, i64 %.01323.i215
   store i32 37, ptr %.0.i217, align 4, !tbaa !10
   %466 = getelementptr inbounds nuw i8, ptr %.0.i217, i64 4
   store i32 0, ptr %466, align 4, !tbaa !10
@@ -72261,7 +72261,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit234: ; preds = %476, %.thread24.i230
   %.01323.i225 = phi i64 [ %478, %476 ], [ %.01321.i231, %.thread24.i230 ]
   %.pn.i226 = phi ptr [ %45, %476 ], [ %480, %.thread24.i230 ]
-  %.0.i227 = getelementptr inbounds nuw i32, ptr %.pn.i226, i64 %.01323.i225
+  %.0.i227 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i226, i64 %.01323.i225
   store i32 72, ptr %.0.i227, align 4, !tbaa !10
   %482 = getelementptr inbounds nuw i8, ptr %.0.i227, i64 4
   store i32 0, ptr %482, align 4, !tbaa !10
@@ -72306,7 +72306,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 499:                                              ; preds = %.thread24.i240, %493
   %.01323.i235 = phi i64 [ %495, %493 ], [ %.01321.i241, %.thread24.i240 ]
   %.pn.i236 = phi ptr [ %45, %493 ], [ %497, %.thread24.i240 ]
-  %.0.i237 = getelementptr inbounds nuw i32, ptr %.pn.i236, i64 %.01323.i235
+  %.0.i237 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i236, i64 %.01323.i235
   store i32 37, ptr %.0.i237, align 4, !tbaa !10
   %500 = getelementptr inbounds nuw i8, ptr %.0.i237, i64 4
   store i32 0, ptr %500, align 4, !tbaa !10
@@ -72348,7 +72348,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit254: ; preds = %510, %.thread24.i250
   %.01323.i245 = phi i64 [ %512, %510 ], [ %.01321.i251, %.thread24.i250 ]
   %.pn.i246 = phi ptr [ %45, %510 ], [ %514, %.thread24.i250 ]
-  %.0.i247 = getelementptr inbounds nuw i32, ptr %.pn.i246, i64 %.01323.i245
+  %.0.i247 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i246, i64 %.01323.i245
   store i32 100, ptr %.0.i247, align 4, !tbaa !10
   %516 = getelementptr inbounds nuw i8, ptr %.0.i247, i64 4
   store i32 0, ptr %516, align 4, !tbaa !10
@@ -72393,7 +72393,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 533:                                              ; preds = %.thread24.i260, %527
   %.01323.i255 = phi i64 [ %529, %527 ], [ %.01321.i261, %.thread24.i260 ]
   %.pn.i256 = phi ptr [ %45, %527 ], [ %531, %.thread24.i260 ]
-  %.0.i257 = getelementptr inbounds nuw i32, ptr %.pn.i256, i64 %.01323.i255
+  %.0.i257 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i256, i64 %.01323.i255
   store i32 37, ptr %.0.i257, align 4, !tbaa !10
   %534 = getelementptr inbounds nuw i8, ptr %.0.i257, i64 4
   store i32 0, ptr %534, align 4, !tbaa !10
@@ -72435,7 +72435,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit274: ; preds = %544, %.thread24.i270
   %.01323.i265 = phi i64 [ %546, %544 ], [ %.01321.i271, %.thread24.i270 ]
   %.pn.i266 = phi ptr [ %45, %544 ], [ %548, %.thread24.i270 ]
-  %.0.i267 = getelementptr inbounds nuw i32, ptr %.pn.i266, i64 %.01323.i265
+  %.0.i267 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i266, i64 %.01323.i265
   store i32 77, ptr %.0.i267, align 4, !tbaa !10
   %550 = getelementptr inbounds nuw i8, ptr %.0.i267, i64 4
   store i32 0, ptr %550, align 4, !tbaa !10
@@ -72480,7 +72480,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 567:                                              ; preds = %.thread24.i280, %561
   %.01323.i275 = phi i64 [ %563, %561 ], [ %.01321.i281, %.thread24.i280 ]
   %.pn.i276 = phi ptr [ %45, %561 ], [ %565, %.thread24.i280 ]
-  %.0.i277 = getelementptr inbounds nuw i32, ptr %.pn.i276, i64 %.01323.i275
+  %.0.i277 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i276, i64 %.01323.i275
   store i32 37, ptr %.0.i277, align 4, !tbaa !10
   %568 = getelementptr inbounds nuw i8, ptr %.0.i277, i64 4
   store i32 0, ptr %568, align 4, !tbaa !10
@@ -72522,7 +72522,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit294: ; preds = %578, %.thread24.i290
   %.01323.i285 = phi i64 [ %580, %578 ], [ %.01321.i291, %.thread24.i290 ]
   %.pn.i286 = phi ptr [ %45, %578 ], [ %582, %.thread24.i290 ]
-  %.0.i287 = getelementptr inbounds nuw i32, ptr %.pn.i286, i64 %.01323.i285
+  %.0.i287 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i286, i64 %.01323.i285
   store i32 83, ptr %.0.i287, align 4, !tbaa !10
   %584 = getelementptr inbounds nuw i8, ptr %.0.i287, i64 4
   store i32 0, ptr %584, align 4, !tbaa !10
@@ -72567,7 +72567,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 601:                                              ; preds = %.thread24.i300, %595
   %.01323.i295 = phi i64 [ %597, %595 ], [ %.01321.i301, %.thread24.i300 ]
   %.pn.i296 = phi ptr [ %45, %595 ], [ %599, %.thread24.i300 ]
-  %.0.i297 = getelementptr inbounds nuw i32, ptr %.pn.i296, i64 %.01323.i295
+  %.0.i297 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i296, i64 %.01323.i295
   store i32 37, ptr %.0.i297, align 4, !tbaa !10
   %602 = getelementptr inbounds nuw i8, ptr %.0.i297, i64 4
   store i32 0, ptr %602, align 4, !tbaa !10
@@ -72609,7 +72609,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit314: ; preds = %612, %.thread24.i310
   %.01323.i305 = phi i64 [ %614, %612 ], [ %.01321.i311, %.thread24.i310 ]
   %.pn.i306 = phi ptr [ %45, %612 ], [ %616, %.thread24.i310 ]
-  %.0.i307 = getelementptr inbounds nuw i32, ptr %.pn.i306, i64 %.01323.i305
+  %.0.i307 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i306, i64 %.01323.i305
   store i32 121, ptr %.0.i307, align 4, !tbaa !10
   %618 = getelementptr inbounds nuw i8, ptr %.0.i307, i64 4
   store i32 0, ptr %618, align 4, !tbaa !10
@@ -72654,7 +72654,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 635:                                              ; preds = %.thread24.i320, %629
   %.01323.i315 = phi i64 [ %631, %629 ], [ %.01321.i321, %.thread24.i320 ]
   %.pn.i316 = phi ptr [ %45, %629 ], [ %633, %.thread24.i320 ]
-  %.0.i317 = getelementptr inbounds nuw i32, ptr %.pn.i316, i64 %.01323.i315
+  %.0.i317 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i316, i64 %.01323.i315
   store i32 37, ptr %.0.i317, align 4, !tbaa !10
   %636 = getelementptr inbounds nuw i8, ptr %.0.i317, i64 4
   store i32 0, ptr %636, align 4, !tbaa !10
@@ -72696,7 +72696,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit334: ; preds = %646, %.thread24.i330
   %.01323.i325 = phi i64 [ %648, %646 ], [ %.01321.i331, %.thread24.i330 ]
   %.pn.i326 = phi ptr [ %45, %646 ], [ %650, %.thread24.i330 ]
-  %.0.i327 = getelementptr inbounds nuw i32, ptr %.pn.i326, i64 %.01323.i325
+  %.0.i327 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i326, i64 %.01323.i325
   store i32 106, ptr %.0.i327, align 4, !tbaa !10
   %652 = getelementptr inbounds nuw i8, ptr %.0.i327, i64 4
   store i32 0, ptr %652, align 4, !tbaa !10
@@ -72741,7 +72741,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 669:                                              ; preds = %.thread24.i340, %663
   %.01323.i335 = phi i64 [ %665, %663 ], [ %.01321.i341, %.thread24.i340 ]
   %.pn.i336 = phi ptr [ %45, %663 ], [ %667, %.thread24.i340 ]
-  %.0.i337 = getelementptr inbounds nuw i32, ptr %.pn.i336, i64 %.01323.i335
+  %.0.i337 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i336, i64 %.01323.i335
   store i32 37, ptr %.0.i337, align 4, !tbaa !10
   %670 = getelementptr inbounds nuw i8, ptr %.0.i337, i64 4
   store i32 0, ptr %670, align 4, !tbaa !10
@@ -72783,7 +72783,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit354: ; preds = %680, %.thread24.i350
   %.01323.i345 = phi i64 [ %682, %680 ], [ %.01321.i351, %.thread24.i350 ]
   %.pn.i346 = phi ptr [ %45, %680 ], [ %684, %.thread24.i350 ]
-  %.0.i347 = getelementptr inbounds nuw i32, ptr %.pn.i346, i64 %.01323.i345
+  %.0.i347 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i346, i64 %.01323.i345
   store i32 89, ptr %.0.i347, align 4, !tbaa !10
   %686 = getelementptr inbounds nuw i8, ptr %.0.i347, i64 4
   store i32 0, ptr %686, align 4, !tbaa !10
@@ -72836,7 +72836,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE9push_backEw.exit
   %706 = phi ptr [ %688, %699 ], [ %.pre, %.thread24.i360 ]
   %.01323.i355 = phi i64 [ %701, %699 ], [ %.01321.i361, %.thread24.i360 ]
   %.pn.i356 = phi ptr [ %45, %699 ], [ %703, %.thread24.i360 ]
-  %.0.i357 = getelementptr inbounds nuw i32, ptr %.pn.i356, i64 %.01323.i355
+  %.0.i357 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i356, i64 %.01323.i355
   store i32 %689, ptr %.0.i357, align 4, !tbaa !10
   %707 = getelementptr inbounds nuw i8, ptr %.0.i357, i64 4
   store i32 0, ptr %707, align 4, !tbaa !10
@@ -72894,7 +72894,7 @@ _ZNKSt3__15ctypeIwE6narrowB8ne210000Ewc.exit:     ; preds = %709
 730:                                              ; preds = %.thread24.i371, %724
   %.01323.i366 = phi i64 [ %726, %724 ], [ %.01321.i372, %.thread24.i371 ]
   %.pn.i367 = phi ptr [ %45, %724 ], [ %728, %.thread24.i371 ]
-  %.0.i368 = getelementptr inbounds nuw i32, ptr %.pn.i367, i64 %.01323.i366
+  %.0.i368 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i367, i64 %.01323.i366
   store i32 37, ptr %.0.i368, align 4, !tbaa !10
   %731 = getelementptr inbounds nuw i8, ptr %.0.i368, i64 4
   store i32 0, ptr %731, align 4, !tbaa !10
@@ -72936,7 +72936,7 @@ _ZNKSt3__15ctypeIwE6narrowB8ne210000Ewc.exit:     ; preds = %709
 747:                                              ; preds = %.thread24.i381, %741
   %.01323.i376 = phi i64 [ %743, %741 ], [ %.01321.i382, %.thread24.i381 ]
   %.pn.i377 = phi ptr [ %45, %741 ], [ %745, %.thread24.i381 ]
-  %.0.i378 = getelementptr inbounds nuw i32, ptr %.pn.i377, i64 %.01323.i376
+  %.0.i378 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i377, i64 %.01323.i376
   store i32 37, ptr %.0.i378, align 4, !tbaa !10
   %748 = getelementptr inbounds nuw i8, ptr %.0.i378, i64 4
   store i32 0, ptr %748, align 4, !tbaa !10
@@ -72983,7 +72983,7 @@ _ZNKSt3__15ctypeIwE6narrowB8ne210000Ewc.exit:     ; preds = %709
 767:                                              ; preds = %.thread24.i391, %761
   %.01323.i386 = phi i64 [ %763, %761 ], [ %.01321.i392, %.thread24.i391 ]
   %.pn.i387 = phi ptr [ %45, %761 ], [ %765, %.thread24.i391 ]
-  %.0.i388 = getelementptr inbounds nuw i32, ptr %.pn.i387, i64 %.01323.i386
+  %.0.i388 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i387, i64 %.01323.i386
   store i32 %751, ptr %.0.i388, align 4, !tbaa !10
   %768 = getelementptr inbounds nuw i8, ptr %.0.i388, i64 4
   store i32 0, ptr %768, align 4, !tbaa !10
@@ -73144,7 +73144,7 @@ _ZNSt3__110unique_ptrIhPFvPvEE5resetB8ne210000EPh.exit: ; preds = %14, %7
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.077144, i64 4
   %.pn.i = select i1 %51, ptr %53, ptr %54
-  %.0.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.080157
+  %.0.i = getelementptr inbounds nuw [4 x i8], ptr %.pn.i, i64 %.080157
   %55 = load i32, ptr %.0.i, align 4, !tbaa !10
   br i1 %6, label %_ZNKSt3__15ctypeIwE7toupperB8ne210000Ew.exit112, label %56
 
@@ -73329,7 +73329,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne210000EPKc.
   store i32 %13, ptr %9, align 8, !tbaa !504
   %14 = load ptr, ptr %0, align 8, !tbaa !495
   %15 = call noundef i64 @strftime_l(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.54, ptr noundef nonnull %3, ptr noundef %14) #45
-  %16 = getelementptr inbounds nuw %"class.std::__1::basic_string", ptr %10, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv
   %17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %4)
   %18 = load ptr, ptr %0, align 8, !tbaa !495
   %19 = call noundef i64 @strftime_l(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.55, ptr noundef nonnull %3, ptr noundef %18) #45
@@ -73433,7 +73433,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne210000EPKc.
   store i32 %63, ptr %11, align 8, !tbaa !502
   %64 = load ptr, ptr %0, align 8, !tbaa !495
   %65 = call noundef i64 @strftime_l(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.56, ptr noundef nonnull %3, ptr noundef %64) #45
-  %66 = getelementptr inbounds nuw %"class.std::__1::basic_string", ptr %12, i64 %indvars.iv49
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv49
   %67 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull %4)
   %68 = load ptr, ptr %0, align 8, !tbaa !495
   %69 = call noundef i64 @strftime_l(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.57, ptr noundef nonnull %3, ptr noundef %68) #45
@@ -73501,8 +73501,8 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   unreachable
 
 29:                                               ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit
-  %30 = getelementptr inbounds nuw i32, ptr %5, i64 %24
-  %31 = getelementptr inbounds nuw %"class.std::__1::basic_string.2", ptr %15, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %24
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv
   call void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull %5, ptr noundef nonnull %30, i64 noundef %24)
   %32 = load ptr, ptr %0, align 8, !tbaa !495
   %33 = call noundef i64 @strftime_l(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.55, ptr noundef nonnull %3, ptr noundef %32) #45
@@ -73528,7 +73528,7 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   unreachable
 
 41:                                               ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit51
-  %42 = getelementptr inbounds nuw i32, ptr %5, i64 %36
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %36
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 168
   call void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull %5, ptr noundef nonnull %42, i64 noundef %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -73587,8 +73587,8 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   unreachable
 
 65:                                               ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit55
-  %66 = getelementptr inbounds nuw i32, ptr %5, i64 %60
-  %67 = getelementptr inbounds nuw %"class.std::__1::basic_string.2", ptr %17, i64 %indvars.iv69
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %60
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv69
   call void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull %5, ptr noundef nonnull %66, i64 noundef %60)
   %68 = load ptr, ptr %0, align 8, !tbaa !495
   %69 = call noundef i64 @strftime_l(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.57, ptr noundef nonnull %3, ptr noundef %68) #45
@@ -73614,7 +73614,7 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   unreachable
 
 77:                                               ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit57
-  %78 = getelementptr inbounds nuw i32, ptr %5, i64 %72
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %72
   %79 = getelementptr inbounds nuw i8, ptr %67, i64 288
   call void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull %5, ptr noundef nonnull %78, i64 noundef %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -73627,7 +73627,7 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   unreachable
 
 81:                                               ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit53
-  %82 = getelementptr inbounds nuw i32, ptr %5, i64 %50
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %50
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 920
   call void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull %5, ptr noundef nonnull %82, i64 noundef %50)
   store i32 13, ptr %45, align 8, !tbaa !500
@@ -73654,7 +73654,7 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   unreachable
 
 93:                                               ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit59
-  %94 = getelementptr inbounds nuw i32, ptr %5, i64 %88
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %88
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 944
   call void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr noundef nonnull %5, ptr noundef nonnull %94, i64 noundef %88)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -74937,7 +74937,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
 11:                                               ; preds = %.lr.ph, %15
   %12 = phi i64 [ 0, %.lr.ph ], [ %17, %15 ]
   %.0125 = phi i32 [ 0, %.lr.ph ], [ %16, %15 ]
-  %.0.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %12
+  %.0.i = getelementptr inbounds nuw [4 x i8], ptr %.pn.i, i64 %12
   %13 = load i32, ptr %.0.i, align 4, !tbaa !10
   %14 = icmp eq i32 %13, 37
   br i1 %14, label %._crit_edge, label %15
@@ -74954,7 +74954,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1020
   %.pn.i67 = select i1 %4, ptr %.pre, ptr %21
-  %.0.i68 = getelementptr inbounds nuw i32, ptr %.pn.i67, i64 %20
+  %.0.i68 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i67, i64 %20
   %22 = load i32, ptr %.0.i68, align 4, !tbaa !10
   switch i32 %22, label %147 [
     i32 121, label %23
@@ -74976,7 +74976,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %30
   %27 = phi i64 [ %32, %30 ], [ %25, %.lr.ph170.preheader ]
   %.1168 = phi i32 [ %31, %30 ], [ %24, %.lr.ph170.preheader ]
-  %.0.i71 = getelementptr inbounds nuw i32, ptr %.pn.i70, i64 %27
+  %.0.i71 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i70, i64 %27
   %28 = load i32, ptr %.0.i71, align 4, !tbaa !10
   %29 = icmp eq i32 %28, 37
   br i1 %29, label %._crit_edge171, label %30
@@ -74997,7 +74997,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
   %36 = add i32 %.1.lcssa, 1
   %37 = zext i32 %36 to i64
   %.pn.i73 = select i1 %4, ptr %.pre, ptr %21
-  %.0.i74 = getelementptr inbounds nuw i32, ptr %.pn.i73, i64 %37
+  %.0.i74 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i73, i64 %37
   %38 = load i32, ptr %.0.i74, align 4, !tbaa !10
   switch i32 %38, label %147 [
     i32 109, label %39
@@ -75017,7 +75017,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
 .lr.ph188:                                        ; preds = %.lr.ph188.preheader, %46
   %43 = phi i64 [ %48, %46 ], [ %41, %.lr.ph188.preheader ]
   %.2186 = phi i32 [ %47, %46 ], [ %40, %.lr.ph188.preheader ]
-  %.0.i77 = getelementptr inbounds nuw i32, ptr %.pn.i76, i64 %43
+  %.0.i77 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i76, i64 %43
   %44 = load i32, ptr %.0.i77, align 4, !tbaa !10
   %45 = icmp eq i32 %44, 37
   br i1 %45, label %._crit_edge189, label %46
@@ -75038,7 +75038,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
   %52 = add i32 %.2.lcssa, 1
   %53 = zext i32 %52 to i64
   %.pn.i79 = select i1 %4, ptr %.pre, ptr %21
-  %.0.i80 = getelementptr inbounds nuw i32, ptr %.pn.i79, i64 %53
+  %.0.i80 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i79, i64 %53
   %54 = load i32, ptr %.0.i80, align 4, !tbaa !10
   %55 = icmp eq i32 %54, 100
   br i1 %55, label %148, label %147
@@ -75056,7 +75056,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
 .lr.ph179:                                        ; preds = %.lr.ph179.preheader, %63
   %60 = phi i64 [ %65, %63 ], [ %58, %.lr.ph179.preheader ]
   %.3177 = phi i32 [ %64, %63 ], [ %57, %.lr.ph179.preheader ]
-  %.0.i83 = getelementptr inbounds nuw i32, ptr %.pn.i82, i64 %60
+  %.0.i83 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i82, i64 %60
   %61 = load i32, ptr %.0.i83, align 4, !tbaa !10
   %62 = icmp eq i32 %61, 37
   br i1 %62, label %._crit_edge180, label %63
@@ -75077,7 +75077,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
   %69 = add i32 %.3.lcssa, 1
   %70 = zext i32 %69 to i64
   %.pn.i85 = select i1 %4, ptr %.pre, ptr %21
-  %.0.i86 = getelementptr inbounds nuw i32, ptr %.pn.i85, i64 %70
+  %.0.i86 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i85, i64 %70
   %71 = load i32, ptr %.0.i86, align 4, !tbaa !10
   %72 = icmp eq i32 %71, 109
   br i1 %72, label %148, label %147
@@ -75095,7 +75095,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %80
   %77 = phi i64 [ %82, %80 ], [ %75, %.lr.ph152.preheader ]
   %.4150 = phi i32 [ %81, %80 ], [ %74, %.lr.ph152.preheader ]
-  %.0.i89 = getelementptr inbounds nuw i32, ptr %.pn.i88, i64 %77
+  %.0.i89 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i88, i64 %77
   %78 = load i32, ptr %.0.i89, align 4, !tbaa !10
   %79 = icmp eq i32 %78, 37
   br i1 %79, label %._crit_edge153, label %80
@@ -75116,7 +75116,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
   %86 = add i32 %.4.lcssa, 1
   %87 = zext i32 %86 to i64
   %.pn.i91 = select i1 %4, ptr %.pre, ptr %21
-  %.0.i92 = getelementptr inbounds nuw i32, ptr %.pn.i91, i64 %87
+  %.0.i92 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i91, i64 %87
   %88 = load i32, ptr %.0.i92, align 4, !tbaa !10
   %89 = icmp eq i32 %88, 100
   br i1 %89, label %90, label %147
@@ -75134,7 +75134,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
 .lr.ph161:                                        ; preds = %.lr.ph161.preheader, %97
   %94 = phi i64 [ %99, %97 ], [ %92, %.lr.ph161.preheader ]
   %.5159 = phi i32 [ %98, %97 ], [ %91, %.lr.ph161.preheader ]
-  %.0.i95 = getelementptr inbounds nuw i32, ptr %.pn.i94, i64 %94
+  %.0.i95 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i94, i64 %94
   %95 = load i32, ptr %.0.i95, align 4, !tbaa !10
   %96 = icmp eq i32 %95, 37
   br i1 %96, label %._crit_edge162, label %97
@@ -75155,14 +75155,14 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
   %103 = add i32 %.5.lcssa, 1
   %104 = zext i32 %103 to i64
   %.pn.i97 = select i1 %4, ptr %.pre, ptr %21
-  %.0.i98 = getelementptr inbounds nuw i32, ptr %.pn.i97, i64 %104
+  %.0.i98 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i97, i64 %104
   %105 = load i32, ptr %.0.i98, align 4, !tbaa !10
   %106 = icmp eq i32 %105, 121
   br i1 %106, label %148, label %107
 
 107:                                              ; preds = %102
   %.pn.i100 = select i1 %4, ptr %.pre, ptr %21
-  %.0.i101 = getelementptr inbounds nuw i32, ptr %.pn.i100, i64 %104
+  %.0.i101 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i100, i64 %104
   %108 = load i32, ptr %.0.i101, align 4, !tbaa !10
   %109 = icmp eq i32 %108, 89
   br i1 %109, label %148, label %147
@@ -75180,7 +75180,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
 .lr.ph134:                                        ; preds = %.lr.ph134.preheader, %117
   %114 = phi i64 [ %119, %117 ], [ %112, %.lr.ph134.preheader ]
   %.6132 = phi i32 [ %118, %117 ], [ %111, %.lr.ph134.preheader ]
-  %.0.i104 = getelementptr inbounds nuw i32, ptr %.pn.i103, i64 %114
+  %.0.i104 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i103, i64 %114
   %115 = load i32, ptr %.0.i104, align 4, !tbaa !10
   %116 = icmp eq i32 %115, 37
   br i1 %116, label %._crit_edge135, label %117
@@ -75201,7 +75201,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
   %123 = add i32 %.6.lcssa, 1
   %124 = zext i32 %123 to i64
   %.pn.i106 = select i1 %4, ptr %.pre, ptr %21
-  %.0.i107 = getelementptr inbounds nuw i32, ptr %.pn.i106, i64 %124
+  %.0.i107 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i106, i64 %124
   %125 = load i32, ptr %.0.i107, align 4, !tbaa !10
   %126 = icmp eq i32 %125, 109
   br i1 %126, label %127, label %147
@@ -75219,7 +75219,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %134
   %131 = phi i64 [ %136, %134 ], [ %129, %.lr.ph143.preheader ]
   %.7141 = phi i32 [ %135, %134 ], [ %128, %.lr.ph143.preheader ]
-  %.0.i110 = getelementptr inbounds nuw i32, ptr %.pn.i109, i64 %131
+  %.0.i110 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i109, i64 %131
   %132 = load i32, ptr %.0.i110, align 4, !tbaa !10
   %133 = icmp eq i32 %132, 37
   br i1 %133, label %._crit_edge144, label %134
@@ -75240,14 +75240,14 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNKSt3__118__time_get_storageIwE1
   %140 = add i32 %.7.lcssa, 1
   %141 = zext i32 %140 to i64
   %.pn.i112 = select i1 %4, ptr %.pre, ptr %21
-  %.0.i113 = getelementptr inbounds nuw i32, ptr %.pn.i112, i64 %141
+  %.0.i113 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i112, i64 %141
   %142 = load i32, ptr %.0.i113, align 4, !tbaa !10
   %143 = icmp eq i32 %142, 121
   br i1 %143, label %148, label %144
 
 144:                                              ; preds = %139
   %.pn.i115 = select i1 %4, ptr %.pre, ptr %21
-  %.0.i116 = getelementptr inbounds nuw i32, ptr %.pn.i115, i64 %141
+  %.0.i116 = getelementptr inbounds nuw [4 x i8], ptr %.pn.i115, i64 %141
   %145 = load i32, ptr %.0.i116, align 4, !tbaa !10
   %146 = icmp eq i32 %145, 89
   br i1 %146, label %148, label %147
@@ -76859,7 +76859,7 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   br label %193
 
 91:                                               ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit
-  %92 = getelementptr inbounds nuw i32, ptr %9, i64 %83
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %83
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull %9, ptr noundef nonnull %92, i64 noundef %83)
           to label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE6assignB8ne210000IPwTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_S9_S9_.exit unwind label %100
@@ -76926,7 +76926,7 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   br i1 %121, label %.invoke, label %122
 
 122:                                              ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit63
-  %123 = getelementptr inbounds nuw i32, ptr %9, i64 %118
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %118
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull %9, ptr noundef nonnull %123, i64 noundef %118)
           to label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEaSB8ne210000EPKw.exit unwind label %100
@@ -76988,7 +76988,7 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   unreachable
 
 148:                                              ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit73
-  %149 = getelementptr inbounds nuw i32, ptr %9, i64 %144
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %144
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %150, ptr noundef nonnull %9, ptr noundef nonnull %149, i64 noundef %144)
           to label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEaSB8ne210000EPKw.exit71 unwind label %100
@@ -77214,7 +77214,7 @@ _ZNSt3__114__rotate_rightB8ne210000INS_17_ClassicAlgPolicyENS_11__wrap_iterIPwEE
   %56 = icmp sgt i64 %55, 3
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 12
   %58 = sub nsw i64 3, %55
-  %59 = getelementptr inbounds i32, ptr %25, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %25, i64 %58
   %.sroa.0.1.i.i.i.i = select i1 %56, ptr %57, ptr %59
   %60 = icmp eq ptr %.sroa.0.1.i.i.i.i, %48
   br i1 %60, label %61, label %51, !llvm.loop !571
@@ -77528,7 +77528,7 @@ _ZNSt3__16rotateB8ne210000INS_11__wrap_iterIPwEEEET_S4_S4_S4_.exit: ; preds = %6
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE8pop_backB8ne210000Ev.exit: ; preds = %184, %187
   %191 = phi ptr [ %186, %184 ], [ %188, %187 ]
-  %192 = getelementptr inbounds nuw i32, ptr %191, i64 %183
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %183
   store i32 0, ptr %192, align 4, !tbaa !10
   br label %287
 
@@ -77593,7 +77593,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE8pop_backB8ne2100
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE8pop_backB8ne210000Ev.exit151: ; preds = %214, %217
   %221 = phi ptr [ %216, %214 ], [ %218, %217 ]
-  %222 = getelementptr inbounds nuw i32, ptr %221, i64 %213
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %213
   store i32 0, ptr %222, align 4, !tbaa !10
   br label %287
 
@@ -77658,7 +77658,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE8pop_backB8ne2100
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE8pop_backB8ne210000Ev.exit152: ; preds = %244, %247
   %251 = phi ptr [ %246, %244 ], [ %248, %247 ]
-  %252 = getelementptr inbounds nuw i32, ptr %251, i64 %243
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %251, i64 %243
   store i32 0, ptr %252, align 4, !tbaa !10
   br label %287
 
@@ -77712,7 +77712,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE8pop_backB8ne2100
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE8pop_backB8ne210000Ev.exit153: ; preds = %270, %273
   %277 = phi ptr [ %272, %270 ], [ %274, %273 ]
-  %278 = getelementptr inbounds nuw i32, ptr %277, i64 %269
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %277, i64 %269
   store i32 0, ptr %278, align 4, !tbaa !10
   br label %287
 
@@ -77958,7 +77958,7 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   br label %193
 
 91:                                               ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit
-  %92 = getelementptr inbounds nuw i32, ptr %9, i64 %83
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %83
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull %9, ptr noundef nonnull %92, i64 noundef %83)
           to label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE6assignB8ne210000IPwTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_S9_S9_.exit unwind label %100
@@ -78025,7 +78025,7 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   br i1 %121, label %.invoke, label %122
 
 122:                                              ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit63
-  %123 = getelementptr inbounds nuw i32, ptr %9, i64 %118
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %118
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull %9, ptr noundef nonnull %123, i64 noundef %118)
           to label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEaSB8ne210000EPKw.exit unwind label %100
@@ -78087,7 +78087,7 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   unreachable
 
 148:                                              ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit73
-  %149 = getelementptr inbounds nuw i32, ptr %9, i64 %144
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %144
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE16__assign_trivialB8ne210000IPwS7_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %150, ptr noundef nonnull %9, ptr noundef nonnull %149, i64 noundef %144)
           to label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEEaSB8ne210000EPKw.exit71 unwind label %100
@@ -79658,7 +79658,7 @@ _ZNSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE11__vallocate
   store ptr %.0.i.i.i.i, ptr %0, align 8, !tbaa !45
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i, ptr %58, align 8, !tbaa !40
-  %59 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i, i64 %.0.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i, i64 %.0.i
   store ptr %59, ptr %5, align 8, !tbaa !340
   %60 = ptrtoint ptr %2 to i64
   %61 = ptrtoint ptr %1 to i64
@@ -79758,12 +79758,12 @@ _ZNSt3__19allocatorIPNS_6locale5facetEE8allocateB8ne210000Em.exit.i.i.i.i: ; pre
 _ZNSt3__114__split_bufferIPNS_6locale5facetERNS_15__sso_allocatorIS3_Lm30EEEE5clearB8ne210000Ev.exit.i: ; preds = %_ZNSt3__19allocatorIPNS_6locale5facetEE8allocateB8ne210000Em.exit.i.i.i.i, %30, %_ZNKSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE11__recommendB8ne210000Em.exit
   %storemerge.i = phi ptr [ null, %_ZNKSt3__16vectorIPNS_6locale5facetENS_15__sso_allocatorIS3_Lm30EEEE11__recommendB8ne210000Em.exit ], [ %23, %30 ], [ %35, %_ZNSt3__19allocatorIPNS_6locale5facetEE8allocateB8ne210000Em.exit.i.i.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %16
-  %37 = getelementptr inbounds nuw ptr, ptr %storemerge.i, i64 %.0.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %storemerge.i, i64 %.0.i
   %.idx.i7 = shl i64 %1, 3
   %38 = getelementptr i8, ptr %36, i64 %.idx.i7
   tail call void @llvm.memset.p0.i64(ptr align 8 %36, i8 0, i64 %.idx.i7, i1 false), !tbaa !46
   %39 = sub nsw i64 0, %17
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %36, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 8 %14, i64 %16, i1 false)
   %41 = load ptr, ptr %0, align 8, !tbaa !45
   store ptr %40, ptr %0, align 8, !tbaa !574
@@ -80361,7 +80361,7 @@ _ZNSt3__118__char_traits_baseIwjLj4294967295EE4moveB8ne210000EPwPKwm.exit: ; pre
   br label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE19__null_terminate_atB8ne210000EPwm.exit
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE19__null_terminate_atB8ne210000EPwm.exit: ; preds = %21, %22
-  %25 = getelementptr inbounds nuw i32, ptr %16, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %2
   store i32 0, ptr %25, align 4, !tbaa !10
   br label %32
 
@@ -80719,8 +80719,8 @@ define linkonce_odr hidden void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS
 
 17:                                               ; preds = %4
   %18 = sub i64 %16, %.sroa.speculated
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %1
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.sroa.speculated
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %1
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.sroa.speculated
   %21 = shl i64 %18, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %19, ptr nonnull align 4 %20, i64 %21, i1 false)
   %.pre = load i8, ptr %0, align 8
@@ -80743,7 +80743,7 @@ _ZNSt3__118__char_traits_baseIwjLj4294967295EE4moveB8ne210000EPwPKwm.exit: ; pre
   br label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE19__null_terminate_atB8ne210000EPwm.exit
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE19__null_terminate_atB8ne210000EPwm.exit: ; preds = %25, %26
-  %29 = getelementptr inbounds nuw i32, ptr %15, i64 %23
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %23
   store i32 0, ptr %29, align 4, !tbaa !10
   br label %30
 
@@ -80796,7 +80796,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %3
   br i1 %22, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIcEEEERKT_RKNS_6localeE.exit
@@ -81652,7 +81652,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %3
   br i1 %22, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_8numpunctIwEEEERKT_RKNS_6localeE.exit
@@ -81771,7 +81771,7 @@ _ZNSt3__16locale2id5__getEv.exit.i.i:             ; preds = %.noexc, %3
   br i1 %22, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i
 
 _ZNKSt3__16locale5__imp9has_facetEl.exit.i.i.i:   ; preds = %_ZNSt3__16locale2id5__getEv.exit.i.i
-  %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZNKSt3__16locale5__imp9has_facetEl.exit.thread.i.i.i, label %_ZNSt3__19use_facetB8ne210000INS_5ctypeIwEEEERKT_RKNS_6localeE.exit
@@ -81863,7 +81863,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne21000
   %17 = mul nuw nsw i32 %16, 1233
   %18 = lshr i32 %17, 12
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i64, ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !22
   %22 = icmp ult i64 %2, %21
   %.neg.i.i = sext i1 %22 to i32
@@ -82522,7 +82522,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne21000
   %17 = mul nuw nsw i32 %16, 1233
   %18 = lshr i32 %17, 12
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i64, ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !22
   %22 = icmp ult i64 %2, %21
   %.neg.i.i = sext i1 %22 to i32

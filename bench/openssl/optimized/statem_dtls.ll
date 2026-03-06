@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hm_header_st = type { i8, i64, i16, i64, i64, i32, %struct.dtls1_retransmit_state }
 %struct.dtls1_retransmit_state = type { ptr, ptr }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
 
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/ssl/statem/statem_dtls.c\00", align 1
 @__func__.dtls_construct_change_cipher_spec = private unnamed_addr constant [34 x i8] c"dtls_construct_change_cipher_spec\00", align 1
@@ -787,7 +786,7 @@ dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %104
   %199 = or disjoint i64 %196, %198
   store i64 %199, ptr %21, align 8, !tbaa !90
   %200 = load i64, ptr %22, align 8, !tbaa !125
-  %201 = getelementptr inbounds nuw %struct.tls_record_st, ptr %0, i64 %200
+  %201 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %200
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 3384
   %203 = load i64, ptr %202, align 8, !tbaa !126
   %204 = icmp ugt i64 %199, %203

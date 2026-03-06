@@ -504,7 +504,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_pci_irq_find_prt_entr
 
 90:                                               ; preds = %128, %70
   %91 = phi i64 [ 0, %70 ], [ %129, %128 ]
-  %92 = getelementptr %struct.prt_quirk, ptr @prt_quirks, i64 %91
+  %92 = getelementptr [40 x i8], ptr @prt_quirks, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = call i32 @dmi_check_system(ptr noundef %93) #8
   %95 = icmp eq i32 %94, 0

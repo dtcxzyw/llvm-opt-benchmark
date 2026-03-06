@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.BOX = type { %struct.Point, %struct.Point }
 %struct.Point = type { double, double }
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [33 x i8] c"unrecognized strategy number: %d\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"spgquadtreeproc.c\00", align 1
@@ -174,14 +172,14 @@ define dso_local noundef i64 @spg_quad_picksplit(ptr noundef readonly captures(n
   %15 = phi double [ %.pre48, %.lr.ph ], [ %21, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %18 to ptr
   %20 = load double, ptr %19, align 8
   %21 = fadd double %20, %15
   store double %21, ptr %8, align 8
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -237,17 +235,17 @@ define dso_local noundef i64 @spg_quad_picksplit(ptr noundef readonly captures(n
 57:                                               ; preds = %.lr.ph40, %57
   %indvars.iv44 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next45, %57 ]
   %58 = load ptr, ptr %56, align 8
-  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv44
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv44
   %60 = load i64, ptr %59, align 8
   %61 = inttoptr i64 %60 to ptr
   %62 = tail call fastcc signext i16 @getQuadrant(ptr noundef nonnull %8, ptr noundef %61)
   %63 = zext nneg i16 %62 to i32
   %64 = add nsw i32 %63, -1
   %65 = load ptr, ptr %53, align 8
-  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv44
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv44
   store i64 %60, ptr %66, align 8
   %67 = load ptr, ptr %48, align 8
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv44
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv44
   store i32 %64, ptr %68, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %69 = load i32, ptr %4, align 8
@@ -356,7 +354,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
 59:                                               ; preds = %.lr.ph138, %77
   %indvars.iv146 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next147, %77 ]
   %60 = load ptr, ptr %52, align 8
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv146
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv146
   %62 = trunc nuw nsw i64 %indvars.iv146 to i32
   store i32 %62, ptr %61, align 4
   %63 = load i32, ptr %13, align 4
@@ -370,14 +368,14 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   %68 = call ptr @box_copy(ptr noundef %.0110) #6
   store ptr %67, ptr @CurrentMemoryContext, align 8
   %69 = load ptr, ptr %56, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv146
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv146
   store ptr %68, ptr %70, align 8
   %71 = ptrtoint ptr %68 to i64
   %72 = load ptr, ptr %57, align 8
   %73 = load i32, ptr %13, align 4
   %74 = call ptr @spg_key_orderbys_distances(i64 noundef %71, i1 noundef zeroext false, ptr noundef %72, i32 noundef %73) #6
   %75 = load ptr, ptr %58, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv146
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv146
   store ptr %74, ptr %76, align 8
   br label %77
 
@@ -392,7 +390,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.0111131 = phi i32 [ 30, %.lr.ph ], [ %.2123, %.thread ]
   %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [72 x i8], ptr %82, i64 %indvars.iv
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 64
   %85 = load i64, ptr %84, align 8
   %86 = inttoptr i64 %85 to ptr
@@ -471,7 +469,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
 123:                                              ; preds = %81
   %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %125 = load ptr, ptr %6, align 8
-  %126 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %125, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [72 x i8], ptr %125, i64 %indvars.iv
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 6
   %128 = load i16, ptr %127, align 2
   %129 = zext i16 %128 to i32
@@ -503,7 +501,7 @@ select.unfold._crit_edge:                         ; preds = %.thread, %select.un
 137:                                              ; preds = %select.unfold._crit_edge, %137
   %indvars.iv142 = phi i64 [ 0, %select.unfold._crit_edge ], [ %indvars.iv.next143, %137 ]
   %138 = load ptr, ptr %136, align 8
-  %139 = getelementptr inbounds nuw i32, ptr %138, i64 %indvars.iv142
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvars.iv142
   store i32 1, ptr %139, align 4
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next143, 4
@@ -536,7 +534,7 @@ select.unfold._crit_edge:                         ; preds = %.thread, %select.un
   %156 = add nsw i32 %.3134, -1
   %157 = load ptr, ptr %142, align 8
   %158 = sext i32 %152 to i64
-  %159 = getelementptr inbounds i32, ptr %157, i64 %158
+  %159 = getelementptr inbounds [4 x i8], ptr %157, i64 %158
   store i32 %156, ptr %159, align 4
   %160 = load i32, ptr %13, align 4
   %161 = icmp sgt i32 %160, 0
@@ -599,7 +597,7 @@ getQuadrantArea.exit:                             ; preds = %162, %166, %168, %1
   %186 = load ptr, ptr %148, align 8
   %187 = load i32, ptr %9, align 8
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds ptr, ptr %186, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %186, i64 %188
   store ptr %165, ptr %189, align 8
   %190 = ptrtoint ptr %165 to i64
   %191 = load ptr, ptr %149, align 8
@@ -608,7 +606,7 @@ getQuadrantArea.exit:                             ; preds = %162, %166, %168, %1
   %194 = load ptr, ptr %150, align 8
   %195 = load i32, ptr %9, align 8
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds ptr, ptr %194, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %194, i64 %196
   store ptr %193, ptr %197, align 8
   br label %198
 
@@ -677,7 +675,7 @@ define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef reado
 .lr.ph:                                           ; preds = %1, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %1 ]
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [72 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 6
@@ -721,7 +719,7 @@ define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef reado
 31:                                               ; preds = %.lr.ph
   %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [72 x i8], ptr %33, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 6
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32

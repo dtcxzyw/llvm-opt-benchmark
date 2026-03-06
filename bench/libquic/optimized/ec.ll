@@ -3,9 +3,6 @@ source_filename = "bench/libquic/original/ec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.built_in_curve = type { i32, [8 x i8], i8, ptr, ptr }
-%struct.EC_builtin_curve = type { i32, ptr }
-
 @OPENSSL_built_in_curves = hidden local_unnamed_addr constant [5 x { i32, [8 x i8], i8, [3 x i8], ptr, ptr }] [{ i32, [8 x i8], i8, [3 x i8], ptr, ptr } { i32 716, [8 x i8] c"+\81\04\00#\00\00\00", i8 5, [3 x i8] zeroinitializer, ptr @P521, ptr null }, { i32, [8 x i8], i8, [3 x i8], ptr, ptr } { i32 715, [8 x i8] c"+\81\04\00\22\00\00\00", i8 5, [3 x i8] zeroinitializer, ptr @P384, ptr null }, { i32, [8 x i8], i8, [3 x i8], ptr, ptr } { i32 415, [8 x i8] c"*\86H\CE=\03\01\07", i8 8, [3 x i8] zeroinitializer, ptr @P256, ptr @EC_GFp_nistz256_method }, { i32, [8 x i8], i8, [3 x i8], ptr, ptr } { i32 713, [8 x i8] c"+\81\04\00!\00\00\00", i8 5, [3 x i8] zeroinitializer, ptr @P224, ptr @EC_GFp_nistp224_method }, { i32, [8 x i8], i8, [3 x i8], ptr, ptr } zeroinitializer], align 16
 @.str = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/ec.c\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"NIST P-521\00", align 1
@@ -474,7 +471,7 @@ define hidden noundef ptr @EC_GROUP_new_by_curve_name(i32 noundef %0) local_unna
 2:                                                ; preds = %1, %101
   %.01116 = phi i32 [ 0, %1 ], [ %102, %101 ]
   %3 = zext nneg i32 %.01116 to i64
-  %4 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %3
+  %4 = getelementptr inbounds nuw [32 x i8], ptr @OPENSSL_built_in_curves, i64 %3
   %5 = load i32, ptr %4, align 16, !tbaa !25
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %101
@@ -636,7 +633,7 @@ EC_POINT_new.exit.i:                              ; preds = %50
   br i1 %.not93.i, label %87, label %83
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw ptr, ptr %82, i64 %3
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %3
   %85 = load ptr, ptr %84, align 8, !tbaa !33
   %86 = getelementptr inbounds nuw i8, ptr %.1.i, i64 72
   store ptr %85, ptr %86, align 8, !tbaa !34
@@ -1229,7 +1226,7 @@ define hidden i32 @EC_POINTs_make_affine(ptr noundef %0, i64 noundef %1, ptr nou
 
 8:                                                ; preds = %.lr.ph, %6
   %.012 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %.012
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.012
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %.not = icmp eq ptr %5, %11
@@ -1472,11 +1469,11 @@ define hidden noundef range(i64 1, 4294967296) i64 @EC_get_builtin_curves(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %3 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [32 x i8], ptr @OPENSSL_built_in_curves, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 16, !tbaa !28
   %6 = load ptr, ptr %5, align 8, !tbaa !42
-  %7 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8, !tbaa !44
   %9 = load i32, ptr %3, align 16, !tbaa !25
@@ -1512,7 +1509,7 @@ define internal void @built_in_curve_scalar_field_monts_init() #1 {
 
 .preheader:                                       ; preds = %3, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [32 x i8], ptr @OPENSSL_built_in_curves, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 16, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1537,7 +1534,7 @@ define internal void @built_in_curve_scalar_field_monts_init() #1 {
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !31
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store ptr %13, ptr %25, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

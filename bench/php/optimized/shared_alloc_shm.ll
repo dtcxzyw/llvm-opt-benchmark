@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.zend_shared_memory_handlers = type { ptr, ptr, ptr }
 %struct.shmid_ds = type { %struct.ipc_perm, i64, i64, i64, i64, i32, i32, i64, i64, i64 }
 %struct.ipc_perm = type { i32, i32, i32, i32, i32, i32, i16, i16, i64, i64 }
-%struct.zend_shared_segment_shm = type { %struct._zend_shared_segment, i32 }
-%struct._zend_shared_segment = type { i64, i64, i64, ptr }
 
 @zend_alloc_shm_handlers = hidden local_unnamed_addr constant %struct.zend_shared_memory_handlers { ptr @create_segments, ptr @detach_segment, ptr @segment_type_size }, align 8
 @.str = private unnamed_addr constant [7 x i8] c"shmget\00", align 1
@@ -83,9 +81,9 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
   %indvars.iv = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next, %.lr.ph89 ]
-  %33 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %30, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %indvars.iv
   %34 = load ptr, ptr %1, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   store ptr %33, ptr %35, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -100,7 +98,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 
 38:                                               ; preds = %36
   %39 = call i32 @shmget(i32 noundef 0, i64 noundef %37, i32 noundef 1920) #7
-  %40 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %30, i64 %indvars.iv99
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %indvars.iv99
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i32 %39, ptr %41, align 8, !tbaa !12
   br label %43
@@ -111,7 +109,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 
 43:                                               ; preds = %42, %38
   %44 = phi i32 [ %14, %42 ], [ %39, %38 ]
-  %45 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %30, i64 %indvars.iv99
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %indvars.iv99
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = icmp eq i32 %44, -1
   br i1 %47, label %.loopexit, label %48

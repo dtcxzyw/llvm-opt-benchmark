@@ -17,9 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_iop_monochrome_params_t = type { float, float, float, float }
 %struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
 %struct.cmsCIELab = type { double, double, double }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"monochrome\00", align 1
 @.str.1 = private unnamed_addr constant [72 x i8] c"quickly convert an image to black & white using a variable color filter\00", align 1
@@ -200,10 +197,10 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_color_filter.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_color_filter.exit ]
   %39 = or disjoint i64 %indvars.iv, 1
-  %40 = getelementptr inbounds nuw float, ptr %2, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !50
   %42 = or disjoint i64 %indvars.iv, 2
-  %43 = getelementptr inbounds nuw float, ptr %2, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !50
   %45 = fsub reassoc nsz arcp contract afn float %41, %15
   %46 = fmul reassoc nsz arcp contract afn float %45, %45
@@ -230,11 +227,11 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 _color_filter.exit:                               ; preds = %.lr.ph, %53, %55
   %62 = phi float [ 0x404482C1C0000000, %53 ], [ %61, %55 ], [ 1.000000e+02, %.lr.ph ]
-  %63 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store float %62, ptr %63, align 4, !tbaa !50
-  %64 = getelementptr inbounds nuw float, ptr %3, i64 %42
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %42
   store float 0.000000e+00, ptr %64, align 4, !tbaa !50
-  %65 = getelementptr inbounds nuw float, ptr %3, i64 %39
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %39
   store float 0.000000e+00, ptr %65, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %66 = icmp ugt i64 %19, %indvars.iv.next
@@ -245,7 +242,7 @@ _color_filter.exit:                               ; preds = %.lr.ph, %53, %55
 
 67:                                               ; preds = %.lr.ph63, %_envelope.exit
   %indvars.iv67 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next68, %_envelope.exit ]
-  %68 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv67
   %69 = load float, ptr %68, align 4, !tbaa !50
   %70 = fmul reassoc nsz arcp contract afn float %69, 0x3F847AE140000000
   %71 = fcmp reassoc nsz arcp contract afn ogt float %70, 0.000000e+00
@@ -277,7 +274,7 @@ _envelope.exit:                                   ; preds = %76, %81
   %89 = fmul reassoc nsz arcp contract afn float %88, %38
   %90 = fadd reassoc nsz arcp contract afn float %89, %.0.i
   %91 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %90
-  %92 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv67
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv67
   %93 = load float, ptr %92, align 4, !tbaa !50
   %94 = fmul reassoc nsz arcp contract afn float %93, 0x3F847AE140000000
   %95 = fmul reassoc nsz arcp contract afn float %94, %90
@@ -1160,7 +1157,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !151
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

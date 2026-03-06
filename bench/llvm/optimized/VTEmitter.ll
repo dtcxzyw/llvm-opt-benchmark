@@ -141,7 +141,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.preheader:     ; preds = %24, %22
   %.098.i = phi ptr [ %30, %.lr.ph.i ], [ %6, %2 ]
   %27 = load ptr, ptr %.098.i, align 8, !tbaa !23
   %28 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %27, ptr nonnull @.str.4, i64 5) #14
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %28
   store ptr %27, ptr %29, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %.098.i, i64 8
   %.not.i = icmp eq ptr %30, %8

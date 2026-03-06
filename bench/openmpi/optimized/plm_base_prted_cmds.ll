@@ -53,7 +53,7 @@ define noundef i32 @prte_plm_base_prted_exit(i8 noundef zeroext %0) local_unname
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %6
+  %7 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = icmp sgt i32 %9, 4
@@ -259,7 +259,7 @@ define noundef i32 @prte_plm_base_prted_terminate_job(ptr noundef %0) local_unna
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %6
+  %7 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = icmp sgt i32 %9, 4
@@ -410,7 +410,7 @@ define noundef i32 @prte_plm_base_prted_kill_local_procs(ptr noundef readonly ca
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %6
+  %7 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = icmp sgt i32 %9, 4
@@ -456,7 +456,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %23 = phi i32 [ %20, %pmix_pointer_array_get_item.exit.lr.ph ], [ %34, %33 ]
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit.lr.ph ], [ %indvars.iv.next, %33 ]
   %24 = load ptr, ptr %22, align 8, !tbaa !47
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !32
   %27 = icmp eq ptr %26, null
   br i1 %27, label %33, label %28
@@ -627,7 +627,7 @@ define noundef i32 @prte_plm_base_prted_signal_local_procs(ptr noundef %0, i32 n
 
 8:                                                ; preds = %2
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9
+  %10 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = icmp sgt i32 %12, 4

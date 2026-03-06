@@ -105,7 +105,7 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %.not69 = icmp eq ptr %44, null
   br i1 %.not69, label %._crit_edge.thread, label %.lr.ph
@@ -202,7 +202,7 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
 
 90:                                               ; preds = %84
   %91 = load ptr, ptr %40, align 8
-  %92 = getelementptr inbounds ptr, ptr %91, i64 %42
+  %92 = getelementptr inbounds [8 x i8], ptr %91, i64 %42
   store ptr %86, ptr %92, align 8
   br label %93
 
@@ -226,11 +226,11 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
 
 ._crit_edge.thread:                               ; preds = %25, %._crit_edge
   %97 = load ptr, ptr %40, align 8
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %42
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %42
   %99 = load ptr, ptr %98, align 8
   store ptr %99, ptr %36, align 8
   %100 = load ptr, ptr %40, align 8
-  %101 = getelementptr inbounds ptr, ptr %100, i64 %42
+  %101 = getelementptr inbounds [8 x i8], ptr %100, i64 %42
   store ptr %27, ptr %101, align 8
   br label %_ZL9allocSpanR13rcHeightfield.exit
 
@@ -659,17 +659,17 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
   %33 = load i32, ptr %32, align 4
   %34 = mul nsw i32 %33, 3
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds float, ptr %1, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %1, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = mul nsw i32 %38, 3
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds float, ptr %1, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %1, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %43 = load i32, ptr %42, align 4
   %44 = mul nsw i32 %43, 3
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds float, ptr %1, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %1, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %48 = load i8, ptr %47, align 1
   %49 = load float, ptr %21, align 8
@@ -1027,7 +1027,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
 .lr.ph.preheader:                                 ; preds = %.thread, %13
   %15 = zext nneg i32 %7 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 %15
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %15
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1036,7 +1036,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %16 = load float, ptr %gep, align 4
   %17 = fsub float %6, %16
-  %18 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store float %17, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1052,11 +1052,11 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
   %.08395 = phi i32 [ 0, %.lr.ph97.preheader ], [ %.2, %117 ]
   %.08494 = phi i32 [ %19, %.lr.ph97.preheader ], [ %118, %117 ]
   %.08692 = phi i32 [ 0, %.lr.ph97.preheader ], [ %.187, %117 ]
-  %20 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv101
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv101
   %21 = load float, ptr %20, align 4
   %22 = fcmp oge float %21, 0.000000e+00
   %23 = sext i32 %.08494 to i64
-  %24 = getelementptr inbounds float, ptr %9, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %9, i64 %23
   %25 = load float, ptr %24, align 4
   %26 = fcmp ult float %25, 0.000000e+00
   %27 = xor i1 %22, %26
@@ -1067,7 +1067,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
   %30 = fdiv float %25, %29
   %31 = mul nsw i32 %.08494, 3
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds float, ptr %0, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %0, i64 %32
   %34 = load float, ptr %33, align 4
   %.idx111 = mul nuw nsw i64 %indvars.iv101, 12
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx111
@@ -1076,7 +1076,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
   %38 = tail call float @llvm.fmuladd.f32(float %37, float %30, float %34)
   %39 = mul nsw i32 %.08395, 3
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds float, ptr %2, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %2, i64 %40
   store float %38, ptr %41, align 4
   %42 = getelementptr i8, ptr %33, i64 4
   %43 = load float, ptr %42, align 4
@@ -1096,7 +1096,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
   store float %54, ptr %55, align 4
   %56 = mul nsw i32 %.08692, 3
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds float, ptr %4, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %4, i64 %57
   store float %38, ptr %58, align 4
   %59 = load float, ptr %48, align 4
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
@@ -1112,7 +1112,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
 66:                                               ; preds = %28
   %67 = mul nsw i32 %63, 3
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds float, ptr %2, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %2, i64 %68
   %70 = load float, ptr %35, align 4
   store float %70, ptr %69, align 4
   %71 = load float, ptr %44, align 4
@@ -1131,7 +1131,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
 78:                                               ; preds = %76
   %79 = mul nsw i32 %64, 3
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds float, ptr %4, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %4, i64 %80
   %82 = load float, ptr %35, align 4
   store float %82, ptr %81, align 4
   %83 = load float, ptr %44, align 4
@@ -1153,9 +1153,9 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
 89:                                               ; preds = %88
   %90 = mul nsw i32 %.08395, 3
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds float, ptr %2, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %2, i64 %91
   %93 = mul nuw nsw i64 %indvars.iv101, 3
-  %94 = getelementptr inbounds nuw float, ptr %0, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %93
   %95 = load float, ptr %94, align 4
   store float %95, ptr %92, align 4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
@@ -1175,8 +1175,8 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef r
   %.1 = phi i32 [ %.08395, %._crit_edge106 ], [ %102, %89 ]
   %105 = mul nsw i32 %.08692, 3
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds float, ptr %4, i64 %106
-  %108 = getelementptr inbounds nuw float, ptr %0, i64 %.pre-phi
+  %107 = getelementptr inbounds [4 x i8], ptr %4, i64 %106
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.pre-phi
   %109 = load float, ptr %108, align 4
   store float %109, ptr %107, align 4
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 4

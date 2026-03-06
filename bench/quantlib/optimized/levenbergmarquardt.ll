@@ -2455,7 +2455,7 @@ invoke.cont7.us.i:                                ; preds = %invoke.cont7.lr.ph.
   %i.020.us.i = phi i64 [ %add.i.us.i, %invoke.cont9.loopexit.us.i ], [ 0, %invoke.cont7.lr.ph.i ]
   %add.ptr.i.idx.us.i = mul i64 %mul.i13.i, %i.020.us.i
   %add.ptr.i.us.i = getelementptr inbounds nuw i8, ptr %20, i64 %add.ptr.i.idx.us.i
-  %add.ptr.i17.us.i = getelementptr inbounds nuw double, ptr %cond.i.i, i64 %i.020.us.i
+  %add.ptr.i17.us.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i, i64 %i.020.us.i
   br label %for.body.i.i.i.i.i.us.i
 
 for.body.i.i.i.i.i.us.i:                          ; preds = %for.body.i.i.i.i.i.us.i, %invoke.cont7.us.i
@@ -2465,7 +2465,7 @@ for.body.i.i.i.i.i.us.i:                          ; preds = %for.body.i.i.i.i.i.
   %21 = load double, ptr %__first.addr.08.i.i.i.i.i.us.i, align 8, !tbaa !66, !noalias !63
   store double %21, ptr %__result.sroa.0.07.i.i.i.i.i.us.i, align 8, !tbaa !66, !noalias !63
   %incdec.ptr.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i, i64 8
-  %add.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i, i64 %16
+  %add.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds [8 x i8], ptr %__result.sroa.0.07.i.i.i.i.i.us.i, i64 %16
   %dec.i.i.i.i.i.us.i = add nsw i64 %__n.09.i.i.i.i.i.us.i, -1
   %cmp.i.i.i.i.i.us.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i, 1
   br i1 %cmp.i.i.i.i.i.us.i, label %for.body.i.i.i.i.i.us.i, label %invoke.cont9.loopexit.us.i, !llvm.loop !67
@@ -2571,7 +2571,7 @@ invoke.cont7.us.i52:                              ; preds = %invoke.cont7.lr.ph.
   %i.020.us.i53 = phi i64 [ %add.i.us.i66, %invoke.cont9.loopexit.us.i65 ], [ 0, %invoke.cont7.lr.ph.i49 ]
   %add.ptr.i.idx.us.i54 = mul i64 %mul.i13.i50, %i.020.us.i53
   %add.ptr.i.us.i55 = getelementptr inbounds nuw i8, ptr %33, i64 %add.ptr.i.idx.us.i54
-  %add.ptr.i17.us.i56 = getelementptr inbounds nuw double, ptr %cond.i.i45, i64 %i.020.us.i53
+  %add.ptr.i17.us.i56 = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i45, i64 %i.020.us.i53
   br label %for.body.i.i.i.i.i.us.i57
 
 for.body.i.i.i.i.i.us.i57:                        ; preds = %for.body.i.i.i.i.i.us.i57, %invoke.cont7.us.i52
@@ -2581,7 +2581,7 @@ for.body.i.i.i.i.i.us.i57:                        ; preds = %for.body.i.i.i.i.i.
   %34 = load double, ptr %__first.addr.08.i.i.i.i.i.us.i59, align 8, !tbaa !66, !noalias !70
   store double %34, ptr %__result.sroa.0.07.i.i.i.i.i.us.i60, align 8, !tbaa !66, !noalias !70
   %incdec.ptr.i.i.i.i.i.us.i61 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i59, i64 8
-  %add.ptr.i.i.i.i.i.i.us.i62 = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i60, i64 %29
+  %add.ptr.i.i.i.i.i.i.us.i62 = getelementptr inbounds [8 x i8], ptr %__result.sroa.0.07.i.i.i.i.i.us.i60, i64 %29
   %dec.i.i.i.i.i.us.i63 = add nsw i64 %__n.09.i.i.i.i.i.us.i58, -1
   %cmp.i.i.i.i.i.us.i64 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i58, 1
   br i1 %cmp.i.i.i.i.i.us.i64, label %for.body.i.i.i.i.i.us.i57, label %invoke.cont9.loopexit.us.i65, !llvm.loop !67

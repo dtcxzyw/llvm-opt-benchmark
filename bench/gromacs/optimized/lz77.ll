@@ -45,11 +45,11 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
 
 17:                                               ; preds = %.lr.ph200
   %18 = sext i32 %.1131194 to i64
-  %19 = getelementptr inbounds i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %0, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !3
   %21 = mul i32 %20, 7
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %9, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !3
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph, label %.critedge.thread
@@ -57,7 +57,7 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
 .lr.ph:                                           ; preds = %17
   %26 = add i32 %21, 1
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %9, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %spec.select = add i32 %21, 3
   %30 = icmp slt i32 %.1131194, %1
@@ -67,7 +67,7 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
   %31 = sub i32 %1, %.1131194
   %32 = sub nsw i64 %11, %18
   %33 = zext nneg i32 %spec.store.select to i64
-  %invariant.gep243 = getelementptr i32, ptr %0, i64 %18
+  %invariant.gep243 = getelementptr [4 x i8], ptr %0, i64 %18
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %._crit_edge173.split.us.us
@@ -81,7 +81,7 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
   %38 = add i32 %spec.select, %35
   %39 = add i32 %38, %37
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %9, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !3
   %43 = icmp slt i32 %42, %spec.store.select
   br i1 %43, label %.critedge, label %.preheader160.us
@@ -105,7 +105,7 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
   %indvars.iv218 = phi i64 [ %46, %.lr.ph169.us.preheader ], [ %indvars.iv.next219, %65 ]
   %.3117168.us.us = phi i32 [ %.0114180.us, %.lr.ph169.us.preheader ], [ %.4.us.us, %65 ]
   %.3121167.us.us = phi i32 [ %.0118179.us, %.lr.ph169.us.preheader ], [ %.4122.us.us, %65 ]
-  %47 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv218
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv218
   %48 = load i32, ptr %47, align 4, !tbaa !3
   %49 = icmp eq i32 %48, %20
   br i1 %49, label %50, label %._crit_edge173.split.us.us
@@ -115,14 +115,14 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %.not143.us.us, label %65, label %.preheader.us.us.preheader
 
 .preheader.us.us.preheader:                       ; preds = %50
-  %invariant.gep = getelementptr i32, ptr %0, i64 %indvars.iv218
+  %invariant.gep = getelementptr [4 x i8], ptr %0, i64 %indvars.iv218
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %64
   %indvars.iv214 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next215, %64 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv214
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv214
   %51 = load i32, ptr %gep, align 4, !tbaa !3
-  %gep244 = getelementptr i32, ptr %invariant.gep243, i64 %indvars.iv214
+  %gep244 = getelementptr [4 x i8], ptr %invariant.gep243, i64 %indvars.iv214
   %52 = load i32, ptr %gep244, align 4, !tbaa !3
   %.not144.us.us = icmp eq i32 %51, %52
   br i1 %.not144.us.us, label %64, label %._crit_edge.us.us.split.loop.exit241
@@ -176,7 +176,7 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
 66:                                               ; preds = %.critedge
   %67 = sub nsw i32 %.1131194, %.0114.lcssa
   %68 = icmp eq i32 %67, 1
-  %69 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv228
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv228
   br i1 %68, label %70, label %71
 
 70:                                               ; preds = %66
@@ -187,7 +187,7 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
   store i32 1, ptr %69, align 4, !tbaa !3
   %72 = add nsw i32 %.0112199, 1
   %73 = sext i32 %.0112199 to i64
-  %74 = getelementptr inbounds i32, ptr %6, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %6, i64 %73
   store i32 %67, ptr %74, align 4, !tbaa !3
   br label %.lr.ph192.preheader
 
@@ -195,7 +195,7 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
   %.1 = phi i32 [ %.0112199, %70 ], [ %72, %71 ]
   %75 = add nsw i32 %.0134193, 1
   %76 = sext i32 %.0134193 to i64
-  %77 = getelementptr inbounds i32, ptr %4, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %4, i64 %76
   store i32 %spec.store.select1, ptr %77, align 4, !tbaa !3
   %wide.trip.count226 = zext nneg i32 %spec.store.select1 to i64
   br label %.lr.ph192
@@ -203,11 +203,11 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
 .lr.ph192:                                        ; preds = %.lr.ph192.preheader, %add_circular.exit
   %indvars.iv223 = phi i64 [ 0, %.lr.ph192.preheader ], [ %indvars.iv.next224, %add_circular.exit ]
   %78 = add nsw i64 %indvars.iv223, %18
-  %79 = getelementptr inbounds i32, ptr %0, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %0, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !3
   %81 = mul nsw i32 %80, 7
   %82 = sext i32 %81 to i64
-  %83 = getelementptr i32, ptr %9, i64 %82
+  %83 = getelementptr [4 x i8], ptr %9, i64 %82
   %84 = getelementptr i8, ptr %83, i64 8
   %85 = load i32, ptr %84, align 4, !tbaa !3
   %86 = trunc i64 %78 to i32
@@ -229,7 +229,7 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
   %93 = load i32, ptr %92, align 4, !tbaa !3
   %94 = add nsw i32 %91, %93
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i32, ptr %9, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %9, i64 %95
   %97 = trunc nsw i64 %78 to i32
   store i32 %97, ptr %96, align 4, !tbaa !3
   %98 = load i32, ptr %92, align 4, !tbaa !3
@@ -253,12 +253,12 @@ add_circular.exit:                                ; preds = %.lr.ph192.add_circu
 
 .critedge.thread:                                 ; preds = %.lr.ph, %17, %.critedge
   %103 = add i32 %20, 2
-  %104 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv228
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv228
   store i32 %103, ptr %104, align 4, !tbaa !3
   %105 = load i32, ptr %19, align 4, !tbaa !3
   %106 = mul nsw i32 %105, 7
   %107 = sext i32 %106 to i64
-  %108 = getelementptr i32, ptr %9, i64 %107
+  %108 = getelementptr [4 x i8], ptr %9, i64 %107
   %109 = getelementptr i8, ptr %108, i64 8
   %110 = load i32, ptr %109, align 4, !tbaa !3
   %111 = add nsw i32 %.1131194, -1
@@ -275,7 +275,7 @@ add_circular.exit:                                ; preds = %.lr.ph192.add_circu
   %117 = load i32, ptr %116, align 4, !tbaa !3
   %118 = add nsw i32 %115, %117
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i32, ptr %9, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %9, i64 %119
   store i32 %.1131194, ptr %120, align 4, !tbaa !3
   %121 = load i32, ptr %116, align 4, !tbaa !3
   %122 = add nsw i32 %121, 1
@@ -298,12 +298,12 @@ add_circular.exit150:                             ; preds = %.critedge.thread, %
 126:                                              ; preds = %.lr.ph200
   %127 = load i32, ptr %0, align 4, !tbaa !3
   %128 = add i32 %127, 2
-  %129 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv228
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv228
   store i32 %128, ptr %129, align 4, !tbaa !3
   %130 = load i32, ptr %0, align 4, !tbaa !3
   %131 = mul nsw i32 %130, 7
   %132 = sext i32 %131 to i64
-  %133 = getelementptr i32, ptr %9, i64 %132
+  %133 = getelementptr [4 x i8], ptr %9, i64 %132
   %134 = getelementptr i8, ptr %133, i64 8
   %135 = load i32, ptr %134, align 4, !tbaa !3
   %.not.i151 = icmp eq i32 %135, -1
@@ -319,7 +319,7 @@ add_circular.exit150:                             ; preds = %.critedge.thread, %
   %141 = load i32, ptr %140, align 4, !tbaa !3
   %142 = add nsw i32 %139, %141
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds i32, ptr %9, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %9, i64 %143
   store i32 0, ptr %144, align 4, !tbaa !3
   %145 = load i32, ptr %140, align 4, !tbaa !3
   %146 = add nsw i32 %145, 1
@@ -371,7 +371,7 @@ define void @Ptngc_comp_from_lz77(ptr noundef readonly captures(none) %0, i32 no
   %.02539 = phi i32 [ %.227, %.loopexit ], [ 0, %8 ]
   %.02838 = phi i32 [ %.129, %.loopexit ], [ 0, %8 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv45
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv45
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = icmp ult i32 %11, 2
   br i1 %12, label %13, label %38
@@ -379,7 +379,7 @@ define void @Ptngc_comp_from_lz77(ptr noundef readonly captures(none) %0, i32 no
 13:                                               ; preds = %.lr.ph41
   %14 = add nsw i32 %.02838, 1
   %15 = sext i32 %.02838 to i64
-  %16 = getelementptr inbounds i32, ptr %2, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %2, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = icmp eq i32 %11, 1
   br i1 %18, label %19, label %25
@@ -387,7 +387,7 @@ define void @Ptngc_comp_from_lz77(ptr noundef readonly captures(none) %0, i32 no
 19:                                               ; preds = %13
   %20 = add nsw i32 %.02539, 1
   %21 = sext i32 %.02539 to i64
-  %22 = getelementptr inbounds i32, ptr %4, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %4, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = sext i32 %23 to i64
   br label %25
@@ -408,9 +408,9 @@ define void @Ptngc_comp_from_lz77(ptr noundef readonly captures(none) %0, i32 no
   %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
   %.02335 = phi i32 [ 0, %.lr.ph.preheader ], [ %37, %36 ]
   %29 = sub nsw i64 %indvars.iv, %.024
-  %30 = getelementptr inbounds i32, ptr %6, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %6, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !3
-  %32 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %32 = getelementptr inbounds [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %31, ptr %32, align 4, !tbaa !3
   %exitcond.not = icmp eq i32 %.02335, %28
   br i1 %exitcond.not, label %33, label %36
@@ -431,7 +431,7 @@ define void @Ptngc_comp_from_lz77(ptr noundef readonly captures(none) %0, i32 no
   %39 = add i32 %11, -2
   %40 = add nsw i32 %.040, 1
   %41 = sext i32 %.040 to i64
-  %42 = getelementptr inbounds i32, ptr %6, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %6, i64 %41
   store i32 %39, ptr %42, align 4, !tbaa !3
   br label %.loopexit
 

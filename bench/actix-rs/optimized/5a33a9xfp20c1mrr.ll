@@ -36,7 +36,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$smallvec..IntoIter$LT$$u5b$
   %17 = phi i64 [ %18, %.noexc ], [ %.promoted.i, %.split.us.i.preheader ]
   %18 = add i64 %17, 1
   store i64 %18, ptr %3, align 8, !alias.scope !7, !noalias !10
-  %19 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %12, i64 %17
+  %19 = getelementptr inbounds [40 x i8], ptr %12, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false), !noalias !4
   %.pre4.i = load i8, ptr %6, align 8, !range !13, !noalias !4
   %20 = icmp eq i8 %.pre4.i, 2
@@ -65,7 +65,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$smallvec..IntoIter$LT$$u5b$
   %27 = phi i64 [ %28, %.noexc1 ], [ %.promoted.i, %.split.i.preheader ]
   %28 = add i64 %27, 1
   store i64 %28, ptr %3, align 8, !alias.scope !7, !noalias !10
-  %29 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %10, i64 %27
+  %29 = getelementptr inbounds [40 x i8], ptr %10, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %29, i64 40, i1 false)
   %.pre.i = load i8, ptr %6, align 8, !range !13, !noalias !4
   %30 = icmp eq i8 %.pre.i, 2
@@ -993,7 +993,7 @@ define hidden void @"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops.
   %17 = phi i64 [ %18, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h73d7e55db9ce8e17E.llvm.11579535172419908104.exit1.us" ], [ %.promoted, %.split.us.preheader ]
   %18 = add i64 %17, 1
   store i64 %18, ptr %3, align 8, !alias.scope !269, !noalias !272
-  %19 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %12, i64 %17
+  %19 = getelementptr inbounds [40 x i8], ptr %12, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false)
   %.pre4 = load i8, ptr %6, align 8, !range !13
   %20 = icmp eq i8 %.pre4, 2
@@ -1019,7 +1019,7 @@ define hidden void @"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops.
   %27 = phi i64 [ %28, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h73d7e55db9ce8e17E.llvm.11579535172419908104.exit1" ], [ %.promoted, %.split.preheader ]
   %28 = add i64 %27, 1
   store i64 %28, ptr %3, align 8, !alias.scope !269, !noalias !272
-  %29 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %10, i64 %27
+  %29 = getelementptr inbounds [40 x i8], ptr %10, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %29, i64 40, i1 false)
   %.pre = load i8, ptr %6, align 8, !range !13
   %30 = icmp eq i8 %.pre, 2
@@ -1063,7 +1063,7 @@ define hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops.
   br i1 %6, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$http..header..value..HeaderValue$u5d$$GT$17h3bb6985a81f3dda2E.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit.i"
-  %8 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %5, i64 %.0.i
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %.0.i
   %9 = add nuw nsw i64 %.0.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
@@ -1090,7 +1090,7 @@ define hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops.
   br label %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i"
 
 21:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i"
-  %22 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %5, i64 %.1.i
+  %22 = getelementptr inbounds [40 x i8], ptr %5, i64 %.1.i
   %23 = add i64 %.1.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
@@ -1129,7 +1129,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr53drop
   br i1 %39, label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$http..header..value..HeaderValue$GT$$GT$17hf2cc884ef86a95e8E.exit", label %40
 
 40:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit.i.i.i"
-  %41 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %36, i64 %.0.i.i.i
+  %41 = getelementptr inbounds [40 x i8], ptr %36, i64 %.0.i.i.i
   %42 = add i64 %.0.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
@@ -1156,7 +1156,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr53drop
   br label %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i.i.i"
 
 54:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i.i.i"
-  %55 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %36, i64 %.1.i.i.i
+  %55 = getelementptr inbounds [40 x i8], ptr %36, i64 %.1.i.i.i
   %56 = add i64 %.1.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !327)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
@@ -1261,7 +1261,7 @@ define hidden void @"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter
   %13 = load ptr, ptr %12, align 8, !nonnull !12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sink3.i = select i1 %11, ptr %13, ptr %14
-  %15 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink3.i, i64 %4
+  %15 = getelementptr inbounds [40 x i8], ptr %.sink3.i, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false)
   br label %18
 

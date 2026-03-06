@@ -4192,7 +4192,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   call void @_ZdlPv(ptr noundef nonnull %76) #23
   store ptr %97, ptr %8, align 8, !tbaa !174
   store ptr %99, ptr %63, align 8, !tbaa !173
-  %100 = getelementptr inbounds nuw i32, ptr %97, i64 %95
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %95
   store ptr %100, ptr %61, align 8, !tbaa !175
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit37
 
@@ -4691,7 +4691,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZN
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %26, ptr %6, align 8, !tbaa !174
   store ptr %30, ptr %7, align 8, !tbaa !173
-  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %24
   store ptr %32, ptr %9, align 8, !tbaa !175
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -4752,7 +4752,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i11: ; preds = %54, %_
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i13: ; preds = %56, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i11
   store ptr %51, ptr %6, align 8, !tbaa !174
   store ptr %55, ptr %7, align 8, !tbaa !173
-  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %49
   store ptr %57, ptr %9, align 8, !tbaa !175
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit14
 

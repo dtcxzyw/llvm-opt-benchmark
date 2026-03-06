@@ -731,7 +731,7 @@ define internal i32 @dissect_mrcpv2_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %61 = load ptr, ptr @g_ascii_table, align 8
   %62 = load i8, ptr %43, align 1
   %63 = zext i8 %62 to i64
-  %64 = getelementptr i16, ptr %61, i64 %63
+  %64 = getelementptr [2 x i8], ptr %61, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 8
   %.not.i = icmp eq i16 %66, 0

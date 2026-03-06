@@ -294,9 +294,9 @@ define hidden void @jIMReader(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr @skip_variable, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 0, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -827,7 +827,7 @@ get_soi.exit:                                     ; preds = %91, %100
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %._crit_edge.i
   %.0161180.i = phi ptr [ %.0161.lcssa.i, %._crit_edge.i ], [ %.0161184.i, %.lr.ph.i ]
-  %236 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv206.i
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %indvars.iv206.i
   store ptr %.0161180.i, ptr %236, align 8
   %237 = lshr i32 %221, 4
   %238 = getelementptr inbounds nuw i8, ptr %.0161180.i, i64 20
@@ -856,7 +856,7 @@ get_soi.exit:                                     ; preds = %91, %100
 
 .lr.ph187.i:                                      ; preds = %.loopexit.i, %262
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %262 ], [ 0, %.loopexit.i ]
-  %252 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv.i
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %indvars.iv.i
   %253 = load ptr, ptr %252, align 8
   %254 = icmp eq ptr %253, %.0161180.i
   br i1 %254, label %255, label %262
@@ -1356,9 +1356,9 @@ get_soi.exit:                                     ; preds = %91, %100
   %.not135.i = icmp eq i32 %529, 0
   %530 = add nsw i32 %425, -16
   %531 = zext nneg i32 %530 to i64
-  %532 = getelementptr inbounds nuw ptr, ptr %25, i64 %531
+  %532 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %531
   %533 = zext i8 %424 to i64
-  %534 = getelementptr inbounds nuw ptr, ptr %26, i64 %533
+  %534 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %533
   %.0129.i = select i1 %.not135.i, i32 %425, i32 %530
   %.0127.i = select i1 %.not135.i, ptr %534, ptr %532
   %535 = icmp sgt i32 %.0129.i, 3
@@ -1535,7 +1535,7 @@ get_dht.exit:                                     ; preds = %._crit_edge169.i, %
 
 622:                                              ; preds = %615, %600
   %623 = zext nneg i32 %604 to i64
-  %624 = getelementptr inbounds nuw ptr, ptr %8, i64 %623
+  %624 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %623
   %625 = load ptr, ptr %624, align 8
   %626 = icmp eq ptr %625, null
   br i1 %626, label %627, label %629
@@ -1575,10 +1575,10 @@ get_dht.exit:                                     ; preds = %._crit_edge169.i, %
   %.8.us.i = phi i64 [ %637, %635 ], [ %.4159.us.i, %.split.us.i ]
   %639 = load i8, ptr %.8128.us.i, align 1
   %640 = zext i8 %639 to i16
-  %641 = getelementptr inbounds nuw i32, ptr @jZAGTable, i64 %indvars.iv174.i
+  %641 = getelementptr inbounds nuw [4 x i8], ptr @jZAGTable, i64 %indvars.iv174.i
   %642 = load i32, ptr %641, align 4
   %643 = sext i32 %642 to i64
-  %644 = getelementptr inbounds i16, ptr %630, i64 %643
+  %644 = getelementptr inbounds [2 x i8], ptr %630, i64 %643
   store i16 %640, ptr %644, align 2
   %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
   %.4.us.i = add i64 %.8.us.i, -1
@@ -1632,10 +1632,10 @@ get_dht.exit:                                     ; preds = %._crit_edge169.i, %
   %666 = load i8, ptr %.6126.i, align 1
   %667 = zext i8 %666 to i16
   %668 = or disjoint i16 %657, %667
-  %669 = getelementptr inbounds nuw i32, ptr @jZAGTable, i64 %indvars.iv.i85
+  %669 = getelementptr inbounds nuw [4 x i8], ptr @jZAGTable, i64 %indvars.iv.i85
   %670 = load i32, ptr %669, align 4
   %671 = sext i32 %670 to i64
-  %672 = getelementptr inbounds i16, ptr %630, i64 %671
+  %672 = getelementptr inbounds [2 x i8], ptr %630, i64 %671
   store i16 %668, ptr %672, align 2
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i85, 1
   %.4.i90 = add i64 %.6.i88, -1
@@ -1656,7 +1656,7 @@ get_dht.exit:                                     ; preds = %._crit_edge169.i, %
   %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %.preheader.i ], [ 0, %.split162.us.i ]
   %677 = load ptr, ptr %0, align 8
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 44
-  %679 = getelementptr inbounds nuw i16, ptr %630, i64 %indvars.iv178.i
+  %679 = getelementptr inbounds nuw [2 x i8], ptr %630, i64 %indvars.iv178.i
   %680 = load i16, ptr %679, align 2
   %681 = zext i16 %680 to i32
   store i32 %681, ptr %678, align 4
@@ -1859,7 +1859,7 @@ get_dri.exit:                                     ; preds = %767, %778
 793:                                              ; preds = %89, %89, %89, %89, %89, %89, %89, %89, %89, %89, %89, %89, %89, %89, %89, %89
   %794 = load ptr, ptr %5, align 8
   %795 = zext nneg i32 %90 to i64
-  %796 = getelementptr ptr, ptr %794, i64 %795
+  %796 = getelementptr [8 x i8], ptr %794, i64 %795
   %797 = getelementptr i8, ptr %796, i64 -1744
   %798 = load ptr, ptr %797, align 8
   %799 = tail call i32 %798(ptr noundef nonnull %0) #7
@@ -2437,7 +2437,7 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   %46 = icmp eq i32 %45, 254
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %48 = sext i32 %45 to i64
-  %49 = getelementptr i32, ptr %3, i64 %48
+  %49 = getelementptr [4 x i8], ptr %3, i64 %48
   %50 = getelementptr i8, ptr %49, i64 -716
   %.0108.in = select i1 %46, ptr %47, ptr %50
   %.0108 = load i32, ptr %.0108.in, align 4
@@ -2785,10 +2785,10 @@ define hidden void @jSaveMarkers(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %28 = add nsw i32 %1, -224
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store ptr %.04348, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 180
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %29
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %29
   store i32 %.14249, ptr %32, align 4
   br label %40
 
@@ -2827,7 +2827,7 @@ define hidden void @jSetMarker(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr ptr, ptr %5, i64 %12
+  %13 = getelementptr [8 x i8], ptr %5, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1744
   store ptr %2, ptr %14, align 8
   br label %22

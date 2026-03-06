@@ -96,14 +96,14 @@ define hidden void @aom_highbd_blend_a64_hmask_c(ptr noundef %0, i32 noundef %1,
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = add i32 %22, %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %16, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = mul nuw nsw i32 %34, %28
   %36 = sub nsw i32 64, %28
   %37 = add i32 %23, %29
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %19, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
   %42 = mul nsw i32 %36, %41
@@ -113,7 +113,7 @@ define hidden void @aom_highbd_blend_a64_hmask_c(ptr noundef %0, i32 noundef %1,
   %46 = trunc i32 %45 to i16
   %47 = add i32 %24, %29
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw i16, ptr %13, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %48
   store i16 %46, ptr %49, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

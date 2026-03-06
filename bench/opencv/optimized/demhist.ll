@@ -1027,7 +1027,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %116
 
 140:                                              ; preds = %136, %132
   %141 = load ptr, ptr %106, align 8, !tbaa !76
-  %142 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv
   br label %166
 
 143:                                              ; preds = %136
@@ -1057,7 +1057,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %116
   %162 = mul i64 %160, %161
   %163 = getelementptr inbounds nuw i8, ptr %158, i64 %162
   %164 = sext i32 %.recomposed to i64
-  %165 = getelementptr inbounds float, ptr %163, i64 %164
+  %165 = getelementptr inbounds [4 x i8], ptr %163, i64 %164
   br label %166
 
 166:                                              ; preds = %153, %147, %140

@@ -41,8 +41,8 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %17, label %18, label %.thread239.us
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw double, ptr %.1218247.us, i64 %.0207249.us
-  %20 = getelementptr inbounds double, ptr %19, i64 %13
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.1218247.us, i64 %.0207249.us
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   store double 1.000000e+00, ptr %20, align 8, !tbaa !3
   %.not297 = icmp eq i64 %16, 15
   br i1 %.not297, label %.thread239.us, label %.lr.ph.us
@@ -50,9 +50,9 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .lr.ph.us:                                        ; preds = %18, %.lr.ph.us
   %.0198.in246.us = phi i64 [ %.0198.us, %.lr.ph.us ], [ %16, %18 ]
   %.0198.us = add nsw i64 %.0198.in246.us, 1
-  %21 = getelementptr inbounds double, ptr %.0250.us, i64 %.0198.us
+  %21 = getelementptr inbounds [8 x i8], ptr %.0250.us, i64 %.0198.us
   %22 = load double, ptr %21, align 8, !tbaa !3
-  %23 = getelementptr inbounds double, ptr %.1218247.us, i64 %.0198.us
+  %23 = getelementptr inbounds [8 x i8], ptr %.1218247.us, i64 %.0198.us
   store double %22, ptr %23, align 8, !tbaa !3
   %24 = icmp slt i64 %.0198.in246.us, 14
   br i1 %24, label %.lr.ph.us, label %.thread239.us, !llvm.loop !7
@@ -124,7 +124,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .thread239.us:                                    ; preds = %.lr.ph.us, %18, %.thread.us, %15
   %71 = getelementptr inbounds nuw i8, ptr %.1218247.us, i64 128
-  %72 = getelementptr inbounds double, ptr %.0250.us, i64 %3
+  %72 = getelementptr inbounds [8 x i8], ptr %.0250.us, i64 %3
   %73 = add nuw nsw i64 %.0207249.us, 1
   %exitcond.not = icmp eq i64 %73, %0
   br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !9
@@ -166,8 +166,8 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %86, label %87, label %.thread241
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw double, ptr %.3220265, i64 %.1208267
-  %89 = getelementptr inbounds double, ptr %88, i64 %82
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %.3220265, i64 %.1208267
+  %89 = getelementptr inbounds [8 x i8], ptr %88, i64 %82
   store double 1.000000e+00, ptr %89, align 8, !tbaa !3
   %.not298 = icmp eq i64 %85, 7
   br i1 %.not298, label %.thread241, label %.lr.ph
@@ -175,9 +175,9 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .lr.ph:                                           ; preds = %87, %.lr.ph
   %.1199.in264 = phi i64 [ %.1199, %.lr.ph ], [ %85, %87 ]
   %.1199 = add nsw i64 %.1199.in264, 1
-  %90 = getelementptr inbounds double, ptr %.1268, i64 %.1199
+  %90 = getelementptr inbounds [8 x i8], ptr %.1268, i64 %.1199
   %91 = load double, ptr %90, align 8, !tbaa !3
-  %92 = getelementptr inbounds double, ptr %.3220265, i64 %.1199
+  %92 = getelementptr inbounds [8 x i8], ptr %.3220265, i64 %.1199
   store double %91, ptr %92, align 8, !tbaa !3
   %93 = icmp slt i64 %.1199.in264, 6
   br i1 %93, label %.lr.ph, label %.thread241, !llvm.loop !11
@@ -217,7 +217,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .thread241:                                       ; preds = %.lr.ph, %87, %84, %.thread240
   %116 = getelementptr inbounds nuw i8, ptr %.3220265, i64 64
-  %117 = getelementptr inbounds double, ptr %.1268, i64 %3
+  %117 = getelementptr inbounds [8 x i8], ptr %.1268, i64 %3
   %118 = add nuw nsw i64 %.1208267, 1
   %exitcond313.not = icmp eq i64 %118, %0
   br i1 %exitcond313.not, label %._crit_edge, label %83, !llvm.loop !12
@@ -257,8 +257,8 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %129, label %130, label %.thread243
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds nuw double, ptr %.5273, i64 %.2209275
-  %132 = getelementptr inbounds double, ptr %131, i64 %125
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %.5273, i64 %.2209275
+  %132 = getelementptr inbounds [8 x i8], ptr %131, i64 %125
   store double 1.000000e+00, ptr %132, align 8, !tbaa !3
   %.not299 = icmp eq i64 %128, 3
   br i1 %.not299, label %.thread243, label %.lr.ph272
@@ -266,9 +266,9 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .lr.ph272:                                        ; preds = %130, %.lr.ph272
   %.2200.in270 = phi i64 [ %.2200, %.lr.ph272 ], [ %128, %130 ]
   %.2200 = add nsw i64 %.2200.in270, 1
-  %133 = getelementptr inbounds double, ptr %.2276, i64 %.2200
+  %133 = getelementptr inbounds [8 x i8], ptr %.2276, i64 %.2200
   %134 = load double, ptr %133, align 8, !tbaa !3
-  %135 = getelementptr inbounds double, ptr %.5273, i64 %.2200
+  %135 = getelementptr inbounds [8 x i8], ptr %.5273, i64 %.2200
   store double %134, ptr %135, align 8, !tbaa !3
   %136 = icmp slt i64 %.2200.in270, 2
   br i1 %136, label %.lr.ph272, label %.thread243, !llvm.loop !13
@@ -292,7 +292,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .thread243:                                       ; preds = %.lr.ph272, %130, %127, %.thread242
   %147 = getelementptr inbounds nuw i8, ptr %.5273, i64 32
-  %148 = getelementptr inbounds double, ptr %.2276, i64 %3
+  %148 = getelementptr inbounds [8 x i8], ptr %.2276, i64 %3
   %149 = add nuw nsw i64 %.2209275, 1
   %exitcond316.not = icmp eq i64 %149, %0
   br i1 %exitcond316.not, label %._crit_edge279, label %126, !llvm.loop !14
@@ -332,8 +332,8 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %160, label %161, label %.thread245
 
 161:                                              ; preds = %158
-  %162 = getelementptr inbounds nuw double, ptr %.7284, i64 %.3210286
-  %163 = getelementptr inbounds double, ptr %162, i64 %156
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %.7284, i64 %.3210286
+  %163 = getelementptr inbounds [8 x i8], ptr %162, i64 %156
   store double 1.000000e+00, ptr %163, align 8, !tbaa !3
   %.not300 = icmp eq i64 %159, 1
   br i1 %.not300, label %.thread245, label %.lr.ph283
@@ -341,9 +341,9 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .lr.ph283:                                        ; preds = %161, %.lr.ph283
   %.3201.in281 = phi i64 [ %.3201, %.lr.ph283 ], [ %159, %161 ]
   %.3201 = add nsw i64 %.3201.in281, 1
-  %164 = getelementptr inbounds double, ptr %.3287, i64 %.3201
+  %164 = getelementptr inbounds [8 x i8], ptr %.3287, i64 %.3201
   %165 = load double, ptr %164, align 8, !tbaa !3
-  %166 = getelementptr inbounds double, ptr %.7284, i64 %.3201
+  %166 = getelementptr inbounds [8 x i8], ptr %.7284, i64 %.3201
   store double %165, ptr %166, align 8, !tbaa !3
   %167 = icmp slt i64 %.3201.in281, 0
   br i1 %167, label %.lr.ph283, label %.thread245, !llvm.loop !15
@@ -359,7 +359,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .thread245:                                       ; preds = %.lr.ph283, %161, %158, %.thread244
   %172 = getelementptr inbounds nuw i8, ptr %.7284, i64 16
-  %173 = getelementptr inbounds double, ptr %.3287, i64 %3
+  %173 = getelementptr inbounds [8 x i8], ptr %.3287, i64 %3
   %174 = add nuw nsw i64 %.3210286, 1
   %exitcond319.not = icmp eq i64 %174, %0
   br i1 %exitcond319.not, label %._crit_edge290, label %157, !llvm.loop !16
@@ -400,7 +400,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 182:                                              ; preds = %180, %179
   %183 = getelementptr inbounds nuw i8, ptr %.8292, i64 8
-  %184 = getelementptr inbounds double, ptr %.4295, i64 %3
+  %184 = getelementptr inbounds [8 x i8], ptr %.4295, i64 %3
   %185 = add nuw nsw i64 %.4211294, 1
   %exitcond320.not = icmp eq i64 %185, %0
   br i1 %exitcond320.not, label %.loopexit, label %.lr.ph296, !llvm.loop !17

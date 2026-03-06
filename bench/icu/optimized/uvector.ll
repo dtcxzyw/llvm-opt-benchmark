@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/uvector.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.UElement = type { ptr }
-
 $__clang_call_terminate = comdat any
 
 @_ZZN6icu_777UVector16getStaticClassIDEvE7classID = internal global i8 0, align 1
@@ -230,7 +228,7 @@ define void @_ZN6icu_777UVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %9 = phi i32 [ %5, %.lr.ph.i ], [ %16, %15 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !9
-  %11 = getelementptr inbounds nuw %union.UElement, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %15, label %13
@@ -302,7 +300,7 @@ define void @_ZN6icu_777UVector17removeAllElementsEv(ptr noundef nonnull align 8
   %9 = phi i32 [ %5, %.lr.ph ], [ %16, %15 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !9
-  %11 = getelementptr inbounds nuw %union.UElement, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %.not5 = icmp eq ptr %12, null
   br i1 %.not5, label %15, label %13
@@ -412,7 +410,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %27, %11
 36:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %37 = load ptr, ptr %33, align 8, !tbaa !9
-  %38 = getelementptr inbounds nuw %union.UElement, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !19
   %.not17 = icmp eq ptr %39, null
   br i1 %.not17, label %43, label %40
@@ -429,9 +427,9 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %27, %11
 
 43:                                               ; preds = %42, %40, %36
   %44 = phi ptr [ %.pre24, %42 ], [ %37, %40 ], [ %37, %36 ]
-  %45 = getelementptr inbounds nuw %union.UElement, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %35, align 8, !tbaa !9
-  %47 = getelementptr inbounds nuw %union.UElement, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   tail call void %2(ptr noundef %45, ptr noundef %47)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %5, align 8, !tbaa !18
@@ -589,7 +587,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %28, %9
 36:                                               ; preds = %.preheader, %36
   %indvars.iv = phi i64 [ %35, %.preheader ], [ %indvars.iv.next, %36 ]
   %37 = load ptr, ptr %34, align 8, !tbaa !9
-  %38 = getelementptr inbounds %union.UElement, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv
   store ptr null, ptr %38, align 8, !tbaa !19
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -605,7 +603,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %28, %9
 41:                                               ; preds = %39
   %42 = load ptr, ptr %32, align 8, !tbaa !9
   %43 = zext nneg i32 %.0 to i64
-  %44 = getelementptr inbounds nuw %union.UElement, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !19
   %46 = add nsw i32 %40, -1
   %47 = icmp samesign ult i32 %.0, %46
@@ -615,8 +613,8 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %28, %9
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ %43, %41 ]
   %48 = load ptr, ptr %32, align 8, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %49 = getelementptr inbounds nuw %union.UElement, ptr %48, i64 %indvars.iv.next.i.i
-  %50 = getelementptr inbounds nuw %union.UElement, ptr %48, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.next.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i.i
   %51 = load i64, ptr %49, align 8, !tbaa !19
   store i64 %51, ptr %50, align 8, !tbaa !19
   %52 = load i32, ptr %29, align 8, !tbaa !18
@@ -685,10 +683,10 @@ define noundef zeroext i1 @_ZNK6icu_777UVectoreqERKS0_(ptr noundef nonnull reado
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %18 = load ptr, ptr %8, align 8, !tbaa !17
   %19 = load ptr, ptr %11, align 8, !tbaa !9
-  %20 = getelementptr inbounds nuw %union.UElement, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %.sroa.01.0.copyload = load ptr, ptr %20, align 8, !tbaa !19
   %21 = load ptr, ptr %12, align 8, !tbaa !9
-  %22 = getelementptr inbounds nuw %union.UElement, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %22, align 8, !tbaa !19
   %23 = tail call noundef signext i8 %18(ptr %.sroa.01.0.copyload, ptr %.sroa.0.0.copyload)
   %.not12.not.not = icmp ne i8 %23, 0
@@ -771,7 +769,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %._ZN6icu_777U
   %32 = phi ptr [ %.pre, %._ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit_crit_edge ], [ %27, %30 ]
   store i32 %.pre-phi, ptr %4, align 8, !tbaa !18
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds %union.UElement, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   store ptr %1, ptr %34, align 8, !tbaa !19
   br label %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit.thread
 
@@ -835,7 +833,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %._ZN6icu_777U
   %28 = phi ptr [ %.pre, %._ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit_crit_edge ], [ %24, %26 ]
   store i32 %.pre-phi, ptr %4, align 8, !tbaa !18
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds %union.UElement, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   store ptr %1, ptr %30, align 8, !tbaa !19
   br label %34
 
@@ -924,12 +922,12 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %._ZN6icu_777U
   %32 = phi ptr [ %.pre, %._ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit_crit_edge ], [ %27, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds %union.UElement, ptr %32, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %32, i64 %34
   store ptr null, ptr %35, align 8, !tbaa !19
   %36 = load ptr, ptr %33, align 8, !tbaa !9
   %37 = load i32, ptr %4, align 8, !tbaa !18
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %union.UElement, ptr %36, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %36, i64 %38
   store i32 %1, ptr %39, align 8, !tbaa !19
   %40 = load i32, ptr %4, align 8, !tbaa !18
   %41 = add nsw i32 %40, 1
@@ -953,7 +951,7 @@ define void @_ZN6icu_777UVector12setElementAtEPvi(ptr noundef nonnull readonly a
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw %union.UElement, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %.not10 = icmp eq ptr %13, null
   br i1 %.not10, label %18, label %14
@@ -971,7 +969,7 @@ define void @_ZN6icu_777UVector12setElementAtEPvi(ptr noundef nonnull readonly a
 
 18:                                               ; preds = %17, %14, %8
   %19 = phi ptr [ %.pre, %17 ], [ %10, %14 ], [ %10, %8 ]
-  %20 = getelementptr inbounds nuw %union.UElement, ptr %19, i64 %11
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %11
   store ptr %1, ptr %20, align 8, !tbaa !19
   br label %25
 
@@ -1002,10 +1000,10 @@ define void @_ZN6icu_777UVector12setElementAtEii(ptr noundef nonnull readonly al
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw %union.UElement, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   store ptr null, ptr %12, align 8, !tbaa !19
   %13 = load ptr, ptr %9, align 8, !tbaa !9
-  %14 = getelementptr inbounds nuw %union.UElement, ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %11
   store i32 %1, ptr %14, align 8, !tbaa !19
   br label %15
 
@@ -1077,7 +1075,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %27, %12
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ %32, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %35 = load ptr, ptr %31, align 8, !tbaa !9
-  %36 = getelementptr %union.UElement, ptr %35, i64 %indvars.iv
+  %36 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load i64, ptr %37, align 8, !tbaa !19
   store i64 %38, ptr %36, align 8, !tbaa !19
@@ -1089,7 +1087,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %34, %.
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !9
   %42 = zext nneg i32 %2 to i64
-  %43 = getelementptr inbounds nuw %union.UElement, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   store ptr %1, ptr %43, align 8, !tbaa !19
   %44 = load i32, ptr %5, align 8, !tbaa !18
   %45 = add nsw i32 %44, 1
@@ -1198,10 +1196,10 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %31, %13
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !9
   %40 = zext nneg i32 %2 to i64
-  %41 = getelementptr inbounds nuw %union.UElement, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   store ptr null, ptr %41, align 8, !tbaa !19
   %42 = load ptr, ptr %38, align 8, !tbaa !9
-  %43 = getelementptr inbounds nuw %union.UElement, ptr %42, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store i32 %1, ptr %43, align 8, !tbaa !19
   %44 = load i32, ptr %5, align 8, !tbaa !18
   %45 = add nsw i32 %44, 1
@@ -1211,7 +1209,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %31, %13
 46:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %47 = load ptr, ptr %35, align 8, !tbaa !9
-  %48 = getelementptr %union.UElement, ptr %47, i64 %indvars.iv
+  %48 = getelementptr [8 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr i8, ptr %48, i64 -8
   %50 = load i64, ptr %49, align 8, !tbaa !19
   store i64 %50, ptr %48, align 8, !tbaa !19
@@ -1240,7 +1238,7 @@ define noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull readonly
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %union.UElement, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   br label %13
 
@@ -1262,7 +1260,7 @@ define noundef i32 @_ZNK6icu_777UVector10elementAtiEi(ptr noundef nonnull readon
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %union.UElement, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !19
   br label %13
 
@@ -1301,7 +1299,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_777UVector11containsAllERKS0_
 
 .preheader.i.us:                                  ; preds = %.preheader.i.us.preheader, %18
   %indvars.iv32 = phi i64 [ 0, %.preheader.i.us.preheader ], [ %indvars.iv.next33, %18 ]
-  %16 = getelementptr inbounds nuw %union.UElement, ptr %12, i64 %indvars.iv32
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv32
   %.sroa.0.0.copyload.us = load ptr, ptr %16, align 8, !tbaa !19
   %17 = ptrtoint ptr %.sroa.0.0.copyload.us to i64
   %.sroa.016.0.extract.trunc.i.us = trunc i64 %17 to i32
@@ -1314,7 +1312,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_777UVector11containsAllERKS0_
 
 .lr.ph35.split.us.i.us:                           ; preds = %22, %.preheader.i.us
   %indvars.iv50.i.us = phi i64 [ %indvars.iv.next51.i.us, %22 ], [ 0, %.preheader.i.us ]
-  %19 = getelementptr inbounds nuw %union.UElement, ptr %15, i64 %indvars.iv50.i.us
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv50.i.us
   %20 = load i32, ptr %19, align 8, !tbaa !19
   %21 = icmp eq i32 %20, %.sroa.016.0.extract.trunc.i.us
   br i1 %21, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us, label %22
@@ -1344,7 +1342,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us: ; preds = %.lr.ph35.sp
   %28 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %10, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
   %29 = load ptr, ptr %6, align 8, !tbaa !9
-  %30 = getelementptr inbounds nuw %union.UElement, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %30, align 8, !tbaa !19
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %.preheader.i, label %.preheader28.i
@@ -1368,7 +1366,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us: ; preds = %.lr.ph35.sp
 
 .lr.ph35.split.us.i:                              ; preds = %40, %.lr.ph35.i
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %40 ], [ 0, %.lr.ph35.i ]
-  %37 = getelementptr inbounds nuw %union.UElement, ptr %36, i64 %indvars.iv50.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv50.i
   %38 = load i32, ptr %37, align 8, !tbaa !19
   %39 = icmp eq i32 %38, %.sroa.016.0.extract.trunc.i
   br i1 %39, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %40
@@ -1382,7 +1380,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us: ; preds = %.lr.ph35.sp
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %.preheader28.i ]
   %41 = load ptr, ptr %7, align 8, !tbaa !17
   %42 = load ptr, ptr %9, align 8, !tbaa !9
-  %43 = getelementptr inbounds nuw %union.UElement, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load ptr, ptr %43, align 8, !tbaa !19
   %44 = tail call noundef signext i8 %41(ptr %.sroa.0.0.copyload, ptr %.sroa.0.0.copyload.i)
   %.not23.i = icmp eq i8 %44, 0
@@ -1443,7 +1441,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
 
 .lr.ph35.split.us:                                ; preds = %.lr.ph35, %23
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %23 ], [ %19, %.lr.ph35 ]
-  %20 = getelementptr inbounds %union.UElement, ptr %18, i64 %indvars.iv50
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv50
   %21 = load i32, ptr %20, align 8, !tbaa !19
   %22 = icmp eq i32 %21, %.sroa.016.0.extract.trunc
   br i1 %22, label %.thread.loopexit.split.loop.exit, label %23
@@ -1457,7 +1455,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
   %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %25 = load ptr, ptr %5, align 8, !tbaa !17
   %26 = load ptr, ptr %10, align 8, !tbaa !9
-  %27 = getelementptr inbounds %union.UElement, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %27, align 8, !tbaa !19
   %28 = tail call noundef signext i8 %25(ptr %1, ptr %.sroa.0.0.copyload)
   %.not23 = icmp eq i8 %28, 0
@@ -1472,7 +1470,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
 
 .lr.ph35.split:                                   ; preds = %.lr.ph35, %36
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %36 ], [ %19, %.lr.ph35 ]
-  %33 = getelementptr inbounds %union.UElement, ptr %18, i64 %indvars.iv47
+  %33 = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv47
   %34 = load ptr, ptr %33, align 8, !tbaa !19
   %35 = icmp eq ptr %1, %34
   br i1 %35, label %.thread.loopexit57.split.loop.exit, label %36
@@ -1529,7 +1527,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_777UVector12containsNoneERKS0
 
 .preheader.i.us.us:                               ; preds = %.preheader.i.us.us.preheader, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us
   %indvars.iv29 = phi i64 [ 0, %.preheader.i.us.us.preheader ], [ %indvars.iv.next30, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us ]
-  %16 = getelementptr inbounds nuw %union.UElement, ptr %12, i64 %indvars.iv29
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv29
   %.sroa.0.0.copyload.us.us = load ptr, ptr %16, align 8, !tbaa !19
   %17 = ptrtoint ptr %.sroa.0.0.copyload.us.us to i64
   %.sroa.016.0.extract.trunc.i.us.us = trunc i64 %17 to i32
@@ -1537,7 +1535,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_777UVector12containsNoneERKS0
 
 .lr.ph35.split.us.i.us.us:                        ; preds = %21, %.preheader.i.us.us
   %indvars.iv50.i.us.us = phi i64 [ %indvars.iv.next51.i.us.us, %21 ], [ 0, %.preheader.i.us.us ]
-  %18 = getelementptr inbounds nuw %union.UElement, ptr %15, i64 %indvars.iv50.i.us.us
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv50.i.us.us
   %19 = load i32, ptr %18, align 8, !tbaa !19
   %20 = icmp eq i32 %19, %.sroa.016.0.extract.trunc.i.us.us
   br i1 %20, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us, label %21
@@ -1565,7 +1563,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us: ; preds = %.lr.ph35
   %24 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %10, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
   %25 = load ptr, ptr %6, align 8, !tbaa !9
-  %26 = getelementptr inbounds nuw %union.UElement, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %26, align 8, !tbaa !19
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %.preheader.i, label %.preheader28.i
@@ -1589,7 +1587,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us: ; preds = %.lr.ph35
 
 .lr.ph35.split.us.i:                              ; preds = %36, %.lr.ph35.i
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %36 ], [ 0, %.lr.ph35.i ]
-  %33 = getelementptr inbounds nuw %union.UElement, ptr %32, i64 %indvars.iv50.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv50.i
   %34 = load i32, ptr %33, align 8, !tbaa !19
   %35 = icmp eq i32 %34, %.sroa.016.0.extract.trunc.i
   br i1 %35, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %36
@@ -1603,7 +1601,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us: ; preds = %.lr.ph35
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %.preheader28.i ]
   %37 = load ptr, ptr %7, align 8, !tbaa !17
   %38 = load ptr, ptr %9, align 8, !tbaa !9
-  %39 = getelementptr inbounds nuw %union.UElement, ptr %38, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load ptr, ptr %39, align 8, !tbaa !19
   %40 = tail call noundef signext i8 %37(ptr %.sroa.0.0.copyload, ptr %.sroa.0.0.copyload.i)
   %.not23.i = icmp eq i8 %40, 0
@@ -1657,7 +1655,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9removeAllERKS0_(ptr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6icu_777UVector15removeElementAtEi.exit ]
   %.017 = phi i8 [ 0, %.lr.ph ], [ %.1, %_ZN6icu_777UVector15removeElementAtEi.exit ]
   %12 = load ptr, ptr %6, align 8, !tbaa !9
-  %13 = getelementptr inbounds nuw %union.UElement, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %13, align 8, !tbaa !19
   %14 = load ptr, ptr %7, align 8, !tbaa !17
   %.not.i = icmp eq ptr %14, null
@@ -1682,7 +1680,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9removeAllERKS0_(ptr
 
 .lr.ph35.split.us.i:                              ; preds = %24, %.lr.ph35.i
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %24 ], [ 0, %.lr.ph35.i ]
-  %21 = getelementptr inbounds nuw %union.UElement, ptr %20, i64 %indvars.iv50.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv50.i
   %22 = load i32, ptr %21, align 8, !tbaa !19
   %23 = icmp eq i32 %22, %.sroa.016.0.extract.trunc.i
   br i1 %23, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %24
@@ -1696,7 +1694,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9removeAllERKS0_(ptr
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ 0, %.preheader28.i ]
   %25 = load ptr, ptr %7, align 8, !tbaa !17
   %26 = load ptr, ptr %9, align 8, !tbaa !9
-  %27 = getelementptr inbounds nuw %union.UElement, ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load ptr, ptr %27, align 8, !tbaa !19
   %28 = tail call noundef signext i8 %25(ptr %.sroa.0.0.copyload, ptr %.sroa.0.0.copyload.i)
   %.not23.i = icmp eq i8 %28, 0
@@ -1723,7 +1721,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph35
 37:                                               ; preds = %34
   %38 = load ptr, ptr %9, align 8, !tbaa !9
   %39 = and i64 %.1.i.in, 2147483647
-  %40 = getelementptr inbounds nuw %union.UElement, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = add nsw i32 %35, -1
   %43 = icmp samesign ugt i32 %42, %.1.i
@@ -1733,8 +1731,8 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph35
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ %39, %37 ]
   %44 = load ptr, ptr %9, align 8, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %45 = getelementptr inbounds nuw %union.UElement, ptr %44, i64 %indvars.iv.next.i.i
-  %46 = getelementptr inbounds nuw %union.UElement, ptr %44, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.next.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i.i
   %47 = load i64, ptr %45, align 8, !tbaa !19
   store i64 %47, ptr %46, align 8, !tbaa !19
   %48 = load i32, ptr %8, align 8, !tbaa !18
@@ -1782,7 +1780,7 @@ define void @_ZN6icu_777UVector15removeElementAtEi(ptr noundef nonnull align 8 c
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %union.UElement, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = add nsw i32 %6, -1
   %15 = icmp samesign ult i32 %1, %14
@@ -1792,8 +1790,8 @@ define void @_ZN6icu_777UVector15removeElementAtEi(ptr noundef nonnull align 8 c
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %11, %8 ]
   %16 = load ptr, ptr %9, align 8, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %17 = getelementptr inbounds nuw %union.UElement, ptr %16, i64 %indvars.iv.next.i
-  %18 = getelementptr inbounds nuw %union.UElement, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %19 = load i64, ptr %17, align 8, !tbaa !19
   store i64 %19, ptr %18, align 8, !tbaa !19
   %20 = load i32, ptr %5, align 8, !tbaa !18
@@ -1847,7 +1845,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9retainAllERKS0_(ptr
   %.017 = phi i8 [ 0, %.lr.ph ], [ %.1, %_ZN6icu_777UVector15removeElementAtEi.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %13 = load ptr, ptr %6, align 8, !tbaa !9
-  %14 = getelementptr inbounds nuw %union.UElement, ptr %13, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.next
   %.sroa.0.0.copyload = load ptr, ptr %14, align 8, !tbaa !19
   %15 = load ptr, ptr %7, align 8, !tbaa !17
   %.not.i = icmp eq ptr %15, null
@@ -1872,7 +1870,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9retainAllERKS0_(ptr
 
 .lr.ph35.split.us.i:                              ; preds = %25, %.lr.ph35.i
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %25 ], [ 0, %.lr.ph35.i ]
-  %22 = getelementptr inbounds nuw %union.UElement, ptr %21, i64 %indvars.iv50.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv50.i
   %23 = load i32, ptr %22, align 8, !tbaa !19
   %24 = icmp eq i32 %23, %.sroa.016.0.extract.trunc.i
   br i1 %24, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %25
@@ -1886,7 +1884,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9retainAllERKS0_(ptr
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.preheader28.i ]
   %26 = load ptr, ptr %7, align 8, !tbaa !17
   %27 = load ptr, ptr %9, align 8, !tbaa !9
-  %28 = getelementptr inbounds nuw %union.UElement, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load ptr, ptr %28, align 8, !tbaa !19
   %29 = tail call noundef signext i8 %26(ptr %.sroa.0.0.copyload, ptr %.sroa.0.0.copyload.i)
   %.not23.i = icmp eq i8 %29, 0
@@ -1913,7 +1911,7 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread: ; preds = %30, %25, 
 
 37:                                               ; preds = %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread
   %38 = load ptr, ptr %6, align 8, !tbaa !9
-  %39 = getelementptr inbounds nuw %union.UElement, ptr %38, i64 %indvars.iv.next
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.next
   %40 = load ptr, ptr %39, align 8, !tbaa !19
   %41 = add nsw i32 %35, -1
   %42 = sext i32 %41 to i64
@@ -1924,8 +1922,8 @@ _ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread: ; preds = %30, %25, 
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ %indvars.iv.next, %37 ]
   %44 = load ptr, ptr %6, align 8, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %45 = getelementptr inbounds nuw %union.UElement, ptr %44, i64 %indvars.iv.next.i.i
-  %46 = getelementptr inbounds nuw %union.UElement, ptr %44, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.next.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i.i
   %47 = load i64, ptr %45, align 8, !tbaa !19
   store i64 %47, ptr %46, align 8, !tbaa !19
   %48 = load i32, ptr %3, align 8, !tbaa !18
@@ -1970,7 +1968,7 @@ define noundef ptr @_ZN6icu_777UVector15orphanElementAtEi(ptr noundef nonnull al
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %union.UElement, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = add nsw i32 %6, -1
   %15 = icmp samesign ult i32 %1, %14
@@ -1985,8 +1983,8 @@ define noundef ptr @_ZN6icu_777UVector15orphanElementAtEi(ptr noundef nonnull al
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %11, %8 ]
   %16 = load ptr, ptr %9, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw %union.UElement, ptr %16, i64 %indvars.iv.next
-  %18 = getelementptr inbounds nuw %union.UElement, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %19 = load i64, ptr %17, align 8, !tbaa !19
   store i64 %19, ptr %18, align 8, !tbaa !19
   %20 = load i32, ptr %5, align 8, !tbaa !18
@@ -2030,7 +2028,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector13removeElementEPv(p
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
   %12 = load ptr, ptr %3, align 8, !tbaa !17
   %13 = load ptr, ptr %8, align 8, !tbaa !9
-  %14 = getelementptr inbounds nuw %union.UElement, ptr %13, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i = load ptr, ptr %14, align 8, !tbaa !19
   %15 = tail call noundef signext i8 %12(ptr %1, ptr %.sroa.0.0.copyload.i.i)
   %.not23.i.i = icmp eq i8 %15, 0
@@ -2045,7 +2043,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector13removeElementEPv(p
 
 .lr.ph35.split.i.i:                               ; preds = %23, %.lr.ph35.i.i
   %indvars.iv47.i.i = phi i64 [ %indvars.iv.next48.i.i, %23 ], [ 0, %.lr.ph35.i.i ]
-  %20 = getelementptr inbounds nuw %union.UElement, ptr %10, i64 %indvars.iv47.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv47.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = icmp eq ptr %1, %21
   br i1 %22, label %_ZNK6icu_777UVector7indexOfEPvi.exit, label %23
@@ -2070,7 +2068,7 @@ _ZNK6icu_777UVector7indexOfEPvi.exit:             ; preds = %11, %.lr.ph35.split
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !9
   %31 = and i64 %.1.i.i.in, 2147483647
-  %32 = getelementptr inbounds nuw %union.UElement, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !19
   %34 = add nsw i32 %26, -1
   %35 = icmp samesign ugt i32 %34, %.1.i.i
@@ -2080,8 +2078,8 @@ _ZNK6icu_777UVector7indexOfEPvi.exit:             ; preds = %11, %.lr.ph35.split
   %indvars.iv.i.i6 = phi i64 [ %indvars.iv.next.i.i7, %.lr.ph.i.i5 ], [ %31, %28 ]
   %36 = load ptr, ptr %29, align 8, !tbaa !9
   %indvars.iv.next.i.i7 = add nuw nsw i64 %indvars.iv.i.i6, 1
-  %37 = getelementptr inbounds nuw %union.UElement, ptr %36, i64 %indvars.iv.next.i.i7
-  %38 = getelementptr inbounds nuw %union.UElement, ptr %36, i64 %indvars.iv.i.i6
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.next.i.i7
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i.i6
   %39 = load i64, ptr %37, align 8, !tbaa !19
   store i64 %39, ptr %38, align 8, !tbaa !19
   %40 = load i32, ptr %5, align 8, !tbaa !18
@@ -2143,7 +2141,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEPvi(ptr noundef nonnull readonly
   %indvars.iv.i = phi i64 [ %10, %.lr.ph.i ], [ %indvars.iv.next.i, %19 ]
   %15 = load ptr, ptr %4, align 8, !tbaa !17
   %16 = load ptr, ptr %9, align 8, !tbaa !9
-  %17 = getelementptr inbounds %union.UElement, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load ptr, ptr %17, align 8, !tbaa !19
   %18 = tail call noundef signext i8 %15(ptr %1, ptr %.sroa.0.0.copyload.i)
   %.not23.i = icmp eq i8 %18, 0
@@ -2158,7 +2156,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEPvi(ptr noundef nonnull readonly
 
 .lr.ph35.split.i:                                 ; preds = %26, %.lr.ph35.i
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %26 ], [ %13, %.lr.ph35.i ]
-  %23 = getelementptr inbounds %union.UElement, ptr %12, i64 %indvars.iv47.i
+  %23 = getelementptr inbounds [8 x i8], ptr %12, i64 %indvars.iv47.i
   %24 = load ptr, ptr %23, align 8, !tbaa !19
   %25 = icmp eq ptr %1, %24
   br i1 %25, label %.thread.loopexit57.split.loop.exit.i, label %26
@@ -2224,9 +2222,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_777UVector6equalsERKS0_(ptr n
 
 19:                                               ; preds = %.lr.ph29, %18
   %indvars.iv36 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next37, %18 ]
-  %20 = getelementptr inbounds nuw %union.UElement, ptr %15, i64 %indvars.iv36
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv36
   %21 = load ptr, ptr %20, align 8, !tbaa !19
-  %22 = getelementptr inbounds nuw %union.UElement, ptr %17, i64 %indvars.iv36
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv36
   %23 = load ptr, ptr %22, align 8, !tbaa !19
   %.not20 = icmp eq ptr %21, %23
   br i1 %.not20, label %18, label %.critedge
@@ -2241,10 +2239,10 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_777UVector6equalsERKS0_(ptr n
 27:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !9
-  %29 = getelementptr inbounds nuw %union.UElement, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %8, align 8, !tbaa !17
   %31 = load ptr, ptr %12, align 8, !tbaa !9
-  %32 = getelementptr inbounds nuw %union.UElement, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %32, align 8, !tbaa !19
   %33 = tail call noundef signext i8 %30(ptr %29, ptr %.sroa.0.0.copyload)
   %.not18 = icmp eq i8 %33, 0
@@ -2287,7 +2285,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEii(ptr noundef nonnull readonly 
 
 .lr.ph35.split.us.i:                              ; preds = %18, %.lr.ph35.i
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %18 ], [ %14, %.lr.ph35.i ]
-  %15 = getelementptr inbounds %union.UElement, ptr %13, i64 %indvars.iv50.i
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv50.i
   %16 = load i32, ptr %15, align 8, !tbaa !19
   %17 = icmp eq i32 %16, %1
   br i1 %17, label %.thread.loopexit.split.loop.exit.i, label %18
@@ -2301,7 +2299,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEii(ptr noundef nonnull readonly 
   %indvars.iv.i = phi i64 [ %11, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
   %20 = load ptr, ptr %5, align 8, !tbaa !17
   %21 = load ptr, ptr %10, align 8, !tbaa !9
-  %22 = getelementptr inbounds %union.UElement, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !19
   %23 = tail call noundef signext i8 %20(ptr %4, ptr %.sroa.0.0.copyload.i)
   %.not23.i = icmp eq i8 %23, 0
@@ -2349,7 +2347,7 @@ define noundef ptr @_ZNK6icu_777UVector7toArrayEPPv(ptr noundef nonnull readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.067 = phi ptr [ %1, %.lr.ph ], [ %11, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !9
-  %9 = getelementptr inbounds nuw %union.UElement, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %.067, i64 8
   store ptr %10, ptr %.067, align 8, !tbaa !40
@@ -2455,7 +2453,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %27, %12
   %36 = sdiv i32 %35, 2
   %37 = load ptr, ptr %33, align 8, !tbaa !9
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds %union.UElement, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   %.sroa.04.0.copyload = load ptr, ptr %39, align 8, !tbaa !19
   %40 = tail call noundef i32 %2(ptr %.sroa.04.0.copyload, ptr %1)
   %41 = icmp sgt i32 %40, 0
@@ -2485,7 +2483,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %27, %12
   %.pre-phi = phi i64 [ %.pre35, %._crit_edge.._crit_edge32_crit_edge ], [ %46, %52 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !9
-  %49 = getelementptr inbounds %union.UElement, ptr %48, i64 %.pre-phi
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %.pre-phi
   store ptr %1, ptr %49, align 8, !tbaa !19
   %50 = load i32, ptr %5, align 8, !tbaa !18
   %51 = add nsw i32 %50, 1
@@ -2495,7 +2493,7 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %27, %12
 52:                                               ; preds = %.lr.ph31, %52
   %indvars.iv = phi i64 [ %45, %.lr.ph31 ], [ %indvars.iv.next, %52 ]
   %53 = load ptr, ptr %44, align 8, !tbaa !9
-  %54 = getelementptr %union.UElement, ptr %53, i64 %indvars.iv
+  %54 = getelementptr [8 x i8], ptr %53, i64 %indvars.iv
   %55 = getelementptr i8, ptr %54, i64 -8
   %56 = load i64, ptr %55, align 8, !tbaa !19
   store i64 %56, ptr %54, align 8, !tbaa !19

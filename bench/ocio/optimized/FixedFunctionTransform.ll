@@ -205,7 +205,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %7 = shl nuw nsw i64 %3, 3
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #19
   store ptr %8, ptr %5, align 8, !tbaa !23
-  %9 = getelementptr inbounds nuw double, ptr %8, i64 %3
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !26
   store double 0.000000e+00, ptr %8, align 8, !tbaa !27
@@ -725,7 +725,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %6 = shl nuw nsw i64 %2, 3
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #19
   store ptr %7, ptr %4, align 8, !tbaa !23
-  %8 = getelementptr inbounds nuw double, ptr %7, i64 %2
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !26
   store double 0.000000e+00, ptr %7, align 8, !tbaa !27
@@ -959,7 +959,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSolsEd.exit33, %
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit31 unwind label %60
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit31: ; preds = %.lr.ph
-  %56 = getelementptr inbounds nuw double, ptr %45, i64 %.043
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.043
   %57 = load double, ptr %56, align 8, !tbaa !27
   %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %57)
           to label %_ZNSolsEd.exit33 unwind label %60

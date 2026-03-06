@@ -386,7 +386,7 @@ define internal fastcc void @cdg_load_palette(ptr noundef readonly captures(none
   %34 = or disjoint i32 %33, %31
   %35 = zext i8 %narrow to i32
   %36 = or disjoint i32 %34, %35
-  %37 = getelementptr inbounds nuw i32, ptr %7, i64 %24
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %24
   store i32 %36, ptr %37, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

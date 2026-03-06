@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
 %struct.pollfd = type { i32, i16, i16 }
-%struct.curl_waitfd = type { i32, i16, i16 }
 
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
@@ -117,7 +116,7 @@ define hidden range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %0, 
 
 27:                                               ; preds = %26
   %28 = zext nneg i32 %.048 to i64
-  %29 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %28
   store i32 %1, ptr %29, align 8, !tbaa !7
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i16 195, ptr %30, align 4, !tbaa !10
@@ -133,7 +132,7 @@ define hidden range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %0, 
 
 34:                                               ; preds = %33
   %35 = zext nneg i32 %.149 to i64
-  %36 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %35
   store i32 %2, ptr %36, align 8, !tbaa !7
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i16 262, ptr %37, align 4, !tbaa !10
@@ -170,7 +169,7 @@ define hidden range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %0, 
 
 51:                                               ; preds = %50
   %52 = zext nneg i32 %.351 to i64
-  %53 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %55 = load i16, ptr %54, align 2, !tbaa !11
   %56 = and i16 %55, 89
@@ -191,7 +190,7 @@ define hidden range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %0, 
 
 62:                                               ; preds = %61
   %63 = zext nneg i32 %.452 to i64
-  %64 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 6
   %66 = load i16, ptr %65, align 2, !tbaa !11
   %67 = and i16 %66, 260
@@ -229,7 +228,7 @@ define hidden i32 @Curl_poll(ptr noundef %0, i32 noundef %1, i64 noundef %2) loc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.pollfd, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !7
   %.not38 = icmp eq i32 %8, -1
   br i1 %.not38, label %6, label %21
@@ -299,7 +298,7 @@ define hidden i32 @Curl_poll(ptr noundef %0, i32 noundef %1, i64 noundef %2) loc
 
 .preheader:                                       ; preds = %27, %46
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %46 ], [ 0, %27 ]
-  %36 = getelementptr inbounds nuw %struct.pollfd, ptr %0, i64 %indvars.iv46
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv46
   %37 = load i32, ptr %36, align 4, !tbaa !7
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %46, label %condstore.split
@@ -426,7 +425,7 @@ cpfds_increase.exit.thread.i:                     ; preds = %21, %13
   %27 = phi i32 [ %5, %.loopexit._crit_edge.i ], [ %.pre31.i, %cpfds_increase.exit.thread.i ]
   %28 = phi ptr [ %.pre30.i, %.loopexit._crit_edge.i ], [ %12, %cpfds_increase.exit.thread.i ]
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %struct.pollfd, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   store i32 %1, ptr %30, align 4, !tbaa !7
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i16 %2, ptr %31, align 4, !tbaa !10
@@ -468,7 +467,7 @@ define hidden range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(non
   br i1 %.not20, label %.critedge, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %.01626
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.01626
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = load i32, ptr %6, align 8, !tbaa !21
   %20 = icmp sgt i32 %19, -1
@@ -486,13 +485,13 @@ define hidden range(i32 0, 28) i32 @Curl_pollfds_add_ps(ptr noundef captures(non
 23:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %24 = load ptr, ptr %0, align 8, !tbaa !15
-  %25 = getelementptr inbounds nuw %struct.pollfd, ptr %24, i64 %indvars.iv.next.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.next.i
   %26 = load i32, ptr %25, align 4, !tbaa !7
   %27 = icmp eq i32 %18, %26
   br i1 %27, label %28, label %.preheader.i, !llvm.loop !25
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw %struct.pollfd, ptr %24, i64 %indvars.iv.next.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.next.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i16, ptr %30, align 4, !tbaa !10
   %32 = or i16 %31, %.1
@@ -549,7 +548,7 @@ cpfds_increase.exit.thread.i:                     ; preds = %46, %39
   %52 = phi i32 [ %19, %.loopexit._crit_edge.i ], [ %.pre31.i, %cpfds_increase.exit.thread.i ]
   %53 = phi ptr [ %.pre30.i, %.loopexit._crit_edge.i ], [ %38, %cpfds_increase.exit.thread.i ]
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw %struct.pollfd, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   store i32 %18, ptr %55, align 4, !tbaa !7
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i16 %.1, ptr %56, align 4, !tbaa !10
@@ -608,7 +607,7 @@ define hidden i32 @Curl_waitfds_add_ps(ptr noundef captures(none) %0, ptr nounde
   br i1 %.not19, label %41, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %.01721
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.01721
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = load ptr, ptr %0, align 8, !tbaa !27
   %.not.i = icmp eq ptr %18, null
@@ -630,13 +629,13 @@ define hidden i32 @Curl_waitfds_add_ps(ptr noundef captures(none) %0, ptr nounde
 
 24:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %25 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %18, i64 %indvars.iv.next.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.next.i
   %26 = load i32, ptr %25, align 4, !tbaa !32
   %27 = icmp eq i32 %17, %26
   br i1 %27, label %28, label %.preheader.i, !llvm.loop !34
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %18, i64 %indvars.iv.next.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.next.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i16, ptr %30, align 4, !tbaa !35
   %32 = or i16 %31, %.1
@@ -650,7 +649,7 @@ define hidden i32 @Curl_waitfds_add_ps(ptr noundef captures(none) %0, ptr nounde
 
 35:                                               ; preds = %.loopexit.i
   %36 = zext i32 %20 to i64
-  %37 = getelementptr inbounds nuw %struct.curl_waitfd, ptr %18, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %36
   store i32 %17, ptr %37, align 4, !tbaa !32
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i16 %.1, ptr %38, align 4, !tbaa !35

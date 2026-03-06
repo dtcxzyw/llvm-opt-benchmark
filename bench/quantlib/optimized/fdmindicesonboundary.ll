@@ -116,7 +116,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt16allocator_tr
   br i1 %4, label %invoke.cont4.thread, label %for.body.i.preheader
 
 invoke.cont4.thread:                              ; preds = %invoke.cont.i
-  %add.ptr.i184 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i6.i24, i64 %direction
+  %add.ptr.i184 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i6.i24, i64 %direction
   store i64 1, ptr %add.ptr.i184, align 8, !tbaa !14
   br label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmSt10multipliesIvEET0_T_SA_S9_T1_.exit
 
@@ -126,7 +126,7 @@ for.body.i.preheader:                             ; preds = %invoke.cont.i
   %.pre152 = sub i64 %.pre150, %.pre151
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i24, ptr align 8 %.pre, i64 %.pre152, i1 false)
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i24, i64 %.pre152
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i6.i24, i64 %direction
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i6.i24, i64 %direction
   store i64 1, ptr %add.ptr.i, align 8, !tbaa !14
   br label %for.body.i
 
@@ -161,7 +161,7 @@ if.else.i:                                        ; preds = %_ZSt10accumulateIN9
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont19
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i29 = getelementptr inbounds nuw i64, ptr %7, i64 %__init.addr.0.lcssa.i
+  %add.ptr.i29 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %__init.addr.0.lcssa.i
   %tobool.not.i.i = icmp eq ptr %6, %add.ptr.i29
   br i1 %tobool.not.i.i, label %invoke.cont19, label %invoke.cont.i.i
 
@@ -272,14 +272,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 land.lhs.true:                                    ; preds = %for.body
   %19 = load ptr, ptr %coordinates_.i60, align 8, !tbaa !12
-  %add.ptr.i59 = getelementptr inbounds nuw i64, ptr %19, i64 %direction
+  %add.ptr.i59 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %direction
   %20 = load i64, ptr %add.ptr.i59, align 8, !tbaa !14
   %cmp34 = icmp eq i64 %20, 0
   br i1 %cmp34, label %do.body, label %if.end80
 
 land.lhs.true36:                                  ; preds = %for.body
   %21 = load ptr, ptr %coordinates_.i60, align 8, !tbaa !12
-  %add.ptr.i61 = getelementptr inbounds nuw i64, ptr %21, i64 %direction
+  %add.ptr.i61 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %direction
   %22 = load i64, ptr %add.ptr.i61, align 8, !tbaa !14
   %23 = load ptr, ptr %layout, align 8, !tbaa !3
   %cmp.not.i62 = icmp eq ptr %23, null
@@ -297,7 +297,7 @@ invoke.cont40:                                    ; preds = %.noexc65, %land.lhs
   %24 = phi ptr [ %23, %land.lhs.true36 ], [ %.pre.i64, %.noexc65 ]
   %dim_.i67 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %25 = load ptr, ptr %dim_.i67, align 8, !tbaa !12
-  %add.ptr.i68 = getelementptr inbounds nuw i64, ptr %25, i64 %direction
+  %add.ptr.i68 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %direction
   %26 = load i64, ptr %add.ptr.i68, align 8, !tbaa !14
   %sub = add i64 %26, -1
   %cmp45 = icmp eq i64 %22, %sub
@@ -463,7 +463,7 @@ do.end:                                           ; preds = %do.body
   %46 = load i64, ptr %__begin1, align 8, !tbaa !27
   %inc = add nuw i64 %i.0144, 1
   %47 = load ptr, ptr %this, align 8, !tbaa !12
-  %add.ptr.i88 = getelementptr inbounds nuw i64, ptr %47, i64 %i.0144
+  %add.ptr.i88 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %i.0144
   store i64 %46, ptr %add.ptr.i88, align 8, !tbaa !14
   br label %if.end80
 
@@ -487,11 +487,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end80
 
 for.body.i96:                                     ; preds = %if.then.i97, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i, %if.then.i97 ]
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %51, i64 %i.08.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %i.08.i
   %52 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !14
   %inc3.i = add i64 %52, 1
   store i64 %inc3.i, ptr %add.ptr.i.i, align 8, !tbaa !14
-  %add.ptr.i5.i = getelementptr inbounds nuw i64, ptr %50, i64 %i.08.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %i.08.i
   %53 = load i64, ptr %add.ptr.i5.i, align 8, !tbaa !14
   %cmp6.i = icmp eq i64 %inc3.i, %53
   br i1 %cmp6.i, label %if.then.i97, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit
@@ -940,9 +940,9 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorImSaImE
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit37: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %if.then.i35
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !12
-  %add.ptr37 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !10
-  %add.ptr40 = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !29
   br label %if.end44
 

@@ -1999,7 +1999,7 @@ define internal fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull captures(none)
   br i1 %10, label %11, label %._crit_edge.i
 
 11:                                               ; preds = %9
-  %12 = getelementptr i64, ptr @BUFFER_BLOCK_SIZE, i64 %.val.i
+  %12 = getelementptr [8 x i8], ptr @BUFFER_BLOCK_SIZE, i64 %.val.i
   %13 = load i64, ptr %12, align 8, !tbaa !60
   br label %._crit_edge.i
 
@@ -2168,7 +2168,7 @@ Py_INCREF.exit.thread.i:                          ; preds = %Py_INCREF.exit.i, %
   %41 = load ptr, ptr %0, align 8, !tbaa !58
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !61
-  %44 = getelementptr ptr, ptr %43, i64 %.04257.i
+  %44 = getelementptr [8 x i8], ptr %43, i64 %.04257.i
   %45 = load ptr, ptr %44, align 8, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = getelementptr i8, ptr %45, i64 16
@@ -2186,7 +2186,7 @@ Py_INCREF.exit.thread.i:                          ; preds = %Py_INCREF.exit.i, %
   %50 = load ptr, ptr %0, align 8, !tbaa !58
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !61
-  %53 = getelementptr ptr, ptr %52, i64 %.042.lcssa.i
+  %53 = getelementptr [8 x i8], ptr %52, i64 %.042.lcssa.i
   %54 = load ptr, ptr %53, align 8, !tbaa !15
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = getelementptr i8, ptr %54, i64 16
@@ -2283,7 +2283,7 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_xz(ptr noundef read
   call void @PyMem_Free(ptr noundef %17) #10
   %18 = add i32 %.05.i, 1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr %struct.lzma_filter, ptr %6, i64 %19
+  %20 = getelementptr [16 x i8], ptr %6, i64 %19
   %21 = load i64, ptr %20, align 16, !tbaa !16
   %.not.i = icmp eq i64 %21, -1
   br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !73
@@ -2371,7 +2371,7 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_alone(ptr noundef r
   tail call void @PyMem_Free(ptr noundef %30) #10
   %31 = add i32 %.05.i, 1
   %32 = sext i32 %31 to i64
-  %33 = getelementptr %struct.lzma_filter, ptr %6, i64 %32
+  %33 = getelementptr [16 x i8], ptr %6, i64 %32
   %34 = load i64, ptr %33, align 16, !tbaa !16
   %.not.i = icmp eq i64 %34, -1
   br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !73
@@ -2432,7 +2432,7 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_raw(ptr noundef rea
   call void @PyMem_Free(ptr noundef %16) #10
   %17 = add i32 %.05.i, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr %struct.lzma_filter, ptr %4, i64 %18
+  %19 = getelementptr [16 x i8], ptr %4, i64 %18
   %20 = load i64, ptr %19, align 16, !tbaa !16
   %.not.i = icmp eq i64 %20, -1
   br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !73
@@ -2481,7 +2481,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_filter_chain_spec(ptr noundef
   br i1 %13, label %Py_XDECREF.exit32, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr %struct.lzma_filter, ptr %1, i64 %.02338
+  %15 = getelementptr [16 x i8], ptr %1, i64 %.02338
   %16 = tail call fastcc i32 @lzma_filter_converter(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %15)
   %.not = icmp eq i32 %16, 0
   %17 = load i32, ptr %12, align 8, !tbaa !14
@@ -2520,7 +2520,7 @@ Py_XDECREF.exit:                                  ; preds = %.split, %18, %21
   br label %Py_XDECREF.exit32
 
 Py_XDECREF.exit32:                                ; preds = %.lr.ph, %.split25, %23, %26
-  %27 = getelementptr %struct.lzma_filter, ptr %1, i64 %.02338
+  %27 = getelementptr [16 x i8], ptr %1, i64 %.02338
   store i64 -1, ptr %27, align 8, !tbaa !16
   %28 = load i64, ptr %1, align 8, !tbaa !16
   %.not4.i = icmp eq i64 %28, -1
@@ -2534,13 +2534,13 @@ Py_XDECREF.exit32:                                ; preds = %.lr.ph, %.split25, 
   tail call void @PyMem_Free(ptr noundef %31) #10
   %32 = add i32 %.05.i, 1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.lzma_filter, ptr %1, i64 %33
+  %34 = getelementptr [16 x i8], ptr %1, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !16
   %.not.i33 = icmp eq i64 %35, -1
   br i1 %.not.i33, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %Py_XDECREF.exit, %.preheader
-  %36 = getelementptr %struct.lzma_filter, ptr %1, i64 %4
+  %36 = getelementptr [16 x i8], ptr %1, i64 %4
   store i64 -1, ptr %36, align 8, !tbaa !16
   br label %free_filter_chain.exit
 
@@ -3449,7 +3449,7 @@ define internal fastcc range(i32 -1, 1) i32 @Decompressor_init_raw(ptr noundef r
   call void @PyMem_Free(ptr noundef %12) #10
   %13 = add i32 %.05.i, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %struct.lzma_filter, ptr %4, i64 %14
+  %15 = getelementptr [16 x i8], ptr %4, i64 %14
   %16 = load i64, ptr %15, align 16, !tbaa !16
   %.not.i = icmp eq i64 %16, -1
   br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !73

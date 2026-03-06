@@ -322,7 +322,7 @@ define internal i32 @dissect_vlan(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 switch.lookup:                                    ; preds = %55
   %58 = zext nneg i32 %56 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_vlan, i64 %58
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_vlan, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8
   %59 = load i32, ptr %switch.load, align 4
   store i32 %59, ptr %6, align 4

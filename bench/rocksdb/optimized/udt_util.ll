@@ -307,7 +307,7 @@ define void @_ZN7rocksdb24TimestampRecoveryHandler29ReconcileTimestampDiscrepanc
   %23 = load i64, ptr %22, align 8, !tbaa !74
   %24 = urem i64 %21, %23
   %25 = load ptr, ptr %10, align 8, !tbaa !75
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8, !tbaa !76
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %.loopexit43, label %28
@@ -380,7 +380,7 @@ _ZNKSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE4findERS5_.exit
   %58 = load i64, ptr %57, align 8, !tbaa !74
   %59 = urem i64 %56, %58
   %60 = load ptr, ptr %45, align 8, !tbaa !75
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %59
   %62 = load ptr, ptr %61, align 8, !tbaa !76
   %.not.i.i.i.i15 = icmp eq ptr %62, null
   br i1 %.not.i.i.i.i15, label %.loopexit, label %63
@@ -1904,7 +1904,7 @@ define void @_ZN7rocksdb39HandleWriteBatchTimestampSizeDifferenceEPKNS_10WriteBa
   %42 = load i32, ptr %40, align 4, !tbaa !70
   %43 = zext i32 %42 to i64
   %44 = urem i64 %43, %22
-  %45 = getelementptr inbounds nuw ptr, ptr %23, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !76
   %.not.i.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i.i, label %.loopexit13.i, label %47
@@ -2060,7 +2060,7 @@ _ZN7rocksdb12_GLOBAL__N_134AllRunningColumnFamiliesConsistentERKSt13unordered_ma
 111:                                              ; preds = %105
   %112 = zext i32 %106 to i64
   %113 = urem i64 %112, %99
-  %114 = getelementptr inbounds nuw ptr, ptr %100, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !76, !noalias !98
   %.not.i.i.i.i.i29 = icmp eq ptr %115, null
   br i1 %.not.i.i.i.i.i29, label %_ZNKSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE4findERS5_.exit.thread.i, label %116
@@ -2112,7 +2112,7 @@ _ZNKSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE4findERS5_.exit
 133:                                              ; preds = %_ZNKSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEE4findERS5_.exit.i
   %134 = zext i32 %106 to i64
   %135 = urem i64 %134, %102
-  %136 = getelementptr inbounds nuw ptr, ptr %103, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !76, !noalias !98
   %.not.i.i.i.i36.i = icmp eq ptr %137, null
   br i1 %.not.i.i.i.i36.i, label %.loopexit.i, label %138

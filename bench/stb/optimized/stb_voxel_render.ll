@@ -3,8 +3,6 @@ source_filename = "bench/stb/original/stb_voxel_render.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.stbvox_uniform_info = type { i32, i32, i32, ptr, ptr, i32 }
-
 @stbvox_default_texgen = global [2 x [32 x [3 x float]]] [[32 x [3 x float]] [[3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float -1.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float -1.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float -1.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float -1.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00]], [32 x [3 x float]] [[3 x float] [float 0.000000e+00, float 0.000000e+00, float -1.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float -1.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float -1.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float -1.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00]]], align 16
 @stbvox_default_normals = global [32 x [3 x float]] [[3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], [3 x float] [float -1.000000e+00, float 0.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float -1.000000e+00, float 0.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], [3 x float] [float 0.000000e+00, float 0.000000e+00, float -1.000000e+00], [3 x float] [float 0x3FE6A09E60000000, float 0.000000e+00, float 0x3FE6A09E60000000], [3 x float] [float 0x3FE6A09E60000000, float 0.000000e+00, float 0xBFE6A09E60000000], [3 x float] [float 0x3FE6A09E60000000, float 0.000000e+00, float 0x3FE6A09E60000000], [3 x float] [float 0.000000e+00, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000], [3 x float] [float 0xBFE6A09E60000000, float 0.000000e+00, float 0x3FE6A09E60000000], [3 x float] [float 0.000000e+00, float 0xBFE6A09E60000000, float 0x3FE6A09E60000000], [3 x float] [float 0x3FE279A740000000, float 0x3FE279A740000000, float 0x3FE279A740000000], [3 x float] [float 0x3FE279A740000000, float 0x3FE279A740000000, float 0xBFE279A740000000], [3 x float] [float 0.000000e+00, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000], [3 x float] [float 0.000000e+00, float 0x3FE6A09E60000000, float 0xBFE6A09E60000000], [3 x float] [float 0x3FE6A09E60000000, float 0.000000e+00, float 0xBFE6A09E60000000], [3 x float] [float 0.000000e+00, float 0x3FE6A09E60000000, float 0xBFE6A09E60000000], [3 x float] [float 0xBFE6A09E60000000, float 0.000000e+00, float 0xBFE6A09E60000000], [3 x float] [float 0.000000e+00, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000], [3 x float] [float 0xBFE279A740000000, float 0x3FE279A740000000, float 0x3FE279A740000000], [3 x float] [float 0xBFE279A740000000, float 0x3FE279A740000000, float 0xBFE279A740000000], [3 x float] [float 0xBFE6A09E60000000, float 0.000000e+00, float 0x3FE6A09E60000000], [3 x float] [float 0xBFE6A09E60000000, float 0.000000e+00, float 0xBFE6A09E60000000], [3 x float] [float 0x3FE279A740000000, float 0x3FE279A740000000, float 0x3FE279A740000000], [3 x float] [float 0xBFE279A740000000, float 0x3FE279A740000000, float 0x3FE279A740000000], [3 x float] [float 0xBFE279A740000000, float 0xBFE279A740000000, float 0x3FE279A740000000], [3 x float] [float 0x3FE279A740000000, float 0xBFE279A740000000, float 0x3FE279A740000000], [3 x float] [float 0xBFE279A740000000, float 0xBFE279A740000000, float 0x3FE279A740000000], [3 x float] [float 0xBFE279A740000000, float 0xBFE279A740000000, float 0xBFE279A740000000], [3 x float] [float 0.000000e+00, float 0xBFE6A09E60000000, float 0x3FE6A09E60000000], [3 x float] [float 0.000000e+00, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000]], align 16
 @stbvox_default_texscale = global [128 x [4 x float]] [[4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], [4 x float] [float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00]], align 16
@@ -65,7 +63,7 @@ define void @stbvox_build_default_palette() local_unnamed_addr #0 {
   %3 = load i8, ptr %2, align 1, !tbaa !3
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
-  %6 = getelementptr inbounds nuw [4 x float], ptr @stbvox_default_palette, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @stbvox_default_palette, i64 %indvars.iv
   store float %5, ptr %6, align 16, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %8 = load i8, ptr %7, align 1, !tbaa !3
@@ -114,7 +112,7 @@ define range(i32 0, 2) i32 @stbvox_get_uniform_info(ptr noundef writeonly captur
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct.stbvox_uniform_info, ptr @stbvox_uniforms, i64 %4
+  %5 = getelementptr inbounds nuw [40 x i8], ptr @stbvox_uniforms, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !13
   br label %6
 
@@ -505,10 +503,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define void @stbvox_get_quad_vertex_pointer(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 32)) %2, i32 %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [3 x ptr], ptr %5, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %10 = getelementptr inbounds [3 x i32], ptr %9, i64 %6
+  %10 = getelementptr inbounds [12 x i8], ptr %9, i64 %6
   %11 = load i32, ptr %10, align 4, !tbaa !14
   store ptr %8, ptr %2, align 8, !tbaa !47
   %12 = sext i32 %11 to i64
@@ -611,7 +609,7 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
 
 57:                                               ; preds = %54
   %58 = sext i32 %3 to i64
-  %59 = getelementptr inbounds i16, ptr %56, i64 %58
+  %59 = getelementptr inbounds [2 x i8], ptr %56, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !52
   %61 = zext i16 %60 to i32
   %62 = sext i32 %2 to i64
@@ -662,7 +660,7 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
 91:                                               ; preds = %83
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %93 = zext nneg i32 %2 to i64
-  %94 = getelementptr inbounds nuw [4 x i32], ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %93
   %95 = load i32, ptr %94, align 8, !tbaa !14
   %96 = add nsw i32 %95, %3
   %97 = sext i32 %96 to i64
@@ -755,10 +753,10 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
   %164 = getelementptr inbounds i8, ptr @stbvox_vert3_lerp, i64 %151
   %165 = load i8, ptr %164, align 1, !tbaa !3
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %167 = getelementptr inbounds [4 x i32], ptr %166, i64 %151
+  %167 = getelementptr inbounds [16 x i8], ptr %166, i64 %151
   %168 = load i32, ptr %167, align 8, !tbaa !14
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds i16, ptr %160, i64 %169
+  %170 = getelementptr inbounds [2 x i8], ptr %160, i64 %169
   %171 = load i16, ptr %170, align 2, !tbaa !52
   %172 = zext i16 %171 to i32
   %173 = zext i8 %165 to i32
@@ -767,7 +765,7 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
   %176 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %177 = load i32, ptr %176, align 4, !tbaa !14
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i16, ptr %160, i64 %178
+  %179 = getelementptr inbounds [2 x i8], ptr %160, i64 %178
   %180 = load i16, ptr %179, align 2, !tbaa !52
   %181 = zext i16 %180 to i32
   %182 = lshr i32 %181, %173
@@ -775,7 +773,7 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
   %184 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %185 = load i32, ptr %184, align 8, !tbaa !14
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds i16, ptr %160, i64 %186
+  %187 = getelementptr inbounds [2 x i8], ptr %160, i64 %186
   %188 = load i16, ptr %187, align 2, !tbaa !52
   %189 = zext i16 %188 to i32
   %190 = lshr i32 %189, %173
@@ -783,7 +781,7 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
   %192 = getelementptr inbounds nuw i8, ptr %167, i64 12
   %193 = load i32, ptr %192, align 4, !tbaa !14
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds i16, ptr %160, i64 %194
+  %195 = getelementptr inbounds [2 x i8], ptr %160, i64 %194
   %196 = load i16, ptr %195, align 2, !tbaa !52
   %197 = zext i16 %196 to i32
   %198 = lshr i32 %197, %173
@@ -792,7 +790,7 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
 
 200:                                              ; preds = %158
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %202 = getelementptr inbounds [4 x i32], ptr %201, i64 %151
+  %202 = getelementptr inbounds [16 x i8], ptr %201, i64 %151
   %203 = load i32, ptr %202, align 8, !tbaa !14
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds i8, ptr %145, i64 %204
@@ -885,10 +883,10 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %269 = zext i8 %7 to i64
-  %270 = getelementptr inbounds nuw [3 x ptr], ptr %268, i64 %269
+  %270 = getelementptr inbounds nuw [24 x i8], ptr %268, i64 %269
   %271 = load ptr, ptr %270, align 8, !tbaa !10
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %273 = getelementptr inbounds nuw [3 x i32], ptr %272, i64 %269
+  %273 = getelementptr inbounds nuw [12 x i8], ptr %272, i64 %269
   %274 = load i32, ptr %273, align 4, !tbaa !14
   store ptr %271, ptr %11, align 16, !tbaa !47
   %275 = sext i32 %274 to i64
@@ -924,15 +922,15 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
 .preheader:                                       ; preds = %289
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %292 = sext i32 %2 to i64
-  %293 = getelementptr inbounds [4 x i32], ptr %291, i64 %292
+  %293 = getelementptr inbounds [16 x i8], ptr %291, i64 %292
   br label %294
 
 294:                                              ; preds = %.preheader, %294
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %294 ]
-  %295 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %296 = load i32, ptr %295, align 4, !tbaa !14
   %297 = add i32 %296, %5
-  %298 = getelementptr inbounds nuw i32, ptr %293, i64 %indvars.iv
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %293, i64 %indvars.iv
   %299 = load i32, ptr %298, align 4, !tbaa !14
   %300 = add nsw i32 %299, %3
   %301 = sext i32 %300 to i64
@@ -941,11 +939,11 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
   %304 = and i8 %303, 63
   %305 = zext nneg i8 %304 to i32
   %306 = shl nuw nsw i32 %305, 23
-  %307 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %308 = load i32, ptr %307, align 4, !tbaa !14
   %309 = add i32 %297, %308
   %310 = add i32 %309, %306
-  %311 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %312 = load ptr, ptr %311, align 8, !tbaa !47
   store i32 %310, ptr %312, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -957,14 +955,14 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
   %315 = getelementptr inbounds i8, ptr %288, i64 %314
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %317 = sext i32 %2 to i64
-  %318 = getelementptr inbounds [4 x i32], ptr %316, i64 %317
+  %318 = getelementptr inbounds [16 x i8], ptr %316, i64 %317
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %320 = getelementptr inbounds [4 x i32], ptr %319, i64 %317
+  %320 = getelementptr inbounds [16 x i8], ptr %319, i64 %317
   br label %321
 
 321:                                              ; preds = %313, %334
   %indvars.iv164 = phi i64 [ 0, %313 ], [ %indvars.iv.next165, %334 ]
-  %322 = getelementptr inbounds nuw i32, ptr %318, i64 %indvars.iv164
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %318, i64 %indvars.iv164
   %323 = load i32, ptr %322, align 4, !tbaa !14
   %324 = sext i32 %323 to i64
   %325 = getelementptr inbounds i8, ptr %315, i64 %324
@@ -973,7 +971,7 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
 326:                                              ; preds = %321, %326
   %indvars.iv160 = phi i64 [ 0, %321 ], [ %indvars.iv.next161, %326 ]
   %.0156 = phi i32 [ 0, %321 ], [ %333, %326 ]
-  %327 = getelementptr inbounds nuw i32, ptr %320, i64 %indvars.iv160
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %320, i64 %indvars.iv160
   %328 = load i32, ptr %327, align 4, !tbaa !14
   %329 = sext i32 %328 to i64
   %330 = getelementptr inbounds i8, ptr %325, i64 %329
@@ -985,17 +983,17 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
   br i1 %exitcond163.not, label %334, label %326, !llvm.loop !60
 
 334:                                              ; preds = %326
-  %335 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv164
+  %335 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv164
   %336 = load i32, ptr %335, align 4, !tbaa !14
   %337 = shl i32 %333, 19
   %338 = add i32 %337, 1048576
   %339 = and i32 %338, -8388608
-  %340 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv164
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv164
   %341 = load i32, ptr %340, align 4, !tbaa !14
   %342 = add i32 %339, %5
   %343 = add i32 %342, %336
   %344 = add i32 %343, %341
-  %345 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv164
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv164
   %346 = load ptr, ptr %345, align 8, !tbaa !47
   store i32 %344, ptr %346, align 4, !tbaa !14
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
@@ -1038,7 +1036,7 @@ define void @stbvox_make_12_split_mesh_for_face(ptr noundef captures(none) %0, i
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %12 = load i8, ptr %11, align 1, !tbaa !3
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @stbvox_face_up_normal_012, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @stbvox_face_up_normal_012, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !3
   %17 = zext i8 %16 to i64
@@ -1050,7 +1048,7 @@ define void @stbvox_make_12_split_mesh_for_face(ptr noundef captures(none) %0, i
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %24 = load i8, ptr %23, align 1, !tbaa !3
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @stbvox_face_up_normal_123, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr @stbvox_face_up_normal_123, i64 %25
   %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %13
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %17
   %29 = load i8, ptr %28, align 1, !tbaa !3
@@ -1101,7 +1099,7 @@ define void @stbvox_make_03_split_mesh_for_face(ptr noundef captures(none) %0, i
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %12 = load i8, ptr %11, align 1, !tbaa !3
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @stbvox_face_up_normal_013, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @stbvox_face_up_normal_013, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !3
   %17 = zext i8 %16 to i64
@@ -1110,7 +1108,7 @@ define void @stbvox_make_03_split_mesh_for_face(ptr noundef captures(none) %0, i
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !3
-  %23 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @stbvox_face_up_normal_023, i64 %13
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @stbvox_face_up_normal_023, i64 %13
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %25 = load i8, ptr %24, align 1, !tbaa !3
   %26 = zext i8 %25 to i64
@@ -1204,16 +1202,16 @@ define void @stbvox_make_mesh_for_block(ptr noundef captures(none) %0, i24 %1, i
   %.0151 = phi i8 [ %21, %19 ], [ %32, %28 ], [ %25, %22 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %35 = zext i8 %.0151 to i64
-  %36 = getelementptr inbounds nuw [3 x ptr], ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %39 = getelementptr inbounds nuw [3 x i32], ptr %38, i64 %35
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %35
   %40 = load i32, ptr %39, align 4, !tbaa !14
   %41 = mul nsw i32 %40, 6
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %37, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %45 = getelementptr inbounds nuw [3 x ptr], ptr %44, i64 %35
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %35
   %46 = load ptr, ptr %45, align 8, !tbaa !10
   %47 = icmp ugt ptr %43, %46
   br i1 %47, label %48, label %50
@@ -1650,7 +1648,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %201 = load i8, ptr %200, align 1, !tbaa !3
   %202 = zext i8 %201 to i32
   %203 = zext i8 %192 to i64
-  %204 = getelementptr inbounds nuw i16, ptr @stbvox_face_visible, i64 %203
+  %204 = getelementptr inbounds nuw [2 x i8], ptr @stbvox_face_visible, i64 %203
   %205 = load i16, ptr %204, align 2, !tbaa !52
   %206 = zext i16 %205 to i32
   %207 = add nuw nsw i32 %202, 5
@@ -1684,7 +1682,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %229 = load i8, ptr %228, align 1, !tbaa !3
   %230 = zext i8 %229 to i32
   %231 = zext i8 %218 to i64
-  %232 = getelementptr inbounds nuw i16, ptr @stbvox_face_visible, i64 %231
+  %232 = getelementptr inbounds nuw [2 x i8], ptr @stbvox_face_visible, i64 %231
   %233 = load i16, ptr %232, align 2, !tbaa !52
   %234 = zext i16 %233 to i32
   %235 = add nuw nsw i32 %230, 4
@@ -1717,7 +1715,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %256 = load i8, ptr %255, align 1, !tbaa !3
   %257 = zext i8 %256 to i32
   %258 = zext i8 %246 to i64
-  %259 = getelementptr inbounds nuw i16, ptr @stbvox_face_visible, i64 %258
+  %259 = getelementptr inbounds nuw [2 x i8], ptr @stbvox_face_visible, i64 %258
   %260 = load i16, ptr %259, align 2, !tbaa !52
   %261 = zext i16 %260 to i32
   %262 = add nuw nsw i32 %257, 3
@@ -1752,7 +1750,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %285 = load i8, ptr %284, align 1, !tbaa !3
   %286 = zext i8 %285 to i32
   %287 = zext i8 %274 to i64
-  %288 = getelementptr inbounds nuw i16, ptr @stbvox_face_visible, i64 %287
+  %288 = getelementptr inbounds nuw [2 x i8], ptr @stbvox_face_visible, i64 %287
   %289 = load i16, ptr %288, align 2, !tbaa !52
   %290 = zext i16 %289 to i32
   %291 = add nuw nsw i32 %286, 2
@@ -1779,7 +1777,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %306 = load i8, ptr %305, align 1, !tbaa !3
   %307 = zext i8 %306 to i32
   %308 = zext i8 %300 to i64
-  %309 = getelementptr inbounds nuw i16, ptr @stbvox_face_visible, i64 %308
+  %309 = getelementptr inbounds nuw [2 x i8], ptr @stbvox_face_visible, i64 %308
   %310 = load i16, ptr %309, align 2, !tbaa !52
   %311 = zext i16 %310 to i32
   %312 = add nuw nsw i32 %307, 1
@@ -1806,7 +1804,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %327 = load i8, ptr %326, align 2, !tbaa !3
   %328 = zext nneg i8 %327 to i32
   %329 = zext i8 %321 to i64
-  %330 = getelementptr inbounds nuw i16, ptr @stbvox_face_visible, i64 %329
+  %330 = getelementptr inbounds nuw [2 x i8], ptr @stbvox_face_visible, i64 %329
   %331 = load i16, ptr %330, align 2, !tbaa !52
   %332 = zext i16 %331 to i32
   %333 = lshr i32 %332, %328
@@ -1856,7 +1854,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep = getelementptr inbounds nuw i8, ptr @stbvox_rotate_vertex, i64 %183
   %358 = zext nneg i8 %spec.store.select to i64
-  %359 = getelementptr inbounds nuw [8 x i32], ptr @stbvox_geometry_vheight, i64 %358
+  %359 = getelementptr inbounds nuw [32 x i8], ptr @stbvox_geometry_vheight, i64 %358
   br label %360
 
 360:                                              ; preds = %357, %360
@@ -1866,13 +1864,13 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %363 = zext i8 %362 to i64
   %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %363
   %364 = load i8, ptr %gep, align 1, !tbaa !3
-  %365 = getelementptr inbounds nuw i32, ptr @stbvox_vmesh_pre_vheight, i64 %indvars.iv935
+  %365 = getelementptr inbounds nuw [4 x i8], ptr @stbvox_vmesh_pre_vheight, i64 %indvars.iv935
   %366 = load i32, ptr %365, align 4, !tbaa !14
   %367 = zext i8 %364 to i64
-  %368 = getelementptr inbounds nuw i32, ptr %359, i64 %367
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %359, i64 %367
   %369 = load i32, ptr %368, align 4, !tbaa !14
   %370 = add i32 %369, %366
-  %371 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv935
+  %371 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv935
   store i32 %370, ptr %371, align 4, !tbaa !14
   %indvars.iv.next936 = add nuw nsw i64 %indvars.iv935, 1
   %exitcond938.not = icmp eq i64 %indvars.iv.next936, 24
@@ -1909,16 +1907,16 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %.2791 = phi i8 [ %378, %376 ], [ %385, %382 ], [ %.0789, %379 ]
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %388 = zext i8 %.2791 to i64
-  %389 = getelementptr inbounds nuw [3 x ptr], ptr %387, i64 %388
+  %389 = getelementptr inbounds nuw [24 x i8], ptr %387, i64 %388
   %390 = load ptr, ptr %389, align 8, !tbaa !10
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %392 = getelementptr inbounds nuw [3 x i32], ptr %391, i64 %388
+  %392 = getelementptr inbounds nuw [12 x i8], ptr %391, i64 %388
   %393 = load i32, ptr %392, align 4, !tbaa !14
   %394 = mul nsw i32 %393, 6
   %395 = sext i32 %394 to i64
   %396 = getelementptr inbounds i8, ptr %390, i64 %395
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %398 = getelementptr inbounds nuw [3 x ptr], ptr %397, i64 %388
+  %398 = getelementptr inbounds nuw [24 x i8], ptr %397, i64 %388
   %399 = load ptr, ptr %398, align 8, !tbaa !10
   %.not851 = icmp ugt ptr %396, %399
   br i1 %.not851, label %460, label %400
@@ -2270,13 +2268,13 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %indvars.iv943 = phi i64 [ 0, %.thread996 ], [ %indvars.iv.next944, %582 ]
   %583 = getelementptr inbounds nuw i8, ptr @stbvox_vertex_selector, i64 %indvars.iv943
   %584 = load i8, ptr %583, align 1, !tbaa !3
-  %585 = getelementptr inbounds nuw i32, ptr @stbvox_vmesh_pre_vheight, i64 %indvars.iv943
+  %585 = getelementptr inbounds nuw [4 x i8], ptr @stbvox_vmesh_pre_vheight, i64 %indvars.iv943
   %586 = load i32, ptr %585, align 4, !tbaa !14
   %587 = zext i8 %584 to i64
-  %588 = getelementptr inbounds nuw i32, ptr %9, i64 %587
+  %588 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %587
   %589 = load i32, ptr %588, align 4, !tbaa !14
   %590 = add i32 %589, %586
-  %591 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv943
+  %591 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv943
   store i32 %590, ptr %591, align 4, !tbaa !14
   %indvars.iv.next944 = add nuw nsw i64 %indvars.iv943, 1
   %exitcond946.not = icmp eq i64 %indvars.iv.next944, 24
@@ -2292,16 +2290,16 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %595 = zext i24 %narrow859 to i32
   %596 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %597 = zext i8 %.0789 to i64
-  %598 = getelementptr inbounds nuw [3 x ptr], ptr %596, i64 %597
+  %598 = getelementptr inbounds nuw [24 x i8], ptr %596, i64 %597
   %599 = load ptr, ptr %598, align 8, !tbaa !10
   %600 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %601 = getelementptr inbounds nuw [3 x i32], ptr %600, i64 %597
+  %601 = getelementptr inbounds nuw [12 x i8], ptr %600, i64 %597
   %602 = load i32, ptr %601, align 4, !tbaa !14
   %603 = mul nsw i32 %602, 6
   %604 = sext i32 %603 to i64
   %605 = getelementptr inbounds i8, ptr %599, i64 %604
   %606 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %607 = getelementptr inbounds nuw [3 x ptr], ptr %606, i64 %597
+  %607 = getelementptr inbounds nuw [24 x i8], ptr %606, i64 %597
   %608 = load ptr, ptr %607, align 8, !tbaa !10
   %.not870 = icmp ugt ptr %605, %608
   br i1 %.not870, label %.thread900, label %610
@@ -2343,7 +2341,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
 622:                                              ; preds = %615
   %623 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %624 = zext i8 %562 to i64
-  %625 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @stbvox_planar_face_up_normal, i64 %624
+  %625 = getelementptr inbounds nuw [16 x i8], ptr @stbvox_planar_face_up_normal, i64 %624
   %626 = zext i8 %561 to i64
   %627 = getelementptr inbounds nuw [4 x i8], ptr %625, i64 %626
   %628 = zext i8 %560 to i64
@@ -2397,7 +2395,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
 645:                                              ; preds = %637
   %646 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %647 = zext i8 %562 to i64
-  %648 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @stbvox_planar_face_up_normal, i64 %647
+  %648 = getelementptr inbounds nuw [16 x i8], ptr @stbvox_planar_face_up_normal, i64 %647
   %649 = zext i8 %561 to i64
   %650 = getelementptr inbounds nuw [4 x i8], ptr %648, i64 %649
   %651 = zext i8 %560 to i64
@@ -2577,16 +2575,16 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %.1800 = phi i8 [ %715, %712 ], [ %.0799, %709 ]
   %717 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %718 = zext i8 %.1800 to i64
-  %719 = getelementptr inbounds nuw [3 x ptr], ptr %717, i64 %718
+  %719 = getelementptr inbounds nuw [24 x i8], ptr %717, i64 %718
   %720 = load ptr, ptr %719, align 8, !tbaa !10
   %721 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %722 = getelementptr inbounds nuw [3 x i32], ptr %721, i64 %718
+  %722 = getelementptr inbounds nuw [12 x i8], ptr %721, i64 %718
   %723 = load i32, ptr %722, align 4, !tbaa !14
   %724 = shl nsw i32 %723, 2
   %725 = sext i32 %724 to i64
   %726 = getelementptr inbounds i8, ptr %720, i64 %725
   %727 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %728 = getelementptr inbounds nuw [3 x ptr], ptr %727, i64 %718
+  %728 = getelementptr inbounds nuw [24 x i8], ptr %727, i64 %718
   %729 = load ptr, ptr %728, align 8, !tbaa !10
   %.not879 = icmp ugt ptr %726, %729
   br i1 %.not879, label %730, label %732
@@ -3167,7 +3165,7 @@ define void @stbvox_init_mesh_maker(ptr noundef writeonly captures(none) initial
   %4 = load i8, ptr %3, align 1, !tbaa !3
   %5 = uitofp i8 %4 to float
   %6 = fdiv float %5, 2.550000e+02
-  %7 = getelementptr inbounds nuw [4 x float], ptr @stbvox_default_palette, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @stbvox_default_palette, i64 %indvars.iv.i
   store float %6, ptr %7, align 16, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %9 = load i8, ptr %8, align 1, !tbaa !3
@@ -3229,7 +3227,7 @@ stbvox_bring_up_to_date.exit:                     ; preds = %.stbvox_bring_up_to
 define i32 @stbvox_get_buffer_size_per_quad(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !14
   ret i32 %6
 }
@@ -3267,23 +3265,23 @@ define void @stbvox_set_buffer(ptr noundef captures(none) %0, i32 noundef %1, i3
 stbvox_bring_up_to_date.exit:                     ; preds = %5, %.critedge
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds [3 x ptr], ptr %13, i64 %14
+  %15 = getelementptr inbounds [24 x i8], ptr %13, i64 %14
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   store ptr %3, ptr %17, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %19 = getelementptr inbounds [3 x ptr], ptr %18, i64 %14
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %16
+  %19 = getelementptr inbounds [24 x i8], ptr %18, i64 %14
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %16
   store ptr %3, ptr %20, align 8, !tbaa !10
   %21 = trunc i64 %4 to i32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %23 = getelementptr inbounds [3 x i32], ptr %22, i64 %14
-  %24 = getelementptr inbounds i32, ptr %23, i64 %16
+  %23 = getelementptr inbounds [12 x i8], ptr %22, i64 %14
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %16
   store i32 %21, ptr %24, align 4, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %27 = getelementptr inbounds [3 x ptr], ptr %26, i64 %14
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %16
+  %27 = getelementptr inbounds [24 x i8], ptr %26, i64 %14
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %16
   store ptr %25, ptr %28, align 8, !tbaa !10
   ret void
 }
@@ -3299,16 +3297,16 @@ define void @stbvox_set_default_mesh(ptr noundef writeonly captures(none) initia
 define i32 @stbvox_get_quad_count(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [3 x ptr], ptr %3, i64 %4
+  %5 = getelementptr inbounds [24 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %8 = getelementptr inbounds [3 x ptr], ptr %7, i64 %4
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %4
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %14 = getelementptr inbounds [3 x i32], ptr %13, i64 %4
+  %14 = getelementptr inbounds [12 x i8], ptr %13, i64 %4
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = sext i32 %15 to i64
   %17 = sdiv i64 %12, %16
@@ -3450,9 +3448,9 @@ define void @stbvox_set_input_stride(ptr noundef writeonly captures(none) initia
 
 .preheader:                                       ; preds = %3, %40
   %indvars.iv33 = phi i64 [ 0, %3 ], [ %indvars.iv.next34, %40 ]
-  %8 = getelementptr inbounds nuw [4 x [3 x i8]], ptr @stbvox_vertex_vector, i64 %indvars.iv33
-  %9 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 %indvars.iv33
-  %10 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 %indvars.iv33
+  %8 = getelementptr inbounds nuw [12 x i8], ptr @stbvox_vertex_vector, i64 %indvars.iv33
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv33
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv33
   br label %11
 
 11:                                               ; preds = %.preheader, %11
@@ -3470,7 +3468,7 @@ define void @stbvox_set_input_stride(ptr noundef writeonly captures(none) initia
   %22 = load i8, ptr %21, align 1, !tbaa !3
   %23 = zext i8 %22 to i32
   %24 = add nsw i32 %20, %23
-  %25 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !14
   %26 = load i8, ptr %12, align 1, !tbaa !3
   %27 = zext i8 %26 to i32
@@ -3485,7 +3483,7 @@ define void @stbvox_set_input_stride(ptr noundef writeonly captures(none) initia
   %36 = add nsw i32 %35, -1
   %37 = add i32 %36, %29
   %38 = add i32 %37, %33
-  %39 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %38, ptr %39, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

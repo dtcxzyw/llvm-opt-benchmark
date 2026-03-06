@@ -16,7 +16,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %10 = load i32, ptr %4, align 4, !tbaa !3
   %narrow = xor i32 %10, -1
   %11 = sext i32 %narrow to i64
-  %12 = getelementptr inbounds double, ptr %3, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %3, i64 %11
   %13 = getelementptr inbounds i8, ptr %5, i64 -8
   %14 = getelementptr inbounds i8, ptr %6, i64 -4
   store i32 0, ptr %7, align 4, !tbaa !3
@@ -85,7 +85,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
 .lr.ph:                                           ; preds = %36, %53
   %.0315 = phi i32 [ %54, %53 ], [ %23, %36 ]
   %37 = zext nneg i32 %.0315 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %14, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %51
@@ -95,18 +95,18 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %43 = mul nsw i32 %.0315, %10
   %44 = add nsw i32 %42, %43
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds double, ptr %12, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %12, i64 %45
   %47 = load double, ptr %46, align 8, !tbaa !7
-  %48 = getelementptr inbounds nuw double, ptr %13, i64 %37
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %37
   store double %47, ptr %48, align 8, !tbaa !7
   %49 = zext nneg i32 %42 to i64
-  %50 = getelementptr inbounds nuw double, ptr %13, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %49
   store double 0.000000e+00, ptr %50, align 8, !tbaa !7
   store double 0.000000e+00, ptr %46, align 8, !tbaa !7
   br label %53
 
 51:                                               ; preds = %.lr.ph
-  %52 = getelementptr inbounds nuw double, ptr %13, i64 %37
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %37
   store double 0.000000e+00, ptr %52, align 8, !tbaa !7
   br label %53
 
@@ -122,7 +122,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
 .lr.ph317:                                        ; preds = %.lr.ph317.preheader, %89
   %.2316 = phi i32 [ %90, %89 ], [ %23, %.lr.ph317.preheader ]
   %56 = zext nneg i32 %.2316 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %14, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !3
   %59 = icmp sgt i32 %58, 0
   %60 = load i32, ptr %2, align 4, !tbaa !3
@@ -141,10 +141,10 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %66 = mul nsw i32 %65, %10
   %67 = add nsw i32 %66, %.2316
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds double, ptr %12, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %12, i64 %68
   %70 = add nsw i32 %58, %66
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds double, ptr %12, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %12, i64 %71
   call void @dswap_(ptr noundef nonnull %9, ptr noundef %69, ptr noundef nonnull %4, ptr noundef %72, ptr noundef nonnull %4) #4
   br label %89
 
@@ -169,10 +169,10 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %81 = mul nsw i32 %80, %10
   %82 = add nsw i32 %81, %77
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds double, ptr %12, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %12, i64 %83
   %85 = sub nsw i32 %81, %58
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds double, ptr %12, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %12, i64 %86
   call void @dswap_(ptr noundef nonnull %9, ptr noundef %84, ptr noundef nonnull %4, ptr noundef %87, ptr noundef nonnull %4) #4
   br label %88
 
@@ -195,7 +195,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %93 = phi i32 [ %131, %129 ], [ %23, %35 ]
   %.4319 = phi i32 [ %130, %129 ], [ 1, %35 ]
   %94 = sext i32 %.4319 to i64
-  %95 = getelementptr inbounds i32, ptr %14, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %14, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !3
   %97 = icmp sgt i32 %96, 0
   br i1 %97, label %98, label %110
@@ -213,17 +213,17 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %103 = mul nsw i32 %102, %10
   %104 = add nsw i32 %96, %103
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds double, ptr %12, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %12, i64 %105
   %107 = add nsw i32 %103, %.4319
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds double, ptr %12, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %12, i64 %108
   call void @dswap_(ptr noundef nonnull %9, ptr noundef %106, ptr noundef nonnull %4, ptr noundef %109, ptr noundef nonnull %4) #4
   br label %129
 
 110:                                              ; preds = %.lr.ph320
   %111 = add nsw i32 %.4319, 1
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i32, ptr %14, i64 %112
+  %113 = getelementptr inbounds [4 x i8], ptr %14, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = icmp sge i32 %111, %93
   %116 = sub nsw i32 0, %114
@@ -238,10 +238,10 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %120 = mul nsw i32 %119, %10
   %121 = sub nsw i32 %120, %114
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds double, ptr %12, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %12, i64 %122
   %124 = add nsw i32 %120, %.4319
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds double, ptr %12, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %12, i64 %125
   call void @dswap_(ptr noundef nonnull %9, ptr noundef %123, ptr noundef nonnull %4, ptr noundef %126, ptr noundef nonnull %4) #4
   %.pre = load i32, ptr %95, align 4, !tbaa !3
   br label %127
@@ -261,19 +261,19 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
 .lr.ph322:                                        ; preds = %.preheader310, %144
   %.6321 = phi i32 [ %145, %144 ], [ %131, %.preheader310 ]
   %132 = zext nneg i32 %.6321 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %14, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !3
   %135 = icmp slt i32 %134, 0
   br i1 %135, label %136, label %144
 
 136:                                              ; preds = %.lr.ph322
-  %137 = getelementptr inbounds nuw double, ptr %13, i64 %132
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %132
   %138 = load double, ptr %137, align 8, !tbaa !7
   %139 = add nsw i32 %.6321, -1
   %140 = mul nsw i32 %.6321, %10
   %141 = add nsw i32 %139, %140
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds double, ptr %12, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %12, i64 %142
   store double %138, ptr %143, align 8, !tbaa !7
   br label %144
 
@@ -288,7 +288,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
 
 .lr.ph325.preheader:                              ; preds = %147
   %148 = zext nneg i32 %23 to i64
-  %149 = getelementptr inbounds nuw double, ptr %13, i64 %148
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %148
   store double 0.000000e+00, ptr %149, align 8, !tbaa !7
   br label %.lr.ph325
 
@@ -303,7 +303,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
 
 151:                                              ; preds = %.lr.ph325
   %152 = sext i32 %.8324 to i64
-  %153 = getelementptr inbounds i32, ptr %14, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr %14, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !3
   %155 = icmp slt i32 %154, 0
   br i1 %155, label %156, label %166
@@ -313,19 +313,19 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %158 = mul nsw i32 %.8324, %10
   %159 = add nsw i32 %157, %158
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds double, ptr %12, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %12, i64 %160
   %162 = load double, ptr %161, align 8, !tbaa !7
-  %163 = getelementptr inbounds double, ptr %13, i64 %152
+  %163 = getelementptr inbounds [8 x i8], ptr %13, i64 %152
   store double %162, ptr %163, align 8, !tbaa !7
   %164 = sext i32 %157 to i64
-  %165 = getelementptr inbounds double, ptr %13, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %13, i64 %164
   store double 0.000000e+00, ptr %165, align 8, !tbaa !7
   store double 0.000000e+00, ptr %161, align 8, !tbaa !7
   br label %168
 
 166:                                              ; preds = %.lr.ph325._crit_edge, %151
   %.pre-phi343 = phi i64 [ %.pre342, %.lr.ph325._crit_edge ], [ %152, %151 ]
-  %167 = getelementptr inbounds double, ptr %13, i64 %.pre-phi343
+  %167 = getelementptr inbounds [8 x i8], ptr %13, i64 %.pre-phi343
   store double 0.000000e+00, ptr %167, align 8, !tbaa !7
   br label %168
 
@@ -338,7 +338,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
 .lr.ph328:                                        ; preds = %168, %198
   %.10327 = phi i32 [ %199, %198 ], [ 1, %168 ]
   %170 = sext i32 %.10327 to i64
-  %171 = getelementptr inbounds i32, ptr %14, i64 %170
+  %171 = getelementptr inbounds [4 x i8], ptr %14, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !3
   %173 = icmp sgt i32 %172, 0
   br i1 %173, label %174, label %184
@@ -354,10 +354,10 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   store i32 %177, ptr %9, align 4, !tbaa !3
   %178 = add nsw i32 %.10327, %10
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds double, ptr %12, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %12, i64 %179
   %181 = add nsw i32 %172, %10
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds double, ptr %12, i64 %182
+  %183 = getelementptr inbounds [8 x i8], ptr %12, i64 %182
   call void @dswap_(ptr noundef nonnull %9, ptr noundef %180, ptr noundef nonnull %4, ptr noundef %183, ptr noundef nonnull %4) #4
   br label %198
 
@@ -380,10 +380,10 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   store i32 %190, ptr %9, align 4, !tbaa !3
   %191 = add nsw i32 %188, %10
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds double, ptr %12, i64 %192
+  %193 = getelementptr inbounds [8 x i8], ptr %12, i64 %192
   %194 = sub nsw i32 %10, %172
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds double, ptr %12, i64 %195
+  %196 = getelementptr inbounds [8 x i8], ptr %12, i64 %195
   call void @dswap_(ptr noundef nonnull %9, ptr noundef %193, ptr noundef nonnull %4, ptr noundef %196, ptr noundef nonnull %4) #4
   br label %197
 
@@ -407,7 +407,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
 .lr.ph330:                                        ; preds = %147, %232
   %.12329 = phi i32 [ %233, %232 ], [ %23, %147 ]
   %201 = zext nneg i32 %.12329 to i64
-  %202 = getelementptr inbounds nuw i32, ptr %14, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %201
   %203 = load i32, ptr %202, align 4, !tbaa !3
   %204 = icmp sgt i32 %203, 0
   br i1 %204, label %205, label %215
@@ -425,17 +425,17 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   store i32 %208, ptr %9, align 4, !tbaa !3
   %209 = add nsw i32 %203, %10
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds double, ptr %12, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %12, i64 %210
   %212 = add nsw i32 %.12329, %10
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds double, ptr %12, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %12, i64 %213
   call void @dswap_(ptr noundef nonnull %9, ptr noundef %211, ptr noundef nonnull %4, ptr noundef %214, ptr noundef nonnull %4) #4
   br label %232
 
 215:                                              ; preds = %.lr.ph330
   %216 = add nsw i32 %.12329, -1
   %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds nuw i32, ptr %14, i64 %217
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %217
   %219 = load i32, ptr %218, align 4, !tbaa !3
   %220 = icmp samesign ult i32 %.12329, 3
   %221 = sub nsw i32 0, %219
@@ -448,10 +448,10 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   store i32 %223, ptr %9, align 4, !tbaa !3
   %224 = sub nsw i32 %10, %219
   %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds double, ptr %12, i64 %225
+  %226 = getelementptr inbounds [8 x i8], ptr %12, i64 %225
   %227 = add nsw i32 %.12329, %10
   %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds double, ptr %12, i64 %228
+  %229 = getelementptr inbounds [8 x i8], ptr %12, i64 %228
   call void @dswap_(ptr noundef nonnull %9, ptr noundef %226, ptr noundef nonnull %4, ptr noundef %229, ptr noundef nonnull %4) #4
   %.pre338 = load i32, ptr %202, align 4, !tbaa !3
   br label %230
@@ -470,19 +470,19 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
 .lr.ph333:                                        ; preds = %.preheader, %247
   %.14332 = phi i32 [ %248, %247 ], [ 1, %.preheader ]
   %235 = sext i32 %.14332 to i64
-  %236 = getelementptr inbounds i32, ptr %14, i64 %235
+  %236 = getelementptr inbounds [4 x i8], ptr %14, i64 %235
   %237 = load i32, ptr %236, align 4, !tbaa !3
   %238 = icmp slt i32 %237, 0
   br i1 %238, label %239, label %247
 
 239:                                              ; preds = %.lr.ph333
-  %240 = getelementptr inbounds double, ptr %13, i64 %235
+  %240 = getelementptr inbounds [8 x i8], ptr %13, i64 %235
   %241 = load double, ptr %240, align 8, !tbaa !7
   %242 = add nsw i32 %.14332, 1
   %243 = mul nsw i32 %.14332, %10
   %244 = add nsw i32 %242, %243
   %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds double, ptr %12, i64 %245
+  %246 = getelementptr inbounds [8 x i8], ptr %12, i64 %245
   store double %241, ptr %246, align 8, !tbaa !7
   br label %247
 

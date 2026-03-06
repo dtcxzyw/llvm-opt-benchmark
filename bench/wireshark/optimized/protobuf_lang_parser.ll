@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct._protobuf_lang_state_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%struct.yyStackEntry = type { i16, i8, %union.YYMINORTYPE }
-%union.YYMINORTYPE = type { ptr }
 
 @.str = private unnamed_addr constant [8 x i8] c"UNKNOWN\00", align 1
 @.str.1 = private unnamed_addr constant [43 x i8] c"Protobuf: Parsing file [%s:%d] failed: %s\0A\00", align 1
@@ -527,7 +525,7 @@ define internal fastcc void @ProtobufLangParser(ptr noundef initializes((16, 24)
 
 .preheader.i:                                     ; preds = %12
   %14 = zext nneg i16 %.037 to i64
-  %15 = getelementptr i16, ptr @yy_shift_ofst, i64 %14
+  %15 = getelementptr [2 x i8], ptr @yy_shift_ofst, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i64
   %18 = add nuw nsw i64 %17, %10
@@ -544,7 +542,7 @@ define internal fastcc void @ProtobufLangParser(ptr noundef initializes((16, 24)
   br i1 %.not17.i, label %25, label %.thread.i
 
 .thread.i:                                        ; preds = %.lr.ph.i
-  %23 = getelementptr i16, ptr @yy_default, i64 %14
+  %23 = getelementptr [2 x i8], ptr @yy_default, i64 %14
   %24 = load i16, ptr %23, align 2
   br label %yy_find_shift_action.exit
 
@@ -560,7 +558,7 @@ define internal fastcc void @ProtobufLangParser(ptr noundef initializes((16, 24)
 
 ._crit_edge.i:                                    ; preds = %25, %.preheader.i
   %.lcssa.i = phi i64 [ %18, %.preheader.i ], [ %29, %25 ]
-  %32 = getelementptr i16, ptr @yy_action, i64 %.lcssa.i
+  %32 = getelementptr [2 x i8], ptr @yy_action, i64 %.lcssa.i
   %33 = load i16, ptr %32, align 2
   br label %yy_find_shift_action.exit
 
@@ -1486,15 +1484,15 @@ yyStackOverflow.exit:                             ; preds = %633, %622, %613, %6
   %647 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %38
   %648 = load i8, ptr %647, align 1
   %649 = sext i8 %40 to i64
-  %650 = getelementptr %struct.yyStackEntry, ptr %.pre, i64 %649
+  %650 = getelementptr [16 x i8], ptr %.pre, i64 %649
   %651 = load i16, ptr %650, align 8
   %652 = zext i16 %651 to i64
-  %653 = getelementptr i16, ptr @yy_reduce_ofst, i64 %652
+  %653 = getelementptr [2 x i8], ptr @yy_reduce_ofst, i64 %652
   %654 = load i16, ptr %653, align 2
   %655 = sext i16 %654 to i64
   %656 = zext i8 %648 to i64
-  %657 = getelementptr i16, ptr @yy_action, i64 %655
-  %658 = getelementptr i16, ptr %657, i64 %656
+  %657 = getelementptr [2 x i8], ptr @yy_action, i64 %655
+  %658 = getelementptr [2 x i8], ptr %657, i64 %656
   %659 = load i16, ptr %658, align 2
   %660 = getelementptr i8, ptr %650, i64 16
   store ptr %660, ptr %0, align 8

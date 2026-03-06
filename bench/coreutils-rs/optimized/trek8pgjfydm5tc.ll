@@ -1317,7 +1317,7 @@ _ZN6uucore8features2fs15FileInformation9from_file17h3ed4fd1b1c72d67dE.exit: ; pr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store <2 x i64> <i64 152, i64 16>, ptr %6, align 16
-  %27 = getelementptr inbounds nuw i64, ptr %6, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %26
   %28 = load i64, ptr %27, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr nonnull align 8 %9, i64 %28, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

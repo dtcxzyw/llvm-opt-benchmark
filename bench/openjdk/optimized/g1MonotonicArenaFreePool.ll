@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogTagSet = type { ptr, i64, [5 x i32], [4 x i8], %class.LogOutputList, %class.LogDecorators, ptr }
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
-%"class.G1MonotonicArena::SegmentFreeList" = type { %class.LockFreeStack, i64, i64 }
-%class.LockFreeStack = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.G1MonotonicArenaMemoryStats = type { [4 x i64], [4 x i64] }
 %class.FormatBuffer = type { %class.FormatBufferBase, [256 x i8] }
@@ -61,11 +59,11 @@ define hidden void @_ZN24G1MonotonicArenaFreePool24update_unlink_processorsEP18G
   %.05 = phi i32 [ 0, %.lr.ph ], [ %30, %_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessor15visit_free_listEPN16G1MonotonicArena15SegmentFreeListE.exit ]
   %7 = load ptr, ptr %4, align 8
   %8 = sext i32 %.05 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %5, align 8
   %12 = zext i32 %.05 to i64
-  %13 = getelementptr inbounds nuw %"class.G1MonotonicArena::SegmentFreeList", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load i64, ptr %14, align 8
   %.not.i = icmp eq i64 %15, 0
@@ -326,7 +324,7 @@ define hidden void @_ZN24G1MonotonicArenaFreePoolC2Ej(ptr noundef nonnull align 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw %"class.G1MonotonicArena::SegmentFreeList", ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   store volatile ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store volatile i64 0, ptr %10, align 8
@@ -357,7 +355,7 @@ define hidden void @_ZN24G1MonotonicArenaFreePoolD2Ev(ptr noundef nonnull readon
 4:                                                ; preds = %.lr.ph, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw %"class.G1MonotonicArena::SegmentFreeList", ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   tail call void @_ZN16G1MonotonicArena15SegmentFreeList8free_allEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i32, ptr %0, align 8
@@ -390,14 +388,14 @@ define hidden void @_ZNK24G1MonotonicArenaFreePool12memory_sizesEv(ptr dead_on_u
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw %"class.G1MonotonicArena::SegmentFreeList", ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load volatile i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load volatile i64, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -422,7 +420,7 @@ define hidden noundef i64 @_ZNK24G1MonotonicArenaFreePool8mem_sizeEv(ptr noundef
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %.056 = phi i64 [ 0, %.lr.ph ], [ %9, %5 ]
-  %6 = getelementptr inbounds nuw %"class.G1MonotonicArena::SegmentFreeList", ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load volatile i64, ptr %7, align 8
   %9 = add i64 %8, %.056
@@ -451,7 +449,7 @@ define hidden void @_ZNK24G1MonotonicArenaFreePool8print_onEP12outputStream(ptr 
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %.056.i = phi i64 [ 0, %.lr.ph.i ], [ %11, %7 ]
-  %8 = getelementptr inbounds nuw %"class.G1MonotonicArena::SegmentFreeList", ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load volatile i64, ptr %9, align 8
   %11 = add i64 %10, %.056.i
@@ -476,7 +474,7 @@ _ZNK24G1MonotonicArenaFreePool8mem_sizeEv.exit:   ; preds = %7, %2
   %16 = call noundef ptr @_ZN22G1CardSetConfiguration24mem_object_type_name_strEj(i32 noundef %15) #8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull @.str.6, ptr noundef %16)
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds nuw %"class.G1MonotonicArena::SegmentFreeList", ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %3, align 8
   call void @_ZN16G1MonotonicArena15SegmentFreeList8print_onEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull %1, ptr noundef %19) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

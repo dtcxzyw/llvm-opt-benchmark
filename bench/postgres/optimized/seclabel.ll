@@ -4,10 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
-%union.ListCell = type { ptr }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @label_provider_list = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [45 x i8] c"no security label providers have been loaded\00", align 1
@@ -88,7 +86,7 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
 
 30:                                               ; preds = %.lr.ph54, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next, %29 ]
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %33) #11
@@ -605,7 +603,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr %struct.CompactAttribute, ptr %2, i64 %18
+  %19 = getelementptr [16 x i8], ptr %2, i64 %18
   %20 = getelementptr i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, -1

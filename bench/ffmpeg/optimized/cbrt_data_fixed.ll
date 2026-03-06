@@ -14,7 +14,7 @@ define void @ff_cbrt_tableinit_fixed() local_unnamed_addr #0 {
 
 .preheader40:                                     ; preds = %0, %.preheader40
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader40 ], [ 1, %0 ]
-  %2 = getelementptr inbounds nuw double, ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv
   store double 1.000000e+00, ptr %2, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8192
@@ -22,7 +22,7 @@ define void @ff_cbrt_tableinit_fixed() local_unnamed_addr #0 {
 
 .preheader39:                                     ; preds = %.preheader40, %.loopexit38
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.loopexit38 ], [ 2, %.preheader40 ]
-  %3 = getelementptr inbounds nuw double, ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv54
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv54
   %4 = load double, ptr %3, align 8, !tbaa !8
   %5 = fcmp nsz oeq double %4, 1.000000e+00
   br i1 %5, label %.preheader37.preheader, label %.loopexit38
@@ -41,7 +41,7 @@ define void @ff_cbrt_tableinit_fixed() local_unnamed_addr #0 {
 
 11:                                               ; preds = %.preheader37, %11
   %indvars.iv51 = phi i64 [ %10, %.preheader37 ], [ %indvars.iv.next52, %11 ]
-  %12 = getelementptr inbounds nuw double, ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv51
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv51
   %13 = load double, ptr %12, align 8, !tbaa !8
   %14 = fmul nsz double %9, %13
   store double %14, ptr %12, align 8, !tbaa !8
@@ -61,7 +61,7 @@ define void @ff_cbrt_tableinit_fixed() local_unnamed_addr #0 {
 
 .preheader36:                                     ; preds = %.loopexit38, %.loopexit35
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.loopexit35 ], [ 91, %.loopexit38 ]
-  %19 = getelementptr inbounds nuw double, ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv58
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv58
   %20 = load double, ptr %19, align 8, !tbaa !8
   %21 = fcmp nsz oeq double %20, 1.000000e+00
   br i1 %21, label %.lr.ph.preheader, label %.loopexit35
@@ -75,7 +75,7 @@ define void @ff_cbrt_tableinit_fixed() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv60 = phi i64 [ %indvars.iv58, %.lr.ph.preheader ], [ %indvars.iv.next61, %.lr.ph ]
-  %26 = getelementptr inbounds nuw double, ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv60
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv60
   %27 = load double, ptr %26, align 8, !tbaa !8
   %28 = fmul nsz double %25, %27
   store double %28, ptr %26, align 8, !tbaa !8
@@ -90,12 +90,12 @@ define void @ff_cbrt_tableinit_fixed() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.loopexit35, %.preheader
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.preheader ], [ 0, %.loopexit35 ]
-  %31 = getelementptr inbounds nuw double, ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv64
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @ff_cbrt_tableinit_fixed.cbrt_tab_dbl, i64 %indvars.iv64
   %32 = load double, ptr %31, align 8, !tbaa !8
   %33 = fmul nsz double %32, 8.192000e+03
   %34 = tail call i64 @llvm.lrint.i64.f64(double %33)
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds nuw i32, ptr @ff_cbrt_tab_fixed, i64 %indvars.iv64
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @ff_cbrt_tab_fixed, i64 %indvars.iv64
   store i32 %35, ptr %36, align 4, !tbaa !4
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 8192

@@ -4,17 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.ColumnIOData = type { i32, i32, i32, i8, %struct.FmgrInfo }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
 %union.anon.2 = type { %struct.FunctionCallInfoBaseData, [32 x i8] }
 %struct.FunctionCallInfoBaseData = type { ptr, ptr, ptr, i32, i8, i16, [0 x %struct.NullableDatum] }
 %struct.NullableDatum = type { i64, i8 }
-%struct.ColumnCompareData = type { ptr }
 %union.anon.5 = type { %struct.FunctionCallInfoBaseData, [32 x i8] }
 %union.anon.3 = type { %struct.FunctionCallInfoBaseData, [16 x i8] }
 %union.anon.4 = type { %struct.FunctionCallInfoBaseData, [32 x i8] }
@@ -184,7 +179,7 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   %75 = phi i8 [ %71, %.lr.ph225 ], [ %82, %80 ]
   %.0167224 = phi ptr [ %5, %.lr.ph225 ], [ %81, %80 ]
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %73, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %76
   %78 = load i16, ptr %77, align 2
   %79 = and i16 %78, 8192
   %.not189 = icmp eq i16 %79, 0
@@ -231,8 +226,8 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   %95 = shl nsw i64 %94, 4
   %96 = getelementptr i8, ptr %22, i64 %95
   %97 = getelementptr i8, ptr %96, i64 24
-  %98 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %97, i64 %indvars.iv
-  %99 = getelementptr inbounds nuw %struct.ColumnIOData, ptr %91, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [100 x i8], ptr %97, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [64 x i8], ptr %91, i64 %indvars.iv
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 68
   %101 = load i32, ptr %100, align 4
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 91
@@ -241,7 +236,7 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %92
-  %106 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   store i64 0, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv
   store i8 1, ptr %107, align 1
@@ -390,7 +385,7 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   %164 = load i32, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %98, i64 76
   %166 = load i32, ptr %165, align 4
-  %167 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   %168 = call zeroext i1 @InputFunctionCallSafe(ptr noundef nonnull %162, ptr noundef %.2177, i32 noundef %164, i32 noundef %166, ptr noundef %13, ptr noundef %167) #11
   br i1 %168, label %select.unfold, label %.thread209
 
@@ -428,7 +423,7 @@ select.unfold:                                    ; preds = %161, %105
 177:                                              ; preds = %.preheader
   %178 = load ptr, ptr %72, align 8
   %179 = zext i8 %176 to i64
-  %180 = getelementptr inbounds nuw i16, ptr %178, i64 %179
+  %180 = getelementptr inbounds nuw [2 x i8], ptr %178, i64 %179
   %181 = load i16, ptr %180, align 2
   %182 = and i16 %181, 8192
   %.not193 = icmp eq i16 %182, 0
@@ -684,8 +679,8 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   %72 = shl nsw i64 %71, 4
   %73 = getelementptr i8, ptr %10, i64 %72
   %74 = getelementptr i8, ptr %73, i64 24
-  %75 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %74, i64 %indvars.iv
-  %76 = getelementptr inbounds nuw %struct.ColumnIOData, ptr %66, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [100 x i8], ptr %74, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %66, i64 %indvars.iv
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 68
   %78 = load i32, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 91
@@ -725,7 +720,7 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   br label %98
 
 98:                                               ; preds = %90, %88
-  %99 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %100 = load i64, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %102 = call ptr @OutputFunctionCall(ptr noundef nonnull %101, i64 noundef %100) #11
@@ -749,7 +744,7 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   %108 = tail call ptr @__ctype_b_loc() #12
   %109 = load ptr, ptr %108, align 8
   %110 = zext i8 %106 to i64
-  %111 = getelementptr inbounds nuw i16, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %110
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 8192
   %.not136 = icmp eq i16 %113, 0
@@ -1051,7 +1046,7 @@ define dso_local i64 @record_recv(ptr noundef readonly captures(none) %0) local_
 74:                                               ; preds = %.lr.ph167, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next, %74 ]
   %.0136166 = phi i32 [ 0, %.lr.ph167 ], [ %spec.select, %74 ]
-  %75 = getelementptr %struct.FormData_pg_attribute, ptr %73, i64 %indvars.iv
+  %75 = getelementptr [100 x i8], ptr %73, i64 %indvars.iv
   %76 = getelementptr i8, ptr %75, i64 115
   %77 = load i8, ptr %76, align 1, !range !6, !noundef !7
   %78 = xor i8 %77, 1
@@ -1094,8 +1089,8 @@ define dso_local i64 @record_recv(ptr noundef readonly captures(none) %0) local_
   %93 = shl nsw i64 %92, 4
   %94 = getelementptr i8, ptr %19, i64 %93
   %95 = getelementptr i8, ptr %94, i64 24
-  %96 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %95, i64 %indvars.iv181
-  %97 = getelementptr inbounds nuw %struct.ColumnIOData, ptr %80, i64 %indvars.iv181
+  %96 = getelementptr inbounds nuw [100 x i8], ptr %95, i64 %indvars.iv181
+  %97 = getelementptr inbounds nuw [64 x i8], ptr %80, i64 %indvars.iv181
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 68
   %99 = load i32, ptr %98, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1105,7 +1100,7 @@ define dso_local i64 @record_recv(ptr noundef readonly captures(none) %0) local_
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %90
-  %104 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv181
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv181
   store i64 0, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv181
   store i8 1, ptr %105, align 1
@@ -1195,7 +1190,7 @@ define dso_local i64 @record_recv(ptr noundef readonly captures(none) %0) local_
   %153 = getelementptr inbounds nuw i8, ptr %96, i64 76
   %154 = load i32, ptr %153, align 4
   %155 = call i64 @ReceiveFunctionCall(ptr noundef nonnull %150, ptr noundef %.0135, i32 noundef %152, i32 noundef %154) #11
-  %156 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv181
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv181
   store i64 %155, ptr %156, align 8
   %.not151 = icmp eq ptr %.0135, null
   %157 = load i32, ptr %85, align 8
@@ -1394,7 +1389,7 @@ define dso_local i64 @record_send(ptr noundef readonly captures(none) %0) local_
 70:                                               ; preds = %.lr.ph106, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next, %70 ]
   %.090105 = phi i32 [ 0, %.lr.ph106 ], [ %spec.select, %70 ]
-  %71 = getelementptr %struct.FormData_pg_attribute, ptr %69, i64 %indvars.iv
+  %71 = getelementptr [100 x i8], ptr %69, i64 %indvars.iv
   %72 = getelementptr i8, ptr %71, i64 115
   %73 = load i8, ptr %72, align 1, !range !6, !noundef !7
   %74 = xor i8 %73, 1
@@ -1427,8 +1422,8 @@ define dso_local i64 @record_send(ptr noundef readonly captures(none) %0) local_
   %87 = shl nsw i64 %86, 4
   %88 = getelementptr i8, ptr %10, i64 %87
   %89 = getelementptr i8, ptr %88, i64 24
-  %90 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %89, i64 %indvars.iv112
-  %91 = getelementptr inbounds nuw %struct.ColumnIOData, ptr %83, i64 %indvars.iv112
+  %90 = getelementptr inbounds nuw [100 x i8], ptr %89, i64 %indvars.iv112
+  %91 = getelementptr inbounds nuw [64 x i8], ptr %83, i64 %indvars.iv112
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 68
   %93 = load i32, ptr %92, align 4
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 91
@@ -1483,7 +1478,7 @@ define dso_local i64 @record_send(ptr noundef readonly captures(none) %0) local_
   br label %123
 
 123:                                              ; preds = %115, %113
-  %124 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv112
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv112
   %125 = load i64, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %127 = call ptr @SendFunctionCall(ptr noundef nonnull %126, i64 noundef %125) #11
@@ -1754,7 +1749,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %113 = shl nsw i64 %112, 4
   %114 = getelementptr i8, ptr %15, i64 %113
   %115 = sext i32 %.0175240 to i64
-  %116 = getelementptr %struct.FormData_pg_attribute, ptr %114, i64 %115
+  %116 = getelementptr [100 x i8], ptr %114, i64 %115
   %117 = getelementptr i8, ptr %116, i64 115
   %118 = load i8, ptr %117, align 1, !range !6, !noundef !7
   %119 = trunc nuw i8 %118 to i1
@@ -1773,7 +1768,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %126 = shl nsw i64 %125, 4
   %127 = getelementptr i8, ptr %19, i64 %126
   %128 = sext i32 %.0178239 to i64
-  %129 = getelementptr %struct.FormData_pg_attribute, ptr %127, i64 %128
+  %129 = getelementptr [100 x i8], ptr %127, i64 %128
   %130 = getelementptr i8, ptr %129, i64 115
   %131 = load i8, ptr %130, align 1, !range !6, !noundef !7
   %132 = trunc nuw i8 %131 to i1
@@ -1793,9 +1788,9 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %140 = getelementptr i8, ptr %15, i64 %139
   %141 = getelementptr i8, ptr %140, i64 24
   %142 = sext i32 %.0175240 to i64
-  %143 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %141, i64 %142
+  %143 = getelementptr inbounds [100 x i8], ptr %141, i64 %142
   %144 = getelementptr i8, ptr %127, i64 24
-  %145 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %144, i64 %128
+  %145 = getelementptr inbounds [100 x i8], ptr %144, i64 %128
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 68
   %147 = load i32, ptr %146, align 4
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 68
@@ -1825,7 +1820,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %.not197 = icmp eq i32 %163, %165
   %spec.store.select = select i1 %.not197, i32 %163, i32 0
   %166 = sext i32 %.0181238 to i64
-  %167 = getelementptr inbounds %struct.ColumnCompareData, ptr %98, i64 %166
+  %167 = getelementptr inbounds [8 x i8], ptr %98, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %168, null
   br i1 %169, label %172, label %170
@@ -1878,11 +1873,11 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   store i32 %spec.store.select, ptr %100, align 8
   store i8 0, ptr %101, align 4
   store i16 2, ptr %102, align 2
-  %194 = getelementptr inbounds i64, ptr %89, i64 %142
+  %194 = getelementptr inbounds [8 x i8], ptr %89, i64 %142
   %195 = load i64, ptr %194, align 8
   store i64 %195, ptr %103, align 8
   store i8 0, ptr %104, align 8
-  %196 = getelementptr inbounds i64, ptr %93, i64 %128
+  %196 = getelementptr inbounds [8 x i8], ptr %93, i64 %128
   %197 = load i64, ptr %196, align 8
   store i64 %197, ptr %105, align 8
   store i8 0, ptr %106, align 8
@@ -2198,7 +2193,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %112 = shl nsw i64 %111, 4
   %113 = getelementptr i8, ptr %15, i64 %112
   %114 = sext i32 %.0175320 to i64
-  %115 = getelementptr %struct.FormData_pg_attribute, ptr %113, i64 %114
+  %115 = getelementptr [100 x i8], ptr %113, i64 %114
   %116 = getelementptr i8, ptr %115, i64 115
   %117 = load i8, ptr %116, align 1, !range !6, !noundef !7
   %118 = trunc nuw i8 %117 to i1
@@ -2217,7 +2212,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %125 = shl nsw i64 %124, 4
   %126 = getelementptr i8, ptr %19, i64 %125
   %127 = sext i32 %.0178319 to i64
-  %128 = getelementptr %struct.FormData_pg_attribute, ptr %126, i64 %127
+  %128 = getelementptr [100 x i8], ptr %126, i64 %127
   %129 = getelementptr i8, ptr %128, i64 115
   %130 = load i8, ptr %129, align 1, !range !6, !noundef !7
   %131 = trunc nuw i8 %130 to i1
@@ -2237,9 +2232,9 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %139 = getelementptr i8, ptr %15, i64 %138
   %140 = getelementptr i8, ptr %139, i64 24
   %141 = sext i32 %.0175320 to i64
-  %142 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %140, i64 %141
+  %142 = getelementptr inbounds [100 x i8], ptr %140, i64 %141
   %143 = getelementptr i8, ptr %126, i64 24
-  %144 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %143, i64 %127
+  %144 = getelementptr inbounds [100 x i8], ptr %143, i64 %127
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 68
   %146 = load i32, ptr %145, align 4
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 68
@@ -2269,7 +2264,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %.not197 = icmp eq i32 %162, %164
   %spec.store.select = select i1 %.not197, i32 %162, i32 0
   %165 = sext i32 %.0181318 to i64
-  %166 = getelementptr inbounds %struct.ColumnCompareData, ptr %95, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %95, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = icmp eq ptr %167, null
   br i1 %168, label %171, label %169
@@ -2330,11 +2325,11 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   store i32 %spec.store.select, ptr %97, align 8
   store i8 0, ptr %98, align 4
   store i16 2, ptr %99, align 2
-  %196 = getelementptr inbounds i64, ptr %89, i64 %141
+  %196 = getelementptr inbounds [8 x i8], ptr %89, i64 %141
   %197 = load i64, ptr %196, align 8
   store i64 %197, ptr %100, align 8
   store i8 0, ptr %101, align 8
-  %198 = getelementptr inbounds i64, ptr %93, i64 %127
+  %198 = getelementptr inbounds [8 x i8], ptr %93, i64 %127
   %199 = load i64, ptr %198, align 8
   store i64 %199, ptr %102, align 8
   store i8 0, ptr %103, align 8
@@ -2670,7 +2665,7 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   %102 = shl nsw i64 %101, 4
   %103 = getelementptr i8, ptr %14, i64 %102
   %104 = sext i32 %.0145197 to i64
-  %105 = getelementptr %struct.FormData_pg_attribute, ptr %103, i64 %104
+  %105 = getelementptr [100 x i8], ptr %103, i64 %104
   %106 = getelementptr i8, ptr %105, i64 115
   %107 = load i8, ptr %106, align 1, !range !6, !noundef !7
   %108 = trunc nuw i8 %107 to i1
@@ -2689,7 +2684,7 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   %115 = shl nsw i64 %114, 4
   %116 = getelementptr i8, ptr %18, i64 %115
   %117 = sext i32 %.0149196 to i64
-  %118 = getelementptr %struct.FormData_pg_attribute, ptr %116, i64 %117
+  %118 = getelementptr [100 x i8], ptr %116, i64 %117
   %119 = getelementptr i8, ptr %118, i64 115
   %120 = load i8, ptr %119, align 1, !range !6, !noundef !7
   %121 = trunc nuw i8 %120 to i1
@@ -2709,9 +2704,9 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   %129 = getelementptr i8, ptr %14, i64 %128
   %130 = getelementptr i8, ptr %129, i64 24
   %131 = sext i32 %.0145197 to i64
-  %132 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %130, i64 %131
+  %132 = getelementptr inbounds [100 x i8], ptr %130, i64 %131
   %133 = getelementptr i8, ptr %116, i64 24
-  %134 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %133, i64 %117
+  %134 = getelementptr inbounds [100 x i8], ptr %133, i64 %117
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 68
   %136 = load i32, ptr %135, align 4
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 68
@@ -2749,9 +2744,9 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captu
   br i1 %156, label %.thread177.thread, label %159
 
 159:                                              ; preds = %158
-  %160 = getelementptr inbounds i64, ptr %88, i64 %131
+  %160 = getelementptr inbounds [8 x i8], ptr %88, i64 %131
   %161 = load i64, ptr %160, align 8
-  %162 = getelementptr inbounds i64, ptr %92, i64 %117
+  %162 = getelementptr inbounds [8 x i8], ptr %92, i64 %117
   %163 = load i64, ptr %162, align 8
   %164 = getelementptr inbounds nuw i8, ptr %132, i64 82
   %165 = load i8, ptr %164, align 2, !range !6, !noundef !7
@@ -3044,7 +3039,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   %102 = shl nsw i64 %101, 4
   %103 = getelementptr i8, ptr %14, i64 %102
   %104 = sext i32 %.0188372 to i64
-  %105 = getelementptr %struct.FormData_pg_attribute, ptr %103, i64 %104
+  %105 = getelementptr [100 x i8], ptr %103, i64 %104
   %106 = getelementptr i8, ptr %105, i64 115
   %107 = load i8, ptr %106, align 1, !range !6, !noundef !7
   %108 = trunc nuw i8 %107 to i1
@@ -3063,7 +3058,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   %115 = shl nsw i64 %114, 4
   %116 = getelementptr i8, ptr %18, i64 %115
   %117 = sext i32 %.0191371 to i64
-  %118 = getelementptr %struct.FormData_pg_attribute, ptr %116, i64 %117
+  %118 = getelementptr [100 x i8], ptr %116, i64 %117
   %119 = getelementptr i8, ptr %118, i64 115
   %120 = load i8, ptr %119, align 1, !range !6, !noundef !7
   %121 = trunc nuw i8 %120 to i1
@@ -3083,7 +3078,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   %129 = getelementptr i8, ptr %14, i64 %128
   %130 = getelementptr i8, ptr %129, i64 24
   %131 = sext i32 %.0188372 to i64
-  %132 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %130, i64 %131
+  %132 = getelementptr inbounds [100 x i8], ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 68
   %134 = load i32, ptr %133, align 4
   %135 = getelementptr i8, ptr %118, i64 92
@@ -3127,9 +3122,9 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   br i1 %160, label %161, label %168
 
 161:                                              ; preds = %157
-  %162 = getelementptr inbounds i64, ptr %88, i64 %131
+  %162 = getelementptr inbounds [8 x i8], ptr %88, i64 %131
   %163 = load i64, ptr %162, align 8
-  %164 = getelementptr inbounds i64, ptr %92, i64 %117
+  %164 = getelementptr inbounds [8 x i8], ptr %92, i64 %117
   %165 = load i64, ptr %164, align 8
   %.not224 = icmp eq i64 %163, %165
   br i1 %.not224, label %.thread240.thread, label %166
@@ -3146,10 +3141,10 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   br i1 %171, label %172, label %181
 
 172:                                              ; preds = %168
-  %173 = getelementptr inbounds i64, ptr %88, i64 %131
+  %173 = getelementptr inbounds [8 x i8], ptr %88, i64 %131
   %174 = load i64, ptr %173, align 8
   %175 = inttoptr i64 %174 to ptr
-  %176 = getelementptr inbounds i64, ptr %92, i64 %117
+  %176 = getelementptr inbounds [8 x i8], ptr %92, i64 %117
   %177 = load i64, ptr %176, align 8
   %178 = inttoptr i64 %177 to ptr
   %179 = zext nneg i16 %170 to i64
@@ -3161,10 +3156,10 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readon
   br i1 %182, label %183, label %213
 
 183:                                              ; preds = %181
-  %184 = getelementptr inbounds i64, ptr %88, i64 %131
+  %184 = getelementptr inbounds [8 x i8], ptr %88, i64 %131
   %185 = load i64, ptr %184, align 8
   %186 = call i64 @toast_raw_datum_size(i64 noundef %185) #11
-  %187 = getelementptr inbounds i64, ptr %92, i64 %117
+  %187 = getelementptr inbounds [8 x i8], ptr %92, i64 %117
   %188 = load i64, ptr %187, align 8
   %189 = call i64 @toast_raw_datum_size(i64 noundef %188) #11
   %190 = load i64, ptr %184, align 8
@@ -3500,14 +3495,14 @@ define dso_local range(i64 0, 4294967296) i64 @hash_record(ptr noundef readonly 
   %81 = shl nsw i64 %80, 4
   %82 = getelementptr i8, ptr %10, i64 %81
   %83 = getelementptr i8, ptr %82, i64 24
-  %84 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [100 x i8], ptr %83, i64 %indvars.iv
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 91
   %86 = load i8, ptr %85, align 1, !range !6, !noundef !7
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %124, label %88
 
 88:                                               ; preds = %78
-  %89 = getelementptr inbounds nuw %struct.ColumnCompareData, ptr %67, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %._crit_edge118, label %92
@@ -3562,7 +3557,7 @@ define dso_local range(i64 0, 4294967296) i64 @hash_record(ptr noundef readonly 
   store i32 %115, ptr %69, align 8
   store i8 0, ptr %70, align 4
   store i16 1, ptr %71, align 2
-  %116 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %117 = load i64, ptr %116, align 8
   store i64 %117, ptr %72, align 8
   store i8 0, ptr %73, align 8
@@ -3764,14 +3759,14 @@ define dso_local i64 @hash_record_extended(ptr noundef readonly captures(none) %
   %83 = shl nsw i64 %82, 4
   %84 = getelementptr i8, ptr %12, i64 %83
   %85 = getelementptr i8, ptr %84, i64 24
-  %86 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [100 x i8], ptr %85, i64 %indvars.iv
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 91
   %88 = load i8, ptr %87, align 1, !range !6, !noundef !7
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %125, label %90
 
 90:                                               ; preds = %80
-  %91 = getelementptr inbounds nuw %struct.ColumnCompareData, ptr %69, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %._crit_edge122, label %94
@@ -3826,7 +3821,7 @@ define dso_local i64 @hash_record_extended(ptr noundef readonly captures(none) %
   store i32 %117, ptr %71, align 8
   store i8 0, ptr %72, align 4
   store i16 2, ptr %73, align 2
-  %118 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   %119 = load i64, ptr %118, align 8
   store i64 %119, ptr %74, align 8
   store i64 %9, ptr %76, align 8

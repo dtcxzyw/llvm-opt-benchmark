@@ -3,10 +3,6 @@ source_filename = "bench/llvm/original/RISCVConstantPoolValue.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::MachineConstantPoolEntry" = type <{ %union.anon, %"struct.llvm::Align", i8, [6 x i8] }>
-%union.anon = type { ptr }
-%"struct.llvm::Align" = type { i8 }
-
 $_ZN4llvm24MachineConstantPoolValueD2Ev = comdat any
 
 $_ZN4llvm22RISCVConstantPoolValueD0Ev = comdat any
@@ -107,7 +103,7 @@ define dso_local noundef i32 @_ZN4llvm22RISCVConstantPoolValue25getExistingMachi
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.thread.us
   %indvars.iv60 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next61, %.thread.us ]
-  %19 = getelementptr inbounds nuw %"class.llvm::MachineConstantPoolEntry", ptr %7, i64 %indvars.iv60
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv60
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 9
   %21 = load i8, ptr %20, align 1, !tbaa !30, !range !34, !noundef !35
   %22 = trunc nuw i8 %21 to i1
@@ -144,7 +140,7 @@ define dso_local noundef i32 @_ZN4llvm22RISCVConstantPoolValue25getExistingMachi
 
 .lr.ph.split.us38.split.us:                       ; preds = %.lr.ph.split.us38, %.thread.us42.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.thread.us42.us ], [ 0, %.lr.ph.split.us38 ]
-  %36 = getelementptr inbounds nuw %"class.llvm::MachineConstantPoolEntry", ptr %7, i64 %indvars.iv57
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv57
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 9
   %38 = load i8, ptr %37, align 1, !tbaa !30, !range !34, !noundef !35
   %39 = trunc nuw i8 %38 to i1
@@ -176,7 +172,7 @@ define dso_local noundef i32 @_ZN4llvm22RISCVConstantPoolValue25getExistingMachi
 
 .lr.ph.split.us38.split:                          ; preds = %.lr.ph.split.us38, %.thread.us42
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.us42 ], [ 0, %.lr.ph.split.us38 ]
-  %48 = getelementptr inbounds nuw %"class.llvm::MachineConstantPoolEntry", ptr %7, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 9
   %50 = load i8, ptr %49, align 1, !tbaa !30, !range !34, !noundef !35
   %51 = trunc nuw i8 %50 to i1
@@ -316,7 +312,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %15, %6
   %19 = phi i32 [ %12, %6 ], [ %.pre.i.i.i.i.i, %15 ]
   %20 = load ptr, ptr %1, align 8, !tbaa !43
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 %10, ptr %22, align 1
   %23 = load i32, ptr %11, align 8, !tbaa !39
   %24 = add i32 %23, 1
@@ -339,7 +335,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %32 = trunc nuw i64 %31 to i32
   %33 = load ptr, ptr %1, align 8, !tbaa !43
   %34 = zext i32 %30 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   store i32 %32, ptr %35, align 1
   %36 = load i32, ptr %11, align 8, !tbaa !39
   %37 = add i32 %36, 1

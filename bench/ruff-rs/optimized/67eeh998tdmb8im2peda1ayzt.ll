@@ -1747,7 +1747,7 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17
   %24 = load i64, ptr %23, align 8, !noundef !6
   %.not12 = icmp eq i64 %24, 0
   %25 = load ptr, ptr %1, align 8, !nonnull !6, !align !142
-  %26 = getelementptr { i32, i32 }, ptr %25, i64 %24
+  %26 = getelementptr [8 x i8], ptr %25, i64 %24
   %27 = getelementptr i8, ptr %26, i64 -8
   %.val = load i32, ptr %12, align 4
   %.not.i23 = icmp eq ptr %27, null

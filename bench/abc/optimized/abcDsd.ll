@@ -111,7 +111,7 @@ Vec_PtrAlloc.exit:                                ; preds = %4, %11
   %.val5469 = phi ptr [ %.val54, %Vec_PtrPush.exit ], [ %.val, %Vec_PtrAlloc.exit ]
   %20 = getelementptr i8, ptr %.val5469, i64 8
   %.val56.val = load ptr, ptr %20, align 8, !tbaa !28
-  %21 = getelementptr inbounds nuw ptr, ptr %.val56.val, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val56.val, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   %.val57 = load ptr, ptr %22, align 8, !tbaa !30
   %23 = getelementptr i8, ptr %22, i64 16
@@ -156,7 +156,7 @@ Vec_PtrAlloc.exit:                                ; preds = %4, %11
   %44 = phi ptr [ %39, %38 ], [ %41, %40 ]
   store ptr %44, ptr %34, align 8, !tbaa !37
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %44, i64 %45
   %47 = sub nsw i32 %32, %43
   %48 = sext i32 %47 to i64
   %49 = shl nsw i64 %48, 3
@@ -168,7 +168,7 @@ Vec_AttGrow.exit.i.i:                             ; preds = %42, %28, %.lr.ph
   %50 = getelementptr inbounds nuw i8, ptr %.val57.val.val.val, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !37
   %52 = sext i32 %.val58 to i64
-  %53 = getelementptr inbounds ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !29
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %Abc_ObjGlobalBdd.exit
@@ -184,10 +184,10 @@ Vec_AttGrow.exit.i.i:                             ; preds = %42, %28, %.lr.ph
   %61 = load ptr, ptr %60, align 8, !tbaa !39
   %62 = tail call ptr %58(ptr noundef %61) #10
   %63 = load ptr, ptr %50, align 8, !tbaa !37
-  %64 = getelementptr inbounds ptr, ptr %63, i64 %52
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %52
   store ptr %62, ptr %64, align 8, !tbaa !29
   %.pre.i.i = load ptr, ptr %50, align 8, !tbaa !37
-  %.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %52
+  %.phi.trans.insert.i.i = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %52
   %.pre19.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !29
   br label %Abc_ObjGlobalBdd.exit
 
@@ -258,7 +258,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %95 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %93, %92 ], [ %82, %Vec_PtrGrow.exit.i ]
   %96 = add nuw nsw i32 %19, 1
   %97 = zext nneg i32 %19 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %97
   store ptr %72, ptr %98, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val54 = load ptr, ptr %6, align 8, !tbaa !24
@@ -340,7 +340,7 @@ Vec_PtrFree.exit64:                               ; preds = %113, %115
   %.val4152.i = phi ptr [ %.val41.i, %.lr.ph.i ], [ %.val4149.i, %Vec_PtrFree.exit64 ]
   %131 = getelementptr i8, ptr %.val4152.i, i64 8
   %.val42.val.i = load ptr, ptr %131, align 8, !tbaa !28
-  %132 = getelementptr inbounds nuw ptr, ptr %.val42.val.i, i64 %indvars.iv.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %.val42.val.i, i64 %indvars.iv.i
   %133 = load ptr, ptr %132, align 8, !tbaa !29
   %134 = trunc nuw nsw i64 %indvars.iv.i to i32
   %135 = tail call ptr @Dsd_ManagerReadInput(ptr noundef nonnull %108, i32 noundef %134) #10
@@ -364,7 +364,7 @@ Vec_PtrFree.exit64:                               ; preds = %113, %115
 
 .lr.ph54.i:                                       ; preds = %.critedge.i, %.lr.ph54.i
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.lr.ph54.i ], [ 0, %.critedge.i ]
-  %145 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv62.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv62.i
   %146 = load ptr, ptr %145, align 8, !tbaa !61
   %147 = call fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef nonnull %108, ptr noundef %146, ptr noundef nonnull %117, ptr noundef null)
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
@@ -393,7 +393,7 @@ Vec_PtrFree.exit64:                               ; preds = %113, %115
   %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %178 ], [ 0, %151 ]
   %154 = getelementptr i8, ptr %.val68.i, i64 8
   %.val40.val.i = load ptr, ptr %154, align 8, !tbaa !28
-  %155 = getelementptr inbounds nuw ptr, ptr %.val40.val.i, i64 %indvars.iv65.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %.val40.val.i, i64 %indvars.iv65.i
   %156 = load ptr, ptr %155, align 8, !tbaa !29
   %.val43.i = load ptr, ptr %156, align 8, !tbaa !30
   %157 = getelementptr i8, ptr %156, i64 32
@@ -404,7 +404,7 @@ Vec_PtrFree.exit64:                               ; preds = %113, %115
   %159 = getelementptr i8, ptr %.val43.val.i, i64 8
   %.val43.val.val.i = load ptr, ptr %159, align 8, !tbaa !28
   %160 = sext i32 %.val44.val.i to i64
-  %161 = getelementptr inbounds ptr, ptr %.val43.val.val.i, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %.val43.val.val.i, i64 %160
   %162 = load ptr, ptr %161, align 8, !tbaa !29
   %163 = getelementptr i8, ptr %162, i64 20
   %.val45.i = load i32, ptr %163, align 4
@@ -530,7 +530,7 @@ define range(i32 0, 2) i32 @Abc_NtkDsdLocal(ptr noundef %0, i32 noundef %1, i32 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %60 ], [ 0, %3 ]
   %23 = getelementptr i8, ptr %20, i64 8
   %.val13.val.i = load ptr, ptr %23, align 8, !tbaa !28
-  %24 = getelementptr inbounds nuw ptr, ptr %.val13.val.i, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val13.val.i, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8, !tbaa !29
   %26 = icmp eq ptr %25, null
   br i1 %26, label %60, label %27
@@ -607,7 +607,7 @@ Vec_PtrPush.exit.i:                               ; preds = %53, %Vec_PtrGrow.ex
   %57 = add nsw i32 %22, 1
   store i32 %57, ptr %13, align 4, !tbaa !25
   %58 = sext i32 %22 to i64
-  %59 = getelementptr inbounds ptr, ptr %56, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %56, i64 %58
   store ptr %25, ptr %59, align 8, !tbaa !29
   %.pre.i = load ptr, ptr %16, align 8, !tbaa !65
   br label %60
@@ -635,7 +635,7 @@ Abc_NtkCollectNodesForDsd.exit:                   ; preds = %60
   %69 = phi i32 [ %63, %.lr.ph ], [ %248, %Abc_NodeDecompDsdAndMux.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_NodeDecompDsdAndMux.exit ]
   %70 = load ptr, ptr %15, align 8, !tbaa !28
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !29
   %73 = load ptr, ptr %72, align 8, !tbaa !30
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 256
@@ -680,10 +680,10 @@ Abc_NtkCollectNodesForDsd.exit:                   ; preds = %60
   %.val93.val.i = load ptr, ptr %91, align 8, !tbaa !65
   %92 = getelementptr i8, ptr %.val93.val.i, i64 8
   %.val93.val.val.i = load ptr, ptr %92, align 8, !tbaa !28
-  %93 = getelementptr inbounds nuw i32, ptr %.val94.i, i64 %indvars.iv.i33
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.val94.i, i64 %indvars.iv.i33
   %94 = load i32, ptr %93, align 4, !tbaa !60
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds ptr, ptr %.val93.val.val.i, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %.val93.val.val.i, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !29
   %98 = trunc nuw nsw i64 %indvars.iv.i33 to i32
   %99 = call ptr @Dsd_ManagerReadInput(ptr noundef %11, i32 noundef %98) #10
@@ -706,7 +706,7 @@ Abc_NtkCollectNodesForDsd.exit:                   ; preds = %60
 
 .lr.ph116.split.us.i:                             ; preds = %.lr.ph116.i, %.lr.ph116.split.us.i
   %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %.lr.ph116.split.us.i ], [ 0, %.lr.ph116.i ]
-  %106 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv124.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv124.i
   %107 = load ptr, ptr %106, align 8, !tbaa !61
   %108 = load ptr, ptr %72, align 8, !tbaa !30
   %109 = call fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %11, ptr noundef %107, ptr noundef %108, ptr noundef nonnull %5)
@@ -719,7 +719,7 @@ Abc_NtkCollectNodesForDsd.exit:                   ; preds = %60
 .lr.ph116.split.i:                                ; preds = %.lr.ph116.i, %147
   %113 = phi i32 [ %148, %147 ], [ %69, %.lr.ph116.i ]
   %indvars.iv121.i = phi i64 [ %indvars.iv.next122.i, %147 ], [ 0, %.lr.ph116.i ]
-  %114 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv121.i
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv121.i
   %115 = load ptr, ptr %114, align 8, !tbaa !61
   %116 = load ptr, ptr %72, align 8, !tbaa !30
   %117 = call fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %11, ptr noundef %115, ptr noundef %116, ptr noundef nonnull %5)
@@ -787,7 +787,7 @@ Vec_PtrPush.exit.i28:                             ; preds = %141, %Vec_PtrGrow.e
   %144 = add nsw i32 %113, 1
   store i32 %144, ptr %13, align 4, !tbaa !25
   %145 = sext i32 %113 to i64
-  %146 = getelementptr inbounds ptr, ptr %143, i64 %145
+  %146 = getelementptr inbounds [8 x i8], ptr %143, i64 %145
   store ptr %117, ptr %146, align 8, !tbaa !29
   br label %147
 
@@ -840,7 +840,7 @@ Vec_PtrPush.exit.i28:                             ; preds = %141, %Vec_PtrGrow.e
   %.034.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %spec.select31.i.i, %164 ]
   %.02733.i.i = phi i32 [ 1000000, %.lr.ph.i.i ], [ %spec.select.i.i, %164 ]
   %165 = load ptr, ptr %163, align 8, !tbaa !72
-  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv.i.i
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %indvars.iv.i.i
   %167 = load ptr, ptr %166, align 8, !tbaa !73
   %168 = ptrtoint ptr %167 to i64
   %169 = xor i64 %168, 1
@@ -875,16 +875,16 @@ Abc_NodeFindMuxVar.exit.i:                        ; preds = %Abc_NodeFindMuxVar.
   %.val95.val.i = load ptr, ptr %180, align 8, !tbaa !65
   %181 = getelementptr i8, ptr %.val95.val.i, i64 8
   %.val95.val.val.i = load ptr, ptr %181, align 8, !tbaa !28
-  %182 = getelementptr inbounds i32, ptr %.val96.i, i64 %.0.lcssa.i.i
+  %182 = getelementptr inbounds [4 x i8], ptr %.val96.i, i64 %.0.lcssa.i.i
   %183 = load i32, ptr %182, align 4, !tbaa !60
   %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds ptr, ptr %.val95.val.val.i, i64 %184
+  %185 = getelementptr inbounds [8 x i8], ptr %.val95.val.val.i, i64 %184
   %186 = load ptr, ptr %185, align 8, !tbaa !29
   %187 = call ptr @Abc_NtkCloneObj(ptr noundef nonnull %72) #10
   %188 = load ptr, ptr %76, align 8, !tbaa !58
   %189 = getelementptr inbounds nuw i8, ptr %75, i64 344
   %190 = load ptr, ptr %189, align 8, !tbaa !72
-  %191 = getelementptr inbounds ptr, ptr %190, i64 %.0.lcssa.i.i
+  %191 = getelementptr inbounds [8 x i8], ptr %190, i64 %.0.lcssa.i.i
   %192 = load ptr, ptr %191, align 8, !tbaa !73
   %193 = ptrtoint ptr %192 to i64
   %194 = xor i64 %193, 1
@@ -921,7 +921,7 @@ Vec_PtrPush.exit104.i:                            ; preds = %Vec_PtrPush.exit104
   %210 = add nsw i32 %69, 1
   store i32 %210, ptr %13, align 4, !tbaa !25
   %211 = sext i32 %69 to i64
-  %212 = getelementptr inbounds ptr, ptr %209, i64 %211
+  %212 = getelementptr inbounds [8 x i8], ptr %209, i64 %211
   store ptr %187, ptr %212, align 8, !tbaa !29
   br label %213
 
@@ -931,7 +931,7 @@ Vec_PtrPush.exit104.i:                            ; preds = %Vec_PtrPush.exit104
   %216 = call ptr @Abc_NtkCloneObj(ptr noundef nonnull %72) #10
   %217 = load ptr, ptr %76, align 8, !tbaa !58
   %218 = load ptr, ptr %189, align 8, !tbaa !72
-  %219 = getelementptr inbounds ptr, ptr %218, i64 %.0.lcssa.i.i
+  %219 = getelementptr inbounds [8 x i8], ptr %218, i64 %.0.lcssa.i.i
   %220 = load ptr, ptr %219, align 8, !tbaa !73
   %221 = call ptr @Cudd_Cofactor(ptr noundef nonnull %75, ptr noundef %217, ptr noundef %220) #10
   %222 = getelementptr inbounds nuw i8, ptr %216, i64 56
@@ -965,7 +965,7 @@ Vec_PtrPush.exit112.i:                            ; preds = %Vec_PtrPush.exit112
   %235 = add nsw i32 %214, 1
   store i32 %235, ptr %13, align 4, !tbaa !25
   %236 = sext i32 %214 to i64
-  %237 = getelementptr inbounds ptr, ptr %234, i64 %236
+  %237 = getelementptr inbounds [8 x i8], ptr %234, i64 %236
   store ptr %216, ptr %237, align 8, !tbaa !29
   br label %238
 
@@ -1016,7 +1016,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %252
 
 254:                                              ; preds = %253, %254
   %indvars.iv43 = phi i64 [ 3, %253 ], [ %indvars.iv.next44, %254 ]
-  %255 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv43
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv43
   %256 = load i32, ptr %255, align 4, !tbaa !60
   %257 = trunc nuw nsw i64 %indvars.iv43 to i32
   %258 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %257, i32 noundef %256)
@@ -1073,7 +1073,7 @@ define noundef ptr @Extra_bddComputeSum(ptr noundef %0, ptr noundef readonly cap
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01314 = phi ptr [ %8, %.lr.ph.preheader ], [ %12, %.lr.ph ]
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !73
   %12 = tail call ptr @Cudd_bddOr(ptr noundef nonnull %0, ptr noundef %.01314, ptr noundef %11) #10
   tail call void @Cudd_Ref(ptr noundef %12) #10
@@ -1114,7 +1114,7 @@ define noundef ptr @Abc_NtkSparsifyInternalOne(ptr noundef %0, ptr noundef %1, i
 
 16:                                               ; preds = %4, %16
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !73
   tail call void @Cudd_Ref(ptr noundef %18) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1133,7 +1133,7 @@ define noundef ptr @Abc_NtkSparsifyInternalOne(ptr noundef %0, ptr noundef %1, i
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %19
   %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01314.i = phi ptr [ %24, %19 ], [ %27, %.lr.ph.i ]
-  %25 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8, !tbaa !73
   %27 = tail call ptr @Cudd_bddOr(ptr noundef nonnull %0, ptr noundef %.01314.i, ptr noundef %26) #10
   tail call void @Cudd_Ref(ptr noundef %27) #10
@@ -1149,7 +1149,7 @@ Extra_bddComputeSum.exit:                         ; preds = %.lr.ph.i
 
 28:                                               ; preds = %Extra_bddComputeSum.exit, %28
   %indvars.iv33 = phi i64 [ 0, %Extra_bddComputeSum.exit ], [ %indvars.iv.next34, %28 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv33
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv33
   %30 = load ptr, ptr %29, align 8, !tbaa !73
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %30) #10
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
@@ -1184,7 +1184,7 @@ define ptr @Abc_NtkSparsifyInternal(ptr noundef readonly captures(none) %0, i32 
   %.val97113 = phi ptr [ %.val97, %.lr.ph ], [ %.val97110, %3 ]
   %8 = getelementptr i8, ptr %.val97113, i64 8
   %.val99.val = load ptr, ptr %8, align 8, !tbaa !28
-  %9 = getelementptr inbounds nuw ptr, ptr %.val99.val, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val99.val, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = tail call ptr @Abc_NtkDupObj(ptr noundef %4, ptr noundef %10, i32 noundef 1) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1225,7 +1225,7 @@ define ptr @Abc_NtkSparsifyInternal(ptr noundef readonly captures(none) %0, i32 
   %.val121 = phi ptr [ %.val, %.loopexit ], [ %.val118, %.critedge ]
   %31 = getelementptr i8, ptr %.val121, i64 8
   %.val92.val = load ptr, ptr %31, align 8, !tbaa !28
-  %32 = getelementptr inbounds nuw ptr, ptr %.val92.val, i64 %indvars.iv131
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.val92.val, i64 %indvars.iv131
   %33 = load ptr, ptr %32, align 8, !tbaa !29
   %.val100 = load ptr, ptr %33, align 8, !tbaa !30
   %34 = getelementptr i8, ptr %33, i64 32
@@ -1236,7 +1236,7 @@ define ptr @Abc_NtkSparsifyInternal(ptr noundef readonly captures(none) %0, i32 
   %36 = getelementptr i8, ptr %.val100.val, i64 8
   %.val100.val.val = load ptr, ptr %36, align 8, !tbaa !28
   %37 = sext i32 %.val101.val to i64
-  %38 = getelementptr inbounds ptr, ptr %.val100.val.val, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val100.val.val, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !29
   %40 = getelementptr i8, ptr %39, i64 20
   %.val107 = load i32, ptr %40, align 4
@@ -1351,10 +1351,10 @@ define ptr @Abc_NtkSparsifyInternal(ptr noundef readonly captures(none) %0, i32 
   %.val105.val = load ptr, ptr %101, align 8, !tbaa !65
   %102 = getelementptr i8, ptr %.val105.val, i64 8
   %.val105.val.val = load ptr, ptr %102, align 8, !tbaa !28
-  %103 = getelementptr inbounds nuw i32, ptr %.val106, i64 %indvars.iv125
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %.val106, i64 %indvars.iv125
   %104 = load i32, ptr %103, align 4, !tbaa !60
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds ptr, ptr %.val105.val.val, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %.val105.val.val, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !29
   %108 = load ptr, ptr %72, align 8, !tbaa !58
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 64
@@ -1544,7 +1544,7 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
   %30 = trunc nuw nsw i64 %indvars.iv83 to i32
   %31 = tail call ptr @Dsd_NodeReadDec(ptr noundef %1, i32 noundef %30) #10
   %32 = load ptr, ptr %28, align 8, !tbaa !72
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv83
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv83
   %34 = load ptr, ptr %33, align 8, !tbaa !73
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %31 to i64
@@ -1576,7 +1576,7 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next, %48 ]
   %.26570 = phi ptr [ %46, %.lr.ph73 ], [ %52, %48 ]
   %49 = load ptr, ptr %47, align 8, !tbaa !72
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !73
   %52 = tail call ptr @Cudd_bddXor(ptr noundef nonnull %18, ptr noundef %.26570, ptr noundef %51) #10
   tail call void @Cudd_Ref(ptr noundef %52) #10
@@ -1595,7 +1595,7 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
 
 56:                                               ; preds = %54
   %57 = sext i32 %9 to i64
-  %58 = getelementptr inbounds i32, ptr %3, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %3, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !60
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 4, !tbaa !60

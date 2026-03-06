@@ -507,12 +507,12 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
 48:                                               ; preds = %.lr.ph, %48
   %.07183 = phi i64 [ 0, %.lr.ph ], [ %56, %48 ]
   %49 = mul i64 %44, %.07183
-  %50 = getelementptr inbounds nuw float, ptr %0, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %49
   %51 = add i64 %.07183, %46
   %52 = mul i64 %51, %45
   %53 = add i64 %52, %47
   %54 = mul i64 %53, %2
-  %55 = getelementptr inbounds nuw float, ptr %1, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %54
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %50, ptr align 4 %55, i64 %42, i1 false)
   %56 = add nuw i64 %.07183, 1
   %exitcond.not = icmp eq i64 %56, %43
@@ -617,10 +617,10 @@ define void @dt_iop_image_scaled_copy(ptr noalias noundef writeonly captures(non
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.010 = phi i64 [ %13, %.lr.ph ], [ 0, %6 ]
-  %9 = getelementptr inbounds nuw float, ptr %1, i64 %.010
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.010
   %10 = load float, ptr %9, align 4, !tbaa !32
   %11 = fmul reassoc nsz arcp contract afn float %10, %2
-  %12 = getelementptr inbounds nuw float, ptr %0, i64 %.010
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.010
   store float %11, ptr %12, align 4, !tbaa !32
   %13 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %13, %8
@@ -645,7 +645,7 @@ define void @dt_iop_image_fill(ptr noundef writeonly captures(none) %0, float no
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.012 = phi i64 [ %12, %.lr.ph ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw float, ptr %0, i64 %.012
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.012
   store float %1, ptr %11, align 4, !tbaa !32
   %12 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %12, %7
@@ -667,7 +667,7 @@ define void @dt_iop_image_add_const(ptr noundef captures(none) %0, float noundef
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.08 = phi i64 [ %11, %.lr.ph ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw float, ptr %0, i64 %.08
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08
   %9 = load float, ptr %8, align 4, !tbaa !32
   %10 = fadd reassoc nsz arcp contract afn float %9, %1
   store float %10, ptr %8, align 4, !tbaa !32
@@ -688,9 +688,9 @@ define void @dt_iop_image_add_image(ptr noundef captures(none) %0, ptr noundef r
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.09 = phi i64 [ %13, %.lr.ph ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw float, ptr %1, i64 %.09
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.09
   %9 = load float, ptr %8, align 4, !tbaa !32
-  %10 = getelementptr inbounds nuw float, ptr %0, i64 %.09
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.09
   %11 = load float, ptr %10, align 4, !tbaa !32
   %12 = fadd reassoc nsz arcp contract afn float %11, %9
   store float %12, ptr %10, align 4, !tbaa !32
@@ -711,9 +711,9 @@ define void @dt_iop_image_sub_image(ptr noundef captures(none) %0, ptr noundef r
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.09 = phi i64 [ %13, %.lr.ph ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw float, ptr %1, i64 %.09
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.09
   %9 = load float, ptr %8, align 4, !tbaa !32
-  %10 = getelementptr inbounds nuw float, ptr %0, i64 %.09
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.09
   %11 = load float, ptr %10, align 4, !tbaa !32
   %12 = fsub reassoc nsz arcp contract afn float %11, %9
   store float %12, ptr %10, align 4, !tbaa !32
@@ -734,7 +734,7 @@ define void @dt_iop_image_invert(ptr noundef captures(none) %0, float noundef %1
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.010 = phi i64 [ %11, %.lr.ph ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw float, ptr %0, i64 %.010
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.010
   %9 = load float, ptr %8, align 4, !tbaa !32
   %10 = fsub reassoc nsz arcp contract afn float %1, %9
   store float %10, ptr %8, align 4, !tbaa !32
@@ -755,7 +755,7 @@ define void @dt_iop_image_mul_const(ptr noundef captures(none) %0, float noundef
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.08 = phi i64 [ %11, %.lr.ph ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw float, ptr %0, i64 %.08
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08
   %9 = load float, ptr %8, align 4, !tbaa !32
   %10 = fmul reassoc nsz arcp contract afn float %9, %1
   store float %10, ptr %8, align 4, !tbaa !32
@@ -780,7 +780,7 @@ define void @dt_iop_image_div_const(ptr noundef captures(none) %0, float noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.08 = phi i64 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %9 = getelementptr inbounds nuw float, ptr %0, i64 %.08
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08
   %10 = load float, ptr %9, align 4, !tbaa !32
   %11 = fmul reassoc nsz arcp contract afn float %10, %8
   store float %11, ptr %9, align 4, !tbaa !32
@@ -801,9 +801,9 @@ define void @dt_iop_image_linear_blend(ptr noalias noundef captures(none) %0, fl
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.014 = phi i64 [ %16, %.lr.ph ], [ 0, %6 ]
-  %9 = getelementptr inbounds nuw float, ptr %0, i64 %.014
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.014
   %10 = load float, ptr %9, align 4, !tbaa !32
-  %11 = getelementptr inbounds nuw float, ptr %2, i64 %.014
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.014
   %12 = load float, ptr %11, align 4, !tbaa !32
   %13 = fsub reassoc nsz arcp contract afn float %10, %12
   %14 = fmul reassoc nsz arcp contract afn float %13, %1

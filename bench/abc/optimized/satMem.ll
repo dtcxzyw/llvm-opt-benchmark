@@ -80,7 +80,7 @@ define void @Sat_MmFixedStop(ptr noundef captures(address_is_null) %0, i32 nound
   %26 = phi i32 [ %34, %33 ], [ %23, %21 ]
   %27 = phi ptr [ %35, %33 ], [ %.pre, %21 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %21 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %.not27 = icmp eq ptr %29, null
   br i1 %.not27, label %33, label %30
@@ -88,7 +88,7 @@ define void @Sat_MmFixedStop(ptr noundef captures(address_is_null) %0, i32 nound
 30:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %29) #16
   %31 = load ptr, ptr %25, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   store ptr null, ptr %32, align 8, !tbaa !19
   %.pre30 = load i32, ptr %22, align 8, !tbaa !12
   br label %33
@@ -202,7 +202,7 @@ define noundef ptr @Sat_MmFixedEntryFetch(ptr noundef captures(none) %0) local_u
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %8, align 8, !tbaa !12
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   store ptr %31, ptr %46, align 8, !tbaa !19
   %47 = load i32, ptr %4, align 4, !tbaa !22
   %48 = add nsw i32 %47, %28
@@ -264,7 +264,7 @@ define void @Sat_MmFixedRestart(ptr noundef captures(none) %0) local_unnamed_add
   %7 = phi i32 [ %15, %14 ], [ %3, %.preheader ]
   %8 = phi ptr [ %16, %14 ], [ %.pre, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 1, %.preheader ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
@@ -272,7 +272,7 @@ define void @Sat_MmFixedRestart(ptr noundef captures(none) %0) local_unnamed_add
 11:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %10) #16
   %12 = load ptr, ptr %6, align 8, !tbaa !13
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr null, ptr %13, align 8, !tbaa !19
   %.pre39 = load i32, ptr %2, align 8, !tbaa !12
   br label %14
@@ -384,7 +384,7 @@ define void @Sat_MmFlexStop(ptr noundef captures(address_is_null) %0, i32 nounde
   %22 = phi i32 [ %30, %29 ], [ %19, %17 ]
   %23 = phi ptr [ %31, %29 ], [ %.pre, %17 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %17 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %.not24 = icmp eq ptr %25, null
   br i1 %.not24, label %29, label %26
@@ -392,7 +392,7 @@ define void @Sat_MmFlexStop(ptr noundef captures(address_is_null) %0, i32 nounde
 26:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %25) #16
   %27 = load ptr, ptr %21, align 8, !tbaa !30
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store ptr null, ptr %28, align 8, !tbaa !19
   %.pre27 = load i32, ptr %18, align 8, !tbaa !31
   br label %29
@@ -497,7 +497,7 @@ define ptr @Sat_MmFlexEntryFetch(ptr noundef captures(none) %0, i32 noundef %1) 
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %13, align 8, !tbaa !31
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   store ptr %39, ptr %50, align 8, !tbaa !19
   %.pre = load ptr, ptr %3, align 8, !tbaa !36
   %.pre35 = sext i32 %1 to i64
@@ -564,7 +564,7 @@ Sat_MmFixedStart.exit:                            ; preds = %Sat_MmFixedStart.ex
   store i32 0, ptr %18, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 52
   store i32 0, ptr %19, align 4, !tbaa !15
-  %20 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %calloc.i, ptr %20, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -597,7 +597,7 @@ Sat_MmFixedStart.exit:                            ; preds = %Sat_MmFixedStart.ex
 
 29:                                               ; preds = %._crit_edge, %29
   %indvars.iv48 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next49, %29 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv48
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv48
   store ptr %21, ptr %30, align 8, !tbaa !42
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 5
@@ -612,7 +612,7 @@ Sat_MmFixedStart.exit:                            ; preds = %Sat_MmFixedStart.ex
   br i1 %.not40.not, label %.lr.ph, label %._crit_edge43
 
 .lr.ph:                                           ; preds = %.lr.ph45
-  %34 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv56
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv56
   %35 = load ptr, ptr %34, align 8, !tbaa !42
   %36 = or disjoint i32 %32, 1
   %37 = sext i32 %36 to i64
@@ -621,7 +621,7 @@ Sat_MmFixedStart.exit:                            ; preds = %Sat_MmFixedStart.ex
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv52 = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next53, %39 ]
-  %40 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv52
+  %40 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv52
   store ptr %35, ptr %40, align 8, !tbaa !42
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next53 to i32
@@ -663,7 +663,7 @@ define void @Sat_MmStepStop(ptr noundef captures(none) %0, i32 noundef %1) local
   %9 = phi i32 [ %17, %16 ], [ %6, %.preheader ]
   %10 = phi ptr [ %18, %16 ], [ %.pre, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %.not33 = icmp eq ptr %12, null
   br i1 %.not33, label %16, label %13
@@ -671,7 +671,7 @@ define void @Sat_MmStepStop(ptr noundef captures(none) %0, i32 noundef %1) local
 13:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %12) #16
   %14 = load ptr, ptr %8, align 8, !tbaa !52
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store ptr null, ptr %15, align 8, !tbaa !19
   %.pre43 = load i32, ptr %5, align 4, !tbaa !51
   br label %16
@@ -707,7 +707,7 @@ define void @Sat_MmStepStop(ptr noundef captures(none) %0, i32 noundef %1) local
 27:                                               ; preds = %.lr.ph37, %27
   %indvars.iv40 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next41, %27 ]
   %28 = load ptr, ptr %26, align 8, !tbaa !41
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv40
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv40
   %30 = load ptr, ptr %29, align 8, !tbaa !42
   tail call void @Sat_MmFixedStop(ptr noundef %30, i32 noundef %1)
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
@@ -764,7 +764,7 @@ define void @Sat_MmStepRestart(ptr noundef captures(none) %0) local_unnamed_addr
   %9 = phi i32 [ %5, %.lr.ph ], [ %17, %16 ]
   %10 = phi ptr [ %.pre, %.lr.ph ], [ %18, %16 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %16, label %13
@@ -772,7 +772,7 @@ define void @Sat_MmStepRestart(ptr noundef captures(none) %0) local_unnamed_addr
 13:                                               ; preds = %8
   tail call void @free(ptr noundef nonnull %12) #16
   %14 = load ptr, ptr %7, align 8, !tbaa !52
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store ptr null, ptr %15, align 8, !tbaa !19
   %.pre29 = load i32, ptr %4, align 4, !tbaa !51
   br label %16
@@ -802,7 +802,7 @@ define void @Sat_MmStepRestart(ptr noundef captures(none) %0) local_unnamed_addr
   %26 = phi i32 [ %22, %.lr.ph22 ], [ %63, %Sat_MmFixedRestart.exit ]
   %indvars.iv26 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next27, %Sat_MmFixedRestart.exit ]
   %27 = load ptr, ptr %24, align 8, !tbaa !41
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv26
   %29 = load ptr, ptr %28, align 8, !tbaa !42
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i32, ptr %30, align 8, !tbaa !12
@@ -819,7 +819,7 @@ define void @Sat_MmStepRestart(ptr noundef captures(none) %0) local_unnamed_addr
   %35 = phi i32 [ %43, %42 ], [ %31, %.preheader.i ]
   %36 = phi ptr [ %44, %42 ], [ %.pre.i, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %42 ], [ 1, %.preheader.i ]
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8, !tbaa !19
   %.not.i = icmp eq ptr %38, null
   br i1 %.not.i, label %42, label %39
@@ -827,7 +827,7 @@ define void @Sat_MmStepRestart(ptr noundef captures(none) %0) local_unnamed_addr
 39:                                               ; preds = %.lr.ph.i
   tail call void @free(ptr noundef nonnull %38) #16
   %40 = load ptr, ptr %34, align 8, !tbaa !13
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   store ptr null, ptr %41, align 8, !tbaa !19
   %.pre39.i = load i32, ptr %30, align 8, !tbaa !12
   br label %42
@@ -949,7 +949,7 @@ define noundef ptr @Sat_MmStepEntryFetch(ptr noundef captures(none) %0, i32 noun
   %31 = add nsw i32 %27, 1
   store i32 %31, ptr %9, align 4, !tbaa !51
   %32 = sext i32 %27 to i64
-  %33 = getelementptr inbounds ptr, ptr %28, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %32
   store ptr %30, ptr %33, align 8, !tbaa !19
   br label %41
 
@@ -957,7 +957,7 @@ define noundef ptr @Sat_MmStepEntryFetch(ptr noundef captures(none) %0, i32 noun
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !46
   %37 = sext i32 %1 to i64
-  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !42
   %40 = tail call ptr @Sat_MmFixedEntryFetch(ptr noundef %39)
   br label %41
@@ -982,7 +982,7 @@ define void @Sat_MmStepEntryRecycle(ptr noundef readonly captures(none) %0, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !46
   %12 = sext i32 %2 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !17
@@ -1013,7 +1013,7 @@ define i32 @Sat_MmStepReadMemUsage(ptr noundef readonly captures(none) %0) local
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.08 = phi i32 [ 0, %.lr.ph ], [ %11, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %10 = load i32, ptr %9, align 4, !tbaa !15

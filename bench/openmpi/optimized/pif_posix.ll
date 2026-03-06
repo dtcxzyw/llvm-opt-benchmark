@@ -241,7 +241,7 @@ pmix_strncpy.exit:                                ; preds = %76, %79
 
 91:                                               ; preds = %pmix_strncpy.exit
   %92 = zext nneg i32 %90 to i64
-  %93 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %92
+  %93 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4, !tbaa !41
   %96 = icmp sgt i32 %95, 0
@@ -544,7 +544,7 @@ prefix.exit:                                      ; preds = %196, %.preheader.i,
 
 224:                                              ; preds = %220
   %225 = zext nneg i32 %223 to i64
-  %226 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %225
+  %226 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %225
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 4
   %228 = load i32, ptr %227, align 4, !tbaa !41
   %229 = icmp sgt i32 %228, 0

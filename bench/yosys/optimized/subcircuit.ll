@@ -10,14 +10,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<int, std::pair<const int, int>, std::_Select1st<std::pair<const int, int>>, std::less<int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
+%"struct.std::_Head_base" = type { ptr }
+%"class.std::tuple.199" = type { i8 }
+%"struct.SubCircuit::Graph::Node" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::map", %"class.std::vector.22", ptr, i8, [7 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.SubCircuit::Graph::Edge" = type <{ %"class.std::set", i32, i8, [3 x i8] }>
-%"class.std::set" = type { %"class.std::_Rb_tree.33" }
-%"class.std::_Rb_tree.33" = type { %"struct.std::_Rb_tree<SubCircuit::Graph::BitRef, SubCircuit::Graph::BitRef, std::_Identity<SubCircuit::Graph::BitRef>, std::less<SubCircuit::Graph::BitRef>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<SubCircuit::Graph::BitRef, SubCircuit::Graph::BitRef, std::_Identity<SubCircuit::Graph::BitRef>, std::less<SubCircuit::Graph::BitRef>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.SubCircuit::Graph::Node" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::map", %"class.std::vector.22", ptr, i8, [7 x i8] }>
 %"class.std::map" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -25,16 +25,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.23" = type { %"struct.std::_Vector_base<SubCircuit::Graph::Port, std::allocator<SubCircuit::Graph::Port>>::_Vector_impl" }
 %"struct.std::_Vector_base<SubCircuit::Graph::Port, std::allocator<SubCircuit::Graph::Port>>::_Vector_impl" = type { %"struct.std::_Vector_base<SubCircuit::Graph::Port, std::allocator<SubCircuit::Graph::Port>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<SubCircuit::Graph::Port, std::allocator<SubCircuit::Graph::Port>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
-%"struct.std::_Head_base" = type { ptr }
-%"class.std::tuple.199" = type { i8 }
 %"struct.SubCircuit::Graph::Port" = type { %"class.std::__cxx11::basic_string", i32, %"class.std::vector.27" }
 %"class.std::vector.27" = type { %"struct.std::_Vector_base.28" }
 %"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<SubCircuit::Graph::PortBit, std::allocator<SubCircuit::Graph::PortBit>>::_Vector_impl" }
 %"struct.std::_Vector_base<SubCircuit::Graph::PortBit, std::allocator<SubCircuit::Graph::PortBit>>::_Vector_impl" = type { %"struct.std::_Vector_base<SubCircuit::Graph::PortBit, std::allocator<SubCircuit::Graph::PortBit>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<SubCircuit::Graph::PortBit, std::allocator<SubCircuit::Graph::PortBit>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.SubCircuit::Graph::PortBit" = type { i32 }
+%"struct.SubCircuit::Graph::Edge" = type <{ %"class.std::set", i32, i8, [3 x i8] }>
+%"class.std::set" = type { %"class.std::_Rb_tree.33" }
+%"class.std::_Rb_tree.33" = type { %"struct.std::_Rb_tree<SubCircuit::Graph::BitRef, SubCircuit::Graph::BitRef, std::_Identity<SubCircuit::Graph::BitRef>, std::less<SubCircuit::Graph::BitRef>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<SubCircuit::Graph::BitRef, SubCircuit::Graph::BitRef, std::_Identity<SubCircuit::Graph::BitRef>, std::less<SubCircuit::Graph::BitRef>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.SubCircuit::Graph::BitRef" = type { i32, i32, i32 }
 %"class.std::tuple.257" = type { %"struct.std::_Tuple_impl.258" }
 %"struct.std::_Tuple_impl.258" = type { %"struct.std::_Head_base.259" }
@@ -70,10 +70,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.SubCircuit::SolverWorker::DiBit" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32 }
 %"struct.std::_Rb_tree<SubCircuit::SolverWorker::DiEdge, std::pair<const SubCircuit::SolverWorker::DiEdge, int>, std::_Select1st<std::pair<const SubCircuit::SolverWorker::DiEdge, int>>, std::less<SubCircuit::SolverWorker::DiEdge>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::_Rb_tree<SubCircuit::SolverWorker::DiBit, SubCircuit::SolverWorker::DiBit, std::_Identity<SubCircuit::SolverWorker::DiBit>, std::less<SubCircuit::SolverWorker::DiBit>>::_Alloc_node" = type { ptr }
-%"struct.SubCircuit::SolverWorker::DiEdge" = type { %"struct.SubCircuit::SolverWorker::DiNode", %"struct.SubCircuit::SolverWorker::DiNode", %"class.std::set.131", %"class.std::__cxx11::basic_string" }
-%"class.std::set.131" = type { %"class.std::_Rb_tree.132" }
-%"class.std::_Rb_tree.132" = type { %"struct.std::_Rb_tree<SubCircuit::SolverWorker::DiBit, SubCircuit::SolverWorker::DiBit, std::_Identity<SubCircuit::SolverWorker::DiBit>, std::less<SubCircuit::SolverWorker::DiBit>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<SubCircuit::SolverWorker::DiBit, SubCircuit::SolverWorker::DiBit, std::_Identity<SubCircuit::SolverWorker::DiBit>, std::less<SubCircuit::SolverWorker::DiBit>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::set<std::__cxx11::basic_string<char>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::set<std::__cxx11::basic_string<char>>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::_Rb_tree<int, std::pair<const int, std::set<int>>, std::_Select1st<std::pair<const int, std::set<int>>>, std::less<int>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::set<std::set<std::__cxx11::basic_string<char>>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::set<std::set<std::__cxx11::basic_string<char>>>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
@@ -83,9 +79,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.308" = type { %"class.std::_Rb_tree.309" }
 %"class.std::_Rb_tree.309" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::set<int>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::set<int>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::set<int>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::set<int>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.std::set.176" = type { %"class.std::_Rb_tree.177" }
-%"class.std::_Rb_tree.177" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.SubCircuit::Solver::Result" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::map.356" }
 %"class.std::map.356" = type { %"class.std::_Rb_tree.357" }
 %"class.std::_Rb_tree.357" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, SubCircuit::Solver::ResultNodeMapping>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, SubCircuit::Solver::ResultNodeMapping>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
@@ -98,9 +91,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.93" = type { %"class.std::_Rb_tree.94" }
 %"class.std::_Rb_tree.94" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.std::set.148" = type { %"class.std::_Rb_tree.149" }
-%"class.std::_Rb_tree.149" = type { %"struct.std::_Rb_tree<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Identity<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Identity<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"class.std::set.176" = type { %"class.std::_Rb_tree.177" }
+%"class.std::_Rb_tree.177" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"class.std::vector.323" = type { %"struct.std::_Vector_base.324" }
 %"struct.std::_Vector_base.324" = type { %"struct.std::_Vector_base<std::vector<std::__cxx11::basic_string<char>>, std::allocator<std::vector<std::__cxx11::basic_string<char>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<std::__cxx11::basic_string<char>>, std::allocator<std::vector<std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<std::__cxx11::basic_string<char>>, std::allocator<std::vector<std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
@@ -117,6 +110,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.338" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
+%"class.std::set.148" = type { %"class.std::_Rb_tree.149" }
+%"class.std::_Rb_tree.149" = type { %"struct.std::_Rb_tree<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Identity<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Identity<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"class.std::tuple.370" = type { %"struct.std::_Tuple_impl.371" }
 %"struct.std::_Tuple_impl.371" = type { %"struct.std::_Head_base.372" }
 %"struct.std::_Head_base.372" = type { ptr }
@@ -840,7 +836,7 @@ define void @_ZN10SubCircuit5GraphC2ERKS0_RKSt6vectorINSt7__cxx1112basic_stringI
 41:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %42 = phi ptr [ %22, %.lr.ph ], [ %54, %52 ]
-  %43 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %indvars.iv
   %44 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %45 unwind label %60
 
@@ -852,7 +848,7 @@ define void @_ZN10SubCircuit5GraphC2ERKS0_RKSt6vectorINSt7__cxx1112basic_stringI
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %48, ptr %46, align 4, !tbaa !43
   %49 = load ptr, ptr %2, align 8, !tbaa !42
-  %50 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %indvars.iv
   %51 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %50)
           to label %52 unwind label %60
 
@@ -917,7 +913,7 @@ define void @_ZN10SubCircuit5GraphC2ERKS0_RKSt6vectorINSt7__cxx1112basic_stringI
   br i1 %88, label %89, label %_ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE6resizeEm.exit
 
 89:                                               ; preds = %79
-  %90 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %81, i64 %84
+  %90 = getelementptr inbounds nuw [56 x i8], ptr %81, i64 %84
   %.not.i.i = icmp eq ptr %82, %90
   br i1 %.not.i.i, label %_ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -950,7 +946,7 @@ _ZSt8_DestroyIPN10SubCircuit5Graph4EdgeES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %
   %99 = load i32, ptr %98, align 4, !tbaa !50
   %100 = sext i32 %99 to i64
   %101 = load ptr, ptr %40, align 8, !tbaa !52
-  %102 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [152 x i8], ptr %101, i64 %100
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 112
   %104 = load ptr, ptr %103, align 8, !tbaa !53
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 120
@@ -1149,7 +1145,7 @@ _ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE6resizeEm.exit: ; preds = %_ZSt8_D
   br i1 %175, label %176, label %_ZNSt6vectorIN10SubCircuit5Graph4NodeESaIS2_EE6resizeEm.exit
 
 176:                                              ; preds = %174
-  %177 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %166, i64 %163
+  %177 = getelementptr inbounds nuw [152 x i8], ptr %166, i64 %163
   %.not.i.i71 = icmp eq ptr %165, %177
   br i1 %.not.i.i71, label %_ZNSt6vectorIN10SubCircuit5Graph4NodeESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i72
 
@@ -1176,7 +1172,7 @@ _ZSt8_DestroyIPN10SubCircuit5Graph4NodeES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %
   %184 = getelementptr inbounds nuw i8, ptr %.sroa.0166.0236, i64 32
   %185 = load i32, ptr %184, align 4, !tbaa !50
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %183, i64 %186
+  %187 = getelementptr inbounds nuw [56 x i8], ptr %183, i64 %186
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %189 = load ptr, ptr %188, align 8, !tbaa !16
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 8
@@ -1198,14 +1194,14 @@ _ZSt8_DestroyIPN10SubCircuit5Graph4NodeES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %
 ._crit_edge234:                                   ; preds = %.lr.ph233, %._crit_edge234.loopexit246, %182
   %.pre-phi = phi i64 [ %.pre263, %._crit_edge234.loopexit246 ], [ %186, %182 ], [ %186, %.lr.ph233 ]
   %194 = phi ptr [ %.pre262, %._crit_edge234.loopexit246 ], [ %183, %182 ], [ %183, %.lr.ph233 ]
-  %195 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %194, i64 %.pre-phi
+  %195 = getelementptr inbounds nuw [56 x i8], ptr %194, i64 %.pre-phi
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 48
   %197 = load i32, ptr %196, align 8, !tbaa !63
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.0166.0236, i64 36
   %199 = load i32, ptr %198, align 4, !tbaa !60
   %200 = sext i32 %199 to i64
   %201 = load ptr, ptr %13, align 8, !tbaa !48
-  %202 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %201, i64 %200
+  %202 = getelementptr inbounds nuw [56 x i8], ptr %201, i64 %200
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 48
   store i32 %197, ptr %203, align 8, !tbaa !63
   %204 = getelementptr inbounds nuw i8, ptr %195, i64 52
@@ -1275,7 +1271,7 @@ _ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5countERS3_.exit87: ; preds = %_ZNKSt8_R
 
 _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i98: ; preds = %.lr.ph.i.i.i.i90
   %223 = sext i32 %218 to i64
-  %224 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %219, i64 %223
+  %224 = getelementptr inbounds nuw [56 x i8], ptr %219, i64 %223
   %225 = icmp eq ptr %.19.i.i.i.i93, %15
   br i1 %225, label %.critedge.i100, label %226
 
@@ -1533,12 +1529,12 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit112: ; preds = %_ZNSt3mapIiiSt4l
   %324 = load i32, ptr %323, align 4, !tbaa !50
   %325 = sext i32 %324 to i64
   %326 = load ptr, ptr %314, align 8, !tbaa !52
-  %327 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %326, i64 %325
+  %327 = getelementptr inbounds nuw [152 x i8], ptr %326, i64 %325
   %328 = getelementptr inbounds nuw i8, ptr %.sroa.0152.0356, i64 36
   %329 = load i32, ptr %328, align 4, !tbaa !60
   %330 = sext i32 %329 to i64
   %331 = load ptr, ptr %12, align 8, !tbaa !52
-  %332 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %331, i64 %330
+  %332 = getelementptr inbounds nuw [152 x i8], ptr %331, i64 %330
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(145) %332, ptr noundef nonnull align 8 dereferenceable(145) %327)
           to label %.noexc113 unwind label %354
 
@@ -1567,7 +1563,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit112: ; preds = %_ZNSt3mapIiiSt4l
   %344 = load i32, ptr %328, align 4, !tbaa !60
   %345 = sext i32 %344 to i64
   %346 = load ptr, ptr %12, align 8, !tbaa !52
-  %347 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %346, i64 %345
+  %347 = getelementptr inbounds nuw [152 x i8], ptr %346, i64 %345
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 112
   %349 = load ptr, ptr %348, align 8, !tbaa !53
   %350 = getelementptr inbounds nuw i8, ptr %347, i64 120
@@ -2400,7 +2396,7 @@ define void @_ZN10SubCircuit5Graph10createPortENSt7__cxx1112basic_stringIcSt11ch
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = sext i32 %12 to i64
   %15 = load ptr, ptr %13, align 8, !tbaa !52
-  %16 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [152 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %19 = load ptr, ptr %18, align 8, !tbaa !95
@@ -2563,7 +2559,7 @@ _ZN10SubCircuit5Graph4PortD2Ev.exit:              ; preds = %_ZNSt6vectorIN10Sub
   %101 = sdiv exact i64 %100, 56
   %102 = trunc i64 %101 to i32
   %103 = load ptr, ptr %71, align 8, !tbaa !104
-  %104 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv
   store i32 %102, ptr %104, align 4, !tbaa !78
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %83, align 8, !tbaa !6
@@ -2696,26 +2692,26 @@ define void @_ZN10SubCircuit5Graph16createConnectionENSt7__cxx1112basic_stringIc
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = sext i32 %11 to i64
   %14 = load ptr, ptr %12, align 8, !tbaa !52
-  %15 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [152 x i8], ptr %14, i64 %13
   %16 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %17 = load i32, ptr %16, align 4, !tbaa !43
   %18 = sext i32 %17 to i64
   %19 = load ptr, ptr %12, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [152 x i8], ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %22 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %23 = load i32, ptr %22, align 4, !tbaa !43
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %25 = sext i32 %23 to i64
   %26 = load ptr, ptr %24, align 8, !tbaa !93
-  %27 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %25
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %29 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(32) %5)
   %30 = load i32, ptr %29, align 4, !tbaa !43
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %32 = sext i32 %30 to i64
   %33 = load ptr, ptr %31, align 8, !tbaa !93
-  %34 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 %32
   %35 = icmp slt i32 %7, 0
   br i1 %35, label %36, label %46
 
@@ -2752,12 +2748,12 @@ define void @_ZN10SubCircuit5Graph16createConnectionENSt7__cxx1112basic_stringIc
 54:                                               ; preds = %.lr.ph68, %_ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE8pop_backEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next, %_ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE8pop_backEv.exit ]
   %55 = load ptr, ptr %48, align 8, !tbaa !104
-  %56 = getelementptr %"struct.SubCircuit::Graph::PortBit", ptr %55, i64 %indvars.iv
-  %57 = getelementptr %"struct.SubCircuit::Graph::PortBit", ptr %56, i64 %52
+  %56 = getelementptr [4 x i8], ptr %55, i64 %indvars.iv
+  %57 = getelementptr [4 x i8], ptr %56, i64 %52
   %58 = load i32, ptr %57, align 4, !tbaa !78
   %59 = load ptr, ptr %49, align 8, !tbaa !104
-  %60 = getelementptr %"struct.SubCircuit::Graph::PortBit", ptr %59, i64 %indvars.iv
-  %61 = getelementptr %"struct.SubCircuit::Graph::PortBit", ptr %60, i64 %53
+  %60 = getelementptr [4 x i8], ptr %59, i64 %indvars.iv
+  %61 = getelementptr [4 x i8], ptr %60, i64 %53
   %62 = load i32, ptr %61, align 4, !tbaa !78
   %63 = icmp eq i32 %58, %62
   br i1 %63, label %_ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE8pop_backEv.exit, label %64
@@ -2765,7 +2761,7 @@ define void @_ZN10SubCircuit5Graph16createConnectionENSt7__cxx1112basic_stringIc
 64:                                               ; preds = %54
   %65 = sext i32 %62 to i64
   %66 = load ptr, ptr %50, align 8, !tbaa !48
-  %67 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [56 x i8], ptr %66, i64 %65
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 52
   %69 = load i8, ptr %68, align 4, !tbaa !70, !range !36, !noundef !37
   %70 = trunc nuw i8 %69 to i1
@@ -2773,7 +2769,7 @@ define void @_ZN10SubCircuit5Graph16createConnectionENSt7__cxx1112basic_stringIc
 
 71:                                               ; preds = %64
   %72 = sext i32 %58 to i64
-  %73 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %66, i64 %72
+  %73 = getelementptr inbounds nuw [56 x i8], ptr %66, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 52
   store i8 1, ptr %74, align 4, !tbaa !70
   br label %75
@@ -2786,7 +2782,7 @@ define void @_ZN10SubCircuit5Graph16createConnectionENSt7__cxx1112basic_stringIc
 
 78:                                               ; preds = %75
   %79 = sext i32 %58 to i64
-  %80 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %66, i64 %79
+  %80 = getelementptr inbounds nuw [56 x i8], ptr %66, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
   store i32 %77, ptr %81, align 8, !tbaa !63
   br label %82
@@ -2822,7 +2818,7 @@ define void @_ZN10SubCircuit5Graph16createConnectionENSt7__cxx1112basic_stringIc
   %.sroa.053.061 = phi ptr [ %84, %.lr.ph ], [ %185, %_ZNSt8_Rb_treeIN10SubCircuit5Graph6BitRefES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIRKS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_.exit ]
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.053.061, i64 32
   %97 = load ptr, ptr %50, align 8, !tbaa !48
-  %98 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %97, i64 %86
+  %98 = getelementptr inbounds nuw [56 x i8], ptr %97, i64 %86
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %.02428.i.i = load ptr, ptr %99, align 8, !tbaa !57
@@ -2979,19 +2975,19 @@ _ZNSt8_Rb_treeIN10SubCircuit5Graph6BitRefES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_
   %169 = phi i32 [ %126, %128 ], [ %126, %135 ], [ %126, %_ZNKSt4lessIN10SubCircuit5Graph6BitRefEEclERKS2_S5_.exit8.i.i ], [ %.pre, %_ZNSt8_Rb_treeIN10SubCircuit5Graph6BitRefES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i ]
   %170 = sext i32 %169 to i64
   %171 = load ptr, ptr %12, align 8, !tbaa !52
-  %172 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %171, i64 %170
+  %172 = getelementptr inbounds nuw [152 x i8], ptr %171, i64 %170
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 112
   %174 = getelementptr inbounds nuw i8, ptr %.sroa.053.061, i64 36
   %175 = load i32, ptr %174, align 4, !tbaa !71
   %176 = sext i32 %175 to i64
   %177 = load ptr, ptr %173, align 8, !tbaa !93
-  %178 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %177, i64 %176
+  %178 = getelementptr inbounds nuw [64 x i8], ptr %177, i64 %176
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.053.061, i64 40
   %181 = load i32, ptr %180, align 4, !tbaa !73
   %182 = sext i32 %181 to i64
   %183 = load ptr, ptr %179, align 8, !tbaa !104
-  %184 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %183, i64 %182
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %182
   store i32 %58, ptr %184, align 4, !tbaa !78
   %185 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.053.061) #31
   %.not56 = icmp eq ptr %185, %85
@@ -2999,13 +2995,13 @@ _ZNSt8_Rb_treeIN10SubCircuit5Graph6BitRefES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_
 
 186:                                              ; preds = %._crit_edge
   %187 = getelementptr inbounds i8, ptr %89, i64 -56
-  %188 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %87, i64 %65
+  %188 = getelementptr inbounds nuw [56 x i8], ptr %87, i64 %65
   %189 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIN10SubCircuit5Graph6BitRefES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EEaSERKS8_(ptr noundef nonnull align 8 dereferenceable(53) %188, ptr noundef nonnull align 8 dereferenceable(53) %187)
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 48
   %191 = getelementptr inbounds i8, ptr %89, i64 -8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %190, ptr noundef nonnull align 8 dereferenceable(5) %191, i64 5, i1 false)
   %192 = load ptr, ptr %50, align 8, !tbaa !48
-  %193 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %192, i64 %65
+  %193 = getelementptr inbounds nuw [56 x i8], ptr %192, i64 %65
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
   %195 = load ptr, ptr %194, align 8, !tbaa !16
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 8
@@ -3021,19 +3017,19 @@ _ZNSt8_Rb_treeIN10SubCircuit5Graph6BitRefES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_
   %199 = getelementptr inbounds nuw i8, ptr %.sroa.049.063, i64 32
   %200 = load i32, ptr %199, align 4, !tbaa !74
   %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %197, i64 %201
+  %202 = getelementptr inbounds nuw [152 x i8], ptr %197, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 112
   %204 = getelementptr inbounds nuw i8, ptr %.sroa.049.063, i64 36
   %205 = load i32, ptr %204, align 4, !tbaa !71
   %206 = sext i32 %205 to i64
   %207 = load ptr, ptr %203, align 8, !tbaa !93
-  %208 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %207, i64 %206
+  %208 = getelementptr inbounds nuw [64 x i8], ptr %207, i64 %206
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 40
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.049.063, i64 40
   %211 = load i32, ptr %210, align 4, !tbaa !73
   %212 = sext i32 %211 to i64
   %213 = load ptr, ptr %209, align 8, !tbaa !104
-  %214 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %213, i64 %212
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %213, i64 %212
   store i32 %62, ptr %214, align 4, !tbaa !78
   %215 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.049.063) #31
   %.not57 = icmp eq ptr %215, %196
@@ -3370,23 +3366,23 @@ define void @_ZN10SubCircuit5Graph14createConstantENSt7__cxx1112basic_stringIcSt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = sext i32 %8 to i64
   %11 = load ptr, ptr %9, align 8, !tbaa !52
-  %12 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [152 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %15 = load i32, ptr %14, align 4, !tbaa !43
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %17 = sext i32 %15 to i64
   %18 = load ptr, ptr %16, align 8, !tbaa !93
-  %19 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = sext i32 %3 to i64
   %22 = load ptr, ptr %20, align 8, !tbaa !104
-  %23 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %21
   %24 = load i32, ptr %23, align 4, !tbaa !78
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = sext i32 %24 to i64
   %27 = load ptr, ptr %25, align 8, !tbaa !48
-  %28 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i32 %4, ptr %29, align 8, !tbaa !63
   ret void
@@ -3400,14 +3396,14 @@ define void @_ZN10SubCircuit5Graph14createConstantENSt7__cxx1112basic_stringIcSt
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = sext i32 %7 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !52
-  %11 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [152 x i8], ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %14 = load i32, ptr %13, align 4, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %16 = sext i32 %14 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !93
-  %18 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !113
@@ -3432,12 +3428,12 @@ define void @_ZN10SubCircuit5Graph14createConstantENSt7__cxx1112basic_stringIcSt
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %.014 = phi i32 [ %3, %.lr.ph ], [ %39, %31 ]
-  %32 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %22, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !78
   %34 = and i32 %.014, 1
   %35 = or disjoint i32 %34, 48
   %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store i32 %35, ptr %38, align 8, !tbaa !63
   %39 = ashr i32 %.014, 1
@@ -3454,14 +3450,14 @@ define void @_ZN10SubCircuit5Graph10markExternENSt7__cxx1112basic_stringIcSt11ch
   %8 = load i32, ptr %7, align 4, !tbaa !43
   %9 = sext i32 %8 to i64
   %10 = load ptr, ptr %5, align 8, !tbaa !52
-  %11 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [152 x i8], ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %14 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %15 = load i32, ptr %14, align 4, !tbaa !43
   %16 = sext i32 %15 to i64
   %17 = load ptr, ptr %12, align 8, !tbaa !93
-  %18 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 %16
   %19 = icmp slt i32 %3, 0
   br i1 %19, label %20, label %32
 
@@ -3482,7 +3478,7 @@ define void @_ZN10SubCircuit5Graph10markExternENSt7__cxx1112basic_stringIcSt11ch
   %.sroa.08.012 = phi ptr [ %22, %.lr.ph ], [ %31, %27 ]
   %.sroa.0.0.copyload = load i32, ptr %.sroa.08.012, align 4, !tbaa !43
   %28 = sext i32 %.sroa.0.0.copyload to i64
-  %29 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 52
   store i8 1, ptr %30, align 4, !tbaa !70
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 4
@@ -3494,11 +3490,11 @@ define void @_ZN10SubCircuit5Graph10markExternENSt7__cxx1112basic_stringIcSt11ch
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %35 = zext nneg i32 %3 to i64
   %36 = load ptr, ptr %34, align 8, !tbaa !104
-  %37 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4, !tbaa !78
   %39 = sext i32 %38 to i64
   %40 = load ptr, ptr %33, align 8, !tbaa !48
-  %41 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %40, i64 %39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 52
   store i8 1, ptr %42, align 4, !tbaa !70
   br label %.loopexit
@@ -3540,7 +3536,7 @@ define void @_ZN10SubCircuit5Graph5printEv(ptr noundef nonnull readonly align 8 
 13:                                               ; preds = %.lr.ph46, %._crit_edge43
   %indvars.iv52 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next53, %._crit_edge43 ]
   %14 = phi ptr [ %5, %.lr.ph46 ], [ %31, %._crit_edge43 ]
-  %15 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %14, i64 %indvars.iv52
+  %15 = getelementptr inbounds nuw [152 x i8], ptr %14, i64 %indvars.iv52
   %16 = load ptr, ptr %15, align 8, !tbaa !86
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !86
@@ -3574,7 +3570,7 @@ define void @_ZN10SubCircuit5Graph5printEv(ptr noundef nonnull readonly align 8 
 .lr.ph42:                                         ; preds = %13, %._crit_edge39
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %._crit_edge39 ], [ 0, %13 ]
   %38 = phi ptr [ %62, %._crit_edge39 ], [ %23, %13 ]
-  %39 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %38, i64 %indvars.iv49
+  %39 = getelementptr inbounds nuw [64 x i8], ptr %38, i64 %indvars.iv49
   %40 = load ptr, ptr %39, align 8, !tbaa !86
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %42 = load i32, ptr %41, align 8, !tbaa !108
@@ -3614,13 +3610,13 @@ define void @_ZN10SubCircuit5Graph5printEv(ptr noundef nonnull readonly align 8 
 .lr.ph38:                                         ; preds = %.lr.ph42, %91
   %indvars.iv = phi i64 [ %indvars.iv.next, %91 ], [ 0, %.lr.ph42 ]
   %68 = phi ptr [ %93, %91 ], [ %54, %.lr.ph42 ]
-  %69 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !78
   %71 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.2, i32 noundef %71, i32 noundef %70)
   %72 = sext i32 %70 to i64
   %73 = load ptr, ptr %12, align 8, !tbaa !48
-  %74 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %73, i64 %72
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8, !tbaa !16
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -3633,7 +3629,7 @@ define void @_ZN10SubCircuit5Graph5printEv(ptr noundef nonnull readonly align 8 
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph38
   %78 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %73, %.lr.ph38 ]
-  %79 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %78, i64 %72
+  %79 = getelementptr inbounds nuw [56 x i8], ptr %78, i64 %72
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 52
   %81 = load i8, ptr %80, align 4, !tbaa !70, !range !36, !noundef !37
   %82 = trunc nuw i8 %81 to i1
@@ -5090,7 +5086,7 @@ define linkonce_odr void @_ZN10SubCircuit12SolverWorker5solveERSt6vectorINS_6Sol
 .lr.ph:                                           ; preds = %.preheader38, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader38 ]
   %30 = phi ptr [ %38, %36 ], [ %21, %.preheader38 ]
-  %31 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [152 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !86
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !86
@@ -5140,7 +5136,7 @@ define linkonce_odr void @_ZN10SubCircuit12SolverWorker5solveERSt6vectorINS_6Sol
 .lr.ph44:                                         ; preds = %.preheader, %64
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %64 ], [ 0, %.preheader ]
   %58 = phi ptr [ %66, %64 ], [ %51, %.preheader ]
-  %59 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %58, i64 %indvars.iv47
+  %59 = getelementptr inbounds nuw [152 x i8], ptr %58, i64 %indvars.iv47
   %60 = load ptr, ptr %59, align 8, !tbaa !86
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !86
@@ -5246,7 +5242,7 @@ define linkonce_odr void @_ZN10SubCircuit12SolverWorker5solveERSt6vectorINS_6Sol
 
 118:                                              ; preds = %96
   %119 = sdiv i64 %104, 9728
-  %120 = getelementptr inbounds i64, ptr %110, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %110, i64 %119
   %121 = and i64 %105, -9223372036854775745
   %122 = icmp ugt i64 %121, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %122, i64 -8, i64 0
@@ -7840,7 +7836,7 @@ define linkonce_odr void @_ZN10SubCircuit12SolverWorker9GraphDataD2Ev(ptr nounde
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #34
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -8187,7 +8183,7 @@ _ZNSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE5clearEv.exit: ; preds 
   br i1 %44, label %45, label %_ZNSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE6resizeEm.exit
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw %"class.std::map.8", ptr %27, i64 %35
+  %46 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %35
   %.not.i.i30 = icmp eq ptr %18, %46
   br i1 %.not.i.i30, label %_ZNSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i31
 
@@ -8252,11 +8248,11 @@ _ZNSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE6resizeEm.exit: ; preds
   %66 = load i32, ptr %65, align 8, !tbaa !249
   %67 = sext i32 %66 to i64
   %68 = load ptr, ptr %28, align 8, !tbaa !52
-  %69 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [152 x i8], ptr %68, i64 %67
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.065.076, i64 36
   %71 = load i32, ptr %70, align 4, !tbaa !259
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %68, i64 %72
+  %73 = getelementptr inbounds nuw [152 x i8], ptr %68, i64 %72
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 136
   %75 = load ptr, ptr %74, align 8, !tbaa !98
@@ -8579,7 +8575,7 @@ _ZNSt3mapIN10SubCircuit12SolverWorker6DiEdgeEiSt4lessIS2_ESaISt4pairIKS2_iEEE11l
   %171 = load i32, ptr %121, align 8, !tbaa !249
   %172 = sext i32 %171 to i64
   %173 = load ptr, ptr %2, align 8, !tbaa !242
-  %174 = getelementptr inbounds nuw %"class.std::map.8", ptr %173, i64 %172
+  %174 = getelementptr inbounds nuw [48 x i8], ptr %173, i64 %172
   %175 = getelementptr inbounds nuw i8, ptr %.sroa.061.079, i64 36
   %176 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %174, ptr noundef nonnull align 4 dereferenceable(4) %175)
           to label %177 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -10923,7 +10919,7 @@ _ZNSt3mapISt4pairIiiEN10SubCircuit12SolverWorker6DiEdgeESt4lessIS1_ESaIS0_IKS1_S
   unreachable
 
 188:                                              ; preds = %_ZNSt3mapISt4pairIiiEN10SubCircuit12SolverWorker6DiEdgeESt4lessIS1_ESaIS0_IKS1_S4_EEEixEOS1_.exit
-  %189 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %182, i64 %180
+  %189 = getelementptr inbounds nuw [152 x i8], ptr %182, i64 %180
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(32) %190)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i unwind label %.loopexit
@@ -11350,7 +11346,7 @@ _ZN10SubCircuit12SolverWorker6DiNodeD2Ev.exit:    ; preds = %_ZNSt3mapINSt7__cxx
   unreachable
 
 333:                                              ; preds = %_ZN10SubCircuit12SolverWorker6DiNodeD2Ev.exit
-  %334 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %327, i64 %325
+  %334 = getelementptr inbounds nuw [152 x i8], ptr %327, i64 %325
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(32) %335)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i53 unwind label %.loopexit295
@@ -11754,12 +11750,12 @@ _ZN10SubCircuit12SolverWorker6DiNodeD2Ev.exit75:  ; preds = %_ZNSt3mapINSt7__cxx
   %470 = load i32, ptr %75, align 4, !tbaa !74
   %471 = sext i32 %470 to i64
   %472 = load ptr, ptr %43, align 8, !tbaa !52
-  %473 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %472, i64 %471
+  %473 = getelementptr inbounds nuw [152 x i8], ptr %472, i64 %471
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 112
   %475 = load i32, ptr %77, align 4, !tbaa !71
   %476 = sext i32 %475 to i64
   %477 = load ptr, ptr %474, align 8, !tbaa !93
-  %478 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %477, i64 %476
+  %478 = getelementptr inbounds nuw [64 x i8], ptr %477, i64 %476
   store ptr %53, ptr %16, align 8, !tbaa !90
   %479 = load ptr, ptr %478, align 8, !tbaa !86
   %480 = getelementptr inbounds nuw i8, ptr %478, i64 8
@@ -11803,13 +11799,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %492 = load i32, ptr %81, align 4, !tbaa !74
   %493 = sext i32 %492 to i64
   %494 = load ptr, ptr %43, align 8, !tbaa !52
-  %495 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %494, i64 %493
+  %495 = getelementptr inbounds nuw [152 x i8], ptr %494, i64 %493
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 112
   %497 = getelementptr inbounds nuw i8, ptr %.sroa.0275.0505, i64 36
   %498 = load i32, ptr %497, align 4, !tbaa !71
   %499 = sext i32 %498 to i64
   %500 = load ptr, ptr %496, align 8, !tbaa !93
-  %501 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %500, i64 %499
+  %501 = getelementptr inbounds nuw [64 x i8], ptr %500, i64 %499
   store ptr %55, ptr %17, align 8, !tbaa !90
   %502 = load ptr, ptr %501, align 8, !tbaa !86
   %503 = getelementptr inbounds nuw i8, ptr %501, i64 8
@@ -13304,9 +13300,9 @@ _ZNSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE11_S_relocateEPS7_SA_SA
 
 _ZNSt12_Vector_baseISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE13_M_deallocateEPS7_m.exit41: ; preds = %_ZNSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %58
   store ptr %31, ptr %0, align 8, !tbaa !242
-  %60 = getelementptr inbounds nuw %"class.std::map.8", ptr %32, i64 %1
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %1
   store ptr %60, ptr %4, align 8, !tbaa !245
-  %61 = getelementptr inbounds nuw %"class.std::map.8", ptr %31, i64 %29
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %31, i64 %29
   store ptr %61, ptr %11, align 8, !tbaa !247
   br label %62
 
@@ -14828,7 +14824,7 @@ _ZNSt6vectorIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE11_S_relocateEPS2_S5_S5_
 _ZNSt12_Vector_baseIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %28
   store ptr %20, ptr %0, align 8, !tbaa !165
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !166
-  %32 = getelementptr inbounds nuw %"struct.SubCircuit::SolverWorker::DiEdge", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [240 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !168
   ret void
 
@@ -18710,7 +18706,7 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE5clearEv.exit: ; preds = %._crit_ed
   br i1 %50, label %51, label %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE6resizeEm.exit
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw %"class.std::set.176", ptr %33, i64 %41
+  %52 = getelementptr inbounds nuw [48 x i8], ptr %33, i64 %41
   %.not.i.i69 = icmp eq ptr %24, %52
   br i1 %.not.i.i69, label %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i70
 
@@ -18759,7 +18755,7 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE6resizeEm.exit: ; preds = %47, %49,
 .lr.ph:                                           ; preds = %5, %103
   %indvars.iv = phi i64 [ %indvars.iv.next, %103 ], [ 0, %5 ]
   %72 = phi ptr [ %105, %103 ], [ %17, %5 ]
-  %73 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [152 x i8], ptr %72, i64 %indvars.iv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIiSt4lessIiESaIiEES7_IS5_ESaISt4pairIKS5_SA_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(32) %74)
           to label %76 unwind label %112
@@ -18876,7 +18872,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIiSt4lessIiE
 120:                                              ; preds = %.lr.ph371, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS5_St4lessIS5_ESaIS5_EES8_SaISt4pairIKS5_SA_EEE5countERSC_.exit.thread
   %indvars.iv380 = phi i64 [ 0, %.lr.ph371 ], [ %indvars.iv.next381, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS5_St4lessIS5_ESaIS5_EES8_SaISt4pairIKS5_SA_EEE5countERSC_.exit.thread ]
   %121 = phi ptr [ %60, %.lr.ph371 ], [ %401, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS5_St4lessIS5_ESaIS5_EES8_SaISt4pairIKS5_SA_EEE5countERSC_.exit.thread ]
-  %122 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %121, i64 %indvars.iv380
+  %122 = getelementptr inbounds nuw [152 x i8], ptr %121, i64 %indvars.iv380
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %124 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIiSt4lessIiESaIiEES7_IS5_ESaISt4pairIKS5_SA_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(32) %123)
           to label %125 unwind label %153
@@ -18973,7 +18969,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
   %157 = load i32, ptr %156, align 4, !tbaa !43
   %158 = sext i32 %157 to i64
   %159 = load ptr, ptr %14, align 8, !tbaa !52
-  %160 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %159, i64 %158
+  %160 = getelementptr inbounds nuw [152 x i8], ptr %159, i64 %158
   %161 = load ptr, ptr %67, align 8, !tbaa !15
   %.not10.i.i.i79 = icmp eq ptr %161, null
   br i1 %.not10.i.i.i79, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS5_St4lessIS5_ESaIS5_EES8_SaISt4pairIKS5_SA_EEE5countERSC_.exit108.thread, label %.lr.ph.i.i.i80
@@ -19211,7 +19207,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS5_St4less
 
 229:                                              ; preds = %228
   %230 = load ptr, ptr %1, align 8, !tbaa !191
-  %231 = getelementptr inbounds nuw %"class.std::set.176", ptr %230, i64 %indvars.iv380
+  %231 = getelementptr inbounds nuw [48 x i8], ptr %230, i64 %indvars.iv380
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %233 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %.02022.i.i.i138 = load ptr, ptr %232, align 8, !tbaa !57
@@ -19423,7 +19419,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %300 = load i32, ptr %299, align 4, !tbaa !43
   %301 = sext i32 %300 to i64
   %302 = load ptr, ptr %14, align 8, !tbaa !52
-  %303 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %302, i64 %301
+  %303 = getelementptr inbounds nuw [152 x i8], ptr %302, i64 %301
   %304 = load ptr, ptr %67, align 8, !tbaa !15
   %.not10.i.i.i191 = icmp eq ptr %304, null
   br i1 %.not10.i.i.i191, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS5_St4lessIS5_ESaIS5_EES8_SaISt4pairIKS5_SA_EEE5countERSC_.exit220.thread, label %.lr.ph.i.i.i192
@@ -19661,7 +19657,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS5_St4less
 
 372:                                              ; preds = %371
   %373 = load ptr, ptr %1, align 8, !tbaa !191
-  %374 = getelementptr inbounds nuw %"class.std::set.176", ptr %373, i64 %indvars.iv380
+  %374 = getelementptr inbounds nuw [48 x i8], ptr %373, i64 %indvars.iv380
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 16
   %376 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %.02022.i.i.i282 = load ptr, ptr %375, align 8, !tbaa !57
@@ -19846,7 +19842,7 @@ define linkonce_odr void @_ZN10SubCircuit12SolverWorker14printAdjMatrixERKSt6vec
   unreachable
 
 _ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit: ; preds = %.lr.ph25
-  %48 = getelementptr inbounds nuw %"class.std::map.8", ptr %46, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %46, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -19952,7 +19948,7 @@ define linkonce_odr void @_ZNK10SubCircuit12SolverWorker7DiCache14printEdgeTypes
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %15 = phi ptr [ %6, %.lr.ph ], [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %16 = getelementptr inbounds nuw %"struct.SubCircuit::SolverWorker::DiEdge", ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [240 x i8], ptr %15, i64 %indvars.iv
   call void @_ZNK10SubCircuit12SolverWorker6DiEdge8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(240) %16)
   %17 = load ptr, ptr %2, align 8, !tbaa !86
   %18 = trunc nuw nsw i64 %indvars.iv to i32
@@ -20086,7 +20082,7 @@ define linkonce_odr void @_ZNK10SubCircuit12SolverWorker22printEnumerationMatrix
 
 33:                                               ; preds = %32, %29
   %34 = load ptr, ptr %1, align 8, !tbaa !191
-  %35 = getelementptr inbounds nuw %"class.std::set.176", ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [48 x i8], ptr %34, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -20299,50 +20295,50 @@ _ZNSt6vectorISt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   store ptr %47, ptr %50, align 8, !tbaa !17
   store i64 0, ptr %51, align 8, !tbaa !38
   %63 = load ptr, ptr %52, align 8, !tbaa !52
-  %64 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %63, i64 %indvars.iv322
+  %64 = getelementptr inbounds nuw [152 x i8], ptr %63, i64 %indvars.iv322
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %64)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit149 unwind label %121
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit149: ; preds = %62
   %65 = load ptr, ptr %52, align 8, !tbaa !52
-  %66 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %65, i64 %indvars.iv322
+  %66 = getelementptr inbounds nuw [152 x i8], ptr %65, i64 %indvars.iv322
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 136
   %68 = load ptr, ptr %67, align 8, !tbaa !98
   store ptr %68, ptr %53, align 8, !tbaa !379
   %69 = load ptr, ptr %2, align 8, !tbaa !191
-  %70 = getelementptr inbounds nuw %"class.std::set.176", ptr %69, i64 %indvars.iv322
+  %70 = getelementptr inbounds nuw [48 x i8], ptr %69, i64 %indvars.iv322
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !16
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load i32, ptr %73, align 4, !tbaa !43
   %75 = sext i32 %74 to i64
   %76 = load ptr, ptr %54, align 8, !tbaa !52
-  %77 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %76, i64 %75
+  %77 = getelementptr inbounds nuw [152 x i8], ptr %76, i64 %75
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %77)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit151 unwind label %123
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit151: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit149
   %78 = load ptr, ptr %2, align 8, !tbaa !191
-  %79 = getelementptr inbounds nuw %"class.std::set.176", ptr %78, i64 %indvars.iv322
+  %79 = getelementptr inbounds nuw [48 x i8], ptr %78, i64 %indvars.iv322
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !16
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %83 = load i32, ptr %82, align 4, !tbaa !43
   %84 = sext i32 %83 to i64
   %85 = load ptr, ptr %54, align 8, !tbaa !52
-  %86 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %85, i64 %84
+  %86 = getelementptr inbounds nuw [152 x i8], ptr %85, i64 %84
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 136
   %88 = load ptr, ptr %87, align 8, !tbaa !98
   store ptr %88, ptr %55, align 8, !tbaa !384
   %89 = load ptr, ptr %11, align 8, !tbaa !385
-  %90 = getelementptr inbounds nuw %"class.std::set.148", ptr %89, i64 %indvars.iv322
+  %90 = getelementptr inbounds nuw [48 x i8], ptr %89, i64 %indvars.iv322
   %91 = trunc nuw nsw i64 %indvars.iv322 to i32
   invoke void @_ZN10SubCircuit12SolverWorker25generatePortmapCandidatesERSt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEES9_ISF_ESaISF_EERKSt6vectorIS1_IiS9_IiESaIiEESaISN_EERKNS0_9GraphDataESU_i(ptr noundef nonnull align 8 dereferenceable(369) %0, ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(200) %5, i32 noundef %91)
           to label %92 unwind label %121
 
 92:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit151
   %93 = load ptr, ptr %52, align 8, !tbaa !52
-  %94 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %93, i64 %indvars.iv322
+  %94 = getelementptr inbounds nuw [152 x i8], ptr %93, i64 %indvars.iv322
   %95 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10SubCircuit6Solver17ResultNodeMappingESt4lessIS5_ESaISt4pairIKS5_S8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef nonnull align 8 dereferenceable(32) %94)
           to label %96 unwind label %121
 
@@ -20569,7 +20565,7 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 180:                                              ; preds = %.lr.ph298, %._crit_edge296
   %indvars.iv325 = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next326, %._crit_edge296 ]
   %181 = load ptr, ptr %179, align 8, !tbaa !52
-  %182 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %181, i64 %indvars.iv325
+  %182 = getelementptr inbounds nuw [152 x i8], ptr %181, i64 %indvars.iv325
   %183 = load ptr, ptr %182, align 8, !tbaa !86
   %184 = trunc nuw nsw i64 %indvars.iv325 to i32
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.24, i32 noundef %184, ptr noundef %183)
@@ -20593,7 +20589,7 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destroy
   unreachable
 
 193:                                              ; preds = %185
-  %194 = getelementptr inbounds nuw %"class.std::set.148", ptr %187, i64 %indvars.iv325
+  %194 = getelementptr inbounds nuw [48 x i8], ptr %187, i64 %indvars.iv325
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %196 = load ptr, ptr %195, align 8, !tbaa !16
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 8
@@ -20693,7 +20689,7 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 233:                                              ; preds = %.lr.ph302, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEaSERKSC_.exit
   %indvars.iv328 = phi i64 [ 0, %.lr.ph302 ], [ %indvars.iv.next329, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEaSERKSC_.exit ]
   %234 = load ptr, ptr %11, align 8, !tbaa !385
-  %235 = getelementptr inbounds nuw %"class.std::set.148", ptr %234, i64 %indvars.iv328
+  %235 = getelementptr inbounds nuw [48 x i8], ptr %234, i64 %indvars.iv328
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 40
   %237 = load i64, ptr %236, align 8, !tbaa !38
   %238 = icmp eq i64 %237, 0
@@ -20730,7 +20726,7 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destroy
   %256 = getelementptr inbounds nuw i8, ptr %235, i64 24
   %257 = load ptr, ptr %256, align 8, !tbaa !16
   %258 = load ptr, ptr %232, align 8, !tbaa !52
-  %259 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %258, i64 %indvars.iv328
+  %259 = getelementptr inbounds nuw [152 x i8], ptr %258, i64 %indvars.iv328
   %260 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10SubCircuit6Solver17ResultNodeMappingESt4lessIS5_ESaISt4pairIKS5_S8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %231, ptr noundef nonnull align 8 dereferenceable(32) %259)
           to label %261 unwind label %272
 
@@ -20817,13 +20813,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 308:                                              ; preds = %.lr.ph304, %328
   %indvars.iv331 = phi i64 [ 0, %.lr.ph304 ], [ %indvars.iv.next332, %328 ]
-  %309 = getelementptr inbounds nuw %"class.std::set.176", ptr %281, i64 %indvars.iv331
+  %309 = getelementptr inbounds nuw [48 x i8], ptr %281, i64 %indvars.iv331
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %311 = load ptr, ptr %310, align 8, !tbaa !16
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 32
   %313 = load i32, ptr %312, align 4, !tbaa !43
   %314 = sext i32 %313 to i64
-  %315 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %289, i64 %314
+  %315 = getelementptr inbounds nuw [152 x i8], ptr %289, i64 %314
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 144
   %317 = load i8, ptr %316, align 8, !tbaa !103, !range !36, !noundef !37
   %318 = trunc nuw i8 %317 to i1
@@ -20832,7 +20828,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 319:                                              ; preds = %308
   %320 = sdiv i32 %313, 64
   %.sext = sext i32 %320 to i64
-  %321 = getelementptr inbounds i64, ptr %291, i64 %.sext
+  %321 = getelementptr inbounds [8 x i8], ptr %291, i64 %.sext
   %322 = and i64 %314, -9223372036854775745
   %323 = icmp ugt i64 %322, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %323, i64 -8, i64 0
@@ -21021,7 +21017,7 @@ _ZN10SubCircuit6Solver6ResultD2Ev.exit:           ; preds = %_ZNSt7__cxx1112basi
   store i64 0, ptr %399, align 8, !tbaa !38
   %400 = sext i32 %394 to i64
   %401 = load ptr, ptr %2, align 8, !tbaa !191
-  %402 = getelementptr inbounds nuw %"class.std::set.176", ptr %401, i64 %400
+  %402 = getelementptr inbounds nuw [48 x i8], ptr %401, i64 %400
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 16
   %404 = load ptr, ptr %403, align 8, !tbaa !57
   %405 = icmp eq ptr %404, null
@@ -21087,7 +21083,7 @@ _ZNSt3setIiSt4lessIiESaIiEE4swapERS3_.exit:       ; preds = %393
   %437 = load ptr, ptr %417, align 8, !tbaa !183
   %438 = sdiv i32 %425, 64
   %.sext242 = sext i32 %438 to i64
-  %439 = getelementptr inbounds i64, ptr %437, i64 %.sext242
+  %439 = getelementptr inbounds [8 x i8], ptr %437, i64 %.sext242
   %440 = and i64 %436, -9223372036854775745
   %441 = icmp ugt i64 %440, -9223372036854775808
   %storemerge.idx.i.i.i.i.i177 = select i1 %441, i64 -8, i64 0
@@ -21165,7 +21161,7 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2ERKS6_.exit190: ; preds = %.noexc
   %.lcssa269 = phi ptr [ %466, %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2ERKS6_.exit190 ], [ %537, %_ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit ]
   %473 = load i32, ptr %9, align 4, !tbaa !43
   %474 = sext i32 %473 to i64
-  %475 = getelementptr inbounds nuw %"class.std::set.176", ptr %.lcssa269, i64 %474
+  %475 = getelementptr inbounds nuw [48 x i8], ptr %.lcssa269, i64 %474
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 16
   %477 = getelementptr inbounds nuw i8, ptr %475, i64 8
   %.02022.i.i.i = load ptr, ptr %476, align 8, !tbaa !57
@@ -21244,7 +21240,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2ERKS6_.exit190, %_ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit ], [ 0, %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2ERKS6_.exit190 ]
   %500 = phi ptr [ %537, %_ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit ], [ %466, %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EEC2ERKS6_.exit190 ]
-  %501 = getelementptr inbounds nuw %"class.std::set.176", ptr %500, i64 %indvars.iv
+  %501 = getelementptr inbounds nuw [48 x i8], ptr %500, i64 %indvars.iv
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 16
   %503 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %.041.i.i = load ptr, ptr %502, align 8, !tbaa !57
@@ -21380,7 +21376,7 @@ _ZNSt3setIiSt4lessIiESaIiEE5eraseERKi.exit:       ; preds = %.lr.ph.i2.i, %_ZNSt
   %548 = load ptr, ptr %417, align 8, !tbaa !183
   %549 = sdiv i32 %425, 64
   %.sext240 = sext i32 %549 to i64
-  %550 = getelementptr inbounds i64, ptr %548, i64 %.sext240
+  %550 = getelementptr inbounds [8 x i8], ptr %548, i64 %.sext240
   %551 = and i64 %547, -9223372036854775745
   %552 = icmp ugt i64 %551, -9223372036854775808
   %storemerge.idx.i.i.i.i.i194 = select i1 %552, i64 -8, i64 0
@@ -21731,12 +21727,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK10SubCircuit12SolverWorker10matchNod
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %16 = sext i32 %2 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !52
-  %18 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [152 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %21 = sext i32 %4 to i64
   %22 = load ptr, ptr %20, align 8, !tbaa !52
-  %23 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [152 x i8], ptr %22, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %26 = load ptr, ptr %25, align 8, !tbaa !95
@@ -21776,7 +21772,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK10SubCircuit12SolverWorker10matchNod
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %38
   %44 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %17, %38 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %46 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %44, i64 %16
+  %46 = getelementptr inbounds nuw [152 x i8], ptr %44, i64 %16
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %49 = load ptr, ptr %48, align 8, !tbaa !15
@@ -21901,7 +21897,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS6_IS5_St4
 92:                                               ; preds = %89, %79
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %94 = load ptr, ptr %15, align 8, !tbaa !52
-  %95 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %94, i64 %16
+  %95 = getelementptr inbounds nuw [152 x i8], ptr %94, i64 %16
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %98 = load ptr, ptr %97, align 8, !tbaa !15
@@ -22391,7 +22387,7 @@ _ZN10SubCircuit12SolverWorker25permutateVectorToMapArrayERSt3mapINSt7__cxx1112ba
 
 282:                                              ; preds = %281, %273
   %283 = load ptr, ptr %15, align 8, !tbaa !52
-  %284 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %283, i64 %16
+  %284 = getelementptr inbounds nuw [152 x i8], ptr %283, i64 %16
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 32
   %286 = load ptr, ptr %200, align 8, !tbaa !15
   %.not10.i.i.i188 = icmp eq ptr %286, null
@@ -23507,9 +23503,9 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: 
 
 _ZNSt12_Vector_baseISt3setIiSt4lessIiESaIiEESaIS4_EE13_M_deallocateEPS4_m.exit41: ; preds = %_ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %58
   store ptr %31, ptr %0, align 8, !tbaa !191
-  %60 = getelementptr inbounds nuw %"class.std::set.176", ptr %32, i64 %1
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %1
   store ptr %60, ptr %4, align 8, !tbaa !194
-  %61 = getelementptr inbounds nuw %"class.std::set.176", ptr %31, i64 %29
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %31, i64 %29
   store ptr %61, ptr %11, align 8, !tbaa !196
   br label %62
 
@@ -23622,7 +23618,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK10SubCircuit12SolverWorker14matchNod
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = sext i32 %2 to i64
   %11 = load ptr, ptr %9, align 8, !tbaa !52
-  %12 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [152 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %15 = load ptr, ptr %14, align 8, !tbaa !95
@@ -23639,7 +23635,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK10SubCircuit12SolverWorker14matchNod
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %24 = load ptr, ptr %23, align 8, !tbaa !52
   %25 = sext i32 %4 to i64
-  %26 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [152 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23670,7 +23666,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK10SubCircuit12SolverWorker14matchNod
   %47 = phi ptr [ %16, %.lr.ph159 ], [ %41, %39 ]
   %indvars.iv163 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next164, %39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %48 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %47, i64 %indvars.iv163
+  %48 = getelementptr inbounds nuw [64 x i8], ptr %47, i64 %indvars.iv163
   store ptr %27, ptr %8, align 8, !tbaa !90
   %49 = load ptr, ptr %48, align 8, !tbaa !86
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -23870,7 +23866,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 
 111:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE5countERS9_.exit
   %112 = load ptr, ptr %13, align 8, !tbaa !93
-  %113 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %112, i64 %indvars.iv163
+  %113 = getelementptr inbounds nuw [64 x i8], ptr %112, i64 %indvars.iv163
   %114 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE2atERS9_(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %115 unwind label %149
 
@@ -23878,7 +23874,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   %116 = load i32, ptr %114, align 4, !tbaa !43
   %117 = sext i32 %116 to i64
   %118 = load ptr, ptr %34, align 8, !tbaa !93
-  %119 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %118, i64 %117
+  %119 = getelementptr inbounds nuw [64 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 48
   %122 = load ptr, ptr %121, align 8, !tbaa !113
@@ -23927,14 +23923,14 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 
 151:                                              ; preds = %.lr.ph, %206
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %206 ]
-  %152 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %136, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %indvars.iv
   %153 = load i32, ptr %152, align 4, !tbaa !78
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %142, i64 %154
-  %156 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %123, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [56 x i8], ptr %142, i64 %154
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %indvars.iv
   %157 = load i32, ptr %156, align 4, !tbaa !78
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %143, i64 %158
+  %159 = getelementptr inbounds nuw [56 x i8], ptr %143, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %161 = load i32, ptr %160, align 8, !tbaa !63
   %.not64 = icmp eq i32 %161, 0
@@ -26230,7 +26226,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30, %114
   store ptr %22, ptr %0, align 8, !tbaa !438
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !435
-  %118 = getelementptr inbounds nuw %"struct.std::pair.338", ptr %22, i64 %16
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %118, ptr %113, align 8, !tbaa !437
   ret void
 }
@@ -26424,7 +26420,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !42
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !39
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !406
   ret void
 
@@ -26634,7 +26630,7 @@ _ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS
 _ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit33, %65
   store ptr %20, ptr %0, align 8, !tbaa !409
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !411
-  %69 = getelementptr inbounds nuw %"class.std::vector.14", ptr %20, i64 %16
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %69, ptr %64, align 8, !tbaa !413
   ret void
 
@@ -26903,7 +26899,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %53, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %54, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   %.pre115 = phi ptr [ %.pre115.pre, %54 ], [ %.pre115119, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i ]
   %.pre = phi ptr [ %.pre.pre, %54 ], [ %.pre116, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i ]
-  %55 = getelementptr inbounds nuw i32, ptr %50, i64 %48
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %48
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %37
@@ -26962,7 +26958,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %78 = load i32, ptr %77, align 4, !tbaa !43
   %79 = sext i32 %78 to i64
   %80 = load ptr, ptr %5, align 8, !tbaa !42
-  %81 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %80, i64 %79
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %80, i64 %79
   %82 = load ptr, ptr %65, align 8, !tbaa !39
   %83 = load ptr, ptr %66, align 8, !tbaa !406
   %.not.i = icmp eq ptr %82, %83
@@ -27024,7 +27020,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %102
   %103 = load ptr, ptr %5, align 8, !tbaa !89
-  %104 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %103, i64 %79
+  %104 = getelementptr inbounds [32 x i8], ptr %103, i64 %79
   %105 = invoke ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS5_S7_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %104)
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit unwind label %110, !llvm.loop !483
 
@@ -27145,12 +27141,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorINSt7__
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ], [ 0, %.preheader ]
   %144 = phi ptr [ %151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ], [ %69, %.preheader ]
   %145 = load ptr, ptr %6, align 8, !tbaa !42
-  %146 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %144, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [32 x i8], ptr %144, i64 %indvars.iv
   %147 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %146)
           to label %148 unwind label %157
 
 148:                                              ; preds = %.lr.ph105
-  %149 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %145, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [32 x i8], ptr %145, i64 %indvars.iv
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(32) %149)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %157
 
@@ -28670,7 +28666,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 63
   %36 = sdiv i64 %33, 64
-  %37 = getelementptr inbounds i64, ptr %16, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %16, i64 %36
   %38 = and i64 %33, -9223372036854775745
   %39 = icmp ugt i64 %38, -9223372036854775808
   %storemerge.idx.i.i.i = select i1 %39, i64 -8, i64 0
@@ -28825,7 +28821,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_b
   %107 = add nsw i64 %3, %106
   %108 = sdiv i64 %107, 64
   %109 = load ptr, ptr %15, align 8, !tbaa !183
-  %110 = getelementptr inbounds i64, ptr %109, i64 %108
+  %110 = getelementptr inbounds [8 x i8], ptr %109, i64 %108
   %111 = and i64 %107, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i = select i1 %112, i64 -8, i64 0
@@ -29086,13 +29082,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 3
   %233 = sub nsw i64 0, %232
-  %234 = getelementptr inbounds i64, ptr %228, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %228, i64 %233
   tail call void @_ZdlPvm(ptr noundef %234, i64 noundef %231) #34
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %227
   %235 = lshr i64 %123, 6
-  %236 = getelementptr inbounds nuw i64, ptr %126, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %235
   store ptr %236, ptr %8, align 8, !tbaa !239
   store ptr %126, ptr %0, align 8
   %.sroa.5138.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29145,7 +29141,7 @@ define linkonce_odr noundef zeroext i1 @_ZN10SubCircuit12SolverWorker22pruneEnum
   store ptr %9, ptr %11, align 8, !tbaa !16
   store ptr %9, ptr %12, align 8, !tbaa !17
   store i64 0, ptr %13, align 8, !tbaa !38
-  %26 = getelementptr inbounds nuw %"class.std::set.176", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %25, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -29187,7 +29183,7 @@ define linkonce_odr noundef zeroext i1 @_ZN10SubCircuit12SolverWorker22pruneEnum
   %40 = load ptr, ptr %14, align 8, !tbaa !183
   %41 = sdiv i32 %32, 64
   %.sext = sext i32 %41 to i64
-  %42 = getelementptr inbounds i64, ptr %40, i64 %.sext
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %.sext
   %43 = and i64 %39, -9223372036854775745
   %44 = icmp ugt i64 %43, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %44, i64 -8, i64 0
@@ -29296,10 +29292,10 @@ _ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit:      ; preds = %.noexc, %57, %38, %
   unreachable
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw %"class.std::map.8", ptr %77, i64 %75
+  %85 = getelementptr inbounds nuw [48 x i8], ptr %77, i64 %75
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %87 = load i64, ptr %86, align 8, !tbaa !38
-  %88 = getelementptr inbounds nuw %"class.std::map.8", ptr %77, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [48 x i8], ptr %77, i64 %indvars.iv
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = load i64, ptr %89, align 8, !tbaa !38
   %91 = icmp ult i64 %87, %90
@@ -29317,7 +29313,7 @@ _ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit:      ; preds = %.noexc, %57, %38, %
 
 96:                                               ; preds = %._crit_edge, %92, %84
   %97 = load ptr, ptr %1, align 8, !tbaa !191
-  %98 = getelementptr inbounds nuw %"class.std::set.176", ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [48 x i8], ptr %97, i64 %indvars.iv
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !57
   %101 = icmp eq ptr %100, null
@@ -29482,7 +29478,7 @@ define linkonce_odr void @_ZN10SubCircuit12SolverWorker25generatePortmapCandidat
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %24 = sext i32 %5 to i64
   %25 = load ptr, ptr %23, align 8, !tbaa !52
-  %26 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [152 x i8], ptr %25, i64 %24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %28 = load ptr, ptr %27, align 8, !tbaa !53
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 120
@@ -29497,7 +29493,7 @@ define linkonce_odr void @_ZN10SubCircuit12SolverWorker25generatePortmapCandidat
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
   %31 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %25, %6 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %33 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %31, i64 %24
+  %33 = getelementptr inbounds nuw [152 x i8], ptr %31, i64 %24
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %36 = load ptr, ptr %35, align 8, !tbaa !15
@@ -29628,7 +29624,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS6_IS5_St4
 _ZNSt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEES7_ISD_ESaISD_EE6insertERKSD_.exit: ; preds = %.noexc87, %.noexc, %66
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %76 = load ptr, ptr %23, align 8, !tbaa !52
-  %77 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %76, i64 %24
+  %77 = getelementptr inbounds nuw [152 x i8], ptr %76, i64 %24
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %80 = load ptr, ptr %79, align 8, !tbaa !15
@@ -30198,7 +30194,7 @@ _ZN10SubCircuit12SolverWorker25permutateVectorToMapArrayERSt3mapINSt7__cxx1112ba
 
 _ZNSt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEES7_ISD_ESaISD_EE6insertERKSD_.exit148: ; preds = %.noexc147, %.noexc146, %273
   %280 = load ptr, ptr %23, align 8, !tbaa !52
-  %281 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %280, i64 %24
+  %281 = getelementptr inbounds nuw [152 x i8], ptr %280, i64 %24
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 32
   %283 = load ptr, ptr %172, align 8, !tbaa !15
   %.not10.i.i.i149 = icmp eq ptr %283, null
@@ -30810,7 +30806,7 @@ define linkonce_odr noundef zeroext i1 @_ZN10SubCircuit12SolverWorker22prunePort
   %indvars.iv = phi i64 [ 0, %.lr.ph269 ], [ %indvars.iv.next, %27 ]
   %.061267 = phi i1 [ false, %.lr.ph269 ], [ %.263.lcssa, %27 ]
   %36 = load ptr, ptr %2, align 8, !tbaa !191
-  %37 = getelementptr inbounds nuw %"class.std::set.176", ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !16
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
@@ -30822,7 +30818,7 @@ define linkonce_odr noundef zeroext i1 @_ZN10SubCircuit12SolverWorker22prunePort
   store ptr %16, ptr %19, align 8, !tbaa !17
   store i64 0, ptr %20, align 8, !tbaa !38
   %42 = load ptr, ptr %1, align 8, !tbaa !385
-  %43 = getelementptr inbounds nuw %"class.std::set.148", ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [48 x i8], ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !57
   %46 = icmp eq ptr %45, null
@@ -30859,7 +30855,7 @@ _ZNSt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessI
 ._crit_edge264:                                   ; preds = %.thread152, %35, %_ZNSt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEES7_ISD_ESaISD_EE4swapERSG_.exit
   %.263.lcssa = phi i1 [ %.061267, %_ZNSt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEES7_ISD_ESaISD_EE4swapERSG_.exit ], [ %.061267, %35 ], [ %.465155, %.thread152 ]
   %57 = load ptr, ptr %1, align 8, !tbaa !385
-  %58 = getelementptr inbounds nuw %"class.std::set.148", ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [48 x i8], ptr %57, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load i64, ptr %59, align 8, !tbaa !38
   %61 = load ptr, ptr %17, align 8, !tbaa !15
@@ -30899,7 +30895,7 @@ _ZNSt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessI
   unreachable
 
 74:                                               ; preds = %65
-  %75 = getelementptr inbounds nuw %"class.std::map.8", ptr %68, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [48 x i8], ptr %68, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !16
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -30919,7 +30915,7 @@ _ZNSt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessI
   %84 = load i32, ptr %83, align 4, !tbaa !60
   %85 = sext i32 %82 to i64
   %86 = load ptr, ptr %2, align 8, !tbaa !191
-  %87 = getelementptr inbounds nuw %"class.std::set.176", ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [48 x i8], ptr %86, i64 %85
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !16
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
@@ -30941,7 +30937,7 @@ _ZNSt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessI
   unreachable
 
 99:                                               ; preds = %.lr.ph258
-  %100 = getelementptr inbounds nuw %"class.std::map.8", ptr %93, i64 %56
+  %100 = getelementptr inbounds nuw [48 x i8], ptr %93, i64 %56
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !15
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -30982,7 +30978,7 @@ _ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i: ; preds = %.l
   %113 = zext i32 %82 to i64
   %114 = icmp eq i64 %indvars.iv, %113
   %115 = load ptr, ptr %1, align 8
-  %116 = getelementptr inbounds nuw %"class.std::set.148", ptr %115, i64 %85
+  %116 = getelementptr inbounds nuw [48 x i8], ptr %115, i64 %85
   %.sroa.gep334 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %.sroa.sel335 = select i1 %114, ptr %18, ptr %.sroa.gep334
   %117 = load ptr, ptr %.sroa.sel335, align 8, !tbaa !16
@@ -31028,8 +31024,8 @@ _ZNKSt6vectorIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE2atEm.exit.i: ; preds =
   br i1 %.not.i.i4.i, label %_ZNKSt6vectorIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE2atEm.exit5.i, label %.invoke
 
 _ZNKSt6vectorIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE2atEm.exit5.i: ; preds = %_ZNKSt6vectorIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE2atEm.exit.i
-  %133 = getelementptr inbounds nuw %"struct.SubCircuit::SolverWorker::DiEdge", ptr %127, i64 %120
-  %134 = getelementptr inbounds nuw %"struct.SubCircuit::SolverWorker::DiEdge", ptr %127, i64 %121
+  %133 = getelementptr inbounds nuw [240 x i8], ptr %127, i64 %120
+  %134 = getelementptr inbounds nuw [240 x i8], ptr %127, i64 %121
   %135 = invoke noundef zeroext i1 @_ZNK10SubCircuit12SolverWorker6DiEdge7compareERKS1_RKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEESJ_(ptr noundef nonnull align 8 dereferenceable(240) %133, ptr noundef nonnull align 8 dereferenceable(240) %134, ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(48) %125)
           to label %_ZNK10SubCircuit12SolverWorker7DiCache7compareEiiRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEESH_.exit unwind label %.loopexit164
 
@@ -31058,7 +31054,7 @@ _ZNK10SubCircuit12SolverWorker7DiCache7compareEiiRKSt3mapINSt7__cxx1112basic_str
 
 ._crit_edge:                                      ; preds = %.thread143, %74
   %139 = load ptr, ptr %1, align 8, !tbaa !385
-  %140 = getelementptr inbounds nuw %"class.std::set.148", ptr %139, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [48 x i8], ptr %139, i64 %indvars.iv
   %141 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEESD_St9_IdentityISD_ES7_ISD_ESaISD_EE24_M_get_insert_unique_posERKSD_(ptr noundef nonnull align 8 dereferenceable(48) %140, ptr noundef nonnull align 8 dereferenceable(48) %66)
           to label %.noexc94 unwind label %225
 
@@ -31328,7 +31324,7 @@ _ZNSt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessI
 
 242:                                              ; preds = %.lr.ph273, %241
   %indvars.iv329 = phi i64 [ 0, %.lr.ph273 ], [ %indvars.iv.next330, %241 ]
-  %243 = getelementptr inbounds nuw %"class.std::set.148", ptr %240, i64 %indvars.iv329
+  %243 = getelementptr inbounds nuw [48 x i8], ptr %240, i64 %indvars.iv329
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 40
   %245 = load i64, ptr %244, align 8, !tbaa !38
   %246 = icmp ugt i64 %245, 1
@@ -31476,7 +31472,7 @@ define linkonce_odr noundef zeroext i1 @_ZN10SubCircuit12SolverWorker22checkEnum
   unreachable
 
 _ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit: ; preds = %6
-  %17 = getelementptr inbounds nuw %"class.std::map.8", ptr %11, i64 %8
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -31502,7 +31498,7 @@ _ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit: ; preds = 
   %33 = load i32, ptr %32, align 4, !tbaa !60
   %34 = sext i32 %31 to i64
   %35 = load ptr, ptr %1, align 8, !tbaa !191
-  %36 = getelementptr inbounds nuw %"class.std::set.176", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 %34
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -31527,7 +31523,7 @@ _ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit: ; preds = 
   unreachable
 
 _ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit50: ; preds = %.lr.ph
-  %49 = getelementptr inbounds nuw %"class.std::map.8", ptr %43, i64 %22
+  %49 = getelementptr inbounds nuw [48 x i8], ptr %43, i64 %22
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !15
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -31592,12 +31588,12 @@ _ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE2atERS3_.exit: ; preds = %63
 
 70:                                               ; preds = %_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE2atERS3_.exit
   %71 = load ptr, ptr %27, align 8, !tbaa !52
-  %72 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %71, i64 %8
-  %73 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %71, i64 %34
+  %72 = getelementptr inbounds nuw [152 x i8], ptr %71, i64 %8
+  %73 = getelementptr inbounds nuw [152 x i8], ptr %71, i64 %34
   %74 = load ptr, ptr %28, align 8, !tbaa !52
-  %75 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %74, i64 %22
+  %75 = getelementptr inbounds nuw [152 x i8], ptr %74, i64 %22
   %76 = sext i32 %41 to i64
-  %77 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %74, i64 %76
+  %77 = getelementptr inbounds nuw [152 x i8], ptr %74, i64 %76
   %78 = load ptr, ptr %0, align 8, !tbaa !125
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 136
   %80 = load ptr, ptr %79, align 8, !tbaa !98
@@ -31722,8 +31718,8 @@ _ZNSt6vectorIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE2atEm.exit: ; preds = %3
   unreachable
 
 _ZNSt6vectorIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE2atEm.exit4: ; preds = %_ZNSt6vectorIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE2atEm.exit
-  %48 = getelementptr inbounds nuw %"struct.SubCircuit::SolverWorker::DiEdge", ptr %40, i64 %37
-  %49 = getelementptr inbounds nuw %"struct.SubCircuit::SolverWorker::DiEdge", ptr %40, i64 %46
+  %48 = getelementptr inbounds nuw [240 x i8], ptr %40, i64 %37
+  %49 = getelementptr inbounds nuw [240 x i8], ptr %40, i64 %46
   %50 = tail call noundef zeroext i1 @_ZNK10SubCircuit12SolverWorker6DiEdge7compareERKS1_RKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setISB_ISA_St4lessISA_ESaISA_EESC_ISF_ESaISF_EESD_SaISt4pairIKSA_SI_EEERKS4_ISA_SB_IS4_ISA_SA_SD_SaISJ_ISK_SA_EEESC_ISS_ESaISS_EESD_SaISJ_ISK_SV_EEE(ptr noundef nonnull align 8 dereferenceable(240) %48, ptr noundef nonnull align 8 dereferenceable(240) %49, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %51 = load ptr, ptr %13, align 8, !tbaa !15
   %.not11.i.i.i.i = icmp eq ptr %51, null
@@ -34321,9 +34317,9 @@ _ZNSt6vectorISt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
 
 _ZNSt12_Vector_baseISt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEES8_ISE_ESaISE_EESaISH_EE13_M_deallocateEPSH_m.exit41: ; preds = %_ZNSt6vectorISt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEES8_ISE_ESaISE_EESaISH_EE11_S_relocateEPSH_SK_SK_RSI_.exit, %58
   store ptr %31, ptr %0, align 8, !tbaa !385
-  %60 = getelementptr inbounds nuw %"class.std::set.148", ptr %32, i64 %1
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %1
   store ptr %60, ptr %4, align 8, !tbaa !390
-  %61 = getelementptr inbounds nuw %"class.std::set.148", ptr %31, i64 %29
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %31, i64 %29
   store ptr %61, ptr %11, align 8, !tbaa !396
   br label %62
 
@@ -34335,7 +34331,7 @@ _ZNSt12_Vector_baseISt3setISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 define linkonce_odr noundef zeroext i1 @_ZN10SubCircuit12SolverWorker21checkPortmapCandidateERKSt6vectorISt3setIiSt4lessIiESaIiEESaIS6_EERKNS0_9GraphDataESD_iRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESK_S3_ISK_ESaISt4pairIKSK_SK_EEE(ptr noundef nonnull align 8 dereferenceable(369) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(200) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(48) %5) local_unnamed_addr #3 comdat align 2 {
   %7 = sext i32 %4 to i64
   %8 = load ptr, ptr %1, align 8, !tbaa !191
-  %9 = getelementptr inbounds nuw %"class.std::set.176", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -34351,8 +34347,8 @@ define linkonce_odr noundef zeroext i1 @_ZN10SubCircuit12SolverWorker21checkPort
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %6
-  %23 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %20, i64 %19
-  %24 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %16, i64 %7
+  %23 = getelementptr inbounds nuw [152 x i8], ptr %20, i64 %19
+  %24 = getelementptr inbounds nuw [152 x i8], ptr %16, i64 %7
   %25 = load ptr, ptr %0, align 8, !tbaa !125
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %27 = load ptr, ptr %26, align 8, !tbaa !98
@@ -34380,7 +34376,7 @@ define linkonce_odr noundef zeroext i1 @_ZN10SubCircuit12SolverWorker21checkPort
   unreachable
 
 _ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit: ; preds = %33
-  %43 = getelementptr inbounds nuw %"class.std::map.8", ptr %37, i64 %7
+  %43 = getelementptr inbounds nuw [48 x i8], ptr %37, i64 %7
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -34404,7 +34400,7 @@ _ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit: ; preds = 
   %57 = load i32, ptr %56, align 4, !tbaa !60
   %58 = sext i32 %55 to i64
   %59 = load ptr, ptr %1, align 8, !tbaa !191
-  %60 = getelementptr inbounds nuw %"class.std::set.176", ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %59, i64 %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !16
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
@@ -34423,7 +34419,7 @@ _ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit: ; preds = 
   unreachable
 
 _ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit40: ; preds = %53
-  %72 = getelementptr inbounds nuw %"class.std::map.8", ptr %66, i64 %19
+  %72 = getelementptr inbounds nuw [48 x i8], ptr %66, i64 %19
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !15
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -34484,8 +34480,8 @@ _ZNKSt6vectorIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE2atEm.exit.i: ; preds =
   unreachable
 
 _ZNK10SubCircuit12SolverWorker7DiCache7compareEiiRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEERKS2_IS8_St3setISI_IS8_SA_SaIS8_EES9_ISK_ESaISK_EESA_SaISB_ISC_SN_EEERKS2_IS8_SI_ISF_S9_ISF_ESaISF_EESA_SaISB_ISC_SV_EEE.exit: ; preds = %_ZNKSt6vectorIN10SubCircuit12SolverWorker6DiEdgeESaIS2_EE2atEm.exit.i
-  %96 = getelementptr inbounds nuw %"struct.SubCircuit::SolverWorker::DiEdge", ptr %86, i64 %84
-  %97 = getelementptr inbounds nuw %"struct.SubCircuit::SolverWorker::DiEdge", ptr %86, i64 %94
+  %96 = getelementptr inbounds nuw [240 x i8], ptr %86, i64 %84
+  %97 = getelementptr inbounds nuw [240 x i8], ptr %86, i64 %94
   %98 = tail call noundef zeroext i1 @_ZNK10SubCircuit12SolverWorker6DiEdge7compareERKS1_RKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKS4_ISA_St3setISK_ISA_SC_SaISA_EESB_ISM_ESaISM_EESC_SaISD_ISE_SP_EEERKS4_ISA_SK_ISH_SB_ISH_ESaISH_EESC_SaISD_ISE_SX_EEE(ptr noundef nonnull align 8 dereferenceable(240) %96, ptr noundef nonnull align 8 dereferenceable(240) %97, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef nonnull align 8 dereferenceable(48) %50)
   br i1 %98, label %99, label %.loopexit
 
@@ -36425,7 +36421,7 @@ _ZNSt6vectorIN10SubCircuit6Solver6ResultESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt12_Vector_baseIN10SubCircuit6Solver6ResultESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10SubCircuit6Solver6ResultESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %28
   store ptr %20, ptr %0, align 8, !tbaa !190
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !187
-  %32 = getelementptr inbounds nuw %"struct.SubCircuit::Solver::Result", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [112 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !394
   ret void
 
@@ -37377,7 +37373,7 @@ _ZNSt3setIN10SubCircuit12SolverWorker7NodeSetESt4lessIS2_ESaIS2_EE5clearEv.exit:
   unreachable
 
 72:                                               ; preds = %62
-  %73 = getelementptr inbounds nuw %"class.std::map.8", ptr %66, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [48 x i8], ptr %66, i64 %indvars.iv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8, !tbaa !16
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -37700,10 +37696,10 @@ _ZNKSt3setIN10SubCircuit12SolverWorker7NodeSetESt4lessIS2_ESaIS2_EE5countERKS2_.
 188:                                              ; preds = %185
   %189 = load ptr, ptr %46, align 8, !tbaa !86
   %190 = load ptr, ptr %48, align 8, !tbaa !52
-  %191 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %190, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw [152 x i8], ptr %190, i64 %indvars.iv
   %192 = load ptr, ptr %191, align 8, !tbaa !86
   %193 = sext i32 %89 to i64
-  %194 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %190, i64 %193
+  %194 = getelementptr inbounds nuw [152 x i8], ptr %190, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !86
   %196 = icmp slt i32 %184, %4
   %197 = select i1 %196, ptr @.str.48, ptr @.str.18
@@ -37939,7 +37935,7 @@ _ZNSt6vectorIPKN10SubCircuit12SolverWorker7NodeSetESaIS4_EE11_S_relocateEPS4_S7_
 _ZNSt6vectorIPKN10SubCircuit12SolverWorker7NodeSetESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %65, %_ZNSt6vectorIPKN10SubCircuit12SolverWorker7NodeSetESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %60, ptr %39, align 8, !tbaa !567
   store ptr %64, ptr %41, align 8, !tbaa !560
-  %66 = getelementptr inbounds nuw ptr, ptr %60, i64 %58
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %58
   store ptr %66, ptr %43, align 8, !tbaa !564
   br label %_ZNSt6vectorIPKN10SubCircuit12SolverWorker7NodeSetESaIS4_EE9push_backEOS4_.exit
 
@@ -38141,7 +38137,7 @@ _ZNSt3setIN10SubCircuit12SolverWorker7NodeSetESt4lessIS2_ESaIS2_EE4swapERS6_.exi
   %161 = phi ptr [ %169, %._crit_edge553 ], [ %149, %144 ]
   %162 = phi ptr [ %170, %._crit_edge553 ], [ %148, %144 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge553 ], [ 0, %144 ]
-  %163 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %indvars.iv
   %164 = load ptr, ptr %163, align 8, !tbaa !565
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 56
   %166 = load ptr, ptr %165, align 8, !tbaa !16
@@ -38409,7 +38405,7 @@ _ZNSt3mapIiSt3setIiSt4lessIiESaIiEES2_SaISt4pairIKiS4_EEED2Ev.exit: ; preds = %_
   store ptr %87, ptr %89, align 8, !tbaa !16
   store ptr %87, ptr %90, align 8, !tbaa !17
   store i64 0, ptr %91, align 8, !tbaa !38
-  %257 = getelementptr inbounds nuw ptr, ptr %256, i64 %indvars.iv617
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %indvars.iv617
   %258 = load ptr, ptr %257, align 8, !tbaa !565
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 56
   %260 = load ptr, ptr %259, align 8, !tbaa !16
@@ -38668,10 +38664,10 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %._crit_edge581
   %349 = getelementptr inbounds nuw i8, ptr %.sroa.0281.0575, i64 32
   %350 = load i32, ptr %349, align 4, !tbaa !43
   %351 = load ptr, ptr %146, align 8, !tbaa !567
-  %352 = getelementptr inbounds nuw ptr, ptr %351, i64 %indvars.iv617
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %indvars.iv617
   %353 = load ptr, ptr %352, align 8, !tbaa !565
   %354 = sext i32 %350 to i64
-  %355 = getelementptr inbounds nuw ptr, ptr %351, i64 %354
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %354
   %356 = load ptr, ptr %355, align 8, !tbaa !565
   %357 = getelementptr inbounds nuw i8, ptr %353, i64 8
   %358 = load i64, ptr %357, align 8, !tbaa !82
@@ -38855,7 +38851,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN10SubCircuit12SolverWorker7NodeSetC2ERKS1_.exit: ; preds = %405, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %414 = load ptr, ptr %146, align 8, !tbaa !567
-  %415 = getelementptr inbounds nuw ptr, ptr %414, i64 %354
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %354
   %416 = load ptr, ptr %415, align 8, !tbaa !565
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 56
   %418 = load ptr, ptr %417, align 8, !tbaa !16
@@ -39299,7 +39295,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %568 = sub i64 %566, %567
   %569 = ashr exact i64 %568, 3
   %570 = sub nsw i64 0, %569
-  %571 = getelementptr inbounds i64, ptr %565, i64 %570
+  %571 = getelementptr inbounds [8 x i8], ptr %565, i64 %570
   call void @_ZdlPvm(ptr noundef %571, i64 noundef %568) #34
   store ptr null, ptr %561, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %534, i64 232
@@ -39620,7 +39616,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %692 = load i32, ptr %691, align 4, !tbaa !43
   %693 = sext i32 %692 to i64
   %694 = load ptr, ptr %687, align 8, !tbaa !52
-  %695 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %694, i64 %693
+  %695 = getelementptr inbounds nuw [152 x i8], ptr %694, i64 %693
   %696 = load ptr, ptr %695, align 8, !tbaa !86
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.52, ptr noundef nonnull %.085570, ptr noundef %696)
           to label %697 unwind label %699
@@ -40106,7 +40102,7 @@ define linkonce_odr noundef i32 @_ZN10SubCircuit12SolverWorker13testForMiningERS
   %52 = load i32, ptr %51, align 4, !tbaa !43
   %53 = sext i32 %52 to i64
   %54 = load ptr, ptr %47, align 8, !tbaa !52
-  %55 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [152 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %48, align 8, !tbaa !39
   %57 = load ptr, ptr %49, align 8, !tbaa !406
   %.not.i = icmp eq ptr %56, %57
@@ -40485,7 +40481,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %201 = sub i64 %199, %200
   %202 = ashr exact i64 %201, 3
   %203 = sub nsw i64 0, %202
-  %204 = getelementptr inbounds i64, ptr %198, i64 %203
+  %204 = getelementptr inbounds [8 x i8], ptr %198, i64 %203
   call void @_ZdlPvm(ptr noundef %204, i64 noundef %201) #34
   store ptr null, ptr %194, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %167, i64 232
@@ -41011,7 +41007,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %393, %.noe
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %395, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %389, ptr %28, align 8, !tbaa !577
   store ptr %394, ptr %106, align 8, !tbaa !574
-  %396 = getelementptr inbounds nuw i32, ptr %389, i64 %387
+  %396 = getelementptr inbounds nuw [4 x i8], ptr %389, i64 %387
   store ptr %396, ptr %107, align 8, !tbaa !576
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -41662,13 +41658,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
   store i8 0, ptr %592, align 8, !tbaa !91
   %612 = sext i32 %611 to i64
   %613 = load ptr, ptr %594, align 8, !tbaa !52
-  %614 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %613, i64 %612
+  %614 = getelementptr inbounds nuw [152 x i8], ptr %613, i64 %612
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %614)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit147 unwind label %646
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit147: ; preds = %609
   %615 = load ptr, ptr %594, align 8, !tbaa !52
-  %616 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %615, i64 %612
+  %616 = getelementptr inbounds nuw [152 x i8], ptr %615, i64 %612
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 136
   %618 = load ptr, ptr %617, align 8, !tbaa !98
   store ptr %618, ptr %595, align 8, !tbaa !592
@@ -42335,7 +42331,7 @@ define linkonce_odr void @_ZN10SubCircuit12SolverWorker14solveForMiningERSt6vect
 
 42:                                               ; preds = %20
   %43 = sdiv i64 %28, 9728
-  %44 = getelementptr inbounds i64, ptr %34, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %34, i64 %43
   %45 = and i64 %29, -9223372036854775745
   %46 = icmp ugt i64 %45, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %46, i64 -8, i64 0
@@ -43260,7 +43256,7 @@ _ZNSt6vectorIN10SubCircuit6Solver14MineResultNodeESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt12_Vector_baseIN10SubCircuit6Solver14MineResultNodeESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10SubCircuit6Solver14MineResultNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %82
   store ptr %23, ptr %0, align 8, !tbaa !596
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !594
-  %86 = getelementptr inbounds nuw %"struct.SubCircuit::Solver::MineResultNode", ptr %23, i64 %17
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %86, ptr %81, align 8, !tbaa !595
   ret void
 
@@ -43583,7 +43579,7 @@ _ZNSt6vectorIN10SubCircuit6Solver10MineResultESaIS2_EE11_S_relocateEPS2_S5_S5_RS
 _ZNSt12_Vector_baseIN10SubCircuit6Solver10MineResultESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10SubCircuit6Solver10MineResultESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit42, %116
   store ptr %20, ptr %0, align 8, !tbaa !614
   store ptr %.0.lcssa.i.i.i41, ptr %4, align 8, !tbaa !588
-  %120 = getelementptr inbounds nuw %"struct.SubCircuit::Solver::MineResult", ptr %20, i64 %16
+  %120 = getelementptr inbounds nuw [112 x i8], ptr %20, i64 %16
   store ptr %120, ptr %115, align 8, !tbaa !591
   ret void
 
@@ -45532,9 +45528,9 @@ _ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit:
 
 _ZNSt12_Vector_baseIN10SubCircuit5Graph4EdgeESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %66
   store ptr %34, ptr %0, align 8, !tbaa !48
-  %68 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %35, i64 %1
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %1
   store ptr %68, ptr %4, align 8, !tbaa !47
-  %69 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %34, i64 %32
+  %69 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %32
   store ptr %69, ptr %11, align 8, !tbaa !80
   br label %70
 
@@ -45835,9 +45831,9 @@ _ZNSt6vectorIN10SubCircuit5Graph4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit:
 
 _ZNSt12_Vector_baseIN10SubCircuit5Graph4NodeESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN10SubCircuit5Graph4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %53
   store ptr %37, ptr %0, align 8, !tbaa !52
-  %57 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %38, i64 %1
+  %57 = getelementptr inbounds nuw [152 x i8], ptr %38, i64 %1
   store ptr %57, ptr %4, align 8, !tbaa !61
-  %58 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %37, i64 %35
+  %58 = getelementptr inbounds nuw [152 x i8], ptr %37, i64 %35
   store ptr %58, ptr %11, align 8, !tbaa !81
   br label %59
 
@@ -46054,7 +46050,7 @@ _ZNSt6vectorIN10SubCircuit5Graph4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt12_Vector_baseIN10SubCircuit5Graph4NodeESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10SubCircuit5Graph4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %30
   store ptr %22, ptr %0, align 8, !tbaa !52
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !61
-  %34 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Node", ptr %22, i64 %16
+  %34 = getelementptr inbounds nuw [152 x i8], ptr %22, i64 %16
   store ptr %34, ptr %29, align 8, !tbaa !81
   ret void
 }
@@ -46286,7 +46282,7 @@ _ZNSt6vectorIN10SubCircuit5Graph4PortESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt12_Vector_baseIN10SubCircuit5Graph4PortESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10SubCircuit5Graph4PortESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26, %105
   store ptr %22, ptr %0, align 8, !tbaa !93
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !95
-  %109 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Port", ptr %22, i64 %16
+  %109 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %109, ptr %104, align 8, !tbaa !96
   ret void
 }
@@ -46333,7 +46329,7 @@ define linkonce_odr void @_ZNSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE14_M_
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !663
 
 _ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i, %20
-  %25 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %9, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !113
   %.not.i.i.i.i.i68 = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPN10SubCircuit5Graph7PortBitES3_ET0_T_S5_S4_.exit, label %26
@@ -46343,7 +46339,7 @@ _ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_
   %28 = sub i64 %27, %16
   %29 = ashr exact i64 %28, 2
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"struct.SubCircuit::Graph::PortBit", ptr %9, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %9, i64 %30
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %31, ptr align 4 %1, i64 %28, i1 false)
   br label %_ZSt13move_backwardIPN10SubCircuit5Graph7PortBitES3_ET0_T_S5_S4_.exit
 
@@ -46465,7 +46461,7 @@ _ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91
   %.0.lcssa.i.i.i.i.i97 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91 ], [ %67, %.lr.ph.i.i.i.i.i93 ]
-  %68 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %.0.lcssa.i.i.i.i.i97, i64 %2
   %.not11.i.i.i.i.i98 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit104, label %.lr.ph.i.i.i.i.i99
 
@@ -46492,7 +46488,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_E
 _ZNSt12_Vector_baseIN10SubCircuit5Graph7PortBitESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit104, %72
   store ptr %61, ptr %0, align 8, !tbaa !104
   store ptr %.0.lcssa.i.i.i.i.i103, ptr %8, align 8, !tbaa !113
-  %74 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %61, i64 %55
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %55
   store ptr %74, ptr %6, align 8, !tbaa !106
   br label %_ZSt4fillIPN10SubCircuit5Graph7PortBitES2_EvT_S4_RKT0_.exit
 
@@ -46705,7 +46701,7 @@ _ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt12_Vector_baseIN10SubCircuit5Graph4EdgeESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10SubCircuit5Graph4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit28, %89
   store ptr %22, ptr %0, align 8, !tbaa !48
   store ptr %.0.lcssa.i.i.i27, ptr %4, align 8, !tbaa !47
-  %93 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::Edge", ptr %22, i64 %16
+  %93 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %16
   store ptr %93, ptr %88, align 8, !tbaa !80
   ret void
 }

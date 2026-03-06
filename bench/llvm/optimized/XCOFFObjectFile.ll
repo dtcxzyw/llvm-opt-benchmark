@@ -9,10 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected.6" = type { %union.anon.7, i8, [7 x i8] }
 %union.anon.7 = type { %"struct.llvm::AlignedCharArrayUnion.8" }
 %"struct.llvm::AlignedCharArrayUnion.8" = type { [8 x i8] }
-%"struct.llvm::object::ExceptionSectionEntry" = type { %union.anon, i8, i8 }
-%union.anon = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
-%struct.anon = type { [4 x i8] }
 %"class.llvm::Error" = type { ptr }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector" }
 %"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
@@ -30,23 +26,15 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected.11" = type { %union.anon.12, i8, [7 x i8] }
 %union.anon.12 = type { %"struct.llvm::AlignedCharArrayUnion.13" }
 %"struct.llvm::AlignedCharArrayUnion.13" = type { [16 x i8] }
-%"struct.llvm::object::ExceptionSectionEntry.0" = type { %union.anon.1, i8, i8 }
-%union.anon.1 = type { %"struct.llvm::support::detail::packed_endian_specific_integral.2" }
-%"struct.llvm::support::detail::packed_endian_specific_integral.2" = type { %struct.anon.3 }
-%struct.anon.3 = type { [8 x i8] }
 %"class.llvm::Expected.24" = type { %union.anon.25, i8, [7 x i8] }
 %union.anon.25 = type { %"struct.llvm::AlignedCharArrayUnion.26" }
 %"struct.llvm::AlignedCharArrayUnion.26" = type { [16 x i8] }
-%"struct.llvm::object::XCOFFRelocation64" = type { %"struct.llvm::object::XCOFFRelocation.23" }
-%"struct.llvm::object::XCOFFRelocation.23" = type { %"struct.llvm::support::detail::packed_endian_specific_integral.2", %"struct.llvm::support::detail::packed_endian_specific_integral", i8, i8 }
 %"class.llvm::Expected.39" = type { %union.anon.40, i8, [7 x i8] }
 %union.anon.40 = type { %"struct.llvm::AlignedCharArrayUnion.41" }
 %"struct.llvm::AlignedCharArrayUnion.41" = type { [16 x i8] }
 %"class.llvm::Expected.28" = type { %union.anon.29, i8, [7 x i8] }
 %union.anon.29 = type { %"struct.llvm::AlignedCharArrayUnion.5" }
 %"struct.llvm::AlignedCharArrayUnion.5" = type { [8 x i8] }
-%"struct.llvm::object::XCOFFRelocation32" = type { %"struct.llvm::object::XCOFFRelocation" }
-%"struct.llvm::object::XCOFFRelocation" = type { %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral", i8, i8 }
 %"class.llvm::Expected.48" = type { %union.anon.49, i8, [7 x i8] }
 %union.anon.49 = type { %"struct.llvm::AlignedCharArrayUnion.50" }
 %"struct.llvm::AlignedCharArrayUnion.50" = type { [16 x i8] }
@@ -156,12 +144,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.192" = type { %"struct.std::_Vector_base<llvm::object::SectionRef, std::allocator<llvm::object::SectionRef>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::object::SectionRef, std::allocator<llvm::object::SectionRef>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::object::SectionRef, std::allocator<llvm::object::SectionRef>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::object::SectionRef, std::allocator<llvm::object::SectionRef>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.196" = type { %"struct.std::__uniq_ptr_data.197" }
-%"struct.std::__uniq_ptr_data.197" = type { %"class.std::__uniq_ptr_impl.198" }
-%"class.std::__uniq_ptr_impl.198" = type { %"class.std::tuple.199" }
-%"class.std::tuple.199" = type { %"struct.std::_Tuple_impl.200" }
-%"struct.std::_Tuple_impl.200" = type { %"struct.std::_Head_base.203" }
-%"struct.std::_Head_base.203" = type { ptr }
 
 $_ZNK4llvm6object21ExceptionSectionEntryINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE0ELm1ELm1EEEE14getSymbolIndexEv = comdat any
 
@@ -509,7 +491,7 @@ _ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %.sroa.022.0.i) #24
   %48 = udiv i64 %47, 6
-  %49 = getelementptr inbounds nuw %"struct.llvm::object::ExceptionSectionEntry", ptr %43, i64 %48
+  %49 = getelementptr inbounds nuw [6 x i8], ptr %43, i64 %48
   %50 = ptrtoint ptr %49 to i64
   %51 = sub i64 %50, %42
   %52 = sdiv exact i64 %51, 6
@@ -724,7 +706,7 @@ _ZN4llvm11SmallStringILj32EE5c_strEv.exit:        ; preds = %_ZN4llvmplERKNS_5Tw
 
 switch.lookup:                                    ; preds = %.split
   %98 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6object15XCOFFObjectFile29getSectionFileOffsetToRawDataENS_5XCOFF16SectionTypeFlagsE, i64 %98
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm6object15XCOFFObjectFile29getSectionFileOffsetToRawDataENS_5XCOFF16SectionTypeFlagsE, i64 %98
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %99
 
@@ -1193,7 +1175,7 @@ _ZNK4llvm6object15XCOFFObjectFile16getSectionByTypeENS_5XCOFF16SectionTypeFlagsE
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %.sroa.022.0.i) #24
   %48 = udiv i64 %47, 10
-  %49 = getelementptr inbounds nuw %"struct.llvm::object::ExceptionSectionEntry.0", ptr %43, i64 %48
+  %49 = getelementptr inbounds nuw [10 x i8], ptr %43, i64 %48
   %50 = ptrtoint ptr %49 to i64
   %51 = sub i64 %50, %42
   %52 = sdiv exact i64 %51, 10
@@ -1632,7 +1614,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i71: ;
 _ZN4llvm8ExpectedIPKNS_6object17XCOFFRelocation64EED2Ev.exit: ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i._ZN4llvm8ExpectedIPKNS_6object17XCOFFRelocation64EED2Ev.exit_crit_edge, %67
   %.pre-phi = phi ptr [ %.pre, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i._ZN4llvm8ExpectedIPKNS_6object17XCOFFRelocation64EED2Ev.exit_crit_edge ], [ %68, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !134
-  %126 = getelementptr inbounds nuw %"struct.llvm::object::XCOFFRelocation64", ptr %.pre-phi, i64 %.sroa.087.1110
+  %126 = getelementptr inbounds nuw [14 x i8], ptr %.pre-phi, i64 %.sroa.087.1110
   %127 = ptrtoint ptr %126 to i64
   %128 = sub i64 %127, %20
   %129 = sdiv exact i64 %128, 14
@@ -1961,7 +1943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
 96:                                               ; preds = %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i._crit_edge, %36
   %.pre-phi = phi ptr [ %.pre122, %_ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i._crit_edge ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !196
-  %97 = getelementptr inbounds nuw %"struct.llvm::object::XCOFFRelocation32", ptr %.pre-phi, i64 %31
+  %97 = getelementptr inbounds nuw [10 x i8], ptr %.pre-phi, i64 %31
   %98 = ptrtoint ptr %97 to i64
   %99 = sub i64 %98, %21
   %100 = sdiv exact i64 %99, 10
@@ -4707,7 +4689,7 @@ _ZN4llvm5ErrorD2Ev.exit21:                        ; preds = %16
   %.pr = load ptr, ptr %9, align 8, !tbaa !521
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !531
-  %37 = getelementptr inbounds nuw %"struct.llvm::object::XCOFFRelocation64", ptr %.pr, i64 %36
+  %37 = getelementptr inbounds nuw [14 x i8], ptr %.pr, i64 %36
   %38 = ptrtoint ptr %37 to i64
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation64EEEED2Ev.exit25
 
@@ -4782,7 +4764,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %42
   %.pr65 = load ptr, ptr %10, align 8, !tbaa !526
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !535
-  %63 = getelementptr inbounds nuw %"struct.llvm::object::XCOFFRelocation32", ptr %.pr65, i64 %62
+  %63 = getelementptr inbounds nuw [10 x i8], ptr %.pr65, i64 %62
   %64 = ptrtoint ptr %63 to i64
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_6object17XCOFFRelocation32EEEED2Ev.exit40
 
@@ -8388,7 +8370,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %76, %80
   %83 = phi i32 [ %78, %76 ], [ %.pre.i, %80 ]
   %84 = load ptr, ptr %8, align 8, !tbaa !878
   %85 = zext i32 %83 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %85
   store i32 %77, ptr %86, align 1
   %87 = load i32, ptr %65, align 8, !tbaa !882
   %88 = add i32 %87, 1
@@ -9554,7 +9536,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !962
   store ptr %67, ptr %41, align 8, !tbaa !959
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.196", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !961
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -9704,7 +9686,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !962
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !959
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.196", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !961
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -9824,7 +9806,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !962
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !959
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.196", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !961
   ret void
 }
@@ -10074,7 +10056,7 @@ _ZSt4moveIPjS0_ET0_T_S2_S1_.exit35:               ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 2
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !878
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 4 %43, i64 %gepdiff, i1 false)

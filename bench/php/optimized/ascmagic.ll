@@ -177,7 +177,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 34:                                               ; preds = %128, %31
   %.06372.i = phi i64 [ 0, %31 ], [ %129, %128 ]
   %.06471.i = phi ptr [ %28, %31 ], [ %.1.i, %128 ]
-  %35 = getelementptr inbounds nuw i64, ptr %2, i64 %.06372.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.06372.i
   %36 = load i64, ptr %35, align 8, !tbaa !9
   %37 = icmp ult i64 %36, 128
   br i1 %37, label %38, label %45
@@ -381,7 +381,7 @@ encode_utf8.exit:                                 ; preds = %128
   %.0192251 = phi i32 [ %.1193, %150 ], [ 0, %.preheader ]
   %.0194250 = phi i32 [ %.1195, %150 ], [ 0, %.preheader ]
   %.0196249 = phi i64 [ %161, %150 ], [ 0, %.preheader ]
-  %143 = getelementptr inbounds nuw i64, ptr %2, i64 %.0196249
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0196249
   %144 = load i64, ptr %143, align 8, !tbaa !9
   %145 = icmp eq i64 %144, 10
   %not..0191248 = xor i1 %.0191252, true

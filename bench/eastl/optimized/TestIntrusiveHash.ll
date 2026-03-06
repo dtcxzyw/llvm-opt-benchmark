@@ -142,7 +142,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
 for.body:                                         ; preds = %arrayctor.loop, %for.body
   %i.03046 = phi i64 [ %inc, %for.body ], [ 0, %arrayctor.loop ]
   %conv = trunc nuw nsw i64 %i.03046 to i32
-  %arrayidx = getelementptr inbounds nuw %"struct.(anonymous namespace)::SetWidget", ptr %swArray, i64 %i.03046
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %swArray, i64 %i.03046
   %mX = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store i32 %conv, ptr %mX, align 8
   %inc = add nuw nsw i64 %i.03046, 1
@@ -258,8 +258,8 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
 
 for.body.i187:                                    ; preds = %for.body.i187, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit186
   %i.07.i = phi i64 [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit186 ], [ %inc.i188, %for.body.i187 ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %ihmSW1, i64 %i.07.i
-  %arrayidx3.i = getelementptr inbounds nuw ptr, ptr %ihmSW2, i64 %i.07.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %ihmSW1, i64 %i.07.i
+  %arrayidx3.i = getelementptr inbounds nuw [8 x i8], ptr %ihmSW2, i64 %i.07.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   %11 = load ptr, ptr %arrayidx3.i, align 8
   store ptr %11, ptr %arrayidx.i, align 8
@@ -453,7 +453,7 @@ for.body.i296:                                    ; preds = %_ZN5eastl19intrusiv
   %call.val.i.i.i = load i32, ptr %33, align 8, !noalias !17
   %conv.i.i.i.i = sext i32 %call.val.i.i.i to i64
   %rem.i.i.i = urem i64 %conv.i.i.i.i, 37
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %ihmSW1, i64 %rem.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %ihmSW1, i64 %rem.i.i.i
   %34 = load ptr, ptr %arrayidx.i.i.i, align 8, !noalias !17
   %tobool.not1.i.i.i.i = icmp eq ptr %34, null
   br i1 %tobool.not1.i.i.i.i, label %if.then.i.i.i, label %for.body.i.i.i.i
@@ -485,13 +485,13 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
 
 for.body61:                                       ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit.i, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit ], [ 0, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit.i ]
-  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SetWidget", ptr %swArray, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %swArray, i64 %indvars.iv
   %arrayidx64 = getelementptr inbounds nuw i8, ptr %38, i64 1440
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1448
   %call.val.i.i = load i32, ptr %39, align 8, !noalias !24
   %conv.i.i.i = sext i32 %call.val.i.i to i64
   %rem.i.i = urem i64 %conv.i.i.i, 37
-  %arrayidx.i.i299 = getelementptr inbounds nuw ptr, ptr %ihmSW1, i64 %rem.i.i
+  %arrayidx.i.i299 = getelementptr inbounds nuw [8 x i8], ptr %ihmSW1, i64 %rem.i.i
   %40 = load ptr, ptr %arrayidx.i.i299, align 8, !noalias !24
   %tobool.not1.i.i.i = icmp eq ptr %40, null
   br i1 %tobool.not1.i.i.i, label %if.then.i.i, label %for.body.i.i.i
@@ -576,12 +576,12 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
 
 for.body79:                                       ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit330, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit349
   %i76.03049 = phi i64 [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit330 ], [ %inc88, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit349 ]
-  %arrayidx81 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SetWidget", ptr %swArray, i64 %i76.03049
+  %arrayidx81 = getelementptr inbounds nuw [16 x i8], ptr %swArray, i64 %i76.03049
   %49 = getelementptr inbounds nuw i8, ptr %arrayidx81, i64 8
   %call.val.i.i331 = load i32, ptr %49, align 8, !noalias !30
   %conv.i.i.i332 = sext i32 %call.val.i.i331 to i64
   %rem.i.i333 = urem i64 %conv.i.i.i332, 37
-  %arrayidx.i.i334 = getelementptr inbounds nuw ptr, ptr %ihmSW1, i64 %rem.i.i333
+  %arrayidx.i.i334 = getelementptr inbounds nuw [8 x i8], ptr %ihmSW1, i64 %rem.i.i333
   %50 = load ptr, ptr %arrayidx.i.i334, align 8, !noalias !30
   %tobool.not1.i.i.i335 = icmp eq ptr %50, null
   br i1 %tobool.not1.i.i.i335, label %if.then.i.i342, label %for.body.i.i.i336
@@ -671,8 +671,8 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
 
 for.body.i381:                                    ; preds = %for.body.i381, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit379
   %i.07.i382 = phi i64 [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit379 ], [ %inc.i385, %for.body.i381 ]
-  %arrayidx.i383 = getelementptr inbounds nuw ptr, ptr %ihmSW1, i64 %i.07.i382
-  %arrayidx3.i384 = getelementptr inbounds nuw ptr, ptr %ihmSW2, i64 %i.07.i382
+  %arrayidx.i383 = getelementptr inbounds nuw [8 x i8], ptr %ihmSW1, i64 %i.07.i382
+  %arrayidx3.i384 = getelementptr inbounds nuw [8 x i8], ptr %ihmSW2, i64 %i.07.i382
   %59 = load ptr, ptr %arrayidx.i383, align 8
   %60 = load ptr, ptr %arrayidx3.i384, align 8
   store ptr %60, ptr %arrayidx.i383, align 8
@@ -914,8 +914,8 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
 
 for.body.i526:                                    ; preds = %for.body.i526, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11bucket_sizeEm.exit519
   %i.07.i527 = phi i64 [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11bucket_sizeEm.exit519 ], [ %inc.i530, %for.body.i526 ]
-  %arrayidx.i528 = getelementptr inbounds nuw ptr, ptr %ihmSW1, i64 %i.07.i527
-  %arrayidx3.i529 = getelementptr inbounds nuw ptr, ptr %ihmSW2, i64 %i.07.i527
+  %arrayidx.i528 = getelementptr inbounds nuw [8 x i8], ptr %ihmSW1, i64 %i.07.i527
+  %arrayidx3.i529 = getelementptr inbounds nuw [8 x i8], ptr %ihmSW2, i64 %i.07.i527
   %83 = load ptr, ptr %arrayidx.i528, align 8
   %84 = load ptr, ptr %arrayidx3.i529, align 8
   store ptr %84, ptr %arrayidx.i528, align 8
@@ -1002,7 +1002,7 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %95 = load i32, ptr %mX154, align 8
   %conv.i.i567 = sext i32 %95 to i64
   %rem.i568 = urem i64 %conv.i.i567, 37
-  %arrayidx.i569 = getelementptr inbounds nuw ptr, ptr %ihmSW1, i64 %rem.i568
+  %arrayidx.i569 = getelementptr inbounds nuw [8 x i8], ptr %ihmSW1, i64 %rem.i568
   %96 = load ptr, ptr %arrayidx.i569, align 8
   %tobool.not1.i.i = icmp eq ptr %96, null
   br i1 %tobool.not1.i.i, label %cond.false.i, label %for.body.i.i
@@ -1078,7 +1078,7 @@ for.body177:                                      ; preds = %_ZNK5eastl19intrusi
   %107 = load i32, ptr %mX182, align 8
   %conv.i.i592 = sext i32 %107 to i64
   %rem.i593 = urem i64 %conv.i.i592, 37
-  %arrayidx.i594 = getelementptr inbounds nuw ptr, ptr %ihmSW1, i64 %rem.i593
+  %arrayidx.i594 = getelementptr inbounds nuw [8 x i8], ptr %ihmSW1, i64 %rem.i593
   %108 = load ptr, ptr %arrayidx.i594, align 8
   %tobool.not1.i.i595 = icmp eq ptr %108, null
   br i1 %tobool.not1.i.i595, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE4findERKS2_.exit608, label %for.body.i.i596
@@ -2122,7 +2122,7 @@ arrayctor.loop397:                                ; preds = %arrayctor.loop397, 
 for.body406:                                      ; preds = %arrayctor.loop397, %for.body406
   %i403.03061 = phi i64 [ %inc415, %for.body406 ], [ 0, %arrayctor.loop397 ]
   %conv407 = trunc nuw nsw i64 %i403.03061 to i32
-  %arrayidx408 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MapWidget", ptr %mwArray, i64 %i403.03061
+  %arrayidx408 = getelementptr inbounds nuw [16 x i8], ptr %mwArray, i64 %i403.03061
   %mKey = getelementptr inbounds nuw i8, ptr %arrayidx408, i64 8
   store i32 %conv407, ptr %mKey, align 8
   %mX411 = getelementptr inbounds nuw i8, ptr %arrayidx408, i64 12
@@ -2240,8 +2240,8 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
 
 for.body.i1320:                                   ; preds = %for.body.i1320, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1319
   %i.07.i1321 = phi i64 [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1319 ], [ %inc.i1324, %for.body.i1320 ]
-  %arrayidx.i1322 = getelementptr inbounds nuw ptr, ptr %ihmMW1, i64 %i.07.i1321
-  %arrayidx3.i1323 = getelementptr inbounds nuw ptr, ptr %ihmMW2, i64 %i.07.i1321
+  %arrayidx.i1322 = getelementptr inbounds nuw [8 x i8], ptr %ihmMW1, i64 %i.07.i1321
+  %arrayidx3.i1323 = getelementptr inbounds nuw [8 x i8], ptr %ihmMW2, i64 %i.07.i1321
   %256 = load ptr, ptr %arrayidx.i1322, align 8
   %257 = load ptr, ptr %arrayidx3.i1323, align 8
   store ptr %257, ptr %arrayidx.i1322, align 8
@@ -2435,7 +2435,7 @@ for.body.i1452:                                   ; preds = %_ZN5eastl19intrusiv
   %279 = load i32, ptr %mKey.i.i.i.i, align 8, !noalias !80
   %conv.i.i.i.i1454 = sext i32 %279 to i64
   %rem.i.i.i1455 = urem i64 %conv.i.i.i.i1454, 37
-  %arrayidx.i.i.i1456 = getelementptr inbounds nuw ptr, ptr %ihmMW1, i64 %rem.i.i.i1455
+  %arrayidx.i.i.i1456 = getelementptr inbounds nuw [8 x i8], ptr %ihmMW1, i64 %rem.i.i.i1455
   %280 = load ptr, ptr %arrayidx.i.i.i1456, align 8, !noalias !80
   %tobool.not1.i.i.i.i1457 = icmp eq ptr %280, null
   br i1 %tobool.not1.i.i.i.i1457, label %if.then.i.i.i1463, label %for.body.i.i.i.i1458
@@ -2467,13 +2467,13 @@ _ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_
 
 for.body461:                                      ; preds = %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE6insertERS2_.exit.i, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE6insertERS2_.exit
   %indvars.iv3197 = phi i64 [ %indvars.iv.next3198, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE6insertERS2_.exit ], [ 0, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE6insertERS2_.exit.i ]
-  %284 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MapWidget", ptr %mwArray, i64 %indvars.iv3197
+  %284 = getelementptr inbounds nuw [16 x i8], ptr %mwArray, i64 %indvars.iv3197
   %arrayidx465 = getelementptr inbounds nuw i8, ptr %284, i64 1440
   %mKey.i.i.i = getelementptr inbounds nuw i8, ptr %284, i64 1448
   %285 = load i32, ptr %mKey.i.i.i, align 8, !noalias !87
   %conv.i.i.i1468 = sext i32 %285 to i64
   %rem.i.i1469 = urem i64 %conv.i.i.i1468, 37
-  %arrayidx.i.i1470 = getelementptr inbounds nuw ptr, ptr %ihmMW1, i64 %rem.i.i1469
+  %arrayidx.i.i1470 = getelementptr inbounds nuw [8 x i8], ptr %ihmMW1, i64 %rem.i.i1469
   %286 = load ptr, ptr %arrayidx.i.i1470, align 8, !noalias !87
   %tobool.not1.i.i.i1471 = icmp eq ptr %286, null
   br i1 %tobool.not1.i.i.i1471, label %if.then.i.i1478, label %for.body.i.i.i1472
@@ -2558,12 +2558,12 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
 
 for.body482:                                      ; preds = %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1512, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE6insertERS2_.exit1531
   %i479.03064 = phi i64 [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1512 ], [ %inc491, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE6insertERS2_.exit1531 ]
-  %arrayidx484 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MapWidget", ptr %mwArray, i64 %i479.03064
+  %arrayidx484 = getelementptr inbounds nuw [16 x i8], ptr %mwArray, i64 %i479.03064
   %mKey.i.i.i1513 = getelementptr inbounds nuw i8, ptr %arrayidx484, i64 8
   %295 = load i32, ptr %mKey.i.i.i1513, align 8, !noalias !93
   %conv.i.i.i1514 = sext i32 %295 to i64
   %rem.i.i1515 = urem i64 %conv.i.i.i1514, 37
-  %arrayidx.i.i1516 = getelementptr inbounds nuw ptr, ptr %ihmMW1, i64 %rem.i.i1515
+  %arrayidx.i.i1516 = getelementptr inbounds nuw [8 x i8], ptr %ihmMW1, i64 %rem.i.i1515
   %296 = load ptr, ptr %arrayidx.i.i1516, align 8, !noalias !93
   %tobool.not1.i.i.i1517 = icmp eq ptr %296, null
   br i1 %tobool.not1.i.i.i1517, label %if.then.i.i1524, label %for.body.i.i.i1518
@@ -2653,8 +2653,8 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
 
 for.body.i1564:                                   ; preds = %for.body.i1564, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1562
   %i.07.i1565 = phi i64 [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE8validateEv.exit1562 ], [ %inc.i1568, %for.body.i1564 ]
-  %arrayidx.i1566 = getelementptr inbounds nuw ptr, ptr %ihmMW1, i64 %i.07.i1565
-  %arrayidx3.i1567 = getelementptr inbounds nuw ptr, ptr %ihmMW2, i64 %i.07.i1565
+  %arrayidx.i1566 = getelementptr inbounds nuw [8 x i8], ptr %ihmMW1, i64 %i.07.i1565
+  %arrayidx3.i1567 = getelementptr inbounds nuw [8 x i8], ptr %ihmMW2, i64 %i.07.i1565
   %305 = load ptr, ptr %arrayidx.i1566, align 8
   %306 = load ptr, ptr %arrayidx3.i1567, align 8
   store ptr %306, ptr %arrayidx.i1566, align 8
@@ -2896,8 +2896,8 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
 
 for.body.i1719:                                   ; preds = %for.body.i1719, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11bucket_sizeEm.exit1714
   %i.07.i1720 = phi i64 [ 0, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11bucket_sizeEm.exit1714 ], [ %inc.i1723, %for.body.i1719 ]
-  %arrayidx.i1721 = getelementptr inbounds nuw ptr, ptr %ihmMW1, i64 %i.07.i1720
-  %arrayidx3.i1722 = getelementptr inbounds nuw ptr, ptr %ihmMW2, i64 %i.07.i1720
+  %arrayidx.i1721 = getelementptr inbounds nuw [8 x i8], ptr %ihmMW1, i64 %i.07.i1720
+  %arrayidx3.i1722 = getelementptr inbounds nuw [8 x i8], ptr %ihmMW2, i64 %i.07.i1720
   %329 = load ptr, ptr %arrayidx.i1721, align 8
   %330 = load ptr, ptr %arrayidx3.i1722, align 8
   store ptr %330, ptr %arrayidx.i1721, align 8
@@ -2989,7 +2989,7 @@ _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal
   %mKey556.val = load i32, ptr %mKey556, align 4
   %conv.i.i1771 = sext i32 %mKey556.val to i64
   %rem.i1772 = urem i64 %conv.i.i1771, 37
-  %arrayidx.i1773 = getelementptr inbounds nuw ptr, ptr %ihmMW1, i64 %rem.i1772
+  %arrayidx.i1773 = getelementptr inbounds nuw [8 x i8], ptr %ihmMW1, i64 %rem.i1772
   %343 = load ptr, ptr %arrayidx.i1773, align 8, !noalias !111
   %tobool.not1.i.i1774 = icmp eq ptr %343, null
   br i1 %tobool.not1.i.i1774, label %cond.false.i1781, label %for.body.i.i1775
@@ -3069,7 +3069,7 @@ for.body584:                                      ; preds = %_ZNK5eastl19intrusi
   %mKey587.val = load i32, ptr %mKey587, align 8
   %conv.i.i1808 = sext i32 %mKey587.val to i64
   %rem.i1809 = urem i64 %conv.i.i1808, 37
-  %arrayidx.i1810 = getelementptr inbounds nuw ptr, ptr %ihmMW1, i64 %rem.i1809
+  %arrayidx.i1810 = getelementptr inbounds nuw [8 x i8], ptr %ihmMW1, i64 %rem.i1809
   %355 = load ptr, ptr %arrayidx.i1810, align 8
   %tobool.not1.i.i1811 = icmp eq ptr %355, null
   br i1 %tobool.not1.i.i1811, label %cond.false.i1818, label %for.body.i.i1812
@@ -4371,7 +4371,7 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %call.val.i = load i32, ptr %mX.i2627, align 8
   %conv.i.i2717 = sext i32 %call.val.i to i64
   %rem.i2718 = urem i64 %conv.i.i2717, 37
-  %arrayidx.i2719 = getelementptr inbounds nuw ptr, ptr %hs811, i64 %rem.i2718
+  %arrayidx.i2719 = getelementptr inbounds nuw [8 x i8], ptr %hs811, i64 %rem.i2718
   %532 = load ptr, ptr %arrayidx.i2719, align 8
   %cmp.i.i2725 = icmp eq ptr %532, %node1814
   br i1 %cmp.i.i2725, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit, label %while.cond.i.i2726
@@ -4393,7 +4393,7 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %call.val.i2739 = load i32, ptr %mX.i2628, align 8
   %conv.i.i2740 = sext i32 %call.val.i2739 to i64
   %rem.i2741 = urem i64 %conv.i.i2740, 37
-  %arrayidx.i2742 = getelementptr inbounds nuw ptr, ptr %hs811, i64 %rem.i2741
+  %arrayidx.i2742 = getelementptr inbounds nuw [8 x i8], ptr %hs811, i64 %rem.i2741
   %535 = load ptr, ptr %arrayidx.i2742, align 8
   %cmp.i.i2748 = icmp eq ptr %535, %node2815
   br i1 %cmp.i.i2748, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2764, label %while.cond.i.i2749
@@ -4415,7 +4415,7 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %call.val.i2765 = load i32, ptr %mX.i2629, align 8
   %conv.i.i2766 = sext i32 %call.val.i2765 to i64
   %rem.i2767 = urem i64 %conv.i.i2766, 37
-  %arrayidx.i2768 = getelementptr inbounds nuw ptr, ptr %hs811, i64 %rem.i2767
+  %arrayidx.i2768 = getelementptr inbounds nuw [8 x i8], ptr %hs811, i64 %rem.i2767
   %538 = load ptr, ptr %arrayidx.i2768, align 8
   %cmp.i.i2774 = icmp eq ptr %538, %node3816
   br i1 %cmp.i.i2774, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2790, label %while.cond.i.i2775
@@ -4481,7 +4481,7 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %call.val.i.i2821 = load i32, ptr %mX.i2627, align 8, !noalias !248
   %conv.i.i.i2822 = sext i32 %call.val.i.i2821 to i64
   %rem.i.i2823 = urem i64 %conv.i.i.i2822, 37
-  %arrayidx.i.i2824 = getelementptr inbounds nuw ptr, ptr %hs811, i64 %rem.i.i2823
+  %arrayidx.i.i2824 = getelementptr inbounds nuw [8 x i8], ptr %hs811, i64 %rem.i.i2823
   %545 = load ptr, ptr %arrayidx.i.i2824, align 8, !noalias !248
   %tobool.not1.i.i.i2825 = icmp eq ptr %545, null
   br i1 %tobool.not1.i.i.i2825, label %if.then.i.i2832, label %for.body.i.i.i2826
@@ -4510,7 +4510,7 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %call.val.i.i2840 = load i32, ptr %mX.i2628, align 8, !noalias !253
   %conv.i.i.i2841 = sext i32 %call.val.i.i2840 to i64
   %rem.i.i2842 = urem i64 %conv.i.i.i2841, 37
-  %arrayidx.i.i2843 = getelementptr inbounds nuw ptr, ptr %hs811, i64 %rem.i.i2842
+  %arrayidx.i.i2843 = getelementptr inbounds nuw [8 x i8], ptr %hs811, i64 %rem.i.i2842
   %549 = load ptr, ptr %arrayidx.i.i2843, align 8, !noalias !253
   %tobool.not1.i.i.i2844 = icmp eq ptr %549, null
   br i1 %tobool.not1.i.i.i2844, label %if.then.i.i2851, label %for.body.i.i.i2845
@@ -4539,7 +4539,7 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %call.val.i.i2859 = load i32, ptr %mX.i2629, align 8, !noalias !258
   %conv.i.i.i2860 = sext i32 %call.val.i.i2859 to i64
   %rem.i.i2861 = urem i64 %conv.i.i.i2860, 37
-  %arrayidx.i.i2862 = getelementptr inbounds nuw ptr, ptr %hs811, i64 %rem.i.i2861
+  %arrayidx.i.i2862 = getelementptr inbounds nuw [8 x i8], ptr %hs811, i64 %rem.i.i2861
   %553 = load ptr, ptr %arrayidx.i.i2862, align 8, !noalias !258
   %tobool.not1.i.i.i2863 = icmp eq ptr %553, null
   br i1 %tobool.not1.i.i.i2863, label %if.then.i.i2870, label %for.body.i.i.i2864

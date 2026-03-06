@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/usmdec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.USMChannel = type { i32, i32, i32, i32, i32, i32, %struct.AVRational, i32, i32, i64, i64 }
-%struct.AVRational = type { i32, i32 }
-
 @.str = private unnamed_addr constant [4 x i8] c"usm\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"CRI USM\00", align 1
 @ff_usm_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 41216, [4 x i8] zeroinitializer, ptr @.str, ptr null, ptr null, ptr null }, i32 0, i32 57376, i32 0, [4 x i8] zeroinitializer, ptr @usm_probe, ptr @usm_read_header, ptr @usm_read_packet, ptr @usm_read_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -145,9 +142,9 @@ define internal i32 @usm_read_packet(ptr noundef %0, ptr noundef %1) #2 {
 
 51:                                               ; preds = %50
   %52 = zext nneg i32 %29 to i64
-  %53 = getelementptr inbounds nuw [256 x %struct.USMChannel], ptr %24, i64 %52
+  %53 = getelementptr inbounds nuw [14336 x i8], ptr %24, i64 %52
   %54 = sext i32 %36 to i64
-  %55 = getelementptr inbounds %struct.USMChannel, ptr %53, i64 %54
+  %55 = getelementptr inbounds [56 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !29
   %58 = icmp eq i32 %57, 0
@@ -156,13 +153,13 @@ define internal i32 @usm_read_packet(ptr noundef %0, ptr noundef %1) #2 {
 switch.lookup:                                    ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %60 = zext nneg i32 %29 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.usm_read_packet, i64 %60
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.usm_read_packet, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %59, align 8, !tbaa !32
   store i32 1, ptr %56, align 4, !tbaa !29
   store i32 -1, ptr %55, align 8, !tbaa !33
   %61 = getelementptr inbounds nuw i8, ptr %24, i64 57344
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %52
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %52
   %63 = load i32, ptr %62, align 4, !tbaa !34
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %62, align 4, !tbaa !34
@@ -714,9 +711,9 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
 
 276:                                              ; preds = %50
   %277 = zext nneg i32 %29 to i64
-  %278 = getelementptr inbounds nuw [256 x %struct.USMChannel], ptr %24, i64 %277
+  %278 = getelementptr inbounds nuw [14336 x i8], ptr %24, i64 %277
   %279 = sext i32 %36 to i64
-  %280 = getelementptr inbounds %struct.USMChannel, ptr %278, i64 %279
+  %280 = getelementptr inbounds [56 x i8], ptr %278, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 4
   %282 = load i32, ptr %281, align 4, !tbaa !29
   %283 = icmp eq i32 %282, 1

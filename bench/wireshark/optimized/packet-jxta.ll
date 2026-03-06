@@ -1611,7 +1611,7 @@ proto_item_set_generated.exit345:                 ; preds = %260, %267, %263, %p
   %295 = add i32 %.2266445, 2
   %296 = zext i16 %293 to i32
   %297 = tail call ptr @tvb_get_string_enc(ptr noundef %294, ptr noundef %0, i32 noundef %295, i32 noundef %296, i32 noundef 0)
-  %298 = getelementptr ptr, ptr %291, i64 %indvars.iv
+  %298 = getelementptr [8 x i8], ptr %291, i64 %indvars.iv
   %299 = getelementptr i8, ptr %298, i64 16
   store ptr %297, ptr %299, align 8
   %300 = load i32, ptr @hf_jxta_message_names_name, align 4
@@ -2900,7 +2900,7 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
 
 107:                                              ; preds = %95
   %108 = zext i8 %102 to i64
-  %109 = getelementptr ptr, ptr %4, i64 %108
+  %109 = getelementptr [8 x i8], ptr %4, i64 %108
   %110 = load ptr, ptr %109, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef nonnull @.str.195, ptr noundef %110)
   br label %112
@@ -3190,7 +3190,7 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
 
 117:                                              ; preds = %101
   %118 = zext i16 %112 to i64
-  %119 = getelementptr ptr, ptr %4, i64 %118
+  %119 = getelementptr [8 x i8], ptr %4, i64 %118
   %120 = load ptr, ptr %119, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %115, ptr noundef nonnull @.str.195, ptr noundef %120)
   br label %122
@@ -3215,7 +3215,7 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
 
 132:                                              ; preds = %127
   %133 = zext i16 %126 to i64
-  %134 = getelementptr ptr, ptr %4, i64 %133
+  %134 = getelementptr [8 x i8], ptr %4, i64 %133
   %135 = load ptr, ptr %134, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %130, ptr noundef nonnull @.str.195, ptr noundef %135)
   br label %145
@@ -3251,7 +3251,7 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
 
 153:                                              ; preds = %147
   %154 = zext i16 %148 to i64
-  %155 = getelementptr ptr, ptr %4, i64 %154
+  %155 = getelementptr [8 x i8], ptr %4, i64 %154
   %156 = load ptr, ptr %155, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %151, ptr noundef nonnull @.str.195, ptr noundef %156)
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -3286,7 +3286,7 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
 
 172:                                              ; preds = %166
   %173 = zext i16 %167 to i64
-  %174 = getelementptr ptr, ptr %4, i64 %173
+  %174 = getelementptr [8 x i8], ptr %4, i64 %173
   %175 = load ptr, ptr %174, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %170, ptr noundef nonnull @.str.195, ptr noundef %175)
   br label %177

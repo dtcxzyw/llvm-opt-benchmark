@@ -2125,10 +2125,10 @@ dissect_dect_nwk_s_ie_iwu_to_iwu.exit:            ; preds = %210, %223, %234
 
 switch.lookup:                                    ; preds = %.preheader2.i
   %437 = zext nneg i32 %.2129.i to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dect_nwk_s_ie, i64 %437
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_dect_nwk_s_ie, i64 %437
   %switch.load = load ptr, ptr %switch.gep, align 8
   %438 = zext nneg i32 %.2129.i to i64
-  %switch.gep27 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dect_nwk_s_ie.23, i64 %438
+  %switch.gep27 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_dect_nwk_s_ie.23, i64 %438
   %switch.load28 = load ptr, ptr %switch.gep27, align 8
   %439 = load i32, ptr %switch.load, align 4
   %440 = load i32, ptr @ett_dect_nwk_s_ie_element, align 4

@@ -517,10 +517,10 @@ define i64 @ZSTD_frameHeaderSize(ptr noundef readonly captures(none) %0, i64 nou
   %12 = xor i1 %11, true
   %13 = zext i1 %12 to i64
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr inbounds nuw i64, ptr @ZSTD_did_fieldSize, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_did_fieldSize, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !49
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw i64, ptr @ZSTD_fcs_fieldSize, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_fcs_fieldSize, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !49
   %.not.i = icmp eq i32 %9, 0
   %20 = and i1 %11, %.not.i
@@ -630,10 +630,10 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %17, %ZSTD_frameHead
   %38 = xor i1 %37, true
   %39 = zext i1 %38 to i64
   %40 = zext nneg i32 %34 to i64
-  %41 = getelementptr inbounds nuw i64, ptr @ZSTD_did_fieldSize, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_did_fieldSize, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !49
   %43 = zext nneg i32 %35 to i64
-  %44 = getelementptr inbounds nuw i64, ptr @ZSTD_fcs_fieldSize, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_fcs_fieldSize, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !49
   %.not.i132 = icmp eq i32 %35, 0
   %46 = and i1 %37, %.not.i132
@@ -1675,10 +1675,10 @@ ZSTD_frameHeaderSize_internal.exit.i:             ; preds = %146
   %161 = xor i1 %160, true
   %162 = zext i1 %161 to i64
   %163 = zext nneg i32 %157 to i64
-  %164 = getelementptr inbounds nuw i64, ptr @ZSTD_did_fieldSize, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_did_fieldSize, i64 %163
   %165 = load i64, ptr %164, align 8, !tbaa !49
   %166 = zext nneg i32 %158 to i64
-  %167 = getelementptr inbounds nuw i64, ptr @ZSTD_fcs_fieldSize, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_fcs_fieldSize, i64 %166
   %168 = load i64, ptr %167, align 8, !tbaa !49
   %.not.i.i113 = icmp eq i32 %158, 0
   %169 = and i1 %160, %.not.i.i113
@@ -2114,7 +2114,7 @@ define range(i32 0, 6) i32 @ZSTD_nextInputType(ptr noundef readonly captures(non
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ZSTD_nextInputType, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ZSTD_nextInputType, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -2217,10 +2217,10 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
   %47 = xor i1 %46, true
   %48 = zext i1 %47 to i64
   %49 = zext nneg i32 %43 to i64
-  %50 = getelementptr inbounds nuw i64, ptr @ZSTD_did_fieldSize, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_did_fieldSize, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !49
   %52 = zext nneg i32 %44 to i64
-  %53 = getelementptr inbounds nuw i64, ptr @ZSTD_fcs_fieldSize, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_fcs_fieldSize, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !49
   %.not.i163 = icmp eq i32 %44, 0
   %55 = and i1 %46, %.not.i163
@@ -2604,7 +2604,7 @@ define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr nounde
 28:                                               ; preds = %28, %21
   %.014.i.i = phi i64 [ %27, %21 ], [ %36, %28 ]
   %29 = load ptr, ptr %17, align 8, !tbaa !44
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.014.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.014.i.i
   %31 = load ptr, ptr %30, align 8, !tbaa !123
   %32 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef %31) #17
   %33 = icmp eq i32 %32, %23
@@ -2616,7 +2616,7 @@ define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr nounde
 
 ZSTD_DDictHashSet_getDDict.exit.i:                ; preds = %28
   %37 = load ptr, ptr %17, align 8, !tbaa !44
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.014.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.014.i.i
   %39 = load ptr, ptr %38, align 8, !tbaa !123
   %.not10.i = icmp eq ptr %39, null
   br i1 %.not10.i, label %ZSTD_DCtx_selectFrameDDict.exit, label %40
@@ -2873,7 +2873,7 @@ define i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
 
 .critedge95:                                      ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %.469106, i64 4
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv
   store i32 %.469.val, ptr %70, align 4, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
@@ -3930,7 +3930,7 @@ ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
 
 .lr.ph.i.i:                                       ; preds = %48, %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i
   %.02339.i.i = phi i64 [ %77, %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i ], [ 0, %48 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %.02339.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.02339.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !123
   %.not26.i.i = icmp eq ptr %51, null
   br i1 %.not26.i.i, label %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i, label %52
@@ -3950,7 +3950,7 @@ ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
 .preheader.i.i.i:                                 ; preds = %52
   %58 = and i64 %54, %55
   %59 = load ptr, ptr %19, align 8, !tbaa !44
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %58
   %61 = load ptr, ptr %60, align 8, !tbaa !123
   %.not26.i.i.i = icmp eq ptr %61, null
   br i1 %.not26.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
@@ -3964,7 +3964,7 @@ ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
 
 65:                                               ; preds = %.lr.ph.i.i.i
   %66 = load ptr, ptr %19, align 8, !tbaa !44
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.02127.i.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.02127.i.i.i
   store ptr %51, ptr %67, align 8, !tbaa !123
   br label %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i
 
@@ -3972,7 +3972,7 @@ ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
   %69 = and i64 %.02127.i.i.i, %55
   %70 = add i64 %69, 1
   %71 = load ptr, ptr %19, align 8, !tbaa !44
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %70
   %73 = load ptr, ptr %72, align 8, !tbaa !123
   %.not.i31.i.i = icmp eq ptr %73, null
   br i1 %.not.i31.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !129
@@ -3985,7 +3985,7 @@ ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
   %74 = phi i64 [ %56, %.preheader.i.i.i ], [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ]
   %.021.lcssa.i.i.i = phi i64 [ %58, %.preheader.i.i.i ], [ %70, %._crit_edge.loopexit.i.i.i ]
   %.lcssa25.i.i.i = phi ptr [ %59, %.preheader.i.i.i ], [ %71, %._crit_edge.loopexit.i.i.i ]
-  %75 = getelementptr inbounds nuw ptr, ptr %.lcssa25.i.i.i, i64 %.021.lcssa.i.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.lcssa25.i.i.i, i64 %.021.lcssa.i.i.i
   store ptr %51, ptr %75, align 8, !tbaa !123
   %76 = add i64 %74, 1
   store i64 %76, ptr %38, align 8, !tbaa !128
@@ -4030,7 +4030,7 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %80, %79, 
 .preheader.i.i:                                   ; preds = %ZSTD_DDictHashSet_expand.exit.thread.i
   %88 = and i64 %85, %86
   %89 = load ptr, ptr %83, align 8, !tbaa !44
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %88
   %91 = load ptr, ptr %90, align 8, !tbaa !123
   %.not26.i17.i = icmp eq ptr %91, null
   br i1 %.not26.i17.i, label %._crit_edge.i21.i, label %.lr.ph.i18.i
@@ -4044,7 +4044,7 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %80, %79, 
 
 95:                                               ; preds = %.lr.ph.i18.i
   %96 = load ptr, ptr %83, align 8, !tbaa !44
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %.02127.i.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %.02127.i.i
   store ptr %1, ptr %97, align 8, !tbaa !123
   br label %ZSTD_DDictHashSet_addDDict.exit.thread
 
@@ -4052,7 +4052,7 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %80, %79, 
   %99 = and i64 %.02127.i.i, %86
   %100 = add i64 %99, 1
   %101 = load ptr, ptr %83, align 8, !tbaa !44
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %100
   %103 = load ptr, ptr %102, align 8, !tbaa !123
   %.not.i19.i = icmp eq ptr %103, null
   br i1 %.not.i19.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i18.i, !llvm.loop !129
@@ -4065,7 +4065,7 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %80, %79, 
   %104 = phi i64 [ %87, %.preheader.i.i ], [ %.pre.i20.i, %._crit_edge.loopexit.i.i ]
   %.021.lcssa.i.i = phi i64 [ %88, %.preheader.i.i ], [ %100, %._crit_edge.loopexit.i.i ]
   %.lcssa25.i.i = phi ptr [ %89, %.preheader.i.i ], [ %101, %._crit_edge.loopexit.i.i ]
-  %105 = getelementptr inbounds nuw ptr, ptr %.lcssa25.i.i, i64 %.021.lcssa.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %.lcssa25.i.i, i64 %.021.lcssa.i.i
   store ptr %1, ptr %105, align 8, !tbaa !123
   %106 = add i64 %104, 1
   store i64 %106, ptr %82, align 8, !tbaa !128
@@ -4617,7 +4617,7 @@ ZSTD_checkOutBuffer.exit:                         ; preds = %32, %24, %28
 115:                                              ; preds = %115, %109
   %.014.i.i = phi i64 [ %114, %109 ], [ %123, %115 ]
   %116 = load ptr, ptr %106, align 8, !tbaa !44
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %.014.i.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %.014.i.i
   %118 = load ptr, ptr %117, align 8, !tbaa !123
   %119 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef %118) #17
   %120 = icmp eq i32 %119, %110
@@ -4629,7 +4629,7 @@ ZSTD_checkOutBuffer.exit:                         ; preds = %32, %24, %28
 
 ZSTD_DDictHashSet_getDDict.exit.i:                ; preds = %115
   %124 = load ptr, ptr %106, align 8, !tbaa !44
-  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %.014.i.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %.014.i.i
   %126 = load ptr, ptr %125, align 8, !tbaa !123
   %.not10.i = icmp eq ptr %126, null
   br i1 %.not10.i, label %ZSTD_DCtx_selectFrameDDict.exit, label %127

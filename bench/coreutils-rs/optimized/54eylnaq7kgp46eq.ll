@@ -255,7 +255,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h0fc310224e7e911cE.exit: ; 
   %80 = load ptr, ptr %51, align 8, !nonnull !14, !noundef !14
   %81 = load i64, ptr %52, align 8, !noundef !14
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !51
-  %82 = getelementptr inbounds { ptr, i64 }, ptr %80, i64 %81
+  %82 = getelementptr inbounds [16 x i8], ptr %80, i64 %81
   store ptr %80, ptr %6, align 8, !noalias !51
   store ptr %82, ptr %56, align 8, !noalias !51
   %83 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h27d562c0de9046c3E.llvm.9499628126318488195"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
@@ -311,7 +311,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h0fc310224e7e911cE.exit: ; 
 97:                                               ; preds = %.noexc25, %.loopexit65
   %98 = phi i64 [ %.pre.i, %.noexc25 ], [ %91, %.loopexit65 ]
   %99 = load ptr, ptr %51, align 8, !alias.scope !76, !noalias !79, !nonnull !14, !noundef !14
-  %100 = getelementptr inbounds { ptr, i64 }, ptr %99, i64 %98
+  %100 = getelementptr inbounds [16 x i8], ptr %99, i64 %98
   store ptr %77, ptr %100, align 8, !noalias !79
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i64 %79, ptr %101, align 8

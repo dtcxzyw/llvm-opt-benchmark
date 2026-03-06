@@ -19,13 +19,13 @@ define hidden void @lxb_html_tree_open_elements_remove_by_node(ptr noundef reado
 
 9:                                                ; preds = %8
   %10 = add i64 %.0, -1
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %14, label %8
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %10
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %10
   %16 = sub i64 %7, %.0
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = shl i64 %16, 3
@@ -57,7 +57,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until_tag_id(ptr noundef rea
 .lr.ph:                                           ; preds = %4, %21
   %9 = phi i64 [ %10, %21 ], [ %.promoted, %4 ]
   %10 = add i64 %9, -1
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !21
@@ -100,7 +100,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until_h123456(ptr noundef re
 .lr.ph:                                           ; preds = %1, %16
   %6 = phi i64 [ %7, %16 ], [ %.promoted, %1 ]
   %7 = add i64 %6, -1
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !21
@@ -140,7 +140,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until_td_th(ptr noundef read
 .lr.ph:                                           ; preds = %1, %16
   %6 = phi i64 [ %7, %16 ], [ %.promoted, %1 ]
   %7 = add i64 %6, -1
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !21
@@ -185,7 +185,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until_node(ptr noundef reado
 10:                                               ; preds = %8
   %11 = add i64 %9, -1
   store i64 %11, ptr %7, align 8, !tbaa !19
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %15, label %8
@@ -225,7 +225,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node(ptr n
 
 .lr.ph:                                           ; preds = %3, %13
   %.01323 = phi i64 [ %14, %13 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01323
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01323
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %12, label %13
@@ -270,7 +270,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node_rever
 
 10:                                               ; preds = %9
   %11 = add i64 %.0, -1
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %15, label %9
@@ -305,7 +305,7 @@ define hidden ptr @lxb_html_tree_open_elements_find(ptr noundef readonly capture
 
 .lr.ph:                                           ; preds = %4, %20
   %.01726 = phi i64 [ %21, %20 ], [ 0, %4 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01726
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.01726
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !21
@@ -355,7 +355,7 @@ define hidden ptr @lxb_html_tree_open_elements_find_reverse(ptr noundef readonly
 .lr.ph:                                           ; preds = %4, %21
   %.01622 = phi i64 [ %10, %21 ], [ %9, %4 ]
   %10 = add i64 %.01622, -1
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !21

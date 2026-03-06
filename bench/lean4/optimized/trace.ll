@@ -1408,7 +1408,7 @@ _ZN4leanL25get_enabled_trace_classesEv.exit:      ; preds = %.noexc1, %1
   br i1 %26, label %27, label %_ZNSt6vectorIN4lean4nameESaIS1_EE6resizeEm.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw %"class.lean::name", ptr %17, i64 %14
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %14
   %.not.i.i = icmp eq ptr %16, %28
   br i1 %.not.i.i, label %_ZNSt6vectorIN4lean4nameESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i
 
@@ -1498,7 +1498,7 @@ _ZN4leanL26get_disabled_trace_classesEv.exit:     ; preds = %.noexc6, %_ZNSt6vec
   br i1 %62, label %63, label %_ZNSt6vectorIN4lean4nameESaIS1_EE6resizeEm.exit15
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw %"class.lean::name", ptr %53, i64 %50
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %50
   %.not.i.i7 = icmp eq ptr %52, %64
   br i1 %.not.i.i7, label %_ZNSt6vectorIN4lean4nameESaIS1_EE6resizeEm.exit15, label %.lr.ph.i.i.i.i8
 
@@ -5960,7 +5960,7 @@ _ZSt8_DestroyIPN4lean4nameEEvT_S3_.exit:          ; preds = %_ZSt8_DestroyIN4lea
 _ZNSt12_Vector_baseIN4lean4nameESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4lean4nameEEvT_S3_.exit, %51
   store ptr %22, ptr %0, align 8, !tbaa !68
   store ptr %35, ptr %4, align 8, !tbaa !66
-  %55 = getelementptr inbounds nuw %"class.lean::name", ptr %22, i64 %16
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %55, ptr %50, align 8, !tbaa !122
   ret void
 
@@ -6162,7 +6162,7 @@ _ZSt27__uninitialized_default_n_aIPN4lean4nameEmS1_ET_S3_T0_RSaIT1_E.exit45: ; p
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
   %35 = tail call ptr @__cxa_begin_catch(ptr %34) #21
-  %36 = getelementptr inbounds nuw %"class.lean::name", ptr %28, i64 %1
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %1
   invoke void @_ZSt8_DestroyIPN4lean4nameEEvT_S3_(ptr noundef nonnull %28, ptr noundef nonnull %36)
           to label %_ZSt8_DestroyIPN4lean4nameES1_EvT_S3_RSaIT0_E.exit.thread unwind label %37
 
@@ -6234,9 +6234,9 @@ _ZSt8_DestroyIPN4lean4nameEEvT_S3_.exit:          ; preds = %_ZSt8_DestroyIN4lea
 
 _ZNSt12_Vector_baseIN4lean4nameESaIS1_EE13_M_deallocateEPS1_m.exit48: ; preds = %_ZSt8_DestroyIPN4lean4nameEEvT_S3_.exit, %54
   store ptr %27, ptr %0, align 8, !tbaa !68
-  %58 = getelementptr inbounds nuw %"class.lean::name", ptr %28, i64 %1
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %1
   store ptr %58, ptr %4, align 8, !tbaa !66
-  %59 = getelementptr inbounds nuw %"class.lean::name", ptr %27, i64 %25
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %59, ptr %11, align 8, !tbaa !122
   br label %60
 

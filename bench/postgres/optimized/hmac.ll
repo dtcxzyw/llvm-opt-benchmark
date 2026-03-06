@@ -26,10 +26,10 @@ define dso_local ptr @pg_hmac_create(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.pg_hmac_create, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.pg_hmac_create, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = zext nneg i32 %0 to i64
-  %switch.gep30 = getelementptr inbounds nuw i32, ptr @switch.table.pg_hmac_create.1, i64 %9
+  %switch.gep30 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.pg_hmac_create.1, i64 %9
   %switch.load31 = load i32, ptr %switch.gep30, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %switch.load, ptr %10, align 4

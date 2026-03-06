@@ -30,9 +30,9 @@ define void @files_releaselist(ptr noundef readonly captures(none) %0) local_unn
 6:                                                ; preds = %.preheader, %6
   %indvars.iv = phi i64 [ 7, %.preheader ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next16
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw %struct.file, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
   %11 = tail call i32 @file_close(ptr noundef %10) #10
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not18 = icmp eq i64 %indvars.iv, 0
@@ -40,7 +40,7 @@ define void @files_releaselist(ptr noundef readonly captures(none) %0) local_unn
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next16
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.next16
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef %15)
   %16 = icmp samesign ugt i64 %indvars.iv15, 1
@@ -80,7 +80,7 @@ define ptr @files_fget(ptr noundef readonly captures(none) %0, i32 noundef %1) l
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %4 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = and i64 %6, 512
   %.not.i.i = icmp eq i64 %12, 0
@@ -92,7 +92,7 @@ define ptr @files_fget(ptr noundef readonly captures(none) %0, i32 noundef %1) l
 
 files_fget_by_index.exit:                         ; preds = %2, %13
   %14 = sext i32 %5 to i64
-  %15 = getelementptr inbounds %struct.file, ptr %11, i64 %14
+  %15 = getelementptr inbounds [24 x i8], ptr %11, i64 %14
   ret ptr %15
 }
 
@@ -135,7 +135,7 @@ define i32 @file_allocate_from_tcb(ptr noundef %0, ptr noundef %1, i32 noundef %
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %28 = load ptr, ptr %22, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv56
+  %29 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv56
   %30 = load ptr, ptr %29, align 8
   %31 = and i64 %27, 512
   %.not.i.i = icmp eq i64 %31, 0
@@ -146,7 +146,7 @@ define i32 @file_allocate_from_tcb(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %files_fget_by_index.exit
 
 files_fget_by_index.exit:                         ; preds = %26, %32
-  %33 = getelementptr inbounds %struct.file, ptr %30, i64 %indvars.iv
+  %33 = getelementptr inbounds [24 x i8], ptr %30, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
@@ -179,7 +179,7 @@ files_fget_by_index.exit:                         ; preds = %26, %32
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %49 = load ptr, ptr %22, align 8
   %50 = and i64 %indvars.iv.next57, 4294967295
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = and i64 %48, 512
   %.not.i.i44 = icmp eq i64 %53, 0
@@ -247,7 +247,7 @@ define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr noundef captures(
   %indvars.iv70.in = phi i32 [ %indvars.iv70, %26 ], [ %8, %10 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ %6, %10 ]
   %14 = tail call noalias dereferenceable_or_null(192) ptr @zalloc(i64 noundef 192) #12
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
   br i1 %16, label %.preheader, label %26
@@ -266,7 +266,7 @@ define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr noundef captures(
   %.165 = phi i32 [ %20, %.lr.ph66 ], [ %19, %.lr.ph66.preheader ]
   %20 = add nsw i32 %.165, -1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %12, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %21
   %23 = load ptr, ptr %22, align 8
   tail call void @free(ptr noundef %23)
   %24 = load i8, ptr %4, align 1
@@ -310,7 +310,7 @@ up_irq_restore.exit:                              ; preds = %32, %34
   br i1 %.not5662, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %up_irq_restore.exit
-  %35 = getelementptr inbounds nuw ptr, ptr %12, i64 %1
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %1
   %.pre = load ptr, ptr %35, align 8
   br label %36
 
@@ -402,7 +402,7 @@ define range(i32 -2147483648, 1) i32 @files_duplist(ptr noundef readonly capture
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv67
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv67
   %15 = load ptr, ptr %14, align 8
   %16 = and i64 %12, 512
   %.not.i.i.us.us.us.us = icmp eq i64 %16, 0
@@ -413,7 +413,7 @@ define range(i32 -2147483648, 1) i32 @files_duplist(ptr noundef readonly capture
   br label %files_fget_by_index.exit.us.us.us.us
 
 files_fget_by_index.exit.us.us.us.us:             ; preds = %17, %11
-  %18 = getelementptr inbounds nuw %struct.file, ptr %15, i64 %indvars.iv63
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv63
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
@@ -437,7 +437,7 @@ files_fget_by_index.exit.us.us.us.us:             ; preds = %17, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv67
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv67
   %31 = load ptr, ptr %30, align 8
   %32 = and i64 %28, 512
   %.not.i.i33.us.us.us.us = icmp eq i64 %32, 0
@@ -448,7 +448,7 @@ files_fget_by_index.exit.us.us.us.us:             ; preds = %17, %11
   br label %files_fget_by_index.exit34.us.us.us.us
 
 files_fget_by_index.exit34.us.us.us.us:           ; preds = %33, %27
-  %34 = getelementptr inbounds nuw %struct.file, ptr %31, i64 %indvars.iv63
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv63
   %35 = call i32 @file_dup2(ptr noundef nonnull %18, ptr noundef %34) #10
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %.loopexit, label %37
@@ -479,7 +479,7 @@ files_fget_by_index.exit34.us.us.us.us:           ; preds = %33, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv60
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv60
   %47 = load ptr, ptr %46, align 8
   %48 = and i64 %44, 512
   %.not.i.i.us.us = icmp eq i64 %48, 0
@@ -490,7 +490,7 @@ files_fget_by_index.exit34.us.us.us.us:           ; preds = %33, %27
   br label %files_fget_by_index.exit.us.us
 
 files_fget_by_index.exit.us.us:                   ; preds = %49, %42
-  %50 = getelementptr inbounds nuw %struct.file, ptr %47, i64 %indvars.iv56
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %indvars.iv56
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
@@ -516,7 +516,7 @@ files_fget_by_index.exit.us.us:                   ; preds = %49, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %64 = load ptr, ptr %10, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv60
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv60
   %66 = load ptr, ptr %65, align 8
   %67 = and i64 %63, 512
   %.not.i.i33.us.us = icmp eq i64 %67, 0
@@ -527,7 +527,7 @@ files_fget_by_index.exit.us.us:                   ; preds = %49, %42
   br label %files_fget_by_index.exit34.us.us
 
 files_fget_by_index.exit34.us.us:                 ; preds = %68, %62
-  %69 = getelementptr inbounds nuw %struct.file, ptr %66, i64 %indvars.iv56
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %indvars.iv56
   %70 = call i32 @file_dup2(ptr noundef nonnull %50, ptr noundef %69) #10
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %.loopexit, label %72
@@ -558,7 +558,7 @@ files_fget_by_index.exit34.us.us:                 ; preds = %68, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %80 = load ptr, ptr %9, align 8
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv53
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv53
   %82 = load ptr, ptr %81, align 8
   %83 = and i64 %79, 512
   %.not.i.i = icmp eq i64 %83, 0
@@ -569,7 +569,7 @@ files_fget_by_index.exit34.us.us:                 ; preds = %68, %62
   br label %files_fget_by_index.exit
 
 files_fget_by_index.exit:                         ; preds = %77, %84
-  %85 = getelementptr inbounds nuw %struct.file, ptr %82, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %indvars.iv
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
@@ -595,7 +595,7 @@ files_fget_by_index.exit:                         ; preds = %77, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %96 = load ptr, ptr %10, align 8
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv53
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv53
   %98 = load ptr, ptr %97, align 8
   %99 = and i64 %95, 512
   %.not.i.i33 = icmp eq i64 %99, 0
@@ -606,7 +606,7 @@ files_fget_by_index.exit:                         ; preds = %77, %84
   br label %files_fget_by_index.exit34
 
 files_fget_by_index.exit34:                       ; preds = %94, %100
-  %101 = getelementptr inbounds nuw %struct.file, ptr %98, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %98, i64 %indvars.iv
   %102 = call i32 @file_dup2(ptr noundef nonnull %85, ptr noundef %101) #10
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %.loopexit, label %104
@@ -661,7 +661,7 @@ define range(i32 -11, 1) i32 @fs_getfilep(i32 noundef %0, ptr noundef writeonly 
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %14 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = and i64 %15, 512
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -674,7 +674,7 @@ define range(i32 -11, 1) i32 @fs_getfilep(i32 noundef %0, ptr noundef writeonly 
 files_fget.exit:                                  ; preds = %13, %22
   %.zext13 = and i32 %0, 7
   %23 = zext nneg i32 %.zext13 to i64
-  %24 = getelementptr inbounds nuw %struct.file, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %23
   store ptr %24, ptr %1, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
@@ -741,7 +741,7 @@ define internal fastcc i32 @nx_dup3_from_tcb(ptr noundef %0, i32 noundef %1, i32
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %.pre to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = and i64 %25, 512
   %.not.i.i.i = icmp eq i64 %31, 0
@@ -754,7 +754,7 @@ define internal fastcc i32 @nx_dup3_from_tcb(ptr noundef %0, i32 noundef %1, i32
 files_fget.exit:                                  ; preds = %._crit_edge, %32
   %33 = and i32 %2, 7
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw %struct.file, ptr %30, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %36 = lshr i32 %1, 3
@@ -765,7 +765,7 @@ files_fget.exit:                                  ; preds = %._crit_edge, %32
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %38 = load ptr, ptr %26, align 8
   %39 = zext nneg i32 %36 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = and i64 %37, 512
   %.not.i.i.i31 = icmp eq i64 %42, 0
@@ -778,7 +778,7 @@ files_fget.exit:                                  ; preds = %._crit_edge, %32
 files_fget.exit32:                                ; preds = %files_fget.exit, %43
   %.zext34 = and i32 %1, 7
   %44 = zext nneg i32 %.zext34 to i64
-  %45 = getelementptr inbounds nuw %struct.file, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %44
   %46 = call i32 @file_dup3(ptr noundef %45, ptr noundef nonnull %35, i32 noundef %3) #10
   %47 = call i32 @file_close(ptr noundef nonnull %7) #10
   %48 = icmp slt i32 %46, 0
@@ -861,7 +861,7 @@ define i32 @nx_close_from_tcb(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %13 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = and i64 %14, 512
   %.not.i.i.i = icmp eq i64 %20, 0
@@ -874,7 +874,7 @@ define i32 @nx_close_from_tcb(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 files_fget.exit:                                  ; preds = %12, %21
   %.zext11 = and i32 %1, 7
   %22 = zext nneg i32 %.zext11 to i64
-  %23 = getelementptr inbounds nuw %struct.file, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
@@ -925,7 +925,7 @@ define i32 @nx_close(i32 noundef %0) local_unnamed_addr #1 {
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %13 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = and i64 %14, 512
   %.not.i.i.i.i = icmp eq i64 %20, 0
@@ -938,7 +938,7 @@ define i32 @nx_close(i32 noundef %0) local_unnamed_addr #1 {
 files_fget.exit.i:                                ; preds = %21, %12
   %.zext11.i = and i32 %0, 7
   %22 = zext nneg i32 %.zext11.i to i64
-  %23 = getelementptr inbounds nuw %struct.file, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
@@ -984,7 +984,7 @@ define range(i32 -1, -2147483648) i32 @close(i32 noundef %0) local_unnamed_addr 
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %13 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = and i64 %14, 512
   %.not.i.i.i.i.i = icmp eq i64 %20, 0
@@ -997,7 +997,7 @@ define range(i32 -1, -2147483648) i32 @close(i32 noundef %0) local_unnamed_addr 
 files_fget.exit.i.i:                              ; preds = %21, %12
   %.zext11.i.i = and i32 %0, 7
   %22 = zext nneg i32 %.zext11.i.i to i64
-  %23 = getelementptr inbounds nuw %struct.file, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
@@ -1061,7 +1061,7 @@ define internal void @task_fssync(ptr noundef readonly captures(none) %0, ptr re
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv15
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv15
   %13 = load ptr, ptr %12, align 8
   %14 = and i64 %10, 512
   %.not.i.i = icmp eq i64 %14, 0
@@ -1072,7 +1072,7 @@ define internal void @task_fssync(ptr noundef readonly captures(none) %0, ptr re
   br label %files_fget_by_index.exit
 
 files_fget_by_index.exit:                         ; preds = %9, %15
-  %16 = getelementptr inbounds nuw %struct.file, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null

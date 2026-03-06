@@ -276,7 +276,7 @@ bytestream2_get_be16.exit407:                     ; preds = %.preheader556, %110
   %121 = or disjoint i32 %116, %120
   %122 = or disjoint i32 %121, %118
   %123 = or disjoint i32 %122, -16777216
-  %124 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv627
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv627
   store i32 %123, ptr %124, align 4, !tbaa !41
   %indvars.iv.next628 = add nuw nsw i64 %indvars.iv627, 1
   %exitcond630.not = icmp eq i64 %indvars.iv.next628, 16
@@ -385,7 +385,7 @@ bytestream2_get_be16.exit413:                     ; preds = %bytestream2_get_be1
   %.sroa.0.15 = phi ptr [ %162, %161 ], [ %14, %bytestream2_get_be16.exit411 ]
   %.0.i412 = phi i32 [ %169, %161 ], [ %.0.i410, %bytestream2_get_be16.exit411 ]
   %170 = or i32 %.0.i412, -16777216
-  %171 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv
   store i32 %170, ptr %171, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %172 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -477,7 +477,7 @@ bytestream2_get_be16.exit415:                     ; preds = %205, %209
   %220 = or disjoint i32 %215, %219
   %221 = or disjoint i32 %220, %217
   %222 = or disjoint i32 %221, -16777216
-  %223 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv623
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv623
   store i32 %222, ptr %223, align 4, !tbaa !41
   %indvars.iv.next624 = add nuw nsw i64 %indvars.iv623, 1
   %exitcond626.not = icmp eq i64 %indvars.iv.next624, %wide.trip.count
@@ -502,7 +502,7 @@ bytestream2_get_be16.exit415:                     ; preds = %205, %209
   %228 = zext i8 %227 to i32
   %229 = mul nuw nsw i32 %228, 65793
   %230 = or disjoint i32 %229, -16777216
-  %231 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv620
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv620
   store i32 %230, ptr %231, align 4, !tbaa !41
   %indvars.iv.next621 = add nuw nsw i64 %indvars.iv620, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next621, 256

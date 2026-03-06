@@ -128,7 +128,7 @@ define hidden void @_ZN3sat15clause_use_list8iterator7consumeEv(ptr noundef nonn
 8:                                                ; preds = %.lr.ph, %21
   %9 = phi i32 [ %.promoted, %.lr.ph ], [ %22, %21 ]
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 4
@@ -140,7 +140,7 @@ define hidden void @_ZN3sat15clause_use_list8iterator7consumeEv(ptr noundef nonn
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !23
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %19
   store ptr %12, ptr %20, align 8, !tbaa !15
   br label %.loopexit
 
@@ -186,7 +186,7 @@ define hidden void @_ZN3sat15clause_use_list8iteratorD2Ev(ptr noundef nonnull al
 14:                                               ; preds = %22, %.lr.ph.i.i
   %15 = phi i32 [ %10, %.lr.ph.i.i ], [ %23, %22 ]
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 4
@@ -202,7 +202,7 @@ define hidden void @_ZN3sat15clause_use_list8iteratorD2Ev(ptr noundef nonnull al
 
 _ZN3sat15clause_use_list8iterator4nextEv.exit:    ; preds = %14
   %25 = zext i32 %11 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %13, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %25
   store ptr %18, ptr %26, align 8, !tbaa !15
   %27 = icmp ult i32 %15, %4
   br i1 %27, label %7, label %._crit_edge

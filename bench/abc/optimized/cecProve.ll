@@ -331,7 +331,7 @@ define void @Cec_GiaInitThreads(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %8 = tail call ptr @Gia_ManDup(ptr noundef %2) #13
-  %9 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %0, i64 %indvars.iv35
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv35
   store ptr %8, ptr %9, align 8, !tbaa !62
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = trunc nuw nsw i64 %indvars.iv35 to i32
@@ -355,7 +355,7 @@ define void @Cec_GiaInitThreads(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %16 = tail call ptr @Gia_ManDup(ptr noundef %2) #13
-  %17 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv
   store ptr %16, ptr %17, align 8, !tbaa !62
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = trunc nuw nsw i64 %indvars.iv to i32
@@ -368,7 +368,7 @@ define void @Cec_GiaInitThreads(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   store i32 -1, ptr %22, align 4, !tbaa !67
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %4, ptr %23, align 8, !tbaa !66
-  %24 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %25 = tail call i32 @pthread_create(ptr noundef nonnull %24, ptr noundef null, ptr noundef nonnull @Cec_GiaProveWorkerThread, ptr noundef nonnull %17) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count38
@@ -376,7 +376,7 @@ define void @Cec_GiaInitThreads(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %.lr.ph32
   %indvars.iv40 = phi i64 [ 0, %.lr.ph32.preheader ], [ %indvars.iv.next41, %.lr.ph32 ]
-  %26 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %0, i64 %indvars.iv40
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv40
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 1, ptr %27, align 4, !tbaa !68
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
@@ -409,7 +409,7 @@ define i32 @Cec_GiaWaitThreads(ptr noundef readonly captures(none) %0, i32 nound
   br i1 %9, label %11, label %._crit_edge29
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds %struct.Par_ThData_t_, ptr %0, i64 %10
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !68
   %.not = icmp eq i32 %14, 0
@@ -441,7 +441,7 @@ define i32 @Cec_GiaWaitThreads(ptr noundef readonly captures(none) %0, i32 nound
 
 ._crit_edge29:                                    ; preds = %8, %18, %20, %24, %15, %11
   %.1 = phi i32 [ -1, %11 ], [ %17, %18 ], [ %17, %20 ], [ %17, %24 ], [ -1, %15 ], [ %.02027, %8 ]
-  %26 = getelementptr inbounds %struct.Par_ThData_t_, ptr %0, i64 %10
+  %26 = getelementptr inbounds [32 x i8], ptr %0, i64 %10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !68
   %.not26 = icmp eq i32 %28, 0
@@ -514,7 +514,7 @@ Abc_Clock.exit:                                   ; preds = %8, %20
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %36 = call ptr @Gia_ManDup(ptr noundef nonnull %0) #13
-  %37 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv.i
   store ptr %36, ptr %37, align 16, !tbaa !62
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -527,7 +527,7 @@ Abc_Clock.exit:                                   ; preds = %8, %20
   store i32 -1, ptr %42, align 4, !tbaa !67
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i32 %5, ptr %43, align 8, !tbaa !66
-  %44 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   %45 = call i32 @pthread_create(ptr noundef nonnull %44, ptr noundef null, ptr noundef nonnull @Cec_GiaProveWorkerThread, ptr noundef nonnull %37) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count38.i
@@ -535,7 +535,7 @@ Abc_Clock.exit:                                   ; preds = %8, %20
 
 .lr.ph32.i:                                       ; preds = %.lr.ph.split.i, %.lr.ph32.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %.lr.ph32.i ], [ 0, %.lr.ph.split.i ]
-  %46 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %indvars.iv40.i
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv40.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 1, ptr %47, align 4, !tbaa !68
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
@@ -600,7 +600,7 @@ Abc_Clock.exit75:                                 ; preds = %Cec_GiaInitThreads.
   br i1 %73, label %75, label %._crit_edge29.i
 
 75:                                               ; preds = %.lr.ph.i76
-  %76 = getelementptr inbounds %struct.Par_ThData_t_, ptr %16, i64 %74
+  %76 = getelementptr inbounds [32 x i8], ptr %16, i64 %74
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %78 = load i32, ptr %77, align 4, !tbaa !68
   %.not.i = icmp eq i32 %78, 0
@@ -632,7 +632,7 @@ Abc_Clock.exit75:                                 ; preds = %Cec_GiaInitThreads.
 ._crit_edge29.i:                                  ; preds = %88, %84, %82, %79, %75, %.lr.ph.i76
   %.4156 = phi i32 [ %.3, %79 ], [ %.028.i, %84 ], [ %.028.i, %88 ], [ %.028.i, %82 ], [ %.3, %75 ], [ %.3, %.lr.ph.i76 ]
   %.1.i = phi i32 [ -1, %79 ], [ %81, %84 ], [ %81, %88 ], [ %81, %82 ], [ -1, %75 ], [ %.02027.i, %.lr.ph.i76 ]
-  %90 = getelementptr inbounds %struct.Par_ThData_t_, ptr %16, i64 %74
+  %90 = getelementptr inbounds [32 x i8], ptr %16, i64 %74
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 12
   %92 = load i32, ptr %91, align 4, !tbaa !68
   %.not26.i = icmp eq i32 %92, 0
@@ -711,7 +711,7 @@ Abc_Clock.exit90:                                 ; preds = %Cec_GiaWaitThreads.
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.i95
   %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i95 ]
   %127 = call ptr @Gia_ManDup(ptr noundef %52) #13
-  %128 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %indvars.iv35.i
+  %128 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv35.i
   store ptr %127, ptr %128, align 16, !tbaa !62
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = trunc nuw nsw i64 %indvars.iv35.i to i32
@@ -730,7 +730,7 @@ Abc_Clock.exit90:                                 ; preds = %Cec_GiaWaitThreads.
 
 .lr.ph32.i99:                                     ; preds = %.lr.ph.split.us.i, %.lr.ph32.i99
   %indvars.iv40.i100 = phi i64 [ %indvars.iv.next41.i101, %.lr.ph32.i99 ], [ 0, %.lr.ph.split.us.i ]
-  %135 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %indvars.iv40.i100
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv40.i100
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 12
   store i32 1, ptr %136, align 4, !tbaa !68
   %indvars.iv.next41.i101 = add nuw nsw i64 %indvars.iv40.i100, 1
@@ -802,7 +802,7 @@ Abc_Clock.exit107:                                ; preds = %145, %151
   br i1 %169, label %171, label %._crit_edge29.i114
 
 171:                                              ; preds = %.lr.ph.i111
-  %172 = getelementptr inbounds %struct.Par_ThData_t_, ptr %16, i64 %170
+  %172 = getelementptr inbounds [32 x i8], ptr %16, i64 %170
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 12
   %174 = load i32, ptr %173, align 4, !tbaa !68
   %.not.i117 = icmp eq i32 %174, 0
@@ -834,7 +834,7 @@ Abc_Clock.exit107:                                ; preds = %145, %151
 ._crit_edge29.i114:                               ; preds = %184, %180, %178, %175, %171, %.lr.ph.i111
   %.10 = phi i32 [ %.9, %175 ], [ %.028.i112, %180 ], [ %.028.i112, %184 ], [ %.028.i112, %178 ], [ %.9, %171 ], [ %.9, %.lr.ph.i111 ]
   %.1.i115 = phi i32 [ -1, %175 ], [ %177, %180 ], [ %177, %184 ], [ %177, %178 ], [ -1, %171 ], [ %.02027.i113, %.lr.ph.i111 ]
-  %186 = getelementptr inbounds %struct.Par_ThData_t_, ptr %16, i64 %170
+  %186 = getelementptr inbounds [32 x i8], ptr %16, i64 %170
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 12
   %188 = load i32, ptr %187, align 4, !tbaa !68
   %.not26.i116 = icmp eq i32 %188, 0
@@ -890,7 +890,7 @@ Cec_GiaWaitThreads.exit121:                       ; preds = %._crit_edge29.i114,
 .lr.ph.split.us.i128:                             ; preds = %.lr.ph.split.us.i128, %.lr.ph.i126
   %indvars.iv35.i129 = phi i64 [ %indvars.iv.next36.i130, %.lr.ph.split.us.i128 ], [ 0, %.lr.ph.i126 ]
   %215 = call ptr @Gia_ManDup(ptr noundef %148) #13
-  %216 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %indvars.iv35.i129
+  %216 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv35.i129
   store ptr %215, ptr %216, align 16, !tbaa !62
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = trunc nuw nsw i64 %indvars.iv35.i129 to i32
@@ -909,7 +909,7 @@ Cec_GiaWaitThreads.exit121:                       ; preds = %._crit_edge29.i114,
 
 .lr.ph32.i134:                                    ; preds = %.lr.ph.split.us.i128, %.lr.ph32.i134
   %indvars.iv40.i135 = phi i64 [ %indvars.iv.next41.i136, %.lr.ph32.i134 ], [ 0, %.lr.ph.split.us.i128 ]
-  %223 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %indvars.iv40.i135
+  %223 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv40.i135
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 12
   store i32 1, ptr %224, align 4, !tbaa !68
   %indvars.iv.next41.i136 = add nuw nsw i64 %indvars.iv40.i135, 1
@@ -925,7 +925,7 @@ Cec_GiaWaitThreads.exit121:                       ; preds = %._crit_edge29.i114,
   br i1 %225, label %227, label %._crit_edge29.i143
 
 227:                                              ; preds = %.lr.ph.i140
-  %228 = getelementptr inbounds %struct.Par_ThData_t_, ptr %16, i64 %226
+  %228 = getelementptr inbounds [32 x i8], ptr %16, i64 %226
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 12
   %230 = load i32, ptr %229, align 4, !tbaa !68
   %.not.i146 = icmp eq i32 %230, 0
@@ -957,7 +957,7 @@ Cec_GiaWaitThreads.exit121:                       ; preds = %._crit_edge29.i114,
 ._crit_edge29.i143:                               ; preds = %240, %236, %234, %231, %227, %.lr.ph.i140
   %.13 = phi i32 [ %.12, %231 ], [ %.028.i141, %236 ], [ %.028.i141, %240 ], [ %.028.i141, %234 ], [ %.12, %227 ], [ %.12, %.lr.ph.i140 ]
   %.1.i144 = phi i32 [ -1, %231 ], [ %233, %236 ], [ %233, %240 ], [ %233, %234 ], [ -1, %227 ], [ %.02027.i142, %.lr.ph.i140 ]
-  %242 = getelementptr inbounds %struct.Par_ThData_t_, ptr %16, i64 %226
+  %242 = getelementptr inbounds [32 x i8], ptr %16, i64 %226
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 12
   %244 = load i32, ptr %243, align 4, !tbaa !68
   %.not26.i145 = icmp eq i32 %244, 0
@@ -986,7 +986,7 @@ Cec_GiaWaitThreads.exit.thread160:                ; preds = %Cec_GiaInitThreads.
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %248 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %indvars.iv
+  %248 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv
   store ptr null, ptr %248, align 16, !tbaa !62
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 12
   store i32 1, ptr %249, align 4, !tbaa !68

@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { [4 x float] }
 %class.b3Vector3 = type { %union.anon.0 }
 %union.anon.0 = type { [4 x float] }
-%struct.b3RigidBodyData = type { %class.b3Vector3, %class.b3Quaternion, %class.b3Vector3, %class.b3Vector3, i32, float, float, float }
 
 $_ZN17b3TypedConstraint21setupSolverConstraintER20b3AlignedObjectArrayI18b3SolverConstraintEiif = comdat any
 
@@ -150,12 +149,12 @@ define dso_local void @_ZN17b3FixedConstraint8getInfo2EPN17b3TypedConstraint17b3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.b3RigidBodyData, ptr %2, i64 %8
+  %9 = getelementptr inbounds [80 x i8], ptr %2, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !21
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.b3RigidBodyData, ptr %2, i64 %13
+  %14 = getelementptr inbounds [80 x i8], ptr %2, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !22
@@ -163,12 +162,12 @@ define dso_local void @_ZN17b3FixedConstraint8getInfo2EPN17b3TypedConstraint17b3
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load i32, ptr %18, align 8, !tbaa !27
   %20 = sext i32 %19 to i64
-  %21 = getelementptr float, ptr %17, i64 %20
+  %21 = getelementptr [4 x i8], ptr %17, i64 %20
   %22 = getelementptr i8, ptr %21, i64 4
   store float 1.000000e+00, ptr %22, align 4, !tbaa !26
   %23 = shl nsw i32 %19, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr float, ptr %17, i64 %24
+  %25 = getelementptr [4 x i8], ptr %17, i64 %24
   %26 = getelementptr i8, ptr %25, i64 8
   store float 1.000000e+00, ptr %26, align 4, !tbaa !26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -214,8 +213,8 @@ define dso_local void @_ZN17b3FixedConstraint8getInfo2EPN17b3TypedConstraint17b3
   %67 = tail call float @llvm.fmuladd.f32(float %47, float %45, float %66)
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !28
-  %70 = getelementptr inbounds float, ptr %69, i64 %20
-  %71 = getelementptr inbounds float, ptr %69, i64 %24
+  %70 = getelementptr inbounds [4 x i8], ptr %69, i64 %20
+  %71 = getelementptr inbounds [4 x i8], ptr %69, i64 %24
   %72 = fneg float %59
   %73 = fneg float %63
   %74 = fneg float %67
@@ -255,12 +254,12 @@ define dso_local void @_ZN17b3FixedConstraint8getInfo2EPN17b3TypedConstraint17b3
 86:                                               ; preds = %3
   store float -1.000000e+00, ptr %85, align 4, !tbaa !26
   %87 = sext i32 %.pre to i64
-  %88 = getelementptr float, ptr %85, i64 %87
+  %88 = getelementptr [4 x i8], ptr %85, i64 %87
   %89 = getelementptr i8, ptr %88, i64 4
   store float -1.000000e+00, ptr %89, align 4, !tbaa !26
   %90 = shl nsw i32 %.pre, 1
   %91 = sext i32 %90 to i64
-  %92 = getelementptr float, ptr %85, i64 %91
+  %92 = getelementptr [4 x i8], ptr %85, i64 %91
   %93 = getelementptr i8, ptr %92, i64 8
   store float -1.000000e+00, ptr %93, align 4, !tbaa !26
   br label %94
@@ -311,8 +310,8 @@ define dso_local void @_ZN17b3FixedConstraint8getInfo2EPN17b3TypedConstraint17b3
   %135 = tail call float @llvm.fmuladd.f32(float %115, float %113, float %134)
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %137 = load ptr, ptr %136, align 8, !tbaa !30
-  %138 = getelementptr inbounds float, ptr %137, i64 %.pre-phi
-  %139 = getelementptr inbounds float, ptr %137, i64 %.pre-phi153
+  %138 = getelementptr inbounds [4 x i8], ptr %137, i64 %.pre-phi
+  %139 = getelementptr inbounds [4 x i8], ptr %137, i64 %.pre-phi153
   %140 = fneg float %135
   store float 0.000000e+00, ptr %137, align 16, !tbaa !8
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 4
@@ -378,10 +377,10 @@ define dso_local void @_ZN17b3FixedConstraint8getInfo2EPN17b3TypedConstraint17b3
 
 183:                                              ; preds = %94, %183
   %indvars.iv = phi i64 [ 0, %94 ], [ %indvars.iv.next, %183 ]
-  %184 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %185 = load float, ptr %184, align 4, !tbaa !26
   %186 = mul nsw i64 %indvars.iv, %182
-  %187 = getelementptr inbounds float, ptr %180, i64 %186
+  %187 = getelementptr inbounds [4 x i8], ptr %180, i64 %186
   store float %185, ptr %187, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -391,28 +390,28 @@ define dso_local void @_ZN17b3FixedConstraint8getInfo2EPN17b3TypedConstraint17b3
   %189 = mul nsw i32 %181, 3
   %190 = load ptr, ptr %68, align 8, !tbaa !28
   %191 = sext i32 %189 to i64
-  %192 = getelementptr inbounds float, ptr %190, i64 %191
+  %192 = getelementptr inbounds [4 x i8], ptr %190, i64 %191
   store float 1.000000e+00, ptr %192, align 4, !tbaa !26
   %193 = shl nsw i32 %181, 2
   %194 = or disjoint i32 %193, 1
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds float, ptr %190, i64 %195
+  %196 = getelementptr inbounds [4 x i8], ptr %190, i64 %195
   store float 1.000000e+00, ptr %196, align 4, !tbaa !26
   %197 = mul nsw i32 %181, 5
   %198 = add nsw i32 %197, 2
   %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds float, ptr %190, i64 %199
+  %200 = getelementptr inbounds [4 x i8], ptr %190, i64 %199
   store float 1.000000e+00, ptr %200, align 4, !tbaa !26
   %201 = load ptr, ptr %136, align 8, !tbaa !30
   %.not73 = icmp eq ptr %201, null
   br i1 %.not73, label %206, label %202
 
 202:                                              ; preds = %188
-  %203 = getelementptr inbounds float, ptr %201, i64 %191
+  %203 = getelementptr inbounds [4 x i8], ptr %201, i64 %191
   store float -1.000000e+00, ptr %203, align 4, !tbaa !26
-  %204 = getelementptr inbounds float, ptr %201, i64 %195
+  %204 = getelementptr inbounds [4 x i8], ptr %201, i64 %195
   store float -1.000000e+00, ptr %204, align 4, !tbaa !26
-  %205 = getelementptr inbounds float, ptr %201, i64 %199
+  %205 = getelementptr inbounds [4 x i8], ptr %201, i64 %199
   store float -1.000000e+00, ptr %205, align 4, !tbaa !26
   br label %206
 
@@ -557,12 +556,12 @@ _ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Ve
 
 307:                                              ; preds = %_ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Vector3Rf.exit, %307
   %indvars.iv145 = phi i64 [ 0, %_ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Vector3Rf.exit ], [ %indvars.iv.next146, %307 ]
-  %308 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv145
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv145
   %309 = load float, ptr %308, align 4, !tbaa !26
   %310 = fmul float %155, %309
   %311 = add nuw nsw i64 %indvars.iv145, 3
   %312 = mul nsw i64 %311, %306
-  %313 = getelementptr inbounds float, ptr %180, i64 %312
+  %313 = getelementptr inbounds [4 x i8], ptr %180, i64 %312
   store float %310, ptr %313, align 4, !tbaa !26
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 3
@@ -650,48 +649,48 @@ define linkonce_odr dso_local void @_ZNK11b3Matrix3x311getRotationER12b3Quaterni
   %45 = add nuw nsw i32 %.fr, 2
   %46 = urem i32 %45, 3
   %47 = zext nneg i32 %.fr to i64
-  %48 = getelementptr inbounds nuw %class.b3Vector3, ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw float, ptr %48, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %47
   %50 = load float, ptr %49, align 4, !tbaa !26
   %51 = sext i32 %44 to i64
-  %52 = getelementptr inbounds nuw %class.b3Vector3, ptr %0, i64 %51
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %51
   %54 = load float, ptr %53, align 4, !tbaa !26
   %55 = fsub float %50, %54
   %56 = zext nneg i32 %46 to i64
-  %57 = getelementptr inbounds nuw %class.b3Vector3, ptr %0, i64 %56
-  %58 = getelementptr inbounds nuw float, ptr %57, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %56
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %56
   %59 = load float, ptr %58, align 4, !tbaa !26
   %60 = fsub float %55, %59
   %61 = fadd float %60, 1.000000e+00
   %62 = tail call noundef float @sqrtf(float noundef %61) #15, !tbaa !36
   %63 = fmul float %62, 5.000000e-01
-  %64 = getelementptr inbounds nuw float, ptr %3, i64 %47
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %47
   store float %63, ptr %64, align 4, !tbaa !26
   %65 = fdiv float 5.000000e-01, %62
-  %66 = getelementptr inbounds nuw float, ptr %57, i64 %51
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %51
   %67 = load float, ptr %66, align 4, !tbaa !26
-  %68 = getelementptr inbounds nuw float, ptr %52, i64 %56
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %56
   %69 = load float, ptr %68, align 4, !tbaa !26
   %70 = fsub float %67, %69
   %71 = fmul float %65, %70
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float %71, ptr %72, align 4, !tbaa !26
-  %73 = getelementptr inbounds nuw float, ptr %52, i64 %47
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %47
   %74 = load float, ptr %73, align 4, !tbaa !26
-  %75 = getelementptr inbounds nuw float, ptr %48, i64 %51
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %51
   %76 = load float, ptr %75, align 4, !tbaa !26
   %77 = fadd float %74, %76
   %78 = fmul float %65, %77
-  %79 = getelementptr inbounds nuw float, ptr %3, i64 %51
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %51
   store float %78, ptr %79, align 4, !tbaa !26
-  %80 = getelementptr inbounds nuw float, ptr %57, i64 %47
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %47
   %81 = load float, ptr %80, align 4, !tbaa !26
-  %82 = getelementptr inbounds nuw float, ptr %48, i64 %56
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %56
   %83 = load float, ptr %82, align 4, !tbaa !26
   %84 = fadd float %81, %83
   %85 = fmul float %65, %84
-  %86 = getelementptr inbounds nuw float, ptr %3, i64 %56
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %56
   store float %85, ptr %86, align 4, !tbaa !26
   %.pre = load float, ptr %3, align 16, !tbaa !26
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 4

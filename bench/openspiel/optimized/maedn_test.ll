@@ -2962,7 +2962,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13G
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %1065 ]
   %1067 = icmp eq i64 %indvars.iv.i.i, %indvars.iv.i
   %1068 = select i1 %1067, double %626, double -1.000000e+00
-  %1069 = getelementptr inbounds nuw double, ptr %1064, i64 %indvars.iv.i.i
+  %1069 = getelementptr inbounds nuw [8 x i8], ptr %1064, i64 %indvars.iv.i.i
   %1070 = load double, ptr %1069, align 8
   store double %1070, ptr %65, align 8
   store double %1068, ptr %66, align 8
@@ -3006,7 +3006,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13G
           to label %1081 unwind label %.loopexit.i28
 
 1081:                                             ; preds = %._crit_edge.i.i
-  %1082 = getelementptr inbounds ptr, ptr @_ZN10open_spiel5maedn12_GLOBAL__N_137MINIMAL_WINS_EXPECTED_TERMINAL_STATESE, i64 %indvars.iv375.i
+  %1082 = getelementptr inbounds [8 x i8], ptr @_ZN10open_spiel5maedn12_GLOBAL__N_137MINIMAL_WINS_EXPECTED_TERMINAL_STATESE, i64 %indvars.iv375.i
   %1083 = load ptr, ptr %1082, align 8
   store ptr %1083, ptr %70, align 8
   %1084 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef %1083) #19

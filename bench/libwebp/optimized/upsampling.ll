@@ -20,7 +20,7 @@ define hidden ptr @WebPGetLinePairConverter(i32 noundef %0) local_unnamed_addr #
   tail call void @WebPInitUpsamplers()
   %.not = icmp eq i32 %0, 0
   %2 = select i1 %.not, i64 4, i64 3
-  %3 = getelementptr inbounds nuw ptr, ptr @WebPUpsamplers, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @WebPUpsamplers, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %4
 }

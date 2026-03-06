@@ -210,9 +210,9 @@ thread-pre-split:                                 ; preds = %50, %4
 
 80:                                               ; preds = %.lr.ph, %delta_decode.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %delta_decode.exit ]
-  %81 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !37
-  %83 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !37
   %85 = load i32, ptr %66, align 4, !tbaa !42
   %86 = sext i32 %85 to i64

@@ -50,7 +50,7 @@ define hidden void @_ZN7nanogui6CanvasC2EPNS_6WidgetEhbbb(ptr noundef nonnull al
 
 13:                                               ; preds = %13, %6
   %.04.i.i.i = phi i64 [ 0, %6 ], [ %15, %13 ]
-  %14 = getelementptr inbounds nuw float, ptr %9, i64 %.04.i.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.04.i.i.i
   store float 2.550000e+02, ptr %14, align 4
   %15 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %15, 4
@@ -62,12 +62,12 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
 
 16:                                               ; preds = %16, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i
   %.06.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i ], [ %23, %16 ]
-  %17 = getelementptr inbounds nuw float, ptr %8, i64 %.06.i.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.06.i.i.i
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds nuw float, ptr %9, i64 %.06.i.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.06.i.i.i
   %20 = load float, ptr %19, align 4
   %21 = fdiv float %18, %20
-  %22 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i.i.i
   store float %21, ptr %22, align 4
   %23 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i4.i.i = icmp eq i64 %23, 4

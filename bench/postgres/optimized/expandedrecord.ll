@@ -4,12 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ExpandedObjectMethods = type { ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [25 x i8] c"type %s is not composite\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"expandedrecord.c\00", align 1
@@ -562,7 +559,7 @@ get_short_term_cxt.exit:                          ; preds = %19, %23
   %77 = sext i32 %76 to i64
   %78 = shl nsw i64 %77, 4
   %79 = getelementptr i8, ptr %63, i64 %78
-  %80 = getelementptr %struct.FormData_pg_attribute, ptr %79, i64 %indvars.iv
+  %80 = getelementptr [100 x i8], ptr %79, i64 %indvars.iv
   %81 = getelementptr i8, ptr %80, i64 106
   %82 = load i8, ptr %81, align 2, !range !5, !noundef !6
   %83 = trunc nuw i8 %82 to i1
@@ -570,7 +567,7 @@ get_short_term_cxt.exit:                          ; preds = %19, %23
 
 84:                                               ; preds = %75
   %85 = load ptr, ptr %68, align 8
-  %86 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv
   %87 = load i64, ptr %86, align 8
   %88 = inttoptr i64 %87 to ptr
   %89 = icmp ule ptr %46, %88
@@ -1060,7 +1057,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %3, %6
   %12 = shl nsw i64 %11, 4
   %13 = getelementptr i8, ptr %.0.i, i64 %12
   %14 = getelementptr i8, ptr %13, i64 24
-  %15 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [100 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = tail call i32 @namestrcmp(ptr noundef nonnull %16, ptr noundef %1) #7
   %18 = icmp eq i32 %17, 0
@@ -1150,7 +1147,7 @@ define dso_local i64 @expanded_record_fetch_field(ptr noundef %0, i32 noundef %1
   store i8 %22, ptr %2, align 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   %26 = load i64, ptr %25, align 8
   br label %34
 
@@ -1222,7 +1219,7 @@ define dso_local void @expanded_record_set_field_internal(ptr noundef %0, i32 no
   %28 = add nsw i32 %1, -1
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %30 = zext nneg i32 %28 to i64
-  %31 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   br i1 %3, label %80, label %32
 
 32:                                               ; preds = %27
@@ -1335,14 +1332,14 @@ get_short_term_cxt.exit:                          ; preds = %49, %53
   br i1 %94, label %.thread, label %97
 
 .thread:                                          ; preds = %91, %80
-  %95 = getelementptr inbounds nuw i64, ptr %82, i64 %30
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %30
   store i64 %.055, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %84, i64 %30
   store i8 %7, ptr %96, align 1
   br label %112
 
 97:                                               ; preds = %91
-  %98 = getelementptr inbounds nuw i64, ptr %82, i64 %30
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %30
   %99 = load i64, ptr %98, align 8
   %100 = inttoptr i64 %99 to ptr
   store i64 %.055, ptr %98, align 8
@@ -1455,7 +1452,7 @@ define internal fastcc void @check_domain_for_new_field(ptr noundef %0, i32 noun
   %56 = load ptr, ptr %55, align 8
   %57 = add nsw i32 %1, -1
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw i64, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %58
   store i64 %2, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %61 = load ptr, ptr %60, align 8
@@ -1467,7 +1464,7 @@ define internal fastcc void @check_domain_for_new_field(ptr noundef %0, i32 noun
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %67 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %66, i64 %58
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %58
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 6
   %69 = load i8, ptr %68, align 2, !range !5, !noundef !6
   %70 = trunc nuw i8 %69 to i1
@@ -1559,14 +1556,14 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %76
   %28 = phi i32 [ %77, %76 ], [ %23, %.lr.ph ]
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %76 ], [ 0, %.lr.ph ]
-  %29 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %25, i64 %indvars.iv58
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv58
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 9
   %31 = load i8, ptr %30, align 1, !range !5, !noundef !6
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %76, label %33
 
 33:                                               ; preds = %.lr.ph.split.us
-  %34 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv58
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv58
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv58
   %37 = load i8, ptr %36, align 1, !range !5, !noundef !6
@@ -1616,7 +1613,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
   br i1 %63, label %73, label %64, !prof !10
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv58
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv58
   %66 = load i64, ptr %65, align 8
   %67 = inttoptr i64 %66 to ptr
   %68 = load ptr, ptr %26, align 8
@@ -1634,7 +1631,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
 
 73:                                               ; preds = %72, %70, %60, %33
   %.051.us = phi i64 [ %35, %33 ], [ %.1.us, %60 ], [ %.1.us, %72 ], [ %.1.us, %70 ]
-  %74 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv58
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv58
   store i64 %.051.us, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv58
   store i8 %37, ptr %75, align 1
@@ -1651,14 +1648,14 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
 .lr.ph.split:                                     ; preds = %.lr.ph, %131
   %80 = phi i32 [ %132, %131 ], [ %23, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ 0, %.lr.ph ]
-  %81 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %25, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 9
   %83 = load i8, ptr %82, align 1, !range !5, !noundef !6
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %131, label %85
 
 85:                                               ; preds = %.lr.ph.split
-  %86 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %87 = load i64, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %89 = load i8, ptr %88, align 1, !range !5, !noundef !6
@@ -1714,7 +1711,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
   br i1 %118, label %128, label %119, !prof !10
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %121 = load i64, ptr %120, align 8
   %122 = inttoptr i64 %121 to ptr
   %123 = load ptr, ptr %26, align 8
@@ -1732,7 +1729,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
 
 128:                                              ; preds = %125, %127, %115, %85
   %.051 = phi i64 [ %87, %85 ], [ %.1, %115 ], [ %.1, %127 ], [ %.1, %125 ]
-  %129 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store i64 %.051, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   store i8 %89, ptr %130, align 1
@@ -1872,7 +1869,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %12
 40:                                               ; preds = %.lr.ph, %65
   %41 = phi i32 [ %.pre75, %.lr.ph ], [ %66, %65 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %42 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %37, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv
   %43 = load ptr, ptr %38, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1, !range !5, !noundef !6
@@ -1893,7 +1890,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %12
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %39, align 8
-  %57 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %58 = load i64, ptr %57, align 8
   %59 = inttoptr i64 %58 to ptr
   %60 = load i8, ptr %59, align 1

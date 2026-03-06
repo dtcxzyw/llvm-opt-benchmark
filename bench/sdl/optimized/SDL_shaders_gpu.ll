@@ -55,7 +55,7 @@ GPU_ReleaseShaders.exit.preheader:                ; preds = %11
 
 19:                                               ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %20 = getelementptr inbounds nuw %struct.GPU_ShaderSources, ptr @vert_shader_sources, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr @vert_shader_sources, i64 %indvars.iv
   %21 = call i32 @SDL_GetGPUShaderFormats_REAL(ptr noundef %1) #5
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %CompileShader.exit.thread, label %23
@@ -70,7 +70,7 @@ GPU_ReleaseShaders.exit.preheader:                ; preds = %11
   br label %CompileShader.exit.thread
 
 CompileShader.exit.thread:                        ; preds = %19, %25
-  %27 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store ptr null, ptr %27, align 8
   br label %.loopexit45.preheader
 
@@ -92,7 +92,7 @@ CompileShader.exit:                               ; preds = %23
   store i32 0, ptr %10, align 4
   %32 = call ptr @SDL_CreateGPUShader_REAL(ptr noundef %1, ptr noundef nonnull %4) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store ptr %32, ptr %33, align 8
   %34 = icmp eq ptr %32, null
   br i1 %34, label %.loopexit45.preheader, label %11
@@ -103,7 +103,7 @@ CompileShader.exit:                               ; preds = %23
 
 .loopexit45:                                      ; preds = %.loopexit45.preheader, %.loopexit45
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit45 ], [ 0, %.loopexit45.preheader ]
-  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8
   call void @SDL_ReleaseGPUShader_REAL(ptr noundef %1, ptr noundef %37) #5
   store ptr null, ptr %36, align 8
@@ -113,7 +113,7 @@ CompileShader.exit:                               ; preds = %23
 
 38:                                               ; preds = %.preheader.i, %38
   %indvars.iv20.i59 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next21.i, %38 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv20.i59
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv20.i59
   %40 = load ptr, ptr %39, align 8
   call void @SDL_ReleaseGPUShader_REAL(ptr noundef %1, ptr noundef %40) #5
   store ptr null, ptr %39, align 8
@@ -123,7 +123,7 @@ CompileShader.exit:                               ; preds = %23
 
 42:                                               ; preds = %GPU_ReleaseShaders.exit.preheader, %GPU_ReleaseShaders.exit
   %indvars.iv7098 = phi i64 [ 0, %GPU_ReleaseShaders.exit.preheader ], [ %indvars.iv.next71, %GPU_ReleaseShaders.exit ]
-  %43 = getelementptr inbounds nuw %struct.GPU_ShaderSources, ptr @frag_shader_sources, i64 %indvars.iv7098
+  %43 = getelementptr inbounds nuw [24 x i8], ptr @frag_shader_sources, i64 %indvars.iv7098
   %44 = call i32 @SDL_GetGPUShaderFormats_REAL(ptr noundef %1) #5
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %CompileShader.exit32.thread, label %46
@@ -138,7 +138,7 @@ CompileShader.exit:                               ; preds = %23
   br label %CompileShader.exit32.thread
 
 CompileShader.exit32.thread:                      ; preds = %42, %48
-  %50 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv7098
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv7098
   store ptr null, ptr %50, align 8
   br label %.loopexit.preheader
 
@@ -164,7 +164,7 @@ CompileShader.exit32:                             ; preds = %46
   store i32 1, ptr %17, align 4
   %61 = call ptr @SDL_CreateGPUShader_REAL(ptr noundef %1, ptr noundef nonnull %3) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %62 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv7098
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv7098
   store ptr %61, ptr %62, align 8
   %63 = icmp eq ptr %61, null
   br i1 %63, label %.loopexit.preheader, label %GPU_ReleaseShaders.exit
@@ -174,7 +174,7 @@ CompileShader.exit32:                             ; preds = %46
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i34, %.loopexit ], [ 0, %.loopexit.preheader ]
-  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i33
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i33
   %65 = load ptr, ptr %64, align 8
   call void @SDL_ReleaseGPUShader_REAL(ptr noundef %1, ptr noundef %65) #5
   store ptr null, ptr %64, align 8
@@ -184,7 +184,7 @@ CompileShader.exit32:                             ; preds = %46
 
 .preheader.i36:                                   ; preds = %.loopexit, %.preheader.i36
   %indvars.iv20.i3758 = phi i64 [ %indvars.iv.next21.i38, %.preheader.i36 ], [ 0, %.loopexit ]
-  %66 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv20.i3758
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv20.i3758
   %67 = load ptr, ptr %66, align 8
   call void @SDL_ReleaseGPUShader_REAL(ptr noundef %1, ptr noundef %67) #5
   store ptr null, ptr %66, align 8
@@ -212,7 +212,7 @@ define hidden void @GPU_ReleaseShaders(ptr noundef captures(none) %0, ptr nounde
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   tail call void @SDL_ReleaseGPUShader_REAL(ptr noundef %1, ptr noundef %6) #5
   store ptr null, ptr %5, align 8
@@ -225,7 +225,7 @@ define hidden void @GPU_ReleaseShaders(ptr noundef captures(none) %0, ptr nounde
 
 8:                                                ; preds = %.preheader, %8
   %indvars.iv2026 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next21, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv2026
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv2026
   %10 = load ptr, ptr %9, align 8
   tail call void @SDL_ReleaseGPUShader_REAL(ptr noundef %1, ptr noundef %10) #5
   store ptr null, ptr %9, align 8
@@ -239,7 +239,7 @@ declare void @SDL_ReleaseGPUShader_REAL(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @GPU_GetVertexShader(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds ptr, ptr %0, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -248,7 +248,7 @@ define hidden ptr @GPU_GetVertexShader(ptr noundef readonly captures(none) %0, i
 define hidden ptr @GPU_GetFragmentShader(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }

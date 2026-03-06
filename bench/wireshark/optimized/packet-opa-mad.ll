@@ -6723,7 +6723,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
 
 switch.lookup:                                    ; preds = %652
   %677 = zext nneg i8 %674 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.parse_PERF, i64 %677
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.parse_PERF, i64 %677
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %678
 
@@ -13314,7 +13314,7 @@ define internal fastcc ptr @opa_format_port_select_mask(ptr noundef %0, i32 noun
   %.05910 = phi i32 [ 0, %5 ], [ %.160.lcssa, %._crit_edge ]
   %.0629 = phi i32 [ -1, %5 ], [ %.163.lcssa, %._crit_edge ]
   %19 = sub nuw nsw i64 3, %indvars.iv
-  %20 = getelementptr i64, ptr %3, i64 %19
+  %20 = getelementptr [8 x i8], ptr %3, i64 %19
   %21 = load i64, ptr %20, align 8
   %.not = icmp eq i64 %21, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph

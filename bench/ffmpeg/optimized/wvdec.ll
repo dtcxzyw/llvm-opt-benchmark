@@ -354,7 +354,7 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
   %36 = lshr i32 %30, 23
   %37 = and i32 %36, 15
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr @wv_rates, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @wv_rates, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !71
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %42 = load i32, ptr %41, align 4, !tbaa !72

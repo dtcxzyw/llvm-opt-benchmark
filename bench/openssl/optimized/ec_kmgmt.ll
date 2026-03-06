@@ -1119,7 +1119,7 @@ define internal ptr @ec_import_types(i32 noundef %0) #1 {
   %3 = and i32 %2, 8
   %.3.i = or disjoint i32 %3, %.2.i
   %4 = zext nneg i32 %.3.i to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @ec_types, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @ec_types, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !40
   ret ptr %6
 }
@@ -1232,7 +1232,7 @@ define internal ptr @ec_export_types(i32 noundef %0) #1 {
   %3 = and i32 %2, 8
   %.3.i = or disjoint i32 %3, %.2.i
   %4 = zext nneg i32 %.3.i to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @ec_types, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @ec_types, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !40
   ret ptr %6
 }

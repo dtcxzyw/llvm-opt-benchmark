@@ -22,10 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.SourceSpan = type { i64 }
 %struct.Vmem = type { ptr, i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.TypeInfo_ = type { i16, ptr, %union.SourceSpan, %union.anon.54 }
-%union.anon.54 = type { %struct.anon.55 }
-%struct.anon.55 = type { ptr, ptr }
-%struct.FuncTypeEntry = type { i32, ptr }
 
 @t = internal global %struct.anon zeroinitializer, align 8
 @type_bool = dso_local local_unnamed_addr global ptr getelementptr inbounds nuw (i8, ptr @t, i64 80), align 8
@@ -172,9 +168,9 @@ define dso_local void @type_init_cint() local_unnamed_addr #0 {
   unreachable
 
 switch.lookup:                                    ; preds = %.split.i
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table.type_setup.3, i64 %switch.tableidx
+  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.type_setup.3, i64 %switch.tableidx
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %.0.i5 = load ptr, ptr %switch.load, align 8
   store ptr %.0.i5, ptr @type_cint, align 8
@@ -200,7 +196,7 @@ define dso_local ptr @type_int_signed_by_bitsize(i64 noundef %0) local_unnamed_a
   unreachable
 
 switch.lookup:                                    ; preds = %.split
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0 = load ptr, ptr %switch.load, align 8
   ret ptr %.0
@@ -223,7 +219,7 @@ define dso_local ptr @type_int_unsigned_by_bitsize(i64 noundef %0) local_unnamed
   unreachable
 
 switch.lookup:                                    ; preds = %.split
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_setup.3, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.type_setup.3, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0 = load ptr, ptr %switch.load, align 8
   ret ptr %.0
@@ -489,7 +485,7 @@ define internal fastcc void @type_append_func_to_scratch(ptr noundef readonly ca
 
 10:                                               ; preds = %9, %.lr.ph
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   tail call fastcc void @type_append_name_to_scratch(ptr noundef %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1528,7 +1524,7 @@ define dso_local noundef zeroext i1 @type_func_match(ptr noundef readonly captur
   tail call void @llvm.assume(i1 %13)
   %14 = load ptr, ptr @type_info_arena, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1577,7 +1573,7 @@ define dso_local noundef zeroext i1 @type_func_match(ptr noundef readonly captur
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %37 = phi ptr [ %.promoted35, %.lr.ph ], [ %49, %48 ]
   %38 = phi i32 [ %.promoted, %.lr.ph ], [ %50, %48 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = icmp ult i32 %38, 41
   br i1 %41, label %42, label %46
@@ -1911,7 +1907,7 @@ define internal fastcc ptr @type_generate_ptr(ptr noundef %0, i1 noundef zeroext
   %37 = load i32, ptr %.1.i.i, align 4
   %38 = add i32 %37, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
   store ptr null, ptr %40, align 8
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
@@ -2031,7 +2027,7 @@ define internal fastcc ptr @type_generate_optional(ptr noundef %0, i1 noundef ze
   %37 = load i32, ptr %.1.i.i, align 4
   %38 = add i32 %37, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
   store ptr null, ptr %40, align 8
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
@@ -2156,7 +2152,7 @@ define internal fastcc ptr @type_generate_subarray(ptr noundef %0, i1 noundef ze
   %37 = load i32, ptr %.1.i.i, align 4
   %38 = add i32 %37, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
   store ptr null, ptr %40, align 8
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
@@ -2281,7 +2277,7 @@ define internal fastcc ptr @type_generate_inferred_array(ptr noundef %0, i1 noun
   %37 = load i32, ptr %.1.i.i, align 4
   %38 = add i32 %37, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
   store ptr null, ptr %40, align 8
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
@@ -2406,7 +2402,7 @@ define internal fastcc ptr @type_generate_inferred_vector(ptr noundef %0, i1 nou
   %37 = load i32, ptr %.1.i.i, align 4
   %38 = add i32 %37, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
   store ptr null, ptr %40, align 8
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
@@ -2531,7 +2527,7 @@ define internal fastcc ptr @type_generate_flexible_array(ptr noundef %0, i1 noun
   %37 = load i32, ptr %.1.i.i, align 4
   %38 = add i32 %37, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
   store ptr null, ptr %40, align 8
   %41 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %41, 6
@@ -2677,7 +2673,7 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
 
 .lr.ph111:                                        ; preds = %.lr.ph111, %.lr.ph111.preheader
   %indvars.iv135 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next136, %.lr.ph111 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv135
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv135
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 72
   %44 = load ptr, ptr %43, align 8
@@ -2751,7 +2747,7 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 72
   %81 = load ptr, ptr %80, align 8
@@ -2791,11 +2787,11 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
 
 .lr.ph104:                                        ; preds = %.lr.ph104.preheader, %94
   %indvars.iv130 = phi i64 [ 0, %.lr.ph104.preheader ], [ %indvars.iv.next131, %94 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv130
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv130
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 72
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv130
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv130
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 72
   %102 = load ptr, ptr %101, align 8
@@ -2879,7 +2875,7 @@ define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
   %.03541 = phi i32 [ 0, %.lr.ph.preheader ], [ %43, %42 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %35 = load ptr, ptr %34, align 8
@@ -3053,7 +3049,7 @@ define internal fastcc noundef ptr @type_create_array(ptr noundef %0, i32 nounde
   %39 = load i32, ptr %.1.i.i, align 4
   %40 = add i32 %39, -1
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   store ptr null, ptr %42, align 8
   %43 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %43, 6
@@ -3077,7 +3073,7 @@ create_type_cache.exit:                           ; preds = %35
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %56
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %56 ], [ 6, %.lr.ph ]
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv87
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv87
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %50, align 8
   %.not76.us = icmp eq i32 %51, 37
@@ -3096,7 +3092,7 @@ create_type_cache.exit:                           ; preds = %35
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 6, %.lr.ph ]
-  %57 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, 37
@@ -3194,7 +3190,7 @@ create_type_cache.exit:                           ; preds = %35
   %108 = load i32, ptr %.1.i, align 4
   %109 = add i32 %108, -1
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr %107, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %110
   store ptr %69, ptr %111, align 8
   br label %.loopexit
 
@@ -3401,7 +3397,7 @@ type_flatten.exit:                                ; preds = %2
   unreachable
 
 switch.lookup:                                    ; preds = %.split.i
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i3 = load ptr, ptr %switch.load, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3460,7 +3456,7 @@ define dso_local ptr @type_get_func(ptr noundef readonly captures(none) %0, i32 
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr @type_info_arena, align 8
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call fastcc ptr @flatten_raw_function_type(ptr noundef %13)
@@ -3484,7 +3480,7 @@ define dso_local ptr @type_get_func(ptr noundef readonly captures(none) %0, i32 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01722.i = phi i64 [ %16, %.lr.ph.preheader.i ], [ %31, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = mul i64 %.01722.i, 31
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 72
@@ -3508,7 +3504,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @map, i64 16), align 8
   %.01760 = and i32 %36, %34
   %38 = zext i32 %.01760 to i64
-  %39 = getelementptr inbounds nuw %struct.FuncTypeEntry, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %38
   %40 = load i32, ptr %39, align 8
   %.not61 = icmp eq i32 %40, 0
   br i1 %.not61, label %._crit_edge, label %.lr.ph
@@ -3547,7 +3543,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   %59 = load i32, ptr %7, align 8
   %60 = load ptr, ptr @type_info_arena, align 8
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [40 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -3627,7 +3623,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   %.0139171.i = phi ptr [ %101, %95 ], [ %135, %155 ]
   %.0142170.i = phi ptr [ %104, %95 ], [ %158, %155 ]
   %106 = load ptr, ptr %17, align 8
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv.i20
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.i20
   %108 = load ptr, ptr %107, align 8
   %109 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %109, ptr noundef nonnull readonly align 8 dereferenceable(136) %108, i64 136, i1 false)
@@ -3675,7 +3671,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   %135 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %136 = load ptr, ptr %110, align 8
   %137 = zext i32 %133 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr %135, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %137
   store ptr %136, ptr %138, align 8
   %139 = getelementptr inbounds i8, ptr %.0142170.i, i64 -8
   %.phi.trans.insert.i162.i = getelementptr inbounds i8, ptr %.0142170.i, i64 -4
@@ -3710,7 +3706,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   store i32 %157, ptr %.1.i164.i, align 4
   %158 = getelementptr inbounds nuw i8, ptr %.1.i164.i, i64 8
   %159 = zext i32 %156 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   store ptr %109, ptr %160, align 8
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %96
@@ -3746,7 +3742,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
 
 .lr.ph.i24:                                       ; preds = %171, %.lr.ph.preheader.i23
   %indvars.iv183.i = phi i64 [ 0, %.lr.ph.preheader.i23 ], [ %indvars.iv.next184.i, %171 ]
-  %.1172.in.i = getelementptr inbounds nuw ptr, ptr %167, i64 %indvars.iv183.i
+  %.1172.in.i = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %indvars.iv183.i
   %.1172.i = load ptr, ptr %.1172.in.i, align 8
   %.not159.i = icmp eq i64 %indvars.iv183.i, 0
   br i1 %.not159.i, label %171, label %170
@@ -3818,7 +3814,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
 
 .lr.ph176.i:                                      ; preds = %209, %.lr.ph176.preheader.i
   %indvars.iv188.i = phi i64 [ 0, %.lr.ph176.preheader.i ], [ %indvars.iv.next189.i, %209 ]
-  %199 = getelementptr inbounds nuw %struct.FuncTypeEntry, ptr %189, i64 %indvars.iv188.i
+  %199 = getelementptr inbounds nuw [16 x i8], ptr %189, i64 %indvars.iv188.i
   %200 = load i32, ptr %199, align 8
   %.not157.i = icmp eq i32 %200, 0
   br i1 %.not157.i, label %209, label %.preheader.i
@@ -3827,7 +3823,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   %.pn.i = phi i32 [ %204, %.preheader.i ], [ %200, %.lr.ph176.i ]
   %.0.i = and i32 %.pn.i, %198
   %201 = zext i32 %.0.i to i64
-  %202 = getelementptr inbounds nuw %struct.FuncTypeEntry, ptr %197, i64 %201
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %197, i64 %201
   %203 = load i32, ptr %202, align 8
   %.not158.i = icmp eq i32 %203, 0
   %204 = add i32 %.0.i, 1
@@ -3858,7 +3854,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   br i1 %213, label %214, label %compare_function.exit.thread
 
 214:                                              ; preds = %210
-  %215 = getelementptr inbounds nuw %struct.FuncTypeEntry, ptr %37, i64 %212
+  %215 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %212
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 72
@@ -3902,7 +3898,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
 238:                                              ; preds = %237
   %239 = load i32, ptr %7, align 8
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %41, i64 %240
+  %241 = getelementptr inbounds nuw [40 x i8], ptr %41, i64 %240
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %243 = load ptr, ptr %242, align 8
   %244 = getelementptr inbounds nuw i8, ptr %219, i64 8
@@ -3980,9 +3976,9 @@ compare_func_param.exit.thread.i:                 ; preds = %tailrecurse.backedg
 
 .lr.ph.i29:                                       ; preds = %compare_func_param.exit52.thread.i, %.lr.ph.preheader.i27
   %indvars.iv.i30 = phi i64 [ 0, %.lr.ph.preheader.i27 ], [ %indvars.iv.next.i31, %compare_func_param.exit52.thread.i ]
-  %274 = getelementptr inbounds nuw ptr, ptr %227, i64 %indvars.iv.i30
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %indvars.iv.i30
   %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv.i30
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv.i30
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 72
   %279 = load ptr, ptr %278, align 8
@@ -4057,7 +4053,7 @@ compare_function.exit.thread:                     ; preds = %257, %255, %252, %c
   %307 = add i32 %.01762, 1
   %.017 = and i32 %307, %36
   %308 = zext i32 %.017 to i64
-  %309 = getelementptr inbounds nuw %struct.FuncTypeEntry, ptr %37, i64 %308
+  %309 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %308
   %310 = load i32, ptr %309, align 8
   %.not = icmp eq i32 %310, 0
   br i1 %.not, label %._crit_edge, label %210
@@ -4493,7 +4489,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   %193 = load i32, ptr %.1.i.i, align 4
   %194 = add i32 %193, -1
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw ptr, ptr %192, i64 %195
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %195
   store ptr null, ptr %196, align 8
   %197 = add nuw nsw i32 %.01012.i, 1
   %exitcond.not.i = icmp eq i32 %197, 6
@@ -4596,7 +4592,7 @@ create_type_cache.exit:                           ; preds = %189
   %248 = load i32, ptr %.1.i.i110, align 4
   %249 = add i32 %248, -1
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds nuw ptr, ptr %247, i64 %250
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %250
   store ptr null, ptr %251, align 8
   %252 = add nuw nsw i32 %.01012.i105, 1
   %exitcond.not.i111 = icmp eq i32 %252, 6
@@ -4626,7 +4622,7 @@ create_type_cache.exit113:                        ; preds = %244
   unreachable
 
 switch.lookup:                                    ; preds = %.split.i
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_setup.3, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.type_setup.3, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load ptr, ptr %switch.load, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1280), align 8
@@ -4652,7 +4648,7 @@ switch.lookup:                                    ; preds = %.split.i
   unreachable
 
 switch.lookup137:                                 ; preds = %.split.i114
-  %switch.gep138 = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx136
+  %switch.gep138 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx136
   %switch.load139 = load ptr, ptr %switch.gep138, align 8
   %.0.i116 = load ptr, ptr %switch.load139, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1360), align 8
@@ -4678,7 +4674,7 @@ switch.lookup137:                                 ; preds = %.split.i114
   unreachable
 
 switch.lookup141:                                 ; preds = %.split.i117
-  %switch.gep142 = getelementptr inbounds nuw ptr, ptr @switch.table.type_setup.3, i64 %switch.tableidx140
+  %switch.gep142 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.type_setup.3, i64 %switch.tableidx140
   %switch.load143 = load ptr, ptr %switch.gep142, align 8
   %.0.i119 = load ptr, ptr %switch.load143, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1440), align 8
@@ -4704,7 +4700,7 @@ switch.lookup141:                                 ; preds = %.split.i117
   unreachable
 
 switch.lookup145:                                 ; preds = %.split.i121
-  %switch.gep146 = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx144
+  %switch.gep146 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx144
   %switch.load147 = load ptr, ptr %switch.gep146, align 8
   %.0.i123 = load ptr, ptr %switch.load147, align 8
   store i32 31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1520), align 8
@@ -4807,7 +4803,7 @@ define dso_local range(i32 8, 129) i32 @type_kind_bitsize(i32 noundef %0) local_
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.type_kind_bitsize, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.type_kind_bitsize, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -5024,7 +5020,7 @@ define dso_local ptr @type_from_token(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_from_token, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.type_from_token, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0 = load ptr, ptr %switch.load, align 8
   ret ptr %.0
@@ -5753,7 +5749,7 @@ define dso_local ptr @type_find_max_num_type(ptr noundef readonly captures(ret: 
   unreachable
 
 switch.lookup:                                    ; preds = %.split.i
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.type_find_max_num_type, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load ptr, ptr %switch.load, align 8
   br label %28
@@ -6441,7 +6437,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
 
 37:                                               ; preds = %31
   %indvars.iv.next = add i64 %indvars.iv, 1
-  %38 = getelementptr inbounds nuw ptr, ptr @type_find_common_ancestor.left_types, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @type_find_common_ancestor.left_types, i64 %indvars.iv
   store ptr %35, ptr %38, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
   br i1 %exitcond.not, label %.thread, label %.preheader60, !llvm.loop !26
@@ -6490,7 +6486,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
 
 56:                                               ; preds = %.lr.ph.us, %55
   %indvars.iv74 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next75, %55 ]
-  %57 = getelementptr inbounds nuw ptr, ptr @type_find_common_ancestor.left_types, i64 %indvars.iv74
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @type_find_common_ancestor.left_types, i64 %indvars.iv74
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %54, %58
   br i1 %59, label %.loopexit58, label %55

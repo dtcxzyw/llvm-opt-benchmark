@@ -108,7 +108,7 @@ define void @prte_stackframe_output(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 2, %.preheader ]
   %8 = load ptr, ptr %3, align 8, !tbaa !7
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   call void (i32, ptr, ...) @pmix_output(i32 noundef %0, ptr noundef nonnull @.str, ptr noundef %10) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -235,7 +235,7 @@ define noundef ptr @prte_stackframe_output_string() local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 3, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.01521 = phi i64 [ 0, %.lr.ph ], [ %14, %11 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge.loopexit, label %11
@@ -270,7 +270,7 @@ define noundef ptr @prte_stackframe_output_string() local_unnamed_addr #0 {
 
 19:                                               ; preds = %.lr.ph28, %23
   %indvars.iv32 = phi i64 [ 3, %.lr.ph28 ], [ %indvars.iv.next33, %23 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv32
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv32
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %22 = icmp eq ptr %21, null
   br i1 %22, label %._crit_edge29, label %23
@@ -680,31 +680,31 @@ define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly captu
 
 switch.lookup:                                    ; preds = %50
   %71 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.show_stackframe, i64 %71
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.show_stackframe, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %76
 
 switch.lookup96:                                  ; preds = %52
   %72 = zext nneg i32 %switch.tableidx95 to i64
-  %switch.gep97 = getelementptr inbounds nuw ptr, ptr @switch.table.show_stackframe.1, i64 %72
+  %switch.gep97 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.show_stackframe.1, i64 %72
   %switch.load98 = load ptr, ptr %switch.gep97, align 8
   br label %76
 
 switch.lookup100:                                 ; preds = %55
   %73 = zext nneg i32 %switch.tableidx99 to i64
-  %switch.gep101 = getelementptr inbounds nuw ptr, ptr @switch.table.show_stackframe.2, i64 %73
+  %switch.gep101 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.show_stackframe.2, i64 %73
   %switch.load102 = load ptr, ptr %switch.gep101, align 8
   br label %76
 
 switch.lookup104:                                 ; preds = %58
   %74 = zext nneg i32 %switch.tableidx103 to i64
-  %switch.gep105 = getelementptr inbounds nuw ptr, ptr @switch.table.show_stackframe.3, i64 %74
+  %switch.gep105 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.show_stackframe.3, i64 %74
   %switch.load106 = load ptr, ptr %switch.gep105, align 8
   br label %76
 
 switch.lookup108:                                 ; preds = %60
   %75 = zext nneg i32 %switch.tableidx107 to i64
-  %switch.gep109 = getelementptr inbounds nuw ptr, ptr @switch.table.show_stackframe.4, i64 %75
+  %switch.gep109 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.show_stackframe.4, i64 %75
   %switch.load110 = load ptr, ptr %switch.gep109, align 8
   br label %76
 

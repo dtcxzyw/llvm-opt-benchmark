@@ -21,7 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::VectorBase" = type { ptr, ptr, %"class.eastl::compressed_pair.3" }
 %"class.eastl::compressed_pair.3" = type { %"class.eastl::compressed_pair_imp.4" }
 %"class.eastl::compressed_pair_imp.4" = type { ptr }
-%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 
 $_ZN5eastl4listI10TestObjectNS_9allocatorEEC2EmRKS2_ = comdat any
 
@@ -310,7 +309,7 @@ for.body:                                         ; preds = %invoke.cont25, %_ZN
   %21 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i71 = add nsw i64 %21, 1
   store i64 %inc.i71, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %add.ptr.i70 = getelementptr inbounds nuw %struct.TestObject, ptr %call.i.i.i.i.i69, i64 %i.01035
+  %add.ptr.i70 = getelementptr inbounds nuw [24 x i8], ptr %call.i.i.i.i.i69, i64 %i.01035
   store i32 %conv28, ptr %add.ptr.i70, align 4
   %mMagicValue.i72 = getelementptr inbounds nuw i8, ptr %add.ptr.i70, i64 16
   %22 = load i32, ptr %mMagicValue.i72, align 4
@@ -3295,7 +3294,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl9iter_swapIP10TestObjectS2_EEvT_T0_.exit
   %swapIter.08 = phi i64 [ %add, %_ZN5eastl9iter_swapIP10TestObjectS2_EEvT_T0_.exit ], [ 1, %for.body.preheader ]
-  %add.ptr = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %swapIter.08
+  %add.ptr = getelementptr inbounds nuw [24 x i8], ptr %first, i64 %swapIter.08
   %add = add nuw nsw i64 %swapIter.08, 1
   %1 = load i64, ptr %rng, align 8
   %cmp.i.i.i = icmp eq i64 %1, 0
@@ -3308,7 +3307,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %xor.i.i.i = xor i64 %add5.i.i.i, %shr.i.i.i
   store i64 %xor.i.i.i, ptr %rng, align 8
   %rem.i.i = urem i64 %xor.i.i.i, %add
-  %add.ptr2 = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %rem.i.i
+  %add.ptr2 = getelementptr inbounds nuw [24 x i8], ptr %first, i64 %rem.i.i
   %4 = load i32, ptr %add.ptr, align 8
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %5 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4

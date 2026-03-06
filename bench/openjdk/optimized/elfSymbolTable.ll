@@ -150,7 +150,7 @@ define hidden noundef zeroext i1 @_ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFun
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %37
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %37 ], [ 0, %.lr.ph ]
-  %22 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %18, i64 %indvars.iv56
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv56
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i8, ptr %23, align 4
   %25 = and i8 %24, 15
@@ -179,7 +179,7 @@ define hidden noundef zeroext i1 @_ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFun
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.lr.ph ]
-  %38 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %18, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i8, ptr %39, align 4
   %41 = and i8 %40, 15

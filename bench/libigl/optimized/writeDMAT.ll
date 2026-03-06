@@ -90,7 +90,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIi
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %19 = load ptr, ptr %1, align 8, !tbaa !17
-  %20 = getelementptr i32, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [4 x i8], ptr %19, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !18
   %22 = sitofp i32 %21 to double
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, double noundef %22) #13
@@ -137,8 +137,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i33: ; preds = %34
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %41, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %47, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %41 ]
-  %43 = getelementptr inbounds nuw double, ptr %38, i64 %.05.i.i.i.i.i.i.i
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %.05.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.05.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.05.i.i.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !18
   %46 = sitofp i32 %45 to double
   store double %46, ptr %43, align 8, !tbaa !24
@@ -231,8 +231,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixId
   %31 = phi i64 [ %38, %.lr.ph ], [ %26, %.preheader ]
   %32 = load ptr, ptr %1, align 8, !tbaa !33
   %33 = mul nsw i64 %31, %indvars.iv34
-  %34 = getelementptr double, ptr %32, i64 %indvars.iv
-  %35 = getelementptr double, ptr %34, i64 %33
+  %34 = getelementptr [8 x i8], ptr %32, i64 %indvars.iv
+  %35 = getelementptr [8 x i8], ptr %34, i64 %33
   %36 = load double, ptr %35, align 8, !tbaa !24
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.5, double noundef %36) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -299,7 +299,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixId
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %19 = load ptr, ptr %1, align 8, !tbaa !37
-  %20 = getelementptr double, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !24
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, double noundef %21) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -410,7 +410,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixId
 
 .preheader:                                       ; preds = %12, %.preheader
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %.preheader ]
-  %14 = getelementptr double, ptr %1, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %15 = load double, ptr %14, align 8, !tbaa !24
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, double noundef %15) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -502,8 +502,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIf
   %32 = phi i64 [ %40, %.lr.ph ], [ %27, %.preheader ]
   %33 = load ptr, ptr %1, align 8, !tbaa !46
   %34 = mul nsw i64 %32, %indvars.iv34
-  %35 = getelementptr float, ptr %33, i64 %indvars.iv
-  %36 = getelementptr float, ptr %35, i64 %34
+  %35 = getelementptr [4 x i8], ptr %33, i64 %indvars.iv
+  %36 = getelementptr [4 x i8], ptr %35, i64 %34
   %37 = load float, ptr %36, align 4, !tbaa !47
   %38 = fpext float %37 to double
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.5, double noundef %38) #13
@@ -604,8 +604,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIf
   %32 = load ptr, ptr %1, align 8, !tbaa !59
   %33 = load i64, ptr %15, align 8, !tbaa !55
   %34 = mul nsw i64 %33, %indvars.iv
-  %35 = getelementptr float, ptr %32, i64 %34
-  %36 = getelementptr float, ptr %35, i64 %indvars.iv34
+  %35 = getelementptr [4 x i8], ptr %32, i64 %34
+  %36 = getelementptr [4 x i8], ptr %35, i64 %indvars.iv34
   %37 = load float, ptr %36, align 4, !tbaa !47
   %38 = fpext float %37 to double
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.5, double noundef %38) #13
@@ -676,7 +676,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIf
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %19 = load ptr, ptr %1, align 8, !tbaa !68
-  %20 = getelementptr float, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [4 x i8], ptr %19, i64 %indvars.iv
   %21 = load float, ptr %20, align 4, !tbaa !47
   %22 = fpext float %21 to double
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, double noundef %22) #13
@@ -723,8 +723,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i33: ; preds = %34
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %41, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %47, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %41 ]
-  %43 = getelementptr inbounds nuw double, ptr %38, i64 %.05.i.i.i.i.i.i.i
-  %44 = getelementptr inbounds nuw float, ptr %42, i64 %.05.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.05.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.05.i.i.i.i.i.i.i
   %45 = load float, ptr %44, align 4, !tbaa !47
   %46 = fpext float %45 to double
   store double %46, ptr %43, align 8, !tbaa !24
@@ -768,7 +768,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIf
 
 .preheader:                                       ; preds = %12, %.preheader
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %.preheader ]
-  %14 = getelementptr float, ptr %1, i64 %indvars.iv
+  %14 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv
   %15 = load float, ptr %14, align 4, !tbaa !47
   %16 = fpext float %15 to double
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, double noundef %16) #13
@@ -791,10 +791,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIf
 
 ._crit_edge.us.i.i.i.i.i.i.i:                     ; preds = %18, %._crit_edge.us.i.i.i.i.i.i.i
   %.0810.us.i.i.i.i.i.i.i = phi i64 [ %27, %._crit_edge.us.i.i.i.i.i.i.i ], [ 0, %18 ]
-  %24 = getelementptr float, ptr %1, i64 %.0810.us.i.i.i.i.i.i.i
+  %24 = getelementptr [4 x i8], ptr %1, i64 %.0810.us.i.i.i.i.i.i.i
   %25 = load float, ptr %24, align 4, !tbaa !47
   %26 = fpext float %25 to double
-  %invariant.gep.us.i.i.i.i.i.i.i = getelementptr double, ptr %21, i64 %.0810.us.i.i.i.i.i.i.i
+  %invariant.gep.us.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %21, i64 %.0810.us.i.i.i.i.i.i.i
   store double %26, ptr %invariant.gep.us.i.i.i.i.i.i.i, align 8, !tbaa !24
   %27 = add nuw nsw i64 %.0810.us.i.i.i.i.i.i.i, 1
   %exitcond13.not.i.i.i.i.i.i.i = icmp eq i64 %27, 3
@@ -871,8 +871,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIi
   %32 = phi i64 [ %40, %.lr.ph ], [ %27, %.preheader ]
   %33 = load ptr, ptr %1, align 8, !tbaa !77
   %34 = mul nsw i64 %32, %indvars.iv34
-  %35 = getelementptr i32, ptr %33, i64 %indvars.iv
-  %36 = getelementptr i32, ptr %35, i64 %34
+  %35 = getelementptr [4 x i8], ptr %33, i64 %indvars.iv
+  %36 = getelementptr [4 x i8], ptr %35, i64 %34
   %37 = load i32, ptr %36, align 4, !tbaa !18
   %38 = sitofp i32 %37 to double
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.5, double noundef %38) #13
@@ -958,8 +958,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIi
   %25 = phi i64 [ %33, %.lr.ph ], [ %21, %.preheader ]
   %26 = load ptr, ptr %1, align 8, !tbaa !87
   %27 = mul nuw nsw i64 %25, %indvars.iv33
-  %28 = getelementptr i32, ptr %26, i64 %indvars.iv
-  %29 = getelementptr i32, ptr %28, i64 %27
+  %28 = getelementptr [4 x i8], ptr %26, i64 %indvars.iv
+  %29 = getelementptr [4 x i8], ptr %28, i64 %27
   %30 = load i32, ptr %29, align 4, !tbaa !18
   %31 = sitofp i32 %30 to double
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.5, double noundef %31) #13
@@ -1043,8 +1043,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIi
   %24 = phi i64 [ %32, %.lr.ph ], [ %21, %.preheader ]
   %25 = load ptr, ptr %1, align 8, !tbaa !97
   %26 = mul nsw i64 %24, %indvars.iv33
-  %27 = getelementptr i32, ptr %25, i64 %indvars.iv
-  %28 = getelementptr i32, ptr %27, i64 %26
+  %27 = getelementptr [4 x i8], ptr %25, i64 %indvars.iv
+  %28 = getelementptr [4 x i8], ptr %27, i64 %26
   %29 = load i32, ptr %28, align 4, !tbaa !18
   %30 = sitofp i32 %29 to double
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.5, double noundef %30) #13
@@ -1106,7 +1106,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIi
 
 .preheader:                                       ; preds = %12, %.preheader
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %.preheader ]
-  %14 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %14 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !18
   %16 = sitofp i32 %15 to double
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, double noundef %16) #13
@@ -1129,10 +1129,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIi
 
 ._crit_edge.us.i.i.i.i.i.i.i:                     ; preds = %18, %._crit_edge.us.i.i.i.i.i.i.i
   %.0810.us.i.i.i.i.i.i.i = phi i64 [ %27, %._crit_edge.us.i.i.i.i.i.i.i ], [ 0, %18 ]
-  %24 = getelementptr i32, ptr %1, i64 %.0810.us.i.i.i.i.i.i.i
+  %24 = getelementptr [4 x i8], ptr %1, i64 %.0810.us.i.i.i.i.i.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !18
   %26 = sitofp i32 %25 to double
-  %invariant.gep.us.i.i.i.i.i.i.i = getelementptr double, ptr %21, i64 %.0810.us.i.i.i.i.i.i.i
+  %invariant.gep.us.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %21, i64 %.0810.us.i.i.i.i.i.i.i
   store double %26, ptr %invariant.gep.us.i.i.i.i.i.i.i, align 8, !tbaa !24
   %27 = add nuw nsw i64 %.0810.us.i.i.i.i.i.i.i, 1
   %exitcond13.not.i.i.i.i.i.i.i = icmp eq i64 %27, 3
@@ -1173,7 +1173,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIi
 
 13:                                               ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %14 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !18
   %16 = sitofp i32 %15 to double
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, double noundef %16) #13
@@ -1196,8 +1196,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixIi
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %18, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %28, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %18 ]
-  %24 = getelementptr inbounds nuw double, ptr %21, i64 %.05.i.i.i.i.i.i.i
-  %25 = getelementptr inbounds nuw i32, ptr %1, i64 %.05.i.i.i.i.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.05.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.05.i.i.i.i.i.i.i
   %26 = load i32, ptr %25, align 4, !tbaa !18
   %27 = sitofp i32 %26 to double
   store double %27, ptr %24, align 8, !tbaa !24
@@ -1418,8 +1418,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %32, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i.i ], [ 0, %32 ]
-  %38 = getelementptr inbounds nuw double, ptr %35, i64 %.05.i.i.i.i.i
-  %39 = getelementptr inbounds nuw float, ptr %15, i64 %.05.i.i.i.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.05.i.i.i.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.05.i.i.i.i.i
   %40 = load float, ptr %39, align 4, !tbaa !47
   %41 = fpext float %40 to double
   store double %41, ptr %38, align 8, !tbaa !24
@@ -1519,15 +1519,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 .preheader.us.i.i.i.i.i:                          ; preds = %32, %._crit_edge.us.i.i.i.i.i
   %.0812.us.i.i.i.i.i = phi i64 [ %44, %._crit_edge.us.i.i.i.i.i ], [ 0, %32 ]
   %38 = mul nuw nsw i64 %.0812.us.i.i.i.i.i, %33
-  %invariant.gep.us.i.i.i.i.i = getelementptr double, ptr %35, i64 %38
-  %invariant.gep10.us.i.i.i.i.i = getelementptr float, ptr %15, i64 %.0812.us.i.i.i.i.i
+  %invariant.gep.us.i.i.i.i.i = getelementptr [8 x i8], ptr %35, i64 %38
+  %invariant.gep10.us.i.i.i.i.i = getelementptr [4 x i8], ptr %15, i64 %.0812.us.i.i.i.i.i
   br label %39
 
 39:                                               ; preds = %39, %.preheader.us.i.i.i.i.i
   %.09.us.i.i.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i.i.i ], [ %43, %39 ]
-  %gep.us.i.i.i.i.i = getelementptr double, ptr %invariant.gep.us.i.i.i.i.i, i64 %.09.us.i.i.i.i.i
+  %gep.us.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.us.i.i.i.i.i, i64 %.09.us.i.i.i.i.i
   %40 = mul nsw i64 %.09.us.i.i.i.i.i, %17
-  %gep11.us.i.i.i.i.i = getelementptr float, ptr %invariant.gep10.us.i.i.i.i.i, i64 %40
+  %gep11.us.i.i.i.i.i = getelementptr [4 x i8], ptr %invariant.gep10.us.i.i.i.i.i, i64 %40
   %41 = load float, ptr %gep11.us.i.i.i.i.i, align 4, !tbaa !47
   %42 = fpext float %41 to double
   store double %42, ptr %gep.us.i.i.i.i.i, align 8, !tbaa !24
@@ -1630,8 +1630,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %32, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i.i ], [ 0, %32 ]
-  %38 = getelementptr inbounds nuw double, ptr %35, i64 %.05.i.i.i.i.i
-  %39 = getelementptr inbounds nuw i32, ptr %15, i64 %.05.i.i.i.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.05.i.i.i.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.05.i.i.i.i.i
   %40 = load i32, ptr %39, align 4, !tbaa !18
   %41 = sitofp i32 %40 to double
   store double %41, ptr %38, align 8, !tbaa !24
@@ -1711,8 +1711,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %20, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i.i.i ], [ 0, %20 ]
-  %26 = getelementptr inbounds nuw double, ptr %23, i64 %.05.i.i.i.i.i
-  %27 = getelementptr inbounds nuw i32, ptr %9, i64 %.05.i.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.05.i.i.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.05.i.i.i.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !18
   %29 = sitofp i32 %28 to double
   store double %29, ptr %26, align 8, !tbaa !24
@@ -1792,8 +1792,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %20, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i.i.i ], [ 0, %20 ]
-  %26 = getelementptr inbounds nuw double, ptr %23, i64 %.05.i.i.i.i.i
-  %27 = getelementptr inbounds nuw i32, ptr %9, i64 %.05.i.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.05.i.i.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.05.i.i.i.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !18
   %29 = sitofp i32 %28 to double
   store double %29, ptr %26, align 8, !tbaa !24

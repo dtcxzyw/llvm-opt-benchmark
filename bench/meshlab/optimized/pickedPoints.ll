@@ -46,7 +46,6 @@ module asm ".previous"
 %class.QTime = type { i32 }
 %class.QTextStream = type { ptr, %class.QScopedPointer.24 }
 %class.QScopedPointer.24 = type { ptr }
-%"class.vcg::Point3" = type { [3 x float] }
 %"class.vcg::Point4.32" = type { [4 x float] }
 %class.QFileInfo = type { %class.QSharedDataPointer }
 %class.QSharedDataPointer = type { ptr }
@@ -540,7 +539,7 @@ define void @_ZN12PickedPointsD2Ev(ptr noundef nonnull align 8 captures(none) de
   %5 = phi ptr [ %16, %15 ], [ %4, %1 ]
   %6 = phi ptr [ %17, %15 ], [ %3, %1 ]
   %.07 = phi i64 [ %18, %15 ], [ 0, %1 ]
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %.07
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %.07
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
@@ -1763,7 +1762,7 @@ _ZNSt6vectorIP11PickedPointSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pr
 _ZNSt6vectorIP11PickedPointSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIP11PickedPointSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %41, ptr %0, align 8
   store ptr %45, ptr %21, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %41, i64 %39
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %39
   store ptr %47, ptr %23, align 8
   br label %_ZNSt6vectorIP11PickedPointSaIS1_EE9push_backERKS1_.exit
 
@@ -2072,7 +2071,7 @@ _ZN7QStringD2Ev.exit40:                           ; preds = %71, %_ZN9QtPrivate8
 .lr.ph:                                           ; preds = %92, %136
   %indvars.iv = phi i64 [ %indvars.iv.next, %136 ], [ 0, %92 ]
   %96 = phi ptr [ %138, %136 ], [ %95, %92 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv
   %98 = load ptr, ptr %97, align 8
   invoke void @_ZN12QDomDocument13createElementERK7QString(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN12PickedPoints16pointElementNameE)
           to label %99 unwind label %.loopexit
@@ -2351,7 +2350,7 @@ _ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit:    ; preds = %_ZNSt6vectorIP11Pic
   %8 = phi ptr [ null, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph ], [ %39, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
   %9 = phi ptr [ %5, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph ], [ %42, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
   %.08 = phi i64 [ 0, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph ], [ %40, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %.08
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %.08
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i8, ptr %12, align 8
@@ -2420,7 +2419,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %32, ptr %2, align 8
   store ptr %36, ptr %6, align 8
-  %38 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %30
   store ptr %38, ptr %7, align 8
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit
 
@@ -2460,7 +2459,7 @@ _ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph: ; preds = %2
 _ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit:    ; preds = %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph, %_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit
   %11 = phi ptr [ %7, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph ], [ %29, %_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit ]
   %.010 = phi i64 [ 0, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph ], [ %27, %_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit ]
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %.010
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %.010
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %15 = load float, ptr %14, align 4
@@ -2484,9 +2483,9 @@ _ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit:    ; preds = %_ZNSt6vectorIP11Pic
 20:                                               ; preds = %20, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %20 ]
   %.01113.i = phi float [ 0.000000e+00, %.preheader.i ], [ %24, %20 ]
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %21 = load float, ptr %gep.i, align 4
-  %22 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %23 = load float, ptr %22, align 4
   %24 = tail call float @llvm.fmuladd.f32(float %21, float %23, float %.01113.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2494,7 +2493,7 @@ _ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit:    ; preds = %_ZNSt6vectorIP11Pic
   br i1 %exitcond.not.i, label %25, label %20, !llvm.loop !22
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv17.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv17.i
   store float %24, ptr %26, align 4
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 4

@@ -6,14 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.boost::log::v2_mt_posix::once_block_flag" = type { i8 }
 %"class.boost::shared_ptr" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::detail::shared_count" = type { ptr }
-%"struct.boost::log::v2_mt_posix::attribute_name::repository::node" = type { %"class.boost::intrusive::set_base_hook", i32, %"class.std::__cxx11::basic_string" }
-%"class.boost::intrusive::set_base_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::node_holder" }
-%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::compact_rbtree_node" }
-%"struct.boost::intrusive::compact_rbtree_node" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.boost::log::v2_mt_posix::aux::once_block_sentry" = type { ptr }
 %"struct.boost::intrusive::insert_commit_data_t" = type { i8, ptr }
 %"struct.boost::intrusive::detail::key_nodeptr_comp" = type { ptr }
@@ -23,8 +15,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::exception" = type { ptr }
 %"struct.std::__cow_string" = type { %union.anon.9 }
 %union.anon.9 = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %"struct.boost::source_location" = type { ptr, ptr, i32, i32 }
+%"struct.boost::log::v2_mt_posix::attribute_name::repository::node" = type { %"class.boost::intrusive::set_base_hook", i32, %"class.std::__cxx11::basic_string" }
+%"class.boost::intrusive::set_base_hook" = type { %"class.boost::intrusive::generic_hook" }
+%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::node_holder" }
+%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::compact_rbtree_node" }
+%"struct.boost::intrusive::compact_rbtree_node" = type { ptr, ptr, ptr }
 %"class.boost::exception_detail::refcount_ptr" = type { ptr }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 
@@ -266,7 +266,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::attribute_name::repository::node", ptr %11, i64 %9
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %9
   br label %_ZNK5boost3log11v2_mt_posix14attribute_name6stringB5cxx11Ev.exit
 
 26:                                               ; preds = %22
@@ -279,11 +279,11 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
 
 30:                                               ; preds = %28, %26
   %31 = phi i64 [ %27, %26 ], [ %29, %28 ]
-  %32 = getelementptr inbounds ptr, ptr %15, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %15, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !27, !noalias !22
   %34 = shl nsw i64 %31, 3
   %35 = sub nsw i64 %20, %34
-  %36 = getelementptr inbounds %"struct.boost::log::v2_mt_posix::attribute_name::repository::node", ptr %33, i64 %35
+  %36 = getelementptr inbounds [64 x i8], ptr %33, i64 %35
   br label %_ZNK5boost3log11v2_mt_posix14attribute_name6stringB5cxx11Ev.exit
 
 _ZNK5boost3log11v2_mt_posix14attribute_name6stringB5cxx11Ev.exit: ; preds = %24, %30
@@ -348,7 +348,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::attribute_name::repository::node", ptr %11, i64 %9
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %9
   br label %_ZNK5boost3log11v2_mt_posix14attribute_name6stringB5cxx11Ev.exit
 
 26:                                               ; preds = %22
@@ -361,11 +361,11 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
 
 30:                                               ; preds = %28, %26
   %31 = phi i64 [ %27, %26 ], [ %29, %28 ]
-  %32 = getelementptr inbounds ptr, ptr %15, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %15, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !27, !noalias !36
   %34 = shl nsw i64 %31, 3
   %35 = sub nsw i64 %20, %34
-  %36 = getelementptr inbounds %"struct.boost::log::v2_mt_posix::attribute_name::repository::node", ptr %33, i64 %35
+  %36 = getelementptr inbounds [64 x i8], ptr %33, i64 %35
   br label %_ZNK5boost3log11v2_mt_posix14attribute_name6stringB5cxx11Ev.exit
 
 _ZNK5boost3log11v2_mt_posix14attribute_name6stringB5cxx11Ev.exit: ; preds = %24, %30
@@ -1038,7 +1038,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost3log11v2_mt_pos
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::attribute_name::repository::node", ptr %7, i64 %5
+  %21 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %5
   br label %_ZN5boost3log11v2_mt_posix14attribute_name10repository18get_string_from_idB5cxx11Ej.exit
 
 22:                                               ; preds = %18
@@ -1051,11 +1051,11 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost3log11v2_mt_pos
 
 26:                                               ; preds = %24, %22
   %27 = phi i64 [ %23, %22 ], [ %25, %24 ]
-  %28 = getelementptr inbounds ptr, ptr %11, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %11, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !27, !noalias !97
   %30 = shl nsw i64 %27, 3
   %31 = sub nsw i64 %16, %30
-  %32 = getelementptr inbounds %"struct.boost::log::v2_mt_posix::attribute_name::repository::node", ptr %29, i64 %31
+  %32 = getelementptr inbounds [64 x i8], ptr %29, i64 %31
   br label %_ZN5boost3log11v2_mt_posix14attribute_name10repository18get_string_from_idB5cxx11Ej.exit
 
 _ZN5boost3log11v2_mt_posix14attribute_name10repository18get_string_from_idB5cxx11Ej.exit: ; preds = %20, %26
@@ -1865,9 +1865,9 @@ define linkonce_odr hidden void @_ZNSt5dequeIN5boost3log11v2_mt_posix14attribute
   %19 = load ptr, ptr %0, align 8, !tbaa !108
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -1886,12 +1886,12 @@ define linkonce_odr hidden void @_ZNSt5dequeIN5boost3log11v2_mt_posix14attribute
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN5boost3log11v2_mt_posix14attribute_name10repository4nodeES7_ET0_T_S9_S8_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN5boost3log11v2_mt_posix14attribute_name10repository4nodeES7_ET0_T_S9_S8_.exit
 
@@ -1919,9 +1919,9 @@ _ZNSt11_Deque_baseIN5boost3log11v2_mt_posix14attribute_name10repository4nodeESaI
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #26
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN5boost3log11v2_mt_posix14attribute_name10repository4nodeES7_ET0_T_S9_S8_.exit26, label %53
@@ -1949,7 +1949,7 @@ _ZSt4copyIPPN5boost3log11v2_mt_posix14attribute_name10repository4nodeES7_ET0_T_S
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !63
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !26
   %64 = load ptr, ptr %63, align 8, !tbaa !27
@@ -3283,7 +3283,7 @@ _ZNSt11_Deque_baseIN5boost3log11v2_mt_posix14attribute_name10repository4nodeESaI
   store ptr %11, ptr %0, align 8, !tbaa !108
   %12 = sub nsw i64 %.sroa.speculated, %9
   %13 = lshr i64 %12, 1
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %.idx = shl nuw nsw i64 %9, 3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %.lr.ph.i
@@ -3377,7 +3377,7 @@ _ZNSt11_Deque_baseIN5boost3log11v2_mt_posix14attribute_name10repository4nodeESaI
   store ptr %52, ptr %53, align 8, !tbaa !63
   store ptr %43, ptr %41, align 8, !tbaa !137
   %54 = and i64 %1, 7
-  %55 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::attribute_name::repository::node", ptr %50, i64 %54
+  %55 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %54
   store ptr %55, ptr %47, align 8, !tbaa !69
   ret void
 

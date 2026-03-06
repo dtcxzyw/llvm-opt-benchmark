@@ -6676,7 +6676,7 @@ define linkonce_odr hidden void @_ZN6Assimp4STEP2DB15SetTypesToTrackEPKPKcm(ptr 
   store ptr %7, ptr %10, align 8
   store i64 0, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0821
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0821
   %17 = load ptr, ptr %16, align 8
   store ptr %12, ptr %6, align 8
   %18 = icmp eq ptr %17, null
@@ -6863,7 +6863,7 @@ define linkonce_odr hidden void @_ZN6Assimp4STEP2DB24SetInverseIndicesToTrackEPK
   %.015 = phi i64 [ 0, %.lr.ph ], [ %81, %_ZNSt3setIPKcSt4lessIS1_ESaIS1_EE6insertERKS1_.exit ]
   %14 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %.015
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.015
   %16 = load ptr, ptr %15, align 8
   store ptr %7, ptr %5, align 8
   %17 = icmp eq ptr %16, null
@@ -7825,7 +7825,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE13_M
   %44 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %43, ptr %20, align 8
   store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %43, i64 %.024
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %.024
   store ptr %45, ptr %41, align 8
   br label %_ZNSt6vectorISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE7reserveEm.exit
 
@@ -8445,7 +8445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %68 = uitofp i64 %67 to double
   %69 = load i32, ptr %6, align 4
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
   %72 = load double, ptr %71, align 8
   %73 = fmul double %72, %68
   %74 = fadd double %.025, %73
@@ -13229,7 +13229,7 @@ _ZNSt6vectorISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE11_S_reloca
 _ZNSt12_Vector_baseISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %40
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.24", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8
   ret void
 }

@@ -102,7 +102,7 @@ check_retval.exit80:                              ; preds = %21
   %31 = uitofp nneg i32 %30 to double
   %32 = fmul double %.val74, %31
   %33 = fsub double 1.000000e+00, %32
-  %invariant.gep.i = getelementptr double, ptr %28, i64 %indvars.iv4.i
+  %invariant.gep.i = getelementptr [8 x i8], ptr %28, i64 %indvars.iv4.i
   br label %34
 
 34:                                               ; preds = %34, %29
@@ -424,22 +424,22 @@ define internal noundef i32 @f(double %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %14, label %.thread.us.preheader, label %.preheader.split.preheader
 
 .preheader.split.preheader:                       ; preds = %.preheader
-  %17 = getelementptr double, ptr %5, i64 %indvars.iv57
+  %17 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv57
   %18 = getelementptr i8, ptr %17, i64 -16
-  %invariant.gep = getelementptr double, ptr %5, i64 %indvars.iv57
-  %invariant.gep63 = getelementptr double, ptr %5, i64 %15
-  %invariant.gep65 = getelementptr double, ptr %5, i64 %13
+  %invariant.gep = getelementptr [8 x i8], ptr %5, i64 %indvars.iv57
+  %invariant.gep63 = getelementptr [8 x i8], ptr %5, i64 %15
+  %invariant.gep65 = getelementptr [8 x i8], ptr %5, i64 %13
   br label %.preheader.split
 
 .thread.us.preheader:                             ; preds = %.preheader
-  %invariant.gep67 = getelementptr double, ptr %5, i64 %15
+  %invariant.gep67 = getelementptr [8 x i8], ptr %5, i64 %15
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %32
   %indvars.iv52 = phi i64 [ 1, %.thread.us.preheader ], [ %indvars.iv.next53, %32 ]
   %19 = mul nuw nsw i64 %indvars.iv52, 20
   %20 = add nsw i64 %19, -20
-  %21 = getelementptr double, ptr %5, i64 %20
+  %21 = getelementptr [8 x i8], ptr %5, i64 %20
   %22 = load double, ptr %21, align 8, !tbaa !20
   %23 = getelementptr i8, ptr %21, i64 8
   %24 = load double, ptr %23, align 8, !tbaa !20
@@ -447,14 +447,14 @@ define internal noundef i32 @f(double %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %25, label %.thread46.us, label %26
 
 26:                                               ; preds = %.thread.us
-  %gep68 = getelementptr double, ptr %invariant.gep67, i64 %19
+  %gep68 = getelementptr [8 x i8], ptr %invariant.gep67, i64 %19
   %27 = load double, ptr %gep68, align 8, !tbaa !20
   %28 = icmp eq i64 %indvars.iv52, 40
   br i1 %28, label %32, label %.thread46.us
 
 .thread46.us:                                     ; preds = %26, %.thread.us
   %29 = phi double [ %27, %26 ], [ 0.000000e+00, %.thread.us ]
-  %30 = getelementptr inbounds nuw double, ptr %5, i64 %19
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %19
   %31 = load double, ptr %30, align 8, !tbaa !20
   br label %32
 
@@ -471,7 +471,7 @@ define internal noundef i32 @f(double %0, ptr noundef %1, ptr noundef %2, ptr no
   %42 = fmul double %12, %41
   %43 = fadd double %37, %39
   %44 = fadd double %42, %43
-  %45 = getelementptr inbounds double, ptr %6, i64 %20
+  %45 = getelementptr inbounds [8 x i8], ptr %6, i64 %20
   store double %44, ptr %45, align 8, !tbaa !20
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, 41
@@ -482,14 +482,14 @@ define internal noundef i32 @f(double %0, ptr noundef %1, ptr noundef %2, ptr no
   %46 = mul nuw nsw i64 %indvars.iv, 20
   %47 = add nsw i64 %46, -20
   %48 = add nuw nsw i64 %47, %13
-  %49 = getelementptr inbounds double, ptr %5, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %5, i64 %48
   %50 = load double, ptr %49, align 8, !tbaa !20
-  %51 = getelementptr double, ptr %18, i64 %47
+  %51 = getelementptr [8 x i8], ptr %18, i64 %47
   %52 = load double, ptr %51, align 8, !tbaa !20
   br i1 %16, label %54, label %.thread
 
 .thread:                                          ; preds = %.preheader.split
-  %gep = getelementptr double, ptr %invariant.gep, i64 %47
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %47
   %53 = load double, ptr %gep, align 8, !tbaa !20
   br label %54
 
@@ -499,14 +499,14 @@ define internal noundef i32 @f(double %0, ptr noundef %1, ptr noundef %2, ptr no
   br i1 %56, label %.thread46, label %57
 
 57:                                               ; preds = %54
-  %gep64 = getelementptr double, ptr %invariant.gep63, i64 %46
+  %gep64 = getelementptr [8 x i8], ptr %invariant.gep63, i64 %46
   %58 = load double, ptr %gep64, align 8, !tbaa !20
   %59 = icmp eq i64 %indvars.iv, 40
   br i1 %59, label %62, label %.thread46
 
 .thread46:                                        ; preds = %54, %57
   %60 = phi double [ %58, %57 ], [ 0.000000e+00, %54 ]
-  %gep66 = getelementptr double, ptr %invariant.gep65, i64 %46
+  %gep66 = getelementptr [8 x i8], ptr %invariant.gep65, i64 %46
   %61 = load double, ptr %gep66, align 8, !tbaa !20
   br label %62
 
@@ -523,7 +523,7 @@ define internal noundef i32 @f(double %0, ptr noundef %1, ptr noundef %2, ptr no
   %72 = fmul double %12, %71
   %73 = fadd double %67, %69
   %74 = fadd double %72, %73
-  %75 = getelementptr inbounds double, ptr %6, i64 %48
+  %75 = getelementptr inbounds [8 x i8], ptr %6, i64 %48
   store double %74, ptr %75, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 41
@@ -700,22 +700,22 @@ define internal noundef i32 @fB(double %0, ptr readnone captures(none) %1, ptr n
   br i1 %15, label %.thread.us.preheader, label %.preheader.split.preheader
 
 .preheader.split.preheader:                       ; preds = %.preheader
-  %18 = getelementptr double, ptr %6, i64 %indvars.iv57
+  %18 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv57
   %19 = getelementptr i8, ptr %18, i64 -16
-  %invariant.gep = getelementptr double, ptr %6, i64 %indvars.iv57
-  %invariant.gep63 = getelementptr double, ptr %6, i64 %16
-  %invariant.gep65 = getelementptr double, ptr %6, i64 %14
+  %invariant.gep = getelementptr [8 x i8], ptr %6, i64 %indvars.iv57
+  %invariant.gep63 = getelementptr [8 x i8], ptr %6, i64 %16
+  %invariant.gep65 = getelementptr [8 x i8], ptr %6, i64 %14
   br label %.preheader.split
 
 .thread.us.preheader:                             ; preds = %.preheader
-  %invariant.gep67 = getelementptr double, ptr %6, i64 %16
+  %invariant.gep67 = getelementptr [8 x i8], ptr %6, i64 %16
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %33
   %indvars.iv52 = phi i64 [ 1, %.thread.us.preheader ], [ %indvars.iv.next53, %33 ]
   %20 = mul nuw nsw i64 %indvars.iv52, 20
   %21 = add nsw i64 %20, -20
-  %22 = getelementptr double, ptr %6, i64 %21
+  %22 = getelementptr [8 x i8], ptr %6, i64 %21
   %23 = load double, ptr %22, align 8, !tbaa !20
   %24 = getelementptr i8, ptr %22, i64 8
   %25 = load double, ptr %24, align 8, !tbaa !20
@@ -723,14 +723,14 @@ define internal noundef i32 @fB(double %0, ptr readnone captures(none) %1, ptr n
   br i1 %26, label %.thread46.us, label %27
 
 27:                                               ; preds = %.thread.us
-  %gep68 = getelementptr double, ptr %invariant.gep67, i64 %20
+  %gep68 = getelementptr [8 x i8], ptr %invariant.gep67, i64 %20
   %28 = load double, ptr %gep68, align 8, !tbaa !20
   %29 = icmp eq i64 %indvars.iv52, 40
   br i1 %29, label %33, label %.thread46.us
 
 .thread46.us:                                     ; preds = %27, %.thread.us
   %30 = phi double [ %28, %27 ], [ 0.000000e+00, %.thread.us ]
-  %31 = getelementptr inbounds nuw double, ptr %6, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %20
   %32 = load double, ptr %31, align 8, !tbaa !20
   br label %33
 
@@ -749,7 +749,7 @@ define internal noundef i32 @fB(double %0, ptr readnone captures(none) %1, ptr n
   %45 = fadd double %39, %41
   %46 = fadd double %44, %45
   %47 = fadd double %46, -1.000000e+00
-  %48 = getelementptr inbounds double, ptr %7, i64 %21
+  %48 = getelementptr inbounds [8 x i8], ptr %7, i64 %21
   store double %47, ptr %48, align 8, !tbaa !20
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, 41
@@ -760,14 +760,14 @@ define internal noundef i32 @fB(double %0, ptr readnone captures(none) %1, ptr n
   %49 = mul nuw nsw i64 %indvars.iv, 20
   %50 = add nsw i64 %49, -20
   %51 = add nuw nsw i64 %50, %14
-  %52 = getelementptr inbounds double, ptr %6, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %6, i64 %51
   %53 = load double, ptr %52, align 8, !tbaa !20
-  %54 = getelementptr double, ptr %19, i64 %50
+  %54 = getelementptr [8 x i8], ptr %19, i64 %50
   %55 = load double, ptr %54, align 8, !tbaa !20
   br i1 %17, label %57, label %.thread
 
 .thread:                                          ; preds = %.preheader.split
-  %gep = getelementptr double, ptr %invariant.gep, i64 %50
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %50
   %56 = load double, ptr %gep, align 8, !tbaa !20
   br label %57
 
@@ -777,14 +777,14 @@ define internal noundef i32 @fB(double %0, ptr readnone captures(none) %1, ptr n
   br i1 %59, label %.thread46, label %60
 
 60:                                               ; preds = %57
-  %gep64 = getelementptr double, ptr %invariant.gep63, i64 %49
+  %gep64 = getelementptr [8 x i8], ptr %invariant.gep63, i64 %49
   %61 = load double, ptr %gep64, align 8, !tbaa !20
   %62 = icmp eq i64 %indvars.iv, 40
   br i1 %62, label %65, label %.thread46
 
 .thread46:                                        ; preds = %57, %60
   %63 = phi double [ %61, %60 ], [ 0.000000e+00, %57 ]
-  %gep66 = getelementptr double, ptr %invariant.gep65, i64 %49
+  %gep66 = getelementptr [8 x i8], ptr %invariant.gep65, i64 %49
   %64 = load double, ptr %gep66, align 8, !tbaa !20
   br label %65
 
@@ -804,7 +804,7 @@ define internal noundef i32 @fB(double %0, ptr readnone captures(none) %1, ptr n
   %78 = fadd double %71, %73
   %79 = fadd double %77, %78
   %80 = fadd double %79, -1.000000e+00
-  %81 = getelementptr inbounds double, ptr %7, i64 %51
+  %81 = getelementptr inbounds [8 x i8], ptr %7, i64 %51
   store double %80, ptr %81, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 41
@@ -963,7 +963,7 @@ define internal fastcc void @PrintOutput(ptr noundef %0, double %.0.val, double 
   %3 = trunc nuw nsw i64 %indvars.iv10 to i32
   %4 = uitofp nneg i32 %3 to double
   %5 = fmul double %.8.val, %4
-  %invariant.gep = getelementptr double, ptr %2, i64 %indvars.iv10
+  %invariant.gep = getelementptr [8 x i8], ptr %2, i64 %indvars.iv10
   br label %6
 
 6:                                                ; preds = %.preheader, %6

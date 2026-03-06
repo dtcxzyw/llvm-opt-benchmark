@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.colvardeps::feature_state" = type { i8, i8, i32, %"class.std::vector.31" }
 %"class.std::vector.84" = type { %"struct.std::_Bvector_base" }
 %"struct.std::_Bvector_base" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" }
 %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" }
@@ -2047,7 +2046,7 @@ define linkonce_odr void @_ZNK10colvardeps13check_enabledEiRKNSt7__cxx1112basic_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !94
-  %11 = getelementptr inbounds nuw %"struct.colvardeps::feature_state", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !97, !range !102, !noundef !103
   %14 = trunc nuw i8 %13 to i1
@@ -2118,7 +2117,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 40:                                               ; preds = %32
   %41 = load ptr, ptr %39, align 8, !tbaa !107
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %9
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %9
   %43 = load ptr, ptr %42, align 8, !tbaa !111
   call void @llvm.experimental.noalias.scope.decl(metadata !113)
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -2508,9 +2507,9 @@ define linkonce_odr void @_ZN11colvarvaluepLERKS_(ptr noundef nonnull align 8 de
 
 59:                                               ; preds = %59, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %65, %59 ]
-  %60 = getelementptr inbounds nuw double, ptr %58, i64 %.06.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.06.i
   %61 = load double, ptr %60, align 8, !tbaa !140
-  %62 = getelementptr inbounds nuw double, ptr %53, i64 %.06.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.06.i
   %63 = load double, ptr %62, align 8, !tbaa !140
   %64 = fadd double %61, %63
   store double %64, ptr %62, align 8, !tbaa !140
@@ -4292,7 +4291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %112
   %124 = sub i64 %122, %123
   %125 = ashr exact i64 %124, 3
   %126 = sub nsw i64 0, %125
-  %127 = getelementptr inbounds i64, ptr %121, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %121, i64 %126
   call void @_ZdlPvm(ptr noundef %127, i64 noundef %124) #17
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -4363,7 +4362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
   %158 = sub i64 %156, %157
   %159 = ashr exact i64 %158, 3
   %160 = sub nsw i64 0, %159
-  %161 = getelementptr inbounds i64, ptr %155, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %155, i64 %160
   call void @_ZdlPvm(ptr noundef %161, i64 noundef %158) #17
   store ptr null, ptr %8, align 8
   store i32 0, ptr %42, align 8
@@ -4431,7 +4430,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %12
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 63
   %24 = lshr i64 %21, 6
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %24
   br label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i
 
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
@@ -4683,13 +4682,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
 136:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %137 = ashr exact i64 %60, 3
   %138 = sub nsw i64 0, %137
-  %139 = getelementptr inbounds i64, ptr %8, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %8, i64 %138
   tail call void @_ZdlPvm(ptr noundef %139, i64 noundef %60) #17
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %136
   %140 = lshr i64 %70, 6
-  %141 = getelementptr inbounds nuw i64, ptr %73, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %140
   store ptr %141, ptr %7, align 8, !tbaa !180
   store ptr %73, ptr %0, align 8
   %.sroa.588.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 8

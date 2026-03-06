@@ -21,8 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.39 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.39 = type { i64, [8 x i8] }
-%"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { i64, %"class.std::__cxx11::basic_string" }
 %"class.std::allocator.36" = type { i8 }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
@@ -42,13 +40,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::ArrayRef.117" = type { ptr, i64 }
 %"class.hermes::OptValue" = type <{ %"struct.hermes::hbc::DebugSourceLocation", i8, [3 x i8] }>
 %"struct.hermes::hbc::DebugSourceLocation" = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%"struct.hermes::hbc::SmallFuncHeader" = type { [15 x i8], %"union.hermes::hbc::FunctionHeaderFlag" }
-%"union.hermes::hbc::FunctionHeaderFlag" = type { %struct.anon.114 }
-%struct.anon.114 = type { i8 }
-%"class.hermes::StringTableEntry" = type { i32, i32 }
-%"class.hermes::vm::ChromeSampleEvent" = type { i32, i32, i64, %"class.std::chrono::time_point", %"class.std::shared_ptr" }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
 %"class.llvh::raw_string_ostream" = type { %"class.llvh::raw_ostream.base", ptr }
 %"class.llvh::raw_ostream.base" = type <{ ptr, ptr, ptr, ptr, i32 }>
 
@@ -828,7 +819,7 @@ if.then.i22.i:                                    ; preds = %_ZNSt6vectorISt10sh
 _ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE17_M_realloc_insertIJSt10unique_ptrIS3_St14default_deleteIS3_EEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i, %if.then.i22.i
   store ptr %call5.i.i.i.i, ptr %children_.i, align 8, !noalias !18
   store ptr %incdec.ptr.i69, ptr %_M_finish.i.i, align 8, !noalias !18
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %call5.i.i.i.i, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !noalias !18
   br label %_ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit.i
 
@@ -1436,7 +1427,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i, label %if.end8.i
 
 if.then.i:                                        ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %idx.ext.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E5beginEv.exit
 
 if.end8.i:                                        ; preds = %entry
@@ -1459,7 +1450,7 @@ while.body.i6.i12.i12.i:                          ; preds = %land.rhs.i4.i9.i6.i
 _ZNK4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E5beginEv.exit: ; preds = %land.rhs.i4.i9.i6.i, %while.body.i6.i12.i12.i, %if.then.i, %if.end8.i
   %add.ptr.i.i.pn16.i = phi ptr [ %add.ptr.i.i.i, %if.then.i ], [ %2, %if.end8.i ], [ %retval.sroa.0.3.i7.i, %land.rhs.i4.i9.i6.i ], [ %add.ptr.i4.i, %while.body.i6.i12.i12.i ]
   %add.ptr.i.i.pn.i = phi ptr [ %add.ptr.i.i.i, %if.then.i ], [ %add.ptr.i4.i, %if.end8.i ], [ %add.ptr.i4.i, %while.body.i6.i12.i12.i ], [ %add.ptr.i4.i, %land.rhs.i4.i9.i6.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %idx.ext.i.i.i
   %cmp.i.i60.not83 = icmp eq ptr %add.ptr.i.i.pn16.i, %add.ptr.i.i
   br i1 %cmp.i.i60.not83, label %for.end, label %for.body.lr.ph
 
@@ -2547,13 +2538,13 @@ if.then:                                          ; preds = %_ZN4llvh12DenseMapB
 for.body.i4:                                      ; preds = %if.then, %for.inc.i
   %i.017.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.then ]
   %7 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %7, i64 %i.017.i
+  %arrayidx.i = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %i.017.i
   %8 = load ptr, ptr %other, align 8
-  %arrayidx7.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %8, i64 %i.017.i
+  %arrayidx7.i = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %i.017.i
   %9 = load i64, ptr %arrayidx7.i, align 8
   store i64 %9, ptr %arrayidx.i, align 8
   %10 = load ptr, ptr %this, align 8
-  %arrayidx10.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %10, i64 %i.017.i
+  %arrayidx10.i = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %i.017.i
   %11 = load i64, ptr %arrayidx10.i, align 8
   %switch.i5 = icmp ugt i64 %11, -3
   br i1 %switch.i5, label %for.inc.i, label %if.then.i
@@ -2561,7 +2552,7 @@ for.body.i4:                                      ; preds = %if.then, %for.inc.i
 if.then.i:                                        ; preds = %for.body.i4
   %second.i.i6 = getelementptr inbounds nuw i8, ptr %arrayidx10.i, i64 8
   %12 = load ptr, ptr %other, align 8
-  %arrayidx24.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %12, i64 %i.017.i
+  %arrayidx24.i = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %i.017.i
   %second.i14.i = getelementptr inbounds nuw i8, ptr %arrayidx24.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i6, ptr noundef nonnull align 8 dereferenceable(32) %second.i14.i) #16
   br label %for.inc.i
@@ -3681,7 +3672,7 @@ entry:
   %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %bcProvider, i64 296
   %0 = load ptr, ptr %functionHeaders_.i, align 8
   %idxprom.i = zext i32 %funcId to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idxprom.i
   %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 15
   %bf.load.i = load i8, ptr %flags.i, align 1
   %1 = and i8 %bf.load.i, 32
@@ -3764,7 +3755,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %utf8Storage) #16
   %conv = zext i32 %id to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::StringTableEntry", ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv
   %filenameStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %filenameStorage_, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -3808,7 +3799,7 @@ if.then:                                          ; preds = %entry
   %nativeFunctions_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %1 = load i64, ptr %stackFrame, align 8
   %2 = load ptr, ptr %nativeFunctions_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 %1
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %1
   %3 = load ptr, ptr %add.ptr.i.i, align 8
   %functionPtr_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %4 = load ptr, ptr %functionPtr_.i.i, align 8
@@ -3831,7 +3822,7 @@ if.end5:                                          ; preds = %if.then, %entry
   %nativeFunctions_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %5 = load i64, ptr %stackFrame, align 8
   %6 = load ptr, ptr %nativeFunctions_, align 8
-  %add.ptr.i4 = getelementptr inbounds ptr, ptr %6, i64 %5
+  %add.ptr.i4 = getelementptr inbounds [8 x i8], ptr %6, i64 %5
   %7 = load ptr, ptr %add.ptr.i4, align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %8 = load ptr, ptr %runtime_, align 8
@@ -3968,7 +3959,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE13
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -4077,7 +4068,7 @@ _ZNSt12_Vector_baseIN6hermes2vm17ChromeSampleEventESaIS2_EE13_M_deallocateEPS2_m
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i22, ptr %_M_finish.i.i, align 8
-  %add.ptr23 = getelementptr inbounds nuw %"class.hermes::vm::ChromeSampleEvent", ptr %cond.i10, i64 %cond.i
+  %add.ptr23 = getelementptr inbounds nuw [40 x i8], ptr %cond.i10, i64 %cond.i
   store ptr %add.ptr23, ptr %_M_end_of_storage, align 8
   ret void
 }

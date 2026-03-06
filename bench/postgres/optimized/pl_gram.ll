@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.YYSTYPE = type { %struct.PLwdatum }
 %struct.PLwdatum = type { ptr, ptr, i8, ptr }
-%union.yyalloc = type { %union.YYSTYPE }
-%union.ListCell = type { ptr }
 %struct.sql_error_callback_arg = type { i32, ptr }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
@@ -238,7 +236,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
   %.01098 = phi i32 [ -2, %2 ], [ %.1, %23 ]
   %26 = trunc nsw i32 %.01099 to i16
   store i16 %26, ptr %.01115, align 2
-  %27 = getelementptr inbounds i16, ptr %.01109, i64 %.01106
+  %27 = getelementptr inbounds [2 x i8], ptr %.01109, i64 %.01106
   %28 = getelementptr inbounds i8, ptr %27, i64 -2
   %.not = icmp ugt ptr %28, %.01115
   br i1 %.not, label %.thread1385, label %29
@@ -267,13 +265,13 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
   %43 = shl i64 %spec.store.select, 1
   %44 = add i64 %43, 31
   %45 = sdiv i64 %44, 32
-  %46 = getelementptr inbounds %union.yyalloc, ptr %40, i64 %45
+  %46 = getelementptr inbounds [32 x i8], ptr %40, i64 %45
   %47 = shl i64 %34, 5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr align 8 %.01123, i64 %47, i1 false)
   %48 = shl i64 %spec.store.select, 5
   %49 = or disjoint i64 %48, 31
   %50 = sdiv i64 %49, 32
-  %51 = getelementptr inbounds %union.yyalloc, ptr %46, i64 %50
+  %51 = getelementptr inbounds [32 x i8], ptr %46, i64 %50
   %52 = shl i64 %34, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr align 4 %.01135, i64 %52, i1 false)
   %.not1207 = icmp eq ptr %.01109, %5
@@ -284,11 +282,11 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
   br label %54
 
 54:                                               ; preds = %41, %53
-  %55 = getelementptr inbounds i16, ptr %40, i64 %34
+  %55 = getelementptr inbounds [2 x i8], ptr %40, i64 %34
   %56 = getelementptr inbounds i8, ptr %55, i64 -2
-  %57 = getelementptr inbounds %union.YYSTYPE, ptr %46, i64 %34
+  %57 = getelementptr inbounds [32 x i8], ptr %46, i64 %34
   %58 = getelementptr inbounds i8, ptr %57, i64 -32
-  %59 = getelementptr inbounds i32, ptr %51, i64 %34
+  %59 = getelementptr inbounds [4 x i8], ptr %51, i64 %34
   %60 = getelementptr inbounds i8, ptr %59, i64 -4
   %.not1208 = icmp sgt i64 %spec.store.select, %34
   br i1 %.not1208, label %.thread1385, label %.thread1519
@@ -306,7 +304,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
 
 62:                                               ; preds = %.thread1385
   %63 = sext i32 %.01099 to i64
-  %64 = getelementptr inbounds i16, ptr @yypact, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr @yypact, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
   %67 = icmp eq i16 %65, -249
@@ -353,14 +351,14 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
 
 87:                                               ; preds = %85
   %88 = zext nneg i32 %86 to i64
-  %89 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = sext i16 %90 to i32
   %.not1209 = icmp eq i32 %.01149, %91
   br i1 %.not1209, label %92, label %103
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw i16, ptr @yytable, i64 %88
+  %93 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %88
   %94 = load i16, ptr %93, align 2
   %95 = sext i16 %94 to i32
   %96 = icmp slt i16 %94, 1
@@ -395,11 +393,11 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
   %111 = load i8, ptr %110, align 1
   %112 = sext i8 %111 to i64
   %113 = sub nsw i64 1, %112
-  %114 = getelementptr inbounds %union.YYSTYPE, ptr %.21129, i64 %113
+  %114 = getelementptr inbounds [32 x i8], ptr %.21129, i64 %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %114, i64 32, i1 false)
   %.not1211 = icmp eq i8 %111, 0
   %115 = sub nsw i64 0, %112
-  %116 = getelementptr inbounds i32, ptr %.21141, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %.21141, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %.01150.in = select i1 %.not1211, ptr %.21141, ptr %117
   %.01150 = load i32, ptr %.01150.in, align 4
@@ -939,17 +937,17 @@ list_length.exit:                                 ; preds = %297, %307
 .lr.ph1763:                                       ; preds = %.lr.ph1759, %.lr.ph1763
   %indvars.iv1961 = phi i64 [ %indvars.iv.next1962, %.lr.ph1763 ], [ 0, %.lr.ph1759 ]
   %326 = load ptr, ptr %323, align 8
-  %327 = getelementptr inbounds nuw %union.ListCell, ptr %326, i64 %indvars.iv1961
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %indvars.iv1961
   %328 = load ptr, ptr %327, align 8
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %330 = load ptr, ptr %329, align 8
   %331 = load ptr, ptr %315, align 8
-  %332 = getelementptr inbounds nuw ptr, ptr %331, i64 %indvars.iv1961
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %indvars.iv1961
   store ptr %330, ptr %332, align 8
   %333 = getelementptr inbounds nuw i8, ptr %328, i64 4
   %334 = load i32, ptr %333, align 4
   %335 = load ptr, ptr %320, align 8
-  %336 = getelementptr inbounds nuw i32, ptr %335, i64 %indvars.iv1961
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %335, i64 %indvars.iv1961
   store i32 %334, ptr %336, align 4
   %indvars.iv.next1962 = add nuw nsw i64 %indvars.iv1961, 1
   %337 = load i32, ptr %322, align 4
@@ -1618,7 +1616,7 @@ mark_expr_as_assignment_source.exit1289:          ; preds = %list_length.exit128
 
 687:                                              ; preds = %.lr.ph1756, %712
   %indvars.iv = phi i64 [ 0, %.lr.ph1756 ], [ %indvars.iv.next, %712 ]
-  %688 = getelementptr inbounds nuw %union.ListCell, ptr %686, i64 %indvars.iv
+  %688 = getelementptr inbounds nuw [8 x i8], ptr %686, i64 %indvars.iv
   %689 = load ptr, ptr %688, align 8
   %690 = load i32, ptr %689, align 4
   switch i32 %690, label %.split [
@@ -3917,8 +3915,8 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1521, %1518, %.tail
 
 1836:                                             ; preds = %480, %487, %445, %452, %1308, %tok_is_keyword.exit1337, %1314, %1177, %1169, %1172, %742, %751, %759, %768, %776, %785, %793, %789, %780, %772, %763, %755, %746, %476, %441, %250, %mark_expr_as_assignment_source.exit, %108, %1755, %1767, %1167, %891, %892, %523, %524, %472, %437, %129, %134, %1835, %1827, %1825, %1823, %1822, %1820, %1819, %1815, %1814, %1810, %1809, %1807, %1805, %1803, %1750, %1746, %1730, %1727, %1722, %1717, %1695, %1694, %1689, %1661, %1660, %1659, %1643, %1627, %1626, %1610, %1608, %1595, %1582, %1565, %1495, %1461, %1455, %1448, %1445, %1442, %1435, %1433, %1416, %1296, %1295, %1294, %1233, %1232, %1221, %1155, %939, %915, %894, %888, %878, %875, %870, %869, %855, %853, %852, %839, %838, %815, %807, %724, %721, %716, %715, %714, %713, %.critedge1273, %mark_expr_as_assignment_source.exit1289, %613, %598, %575, %573, %571, %569, %567, %565, %563, %561, %559, %557, %555, %553, %551, %549, %547, %545, %543, %541, %539, %537, %535, %533, %531, %529, %526, %517, %515, %514, %513, %512, %509, %503, %498, %497, %495, %494, %493, %423, %381, %368, %349, %344, %341, %.critedge, %296, %294, %293, %292, %291, %285, %267, %259, %193, %189, %186, %184, %155, %152, %150, %147, %144, %141, %121, %118
   %.8 = phi i32 [ %.7, %108 ], [ %.7, %118 ], [ %.7, %121 ], [ %.7, %129 ], [ %.7, %134 ], [ %.7, %141 ], [ %.7, %144 ], [ %.7, %147 ], [ %.7, %150 ], [ %.7, %152 ], [ %.7, %155 ], [ %.7, %184 ], [ %.7, %186 ], [ %.7, %189 ], [ %.7, %193 ], [ %.7, %1835 ], [ %.7, %1827 ], [ %.7, %259 ], [ %.7, %267 ], [ %.7, %285 ], [ %.7, %291 ], [ %.7, %292 ], [ %.7, %293 ], [ %.7, %294 ], [ %.7, %296 ], [ %.7, %.critedge ], [ %.7, %341 ], [ %.7, %344 ], [ %.7, %349 ], [ %.7, %368 ], [ %.7, %381 ], [ %.7, %423 ], [ %.7, %250 ], [ %.7, %437 ], [ %.7, %441 ], [ %.7, %472 ], [ %.7, %493 ], [ %.7, %494 ], [ -2, %495 ], [ %.7, %497 ], [ %.7, %498 ], [ %.7, %503 ], [ %.7, %509 ], [ %.7, %512 ], [ %.7, %513 ], [ %.7, %514 ], [ %.7, %515 ], [ %.7, %517 ], [ %.7, %523 ], [ %.7, %524 ], [ %.7, %526 ], [ %.7, %529 ], [ %.7, %531 ], [ %.7, %533 ], [ %.7, %535 ], [ %.7, %537 ], [ %.7, %539 ], [ %.7, %541 ], [ %.7, %543 ], [ %.7, %545 ], [ %.7, %547 ], [ %.7, %549 ], [ %.7, %551 ], [ %.7, %553 ], [ %.7, %555 ], [ %.7, %557 ], [ %.7, %559 ], [ %.7, %561 ], [ %.7, %563 ], [ %.7, %565 ], [ %.7, %567 ], [ %.7, %569 ], [ %.7, %571 ], [ %.7, %573 ], [ %.7, %575 ], [ %.7, %598 ], [ %.7, %613 ], [ %.7, %mark_expr_as_assignment_source.exit1289 ], [ %.7, %.critedge1273 ], [ %.7, %713 ], [ %.7, %714 ], [ %.7, %715 ], [ %.7, %716 ], [ %.7, %721 ], [ %.7, %724 ], [ %.7, %476 ], [ %.7, %807 ], [ %.7, %751 ], [ %.7, %1172 ], [ %.7, %815 ], [ %.7, %838 ], [ %.7, %839 ], [ %.7, %852 ], [ %.7, %853 ], [ %.7, %855 ], [ %.7, %869 ], [ %.7, %870 ], [ %.7, %875 ], [ %.7, %878 ], [ %.7, %888 ], [ %.7, %891 ], [ %.7, %892 ], [ %.7, %894 ], [ %.7, %915 ], [ %.7, %939 ], [ %.7, %1155 ], [ %.7, %1167 ], [ %.7, %742 ], [ %.7, %1169 ], [ %.7, %1314 ], [ %.7, %1221 ], [ %.7, %1232 ], [ %.7, %1233 ], [ %.7, %1294 ], [ %.7, %1295 ], [ %.7, %1296 ], [ %.7, %1177 ], [ %.7, %1416 ], [ %.7, %1433 ], [ %.7, %1435 ], [ %.7, %1442 ], [ %.7, %1445 ], [ %.7, %1448 ], [ %.7, %1455 ], [ %.7, %1461 ], [ %.7, %1495 ], [ %.7, %1565 ], [ %.7, %1582 ], [ %.7, %1595 ], [ %.7, %1608 ], [ %.7, %1610 ], [ %.7, %1626 ], [ %.7, %1627 ], [ %.7, %1643 ], [ %.7, %1659 ], [ %.7, %1660 ], [ %.7, %1661 ], [ %.7, %1689 ], [ %.7, %tok_is_keyword.exit1337 ], [ %.7, %1308 ], [ %.7, %1694 ], [ %.7, %1695 ], [ %.7, %1717 ], [ %.7, %1722 ], [ %.7, %1727 ], [ %.7, %1730 ], [ %.7, %1746 ], [ %.7, %1750 ], [ %.7, %1755 ], [ %.7, %1767 ], [ %.7, %1803 ], [ %.7, %1805 ], [ %.7, %1807 ], [ %.7, %1809 ], [ %.7, %1810 ], [ %.7, %1814 ], [ %.7, %1815 ], [ %.7, %1819 ], [ %.7, %1820 ], [ %.7, %1822 ], [ %.7, %1823 ], [ %.7, %1825 ], [ %.7, %mark_expr_as_assignment_source.exit ], [ %.7, %776 ], [ %.7, %759 ], [ %.7, %445 ], [ %.7, %768 ], [ %.7, %746 ], [ %.7, %755 ], [ %.7, %763 ], [ %.7, %772 ], [ %.7, %780 ], [ %.7, %789 ], [ %.7, %793 ], [ %.7, %785 ], [ %.7, %452 ], [ %.7, %487 ], [ %.7, %480 ]
-  %1837 = getelementptr inbounds %union.YYSTYPE, ptr %.21129, i64 %115
-  %1838 = getelementptr inbounds i16, ptr %.21117, i64 %115
+  %1837 = getelementptr inbounds [32 x i8], ptr %.21129, i64 %115
+  %1838 = getelementptr inbounds [2 x i8], ptr %.21117, i64 %115
   %1839 = getelementptr inbounds nuw i8, ptr %1837, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1839, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   store i32 %.01150, ptr %117, align 4
@@ -3926,7 +3924,7 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1521, %1518, %.tail
   %1841 = load i8, ptr %1840, align 1
   %1842 = zext i8 %1841 to i64
   %1843 = add nsw i64 %1842, -137
-  %1844 = getelementptr inbounds i16, ptr @yypgoto, i64 %1843
+  %1844 = getelementptr inbounds [2 x i8], ptr @yypgoto, i64 %1843
   %1845 = load i16, ptr %1844, align 2
   %1846 = sext i16 %1845 to i32
   %1847 = load i16, ptr %1838, align 2
@@ -3937,17 +3935,17 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1521, %1518, %.tail
 
 1850:                                             ; preds = %1836
   %1851 = zext nneg i32 %1849 to i64
-  %1852 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %1851
+  %1852 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %1851
   %1853 = load i16, ptr %1852, align 2
   %1854 = icmp eq i16 %1853, %1847
   br i1 %1854, label %1855, label %1857
 
 1855:                                             ; preds = %1850
-  %1856 = getelementptr inbounds nuw i16, ptr @yytable, i64 %1851
+  %1856 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %1851
   br label %1859
 
 1857:                                             ; preds = %1850, %1836
-  %1858 = getelementptr inbounds i16, ptr @yydefgoto, i64 %1843
+  %1858 = getelementptr inbounds [2 x i8], ptr @yydefgoto, i64 %1843
   br label %1859
 
 1859:                                             ; preds = %1857, %1855
@@ -3994,13 +3992,13 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1521, %1518, %.tail
 1874:                                             ; preds = %1871
   %1875 = sext i16 %1872 to i64
   %1876 = add nsw i64 %1875, 1
-  %1877 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %1876
+  %1877 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %1876
   %1878 = load i16, ptr %1877, align 2
   %1879 = icmp eq i16 %1878, 1
   br i1 %1879, label %1880, label %1884
 
 1880:                                             ; preds = %1874
-  %1881 = getelementptr inbounds nuw i16, ptr @yytable, i64 %1876
+  %1881 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %1876
   %1882 = load i16, ptr %1881, align 2
   %1883 = icmp sgt i16 %1882, 0
   br i1 %1883, label %1892, label %1884
@@ -4016,7 +4014,7 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1521, %1518, %.tail
   %1890 = getelementptr inbounds i8, ptr %.51144, i64 -4
   %1891 = load i16, ptr %1889, align 2
   %.phi.trans.insert = sext i16 %1891 to i64
-  %.phi.trans.insert1969 = getelementptr inbounds i16, ptr @yypact, i64 %.phi.trans.insert
+  %.phi.trans.insert1969 = getelementptr inbounds [2 x i8], ptr @yypact, i64 %.phi.trans.insert
   %.pre1970 = load i16, ptr %.phi.trans.insert1969, align 2
   br label %1871
 
@@ -4788,7 +4786,7 @@ tailrecurse:                                      ; preds = %17, %3
   %18 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %4, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %4, i64 %20
   %22 = load ptr, ptr %21, align 8
   br label %tailrecurse
 
@@ -4957,7 +4955,7 @@ list_length.exit.thread:                          ; preds = %5, %25, %list_lengt
 .lr.ph38:                                         ; preds = %.lr.ph, %.lr.ph38
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph38 ], [ 0, %.lr.ph ]
   %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
@@ -5073,7 +5071,7 @@ define internal fastcc ptr @read_cursor_args(ptr noundef readonly captures(none)
 36:                                               ; preds = %27
   %37 = load ptr, ptr @plpgsql_Datums, align 8
   %38 = zext nneg i32 %13 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load i32, ptr %41, align 8
@@ -5120,7 +5118,7 @@ define internal fastcc ptr @read_cursor_args(ptr noundef readonly captures(none)
 
 61:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
   %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %57) #12
   %65 = icmp eq i32 %64, 0
@@ -5165,7 +5163,7 @@ define internal fastcc ptr @read_cursor_args(ptr noundef readonly captures(none)
   %.190 = phi i1 [ true, %76 ], [ %.089112, %49 ]
   %.1 = phi i32 [ %.086.lcssa, %76 ], [ %.087113, %49 ]
   %80 = sext i32 %.1 to i64
-  %81 = getelementptr inbounds ptr, ptr %45, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %45, i64 %80
   %82 = load ptr, ptr %81, align 8
   %.not95 = icmp eq ptr %82, null
   br i1 %.not95, label %94, label %83
@@ -5174,7 +5172,7 @@ define internal fastcc ptr @read_cursor_args(ptr noundef readonly captures(none)
   %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #13
   %85 = call i32 @errcode(i32 noundef 16801924) #11
   %86 = load ptr, ptr %48, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %80
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %80
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %90 = load ptr, ptr %89, align 8
@@ -5257,11 +5255,11 @@ define internal fastcc ptr @read_cursor_args(ptr noundef readonly captures(none)
 
 .lr.ph120.split.us:                               ; preds = %.lr.ph120, %138
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %138 ], [ 0, %.lr.ph120 ]
-  %127 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv135
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv135
   %128 = load ptr, ptr %127, align 8
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef %128) #11
   %129 = load ptr, ptr %126, align 8
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv135
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv135
   %131 = load ptr, ptr %130, align 8
   %132 = call ptr @quote_identifier(ptr noundef %131) #11
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.129, ptr noundef %132) #11
@@ -5285,7 +5283,7 @@ define internal fastcc ptr @read_cursor_args(ptr noundef readonly captures(none)
 
 .lr.ph120.split:                                  ; preds = %.lr.ph120.split.preheader, %149
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %149 ], [ 0, %.lr.ph120.split.preheader ]
-  %142 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv132
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv132
   %143 = load ptr, ptr %142, align 8
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef %143) #11
   %144 = load i32, ptr %41, align 8
@@ -5417,12 +5415,12 @@ define internal fastcc noundef ptr @read_into_scalar_list(ptr noundef %0, ptr no
 NameOfDatum.exit:                                 ; preds = %36, %38
   %41 = phi ptr [ %.pre, %38 ], [ %27, %36 ]
   %.0.i = phi ptr [ %40, %38 ], [ %37, %36 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %.0.i, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %44 = load i32, ptr %43, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %44, ptr %45, align 4
   %46 = tail call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #11
   %47 = icmp eq i32 %46, 44
@@ -5476,15 +5474,15 @@ NameOfDatum.exit:                                 ; preds = %36, %38
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv77 = phi i64 [ %68, %.lr.ph72.preheader ], [ %indvars.iv.next78, %.lr.ph72 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv77
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv77
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %63, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv77
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv77
   store ptr %70, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv77
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv77
   %74 = load i32, ptr %73, align 4
   %75 = load ptr, ptr %66, align 8
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv77
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv77
   store i32 %74, ptr %76, align 4
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, -1
   %.not = icmp eq i64 %indvars.iv77, 0

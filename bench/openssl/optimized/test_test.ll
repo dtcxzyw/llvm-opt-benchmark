@@ -3185,7 +3185,7 @@ define internal range(i32 0, 2) i32 @test_bn_output(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !12
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds ptr, ptr @bn_output_tests, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @bn_output_tests, i64 %3
   %.not = icmp eq i32 %0, 0
   %.pre = load ptr, ptr %4, align 8, !tbaa !14
   br i1 %.not, label %10, label %5

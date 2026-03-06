@@ -564,7 +564,7 @@ define void @_ZNK7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE12writeValueToERNS_7
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %15 = load ptr, ptr %5, align 8, !tbaa !11
-  %16 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float %17, ptr %4, align 4
@@ -604,7 +604,7 @@ define void @_ZN7Imf_3_414TypedAttributeISt6vectorIfSaIfEEE13readValueFromERNS_7
   br i1 %20, label %21, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw float, ptr %11, i64 %8
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %8
   %.not.i.i = icmp eq ptr %10, %22
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %23
 
@@ -626,7 +626,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %25 = load ptr, ptr %7, align 8, !tbaa !11
-  %26 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = load ptr, ptr %1, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -729,9 +729,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !11
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !6
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !13
   br label %41
 

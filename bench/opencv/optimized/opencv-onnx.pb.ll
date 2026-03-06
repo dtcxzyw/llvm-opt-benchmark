@@ -1244,7 +1244,7 @@ define hidden void @_ZN11opencv_onnx14AttributeProto5ClearEv(ptr noundef nonnull
 11:                                               ; preds = %11, %7
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %11 ], [ 0, %7 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %14, align 8, !tbaa !53
@@ -1273,7 +1273,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 24:                                               ; preds = %24, %20
   %indvars.iv.i.i16 = phi i64 [ %indvars.iv.next.i.i17, %24 ], [ 0, %20 ]
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i16, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i.i16
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i16
   %26 = load ptr, ptr %25, align 8, !tbaa !52
   tail call void @_ZN11opencv_onnx11TensorProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(208) %26)
   %exitcond.not.i.i18 = icmp eq i64 %indvars.iv.next.i.i17, %wide.trip.count.i.i15
@@ -1299,7 +1299,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx11TensorProtoEE5ClearEv.exit
 35:                                               ; preds = %35, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !52
   tail call void @_ZN11opencv_onnx10GraphProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(160) %37)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1456,7 +1456,7 @@ define hidden void @_ZN11opencv_onnx11TensorProto5ClearEv(ptr noundef nonnull al
 12:                                               ; preds = %12, %8
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %12 ], [ 0, %8 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %15, align 8, !tbaa !53
@@ -1597,7 +1597,7 @@ define hidden void @_ZN11opencv_onnx10GraphProto5ClearEv(ptr noundef nonnull ali
 9:                                                ; preds = %9, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !52
   tail call void @_ZN11opencv_onnx9NodeProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(128) %11)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1623,7 +1623,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
 20:                                               ; preds = %20, %16
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %20 ], [ 0, %16 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !52
   tail call void @_ZN11opencv_onnx11TensorProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(208) %22)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1649,7 +1649,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx11TensorProtoEE5ClearEv.exit
 31:                                               ; preds = %31, %27
   %indvars.iv.i.i6 = phi i64 [ %indvars.iv.next.i.i7, %31 ], [ 0, %27 ]
   %indvars.iv.next.i.i7 = add nuw nsw i64 %indvars.iv.i.i6, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i.i6
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i.i6
   %33 = load ptr, ptr %32, align 8, !tbaa !52
   tail call void @_ZN11opencv_onnx14ValueInfoProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %33)
   %exitcond.not.i.i8 = icmp eq i64 %indvars.iv.next.i.i7, %wide.trip.count.i.i5
@@ -1675,7 +1675,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx14ValueInfoProtoEE5ClearEv.e
 42:                                               ; preds = %42, %38
   %indvars.iv.i.i10 = phi i64 [ %indvars.iv.next.i.i11, %42 ], [ 0, %38 ]
   %indvars.iv.next.i.i11 = add nuw nsw i64 %indvars.iv.i.i10, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i.i10
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i.i10
   %44 = load ptr, ptr %43, align 8, !tbaa !52
   tail call void @_ZN11opencv_onnx14ValueInfoProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %44)
   %exitcond.not.i.i12 = icmp eq i64 %indvars.iv.next.i.i11, %wide.trip.count.i.i9
@@ -1701,7 +1701,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx14ValueInfoProtoEE5ClearEv.e
 53:                                               ; preds = %53, %49
   %indvars.iv.i.i15 = phi i64 [ %indvars.iv.next.i.i16, %53 ], [ 0, %49 ]
   %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i15, 1
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i.i15
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i.i15
   %55 = load ptr, ptr %54, align 8, !tbaa !52
   tail call void @_ZN11opencv_onnx14ValueInfoProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %55)
   %exitcond.not.i.i17 = icmp eq i64 %indvars.iv.next.i.i16, %wide.trip.count.i.i14
@@ -2098,14 +2098,14 @@ _ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit: ; preds = %143, %_
   tail call void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef %167)
   %168 = load ptr, ptr %25, align 8, !tbaa !36
   %169 = zext i32 %162 to i64
-  %170 = getelementptr inbounds nuw float, ptr %168, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %169
   store float %.0.copyload.i2.i77, ptr %170, align 4, !tbaa !92
   br label %_ZN11opencv_onnx14AttributeProto20_internal_add_floatsEf.exit
 
 171:                                              ; preds = %161
   %172 = load ptr, ptr %25, align 8, !tbaa !36
   %173 = zext i32 %162 to i64
-  %174 = getelementptr inbounds nuw float, ptr %172, i64 %173
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %173
   store float %.0.copyload.i2.i77, ptr %174, align 4, !tbaa !92
   %.pre.i.i = add i32 %162, 1
   br label %_ZN11opencv_onnx14AttributeProto20_internal_add_floatsEf.exit
@@ -2185,14 +2185,14 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit82: ; preds = %190, %199, %2
   tail call void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef %210)
   %211 = load ptr, ptr %22, align 8, !tbaa !39
   %212 = zext i32 %206 to i64
-  %213 = getelementptr inbounds nuw i64, ptr %211, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %212
   store i64 %.0.i80, ptr %213, align 8, !tbaa !94
   br label %_ZN11opencv_onnx14AttributeProto18_internal_add_intsEl.exit
 
 214:                                              ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit82
   %215 = load ptr, ptr %22, align 8, !tbaa !39
   %216 = zext i32 %206 to i64
-  %217 = getelementptr inbounds nuw i64, ptr %215, i64 %216
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %216
   store i64 %.0.i80, ptr %217, align 8, !tbaa !94
   %.pre.i.i83 = add i32 %206, 1
   br label %_ZN11opencv_onnx14AttributeProto18_internal_add_intsEl.exit
@@ -2245,7 +2245,7 @@ _ZN11opencv_onnx14AttributeProto18_internal_add_intsEl.exit: ; preds = %209, %21
   %240 = add nsw i32 %235, 1
   store i32 %240, ptr %19, align 8, !tbaa !48
   %241 = sext i32 %235 to i64
-  %242 = getelementptr inbounds ptr, ptr %239, i64 %241
+  %242 = getelementptr inbounds [8 x i8], ptr %239, i64 %241
   %243 = load ptr, ptr %242, align 8, !tbaa !52
   br label %_ZN11opencv_onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit
 
@@ -2320,7 +2320,7 @@ _ZN11opencv_onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit: ; preds =
   %278 = add nsw i32 %273, 1
   store i32 %278, ptr %16, align 8, !tbaa !48
   %279 = sext i32 %273 to i64
-  %280 = getelementptr inbounds ptr, ptr %277, i64 %279
+  %280 = getelementptr inbounds [8 x i8], ptr %277, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !52
   br label %_ZN11opencv_onnx14AttributeProto21_internal_add_tensorsEv.exit
 
@@ -2373,7 +2373,7 @@ _ZN11opencv_onnx14AttributeProto21_internal_add_tensorsEv.exit: ; preds = %276, 
   %307 = add nsw i32 %302, 1
   store i32 %307, ptr %13, align 8, !tbaa !48
   %308 = sext i32 %302 to i64
-  %309 = getelementptr inbounds ptr, ptr %306, i64 %308
+  %309 = getelementptr inbounds [8 x i8], ptr %306, i64 %308
   %310 = load ptr, ptr %309, align 8, !tbaa !52
   br label %_ZN11opencv_onnx14AttributeProto20_internal_add_graphsEv.exit
 
@@ -2909,7 +2909,7 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit106: ; preds = %131, %133
   %.0.i105 = phi ptr [ %134, %133 ], [ %.6151, %131 ]
   %135 = load ptr, ptr %126, align 8, !tbaa !36
-  %136 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv
   %137 = load i32, ptr %136, align 4, !tbaa !92
   store i8 61, ptr %.0.i105, align 1, !tbaa !46
   %138 = getelementptr inbounds nuw i8, ptr %.0.i105, i64 1
@@ -2945,7 +2945,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit106: ; preds = %
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit110: ; preds = %144, %146
   %.0.i109 = phi ptr [ %147, %146 ], [ %.7153, %144 ]
   %148 = load ptr, ptr %130, align 8, !tbaa !39
-  %149 = getelementptr inbounds nuw i64, ptr %148, i64 %indvars.iv188
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv188
   %150 = load i64, ptr %149, align 8, !tbaa !94
   store i8 64, ptr %.0.i109, align 1, !tbaa !46
   %151 = getelementptr inbounds nuw i8, ptr %.0.i109, i64 1
@@ -3010,7 +3010,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit115: ; p
   %.8159 = phi ptr [ %.7.lcssa, %.lr.ph161 ], [ %.0.i.i117, %_ZN6google8protobuf2io19EpsCopyOutputStream10WriteBytesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %173 = load ptr, ptr %143, align 8, !tbaa !42
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv193
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv193
   %176 = load ptr, ptr %175, align 8, !tbaa !52
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load i64, ptr %177, align 8, !tbaa !53
@@ -3074,7 +3074,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit121: ; preds = %
   %200 = load ptr, ptr %171, align 8, !tbaa !42
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %202 = sext i32 %.075164 to i64
-  %203 = getelementptr inbounds ptr, ptr %201, i64 %202
+  %203 = getelementptr inbounds [8 x i8], ptr %201, i64 %202
   %204 = load ptr, ptr %203, align 8, !tbaa !52
   store i8 82, ptr %.0.i120, align 1, !tbaa !46
   %205 = getelementptr inbounds nuw i8, ptr %.0.i120, i64 1
@@ -3122,7 +3122,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit127: ; preds = %
   %221 = load ptr, ptr %195, align 8, !tbaa !42
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %223 = sext i32 %.074170 to i64
-  %224 = getelementptr inbounds ptr, ptr %222, i64 %223
+  %224 = getelementptr inbounds [8 x i8], ptr %222, i64 %223
   %225 = load ptr, ptr %224, align 8, !tbaa !52
   store i8 90, ptr %.0.i126, align 1, !tbaa !46
   %226 = getelementptr inbounds nuw i8, ptr %.0.i126, i64 1
@@ -3354,7 +3354,7 @@ define hidden noundef i64 @_ZNK11opencv_onnx14AttributeProto12ByteSizeLongEv(ptr
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %.069 = phi i64 [ %15, %.lr.ph ], [ %42, %28 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !53
@@ -3676,7 +3676,7 @@ define hidden void @_ZN11opencv_onnx14AttributeProto9MergeFromERKS0_(ptr noundef
   %13 = add nsw i32 %12, %9
   store i32 %13, ptr %6, align 8, !tbaa !47
   %14 = sext i32 %7 to i64
-  %15 = getelementptr inbounds float, ptr %11, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !36
   %18 = load i32, ptr %3, align 8, !tbaa !47
@@ -3703,7 +3703,7 @@ _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %2, %5
   %31 = add nsw i32 %30, %27
   store i32 %31, ptr %24, align 8, !tbaa !37
   %32 = sext i32 %25 to i64
-  %33 = getelementptr inbounds i64, ptr %29, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %29, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %35 = load ptr, ptr %34, align 8, !tbaa !39
   %36 = load i32, ptr %21, align 8, !tbaa !37
@@ -4108,7 +4108,7 @@ define hidden void @_ZN11opencv_onnx11TensorProto9MergeFromERKS0_(ptr noundef no
   %13 = add nsw i32 %12, %9
   store i32 %13, ptr %6, align 8, !tbaa !37
   %14 = sext i32 %7 to i64
-  %15 = getelementptr inbounds i64, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !39
   %18 = load i32, ptr %3, align 8, !tbaa !37
@@ -4135,7 +4135,7 @@ _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %2, %5
   %31 = add nsw i32 %30, %27
   store i32 %31, ptr %24, align 8, !tbaa !47
   %32 = sext i32 %25 to i64
-  %33 = getelementptr inbounds float, ptr %29, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %29, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %35 = load ptr, ptr %34, align 8, !tbaa !36
   %36 = load i32, ptr %21, align 8, !tbaa !47
@@ -4162,7 +4162,7 @@ _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %_ZN6googl
   %49 = add nsw i32 %48, %45
   store i32 %49, ptr %42, align 8, !tbaa !63
   %50 = sext i32 %43 to i64
-  %51 = getelementptr inbounds i32, ptr %47, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %47, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %53 = load ptr, ptr %52, align 8, !tbaa !116
   %54 = load i32, ptr %39, align 8, !tbaa !63
@@ -4220,7 +4220,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
   %88 = add nsw i32 %87, %84
   store i32 %88, ptr %81, align 8, !tbaa !37
   %89 = sext i32 %82 to i64
-  %90 = getelementptr inbounds i64, ptr %86, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %86, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %92 = load ptr, ptr %91, align 8, !tbaa !39
   %93 = load i32, ptr %78, align 8, !tbaa !37
@@ -4247,7 +4247,7 @@ _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit29: ; preds = %_ZN6goo
   %106 = add nsw i32 %105, %102
   store i32 %106, ptr %99, align 8, !tbaa !65
   %107 = sext i32 %100 to i64
-  %108 = getelementptr inbounds double, ptr %104, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %104, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %110 = load ptr, ptr %109, align 8, !tbaa !117
   %111 = load i32, ptr %96, align 8, !tbaa !65
@@ -4274,7 +4274,7 @@ _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %_ZN6googl
   %124 = add nsw i32 %123, %120
   store i32 %124, ptr %117, align 8, !tbaa !67
   %125 = sext i32 %118 to i64
-  %126 = getelementptr inbounds i64, ptr %122, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %122, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %128 = load ptr, ptr %127, align 8, !tbaa !118
   %129 = load i32, ptr %114, align 8, !tbaa !67
@@ -6686,7 +6686,7 @@ define hidden void @_ZN11opencv_onnx9NodeProto5ClearEv(ptr noundef nonnull align
 9:                                                ; preds = %9, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %12, align 8, !tbaa !53
@@ -6715,7 +6715,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 22:                                               ; preds = %22, %18
   %indvars.iv.i.i10 = phi i64 [ %indvars.iv.next.i.i11, %22 ], [ 0, %18 ]
   %indvars.iv.next.i.i11 = add nuw nsw i64 %indvars.iv.i.i10, 1
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i.i10
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i.i10
   %24 = load ptr, ptr %23, align 8, !tbaa !52
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %25, align 8, !tbaa !53
@@ -6744,7 +6744,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 35:                                               ; preds = %35, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !52
   tail call void @_ZN11opencv_onnx14AttributeProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(192) %37)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6968,7 +6968,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   %69 = add nsw i32 %64, 1
   store i32 %69, ptr %20, align 8, !tbaa !48
   %70 = sext i32 %64 to i64
-  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %68, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !52
   br label %_ZN11opencv_onnx9NodeProto19_internal_add_inputB5cxx11Ev.exit
 
@@ -7043,7 +7043,7 @@ _ZN11opencv_onnx9NodeProto19_internal_add_inputB5cxx11Ev.exit: ; preds = %67, %_
   %107 = add nsw i32 %102, 1
   store i32 %107, ptr %17, align 8, !tbaa !48
   %108 = sext i32 %102 to i64
-  %109 = getelementptr inbounds ptr, ptr %106, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %106, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !52
   br label %_ZN11opencv_onnx9NodeProto20_internal_add_outputB5cxx11Ev.exit
 
@@ -7170,7 +7170,7 @@ _ZN11opencv_onnx9NodeProto25_internal_mutable_op_typeB5cxx11Ev.exit: ; preds = %
   %173 = add nsw i32 %168, 1
   store i32 %173, ptr %12, align 8, !tbaa !48
   %174 = sext i32 %168 to i64
-  %175 = getelementptr inbounds ptr, ptr %172, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %172, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !52
   br label %_ZN11opencv_onnx9NodeProto23_internal_add_attributeEv.exit
 
@@ -7325,7 +7325,7 @@ define hidden noundef ptr @_ZNK11opencv_onnx9NodeProto18_InternalSerializeEPhPN6
   %.070 = phi ptr [ %1, %.lr.ph ], [ %.0.i47, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %13 = load ptr, ptr %7, align 8, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !52
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !53
@@ -7375,7 +7375,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stri
   %.172 = phi ptr [ %.0.lcssa, %.lr.ph74 ], [ %.0.i48, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit50 ]
   %37 = load ptr, ptr %11, align 8, !tbaa !42
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv89
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv89
   %40 = load ptr, ptr %39, align 8, !tbaa !52
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !53
@@ -7521,7 +7521,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %106
   %110 = load ptr, ptr %104, align 8, !tbaa !42
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = sext i32 %.04177 to i64
-  %113 = getelementptr inbounds ptr, ptr %111, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %111, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !52
   store i8 42, ptr %.0.i56, align 1, !tbaa !46
   %115 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 1
@@ -7674,7 +7674,7 @@ define hidden noundef i64 @_ZNK11opencv_onnx9NodeProto12ByteSizeLongEv(ptr nound
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.040 = phi i64 [ %4, %.lr.ph ], [ %31, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !52
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !53
@@ -7711,7 +7711,7 @@ define hidden noundef i64 @_ZNK11opencv_onnx9NodeProto12ByteSizeLongEv(ptr nound
 40:                                               ; preds = %.lr.ph44, %40
   %indvars.iv57 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next58, %40 ]
   %.142 = phi i64 [ %12, %.lr.ph44 ], [ %54, %40 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv57
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv57
   %42 = load ptr, ptr %41, align 8, !tbaa !52
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !53
@@ -8846,7 +8846,7 @@ define hidden void @_ZN11opencv_onnx10ModelProto5ClearEv(ptr noundef nonnull ali
 9:                                                ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx18OperatorSetIdProtoEE5ClearEPS4_.exit.i.i, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx18OperatorSetIdProtoEE5ClearEPS4_.exit.i.i ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 4, !tbaa !51
@@ -8903,7 +8903,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN11opencv_onnx18OperatorSetIdProtoEE5Clear
 37:                                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx22StringStringEntryProtoEE5ClearEPS4_.exit.i.i, %33
   %indvars.iv.i.i14 = phi i64 [ %indvars.iv.next.i.i15, %_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx22StringStringEntryProtoEE5ClearEPS4_.exit.i.i ], [ 0, %33 ]
   %indvars.iv.next.i.i15 = add nuw nsw i64 %indvars.iv.i.i14, 1
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i.i14
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i.i14
   %39 = load ptr, ptr %38, align 8, !tbaa !52
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 4, !tbaa !51
@@ -9437,7 +9437,7 @@ _ZN11opencv_onnx10ModelProto23_internal_mutable_graphEv.exit: ; preds = %158, %_
   %187 = add nsw i32 %182, 1
   store i32 %187, ptr %11, align 8, !tbaa !48
   %188 = sext i32 %182 to i64
-  %189 = getelementptr inbounds ptr, ptr %186, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %186, i64 %188
   %190 = load ptr, ptr %189, align 8, !tbaa !52
   br label %_ZN11opencv_onnx10ModelProto26_internal_add_opset_importEv.exit
 
@@ -9490,7 +9490,7 @@ _ZN11opencv_onnx10ModelProto26_internal_add_opset_importEv.exit: ; preds = %185,
   %216 = add nsw i32 %211, 1
   store i32 %216, ptr %8, align 8, !tbaa !48
   %217 = sext i32 %211 to i64
-  %218 = getelementptr inbounds ptr, ptr %215, i64 %217
+  %218 = getelementptr inbounds [8 x i8], ptr %215, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !52
   br label %_ZN11opencv_onnx10ModelProto28_internal_add_metadata_propsEv.exit
 
@@ -9929,7 +9929,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit82: ; preds = %1
   %176 = load ptr, ptr %168, align 8, !tbaa !42
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = sext i32 %.04597 to i64
-  %179 = getelementptr inbounds ptr, ptr %177, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %177, i64 %178
   %180 = load ptr, ptr %179, align 8, !tbaa !52
   store i8 66, ptr %.0.i81, align 1, !tbaa !46
   %181 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 1
@@ -9978,7 +9978,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit88: ; preds = %1
   %199 = load ptr, ptr %171, align 8, !tbaa !42
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %201 = sext i32 %.04499 to i64
-  %202 = getelementptr inbounds ptr, ptr %200, i64 %201
+  %202 = getelementptr inbounds [8 x i8], ptr %200, i64 %201
   %203 = load ptr, ptr %202, align 8, !tbaa !52
   store i8 114, ptr %.0.i87, align 1, !tbaa !46
   %204 = getelementptr inbounds nuw i8, ptr %.0.i87, i64 1
@@ -12561,7 +12561,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   %73 = add nsw i32 %68, 1
   store i32 %73, ptr %24, align 8, !tbaa !48
   %74 = sext i32 %68 to i64
-  %75 = getelementptr inbounds ptr, ptr %72, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %72, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !52
   br label %_ZN11opencv_onnx10GraphProto18_internal_add_nodeEv.exit
 
@@ -12640,7 +12640,7 @@ _ZN11opencv_onnx10GraphProto22_internal_mutable_nameB5cxx11Ev.exit: ; preds = %9
   %116 = add nsw i32 %111, 1
   store i32 %116, ptr %20, align 8, !tbaa !48
   %117 = sext i32 %111 to i64
-  %118 = getelementptr inbounds ptr, ptr %115, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %115, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !52
   br label %_ZN11opencv_onnx10GraphProto25_internal_add_initializerEv.exit
 
@@ -12723,7 +12723,7 @@ _ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %226, %2
   %159 = add nsw i32 %154, 1
   store i32 %159, ptr %14, align 8, !tbaa !48
   %160 = sext i32 %154 to i64
-  %161 = getelementptr inbounds ptr, ptr %158, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %158, i64 %160
   %162 = load ptr, ptr %161, align 8, !tbaa !52
   br label %_ZN11opencv_onnx10GraphProto19_internal_add_inputEv.exit
 
@@ -12776,7 +12776,7 @@ _ZN11opencv_onnx10GraphProto19_internal_add_inputEv.exit: ; preds = %157, %163
   %188 = add nsw i32 %183, 1
   store i32 %188, ptr %11, align 8, !tbaa !48
   %189 = sext i32 %183 to i64
-  %190 = getelementptr inbounds ptr, ptr %187, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr %187, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !52
   br label %_ZN11opencv_onnx10GraphProto20_internal_add_outputEv.exit
 
@@ -12829,7 +12829,7 @@ _ZN11opencv_onnx10GraphProto20_internal_add_outputEv.exit: ; preds = %186, %192
   %217 = add nsw i32 %212, 1
   store i32 %217, ptr %8, align 8, !tbaa !48
   %218 = sext i32 %212 to i64
-  %219 = getelementptr inbounds ptr, ptr %216, i64 %218
+  %219 = getelementptr inbounds [8 x i8], ptr %216, i64 %218
   %220 = load ptr, ptr %219, align 8, !tbaa !52
   br label %_ZN11opencv_onnx10GraphProto24_internal_add_value_infoEv.exit
 
@@ -12934,7 +12934,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %10,
   %14 = load ptr, ptr %6, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = sext i32 %.05182 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !52
   store i8 10, ptr %.0.i55, align 1, !tbaa !46
   %19 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 1
@@ -13028,7 +13028,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit60: ; preds = %5
   %60 = load ptr, ptr %54, align 8, !tbaa !42
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = sext i32 %.05384 to i64
-  %63 = getelementptr inbounds ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !52
   store i8 42, ptr %.0.i59, align 1, !tbaa !46
   %65 = getelementptr inbounds nuw i8, ptr %.0.i59, i64 1
@@ -13127,7 +13127,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit68: ; preds = %1
   %108 = load ptr, ptr %100, align 8, !tbaa !42
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = sext i32 %.05289 to i64
-  %111 = getelementptr inbounds ptr, ptr %109, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !52
   store i8 90, ptr %.0.i67, align 1, !tbaa !46
   %113 = getelementptr inbounds nuw i8, ptr %.0.i67, i64 1
@@ -13180,7 +13180,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit73: ; preds = %1
   %131 = load ptr, ptr %103, align 8, !tbaa !42
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = sext i32 %.05094 to i64
-  %134 = getelementptr inbounds ptr, ptr %132, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %132, i64 %133
   %135 = load ptr, ptr %134, align 8, !tbaa !52
   store i8 98, ptr %.0.i72, align 1, !tbaa !46
   %136 = getelementptr inbounds nuw i8, ptr %.0.i72, i64 1
@@ -13229,7 +13229,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit78: ; preds = %1
   %154 = load ptr, ptr %126, align 8, !tbaa !42
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = sext i32 %.049100 to i64
-  %157 = getelementptr inbounds ptr, ptr %155, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %155, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !52
   store i8 106, ptr %.0.i77, align 1, !tbaa !46
   %159 = getelementptr inbounds nuw i8, ptr %.0.i77, i64 1
@@ -15461,7 +15461,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %69, %78, %81
   call void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef %89)
   %90 = load ptr, ptr %24, align 8, !tbaa !39
   %91 = zext i32 %85 to i64
-  %92 = getelementptr inbounds nuw i64, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %91
   store i64 %.0.i67, ptr %92, align 8, !tbaa !94
   %.pre129 = load ptr, ptr %3, align 8, !tbaa !104
   br label %_ZN11opencv_onnx11TensorProto18_internal_add_dimsEl.exit
@@ -15469,7 +15469,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %69, %78, %81
 93:                                               ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit
   %94 = load ptr, ptr %24, align 8, !tbaa !39
   %95 = zext i32 %85 to i64
-  %96 = getelementptr inbounds nuw i64, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %95
   store i64 %.0.i67, ptr %96, align 8, !tbaa !94
   %.pre.i.i = add i32 %85, 1
   br label %_ZN11opencv_onnx11TensorProto18_internal_add_dimsEl.exit
@@ -15684,7 +15684,7 @@ _ZN11opencv_onnx11TensorProto25_internal_mutable_segmentEv.exit: ; preds = %144,
   %187 = add nsw i32 %182, 1
   store i32 %187, ptr %17, align 8, !tbaa !48
   %188 = sext i32 %182 to i64
-  %189 = getelementptr inbounds ptr, ptr %186, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %186, i64 %188
   %190 = load ptr, ptr %189, align 8, !tbaa !52
   br label %_ZN11opencv_onnx11TensorProto25_internal_add_string_dataB5cxx11Ev.exit
 
@@ -15946,7 +15946,7 @@ define linkonce_odr hidden void @_ZN11opencv_onnx11TensorProto24_internal_add_fl
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !36
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds nuw float, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store float %1, ptr %13, align 4, !tbaa !92
   br label %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit
 
@@ -15954,7 +15954,7 @@ define linkonce_odr hidden void @_ZN11opencv_onnx11TensorProto24_internal_add_fl
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = zext i32 %4 to i64
-  %18 = getelementptr inbounds nuw float, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   store float %1, ptr %18, align 4, !tbaa !92
   %.pre.i = add i32 %4, 1
   br label %_ZN6google8protobuf13RepeatedFieldIfE3AddERKf.exit
@@ -15982,7 +15982,7 @@ define linkonce_odr hidden void @_ZN11opencv_onnx11TensorProto24_internal_add_in
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 8, !tbaa !116
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store i32 %1, ptr %13, align 4, !tbaa !51
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit
 
@@ -15990,7 +15990,7 @@ define linkonce_odr hidden void @_ZN11opencv_onnx11TensorProto24_internal_add_in
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !116
   %17 = zext i32 %4 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   store i32 %1, ptr %18, align 4, !tbaa !51
   %.pre.i = add i32 %4, 1
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit
@@ -16051,7 +16051,7 @@ define linkonce_odr hidden void @_ZN11opencv_onnx11TensorProto24_internal_add_in
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8, !tbaa !39
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   store i64 %1, ptr %13, align 8, !tbaa !94
   br label %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit
 
@@ -16059,7 +16059,7 @@ define linkonce_odr hidden void @_ZN11opencv_onnx11TensorProto24_internal_add_in
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load ptr, ptr %15, align 8, !tbaa !39
   %17 = zext i32 %4 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   store i64 %1, ptr %18, align 8, !tbaa !94
   %.pre.i = add i32 %4, 1
   br label %_ZN6google8protobuf13RepeatedFieldIlE3AddERKl.exit
@@ -16087,7 +16087,7 @@ define linkonce_odr hidden void @_ZN11opencv_onnx11TensorProto25_internal_add_do
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load ptr, ptr %10, align 8, !tbaa !117
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds nuw double, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   store double %1, ptr %13, align 8, !tbaa !249
   br label %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit
 
@@ -16095,7 +16095,7 @@ define linkonce_odr hidden void @_ZN11opencv_onnx11TensorProto25_internal_add_do
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load ptr, ptr %15, align 8, !tbaa !117
   %17 = zext i32 %4 to i64
-  %18 = getelementptr inbounds nuw double, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   store double %1, ptr %18, align 8, !tbaa !249
   %.pre.i = add i32 %4, 1
   br label %_ZN6google8protobuf13RepeatedFieldIdE3AddERKd.exit
@@ -16123,7 +16123,7 @@ define linkonce_odr hidden void @_ZN11opencv_onnx11TensorProto25_internal_add_ui
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8, !tbaa !118
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   store i64 %1, ptr %13, align 8, !tbaa !94
   br label %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit
 
@@ -16131,7 +16131,7 @@ define linkonce_odr hidden void @_ZN11opencv_onnx11TensorProto25_internal_add_ui
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = load ptr, ptr %15, align 8, !tbaa !118
   %17 = zext i32 %4 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   store i64 %1, ptr %18, align 8, !tbaa !94
   %.pre.i = add i32 %4, 1
   br label %_ZN6google8protobuf13RepeatedFieldImE3AddERKm.exit
@@ -16176,7 +16176,7 @@ define hidden noundef ptr @_ZNK11opencv_onnx11TensorProto18_InternalSerializeEPh
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %11, %13
   %.0.i86 = phi ptr [ %14, %13 ], [ %.0146, %11 ]
   %15 = load ptr, ptr %7, align 8, !tbaa !39
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !94
   store i8 8, ptr %.0.i86, align 1, !tbaa !46
   %18 = getelementptr inbounds nuw i8, ptr %.0.i86, i64 1
@@ -16430,7 +16430,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i: ; preds
   %123 = load ptr, ptr %122, align 8, !tbaa !116
   %124 = load i32, ptr %111, align 8, !tbaa !63
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds i32, ptr %123, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %123, i64 %125
   br label %127
 
 127:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i
@@ -16517,7 +16517,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream17WriteVarintPackedINS0_13RepeatedFie
   %.5162 = phi ptr [ %.4, %.lr.ph163 ], [ %.0.i.i112, %_ZN6google8protobuf2io19EpsCopyOutputStream10WriteBytesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %161 = load ptr, ptr %156, align 8, !tbaa !42
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv205
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv205
   %164 = load ptr, ptr %163, align 8, !tbaa !52
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load i64, ptr %165, align 8, !tbaa !53
@@ -16593,7 +16593,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i70: ; pre
   %194 = load ptr, ptr %193, align 8, !tbaa !39
   %195 = load i32, ptr %182, align 8, !tbaa !37
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds i64, ptr %194, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %194, i64 %196
   br label %198
 
 198:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i75, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i70
@@ -16846,7 +16846,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i79: ; pre
   %313 = load ptr, ptr %312, align 8, !tbaa !118
   %314 = load i32, ptr %301, align 8, !tbaa !67
   %315 = sext i32 %314 to i64
-  %316 = getelementptr inbounds i64, ptr %313, i64 %315
+  %316 = getelementptr inbounds [8 x i8], ptr %313, i64 %315
   br label %317
 
 317:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i84, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i79
@@ -17045,7 +17045,7 @@ define hidden noundef i64 @_ZNK11opencv_onnx11TensorProto12ByteSizeLongEv(ptr no
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %.275 = phi i64 [ %42, %.lr.ph ], [ %63, %49 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !52
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !53
@@ -18787,7 +18787,7 @@ define hidden void @_ZN11opencv_onnx16TensorShapeProto5ClearEv(ptr noundef nonnu
 9:                                                ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx26TensorShapeProto_DimensionEE5ClearEPS4_.exit.i.i, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx26TensorShapeProto_DimensionEE5ClearEPS4_.exit.i.i ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 4, !tbaa !51
@@ -18964,7 +18964,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   %57 = add nsw i32 %52, 1
   store i32 %57, ptr %10, align 8, !tbaa !48
   %58 = sext i32 %52 to i64
-  %59 = getelementptr inbounds ptr, ptr %56, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %56, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !52
   br label %_ZN11opencv_onnx16TensorShapeProto17_internal_add_dimEv.exit
 
@@ -19072,7 +19072,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %10,
   %14 = load ptr, ptr %6, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = sext i32 %.01114 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !52
   store i8 10, ptr %.0.i12, align 1, !tbaa !46
   %19 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 1
@@ -19348,7 +19348,7 @@ define hidden void @_ZN11opencv_onnx16TensorShapeProto8CopyFromERKS0_(ptr nounde
 12:                                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx26TensorShapeProto_DimensionEE5ClearEPS4_.exit.i.i.i, %8
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx26TensorShapeProto_DimensionEE5ClearEPS4_.exit.i.i.i ], [ 0, %8 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 4, !tbaa !51
@@ -19732,7 +19732,7 @@ define hidden void @_ZN11opencv_onnx16TypeProto_Tensor5ClearEv(ptr noundef nonnu
 15:                                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx26TensorShapeProto_DimensionEE5ClearEPS4_.exit.i.i.i, %11
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx26TensorShapeProto_DimensionEE5ClearEPS4_.exit.i.i.i ], [ 0, %11 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 4, !tbaa !51
@@ -20192,7 +20192,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %5
   %58 = load ptr, ptr %50, align 8, !tbaa !42
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = sext i32 %.01114.i to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !52
   store i8 10, ptr %.0.i12.i, align 1, !tbaa !46
   %63 = getelementptr inbounds nuw i8, ptr %.0.i12.i, i64 1
@@ -23241,7 +23241,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8, !tbaa !53
   store i8 0, ptr %12, align 8, !tbaa !46
-  %14 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv28
+  %14 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv28
   store ptr %11, ptr %14, align 8, !tbaa !52
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
@@ -23260,7 +23260,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %20, align 8, !tbaa !53
   store i8 0, ptr %19, align 8, !tbaa !46
-  %21 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %16, ptr %21, align 8, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count31
@@ -23279,9 +23279,9 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv33 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next34, %.lr.ph ]
-  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv33
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv33
   %24 = load ptr, ptr %23, align 8, !tbaa !52
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv33
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv33
   %26 = load ptr, ptr %25, align 8, !tbaa !52
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %24)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
@@ -23427,7 +23427,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx11TensorProtoEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -23447,9 +23447,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !52
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx11TensorProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(208) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -23476,7 +23476,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx10GraphProtoEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -23496,9 +23496,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !52
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx10GraphProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(160) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -23527,7 +23527,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx14AttributeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -23547,9 +23547,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !52
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx14AttributeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(192) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -23576,7 +23576,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx18OperatorSetIdProtoEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -23596,9 +23596,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !52
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx18OperatorSetIdProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -23696,7 +23696,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx22StringStringEntryProtoEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -23716,9 +23716,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !52
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -23829,7 +23829,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx9NodeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -23849,9 +23849,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !52
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx9NodeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -23878,7 +23878,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -23898,9 +23898,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !52
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -23929,7 +23929,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN11opencv_onnx26TensorShapeProto_DimensionEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -23949,9 +23949,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !52
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx26TensorShapeProto_DimensionEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1

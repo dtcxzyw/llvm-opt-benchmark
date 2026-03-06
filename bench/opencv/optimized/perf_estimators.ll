@@ -74,7 +74,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.testing::AssertionResult" = type { i8, %"class.testing::internal::scoped_ptr.79" }
 %"class.testing::internal::scoped_ptr.79" = type { ptr }
 %"class.cv::Range" = type { i32, i32 }
-%"struct.cv::detail::CameraParams" = type { double, double, double, double, %"class.cv::Mat", %"class.cv::Mat" }
 %"class.testing::internal::GTestLog" = type { i32 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -1167,7 +1166,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !60
   store ptr %102, ptr %9, align 8, !tbaa !57
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -2803,7 +2802,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %.noexc.i.i, %486, %
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #32
   %519 = load ptr, ptr %28, align 8, !tbaa !149
-  %520 = getelementptr inbounds nuw %"struct.cv::detail::CameraParams", ptr %519, i64 %.011463
+  %520 = getelementptr inbounds nuw [224 x i8], ptr %519, i64 %.011463
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i64 0, ptr %475, align 8
   store i32 33619968, ptr %35, align 8, !tbaa !79
@@ -2815,7 +2814,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %.noexc.i.i, %486, %
 522:                                              ; preds = %518
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %523 = load ptr, ptr %28, align 8, !tbaa !149
-  %524 = getelementptr inbounds nuw %"struct.cv::detail::CameraParams", ptr %523, i64 %.011463
+  %524 = getelementptr inbounds nuw [224 x i8], ptr %523, i64 %.011463
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 32
   %526 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %525, ptr noundef nonnull align 8 dereferenceable(96) %34)
           to label %527 unwind label %538
@@ -3781,7 +3780,7 @@ _ZN7testing15AssertionResultD2Ev.exit335:         ; preds = %.noexc.i.i331, %822
   %868 = mul i64 %866, %867
   %869 = getelementptr inbounds nuw i8, ptr %863, i64 %868
   %870 = sext i32 %861 to i64
-  %871 = getelementptr inbounds float, ptr %869, i64 %870
+  %871 = getelementptr inbounds [4 x i8], ptr %869, i64 %870
   br label %_ZN2cv3Mat2atIfEERT_i.exit338
 
 _ZN2cv3Mat2atIfEERT_i.exit338:                    ; preds = %854, %847, %839
@@ -3986,7 +3985,7 @@ _ZN7testing15AssertionResultD2Ev.exit349:         ; preds = %.noexc.i.i345, %914
   %958 = mul i64 %956, %957
   %959 = getelementptr inbounds nuw i8, ptr %953, i64 %958
   %960 = sext i32 %.recomposed to i64
-  %961 = getelementptr inbounds float, ptr %959, i64 %960
+  %961 = getelementptr inbounds [4 x i8], ptr %959, i64 %960
   br label %_ZN2cv3Mat2atIfEERT_i.exit352
 
 _ZN2cv3Mat2atIfEERT_i.exit352:                    ; preds = %947, %939, %931
@@ -6220,7 +6219,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !234
   store ptr %35, ptr %4, align 8, !tbaa !226
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.84", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !229
   ret void
 
@@ -12692,7 +12691,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !322
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !66
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::bundleAdjuster_affine>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !69
   ret void
 }
@@ -13190,7 +13189,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !197
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !142
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !145
   ret void
 

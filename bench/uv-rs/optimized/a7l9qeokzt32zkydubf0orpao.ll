@@ -511,7 +511,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 
 95:                                               ; preds = %90, %86
   %96 = load ptr, ptr %28, align 8, !alias.scope !50, !noalias !53, !nonnull !3, !noundef !3
-  %97 = getelementptr inbounds { i8, [31 x i8] }, ptr %96, i64 %87
+  %97 = getelementptr inbounds [32 x i8], ptr %96, i64 %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
   %98 = add i64 %87, 1
   store i64 %98, ptr %29, align 8, !alias.scope !50, !noalias !53
@@ -3595,7 +3595,7 @@ define hidden void @_ZN8globwalk17GlobWalkerBuilder13from_patterns17h6d0fa1f0494
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN3std3sys6os_str5bytes5Slice8to_owned17he65d9ecc046f07a3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %11 = getelementptr inbounds { i64, [2 x i64] }, ptr %3, i64 %4
+  %11 = getelementptr inbounds [24 x i8], ptr %3, i64 %4
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hb5966a77f1e09a16E.llvm.1788404230820707348"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noundef nonnull %3, ptr noundef nonnull %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d8db6172626203c8d986582a7893991b.23.llvm.16323404258194492820)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h509ad8da58123b51E.exit" unwind label %13
 

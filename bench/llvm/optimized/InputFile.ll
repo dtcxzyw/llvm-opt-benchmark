@@ -159,12 +159,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected.300" = type { %union.anon.301, i8, [7 x i8] }
 %union.anon.301 = type { %"struct.llvm::AlignedCharArrayUnion.302" }
 %"struct.llvm::AlignedCharArrayUnion.302" = type { [16 x i8] }
-%"class.std::unique_ptr.304" = type { %"struct.std::__uniq_ptr_data.305" }
-%"struct.std::__uniq_ptr_data.305" = type { %"class.std::__uniq_ptr_impl.306" }
-%"class.std::__uniq_ptr_impl.306" = type { %"class.std::tuple.307" }
-%"class.std::tuple.307" = type { %"struct.std::_Tuple_impl.308" }
-%"struct.std::_Tuple_impl.308" = type { %"struct.std::_Head_base.311" }
-%"struct.std::_Head_base.311" = type { ptr }
 %"class.std::tuple.396" = type { %"struct.std::_Tuple_impl.397" }
 %"struct.std::_Tuple_impl.397" = type { %"struct.std::_Tuple_impl.398", %"struct.std::_Head_base.403" }
 %"struct.std::_Tuple_impl.398" = type { %"struct.std::_Tuple_impl.399", %"struct.std::_Head_base.401" }
@@ -2486,7 +2480,7 @@ define dso_local void @_ZNK4llvm3pdb11SymbolGroup18formatFromFileNameERNS0_11Lin
 
 41:                                               ; preds = %5
   %42 = load ptr, ptr %14, align 8
-  %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %42, i64 %21
+  %.sroa.0.0.i.i = getelementptr inbounds [8 x i8], ptr %42, i64 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %43 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !195
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
@@ -6309,7 +6303,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !475
   store ptr %67, ptr %41, align 8, !tbaa !472
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.304", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !474
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -6459,7 +6453,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !475
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !472
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.304", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !474
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -6582,7 +6576,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !475
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !472
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.304", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !474
   ret void
 }
@@ -7526,7 +7520,7 @@ define linkonce_odr hidden void @_ZN4llvm3pdb11SymbolGroupD2Ev(ptr noundef nonnu
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !525
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !195
   %magicptr.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i, label %13 [
@@ -9094,7 +9088,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINS_8codeview17FileChe
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #21
   %6 = load ptr, ptr %0, align 8, !tbaa !525
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !195
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -9148,7 +9142,7 @@ _ZN4llvm14StringMapEntryINS_8codeview17FileChecksumEntryEE6createINS_15MallocAll
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #21
   %27 = load ptr, ptr %0, align 8, !tbaa !525
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryINS_8codeview17FileChecksumEntryEE6createINS_15MallocAllocatorEJEEEPS3_NS_9StringRefERT_DpOT0_.exit
@@ -10380,10 +10374,10 @@ _ZN4llvm8codeview22StringsAndChecksumsRefC2ERKS1_.exit: ; preds = %_ZNSt10shared
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %77 = load i32, ptr %76, align 8, !tbaa !524
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %75, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %67, align 8, !tbaa !525
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %78
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %78
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %69, align 4, !tbaa !523
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -10399,7 +10393,7 @@ _ZN4llvm8codeview22StringsAndChecksumsRefC2ERKS1_.exit: ; preds = %_ZNSt10shared
   %89 = phi ptr [ %111, %110 ], [ %75, %72 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %110 ], [ 0, %72 ]
   %90 = load ptr, ptr %67, align 8, !tbaa !525
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv.i
   %92 = load ptr, ptr %91, align 8, !tbaa !195
   %magicptr.i = ptrtoint ptr %92 to i64
   switch i64 %magicptr.i, label %95 [
@@ -10408,7 +10402,7 @@ _ZN4llvm8codeview22StringsAndChecksumsRefC2ERKS1_.exit: ; preds = %_ZNSt10shared
   ]
 
 93:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %94 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv.i
   store ptr %92, ptr %94, align 8, !tbaa !195
   br label %110
 
@@ -10433,11 +10427,11 @@ _ZN4llvm14StringMapEntryINS_8codeview17FileChecksumEntryEE6createINS_15MallocAll
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %97, i64 24, i1 false), !tbaa.struct !197
   %105 = load ptr, ptr %66, align 8, !tbaa !525
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv.i
   store ptr %99, ptr %106, align 8, !tbaa !195
-  %107 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.i
   %108 = load i32, ptr %107, align 4, !tbaa !131
-  %109 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv.i
   store i32 %108, ptr %109, align 4, !tbaa !131
   br label %110
 

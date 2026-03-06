@@ -61,8 +61,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.hermes::vm::Handle.183" = type { %"class.hermes::vm::HandleBase" }
 %"class.hermes::vm::MutableHandle.186" = type { %"class.hermes::vm::Handle.187" }
 %"class.hermes::vm::Handle.187" = type { %"class.hermes::vm::HandleBase" }
-%"class.hermes::vm::GCHermesValueBase" = type { %"class.hermes::vm::HermesValue32" }
-%"class.hermes::vm::HermesValue32" = type { i32 }
 %"class.std::allocator.18" = type { i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.21 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -140,7 +138,7 @@ if.end:                                           ; preds = %if.else, %_ZNK6herm
   %ref.sroa.0.0.in = phi ptr [ %storage, %if.else ], [ %contents_.i.i.i.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIDsEEN4llvh8ArrayRefIT_EEv.exit ]
   %ref.sroa.0.0 = load ptr, ptr %ref.sroa.0.0.in, align 8
   %ref.sroa.4.0 = zext i32 %ref.sroa.4.0.in to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %ref.sroa.0.0, i64 %ref.sroa.4.0
+  %add.ptr.i.i = getelementptr inbounds nuw [2 x i8], ptr %ref.sroa.0.0, i64 %ref.sroa.4.0
   %ref.tmp14.sroa.3.0.lexer_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %parser, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp14.sroa.3.0.lexer_.i.sroa_idx, i8 0, i64 24, i1 false)
   store ptr %runtime, ptr %parser, align 8
@@ -1040,7 +1038,7 @@ if.else.i.i65.i.i:                                ; preds = %cond.true.i63.i.i
   %div1.i.i.i.i.i = lshr i32 %sub.i.i.i.i.i, 10
   %add.ptr.i.i.i5.i.i.i.i = getelementptr inbounds nuw i8, ptr %83, i64 16392
   %idx.ext.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i.i to i64
-  %add.ptr.i.i.i.i.i.i7 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i7 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i5.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i
   %84 = load i32, ptr %add.ptr.i.i.i.i.i.i7, align 4
   %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %84 to i64
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i.i, %82
@@ -1053,7 +1051,7 @@ _ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_
   %rem.i.sink.i.i.i.i = phi i32 [ %rem.i.i.i.i.i, %if.else.i.i65.i.i ], [ %sub.i.i.i, %cond.true.i63.i.i ]
   %data_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.sink.i.i.i.i, i64 8
   %idxprom.i.i.i.i.i = zext nneg i32 %rem.i.sink.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i.i.i, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i.i.i.i, i64 %idxprom.i.i.i.i.i
   %retval.sroa.0.0.i.i.i.i = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %86 = and i32 %retval.sroa.0.0.i.i.i.i, -8
   %87 = zext i32 %86 to i64
@@ -2268,7 +2266,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %call66 = call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser6filterENS0_6HandleINS0_8JSObjectEEENS3_INS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(140) %this, ptr %retval.0.i.i.i.i.i.i16, ptr nonnull %retval.0.i.i.i.i.i.i)
   %cmp67 = icmp eq i32 %call66, 0
   %31 = load ptr, ptr %chunks_.i.i.i75.phi.trans.insert, align 8
-  %arrayidx.i19.i.i.i = getelementptr inbounds nuw ptr, ptr %31, i64 %conv.i.i
+  %arrayidx.i19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %conv.i.i
   %32 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 128
   store i32 %30, ptr %curChunkIndex_.i.i, align 8
@@ -2368,7 +2366,7 @@ if.else.i.i:                                      ; preds = %cond.true.i42
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
   %add.ptr.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %50, i64 16392
   %idx.ext.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
   %51 = load i32, ptr %add.ptr.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %51 to i64
   %add.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i, %49
@@ -2381,7 +2379,7 @@ _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit: ; preds = %cond.true.i42, %if.
   %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i ], [ %sub.i, %cond.true.i42 ]
   %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.sink.i.i, i64 8
   %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i.i, i64 %idxprom.i.i.i
   %retval.sroa.0.0.i.i = load i32, ptr %arrayidx.i.i.i, align 4
   %53 = trunc i32 %retval.sroa.0.0.i.i to i8
   %conv.i.i44 = and i8 %53, 15
@@ -2471,7 +2469,7 @@ _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %_ZN
   %call113 = call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser6filterENS0_6HandleINS0_8JSObjectEEENS3_INS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(140) %this, ptr nonnull %retval.sroa.0.0.i28, ptr nonnull %retval.0.i.i.i.i.i.i)
   %cmp114 = icmp eq i32 %call113, 0
   %60 = load ptr, ptr %chunks_.i.i.i86.phi.trans.insert, align 8
-  %arrayidx.i19.i.i.i55 = getelementptr inbounds nuw ptr, ptr %60, i64 %conv.i.i65
+  %arrayidx.i19.i.i.i55 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %conv.i.i65
   %61 = load ptr, ptr %arrayidx.i19.i.i.i55, align 8
   %add.ptr.i.i.i56 = getelementptr inbounds nuw i8, ptr %61, i64 128
   store i32 %42, ptr %curChunkIndex_.i.i36, align 8
@@ -2487,7 +2485,7 @@ if.end116:                                        ; preds = %_ZNK6hermes2vm13Her
 if.end124.critedge:                               ; preds = %if.end69, %if.end51.if.end124.critedge_crit_edge
   %conv.i.i.i76.pre-phi = phi i64 [ %.pre132, %if.end51.if.end124.critedge_crit_edge ], [ %conv.i.i, %if.end69 ]
   %62 = phi ptr [ %.pre, %if.end51.if.end124.critedge_crit_edge ], [ %31, %if.end69 ]
-  %arrayidx.i19.i.i.i77 = getelementptr inbounds nuw ptr, ptr %62, i64 %conv.i.i.i76.pre-phi
+  %arrayidx.i19.i.i.i77 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %conv.i.i.i76.pre-phi
   %63 = load ptr, ptr %arrayidx.i19.i.i.i77, align 8
   %add.ptr.i.i.i78 = getelementptr inbounds nuw i8, ptr %63, i64 128
   store i32 %30, ptr %curChunkIndex_.i.i, align 8
@@ -2499,7 +2497,7 @@ if.end124.critedge:                               ; preds = %if.end69, %if.end51
 if.end124.critedge7:                              ; preds = %if.end116, %if.end85.if.end124.critedge7_crit_edge
   %conv.i.i.i87.pre-phi = phi i64 [ %.pre134, %if.end85.if.end124.critedge7_crit_edge ], [ %conv.i.i65, %if.end116 ]
   %64 = phi ptr [ %.pre133, %if.end85.if.end124.critedge7_crit_edge ], [ %60, %if.end116 ]
-  %arrayidx.i19.i.i.i88 = getelementptr inbounds nuw ptr, ptr %64, i64 %conv.i.i.i87.pre-phi
+  %arrayidx.i19.i.i.i88 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %conv.i.i.i87.pre-phi
   %65 = load ptr, ptr %arrayidx.i19.i.i.i88, align 8
   %add.ptr.i.i.i89 = getelementptr inbounds nuw i8, ptr %65, i64 128
   store i32 %42, ptr %curChunkIndex_.i.i36, align 8
@@ -3165,7 +3163,7 @@ if.end361:                                        ; preds = %if.end355
   %chunks_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   %conv.i.i = zext i32 %3 to i64
   %90 = load ptr, ptr %chunks_.i.i, align 8
-  %arrayidx.i19.i.i = getelementptr inbounds nuw ptr, ptr %90, i64 %conv.i.i
+  %arrayidx.i19.i.i = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %conv.i.i
   %91 = load ptr, ptr %arrayidx.i19.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %91, i64 128
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
@@ -3207,7 +3205,7 @@ cleanup:                                          ; preds = %cond.end, %if.end32
   %chunks_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   %conv.i.i.i = zext i32 %3 to i64
   %96 = load ptr, ptr %chunks_.i.i.i, align 8
-  %arrayidx.i19.i.i.i = getelementptr inbounds nuw ptr, ptr %96, i64 %conv.i.i.i
+  %arrayidx.i19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %conv.i.i.i
   %97 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %97, i64 128
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
@@ -3263,7 +3261,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4
   %cmp.i.not.i.i.i.i = icmp eq i32 %retval.sroa.0.0.copyload.i, 0
   %conv.i.i.i.i.i = zext i32 %retval.sroa.0.0.copyload.i to i64
@@ -3329,7 +3327,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit: ; preds = %if.end
   %7 = phi i32 [ %.pre.i, %if.then.i ], [ %5, %if.end ]
   %8 = load ptr, ptr %output_, align 8
   %conv.i3.i = zext i32 %7 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %8, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %conv.i3.i
   store i16 91, ptr %add.ptr.i.i, align 1
   %9 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %9, 1
@@ -3345,7 +3343,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit: ; preds = %if.end
   %sub = add i32 %13, -1
   %add.ptr.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %idxprom.i = zext i32 %sub to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i6, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i6, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4
   %cmp.i.not.i.i.i.i = icmp eq i32 %retval.sroa.0.0.copyload.i, 0
   %14 = ptrtoint ptr %10 to i64
@@ -3441,7 +3439,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i: ; preds = %if.t
   %30 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %28, %if.then.i8 ]
   %31 = load ptr, ptr %output_, align 8
   %conv.i3.i.i = zext i32 %30 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %31, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %conv.i3.i.i
   store i16 10, ptr %add.ptr.i.i.i, align 1
   %32 = load i32, ptr %Size.i.i, align 8
   %add.i.i = add i32 %32, 1
@@ -3491,7 +3489,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit22: ; preds = %if.t
   %39 = phi i32 [ %.pre.i17, %if.then.i15 ], [ %37, %if.then32 ]
   %40 = load ptr, ptr %output_, align 8
   %conv.i3.i19 = zext i32 %39 to i64
-  %add.ptr.i.i20 = getelementptr inbounds nuw i16, ptr %40, i64 %conv.i3.i19
+  %add.ptr.i.i20 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %conv.i3.i19
   store i16 44, ptr %add.ptr.i.i20, align 1
   %41 = load i32, ptr %Size.i.i, align 8
   %add.i21 = add i32 %41, 1
@@ -3516,7 +3514,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i35: ; preds = %if
   %44 = phi i32 [ %.pre.i.i34, %if.then.i.i32 ], [ %add.i21, %if.then.i27 ]
   %45 = load ptr, ptr %output_, align 8
   %conv.i3.i.i36 = zext i32 %44 to i64
-  %add.ptr.i.i.i37 = getelementptr inbounds nuw i16, ptr %45, i64 %conv.i3.i.i36
+  %add.ptr.i.i.i37 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %conv.i3.i.i36
   store i16 10, ptr %add.ptr.i.i.i37, align 1
   %46 = load i32, ptr %Size.i.i, align 8
   %add.i.i38 = add i32 %46, 1
@@ -3547,7 +3545,7 @@ if.end35:                                         ; preds = %for.body.i41, %_ZN4
   %sub42 = add i32 %53, -1
   %add.ptr.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %idxprom.i55 = zext i32 %sub42 to i64
-  %arrayidx.i56 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i54, i64 %idxprom.i55
+  %arrayidx.i56 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i54, i64 %idxprom.i55
   %retval.sroa.0.0.copyload.i57 = load i32, ptr %arrayidx.i56, align 4
   %54 = load ptr, ptr %this, align 8
   %cmp.i.not.i.i.i.i58 = icmp eq i32 %retval.sroa.0.0.copyload.i57, 0
@@ -3559,7 +3557,7 @@ if.end35:                                         ; preds = %for.body.i41, %_ZN4
   %57 = load ptr, ptr %operationStrHolder_, align 8
   store i64 %or.i.i.i.i.i62, ptr %57, align 8
   %58 = load ptr, ptr %chunks_.i.i, align 8
-  %arrayidx.i19.i.i = getelementptr inbounds nuw ptr, ptr %58, i64 %conv.i.i
+  %arrayidx.i19.i.i = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %conv.i.i
   %59 = load ptr, ptr %arrayidx.i19.i.i, align 8
   %add.ptr.i.i64 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
@@ -3613,7 +3611,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i82: ; preds = %if
   %65 = phi i32 [ %.pre.i.i81, %if.then.i.i79 ], [ %63, %if.then.i74 ]
   %66 = load ptr, ptr %output_, align 8
   %conv.i3.i.i83 = zext i32 %65 to i64
-  %add.ptr.i.i.i84 = getelementptr inbounds nuw i16, ptr %66, i64 %conv.i3.i.i83
+  %add.ptr.i.i.i84 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %conv.i3.i.i83
   store i16 10, ptr %add.ptr.i.i.i84, align 1
   %67 = load i32, ptr %Size.i.i, align 8
   %add.i.i85 = add i32 %67, 1
@@ -3650,7 +3648,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit106: ; preds = %if.
   %74 = phi i32 [ %.pre.i101, %if.then.i99 ], [ %72, %if.end69 ]
   %75 = load ptr, ptr %output_, align 8
   %conv.i3.i103 = zext i32 %74 to i64
-  %add.ptr.i.i104 = getelementptr inbounds nuw i16, ptr %75, i64 %conv.i3.i103
+  %add.ptr.i.i104 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %conv.i3.i103
   store i16 93, ptr %add.ptr.i.i104, align 1
   %76 = load i32, ptr %Size.i.i, align 8
   %add.i105 = add i32 %76, 1
@@ -3662,7 +3660,7 @@ cleanup:                                          ; preds = %if.end35, %_ZN6herm
   %chunks_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   %conv.i.i.i = zext i32 %3 to i64
   %77 = load ptr, ptr %chunks_.i.i.i, align 8
-  %arrayidx.i19.i.i.i = getelementptr inbounds nuw ptr, ptr %77, i64 %conv.i.i.i
+  %arrayidx.i19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %conv.i.i.i
   %78 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
   %add.ptr.i.i.i108 = getelementptr inbounds nuw i8, ptr %78, i64 128
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
@@ -3712,7 +3710,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit: ; preds = %if.end
   %7 = phi i32 [ %.pre.i, %if.then.i ], [ %5, %if.end ]
   %8 = load ptr, ptr %output_, align 8
   %conv.i3.i = zext i32 %7 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %8, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %conv.i3.i
   store i16 123, ptr %add.ptr.i.i, align 1
   %9 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %9, 1
@@ -3740,7 +3738,7 @@ if.then.i.i:                                      ; preds = %if.then.i4
 _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i: ; preds = %if.then.i.i, %if.then.i4
   %conv.i3.i.i.pre-phi = phi i64 [ %.pre226, %if.then.i.i ], [ %conv.i, %if.then.i4 ]
   %12 = load ptr, ptr %output_, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %12, i64 %conv.i3.i.i.pre-phi
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %conv.i3.i.i.pre-phi
   store i16 10, ptr %add.ptr.i.i.i, align 1
   %13 = load i32, ptr %Size.i.i, align 8
   %add.i.i = add i32 %13, 1
@@ -3782,7 +3780,7 @@ if.else:                                          ; preds = %_ZN6hermes2vm12_GLO
   %sub = add i32 %23, -1
   %add.ptr.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %idxprom.i = zext i32 %sub to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i8, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i8, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4
   %24 = load ptr, ptr %this, align 8
   %cmp.i.not.i.i.i.i = icmp eq i32 %retval.sroa.0.0.copyload.i, 0
@@ -3834,7 +3832,7 @@ if.end71:                                         ; preds = %_ZN6hermes2vm12_GLO
   %chunks_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   %conv.i.i = zext i32 %3 to i64
   %36 = load ptr, ptr %chunks_.i.i, align 8
-  %arrayidx.i19.i.i = getelementptr inbounds nuw ptr, ptr %36, i64 %conv.i.i
+  %arrayidx.i19.i.i = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %conv.i.i
   %37 = load ptr, ptr %arrayidx.i19.i.i, align 8
   %add.ptr.i.i21 = getelementptr inbounds nuw i8, ptr %37, i64 128
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
@@ -3886,7 +3884,7 @@ if.then.i31:                                      ; preds = %if.then78
 _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit37: ; preds = %if.then78, %if.then.i31
   %conv.i3.i34.pre-phi = phi i64 [ %conv.i27, %if.then78 ], [ %.pre225, %if.then.i31 ]
   %43 = load ptr, ptr %output_, align 8
-  %add.ptr.i.i35 = getelementptr inbounds nuw i16, ptr %43, i64 %conv.i3.i34.pre-phi
+  %add.ptr.i.i35 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %conv.i3.i34.pre-phi
   store i16 44, ptr %add.ptr.i.i35, align 1
   %44 = load i32, ptr %Size.i.i, align 8
   %add.i36 = add i32 %44, 1
@@ -3911,7 +3909,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i50: ; preds = %if
   %47 = phi i32 [ %.pre.i.i49, %if.then.i.i47 ], [ %add.i36, %if.then.i42 ]
   %48 = load ptr, ptr %output_, align 8
   %conv.i3.i.i51 = zext i32 %47 to i64
-  %add.ptr.i.i.i52 = getelementptr inbounds nuw i16, ptr %48, i64 %conv.i3.i.i51
+  %add.ptr.i.i.i52 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %conv.i3.i.i51
   store i16 10, ptr %add.ptr.i.i.i52, align 1
   %49 = load i32, ptr %Size.i.i, align 8
   %add.i.i53 = add i32 %49, 1
@@ -3963,7 +3961,7 @@ if.else.i.i:                                      ; preds = %cond.true.i
   %div1.i.i.i = lshr i32 %sub.i.i.i, 10
   %add.ptr.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %60, i64 16392
   %idx.ext.i.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.ptr.i.i.i.i68 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i68 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i5.i.i, i64 %idx.ext.i.i.i.i
   %61 = load i32, ptr %add.ptr.i.i.i.i68, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %61 to i64
   %add.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i, %59
@@ -3976,7 +3974,7 @@ _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit: ; preds = %cond.true.i, %if.el
   %rem.i.sink.i.i = phi i32 [ %rem.i.i.i, %if.else.i.i ], [ %sub.i, %cond.true.i ]
   %data_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.sink.i.i, i64 8
   %idxprom.i.i.i = zext nneg i32 %rem.i.sink.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %data_.i.i.i, i64 %idxprom.i.i.i
   %retval.sroa.0.0.i.i = load i32, ptr %arrayidx.i.i.i, align 4
   %63 = trunc i32 %retval.sroa.0.0.i.i to i8
   %conv.i.i69 = and i8 %63, 15
@@ -4102,7 +4100,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit89: ; preds = %if.e
   %83 = phi i32 [ %.pre.i85, %if.then.i83 ], [ %81, %if.end115 ]
   %84 = load ptr, ptr %output_, align 8
   %conv.i3.i86 = zext i32 %83 to i64
-  %add.ptr.i.i87 = getelementptr inbounds nuw i16, ptr %84, i64 %conv.i3.i86
+  %add.ptr.i.i87 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %conv.i3.i86
   store i16 58, ptr %add.ptr.i.i87, align 1
   %85 = load i32, ptr %Size.i.i, align 8
   %add.i88 = add i32 %85, 1
@@ -4127,7 +4125,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit101: ; preds = %if.
   %88 = phi i32 [ %.pre.i97, %if.then.i95 ], [ %add.i88, %if.then130 ]
   %89 = load ptr, ptr %output_, align 8
   %conv.i3.i98 = zext i32 %88 to i64
-  %add.ptr.i.i99 = getelementptr inbounds nuw i16, ptr %89, i64 %conv.i3.i98
+  %add.ptr.i.i99 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 %conv.i3.i98
   store i16 32, ptr %add.ptr.i.i99, align 1
   %90 = load i32, ptr %Size.i.i, align 8
   %add.i100 = add i32 %90, 1
@@ -4144,7 +4142,7 @@ if.end133:                                        ; preds = %_ZN4llvh23SmallVect
   %sub140 = add i32 %93, -1
   %add.ptr.i.i.i.i107 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %idxprom.i108 = zext i32 %sub140 to i64
-  %arrayidx.i109 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i107, i64 %idxprom.i108
+  %arrayidx.i109 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i107, i64 %idxprom.i108
   %retval.sroa.0.0.copyload.i110 = load i32, ptr %arrayidx.i109, align 4
   %94 = load ptr, ptr %this, align 8
   %cmp.i.not.i.i.i.i111 = icmp eq i32 %retval.sroa.0.0.copyload.i110, 0
@@ -4167,7 +4165,7 @@ if.end133:                                        ; preds = %_ZN4llvh23SmallVect
 
 if.end161:                                        ; preds = %if.end133
   %101 = load ptr, ptr %chunks_.i.i, align 8
-  %arrayidx.i19.i.i123 = getelementptr inbounds nuw ptr, ptr %101, i64 %conv.i.i
+  %arrayidx.i19.i.i123 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %conv.i.i
   %102 = load ptr, ptr %arrayidx.i19.i.i123, align 8
   %add.ptr.i.i124 = getelementptr inbounds nuw i8, ptr %102, i64 128
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
@@ -4186,7 +4184,7 @@ if.end161:                                        ; preds = %if.end133
   %add.ptr.i.i.i.i131 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %sub.i132 = add i32 %107, -1
   %idxprom.i133 = zext i32 %sub.i132 to i64
-  %arrayidx.i134 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i131, i64 %idxprom.i133
+  %arrayidx.i134 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i131, i64 %idxprom.i133
   %retval.sroa.0.0.copyload.i135 = load i32, ptr %arrayidx.i134, align 4
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %106, i64 1640
   %108 = load ptr, ptr %youngGen_.i.i.i.i, align 8
@@ -4251,7 +4249,7 @@ if.end.i:                                         ; preds = %if.then9.i, %if.the
 for.body.preheader.i:                             ; preds = %if.end.i
   %conv.i17.pre-phi.i = zext i32 %conv.i17.pre-phi.i.in to i64
   %118 = load ptr, ptr %output_, align 8
-  %add.ptr.i.i148 = getelementptr i16, ptr %118, i64 %conv.i17.pre-phi.i
+  %add.ptr.i.i148 = getelementptr [2 x i8], ptr %118, i64 %conv.i17.pre-phi.i
   %119 = sub nsw i64 %conv.i27, %conv.i17.pre-phi.i
   %120 = shl nsw i64 %119, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i148, i8 0, i64 %120, i1 false)
@@ -4295,7 +4293,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i163: ; preds = %i
   %124 = phi i32 [ %.pre.i.i162, %if.then.i.i160 ], [ %.pre224, %if.then.i155 ]
   %125 = load ptr, ptr %output_, align 8
   %conv.i3.i.i164 = zext i32 %124 to i64
-  %add.ptr.i.i.i165 = getelementptr inbounds nuw i16, ptr %125, i64 %conv.i3.i.i164
+  %add.ptr.i.i.i165 = getelementptr inbounds nuw [2 x i8], ptr %125, i64 %conv.i3.i.i164
   store i16 10, ptr %add.ptr.i.i.i165, align 1
   %126 = load i32, ptr %Size.i.i, align 8
   %add.i.i166 = add i32 %126, 1
@@ -4344,7 +4342,7 @@ if.end.i186:                                      ; preds = %if.then9.i192, %if.
 for.body.preheader.i189:                          ; preds = %if.end.i186
   %conv.i17.pre-phi.i187 = zext i32 %conv.i17.pre-phi.i187.in to i64
   %133 = load ptr, ptr %output_, align 8
-  %add.ptr.i.i190 = getelementptr i16, ptr %133, i64 %conv.i17.pre-phi.i187
+  %add.ptr.i.i190 = getelementptr [2 x i8], ptr %133, i64 %conv.i17.pre-phi.i187
   %134 = sub nsw i64 %conv.i, %conv.i17.pre-phi.i187
   %135 = shl nsw i64 %134, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i190, i8 0, i64 %135, i1 false)
@@ -4374,7 +4372,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit207: ; preds = %if.
   %138 = phi i32 [ %.pre.i202, %if.then.i200 ], [ %136, %if.end194 ]
   %139 = load ptr, ptr %output_, align 8
   %conv.i3.i204 = zext i32 %138 to i64
-  %add.ptr.i.i205 = getelementptr inbounds nuw i16, ptr %139, i64 %conv.i3.i204
+  %add.ptr.i.i205 = getelementptr inbounds nuw [2 x i8], ptr %139, i64 %conv.i3.i204
   store i16 125, ptr %add.ptr.i.i205, align 1
   %140 = load i32, ptr %Size.i.i, align 8
   %add.i206 = add i32 %140, 1
@@ -4386,7 +4384,7 @@ cleanup:                                          ; preds = %_ZN6hermes2vm16Arra
   %chunks_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   %conv.i.i.i = zext i32 %3 to i64
   %141 = load ptr, ptr %chunks_.i.i.i, align 8
-  %arrayidx.i19.i.i.i = getelementptr inbounds nuw ptr, ptr %141, i64 %conv.i.i.i
+  %arrayidx.i19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %conv.i.i.i
   %142 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
   %add.ptr.i.i.i209 = getelementptr inbounds nuw i8, ptr %142, i64 128
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
@@ -4410,7 +4408,7 @@ entry:
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %sub.i = add i32 %3, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i, i64 %idxprom.i
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 1640
   %4 = load ptr, ptr %youngGen_.i.i.i.i, align 8
   %5 = ptrtoint ptr %arrayidx.i to i64
@@ -4456,7 +4454,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit: ; preds = %entry,
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %entry ]
   %3 = load ptr, ptr %output, align 8
   %conv.i3.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %3, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %conv.i3.i
   store i16 34, ptr %add.ptr.i.i, align 1
   %4 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %4, 1
@@ -4568,9 +4566,9 @@ if.else13.i.i21.i:                                ; preds = %if.else.i.i11.i
 
 _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i: ; preds = %if.else13.i.i21.i, %if.then10.i.i13.i, %if.then5.i.i19.i, %if.then.i.i26.i, %if.end.i
   %retval.0.i.sink.i15.i = phi ptr [ %view.coerce0, %if.end.i ], [ %10, %if.then.i.i26.i ], [ %add.ptr.i.i.i.i.i20.i, %if.then5.i.i19.i ], [ %add.ptr.i.i.i4.i.i14.i, %if.then10.i.i13.i ], [ %12, %if.else13.i.i21.i ]
-  %add.ptr10.i18.i = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i15.i, i64 %bf.clear8.i16.i
+  %add.ptr10.i18.i = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i.sink.i15.i, i64 %bf.clear8.i16.i
   %idxprom4.i = and i64 %i.0243, 4294967295
-  %arrayidx5.i = getelementptr inbounds nuw i16, ptr %add.ptr10.i18.i, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds nuw [2 x i8], ptr %add.ptr10.i18.i, i64 %idxprom4.i
   %13 = load i16, ptr %arrayidx5.i, align 2
   br label %_ZNK6hermes2vm10StringViewixEj.exit
 
@@ -4601,7 +4599,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit38: ; preds = %sw.b
   %16 = phi i32 [ %.pre.i33, %if.then.i31 ], [ %14, %sw.bb ]
   %17 = load ptr, ptr %output, align 8
   %conv.i3.i35 = zext i32 %16 to i64
-  %add.ptr.i.i36 = getelementptr inbounds nuw i16, ptr %17, i64 %conv.i3.i35
+  %add.ptr.i.i36 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %conv.i3.i35
   store i16 92, ptr %add.ptr.i.i36, align 1
   %18 = load i32, ptr %Size.i.i, align 8
   %add.i37 = add i32 %18, 1
@@ -4619,7 +4617,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit49: ; preds = %_ZN4
   %20 = phi i32 [ %.pre.i44, %if.then.i42 ], [ %add.i37, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit38 ]
   %21 = load ptr, ptr %output, align 8
   %conv.i3.i46 = zext i32 %20 to i64
-  %add.ptr.i.i47 = getelementptr inbounds nuw i16, ptr %21, i64 %conv.i3.i46
+  %add.ptr.i.i47 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %conv.i3.i46
   store i16 92, ptr %add.ptr.i.i47, align 1
   %22 = load i32, ptr %Size.i.i, align 8
   %add.i48 = add i32 %22, 1
@@ -4641,7 +4639,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit60: ; preds = %sw.b
   %25 = phi i32 [ %.pre.i55, %if.then.i53 ], [ %23, %sw.bb5 ]
   %26 = load ptr, ptr %output, align 8
   %conv.i3.i57 = zext i32 %25 to i64
-  %add.ptr.i.i58 = getelementptr inbounds nuw i16, ptr %26, i64 %conv.i3.i57
+  %add.ptr.i.i58 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %conv.i3.i57
   store i16 92, ptr %add.ptr.i.i58, align 1
   %27 = load i32, ptr %Size.i.i, align 8
   %add.i59 = add i32 %27, 1
@@ -4659,7 +4657,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit71: ; preds = %_ZN4
   %29 = phi i32 [ %.pre.i66, %if.then.i64 ], [ %add.i59, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit60 ]
   %30 = load ptr, ptr %output, align 8
   %conv.i3.i68 = zext i32 %29 to i64
-  %add.ptr.i.i69 = getelementptr inbounds nuw i16, ptr %30, i64 %conv.i3.i68
+  %add.ptr.i.i69 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %conv.i3.i68
   store i16 34, ptr %add.ptr.i.i69, align 1
   %31 = load i32, ptr %Size.i.i, align 8
   %add.i70 = add i32 %31, 1
@@ -4681,7 +4679,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit82: ; preds = %sw.b
   %34 = phi i32 [ %.pre.i77, %if.then.i75 ], [ %32, %sw.bb8 ]
   %35 = load ptr, ptr %output, align 8
   %conv.i3.i79 = zext i32 %34 to i64
-  %add.ptr.i.i80 = getelementptr inbounds nuw i16, ptr %35, i64 %conv.i3.i79
+  %add.ptr.i.i80 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %conv.i3.i79
   store i16 92, ptr %add.ptr.i.i80, align 1
   %36 = load i32, ptr %Size.i.i, align 8
   %add.i81 = add i32 %36, 1
@@ -4699,7 +4697,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit93: ; preds = %_ZN4
   %38 = phi i32 [ %.pre.i88, %if.then.i86 ], [ %add.i81, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit82 ]
   %39 = load ptr, ptr %output, align 8
   %conv.i3.i90 = zext i32 %38 to i64
-  %add.ptr.i.i91 = getelementptr inbounds nuw i16, ptr %39, i64 %conv.i3.i90
+  %add.ptr.i.i91 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %conv.i3.i90
   store i16 98, ptr %add.ptr.i.i91, align 1
   %40 = load i32, ptr %Size.i.i, align 8
   %add.i92 = add i32 %40, 1
@@ -4721,7 +4719,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit104: ; preds = %sw.
   %43 = phi i32 [ %.pre.i99, %if.then.i97 ], [ %41, %sw.bb11 ]
   %44 = load ptr, ptr %output, align 8
   %conv.i3.i101 = zext i32 %43 to i64
-  %add.ptr.i.i102 = getelementptr inbounds nuw i16, ptr %44, i64 %conv.i3.i101
+  %add.ptr.i.i102 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %conv.i3.i101
   store i16 92, ptr %add.ptr.i.i102, align 1
   %45 = load i32, ptr %Size.i.i, align 8
   %add.i103 = add i32 %45, 1
@@ -4739,7 +4737,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit115: ; preds = %_ZN
   %47 = phi i32 [ %.pre.i110, %if.then.i108 ], [ %add.i103, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit104 ]
   %48 = load ptr, ptr %output, align 8
   %conv.i3.i112 = zext i32 %47 to i64
-  %add.ptr.i.i113 = getelementptr inbounds nuw i16, ptr %48, i64 %conv.i3.i112
+  %add.ptr.i.i113 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %conv.i3.i112
   store i16 102, ptr %add.ptr.i.i113, align 1
   %49 = load i32, ptr %Size.i.i, align 8
   %add.i114 = add i32 %49, 1
@@ -4761,7 +4759,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit126: ; preds = %sw.
   %52 = phi i32 [ %.pre.i121, %if.then.i119 ], [ %50, %sw.bb14 ]
   %53 = load ptr, ptr %output, align 8
   %conv.i3.i123 = zext i32 %52 to i64
-  %add.ptr.i.i124 = getelementptr inbounds nuw i16, ptr %53, i64 %conv.i3.i123
+  %add.ptr.i.i124 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %conv.i3.i123
   store i16 92, ptr %add.ptr.i.i124, align 1
   %54 = load i32, ptr %Size.i.i, align 8
   %add.i125 = add i32 %54, 1
@@ -4779,7 +4777,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit137: ; preds = %_ZN
   %56 = phi i32 [ %.pre.i132, %if.then.i130 ], [ %add.i125, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit126 ]
   %57 = load ptr, ptr %output, align 8
   %conv.i3.i134 = zext i32 %56 to i64
-  %add.ptr.i.i135 = getelementptr inbounds nuw i16, ptr %57, i64 %conv.i3.i134
+  %add.ptr.i.i135 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %conv.i3.i134
   store i16 110, ptr %add.ptr.i.i135, align 1
   %58 = load i32, ptr %Size.i.i, align 8
   %add.i136 = add i32 %58, 1
@@ -4801,7 +4799,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit148: ; preds = %sw.
   %61 = phi i32 [ %.pre.i143, %if.then.i141 ], [ %59, %sw.bb17 ]
   %62 = load ptr, ptr %output, align 8
   %conv.i3.i145 = zext i32 %61 to i64
-  %add.ptr.i.i146 = getelementptr inbounds nuw i16, ptr %62, i64 %conv.i3.i145
+  %add.ptr.i.i146 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %conv.i3.i145
   store i16 92, ptr %add.ptr.i.i146, align 1
   %63 = load i32, ptr %Size.i.i, align 8
   %add.i147 = add i32 %63, 1
@@ -4819,7 +4817,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit159: ; preds = %_ZN
   %65 = phi i32 [ %.pre.i154, %if.then.i152 ], [ %add.i147, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit148 ]
   %66 = load ptr, ptr %output, align 8
   %conv.i3.i156 = zext i32 %65 to i64
-  %add.ptr.i.i157 = getelementptr inbounds nuw i16, ptr %66, i64 %conv.i3.i156
+  %add.ptr.i.i157 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %conv.i3.i156
   store i16 114, ptr %add.ptr.i.i157, align 1
   %67 = load i32, ptr %Size.i.i, align 8
   %add.i158 = add i32 %67, 1
@@ -4841,7 +4839,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit170: ; preds = %sw.
   %70 = phi i32 [ %.pre.i165, %if.then.i163 ], [ %68, %sw.bb20 ]
   %71 = load ptr, ptr %output, align 8
   %conv.i3.i167 = zext i32 %70 to i64
-  %add.ptr.i.i168 = getelementptr inbounds nuw i16, ptr %71, i64 %conv.i3.i167
+  %add.ptr.i.i168 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %conv.i3.i167
   store i16 92, ptr %add.ptr.i.i168, align 1
   %72 = load i32, ptr %Size.i.i, align 8
   %add.i169 = add i32 %72, 1
@@ -4859,7 +4857,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit181: ; preds = %_ZN
   %74 = phi i32 [ %.pre.i176, %if.then.i174 ], [ %add.i169, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit170 ]
   %75 = load ptr, ptr %output, align 8
   %conv.i3.i178 = zext i32 %74 to i64
-  %add.ptr.i.i179 = getelementptr inbounds nuw i16, ptr %75, i64 %conv.i3.i178
+  %add.ptr.i.i179 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %conv.i3.i178
   store i16 116, ptr %add.ptr.i.i179, align 1
   %76 = load i32, ptr %Size.i.i, align 8
   %add.i180 = add i32 %76, 1
@@ -4889,7 +4887,7 @@ if.end.i.thread.i:                                ; preds = %if.then
 _ZN4llvh15SmallVectorImplIDsE6appendESt16initializer_listIDsE.exit: ; preds = %if.then, %if.end.i.thread.i
   %conv.i9.i.i.pre-phi = phi i64 [ %conv.i5.i.i, %if.then ], [ %.pre244, %if.end.i.thread.i ]
   %79 = load ptr, ptr %output, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %79, i64 %conv.i9.i.i.pre-phi
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %79, i64 %conv.i9.i.i.pre-phi
   store i16 92, ptr %add.ptr.i.i.i, align 1
   %ref.tmp25.sroa.2.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 2
   store i16 117, ptr %ref.tmp25.sroa.2.0.add.ptr.i.i.i.sroa_idx, align 1
@@ -4915,7 +4913,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit194: ; preds = %_ZN
   %82 = phi i32 [ %.pre.i189, %if.then.i187 ], [ %conv.i12.i.i, %_ZN4llvh15SmallVectorImplIDsE6appendESt16initializer_listIDsE.exit ]
   %83 = load ptr, ptr %output, align 8
   %conv.i3.i191 = zext i32 %82 to i64
-  %add.ptr.i.i192 = getelementptr inbounds nuw i16, ptr %83, i64 %conv.i3.i191
+  %add.ptr.i.i192 = getelementptr inbounds nuw [2 x i8], ptr %83, i64 %conv.i3.i191
   store i16 %narrow, ptr %add.ptr.i.i192, align 1
   %84 = load i32, ptr %Size.i.i, align 8
   %add.i193 = add i32 %84, 1
@@ -4939,7 +4937,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit205: ; preds = %if.
   %88 = phi i32 [ %.pre.i200, %if.then.i198 ], [ %add.i193, %if.then33 ]
   %89 = load ptr, ptr %output, align 8
   %conv.i3.i202 = zext i32 %88 to i64
-  %add.ptr.i.i203 = getelementptr inbounds nuw i16, ptr %89, i64 %conv.i3.i202
+  %add.ptr.i.i203 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 %conv.i3.i202
   store i16 %87, ptr %add.ptr.i.i203, align 1
   %90 = load i32, ptr %Size.i.i, align 8
   %add.i204 = add i32 %90, 1
@@ -4959,7 +4957,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit216: ; preds = %if.
   %91 = phi i32 [ %.pre.i211, %if.then.i209 ], [ %add.i193, %if.else ]
   %92 = load ptr, ptr %output, align 8
   %conv.i3.i213 = zext i32 %91 to i64
-  %add.ptr.i.i214 = getelementptr inbounds nuw i16, ptr %92, i64 %conv.i3.i213
+  %add.ptr.i.i214 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %conv.i3.i213
   store i16 %add42, ptr %add.ptr.i.i214, align 1
   %93 = load i32, ptr %Size.i.i, align 8
   %add.i215 = add i32 %93, 1
@@ -4992,7 +4990,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit227: ; preds = %if.
   %97 = phi i32 [ %.pre.i222, %if.then.i220 ], [ %95, %if.else54 ]
   %98 = load ptr, ptr %output, align 8
   %conv.i3.i224 = zext i32 %97 to i64
-  %add.ptr.i.i225 = getelementptr inbounds nuw i16, ptr %98, i64 %conv.i3.i224
+  %add.ptr.i.i225 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %conv.i3.i224
   store i16 %retval.0.i, ptr %add.ptr.i.i225, align 1
   %99 = load i32, ptr %Size.i.i, align 8
   %add.i226 = add i32 %99, 1
@@ -5025,7 +5023,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit238: ; preds = %for
   %102 = phi i32 [ %.pre.i233, %if.then.i231 ], [ %100, %for.end ]
   %103 = load ptr, ptr %output, align 8
   %conv.i3.i235 = zext i32 %102 to i64
-  %add.ptr.i.i236 = getelementptr inbounds nuw i16, ptr %103, i64 %conv.i3.i235
+  %add.ptr.i.i236 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 %conv.i3.i235
   store i16 34, ptr %add.ptr.i.i236, align 1
   %104 = load i32, ptr %Size.i.i, align 8
   %add.i237 = add i32 %104, 1
@@ -5137,9 +5135,9 @@ if.else13.i.i21.i:                                ; preds = %if.else.i.i11.i
 _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i: ; preds = %if.else13.i.i21.i, %if.then10.i.i13.i, %if.then5.i.i19.i, %if.then.i.i26.i, %if.end.i
   %retval.0.i.sink.i15.i = phi ptr [ %view.coerce0, %if.end.i ], [ %5, %if.then.i.i26.i ], [ %add.ptr.i.i.i.i.i20.i, %if.then5.i.i19.i ], [ %add.ptr.i.i.i4.i.i14.i, %if.then10.i.i13.i ], [ %7, %if.else13.i.i21.i ]
   %bf.clear8.i16.i = and i64 %view.coerce1, 1073741823
-  %add.ptr10.i18.i = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i15.i, i64 %bf.clear8.i16.i
+  %add.ptr10.i18.i = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i.sink.i15.i, i64 %bf.clear8.i16.i
   %idxprom4.i = and i64 %i, 4294967295
-  %arrayidx5.i = getelementptr inbounds nuw i16, ptr %add.ptr10.i18.i, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds nuw [2 x i8], ptr %add.ptr10.i18.i, i64 %idxprom4.i
   %8 = load i16, ptr %arrayidx5.i, align 2
   br label %_ZNK6hermes2vm10StringViewixEj.exit
 
@@ -5252,8 +5250,8 @@ if.else13.i.i21.i30:                              ; preds = %if.else.i.i11.i16
 _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i20: ; preds = %if.else13.i.i21.i30, %if.then10.i.i13.i18, %if.then5.i.i19.i28, %if.then.i.i26.i35, %if.end.i9
   %retval.0.i.sink.i15.i21 = phi ptr [ %view.coerce0, %if.end.i9 ], [ %16, %if.then.i.i26.i35 ], [ %add.ptr.i.i.i.i.i20.i29, %if.then5.i.i19.i28 ], [ %add.ptr.i.i.i4.i.i14.i19, %if.then10.i.i13.i18 ], [ %18, %if.else13.i.i21.i30 ]
   %bf.clear8.i16.i22 = and i64 %view.coerce1, 1073741823
-  %add.ptr10.i18.i24 = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i15.i21, i64 %bf.clear8.i16.i22
-  %arrayidx5.i26 = getelementptr inbounds nuw i16, ptr %add.ptr10.i18.i24, i64 %add
+  %add.ptr10.i18.i24 = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i.sink.i15.i21, i64 %bf.clear8.i16.i22
+  %arrayidx5.i26 = getelementptr inbounds nuw [2 x i8], ptr %add.ptr10.i18.i24, i64 %add
   %19 = load i16, ptr %arrayidx5.i26, align 2
   br label %_ZNK6hermes2vm10StringViewixEj.exit71
 
@@ -5281,7 +5279,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit: ; preds = %if.the
   %24 = phi i32 [ %.pre.i, %if.then.i72 ], [ %22, %if.then9 ]
   %25 = load ptr, ptr %output, align 8
   %conv.i3.i = zext i32 %24 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %25, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %conv.i3.i
   store i16 %retval.0.i, ptr %add.ptr.i.i, align 1
   %26 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %26, 1
@@ -5300,7 +5298,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit84: ; preds = %_ZN4
   %28 = phi i32 [ %.pre.i79, %if.then.i77 ], [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit ]
   %29 = load ptr, ptr %output, align 8
   %conv.i3.i81 = zext i32 %28 to i64
-  %add.ptr.i.i82 = getelementptr inbounds nuw i16, ptr %29, i64 %conv.i3.i81
+  %add.ptr.i.i82 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %conv.i3.i81
   store i16 %retval.0.i27, ptr %add.ptr.i.i82, align 1
   %30 = load i32, ptr %Size.i.i, align 8
   %add.i83 = add i32 %30, 1
@@ -5343,7 +5341,7 @@ if.end.i.thread.i:                                ; preds = %entry
 _ZN4llvh15SmallVectorImplIDsE6appendESt16initializer_listIDsE.exit: ; preds = %entry, %if.end.i.thread.i
   %conv.i9.i.i.pre-phi = phi i64 [ %conv.i5.i.i, %entry ], [ %.pre, %if.end.i.thread.i ]
   %2 = load ptr, ptr %output, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %2, i64 %conv.i9.i.i.pre-phi
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %conv.i9.i.i.pre-phi
   store i16 92, ptr %add.ptr.i.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 2
   store i16 117, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.i.sroa_idx, align 1
@@ -5352,7 +5350,7 @@ _ZN4llvh15SmallVectorImplIDsE6appendESt16initializer_listIDsE.exit: ; preds = %e
   store i32 %conv.i12.i.i, ptr %Size.i.i.i, align 8
   %shr = lshr i16 %cp, 12
   %conv2 = zext nneg i16 %shr to i64
-  %arrayidx.i = getelementptr inbounds nuw i16, ptr @.str.9, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [2 x i8], ptr @.str.9, i64 %conv2
   %3 = load i16, ptr %arrayidx.i, align 2
   %4 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i = icmp ult i32 %conv.i12.i.i, %4
@@ -5368,7 +5366,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit: ; preds = %_ZN4ll
   %5 = phi i32 [ %.pre.i, %if.then.i ], [ %conv.i12.i.i, %_ZN4llvh15SmallVectorImplIDsE6appendESt16initializer_listIDsE.exit ]
   %6 = load ptr, ptr %output, align 8
   %conv.i3.i = zext i32 %5 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %6, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %conv.i3.i
   store i16 %3, ptr %add.ptr.i.i, align 1
   %7 = load i32, ptr %Size.i.i.i, align 8
   %add.i = add i32 %7, 1
@@ -5376,7 +5374,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit: ; preds = %_ZN4ll
   %shr5 = lshr i16 %cp, 8
   %8 = and i16 %shr5, 15
   %conv6 = zext nneg i16 %8 to i64
-  %arrayidx.i9 = getelementptr inbounds nuw i16, ptr @.str.9, i64 %conv6
+  %arrayidx.i9 = getelementptr inbounds nuw [2 x i8], ptr @.str.9, i64 %conv6
   %9 = load i16, ptr %arrayidx.i9, align 2
   %10 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i12 = icmp ult i32 %add.i, %10
@@ -5392,7 +5390,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit19: ; preds = %_ZN4
   %11 = phi i32 [ %.pre.i15, %if.then.i13 ], [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit ]
   %12 = load ptr, ptr %output, align 8
   %conv.i3.i16 = zext i32 %11 to i64
-  %add.ptr.i.i17 = getelementptr inbounds nuw i16, ptr %12, i64 %conv.i3.i16
+  %add.ptr.i.i17 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %conv.i3.i16
   store i16 %9, ptr %add.ptr.i.i17, align 1
   %13 = load i32, ptr %Size.i.i.i, align 8
   %add.i18 = add i32 %13, 1
@@ -5400,7 +5398,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit19: ; preds = %_ZN4
   %14 = trunc i16 %cp to i8
   %15 = lshr i8 %14, 4
   %idxprom.i20 = zext nneg i8 %15 to i64
-  %arrayidx.i21 = getelementptr inbounds nuw i16, ptr @.str.9, i64 %idxprom.i20
+  %arrayidx.i21 = getelementptr inbounds nuw [2 x i8], ptr @.str.9, i64 %idxprom.i20
   %16 = load i16, ptr %arrayidx.i21, align 2
   %17 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i24 = icmp ult i32 %add.i18, %17
@@ -5416,14 +5414,14 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit31: ; preds = %_ZN4
   %18 = phi i32 [ %.pre.i27, %if.then.i25 ], [ %add.i18, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit19 ]
   %19 = load ptr, ptr %output, align 8
   %conv.i3.i28 = zext i32 %18 to i64
-  %add.ptr.i.i29 = getelementptr inbounds nuw i16, ptr %19, i64 %conv.i3.i28
+  %add.ptr.i.i29 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %conv.i3.i28
   store i16 %16, ptr %add.ptr.i.i29, align 1
   %20 = load i32, ptr %Size.i.i.i, align 8
   %add.i30 = add i32 %20, 1
   store i32 %add.i30, ptr %Size.i.i.i, align 8
   %conv17 = and i8 %14, 15
   %idxprom.i32 = zext nneg i8 %conv17 to i64
-  %arrayidx.i33 = getelementptr inbounds nuw i16, ptr @.str.9, i64 %idxprom.i32
+  %arrayidx.i33 = getelementptr inbounds nuw [2 x i8], ptr @.str.9, i64 %idxprom.i32
   %21 = load i16, ptr %arrayidx.i33, align 2
   %22 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i36 = icmp ult i32 %add.i30, %22
@@ -5439,7 +5437,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit43: ; preds = %_ZN4
   %23 = phi i32 [ %.pre.i39, %if.then.i37 ], [ %add.i30, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit31 ]
   %24 = load ptr, ptr %output, align 8
   %conv.i3.i40 = zext i32 %23 to i64
-  %add.ptr.i.i41 = getelementptr inbounds nuw i16, ptr %24, i64 %conv.i3.i40
+  %add.ptr.i.i41 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %conv.i3.i40
   store i16 %21, ptr %add.ptr.i.i41, align 1
   %25 = load i32, ptr %Size.i.i.i, align 8
   %add.i42 = add i32 %25, 1
@@ -5572,7 +5570,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
 if.then:                                          ; preds = %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 8
   %idxprom = zext nneg i32 %2 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idxprom
   store i32 %retval.sroa.0.0.i, ptr %arrayidx, align 4
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %13 = load ptr, ptr %youngGen_.i.i.i, align 8

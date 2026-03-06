@@ -34,7 +34,7 @@ declare void @SDL_QuitEventWatchList(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_AddWindowEventWatch(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.SDL_EventWatchList, ptr @SDL_window_event_watchers, i64 %4
+  %5 = getelementptr inbounds nuw [48 x i8], ptr @SDL_window_event_watchers, i64 %4
   %6 = tail call zeroext i1 @SDL_AddEventWatchList(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2) #4
   ret void
 }
@@ -44,7 +44,7 @@ declare zeroext i1 @SDL_AddEventWatchList(ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_RemoveWindowEventWatch(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.SDL_EventWatchList, ptr @SDL_window_event_watchers, i64 %4
+  %5 = getelementptr inbounds nuw [48 x i8], ptr @SDL_window_event_watchers, i64 %4
   tail call void @SDL_RemoveEventWatchList(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2) #4
   ret void
 }

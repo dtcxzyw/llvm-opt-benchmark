@@ -27,7 +27,7 @@ define ptr @av_csp_luma_coeffs_from_avcsp(i32 noundef %0) local_unnamed_addr #0 
   %5 = shl nuw nsw i64 1, %4
   %6 = and i64 %5, 260108
   %.not.not = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds nuw %struct.AVLumaCoefficients, ptr @luma_coefficients, i64 %4
+  %7 = getelementptr inbounds nuw [24 x i8], ptr @luma_coefficients, i64 %4
   %spec.select = select i1 %.not.not, ptr %7, ptr null
   br label %8
 
@@ -46,7 +46,7 @@ define ptr @av_csp_primaries_desc_from_id(i32 noundef %0) local_unnamed_addr #0 
   %5 = shl nuw nsw i64 1, %4
   %6 = and i64 %5, 4186125
   %.not.not = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds nuw %struct.AVColorPrimariesDesc, ptr @color_primaries, i64 %4
+  %7 = getelementptr inbounds nuw [64 x i8], ptr @color_primaries, i64 %4
   %spec.select = select i1 %.not.not, ptr %7, ptr null
   br label %8
 
@@ -74,7 +74,7 @@ define i32 @av_csp_primaries_id_from_desc(ptr noundef readonly captures(none) %0
   br i1 %.not.not, label %12, label %av_cmp_q.exit.thread103
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw %struct.AVColorPrimariesDesc, ptr @color_primaries, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [64 x i8], ptr @color_primaries, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %2, align 4
   %16 = load i64, ptr %14, align 16
@@ -220,7 +220,7 @@ define double @av_csp_approximate_trc_gamma(i32 noundef %0) local_unnamed_addr #
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw double, ptr @approximate_gamma, i64 %4
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @approximate_gamma, i64 %4
   %9 = load double, ptr %8, align 8, !tbaa !6
   br label %10
 
@@ -236,7 +236,7 @@ define ptr @av_csp_trc_func_from_id(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @trc_funcs, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @trc_funcs, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   br label %7
 
@@ -252,7 +252,7 @@ define ptr @av_csp_trc_func_inv_from_id(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @trc_inv_funcs, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @trc_inv_funcs, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   br label %7
 
@@ -268,7 +268,7 @@ define ptr @av_csp_itu_eotf(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @eotf_funcs, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @eotf_funcs, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   br label %7
 
@@ -284,7 +284,7 @@ define ptr @av_csp_itu_eotf_inv(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @eotf_inv_funcs, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @eotf_inv_funcs, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   br label %7
 
@@ -815,7 +815,7 @@ define internal void @eotf_bt1886(double noundef %0, double noundef %1, ptr noun
 
 11:                                               ; preds = %3, %19
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %19 ]
-  %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !6
   %14 = fcmp nsz olt double %13, %9
   br i1 %14, label %19, label %15
@@ -840,7 +840,7 @@ define internal void @eotf_gamma22(double noundef %0, double noundef %1, ptr nou
 
 4:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %6 = load double, ptr %5, align 8, !tbaa !6
   %7 = fcmp nsz olt double %6, 0.000000e+00
   %8 = tail call nsz double @llvm.pow.f64(double %6, double 2.200000e+00)
@@ -856,7 +856,7 @@ oetf_gamma22_inv.exit:                            ; preds = %4
 
 11:                                               ; preds = %11, %oetf_gamma22_inv.exit
   %indvars.iv.i4 = phi i64 [ 0, %oetf_gamma22_inv.exit ], [ %indvars.iv.next.i5, %11 ]
-  %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i4
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i4
   %13 = load double, ptr %12, align 8, !tbaa !6
   %14 = tail call nsz double @llvm.fmuladd.f64(double %10, double %13, double %1)
   store double %14, ptr %12, align 8, !tbaa !6
@@ -874,7 +874,7 @@ define internal void @eotf_gamma28(double noundef %0, double noundef %1, ptr nou
 
 4:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %6 = load double, ptr %5, align 8, !tbaa !6
   %7 = fcmp nsz olt double %6, 0.000000e+00
   %8 = tail call nsz double @llvm.pow.f64(double %6, double 2.800000e+00)
@@ -890,7 +890,7 @@ oetf_gamma28_inv.exit:                            ; preds = %4
 
 11:                                               ; preds = %11, %oetf_gamma28_inv.exit
   %indvars.iv.i4 = phi i64 [ 0, %oetf_gamma28_inv.exit ], [ %indvars.iv.next.i5, %11 ]
-  %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i4
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i4
   %13 = load double, ptr %12, align 8, !tbaa !6
   %14 = tail call nsz double @llvm.fmuladd.f64(double %10, double %13, double %1)
   store double %14, ptr %12, align 8, !tbaa !6
@@ -912,7 +912,7 @@ define internal void @eotf_linear(double noundef %0, double noundef %1, ptr noun
 
 6:                                                ; preds = %3, %6
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %8 = load double, ptr %7, align 8, !tbaa !6
   %9 = tail call nsz double @llvm.fmuladd.f64(double %4, double %8, double %1)
   store double %9, ptr %7, align 8, !tbaa !6
@@ -927,7 +927,7 @@ define internal void @eotf_iec61966_2_1(double noundef %0, double noundef %1, pt
 
 4:                                                ; preds = %trc_iec61966_2_1_inv.exit.i, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %trc_iec61966_2_1_inv.exit.i ]
-  %5 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %6 = load double, ptr %5, align 8, !tbaa !6
   %7 = fcmp nsz olt double %6, 0.000000e+00
   br i1 %7, label %trc_iec61966_2_1_inv.exit.i, label %8
@@ -959,7 +959,7 @@ oetf_iec61966_2_1_inv.exit:                       ; preds = %trc_iec61966_2_1_in
 
 18:                                               ; preds = %18, %oetf_iec61966_2_1_inv.exit
   %indvars.iv.i4 = phi i64 [ 0, %oetf_iec61966_2_1_inv.exit ], [ %indvars.iv.next.i5, %18 ]
-  %19 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i4
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i4
   %20 = load double, ptr %19, align 8, !tbaa !6
   %21 = tail call nsz double @llvm.fmuladd.f64(double %17, double %20, double %1)
   store double %21, ptr %19, align 8, !tbaa !6
@@ -980,7 +980,7 @@ define internal void @eotf_smpte_st2084(double %0, double %1, ptr noundef captur
 
 5:                                                ; preds = %3, %trc_smpte_st2084_inv.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %trc_smpte_st2084_inv.exit ]
-  %6 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load double, ptr %6, align 8, !tbaa !6
   %8 = tail call nsz double @llvm.pow.f64(double %7, double 0x3F89F9B5860989B1)
   %9 = fcmp nsz olt double %8, 0x3FEAC00000000000
@@ -1031,7 +1031,7 @@ define internal void @eotf_smpte_st428_1(double noundef %0, double noundef %1, p
 
 15:                                               ; preds = %3, %23
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %23 ]
-  %16 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !6
   %18 = fcmp nsz olt double %17, 0.000000e+00
   br i1 %18, label %23, label %19
@@ -1044,9 +1044,9 @@ define internal void @eotf_smpte_st428_1(double noundef %0, double noundef %1, p
 
 23:                                               ; preds = %15, %19
   %24 = phi nsz double [ %22, %19 ], [ 0.000000e+00, %15 ]
-  %25 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %26 = load double, ptr %25, align 8, !tbaa !6
-  %27 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %28 = load double, ptr %27, align 8, !tbaa !6
   %29 = fsub nsz double %26, %28
   %30 = tail call nsz double @llvm.fmuladd.f64(double %24, double %29, double %28)
@@ -1087,7 +1087,7 @@ define internal void @eotf_arib_std_b67(double noundef %0, double noundef %1, pt
 
 27:                                               ; preds = %3, %trc_arib_std_b67_inv.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %trc_arib_std_b67_inv.exit ]
-  %28 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %29 = load double, ptr %28, align 8, !tbaa !6
   %30 = tail call nsz double @llvm.fmuladd.f64(double %13, double %29, double %12)
   %31 = fcmp nsz olt double %30, 0.000000e+00
@@ -1122,7 +1122,7 @@ trc_arib_std_b67_inv.exit:                        ; preds = %27, %34, %37
 
 45:                                               ; preds = %14, %45
   %indvars.iv26 = phi i64 [ 0, %14 ], [ %indvars.iv.next27, %45 ]
-  %46 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv26
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv26
   %47 = load double, ptr %46, align 8, !tbaa !6
   %48 = fmul nsz double %26, %47
   store double %48, ptr %46, align 8, !tbaa !6
@@ -1148,7 +1148,7 @@ define internal void @eotf_bt1886_inv(double noundef %0, double noundef %1, ptr 
 
 10:                                               ; preds = %3, %18
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %18 ]
-  %11 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %12 = load double, ptr %11, align 8, !tbaa !6
   %13 = fcmp nsz olt double %12, 0.000000e+00
   br i1 %13, label %18, label %14
@@ -1174,7 +1174,7 @@ define internal void @eotf_gamma22_inv(double noundef %0, double noundef %1, ptr
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %7 = load double, ptr %6, align 8, !tbaa !6
   %8 = fsub nsz double %7, %1
   %9 = fdiv nsz double %8, %4
@@ -1185,7 +1185,7 @@ define internal void @eotf_gamma22_inv(double noundef %0, double noundef %1, ptr
 
 eotf_linear_inv.exit:                             ; preds = %5, %eotf_linear_inv.exit
   %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i5, %eotf_linear_inv.exit ], [ 0, %5 ]
-  %10 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i4
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i4
   %11 = load double, ptr %10, align 8, !tbaa !6
   %12 = fcmp nsz olt double %11, 0.000000e+00
   %13 = tail call nsz double @llvm.pow.f64(double %11, double 0x3FDD1745D1745D17)
@@ -1206,7 +1206,7 @@ define internal void @eotf_gamma28_inv(double noundef %0, double noundef %1, ptr
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %7 = load double, ptr %6, align 8, !tbaa !6
   %8 = fsub nsz double %7, %1
   %9 = fdiv nsz double %8, %4
@@ -1217,7 +1217,7 @@ define internal void @eotf_gamma28_inv(double noundef %0, double noundef %1, ptr
 
 eotf_linear_inv.exit:                             ; preds = %5, %eotf_linear_inv.exit
   %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i5, %eotf_linear_inv.exit ], [ 0, %5 ]
-  %10 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i4
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i4
   %11 = load double, ptr %10, align 8, !tbaa !6
   %12 = fcmp nsz olt double %11, 0.000000e+00
   %13 = tail call nsz double @llvm.pow.f64(double %11, double 0x3FD6DB6DB6DB6DB7)
@@ -1241,7 +1241,7 @@ define internal void @eotf_linear_inv(double noundef %0, double noundef %1, ptr 
 
 6:                                                ; preds = %3, %6
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %8 = load double, ptr %7, align 8, !tbaa !6
   %9 = fsub nsz double %8, %1
   %10 = fdiv nsz double %9, %4
@@ -1258,7 +1258,7 @@ define internal void @eotf_iec61966_2_1_inv(double noundef %0, double noundef %1
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %7 = load double, ptr %6, align 8, !tbaa !6
   %8 = fsub nsz double %7, %1
   %9 = fdiv nsz double %8, %4
@@ -1269,7 +1269,7 @@ define internal void @eotf_iec61966_2_1_inv(double noundef %0, double noundef %1
 
 eotf_linear_inv.exit:                             ; preds = %5, %trc_iec61966_2_1.exit.i
   %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i5, %trc_iec61966_2_1.exit.i ], [ 0, %5 ]
-  %10 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i4
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i4
   %11 = load double, ptr %10, align 8, !tbaa !6
   %12 = fcmp nsz olt double %11, 0.000000e+00
   br i1 %12, label %trc_iec61966_2_1.exit.i, label %13
@@ -1307,7 +1307,7 @@ define internal void @eotf_smpte_st2084_inv(double %0, double %1, ptr noundef ca
 
 5:                                                ; preds = %3, %trc_smpte_st2084.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %trc_smpte_st2084.exit ]
-  %6 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load double, ptr %6, align 8, !tbaa !6
   %8 = fcmp nsz olt double %7, 0.000000e+00
   br i1 %8, label %trc_smpte_st2084.exit, label %9
@@ -1358,12 +1358,12 @@ define internal void @eotf_smpte_st428_1_inv(double noundef %0, double noundef %
 
 15:                                               ; preds = %3, %30
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %30 ]
-  %16 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !6
-  %18 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %19 = load double, ptr %18, align 8, !tbaa !6
   %20 = fsub nsz double %17, %19
-  %21 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %22 = load double, ptr %21, align 8, !tbaa !6
   %23 = fsub nsz double %22, %19
   %24 = fdiv nsz double %20, %23
@@ -1416,7 +1416,7 @@ define internal void @eotf_arib_std_b67_inv(double noundef %0, double noundef %1
 
 28:                                               ; preds = %22, %28
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %30 = load double, ptr %29, align 8, !tbaa !6
   %31 = fmul nsz double %27, %30
   store double %31, ptr %29, align 8, !tbaa !6
@@ -1437,7 +1437,7 @@ define internal void @eotf_arib_std_b67_inv(double noundef %0, double noundef %1
 
 35:                                               ; preds = %.loopexit, %trc_arib_std_b67.exit
   %indvars.iv33 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next34, %trc_arib_std_b67.exit ]
-  %36 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv33
   %37 = load double, ptr %36, align 8, !tbaa !6
   %38 = fcmp nsz olt double %37, 0.000000e+00
   br i1 %38, label %trc_arib_std_b67.exit, label %39

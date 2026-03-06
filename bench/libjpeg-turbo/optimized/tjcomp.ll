@@ -144,7 +144,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %.0351551 = phi i32 [ -1, %.lr.ph ], [ %.1352, %143 ]
   %.0353550 = phi i32 [ -1, %.lr.ph ], [ %.1354, %143 ]
   %15 = sext i32 %.0562 to i64
-  %16 = getelementptr inbounds ptr, ptr %1, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %1, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !8
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #15
   %spec.select = call i64 @llvm.umax.i64(i64 %18, i64 2)
@@ -162,7 +162,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 23:                                               ; preds = %20
   %24 = add nsw i32 %.0562, 1
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %1, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %1, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !8
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #15
   %spec.select424 = call i64 @llvm.umax.i64(i64 %28, i64 1)
@@ -199,7 +199,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 40:                                               ; preds = %38
   %41 = add nsw i32 %.0562, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %1, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %1, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !8
   br label %143
 
@@ -212,7 +212,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 47:                                               ; preds = %45
   %48 = add nsw i32 %.0562, 1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %1, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %1, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !8
   %52 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %51, ptr noundef nonnull @.str.8, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
   %53 = icmp slt i32 %52, 1
@@ -236,7 +236,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 61:                                               ; preds = %59
   %62 = add nsw i32 %.0562, 1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %1, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %1, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !8
   %66 = call i64 @strtol(ptr noundef nonnull captures(none) %65, ptr noundef null, i32 noundef 10) #16
   %67 = trunc i64 %66 to i32
@@ -268,7 +268,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 77:                                               ; preds = %75
   %78 = add nsw i32 %.0562, 1
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %1, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %1, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !8
   %82 = call i64 @strtol(ptr noundef nonnull captures(none) %81, ptr noundef null, i32 noundef 10) #16
   %83 = trunc i64 %82 to i32
@@ -295,7 +295,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 91:                                               ; preds = %89
   %92 = add nsw i32 %.0562, 1
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr %1, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %1, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !8
   %96 = call i64 @strtol(ptr noundef nonnull captures(none) %95, ptr noundef null, i32 noundef 10) #16
   %97 = trunc i64 %96 to i32
@@ -327,7 +327,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i8 0, ptr %11, align 1, !tbaa !13
   %106 = add nsw i32 %.0562, 1
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds ptr, ptr %1, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %1, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !8
   %110 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %109, ptr noundef nonnull @.str.17, ptr noundef nonnull %10, ptr noundef nonnull %11) #16
   %111 = icmp slt i32 %110, 1
@@ -366,7 +366,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 124:                                              ; preds = %122
   %125 = add nsw i32 %.0562, 1
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds ptr, ptr %1, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %1, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !8
   %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %128) #15
   %spec.select453 = call i64 @llvm.umax.i64(i64 %129, i64 3)
@@ -644,7 +644,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 263:                                              ; preds = %261
   %264 = sext i32 %.0.lcssa to i64
-  %265 = getelementptr inbounds ptr, ptr %1, i64 %264
+  %265 = getelementptr inbounds [8 x i8], ptr %1, i64 %264
   %266 = load ptr, ptr %265, align 8, !tbaa !8
   %267 = call ptr @tj3LoadImage8(ptr noundef nonnull %157, ptr noundef %266, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %5) #16
   %268 = icmp eq ptr %267, null
@@ -658,7 +658,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 272:                                              ; preds = %261
   %273 = icmp samesign ult i32 %.0349.lcssa, 13
   %274 = sext i32 %.0.lcssa to i64
-  %275 = getelementptr inbounds ptr, ptr %1, i64 %274
+  %275 = getelementptr inbounds [8 x i8], ptr %1, i64 %274
   %276 = load ptr, ptr %275, align 8, !tbaa !8
   br i1 %273, label %277, label %283
 
@@ -832,7 +832,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 378:                                              ; preds = %366, %372, %352
   %379 = sext i32 %.0.lcssa to i64
-  %380 = getelementptr ptr, ptr %1, i64 %379
+  %380 = getelementptr [8 x i8], ptr %1, i64 %379
   %381 = getelementptr i8, ptr %380, i64 8
   %382 = load ptr, ptr %381, align 8, !tbaa !8
   %383 = call noalias ptr @fopen(ptr noundef %382, ptr noundef nonnull @.str.50)

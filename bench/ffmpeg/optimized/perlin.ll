@@ -75,17 +75,17 @@ define noundef i32 @ff_perlin_init(ptr noundef writeonly captures(none) initiali
   %33 = add i32 %32, 40
   %34 = and i32 %33, 63
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %7, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !20
   %38 = add i32 %32, 9
   %39 = and i32 %38, 63
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %7, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !20
   %43 = add i32 %42, %37
   %44 = and i32 %32, 63
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %7, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %45
   store i32 %43, ptr %46, align 4, !tbaa !20
   %47 = add i32 %32, 1
   %48 = trunc i64 %indvars.iv38 to i32

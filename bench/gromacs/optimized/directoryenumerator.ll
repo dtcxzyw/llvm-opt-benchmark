@@ -1176,7 +1176,7 @@ _ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JRS2_EEE
 _ZNSt12_Vector_baseINSt10filesystem7__cxx114pathESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt16allocator_traitsISaINSt10filesystem7__cxx114pathEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit, %52
   store ptr %23, ptr %0, align 8, !tbaa !65
   store ptr %50, ptr %5, align 8, !tbaa !62
-  %56 = getelementptr inbounds nuw %"class.std::filesystem::__cxx11::path", ptr %23, i64 %17
+  %56 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %56, ptr %51, align 8, !tbaa !64
   ret void
 
@@ -1606,7 +1606,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt10filesystem7__cxx114pat
 
 19:                                               ; preds = %11
   %20 = udiv i64 %12, 80
-  %21 = getelementptr inbounds nuw %"class.std::filesystem::__cxx11::path", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds i8, ptr %storemerge14, i64 -40
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPNSt10filesystem7__cxx114pathESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_(ptr %0, ptr nonnull %10, ptr %21, ptr nonnull %22)
   br label %23
@@ -1681,7 +1681,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPNSt1
 20:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit16, %11
   %.08 = phi i64 [ %13, %11 ], [ %57, %_ZNSt10filesystem7__cxx114pathD2Ev.exit16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %21 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %0, i64 %.08
+  %21 = getelementptr inbounds [40 x i8], ptr %0, i64 %.08
   store ptr %14, ptr %4, align 8, !tbaa !31
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -2001,14 +2001,14 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNS
   %.035 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %9 = shl i64 %.035, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %0, i64 %10
+  %11 = getelementptr inbounds [40 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %0, i64 %12
+  %13 = getelementptr inbounds [40 x i8], ptr %0, i64 %12
   %14 = tail call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %13) #24
   %15 = icmp slt i32 %14, 0
   %spec.select = select i1 %15, i64 %12, i64 %10
-  %16 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %0, i64 %spec.select
-  %17 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %0, i64 %.035
+  %16 = getelementptr inbounds [40 x i8], ptr %0, i64 %spec.select
+  %17 = getelementptr inbounds [40 x i8], ptr %0, i64 %.035
   %18 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathaSEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %16) #24
   %19 = icmp slt i64 %spec.select, %7
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !83
@@ -2028,8 +2028,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNS
 26:                                               ; preds = %22
   %27 = shl nsw i64 %.0.lcssa, 1
   %28 = or disjoint i64 %27, 1
-  %29 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %0, i64 %28
-  %30 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %0, i64 %.0.lcssa
+  %29 = getelementptr inbounds [40 x i8], ptr %0, i64 %28
+  %30 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa
   %31 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathaSEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #24
   br label %32
 
@@ -2090,20 +2090,20 @@ _ZNSt10filesystem7__cxx114pathC2EOS1_.exit:       ; preds = %_ZNSt7__cxx1112basi
   %.018.i = phi i64 [ %.0919.i, %56 ], [ %.1, %_ZNSt10filesystem7__cxx114pathC2EOS1_.exit ]
   %.0919.in.i = add nsw i64 %.018.i, -1
   %.0919.i = sdiv i64 %.0919.in.i, 2
-  %53 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %0, i64 %.0919.i
+  %53 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0919.i
   %54 = call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %5) #24
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %.loopexit
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %0, i64 %.018.i
+  %57 = getelementptr inbounds [40 x i8], ptr %0, i64 %.018.i
   %58 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathaSEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %53) #24
   %59 = icmp sgt i64 %.0919.i, %1
   br i1 %59, label %.lr.ph.i, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %56, %.lr.ph.i, %_ZNSt10filesystem7__cxx114pathC2EOS1_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZNSt10filesystem7__cxx114pathC2EOS1_.exit ], [ %.018.i, %.lr.ph.i ], [ %.0919.i, %56 ]
-  %60 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %0, i64 %.0.lcssa.i
+  %60 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa.i
   %61 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathaSEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull align 8 dereferenceable(40) %5) #24
   %62 = load ptr, ptr %46, align 8, !tbaa !52
   %.not.i.i.i = icmp eq ptr %62, null

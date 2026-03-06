@@ -70,13 +70,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorImpl.10" = type { %"class.llvm::SmallVectorTemplateBase.11" }
 %"class.llvm::SmallVectorTemplateBase.11" = type { %"class.llvm::SmallVectorTemplateCommon.12" }
 %"class.llvm::SmallVectorTemplateCommon.12" = type { %"class.llvm::SmallVectorBase" }
-%"class.std::unique_ptr.113" = type { %"struct.std::__uniq_ptr_data.114" }
-%"struct.std::__uniq_ptr_data.114" = type { %"class.std::__uniq_ptr_impl.115" }
-%"class.std::__uniq_ptr_impl.115" = type { %"class.std::tuple.116" }
-%"class.std::tuple.116" = type { %"struct.std::_Tuple_impl.117" }
-%"struct.std::_Tuple_impl.117" = type { %"struct.std::_Head_base.120" }
-%"struct.std::_Head_base.120" = type { ptr }
-%"struct.std::pair.141" = type { ptr, i64 }
 %"class.std::tuple.148" = type { %"struct.std::_Tuple_impl.base", [4 x i8] }
 %"struct.std::_Tuple_impl.base" = type <{ %"struct.std::_Tuple_impl.150", %"struct.std::_Head_base.162" }>
 %"struct.std::_Tuple_impl.150" = type { %"struct.std::_Tuple_impl.151", %"struct.std::_Head_base.161" }
@@ -108,7 +101,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.160" = type { %"class.llvm::StringRef" }
 %"struct.std::_Head_base.161" = type { %"class.llvm::StringRef" }
 %"struct.std::_Head_base.162" = type { i32 }
-%"struct.llvm::remarks::Argument" = type { %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.std::optional.28" }
 %"class.std::tuple.170" = type { %"struct.std::_Tuple_impl.171" }
 %"struct.std::_Tuple_impl.171" = type { %"struct.std::_Tuple_impl.172", %"struct.std::_Head_base.169" }
 %"struct.std::_Tuple_impl.172" = type { %"struct.std::_Tuple_impl.173", %"struct.std::_Head_base.161" }
@@ -1404,7 +1396,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !189
   store ptr %67, ptr %41, align 8, !tbaa !186
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.113", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !188
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -1554,7 +1546,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !189
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !186
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.113", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !188
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -1677,7 +1669,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !189
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !186
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.113", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !188
   ret void
 }
@@ -1785,7 +1777,7 @@ _ZSt4moveIPPvS1_ET0_T_S3_S2_.exit35:              ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !128
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -1934,7 +1926,7 @@ _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39:    ; preds = %.lr.ph.i.i.i.i.i35,
   %.idx40 = shl nuw nsw i64 %.026, 4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx40
   %58 = load ptr, ptr %0, align 8, !tbaa !128
-  %59 = getelementptr inbounds nuw %"struct.std::pair.141", ptr %58, i64 %.026
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %.026
   %60 = sub nsw i64 %.pre-phi, %.026
   %gepdiff = shl nsw i64 %60, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 8 %57, i64 %gepdiff, i1 false)
@@ -2495,12 +2487,12 @@ _ZStltImmENSt9enable_ifIXsr14is_convertibleIDTltclsr3stdE7declvalIRKT_EEclsr3std
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !142
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [64 x i8], ptr %57, i64 %60
   %62 = load ptr, ptr %1, align 8, !tbaa !128
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load i32, ptr %63, align 8, !tbaa !142
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %62, i64 %65
+  %66 = getelementptr inbounds nuw [64 x i8], ptr %62, i64 %65
   %67 = tail call noundef zeroext i1 @_ZSt30__lexicographical_compare_implIPKN4llvm7remarks8ArgumentES4_N9__gnu_cxx5__ops15_Iter_less_iterEEbT_S8_T0_S9_T1_(ptr noundef %57, ptr noundef %61, ptr noundef %62, ptr noundef %66)
   br i1 %67, label %_ZNSt15__tuple_compareISt5tupleIJN4llvm7remarks4TypeENS1_9StringRefES4_S4_St8optionalINS2_14RemarkLocationEES5_ImENS1_11SmallVectorINS2_8ArgumentELj5EEEEESC_Lm5ELm7EE6__lessERKSC_SF_.exit, label %68
 
@@ -2508,11 +2500,11 @@ _ZStltImmENSt9enable_ifIXsr14is_convertibleIDTltclsr3stdE7declvalIRKT_EEclsr3std
   %69 = load ptr, ptr %1, align 8, !tbaa !128
   %70 = load i32, ptr %63, align 8, !tbaa !142
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [64 x i8], ptr %69, i64 %71
   %73 = load ptr, ptr %0, align 8, !tbaa !128
   %74 = load i32, ptr %58, align 8, !tbaa !142
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %73, i64 %75
   %77 = tail call noundef zeroext i1 @_ZSt30__lexicographical_compare_implIPKN4llvm7remarks8ArgumentES4_N9__gnu_cxx5__ops15_Iter_less_iterEEbT_S8_T0_S9_T1_(ptr noundef %69, ptr noundef %72, ptr noundef %73, ptr noundef %76)
   br label %_ZNSt15__tuple_compareISt5tupleIJN4llvm7remarks4TypeENS1_9StringRefES4_S4_St8optionalINS2_14RemarkLocationEES5_ImENS1_11SmallVectorINS2_8ArgumentELj5EEEEESC_Lm5ELm7EE6__lessERKSC_SF_.exit
 

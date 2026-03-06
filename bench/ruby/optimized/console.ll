@@ -1892,7 +1892,7 @@ define internal fastcc noundef ptr @rawmode_opt(i32 %.0.val, ptr noundef readonl
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %.0.val to i64
-  %9 = getelementptr i64, ptr %0, i64 %8
+  %9 = getelementptr [8 x i8], ptr %0, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !11
   %12 = tail call i32 @rb_keyword_given_p() #13

@@ -84,7 +84,7 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
 29:                                               ; preds = %25, %10
   %30 = phi i64 [ 0, %10 ], [ %26, %25 ]
   %31 = phi i1 [ true, %10 ], [ %27, %25 ]
-  %32 = getelementptr %struct.intel_dvo_device, ptr @intel_dvo_devices, i64 %30
+  %32 = getelementptr [48 x i8], ptr @intel_dvo_devices, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -124,7 +124,7 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   %61 = or i32 %60, 1073741824
   %62 = load ptr, ptr %24, align 8
   tail call void %62(ptr noundef nonnull %22, i32 %58, i32 noundef %61, i1 noundef zeroext true) #7
-  %63 = getelementptr i32, ptr %2, i64 %43
+  %63 = getelementptr [4 x i8], ptr %2, i64 %43
   store i32 %60, ptr %63, align 4
   br label %64
 
@@ -159,7 +159,7 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   %86 = or i32 %85, 24576
   %87 = select i1 %80, i32 24596, i32 %86
   %88 = add i32 %83, %87
-  %89 = getelementptr i32, ptr %2, i64 %73
+  %89 = getelementptr [4 x i8], ptr %2, i64 %73
   %90 = load i32, ptr %89, align 4
   %91 = load ptr, ptr %24, align 8
   tail call void %91(ptr noundef nonnull %22, i32 %88, i32 noundef %90, i1 noundef zeroext true) #7

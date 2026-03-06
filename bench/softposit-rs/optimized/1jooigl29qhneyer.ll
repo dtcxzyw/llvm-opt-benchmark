@@ -580,12 +580,12 @@ define noundef i32 @"_ZN9softposit5p32e24math4sqrt41_$LT$impl$u20$softposit..p32
   %23 = or disjoint i32 %22, %20
   %24 = xor i32 %23, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %3, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %25
   %27 = load i16, ptr %26, align 2, !noundef !4
   %28 = zext i16 %27 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store <16 x i16> <i16 -23131, i16 -5566, i16 -29663, i16 -14803, i16 30863, i16 -21889, i16 26920, i16 -27466, i16 23751, i16 -31947, i16 21158, i16 29922, i16 19006, i16 26878, i16 17195, i16 24317>, ptr %2, align 2
-  %29 = getelementptr inbounds nuw i16, ptr %2, i64 %25
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %25
   %30 = load i16, ptr %29, align 2, !noundef !4
   %31 = zext i16 %30 to i32
   %32 = mul nuw i32 %18, %31

@@ -3,12 +3,6 @@ source_filename = "bench/llvm/original/GIMatchTableExecutor.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::SmallVector.89" = type { %"class.llvm::SmallVectorImpl.90", %"struct.llvm::SmallVectorStorage.93" }
-%"class.llvm::SmallVectorImpl.90" = type { %"class.llvm::SmallVectorTemplateBase.91" }
-%"class.llvm::SmallVectorTemplateBase.91" = type { %"class.llvm::SmallVectorTemplateCommon.92" }
-%"class.llvm::SmallVectorTemplateCommon.92" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage.93" = type { [128 x i8] }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
@@ -68,7 +62,7 @@ _ZNSt12_Vector_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilder
   %4 = mul nuw nsw i64 %3, 144
   %5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %4) #8
   store ptr %5, ptr %0, align 8, !tbaa !3
-  %6 = getelementptr inbounds nuw %"class.llvm::SmallVector.89", ptr %5, i64 %3
+  %6 = getelementptr inbounds nuw [144 x i8], ptr %5, i64 %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %7, align 8, !tbaa !9
   br label %.lr.ph.i.i.i.i.i

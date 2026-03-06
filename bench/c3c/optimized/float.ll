@@ -210,7 +210,7 @@ define dso_local { double, i32 } @float_from_string(ptr noundef readonly capture
 
 switch.lookup:                                    ; preds = %.critedge12
   %60 = zext nneg i32 %57 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.float_from_hex, i64 %60
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.float_from_hex, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge10.thread
 
@@ -422,7 +422,7 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
 
 switch.lookup:                                    ; preds = %.critedge12
   %54 = zext nneg i32 %51 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.float_from_hex, i64 %54
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.float_from_hex, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge10.thread
 

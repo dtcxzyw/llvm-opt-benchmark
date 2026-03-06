@@ -33,10 +33,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cppc_khz_to_
 %struct.static_call_key = type { ptr, %union.anon.11 }
 %union.anon.11 = type { i64 }
 %struct.acpi_buffer = type { i64, ptr }
-%union.acpi_object = type { %struct.anon.5 }
-%struct.anon.5 = type { i32, i32, i64, i32 }
-%struct.cpc_register_resource = type { i32, ptr, %union.anon }
-%union.anon = type { i64, [8 x i8] }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
 %struct.cppc_perf_fb_ctrs = type { i64, i64, i64, i64 }
@@ -146,7 +142,7 @@ define dso_local noundef zeroext i1 @acpi_cpc_valid() #0 align 16 {
 
 16:                                               ; preds = %13
   %17 = and i64 %14, 63
-  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %17
+  %18 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @cpc_desc_ptr to i64)
   %21 = inttoptr i64 %20 to ptr
@@ -186,7 +182,7 @@ define dso_local noundef zeroext i1 @cppc_allow_fast_switch() #0 align 16 {
 
 14:                                               ; preds = %11
   %15 = and i64 %12, 63
-  %16 = getelementptr i64, ptr @__per_cpu_offset, i64 %15
+  %16 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @cpc_desc_ptr to i64)
   %19 = inttoptr i64 %18 to ptr
@@ -210,7 +206,7 @@ define dso_local noundef zeroext i1 @cppc_allow_fast_switch() #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -14, 1) i32 @acpi_get_psd_map(i32 noundef %0, ptr noundef %1) #1 align 16 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpc_desc_ptr to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -274,7 +270,7 @@ define dso_local noundef range(i32 -14, 1) i32 @acpi_get_psd_map(i32 noundef %0,
 
 39:                                               ; preds = %37
   %40 = and i64 %34, 63
-  %41 = getelementptr i64, ptr @__per_cpu_offset, i64 %40
+  %41 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, ptrtoint (ptr @cpc_desc_ptr to i64)
   %44 = inttoptr i64 %43 to ptr
@@ -422,7 +418,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load i32, ptr %53, align 8
   %55 = zext i32 %54 to i64
-  %56 = getelementptr i64, ptr @__per_cpu_offset, i64 %55
+  %56 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %55
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, ptrtoint (ptr @cpu_pcc_subspace_idx to i64)
   %59 = inttoptr i64 %58 to ptr
@@ -438,7 +434,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
   %64 = phi i64 [ 2, %60 ], [ %134, %132 ]
   %65 = phi i32 [ -1, %60 ], [ %133, %132 ]
   %66 = load ptr, ptr %18, align 8
-  %67 = getelementptr %union.acpi_object, ptr %66, i64 %64
+  %67 = getelementptr [24 x i8], ptr %66, i64 %64
   %68 = load i32, ptr %67, align 8
   switch i32 %68, label %.thread [
     i32 1, label %69
@@ -446,7 +442,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
   ]
 
 69:                                               ; preds = %63
-  %70 = getelementptr %struct.cpc_register_resource, ptr %61, i64 %64
+  %70 = getelementptr [32 x i8], ptr %61, i64 %64
   %71 = getelementptr i8, ptr %70, i64 -64
   store i32 1, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -547,7 +543,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
 
 127:                                              ; preds = %107, %125, %123, %120, %90, %88, %85
   %128 = phi i32 [ %84, %85 ], [ %65, %88 ], [ %65, %107 ], [ %65, %90 ], [ %65, %120 ], [ %65, %123 ], [ %65, %125 ]
-  %129 = getelementptr %struct.cpc_register_resource, ptr %61, i64 %64
+  %129 = getelementptr [32 x i8], ptr %61, i64 %64
   %130 = getelementptr i8, ptr %129, i64 -64
   store i32 3, ptr %130, align 8
   %131 = getelementptr i8, ptr %129, i64 -48
@@ -564,7 +560,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load i32, ptr %137, align 8
   %139 = zext i32 %138 to i64
-  %140 = getelementptr i64, ptr @__per_cpu_offset, i64 %139
+  %140 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %139
   %141 = load i64, ptr %140, align 8
   %142 = add i64 %141, ptrtoint (ptr @cpu_pcc_subspace_idx to i64)
   %143 = inttoptr i64 %142 to ptr
@@ -583,7 +579,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
 
 152:                                              ; preds = %152, %146
   %153 = phi i64 [ %151, %146 ], [ %156, %152 ]
-  %154 = getelementptr %struct.cpc_register_resource, ptr %150, i64 %153
+  %154 = getelementptr [32 x i8], ptr %150, i64 %153
   store i32 1, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store i64 0, ptr %155, align 8
@@ -608,7 +604,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
 
 167:                                              ; preds = %165
   %168 = zext nneg i32 %160 to i64
-  %169 = getelementptr ptr, ptr @pcc_data, i64 %168
+  %169 = getelementptr [8 x i8], ptr @pcc_data, i64 %168
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load i8, ptr %171, align 8, !range !14, !noundef !15
@@ -638,7 +634,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
 186:                                              ; preds = %182
   %187 = load i32, ptr %159, align 8
   %188 = zext i32 %187 to i64
-  %189 = getelementptr i64, ptr @__per_cpu_offset, i64 %188
+  %189 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %188
   %190 = load i64, ptr %189, align 8
   %191 = add i64 %190, ptrtoint (ptr @cpc_desc_ptr to i64)
   %192 = inttoptr i64 %191 to ptr
@@ -651,7 +647,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
 196:                                              ; preds = %186
   %197 = load i32, ptr %159, align 8
   %198 = zext i32 %197 to i64
-  %199 = getelementptr i64, ptr @__per_cpu_offset, i64 %198
+  %199 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %198
   %200 = load i64, ptr %199, align 8
   %201 = add i64 %200, ptrtoint (ptr @cpc_desc_ptr to i64)
   %202 = inttoptr i64 %201 to ptr
@@ -716,7 +712,7 @@ declare dso_local i32 @acpi_evaluate_object_typed(ptr noundef, ptr noundef, ptr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -12, 1) i32 @pcc_data_alloc(i32 noundef range(i32 0, 256) %0) unnamed_addr #1 align 16 {
   %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr ptr, ptr @pcc_data, i64 %2
+  %3 = getelementptr [8 x i8], ptr @pcc_data, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
@@ -838,7 +834,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @register_pcc_channel(i32 n
 
 6:                                                ; preds = %1
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr ptr, ptr @pcc_data, i64 %7
+  %8 = getelementptr [8 x i8], ptr @pcc_data, i64 %7
   %9 = load ptr, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -912,7 +908,7 @@ define dso_local void @acpi_cppc_processor_exit(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpu_pcc_subspace_idx to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -922,7 +918,7 @@ define dso_local void @acpi_cppc_processor_exit(ptr noundef readonly captures(no
 
 11:                                               ; preds = %1
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr ptr, ptr @pcc_data, i64 %12
+  %13 = getelementptr [8 x i8], ptr @pcc_data, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %28, label %16
@@ -952,7 +948,7 @@ define dso_local void @acpi_cppc_processor_exit(ptr noundef readonly captures(no
 28:                                               ; preds = %25, %20, %16, %11, %1
   %29 = load i32, ptr %2, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr i64, ptr @__per_cpu_offset, i64 %30
+  %31 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, ptrtoint (ptr @cpc_desc_ptr to i64)
   %34 = inttoptr i64 %33 to ptr
@@ -1022,7 +1018,7 @@ define dso_local noundef range(i32 -19, 1) i32 @cppc_get_desired_perf(i32 nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -19, 1) i32 @cppc_get_perf(i32 noundef %0, i32 noundef range(i32 1, 18) %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpc_desc_ptr to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -1033,7 +1029,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @cppc_get_perf(i32 noundef 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr %struct.cpc_register_resource, ptr %12, i64 %13
+  %14 = getelementptr [32 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %36
@@ -1053,7 +1049,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @cppc_get_perf(i32 noundef 
 
 26:                                               ; preds = %21
   %27 = zext nneg i32 %24 to i64
-  %28 = getelementptr ptr, ptr @pcc_data, i64 %27
+  %28 = getelementptr [8 x i8], ptr @pcc_data, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   tail call void @down_write(ptr noundef nonnull %30) #13
@@ -1101,7 +1097,7 @@ define dso_local range(i32 -19, 1) i32 @cppc_get_perf_caps(i32 noundef %0, ptr n
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = sext i32 %0 to i64
-  %11 = getelementptr i64, ptr @__per_cpu_offset, i64 %10
+  %11 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @cpc_desc_ptr to i64)
   %14 = inttoptr i64 %13 to ptr
@@ -1205,7 +1201,7 @@ define dso_local range(i32 -19, 1) i32 @cppc_get_perf_caps(i32 noundef %0, ptr n
 
 71:                                               ; preds = %69
   %72 = zext nneg i32 %18 to i64
-  %73 = getelementptr ptr, ptr @pcc_data, i64 %72
+  %73 = getelementptr [8 x i8], ptr @pcc_data, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
   tail call void @down_write(ptr noundef nonnull %75) #13
@@ -1418,7 +1414,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @send_pcc_cmd(i32 noundef %
   %3 = alloca i16, align 2
   store i16 %1, ptr %3, align 2
   %4 = sext i32 %0 to i64
-  %5 = getelementptr ptr, ptr @pcc_data, i64 %4
+  %5 = getelementptr [8 x i8], ptr @pcc_data, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -1586,7 +1582,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @send_pcc_cmd(i32 noundef %
 
 106:                                              ; preds = %102
   %107 = and i64 %103, 63
-  %108 = getelementptr i64, ptr @__per_cpu_offset, i64 %107
+  %108 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %107
   %109 = load i64, ptr %108, align 8
   %110 = add i64 %109, ptrtoint (ptr @cpc_desc_ptr to i64)
   %111 = inttoptr i64 %110 to ptr
@@ -1631,7 +1627,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @send_pcc_cmd(i32 noundef %
 define internal fastcc void @cpc_read(i32 noundef %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   %5 = sext i32 %0 to i64
-  %6 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
+  %6 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, ptrtoint (ptr @cpu_pcc_subspace_idx to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -1685,7 +1681,7 @@ define internal fastcc void @cpc_read(i32 noundef %0, ptr noundef %1, ptr nounde
 
 38:                                               ; preds = %34
   %39 = zext nneg i32 %10 to i64
-  %40 = getelementptr ptr, ptr @pcc_data, i64 %39
+  %40 = getelementptr [8 x i8], ptr @pcc_data, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
@@ -1783,7 +1779,7 @@ define dso_local noundef zeroext i1 @cppc_perf_ctrs_in_pcc() #0 align 16 {
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
+  %13 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @cpc_desc_ptr to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -1901,7 +1897,7 @@ define dso_local noundef range(i32 -19, 1) i32 @cppc_get_perf_ctrs(i32 noundef %
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = sext i32 %0 to i64
-  %8 = getelementptr i64, ptr @__per_cpu_offset, i64 %7
+  %8 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, ptrtoint (ptr @cpc_desc_ptr to i64)
   %11 = inttoptr i64 %10 to ptr
@@ -2020,7 +2016,7 @@ define dso_local noundef range(i32 -19, 1) i32 @cppc_get_perf_ctrs(i32 noundef %
 
 81:                                               ; preds = %79
   %82 = zext nneg i32 %15 to i64
-  %83 = getelementptr ptr, ptr @pcc_data, i64 %82
+  %83 = getelementptr [8 x i8], ptr @pcc_data, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
   tail call void @down_write(ptr noundef nonnull %85) #13
@@ -2124,7 +2120,7 @@ define dso_local noundef range(i32 -19, 1) i32 @cppc_get_perf_ctrs(i32 noundef %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @cppc_set_epp_perf(i32 noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpu_pcc_subspace_idx to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -2265,7 +2261,7 @@ define dso_local i32 @cppc_set_epp_perf(i32 noundef %0, ptr noundef readonly cap
 
 96:                                               ; preds = %90, %86, %66
   %97 = zext nneg i32 %9 to i64
-  %98 = getelementptr ptr, ptr @pcc_data, i64 %97
+  %98 = getelementptr [8 x i8], ptr @pcc_data, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
   tail call void @down_write(ptr noundef nonnull %100) #13
@@ -2281,7 +2277,7 @@ define dso_local i32 @cppc_set_epp_perf(i32 noundef %0, ptr noundef readonly cap
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @cpc_write(i32 noundef %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #1 align 16 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpu_pcc_subspace_idx to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -2314,7 +2310,7 @@ define internal fastcc i32 @cpc_write(i32 noundef %0, ptr noundef %1, i64 nounde
 
 30:                                               ; preds = %26
   %31 = zext nneg i32 %9 to i64
-  %32 = getelementptr ptr, ptr @pcc_data, i64 %31
+  %32 = getelementptr [8 x i8], ptr @pcc_data, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -2390,7 +2386,7 @@ define internal fastcc i32 @cpc_write(i32 noundef %0, ptr noundef %1, i64 nounde
 define dso_local noundef range(i32 -19, 1) i32 @cppc_get_auto_sel_caps(i32 noundef %0, ptr noundef writeonly captures(none) %1) #1 align 16 {
   %3 = alloca i64, align 8
   %4 = sext i32 %0 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpc_desc_ptr to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -2473,7 +2469,7 @@ define dso_local noundef range(i32 -19, 1) i32 @cppc_get_auto_sel_caps(i32 nound
 
 56:                                               ; preds = %50
   %57 = zext nneg i32 %54 to i64
-  %58 = getelementptr ptr, ptr @pcc_data, i64 %57
+  %58 = getelementptr [8 x i8], ptr @pcc_data, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   tail call void @down_write(ptr noundef nonnull %60) #13
@@ -2507,7 +2503,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @cppc_set_auto_sel(i32 noundef %0, i1 noundef zeroext %1) #1 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_pcc_subspace_idx to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -2542,7 +2538,7 @@ define dso_local i32 @cppc_set_auto_sel(i32 noundef %0, i1 noundef zeroext %1) #
 
 27:                                               ; preds = %23
   %28 = zext nneg i32 %8 to i64
-  %29 = getelementptr ptr, ptr @pcc_data, i64 %28
+  %29 = getelementptr [8 x i8], ptr @pcc_data, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   tail call void @down_write(ptr noundef nonnull %31) #13
@@ -2558,7 +2554,7 @@ define dso_local i32 @cppc_set_auto_sel(i32 noundef %0, i1 noundef zeroext %1) #
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @cppc_set_enable(i32 noundef %0, i1 noundef zeroext %1) #1 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_pcc_subspace_idx to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -2593,7 +2589,7 @@ define dso_local i32 @cppc_set_enable(i32 noundef %0, i1 noundef zeroext %1) #1 
 
 27:                                               ; preds = %23
   %28 = zext nneg i32 %8 to i64
-  %29 = getelementptr ptr, ptr @pcc_data, i64 %28
+  %29 = getelementptr [8 x i8], ptr @pcc_data, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   tail call void @down_write(ptr noundef nonnull %31) #13
@@ -2615,7 +2611,7 @@ define dso_local i32 @cppc_set_enable(i32 noundef %0, i1 noundef zeroext %1) #1 
 define dso_local i32 @cppc_set_perf(i32 noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = sext i32 %0 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpc_desc_ptr to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -2668,7 +2664,7 @@ define dso_local i32 @cppc_set_perf(i32 noundef %0, ptr noundef readonly capture
 
 40:                                               ; preds = %38
   %41 = zext nneg i32 %12 to i64
-  %42 = getelementptr ptr, ptr @pcc_data, i64 %41
+  %42 = getelementptr [8 x i8], ptr @pcc_data, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   tail call void @down_read(ptr noundef nonnull %44) #13
@@ -2864,7 +2860,7 @@ declare dso_local void @down_read(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -110, 1) i32 @check_pcc_chan(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #1 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr ptr, ptr @pcc_data, i64 %3
+  %4 = getelementptr [8 x i8], ptr @pcc_data, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 37
   %7 = load i8, ptr %6, align 1, !range !14, !noundef !15
@@ -2964,7 +2960,7 @@ declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local i32 @cppc_get_transition_latency(i32 noundef %0) #6 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_pcc_subspace_idx to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -2995,7 +2991,7 @@ define dso_local i32 @cppc_get_transition_latency(i32 noundef %0) #6 align 16 {
 
 22:                                               ; preds = %18
   %23 = zext nneg i32 %7 to i64
-  %24 = getelementptr ptr, ptr @pcc_data, i64 %23
+  %24 = getelementptr [8 x i8], ptr @pcc_data, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i32, ptr %26, align 8

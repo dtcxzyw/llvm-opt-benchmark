@@ -13,11 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.124" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.125" = type { [128 x i8] }
-%"class.llvm::LLT" = type { i64 }
-%"class.llvm::MachineOperand" = type { i32, %union.anon, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef.117" }
-%"class.llvm::ArrayRef.117" = type { ptr, i64 }
 
 $_ZZN4llvm21BranchProbabilityInfo27getBranchProbStackProtectorEbE10LikelyProb = comdat any
 
@@ -446,7 +441,7 @@ _ZNK4llvm12MachineInstr20isIndirectDebugValueEv.exit.thread: ; preds = %17, %_ZN
 49:                                               ; preds = %45
   %50 = zext nneg i32 %46 to i64
   %51 = load ptr, ptr %16, align 8, !tbaa !107
-  %52 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
   %53 = load i64, ptr %52, align 8, !tbaa !100
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i
 
@@ -467,7 +462,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i: ; preds = %49, %4
 62:                                               ; preds = %58
   %63 = zext nneg i32 %59 to i64
   %64 = load ptr, ptr %16, align 8, !tbaa !107
-  %65 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %64, i64 %63
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %63
   %66 = load i64, ptr %65, align 8, !tbaa !100
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit14.i.i
 
@@ -546,7 +541,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit29.i.i:        ; preds = %78, %76
 _ZN4llvm15SmallVectorImplImE6appendIPmvEEvT_S4_.exit.i.i: ; preds = %94, %_ZNK4llvm3LLT13getSizeInBitsEv.exit29.i.i
   %.pre-phi.i.i = phi i64 [ %89, %_ZNK4llvm3LLT13getSizeInBitsEv.exit29.i.i ], [ %.pre.i.i, %94 ]
   %95 = load ptr, ptr %8, align 8, !tbaa !107
-  %96 = getelementptr inbounds nuw i64, ptr %95, i64 %.pre-phi.i.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.pre-phi.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %96, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   %.pre.i.i.i = load i32, ptr %11, align 8, !tbaa !108
   %97 = add i32 %.pre.i.i.i, 6
@@ -583,7 +578,7 @@ _ZL20salvageDebugInfoImplRKN4llvm19MachineRegisterInfoERNS_12MachineInstrERNS_15
   %115 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %116 = load ptr, ptr %115, align 8, !tbaa !106
   %117 = zext i32 %35 to i64
-  %118 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %116, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %.val.i.pn, i64 36
   %120 = load i32, ptr %119, align 4, !tbaa !100
   call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %118, i32 %120) #8

@@ -3,7 +3,6 @@ source_filename = "bench/ffmpeg/original/dict.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVDictionaryEntry = type { ptr, ptr }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 
 @.str = private unnamed_addr constant [4 x i8] c"%ld\00", align 1
@@ -53,7 +52,7 @@ define ptr @av_dict_iterate(ptr noundef readonly captures(address_is_null) %0, p
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = sext i32 %.0 to i64
-  %19 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %17, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %17, i64 %18
   br label %20
 
 20:                                               ; preds = %13, %2, %15
@@ -102,7 +101,7 @@ define ptr @av_dict_get(ptr noundef readonly captures(address_is_null) %0, ptr n
 av_dict_iterate.exit.us:                          ; preds = %17
   %18 = load ptr, ptr %5, align 8, !tbaa !11
   %19 = sext i32 %.0.i.us to i64
-  %20 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %18, i64 %19
+  %20 = getelementptr inbounds [16 x i8], ptr %18, i64 %19
   %.not38.us = icmp eq ptr %18, null
   br i1 %.not38.us, label %av_dict_iterate.exit.thread, label %.split.us
 
@@ -183,7 +182,7 @@ av_dict_iterate.exit.us:                          ; preds = %17
 av_dict_iterate.exit.us75:                        ; preds = %54
   %55 = load ptr, ptr %5, align 8, !tbaa !11
   %56 = sext i32 %.0.i.us73 to i64
-  %57 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %55, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %55, i64 %56
   %.not38.us76 = icmp eq ptr %55, null
   br i1 %.not38.us76, label %av_dict_iterate.exit.thread, label %.preheader.us
 
@@ -230,7 +229,7 @@ av_dict_iterate.exit.us75:                        ; preds = %54
 av_dict_iterate.exit:                             ; preds = %75
   %76 = load ptr, ptr %5, align 8, !tbaa !11
   %77 = sext i32 %.0.i to i64
-  %78 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %76, i64 %77
+  %78 = getelementptr inbounds [16 x i8], ptr %76, i64 %77
   %.not38 = icmp eq ptr %76, null
   br i1 %.not38, label %av_dict_iterate.exit.thread, label %.preheader
 
@@ -448,7 +447,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   %68 = add nsw i32 %67, -1
   store i32 %68, ptr %.2122, align 8, !tbaa !4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %66, i64 %69
+  %70 = getelementptr inbounds [16 x i8], ptr %66, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.070, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !24
   %.pr.pre = load ptr, ptr %5, align 8, !tbaa !21
   %71 = icmp eq ptr %.pr.pre, null
@@ -459,7 +458,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   %74 = load ptr, ptr %73, align 8, !tbaa !11
   %75 = load i32, ptr %.2122, align 8, !tbaa !4
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %74, i64 %76
+  %77 = getelementptr inbounds [16 x i8], ptr %74, i64 %76
   store ptr %.173118, ptr %77, align 8, !tbaa !12
   %78 = load ptr, ptr %5, align 8, !tbaa !21
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -643,12 +642,12 @@ define void @av_dict_free(ptr noundef %0) local_unnamed_addr #2 {
   %7 = phi i32 [ %4, %.lr.ph ], [ %17, %6 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !11
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %8, i64 %9
+  %10 = getelementptr inbounds [16 x i8], ptr %8, i64 %9
   tail call void @av_freep(ptr noundef %10) #8
   %11 = load ptr, ptr %5, align 8, !tbaa !11
   %12 = load i32, ptr %2, align 8, !tbaa !4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %11, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %11, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   tail call void @av_freep(ptr noundef nonnull %15) #8
   %16 = load i32, ptr %2, align 8, !tbaa !4
@@ -701,7 +700,7 @@ av_dict_iterate.exit:                             ; preds = %13
 
 16:                                               ; preds = %av_dict_iterate.exit
   %17 = sext i32 %.0.i to i64
-  %18 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %15, i64 %17
+  %18 = getelementptr inbounds [16 x i8], ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !22
@@ -790,7 +789,7 @@ av_dict_count.exit.thread:                        ; preds = %18, %av_dict_count.
 av_dict_iterate.exit:                             ; preds = %33
   %35 = load ptr, ptr %23, align 8, !tbaa !11
   %36 = sext i32 %.0.i to i64
-  %37 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %35, i64 %36
+  %37 = getelementptr inbounds [16 x i8], ptr %35, i64 %36
   %.not28 = icmp eq ptr %35, null
   br i1 %.not28, label %av_dict_iterate.exit.thread, label %38
 

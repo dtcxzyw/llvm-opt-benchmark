@@ -221,7 +221,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -900,7 +900,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer19AttributeSubSectionELb0EE2
   %.016.i.i.i = phi ptr [ %6, %_ZN4llvm21AArch64TargetStreamer27activateAtributesSubsectionENS_9StringRefE.exit ], [ %41, %36 ], [ %6, %.critedge.i.i.i ]
   %43 = load i32, ptr %9, align 8, !tbaa !26
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeSubSection", ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [3120 x i8], ptr %42, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %45, ptr noundef nonnull align 8 dereferenceable(3120) %.016.i.i.i, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 48
@@ -1329,7 +1329,7 @@ _ZN4llvm13MCELFStreamer13AttributeItemC2ENS1_5TypesEjjNSt7__cxx1112basic_stringI
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, label %58, !prof !33
 
 58:                                               ; preds = %_ZN4llvm13MCELFStreamer13AttributeItemC2ENS1_5TypesEjjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %59 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %.pre3.i, i64 %37
+  %59 = getelementptr inbounds nuw [48 x i8], ptr %.pre3.i, i64 %37
   %60 = icmp uge ptr %10, %.pre3.i
   %61 = icmp ult ptr %10, %59
   %spec.select.i.i.i.i.i = and i1 %60, %61
@@ -1354,7 +1354,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reser
   %.016.i.i.i = phi ptr [ %10, %_ZN4llvm13MCELFStreamer13AttributeItemC2ENS1_5TypesEjjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %67, %62 ], [ %10, %.critedge.i.i.i ]
   %69 = load i32, ptr %35, align 8, !tbaa !26
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [48 x i8], ptr %68, i64 %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %71, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i, i64 12, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
@@ -1520,7 +1520,7 @@ _ZN4llvm13MCELFStreamer13AttributeItemC2ENS1_5TypesEjjNSt7__cxx1112basic_stringI
   br i1 %.not.i.i.not.i55, label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i60, label %139, !prof !33
 
 139:                                              ; preds = %_ZN4llvm13MCELFStreamer13AttributeItemC2ENS1_5TypesEjjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit54
-  %140 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %.pre3.i56, i64 %135
+  %140 = getelementptr inbounds nuw [48 x i8], ptr %.pre3.i56, i64 %135
   %141 = icmp uge ptr %12, %.pre3.i56
   %142 = icmp ult ptr %12, %140
   %spec.select.i.i.i.i.i57 = and i1 %141, %142
@@ -1545,7 +1545,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reser
   %.016.i.i.i61 = phi ptr [ %12, %_ZN4llvm13MCELFStreamer13AttributeItemC2ENS1_5TypesEjjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit54 ], [ %148, %143 ], [ %12, %.critedge.i.i.i58 ]
   %150 = load i32, ptr %35, align 8, !tbaa !26
   %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %149, i64 %151
+  %152 = getelementptr inbounds nuw [48 x i8], ptr %149, i64 %151
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %152, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i61, i64 12, i1 false)
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = getelementptr inbounds nuw i8, ptr %.016.i.i.i61, i64 16
@@ -2317,7 +2317,7 @@ _ZSt4moveIPN4llvm13MCELFStreamer13AttributeItemES3_ET0_T_S5_S4_.exit: ; preds = 
   %.pre-phi = phi i64 [ %.pre85, %_ZSt4moveIPN4llvm13MCELFStreamer13AttributeItemES3_ET0_T_S5_S4_.exit.loopexit ], [ %37, %38 ]
   %77 = phi ptr [ %.pre, %_ZSt4moveIPN4llvm13MCELFStreamer13AttributeItemES3_ET0_T_S5_S4_.exit.loopexit ], [ %39, %38 ]
   %.0 = phi ptr [ %74, %_ZSt4moveIPN4llvm13MCELFStreamer13AttributeItemES3_ET0_T_S5_S4_.exit.loopexit ], [ %39, %38 ]
-  %78 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %77, i64 %.pre-phi
+  %78 = getelementptr inbounds nuw [48 x i8], ptr %77, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %78
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE13destroy_rangeEPS2_S4_.exit, label %.lr.ph.i
 
@@ -2525,14 +2525,14 @@ _ZSt4moveIPN4llvm13MCELFStreamer13AttributeItemES3_ET0_T_S5_S4_.exit70: ; preds 
   %150 = load ptr, ptr %1, align 8, !tbaa !25
   %151 = load i32, ptr %32, align 8, !tbaa !26
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [48 x i8], ptr %150, i64 %152
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %152
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit, label %.lr.ph.i.i.i.i.i71.preheader
 
 .lr.ph.i.i.i.i.i71.preheader:                     ; preds = %_ZSt4moveIPN4llvm13MCELFStreamer13AttributeItemES3_ET0_T_S5_S4_.exit70
   %154 = load ptr, ptr %0, align 8, !tbaa !25
-  %155 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %154, i64 %.026
-  %156 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %150, i64 %.026
+  %155 = getelementptr inbounds nuw [48 x i8], ptr %154, i64 %.026
+  %156 = getelementptr inbounds nuw [48 x i8], ptr %150, i64 %.026
   br label %.lr.ph.i.i.i.i.i71
 
 .lr.ph.i.i.i.i.i71:                               ; preds = %.lr.ph.i.i.i.i.i71.preheader, %_ZSt10_ConstructIN4llvm13MCELFStreamer13AttributeItemEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -2779,7 +2779,7 @@ _ZSt4copyIPKN4llvm13MCELFStreamer13AttributeItemEPS2_ET0_T_S7_S6_.exit: ; preds 
   %.pre-phi = phi i64 [ %.pre38, %_ZSt4copyIPKN4llvm13MCELFStreamer13AttributeItemEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %11, %12 ]
   %21 = phi ptr [ %.pre, %_ZSt4copyIPKN4llvm13MCELFStreamer13AttributeItemEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %13, %12 ]
   %.0 = phi ptr [ %18, %_ZSt4copyIPKN4llvm13MCELFStreamer13AttributeItemEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %13, %12 ]
-  %22 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %21, i64 %.pre-phi
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %22
   br i1 %.not4.i, label %.sink.split, label %.lr.ph.i
 
@@ -2870,14 +2870,14 @@ _ZSt4copyIPKN4llvm13MCELFStreamer13AttributeItemEPS2_ET0_T_S7_S6_.exit36: ; pred
   %53 = load ptr, ptr %1, align 8, !tbaa !25
   %54 = load i32, ptr %6, align 8, !tbaa !26
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %55
   %.not9.i.i.i.i = icmp samesign eq i64 %.022, %55
   br i1 %.not9.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKN4llvm13MCELFStreamer13AttributeItemEPS2_ET0_T_S7_S6_.exit36
   %57 = load ptr, ptr %0, align 8, !tbaa !25
-  %58 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %57, i64 %.022
-  %59 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %53, i64 %.022
+  %58 = getelementptr inbounds nuw [48 x i8], ptr %57, i64 %.022
+  %59 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN4llvm13MCELFStreamer13AttributeItemEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i

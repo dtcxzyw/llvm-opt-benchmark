@@ -174,11 +174,11 @@ define internal i32 @svq1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 
 53:                                               ; preds = %44, %53
   %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %53 ]
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !51
   %56 = tail call i32 @llvm.fshl.i32(i32 %55, i32 %55, i32 16)
   %57 = sub nuw nsw i64 7, %indvars.iv
-  %58 = getelementptr inbounds nuw i32, ptr %52, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !51
   %60 = xor i32 %56, %59
   store i32 %60, ptr %54, align 4, !tbaa !51
@@ -421,7 +421,7 @@ svq1_parse_string.exit.i:                         ; preds = %.lr.ph.i.i, %122
 
 195:                                              ; preds = %151
   %196 = zext nneg i32 %168 to i64
-  %197 = getelementptr inbounds nuw [2 x i16], ptr @ff_svq1_frame_size_table, i64 %196
+  %197 = getelementptr inbounds nuw [4 x i8], ptr @ff_svq1_frame_size_table, i64 %196
   %198 = load i16, ptr %197, align 4, !tbaa !62
   %199 = zext i16 %198 to i32
   %200 = getelementptr inbounds nuw i8, ptr %197, i64 2
@@ -613,7 +613,7 @@ skip_1stop_8data_bits.exit.i:                     ; preds = %.preheader.i.i, %.s
 
 313:                                              ; preds = %.preheader216, %.loopexit
   %indvars.iv249 = phi i64 [ 0, %.preheader216 ], [ %indvars.iv.next250, %.loopexit ]
-  %314 = getelementptr inbounds nuw i32, ptr %302, i64 %indvars.iv249
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %302, i64 %indvars.iv249
   %315 = load i32, ptr %314, align 4, !tbaa !51
   %316 = icmp eq i64 %indvars.iv249, 0
   br i1 %316, label %317, label %320
@@ -645,7 +645,7 @@ skip_1stop_8data_bits.exit.i:                     ; preds = %.preheader.i.i, %.s
   %.0142 = and i32 %.0142.in, -16
   %.0143.in = add nsw i32 %.0143.in.in, 15
   %.0143 = and i32 %.0143.in, -16
-  %331 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv249
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv249
   %332 = load ptr, ptr %331, align 8, !tbaa !67
   %333 = load i32, ptr %304, align 8, !tbaa !56
   %334 = icmp eq i32 %333, 1
@@ -695,7 +695,7 @@ skip_1stop_8data_bits.exit.i:                     ; preds = %.preheader.i.i, %.s
 
 349:                                              ; preds = %328
   %350 = load ptr, ptr %305, align 8, !tbaa !27
-  %351 = getelementptr inbounds nuw ptr, ptr %350, i64 %indvars.iv249
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %350, i64 %indvars.iv249
   %352 = load ptr, ptr %351, align 8, !tbaa !67
   %.not169 = icmp eq ptr %352, null
   br i1 %.not169, label %359, label %353
@@ -773,7 +773,7 @@ skip_1stop_8data_bits.exit.i:                     ; preds = %.preheader.i.i, %.s
   %399 = shl i32 %397, %398
   %400 = lshr i32 %399, 29
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds nuw %struct.VLCElem, ptr @svq1_block_type, i64 %401
+  %402 = getelementptr inbounds nuw [4 x i8], ptr @svq1_block_type, i64 %401
   %403 = load i16, ptr %402, align 4, !tbaa !48
   %404 = getelementptr inbounds nuw i8, ptr %402, i64 2
   %405 = load i16, ptr %404, align 2, !tbaa !48
@@ -877,7 +877,7 @@ skip_1stop_8data_bits.exit.i:                     ; preds = %.preheader.i.i, %.s
 442:                                              ; preds = %442, %.preheader.i.i179.us
   %indvars.iv.i.i180.us = phi i64 [ 0, %.preheader.i.i179.us ], [ %indvars.iv.next.i.i181.us, %442 ]
   %.06277.i.i.us = phi ptr [ %388, %.preheader.i.i179.us ], [ %.1.i.i.us, %442 ]
-  %443 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i180.us
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i180.us
   %444 = load ptr, ptr %443, align 8, !tbaa !75
   %445 = load i32, ptr %444, align 4, !tbaa !74
   %446 = trunc nuw nsw i64 %indvars.iv.i.i180.us to i32
@@ -911,7 +911,7 @@ skip_1stop_8data_bits.exit.i:                     ; preds = %.preheader.i.i, %.s
   %470 = and i32 %.0.i.i57.i.us, 1
   %471 = or disjoint i32 %469, %470
   %472 = zext nneg i32 %471 to i64
-  %473 = getelementptr inbounds nuw ptr, ptr %309, i64 %472
+  %473 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %472
   %474 = load ptr, ptr %473, align 8, !tbaa !76
   call void %474(ptr noundef %.06277.i.i.us, ptr noundef %467, i64 noundef range(i64 -2147483648, 2147483648) %368, i32 noundef 8) #9
   %.not71.i.i.us = icmp eq i32 %447, 0
@@ -986,7 +986,7 @@ skip_1stop_8data_bits.exit.i:                     ; preds = %.preheader.i.i, %.s
   %513 = and i32 %.0.i.i.i.us, 1
   %514 = or disjoint i32 %512, %513
   %515 = zext nneg i32 %514 to i64
-  %516 = getelementptr inbounds nuw ptr, ptr %15, i64 %515
+  %516 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %515
   %517 = load ptr, ptr %516, align 8, !tbaa !76
   call void %517(ptr noundef %388, ptr noundef %510, i64 noundef range(i64 -2147483648, 2147483648) %368, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1125,15 +1125,15 @@ define internal void @svq1_static_init() #0 {
 
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @ff_svq1_intra_multistage_vlc, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @ff_svq1_intra_multistage_vlc, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %6 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %1, i32 noundef 4, i32 noundef 8, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
-  %7 = getelementptr inbounds nuw ptr, ptr @svq1_intra_multistage, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @svq1_intra_multistage, i64 %indvars.iv
   store ptr %6, ptr %7, align 8, !tbaa !84
-  %8 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @ff_svq1_inter_multistage_vlc, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @ff_svq1_inter_multistage_vlc, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %10 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %1, i32 noundef 3, i32 noundef 8, ptr noundef nonnull %9, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %8, i32 noundef 2, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
-  %11 = getelementptr inbounds nuw ptr, ptr @svq1_inter_multistage, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @svq1_inter_multistage, i64 %indvars.iv
   store ptr %10, ptr %11, align 8, !tbaa !84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -1219,9 +1219,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_intra(pt
   br i1 %.not128, label %._crit_edge, label %31
 
 31:                                               ; preds = %17
-  %32 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv240
+  %32 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv240
   %33 = load ptr, ptr %32, align 8, !tbaa !67
-  %34 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %34 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %33, ptr %34, align 8, !tbaa !67
   %35 = and i32 %.3, 1
   %.not129 = icmp eq i32 %35, 0
@@ -1243,7 +1243,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_intra(pt
   %.2119 = phi i32 [ %.0117222, %.preheader141 ], [ %13, %14 ], [ %.3120, %17 ]
   %.2 = phi i32 [ 0, %.preheader141 ], [ 0, %14 ], [ %.3, %17 ]
   %43 = sext i32 %.1124.lcssa to i64
-  %44 = getelementptr inbounds ptr, ptr %4, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %4, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !67
   %46 = add i32 %.2, 4
   %47 = lshr i32 %46, 1
@@ -1252,7 +1252,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_intra(pt
   %50 = lshr i32 %49, 1
   %51 = shl nuw i32 1, %50
   %52 = zext i32 %.2 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr @svq1_intra_multistage, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @svq1_intra_multistage, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !84
   %55 = load i32, ptr %6, align 8, !tbaa !47
   %56 = load i32, ptr %7, align 8, !tbaa !45
@@ -1266,7 +1266,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_intra(pt
   %64 = shl i32 %62, %63
   %65 = lshr i32 %64, 28
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw %struct.VLCElem, ptr %54, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !48
   %69 = sext i16 %68 to i32
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 2
@@ -1289,7 +1289,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_intra(pt
   %85 = lshr i32 %83, %84
   %86 = add i32 %85, %69
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw %struct.VLCElem, ptr %54, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !48
   %90 = sext i16 %89 to i32
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -1316,7 +1316,7 @@ get_vlc2.exit:                                    ; preds = %._crit_edge, %74
 99:                                               ; preds = %.preheader137, %99
   %indvars.iv294 = phi i64 [ 0, %.preheader137 ], [ %indvars.iv.next295, %99 ]
   %100 = mul nsw i64 %indvars.iv294, %.sext
-  %101 = getelementptr inbounds i32, ptr %45, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %45, i64 %100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %101, i8 0, i64 %98, i1 false)
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond299.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count298
@@ -1347,7 +1347,7 @@ get_vlc2.exit:                                    ; preds = %._crit_edge, %74
   %115 = shl i32 %113, %114
   %116 = lshr i32 %115, 24
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw %struct.VLCElem, ptr @svq1_intra_mean, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr @svq1_intra_mean, i64 %117
   %119 = load i16, ptr %118, align 4, !tbaa !48
   %120 = sext i16 %119 to i32
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 2
@@ -1370,7 +1370,7 @@ get_vlc2.exit:                                    ; preds = %._crit_edge, %74
   %136 = lshr i32 %134, %135
   %137 = add i32 %136, %120
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw %struct.VLCElem, ptr @svq1_intra_mean, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr @svq1_intra_mean, i64 %138
   %140 = load i16, ptr %139, align 4, !tbaa !48
   %141 = sext i16 %140 to i32
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 2
@@ -1393,7 +1393,7 @@ get_vlc2.exit:                                    ; preds = %._crit_edge, %74
   %157 = lshr i32 %155, %156
   %158 = add i32 %157, %141
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw %struct.VLCElem, ptr @svq1_intra_mean, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr @svq1_intra_mean, i64 %159
   %161 = load i16, ptr %160, align 4, !tbaa !48
   %162 = sext i16 %161 to i32
   %163 = getelementptr inbounds nuw i8, ptr %160, i64 2
@@ -1420,14 +1420,14 @@ get_vlc2.exit135:                                 ; preds = %108, %125, %146
 171:                                              ; preds = %.preheader138, %171
   %indvars.iv288 = phi i64 [ 0, %.preheader138 ], [ %indvars.iv.next289, %171 ]
   %172 = mul nsw i64 %indvars.iv288, %.sext
-  %173 = getelementptr inbounds i32, ptr %45, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %45, i64 %172
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %173, i8 %169, i64 %170, i1 false)
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count292
   br i1 %exitcond293.not, label %.loopexit, label %171, !llvm.loop !88
 
 .lr.ph162:                                        ; preds = %get_vlc2.exit135
-  %174 = getelementptr inbounds nuw ptr, ptr @ff_svq1_intra_codebooks, i64 %52
+  %174 = getelementptr inbounds nuw [8 x i8], ptr @ff_svq1_intra_codebooks, i64 %52
   %175 = load ptr, ptr %174, align 8, !tbaa !67
   %176 = shl nuw nsw i32 %96, 2
   %177 = lshr i32 %167, 3
@@ -1458,7 +1458,7 @@ get_vlc2.exit135:                                 ; preds = %108, %125, %146
   %196 = shl i32 %indvars.iv245.tr, 4
   %197 = or disjoint i32 %195, %196
   %198 = shl i32 %197, %188
-  %199 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv245
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv245
   store i32 %198, ptr %199, align 4, !tbaa !51
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next246, %wide.trip.count
@@ -1526,7 +1526,7 @@ get_vlc2.exit135:                                 ; preds = %108, %125, %146
   %.1.us.us.us = phi i32 [ %229, %218 ], [ %246, %216 ]
   %231 = shl nuw i32 %.1102.us.us.us, 8
   %232 = or i32 %.1.us.us.us, %231
-  %233 = getelementptr inbounds nuw i32, ptr %.0108191.us.us, i64 %indvars.iv254
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %.0108191.us.us, i64 %indvars.iv254
   store i32 %232, ptr %233, align 4, !tbaa !51
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %234 = getelementptr inbounds nuw i8, ptr %.1114171.us.us.us, i64 4
@@ -1537,10 +1537,10 @@ get_vlc2.exit135:                                 ; preds = %108, %125, %146
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %235 ], [ 0, %.preheader.us.us.us ]
   %.0100166.us.us.us = phi i32 [ %246, %235 ], [ %202, %.preheader.us.us.us ]
   %.0101165.us.us.us = phi i32 [ %244, %235 ], [ %202, %.preheader.us.us.us ]
-  %236 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv248
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv248
   %237 = load i32, ptr %236, align 4, !tbaa !51
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds i32, ptr %.1114171.us.us.us, i64 %238
+  %239 = getelementptr inbounds [4 x i8], ptr %.1114171.us.us.us, i64 %238
   %240 = load i32, ptr %239, align 4, !tbaa !51
   %241 = xor i32 %240, -2139062144
   %242 = lshr i32 %241, 8
@@ -1558,7 +1558,7 @@ get_vlc2.exit135:                                 ; preds = %108, %125, %146
   br i1 %.not130.us.us.us, label %216, label %204
 
 ._crit_edge173.split.us.us.us:                    ; preds = %230
-  %248 = getelementptr inbounds i32, ptr %.0108191.us.us, i64 %.sext
+  %248 = getelementptr inbounds [4 x i8], ptr %.0108191.us.us, i64 %.sext
   %249 = add nuw i32 %.2111190.us.us, 1
   %exitcond259.not = icmp eq i32 %249, %51
   br i1 %exitcond259.not, label %.loopexit, label %.preheader136.us.us, !llvm.loop !92
@@ -1650,9 +1650,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_non_intr
   br i1 %.not, label %._crit_edge, label %33
 
 33:                                               ; preds = %20
-  %34 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv191
+  %34 = getelementptr inbounds [8 x i8], ptr %5, i64 %indvars.iv191
   %35 = load ptr, ptr %34, align 8, !tbaa !67
-  %36 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %36 = getelementptr inbounds [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %35, ptr %36, align 8, !tbaa !67
   %37 = and i32 %.3, 1
   %.not121 = icmp eq i32 %37, 0
@@ -1674,7 +1674,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_non_intr
   %.2111 = phi i32 [ %.0109181, %.preheader130 ], [ %16, %17 ], [ %.3112, %20 ]
   %.2 = phi i32 [ %.095184, %.preheader130 ], [ 0, %17 ], [ %.3, %20 ]
   %45 = sext i32 %.1116.lcssa to i64
-  %46 = getelementptr inbounds ptr, ptr %5, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %5, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !67
   %48 = add nsw i32 %.2, 4
   %49 = sdiv i32 %48, 2
@@ -1683,7 +1683,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_non_intr
   %52 = sdiv i32 %51, 2
   %53 = shl nuw i32 1, %52
   %54 = sext i32 %.2 to i64
-  %55 = getelementptr inbounds ptr, ptr @svq1_inter_multistage, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr @svq1_inter_multistage, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !84
   %57 = load i32, ptr %7, align 8, !tbaa !47
   %58 = load i32, ptr %8, align 8, !tbaa !45
@@ -1696,7 +1696,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_non_intr
   %65 = shl i32 %63, %64
   %66 = lshr i32 %65, 29
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.VLCElem, ptr %56, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !48
   %70 = sext i16 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 2
@@ -1719,7 +1719,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_non_intr
   %86 = lshr i32 %84, %85
   %87 = add i32 %86, %70
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %struct.VLCElem, ptr %56, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !48
   %91 = sext i16 %90 to i32
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 2
@@ -1763,7 +1763,7 @@ get_vlc2.exit129:                                 ; preds = %._crit_edge, %75
   %112 = shl i32 %110, %111
   %113 = lshr i32 %112, 23
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw %struct.VLCElem, ptr @svq1_inter_mean, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr @svq1_inter_mean, i64 %114
   %116 = load i16, ptr %115, align 4, !tbaa !48
   %117 = sext i16 %116 to i32
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 2
@@ -1786,7 +1786,7 @@ get_vlc2.exit129:                                 ; preds = %._crit_edge, %75
   %133 = lshr i32 %131, %132
   %134 = add i32 %133, %117
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds nuw %struct.VLCElem, ptr @svq1_inter_mean, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr @svq1_inter_mean, i64 %135
   %137 = load i16, ptr %136, align 4, !tbaa !48
   %138 = sext i16 %137 to i32
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 2
@@ -1809,7 +1809,7 @@ get_vlc2.exit129:                                 ; preds = %._crit_edge, %75
   %154 = lshr i32 %152, %153
   %155 = add i32 %154, %138
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw %struct.VLCElem, ptr @svq1_inter_mean, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr @svq1_inter_mean, i64 %156
   %158 = load i16, ptr %157, align 4, !tbaa !48
   %159 = sext i16 %158 to i32
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 2
@@ -1838,7 +1838,7 @@ get_vlc2.exit:                                    ; preds = %105, %122, %143
 
 170:                                              ; preds = %166, %168, %get_vlc2.exit
   %.0103 = phi i32 [ %165, %get_vlc2.exit ], [ %spec.store.select, %168 ], [ 128, %166 ]
-  %171 = getelementptr inbounds ptr, ptr @ff_svq1_inter_codebooks, i64 %54
+  %171 = getelementptr inbounds [8 x i8], ptr @ff_svq1_inter_codebooks, i64 %54
   %172 = load ptr, ptr %171, align 8, !tbaa !67
   br i1 %100, label %.lr.ph150, label %._crit_edge151
 
@@ -1872,7 +1872,7 @@ get_vlc2.exit:                                    ; preds = %105, %122, %143
   %193 = shl i32 %indvars.iv196.tr, 4
   %194 = or disjoint i32 %192, %193
   %195 = shl i32 %194, %185
-  %196 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv196
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv196
   store i32 %195, ptr %196, align 4, !tbaa !51
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count
@@ -1915,7 +1915,7 @@ get_vlc2.exit:                                    ; preds = %105, %122, %143
 .lr.ph156.us.us.us:                               ; preds = %236, %.preheader.us.us
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %236 ], [ 0, %.preheader.us.us ]
   %.1105160.us.us.us = phi ptr [ %239, %236 ], [ %.0104165.us.us, %.preheader.us.us ]
-  %203 = getelementptr inbounds nuw i32, ptr %.0100167.us.us, i64 %indvars.iv207
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %.0100167.us.us, i64 %indvars.iv207
   %204 = load i32, ptr %203, align 4, !tbaa !51
   %205 = lshr i32 %204, 8
   %206 = and i32 %205, 16711935
@@ -1972,10 +1972,10 @@ get_vlc2.exit:                                    ; preds = %105, %122, %143
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %240 ], [ 0, %.lr.ph156.us.us.us ]
   %.092154.us.us.us = phi i32 [ %251, %240 ], [ %209, %.lr.ph156.us.us.us ]
   %.093153.us.us.us = phi i32 [ %249, %240 ], [ %207, %.lr.ph156.us.us.us ]
-  %241 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv200
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv200
   %242 = load i32, ptr %241, align 4, !tbaa !51
   %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds i32, ptr %.1105160.us.us.us, i64 %243
+  %244 = getelementptr inbounds [4 x i8], ptr %.1105160.us.us.us, i64 %243
   %245 = load i32, ptr %244, align 4, !tbaa !51
   %246 = xor i32 %245, -2139062144
   %247 = lshr i32 %246, 8
@@ -1993,7 +1993,7 @@ get_vlc2.exit:                                    ; preds = %105, %122, %143
   br i1 %.not123.us.us.us, label %222, label %210
 
 ._crit_edge163.split.us.us.us:                    ; preds = %236
-  %253 = getelementptr inbounds i32, ptr %.0100167.us.us, i64 %.sext
+  %253 = getelementptr inbounds [4 x i8], ptr %.0100167.us.us, i64 %.sext
   %254 = add nuw nsw i32 %.0101166.us.us, 1
   %exitcond214.not = icmp eq i32 %254, %smax213
   br i1 %exitcond214.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !98
@@ -2005,7 +2005,7 @@ get_vlc2.exit:                                    ; preds = %105, %122, %143
 
 255:                                              ; preds = %.preheader.us, %290
   %indvars.iv215 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next216, %290 ]
-  %256 = getelementptr inbounds nuw i32, ptr %.0100167.us, i64 %indvars.iv215
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %.0100167.us, i64 %indvars.iv215
   %257 = load i32, ptr %256, align 4, !tbaa !51
   %258 = lshr i32 %257, 8
   %259 = and i32 %258, 16711935
@@ -2060,7 +2060,7 @@ get_vlc2.exit:                                    ; preds = %105, %122, %143
   br i1 %exitcond220.not, label %._crit_edge163.split.us177, label %255, !llvm.loop !96
 
 ._crit_edge163.split.us177:                       ; preds = %290
-  %293 = getelementptr inbounds i32, ptr %.0100167.us, i64 %.sext
+  %293 = getelementptr inbounds [4 x i8], ptr %.0100167.us, i64 %.sext
   %294 = add nuw nsw i32 %.0101166.us, 1
   %exitcond222.not = icmp eq i32 %294, %smax221
   br i1 %exitcond222.not, label %.loopexit, label %.preheader.us, !llvm.loop !98
@@ -2101,7 +2101,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_motion_vector(
   %19 = shl i32 %17, %18
   %20 = lshr i32 %19, 25
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.VLCElem, ptr @svq1_motion_component, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @svq1_motion_component, i64 %21
   %23 = load i16, ptr %22, align 4, !tbaa !48
   %24 = sext i16 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 2
@@ -2124,7 +2124,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_motion_vector(
   %40 = lshr i32 %38, %39
   %41 = add i32 %40, %24
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %struct.VLCElem, ptr @svq1_motion_component, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @svq1_motion_component, i64 %42
   %44 = load i16, ptr %43, align 4, !tbaa !48
   %45 = sext i16 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 2

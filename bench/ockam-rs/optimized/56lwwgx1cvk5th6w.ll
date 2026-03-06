@@ -199,7 +199,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$11clean_em
   %.not.i = icmp ult i64 %12, %6
   %14 = select i1 %.not.i, i64 0, i64 %6
   %.03.i = sub nuw i64 %12, %14
-  %15 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %7, i64 %.03.i
+  %15 = getelementptr inbounds [32 x i8], ptr %7, i64 %.03.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !4
   %.not6 = icmp eq i64 %17, 0
@@ -218,7 +218,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$11clean_em
   store i64 %.0.i3, ptr %4, align 8, !alias.scope !21, !noalias !24
   %20 = add i64 %13, -1
   store i64 %20, ptr %3, align 8, !alias.scope !21, !noalias !24
-  %21 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %7, i64 %12
+  %21 = getelementptr inbounds [32 x i8], ptr %7, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !21
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %22 = load ptr, ptr %2, align 8, !alias.scope !26, !noundef !4
@@ -299,7 +299,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$4push17h4b
   %26 = select i1 %.not.i, i64 0, i64 %21
   %.0.i = sub nuw i64 %25, %26
   %27 = load ptr, ptr %0, align 8, !alias.scope !36, !noalias !39, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %27, i64 %.0.i
+  %28 = getelementptr inbounds [32 x i8], ptr %27, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %29 = load i64, ptr %10, align 8, !alias.scope !36, !noalias !39, !noundef !4
   %30 = add i64 %29, 1
@@ -324,7 +324,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$4push17h4b
   %.not.i.i = icmp ult i64 %37, %31
   %39 = select i1 %.not.i.i, i64 0, i64 %31
   %.03.i.i = sub nuw i64 %37, %39
-  %40 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %32, i64 %.03.i.i
+  %40 = getelementptr inbounds [32 x i8], ptr %32, i64 %.03.i.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8, !noalias !41, !noundef !4
   %.not6.i = icmp eq i64 %42, 0
@@ -340,7 +340,7 @@ define hidden void @"_ZN11bytes_utils9segmented21SegmentedBuf$LT$B$GT$4push17h4b
   store i64 %.0.i3.i, ptr %23, align 8, !alias.scope !50, !noalias !51
   %45 = add i64 %38, -1
   store i64 %45, ptr %10, align 8, !alias.scope !50, !noalias !51
-  %46 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %32, i64 %37
+  %46 = getelementptr inbounds [32 x i8], ptr %32, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false), !noalias !50
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %47 = load ptr, ptr %3, align 8, !alias.scope !53, !noalias !41, !noundef !4

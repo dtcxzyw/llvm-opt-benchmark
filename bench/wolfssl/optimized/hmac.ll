@@ -18,7 +18,7 @@ define range(i32 -173, 65) i32 @wc_HmacSizeByType(i32 noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_HmacSizeByType, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wc_HmacSizeByType, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -1014,7 +1014,7 @@ switch.lookup:                                    ; preds = %8
 
 13:                                               ; preds = %switch.lookup
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_HKDF_Expand_ex, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wc_HKDF_Expand_ex, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %15 = zext nneg i32 %switch.load to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, i8 0, i64 %15, i1 false)
@@ -1071,7 +1071,7 @@ switch.lookup:                                    ; preds = %6
 
 11:                                               ; preds = %switch.lookup
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_HKDF_Expand_ex, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wc_HKDF_Expand_ex, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = zext nneg i32 %switch.load to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %7, i8 0, i64 %13, i1 false)
@@ -1125,7 +1125,7 @@ define i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 switch.lookup:                                    ; preds = %9
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_HKDF_Expand_ex, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wc_HKDF_Expand_ex, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %15 = icmp eq ptr %5, null
   br i1 %15, label %wc_HmacSizeByType.exit, label %16

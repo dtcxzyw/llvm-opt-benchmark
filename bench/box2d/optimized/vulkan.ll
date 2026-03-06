@@ -59,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._GLFWlibraryGLX = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct._GLFWlibraryLinux = type { i32, i32, %struct.re_pattern_buffer, i32, i32 }
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
-%struct.VkExtensionProperties = type { [256 x i8], i32 }
 
 @_glfw = external global %struct._GLFWlibrary, align 8
 @.str = private unnamed_addr constant [15 x i8] c"libvulkan.so.1\00", align 1
@@ -221,7 +220,7 @@ define hidden range(i32 0, 2) i32 @_glfwInitVulkan(i32 noundef %0) local_unnamed
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %70 ]
-  %42 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %35, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [260 x i8], ptr %35, i64 %indvars.iv
   %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(15) @.str.8) #6
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %46

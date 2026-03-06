@@ -543,7 +543,7 @@ _ZNK2cv4MatxIdLi2ELi2EE3invEiPb.exit:             ; preds = %_ZNK2cv8internal14M
   %indvars.iv.i.i.sroa.phi.sroa.speculated = phi double [ %135, %.preheader19.i.i ], [ %149, %164 ]
   %indvars.iv.i.i = phi i64 [ 0, %.preheader19.i.i ], [ 1, %164 ]
   %.01620.i.i = phi double [ 0.000000e+00, %.preheader19.i.i ], [ %167, %164 ]
-  %gep.i.i = getelementptr inbounds nuw double, ptr %indvars.iv24.i.i.sroa.phi, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr inbounds nuw [8 x i8], ptr %indvars.iv24.i.i.sroa.phi, i64 %indvars.iv.i.i
   %166 = load double, ptr %gep.i.i, align 8, !tbaa !26, !noalias !35
   %167 = call double @llvm.fmuladd.f64(double %166, double %indvars.iv.i.i.sroa.phi.sroa.speculated, double %.01620.i.i)
   br i1 %165, label %164, label %163, !llvm.loop !40

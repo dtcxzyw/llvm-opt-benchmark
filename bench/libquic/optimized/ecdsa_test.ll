@@ -82,7 +82,7 @@ _ZL11TestBuiltinP8_IO_FILE.exit.thread:           ; preds = %0, %10
 
 15:                                               ; preds = %216, %13
   %.085156.i = phi i64 [ 0, %13 ], [ %217, %216 ]
-  %16 = getelementptr inbounds nuw %struct.anon, ptr @_ZZL11TestBuiltinP8_IO_FILEE7kCurves, i64 %.085156.i
+  %16 = getelementptr inbounds nuw [16 x i8], ptr @_ZZL11TestBuiltinP8_IO_FILEE7kCurves, i64 %.085156.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !11
   %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.8, ptr noundef %18) #15

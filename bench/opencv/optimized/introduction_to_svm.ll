@@ -33,8 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Vec.0" = type { %"class.cv::Matx.1" }
-%"class.cv::Matx.1" = type { [3 x i8] }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -315,7 +313,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %122
 125:                                              ; preds = %_ZN2cv4Mat_IfEC2Eii.exit
   %126 = load ptr, ptr %85, align 8, !tbaa !56
   %127 = zext nneg i32 %123 to i64
-  %128 = getelementptr i64, ptr %126, i64 %127
+  %128 = getelementptr [8 x i8], ptr %126, i64 %127
   %129 = getelementptr i8, ptr %128, i64 -8
   %130 = load i64, ptr %129, align 8, !tbaa !57
   br label %131
@@ -534,7 +532,7 @@ _ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit: ; preds = %._ZN2cv20MatCommaIn
   %195 = load i64, ptr %194, align 8, !tbaa !57
   %196 = mul i64 %195, %indvars.iv138
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 %196
-  %198 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %197, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [3 x i8], ptr %197, i64 %indvars.iv
   store i8 %.sink166, ptr %198, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %198, i64 1
   store i8 %.sink164, ptr %.sroa.5.0..sroa_idx, align 1

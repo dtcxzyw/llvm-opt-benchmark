@@ -22,11 +22,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.dx_hash_info = type { i32, i32, i32, ptr }
 %struct.dx_frame = type { ptr, ptr, ptr }
 %struct.fscrypt_str = type { ptr, i32 }
-%struct.dx_entry = type { i32, i32 }
 %struct.ext4_filename = type { ptr, %struct.fscrypt_str, %struct.dx_hash_info }
 %struct.ext4_map_blocks = type { i64, i32, i32, i32 }
 %struct.ext4_renament = type { ptr, ptr, ptr, i8, i32, ptr, ptr, i32, ptr, ptr, i32 }
-%struct.dx_map_entry = type { i32, i16, i16 }
 
 @__func__.ext4_dirblock_csum_verify = private unnamed_addr constant [26 x i8] c"ext4_dirblock_csum_verify\00", align 1
 @__func__.ext4_handle_dirty_dirblock = private unnamed_addr constant [27 x i8] c"ext4_handle_dirty_dirblock\00", align 1
@@ -627,7 +625,7 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 2
   %127 = load i16, ptr %126, align 2
   %128 = zext i16 %127 to i64
-  %129 = getelementptr %struct.dx_entry, ptr %125, i64 %128
+  %129 = getelementptr [8 x i8], ptr %125, i64 %128
   %130 = icmp ult ptr %124, %129
   br i1 %130, label %.thread21, label %.preheader25
 
@@ -653,7 +651,7 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %144 = load i16, ptr %143, align 2
   %145 = zext i16 %144 to i64
-  %146 = getelementptr %struct.dx_entry, ptr %142, i64 %145
+  %146 = getelementptr [8 x i8], ptr %142, i64 %145
   %147 = icmp ult ptr %140, %146
   br i1 %147, label %148, label %.preheader25, !llvm.loop !20
 
@@ -738,7 +736,7 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
 
 195:                                              ; preds = %200, %189
   %196 = phi i64 [ 0, %189 ], [ %201, %200 ]
-  %197 = getelementptr %struct.dx_frame, ptr %6, i64 %196
+  %197 = getelementptr [24 x i8], ptr %6, i64 %196
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, null
   br i1 %199, label %.loopexit, label %200
@@ -771,7 +769,7 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
 
 212:                                              ; preds = %217, %206
   %213 = phi i64 [ 0, %206 ], [ %218, %217 ]
-  %214 = getelementptr %struct.dx_frame, ptr %6, i64 %213
+  %214 = getelementptr [24 x i8], ptr %6, i64 %213
   %215 = load ptr, ptr %214, align 8
   %216 = icmp eq ptr %215, null
   br i1 %216, label %.loopexit, label %217
@@ -1338,7 +1336,7 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr noundef
 192:                                              ; preds = %180
   %193 = getelementptr i8, ptr %183, i64 8
   %194 = zext i16 %186 to i64
-  %195 = getelementptr %struct.dx_entry, ptr %183, i64 %194
+  %195 = getelementptr [8 x i8], ptr %183, i64 %194
   %196 = getelementptr i8, ptr %195, i64 -8
   %197 = icmp ugt ptr %193, %196
   br i1 %197, label %.loopexit22, label %.preheader21
@@ -1351,7 +1349,7 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr noundef
   %202 = sub i64 %200, %201
   %203 = ashr exact i64 %202, 3
   %204 = sdiv i64 %203, 2
-  %205 = getelementptr %struct.dx_entry, ptr %199, i64 %204
+  %205 = getelementptr [8 x i8], ptr %199, i64 %204
   %206 = load i32, ptr %205, align 4
   %207 = icmp ugt i32 %206, %81
   %208 = getelementptr i8, ptr %205, i64 -8
@@ -1380,14 +1378,14 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr noundef
 
 223:                                              ; preds = %220, %.loopexit22
   %224 = phi i64 [ 0, %.loopexit22 ], [ %221, %220 ]
-  %225 = getelementptr i32, ptr %5, i64 %224
+  %225 = getelementptr [4 x i8], ptr %5, i64 %224
   %226 = load i32, ptr %225, align 4
   %227 = icmp eq i32 %226, %219
   br i1 %227, label %228, label %220
 
 228:                                              ; preds = %223
   %229 = and i64 %181, 4294967295
-  %230 = getelementptr i32, ptr %5, i64 %229
+  %230 = getelementptr [4 x i8], ptr %5, i64 %229
   %231 = load i32, ptr %230, align 4
   tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning_inode(ptr noundef %1, ptr noundef nonnull @__func__.dx_probe, i32 noundef 933, ptr noundef nonnull @.str.18, i32 noundef %231, i32 noundef %219) #13
   br label %254
@@ -1398,7 +1396,7 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %234, label %.loopexit23, label %235
 
 235:                                              ; preds = %232
-  %236 = getelementptr i32, ptr %5, i64 %233
+  %236 = getelementptr [4 x i8], ptr %5, i64 %233
   store i32 %219, ptr %236, align 4
   %237 = getelementptr i8, ptr %184, i64 24
   %238 = tail call fastcc ptr @__ext4_read_dirblock(ptr noundef %1, i32 noundef %219, i32 noundef 1, ptr noundef nonnull @__func__.dx_probe, i32 noundef 941)
@@ -3761,7 +3759,7 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
 198:                                              ; preds = %197
   %199 = lshr i32 %174, 1
   %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr %struct.dx_entry, ptr %166, i64 %200
+  %201 = getelementptr [8 x i8], ptr %166, i64 %200
   %202 = load i32, ptr %201, align 4
   %203 = getelementptr i8, ptr %170, i64 -24
   %204 = load ptr, ptr %203, align 8
@@ -3791,7 +3789,7 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
 
 221:                                              ; preds = %207
   %222 = sub nsw i64 %219, %200
-  %223 = getelementptr %struct.dx_entry, ptr %183, i64 %222
+  %223 = getelementptr [8 x i8], ptr %183, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %170, i64 16
   store ptr %223, ptr %224, align 8
   %225 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -4011,7 +4009,7 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
 
 338:                                              ; preds = %343, %332
   %339 = phi i64 [ 0, %332 ], [ %344, %343 ]
-  %340 = getelementptr %struct.dx_frame, ptr %7, i64 %339
+  %340 = getelementptr [24 x i8], ptr %7, i64 %339
   %341 = load ptr, ptr %340, align 8
   %342 = icmp eq ptr %341, null
   br i1 %342, label %.loopexit95, label %343
@@ -4515,7 +4513,7 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
 
 623:                                              ; preds = %628, %617
   %624 = phi i64 [ 0, %617 ], [ %629, %628 ]
-  %625 = getelementptr %struct.dx_frame, ptr %5, i64 %624
+  %625 = getelementptr [24 x i8], ptr %5, i64 %624
   %626 = load ptr, ptr %625, align 8
   %627 = icmp eq ptr %626, null
   br i1 %627, label %631, label %628
@@ -7526,7 +7524,7 @@ thread-pre-split:                                 ; preds = %25, %28
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 2
   %129 = load i16, ptr %128, align 2
   %130 = zext i16 %129 to i64
-  %131 = getelementptr %struct.dx_entry, ptr %127, i64 %130
+  %131 = getelementptr [8 x i8], ptr %127, i64 %130
   %132 = icmp ult ptr %126, %131
   br i1 %132, label %.thread, label %.preheader53
 
@@ -7548,7 +7546,7 @@ thread-pre-split:                                 ; preds = %25, %28
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 2
   %145 = load i16, ptr %144, align 2
   %146 = zext i16 %145 to i64
-  %147 = getelementptr %struct.dx_entry, ptr %143, i64 %146
+  %147 = getelementptr [8 x i8], ptr %143, i64 %146
   %148 = icmp ult ptr %141, %147
   br i1 %148, label %149, label %.preheader53, !llvm.loop !20
 
@@ -7641,7 +7639,7 @@ thread-pre-split:                                 ; preds = %25, %28
 
 202:                                              ; preds = %207, %196
   %203 = phi i64 [ 0, %196 ], [ %208, %207 ]
-  %204 = getelementptr %struct.dx_frame, ptr %5, i64 %203
+  %204 = getelementptr [24 x i8], ptr %5, i64 %203
   %205 = load ptr, ptr %204, align 8
   %206 = icmp eq ptr %205, null
   br i1 %206, label %.loopexit51, label %207
@@ -7723,7 +7721,7 @@ thread-pre-split:                                 ; preds = %25, %28
   %259 = phi i64 [ 0, %247 ], [ %242, %241 ]
   %260 = phi i64 [ %252, %247 ], [ %243, %241 ]
   %261 = add nuw i64 %259, 1
-  %262 = getelementptr ptr, ptr %6, i64 %259
+  %262 = getelementptr [8 x i8], ptr %6, i64 %259
   %263 = load ptr, ptr %262, align 8
   %264 = icmp eq ptr %263, null
   br i1 %264, label %372, label %265
@@ -7925,7 +7923,7 @@ thread-pre-split:                                 ; preds = %25, %28
 
 .preheader:                                       ; preds = %.loopexit, %391
   %386 = phi i64 [ %392, %391 ], [ %261, %.loopexit ]
-  %387 = getelementptr ptr, ptr %6, i64 %386
+  %387 = getelementptr [8 x i8], ptr %6, i64 %386
   %388 = load ptr, ptr %387, align 8
   %389 = icmp eq ptr %388, null
   br i1 %389, label %391, label %390
@@ -8078,7 +8076,7 @@ define internal fastcc range(i32 0, 2) i32 @ext4_dx_csum_verify(ptr noundef %0, 
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %63 = load i16, ptr %62, align 2
   %64 = zext i16 %63 to i32
-  %65 = getelementptr %struct.dx_entry, ptr %51, i64 %55
+  %65 = getelementptr [8 x i8], ptr %51, i64 %55
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = getelementptr i8, ptr %0, i64 840
@@ -8360,7 +8358,7 @@ define internal fastcc void @dx_insert_block(ptr %.8.val, ptr %.16.val, i32 noun
 
 9:                                                ; preds = %2
   %10 = zext i16 %4 to i64
-  %11 = getelementptr %struct.dx_entry, ptr %.8.val, i64 %10
+  %11 = getelementptr [8 x i8], ptr %.8.val, i64 %10
   %12 = icmp ult ptr %.16.val, %11
   br i1 %12, label %15, label %13, !prof !14
 
@@ -8490,7 +8488,7 @@ define internal fastcc i32 @ext4_handle_dirty_dx_node(ptr noundef %0, ptr nounde
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %66 = load i16, ptr %65, align 2
   %67 = zext i16 %66 to i32
-  %68 = getelementptr %struct.dx_entry, ptr %54, i64 %58
+  %68 = getelementptr [8 x i8], ptr %54, i64 %58
   %69 = getelementptr i8, ptr %1, i64 840
   %.val2 = load i32, ptr %69, align 8
   %70 = getelementptr i8, ptr %27, i64 872
@@ -8746,7 +8744,7 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr noundef
 144:                                              ; preds = %142
   %145 = zext nneg i32 %136 to i64
   %146 = sub nsw i64 0, %145
-  %147 = getelementptr %struct.dx_map_entry, ptr %56, i64 %146
+  %147 = getelementptr [8 x i8], ptr %56, i64 %146
   %148 = getelementptr i8, ptr %56, i64 -8
   %149 = icmp samesign ugt i32 %136, 2
   br i1 %149, label %.preheader54, label %.loopexit55
@@ -8771,7 +8769,7 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr noundef
   %160 = select i1 %159, i32 11, i32 %157
   %161 = zext nneg i32 %160 to i64
   %162 = sub nsw i64 0, %161
-  %163 = getelementptr %struct.dx_map_entry, ptr %148, i64 %162
+  %163 = getelementptr [8 x i8], ptr %148, i64 %162
   %164 = icmp ult ptr %163, %147
   br i1 %164, label %.loopexit53, label %.preheader
 
@@ -8842,7 +8840,7 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr noundef
   %198 = phi i32 [ 0, %193 ], [ %209, %207 ]
   %199 = add i64 %196, -1
   %200 = and i64 %199, 4294967295
-  %.split = getelementptr %struct.dx_map_entry, ptr %152, i64 %200
+  %.split = getelementptr [8 x i8], ptr %152, i64 %200
   %201 = getelementptr i8, ptr %.split, i64 6
   %202 = load i16, ptr %201, align 2
   %203 = zext i16 %202 to i32
@@ -8872,11 +8870,11 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr noundef
 217:                                              ; preds = %212, %.thread45
   %218 = phi i32 [ %211, %.thread45 ], [ %spec.select47, %212 ]
   %219 = zext i32 %218 to i64
-  %220 = getelementptr %struct.dx_map_entry, ptr %152, i64 %219
+  %220 = getelementptr [8 x i8], ptr %152, i64 %219
   %221 = load i32, ptr %220, align 4
   %222 = add i32 %218, -1
   %223 = zext i32 %222 to i64
-  %224 = getelementptr %struct.dx_map_entry, ptr %152, i64 %223
+  %224 = getelementptr [8 x i8], ptr %152, i64 %223
   %225 = load i32, ptr %224, align 4
   %226 = icmp eq i32 %221, %225
   %227 = zext i1 %226 to i32
@@ -9161,7 +9159,7 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr noundef
 
 405:                                              ; preds = %390
   %406 = zext i16 %400 to i64
-  %407 = getelementptr %struct.dx_entry, ptr %396, i64 %406
+  %407 = getelementptr [8 x i8], ptr %396, i64 %406
   %408 = icmp ult ptr %398, %407
   br i1 %408, label %411, label %409, !prof !14
 

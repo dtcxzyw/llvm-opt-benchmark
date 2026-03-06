@@ -32,15 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
-%"class.std::tuple.41" = type { %"struct.std::_Tuple_impl.42" }
-%"struct.std::_Tuple_impl.42" = type { %"struct.std::_Tuple_impl.43", %"struct.std::_Head_base.47" }
-%"struct.std::_Tuple_impl.43" = type { %"struct.std::_Tuple_impl.44", %"struct.std::_Head_base.46" }
-%"struct.std::_Tuple_impl.44" = type { %"struct.std::_Head_base.45" }
-%"struct.std::_Head_base.45" = type { %"class.std::__cxx11::basic_string" }
-%"struct.std::_Head_base.46" = type { %"class.std::__cxx11::basic_string" }
-%"struct.std::_Head_base.47" = type { %"class.std::__cxx11::basic_string" }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"struct.OpenColorIO_v2_5dev::MetalShaderClassWrapper::FunctionParam" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 
 $_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev = comdat any
 
@@ -8141,7 +8132,7 @@ _ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6
 _ZNSt12_Vector_baseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit46, %138
   store ptr %25, ptr %0, align 8, !tbaa !115
   store ptr %.0.lcssa.i.i.i.i45, ptr %7, align 8, !tbaa !117
-  %142 = getelementptr inbounds nuw %"class.std::tuple.41", ptr %25, i64 %19
+  %142 = getelementptr inbounds nuw [96 x i8], ptr %25, i64 %19
   store ptr %142, ptr %137, align 8, !tbaa !119
   ret void
 
@@ -8508,7 +8499,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit41, %85
   store ptr %21, ptr %0, align 8, !tbaa !113
   store ptr %.0.lcssa.i.i.i.i40, ptr %5, align 8, !tbaa !102
-  %89 = getelementptr inbounds nuw %"struct.std::pair", ptr %21, i64 %17
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %17
   store ptr %89, ptr %84, align 8, !tbaa !105
   ret void
 
@@ -8874,7 +8865,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev23MetalShaderClassWrapper13FunctionParamESaIS
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit41, %93
   store ptr %23, ptr %0, align 8, !tbaa !54
   store ptr %.0.lcssa.i.i.i.i40, ptr %5, align 8, !tbaa !56
-  %97 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::MetalShaderClassWrapper::FunctionParam", ptr %23, i64 %17
+  %97 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %17
   store ptr %97, ptr %92, align 8, !tbaa !109
   ret void
 
@@ -9463,7 +9454,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev23MetalShaderClassWrapper13FunctionParamESaIS
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit41, %93
   store ptr %23, ptr %0, align 8, !tbaa !54
   store ptr %.0.lcssa.i.i.i.i40, ptr %5, align 8, !tbaa !56
-  %97 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::MetalShaderClassWrapper::FunctionParam", ptr %23, i64 %17
+  %97 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %17
   store ptr %97, ptr %92, align 8, !tbaa !109
   ret void
 
@@ -9893,7 +9884,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev23MetalShaderClassWrapper13FunctionParamESaIS
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit41, %91
   store ptr %21, ptr %0, align 8, !tbaa !54
   store ptr %.0.lcssa.i.i.i.i40, ptr %5, align 8, !tbaa !56
-  %95 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::MetalShaderClassWrapper::FunctionParam", ptr %21, i64 %17
+  %95 = getelementptr inbounds nuw [72 x i8], ptr %21, i64 %17
   store ptr %95, ptr %90, align 8, !tbaa !109
   ret void
 

@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.4 = type { i64 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
-%struct.virtio_gpu_drv_capset = type { i32, i32, i32 }
 
 @virtio_gpu_init.callbacks = internal global [2 x ptr] [ptr @virtio_gpu_ctrl_ack, ptr @virtio_gpu_cursor_ack], align 16
 @virtio_gpu_init.names = internal constant [2 x ptr] [ptr @.str, ptr @.str.1], align 16
@@ -632,7 +631,7 @@ define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull initiali
   call void @virtio_gpu_notify(ptr noundef nonnull %0) #8
   %25 = call i32 @__SCT__might_resched() #8
   %26 = load ptr, ptr %12, align 8
-  %27 = getelementptr %struct.virtio_gpu_drv_capset, ptr %26, i64 %22
+  %27 = getelementptr [12 x i8], ptr %26, i64 %22
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %31, label %.thread6
@@ -647,7 +646,7 @@ define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull initiali
   call void @init_wait_entry(ptr noundef nonnull %3, i32 noundef 0) #8
   %32 = call i64 @prepare_to_wait_event(ptr noundef nonnull %17, ptr noundef nonnull %3, i32 noundef 2) #8
   %33 = load ptr, ptr %12, align 8
-  %34 = getelementptr %struct.virtio_gpu_drv_capset, ptr %33, i64 %22
+  %34 = getelementptr [12 x i8], ptr %33, i64 %22
   %35 = load i32, ptr %34, align 4
   %.not10 = icmp eq i32 %35, 0
   br i1 %.not10, label %.lr.ph, label %._crit_edge.thread
@@ -662,7 +661,7 @@ define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull initiali
   %37 = call i64 @schedule_timeout(i64 noundef %36) #8
   %38 = call i64 @prepare_to_wait_event(ptr noundef nonnull %17, ptr noundef nonnull %3, i32 noundef 2) #8
   %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr %struct.virtio_gpu_drv_capset, ptr %39, i64 %22
+  %40 = getelementptr [12 x i8], ptr %39, i64 %22
   %41 = load i32, ptr %40, align 4
   %42 = icmp ne i32 %41, 0
   %43 = icmp eq i64 %37, 0
@@ -685,7 +684,7 @@ define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull initiali
 
 50:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %51 = load ptr, ptr %12, align 8
-  %52 = getelementptr %struct.virtio_gpu_drv_capset, ptr %51, i64 %22
+  %52 = getelementptr [12 x i8], ptr %51, i64 %22
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, -1
   %55 = icmp ult i32 %54, 63

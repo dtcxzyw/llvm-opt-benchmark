@@ -946,7 +946,7 @@ define noundef ptr @_ZN6assets6Assets10load_fonts17h654d4edfc3742184E(ptr noalia
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6ae08b9ccdd0e529E.exit": ; preds = %86, %90
   %93 = load ptr, ptr %20, align 8, !alias.scope !77, !noalias !80, !nonnull !5, !noundef !5
-  %94 = getelementptr inbounds { i64, [2 x i64] }, ptr %93, i64 %87
+  %94 = getelementptr inbounds [24 x i8], ptr %93, i64 %87
   store i64 %72, ptr %94, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 8
   store ptr %74, ptr %.sroa.3.0..sroa_idx, align 8
@@ -987,7 +987,7 @@ define noundef ptr @_ZN6assets6Assets10load_fonts17h654d4edfc3742184E(ptr noalia
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4core3ptr93drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$gpui..shared_string..SharedString$GT$$GT$17hca26b39423021686E.exit44", %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hdb756922a951baa4E.llvm.2036775944964463284.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %104, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hdb756922a951baa4E.llvm.2036775944964463284.exit.i.i.i" ], [ 0, %"_ZN4core3ptr93drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$gpui..shared_string..SharedString$GT$$GT$17hca26b39423021686E.exit44" ]
-  %103 = getelementptr inbounds { i64, [2 x i64] }, ptr %100, i64 %.sroa.0.09.i.i.i
+  %103 = getelementptr inbounds [24 x i8], ptr %100, i64 %.sroa.0.09.i.i.i
   %104 = add nuw i64 %.sroa.0.09.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %105 = load i64, ptr %103, align 8, !range !19, !alias.scope !105, !noalias !98, !noundef !5
@@ -1730,7 +1730,7 @@ define void @_ZN6assets6Assets3get17hd575262a9aea793bE(ptr dead_on_unwind noalia
   %225 = add nuw nsw i64 %224, %.sroa.03.02.i.i
   %226 = icmp ult i64 %225, 295
   call void @llvm.assume(i1 %226)
-  %227 = getelementptr inbounds nuw { { ptr, i64 }, { { { i64, [1 x i64] }, { i64, [1 x i64] }, [32 x i8] }, { i64, [2 x i64] } } }, ptr @anon.7f75af4656809b7e57137b5ca6f6cdb4.601, i64 %225
+  %227 = getelementptr inbounds nuw [104 x i8], ptr @anon.7f75af4656809b7e57137b5ca6f6cdb4.601, i64 %225
   %.val16.i.i = load ptr, ptr %227, align 8, !noalias !211, !nonnull !5, !align !214, !noundef !5
   %228 = getelementptr i8, ptr %227, i64 8
   %.val17.i.i = load i64, ptr %228, align 8, !noalias !211, !noundef !5

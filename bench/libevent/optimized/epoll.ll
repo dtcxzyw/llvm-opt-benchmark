@@ -266,7 +266,7 @@ define internal range(i32 -1, 1) i32 @epoll_dispatch(ptr noundef %0, ptr noundef
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %13 ]
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds nuw %struct.event_change, ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %18, i64 %indvars.iv.i
   %20 = tail call fastcc i32 @epoll_apply_one_change(ptr noundef nonnull %5, ptr noundef %19)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load i32, ptr %15, align 8
@@ -335,7 +335,7 @@ epoll_apply_changes.exit:                         ; preds = %.lr.ph.i, %13
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
-  %50 = getelementptr inbounds nuw %struct.epoll_event, ptr %6, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %indvars.iv
   %51 = load i32, ptr %50, align 1
   %52 = and i32 %51, 8
   %.not60 = icmp ne i32 %52, 0
@@ -487,7 +487,7 @@ define internal fastcc range(i32 -1, 1) i32 @epoll_apply_one_change(ptr noundef 
   %27 = and i32 %26, 256
   %28 = or disjoint i32 %25, %27
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw %struct.operation, ptr @epoll_op_table, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @epoll_op_table, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr %30, align 8
@@ -532,19 +532,19 @@ switch.lookup:                                    ; preds = %46
   %59 = zext i8 %58 to i32
   %60 = and i32 %59, 3
   %61 = zext nneg i32 %60 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.epoll_apply_one_change.6, i64 %61
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.epoll_apply_one_change.6, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   %62 = load i8, ptr %14, align 1
   %63 = zext i8 %62 to i32
   %64 = and i32 %63, 3
   %65 = zext nneg i32 %64 to i64
-  %switch.gep12 = getelementptr inbounds nuw ptr, ptr @switch.table.epoll_apply_one_change.6, i64 %65
+  %switch.gep12 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.epoll_apply_one_change.6, i64 %65
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   %66 = load i8, ptr %4, align 4
   %67 = zext i8 %66 to i32
   %68 = and i32 %67, 3
   %69 = zext nneg i32 %68 to i64
-  %switch.gep3 = getelementptr inbounds nuw ptr, ptr @switch.table.epoll_apply_one_change.6, i64 %69
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.epoll_apply_one_change.6, i64 %69
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.4, ptr noundef nonnull %53, i32 noundef %54, i32 noundef %55, i32 noundef %57, i32 noundef %59, ptr noundef nonnull %switch.load, i32 noundef %63, ptr noundef nonnull %switch.load13, i32 noundef %67, ptr noundef nonnull %switch.load4) #6
   br label %136
@@ -652,19 +652,19 @@ switch.lookup5:                                   ; preds = %105, %70, %88, %71
   %125 = zext i8 %124 to i32
   %126 = and i32 %125, 3
   %127 = zext nneg i32 %126 to i64
-  %switch.gep6 = getelementptr inbounds nuw ptr, ptr @switch.table.epoll_apply_one_change.6, i64 %127
+  %switch.gep6 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.epoll_apply_one_change.6, i64 %127
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   %128 = load i8, ptr %14, align 1
   %129 = zext i8 %128 to i32
   %130 = and i32 %129, 3
   %131 = zext nneg i32 %130 to i64
-  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table.epoll_apply_one_change.6, i64 %131
+  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.epoll_apply_one_change.6, i64 %131
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %132 = load i8, ptr %4, align 4
   %133 = zext i8 %132 to i32
   %134 = and i32 %133, 3
   %135 = zext nneg i32 %134 to i64
-  %switch.gep9 = getelementptr inbounds nuw ptr, ptr @switch.table.epoll_apply_one_change.6, i64 %135
+  %switch.gep9 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.epoll_apply_one_change.6, i64 %135
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.10, ptr noundef nonnull %119, i32 noundef %120, i32 noundef %121, i32 noundef %123, i32 noundef %125, ptr noundef nonnull %switch.load7, i32 noundef %129, ptr noundef nonnull %switch.load16, i32 noundef %133, ptr noundef nonnull %switch.load10) #6
   br label %136

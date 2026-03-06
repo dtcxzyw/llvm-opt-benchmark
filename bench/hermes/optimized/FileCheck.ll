@@ -88,7 +88,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage.101" = type { [16 x %"struct.llvh::AlignedCharArrayUnion"] }
 %"struct.std::pair.32" = type { %"class.llvh::StringRef", %"class.llvh::StringRef" }
 %"class.llvh::StringMap" = type <{ %"class.llvh::StringMapImpl", %"class.llvh::MallocAllocator", [7 x i8] }>
-%"struct.llvh::FileCheckString" = type { %"class.llvh::FileCheckPattern", %"class.llvh::StringRef", %"class.llvh::SMLoc", %"class.std::vector.43" }
 %"struct.std::_Rb_tree<llvh::StringRef, std::pair<const llvh::StringRef, unsigned int>, std::_Select1st<std::pair<const llvh::StringRef, unsigned int>>, std::less<llvh::StringRef>>::_Alloc_node" = type { ptr }
 %"struct.std::_Rb_tree<llvh::StringRef, std::pair<const llvh::StringRef, unsigned int>, std::_Select1st<std::pair<const llvh::StringRef, unsigned int>>, std::less<llvh::StringRef>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 
@@ -1207,7 +1206,7 @@ if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorISt4pai
 _ZNSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
   store ptr %call5.i.i.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorISt4pairIN4llvh9StringRefEjESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
@@ -1486,7 +1485,7 @@ if.else:                                          ; preds = %for.body
 
 if.end37:                                         ; preds = %if.else
   %10 = load ptr, ptr %VariableTable, align 8
-  %retval.sroa.0.0.i = getelementptr inbounds ptr, ptr %10, i64 %idx.ext.i
+  %retval.sroa.0.0.i = getelementptr inbounds [8 x i8], ptr %10, i64 %idx.ext.i
   %11 = load ptr, ptr %retval.sroa.0.0.i, align 8
   %second = getelementptr inbounds nuw i8, ptr %11, i64 8
   %agg.tmp39.sroa.0.0.copyload = load ptr, ptr %second, align 8
@@ -1555,7 +1554,7 @@ for.body86:                                       ; preds = %if.end78, %for.body
   %15 = load i32, ptr %second88, align 8
   %conv89 = zext i32 %15 to i64
   %16 = load ptr, ptr %MatchInfo, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %16, i64 %conv89
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %conv89
   %agg.tmp91.sroa.0.0.copyload = load ptr, ptr %_M_storage.i.i, align 8
   %agg.tmp91.sroa.2.0.first92.sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.038, i64 40
   %agg.tmp91.sroa.2.0.copyload = load i64, ptr %agg.tmp91.sroa.2.0.first92.sroa_idx, align 8
@@ -1831,7 +1830,7 @@ if.else23:                                        ; preds = %for.body
   %idx.ext.i.i = zext i32 %19 to i64
   %idx.ext.i = sext i32 %call.i66 to i64
   %retval.sroa.0.0.v.i = select i1 %cmp.i67, i64 %idx.ext.i.i, i64 %idx.ext.i
-  %retval.sroa.0.0.i = getelementptr inbounds ptr, ptr %18, i64 %retval.sroa.0.0.v.i
+  %retval.sroa.0.0.i = getelementptr inbounds [8 x i8], ptr %18, i64 %retval.sroa.0.0.v.i
   %cmp.i69 = icmp eq i64 %retval.sroa.0.0.v.i, %idx.ext.i.i
   %20 = load ptr, ptr %OutBufEnd.i5.i101, align 8
   %21 = load ptr, ptr %OutBufCur.i6.i102, align 8
@@ -2873,7 +2872,7 @@ _ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheck
 
 switch.lookup:                                    ; preds = %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit
   %60 = zext nneg i32 %CheckTy.2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh9FileCheck13ReadCheckFileERNS_9SourceMgrENS_9StringRefERNS_5RegexERSt6vectorINS_15FileCheckStringESaIS7_EE, i64 %60
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh9FileCheck13ReadCheckFileERNS_9SourceMgrENS_9StringRefERNS_5RegexERSt6vectorINS_15FileCheckStringESaIS7_EE, i64 %60
   %switch.load = load i64, ptr %switch.gep, align 8
   %add = add i64 %switch.load, %retval.sroa.7.0.i
   %61 = load i64, ptr %0, align 8
@@ -3928,7 +3927,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPKN4ll
 _ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPKN4llvh16FileCheckPatternESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %NotStrings, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i85, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc164
 
@@ -4694,7 +4693,7 @@ for.body.preheader.i.i:                           ; preds = %if.then.i.i
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %6 = load ptr, ptr %PrefixSet, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i
   %7 = load ptr, ptr %arrayidx.i.i, align 8
   %magicptr.i.i = ptrtoint ptr %7 to i64
   switch i64 %magicptr.i.i, label %if.then4.i.i [
@@ -4966,7 +4965,7 @@ while.cond.outer:                                 ; preds = %for.end46, %for.end
 if.else:                                          ; preds = %while.cond.outer, %if.then13
   %j.0101 = phi i32 [ %inc, %if.then13 ], [ %j.0.ph, %while.cond.outer ]
   %conv9 = zext i32 %j.0101 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.llvh::FileCheckString", ptr %CheckStrings.coerce0, i64 %conv9
+  %arrayidx.i = getelementptr inbounds nuw [184 x i8], ptr %CheckStrings.coerce0, i64 %conv9
   %CheckTy.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 128
   %6 = load i32, ptr %CheckTy.i, align 8
   %cmp12.not = icmp eq i32 %6, 6
@@ -5027,7 +5026,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.cond.i.i.i.i.
 _ZN4llvh9StringMapINS_9StringRefENS_15MallocAllocatorEE5beginEv.exit.i: ; preds = %while.cond.i.i.i.i.i, %if.then28
   %retval.sroa.0.1.i.i = phi ptr [ %9, %if.then28 ], [ %retval.sroa.0.0.i.i, %while.cond.i.i.i.i.i ]
   %idx.ext.i.i = zext i32 %10 to i64
-  %add.ptr.i8.i = getelementptr inbounds nuw ptr, ptr %9, i64 %idx.ext.i.i
+  %add.ptr.i8.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %idx.ext.i.i
   %cmp.i.i.not17.i = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i8.i
   br i1 %cmp.i.i.not17.i, label %_ZL14ClearLocalVarsRN4llvh9StringMapINS_9StringRefENS_15MallocAllocatorEEE.exit, label %for.body.preheader.i
 
@@ -5063,7 +5062,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.i: ; 
   %17 = phi i32 [ %.pre.i.i, %if.then.i.i40 ], [ %12, %if.then.i ]
   %18 = load ptr, ptr %LocalVars.i, align 8
   %conv.i3.i.i = zext i32 %17 to i64
-  %add.ptr.i.i12.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %18, i64 %conv.i3.i.i
+  %add.ptr.i.i12.i = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %conv.i3.i.i
   store ptr %add.ptr.i.i.i39, ptr %add.ptr.i.i12.i, align 1
   %ref.tmp9.sroa.2.0.add.ptr.i.i12.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i12.i, i64 8
   store i64 %14, ptr %ref.tmp9.sroa.2.0.add.ptr.i.i12.sroa_idx.i, align 1
@@ -5113,7 +5112,7 @@ for.body19.i:                                     ; preds = %for.end.i, %_ZN4llv
 
 if.end.i.i45:                                     ; preds = %for.body19.i
   %23 = load ptr, ptr %VariableTable, align 8
-  %retval.sroa.0.0.i.i.i = getelementptr inbounds ptr, ptr %23, i64 %idx.ext.i.i.i
+  %retval.sroa.0.0.i.i.i = getelementptr inbounds [8 x i8], ptr %23, i64 %idx.ext.i.i.i
   %24 = load ptr, ptr %retval.sroa.0.0.i.i.i, align 8
   call void @_ZN4llvh13StringMapImpl9RemoveKeyEPNS_18StringMapEntryBaseE(ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, ptr noundef nonnull %24) #18
   call void @free(ptr noundef nonnull align 8 dereferenceable(24) %24) #18
@@ -5150,7 +5149,7 @@ for.body32:                                       ; preds = %if.end29, %if.end40
   %CheckRegion.sroa.6.1104 = phi i64 [ %sub.i, %if.end40 ], [ %CheckRegion.sroa.6.0, %if.end29 ]
   %CheckRegion.sroa.0.1103 = phi ptr [ %add.ptr.i, %if.end40 ], [ %Buffer.sroa.0.0.ph, %if.end29 ]
   %conv33 = zext i32 %i.1105 to i64
-  %arrayidx.i46 = getelementptr inbounds nuw %"struct.llvh::FileCheckString", ptr %CheckStrings.coerce0, i64 %conv33
+  %arrayidx.i46 = getelementptr inbounds nuw [184 x i8], ptr %CheckStrings.coerce0, i64 %conv33
   store i64 0, ptr %MatchLen, align 8
   %call37 = call noundef i64 @_ZNK4llvh15FileCheckString5CheckERKNS_9SourceMgrENS_9StringRefEbRmRNS_9StringMapIS4_NS_15MallocAllocatorEEERNS_16FileCheckRequestE(ptr noundef nonnull align 8 dereferenceable(184) %arrayidx.i46, ptr noundef nonnull align 8 dereferenceable(120) %SM, ptr %CheckRegion.sroa.0.1103, i64 %CheckRegion.sroa.6.1104, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %MatchLen, ptr noundef nonnull align 8 dereferenceable(25) %VariableTable, ptr noundef nonnull align 8 dereferenceable(86) %this)
   %cmp38 = icmp eq i64 %call37, -1
@@ -5195,7 +5194,7 @@ for.body.preheader.i53:                           ; preds = %if.then.i52
 for.body.i54:                                     ; preds = %for.inc.i56, %for.body.preheader.i53
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i53 ], [ %indvars.iv.next.i, %for.inc.i56 ]
   %30 = load ptr, ptr %VariableTable, align 8
-  %arrayidx.i55 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
+  %arrayidx.i55 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %31 = load ptr, ptr %arrayidx.i55, align 8
   %magicptr.i = ptrtoint ptr %31 to i64
   switch i64 %magicptr.i, label %if.then4.i [
@@ -5458,7 +5457,7 @@ _ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE13_M_deallocateEPS2_m.exi
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i20, ptr %_M_finish.i.i, align 8
-  %add.ptr20 = getelementptr inbounds nuw %"struct.llvh::SourceMgr::SrcBuffer", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -6366,7 +6365,7 @@ entry:
   %call = tail call noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %Key.coerce0, i64 %Key.coerce1) #18
   %0 = load ptr, ptr %this, align 8
   %idxprom = zext i32 %call to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %magicptr = ptrtoint ptr %1 to i64
   switch i64 %magicptr, label %while.cond.i.i.i [
@@ -6428,7 +6427,7 @@ _ZN4llvh14StringMapEntryINS_9StringRefEE6CreateINS_15MallocAllocatorEJEEEPS2_S1_
   %call12 = tail call noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %call) #18
   %5 = load ptr, ptr %this, align 8
   %idx.ext15 = zext i32 %call12 to i64
-  %add.ptr16 = getelementptr inbounds nuw ptr, ptr %5, i64 %idx.ext15
+  %add.ptr16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idx.ext15
   br label %while.cond.i.i.i9
 
 while.cond.i.i.i9:                                ; preds = %while.body.i.i.i12, %_ZN4llvh14StringMapEntryINS_9StringRefEE6CreateINS_15MallocAllocatorEJEEEPS2_S1_RT_DpOT0_.exit
@@ -6598,7 +6597,7 @@ _ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE13_M_deallocateEPS1_m.exit:
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.llvh::FileCheckPattern", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [136 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -6938,7 +6937,7 @@ _ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EE13_M_deallocateEPS1_m.exit:
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.llvh::FileCheckPattern", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [136 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -7192,7 +7191,7 @@ _ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE13_M_deallocateEPS1_m.exit: 
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i49, ptr %_M_finish.i.i, align 8
-  %add.ptr23 = getelementptr inbounds nuw %"struct.llvh::FileCheckString", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr23 = getelementptr inbounds nuw [184 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr23, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -7952,7 +7951,7 @@ _ZNSt12_Vector_baseIN4llvh15FileCheckStringESaIS1_EE13_M_deallocateEPS1_m.exit: 
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i49, ptr %_M_finish.i.i, align 8
-  %add.ptr23 = getelementptr inbounds nuw %"struct.llvh::FileCheckString", ptr %cond.i10, i64 %cond.i
+  %add.ptr23 = getelementptr inbounds nuw [184 x i8], ptr %cond.i10, i64 %cond.i
   store ptr %add.ptr23, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -7969,7 +7968,7 @@ entry:
   %call = tail call noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %Key.coerce0, i64 %Key.coerce1) #18
   %0 = load ptr, ptr %this, align 8
   %idxprom = zext i32 %call to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %magicptr = ptrtoint ptr %1 to i64
   switch i64 %magicptr, label %while.cond.i.i.i [
@@ -8032,7 +8031,7 @@ _ZN4llvh14StringMapEntryIcE6CreateINS_15MallocAllocatorEJcEEEPS1_NS_9StringRefER
   %call12 = tail call noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %call) #18
   %6 = load ptr, ptr %this, align 8
   %idx.ext15 = zext i32 %call12 to i64
-  %add.ptr16 = getelementptr inbounds nuw ptr, ptr %6, i64 %idx.ext15
+  %add.ptr16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idx.ext15
   br label %while.cond.i.i.i9
 
 while.cond.i.i.i9:                                ; preds = %while.body.i.i.i12, %_ZN4llvh14StringMapEntryIcE6CreateINS_15MallocAllocatorEJcEEEPS1_NS_9StringRefERT_DpOT0_.exit
@@ -8129,7 +8128,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -8140,7 +8139,7 @@ entry:
   %call = tail call noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %Key.coerce0, i64 %Key.coerce1) #18
   %0 = load ptr, ptr %this, align 8
   %idxprom = zext i32 %call to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %magicptr = ptrtoint ptr %1 to i64
   switch i64 %magicptr, label %while.cond.i.i.i [
@@ -8202,7 +8201,7 @@ _ZN4llvh14StringMapEntryINS_9StringRefEE6CreateINS_15MallocAllocatorEJS1_EEEPS2_
   %call12 = tail call noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %call) #18
   %5 = load ptr, ptr %this, align 8
   %idx.ext15 = zext i32 %call12 to i64
-  %add.ptr16 = getelementptr inbounds nuw ptr, ptr %5, i64 %idx.ext15
+  %add.ptr16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idx.ext15
   br label %while.cond.i.i.i9
 
 while.cond.i.i.i9:                                ; preds = %while.body.i.i.i12, %_ZN4llvh14StringMapEntryINS_9StringRefEE6CreateINS_15MallocAllocatorEJS1_EEEPS2_S1_RT_DpOT0_.exit

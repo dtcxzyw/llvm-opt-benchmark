@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._stat_tap_table_item_type = type { i32, %union.anon, %union.anon.0 }
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
-%struct._value_string = type { i32, ptr }
 %struct.nstime_t = type { i64, i32 }
 %struct.e_in6_addr = type { [16 x i8] }
 %struct._address = type { i32, i32, ptr, ptr }
@@ -3041,7 +3040,7 @@ define internal void @wsp_stat_init(ptr noundef %0) #1 {
 
 14:                                               ; preds = %9, %14
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr %struct._value_string, ptr @wsp_vals_pdu_type, i64 %indvars.iv
+  %15 = getelementptr [16 x i8], ptr @wsp_vals_pdu_type, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call noalias ptr @g_strdup(ptr noundef %17)
@@ -3090,7 +3089,7 @@ define internal void @wsp_stat_init(ptr noundef %0) #1 {
 
 34:                                               ; preds = %29, %34
   %indvars.iv56 = phi i64 [ 0, %29 ], [ %indvars.iv.next57, %34 ]
-  %35 = getelementptr %struct._value_string, ptr @wsp_vals_status, i64 %indvars.iv56
+  %35 = getelementptr [16 x i8], ptr @wsp_vals_status, i64 %indvars.iv56
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = call noalias ptr @g_strdup(ptr noundef %37)
@@ -3595,7 +3594,7 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %20, label %23, label %29
 
 23:                                               ; preds = %19
-  %24 = getelementptr ptr, ptr @WellKnownHeader, i64 %22
+  %24 = getelementptr [8 x i8], ptr @WellKnownHeader, i64 %22
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 %25(ptr noundef %14, ptr noundef %1, i32 noundef %.0129149, ptr noundef %3)
   %.not143 = icmp slt i32 %.0129149, %26
@@ -3606,7 +3605,7 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.loopexit
 
 29:                                               ; preds = %19
-  %30 = getelementptr ptr, ptr @WellKnownOpenwaveHeader, i64 %22
+  %30 = getelementptr [8 x i8], ptr @WellKnownOpenwaveHeader, i64 %22
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 %31(ptr noundef %14, ptr noundef %1, i32 noundef %.0129149, ptr noundef %3)
   %.not142 = icmp slt i32 %.0129149, %32
@@ -3954,7 +3953,7 @@ define internal i32 @wkh_accept_encoding(ptr noundef %0, ptr noundef %1, i32 nou
 
 switch.lookup:                                    ; preds = %53
   %55 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.wkh_accept_encoding, i64 %55
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.wkh_accept_encoding, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   %56 = load i32, ptr @hf_hdr_accept_encoding, align 4
   %57 = sub i32 %51, %2
@@ -6115,7 +6114,7 @@ define internal i32 @wkh_content_disposition(ptr noundef %0, ptr noundef %1, i32
 
 switch.lookup:                                    ; preds = %38
   %40 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.wkh_content_disposition, i64 %40
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.wkh_content_disposition, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   %41 = load i32, ptr @hf_hdr_content_disposition, align 4
   %42 = sub i32 %36, %2

@@ -133,7 +133,7 @@ define hidden void @initVectorFromBlock(ptr noundef writeonly captures(none) %0,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.012 = phi ptr [ %1, %.lr.ph.preheader ], [ %scevgep13, %.lr.ph ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store ptr %.012, ptr %5, align 8
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.012)
   %scevgep = getelementptr i8, ptr %.012, i64 1
@@ -144,7 +144,7 @@ define hidden void @initVectorFromBlock(ptr noundef writeonly captures(none) %0,
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds ptr, ptr %0, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %0, i64 %6
   store ptr null, ptr %7, align 8
   ret void
 }

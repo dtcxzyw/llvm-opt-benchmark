@@ -1936,7 +1936,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
 
 1160:                                             ; preds = %1140
   %1161 = zext nneg i32 %1158 to i64
-  %1162 = getelementptr inbounds nuw ptr, ptr @SDL_GetEventDescription_REAL.pen_axisnames, i64 %1161
+  %1162 = getelementptr inbounds nuw [8 x i8], ptr @SDL_GetEventDescription_REAL.pen_axisnames, i64 %1161
   %1163 = load ptr, ptr %1162, align 8
   br label %1164
 
@@ -2389,7 +2389,7 @@ SDL_TransferTemporaryMemoryFromEvent.exit:        ; preds = %.lr.ph, %15, %19, %
 
 36:                                               ; preds = %._crit_edge35, %36
   %indvars.iv = phi i64 [ 0, %._crit_edge35 ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw ptr, ptr @SDL_disabled_events, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @SDL_disabled_events, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   tail call void @SDL_free_REAL(ptr noundef %38) #8
   store ptr null, ptr %37, align 8
@@ -2531,7 +2531,7 @@ define internal fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef %
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %SDL_AddEvent.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph105.preheader ], [ %indvars.iv.next, %SDL_AddEvent.exit ]
   %.042103 = phi i32 [ 0, %.lr.ph105.preheader ], [ %248, %SDL_AddEvent.exit ]
-  %25 = getelementptr inbounds nuw %union.SDL_Event, ptr %0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [128 x i8], ptr %0, i64 %indvars.iv
   %26 = call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 12)) #8
   %27 = icmp sgt i32 %26, 65534
   br i1 %27, label %28, label %30
@@ -3249,7 +3249,7 @@ SDL_AddEvent.exit:                                ; preds = %28, %33, %245
 
 276:                                              ; preds = %272
   %277 = sext i32 %.24470.us78 to i64
-  %278 = getelementptr inbounds %union.SDL_Event, ptr %0, i64 %277
+  %278 = getelementptr inbounds [128 x i8], ptr %0, i64 %277
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %278, ptr noundef nonnull align 8 dereferenceable(128) %.04072.us76, i64 128, i1 false)
   br i1 %252, label %279, label %280
 
@@ -3298,7 +3298,7 @@ SDL_AddEvent.exit:                                ; preds = %28, %33, %245
 
 293:                                              ; preds = %289
   %294 = sext i32 %.24470.us92 to i64
-  %295 = getelementptr inbounds %union.SDL_Event, ptr %0, i64 %294
+  %295 = getelementptr inbounds [128 x i8], ptr %0, i64 %294
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %295, ptr noundef nonnull align 8 dereferenceable(128) %.04072.us91, i64 128, i1 false)
   tail call fastcc void @SDL_CutEvent(ptr noundef %.04072.us91)
   %296 = icmp ne i32 %292, 32512
@@ -3328,7 +3328,7 @@ SDL_AddEvent.exit:                                ; preds = %28, %33, %245
 
 304:                                              ; preds = %300
   %305 = sext i32 %.24470 to i64
-  %306 = getelementptr inbounds %union.SDL_Event, ptr %0, i64 %305
+  %306 = getelementptr inbounds [128 x i8], ptr %0, i64 %305
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %306, ptr noundef nonnull align 8 dereferenceable(128) %.04072, i64 128, i1 false)
   %307 = icmp ne i32 %303, 32512
   %308 = zext i1 %307 to i32
@@ -4528,7 +4528,7 @@ define hidden void @SDL_SetEventEnabled_REAL(i32 noundef %0, i1 noundef zeroext 
   %3 = lshr i32 %0, 8
   %4 = and i32 %3, 255
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @SDL_disabled_events, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @SDL_disabled_events, i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %17, label %8
@@ -4537,7 +4537,7 @@ define hidden void @SDL_SetEventEnabled_REAL(i32 noundef %0, i1 noundef zeroext 
   %9 = lshr i32 %0, 5
   %10 = and i32 %9, 7
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %0, 31
   %15 = shl nuw i32 1, %14
@@ -4564,7 +4564,7 @@ define hidden void @SDL_SetEventEnabled_REAL(i32 noundef %0, i1 noundef zeroext 
   %25 = lshr i32 %0, 5
   %26 = and i32 %25, 7
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %7, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, %24
   store i32 %30, ptr %28, align 4
@@ -4652,7 +4652,7 @@ thread-pre-split.thread:                          ; preds = %56, %thread-pre-spl
   %61 = lshr i32 %0, 5
   %62 = and i32 %61, 7
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %58, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = or i32 %65, %60
   store i32 %66, ptr %64, align 4
@@ -4714,7 +4714,7 @@ define hidden noundef zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %0) local_un
   %2 = lshr i32 %0, 8
   %3 = and i32 %2, 255
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @SDL_disabled_events, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @SDL_disabled_events, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %16, label %7
@@ -4723,7 +4723,7 @@ define hidden noundef zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %0) local_un
   %8 = lshr i32 %0, 5
   %9 = and i32 %8, 7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %0, 31
   %14 = shl nuw i32 1, %13
@@ -4765,7 +4765,7 @@ define hidden void @SDL_SendAppEvent(i32 noundef %0) local_unnamed_addr #0 {
   %4 = lshr i32 %0, 8
   %5 = and i32 %4, 255
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @SDL_disabled_events, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @SDL_disabled_events, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %18, label %9
@@ -4774,7 +4774,7 @@ define hidden void @SDL_SendAppEvent(i32 noundef %0) local_unnamed_addr #0 {
   %10 = lshr i32 %0, 5
   %11 = and i32 %10, 7
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %0, 31
   %16 = shl nuw i32 1, %15

@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 %"class.std::shared_lock" = type <{ ptr, %"struct.folly::SharedMutexToken", [4 x i8] }>
 %"struct.folly::SharedMutexToken" = type { i16, i16 }
-%"struct.folly::threadlocal_detail::ElementWrapper" = type { ptr, i64 }
 %"class.std::system_error" = type { %"class.std::runtime_error", %"class.std::error_code" }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -45,8 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<folly::threadlocal_detail::ThreadEntry *, std::allocator<folly::threadlocal_detail::ThreadEntry *>>::_Vector_impl" = type { %"struct.std::_Vector_base<folly::threadlocal_detail::ThreadEntry *, std::allocator<folly::threadlocal_detail::ThreadEntry *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<folly::threadlocal_detail::ThreadEntry *, std::allocator<folly::threadlocal_detail::ThreadEntry *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.google::LogMessage" = type { ptr, ptr }
-%"struct.folly::Synchronized" = type <{ %"struct.folly::threadlocal_detail::ThreadEntrySet", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic" }
 %struct.Initializer = type { i8 }
 %"class.std::bad_alloc" = type { %"class.std::exception" }
 %"class.folly::LockedPtr.46" = type { %"class.std::shared_lock" }
@@ -482,7 +479,7 @@ _ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8e
   %30 = ptrtoint ptr %29 to i64
   %31 = urem i64 %30, %28
   %32 = load ptr, ptr %15, align 8, !tbaa !29, !noalias !41
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !48, !noalias !41
   br label %35
 
@@ -510,7 +507,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   br i1 %.not9.i.i.i.i, label %58, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw ptr, ptr %32, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %44
   store ptr %34, ptr %46, align 8, !tbaa !48, !noalias !52
   br label %._crit_edge.i.i.i.i
 
@@ -538,7 +535,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   br i1 %.not18.i.i.i, label %58, label %56
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw ptr, ptr %32, i64 %55
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %55
   store ptr %.0.i.i.i, ptr %57, align 8, !tbaa !48, !noalias !52
   br label %58
 
@@ -554,7 +551,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   %64 = load i64, ptr %11, align 8, !tbaa !37, !noalias !55
   %65 = urem i64 %63, %64
   %66 = load ptr, ptr %2, align 8, !tbaa !29, !noalias !55
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %65
   %68 = load ptr, ptr %67, align 8, !tbaa !48, !noalias !55
   %.not.i.i.i.i = icmp eq ptr %68, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %69
@@ -672,7 +669,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   %114 = load ptr, ptr %113, align 8, !tbaa !46
   %115 = ptrtoint ptr %114 to i64
   %116 = urem i64 %115, %107
-  %117 = getelementptr inbounds nuw ptr, ptr %106, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %116
   store ptr %90, ptr %117, align 8, !tbaa !48
   br label %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEEaSEOSC_.exit.thread
 
@@ -964,7 +961,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   %16 = load ptr, ptr %15, align 8, !tbaa !46
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !48
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -979,7 +976,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !48
   br label %29
 
@@ -1078,7 +1075,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
 31:                                               ; preds = %_ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !29
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !48
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -1105,7 +1102,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   %45 = load ptr, ptr %43, align 8, !tbaa !46
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !48
   br label %49
 
@@ -1748,7 +1745,7 @@ _ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
   %.195 = phi i1 [ %.2, %_ZN5folly18threadlocal_detail14ElementWrapper7disposeENS_18TLPDestructionModeE.exit ], [ false, %221 ]
   %storemerge94 = phi i64 [ %260, %_ZN5folly18threadlocal_detail14ElementWrapper7disposeENS_18TLPDestructionModeE.exit ], [ 0, %221 ]
   %223 = load ptr, ptr %0, align 8, !tbaa !134
-  %224 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %223, i64 %storemerge94
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %223, i64 %storemerge94
   %225 = load ptr, ptr %224, align 8, !tbaa !135
   %.not = icmp eq ptr %225, null
   br i1 %.not, label %_ZN5folly18threadlocal_detail14ElementWrapper7disposeENS_18TLPDestructionModeE.exit, label %226
@@ -1812,7 +1809,7 @@ _ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i: ; preds = %2
 
 242:                                              ; preds = %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i, %239
   %243 = load ptr, ptr %0, align 8, !tbaa !134
-  %244 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %243, i64 %storemerge94
+  %244 = getelementptr inbounds nuw [16 x i8], ptr %243, i64 %storemerge94
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %246 = load i64, ptr %245, align 8, !tbaa !137
   %247 = and i64 %246, 1
@@ -2237,7 +2234,7 @@ _ZNSt10lock_guardIN5folly13MicroSpinLockEEC2ERS1_.exit: ; preds = %22, %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = add i64 %25, 1
   store i64 %32, ptr %24, align 8, !tbaa !171
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %25
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %25
   store i32 %1, ptr %33, align 4, !tbaa !16
   store atomic i8 0, ptr %0 release, align 8
   ret void
@@ -2304,7 +2301,7 @@ define linkonce_odr void @_ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18th
 
 .lr.ph:                                           ; preds = %10, %15
   %.01822 = phi i64 [ %16, %15 ], [ %5, %10 ]
-  %13 = getelementptr ptr, ptr %4, i64 %.01822
+  %13 = getelementptr [8 x i8], ptr %4, i64 %.01822
   %14 = load ptr, ptr %13, align 8, !tbaa !119
   %.not20 = icmp eq ptr %14, null
   br i1 %.not20, label %15, label %.critedge
@@ -2322,7 +2319,7 @@ define linkonce_odr void @_ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18th
 
 .lr.ph26:                                         ; preds = %.critedge
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = getelementptr ptr, ptr %19, i64 %.018.lcssa
+  %20 = getelementptr [8 x i8], ptr %19, i64 %.018.lcssa
   br label %35
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5folly12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit
@@ -2350,7 +2347,7 @@ define linkonce_odr void @_ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18th
 35:                                               ; preds = %.lr.ph26, %_ZN5folly12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit
   %.025 = phi i64 [ 0, %.lr.ph26 ], [ %66, %_ZN5folly12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit ]
   %36 = xor i64 %.025, -1
-  %37 = getelementptr ptr, ptr %20, i64 %36
+  %37 = getelementptr [8 x i8], ptr %20, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !119
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2778,7 +2775,7 @@ _ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
   %.13071 = phi i1 [ %.231, %_ZN5folly18threadlocal_detail14ElementWrapper7disposeENS_18TLPDestructionModeE.exit ], [ false, %77 ]
   %storemerge70 = phi i64 [ %116, %_ZN5folly18threadlocal_detail14ElementWrapper7disposeENS_18TLPDestructionModeE.exit ], [ 0, %77 ]
   %79 = load ptr, ptr %.03276, align 8, !tbaa !134
-  %80 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %79, i64 %storemerge70
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %storemerge70
   %81 = load ptr, ptr %80, align 8, !tbaa !135
   %.not53 = icmp eq ptr %81, null
   br i1 %.not53, label %_ZN5folly18threadlocal_detail14ElementWrapper7disposeENS_18TLPDestructionModeE.exit, label %82
@@ -2842,7 +2839,7 @@ _ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i: ; preds = %9
 
 98:                                               ; preds = %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i, %95
   %99 = load ptr, ptr %.03276, align 8, !tbaa !134
-  %100 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %99, i64 %storemerge70
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %storemerge70
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load i64, ptr %101, align 8, !tbaa !137
   %103 = and i64 %102, 1
@@ -3021,7 +3018,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitFo
 38:                                               ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit.thread
   %39 = shl i32 %36, 2
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.std::atomic.20", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %40
   %42 = load atomic i64, ptr %41 monotonic, align 32
   %.not = icmp eq i64 %42, 0
   br i1 %.not, label %72, label %43
@@ -3059,7 +3056,7 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %43, %45
   %58 = xor i32 %.04187, %54
   %59 = shl nuw nsw i32 %58, 2
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.std::atomic.20", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %60
   %62 = load atomic i64, ptr %61 monotonic, align 32
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %64, label %55
@@ -3115,7 +3112,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit57.thread: ; preds = %76, %80, %72
   %83 = shl i32 %.044.ph, 2
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %"struct.std::atomic.20", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %84
   br i1 %15, label %86, label %.thread77
 
 86:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit57.thread
@@ -3440,7 +3437,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly18threadlocal_detail14ThreadEnt
   %16 = load i64, ptr %15, align 8, !tbaa !37
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %3, align 8, !tbaa !29
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE4findERS9_.exit.thread, label %21
@@ -3489,7 +3486,7 @@ _ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8e
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %37 = load i64, ptr %36, align 8, !tbaa !198
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = getelementptr inbounds nuw ptr, ptr %34, i64 %.pre-phi41
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.pre-phi41
   %40 = load ptr, ptr %39, align 8, !tbaa !48
   br label %41
 
@@ -3517,7 +3514,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   br i1 %.not9.i.i.i.i.i, label %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit, label %51
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds nuw ptr, ptr %34, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %50
   store ptr %40, ptr %52, align 8, !tbaa !48
   br label %._crit_edge.i.i.i.i.i
 
@@ -3546,7 +3543,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   br i1 %.not17.i.i.i.i, label %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit, label %63
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds nuw ptr, ptr %34, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %62
   store ptr %.0.i.i.i.i, ptr %64, align 8, !tbaa !48
   br label %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit
 
@@ -3571,13 +3568,13 @@ _ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8e
 76:                                               ; preds = %_ZNSt13unordered_mapIPN5folly18threadlocal_detail11ThreadEntryEmSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_mEEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit
   %77 = getelementptr inbounds i8, ptr %69, i64 -8
   %78 = load ptr, ptr %77, align 8, !tbaa !46
-  %79 = getelementptr inbounds nuw ptr, ptr %70, i64 %37
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %37
   store ptr %78, ptr %79, align 8, !tbaa !46
   %80 = ptrtoint ptr %78 to i64
   %81 = load i64, ptr %38, align 8, !tbaa !37
   %82 = urem i64 %80, %81
   %83 = load ptr, ptr %3, align 8, !tbaa !29
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %82
   %85 = load ptr, ptr %84, align 8, !tbaa !48
   %.not.i.i.i.i8 = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i8, label %.loopexit.i.i, label %86
@@ -3789,7 +3786,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %3, %5
   %.1.ph = phi i32 [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %18, %17 ]
   %10 = shl i32 %.1.ph, 2
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::atomic.20", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
   br label %13
 
 13:                                               ; preds = %.outer, %24
@@ -3866,7 +3863,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.4 = phi i32 [ %.250, %16 ], [ %25, %24 ]
   %18 = shl i32 %.4, 2
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"struct.std::atomic.20", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %19
   %21 = load atomic i64, ptr %20 acquire, align 32
   %22 = and i64 %21, -2
   %23 = icmp eq i64 %22, %9
@@ -3904,7 +3901,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.02651 = phi i32 [ 0, %.lr.ph ], [ %.127, %46 ]
   %36 = shl i64 %indvars.iv, 2
   %37 = and i64 %36, 4294967292
-  %38 = getelementptr inbounds nuw %"struct.std::atomic.20", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %37
   %39 = load atomic i64, ptr %38 acquire, align 32
   %40 = and i64 %39, -2
   %41 = icmp eq i64 %40, %9
@@ -4212,7 +4209,7 @@ _ZNSt11unique_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
 75:                                               ; preds = %70, %73
   %76 = phi ptr [ %.0.i.i, %70 ], [ %74, %73 ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %67
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %67
   %79 = load ptr, ptr %78, align 8, !tbaa !119
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -4432,7 +4429,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %157, %.noe
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %159, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %154, ptr %134, align 8, !tbaa !102
   store ptr %158, ptr %135, align 8, !tbaa !208
-  %160 = getelementptr inbounds nuw i32, ptr %154, i64 %152
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %152
   store ptr %160, ptr %137, align 8, !tbaa !103
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -4459,7 +4456,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
 
 169:                                              ; preds = %.lr.ph
   %170 = load ptr, ptr %165, align 8, !tbaa !134
-  %171 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %170, i64 %67
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %170, i64 %67
   %172 = load ptr, ptr %171, align 8, !tbaa !135
   %.not = icmp eq ptr %172, null
   br i1 %.not, label %196, label %173
@@ -4518,7 +4515,7 @@ _ZNSt6vectorIN5folly18threadlocal_detail14ElementWrapperESaIS2_EE11_S_relocateEP
   br label %_ZNSt6vectorIN5folly18threadlocal_detail14ElementWrapperESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5folly18threadlocal_detail14ElementWrapperESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %191, %_ZNSt6vectorIN5folly18threadlocal_detail14ElementWrapperESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  %192 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %187, i64 %185
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %187, i64 %185
   br label %_ZNSt6vectorIN5folly18threadlocal_detail14ElementWrapperESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN5folly18threadlocal_detail14ElementWrapperESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN5folly18threadlocal_detail14ElementWrapperESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %174
@@ -4528,7 +4525,7 @@ _ZNSt6vectorIN5folly18threadlocal_detail14ElementWrapperESaIS2_EE9push_backERKS2
   %.sroa.9.2 = getelementptr inbounds nuw i8, ptr %.pn121, i64 16
   %193 = load ptr, ptr %.sroa.096.0141, align 8, !tbaa !46
   %194 = load ptr, ptr %193, align 8, !tbaa !134
-  %195 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %194, i64 %67
+  %195 = getelementptr inbounds nuw [16 x i8], ptr %194, i64 %67
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %195, i8 0, i64 16, i1 false)
   br label %196
 
@@ -5136,7 +5133,7 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   store i64 %1, ptr %24, align 8, !tbaa !65
   store ptr %4, ptr %23, align 16, !tbaa !145
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %1
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %1
   %27 = ptrtoint ptr %26 to i64
   %28 = add i64 %27, 8
   %29 = and i64 %28, -16
@@ -5154,9 +5151,9 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
 
 33:                                               ; preds = %.lr.ph, %33
   %.03950 = phi i64 [ 0, %.lr.ph ], [ %37, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %.03950
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.03950
   %35 = load ptr, ptr %34, align 8, !tbaa !119
-  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %.03950
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.03950
   store ptr %35, ptr %36, align 8, !tbaa !119
   %37 = add nuw i64 %.03950, 1
   %exitcond.not = icmp eq i64 %37, %9
@@ -5181,7 +5178,7 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
 
 .critedge:                                        ; preds = %42
   %45 = sub nuw i64 %.03754, %9
-  %46 = getelementptr inbounds nuw %"struct.folly::Synchronized", ptr %30, i64 %45
+  %46 = getelementptr inbounds nuw [88 x i8], ptr %30, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %46, i8 0, i64 88, i1 false), !alias.scope !212
@@ -5194,7 +5191,7 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   store float 1.000000e+00, ptr %51, align 8, !tbaa !38, !alias.scope !212
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %52, i8 0, i64 20, i1 false), !alias.scope !212
-  %53 = getelementptr inbounds nuw ptr, ptr %25, i64 %.03754
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.03754
   store ptr %46, ptr %53, align 8, !tbaa !119
   %54 = add i64 %.03754, 1
   %exitcond58.not = icmp eq i64 %54, %1
@@ -5286,7 +5283,7 @@ define linkonce_odr void @_ZSt4swapIN5folly18threadlocal_detail14ThreadEntrySetE
   %34 = load ptr, ptr %33, align 8, !tbaa !46
   %35 = ptrtoint ptr %34 to i64
   %36 = urem i64 %35, %16
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %36
   store ptr %17, ptr %37, align 8, !tbaa !48
   br label %_ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EEaSEOS5_.exit.i
 
@@ -5373,7 +5370,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   %70 = load ptr, ptr %69, align 8, !tbaa !46
   %71 = ptrtoint ptr %70 to i64
   %72 = urem i64 %71, %63
-  %73 = getelementptr inbounds nuw ptr, ptr %61, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %72
   store ptr %18, ptr %73, align 8, !tbaa !48
   br label %_ZN5folly18threadlocal_detail14ThreadEntrySetaSEOS1_.exit
 
@@ -5464,7 +5461,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   %105 = load ptr, ptr %104, align 8, !tbaa !46
   %106 = ptrtoint ptr %105 to i64
   %107 = urem i64 %106, %98
-  %108 = getelementptr inbounds nuw ptr, ptr %97, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %107
   store ptr %81, ptr %108, align 8, !tbaa !48
   br label %_ZN5folly18threadlocal_detail14ThreadEntrySetaSEOS1_.exit15.thread
 
@@ -6224,7 +6221,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly18threadlocal_detail14ThreadEnt
   %16 = load i64, ptr %15, align 8, !tbaa !37
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %3, align 8, !tbaa !29
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %21
@@ -6316,7 +6313,7 @@ _ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %58, %_ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %53, ptr %0, align 8, !tbaa !69
   store ptr %57, ptr %34, align 8, !tbaa !28
-  %59 = getelementptr inbounds nuw ptr, ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %51
   store ptr %59, ptr %36, align 8, !tbaa !25
   br label %_ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE9push_backERKS3_.exit
 
@@ -6333,7 +6330,7 @@ _ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE9push_backERKS3_.
   %69 = load i64, ptr %68, align 8, !tbaa !37
   %70 = urem i64 %67, %69
   %71 = load ptr, ptr %3, align 8, !tbaa !29
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %70
   %73 = load ptr, ptr %72, align 8, !tbaa !48
   %.not.i.i.i.i2 = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i2, label %.loopexit.i.i, label %74
@@ -6515,7 +6512,7 @@ define noundef ptr @_ZN5folly18threadlocal_detail11ThreadEntry14releaseElementEj
 _ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultIS8_EEEixEm.exit: ; preds = %14, %17
   %19 = phi ptr [ %.0.i.i, %14 ], [ %18, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %11
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %11
   %22 = load ptr, ptr %21, align 8, !tbaa !119
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
@@ -6555,7 +6552,7 @@ _ZN5folly16SynchronizedBaseINS_12SynchronizedINS_18threadlocal_detail14ThreadEnt
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !239
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !239
   %37 = load ptr, ptr %0, align 8, !tbaa !134
-  %38 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %37, i64 %11
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %11
   %39 = load ptr, ptr %38, align 8, !tbaa !135
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %_ZN5folly18threadlocal_detail14ElementWrapper7releaseEv.exit, label %40
@@ -6689,7 +6686,7 @@ define void @_ZN5folly18threadlocal_detail11ThreadEntry14cleanupElementEj(ptr no
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8, !tbaa !134
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !135
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %_ZN5folly18threadlocal_detail14ElementWrapper7disposeENS_18TLPDestructionModeE.exit, label %9
@@ -6744,7 +6741,7 @@ _ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i: ; preds = %1
 
 _ZN5folly18threadlocal_detail14ElementWrapper7disposeENS_18TLPDestructionModeE.exit: ; preds = %2, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i, %22
   %26 = load ptr, ptr %0, align 8, !tbaa !134
-  %27 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %26, i64 %6
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %6
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !137
   %30 = and i64 %29, 1
@@ -6863,7 +6860,7 @@ _ZNSt10lock_guardIN5folly13MicroSpinLockEEC2ERS1_.exit: ; preds = %21, %1
   %27 = phi i64 [ %24, %.lr.ph ], [ %32, %26 ]
   %28 = add i64 %27, -1
   store i64 %28, ptr %23, align 8, !tbaa !171
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !16
   %31 = call i32 @pthread_key_delete(i32 noundef %30) #23
   %32 = load i64, ptr %23, align 8, !tbaa !171

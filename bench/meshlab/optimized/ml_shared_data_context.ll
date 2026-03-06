@@ -827,7 +827,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions57computeRequestedRenderingDataCo
   br i1 %.not.i37, label %40, label %96
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %35, i64 %.02850
+  %41 = getelementptr inbounds nuw [9 x i8], ptr %35, i64 %.02850
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false), !alias.scope !11
   br label %42
@@ -1932,7 +1932,7 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %1
   br i1 %.not.i, label %188, label %199
 
 188:                                              ; preds = %184
-  %189 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %175, i64 %indvars.iv
+  %189 = getelementptr inbounds nuw [9 x i8], ptr %175, i64 %indvars.iv
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %2, i8 0, i64 7, i1 false), !alias.scope !17
   br label %190
@@ -2190,7 +2190,7 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = zext i1 %40 to i8
   store i8 %42, ptr %41, align 1
-  %43 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %14, i64 %10
+  %43 = getelementptr inbounds nuw [9 x i8], ptr %14, i64 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %43, i8 0, i64 9, i1 false)
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i
 
@@ -2215,7 +2215,7 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i: ; preds = %_ZN3vc
 
 _ZNKSt6bitsetILm4EE8_M_checkEmPKc.exit.i.i:       ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i
   %49 = load ptr, ptr %11, align 8
-  %50 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %49, i64 %10
+  %50 = getelementptr inbounds nuw [9 x i8], ptr %49, i64 %10
   %51 = load i8, ptr %50, align 1
   %52 = trunc i8 %51 to i1
   %53 = shl nuw nsw i64 1, %10
@@ -3463,11 +3463,11 @@ define noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo1
   br i1 %.not.i, label %14, label %_ZN3vcg11PerViewDataI18MLPerViewGLOptionsE3setENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS3_9ATT_NAMESEb.exit
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %9, i64 %5
+  %15 = getelementptr inbounds nuw [9 x i8], ptr %9, i64 %5
   %16 = zext i1 %2 to i8
   store i8 %16, ptr %15, align 1
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %17, i64 %5
+  %18 = getelementptr inbounds nuw [9 x i8], ptr %17, i64 %5
   %19 = icmp ugt i32 %1, 3
   br i1 %19, label %20, label %_ZNKSt6bitsetILm4EE8_M_checkEmPKc.exit.i.i
 
@@ -4080,7 +4080,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions49disableRedundatRenderingDataAcc
   br i1 %.not.i, label %19, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %14, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [9 x i8], ptr %14, i64 %indvars.iv
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %2, i8 0, i64 7, i1 false), !alias.scope !41
   br label %21
@@ -4469,7 +4469,7 @@ define noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo1
   br i1 %.not.i, label %17, label %28
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %12, i64 %8
+  %18 = getelementptr inbounds nuw [9 x i8], ptr %12, i64 %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !45
   br label %19

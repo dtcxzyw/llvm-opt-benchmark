@@ -117,7 +117,7 @@ define void @ABC_ReleaseManager(ptr noundef captures(none) %0) local_unnamed_add
   %11 = phi i32 [ %19, %18 ], [ %9, %.preheader.i ]
   %12 = phi ptr [ %20, %18 ], [ %7, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %.preheader.i ]
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !48
   %.not24.i = icmp eq ptr %14, null
   br i1 %.not24.i, label %18, label %15
@@ -125,7 +125,7 @@ define void @ABC_ReleaseManager(ptr noundef captures(none) %0) local_unnamed_add
 15:                                               ; preds = %.lr.ph.i
   tail call void @free(ptr noundef nonnull %14) #15
   %16 = load ptr, ptr %6, align 8, !tbaa !44
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   store ptr null, ptr %17, align 8, !tbaa !48
   %.pre.i = load i32, ptr %8, align 8, !tbaa !47
   br label %18
@@ -291,7 +291,7 @@ define void @ABC_TargetResFree(ptr noundef captures(address_is_null) %0) local_u
   %9 = phi i32 [ %17, %16 ], [ %7, %.preheader ]
   %10 = phi ptr [ %18, %16 ], [ %5, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !48
   %.not24 = icmp eq ptr %12, null
   br i1 %.not24, label %16, label %13
@@ -299,7 +299,7 @@ define void @ABC_TargetResFree(ptr noundef captures(address_is_null) %0) local_u
 13:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %12) #15
   %14 = load ptr, ptr %4, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store ptr null, ptr %15, align 8, !tbaa !48
   %.pre = load i32, ptr %6, align 8, !tbaa !47
   br label %16
@@ -417,14 +417,14 @@ define range(i32 0, 2) i32 @ABC_AddGate(ptr noundef readonly captures(none) %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %38 ]
   %30 = load ptr, ptr %0, align 8, !tbaa !31
-  %31 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !48
   %33 = call i32 @stmm_lookup(ptr noundef %30, ptr noundef %32, ptr noundef nonnull %7) #15
   %.not84 = icmp eq i32 %33, 0
   br i1 %.not84, label %34, label %38
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !48
   %37 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %36)
   br label %152
@@ -727,7 +727,7 @@ define void @ABC_Network_Finalize(ptr noundef readonly captures(none) %0) local_
   %.val26 = phi ptr [ %.val23, %.lr.ph ], [ %.val, %14 ]
   %15 = getelementptr i8, ptr %.val26, i64 8
   %.val18.val = load ptr, ptr %15, align 8, !tbaa !37
-  %16 = getelementptr inbounds nuw ptr, ptr %.val18.val, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val18.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !62
   %.val19 = load ptr, ptr %9, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -749,7 +749,7 @@ define void @ABC_Network_Finalize(ptr noundef readonly captures(none) %0) local_
   %.val2130 = phi ptr [ %.val2127, %.lr.ph31 ], [ %.val21, %.critedge ]
   %24 = getelementptr i8, ptr %.val2130, i64 8
   %.val22.val = load ptr, ptr %24, align 8, !tbaa !37
-  %25 = getelementptr inbounds nuw ptr, ptr %.val22.val, i64 %indvars.iv33
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.val22.val, i64 %indvars.iv33
   %26 = load ptr, ptr %25, align 8, !tbaa !62
   %.val20 = load ptr, ptr %13, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -791,7 +791,7 @@ define range(i32 0, 2) i32 @ABC_Check_Integrity(ptr noundef readonly captures(no
 
 9:                                                ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val14.val, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val14.val, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !62
   %12 = icmp eq ptr %11, null
   br i1 %12, label %21, label %13
@@ -933,14 +933,14 @@ define range(i32 0, 2) i32 @ABC_AddTarget(ptr noundef captures(none) %0, i32 nou
 16:                                               ; preds = %8, %Vec_IntPush.exit
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %Vec_IntPush.exit ]
   %17 = load ptr, ptr %0, align 8, !tbaa !31
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !48
   %20 = call i32 @stmm_lookup(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %5) #15
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %25
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !48
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %23)
   br label %99
@@ -1012,15 +1012,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %28, align 4, !tbaa !34
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   store ptr %27, ptr %58, align 8, !tbaa !62
-  %59 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4, !tbaa !75
   %or.cond = icmp ugt i32 %60, 1
   br i1 %or.cond, label %61, label %65
 
 61:                                               ; preds = %Vec_PtrPush.exit
-  %62 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !48
   %64 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %63)
   br label %99
@@ -1091,7 +1091,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %67, align 4, !tbaa !39
   %96 = sext i32 %94 to i64
-  %97 = getelementptr inbounds i32, ptr %93, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %93, i64 %96
   store i32 %60, ptr %97, align 4, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1223,7 +1223,7 @@ define i32 @ABC_Solve(ptr noundef %0) local_unnamed_addr #0 {
   %.val39 = load ptr, ptr %36, align 8, !tbaa !78
   %37 = getelementptr i8, ptr %.val39, i64 8
   %.val39.val = load ptr, ptr %37, align 8, !tbaa !37
-  %38 = getelementptr inbounds nuw ptr, ptr %.val39.val, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.val39.val, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !62
   %.val = load ptr, ptr %33, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1235,16 +1235,16 @@ define i32 @ABC_Solve(ptr noundef %0) local_unnamed_addr #0 {
   %43 = load ptr, ptr %28, align 8, !tbaa !43
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8, !tbaa !44
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   store ptr %42, ptr %46, align 8, !tbaa !48
   %47 = load ptr, ptr %4, align 8, !tbaa !52
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 304
   %49 = load ptr, ptr %48, align 8, !tbaa !80
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !75
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %53 = load ptr, ptr %52, align 8, !tbaa !51
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   store i32 %51, ptr %54, align 4, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 32

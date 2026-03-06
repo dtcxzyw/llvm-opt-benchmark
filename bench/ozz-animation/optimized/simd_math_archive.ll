@@ -18,7 +18,7 @@ define dso_local void @_ZN3ozz2io6ExternIDv4_fE4SaveERNS0_8OArchiveEPKS2_m(ptr n
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.0.i5.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %9 = getelementptr inbounds nuw float, ptr %1, i64 %.0.i5.i.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i5.i.i
   %10 = load float, ptr %9, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load i8, ptr %6, align 8, !tbaa !4, !range !11, !noundef !12
@@ -103,7 +103,7 @@ define dso_local void @_ZN3ozz2io6ExternIDv2_xE4SaveERNS0_8OArchiveEPKS2_m(ptr n
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.0.i5.i.i = phi i64 [ %18, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i5.i.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i5.i.i
   %10 = load i32, ptr %9, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load i8, ptr %6, align 8, !tbaa !4, !range !11, !noundef !12
@@ -186,7 +186,7 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math8Float4x4EE4SaveERNS0_8OArchive
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.0.i5.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %9 = getelementptr inbounds nuw float, ptr %1, i64 %.0.i5.i.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0.i5.i.i
   %10 = load float, ptr %9, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load i8, ptr %6, align 8, !tbaa !4, !range !11, !noundef !12

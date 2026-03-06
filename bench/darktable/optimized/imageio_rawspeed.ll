@@ -43,7 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rawspeed::Array2DRef.90" = type { %"class.rawspeed::Array1DRef.91", i32, i32, i32, [4 x i8] }
 %"class.rawspeed::Array1DRef.91" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::allocator.6" = type { i8 }
-%"struct.rawspeed::NotARational" = type { i32, i32 }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -987,10 +986,10 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit:               ; preds = %90, %100, %103
   %indvars.iv = phi i64 [ 0, %188 ], [ %indvars.iv.next, %194 ]
   %195 = icmp samesign ult i64 %indvars.iv, %.sroa.5318.0
   call void @llvm.assume(i1 %195)
-  %196 = getelementptr inbounds nuw i32, ptr %.sroa.0317.0, i64 %indvars.iv
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0317.0, i64 %indvars.iv
   %197 = load i32, ptr %196, align 4, !tbaa !82
   %198 = trunc i32 %197 to i16
-  %199 = getelementptr inbounds nuw i16, ptr %189, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %189, i64 %indvars.iv
   store i16 %198, ptr %199, align 2, !tbaa !193
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1010,7 +1009,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit:               ; preds = %90, %100, %103
 .preheader365:                                    ; preds = %190, %.preheader365
   %indvars.iv380 = phi i64 [ %indvars.iv.next381, %.preheader365 ], [ 0, %190 ]
   %.0187369 = phi float [ %211, %.preheader365 ], [ 0.000000e+00, %190 ]
-  %208 = getelementptr inbounds nuw i16, ptr %189, i64 %indvars.iv380
+  %208 = getelementptr inbounds nuw [2 x i8], ptr %189, i64 %indvars.iv380
   %209 = load i16, ptr %208, align 2, !tbaa !193
   %210 = uitofp i16 %209 to float
   %211 = fadd reassoc nsz arcp contract afn float %.0187369, %210
@@ -1077,9 +1076,9 @@ _ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16Alig
 
 238:                                              ; preds = %_ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16AlignedAllocatorIhLi16EEEEEESt14default_deleteIS6_EE5resetEPS6_.exit, %238
   %indvars.iv384 = phi i64 [ 0, %_ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16AlignedAllocatorIhLi16EEEEEESt14default_deleteIS6_EE5resetEPS6_.exit ], [ %indvars.iv.next385, %238 ]
-  %239 = getelementptr inbounds nuw float, ptr %226, i64 %indvars.iv384
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %indvars.iv384
   %240 = load float, ptr %239, align 4, !tbaa !203
-  %241 = getelementptr inbounds nuw float, ptr %227, i64 %indvars.iv384
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %indvars.iv384
   store float %240, ptr %241, align 4, !tbaa !203
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
   %exitcond387.not = icmp eq i64 %indvars.iv.next385, 4
@@ -1088,7 +1087,7 @@ _ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16Alig
 .preheader364:                                    ; preds = %228, %245
   %indvars.iv392 = phi i64 [ 0, %228 ], [ %indvars.iv.next393, %245 ]
   %242 = mul nuw nsw i64 %indvars.iv392, 3
-  %243 = getelementptr inbounds nuw [3 x float], ptr %236, i64 %indvars.iv392
+  %243 = getelementptr inbounds nuw [12 x i8], ptr %236, i64 %indvars.iv392
   br label %246
 
 244:                                              ; preds = %245
@@ -1107,7 +1106,7 @@ _ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16Alig
   br i1 %248, label %249, label %257
 
 249:                                              ; preds = %246
-  %250 = getelementptr inbounds nuw %"struct.rawspeed::NotARational", ptr %232, i64 %247
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %247
   %251 = load i32, ptr %250, align 4, !tbaa !206
   %252 = sitofp i32 %251 to float
   %253 = getelementptr inbounds nuw i8, ptr %250, i64 4
@@ -1118,7 +1117,7 @@ _ZNSt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS1_16Alig
 
 257:                                              ; preds = %246, %249
   %.sink = phi float [ %256, %249 ], [ 0.000000e+00, %246 ]
-  %258 = getelementptr inbounds nuw float, ptr %243, i64 %indvars.iv388
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %243, i64 %indvars.iv388
   store float %.sink, ptr %258, align 4, !tbaa !203
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %exitcond391.not = icmp eq i64 %indvars.iv.next389, 3
@@ -1171,7 +1170,7 @@ thread-pre-split:                                 ; preds = %264
 
 279:                                              ; preds = %.preheader362, %279
   %indvars.iv396 = phi i64 [ 0, %.preheader362 ], [ %indvars.iv.next397, %279 ]
-  %280 = getelementptr inbounds nuw float, ptr %278, i64 %indvars.iv396
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %indvars.iv396
   store float 1.000000e+00, ptr %280, align 4, !tbaa !203
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next397, 4
@@ -1357,11 +1356,11 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %310, %316, %319
 .lr.ph304.us.i:                                   ; preds = %._crit_edge.us309.i, %.lr.ph304.us.preheader.i
   %indvars.iv355.i = phi i64 [ 0, %.lr.ph304.us.preheader.i ], [ %indvars.iv.next356.i, %._crit_edge.us309.i ]
   %.reass.us308.i = mul nuw i64 %factor.op.mul307.i, %indvars.iv355.i
-  %370 = getelementptr inbounds nuw float, ptr %340, i64 %.reass.us308.i
+  %370 = getelementptr inbounds nuw [4 x i8], ptr %340, i64 %.reass.us308.i
   %371 = icmp samesign ult i64 %indvars.iv355.i, %368
   call void @llvm.assume(i1 %371)
   %372 = mul nuw nsw i64 %indvars.iv355.i, %369
-  %373 = getelementptr inbounds nuw float, ptr %350, i64 %372
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %350, i64 %372
   br label %374
 
 374:                                              ; preds = %374, %.lr.ph304.us.i
@@ -1369,7 +1368,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %310, %316, %319
   %.0114302.us.i = phi ptr [ %370, %.lr.ph304.us.i ], [ %381, %374 ]
   %375 = icmp samesign ult i64 %indvars.iv350.i, %367
   call void @llvm.assume(i1 %375)
-  %376 = getelementptr inbounds nuw float, ptr %373, i64 %indvars.iv350.i
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %373, i64 %indvars.iv350.i
   %377 = load float, ptr %376, align 4, !tbaa !203
   %378 = getelementptr inbounds nuw i8, ptr %.0114302.us.i, i64 8
   store float %377, ptr %378, align 4, !tbaa !203
@@ -1427,11 +1426,11 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %310, %316, %319
 .lr.ph312.us.i:                                   ; preds = %._crit_edge.us317.i, %.lr.ph312.us.preheader.i
   %indvars.iv365.i = phi i64 [ 0, %.lr.ph312.us.preheader.i ], [ %indvars.iv.next366.i, %._crit_edge.us317.i ]
   %.reass.us316.i = mul nuw i64 %factor.op.mul315.i, %indvars.iv365.i
-  %403 = getelementptr inbounds nuw float, ptr %340, i64 %.reass.us316.i
+  %403 = getelementptr inbounds nuw [4 x i8], ptr %340, i64 %.reass.us316.i
   %404 = icmp samesign ult i64 %indvars.iv365.i, %401
   call void @llvm.assume(i1 %404)
   %405 = mul nuw nsw i64 %indvars.iv365.i, %402
-  %406 = getelementptr inbounds nuw i16, ptr %383, i64 %405
+  %406 = getelementptr inbounds nuw [2 x i8], ptr %383, i64 %405
   br label %407
 
 407:                                              ; preds = %407, %.lr.ph312.us.i
@@ -1439,7 +1438,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %310, %316, %319
   %.0117310.us.i = phi ptr [ %403, %.lr.ph312.us.i ], [ %416, %407 ]
   %408 = icmp samesign ult i64 %indvars.iv360.i, %400
   call void @llvm.assume(i1 %408)
-  %409 = getelementptr inbounds nuw i16, ptr %406, i64 %indvars.iv360.i
+  %409 = getelementptr inbounds nuw [2 x i8], ptr %406, i64 %indvars.iv360.i
   %410 = load i16, ptr %409, align 2, !tbaa !193
   %411 = uitofp i16 %410 to float
   %412 = fmul reassoc nnan nsz arcp contract afn float %411, 0x3EF0001000000000
@@ -1508,11 +1507,11 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %310, %316, %319
 .preheader287.lr.ph.us.i:                         ; preds = %._crit_edge.us.i, %.preheader287.lr.ph.us.preheader.i
   %indvars.iv331.i = phi i64 [ 0, %.preheader287.lr.ph.us.preheader.i ], [ %indvars.iv.next332.i, %._crit_edge.us.i ]
   %.reass.us.i = mul nuw i64 %factor.op.mul.i, %indvars.iv331.i
-  %444 = getelementptr inbounds nuw float, ptr %341, i64 %.reass.us.i
+  %444 = getelementptr inbounds nuw [4 x i8], ptr %341, i64 %.reass.us.i
   %445 = icmp samesign ult i64 %indvars.iv331.i, %442
   call void @llvm.assume(i1 %445)
   %446 = mul nuw nsw i64 %indvars.iv331.i, %443
-  %447 = getelementptr inbounds nuw float, ptr %424, i64 %446
+  %447 = getelementptr inbounds nuw [4 x i8], ptr %424, i64 %446
   br label %.preheader287.us.i
 
 448:                                              ; preds = %451
@@ -1531,9 +1530,9 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %310, %316, %319
   call void @llvm.assume(i1 %454)
   %455 = icmp samesign ult i64 %452, %441
   call void @llvm.assume(i1 %455)
-  %456 = getelementptr inbounds nuw float, ptr %447, i64 %452
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %447, i64 %452
   %457 = load float, ptr %456, align 4, !tbaa !203
-  %458 = getelementptr inbounds nuw float, ptr %.0107291.us.i, i64 %indvars.iv.i
+  %458 = getelementptr inbounds nuw [4 x i8], ptr %.0107291.us.i, i64 %indvars.iv.i
   store float %457, ptr %458, align 4, !tbaa !203
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1591,11 +1590,11 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %310, %316, %319
 .preheader284.lr.ph.us.i:                         ; preds = %._crit_edge.us301.i, %.preheader284.lr.ph.us.preheader.i
   %indvars.iv345.i = phi i64 [ 0, %.preheader284.lr.ph.us.preheader.i ], [ %indvars.iv.next346.i, %._crit_edge.us301.i ]
   %.reass.us300.i = mul nuw i64 %factor.op.mul299.i, %indvars.iv345.i
-  %483 = getelementptr inbounds nuw float, ptr %341, i64 %.reass.us300.i
+  %483 = getelementptr inbounds nuw [4 x i8], ptr %341, i64 %.reass.us300.i
   %484 = icmp samesign ult i64 %indvars.iv345.i, %481
   call void @llvm.assume(i1 %484)
   %485 = mul nuw nsw i64 %indvars.iv345.i, %482
-  %486 = getelementptr inbounds nuw i16, ptr %463, i64 %485
+  %486 = getelementptr inbounds nuw [2 x i8], ptr %463, i64 %485
   br label %.preheader284.us.i
 
 487:                                              ; preds = %490
@@ -1614,11 +1613,11 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %310, %316, %319
   call void @llvm.assume(i1 %493)
   %494 = icmp samesign ult i64 %491, %480
   call void @llvm.assume(i1 %494)
-  %495 = getelementptr inbounds nuw i16, ptr %486, i64 %491
+  %495 = getelementptr inbounds nuw [2 x i8], ptr %486, i64 %491
   %496 = load i16, ptr %495, align 2, !tbaa !193
   %497 = uitofp i16 %496 to float
   %498 = fmul reassoc nnan nsz arcp contract afn float %497, 0x3EF0001000000000
-  %499 = getelementptr inbounds nuw float, ptr %.0111295.us.i, i64 %indvars.iv336.i
+  %499 = getelementptr inbounds nuw [4 x i8], ptr %.0111295.us.i, i64 %indvars.iv336.i
   store float %498, ptr %499, align 4, !tbaa !203
   %indvars.iv.next337.i = add nuw nsw i64 %indvars.iv336.i, 1
   %exitcond339.not.i = icmp eq i64 %indvars.iv.next337.i, 3

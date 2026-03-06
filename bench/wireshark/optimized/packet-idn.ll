@@ -903,7 +903,7 @@ dissect_idn_channel_configuration_header.exit.i.i: ; preds = %210, %208
   %289 = load ptr, ptr %243, align 8
   %290 = add i32 %.05286.i.i.i, -1
   %291 = sext i32 %290 to i64
-  %292 = getelementptr i32, ptr %289, i64 %291
+  %292 = getelementptr [4 x i8], ptr %289, i64 %291
   store i32 %288, ptr %292, align 4
   %293 = add i32 %.087.i.i.i, 3
   %294 = and i32 %282, 1
@@ -916,7 +916,7 @@ dissect_idn_channel_configuration_header.exit.i.i: ; preds = %210, %208
   %298 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %293)
   %299 = zext i8 %298 to i32
   %300 = load ptr, ptr %244, align 8
-  %301 = getelementptr i32, ptr %300, i64 %291
+  %301 = getelementptr [4 x i8], ptr %300, i64 %291
   store i32 %299, ptr %301, align 4
   %302 = add i32 %.087.i.i.i, 4
   %303 = add i32 %.07284.i.i.i, 4
@@ -925,7 +925,7 @@ dissect_idn_channel_configuration_header.exit.i.i: ; preds = %210, %208
 304:                                              ; preds = %284
   %305 = add i32 %.07284.i.i.i, 3
   %306 = load ptr, ptr %244, align 8
-  %307 = getelementptr i32, ptr %306, i64 %291
+  %307 = getelementptr [4 x i8], ptr %306, i64 %291
   store i32 -1, ptr %307, align 4
   br label %dissect_idn_dimmer_level_subset.exit.i.i.i
 
@@ -1721,14 +1721,14 @@ dissect_idn_octet_segment.exit.i:                 ; preds = %711, %._crit_edge.i
 .lr.ph.i.i:                                       ; preds = %717, %dissect_idn_dmx_sample_values.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %dissect_idn_dmx_sample_values.exit.i.i ], [ 0, %717 ]
   %.05465.i.i = phi i32 [ %.1.i.i64.i, %dissect_idn_dmx_sample_values.exit.i.i ], [ %.2132.i, %717 ]
-  %726 = getelementptr i32, ptr %721, i64 %indvars.iv.i.i
+  %726 = getelementptr [4 x i8], ptr %721, i64 %indvars.iv.i.i
   %727 = load i32, ptr %726, align 4
   %728 = add i32 %727, -1
   %729 = icmp eq i32 %727, 0
   br i1 %729, label %dissect_idn_servicemap_response.exit, label %730
 
 730:                                              ; preds = %.lr.ph.i.i
-  %731 = getelementptr i32, ptr %719, i64 %indvars.iv.i.i
+  %731 = getelementptr [4 x i8], ptr %719, i64 %indvars.iv.i.i
   %732 = load i32, ptr %731, align 4
   %.not.i60.i = icmp eq i32 %732, -1
   br i1 %.not.i60.i, label %741, label %733

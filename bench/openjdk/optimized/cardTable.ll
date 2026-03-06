@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.ThreadCritical = type { i8 }
 %class.ReservedSpace = type <{ ptr, i64, i64, i64, i64, i8, [3 x i8], i32, i8, [7 x i8] }>
-%class.MemRegion = type { ptr, i64 }
 
 $_ZN19GCLogPreciousHandle5writeEPKcz = comdat any
 
@@ -264,7 +263,7 @@ define hidden { ptr, i64 } @_ZNK9CardTable13committed_forE9MemRegion(ptr noundef
   br i1 %17, label %30, label %18
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %19 = getelementptr inbounds [8 x i8], ptr %1, i64 %2
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
   %21 = ptrtoint ptr %20 to i64
   %22 = lshr i64 %21, %8
@@ -315,7 +314,7 @@ define hidden void @_ZN9CardTable21resize_covered_regionE9MemRegion(ptr noundef 
   %7 = zext i1 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = zext i1 %6 to i64
-  %10 = getelementptr inbounds nuw %class.MemRegion, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %9
   %.sroa.01.0.copyload = load ptr, ptr %10, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
@@ -336,7 +335,7 @@ define hidden void @_ZN9CardTable21resize_covered_regionE9MemRegion(ptr noundef 
   br i1 %24, label %37, label %25
 
 25:                                               ; preds = %3
-  %26 = getelementptr inbounds ptr, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
+  %26 = getelementptr inbounds [8 x i8], ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
   %27 = getelementptr inbounds i8, ptr %26, i64 -8
   %28 = ptrtoint ptr %27 to i64
   %29 = lshr i64 %28, %15
@@ -385,7 +384,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit:    ; preds = %37, %41
   br i1 %61, label %74, label %62
 
 62:                                               ; preds = %_ZNK9CardTable13committed_forE9MemRegion.exit
-  %63 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %63 = getelementptr inbounds [8 x i8], ptr %1, i64 %2
   %64 = getelementptr inbounds i8, ptr %63, i64 -8
   %65 = ptrtoint ptr %64 to i64
   %66 = lshr i64 %65, %15
@@ -430,7 +429,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   br i1 %94, label %95, label %99
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds nuw ptr, ptr %23, i64 %54
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %54
   %97 = sub nuw nsw i64 %91, %54
   %98 = shl nuw i64 %97, 3
   tail call void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %96, i64 noundef %98, i64 noundef %19, i1 noundef zeroext false, ptr noundef nonnull @.str.9) #15
@@ -438,7 +437,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   br label %104
 
 99:                                               ; preds = %93
-  %100 = getelementptr inbounds nuw ptr, ptr %60, i64 %91
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %91
   %101 = sub nuw nsw i64 %54, %91
   %102 = shl nuw i64 %101, 3
   %103 = tail call noundef zeroext i1 @_ZN2os15uncommit_memoryEPcmb(ptr noundef %100, i64 noundef %102, i1 noundef zeroext false) #15
@@ -462,7 +461,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   %110 = load ptr, ptr %10, align 8
   %111 = ptrtoint ptr %110 to i64
   %112 = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  %113 = getelementptr inbounds ptr, ptr %110, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %110, i64 %112
   %114 = getelementptr inbounds i8, ptr %113, i64 -8
   %115 = ptrtoint ptr %114 to i64
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, i32 noundef %7, i64 noundef %111, i32 noundef %7, i64 noundef %115)
@@ -474,7 +473,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   br i1 %.not36, label %122, label %118
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds nuw ptr, ptr %60, i64 %91
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %91
   %120 = getelementptr inbounds i8, ptr %119, i64 -8
   %121 = ptrtoint ptr %120 to i64
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.12, i64 noundef %59, i64 noundef %121)
@@ -495,7 +494,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   %131 = getelementptr inbounds i8, ptr %126, i64 %130
   %132 = ptrtoint ptr %131 to i64
   %133 = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  %134 = getelementptr inbounds ptr, ptr %125, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %125, i64 %133
   %135 = getelementptr inbounds i8, ptr %134, i64 -8
   %136 = ptrtoint ptr %135 to i64
   %137 = lshr i64 %136, %129
@@ -516,7 +515,7 @@ _ZNK9CardTable13committed_forE9MemRegion.exit13:  ; preds = %74, %78
   %146 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
   %147 = zext nneg i32 %146 to i64
   %148 = shl i64 %145, %147
-  %149 = getelementptr inbounds nuw ptr, ptr %60, i64 %91
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %91
   %150 = getelementptr inbounds i8, ptr %149, i64 -8
   %151 = ptrtoint ptr %150 to i64
   %152 = sub i64 %151, %144
@@ -544,7 +543,7 @@ define hidden void @_ZN9CardTable15dirty_MemRegionE9MemRegion(ptr noundef nonnul
   %8 = zext nneg i32 %7 to i64
   %9 = lshr i64 %6, %8
   %10 = getelementptr inbounds i8, ptr %5, i64 %9
-  %11 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %11 = getelementptr inbounds [8 x i8], ptr %1, i64 %2
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = ptrtoint ptr %12 to i64
   %14 = lshr i64 %13, %8
@@ -587,7 +586,7 @@ define hidden void @_ZN9CardTable15clear_MemRegionE9MemRegion(ptr noundef nonnul
   %.pre-phi = phi i64 [ %21, %15 ], [ %12, %7 ]
   %26 = phi ptr [ %18, %15 ], [ %9, %7 ]
   %.0 = phi ptr [ %24, %15 ], [ %14, %7 ]
-  %27 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %27 = getelementptr inbounds [8 x i8], ptr %1, i64 %2
   %28 = getelementptr inbounds i8, ptr %27, i64 -8
   %29 = ptrtoint ptr %28 to i64
   %30 = lshr i64 %29, %.pre-phi

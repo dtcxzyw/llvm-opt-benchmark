@@ -36,15 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::iterator_range" = type { %"class.clang::ASTReader::ModuleDeclIterator", %"class.clang::ASTReader::ModuleDeclIterator" }
 %"class.clang::ASTReader::ModuleDeclIterator" = type { %"class.llvm::iterator_adaptor_base", ptr, ptr }
 %"class.llvm::iterator_adaptor_base" = type { ptr }
-%"struct.llvm::detail::DenseMapPair.1265" = type { %"struct.std::pair.1266" }
-%"struct.std::pair.1266" = type { ptr, %"class.llvm::TinyPtrVector" }
-%"class.llvm::TinyPtrVector" = type { %"class.llvm::PointerUnion.1170" }
-%"class.llvm::PointerUnion.1170" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.1171" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.1171" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.1172" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.1172" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.1173" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.1173" = type { %"class.llvm::PointerIntPair.1174" }
-%"class.llvm::PointerIntPair.1174" = type { %"struct.llvm::detail::PunnedPointer.1169" }
-%"struct.llvm::detail::PunnedPointer.1169" = type { [8 x i8] }
 %"class.clang::CharSourceRange" = type <{ %"class.clang::SourceRange", i8, [3 x i8] }>
 %"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 %"class.clang::SourceLocation" = type { i32 }
@@ -1245,7 +1236,7 @@ _ZNK5clang12Preprocessor10MacroState9getLatestEv.exit.i: ; preds = %60, %55
   %78 = add i32 %70, -1
   %.01826.i.i.i.i.i = and i32 %78, %77
   %79 = zext nneg i32 %.01826.i.i.i.i.i to i64
-  %80 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1265", ptr %69, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !69
   %82 = icmp eq ptr %64, %81
   br i1 %82, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS_13TinyPtrVectorIPNS2_11ModuleMacroEEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E4findES5_.exit.i.i, label %.lr.ph.i.i.i.i.i, !prof !548
@@ -1262,20 +1253,20 @@ _ZNK5clang12Preprocessor10MacroState9getLatestEv.exit.i: ; preds = %60, %55
   %87 = add i32 %.01627.i.i.i.i.i, %.01828.i.i.i.i.i
   %.018.i.i.i.i.i = and i32 %87, %78
   %88 = zext i32 %.018.i.i.i.i.i to i64
-  %89 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1265", ptr %69, i64 %88
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !69
   %91 = icmp eq ptr %64, %90
   br i1 %91, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS_13TinyPtrVectorIPNS2_11ModuleMacroEEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E4findES5_.exit.i.i, label %.lr.ph.i.i.i.i.i, !prof !550, !llvm.loop !551
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %68
   %92 = zext i32 %70 to i64
-  %93 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1265", ptr %69, i64 %92
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %92
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS_13TinyPtrVectorIPNS2_11ModuleMacroEEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E4findES5_.exit.i.i
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS_13TinyPtrVectorIPNS2_11ModuleMacroEEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E4findES5_.exit.i.i: ; preds = %85, %.loopexit.i.i.i, %72
   %.sroa.0.1.i.i.i = phi ptr [ %93, %.loopexit.i.i.i ], [ %80, %72 ], [ %89, %85 ]
   %94 = zext i32 %70 to i64
-  %95 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1265", ptr %69, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %94
   %.not10.i.i = icmp eq ptr %.sroa.0.1.i.i.i, %95
   br i1 %.not10.i.i, label %.loopexit.i, label %96
 
@@ -2418,7 +2409,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 17:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !584
-  %20 = getelementptr ptr, ptr %19, i64 %15
+  %20 = getelementptr [8 x i8], ptr %19, i64 %15
   %21 = getelementptr i8, ptr %20, i64 -8
   %22 = load ptr, ptr %21, align 8, !tbaa !554
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i
@@ -2486,7 +2477,7 @@ define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks14MacroUndefinedERKN5cl
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !584
-  %11 = getelementptr ptr, ptr %10, i64 %6
+  %11 = getelementptr [8 x i8], ptr %10, i64 %6
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !554
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
@@ -2541,7 +2532,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 33:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !584
-  %36 = getelementptr ptr, ptr %35, i64 %31
+  %36 = getelementptr [8 x i8], ptr %35, i64 %31
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8, !tbaa !554
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i5
@@ -2578,7 +2569,7 @@ define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks7DefinedERKN5clang5Toke
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !584
-  %11 = getelementptr ptr, ptr %10, i64 %6
+  %11 = getelementptr [8 x i8], ptr %10, i64 %6
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !554
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
@@ -2633,7 +2624,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 33:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !584
-  %36 = getelementptr ptr, ptr %35, i64 %31
+  %36 = getelementptr [8 x i8], ptr %35, i64 %31
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8, !tbaa !554
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
@@ -2692,7 +2683,7 @@ define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks5IfdefEN5clang14SourceL
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !584
-  %11 = getelementptr ptr, ptr %10, i64 %6
+  %11 = getelementptr [8 x i8], ptr %10, i64 %6
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !554
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
@@ -2747,7 +2738,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 33:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !584
-  %36 = getelementptr ptr, ptr %35, i64 %31
+  %36 = getelementptr [8 x i8], ptr %35, i64 %31
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8, !tbaa !554
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
@@ -2784,7 +2775,7 @@ define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks7ElifdefEN5clang14Sourc
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !584
-  %11 = getelementptr ptr, ptr %10, i64 %6
+  %11 = getelementptr [8 x i8], ptr %10, i64 %6
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !554
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
@@ -2839,7 +2830,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 33:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !584
-  %36 = getelementptr ptr, ptr %35, i64 %31
+  %36 = getelementptr [8 x i8], ptr %35, i64 %31
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8, !tbaa !554
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
@@ -2881,7 +2872,7 @@ define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks6IfndefEN5clang14Source
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !584
-  %11 = getelementptr ptr, ptr %10, i64 %6
+  %11 = getelementptr [8 x i8], ptr %10, i64 %6
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !554
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
@@ -2936,7 +2927,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 33:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !584
-  %36 = getelementptr ptr, ptr %35, i64 %31
+  %36 = getelementptr [8 x i8], ptr %35, i64 %31
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8, !tbaa !554
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
@@ -2973,7 +2964,7 @@ define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks8ElifndefEN5clang14Sour
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !584
-  %11 = getelementptr ptr, ptr %10, i64 %6
+  %11 = getelementptr [8 x i8], ptr %10, i64 %6
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !554
   br label %_ZNK5clang15MacroDefinition12getMacroInfoEv.exit
@@ -3028,7 +3019,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 33:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !584
-  %36 = getelementptr ptr, ptr %35, i64 %31
+  %36 = getelementptr [8 x i8], ptr %35, i64 %31
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8, !tbaa !554
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6

@@ -1712,10 +1712,10 @@ define internal void @put_rv40_chroma_mc8_c(ptr noundef writeonly captures(none)
   %12 = mul nsw i32 %5, %4
   %13 = ashr i32 %5, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [4 x i32], ptr @rv40_bias, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr @rv40_bias, i64 %14
   %16 = ashr i32 %4, 1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %191, label %.preheader
@@ -2050,10 +2050,10 @@ define internal void @put_rv40_chroma_mc4_c(ptr noundef writeonly captures(none)
   %12 = mul nsw i32 %5, %4
   %13 = ashr i32 %5, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [4 x i32], ptr @rv40_bias, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr @rv40_bias, i64 %14
   %16 = ashr i32 %4, 1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %107, label %.preheader
@@ -2244,10 +2244,10 @@ define internal void @avg_rv40_chroma_mc8_c(ptr noundef captures(none) %0, ptr n
   %12 = mul nsw i32 %5, %4
   %13 = ashr i32 %5, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [4 x i32], ptr @rv40_bias, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr @rv40_bias, i64 %14
   %16 = ashr i32 %4, 1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %440, label %.preheader
@@ -3065,10 +3065,10 @@ define internal void @avg_rv40_chroma_mc4_c(ptr noundef captures(none) %0, ptr n
   %12 = mul nsw i32 %5, %4
   %13 = ashr i32 %5, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [4 x i32], ptr @rv40_bias, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr @rv40_bias, i64 %14
   %16 = ashr i32 %4, 1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %232, label %.preheader

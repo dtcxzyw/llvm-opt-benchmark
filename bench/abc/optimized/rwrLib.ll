@@ -30,7 +30,7 @@ define void @Rwr_ManPrecompute(ptr noundef captures(none) %0) local_unnamed_addr
   %.095125 = phi i32 [ -1, %.lr.ph126.split.preheader ], [ %.3, %.critedge2 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val108 = load ptr, ptr %11, align 8, !tbaa !20
-  %12 = getelementptr inbounds nuw ptr, ptr %.val108, i64 %indvars.iv144
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val108, i64 %indvars.iv144
   %13 = load ptr, ptr %12, align 8, !tbaa !21
   %14 = icmp sgt i32 %.val105116, 1
   br i1 %14, label %.lr.ph, label %.critedge2
@@ -56,7 +56,7 @@ define void @Rwr_ManPrecompute(ptr noundef captures(none) %0) local_unnamed_addr
   %.196118 = phi i32 [ %.095125, %.lr.ph ], [ %.2, %21 ]
   %26 = getelementptr i8, ptr %25, i64 8
   %.val109 = load ptr, ptr %26, align 8, !tbaa !20
-  %27 = getelementptr inbounds nuw ptr, ptr %.val109, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.val109, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !21
   %29 = load i32, ptr %15, align 2
   %30 = lshr i32 %29, 24
@@ -119,7 +119,7 @@ define void @Rwr_ManPrecompute(ptr noundef captures(none) %0) local_unnamed_addr
 
 65:                                               ; preds = %65, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %65 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %.val7.i.i, i64 %indvars.iv.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.val7.i.i, i64 %indvars.iv.i.i
   %67 = load ptr, ptr %66, align 8, !tbaa !21
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 0, ptr %68, align 4, !tbaa !28
@@ -213,7 +213,7 @@ Rwr_ManNodeVolume.exit:                           ; preds = %55, %.critedge.i.i
 
 106:                                              ; preds = %106, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %106 ]
-  %107 = getelementptr inbounds nuw ptr, ptr %.val7.i, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %.val7.i, i64 %indvars.iv.i
   %108 = load ptr, ptr %107, align 8, !tbaa !21
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   store i32 0, ptr %109, align 4, !tbaa !28
@@ -243,14 +243,14 @@ Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.crited
   %.0130 = phi i32 [ 0, %.lr.ph131 ], [ %.1, %129 ]
   %115 = getelementptr i8, ptr %114, i64 8
   %.val110 = load ptr, ptr %115, align 8, !tbaa !20
-  %116 = getelementptr inbounds nuw ptr, ptr %.val110, i64 %indvars.iv147
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %.val110, i64 %indvars.iv147
   %117 = load ptr, ptr %116, align 8, !tbaa !21
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 14
   %119 = load i32, ptr %118, align 2
   %120 = and i32 %119, 65535
   %121 = load ptr, ptr %111, align 8, !tbaa !35
   %122 = zext nneg i32 %120 to i64
-  %123 = getelementptr inbounds nuw i16, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %121, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !36
   %125 = trunc i32 %119 to i16
   %126 = icmp eq i16 %124, %125
@@ -278,7 +278,7 @@ Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.crited
   %.1101135 = phi i32 [ %.2102, %.critedge4 ], [ 5, %.critedge4.preheader ]
   %135 = getelementptr i8, ptr %134, i64 8
   %.val111 = load ptr, ptr %135, align 8, !tbaa !20
-  %136 = getelementptr inbounds nuw ptr, ptr %.val111, i64 %indvars.iv150
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %.val111, i64 %indvars.iv150
   %137 = load ptr, ptr %136, align 8, !tbaa !21
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 14
   %139 = load i32, ptr %138, align 2
@@ -288,7 +288,7 @@ Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.crited
 
 141:                                              ; preds = %.lr.ph137
   %142 = sext i32 %.1101135 to i64
-  %143 = getelementptr inbounds ptr, ptr %.val111, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %.val111, i64 %142
   store ptr %137, ptr %143, align 8, !tbaa !21
   %144 = add nsw i32 %.1101135, 1
   store i32 %.1101135, ptr %137, align 8, !tbaa !38
@@ -346,7 +346,7 @@ define i32 @Rwr_ManNodeVolume(ptr noundef captures(none) %0, ptr noundef capture
 
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %.val7.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val7.i, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 0, ptr %17, align 4, !tbaa !28
@@ -443,7 +443,7 @@ define internal fastcc void @Rwr_ManTryNode(ptr noundef captures(none) %0, ptr n
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !35
   %51 = zext nneg i32 %.0 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !36
   %54 = zext i16 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 %54
@@ -455,7 +455,7 @@ define internal fastcc void @Rwr_ManTryNode(ptr noundef captures(none) %0, ptr n
   %.pre-phi = phi i64 [ %.pre, %._crit_edge71 ], [ %51, %46 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load ptr, ptr %58, align 8, !tbaa !42
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %.pre-phi
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.pre-phi
   %.05967 = load ptr, ptr %60, align 8, !tbaa !43
   %.not6368 = icmp eq ptr %.05967, null
   br i1 %.not6368, label %._crit_edge.thread, label %.lr.ph
@@ -498,7 +498,7 @@ define internal fastcc void @Rwr_ManTryNode(ptr noundef captures(none) %0, ptr n
 ._crit_edge.thread:                               ; preds = %57
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !35
-  %81 = getelementptr inbounds nuw i16, ptr %80, i64 %.pre-phi
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %.pre-phi
   %82 = load i16, ptr %81, align 2, !tbaa !36
   %83 = trunc i32 %.0.in to i16
   %84 = icmp eq i16 %82, %83
@@ -604,7 +604,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %137 = add nsw i32 %136, 1
   store i32 %137, ptr %109, align 4, !tbaa !18
   %138 = sext i32 %136 to i64
-  %139 = getelementptr inbounds ptr, ptr %135, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %135, i64 %138
   store ptr %92, ptr %139, align 8, !tbaa !21
   store ptr %92, ptr %.057.lcssa76, align 8, !tbaa !43
   br label %.loopexit
@@ -638,7 +638,7 @@ define void @Rwr_ManIncTravId(ptr noundef captures(none) %0) local_unnamed_addr 
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %.val7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %14, align 4, !tbaa !28
@@ -856,12 +856,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr %66, align 4, !tbaa !18
   %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds ptr, ptr %92, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %92, i64 %95
   store ptr %47, ptr %96, align 8, !tbaa !21
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !35
   %99 = zext nneg i32 %.0 to i64
-  %100 = getelementptr inbounds nuw i16, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !36
   %102 = trunc i32 %.0.in to i16
   %.not45 = icmp eq i16 %101, %102
@@ -874,7 +874,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %106, ptr %104, align 8, !tbaa !50
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %108 = load ptr, ptr %107, align 8, !tbaa !42
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %99
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %99
   %110 = load ptr, ptr %109, align 8, !tbaa !43
   %111 = icmp eq ptr %110, null
   br i1 %111, label %112, label %116
@@ -981,7 +981,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %17, align 4, !tbaa !18
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %43, i64 %46
   store ptr %6, ptr %47, align 8, !tbaa !21
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %53, label %48
@@ -990,7 +990,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %50 = load ptr, ptr %49, align 8, !tbaa !42
   %51 = zext i32 %1 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   tail call void @Rwr_ListAddToTail(ptr noundef %52, ptr noundef nonnull %6) #10
   br label %53
 

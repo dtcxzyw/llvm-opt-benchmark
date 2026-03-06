@@ -982,7 +982,7 @@ define void @_ZN6google8protobuf8internal17DefaultLogHandlerENS0_8LogLevelEPKciR
 6:                                                ; preds = %4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !34
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZN6google8protobuf8internal17DefaultLogHandlerENS0_8LogLevelEPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11level_names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN6google8protobuf8internal17DefaultLogHandlerENS0_8LogLevelEPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11level_names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !36
   %11 = load ptr, ptr %3, align 8, !tbaa !17
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.13, ptr noundef %10, ptr noundef %1, i32 noundef %2, ptr noundef %11) #26

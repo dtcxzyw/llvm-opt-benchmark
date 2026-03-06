@@ -133,7 +133,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.clock_identity = type { [8 x i8] }
 %struct.hsr_tag = type { i16, i16, i16 }
 %struct.frag_hdr = type { i8, i8, i16, i32 }
-%struct.flow_dissector_mpls_lse = type { i32 }
 %struct.flow_keys = type { %struct.flow_dissector_key_control, %struct.flow_dissector_key_basic, %struct.flow_dissector_key_tags, %struct.flow_dissector_key_vlan, %struct.flow_dissector_key_vlan, %struct.flow_dissector_key_keyid, %struct.flow_dissector_key_ports, %struct.flow_dissector_key_icmp, %struct.flow_dissector_key_addrs, [4 x i8] }
 %struct.flow_dissector_key_control = type { i16, i16, i32 }
 %struct.flow_dissector_key_basic = type { i16, i8, i8 }
@@ -229,7 +228,7 @@ define dso_local void @skb_flow_dissector_init(ptr noundef writeonly captures(no
   %25 = trunc i64 %24 to i16
   %26 = load i32, ptr %10, align 8
   %27 = zext i32 %26 to i64
-  %28 = getelementptr i16, ptr %6, i64 %27
+  %28 = getelementptr [2 x i8], ptr %6, i64 %27
   store i16 %25, ptr %28, align 2
   %29 = add nuw i32 %9, 1
   %30 = getelementptr i8, ptr %10, i64 16
@@ -459,7 +458,7 @@ define dso_local void @skb_flow_dissect_ct(ptr noundef readonly captures(none) %
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
-  %27 = getelementptr i16, ptr %3, i64 %14
+  %27 = getelementptr [2 x i8], ptr %3, i64 %14
   %28 = load i16, ptr %27, align 2
   store i16 %28, ptr %21, align 4
   br label %29
@@ -1486,7 +1485,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br i1 %460, label %.thread73, label %461
 
 461:                                              ; preds = %454
-  %462 = getelementptr i16, ptr %67, i64 %457
+  %462 = getelementptr [2 x i8], ptr %67, i64 %457
   %463 = load i16, ptr %462, align 2
   %464 = zext i16 %463 to i64
   %465 = getelementptr i8, ptr %3, i64 %464
@@ -1748,7 +1747,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %609 = zext i16 %608 to i64
   %610 = getelementptr i8, ptr %3, i64 %609
   %611 = sext i32 %288 to i64
-  %612 = getelementptr %struct.flow_dissector_mpls_lse, ptr %610, i64 %611
+  %612 = getelementptr [4 x i8], ptr %610, i64 %611
   store i32 %603, ptr %612, align 4
   %613 = shl nuw nsw i32 1, %288
   %614 = getelementptr inbounds nuw i8, ptr %610, i64 28
@@ -2740,7 +2739,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %1141 = icmp eq i64 %1140, 0
   %1142 = select i1 %1141, i64 33, i64 5
   %1143 = select i1 %1139, i64 %1142, i64 4
-  %1144 = getelementptr i16, ptr %67, i64 %1143
+  %1144 = getelementptr [2 x i8], ptr %67, i64 %1143
   %1145 = load i16, ptr %1144, align 2
   %1146 = zext i16 %1145 to i64
   %1147 = getelementptr i8, ptr %3, i64 %1146
@@ -3006,9 +3005,9 @@ define dso_local range(i32 1, 0) i32 @flow_hash_from_keys(ptr noundef %0) #0 ali
 
 .preheader:                                       ; preds = %24, %.preheader
   %29 = phi i64 [ %34, %.preheader ], [ 0, %24 ]
-  %30 = getelementptr i32, ptr %25, i64 %29
+  %30 = getelementptr [4 x i8], ptr %25, i64 %29
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr i32, ptr %26, i64 %29
+  %32 = getelementptr [4 x i8], ptr %26, i64 %29
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %30, align 4
   store i32 %31, ptr %32, align 4
@@ -3153,9 +3152,9 @@ define dso_local range(i32 1, 0) i32 @__skb_get_hash_symmetric(ptr noundef %0) #
 
 .preheader:                                       ; preds = %26, %.preheader
   %31 = phi i64 [ %36, %.preheader ], [ 0, %26 ]
-  %32 = getelementptr i32, ptr %27, i64 %31
+  %32 = getelementptr [4 x i8], ptr %27, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr i32, ptr %28, i64 %31
+  %34 = getelementptr [4 x i8], ptr %28, i64 %31
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %32, align 4
   store i32 %33, ptr %34, align 4
@@ -3298,9 +3297,9 @@ define internal fastcc range(i32 1, 0) i32 @___skb_get_hash(ptr noundef %0, ptr 
 
 .preheader:                                       ; preds = %21, %.preheader
   %26 = phi i64 [ %31, %.preheader ], [ 0, %21 ]
-  %27 = getelementptr i32, ptr %22, i64 %26
+  %27 = getelementptr [4 x i8], ptr %22, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr i32, ptr %23, i64 %26
+  %29 = getelementptr [4 x i8], ptr %23, i64 %26
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %27, align 4
   store i32 %28, ptr %29, align 4

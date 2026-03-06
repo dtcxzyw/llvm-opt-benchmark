@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.HEVCDecoderConfigurationRecord = type { i8, i8, i8, i8, i32, i64, i8, i16, i8, i8, i8, i8, i16, i8, i8, i8, i8, i8, [5 x %struct.HVCCNALUnitArray], i8 }
 %struct.HVCCNALUnitArray = type { i8, i8, i16, ptr }
-%struct.HVCCNALUnit = type { i8, i8, i16, ptr, i8 }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
 
 @hvcc_parse_nal_unit.array_idx_to_type = internal unnamed_addr constant [5 x i8] c" !\22'(", align 1
@@ -657,7 +656,7 @@ hvcc_parse_nal_unit.exit.thread:                  ; preds = %354, %.lr.ph199, %2
 
 365:                                              ; preds = %365, %hvcc_parse_nal_unit.exit.thread
   %indvars.iv.i90 = phi i64 [ 0, %hvcc_parse_nal_unit.exit.thread ], [ %indvars.iv.next.i91, %365 ]
-  %366 = getelementptr inbounds nuw %struct.HVCCNALUnitArray, ptr %364, i64 %indvars.iv.i90
+  %366 = getelementptr inbounds nuw [16 x i8], ptr %364, i64 %indvars.iv.i90
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 2
   store i16 0, ptr %367, align 2, !tbaa !39
   %368 = getelementptr inbounds nuw i8, ptr %366, i64 8
@@ -724,7 +723,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 .split198.us:                                     ; preds = %13, %22
   %indvars.iv220 = phi i64 [ %indvars.iv.next221, %22 ], [ 0, %13 ]
   %.0176197.us = phi i32 [ %.1.us, %22 ], [ 0, %13 ]
-  %18 = getelementptr inbounds nuw %struct.HVCCNALUnitArray, ptr %17, i64 %indvars.iv220
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv220
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %20 = load i16, ptr %19, align 2, !tbaa !39
   %21 = icmp eq i16 %20, 0
@@ -737,7 +736,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
   br i1 %exitcond223.not, label %.split200.us, label %.split198.us, !llvm.loop !43
 
 .preheader.us:                                    ; preds = %.split198.us
-  %23 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv220
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv220
   %.promoted.us = load i16, ptr %23, align 2, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !45
@@ -747,7 +746,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 26:                                               ; preds = %26, %.preheader.us
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %26 ], [ 0, %.preheader.us ]
   %27 = phi i16 [ %32, %26 ], [ %.promoted.us, %.preheader.us ]
-  %28 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %25, i64 %indvars.iv217
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %indvars.iv217
   %29 = load i8, ptr %28, align 8, !tbaa !46
   %30 = icmp ne i8 %29, 0
   %31 = zext i1 %30 to i16
@@ -775,14 +774,14 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 .split198:                                        ; preds = %13, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %13 ]
   %.0176197 = phi i32 [ %.1, %48 ], [ 0, %13 ]
-  %39 = getelementptr inbounds nuw %struct.HVCCNALUnitArray, ptr %17, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %41 = load i16, ptr %40, align 2, !tbaa !39
   %42 = icmp eq i16 %41, 0
   br i1 %42, label %48, label %.preheader
 
 .preheader:                                       ; preds = %.split198
-  %43 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv
   %.promoted = load i16, ptr %43, align 2, !tbaa !44
   %44 = add i16 %41, %.promoted
   store i16 %44, ptr %43, align 2, !tbaa !44
@@ -877,8 +876,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 98:                                               ; preds = %86, %154
   %indvars.iv230 = phi i64 [ 0, %86 ], [ %indvars.iv.next231, %154 ]
   %.0180204 = phi i32 [ 0, %86 ], [ %.1181, %154 ]
-  %99 = getelementptr inbounds nuw %struct.HVCCNALUnitArray, ptr %17, i64 %indvars.iv230
-  %100 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv230
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv230
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv230
   %101 = load i16, ptr %100, align 2, !tbaa !44
   %102 = icmp eq i16 %101, 0
   br i1 %102, label %154, label %103
@@ -906,7 +905,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
   %113 = phi i16 [ %132, %131 ], [ %111, %.lr.ph ]
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %131 ], [ 0, %.lr.ph ]
   %114 = load ptr, ptr %112, align 8, !tbaa !45
-  %115 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %114, i64 %indvars.iv227
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %114, i64 %indvars.iv227
   %116 = load i8, ptr %115, align 8, !tbaa !46
   %117 = icmp eq i8 %116, 0
   br i1 %117, label %131, label %118
@@ -916,13 +915,13 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
   %120 = trunc nuw nsw i64 %indvars.iv227 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.24, i32 noundef %.0180204, i32 noundef %120, i32 noundef %119) #6
   %121 = load ptr, ptr %112, align 8, !tbaa !45
-  %122 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %121, i64 %indvars.iv227
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 %indvars.iv227
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
   %124 = load i8, ptr %123, align 1, !tbaa !51
   %125 = zext i8 %124 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.25, i32 noundef %.0180204, i32 noundef %120, i32 noundef %125) #6
   %126 = load ptr, ptr %112, align 8, !tbaa !45
-  %127 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %126, i64 %indvars.iv227
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %126, i64 %indvars.iv227
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 2
   %129 = load i16, ptr %128, align 2, !tbaa !52
   %130 = zext i16 %129 to i32
@@ -944,19 +943,19 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.lr.ph.split ], [ 0, %.lr.ph ]
   %136 = load ptr, ptr %112, align 8, !tbaa !45
-  %137 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %136, i64 %indvars.iv224
+  %137 = getelementptr inbounds nuw [24 x i8], ptr %136, i64 %indvars.iv224
   %138 = load i8, ptr %137, align 8, !tbaa !46
   %139 = zext i8 %138 to i32
   %140 = trunc nuw nsw i64 %indvars.iv224 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.24, i32 noundef %.0180204, i32 noundef %140, i32 noundef %139) #6
   %141 = load ptr, ptr %112, align 8, !tbaa !45
-  %142 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %141, i64 %indvars.iv224
+  %142 = getelementptr inbounds nuw [24 x i8], ptr %141, i64 %indvars.iv224
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %144 = load i8, ptr %143, align 1, !tbaa !51
   %145 = zext i8 %144 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.25, i32 noundef %.0180204, i32 noundef %140, i32 noundef %145) #6
   %146 = load ptr, ptr %112, align 8, !tbaa !45
-  %147 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %146, i64 %indvars.iv224
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %indvars.iv224
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 2
   %149 = load i16, ptr %148, align 2, !tbaa !52
   %150 = zext i16 %149 to i32
@@ -1088,8 +1087,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 
 234:                                              ; preds = %219, %.loopexit
   %indvars.iv240 = phi i64 [ 0, %219 ], [ %indvars.iv.next241, %.loopexit ]
-  %235 = getelementptr inbounds nuw %struct.HVCCNALUnitArray, ptr %17, i64 %indvars.iv240
-  %236 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv240
+  %235 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv240
+  %236 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv240
   %237 = load i16, ptr %236, align 2, !tbaa !44
   %.not190 = icmp eq i16 %237, 0
   br i1 %.not190, label %.loopexit, label %238
@@ -1119,7 +1118,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
   %251 = phi i16 [ %265, %264 ], [ %249, %.lr.ph208 ]
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %264 ], [ 0, %.lr.ph208 ]
   %252 = load ptr, ptr %250, align 8, !tbaa !45
-  %253 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %252, i64 %indvars.iv237
+  %253 = getelementptr inbounds nuw [24 x i8], ptr %252, i64 %indvars.iv237
   %254 = load i8, ptr %253, align 8, !tbaa !46
   %255 = icmp eq i8 %254, 0
   br i1 %255, label %264, label %256
@@ -1147,7 +1146,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hvcc_write(ptr noundef %0,
 .lr.ph208.split:                                  ; preds = %.lr.ph208, %.lr.ph208.split
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %.lr.ph208.split ], [ 0, %.lr.ph208 ]
   %268 = load ptr, ptr %250, align 8, !tbaa !45
-  %269 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %268, i64 %indvars.iv234
+  %269 = getelementptr inbounds nuw [24 x i8], ptr %268, i64 %indvars.iv234
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 2
   %271 = load i16, ptr %270, align 2, !tbaa !52
   %272 = zext i16 %271 to i32
@@ -1192,7 +1191,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
   %15 = trunc nuw nsw i32 %3 to i8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = zext i32 %4 to i64
-  %18 = getelementptr inbounds nuw %struct.HVCCNALUnitArray, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %19 = call ptr @ff_nal_unit_extract_rbsp(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %12, i32 noundef 2) #6
@@ -1260,7 +1259,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
 
 57:                                               ; preds = %49
   %58 = load ptr, ptr %52, align 8, !tbaa !45
-  %59 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %58, i64 %53
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %53
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %0, ptr %60, align 8, !tbaa !55
   %61 = trunc i32 %1 to i16
@@ -1290,7 +1289,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hvcc_add_nal_unit(ptr noun
 
 74:                                               ; preds = %72, %66, %57
   %75 = zext i16 %64 to i64
-  %76 = getelementptr %struct.HVCCNALUnit, ptr %58, i64 %75
+  %76 = getelementptr [24 x i8], ptr %58, i64 %75
   %77 = getelementptr i8, ptr %76, i64 -24
   store i8 %42, ptr %77, align 8, !tbaa !46
   br i1 %.not, label %78, label %hvcc_parse_vps.exit
@@ -2304,7 +2303,7 @@ hvcc_parse_vps_extension.exit.i:                  ; preds = %.sink.split.i.i, %.
 
 653:                                              ; preds = %652, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %652 ]
-  %654 = getelementptr inbounds nuw %struct.HVCCNALUnit, ptr %651, i64 %indvars.iv.i
+  %654 = getelementptr inbounds nuw [24 x i8], ptr %651, i64 %indvars.iv.i
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 1
   %656 = load i8, ptr %655, align 1, !tbaa !51
   %657 = zext i8 %656 to i32
@@ -4395,7 +4394,7 @@ get_ue_golomb_long.exit.sink.split.i513.i:        ; preds = %1985
 get_ue_golomb_long.exit.i516.i:                   ; preds = %get_ue_golomb_long.exit.sink.split.i513.i, %1985
   %storemerge.i517.i = phi i32 [ %2024, %get_ue_golomb_long.exit.sink.split.i513.i ], [ %2019, %1985 ]
   store i32 %storemerge.i517.i, ptr %31, align 8, !tbaa !63
-  %2025 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv713.i
+  %2025 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv713.i
   store i32 0, ptr %2025, align 4, !tbaa !4
   %2026 = getelementptr i8, ptr %2025, i64 -4
   br label %2027
@@ -4641,7 +4640,7 @@ get_ue_golomb_long.exit87.i.i:                    ; preds = %2168, %2164, %get_u
 
 2193:                                             ; preds = %get_ue_golomb_long.exit87.i.i
   %2194 = add i32 %2186, %2122
-  %2195 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv713.i
+  %2195 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv713.i
   store i32 %2194, ptr %2195, align 4, !tbaa !4
   %.not140.i.i = icmp eq i32 %2122, 0
   br i1 %.not140.i.i, label %.preheader.i519.i, label %.lr.ph.i.i62

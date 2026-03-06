@@ -550,7 +550,7 @@ FINISH_EDGE:                                      ; preds = %do.body.i42, %do.bo
   %controlPoints.0 = phi i32 [ %retval.0.i, %do.body.i51 ], [ 0, %do.body.i47 ], [ 0, %do.body.i42 ]
   %color.0 = phi i32 [ %color.1, %do.body.i51 ], [ %color.2, %do.body.i47 ], [ 7, %do.body.i42 ]
   %2 = zext nneg i32 %controlPoints.0 to i64
-  %3 = getelementptr inbounds nuw %"struct.msdfgen::Vector2", ptr %p, i64 %2
+  %3 = getelementptr inbounds nuw [16 x i8], ptr %p, i64 %2
   %arrayidx55 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %y.i55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %call.i56 = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx55, ptr noundef nonnull %y.i55)
@@ -1346,7 +1346,7 @@ FINISH_EDGE:                                      ; preds = %do.body.i62, %do.bo
   %controlPoints.0 = phi i32 [ %retval.0.i80, %do.body.i82 ], [ 0, %do.body.i72 ], [ 0, %do.body.i62 ]
   %color.0 = phi i32 [ %color.1, %do.body.i82 ], [ %color.2, %do.body.i72 ], [ 7, %do.body.i62 ]
   %33 = zext nneg i32 %controlPoints.0 to i64
-  %34 = getelementptr inbounds nuw %"struct.msdfgen::Vector2", ptr %p, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %p, i64 %33
   %arrayidx55 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i90)
   store ptr null, ptr %end.i90, align 8

@@ -108,7 +108,7 @@ define dso_local i32 @v9fs_open_to_dotl_flags(i32 noundef %0) local_unnamed_addr
 2:                                                ; preds = %13, %1
   %3 = phi i64 [ 0, %1 ], [ %15, %13 ]
   %4 = phi i32 [ 0, %1 ], [ %14, %13 ]
-  %5 = getelementptr %struct.dotl_openflag_map, ptr @__const.v9fs_mapped_dotl_flags.dotl_oflag_map, i64 %3
+  %5 = getelementptr [8 x i8], ptr @__const.v9fs_mapped_dotl_flags.dotl_oflag_map, i64 %3
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, %0
   %8 = icmp eq i32 %7, 0
@@ -154,7 +154,7 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr readnone captures(none) %0, ptr 
 13:                                               ; preds = %24, %11
   %14 = phi i64 [ 0, %11 ], [ %26, %24 ]
   %15 = phi i32 [ 0, %11 ], [ %25, %24 ]
-  %16 = getelementptr %struct.dotl_iattr_map, ptr @__const.v9fs_mapped_iattr_valid.dotl_iattr_map, i64 %14
+  %16 = getelementptr [8 x i8], ptr @__const.v9fs_mapped_iattr_valid.dotl_iattr_map, i64 %14
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, %12
   %19 = icmp eq i32 %18, 0
@@ -1687,7 +1687,7 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
 10:                                               ; preds = %21, %5
   %11 = phi i64 [ 0, %5 ], [ %23, %21 ]
   %12 = phi i32 [ 0, %5 ], [ %22, %21 ]
-  %13 = getelementptr %struct.dotl_openflag_map, ptr @__const.v9fs_mapped_dotl_flags.dotl_oflag_map, i64 %11
+  %13 = getelementptr [8 x i8], ptr @__const.v9fs_mapped_dotl_flags.dotl_oflag_map, i64 %11
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, %3
   %16 = icmp eq i32 %15, 0

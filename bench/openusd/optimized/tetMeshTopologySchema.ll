@@ -1866,7 +1866,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_45HdTetMes
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_45HdTetMeshTopologySchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit52: ; preds = %198, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_45HdTetMeshTopologySchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i48, %188
   %201 = phi ptr [ %190, %188 ], [ %200, %198 ], [ %192, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_45HdTetMeshTopologySchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i48 ]
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
-  %203 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %5, i64 %.1
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.1
   %.not.i53 = icmp eq ptr %202, %203
   br i1 %.not.i53, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit58, label %204
 
@@ -1912,7 +1912,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i57: ; preds =
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit58: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_45HdTetMeshTopologySchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit52, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i57
   %226 = add nuw nsw i64 %.1, 1
-  %227 = getelementptr inbounds nuw %"class.std::shared_ptr.9", ptr %6, i64 %.1
+  %227 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.1
   %228 = load ptr, ptr %3, align 8
   store ptr %228, ptr %227, align 16
   %229 = getelementptr inbounds nuw i8, ptr %3, i64 8

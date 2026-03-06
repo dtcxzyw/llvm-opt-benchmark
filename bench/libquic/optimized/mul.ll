@@ -199,10 +199,10 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
 
 13:                                               ; preds = %7
   %14 = zext nneg i32 %3 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %1, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %14
   %16 = sub nsw i32 %3, %4
   %17 = tail call i32 @bn_cmp_part_words(ptr noundef %1, ptr noundef nonnull %15, i32 noundef %4, i32 noundef %16) #5
-  %18 = getelementptr inbounds nuw i64, ptr %2, i64 %14
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %14
   %19 = sub nsw i32 %5, %3
   %20 = tail call i32 @bn_cmp_part_words(ptr noundef nonnull %18, ptr noundef %2, i32 noundef %5, i32 noundef %19) #5
   %21 = mul nsw i32 %17, 3
@@ -222,7 +222,7 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
 23:                                               ; preds = %13
   %24 = sub nsw i32 %4, %3
   tail call fastcc void @bn_sub_part_words(ptr noundef %6, ptr noundef nonnull %15, ptr noundef nonnull %1, i32 noundef %4, i32 noundef %24)
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   %26 = sub nsw i32 %3, %5
   tail call fastcc void @bn_sub_part_words(ptr noundef nonnull %25, ptr noundef nonnull %2, ptr noundef nonnull %18, i32 noundef %5, i32 noundef %26)
   br label %35
@@ -230,20 +230,20 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
 27:                                               ; preds = %13, %13
   %28 = sub nsw i32 %4, %3
   tail call fastcc void @bn_sub_part_words(ptr noundef %6, ptr noundef nonnull %15, ptr noundef nonnull %1, i32 noundef %4, i32 noundef %28)
-  %29 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   tail call fastcc void @bn_sub_part_words(ptr noundef nonnull %29, ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef %5, i32 noundef %19)
   br label %35
 
 30:                                               ; preds = %13, %13, %13, %13
   tail call fastcc void @bn_sub_part_words(ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %15, i32 noundef %4, i32 noundef %16)
-  %31 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   %32 = sub nsw i32 %3, %5
   tail call fastcc void @bn_sub_part_words(ptr noundef nonnull %31, ptr noundef nonnull %2, ptr noundef nonnull %18, i32 noundef %5, i32 noundef %32)
   br label %35
 
 33:                                               ; preds = %13, %13
   tail call fastcc void @bn_sub_part_words(ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %15, i32 noundef %4, i32 noundef %16)
-  %34 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   tail call fastcc void @bn_sub_part_words(ptr noundef nonnull %34, ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef %5, i32 noundef %19)
   br label %35
 
@@ -254,16 +254,16 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
 
 37:                                               ; preds = %35
   %38 = zext nneg i32 %8 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %6, i64 %38
-  %40 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   tail call void @bn_mul_comba8(ptr noundef nonnull %39, ptr noundef %6, ptr noundef nonnull %40) #5
   tail call void @bn_mul_comba8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) #5
-  %41 = getelementptr inbounds nuw i64, ptr %0, i64 %38
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %38
   tail call fastcc void @bn_mul_normal(ptr noundef nonnull %41, ptr noundef nonnull %15, i32 noundef %4, ptr noundef nonnull %18, i32 noundef %5)
   %42 = add i32 %5, %4
   %43 = add i32 %42, %8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i64, ptr %0, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %0, i64 %44
   %46 = sub i32 16, %42
   %47 = sext i32 %46 to i64
   %48 = shl nsw i64 %47, 3
@@ -273,10 +273,10 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
 49:                                               ; preds = %35
   %50 = shl nsw i32 %3, 2
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %6, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %51
   %53 = zext nneg i32 %8 to i64
-  %54 = getelementptr inbounds nuw i64, ptr %6, i64 %53
-  %55 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   tail call fastcc void @bn_mul_recursive(ptr noundef nonnull %54, ptr noundef %6, ptr noundef nonnull %55, i32 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %52)
   tail call fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %52)
   %56 = lshr i32 %3, 1
@@ -285,14 +285,14 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
   br i1 %57, label %58, label %69
 
 58:                                               ; preds = %49
-  %59 = getelementptr inbounds nuw i64, ptr %0, i64 %53
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %53
   %60 = sub nsw i32 %4, %56
   %61 = sub nsw i32 %5, %56
   tail call fastcc void @bn_mul_recursive(ptr noundef nonnull %59, ptr noundef nonnull %15, ptr noundef nonnull %18, i32 noundef %56, i32 noundef %60, i32 noundef %61, ptr noundef nonnull %52)
   %62 = and i32 %3, 2147483646
   %63 = add nuw nsw i32 %8, %62
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %0, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %64
   %66 = sub nsw i32 %8, %62
   %67 = sext i32 %66 to i64
   %68 = shl nsw i64 %67, 3
@@ -301,7 +301,7 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
 
 69:                                               ; preds = %49
   %70 = icmp sgt i32 %., %56
-  %71 = getelementptr inbounds nuw i64, ptr %0, i64 %53
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %53
   br i1 %70, label %72, label %82
 
 72:                                               ; preds = %69
@@ -311,7 +311,7 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
   %75 = add i32 %5, %4
   %76 = add i32 %75, %8
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i64, ptr %0, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %0, i64 %77
   %79 = sub i32 %8, %75
   %80 = sext i32 %79 to i64
   %81 = shl nsw i64 %80, 3
@@ -356,10 +356,10 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
 
 97:                                               ; preds = %58, %86, %94, %88, %72, %37
   %.pre-phi = phi i64 [ %53, %58 ], [ %53, %86 ], [ %53, %94 ], [ %53, %88 ], [ %53, %72 ], [ 16, %37 ]
-  %98 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre-phi
   %99 = tail call i64 @bn_add_words(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %98, i32 noundef %8) #5
   %100 = trunc i64 %99 to i32
-  %101 = getelementptr inbounds nuw i64, ptr %6, i64 %.pre-phi
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.pre-phi
   br i1 %.not, label %106, label %102
 
 102:                                              ; preds = %97
@@ -376,8 +376,8 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
 
 110:                                              ; preds = %106, %102
   %.0259 = phi i32 [ %105, %102 ], [ %109, %106 ]
-  %111 = getelementptr inbounds nuw i64, ptr %0, i64 %14
-  %112 = getelementptr inbounds nuw i64, ptr %6, i64 %.pre-phi
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %14
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.pre-phi
   %113 = tail call i64 @bn_add_words(ptr noundef nonnull %111, ptr noundef nonnull %111, ptr noundef nonnull %112, i32 noundef %8) #5
   %114 = trunc i64 %113 to i32
   %115 = add nsw i32 %.0259, %114
@@ -387,7 +387,7 @@ define internal fastcc void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %
 116:                                              ; preds = %110
   %117 = mul nuw nsw i32 %3, 3
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw i64, ptr %0, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %118
   %120 = load i64, ptr %119, align 8, !tbaa !15
   %121 = sext i32 %115 to i64
   %122 = add i64 %120, %121
@@ -440,7 +440,7 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
   %24 = add nsw i32 %23, %4
   %25 = add nsw i32 %24, %5
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i64, ptr %0, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %26
   %28 = sub nsw i32 0, %20
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 3
@@ -449,10 +449,10 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
 
 31:                                               ; preds = %15
   %32 = zext nneg i32 %8 to i64
-  %33 = getelementptr inbounds nuw i64, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %32
   %34 = sub i32 0, %4
   %35 = tail call i32 @bn_cmp_part_words(ptr noundef %1, ptr noundef %33, i32 noundef %9, i32 noundef %34) #5
-  %36 = getelementptr inbounds nuw i64, ptr %2, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %32
   %37 = tail call i32 @bn_cmp_part_words(ptr noundef %36, ptr noundef %2, i32 noundef %10, i32 noundef %5) #5
   %38 = mul nsw i32 %35, 3
   %39 = add nsw i32 %38, %37
@@ -470,27 +470,27 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
 
 40:                                               ; preds = %31
   tail call fastcc void @bn_sub_part_words(ptr noundef %6, ptr noundef %33, ptr noundef %1, i32 noundef %9, i32 noundef %4)
-  %41 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   %42 = sub i32 0, %5
   tail call fastcc void @bn_sub_part_words(ptr noundef %41, ptr noundef %2, ptr noundef %36, i32 noundef %10, i32 noundef %42)
   br label %50
 
 43:                                               ; preds = %31
   tail call fastcc void @bn_sub_part_words(ptr noundef %6, ptr noundef %33, ptr noundef %1, i32 noundef %9, i32 noundef %4)
-  %44 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   tail call fastcc void @bn_sub_part_words(ptr noundef %44, ptr noundef %36, ptr noundef %2, i32 noundef %10, i32 noundef %5)
   br label %50
 
 45:                                               ; preds = %31
   tail call fastcc void @bn_sub_part_words(ptr noundef %6, ptr noundef %1, ptr noundef %33, i32 noundef %9, i32 noundef %34)
-  %46 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   %47 = sub i32 0, %5
   tail call fastcc void @bn_sub_part_words(ptr noundef %46, ptr noundef %2, ptr noundef %36, i32 noundef %10, i32 noundef %47)
   br label %50
 
 48:                                               ; preds = %31
   tail call fastcc void @bn_sub_part_words(ptr noundef %6, ptr noundef %1, ptr noundef %33, i32 noundef %9, i32 noundef %34)
-  %49 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   tail call fastcc void @bn_sub_part_words(ptr noundef %49, ptr noundef %36, ptr noundef %2, i32 noundef %10, i32 noundef %5)
   br label %50
 
@@ -509,14 +509,14 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
 
 55:                                               ; preds = %50
   %56 = zext nneg i32 %3 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %6, i64 %56
-  %58 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   tail call void @bn_mul_comba8(ptr noundef nonnull %57, ptr noundef %6, ptr noundef nonnull %58) #5
   br label %62
 
 59:                                               ; preds = %.thread247
   %60 = zext nneg i32 %3 to i64
-  %61 = getelementptr inbounds nuw i64, ptr %6, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %61, i8 0, i64 128, i1 false)
   br label %62
 
@@ -524,7 +524,7 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
   %.pre-phi = phi i64 [ %60, %59 ], [ %56, %55 ]
   %.not232238253258 = phi i1 [ true, %59 ], [ %.not232, %55 ]
   tail call void @bn_mul_comba8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5
-  %63 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre-phi
   tail call void @bn_mul_comba8(ptr noundef %63, ptr noundef nonnull %33, ptr noundef nonnull %36) #5
   %64 = tail call i64 @bn_add_words(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %63, i32 noundef %3) #5
   %65 = trunc i64 %64 to i32
@@ -533,19 +533,19 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
 66:                                               ; preds = %50
   %67 = shl nuw nsw i32 %3, 1
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i64, ptr %6, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %68
   %70 = zext nneg i32 %3 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %6, i64 %70
-  %72 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   tail call fastcc void @bn_mul_recursive(ptr noundef nonnull %71, ptr noundef %6, ptr noundef %72, i32 noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %69)
   br label %80
 
 73:                                               ; preds = %.thread247
   %74 = shl nuw nsw i32 %3, 1
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw i64, ptr %6, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %75
   %77 = zext nneg i32 %3 to i64
-  %78 = getelementptr inbounds nuw i64, ptr %6, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %77
   %79 = shl nuw nsw i64 %77, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %78, i8 0, i64 %79, i1 false)
   br label %80
@@ -555,7 +555,7 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
   %81 = phi ptr [ %69, %66 ], [ %76, %73 ]
   %.not232238254263 = phi i1 [ %.not232, %66 ], [ true, %73 ]
   tail call fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef %81)
-  %82 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi265
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre-phi265
   tail call fastcc void @bn_mul_recursive(ptr noundef %82, ptr noundef %33, ptr noundef %36, i32 noundef %8, i32 noundef %4, i32 noundef %5, ptr noundef %81)
   %83 = tail call i64 @bn_add_words(ptr noundef %6, ptr noundef %0, ptr noundef %82, i32 noundef %3) #5
   %84 = trunc i64 %83 to i32
@@ -564,7 +564,7 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
 85:                                               ; preds = %62, %80
   %86 = phi i32 [ %65, %62 ], [ %84, %80 ]
   %87 = phi i64 [ %.pre-phi, %62 ], [ %.pre-phi265, %80 ]
-  %88 = getelementptr inbounds nuw i64, ptr %6, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %87
   %89 = tail call i64 @bn_sub_words(ptr noundef %88, ptr noundef %6, ptr noundef %88, i32 noundef %3) #5
   %90 = trunc i64 %89 to i32
   %91 = sub nsw i32 %86, %90
@@ -573,7 +573,7 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
 92:                                               ; preds = %62, %80
   %93 = phi i32 [ %65, %62 ], [ %84, %80 ]
   %94 = phi i64 [ %.pre-phi, %62 ], [ %.pre-phi265, %80 ]
-  %95 = getelementptr inbounds nuw i64, ptr %6, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %94
   %96 = tail call i64 @bn_add_words(ptr noundef %95, ptr noundef %95, ptr noundef %6, i32 noundef %3) #5
   %97 = trunc i64 %96 to i32
   %98 = add nsw i32 %93, %97
@@ -582,8 +582,8 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
 99:                                               ; preds = %92, %85
   %100 = phi i64 [ %87, %85 ], [ %94, %92 ]
   %.0226 = phi i32 [ %91, %85 ], [ %98, %92 ]
-  %101 = getelementptr inbounds nuw i64, ptr %0, i64 %32
-  %102 = getelementptr inbounds nuw i64, ptr %6, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %32
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %100
   %103 = tail call i64 @bn_add_words(ptr noundef %101, ptr noundef %101, ptr noundef %102, i32 noundef %3) #5
   %104 = trunc i64 %103 to i32
   %105 = add nsw i32 %.0226, %104
@@ -593,7 +593,7 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
 106:                                              ; preds = %99
   %107 = add nuw nsw i32 %8, %3
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i64, ptr %0, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %108
   %110 = load i64, ptr %109, align 8, !tbaa !15
   %111 = sext i32 %105 to i64
   %112 = add i64 %110, %111
@@ -636,7 +636,7 @@ define internal fastcc void @bn_mul_normal(ptr noundef %0, ptr noundef %1, i32 n
 
 12:                                               ; preds = %8
   %13 = sext i32 %.050 to i64
-  %14 = getelementptr inbounds i64, ptr %0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %13
   %15 = load i64, ptr %.048, align 8, !tbaa !15
   %16 = tail call i64 @bn_mul_words(ptr noundef %0, ptr noundef %.045, i32 noundef %.050, i64 noundef %15) #5
   store i64 %16, ptr %14, align 8, !tbaa !15
@@ -733,7 +733,7 @@ define hidden range(i32 0, 2) i32 @BN_mul_word(ptr noundef %0, i64 noundef %1) l
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %3, align 8, !tbaa !6
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i64, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   store i64 %10, ptr %22, align 8, !tbaa !15
   br label %23
 
@@ -852,7 +852,7 @@ define hidden range(i32 0, 2) i32 @BN_sqr(ptr noundef %0, ptr noundef readonly c
   store i32 0, ptr %58, align 8, !tbaa !13
   %59 = load ptr, ptr %1, align 8, !tbaa !14
   %60 = zext nneg i32 %6 to i64
-  %61 = getelementptr i64, ptr %59, i64 %60
+  %61 = getelementptr [8 x i8], ptr %59, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -8
   %63 = load i64, ptr %62, align 8, !tbaa !15
   %64 = icmp ult i64 %63, 4294967296
@@ -889,7 +889,7 @@ declare void @bn_sqr_comba8(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc void @bn_sqr_normal(ptr noundef initializes((0, 8)) %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = shl nuw nsw i32 %2, 1
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr i64, ptr %0, i64 %6
+  %7 = getelementptr [8 x i8], ptr %0, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   store i64 0, ptr %8, align 8, !tbaa !15
   store i64 0, ptr %0, align 8, !tbaa !15
@@ -903,7 +903,7 @@ define internal fastcc void @bn_sqr_normal(ptr noundef initializes((0, 8)) %0, p
   %14 = load i64, ptr %1, align 8, !tbaa !15
   %15 = tail call i64 @bn_mul_words(ptr noundef nonnull %11, ptr noundef nonnull %13, i32 noundef %12, i64 noundef %14) #5
   %16 = zext nneg i32 %12 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %11, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %16
   store i64 %15, ptr %17, align 8, !tbaa !15
   %.not = icmp eq i32 %2, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -925,7 +925,7 @@ define internal fastcc void @bn_sqr_normal(ptr noundef initializes((0, 8)) %0, p
   %23 = load i64, ptr %.14046, align 8, !tbaa !15
   %24 = trunc nuw nsw i64 %indvars.iv.next to i32
   %25 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %.147, ptr noundef nonnull %22, i32 noundef %24, i64 noundef %23) #5
-  %26 = getelementptr inbounds i64, ptr %.147, i64 %indvars.iv.next
+  %26 = getelementptr inbounds [8 x i8], ptr %.147, i64 %indvars.iv.next
   store i64 %25, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %.147, i64 16
   %28 = add nsw i32 %.04145, -1
@@ -965,7 +965,7 @@ define internal fastcc void @bn_sqr_recursive(ptr noundef %0, ptr noundef %1, i3
 
 11:                                               ; preds = %8
   %12 = zext nneg i32 %5 to i64
-  %13 = getelementptr inbounds nuw i64, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %12
   %14 = tail call i32 @bn_cmp_words(ptr noundef %1, ptr noundef %13, i32 noundef %5) #5
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %18
@@ -985,18 +985,18 @@ define internal fastcc void @bn_sqr_recursive(ptr noundef %0, ptr noundef %1, i3
 22:                                               ; preds = %16, %20
   %23 = shl nuw nsw i32 %2, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %3, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %24
   %26 = zext nneg i32 %2 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %26
   tail call fastcc void @bn_sqr_recursive(ptr noundef nonnull %27, ptr noundef %3, i32 noundef %5, ptr noundef nonnull %25)
   br label %35
 
 28:                                               ; preds = %18
   %29 = shl nuw nsw i32 %2, 1
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i64, ptr %3, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %30
   %32 = zext nneg i32 %2 to i64
-  %33 = getelementptr inbounds nuw i64, ptr %3, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %32
   %34 = shl nuw nsw i64 %32, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %33, i8 0, i64 %34, i1 false)
   br label %35
@@ -1005,15 +1005,15 @@ define internal fastcc void @bn_sqr_recursive(ptr noundef %0, ptr noundef %1, i3
   %.pre-phi = phi i64 [ %32, %28 ], [ %26, %22 ]
   %36 = phi ptr [ %31, %28 ], [ %25, %22 ]
   tail call fastcc void @bn_sqr_recursive(ptr noundef %0, ptr noundef %1, i32 noundef %5, ptr noundef nonnull %36)
-  %37 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre-phi
   tail call fastcc void @bn_sqr_recursive(ptr noundef nonnull %37, ptr noundef %13, i32 noundef %5, ptr noundef nonnull %36)
   %38 = tail call i64 @bn_add_words(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %37, i32 noundef %2) #5
   %39 = trunc i64 %38 to i32
-  %40 = getelementptr inbounds nuw i64, ptr %3, i64 %.pre-phi
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.pre-phi
   %41 = tail call i64 @bn_sub_words(ptr noundef nonnull %40, ptr noundef %3, ptr noundef nonnull %40, i32 noundef %2) #5
   %42 = trunc i64 %41 to i32
   %43 = sub nsw i32 %39, %42
-  %44 = getelementptr inbounds nuw i64, ptr %0, i64 %12
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %12
   %45 = tail call i64 @bn_add_words(ptr noundef %44, ptr noundef %44, ptr noundef nonnull %40, i32 noundef %2) #5
   %46 = trunc i64 %45 to i32
   %47 = add nsw i32 %43, %46
@@ -1023,7 +1023,7 @@ define internal fastcc void @bn_sqr_recursive(ptr noundef %0, ptr noundef %1, i3
 48:                                               ; preds = %35
   %49 = add nuw nsw i32 %5, %2
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i64, ptr %0, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !15
   %53 = sext i32 %47 to i64
   %54 = add i64 %52, %53
@@ -1054,12 +1054,12 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
 
 8:                                                ; preds = %5
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds i64, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = icmp slt i32 %4, 0
   br i1 %11, label %.preheader, label %45
 
 .preheader:                                       ; preds = %8
-  %12 = getelementptr inbounds i64, ptr %2, i64 %9
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %13 = load i64, ptr %12, align 8, !tbaa !15
   %14 = add i64 %6, %13
   %15 = sub i64 0, %14
@@ -1126,7 +1126,7 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   br i1 %44, label %.thread158, label %.lr.ph191
 
 45:                                               ; preds = %8
-  %46 = getelementptr inbounds i64, ptr %1, i64 %9
+  %46 = getelementptr inbounds [8 x i8], ptr %1, i64 %9
   %.not171 = icmp eq i64 %6, 0
   br i1 %.not171, label %.preheader164, label %.lr.ph
 

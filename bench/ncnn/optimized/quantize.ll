@@ -579,7 +579,7 @@ define internal void @_ZNK4ncnn8Quantize7forwardERKNS_3MatERS1_RKNS_6OptionE.omp
   %30 = icmp eq i32 %29, 1
   %31 = load ptr, ptr %25, align 8, !tbaa !16
   %.in.idx = select i1 %30, i64 0, i64 %indvars.iv
-  %.in = getelementptr inbounds nuw float, ptr %31, i64 %.in.idx
+  %.in = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.in.idx
   %32 = load float, ptr %.in, align 4, !tbaa !44
   %33 = load i32, ptr %6, align 4, !tbaa !41
   %34 = icmp sgt i32 %33, 0
@@ -706,7 +706,7 @@ define internal void @_ZNK4ncnn8Quantize7forwardERKNS_3MatERS1_RKNS_6OptionE.omp
   %30 = icmp eq i32 %29, 1
   %31 = load ptr, ptr %26, align 8, !tbaa !16
   %.in.idx = select i1 %30, i64 0, i64 %indvars.iv
-  %.in = getelementptr inbounds nuw float, ptr %31, i64 %.in.idx
+  %.in = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.in.idx
   %32 = load float, ptr %.in, align 4, !tbaa !44
   %33 = load i32, ptr %6, align 4, !tbaa !41
   %34 = load i32, ptr %7, align 4, !tbaa !41

@@ -38,7 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.9 = type { ptr }
 %union.anon.10 = type { %struct.anon.11 }
 %struct.anon.11 = type { ptr, i32, i32 }
-%struct._zend_class_name = type { ptr, ptr }
 %struct.zend_type = type { ptr, i32 }
 
 @zend_ce_unit_enum = dso_local local_unnamed_addr global ptr null, align 8
@@ -387,7 +386,7 @@ zend_verify_enum_properties.exit:                 ; preds = %zend_string_equals.
 
 124:                                              ; preds = %123, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %123 ]
-  %125 = getelementptr inbounds nuw ptr, ptr @zend_verify_enum_magic_methods.forbidden_methods, i64 %indvars.iv.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr @zend_verify_enum_magic_methods.forbidden_methods, i64 %indvars.iv.i
   %126 = load ptr, ptr %125, align 8, !tbaa !53
   %127 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %126) #14
   %128 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %118, ptr noundef nonnull %126, i64 noundef %127) #12
@@ -566,7 +565,7 @@ define hidden void @zend_enum_add_interfaces(ptr noundef captures(none) initiali
 zend_string_copy.exit:                            ; preds = %9, %22
   %25 = phi ptr [ %15, %9 ], [ %.pre, %22 ]
   %26 = zext i32 %3 to i64
-  %27 = getelementptr inbounds nuw %struct._zend_class_name, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %26
   store ptr %18, ptr %27, align 8, !tbaa !63
   %28 = tail call noalias ptr @_emalloc_40() #12
   store i32 1, ptr %28, align 4, !tbaa !7
@@ -581,7 +580,7 @@ zend_string_copy.exit:                            ; preds = %9, %22
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i8 0, ptr %33, align 8, !tbaa !4
   %34 = load ptr, ptr %11, align 8, !tbaa !4
-  %35 = getelementptr inbounds nuw %struct._zend_class_name, ptr %34, i64 %26
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %26
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %28, ptr %36, align 8, !tbaa !66
   %37 = load i32, ptr %5, align 8, !tbaa !28
@@ -607,7 +606,7 @@ zend_string_copy.exit:                            ; preds = %9, %22
 zend_string_copy.exit20:                          ; preds = %38, %45
   %48 = load ptr, ptr %11, align 8, !tbaa !4
   %49 = zext i32 %4 to i64
-  %50 = getelementptr inbounds nuw %struct._zend_class_name, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %49
   store ptr %41, ptr %50, align 8, !tbaa !63
   %51 = tail call noalias ptr @_emalloc_40() #12
   store i32 1, ptr %51, align 4, !tbaa !7
@@ -622,7 +621,7 @@ zend_string_copy.exit20:                          ; preds = %38, %45
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 34
   store i8 0, ptr %56, align 2, !tbaa !4
   %57 = load ptr, ptr %11, align 8, !tbaa !4
-  %58 = getelementptr inbounds nuw %struct._zend_class_name, ptr %57, i64 %49
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %49
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %51, ptr %59, align 8, !tbaa !66
   br label %60
@@ -1408,7 +1407,7 @@ define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr @zend_known_strings, align 8, !tbaa !23
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   store i8 1, ptr %2, align 8, !tbaa !119
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1080), align 8, !tbaa !120

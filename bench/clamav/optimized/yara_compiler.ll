@@ -34,7 +34,7 @@ define range(i32 0, 24) i32 @_yr_compiler_push_file(ptr noundef captures(none) %
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   store ptr %1, ptr %9, align 8, !tbaa !20
   %10 = add nsw i32 %4, 1
   store i32 %10, ptr %3, align 8, !tbaa !3
@@ -62,7 +62,7 @@ define ptr @_yr_compiler_pop_file(ptr noundef captures(none) %0) local_unnamed_a
   store i32 %6, ptr %2, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   br label %11
 
@@ -90,7 +90,7 @@ define range(i32 0, 24) i32 @_yr_compiler_push_file_name(ptr noundef captures(no
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !24
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %10) #9
   %12 = icmp eq i32 %11, 0
@@ -114,7 +114,7 @@ define range(i32 0, 24) i32 @_yr_compiler_push_file_name(ptr noundef captures(no
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %20 = load i32, ptr %3, align 8, !tbaa !23
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %19, i64 %21
   store ptr %16, ptr %22, align 8, !tbaa !24
   %23 = add nsw i32 %20, 1
   store i32 %23, ptr %3, align 8, !tbaa !23
@@ -147,12 +147,12 @@ define void @_yr_compiler_pop_file_name(ptr noundef captures(none) %0) local_unn
   store i32 %6, ptr %2, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !24
   tail call void @free(ptr noundef %10) #10
   %11 = load i32, ptr %2, align 8, !tbaa !23
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %7, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %7, i64 %12
   store ptr null, ptr %13, align 8, !tbaa !24
   br label %14
 
@@ -172,7 +172,7 @@ define ptr @yr_compiler_get_current_file_name(ptr noundef readonly captures(none
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr ptr, ptr %0, i64 %6
+  %7 = getelementptr [8 x i8], ptr %0, i64 %6
   %8 = getelementptr i8, ptr %7, i64 416
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   br label %10

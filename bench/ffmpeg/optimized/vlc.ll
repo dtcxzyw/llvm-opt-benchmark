@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.VLCcode = type { i8, i16, i32 }
 %struct.VLC = type { i32, ptr, i32, i32 }
-%struct.VLCElem = type { %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i16, i16 }
 %struct.VLC_MULTI_ELEM = type { %union.anon.1, i8, i8 }
 %union.anon.1 = type { [3 x i16] }
 
@@ -134,7 +131,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
 52:                                               ; preds = %49
   %53 = trunc nuw nsw i32 %.0265 to i8
   %54 = sext i32 %.0231383 to i64
-  %55 = getelementptr inbounds %struct.VLCcode, ptr %.1.ph, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.1.ph, i64 %54
   store i8 %53, ptr %55, align 4, !tbaa !18
   %56 = mul nsw i64 %indvars.iv, %33
   %57 = getelementptr inbounds i8, ptr %6, i64 %56
@@ -266,7 +263,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %.1.ph, ptr %15, align 16, !tbaa !24
   %125 = sext i32 %.0231.lcssa to i64
-  %126 = getelementptr inbounds %struct.VLCcode, ptr %.1.ph, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %.1.ph, i64 %125
   %127 = getelementptr inbounds i8, ptr %126, i64 -8
   %128 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %127, ptr %128, align 8, !tbaa !24
@@ -276,7 +273,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   %.0254404 = phi i32 [ 1, %._crit_edge ], [ %.1255373, %.thread348 ]
   %130 = add nsw i32 %.0254404, -1
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds [2 x ptr], ptr %15, i64 %131
+  %132 = getelementptr inbounds [16 x i8], ptr %15, i64 %131
   %133 = load ptr, ptr %132, align 16, !tbaa !24
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !24
@@ -303,7 +300,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   %145 = ptrtoint ptr %.0251396 to i64
   %146 = sub i64 %144, %145
   %147 = ashr i64 %146, 4
-  %148 = getelementptr inbounds %struct.VLCcode, ptr %.0251396, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %.0251396, i64 %147
   %149 = getelementptr i8, ptr %.0251396, i64 4
   %.0251.val = load i32, ptr %149, align 4, !tbaa !20
   %150 = getelementptr i8, ptr %.0248397, i64 4
@@ -482,7 +479,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br i1 %216, label %217, label %221
 
 217:                                              ; preds = %212
-  %218 = getelementptr inbounds [2 x ptr], ptr %15, i64 %indvars.iv429
+  %218 = getelementptr inbounds [16 x i8], ptr %15, i64 %indvars.iv429
   store ptr %.0251396, ptr %218, align 16, !tbaa !24
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   store ptr %.0243.lcssa, ptr %219, align 8, !tbaa !24
@@ -491,7 +488,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
 
 221:                                              ; preds = %212
   %222 = getelementptr inbounds nuw i8, ptr %.0240.lcssa, i64 8
-  %223 = getelementptr inbounds [2 x ptr], ptr %15, i64 %indvars.iv429
+  %223 = getelementptr inbounds [16 x i8], ptr %15, i64 %indvars.iv429
   store ptr %222, ptr %223, align 16, !tbaa !24
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   store ptr %.0248397, ptr %224, align 8, !tbaa !24
@@ -593,7 +590,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
 259:                                              ; preds = %256
   %260 = trunc nuw nsw i32 %.0237 to i8
   %261 = sext i32 %.3234408 to i64
-  %262 = getelementptr inbounds %struct.VLCcode, ptr %.1.ph, i64 %261
+  %262 = getelementptr inbounds [8 x i8], ptr %.1.ph, i64 %261
   store i8 %260, ptr %262, align 4, !tbaa !18
   %263 = mul nsw i64 %indvars.iv432, %241
   %264 = getelementptr inbounds i8, ptr %6, i64 %263
@@ -862,7 +859,7 @@ vlc_common_init.exit:                             ; preds = %17, %20
 
 37:                                               ; preds = %.lr.ph.split.us
   %38 = sext i32 %.05586.us to i64
-  %39 = getelementptr inbounds %struct.VLCcode, ptr %.172114, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %.172114, i64 %38
   store i8 %30, ptr %39, align 4, !tbaa !18
   %40 = add i32 %.05188.us, %8
   %41 = trunc i32 %40 to i16
@@ -915,7 +912,7 @@ vlc_common_init.exit:                             ; preds = %17, %20
 
 64:                                               ; preds = %.lr.ph.split
   %65 = sext i32 %.05586 to i64
-  %66 = getelementptr inbounds %struct.VLCcode, ptr %.172114, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %.172114, i64 %65
   store i8 %61, ptr %66, align 4, !tbaa !18
   %67 = mul nsw i64 %indvars.iv, %29
   %68 = getelementptr inbounds i8, ptr %5, i64 %67
@@ -1059,7 +1056,7 @@ define ptr @ff_vlc_init_tables_from_lengths(ptr noundef captures(none) %0, i32 n
   %21 = load i32, ptr %15, align 8, !tbaa !11
   %22 = load ptr, ptr %0, align 8, !tbaa !32
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.VLCElem, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   store ptr %24, ptr %0, align 8, !tbaa !32
   %25 = load i32, ptr %17, align 8, !tbaa !34
   %26 = sub i32 %25, %21
@@ -1109,7 +1106,7 @@ define ptr @ff_vlc_init_tables_sparse(ptr noundef captures(none) %0, i32 noundef
   %24 = load i32, ptr %18, align 8, !tbaa !11
   %25 = load ptr, ptr %0, align 8, !tbaa !32
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds %struct.VLCElem, ptr %25, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %25, i64 %26
   store ptr %27, ptr %0, align 8, !tbaa !32
   %28 = load i32, ptr %20, align 8, !tbaa !34
   %29 = sub i32 %28, %24
@@ -1188,7 +1185,7 @@ define range(i32 -1094995529, 1) i32 @ff_vlc_init_multi_from_lengths(ptr noundef
 
 40:                                               ; preds = %36
   %41 = sext i32 %.067120 to i64
-  %42 = getelementptr inbounds %struct.VLCcode, ptr %.192.ph, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %.192.ph, i64 %41
   store i8 %37, ptr %42, align 4, !tbaa !18
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not79, label %55, label %44
@@ -1338,7 +1335,7 @@ vlc_common_end.exit:                              ; preds = %92
   %.07286.i = phi i32 [ 0, %.lr.ph.i ], [ %119, %118 ]
   %.07385.i = phi i32 [ 0, %.lr.ph.i ], [ %.174.i, %118 ]
   %107 = zext nneg i32 %.07286.i to i64
-  %108 = getelementptr inbounds nuw %struct.VLCElem, ptr %101, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 2
   %110 = load i16, ptr %109, align 2, !tbaa !14
   %111 = icmp sgt i16 %110, 0
@@ -1377,7 +1374,7 @@ vlc_common_end.exit:                              ; preds = %92
   %indvars.iv.i = phi i64 [ %104, %.lr.ph92.preheader.i ], [ %indvars.iv.next.i, %.lr.ph92.i ]
   %.07589.i = phi i32 [ 32, %.lr.ph92.preheader.i ], [ %..075.i, %.lr.ph92.i ]
   %.07788.i = phi i32 [ 0, %.lr.ph92.preheader.i ], [ %125, %.lr.ph92.i ]
-  %122 = getelementptr inbounds %struct.VLCcode, ptr %.192.ph, i64 %indvars.iv.i
+  %122 = getelementptr inbounds [8 x i8], ptr %.192.ph, i64 %indvars.iv.i
   %123 = load i8, ptr %122, align 4, !tbaa !18
   %124 = zext i8 %123 to i32
   %..075.i = tail call i32 @llvm.umin.i32(i32 %.07589.i, i32 %124)
@@ -1393,7 +1390,7 @@ vlc_common_end.exit:                              ; preds = %92
 
 .lr.ph97.i:                                       ; preds = %134, %.lr.ph97.preheader.i
   %indvars.iv110.i = phi i64 [ %105, %.lr.ph97.preheader.i ], [ %indvars.iv.next111.i, %134 ]
-  %128 = getelementptr %struct.VLCcode, ptr %.192.ph, i64 %indvars.iv110.i
+  %128 = getelementptr [8 x i8], ptr %.192.ph, i64 %indvars.iv110.i
   %129 = getelementptr i8, ptr %128, i64 -8
   %130 = load i8, ptr %129, align 4, !tbaa !18
   %131 = zext i8 %130 to i32
@@ -1421,11 +1418,11 @@ vlc_common_end.exit:                              ; preds = %92
 .lr.ph104.split.us.i:                             ; preds = %._crit_edge98.i, %.lr.ph104.split.us.i
   %indvars.iv116.i = phi i64 [ %indvars.iv.next117.i, %.lr.ph104.split.us.i ], [ 0, %._crit_edge98.i ]
   %137 = load ptr, ptr %100, align 8, !tbaa !12
-  %138 = getelementptr inbounds nuw %struct.VLCElem, ptr %137, i64 %indvars.iv116.i
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %indvars.iv116.i
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 2
   %140 = load i16, ptr %139, align 2, !tbaa !14
   %141 = trunc i16 %140 to i8
-  %142 = getelementptr inbounds nuw %struct.VLC_MULTI_ELEM, ptr %96, i64 %indvars.iv116.i
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv116.i
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 6
   store i8 %141, ptr %143, align 2, !tbaa !42
   %144 = load i16, ptr %139, align 2, !tbaa !14
@@ -1443,11 +1440,11 @@ vlc_common_end.exit:                              ; preds = %92
 .lr.ph104.split.i:                                ; preds = %._crit_edge98.i, %.lr.ph104.split.i
   %indvars.iv113.i = phi i64 [ %indvars.iv.next114.i, %.lr.ph104.split.i ], [ 0, %._crit_edge98.i ]
   %150 = load ptr, ptr %100, align 8, !tbaa !12
-  %151 = getelementptr inbounds nuw %struct.VLCElem, ptr %150, i64 %indvars.iv113.i
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %indvars.iv113.i
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 2
   %153 = load i16, ptr %152, align 2, !tbaa !14
   %154 = trunc i16 %153 to i8
-  %155 = getelementptr inbounds nuw %struct.VLC_MULTI_ELEM, ptr %96, i64 %indvars.iv113.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv113.i
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 6
   store i8 %154, ptr %156, align 2, !tbaa !42
   %157 = load i16, ptr %152, align 2, !tbaa !14
@@ -1567,12 +1564,12 @@ alloc_table.exit.thread:                          ; preds = %18
 26:                                               ; preds = %18
   %27 = load i32, ptr %12, align 4, !tbaa !13
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.VLCElem, ptr %25, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %25, i64 %28
   %30 = load i32, ptr %0, align 8, !tbaa !4
   %31 = shl nuw i32 1, %30
   %32 = sext i32 %31 to i64
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds %struct.VLCElem, ptr %29, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %29, i64 %33
   %35 = zext nneg i32 %30 to i64
   %36 = shl i64 4, %35
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %34, i8 0, i64 %36, i1 false)
@@ -1586,7 +1583,7 @@ alloc_table.exit:                                 ; preds = %7, %26
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !12
   %41 = zext nneg i32 %10 to i64
-  %42 = getelementptr inbounds nuw %struct.VLCElem, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   %.not171219 = icmp sgt i32 %2, 0
   br i1 %.not171219, label %.lr.ph224, label %.preheader.preheader
 
@@ -1602,7 +1599,7 @@ alloc_table.exit:                                 ; preds = %7, %26
   %.0136221 = phi ptr [ %42, %.lr.ph224 ], [ %.2138.ph, %.loopexit197 ]
   %.0146220 = phi i32 [ 0, %.lr.ph224 ], [ %179, %.loopexit197 ]
   %48 = sext i32 %.0146220 to i64
-  %49 = getelementptr inbounds %struct.VLCcode, ptr %3, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %3, i64 %48
   %50 = load i8, ptr %49, align 4, !tbaa !18
   %51 = zext i8 %50 to i32
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
@@ -1660,7 +1657,7 @@ alloc_table.exit:                                 ; preds = %7, %26
 93:                                               ; preds = %90, %102
   %indvars.iv = phi i64 [ %92, %90 ], [ %indvars.iv.next, %102 ]
   %.0150204 = phi i32 [ 0, %90 ], [ %103, %102 ]
-  %94 = getelementptr inbounds %struct.VLCElem, ptr %.0136221, i64 %indvars.iv
+  %94 = getelementptr inbounds [4 x i8], ptr %.0136221, i64 %indvars.iv
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 2
   %96 = load i16, ptr %95, align 2, !tbaa !14
   %97 = load i16, ptr %94, align 2, !tbaa !14
@@ -1702,7 +1699,7 @@ alloc_table.exit:                                 ; preds = %7, %26
 
 .lr.ph.preheader:                                 ; preds = %104
   %110 = sext i32 %.0133205 to i64
-  %111 = getelementptr inbounds %struct.VLCcode, ptr %3, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %3, i64 %110
   %112 = load i8, ptr %111, align 4, !tbaa !18
   %113 = zext i8 %112 to i32
   %114 = sub nsw i32 %113, %1
@@ -1710,7 +1707,7 @@ alloc_table.exit:                                 ; preds = %7, %26
   br i1 %115, label %._crit_edge, label %.lr.ph263
 
 .lr.ph:                                           ; preds = %128
-  %116 = getelementptr inbounds %struct.VLCcode, ptr %3, i64 %indvars.iv.next237
+  %116 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv.next237
   %117 = load i8, ptr %116, align 4, !tbaa !18
   %118 = zext i8 %117 to i32
   %119 = sub nsw i32 %118, %1
@@ -1788,7 +1785,7 @@ alloc_table.exit:                                 ; preds = %7, %26
   %165 = trunc i32 %132 to i16
   %166 = sub i16 0, %165
   %167 = zext nneg i32 %164 to i64
-  %168 = getelementptr inbounds nuw %struct.VLCElem, ptr %.0136221, i64 %167
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %.0136221, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 2
   store i16 %166, ptr %169, align 2, !tbaa !14
   %170 = sub nsw i32 %.0133.lcssa, %.0146220
@@ -1798,9 +1795,9 @@ alloc_table.exit:                                 ; preds = %7, %26
 
 173:                                              ; preds = %163
   %174 = load ptr, ptr %39, align 8, !tbaa !12
-  %175 = getelementptr inbounds nuw %struct.VLCElem, ptr %174, i64 %41
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %41
   %176 = trunc i32 %171 to i16
-  %177 = getelementptr inbounds nuw %struct.VLCElem, ptr %175, i64 %167
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %167
   store i16 %176, ptr %177, align 2, !tbaa !14
   %.not166 = icmp samesign ult i32 %171, 32768
   br i1 %.not166, label %.loopexit197, label %178
@@ -1823,7 +1820,7 @@ alloc_table.exit:                                 ; preds = %7, %26
 
 .preheader:                                       ; preds = %.preheader.preheader, %185
   %indvars.iv239 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next240, %185 ]
-  %180 = getelementptr inbounds nuw %struct.VLCElem, ptr %.1137, i64 %indvars.iv239
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %.1137, i64 %indvars.iv239
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 2
   %182 = load i16, ptr %181, align 2, !tbaa !14
   %183 = icmp eq i16 %182, 0
@@ -1859,7 +1856,7 @@ define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, 
   %15 = lshr exact i32 6, %1
   %.not75 = icmp eq i32 %1, 0
   %16 = zext nneg i32 %8 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 %16
   %.not76 = icmp eq i32 %8, 0
   %19 = sub nsw i32 32, %3
@@ -1867,7 +1864,7 @@ define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, 
   %21 = trunc nuw nsw i32 %8 to i8
   %22 = add nuw nsw i8 %21, 1
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 7
-  %24 = getelementptr i32, ptr %11, i64 %16
+  %24 = getelementptr [4 x i8], ptr %11, i64 %16
   %25 = getelementptr i8, ptr %24, i64 -4
   %26 = add nuw nsw i32 %8, 1
   %27 = icmp samesign uge i32 %26, %15
@@ -1890,7 +1887,7 @@ define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, 
   %.not.us.us.us.us.us.us = phi i1 [ true, %.preheader.us.us.us ], [ false, %35 ]
   %30 = select i1 %.not.us.us.us.us.us.us, i32 %.085.us.us.us, i32 %28
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.VLCcode, ptr %4, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %4, i64 %31
   %33 = load i8, ptr %32, align 4, !tbaa !18
   %34 = zext i8 %33 to i32
   %.not74.us.us.us.us.us.us = icmp samesign ugt i32 %7, %34
@@ -1914,7 +1911,7 @@ define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, 
   %.not.us.us.us.us87 = phi i1 [ true, %.preheader.us.us ], [ false, %43 ]
   %38 = select i1 %.not.us.us.us.us87, i32 %.085.us.us, i32 %36
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.VLCcode, ptr %4, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %4, i64 %39
   %41 = load i8, ptr %40, align 4, !tbaa !18
   %42 = zext i8 %41 to i32
   %.not74.us.us.us.us88 = icmp samesign ugt i32 %7, %42
@@ -1938,7 +1935,7 @@ define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, 
   %.not.us.us = phi i1 [ true, %.preheader.us ], [ false, %66 ]
   %46 = select i1 %.not.us.us, i32 %.085.us, i32 %44
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.VLCcode, ptr %4, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %4, i64 %47
   %49 = load i8, ptr %48, align 4, !tbaa !18
   %50 = zext i8 %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 2
@@ -1996,7 +1993,7 @@ define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, 
   %.not = phi i1 [ true, %.preheader ], [ false, %101 ]
   %69 = select i1 %.not, i32 %.085, i32 %67
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %struct.VLCcode, ptr %4, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %4, i64 %70
   %72 = load i8, ptr %71, align 4, !tbaa !18
   %73 = zext i8 %72 to i32
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 2
@@ -2041,7 +2038,7 @@ define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, 
 
 95:                                               ; preds = %.lr.ph, %95
   %indvars.iv = phi i64 [ %94, %.lr.ph ], [ %indvars.iv.next, %95 ]
-  %96 = getelementptr inbounds nuw %struct.VLC_MULTI_ELEM, ptr %0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %93, ptr %96, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -229,7 +229,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %
   %137 = trunc i32 %132 to i16
   %138 = add nuw i32 %114, 1
   %139 = zext i32 %114 to i64
-  %140 = getelementptr i16, ptr %0, i64 %139
+  %140 = getelementptr [2 x i8], ptr %0, i64 %139
   store i16 %137, ptr %140, align 2
   %141 = icmp ne i32 %132, 0
   %142 = icmp slt i32 %136, %42
@@ -496,7 +496,7 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr noundef writeonly captu
   %132 = trunc i32 %127 to i16
   %133 = add nuw i32 %109, 1
   %134 = zext i32 %109 to i64
-  %135 = getelementptr i16, ptr %0, i64 %134
+  %135 = getelementptr [2 x i8], ptr %0, i64 %134
   store i16 %132, ptr %135, align 2
   %136 = icmp ne i32 %127, 0
   %137 = icmp slt i32 %131, %37
@@ -689,7 +689,7 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
 
 57:                                               ; preds = %.preheader
   %58 = zext nneg i8 %55 to i64
-  %59 = getelementptr i32, ptr %2, i64 %58
+  %59 = getelementptr [4 x i8], ptr %2, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = add i32 %60, 1
   store i32 %61, ptr %59, align 4
@@ -730,7 +730,7 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
   %87 = getelementptr i8, ptr %0, i64 %49
   store i8 %86, ptr %87, align 1
   %88 = zext nneg i32 %85 to i64
-  %89 = getelementptr i32, ptr %2, i64 %88
+  %89 = getelementptr [4 x i8], ptr %2, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = add i32 %90, 1
   store i32 %91, ptr %89, align 4
@@ -832,7 +832,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
 
 52:                                               ; preds = %.preheader
   %53 = zext nneg i8 %50 to i64
-  %54 = getelementptr i32, ptr %2, i64 %53
+  %54 = getelementptr [4 x i8], ptr %2, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = add i32 %55, 1
   store i32 %56, ptr %54, align 4
@@ -873,7 +873,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   %82 = getelementptr i8, ptr %0, i64 %44
   store i8 %81, ptr %82, align 1
   %83 = zext nneg i32 %80 to i64
-  %84 = getelementptr i32, ptr %2, i64 %83
+  %84 = getelementptr [4 x i8], ptr %2, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, 1
   store i32 %86, ptr %84, align 4

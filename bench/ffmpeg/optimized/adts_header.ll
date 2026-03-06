@@ -68,7 +68,7 @@ define range(i32 -67308554, 8192) i32 @ff_adts_header_parse(ptr noundef captures
   %50 = tail call i32 @llvm.umin.i32(i32 %6, i32 %49)
   store i32 %50, ptr %3, align 8, !tbaa !4
   %51 = zext nneg i32 %48 to i64
-  %52 = getelementptr inbounds nuw i32, ptr @ff_mpeg4audio_sample_rates, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg4audio_sample_rates, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !14
   %.not40 = icmp eq i32 %53, 0
   br i1 %.not40, label %119, label %54

@@ -927,7 +927,7 @@ _set_options.exit:                                ; preds = %.lr.ph.i55, %_opt_e
 
 182:                                              ; preds = %179
   %183 = sext i32 %180 to i64
-  %184 = getelementptr inbounds ptr, ptr %1, i64 %183
+  %184 = getelementptr inbounds [8 x i8], ptr %1, i64 %183
   %185 = load ptr, ptr %184, align 8
   %.not6382.i = icmp eq ptr %185, null
   br i1 %.not6382.i, label %.critedge.i, label %sub_0.i
@@ -949,7 +949,7 @@ sub_0.i:                                          ; preds = %182, %.tail.thread.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %191 = trunc nsw i64 %indvars.iv.next.i to i32
   store i32 %191, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 64), align 8
-  %192 = getelementptr inbounds nuw ptr, ptr %184, i64 %indvars.iv.next.i
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %indvars.iv.next.i
   %193 = load ptr, ptr %192, align 8
   %.not63.i = icmp eq ptr %193, null
   br i1 %.not63.i, label %.critedge.i, label %sub_0.i, !llvm.loop !18
@@ -1013,7 +1013,7 @@ sub_0.i:                                          ; preds = %182, %.tail.thread.
 .lr.ph.split.i61:                                 ; preds = %222, %.lr.ph.split.preheader.i
   %indvars.iv90.i = phi i64 [ %218, %.lr.ph.split.preheader.i ], [ %indvars.iv.next91.i, %222 ]
   %219 = sub nsw i64 %indvars.iv90.i, %218
-  %220 = getelementptr inbounds ptr, ptr %.0.i, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %219
   %221 = load ptr, ptr %220, align 8
   %.not67.i = icmp eq ptr %221, null
   br i1 %.not67.i, label %._crit_edge.loopexit.i, label %222
@@ -1021,7 +1021,7 @@ sub_0.i:                                          ; preds = %182, %.tail.thread.
 222:                                              ; preds = %.lr.ph.split.i61
   %223 = call ptr @xstrdup(ptr noundef nonnull %221) #17
   %224 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 72), align 8
-  %225 = getelementptr inbounds ptr, ptr %224, i64 %indvars.iv90.i
+  %225 = getelementptr inbounds [8 x i8], ptr %224, i64 %indvars.iv90.i
   store ptr %223, ptr %225, align 8
   %indvars.iv.next91.i = add nsw i64 %indvars.iv90.i, 1
   %226 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 64), align 8
@@ -1038,7 +1038,7 @@ sub_0.i:                                          ; preds = %182, %.tail.thread.
   %.039.lcssa.i = phi i32 [ %215, %214 ], [ %.039.lcssa.ph.i, %._crit_edge.loopexit.i ]
   %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 72), align 8
   %230 = sext i32 %.039.lcssa.i to i64
-  %231 = getelementptr inbounds ptr, ptr %229, i64 %230
+  %231 = getelementptr inbounds [8 x i8], ptr %229, i64 %230
   store ptr null, ptr %231, align 8
   %232 = call ptr @getenv(ptr noundef nonnull @.str.119) #17
   %.not68.i = icmp eq ptr %232, null
@@ -1174,7 +1174,7 @@ sub_0.i:                                          ; preds = %182, %.tail.thread.
 
 295:                                              ; preds = %288
   %296 = sext i32 %215 to i64
-  %297 = getelementptr inbounds ptr, ptr %293, i64 %296
+  %297 = getelementptr inbounds [8 x i8], ptr %293, i64 %296
   %298 = load ptr, ptr %297, align 8
   %.not80.i = icmp eq ptr %298, null
   br i1 %.not80.i, label %_opt_args.exit, label %299
@@ -1184,13 +1184,13 @@ sub_0.i:                                          ; preds = %182, %.tail.thread.
   %301 = call ptr @search_path(ptr noundef %300, ptr noundef nonnull %298, i1 noundef zeroext true, i32 noundef 1, i1 noundef zeroext true) #17
   %.not81.i = icmp eq ptr %301, null
   %302 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 72), align 8
-  %303 = getelementptr inbounds ptr, ptr %302, i64 %296
+  %303 = getelementptr inbounds [8 x i8], ptr %302, i64 %296
   br i1 %.not81.i, label %307, label %304
 
 304:                                              ; preds = %299
   call void @slurm_xfree(ptr noundef %303) #17
   %305 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 72), align 8
-  %306 = getelementptr inbounds ptr, ptr %305, i64 %296
+  %306 = getelementptr inbounds [8 x i8], ptr %305, i64 %296
   store ptr %301, ptr %306, align 8
   br label %_opt_args.exit
 
@@ -1236,7 +1236,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
 
 .preheader:                                       ; preds = %.preheader.preheader, %322
   %indvars.iv = phi i64 [ %321, %.preheader.preheader ], [ %indvars.iv.next, %322 ]
-  %325 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %326 = load ptr, ptr %325, align 8
   %327 = call i32 @xstrcmp(ptr noundef %326, ptr noundef nonnull @.str.4) #17
   %.not45 = icmp eq i32 %327, 0
@@ -2364,11 +2364,11 @@ define internal fastcc noundef ptr @_opt_copy() unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 72), align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @xstrdup(ptr noundef %22) #17
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store ptr %23, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 64), align 8
@@ -2572,7 +2572,7 @@ define dso_local void @init_spank_env() local_unnamed_addr #0 {
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr @environ, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = call ptr @xstrdup(ptr noundef nonnull %18) #17
@@ -2583,7 +2583,7 @@ define dso_local void @init_spank_env() local_unnamed_addr #0 {
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr @environ, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.103, ptr noundef %25) #18
   unreachable
@@ -2601,7 +2601,7 @@ define dso_local void @init_spank_env() local_unnamed_addr #0 {
 .sink.split:                                      ; preds = %26, %11
   %.str.104.sink = phi ptr [ @.str.102, %11 ], [ @.str.104, %26 ]
   %32 = load ptr, ptr @environ, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull %.str.104.sink, ptr noundef nonnull @__func__.init_spank_env, i32 noundef %35, ptr noundef %34) #17
@@ -2611,7 +2611,7 @@ define dso_local void @init_spank_env() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load ptr, ptr @environ, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.next
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.next
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
@@ -2675,7 +2675,7 @@ define dso_local range(i32 -1, 1) i32 @spank_set_job_env(ptr noundef %0, ptr nou
 19:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %4, align 8
   %24 = call i32 @xstrncmp(ptr noundef %22, ptr noundef %23, i64 noundef %18) #17
@@ -2688,11 +2688,11 @@ define dso_local range(i32 -1, 1) i32 @spank_set_job_env(ptr noundef %0, ptr nou
 
 26:                                               ; preds = %25
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   call void @slurm_xfree(ptr noundef %28) #17
   %29 = load ptr, ptr %4, align 8
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   store ptr %29, ptr %31, align 8
   br label %45
 
@@ -2721,7 +2721,7 @@ define dso_local range(i32 -1, 1) i32 @spank_set_job_env(ptr noundef %0, ptr nou
   %41 = call ptr @slurm_xrecalloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opt, i64 648), i64 noundef 1, i64 noundef %40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.106, i32 noundef 1423, ptr noundef nonnull @__func__.spank_set_job_env) #17
   %42 = load ptr, ptr %4, align 8
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.013.lcssa
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.013.lcssa
   store ptr %42, ptr %44, align 8
   br label %45
 
@@ -2780,7 +2780,7 @@ define dso_local ptr @spank_get_job_env(ptr noundef %0) local_unnamed_addr #0 {
 21:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %2, align 8
   %26 = call i32 @xstrncmp(ptr noundef %24, ptr noundef %25, i64 noundef %16) #17
@@ -2790,7 +2790,7 @@ define dso_local ptr @spank_get_job_env(ptr noundef %0) local_unnamed_addr #0 {
 27:                                               ; preds = %21
   call void @slurm_xfree(ptr noundef nonnull %2) #17
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 %16
   br label %.loopexit
@@ -2852,7 +2852,7 @@ define dso_local range(i32 -1, 1) i32 @spank_unset_job_env(ptr noundef %0) local
   %indvars.iv32 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next33, %39 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %2, align 8
   %22 = call i32 @xstrncmp(ptr noundef %20, ptr noundef %21, i64 noundef %16) #17
@@ -2862,7 +2862,7 @@ define dso_local range(i32 -1, 1) i32 @spank_unset_job_env(ptr noundef %0) local
 23:                                               ; preds = %17
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   call void @slurm_xfree(ptr noundef %26) #17
   %.01523 = add nuw nsw i32 %24, 1
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 656), align 8
@@ -2873,9 +2873,9 @@ define dso_local range(i32 -1, 1) i32 @spank_unset_job_env(ptr noundef %0) local
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %.lr.ph26 ], [ %indvars.iv, %23 ]
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %.lr.ph26 ], [ %indvars.iv32, %23 ]
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv35
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv35
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv38
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv38
   store ptr %31, ptr %32, align 8
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1

@@ -1967,7 +1967,7 @@ define noundef i32 @unum_getTextAttribute_77(ptr noundef %0, i32 noundef %1, ptr
 
 .preheader.i.i:                                   ; preds = %48, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %54, %.preheader.i.i ], [ 0, %48 ]
-  %51 = getelementptr inbounds nuw i16, ptr %47, i64 %.0.i.i.i.i
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %.0.i.i.i.i
   %52 = load i16, ptr %51, align 2, !tbaa !32
   %53 = icmp eq i16 %52, 0
   %54 = add i64 %.0.i.i.i.i, 1
@@ -2414,7 +2414,7 @@ define noundef i32 @unum_getSymbol_77(ptr noundef %0, i32 noundef %1, ptr nounde
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(72) %16)
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = zext nneg i32 %1 to i64
-  %26 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %25
   store ptr %2, ptr %6, align 8, !tbaa !20
   %27 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull %6, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %28 unwind label %30
@@ -2554,7 +2554,7 @@ define linkonce_odr void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumb
 .thread23:                                        ; preds = %6, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %11
   %13 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %2)
   br label %.thread25
 
@@ -2565,7 +2565,7 @@ define linkonce_odr void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumb
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 %18
   %20 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %2)
   %21 = icmp eq i32 %1, 4
   br i1 %21, label %22, label %39
@@ -2597,7 +2597,7 @@ define linkonce_odr void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumb
   %34 = add nsw i32 %.01927, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7713UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %34)
-  %35 = getelementptr %"class.icu_77::UnicodeString", ptr %32, i64 %indvars.iv
+  %35 = getelementptr [64 x i8], ptr %32, i64 %indvars.iv
   %36 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(64) %5) #11
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

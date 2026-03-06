@@ -494,10 +494,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !25, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !33, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hffc512cf7c4c42fcE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hffc512cf7c4c42fcE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hffc512cf7c4c42fcE.30", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hffc512cf7c4c42fcE.30", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -3938,7 +3938,7 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16fi
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw { ptr, i64 }, ptr %33, i64 %53
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %53
   %57 = load ptr, ptr %56, align 8, !noalias !468, !nonnull !4, !align !25, !noundef !4
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load i64, ptr %58, align 8, !noalias !468, !noundef !4
@@ -4202,7 +4202,7 @@ common.resume:                                    ; preds = %140
 
 144:                                              ; preds = %139, %133
   %145 = load ptr, ptr %27, align 8, !alias.scope !517, !noalias !520, !nonnull !4, !noundef !4
-  %146 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %145, i64 %136
+  %146 = getelementptr inbounds [40 x i8], ptr %145, i64 %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %146, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   %147 = add i64 %136, 1
   store i64 %147, ptr %29, align 8, !alias.scope !517, !noalias !520
@@ -4247,7 +4247,7 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16pr
   br i1 %exitcond.not, label %21, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !range !400, !noundef !4
   %20 = load i8, ptr %9, align 4, !range !41, !noundef !4
   switch i8 %20, label %22 [
@@ -5877,7 +5877,7 @@ common.resume:                                    ; preds = %.body, %244
   br label %.preheader.preheader.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %271
-  %275 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], i64 }, ptr %267, i64 %269
+  %275 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %269
   %276 = getelementptr inbounds nuw i8, ptr %267, i64 16
   br label %.lr.ph.i.i.i.i
 
@@ -5906,7 +5906,7 @@ common.resume:                                    ; preds = %.body, %244
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %.sroa.07.0.i.i = phi i64 [ %283, %.preheader.i ], [ 0, %.preheader.preheader.i ]
   %.sroa.09.0.i.i = phi i64 [ %284, %.preheader.i ], [ 0, %.preheader.preheader.i ]
-  %281 = getelementptr inbounds { { i8, [1 x i8] }, [6 x i8], i64 }, ptr %267, i64 %.sroa.09.0.i.i
+  %281 = getelementptr inbounds [16 x i8], ptr %267, i64 %.sroa.09.0.i.i
   %282 = getelementptr i8, ptr %281, i64 8
   %.val.i.i = load i64, ptr %282, align 8, !noundef !4
   %283 = add i64 %.val.i.i, %.sroa.07.0.i.i
@@ -6498,7 +6498,7 @@ select.unfold:                                    ; preds = %.noexc, %37
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17hc24eb23469324492E.exit": ; preds = %.noexc
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 8
-  %63 = getelementptr inbounds i64, ptr %62, i64 %.sroa.23.0.copyload.i
+  %63 = getelementptr inbounds [8 x i8], ptr %62, i64 %.sroa.23.0.copyload.i
   %64 = load i64, ptr %63, align 8, !noundef !4
   %65 = add i64 %64, %44
   store i64 %65, ptr %63, align 8
@@ -8653,7 +8653,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %565,
 
 767:                                              ; preds = %763
   %768 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !946, !nonnull !4, !align !139, !noundef !4
-  %769 = getelementptr inbounds nuw { ptr, i64 }, ptr %768, i64 %764
+  %769 = getelementptr inbounds nuw [16 x i8], ptr %768, i64 %764
   br label %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd5f0a227095ac94eE.exit.i.sink.split"
 
 770:                                              ; preds = %763

@@ -79,13 +79,13 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %indvars.iv125 = phi i64 [ 0, %.preheader112.us ], [ %indvars.iv.next126, %29 ]
   %.192117.us = phi i32 [ 0, %.preheader112.us ], [ %.293.us, %29 ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %17 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv.next126
+  %17 = getelementptr inbounds nuw [36 x i8], ptr %4, i64 %indvars.iv.next126
   %18 = load i32, ptr %17, align 4, !tbaa !10
   %.not107.us = icmp ugt i32 %16, %18
   br i1 %.not107.us, label %19, label %29
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
+  %20 = getelementptr inbounds nuw [36 x i8], ptr %4, i64 %indvars.iv125
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 4, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
@@ -130,7 +130,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not110, label %.critedge, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [36 x i8], ptr %4, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 %.095115, ptr %43, align 4, !tbaa !3
   %44 = load ptr, ptr %11, align 8, !tbaa !11
@@ -152,7 +152,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %50 = zext nneg i32 %5 to i64
   %51 = add nuw i32 %5, 1
   %wide.trip.count133 = zext i32 %51 to i64
-  %52 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %50
+  %52 = getelementptr inbounds nuw [36 x i8], ptr %4, i64 %50
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   br label %.lr.ph123
 
@@ -163,7 +163,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not106, label %62, label %54
 
 54:                                               ; preds = %.lr.ph123
-  %55 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv130
+  %55 = getelementptr inbounds nuw [36 x i8], ptr %4, i64 %indvars.iv130
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 36
   %57 = load i32, ptr %56, align 4, !tbaa !10
   %58 = load i32, ptr %55, align 4, !tbaa !10
@@ -183,7 +183,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %64 = phi i32 [ %59, %54 ], [ %.097121, %62 ]
   %65 = phi i32 [ %58, %54 ], [ %.pre135, %62 ]
   %.198 = phi i32 [ %61, %54 ], [ %.097121, %62 ]
-  %66 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv130
+  %66 = getelementptr inbounds nuw [36 x i8], ptr %4, i64 %indvars.iv130
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !3
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 12

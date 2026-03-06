@@ -7,9 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.plugin_id_name = type { i32, ptr }
 %struct._plugin_args = type { ptr, ptr }
-%struct.slurm_select_ops_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [7 x i8] c"linear\00", align 1
@@ -107,7 +105,7 @@ define dso_local ptr @select_plugin_id_to_string(i32 noundef %0) local_unnamed_a
 3:                                                ; preds = %1, %2
   %4 = phi i1 [ true, %1 ], [ false, %2 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %2 ]
-  %5 = getelementptr inbounds nuw %struct.plugin_id_name, ptr @plugin_ids, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @plugin_ids, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16
   %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %2
@@ -138,7 +136,7 @@ define dso_local i32 @select_string_to_plugin_id(ptr noundef %0) local_unnamed_a
 3:                                                ; preds = %1, %2
   %4 = phi i1 [ true, %1 ], [ false, %2 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %2 ]
-  %5 = getelementptr inbounds nuw %struct.plugin_id_name, ptr @plugin_ids, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @plugin_ids, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef %7) #15
@@ -268,7 +266,7 @@ define dso_local noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %34 = trunc nuw i64 %indvars.iv.next61 to i32
   %35 = icmp sgt i32 %28, %34
-  %36 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %29, i64 %indvars.iv60
+  %36 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 %indvars.iv60
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 4
   br i1 %35, label %.lr.ph, label %._crit_edge
@@ -281,7 +279,7 @@ define dso_local noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed
 
 .lr.ph:                                           ; preds = %33, %39
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %39 ], [ %indvars.iv, %33 ]
-  %40 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %29, i64 %indvars.iv57
+  %40 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 %indvars.iv57
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 4
   %.not41 = icmp eq i32 %38, %42
@@ -289,11 +287,11 @@ define dso_local noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed
 
 43:                                               ; preds = %.lr.ph
   %44 = load ptr, ptr @select_context, align 8
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv60
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv60
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv57
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv57
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
@@ -307,7 +305,7 @@ define dso_local noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed
 
 54:                                               ; preds = %._crit_edge
   %55 = load ptr, ptr @select_context, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv60
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv60
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
@@ -335,7 +333,7 @@ define dso_local noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed
   %66 = load ptr, ptr @ops, align 8
   %67 = load i32, ptr @select_context_default, align 4
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %66, i64 %68
+  %69 = getelementptr inbounds [256 x i8], ptr %66, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %70, align 4
   %cond.i.not = icmp eq i32 %71, 102
@@ -401,15 +399,15 @@ define internal noundef i32 @_load_plugins(ptr noundef %0, ptr noundef readonly 
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @select_context_cnt, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %4, i64 %6
+  %7 = getelementptr inbounds [256 x i8], ptr %4, i64 %6
   %8 = tail call ptr @plugin_context_create(ptr noundef %3, ptr noundef %0, ptr noundef %7, ptr noundef nonnull @node_select_syms, i64 noundef 256) #15
   %9 = load ptr, ptr @select_context, align 8
   %10 = load i32, ptr @select_context_cnt, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %9, i64 %11
   store ptr %8, ptr %12, align 8
   %13 = load ptr, ptr @select_context, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %11
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %11
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %23, label %16
@@ -446,7 +444,7 @@ define dso_local range(i32 0, 2) i32 @select_running_linear_based() local_unname
   %1 = load ptr, ptr @ops, align 8
   %2 = load i32, ptr @select_context_default, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %1, i64 %3
+  %4 = getelementptr inbounds [256 x i8], ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
   %cond = icmp eq i32 %6, 102
@@ -760,7 +758,7 @@ define dso_local i32 @select_g_fini() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.018 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr @select_context, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @plugin_context_destroy(ptr noundef %10) #15
   %.not16 = icmp eq i32 %11, 0
@@ -811,7 +809,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @select_get_plugin_id_po
 
 5:                                                ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %6 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, %0
@@ -846,7 +844,7 @@ define dso_local i32 @select_g_state_save(ptr noundef %0) local_unnamed_addr #0 
   %7 = load ptr, ptr @ops, align 8
   %8 = load i32, ptr @select_context_default, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %7, i64 %9
+  %10 = getelementptr inbounds [256 x i8], ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %0) #15
@@ -869,7 +867,7 @@ define dso_local i32 @select_g_state_restore(ptr noundef %0) local_unnamed_addr 
   %2 = load ptr, ptr @ops, align 8
   %3 = load i32, ptr @select_context_default, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %2, i64 %4
+  %5 = getelementptr inbounds [256 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0) #15
@@ -881,7 +879,7 @@ define dso_local i32 @select_g_job_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @ops, align 8
   %3 = load i32, ptr @select_context_default, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %2, i64 %4
+  %5 = getelementptr inbounds [256 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0) #15
@@ -893,7 +891,7 @@ define dso_local i32 @select_g_node_init() local_unnamed_addr #0 {
   %1 = load ptr, ptr @ops, align 8
   %2 = load i32, ptr @select_context_default, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %1, i64 %3
+  %4 = getelementptr inbounds [256 x i8], ptr %1, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6() #15
@@ -905,7 +903,7 @@ define dso_local i32 @select_g_job_test(ptr noundef %0, ptr noundef %1, i32 noun
   %11 = load ptr, ptr @ops, align 8
   %12 = load i32, ptr @select_context_default, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %11, i64 %13
+  %14 = getelementptr inbounds [256 x i8], ptr %11, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #15
@@ -917,7 +915,7 @@ define dso_local i32 @select_g_job_begin(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @ops, align 8
   %3 = load i32, ptr @select_context_default, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %2, i64 %4
+  %5 = getelementptr inbounds [256 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0) #15
@@ -929,7 +927,7 @@ define dso_local i32 @select_g_job_ready(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @ops, align 8
   %3 = load i32, ptr @select_context_default, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %2, i64 %4
+  %5 = getelementptr inbounds [256 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0) #15
@@ -941,7 +939,7 @@ define dso_local i32 @select_g_job_expand(ptr noundef %0, ptr noundef %1) local_
   %3 = load ptr, ptr @ops, align 8
   %4 = load i32, ptr @select_context_default, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %3, i64 %5
+  %6 = getelementptr inbounds [256 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0, ptr noundef %1) #15
@@ -953,7 +951,7 @@ define dso_local i32 @select_g_job_resized(ptr noundef %0, ptr noundef %1) local
   %3 = load ptr, ptr @ops, align 8
   %4 = load i32, ptr @select_context_default, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %3, i64 %5
+  %6 = getelementptr inbounds [256 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0, ptr noundef %1) #15
@@ -965,7 +963,7 @@ define dso_local i32 @select_g_job_fini(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @ops, align 8
   %3 = load i32, ptr @select_context_default, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %2, i64 %4
+  %5 = getelementptr inbounds [256 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0) #15
@@ -977,7 +975,7 @@ define dso_local i32 @select_g_job_suspend(ptr noundef %0, i1 noundef zeroext %1
   %3 = load ptr, ptr @ops, align 8
   %4 = load i32, ptr @select_context_default, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %3, i64 %5
+  %6 = getelementptr inbounds [256 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0, i1 noundef zeroext %1) #15
@@ -989,7 +987,7 @@ define dso_local i32 @select_g_job_resume(ptr noundef %0, i1 noundef zeroext %1)
   %3 = load ptr, ptr @ops, align 8
   %4 = load i32, ptr @select_context_default, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %3, i64 %5
+  %6 = getelementptr inbounds [256 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0, i1 noundef zeroext %1) #15
@@ -1001,7 +999,7 @@ define dso_local ptr @select_g_step_pick_nodes(ptr noundef %0, ptr noundef reado
   %5 = load ptr, ptr @ops, align 8
   %6 = load i32, ptr @select_context_default, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %5, i64 %7
+  %8 = getelementptr inbounds [256 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8
@@ -1014,7 +1012,7 @@ define dso_local i32 @select_g_step_start(ptr noundef %0) local_unnamed_addr #0 
   %2 = load ptr, ptr @ops, align 8
   %3 = load i32, ptr @select_context_default, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %2, i64 %4
+  %5 = getelementptr inbounds [256 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0) #15
@@ -1026,7 +1024,7 @@ define dso_local i32 @select_g_step_finish(ptr noundef %0, i1 noundef zeroext %1
   %3 = load ptr, ptr @ops, align 8
   %4 = load i32, ptr @select_context_default, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %3, i64 %5
+  %6 = getelementptr inbounds [256 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0, i1 noundef zeroext %1) #15
@@ -1053,7 +1051,7 @@ define dso_local i32 @select_g_select_nodeinfo_pack(ptr noundef readonly capture
 9:                                                ; preds = %7
   %10 = load ptr, ptr @ops, align 8
   %11 = zext i32 %.0 to i64
-  %12 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
   tail call void @pack32(i32 noundef %14, ptr noundef %1) #15
@@ -1068,7 +1066,7 @@ define dso_local i32 @select_g_select_nodeinfo_pack(ptr noundef readonly capture
 18:                                               ; preds = %15, %9
   %.pre-phi = phi i64 [ %.pre, %15 ], [ %11, %9 ]
   %19 = load ptr, ptr @ops, align 8
-  %20 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %19, i64 %.pre-phi
+  %20 = getelementptr inbounds nuw [256 x i8], ptr %19, i64 %.pre-phi
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef %.010, ptr noundef %1, i16 noundef zeroext %2) #15
@@ -1105,7 +1103,7 @@ define dso_local range(i32 -1, 1) i32 @select_g_select_nodeinfo_unpack(ptr nound
 
 15:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %16 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %14, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %11
@@ -1125,7 +1123,7 @@ select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %20, %10
 select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_id_pos.exit.thread.preheader, %21
   %22 = phi i1 [ false, %21 ], [ true, %select_get_plugin_id_pos.exit.thread.preheader ]
   %indvars.iv.i24 = phi i64 [ 1, %21 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
-  %23 = getelementptr inbounds nuw %struct.plugin_id_name, ptr @plugin_ids, i64 %indvars.iv.i24
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @plugin_ids, i64 %indvars.iv.i24
   %24 = load i32, ptr %23, align 16
   %25 = icmp eq i32 %11, %24
   br i1 %25, label %26, label %21
@@ -1158,7 +1156,7 @@ select_get_plugin_id_pos.exit:                    ; preds = %15
   store i32 %37, ptr %38, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = and i64 %indvars.iv.i, 4294967295
-  %40 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %14, i64 %39
+  %40 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 136
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 %42(ptr noundef %6, ptr noundef %1, i16 noundef zeroext %2) #15
@@ -1203,7 +1201,7 @@ select_get_plugin_id_pos.exit:                    ; preds = %15
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw [256 x i8], ptr %56, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 152
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 %62(ptr noundef nonnull %54) #15
@@ -1245,7 +1243,7 @@ define dso_local i32 @select_g_select_nodeinfo_free(ptr noundef %0) local_unname
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull %4) #15
@@ -1269,7 +1267,7 @@ define dso_local ptr @select_g_select_nodeinfo_alloc() local_unnamed_addr #0 {
   store i32 %2, ptr %3, align 8
   %4 = load ptr, ptr @ops, align 8
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %4, i64 %5
+  %6 = getelementptr inbounds [256 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8() #15
@@ -1282,7 +1280,7 @@ define dso_local i32 @select_g_select_nodeinfo_set_all() local_unnamed_addr #0 {
   %1 = load ptr, ptr @ops, align 8
   %2 = load i32, ptr @select_context_default, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %1, i64 %3
+  %4 = getelementptr inbounds [256 x i8], ptr %1, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6() #15
@@ -1294,7 +1292,7 @@ define dso_local i32 @select_g_select_nodeinfo_set(ptr noundef %0) local_unnamed
   %2 = load ptr, ptr @ops, align 8
   %3 = load i32, ptr @select_context_default, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %2, i64 %4
+  %5 = getelementptr inbounds [256 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0) #15
@@ -1317,7 +1315,7 @@ define dso_local i32 @select_g_select_nodeinfo_get(ptr noundef readonly captures
   %.0 = load i32, ptr %.0.in, align 4
   %9 = load ptr, ptr @ops, align 8
   %10 = zext i32 %.0 to i64
-  %11 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 176
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %.07, i32 noundef %1, i32 noundef %2, ptr noundef %3) #15
@@ -1332,7 +1330,7 @@ define dso_local ptr @select_g_select_jobinfo_alloc() local_unnamed_addr #0 {
   store i32 %2, ptr %3, align 8
   %4 = load ptr, ptr @ops, align 8
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %4, i64 %5
+  %6 = getelementptr inbounds [256 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8() #15
@@ -1357,7 +1355,7 @@ define dso_local i32 @select_g_select_jobinfo_free(ptr noundef %0) local_unnamed
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull %4) #15
@@ -1389,7 +1387,7 @@ define dso_local i32 @select_g_select_jobinfo_set(ptr noundef readonly captures(
   %.0 = load i32, ptr %.0.in, align 4
   %8 = load ptr, ptr @ops, align 8
   %9 = zext i32 %.0 to i64
-  %10 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 200
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %.06, i32 noundef %1, ptr noundef %2) #15
@@ -1412,7 +1410,7 @@ define dso_local i32 @select_g_select_jobinfo_get(ptr noundef readonly captures(
   %.0 = load i32, ptr %.0.in, align 4
   %8 = load ptr, ptr @ops, align 8
   %9 = zext i32 %.0 to i64
-  %10 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 208
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %.06, i32 noundef %1, ptr noundef %2) #15
@@ -1432,7 +1430,7 @@ define dso_local ptr @select_g_select_jobinfo_copy(ptr noundef readonly captures
   store i32 %5, ptr %6, align 8
   %7 = load ptr, ptr @ops, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
@@ -1470,7 +1468,7 @@ define dso_local i32 @select_g_select_jobinfo_pack(ptr noundef readonly captures
 9:                                                ; preds = %7
   %10 = load ptr, ptr @ops, align 8
   %11 = zext i32 %.0 to i64
-  %12 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
   tail call void @pack32(i32 noundef %14, ptr noundef %1) #15
@@ -1485,7 +1483,7 @@ define dso_local i32 @select_g_select_jobinfo_pack(ptr noundef readonly captures
 18:                                               ; preds = %15, %9
   %.pre-phi = phi i64 [ %.pre, %15 ], [ %11, %9 ]
   %19 = load ptr, ptr @ops, align 8
-  %20 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %19, i64 %.pre-phi
+  %20 = getelementptr inbounds nuw [256 x i8], ptr %19, i64 %.pre-phi
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 224
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef %.010, ptr noundef %1, i16 noundef zeroext %2) #15
@@ -1520,7 +1518,7 @@ define dso_local range(i32 -1, 1) i32 @select_g_select_jobinfo_unpack(ptr nounde
 
 15:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %16 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %14, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %11
@@ -1540,7 +1538,7 @@ select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %20, %10
 select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_id_pos.exit.thread.preheader, %21
   %22 = phi i1 [ false, %21 ], [ true, %select_get_plugin_id_pos.exit.thread.preheader ]
   %indvars.iv.i24 = phi i64 [ 1, %21 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
-  %23 = getelementptr inbounds nuw %struct.plugin_id_name, ptr @plugin_ids, i64 %indvars.iv.i24
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @plugin_ids, i64 %indvars.iv.i24
   %24 = load i32, ptr %23, align 16
   %25 = icmp eq i32 %11, %24
   br i1 %25, label %26, label %21
@@ -1573,7 +1571,7 @@ select_get_plugin_id_pos.exit:                    ; preds = %15
   store i32 %37, ptr %38, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = and i64 %indvars.iv.i, 4294967295
-  %40 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %14, i64 %39
+  %40 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 232
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 %42(ptr noundef %6, ptr noundef %1, i16 noundef zeroext %2) #15
@@ -1618,7 +1616,7 @@ select_get_plugin_id_pos.exit:                    ; preds = %15
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw [256 x i8], ptr %56, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 192
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 %62(ptr noundef nonnull %54) #15
@@ -1644,7 +1642,7 @@ define dso_local i32 @select_g_get_info_from_plugin(i32 noundef %0, ptr noundef 
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @select_context_default, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %4, i64 %6
+  %7 = getelementptr inbounds [256 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(i32 noundef %0, ptr noundef %1, ptr noundef %2) #15
@@ -1656,7 +1654,7 @@ define dso_local i32 @select_g_reconfigure() local_unnamed_addr #0 {
   %1 = load ptr, ptr @ops, align 8
   %2 = load i32, ptr @select_context_default, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %1, i64 %3
+  %4 = getelementptr inbounds [256 x i8], ptr %1, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6() #15

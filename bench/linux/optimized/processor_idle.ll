@@ -37,10 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.dmi_system_id = type { ptr, ptr, [4 x %struct.dmi_strmatch], ptr }
 %struct.dmi_strmatch = type { i8, [79 x i8] }
 %struct.acpi_lpi_states_array = type { i32, i32, ptr, [8 x ptr] }
-%struct.acpi_lpi_state = type { i32, i32, i32, i32, i32, i32, i64, i8, i8, [32 x i8] }
 %struct.acpi_buffer = type { i64, ptr }
-%union.acpi_object = type { %struct.anon.5 }
-%struct.anon.5 = type { i32, i32, i64, i32 }
 
 @__param_str_max_cstate = internal constant [21 x i8] c"processor.max_cstate\00", align 16
 @param_ops_uint = external dso_local constant %struct.kernel_param_ops, align 8
@@ -136,7 +133,7 @@ define dso_local i32 @acpi_processor_hotplug(ptr noundef %0) local_unnamed_addr 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
+  %14 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @acpi_cpuidle_device to i64)
   %17 = inttoptr i64 %16 to ptr
@@ -243,11 +240,11 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
 
 44:                                               ; preds = %39
   %45 = sext i32 %32 to i64
-  %46 = getelementptr %struct.acpi_lpi_state, ptr %26, i64 %45
+  %46 = getelementptr [72 x i8], ptr %26, i64 %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(72) %46, ptr noundef align 8 dereferenceable(72) %34, i64 72, i1 false)
   %47 = add i32 %31, 1
   %48 = zext i32 %31 to i64
-  %49 = getelementptr ptr, ptr %27, i64 %48
+  %49 = getelementptr [8 x i8], ptr %27, i64 %48
   store ptr %46, ptr %49, align 8
   %50 = add nsw i32 %32, 1
   store i32 %50, ptr @flat_state_cnt, align 4
@@ -336,13 +333,13 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
 
 100:                                              ; preds = %98
   %101 = sext i32 %91 to i64
-  %102 = getelementptr %struct.acpi_lpi_state, ptr %62, i64 %101
+  %102 = getelementptr [72 x i8], ptr %62, i64 %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(72) %102, ptr noundef align 8 dereferenceable(72) %93, i64 72, i1 false)
   %103 = load i32, ptr %83, align 4
   %104 = add i32 %103, 1
   store i32 %104, ptr %83, align 4
   %105 = zext i32 %103 to i64
-  %106 = getelementptr ptr, ptr %89, i64 %105
+  %106 = getelementptr [8 x i8], ptr %89, i64 %105
   store ptr %102, ptr %106, align 8
   %107 = add nsw i32 %91, 1
   store i32 %107, ptr @flat_state_cnt, align 4
@@ -381,7 +378,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
 
 127:                                              ; preds = %124
   %128 = sext i32 %120 to i64
-  %129 = getelementptr %struct.acpi_lpi_state, ptr %62, i64 %128
+  %129 = getelementptr [72 x i8], ptr %62, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %131 = getelementptr inbounds nuw i8, ptr %114, i64 33
   %132 = getelementptr inbounds nuw i8, ptr %114, i64 24
@@ -396,7 +393,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   %139 = phi i32 [ 0, %127 ], [ %196, %193 ]
   %140 = phi ptr [ %129, %127 ], [ %195, %193 ]
   %141 = sext i32 %139 to i64
-  %142 = getelementptr ptr, ptr %88, i64 %141
+  %142 = getelementptr [8 x i8], ptr %88, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = load i8, ptr %130, align 8
   %145 = zext i8 %144 to i32
@@ -460,7 +457,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   %187 = add i32 %186, 1
   store i32 %187, ptr %83, align 4
   %188 = zext i32 %186 to i64
-  %189 = getelementptr ptr, ptr %89, i64 %188
+  %189 = getelementptr [8 x i8], ptr %89, i64 %188
   store ptr %140, ptr %189, align 8
   %190 = load i32, ptr @flat_state_cnt, align 4
   %191 = add i32 %190, 1
@@ -636,7 +633,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   %279 = phi i32 [ 0, %274 ], [ %386, %383 ]
   %280 = phi i32 [ 0, %274 ], [ %385, %383 ]
   %281 = phi i32 [ 0, %274 ], [ %384, %383 ]
-  %282 = getelementptr %struct.acpi_processor_cx, ptr %220, i64 %277
+  %282 = getelementptr [52 x i8], ptr %220, i64 %277
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 1
   %284 = load i8, ptr %283, align 1
   switch i8 %284, label %336 [
@@ -748,7 +745,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   %344 = load i32, ptr @local_apic_timer_c2_ok, align 4
   %345 = load i32, ptr %5, align 8
   %346 = zext i32 %345 to i64
-  %347 = getelementptr i64, ptr @__per_cpu_offset, i64 %346
+  %347 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %346
   %348 = load i64, ptr %347, align 8
   %349 = add i64 %348, ptrtoint (ptr @cpu_info to i64)
   %350 = inttoptr i64 %349 to ptr
@@ -845,7 +842,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
 
 404:                                              ; preds = %413, %.thread25
   %405 = phi i64 [ 1, %.thread25 ], [ %414, %413 ]
-  %406 = getelementptr %struct.acpi_processor_cx, ptr %220, i64 %405
+  %406 = getelementptr [52 x i8], ptr %220, i64 %405
   %407 = load i8, ptr %406, align 4
   %408 = icmp eq i8 %407, 0
   br i1 %408, label %413, label %409
@@ -915,18 +912,18 @@ define internal fastcc void @acpi_processor_setup_cpuidle_dev(ptr noundef %0, pt
   %30 = phi i64 [ 1, %21 ], [ %71, %69 ]
   %31 = phi i32 [ 1, %21 ], [ %70, %69 ]
   %32 = sext i32 %31 to i64
-  %33 = getelementptr %struct.cpuidle_state, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %32
-  %34 = getelementptr %struct.acpi_processor_cx, ptr %23, i64 %30
+  %33 = getelementptr [104 x i8], ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %32
+  %34 = getelementptr [52 x i8], ptr %23, i64 %30
   %35 = load i8, ptr %34, align 4
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %69, label %37
 
 37:                                               ; preds = %29
-  %38 = getelementptr ptr, ptr @acpi_cstate, i64 %32
+  %38 = getelementptr [8 x i8], ptr @acpi_cstate, i64 %32
   %39 = ptrtoint ptr %38 to i64
   %40 = load i32, ptr %11, align 4
   %41 = zext i32 %40 to i64
-  %42 = getelementptr i64, ptr @__per_cpu_offset, i64 %41
+  %42 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, %39
   %45 = inttoptr i64 %44 to ptr
@@ -1032,7 +1029,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_power_state_has_c
 
 28:                                               ; preds = %24
   %29 = and i64 %25, 63
-  %30 = getelementptr i64, ptr @__per_cpu_offset, i64 %29
+  %30 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, ptrtoint (ptr @processors to i64)
   %33 = inttoptr i64 %32 to ptr
@@ -1083,7 +1080,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_power_state_has_c
 
 61:                                               ; preds = %57
   %62 = and i64 %58, 63
-  %63 = getelementptr i64, ptr @__per_cpu_offset, i64 %62
+  %63 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = add i64 %64, ptrtoint (ptr @processors to i64)
   %66 = inttoptr i64 %65 to ptr
@@ -1150,7 +1147,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
 
 7:                                                ; preds = %7, %6
   %8 = phi i64 [ 1, %6 ], [ %11, %7 ]
-  %9 = getelementptr %struct.cpuidle_state, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %8
+  %9 = getelementptr [104 x i8], ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %8
   store i8 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %10, align 8
@@ -1176,8 +1173,8 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
 
 23:                                               ; preds = %46, %21
   %24 = phi i64 [ 0, %21 ], [ %48, %46 ]
-  %25 = getelementptr %struct.acpi_lpi_state, ptr %22, i64 %24
-  %26 = getelementptr %struct.cpuidle_state, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %24
+  %25 = getelementptr [72 x i8], ptr %22, i64 %24
+  %26 = getelementptr [104 x i8], ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %24
   %27 = trunc nuw nsw i64 %24 to i32
   %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %26, i64 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %27) #17
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -1245,14 +1242,14 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
   %66 = phi i32 [ %61, %63 ], [ %111, %110 ]
   %67 = phi i64 [ 1, %63 ], [ %113, %110 ]
   %68 = phi i32 [ 1, %63 ], [ %112, %110 ]
-  %69 = getelementptr %struct.acpi_processor_cx, ptr %64, i64 %67
+  %69 = getelementptr [52 x i8], ptr %64, i64 %67
   %70 = load i8, ptr %69, align 4
   %71 = icmp eq i8 %70, 0
   br i1 %71, label %110, label %72
 
 72:                                               ; preds = %65
   %73 = sext i32 %68 to i64
-  %74 = getelementptr %struct.cpuidle_state, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %73
+  %74 = getelementptr [104 x i8], ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %73
   %75 = trunc nuw nsw i64 %67 to i32
   %76 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %74, i64 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %75) #17
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
@@ -1433,7 +1430,7 @@ define dso_local i32 @acpi_processor_power_init(ptr noundef %0) local_unnamed_ad
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
-  %62 = getelementptr i64, ptr @__per_cpu_offset, i64 %61
+  %62 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, ptrtoint (ptr @acpi_cpuidle_device to i64)
   %65 = inttoptr i64 %64 to ptr
@@ -1476,7 +1473,7 @@ define dso_local noundef i32 @acpi_processor_power_exit(ptr noundef captures(non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @acpi_cpuidle_device to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -1582,7 +1579,7 @@ define internal fastcc noundef range(i32 -61, 1) i32 @acpi_processor_evaluate_lp
   %37 = phi ptr [ %143, %140 ], [ %30, %32 ]
   %38 = load ptr, ptr %18, align 8
   %39 = sext i32 %36 to i64
-  %40 = getelementptr %union.acpi_object, ptr %38, i64 %39
+  %40 = getelementptr [24 x i8], ptr %38, i64 %39
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 4
   br i1 %42, label %43, label %140
@@ -1902,7 +1899,7 @@ define internal i32 @acpi_idle_lpi_enter(ptr readnone captures(none) %0, ptr rea
   %7 = inttoptr i64 %4 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = sext i32 %2 to i64
-  %10 = getelementptr %struct.acpi_lpi_state, ptr %8, i64 %9
+  %10 = getelementptr [72 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 33
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 1
@@ -1923,12 +1920,12 @@ declare dso_local void @cpuidle_poll_state_init(ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define internal i32 @acpi_idle_enter(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #12 section ".cpuidle.text" align 16 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr ptr, ptr @acpi_cstate, i64 %4
+  %5 = getelementptr [8 x i8], ptr @acpi_cstate, i64 %4
   %6 = ptrtoint ptr %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
+  %10 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %6
   %13 = inttoptr i64 %12 to ptr
@@ -2062,12 +2059,12 @@ acpi_idle_do_entry.exit:                          ; preds = %75, %64, %63, %55, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @acpi_idle_play_dead(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr ptr, ptr @acpi_cstate, i64 %3
+  %4 = getelementptr [8 x i8], ptr @acpi_cstate, i64 %3
   %5 = ptrtoint ptr %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr i64, ptr @__per_cpu_offset, i64 %8
+  %9 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %5
   %12 = inttoptr i64 %11 to ptr
@@ -2119,12 +2116,12 @@ define internal noundef i32 @acpi_idle_play_dead(ptr noundef readonly captures(n
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define internal noundef i32 @acpi_idle_enter_s2idle(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #12 section ".cpuidle.text" align 16 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr ptr, ptr @acpi_cstate, i64 %4
+  %5 = getelementptr [8 x i8], ptr @acpi_cstate, i64 %4
   %6 = ptrtoint ptr %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
+  %10 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %6
   %13 = inttoptr i64 %12 to ptr
@@ -2241,7 +2238,7 @@ define internal fastcc i32 @acpi_idle_enter_bm(ptr noundef readonly captures(non
 
 14:                                               ; preds = %10
   %15 = zext nneg i32 %12 to i64
-  %16 = getelementptr ptr, ptr @acpi_cstate, i64 %15
+  %16 = getelementptr [8 x i8], ptr @acpi_cstate, i64 %15
   %17 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %16) #17, !srcloc !41
   %18 = inttoptr i64 %17 to ptr
   br label %.thread

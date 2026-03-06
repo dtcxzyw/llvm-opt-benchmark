@@ -43,8 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<ZXing::QRCode::FinderPatternSet, std::allocator<ZXing::QRCode::FinderPatternSet>>::_Vector_impl" }
 %"struct.std::_Vector_base<ZXing::QRCode::FinderPatternSet, std::allocator<ZXing::QRCode::FinderPatternSet>>::_Vector_impl" = type { %"struct.std::_Vector_base<ZXing::QRCode::FinderPatternSet, std::allocator<ZXing::QRCode::FinderPatternSet>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ZXing::QRCode::FinderPatternSet, std::allocator<ZXing::QRCode::FinderPatternSet>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ZXing::ConcentricPattern" = type <{ %"struct.ZXing::PointT.25", i32, [4 x i8] }>
-%"struct.ZXing::PointT.25" = type { double, double }
 
 $_ZN5ZXing14FirstOrDefaultITtTpTyESt6vectorJNS_6ResultESaIS2_EEEEDaOT_IJDpT0_EE = comdat any
 
@@ -1905,7 +1903,7 @@ _ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt12_Vector_baseIN5ZXing17ConcentricPatternESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %18
   store ptr %10, ptr %0, align 8, !tbaa !75
   store ptr %.0.lcssa.i.i.i21, ptr %5, align 8, !tbaa !67
-  %22 = getelementptr inbounds nuw %"struct.ZXing::ConcentricPattern", ptr %10, i64 %3
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %3
   store ptr %22, ptr %17, align 8, !tbaa !69
   ret void
 }
@@ -2007,7 +2005,7 @@ _ZNSt16allocator_traitsISaIN5ZXing6ResultEEE9constructIS1_JNS0_13DecoderResultEN
 _ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN5ZXing6ResultEEE9constructIS1_JNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEEvRS2_PT_DpOT0_.exit, %19
   store ptr %12, ptr %0, align 8, !tbaa !41
   store ptr %17, ptr %7, align 8, !tbaa !43
-  %23 = getelementptr inbounds nuw %"class.ZXing::Result", ptr %12, i64 %5
+  %23 = getelementptr inbounds nuw [216 x i8], ptr %12, i64 %5
   store ptr %23, ptr %18, align 8, !tbaa !44
   ret void
 

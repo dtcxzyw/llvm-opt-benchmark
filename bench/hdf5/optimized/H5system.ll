@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.flock = type { i16, i16, i64, i64, i32 }
 %struct.timespec = type { i64, i64 }
-%struct.h5_long_options = type { ptr, i32, i8 }
 
 @H5_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -687,7 +686,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
 
 ._crit_edge118:                                   ; preds = %4
   %.phi.trans.insert = sext i32 %.pre to i64
-  %.phi.trans.insert119 = getelementptr inbounds ptr, ptr %1, i64 %.phi.trans.insert
+  %.phi.trans.insert119 = getelementptr inbounds [8 x i8], ptr %1, i64 %.phi.trans.insert
   %.pre120 = load ptr, ptr %.phi.trans.insert119, align 8, !tbaa !21
   br label %76
 
@@ -697,7 +696,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
 
 8:                                                ; preds = %7
   %9 = sext i32 %.pre to i64
-  %10 = getelementptr inbounds ptr, ptr %1, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %1, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = load i8, ptr %11, align 1, !tbaa !22
   %.not77 = icmp eq i8 %12, 45
@@ -760,7 +759,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   br i1 %37, label %.split, label %61
 
 .split:                                           ; preds = %.lr.ph111
-  %38 = getelementptr inbounds nuw %struct.h5_long_options, ptr %3, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = load i8, ptr %39, align 4, !tbaa !36
   %41 = sext i8 %40 to i32
@@ -780,7 +779,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
 47:                                               ; preds = %44
   %48 = add nsw i32 %.pre, 1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %1, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %1, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !21
   %52 = load i8, ptr %51, align 1, !tbaa !22
   %.not90 = icmp eq i8 %52, 45
@@ -807,7 +806,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
 
 61:                                               ; preds = %.lr.ph111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %62 = getelementptr inbounds nuw %struct.h5_long_options, ptr %3, i64 %indvars.iv.next
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.next
   %63 = load ptr, ptr %62, align 8, !tbaa !34
   %.not85 = icmp eq ptr %63, null
   br i1 %.not85, label %.loopexit, label %.lr.ph111
@@ -816,7 +815,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   %.064104 = phi i64 [ %indvars.iv, %57 ], [ %indvars.iv, %54 ], [ %indvars.iv, %55 ], [ %indvars.iv, %44 ], [ %indvars.iv, %47 ], [ %indvars.iv, %53 ], [ 0, %.lr.ph.split ], [ %indvars.iv.next, %61 ]
   %.062.ph = phi i32 [ 63, %57 ], [ %41, %54 ], [ 63, %55 ], [ %41, %44 ], [ %41, %47 ], [ %41, %53 ], [ 63, %.lr.ph.split ], [ 63, %61 ]
   %64 = and i64 %.064104, 4294967295
-  %65 = getelementptr inbounds nuw %struct.h5_long_options, ptr %3, i64 %64
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !34
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %.critedge
@@ -866,7 +865,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.18, ptr noundef %90, i32 noundef %81) #19
   %.pre121 = load i32, ptr @H5_optind, align 4, !tbaa !26
   %.phi.trans.insert122 = sext i32 %.pre121 to i64
-  %.phi.trans.insert123 = getelementptr inbounds ptr, ptr %1, i64 %.phi.trans.insert122
+  %.phi.trans.insert123 = getelementptr inbounds [8 x i8], ptr %1, i64 %.phi.trans.insert122
   %.pre124 = load ptr, ptr %.phi.trans.insert123, align 8, !tbaa !21
   %.pre125 = load i32, ptr @H5_get_option.sp, align 4, !tbaa !26
   br label %92
@@ -928,7 +927,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   %119 = add nsw i32 %.pre, 2
   store i32 %119, ptr @H5_optind, align 4, !tbaa !26
   %120 = sext i32 %109 to i64
-  %121 = getelementptr inbounds ptr, ptr %1, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %1, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !21
   store ptr %122, ptr @H5_optarg, align 8, !tbaa !21
   br label %123
@@ -947,7 +946,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
 
 128:                                              ; preds = %124
   %129 = sext i32 %125 to i64
-  %130 = getelementptr inbounds ptr, ptr %1, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %1, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !21
   %132 = load i8, ptr %131, align 1, !tbaa !22
   %.not78 = icmp eq i8 %132, 45
@@ -1009,7 +1008,7 @@ define noundef ptr @H5_strcasestr(ptr noundef readonly captures(ret: address, pr
   %5 = load i8, ptr %1, align 1, !tbaa !22
   %.fr = freeze i8 %5
   %6 = sext i8 %.fr to i64
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !26
   %.not20 = icmp eq i8 %.fr, 0
   br i1 %.not20, label %.split25.us, label %.split
@@ -1018,7 +1017,7 @@ define noundef ptr @H5_strcasestr(ptr noundef readonly captures(ret: address, pr
   %.016 = phi ptr [ %24, %.critedge26 ], [ %0, %2 ]
   %9 = load i8, ptr %.016, align 1, !tbaa !22
   %10 = sext i8 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %4, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !26
   %.not27 = icmp eq i32 %12, %8
   br i1 %.not27, label %.lr.ph, label %.critedge26
@@ -1030,11 +1029,11 @@ define noundef ptr @H5_strcasestr(ptr noundef readonly captures(ret: address, pr
   %14 = getelementptr inbounds nuw i8, ptr %.01822, i64 1
   %15 = load i8, ptr %13, align 1, !tbaa !22
   %16 = sext i8 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %4, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %4, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !26
   %19 = load i8, ptr %14, align 1, !tbaa !22
   %20 = sext i8 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %4, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %4, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !26
   %23 = icmp ne i32 %18, %22
   %.not = icmp eq i8 %19, 0

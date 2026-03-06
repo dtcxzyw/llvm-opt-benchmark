@@ -10,13 +10,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.obsolete_pref_name = type { ptr }
 %struct.call_foreach_t = type { ptr, ptr, i32, i8 }
 %struct.find_pref_arg_t = type { ptr, ptr, ptr }
-%struct.enum_val_t = type { ptr, ptr, i32 }
-%struct.range_admin_tag = type { i32, i32 }
-%struct.heur_pref_name = type { ptr, ptr, i8 }
 %struct.write_gui_pref_arg_t = type { ptr, i8 }
 %struct.write_pref_arg_t = type { ptr, ptr }
 %struct._fmt_data = type { ptr, i32, ptr, i32, i8, i8 }
-%struct.port_pref_name = type { ptr, ptr, ptr, i32 }
 
 @prefs = global %struct._e_prefs zeroinitializer, align 8
 @prefs_modules = internal unnamed_addr global ptr null, align 8
@@ -1547,7 +1543,7 @@ free_col_info.exit:                               ; preds = %.lr.ph.i
   %34 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #29
   %35 = load ptr, ptr @pre_init_prefs.col_fmt, align 8
   %36 = shl nuw i64 %indvars.iv, 1
-  %37 = getelementptr ptr, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noalias ptr @g_strdup(ptr noundef %38)
   store ptr %39, ptr %34, align 8
@@ -1556,7 +1552,7 @@ free_col_info.exit:                               ; preds = %.lr.ph.i
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 29
   store i8 82, ptr %41, align 1
   %42 = load ptr, ptr @pre_init_prefs.col_fmt, align 8
-  %43 = getelementptr ptr, ptr %42, i64 %36
+  %43 = getelementptr [8 x i8], ptr %42, i64 %36
   %44 = getelementptr i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i1 @parse_column_format(ptr noundef %34, ptr noundef %45)
@@ -1582,7 +1578,7 @@ free_col_info.exit:                               ; preds = %.lr.ph.i
 
 .preheader:                                       ; preds = %49, %.preheader
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.preheader ], [ 0, %49 ]
-  %51 = getelementptr ptr, ptr @capture_cols, i64 %indvars.iv42
+  %51 = getelementptr [8 x i8], ptr @capture_cols, i64 %indvars.iv42
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noalias ptr @g_strdup(ptr noundef %52)
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), align 8
@@ -1666,7 +1662,7 @@ prefs_set_module_effect_flags.exit:               ; preds = %7, %15
 
 ._crit_edge.i:                                    ; preds = %35, %.preheader.i
   %26 = add nuw nsw i64 %.02637.i, 1
-  %27 = getelementptr %struct.enum_val_t, ptr @gui_console_open_type, i64 %26
+  %27 = getelementptr [24 x i8], ptr @gui_console_open_type, i64 %26
   %28 = load ptr, ptr %27, align 8
   %exitcond = icmp eq i64 %26, 3
   br i1 %exitcond, label %prefs_register_enum_preference.exit, label %.preheader.i, !llvm.loop !12
@@ -1675,7 +1671,7 @@ prefs_set_module_effect_flags.exit:               ; preds = %7, %15
   %29 = phi i8 [ %37, %35 ], [ %25, %.preheader.i ]
   %.035.i = phi ptr [ %36, %35 ], [ %24, %.preheader.i ]
   %30 = zext i8 %29 to i64
-  %31 = getelementptr i16, ptr %23, i64 %30
+  %31 = getelementptr [2 x i8], ptr %23, i64 %30
   %32 = load i16, ptr %31, align 2
   %.fr.i = freeze i16 %32
   %.not30.i = trunc i16 %.fr.i to i1
@@ -1998,7 +1994,7 @@ prefs_register_subtree.exit81:                    ; preds = %.split6.i80, %.spli
 
 ._crit_edge.i93:                                  ; preds = %173, %.preheader.i84
   %164 = add nuw nsw i64 %.02637.i85, 1
-  %165 = getelementptr %struct.enum_val_t, ptr @gui_color_scheme, i64 %164
+  %165 = getelementptr [24 x i8], ptr @gui_color_scheme, i64 %164
   %166 = load ptr, ptr %165, align 8
   %exitcond484 = icmp eq i64 %164, 3
   br i1 %exitcond484, label %prefs_register_enum_preference.exit95, label %.preheader.i84, !llvm.loop !12
@@ -2007,7 +2003,7 @@ prefs_register_subtree.exit81:                    ; preds = %.split6.i80, %.spli
   %167 = phi i8 [ %175, %173 ], [ %163, %.preheader.i84 ]
   %.035.i88 = phi ptr [ %174, %173 ], [ %162, %.preheader.i84 ]
   %168 = zext i8 %167 to i64
-  %169 = getelementptr i16, ptr %23, i64 %168
+  %169 = getelementptr [2 x i8], ptr %23, i64 %168
   %170 = load i16, ptr %169, align 2
   %.fr.i89 = freeze i16 %170
   %.not30.i90 = trunc i16 %.fr.i89 to i1
@@ -2066,7 +2062,7 @@ prefs_register_enum_preference.exit95:            ; preds = %._crit_edge.i93
 
 ._crit_edge.i105:                                 ; preds = %202, %.preheader.i96
   %193 = add nuw nsw i64 %.02637.i97, 1
-  %194 = getelementptr %struct.enum_val_t, ptr @gui_selection_style, i64 %193
+  %194 = getelementptr [24 x i8], ptr @gui_selection_style, i64 %193
   %195 = load ptr, ptr %194, align 8
   %exitcond485 = icmp eq i64 %193, 3
   br i1 %exitcond485, label %prefs_register_enum_preference.exit107, label %.preheader.i96, !llvm.loop !12
@@ -2075,7 +2071,7 @@ prefs_register_enum_preference.exit95:            ; preds = %._crit_edge.i93
   %196 = phi i8 [ %204, %202 ], [ %192, %.preheader.i96 ]
   %.035.i100 = phi ptr [ %203, %202 ], [ %191, %.preheader.i96 ]
   %197 = zext i8 %196 to i64
-  %198 = getelementptr i16, ptr %23, i64 %197
+  %198 = getelementptr [2 x i8], ptr %23, i64 %197
   %199 = load i16, ptr %198, align 2
   %.fr.i101 = freeze i16 %199
   %.not30.i102 = trunc i16 %.fr.i101 to i1
@@ -2134,7 +2130,7 @@ prefs_register_enum_preference.exit107:           ; preds = %._crit_edge.i105
 
 ._crit_edge.i117:                                 ; preds = %231, %.preheader.i108
   %222 = add nuw nsw i64 %.02637.i109, 1
-  %223 = getelementptr %struct.enum_val_t, ptr @gui_selection_style, i64 %222
+  %223 = getelementptr [24 x i8], ptr @gui_selection_style, i64 %222
   %224 = load ptr, ptr %223, align 8
   %exitcond486 = icmp eq i64 %222, 3
   br i1 %exitcond486, label %prefs_register_enum_preference.exit119, label %.preheader.i108, !llvm.loop !12
@@ -2143,7 +2139,7 @@ prefs_register_enum_preference.exit107:           ; preds = %._crit_edge.i105
   %225 = phi i8 [ %233, %231 ], [ %221, %.preheader.i108 ]
   %.035.i112 = phi ptr [ %232, %231 ], [ %220, %.preheader.i108 ]
   %226 = zext i8 %225 to i64
-  %227 = getelementptr i16, ptr %23, i64 %226
+  %227 = getelementptr [2 x i8], ptr %23, i64 %226
   %228 = load i16, ptr %227, align 2
   %.fr.i113 = freeze i16 %228
   %.not30.i114 = trunc i16 %.fr.i113 to i1
@@ -2316,7 +2312,7 @@ prefs_register_enum_preference.exit119:           ; preds = %._crit_edge.i117
 
 ._crit_edge.i131:                                 ; preds = %318, %.preheader.i122
   %309 = add nuw nsw i64 %.02637.i123, 1
-  %310 = getelementptr %struct.enum_val_t, ptr @gui_fileopen_style, i64 %309
+  %310 = getelementptr [24 x i8], ptr @gui_fileopen_style, i64 %309
   %311 = load ptr, ptr %310, align 8
   %exitcond487 = icmp eq i64 %309, 3
   br i1 %exitcond487, label %prefs_register_enum_preference.exit133, label %.preheader.i122, !llvm.loop !12
@@ -2325,7 +2321,7 @@ prefs_register_enum_preference.exit119:           ; preds = %._crit_edge.i117
   %312 = phi i8 [ %320, %318 ], [ %308, %.preheader.i122 ]
   %.035.i126 = phi ptr [ %319, %318 ], [ %307, %.preheader.i122 ]
   %313 = zext i8 %312 to i64
-  %314 = getelementptr i16, ptr %23, i64 %313
+  %314 = getelementptr [2 x i8], ptr %23, i64 %313
   %315 = load i16, ptr %314, align 2
   %.fr.i127 = freeze i16 %315
   %.not30.i128 = trunc i16 %.fr.i127 to i1
@@ -2489,7 +2485,7 @@ prefs_register_enum_preference.exit133:           ; preds = %._crit_edge.i131
 
 ._crit_edge.i145:                                 ; preds = %423, %.preheader.i136
   %414 = add nuw nsw i64 %.02637.i137, 1
-  %415 = getelementptr %struct.enum_val_t, ptr @gui_toolbar_style, i64 %414
+  %415 = getelementptr [24 x i8], ptr @gui_toolbar_style, i64 %414
   %416 = load ptr, ptr %415, align 8
   %exitcond488 = icmp eq i64 %414, 3
   br i1 %exitcond488, label %prefs_register_enum_preference.exit147, label %.preheader.i136, !llvm.loop !12
@@ -2498,7 +2494,7 @@ prefs_register_enum_preference.exit133:           ; preds = %._crit_edge.i131
   %417 = phi i8 [ %425, %423 ], [ %413, %.preheader.i136 ]
   %.035.i140 = phi ptr [ %424, %423 ], [ %412, %.preheader.i136 ]
   %418 = zext i8 %417 to i64
-  %419 = getelementptr i16, ptr %23, i64 %418
+  %419 = getelementptr [2 x i8], ptr %23, i64 %418
   %420 = load i16, ptr %419, align 2
   %.fr.i141 = freeze i16 %420
   %.not30.i142 = trunc i16 %.fr.i141 to i1
@@ -2556,7 +2552,7 @@ prefs_register_enum_preference.exit147:           ; preds = %._crit_edge.i145
   br i1 %.not2934.i150, label %._crit_edge.i157, label %.lr.ph.i151
 
 ._crit_edge.i157:                                 ; preds = %452, %.preheader.i148
-  %444 = getelementptr %struct.enum_val_t, ptr @gui_update_channel, i64 %.02637.i149
+  %444 = getelementptr [24 x i8], ptr @gui_update_channel, i64 %.02637.i149
   %445 = load ptr, ptr %444, align 8
   br i1 %exitcond489, label %prefs_register_enum_preference.exit159, label %.preheader.i148, !llvm.loop !12
 
@@ -2564,7 +2560,7 @@ prefs_register_enum_preference.exit147:           ; preds = %._crit_edge.i145
   %446 = phi i8 [ %454, %452 ], [ %443, %.preheader.i148 ]
   %.035.i152 = phi ptr [ %453, %452 ], [ %442, %.preheader.i148 ]
   %447 = zext i8 %446 to i64
-  %448 = getelementptr i16, ptr %23, i64 %447
+  %448 = getelementptr [2 x i8], ptr %23, i64 %447
   %449 = load i16, ptr %448, align 2
   %.fr.i153 = freeze i16 %449
   %.not30.i154 = trunc i16 %.fr.i153 to i1
@@ -2677,7 +2673,7 @@ prefs_register_enum_preference.exit159:           ; preds = %._crit_edge.i157
 
 ._crit_edge.i172:                                 ; preds = %515, %.preheader.i163
   %506 = add nuw nsw i64 %.02637.i164, 1
-  %507 = getelementptr %struct.enum_val_t, ptr @gui_version_placement_type, i64 %506
+  %507 = getelementptr [24 x i8], ptr @gui_version_placement_type, i64 %506
   %508 = load ptr, ptr %507, align 8
   %exitcond490 = icmp eq i64 %506, 4
   br i1 %exitcond490, label %prefs_register_enum_preference.exit174, label %.preheader.i163, !llvm.loop !12
@@ -2686,7 +2682,7 @@ prefs_register_enum_preference.exit159:           ; preds = %._crit_edge.i157
   %509 = phi i8 [ %517, %515 ], [ %505, %.preheader.i163 ]
   %.035.i167 = phi ptr [ %516, %515 ], [ %504, %.preheader.i163 ]
   %510 = zext i8 %509 to i64
-  %511 = getelementptr i16, ptr %23, i64 %510
+  %511 = getelementptr [2 x i8], ptr %23, i64 %510
   %512 = load i16, ptr %511, align 2
   %.fr.i168 = freeze i16 %512
   %.not30.i169 = trunc i16 %.fr.i168 to i1
@@ -2851,7 +2847,7 @@ prefs_find_preference.exit.i:                     ; preds = %577, %568
 
 ._crit_edge.i191:                                 ; preds = %595, %.preheader.i182
   %586 = add nuw nsw i64 %.02637.i183, 1
-  %587 = getelementptr %struct.enum_val_t, ptr @gui_layout_content, i64 %586
+  %587 = getelementptr [24 x i8], ptr @gui_layout_content, i64 %586
   %588 = load ptr, ptr %587, align 8
   %exitcond491 = icmp eq i64 %586, 5
   br i1 %exitcond491, label %prefs_register_enum_preference.exit193, label %.preheader.i182, !llvm.loop !12
@@ -2860,7 +2856,7 @@ prefs_find_preference.exit.i:                     ; preds = %577, %568
   %589 = phi i8 [ %597, %595 ], [ %585, %.preheader.i182 ]
   %.035.i186 = phi ptr [ %596, %595 ], [ %584, %.preheader.i182 ]
   %590 = zext i8 %589 to i64
-  %591 = getelementptr i16, ptr %23, i64 %590
+  %591 = getelementptr [2 x i8], ptr %23, i64 %590
   %592 = load i16, ptr %591, align 2
   %.fr.i187 = freeze i16 %592
   %.not30.i188 = trunc i16 %.fr.i187 to i1
@@ -2950,7 +2946,7 @@ prefs_find_preference.exit.i194:                  ; preds = %613, %604
 
 ._crit_edge.i210:                                 ; preds = %631, %.preheader.i201
   %622 = add nuw nsw i64 %.02637.i202, 1
-  %623 = getelementptr %struct.enum_val_t, ptr @gui_layout_content, i64 %622
+  %623 = getelementptr [24 x i8], ptr @gui_layout_content, i64 %622
   %624 = load ptr, ptr %623, align 8
   %exitcond492 = icmp eq i64 %622, 5
   br i1 %exitcond492, label %prefs_register_enum_preference.exit212, label %.preheader.i201, !llvm.loop !12
@@ -2959,7 +2955,7 @@ prefs_find_preference.exit.i194:                  ; preds = %613, %604
   %625 = phi i8 [ %633, %631 ], [ %621, %.preheader.i201 ]
   %.035.i205 = phi ptr [ %632, %631 ], [ %620, %.preheader.i201 ]
   %626 = zext i8 %625 to i64
-  %627 = getelementptr i16, ptr %23, i64 %626
+  %627 = getelementptr [2 x i8], ptr %23, i64 %626
   %628 = load i16, ptr %627, align 2
   %.fr.i206 = freeze i16 %628
   %.not30.i207 = trunc i16 %.fr.i206 to i1
@@ -3049,7 +3045,7 @@ prefs_find_preference.exit.i213:                  ; preds = %649, %640
 
 ._crit_edge.i229:                                 ; preds = %667, %.preheader.i220
   %658 = add nuw nsw i64 %.02637.i221, 1
-  %659 = getelementptr %struct.enum_val_t, ptr @gui_layout_content, i64 %658
+  %659 = getelementptr [24 x i8], ptr @gui_layout_content, i64 %658
   %660 = load ptr, ptr %659, align 8
   %exitcond493 = icmp eq i64 %658, 5
   br i1 %exitcond493, label %prefs_register_enum_preference.exit231, label %.preheader.i220, !llvm.loop !12
@@ -3058,7 +3054,7 @@ prefs_find_preference.exit.i213:                  ; preds = %649, %640
   %661 = phi i8 [ %669, %667 ], [ %657, %.preheader.i220 ]
   %.035.i224 = phi ptr [ %668, %667 ], [ %656, %.preheader.i220 ]
   %662 = zext i8 %661 to i64
-  %663 = getelementptr i16, ptr %23, i64 %662
+  %663 = getelementptr [2 x i8], ptr %23, i64 %662
   %664 = load i16, ptr %663, align 2
   %.fr.i225 = freeze i16 %664
   %.not30.i226 = trunc i16 %.fr.i225 to i1
@@ -3222,7 +3218,7 @@ prefs_set_effect_flags_by_name.exit245:           ; preds = %prefs_find_preferen
   br i1 %.not2934.i248, label %._crit_edge.i255, label %.lr.ph.i249
 
 ._crit_edge.i255:                                 ; preds = %738, %.preheader.i246
-  %730 = getelementptr %struct.enum_val_t, ptr @gui_packet_dialog_layout, i64 %.02637.i247
+  %730 = getelementptr [24 x i8], ptr @gui_packet_dialog_layout, i64 %.02637.i247
   %731 = load ptr, ptr %730, align 8
   br i1 %exitcond494, label %prefs_register_enum_preference.exit257, label %.preheader.i246, !llvm.loop !12
 
@@ -3230,7 +3226,7 @@ prefs_set_effect_flags_by_name.exit245:           ; preds = %prefs_find_preferen
   %732 = phi i8 [ %740, %738 ], [ %729, %.preheader.i246 ]
   %.035.i250 = phi ptr [ %739, %738 ], [ %728, %.preheader.i246 ]
   %733 = zext i8 %732 to i64
-  %734 = getelementptr i16, ptr %23, i64 %733
+  %734 = getelementptr [2 x i8], ptr %23, i64 %733
   %735 = load i16, ptr %734, align 2
   %.fr.i251 = freeze i16 %735
   %.not30.i252 = trunc i16 %.fr.i251 to i1
@@ -3277,7 +3273,7 @@ prefs_register_enum_preference.exit257:           ; preds = %._crit_edge.i255
 
 ._crit_edge.i267:                                 ; preds = %759, %.preheader.i258
   %750 = add nuw nsw i64 %.02637.i259, 1
-  %751 = getelementptr %struct.enum_val_t, ptr @gui_packet_list_elide_mode, i64 %750
+  %751 = getelementptr [24 x i8], ptr @gui_packet_list_elide_mode, i64 %750
   %752 = load ptr, ptr %751, align 8
   %exitcond495 = icmp eq i64 %750, 4
   br i1 %exitcond495, label %prefs_register_enum_preference.exit269, label %.preheader.i258, !llvm.loop !12
@@ -3286,7 +3282,7 @@ prefs_register_enum_preference.exit257:           ; preds = %._crit_edge.i255
   %753 = phi i8 [ %761, %759 ], [ %749, %.preheader.i258 ]
   %.035.i262 = phi ptr [ %760, %759 ], [ %748, %.preheader.i258 ]
   %754 = zext i8 %753 to i64
-  %755 = getelementptr i16, ptr %23, i64 %754
+  %755 = getelementptr [2 x i8], ptr %23, i64 %754
   %756 = load i16, ptr %755, align 2
   %.fr.i263 = freeze i16 %756
   %.not30.i264 = trunc i16 %.fr.i263 to i1
@@ -3373,7 +3369,7 @@ prefs_register_enum_preference.exit269:           ; preds = %._crit_edge.i267
 
 ._crit_edge.i279:                                 ; preds = %807, %.preheader.i270
   %798 = add nuw nsw i64 %.02637.i271, 1
-  %799 = getelementptr %struct.enum_val_t, ptr @gui_packet_list_copy_format_options_for_keyboard_shortcut, i64 %798
+  %799 = getelementptr [24 x i8], ptr @gui_packet_list_copy_format_options_for_keyboard_shortcut, i64 %798
   %800 = load ptr, ptr %799, align 8
   %exitcond496 = icmp eq i64 %798, 4
   br i1 %exitcond496, label %prefs_register_enum_preference.exit281, label %.preheader.i270, !llvm.loop !12
@@ -3382,7 +3378,7 @@ prefs_register_enum_preference.exit269:           ; preds = %._crit_edge.i267
   %801 = phi i8 [ %809, %807 ], [ %797, %.preheader.i270 ]
   %.035.i274 = phi ptr [ %808, %807 ], [ %796, %.preheader.i270 ]
   %802 = zext i8 %801 to i64
-  %803 = getelementptr i16, ptr %23, i64 %802
+  %803 = getelementptr [2 x i8], ptr %23, i64 %802
   %804 = load i16, ptr %803, align 2
   %.fr.i275 = freeze i16 %804
   %.not30.i276 = trunc i16 %.fr.i275 to i1
@@ -3814,7 +3810,7 @@ capture_column_init_cb.exit:                      ; preds = %.lr.ph.i334, %prefs
 
 ._crit_edge.i303:                                 ; preds = %1063, %.preheader.i294
   %1054 = add nuw nsw i64 %.02637.i295, 1
-  %1055 = getelementptr %struct.enum_val_t, ptr @st_sort_col_vals, i64 %1054
+  %1055 = getelementptr [24 x i8], ptr @st_sort_col_vals, i64 %1054
   %1056 = load ptr, ptr %1055, align 8
   %exitcond497 = icmp eq i64 %1054, 6
   br i1 %exitcond497, label %prefs_register_enum_preference.exit305, label %.preheader.i294, !llvm.loop !12
@@ -3823,7 +3819,7 @@ capture_column_init_cb.exit:                      ; preds = %.lr.ph.i334, %prefs
   %1057 = phi i8 [ %1065, %1063 ], [ %1053, %.preheader.i294 ]
   %.035.i298 = phi ptr [ %1064, %1063 ], [ %1052, %.preheader.i294 ]
   %1058 = zext i8 %1057 to i64
-  %1059 = getelementptr i16, ptr %23, i64 %1058
+  %1059 = getelementptr [2 x i8], ptr %23, i64 %1058
   %1060 = load i16, ptr %1059, align 2
   %.fr.i299 = freeze i16 %1060
   %.not30.i300 = trunc i16 %.fr.i299 to i1
@@ -3920,7 +3916,7 @@ prefs_register_enum_preference.exit305:           ; preds = %._crit_edge.i303
 
 ._crit_edge.i315:                                 ; preds = %1119, %.preheader.i306
   %1110 = add nuw nsw i64 %.02637.i307, 1
-  %1111 = getelementptr %struct.enum_val_t, ptr @abs_time_format_options, i64 %1110
+  %1111 = getelementptr [24 x i8], ptr @abs_time_format_options, i64 %1110
   %1112 = load ptr, ptr %1111, align 8
   %exitcond498 = icmp eq i64 %1110, 4
   br i1 %exitcond498, label %prefs_register_enum_preference.exit317, label %.preheader.i306, !llvm.loop !12
@@ -3929,7 +3925,7 @@ prefs_register_enum_preference.exit305:           ; preds = %._crit_edge.i303
   %1113 = phi i8 [ %1121, %1119 ], [ %1109, %.preheader.i306 ]
   %.035.i310 = phi ptr [ %1120, %1119 ], [ %1108, %.preheader.i306 ]
   %1114 = zext i8 %1113 to i64
-  %1115 = getelementptr i16, ptr %23, i64 %1114
+  %1115 = getelementptr [2 x i8], ptr %23, i64 %1114
   %1116 = load i16, ptr %1115, align 2
   %.fr.i311 = freeze i16 %1116
   %.not30.i312 = trunc i16 %.fr.i311 to i1
@@ -3997,7 +3993,7 @@ prefs_register_enum_preference.exit317:           ; preds = %._crit_edge.i315
 
 ._crit_edge.i327:                                 ; preds = %1155, %.preheader.i318
   %1146 = add nuw nsw i64 %.02637.i319, 1
-  %1147 = getelementptr %struct.enum_val_t, ptr @conv_deint_options, i64 %1146
+  %1147 = getelementptr [24 x i8], ptr @conv_deint_options, i64 %1146
   %1148 = load ptr, ptr %1147, align 8
   %exitcond499 = icmp eq i64 %1146, 4
   br i1 %exitcond499, label %prefs_register_enum_preference.exit329, label %.preheader.i318, !llvm.loop !12
@@ -4006,7 +4002,7 @@ prefs_register_enum_preference.exit317:           ; preds = %._crit_edge.i315
   %1149 = phi i8 [ %1157, %1155 ], [ %1145, %.preheader.i318 ]
   %.035.i322 = phi ptr [ %1156, %1155 ], [ %1144, %.preheader.i318 ]
   %1150 = zext i8 %1149 to i64
-  %1151 = getelementptr i16, ptr %23, i64 %1150
+  %1151 = getelementptr [2 x i8], ptr %23, i64 %1150
   %1152 = load i16, ptr %1151, align 2
   %.fr.i323 = freeze i16 %1152
   %.not30.i324 = trunc i16 %.fr.i323 to i1
@@ -4691,7 +4687,7 @@ define internal fastcc noundef ptr @register_preference(ptr noundef captures(add
   %29 = phi i8 [ %26, %.lr.ph ], [ %38, %36 ]
   %.076108 = phi ptr [ %1, %.lr.ph ], [ %37, %36 ]
   %30 = zext i8 %29 to i64
-  %31 = getelementptr i16, ptr %27, i64 %30
+  %31 = getelementptr [2 x i8], ptr %27, i64 %30
   %32 = load i16, ptr %31, align 2
   %.fr106 = freeze i16 %32
   %33 = and i16 %.fr106, 40
@@ -5065,7 +5061,7 @@ define void @prefs_register_enum_preference(ptr noundef captures(address_is_null
 
 ._crit_edge:                                      ; preds = %28, %.preheader
   %19 = add i64 %.02637, 1
-  %20 = getelementptr %struct.enum_val_t, ptr %5, i64 %19
+  %20 = getelementptr [24 x i8], ptr %5, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge38, label %.preheader, !llvm.loop !12
@@ -5074,7 +5070,7 @@ define void @prefs_register_enum_preference(ptr noundef captures(address_is_null
   %22 = phi i8 [ %30, %28 ], [ %11, %.preheader ]
   %.035 = phi ptr [ %29, %28 ], [ %10, %.preheader ]
   %23 = zext i8 %22 to i64
-  %24 = getelementptr i16, ptr %9, i64 %23
+  %24 = getelementptr [2 x i8], ptr %9, i64 %23
   %25 = load i16, ptr %24, align 2
   %.fr = freeze i16 %25
   %.not30 = trunc i16 %.fr to i1
@@ -5175,7 +5171,7 @@ define i32 @prefs_set_enum_string_value(ptr noundef captures(address_is_null) %0
   %.023.i10 = phi i32 [ %12, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %12 = add i32 %.023.i10, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.enum_val_t, ptr %5, i64 %13
+  %14 = getelementptr [24 x i8], ptr %5, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !19
@@ -5193,7 +5189,7 @@ define i32 @prefs_set_enum_string_value(ptr noundef captures(address_is_null) %0
 19:                                               ; preds = %.lr.ph26.i
   %20 = add i32 %.125.i, 1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr %struct.enum_val_t, ptr %5, i64 %21
+  %22 = getelementptr [24 x i8], ptr %5, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not19.i = icmp eq ptr %23, null
   br i1 %.not19.i, label %find_val_for_string.exit, label %.lr.ph26.i, !llvm.loop !20
@@ -5283,7 +5279,7 @@ define internal fastcc i32 @find_val_for_string(ptr noundef %0, ptr noundef read
   %.02339 = phi i32 [ %7, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %7 = add i32 %.02339, 1
   %8 = sext i32 %7 to i64
-  %9 = getelementptr %struct.enum_val_t, ptr %1, i64 %8
+  %9 = getelementptr [24 x i8], ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !19
@@ -5301,7 +5297,7 @@ define internal fastcc i32 @find_val_for_string(ptr noundef %0, ptr noundef read
 14:                                               ; preds = %.lr.ph26
   %15 = add i32 %.125, 1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct.enum_val_t, ptr %1, i64 %16
+  %17 = getelementptr [24 x i8], ptr %1, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not19 = icmp eq ptr %18, null
   br i1 %.not19, label %.loopexit, label %.lr.ph26, !llvm.loop !20
@@ -6814,9 +6810,9 @@ prefs_get_effect_flags.exit144:                   ; preds = %119, %121
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %._crit_edge ], [ 0, %.preheader150 ]
   %139 = phi ptr [ %167, %._crit_edge ], [ %137, %.preheader150 ]
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
-  %141 = getelementptr %struct.range_admin_tag, ptr %140, i64 %indvars.iv175
+  %141 = getelementptr [8 x i8], ptr %140, i64 %indvars.iv175
   %142 = load i32, ptr %141, align 4
-  %143 = getelementptr %struct.range_admin_tag, ptr %139, i64 %indvars.iv175
+  %143 = getelementptr [8 x i8], ptr %139, i64 %indvars.iv175
   %144 = getelementptr i8, ptr %143, i64 8
   %145 = load i32, ptr %144, align 4
   %146 = icmp ult i32 %142, %145
@@ -6836,7 +6832,7 @@ prefs_get_effect_flags.exit144:                   ; preds = %119, %121
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %151 = load ptr, ptr %113, align 8
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr %struct.range_admin_tag, ptr %152, i64 %indvars.iv175
+  %153 = getelementptr [8 x i8], ptr %152, i64 %indvars.iv175
   %154 = getelementptr i8, ptr %153, i64 8
   %155 = load i32, ptr %154, align 4
   %156 = zext i32 %155 to i64
@@ -6849,7 +6845,7 @@ prefs_get_effect_flags.exit144:                   ; preds = %119, %121
   %158 = tail call i32 @dissector_table_get_type(ptr noundef nonnull %132)
   %159 = load ptr, ptr %113, align 8
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr %struct.range_admin_tag, ptr %160, i64 %indvars.iv175
+  %161 = getelementptr [8 x i8], ptr %160, i64 %indvars.iv175
   %162 = getelementptr i8, ptr %161, i64 8
   %163 = load i32, ptr %162, align 4
   %164 = zext i32 %163 to i64
@@ -6896,9 +6892,9 @@ prefs_get_effect_flags.exit144:                   ; preds = %119, %121
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %._crit_edge159 ], [ 0, %.preheader ]
   %186 = phi ptr [ %214, %._crit_edge159 ], [ %184, %.preheader ]
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %188 = getelementptr %struct.range_admin_tag, ptr %187, i64 %indvars.iv181
+  %188 = getelementptr [8 x i8], ptr %187, i64 %indvars.iv181
   %189 = load i32, ptr %188, align 4
-  %190 = getelementptr %struct.range_admin_tag, ptr %186, i64 %indvars.iv181
+  %190 = getelementptr [8 x i8], ptr %186, i64 %indvars.iv181
   %191 = getelementptr i8, ptr %190, i64 8
   %192 = load i32, ptr %191, align 4
   %193 = icmp ult i32 %189, %192
@@ -6918,7 +6914,7 @@ prefs_get_effect_flags.exit144:                   ; preds = %119, %121
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %198 = load ptr, ptr %113, align 8
   %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr %struct.range_admin_tag, ptr %199, i64 %indvars.iv181
+  %200 = getelementptr [8 x i8], ptr %199, i64 %indvars.iv181
   %201 = getelementptr i8, ptr %200, i64 8
   %202 = load i32, ptr %201, align 4
   %203 = zext i32 %202 to i64
@@ -6931,7 +6927,7 @@ prefs_get_effect_flags.exit144:                   ; preds = %119, %121
   %205 = tail call i32 @dissector_table_get_type(ptr noundef nonnull %.0)
   %206 = load ptr, ptr %113, align 8
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr %struct.range_admin_tag, ptr %207, i64 %indvars.iv181
+  %208 = getelementptr [8 x i8], ptr %207, i64 %indvars.iv181
   %209 = getelementptr i8, ptr %208, i64 8
   %210 = load i32, ptr %209, align 4
   %211 = zext i32 %210 to i64
@@ -7336,7 +7332,7 @@ define ptr @prefs_get_string_list(ptr noundef readonly captures(none) %0) local_
 
 38:                                               ; preds = %28
   %39 = zext i8 %19 to i64
-  %40 = getelementptr i16, ptr %5, i64 %39
+  %40 = getelementptr [2 x i8], ptr %5, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 256
   %43 = icmp eq i16 %42, 0
@@ -7943,7 +7939,7 @@ getc_unlocked.exit96:                             ; preds = %37, %39
   %47 = trunc i32 %33 to i8
   %.mask88 = and i32 %33, 255
   %48 = zext nneg i32 %.mask88 to i64
-  %49 = getelementptr i16, ptr %21, i64 %48
+  %49 = getelementptr [2 x i8], ptr %21, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = and i32 %51, 1
@@ -8087,7 +8083,7 @@ getc_unlocked.exit96:                             ; preds = %37, %39
 117:                                              ; preds = %.loopexit
   %.mask = and i32 %33, 255
   %118 = zext nneg i32 %.mask to i64
-  %119 = getelementptr i16, ptr %21, i64 %118
+  %119 = getelementptr [2 x i8], ptr %21, i64 %118
   %120 = load i16, ptr %119, align 2
   %121 = and i16 %120, 256
   %.not86 = icmp eq i16 %121, 0
@@ -8302,7 +8298,7 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readno
 
 .preheader429:                                    ; preds = %41, %70
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %70 ], [ 0, %41 ]
-  %53 = getelementptr %struct.heur_pref_name, ptr @__const.deprecated_heur_dissector_pref.heur_prefs, i64 %indvars.iv.i
+  %53 = getelementptr [24 x i8], ptr @__const.deprecated_heur_dissector_pref.heur_prefs, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @strcmp(ptr noundef readonly %0, ptr noundef %54) #30
   %56 = icmp eq i32 %55, 0
@@ -8341,7 +8337,7 @@ define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readno
 
 deprecated_heur_dissector_pref.exit:              ; preds = %70, %71
   %indvars.iv.i390 = phi i64 [ %indvars.iv.next.i391, %71 ], [ 0, %70 ]
-  %72 = getelementptr %struct.dissector_pref_name, ptr @__const.deprecated_enable_dissector_pref.dissector_prefs, i64 %indvars.iv.i390
+  %72 = getelementptr [16 x i8], ptr @__const.deprecated_enable_dissector_pref.dissector_prefs, i64 %indvars.iv.i390
   %73 = load ptr, ptr %72, align 16
   %74 = tail call i32 @strcmp(ptr noundef readonly %0, ptr noundef %73) #30
   %75 = icmp eq i32 %74, 0
@@ -9588,9 +9584,9 @@ prefs_get_effect_flags.exit399:                   ; preds = %714
   %indvars.iv462 = phi i64 [ %indvars.iv.next463, %._crit_edge ], [ 0, %.preheader425 ]
   %743 = phi ptr [ %771, %._crit_edge ], [ %739, %.preheader425 ]
   %744 = getelementptr inbounds nuw i8, ptr %743, i64 4
-  %745 = getelementptr %struct.range_admin_tag, ptr %744, i64 %indvars.iv462
+  %745 = getelementptr [8 x i8], ptr %744, i64 %indvars.iv462
   %746 = load i32, ptr %745, align 4
-  %747 = getelementptr %struct.range_admin_tag, ptr %743, i64 %indvars.iv462
+  %747 = getelementptr [8 x i8], ptr %743, i64 %indvars.iv462
   %748 = getelementptr i8, ptr %747, i64 8
   %749 = load i32, ptr %748, align 4
   %750 = icmp ult i32 %746, %749
@@ -9610,7 +9606,7 @@ prefs_get_effect_flags.exit399:                   ; preds = %714
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %755 = load ptr, ptr %715, align 8
   %756 = load ptr, ptr %755, align 8
-  %757 = getelementptr %struct.range_admin_tag, ptr %756, i64 %indvars.iv462
+  %757 = getelementptr [8 x i8], ptr %756, i64 %indvars.iv462
   %758 = getelementptr i8, ptr %757, i64 8
   %759 = load i32, ptr %758, align 4
   %760 = zext i32 %759 to i64
@@ -9623,7 +9619,7 @@ prefs_get_effect_flags.exit399:                   ; preds = %714
   %762 = call i32 @dissector_table_get_type(ptr noundef nonnull %733)
   %763 = load ptr, ptr %715, align 8
   %764 = load ptr, ptr %763, align 8
-  %765 = getelementptr %struct.range_admin_tag, ptr %764, i64 %indvars.iv462
+  %765 = getelementptr [8 x i8], ptr %764, i64 %indvars.iv462
   %766 = getelementptr i8, ptr %765, i64 8
   %767 = load i32, ptr %766, align 4
   %768 = zext i32 %767 to i64
@@ -9641,9 +9637,9 @@ prefs_get_effect_flags.exit399:                   ; preds = %714
   %indvars.iv468 = phi i64 [ %indvars.iv.next469, %._crit_edge444 ], [ 0, %.preheader ]
   %775 = phi ptr [ %800, %._crit_edge444 ], [ %741, %.preheader ]
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 4
-  %777 = getelementptr %struct.range_admin_tag, ptr %776, i64 %indvars.iv468
+  %777 = getelementptr [8 x i8], ptr %776, i64 %indvars.iv468
   %778 = load i32, ptr %777, align 4
-  %779 = getelementptr %struct.range_admin_tag, ptr %775, i64 %indvars.iv468
+  %779 = getelementptr [8 x i8], ptr %775, i64 %indvars.iv468
   %780 = getelementptr i8, ptr %779, i64 8
   %781 = load i32, ptr %780, align 4
   %782 = icmp ult i32 %778, %781
@@ -9662,7 +9658,7 @@ prefs_get_effect_flags.exit399:                   ; preds = %714
   call void @decode_build_reset_list(ptr noundef %732, i32 noundef %785, ptr noundef %786, ptr noundef null, ptr noundef null)
   %indvars.iv.next466 = add nuw nsw i64 %indvars.iv465, 1
   %787 = load ptr, ptr %8, align 8
-  %788 = getelementptr %struct.range_admin_tag, ptr %787, i64 %indvars.iv468
+  %788 = getelementptr [8 x i8], ptr %787, i64 %indvars.iv468
   %789 = getelementptr i8, ptr %788, i64 8
   %790 = load i32, ptr %789, align 4
   %791 = zext i32 %790 to i64
@@ -9674,7 +9670,7 @@ prefs_get_effect_flags.exit399:                   ; preds = %714
   call void @dissector_change_uint(ptr noundef %732, i32 noundef %.lcssa, ptr noundef nonnull %737)
   %793 = call i32 @dissector_table_get_type(ptr noundef nonnull %733)
   %794 = load ptr, ptr %8, align 8
-  %795 = getelementptr %struct.range_admin_tag, ptr %794, i64 %indvars.iv468
+  %795 = getelementptr [8 x i8], ptr %794, i64 %indvars.iv468
   %796 = getelementptr i8, ptr %795, i64 8
   %797 = load i32, ptr %796, align 4
   %798 = zext i32 %797 to i64
@@ -9969,7 +9965,7 @@ define i32 @prefs_set_pref(ptr noundef %0, ptr noundef initializes((0, 8)) %1) l
   %.015 = getelementptr i8, ptr %.pn, i64 1
   %8 = load i8, ptr %.015, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr i16, ptr %6, i64 %9
+  %10 = getelementptr [2 x i8], ptr %6, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 256
   %.not = icmp eq i16 %12, 0
@@ -9998,7 +9994,7 @@ define i32 @prefs_set_pref(ptr noundef %0, ptr noundef initializes((0, 8)) %1) l
   %.016.i = getelementptr i8, ptr %.pn.i, i64 1
   %22 = load i8, ptr %.016.i, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr i16, ptr %6, i64 %23
+  %24 = getelementptr [2 x i8], ptr %6, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 256
   %.not.i = icmp eq i16 %26, 0
@@ -12963,7 +12959,7 @@ capture_column_free_cb.exit:                      ; preds = %6, %11
 
 .preheader:                                       ; preds = %capture_column_free_cb.exit, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %capture_column_free_cb.exit ]
-  %17 = getelementptr ptr, ptr @capture_cols, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr @capture_cols, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias ptr @g_strdup(ptr noundef %18)
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), align 8
@@ -12990,7 +12986,7 @@ capture_column_free_cb.exit:                      ; preds = %6, %11
 
 25:                                               ; preds = %.lr.ph63, %24
   %indvars.iv51 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next52, %24 ]
-  %26 = getelementptr ptr, ptr @capture_cols, i64 %indvars.iv51
+  %26 = getelementptr [8 x i8], ptr @capture_cols, i64 %indvars.iv51
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @strcmp(ptr noundef %23, ptr noundef %27) #30
   %29 = icmp eq i32 %28, 0
@@ -12998,7 +12994,7 @@ capture_column_free_cb.exit:                      ; preds = %6, %11
 
 .critedge:                                        ; preds = %24, %.critedge
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.critedge ], [ 0, %24 ]
-  %30 = getelementptr ptr, ptr @capture_cols, i64 %indvars.iv55
+  %30 = getelementptr [8 x i8], ptr @capture_cols, i64 %indvars.iv55
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noalias ptr @g_strdup(ptr noundef %31)
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), align 8
@@ -13435,7 +13431,7 @@ define internal fastcc noundef zeroext i1 @deprecated_port_pref(ptr noundef read
 
 10:                                               ; preds = %7, %65
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %65 ]
-  %11 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.port_prefs, i64 %indvars.iv
+  %11 = getelementptr [32 x i8], ptr @__const.deprecated_port_pref.port_prefs, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @prefs_modules, align 8
@@ -13608,7 +13604,7 @@ prefs_pref_type_name.exit:                        ; preds = %36, %.split.i, %42,
 
 .loopexit149:                                     ; preds = %.loopexit149.preheader, %66
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %66 ], [ 0, %.loopexit149.preheader ]
-  %67 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.port_prefs, i64 %indvars.iv168
+  %67 = getelementptr [32 x i8], ptr @__const.deprecated_port_pref.port_prefs, i64 %indvars.iv168
   %68 = load ptr, ptr %67, align 16
   %69 = call i32 @strcmp(ptr noundef %0, ptr noundef %68) #30
   %70 = icmp eq i32 %69, 0
@@ -13724,7 +13720,7 @@ thread-pre-split:                                 ; preds = %prefs_find_preferen
 
 .preheader148:                                    ; preds = %66, %124
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %124 ], [ 0, %66 ]
-  %125 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.port_range_prefs, i64 %indvars.iv172
+  %125 = getelementptr [32 x i8], ptr @__const.deprecated_port_pref.port_range_prefs, i64 %indvars.iv172
   %126 = load ptr, ptr %125, align 16
   %127 = call i32 @strcmp(ptr noundef %0, ptr noundef %126) #30
   %128 = icmp eq i32 %127, 0
@@ -13816,9 +13812,9 @@ prefs_find_preference.exit138:                    ; preds = %144, %153
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %._crit_edge ], [ 0, %.preheader ]
   %169 = phi ptr [ %197, %._crit_edge ], [ %167, %.preheader ]
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
-  %171 = getelementptr %struct.range_admin_tag, ptr %170, i64 %indvars.iv187
+  %171 = getelementptr [8 x i8], ptr %170, i64 %indvars.iv187
   %172 = load i32, ptr %171, align 4
-  %173 = getelementptr %struct.range_admin_tag, ptr %169, i64 %indvars.iv187
+  %173 = getelementptr [8 x i8], ptr %169, i64 %indvars.iv187
   %174 = getelementptr i8, ptr %173, i64 8
   %175 = load i32, ptr %174, align 4
   %176 = icmp ult i32 %172, %175
@@ -13838,7 +13834,7 @@ prefs_find_preference.exit138:                    ; preds = %144, %153
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %181 = load ptr, ptr %165, align 8
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr %struct.range_admin_tag, ptr %182, i64 %indvars.iv187
+  %183 = getelementptr [8 x i8], ptr %182, i64 %indvars.iv187
   %184 = getelementptr i8, ptr %183, i64 8
   %185 = load i32, ptr %184, align 4
   %186 = zext i32 %185 to i64
@@ -13851,7 +13847,7 @@ prefs_find_preference.exit138:                    ; preds = %144, %153
   %188 = call i32 @dissector_table_get_type(ptr noundef nonnull %132)
   %189 = load ptr, ptr %165, align 8
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr %struct.range_admin_tag, ptr %190, i64 %indvars.iv187
+  %191 = getelementptr [8 x i8], ptr %190, i64 %indvars.iv187
   %192 = getelementptr i8, ptr %191, i64 8
   %193 = load i32, ptr %192, align 4
   %194 = zext i32 %193 to i64
@@ -13872,7 +13868,7 @@ prefs_find_preference.exit138:                    ; preds = %144, %153
 
 .preheader147:                                    ; preds = %124, %201
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %201 ], [ 0, %124 ]
-  %202 = getelementptr %struct.port_pref_name, ptr @__const.deprecated_port_pref.tpkt_subdissector_port_prefs, i64 %indvars.iv176
+  %202 = getelementptr [32 x i8], ptr @__const.deprecated_port_pref.tpkt_subdissector_port_prefs, i64 %indvars.iv176
   %203 = load ptr, ptr %202, align 16
   %204 = call i32 @strcmp(ptr noundef %0, ptr noundef %203) #30
   %205 = icmp eq i32 %204, 0
@@ -13901,7 +13897,7 @@ prefs_find_preference.exit138:                    ; preds = %144, %153
 
 .preheader145:                                    ; preds = %201, %.preheader145
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.preheader145 ], [ 0, %201 ]
-  %214 = getelementptr %struct.obsolete_pref_name, ptr @__const.deprecated_port_pref.obsolete_prefs, i64 %indvars.iv180
+  %214 = getelementptr [8 x i8], ptr @__const.deprecated_port_pref.obsolete_prefs, i64 %indvars.iv180
   %215 = load ptr, ptr %214, align 8
   %216 = call i32 @strcmp(ptr noundef %0, ptr noundef %215) #30
   %217 = icmp eq i32 %216, 0
@@ -14038,7 +14034,7 @@ define internal void @write_pref(ptr noundef %0, ptr noundef readonly captures(n
   %50 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %49, i32 noundef 2, ptr noundef nonnull @.str.1064, ptr noundef nonnull %48)
   %51 = add i32 %.073, 1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr ptr, ptr %46, i64 %52
+  %53 = getelementptr [8 x i8], ptr %46, i64 %52
   %54 = load ptr, ptr %53, align 8
   %.not68 = icmp eq ptr %54, null
   br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !71
@@ -14066,7 +14062,7 @@ define internal void @write_pref(ptr noundef %0, ptr noundef readonly captures(n
   %64 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str.1064, ptr noundef nonnull %62)
   %65 = add i32 %.175, 1
   %66 = sext i32 %65 to i64
-  %67 = getelementptr ptr, ptr %60, i64 %66
+  %67 = getelementptr [8 x i8], ptr %60, i64 %66
   %68 = load ptr, ptr %67, align 8
   %.not69 = icmp eq ptr %68, null
   br i1 %.not69, label %._crit_edge78, label %.lr.ph77, !llvm.loop !72
@@ -14097,7 +14093,7 @@ define internal void @write_pref(ptr noundef %0, ptr noundef readonly captures(n
   %81 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %78, i32 noundef 2, ptr noundef nonnull @.str.1067, ptr noundef nonnull %80, ptr noundef nonnull %77)
   %82 = add i32 %.280, 1
   %83 = sext i32 %82 to i64
-  %84 = getelementptr ptr, ptr %75, i64 %83
+  %84 = getelementptr [8 x i8], ptr %75, i64 %83
   %85 = load ptr, ptr %84, align 8
   %.not71 = icmp eq ptr %85, null
   br i1 %.not71, label %._crit_edge83, label %.lr.ph82, !llvm.loop !73

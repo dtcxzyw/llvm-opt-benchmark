@@ -47,7 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.33" = type { %"class.std::shared_ptr.34" }
 %"class.std::shared_ptr.34" = type { %"class.std::__shared_ptr.35" }
 %"class.std::__shared_ptr.35" = type { ptr, %"class.std::__shared_count" }
-%"struct.cv::obsensor::UvcDeviceInfo" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i16, i16, i16, [2 x i8] }>
 %"struct.std::less" = type { i8 }
 %"class.std::allocator.0" = type { i8 }
 
@@ -1661,7 +1660,7 @@ define hidden void @_ZN2cv8obsensor19DepthFrameProcessorC2ERKNS0_16OBExtensionPa
 
 29:                                               ; preds = %17
   %30 = fptoui double %26 to i16
-  %31 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 %30, ptr %31, align 2, !tbaa !95
   br label %32
 
@@ -1737,11 +1736,11 @@ define hidden void @_ZN2cv8obsensor19DepthFrameProcessor7processEPNS0_5FrameE(pt
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !95
   %13 = and i16 %12, 4095
   %14 = zext nneg i16 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %9, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !95
   store i16 %16, ptr %11, align 2, !tbaa !95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2916,7 +2915,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_8obsensor19DepthFrameProcessorEJ
 
 32:                                               ; preds = %20
   %33 = fptoui double %29 to i16
-  %34 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store i16 %33, ptr %34, align 2, !tbaa !95, !noalias !124
   br label %35
 
@@ -4650,7 +4649,7 @@ _ZNSt12_Vector_baseIN2cv8obsensor13UvcDeviceInfoESaIS2_EE13_M_deallocateEPS2_m.e
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !44
   store ptr %.0.lcssa.i.i.i.i43, ptr %4, align 8, !tbaa !41
-  %119 = getelementptr inbounds nuw %"struct.cv::obsensor::UvcDeviceInfo", ptr %20, i64 %16
+  %119 = getelementptr inbounds nuw [104 x i8], ptr %20, i64 %16
   store ptr %119, ptr %118, align 8, !tbaa !46
   ret void
 
@@ -4781,7 +4780,7 @@ _ZNSt12_Vector_baseIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EE13_M_deallo
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !85
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !48
-  %41 = getelementptr inbounds nuw %"struct.cv::Ptr", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %41, ptr %40, align 8, !tbaa !51
   ret void
 }

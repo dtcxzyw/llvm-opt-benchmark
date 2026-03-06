@@ -166,11 +166,11 @@ define dso_local range(i32 -1, 65535) i32 @crypto_verify_64(ptr noundef nonnull 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %2
   %indvars.iv.i = phi i64 [ 1, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0..0..0..0..0..0.3.i = load volatile ptr, ptr %7, align 8
-  %12 = getelementptr <2 x i64>, ptr %.0..0..0..0..0..0.3.i, i64 %indvars.iv.i
+  %12 = getelementptr [16 x i8], ptr %.0..0..0..0..0..0.3.i, i64 %indvars.iv.i
   %13 = load <2 x i64>, ptr %12, align 1
   store volatile <2 x i64> %13, ptr %3, align 16
   %.0..0..0..0..0..0.1.i = load volatile ptr, ptr %8, align 8
-  %14 = getelementptr <2 x i64>, ptr %.0..0..0..0..0..0.1.i, i64 %indvars.iv.i
+  %14 = getelementptr [16 x i8], ptr %.0..0..0..0..0..0.1.i, i64 %indvars.iv.i
   %15 = load <2 x i64>, ptr %14, align 1
   store volatile <2 x i64> %15, ptr %4, align 16
   %.0..0..0..0..0..0.8.i = load volatile <2 x i64>, ptr %5, align 16

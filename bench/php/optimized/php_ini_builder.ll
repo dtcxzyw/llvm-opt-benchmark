@@ -109,7 +109,7 @@ define dso_local void @php_ini_builder_define(ptr noundef captures(none) %0, ptr
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = load i8, ptr %6, align 1, !tbaa !12
   %10 = sext i8 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %8, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %8, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !15
   %.fr35 = freeze i16 %12
   %13 = and i16 %.fr35, 8

@@ -48,7 +48,7 @@ define hidden void @mlib_c_ImageLookUp_U8_U8(ptr noundef %0, i32 noundef %1, ptr
   %indvars.iv1289 = phi i64 [ %indvars.iv.next1290, %._crit_edge1137.us.us.us.us.us ], [ 0, %.preheader906.us.us.us ]
   %24 = getelementptr inbounds nuw i8, ptr %.17911148.us.us.us, i64 %indvars.iv1289
   %25 = getelementptr inbounds nuw i8, ptr %.17551151.us.us.us, i64 %indvars.iv1289
-  %26 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv1289
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv1289
   %27 = load ptr, ptr %26, align 8
   %28 = load i8, ptr %25, align 1
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %16
@@ -110,7 +110,7 @@ define hidden void @mlib_c_ImageLookUp_U8_U8(ptr noundef %0, i32 noundef %1, ptr
   %indvars.iv1283 = phi i64 [ %indvars.iv.next1284, %._crit_edge1137.us.us.us ], [ 0, %.preheader906.us.us ]
   %55 = getelementptr inbounds nuw i8, ptr %.17911148.us.us, i64 %indvars.iv1283
   %56 = getelementptr inbounds nuw i8, ptr %.17551151.us.us, i64 %indvars.iv1283
-  %57 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv1283
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv1283
   %58 = load ptr, ptr %57, align 8
   %59 = load i8, ptr %56, align 1
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 %16
@@ -182,7 +182,7 @@ define hidden void @mlib_c_ImageLookUp_U8_U8(ptr noundef %0, i32 noundef %1, ptr
   %indvars.iv1277 = phi i64 [ %indvars.iv.next1278, %91 ], [ 0, %.preheader906.us.us1160 ]
   %92 = getelementptr inbounds nuw i8, ptr %.17911148.us.us1162, i64 %indvars.iv1277
   %93 = getelementptr inbounds nuw i8, ptr %.17551151.us.us1161, i64 %indvars.iv1277
-  %94 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv1277
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv1277
   %95 = load ptr, ptr %94, align 8
   %96 = load i8, ptr %93, align 1
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 %16
@@ -217,7 +217,7 @@ define hidden void @mlib_c_ImageLookUp_U8_U8(ptr noundef %0, i32 noundef %1, ptr
   %indvars.iv1272 = phi i64 [ 0, %.preheader906.us ], [ %indvars.iv.next1273, %109 ]
   %110 = getelementptr inbounds nuw i8, ptr %.17911148.us, i64 %indvars.iv1272
   %111 = getelementptr inbounds nuw i8, ptr %.17551151.us, i64 %indvars.iv1272
-  %112 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv1272
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv1272
   %113 = load ptr, ptr %112, align 8
   %114 = load i8, ptr %111, align 1
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 %16
@@ -274,7 +274,7 @@ define hidden void @mlib_c_ImageLookUp_U8_U8(ptr noundef %0, i32 noundef %1, ptr
   %indvars.iv1295 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next1296, %.lr.ph1167.us.us1190.us ]
   %136 = getelementptr inbounds nuw i8, ptr %.07901183.us.us, i64 %indvars.iv1295
   %137 = getelementptr inbounds nuw i8, ptr %.07541185.us.us, i64 %indvars.iv1295
-  %138 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv1295
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv1295
   %139 = load ptr, ptr %138, align 8
   %140 = load i8, ptr %137, align 1
   %141 = zext i8 %140 to i64
@@ -1762,10 +1762,10 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32768
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1807,11 +1807,11 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
   %25 = getelementptr inbounds nuw i8, ptr %.189125.us.us.us, i64 %indvars.iv204
-  %26 = getelementptr inbounds nuw i16, ptr %.1128.us.us.us, i64 %indvars.iv204
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv204
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us.us, i64 %indvars.iv204
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv204
   %28 = load ptr, ptr %27, align 8
   %29 = load i16, ptr %26, align 2
-  %30 = getelementptr inbounds nuw i16, ptr %26, i64 %17
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %17
   %31 = load i16, ptr %30, align 2
   br label %32
 
@@ -1821,7 +1821,7 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
   %.084.in110.us.us.us.us.us = phi i16 [ %29, %.lr.ph114.us.us.us.us.us ], [ %39, %32 ]
   %.087109.us.us.us.us.us = phi ptr [ %25, %.lr.ph114.us.us.us.us.us ], [ %44, %32 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %43, %32 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i16, ptr %.pn, i64 %19
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %19
   %33 = sext i16 %.084.in110.us.us.us.us.us to i64
   %34 = getelementptr inbounds i8, ptr %28, i64 %33
   %35 = load i8, ptr %34, align 1
@@ -1829,7 +1829,7 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
   %37 = getelementptr inbounds i8, ptr %28, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = load i16, ptr %.086112.us.us.us.us.us, align 2
-  %40 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us.us.us, i64 %17
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us.us.us, i64 %17
   %41 = load i16, ptr %40, align 2
   store i8 %35, ptr %.087109.us.us.us.us.us, align 1
   %42 = getelementptr inbounds nuw i8, ptr %.087109.us.us.us.us.us, i64 %17
@@ -1856,7 +1856,7 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %53 = add nuw nsw i32 %.195124.us.us.us, 1
   %54 = getelementptr inbounds i8, ptr %.189125.us.us.us, i64 %22
-  %55 = getelementptr inbounds i16, ptr %.1128.us.us.us, i64 %23
+  %55 = getelementptr inbounds [2 x i8], ptr %.1128.us.us.us, i64 %23
   %exitcond209.not = icmp eq i32 %53, %5
   br i1 %exitcond209.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !32
 
@@ -1869,13 +1869,13 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
   %56 = getelementptr inbounds nuw i8, ptr %.189125.us.us, i64 %indvars.iv198
-  %57 = getelementptr inbounds nuw i16, ptr %.1128.us.us, i64 %indvars.iv198
-  %58 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv198
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us, i64 %indvars.iv198
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv198
   %59 = load ptr, ptr %58, align 8
   %60 = load i16, ptr %57, align 2
-  %61 = getelementptr inbounds nuw i16, ptr %57, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %17
   %62 = load i16, ptr %61, align 2
-  %.086107.us.us.us = getelementptr inbounds nuw i16, ptr %57, i64 %19
+  %.086107.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %19
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph114.us.us.us
@@ -1891,14 +1891,14 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
   %68 = getelementptr inbounds i8, ptr %59, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = load i16, ptr %.086112.us.us.us, align 2
-  %71 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %17
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %17
   %72 = load i16, ptr %71, align 2
   store i8 %66, ptr %.087109.us.us.us, align 1
   %73 = getelementptr inbounds nuw i8, ptr %.087109.us.us.us, i64 %17
   store i8 %69, ptr %73, align 1
   %74 = add nuw nsw i32 %.197108.us.us.us, 2
   %75 = getelementptr inbounds nuw i8, ptr %.087109.us.us.us, i64 %19
-  %.086.us.us.us = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %19
+  %.086.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %19
   %76 = icmp slt i32 %74, %20
   br i1 %76, label %63, label %._crit_edge115.us.us.us, !llvm.loop !30
 
@@ -1925,7 +1925,7 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %89 = add nuw nsw i32 %.195124.us.us, 1
   %90 = getelementptr inbounds i8, ptr %.189125.us.us, i64 %22
-  %91 = getelementptr inbounds i16, ptr %.1128.us.us, i64 %23
+  %91 = getelementptr inbounds [2 x i8], ptr %.1128.us.us, i64 %23
   %exitcond203.not = icmp eq i32 %89, %5
   br i1 %exitcond203.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !32
 
@@ -1941,11 +1941,11 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
 92:                                               ; preds = %92, %.preheader103.us.us137
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %92 ], [ 0, %.preheader103.us.us137 ]
   %93 = getelementptr inbounds nuw i8, ptr %.189125.us.us139, i64 %indvars.iv192
-  %94 = getelementptr inbounds nuw i16, ptr %.1128.us.us138, i64 %indvars.iv192
-  %95 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv192
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us138, i64 %indvars.iv192
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv192
   %96 = load ptr, ptr %95, align 8
   %97 = load i16, ptr %94, align 2
-  %98 = getelementptr inbounds nuw i16, ptr %94, i64 %17
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %17
   %99 = load i16, ptr %98, align 2
   %100 = sext i16 %97 to i64
   %101 = getelementptr inbounds i8, ptr %96, i64 %100
@@ -1963,7 +1963,7 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.split.us.us.us:              ; preds = %92
   %107 = add nuw nsw i32 %.195124.us.us140, 1
   %108 = getelementptr inbounds i8, ptr %.189125.us.us139, i64 %22
-  %109 = getelementptr inbounds i16, ptr %.1128.us.us138, i64 %23
+  %109 = getelementptr inbounds [2 x i8], ptr %.1128.us.us138, i64 %23
   %exitcond197.not = icmp eq i32 %107, %5
   br i1 %exitcond197.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !32
 
@@ -1976,13 +1976,13 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
 110:                                              ; preds = %.preheader103.us, %110
   %indvars.iv186 = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next187, %110 ]
   %111 = getelementptr inbounds nuw i8, ptr %.189125.us, i64 %indvars.iv186
-  %112 = getelementptr inbounds nuw i16, ptr %.1128.us, i64 %indvars.iv186
-  %113 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv186
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us, i64 %indvars.iv186
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv186
   %114 = load ptr, ptr %113, align 8
   %115 = load i16, ptr %112, align 2
-  %116 = getelementptr inbounds nuw i16, ptr %112, i64 %17
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %17
   %117 = load i16, ptr %116, align 2
-  %.086107.us132 = getelementptr inbounds nuw i16, ptr %112, i64 %19
+  %.086107.us132 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %19
   %118 = sext i16 %115 to i64
   %119 = getelementptr inbounds i8, ptr %114, i64 %118
   %120 = load i8, ptr %119, align 1
@@ -2005,7 +2005,7 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.split.us133:                 ; preds = %110
   %130 = add nuw nsw i32 %.195124.us, 1
   %131 = getelementptr inbounds i8, ptr %.189125.us, i64 %22
-  %132 = getelementptr inbounds i16, ptr %.1128.us, i64 %23
+  %132 = getelementptr inbounds [2 x i8], ptr %.1128.us, i64 %23
   %exitcond191.not = icmp eq i32 %130, %5
   br i1 %exitcond191.not, label %.loopexit, label %.preheader103.us, !llvm.loop !32
 
@@ -2032,8 +2032,8 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv210 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next211, %.lr.ph144.us.us167.us ]
   %136 = getelementptr inbounds nuw i8, ptr %.088160.us.us, i64 %indvars.iv210
-  %137 = getelementptr inbounds nuw i16, ptr %.085162.us.us, i64 %indvars.iv210
-  %138 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv210
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %.085162.us.us, i64 %indvars.iv210
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv210
   %139 = load ptr, ptr %138, align 8
   %140 = load i16, ptr %137, align 2
   %141 = sext i16 %140 to i64
@@ -2047,7 +2047,7 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr noundef readonly captures(none
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %144 = add nuw nsw i32 %.094159.us.us, 1
   %145 = getelementptr inbounds i8, ptr %.088160.us.us, i64 %133
-  %146 = getelementptr inbounds i16, ptr %.085162.us.us, i64 %134
+  %146 = getelementptr inbounds [2 x i8], ptr %.085162.us.us, i64 %134
   %exitcond215.not = icmp eq i32 %144, %5
   br i1 %exitcond215.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !34
 
@@ -2103,11 +2103,11 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
   %23 = getelementptr inbounds nuw i8, ptr %.189125.us.us.us, i64 %indvars.iv200
-  %24 = getelementptr inbounds nuw i16, ptr %.1128.us.us.us, i64 %indvars.iv200
-  %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv200
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us.us, i64 %indvars.iv200
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv200
   %26 = load ptr, ptr %25, align 8
   %27 = load i16, ptr %24, align 2
-  %28 = getelementptr inbounds nuw i16, ptr %24, i64 %15
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %15
   %29 = load i16, ptr %28, align 2
   br label %30
 
@@ -2117,7 +2117,7 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
   %.084.in110.us.us.us.us.us = phi i16 [ %27, %.lr.ph114.us.us.us.us.us ], [ %37, %30 ]
   %.087109.us.us.us.us.us = phi ptr [ %23, %.lr.ph114.us.us.us.us.us ], [ %42, %30 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %41, %30 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i16, ptr %.pn, i64 %17
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %17
   %31 = zext i16 %.084.in110.us.us.us.us.us to i64
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 %31
   %33 = load i8, ptr %32, align 1
@@ -2125,7 +2125,7 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = load i16, ptr %.086112.us.us.us.us.us, align 2
-  %38 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us.us.us, i64 %15
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us.us.us, i64 %15
   %39 = load i16, ptr %38, align 2
   store i8 %33, ptr %.087109.us.us.us.us.us, align 1
   %40 = getelementptr inbounds nuw i8, ptr %.087109.us.us.us.us.us, i64 %15
@@ -2152,7 +2152,7 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %51 = add nuw nsw i32 %.195124.us.us.us, 1
   %52 = getelementptr inbounds i8, ptr %.189125.us.us.us, i64 %20
-  %53 = getelementptr inbounds i16, ptr %.1128.us.us.us, i64 %21
+  %53 = getelementptr inbounds [2 x i8], ptr %.1128.us.us.us, i64 %21
   %exitcond205.not = icmp eq i32 %51, %5
   br i1 %exitcond205.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !37
 
@@ -2165,13 +2165,13 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
   %54 = getelementptr inbounds nuw i8, ptr %.189125.us.us, i64 %indvars.iv194
-  %55 = getelementptr inbounds nuw i16, ptr %.1128.us.us, i64 %indvars.iv194
-  %56 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv194
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us, i64 %indvars.iv194
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv194
   %57 = load ptr, ptr %56, align 8
   %58 = load i16, ptr %55, align 2
-  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %15
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %15
   %60 = load i16, ptr %59, align 2
-  %.086107.us.us.us = getelementptr inbounds nuw i16, ptr %55, i64 %17
+  %.086107.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %17
   br label %61
 
 61:                                               ; preds = %61, %.lr.ph114.us.us.us
@@ -2187,14 +2187,14 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = load i16, ptr %.086112.us.us.us, align 2
-  %69 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %15
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %15
   %70 = load i16, ptr %69, align 2
   store i8 %64, ptr %.087109.us.us.us, align 1
   %71 = getelementptr inbounds nuw i8, ptr %.087109.us.us.us, i64 %15
   store i8 %67, ptr %71, align 1
   %72 = add nuw nsw i32 %.197108.us.us.us, 2
   %73 = getelementptr inbounds nuw i8, ptr %.087109.us.us.us, i64 %17
-  %.086.us.us.us = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %17
+  %.086.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %17
   %74 = icmp slt i32 %72, %18
   br i1 %74, label %61, label %._crit_edge115.us.us.us, !llvm.loop !35
 
@@ -2221,7 +2221,7 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %87 = add nuw nsw i32 %.195124.us.us, 1
   %88 = getelementptr inbounds i8, ptr %.189125.us.us, i64 %20
-  %89 = getelementptr inbounds i16, ptr %.1128.us.us, i64 %21
+  %89 = getelementptr inbounds [2 x i8], ptr %.1128.us.us, i64 %21
   %exitcond199.not = icmp eq i32 %87, %5
   br i1 %exitcond199.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !37
 
@@ -2237,11 +2237,11 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
 90:                                               ; preds = %90, %.preheader103.us.us137
   %indvars.iv188 = phi i64 [ %indvars.iv.next189, %90 ], [ 0, %.preheader103.us.us137 ]
   %91 = getelementptr inbounds nuw i8, ptr %.189125.us.us139, i64 %indvars.iv188
-  %92 = getelementptr inbounds nuw i16, ptr %.1128.us.us138, i64 %indvars.iv188
-  %93 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv188
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us138, i64 %indvars.iv188
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv188
   %94 = load ptr, ptr %93, align 8
   %95 = load i16, ptr %92, align 2
-  %96 = getelementptr inbounds nuw i16, ptr %92, i64 %15
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %15
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %95 to i64
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 %98
@@ -2259,7 +2259,7 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.split.us.us.us:              ; preds = %90
   %105 = add nuw nsw i32 %.195124.us.us140, 1
   %106 = getelementptr inbounds i8, ptr %.189125.us.us139, i64 %20
-  %107 = getelementptr inbounds i16, ptr %.1128.us.us138, i64 %21
+  %107 = getelementptr inbounds [2 x i8], ptr %.1128.us.us138, i64 %21
   %exitcond193.not = icmp eq i32 %105, %5
   br i1 %exitcond193.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !37
 
@@ -2272,13 +2272,13 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
 108:                                              ; preds = %.preheader103.us, %108
   %indvars.iv = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next, %108 ]
   %109 = getelementptr inbounds nuw i8, ptr %.189125.us, i64 %indvars.iv
-  %110 = getelementptr inbounds nuw i16, ptr %.1128.us, i64 %indvars.iv
-  %111 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %112 = load ptr, ptr %111, align 8
   %113 = load i16, ptr %110, align 2
-  %114 = getelementptr inbounds nuw i16, ptr %110, i64 %15
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %15
   %115 = load i16, ptr %114, align 2
-  %.086107.us132 = getelementptr inbounds nuw i16, ptr %110, i64 %17
+  %.086107.us132 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %17
   %116 = zext i16 %113 to i64
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 %116
   %118 = load i8, ptr %117, align 1
@@ -2301,7 +2301,7 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.split.us133:                 ; preds = %108
   %128 = add nuw nsw i32 %.195124.us, 1
   %129 = getelementptr inbounds i8, ptr %.189125.us, i64 %20
-  %130 = getelementptr inbounds i16, ptr %.1128.us, i64 %21
+  %130 = getelementptr inbounds [2 x i8], ptr %.1128.us, i64 %21
   %exitcond187.not = icmp eq i32 %128, %5
   br i1 %exitcond187.not, label %.loopexit, label %.preheader103.us, !llvm.loop !37
 
@@ -2328,8 +2328,8 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv206 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next207, %.lr.ph144.us.us167.us ]
   %134 = getelementptr inbounds nuw i8, ptr %.088160.us.us, i64 %indvars.iv206
-  %135 = getelementptr inbounds nuw i16, ptr %.085162.us.us, i64 %indvars.iv206
-  %136 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv206
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %.085162.us.us, i64 %indvars.iv206
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv206
   %137 = load ptr, ptr %136, align 8
   %138 = load i16, ptr %135, align 2
   %139 = zext i16 %138 to i64
@@ -2343,7 +2343,7 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr noundef readonly captures(none
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %142 = add nuw nsw i32 %.094159.us.us, 1
   %143 = getelementptr inbounds i8, ptr %.088160.us.us, i64 %131
-  %144 = getelementptr inbounds i16, ptr %.085162.us.us, i64 %132
+  %144 = getelementptr inbounds [2 x i8], ptr %.085162.us.us, i64 %132
   %exitcond211.not = icmp eq i32 %142, %5
   br i1 %exitcond211.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !39
 
@@ -2363,10 +2363,10 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 536870911
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2408,11 +2408,11 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
   %25 = getelementptr inbounds nuw i8, ptr %.189125.us.us.us, i64 %indvars.iv204
-  %26 = getelementptr inbounds nuw i32, ptr %.1128.us.us.us, i64 %indvars.iv204
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv204
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us.us, i64 %indvars.iv204
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv204
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %26, align 4
-  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %17
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %17
   %31 = load i32, ptr %30, align 4
   br label %32
 
@@ -2422,7 +2422,7 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
   %.084110.us.us.us.us.us = phi i32 [ %29, %.lr.ph114.us.us.us.us.us ], [ %39, %32 ]
   %.087109.us.us.us.us.us = phi ptr [ %25, %.lr.ph114.us.us.us.us.us ], [ %44, %32 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %43, %32 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i32, ptr %.pn, i64 %19
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %.pn, i64 %19
   %33 = sext i32 %.084110.us.us.us.us.us to i64
   %34 = getelementptr inbounds i8, ptr %28, i64 %33
   %35 = load i8, ptr %34, align 1
@@ -2430,7 +2430,7 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
   %37 = getelementptr inbounds i8, ptr %28, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = load i32, ptr %.086112.us.us.us.us.us, align 4
-  %40 = getelementptr inbounds nuw i32, ptr %.086112.us.us.us.us.us, i64 %17
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us.us.us, i64 %17
   %41 = load i32, ptr %40, align 4
   store i8 %35, ptr %.087109.us.us.us.us.us, align 1
   %42 = getelementptr inbounds nuw i8, ptr %.087109.us.us.us.us.us, i64 %17
@@ -2457,7 +2457,7 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %53 = add nuw nsw i32 %.195124.us.us.us, 1
   %54 = getelementptr inbounds i8, ptr %.189125.us.us.us, i64 %22
-  %55 = getelementptr inbounds i32, ptr %.1128.us.us.us, i64 %23
+  %55 = getelementptr inbounds [4 x i8], ptr %.1128.us.us.us, i64 %23
   %exitcond209.not = icmp eq i32 %53, %5
   br i1 %exitcond209.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !43
 
@@ -2470,13 +2470,13 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
   %56 = getelementptr inbounds nuw i8, ptr %.189125.us.us, i64 %indvars.iv198
-  %57 = getelementptr inbounds nuw i32, ptr %.1128.us.us, i64 %indvars.iv198
-  %58 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv198
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us, i64 %indvars.iv198
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv198
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %57, align 4
-  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %17
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %17
   %62 = load i32, ptr %61, align 4
-  %.086107.us.us.us = getelementptr inbounds nuw i32, ptr %57, i64 %19
+  %.086107.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %19
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph114.us.us.us
@@ -2492,14 +2492,14 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
   %68 = getelementptr inbounds i8, ptr %59, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = load i32, ptr %.086112.us.us.us, align 4
-  %71 = getelementptr inbounds nuw i32, ptr %.086112.us.us.us, i64 %17
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us, i64 %17
   %72 = load i32, ptr %71, align 4
   store i8 %66, ptr %.087109.us.us.us, align 1
   %73 = getelementptr inbounds nuw i8, ptr %.087109.us.us.us, i64 %17
   store i8 %69, ptr %73, align 1
   %74 = add nuw nsw i32 %.197108.us.us.us, 2
   %75 = getelementptr inbounds nuw i8, ptr %.087109.us.us.us, i64 %19
-  %.086.us.us.us = getelementptr inbounds nuw i32, ptr %.086112.us.us.us, i64 %19
+  %.086.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us, i64 %19
   %76 = icmp slt i32 %74, %20
   br i1 %76, label %63, label %._crit_edge115.us.us.us, !llvm.loop !41
 
@@ -2526,7 +2526,7 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %89 = add nuw nsw i32 %.195124.us.us, 1
   %90 = getelementptr inbounds i8, ptr %.189125.us.us, i64 %22
-  %91 = getelementptr inbounds i32, ptr %.1128.us.us, i64 %23
+  %91 = getelementptr inbounds [4 x i8], ptr %.1128.us.us, i64 %23
   %exitcond203.not = icmp eq i32 %89, %5
   br i1 %exitcond203.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !43
 
@@ -2542,11 +2542,11 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
 92:                                               ; preds = %92, %.preheader103.us.us137
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %92 ], [ 0, %.preheader103.us.us137 ]
   %93 = getelementptr inbounds nuw i8, ptr %.189125.us.us139, i64 %indvars.iv192
-  %94 = getelementptr inbounds nuw i32, ptr %.1128.us.us138, i64 %indvars.iv192
-  %95 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv192
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us138, i64 %indvars.iv192
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv192
   %96 = load ptr, ptr %95, align 8
   %97 = load i32, ptr %94, align 4
-  %98 = getelementptr inbounds nuw i32, ptr %94, i64 %17
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %17
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %97 to i64
   %101 = getelementptr inbounds i8, ptr %96, i64 %100
@@ -2564,7 +2564,7 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.split.us.us.us:              ; preds = %92
   %107 = add nuw nsw i32 %.195124.us.us140, 1
   %108 = getelementptr inbounds i8, ptr %.189125.us.us139, i64 %22
-  %109 = getelementptr inbounds i32, ptr %.1128.us.us138, i64 %23
+  %109 = getelementptr inbounds [4 x i8], ptr %.1128.us.us138, i64 %23
   %exitcond197.not = icmp eq i32 %107, %5
   br i1 %exitcond197.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !43
 
@@ -2577,13 +2577,13 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
 110:                                              ; preds = %.preheader103.us, %110
   %indvars.iv186 = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next187, %110 ]
   %111 = getelementptr inbounds nuw i8, ptr %.189125.us, i64 %indvars.iv186
-  %112 = getelementptr inbounds nuw i32, ptr %.1128.us, i64 %indvars.iv186
-  %113 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv186
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us, i64 %indvars.iv186
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv186
   %114 = load ptr, ptr %113, align 8
   %115 = load i32, ptr %112, align 4
-  %116 = getelementptr inbounds nuw i32, ptr %112, i64 %17
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %17
   %117 = load i32, ptr %116, align 4
-  %.086107.us132 = getelementptr inbounds nuw i32, ptr %112, i64 %19
+  %.086107.us132 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %19
   %118 = sext i32 %115 to i64
   %119 = getelementptr inbounds i8, ptr %114, i64 %118
   %120 = load i8, ptr %119, align 1
@@ -2606,7 +2606,7 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
 ._crit_edge121.split.split.us133:                 ; preds = %110
   %130 = add nuw nsw i32 %.195124.us, 1
   %131 = getelementptr inbounds i8, ptr %.189125.us, i64 %22
-  %132 = getelementptr inbounds i32, ptr %.1128.us, i64 %23
+  %132 = getelementptr inbounds [4 x i8], ptr %.1128.us, i64 %23
   %exitcond191.not = icmp eq i32 %130, %5
   br i1 %exitcond191.not, label %.loopexit, label %.preheader103.us, !llvm.loop !43
 
@@ -2633,8 +2633,8 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv210 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next211, %.lr.ph144.us.us167.us ]
   %136 = getelementptr inbounds nuw i8, ptr %.088160.us.us, i64 %indvars.iv210
-  %137 = getelementptr inbounds nuw i32, ptr %.085162.us.us, i64 %indvars.iv210
-  %138 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv210
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.085162.us.us, i64 %indvars.iv210
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv210
   %139 = load ptr, ptr %138, align 8
   %140 = load i32, ptr %137, align 4
   %141 = sext i32 %140 to i64
@@ -2648,7 +2648,7 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr noundef readonly captures(none
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %144 = add nuw nsw i32 %.094159.us.us, 1
   %145 = getelementptr inbounds i8, ptr %.088160.us.us, i64 %133
-  %146 = getelementptr inbounds i32, ptr %.085162.us.us, i64 %134
+  %146 = getelementptr inbounds [4 x i8], ptr %.085162.us.us, i64 %134
   %exitcond215.not = icmp eq i32 %144, %5
   br i1 %exitcond215.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !45
 
@@ -2699,9 +2699,9 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph1160.us.us.us.us.us:                        ; preds = %._crit_edge1161.us.us.us.us.us, %.preheader966.us.us.us
   %indvars.iv1305 = phi i64 [ %indvars.iv.next1306, %._crit_edge1161.us.us.us.us.us ], [ 0, %.preheader966.us.us.us ]
-  %24 = getelementptr inbounds nuw i16, ptr %.18571172.us.us.us, i64 %indvars.iv1305
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.18571172.us.us.us, i64 %indvars.iv1305
   %25 = getelementptr inbounds nuw i8, ptr %.18231175.us.us.us, i64 %indvars.iv1305
-  %26 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv1305
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv1305
   %27 = load ptr, ptr %26, align 8
   %28 = load i8, ptr %25, align 1
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %16
@@ -2716,31 +2716,31 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   %.09411154.us.us.us.us.us = phi ptr [ %24, %.lr.ph1160.us.us.us.us.us ], [ %43, %31 ]
   %.09401158.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.pn, i64 %18
   %32 = zext i8 %.0938.in1155.us.us.us.us.us to i64
-  %33 = getelementptr inbounds nuw i16, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = zext i8 %.0937.in1156.us.us.us.us.us to i64
-  %36 = getelementptr inbounds nuw i16, ptr %27, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = load i8, ptr %.09401158.us.us.us.us.us, align 1
   %39 = getelementptr inbounds nuw i8, ptr %.09401158.us.us.us.us.us, i64 %16
   %40 = load i8, ptr %39, align 1
   store i16 %34, ptr %.09411154.us.us.us.us.us, align 2
-  %41 = getelementptr inbounds nuw i16, ptr %.09411154.us.us.us.us.us, i64 %16
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.09411154.us.us.us.us.us, i64 %16
   store i16 %37, ptr %41, align 2
   %42 = add nuw nsw i32 %.18961157.us.us.us.us.us, 2
-  %43 = getelementptr inbounds nuw i16, ptr %.09411154.us.us.us.us.us, i64 %18
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.09411154.us.us.us.us.us, i64 %18
   %44 = icmp slt i32 %42, %19
   br i1 %44, label %31, label %._crit_edge1161.us.us.us.us.us, !llvm.loop !46
 
 ._crit_edge1161.us.us.us.us.us:                   ; preds = %31
   %45 = zext i8 %38 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %27, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = zext i8 %40 to i64
-  %49 = getelementptr inbounds nuw i16, ptr %27, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %48
   %50 = load i16, ptr %49, align 2
   store i16 %47, ptr %43, align 2
-  %51 = getelementptr inbounds nuw i16, ptr %43, i64 %16
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %16
   store i16 %50, ptr %51, align 2
   %indvars.iv.next1306 = add nuw nsw i64 %indvars.iv1305, 1
   %exitcond1309.not = icmp eq i64 %indvars.iv.next1306, %wide.trip.count1308
@@ -2748,7 +2748,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge1168.split.us.us.us.split.us.us:       ; preds = %._crit_edge1161.us.us.us.us.us
   %52 = add nuw nsw i32 %.19011171.us.us.us, 1
-  %53 = getelementptr inbounds i16, ptr %.18571172.us.us.us, i64 %21
+  %53 = getelementptr inbounds [2 x i8], ptr %.18571172.us.us.us, i64 %21
   %54 = getelementptr inbounds i8, ptr %.18231175.us.us.us, i64 %22
   %exitcond1310.not = icmp eq i32 %52, %5
   br i1 %exitcond1310.not, label %.loopexit, label %.preheader966.us.us.us, !llvm.loop !48
@@ -2761,9 +2761,9 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph1160.us.us.us:                              ; preds = %._crit_edge1161.us.us.us, %.preheader966.us.us
   %indvars.iv1299 = phi i64 [ %indvars.iv.next1300, %._crit_edge1161.us.us.us ], [ 0, %.preheader966.us.us ]
-  %55 = getelementptr inbounds nuw i16, ptr %.18571172.us.us, i64 %indvars.iv1299
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.18571172.us.us, i64 %indvars.iv1299
   %56 = getelementptr inbounds nuw i8, ptr %.18231175.us.us, i64 %indvars.iv1299
-  %57 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv1299
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv1299
   %58 = load ptr, ptr %57, align 8
   %59 = load i8, ptr %56, align 1
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 %16
@@ -2778,38 +2778,38 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   %.0938.in1155.us.us.us = phi i8 [ %59, %.lr.ph1160.us.us.us ], [ %69, %62 ]
   %.09411154.us.us.us = phi ptr [ %55, %.lr.ph1160.us.us.us ], [ %74, %62 ]
   %63 = zext i8 %.0938.in1155.us.us.us to i64
-  %64 = getelementptr inbounds nuw i16, ptr %58, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = zext i8 %.0937.in1156.us.us.us to i64
-  %67 = getelementptr inbounds nuw i16, ptr %58, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %66
   %68 = load i16, ptr %67, align 2
   %69 = load i8, ptr %.09401158.us.us.us, align 1
   %70 = getelementptr inbounds nuw i8, ptr %.09401158.us.us.us, i64 %16
   %71 = load i8, ptr %70, align 1
   store i16 %65, ptr %.09411154.us.us.us, align 2
-  %72 = getelementptr inbounds nuw i16, ptr %.09411154.us.us.us, i64 %16
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %.09411154.us.us.us, i64 %16
   store i16 %68, ptr %72, align 2
   %73 = add nuw nsw i32 %.18961157.us.us.us, 2
-  %74 = getelementptr inbounds nuw i16, ptr %.09411154.us.us.us, i64 %18
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %.09411154.us.us.us, i64 %18
   %.0940.us.us.us = getelementptr inbounds nuw i8, ptr %.09401158.us.us.us, i64 %18
   %75 = icmp slt i32 %73, %19
   br i1 %75, label %62, label %._crit_edge1161.us.us.us, !llvm.loop !46
 
 ._crit_edge1161.us.us.us:                         ; preds = %62
   %76 = zext i8 %69 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %58, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %76
   %78 = load i16, ptr %77, align 2
   %79 = zext i8 %71 to i64
-  %80 = getelementptr inbounds nuw i16, ptr %58, i64 %79
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %79
   %81 = load i16, ptr %80, align 2
   store i16 %78, ptr %74, align 2
-  %82 = getelementptr inbounds nuw i16, ptr %74, i64 %16
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %16
   store i16 %81, ptr %82, align 2
   %83 = load i8, ptr %.0940.us.us.us, align 1
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i16, ptr %58, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %84
   %86 = load i16, ptr %85, align 2
-  %87 = getelementptr inbounds nuw i16, ptr %74, i64 %18
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %18
   store i16 %86, ptr %87, align 2
   %indvars.iv.next1300 = add nuw nsw i64 %indvars.iv1299, 1
   %exitcond1303.not = icmp eq i64 %indvars.iv.next1300, %wide.trip.count1308
@@ -2817,7 +2817,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge1168.split.us.us.us.split:             ; preds = %._crit_edge1161.us.us.us
   %88 = add nuw nsw i32 %.19011171.us.us, 1
-  %89 = getelementptr inbounds i16, ptr %.18571172.us.us, i64 %21
+  %89 = getelementptr inbounds [2 x i8], ptr %.18571172.us.us, i64 %21
   %90 = getelementptr inbounds i8, ptr %.18231175.us.us, i64 %22
   %exitcond1304.not = icmp eq i32 %88, %5
   br i1 %exitcond1304.not, label %.loopexit, label %.preheader966.us.us, !llvm.loop !48
@@ -2833,21 +2833,21 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 
 91:                                               ; preds = %91, %.preheader966.us.us1184
   %indvars.iv1293 = phi i64 [ %indvars.iv.next1294, %91 ], [ 0, %.preheader966.us.us1184 ]
-  %92 = getelementptr inbounds nuw i16, ptr %.18571172.us.us1186, i64 %indvars.iv1293
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.18571172.us.us1186, i64 %indvars.iv1293
   %93 = getelementptr inbounds nuw i8, ptr %.18231175.us.us1185, i64 %indvars.iv1293
-  %94 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv1293
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv1293
   %95 = load ptr, ptr %94, align 8
   %96 = load i8, ptr %93, align 1
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 %16
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %96 to i64
-  %100 = getelementptr inbounds nuw i16, ptr %95, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %95, i64 %99
   %101 = load i16, ptr %100, align 2
   %102 = zext i8 %98 to i64
-  %103 = getelementptr inbounds nuw i16, ptr %95, i64 %102
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %95, i64 %102
   %104 = load i16, ptr %103, align 2
   store i16 %101, ptr %92, align 2
-  %105 = getelementptr inbounds nuw i16, ptr %92, i64 %16
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %16
   store i16 %104, ptr %105, align 2
   %indvars.iv.next1294 = add nuw nsw i64 %indvars.iv1293, 1
   %exitcond1297.not = icmp eq i64 %indvars.iv.next1294, %wide.trip.count1308
@@ -2855,7 +2855,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge1168.split.split.us.us.us:             ; preds = %91
   %106 = add nuw nsw i32 %.19011171.us.us1187, 1
-  %107 = getelementptr inbounds i16, ptr %.18571172.us.us1186, i64 %21
+  %107 = getelementptr inbounds [2 x i8], ptr %.18571172.us.us1186, i64 %21
   %108 = getelementptr inbounds i8, ptr %.18231175.us.us1185, i64 %22
   %exitcond1298.not = icmp eq i32 %106, %5
   br i1 %exitcond1298.not, label %.loopexit, label %.preheader966.us.us1184, !llvm.loop !48
@@ -2868,28 +2868,28 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 
 109:                                              ; preds = %.preheader966.us, %109
   %indvars.iv1288 = phi i64 [ 0, %.preheader966.us ], [ %indvars.iv.next1289, %109 ]
-  %110 = getelementptr inbounds nuw i16, ptr %.18571172.us, i64 %indvars.iv1288
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %.18571172.us, i64 %indvars.iv1288
   %111 = getelementptr inbounds nuw i8, ptr %.18231175.us, i64 %indvars.iv1288
-  %112 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv1288
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv1288
   %113 = load ptr, ptr %112, align 8
   %114 = load i8, ptr %111, align 1
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 %16
   %116 = load i8, ptr %115, align 1
   %.09401153.us1179 = getelementptr inbounds nuw i8, ptr %111, i64 %18
   %117 = zext i8 %114 to i64
-  %118 = getelementptr inbounds nuw i16, ptr %113, i64 %117
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %113, i64 %117
   %119 = load i16, ptr %118, align 2
   %120 = zext i8 %116 to i64
-  %121 = getelementptr inbounds nuw i16, ptr %113, i64 %120
+  %121 = getelementptr inbounds nuw [2 x i8], ptr %113, i64 %120
   %122 = load i16, ptr %121, align 2
   store i16 %119, ptr %110, align 2
-  %123 = getelementptr inbounds nuw i16, ptr %110, i64 %16
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %16
   store i16 %122, ptr %123, align 2
   %124 = load i8, ptr %.09401153.us1179, align 1
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds nuw i16, ptr %113, i64 %125
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %113, i64 %125
   %127 = load i16, ptr %126, align 2
-  %128 = getelementptr inbounds nuw i16, ptr %110, i64 %18
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %18
   store i16 %127, ptr %128, align 2
   %indvars.iv.next1289 = add nuw nsw i64 %indvars.iv1288, 1
   %exitcond1291.not = icmp eq i64 %indvars.iv.next1289, %wide.trip.count1308
@@ -2897,7 +2897,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge1168.split.split.us1180:               ; preds = %109
   %129 = add nuw nsw i32 %.19011171.us, 1
-  %130 = getelementptr inbounds i16, ptr %.18571172.us, i64 %21
+  %130 = getelementptr inbounds [2 x i8], ptr %.18571172.us, i64 %21
   %131 = getelementptr inbounds i8, ptr %.18231175.us, i64 %22
   %exitcond1292.not = icmp eq i32 %129, %5
   br i1 %exitcond1292.not, label %.loopexit, label %.preheader966.us, !llvm.loop !48
@@ -2925,13 +2925,13 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph1191.us.us1214.us:                          ; preds = %.preheader.us.us, %.lr.ph1191.us.us1214.us
   %indvars.iv1311 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next1312, %.lr.ph1191.us.us1214.us ]
-  %136 = getelementptr inbounds nuw i16, ptr %.08561207.us.us, i64 %indvars.iv1311
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %.08561207.us.us, i64 %indvars.iv1311
   %137 = getelementptr inbounds nuw i8, ptr %.08221209.us.us, i64 %indvars.iv1311
-  %138 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv1311
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv1311
   %139 = load ptr, ptr %138, align 8
   %140 = load i8, ptr %137, align 1
   %141 = zext i8 %140 to i64
-  %142 = getelementptr inbounds nuw i16, ptr %139, i64 %141
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %139, i64 %141
   %143 = load i16, ptr %142, align 2
   store i16 %143, ptr %136, align 2
   %indvars.iv.next1312 = add nuw nsw i64 %indvars.iv1311, 1
@@ -2940,7 +2940,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge1198.split.us.us.us:                   ; preds = %.lr.ph1191.us.us1214.us
   %144 = add nuw nsw i32 %.09001206.us.us, 1
-  %145 = getelementptr inbounds i16, ptr %.08561207.us.us, i64 %133
+  %145 = getelementptr inbounds [2 x i8], ptr %.08561207.us.us, i64 %133
   %146 = getelementptr inbounds i8, ptr %.08221209.us.us, i64 %134
   %exitcond1316.not = icmp eq i32 %144, %5
   br i1 %exitcond1316.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !50
@@ -3029,7 +3029,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   %.09321104 = phi i32 [ %192, %.lr.ph1109 ], [ 0, %179 ]
   %187 = load i8, ptr %.09141107, align 1
   %188 = zext i8 %187 to i64
-  %189 = getelementptr inbounds nuw i16, ptr %182, i64 %188
+  %189 = getelementptr inbounds nuw [2 x i8], ptr %182, i64 %188
   %190 = load i16, ptr %189, align 2
   %191 = getelementptr inbounds nuw i8, ptr %.09171106, i64 2
   store i16 %190, ptr %.09171106, align 2
@@ -3150,7 +3150,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   %.29341144 = phi i32 [ %270, %.lr.ph1148 ], [ %.1933.lcssa, %.lr.ph1148.preheader ]
   %266 = load i8, ptr %.19151146, align 1
   %267 = zext i8 %266 to i64
-  %268 = getelementptr inbounds nuw i16, ptr %182, i64 %267
+  %268 = getelementptr inbounds nuw [2 x i8], ptr %182, i64 %267
   %269 = load i16, ptr %268, align 2
   store i16 %269, ptr %.19181145, align 2
   %270 = add nuw nsw i32 %.29341144, 1
@@ -3162,7 +3162,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 273:                                              ; preds = %._crit_edge1110
   %274 = load i8, ptr %.0914.lcssa, align 1
   %275 = zext i8 %274 to i64
-  %276 = getelementptr inbounds nuw i16, ptr %182, i64 %275
+  %276 = getelementptr inbounds nuw [2 x i8], ptr %182, i64 %275
   %277 = load i16, ptr %276, align 2
   %278 = getelementptr inbounds nuw i8, ptr %.0917.lcssa, i64 2
   store i16 %277, ptr %.0917.lcssa, align 2
@@ -3297,7 +3297,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   %.49361127 = phi i32 [ %378, %.lr.ph1131 ], [ %.3935.lcssa, %.lr.ph1131.preheader ]
   %374 = load i8, ptr %.29161129, align 1
   %375 = zext i8 %374 to i64
-  %376 = getelementptr inbounds nuw i16, ptr %182, i64 %375
+  %376 = getelementptr inbounds nuw [2 x i8], ptr %182, i64 %375
   %377 = load i16, ptr %376, align 2
   store i16 %377, ptr %.29191128, align 2
   %378 = add nuw nsw i32 %.49361127, 1
@@ -3308,7 +3308,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 
 .loopexit969:                                     ; preds = %.lr.ph1131, %.lr.ph1148, %._crit_edge1121, %._crit_edge1139
   %381 = add nuw nsw i32 %.09311149, 1
-  %382 = getelementptr inbounds i16, ptr %.28581150, i64 %174
+  %382 = getelementptr inbounds [2 x i8], ptr %.28581150, i64 %174
   %383 = getelementptr inbounds i8, ptr %.28241151, i64 %175
   %indvars.iv.next = sub i2 %indvars.iv, %178
   %exitcond1287.not = icmp eq i32 %381, %5
@@ -3332,14 +3332,14 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   %392 = getelementptr i8, ptr %.38251102, i64 2
   %393 = load i8, ptr %.38251102, align 1
   %394 = zext i8 %393 to i64
-  %395 = getelementptr inbounds nuw i16, ptr %385, i64 %394
+  %395 = getelementptr inbounds nuw [2 x i8], ptr %385, i64 %394
   %396 = load i16, ptr %395, align 2
   %397 = getelementptr inbounds nuw i8, ptr %.38591101, i64 2
   store i16 %396, ptr %.38591101, align 2
   %398 = getelementptr inbounds nuw i8, ptr %.38251102, i64 1
   %399 = load i8, ptr %398, align 1
   %400 = zext i8 %399 to i64
-  %401 = getelementptr inbounds nuw i16, ptr %386, i64 %400
+  %401 = getelementptr inbounds nuw [2 x i8], ptr %386, i64 %400
   %402 = load i16, ptr %401, align 2
   store i16 %402, ptr %397, align 2
   br label %._crit_edge1053
@@ -3355,7 +3355,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 404:                                              ; preds = %._crit_edge1053
   %405 = load i8, ptr %.0885.lcssa, align 1
   %406 = zext i8 %405 to i64
-  %407 = getelementptr inbounds nuw i16, ptr %385, i64 %406
+  %407 = getelementptr inbounds nuw [2 x i8], ptr %385, i64 %406
   %408 = load i16, ptr %407, align 2
   %409 = getelementptr inbounds nuw i8, ptr %.0889.lcssa, i64 2
   store i16 %408, ptr %.0889.lcssa, align 2
@@ -3475,14 +3475,14 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   %.29111091 = phi i32 [ %497, %.lr.ph1095 ], [ %.1910.lcssa, %._crit_edge1086 ]
   %486 = load i8, ptr %.28871093, align 1
   %487 = zext i8 %486 to i64
-  %488 = getelementptr inbounds nuw i16, ptr %.0903, i64 %487
+  %488 = getelementptr inbounds nuw [2 x i8], ptr %.0903, i64 %487
   %489 = load i16, ptr %488, align 2
   %490 = getelementptr inbounds nuw i8, ptr %.28911092, i64 2
   store i16 %489, ptr %.28911092, align 2
   %491 = getelementptr inbounds nuw i8, ptr %.28871093, i64 1
   %492 = load i8, ptr %491, align 1
   %493 = zext i8 %492 to i64
-  %494 = getelementptr inbounds nuw i16, ptr %.0902, i64 %493
+  %494 = getelementptr inbounds nuw [2 x i8], ptr %.0902, i64 %493
   %495 = load i16, ptr %494, align 2
   %496 = getelementptr inbounds nuw i8, ptr %.28911092, i64 4
   store i16 %495, ptr %490, align 2
@@ -3501,7 +3501,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 501:                                              ; preds = %412
   %502 = load i8, ptr %.1886, align 1
   %503 = zext i8 %502 to i64
-  %504 = getelementptr inbounds nuw i16, ptr %.0903, i64 %503
+  %504 = getelementptr inbounds nuw [2 x i8], ptr %.0903, i64 %503
   %505 = load i16, ptr %504, align 2
   %506 = getelementptr inbounds nuw i8, ptr %.1890, i64 2
   store i16 %505, ptr %.1890, align 2
@@ -3634,14 +3634,14 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   %.49131070 = phi i32 [ %614, %.lr.ph1074 ], [ %.3912.lcssa, %._crit_edge1064 ]
   %603 = load i8, ptr %.38881072, align 1
   %604 = zext i8 %603 to i64
-  %605 = getelementptr inbounds nuw i16, ptr %.0903, i64 %604
+  %605 = getelementptr inbounds nuw [2 x i8], ptr %.0903, i64 %604
   %606 = load i16, ptr %605, align 2
   %607 = getelementptr inbounds nuw i8, ptr %.38921071, i64 2
   store i16 %606, ptr %.38921071, align 2
   %608 = getelementptr inbounds nuw i8, ptr %.38881072, i64 1
   %609 = load i8, ptr %608, align 1
   %610 = zext i8 %609 to i64
-  %611 = getelementptr inbounds nuw i16, ptr %.0902, i64 %610
+  %611 = getelementptr inbounds nuw [2 x i8], ptr %.0902, i64 %610
   %612 = load i16, ptr %611, align 2
   %613 = getelementptr inbounds nuw i8, ptr %.38921071, i64 4
   store i16 %612, ptr %607, align 2
@@ -3662,14 +3662,14 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   %.2891.lcssa.sink = phi ptr [ %.2891.lcssa, %._crit_edge1096 ], [ %.3892.lcssa, %._crit_edge1075 ]
   %618 = load i8, ptr %.2887.lcssa.sink, align 1
   %619 = zext i8 %618 to i64
-  %620 = getelementptr inbounds nuw i16, ptr %.0903, i64 %619
+  %620 = getelementptr inbounds nuw [2 x i8], ptr %.0903, i64 %619
   %621 = load i16, ptr %620, align 2
   store i16 %621, ptr %.2891.lcssa.sink, align 2
   br label %622
 
 622:                                              ; preds = %.sink.split, %._crit_edge1096, %._crit_edge1075
   %623 = add nuw nsw i32 %.09081100, 1
-  %624 = getelementptr i16, ptr %.38591101, i64 %170
+  %624 = getelementptr [2 x i8], ptr %.38591101, i64 %170
   %625 = getelementptr inbounds i8, ptr %.38251102, i64 %171
   %exitcond1283.not = icmp eq i32 %623, %5
   br i1 %exitcond1283.not, label %.loopexit, label %384, !llvm.loop !61
@@ -3695,7 +3695,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 634:                                              ; preds = %626
   %635 = load i8, ptr %.48261045, align 1
   %636 = zext i8 %635 to i64
-  %637 = getelementptr inbounds nuw i16, ptr %627, i64 %636
+  %637 = getelementptr inbounds nuw [2 x i8], ptr %627, i64 %636
   %638 = load i16, ptr %637, align 2
   %639 = getelementptr inbounds nuw i8, ptr %.48601044, i64 2
   store i16 %638, ptr %.48601044, align 2
@@ -3705,14 +3705,14 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 641:                                              ; preds = %626
   %642 = load i8, ptr %.48261045, align 1
   %643 = zext i8 %642 to i64
-  %644 = getelementptr inbounds nuw i16, ptr %627, i64 %643
+  %644 = getelementptr inbounds nuw [2 x i8], ptr %627, i64 %643
   %645 = load i16, ptr %644, align 2
   %646 = getelementptr inbounds nuw i8, ptr %.48601044, i64 2
   store i16 %645, ptr %.48601044, align 2
   %647 = getelementptr inbounds nuw i8, ptr %.48261045, i64 1
   %648 = load i8, ptr %647, align 1
   %649 = zext i8 %648 to i64
-  %650 = getelementptr inbounds nuw i16, ptr %628, i64 %649
+  %650 = getelementptr inbounds nuw [2 x i8], ptr %628, i64 %649
   %651 = load i16, ptr %650, align 2
   %652 = getelementptr inbounds nuw i8, ptr %.48601044, i64 4
   store i16 %651, ptr %646, align 2
@@ -3722,21 +3722,21 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
 654:                                              ; preds = %626
   %655 = load i8, ptr %.48261045, align 1
   %656 = zext i8 %655 to i64
-  %657 = getelementptr inbounds nuw i16, ptr %627, i64 %656
+  %657 = getelementptr inbounds nuw [2 x i8], ptr %627, i64 %656
   %658 = load i16, ptr %657, align 2
   %659 = getelementptr inbounds nuw i8, ptr %.48601044, i64 2
   store i16 %658, ptr %.48601044, align 2
   %660 = getelementptr inbounds nuw i8, ptr %.48261045, i64 1
   %661 = load i8, ptr %660, align 1
   %662 = zext i8 %661 to i64
-  %663 = getelementptr inbounds nuw i16, ptr %628, i64 %662
+  %663 = getelementptr inbounds nuw [2 x i8], ptr %628, i64 %662
   %664 = load i16, ptr %663, align 2
   %665 = getelementptr inbounds nuw i8, ptr %.48601044, i64 4
   store i16 %664, ptr %659, align 2
   %666 = getelementptr inbounds nuw i8, ptr %.48261045, i64 2
   %667 = load i8, ptr %666, align 1
   %668 = zext i8 %667 to i64
-  %669 = getelementptr inbounds nuw i16, ptr %629, i64 %668
+  %669 = getelementptr inbounds nuw [2 x i8], ptr %629, i64 %668
   %670 = load i16, ptr %669, align 2
   %671 = getelementptr inbounds nuw i8, ptr %.48601044, i64 6
   store i16 %670, ptr %665, align 2
@@ -3867,7 +3867,7 @@ default.unreachable:                              ; preds = %893
 748:                                              ; preds = %._crit_edge1034
   %749 = load i8, ptr %.0876.lcssa, align 1
   %750 = zext i8 %749 to i64
-  %751 = getelementptr inbounds nuw i16, ptr %.1869.lcssa, i64 %750
+  %751 = getelementptr inbounds nuw [2 x i8], ptr %.1869.lcssa, i64 %750
   %752 = load i16, ptr %751, align 2
   %753 = getelementptr inbounds nuw i8, ptr %.0874.lcssa, i64 10
   store i16 %752, ptr %745, align 2
@@ -3885,7 +3885,7 @@ default.unreachable:                              ; preds = %893
 758:                                              ; preds = %756
   %759 = load i8, ptr %.1846, align 1
   %760 = zext i8 %759 to i64
-  %761 = getelementptr inbounds nuw i16, ptr %.1866.lcssa, i64 %760
+  %761 = getelementptr inbounds nuw [2 x i8], ptr %.1866.lcssa, i64 %760
   %762 = load i16, ptr %761, align 2
   store i16 %762, ptr %.1851, align 2
   %763 = add nuw nsw i32 %.1880, 1
@@ -3895,7 +3895,7 @@ default.unreachable:                              ; preds = %893
 765:                                              ; preds = %673
   %766 = load i8, ptr %.0845, align 1
   %767 = zext i8 %766 to i64
-  %768 = getelementptr inbounds nuw i16, ptr %.0871, i64 %767
+  %768 = getelementptr inbounds nuw [2 x i8], ptr %.0871, i64 %767
   %769 = load i16, ptr %768, align 2
   %770 = getelementptr inbounds nuw i8, ptr %.0850, i64 2
   store i16 %769, ptr %.0850, align 2
@@ -4031,7 +4031,7 @@ default.unreachable:                              ; preds = %893
 867:                                              ; preds = %._crit_edge1015
   %868 = load i8, ptr %.1877.lcssa, align 1
   %869 = zext i8 %868 to i64
-  %870 = getelementptr inbounds nuw i16, ptr %.2867.lcssa, i64 %869
+  %870 = getelementptr inbounds nuw [2 x i8], ptr %.2867.lcssa, i64 %869
   %871 = load i16, ptr %870, align 2
   %872 = getelementptr inbounds nuw i8, ptr %.1875.lcssa, i64 16
   store i16 %871, ptr %864, align 2
@@ -4049,7 +4049,7 @@ default.unreachable:                              ; preds = %893
 877:                                              ; preds = %875
   %878 = load i8, ptr %.3848, align 1
   %879 = zext i8 %878 to i64
-  %880 = getelementptr inbounds nuw i16, ptr %.2873.lcssa, i64 %879
+  %880 = getelementptr inbounds nuw [2 x i8], ptr %.2873.lcssa, i64 %879
   %881 = load i16, ptr %880, align 2
   store i16 %881, ptr %.3853, align 2
   %882 = add nuw nsw i32 %.4883, 1
@@ -4064,14 +4064,14 @@ default.unreachable:                              ; preds = %893
   %885 = getelementptr inbounds nuw i8, ptr %.1851.sink, i64 2
   %886 = load i8, ptr %884, align 1
   %887 = zext i8 %886 to i64
-  %888 = getelementptr inbounds nuw i16, ptr %.1872.lcssa.sink, i64 %887
+  %888 = getelementptr inbounds nuw [2 x i8], ptr %.1872.lcssa.sink, i64 %887
   %889 = load i16, ptr %888, align 2
   store i16 %889, ptr %885, align 2
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %875, %756, %758, %877
   %890 = add nuw nsw i32 %.08781043, 1
-  %891 = getelementptr inbounds i16, ptr %.48601044, i64 %165
+  %891 = getelementptr inbounds [2 x i8], ptr %.48601044, i64 %165
   %892 = getelementptr inbounds i8, ptr %.48261045, i64 %166
   %exitcond1282.not = icmp eq i32 %890, %5
   br i1 %exitcond1282.not, label %.loopexit, label %626, !llvm.loop !64
@@ -4098,7 +4098,7 @@ default.unreachable:                              ; preds = %893
 902:                                              ; preds = %893
   %903 = load i8, ptr %.51003, align 1
   %904 = zext i8 %903 to i64
-  %905 = getelementptr inbounds nuw i16, ptr %894, i64 %904
+  %905 = getelementptr inbounds nuw [2 x i8], ptr %894, i64 %904
   %906 = load i16, ptr %905, align 2
   %907 = getelementptr inbounds nuw i8, ptr %.58611001, i64 2
   store i16 %906, ptr %.58611001, align 2
@@ -4108,14 +4108,14 @@ default.unreachable:                              ; preds = %893
 909:                                              ; preds = %893
   %910 = load i8, ptr %.51003, align 1
   %911 = zext i8 %910 to i64
-  %912 = getelementptr inbounds nuw i16, ptr %894, i64 %911
+  %912 = getelementptr inbounds nuw [2 x i8], ptr %894, i64 %911
   %913 = load i16, ptr %912, align 2
   %914 = getelementptr inbounds nuw i8, ptr %.58611001, i64 2
   store i16 %913, ptr %.58611001, align 2
   %915 = getelementptr inbounds nuw i8, ptr %.51003, i64 1
   %916 = load i8, ptr %915, align 1
   %917 = zext i8 %916 to i64
-  %918 = getelementptr inbounds nuw i16, ptr %895, i64 %917
+  %918 = getelementptr inbounds nuw [2 x i8], ptr %895, i64 %917
   %919 = load i16, ptr %918, align 2
   %920 = getelementptr inbounds nuw i8, ptr %.58611001, i64 4
   store i16 %919, ptr %914, align 2
@@ -4125,21 +4125,21 @@ default.unreachable:                              ; preds = %893
 922:                                              ; preds = %893
   %923 = load i8, ptr %.51003, align 1
   %924 = zext i8 %923 to i64
-  %925 = getelementptr inbounds nuw i16, ptr %894, i64 %924
+  %925 = getelementptr inbounds nuw [2 x i8], ptr %894, i64 %924
   %926 = load i16, ptr %925, align 2
   %927 = getelementptr inbounds nuw i8, ptr %.58611001, i64 2
   store i16 %926, ptr %.58611001, align 2
   %928 = getelementptr inbounds nuw i8, ptr %.51003, i64 1
   %929 = load i8, ptr %928, align 1
   %930 = zext i8 %929 to i64
-  %931 = getelementptr inbounds nuw i16, ptr %895, i64 %930
+  %931 = getelementptr inbounds nuw [2 x i8], ptr %895, i64 %930
   %932 = load i16, ptr %931, align 2
   %933 = getelementptr inbounds nuw i8, ptr %.58611001, i64 4
   store i16 %932, ptr %927, align 2
   %934 = getelementptr inbounds nuw i8, ptr %.51003, i64 2
   %935 = load i8, ptr %934, align 1
   %936 = zext i8 %935 to i64
-  %937 = getelementptr inbounds nuw i16, ptr %896, i64 %936
+  %937 = getelementptr inbounds nuw [2 x i8], ptr %896, i64 %936
   %938 = load i16, ptr %937, align 2
   %939 = getelementptr inbounds nuw i8, ptr %.58611001, i64 6
   store i16 %938, ptr %933, align 2
@@ -4259,7 +4259,7 @@ default.unreachable:                              ; preds = %893
 1016:                                             ; preds = %._crit_edge995
   %1017 = load i8, ptr %.0836.lcssa, align 1
   %1018 = zext i8 %1017 to i64
-  %1019 = getelementptr inbounds nuw i16, ptr %.0833, i64 %1018
+  %1019 = getelementptr inbounds nuw [2 x i8], ptr %.0833, i64 %1018
   %1020 = load i16, ptr %1019, align 2
   %1021 = getelementptr inbounds nuw i8, ptr %.0834.lcssa, i64 10
   store i16 %1020, ptr %1013, align 2
@@ -4277,7 +4277,7 @@ default.unreachable:                              ; preds = %893
 1026:                                             ; preds = %1024
   %1027 = load i8, ptr %.1, align 1
   %1028 = zext i8 %1027 to i64
-  %1029 = getelementptr inbounds nuw i16, ptr %.0832, i64 %1028
+  %1029 = getelementptr inbounds nuw [2 x i8], ptr %.0832, i64 %1028
   %1030 = load i16, ptr %1029, align 2
   store i16 %1030, ptr %.1817, align 2
   %1031 = add nuw nsw i32 %.1840, 1
@@ -4287,7 +4287,7 @@ default.unreachable:                              ; preds = %893
 1033:                                             ; preds = %941
   %1034 = load i8, ptr %.0, align 1
   %1035 = zext i8 %1034 to i64
-  %1036 = getelementptr inbounds nuw i16, ptr %.0833, i64 %1035
+  %1036 = getelementptr inbounds nuw [2 x i8], ptr %.0833, i64 %1035
   %1037 = load i16, ptr %1036, align 2
   %1038 = getelementptr inbounds nuw i8, ptr %.0816, i64 2
   store i16 %1037, ptr %.0816, align 2
@@ -4417,7 +4417,7 @@ default.unreachable:                              ; preds = %893
 1135:                                             ; preds = %._crit_edge
   %1136 = load i8, ptr %.1837.lcssa, align 1
   %1137 = zext i8 %1136 to i64
-  %1138 = getelementptr inbounds nuw i16, ptr %.0833, i64 %1137
+  %1138 = getelementptr inbounds nuw [2 x i8], ptr %.0833, i64 %1137
   %1139 = load i16, ptr %1138, align 2
   %1140 = getelementptr inbounds nuw i8, ptr %.1835.lcssa, i64 16
   store i16 %1139, ptr %1132, align 2
@@ -4435,7 +4435,7 @@ default.unreachable:                              ; preds = %893
 1145:                                             ; preds = %1143
   %1146 = load i8, ptr %.3, align 1
   %1147 = zext i8 %1146 to i64
-  %1148 = getelementptr inbounds nuw i16, ptr %.0832, i64 %1147
+  %1148 = getelementptr inbounds nuw [2 x i8], ptr %.0832, i64 %1147
   %1149 = load i16, ptr %1148, align 2
   store i16 %1149, ptr %.3819, align 2
   %1150 = add nuw nsw i32 %.4843, 1
@@ -4449,14 +4449,14 @@ default.unreachable:                              ; preds = %893
   %1153 = getelementptr inbounds nuw i8, ptr %.1817.sink, i64 2
   %1154 = load i8, ptr %1152, align 1
   %1155 = zext i8 %1154 to i64
-  %1156 = getelementptr inbounds nuw i16, ptr %.0831, i64 %1155
+  %1156 = getelementptr inbounds nuw [2 x i8], ptr %.0831, i64 %1155
   %1157 = load i16, ptr %1156, align 2
   store i16 %1157, ptr %1153, align 2
   br label %.critedge961
 
 .critedge961:                                     ; preds = %.critedge961.sink.split, %1143, %1024, %1026, %1145
   %1158 = add nuw nsw i32 %.08381002, 1
-  %1159 = getelementptr inbounds i16, ptr %.58611001, i64 %156
+  %1159 = getelementptr inbounds [2 x i8], ptr %.58611001, i64 %156
   %1160 = getelementptr inbounds i8, ptr %.51003, i64 %157
   %exitcond.not = icmp eq i32 %1158, %5
   br i1 %exitcond.not, label %.loopexit, label %893, !llvm.loop !67
@@ -4477,10 +4477,10 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 65536
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4521,12 +4521,12 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
-  %25 = getelementptr inbounds nuw i16, ptr %.189125.us.us.us, i64 %indvars.iv204
-  %26 = getelementptr inbounds nuw i16, ptr %.1128.us.us.us, i64 %indvars.iv204
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv204
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us.us, i64 %indvars.iv204
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us.us, i64 %indvars.iv204
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv204
   %28 = load ptr, ptr %27, align 8
   %29 = load i16, ptr %26, align 2
-  %30 = getelementptr inbounds nuw i16, ptr %26, i64 %17
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %17
   %31 = load i16, ptr %30, align 2
   br label %32
 
@@ -4536,33 +4536,33 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
   %.084.in110.us.us.us.us.us = phi i16 [ %29, %.lr.ph114.us.us.us.us.us ], [ %39, %32 ]
   %.087109.us.us.us.us.us = phi ptr [ %25, %.lr.ph114.us.us.us.us.us ], [ %44, %32 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %43, %32 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i16, ptr %.pn, i64 %19
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %19
   %33 = sext i16 %.084.in110.us.us.us.us.us to i64
-  %34 = getelementptr inbounds i16, ptr %28, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %28, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %.0.in111.us.us.us.us.us to i64
-  %37 = getelementptr inbounds i16, ptr %28, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %28, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = load i16, ptr %.086112.us.us.us.us.us, align 2
-  %40 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us.us.us, i64 %17
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us.us.us, i64 %17
   %41 = load i16, ptr %40, align 2
   store i16 %35, ptr %.087109.us.us.us.us.us, align 2
-  %42 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %17
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %17
   store i16 %38, ptr %42, align 2
   %43 = add nuw nsw i32 %.197108.us.us.us.us.us, 2
-  %44 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %19
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %19
   %45 = icmp slt i32 %43, %20
   br i1 %45, label %32, label %._crit_edge115.us.us.us.us.us, !llvm.loop !69
 
 ._crit_edge115.us.us.us.us.us:                    ; preds = %32
   %46 = sext i16 %39 to i64
-  %47 = getelementptr inbounds i16, ptr %28, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %28, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = sext i16 %41 to i64
-  %50 = getelementptr inbounds i16, ptr %28, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %28, i64 %49
   %51 = load i16, ptr %50, align 2
   store i16 %48, ptr %44, align 2
-  %52 = getelementptr inbounds nuw i16, ptr %44, i64 %17
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %17
   store i16 %51, ptr %52, align 2
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
@@ -4570,8 +4570,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %53 = add nuw nsw i32 %.195124.us.us.us, 1
-  %54 = getelementptr inbounds i16, ptr %.189125.us.us.us, i64 %22
-  %55 = getelementptr inbounds i16, ptr %.1128.us.us.us, i64 %23
+  %54 = getelementptr inbounds [2 x i8], ptr %.189125.us.us.us, i64 %22
+  %55 = getelementptr inbounds [2 x i8], ptr %.1128.us.us.us, i64 %23
   %exitcond209.not = icmp eq i32 %53, %5
   br i1 %exitcond209.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !71
 
@@ -4583,14 +4583,14 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
-  %56 = getelementptr inbounds nuw i16, ptr %.189125.us.us, i64 %indvars.iv198
-  %57 = getelementptr inbounds nuw i16, ptr %.1128.us.us, i64 %indvars.iv198
-  %58 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv198
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us, i64 %indvars.iv198
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us, i64 %indvars.iv198
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv198
   %59 = load ptr, ptr %58, align 8
   %60 = load i16, ptr %57, align 2
-  %61 = getelementptr inbounds nuw i16, ptr %57, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %17
   %62 = load i16, ptr %61, align 2
-  %.086107.us.us.us = getelementptr inbounds nuw i16, ptr %57, i64 %19
+  %.086107.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %19
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph114.us.us.us
@@ -4600,38 +4600,38 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
   %.087109.us.us.us = phi ptr [ %56, %.lr.ph114.us.us.us ], [ %75, %63 ]
   %.197108.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us ], [ %74, %63 ]
   %64 = sext i16 %.084.in110.us.us.us to i64
-  %65 = getelementptr inbounds i16, ptr %59, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %59, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = sext i16 %.0.in111.us.us.us to i64
-  %68 = getelementptr inbounds i16, ptr %59, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %59, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = load i16, ptr %.086112.us.us.us, align 2
-  %71 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %17
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %17
   %72 = load i16, ptr %71, align 2
   store i16 %66, ptr %.087109.us.us.us, align 2
-  %73 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %17
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %17
   store i16 %69, ptr %73, align 2
   %74 = add nuw nsw i32 %.197108.us.us.us, 2
-  %75 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %19
-  %.086.us.us.us = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %19
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %19
+  %.086.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %19
   %76 = icmp slt i32 %74, %20
   br i1 %76, label %63, label %._crit_edge115.us.us.us, !llvm.loop !69
 
 ._crit_edge115.us.us.us:                          ; preds = %63
   %77 = sext i16 %70 to i64
-  %78 = getelementptr inbounds i16, ptr %59, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %59, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = sext i16 %72 to i64
-  %81 = getelementptr inbounds i16, ptr %59, i64 %80
+  %81 = getelementptr inbounds [2 x i8], ptr %59, i64 %80
   %82 = load i16, ptr %81, align 2
   store i16 %79, ptr %75, align 2
-  %83 = getelementptr inbounds nuw i16, ptr %75, i64 %17
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %17
   store i16 %82, ptr %83, align 2
   %84 = load i16, ptr %.086.us.us.us, align 2
   %85 = sext i16 %84 to i64
-  %86 = getelementptr inbounds i16, ptr %59, i64 %85
+  %86 = getelementptr inbounds [2 x i8], ptr %59, i64 %85
   %87 = load i16, ptr %86, align 2
-  %88 = getelementptr inbounds nuw i16, ptr %75, i64 %19
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %19
   store i16 %87, ptr %88, align 2
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count207
@@ -4639,8 +4639,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %89 = add nuw nsw i32 %.195124.us.us, 1
-  %90 = getelementptr inbounds i16, ptr %.189125.us.us, i64 %22
-  %91 = getelementptr inbounds i16, ptr %.1128.us.us, i64 %23
+  %90 = getelementptr inbounds [2 x i8], ptr %.189125.us.us, i64 %22
+  %91 = getelementptr inbounds [2 x i8], ptr %.1128.us.us, i64 %23
   %exitcond203.not = icmp eq i32 %89, %5
   br i1 %exitcond203.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !71
 
@@ -4655,21 +4655,21 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
 
 92:                                               ; preds = %92, %.preheader103.us.us137
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %92 ], [ 0, %.preheader103.us.us137 ]
-  %93 = getelementptr inbounds nuw i16, ptr %.189125.us.us139, i64 %indvars.iv192
-  %94 = getelementptr inbounds nuw i16, ptr %.1128.us.us138, i64 %indvars.iv192
-  %95 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv192
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us139, i64 %indvars.iv192
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us138, i64 %indvars.iv192
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv192
   %96 = load ptr, ptr %95, align 8
   %97 = load i16, ptr %94, align 2
-  %98 = getelementptr inbounds nuw i16, ptr %94, i64 %17
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %17
   %99 = load i16, ptr %98, align 2
   %100 = sext i16 %97 to i64
-  %101 = getelementptr inbounds i16, ptr %96, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %96, i64 %100
   %102 = load i16, ptr %101, align 2
   %103 = sext i16 %99 to i64
-  %104 = getelementptr inbounds i16, ptr %96, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr %96, i64 %103
   %105 = load i16, ptr %104, align 2
   store i16 %102, ptr %93, align 2
-  %106 = getelementptr inbounds nuw i16, ptr %93, i64 %17
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %17
   store i16 %105, ptr %106, align 2
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count207
@@ -4677,8 +4677,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us.us.us:              ; preds = %92
   %107 = add nuw nsw i32 %.195124.us.us140, 1
-  %108 = getelementptr inbounds i16, ptr %.189125.us.us139, i64 %22
-  %109 = getelementptr inbounds i16, ptr %.1128.us.us138, i64 %23
+  %108 = getelementptr inbounds [2 x i8], ptr %.189125.us.us139, i64 %22
+  %109 = getelementptr inbounds [2 x i8], ptr %.1128.us.us138, i64 %23
   %exitcond197.not = icmp eq i32 %107, %5
   br i1 %exitcond197.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !71
 
@@ -4690,28 +4690,28 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
 
 110:                                              ; preds = %.preheader103.us, %110
   %indvars.iv186 = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next187, %110 ]
-  %111 = getelementptr inbounds nuw i16, ptr %.189125.us, i64 %indvars.iv186
-  %112 = getelementptr inbounds nuw i16, ptr %.1128.us, i64 %indvars.iv186
-  %113 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv186
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us, i64 %indvars.iv186
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us, i64 %indvars.iv186
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv186
   %114 = load ptr, ptr %113, align 8
   %115 = load i16, ptr %112, align 2
-  %116 = getelementptr inbounds nuw i16, ptr %112, i64 %17
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %17
   %117 = load i16, ptr %116, align 2
-  %.086107.us132 = getelementptr inbounds nuw i16, ptr %112, i64 %19
+  %.086107.us132 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %19
   %118 = sext i16 %115 to i64
-  %119 = getelementptr inbounds i16, ptr %114, i64 %118
+  %119 = getelementptr inbounds [2 x i8], ptr %114, i64 %118
   %120 = load i16, ptr %119, align 2
   %121 = sext i16 %117 to i64
-  %122 = getelementptr inbounds i16, ptr %114, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr %114, i64 %121
   %123 = load i16, ptr %122, align 2
   store i16 %120, ptr %111, align 2
-  %124 = getelementptr inbounds nuw i16, ptr %111, i64 %17
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %17
   store i16 %123, ptr %124, align 2
   %125 = load i16, ptr %.086107.us132, align 2
   %126 = sext i16 %125 to i64
-  %127 = getelementptr inbounds i16, ptr %114, i64 %126
+  %127 = getelementptr inbounds [2 x i8], ptr %114, i64 %126
   %128 = load i16, ptr %127, align 2
-  %129 = getelementptr inbounds nuw i16, ptr %111, i64 %19
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %19
   store i16 %128, ptr %129, align 2
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count207
@@ -4719,8 +4719,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us133:                 ; preds = %110
   %130 = add nuw nsw i32 %.195124.us, 1
-  %131 = getelementptr inbounds i16, ptr %.189125.us, i64 %22
-  %132 = getelementptr inbounds i16, ptr %.1128.us, i64 %23
+  %131 = getelementptr inbounds [2 x i8], ptr %.189125.us, i64 %22
+  %132 = getelementptr inbounds [2 x i8], ptr %.1128.us, i64 %23
   %exitcond191.not = icmp eq i32 %130, %5
   br i1 %exitcond191.not, label %.loopexit, label %.preheader103.us, !llvm.loop !71
 
@@ -4746,13 +4746,13 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
 
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv210 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next211, %.lr.ph144.us.us167.us ]
-  %136 = getelementptr inbounds nuw i16, ptr %.088160.us.us, i64 %indvars.iv210
-  %137 = getelementptr inbounds nuw i16, ptr %.085162.us.us, i64 %indvars.iv210
-  %138 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv210
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %.088160.us.us, i64 %indvars.iv210
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %.085162.us.us, i64 %indvars.iv210
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv210
   %139 = load ptr, ptr %138, align 8
   %140 = load i16, ptr %137, align 2
   %141 = sext i16 %140 to i64
-  %142 = getelementptr inbounds i16, ptr %139, i64 %141
+  %142 = getelementptr inbounds [2 x i8], ptr %139, i64 %141
   %143 = load i16, ptr %142, align 2
   store i16 %143, ptr %136, align 2
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -4761,8 +4761,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr noundef readonly captures(non
 
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %144 = add nuw nsw i32 %.094159.us.us, 1
-  %145 = getelementptr inbounds i16, ptr %.088160.us.us, i64 %133
-  %146 = getelementptr inbounds i16, ptr %.085162.us.us, i64 %134
+  %145 = getelementptr inbounds [2 x i8], ptr %.088160.us.us, i64 %133
+  %146 = getelementptr inbounds [2 x i8], ptr %.085162.us.us, i64 %134
   %exitcond215.not = icmp eq i32 %144, %5
   br i1 %exitcond215.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !73
 
@@ -4817,12 +4817,12 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
-  %23 = getelementptr inbounds nuw i16, ptr %.189125.us.us.us, i64 %indvars.iv200
-  %24 = getelementptr inbounds nuw i16, ptr %.1128.us.us.us, i64 %indvars.iv200
-  %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv200
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us.us, i64 %indvars.iv200
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us.us, i64 %indvars.iv200
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv200
   %26 = load ptr, ptr %25, align 8
   %27 = load i16, ptr %24, align 2
-  %28 = getelementptr inbounds nuw i16, ptr %24, i64 %15
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %15
   %29 = load i16, ptr %28, align 2
   br label %30
 
@@ -4832,33 +4832,33 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
   %.084.in110.us.us.us.us.us = phi i16 [ %27, %.lr.ph114.us.us.us.us.us ], [ %37, %30 ]
   %.087109.us.us.us.us.us = phi ptr [ %23, %.lr.ph114.us.us.us.us.us ], [ %42, %30 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %41, %30 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i16, ptr %.pn, i64 %17
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %17
   %31 = zext i16 %.084.in110.us.us.us.us.us to i64
-  %32 = getelementptr inbounds nuw i16, ptr %26, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %.0.in111.us.us.us.us.us to i64
-  %35 = getelementptr inbounds nuw i16, ptr %26, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = load i16, ptr %.086112.us.us.us.us.us, align 2
-  %38 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us.us.us, i64 %15
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us.us.us, i64 %15
   %39 = load i16, ptr %38, align 2
   store i16 %33, ptr %.087109.us.us.us.us.us, align 2
-  %40 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %15
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %15
   store i16 %36, ptr %40, align 2
   %41 = add nuw nsw i32 %.197108.us.us.us.us.us, 2
-  %42 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %17
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %17
   %43 = icmp slt i32 %41, %18
   br i1 %43, label %30, label %._crit_edge115.us.us.us.us.us, !llvm.loop !74
 
 ._crit_edge115.us.us.us.us.us:                    ; preds = %30
   %44 = zext i16 %37 to i64
-  %45 = getelementptr inbounds nuw i16, ptr %26, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %39 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %26, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %47
   %49 = load i16, ptr %48, align 2
   store i16 %46, ptr %42, align 2
-  %50 = getelementptr inbounds nuw i16, ptr %42, i64 %15
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %15
   store i16 %49, ptr %50, align 2
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
@@ -4866,8 +4866,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %51 = add nuw nsw i32 %.195124.us.us.us, 1
-  %52 = getelementptr inbounds i16, ptr %.189125.us.us.us, i64 %20
-  %53 = getelementptr inbounds i16, ptr %.1128.us.us.us, i64 %21
+  %52 = getelementptr inbounds [2 x i8], ptr %.189125.us.us.us, i64 %20
+  %53 = getelementptr inbounds [2 x i8], ptr %.1128.us.us.us, i64 %21
   %exitcond205.not = icmp eq i32 %51, %5
   br i1 %exitcond205.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !76
 
@@ -4879,14 +4879,14 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
-  %54 = getelementptr inbounds nuw i16, ptr %.189125.us.us, i64 %indvars.iv194
-  %55 = getelementptr inbounds nuw i16, ptr %.1128.us.us, i64 %indvars.iv194
-  %56 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv194
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us, i64 %indvars.iv194
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us, i64 %indvars.iv194
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv194
   %57 = load ptr, ptr %56, align 8
   %58 = load i16, ptr %55, align 2
-  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %15
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %15
   %60 = load i16, ptr %59, align 2
-  %.086107.us.us.us = getelementptr inbounds nuw i16, ptr %55, i64 %17
+  %.086107.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %17
   br label %61
 
 61:                                               ; preds = %61, %.lr.ph114.us.us.us
@@ -4896,38 +4896,38 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
   %.087109.us.us.us = phi ptr [ %54, %.lr.ph114.us.us.us ], [ %73, %61 ]
   %.197108.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us ], [ %72, %61 ]
   %62 = zext i16 %.084.in110.us.us.us to i64
-  %63 = getelementptr inbounds nuw i16, ptr %57, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = zext i16 %.0.in111.us.us.us to i64
-  %66 = getelementptr inbounds nuw i16, ptr %57, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = load i16, ptr %.086112.us.us.us, align 2
-  %69 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %15
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %15
   %70 = load i16, ptr %69, align 2
   store i16 %64, ptr %.087109.us.us.us, align 2
-  %71 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %15
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %15
   store i16 %67, ptr %71, align 2
   %72 = add nuw nsw i32 %.197108.us.us.us, 2
-  %73 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %17
-  %.086.us.us.us = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %17
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %17
+  %.086.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %17
   %74 = icmp slt i32 %72, %18
   br i1 %74, label %61, label %._crit_edge115.us.us.us, !llvm.loop !74
 
 ._crit_edge115.us.us.us:                          ; preds = %61
   %75 = zext i16 %68 to i64
-  %76 = getelementptr inbounds nuw i16, ptr %57, i64 %75
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %70 to i64
-  %79 = getelementptr inbounds nuw i16, ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %78
   %80 = load i16, ptr %79, align 2
   store i16 %77, ptr %73, align 2
-  %81 = getelementptr inbounds nuw i16, ptr %73, i64 %15
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %15
   store i16 %80, ptr %81, align 2
   %82 = load i16, ptr %.086.us.us.us, align 2
   %83 = zext i16 %82 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %57, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %83
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds nuw i16, ptr %73, i64 %17
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %17
   store i16 %85, ptr %86, align 2
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count203
@@ -4935,8 +4935,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %87 = add nuw nsw i32 %.195124.us.us, 1
-  %88 = getelementptr inbounds i16, ptr %.189125.us.us, i64 %20
-  %89 = getelementptr inbounds i16, ptr %.1128.us.us, i64 %21
+  %88 = getelementptr inbounds [2 x i8], ptr %.189125.us.us, i64 %20
+  %89 = getelementptr inbounds [2 x i8], ptr %.1128.us.us, i64 %21
   %exitcond199.not = icmp eq i32 %87, %5
   br i1 %exitcond199.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !76
 
@@ -4951,21 +4951,21 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
 
 90:                                               ; preds = %90, %.preheader103.us.us137
   %indvars.iv188 = phi i64 [ %indvars.iv.next189, %90 ], [ 0, %.preheader103.us.us137 ]
-  %91 = getelementptr inbounds nuw i16, ptr %.189125.us.us139, i64 %indvars.iv188
-  %92 = getelementptr inbounds nuw i16, ptr %.1128.us.us138, i64 %indvars.iv188
-  %93 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv188
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us139, i64 %indvars.iv188
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us138, i64 %indvars.iv188
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv188
   %94 = load ptr, ptr %93, align 8
   %95 = load i16, ptr %92, align 2
-  %96 = getelementptr inbounds nuw i16, ptr %92, i64 %15
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %15
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %95 to i64
-  %99 = getelementptr inbounds nuw i16, ptr %94, i64 %98
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = zext i16 %97 to i64
-  %102 = getelementptr inbounds nuw i16, ptr %94, i64 %101
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %101
   %103 = load i16, ptr %102, align 2
   store i16 %100, ptr %91, align 2
-  %104 = getelementptr inbounds nuw i16, ptr %91, i64 %15
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %15
   store i16 %103, ptr %104, align 2
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count203
@@ -4973,8 +4973,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us.us.us:              ; preds = %90
   %105 = add nuw nsw i32 %.195124.us.us140, 1
-  %106 = getelementptr inbounds i16, ptr %.189125.us.us139, i64 %20
-  %107 = getelementptr inbounds i16, ptr %.1128.us.us138, i64 %21
+  %106 = getelementptr inbounds [2 x i8], ptr %.189125.us.us139, i64 %20
+  %107 = getelementptr inbounds [2 x i8], ptr %.1128.us.us138, i64 %21
   %exitcond193.not = icmp eq i32 %105, %5
   br i1 %exitcond193.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !76
 
@@ -4986,28 +4986,28 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
 
 108:                                              ; preds = %.preheader103.us, %108
   %indvars.iv = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next, %108 ]
-  %109 = getelementptr inbounds nuw i16, ptr %.189125.us, i64 %indvars.iv
-  %110 = getelementptr inbounds nuw i16, ptr %.1128.us, i64 %indvars.iv
-  %111 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %112 = load ptr, ptr %111, align 8
   %113 = load i16, ptr %110, align 2
-  %114 = getelementptr inbounds nuw i16, ptr %110, i64 %15
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %15
   %115 = load i16, ptr %114, align 2
-  %.086107.us132 = getelementptr inbounds nuw i16, ptr %110, i64 %17
+  %.086107.us132 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %17
   %116 = zext i16 %113 to i64
-  %117 = getelementptr inbounds nuw i16, ptr %112, i64 %116
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %116
   %118 = load i16, ptr %117, align 2
   %119 = zext i16 %115 to i64
-  %120 = getelementptr inbounds nuw i16, ptr %112, i64 %119
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %119
   %121 = load i16, ptr %120, align 2
   store i16 %118, ptr %109, align 2
-  %122 = getelementptr inbounds nuw i16, ptr %109, i64 %15
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %15
   store i16 %121, ptr %122, align 2
   %123 = load i16, ptr %.086107.us132, align 2
   %124 = zext i16 %123 to i64
-  %125 = getelementptr inbounds nuw i16, ptr %112, i64 %124
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %124
   %126 = load i16, ptr %125, align 2
-  %127 = getelementptr inbounds nuw i16, ptr %109, i64 %17
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %17
   store i16 %126, ptr %127, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count203
@@ -5015,8 +5015,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us133:                 ; preds = %108
   %128 = add nuw nsw i32 %.195124.us, 1
-  %129 = getelementptr inbounds i16, ptr %.189125.us, i64 %20
-  %130 = getelementptr inbounds i16, ptr %.1128.us, i64 %21
+  %129 = getelementptr inbounds [2 x i8], ptr %.189125.us, i64 %20
+  %130 = getelementptr inbounds [2 x i8], ptr %.1128.us, i64 %21
   %exitcond187.not = icmp eq i32 %128, %5
   br i1 %exitcond187.not, label %.loopexit, label %.preheader103.us, !llvm.loop !76
 
@@ -5042,13 +5042,13 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
 
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv206 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next207, %.lr.ph144.us.us167.us ]
-  %134 = getelementptr inbounds nuw i16, ptr %.088160.us.us, i64 %indvars.iv206
-  %135 = getelementptr inbounds nuw i16, ptr %.085162.us.us, i64 %indvars.iv206
-  %136 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv206
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %.088160.us.us, i64 %indvars.iv206
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %.085162.us.us, i64 %indvars.iv206
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv206
   %137 = load ptr, ptr %136, align 8
   %138 = load i16, ptr %135, align 2
   %139 = zext i16 %138 to i64
-  %140 = getelementptr inbounds nuw i16, ptr %137, i64 %139
+  %140 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 %139
   %141 = load i16, ptr %140, align 2
   store i16 %141, ptr %134, align 2
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
@@ -5057,8 +5057,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr noundef readonly captures(non
 
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %142 = add nuw nsw i32 %.094159.us.us, 1
-  %143 = getelementptr inbounds i16, ptr %.088160.us.us, i64 %131
-  %144 = getelementptr inbounds i16, ptr %.085162.us.us, i64 %132
+  %143 = getelementptr inbounds [2 x i8], ptr %.088160.us.us, i64 %131
+  %144 = getelementptr inbounds [2 x i8], ptr %.085162.us.us, i64 %132
   %exitcond211.not = icmp eq i32 %142, %5
   br i1 %exitcond211.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !78
 
@@ -5078,10 +5078,10 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1073741822
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5122,12 +5122,12 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
-  %25 = getelementptr inbounds nuw i16, ptr %.189125.us.us.us, i64 %indvars.iv204
-  %26 = getelementptr inbounds nuw i32, ptr %.1128.us.us.us, i64 %indvars.iv204
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv204
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us.us, i64 %indvars.iv204
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us.us, i64 %indvars.iv204
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv204
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %26, align 4
-  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %17
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %17
   %31 = load i32, ptr %30, align 4
   br label %32
 
@@ -5137,33 +5137,33 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
   %.084110.us.us.us.us.us = phi i32 [ %29, %.lr.ph114.us.us.us.us.us ], [ %39, %32 ]
   %.087109.us.us.us.us.us = phi ptr [ %25, %.lr.ph114.us.us.us.us.us ], [ %44, %32 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %43, %32 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i32, ptr %.pn, i64 %19
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %.pn, i64 %19
   %33 = sext i32 %.084110.us.us.us.us.us to i64
-  %34 = getelementptr inbounds i16, ptr %28, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %28, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = sext i32 %.0111.us.us.us.us.us to i64
-  %37 = getelementptr inbounds i16, ptr %28, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %28, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = load i32, ptr %.086112.us.us.us.us.us, align 4
-  %40 = getelementptr inbounds nuw i32, ptr %.086112.us.us.us.us.us, i64 %17
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us.us.us, i64 %17
   %41 = load i32, ptr %40, align 4
   store i16 %35, ptr %.087109.us.us.us.us.us, align 2
-  %42 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %17
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %17
   store i16 %38, ptr %42, align 2
   %43 = add nuw nsw i32 %.197108.us.us.us.us.us, 2
-  %44 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %19
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %19
   %45 = icmp slt i32 %43, %20
   br i1 %45, label %32, label %._crit_edge115.us.us.us.us.us, !llvm.loop !80
 
 ._crit_edge115.us.us.us.us.us:                    ; preds = %32
   %46 = sext i32 %39 to i64
-  %47 = getelementptr inbounds i16, ptr %28, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %28, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = sext i32 %41 to i64
-  %50 = getelementptr inbounds i16, ptr %28, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %28, i64 %49
   %51 = load i16, ptr %50, align 2
   store i16 %48, ptr %44, align 2
-  %52 = getelementptr inbounds nuw i16, ptr %44, i64 %17
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %17
   store i16 %51, ptr %52, align 2
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
@@ -5171,8 +5171,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %53 = add nuw nsw i32 %.195124.us.us.us, 1
-  %54 = getelementptr inbounds i16, ptr %.189125.us.us.us, i64 %22
-  %55 = getelementptr inbounds i32, ptr %.1128.us.us.us, i64 %23
+  %54 = getelementptr inbounds [2 x i8], ptr %.189125.us.us.us, i64 %22
+  %55 = getelementptr inbounds [4 x i8], ptr %.1128.us.us.us, i64 %23
   %exitcond209.not = icmp eq i32 %53, %5
   br i1 %exitcond209.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !82
 
@@ -5184,14 +5184,14 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
-  %56 = getelementptr inbounds nuw i16, ptr %.189125.us.us, i64 %indvars.iv198
-  %57 = getelementptr inbounds nuw i32, ptr %.1128.us.us, i64 %indvars.iv198
-  %58 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv198
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us, i64 %indvars.iv198
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us, i64 %indvars.iv198
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv198
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %57, align 4
-  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %17
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %17
   %62 = load i32, ptr %61, align 4
-  %.086107.us.us.us = getelementptr inbounds nuw i32, ptr %57, i64 %19
+  %.086107.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %19
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph114.us.us.us
@@ -5201,38 +5201,38 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
   %.087109.us.us.us = phi ptr [ %56, %.lr.ph114.us.us.us ], [ %75, %63 ]
   %.197108.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us ], [ %74, %63 ]
   %64 = sext i32 %.084110.us.us.us to i64
-  %65 = getelementptr inbounds i16, ptr %59, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %59, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = sext i32 %.0111.us.us.us to i64
-  %68 = getelementptr inbounds i16, ptr %59, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %59, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = load i32, ptr %.086112.us.us.us, align 4
-  %71 = getelementptr inbounds nuw i32, ptr %.086112.us.us.us, i64 %17
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us, i64 %17
   %72 = load i32, ptr %71, align 4
   store i16 %66, ptr %.087109.us.us.us, align 2
-  %73 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %17
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %17
   store i16 %69, ptr %73, align 2
   %74 = add nuw nsw i32 %.197108.us.us.us, 2
-  %75 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %19
-  %.086.us.us.us = getelementptr inbounds nuw i32, ptr %.086112.us.us.us, i64 %19
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %19
+  %.086.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us, i64 %19
   %76 = icmp slt i32 %74, %20
   br i1 %76, label %63, label %._crit_edge115.us.us.us, !llvm.loop !80
 
 ._crit_edge115.us.us.us:                          ; preds = %63
   %77 = sext i32 %70 to i64
-  %78 = getelementptr inbounds i16, ptr %59, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %59, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = sext i32 %72 to i64
-  %81 = getelementptr inbounds i16, ptr %59, i64 %80
+  %81 = getelementptr inbounds [2 x i8], ptr %59, i64 %80
   %82 = load i16, ptr %81, align 2
   store i16 %79, ptr %75, align 2
-  %83 = getelementptr inbounds nuw i16, ptr %75, i64 %17
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %17
   store i16 %82, ptr %83, align 2
   %84 = load i32, ptr %.086.us.us.us, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i16, ptr %59, i64 %85
+  %86 = getelementptr inbounds [2 x i8], ptr %59, i64 %85
   %87 = load i16, ptr %86, align 2
-  %88 = getelementptr inbounds nuw i16, ptr %75, i64 %19
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %19
   store i16 %87, ptr %88, align 2
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count207
@@ -5240,8 +5240,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %89 = add nuw nsw i32 %.195124.us.us, 1
-  %90 = getelementptr inbounds i16, ptr %.189125.us.us, i64 %22
-  %91 = getelementptr inbounds i32, ptr %.1128.us.us, i64 %23
+  %90 = getelementptr inbounds [2 x i8], ptr %.189125.us.us, i64 %22
+  %91 = getelementptr inbounds [4 x i8], ptr %.1128.us.us, i64 %23
   %exitcond203.not = icmp eq i32 %89, %5
   br i1 %exitcond203.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !82
 
@@ -5256,21 +5256,21 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
 
 92:                                               ; preds = %92, %.preheader103.us.us137
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %92 ], [ 0, %.preheader103.us.us137 ]
-  %93 = getelementptr inbounds nuw i16, ptr %.189125.us.us139, i64 %indvars.iv192
-  %94 = getelementptr inbounds nuw i32, ptr %.1128.us.us138, i64 %indvars.iv192
-  %95 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv192
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us139, i64 %indvars.iv192
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us138, i64 %indvars.iv192
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv192
   %96 = load ptr, ptr %95, align 8
   %97 = load i32, ptr %94, align 4
-  %98 = getelementptr inbounds nuw i32, ptr %94, i64 %17
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %17
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %97 to i64
-  %101 = getelementptr inbounds i16, ptr %96, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %96, i64 %100
   %102 = load i16, ptr %101, align 2
   %103 = sext i32 %99 to i64
-  %104 = getelementptr inbounds i16, ptr %96, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr %96, i64 %103
   %105 = load i16, ptr %104, align 2
   store i16 %102, ptr %93, align 2
-  %106 = getelementptr inbounds nuw i16, ptr %93, i64 %17
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %17
   store i16 %105, ptr %106, align 2
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count207
@@ -5278,8 +5278,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us.us.us:              ; preds = %92
   %107 = add nuw nsw i32 %.195124.us.us140, 1
-  %108 = getelementptr inbounds i16, ptr %.189125.us.us139, i64 %22
-  %109 = getelementptr inbounds i32, ptr %.1128.us.us138, i64 %23
+  %108 = getelementptr inbounds [2 x i8], ptr %.189125.us.us139, i64 %22
+  %109 = getelementptr inbounds [4 x i8], ptr %.1128.us.us138, i64 %23
   %exitcond197.not = icmp eq i32 %107, %5
   br i1 %exitcond197.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !82
 
@@ -5291,28 +5291,28 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
 
 110:                                              ; preds = %.preheader103.us, %110
   %indvars.iv186 = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next187, %110 ]
-  %111 = getelementptr inbounds nuw i16, ptr %.189125.us, i64 %indvars.iv186
-  %112 = getelementptr inbounds nuw i32, ptr %.1128.us, i64 %indvars.iv186
-  %113 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv186
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us, i64 %indvars.iv186
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us, i64 %indvars.iv186
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv186
   %114 = load ptr, ptr %113, align 8
   %115 = load i32, ptr %112, align 4
-  %116 = getelementptr inbounds nuw i32, ptr %112, i64 %17
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %17
   %117 = load i32, ptr %116, align 4
-  %.086107.us132 = getelementptr inbounds nuw i32, ptr %112, i64 %19
+  %.086107.us132 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %19
   %118 = sext i32 %115 to i64
-  %119 = getelementptr inbounds i16, ptr %114, i64 %118
+  %119 = getelementptr inbounds [2 x i8], ptr %114, i64 %118
   %120 = load i16, ptr %119, align 2
   %121 = sext i32 %117 to i64
-  %122 = getelementptr inbounds i16, ptr %114, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr %114, i64 %121
   %123 = load i16, ptr %122, align 2
   store i16 %120, ptr %111, align 2
-  %124 = getelementptr inbounds nuw i16, ptr %111, i64 %17
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %17
   store i16 %123, ptr %124, align 2
   %125 = load i32, ptr %.086107.us132, align 4
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i16, ptr %114, i64 %126
+  %127 = getelementptr inbounds [2 x i8], ptr %114, i64 %126
   %128 = load i16, ptr %127, align 2
-  %129 = getelementptr inbounds nuw i16, ptr %111, i64 %19
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %19
   store i16 %128, ptr %129, align 2
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count207
@@ -5320,8 +5320,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us133:                 ; preds = %110
   %130 = add nuw nsw i32 %.195124.us, 1
-  %131 = getelementptr inbounds i16, ptr %.189125.us, i64 %22
-  %132 = getelementptr inbounds i32, ptr %.1128.us, i64 %23
+  %131 = getelementptr inbounds [2 x i8], ptr %.189125.us, i64 %22
+  %132 = getelementptr inbounds [4 x i8], ptr %.1128.us, i64 %23
   %exitcond191.not = icmp eq i32 %130, %5
   br i1 %exitcond191.not, label %.loopexit, label %.preheader103.us, !llvm.loop !82
 
@@ -5347,13 +5347,13 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
 
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv210 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next211, %.lr.ph144.us.us167.us ]
-  %136 = getelementptr inbounds nuw i16, ptr %.088160.us.us, i64 %indvars.iv210
-  %137 = getelementptr inbounds nuw i32, ptr %.085162.us.us, i64 %indvars.iv210
-  %138 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv210
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %.088160.us.us, i64 %indvars.iv210
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.085162.us.us, i64 %indvars.iv210
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv210
   %139 = load ptr, ptr %138, align 8
   %140 = load i32, ptr %137, align 4
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i16, ptr %139, i64 %141
+  %142 = getelementptr inbounds [2 x i8], ptr %139, i64 %141
   %143 = load i16, ptr %142, align 2
   store i16 %143, ptr %136, align 2
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -5362,8 +5362,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr noundef readonly captures(non
 
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %144 = add nuw nsw i32 %.094159.us.us, 1
-  %145 = getelementptr inbounds i16, ptr %.088160.us.us, i64 %133
-  %146 = getelementptr inbounds i32, ptr %.085162.us.us, i64 %134
+  %145 = getelementptr inbounds [2 x i8], ptr %.088160.us.us, i64 %133
+  %146 = getelementptr inbounds [4 x i8], ptr %.085162.us.us, i64 %134
   %exitcond215.not = icmp eq i32 %144, %5
   br i1 %exitcond215.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !84
 
@@ -5383,10 +5383,10 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 65536
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5427,12 +5427,12 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
-  %25 = getelementptr inbounds nuw i16, ptr %.189125.us.us.us, i64 %indvars.iv204
-  %26 = getelementptr inbounds nuw i16, ptr %.1128.us.us.us, i64 %indvars.iv204
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv204
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us.us, i64 %indvars.iv204
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us.us, i64 %indvars.iv204
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv204
   %28 = load ptr, ptr %27, align 8
   %29 = load i16, ptr %26, align 2
-  %30 = getelementptr inbounds nuw i16, ptr %26, i64 %17
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %17
   %31 = load i16, ptr %30, align 2
   br label %32
 
@@ -5442,33 +5442,33 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
   %.084.in110.us.us.us.us.us = phi i16 [ %29, %.lr.ph114.us.us.us.us.us ], [ %39, %32 ]
   %.087109.us.us.us.us.us = phi ptr [ %25, %.lr.ph114.us.us.us.us.us ], [ %44, %32 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %43, %32 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i16, ptr %.pn, i64 %19
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %19
   %33 = sext i16 %.084.in110.us.us.us.us.us to i64
-  %34 = getelementptr inbounds i16, ptr %28, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %28, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %.0.in111.us.us.us.us.us to i64
-  %37 = getelementptr inbounds i16, ptr %28, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %28, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = load i16, ptr %.086112.us.us.us.us.us, align 2
-  %40 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us.us.us, i64 %17
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us.us.us, i64 %17
   %41 = load i16, ptr %40, align 2
   store i16 %35, ptr %.087109.us.us.us.us.us, align 2
-  %42 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %17
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %17
   store i16 %38, ptr %42, align 2
   %43 = add nuw nsw i32 %.197108.us.us.us.us.us, 2
-  %44 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %19
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %19
   %45 = icmp slt i32 %43, %20
   br i1 %45, label %32, label %._crit_edge115.us.us.us.us.us, !llvm.loop !86
 
 ._crit_edge115.us.us.us.us.us:                    ; preds = %32
   %46 = sext i16 %39 to i64
-  %47 = getelementptr inbounds i16, ptr %28, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %28, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = sext i16 %41 to i64
-  %50 = getelementptr inbounds i16, ptr %28, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %28, i64 %49
   %51 = load i16, ptr %50, align 2
   store i16 %48, ptr %44, align 2
-  %52 = getelementptr inbounds nuw i16, ptr %44, i64 %17
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %17
   store i16 %51, ptr %52, align 2
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
@@ -5476,8 +5476,8 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %53 = add nuw nsw i32 %.195124.us.us.us, 1
-  %54 = getelementptr inbounds i16, ptr %.189125.us.us.us, i64 %22
-  %55 = getelementptr inbounds i16, ptr %.1128.us.us.us, i64 %23
+  %54 = getelementptr inbounds [2 x i8], ptr %.189125.us.us.us, i64 %22
+  %55 = getelementptr inbounds [2 x i8], ptr %.1128.us.us.us, i64 %23
   %exitcond209.not = icmp eq i32 %53, %5
   br i1 %exitcond209.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !88
 
@@ -5489,14 +5489,14 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
-  %56 = getelementptr inbounds nuw i16, ptr %.189125.us.us, i64 %indvars.iv198
-  %57 = getelementptr inbounds nuw i16, ptr %.1128.us.us, i64 %indvars.iv198
-  %58 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv198
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us, i64 %indvars.iv198
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us, i64 %indvars.iv198
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv198
   %59 = load ptr, ptr %58, align 8
   %60 = load i16, ptr %57, align 2
-  %61 = getelementptr inbounds nuw i16, ptr %57, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %17
   %62 = load i16, ptr %61, align 2
-  %.086107.us.us.us = getelementptr inbounds nuw i16, ptr %57, i64 %19
+  %.086107.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %19
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph114.us.us.us
@@ -5506,38 +5506,38 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
   %.087109.us.us.us = phi ptr [ %56, %.lr.ph114.us.us.us ], [ %75, %63 ]
   %.197108.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us ], [ %74, %63 ]
   %64 = sext i16 %.084.in110.us.us.us to i64
-  %65 = getelementptr inbounds i16, ptr %59, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %59, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = sext i16 %.0.in111.us.us.us to i64
-  %68 = getelementptr inbounds i16, ptr %59, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %59, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = load i16, ptr %.086112.us.us.us, align 2
-  %71 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %17
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %17
   %72 = load i16, ptr %71, align 2
   store i16 %66, ptr %.087109.us.us.us, align 2
-  %73 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %17
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %17
   store i16 %69, ptr %73, align 2
   %74 = add nuw nsw i32 %.197108.us.us.us, 2
-  %75 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %19
-  %.086.us.us.us = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %19
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %19
+  %.086.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %19
   %76 = icmp slt i32 %74, %20
   br i1 %76, label %63, label %._crit_edge115.us.us.us, !llvm.loop !86
 
 ._crit_edge115.us.us.us:                          ; preds = %63
   %77 = sext i16 %70 to i64
-  %78 = getelementptr inbounds i16, ptr %59, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %59, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = sext i16 %72 to i64
-  %81 = getelementptr inbounds i16, ptr %59, i64 %80
+  %81 = getelementptr inbounds [2 x i8], ptr %59, i64 %80
   %82 = load i16, ptr %81, align 2
   store i16 %79, ptr %75, align 2
-  %83 = getelementptr inbounds nuw i16, ptr %75, i64 %17
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %17
   store i16 %82, ptr %83, align 2
   %84 = load i16, ptr %.086.us.us.us, align 2
   %85 = sext i16 %84 to i64
-  %86 = getelementptr inbounds i16, ptr %59, i64 %85
+  %86 = getelementptr inbounds [2 x i8], ptr %59, i64 %85
   %87 = load i16, ptr %86, align 2
-  %88 = getelementptr inbounds nuw i16, ptr %75, i64 %19
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %19
   store i16 %87, ptr %88, align 2
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count207
@@ -5545,8 +5545,8 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %89 = add nuw nsw i32 %.195124.us.us, 1
-  %90 = getelementptr inbounds i16, ptr %.189125.us.us, i64 %22
-  %91 = getelementptr inbounds i16, ptr %.1128.us.us, i64 %23
+  %90 = getelementptr inbounds [2 x i8], ptr %.189125.us.us, i64 %22
+  %91 = getelementptr inbounds [2 x i8], ptr %.1128.us.us, i64 %23
   %exitcond203.not = icmp eq i32 %89, %5
   br i1 %exitcond203.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !88
 
@@ -5561,21 +5561,21 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
 
 92:                                               ; preds = %92, %.preheader103.us.us137
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %92 ], [ 0, %.preheader103.us.us137 ]
-  %93 = getelementptr inbounds nuw i16, ptr %.189125.us.us139, i64 %indvars.iv192
-  %94 = getelementptr inbounds nuw i16, ptr %.1128.us.us138, i64 %indvars.iv192
-  %95 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv192
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us139, i64 %indvars.iv192
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us138, i64 %indvars.iv192
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv192
   %96 = load ptr, ptr %95, align 8
   %97 = load i16, ptr %94, align 2
-  %98 = getelementptr inbounds nuw i16, ptr %94, i64 %17
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %17
   %99 = load i16, ptr %98, align 2
   %100 = sext i16 %97 to i64
-  %101 = getelementptr inbounds i16, ptr %96, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %96, i64 %100
   %102 = load i16, ptr %101, align 2
   %103 = sext i16 %99 to i64
-  %104 = getelementptr inbounds i16, ptr %96, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr %96, i64 %103
   %105 = load i16, ptr %104, align 2
   store i16 %102, ptr %93, align 2
-  %106 = getelementptr inbounds nuw i16, ptr %93, i64 %17
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %17
   store i16 %105, ptr %106, align 2
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count207
@@ -5583,8 +5583,8 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us.us.us:              ; preds = %92
   %107 = add nuw nsw i32 %.195124.us.us140, 1
-  %108 = getelementptr inbounds i16, ptr %.189125.us.us139, i64 %22
-  %109 = getelementptr inbounds i16, ptr %.1128.us.us138, i64 %23
+  %108 = getelementptr inbounds [2 x i8], ptr %.189125.us.us139, i64 %22
+  %109 = getelementptr inbounds [2 x i8], ptr %.1128.us.us138, i64 %23
   %exitcond197.not = icmp eq i32 %107, %5
   br i1 %exitcond197.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !88
 
@@ -5596,28 +5596,28 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
 
 110:                                              ; preds = %.preheader103.us, %110
   %indvars.iv186 = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next187, %110 ]
-  %111 = getelementptr inbounds nuw i16, ptr %.189125.us, i64 %indvars.iv186
-  %112 = getelementptr inbounds nuw i16, ptr %.1128.us, i64 %indvars.iv186
-  %113 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv186
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us, i64 %indvars.iv186
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us, i64 %indvars.iv186
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv186
   %114 = load ptr, ptr %113, align 8
   %115 = load i16, ptr %112, align 2
-  %116 = getelementptr inbounds nuw i16, ptr %112, i64 %17
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %17
   %117 = load i16, ptr %116, align 2
-  %.086107.us132 = getelementptr inbounds nuw i16, ptr %112, i64 %19
+  %.086107.us132 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %19
   %118 = sext i16 %115 to i64
-  %119 = getelementptr inbounds i16, ptr %114, i64 %118
+  %119 = getelementptr inbounds [2 x i8], ptr %114, i64 %118
   %120 = load i16, ptr %119, align 2
   %121 = sext i16 %117 to i64
-  %122 = getelementptr inbounds i16, ptr %114, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr %114, i64 %121
   %123 = load i16, ptr %122, align 2
   store i16 %120, ptr %111, align 2
-  %124 = getelementptr inbounds nuw i16, ptr %111, i64 %17
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %17
   store i16 %123, ptr %124, align 2
   %125 = load i16, ptr %.086107.us132, align 2
   %126 = sext i16 %125 to i64
-  %127 = getelementptr inbounds i16, ptr %114, i64 %126
+  %127 = getelementptr inbounds [2 x i8], ptr %114, i64 %126
   %128 = load i16, ptr %127, align 2
-  %129 = getelementptr inbounds nuw i16, ptr %111, i64 %19
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %19
   store i16 %128, ptr %129, align 2
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count207
@@ -5625,8 +5625,8 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us133:                 ; preds = %110
   %130 = add nuw nsw i32 %.195124.us, 1
-  %131 = getelementptr inbounds i16, ptr %.189125.us, i64 %22
-  %132 = getelementptr inbounds i16, ptr %.1128.us, i64 %23
+  %131 = getelementptr inbounds [2 x i8], ptr %.189125.us, i64 %22
+  %132 = getelementptr inbounds [2 x i8], ptr %.1128.us, i64 %23
   %exitcond191.not = icmp eq i32 %130, %5
   br i1 %exitcond191.not, label %.loopexit, label %.preheader103.us, !llvm.loop !88
 
@@ -5652,13 +5652,13 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
 
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv210 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next211, %.lr.ph144.us.us167.us ]
-  %136 = getelementptr inbounds nuw i16, ptr %.088160.us.us, i64 %indvars.iv210
-  %137 = getelementptr inbounds nuw i16, ptr %.085162.us.us, i64 %indvars.iv210
-  %138 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv210
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %.088160.us.us, i64 %indvars.iv210
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %.085162.us.us, i64 %indvars.iv210
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv210
   %139 = load ptr, ptr %138, align 8
   %140 = load i16, ptr %137, align 2
   %141 = sext i16 %140 to i64
-  %142 = getelementptr inbounds i16, ptr %139, i64 %141
+  %142 = getelementptr inbounds [2 x i8], ptr %139, i64 %141
   %143 = load i16, ptr %142, align 2
   store i16 %143, ptr %136, align 2
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -5667,8 +5667,8 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr noundef readonly captures(non
 
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %144 = add nuw nsw i32 %.094159.us.us, 1
-  %145 = getelementptr inbounds i16, ptr %.088160.us.us, i64 %133
-  %146 = getelementptr inbounds i16, ptr %.085162.us.us, i64 %134
+  %145 = getelementptr inbounds [2 x i8], ptr %.088160.us.us, i64 %133
+  %146 = getelementptr inbounds [2 x i8], ptr %.085162.us.us, i64 %134
   %exitcond215.not = icmp eq i32 %144, %5
   br i1 %exitcond215.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !90
 
@@ -5723,12 +5723,12 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
-  %23 = getelementptr inbounds nuw i16, ptr %.189125.us.us.us, i64 %indvars.iv200
-  %24 = getelementptr inbounds nuw i16, ptr %.1128.us.us.us, i64 %indvars.iv200
-  %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv200
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us.us, i64 %indvars.iv200
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us.us, i64 %indvars.iv200
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv200
   %26 = load ptr, ptr %25, align 8
   %27 = load i16, ptr %24, align 2
-  %28 = getelementptr inbounds nuw i16, ptr %24, i64 %15
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %15
   %29 = load i16, ptr %28, align 2
   br label %30
 
@@ -5738,33 +5738,33 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
   %.084.in110.us.us.us.us.us = phi i16 [ %27, %.lr.ph114.us.us.us.us.us ], [ %37, %30 ]
   %.087109.us.us.us.us.us = phi ptr [ %23, %.lr.ph114.us.us.us.us.us ], [ %42, %30 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %41, %30 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i16, ptr %.pn, i64 %17
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %17
   %31 = zext i16 %.084.in110.us.us.us.us.us to i64
-  %32 = getelementptr inbounds nuw i16, ptr %26, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %.0.in111.us.us.us.us.us to i64
-  %35 = getelementptr inbounds nuw i16, ptr %26, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = load i16, ptr %.086112.us.us.us.us.us, align 2
-  %38 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us.us.us, i64 %15
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us.us.us, i64 %15
   %39 = load i16, ptr %38, align 2
   store i16 %33, ptr %.087109.us.us.us.us.us, align 2
-  %40 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %15
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %15
   store i16 %36, ptr %40, align 2
   %41 = add nuw nsw i32 %.197108.us.us.us.us.us, 2
-  %42 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %17
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %17
   %43 = icmp slt i32 %41, %18
   br i1 %43, label %30, label %._crit_edge115.us.us.us.us.us, !llvm.loop !91
 
 ._crit_edge115.us.us.us.us.us:                    ; preds = %30
   %44 = zext i16 %37 to i64
-  %45 = getelementptr inbounds nuw i16, ptr %26, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %39 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %26, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %47
   %49 = load i16, ptr %48, align 2
   store i16 %46, ptr %42, align 2
-  %50 = getelementptr inbounds nuw i16, ptr %42, i64 %15
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %15
   store i16 %49, ptr %50, align 2
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
@@ -5772,8 +5772,8 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %51 = add nuw nsw i32 %.195124.us.us.us, 1
-  %52 = getelementptr inbounds i16, ptr %.189125.us.us.us, i64 %20
-  %53 = getelementptr inbounds i16, ptr %.1128.us.us.us, i64 %21
+  %52 = getelementptr inbounds [2 x i8], ptr %.189125.us.us.us, i64 %20
+  %53 = getelementptr inbounds [2 x i8], ptr %.1128.us.us.us, i64 %21
   %exitcond205.not = icmp eq i32 %51, %5
   br i1 %exitcond205.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !93
 
@@ -5785,14 +5785,14 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
-  %54 = getelementptr inbounds nuw i16, ptr %.189125.us.us, i64 %indvars.iv194
-  %55 = getelementptr inbounds nuw i16, ptr %.1128.us.us, i64 %indvars.iv194
-  %56 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv194
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us, i64 %indvars.iv194
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us, i64 %indvars.iv194
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv194
   %57 = load ptr, ptr %56, align 8
   %58 = load i16, ptr %55, align 2
-  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %15
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %15
   %60 = load i16, ptr %59, align 2
-  %.086107.us.us.us = getelementptr inbounds nuw i16, ptr %55, i64 %17
+  %.086107.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %17
   br label %61
 
 61:                                               ; preds = %61, %.lr.ph114.us.us.us
@@ -5802,38 +5802,38 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
   %.087109.us.us.us = phi ptr [ %54, %.lr.ph114.us.us.us ], [ %73, %61 ]
   %.197108.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us ], [ %72, %61 ]
   %62 = zext i16 %.084.in110.us.us.us to i64
-  %63 = getelementptr inbounds nuw i16, ptr %57, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = zext i16 %.0.in111.us.us.us to i64
-  %66 = getelementptr inbounds nuw i16, ptr %57, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = load i16, ptr %.086112.us.us.us, align 2
-  %69 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %15
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %15
   %70 = load i16, ptr %69, align 2
   store i16 %64, ptr %.087109.us.us.us, align 2
-  %71 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %15
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %15
   store i16 %67, ptr %71, align 2
   %72 = add nuw nsw i32 %.197108.us.us.us, 2
-  %73 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %17
-  %.086.us.us.us = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %17
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %17
+  %.086.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %17
   %74 = icmp slt i32 %72, %18
   br i1 %74, label %61, label %._crit_edge115.us.us.us, !llvm.loop !91
 
 ._crit_edge115.us.us.us:                          ; preds = %61
   %75 = zext i16 %68 to i64
-  %76 = getelementptr inbounds nuw i16, ptr %57, i64 %75
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %70 to i64
-  %79 = getelementptr inbounds nuw i16, ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %78
   %80 = load i16, ptr %79, align 2
   store i16 %77, ptr %73, align 2
-  %81 = getelementptr inbounds nuw i16, ptr %73, i64 %15
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %15
   store i16 %80, ptr %81, align 2
   %82 = load i16, ptr %.086.us.us.us, align 2
   %83 = zext i16 %82 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %57, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %83
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds nuw i16, ptr %73, i64 %17
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %17
   store i16 %85, ptr %86, align 2
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count203
@@ -5841,8 +5841,8 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %87 = add nuw nsw i32 %.195124.us.us, 1
-  %88 = getelementptr inbounds i16, ptr %.189125.us.us, i64 %20
-  %89 = getelementptr inbounds i16, ptr %.1128.us.us, i64 %21
+  %88 = getelementptr inbounds [2 x i8], ptr %.189125.us.us, i64 %20
+  %89 = getelementptr inbounds [2 x i8], ptr %.1128.us.us, i64 %21
   %exitcond199.not = icmp eq i32 %87, %5
   br i1 %exitcond199.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !93
 
@@ -5857,21 +5857,21 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
 
 90:                                               ; preds = %90, %.preheader103.us.us137
   %indvars.iv188 = phi i64 [ %indvars.iv.next189, %90 ], [ 0, %.preheader103.us.us137 ]
-  %91 = getelementptr inbounds nuw i16, ptr %.189125.us.us139, i64 %indvars.iv188
-  %92 = getelementptr inbounds nuw i16, ptr %.1128.us.us138, i64 %indvars.iv188
-  %93 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv188
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us139, i64 %indvars.iv188
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us138, i64 %indvars.iv188
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv188
   %94 = load ptr, ptr %93, align 8
   %95 = load i16, ptr %92, align 2
-  %96 = getelementptr inbounds nuw i16, ptr %92, i64 %15
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %15
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %95 to i64
-  %99 = getelementptr inbounds nuw i16, ptr %94, i64 %98
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = zext i16 %97 to i64
-  %102 = getelementptr inbounds nuw i16, ptr %94, i64 %101
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %101
   %103 = load i16, ptr %102, align 2
   store i16 %100, ptr %91, align 2
-  %104 = getelementptr inbounds nuw i16, ptr %91, i64 %15
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %15
   store i16 %103, ptr %104, align 2
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count203
@@ -5879,8 +5879,8 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us.us.us:              ; preds = %90
   %105 = add nuw nsw i32 %.195124.us.us140, 1
-  %106 = getelementptr inbounds i16, ptr %.189125.us.us139, i64 %20
-  %107 = getelementptr inbounds i16, ptr %.1128.us.us138, i64 %21
+  %106 = getelementptr inbounds [2 x i8], ptr %.189125.us.us139, i64 %20
+  %107 = getelementptr inbounds [2 x i8], ptr %.1128.us.us138, i64 %21
   %exitcond193.not = icmp eq i32 %105, %5
   br i1 %exitcond193.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !93
 
@@ -5892,28 +5892,28 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
 
 108:                                              ; preds = %.preheader103.us, %108
   %indvars.iv = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next, %108 ]
-  %109 = getelementptr inbounds nuw i16, ptr %.189125.us, i64 %indvars.iv
-  %110 = getelementptr inbounds nuw i16, ptr %.1128.us, i64 %indvars.iv
-  %111 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %112 = load ptr, ptr %111, align 8
   %113 = load i16, ptr %110, align 2
-  %114 = getelementptr inbounds nuw i16, ptr %110, i64 %15
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %15
   %115 = load i16, ptr %114, align 2
-  %.086107.us132 = getelementptr inbounds nuw i16, ptr %110, i64 %17
+  %.086107.us132 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %17
   %116 = zext i16 %113 to i64
-  %117 = getelementptr inbounds nuw i16, ptr %112, i64 %116
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %116
   %118 = load i16, ptr %117, align 2
   %119 = zext i16 %115 to i64
-  %120 = getelementptr inbounds nuw i16, ptr %112, i64 %119
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %119
   %121 = load i16, ptr %120, align 2
   store i16 %118, ptr %109, align 2
-  %122 = getelementptr inbounds nuw i16, ptr %109, i64 %15
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %15
   store i16 %121, ptr %122, align 2
   %123 = load i16, ptr %.086107.us132, align 2
   %124 = zext i16 %123 to i64
-  %125 = getelementptr inbounds nuw i16, ptr %112, i64 %124
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %124
   %126 = load i16, ptr %125, align 2
-  %127 = getelementptr inbounds nuw i16, ptr %109, i64 %17
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %17
   store i16 %126, ptr %127, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count203
@@ -5921,8 +5921,8 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us133:                 ; preds = %108
   %128 = add nuw nsw i32 %.195124.us, 1
-  %129 = getelementptr inbounds i16, ptr %.189125.us, i64 %20
-  %130 = getelementptr inbounds i16, ptr %.1128.us, i64 %21
+  %129 = getelementptr inbounds [2 x i8], ptr %.189125.us, i64 %20
+  %130 = getelementptr inbounds [2 x i8], ptr %.1128.us, i64 %21
   %exitcond187.not = icmp eq i32 %128, %5
   br i1 %exitcond187.not, label %.loopexit, label %.preheader103.us, !llvm.loop !93
 
@@ -5948,13 +5948,13 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
 
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv206 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next207, %.lr.ph144.us.us167.us ]
-  %134 = getelementptr inbounds nuw i16, ptr %.088160.us.us, i64 %indvars.iv206
-  %135 = getelementptr inbounds nuw i16, ptr %.085162.us.us, i64 %indvars.iv206
-  %136 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv206
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %.088160.us.us, i64 %indvars.iv206
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %.085162.us.us, i64 %indvars.iv206
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv206
   %137 = load ptr, ptr %136, align 8
   %138 = load i16, ptr %135, align 2
   %139 = zext i16 %138 to i64
-  %140 = getelementptr inbounds nuw i16, ptr %137, i64 %139
+  %140 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 %139
   %141 = load i16, ptr %140, align 2
   store i16 %141, ptr %134, align 2
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
@@ -5963,8 +5963,8 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr noundef readonly captures(non
 
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %142 = add nuw nsw i32 %.094159.us.us, 1
-  %143 = getelementptr inbounds i16, ptr %.088160.us.us, i64 %131
-  %144 = getelementptr inbounds i16, ptr %.085162.us.us, i64 %132
+  %143 = getelementptr inbounds [2 x i8], ptr %.088160.us.us, i64 %131
+  %144 = getelementptr inbounds [2 x i8], ptr %.085162.us.us, i64 %132
   %exitcond211.not = icmp eq i32 %142, %5
   br i1 %exitcond211.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !95
 
@@ -5984,10 +5984,10 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1073741822
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6028,12 +6028,12 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
-  %25 = getelementptr inbounds nuw i16, ptr %.189125.us.us.us, i64 %indvars.iv204
-  %26 = getelementptr inbounds nuw i32, ptr %.1128.us.us.us, i64 %indvars.iv204
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv204
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us.us, i64 %indvars.iv204
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us.us, i64 %indvars.iv204
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv204
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %26, align 4
-  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %17
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %17
   %31 = load i32, ptr %30, align 4
   br label %32
 
@@ -6043,33 +6043,33 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
   %.084110.us.us.us.us.us = phi i32 [ %29, %.lr.ph114.us.us.us.us.us ], [ %39, %32 ]
   %.087109.us.us.us.us.us = phi ptr [ %25, %.lr.ph114.us.us.us.us.us ], [ %44, %32 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %43, %32 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i32, ptr %.pn, i64 %19
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %.pn, i64 %19
   %33 = sext i32 %.084110.us.us.us.us.us to i64
-  %34 = getelementptr inbounds i16, ptr %28, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %28, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = sext i32 %.0111.us.us.us.us.us to i64
-  %37 = getelementptr inbounds i16, ptr %28, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %28, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = load i32, ptr %.086112.us.us.us.us.us, align 4
-  %40 = getelementptr inbounds nuw i32, ptr %.086112.us.us.us.us.us, i64 %17
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us.us.us, i64 %17
   %41 = load i32, ptr %40, align 4
   store i16 %35, ptr %.087109.us.us.us.us.us, align 2
-  %42 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %17
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %17
   store i16 %38, ptr %42, align 2
   %43 = add nuw nsw i32 %.197108.us.us.us.us.us, 2
-  %44 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us.us.us, i64 %19
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us.us.us, i64 %19
   %45 = icmp slt i32 %43, %20
   br i1 %45, label %32, label %._crit_edge115.us.us.us.us.us, !llvm.loop !97
 
 ._crit_edge115.us.us.us.us.us:                    ; preds = %32
   %46 = sext i32 %39 to i64
-  %47 = getelementptr inbounds i16, ptr %28, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %28, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = sext i32 %41 to i64
-  %50 = getelementptr inbounds i16, ptr %28, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %28, i64 %49
   %51 = load i16, ptr %50, align 2
   store i16 %48, ptr %44, align 2
-  %52 = getelementptr inbounds nuw i16, ptr %44, i64 %17
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %17
   store i16 %51, ptr %52, align 2
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
@@ -6077,8 +6077,8 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %53 = add nuw nsw i32 %.195124.us.us.us, 1
-  %54 = getelementptr inbounds i16, ptr %.189125.us.us.us, i64 %22
-  %55 = getelementptr inbounds i32, ptr %.1128.us.us.us, i64 %23
+  %54 = getelementptr inbounds [2 x i8], ptr %.189125.us.us.us, i64 %22
+  %55 = getelementptr inbounds [4 x i8], ptr %.1128.us.us.us, i64 %23
   %exitcond209.not = icmp eq i32 %53, %5
   br i1 %exitcond209.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !99
 
@@ -6090,14 +6090,14 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
-  %56 = getelementptr inbounds nuw i16, ptr %.189125.us.us, i64 %indvars.iv198
-  %57 = getelementptr inbounds nuw i32, ptr %.1128.us.us, i64 %indvars.iv198
-  %58 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv198
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us, i64 %indvars.iv198
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us, i64 %indvars.iv198
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv198
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %57, align 4
-  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %17
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %17
   %62 = load i32, ptr %61, align 4
-  %.086107.us.us.us = getelementptr inbounds nuw i32, ptr %57, i64 %19
+  %.086107.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %19
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph114.us.us.us
@@ -6107,38 +6107,38 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
   %.087109.us.us.us = phi ptr [ %56, %.lr.ph114.us.us.us ], [ %75, %63 ]
   %.197108.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us ], [ %74, %63 ]
   %64 = sext i32 %.084110.us.us.us to i64
-  %65 = getelementptr inbounds i16, ptr %59, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %59, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = sext i32 %.0111.us.us.us to i64
-  %68 = getelementptr inbounds i16, ptr %59, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %59, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = load i32, ptr %.086112.us.us.us, align 4
-  %71 = getelementptr inbounds nuw i32, ptr %.086112.us.us.us, i64 %17
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us, i64 %17
   %72 = load i32, ptr %71, align 4
   store i16 %66, ptr %.087109.us.us.us, align 2
-  %73 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %17
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %17
   store i16 %69, ptr %73, align 2
   %74 = add nuw nsw i32 %.197108.us.us.us, 2
-  %75 = getelementptr inbounds nuw i16, ptr %.087109.us.us.us, i64 %19
-  %.086.us.us.us = getelementptr inbounds nuw i32, ptr %.086112.us.us.us, i64 %19
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %.087109.us.us.us, i64 %19
+  %.086.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us, i64 %19
   %76 = icmp slt i32 %74, %20
   br i1 %76, label %63, label %._crit_edge115.us.us.us, !llvm.loop !97
 
 ._crit_edge115.us.us.us:                          ; preds = %63
   %77 = sext i32 %70 to i64
-  %78 = getelementptr inbounds i16, ptr %59, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %59, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = sext i32 %72 to i64
-  %81 = getelementptr inbounds i16, ptr %59, i64 %80
+  %81 = getelementptr inbounds [2 x i8], ptr %59, i64 %80
   %82 = load i16, ptr %81, align 2
   store i16 %79, ptr %75, align 2
-  %83 = getelementptr inbounds nuw i16, ptr %75, i64 %17
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %17
   store i16 %82, ptr %83, align 2
   %84 = load i32, ptr %.086.us.us.us, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i16, ptr %59, i64 %85
+  %86 = getelementptr inbounds [2 x i8], ptr %59, i64 %85
   %87 = load i16, ptr %86, align 2
-  %88 = getelementptr inbounds nuw i16, ptr %75, i64 %19
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %19
   store i16 %87, ptr %88, align 2
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count207
@@ -6146,8 +6146,8 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %89 = add nuw nsw i32 %.195124.us.us, 1
-  %90 = getelementptr inbounds i16, ptr %.189125.us.us, i64 %22
-  %91 = getelementptr inbounds i32, ptr %.1128.us.us, i64 %23
+  %90 = getelementptr inbounds [2 x i8], ptr %.189125.us.us, i64 %22
+  %91 = getelementptr inbounds [4 x i8], ptr %.1128.us.us, i64 %23
   %exitcond203.not = icmp eq i32 %89, %5
   br i1 %exitcond203.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !99
 
@@ -6162,21 +6162,21 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
 
 92:                                               ; preds = %92, %.preheader103.us.us137
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %92 ], [ 0, %.preheader103.us.us137 ]
-  %93 = getelementptr inbounds nuw i16, ptr %.189125.us.us139, i64 %indvars.iv192
-  %94 = getelementptr inbounds nuw i32, ptr %.1128.us.us138, i64 %indvars.iv192
-  %95 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv192
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us.us139, i64 %indvars.iv192
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us138, i64 %indvars.iv192
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv192
   %96 = load ptr, ptr %95, align 8
   %97 = load i32, ptr %94, align 4
-  %98 = getelementptr inbounds nuw i32, ptr %94, i64 %17
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %17
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %97 to i64
-  %101 = getelementptr inbounds i16, ptr %96, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %96, i64 %100
   %102 = load i16, ptr %101, align 2
   %103 = sext i32 %99 to i64
-  %104 = getelementptr inbounds i16, ptr %96, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr %96, i64 %103
   %105 = load i16, ptr %104, align 2
   store i16 %102, ptr %93, align 2
-  %106 = getelementptr inbounds nuw i16, ptr %93, i64 %17
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %17
   store i16 %105, ptr %106, align 2
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count207
@@ -6184,8 +6184,8 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us.us.us:              ; preds = %92
   %107 = add nuw nsw i32 %.195124.us.us140, 1
-  %108 = getelementptr inbounds i16, ptr %.189125.us.us139, i64 %22
-  %109 = getelementptr inbounds i32, ptr %.1128.us.us138, i64 %23
+  %108 = getelementptr inbounds [2 x i8], ptr %.189125.us.us139, i64 %22
+  %109 = getelementptr inbounds [4 x i8], ptr %.1128.us.us138, i64 %23
   %exitcond197.not = icmp eq i32 %107, %5
   br i1 %exitcond197.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !99
 
@@ -6197,28 +6197,28 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
 
 110:                                              ; preds = %.preheader103.us, %110
   %indvars.iv186 = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next187, %110 ]
-  %111 = getelementptr inbounds nuw i16, ptr %.189125.us, i64 %indvars.iv186
-  %112 = getelementptr inbounds nuw i32, ptr %.1128.us, i64 %indvars.iv186
-  %113 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv186
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %.189125.us, i64 %indvars.iv186
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us, i64 %indvars.iv186
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv186
   %114 = load ptr, ptr %113, align 8
   %115 = load i32, ptr %112, align 4
-  %116 = getelementptr inbounds nuw i32, ptr %112, i64 %17
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %17
   %117 = load i32, ptr %116, align 4
-  %.086107.us132 = getelementptr inbounds nuw i32, ptr %112, i64 %19
+  %.086107.us132 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %19
   %118 = sext i32 %115 to i64
-  %119 = getelementptr inbounds i16, ptr %114, i64 %118
+  %119 = getelementptr inbounds [2 x i8], ptr %114, i64 %118
   %120 = load i16, ptr %119, align 2
   %121 = sext i32 %117 to i64
-  %122 = getelementptr inbounds i16, ptr %114, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr %114, i64 %121
   %123 = load i16, ptr %122, align 2
   store i16 %120, ptr %111, align 2
-  %124 = getelementptr inbounds nuw i16, ptr %111, i64 %17
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %17
   store i16 %123, ptr %124, align 2
   %125 = load i32, ptr %.086107.us132, align 4
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i16, ptr %114, i64 %126
+  %127 = getelementptr inbounds [2 x i8], ptr %114, i64 %126
   %128 = load i16, ptr %127, align 2
-  %129 = getelementptr inbounds nuw i16, ptr %111, i64 %19
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %19
   store i16 %128, ptr %129, align 2
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count207
@@ -6226,8 +6226,8 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us133:                 ; preds = %110
   %130 = add nuw nsw i32 %.195124.us, 1
-  %131 = getelementptr inbounds i16, ptr %.189125.us, i64 %22
-  %132 = getelementptr inbounds i32, ptr %.1128.us, i64 %23
+  %131 = getelementptr inbounds [2 x i8], ptr %.189125.us, i64 %22
+  %132 = getelementptr inbounds [4 x i8], ptr %.1128.us, i64 %23
   %exitcond191.not = icmp eq i32 %130, %5
   br i1 %exitcond191.not, label %.loopexit, label %.preheader103.us, !llvm.loop !99
 
@@ -6253,13 +6253,13 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
 
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv210 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next211, %.lr.ph144.us.us167.us ]
-  %136 = getelementptr inbounds nuw i16, ptr %.088160.us.us, i64 %indvars.iv210
-  %137 = getelementptr inbounds nuw i32, ptr %.085162.us.us, i64 %indvars.iv210
-  %138 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv210
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %.088160.us.us, i64 %indvars.iv210
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.085162.us.us, i64 %indvars.iv210
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv210
   %139 = load ptr, ptr %138, align 8
   %140 = load i32, ptr %137, align 4
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i16, ptr %139, i64 %141
+  %142 = getelementptr inbounds [2 x i8], ptr %139, i64 %141
   %143 = load i16, ptr %142, align 2
   store i16 %143, ptr %136, align 2
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -6268,8 +6268,8 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr noundef readonly captures(non
 
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %144 = add nuw nsw i32 %.094159.us.us, 1
-  %145 = getelementptr inbounds i16, ptr %.088160.us.us, i64 %133
-  %146 = getelementptr inbounds i32, ptr %.085162.us.us, i64 %134
+  %145 = getelementptr inbounds [2 x i8], ptr %.088160.us.us, i64 %133
+  %146 = getelementptr inbounds [4 x i8], ptr %.085162.us.us, i64 %134
   %exitcond215.not = icmp eq i32 %144, %5
   br i1 %exitcond215.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !101
 
@@ -6320,9 +6320,9 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph709.us.us.us.us.us:                         ; preds = %._crit_edge710.us.us.us.us.us, %.preheader588.us.us.us
   %indvars.iv833 = phi i64 [ %indvars.iv.next834, %._crit_edge710.us.us.us.us.us ], [ 0, %.preheader588.us.us.us ]
-  %24 = getelementptr inbounds nuw i32, ptr %.1514721.us.us.us, i64 %indvars.iv833
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.1514721.us.us.us, i64 %indvars.iv833
   %25 = getelementptr inbounds nuw i8, ptr %.1492724.us.us.us, i64 %indvars.iv833
-  %26 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv833
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv833
   %27 = load ptr, ptr %26, align 8
   %28 = load i8, ptr %25, align 1
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %16
@@ -6337,31 +6337,31 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
   %.0571703.us.us.us.us.us = phi ptr [ %24, %.lr.ph709.us.us.us.us.us ], [ %43, %31 ]
   %.0570707.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.pn, i64 %18
   %32 = zext i8 %.0568.in704.us.us.us.us.us to i64
-  %33 = getelementptr inbounds nuw i32, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = zext i8 %.0567.in705.us.us.us.us.us to i64
-  %36 = getelementptr inbounds nuw i32, ptr %27, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = load i8, ptr %.0570707.us.us.us.us.us, align 1
   %39 = getelementptr inbounds nuw i8, ptr %.0570707.us.us.us.us.us, i64 %16
   %40 = load i8, ptr %39, align 1
   store i32 %34, ptr %.0571703.us.us.us.us.us, align 4
-  %41 = getelementptr inbounds nuw i32, ptr %.0571703.us.us.us.us.us, i64 %16
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.0571703.us.us.us.us.us, i64 %16
   store i32 %37, ptr %41, align 4
   %42 = add nuw nsw i32 %.1541706.us.us.us.us.us, 2
-  %43 = getelementptr inbounds nuw i32, ptr %.0571703.us.us.us.us.us, i64 %18
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.0571703.us.us.us.us.us, i64 %18
   %44 = icmp slt i32 %42, %19
   br i1 %44, label %31, label %._crit_edge710.us.us.us.us.us, !llvm.loop !102
 
 ._crit_edge710.us.us.us.us.us:                    ; preds = %31
   %45 = zext i8 %38 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %27, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = zext i8 %40 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %27, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %48
   %50 = load i32, ptr %49, align 4
   store i32 %47, ptr %43, align 4
-  %51 = getelementptr inbounds nuw i32, ptr %43, i64 %16
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %16
   store i32 %50, ptr %51, align 4
   %indvars.iv.next834 = add nuw nsw i64 %indvars.iv833, 1
   %exitcond837.not = icmp eq i64 %indvars.iv.next834, %wide.trip.count836
@@ -6369,7 +6369,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge717.split.us.us.us.split.us.us:        ; preds = %._crit_edge710.us.us.us.us.us
   %52 = add nuw nsw i32 %.1544720.us.us.us, 1
-  %53 = getelementptr inbounds i32, ptr %.1514721.us.us.us, i64 %21
+  %53 = getelementptr inbounds [4 x i8], ptr %.1514721.us.us.us, i64 %21
   %54 = getelementptr inbounds i8, ptr %.1492724.us.us.us, i64 %22
   %exitcond838.not = icmp eq i32 %52, %5
   br i1 %exitcond838.not, label %.loopexit, label %.preheader588.us.us.us, !llvm.loop !104
@@ -6382,9 +6382,9 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph709.us.us.us:                               ; preds = %._crit_edge710.us.us.us, %.preheader588.us.us
   %indvars.iv827 = phi i64 [ %indvars.iv.next828, %._crit_edge710.us.us.us ], [ 0, %.preheader588.us.us ]
-  %55 = getelementptr inbounds nuw i32, ptr %.1514721.us.us, i64 %indvars.iv827
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.1514721.us.us, i64 %indvars.iv827
   %56 = getelementptr inbounds nuw i8, ptr %.1492724.us.us, i64 %indvars.iv827
-  %57 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv827
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv827
   %58 = load ptr, ptr %57, align 8
   %59 = load i8, ptr %56, align 1
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 %16
@@ -6399,38 +6399,38 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
   %.0568.in704.us.us.us = phi i8 [ %59, %.lr.ph709.us.us.us ], [ %69, %62 ]
   %.0571703.us.us.us = phi ptr [ %55, %.lr.ph709.us.us.us ], [ %74, %62 ]
   %63 = zext i8 %.0568.in704.us.us.us to i64
-  %64 = getelementptr inbounds nuw i32, ptr %58, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = zext i8 %.0567.in705.us.us.us to i64
-  %67 = getelementptr inbounds nuw i32, ptr %58, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = load i8, ptr %.0570707.us.us.us, align 1
   %70 = getelementptr inbounds nuw i8, ptr %.0570707.us.us.us, i64 %16
   %71 = load i8, ptr %70, align 1
   store i32 %65, ptr %.0571703.us.us.us, align 4
-  %72 = getelementptr inbounds nuw i32, ptr %.0571703.us.us.us, i64 %16
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.0571703.us.us.us, i64 %16
   store i32 %68, ptr %72, align 4
   %73 = add nuw nsw i32 %.1541706.us.us.us, 2
-  %74 = getelementptr inbounds nuw i32, ptr %.0571703.us.us.us, i64 %18
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.0571703.us.us.us, i64 %18
   %.0570.us.us.us = getelementptr inbounds nuw i8, ptr %.0570707.us.us.us, i64 %18
   %75 = icmp slt i32 %73, %19
   br i1 %75, label %62, label %._crit_edge710.us.us.us, !llvm.loop !102
 
 ._crit_edge710.us.us.us:                          ; preds = %62
   %76 = zext i8 %69 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %58, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = zext i8 %71 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %58, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %79
   %81 = load i32, ptr %80, align 4
   store i32 %78, ptr %74, align 4
-  %82 = getelementptr inbounds nuw i32, ptr %74, i64 %16
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %16
   store i32 %81, ptr %82, align 4
   %83 = load i8, ptr %.0570.us.us.us, align 1
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %58, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %84
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds nuw i32, ptr %74, i64 %18
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %18
   store i32 %86, ptr %87, align 4
   %indvars.iv.next828 = add nuw nsw i64 %indvars.iv827, 1
   %exitcond831.not = icmp eq i64 %indvars.iv.next828, %wide.trip.count836
@@ -6438,7 +6438,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge717.split.us.us.us.split:              ; preds = %._crit_edge710.us.us.us
   %88 = add nuw nsw i32 %.1544720.us.us, 1
-  %89 = getelementptr inbounds i32, ptr %.1514721.us.us, i64 %21
+  %89 = getelementptr inbounds [4 x i8], ptr %.1514721.us.us, i64 %21
   %90 = getelementptr inbounds i8, ptr %.1492724.us.us, i64 %22
   %exitcond832.not = icmp eq i32 %88, %5
   br i1 %exitcond832.not, label %.loopexit, label %.preheader588.us.us, !llvm.loop !104
@@ -6454,21 +6454,21 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 
 91:                                               ; preds = %91, %.preheader588.us.us733
   %indvars.iv821 = phi i64 [ %indvars.iv.next822, %91 ], [ 0, %.preheader588.us.us733 ]
-  %92 = getelementptr inbounds nuw i32, ptr %.1514721.us.us735, i64 %indvars.iv821
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %.1514721.us.us735, i64 %indvars.iv821
   %93 = getelementptr inbounds nuw i8, ptr %.1492724.us.us734, i64 %indvars.iv821
-  %94 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv821
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv821
   %95 = load ptr, ptr %94, align 8
   %96 = load i8, ptr %93, align 1
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 %16
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %96 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %95, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = zext i8 %98 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %95, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %102
   %104 = load i32, ptr %103, align 4
   store i32 %101, ptr %92, align 4
-  %105 = getelementptr inbounds nuw i32, ptr %92, i64 %16
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %16
   store i32 %104, ptr %105, align 4
   %indvars.iv.next822 = add nuw nsw i64 %indvars.iv821, 1
   %exitcond825.not = icmp eq i64 %indvars.iv.next822, %wide.trip.count836
@@ -6476,7 +6476,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge717.split.split.us.us.us:              ; preds = %91
   %106 = add nuw nsw i32 %.1544720.us.us736, 1
-  %107 = getelementptr inbounds i32, ptr %.1514721.us.us735, i64 %21
+  %107 = getelementptr inbounds [4 x i8], ptr %.1514721.us.us735, i64 %21
   %108 = getelementptr inbounds i8, ptr %.1492724.us.us734, i64 %22
   %exitcond826.not = icmp eq i32 %106, %5
   br i1 %exitcond826.not, label %.loopexit, label %.preheader588.us.us733, !llvm.loop !104
@@ -6489,28 +6489,28 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 
 109:                                              ; preds = %.preheader588.us, %109
   %indvars.iv816 = phi i64 [ 0, %.preheader588.us ], [ %indvars.iv.next817, %109 ]
-  %110 = getelementptr inbounds nuw i32, ptr %.1514721.us, i64 %indvars.iv816
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %.1514721.us, i64 %indvars.iv816
   %111 = getelementptr inbounds nuw i8, ptr %.1492724.us, i64 %indvars.iv816
-  %112 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv816
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv816
   %113 = load ptr, ptr %112, align 8
   %114 = load i8, ptr %111, align 1
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 %16
   %116 = load i8, ptr %115, align 1
   %.0570702.us728 = getelementptr inbounds nuw i8, ptr %111, i64 %18
   %117 = zext i8 %114 to i64
-  %118 = getelementptr inbounds nuw i32, ptr %113, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = zext i8 %116 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %113, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %120
   %122 = load i32, ptr %121, align 4
   store i32 %119, ptr %110, align 4
-  %123 = getelementptr inbounds nuw i32, ptr %110, i64 %16
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %16
   store i32 %122, ptr %123, align 4
   %124 = load i8, ptr %.0570702.us728, align 1
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds nuw i32, ptr %113, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %125
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds nuw i32, ptr %110, i64 %18
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %18
   store i32 %127, ptr %128, align 4
   %indvars.iv.next817 = add nuw nsw i64 %indvars.iv816, 1
   %exitcond819.not = icmp eq i64 %indvars.iv.next817, %wide.trip.count836
@@ -6518,7 +6518,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge717.split.split.us729:                 ; preds = %109
   %129 = add nuw nsw i32 %.1544720.us, 1
-  %130 = getelementptr inbounds i32, ptr %.1514721.us, i64 %21
+  %130 = getelementptr inbounds [4 x i8], ptr %.1514721.us, i64 %21
   %131 = getelementptr inbounds i8, ptr %.1492724.us, i64 %22
   %exitcond820.not = icmp eq i32 %129, %5
   br i1 %exitcond820.not, label %.loopexit, label %.preheader588.us, !llvm.loop !104
@@ -6546,13 +6546,13 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph740.us.us763.us:                            ; preds = %.preheader.us.us, %.lr.ph740.us.us763.us
   %indvars.iv839 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next840, %.lr.ph740.us.us763.us ]
-  %136 = getelementptr inbounds nuw i32, ptr %.0513756.us.us, i64 %indvars.iv839
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.0513756.us.us, i64 %indvars.iv839
   %137 = getelementptr inbounds nuw i8, ptr %.0491758.us.us, i64 %indvars.iv839
-  %138 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv839
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv839
   %139 = load ptr, ptr %138, align 8
   %140 = load i8, ptr %137, align 1
   %141 = zext i8 %140 to i64
-  %142 = getelementptr inbounds nuw i32, ptr %139, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %141
   %143 = load i32, ptr %142, align 4
   store i32 %143, ptr %136, align 4
   %indvars.iv.next840 = add nuw nsw i64 %indvars.iv839, 1
@@ -6561,7 +6561,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge747.split.us.us.us:                    ; preds = %.lr.ph740.us.us763.us
   %144 = add nuw nsw i32 %.0543755.us.us, 1
-  %145 = getelementptr inbounds i32, ptr %.0513756.us.us, i64 %133
+  %145 = getelementptr inbounds [4 x i8], ptr %.0513756.us.us, i64 %133
   %146 = getelementptr inbounds i8, ptr %.0491758.us.us, i64 %134
   %exitcond844.not = icmp eq i32 %144, %5
   br i1 %exitcond844.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !106
@@ -6650,7 +6650,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
   %.0564670 = phi i32 [ %192, %.lr.ph675 ], [ 0, %179 ]
   %187 = load i8, ptr %.0552673, align 1
   %188 = zext i8 %187 to i64
-  %189 = getelementptr inbounds nuw i32, ptr %182, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %188
   %190 = load i32, ptr %189, align 4
   %191 = getelementptr inbounds nuw i8, ptr %.0554672, i64 4
   store i32 %190, ptr %.0554672, align 4
@@ -6757,7 +6757,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
   %.2566692 = phi i32 [ %254, %.lr.ph696 ], [ %.1565.lcssa, %.lr.ph696.preheader ]
   %250 = load i8, ptr %.1553694, align 1
   %251 = zext i8 %250 to i64
-  %252 = getelementptr inbounds nuw i32, ptr %182, i64 %251
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %251
   %253 = load i32, ptr %252, align 4
   store i32 %253, ptr %.2556693, align 4
   %254 = add nuw nsw i32 %.2566692, 1
@@ -6768,7 +6768,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge697:                                   ; preds = %.lr.ph696, %._crit_edge687
   %257 = add nuw nsw i32 %.0563698, 1
-  %258 = getelementptr inbounds i32, ptr %.2515699, i64 %174
+  %258 = getelementptr inbounds [4 x i8], ptr %.2515699, i64 %174
   %259 = getelementptr inbounds i8, ptr %.2493700, i64 %175
   %indvars.iv.next = sub i2 %indvars.iv, %178
   %exitcond815.not = icmp eq i32 %257, %5
@@ -6792,14 +6792,14 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
   %268 = getelementptr i8, ptr %.3494668, i64 2
   %269 = load i8, ptr %.3494668, align 1
   %270 = zext i8 %269 to i64
-  %271 = getelementptr inbounds nuw i32, ptr %261, i64 %270
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %261, i64 %270
   %272 = load i32, ptr %271, align 4
   %273 = getelementptr inbounds nuw i8, ptr %.3516667, i64 4
   store i32 %272, ptr %.3516667, align 4
   %274 = getelementptr inbounds nuw i8, ptr %.3494668, i64 1
   %275 = load i8, ptr %274, align 1
   %276 = zext i8 %275 to i64
-  %277 = getelementptr inbounds nuw i32, ptr %262, i64 %276
+  %277 = getelementptr inbounds nuw [4 x i8], ptr %262, i64 %276
   %278 = load i32, ptr %277, align 4
   store i32 %278, ptr %273, align 4
   br label %._crit_edge641
@@ -6815,7 +6815,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 280:                                              ; preds = %._crit_edge641
   %281 = load i8, ptr %.0531.lcssa, align 1
   %282 = zext i8 %281 to i64
-  %283 = getelementptr inbounds nuw i32, ptr %261, i64 %282
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %261, i64 %282
   %284 = load i32, ptr %283, align 4
   %285 = getelementptr inbounds nuw i8, ptr %.0534.lcssa, i64 4
   store i32 %284, ptr %.0534.lcssa, align 4
@@ -6921,14 +6921,14 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
   %.2551657 = phi i32 [ %357, %.lr.ph661 ], [ %.1550.lcssa, %._crit_edge652 ]
   %346 = load i8, ptr %.2533659, align 1
   %347 = zext i8 %346 to i64
-  %348 = getelementptr inbounds nuw i32, ptr %.0546, i64 %347
+  %348 = getelementptr inbounds nuw [4 x i8], ptr %.0546, i64 %347
   %349 = load i32, ptr %348, align 4
   %350 = getelementptr inbounds nuw i8, ptr %.3537658, i64 4
   store i32 %349, ptr %.3537658, align 4
   %351 = getelementptr inbounds nuw i8, ptr %.2533659, i64 1
   %352 = load i8, ptr %351, align 1
   %353 = zext i8 %352 to i64
-  %354 = getelementptr inbounds nuw i32, ptr %.0545, i64 %353
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %.0545, i64 %353
   %355 = load i32, ptr %354, align 4
   %356 = getelementptr inbounds nuw i8, ptr %.3537658, i64 8
   store i32 %355, ptr %350, align 4
@@ -6947,14 +6947,14 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 361:                                              ; preds = %._crit_edge662
   %362 = load i8, ptr %.2533.lcssa, align 1
   %363 = zext i8 %362 to i64
-  %364 = getelementptr inbounds nuw i32, ptr %.0546, i64 %363
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %.0546, i64 %363
   %365 = load i32, ptr %364, align 4
   store i32 %365, ptr %.3537.lcssa, align 4
   br label %366
 
 366:                                              ; preds = %._crit_edge662, %361
   %367 = add nuw nsw i32 %.0548666, 1
-  %368 = getelementptr i32, ptr %.3516667, i64 %170
+  %368 = getelementptr [4 x i8], ptr %.3516667, i64 %170
   %369 = getelementptr inbounds i8, ptr %.3494668, i64 %171
   %exitcond812.not = icmp eq i32 %367, %5
   br i1 %exitcond812.not, label %.loopexit, label %260, !llvm.loop !113
@@ -6980,7 +6980,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 378:                                              ; preds = %370
   %379 = load i8, ptr %.4633, align 1
   %380 = zext i8 %379 to i64
-  %381 = getelementptr inbounds nuw i32, ptr %371, i64 %380
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %371, i64 %380
   %382 = load i32, ptr %381, align 4
   %383 = getelementptr inbounds nuw i8, ptr %.4517632, i64 4
   store i32 %382, ptr %.4517632, align 4
@@ -6990,14 +6990,14 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 385:                                              ; preds = %370
   %386 = load i8, ptr %.4633, align 1
   %387 = zext i8 %386 to i64
-  %388 = getelementptr inbounds nuw i32, ptr %371, i64 %387
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %371, i64 %387
   %389 = load i32, ptr %388, align 4
   %390 = getelementptr inbounds nuw i8, ptr %.4517632, i64 4
   store i32 %389, ptr %.4517632, align 4
   %391 = getelementptr inbounds nuw i8, ptr %.4633, i64 1
   %392 = load i8, ptr %391, align 1
   %393 = zext i8 %392 to i64
-  %394 = getelementptr inbounds nuw i32, ptr %372, i64 %393
+  %394 = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %393
   %395 = load i32, ptr %394, align 4
   %396 = getelementptr inbounds nuw i8, ptr %.4517632, i64 8
   store i32 %395, ptr %390, align 4
@@ -7007,21 +7007,21 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
 398:                                              ; preds = %370
   %399 = load i8, ptr %.4633, align 1
   %400 = zext i8 %399 to i64
-  %401 = getelementptr inbounds nuw i32, ptr %371, i64 %400
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %371, i64 %400
   %402 = load i32, ptr %401, align 4
   %403 = getelementptr inbounds nuw i8, ptr %.4517632, i64 4
   store i32 %402, ptr %.4517632, align 4
   %404 = getelementptr inbounds nuw i8, ptr %.4633, i64 1
   %405 = load i8, ptr %404, align 1
   %406 = zext i8 %405 to i64
-  %407 = getelementptr inbounds nuw i32, ptr %372, i64 %406
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %406
   %408 = load i32, ptr %407, align 4
   %409 = getelementptr inbounds nuw i8, ptr %.4517632, i64 8
   store i32 %408, ptr %403, align 4
   %410 = getelementptr inbounds nuw i8, ptr %.4633, i64 2
   %411 = load i8, ptr %410, align 1
   %412 = zext i8 %411 to i64
-  %413 = getelementptr inbounds nuw i32, ptr %373, i64 %412
+  %413 = getelementptr inbounds nuw [4 x i8], ptr %373, i64 %412
   %414 = load i32, ptr %413, align 4
   %415 = getelementptr inbounds nuw i8, ptr %.4517632, i64 12
   store i32 %414, ptr %409, align 4
@@ -7138,7 +7138,7 @@ default.unreachable:                              ; preds = %503
 476:                                              ; preds = %._crit_edge622
   %477 = load i8, ptr %.0526.lcssa, align 1
   %478 = zext i8 %477 to i64
-  %479 = getelementptr inbounds nuw i32, ptr %.1523.lcssa, i64 %478
+  %479 = getelementptr inbounds nuw [4 x i8], ptr %.1523.lcssa, i64 %478
   %480 = load i32, ptr %479, align 4
   %481 = getelementptr inbounds nuw i8, ptr %.1509.lcssa, i64 20
   store i32 %480, ptr %473, align 4
@@ -7156,7 +7156,7 @@ default.unreachable:                              ; preds = %503
 486:                                              ; preds = %484
   %487 = load i8, ptr %.1506, align 1
   %488 = zext i8 %487 to i64
-  %489 = getelementptr inbounds nuw i32, ptr %.1521.lcssa, i64 %488
+  %489 = getelementptr inbounds nuw [4 x i8], ptr %.1521.lcssa, i64 %488
   %490 = load i32, ptr %489, align 4
   store i32 %490, ptr %.2510, align 4
   %491 = add nuw nsw i32 %.1529, 1
@@ -7168,14 +7168,14 @@ default.unreachable:                              ; preds = %503
   %495 = getelementptr inbounds nuw i8, ptr %.2510, i64 4
   %496 = load i8, ptr %494, align 1
   %497 = zext i8 %496 to i64
-  %498 = getelementptr inbounds nuw i32, ptr %.1525.lcssa, i64 %497
+  %498 = getelementptr inbounds nuw [4 x i8], ptr %.1525.lcssa, i64 %497
   %499 = load i32, ptr %498, align 4
   store i32 %499, ptr %495, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %484, %486, %493
   %500 = add nuw nsw i32 %.0527631, 1
-  %501 = getelementptr inbounds i32, ptr %.4517632, i64 %165
+  %501 = getelementptr inbounds [4 x i8], ptr %.4517632, i64 %165
   %502 = getelementptr inbounds i8, ptr %.4633, i64 %166
   %exitcond811.not = icmp eq i32 %500, %5
   br i1 %exitcond811.not, label %.loopexit, label %370, !llvm.loop !115
@@ -7202,7 +7202,7 @@ default.unreachable:                              ; preds = %503
 512:                                              ; preds = %503
   %513 = load i8, ptr %.5610, align 1
   %514 = zext i8 %513 to i64
-  %515 = getelementptr inbounds nuw i32, ptr %504, i64 %514
+  %515 = getelementptr inbounds nuw [4 x i8], ptr %504, i64 %514
   %516 = load i32, ptr %515, align 4
   %517 = getelementptr inbounds nuw i8, ptr %.5518608, i64 4
   store i32 %516, ptr %.5518608, align 4
@@ -7212,14 +7212,14 @@ default.unreachable:                              ; preds = %503
 519:                                              ; preds = %503
   %520 = load i8, ptr %.5610, align 1
   %521 = zext i8 %520 to i64
-  %522 = getelementptr inbounds nuw i32, ptr %504, i64 %521
+  %522 = getelementptr inbounds nuw [4 x i8], ptr %504, i64 %521
   %523 = load i32, ptr %522, align 4
   %524 = getelementptr inbounds nuw i8, ptr %.5518608, i64 4
   store i32 %523, ptr %.5518608, align 4
   %525 = getelementptr inbounds nuw i8, ptr %.5610, i64 1
   %526 = load i8, ptr %525, align 1
   %527 = zext i8 %526 to i64
-  %528 = getelementptr inbounds nuw i32, ptr %505, i64 %527
+  %528 = getelementptr inbounds nuw [4 x i8], ptr %505, i64 %527
   %529 = load i32, ptr %528, align 4
   %530 = getelementptr inbounds nuw i8, ptr %.5518608, i64 8
   store i32 %529, ptr %524, align 4
@@ -7229,21 +7229,21 @@ default.unreachable:                              ; preds = %503
 532:                                              ; preds = %503
   %533 = load i8, ptr %.5610, align 1
   %534 = zext i8 %533 to i64
-  %535 = getelementptr inbounds nuw i32, ptr %504, i64 %534
+  %535 = getelementptr inbounds nuw [4 x i8], ptr %504, i64 %534
   %536 = load i32, ptr %535, align 4
   %537 = getelementptr inbounds nuw i8, ptr %.5518608, i64 4
   store i32 %536, ptr %.5518608, align 4
   %538 = getelementptr inbounds nuw i8, ptr %.5610, i64 1
   %539 = load i8, ptr %538, align 1
   %540 = zext i8 %539 to i64
-  %541 = getelementptr inbounds nuw i32, ptr %505, i64 %540
+  %541 = getelementptr inbounds nuw [4 x i8], ptr %505, i64 %540
   %542 = load i32, ptr %541, align 4
   %543 = getelementptr inbounds nuw i8, ptr %.5518608, i64 8
   store i32 %542, ptr %537, align 4
   %544 = getelementptr inbounds nuw i8, ptr %.5610, i64 2
   %545 = load i8, ptr %544, align 1
   %546 = zext i8 %545 to i64
-  %547 = getelementptr inbounds nuw i32, ptr %506, i64 %546
+  %547 = getelementptr inbounds nuw [4 x i8], ptr %506, i64 %546
   %548 = load i32, ptr %547, align 4
   %549 = getelementptr inbounds nuw i8, ptr %.5518608, i64 12
   store i32 %548, ptr %543, align 4
@@ -7349,7 +7349,7 @@ default.unreachable:                              ; preds = %503
 610:                                              ; preds = %._crit_edge
   %611 = load i8, ptr %.0500.lcssa, align 1
   %612 = zext i8 %611 to i64
-  %613 = getelementptr inbounds nuw i32, ptr %.0499, i64 %612
+  %613 = getelementptr inbounds nuw [4 x i8], ptr %.0499, i64 %612
   %614 = load i32, ptr %613, align 4
   %615 = getelementptr inbounds nuw i8, ptr %.1488.lcssa, i64 20
   store i32 %614, ptr %607, align 4
@@ -7367,7 +7367,7 @@ default.unreachable:                              ; preds = %503
 620:                                              ; preds = %618
   %621 = load i8, ptr %.1, align 1
   %622 = zext i8 %621 to i64
-  %623 = getelementptr inbounds nuw i32, ptr %.0498, i64 %622
+  %623 = getelementptr inbounds nuw [4 x i8], ptr %.0498, i64 %622
   %624 = load i32, ptr %623, align 4
   store i32 %624, ptr %.2489, align 4
   %625 = add nuw nsw i32 %.1503, 1
@@ -7379,14 +7379,14 @@ default.unreachable:                              ; preds = %503
   %629 = getelementptr inbounds nuw i8, ptr %.2489, i64 4
   %630 = load i8, ptr %628, align 1
   %631 = zext i8 %630 to i64
-  %632 = getelementptr inbounds nuw i32, ptr %.0497, i64 %631
+  %632 = getelementptr inbounds nuw [4 x i8], ptr %.0497, i64 %631
   %633 = load i32, ptr %632, align 4
   store i32 %633, ptr %629, align 4
   br label %.critedge585
 
 .critedge585:                                     ; preds = %618, %620, %627
   %634 = add nuw nsw i32 %.0501609, 1
-  %635 = getelementptr inbounds i32, ptr %.5518608, i64 %156
+  %635 = getelementptr inbounds [4 x i8], ptr %.5518608, i64 %156
   %636 = getelementptr inbounds i8, ptr %.5610, i64 %157
   %exitcond.not = icmp eq i32 %634, %5
   br i1 %exitcond.not, label %.loopexit, label %503, !llvm.loop !117
@@ -7407,10 +7407,10 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 131072
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7451,12 +7451,12 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
-  %25 = getelementptr inbounds nuw i32, ptr %.189125.us.us.us, i64 %indvars.iv204
-  %26 = getelementptr inbounds nuw i16, ptr %.1128.us.us.us, i64 %indvars.iv204
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv204
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us.us.us, i64 %indvars.iv204
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us.us, i64 %indvars.iv204
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv204
   %28 = load ptr, ptr %27, align 8
   %29 = load i16, ptr %26, align 2
-  %30 = getelementptr inbounds nuw i16, ptr %26, i64 %17
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %17
   %31 = load i16, ptr %30, align 2
   br label %32
 
@@ -7466,33 +7466,33 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
   %.084.in110.us.us.us.us.us = phi i16 [ %29, %.lr.ph114.us.us.us.us.us ], [ %39, %32 ]
   %.087109.us.us.us.us.us = phi ptr [ %25, %.lr.ph114.us.us.us.us.us ], [ %44, %32 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %43, %32 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i16, ptr %.pn, i64 %19
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %19
   %33 = sext i16 %.084.in110.us.us.us.us.us to i64
-  %34 = getelementptr inbounds i32, ptr %28, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %28, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = sext i16 %.0.in111.us.us.us.us.us to i64
-  %37 = getelementptr inbounds i32, ptr %28, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %28, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = load i16, ptr %.086112.us.us.us.us.us, align 2
-  %40 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us.us.us, i64 %17
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us.us.us, i64 %17
   %41 = load i16, ptr %40, align 2
   store i32 %35, ptr %.087109.us.us.us.us.us, align 4
-  %42 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us.us.us, i64 %17
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us.us.us, i64 %17
   store i32 %38, ptr %42, align 4
   %43 = add nuw nsw i32 %.197108.us.us.us.us.us, 2
-  %44 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us.us.us, i64 %19
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us.us.us, i64 %19
   %45 = icmp slt i32 %43, %20
   br i1 %45, label %32, label %._crit_edge115.us.us.us.us.us, !llvm.loop !119
 
 ._crit_edge115.us.us.us.us.us:                    ; preds = %32
   %46 = sext i16 %39 to i64
-  %47 = getelementptr inbounds i32, ptr %28, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %28, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = sext i16 %41 to i64
-  %50 = getelementptr inbounds i32, ptr %28, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %28, i64 %49
   %51 = load i32, ptr %50, align 4
   store i32 %48, ptr %44, align 4
-  %52 = getelementptr inbounds nuw i32, ptr %44, i64 %17
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %17
   store i32 %51, ptr %52, align 4
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
@@ -7500,8 +7500,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %53 = add nuw nsw i32 %.195124.us.us.us, 1
-  %54 = getelementptr inbounds i32, ptr %.189125.us.us.us, i64 %22
-  %55 = getelementptr inbounds i16, ptr %.1128.us.us.us, i64 %23
+  %54 = getelementptr inbounds [4 x i8], ptr %.189125.us.us.us, i64 %22
+  %55 = getelementptr inbounds [2 x i8], ptr %.1128.us.us.us, i64 %23
   %exitcond209.not = icmp eq i32 %53, %5
   br i1 %exitcond209.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !121
 
@@ -7513,14 +7513,14 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
-  %56 = getelementptr inbounds nuw i32, ptr %.189125.us.us, i64 %indvars.iv198
-  %57 = getelementptr inbounds nuw i16, ptr %.1128.us.us, i64 %indvars.iv198
-  %58 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv198
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us.us, i64 %indvars.iv198
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us, i64 %indvars.iv198
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv198
   %59 = load ptr, ptr %58, align 8
   %60 = load i16, ptr %57, align 2
-  %61 = getelementptr inbounds nuw i16, ptr %57, i64 %17
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %17
   %62 = load i16, ptr %61, align 2
-  %.086107.us.us.us = getelementptr inbounds nuw i16, ptr %57, i64 %19
+  %.086107.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %19
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph114.us.us.us
@@ -7530,38 +7530,38 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
   %.087109.us.us.us = phi ptr [ %56, %.lr.ph114.us.us.us ], [ %75, %63 ]
   %.197108.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us ], [ %74, %63 ]
   %64 = sext i16 %.084.in110.us.us.us to i64
-  %65 = getelementptr inbounds i32, ptr %59, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %59, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = sext i16 %.0.in111.us.us.us to i64
-  %68 = getelementptr inbounds i32, ptr %59, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %59, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = load i16, ptr %.086112.us.us.us, align 2
-  %71 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %17
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %17
   %72 = load i16, ptr %71, align 2
   store i32 %66, ptr %.087109.us.us.us, align 4
-  %73 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us, i64 %17
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us, i64 %17
   store i32 %69, ptr %73, align 4
   %74 = add nuw nsw i32 %.197108.us.us.us, 2
-  %75 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us, i64 %19
-  %.086.us.us.us = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %19
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us, i64 %19
+  %.086.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %19
   %76 = icmp slt i32 %74, %20
   br i1 %76, label %63, label %._crit_edge115.us.us.us, !llvm.loop !119
 
 ._crit_edge115.us.us.us:                          ; preds = %63
   %77 = sext i16 %70 to i64
-  %78 = getelementptr inbounds i32, ptr %59, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %59, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = sext i16 %72 to i64
-  %81 = getelementptr inbounds i32, ptr %59, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %59, i64 %80
   %82 = load i32, ptr %81, align 4
   store i32 %79, ptr %75, align 4
-  %83 = getelementptr inbounds nuw i32, ptr %75, i64 %17
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %17
   store i32 %82, ptr %83, align 4
   %84 = load i16, ptr %.086.us.us.us, align 2
   %85 = sext i16 %84 to i64
-  %86 = getelementptr inbounds i32, ptr %59, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %59, i64 %85
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds nuw i32, ptr %75, i64 %19
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %19
   store i32 %87, ptr %88, align 4
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count207
@@ -7569,8 +7569,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %89 = add nuw nsw i32 %.195124.us.us, 1
-  %90 = getelementptr inbounds i32, ptr %.189125.us.us, i64 %22
-  %91 = getelementptr inbounds i16, ptr %.1128.us.us, i64 %23
+  %90 = getelementptr inbounds [4 x i8], ptr %.189125.us.us, i64 %22
+  %91 = getelementptr inbounds [2 x i8], ptr %.1128.us.us, i64 %23
   %exitcond203.not = icmp eq i32 %89, %5
   br i1 %exitcond203.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !121
 
@@ -7585,21 +7585,21 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
 
 92:                                               ; preds = %92, %.preheader103.us.us137
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %92 ], [ 0, %.preheader103.us.us137 ]
-  %93 = getelementptr inbounds nuw i32, ptr %.189125.us.us139, i64 %indvars.iv192
-  %94 = getelementptr inbounds nuw i16, ptr %.1128.us.us138, i64 %indvars.iv192
-  %95 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv192
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us.us139, i64 %indvars.iv192
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us138, i64 %indvars.iv192
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv192
   %96 = load ptr, ptr %95, align 8
   %97 = load i16, ptr %94, align 2
-  %98 = getelementptr inbounds nuw i16, ptr %94, i64 %17
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %17
   %99 = load i16, ptr %98, align 2
   %100 = sext i16 %97 to i64
-  %101 = getelementptr inbounds i32, ptr %96, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %96, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = sext i16 %99 to i64
-  %104 = getelementptr inbounds i32, ptr %96, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %96, i64 %103
   %105 = load i32, ptr %104, align 4
   store i32 %102, ptr %93, align 4
-  %106 = getelementptr inbounds nuw i32, ptr %93, i64 %17
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %17
   store i32 %105, ptr %106, align 4
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count207
@@ -7607,8 +7607,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us.us.us:              ; preds = %92
   %107 = add nuw nsw i32 %.195124.us.us140, 1
-  %108 = getelementptr inbounds i32, ptr %.189125.us.us139, i64 %22
-  %109 = getelementptr inbounds i16, ptr %.1128.us.us138, i64 %23
+  %108 = getelementptr inbounds [4 x i8], ptr %.189125.us.us139, i64 %22
+  %109 = getelementptr inbounds [2 x i8], ptr %.1128.us.us138, i64 %23
   %exitcond197.not = icmp eq i32 %107, %5
   br i1 %exitcond197.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !121
 
@@ -7620,28 +7620,28 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
 
 110:                                              ; preds = %.preheader103.us, %110
   %indvars.iv186 = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next187, %110 ]
-  %111 = getelementptr inbounds nuw i32, ptr %.189125.us, i64 %indvars.iv186
-  %112 = getelementptr inbounds nuw i16, ptr %.1128.us, i64 %indvars.iv186
-  %113 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv186
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us, i64 %indvars.iv186
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us, i64 %indvars.iv186
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv186
   %114 = load ptr, ptr %113, align 8
   %115 = load i16, ptr %112, align 2
-  %116 = getelementptr inbounds nuw i16, ptr %112, i64 %17
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %17
   %117 = load i16, ptr %116, align 2
-  %.086107.us132 = getelementptr inbounds nuw i16, ptr %112, i64 %19
+  %.086107.us132 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %19
   %118 = sext i16 %115 to i64
-  %119 = getelementptr inbounds i32, ptr %114, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %114, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = sext i16 %117 to i64
-  %122 = getelementptr inbounds i32, ptr %114, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %114, i64 %121
   %123 = load i32, ptr %122, align 4
   store i32 %120, ptr %111, align 4
-  %124 = getelementptr inbounds nuw i32, ptr %111, i64 %17
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %17
   store i32 %123, ptr %124, align 4
   %125 = load i16, ptr %.086107.us132, align 2
   %126 = sext i16 %125 to i64
-  %127 = getelementptr inbounds i32, ptr %114, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %114, i64 %126
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds nuw i32, ptr %111, i64 %19
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %19
   store i32 %128, ptr %129, align 4
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count207
@@ -7649,8 +7649,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us133:                 ; preds = %110
   %130 = add nuw nsw i32 %.195124.us, 1
-  %131 = getelementptr inbounds i32, ptr %.189125.us, i64 %22
-  %132 = getelementptr inbounds i16, ptr %.1128.us, i64 %23
+  %131 = getelementptr inbounds [4 x i8], ptr %.189125.us, i64 %22
+  %132 = getelementptr inbounds [2 x i8], ptr %.1128.us, i64 %23
   %exitcond191.not = icmp eq i32 %130, %5
   br i1 %exitcond191.not, label %.loopexit, label %.preheader103.us, !llvm.loop !121
 
@@ -7676,13 +7676,13 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
 
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv210 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next211, %.lr.ph144.us.us167.us ]
-  %136 = getelementptr inbounds nuw i32, ptr %.088160.us.us, i64 %indvars.iv210
-  %137 = getelementptr inbounds nuw i16, ptr %.085162.us.us, i64 %indvars.iv210
-  %138 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv210
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.088160.us.us, i64 %indvars.iv210
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %.085162.us.us, i64 %indvars.iv210
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv210
   %139 = load ptr, ptr %138, align 8
   %140 = load i16, ptr %137, align 2
   %141 = sext i16 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %139, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %139, i64 %141
   %143 = load i32, ptr %142, align 4
   store i32 %143, ptr %136, align 4
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -7691,8 +7691,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr noundef readonly captures(non
 
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %144 = add nuw nsw i32 %.094159.us.us, 1
-  %145 = getelementptr inbounds i32, ptr %.088160.us.us, i64 %133
-  %146 = getelementptr inbounds i16, ptr %.085162.us.us, i64 %134
+  %145 = getelementptr inbounds [4 x i8], ptr %.088160.us.us, i64 %133
+  %146 = getelementptr inbounds [2 x i8], ptr %.085162.us.us, i64 %134
   %exitcond215.not = icmp eq i32 %144, %5
   br i1 %exitcond215.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !123
 
@@ -7747,12 +7747,12 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
-  %23 = getelementptr inbounds nuw i32, ptr %.189125.us.us.us, i64 %indvars.iv200
-  %24 = getelementptr inbounds nuw i16, ptr %.1128.us.us.us, i64 %indvars.iv200
-  %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv200
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us.us.us, i64 %indvars.iv200
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us.us, i64 %indvars.iv200
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv200
   %26 = load ptr, ptr %25, align 8
   %27 = load i16, ptr %24, align 2
-  %28 = getelementptr inbounds nuw i16, ptr %24, i64 %15
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %15
   %29 = load i16, ptr %28, align 2
   br label %30
 
@@ -7762,33 +7762,33 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
   %.084.in110.us.us.us.us.us = phi i16 [ %27, %.lr.ph114.us.us.us.us.us ], [ %37, %30 ]
   %.087109.us.us.us.us.us = phi ptr [ %23, %.lr.ph114.us.us.us.us.us ], [ %42, %30 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %41, %30 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i16, ptr %.pn, i64 %17
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %17
   %31 = zext i16 %.084.in110.us.us.us.us.us to i64
-  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = zext i16 %.0.in111.us.us.us.us.us to i64
-  %35 = getelementptr inbounds nuw i32, ptr %26, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = load i16, ptr %.086112.us.us.us.us.us, align 2
-  %38 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us.us.us, i64 %15
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us.us.us, i64 %15
   %39 = load i16, ptr %38, align 2
   store i32 %33, ptr %.087109.us.us.us.us.us, align 4
-  %40 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us.us.us, i64 %15
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us.us.us, i64 %15
   store i32 %36, ptr %40, align 4
   %41 = add nuw nsw i32 %.197108.us.us.us.us.us, 2
-  %42 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us.us.us, i64 %17
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us.us.us, i64 %17
   %43 = icmp slt i32 %41, %18
   br i1 %43, label %30, label %._crit_edge115.us.us.us.us.us, !llvm.loop !124
 
 ._crit_edge115.us.us.us.us.us:                    ; preds = %30
   %44 = zext i16 %37 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %26, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = zext i16 %39 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %26, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %47
   %49 = load i32, ptr %48, align 4
   store i32 %46, ptr %42, align 4
-  %50 = getelementptr inbounds nuw i32, ptr %42, i64 %15
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %15
   store i32 %49, ptr %50, align 4
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
@@ -7796,8 +7796,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %51 = add nuw nsw i32 %.195124.us.us.us, 1
-  %52 = getelementptr inbounds i32, ptr %.189125.us.us.us, i64 %20
-  %53 = getelementptr inbounds i16, ptr %.1128.us.us.us, i64 %21
+  %52 = getelementptr inbounds [4 x i8], ptr %.189125.us.us.us, i64 %20
+  %53 = getelementptr inbounds [2 x i8], ptr %.1128.us.us.us, i64 %21
   %exitcond205.not = icmp eq i32 %51, %5
   br i1 %exitcond205.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !126
 
@@ -7809,14 +7809,14 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
-  %54 = getelementptr inbounds nuw i32, ptr %.189125.us.us, i64 %indvars.iv194
-  %55 = getelementptr inbounds nuw i16, ptr %.1128.us.us, i64 %indvars.iv194
-  %56 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv194
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us.us, i64 %indvars.iv194
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us, i64 %indvars.iv194
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv194
   %57 = load ptr, ptr %56, align 8
   %58 = load i16, ptr %55, align 2
-  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %15
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %15
   %60 = load i16, ptr %59, align 2
-  %.086107.us.us.us = getelementptr inbounds nuw i16, ptr %55, i64 %17
+  %.086107.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %17
   br label %61
 
 61:                                               ; preds = %61, %.lr.ph114.us.us.us
@@ -7826,38 +7826,38 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
   %.087109.us.us.us = phi ptr [ %54, %.lr.ph114.us.us.us ], [ %73, %61 ]
   %.197108.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us ], [ %72, %61 ]
   %62 = zext i16 %.084.in110.us.us.us to i64
-  %63 = getelementptr inbounds nuw i32, ptr %57, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext i16 %.0.in111.us.us.us to i64
-  %66 = getelementptr inbounds nuw i32, ptr %57, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = load i16, ptr %.086112.us.us.us, align 2
-  %69 = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %15
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %15
   %70 = load i16, ptr %69, align 2
   store i32 %64, ptr %.087109.us.us.us, align 4
-  %71 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us, i64 %15
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us, i64 %15
   store i32 %67, ptr %71, align 4
   %72 = add nuw nsw i32 %.197108.us.us.us, 2
-  %73 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us, i64 %17
-  %.086.us.us.us = getelementptr inbounds nuw i16, ptr %.086112.us.us.us, i64 %17
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us, i64 %17
+  %.086.us.us.us = getelementptr inbounds nuw [2 x i8], ptr %.086112.us.us.us, i64 %17
   %74 = icmp slt i32 %72, %18
   br i1 %74, label %61, label %._crit_edge115.us.us.us, !llvm.loop !124
 
 ._crit_edge115.us.us.us:                          ; preds = %61
   %75 = zext i16 %68 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %57, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = zext i16 %70 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %78
   %80 = load i32, ptr %79, align 4
   store i32 %77, ptr %73, align 4
-  %81 = getelementptr inbounds nuw i32, ptr %73, i64 %15
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %15
   store i32 %80, ptr %81, align 4
   %82 = load i16, ptr %.086.us.us.us, align 2
   %83 = zext i16 %82 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %57, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %83
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds nuw i32, ptr %73, i64 %17
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %17
   store i32 %85, ptr %86, align 4
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count203
@@ -7865,8 +7865,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %87 = add nuw nsw i32 %.195124.us.us, 1
-  %88 = getelementptr inbounds i32, ptr %.189125.us.us, i64 %20
-  %89 = getelementptr inbounds i16, ptr %.1128.us.us, i64 %21
+  %88 = getelementptr inbounds [4 x i8], ptr %.189125.us.us, i64 %20
+  %89 = getelementptr inbounds [2 x i8], ptr %.1128.us.us, i64 %21
   %exitcond199.not = icmp eq i32 %87, %5
   br i1 %exitcond199.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !126
 
@@ -7881,21 +7881,21 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
 
 90:                                               ; preds = %90, %.preheader103.us.us137
   %indvars.iv188 = phi i64 [ %indvars.iv.next189, %90 ], [ 0, %.preheader103.us.us137 ]
-  %91 = getelementptr inbounds nuw i32, ptr %.189125.us.us139, i64 %indvars.iv188
-  %92 = getelementptr inbounds nuw i16, ptr %.1128.us.us138, i64 %indvars.iv188
-  %93 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv188
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us.us139, i64 %indvars.iv188
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us.us138, i64 %indvars.iv188
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv188
   %94 = load ptr, ptr %93, align 8
   %95 = load i16, ptr %92, align 2
-  %96 = getelementptr inbounds nuw i16, ptr %92, i64 %15
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %15
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %95 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %94, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = zext i16 %97 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %94, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %101
   %103 = load i32, ptr %102, align 4
   store i32 %100, ptr %91, align 4
-  %104 = getelementptr inbounds nuw i32, ptr %91, i64 %15
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %15
   store i32 %103, ptr %104, align 4
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count203
@@ -7903,8 +7903,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us.us.us:              ; preds = %90
   %105 = add nuw nsw i32 %.195124.us.us140, 1
-  %106 = getelementptr inbounds i32, ptr %.189125.us.us139, i64 %20
-  %107 = getelementptr inbounds i16, ptr %.1128.us.us138, i64 %21
+  %106 = getelementptr inbounds [4 x i8], ptr %.189125.us.us139, i64 %20
+  %107 = getelementptr inbounds [2 x i8], ptr %.1128.us.us138, i64 %21
   %exitcond193.not = icmp eq i32 %105, %5
   br i1 %exitcond193.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !126
 
@@ -7916,28 +7916,28 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
 
 108:                                              ; preds = %.preheader103.us, %108
   %indvars.iv = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next, %108 ]
-  %109 = getelementptr inbounds nuw i32, ptr %.189125.us, i64 %indvars.iv
-  %110 = getelementptr inbounds nuw i16, ptr %.1128.us, i64 %indvars.iv
-  %111 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %.1128.us, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %112 = load ptr, ptr %111, align 8
   %113 = load i16, ptr %110, align 2
-  %114 = getelementptr inbounds nuw i16, ptr %110, i64 %15
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %15
   %115 = load i16, ptr %114, align 2
-  %.086107.us132 = getelementptr inbounds nuw i16, ptr %110, i64 %17
+  %.086107.us132 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %17
   %116 = zext i16 %113 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %112, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = zext i16 %115 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %112, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %119
   %121 = load i32, ptr %120, align 4
   store i32 %118, ptr %109, align 4
-  %122 = getelementptr inbounds nuw i32, ptr %109, i64 %15
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %15
   store i32 %121, ptr %122, align 4
   %123 = load i16, ptr %.086107.us132, align 2
   %124 = zext i16 %123 to i64
-  %125 = getelementptr inbounds nuw i32, ptr %112, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %124
   %126 = load i32, ptr %125, align 4
-  %127 = getelementptr inbounds nuw i32, ptr %109, i64 %17
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %17
   store i32 %126, ptr %127, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count203
@@ -7945,8 +7945,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us133:                 ; preds = %108
   %128 = add nuw nsw i32 %.195124.us, 1
-  %129 = getelementptr inbounds i32, ptr %.189125.us, i64 %20
-  %130 = getelementptr inbounds i16, ptr %.1128.us, i64 %21
+  %129 = getelementptr inbounds [4 x i8], ptr %.189125.us, i64 %20
+  %130 = getelementptr inbounds [2 x i8], ptr %.1128.us, i64 %21
   %exitcond187.not = icmp eq i32 %128, %5
   br i1 %exitcond187.not, label %.loopexit, label %.preheader103.us, !llvm.loop !126
 
@@ -7972,13 +7972,13 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
 
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv206 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next207, %.lr.ph144.us.us167.us ]
-  %134 = getelementptr inbounds nuw i32, ptr %.088160.us.us, i64 %indvars.iv206
-  %135 = getelementptr inbounds nuw i16, ptr %.085162.us.us, i64 %indvars.iv206
-  %136 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv206
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %.088160.us.us, i64 %indvars.iv206
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %.085162.us.us, i64 %indvars.iv206
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv206
   %137 = load ptr, ptr %136, align 8
   %138 = load i16, ptr %135, align 2
   %139 = zext i16 %138 to i64
-  %140 = getelementptr inbounds nuw i32, ptr %137, i64 %139
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %139
   %141 = load i32, ptr %140, align 4
   store i32 %141, ptr %134, align 4
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
@@ -7987,8 +7987,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr noundef readonly captures(non
 
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %142 = add nuw nsw i32 %.094159.us.us, 1
-  %143 = getelementptr inbounds i32, ptr %.088160.us.us, i64 %131
-  %144 = getelementptr inbounds i16, ptr %.085162.us.us, i64 %132
+  %143 = getelementptr inbounds [4 x i8], ptr %.088160.us.us, i64 %131
+  %144 = getelementptr inbounds [2 x i8], ptr %.085162.us.us, i64 %132
   %exitcond211.not = icmp eq i32 %142, %5
   br i1 %exitcond211.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !128
 
@@ -8008,10 +8008,10 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2147483644
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8052,12 +8052,12 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us.us.us:                         ; preds = %._crit_edge115.us.us.us.us.us, %.preheader103.us.us.us
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %._crit_edge115.us.us.us.us.us ], [ 0, %.preheader103.us.us.us ]
-  %25 = getelementptr inbounds nuw i32, ptr %.189125.us.us.us, i64 %indvars.iv204
-  %26 = getelementptr inbounds nuw i32, ptr %.1128.us.us.us, i64 %indvars.iv204
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv204
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us.us.us, i64 %indvars.iv204
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us.us, i64 %indvars.iv204
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv204
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %26, align 4
-  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %17
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %17
   %31 = load i32, ptr %30, align 4
   br label %32
 
@@ -8067,33 +8067,33 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
   %.084110.us.us.us.us.us = phi i32 [ %29, %.lr.ph114.us.us.us.us.us ], [ %39, %32 ]
   %.087109.us.us.us.us.us = phi ptr [ %25, %.lr.ph114.us.us.us.us.us ], [ %44, %32 ]
   %.197108.us.us.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us.us.us ], [ %43, %32 ]
-  %.086112.us.us.us.us.us = getelementptr inbounds nuw i32, ptr %.pn, i64 %19
+  %.086112.us.us.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %.pn, i64 %19
   %33 = sext i32 %.084110.us.us.us.us.us to i64
-  %34 = getelementptr inbounds i32, ptr %28, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %28, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %.0111.us.us.us.us.us to i64
-  %37 = getelementptr inbounds i32, ptr %28, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %28, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr %.086112.us.us.us.us.us, align 4
-  %40 = getelementptr inbounds nuw i32, ptr %.086112.us.us.us.us.us, i64 %17
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us.us.us, i64 %17
   %41 = load i32, ptr %40, align 4
   store i32 %35, ptr %.087109.us.us.us.us.us, align 4
-  %42 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us.us.us, i64 %17
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us.us.us, i64 %17
   store i32 %38, ptr %42, align 4
   %43 = add nuw nsw i32 %.197108.us.us.us.us.us, 2
-  %44 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us.us.us, i64 %19
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us.us.us, i64 %19
   %45 = icmp slt i32 %43, %20
   br i1 %45, label %32, label %._crit_edge115.us.us.us.us.us, !llvm.loop !130
 
 ._crit_edge115.us.us.us.us.us:                    ; preds = %32
   %46 = sext i32 %39 to i64
-  %47 = getelementptr inbounds i32, ptr %28, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %28, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %41 to i64
-  %50 = getelementptr inbounds i32, ptr %28, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %28, i64 %49
   %51 = load i32, ptr %50, align 4
   store i32 %48, ptr %44, align 4
-  %52 = getelementptr inbounds nuw i32, ptr %44, i64 %17
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %17
   store i32 %51, ptr %52, align 4
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
@@ -8101,8 +8101,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split.us.us:        ; preds = %._crit_edge115.us.us.us.us.us
   %53 = add nuw nsw i32 %.195124.us.us.us, 1
-  %54 = getelementptr inbounds i32, ptr %.189125.us.us.us, i64 %22
-  %55 = getelementptr inbounds i32, ptr %.1128.us.us.us, i64 %23
+  %54 = getelementptr inbounds [4 x i8], ptr %.189125.us.us.us, i64 %22
+  %55 = getelementptr inbounds [4 x i8], ptr %.1128.us.us.us, i64 %23
   %exitcond209.not = icmp eq i32 %53, %5
   br i1 %exitcond209.not, label %.loopexit, label %.preheader103.us.us.us, !llvm.loop !132
 
@@ -8114,14 +8114,14 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
 
 .lr.ph114.us.us.us:                               ; preds = %._crit_edge115.us.us.us, %.preheader103.us.us
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %._crit_edge115.us.us.us ], [ 0, %.preheader103.us.us ]
-  %56 = getelementptr inbounds nuw i32, ptr %.189125.us.us, i64 %indvars.iv198
-  %57 = getelementptr inbounds nuw i32, ptr %.1128.us.us, i64 %indvars.iv198
-  %58 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv198
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us.us, i64 %indvars.iv198
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us, i64 %indvars.iv198
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv198
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %57, align 4
-  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %17
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %17
   %62 = load i32, ptr %61, align 4
-  %.086107.us.us.us = getelementptr inbounds nuw i32, ptr %57, i64 %19
+  %.086107.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %19
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph114.us.us.us
@@ -8131,38 +8131,38 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
   %.087109.us.us.us = phi ptr [ %56, %.lr.ph114.us.us.us ], [ %75, %63 ]
   %.197108.us.us.us = phi i32 [ 0, %.lr.ph114.us.us.us ], [ %74, %63 ]
   %64 = sext i32 %.084110.us.us.us to i64
-  %65 = getelementptr inbounds i32, ptr %59, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %59, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %.0111.us.us.us to i64
-  %68 = getelementptr inbounds i32, ptr %59, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %59, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %.086112.us.us.us, align 4
-  %71 = getelementptr inbounds nuw i32, ptr %.086112.us.us.us, i64 %17
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us, i64 %17
   %72 = load i32, ptr %71, align 4
   store i32 %66, ptr %.087109.us.us.us, align 4
-  %73 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us, i64 %17
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us, i64 %17
   store i32 %69, ptr %73, align 4
   %74 = add nuw nsw i32 %.197108.us.us.us, 2
-  %75 = getelementptr inbounds nuw i32, ptr %.087109.us.us.us, i64 %19
-  %.086.us.us.us = getelementptr inbounds nuw i32, ptr %.086112.us.us.us, i64 %19
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.087109.us.us.us, i64 %19
+  %.086.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %.086112.us.us.us, i64 %19
   %76 = icmp slt i32 %74, %20
   br i1 %76, label %63, label %._crit_edge115.us.us.us, !llvm.loop !130
 
 ._crit_edge115.us.us.us:                          ; preds = %63
   %77 = sext i32 %70 to i64
-  %78 = getelementptr inbounds i32, ptr %59, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %59, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %72 to i64
-  %81 = getelementptr inbounds i32, ptr %59, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %59, i64 %80
   %82 = load i32, ptr %81, align 4
   store i32 %79, ptr %75, align 4
-  %83 = getelementptr inbounds nuw i32, ptr %75, i64 %17
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %17
   store i32 %82, ptr %83, align 4
   %84 = load i32, ptr %.086.us.us.us, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i32, ptr %59, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %59, i64 %85
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds nuw i32, ptr %75, i64 %19
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %19
   store i32 %87, ptr %88, align 4
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count207
@@ -8170,8 +8170,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.us.us.us.split:              ; preds = %._crit_edge115.us.us.us
   %89 = add nuw nsw i32 %.195124.us.us, 1
-  %90 = getelementptr inbounds i32, ptr %.189125.us.us, i64 %22
-  %91 = getelementptr inbounds i32, ptr %.1128.us.us, i64 %23
+  %90 = getelementptr inbounds [4 x i8], ptr %.189125.us.us, i64 %22
+  %91 = getelementptr inbounds [4 x i8], ptr %.1128.us.us, i64 %23
   %exitcond203.not = icmp eq i32 %89, %5
   br i1 %exitcond203.not, label %.loopexit, label %.preheader103.us.us, !llvm.loop !132
 
@@ -8186,21 +8186,21 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
 
 92:                                               ; preds = %92, %.preheader103.us.us137
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %92 ], [ 0, %.preheader103.us.us137 ]
-  %93 = getelementptr inbounds nuw i32, ptr %.189125.us.us139, i64 %indvars.iv192
-  %94 = getelementptr inbounds nuw i32, ptr %.1128.us.us138, i64 %indvars.iv192
-  %95 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv192
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us.us139, i64 %indvars.iv192
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us.us138, i64 %indvars.iv192
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv192
   %96 = load ptr, ptr %95, align 8
   %97 = load i32, ptr %94, align 4
-  %98 = getelementptr inbounds nuw i32, ptr %94, i64 %17
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %17
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %97 to i64
-  %101 = getelementptr inbounds i32, ptr %96, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %96, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %99 to i64
-  %104 = getelementptr inbounds i32, ptr %96, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %96, i64 %103
   %105 = load i32, ptr %104, align 4
   store i32 %102, ptr %93, align 4
-  %106 = getelementptr inbounds nuw i32, ptr %93, i64 %17
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %17
   store i32 %105, ptr %106, align 4
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count207
@@ -8208,8 +8208,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us.us.us:              ; preds = %92
   %107 = add nuw nsw i32 %.195124.us.us140, 1
-  %108 = getelementptr inbounds i32, ptr %.189125.us.us139, i64 %22
-  %109 = getelementptr inbounds i32, ptr %.1128.us.us138, i64 %23
+  %108 = getelementptr inbounds [4 x i8], ptr %.189125.us.us139, i64 %22
+  %109 = getelementptr inbounds [4 x i8], ptr %.1128.us.us138, i64 %23
   %exitcond197.not = icmp eq i32 %107, %5
   br i1 %exitcond197.not, label %.loopexit, label %.preheader103.us.us137, !llvm.loop !132
 
@@ -8221,28 +8221,28 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
 
 110:                                              ; preds = %.preheader103.us, %110
   %indvars.iv186 = phi i64 [ 0, %.preheader103.us ], [ %indvars.iv.next187, %110 ]
-  %111 = getelementptr inbounds nuw i32, ptr %.189125.us, i64 %indvars.iv186
-  %112 = getelementptr inbounds nuw i32, ptr %.1128.us, i64 %indvars.iv186
-  %113 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv186
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.189125.us, i64 %indvars.iv186
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.1128.us, i64 %indvars.iv186
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv186
   %114 = load ptr, ptr %113, align 8
   %115 = load i32, ptr %112, align 4
-  %116 = getelementptr inbounds nuw i32, ptr %112, i64 %17
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %17
   %117 = load i32, ptr %116, align 4
-  %.086107.us132 = getelementptr inbounds nuw i32, ptr %112, i64 %19
+  %.086107.us132 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %19
   %118 = sext i32 %115 to i64
-  %119 = getelementptr inbounds i32, ptr %114, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %114, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = sext i32 %117 to i64
-  %122 = getelementptr inbounds i32, ptr %114, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %114, i64 %121
   %123 = load i32, ptr %122, align 4
   store i32 %120, ptr %111, align 4
-  %124 = getelementptr inbounds nuw i32, ptr %111, i64 %17
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %17
   store i32 %123, ptr %124, align 4
   %125 = load i32, ptr %.086107.us132, align 4
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i32, ptr %114, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %114, i64 %126
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds nuw i32, ptr %111, i64 %19
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %19
   store i32 %128, ptr %129, align 4
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count207
@@ -8250,8 +8250,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
 
 ._crit_edge121.split.split.us133:                 ; preds = %110
   %130 = add nuw nsw i32 %.195124.us, 1
-  %131 = getelementptr inbounds i32, ptr %.189125.us, i64 %22
-  %132 = getelementptr inbounds i32, ptr %.1128.us, i64 %23
+  %131 = getelementptr inbounds [4 x i8], ptr %.189125.us, i64 %22
+  %132 = getelementptr inbounds [4 x i8], ptr %.1128.us, i64 %23
   %exitcond191.not = icmp eq i32 %130, %5
   br i1 %exitcond191.not, label %.loopexit, label %.preheader103.us, !llvm.loop !132
 
@@ -8277,13 +8277,13 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
 
 .lr.ph144.us.us167.us:                            ; preds = %.preheader.us.us, %.lr.ph144.us.us167.us
   %indvars.iv210 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next211, %.lr.ph144.us.us167.us ]
-  %136 = getelementptr inbounds nuw i32, ptr %.088160.us.us, i64 %indvars.iv210
-  %137 = getelementptr inbounds nuw i32, ptr %.085162.us.us, i64 %indvars.iv210
-  %138 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv210
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.088160.us.us, i64 %indvars.iv210
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.085162.us.us, i64 %indvars.iv210
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv210
   %139 = load ptr, ptr %138, align 8
   %140 = load i32, ptr %137, align 4
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %139, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %139, i64 %141
   %143 = load i32, ptr %142, align 4
   store i32 %143, ptr %136, align 4
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -8292,8 +8292,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr noundef readonly captures(non
 
 ._crit_edge151.split.us.us.us:                    ; preds = %.lr.ph144.us.us167.us
   %144 = add nuw nsw i32 %.094159.us.us, 1
-  %145 = getelementptr inbounds i32, ptr %.088160.us.us, i64 %133
-  %146 = getelementptr inbounds i32, ptr %.085162.us.us, i64 %134
+  %145 = getelementptr inbounds [4 x i8], ptr %.088160.us.us, i64 %133
+  %146 = getelementptr inbounds [4 x i8], ptr %.085162.us.us, i64 %134
   %exitcond215.not = icmp eq i32 %144, %5
   br i1 %exitcond215.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !134
 
@@ -8351,7 +8351,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 .lr.ph663.us.us.us.us.us:                         ; preds = %._crit_edge664.us.us.us.us.us, %.preheader529.us.us.us
   %indvars.iv803 = phi i64 [ %indvars.iv.next804, %._crit_edge664.us.us.us.us.us ], [ 0, %.preheader529.us.us.us ]
   %29 = getelementptr inbounds nuw i8, ptr %.1443674.us.us.us, i64 %indvars.iv803
-  %30 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv803
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv803
   %31 = load ptr, ptr %30, align 8
   %32 = load i8, ptr %.1677.us.us.us, align 1
   %33 = load i8, ptr %28, align 1
@@ -8413,7 +8413,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 .lr.ph663.us.us.us:                               ; preds = %._crit_edge664.us.us.us, %.preheader529.us.us
   %indvars.iv797 = phi i64 [ %indvars.iv.next798, %._crit_edge664.us.us.us ], [ 0, %.preheader529.us.us ]
   %59 = getelementptr inbounds nuw i8, ptr %.1443674.us.us, i64 %indvars.iv797
-  %60 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv797
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv797
   %61 = load ptr, ptr %60, align 8
   %62 = load i8, ptr %.1677.us.us, align 1
   %63 = load i8, ptr %58, align 1
@@ -8484,7 +8484,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 94:                                               ; preds = %94, %.preheader529.us.us685
   %indvars.iv791 = phi i64 [ %indvars.iv.next792, %94 ], [ 0, %.preheader529.us.us685 ]
   %95 = getelementptr inbounds nuw i8, ptr %.1443674.us.us687, i64 %indvars.iv791
-  %96 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv791
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv791
   %97 = load ptr, ptr %96, align 8
   %98 = load i8, ptr %.1677.us.us686, align 1
   %99 = load i8, ptr %93, align 1
@@ -8519,7 +8519,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 111:                                              ; preds = %.preheader529.us, %111
   %indvars.iv785 = phi i64 [ 0, %.preheader529.us ], [ %indvars.iv.next786, %111 ]
   %112 = getelementptr inbounds nuw i8, ptr %.1443674.us, i64 %indvars.iv785
-  %113 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv785
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv785
   %114 = load ptr, ptr %113, align 8
   %115 = load i8, ptr %.1677.us, align 1
   %116 = load i8, ptr %110, align 1
@@ -8573,7 +8573,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 .lr.ph693.us.us716.us:                            ; preds = %.preheader.us.us, %.lr.ph693.us.us716.us
   %indvars.iv809 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next810, %.lr.ph693.us.us716.us ]
   %136 = getelementptr inbounds nuw i8, ptr %.0442709.us.us, i64 %indvars.iv809
-  %137 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv809
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv809
   %138 = load ptr, ptr %137, align 8
   %139 = load i8, ptr %.0711.us.us, align 1
   %140 = zext i8 %139 to i64
@@ -8619,7 +8619,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %158 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv780
   %159 = load i8, ptr %158, align 1
   %160 = trunc nuw i32 %155 to i16
-  %161 = getelementptr i16, ptr %10, i64 %indvars.iv780
+  %161 = getelementptr [2 x i8], ptr %10, i64 %indvars.iv780
   %162 = getelementptr i8, ptr %161, i64 -2
   store i16 %160, ptr %162, align 2
   %indvars.iv.next781 = add nuw nsw i64 %indvars.iv780, 1
@@ -8660,7 +8660,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 178:                                              ; preds = %176
   %179 = load i8, ptr %.2651, align 1
   %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds nuw i16, ptr %10, i64 %180
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %180
   %182 = load i16, ptr %181, align 2
   store i16 %182, ptr %.2444649, align 2
   %183 = getelementptr inbounds nuw i8, ptr %.2651, i64 1
@@ -8686,11 +8686,11 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %.0506636 = phi ptr [ %203, %.lr.ph642 ], [ %.0504, %.lr.ph642.preheader ]
   %.1512635 = phi i32 [ %202, %.lr.ph642 ], [ 0, %.lr.ph642.preheader ]
   %189 = zext i8 %.0498.in638 to i64
-  %190 = getelementptr inbounds nuw i16, ptr %10, i64 %189
+  %190 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %189
   %191 = load i16, ptr %190, align 2
   %192 = zext i16 %191 to i32
   %193 = zext i8 %.0495.in639 to i64
-  %194 = getelementptr inbounds nuw i16, ptr %10, i64 %193
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %193
   %195 = load i16, ptr %194, align 2
   %196 = zext i16 %195 to i32
   %197 = shl nuw i32 %196, 16
@@ -8707,11 +8707,11 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 
 ._crit_edge643:                                   ; preds = %.lr.ph642
   %205 = zext i8 %199 to i64
-  %206 = getelementptr inbounds nuw i16, ptr %10, i64 %205
+  %206 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %205
   %207 = load i16, ptr %206, align 2
   %208 = zext i16 %207 to i32
   %209 = zext i8 %201 to i64
-  %210 = getelementptr inbounds nuw i16, ptr %10, i64 %209
+  %210 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %209
   %211 = load i16, ptr %210, align 2
   %212 = zext i16 %211 to i32
   %213 = shl nuw i32 %212, 16
@@ -8725,7 +8725,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %217 = getelementptr inbounds nuw i8, ptr %.0506636, i64 8
   %218 = load i8, ptr %.1501, align 1
   %219 = zext i8 %218 to i64
-  %220 = getelementptr inbounds nuw i16, ptr %10, i64 %219
+  %220 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %219
   %221 = load i16, ptr %220, align 2
   store i16 %221, ptr %217, align 2
   br label %288
@@ -8738,7 +8738,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 224:                                              ; preds = %222
   %225 = load i8, ptr %.2651, align 1
   %226 = zext i8 %225 to i64
-  %227 = getelementptr inbounds nuw i16, ptr %10, i64 %226
+  %227 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %226
   %228 = load i16, ptr %227, align 2
   store i16 %228, ptr %.2444649, align 1
   %229 = getelementptr inbounds nuw i8, ptr %.2651, i64 1
@@ -8751,7 +8751,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %.1494 = phi i32 [ %169, %224 ], [ %4, %222 ]
   %231 = load i8, ptr %.2502, align 1
   %232 = zext i8 %231 to i64
-  %233 = getelementptr inbounds nuw i16, ptr %10, i64 %232
+  %233 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %232
   %234 = load i16, ptr %233, align 2
   %235 = trunc i16 %234 to i8
   store i8 %235, ptr %.1505, align 1
@@ -8773,11 +8773,11 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %.1507621 = phi ptr [ %261, %.lr.ph627 ], [ %242, %.lr.ph627.preheader ]
   %.2513620 = phi i32 [ %260, %.lr.ph627 ], [ 0, %.lr.ph627.preheader ]
   %244 = zext i8 %.1499.in623 to i64
-  %245 = getelementptr inbounds nuw i16, ptr %10, i64 %244
+  %245 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %244
   %246 = load i16, ptr %245, align 2
   %247 = zext i16 %246 to i32
   %248 = zext i8 %.1496.in625 to i64
-  %249 = getelementptr inbounds nuw i16, ptr %10, i64 %248
+  %249 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %248
   %250 = load i16, ptr %249, align 2
   %251 = zext i16 %250 to i32
   %252 = lshr i32 %.0497624, 8
@@ -8797,11 +8797,11 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 
 ._crit_edge628:                                   ; preds = %.lr.ph627
   %264 = zext i8 %257 to i64
-  %265 = getelementptr inbounds nuw i16, ptr %10, i64 %264
+  %265 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %264
   %266 = load i16, ptr %265, align 2
   %267 = zext i16 %266 to i32
   %268 = zext i8 %259 to i64
-  %269 = getelementptr inbounds nuw i16, ptr %10, i64 %268
+  %269 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %268
   %270 = load i16, ptr %269, align 2
   %271 = zext i16 %270 to i32
   %272 = lshr i32 %251, 8
@@ -8821,7 +8821,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 282:                                              ; preds = %._crit_edge628
   %283 = load i8, ptr %262, align 1
   %284 = zext i8 %283 to i64
-  %285 = getelementptr inbounds nuw i16, ptr %10, i64 %284
+  %285 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %284
   %286 = load i16, ptr %285, align 2
   %287 = getelementptr inbounds nuw i8, ptr %.1507621, i64 9
   store i16 %286, ptr %287, align 1
@@ -8864,7 +8864,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %310 = load i8, ptr %309, align 1
   %311 = getelementptr inbounds nuw i8, ptr %297, i64 %indvars.iv772
   %312 = load i8, ptr %311, align 1
-  %313 = getelementptr i32, ptr %11, i64 %indvars.iv772
+  %313 = getelementptr [4 x i8], ptr %11, i64 %indvars.iv772
   %314 = getelementptr i8, ptr %313, i64 -4
   store i32 %306, ptr %314, align 4
   %indvars.iv.next773 = add nuw nsw i64 %indvars.iv772, 1
@@ -8910,7 +8910,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %.1488583 = phi i32 [ %345, %.lr.ph587 ], [ 0, %327 ]
   %332 = load i8, ptr %.0477585, align 1
   %333 = zext i8 %332 to i64
-  %334 = getelementptr inbounds nuw i32, ptr %11, i64 %333
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %333
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 1
   %336 = load i8, ptr %335, align 1
   store i8 %336, ptr %.0480584, align 1
@@ -8947,10 +8947,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %.0482592 = phi ptr [ %383, %.lr.ph597 ], [ %.0480.lcssa, %._crit_edge588 ]
   %.2489591 = phi i32 [ %382, %.lr.ph597 ], [ 0, %._crit_edge588 ]
   %353 = zext i8 %.0476.in594 to i64
-  %354 = getelementptr inbounds nuw i32, ptr %11, i64 %353
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %353
   %355 = load i32, ptr %354, align 4
   %356 = zext i8 %.0475.in595 to i64
-  %357 = getelementptr inbounds nuw i32, ptr %11, i64 %356
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %356
   %358 = load i32, ptr %357, align 4
   %359 = lshr i32 %355, 8
   %360 = shl i32 %358, 16
@@ -8961,10 +8961,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %364 = getelementptr inbounds nuw i8, ptr %.1478593, i64 1
   %365 = load i8, ptr %364, align 1
   %366 = zext i8 %363 to i64
-  %367 = getelementptr inbounds nuw i32, ptr %11, i64 %366
+  %367 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %366
   %368 = load i32, ptr %367, align 4
   %369 = zext i8 %365 to i64
-  %370 = getelementptr inbounds nuw i32, ptr %11, i64 %369
+  %370 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %369
   %371 = load i32, ptr %370, align 4
   %372 = shl i32 %368, 8
   %373 = add i32 %372, %362
@@ -8995,10 +8995,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %.0476.in.lcssa = phi i8 [ %347, %._crit_edge588 ], [ %377, %._crit_edge598.loopexit ]
   %.0475.in.lcssa = phi i8 [ %349, %._crit_edge588 ], [ %379, %._crit_edge598.loopexit ]
   %387 = zext i8 %.0476.in.lcssa to i64
-  %388 = getelementptr inbounds nuw i32, ptr %11, i64 %387
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %387
   %389 = load i32, ptr %388, align 4
   %390 = zext i8 %.0475.in.lcssa to i64
-  %391 = getelementptr inbounds nuw i32, ptr %11, i64 %390
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %390
   %392 = load i32, ptr %391, align 4
   %393 = lshr i32 %389, 8
   %394 = shl i32 %392, 16
@@ -9009,10 +9009,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %398 = getelementptr inbounds nuw i8, ptr %.1478.lcssa, i64 1
   %399 = load i8, ptr %398, align 1
   %400 = zext i8 %397 to i64
-  %401 = getelementptr inbounds nuw i32, ptr %11, i64 %400
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %400
   %402 = load i32, ptr %401, align 4
   %403 = zext i8 %399 to i64
-  %404 = getelementptr inbounds nuw i32, ptr %11, i64 %403
+  %404 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %403
   %405 = load i32, ptr %404, align 4
   %406 = shl i32 %402, 8
   %407 = add i32 %406, %396
@@ -9036,7 +9036,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %.3490604 = phi i32 [ %428, %.lr.ph608 ], [ %.2489.lcssa, %.lr.ph608.preheader ]
   %415 = load i8, ptr %.2479606, align 1
   %416 = zext i8 %415 to i64
-  %417 = getelementptr inbounds nuw i32, ptr %11, i64 %416
+  %417 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %416
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 1
   %419 = load i8, ptr %418, align 1
   store i8 %419, ptr %.1481605, align 1
@@ -9100,7 +9100,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %457 = load i8, ptr %456, align 1
   %458 = getelementptr inbounds nuw i8, ptr %440, i64 %indvars.iv
   %459 = load i8, ptr %458, align 1
-  %460 = getelementptr i32, ptr %12, i64 %indvars.iv
+  %460 = getelementptr [4 x i8], ptr %12, i64 %indvars.iv
   %461 = getelementptr i8, ptr %460, i64 -4
   store i32 %451, ptr %461, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9159,10 +9159,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %.0458557 = phi ptr [ %497, %.lr.ph563 ], [ %.4446570, %.lr.ph563.preheader ]
   %.1466556 = phi i32 [ %496, %.lr.ph563 ], [ 0, %.lr.ph563.preheader ]
   %486 = zext i8 %.0454.in559 to i64
-  %487 = getelementptr inbounds nuw i32, ptr %12, i64 %486
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %486
   %488 = load i32, ptr %487, align 4
   %489 = zext i8 %.0451.in560 to i64
-  %490 = getelementptr inbounds nuw i32, ptr %12, i64 %489
+  %490 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %489
   %491 = load i32, ptr %490, align 4
   %492 = load i8, ptr %.0456561, align 1
   %493 = getelementptr inbounds nuw i8, ptr %.4.pn558, i64 3
@@ -9178,10 +9178,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 
 ._crit_edge564:                                   ; preds = %.lr.ph563
   %499 = zext i8 %492 to i64
-  %500 = getelementptr inbounds nuw i32, ptr %12, i64 %499
+  %500 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %499
   %501 = load i32, ptr %500, align 4
   %502 = zext i8 %494 to i64
-  %503 = getelementptr inbounds nuw i32, ptr %12, i64 %502
+  %503 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %502
   %504 = load i32, ptr %503, align 4
   store i32 %501, ptr %497, align 4
   %505 = getelementptr inbounds nuw i8, ptr %.0458557, i64 12
@@ -9191,7 +9191,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 506:                                              ; preds = %._crit_edge564
   %507 = load i8, ptr %.0456, align 1
   %508 = zext i8 %507 to i64
-  %509 = getelementptr inbounds nuw i32, ptr %12, i64 %508
+  %509 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %508
   %510 = load i32, ptr %509, align 4
   %511 = getelementptr inbounds nuw i8, ptr %.0458557, i64 16
   store i32 %510, ptr %511, align 4
@@ -9204,7 +9204,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 
 514:                                              ; preds = %512, %514
   %indvars.iv765 = phi i64 [ 0, %512 ], [ %indvars.iv.next766, %514 ]
-  %515 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv765
+  %515 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv765
   %516 = load ptr, ptr %515, align 8
   %517 = load i8, ptr %.4572, align 1
   %518 = zext i8 %517 to i64
@@ -9227,7 +9227,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %529 = load i8, ptr %528, align 1
   %530 = load i8, ptr %.4572, align 1
   %531 = zext i8 %530 to i64
-  %532 = getelementptr inbounds nuw i32, ptr %12, i64 %531
+  %532 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %531
   %533 = load i32, ptr %532, align 4
   %534 = getelementptr inbounds nuw i8, ptr %.4446570, i64 %wide.trip.count
   br label %.lr.ph
@@ -9240,10 +9240,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %.1459546 = phi ptr [ %552, %.lr.ph ], [ %534, %.lr.ph.preheader ]
   %.3468545 = phi i32 [ %551, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %535 = zext i8 %.1455.in548 to i64
-  %536 = getelementptr inbounds nuw i32, ptr %12, i64 %535
+  %536 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %535
   %537 = load i32, ptr %536, align 4
   %538 = zext i8 %.1452.in550 to i64
-  %539 = getelementptr inbounds nuw i32, ptr %12, i64 %538
+  %539 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %538
   %540 = load i32, ptr %539, align 4
   %541 = lshr i32 %.0453549, %524
   %542 = shl i32 %537, %523
@@ -9265,10 +9265,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %555 = zext i8 %547 to i64
-  %556 = getelementptr inbounds nuw i32, ptr %12, i64 %555
+  %556 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %555
   %557 = load i32, ptr %556, align 4
   %558 = zext i8 %549 to i64
-  %559 = getelementptr inbounds nuw i32, ptr %12, i64 %558
+  %559 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %558
   %560 = load i32, ptr %559, align 4
   %561 = lshr i32 %540, %524
   %562 = shl i32 %557, %523
@@ -9292,7 +9292,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   %575 = getelementptr inbounds nuw i8, ptr %568, i64 %481
   %576 = load i8, ptr %553, align 1
   %577 = zext i8 %576 to i64
-  %578 = getelementptr inbounds nuw i32, ptr %12, i64 %577
+  %578 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %577
   %579 = load i32, ptr %578, align 4
   store i32 %579, ptr %575, align 1
   br label %580
@@ -9322,10 +9322,10 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32768
-  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store ptr %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9374,7 +9374,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 .lr.ph472.us.us.us.us.us:                         ; preds = %._crit_edge473.us.us.us.us.us, %.preheader399.us.us.us
   %indvars.iv592 = phi i64 [ %indvars.iv.next593, %._crit_edge473.us.us.us.us.us ], [ 0, %.preheader399.us.us.us ]
   %30 = getelementptr inbounds nuw i8, ptr %.1354483.us.us.us, i64 %indvars.iv592
-  %31 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv592
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv592
   %32 = load ptr, ptr %31, align 8
   %33 = load i16, ptr %.1486.us.us.us, align 2
   %34 = load i16, ptr %29, align 2
@@ -9421,7 +9421,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 ._crit_edge480.split.us.us.us.split.us.us:        ; preds = %._crit_edge473.us.us.us.us.us
   %56 = add nuw nsw i32 %.1363482.us.us.us, 1
   %57 = getelementptr inbounds i8, ptr %.1354483.us.us.us, i64 %26
-  %58 = getelementptr inbounds i16, ptr %.1486.us.us.us, i64 %27
+  %58 = getelementptr inbounds [2 x i8], ptr %.1486.us.us.us, i64 %27
   %exitcond597.not = icmp eq i32 %56, %5
   br i1 %exitcond597.not, label %.loopexit, label %.preheader399.us.us.us, !llvm.loop !157
 
@@ -9436,7 +9436,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 .lr.ph472.us.us.us:                               ; preds = %._crit_edge473.us.us.us, %.preheader399.us.us
   %indvars.iv586 = phi i64 [ %indvars.iv.next587, %._crit_edge473.us.us.us ], [ 0, %.preheader399.us.us ]
   %60 = getelementptr inbounds nuw i8, ptr %.1354483.us.us, i64 %indvars.iv586
-  %61 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv586
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv586
   %62 = load ptr, ptr %61, align 8
   %63 = load i16, ptr %.1486.us.us, align 2
   %64 = load i16, ptr %59, align 2
@@ -9490,7 +9490,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 ._crit_edge480.split.us.us.us.split:              ; preds = %._crit_edge473.us.us.us
   %91 = add nuw nsw i32 %.1363482.us.us, 1
   %92 = getelementptr inbounds i8, ptr %.1354483.us.us, i64 %26
-  %93 = getelementptr inbounds i16, ptr %.1486.us.us, i64 %27
+  %93 = getelementptr inbounds [2 x i8], ptr %.1486.us.us, i64 %27
   %exitcond591.not = icmp eq i32 %91, %5
   br i1 %exitcond591.not, label %.loopexit, label %.preheader399.us.us, !llvm.loop !157
 
@@ -9507,7 +9507,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 95:                                               ; preds = %95, %.preheader399.us.us494
   %indvars.iv580 = phi i64 [ %indvars.iv.next581, %95 ], [ 0, %.preheader399.us.us494 ]
   %96 = getelementptr inbounds nuw i8, ptr %.1354483.us.us496, i64 %indvars.iv580
-  %97 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv580
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv580
   %98 = load ptr, ptr %97, align 8
   %99 = load i16, ptr %.1486.us.us495, align 2
   %100 = load i16, ptr %94, align 2
@@ -9527,7 +9527,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 ._crit_edge480.split.split.us.us.us:              ; preds = %95
   %108 = add nuw nsw i32 %.1363482.us.us497, 1
   %109 = getelementptr inbounds i8, ptr %.1354483.us.us496, i64 %26
-  %110 = getelementptr inbounds i16, ptr %.1486.us.us495, i64 %27
+  %110 = getelementptr inbounds [2 x i8], ptr %.1486.us.us495, i64 %27
   %exitcond585.not = icmp eq i32 %108, %5
   br i1 %exitcond585.not, label %.loopexit, label %.preheader399.us.us494, !llvm.loop !157
 
@@ -9542,7 +9542,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 112:                                              ; preds = %.preheader399.us, %112
   %indvars.iv574 = phi i64 [ 0, %.preheader399.us ], [ %indvars.iv.next575, %112 ]
   %113 = getelementptr inbounds nuw i8, ptr %.1354483.us, i64 %indvars.iv574
-  %114 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv574
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv574
   %115 = load ptr, ptr %114, align 8
   %116 = load i16, ptr %.1486.us, align 2
   %117 = load i16, ptr %111, align 2
@@ -9568,7 +9568,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 ._crit_edge480.split.split.us490:                 ; preds = %112
   %130 = add nuw nsw i32 %.1363482.us, 1
   %131 = getelementptr inbounds i8, ptr %.1354483.us, i64 %26
-  %132 = getelementptr inbounds i16, ptr %.1486.us, i64 %27
+  %132 = getelementptr inbounds [2 x i8], ptr %.1486.us, i64 %27
   %exitcond579.not = icmp eq i32 %130, %5
   br i1 %exitcond579.not, label %.loopexit, label %.preheader399.us, !llvm.loop !157
 
@@ -9595,7 +9595,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 .lr.ph502.us.us525.us:                            ; preds = %.preheader.us.us, %.lr.ph502.us.us525.us
   %indvars.iv598 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next599, %.lr.ph502.us.us525.us ]
   %136 = getelementptr inbounds nuw i8, ptr %.0353518.us.us, i64 %indvars.iv598
-  %137 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv598
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv598
   %138 = load ptr, ptr %137, align 8
   %139 = load i16, ptr %.0352520.us.us, align 2
   %140 = sext i16 %139 to i64
@@ -9609,7 +9609,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 ._crit_edge509.split.us.us.us:                    ; preds = %.lr.ph502.us.us525.us
   %143 = add nuw nsw i32 %.0362517.us.us, 1
   %144 = getelementptr inbounds i8, ptr %.0353518.us.us, i64 %133
-  %145 = getelementptr inbounds i16, ptr %.0352520.us.us, i64 %134
+  %145 = getelementptr inbounds [2 x i8], ptr %.0352520.us.us, i64 %134
   %exitcond603.not = icmp eq i32 %143, %5
   br i1 %exitcond603.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !159
 
@@ -9890,7 +9890,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 ._crit_edge459:                                   ; preds = %.lr.ph458, %._crit_edge448
   %344 = add nuw nsw i32 %.0387460, 1
   %345 = getelementptr inbounds i8, ptr %.2355461, i64 %160
-  %346 = getelementptr inbounds i16, ptr %.2462, i64 %161
+  %346 = getelementptr inbounds [2 x i8], ptr %.2462, i64 %161
   %indvars.iv.next571 = add i2 %indvars.iv570, %163
   %exitcond573.not = icmp eq i32 %344, %5
   br i1 %exitcond573.not, label %.loopexit, label %164, !llvm.loop !163
@@ -9977,7 +9977,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 
 401:                                              ; preds = %397, %401
   %indvars.iv560 = phi i64 [ 0, %397 ], [ %indvars.iv.next561, %401 ]
-  %402 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv560
+  %402 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv560
   %403 = load ptr, ptr %402, align 8
   %404 = getelementptr inbounds i8, ptr %403, i64 %400
   %405 = load i8, ptr %404, align 1
@@ -10087,7 +10087,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr noundef readonly captures(no
 486:                                              ; preds = %._crit_edge424, %._crit_edge415
   %487 = add nuw nsw i32 %.0372427, 1
   %488 = getelementptr inbounds i8, ptr %.3356428, i64 %151
-  %489 = getelementptr inbounds i16, ptr %.3430, i64 %152
+  %489 = getelementptr inbounds [2 x i8], ptr %.3430, i64 %152
   %indvars.iv.next564 = add i2 %indvars.iv563, %154
   %exitcond569.not = icmp eq i32 %487, %5
   br i1 %exitcond569.not, label %.loopexit, label %347, !llvm.loop !167
@@ -10152,7 +10152,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 .lr.ph472.us.us.us.us.us:                         ; preds = %._crit_edge473.us.us.us.us.us, %.preheader399.us.us.us
   %indvars.iv588 = phi i64 [ %indvars.iv.next589, %._crit_edge473.us.us.us.us.us ], [ 0, %.preheader399.us.us.us ]
   %28 = getelementptr inbounds nuw i8, ptr %.1354483.us.us.us, i64 %indvars.iv588
-  %29 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv588
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv588
   %30 = load ptr, ptr %29, align 8
   %31 = load i16, ptr %.1486.us.us.us, align 2
   %32 = load i16, ptr %27, align 2
@@ -10199,7 +10199,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 ._crit_edge480.split.us.us.us.split.us.us:        ; preds = %._crit_edge473.us.us.us.us.us
   %54 = add nuw nsw i32 %.1363482.us.us.us, 1
   %55 = getelementptr inbounds i8, ptr %.1354483.us.us.us, i64 %24
-  %56 = getelementptr inbounds i16, ptr %.1486.us.us.us, i64 %25
+  %56 = getelementptr inbounds [2 x i8], ptr %.1486.us.us.us, i64 %25
   %exitcond593.not = icmp eq i32 %54, %5
   br i1 %exitcond593.not, label %.loopexit, label %.preheader399.us.us.us, !llvm.loop !170
 
@@ -10214,7 +10214,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 .lr.ph472.us.us.us:                               ; preds = %._crit_edge473.us.us.us, %.preheader399.us.us
   %indvars.iv582 = phi i64 [ %indvars.iv.next583, %._crit_edge473.us.us.us ], [ 0, %.preheader399.us.us ]
   %58 = getelementptr inbounds nuw i8, ptr %.1354483.us.us, i64 %indvars.iv582
-  %59 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv582
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv582
   %60 = load ptr, ptr %59, align 8
   %61 = load i16, ptr %.1486.us.us, align 2
   %62 = load i16, ptr %57, align 2
@@ -10268,7 +10268,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 ._crit_edge480.split.us.us.us.split:              ; preds = %._crit_edge473.us.us.us
   %89 = add nuw nsw i32 %.1363482.us.us, 1
   %90 = getelementptr inbounds i8, ptr %.1354483.us.us, i64 %24
-  %91 = getelementptr inbounds i16, ptr %.1486.us.us, i64 %25
+  %91 = getelementptr inbounds [2 x i8], ptr %.1486.us.us, i64 %25
   %exitcond587.not = icmp eq i32 %89, %5
   br i1 %exitcond587.not, label %.loopexit, label %.preheader399.us.us, !llvm.loop !170
 
@@ -10285,7 +10285,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 93:                                               ; preds = %93, %.preheader399.us.us494
   %indvars.iv576 = phi i64 [ %indvars.iv.next577, %93 ], [ 0, %.preheader399.us.us494 ]
   %94 = getelementptr inbounds nuw i8, ptr %.1354483.us.us496, i64 %indvars.iv576
-  %95 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv576
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv576
   %96 = load ptr, ptr %95, align 8
   %97 = load i16, ptr %.1486.us.us495, align 2
   %98 = load i16, ptr %92, align 2
@@ -10305,7 +10305,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 ._crit_edge480.split.split.us.us.us:              ; preds = %93
   %106 = add nuw nsw i32 %.1363482.us.us497, 1
   %107 = getelementptr inbounds i8, ptr %.1354483.us.us496, i64 %24
-  %108 = getelementptr inbounds i16, ptr %.1486.us.us495, i64 %25
+  %108 = getelementptr inbounds [2 x i8], ptr %.1486.us.us495, i64 %25
   %exitcond581.not = icmp eq i32 %106, %5
   br i1 %exitcond581.not, label %.loopexit, label %.preheader399.us.us494, !llvm.loop !170
 
@@ -10320,7 +10320,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 110:                                              ; preds = %.preheader399.us, %110
   %indvars.iv570 = phi i64 [ 0, %.preheader399.us ], [ %indvars.iv.next571, %110 ]
   %111 = getelementptr inbounds nuw i8, ptr %.1354483.us, i64 %indvars.iv570
-  %112 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv570
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv570
   %113 = load ptr, ptr %112, align 8
   %114 = load i16, ptr %.1486.us, align 2
   %115 = load i16, ptr %109, align 2
@@ -10346,7 +10346,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 ._crit_edge480.split.split.us490:                 ; preds = %110
   %128 = add nuw nsw i32 %.1363482.us, 1
   %129 = getelementptr inbounds i8, ptr %.1354483.us, i64 %24
-  %130 = getelementptr inbounds i16, ptr %.1486.us, i64 %25
+  %130 = getelementptr inbounds [2 x i8], ptr %.1486.us, i64 %25
   %exitcond575.not = icmp eq i32 %128, %5
   br i1 %exitcond575.not, label %.loopexit, label %.preheader399.us, !llvm.loop !170
 
@@ -10373,7 +10373,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 .lr.ph502.us.us525.us:                            ; preds = %.preheader.us.us, %.lr.ph502.us.us525.us
   %indvars.iv594 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next595, %.lr.ph502.us.us525.us ]
   %134 = getelementptr inbounds nuw i8, ptr %.0353518.us.us, i64 %indvars.iv594
-  %135 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv594
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv594
   %136 = load ptr, ptr %135, align 8
   %137 = load i16, ptr %.0352520.us.us, align 2
   %138 = zext i16 %137 to i64
@@ -10387,7 +10387,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 ._crit_edge509.split.us.us.us:                    ; preds = %.lr.ph502.us.us525.us
   %141 = add nuw nsw i32 %.0362517.us.us, 1
   %142 = getelementptr inbounds i8, ptr %.0353518.us.us, i64 %131
-  %143 = getelementptr inbounds i16, ptr %.0352520.us.us, i64 %132
+  %143 = getelementptr inbounds [2 x i8], ptr %.0352520.us.us, i64 %132
   %exitcond599.not = icmp eq i32 %141, %5
   br i1 %exitcond599.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !172
 
@@ -10668,7 +10668,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 ._crit_edge459:                                   ; preds = %.lr.ph458, %._crit_edge448
   %342 = add nuw nsw i32 %.0387460, 1
   %343 = getelementptr inbounds i8, ptr %.2355461, i64 %158
-  %344 = getelementptr inbounds i16, ptr %.2462, i64 %159
+  %344 = getelementptr inbounds [2 x i8], ptr %.2462, i64 %159
   %indvars.iv.next567 = add i2 %indvars.iv566, %161
   %exitcond569.not = icmp eq i32 %342, %5
   br i1 %exitcond569.not, label %.loopexit, label %162, !llvm.loop !176
@@ -10755,7 +10755,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 
 399:                                              ; preds = %395, %399
   %indvars.iv = phi i64 [ 0, %395 ], [ %indvars.iv.next, %399 ]
-  %400 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %401 = load ptr, ptr %400, align 8
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 %398
   %403 = load i8, ptr %402, align 1
@@ -10865,7 +10865,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr noundef readonly captures(no
 484:                                              ; preds = %._crit_edge424, %._crit_edge415
   %485 = add nuw nsw i32 %.0372427, 1
   %486 = getelementptr inbounds i8, ptr %.3356428, i64 %149
-  %487 = getelementptr inbounds i16, ptr %.3430, i64 %150
+  %487 = getelementptr inbounds [2 x i8], ptr %.3430, i64 %150
   %indvars.iv.next562 = add i2 %indvars.iv561, %152
   %exitcond565.not = icmp eq i32 %485, %5
   br i1 %exitcond565.not, label %.loopexit, label %345, !llvm.loop !180
@@ -10886,10 +10886,10 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 536870911
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -10932,7 +10932,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr noundef readonly captures(no
 .lr.ph108.us.us.us.us.us:                         ; preds = %._crit_edge109.us.us.us.us.us, %.preheader96.us.us.us
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %._crit_edge109.us.us.us.us.us ], [ 0, %.preheader96.us.us.us ]
   %26 = getelementptr inbounds nuw i8, ptr %.182118.us.us.us, i64 %indvars.iv197
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv197
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv197
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %.1121.us.us.us, align 4
   %30 = load i32, ptr %25, align 4
@@ -10979,7 +10979,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr noundef readonly captures(no
 ._crit_edge115.split.us.us.us.split.us.us:        ; preds = %._crit_edge109.us.us.us.us.us
   %52 = add nuw nsw i32 %.188117.us.us.us, 1
   %53 = getelementptr inbounds i8, ptr %.182118.us.us.us, i64 %22
-  %54 = getelementptr inbounds i32, ptr %.1121.us.us.us, i64 %23
+  %54 = getelementptr inbounds [4 x i8], ptr %.1121.us.us.us, i64 %23
   %exitcond202.not = icmp eq i32 %52, %5
   br i1 %exitcond202.not, label %.loopexit, label %.preheader96.us.us.us, !llvm.loop !184
 
@@ -10994,7 +10994,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr noundef readonly captures(no
 .lr.ph108.us.us.us:                               ; preds = %._crit_edge109.us.us.us, %.preheader96.us.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %._crit_edge109.us.us.us ], [ 0, %.preheader96.us.us ]
   %56 = getelementptr inbounds nuw i8, ptr %.182118.us.us, i64 %indvars.iv191
-  %57 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv191
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv191
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %.1121.us.us, align 4
   %60 = load i32, ptr %55, align 4
@@ -11048,7 +11048,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr noundef readonly captures(no
 ._crit_edge115.split.us.us.us.split:              ; preds = %._crit_edge109.us.us.us
   %87 = add nuw nsw i32 %.188117.us.us, 1
   %88 = getelementptr inbounds i8, ptr %.182118.us.us, i64 %22
-  %89 = getelementptr inbounds i32, ptr %.1121.us.us, i64 %23
+  %89 = getelementptr inbounds [4 x i8], ptr %.1121.us.us, i64 %23
   %exitcond196.not = icmp eq i32 %87, %5
   br i1 %exitcond196.not, label %.loopexit, label %.preheader96.us.us, !llvm.loop !184
 
@@ -11065,7 +11065,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr noundef readonly captures(no
 91:                                               ; preds = %91, %.preheader96.us.us129
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %91 ], [ 0, %.preheader96.us.us129 ]
   %92 = getelementptr inbounds nuw i8, ptr %.182118.us.us131, i64 %indvars.iv185
-  %93 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv185
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv185
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %.1121.us.us130, align 4
   %96 = load i32, ptr %90, align 4
@@ -11085,7 +11085,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr noundef readonly captures(no
 ._crit_edge115.split.split.us.us.us:              ; preds = %91
   %104 = add nuw nsw i32 %.188117.us.us132, 1
   %105 = getelementptr inbounds i8, ptr %.182118.us.us131, i64 %22
-  %106 = getelementptr inbounds i32, ptr %.1121.us.us130, i64 %23
+  %106 = getelementptr inbounds [4 x i8], ptr %.1121.us.us130, i64 %23
   %exitcond190.not = icmp eq i32 %104, %5
   br i1 %exitcond190.not, label %.loopexit, label %.preheader96.us.us129, !llvm.loop !184
 
@@ -11100,7 +11100,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr noundef readonly captures(no
 108:                                              ; preds = %.preheader96.us, %108
   %indvars.iv179 = phi i64 [ 0, %.preheader96.us ], [ %indvars.iv.next180, %108 ]
   %109 = getelementptr inbounds nuw i8, ptr %.182118.us, i64 %indvars.iv179
-  %110 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv179
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv179
   %111 = load ptr, ptr %110, align 8
   %112 = load i32, ptr %.1121.us, align 4
   %113 = load i32, ptr %107, align 4
@@ -11126,7 +11126,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr noundef readonly captures(no
 ._crit_edge115.split.split.us125:                 ; preds = %108
   %126 = add nuw nsw i32 %.188117.us, 1
   %127 = getelementptr inbounds i8, ptr %.182118.us, i64 %22
-  %128 = getelementptr inbounds i32, ptr %.1121.us, i64 %23
+  %128 = getelementptr inbounds [4 x i8], ptr %.1121.us, i64 %23
   %exitcond184.not = icmp eq i32 %126, %5
   br i1 %exitcond184.not, label %.loopexit, label %.preheader96.us, !llvm.loop !184
 
@@ -11153,7 +11153,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr noundef readonly captures(no
 .lr.ph137.us.us160.us:                            ; preds = %.preheader.us.us, %.lr.ph137.us.us160.us
   %indvars.iv203 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next204, %.lr.ph137.us.us160.us ]
   %132 = getelementptr inbounds nuw i8, ptr %.081153.us.us, i64 %indvars.iv203
-  %133 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv203
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv203
   %134 = load ptr, ptr %133, align 8
   %135 = load i32, ptr %.078155.us.us, align 4
   %136 = sext i32 %135 to i64
@@ -11167,7 +11167,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr noundef readonly captures(no
 ._crit_edge144.split.us.us.us:                    ; preds = %.lr.ph137.us.us160.us
   %139 = add nuw nsw i32 %.087152.us.us, 1
   %140 = getelementptr inbounds i8, ptr %.081153.us.us, i64 %129
-  %141 = getelementptr inbounds i32, ptr %.078155.us.us, i64 %130
+  %141 = getelementptr inbounds [4 x i8], ptr %.078155.us.us, i64 %130
   %exitcond208.not = icmp eq i32 %139, %5
   br i1 %exitcond208.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !186
 
@@ -11223,8 +11223,8 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 .lr.ph646.us.us.us.us.us:                         ; preds = %._crit_edge647.us.us.us.us.us, %.preheader513.us.us.us
   %indvars.iv772 = phi i64 [ %indvars.iv.next773, %._crit_edge647.us.us.us.us.us ], [ 0, %.preheader513.us.us.us ]
-  %28 = getelementptr inbounds nuw i16, ptr %.1436657.us.us.us, i64 %indvars.iv772
-  %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv772
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.1436657.us.us.us, i64 %indvars.iv772
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv772
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %.1660.us.us.us, align 1
   %32 = load i8, ptr %27, align 1
@@ -11238,31 +11238,31 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
   %.0480.in639.us.us.us.us.us = phi i8 [ %32, %.lr.ph646.us.us.us.us.us ], [ %42, %33 ]
   %.0478644.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.1.pn641.us.us.us.us.us, i64 2
   %34 = zext i8 %.0479.in640.us.us.us.us.us to i64
-  %35 = getelementptr inbounds nuw i16, ptr %30, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = zext i8 %.0480.in639.us.us.us.us.us to i64
-  %38 = getelementptr inbounds nuw i16, ptr %30, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = load i8, ptr %.0478644.us.us.us.us.us, align 1
   %41 = getelementptr inbounds nuw i8, ptr %.1.pn641.us.us.us.us.us, i64 3
   %42 = load i8, ptr %41, align 1
   store i16 %36, ptr %.0471642.us.us.us.us.us, align 2
-  %43 = getelementptr inbounds nuw i16, ptr %.0471642.us.us.us.us.us, i64 %20
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.0471642.us.us.us.us.us, i64 %20
   store i16 %39, ptr %43, align 2
   %44 = add nuw nsw i32 %.1457643.us.us.us.us.us, 2
-  %45 = getelementptr inbounds nuw i16, ptr %.0471642.us.us.us.us.us, i64 %22
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.0471642.us.us.us.us.us, i64 %22
   %46 = icmp slt i32 %44, %19
   br i1 %46, label %33, label %._crit_edge647.us.us.us.us.us, !llvm.loop !187
 
 ._crit_edge647.us.us.us.us.us:                    ; preds = %33
   %47 = zext i8 %40 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %30, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = zext i8 %42 to i64
-  %51 = getelementptr inbounds nuw i16, ptr %30, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %50
   %52 = load i16, ptr %51, align 2
   store i16 %49, ptr %45, align 2
-  %53 = getelementptr inbounds nuw i16, ptr %45, i64 %20
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %20
   store i16 %52, ptr %53, align 2
   %indvars.iv.next773 = add nuw nsw i64 %indvars.iv772, 1
   %exitcond776.not = icmp eq i64 %indvars.iv.next773, %wide.trip.count775
@@ -11270,7 +11270,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 ._crit_edge654.split.us.us.us.split.us.us:        ; preds = %._crit_edge647.us.us.us.us.us
   %54 = add nuw nsw i32 %.1459656.us.us.us, 1
-  %55 = getelementptr inbounds i16, ptr %.1436657.us.us.us, i64 %24
+  %55 = getelementptr inbounds [2 x i8], ptr %.1436657.us.us.us, i64 %24
   %56 = getelementptr inbounds i8, ptr %.1660.us.us.us, i64 %25
   %exitcond777.not = icmp eq i32 %54, %5
   br i1 %exitcond777.not, label %.loopexit, label %.preheader513.us.us.us, !llvm.loop !189
@@ -11285,8 +11285,8 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 .lr.ph646.us.us.us:                               ; preds = %._crit_edge647.us.us.us, %.preheader513.us.us
   %indvars.iv766 = phi i64 [ %indvars.iv.next767, %._crit_edge647.us.us.us ], [ 0, %.preheader513.us.us ]
-  %58 = getelementptr inbounds nuw i16, ptr %.1436657.us.us, i64 %indvars.iv766
-  %59 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv766
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.1436657.us.us, i64 %indvars.iv766
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv766
   %60 = load ptr, ptr %59, align 8
   %61 = load i8, ptr %.1660.us.us, align 1
   %62 = load i8, ptr %57, align 1
@@ -11300,38 +11300,38 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
   %.0479.in640.us.us.us = phi i8 [ %61, %.lr.ph646.us.us.us ], [ %70, %63 ]
   %.0480.in639.us.us.us = phi i8 [ %62, %.lr.ph646.us.us.us ], [ %72, %63 ]
   %64 = zext i8 %.0479.in640.us.us.us to i64
-  %65 = getelementptr inbounds nuw i16, ptr %60, i64 %64
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = zext i8 %.0480.in639.us.us.us to i64
-  %68 = getelementptr inbounds nuw i16, ptr %60, i64 %67
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = load i8, ptr %.0478644.us.us.us, align 1
   %71 = getelementptr inbounds nuw i8, ptr %.1.pn641.us.us.us, i64 3
   %72 = load i8, ptr %71, align 1
   store i16 %66, ptr %.0471642.us.us.us, align 2
-  %73 = getelementptr inbounds nuw i16, ptr %.0471642.us.us.us, i64 %20
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.0471642.us.us.us, i64 %20
   store i16 %69, ptr %73, align 2
   %74 = add nuw nsw i32 %.1457643.us.us.us, 2
-  %75 = getelementptr inbounds nuw i16, ptr %.0471642.us.us.us, i64 %22
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %.0471642.us.us.us, i64 %22
   %.0478.us.us.us = getelementptr inbounds nuw i8, ptr %.0478644.us.us.us, i64 2
   %76 = icmp slt i32 %74, %19
   br i1 %76, label %63, label %._crit_edge647.us.us.us, !llvm.loop !187
 
 ._crit_edge647.us.us.us:                          ; preds = %63
   %77 = zext i8 %70 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %60, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = zext i8 %72 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %60, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %80
   %82 = load i16, ptr %81, align 2
   store i16 %79, ptr %75, align 2
-  %83 = getelementptr inbounds nuw i16, ptr %75, i64 %20
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %20
   store i16 %82, ptr %83, align 2
   %84 = load i8, ptr %.0478.us.us.us, align 1
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw i16, ptr %60, i64 %85
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %85
   %87 = load i16, ptr %86, align 2
-  %88 = getelementptr inbounds nuw i16, ptr %75, i64 %22
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %22
   store i16 %87, ptr %88, align 2
   %indvars.iv.next767 = add nuw nsw i64 %indvars.iv766, 1
   %exitcond770.not = icmp eq i64 %indvars.iv.next767, %wide.trip.count775
@@ -11339,7 +11339,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 ._crit_edge654.split.us.us.us.split:              ; preds = %._crit_edge647.us.us.us
   %89 = add nuw nsw i32 %.1459656.us.us, 1
-  %90 = getelementptr inbounds i16, ptr %.1436657.us.us, i64 %24
+  %90 = getelementptr inbounds [2 x i8], ptr %.1436657.us.us, i64 %24
   %91 = getelementptr inbounds i8, ptr %.1660.us.us, i64 %25
   %exitcond771.not = icmp eq i32 %89, %5
   br i1 %exitcond771.not, label %.loopexit, label %.preheader513.us.us, !llvm.loop !189
@@ -11356,19 +11356,19 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 93:                                               ; preds = %93, %.preheader513.us.us668
   %indvars.iv760 = phi i64 [ %indvars.iv.next761, %93 ], [ 0, %.preheader513.us.us668 ]
-  %94 = getelementptr inbounds nuw i16, ptr %.1436657.us.us670, i64 %indvars.iv760
-  %95 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv760
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %.1436657.us.us670, i64 %indvars.iv760
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv760
   %96 = load ptr, ptr %95, align 8
   %97 = load i8, ptr %.1660.us.us669, align 1
   %98 = load i8, ptr %92, align 1
   %99 = zext i8 %97 to i64
-  %100 = getelementptr inbounds nuw i16, ptr %96, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %99
   %101 = load i16, ptr %100, align 2
   %102 = zext i8 %98 to i64
-  %103 = getelementptr inbounds nuw i16, ptr %96, i64 %102
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %102
   %104 = load i16, ptr %103, align 2
   store i16 %101, ptr %94, align 2
-  %105 = getelementptr inbounds nuw i16, ptr %94, i64 %20
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %20
   store i16 %104, ptr %105, align 2
   %indvars.iv.next761 = add nuw nsw i64 %indvars.iv760, 1
   %exitcond764.not = icmp eq i64 %indvars.iv.next761, %wide.trip.count775
@@ -11376,7 +11376,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 ._crit_edge654.split.split.us.us.us:              ; preds = %93
   %106 = add nuw nsw i32 %.1459656.us.us671, 1
-  %107 = getelementptr inbounds i16, ptr %.1436657.us.us670, i64 %24
+  %107 = getelementptr inbounds [2 x i8], ptr %.1436657.us.us670, i64 %24
   %108 = getelementptr inbounds i8, ptr %.1660.us.us669, i64 %25
   %exitcond765.not = icmp eq i32 %106, %5
   br i1 %exitcond765.not, label %.loopexit, label %.preheader513.us.us668, !llvm.loop !189
@@ -11391,25 +11391,25 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 110:                                              ; preds = %.preheader513.us, %110
   %indvars.iv755 = phi i64 [ 0, %.preheader513.us ], [ %indvars.iv.next756, %110 ]
-  %111 = getelementptr inbounds nuw i16, ptr %.1436657.us, i64 %indvars.iv755
-  %112 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv755
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %.1436657.us, i64 %indvars.iv755
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv755
   %113 = load ptr, ptr %112, align 8
   %114 = load i8, ptr %.1660.us, align 1
   %115 = load i8, ptr %109, align 1
   %116 = zext i8 %114 to i64
-  %117 = getelementptr inbounds nuw i16, ptr %113, i64 %116
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %113, i64 %116
   %118 = load i16, ptr %117, align 2
   %119 = zext i8 %115 to i64
-  %120 = getelementptr inbounds nuw i16, ptr %113, i64 %119
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %113, i64 %119
   %121 = load i16, ptr %120, align 2
   store i16 %118, ptr %111, align 2
-  %122 = getelementptr inbounds nuw i16, ptr %111, i64 %20
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %20
   store i16 %121, ptr %122, align 2
   %123 = load i8, ptr %.0478638.us, align 1
   %124 = zext i8 %123 to i64
-  %125 = getelementptr inbounds nuw i16, ptr %113, i64 %124
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %113, i64 %124
   %126 = load i16, ptr %125, align 2
-  %127 = getelementptr inbounds nuw i16, ptr %111, i64 %22
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %22
   store i16 %126, ptr %127, align 2
   %indvars.iv.next756 = add nuw nsw i64 %indvars.iv755, 1
   %exitcond758.not = icmp eq i64 %indvars.iv.next756, %wide.trip.count775
@@ -11417,7 +11417,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 ._crit_edge654.split.split.us664:                 ; preds = %110
   %128 = add nuw nsw i32 %.1459656.us, 1
-  %129 = getelementptr inbounds i16, ptr %.1436657.us, i64 %24
+  %129 = getelementptr inbounds [2 x i8], ptr %.1436657.us, i64 %24
   %130 = getelementptr inbounds i8, ptr %.1660.us, i64 %25
   %exitcond759.not = icmp eq i32 %128, %5
   br i1 %exitcond759.not, label %.loopexit, label %.preheader513.us, !llvm.loop !189
@@ -11445,12 +11445,12 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 .lr.ph676.us.us699.us:                            ; preds = %.preheader.us.us, %.lr.ph676.us.us699.us
   %indvars.iv778 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next779, %.lr.ph676.us.us699.us ]
-  %135 = getelementptr inbounds nuw i16, ptr %.0435692.us.us, i64 %indvars.iv778
-  %136 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv778
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %.0435692.us.us, i64 %indvars.iv778
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv778
   %137 = load ptr, ptr %136, align 8
   %138 = load i8, ptr %.0694.us.us, align 1
   %139 = zext i8 %138 to i64
-  %140 = getelementptr inbounds nuw i16, ptr %137, i64 %139
+  %140 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 %139
   %141 = load i16, ptr %140, align 2
   store i16 %141, ptr %135, align 2
   %indvars.iv.next779 = add nuw nsw i64 %indvars.iv778, 1
@@ -11459,7 +11459,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 ._crit_edge683.split.us.us.us:                    ; preds = %.lr.ph676.us.us699.us
   %142 = add nuw nsw i32 %.0458691.us.us, 1
-  %143 = getelementptr inbounds i16, ptr %.0435692.us.us, i64 %132
+  %143 = getelementptr inbounds [2 x i8], ptr %.0435692.us.us, i64 %132
   %144 = getelementptr inbounds i8, ptr %.0694.us.us, i64 %133
   %exitcond783.not = icmp eq i32 %142, %5
   br i1 %exitcond783.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !191
@@ -11487,11 +11487,11 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
   %.0490601 = phi i32 [ %.0490598, %146 ], [ %.0490, %152 ]
   %153 = shl nuw i32 %.0490601, 16
   %154 = or disjoint i32 %153, %.0491602
-  %155 = getelementptr inbounds nuw i16, ptr %147, i64 %indvars.iv750
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %147, i64 %indvars.iv750
   %156 = load i16, ptr %155, align 2
-  %157 = getelementptr inbounds nuw i16, ptr %149, i64 %indvars.iv750
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %149, i64 %indvars.iv750
   %158 = load i16, ptr %157, align 2
-  %159 = getelementptr i32, ptr %9, i64 %indvars.iv750
+  %159 = getelementptr [4 x i8], ptr %9, i64 %indvars.iv750
   %160 = getelementptr i8, ptr %159, i64 -4
   store i32 %154, ptr %160, align 4
   %indvars.iv.next751 = add nuw nsw i64 %indvars.iv750, 1
@@ -11542,10 +11542,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
   %.0488619 = phi ptr [ %191, %.lr.ph625 ], [ %.2437632, %.lr.ph625.preheader ]
   %.1494618 = phi i32 [ %190, %.lr.ph625 ], [ 0, %.lr.ph625.preheader ]
   %180 = zext i8 %.0484.in621 to i64
-  %181 = getelementptr inbounds nuw i32, ptr %9, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %180
   %182 = load i32, ptr %181, align 4
   %183 = zext i8 %.0481.in622 to i64
-  %184 = getelementptr inbounds nuw i32, ptr %9, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %183
   %185 = load i32, ptr %184, align 4
   %186 = load i8, ptr %.0486623, align 1
   %187 = getelementptr inbounds nuw i8, ptr %.2.pn620, i64 3
@@ -11561,10 +11561,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 ._crit_edge626:                                   ; preds = %.lr.ph625
   %193 = zext i8 %186 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %9, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %193
   %195 = load i32, ptr %194, align 4
   %196 = zext i8 %188 to i64
-  %197 = getelementptr inbounds nuw i32, ptr %9, i64 %196
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %196
   %198 = load i32, ptr %197, align 4
   store i32 %195, ptr %191, align 4
   %199 = getelementptr inbounds nuw i8, ptr %.0488619, i64 12
@@ -11574,7 +11574,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 200:                                              ; preds = %._crit_edge626
   %201 = load i8, ptr %.0486, align 1
   %202 = zext i8 %201 to i64
-  %203 = getelementptr inbounds nuw i32, ptr %9, i64 %202
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %202
   %204 = load i32, ptr %203, align 4
   %205 = getelementptr inbounds nuw i8, ptr %.0488619, i64 16
   store i32 %204, ptr %205, align 4
@@ -11584,7 +11584,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
   %207 = getelementptr inbounds nuw i8, ptr %.2634, i64 1
   %208 = load i8, ptr %.2634, align 1
   %209 = zext i8 %208 to i64
-  %210 = getelementptr inbounds nuw i32, ptr %9, i64 %209
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %209
   %211 = load i32, ptr %210, align 4
   %212 = trunc i32 %211 to i16
   %213 = getelementptr inbounds nuw i8, ptr %.2437632, i64 2
@@ -11603,10 +11603,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
   %.1489604 = phi ptr [ %231, %.lr.ph610 ], [ %213, %206 ]
   %.2495603 = phi i32 [ %230, %.lr.ph610 ], [ 0, %206 ]
   %218 = zext i8 %.1485.in606 to i64
-  %219 = getelementptr inbounds nuw i32, ptr %9, i64 %218
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %218
   %220 = load i32, ptr %219, align 4
   %221 = zext i8 %.1482.in608 to i64
-  %222 = getelementptr inbounds nuw i32, ptr %9, i64 %221
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %221
   %223 = load i32, ptr %222, align 4
   %224 = tail call i32 @llvm.fshl.i32(i32 %220, i32 %.0483607, i32 16)
   %225 = tail call i32 @llvm.fshl.i32(i32 %223, i32 %220, i32 16)
@@ -11629,10 +11629,10 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
   %.0483.lcssa = phi i32 [ %211, %206 ], [ %223, %.lr.ph610 ]
   %.1482.in.lcssa = phi i8 [ %216, %206 ], [ %228, %.lr.ph610 ]
   %234 = zext i8 %.1485.in.lcssa to i64
-  %235 = getelementptr inbounds nuw i32, ptr %9, i64 %234
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %234
   %236 = load i32, ptr %235, align 4
   %237 = zext i8 %.1482.in.lcssa to i64
-  %238 = getelementptr inbounds nuw i32, ptr %9, i64 %237
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %237
   %239 = load i32, ptr %238, align 4
   %240 = tail call i32 @llvm.fshl.i32(i32 %236, i32 %.0483.lcssa, i32 16)
   %241 = tail call i32 @llvm.fshl.i32(i32 %239, i32 %236, i32 16)
@@ -11648,7 +11648,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 246:                                              ; preds = %._crit_edge611
   %247 = load i8, ptr %.1487.lcssa, align 1
   %248 = zext i8 %247 to i64
-  %249 = getelementptr inbounds nuw i32, ptr %9, i64 %248
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %248
   %250 = load i32, ptr %249, align 4
   %251 = getelementptr inbounds nuw i8, ptr %.1489.lcssa, i64 10
   store i32 %250, ptr %251, align 2
@@ -11656,7 +11656,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 252:                                              ; preds = %200, %._crit_edge626, %246, %._crit_edge611
   %253 = add nuw nsw i32 %.0492631, 1
-  %254 = getelementptr inbounds i16, ptr %.2437632, i64 %171
+  %254 = getelementptr inbounds [2 x i8], ptr %.2437632, i64 %171
   %255 = getelementptr inbounds i8, ptr %.2634, i64 %172
   %exitcond754.not = icmp eq i32 %253, %5
   br i1 %exitcond754.not, label %.loopexit, label %173, !llvm.loop !195
@@ -11683,11 +11683,11 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
   %266 = shl nuw i32 %.0474573, 16
   %267 = shl nuw i32 %.0472571, 16
   %268 = or disjoint i32 %267, %.0473572
-  %269 = getelementptr inbounds nuw i16, ptr %257, i64 %indvars.iv745
+  %269 = getelementptr inbounds nuw [2 x i8], ptr %257, i64 %indvars.iv745
   %270 = load i16, ptr %269, align 2
-  %271 = getelementptr inbounds nuw i16, ptr %259, i64 %indvars.iv745
+  %271 = getelementptr inbounds nuw [2 x i8], ptr %259, i64 %indvars.iv745
   %272 = load i16, ptr %271, align 2
-  %273 = getelementptr inbounds nuw i16, ptr %261, i64 %indvars.iv745
+  %273 = getelementptr inbounds nuw [2 x i8], ptr %261, i64 %indvars.iv745
   %274 = load i16, ptr %273, align 2
   %.idx798 = shl i64 %indvars.iv745, 3
   %275 = getelementptr i8, ptr %10, i64 %.idx798
@@ -11854,7 +11854,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 362:                                              ; preds = %._crit_edge587, %349
   %363 = add nuw nsw i32 %.0475593, 1
-  %364 = getelementptr inbounds i16, ptr %.3438594, i64 %286
+  %364 = getelementptr inbounds [2 x i8], ptr %.3438594, i64 %286
   %365 = getelementptr inbounds i8, ptr %.3595, i64 %287
   %exitcond749.not = icmp eq i32 %363, %5
   br i1 %exitcond749.not, label %.loopexit, label %288, !llvm.loop !198
@@ -11887,13 +11887,13 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
   %380 = or disjoint i32 %379, %.0451527
   %381 = shl nuw i32 %.0448524, 16
   %382 = or disjoint i32 %381, %.0449525
-  %383 = getelementptr inbounds nuw i16, ptr %367, i64 %indvars.iv
+  %383 = getelementptr inbounds nuw [2 x i8], ptr %367, i64 %indvars.iv
   %384 = load i16, ptr %383, align 2
-  %385 = getelementptr inbounds nuw i16, ptr %369, i64 %indvars.iv
+  %385 = getelementptr inbounds nuw [2 x i8], ptr %369, i64 %indvars.iv
   %386 = load i16, ptr %385, align 2
-  %387 = getelementptr inbounds nuw i16, ptr %371, i64 %indvars.iv
+  %387 = getelementptr inbounds nuw [2 x i8], ptr %371, i64 %indvars.iv
   %388 = load i16, ptr %387, align 2
-  %389 = getelementptr inbounds nuw i16, ptr %373, i64 %indvars.iv
+  %389 = getelementptr inbounds nuw [2 x i8], ptr %373, i64 %indvars.iv
   %390 = load i16, ptr %389, align 2
   %.idx797 = shl i64 %indvars.iv, 3
   %391 = getelementptr i8, ptr %11, i64 %.idx797
@@ -12145,7 +12145,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr noundef readonly captures(no
 
 532:                                              ; preds = %448, %._crit_edge555, %520, %._crit_edge
   %533 = add nuw nsw i32 %.0452560, 1
-  %534 = getelementptr inbounds i16, ptr %.4439561, i64 %407
+  %534 = getelementptr inbounds [2 x i8], ptr %.4439561, i64 %407
   %535 = getelementptr inbounds i8, ptr %.4563, i64 %408
   %exitcond744.not = icmp eq i32 %533, %5
   br i1 %exitcond744.not, label %.loopexit, label %409, !llvm.loop !202
@@ -12166,10 +12166,10 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 65536
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -12211,8 +12211,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us.us.us:                         ; preds = %._crit_edge109.us.us.us.us.us, %.preheader96.us.us.us
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %._crit_edge109.us.us.us.us.us ], [ 0, %.preheader96.us.us.us ]
-  %26 = getelementptr inbounds nuw i16, ptr %.182118.us.us.us, i64 %indvars.iv197
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv197
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us.us, i64 %indvars.iv197
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv197
   %28 = load ptr, ptr %27, align 8
   %29 = load i16, ptr %.1121.us.us.us, align 2
   %30 = load i16, ptr %25, align 2
@@ -12226,31 +12226,31 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
   %.190101.us.us.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us.us.us ], [ %42, %31 ]
   %.079106.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 4
   %32 = sext i16 %.077.in104.us.us.us.us.us to i64
-  %33 = getelementptr inbounds i16, ptr %28, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %28, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = sext i16 %.0.in105.us.us.us.us.us to i64
-  %36 = getelementptr inbounds i16, ptr %28, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %28, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = load i16, ptr %.079106.us.us.us.us.us, align 2
   %39 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 6
   %40 = load i16, ptr %39, align 2
   store i16 %34, ptr %.080102.us.us.us.us.us, align 2
-  %41 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %18
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %18
   store i16 %37, ptr %41, align 2
   %42 = add nuw nsw i32 %.190101.us.us.us.us.us, 2
-  %43 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %20
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %20
   %44 = icmp slt i32 %42, %17
   br i1 %44, label %31, label %._crit_edge109.us.us.us.us.us, !llvm.loop !204
 
 ._crit_edge109.us.us.us.us.us:                    ; preds = %31
   %45 = sext i16 %38 to i64
-  %46 = getelementptr inbounds i16, ptr %28, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %28, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = sext i16 %40 to i64
-  %49 = getelementptr inbounds i16, ptr %28, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %28, i64 %48
   %50 = load i16, ptr %49, align 2
   store i16 %47, ptr %43, align 2
-  %51 = getelementptr inbounds nuw i16, ptr %43, i64 %18
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %18
   store i16 %50, ptr %51, align 2
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
@@ -12258,8 +12258,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split.us.us:        ; preds = %._crit_edge109.us.us.us.us.us
   %52 = add nuw nsw i32 %.188117.us.us.us, 1
-  %53 = getelementptr inbounds i16, ptr %.182118.us.us.us, i64 %22
-  %54 = getelementptr inbounds i16, ptr %.1121.us.us.us, i64 %23
+  %53 = getelementptr inbounds [2 x i8], ptr %.182118.us.us.us, i64 %22
+  %54 = getelementptr inbounds [2 x i8], ptr %.1121.us.us.us, i64 %23
   %exitcond202.not = icmp eq i32 %52, %5
   br i1 %exitcond202.not, label %.loopexit, label %.preheader96.us.us.us, !llvm.loop !206
 
@@ -12273,8 +12273,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us:                               ; preds = %._crit_edge109.us.us.us, %.preheader96.us.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %._crit_edge109.us.us.us ], [ 0, %.preheader96.us.us ]
-  %56 = getelementptr inbounds nuw i16, ptr %.182118.us.us, i64 %indvars.iv191
-  %57 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv191
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us, i64 %indvars.iv191
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv191
   %58 = load ptr, ptr %57, align 8
   %59 = load i16, ptr %.1121.us.us, align 2
   %60 = load i16, ptr %55, align 2
@@ -12288,38 +12288,38 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
   %.080102.us.us.us = phi ptr [ %56, %.lr.ph108.us.us.us ], [ %73, %61 ]
   %.190101.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us ], [ %72, %61 ]
   %62 = sext i16 %.077.in104.us.us.us to i64
-  %63 = getelementptr inbounds i16, ptr %58, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %58, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = sext i16 %.0.in105.us.us.us to i64
-  %66 = getelementptr inbounds i16, ptr %58, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %58, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = load i16, ptr %.079106.us.us.us, align 2
   %69 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us, i64 6
   %70 = load i16, ptr %69, align 2
   store i16 %64, ptr %.080102.us.us.us, align 2
-  %71 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %18
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %18
   store i16 %67, ptr %71, align 2
   %72 = add nuw nsw i32 %.190101.us.us.us, 2
-  %73 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %20
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %20
   %.079.us.us.us = getelementptr inbounds nuw i8, ptr %.079106.us.us.us, i64 4
   %74 = icmp slt i32 %72, %17
   br i1 %74, label %61, label %._crit_edge109.us.us.us, !llvm.loop !204
 
 ._crit_edge109.us.us.us:                          ; preds = %61
   %75 = sext i16 %68 to i64
-  %76 = getelementptr inbounds i16, ptr %58, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %58, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = sext i16 %70 to i64
-  %79 = getelementptr inbounds i16, ptr %58, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr %58, i64 %78
   %80 = load i16, ptr %79, align 2
   store i16 %77, ptr %73, align 2
-  %81 = getelementptr inbounds nuw i16, ptr %73, i64 %18
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %18
   store i16 %80, ptr %81, align 2
   %82 = load i16, ptr %.079.us.us.us, align 2
   %83 = sext i16 %82 to i64
-  %84 = getelementptr inbounds i16, ptr %58, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %58, i64 %83
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds nuw i16, ptr %73, i64 %20
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %20
   store i16 %85, ptr %86, align 2
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count200
@@ -12327,8 +12327,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split:              ; preds = %._crit_edge109.us.us.us
   %87 = add nuw nsw i32 %.188117.us.us, 1
-  %88 = getelementptr inbounds i16, ptr %.182118.us.us, i64 %22
-  %89 = getelementptr inbounds i16, ptr %.1121.us.us, i64 %23
+  %88 = getelementptr inbounds [2 x i8], ptr %.182118.us.us, i64 %22
+  %89 = getelementptr inbounds [2 x i8], ptr %.1121.us.us, i64 %23
   %exitcond196.not = icmp eq i32 %87, %5
   br i1 %exitcond196.not, label %.loopexit, label %.preheader96.us.us, !llvm.loop !206
 
@@ -12344,19 +12344,19 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
 
 91:                                               ; preds = %91, %.preheader96.us.us129
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %91 ], [ 0, %.preheader96.us.us129 ]
-  %92 = getelementptr inbounds nuw i16, ptr %.182118.us.us131, i64 %indvars.iv185
-  %93 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv185
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us131, i64 %indvars.iv185
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv185
   %94 = load ptr, ptr %93, align 8
   %95 = load i16, ptr %.1121.us.us130, align 2
   %96 = load i16, ptr %90, align 2
   %97 = sext i16 %95 to i64
-  %98 = getelementptr inbounds i16, ptr %94, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %94, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = sext i16 %96 to i64
-  %101 = getelementptr inbounds i16, ptr %94, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %94, i64 %100
   %102 = load i16, ptr %101, align 2
   store i16 %99, ptr %92, align 2
-  %103 = getelementptr inbounds nuw i16, ptr %92, i64 %18
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %18
   store i16 %102, ptr %103, align 2
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count200
@@ -12364,8 +12364,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us.us.us:              ; preds = %91
   %104 = add nuw nsw i32 %.188117.us.us132, 1
-  %105 = getelementptr inbounds i16, ptr %.182118.us.us131, i64 %22
-  %106 = getelementptr inbounds i16, ptr %.1121.us.us130, i64 %23
+  %105 = getelementptr inbounds [2 x i8], ptr %.182118.us.us131, i64 %22
+  %106 = getelementptr inbounds [2 x i8], ptr %.1121.us.us130, i64 %23
   %exitcond190.not = icmp eq i32 %104, %5
   br i1 %exitcond190.not, label %.loopexit, label %.preheader96.us.us129, !llvm.loop !206
 
@@ -12379,25 +12379,25 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
 
 108:                                              ; preds = %.preheader96.us, %108
   %indvars.iv179 = phi i64 [ 0, %.preheader96.us ], [ %indvars.iv.next180, %108 ]
-  %109 = getelementptr inbounds nuw i16, ptr %.182118.us, i64 %indvars.iv179
-  %110 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv179
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us, i64 %indvars.iv179
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv179
   %111 = load ptr, ptr %110, align 8
   %112 = load i16, ptr %.1121.us, align 2
   %113 = load i16, ptr %107, align 2
   %114 = sext i16 %112 to i64
-  %115 = getelementptr inbounds i16, ptr %111, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr %111, i64 %114
   %116 = load i16, ptr %115, align 2
   %117 = sext i16 %113 to i64
-  %118 = getelementptr inbounds i16, ptr %111, i64 %117
+  %118 = getelementptr inbounds [2 x i8], ptr %111, i64 %117
   %119 = load i16, ptr %118, align 2
   store i16 %116, ptr %109, align 2
-  %120 = getelementptr inbounds nuw i16, ptr %109, i64 %18
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %18
   store i16 %119, ptr %120, align 2
   %121 = load i16, ptr %.079100.us, align 2
   %122 = sext i16 %121 to i64
-  %123 = getelementptr inbounds i16, ptr %111, i64 %122
+  %123 = getelementptr inbounds [2 x i8], ptr %111, i64 %122
   %124 = load i16, ptr %123, align 2
-  %125 = getelementptr inbounds nuw i16, ptr %109, i64 %20
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %20
   store i16 %124, ptr %125, align 2
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count200
@@ -12405,8 +12405,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us125:                 ; preds = %108
   %126 = add nuw nsw i32 %.188117.us, 1
-  %127 = getelementptr inbounds i16, ptr %.182118.us, i64 %22
-  %128 = getelementptr inbounds i16, ptr %.1121.us, i64 %23
+  %127 = getelementptr inbounds [2 x i8], ptr %.182118.us, i64 %22
+  %128 = getelementptr inbounds [2 x i8], ptr %.1121.us, i64 %23
   %exitcond184.not = icmp eq i32 %126, %5
   br i1 %exitcond184.not, label %.loopexit, label %.preheader96.us, !llvm.loop !206
 
@@ -12432,12 +12432,12 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
 
 .lr.ph137.us.us160.us:                            ; preds = %.preheader.us.us, %.lr.ph137.us.us160.us
   %indvars.iv203 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next204, %.lr.ph137.us.us160.us ]
-  %132 = getelementptr inbounds nuw i16, ptr %.081153.us.us, i64 %indvars.iv203
-  %133 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv203
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %.081153.us.us, i64 %indvars.iv203
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv203
   %134 = load ptr, ptr %133, align 8
   %135 = load i16, ptr %.078155.us.us, align 2
   %136 = sext i16 %135 to i64
-  %137 = getelementptr inbounds i16, ptr %134, i64 %136
+  %137 = getelementptr inbounds [2 x i8], ptr %134, i64 %136
   %138 = load i16, ptr %137, align 2
   store i16 %138, ptr %132, align 2
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
@@ -12446,8 +12446,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr noundef readonly captures(n
 
 ._crit_edge144.split.us.us.us:                    ; preds = %.lr.ph137.us.us160.us
   %139 = add nuw nsw i32 %.087152.us.us, 1
-  %140 = getelementptr inbounds i16, ptr %.081153.us.us, i64 %129
-  %141 = getelementptr inbounds i16, ptr %.078155.us.us, i64 %130
+  %140 = getelementptr inbounds [2 x i8], ptr %.081153.us.us, i64 %129
+  %141 = getelementptr inbounds [2 x i8], ptr %.078155.us.us, i64 %130
   %exitcond208.not = icmp eq i32 %139, %5
   br i1 %exitcond208.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !208
 
@@ -12503,8 +12503,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us.us.us:                         ; preds = %._crit_edge109.us.us.us.us.us, %.preheader96.us.us.us
   %indvars.iv193 = phi i64 [ %indvars.iv.next194, %._crit_edge109.us.us.us.us.us ], [ 0, %.preheader96.us.us.us ]
-  %24 = getelementptr inbounds nuw i16, ptr %.182118.us.us.us, i64 %indvars.iv193
-  %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv193
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us.us, i64 %indvars.iv193
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv193
   %26 = load ptr, ptr %25, align 8
   %27 = load i16, ptr %.1121.us.us.us, align 2
   %28 = load i16, ptr %23, align 2
@@ -12518,31 +12518,31 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
   %.190101.us.us.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us.us.us ], [ %40, %29 ]
   %.079106.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 4
   %30 = zext i16 %.077.in104.us.us.us.us.us to i64
-  %31 = getelementptr inbounds nuw i16, ptr %26, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %.0.in105.us.us.us.us.us to i64
-  %34 = getelementptr inbounds nuw i16, ptr %26, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = load i16, ptr %.079106.us.us.us.us.us, align 2
   %37 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 6
   %38 = load i16, ptr %37, align 2
   store i16 %32, ptr %.080102.us.us.us.us.us, align 2
-  %39 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %16
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %16
   store i16 %35, ptr %39, align 2
   %40 = add nuw nsw i32 %.190101.us.us.us.us.us, 2
-  %41 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %18
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %18
   %42 = icmp slt i32 %40, %15
   br i1 %42, label %29, label %._crit_edge109.us.us.us.us.us, !llvm.loop !209
 
 ._crit_edge109.us.us.us.us.us:                    ; preds = %29
   %43 = zext i16 %36 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %26, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = zext i16 %38 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %26, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %46
   %48 = load i16, ptr %47, align 2
   store i16 %45, ptr %41, align 2
-  %49 = getelementptr inbounds nuw i16, ptr %41, i64 %16
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %16
   store i16 %48, ptr %49, align 2
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
@@ -12550,8 +12550,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split.us.us:        ; preds = %._crit_edge109.us.us.us.us.us
   %50 = add nuw nsw i32 %.188117.us.us.us, 1
-  %51 = getelementptr inbounds i16, ptr %.182118.us.us.us, i64 %20
-  %52 = getelementptr inbounds i16, ptr %.1121.us.us.us, i64 %21
+  %51 = getelementptr inbounds [2 x i8], ptr %.182118.us.us.us, i64 %20
+  %52 = getelementptr inbounds [2 x i8], ptr %.1121.us.us.us, i64 %21
   %exitcond198.not = icmp eq i32 %50, %5
   br i1 %exitcond198.not, label %.loopexit, label %.preheader96.us.us.us, !llvm.loop !211
 
@@ -12565,8 +12565,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us:                               ; preds = %._crit_edge109.us.us.us, %.preheader96.us.us
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %._crit_edge109.us.us.us ], [ 0, %.preheader96.us.us ]
-  %54 = getelementptr inbounds nuw i16, ptr %.182118.us.us, i64 %indvars.iv187
-  %55 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv187
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us, i64 %indvars.iv187
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv187
   %56 = load ptr, ptr %55, align 8
   %57 = load i16, ptr %.1121.us.us, align 2
   %58 = load i16, ptr %53, align 2
@@ -12580,38 +12580,38 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
   %.080102.us.us.us = phi ptr [ %54, %.lr.ph108.us.us.us ], [ %71, %59 ]
   %.190101.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us ], [ %70, %59 ]
   %60 = zext i16 %.077.in104.us.us.us to i64
-  %61 = getelementptr inbounds nuw i16, ptr %56, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %.0.in105.us.us.us to i64
-  %64 = getelementptr inbounds nuw i16, ptr %56, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = load i16, ptr %.079106.us.us.us, align 2
   %67 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us, i64 6
   %68 = load i16, ptr %67, align 2
   store i16 %62, ptr %.080102.us.us.us, align 2
-  %69 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %16
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %16
   store i16 %65, ptr %69, align 2
   %70 = add nuw nsw i32 %.190101.us.us.us, 2
-  %71 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %18
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %18
   %.079.us.us.us = getelementptr inbounds nuw i8, ptr %.079106.us.us.us, i64 4
   %72 = icmp slt i32 %70, %15
   br i1 %72, label %59, label %._crit_edge109.us.us.us, !llvm.loop !209
 
 ._crit_edge109.us.us.us:                          ; preds = %59
   %73 = zext i16 %66 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %56, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %68 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %56, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %76
   %78 = load i16, ptr %77, align 2
   store i16 %75, ptr %71, align 2
-  %79 = getelementptr inbounds nuw i16, ptr %71, i64 %16
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %16
   store i16 %78, ptr %79, align 2
   %80 = load i16, ptr %.079.us.us.us, align 2
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds nuw i16, ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %81
   %83 = load i16, ptr %82, align 2
-  %84 = getelementptr inbounds nuw i16, ptr %71, i64 %18
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %18
   store i16 %83, ptr %84, align 2
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count196
@@ -12619,8 +12619,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split:              ; preds = %._crit_edge109.us.us.us
   %85 = add nuw nsw i32 %.188117.us.us, 1
-  %86 = getelementptr inbounds i16, ptr %.182118.us.us, i64 %20
-  %87 = getelementptr inbounds i16, ptr %.1121.us.us, i64 %21
+  %86 = getelementptr inbounds [2 x i8], ptr %.182118.us.us, i64 %20
+  %87 = getelementptr inbounds [2 x i8], ptr %.1121.us.us, i64 %21
   %exitcond192.not = icmp eq i32 %85, %5
   br i1 %exitcond192.not, label %.loopexit, label %.preheader96.us.us, !llvm.loop !211
 
@@ -12636,19 +12636,19 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
 
 89:                                               ; preds = %89, %.preheader96.us.us129
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %89 ], [ 0, %.preheader96.us.us129 ]
-  %90 = getelementptr inbounds nuw i16, ptr %.182118.us.us131, i64 %indvars.iv181
-  %91 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv181
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us131, i64 %indvars.iv181
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv181
   %92 = load ptr, ptr %91, align 8
   %93 = load i16, ptr %.1121.us.us130, align 2
   %94 = load i16, ptr %88, align 2
   %95 = zext i16 %93 to i64
-  %96 = getelementptr inbounds nuw i16, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %95
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %94 to i64
-  %99 = getelementptr inbounds nuw i16, ptr %92, i64 %98
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %98
   %100 = load i16, ptr %99, align 2
   store i16 %97, ptr %90, align 2
-  %101 = getelementptr inbounds nuw i16, ptr %90, i64 %16
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %16
   store i16 %100, ptr %101, align 2
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count196
@@ -12656,8 +12656,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us.us.us:              ; preds = %89
   %102 = add nuw nsw i32 %.188117.us.us132, 1
-  %103 = getelementptr inbounds i16, ptr %.182118.us.us131, i64 %20
-  %104 = getelementptr inbounds i16, ptr %.1121.us.us130, i64 %21
+  %103 = getelementptr inbounds [2 x i8], ptr %.182118.us.us131, i64 %20
+  %104 = getelementptr inbounds [2 x i8], ptr %.1121.us.us130, i64 %21
   %exitcond186.not = icmp eq i32 %102, %5
   br i1 %exitcond186.not, label %.loopexit, label %.preheader96.us.us129, !llvm.loop !211
 
@@ -12671,25 +12671,25 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
 
 106:                                              ; preds = %.preheader96.us, %106
   %indvars.iv = phi i64 [ 0, %.preheader96.us ], [ %indvars.iv.next, %106 ]
-  %107 = getelementptr inbounds nuw i16, ptr %.182118.us, i64 %indvars.iv
-  %108 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8
   %110 = load i16, ptr %.1121.us, align 2
   %111 = load i16, ptr %105, align 2
   %112 = zext i16 %110 to i64
-  %113 = getelementptr inbounds nuw i16, ptr %109, i64 %112
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %112
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %111 to i64
-  %116 = getelementptr inbounds nuw i16, ptr %109, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %115
   %117 = load i16, ptr %116, align 2
   store i16 %114, ptr %107, align 2
-  %118 = getelementptr inbounds nuw i16, ptr %107, i64 %16
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %16
   store i16 %117, ptr %118, align 2
   %119 = load i16, ptr %.079100.us, align 2
   %120 = zext i16 %119 to i64
-  %121 = getelementptr inbounds nuw i16, ptr %109, i64 %120
+  %121 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %120
   %122 = load i16, ptr %121, align 2
-  %123 = getelementptr inbounds nuw i16, ptr %107, i64 %18
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %18
   store i16 %122, ptr %123, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count196
@@ -12697,8 +12697,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us125:                 ; preds = %106
   %124 = add nuw nsw i32 %.188117.us, 1
-  %125 = getelementptr inbounds i16, ptr %.182118.us, i64 %20
-  %126 = getelementptr inbounds i16, ptr %.1121.us, i64 %21
+  %125 = getelementptr inbounds [2 x i8], ptr %.182118.us, i64 %20
+  %126 = getelementptr inbounds [2 x i8], ptr %.1121.us, i64 %21
   %exitcond180.not = icmp eq i32 %124, %5
   br i1 %exitcond180.not, label %.loopexit, label %.preheader96.us, !llvm.loop !211
 
@@ -12724,12 +12724,12 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
 
 .lr.ph137.us.us160.us:                            ; preds = %.preheader.us.us, %.lr.ph137.us.us160.us
   %indvars.iv199 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next200, %.lr.ph137.us.us160.us ]
-  %130 = getelementptr inbounds nuw i16, ptr %.081153.us.us, i64 %indvars.iv199
-  %131 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv199
+  %130 = getelementptr inbounds nuw [2 x i8], ptr %.081153.us.us, i64 %indvars.iv199
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv199
   %132 = load ptr, ptr %131, align 8
   %133 = load i16, ptr %.078155.us.us, align 2
   %134 = zext i16 %133 to i64
-  %135 = getelementptr inbounds nuw i16, ptr %132, i64 %134
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %134
   %136 = load i16, ptr %135, align 2
   store i16 %136, ptr %130, align 2
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
@@ -12738,8 +12738,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr noundef readonly captures(n
 
 ._crit_edge144.split.us.us.us:                    ; preds = %.lr.ph137.us.us160.us
   %137 = add nuw nsw i32 %.087152.us.us, 1
-  %138 = getelementptr inbounds i16, ptr %.081153.us.us, i64 %127
-  %139 = getelementptr inbounds i16, ptr %.078155.us.us, i64 %128
+  %138 = getelementptr inbounds [2 x i8], ptr %.081153.us.us, i64 %127
+  %139 = getelementptr inbounds [2 x i8], ptr %.078155.us.us, i64 %128
   %exitcond204.not = icmp eq i32 %137, %5
   br i1 %exitcond204.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !213
 
@@ -12759,10 +12759,10 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1073741822
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -12804,8 +12804,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us.us.us:                         ; preds = %._crit_edge109.us.us.us.us.us, %.preheader96.us.us.us
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %._crit_edge109.us.us.us.us.us ], [ 0, %.preheader96.us.us.us ]
-  %26 = getelementptr inbounds nuw i16, ptr %.182118.us.us.us, i64 %indvars.iv197
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv197
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us.us, i64 %indvars.iv197
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv197
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %.1121.us.us.us, align 4
   %30 = load i32, ptr %25, align 4
@@ -12819,31 +12819,31 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
   %.190101.us.us.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us.us.us ], [ %42, %31 ]
   %.079106.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 8
   %32 = sext i32 %.077104.us.us.us.us.us to i64
-  %33 = getelementptr inbounds i16, ptr %28, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %28, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = sext i32 %.0105.us.us.us.us.us to i64
-  %36 = getelementptr inbounds i16, ptr %28, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %28, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = load i32, ptr %.079106.us.us.us.us.us, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 12
   %40 = load i32, ptr %39, align 4
   store i16 %34, ptr %.080102.us.us.us.us.us, align 2
-  %41 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %18
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %18
   store i16 %37, ptr %41, align 2
   %42 = add nuw nsw i32 %.190101.us.us.us.us.us, 2
-  %43 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %20
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %20
   %44 = icmp slt i32 %42, %17
   br i1 %44, label %31, label %._crit_edge109.us.us.us.us.us, !llvm.loop !215
 
 ._crit_edge109.us.us.us.us.us:                    ; preds = %31
   %45 = sext i32 %38 to i64
-  %46 = getelementptr inbounds i16, ptr %28, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %28, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = sext i32 %40 to i64
-  %49 = getelementptr inbounds i16, ptr %28, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %28, i64 %48
   %50 = load i16, ptr %49, align 2
   store i16 %47, ptr %43, align 2
-  %51 = getelementptr inbounds nuw i16, ptr %43, i64 %18
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %18
   store i16 %50, ptr %51, align 2
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
@@ -12851,8 +12851,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split.us.us:        ; preds = %._crit_edge109.us.us.us.us.us
   %52 = add nuw nsw i32 %.188117.us.us.us, 1
-  %53 = getelementptr inbounds i16, ptr %.182118.us.us.us, i64 %22
-  %54 = getelementptr inbounds i32, ptr %.1121.us.us.us, i64 %23
+  %53 = getelementptr inbounds [2 x i8], ptr %.182118.us.us.us, i64 %22
+  %54 = getelementptr inbounds [4 x i8], ptr %.1121.us.us.us, i64 %23
   %exitcond202.not = icmp eq i32 %52, %5
   br i1 %exitcond202.not, label %.loopexit, label %.preheader96.us.us.us, !llvm.loop !217
 
@@ -12866,8 +12866,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us:                               ; preds = %._crit_edge109.us.us.us, %.preheader96.us.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %._crit_edge109.us.us.us ], [ 0, %.preheader96.us.us ]
-  %56 = getelementptr inbounds nuw i16, ptr %.182118.us.us, i64 %indvars.iv191
-  %57 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv191
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us, i64 %indvars.iv191
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv191
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %.1121.us.us, align 4
   %60 = load i32, ptr %55, align 4
@@ -12881,38 +12881,38 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
   %.080102.us.us.us = phi ptr [ %56, %.lr.ph108.us.us.us ], [ %73, %61 ]
   %.190101.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us ], [ %72, %61 ]
   %62 = sext i32 %.077104.us.us.us to i64
-  %63 = getelementptr inbounds i16, ptr %58, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %58, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = sext i32 %.0105.us.us.us to i64
-  %66 = getelementptr inbounds i16, ptr %58, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %58, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = load i32, ptr %.079106.us.us.us, align 4
   %69 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us, i64 12
   %70 = load i32, ptr %69, align 4
   store i16 %64, ptr %.080102.us.us.us, align 2
-  %71 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %18
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %18
   store i16 %67, ptr %71, align 2
   %72 = add nuw nsw i32 %.190101.us.us.us, 2
-  %73 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %20
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %20
   %.079.us.us.us = getelementptr inbounds nuw i8, ptr %.079106.us.us.us, i64 8
   %74 = icmp slt i32 %72, %17
   br i1 %74, label %61, label %._crit_edge109.us.us.us, !llvm.loop !215
 
 ._crit_edge109.us.us.us:                          ; preds = %61
   %75 = sext i32 %68 to i64
-  %76 = getelementptr inbounds i16, ptr %58, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %58, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = sext i32 %70 to i64
-  %79 = getelementptr inbounds i16, ptr %58, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr %58, i64 %78
   %80 = load i16, ptr %79, align 2
   store i16 %77, ptr %73, align 2
-  %81 = getelementptr inbounds nuw i16, ptr %73, i64 %18
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %18
   store i16 %80, ptr %81, align 2
   %82 = load i32, ptr %.079.us.us.us, align 4
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i16, ptr %58, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %58, i64 %83
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds nuw i16, ptr %73, i64 %20
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %20
   store i16 %85, ptr %86, align 2
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count200
@@ -12920,8 +12920,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split:              ; preds = %._crit_edge109.us.us.us
   %87 = add nuw nsw i32 %.188117.us.us, 1
-  %88 = getelementptr inbounds i16, ptr %.182118.us.us, i64 %22
-  %89 = getelementptr inbounds i32, ptr %.1121.us.us, i64 %23
+  %88 = getelementptr inbounds [2 x i8], ptr %.182118.us.us, i64 %22
+  %89 = getelementptr inbounds [4 x i8], ptr %.1121.us.us, i64 %23
   %exitcond196.not = icmp eq i32 %87, %5
   br i1 %exitcond196.not, label %.loopexit, label %.preheader96.us.us, !llvm.loop !217
 
@@ -12937,19 +12937,19 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
 
 91:                                               ; preds = %91, %.preheader96.us.us129
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %91 ], [ 0, %.preheader96.us.us129 ]
-  %92 = getelementptr inbounds nuw i16, ptr %.182118.us.us131, i64 %indvars.iv185
-  %93 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv185
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us131, i64 %indvars.iv185
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv185
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %.1121.us.us130, align 4
   %96 = load i32, ptr %90, align 4
   %97 = sext i32 %95 to i64
-  %98 = getelementptr inbounds i16, ptr %94, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %94, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = sext i32 %96 to i64
-  %101 = getelementptr inbounds i16, ptr %94, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %94, i64 %100
   %102 = load i16, ptr %101, align 2
   store i16 %99, ptr %92, align 2
-  %103 = getelementptr inbounds nuw i16, ptr %92, i64 %18
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %18
   store i16 %102, ptr %103, align 2
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count200
@@ -12957,8 +12957,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us.us.us:              ; preds = %91
   %104 = add nuw nsw i32 %.188117.us.us132, 1
-  %105 = getelementptr inbounds i16, ptr %.182118.us.us131, i64 %22
-  %106 = getelementptr inbounds i32, ptr %.1121.us.us130, i64 %23
+  %105 = getelementptr inbounds [2 x i8], ptr %.182118.us.us131, i64 %22
+  %106 = getelementptr inbounds [4 x i8], ptr %.1121.us.us130, i64 %23
   %exitcond190.not = icmp eq i32 %104, %5
   br i1 %exitcond190.not, label %.loopexit, label %.preheader96.us.us129, !llvm.loop !217
 
@@ -12972,25 +12972,25 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
 
 108:                                              ; preds = %.preheader96.us, %108
   %indvars.iv179 = phi i64 [ 0, %.preheader96.us ], [ %indvars.iv.next180, %108 ]
-  %109 = getelementptr inbounds nuw i16, ptr %.182118.us, i64 %indvars.iv179
-  %110 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv179
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us, i64 %indvars.iv179
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv179
   %111 = load ptr, ptr %110, align 8
   %112 = load i32, ptr %.1121.us, align 4
   %113 = load i32, ptr %107, align 4
   %114 = sext i32 %112 to i64
-  %115 = getelementptr inbounds i16, ptr %111, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr %111, i64 %114
   %116 = load i16, ptr %115, align 2
   %117 = sext i32 %113 to i64
-  %118 = getelementptr inbounds i16, ptr %111, i64 %117
+  %118 = getelementptr inbounds [2 x i8], ptr %111, i64 %117
   %119 = load i16, ptr %118, align 2
   store i16 %116, ptr %109, align 2
-  %120 = getelementptr inbounds nuw i16, ptr %109, i64 %18
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %18
   store i16 %119, ptr %120, align 2
   %121 = load i32, ptr %.079100.us, align 4
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i16, ptr %111, i64 %122
+  %123 = getelementptr inbounds [2 x i8], ptr %111, i64 %122
   %124 = load i16, ptr %123, align 2
-  %125 = getelementptr inbounds nuw i16, ptr %109, i64 %20
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %20
   store i16 %124, ptr %125, align 2
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count200
@@ -12998,8 +12998,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us125:                 ; preds = %108
   %126 = add nuw nsw i32 %.188117.us, 1
-  %127 = getelementptr inbounds i16, ptr %.182118.us, i64 %22
-  %128 = getelementptr inbounds i32, ptr %.1121.us, i64 %23
+  %127 = getelementptr inbounds [2 x i8], ptr %.182118.us, i64 %22
+  %128 = getelementptr inbounds [4 x i8], ptr %.1121.us, i64 %23
   %exitcond184.not = icmp eq i32 %126, %5
   br i1 %exitcond184.not, label %.loopexit, label %.preheader96.us, !llvm.loop !217
 
@@ -13025,12 +13025,12 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
 
 .lr.ph137.us.us160.us:                            ; preds = %.preheader.us.us, %.lr.ph137.us.us160.us
   %indvars.iv203 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next204, %.lr.ph137.us.us160.us ]
-  %132 = getelementptr inbounds nuw i16, ptr %.081153.us.us, i64 %indvars.iv203
-  %133 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv203
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %.081153.us.us, i64 %indvars.iv203
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv203
   %134 = load ptr, ptr %133, align 8
   %135 = load i32, ptr %.078155.us.us, align 4
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i16, ptr %134, i64 %136
+  %137 = getelementptr inbounds [2 x i8], ptr %134, i64 %136
   %138 = load i16, ptr %137, align 2
   store i16 %138, ptr %132, align 2
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
@@ -13039,8 +13039,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr noundef readonly captures(n
 
 ._crit_edge144.split.us.us.us:                    ; preds = %.lr.ph137.us.us160.us
   %139 = add nuw nsw i32 %.087152.us.us, 1
-  %140 = getelementptr inbounds i16, ptr %.081153.us.us, i64 %129
-  %141 = getelementptr inbounds i32, ptr %.078155.us.us, i64 %130
+  %140 = getelementptr inbounds [2 x i8], ptr %.081153.us.us, i64 %129
+  %141 = getelementptr inbounds [4 x i8], ptr %.078155.us.us, i64 %130
   %exitcond208.not = icmp eq i32 %139, %5
   br i1 %exitcond208.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !219
 
@@ -13060,10 +13060,10 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 65536
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -13105,8 +13105,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us.us.us:                         ; preds = %._crit_edge109.us.us.us.us.us, %.preheader96.us.us.us
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %._crit_edge109.us.us.us.us.us ], [ 0, %.preheader96.us.us.us ]
-  %26 = getelementptr inbounds nuw i16, ptr %.182118.us.us.us, i64 %indvars.iv197
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv197
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us.us, i64 %indvars.iv197
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv197
   %28 = load ptr, ptr %27, align 8
   %29 = load i16, ptr %.1121.us.us.us, align 2
   %30 = load i16, ptr %25, align 2
@@ -13120,31 +13120,31 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
   %.190101.us.us.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us.us.us ], [ %42, %31 ]
   %.079106.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 4
   %32 = sext i16 %.077.in104.us.us.us.us.us to i64
-  %33 = getelementptr inbounds i16, ptr %28, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %28, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = sext i16 %.0.in105.us.us.us.us.us to i64
-  %36 = getelementptr inbounds i16, ptr %28, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %28, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = load i16, ptr %.079106.us.us.us.us.us, align 2
   %39 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 6
   %40 = load i16, ptr %39, align 2
   store i16 %34, ptr %.080102.us.us.us.us.us, align 2
-  %41 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %18
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %18
   store i16 %37, ptr %41, align 2
   %42 = add nuw nsw i32 %.190101.us.us.us.us.us, 2
-  %43 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %20
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %20
   %44 = icmp slt i32 %42, %17
   br i1 %44, label %31, label %._crit_edge109.us.us.us.us.us, !llvm.loop !221
 
 ._crit_edge109.us.us.us.us.us:                    ; preds = %31
   %45 = sext i16 %38 to i64
-  %46 = getelementptr inbounds i16, ptr %28, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %28, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = sext i16 %40 to i64
-  %49 = getelementptr inbounds i16, ptr %28, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %28, i64 %48
   %50 = load i16, ptr %49, align 2
   store i16 %47, ptr %43, align 2
-  %51 = getelementptr inbounds nuw i16, ptr %43, i64 %18
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %18
   store i16 %50, ptr %51, align 2
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
@@ -13152,8 +13152,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split.us.us:        ; preds = %._crit_edge109.us.us.us.us.us
   %52 = add nuw nsw i32 %.188117.us.us.us, 1
-  %53 = getelementptr inbounds i16, ptr %.182118.us.us.us, i64 %22
-  %54 = getelementptr inbounds i16, ptr %.1121.us.us.us, i64 %23
+  %53 = getelementptr inbounds [2 x i8], ptr %.182118.us.us.us, i64 %22
+  %54 = getelementptr inbounds [2 x i8], ptr %.1121.us.us.us, i64 %23
   %exitcond202.not = icmp eq i32 %52, %5
   br i1 %exitcond202.not, label %.loopexit, label %.preheader96.us.us.us, !llvm.loop !223
 
@@ -13167,8 +13167,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us:                               ; preds = %._crit_edge109.us.us.us, %.preheader96.us.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %._crit_edge109.us.us.us ], [ 0, %.preheader96.us.us ]
-  %56 = getelementptr inbounds nuw i16, ptr %.182118.us.us, i64 %indvars.iv191
-  %57 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv191
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us, i64 %indvars.iv191
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv191
   %58 = load ptr, ptr %57, align 8
   %59 = load i16, ptr %.1121.us.us, align 2
   %60 = load i16, ptr %55, align 2
@@ -13182,38 +13182,38 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
   %.080102.us.us.us = phi ptr [ %56, %.lr.ph108.us.us.us ], [ %73, %61 ]
   %.190101.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us ], [ %72, %61 ]
   %62 = sext i16 %.077.in104.us.us.us to i64
-  %63 = getelementptr inbounds i16, ptr %58, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %58, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = sext i16 %.0.in105.us.us.us to i64
-  %66 = getelementptr inbounds i16, ptr %58, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %58, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = load i16, ptr %.079106.us.us.us, align 2
   %69 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us, i64 6
   %70 = load i16, ptr %69, align 2
   store i16 %64, ptr %.080102.us.us.us, align 2
-  %71 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %18
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %18
   store i16 %67, ptr %71, align 2
   %72 = add nuw nsw i32 %.190101.us.us.us, 2
-  %73 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %20
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %20
   %.079.us.us.us = getelementptr inbounds nuw i8, ptr %.079106.us.us.us, i64 4
   %74 = icmp slt i32 %72, %17
   br i1 %74, label %61, label %._crit_edge109.us.us.us, !llvm.loop !221
 
 ._crit_edge109.us.us.us:                          ; preds = %61
   %75 = sext i16 %68 to i64
-  %76 = getelementptr inbounds i16, ptr %58, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %58, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = sext i16 %70 to i64
-  %79 = getelementptr inbounds i16, ptr %58, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr %58, i64 %78
   %80 = load i16, ptr %79, align 2
   store i16 %77, ptr %73, align 2
-  %81 = getelementptr inbounds nuw i16, ptr %73, i64 %18
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %18
   store i16 %80, ptr %81, align 2
   %82 = load i16, ptr %.079.us.us.us, align 2
   %83 = sext i16 %82 to i64
-  %84 = getelementptr inbounds i16, ptr %58, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %58, i64 %83
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds nuw i16, ptr %73, i64 %20
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %20
   store i16 %85, ptr %86, align 2
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count200
@@ -13221,8 +13221,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split:              ; preds = %._crit_edge109.us.us.us
   %87 = add nuw nsw i32 %.188117.us.us, 1
-  %88 = getelementptr inbounds i16, ptr %.182118.us.us, i64 %22
-  %89 = getelementptr inbounds i16, ptr %.1121.us.us, i64 %23
+  %88 = getelementptr inbounds [2 x i8], ptr %.182118.us.us, i64 %22
+  %89 = getelementptr inbounds [2 x i8], ptr %.1121.us.us, i64 %23
   %exitcond196.not = icmp eq i32 %87, %5
   br i1 %exitcond196.not, label %.loopexit, label %.preheader96.us.us, !llvm.loop !223
 
@@ -13238,19 +13238,19 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
 
 91:                                               ; preds = %91, %.preheader96.us.us129
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %91 ], [ 0, %.preheader96.us.us129 ]
-  %92 = getelementptr inbounds nuw i16, ptr %.182118.us.us131, i64 %indvars.iv185
-  %93 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv185
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us131, i64 %indvars.iv185
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv185
   %94 = load ptr, ptr %93, align 8
   %95 = load i16, ptr %.1121.us.us130, align 2
   %96 = load i16, ptr %90, align 2
   %97 = sext i16 %95 to i64
-  %98 = getelementptr inbounds i16, ptr %94, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %94, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = sext i16 %96 to i64
-  %101 = getelementptr inbounds i16, ptr %94, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %94, i64 %100
   %102 = load i16, ptr %101, align 2
   store i16 %99, ptr %92, align 2
-  %103 = getelementptr inbounds nuw i16, ptr %92, i64 %18
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %18
   store i16 %102, ptr %103, align 2
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count200
@@ -13258,8 +13258,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us.us.us:              ; preds = %91
   %104 = add nuw nsw i32 %.188117.us.us132, 1
-  %105 = getelementptr inbounds i16, ptr %.182118.us.us131, i64 %22
-  %106 = getelementptr inbounds i16, ptr %.1121.us.us130, i64 %23
+  %105 = getelementptr inbounds [2 x i8], ptr %.182118.us.us131, i64 %22
+  %106 = getelementptr inbounds [2 x i8], ptr %.1121.us.us130, i64 %23
   %exitcond190.not = icmp eq i32 %104, %5
   br i1 %exitcond190.not, label %.loopexit, label %.preheader96.us.us129, !llvm.loop !223
 
@@ -13273,25 +13273,25 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
 
 108:                                              ; preds = %.preheader96.us, %108
   %indvars.iv179 = phi i64 [ 0, %.preheader96.us ], [ %indvars.iv.next180, %108 ]
-  %109 = getelementptr inbounds nuw i16, ptr %.182118.us, i64 %indvars.iv179
-  %110 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv179
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us, i64 %indvars.iv179
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv179
   %111 = load ptr, ptr %110, align 8
   %112 = load i16, ptr %.1121.us, align 2
   %113 = load i16, ptr %107, align 2
   %114 = sext i16 %112 to i64
-  %115 = getelementptr inbounds i16, ptr %111, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr %111, i64 %114
   %116 = load i16, ptr %115, align 2
   %117 = sext i16 %113 to i64
-  %118 = getelementptr inbounds i16, ptr %111, i64 %117
+  %118 = getelementptr inbounds [2 x i8], ptr %111, i64 %117
   %119 = load i16, ptr %118, align 2
   store i16 %116, ptr %109, align 2
-  %120 = getelementptr inbounds nuw i16, ptr %109, i64 %18
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %18
   store i16 %119, ptr %120, align 2
   %121 = load i16, ptr %.079100.us, align 2
   %122 = sext i16 %121 to i64
-  %123 = getelementptr inbounds i16, ptr %111, i64 %122
+  %123 = getelementptr inbounds [2 x i8], ptr %111, i64 %122
   %124 = load i16, ptr %123, align 2
-  %125 = getelementptr inbounds nuw i16, ptr %109, i64 %20
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %20
   store i16 %124, ptr %125, align 2
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count200
@@ -13299,8 +13299,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us125:                 ; preds = %108
   %126 = add nuw nsw i32 %.188117.us, 1
-  %127 = getelementptr inbounds i16, ptr %.182118.us, i64 %22
-  %128 = getelementptr inbounds i16, ptr %.1121.us, i64 %23
+  %127 = getelementptr inbounds [2 x i8], ptr %.182118.us, i64 %22
+  %128 = getelementptr inbounds [2 x i8], ptr %.1121.us, i64 %23
   %exitcond184.not = icmp eq i32 %126, %5
   br i1 %exitcond184.not, label %.loopexit, label %.preheader96.us, !llvm.loop !223
 
@@ -13326,12 +13326,12 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
 
 .lr.ph137.us.us160.us:                            ; preds = %.preheader.us.us, %.lr.ph137.us.us160.us
   %indvars.iv203 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next204, %.lr.ph137.us.us160.us ]
-  %132 = getelementptr inbounds nuw i16, ptr %.081153.us.us, i64 %indvars.iv203
-  %133 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv203
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %.081153.us.us, i64 %indvars.iv203
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv203
   %134 = load ptr, ptr %133, align 8
   %135 = load i16, ptr %.078155.us.us, align 2
   %136 = sext i16 %135 to i64
-  %137 = getelementptr inbounds i16, ptr %134, i64 %136
+  %137 = getelementptr inbounds [2 x i8], ptr %134, i64 %136
   %138 = load i16, ptr %137, align 2
   store i16 %138, ptr %132, align 2
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
@@ -13340,8 +13340,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr noundef readonly captures(n
 
 ._crit_edge144.split.us.us.us:                    ; preds = %.lr.ph137.us.us160.us
   %139 = add nuw nsw i32 %.087152.us.us, 1
-  %140 = getelementptr inbounds i16, ptr %.081153.us.us, i64 %129
-  %141 = getelementptr inbounds i16, ptr %.078155.us.us, i64 %130
+  %140 = getelementptr inbounds [2 x i8], ptr %.081153.us.us, i64 %129
+  %141 = getelementptr inbounds [2 x i8], ptr %.078155.us.us, i64 %130
   %exitcond208.not = icmp eq i32 %139, %5
   br i1 %exitcond208.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !225
 
@@ -13397,8 +13397,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us.us.us:                         ; preds = %._crit_edge109.us.us.us.us.us, %.preheader96.us.us.us
   %indvars.iv193 = phi i64 [ %indvars.iv.next194, %._crit_edge109.us.us.us.us.us ], [ 0, %.preheader96.us.us.us ]
-  %24 = getelementptr inbounds nuw i16, ptr %.182118.us.us.us, i64 %indvars.iv193
-  %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv193
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us.us, i64 %indvars.iv193
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv193
   %26 = load ptr, ptr %25, align 8
   %27 = load i16, ptr %.1121.us.us.us, align 2
   %28 = load i16, ptr %23, align 2
@@ -13412,31 +13412,31 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
   %.190101.us.us.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us.us.us ], [ %40, %29 ]
   %.079106.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 4
   %30 = zext i16 %.077.in104.us.us.us.us.us to i64
-  %31 = getelementptr inbounds nuw i16, ptr %26, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %.0.in105.us.us.us.us.us to i64
-  %34 = getelementptr inbounds nuw i16, ptr %26, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = load i16, ptr %.079106.us.us.us.us.us, align 2
   %37 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 6
   %38 = load i16, ptr %37, align 2
   store i16 %32, ptr %.080102.us.us.us.us.us, align 2
-  %39 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %16
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %16
   store i16 %35, ptr %39, align 2
   %40 = add nuw nsw i32 %.190101.us.us.us.us.us, 2
-  %41 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %18
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %18
   %42 = icmp slt i32 %40, %15
   br i1 %42, label %29, label %._crit_edge109.us.us.us.us.us, !llvm.loop !226
 
 ._crit_edge109.us.us.us.us.us:                    ; preds = %29
   %43 = zext i16 %36 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %26, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = zext i16 %38 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %26, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %46
   %48 = load i16, ptr %47, align 2
   store i16 %45, ptr %41, align 2
-  %49 = getelementptr inbounds nuw i16, ptr %41, i64 %16
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %16
   store i16 %48, ptr %49, align 2
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
@@ -13444,8 +13444,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split.us.us:        ; preds = %._crit_edge109.us.us.us.us.us
   %50 = add nuw nsw i32 %.188117.us.us.us, 1
-  %51 = getelementptr inbounds i16, ptr %.182118.us.us.us, i64 %20
-  %52 = getelementptr inbounds i16, ptr %.1121.us.us.us, i64 %21
+  %51 = getelementptr inbounds [2 x i8], ptr %.182118.us.us.us, i64 %20
+  %52 = getelementptr inbounds [2 x i8], ptr %.1121.us.us.us, i64 %21
   %exitcond198.not = icmp eq i32 %50, %5
   br i1 %exitcond198.not, label %.loopexit, label %.preheader96.us.us.us, !llvm.loop !228
 
@@ -13459,8 +13459,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us:                               ; preds = %._crit_edge109.us.us.us, %.preheader96.us.us
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %._crit_edge109.us.us.us ], [ 0, %.preheader96.us.us ]
-  %54 = getelementptr inbounds nuw i16, ptr %.182118.us.us, i64 %indvars.iv187
-  %55 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv187
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us, i64 %indvars.iv187
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv187
   %56 = load ptr, ptr %55, align 8
   %57 = load i16, ptr %.1121.us.us, align 2
   %58 = load i16, ptr %53, align 2
@@ -13474,38 +13474,38 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
   %.080102.us.us.us = phi ptr [ %54, %.lr.ph108.us.us.us ], [ %71, %59 ]
   %.190101.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us ], [ %70, %59 ]
   %60 = zext i16 %.077.in104.us.us.us to i64
-  %61 = getelementptr inbounds nuw i16, ptr %56, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %.0.in105.us.us.us to i64
-  %64 = getelementptr inbounds nuw i16, ptr %56, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = load i16, ptr %.079106.us.us.us, align 2
   %67 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us, i64 6
   %68 = load i16, ptr %67, align 2
   store i16 %62, ptr %.080102.us.us.us, align 2
-  %69 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %16
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %16
   store i16 %65, ptr %69, align 2
   %70 = add nuw nsw i32 %.190101.us.us.us, 2
-  %71 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %18
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %18
   %.079.us.us.us = getelementptr inbounds nuw i8, ptr %.079106.us.us.us, i64 4
   %72 = icmp slt i32 %70, %15
   br i1 %72, label %59, label %._crit_edge109.us.us.us, !llvm.loop !226
 
 ._crit_edge109.us.us.us:                          ; preds = %59
   %73 = zext i16 %66 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %56, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %68 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %56, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %76
   %78 = load i16, ptr %77, align 2
   store i16 %75, ptr %71, align 2
-  %79 = getelementptr inbounds nuw i16, ptr %71, i64 %16
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %16
   store i16 %78, ptr %79, align 2
   %80 = load i16, ptr %.079.us.us.us, align 2
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds nuw i16, ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %81
   %83 = load i16, ptr %82, align 2
-  %84 = getelementptr inbounds nuw i16, ptr %71, i64 %18
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %18
   store i16 %83, ptr %84, align 2
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count196
@@ -13513,8 +13513,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split:              ; preds = %._crit_edge109.us.us.us
   %85 = add nuw nsw i32 %.188117.us.us, 1
-  %86 = getelementptr inbounds i16, ptr %.182118.us.us, i64 %20
-  %87 = getelementptr inbounds i16, ptr %.1121.us.us, i64 %21
+  %86 = getelementptr inbounds [2 x i8], ptr %.182118.us.us, i64 %20
+  %87 = getelementptr inbounds [2 x i8], ptr %.1121.us.us, i64 %21
   %exitcond192.not = icmp eq i32 %85, %5
   br i1 %exitcond192.not, label %.loopexit, label %.preheader96.us.us, !llvm.loop !228
 
@@ -13530,19 +13530,19 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
 
 89:                                               ; preds = %89, %.preheader96.us.us129
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %89 ], [ 0, %.preheader96.us.us129 ]
-  %90 = getelementptr inbounds nuw i16, ptr %.182118.us.us131, i64 %indvars.iv181
-  %91 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv181
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us131, i64 %indvars.iv181
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv181
   %92 = load ptr, ptr %91, align 8
   %93 = load i16, ptr %.1121.us.us130, align 2
   %94 = load i16, ptr %88, align 2
   %95 = zext i16 %93 to i64
-  %96 = getelementptr inbounds nuw i16, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %95
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %94 to i64
-  %99 = getelementptr inbounds nuw i16, ptr %92, i64 %98
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %98
   %100 = load i16, ptr %99, align 2
   store i16 %97, ptr %90, align 2
-  %101 = getelementptr inbounds nuw i16, ptr %90, i64 %16
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %16
   store i16 %100, ptr %101, align 2
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count196
@@ -13550,8 +13550,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us.us.us:              ; preds = %89
   %102 = add nuw nsw i32 %.188117.us.us132, 1
-  %103 = getelementptr inbounds i16, ptr %.182118.us.us131, i64 %20
-  %104 = getelementptr inbounds i16, ptr %.1121.us.us130, i64 %21
+  %103 = getelementptr inbounds [2 x i8], ptr %.182118.us.us131, i64 %20
+  %104 = getelementptr inbounds [2 x i8], ptr %.1121.us.us130, i64 %21
   %exitcond186.not = icmp eq i32 %102, %5
   br i1 %exitcond186.not, label %.loopexit, label %.preheader96.us.us129, !llvm.loop !228
 
@@ -13565,25 +13565,25 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
 
 106:                                              ; preds = %.preheader96.us, %106
   %indvars.iv = phi i64 [ 0, %.preheader96.us ], [ %indvars.iv.next, %106 ]
-  %107 = getelementptr inbounds nuw i16, ptr %.182118.us, i64 %indvars.iv
-  %108 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8
   %110 = load i16, ptr %.1121.us, align 2
   %111 = load i16, ptr %105, align 2
   %112 = zext i16 %110 to i64
-  %113 = getelementptr inbounds nuw i16, ptr %109, i64 %112
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %112
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %111 to i64
-  %116 = getelementptr inbounds nuw i16, ptr %109, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %115
   %117 = load i16, ptr %116, align 2
   store i16 %114, ptr %107, align 2
-  %118 = getelementptr inbounds nuw i16, ptr %107, i64 %16
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %16
   store i16 %117, ptr %118, align 2
   %119 = load i16, ptr %.079100.us, align 2
   %120 = zext i16 %119 to i64
-  %121 = getelementptr inbounds nuw i16, ptr %109, i64 %120
+  %121 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %120
   %122 = load i16, ptr %121, align 2
-  %123 = getelementptr inbounds nuw i16, ptr %107, i64 %18
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %18
   store i16 %122, ptr %123, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count196
@@ -13591,8 +13591,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us125:                 ; preds = %106
   %124 = add nuw nsw i32 %.188117.us, 1
-  %125 = getelementptr inbounds i16, ptr %.182118.us, i64 %20
-  %126 = getelementptr inbounds i16, ptr %.1121.us, i64 %21
+  %125 = getelementptr inbounds [2 x i8], ptr %.182118.us, i64 %20
+  %126 = getelementptr inbounds [2 x i8], ptr %.1121.us, i64 %21
   %exitcond180.not = icmp eq i32 %124, %5
   br i1 %exitcond180.not, label %.loopexit, label %.preheader96.us, !llvm.loop !228
 
@@ -13618,12 +13618,12 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
 
 .lr.ph137.us.us160.us:                            ; preds = %.preheader.us.us, %.lr.ph137.us.us160.us
   %indvars.iv199 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next200, %.lr.ph137.us.us160.us ]
-  %130 = getelementptr inbounds nuw i16, ptr %.081153.us.us, i64 %indvars.iv199
-  %131 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv199
+  %130 = getelementptr inbounds nuw [2 x i8], ptr %.081153.us.us, i64 %indvars.iv199
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv199
   %132 = load ptr, ptr %131, align 8
   %133 = load i16, ptr %.078155.us.us, align 2
   %134 = zext i16 %133 to i64
-  %135 = getelementptr inbounds nuw i16, ptr %132, i64 %134
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %134
   %136 = load i16, ptr %135, align 2
   store i16 %136, ptr %130, align 2
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
@@ -13632,8 +13632,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr noundef readonly captures(n
 
 ._crit_edge144.split.us.us.us:                    ; preds = %.lr.ph137.us.us160.us
   %137 = add nuw nsw i32 %.087152.us.us, 1
-  %138 = getelementptr inbounds i16, ptr %.081153.us.us, i64 %127
-  %139 = getelementptr inbounds i16, ptr %.078155.us.us, i64 %128
+  %138 = getelementptr inbounds [2 x i8], ptr %.081153.us.us, i64 %127
+  %139 = getelementptr inbounds [2 x i8], ptr %.078155.us.us, i64 %128
   %exitcond204.not = icmp eq i32 %137, %5
   br i1 %exitcond204.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !230
 
@@ -13653,10 +13653,10 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1073741822
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -13698,8 +13698,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us.us.us:                         ; preds = %._crit_edge109.us.us.us.us.us, %.preheader96.us.us.us
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %._crit_edge109.us.us.us.us.us ], [ 0, %.preheader96.us.us.us ]
-  %26 = getelementptr inbounds nuw i16, ptr %.182118.us.us.us, i64 %indvars.iv197
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv197
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us.us, i64 %indvars.iv197
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv197
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %.1121.us.us.us, align 4
   %30 = load i32, ptr %25, align 4
@@ -13713,31 +13713,31 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
   %.190101.us.us.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us.us.us ], [ %42, %31 ]
   %.079106.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 8
   %32 = sext i32 %.077104.us.us.us.us.us to i64
-  %33 = getelementptr inbounds i16, ptr %28, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %28, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = sext i32 %.0105.us.us.us.us.us to i64
-  %36 = getelementptr inbounds i16, ptr %28, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %28, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = load i32, ptr %.079106.us.us.us.us.us, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 12
   %40 = load i32, ptr %39, align 4
   store i16 %34, ptr %.080102.us.us.us.us.us, align 2
-  %41 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %18
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %18
   store i16 %37, ptr %41, align 2
   %42 = add nuw nsw i32 %.190101.us.us.us.us.us, 2
-  %43 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us.us.us, i64 %20
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us.us.us, i64 %20
   %44 = icmp slt i32 %42, %17
   br i1 %44, label %31, label %._crit_edge109.us.us.us.us.us, !llvm.loop !232
 
 ._crit_edge109.us.us.us.us.us:                    ; preds = %31
   %45 = sext i32 %38 to i64
-  %46 = getelementptr inbounds i16, ptr %28, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %28, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = sext i32 %40 to i64
-  %49 = getelementptr inbounds i16, ptr %28, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %28, i64 %48
   %50 = load i16, ptr %49, align 2
   store i16 %47, ptr %43, align 2
-  %51 = getelementptr inbounds nuw i16, ptr %43, i64 %18
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %18
   store i16 %50, ptr %51, align 2
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
@@ -13745,8 +13745,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split.us.us:        ; preds = %._crit_edge109.us.us.us.us.us
   %52 = add nuw nsw i32 %.188117.us.us.us, 1
-  %53 = getelementptr inbounds i16, ptr %.182118.us.us.us, i64 %22
-  %54 = getelementptr inbounds i32, ptr %.1121.us.us.us, i64 %23
+  %53 = getelementptr inbounds [2 x i8], ptr %.182118.us.us.us, i64 %22
+  %54 = getelementptr inbounds [4 x i8], ptr %.1121.us.us.us, i64 %23
   %exitcond202.not = icmp eq i32 %52, %5
   br i1 %exitcond202.not, label %.loopexit, label %.preheader96.us.us.us, !llvm.loop !234
 
@@ -13760,8 +13760,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us:                               ; preds = %._crit_edge109.us.us.us, %.preheader96.us.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %._crit_edge109.us.us.us ], [ 0, %.preheader96.us.us ]
-  %56 = getelementptr inbounds nuw i16, ptr %.182118.us.us, i64 %indvars.iv191
-  %57 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv191
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us, i64 %indvars.iv191
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv191
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %.1121.us.us, align 4
   %60 = load i32, ptr %55, align 4
@@ -13775,38 +13775,38 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
   %.080102.us.us.us = phi ptr [ %56, %.lr.ph108.us.us.us ], [ %73, %61 ]
   %.190101.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us ], [ %72, %61 ]
   %62 = sext i32 %.077104.us.us.us to i64
-  %63 = getelementptr inbounds i16, ptr %58, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %58, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = sext i32 %.0105.us.us.us to i64
-  %66 = getelementptr inbounds i16, ptr %58, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %58, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = load i32, ptr %.079106.us.us.us, align 4
   %69 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us, i64 12
   %70 = load i32, ptr %69, align 4
   store i16 %64, ptr %.080102.us.us.us, align 2
-  %71 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %18
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %18
   store i16 %67, ptr %71, align 2
   %72 = add nuw nsw i32 %.190101.us.us.us, 2
-  %73 = getelementptr inbounds nuw i16, ptr %.080102.us.us.us, i64 %20
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %.080102.us.us.us, i64 %20
   %.079.us.us.us = getelementptr inbounds nuw i8, ptr %.079106.us.us.us, i64 8
   %74 = icmp slt i32 %72, %17
   br i1 %74, label %61, label %._crit_edge109.us.us.us, !llvm.loop !232
 
 ._crit_edge109.us.us.us:                          ; preds = %61
   %75 = sext i32 %68 to i64
-  %76 = getelementptr inbounds i16, ptr %58, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %58, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = sext i32 %70 to i64
-  %79 = getelementptr inbounds i16, ptr %58, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr %58, i64 %78
   %80 = load i16, ptr %79, align 2
   store i16 %77, ptr %73, align 2
-  %81 = getelementptr inbounds nuw i16, ptr %73, i64 %18
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %18
   store i16 %80, ptr %81, align 2
   %82 = load i32, ptr %.079.us.us.us, align 4
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i16, ptr %58, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %58, i64 %83
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds nuw i16, ptr %73, i64 %20
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %20
   store i16 %85, ptr %86, align 2
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count200
@@ -13814,8 +13814,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split:              ; preds = %._crit_edge109.us.us.us
   %87 = add nuw nsw i32 %.188117.us.us, 1
-  %88 = getelementptr inbounds i16, ptr %.182118.us.us, i64 %22
-  %89 = getelementptr inbounds i32, ptr %.1121.us.us, i64 %23
+  %88 = getelementptr inbounds [2 x i8], ptr %.182118.us.us, i64 %22
+  %89 = getelementptr inbounds [4 x i8], ptr %.1121.us.us, i64 %23
   %exitcond196.not = icmp eq i32 %87, %5
   br i1 %exitcond196.not, label %.loopexit, label %.preheader96.us.us, !llvm.loop !234
 
@@ -13831,19 +13831,19 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
 
 91:                                               ; preds = %91, %.preheader96.us.us129
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %91 ], [ 0, %.preheader96.us.us129 ]
-  %92 = getelementptr inbounds nuw i16, ptr %.182118.us.us131, i64 %indvars.iv185
-  %93 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv185
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us.us131, i64 %indvars.iv185
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv185
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %.1121.us.us130, align 4
   %96 = load i32, ptr %90, align 4
   %97 = sext i32 %95 to i64
-  %98 = getelementptr inbounds i16, ptr %94, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %94, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = sext i32 %96 to i64
-  %101 = getelementptr inbounds i16, ptr %94, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %94, i64 %100
   %102 = load i16, ptr %101, align 2
   store i16 %99, ptr %92, align 2
-  %103 = getelementptr inbounds nuw i16, ptr %92, i64 %18
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %18
   store i16 %102, ptr %103, align 2
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count200
@@ -13851,8 +13851,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us.us.us:              ; preds = %91
   %104 = add nuw nsw i32 %.188117.us.us132, 1
-  %105 = getelementptr inbounds i16, ptr %.182118.us.us131, i64 %22
-  %106 = getelementptr inbounds i32, ptr %.1121.us.us130, i64 %23
+  %105 = getelementptr inbounds [2 x i8], ptr %.182118.us.us131, i64 %22
+  %106 = getelementptr inbounds [4 x i8], ptr %.1121.us.us130, i64 %23
   %exitcond190.not = icmp eq i32 %104, %5
   br i1 %exitcond190.not, label %.loopexit, label %.preheader96.us.us129, !llvm.loop !234
 
@@ -13866,25 +13866,25 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
 
 108:                                              ; preds = %.preheader96.us, %108
   %indvars.iv179 = phi i64 [ 0, %.preheader96.us ], [ %indvars.iv.next180, %108 ]
-  %109 = getelementptr inbounds nuw i16, ptr %.182118.us, i64 %indvars.iv179
-  %110 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv179
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %.182118.us, i64 %indvars.iv179
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv179
   %111 = load ptr, ptr %110, align 8
   %112 = load i32, ptr %.1121.us, align 4
   %113 = load i32, ptr %107, align 4
   %114 = sext i32 %112 to i64
-  %115 = getelementptr inbounds i16, ptr %111, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr %111, i64 %114
   %116 = load i16, ptr %115, align 2
   %117 = sext i32 %113 to i64
-  %118 = getelementptr inbounds i16, ptr %111, i64 %117
+  %118 = getelementptr inbounds [2 x i8], ptr %111, i64 %117
   %119 = load i16, ptr %118, align 2
   store i16 %116, ptr %109, align 2
-  %120 = getelementptr inbounds nuw i16, ptr %109, i64 %18
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %18
   store i16 %119, ptr %120, align 2
   %121 = load i32, ptr %.079100.us, align 4
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i16, ptr %111, i64 %122
+  %123 = getelementptr inbounds [2 x i8], ptr %111, i64 %122
   %124 = load i16, ptr %123, align 2
-  %125 = getelementptr inbounds nuw i16, ptr %109, i64 %20
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %20
   store i16 %124, ptr %125, align 2
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count200
@@ -13892,8 +13892,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us125:                 ; preds = %108
   %126 = add nuw nsw i32 %.188117.us, 1
-  %127 = getelementptr inbounds i16, ptr %.182118.us, i64 %22
-  %128 = getelementptr inbounds i32, ptr %.1121.us, i64 %23
+  %127 = getelementptr inbounds [2 x i8], ptr %.182118.us, i64 %22
+  %128 = getelementptr inbounds [4 x i8], ptr %.1121.us, i64 %23
   %exitcond184.not = icmp eq i32 %126, %5
   br i1 %exitcond184.not, label %.loopexit, label %.preheader96.us, !llvm.loop !234
 
@@ -13919,12 +13919,12 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
 
 .lr.ph137.us.us160.us:                            ; preds = %.preheader.us.us, %.lr.ph137.us.us160.us
   %indvars.iv203 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next204, %.lr.ph137.us.us160.us ]
-  %132 = getelementptr inbounds nuw i16, ptr %.081153.us.us, i64 %indvars.iv203
-  %133 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv203
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %.081153.us.us, i64 %indvars.iv203
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv203
   %134 = load ptr, ptr %133, align 8
   %135 = load i32, ptr %.078155.us.us, align 4
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i16, ptr %134, i64 %136
+  %137 = getelementptr inbounds [2 x i8], ptr %134, i64 %136
   %138 = load i16, ptr %137, align 2
   store i16 %138, ptr %132, align 2
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
@@ -13933,8 +13933,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr noundef readonly captures(n
 
 ._crit_edge144.split.us.us.us:                    ; preds = %.lr.ph137.us.us160.us
   %139 = add nuw nsw i32 %.087152.us.us, 1
-  %140 = getelementptr inbounds i16, ptr %.081153.us.us, i64 %129
-  %141 = getelementptr inbounds i32, ptr %.078155.us.us, i64 %130
+  %140 = getelementptr inbounds [2 x i8], ptr %.081153.us.us, i64 %129
+  %141 = getelementptr inbounds [4 x i8], ptr %.078155.us.us, i64 %130
   %exitcond208.not = icmp eq i32 %139, %5
   br i1 %exitcond208.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !236
 
@@ -13985,8 +13985,8 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph692.us.us.us.us.us:                         ; preds = %._crit_edge693.us.us.us.us.us, %.preheader583.us.us.us
   %indvars.iv819 = phi i64 [ %indvars.iv.next820, %._crit_edge693.us.us.us.us.us ], [ 0, %.preheader583.us.us.us ]
-  %24 = getelementptr inbounds nuw i32, ptr %.1532703.us.us.us, i64 %indvars.iv819
-  %25 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv819
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.1532703.us.us.us, i64 %indvars.iv819
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv819
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %.1528706.us.us.us, align 1
   %28 = load i8, ptr %23, align 1
@@ -14000,31 +14000,31 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
   %.0571.in685.us.us.us.us.us = phi i8 [ %28, %.lr.ph692.us.us.us.us.us ], [ %38, %29 ]
   %.0557690.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.1528.pn687.us.us.us.us.us, i64 2
   %30 = zext i8 %.0569.in686.us.us.us.us.us to i64
-  %31 = getelementptr inbounds nuw i32, ptr %26, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = zext i8 %.0571.in685.us.us.us.us.us to i64
-  %34 = getelementptr inbounds nuw i32, ptr %26, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = load i8, ptr %.0557690.us.us.us.us.us, align 1
   %37 = getelementptr inbounds nuw i8, ptr %.1528.pn687.us.us.us.us.us, i64 3
   %38 = load i8, ptr %37, align 1
   store i32 %32, ptr %.0556688.us.us.us.us.us, align 4
-  %39 = getelementptr inbounds nuw i32, ptr %.0556688.us.us.us.us.us, i64 %16
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.0556688.us.us.us.us.us, i64 %16
   store i32 %35, ptr %39, align 4
   %40 = add nuw nsw i32 %.1537689.us.us.us.us.us, 2
-  %41 = getelementptr inbounds nuw i32, ptr %.0556688.us.us.us.us.us, i64 %18
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.0556688.us.us.us.us.us, i64 %18
   %42 = icmp slt i32 %40, %15
   br i1 %42, label %29, label %._crit_edge693.us.us.us.us.us, !llvm.loop !237
 
 ._crit_edge693.us.us.us.us.us:                    ; preds = %29
   %43 = zext i8 %36 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %26, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = zext i8 %38 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %26, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %46
   %48 = load i32, ptr %47, align 4
   store i32 %45, ptr %41, align 4
-  %49 = getelementptr inbounds nuw i32, ptr %41, i64 %16
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %16
   store i32 %48, ptr %49, align 4
   %indvars.iv.next820 = add nuw nsw i64 %indvars.iv819, 1
   %exitcond823.not = icmp eq i64 %indvars.iv.next820, %wide.trip.count822
@@ -14032,7 +14032,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 ._crit_edge700.split.us.us.us.split.us.us:        ; preds = %._crit_edge693.us.us.us.us.us
   %50 = add nuw nsw i32 %.1539702.us.us.us, 1
-  %51 = getelementptr inbounds i32, ptr %.1532703.us.us.us, i64 %20
+  %51 = getelementptr inbounds [4 x i8], ptr %.1532703.us.us.us, i64 %20
   %52 = getelementptr inbounds i8, ptr %.1528706.us.us.us, i64 %21
   %exitcond824.not = icmp eq i32 %50, %5
   br i1 %exitcond824.not, label %.loopexit, label %.preheader583.us.us.us, !llvm.loop !239
@@ -14047,8 +14047,8 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph692.us.us.us:                               ; preds = %._crit_edge693.us.us.us, %.preheader583.us.us
   %indvars.iv813 = phi i64 [ %indvars.iv.next814, %._crit_edge693.us.us.us ], [ 0, %.preheader583.us.us ]
-  %54 = getelementptr inbounds nuw i32, ptr %.1532703.us.us, i64 %indvars.iv813
-  %55 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv813
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.1532703.us.us, i64 %indvars.iv813
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv813
   %56 = load ptr, ptr %55, align 8
   %57 = load i8, ptr %.1528706.us.us, align 1
   %58 = load i8, ptr %53, align 1
@@ -14062,38 +14062,38 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
   %.0569.in686.us.us.us = phi i8 [ %57, %.lr.ph692.us.us.us ], [ %66, %59 ]
   %.0571.in685.us.us.us = phi i8 [ %58, %.lr.ph692.us.us.us ], [ %68, %59 ]
   %60 = zext i8 %.0569.in686.us.us.us to i64
-  %61 = getelementptr inbounds nuw i32, ptr %56, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = zext i8 %.0571.in685.us.us.us to i64
-  %64 = getelementptr inbounds nuw i32, ptr %56, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = load i8, ptr %.0557690.us.us.us, align 1
   %67 = getelementptr inbounds nuw i8, ptr %.1528.pn687.us.us.us, i64 3
   %68 = load i8, ptr %67, align 1
   store i32 %62, ptr %.0556688.us.us.us, align 4
-  %69 = getelementptr inbounds nuw i32, ptr %.0556688.us.us.us, i64 %16
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.0556688.us.us.us, i64 %16
   store i32 %65, ptr %69, align 4
   %70 = add nuw nsw i32 %.1537689.us.us.us, 2
-  %71 = getelementptr inbounds nuw i32, ptr %.0556688.us.us.us, i64 %18
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.0556688.us.us.us, i64 %18
   %.0557.us.us.us = getelementptr inbounds nuw i8, ptr %.0557690.us.us.us, i64 2
   %72 = icmp slt i32 %70, %15
   br i1 %72, label %59, label %._crit_edge693.us.us.us, !llvm.loop !237
 
 ._crit_edge693.us.us.us:                          ; preds = %59
   %73 = zext i8 %66 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %56, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = zext i8 %68 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %56, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %76
   %78 = load i32, ptr %77, align 4
   store i32 %75, ptr %71, align 4
-  %79 = getelementptr inbounds nuw i32, ptr %71, i64 %16
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %16
   store i32 %78, ptr %79, align 4
   %80 = load i8, ptr %.0557.us.us.us, align 1
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %81
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds nuw i32, ptr %71, i64 %18
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %18
   store i32 %83, ptr %84, align 4
   %indvars.iv.next814 = add nuw nsw i64 %indvars.iv813, 1
   %exitcond817.not = icmp eq i64 %indvars.iv.next814, %wide.trip.count822
@@ -14101,7 +14101,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 ._crit_edge700.split.us.us.us.split:              ; preds = %._crit_edge693.us.us.us
   %85 = add nuw nsw i32 %.1539702.us.us, 1
-  %86 = getelementptr inbounds i32, ptr %.1532703.us.us, i64 %20
+  %86 = getelementptr inbounds [4 x i8], ptr %.1532703.us.us, i64 %20
   %87 = getelementptr inbounds i8, ptr %.1528706.us.us, i64 %21
   %exitcond818.not = icmp eq i32 %85, %5
   br i1 %exitcond818.not, label %.loopexit, label %.preheader583.us.us, !llvm.loop !239
@@ -14118,19 +14118,19 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 89:                                               ; preds = %89, %.preheader583.us.us714
   %indvars.iv807 = phi i64 [ %indvars.iv.next808, %89 ], [ 0, %.preheader583.us.us714 ]
-  %90 = getelementptr inbounds nuw i32, ptr %.1532703.us.us716, i64 %indvars.iv807
-  %91 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv807
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.1532703.us.us716, i64 %indvars.iv807
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv807
   %92 = load ptr, ptr %91, align 8
   %93 = load i8, ptr %.1528706.us.us715, align 1
   %94 = load i8, ptr %88, align 1
   %95 = zext i8 %93 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = zext i8 %94 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %92, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %98
   %100 = load i32, ptr %99, align 4
   store i32 %97, ptr %90, align 4
-  %101 = getelementptr inbounds nuw i32, ptr %90, i64 %16
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %16
   store i32 %100, ptr %101, align 4
   %indvars.iv.next808 = add nuw nsw i64 %indvars.iv807, 1
   %exitcond811.not = icmp eq i64 %indvars.iv.next808, %wide.trip.count822
@@ -14138,7 +14138,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 ._crit_edge700.split.split.us.us.us:              ; preds = %89
   %102 = add nuw nsw i32 %.1539702.us.us717, 1
-  %103 = getelementptr inbounds i32, ptr %.1532703.us.us716, i64 %20
+  %103 = getelementptr inbounds [4 x i8], ptr %.1532703.us.us716, i64 %20
   %104 = getelementptr inbounds i8, ptr %.1528706.us.us715, i64 %21
   %exitcond812.not = icmp eq i32 %102, %5
   br i1 %exitcond812.not, label %.loopexit, label %.preheader583.us.us714, !llvm.loop !239
@@ -14153,25 +14153,25 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 106:                                              ; preds = %.preheader583.us, %106
   %indvars.iv802 = phi i64 [ 0, %.preheader583.us ], [ %indvars.iv.next803, %106 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.1532703.us, i64 %indvars.iv802
-  %108 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv802
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.1532703.us, i64 %indvars.iv802
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv802
   %109 = load ptr, ptr %108, align 8
   %110 = load i8, ptr %.1528706.us, align 1
   %111 = load i8, ptr %105, align 1
   %112 = zext i8 %110 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %109, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = zext i8 %111 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %109, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %115
   %117 = load i32, ptr %116, align 4
   store i32 %114, ptr %107, align 4
-  %118 = getelementptr inbounds nuw i32, ptr %107, i64 %16
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %16
   store i32 %117, ptr %118, align 4
   %119 = load i8, ptr %.0557684.us, align 1
   %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %109, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %120
   %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds nuw i32, ptr %107, i64 %18
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %18
   store i32 %122, ptr %123, align 4
   %indvars.iv.next803 = add nuw nsw i64 %indvars.iv802, 1
   %exitcond805.not = icmp eq i64 %indvars.iv.next803, %wide.trip.count822
@@ -14179,7 +14179,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 ._crit_edge700.split.split.us710:                 ; preds = %106
   %124 = add nuw nsw i32 %.1539702.us, 1
-  %125 = getelementptr inbounds i32, ptr %.1532703.us, i64 %20
+  %125 = getelementptr inbounds [4 x i8], ptr %.1532703.us, i64 %20
   %126 = getelementptr inbounds i8, ptr %.1528706.us, i64 %21
   %exitcond806.not = icmp eq i32 %124, %5
   br i1 %exitcond806.not, label %.loopexit, label %.preheader583.us, !llvm.loop !239
@@ -14207,12 +14207,12 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph722.us.us745.us:                            ; preds = %.preheader.us.us, %.lr.ph722.us.us745.us
   %indvars.iv825 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next826, %.lr.ph722.us.us745.us ]
-  %131 = getelementptr inbounds nuw i32, ptr %.0531738.us.us, i64 %indvars.iv825
-  %132 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv825
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %.0531738.us.us, i64 %indvars.iv825
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv825
   %133 = load ptr, ptr %132, align 8
   %134 = load i8, ptr %.0527740.us.us, align 1
   %135 = zext i8 %134 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %133, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %135
   %137 = load i32, ptr %136, align 4
   store i32 %137, ptr %131, align 4
   %indvars.iv.next826 = add nuw nsw i64 %indvars.iv825, 1
@@ -14221,7 +14221,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 ._crit_edge729.split.us.us.us:                    ; preds = %.lr.ph722.us.us745.us
   %138 = add nuw nsw i32 %.0538737.us.us, 1
-  %139 = getelementptr inbounds i32, ptr %.0531738.us.us, i64 %128
+  %139 = getelementptr inbounds [4 x i8], ptr %.0531738.us.us, i64 %128
   %140 = getelementptr inbounds i8, ptr %.0527740.us.us, i64 %129
   %exitcond830.not = icmp eq i32 %138, %5
   br i1 %exitcond830.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !241
@@ -14297,13 +14297,13 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
   %.0574652 = phi i32 [ %185, %.lr.ph657 ], [ 0, %166 ]
   %175 = load i8, ptr %.0563655, align 1
   %176 = zext i8 %175 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %169, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %176
   %178 = load i32, ptr %177, align 4
   %179 = getelementptr inbounds nuw i8, ptr %.0565654, i64 4
   store i32 %178, ptr %.0565654, align 4
   %180 = load i8, ptr %.0563655, align 1
   %181 = zext i8 %180 to i64
-  %182 = getelementptr inbounds nuw i32, ptr %170, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %181
   %183 = load i32, ptr %182, align 4
   %184 = getelementptr inbounds nuw i8, ptr %.0565654, i64 8
   store i32 %183, ptr %179, align 4
@@ -14442,13 +14442,13 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
   %.2576674 = phi i32 [ %277, %.lr.ph678 ], [ %.1575.lcssa, %.lr.ph678.preheader ]
   %267 = load i8, ptr %.1564676, align 1
   %268 = zext i8 %267 to i64
-  %269 = getelementptr inbounds nuw i32, ptr %169, i64 %268
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %268
   %270 = load i32, ptr %269, align 4
   %271 = getelementptr inbounds nuw i8, ptr %.2567675, i64 4
   store i32 %270, ptr %.2567675, align 4
   %272 = load i8, ptr %.1564676, align 1
   %273 = zext i8 %272 to i64
-  %274 = getelementptr inbounds nuw i32, ptr %170, i64 %273
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %273
   %275 = load i32, ptr %274, align 4
   %276 = getelementptr inbounds nuw i8, ptr %.2567675, i64 8
   store i32 %275, ptr %271, align 4
@@ -14459,7 +14459,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 ._crit_edge679:                                   ; preds = %.lr.ph678, %._crit_edge669
   %279 = add nuw nsw i32 %.0573680, 1
-  %280 = getelementptr inbounds i32, ptr %.2533681, i64 %161
+  %280 = getelementptr inbounds [4 x i8], ptr %.2533681, i64 %161
   %281 = getelementptr inbounds i8, ptr %.2529682, i64 %162
   %indvars.iv.next798 = sub i2 %indvars.iv797, %165
   %exitcond801.not = icmp eq i32 %279, %5
@@ -14488,19 +14488,19 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
   %.0560620 = phi i32 [ %307, %.lr.ph625 ], [ 0, %282 ]
   %292 = load i8, ptr %.0547623, align 1
   %293 = zext i8 %292 to i64
-  %294 = getelementptr inbounds nuw i32, ptr %285, i64 %293
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %285, i64 %293
   %295 = load i32, ptr %294, align 4
   %296 = getelementptr inbounds nuw i8, ptr %.0549622, i64 4
   store i32 %295, ptr %.0549622, align 4
   %297 = load i8, ptr %.0547623, align 1
   %298 = zext i8 %297 to i64
-  %299 = getelementptr inbounds nuw i32, ptr %286, i64 %298
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %286, i64 %298
   %300 = load i32, ptr %299, align 4
   %301 = getelementptr inbounds nuw i8, ptr %.0549622, i64 8
   store i32 %300, ptr %296, align 4
   %302 = load i8, ptr %.0547623, align 1
   %303 = zext i8 %302 to i64
-  %304 = getelementptr inbounds nuw i32, ptr %287, i64 %303
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %303
   %305 = load i32, ptr %304, align 4
   %306 = getelementptr inbounds nuw i8, ptr %.0549622, i64 12
   store i32 %305, ptr %301, align 4
@@ -14671,19 +14671,19 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
   %.2562642 = phi i32 [ %428, %.lr.ph646 ], [ %.1561.lcssa, %.lr.ph646.preheader ]
   %413 = load i8, ptr %.1548644, align 1
   %414 = zext i8 %413 to i64
-  %415 = getelementptr inbounds nuw i32, ptr %285, i64 %414
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %285, i64 %414
   %416 = load i32, ptr %415, align 4
   %417 = getelementptr inbounds nuw i8, ptr %.2551643, i64 4
   store i32 %416, ptr %.2551643, align 4
   %418 = load i8, ptr %.1548644, align 1
   %419 = zext i8 %418 to i64
-  %420 = getelementptr inbounds nuw i32, ptr %286, i64 %419
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %286, i64 %419
   %421 = load i32, ptr %420, align 4
   %422 = getelementptr inbounds nuw i8, ptr %.2551643, i64 8
   store i32 %421, ptr %417, align 4
   %423 = load i8, ptr %.1548644, align 1
   %424 = zext i8 %423 to i64
-  %425 = getelementptr inbounds nuw i32, ptr %287, i64 %424
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %424
   %426 = load i32, ptr %425, align 4
   %427 = getelementptr inbounds nuw i8, ptr %.2551643, i64 12
   store i32 %426, ptr %422, align 4
@@ -14694,7 +14694,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 ._crit_edge647:                                   ; preds = %.lr.ph646, %._crit_edge637
   %430 = add nuw nsw i32 %.0559648, 1
-  %431 = getelementptr inbounds i32, ptr %.3534649, i64 %154
+  %431 = getelementptr inbounds [4 x i8], ptr %.3534649, i64 %154
   %432 = getelementptr inbounds i8, ptr %.3650, i64 %155
   %indvars.iv.next793 = sub i2 %indvars.iv792, %158
   %exitcond796.not = icmp eq i32 %430, %5
@@ -14724,25 +14724,25 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
   %.0544592 = phi i32 [ %464, %.lr.ph ], [ 0, %433 ]
   %444 = load i8, ptr %.0595, align 1
   %445 = zext i8 %444 to i64
-  %446 = getelementptr inbounds nuw i32, ptr %436, i64 %445
+  %446 = getelementptr inbounds nuw [4 x i8], ptr %436, i64 %445
   %447 = load i32, ptr %446, align 4
   %448 = getelementptr inbounds nuw i8, ptr %.0524594, i64 4
   store i32 %447, ptr %.0524594, align 4
   %449 = load i8, ptr %.0595, align 1
   %450 = zext i8 %449 to i64
-  %451 = getelementptr inbounds nuw i32, ptr %437, i64 %450
+  %451 = getelementptr inbounds nuw [4 x i8], ptr %437, i64 %450
   %452 = load i32, ptr %451, align 4
   %453 = getelementptr inbounds nuw i8, ptr %.0524594, i64 8
   store i32 %452, ptr %448, align 4
   %454 = load i8, ptr %.0595, align 1
   %455 = zext i8 %454 to i64
-  %456 = getelementptr inbounds nuw i32, ptr %438, i64 %455
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %438, i64 %455
   %457 = load i32, ptr %456, align 4
   %458 = getelementptr inbounds nuw i8, ptr %.0524594, i64 12
   store i32 %457, ptr %453, align 4
   %459 = load i8, ptr %.0595, align 1
   %460 = zext i8 %459 to i64
-  %461 = getelementptr inbounds nuw i32, ptr %439, i64 %460
+  %461 = getelementptr inbounds nuw [4 x i8], ptr %439, i64 %460
   %462 = load i32, ptr %461, align 4
   %463 = getelementptr inbounds nuw i8, ptr %.0524594, i64 16
   store i32 %462, ptr %458, align 4
@@ -14945,25 +14945,25 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
   %.2546610 = phi i32 [ %614, %.lr.ph614 ], [ %.1545.lcssa, %.lr.ph614.preheader ]
   %594 = load i8, ptr %.1612, align 1
   %595 = zext i8 %594 to i64
-  %596 = getelementptr inbounds nuw i32, ptr %436, i64 %595
+  %596 = getelementptr inbounds nuw [4 x i8], ptr %436, i64 %595
   %597 = load i32, ptr %596, align 4
   %598 = getelementptr inbounds nuw i8, ptr %.2611, i64 4
   store i32 %597, ptr %.2611, align 4
   %599 = load i8, ptr %.1612, align 1
   %600 = zext i8 %599 to i64
-  %601 = getelementptr inbounds nuw i32, ptr %437, i64 %600
+  %601 = getelementptr inbounds nuw [4 x i8], ptr %437, i64 %600
   %602 = load i32, ptr %601, align 4
   %603 = getelementptr inbounds nuw i8, ptr %.2611, i64 8
   store i32 %602, ptr %598, align 4
   %604 = load i8, ptr %.1612, align 1
   %605 = zext i8 %604 to i64
-  %606 = getelementptr inbounds nuw i32, ptr %438, i64 %605
+  %606 = getelementptr inbounds nuw [4 x i8], ptr %438, i64 %605
   %607 = load i32, ptr %606, align 4
   %608 = getelementptr inbounds nuw i8, ptr %.2611, i64 12
   store i32 %607, ptr %603, align 4
   %609 = load i8, ptr %.1612, align 1
   %610 = zext i8 %609 to i64
-  %611 = getelementptr inbounds nuw i32, ptr %439, i64 %610
+  %611 = getelementptr inbounds nuw [4 x i8], ptr %439, i64 %610
   %612 = load i32, ptr %611, align 4
   %613 = getelementptr inbounds nuw i8, ptr %.2611, i64 16
   store i32 %612, ptr %608, align 4
@@ -14974,7 +14974,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
 
 ._crit_edge615:                                   ; preds = %.lr.ph614, %._crit_edge605
   %616 = add nuw nsw i32 %.0543616, 1
-  %617 = getelementptr inbounds i32, ptr %.4535617, i64 %146
+  %617 = getelementptr inbounds [4 x i8], ptr %.4535617, i64 %146
   %618 = getelementptr inbounds i8, ptr %.4618, i64 %147
   %indvars.iv.next = sub i2 %indvars.iv, %150
   %exitcond791.not = icmp eq i32 %616, %5
@@ -14996,10 +14996,10 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 131072
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -15041,8 +15041,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us.us.us:                         ; preds = %._crit_edge109.us.us.us.us.us, %.preheader96.us.us.us
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %._crit_edge109.us.us.us.us.us ], [ 0, %.preheader96.us.us.us ]
-  %26 = getelementptr inbounds nuw i32, ptr %.182118.us.us.us, i64 %indvars.iv197
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv197
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us.us.us, i64 %indvars.iv197
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv197
   %28 = load ptr, ptr %27, align 8
   %29 = load i16, ptr %.1121.us.us.us, align 2
   %30 = load i16, ptr %25, align 2
@@ -15056,31 +15056,31 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
   %.190101.us.us.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us.us.us ], [ %42, %31 ]
   %.079106.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 4
   %32 = sext i16 %.077.in104.us.us.us.us.us to i64
-  %33 = getelementptr inbounds i32, ptr %28, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %28, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = sext i16 %.0.in105.us.us.us.us.us to i64
-  %36 = getelementptr inbounds i32, ptr %28, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %28, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = load i16, ptr %.079106.us.us.us.us.us, align 2
   %39 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 6
   %40 = load i16, ptr %39, align 2
   store i32 %34, ptr %.080102.us.us.us.us.us, align 4
-  %41 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us.us.us, i64 %18
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us.us.us, i64 %18
   store i32 %37, ptr %41, align 4
   %42 = add nuw nsw i32 %.190101.us.us.us.us.us, 2
-  %43 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us.us.us, i64 %20
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us.us.us, i64 %20
   %44 = icmp slt i32 %42, %17
   br i1 %44, label %31, label %._crit_edge109.us.us.us.us.us, !llvm.loop !255
 
 ._crit_edge109.us.us.us.us.us:                    ; preds = %31
   %45 = sext i16 %38 to i64
-  %46 = getelementptr inbounds i32, ptr %28, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %28, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = sext i16 %40 to i64
-  %49 = getelementptr inbounds i32, ptr %28, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %28, i64 %48
   %50 = load i32, ptr %49, align 4
   store i32 %47, ptr %43, align 4
-  %51 = getelementptr inbounds nuw i32, ptr %43, i64 %18
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %18
   store i32 %50, ptr %51, align 4
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
@@ -15088,8 +15088,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split.us.us:        ; preds = %._crit_edge109.us.us.us.us.us
   %52 = add nuw nsw i32 %.188117.us.us.us, 1
-  %53 = getelementptr inbounds i32, ptr %.182118.us.us.us, i64 %22
-  %54 = getelementptr inbounds i16, ptr %.1121.us.us.us, i64 %23
+  %53 = getelementptr inbounds [4 x i8], ptr %.182118.us.us.us, i64 %22
+  %54 = getelementptr inbounds [2 x i8], ptr %.1121.us.us.us, i64 %23
   %exitcond202.not = icmp eq i32 %52, %5
   br i1 %exitcond202.not, label %.loopexit, label %.preheader96.us.us.us, !llvm.loop !257
 
@@ -15103,8 +15103,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us:                               ; preds = %._crit_edge109.us.us.us, %.preheader96.us.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %._crit_edge109.us.us.us ], [ 0, %.preheader96.us.us ]
-  %56 = getelementptr inbounds nuw i32, ptr %.182118.us.us, i64 %indvars.iv191
-  %57 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv191
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us.us, i64 %indvars.iv191
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv191
   %58 = load ptr, ptr %57, align 8
   %59 = load i16, ptr %.1121.us.us, align 2
   %60 = load i16, ptr %55, align 2
@@ -15118,38 +15118,38 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
   %.080102.us.us.us = phi ptr [ %56, %.lr.ph108.us.us.us ], [ %73, %61 ]
   %.190101.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us ], [ %72, %61 ]
   %62 = sext i16 %.077.in104.us.us.us to i64
-  %63 = getelementptr inbounds i32, ptr %58, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %58, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = sext i16 %.0.in105.us.us.us to i64
-  %66 = getelementptr inbounds i32, ptr %58, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %58, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = load i16, ptr %.079106.us.us.us, align 2
   %69 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us, i64 6
   %70 = load i16, ptr %69, align 2
   store i32 %64, ptr %.080102.us.us.us, align 4
-  %71 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us, i64 %18
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us, i64 %18
   store i32 %67, ptr %71, align 4
   %72 = add nuw nsw i32 %.190101.us.us.us, 2
-  %73 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us, i64 %20
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us, i64 %20
   %.079.us.us.us = getelementptr inbounds nuw i8, ptr %.079106.us.us.us, i64 4
   %74 = icmp slt i32 %72, %17
   br i1 %74, label %61, label %._crit_edge109.us.us.us, !llvm.loop !255
 
 ._crit_edge109.us.us.us:                          ; preds = %61
   %75 = sext i16 %68 to i64
-  %76 = getelementptr inbounds i32, ptr %58, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %58, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = sext i16 %70 to i64
-  %79 = getelementptr inbounds i32, ptr %58, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %58, i64 %78
   %80 = load i32, ptr %79, align 4
   store i32 %77, ptr %73, align 4
-  %81 = getelementptr inbounds nuw i32, ptr %73, i64 %18
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %18
   store i32 %80, ptr %81, align 4
   %82 = load i16, ptr %.079.us.us.us, align 2
   %83 = sext i16 %82 to i64
-  %84 = getelementptr inbounds i32, ptr %58, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %58, i64 %83
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds nuw i32, ptr %73, i64 %20
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %20
   store i32 %85, ptr %86, align 4
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count200
@@ -15157,8 +15157,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split:              ; preds = %._crit_edge109.us.us.us
   %87 = add nuw nsw i32 %.188117.us.us, 1
-  %88 = getelementptr inbounds i32, ptr %.182118.us.us, i64 %22
-  %89 = getelementptr inbounds i16, ptr %.1121.us.us, i64 %23
+  %88 = getelementptr inbounds [4 x i8], ptr %.182118.us.us, i64 %22
+  %89 = getelementptr inbounds [2 x i8], ptr %.1121.us.us, i64 %23
   %exitcond196.not = icmp eq i32 %87, %5
   br i1 %exitcond196.not, label %.loopexit, label %.preheader96.us.us, !llvm.loop !257
 
@@ -15174,19 +15174,19 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
 
 91:                                               ; preds = %91, %.preheader96.us.us129
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %91 ], [ 0, %.preheader96.us.us129 ]
-  %92 = getelementptr inbounds nuw i32, ptr %.182118.us.us131, i64 %indvars.iv185
-  %93 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv185
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us.us131, i64 %indvars.iv185
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv185
   %94 = load ptr, ptr %93, align 8
   %95 = load i16, ptr %.1121.us.us130, align 2
   %96 = load i16, ptr %90, align 2
   %97 = sext i16 %95 to i64
-  %98 = getelementptr inbounds i32, ptr %94, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %94, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = sext i16 %96 to i64
-  %101 = getelementptr inbounds i32, ptr %94, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %94, i64 %100
   %102 = load i32, ptr %101, align 4
   store i32 %99, ptr %92, align 4
-  %103 = getelementptr inbounds nuw i32, ptr %92, i64 %18
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %18
   store i32 %102, ptr %103, align 4
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count200
@@ -15194,8 +15194,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us.us.us:              ; preds = %91
   %104 = add nuw nsw i32 %.188117.us.us132, 1
-  %105 = getelementptr inbounds i32, ptr %.182118.us.us131, i64 %22
-  %106 = getelementptr inbounds i16, ptr %.1121.us.us130, i64 %23
+  %105 = getelementptr inbounds [4 x i8], ptr %.182118.us.us131, i64 %22
+  %106 = getelementptr inbounds [2 x i8], ptr %.1121.us.us130, i64 %23
   %exitcond190.not = icmp eq i32 %104, %5
   br i1 %exitcond190.not, label %.loopexit, label %.preheader96.us.us129, !llvm.loop !257
 
@@ -15209,25 +15209,25 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
 
 108:                                              ; preds = %.preheader96.us, %108
   %indvars.iv179 = phi i64 [ 0, %.preheader96.us ], [ %indvars.iv.next180, %108 ]
-  %109 = getelementptr inbounds nuw i32, ptr %.182118.us, i64 %indvars.iv179
-  %110 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv179
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us, i64 %indvars.iv179
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv179
   %111 = load ptr, ptr %110, align 8
   %112 = load i16, ptr %.1121.us, align 2
   %113 = load i16, ptr %107, align 2
   %114 = sext i16 %112 to i64
-  %115 = getelementptr inbounds i32, ptr %111, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %111, i64 %114
   %116 = load i32, ptr %115, align 4
   %117 = sext i16 %113 to i64
-  %118 = getelementptr inbounds i32, ptr %111, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %111, i64 %117
   %119 = load i32, ptr %118, align 4
   store i32 %116, ptr %109, align 4
-  %120 = getelementptr inbounds nuw i32, ptr %109, i64 %18
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %18
   store i32 %119, ptr %120, align 4
   %121 = load i16, ptr %.079100.us, align 2
   %122 = sext i16 %121 to i64
-  %123 = getelementptr inbounds i32, ptr %111, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %111, i64 %122
   %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds nuw i32, ptr %109, i64 %20
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %20
   store i32 %124, ptr %125, align 4
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count200
@@ -15235,8 +15235,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us125:                 ; preds = %108
   %126 = add nuw nsw i32 %.188117.us, 1
-  %127 = getelementptr inbounds i32, ptr %.182118.us, i64 %22
-  %128 = getelementptr inbounds i16, ptr %.1121.us, i64 %23
+  %127 = getelementptr inbounds [4 x i8], ptr %.182118.us, i64 %22
+  %128 = getelementptr inbounds [2 x i8], ptr %.1121.us, i64 %23
   %exitcond184.not = icmp eq i32 %126, %5
   br i1 %exitcond184.not, label %.loopexit, label %.preheader96.us, !llvm.loop !257
 
@@ -15262,12 +15262,12 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
 
 .lr.ph137.us.us160.us:                            ; preds = %.preheader.us.us, %.lr.ph137.us.us160.us
   %indvars.iv203 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next204, %.lr.ph137.us.us160.us ]
-  %132 = getelementptr inbounds nuw i32, ptr %.081153.us.us, i64 %indvars.iv203
-  %133 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv203
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %.081153.us.us, i64 %indvars.iv203
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv203
   %134 = load ptr, ptr %133, align 8
   %135 = load i16, ptr %.078155.us.us, align 2
   %136 = sext i16 %135 to i64
-  %137 = getelementptr inbounds i32, ptr %134, i64 %136
+  %137 = getelementptr inbounds [4 x i8], ptr %134, i64 %136
   %138 = load i32, ptr %137, align 4
   store i32 %138, ptr %132, align 4
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
@@ -15276,8 +15276,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr noundef readonly captures(n
 
 ._crit_edge144.split.us.us.us:                    ; preds = %.lr.ph137.us.us160.us
   %139 = add nuw nsw i32 %.087152.us.us, 1
-  %140 = getelementptr inbounds i32, ptr %.081153.us.us, i64 %129
-  %141 = getelementptr inbounds i16, ptr %.078155.us.us, i64 %130
+  %140 = getelementptr inbounds [4 x i8], ptr %.081153.us.us, i64 %129
+  %141 = getelementptr inbounds [2 x i8], ptr %.078155.us.us, i64 %130
   %exitcond208.not = icmp eq i32 %139, %5
   br i1 %exitcond208.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !259
 
@@ -15333,8 +15333,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us.us.us:                         ; preds = %._crit_edge109.us.us.us.us.us, %.preheader96.us.us.us
   %indvars.iv193 = phi i64 [ %indvars.iv.next194, %._crit_edge109.us.us.us.us.us ], [ 0, %.preheader96.us.us.us ]
-  %24 = getelementptr inbounds nuw i32, ptr %.182118.us.us.us, i64 %indvars.iv193
-  %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv193
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us.us.us, i64 %indvars.iv193
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv193
   %26 = load ptr, ptr %25, align 8
   %27 = load i16, ptr %.1121.us.us.us, align 2
   %28 = load i16, ptr %23, align 2
@@ -15348,31 +15348,31 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
   %.190101.us.us.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us.us.us ], [ %40, %29 ]
   %.079106.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 4
   %30 = zext i16 %.077.in104.us.us.us.us.us to i64
-  %31 = getelementptr inbounds nuw i32, ptr %26, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = zext i16 %.0.in105.us.us.us.us.us to i64
-  %34 = getelementptr inbounds nuw i32, ptr %26, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = load i16, ptr %.079106.us.us.us.us.us, align 2
   %37 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 6
   %38 = load i16, ptr %37, align 2
   store i32 %32, ptr %.080102.us.us.us.us.us, align 4
-  %39 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us.us.us, i64 %16
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us.us.us, i64 %16
   store i32 %35, ptr %39, align 4
   %40 = add nuw nsw i32 %.190101.us.us.us.us.us, 2
-  %41 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us.us.us, i64 %18
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us.us.us, i64 %18
   %42 = icmp slt i32 %40, %15
   br i1 %42, label %29, label %._crit_edge109.us.us.us.us.us, !llvm.loop !260
 
 ._crit_edge109.us.us.us.us.us:                    ; preds = %29
   %43 = zext i16 %36 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %26, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = zext i16 %38 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %26, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %46
   %48 = load i32, ptr %47, align 4
   store i32 %45, ptr %41, align 4
-  %49 = getelementptr inbounds nuw i32, ptr %41, i64 %16
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %16
   store i32 %48, ptr %49, align 4
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
@@ -15380,8 +15380,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split.us.us:        ; preds = %._crit_edge109.us.us.us.us.us
   %50 = add nuw nsw i32 %.188117.us.us.us, 1
-  %51 = getelementptr inbounds i32, ptr %.182118.us.us.us, i64 %20
-  %52 = getelementptr inbounds i16, ptr %.1121.us.us.us, i64 %21
+  %51 = getelementptr inbounds [4 x i8], ptr %.182118.us.us.us, i64 %20
+  %52 = getelementptr inbounds [2 x i8], ptr %.1121.us.us.us, i64 %21
   %exitcond198.not = icmp eq i32 %50, %5
   br i1 %exitcond198.not, label %.loopexit, label %.preheader96.us.us.us, !llvm.loop !262
 
@@ -15395,8 +15395,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us:                               ; preds = %._crit_edge109.us.us.us, %.preheader96.us.us
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %._crit_edge109.us.us.us ], [ 0, %.preheader96.us.us ]
-  %54 = getelementptr inbounds nuw i32, ptr %.182118.us.us, i64 %indvars.iv187
-  %55 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv187
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us.us, i64 %indvars.iv187
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv187
   %56 = load ptr, ptr %55, align 8
   %57 = load i16, ptr %.1121.us.us, align 2
   %58 = load i16, ptr %53, align 2
@@ -15410,38 +15410,38 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
   %.080102.us.us.us = phi ptr [ %54, %.lr.ph108.us.us.us ], [ %71, %59 ]
   %.190101.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us ], [ %70, %59 ]
   %60 = zext i16 %.077.in104.us.us.us to i64
-  %61 = getelementptr inbounds nuw i32, ptr %56, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = zext i16 %.0.in105.us.us.us to i64
-  %64 = getelementptr inbounds nuw i32, ptr %56, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = load i16, ptr %.079106.us.us.us, align 2
   %67 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us, i64 6
   %68 = load i16, ptr %67, align 2
   store i32 %62, ptr %.080102.us.us.us, align 4
-  %69 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us, i64 %16
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us, i64 %16
   store i32 %65, ptr %69, align 4
   %70 = add nuw nsw i32 %.190101.us.us.us, 2
-  %71 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us, i64 %18
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us, i64 %18
   %.079.us.us.us = getelementptr inbounds nuw i8, ptr %.079106.us.us.us, i64 4
   %72 = icmp slt i32 %70, %15
   br i1 %72, label %59, label %._crit_edge109.us.us.us, !llvm.loop !260
 
 ._crit_edge109.us.us.us:                          ; preds = %59
   %73 = zext i16 %66 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %56, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = zext i16 %68 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %56, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %76
   %78 = load i32, ptr %77, align 4
   store i32 %75, ptr %71, align 4
-  %79 = getelementptr inbounds nuw i32, ptr %71, i64 %16
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %16
   store i32 %78, ptr %79, align 4
   %80 = load i16, ptr %.079.us.us.us, align 2
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %81
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds nuw i32, ptr %71, i64 %18
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %18
   store i32 %83, ptr %84, align 4
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count196
@@ -15449,8 +15449,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split:              ; preds = %._crit_edge109.us.us.us
   %85 = add nuw nsw i32 %.188117.us.us, 1
-  %86 = getelementptr inbounds i32, ptr %.182118.us.us, i64 %20
-  %87 = getelementptr inbounds i16, ptr %.1121.us.us, i64 %21
+  %86 = getelementptr inbounds [4 x i8], ptr %.182118.us.us, i64 %20
+  %87 = getelementptr inbounds [2 x i8], ptr %.1121.us.us, i64 %21
   %exitcond192.not = icmp eq i32 %85, %5
   br i1 %exitcond192.not, label %.loopexit, label %.preheader96.us.us, !llvm.loop !262
 
@@ -15466,19 +15466,19 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
 
 89:                                               ; preds = %89, %.preheader96.us.us129
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %89 ], [ 0, %.preheader96.us.us129 ]
-  %90 = getelementptr inbounds nuw i32, ptr %.182118.us.us131, i64 %indvars.iv181
-  %91 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv181
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us.us131, i64 %indvars.iv181
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv181
   %92 = load ptr, ptr %91, align 8
   %93 = load i16, ptr %.1121.us.us130, align 2
   %94 = load i16, ptr %88, align 2
   %95 = zext i16 %93 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = zext i16 %94 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %92, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %98
   %100 = load i32, ptr %99, align 4
   store i32 %97, ptr %90, align 4
-  %101 = getelementptr inbounds nuw i32, ptr %90, i64 %16
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %16
   store i32 %100, ptr %101, align 4
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count196
@@ -15486,8 +15486,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us.us.us:              ; preds = %89
   %102 = add nuw nsw i32 %.188117.us.us132, 1
-  %103 = getelementptr inbounds i32, ptr %.182118.us.us131, i64 %20
-  %104 = getelementptr inbounds i16, ptr %.1121.us.us130, i64 %21
+  %103 = getelementptr inbounds [4 x i8], ptr %.182118.us.us131, i64 %20
+  %104 = getelementptr inbounds [2 x i8], ptr %.1121.us.us130, i64 %21
   %exitcond186.not = icmp eq i32 %102, %5
   br i1 %exitcond186.not, label %.loopexit, label %.preheader96.us.us129, !llvm.loop !262
 
@@ -15501,25 +15501,25 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
 
 106:                                              ; preds = %.preheader96.us, %106
   %indvars.iv = phi i64 [ 0, %.preheader96.us ], [ %indvars.iv.next, %106 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.182118.us, i64 %indvars.iv
-  %108 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8
   %110 = load i16, ptr %.1121.us, align 2
   %111 = load i16, ptr %105, align 2
   %112 = zext i16 %110 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %109, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = zext i16 %111 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %109, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %115
   %117 = load i32, ptr %116, align 4
   store i32 %114, ptr %107, align 4
-  %118 = getelementptr inbounds nuw i32, ptr %107, i64 %16
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %16
   store i32 %117, ptr %118, align 4
   %119 = load i16, ptr %.079100.us, align 2
   %120 = zext i16 %119 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %109, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %120
   %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds nuw i32, ptr %107, i64 %18
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %18
   store i32 %122, ptr %123, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count196
@@ -15527,8 +15527,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us125:                 ; preds = %106
   %124 = add nuw nsw i32 %.188117.us, 1
-  %125 = getelementptr inbounds i32, ptr %.182118.us, i64 %20
-  %126 = getelementptr inbounds i16, ptr %.1121.us, i64 %21
+  %125 = getelementptr inbounds [4 x i8], ptr %.182118.us, i64 %20
+  %126 = getelementptr inbounds [2 x i8], ptr %.1121.us, i64 %21
   %exitcond180.not = icmp eq i32 %124, %5
   br i1 %exitcond180.not, label %.loopexit, label %.preheader96.us, !llvm.loop !262
 
@@ -15554,12 +15554,12 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
 
 .lr.ph137.us.us160.us:                            ; preds = %.preheader.us.us, %.lr.ph137.us.us160.us
   %indvars.iv199 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next200, %.lr.ph137.us.us160.us ]
-  %130 = getelementptr inbounds nuw i32, ptr %.081153.us.us, i64 %indvars.iv199
-  %131 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv199
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %.081153.us.us, i64 %indvars.iv199
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv199
   %132 = load ptr, ptr %131, align 8
   %133 = load i16, ptr %.078155.us.us, align 2
   %134 = zext i16 %133 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %132, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %134
   %136 = load i32, ptr %135, align 4
   store i32 %136, ptr %130, align 4
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
@@ -15568,8 +15568,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr noundef readonly captures(n
 
 ._crit_edge144.split.us.us.us:                    ; preds = %.lr.ph137.us.us160.us
   %137 = add nuw nsw i32 %.087152.us.us, 1
-  %138 = getelementptr inbounds i32, ptr %.081153.us.us, i64 %127
-  %139 = getelementptr inbounds i16, ptr %.078155.us.us, i64 %128
+  %138 = getelementptr inbounds [4 x i8], ptr %.081153.us.us, i64 %127
+  %139 = getelementptr inbounds [2 x i8], ptr %.078155.us.us, i64 %128
   %exitcond204.not = icmp eq i32 %137, %5
   br i1 %exitcond204.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !264
 
@@ -15589,10 +15589,10 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2147483644
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -15634,8 +15634,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us.us.us:                         ; preds = %._crit_edge109.us.us.us.us.us, %.preheader96.us.us.us
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %._crit_edge109.us.us.us.us.us ], [ 0, %.preheader96.us.us.us ]
-  %26 = getelementptr inbounds nuw i32, ptr %.182118.us.us.us, i64 %indvars.iv197
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv197
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us.us.us, i64 %indvars.iv197
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv197
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %.1121.us.us.us, align 4
   %30 = load i32, ptr %25, align 4
@@ -15649,31 +15649,31 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
   %.190101.us.us.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us.us.us ], [ %42, %31 ]
   %.079106.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 8
   %32 = sext i32 %.077104.us.us.us.us.us to i64
-  %33 = getelementptr inbounds i32, ptr %28, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %28, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %.0105.us.us.us.us.us to i64
-  %36 = getelementptr inbounds i32, ptr %28, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %28, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %.079106.us.us.us.us.us, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us.us.us, i64 12
   %40 = load i32, ptr %39, align 4
   store i32 %34, ptr %.080102.us.us.us.us.us, align 4
-  %41 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us.us.us, i64 %18
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us.us.us, i64 %18
   store i32 %37, ptr %41, align 4
   %42 = add nuw nsw i32 %.190101.us.us.us.us.us, 2
-  %43 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us.us.us, i64 %20
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us.us.us, i64 %20
   %44 = icmp slt i32 %42, %17
   br i1 %44, label %31, label %._crit_edge109.us.us.us.us.us, !llvm.loop !266
 
 ._crit_edge109.us.us.us.us.us:                    ; preds = %31
   %45 = sext i32 %38 to i64
-  %46 = getelementptr inbounds i32, ptr %28, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %28, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %40 to i64
-  %49 = getelementptr inbounds i32, ptr %28, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %28, i64 %48
   %50 = load i32, ptr %49, align 4
   store i32 %47, ptr %43, align 4
-  %51 = getelementptr inbounds nuw i32, ptr %43, i64 %18
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %18
   store i32 %50, ptr %51, align 4
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
@@ -15681,8 +15681,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split.us.us:        ; preds = %._crit_edge109.us.us.us.us.us
   %52 = add nuw nsw i32 %.188117.us.us.us, 1
-  %53 = getelementptr inbounds i32, ptr %.182118.us.us.us, i64 %22
-  %54 = getelementptr inbounds i32, ptr %.1121.us.us.us, i64 %23
+  %53 = getelementptr inbounds [4 x i8], ptr %.182118.us.us.us, i64 %22
+  %54 = getelementptr inbounds [4 x i8], ptr %.1121.us.us.us, i64 %23
   %exitcond202.not = icmp eq i32 %52, %5
   br i1 %exitcond202.not, label %.loopexit, label %.preheader96.us.us.us, !llvm.loop !268
 
@@ -15696,8 +15696,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
 
 .lr.ph108.us.us.us:                               ; preds = %._crit_edge109.us.us.us, %.preheader96.us.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %._crit_edge109.us.us.us ], [ 0, %.preheader96.us.us ]
-  %56 = getelementptr inbounds nuw i32, ptr %.182118.us.us, i64 %indvars.iv191
-  %57 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv191
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us.us, i64 %indvars.iv191
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv191
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %.1121.us.us, align 4
   %60 = load i32, ptr %55, align 4
@@ -15711,38 +15711,38 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
   %.080102.us.us.us = phi ptr [ %56, %.lr.ph108.us.us.us ], [ %73, %61 ]
   %.190101.us.us.us = phi i32 [ 0, %.lr.ph108.us.us.us ], [ %72, %61 ]
   %62 = sext i32 %.077104.us.us.us to i64
-  %63 = getelementptr inbounds i32, ptr %58, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %58, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %.0105.us.us.us to i64
-  %66 = getelementptr inbounds i32, ptr %58, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %58, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %.079106.us.us.us, align 4
   %69 = getelementptr inbounds nuw i8, ptr %.1.pn103.us.us.us, i64 12
   %70 = load i32, ptr %69, align 4
   store i32 %64, ptr %.080102.us.us.us, align 4
-  %71 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us, i64 %18
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us, i64 %18
   store i32 %67, ptr %71, align 4
   %72 = add nuw nsw i32 %.190101.us.us.us, 2
-  %73 = getelementptr inbounds nuw i32, ptr %.080102.us.us.us, i64 %20
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.080102.us.us.us, i64 %20
   %.079.us.us.us = getelementptr inbounds nuw i8, ptr %.079106.us.us.us, i64 8
   %74 = icmp slt i32 %72, %17
   br i1 %74, label %61, label %._crit_edge109.us.us.us, !llvm.loop !266
 
 ._crit_edge109.us.us.us:                          ; preds = %61
   %75 = sext i32 %68 to i64
-  %76 = getelementptr inbounds i32, ptr %58, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %58, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %70 to i64
-  %79 = getelementptr inbounds i32, ptr %58, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %58, i64 %78
   %80 = load i32, ptr %79, align 4
   store i32 %77, ptr %73, align 4
-  %81 = getelementptr inbounds nuw i32, ptr %73, i64 %18
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %18
   store i32 %80, ptr %81, align 4
   %82 = load i32, ptr %.079.us.us.us, align 4
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i32, ptr %58, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %58, i64 %83
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds nuw i32, ptr %73, i64 %20
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %20
   store i32 %85, ptr %86, align 4
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count200
@@ -15750,8 +15750,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.us.us.us.split:              ; preds = %._crit_edge109.us.us.us
   %87 = add nuw nsw i32 %.188117.us.us, 1
-  %88 = getelementptr inbounds i32, ptr %.182118.us.us, i64 %22
-  %89 = getelementptr inbounds i32, ptr %.1121.us.us, i64 %23
+  %88 = getelementptr inbounds [4 x i8], ptr %.182118.us.us, i64 %22
+  %89 = getelementptr inbounds [4 x i8], ptr %.1121.us.us, i64 %23
   %exitcond196.not = icmp eq i32 %87, %5
   br i1 %exitcond196.not, label %.loopexit, label %.preheader96.us.us, !llvm.loop !268
 
@@ -15767,19 +15767,19 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
 
 91:                                               ; preds = %91, %.preheader96.us.us129
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %91 ], [ 0, %.preheader96.us.us129 ]
-  %92 = getelementptr inbounds nuw i32, ptr %.182118.us.us131, i64 %indvars.iv185
-  %93 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv185
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us.us131, i64 %indvars.iv185
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv185
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %.1121.us.us130, align 4
   %96 = load i32, ptr %90, align 4
   %97 = sext i32 %95 to i64
-  %98 = getelementptr inbounds i32, ptr %94, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %94, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %96 to i64
-  %101 = getelementptr inbounds i32, ptr %94, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %94, i64 %100
   %102 = load i32, ptr %101, align 4
   store i32 %99, ptr %92, align 4
-  %103 = getelementptr inbounds nuw i32, ptr %92, i64 %18
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %18
   store i32 %102, ptr %103, align 4
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count200
@@ -15787,8 +15787,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us.us.us:              ; preds = %91
   %104 = add nuw nsw i32 %.188117.us.us132, 1
-  %105 = getelementptr inbounds i32, ptr %.182118.us.us131, i64 %22
-  %106 = getelementptr inbounds i32, ptr %.1121.us.us130, i64 %23
+  %105 = getelementptr inbounds [4 x i8], ptr %.182118.us.us131, i64 %22
+  %106 = getelementptr inbounds [4 x i8], ptr %.1121.us.us130, i64 %23
   %exitcond190.not = icmp eq i32 %104, %5
   br i1 %exitcond190.not, label %.loopexit, label %.preheader96.us.us129, !llvm.loop !268
 
@@ -15802,25 +15802,25 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
 
 108:                                              ; preds = %.preheader96.us, %108
   %indvars.iv179 = phi i64 [ 0, %.preheader96.us ], [ %indvars.iv.next180, %108 ]
-  %109 = getelementptr inbounds nuw i32, ptr %.182118.us, i64 %indvars.iv179
-  %110 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv179
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %.182118.us, i64 %indvars.iv179
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv179
   %111 = load ptr, ptr %110, align 8
   %112 = load i32, ptr %.1121.us, align 4
   %113 = load i32, ptr %107, align 4
   %114 = sext i32 %112 to i64
-  %115 = getelementptr inbounds i32, ptr %111, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %111, i64 %114
   %116 = load i32, ptr %115, align 4
   %117 = sext i32 %113 to i64
-  %118 = getelementptr inbounds i32, ptr %111, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %111, i64 %117
   %119 = load i32, ptr %118, align 4
   store i32 %116, ptr %109, align 4
-  %120 = getelementptr inbounds nuw i32, ptr %109, i64 %18
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %18
   store i32 %119, ptr %120, align 4
   %121 = load i32, ptr %.079100.us, align 4
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i32, ptr %111, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %111, i64 %122
   %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds nuw i32, ptr %109, i64 %20
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %20
   store i32 %124, ptr %125, align 4
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count200
@@ -15828,8 +15828,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
 
 ._crit_edge115.split.split.us125:                 ; preds = %108
   %126 = add nuw nsw i32 %.188117.us, 1
-  %127 = getelementptr inbounds i32, ptr %.182118.us, i64 %22
-  %128 = getelementptr inbounds i32, ptr %.1121.us, i64 %23
+  %127 = getelementptr inbounds [4 x i8], ptr %.182118.us, i64 %22
+  %128 = getelementptr inbounds [4 x i8], ptr %.1121.us, i64 %23
   %exitcond184.not = icmp eq i32 %126, %5
   br i1 %exitcond184.not, label %.loopexit, label %.preheader96.us, !llvm.loop !268
 
@@ -15855,12 +15855,12 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
 
 .lr.ph137.us.us160.us:                            ; preds = %.preheader.us.us, %.lr.ph137.us.us160.us
   %indvars.iv203 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next204, %.lr.ph137.us.us160.us ]
-  %132 = getelementptr inbounds nuw i32, ptr %.081153.us.us, i64 %indvars.iv203
-  %133 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv203
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %.081153.us.us, i64 %indvars.iv203
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv203
   %134 = load ptr, ptr %133, align 8
   %135 = load i32, ptr %.078155.us.us, align 4
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i32, ptr %134, i64 %136
+  %137 = getelementptr inbounds [4 x i8], ptr %134, i64 %136
   %138 = load i32, ptr %137, align 4
   store i32 %138, ptr %132, align 4
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
@@ -15869,8 +15869,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr noundef readonly captures(n
 
 ._crit_edge144.split.us.us.us:                    ; preds = %.lr.ph137.us.us160.us
   %139 = add nuw nsw i32 %.087152.us.us, 1
-  %140 = getelementptr inbounds i32, ptr %.081153.us.us, i64 %129
-  %141 = getelementptr inbounds i32, ptr %.078155.us.us, i64 %130
+  %140 = getelementptr inbounds [4 x i8], ptr %.081153.us.us, i64 %129
+  %141 = getelementptr inbounds [4 x i8], ptr %.078155.us.us, i64 %130
   %exitcond208.not = icmp eq i32 %139, %5
   br i1 %exitcond208.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !270
 

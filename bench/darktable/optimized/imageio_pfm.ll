@@ -193,7 +193,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 
 88:                                               ; preds = %76, %95
   %.0122150 = phi i64 [ 0, %76 ], [ %97, %95 ]
-  %89 = getelementptr float, ptr %79, i64 %.0122150
+  %89 = getelementptr [4 x i8], ptr %79, i64 %.0122150
   %90 = load float, ptr %89, align 4, !tbaa !34
   br i1 %46, label %91, label %95
 
@@ -205,7 +205,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 
 95:                                               ; preds = %91, %88
   %.sroa.0.0 = phi nsz float [ %94, %91 ], [ %90, %88 ]
-  %96 = getelementptr inbounds nuw float, ptr %9, i64 %.0122150
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.0122150
   store float %.sroa.0.0, ptr %96, align 4, !tbaa !34
   %97 = add nuw nsw i64 %.0122150, 1
   %exitcond161.not = icmp eq i64 %97, 3
@@ -253,8 +253,8 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 
 111:                                              ; preds = %109, %109, %110
   %.pre-phi = phi i64 [ %107, %109 ], [ %107, %109 ], [ %.pre163, %110 ]
-  %112 = getelementptr float, ptr %57, i64 %.pre-phi
-  %113 = getelementptr float, ptr %112, i64 %.0116148
+  %112 = getelementptr [4 x i8], ptr %57, i64 %.pre-phi
+  %113 = getelementptr [4 x i8], ptr %112, i64 %.0116148
   %114 = load float, ptr %113, align 4, !tbaa !34
   br i1 %46, label %115, label %119
 

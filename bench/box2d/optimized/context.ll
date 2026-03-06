@@ -321,7 +321,7 @@ define hidden ptr @_glfwChooseFBConfig(ptr noundef readonly captures(none) %0, p
   %.0115168 = phi i32 [ -1, %.lr.ph ], [ %.1116, %.thread ]
   %.0120167 = phi i32 [ -1, %.lr.ph ], [ %.1121, %.thread ]
   %.0125166 = phi i32 [ -1, %.lr.ph ], [ %.1126, %.thread ]
-  %21 = getelementptr inbounds nuw %struct._GLFWfbconfig, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %indvars.iv
   br i1 %6, label %22, label %26
 
 22:                                               ; preds = %20
@@ -817,7 +817,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 .preheader:                                       ; preds = %62, %89
   %indvars.iv = phi i64 [ %indvars.iv.next, %89 ], [ 0, %62 ]
-  %90 = getelementptr inbounds nuw ptr, ptr @__const._glfwRefreshContextAttribs.prefixes, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr @__const._glfwRefreshContextAttribs.prefixes, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8, !tbaa !156
   %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #8
   %93 = tail call i32 @strncmp(ptr noundef nonnull %63, ptr noundef nonnull %91, i64 noundef %92) #8

@@ -3,8 +3,6 @@ source_filename = "bench/proj/original/wkt1_generated_parser.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.yyalloc = type { i32 }
-
 @yypact = internal unnamed_addr constant [289 x i16] [i16 97, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 10, i16 -131, i16 -131, i16 2, i16 -131, i16 -131, i16 -131, i16 -131, i16 -131, i16 -131, i16 -131, i16 -131, i16 -131, i16 -131, i16 40, i16 12, i16 38, i16 47, i16 69, i16 93, i16 95, i16 96, i16 89, i16 -131, i16 117, i16 -131, i16 102, i16 126, i16 126, i16 123, i16 1, i16 22, i16 135, i16 -131, i16 -131, i16 119, i16 -131, i16 -131, i16 107, i16 33, i16 110, i16 111, i16 33, i16 113, i16 33, i16 -131, i16 114, i16 -131, i16 -131, i16 115, i16 33, i16 33, i16 33, i16 33, i16 -131, i16 -131, i16 -131, i16 -131, i16 -131, i16 118, i16 33, i16 121, i16 150, i16 125, i16 147, i16 147, i16 127, i16 149, i16 55, i16 6, i16 91, i16 128, i16 135, i16 135, i16 136, i16 97, i16 129, i16 149, i16 33, i16 131, i16 157, i16 33, i16 134, i16 137, i16 141, i16 33, i16 138, i16 -131, i16 -131, i16 33, i16 139, i16 55, i16 -131, i16 -131, i16 -131, i16 -131, i16 140, i16 145, i16 55, i16 142, i16 55, i16 -131, i16 143, i16 -131, i16 55, i16 141, i16 144, i16 151, i16 6, i16 33, i16 152, i16 153, i16 149, i16 149, i16 -131, i16 140, i16 154, i16 18, i16 55, i16 155, i16 6, i16 -131, i16 19, i16 55, i16 128, i16 -131, i16 135, i16 55, i16 -131, i16 135, i16 -131, i16 151, i16 159, i16 161, i16 55, i16 156, i16 158, i16 75, i16 55, i16 163, i16 160, i16 -131, i16 162, i16 55, i16 165, i16 33, i16 33, i16 -131, i16 151, i16 -131, i16 169, i16 -131, i16 -131, i16 33, i16 151, i16 -131, i16 -131, i16 -131, i16 142, i16 -131, i16 55, i16 55, i16 164, i16 -131, i16 -131, i16 65, i16 55, i16 171, i16 33, i16 151, i16 -131, i16 140, i16 -131, i16 -131, i16 151, i16 14, i16 55, i16 65, i16 55, i16 -131, i16 -131, i16 151, i16 166, i16 167, i16 -131, i16 55, i16 170, i16 -131, i16 -131, i16 -131, i16 -131, i16 18, i16 55, i16 151, i16 -131, i16 140, i16 172, i16 -131, i16 -131, i16 173, i16 175, i16 -131, i16 -131, i16 55, i16 33, i16 151, i16 151, i16 -131, i16 140, i16 -131, i16 151, i16 140, i16 -131, i16 174, i16 -131, i16 55, i16 178, i16 181, i16 -131, i16 184, i16 -131, i16 164, i16 -131, i16 -131, i16 -131, i16 159, i16 98, i16 -131, i16 55, i16 -131, i16 -131, i16 179, i16 -131, i16 180, i16 -131, i16 -131, i16 -131, i16 -131, i16 -131, i16 159, i16 -131, i16 55, i16 55, i16 55, i16 -131, i16 -131, i16 -131, i16 -131, i16 151, i16 -131, i16 187, i16 165, i16 182, i16 -131, i16 -131, i16 -131, i16 55, i16 -131, i16 183, i16 151, i16 159, i16 -131, i16 190, i16 55, i16 -131, i16 -131, i16 185, i16 -131, i16 192, i16 -131, i16 188, i16 193, i16 -131, i16 189, i16 196, i16 -131, i16 191, i16 198, i16 -131, i16 -131], align 16
 @yytranslate = internal unnamed_addr constant [287 x i8] c"\00\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02!#\02\02$\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02 \02\22\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F", align 16
 @yycheck = internal unnamed_addr constant [256 x i16] [i16 2, i16 3, i16 4, i16 5, i16 6, i16 7, i16 8, i16 131, i16 35, i16 77, i16 0, i16 10, i16 126, i16 60, i16 61, i16 62, i16 146, i16 124, i16 142, i16 13, i16 140, i16 20, i16 146, i16 81, i16 82, i16 76, i16 86, i16 141, i16 14, i16 7, i16 16, i16 9, i16 100, i16 27, i16 16, i16 16, i16 22, i16 157, i16 36, i16 107, i16 22, i16 109, i16 28, i16 163, i16 174, i16 113, i16 48, i16 28, i16 36, i16 51, i16 174, i16 53, i16 79, i16 37, i16 184, i16 39, i16 186, i16 59, i16 178, i16 127, i16 184, i16 121, i16 186, i16 183, i16 132, i16 32, i16 33, i16 69, i16 136, i16 29, i16 190, i16 122, i16 186, i16 180, i16 36, i16 143, i16 200, i16 135, i16 129, i16 147, i16 138, i16 16, i16 202, i16 36, i16 152, i16 87, i16 200, i16 22, i16 90, i16 34, i16 35, i16 16, i16 94, i16 28, i16 214, i16 215, i16 98, i16 204, i16 23, i16 219, i16 9, i16 169, i16 170, i16 28, i16 7, i16 36, i16 9, i16 175, i16 17, i16 18, i16 217, i16 9, i16 15, i16 220, i16 17, i16 18, i16 118, i16 185, i16 21, i16 187, i16 234, i16 24, i16 25, i16 34, i16 35, i16 36, i16 194, i16 29, i16 30, i16 36, i16 177, i16 36, i16 36, i16 201, i16 248, i16 18, i16 10, i16 257, i16 3, i16 4, i16 5, i16 6, i16 19, i16 36, i16 212, i16 26, i16 36, i16 36, i16 268, i16 36, i16 36, i16 36, i16 154, i16 155, i16 36, i16 269, i16 224, i16 36, i16 8, i16 12, i16 162, i16 36, i16 13, i16 36, i16 36, i16 36, i16 30, i16 36, i16 11, i16 237, i16 36, i16 30, i16 27, i16 36, i16 36, i16 36, i16 36, i16 16, i16 36, i16 36, i16 36, i16 22, i16 250, i16 251, i16 252, i16 106, i16 133, i16 36, i16 36, i16 36, i16 36, i16 36, i16 36, i16 30, i16 36, i16 30, i16 36, i16 265, i16 36, i16 30, i16 36, i16 30, i16 36, i16 36, i16 272, i16 30, i16 36, i16 29, i16 36, i16 36, i16 36, i16 213, i16 31, i16 29, i16 84, i16 36, i16 36, i16 30, i16 36, i16 36, i16 30, i16 36, i16 30, i16 30, i16 36, i16 36, i16 30, i16 36, i16 30, i16 167, i16 129, i16 260, i16 33, i16 117, i16 40, i16 184, i16 114, i16 230, i16 -1, i16 -1, i16 -1, i16 -1, i16 74, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 79], align 16
@@ -166,7 +164,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   %.0153 = phi i32 [ -2, %1 ], [ %.1, %7 ]
   %10 = trunc nsw i32 %.0157 to i16
   store i16 %10, ptr %.0170, align 2, !tbaa !9
-  %11 = getelementptr inbounds i16, ptr %.0163, i64 %.0188
+  %11 = getelementptr inbounds [2 x i8], ptr %.0163, i64 %.0188
   %12 = getelementptr inbounds i8, ptr %11, i64 -2
   %.not = icmp ugt ptr %12, %.0170
   br i1 %.not, label %.thread250, label %13
@@ -195,7 +193,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   %27 = shl nsw i64 %spec.store.select, 1
   %28 = or disjoint i64 %27, 3
   %29 = sdiv i64 %28, 4
-  %30 = getelementptr inbounds %union.yyalloc, ptr %24, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %24, i64 %29
   %31 = shl i64 %18, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr align 4 %.0181, i64 %31, i1 false)
   %.not217 = icmp eq ptr %.0163, %3
@@ -206,9 +204,9 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   br label %33
 
 33:                                               ; preds = %25, %32
-  %34 = getelementptr inbounds i16, ptr %24, i64 %18
+  %34 = getelementptr inbounds [2 x i8], ptr %24, i64 %18
   %35 = getelementptr inbounds i8, ptr %34, i64 -2
-  %36 = getelementptr inbounds i32, ptr %30, i64 %18
+  %36 = getelementptr inbounds [4 x i8], ptr %30, i64 %18
   %37 = getelementptr inbounds i8, ptr %36, i64 -4
   %.not218 = icmp sgt i64 %spec.store.select, %18
   br i1 %.not218, label %.thread250, label %.thread286.thread
@@ -224,7 +222,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
 
 39:                                               ; preds = %.thread250
   %40 = sext i32 %.0157 to i64
-  %41 = getelementptr inbounds i16, ptr @yypact, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr @yypact, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !9
   %43 = sext i16 %42 to i32
   %44 = icmp eq i16 %42, -131
@@ -263,14 +261,14 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
 
 60:                                               ; preds = %58
   %61 = zext nneg i32 %59 to i64
-  %62 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !9
   %64 = sext i16 %63 to i32
   %.not219 = icmp eq i32 %.0185, %64
   br i1 %.not219, label %65, label %75
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw i16, ptr @yytable, i64 %61
+  %66 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %61
   %67 = load i16, ptr %66, align 2, !tbaa !9
   %68 = sext i16 %67 to i32
   %69 = icmp slt i16 %67, 1
@@ -302,18 +300,18 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   %83 = load i8, ptr %82, align 1, !tbaa !11
   %84 = sext i8 %83 to i64
   %85 = sub nsw i64 1, %84
-  %86 = getelementptr inbounds i32, ptr %.2193, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %.2193, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !3
   %88 = sub nsw i64 0, %84
-  %89 = getelementptr inbounds i32, ptr %.2193, i64 %88
-  %90 = getelementptr inbounds i16, ptr %.2172, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %.2193, i64 %88
+  %90 = getelementptr inbounds [2 x i8], ptr %.2172, i64 %88
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i32 %87, ptr %91, align 4, !tbaa !3
   %92 = getelementptr inbounds i8, ptr @yyr1, i64 %81
   %93 = load i8, ptr %92, align 1, !tbaa !11
   %94 = sext i8 %93 to i64
   %95 = add nsw i64 %94, -37
-  %96 = getelementptr inbounds i16, ptr @yypgoto, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr @yypgoto, i64 %95
   %97 = load i16, ptr %96, align 2, !tbaa !9
   %98 = sext i16 %97 to i32
   %99 = load i16, ptr %90, align 2, !tbaa !9
@@ -324,17 +322,17 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
 
 102:                                              ; preds = %80
   %103 = zext nneg i32 %101 to i64
-  %104 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %103
   %105 = load i16, ptr %104, align 2, !tbaa !9
   %106 = icmp eq i16 %105, %99
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %102
-  %108 = getelementptr inbounds nuw i16, ptr @yytable, i64 %103
+  %108 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %103
   br label %111
 
 109:                                              ; preds = %102, %80
-  %110 = getelementptr inbounds i16, ptr @yydefgoto, i64 %95
+  %110 = getelementptr inbounds [2 x i8], ptr @yydefgoto, i64 %95
   br label %111
 
 111:                                              ; preds = %109, %107
@@ -448,11 +446,11 @@ define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr noundef nonnull c
 5:                                                ; preds = %3
   %6 = load i16, ptr %1, align 2, !tbaa !9
   %7 = sext i16 %6 to i64
-  %8 = getelementptr inbounds i16, ptr @yypact, i64 %7
+  %8 = getelementptr inbounds [2 x i8], ptr @yypact, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !9
   %10 = sext i16 %9 to i32
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds ptr, ptr @yytname, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   %14 = load i8, ptr %13, align 1, !tbaa !11
   %15 = icmp eq i8 %14, 34
@@ -504,14 +502,14 @@ yytnamerr.exit:                                   ; preds = %.preheader31.split.
   %31 = sext i32 %27 to i64
   %32 = sext i16 %9 to i64
   %33 = sext i32 %29 to i64
-  %invariant.gep = getelementptr i16, ptr @yycheck, i64 %32
+  %invariant.gep = getelementptr [2 x i8], ptr @yycheck, i64 %32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %57
   %indvars.iv = phi i64 [ %31, %.lr.ph.preheader ], [ %indvars.iv.next, %57 ]
   %.28524 = phi i32 [ 1, %.lr.ph.preheader ], [ %.588, %57 ]
   %.29222 = phi i64 [ %.122.i, %.lr.ph.preheader ], [ %.696, %57 ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %34 = load i16, ptr %gep, align 2, !tbaa !9
   %35 = sext i16 %34 to i64
   %36 = icmp eq i64 %indvars.iv, %35
@@ -524,11 +522,11 @@ yytnamerr.exit:                                   ; preds = %.preheader31.split.
   br i1 %39, label %.thread10, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds ptr, ptr @yytname, i64 %indvars.iv
+  %41 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !12
   %43 = add nsw i32 %.28524, 1
   %44 = sext i32 %.28524 to i64
-  %45 = getelementptr inbounds ptr, ptr %4, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %4, i64 %44
   store ptr %42, ptr %45, align 8, !tbaa !12
   %46 = load i8, ptr %42, align 1, !tbaa !11
   %47 = icmp eq i8 %46, 34
@@ -645,7 +643,7 @@ yytnamerr.exit120:                                ; preds = %.preheader31.split.
 79:                                               ; preds = %74
   %80 = add nsw i32 %.0, 1
   %81 = sext i32 %.0 to i64
-  %82 = getelementptr inbounds ptr, ptr %4, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %4, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !12
   %84 = load i8, ptr %83, align 1, !tbaa !11
   %85 = icmp eq i8 %84, 34

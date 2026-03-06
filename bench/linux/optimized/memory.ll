@@ -69,26 +69,15 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_access_proce
 %struct.static_key_false = type { %struct.static_key }
 %struct.vm_event_state = type { [74 x i64] }
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.pgd_t = type { i64 }
-%struct.p4d_t = type { i64 }
-%struct.pud_t = type { i64 }
-%struct.pmd_t = type { i64 }
-%struct.page = type { i64, %union.anon.9, %union.anon.17, %struct.atomic_t, [8 x i8] }
-%union.anon.9 = type { %struct.anon.10 }
-%struct.anon.10 = type { %union.anon.11, ptr, %union.anon.13, i64 }
-%union.anon.11 = type { %struct.list_head }
-%union.anon.13 = type { i64 }
-%union.anon.17 = type { %struct.atomic_t }
 %struct.mmu_notifier_range = type { ptr, i64, i64, i32, i32, ptr }
 %struct.zap_details = type { ptr, i8, i32 }
 %struct.mmu_gather = type { ptr, ptr, i64, i64, i16, i32, ptr, %struct.mmu_gather_batch, [8 x ptr] }
 %struct.mmu_gather_batch = type { ptr, i32, i32, [0 x ptr] }
 %struct.pgprot = type { i64 }
-%struct.mem_section = type { i64, ptr }
-%struct.pte_t = type { i64 }
 %struct.vm_fault = type { %struct.anon.29, i32, ptr, ptr, %union.anon.30, ptr, ptr, ptr, ptr, ptr }
 %struct.anon.29 = type { ptr, i32, i64, i64, i64 }
 %union.anon.30 = type { %struct.pte_t }
+%struct.pte_t = type { i64 }
 %struct.ma_state = type { ptr, i64, i64, ptr, i64, i64, ptr, i32, i8, i8, i8, i8 }
 
 @high_memory = dso_local global ptr null, align 8
@@ -290,7 +279,7 @@ define dso_local void @free_pgd_range(ptr noundef %0, i64 noundef %1, i64 nounde
   %36 = zext nneg i32 %35 to i64
   %37 = lshr i64 %17, %36
   %38 = and i64 %37, 511
-  %39 = getelementptr %struct.pgd_t, ptr %34, i64 %38
+  %39 = getelementptr [8 x i8], ptr %34, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -355,7 +344,7 @@ define dso_local void @free_pgd_range(ptr noundef %0, i64 noundef %1, i64 nounde
   %83 = add i32 %82, -1
   %84 = zext i32 %83 to i64
   %85 = and i64 %81, %84
-  %86 = getelementptr %struct.p4d_t, ptr %80, i64 %85
+  %86 = getelementptr [8 x i8], ptr %80, i64 %85
   br label %87
 
 87:                                               ; preds = %75, %74
@@ -392,7 +381,7 @@ define dso_local void @free_pgd_range(ptr noundef %0, i64 noundef %1, i64 nounde
   %109 = inttoptr i64 %108 to ptr
   %110 = lshr i64 %92, 30
   %111 = and i64 %110, 511
-  %112 = getelementptr %struct.pud_t, ptr %109, i64 %111
+  %112 = getelementptr [8 x i8], ptr %109, i64 %111
   %113 = add i64 %97, -1
   br label %114
 
@@ -429,7 +418,7 @@ define dso_local void @free_pgd_range(ptr noundef %0, i64 noundef %1, i64 nounde
   %137 = inttoptr i64 %136 to ptr
   %138 = lshr i64 %116, 21
   %139 = and i64 %138, 511
-  %140 = getelementptr %struct.pmd_t, ptr %137, i64 %139
+  %140 = getelementptr [8 x i8], ptr %137, i64 %139
   %141 = add i64 %121, -1
   br label %142
 
@@ -634,7 +623,7 @@ define dso_local void @free_pgd_range(ptr noundef %0, i64 noundef %1, i64 nounde
   %258 = add i32 %257, -1
   %259 = zext i32 %258 to i64
   %260 = and i64 %256, %259
-  %261 = getelementptr %struct.p4d_t, ptr %255, i64 %260
+  %261 = getelementptr [8 x i8], ptr %255, i64 %260
   br label %262
 
 262:                                              ; preds = %250, %249
@@ -899,7 +888,7 @@ define dso_local void @pmd_install(ptr noundef %0, ptr noundef %1, ptr noundef c
   %14 = select i1 %10, i64 %11, i64 %13
   %15 = add i64 %9, %14
   %16 = lshr i64 %15, 12
-  %.split = getelementptr %struct.page, ptr %6, i64 %16
+  %.split = getelementptr [64 x i8], ptr %6, i64 %16
   %17 = getelementptr i8, ptr %.split, i64 40
   tail call void @_raw_spin_lock(ptr noundef %17) #18
   %18 = load i64, ptr %1, align 8
@@ -950,7 +939,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pte_alloc(ptr noundef %0, ptr 
   %16 = select i1 %12, i64 %13, i64 %15
   %17 = add i64 %11, %16
   %18 = lshr i64 %17, 12
-  %.split = getelementptr %struct.page, ptr %8, i64 %18
+  %.split = getelementptr [64 x i8], ptr %8, i64 %18
   %19 = getelementptr i8, ptr %.split, i64 40
   tail call void @_raw_spin_lock(ptr noundef %19) #18
   %20 = load i64, ptr %1, align 8
@@ -995,7 +984,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pte_alloc(ptr noundef %0, ptr 
   %40 = phi i32 [ %38, %36 ], [ 1, %29 ]
   %41 = sub i32 0, %40
   %42 = lshr i64 %33, 58
-  %43 = getelementptr ptr, ptr @node_data, i64 %42
+  %43 = getelementptr [8 x i8], ptr @node_data, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %41 to i64
   tail call void @mod_node_page_state(ptr noundef %44, i32 noundef 38, i64 noundef %45) #18
@@ -1078,7 +1067,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pte_alloc_kernel(ptr noundef %
   %33 = select i1 %29, i64 %30, i64 %32
   %34 = add i64 %28, %33
   %35 = lshr i64 %34, 12
-  %36 = getelementptr %struct.page, ptr %27, i64 %35
+  %36 = getelementptr [64 x i8], ptr %27, i64 %35
   %37 = load volatile i64, ptr %36, align 8
   %38 = and i64 %37, 64
   %39 = icmp eq i64 %38, 0
@@ -1159,7 +1148,7 @@ define dso_local ptr @vm_normal_page(ptr noundef %0, i64 noundef %1, i64 %2) loc
 39:                                               ; preds = %35
   %40 = load i64, ptr @vmemmap_base, align 8
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr %struct.page, ptr %41, i64 %11
+  %42 = getelementptr [64 x i8], ptr %41, i64 %11
   br label %43
 
 43:                                               ; preds = %39, %38, %34, %24, %22
@@ -1177,7 +1166,7 @@ define internal fastcc void @print_bad_pte(ptr noundef readonly captures(none) %
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
   %12 = and i64 %11, 511
-  %13 = getelementptr %struct.pgd_t, ptr %8, i64 %12
+  %13 = getelementptr [8 x i8], ptr %8, i64 %12
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #18
           to label %14 [label %14, label %._crit_edge], !srcloc !15
 
@@ -1196,7 +1185,7 @@ define internal fastcc void @print_bad_pte(ptr noundef readonly captures(none) %
   %22 = add i32 %21, -1
   %23 = zext i32 %22 to i64
   %24 = and i64 %20, %23
-  %25 = getelementptr %struct.p4d_t, ptr %19, i64 %24
+  %25 = getelementptr [8 x i8], ptr %19, i64 %24
   br label %26
 
 26:                                               ; preds = %._crit_edge, %14
@@ -1208,7 +1197,7 @@ define internal fastcc void @print_bad_pte(ptr noundef readonly captures(none) %
   %32 = inttoptr i64 %31 to ptr
   %33 = lshr i64 %1, 30
   %34 = and i64 %33, 511
-  %35 = getelementptr %struct.pud_t, ptr %32, i64 %34
+  %35 = getelementptr [8 x i8], ptr %32, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 128
   %38 = icmp eq i64 %37, 0
@@ -1218,7 +1207,7 @@ define internal fastcc void @print_bad_pte(ptr noundef readonly captures(none) %
   %42 = inttoptr i64 %41 to ptr
   %43 = lshr i64 %1, 21
   %44 = and i64 %43, 511
-  %45 = getelementptr %struct.pmd_t, ptr %42, i64 %44
+  %45 = getelementptr [8 x i8], ptr %42, i64 %44
   %46 = load i64, ptr @print_bad_pte.nr_shown, align 8
   %47 = icmp eq i64 %46, 60
   br i1 %47, label %48, label %60
@@ -1403,7 +1392,7 @@ define dso_local ptr @vm_normal_folio(ptr noundef %0, i64 noundef %1, i64 %2) lo
 39:                                               ; preds = %35
   %40 = load i64, ptr @vmemmap_base, align 8
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr %struct.page, ptr %41, i64 %11
+  %42 = getelementptr [64 x i8], ptr %41, i64 %11
   br label %vm_normal_page.exit
 
 vm_normal_page.exit:                              ; preds = %22, %39
@@ -1560,10 +1549,10 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
   %68 = zext nneg i32 %67 to i64
   %69 = lshr i64 %19, %68
   %70 = and i64 %69, 511
-  %71 = getelementptr %struct.pgd_t, ptr %66, i64 %70
+  %71 = getelementptr [8 x i8], ptr %66, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %73 = load ptr, ptr %72, align 64
-  %74 = getelementptr %struct.pgd_t, ptr %73, i64 %70
+  %74 = getelementptr [8 x i8], ptr %73, i64 %70
   %75 = add i64 %21, -1
   %76 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1637,7 +1626,7 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
   %120 = add i32 %119, -1
   %121 = zext i32 %120 to i64
   %122 = and i64 %118, %121
-  %123 = getelementptr %struct.p4d_t, ptr %117, i64 %122
+  %123 = getelementptr [8 x i8], ptr %117, i64 %122
   br label %124
 
 124:                                              ; preds = %112, %111
@@ -1660,7 +1649,7 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
   %136 = add i32 %135, -1
   %137 = zext i32 %136 to i64
   %138 = and i64 %134, %137
-  %139 = getelementptr %struct.p4d_t, ptr %133, i64 %138
+  %139 = getelementptr [8 x i8], ptr %133, i64 %138
   br label %140
 
 140:                                              ; preds = %128, %127
@@ -1715,7 +1704,7 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
   %172 = inttoptr i64 %171 to ptr
   %173 = lshr i64 %146, 30
   %174 = and i64 %173, 511
-  %175 = getelementptr %struct.pud_t, ptr %172, i64 %174
+  %175 = getelementptr [8 x i8], ptr %172, i64 %174
   %176 = icmp eq ptr %175, null
   br i1 %176, label %.thread, label %177
 
@@ -1724,7 +1713,7 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
   %179 = and i64 %178, 4503599627366400
   %180 = add i64 %170, %179
   %181 = inttoptr i64 %180 to ptr
-  %182 = getelementptr %struct.pud_t, ptr %181, i64 %174
+  %182 = getelementptr [8 x i8], ptr %181, i64 %174
   %183 = add i64 %151, -1
   br label %184
 
@@ -1781,7 +1770,7 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
   %219 = inttoptr i64 %218 to ptr
   %220 = lshr i64 %187, 21
   %221 = and i64 %220, 511
-  %222 = getelementptr %struct.pmd_t, ptr %219, i64 %221
+  %222 = getelementptr [8 x i8], ptr %219, i64 %221
   %223 = icmp eq ptr %222, null
   br i1 %223, label %.thread, label %224
 
@@ -1793,7 +1782,7 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
   %229 = and i64 %228, %225
   %230 = add i64 %229, %217
   %231 = inttoptr i64 %230 to ptr
-  %232 = getelementptr %struct.pmd_t, ptr %231, i64 %221
+  %232 = getelementptr [8 x i8], ptr %231, i64 %221
   %233 = add i64 %192, -1
   br label %234
 
@@ -1995,7 +1984,7 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
   %349 = call fastcc ptr @pfn_swap_entry_to_page(i64 %317)
   %350 = call fastcc i32 @mm_counter(ptr noundef %349), !range !33
   %351 = zext nneg i32 %350 to i64
-  %352 = getelementptr i32, ptr %17, i64 %351
+  %352 = getelementptr [4 x i8], ptr %17, i64 %351
   %353 = load i32, ptr %352, align 4
   %354 = add i32 %353, 1
   store i32 %354, ptr %352, align 4
@@ -2114,7 +2103,7 @@ define dso_local i32 @copy_page_range(ptr noundef %0, ptr noundef %1) local_unna
 413:                                              ; preds = %409
   %414 = load i64, ptr @vmemmap_base, align 8
   %415 = inttoptr i64 %414 to ptr
-  %416 = getelementptr %struct.page, ptr %415, i64 %388
+  %416 = getelementptr [64 x i8], ptr %415, i64 %388
   br label %vm_normal_page.exit
 
 vm_normal_page.exit:                              ; preds = %398, %413
@@ -2476,14 +2465,14 @@ vm_normal_page.exit:                              ; preds = %398, %413
 
 629:                                              ; preds = %659, %.loopexit43
   %630 = phi i64 [ 0, %.loopexit43 ], [ %660, %659 ]
-  %631 = getelementptr i32, ptr %17, i64 %630
+  %631 = getelementptr [4 x i8], ptr %17, i64 %630
   %632 = load i32, ptr %631, align 4
   %633 = icmp eq i32 %632, 0
   br i1 %633, label %659, label %634
 
 634:                                              ; preds = %629
   %635 = sext i32 %632 to i64
-  %636 = getelementptr %struct.percpu_counter, ptr %256, i64 %630
+  %636 = getelementptr [40 x i8], ptr %256, i64 %630
   %637 = load i32, ptr @percpu_counter_batch, align 4
   call void @percpu_counter_add_batch(ptr noundef %636, i64 noundef %635, i32 noundef %637) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rss_stat, i64 8), i32 2) #18
@@ -2726,7 +2715,7 @@ define dso_local void @unmap_page_range(ptr noundef %0, ptr noundef %1, i64 noun
   %44 = zext nneg i32 %43 to i64
   %45 = lshr i64 %2, %44
   %46 = and i64 %45, 511
-  %47 = getelementptr %struct.pgd_t, ptr %42, i64 %46
+  %47 = getelementptr [8 x i8], ptr %42, i64 %46
   %48 = add i64 %3, -1
   %49 = icmp eq ptr %4, null
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2787,7 +2776,7 @@ define dso_local void @unmap_page_range(ptr noundef %0, ptr noundef %1, i64 noun
   %87 = add i32 %86, -1
   %88 = zext i32 %87 to i64
   %89 = and i64 %85, %88
-  %90 = getelementptr %struct.p4d_t, ptr %84, i64 %89
+  %90 = getelementptr [8 x i8], ptr %84, i64 %89
   br label %91
 
 91:                                               ; preds = %79, %78
@@ -2824,7 +2813,7 @@ define dso_local void @unmap_page_range(ptr noundef %0, ptr noundef %1, i64 noun
   %113 = inttoptr i64 %112 to ptr
   %114 = lshr i64 %96, 30
   %115 = and i64 %114, 511
-  %116 = getelementptr %struct.pud_t, ptr %113, i64 %115
+  %116 = getelementptr [8 x i8], ptr %113, i64 %115
   %117 = add i64 %101, -1
   br label %118
 
@@ -2861,7 +2850,7 @@ define dso_local void @unmap_page_range(ptr noundef %0, ptr noundef %1, i64 noun
   %141 = inttoptr i64 %140 to ptr
   %142 = lshr i64 %120, 21
   %143 = and i64 %142, 511
-  %144 = getelementptr %struct.pmd_t, ptr %141, i64 %143
+  %144 = getelementptr [8 x i8], ptr %141, i64 %143
   %145 = add i64 %125, -1
   br label %146
 
@@ -2969,7 +2958,7 @@ define dso_local void @unmap_page_range(ptr noundef %0, ptr noundef %1, i64 noun
 208:                                              ; preds = %204
   %209 = load i64, ptr @vmemmap_base, align 8
   %210 = inttoptr i64 %209 to ptr
-  %211 = getelementptr %struct.page, ptr %210, i64 %182
+  %211 = getelementptr [64 x i8], ptr %210, i64 %182
   br label %vm_normal_page.exit
 
 vm_normal_page.exit:                              ; preds = %192, %194, %203, %207, %208
@@ -3260,7 +3249,7 @@ vm_normal_page.exit:                              ; preds = %192, %194, %203, %2
 
 389:                                              ; preds = %383, %352
   %390 = phi i64 [ %388, %383 ], [ 1, %352 ]
-  %391 = getelementptr i32, ptr %9, i64 %390
+  %391 = getelementptr [4 x i8], ptr %9, i64 %390
   %392 = load i32, ptr %391, align 4
   %393 = add i32 %392, -1
   store i32 %393, ptr %391, align 4
@@ -3398,7 +3387,7 @@ vm_normal_page.exit:                              ; preds = %192, %194, %203, %2
 475:                                              ; preds = %474, %471, %471
   %476 = phi i64 [ 17179869183, %474 ], [ 1099511627775, %471 ], [ 1099511627775, %471 ]
   %477 = and i64 %476, %449
-  %478 = getelementptr %struct.page, ptr %473, i64 %477
+  %478 = getelementptr [64 x i8], ptr %473, i64 %477
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
   %480 = load volatile i64, ptr %479, align 8
   %481 = and i64 %480, 1
@@ -3605,7 +3594,7 @@ vm_normal_page.exit:                              ; preds = %192, %194, %203, %2
 
 606:                                              ; preds = %600, %569
   %607 = phi i64 [ %605, %600 ], [ 1, %569 ]
-  %608 = getelementptr i32, ptr %9, i64 %607
+  %608 = getelementptr [4 x i8], ptr %9, i64 %607
   %609 = load i32, ptr %608, align 4
   %610 = add i32 %609, -1
   store i32 %610, ptr %608, align 4
@@ -3656,14 +3645,14 @@ vm_normal_page.exit:                              ; preds = %192, %194, %203, %2
 
 631:                                              ; preds = %661, %627
   %632 = phi i64 [ 0, %627 ], [ %662, %661 ]
-  %633 = getelementptr i32, ptr %9, i64 %632
+  %633 = getelementptr [4 x i8], ptr %9, i64 %632
   %634 = load i32, ptr %633, align 4
   %635 = icmp eq i32 %634, 0
   br i1 %635, label %661, label %636
 
 636:                                              ; preds = %631
   %637 = sext i32 %634 to i64
-  %638 = getelementptr %struct.percpu_counter, ptr %630, i64 %632
+  %638 = getelementptr [40 x i8], ptr %630, i64 %632
   %639 = load i32, ptr @percpu_counter_batch, align 4
   call void @percpu_counter_add_batch(ptr noundef %638, i64 noundef %637, i32 noundef %639) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rss_stat, i64 8), i32 2) #18
@@ -4299,7 +4288,7 @@ define internal fastcc ptr @walk_to_pmd(ptr noundef %0, i64 noundef %1) unnamed_
   %6 = zext nneg i32 %5 to i64
   %7 = lshr i64 %1, %6
   %8 = and i64 %7, 511
-  %9 = getelementptr %struct.pgd_t, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load i64, ptr %9, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #18
           to label %11 [label %11, label %16], !srcloc !15
@@ -4328,7 +4317,7 @@ define internal fastcc ptr @walk_to_pmd(ptr noundef %0, i64 noundef %1) unnamed_
   %25 = add i32 %24, -1
   %26 = zext i32 %25 to i64
   %27 = and i64 %23, %26
-  %28 = getelementptr %struct.p4d_t, ptr %22, i64 %27
+  %28 = getelementptr [8 x i8], ptr %22, i64 %27
   br label %29
 
 29:                                               ; preds = %17, %16
@@ -4359,7 +4348,7 @@ define internal fastcc ptr @walk_to_pmd(ptr noundef %0, i64 noundef %1) unnamed_
   %44 = inttoptr i64 %43 to ptr
   %45 = lshr i64 %1, 30
   %46 = and i64 %45, 511
-  %47 = getelementptr %struct.pud_t, ptr %44, i64 %46
+  %47 = getelementptr [8 x i8], ptr %44, i64 %46
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.thread, label %49
 
@@ -4390,7 +4379,7 @@ define internal fastcc ptr @walk_to_pmd(ptr noundef %0, i64 noundef %1) unnamed_
   %64 = inttoptr i64 %63 to ptr
   %65 = lshr i64 %1, 21
   %66 = and i64 %65, 511
-  %67 = getelementptr %struct.pmd_t, ptr %64, i64 %66
+  %67 = getelementptr [8 x i8], ptr %64, i64 %66
   br label %.thread
 
 .thread:                                          ; preds = %36, %13, %56, %53, %39, %29
@@ -4550,7 +4539,7 @@ define dso_local range(i32 -22, 1) i32 @vm_insert_pages(ptr noundef %0, i64 noun
   %91 = phi i64 [ 0, %86 ], [ %173, %170 ]
   %92 = phi ptr [ %82, %86 ], [ %172, %170 ]
   %93 = phi i64 [ %79, %86 ], [ %171, %170 ]
-  %94 = getelementptr ptr, ptr %2, i64 %93
+  %94 = getelementptr [8 x i8], ptr %2, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load volatile i64, ptr %96, align 8
@@ -4958,7 +4947,7 @@ define dso_local range(i32 -22, 1) i32 @vm_map_pages(ptr noundef %0, ptr noundef
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr ptr, ptr %1, i64 %5
+  %16 = getelementptr [8 x i8], ptr %1, i64 %5
   %17 = icmp ult i64 %9, 4096
   br i1 %17, label %.loopexit, label %.preheader
 
@@ -4966,7 +4955,7 @@ define dso_local range(i32 -22, 1) i32 @vm_map_pages(ptr noundef %0, ptr noundef
   %18 = phi i64 [ %28, %25 ], [ 0, %15 ]
   %19 = phi i32 [ %27, %25 ], [ 0, %15 ]
   %20 = phi i64 [ %26, %25 ], [ %8, %15 ]
-  %21 = getelementptr ptr, ptr %16, i64 %18
+  %21 = getelementptr [8 x i8], ptr %16, i64 %18
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @vm_insert_page(ptr noundef %0, i64 noundef %20, ptr noundef %22)
   %24 = icmp slt i32 %23, 0
@@ -5004,7 +4993,7 @@ define dso_local range(i32 -22, 1) i32 @vm_map_pages_zero(ptr noundef %0, ptr no
   %14 = phi i64 [ %24, %21 ], [ 0, %12 ]
   %15 = phi i32 [ %23, %21 ], [ 0, %12 ]
   %16 = phi i64 [ %22, %21 ], [ %6, %12 ]
-  %17 = getelementptr ptr, ptr %1, i64 %14
+  %17 = getelementptr [8 x i8], ptr %1, i64 %14
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @vm_insert_page(ptr noundef %0, i64 noundef %16, ptr noundef %18)
   %20 = icmp slt i32 %19, 0
@@ -5094,14 +5083,14 @@ define dso_local noundef range(i32 1, 257) i32 @vmf_insert_pfn_prot(ptr noundef 
   br i1 %33, label %41, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr ptr, ptr %32, i64 %26
+  %35 = getelementptr [8 x i8], ptr %32, i64 %26
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %34
   %39 = and i64 %20, 255
-  %40 = getelementptr %struct.mem_section, ptr %36, i64 %39
+  %40 = getelementptr [16 x i8], ptr %36, i64 %39
   br label %41
 
 41:                                               ; preds = %38, %34, %31, %28
@@ -5520,7 +5509,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   %52 = zext nneg i32 %51 to i64
   %53 = lshr i64 %1, %52
   %54 = and i64 %53, 511
-  %55 = getelementptr %struct.pgd_t, ptr %50, i64 %54
+  %55 = getelementptr [8 x i8], ptr %50, i64 %54
   %56 = add i64 %11, -1
   %57 = icmp ne i64 %.fr, 0
   %58 = and i64 %.fr, 1
@@ -5570,7 +5559,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   %88 = add i32 %87, -1
   %89 = zext i32 %88 to i64
   %90 = and i64 %86, %89
-  %91 = getelementptr %struct.p4d_t, ptr %85, i64 %90
+  %91 = getelementptr [8 x i8], ptr %85, i64 %90
   br label %92
 
 92:                                               ; preds = %80, %79
@@ -5612,7 +5601,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   %115 = inttoptr i64 %114 to ptr
   %116 = lshr i64 %98, 30
   %117 = and i64 %116, 511
-  %118 = getelementptr %struct.pud_t, ptr %115, i64 %117
+  %118 = getelementptr [8 x i8], ptr %115, i64 %117
   %119 = icmp eq ptr %118, null
   br i1 %119, label %.thread27, label %.split40.us.us.us
 
@@ -5653,7 +5642,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   %143 = inttoptr i64 %142 to ptr
   %144 = lshr i64 %123, 21
   %145 = and i64 %144, 511
-  %146 = getelementptr %struct.pmd_t, ptr %143, i64 %145
+  %146 = getelementptr [8 x i8], ptr %143, i64 %145
   %147 = icmp eq ptr %146, null
   br i1 %147, label %.thread27, label %.split36.us.us.us.us
 
@@ -5788,7 +5777,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   %221 = add i32 %220, -1
   %222 = zext i32 %221 to i64
   %223 = and i64 %219, %222
-  %224 = getelementptr %struct.p4d_t, ptr %218, i64 %223
+  %224 = getelementptr [8 x i8], ptr %218, i64 %223
   br label %225
 
 225:                                              ; preds = %213, %212
@@ -5830,7 +5819,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   %248 = inttoptr i64 %247 to ptr
   %249 = lshr i64 %231, 30
   %250 = and i64 %249, 511
-  %251 = getelementptr %struct.pud_t, ptr %248, i64 %250
+  %251 = getelementptr [8 x i8], ptr %248, i64 %250
   %252 = icmp eq ptr %251, null
   br i1 %252, label %.thread27, label %.split40
 
@@ -5871,7 +5860,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   %276 = inttoptr i64 %275 to ptr
   %277 = lshr i64 %256, 21
   %278 = and i64 %277, 511
-  %279 = getelementptr %struct.pmd_t, ptr %276, i64 %278
+  %279 = getelementptr [8 x i8], ptr %276, i64 %278
   %280 = icmp eq ptr %279, null
   br i1 %280, label %.thread27, label %.split36
 
@@ -6101,7 +6090,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %16 = zext nneg i32 %15 to i64
   %17 = lshr i64 %1, %16
   %18 = and i64 %17, 511
-  %19 = getelementptr %struct.pgd_t, ptr %14, i64 %18
+  %19 = getelementptr [8 x i8], ptr %14, i64 %18
   %20 = add i64 %9, -1
   %21 = icmp eq ptr %0, @init_mm
   %22 = icmp eq ptr %3, null
@@ -6189,7 +6178,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %61 = add i32 %60, -1
   %62 = zext i32 %61 to i64
   %63 = and i64 %59, %62
-  %64 = getelementptr %struct.p4d_t, ptr %58, i64 %63
+  %64 = getelementptr [8 x i8], ptr %58, i64 %63
   br label %65
 
 65:                                               ; preds = %53, %52
@@ -6212,7 +6201,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %77 = add i32 %76, -1
   %78 = zext i32 %77 to i64
   %79 = and i64 %75, %78
-  %80 = getelementptr %struct.p4d_t, ptr %74, i64 %79
+  %80 = getelementptr [8 x i8], ptr %74, i64 %79
   br label %81
 
 81:                                               ; preds = %69, %68, %65
@@ -6276,7 +6265,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %114 = inttoptr i64 %113 to ptr
   %115 = lshr i64 %86, 30
   %116 = and i64 %115, 511
-  %117 = getelementptr %struct.pud_t, ptr %114, i64 %116
+  %117 = getelementptr [8 x i8], ptr %114, i64 %116
   %118 = icmp eq ptr %117, null
   br i1 %118, label %.thread37, label %127
 
@@ -6287,7 +6276,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %123 = inttoptr i64 %122 to ptr
   %124 = lshr i64 %86, 30
   %125 = and i64 %124, 511
-  %126 = getelementptr %struct.pud_t, ptr %123, i64 %125
+  %126 = getelementptr [8 x i8], ptr %123, i64 %125
   br label %127
 
 127:                                              ; preds = %119, %109
@@ -6388,7 +6377,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %178 = inttoptr i64 %177 to ptr
   %179 = lshr i64 %132, 21
   %180 = and i64 %179, 511
-  %181 = getelementptr %struct.pmd_t, ptr %178, i64 %180
+  %181 = getelementptr [8 x i8], ptr %178, i64 %180
   %182 = icmp eq ptr %181, null
   br i1 %182, label %.thread37, label %194
 
@@ -6402,7 +6391,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %190 = inttoptr i64 %189 to ptr
   %191 = lshr i64 %132, 21
   %192 = and i64 %191, 511
-  %193 = getelementptr %struct.pmd_t, ptr %190, i64 %192
+  %193 = getelementptr [8 x i8], ptr %190, i64 %192
   br label %194
 
 194:                                              ; preds = %183, %170
@@ -6487,7 +6476,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %235 = inttoptr i64 %234 to ptr
   %236 = lshr i64 %199, 12
   %237 = and i64 %236, 511
-  %238 = getelementptr %struct.pte_t, ptr %235, i64 %237
+  %238 = getelementptr [8 x i8], ptr %235, i64 %237
   br label %245
 
 239:                                              ; preds = %219
@@ -6521,7 +6510,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %257 = inttoptr i64 %256 to ptr
   %258 = lshr i64 %199, 12
   %259 = and i64 %258, 511
-  %260 = getelementptr %struct.pte_t, ptr %257, i64 %259
+  %260 = getelementptr [8 x i8], ptr %257, i64 %259
   br label %263
 
 261:                                              ; preds = %248
@@ -6857,7 +6846,7 @@ define dso_local i32 @do_swap_page(ptr noundef initializes((88, 96)) %0) local_u
 
 55:                                               ; preds = %45, %49
   %56 = phi i64 [ %54, %49 ], [ 0, %45 ]
-  %57 = getelementptr %struct.page, ptr %43, i64 %56
+  %57 = getelementptr [64 x i8], ptr %43, i64 %56
   br label %121
 
 58:                                               ; preds = %40
@@ -7605,7 +7594,7 @@ define internal fastcc ptr @pfn_swap_entry_to_page(i64 range(i64 0, 893626756060
 5:                                                ; preds = %4, %1, %1
   %6 = phi i64 [ 17179869183, %4 ], [ 1099511627775, %1 ], [ 1099511627775, %1 ]
   %7 = and i64 %6, %0
-  %8 = getelementptr %struct.page, ptr %3, i64 %7
+  %8 = getelementptr [64 x i8], ptr %3, i64 %7
   %9 = and i64 %0, 8646911284551352320
   %10 = icmp ne i64 %9, 8070450532247928832
   %.mask = and i64 %0, 8935141660703064064
@@ -7888,7 +7877,7 @@ define internal fastcc i32 @do_wp_page(ptr noundef initializes((80, 88)) %0) unn
 54:                                               ; preds = %51
   %55 = load i64, ptr @vmemmap_base, align 8
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr %struct.page, ptr %56, i64 %28
+  %57 = getelementptr [64 x i8], ptr %56, i64 %28
   br label %vm_normal_page.exit
 
 vm_normal_page.exit.thread.sink.split:            ; preds = %51, %41
@@ -8763,7 +8752,7 @@ vm_normal_page.exit:                              ; preds = %39, %54
   %581 = select i1 %580, i32 0, i32 3
   %582 = getelementptr inbounds nuw i8, ptr %363, i64 824
   %583 = zext nneg i32 %581 to i64
-  %584 = getelementptr %struct.percpu_counter, ptr %582, i64 %583
+  %584 = getelementptr [40 x i8], ptr %582, i64 %583
   %585 = load i32, ptr @percpu_counter_batch, align 4
   call void @percpu_counter_add_batch(ptr noundef %584, i64 noundef -1, i32 noundef %585) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rss_stat, i64 8), i32 2) #18
@@ -9298,7 +9287,7 @@ define dso_local void @set_pte_range(ptr noundef readonly captures(none) %0, ptr
   %112 = select i1 %111, i32 0, i32 3
   %113 = getelementptr inbounds nuw i8, ptr %83, i64 824
   %114 = zext nneg i32 %112 to i64
-  %115 = getelementptr %struct.percpu_counter, ptr %113, i64 %114
+  %115 = getelementptr [40 x i8], ptr %113, i64 %114
   %116 = load i32, ptr @percpu_counter_batch, align 4
   tail call void @percpu_counter_add_batch(ptr noundef %115, i64 noundef %12, i32 noundef %116) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rss_stat, i64 8), i32 2) #18
@@ -9494,7 +9483,7 @@ define dso_local range(i32 0, 257) i32 @finish_fault(ptr noundef %0) local_unnam
   %46 = select i1 %42, i64 %43, i64 %45
   %47 = add i64 %41, %46
   %48 = lshr i64 %47, 12
-  %.split = getelementptr %struct.page, ptr %38, i64 %48
+  %.split = getelementptr [64 x i8], ptr %38, i64 %48
   %49 = getelementptr i8, ptr %.split, i64 40
   tail call void @_raw_spin_lock(ptr noundef %49) #18
   %50 = load i64, ptr %26, align 8
@@ -9850,7 +9839,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   %128 = zext nneg i32 %127 to i64
   %129 = lshr i64 %1, %128
   %130 = and i64 %129, 511
-  %131 = getelementptr %struct.pgd_t, ptr %126, i64 %130
+  %131 = getelementptr [8 x i8], ptr %126, i64 %130
   %132 = load i64, ptr %131, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #18
           to label %133 [label %133, label %138], !srcloc !15
@@ -9879,7 +9868,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   %147 = add i32 %146, -1
   %148 = zext i32 %147 to i64
   %149 = and i64 %145, %148
-  %150 = getelementptr %struct.p4d_t, ptr %144, i64 %149
+  %150 = getelementptr [8 x i8], ptr %144, i64 %149
   br label %151
 
 151:                                              ; preds = %139, %138
@@ -9910,7 +9899,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   %166 = inttoptr i64 %165 to ptr
   %167 = lshr i64 %1, 30
   %168 = and i64 %167, 511
-  %169 = getelementptr %struct.pud_t, ptr %166, i64 %168
+  %169 = getelementptr [8 x i8], ptr %166, i64 %168
   store ptr %169, ptr %117, align 8
   %170 = icmp eq ptr %169, null
   br i1 %170, label %.thread23, label %171
@@ -9942,7 +9931,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   %186 = inttoptr i64 %185 to ptr
   %187 = lshr i64 %1, 21
   %188 = and i64 %187, 511
-  %189 = getelementptr %struct.pmd_t, ptr %186, i64 %188
+  %189 = getelementptr [8 x i8], ptr %186, i64 %188
   store ptr %189, ptr %116, align 8
   %190 = icmp eq ptr %189, null
   br i1 %190, label %.thread23, label %191
@@ -10244,7 +10233,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   br i1 %373, label %.thread29, label %374, !llvm.loop !199
 
 374:                                              ; preds = %.preheader60
-  %375 = getelementptr %struct.pte_t, ptr %349, i64 %372
+  %375 = getelementptr [8 x i8], ptr %349, i64 %372
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %376 = load volatile i64, ptr %375, align 8
   store volatile i64 %376, ptr %8, align 8
@@ -10856,7 +10845,7 @@ define dso_local i32 @handle_mm_fault(ptr noundef %0, i64 noundef %1, i32 nounde
   %738 = phi i32 [ %736, %734 ], [ 1, %727 ]
   %739 = sub i32 0, %738
   %740 = lshr i64 %731, 58
-  %741 = getelementptr ptr, ptr @node_data, i64 %740
+  %741 = getelementptr [8 x i8], ptr @node_data, i64 %740
   %742 = load ptr, ptr %741, align 8
   %743 = sext i32 %739 to i64
   call void @mod_node_page_state(ptr noundef %742, i32 noundef 38, i64 noundef %743) #18
@@ -11463,7 +11452,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pud_alloc(ptr noundef %0, ptr 
 21:                                               ; preds = %10, %17
   %22 = phi i64 [ %20, %17 ], [ 1, %10 ]
   %23 = lshr i64 %14, 58
-  %24 = getelementptr ptr, ptr @node_data, i64 %23
+  %24 = getelementptr [8 x i8], ptr @node_data, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void @mod_node_page_state(ptr noundef %25, i32 noundef 38, i64 noundef %22) #18
   %26 = load i64, ptr @vmemmap_base, align 8
@@ -11537,7 +11526,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pud_alloc(ptr noundef %0, ptr 
   %63 = select i1 %59, i64 %60, i64 %62
   %64 = add i64 %58, %63
   %65 = lshr i64 %64, 12
-  %66 = getelementptr %struct.page, ptr %57, i64 %65
+  %66 = getelementptr [64 x i8], ptr %57, i64 %65
   %67 = and i64 %31, 4095
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %70, label %69, !prof !13
@@ -11566,7 +11555,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pud_alloc(ptr noundef %0, ptr 
   %81 = phi i32 [ %79, %77 ], [ 1, %70 ]
   %82 = sub i32 0, %81
   %83 = lshr i64 %74, 58
-  %84 = getelementptr ptr, ptr @node_data, i64 %83
+  %84 = getelementptr [8 x i8], ptr @node_data, i64 %83
   %85 = load ptr, ptr %84, align 8
   %86 = sext i32 %82 to i64
   tail call void @mod_node_page_state(ptr noundef %85, i32 noundef 38, i64 noundef %86) #18
@@ -11626,7 +11615,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pmd_alloc(ptr noundef %0, ptr 
 21:                                               ; preds = %9, %17
   %22 = phi i64 [ %20, %17 ], [ 1, %9 ]
   %23 = lshr i64 %14, 58
-  %24 = getelementptr ptr, ptr @node_data, i64 %23
+  %24 = getelementptr [8 x i8], ptr @node_data, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void @mod_node_page_state(ptr noundef %25, i32 noundef 38, i64 noundef %22) #18
   %26 = load i64, ptr @vmemmap_base, align 8
@@ -11676,7 +11665,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pmd_alloc(ptr noundef %0, ptr 
   %56 = select i1 %52, i64 %53, i64 %55
   %57 = add i64 %51, %56
   %58 = lshr i64 %57, 12
-  %59 = getelementptr %struct.page, ptr %50, i64 %58
+  %59 = getelementptr [64 x i8], ptr %50, i64 %58
   %60 = and i64 %31, 4095
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %63, label %62, !prof !13
@@ -11705,7 +11694,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__pmd_alloc(ptr noundef %0, ptr 
   %74 = phi i32 [ %72, %70 ], [ 1, %63 ]
   %75 = sub i32 0, %74
   %76 = lshr i64 %67, 58
-  %77 = getelementptr ptr, ptr @node_data, i64 %76
+  %77 = getelementptr [8 x i8], ptr @node_data, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = sext i32 %75 to i64
   tail call void @mod_node_page_state(ptr noundef %78, i32 noundef 38, i64 noundef %79) #18
@@ -11744,7 +11733,7 @@ define dso_local noundef range(i32 -22, 1) i32 @follow_pte(ptr noundef %0, i64 n
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i64 %1, %9
   %11 = and i64 %10, 511
-  %12 = getelementptr %struct.pgd_t, ptr %7, i64 %11
+  %12 = getelementptr [8 x i8], ptr %7, i64 %11
   %13 = load i64, ptr %12, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #18
           to label %14 [label %14, label %16], !srcloc !15
@@ -11778,7 +11767,7 @@ define dso_local noundef range(i32 -22, 1) i32 @follow_pte(ptr noundef %0, i64 n
   %30 = add i32 %29, -1
   %31 = zext i32 %30 to i64
   %32 = and i64 %28, %31
-  %33 = getelementptr %struct.p4d_t, ptr %27, i64 %32
+  %33 = getelementptr [8 x i8], ptr %27, i64 %32
   br label %34
 
 34:                                               ; preds = %22, %21
@@ -11798,7 +11787,7 @@ define dso_local noundef range(i32 -22, 1) i32 @follow_pte(ptr noundef %0, i64 n
   %46 = inttoptr i64 %45 to ptr
   %47 = lshr i64 %1, 30
   %48 = and i64 %47, 511
-  %49 = getelementptr %struct.pud_t, ptr %46, i64 %48
+  %49 = getelementptr [8 x i8], ptr %46, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, -97
   %52 = icmp eq i64 %51, 0
@@ -11819,7 +11808,7 @@ define dso_local noundef range(i32 -22, 1) i32 @follow_pte(ptr noundef %0, i64 n
   %63 = inttoptr i64 %62 to ptr
   %64 = lshr i64 %1, 21
   %65 = and i64 %64, 511
-  %66 = getelementptr %struct.pmd_t, ptr %63, i64 %65
+  %66 = getelementptr [8 x i8], ptr %63, i64 %65
   %67 = tail call ptr @__pte_offset_map_lock(ptr noundef %0, ptr noundef %66, i64 noundef %1, ptr noundef %3) #18
   %68 = icmp eq ptr %67, null
   br i1 %68, label %76, label %69
@@ -12541,7 +12530,7 @@ define dso_local void @clear_huge_page(ptr noundef %0, i64 noundef %1, i32 nound
   %21 = phi i64 [ %7, %18 ], [ %22, %20 ]
   %22 = add nsw i64 %21, -1
   %23 = tail call i32 @__SCT__cond_resched() #18
-  %24 = getelementptr %struct.page, ptr %0, i64 %22
+  %24 = getelementptr [64 x i8], ptr %0, i64 %22
   %25 = load i64, ptr @vmemmap_base, align 8
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %26, %25
@@ -12606,7 +12595,7 @@ define dso_local void @clear_huge_page(ptr noundef %0, i64 noundef %1, i32 nound
   %71 = add i32 %62, %70
   %72 = tail call i32 @__SCT__cond_resched() #18
   %73 = sext i32 %71 to i64
-  %74 = getelementptr %struct.page, ptr %0, i64 %73
+  %74 = getelementptr [64 x i8], ptr %0, i64 %73
   %75 = load i64, ptr @vmemmap_base, align 8
   %76 = ptrtoint ptr %74 to i64
   %77 = sub i64 %76, %75
@@ -12622,7 +12611,7 @@ define dso_local void @clear_huge_page(ptr noundef %0, i64 noundef %1, i32 nound
   %86 = add i32 %66, %85
   %87 = tail call i32 @__SCT__cond_resched() #18
   %88 = sext i32 %86 to i64
-  %89 = getelementptr %struct.page, ptr %0, i64 %88
+  %89 = getelementptr [64 x i8], ptr %0, i64 %88
   %90 = load i64, ptr @vmemmap_base, align 8
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %91, %90
@@ -12650,7 +12639,7 @@ define internal fastcc void @clear_gigantic_page(ptr noundef %0, i32 noundef ran
 4:                                                ; preds = %2, %4
   %5 = phi i32 [ %19, %4 ], [ 0, %2 ]
   %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct.page, ptr %0, i64 %6
+  %7 = getelementptr [64 x i8], ptr %0, i64 %6
   %8 = tail call i32 @__SCT__cond_resched() #18
   %9 = load i64, ptr @vmemmap_base, align 8
   %10 = ptrtoint ptr %7 to i64
@@ -12714,8 +12703,8 @@ define dso_local range(i32 -133, 1) i32 @copy_user_large_folio(ptr noundef %0, p
 30:                                               ; preds = %27
   %31 = add nsw i64 %28, -1
   %32 = tail call i32 @__SCT__cond_resched() #18
-  %33 = getelementptr %struct.page, ptr %0, i64 %31
-  %34 = getelementptr %struct.page, ptr %1, i64 %31
+  %33 = getelementptr [64 x i8], ptr %0, i64 %31
+  %34 = getelementptr [64 x i8], ptr %1, i64 %31
   %35 = load i64, ptr @vmemmap_base, align 8
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %36, %35
@@ -12754,8 +12743,8 @@ define dso_local range(i32 -133, 1) i32 @copy_user_large_folio(ptr noundef %0, p
   %62 = tail call i32 @__SCT__cond_resched() #18
   %63 = shl i64 %61, 32
   %64 = ashr exact i64 %63, 32
-  %65 = getelementptr %struct.page, ptr %0, i64 %64
-  %66 = getelementptr %struct.page, ptr %1, i64 %64
+  %65 = getelementptr [64 x i8], ptr %0, i64 %64
+  %66 = getelementptr [64 x i8], ptr %1, i64 %64
   %67 = load i64, ptr @vmemmap_base, align 8
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %68, %67
@@ -12796,8 +12785,8 @@ define dso_local range(i32 -133, 1) i32 @copy_user_large_folio(ptr noundef %0, p
   %95 = add i32 %83, %94
   %96 = tail call i32 @__SCT__cond_resched() #18
   %97 = sext i32 %95 to i64
-  %98 = getelementptr %struct.page, ptr %0, i64 %97
-  %99 = getelementptr %struct.page, ptr %1, i64 %97
+  %98 = getelementptr [64 x i8], ptr %0, i64 %97
+  %99 = getelementptr [64 x i8], ptr %1, i64 %97
   %100 = load i64, ptr @vmemmap_base, align 8
   %101 = ptrtoint ptr %99 to i64
   %102 = sub i64 %101, %100
@@ -12820,8 +12809,8 @@ define dso_local range(i32 -133, 1) i32 @copy_user_large_folio(ptr noundef %0, p
   %117 = add i32 %87, %116
   %118 = tail call i32 @__SCT__cond_resched() #18
   %119 = sext i32 %117 to i64
-  %120 = getelementptr %struct.page, ptr %0, i64 %119
-  %121 = getelementptr %struct.page, ptr %1, i64 %119
+  %120 = getelementptr [64 x i8], ptr %0, i64 %119
+  %121 = getelementptr [64 x i8], ptr %1, i64 %119
   %122 = load i64, ptr @vmemmap_base, align 8
   %123 = ptrtoint ptr %121 to i64
   %124 = sub i64 %123, %122
@@ -12856,8 +12845,8 @@ define internal fastcc noundef range(i32 -133, 1) i32 @copy_user_gigantic_page(p
 7:                                                ; preds = %3, %4
   %8 = phi i32 [ %5, %4 ], [ 0, %3 ]
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %struct.page, ptr %0, i64 %9
-  %11 = getelementptr %struct.page, ptr %1, i64 %9
+  %10 = getelementptr [64 x i8], ptr %0, i64 %9
+  %11 = getelementptr [64 x i8], ptr %1, i64 %9
   %12 = tail call i32 @__SCT__cond_resched() #18
   %13 = load i64, ptr @vmemmap_base, align 8
   %14 = ptrtoint ptr %11 to i64
@@ -12904,7 +12893,7 @@ define dso_local i64 @copy_folio_from_user(ptr noundef %0, ptr noundef %1, i1 no
 .thread.us:                                       ; preds = %.preheader, %31
   %15 = phi i64 [ %29, %31 ], [ %13, %.preheader ]
   %16 = phi i64 [ %33, %31 ], [ 0, %.preheader ]
-  %17 = getelementptr %struct.page, ptr %0, i64 %16
+  %17 = getelementptr [64 x i8], ptr %0, i64 %16
   %18 = load i64, ptr @vmemmap_base, align 8
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %19, %18
@@ -12935,7 +12924,7 @@ define dso_local i64 @copy_folio_from_user(ptr noundef %0, ptr noundef %1, i1 no
 38:                                               ; preds = %.preheader.split, %59
   %39 = phi i64 [ %57, %59 ], [ %13, %.preheader.split ]
   %40 = phi i64 [ %61, %59 ], [ 0, %.preheader.split ]
-  %41 = getelementptr %struct.page, ptr %0, i64 %40
+  %41 = getelementptr [64 x i8], ptr %0, i64 %40
   %42 = load i64, ptr @vmemmap_base, align 8
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %43, %42
@@ -13317,7 +13306,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @insert_page_into_pte_locke
   %68 = select i1 %67, i32 0, i32 3
   %69 = getelementptr inbounds nuw i8, ptr %39, i64 824
   %70 = zext nneg i32 %68 to i64
-  %71 = getelementptr %struct.percpu_counter, ptr %69, i64 %70
+  %71 = getelementptr [40 x i8], ptr %69, i64 %70
   %72 = load i32, ptr @percpu_counter_batch, align 4
   tail call void @percpu_counter_add_batch(ptr noundef %71, i64 noundef 1, i32 noundef %72) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rss_stat, i64 8), i32 2) #18

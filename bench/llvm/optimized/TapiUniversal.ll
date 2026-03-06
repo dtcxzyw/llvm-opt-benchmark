@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected" = type { %union.anon, i8, [7 x i8] }
 %union.anon = type { %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [8 x i8] }
-%"struct.llvm::object::TapiUniversal::Library" = type <{ %"class.llvm::StringRef", i8, [7 x i8] }>
 %"class.llvm::Expected.41" = type { %union.anon.42, i8, [7 x i8] }
 %union.anon.42 = type { %"struct.llvm::AlignedCharArrayUnion.43" }
 %"struct.llvm::AlignedCharArrayUnion.43" = type { [8 x i8] }
@@ -183,7 +182,7 @@ _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %57, %_ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %52, ptr %6, align 8, !tbaa !37
   store ptr %56, ptr %31, align 8, !tbaa !29
-  %58 = getelementptr inbounds nuw %"struct.llvm::object::TapiUniversal::Library", ptr %52, i64 %50
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %50
   store ptr %58, ptr %32, align 8, !tbaa !32
   br label %.preheader.i.i.i
 
@@ -338,7 +337,7 @@ _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i41: ; preds = %115, %_ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i38
   store ptr %110, ptr %6, align 8, !tbaa !37
   store ptr %114, ptr %72, align 8, !tbaa !29
-  %116 = getelementptr inbounds nuw %"struct.llvm::object::TapiUniversal::Library", ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %110, i64 %108
   store ptr %116, ptr %73, align 8, !tbaa !32
   br label %.preheader.i.i.i19
 
@@ -475,7 +474,7 @@ _ZNSt10unique_ptrIN4llvm6object8TapiFileESt14default_deleteIS2_EED2Ev.exit:
   %9 = load i32, ptr %8, align 8, !tbaa !58
   %10 = sext i32 %9 to i64
   %11 = load ptr, ptr %7, align 8, !tbaa !37
-  %12 = getelementptr inbounds nuw %"struct.llvm::object::TapiUniversal::Library", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17, !noalias !59
   %15 = load i8, ptr %13, align 1, !tbaa !35, !noalias !59

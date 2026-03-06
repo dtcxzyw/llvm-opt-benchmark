@@ -790,7 +790,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288: ; preds = %_Z
   br i1 %252, label %253, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
 
 253:                                              ; preds = %251
-  %254 = getelementptr inbounds nuw %"class.std::vector.14", ptr %243, i64 %241
+  %254 = getelementptr inbounds nuw [24 x i8], ptr %243, i64 %241
   %.not.i.i295 = icmp eq ptr %242, %254
   br i1 %.not.i.i295, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i296
 
@@ -843,7 +843,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt8_DestroyIPSt6v
   br i1 %276, label %277, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit311
 
 277:                                              ; preds = %275
-  %278 = getelementptr inbounds nuw %"class.std::vector.14", ptr %267, i64 %265
+  %278 = getelementptr inbounds nuw [24 x i8], ptr %267, i64 %265
   %.not.i.i303 = icmp eq ptr %266, %278
   br i1 %.not.i.i303, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit311, label %.lr.ph.i.i.i.i304
 
@@ -896,7 +896,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit311: ; preds = %_ZSt8_DestroyIPSt6v
   br i1 %300, label %301, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit320
 
 301:                                              ; preds = %299
-  %302 = getelementptr inbounds nuw %"class.std::vector.14", ptr %291, i64 %289
+  %302 = getelementptr inbounds nuw [24 x i8], ptr %291, i64 %289
   %.not.i.i312 = icmp eq ptr %290, %302
   br i1 %.not.i.i312, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit320, label %.lr.ph.i.i.i.i313
 
@@ -946,7 +946,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit320: ; preds = %_ZSt8_DestroyIPSt6v
   br i1 %323, label %324, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
 324:                                              ; preds = %322
-  %325 = getelementptr inbounds nuw %"class.std::vector.19", ptr %314, i64 %312
+  %325 = getelementptr inbounds nuw [24 x i8], ptr %314, i64 %312
   %.not.i.i321 = icmp eq ptr %313, %325
   br i1 %.not.i.i321, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i322
 
@@ -1025,7 +1025,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:  ; preds = %341
   store double %350, ptr %351, align 8, !tbaa !38
   %352 = sext i32 %.085428 to i64
   %353 = load ptr, ptr %1, align 8, !tbaa !12
-  %354 = getelementptr inbounds nuw %"class.std::vector.14", ptr %353, i64 %352
+  %354 = getelementptr inbounds nuw [24 x i8], ptr %353, i64 %352
   %355 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %354, ptr noundef nonnull align 8 dereferenceable(24) %31)
           to label %356 unwind label %374
 
@@ -1052,7 +1052,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i377: ; preds = %356
   %363 = getelementptr inbounds nuw i8, ptr %357, i64 16
   store double %362, ptr %363, align 8, !tbaa !38
   %364 = load ptr, ptr %3, align 8, !tbaa !12
-  %365 = getelementptr inbounds nuw %"class.std::vector.14", ptr %364, i64 %352
+  %365 = getelementptr inbounds nuw [24 x i8], ptr %364, i64 %352
   %366 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %365, ptr noundef nonnull align 8 dereferenceable(24) %32)
           to label %367 unwind label %376
 
@@ -1102,7 +1102,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit336:                 ; preds = %376, %379
 
 385:                                              ; preds = %384
   %386 = load ptr, ptr %4, align 8, !tbaa !12
-  %387 = getelementptr inbounds nuw %"class.std::vector.14", ptr %386, i64 %352
+  %387 = getelementptr inbounds nuw [24 x i8], ptr %386, i64 %352
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load ptr, ptr %388, align 8, !tbaa !37
   %390 = load ptr, ptr %387, align 8, !tbaa !16
@@ -1120,7 +1120,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit336:                 ; preds = %376, %379
 
 ._ZNSt6vectorIdSaIdEE6resizeEm.exit340_crit_edge: ; preds = %396
   %.pre434 = load ptr, ptr %4, align 8, !tbaa !12
-  %.phi.trans.insert = getelementptr inbounds nuw %"class.std::vector.14", ptr %.pre434, i64 %352
+  %.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre434, i64 %352
   %.pre435 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !16
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit340
 
@@ -1366,9 +1366,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i: ; preds = %485, %_ZSt27__
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %486, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i
   store ptr %479, ptr %34, align 8, !tbaa !26
-  %488 = getelementptr inbounds nuw i32, ptr %480, i64 %460
+  %488 = getelementptr inbounds nuw [4 x i8], ptr %480, i64 %460
   store ptr %488, ptr %339, align 8, !tbaa !41
-  %489 = getelementptr inbounds nuw i32, ptr %479, i64 %477
+  %489 = getelementptr inbounds nuw [4 x i8], ptr %479, i64 %477
   store ptr %489, ptr %340, align 8, !tbaa !29
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -1377,7 +1377,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %486, %_ZNSt6
   br i1 %491, label %492, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 492:                                              ; preds = %490
-  %493 = getelementptr inbounds nuw i32, ptr %453, i64 %451
+  %493 = getelementptr inbounds nuw [4 x i8], ptr %453, i64 %451
   %.not.i.i345 = icmp eq ptr %452, %493
   br i1 %.not.i.i345, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i
 
@@ -1393,7 +1393,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZSt27__uninitializ
 ._crit_edge:                                      ; preds = %508, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %496 = sext i32 %.084 to i64
   %497 = load ptr, ptr %2, align 8, !tbaa !22
-  %498 = getelementptr inbounds nuw %"class.std::vector.19", ptr %497, i64 %496
+  %498 = getelementptr inbounds nuw [24 x i8], ptr %497, i64 %496
   %499 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %498, ptr noundef nonnull align 8 dereferenceable(24) %34)
           to label %515 unwind label %.loopexit
 
@@ -1427,7 +1427,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZSt27__uninitializ
 508:                                              ; preds = %.lr.ph430
   %509 = load i32, ptr %36, align 4, !tbaa !35
   %510 = load ptr, ptr %34, align 8, !tbaa !26
-  %511 = getelementptr inbounds nuw i32, ptr %510, i64 %indvars.iv
+  %511 = getelementptr inbounds nuw [4 x i8], ptr %510, i64 %indvars.iv
   store i32 %509, ptr %511, align 4, !tbaa !35
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3819,9 +3819,9 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !12
-  %42 = getelementptr inbounds nuw %"class.std::vector.14", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !15
-  %43 = getelementptr inbounds nuw %"class.std::vector.14", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !44
   br label %44
 
@@ -3928,9 +3928,9 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !22
-  %42 = getelementptr inbounds nuw %"class.std::vector.19", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !25
-  %43 = getelementptr inbounds nuw %"class.std::vector.19", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !45
   br label %44
 
@@ -4027,9 +4027,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !16
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !37
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !19
   br label %41
 

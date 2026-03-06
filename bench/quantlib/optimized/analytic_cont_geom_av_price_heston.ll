@@ -2106,7 +2106,7 @@ _ZNSt3mapIiSt7complexIdESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit: ; preds = 
 
 if.then40:                                        ; preds = %_ZNSt3mapIiSt7complexIdESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit
   %second = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 40
-  %19 = getelementptr %"class.std::complex", ptr %fMinusN, i64 %indvars.iv
+  %19 = getelementptr [16 x i8], ptr %fMinusN, i64 %indvars.iv
   %arrayidx = getelementptr i8, ptr %19, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, ptr noundef nonnull align 8 dereferenceable(16) %second, i64 16, i1 false)
   br label %if.end50
@@ -2116,7 +2116,7 @@ if.else43:                                        ; preds = %_ZNSt8_Rb_treeIiSt4
   %call45 = tail call { double, double } @_ZNK8QuantLib56AnalyticContinuousGeometricAveragePriceAsianHestonEngine1fERKSt7complexIdES4_S4_S4_id(ptr noundef nonnull align 8 dereferenceable(584) %this, ptr noundef nonnull align 8 dereferenceable(16) %z1, ptr noundef nonnull align 8 dereferenceable(16) %z2, ptr noundef nonnull align 8 dereferenceable(16) %z3, ptr noundef nonnull align 8 dereferenceable(16) %z4, i32 noundef %20, double noundef %tau)
   %21 = extractvalue { double, double } %call45, 0
   %22 = extractvalue { double, double } %call45, 1
-  %23 = getelementptr %"class.std::complex", ptr %fMinusN, i64 %indvars.iv
+  %23 = getelementptr [16 x i8], ptr %fMinusN, i64 %indvars.iv
   %arrayidx49 = getelementptr i8, ptr %23, i64 -16
   store double %21, ptr %arrayidx49, align 16
   %ref.tmp44.sroa.4.0.arrayidx49.sroa_idx = getelementptr i8, ptr %23, i64 -8
@@ -3606,10 +3606,10 @@ for.body.i:                                       ; preds = %call6.i.noexc, %for
   %sum.07.i = phi double [ 0.000000e+00, %for.body.lr.ph.i ], [ %128, %call6.i.noexc ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %124 = load ptr, ptr %w_.i, align 8, !tbaa !3
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv.next.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv.next.i
   %125 = load double, ptr %arrayidx.i.i, align 8, !tbaa !113
   %126 = load ptr, ptr %integrator_, align 8, !tbaa !3
-  %arrayidx.i5.i = getelementptr inbounds nuw double, ptr %126, i64 %indvars.iv.next.i
+  %arrayidx.i5.i = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv.next.i
   %127 = load double, ptr %arrayidx.i5.i, align 8, !tbaa !113
   %call6.i257 = invoke noundef double @_ZNK8QuantLib56AnalyticContinuousGeometricAveragePriceAsianHestonEngine12DcfIntegrandclEd(ptr noundef nonnull align 8 dereferenceable(56) %dcfIntegrand, double noundef %127)
           to label %call6.i.noexc unwind label %lpad235
@@ -3722,10 +3722,10 @@ for.body.i265:                                    ; preds = %call6.i.noexc272, %
   %sum.07.i267 = phi double [ 0.000000e+00, %for.body.lr.ph.i263 ], [ %146, %call6.i.noexc272 ]
   %indvars.iv.next.i268 = add nsw i64 %indvars.iv.i266, -1
   %142 = load ptr, ptr %w_.i264, align 8, !tbaa !3
-  %arrayidx.i.i269 = getelementptr inbounds nuw double, ptr %142, i64 %indvars.iv.next.i268
+  %arrayidx.i.i269 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv.next.i268
   %143 = load double, ptr %arrayidx.i.i269, align 8, !tbaa !113
   %144 = load ptr, ptr %integrator_, align 8, !tbaa !3
-  %arrayidx.i5.i270 = getelementptr inbounds nuw double, ptr %144, i64 %indvars.iv.next.i268
+  %arrayidx.i5.i270 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv.next.i268
   %145 = load double, ptr %arrayidx.i5.i270, align 8, !tbaa !113
   %call6.i273 = invoke noundef double @_ZNK8QuantLib56AnalyticContinuousGeometricAveragePriceAsianHestonEngine9IntegrandclEd(ptr noundef nonnull align 8 dereferenceable(72) %integrand, double noundef %145)
           to label %call6.i.noexc272 unwind label %lpad303

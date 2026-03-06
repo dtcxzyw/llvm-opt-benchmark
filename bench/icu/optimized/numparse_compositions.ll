@@ -420,7 +420,7 @@ define noundef ptr @_ZNK6icu_778numparse4impl18ArraySeriesMatcher3endEv(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !29
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %3, i64 %6
   ret ptr %7
 }
 

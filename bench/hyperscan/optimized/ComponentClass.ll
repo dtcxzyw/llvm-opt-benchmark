@@ -1969,7 +1969,7 @@ define internal fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unw
 
 26:                                               ; preds = %25
   %27 = shl nsw i64 -1, %16
-  %28 = getelementptr inbounds nuw i64, ptr %0, i64 %13
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %13
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %29, %27
   store i64 %30, ptr %28, align 8
@@ -2013,7 +2013,7 @@ define internal fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unw
 .sink.split.i.i:                                  ; preds = %45, %20, %17
   %.sink42.i.i = phi i64 [ %48, %45 ], [ %13, %20 ], [ %13, %17 ]
   %.sink41.i.i = phi i64 [ %47, %45 ], [ %24, %20 ], [ %18, %17 ]
-  %49 = getelementptr inbounds nuw i64, ptr %0, i64 %.sink42.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sink42.i.i
   %50 = load i64, ptr %49, align 8
   %51 = or i64 %50, %.sink41.i.i
   store i64 %51, ptr %49, align 8

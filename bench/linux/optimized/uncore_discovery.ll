@@ -273,7 +273,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
 144:                                              ; preds = %150
   %145 = add i32 %152, 1
   %146 = sext i32 %145 to i64
-  %147 = getelementptr i32, ptr %0, i64 %146
+  %147 = getelementptr [4 x i8], ptr %0, i64 %146
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, -1
   br i1 %149, label %.loopexit41, label %150, !llvm.loop !9
@@ -338,7 +338,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
 182:                                              ; preds = %172
   %183 = getelementptr inbounds nuw i8, ptr %168, i64 40
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr i64, ptr %184, i64 %114
+  %185 = getelementptr [8 x i8], ptr %184, i64 %114
   %186 = load i64, ptr %185, align 8
   %187 = icmp eq i64 %186, 0
   br i1 %187, label %188, label %.thread38
@@ -396,7 +396,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   %216 = trunc nuw nsw i64 %215 to i32
   %217 = getelementptr inbounds nuw i8, ptr %201, i64 24
   store i32 %216, ptr %217, align 8
-  %218 = getelementptr i32, ptr @num_discovered_types, i64 %215
+  %218 = getelementptr [4 x i8], ptr @num_discovered_types, i64 %215
   %219 = load i32, ptr %218, align 4
   %220 = add i32 %219, 1
   store i32 %220, ptr %218, align 4
@@ -477,7 +477,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   store i64 %267, ptr %268, align 8
   %269 = getelementptr inbounds nuw i8, ptr %242, i64 40
   %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr i64, ptr %270, i64 %114
+  %271 = getelementptr [8 x i8], ptr %270, i64 %114
   store i64 %267, ptr %271, align 8
   %272 = load i64, ptr %3, align 8
   %273 = trunc i64 %272 to i8
@@ -504,14 +504,14 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
 287:                                              ; preds = %301, %260
   %288 = phi i64 [ 0, %260 ], [ %302, %301 ]
   %289 = load ptr, ptr %261, align 8
-  %290 = getelementptr i32, ptr %289, i64 %288
+  %290 = getelementptr [4 x i8], ptr %289, i64 %288
   %291 = load i32, ptr %290, align 4
-  %292 = getelementptr i32, ptr %255, i64 %288
+  %292 = getelementptr [4 x i8], ptr %255, i64 %288
   store i32 %291, ptr %292, align 4
   %293 = load ptr, ptr %262, align 8
-  %294 = getelementptr i64, ptr %293, i64 %288
+  %294 = getelementptr [8 x i8], ptr %293, i64 %288
   %295 = load i64, ptr %294, align 8
-  %296 = getelementptr i64, ptr %248, i64 %288
+  %296 = getelementptr [8 x i8], ptr %248, i64 %288
   store i64 %295, ptr %296, align 8
   %297 = icmp eq i32 %265, %291
   br i1 %297, label %298, label %301
@@ -530,13 +530,13 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   br i1 %305, label %287, label %306, !llvm.loop !13
 
 306:                                              ; preds = %301
-  %307 = getelementptr i32, ptr %255, i64 %302
+  %307 = getelementptr [4 x i8], ptr %255, i64 %302
   store i32 %265, ptr %307, align 4
   %308 = load i64, ptr %20, align 8
   %309 = getelementptr inbounds nuw i8, ptr %242, i64 32
   %310 = load i64, ptr %309, align 8
   %311 = sub i64 %308, %310
-  %312 = getelementptr i64, ptr %248, i64 %302
+  %312 = getelementptr [8 x i8], ptr %248, i64 %302
   store i64 %311, ptr %312, align 8
   %313 = load ptr, ptr %261, align 8
   call void @kfree(ptr noundef %313) #9
@@ -659,7 +659,7 @@ define dso_local void @intel_generic_uncore_msr_init_box(ptr noundef readonly ca
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr %11, i64 %16
+  %17 = getelementptr [8 x i8], ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   br label %26
@@ -712,7 +712,7 @@ define dso_local void @intel_generic_uncore_msr_disable_box(ptr noundef readonly
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr %11, i64 %16
+  %17 = getelementptr [8 x i8], ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   br label %26
@@ -765,7 +765,7 @@ define dso_local void @intel_generic_uncore_msr_enable_box(ptr noundef readonly 
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr %11, i64 %16
+  %17 = getelementptr [8 x i8], ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   br label %26
@@ -890,7 +890,7 @@ define dso_local void @intel_generic_uncore_mmio_init_box(ptr noundef captures(n
 9:                                                ; preds = %1
   %10 = load i32, ptr %0, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr i64, ptr %7, i64 %11
+  %12 = getelementptr [8 x i8], ptr %7, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %.thread, label %15
@@ -905,7 +905,7 @@ define dso_local void @intel_generic_uncore_mmio_init_box(ptr noundef captures(n
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
-  %23 = getelementptr i64, ptr %17, i64 %22
+  %23 = getelementptr [8 x i8], ptr %17, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %13
   %26 = icmp eq i64 %25, 0
@@ -919,7 +919,7 @@ define dso_local void @intel_generic_uncore_mmio_init_box(ptr noundef captures(n
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %32 to i64
-  %34 = getelementptr i32, ptr %30, i64 %33
+  %34 = getelementptr [4 x i8], ptr %30, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %28, i32 noundef %35) #10
   br label %54
@@ -940,7 +940,7 @@ define dso_local void @intel_generic_uncore_mmio_init_box(ptr noundef captures(n
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 336
   %48 = load i32, ptr %47, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr i32, ptr %45, i64 %49
+  %50 = getelementptr [4 x i8], ptr %45, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %43, i32 noundef %51, i64 noundef %25) #10
   br label %54
@@ -1031,7 +1031,7 @@ define dso_local void @intel_generic_uncore_mmio_disable_event(ptr noundef reado
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @intel_uncore_generic_init_uncores(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr i32, ptr @num_discovered_types, i64 %3
+  %4 = getelementptr [4 x i8], ptr @num_discovered_types, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %1, 1
   %7 = add i32 %6, %5
@@ -1203,7 +1203,7 @@ define dso_local ptr @intel_uncore_generic_init_uncores(i32 noundef %0, i32 noun
 122:                                              ; preds = %100, %71, %48
   %123 = add i32 %17, 1
   %124 = sext i32 %17 to i64
-  %125 = getelementptr ptr, ptr %12, i64 %124
+  %125 = getelementptr [8 x i8], ptr %12, i64 %124
   store ptr %24, ptr %125, align 8
   br label %126
 

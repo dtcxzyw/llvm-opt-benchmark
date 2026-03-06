@@ -41,7 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.2 = type { %struct.anon.3 }
 %struct.anon.3 = type { %struct.anon.4, %struct.timeval }
 %struct.anon.4 = type { ptr, ptr }
-%struct.pmix_info = type { [512 x i8], i32, %struct.pmix_value }
 
 @pmix_psensor_heartbeat_module = local_unnamed_addr global %struct.pmix_psensor_base_module_1_0_0_t { ptr @heartbeat_start, ptr @heartbeat_stop }, align 8
 @.str = private unnamed_addr constant [22 x i8] c"pmix_heartbeat_trkr_t\00", align 1
@@ -80,7 +79,7 @@ define internal range(i32 -1366, 1) i32 @heartbeat_start(ptr noundef %0, i32 nou
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !18
   %12 = icmp sgt i32 %11, 0
@@ -175,7 +174,7 @@ pmix_obj_update.exit:                             ; preds = %pmix_obj_new_tma.ex
 
 54:                                               ; preds = %.lr.ph, %74
   %.04154 = phi i64 [ 0, %.lr.ph ], [ %75, %74 ]
-  %55 = getelementptr inbounds nuw %struct.pmix_info, ptr %3, i64 %.04154
+  %55 = getelementptr inbounds nuw [552 x i8], ptr %3, i64 %.04154
   %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(19) @.str.5) #14
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %62
@@ -926,7 +925,7 @@ define internal void @check_heartbeat(i32 %0, i16 signext %1, ptr noundef %2) #0
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !18
   %11 = icmp sgt i32 %10, 0
@@ -968,7 +967,7 @@ define internal void @check_heartbeat(i32 %0, i16 signext %1, ptr noundef %2) #0
 
 31:                                               ; preds = %30
   %32 = zext nneg i32 %.pre33 to i64
-  %33 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %32
+  %33 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !18
   %36 = icmp sgt i32 %35, 0
@@ -1064,7 +1063,7 @@ pmix_obj_update.exit:                             ; preds = %pmix_strncpy.exit
 
 86:                                               ; preds = %84
   %87 = zext nneg i32 %85 to i64
-  %88 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %87
+  %88 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4, !tbaa !18
   %91 = icmp sgt i32 %90, 0

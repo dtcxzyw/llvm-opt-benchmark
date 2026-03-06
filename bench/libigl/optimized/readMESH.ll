@@ -367,7 +367,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 .preheader:                                       ; preds = %.lr.ph196
   %115 = load ptr, ptr %3, align 8, !tbaa !22
   %116 = load i64, ptr %49, align 8, !tbaa !25
-  %117 = getelementptr i32, ptr %115, i64 %indvars.iv211
+  %117 = getelementptr [4 x i8], ptr %115, i64 %indvars.iv211
   br label %121
 
 118:                                              ; preds = %121
@@ -379,11 +379,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 121:                                              ; preds = %.preheader, %121
   %indvars.iv208 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next209, %121 ]
-  %122 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv208
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv208
   %123 = load i32, ptr %122, align 4, !tbaa !13
   %124 = add nsw i32 %123, -1
   %125 = mul nsw i64 %116, %indvars.iv208
-  %126 = getelementptr i32, ptr %117, i64 %125
+  %126 = getelementptr [4 x i8], ptr %117, i64 %125
   store i32 %124, ptr %126, align 4, !tbaa !13
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next209, 3
@@ -444,12 +444,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %141 = load i32, ptr %17, align 4, !tbaa !13
   %142 = add nsw i32 %141, -1
   %143 = load ptr, ptr %2, align 8, !tbaa !22
-  %144 = getelementptr i32, ptr %143, i64 %indvars.iv205
+  %144 = getelementptr [4 x i8], ptr %143, i64 %indvars.iv205
   store i32 %142, ptr %144, align 4, !tbaa !13
   %145 = load i32, ptr %18, align 4, !tbaa !13
   %146 = add nsw i32 %145, -1
   %147 = load i64, ptr %46, align 8, !tbaa !25
-  %148 = getelementptr i32, ptr %144, i64 %147
+  %148 = getelementptr [4 x i8], ptr %144, i64 %147
   store i32 %146, ptr %148, align 4, !tbaa !13
   %149 = load i32, ptr %19, align 4, !tbaa !13
   %150 = add nsw i32 %149, -1
@@ -556,11 +556,11 @@ common.resume:                                    ; preds = %.lr.ph189
 
 178:                                              ; preds = %176
   %179 = load i32, ptr %22, align 4, !tbaa !13
-  %180 = getelementptr i32, ptr %172, i64 %indvars.iv
+  %180 = getelementptr [4 x i8], ptr %172, i64 %indvars.iv
   %181 = add nsw i32 %179, -1
   store i32 %181, ptr %180, align 4, !tbaa !13
   %182 = load i32, ptr %23, align 4, !tbaa !13
-  %183 = getelementptr i32, ptr %180, i64 %169
+  %183 = getelementptr [4 x i8], ptr %180, i64 %169
   %184 = add nsw i32 %182, -1
   store i32 %184, ptr %183, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -941,11 +941,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 94:                                               ; preds = %.lr.ph199
   %95 = load double, ptr %11, align 8, !tbaa !15
   %96 = load ptr, ptr %1, align 8, !tbaa !39
-  %97 = getelementptr double, ptr %96, i64 %indvars.iv214
+  %97 = getelementptr [8 x i8], ptr %96, i64 %indvars.iv214
   store double %95, ptr %97, align 8, !tbaa !15
   %98 = load double, ptr %12, align 8, !tbaa !15
   %99 = load i64, ptr %50, align 8, !tbaa !41
-  %100 = getelementptr double, ptr %97, i64 %99
+  %100 = getelementptr [8 x i8], ptr %97, i64 %99
   store double %98, ptr %100, align 8, !tbaa !15
   %101 = load double, ptr %13, align 8, !tbaa !15
   %.idx179 = shl i64 %99, 4
@@ -1010,7 +1010,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 .preheader:                                       ; preds = %.lr.ph196
   %117 = load ptr, ptr %3, align 8, !tbaa !22
   %118 = load i64, ptr %49, align 8, !tbaa !25
-  %119 = getelementptr i32, ptr %117, i64 %indvars.iv211
+  %119 = getelementptr [4 x i8], ptr %117, i64 %indvars.iv211
   br label %123
 
 120:                                              ; preds = %123
@@ -1022,11 +1022,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 123:                                              ; preds = %.preheader, %123
   %indvars.iv208 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next209, %123 ]
-  %124 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv208
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv208
   %125 = load i32, ptr %124, align 4, !tbaa !13
   %126 = add nsw i32 %125, -1
   %127 = mul nsw i64 %118, %indvars.iv208
-  %128 = getelementptr i32, ptr %119, i64 %127
+  %128 = getelementptr [4 x i8], ptr %119, i64 %127
   store i32 %126, ptr %128, align 4, !tbaa !13
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next209, 3
@@ -1087,12 +1087,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %143 = load i32, ptr %17, align 4, !tbaa !13
   %144 = add nsw i32 %143, -1
   %145 = load ptr, ptr %2, align 8, !tbaa !22
-  %146 = getelementptr i32, ptr %145, i64 %indvars.iv205
+  %146 = getelementptr [4 x i8], ptr %145, i64 %indvars.iv205
   store i32 %144, ptr %146, align 4, !tbaa !13
   %147 = load i32, ptr %18, align 4, !tbaa !13
   %148 = add nsw i32 %147, -1
   %149 = load i64, ptr %46, align 8, !tbaa !25
-  %150 = getelementptr i32, ptr %146, i64 %149
+  %150 = getelementptr [4 x i8], ptr %146, i64 %149
   store i32 %148, ptr %150, align 4, !tbaa !13
   %151 = load i32, ptr %19, align 4, !tbaa !13
   %152 = add nsw i32 %151, -1
@@ -1199,11 +1199,11 @@ common.resume:                                    ; preds = %.lr.ph189
 
 180:                                              ; preds = %178
   %181 = load i32, ptr %22, align 4, !tbaa !13
-  %182 = getelementptr i32, ptr %174, i64 %indvars.iv
+  %182 = getelementptr [4 x i8], ptr %174, i64 %indvars.iv
   %183 = add nsw i32 %181, -1
   store i32 %183, ptr %182, align 4, !tbaa !13
   %184 = load i32, ptr %23, align 4, !tbaa !13
-  %185 = getelementptr i32, ptr %182, i64 %171
+  %185 = getelementptr [4 x i8], ptr %182, i64 %171
   %186 = add nsw i32 %184, -1
   store i32 %186, ptr %185, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1506,7 +1506,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   %96 = load ptr, ptr %1, align 8, !tbaa !49
   %97 = load i64, ptr %50, align 8, !tbaa !51
   %98 = mul nsw i64 %97, %indvars.iv213
-  %99 = getelementptr double, ptr %96, i64 %98
+  %99 = getelementptr [8 x i8], ptr %96, i64 %98
   store double %95, ptr %99, align 8, !tbaa !15
   %100 = load double, ptr %12, align 8, !tbaa !15
   %101 = getelementptr i8, ptr %99, i64 8
@@ -1573,7 +1573,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 .preheader:                                       ; preds = %.lr.ph195
   %118 = load ptr, ptr %3, align 8, !tbaa !22
   %119 = load i64, ptr %49, align 8, !tbaa !25
-  %120 = getelementptr i32, ptr %118, i64 %indvars.iv210
+  %120 = getelementptr [4 x i8], ptr %118, i64 %indvars.iv210
   br label %124
 
 121:                                              ; preds = %124
@@ -1585,11 +1585,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 124:                                              ; preds = %.preheader, %124
   %indvars.iv207 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next208, %124 ]
-  %125 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv207
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv207
   %126 = load i32, ptr %125, align 4, !tbaa !13
   %127 = add nsw i32 %126, -1
   %128 = mul nsw i64 %119, %indvars.iv207
-  %129 = getelementptr i32, ptr %120, i64 %128
+  %129 = getelementptr [4 x i8], ptr %120, i64 %128
   store i32 %127, ptr %129, align 4, !tbaa !13
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next208, 3
@@ -1650,12 +1650,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %144 = load i32, ptr %17, align 4, !tbaa !13
   %145 = add nsw i32 %144, -1
   %146 = load ptr, ptr %2, align 8, !tbaa !22
-  %147 = getelementptr i32, ptr %146, i64 %indvars.iv204
+  %147 = getelementptr [4 x i8], ptr %146, i64 %indvars.iv204
   store i32 %145, ptr %147, align 4, !tbaa !13
   %148 = load i32, ptr %18, align 4, !tbaa !13
   %149 = add nsw i32 %148, -1
   %150 = load i64, ptr %46, align 8, !tbaa !25
-  %151 = getelementptr i32, ptr %147, i64 %150
+  %151 = getelementptr [4 x i8], ptr %147, i64 %150
   store i32 %149, ptr %151, align 4, !tbaa !13
   %152 = load i32, ptr %19, align 4, !tbaa !13
   %153 = add nsw i32 %152, -1
@@ -1762,11 +1762,11 @@ common.resume:                                    ; preds = %.lr.ph188
 
 181:                                              ; preds = %179
   %182 = load i32, ptr %22, align 4, !tbaa !13
-  %183 = getelementptr i32, ptr %175, i64 %indvars.iv
+  %183 = getelementptr [4 x i8], ptr %175, i64 %indvars.iv
   %184 = add nsw i32 %182, -1
   store i32 %184, ptr %183, align 4, !tbaa !13
   %185 = load i32, ptr %23, align 4, !tbaa !13
-  %186 = getelementptr i32, ptr %183, i64 %172
+  %186 = getelementptr [4 x i8], ptr %183, i64 %172
   %187 = add nsw i32 %185, -1
   store i32 %187, ptr %186, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2066,11 +2066,11 @@ _ZZN3igl8readMESHIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi3ELi0ELin
 94:                                               ; preds = %.lr.ph196
   %95 = load double, ptr %11, align 8, !tbaa !15
   %96 = load ptr, ptr %1, align 8, !tbaa !59
-  %97 = getelementptr double, ptr %96, i64 %indvars.iv211
+  %97 = getelementptr [8 x i8], ptr %96, i64 %indvars.iv211
   store double %95, ptr %97, align 8, !tbaa !15
   %98 = load double, ptr %12, align 8, !tbaa !15
   %99 = load i64, ptr %50, align 8, !tbaa !61
-  %100 = getelementptr double, ptr %97, i64 %99
+  %100 = getelementptr [8 x i8], ptr %97, i64 %99
   store double %98, ptr %100, align 8, !tbaa !15
   %101 = load double, ptr %13, align 8, !tbaa !15
   %.idx176 = shl i64 %99, 4
@@ -2134,7 +2134,7 @@ _ZZN3igl8readMESHIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi3ELi0ELin
 .preheader:                                       ; preds = %.lr.ph193
   %117 = load ptr, ptr %3, align 8, !tbaa !63
   %118 = load i64, ptr %49, align 8, !tbaa !65
-  %119 = getelementptr i32, ptr %117, i64 %indvars.iv208
+  %119 = getelementptr [4 x i8], ptr %117, i64 %indvars.iv208
   br label %123
 
 120:                                              ; preds = %123
@@ -2146,11 +2146,11 @@ _ZZN3igl8readMESHIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi3ELi0ELin
 
 123:                                              ; preds = %.preheader, %123
   %indvars.iv205 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next206, %123 ]
-  %124 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv205
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv205
   %125 = load i32, ptr %124, align 4, !tbaa !13
   %126 = add nsw i32 %125, -1
   %127 = mul nsw i64 %118, %indvars.iv205
-  %128 = getelementptr i32, ptr %119, i64 %127
+  %128 = getelementptr [4 x i8], ptr %119, i64 %127
   store i32 %126, ptr %128, align 4, !tbaa !13
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next206, 3
@@ -2211,12 +2211,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %143 = load i32, ptr %17, align 4, !tbaa !13
   %144 = add nsw i32 %143, -1
   %145 = load ptr, ptr %2, align 8, !tbaa !22
-  %146 = getelementptr i32, ptr %145, i64 %indvars.iv202
+  %146 = getelementptr [4 x i8], ptr %145, i64 %indvars.iv202
   store i32 %144, ptr %146, align 4, !tbaa !13
   %147 = load i32, ptr %18, align 4, !tbaa !13
   %148 = add nsw i32 %147, -1
   %149 = load i64, ptr %46, align 8, !tbaa !25
-  %150 = getelementptr i32, ptr %146, i64 %149
+  %150 = getelementptr [4 x i8], ptr %146, i64 %149
   store i32 %148, ptr %150, align 4, !tbaa !13
   %151 = load i32, ptr %19, align 4, !tbaa !13
   %152 = add nsw i32 %151, -1
@@ -2323,11 +2323,11 @@ common.resume:                                    ; preds = %.lr.ph186
 
 180:                                              ; preds = %178
   %181 = load i32, ptr %22, align 4, !tbaa !13
-  %182 = getelementptr i32, ptr %174, i64 %indvars.iv
+  %182 = getelementptr [4 x i8], ptr %174, i64 %indvars.iv
   %183 = add nsw i32 %181, -1
   store i32 %183, ptr %182, align 4, !tbaa !13
   %184 = load i32, ptr %23, align 4, !tbaa !13
-  %185 = getelementptr i32, ptr %182, i64 %171
+  %185 = getelementptr [4 x i8], ptr %182, i64 %171
   %186 = add nsw i32 %184, -1
   store i32 %186, ptr %185, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2704,10 +2704,10 @@ _ZZN3igl8readMESHIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS2_IiLin1ELi3ELi1ELin
 
 119:                                              ; preds = %.preheader, %119
   %indvars.iv207 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next208, %119 ]
-  %120 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv207
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv207
   %121 = load i32, ptr %120, align 4, !tbaa !13
   %122 = add nsw i32 %121, -1
-  %123 = getelementptr i32, ptr %115, i64 %indvars.iv207
+  %123 = getelementptr [4 x i8], ptr %115, i64 %indvars.iv207
   store i32 %122, ptr %123, align 4, !tbaa !13
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next208, 3
@@ -2768,12 +2768,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %138 = load i32, ptr %17, align 4, !tbaa !13
   %139 = add nsw i32 %138, -1
   %140 = load ptr, ptr %2, align 8, !tbaa !22
-  %141 = getelementptr i32, ptr %140, i64 %indvars.iv204
+  %141 = getelementptr [4 x i8], ptr %140, i64 %indvars.iv204
   store i32 %139, ptr %141, align 4, !tbaa !13
   %142 = load i32, ptr %18, align 4, !tbaa !13
   %143 = add nsw i32 %142, -1
   %144 = load i64, ptr %46, align 8, !tbaa !25
-  %145 = getelementptr i32, ptr %141, i64 %144
+  %145 = getelementptr [4 x i8], ptr %141, i64 %144
   store i32 %143, ptr %145, align 4, !tbaa !13
   %146 = load i32, ptr %19, align 4, !tbaa !13
   %147 = add nsw i32 %146, -1
@@ -2880,11 +2880,11 @@ common.resume:                                    ; preds = %.lr.ph188
 
 175:                                              ; preds = %173
   %176 = load i32, ptr %22, align 4, !tbaa !13
-  %177 = getelementptr i32, ptr %169, i64 %indvars.iv
+  %177 = getelementptr [4 x i8], ptr %169, i64 %indvars.iv
   %178 = add nsw i32 %176, -1
   store i32 %178, ptr %177, align 4, !tbaa !13
   %179 = load i32, ptr %23, align 4, !tbaa !13
-  %180 = getelementptr i32, ptr %177, i64 %166
+  %180 = getelementptr [4 x i8], ptr %177, i64 %166
   %181 = add nsw i32 %179, -1
   store i32 %181, ptr %180, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3164,12 +3164,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %95 = load double, ptr %11, align 8, !tbaa !15
   %96 = fptrunc double %95 to float
   %97 = load ptr, ptr %1, align 8, !tbaa !81
-  %98 = getelementptr float, ptr %97, i64 %indvars.iv214
+  %98 = getelementptr [4 x i8], ptr %97, i64 %indvars.iv214
   store float %96, ptr %98, align 4, !tbaa !84
   %99 = load double, ptr %12, align 8, !tbaa !15
   %100 = fptrunc double %99 to float
   %101 = load i64, ptr %50, align 8, !tbaa !86
-  %102 = getelementptr float, ptr %98, i64 %101
+  %102 = getelementptr [4 x i8], ptr %98, i64 %101
   store float %100, ptr %102, align 4, !tbaa !84
   %103 = load double, ptr %13, align 8, !tbaa !15
   %104 = fptrunc double %103 to float
@@ -3235,7 +3235,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 .preheader:                                       ; preds = %.lr.ph196
   %120 = load ptr, ptr %3, align 8, !tbaa !22
   %121 = load i64, ptr %49, align 8, !tbaa !25
-  %122 = getelementptr i32, ptr %120, i64 %indvars.iv211
+  %122 = getelementptr [4 x i8], ptr %120, i64 %indvars.iv211
   br label %126
 
 123:                                              ; preds = %126
@@ -3247,11 +3247,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 126:                                              ; preds = %.preheader, %126
   %indvars.iv208 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next209, %126 ]
-  %127 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv208
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv208
   %128 = load i32, ptr %127, align 4, !tbaa !13
   %129 = add nsw i32 %128, -1
   %130 = mul nsw i64 %121, %indvars.iv208
-  %131 = getelementptr i32, ptr %122, i64 %130
+  %131 = getelementptr [4 x i8], ptr %122, i64 %130
   store i32 %129, ptr %131, align 4, !tbaa !13
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next209, 3
@@ -3312,12 +3312,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %146 = load i32, ptr %17, align 4, !tbaa !13
   %147 = add nsw i32 %146, -1
   %148 = load ptr, ptr %2, align 8, !tbaa !22
-  %149 = getelementptr i32, ptr %148, i64 %indvars.iv205
+  %149 = getelementptr [4 x i8], ptr %148, i64 %indvars.iv205
   store i32 %147, ptr %149, align 4, !tbaa !13
   %150 = load i32, ptr %18, align 4, !tbaa !13
   %151 = add nsw i32 %150, -1
   %152 = load i64, ptr %46, align 8, !tbaa !25
-  %153 = getelementptr i32, ptr %149, i64 %152
+  %153 = getelementptr [4 x i8], ptr %149, i64 %152
   store i32 %151, ptr %153, align 4, !tbaa !13
   %154 = load i32, ptr %19, align 4, !tbaa !13
   %155 = add nsw i32 %154, -1
@@ -3424,11 +3424,11 @@ common.resume:                                    ; preds = %.lr.ph189
 
 183:                                              ; preds = %181
   %184 = load i32, ptr %22, align 4, !tbaa !13
-  %185 = getelementptr i32, ptr %177, i64 %indvars.iv
+  %185 = getelementptr [4 x i8], ptr %177, i64 %indvars.iv
   %186 = add nsw i32 %184, -1
   store i32 %186, ptr %185, align 4, !tbaa !13
   %187 = load i32, ptr %23, align 4, !tbaa !13
-  %188 = getelementptr i32, ptr %185, i64 %174
+  %188 = getelementptr [4 x i8], ptr %185, i64 %174
   %189 = add nsw i32 %187, -1
   store i32 %189, ptr %188, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3707,12 +3707,12 @@ _ZZN3igl8readMESHIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi3ELi0ELin
   %95 = load double, ptr %11, align 8, !tbaa !15
   %96 = fptrunc double %95 to float
   %97 = load ptr, ptr %1, align 8, !tbaa !94
-  %98 = getelementptr float, ptr %97, i64 %indvars.iv211
+  %98 = getelementptr [4 x i8], ptr %97, i64 %indvars.iv211
   store float %96, ptr %98, align 4, !tbaa !84
   %99 = load double, ptr %12, align 8, !tbaa !15
   %100 = fptrunc double %99 to float
   %101 = load i64, ptr %50, align 8, !tbaa !96
-  %102 = getelementptr float, ptr %98, i64 %101
+  %102 = getelementptr [4 x i8], ptr %98, i64 %101
   store float %100, ptr %102, align 4, !tbaa !84
   %103 = load double, ptr %13, align 8, !tbaa !15
   %104 = fptrunc double %103 to float
@@ -3777,7 +3777,7 @@ _ZZN3igl8readMESHIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi3ELi0ELin
 .preheader:                                       ; preds = %.lr.ph193
   %120 = load ptr, ptr %3, align 8, !tbaa !63
   %121 = load i64, ptr %49, align 8, !tbaa !65
-  %122 = getelementptr i32, ptr %120, i64 %indvars.iv208
+  %122 = getelementptr [4 x i8], ptr %120, i64 %indvars.iv208
   br label %126
 
 123:                                              ; preds = %126
@@ -3789,11 +3789,11 @@ _ZZN3igl8readMESHIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi3ELi0ELin
 
 126:                                              ; preds = %.preheader, %126
   %indvars.iv205 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next206, %126 ]
-  %127 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv205
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv205
   %128 = load i32, ptr %127, align 4, !tbaa !13
   %129 = add nsw i32 %128, -1
   %130 = mul nsw i64 %121, %indvars.iv205
-  %131 = getelementptr i32, ptr %122, i64 %130
+  %131 = getelementptr [4 x i8], ptr %122, i64 %130
   store i32 %129, ptr %131, align 4, !tbaa !13
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next206, 3
@@ -3854,12 +3854,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %146 = load i32, ptr %17, align 4, !tbaa !13
   %147 = add nsw i32 %146, -1
   %148 = load ptr, ptr %2, align 8, !tbaa !22
-  %149 = getelementptr i32, ptr %148, i64 %indvars.iv202
+  %149 = getelementptr [4 x i8], ptr %148, i64 %indvars.iv202
   store i32 %147, ptr %149, align 4, !tbaa !13
   %150 = load i32, ptr %18, align 4, !tbaa !13
   %151 = add nsw i32 %150, -1
   %152 = load i64, ptr %46, align 8, !tbaa !25
-  %153 = getelementptr i32, ptr %149, i64 %152
+  %153 = getelementptr [4 x i8], ptr %149, i64 %152
   store i32 %151, ptr %153, align 4, !tbaa !13
   %154 = load i32, ptr %19, align 4, !tbaa !13
   %155 = add nsw i32 %154, -1
@@ -3966,11 +3966,11 @@ common.resume:                                    ; preds = %.lr.ph186
 
 183:                                              ; preds = %181
   %184 = load i32, ptr %22, align 4, !tbaa !13
-  %185 = getelementptr i32, ptr %177, i64 %indvars.iv
+  %185 = getelementptr [4 x i8], ptr %177, i64 %indvars.iv
   %186 = add nsw i32 %184, -1
   store i32 %186, ptr %185, align 4, !tbaa !13
   %187 = load i32, ptr %23, align 4, !tbaa !13
-  %188 = getelementptr i32, ptr %185, i64 %174
+  %188 = getelementptr [4 x i8], ptr %185, i64 %174
   %189 = add nsw i32 %187, -1
   store i32 %189, ptr %188, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4446,7 +4446,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 .preheader:                                       ; preds = %.lr.ph196
   %118 = load ptr, ptr %3, align 8, !tbaa !22
   %119 = load i64, ptr %49, align 8, !tbaa !25
-  %120 = getelementptr i32, ptr %118, i64 %indvars.iv211
+  %120 = getelementptr [4 x i8], ptr %118, i64 %indvars.iv211
   br label %124
 
 121:                                              ; preds = %124
@@ -4458,11 +4458,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 124:                                              ; preds = %.preheader, %124
   %indvars.iv208 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next209, %124 ]
-  %125 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv208
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv208
   %126 = load i32, ptr %125, align 4, !tbaa !13
   %127 = add nsw i32 %126, -1
   %128 = mul nsw i64 %119, %indvars.iv208
-  %129 = getelementptr i32, ptr %120, i64 %128
+  %129 = getelementptr [4 x i8], ptr %120, i64 %128
   store i32 %127, ptr %129, align 4, !tbaa !13
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next209, 3
@@ -4523,12 +4523,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %144 = load i32, ptr %17, align 4, !tbaa !13
   %145 = add nsw i32 %144, -1
   %146 = load ptr, ptr %2, align 8, !tbaa !22
-  %147 = getelementptr i32, ptr %146, i64 %indvars.iv205
+  %147 = getelementptr [4 x i8], ptr %146, i64 %indvars.iv205
   store i32 %145, ptr %147, align 4, !tbaa !13
   %148 = load i32, ptr %18, align 4, !tbaa !13
   %149 = add nsw i32 %148, -1
   %150 = load i64, ptr %46, align 8, !tbaa !25
-  %151 = getelementptr i32, ptr %147, i64 %150
+  %151 = getelementptr [4 x i8], ptr %147, i64 %150
   store i32 %149, ptr %151, align 4, !tbaa !13
   %152 = load i32, ptr %19, align 4, !tbaa !13
   %153 = add nsw i32 %152, -1
@@ -4635,11 +4635,11 @@ common.resume:                                    ; preds = %.lr.ph189
 
 181:                                              ; preds = %179
   %182 = load i32, ptr %22, align 4, !tbaa !13
-  %183 = getelementptr i32, ptr %175, i64 %indvars.iv
+  %183 = getelementptr [4 x i8], ptr %175, i64 %indvars.iv
   %184 = add nsw i32 %182, -1
   store i32 %184, ptr %183, align 4, !tbaa !13
   %185 = load i32, ptr %23, align 4, !tbaa !13
-  %186 = getelementptr i32, ptr %183, i64 %172
+  %186 = getelementptr [4 x i8], ptr %183, i64 %172
   %187 = add nsw i32 %185, -1
   store i32 %187, ptr %186, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5061,10 +5061,10 @@ _ZZN3igl8readMESHIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS2_IiLin1ELi3ELi1ELin
 
 122:                                              ; preds = %.preheader, %122
   %indvars.iv207 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next208, %122 ]
-  %123 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv207
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv207
   %124 = load i32, ptr %123, align 4, !tbaa !13
   %125 = add nsw i32 %124, -1
-  %126 = getelementptr i32, ptr %118, i64 %indvars.iv207
+  %126 = getelementptr [4 x i8], ptr %118, i64 %indvars.iv207
   store i32 %125, ptr %126, align 4, !tbaa !13
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next208, 3
@@ -5125,12 +5125,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %141 = load i32, ptr %17, align 4, !tbaa !13
   %142 = add nsw i32 %141, -1
   %143 = load ptr, ptr %2, align 8, !tbaa !22
-  %144 = getelementptr i32, ptr %143, i64 %indvars.iv204
+  %144 = getelementptr [4 x i8], ptr %143, i64 %indvars.iv204
   store i32 %142, ptr %144, align 4, !tbaa !13
   %145 = load i32, ptr %18, align 4, !tbaa !13
   %146 = add nsw i32 %145, -1
   %147 = load i64, ptr %46, align 8, !tbaa !25
-  %148 = getelementptr i32, ptr %144, i64 %147
+  %148 = getelementptr [4 x i8], ptr %144, i64 %147
   store i32 %146, ptr %148, align 4, !tbaa !13
   %149 = load i32, ptr %19, align 4, !tbaa !13
   %150 = add nsw i32 %149, -1
@@ -5237,11 +5237,11 @@ common.resume:                                    ; preds = %.lr.ph188
 
 178:                                              ; preds = %176
   %179 = load i32, ptr %22, align 4, !tbaa !13
-  %180 = getelementptr i32, ptr %172, i64 %indvars.iv
+  %180 = getelementptr [4 x i8], ptr %172, i64 %indvars.iv
   %181 = add nsw i32 %179, -1
   store i32 %181, ptr %180, align 4, !tbaa !13
   %182 = load i32, ptr %23, align 4, !tbaa !13
-  %183 = getelementptr i32, ptr %180, i64 %169
+  %183 = getelementptr [4 x i8], ptr %180, i64 %169
   %184 = add nsw i32 %182, -1
   store i32 %184, ptr %183, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5685,10 +5685,10 @@ _ZZN3igl8readMESHIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS2_IjLin1ELi3ELi1ELin
 
 122:                                              ; preds = %.preheader, %122
   %indvars.iv207 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next208, %122 ]
-  %123 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv207
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv207
   %124 = load i32, ptr %123, align 4, !tbaa !13
   %125 = add nsw i32 %124, -1
-  %126 = getelementptr i32, ptr %118, i64 %indvars.iv207
+  %126 = getelementptr [4 x i8], ptr %118, i64 %indvars.iv207
   store i32 %125, ptr %126, align 4, !tbaa !13
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next208, 3
@@ -5749,12 +5749,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %141 = load i32, ptr %17, align 4, !tbaa !13
   %142 = add nsw i32 %141, -1
   %143 = load ptr, ptr %2, align 8, !tbaa !22
-  %144 = getelementptr i32, ptr %143, i64 %indvars.iv204
+  %144 = getelementptr [4 x i8], ptr %143, i64 %indvars.iv204
   store i32 %142, ptr %144, align 4, !tbaa !13
   %145 = load i32, ptr %18, align 4, !tbaa !13
   %146 = add nsw i32 %145, -1
   %147 = load i64, ptr %46, align 8, !tbaa !25
-  %148 = getelementptr i32, ptr %144, i64 %147
+  %148 = getelementptr [4 x i8], ptr %144, i64 %147
   store i32 %146, ptr %148, align 4, !tbaa !13
   %149 = load i32, ptr %19, align 4, !tbaa !13
   %150 = add nsw i32 %149, -1
@@ -5861,11 +5861,11 @@ common.resume:                                    ; preds = %.lr.ph188
 
 178:                                              ; preds = %176
   %179 = load i32, ptr %22, align 4, !tbaa !13
-  %180 = getelementptr i32, ptr %172, i64 %indvars.iv
+  %180 = getelementptr [4 x i8], ptr %172, i64 %indvars.iv
   %181 = add nsw i32 %179, -1
   store i32 %181, ptr %180, align 4, !tbaa !13
   %182 = load i32, ptr %23, align 4, !tbaa !13
-  %183 = getelementptr i32, ptr %180, i64 %169
+  %183 = getelementptr [4 x i8], ptr %180, i64 %169
   %184 = add nsw i32 %182, -1
   store i32 %184, ptr %183, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

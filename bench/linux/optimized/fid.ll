@@ -377,7 +377,7 @@ define dso_local ptr @v9fs_fid_lookup(ptr noundef %0) local_unnamed_addr #0 alig
   %103 = phi ptr [ %0, %99 ], [ %108, %101 ]
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 40
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr ptr, ptr %96, i64 %102
+  %106 = getelementptr [8 x i8], ptr %96, i64 %102
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %108 = load ptr, ptr %107, align 8
@@ -398,7 +398,7 @@ define dso_local ptr @v9fs_fid_lookup(ptr noundef %0) local_unnamed_addr #0 alig
   %118 = tail call i32 @llvm.smin.i32(i32 %117, i32 16)
   %119 = trunc i32 %118 to i16
   %120 = sext i32 %116 to i64
-  %121 = getelementptr ptr, ptr %96, i64 %120
+  %121 = getelementptr [8 x i8], ptr %96, i64 %120
   %122 = icmp eq ptr %115, %76
   %123 = zext i1 %122 to i32
   %124 = tail call ptr @p9_client_walk(ptr noundef %115, i16 noundef zeroext %119, ptr noundef %121, i32 noundef %123) #6

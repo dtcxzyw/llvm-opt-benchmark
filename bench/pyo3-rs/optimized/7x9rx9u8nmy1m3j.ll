@@ -329,7 +329,7 @@ define hidden void @_ZN19pyo3_macros_backend6params7Holders12init_holders17h3c86
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds { i64, [3 x i64] }, ptr %13, i64 %15
+  %16 = getelementptr inbounds [32 x i8], ptr %13, i64 %15
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %11)
   invoke void @_ZN5quote9__private10push_pound17hc944c2b14b9b0805E(ptr nonnull align 8 %11)
           to label %17 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -409,7 +409,7 @@ define hidden void @_ZN19pyo3_macros_backend6params7Holders12init_holders17h3c86
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %32, i64 %34
+  %35 = getelementptr inbounds [24 x i8], ptr %32, i64 %34
   store ptr %32, ptr %6, align 8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %35, ptr %36, align 8
@@ -573,7 +573,7 @@ define hidden void @_ZN19pyo3_macros_backend6params7Holders14check_gil_refs17hea
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %4, i64 %6
   tail call void @"_ZN118_$LT$proc_macro2..TokenStream$u20$as$u20$core..iter..traits..collect..FromIterator$LT$proc_macro2..TokenStream$GT$$GT$9from_iter17hce368fb8bc8c5c24E"(ptr sret([32 x i8]) align 8 %0, ptr %4, ptr %7)
   ret void
 }
@@ -753,7 +753,7 @@ define hidden void @_ZN19pyo3_macros_backend6params15impl_arg_params17he755d0f14
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds { i64, [40 x i64] }, ptr %59, i64 %61
+  %62 = getelementptr inbounds [328 x i8], ptr %59, i64 %61
   store ptr %59, ptr %53, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %62, ptr %.sroa.2.0..sroa_idx, align 8
@@ -795,7 +795,7 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit.thre
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, ptr %76, i64 %78
+  %79 = getelementptr inbounds [32 x i8], ptr %76, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %81 = load i64, ptr %80, align 8
   %82 = invoke i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$7sub_ptr17h123efdbd70601c1fE"(ptr %79, ptr %76)
@@ -1845,7 +1845,7 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; p
 360:                                              ; preds = %359
   %361 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %362, i64 %81
+  %363 = getelementptr inbounds [24 x i8], ptr %362, i64 %81
   store ptr %362, ptr %16, align 8
   %364 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %363, ptr %364, align 8

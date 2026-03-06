@@ -4952,7 +4952,7 @@ define internal fastcc void @_ZN6uv_dev27generate_env_vars_reference8generate17h
 36:                                               ; preds = %30
   %37 = extractvalue { ptr, i64 } %35, 0
   %38 = extractvalue { ptr, i64 } %35, 1
-  %39 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %37, i64 %38
+  %39 = getelementptr inbounds [32 x i8], ptr %37, i64 %38
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !633
   store ptr null, ptr %19, align 8, !alias.scope !636, !noalias !633
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -5144,7 +5144,7 @@ define internal fastcc void @_ZN6uv_dev27generate_env_vars_reference8generate17h
 
 78:                                               ; preds = %.noexc31
   %.sroa.21.0.copyload.i = load i64, ptr %.sroa.21.0..sroa_idx.i, align 8, !noalias !667
-  %79 = getelementptr inbounds { [4 x i64] }, ptr %.pr.i, i64 %.sroa.21.0.copyload.i
+  %79 = getelementptr inbounds [32 x i8], ptr %.pr.i, i64 %.sroa.21.0.copyload.i
   %.sroa.0103.0.copyload = load ptr, ptr %79, align 8
   %.sroa.6104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.6104.0.copyload = load i64, ptr %.sroa.6104.0..sroa_idx, align 8
@@ -5351,7 +5351,7 @@ define internal fastcc void @_ZN6uv_dev27generate_env_vars_reference8generate17h
 
 122:                                              ; preds = %.noexc68
   %.sroa.21.0.copyload.i62 = load i64, ptr %.sroa.21.0..sroa_idx.i61, align 8, !noalias !714
-  %123 = getelementptr inbounds { [4 x i64] }, ptr %.pr.i60, i64 %.sroa.21.0.copyload.i62
+  %123 = getelementptr inbounds [32 x i8], ptr %.pr.i60, i64 %.sroa.21.0.copyload.i62
   %.sroa.0125.0.copyload = load ptr, ptr %123, align 8
   %.sroa.6126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 8
   %.sroa.6126.0.copyload = load i64, ptr %.sroa.6126.0..sroa_idx, align 8
@@ -5978,7 +5978,7 @@ define void @"_ZN73_$LT$uv_dev..generate_all..Args$u20$as$u20$clap_builder..deri
 34:                                               ; preds = %20, %26
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 400
   %36 = load ptr, ptr %35, align 8, !alias.scope !825, !noalias !828, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %36, i64 %23
+  %37 = getelementptr inbounds [104 x i8], ptr %36, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %37, ptr noundef nonnull readonly align 8 dereferenceable(104) %18, i64 104, i1 false), !noalias !831
   %38 = add i64 %23, 1
   store i64 %38, ptr %22, align 8, !alias.scope !825, !noalias !828
@@ -6402,7 +6402,7 @@ define void @"_ZN73_$LT$uv_dev..generate_all..Args$u20$as$u20$clap_builder..deri
 34:                                               ; preds = %20, %26
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 400
   %36 = load ptr, ptr %35, align 8, !alias.scope !908, !noalias !911, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %36, i64 %23
+  %37 = getelementptr inbounds [104 x i8], ptr %36, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %37, ptr noundef nonnull readonly align 8 dereferenceable(104) %18, i64 104, i1 false), !noalias !914
   %38 = add i64 %23, 1
   store i64 %38, ptr %22, align 8, !alias.scope !908, !noalias !911
@@ -7374,7 +7374,7 @@ define void @"_ZN88_$LT$uv_dev..generate_env_vars_reference..Args$u20$as$u20$cla
 34:                                               ; preds = %20, %26
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 400
   %36 = load ptr, ptr %35, align 8, !alias.scope !1085, !noalias !1088, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %36, i64 %23
+  %37 = getelementptr inbounds [104 x i8], ptr %36, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %37, ptr noundef nonnull readonly align 8 dereferenceable(104) %18, i64 104, i1 false), !noalias !1091
   %38 = add i64 %23, 1
   store i64 %38, ptr %22, align 8, !alias.scope !1085, !noalias !1088
@@ -7798,7 +7798,7 @@ define void @"_ZN88_$LT$uv_dev..generate_env_vars_reference..Args$u20$as$u20$cla
 34:                                               ; preds = %20, %26
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 400
   %36 = load ptr, ptr %35, align 8, !alias.scope !1168, !noalias !1171, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %36, i64 %23
+  %37 = getelementptr inbounds [104 x i8], ptr %36, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %37, ptr noundef nonnull readonly align 8 dereferenceable(104) %18, i64 104, i1 false), !noalias !1174
   %38 = add i64 %23, 1
   store i64 %38, ptr %22, align 8, !alias.scope !1168, !noalias !1171

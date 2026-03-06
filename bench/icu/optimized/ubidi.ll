@@ -4,14 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ImpTabPair = type { [2 x ptr], [2 x ptr] }
-%struct.Para = type { i32, i32 }
-%struct.Run = type { i32, i32, i32 }
 %struct.BracketData = type { ptr, [20 x %struct.Opening], ptr, i32, i32, [127 x %struct.IsoRun], i8 }
 %struct.Opening = type { i32, i32, i32, i16, i32, i8 }
 %struct.IsoRun = type { i32, i16, i16, i8, i8, i8, i32 }
 %struct.LevState = type { ptr, ptr, i32, i32, i32, i32, i32, i8 }
-%struct.Isolate = type { i32, i32, i32, i16 }
-%struct.Point = type { i32, i32 }
 
 @_ZL6flagLR = internal unnamed_addr constant [2 x i32] [i32 1, i32 2], align 4
 @_ZL14impTab_DEFAULT = internal constant %struct.ImpTabPair { [2 x ptr] [ptr @_ZL15impTabL_DEFAULT, ptr @_ZL15impTabR_DEFAULT], [2 x ptr] [ptr @_ZL7impAct0, ptr @_ZL7impAct0] }, align 8
@@ -442,7 +438,7 @@ define range(i32 0, 4) i32 @ubidi_getBaseDirection_77(ptr noundef %0, i32 nounde
 12:                                               ; preds = %10
   %13 = add nsw i32 %.025, 1
   %14 = sext i32 %.025 to i64
-  %15 = getelementptr inbounds i16, ptr %0, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %0, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !38
   %17 = zext i16 %16 to i32
   %18 = and i32 %17, 64512
@@ -453,7 +449,7 @@ define range(i32 0, 4) i32 @ubidi_getBaseDirection_77(ptr noundef %0, i32 nounde
 
 20:                                               ; preds = %12
   %21 = sext i32 %13 to i64
-  %22 = getelementptr inbounds i16, ptr %0, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %0, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !38
   %24 = zext i16 %23 to i32
   %25 = and i32 %24, 64512
@@ -505,7 +501,7 @@ define zeroext i8 @ubidi_getParaLevelAtIndex_77(ptr noundef readonly captures(no
 
 8:                                                ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %9 = getelementptr inbounds nuw %struct.Para, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !42
   %11 = icmp slt i32 %1, %10
   br i1 %11, label %._crit_edge.loopexit.split.loop.exit, label %12
@@ -524,7 +520,7 @@ define zeroext i8 @ubidi_getParaLevelAtIndex_77(ptr noundef readonly captures(no
   %14 = add nsw i32 %4, -1
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.0.lcssa, i32 %14)
   %15 = sext i32 %spec.select to i64
-  %16 = getelementptr inbounds %struct.Para, ptr %7, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %7, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !46
   %19 = trunc i32 %18 to i8
@@ -661,8 +657,8 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
   br label %_ZL15setParaRunsOnlyP5UBiDiPKDsihP10UErrorCode.exit
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i32, ptr %33, i64 %31
-  %38 = getelementptr inbounds i16, ptr %37, i64 %31
+  %37 = getelementptr inbounds [4 x i8], ptr %33, i64 %31
+  %38 = getelementptr inbounds [2 x i8], ptr %37, i64 %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %40 = load i32, ptr %39, align 8, !tbaa !37
   %41 = and i32 %40, 1
@@ -728,7 +724,7 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
   %indvars.iv539 = phi i64 [ 0, %.lr.ph435.preheader ], [ %indvars.iv.next540, %.loopexit339 ]
   %.0243.i434 = phi i32 [ 0, %.lr.ph435.preheader ], [ %.1244.i, %.loopexit339 ]
   %.0247.i433 = phi i32 [ 0, %.lr.ph435.preheader ], [ %76, %.loopexit339 ]
-  %74 = getelementptr inbounds nuw %struct.Run, ptr %72, i64 %indvars.iv539
+  %74 = getelementptr inbounds nuw [12 x i8], ptr %72, i64 %indvars.iv539
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !56
   %77 = sub nsw i32 %76, %.0247.i433
@@ -748,10 +744,10 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
   %indvars.iv536 = phi i64 [ %84, %79 ], [ %indvars.iv.next537, %102 ]
   %.2245.i430 = phi i32 [ %.0243.i434, %79 ], [ %.3.i, %102 ]
   %.0248.in.i429 = phi i32 [ %81, %79 ], [ %105, %102 ]
-  %86 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv536
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv536
   %87 = load i32, ptr %86, align 4, !tbaa !25
   %88 = zext nneg i32 %.0248.in.i429 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %33, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !25
   %91 = sub nsw i32 %87, %90
   %92 = tail call i32 @llvm.abs.i32(i32 %91, i1 true)
@@ -837,10 +833,10 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
   br label %136
 
 128:                                              ; preds = %124
-  %129 = getelementptr inbounds nuw %struct.Run, ptr %.0246.i, i64 %indvars.iv.next547
+  %129 = getelementptr inbounds nuw [12 x i8], ptr %.0246.i, i64 %indvars.iv.next547
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4, !tbaa !56
-  %132 = getelementptr %struct.Run, ptr %.0246.i, i64 %indvars.iv546
+  %132 = getelementptr [12 x i8], ptr %.0246.i, i64 %indvars.iv546
   %133 = getelementptr i8, ptr %132, i64 -20
   %134 = load i32, ptr %133, align 4, !tbaa !56
   %135 = sub nsw i32 %131, %134
@@ -848,7 +844,7 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
 
 136:                                              ; preds = %128, %126
   %137 = phi i32 [ %127, %126 ], [ %135, %128 ]
-  %138 = getelementptr inbounds nuw %struct.Run, ptr %.0246.i, i64 %indvars.iv.next547
+  %138 = getelementptr inbounds nuw [12 x i8], ptr %.0246.i, i64 %indvars.iv.next547
   %139 = load i32, ptr %138, align 4, !tbaa !58
   %140 = lshr i32 %139, 31
   %141 = and i32 %139, 2147483647
@@ -862,14 +858,14 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
 144:                                              ; preds = %143
   %145 = sext i32 %.4.i448 to i64
   %146 = add nsw i64 %indvars.iv.next547, %145
-  %147 = getelementptr inbounds %struct.Run, ptr %.0246.i, i64 %146
+  %147 = getelementptr inbounds [12 x i8], ptr %.0246.i, i64 %146
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %147, ptr noundef nonnull align 4 dereferenceable(12) %138, i64 12, i1 false), !tbaa.struct !62
   br label %._crit_edge555
 
 ._crit_edge555:                                   ; preds = %143, %144
   %.pre-phi558 = phi i64 [ %146, %144 ], [ %indvars.iv.next547, %143 ]
   %148 = zext nneg i32 %141 to i64
-  %149 = getelementptr inbounds nuw i32, ptr %33, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !25
   br label %209
 
@@ -883,17 +879,17 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
   %153 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %154 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %155 = sext i32 %.0241.i to i64
-  %156 = getelementptr %struct.Run, ptr %.0246.i, i64 %indvars.iv.next547
+  %156 = getelementptr [12 x i8], ptr %.0246.i, i64 %indvars.iv.next547
   br label %157
 
 157:                                              ; preds = %.lr.ph442, %198
   %indvars.iv543 = phi i64 [ %155, %.lr.ph442 ], [ %indvars.iv.next544, %198 ]
   %.1.i440 = phi i32 [ %.0241.i, %.lr.ph442 ], [ %.2.i, %198 ]
   %.6.i439 = phi i32 [ %.4.i448, %.lr.ph442 ], [ %.7.i, %198 ]
-  %158 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv543
+  %158 = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv543
   %159 = load i32, ptr %158, align 4, !tbaa !25
   %indvars.iv.next544 = add nsw i64 %indvars.iv543, %.0239.i
-  %160 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv.next544
+  %160 = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv.next544
   %161 = load i32, ptr %160, align 4, !tbaa !25
   %162 = sub nsw i32 %159, %161
   %163 = tail call i32 @llvm.abs.i32(i32 %162, i1 true)
@@ -916,7 +912,7 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
 
 171:                                              ; preds = %164, %157
   %172 = sext i32 %.1.i440 to i64
-  %173 = getelementptr inbounds i32, ptr %33, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %33, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !25
   %..i = tail call i32 @llvm.smin.i32(i32 %174, i32 %159)
   %175 = sext i32 %..i to i64
@@ -928,7 +924,7 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
   %180 = shl nuw i32 %179, 31
   %181 = or i32 %180, %..i
   %182 = sext i32 %.6.i439 to i64
-  %183 = getelementptr %struct.Run, ptr %156, i64 %182
+  %183 = getelementptr [12 x i8], ptr %156, i64 %182
   store i32 %181, ptr %183, align 4, !tbaa !58
   %184 = load i32, ptr %153, align 4, !tbaa !56
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 4
@@ -965,17 +961,17 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
 199:                                              ; preds = %._crit_edge443
   %200 = sext i32 %.7.i to i64
   %201 = add nsw i64 %indvars.iv.next547, %200
-  %202 = getelementptr inbounds %struct.Run, ptr %.0246.i, i64 %201
+  %202 = getelementptr inbounds [12 x i8], ptr %.0246.i, i64 %201
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %202, ptr noundef nonnull align 4 dereferenceable(12) %138, i64 12, i1 false), !tbaa.struct !62
   br label %._crit_edge443._crit_edge
 
 ._crit_edge443._crit_edge:                        ; preds = %._crit_edge443, %199
   %.pre-phi562 = phi i64 [ %201, %199 ], [ %indvars.iv.next547, %._crit_edge443 ]
   %203 = sext i32 %.2.i to i64
-  %204 = getelementptr inbounds i32, ptr %33, i64 %203
+  %204 = getelementptr inbounds [4 x i8], ptr %33, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !25
   %206 = sext i32 %.0240.i to i64
-  %207 = getelementptr inbounds i32, ptr %33, i64 %206
+  %207 = getelementptr inbounds [4 x i8], ptr %33, i64 %206
   %208 = load i32, ptr %207, align 4, !tbaa !25
   %.286.i = tail call i32 @llvm.smin.i32(i32 %205, i32 %208)
   br label %209
@@ -992,7 +988,7 @@ define void @ubidi_setPara_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8
   %214 = xor i32 %140, %.masked.i
   %215 = shl nuw i32 %214, 31
   %216 = or i32 %215, %.286.i.sink695
-  %217 = getelementptr inbounds %struct.Run, ptr %.0246.i, i64 %.pre-phi562.sink
+  %217 = getelementptr inbounds [12 x i8], ptr %.0246.i, i64 %.pre-phi562.sink
   store i32 %216, ptr %217, align 4, !tbaa !58
   %218 = icmp sgt i64 %indvars.iv546, 1
   br i1 %218, label %124, label %.loopexit, !llvm.loop !65
@@ -1078,7 +1074,7 @@ _ZL15setParaRunsOnlyP5UBiDiPKDsihP10UErrorCode.exit: ; preds = %29, %35, %45, %2
 
 255:                                              ; preds = %254, %253
   %256 = zext nneg i8 %240 to i64
-  %257 = getelementptr inbounds nuw i32, ptr @_ZL6flagLR, i64 %256
+  %257 = getelementptr inbounds nuw [4 x i8], ptr @_ZL6flagLR, i64 %256
   %258 = load i32, ptr %257, align 4, !tbaa !25
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 %258, ptr %259, align 4, !tbaa !75
@@ -1203,7 +1199,7 @@ ubidi_getMemory_77.exit:                          ; preds = %.sink.split.i, %279
   %.02734.i.i = phi i8 [ 10, %.lr.ph.i.i ], [ %.128.i.i, %351 ]
   %315 = add nsw i32 %.035.i.i, 1
   %316 = sext i32 %.035.i.i to i64
-  %317 = getelementptr inbounds i16, ptr %311, i64 %316
+  %317 = getelementptr inbounds [2 x i8], ptr %311, i64 %316
   %318 = load i16, ptr %317, align 2, !tbaa !38
   %319 = zext i16 %318 to i32
   %320 = and i32 %319, 64512
@@ -1214,7 +1210,7 @@ ubidi_getMemory_77.exit:                          ; preds = %.sink.split.i, %279
 
 322:                                              ; preds = %314
   %323 = sext i32 %315 to i64
-  %324 = getelementptr inbounds i16, ptr %311, i64 %323
+  %324 = getelementptr inbounds [2 x i8], ptr %311, i64 %323
   %325 = load i16, ptr %324, align 2, !tbaa !38
   %326 = zext i16 %325 to i32
   %327 = and i32 %326, 64512
@@ -1347,7 +1343,7 @@ _ZL11firstL_R_ALP5UBiDi.exit.i:                   ; preds = %351
   %.0185289.i = phi i32 [ %.0185.ph228303.i, %.lr.ph.i ], [ %.1186.i, %.backedge.i ]
   %371 = add nsw i32 %.0177291.i, 1
   %372 = sext i32 %.0177291.i to i64
-  %373 = getelementptr inbounds i16, ptr %289, i64 %372
+  %373 = getelementptr inbounds [2 x i8], ptr %289, i64 %372
   %374 = load i16, ptr %373, align 2, !tbaa !38
   %375 = zext i16 %374 to i32
   %376 = and i32 %375, 64512
@@ -1358,7 +1354,7 @@ _ZL11firstL_R_ALP5UBiDi.exit.i:                   ; preds = %351
 
 378:                                              ; preds = %370
   %379 = sext i32 %371 to i64
-  %380 = getelementptr inbounds i16, ptr %289, i64 %379
+  %380 = getelementptr inbounds [2 x i8], ptr %289, i64 %379
   %381 = load i16, ptr %380, align 2, !tbaa !38
   %382 = zext i16 %381 to i32
   %383 = and i32 %382, 64512
@@ -1455,7 +1451,7 @@ switch.early.test.i:                              ; preds = %416
   %425 = load ptr, ptr %268, align 8, !tbaa !41
   %426 = load i32, ptr %243, align 8, !tbaa !40
   %427 = sext i32 %426 to i64
-  %428 = getelementptr %struct.Para, ptr %425, i64 %427
+  %428 = getelementptr [8 x i8], ptr %425, i64 %427
   %429 = getelementptr i8, ptr %428, i64 -4
   store i32 0, ptr %429, align 4, !tbaa !46
   br label %.outer227.outer.backedge.i
@@ -1491,7 +1487,7 @@ switch.early.test.i:                              ; preds = %416
   %438 = load ptr, ptr %268, align 8, !tbaa !41
   %439 = load i32, ptr %243, align 8, !tbaa !40
   %440 = sext i32 %439 to i64
-  %441 = getelementptr %struct.Para, ptr %438, i64 %440
+  %441 = getelementptr [8 x i8], ptr %438, i64 %440
   %442 = getelementptr i8, ptr %441, i64 -4
   store i32 1, ptr %442, align 4, !tbaa !46
   br label %.outer.i
@@ -1502,7 +1498,7 @@ switch.early.test.i:                              ; preds = %416
 
 445:                                              ; preds = %443
   %446 = sext i32 %.0167.ph233307.i to i64
-  %447 = getelementptr inbounds i32, ptr %7, i64 %446
+  %447 = getelementptr inbounds [4 x i8], ptr %7, i64 %446
   %448 = load i32, ptr %447, align 4, !tbaa !25
   %449 = sext i32 %448 to i64
   %450 = getelementptr inbounds i8, ptr %290, i64 %449
@@ -1530,9 +1526,9 @@ switch.early.test.i:                              ; preds = %416
 
 459:                                              ; preds = %455
   %460 = sext i32 %457 to i64
-  %461 = getelementptr inbounds i32, ptr %7, i64 %460
+  %461 = getelementptr inbounds [4 x i8], ptr %7, i64 %460
   store i32 %406, ptr %461, align 4, !tbaa !25
-  %462 = getelementptr inbounds i32, ptr %8, i64 %460
+  %462 = getelementptr inbounds [4 x i8], ptr %8, i64 %460
   store i32 %.1173.ph231306.i, ptr %462, align 4, !tbaa !59
   br label %463
 
@@ -1571,7 +1567,7 @@ switch.early.test.i:                              ; preds = %416
 
 474:                                              ; preds = %473
   %475 = zext nneg i32 %.0167.ph233307.i to i64
-  %476 = getelementptr inbounds nuw i32, ptr %8, i64 %475
+  %476 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %475
   %477 = load i32, ptr %476, align 4, !tbaa !59
   br label %478
 
@@ -1588,7 +1584,7 @@ switch.early.test.i:                              ; preds = %416
 
 483:                                              ; preds = %480
   %484 = sext i32 %.2179.i to i64
-  %485 = getelementptr inbounds i16, ptr %289, i64 %484
+  %485 = getelementptr inbounds [2 x i8], ptr %289, i64 %484
   %486 = load i16, ptr %485, align 2, !tbaa !38
   %487 = icmp eq i16 %486, 10
   br i1 %487, label %.backedge.i, label %489
@@ -1602,7 +1598,7 @@ switch.early.test.i:                              ; preds = %416
   %490 = load ptr, ptr %268, align 8, !tbaa !41
   %491 = load i32, ptr %243, align 8, !tbaa !40
   %492 = sext i32 %491 to i64
-  %493 = getelementptr %struct.Para, ptr %490, i64 %492
+  %493 = getelementptr [8 x i8], ptr %490, i64 %492
   %494 = getelementptr i8, ptr %493, i64 -8
   store i32 %.2179.i, ptr %494, align 4, !tbaa !42
   %495 = icmp eq i8 %.1169.ph232.ph324.i, 1
@@ -1719,7 +1715,7 @@ _ZL14checkParaCountP5UBiDi.exit.i:                ; preds = %ubidi_getMemory_77.
   %536 = load ptr, ptr %268, align 8, !tbaa !41
   %537 = load i32, ptr %243, align 8, !tbaa !40
   %538 = sext i32 %537 to i64
-  %539 = getelementptr %struct.Para, ptr %536, i64 %538
+  %539 = getelementptr [8 x i8], ptr %536, i64 %538
   %540 = getelementptr i8, ptr %539, i64 -4
   store i32 %369, ptr %540, align 4, !tbaa !46
   br label %.outer227.outer.backedge.i
@@ -1730,7 +1726,7 @@ _ZL14checkParaCountP5UBiDi.exit.i:                ; preds = %ubidi_getMemory_77.
   %544 = load ptr, ptr %268, align 8, !tbaa !41
   %545 = load i32, ptr %243, align 8, !tbaa !40
   %546 = sext i32 %545 to i64
-  %547 = getelementptr %struct.Para, ptr %544, i64 %546
+  %547 = getelementptr [8 x i8], ptr %544, i64 %546
   %548 = getelementptr i8, ptr %547, i64 -4
   store i32 %543, ptr %548, align 4, !tbaa !46
   br label %.outer227.outer.backedge.i
@@ -1762,7 +1758,7 @@ _ZL14checkParaCountP5UBiDi.exit.i:                ; preds = %ubidi_getMemory_77.
   br label %.loopexit.i
 
 select.unfold.i:                                  ; preds = %.lr.ph354.i
-  %556 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %556 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %557 = load i32, ptr %556, align 4, !tbaa !59
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %558 = icmp sgt i64 %indvars.iv.i, 0
@@ -1793,7 +1789,7 @@ select.unfold.i:                                  ; preds = %.lr.ph354.i
   %568 = load ptr, ptr %268, align 8, !tbaa !41
   %569 = load i32, ptr %243, align 8, !tbaa !40
   %570 = sext i32 %569 to i64
-  %571 = getelementptr %struct.Para, ptr %568, i64 %570
+  %571 = getelementptr [8 x i8], ptr %568, i64 %570
   %572 = getelementptr i8, ptr %571, i64 -8
   store i32 %288, ptr %572, align 4, !tbaa !42
   %573 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -1809,7 +1805,7 @@ select.unfold.i:                                  ; preds = %.lr.ph354.i
   %577 = load ptr, ptr %268, align 8, !tbaa !41
   %578 = load i32, ptr %243, align 8, !tbaa !40
   %579 = sext i32 %578 to i64
-  %580 = getelementptr %struct.Para, ptr %577, i64 %579
+  %580 = getelementptr [8 x i8], ptr %577, i64 %579
   %581 = getelementptr i8, ptr %580, i64 -4
   store i32 1, ptr %581, align 4, !tbaa !46
   br label %582
@@ -1838,12 +1834,12 @@ select.unfold.i:                                  ; preds = %.lr.ph354.i
 592:                                              ; preds = %592, %.lr.ph358.i
   %indvars.iv419.i = phi i64 [ 0, %.lr.ph358.i ], [ %indvars.iv.next420.i, %592 ]
   %.8193355.i = phi i32 [ %.7192.i, %.lr.ph358.i ], [ %600, %592 ]
-  %593 = getelementptr inbounds nuw %struct.Para, ptr %591, i64 %indvars.iv419.i
+  %593 = getelementptr inbounds nuw [8 x i8], ptr %591, i64 %indvars.iv419.i
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 4
   %595 = load i32, ptr %594, align 4, !tbaa !46
   %596 = and i32 %595, 1
   %597 = zext nneg i32 %596 to i64
-  %598 = getelementptr inbounds nuw i32, ptr @_ZL6flagLR, i64 %597
+  %598 = getelementptr inbounds nuw [4 x i8], ptr @_ZL6flagLR, i64 %597
   %599 = load i32, ptr %598, align 4, !tbaa !25
   %600 = or i32 %599, %.8193355.i
   %indvars.iv.next420.i = add nuw nsw i64 %indvars.iv419.i, 1
@@ -2061,7 +2057,7 @@ select.unfold.i:                                  ; preds = %.lr.ph354.i
 
 .thread619:                                       ; preds = %683
   %687 = sext i32 %675 to i64
-  %688 = getelementptr %struct.Para, ptr %684, i64 %687
+  %688 = getelementptr [8 x i8], ptr %684, i64 %687
   %689 = getelementptr i8, ptr %688, i64 -4
   %690 = load i32, ptr %689, align 4, !tbaa !46
   %691 = trunc i32 %690 to i8
@@ -2086,7 +2082,7 @@ select.unfold.i:                                  ; preds = %.lr.ph354.i
 
 ubidi_getParaLevelAtIndex_77.exit306:             ; preds = %694
   %701 = sext i32 %675 to i64
-  %702 = getelementptr %struct.Para, ptr %696, i64 %701
+  %702 = getelementptr [8 x i8], ptr %696, i64 %701
   %703 = getelementptr i8, ptr %702, i64 -4
   %704 = load i32, ptr %703, align 4, !tbaa !46
   %705 = trunc i32 %704 to i8
@@ -2126,7 +2122,7 @@ ubidi_getParaLevelAtIndex_77.exit306:             ; preds = %694
 
 722:                                              ; preds = %726, %.lr.ph.i309
   %indvars.iv.i311 = phi i64 [ 0, %.lr.ph.i309 ], [ %indvars.iv.next.i312, %726 ]
-  %723 = getelementptr inbounds nuw %struct.Para, ptr %714, i64 %indvars.iv.i311
+  %723 = getelementptr inbounds nuw [8 x i8], ptr %714, i64 %indvars.iv.i311
   %724 = load i32, ptr %723, align 4, !tbaa !42
   %725 = icmp sgt i32 %724, 0
   br i1 %725, label %._crit_edge.loopexit.split.loop.exit.i314, label %726
@@ -2145,7 +2141,7 @@ ubidi_getParaLevelAtIndex_77.exit315:             ; preds = %726, %719, %._crit_
   %728 = add nsw i32 %720, -1
   %spec.select.i308 = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i307, i32 %728)
   %729 = sext i32 %spec.select.i308 to i64
-  %730 = getelementptr inbounds %struct.Para, ptr %714, i64 %729
+  %730 = getelementptr inbounds [8 x i8], ptr %714, i64 %729
   %731 = getelementptr inbounds nuw i8, ptr %730, i64 4
   %732 = load i32, ptr %731, align 4, !tbaa !46
   %733 = trunc i32 %732 to i8
@@ -2201,7 +2197,7 @@ ubidi_getParaLevelAtIndex_77.exit315:             ; preds = %726, %719, %._crit_
 
 758:                                              ; preds = %762, %.lr.ph.i318
   %indvars.iv.i320 = phi i64 [ 0, %.lr.ph.i318 ], [ %indvars.iv.next.i321, %762 ]
-  %759 = getelementptr inbounds nuw %struct.Para, ptr %750, i64 %indvars.iv.i320
+  %759 = getelementptr inbounds nuw [8 x i8], ptr %750, i64 %indvars.iv.i320
   %760 = load i32, ptr %759, align 4, !tbaa !42
   %761 = icmp slt i32 %.0235, %760
   br i1 %761, label %._crit_edge.loopexit.split.loop.exit.i323, label %762
@@ -2220,7 +2216,7 @@ ubidi_getParaLevelAtIndex_77.exit324:             ; preds = %762, %755, %._crit_
   %764 = add nsw i32 %756, -1
   %spec.select.i317 = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i316, i32 %764)
   %765 = sext i32 %spec.select.i317 to i64
-  %766 = getelementptr inbounds %struct.Para, ptr %750, i64 %765
+  %766 = getelementptr inbounds [8 x i8], ptr %750, i64 %765
   %767 = getelementptr inbounds nuw i8, ptr %766, i64 4
   %768 = load i32, ptr %767, align 4, !tbaa !46
   %769 = trunc i32 %768 to i8
@@ -2292,7 +2288,7 @@ ubidi_getParaLevelAtIndex_77.exit324:             ; preds = %762, %755, %._crit_
 
 796:                                              ; preds = %799, %.lr.ph.i327
   %indvars.iv.i329 = phi i64 [ 0, %.lr.ph.i327 ], [ %indvars.iv.next.i330, %799 ]
-  %797 = getelementptr inbounds nuw %struct.Para, ptr %789, i64 %indvars.iv.i329
+  %797 = getelementptr inbounds nuw [8 x i8], ptr %789, i64 %indvars.iv.i329
   %798 = load i32, ptr %797, align 4, !tbaa !42
   %.not = icmp sgt i32 %610, %798
   br i1 %.not, label %799, label %._crit_edge.loopexit.split.loop.exit.i332
@@ -2311,7 +2307,7 @@ ubidi_getParaLevelAtIndex_77.exit333:             ; preds = %799, %793, %._crit_
   %801 = add nsw i32 %794, -1
   %spec.select.i326 = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i325, i32 %801)
   %802 = sext i32 %spec.select.i326 to i64
-  %803 = getelementptr inbounds %struct.Para, ptr %789, i64 %802
+  %803 = getelementptr inbounds [8 x i8], ptr %789, i64 %802
   %804 = getelementptr inbounds nuw i8, ptr %803, i64 4
   %805 = load i32, ptr %804, align 4, !tbaa !46
   %806 = trunc i32 %805 to i8
@@ -2396,7 +2392,7 @@ ubidi_getParaLevelAtIndex_77.exit333:             ; preds = %799, %793, %._crit_
   %831 = phi i32 [ %864, %.loopexit341 ], [ %829, %.preheader342 ]
   %indvars.iv533 = phi i64 [ %indvars.iv.next534, %.loopexit341 ], [ 0, %.preheader342 ]
   %832 = load ptr, ptr %268, align 8, !tbaa !41
-  %833 = getelementptr inbounds nuw %struct.Para, ptr %832, i64 %indvars.iv533
+  %833 = getelementptr inbounds nuw [8 x i8], ptr %832, i64 %indvars.iv533
   %834 = load i32, ptr %833, align 4, !tbaa !42
   %835 = add nsw i32 %834, -1
   %836 = getelementptr inbounds nuw i8, ptr %833, i64 4
@@ -2553,7 +2549,7 @@ define internal fastcc noundef range(i32 -1, 3) i32 @_ZL21resolveExplicitLevelsP
 
 30:                                               ; preds = %34, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
-  %31 = getelementptr inbounds nuw %struct.Para, ptr %20, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4, !tbaa !42
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %._crit_edge.loopexit.split.loop.exit.i, label %34
@@ -2572,7 +2568,7 @@ ubidi_getParaLevelAtIndex_77.exit:                ; preds = %34, %26, %._crit_ed
   %36 = add nsw i32 %28, -1
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 %36)
   %37 = sext i32 %spec.select.i to i64
-  %38 = getelementptr inbounds %struct.Para, ptr %20, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %20, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !46
   %41 = trunc i32 %40 to i8
@@ -2629,14 +2625,14 @@ _ZL18directionFromFlagsP5UBiDi.exit:              ; preds = %53
   br i1 %64, label %69, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr %struct.Para, ptr %.pre427, i64 %indvars.iv423
+  %66 = getelementptr [8 x i8], ptr %.pre427, i64 %indvars.iv423
   %67 = getelementptr i8, ptr %66, i64 -8
   %68 = load i32, ptr %67, align 4, !tbaa !42
   br label %69
 
 69:                                               ; preds = %62, %65
   %.0266 = phi i32 [ %68, %65 ], [ 0, %62 ]
-  %70 = getelementptr inbounds nuw %struct.Para, ptr %.pre427, i64 %indvars.iv423
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.pre427, i64 %indvars.iv423
   %71 = load i32, ptr %70, align 4, !tbaa !42
   %72 = icmp slt i32 %.0266, %71
   br i1 %72, label %.lr.ph401.preheader, label %._crit_edge402
@@ -2703,7 +2699,7 @@ _ZL18directionFromFlagsP5UBiDi.exit:              ; preds = %53
 
 103:                                              ; preds = %107, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %107 ]
-  %104 = getelementptr inbounds nuw %struct.Para, ptr %93, i64 %indvars.iv.i.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i.i
   %105 = load i32, ptr %104, align 4, !tbaa !42
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %._crit_edge.loopexit.split.loop.exit.i.i, label %107
@@ -2722,7 +2718,7 @@ ubidi_getParaLevelAtIndex_77.exit.i:              ; preds = %107, %._crit_edge.l
   %109 = add nsw i32 %101, -1
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i.i, i32 %109)
   %110 = sext i32 %spec.select.i.i to i64
-  %111 = getelementptr inbounds %struct.Para, ptr %93, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %93, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i32, ptr %112, align 4, !tbaa !46
   %114 = trunc i32 %113 to i8
@@ -2758,7 +2754,7 @@ ubidi_getParaLevelAtIndex_77.exit.i:              ; preds = %107, %._crit_edge.l
 
 130:                                              ; preds = %134, %.lr.ph.i35.i
   %indvars.iv.i37.i = phi i64 [ 0, %.lr.ph.i35.i ], [ %indvars.iv.next.i38.i, %134 ]
-  %131 = getelementptr inbounds nuw %struct.Para, ptr %120, i64 %indvars.iv.i37.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv.i37.i
   %132 = load i32, ptr %131, align 4, !tbaa !42
   %133 = icmp sgt i32 %132, 0
   br i1 %133, label %._crit_edge.loopexit.split.loop.exit.i40.i, label %134
@@ -2777,7 +2773,7 @@ ubidi_getParaLevelAtIndex_77.exit41.i:            ; preds = %134, %._crit_edge.l
   %136 = add nsw i32 %128, -1
   %spec.select.i34.i = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i33.i, i32 %136)
   %137 = sext i32 %spec.select.i34.i to i64
-  %138 = getelementptr inbounds %struct.Para, ptr %120, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %120, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %140 = load i32, ptr %139, align 4, !tbaa !46
   %141 = trunc i32 %140 to i8
@@ -2840,14 +2836,14 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit:       ; preds = %151, %157
   br i1 %171, label %176, label %172
 
 172:                                              ; preds = %169
-  %173 = getelementptr %struct.Para, ptr %.pre, i64 %indvars.iv417
+  %173 = getelementptr [8 x i8], ptr %.pre, i64 %indvars.iv417
   %174 = getelementptr i8, ptr %173, i64 -8
   %175 = load i32, ptr %174, align 4, !tbaa !42
   br label %176
 
 176:                                              ; preds = %169, %172
   %.0261 = phi i32 [ %175, %172 ], [ 0, %169 ]
-  %177 = getelementptr inbounds nuw %struct.Para, ptr %.pre, i64 %indvars.iv417
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv417
   %178 = load i32, ptr %177, align 4, !tbaa !42
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %180 = load i32, ptr %179, align 4, !tbaa !46
@@ -2879,13 +2875,13 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit:       ; preds = %151, %157
   br i1 %192, label %193, label %206
 
 193:                                              ; preds = %190
-  %194 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv412
+  %194 = getelementptr inbounds [2 x i8], ptr %11, i64 %indvars.iv412
   %195 = load i16, ptr %194, align 2, !tbaa !38
   %196 = icmp eq i16 %195, 13
   br i1 %196, label %197, label %201
 
 197:                                              ; preds = %193
-  %198 = getelementptr inbounds i16, ptr %11, i64 %191
+  %198 = getelementptr inbounds [2 x i8], ptr %11, i64 %191
   %199 = load i16, ptr %198, align 2, !tbaa !38
   %200 = icmp eq i16 %199, 10
   br i1 %200, label %206, label %201
@@ -2968,7 +2964,7 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit:       ; preds = %151, %157
 
 227:                                              ; preds = %231, %.lr.ph.i.i326
   %indvars.iv.i.i328 = phi i64 [ 0, %.lr.ph.i.i326 ], [ %indvars.iv.next.i.i329, %231 ]
-  %228 = getelementptr inbounds nuw %struct.Para, ptr %217, i64 %indvars.iv.i.i328
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %indvars.iv.i.i328
   %229 = load i32, ptr %228, align 4, !tbaa !42
   %230 = icmp sgt i32 %229, 0
   br i1 %230, label %._crit_edge.loopexit.split.loop.exit.i.i331, label %231
@@ -2987,7 +2983,7 @@ ubidi_getParaLevelAtIndex_77.exit.i310:           ; preds = %231, %._crit_edge.l
   %233 = add nsw i32 %225, -1
   %spec.select.i.i312 = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i.i311, i32 %233)
   %234 = sext i32 %spec.select.i.i312 to i64
-  %235 = getelementptr inbounds %struct.Para, ptr %217, i64 %234
+  %235 = getelementptr inbounds [8 x i8], ptr %217, i64 %234
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %237 = load i32, ptr %236, align 4, !tbaa !46
   %238 = trunc i32 %237 to i8
@@ -3023,7 +3019,7 @@ ubidi_getParaLevelAtIndex_77.exit.i310:           ; preds = %231, %._crit_edge.l
 
 254:                                              ; preds = %258, %.lr.ph.i35.i320
   %indvars.iv.i37.i322 = phi i64 [ 0, %.lr.ph.i35.i320 ], [ %indvars.iv.next.i38.i323, %258 ]
-  %255 = getelementptr inbounds nuw %struct.Para, ptr %244, i64 %indvars.iv.i37.i322
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %indvars.iv.i37.i322
   %256 = load i32, ptr %255, align 4, !tbaa !42
   %257 = icmp sgt i32 %256, 0
   br i1 %257, label %._crit_edge.loopexit.split.loop.exit.i40.i325, label %258
@@ -3042,7 +3038,7 @@ ubidi_getParaLevelAtIndex_77.exit41.i313:         ; preds = %258, %._crit_edge.l
   %260 = add nsw i32 %252, -1
   %spec.select.i34.i315 = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i33.i314, i32 %260)
   %261 = sext i32 %spec.select.i34.i315 to i64
-  %262 = getelementptr inbounds %struct.Para, ptr %244, i64 %261
+  %262 = getelementptr inbounds [8 x i8], ptr %244, i64 %261
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
   %264 = load i32, ptr %263, align 4, !tbaa !46
   %265 = trunc i32 %264 to i8
@@ -3168,7 +3164,7 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit332:    ; preds = %275, %281
   %314 = add i32 %.0245389, 1
   %315 = zext i8 %.1256 to i16
   %316 = zext i32 %314 to i64
-  %317 = getelementptr inbounds nuw i16, ptr %4, i64 %316
+  %317 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %316
   store i16 %315, ptr %317, align 2, !tbaa !116
   br label %596
 
@@ -3198,7 +3194,7 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit332:    ; preds = %275, %281
 
 327:                                              ; preds = %326
   %328 = zext i32 %.0245389 to i64
-  %329 = getelementptr inbounds nuw i16, ptr %4, i64 %328
+  %329 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %328
   %330 = load i16, ptr %329, align 2, !tbaa !116
   %331 = icmp ult i16 %330, 256
   br i1 %331, label %332, label %596
@@ -3206,7 +3202,7 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit332:    ; preds = %275, %281
 332:                                              ; preds = %327
   %333 = add i32 %.0245389, -1
   %334 = zext i32 %333 to i64
-  %335 = getelementptr inbounds nuw i16, ptr %4, i64 %334
+  %335 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %334
   %336 = load i16, ptr %335, align 2, !tbaa !116
   %337 = trunc i16 %336 to i8
   br label %596
@@ -3215,7 +3211,7 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit332:    ; preds = %275, %281
   %339 = zext i8 %.0255382 to i32
   %340 = and i32 %339, 1
   %341 = zext nneg i32 %340 to i64
-  %342 = getelementptr inbounds nuw i32, ptr @_ZL6flagLR, i64 %341
+  %342 = getelementptr inbounds nuw [4 x i8], ptr @_ZL6flagLR, i64 %341
   %343 = load i32, ptr %342, align 4, !tbaa !25
   %344 = or i32 %.0270378, %343
   %345 = or i32 %344, 1024
@@ -3244,7 +3240,7 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit332:    ; preds = %275, %281
 361:                                              ; preds = %351
   %362 = load i32, ptr %211, align 4, !tbaa !100
   %363 = sext i32 %362 to i64
-  %364 = getelementptr inbounds %struct.IsoRun, ptr %212, i64 %363
+  %364 = getelementptr inbounds [16 x i8], ptr %212, i64 %363
   %365 = and i8 %.0255382, 127
   %366 = icmp samesign ugt i8 %365, %349
   %spec.select.i334 = select i1 %366, i8 %.0255382, i8 %.0251384
@@ -3303,11 +3299,11 @@ _ZL22bracketProcessBoundaryP11BracketDataihh.exit: ; preds = %351, %361
   %396 = add i32 %.0245389, 1
   %397 = or disjoint i16 %383, 256
   %398 = zext i32 %396 to i64
-  %399 = getelementptr inbounds nuw i16, ptr %4, i64 %398
+  %399 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %398
   store i16 %397, ptr %399, align 2, !tbaa !116
   %400 = load i32, ptr %211, align 4, !tbaa !100
   %401 = sext i32 %400 to i64
-  %402 = getelementptr inbounds %struct.IsoRun, ptr %212, i64 %401
+  %402 = getelementptr inbounds [16 x i8], ptr %212, i64 %401
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 10
   store i8 10, ptr %403, align 2, !tbaa !106
   %404 = getelementptr inbounds nuw i8, ptr %402, i64 6
@@ -3359,7 +3355,7 @@ _ZL22bracketProcessBoundaryP11BracketDataihh.exit: ; preds = %351, %361
 431:                                              ; preds = %421
   %432 = load i32, ptr %211, align 4, !tbaa !100
   %433 = sext i32 %432 to i64
-  %434 = getelementptr inbounds %struct.IsoRun, ptr %212, i64 %433
+  %434 = getelementptr inbounds [16 x i8], ptr %212, i64 %433
   %435 = and i8 %.0255382, 127
   %436 = and i8 %.0251384, 127
   %437 = icmp samesign ugt i8 %435, %436
@@ -3402,7 +3398,7 @@ _ZL22bracketProcessBoundaryP11BracketDataihh.exit337: ; preds = %421, %431
 .preheader455:                                    ; preds = %451, %.preheader455
   %.2247 = phi i32 [ %456, %.preheader455 ], [ %.0245389, %451 ]
   %452 = zext i32 %.2247 to i64
-  %453 = getelementptr inbounds nuw i16, ptr %4, i64 %452
+  %453 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %452
   %454 = load i16, ptr %453, align 2, !tbaa !116
   %455 = icmp ult i16 %454, 256
   %456 = add i32 %.2247, -1
@@ -3415,7 +3411,7 @@ _ZL22bracketProcessBoundaryP11BracketDataihh.exit337: ; preds = %421, %431
   %461 = add nsw i32 %460, -1
   store i32 %461, ptr %211, align 4, !tbaa !100
   %462 = sext i32 %461 to i64
-  %463 = getelementptr %struct.IsoRun, ptr %5, i64 %462
+  %463 = getelementptr [16 x i8], ptr %5, i64 %462
   %464 = getelementptr i8, ptr %463, i64 514
   store i8 10, ptr %464, align 2, !tbaa !106
   br label %466
@@ -3432,12 +3428,12 @@ _ZL22bracketProcessBoundaryP11BracketDataihh.exit337: ; preds = %421, %431
   %.1240 = phi i32 [ %.0239391, %449 ], [ 0, %457 ], [ %.0239391, %465 ]
   %.1 = phi i32 [ %.0392, %449 ], [ %459, %457 ], [ 0, %465 ]
   %467 = zext i32 %.1246 to i64
-  %468 = getelementptr inbounds nuw i16, ptr %4, i64 %467
+  %468 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %467
   %469 = load i16, ptr %468, align 2, !tbaa !116
   %470 = trunc i16 %469 to i8
   %471 = and i16 %469, 1
   %472 = zext nneg i16 %471 to i64
-  %473 = getelementptr inbounds nuw i32, ptr @_ZL6flagLR, i64 %472
+  %473 = getelementptr inbounds nuw [4 x i8], ptr @_ZL6flagLR, i64 %472
   %474 = load i32, ptr %473, align 4, !tbaa !25
   %475 = or i32 %.3273, %474
   %476 = or i32 %475, 1024
@@ -3474,7 +3470,7 @@ _ZL22bracketProcessBoundaryP11BracketDataihh.exit337: ; preds = %421, %431
 
 492:                                              ; preds = %497, %.lr.ph.i340
   %indvars.iv.i342 = phi i64 [ 0, %.lr.ph.i340 ], [ %indvars.iv.next.i343, %497 ]
-  %493 = getelementptr inbounds nuw %struct.Para, ptr %483, i64 %indvars.iv.i342
+  %493 = getelementptr inbounds nuw [8 x i8], ptr %483, i64 %indvars.iv.i342
   %494 = load i32, ptr %493, align 4, !tbaa !42
   %495 = sext i32 %494 to i64
   %496 = icmp slt i64 %indvars.iv, %495
@@ -3494,7 +3490,7 @@ ubidi_getParaLevelAtIndex_77.exit346:             ; preds = %497, %489, %._crit_
   %499 = add nsw i32 %490, -1
   %spec.select.i339 = call i32 @llvm.smin.i32(i32 %.0.lcssa.i338, i32 %499)
   %500 = sext i32 %spec.select.i339 to i64
-  %501 = getelementptr inbounds %struct.Para, ptr %483, i64 %500
+  %501 = getelementptr inbounds [8 x i8], ptr %483, i64 %500
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 4
   %503 = load i32, ptr %502, align 4, !tbaa !46
   %504 = trunc i32 %503 to i8
@@ -3509,13 +3505,13 @@ ubidi_getParaLevelAtIndex_77.exit346:             ; preds = %497, %489, %._crit_
   br i1 %509, label %510, label %596
 
 510:                                              ; preds = %505
-  %511 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
+  %511 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv
   %512 = load i16, ptr %511, align 2, !tbaa !38
   %513 = icmp eq i16 %512, 13
   br i1 %513, label %514, label %518
 
 514:                                              ; preds = %510
-  %515 = getelementptr inbounds nuw i16, ptr %11, i64 %508
+  %515 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %508
   %516 = load i16, ptr %515, align 2, !tbaa !38
   %517 = icmp eq i16 %516, 10
   br i1 %517, label %596, label %518
@@ -3547,7 +3543,7 @@ ubidi_getParaLevelAtIndex_77.exit346:             ; preds = %497, %489, %._crit_
 
 530:                                              ; preds = %535, %.lr.ph.i349
   %indvars.iv.i351 = phi i64 [ 0, %.lr.ph.i349 ], [ %indvars.iv.next.i352, %535 ]
-  %531 = getelementptr inbounds nuw %struct.Para, ptr %521, i64 %indvars.iv.i351
+  %531 = getelementptr inbounds nuw [8 x i8], ptr %521, i64 %indvars.iv.i351
   %532 = load i32, ptr %531, align 4, !tbaa !42
   %533 = sext i32 %532 to i64
   %534 = icmp slt i64 %508, %533
@@ -3567,7 +3563,7 @@ ubidi_getParaLevelAtIndex_77.exit355:             ; preds = %535, %527, %._crit_
   %537 = add nsw i32 %528, -1
   %spec.select.i348 = call i32 @llvm.smin.i32(i32 %.0.lcssa.i347, i32 %537)
   %538 = sext i32 %spec.select.i348 to i64
-  %539 = getelementptr inbounds %struct.Para, ptr %521, i64 %538
+  %539 = getelementptr inbounds [8 x i8], ptr %521, i64 %538
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 4
   %541 = load i32, ptr %540, align 4, !tbaa !46
   %542 = trunc i32 %541 to i8
@@ -3618,7 +3614,7 @@ ubidi_getParaLevelAtIndex_77.exit355:             ; preds = %535, %527, %._crit_
 566:                                              ; preds = %556
   %567 = load i32, ptr %211, align 4, !tbaa !100
   %568 = sext i32 %567 to i64
-  %569 = getelementptr inbounds %struct.IsoRun, ptr %212, i64 %568
+  %569 = getelementptr inbounds [16 x i8], ptr %212, i64 %568
   %570 = and i8 %.0255382, 127
   %571 = icmp samesign ugt i8 %570, %554
   %spec.select.i357 = select i1 %571, i8 %.0255382, i8 %.0251384
@@ -3645,7 +3641,7 @@ _ZL22bracketProcessBoundaryP11BracketDataihh.exit358: ; preds = %556, %566
   %582 = and i32 %552, 1
   %583 = zext nneg i32 %582 to i64
   %_ZL5flagE._ZL5flagO = select i1 %.not301, ptr @_ZL5flagE, ptr @_ZL5flagO
-  %584 = getelementptr inbounds nuw i32, ptr %_ZL5flagE._ZL5flagO, i64 %583
+  %584 = getelementptr inbounds nuw [4 x i8], ptr %_ZL5flagE._ZL5flagO, i64 %583
   %585 = load i32, ptr %584, align 4, !tbaa !25
   %586 = or i32 %585, %581
   br label %587
@@ -3689,7 +3685,7 @@ _ZL22bracketProcessBoundaryP11BracketDataihh.exit358: ; preds = %556, %566
   %600 = load i8, ptr %599, align 1, !tbaa !66
   %601 = and i8 %600, 1
   %602 = zext nneg i8 %601 to i64
-  %603 = getelementptr inbounds nuw i32, ptr @_ZL6flagLR, i64 %602
+  %603 = getelementptr inbounds nuw [4 x i8], ptr @_ZL6flagLR, i64 %602
   %604 = load i32, ptr %603, align 4, !tbaa !25
   %605 = or i32 %604, %.5
   br label %._crit_edge.thread
@@ -3821,7 +3817,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL19checkExplicitLevelsP5UB
 41:                                               ; preds = %37
   %42 = load ptr, ptr %10, align 8, !tbaa !41
   %43 = sext i32 %38 to i64
-  %44 = getelementptr inbounds %struct.Para, ptr %42, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !46
   %47 = load i32, ptr %44, align 4, !tbaa !42
@@ -3860,12 +3856,12 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL19checkExplicitLevelsP5UB
   br i1 %.not86, label %66, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i32, ptr @_ZL5flagO, i64 %62
+  %64 = getelementptr inbounds nuw [4 x i8], ptr @_ZL5flagO, i64 %62
   %65 = load i32, ptr %64, align 4, !tbaa !25
   br label %73
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds nuw i32, ptr @_ZL5flagE, i64 %62
+  %67 = getelementptr inbounds nuw [4 x i8], ptr @_ZL5flagE, i64 %62
   %68 = load i32, ptr %67, align 4, !tbaa !25
   %69 = zext nneg i8 %23 to i64
   %70 = shl nuw i64 1, %69
@@ -3893,7 +3889,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL19checkExplicitLevelsP5UB
   %76 = load i8, ptr %11, align 1, !tbaa !66
   %77 = and i8 %76, 1
   %78 = zext nneg i8 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr @_ZL6flagLR, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @_ZL6flagLR, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !25
   %81 = or i32 %80, %.279.ph
   br label %82
@@ -3970,7 +3966,7 @@ define internal fastcc void @_ZL21resolveImplicitLevelsP5UBiDiiihh(ptr noundef n
 
 27:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %28 = getelementptr inbounds nuw %struct.Para, ptr %17, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4, !tbaa !42
   %30 = icmp slt i32 %1, %29
   br i1 %30, label %._crit_edge.loopexit.split.loop.exit.i, label %31
@@ -3989,7 +3985,7 @@ ubidi_getParaLevelAtIndex_77.exit:                ; preds = %31, %23, %._crit_ed
   %33 = add nsw i32 %25, -1
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 %33)
   %34 = sext i32 %spec.select.i to i64
-  %35 = getelementptr inbounds %struct.Para, ptr %17, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %17, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !46
   %38 = trunc i32 %37 to i8
@@ -4027,11 +4023,11 @@ ubidi_getParaLevelAtIndex_77.exit:                ; preds = %31, %23, %._crit_ed
   %58 = load ptr, ptr %57, align 8, !tbaa !89
   %59 = and i8 %55, 1
   %60 = zext nneg i8 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !24
   store ptr %62, ptr %6, align 8, !tbaa !125
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %60
   %65 = load ptr, ptr %64, align 8, !tbaa !24
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %65, ptr %66, align 8, !tbaa !126
@@ -4059,7 +4055,7 @@ ubidi_getParaLevelAtIndex_77.exit:                ; preds = %31, %23, %._crit_ed
 79:                                               ; preds = %77
   %80 = add nsw i32 %.021.i, -1
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw i16, ptr %74, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %81
   %83 = load i16, ptr %82, align 2, !tbaa !38
   %84 = zext i16 %83 to i32
   %85 = and i32 %84, 64512
@@ -4072,7 +4068,7 @@ ubidi_getParaLevelAtIndex_77.exit:                ; preds = %31, %23, %._crit_ed
 
 88:                                               ; preds = %87
   %89 = zext nneg i32 %.021.i to i64
-  %90 = getelementptr i16, ptr %74, i64 %89
+  %90 = getelementptr [2 x i8], ptr %74, i64 %89
   %91 = getelementptr i8, ptr %90, i64 -4
   %92 = load i16, ptr %91, align 2, !tbaa !38
   %93 = zext i16 %92 to i32
@@ -4139,7 +4135,7 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %121 = load ptr, ptr %120, align 8, !tbaa !88
   %122 = zext nneg i32 %117 to i64
-  %123 = getelementptr inbounds nuw %struct.Isolate, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !127
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %124, ptr %125, align 8, !tbaa !129
@@ -4367,7 +4363,7 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
 209:                                              ; preds = %207
   %210 = add nsw i32 %.023.i, 1
   %211 = sext i32 %.023.i to i64
-  %212 = getelementptr inbounds i16, ptr %204, i64 %211
+  %212 = getelementptr inbounds [2 x i8], ptr %204, i64 %211
   %213 = load i16, ptr %212, align 2, !tbaa !38
   %214 = zext i16 %213 to i32
   %215 = and i32 %214, 64512
@@ -4378,7 +4374,7 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
 
 217:                                              ; preds = %209
   %218 = sext i32 %210 to i64
-  %219 = getelementptr inbounds i16, ptr %204, i64 %218
+  %219 = getelementptr inbounds [2 x i8], ptr %204, i64 %218
   %220 = load i16, ptr %219, align 2, !tbaa !38
   %221 = zext i16 %220 to i32
   %222 = and i32 %221, 64512
@@ -4477,7 +4473,7 @@ _ZL17firstL_R_AL_EN_ANP5UBiDi.exit:               ; preds = %ubidi_getCustomized
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %263 = load ptr, ptr %262, align 8, !tbaa !88
   %264 = sext i32 %261 to i64
-  %265 = getelementptr inbounds %struct.Isolate, ptr %263, i64 %264
+  %265 = getelementptr inbounds [16 x i8], ptr %263, i64 %264
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 12
   store i16 %.2187.lcssa, ptr %266, align 4, !tbaa !131
   %267 = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -4578,7 +4574,7 @@ define internal fastcc void @_ZL14adjustWSLevelsP5UBiDi(ptr noundef nonnull read
 
 40:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
-  %41 = getelementptr inbounds nuw %struct.Para, ptr %32, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4, !tbaa !42
   %.not64 = icmp slt i32 %42, %34
   br i1 %.not64, label %43, label %._crit_edge.loopexit.split.loop.exit.i
@@ -4597,7 +4593,7 @@ ubidi_getParaLevelAtIndex_77.exit:                ; preds = %43, %37, %._crit_ed
   %45 = add nsw i32 %38, -1
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 %45)
   %46 = sext i32 %spec.select.i to i64
-  %47 = getelementptr inbounds %struct.Para, ptr %32, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %32, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !46
   %50 = trunc i32 %49 to i8
@@ -4676,7 +4672,7 @@ ubidi_getParaLevelAtIndex_77.exit:                ; preds = %43, %37, %._crit_ed
 
 81:                                               ; preds = %84, %.lr.ph.i57
   %indvars.iv.i59 = phi i64 [ 0, %.lr.ph.i57 ], [ %indvars.iv.next.i60, %84 ]
-  %82 = getelementptr inbounds nuw %struct.Para, ptr %74, i64 %indvars.iv.i59
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.i59
   %83 = load i32, ptr %82, align 4, !tbaa !42
   %.not65 = icmp slt i32 %83, %71
   br i1 %.not65, label %84, label %._crit_edge.loopexit.split.loop.exit.i62
@@ -4695,7 +4691,7 @@ ubidi_getParaLevelAtIndex_77.exit63:              ; preds = %84, %78, %._crit_ed
   %86 = add nsw i32 %79, -1
   %spec.select.i56 = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i55, i32 %86)
   %87 = sext i32 %spec.select.i56 to i64
-  %88 = getelementptr inbounds %struct.Para, ptr %74, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %74, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4, !tbaa !46
   %91 = trunc i32 %90 to i8
@@ -4775,7 +4771,7 @@ define internal fastcc void @_ZL8addPointP5UBiDiii(ptr noundef nonnull captures(
   %27 = phi i32 [ %.pre24, %24 ], [ %17, %14 ]
   %28 = phi ptr [ %22, %24 ], [ %.pre, %14 ]
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds %struct.Point, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   store i32 %1, ptr %30, align 4, !tbaa !25
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %2, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !25
@@ -5074,7 +5070,7 @@ define void @ubidi_getParagraphByIndex_77(ptr noundef readonly captures(address)
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr %struct.Para, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load i32, ptr %32, align 4, !tbaa !42
   br label %34
@@ -5096,7 +5092,7 @@ define void @ubidi_getParagraphByIndex_77(ptr noundef readonly captures(address)
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %39 = load ptr, ptr %38, align 8, !tbaa !41
   %40 = zext nneg i32 %1 to i64
-  %41 = getelementptr inbounds nuw %struct.Para, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !42
   store i32 %42, ptr %3, align 4, !tbaa !25
   br label %43
@@ -5135,7 +5131,7 @@ define void @ubidi_getParagraphByIndex_77(ptr noundef readonly captures(address)
 
 59:                                               ; preds = %63, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %63 ]
-  %60 = getelementptr inbounds nuw %struct.Para, ptr %49, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i
   %61 = load i32, ptr %60, align 4, !tbaa !42
   %62 = icmp slt i32 %.0, %61
   br i1 %62, label %._crit_edge.loopexit.split.loop.exit.i, label %63
@@ -5154,7 +5150,7 @@ ubidi_getParaLevelAtIndex_77.exit:                ; preds = %63, %55, %._crit_ed
   %65 = add nsw i32 %57, -1
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 %65)
   %66 = sext i32 %spec.select.i to i64
-  %67 = getelementptr inbounds %struct.Para, ptr %49, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %49, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !46
   %70 = trunc i32 %69 to i8
@@ -5222,7 +5218,7 @@ define i32 @ubidi_getParagraph_77(ptr noundef readonly captures(address) %0, i32
 
 28:                                               ; preds = %28, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader ]
-  %29 = getelementptr inbounds nuw %struct.Para, ptr %26, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !42
   %.not33 = icmp slt i32 %1, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5264,7 +5260,7 @@ define i32 @ubidi_getParagraph_77(ptr noundef readonly captures(address) %0, i32
 45:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 208
   %47 = load ptr, ptr %46, align 8, !tbaa !41
-  %48 = getelementptr %struct.Para, ptr %47, i64 %indvars.iv
+  %48 = getelementptr [8 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr i8, ptr %48, i64 -8
   %50 = load i32, ptr %49, align 4, !tbaa !42
   br label %51
@@ -5285,7 +5281,7 @@ define i32 @ubidi_getParagraph_77(ptr noundef readonly captures(address) %0, i32
 54:                                               ; preds = %53
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 208
   %56 = load ptr, ptr %55, align 8, !tbaa !41
-  %57 = getelementptr inbounds nuw %struct.Para, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !42
   store i32 %58, ptr %3, align 4, !tbaa !25
   br label %59
@@ -5324,7 +5320,7 @@ define i32 @ubidi_getParagraph_77(ptr noundef readonly captures(address) %0, i32
 
 75:                                               ; preds = %79, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %79 ]
-  %76 = getelementptr inbounds nuw %struct.Para, ptr %65, i64 %indvars.iv.i.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i.i
   %77 = load i32, ptr %76, align 4, !tbaa !42
   %78 = icmp slt i32 %.0.i, %77
   br i1 %78, label %._crit_edge.loopexit.split.loop.exit.i.i, label %79
@@ -5343,7 +5339,7 @@ ubidi_getParaLevelAtIndex_77.exit.i:              ; preds = %79, %._crit_edge.lo
   %81 = add nsw i32 %73, -1
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i.i, i32 %81)
   %82 = sext i32 %spec.select.i.i to i64
-  %83 = getelementptr inbounds %struct.Para, ptr %65, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %65, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4, !tbaa !46
   %86 = trunc i32 %85 to i8
@@ -5481,7 +5477,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18bracketProcessCha
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %5 = load i32, ptr %4, align 4, !tbaa !100
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.IsoRun, ptr %3, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %0, align 8, !tbaa !98
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8, !tbaa !76
@@ -5494,7 +5490,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18bracketProcessCha
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !67
-  %18 = getelementptr inbounds i16, ptr %17, i64 %11
+  %18 = getelementptr inbounds [2 x i8], ptr %17, i64 %11
   %19 = load i16, ptr %18, align 2, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %21 = load i16, ptr %20, align 2, !tbaa !104
@@ -5514,7 +5510,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18bracketProcessCha
 29:                                               ; preds = %27
   %30 = add nsw i64 %indvars.iv, -1
   %31 = load ptr, ptr %24, align 8, !tbaa !111
-  %32 = getelementptr inbounds nuw %struct.Opening, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %30
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !146
   %.not = icmp eq i32 %34, %25
@@ -5594,7 +5590,7 @@ _ZL21bracketProcessClosingP11BracketDataii.exit.thread: ; preds = %48
   %73 = zext i16 %storemerge82.i to i64
   %74 = add nuw nsw i64 %73, 4294967295
   %75 = and i64 %74, 4294967295
-  %76 = getelementptr inbounds nuw %struct.Opening, ptr %70, i64 %75
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !151
   %78 = icmp eq i32 %77, %71
   br i1 %78, label %79, label %.critedge.loopexit.i
@@ -5621,7 +5617,7 @@ _ZL21bracketProcessClosingP11BracketDataii.exit.thread: ; preds = %48
 89:                                               ; preds = %93, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %30, %.lr.ph.i ], [ %indvars.iv.next.i, %93 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %90 = getelementptr inbounds nuw %struct.Opening, ptr %86, i64 %indvars.iv.next.i
+  %90 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %indvars.iv.next.i
   %91 = load i32, ptr %90, align 4, !tbaa !151
   %92 = icmp eq i32 %91, %87
   br i1 %92, label %93, label %.critedge2.i
@@ -5645,7 +5641,7 @@ _ZL21bracketProcessClosingP11BracketDataii.exit.thread: ; preds = %48
 
 99:                                               ; preds = %107, %.lr.ph80.i
   %indvars.iv88.i = phi i64 [ %indvars.iv, %.lr.ph80.i ], [ %indvars.iv.next89.i, %107 ]
-  %100 = getelementptr inbounds nuw %struct.Opening, ptr %98, i64 %indvars.iv88.i
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %98, i64 %indvars.iv88.i
   %101 = load i32, ptr %100, align 4, !tbaa !151
   %.not72.i = icmp slt i32 %101, %1
   br i1 %.not72.i, label %102, label %_ZL21bracketProcessClosingP11BracketDataii.exit
@@ -5708,7 +5704,7 @@ _ZL21bracketProcessClosingP11BracketDataii.exit:  ; preds = %99, %107, %.critedg
 
 129:                                              ; preds = %.lr.ph, %129
   %indvars.iv196 = phi i64 [ %127, %.lr.ph ], [ %indvars.iv.next197, %129 ]
-  %130 = getelementptr inbounds nuw %struct.Opening, ptr %126, i64 %indvars.iv196
+  %130 = getelementptr inbounds nuw [24 x i8], ptr %126, i64 %indvars.iv196
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 12
   %132 = load i16, ptr %131, align 4, !tbaa !149
   %133 = or i16 %132, %123
@@ -5729,7 +5725,7 @@ _ZL21bracketProcessClosingP11BracketDataii.exit:  ; preds = %99, %107, %.critedg
 137:                                              ; preds = %._crit_edge, %110
   %138 = phi ptr [ %.pre202, %._crit_edge ], [ %116, %110 ]
   %139 = load ptr, ptr %24, align 8, !tbaa !111
-  %140 = getelementptr inbounds nuw %struct.Opening, ptr %139, i64 %30
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %139, i64 %30
   %141 = load i32, ptr %140, align 4, !tbaa !151
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds i8, ptr %138, i64 %142
@@ -5913,7 +5909,7 @@ _ZL21bracketProcessClosingP11BracketDataii.exit:  ; preds = %99, %107, %.critedg
 
 214:                                              ; preds = %.lr.ph191, %222
   %indvars.iv199 = phi i64 [ %213, %.lr.ph191 ], [ %indvars.iv.next200, %222 ]
-  %215 = getelementptr inbounds nuw %struct.Opening, ptr %212, i64 %indvars.iv199
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %212, i64 %indvars.iv199
   %216 = load i32, ptr %215, align 4, !tbaa !151
   %217 = icmp sgt i32 %1, %216
   br i1 %217, label %218, label %222
@@ -5945,7 +5941,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL17bracketAddOpening
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %6 = load i32, ptr %5, align 4, !tbaa !100
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.IsoRun, ptr %4, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %10 = load i16, ptr %9, align 2, !tbaa !104
   %11 = zext i16 %10 to i32
@@ -6025,7 +6021,7 @@ ubidi_getMemory_77.exit:                          ; preds = %.sink.split.i, %23
   %44 = phi i16 [ %10, %._crit_edge ], [ %.pre37, %37 ]
   %45 = phi ptr [ %.pre36, %._crit_edge ], [ %39, %37 ]
   %46 = zext i16 %44 to i64
-  %47 = getelementptr inbounds nuw %struct.Opening, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %46
   store i32 %2, ptr %47, align 4, !tbaa !151
   %48 = zext i16 %1 to i32
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -6053,7 +6049,7 @@ define internal fastcc void @_ZL6fixN0cP11BracketDataiih(ptr noundef nonnull %0,
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %6 = load i32, ptr %5, align 4, !tbaa !100
   %7 = sext i32 %6 to i64
-  %8 = getelementptr %struct.IsoRun, ptr %0, i64 %7
+  %8 = getelementptr [16 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %0, align 8, !tbaa !98
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load ptr, ptr %10, align 8, !tbaa !76
@@ -6069,7 +6065,7 @@ define internal fastcc void @_ZL6fixN0cP11BracketDataiih(ptr noundef nonnull %0,
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %19 = load ptr, ptr %18, align 8, !tbaa !111
   %20 = zext nneg i32 %12 to i64
-  %21 = getelementptr inbounds nuw %struct.Opening, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %20
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
@@ -6333,7 +6329,7 @@ define internal fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr nou
   %101 = phi i32 [ %.pre24.i, %98 ], [ %91, %88 ]
   %102 = phi ptr [ %96, %98 ], [ %.pre.i, %88 ]
   %103 = sext i32 %101 to i64
-  %104 = getelementptr inbounds %struct.Point, ptr %102, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %102, i64 %103
   store i32 %75, ptr %104, align 4, !tbaa !25
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %104, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !25
@@ -6437,7 +6433,7 @@ _ZL8addPointP5UBiDiii.exit:                       ; preds = %._crit_edge.i, %.th
   %147 = phi i32 [ %.pre24.i225, %144 ], [ %137, %134 ]
   %148 = phi ptr [ %142, %144 ], [ %.pre.i223, %134 ]
   %149 = sext i32 %147 to i64
-  %150 = getelementptr inbounds %struct.Point, ptr %148, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr %148, i64 %149
   store i32 %3, ptr %150, align 4, !tbaa !25
   %.sroa.4.0..sroa_idx.i227 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx.i227, align 4, !tbaa !25
@@ -6656,7 +6652,7 @@ _ZL8addPointP5UBiDiii.exit229:                    ; preds = %131, %.thread.i228,
   %246 = phi i32 [ %.pre24.i234, %243 ], [ %236, %233 ]
   %247 = phi ptr [ %241, %243 ], [ %.pre.i232, %233 ]
   %248 = sext i32 %246 to i64
-  %249 = getelementptr inbounds %struct.Point, ptr %247, i64 %248
+  %249 = getelementptr inbounds [8 x i8], ptr %247, i64 %248
   store i32 %222, ptr %249, align 4, !tbaa !25
   %.sroa.4.0..sroa_idx.i236 = getelementptr inbounds nuw i8, ptr %249, i64 4
   store i32 4, ptr %.sroa.4.0..sroa_idx.i236, align 4, !tbaa !25
@@ -6739,7 +6735,7 @@ _ZL8addPointP5UBiDiii.exit238:                    ; preds = %230, %.thread.i237,
   %280 = phi i32 [ %.pre24.i243, %277 ], [ %270, %267 ]
   %281 = phi ptr [ %275, %277 ], [ %.pre.i241, %267 ]
   %282 = sext i32 %280 to i64
-  %283 = getelementptr inbounds %struct.Point, ptr %281, i64 %282
+  %283 = getelementptr inbounds [8 x i8], ptr %281, i64 %282
   store i32 %3, ptr %283, align 4, !tbaa !25
   %.sroa.4.0..sroa_idx.i245 = getelementptr inbounds nuw i8, ptr %283, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx.i245, align 4, !tbaa !25
@@ -6805,7 +6801,7 @@ _ZL8addPointP5UBiDiii.exit247:                    ; preds = %264, %.thread.i246,
   %308 = phi i32 [ %.pre24.i252, %305 ], [ %298, %295 ]
   %309 = phi ptr [ %303, %305 ], [ %.pre.i250, %295 ]
   %310 = sext i32 %308 to i64
-  %311 = getelementptr inbounds %struct.Point, ptr %309, i64 %310
+  %311 = getelementptr inbounds [8 x i8], ptr %309, i64 %310
   store i32 %3, ptr %311, align 4, !tbaa !25
   %.sroa.4.0..sroa_idx.i254 = getelementptr inbounds nuw i8, ptr %311, i64 4
   store i32 2, ptr %.sroa.4.0..sroa_idx.i254, align 4, !tbaa !25
@@ -6884,7 +6880,7 @@ _ZL8addPointP5UBiDiii.exit247:                    ; preds = %264, %.thread.i246,
   %342 = phi i32 [ %.pre24.i261, %339 ], [ %331, %330 ]
   %343 = phi ptr [ %337, %339 ], [ %.pre.i259, %330 ]
   %344 = sext i32 %342 to i64
-  %345 = getelementptr inbounds %struct.Point, ptr %343, i64 %344
+  %345 = getelementptr inbounds [8 x i8], ptr %343, i64 %344
   store i32 %3, ptr %345, align 4, !tbaa !25
   %.sroa.4.0..sroa_idx.i263 = getelementptr inbounds nuw i8, ptr %345, i64 4
   store i32 4, ptr %.sroa.4.0..sroa_idx.i263, align 4, !tbaa !25

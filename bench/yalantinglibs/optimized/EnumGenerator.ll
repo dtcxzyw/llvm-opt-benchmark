@@ -20,7 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.google::protobuf::EnumValueDescriptor" = type { ptr, ptr, i32, ptr, ptr }
 %"class.std::allocator.3" = type { i8 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
@@ -353,7 +352,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %20 = phi ptr [ %13, %for.body.lr.ph ], [ %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77 ]
   %values_.i = getelementptr inbounds nuw i8, ptr %20, i64 48
   %21 = load ptr, ptr %values_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %21, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %indvars.iv
   %22 = load ptr, ptr %add.ptr.i, align 8
   invoke void @_ZN9struct_pb8compiler15resolve_keywordERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %invoke.cont38 unwind label %ehcleanup72.thread
@@ -3214,7 +3213,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %9 = phi ptr [ %6, %for.body.lr.ph ], [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ]
   %values_.i = getelementptr inbounds nuw i8, ptr %9, i64 48
   %10 = load ptr, ptr %values_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %10, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv
   %11 = load ptr, ptr %add.ptr.i, align 8
   invoke void @_ZN9struct_pb8compiler15resolve_keywordERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %value, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %invoke.cont14 unwind label %lpad.loopexit
@@ -3223,7 +3222,7 @@ invoke.cont14:                                    ; preds = %for.body
   %12 = load ptr, ptr %d_, align 8
   %values_.i5 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %13 = load ptr, ptr %values_.i5, align 8
-  %add.ptr.i7 = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %13, i64 %indvars.iv
+  %add.ptr.i7 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %indvars.iv
   %number_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7, i64 16
   %14 = load i32, ptr %number_.i, align 8
   store i32 %14, ptr %number, align 4

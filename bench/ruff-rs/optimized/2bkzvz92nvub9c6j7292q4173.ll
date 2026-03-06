@@ -776,7 +776,7 @@ define hidden void @"_ZN159_$LT$$LT$ruff_python_semantic..imports..NameImports$u
   %33 = load ptr, ptr %32, align 8, !nonnull !9, !noundef !9
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %35 = load i64, ptr %34, align 8, !noundef !9
-  %36 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [72 x i8], ptr %33, i64 %35
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbcb5764dce53a87dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull %33, ptr noundef nonnull %36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6590dc96b775749cee7aee339d2e7d.48)
           to label %_ZN4core4iter6traits8iterator8Iterator7collect17h1abd38b8e69b220bE.exit unwind label %45
 
@@ -787,7 +787,7 @@ define hidden void @"_ZN159_$LT$$LT$ruff_python_semantic..imports..NameImports$u
   %41 = load ptr, ptr %40, align 8, !nonnull !9, !noundef !9
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %43 = load i64, ptr %42, align 8, !noundef !9
-  %44 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [72 x i8], ptr %41, i64 %43
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !64
   store ptr %41, ptr %4, align 8, !alias.scope !71, !noalias !75
   %.sroa.4.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2629,7 +2629,7 @@ define internal void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   br i1 %6, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$ruff_python_ast..generated..Expr$u5d$$GT$17h846551375bfc0e73E.exit", label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %2, i64 %.sroa.0.0.i
+  %8 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %.sroa.0.0.i
   %9 = add i64 %.sroa.0.0.i, 1
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h4004ab5be412402eE"(ptr noalias noundef align 8 dereferenceable(64) %8)
           to label %5 unwind label %12
@@ -2645,7 +2645,7 @@ define internal void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   br label %10
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %2, i64 %.sroa.0.1.i
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %.sroa.0.1.i
   %16 = add i64 %.sroa.0.1.i, 1
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17h4004ab5be412402eE"(ptr noalias noundef align 8 dereferenceable(64) %15) #24
           to label %10 unwind label %17

@@ -108,7 +108,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %35 = load i32, ptr %34, align 8, !tbaa !48
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds float, ptr %33, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %33, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %39 = load i32, ptr %38, align 8, !tbaa !49
   %.not55 = icmp eq i32 %39, 0

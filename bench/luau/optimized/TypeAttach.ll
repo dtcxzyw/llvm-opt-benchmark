@@ -43,16 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base.156" = type <{ %"union.std::_Optional_payload_base<const Luau::TypePackVar *>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<const Luau::TypePackVar *>::_Storage" = type { ptr }
 %"struct.Luau::AstArray.234" = type { ptr, i64 }
-%"class.std::optional.246" = type { %"struct.std::_Optional_base.247" }
-%"struct.std::_Optional_base.247" = type { %"struct.std::_Optional_payload.249" }
-%"struct.std::_Optional_payload.249" = type { %"struct.std::_Optional_payload_base.base.253", [7 x i8] }
-%"struct.std::_Optional_payload_base.base.253" = type <{ %"union.std::_Optional_payload_base<std::pair<Luau::AstName, Luau::Location>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::pair<Luau::AstName, Luau::Location>>::_Storage" = type { %"struct.std::pair.251" }
-%"struct.std::pair.251" = type { %"struct.Luau::AstName", %"struct.Luau::Location" }
-%"struct.Luau::AstName" = type { ptr }
 %"struct.Luau::AstArray.280" = type { ptr, i64 }
-%"struct.Luau::AstTypeOrPack" = type { ptr, ptr }
-%"struct.Luau::AstTableProp" = type { %"struct.Luau::AstName", %"struct.Luau::Location", ptr, i32, %"class.std::optional.190" }
 %"class.std::shared_ptr.318" = type { %"class.std::__shared_ptr.319" }
 %"class.std::__shared_ptr.319" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
@@ -1593,7 +1584,7 @@ define dso_local noundef ptr @_ZN4Luau22TypeRehydrationVisitor9rehydrateEPKNS_11
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load i32, ptr %1, align 8, !tbaa !30
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS3_5ErrorIS7_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS3_5ErrorIS7_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %15)
@@ -1751,7 +1742,7 @@ define dso_local noundef ptr @_ZN4Luau19rehydrateAnnotationEPKNS_4TypeEPNS_9Allo
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load i32, ptr %0, align 8, !tbaa !104
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitINS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS2_5ErrorIS6_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitINS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS2_5ErrorIS6_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %24(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %25)
@@ -1875,7 +1866,7 @@ define internal void @_ZN4LuauL8fnVisitRIRNS_26TypePackRehydrationVisitorEPNS_11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i32, ptr %5, align 8, !tbaa !30
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRKNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS4_5ErrorIS8_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRKNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS4_5ErrorIS8_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %10)
@@ -1944,7 +1935,7 @@ define internal void @_ZN4LuauL8fnVisitRIRNS_26TypePackRehydrationVisitorEPNS_11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load i32, ptr %13, align 8, !tbaa !104
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %18)
@@ -1996,7 +1987,7 @@ define internal void @_ZN4LuauL8fnVisitRIRKNS_26TypePackRehydrationVisitorEPNS_1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i32, ptr %5, align 8, !tbaa !30
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRKNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS4_5ErrorIS8_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRKNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS4_5ErrorIS8_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %10)
@@ -2065,7 +2056,7 @@ define internal void @_ZN4LuauL8fnVisitRIRKNS_26TypePackRehydrationVisitorEPNS_1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load i32, ptr %13, align 8, !tbaa !104
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %18)
@@ -2134,7 +2125,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK4Luau26TypePackRehydrationVisitor
   %13 = load i64, ptr %12, align 8, !tbaa !55
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %8, align 8, !tbaa !54
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !122
   %.not.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i.i, label %18
@@ -2363,7 +2354,7 @@ _ZNSt10_HashtableIPKvSt4pairIKS1_PcESaIS5_ENSt8__detail10_Select1stESt8equal_toI
 31:                                               ; preds = %_ZNSt10_HashtableIPKvSt4pairIKS1_PcESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPKvSt4pairIKS1_PcESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !54
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !122
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -2390,7 +2381,7 @@ _ZNSt10_HashtableIPKvSt4pairIKS1_PcESaIS5_ENSt8__detail10_Select1stESt8equal_toI
   %45 = load ptr, ptr %43, align 8, !tbaa !32
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !122
   br label %49
 
@@ -2483,7 +2474,7 @@ _ZNSt10_HashtableIPKvSt4pairIKS1_PcESaIS5_ENSt8__detail10_Select1stESt8equal_toI
   %16 = load ptr, ptr %15, align 8, !tbaa !32
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !122
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -2498,7 +2489,7 @@ _ZNSt10_HashtableIPKvSt4pairIKS1_PcESaIS5_ENSt8__detail10_Select1stESt8equal_toI
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !122
   br label %29
 
@@ -2572,18 +2563,18 @@ define linkonce_odr dso_local noundef ptr @_ZNK4Luau26TypePackRehydrationVisitor
   %22 = phi ptr [ %16, %.lr.ph ], [ %35, %21 ]
   %.01112 = phi i64 [ 0, %.lr.ph ], [ %33, %21 ]
   %23 = load ptr, ptr %17, align 8, !tbaa !29
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %.01112
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.01112
   %25 = load ptr, ptr %24, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = load i32, ptr %25, align 8, !tbaa !104
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !32
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(80) %23, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %30)
   %31 = load ptr, ptr %4, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %.01112
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.01112
   store ptr %31, ptr %32, align 8, !tbaa !106
   %33 = add nuw i64 %.01112, 1
   %34 = load ptr, ptr %7, align 8, !tbaa !140
@@ -2601,7 +2592,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK4Luau26TypePackRehydrationVisitor
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = load i32, ptr %43, align 8, !tbaa !30
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRKNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS4_5ErrorIS8_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRKNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS4_5ErrorIS8_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !32
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %48)
@@ -2635,7 +2626,7 @@ define internal void @_ZN4LuauL8fnVisitRIRNS_22TypeRehydrationVisitorEPNS_7AstTy
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i32, ptr %5, align 8, !tbaa !104
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %10)
@@ -2795,7 +2786,7 @@ define internal void @_ZN4LuauL8fnVisitRIRNS_22TypeRehydrationVisitorEPNS_7AstTy
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i32, ptr %5, align 8, !tbaa !104
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %10)
@@ -2864,18 +2855,18 @@ define internal void @_ZN4LuauL8fnVisitRIRNS_22TypeRehydrationVisitorEPNS_7AstTy
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.06.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %3 ]
   %18 = load ptr, ptr %2, align 8, !tbaa !143
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.06.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.06.i
   %20 = load ptr, ptr %19, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load i32, ptr %20, align 8, !tbaa !104
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %25)
   %26 = load ptr, ptr %4, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %.06.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.06.i
   store ptr %26, ptr %27, align 8, !tbaa !106
   %28 = add nuw i64 %.06.i, 1
   %exitcond.not = icmp eq i64 %28, %13
@@ -2918,18 +2909,18 @@ define internal void @_ZN4LuauL8fnVisitRIRNS_22TypeRehydrationVisitorEPNS_7AstTy
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.06.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %3 ]
   %18 = load ptr, ptr %2, align 8, !tbaa !143
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.06.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.06.i
   %20 = load ptr, ptr %19, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load i32, ptr %20, align 8, !tbaa !104
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %25)
   %26 = load ptr, ptr %4, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %.06.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.06.i
   store ptr %26, ptr %27, align 8, !tbaa !106
   %28 = add nuw i64 %.06.i, 1
   %exitcond.not = icmp eq i64 %28, %13
@@ -2964,7 +2955,7 @@ define internal void @_ZN4LuauL8fnVisitRIRNS_22TypeRehydrationVisitorEPNS_7AstTy
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = load i32, ptr %.0.i.i.i, align 8, !tbaa !104
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %16)
@@ -3070,7 +3061,7 @@ define internal void @_ZN4LuauL8fnVisitRIRNS_22TypeRehydrationVisitorEPNS_7AstTy
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = load i32, ptr %13, align 8, !tbaa !104
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %18)
@@ -3176,7 +3167,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau22TypeRehydrationVisitorclERK
   %17 = load i64, ptr %16, align 8, !tbaa !55
   %18 = urem i64 %15, %17
   %19 = load ptr, ptr %12, align 8, !tbaa !54
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !122
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i.i, label %22
@@ -3804,7 +3795,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
 
 _ZN4Luau9Allocator5allocINS_14AstGenericTypeEJNS_8LocationENS_7AstNameEDnEEEPT_DpOT0_.exit: ; preds = %.noexc113
   %92 = add i64 %.075166, 1
-  %93 = getelementptr inbounds nuw ptr, ptr %64, i64 %.075166
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.075166
   store ptr %91, ptr %93, align 8, !tbaa !204
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.pre = load ptr, ptr %53, align 8, !tbaa !196
@@ -3870,7 +3861,7 @@ _ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %.lr.ph, 
 
 _ZN4Luau9Allocator5allocINS_18AstGenericTypePackEJNS_8LocationENS_7AstNameEDnEEEPT_DpOT0_.exit: ; preds = %.noexc117
   %115 = add i64 %.077169, 1
-  %116 = getelementptr inbounds nuw ptr, ptr %79, i64 %.077169
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.077169
   store ptr %114, ptr %116, align 8, !tbaa !235
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.pre189 = load ptr, ptr %69, align 8, !tbaa !208
@@ -3932,12 +3923,12 @@ _ZN4Luau3getINS_15GenericTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread: ; preds
   %.079173 = phi i64 [ %154, %149 ], [ 0, %.lr.ph174.preheader ]
   store i32 %140, ptr %24, align 8, !tbaa !4
   %141 = load ptr, ptr %18, align 8, !tbaa !143
-  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %.079173
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %.079173
   %143 = load ptr, ptr %142, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %144 = load i32, ptr %143, align 8, !tbaa !104
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %145
+  %146 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %145
   %147 = load ptr, ptr %146, align 8, !tbaa !32
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 8
   invoke void %147(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %148)
@@ -3946,7 +3937,7 @@ _ZN4Luau3getINS_15GenericTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread: ; preds
 149:                                              ; preds = %.lr.ph174
   %150 = load ptr, ptr %8, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %151 = getelementptr inbounds nuw ptr, ptr %131, i64 %.079173
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %.079173
   store ptr %150, ptr %151, align 8, !tbaa !106
   %152 = load i32, ptr %24, align 8, !tbaa !4
   %153 = add nsw i32 %152, -1
@@ -3977,7 +3968,7 @@ _ZN4Luau3getINS_15GenericTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %166 = load i32, ptr %160, align 8, !tbaa !30
   %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS3_5ErrorIS7_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS3_5ErrorIS7_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !32
   %170 = getelementptr inbounds nuw i8, ptr %160, i64 8
   invoke void %169(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %170)
@@ -4035,7 +4026,7 @@ _ZN4Luau22TypeRehydrationVisitor9rehydrateEPKNS_11TypePackVarE.exit: ; preds = %
   %.081178 = phi i64 [ %194, %203 ], [ 0, %187 ]
   %.sroa.0138.0177 = phi ptr [ %205, %203 ], [ %188, %187 ]
   %194 = add nuw nsw i64 %.081178, 1
-  %195 = getelementptr inbounds nuw %"class.std::optional.246", ptr %186, i64 %.081178
+  %195 = getelementptr inbounds nuw [32 x i8], ptr %186, i64 %.081178
   %196 = getelementptr inbounds nuw i8, ptr %.sroa.0138.0177, i64 48
   %197 = load i8, ptr %196, align 8, !tbaa !247, !range !114, !noundef !115
   %198 = trunc nuw i8 %197 to i1
@@ -4104,12 +4095,12 @@ _ZN4Luau22TypeRehydrationVisitor9rehydrateEPKNS_11TypePackVarE.exit: ; preds = %
   %.054182 = phi i64 [ %239, %234 ], [ 0, %.lr.ph183.preheader ]
   store i32 %225, ptr %24, align 8, !tbaa !4
   %226 = load ptr, ptr %20, align 8, !tbaa !143
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %.054182
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %.054182
   %228 = load ptr, ptr %227, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %229 = load i32, ptr %228, align 8, !tbaa !104
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %230
+  %231 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %230
   %232 = load ptr, ptr %231, align 8, !tbaa !32
   %233 = getelementptr inbounds nuw i8, ptr %228, i64 8
   invoke void %232(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %233)
@@ -4118,7 +4109,7 @@ _ZN4Luau22TypeRehydrationVisitor9rehydrateEPKNS_11TypePackVarE.exit: ; preds = %
 234:                                              ; preds = %.lr.ph183
   %235 = load ptr, ptr %5, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %236 = getelementptr inbounds nuw ptr, ptr %216, i64 %.054182
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %.054182
   store ptr %235, ptr %236, align 8, !tbaa !106
   %237 = load i32, ptr %24, align 8, !tbaa !4
   %238 = add nsw i32 %237, -1
@@ -4149,7 +4140,7 @@ _ZN4Luau22TypeRehydrationVisitor9rehydrateEPKNS_11TypePackVarE.exit: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %251 = load i32, ptr %245, align 8, !tbaa !30
   %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS3_5ErrorIS7_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %252
+  %253 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS3_5ErrorIS7_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %252
   %254 = load ptr, ptr %253, align 8, !tbaa !32
   %255 = getelementptr inbounds nuw i8, ptr %245, i64 8
   invoke void %254(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %255)
@@ -4715,12 +4706,12 @@ _ZNKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
 .lr.ph113:                                        ; preds = %50, %72
   %64 = phi ptr [ %77, %72 ], [ %52, %50 ]
   %.052111 = phi i64 [ %75, %72 ], [ 0, %50 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.052111
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.052111
   %66 = load ptr, ptr %65, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %67 = load i32, ptr %66, align 8, !tbaa !104
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !32
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 8
   invoke void %70(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %71)
@@ -4729,7 +4720,7 @@ _ZNKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
 72:                                               ; preds = %.lr.ph113
   %73 = load ptr, ptr %14, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %74 = getelementptr inbounds nuw %"struct.Luau::AstTypeOrPack", ptr %49, i64 %.052111
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %.052111
   store ptr %73, ptr %74, align 8, !tbaa !106
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr null, ptr %.sroa.516.0..sroa_idx, align 8, !tbaa !33
@@ -4751,7 +4742,7 @@ _ZNKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
 85:                                               ; preds = %.lr.ph115, %96
   %86 = phi ptr [ %56, %.lr.ph115 ], [ %101, %96 ]
   %.053114 = phi i64 [ 0, %.lr.ph115 ], [ %99, %96 ]
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %.053114
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.053114
   %88 = load ptr, ptr %87, align 8, !tbaa !148
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %89 = load ptr, ptr %46, align 8, !tbaa !8
@@ -4762,7 +4753,7 @@ _ZNKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %91 = load i32, ptr %88, align 8, !tbaa !30
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS3_5ErrorIS7_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS3_5ErrorIS7_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !32
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 8
   invoke void %94(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %95)
@@ -4772,7 +4763,7 @@ _ZNKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
   %97 = load ptr, ptr %12, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %98 = getelementptr inbounds nuw %"struct.Luau::AstTypeOrPack", ptr %49, i64 %.053114
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %.053114
   store ptr null, ptr %98, align 8, !tbaa !106
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %97, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !33
@@ -5007,7 +4998,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %182, ptr readonly align 1 %178, i64 %180, i1 false)
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 %180
   store i8 0, ptr %185, align 1, !tbaa !135
-  %186 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %174, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw [56 x i8], ptr %174, i64 %indvars.iv
   %187 = ptrtoint ptr %182 to i64
   store i64 %187, ptr %186, align 8, !tbaa !127
   %188 = invoke noundef ptr @_ZNK4Luau8Property4typeEv(ptr noundef nonnull align 8 dereferenceable(176) %184)
@@ -5017,7 +5008,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %190 = load i32, ptr %188, align 8, !tbaa !104
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !32
   %194 = getelementptr inbounds nuw i8, ptr %188, i64 8
   invoke void %193(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %194)
@@ -5027,7 +5018,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   %196 = load ptr, ptr %5, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %197 = load ptr, ptr %22, align 8, !tbaa !264
-  %198 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %197, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [56 x i8], ptr %197, i64 %indvars.iv
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
   store ptr %196, ptr %199, align 8, !tbaa !267
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
@@ -5064,7 +5055,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %216 = load i32, ptr %215, align 8, !tbaa !104
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %217
+  %218 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !32
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
   invoke void %219(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %220)
@@ -5079,7 +5070,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %225 = load i32, ptr %224, align 8, !tbaa !104
   %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %226
   %228 = load ptr, ptr %227, align 8, !tbaa !32
   %229 = getelementptr inbounds nuw i8, ptr %224, i64 8
   invoke void %228(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %229)
@@ -5219,7 +5210,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !286
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !287
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !122
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS5_m.exit, label %34
@@ -5478,7 +5469,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr readonly align 1 %80, i64 %82, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 %82
   store i8 0, ptr %87, align 1, !tbaa !135
-  %88 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %77, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [56 x i8], ptr %77, i64 %indvars.iv
   %89 = ptrtoint ptr %84 to i64
   store i64 %89, ptr %88, align 8, !tbaa !127
   %90 = invoke noundef ptr @_ZNK4Luau8Property4typeEv(ptr noundef nonnull align 8 dereferenceable(176) %86)
@@ -5488,7 +5479,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %92 = load i32, ptr %90, align 8, !tbaa !104
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !32
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 8
   invoke void %95(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %96)
@@ -5498,7 +5489,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   %98 = load ptr, ptr %5, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %99 = load ptr, ptr %11, align 8, !tbaa !264
-  %100 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %99, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [56 x i8], ptr %99, i64 %indvars.iv
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
   store ptr %98, ptr %101, align 8, !tbaa !267
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -5529,7 +5520,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %114 = load i32, ptr %113, align 8, !tbaa !104
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !32
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
   invoke void %117(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %118)
@@ -5544,7 +5535,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %123 = load i32, ptr %122, align 8, !tbaa !104
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !32
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 8
   invoke void %126(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %127)
@@ -5827,7 +5818,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12TypeAttacher5visitEP
 16:                                               ; preds = %.lr.ph, %16
   %.026 = phi i64 [ 0, %.lr.ph ], [ %24, %16 ]
   %17 = load ptr, ptr %11, align 8, !tbaa !310
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.026
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.026
   %19 = load ptr, ptr %18, align 8, !tbaa !311
   %20 = load ptr, ptr %0, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 496
@@ -5908,7 +5899,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12TypeAttacher5visitEP
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %62 = load i32, ptr %59, align 8, !tbaa !30
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS3_5ErrorIS7_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_26TypePackRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS3_5ErrorIS7_EENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_28TypeFunctionInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !32
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 8
   invoke void %65(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %66)
@@ -6277,7 +6268,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12TypeAttacher5visitEP
 6:                                                ; preds = %.lr.ph, %6
   %.05 = phi i64 [ 0, %.lr.ph ], [ %14, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !369
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.05
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.05
   %9 = load ptr, ptr %8, align 8, !tbaa !311
   %10 = load ptr, ptr %0, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 496
@@ -6317,7 +6308,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12TypeAttacher5visitEP
 6:                                                ; preds = %.lr.ph, %6
   %.05 = phi i64 [ 0, %.lr.ph ], [ %14, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !376
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.05
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.05
   %9 = load ptr, ptr %8, align 8, !tbaa !311
   %10 = load ptr, ptr %0, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 496
@@ -6919,12 +6910,12 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
   store ptr %45, ptr %31, align 8, !tbaa !8
   store ptr %19, ptr %32, align 8, !tbaa !24
   store ptr %6, ptr %33, align 8, !tbaa !103
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %.023
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.023
   %47 = load ptr, ptr %46, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %48 = load i32, ptr %47, align 8, !tbaa !104
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitINS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS2_5ErrorIS6_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitINS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS2_5ErrorIS6_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !32
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 8
   invoke void %51(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %52)
@@ -6933,7 +6924,7 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 53:                                               ; preds = %43
   %54 = load ptr, ptr %3, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %55 = getelementptr inbounds nuw ptr, ptr %15, i64 %.023
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.023
   store ptr %54, ptr %55, align 8, !tbaa !106
   %56 = load ptr, ptr %26, align 8, !tbaa !98
   invoke void @_ZNSt8_Rb_treeIPvSt4pairIKS0_iESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef %56)
@@ -7172,7 +7163,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau12TypeAttacher7typeAstESt8opt
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = load i32, ptr %1, align 8, !tbaa !104
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitINS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS2_5ErrorIS6_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitINS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS2_5ErrorIS6_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !32
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void %30(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %31)
@@ -7259,7 +7250,7 @@ define internal void @_ZN4LuauL8fnVisitRINS_22TypeRehydrationVisitorEPNS_7AstTyp
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i32, ptr %5, align 8, !tbaa !104
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %10)
@@ -7419,7 +7410,7 @@ define internal void @_ZN4LuauL8fnVisitRINS_22TypeRehydrationVisitorEPNS_7AstTyp
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i32, ptr %5, align 8, !tbaa !104
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %10)
@@ -7488,18 +7479,18 @@ define internal void @_ZN4LuauL8fnVisitRINS_22TypeRehydrationVisitorEPNS_7AstTyp
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.06.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %3 ]
   %18 = load ptr, ptr %2, align 8, !tbaa !143
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.06.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.06.i
   %20 = load ptr, ptr %19, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load i32, ptr %20, align 8, !tbaa !104
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %25)
   %26 = load ptr, ptr %4, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %.06.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.06.i
   store ptr %26, ptr %27, align 8, !tbaa !106
   %28 = add nuw i64 %.06.i, 1
   %exitcond.not = icmp eq i64 %28, %13
@@ -7542,18 +7533,18 @@ define internal void @_ZN4LuauL8fnVisitRINS_22TypeRehydrationVisitorEPNS_7AstTyp
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.06.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %3 ]
   %18 = load ptr, ptr %2, align 8, !tbaa !143
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.06.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.06.i
   %20 = load ptr, ptr %19, align 8, !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load i32, ptr %20, align 8, !tbaa !104
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %25)
   %26 = load ptr, ptr %4, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %.06.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.06.i
   store ptr %26, ptr %27, align 8, !tbaa !106
   %28 = add nuw i64 %.06.i, 1
   %exitcond.not = icmp eq i64 %28, %13
@@ -7588,7 +7579,7 @@ define internal void @_ZN4LuauL8fnVisitRINS_22TypeRehydrationVisitorEPNS_7AstTyp
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = load i32, ptr %.0.i.i.i, align 8, !tbaa !104
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %16)
@@ -7694,7 +7685,7 @@ define internal void @_ZN4LuauL8fnVisitRINS_22TypeRehydrationVisitorEPNS_7AstTyp
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = load i32, ptr %13, align 8, !tbaa !104
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %18)

@@ -25,7 +25,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_print_re
 %union.anon = type { ptr }
 %struct.va_format = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.debugfs_reg32 = type { ptr, i64 }
 
 @__drm_debug = dso_local global i64 0, align 8
 @__UNIQUE_ID___addressable___drm_debug316 = internal global ptr @__drm_debug, section ".discard.addressable", align 8
@@ -376,7 +375,7 @@ define dso_local void @drm_print_bits(ptr noundef %0, i64 noundef %1, ptr nounde
   %14 = phi i64 [ %28, %24 ], [ %11, %8 ]
   %15 = phi i8 [ %25, %24 ], [ 1, %8 ]
   %16 = and i64 %14, 4294967295
-  %17 = getelementptr ptr, ptr %2, i64 %16
+  %17 = getelementptr [8 x i8], ptr %2, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21, !prof !6
@@ -559,7 +558,7 @@ define dso_local void @drm_print_regset32(ptr noundef %0, ptr noundef readonly c
 11:                                               ; preds = %11, %6
   %12 = phi i64 [ 0, %6 ], [ %19, %11 ]
   %13 = phi i32 [ 0, %6 ], [ %18, %11 ]
-  %14 = getelementptr %struct.debugfs_reg32, ptr %7, i64 %12
+  %14 = getelementptr [16 x i8], ptr %7, i64 %12
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 @strlen(ptr noundef %15) #14
   %17 = trunc i64 %16 to i32
@@ -571,7 +570,7 @@ define dso_local void @drm_print_regset32(ptr noundef %0, ptr noundef readonly c
 21:                                               ; preds = %21, %9
   %22 = phi i64 [ 0, %9 ], [ %31, %21 ]
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr %struct.debugfs_reg32, ptr %23, i64 %22
+  %24 = getelementptr [16 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %10, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8

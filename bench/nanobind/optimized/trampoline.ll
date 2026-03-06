@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._object = type { i64, ptr }
-%"class.tsl::detail_robin_hash::bucket_entry" = type { %"class.tsl::detail_robin_hash::bucket_entry_hash", i16, i8, i8, [16 x i8] }
-%"class.tsl::detail_robin_hash::bucket_entry_hash" = type { i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -36,7 +34,7 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef writeonly c
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %17 = load ptr, ptr %16, align 8
   %.0813.i.i.i.i.i = and i64 %15, %14
-  %18 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %.0813.i.i.i.i.i
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.0813.i.i.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i16, ptr %19, align 4
   %.not14.i.i.i.i.i = icmp slt i16 %20, 0
@@ -55,7 +53,7 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef writeonly c
   %26 = add i64 %.0816.i.i.i.i.i, 1
   %27 = add i16 %.015.i.i.i.i.i, 1
   %.08.i.i.i.i.i = and i64 %26, %15
-  %28 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %.08.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.08.i.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i16, ptr %29, align 4
   %.not.i.i.i.i.i = icmp sgt i16 %27, %30
@@ -64,7 +62,7 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef writeonly c
 ._crit_edge.i.i.i.i.i:                            ; preds = %25, %3
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %32
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i.i.i.i.i
@@ -75,7 +73,7 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef writeonly c
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge.i.i.i.i.i
   %34 = phi i64 [ %32, %._crit_edge.i.i.i.i.i ], [ %.pre, %.loopexit.loopexit ]
   %.sroa.09.0.i.i.i.i.i = phi ptr [ %33, %._crit_edge.i.i.i.i.i ], [ %21, %.loopexit.loopexit ]
-  %35 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %34
   %.not = icmp eq ptr %.sroa.09.0.i.i.i.i.i, %35
   br i1 %.not, label %.critedge, label %36, !prof !6
 

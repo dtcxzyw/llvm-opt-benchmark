@@ -24,7 +24,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %struct.NoiseParams = type { float, float, %"class.irr::core::vector3d", i32, i16, float, float, i32 }
 %"class.irr::core::vector3d" = type { float, float, float }
-%struct.FlagDesc = type { ptr, i32 }
 %"class.std::allocator" = type { i8 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
@@ -1094,7 +1093,7 @@ lpad9:                                            ; preds = %for.cond.cleanup, %
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.053 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %arrayidx54 = getelementptr inbounds %struct.FlagDesc, ptr %call4, i64 %i.053
+  %arrayidx54 = getelementptr inbounds [16 x i8], ptr %call4, i64 %i.053
   %12 = load i32, ptr %flags, align 4, !tbaa !48
   %flag = getelementptr inbounds nuw i8, ptr %arrayidx54, i64 8
   %13 = load i32, ptr %flag, align 8, !tbaa !51
@@ -1109,7 +1108,7 @@ invoke.cont14:                                    ; preds = %for.body
 
 for.inc:                                          ; preds = %invoke.cont14
   %inc = add i64 %i.053, 1
-  %arrayidx = getelementptr inbounds %struct.FlagDesc, ptr %call4, i64 %inc
+  %arrayidx = getelementptr inbounds [16 x i8], ptr %call4, i64 %inc
   %15 = load ptr, ptr %arrayidx, align 8, !tbaa !49
   %tobool.not = icmp eq ptr %15, null
   br i1 %tobool.not, label %for.cond.cleanup, label %for.body, !llvm.loop !52
@@ -2321,7 +2320,7 @@ lpad:                                             ; preds = %entry
   br label %ehcleanup
 
 for.body:                                         ; preds = %for.cond
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %conv
   %8 = load ptr, ptr %add.ptr.i, align 8, !tbaa !14
   invoke void @lua_pushstring(ptr noundef %L, ptr noundef %8)
           to label %invoke.cont6 unwind label %lpad5

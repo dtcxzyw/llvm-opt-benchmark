@@ -23,8 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
-%struct.tsi_peer_property = type { ptr, %struct.anon }
-%struct.anon = type { ptr, i64 }
 %"class.std::unique_ptr.17" = type { %"struct.std::__uniq_ptr_data.18" }
 %"struct.std::__uniq_ptr_data.18" = type { %"class.std::__uniq_ptr_impl.19" }
 %"class.std::__uniq_ptr_impl.19" = type { %"class.std::tuple.20" }
@@ -56,8 +54,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.35 = type { %"class.absl::lts_20240722::Status" }
 %union.anon.36 = type { ptr }
 %struct.tsi_ssl_server_handshaker_options = type <{ ptr, i64, ptr, i32, [4 x i8], ptr, ptr, i16, [6 x i8], ptr, i64, i32, i32, ptr, ptr, %"class.std::shared_ptr", i8, [7 x i8] }>
-%struct.tsi_ssl_pem_key_cert_pair = type { ptr, ptr }
-%struct.tsi_peer = type { ptr, i64 }
 %"class.absl::lts_20240722::str_format_internal::FormatArgImpl" = type { %"union.absl::lts_20240722::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::lts_20240722::str_format_internal::FormatArgImpl::Data" = type { ptr }
 %"class.absl::lts_20240722::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
@@ -417,7 +413,7 @@ define internal fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr 
   %42 = add nuw nsw i32 %40, 1
   store i32 %42, ptr %12, align 4, !tbaa !21
   %43 = zext nneg i32 %40 to i64
-  %44 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %43
   %45 = tail call fastcc noundef i32 @_ZL31peer_property_from_x509_subjectP7x509_stP17tsi_peer_propertyb(ptr noundef %0, ptr noundef %44, i1 noundef zeroext false)
   %.not65 = icmp eq i32 %45, 0
   br i1 %.not65, label %46, label %119
@@ -427,7 +423,7 @@ define internal fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr 
   %48 = or disjoint i32 %40, 2
   store i32 %48, ptr %12, align 4, !tbaa !21
   %49 = zext nneg i32 %42 to i64
-  %50 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %49
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %51 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %0)
   %52 = icmp eq ptr %51, null
@@ -604,7 +600,7 @@ _ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit: ; pr
   %102 = add nuw nsw i32 %40, 3
   store i32 %102, ptr %12, align 4, !tbaa !21
   %103 = zext nneg i32 %48 to i64
-  %104 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %103
   %105 = call ptr @BIO_s_mem()
   %106 = call ptr @BIO_new(ptr noundef %105)
   %107 = call i32 @PEM_write_bio_X509(ptr noundef %106, ptr noundef nonnull %0)
@@ -2622,7 +2618,7 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZL29build_alpn_protocol_na
 .preheader55:                                     ; preds = %.preheader55.preheader, %20
   %8 = phi i64 [ 0, %.preheader55.preheader ], [ %22, %20 ]
   %indvars.iv = phi i64 [ 0, %.preheader55.preheader ], [ %indvars.iv.next, %20 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
@@ -2676,7 +2672,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit: ; pr
 .preheader:                                       ; preds = %23, %.preheader
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.preheader ], [ 0, %23 ]
   %.04357 = phi ptr [ %32, %.preheader ], [ %24, %23 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv60
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv60
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #30
   %29 = trunc i64 %28 to i8
@@ -4275,11 +4271,11 @@ _ZN9grpc_core13RefCountedPtrIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLogge
   %90 = call ptr @TLS_method()
   %91 = call ptr @SSL_CTX_new(ptr noundef %90)
   %92 = load ptr, ptr %29, align 8, !tbaa !84
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %.0133188
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.0133188
   store ptr %91, ptr %93, align 8, !tbaa !85
   %94 = call i32 @SSL_CTX_set_options(ptr noundef %91, i32 noundef 0)
   %95 = load ptr, ptr %29, align 8, !tbaa !84
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %.0133188
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.0133188
   %97 = load ptr, ptr %96, align 8, !tbaa !85
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %102
@@ -4312,10 +4308,10 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi30EEERS2_RAT__Kc.exit: ; pr
 
 106:                                              ; preds = %102
   %107 = load ptr, ptr %29, align 8, !tbaa !84
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %.0133188
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %.0133188
   %109 = load ptr, ptr %108, align 8, !tbaa !85
   %110 = load ptr, ptr %0, align 8, !tbaa !164
-  %111 = getelementptr inbounds nuw %struct.tsi_ssl_pem_key_cert_pair, ptr %110, i64 %.0133188
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %.0133188
   %112 = load ptr, ptr %81, align 8, !tbaa !168
   %113 = call fastcc noundef i32 @_ZL20populate_ssl_contextP10ssl_ctx_stPK25tsi_ssl_pem_key_cert_pairPKc(ptr noundef %109, ptr noundef %111, ptr noundef %112)
   %.not146 = icmp eq i32 %113, 0
@@ -4323,7 +4319,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi30EEERS2_RAT__Kc.exit: ; pr
 
 114:                                              ; preds = %106
   %115 = load ptr, ptr %29, align 8, !tbaa !84
-  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %.0133188
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %.0133188
   %117 = load ptr, ptr %116, align 8, !tbaa !85
   %118 = call i32 @SSL_CTX_set_session_id_context(ptr noundef %117, ptr noundef nonnull @_ZL20kSslSessionIdContext, i64 noundef 4)
   %119 = icmp eq i32 %118, 0
@@ -4354,7 +4350,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; pr
 
 125:                                              ; preds = %123
   %126 = load ptr, ptr %29, align 8, !tbaa !84
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %.0133188
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %.0133188
   %128 = load ptr, ptr %127, align 8, !tbaa !85
   %129 = load i64, ptr %83, align 8, !tbaa !181
   %130 = call i32 @SSL_CTX_set_tlsext_ticket_keys(ptr noundef %128, ptr noundef nonnull %124, i64 noundef %129)
@@ -4388,7 +4384,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !29
   %138 = load ptr, ptr %29, align 8, !tbaa !84
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %.0133188
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %.0133188
   %140 = load ptr, ptr %139, align 8, !tbaa !85
   %141 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %136) #30
   %142 = load i8, ptr %85, align 8, !tbaa !163, !range !108, !noundef !109
@@ -4421,7 +4417,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit: ; pr
 
 153:                                              ; preds = %150
   %154 = load ptr, ptr %29, align 8, !tbaa !84
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %.0133188
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %.0133188
   %156 = load ptr, ptr %155, align 8, !tbaa !85
   %157 = load ptr, ptr %7, align 8, !tbaa !29
   call void @SSL_CTX_set_client_CA_list(ptr noundef %156, ptr noundef %157)
@@ -4449,51 +4445,51 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit: ; pr
 
 161:                                              ; preds = %159
   %162 = load ptr, ptr %29, align 8, !tbaa !84
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %.0133188
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %.0133188
   %164 = load ptr, ptr %163, align 8, !tbaa !85
   call void @SSL_CTX_set_verify(ptr noundef %164, i32 noundef 0, ptr noundef null)
   br label %193
 
 165:                                              ; preds = %159
   %166 = load ptr, ptr %29, align 8, !tbaa !84
-  %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %.0133188
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %.0133188
   %168 = load ptr, ptr %167, align 8, !tbaa !85
   call void @SSL_CTX_set_verify(ptr noundef %168, i32 noundef 1, ptr noundef null)
   %169 = load ptr, ptr %29, align 8, !tbaa !84
-  %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %.0133188
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %.0133188
   %171 = load ptr, ptr %170, align 8, !tbaa !85
   call void @SSL_CTX_set_cert_verify_callback(ptr noundef %171, ptr noundef nonnull @_ZL18NullVerifyCallbackP17x509_store_ctx_stPv, ptr noundef null)
   br label %193
 
 172:                                              ; preds = %159
   %173 = load ptr, ptr %29, align 8, !tbaa !84
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %.0133188
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %.0133188
   %175 = load ptr, ptr %174, align 8, !tbaa !85
   call void @SSL_CTX_set_verify(ptr noundef %175, i32 noundef 1, ptr noundef null)
   %176 = load ptr, ptr %29, align 8, !tbaa !84
-  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %.0133188
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %.0133188
   %178 = load ptr, ptr %177, align 8, !tbaa !85
   call void @SSL_CTX_set_cert_verify_callback(ptr noundef %178, ptr noundef nonnull @_ZL26CustomVerificationFunctionP17x509_store_ctx_stPv, ptr noundef null)
   br label %193
 
 179:                                              ; preds = %159
   %180 = load ptr, ptr %29, align 8, !tbaa !84
-  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %.0133188
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %.0133188
   %182 = load ptr, ptr %181, align 8, !tbaa !85
   call void @SSL_CTX_set_verify(ptr noundef %182, i32 noundef 3, ptr noundef null)
   %183 = load ptr, ptr %29, align 8, !tbaa !84
-  %184 = getelementptr inbounds nuw ptr, ptr %183, i64 %.0133188
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %.0133188
   %185 = load ptr, ptr %184, align 8, !tbaa !85
   call void @SSL_CTX_set_cert_verify_callback(ptr noundef %185, ptr noundef nonnull @_ZL18NullVerifyCallbackP17x509_store_ctx_stPv, ptr noundef null)
   br label %193
 
 186:                                              ; preds = %159
   %187 = load ptr, ptr %29, align 8, !tbaa !84
-  %188 = getelementptr inbounds nuw ptr, ptr %187, i64 %.0133188
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %.0133188
   %189 = load ptr, ptr %188, align 8, !tbaa !85
   call void @SSL_CTX_set_verify(ptr noundef %189, i32 noundef 3, ptr noundef null)
   %190 = load ptr, ptr %29, align 8, !tbaa !84
-  %191 = getelementptr inbounds nuw ptr, ptr %190, i64 %.0133188
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %.0133188
   %192 = load ptr, ptr %191, align 8, !tbaa !85
   call void @SSL_CTX_set_cert_verify_callback(ptr noundef %192, ptr noundef nonnull @_ZL26CustomVerificationFunctionP17x509_store_ctx_stPv, ptr noundef null)
   br label %193
@@ -4505,7 +4501,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit: ; pr
 
 195:                                              ; preds = %193
   %196 = load ptr, ptr %29, align 8, !tbaa !84
-  %197 = getelementptr inbounds nuw ptr, ptr %196, i64 %.0133188
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %.0133188
   %198 = load ptr, ptr %197, align 8, !tbaa !85
   %199 = load i32, ptr @_ZL31g_ssl_ctx_ex_crl_provider_index, align 4, !tbaa !21
   %200 = call i32 @SSL_CTX_set_ex_data(ptr noundef %198, i32 noundef %199, ptr noundef nonnull %194)
@@ -4523,7 +4519,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit: ; pr
 
 204:                                              ; preds = %203
   %205 = load ptr, ptr %29, align 8, !tbaa !84
-  %206 = getelementptr inbounds nuw ptr, ptr %205, i64 %.0133188
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %.0133188
   %207 = load ptr, ptr %206, align 8, !tbaa !85
   %208 = call ptr @SSL_CTX_get_cert_store(ptr noundef %207)
   call void @X509_STORE_set_verify_cb(ptr noundef %208, ptr noundef nonnull @_ZL9verify_cbiP17x509_store_ctx_st)
@@ -4557,30 +4553,30 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit: ; pr
 
 217:                                              ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit, %214, %201, %203, %195
   %218 = load ptr, ptr %0, align 8, !tbaa !164
-  %219 = getelementptr inbounds nuw %struct.tsi_ssl_pem_key_cert_pair, ptr %218, i64 %.0133188
+  %219 = getelementptr inbounds nuw [16 x i8], ptr %218, i64 %.0133188
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %221 = load ptr, ptr %220, align 8, !tbaa !132
   %222 = load ptr, ptr %33, align 8, !tbaa !174
-  %223 = getelementptr inbounds nuw %struct.tsi_peer, ptr %222, i64 %.0133188
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %222, i64 %.0133188
   %224 = call noundef i32 @_Z48tsi_ssl_extract_x509_subject_names_from_pem_certPKcP8tsi_peer(ptr noundef %221, ptr noundef %223)
   %.not153 = icmp eq i32 %224, 0
   br i1 %.not153, label %225, label %.loopexit
 
 225:                                              ; preds = %217
   %226 = load ptr, ptr %29, align 8, !tbaa !84
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %.0133188
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %.0133188
   %228 = load ptr, ptr %227, align 8, !tbaa !85
   %229 = call i32 @SSL_CTX_set_tlsext_servername_callback(ptr noundef %228, ptr noundef nonnull @_ZL49ssl_server_handshaker_factory_servername_callbackP6ssl_stPiPv)
   %230 = load ptr, ptr %29, align 8, !tbaa !84
-  %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %.0133188
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %.0133188
   %232 = load ptr, ptr %231, align 8, !tbaa !85
   %233 = call i32 @SSL_CTX_set_tlsext_servername_arg(ptr noundef %232, ptr noundef nonnull %19)
   %234 = load ptr, ptr %29, align 8, !tbaa !84
-  %235 = getelementptr inbounds nuw ptr, ptr %234, i64 %.0133188
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %.0133188
   %236 = load ptr, ptr %235, align 8, !tbaa !85
   call void @SSL_CTX_set_alpn_select_cb(ptr noundef %236, ptr noundef nonnull @_ZL39server_handshaker_factory_alpn_callbackP6ssl_stPPKhPhS2_jPv, ptr noundef nonnull %19)
   %237 = load ptr, ptr %29, align 8, !tbaa !84
-  %238 = getelementptr inbounds nuw ptr, ptr %237, i64 %.0133188
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %.0133188
   %239 = load ptr, ptr %238, align 8, !tbaa !85
   call void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef %239, ptr noundef nonnull @_ZL49server_handshaker_factory_npn_advertised_callbackP6ssl_stPPKhPjPv, ptr noundef nonnull %19)
   %240 = load ptr, ptr %63, align 8, !tbaa !175
@@ -4589,12 +4585,12 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit: ; pr
 
 241:                                              ; preds = %225
   %242 = load ptr, ptr %29, align 8, !tbaa !84
-  %243 = getelementptr inbounds nuw ptr, ptr %242, i64 %.0133188
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %.0133188
   %244 = load ptr, ptr %243, align 8, !tbaa !85
   %245 = load i32, ptr @_ZL26g_ssl_ctx_ex_factory_index, align 4, !tbaa !21
   %246 = call i32 @SSL_CTX_set_ex_data(ptr noundef %244, i32 noundef %245, ptr noundef nonnull %19)
   %247 = load ptr, ptr %29, align 8, !tbaa !84
-  %248 = getelementptr inbounds nuw ptr, ptr %247, i64 %.0133188
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %.0133188
   %249 = load ptr, ptr %248, align 8, !tbaa !85
   call void @SSL_CTX_set_keylog_callback(ptr noundef %249, ptr noundef nonnull @_ZL23ssl_keylogging_callbackI33tsi_ssl_server_handshaker_factoryEvPK6ssl_stPKc)
   br label %256
@@ -4729,7 +4725,7 @@ define internal noundef range(i32 0, 4) i32 @_ZL49ssl_server_handshaker_factory_
 13:                                               ; preds = %.lr.ph, %24
   %.01216 = phi i64 [ 0, %.lr.ph ], [ %25, %24 ]
   %14 = load ptr, ptr %12, align 8, !tbaa !174
-  %15 = getelementptr inbounds nuw %struct.tsi_peer, ptr %14, i64 %.01216
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %.01216
   %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #36
   %17 = tail call noundef i32 @_Z25tsi_ssl_peer_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %15, i64 %16, ptr nonnull %6)
   %.not = icmp eq i32 %17, 0
@@ -4738,7 +4734,7 @@ define internal noundef range(i32 0, 4) i32 @_ZL49ssl_server_handshaker_factory_
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !84
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01216
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.01216
   %22 = load ptr, ptr %21, align 8, !tbaa !85
   %23 = tail call ptr @SSL_set_SSL_CTX(ptr noundef %0, ptr noundef %22)
   br label %32
@@ -5057,7 +5053,7 @@ _ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
   %.03964.us = phi i64 [ %.140.ph.us, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us ], [ 0, %.lr.ph ]
   %.04263.us = phi ptr [ %.143.ph.us, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us ], [ null, %.lr.ph ]
   %32 = load ptr, ptr %0, align 8, !tbaa !18
-  %33 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %32, i64 %.03865.us
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %.03865.us
   %34 = load ptr, ptr %33, align 8, !tbaa !187
   %35 = icmp eq ptr %34, null
   br i1 %35, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us, label %36
@@ -5102,7 +5098,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us: ; pr
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72
   %.03865.us68 = phi i64 [ %63, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72 ], [ 0, %.lr.ph.split ]
-  %54 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %53, i64 %.03865.us68
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %.03865.us68
   %55 = load ptr, ptr %54, align 8, !tbaa !187
   %56 = icmp eq ptr %55, null
   br i1 %56, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72, label %57
@@ -5125,7 +5121,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72: ; 
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
   %.03865 = phi i64 [ %77, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ], [ 0, %.lr.ph.split ]
-  %65 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %53, i64 %.03865
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %.03865
   %66 = load ptr, ptr %65, align 8, !tbaa !187
   %67 = icmp eq ptr %66, null
   br i1 %67, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread, label %68
@@ -5577,7 +5573,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi37EEERS2_RAT__Kc.exit: ; pr
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %3, align 4, !tbaa !21
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds %struct.tsi_peer_property, ptr %50, i64 %53
+  %54 = getelementptr inbounds [24 x i8], ptr %50, i64 %53
   %55 = invoke noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.17, ptr noundef %48, i64 noundef %49, ptr noundef %54)
           to label %56 unwind label %27
 
@@ -5598,7 +5594,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi37EEERS2_RAT__Kc.exit: ; pr
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %3, align 4, !tbaa !21
   %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds %struct.tsi_peer_property, ptr %62, i64 %65
+  %66 = getelementptr inbounds [24 x i8], ptr %62, i64 %65
   %67 = invoke noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef %60, ptr noundef %61, i64 noundef %49, ptr noundef %66)
           to label %68 unwind label %27
 
@@ -5705,7 +5701,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit: ; pr
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %3, align 4, !tbaa !21
   %100 = sext i32 %98 to i64
-  %101 = getelementptr inbounds %struct.tsi_peer_property, ptr %97, i64 %100
+  %101 = getelementptr inbounds [24 x i8], ptr %97, i64 %100
   %102 = call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.17, ptr noundef nonnull %91, ptr noundef %101)
   %.not = icmp eq i32 %102, 0
   br i1 %.not, label %103, label %.thread
@@ -5721,7 +5717,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit: ; pr
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %3, align 4, !tbaa !21
   %107 = sext i32 %105 to i64
-  %108 = getelementptr inbounds %struct.tsi_peer_property, ptr %104, i64 %107
+  %108 = getelementptr inbounds [24 x i8], ptr %104, i64 %107
   %109 = call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.40, ptr noundef nonnull %91, ptr noundef %108)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread85
@@ -5737,7 +5733,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit: ; pr
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr %3, align 4, !tbaa !21
   %115 = sext i32 %113 to i64
-  %116 = getelementptr inbounds %struct.tsi_peer_property, ptr %112, i64 %115
+  %116 = getelementptr inbounds [24 x i8], ptr %112, i64 %115
   %117 = call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.41, ptr noundef %116)
   br label %.thread85
 
@@ -7012,8 +7008,8 @@ define internal noundef i32 @_ZL34ssl_handshaker_result_extract_peerPK21tsi_hand
 .lr.ph:                                           ; preds = %18, %.lr.ph
   %.06085 = phi i64 [ %36, %.lr.ph ], [ 0, %18 ]
   %33 = load ptr, ptr %1, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %33, i64 %.06085
-  %35 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %30, i64 %.06085
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %.06085
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %.06085
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !tbaa.struct !221
   %36 = add nuw i64 %.06085, 1
   %37 = load i64, ptr %24, align 8, !tbaa !24
@@ -7030,7 +7026,7 @@ define internal noundef i32 @_ZL34ssl_handshaker_result_extract_peerPK21tsi_hand
 
 41:                                               ; preds = %40
   %42 = load i64, ptr %24, align 8, !tbaa !24
-  %43 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %42
   %44 = call noundef i32 @_Z31tsi_ssl_get_cert_chain_contentsP13stack_st_X509P17tsi_peer_property(ptr noundef nonnull %20, ptr noundef %43)
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %49
@@ -7051,7 +7047,7 @@ define internal noundef i32 @_ZL34ssl_handshaker_result_extract_peerPK21tsi_hand
   %53 = zext i32 %52 to i64
   %54 = load ptr, ptr %1, align 8, !tbaa !18
   %55 = load i64, ptr %24, align 8, !tbaa !24
-  %56 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %55
   %57 = call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.65, ptr noundef nonnull %50, i64 noundef %53, ptr noundef %56)
   %.not76 = icmp eq i32 %57, 0
   br i1 %.not76, label %58, label %96
@@ -7066,7 +7062,7 @@ define internal noundef i32 @_ZL34ssl_handshaker_result_extract_peerPK21tsi_hand
   %62 = call noundef ptr @_Z28tsi_security_level_to_string18tsi_security_level(i32 noundef 2)
   %63 = load ptr, ptr %1, align 8, !tbaa !18
   %64 = load i64, ptr %24, align 8, !tbaa !24
-  %65 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %64
   %66 = call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.66, ptr noundef %62, ptr noundef %65)
   %.not77 = icmp eq i32 %66, 0
   br i1 %.not77, label %67, label %96
@@ -7081,7 +7077,7 @@ define internal noundef i32 @_ZL34ssl_handshaker_result_extract_peerPK21tsi_hand
   %72 = select i1 %.not78, ptr @.str.68, ptr @.str.67
   %73 = load ptr, ptr %1, align 8, !tbaa !18
   %74 = load i64, ptr %24, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %74
   %76 = call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.69, ptr noundef nonnull %72, ptr noundef %75)
   %.not79 = icmp eq i32 %76, 0
   br i1 %.not79, label %77, label %96
@@ -7094,7 +7090,7 @@ define internal noundef i32 @_ZL34ssl_handshaker_result_extract_peerPK21tsi_hand
 
 80:                                               ; preds = %77
   %81 = load ptr, ptr %1, align 8, !tbaa !18
-  %82 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %81, i64 %79
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %81, i64 %79
   %83 = call fastcc noundef i32 @_ZL31peer_property_from_x509_subjectP7x509_stP17tsi_peer_propertyb(ptr noundef %23, ptr noundef %82, i1 noundef zeroext true)
   store i32 %83, ptr %3, align 4, !tbaa !220
   %.not80 = icmp eq i32 %83, 0
@@ -7992,7 +7988,7 @@ define internal void @_ZL41tsi_ssl_server_handshaker_factory_destroyP26tsi_ssl_h
   %8 = phi i64 [ %4, %.lr.ph ], [ %16, %15 ]
   %.026 = phi i64 [ 0, %.lr.ph ], [ %17, %15 ]
   %9 = load ptr, ptr %5, align 8, !tbaa !84
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.026
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.026
   %11 = load ptr, ptr %10, align 8, !tbaa !85
   %.not25 = icmp eq ptr %11, null
   br i1 %.not25, label %15, label %12
@@ -8000,7 +7996,7 @@ define internal void @_ZL41tsi_ssl_server_handshaker_factory_destroyP26tsi_ssl_h
 12:                                               ; preds = %7
   tail call void @SSL_CTX_free(ptr noundef nonnull %11)
   %13 = load ptr, ptr %6, align 8, !tbaa !174
-  %14 = getelementptr inbounds nuw %struct.tsi_peer, ptr %13, i64 %.026
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.026
   tail call void @_Z17tsi_peer_destructP8tsi_peer(ptr noundef %14)
   %.pre = load i64, ptr %3, align 8, !tbaa !79
   br label %15

@@ -3,10 +3,6 @@ source_filename = "bench/abc/original/decAbc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Dec_Node_t_ = type { %struct.Dec_Edge_t_, %struct.Dec_Edge_t_, %union.anon, i32 }
-%struct.Dec_Edge_t_ = type { i32 }
-%union.anon = type { ptr }
-
 ; Function Attrs: nounwind uwtable
 define ptr @Dec_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.val = load i32, ptr %1, align 8, !tbaa !3
@@ -47,7 +43,7 @@ define ptr @Dec_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(non
   %22 = getelementptr i8, ptr %1, i64 16
   %.val35 = load ptr, ptr %22, align 8, !tbaa !13
   %23 = zext nneg i32 %14 to i64
-  %24 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val35, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %.val35, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !14
   %27 = and i32 %.val31, 1
@@ -59,12 +55,12 @@ define ptr @Dec_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(non
 31:                                               ; preds = %.preheader, %31
   %indvars.iv = phi i64 [ %20, %.preheader ], [ %indvars.iv.next, %31 ]
   %.val32 = load ptr, ptr %18, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val32, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %.val32, i64 %indvars.iv
   %33 = load i32, ptr %32, align 8
   %34 = lshr i32 %33, 1
   %35 = and i32 %34, 1073741823
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val32, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %.val32, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !14
   %40 = and i32 %33, 1
@@ -77,7 +73,7 @@ define ptr @Dec_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(non
   %47 = lshr i32 %46, 1
   %48 = and i32 %47, 1073741823
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val32, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %.val32, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !14
   %53 = and i32 %46, 1
@@ -129,9 +125,9 @@ define ptr @Dec_SopToAig(ptr noundef %0, ptr noundef %1, ptr noundef readonly ca
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.val = load ptr, ptr %8, align 8, !tbaa !13
-  %11 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %indvars.iv
   %.val12 = load ptr, ptr %9, align 8, !tbaa !34
-  %12 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val12, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8, !tbaa !14
@@ -174,9 +170,9 @@ define ptr @Dec_GraphToAig(ptr noundef %0, ptr noundef readonly captures(none) %
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.val = load ptr, ptr %7, align 8, !tbaa !13
-  %10 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %indvars.iv
   %.val10 = load ptr, ptr %8, align 8, !tbaa !34
-  %11 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8, !tbaa !14
@@ -230,7 +226,7 @@ define ptr @Dec_GraphToNetworkNoStrash(ptr noundef %0, ptr noundef readonly capt
   %21 = getelementptr i8, ptr %1, i64 16
   %.val38 = load ptr, ptr %21, align 8, !tbaa !13
   %22 = zext nneg i32 %14 to i64
-  %23 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val38, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %.val38, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !14
   %26 = and i32 %.val34, 1
@@ -242,12 +238,12 @@ define ptr @Dec_GraphToNetworkNoStrash(ptr noundef %0, ptr noundef readonly capt
 30:                                               ; preds = %.preheader, %30
   %indvars.iv = phi i64 [ %19, %.preheader ], [ %indvars.iv.next, %30 ]
   %.val37 = load ptr, ptr %18, align 8, !tbaa !13
-  %31 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val37, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %.val37, i64 %indvars.iv
   %32 = load i32, ptr %31, align 8
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 1073741823
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val37, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %.val37, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !14
   %39 = and i32 %32, 1
@@ -260,7 +256,7 @@ define ptr @Dec_GraphToNetworkNoStrash(ptr noundef %0, ptr noundef readonly capt
   %46 = lshr i32 %45, 1
   %47 = and i32 %46, 1073741823
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val37, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %.val37, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !14
   %52 = and i32 %45, 1
@@ -337,7 +333,7 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly captures(address) %0, p
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.val80 = load ptr, ptr %13, align 8, !tbaa !13
-  %20 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val80, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %.val80, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !14
   %23 = ptrtoint ptr %22 to i64
@@ -362,18 +358,18 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly captures(address) %0, p
   %indvars.iv103 = phi i64 [ %18, %.lr.ph95 ], [ %indvars.iv.next104, %.critedge ]
   %.06094 = phi i32 [ 0, %.lr.ph95 ], [ %.161, %.critedge ]
   %.val79 = load ptr, ptr %17, align 8, !tbaa !13
-  %38 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val79, i64 %indvars.iv103
+  %38 = getelementptr inbounds [24 x i8], ptr %.val79, i64 %indvars.iv103
   %39 = load i32, ptr %38, align 8
   %40 = lshr i32 %39, 1
   %41 = and i32 %40, 1073741823
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val79, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %.val79, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = lshr i32 %45, 1
   %47 = and i32 %46, 1073741823
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val79, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %.val79, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !14
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -505,7 +501,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   %116 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %116, align 8, !tbaa !47
   %117 = sext i32 %.val3.i to i64
-  %118 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !48
   %120 = getelementptr inbounds nuw i8, ptr %.val.i, i64 216
   %121 = load i32, ptr %120, align 8, !tbaa !49
@@ -639,7 +635,7 @@ define ptr @Dec_GraphToNetworkAig(ptr noundef %0, ptr noundef readonly captures(
   %20 = getelementptr i8, ptr %1, i64 16
   %.val35 = load ptr, ptr %20, align 8, !tbaa !13
   %21 = zext nneg i32 %13 to i64
-  %22 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val35, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %.val35, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !14
   %25 = and i32 %.val31, 1
@@ -651,12 +647,12 @@ define ptr @Dec_GraphToNetworkAig(ptr noundef %0, ptr noundef readonly captures(
 29:                                               ; preds = %.preheader, %29
   %indvars.iv = phi i64 [ %18, %.preheader ], [ %indvars.iv.next, %29 ]
   %.val34 = load ptr, ptr %17, align 8, !tbaa !13
-  %30 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val34, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %.val34, i64 %indvars.iv
   %31 = load i32, ptr %30, align 8
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 1073741823
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val34, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %.val34, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !14
   %38 = and i32 %31, 1
@@ -669,7 +665,7 @@ define ptr @Dec_GraphToNetworkAig(ptr noundef %0, ptr noundef readonly captures(
   %45 = lshr i32 %44, 1
   %46 = and i32 %45, 1073741823
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val34, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %.val34, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !14
   %51 = and i32 %44, 1
@@ -717,7 +713,7 @@ define ptr @Dec_GraphFactorSop(ptr noundef %0, ptr noundef %1) local_unnamed_add
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.val = load ptr, ptr %7, align 8, !tbaa !13
-  %9 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %indvars.iv
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %10) #8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -764,7 +760,7 @@ define ptr @Dec_GraphFactorSop(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %32 = getelementptr i8, ptr %3, i64 16
   %.val35.i = load ptr, ptr %32, align 8, !tbaa !13
   %33 = zext nneg i32 %25 to i64
-  %34 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val35.i, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %.val35.i, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !14
   %37 = and i32 %.val31.i, 1
@@ -776,12 +772,12 @@ define ptr @Dec_GraphFactorSop(ptr noundef %0, ptr noundef %1) local_unnamed_add
 41:                                               ; preds = %41, %.preheader.i
   %indvars.iv.i = phi i64 [ %30, %.preheader.i ], [ %indvars.iv.next.i, %41 ]
   %.val34.i = load ptr, ptr %29, align 8, !tbaa !13
-  %42 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val34.i, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %.val34.i, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 8
   %44 = lshr i32 %43, 1
   %45 = and i32 %44, 1073741823
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val34.i, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.val34.i, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !14
   %50 = and i32 %43, 1
@@ -794,7 +790,7 @@ define ptr @Dec_GraphFactorSop(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %57 = lshr i32 %56, 1
   %58 = and i32 %57, 1073741823
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val34.i, i64 %59
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %.val34.i, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !14
   %63 = and i32 %56, 1
@@ -876,7 +872,7 @@ define ptr @Dec_GraphToNetworkIvy(ptr noundef %0, ptr noundef readonly captures(
   %20 = getelementptr i8, ptr %1, i64 16
   %.val35 = load ptr, ptr %20, align 8, !tbaa !13
   %21 = zext nneg i32 %13 to i64
-  %22 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val35, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %.val35, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !14
   %25 = and i32 %.val31, 1
@@ -888,12 +884,12 @@ define ptr @Dec_GraphToNetworkIvy(ptr noundef %0, ptr noundef readonly captures(
 29:                                               ; preds = %.preheader, %29
   %indvars.iv = phi i64 [ %18, %.preheader ], [ %indvars.iv.next, %29 ]
   %.val34 = load ptr, ptr %17, align 8, !tbaa !13
-  %30 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val34, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %.val34, i64 %indvars.iv
   %31 = load i32, ptr %30, align 8
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 1073741823
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val34, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %.val34, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !14
   %38 = and i32 %31, 1
@@ -906,7 +902,7 @@ define ptr @Dec_GraphToNetworkIvy(ptr noundef %0, ptr noundef readonly captures(
   %45 = lshr i32 %44, 1
   %46 = and i32 %45, 1073741823
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val34, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %.val34, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !14
   %51 = and i32 %44, 1

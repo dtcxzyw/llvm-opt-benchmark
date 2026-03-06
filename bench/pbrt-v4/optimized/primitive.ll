@@ -9639,7 +9639,7 @@ _ZZNK4pbrt12FloatTexture8EvaluateENS_18TextureEvalContextEENKUlT_E_clIPKNS_16Flo
   %353 = sext i32 %.sroa.2.0.copyload.i48 to i64
   %354 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %355 = load ptr, ptr %354, align 8, !tbaa !318
-  %356 = getelementptr inbounds nuw float, ptr %355, i64 %353
+  %356 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %353
   %357 = load float, ptr %356, align 4, !tbaa !12
   br label %_ZN4pbrt6detail8DispatchIRZNKS_12FloatTexture8EvaluateENS_18TextureEvalContextEEUlT_E_fNS_16FloatDotsTextureENS_10FBmTextureENS_16FloatPtexTextureENS_19GPUFloatPtexTextureENS_12WindyTextureENS_15WrinkledTextureEEET0_OS4_PKvi.exit
 

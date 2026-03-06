@@ -744,7 +744,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117CodeGeneratorImpl18Handle
 29:                                               ; preds = %14
   %30 = load i32, ptr %24, align 8, !tbaa !487
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %25, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %31
   br label %_ZN5clang12DeclGroupRef3endEv.exit
 
 _ZN5clang12DeclGroupRef3endEv.exit:               ; preds = %26, %29
@@ -808,7 +808,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang12FunctionDeclELb1EE9push_backES3_.exi
   %22 = phi i32 [ %15, %12 ], [ %.pre.i, %18 ]
   %23 = load ptr, ptr %13, align 8, !tbaa !62
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = ptrtoint ptr %1 to i64
   store i64 %26, ptr %25, align 1
   %27 = load i32, ptr %14, align 8, !tbaa !63
@@ -1393,7 +1393,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CodeGeneratorImpl24HandlingTopLe
   %18 = zext i32 %.0.i5 to i64
   %19 = load ptr, ptr %16, align 8, !tbaa !3
   %20 = load ptr, ptr %12, align 8, !tbaa !62
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %18
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %18
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   tail call void @_ZN5clang7CodeGen13CodeGenModule16EmitTopLevelDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(3608) %19, ptr noundef %22) #16
   %23 = add i32 %.0.i5, 1

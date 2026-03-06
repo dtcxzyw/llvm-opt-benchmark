@@ -149,17 +149,17 @@ define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly capt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !tbaa !7
   %104 = lshr i32 %.0160, 7
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage1_8, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr @_pcre2_ucd_stage1_8, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !9
   %108 = zext i16 %107 to i32
   %109 = shl nuw nsw i32 %108, 7
   %110 = and i32 %.0160, 127
   %111 = or disjoint i32 %109, %110
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage2_8, i64 %112
+  %113 = getelementptr inbounds nuw [2 x i8], ptr @_pcre2_ucd_stage2_8, i64 %112
   %114 = load i16, ptr %113, align 2, !tbaa !9
   %115 = zext i16 %114 to i64
-  %116 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %115
+  %116 = getelementptr inbounds nuw [12 x i8], ptr @_pcre2_ucd_records_8, i64 %115
   %117 = load i8, ptr %116, align 4, !tbaa !11
   %118 = icmp eq i8 %117, 98
   br i1 %118, label %.thread197, label %.lr.ph219
@@ -190,7 +190,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly capt
 
 128:                                              ; preds = %127, %120
   %129 = zext nneg i16 %126 to i64
-  %130 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_script_sets_8, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucd_script_sets_8, i64 %129
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %130, i64 16, i1 false)
   store i64 0, ptr %119, align 16
   switch i8 %121, label %131 [
@@ -203,7 +203,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly capt
   %133 = shl nuw i32 1, %132
   %134 = lshr i32 %123, 5
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %5, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !7
   %138 = or i32 %137, %133
   store i32 %138, ptr %136, align 4, !tbaa !7
@@ -279,9 +279,9 @@ define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly capt
 
 .preheader204:                                    ; preds = %139, %164
   %indvars.iv = phi i64 [ %indvars.iv.next, %164 ], [ 0, %139 ]
-  %165 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %166 = load i32, ptr %165, align 4, !tbaa !7
-  %167 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %168 = load i32, ptr %167, align 4, !tbaa !7
   %169 = and i32 %168, %166
   %.not176 = icmp eq i32 %169, 0
@@ -297,9 +297,9 @@ define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly capt
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %.preheader ], [ 0, %.preheader.preheader ]
-  %172 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv236
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv236
   %173 = load i32, ptr %172, align 4, !tbaa !7
-  %174 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv236
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv236
   %175 = load i32, ptr %174, align 4, !tbaa !7
   %176 = and i32 %175, %173
   store i32 %176, ptr %174, align 4, !tbaa !7
@@ -318,7 +318,7 @@ switch.hole_check:                                ; preds = %140
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %177 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._pcre2_script_run_8.1, i64 %177
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._pcre2_script_run_8.1, i64 %177
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge
 
@@ -330,7 +330,7 @@ switch.hole_check249:                             ; preds = %170
 
 switch.lookup250:                                 ; preds = %switch.hole_check249
   %178 = zext nneg i8 %switch.tableidx247 to i64
-  %switch.gep254 = getelementptr inbounds nuw i32, ptr @switch.table._pcre2_script_run_8.1, i64 %178
+  %switch.gep254 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._pcre2_script_run_8.1, i64 %178
   %switch.load255 = load i32, ptr %switch.gep254, align 4
   br label %.critedge
 
@@ -357,7 +357,7 @@ switch.lookup250:                                 ; preds = %switch.hole_check24
   %186 = add nuw nsw i32 %.0213, %.0132212
   %187 = lshr i32 %186, 1
   %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_digit_sets_8, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucd_digit_sets_8, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !7
   %.not186 = icmp ugt i32 %.1161215, %190
   %..0132 = select i1 %.not186, i32 %187, i32 %.0132212
@@ -501,17 +501,17 @@ switch.lookup250:                                 ; preds = %switch.hole_check24
   %.2146 = phi ptr [ %246, %230 ], [ %272, %262 ], [ %289, %273 ], [ %195, %194 ], [ %205, %202 ], [ %226, %216 ]
   %291 = lshr i32 %.2162, 7
   %292 = zext nneg i32 %291 to i64
-  %293 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage1_8, i64 %292
+  %293 = getelementptr inbounds nuw [2 x i8], ptr @_pcre2_ucd_stage1_8, i64 %292
   %294 = load i16, ptr %293, align 2, !tbaa !9
   %295 = zext i16 %294 to i32
   %296 = shl nuw nsw i32 %295, 7
   %297 = and i32 %.2162, 127
   %298 = or disjoint i32 %296, %297
   %299 = zext nneg i32 %298 to i64
-  %300 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage2_8, i64 %299
+  %300 = getelementptr inbounds nuw [2 x i8], ptr @_pcre2_ucd_stage2_8, i64 %299
   %301 = load i16, ptr %300, align 2, !tbaa !9
   %302 = zext i16 %301 to i64
-  %303 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %302
+  %303 = getelementptr inbounds nuw [12 x i8], ptr @_pcre2_ucd_records_8, i64 %302
   %304 = load i8, ptr %303, align 4, !tbaa !11
   %305 = icmp eq i8 %304, 98
   br i1 %305, label %.thread197, label %120

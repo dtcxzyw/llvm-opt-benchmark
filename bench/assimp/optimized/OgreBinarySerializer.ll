@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.Assimp::Ogre::VertexBoneAssignment" = type { i32, i16, float }
 %"class.std::set" = type { %"class.std::_Rb_tree.44" }
 %"class.std::_Rb_tree.44" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -56,7 +55,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.75" = type { %"struct.std::_Vector_base<Assimp::Ogre::PoseRef, std::allocator<Assimp::Ogre::PoseRef>>::_Vector_impl" }
 %"struct.std::_Vector_base<Assimp::Ogre::PoseRef, std::allocator<Assimp::Ogre::PoseRef>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::Ogre::PoseRef, std::allocator<Assimp::Ogre::PoseRef>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<Assimp::Ogre::PoseRef, std::allocator<Assimp::Ogre::PoseRef>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.Assimp::Ogre::PoseRef" = type { i16, float }
 %"class.std::shared_ptr.79" = type { %"class.std::__shared_ptr.80" }
 %"class.std::__shared_ptr.80" = type { ptr, %"class.std::__shared_count" }
 %"struct.Assimp::Ogre::TransformKeyFrame" = type { float, %class.aiQuaterniont, %class.aiVector3t, %class.aiVector3t }
@@ -2598,7 +2596,7 @@ _ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.
 _ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %310, %_ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %305, ptr %99, align 8
   store ptr %309, ptr %100, align 8
-  %311 = getelementptr inbounds nuw ptr, ptr %305, i64 %303
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %303
   store ptr %311, ptr %292, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE9push_backERKS3_.exit
 
@@ -2883,7 +2881,7 @@ _ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5
 _ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %75, %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %70, ptr %49, align 8
   store ptr %74, ptr %50, align 8
-  %76 = getelementptr inbounds nuw %"struct.Assimp::Ogre::VertexBoneAssignment", ptr %70, i64 %68
+  %76 = getelementptr inbounds nuw [12 x i8], ptr %70, i64 %68
   store ptr %76, ptr %52, align 8
   br label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE9push_backERKS2_.exit
 
@@ -4232,7 +4230,7 @@ _ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %120, %_ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %115, ptr %30, align 8
   store ptr %119, ptr %31, align 8
-  %121 = getelementptr inbounds nuw ptr, ptr %115, i64 %113
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %113
   store ptr %121, ptr %32, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE9push_backERKS3_.exit
 
@@ -4523,7 +4521,7 @@ _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit1
 _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %103, %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %98, ptr %30, align 8
   store ptr %102, ptr %31, align 8
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %32, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit
 
@@ -6444,7 +6442,7 @@ _ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %117, %_ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %112, ptr %91, align 8
   store ptr %116, ptr %92, align 8
-  %118 = getelementptr inbounds nuw %"class.Assimp::Ogre::VertexElement", ptr %112, i64 %110
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %110
   store ptr %118, ptr %94, align 8
   br label %_ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE9push_backERKS2_.exit
 
@@ -7941,7 +7939,7 @@ _ZNSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i
 _ZNSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %278, %_ZNSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %273, ptr %29, align 8
   store ptr %277, ptr %30, align 8
-  %279 = getelementptr inbounds nuw %"struct.Assimp::Ogre::PoseRef", ptr %273, i64 %271
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %271
   store ptr %279, ptr %31, align 8
   br label %280
 
@@ -9282,7 +9280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %110
   %.02042 = phi i64 [ %111, %110 ], [ 0, %.lr.ph44.preheader ]
   %102 = load ptr, ptr %1, align 8
-  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %.02042
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %.02042
   %104 = load ptr, ptr %103, align 8
   %105 = invoke noundef zeroext i1 @_ZNK6Assimp4Ogre4Bone10IsParentedEv(ptr noundef nonnull align 8 dereferenceable(248) %104)
           to label %106 unwind label %108
@@ -10213,7 +10211,7 @@ _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %153, %_ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %148, ptr %1, align 8
   store ptr %152, ptr %115, align 8
-  %154 = getelementptr inbounds nuw ptr, ptr %148, i64 %146
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %146
   store ptr %154, ptr %130, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE9push_backERKS3_.exit
 
@@ -10745,7 +10743,7 @@ _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit1
 _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %190, %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %185, ptr %164, align 8
   store ptr %189, ptr %165, align 8
-  %191 = getelementptr inbounds nuw ptr, ptr %185, i64 %183
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %183
   store ptr %191, ptr %167, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit
 
@@ -11585,7 +11583,7 @@ _ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS
 _ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %94, ptr %73, align 8
   store ptr %98, ptr %74, align 8
-  %100 = getelementptr inbounds nuw %"struct.Assimp::Ogre::TransformKeyFrame", ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [44 x i8], ptr %94, i64 %92
   store ptr %100, ptr %76, align 8
   br label %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE9push_backERKS2_.exit
 
@@ -15449,7 +15447,7 @@ _ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5
 _ZNSt12_Vector_baseIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %112
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i35, ptr %4, align 8
-  %116 = getelementptr inbounds nuw %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %20, i64 %16
+  %116 = getelementptr inbounds nuw [112 x i8], ptr %20, i64 %16
   store ptr %116, ptr %111, align 8
   ret void
 
@@ -15998,7 +15996,7 @@ _ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %57
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %61 = getelementptr inbounds nuw %"struct.Assimp::Ogre::MorphKeyFrame", ptr %20, i64 %16
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %61, ptr %56, align 8
   ret void
 }
@@ -16158,7 +16156,7 @@ _ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %70
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8
-  %74 = getelementptr inbounds nuw %"struct.Assimp::Ogre::PoseKeyFrame", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %74, ptr %69, align 8
   ret void
 

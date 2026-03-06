@@ -3,8 +3,6 @@ source_filename = "bench/openjdk/original/exceptionHandlerTable.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%class.HandlerTableEntry = type { i32, i32, i32 }
-
 @g_assert_poison = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [49 x i8] c"src/hotspot/share/code/exceptionHandlerTable.cpp\00", align 1
 @.str.4 = private unnamed_addr constant [28 x i8] c"guarantee(_size > 0) failed\00", align 1
@@ -71,7 +69,7 @@ define hidden void @_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry(ptr
   %23 = add nsw i32 %21, 1
   store i32 %23, ptr %4, align 8
   %24 = sext i32 %21 to i64
-  %25 = getelementptr inbounds %class.HandlerTableEntry, ptr %22, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %22, i64 %24
   store i64 %1, ptr %25, align 4
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 %2, ptr %.sroa.23.0..sroa_idx, align 4
@@ -97,7 +95,7 @@ define hidden noundef ptr @_ZNK21ExceptionHandlerTable12subtable_forEi(ptr nound
 7:                                                ; preds = %.lr.ph, %13
   %.089 = phi i32 [ 0, %.lr.ph ], [ %16, %13 ]
   %8 = sext i32 %.089 to i64
-  %9 = getelementptr inbounds %class.HandlerTableEntry, ptr %6, i64 %8
+  %9 = getelementptr inbounds [12 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %1
@@ -215,7 +213,7 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit: ; preds = %._crit
   %27 = add nsw i32 %25, 1
   store i32 %27, ptr %9, align 8
   %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds %class.HandlerTableEntry, ptr %26, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %26, i64 %28
   store i64 %.sroa.024.0.insert.insert, ptr %29, align 4
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 0, ptr %.sroa.23.0..sroa_idx.i, align 4
@@ -233,10 +231,10 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit: ; preds = %._crit
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23.us
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23.us ], [ 0, %.lr.ph ]
   %35 = load ptr, ptr %33, align 8
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv31
   %37 = load i64, ptr %36, align 8
   %38 = load ptr, ptr %34, align 8
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv31
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv31
   %40 = load i64, ptr %39, align 8
   %.sroa.2.0.insert.ext.us = shl i64 %40, 32
   %.sroa.0.0.insert.ext.us = and i64 %37, 4294967295
@@ -273,7 +271,7 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23.us: ; preds = %.
   %55 = add nsw i32 %53, 1
   store i32 %55, ptr %9, align 8
   %56 = sext i32 %53 to i64
-  %57 = getelementptr inbounds %class.HandlerTableEntry, ptr %54, i64 %56
+  %57 = getelementptr inbounds [12 x i8], ptr %54, i64 %56
   store i64 %.sroa.0.0.insert.insert.us, ptr %57, align 4
   %.sroa.23.0..sroa_idx.i20.us = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 0, ptr %.sroa.23.0..sroa_idx.i20.us, align 4
@@ -286,14 +284,14 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23.us: ; preds = %.
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23 ], [ 0, %.lr.ph ]
   %61 = load ptr, ptr %32, align 8
-  %62 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %63 = load i64, ptr %62, align 8
   %64 = trunc i64 %63 to i32
   %65 = load ptr, ptr %33, align 8
-  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   %67 = load i64, ptr %66, align 8
   %68 = load ptr, ptr %34, align 8
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
   %.sroa.2.0.insert.ext = shl i64 %70, 32
   %.sroa.0.0.insert.ext = and i64 %67, 4294967295
@@ -336,7 +334,7 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23: ; preds = %._cr
   %86 = add nsw i32 %84, 1
   store i32 %86, ptr %9, align 8
   %87 = sext i32 %84 to i64
-  %88 = getelementptr inbounds %class.HandlerTableEntry, ptr %85, i64 %87
+  %88 = getelementptr inbounds [12 x i8], ptr %85, i64 %87
   store i64 %.sroa.0.0.insert.insert, ptr %88, align 4
   %.sroa.23.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i32 %64, ptr %.sroa.23.0..sroa_idx.i20, align 4
@@ -399,7 +397,7 @@ define hidden noundef ptr @_ZNK21ExceptionHandlerTable9entry_forEiii(ptr noundef
 9:                                                ; preds = %16, %.lr.ph.i
   %.089.i = phi i32 [ 0, %.lr.ph.i ], [ %18, %16 ]
   %10 = sext i32 %.089.i to i64
-  %11 = getelementptr inbounds %class.HandlerTableEntry, ptr %8, i64 %10
+  %11 = getelementptr inbounds [12 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %1
@@ -518,7 +516,7 @@ define hidden void @_ZNK21ExceptionHandlerTable5printEPh(ptr noundef nonnull rea
   %.06 = phi i32 [ %16, %.lr.ph ], [ 0, %2 ]
   %11 = load ptr, ptr %0, align 8
   %12 = sext i32 %.06 to i64
-  %13 = getelementptr inbounds %class.HandlerTableEntry, ptr %11, i64 %12
+  %13 = getelementptr inbounds [12 x i8], ptr %11, i64 %12
   tail call void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh(ptr nonnull align 8 poison, ptr noundef %13, ptr noundef %1)
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %.06, 1
@@ -545,7 +543,7 @@ define hidden void @_ZNK21ExceptionHandlerTable18print_subtable_forEi(ptr nounde
 7:                                                ; preds = %14, %.lr.ph.i
   %.089.i = phi i32 [ 0, %.lr.ph.i ], [ %16, %14 ]
   %8 = sext i32 %.089.i to i64
-  %9 = getelementptr inbounds %class.HandlerTableEntry, ptr %6, i64 %8
+  %9 = getelementptr inbounds [12 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %1
@@ -633,10 +631,10 @@ define hidden void @_ZN22ImplicitExceptionTable6appendEjj(ptr noundef nonnull al
   %.pre-phi10 = phi i64 [ %.pre9, %._crit_edge ], [ %15, %8 ]
   %21 = phi ptr [ %.pre, %._crit_edge ], [ %19, %8 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %.pre-phi10
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.pre-phi10
   store i32 %1, ptr %23, align 4
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %.pre-phi10
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.pre-phi10
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %2, ptr %26, align 4
   %27 = add i32 %5, 1
@@ -666,13 +664,13 @@ define hidden noundef i32 @_ZNK22ImplicitExceptionTable19continuation_offsetEj(p
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %9 = shl nuw i64 %indvars.iv, 1
   %10 = and i64 %9, 4294967294
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %7
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %10
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %10
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   br label %.loopexit
@@ -719,7 +717,7 @@ define hidden void @_ZNK22ImplicitExceptionTable5printEPh(ptr noundef nonnull re
   %21 = load ptr, ptr %10, align 8
   %22 = shl nuw i64 %indvars.iv, 1
   %23 = and i64 %22, 4294967294
-  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
@@ -880,7 +878,7 @@ define hidden void @_ZNK22ImplicitExceptionTable6verifyEP7nmethod(ptr noundef no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %13 = shl nuw i64 %indvars.iv, 1
   %14 = and i64 %13, 4294967294
-  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp ugt i32 %16, %gepdiff.i
   br i1 %17, label %22, label %18

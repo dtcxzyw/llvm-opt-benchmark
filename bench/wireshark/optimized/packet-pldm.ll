@@ -905,7 +905,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr noundef readonly captures(
   %171 = zext i1 %or.cond170.i to i32
   %.3.i = add i32 %.212.i, %171
   %172 = zext nneg i32 %167 to i64
-  %173 = getelementptr i64, ptr %25, i64 %172
+  %173 = getelementptr [8 x i8], ptr %25, i64 %172
   %174 = load i64, ptr %173, align 8
   %175 = and i64 %174, %spec.select.i
   %.not166.i = icmp eq i64 %175, 0

@@ -1552,7 +1552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %53,
   %111 = phi ptr [ %82, %.lr.ph ], [ %97, %94 ]
   %.02647 = phi i64 [ 0, %.lr.ph ], [ %95, %94 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %112 = getelementptr inbounds nuw %"class.cv::Mat", ptr %111, i64 %.02647
+  %112 = getelementptr inbounds nuw [96 x i8], ptr %111, i64 %.02647
   store i32 0, ptr %83, align 8, !tbaa !57
   store i32 0, ptr %84, align 4, !tbaa !58
   store i32 16842752, ptr %13, align 8, !tbaa !59
@@ -1619,7 +1619,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %53,
   %147 = mul i64 %145, %146
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 %147
   %149 = sext i32 %.recomposed to i64
-  %150 = getelementptr inbounds i32, ptr %148, i64 %149
+  %150 = getelementptr inbounds [4 x i8], ptr %148, i64 %149
   br label %_ZNK2cv3Mat2atIiEERKT_i.exit
 
 _ZNK2cv3Mat2atIiEERKT_i.exit:                     ; preds = %124, %132, %139
@@ -1902,7 +1902,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !35
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !38
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !66
   ret void
 

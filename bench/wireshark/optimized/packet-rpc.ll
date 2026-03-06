@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.except_id_t = type { i64, i64 }
 %struct._rpc_proc_info_key = type { i32, i32, i32 }
-%struct._rpc_proc_list = type { i32, ptr, ptr }
 %struct.nstime_t = type { i64, i32 }
 %struct._stat_tap_table_item_type = type { i32, %union.anon, %union.anon.0 }
 %union.anon = type { ptr }
@@ -605,7 +604,7 @@ define void @rpc_init_prog(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 n
 21:                                               ; preds = %.lr.ph64, %._crit_edge
   %.062 = phi i64 [ 0, %.lr.ph64 ], [ %79, %._crit_edge ]
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr %struct._rpc_proc_list, ptr %4, i64 %.062
+  %23 = getelementptr [24 x i8], ptr %4, i64 %.062
   %24 = load i32, ptr %23, align 8
   %25 = call ptr @g_array_set_size(ptr noundef %22, i32 noundef %24)
   store ptr %25, ptr %14, align 8
@@ -755,7 +754,7 @@ define i32 @rpc_prog_hf(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %1 to i64
-  %12 = getelementptr i32, ptr %10, i64 %11
+  %12 = getelementptr [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %14
 
@@ -2368,7 +2367,7 @@ define internal void @rpcstat_init(ptr noundef %0, ptr noundef %1) #0 {
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %9 to i64
-  %19 = getelementptr i32, ptr %17, i64 %18
+  %19 = getelementptr [4 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4
   br label %rpc_prog_hf.exit
 
@@ -3845,7 +3844,7 @@ proto_item_set_generated.exit617:                 ; preds = %443, %449, %452
 463:                                              ; preds = %459
   %464 = load ptr, ptr %458, align 8
   %465 = zext i32 %.0510 to i64
-  %466 = getelementptr i32, ptr %464, i64 %465
+  %466 = getelementptr [4 x i8], ptr %464, i64 %465
   %467 = load i32, ptr %466, align 4
   %468 = add i32 %467, -1
   %or.cond13 = icmp ult i32 %468, -2

@@ -9658,7 +9658,7 @@ _ZN13StubGenerator26generate_expand_perm_tableEPKci.exit: ; preds = %66
   call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %223, i32 noundef 0) #12
   call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %224 = getelementptr inbounds nuw ptr, ptr @_ZN12StubRoutines36_lookup_secondary_supers_table_stubsE, i64 %indvars.iv97
+  %224 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12StubRoutines36_lookup_secondary_supers_table_stubsE, i64 %indvars.iv97
   store ptr %222, ptr %224, align 8
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 64
@@ -9777,16 +9777,16 @@ _ZN13StubGenerator26generate_expand_perm_tableEPKci.exit: ; preds = %66
   ]
 
 275:                                              ; preds = %273, %.preheader
-  %276 = getelementptr inbounds nuw ptr, ptr @_ZN13VectorSupport8svmlnameE, i64 %indvars.iv101
+  %276 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13VectorSupport8svmlnameE, i64 %indvars.iv101
   %277 = load ptr, ptr %276, align 8
   %278 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.114, ptr noundef %277) #12
   %279 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
-  %280 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 432), i64 %indvars.iv101
+  %280 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 432), i64 %indvars.iv101
   store ptr %279, ptr %280, align 8
   %281 = load ptr, ptr %276, align 8
   %282 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.115, ptr noundef %281) #12
   %283 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
-  %284 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 432), i64 %indvars.iv101
+  %284 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 432), i64 %indvars.iv101
   store ptr %283, ptr %284, align 8
   %.pre109 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   br label %285
@@ -9815,36 +9815,36 @@ _ZN13StubGenerator26generate_expand_perm_tableEPKci.exit: ; preds = %66
   br i1 %292, label %319, label %293
 
 293:                                              ; preds = %291
-  %294 = getelementptr inbounds nuw ptr, ptr @_ZN13VectorSupport8svmlnameE, i64 %indvars.iv105
+  %294 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13VectorSupport8svmlnameE, i64 %indvars.iv105
   %295 = load ptr, ptr %294, align 8
   %296 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.119, ptr noundef %295, ptr noundef nonnull %290) #12
   %297 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
-  %298 = getelementptr inbounds nuw ptr, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 %indvars.iv105
+  %298 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12StubRoutines14_vector_f_mathE, i64 %indvars.iv105
   store ptr %297, ptr %298, align 8
   %299 = load ptr, ptr %294, align 8
   %300 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.119, ptr noundef %299, ptr noundef nonnull %290) #12
   %301 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
-  %302 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 144), i64 %indvars.iv105
+  %302 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 144), i64 %indvars.iv105
   store ptr %301, ptr %302, align 8
   %303 = load ptr, ptr %294, align 8
   %304 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %303, ptr noundef nonnull %290) #12
   %305 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
-  %306 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 288), i64 %indvars.iv105
+  %306 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 288), i64 %indvars.iv105
   store ptr %305, ptr %306, align 8
   %307 = load ptr, ptr %294, align 8
   %308 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.121, ptr noundef %307, ptr noundef nonnull %290) #12
   %309 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
-  %310 = getelementptr inbounds nuw ptr, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 %indvars.iv105
+  %310 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12StubRoutines14_vector_d_mathE, i64 %indvars.iv105
   store ptr %309, ptr %310, align 8
   %311 = load ptr, ptr %294, align 8
   %312 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.122, ptr noundef %311, ptr noundef nonnull %290) #12
   %313 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
-  %314 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 144), i64 %indvars.iv105
+  %314 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 144), i64 %indvars.iv105
   store ptr %313, ptr %314, align 8
   %315 = load ptr, ptr %294, align 8
   %316 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.123, ptr noundef %315, ptr noundef nonnull %290) #12
   %317 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
-  %318 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 288), i64 %indvars.iv105
+  %318 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 288), i64 %indvars.iv105
   store ptr %317, ptr %318, align 8
   br label %319
 

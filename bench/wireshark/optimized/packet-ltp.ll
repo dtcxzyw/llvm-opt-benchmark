@@ -973,7 +973,7 @@ define internal noundef i32 @ltp_stats_tree_packet(ptr noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %63
   %66 = zext nneg i8 %64 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.ltp_stats_tree_packet, i64 %66
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ltp_stats_tree_packet, i64 %66
   %switch.load = load i64, ptr %switch.gep, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   %68 = load ptr, ptr %49, align 8

@@ -4,9 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.obj_t = type { %struct.H5O_token_t, ptr, i8, i8 }
-%struct.H5O_token_t = type { [16 x i8] }
 %struct.H5O_info2_t = type { i64, %struct.H5O_token_t, i32, i32, i64, i64, i64, i64, i64 }
+%struct.H5O_token_t = type { [16 x i8] }
 
 @h5tools_nCols = local_unnamed_addr global i32 80, align 4
 @H5TOOLS_MALLOCSIZE = local_unnamed_addr global i64 268435456, align 8
@@ -272,7 +271,7 @@ define void @parse_hsize_list(ptr noundef readonly captures(address_is_null) %0,
   %7 = tail call ptr @__ctype_b_loc() #25
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = sext i8 %5 to i64
-  %10 = getelementptr inbounds i16, ptr %8, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %8, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !18
   %12 = and i16 %11, 2048
   %.not60 = icmp eq i16 %12, 0
@@ -335,7 +334,7 @@ define void @parse_hsize_list(ptr noundef readonly captures(address_is_null) %0,
   %37 = tail call ptr @__ctype_b_loc() #25
   %38 = load ptr, ptr %37, align 8, !tbaa !16
   %39 = sext i8 %35 to i64
-  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %38, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !18
   %42 = and i16 %41, 2048
   %.not58 = icmp eq i16 %42, 0
@@ -344,7 +343,7 @@ define void @parse_hsize_list(ptr noundef readonly captures(address_is_null) %0,
 43:                                               ; preds = %36
   %44 = tail call i64 @strtoull(ptr noundef nonnull captures(none) %.14362, ptr noundef null, i32 noundef 0) #24
   %45 = zext i32 %.03863 to i64
-  %46 = getelementptr inbounds nuw i64, ptr %17, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %45
   store i64 %44, ptr %46, align 8, !tbaa !22
   %47 = load ptr, ptr %37, align 8, !tbaa !16
   br label %48
@@ -353,7 +352,7 @@ define void @parse_hsize_list(ptr noundef readonly captures(address_is_null) %0,
   %.244 = phi ptr [ %.14362, %43 ], [ %54, %48 ]
   %49 = load i8, ptr %.244, align 1, !tbaa !3
   %50 = sext i8 %49 to i64
-  %51 = getelementptr inbounds i16, ptr %47, i64 %50
+  %51 = getelementptr inbounds [2 x i8], ptr %47, i64 %50
   %52 = load i16, ptr %51, align 2, !tbaa !18
   %53 = and i16 %52, 2048
   %.not59 = icmp eq i16 %53, 0
@@ -575,7 +574,7 @@ define range(i32 -1, 1) i32 @parse_tuple(ptr noundef readonly captures(none) %0,
   %39 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %40 = add i32 %.165.ph.ph, 1
   %41 = zext i32 %.165.ph.ph to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %.163.ph.ph.ph, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.163.ph.ph.ph, i64 %41
   store ptr %38, ptr %42, align 8, !tbaa !14
   %43 = icmp eq i32 %40, %.0.ph.ph.ph
   br i1 %43, label %44, label %.outer.outer, !llvm.loop !34
@@ -613,7 +612,7 @@ define range(i32 -1, 1) i32 @parse_tuple(ptr noundef readonly captures(none) %0,
 60:                                               ; preds = %25
   store i8 0, ptr %.067.ph, align 1, !tbaa !3
   %61 = zext i32 %.165.ph.ph to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %.163.ph.ph.ph, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.163.ph.ph.ph, i64 %61
   store ptr null, ptr %62, align 8, !tbaa !14
   store ptr %.163.ph.ph.ph, ptr %4, align 8, !tbaa !35
   store i32 %.165.ph.ph, ptr %3, align 4, !tbaa !12
@@ -719,7 +718,7 @@ define void @free_table(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %7 = phi i64 [ 0, %.lr.ph ], [ %16, %13 ]
   %.010 = phi i32 [ 0, %.lr.ph ], [ %15, %13 ]
   %8 = load ptr, ptr %4, align 8, !tbaa !42
-  %9 = getelementptr inbounds nuw %struct.obj_t, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !43
   %.not = icmp eq ptr %11, null
@@ -770,7 +769,7 @@ define ptr @search_obj(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.013 = phi i32 [ 0, %.lr.ph ], [ %8, %7 ]
   %14 = load i64, ptr %0, align 8, !tbaa !49
   %15 = load ptr, ptr %6, align 8, !tbaa !42
-  %16 = getelementptr inbounds nuw %struct.obj_t, ptr %15, i64 %13
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %13
   %17 = call i32 @H5Otoken_cmp(i64 noundef %14, ptr noundef %16, ptr noundef %1, ptr noundef nonnull %3) #24
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.loopexit, label %19
@@ -782,7 +781,7 @@ define ptr @search_obj(ptr noundef readonly captures(none) %0, ptr noundef %1) l
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %6, align 8, !tbaa !42
-  %23 = getelementptr inbounds nuw %struct.obj_t, ptr %22, i64 %13
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %7, %2, %21
@@ -881,7 +880,7 @@ define range(i32 -1, -2147483648) i32 @init_objs(i64 noundef %0, ptr noundef ini
   %52 = phi i64 [ 0, %.lr.ph.i ], [ %61, %58 ]
   %.010.i = phi i32 [ 0, %.lr.ph.i ], [ %60, %58 ]
   %53 = load ptr, ptr %49, align 8, !tbaa !42
-  %54 = getelementptr inbounds nuw %struct.obj_t, ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !43
   %.not.i = icmp eq ptr %56, null
@@ -920,7 +919,7 @@ free_table.exit:                                  ; preds = %58, %45
   %71 = phi i64 [ 0, %.lr.ph.i28 ], [ %80, %77 ]
   %.010.i29 = phi i32 [ 0, %.lr.ph.i28 ], [ %79, %77 ]
   %72 = load ptr, ptr %68, align 8, !tbaa !42
-  %73 = getelementptr inbounds nuw %struct.obj_t, ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %71
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !43
   %.not.i30 = icmp eq ptr %75, null
@@ -959,7 +958,7 @@ free_table.exit32:                                ; preds = %77, %free_table.exi
   %90 = phi i64 [ 0, %.lr.ph.i34 ], [ %99, %96 ]
   %.010.i35 = phi i32 [ 0, %.lr.ph.i34 ], [ %98, %96 ]
   %91 = load ptr, ptr %87, align 8, !tbaa !42
-  %92 = getelementptr inbounds nuw %struct.obj_t, ptr %91, i64 %90
+  %92 = getelementptr inbounds nuw [32 x i8], ptr %91, i64 %90
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !43
   %.not.i36 = icmp eq ptr %94, null
@@ -1042,11 +1041,11 @@ add_obj.exit:                                     ; preds = %._crit_edge.i, %21
   %29 = add i64 %28, 1
   store i64 %29, ptr %16, align 8, !tbaa !39
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %31 = getelementptr inbounds nuw %struct.obj_t, ptr %27, i64 %28
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull readonly align 1 dereferenceable(16) %15, i64 16, i1 false)
   %32 = tail call noalias ptr @strdup(ptr noundef readonly %0) #24
   %33 = load ptr, ptr %30, align 8, !tbaa !42
-  %34 = getelementptr inbounds nuw %struct.obj_t, ptr %33, i64 %28
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %28
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %32, ptr %35, align 8, !tbaa !43
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 25
@@ -1092,11 +1091,11 @@ add_obj.exit36:                                   ; preds = %._crit_edge.i32, %4
   %57 = add i64 %56, 1
   store i64 %57, ptr %44, align 8, !tbaa !39
   %58 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %59 = getelementptr inbounds nuw %struct.obj_t, ptr %55, i64 %56
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull readonly align 1 dereferenceable(16) %43, i64 16, i1 false)
   %60 = tail call noalias ptr @strdup(ptr noundef readonly %0) #24
   %61 = load ptr, ptr %58, align 8, !tbaa !42
-  %62 = getelementptr inbounds nuw %struct.obj_t, ptr %61, i64 %56
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %61, i64 %56
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %60, ptr %63, align 8, !tbaa !43
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 25
@@ -1142,7 +1141,7 @@ add_obj.exit36:                                   ; preds = %._crit_edge.i32, %4
   %.013.i = phi i32 [ 0, %.lr.ph.i ], [ %82, %81 ]
   %88 = load i64, ptr %76, align 8, !tbaa !49
   %89 = load ptr, ptr %80, align 8, !tbaa !42
-  %90 = getelementptr inbounds nuw %struct.obj_t, ptr %89, i64 %87
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %89, i64 %87
   %91 = call i32 @H5Otoken_cmp(i64 noundef %88, ptr noundef %90, ptr noundef nonnull %77, ptr noundef nonnull %6) #24
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %search_obj.exit.thread, label %93
@@ -1205,7 +1204,7 @@ search_obj.exit:                                  ; preds = %93
   %.013.i39 = phi i32 [ 0, %.lr.ph.i38 ], [ %112, %111 ]
   %118 = load i64, ptr %106, align 8, !tbaa !49
   %119 = load ptr, ptr %110, align 8, !tbaa !42
-  %120 = getelementptr inbounds nuw %struct.obj_t, ptr %119, i64 %117
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %117
   %121 = call i32 @H5Otoken_cmp(i64 noundef %118, ptr noundef %120, ptr noundef nonnull %107, ptr noundef nonnull %5) #24
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %search_obj.exit42.thread, label %123
@@ -1254,11 +1253,11 @@ add_obj.exit47:                                   ; preds = %._crit_edge.i43, %1
   %140 = add i64 %139, 1
   store i64 %140, ptr %108, align 8, !tbaa !39
   %141 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  %142 = getelementptr inbounds nuw %struct.obj_t, ptr %138, i64 %139
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %138, i64 %139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef nonnull readonly align 1 dereferenceable(16) %107, i64 16, i1 false)
   %143 = call noalias ptr @strdup(ptr noundef readonly %0) #24
   %144 = load ptr, ptr %141, align 8, !tbaa !42
-  %145 = getelementptr inbounds nuw %struct.obj_t, ptr %144, i64 %139
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %144, i64 %139
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store ptr %143, ptr %146, align 8, !tbaa !43
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 25
@@ -1268,7 +1267,7 @@ add_obj.exit47:                                   ; preds = %._crit_edge.i43, %1
   br label %155
 
 149:                                              ; preds = %search_obj.exit42
-  %150 = getelementptr inbounds nuw %struct.obj_t, ptr %125, i64 %117
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %125, i64 %117
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = load ptr, ptr %151, align 8, !tbaa !43
   call void @free(ptr noundef %152) #24
@@ -1650,11 +1649,11 @@ define internal fastcc void @add_obj(ptr noundef captures(none) %0, ptr noundef 
   %20 = add i64 %18, 1
   store i64 %20, ptr %5, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = getelementptr inbounds nuw %struct.obj_t, ptr %17, i64 %18
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   %23 = tail call noalias ptr @strdup(ptr noundef %2) #24
   %24 = load ptr, ptr %21, align 8, !tbaa !42
-  %25 = getelementptr inbounds nuw %struct.obj_t, ptr %24, i64 %18
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %18
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %23, ptr %26, align 8, !tbaa !43
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 25

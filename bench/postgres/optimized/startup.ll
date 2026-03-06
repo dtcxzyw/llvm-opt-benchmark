@@ -686,7 +686,7 @@ simple_action_list_append.exit60.i.else:          ; preds = %simple_action_list_
 sub_0.i:                                          ; preds = %203
   %205 = add i32 %204, -1
   %206 = sext i32 %205 to i64
-  %207 = getelementptr inbounds ptr, ptr %1, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %1, i64 %206
   %208 = load ptr, ptr %207, align 8
   %209 = load i8, ptr %208, align 1
   %.not.i = icmp eq i8 %209, 45
@@ -764,7 +764,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 234:                                              ; preds = %.lr.ph.i
   %235 = sext i32 %233 to i64
-  %236 = getelementptr inbounds ptr, ptr %1, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr %1, i64 %235
   %237 = load ptr, ptr %236, align 8
   br label %250
 
@@ -774,7 +774,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 239:                                              ; preds = %238
   %240 = sext i32 %233 to i64
-  %241 = getelementptr inbounds ptr, ptr %1, i64 %240
+  %241 = getelementptr inbounds [8 x i8], ptr %1, i64 %240
   %242 = load ptr, ptr %241, align 8
   br label %250
 
@@ -785,7 +785,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 246:                                              ; preds = %243
   %247 = sext i32 %233 to i64
-  %248 = getelementptr inbounds ptr, ptr %1, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %1, i64 %247
   %249 = load ptr, ptr %248, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.91, ptr noundef %249) #15
   %.pre = load i32, ptr @optind, align 4

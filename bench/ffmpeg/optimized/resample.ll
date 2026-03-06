@@ -146,7 +146,7 @@ resample_free.exit:                               ; preds = %43, %67
 
 switch.lookup:                                    ; preds = %70
   %79 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.resample_init, i64 %79
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.resample_init, i64 %79
   %switch.load = load i32, ptr %switch.gep, align 4
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 96
   store i32 %switch.load, ptr %80, align 8, !tbaa !24
@@ -402,9 +402,9 @@ define internal range(i32 0, -2147483648) i32 @multiple_resample(ptr noundef %0,
 59:                                               ; preds = %.lr.ph133, %94
   %indvars.iv136 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next137, %94 ]
   %60 = load ptr, ptr %55, align 8, !tbaa !40
-  %61 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv136
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv136
   %62 = load ptr, ptr %61, align 8, !tbaa !41
-  %63 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv136
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv136
   %64 = load ptr, ptr %63, align 8, !tbaa !41
   tail call void %60(ptr noundef %62, ptr noundef %64, i32 noundef %spec.select, i64 noundef %36, i64 noundef %42) #9
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
@@ -510,9 +510,9 @@ define internal range(i32 0, -2147483648) i32 @multiple_resample(ptr noundef %0,
 .lr.ph:                                           ; preds = %130, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %130 ]
   %136 = phi i32 [ %145, %.lr.ph ], [ %134, %130 ]
-  %137 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %138 = load ptr, ptr %137, align 8, !tbaa !41
-  %139 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %140 = load ptr, ptr %139, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %141 = zext i32 %136 to i64
@@ -598,7 +598,7 @@ define internal range(i32 -2147483648, 1) i32 @resample_flush(ptr noundef %0) #0
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %25 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   br label %26
 
 26:                                               ; preds = %.preheader.us, %26
@@ -923,7 +923,7 @@ define internal i32 @invert_initial_buffer(ptr noundef captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.preheader82, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader82 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   %31 = load i32, ptr %9, align 8, !tbaa !19
   %32 = add nsw i32 %31, %.07084
@@ -931,7 +931,7 @@ define internal i32 @invert_initial_buffer(ptr noundef captures(none) %0, ptr no
   %34 = mul nsw i32 %32, %33
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %30, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !41
   %39 = load i32, ptr %5, align 4, !tbaa !9
   %40 = sub nsw i32 %.07084, %39
@@ -983,7 +983,7 @@ define internal i32 @invert_initial_buffer(ptr noundef captures(none) %0, ptr no
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.lr.ph87 ], [ 0, %.preheader ]
-  %60 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv99
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv99
   %61 = load ptr, ptr %60, align 8, !tbaa !41
   %62 = load i32, ptr %9, align 8, !tbaa !19
   %63 = sub nsw i32 %62, %.17190
@@ -1186,7 +1186,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
   %39 = fdiv nsz double %38, %31
   %40 = tail call nsz double @llvm.sin.f64(double %39)
   %41 = fmul nsz double %40, %34
-  %42 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   store double %41, ptr %42, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1227,7 +1227,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
   br i1 %43, label %.lr.ph238, label %._crit_edge
 
 .lr.ph238:                                        ; preds = %52
-  %53 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv323
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv323
   %54 = load double, ptr %53, align 8, !tbaa !69
   %55 = trunc nuw nsw i64 %indvars.iv323 to i32
   %56 = uitofp nneg i32 %55 to double
@@ -1333,7 +1333,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 122:                                              ; preds = %77, %88, %110, %95
   %.2204 = phi nsz double [ %120, %110 ], [ %109, %95 ], [ %87, %77 ], [ %94, %88 ]
-  %123 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv278
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv278
   store double %.2204, ptr %123, align 8, !tbaa !69
   %124 = fneg nsz double %.0201235
   %125 = fadd nsz double %.1237, %.2204
@@ -1357,7 +1357,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 .lr.ph240:                                        ; preds = %.preheader229
   %127 = mul nsw i64 %indvars.iv323, %51
-  %invariant.gep = getelementptr double, ptr %1, i64 %127
+  %invariant.gep = getelementptr [8 x i8], ptr %1, i64 %127
   br label %193
 
 .preheader226:                                    ; preds = %._crit_edge
@@ -1365,7 +1365,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 .lr.ph245:                                        ; preds = %.preheader226
   %128 = mul nsw i64 %indvars.iv323, %51
-  %invariant.gep346 = getelementptr float, ptr %1, i64 %128
+  %invariant.gep346 = getelementptr [4 x i8], ptr %1, i64 %128
   br label %175
 
 .preheader223:                                    ; preds = %._crit_edge
@@ -1373,7 +1373,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 .lr.ph250:                                        ; preds = %.preheader223
   %129 = mul nsw i64 %indvars.iv323, %51
-  %invariant.gep350 = getelementptr i32, ptr %1, i64 %129
+  %invariant.gep350 = getelementptr [4 x i8], ptr %1, i64 %129
   br label %155
 
 .preheader220:                                    ; preds = %._crit_edge
@@ -1381,12 +1381,12 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 .lr.ph255:                                        ; preds = %.preheader220
   %130 = mul nsw i64 %indvars.iv323, %51
-  %invariant.gep354 = getelementptr i16, ptr %1, i64 %130
+  %invariant.gep354 = getelementptr [2 x i8], ptr %1, i64 %130
   br label %131
 
 131:                                              ; preds = %.lr.ph255, %131
   %indvars.iv313 = phi i64 [ 0, %.lr.ph255 ], [ %indvars.iv.next314, %131 ]
-  %132 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv313
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv313
   %133 = load double, ptr %132, align 8, !tbaa !69
   %134 = fmul nsz double %133, %49
   %135 = fdiv nsz double %134, %.1.lcssa
@@ -1399,7 +1399,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
   %141 = select i1 %140, i16 32767, i16 -32768
   %142 = trunc i64 %137 to i16
   %.0.i = select i1 %.not.i, i16 %142, i16 %141
-  %gep355 = getelementptr i16, ptr %invariant.gep354, i64 %indvars.iv313
+  %gep355 = getelementptr [2 x i8], ptr %invariant.gep354, i64 %indvars.iv313
   store i16 %.0.i, ptr %gep355, align 2, !tbaa !72
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
@@ -1410,7 +1410,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 .lr.ph258:                                        ; preds = %._crit_edge256
   %143 = mul nsw i64 %indvars.iv323, %51
-  %invariant.gep356 = getelementptr i16, ptr %1, i64 %143
+  %invariant.gep356 = getelementptr [2 x i8], ptr %1, i64 %143
   %144 = trunc i64 %indvars.iv323 to i32
   %145 = sub i32 %5, %144
   %146 = mul i32 %145, %4
@@ -1419,13 +1419,13 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 148:                                              ; preds = %.lr.ph258, %148
   %indvars.iv318 = phi i64 [ 0, %.lr.ph258 ], [ %indvars.iv.next319, %148 ]
-  %gep357 = getelementptr i16, ptr %invariant.gep356, i64 %indvars.iv318
+  %gep357 = getelementptr [2 x i8], ptr %invariant.gep356, i64 %indvars.iv318
   %149 = load i16, ptr %gep357, align 2, !tbaa !72
   %150 = trunc i64 %indvars.iv318 to i32
   %151 = xor i32 %150, -1
   %152 = add i32 %147, %151
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds i16, ptr %1, i64 %153
+  %154 = getelementptr inbounds [2 x i8], ptr %1, i64 %153
   store i16 %149, ptr %154, align 2, !tbaa !72
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count321
@@ -1433,7 +1433,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 155:                                              ; preds = %.lr.ph250, %155
   %indvars.iv303 = phi i64 [ 0, %.lr.ph250 ], [ %indvars.iv.next304, %155 ]
-  %156 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv303
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv303
   %157 = load double, ptr %156, align 8, !tbaa !69
   %158 = fmul nsz double %157, %49
   %159 = fdiv nsz double %158, %.1.lcssa
@@ -1441,7 +1441,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
   %161 = tail call i64 @llvm.smax.i64(i64 %160, i64 -2147483648)
   %162 = tail call i64 @llvm.smin.i64(i64 %161, i64 2147483647)
   %.0.i219 = trunc nsw i64 %162 to i32
-  %gep351 = getelementptr i32, ptr %invariant.gep350, i64 %indvars.iv303
+  %gep351 = getelementptr [4 x i8], ptr %invariant.gep350, i64 %indvars.iv303
   store i32 %.0.i219, ptr %gep351, align 4, !tbaa !9
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond307.not = icmp eq i64 %indvars.iv.next304, %wide.trip.count306
@@ -1452,7 +1452,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 .lr.ph253:                                        ; preds = %._crit_edge251
   %163 = mul nsw i64 %indvars.iv323, %51
-  %invariant.gep352 = getelementptr i32, ptr %1, i64 %163
+  %invariant.gep352 = getelementptr [4 x i8], ptr %1, i64 %163
   %164 = trunc i64 %indvars.iv323 to i32
   %165 = sub i32 %5, %164
   %166 = mul i32 %165, %4
@@ -1461,13 +1461,13 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 168:                                              ; preds = %.lr.ph253, %168
   %indvars.iv308 = phi i64 [ 0, %.lr.ph253 ], [ %indvars.iv.next309, %168 ]
-  %gep353 = getelementptr i32, ptr %invariant.gep352, i64 %indvars.iv308
+  %gep353 = getelementptr [4 x i8], ptr %invariant.gep352, i64 %indvars.iv308
   %169 = load i32, ptr %gep353, align 4, !tbaa !9
   %170 = trunc i64 %indvars.iv308 to i32
   %171 = xor i32 %170, -1
   %172 = add i32 %167, %171
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds i32, ptr %1, i64 %173
+  %174 = getelementptr inbounds [4 x i8], ptr %1, i64 %173
   store i32 %169, ptr %174, align 4, !tbaa !9
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %exitcond312.not = icmp eq i64 %indvars.iv.next309, %wide.trip.count311
@@ -1475,12 +1475,12 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 175:                                              ; preds = %.lr.ph245, %175
   %indvars.iv293 = phi i64 [ 0, %.lr.ph245 ], [ %indvars.iv.next294, %175 ]
-  %176 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv293
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv293
   %177 = load double, ptr %176, align 8, !tbaa !69
   %178 = fmul nsz double %177, %49
   %179 = fdiv nsz double %178, %.1.lcssa
   %180 = fptrunc nsz double %179 to float
-  %gep347 = getelementptr float, ptr %invariant.gep346, i64 %indvars.iv293
+  %gep347 = getelementptr [4 x i8], ptr %invariant.gep346, i64 %indvars.iv293
   store float %180, ptr %gep347, align 4, !tbaa !78
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
@@ -1491,7 +1491,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 .lr.ph248:                                        ; preds = %._crit_edge246
   %181 = mul nsw i64 %indvars.iv323, %51
-  %invariant.gep348 = getelementptr float, ptr %1, i64 %181
+  %invariant.gep348 = getelementptr [4 x i8], ptr %1, i64 %181
   %182 = trunc i64 %indvars.iv323 to i32
   %183 = sub i32 %5, %182
   %184 = mul i32 %183, %4
@@ -1500,13 +1500,13 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 186:                                              ; preds = %.lr.ph248, %186
   %indvars.iv298 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next299, %186 ]
-  %gep349 = getelementptr float, ptr %invariant.gep348, i64 %indvars.iv298
+  %gep349 = getelementptr [4 x i8], ptr %invariant.gep348, i64 %indvars.iv298
   %187 = load float, ptr %gep349, align 4, !tbaa !78
   %188 = trunc i64 %indvars.iv298 to i32
   %189 = xor i32 %188, -1
   %190 = add i32 %185, %189
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds float, ptr %1, i64 %191
+  %192 = getelementptr inbounds [4 x i8], ptr %1, i64 %191
   store float %187, ptr %192, align 4, !tbaa !78
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %exitcond302.not = icmp eq i64 %indvars.iv.next299, %wide.trip.count301
@@ -1514,11 +1514,11 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 193:                                              ; preds = %.lr.ph240, %193
   %indvars.iv283 = phi i64 [ 0, %.lr.ph240 ], [ %indvars.iv.next284, %193 ]
-  %194 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv283
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv283
   %195 = load double, ptr %194, align 8, !tbaa !69
   %196 = fmul nsz double %195, %49
   %197 = fdiv nsz double %196, %.1.lcssa
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv283
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv283
   store double %197, ptr %gep, align 8, !tbaa !69
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count286
@@ -1529,7 +1529,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 .lr.ph243:                                        ; preds = %._crit_edge241
   %198 = mul nsw i64 %indvars.iv323, %51
-  %invariant.gep344 = getelementptr double, ptr %1, i64 %198
+  %invariant.gep344 = getelementptr [8 x i8], ptr %1, i64 %198
   %199 = trunc i64 %indvars.iv323 to i32
   %200 = sub i32 %5, %199
   %201 = mul i32 %200, %4
@@ -1538,13 +1538,13 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
 
 203:                                              ; preds = %.lr.ph243, %203
   %indvars.iv288 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next289, %203 ]
-  %gep345 = getelementptr double, ptr %invariant.gep344, i64 %indvars.iv288
+  %gep345 = getelementptr [8 x i8], ptr %invariant.gep344, i64 %indvars.iv288
   %204 = load double, ptr %gep345, align 8, !tbaa !69
   %205 = trunc i64 %indvars.iv288 to i32
   %206 = xor i32 %205, -1
   %207 = add i32 %202, %206
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds double, ptr %1, i64 %208
+  %209 = getelementptr inbounds [8 x i8], ptr %1, i64 %208
   store double %204, ptr %209, align 8, !tbaa !69
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count291

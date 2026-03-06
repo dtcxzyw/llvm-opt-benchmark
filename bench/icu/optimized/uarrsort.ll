@@ -399,7 +399,7 @@ _ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE6resizeEii.exit.i: ; preds = %106
 111:                                              ; preds = %_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE6resizeEii.exit.i, %94
   %112 = phi ptr [ %103, %_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE6resizeEii.exit.i ], [ %95, %94 ]
   %113 = zext nneg i32 %27 to i64
-  %114 = getelementptr inbounds nuw %struct.max_align_t, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %113
   invoke fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr noundef %0, i32 noundef 0, i32 noundef range(i32 9, -2147483648) %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %112, ptr noundef nonnull %114)
           to label %115 unwind label %109
 

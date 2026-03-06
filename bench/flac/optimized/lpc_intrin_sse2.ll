@@ -23,7 +23,7 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_8(ptr noun
   %.03743 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %21, %.lr.ph ]
   %.03842 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %19, %.lr.ph ]
   %.03941 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  %7 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !3
   %9 = fpext reassoc nsz arcp float %8 to double
   %10 = insertelement <2 x double> poison, double %9, i64 0
@@ -81,7 +81,7 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_10(ptr nou
   %.04652 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %.04751 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %20, %.lr.ph ]
   %.04850 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %7 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !3
   %9 = fpext reassoc nsz arcp float %8 to double
   %10 = insertelement <2 x double> poison, double %9, i64 0
@@ -149,7 +149,7 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_14(ptr nou
   %.06470 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %24, %.lr.ph ]
   %.06569 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %.06668 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %20, %.lr.ph ]
-  %7 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !3
   %9 = fpext reassoc nsz arcp float %8 to double
   %10 = insertelement <2 x double> poison, double %9, i64 0
@@ -342,7 +342,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 122:                                              ; preds = %.lr.ph914, %122
   %indvars.iv975 = phi i64 [ 0, %.lr.ph914 ], [ %indvars.iv.next976, %122 ]
-  %123 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv975
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv975
   %124 = getelementptr inbounds i8, ptr %123, i64 -48
   %125 = load <8 x i16>, ptr %124, align 1, !tbaa !9
   %126 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %109, <8 x i16> %125)
@@ -391,7 +391,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   %169 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %120, <8 x i16> %168)
   %170 = add <4 x i32> %166, %169
   %171 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %170, <4 x i32> %7)
-  %172 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv975
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv975
   %173 = load <4 x i32>, ptr %123, align 1, !tbaa !9
   %174 = sub <4 x i32> %173, %171
   store <4 x i32> %174, ptr %172, align 1, !tbaa !9
@@ -474,7 +474,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 244:                                              ; preds = %.lr.ph911, %244
   %indvars.iv972 = phi i64 [ 0, %.lr.ph911 ], [ %indvars.iv.next973, %244 ]
-  %245 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv972
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv972
   %246 = getelementptr inbounds i8, ptr %245, i64 -44
   %247 = load <8 x i16>, ptr %246, align 1, !tbaa !9
   %248 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %232, <8 x i16> %247)
@@ -519,7 +519,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   %287 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %242, <8 x i16> %286)
   %288 = add <4 x i32> %284, %287
   %289 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %288, <4 x i32> %7)
-  %290 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv972
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv972
   %291 = load <4 x i32>, ptr %245, align 1, !tbaa !9
   %292 = sub <4 x i32> %291, %289
   store <4 x i32> %292, ptr %290, align 1, !tbaa !9
@@ -600,7 +600,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 358:                                              ; preds = %.lr.ph908, %358
   %indvars.iv969 = phi i64 [ 0, %.lr.ph908 ], [ %indvars.iv.next970, %358 ]
-  %359 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv969
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv969
   %360 = getelementptr inbounds i8, ptr %359, i64 -40
   %361 = load <8 x i16>, ptr %360, align 1, !tbaa !9
   %362 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %347, <8 x i16> %361)
@@ -641,7 +641,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   %397 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %356, <8 x i16> %396)
   %398 = add <4 x i32> %394, %397
   %399 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %398, <4 x i32> %7)
-  %400 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv969
+  %400 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv969
   %401 = load <4 x i32>, ptr %359, align 1, !tbaa !9
   %402 = sub <4 x i32> %401, %399
   store <4 x i32> %402, ptr %400, align 1, !tbaa !9
@@ -712,7 +712,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 460:                                              ; preds = %.lr.ph905, %460
   %indvars.iv966 = phi i64 [ 0, %.lr.ph905 ], [ %indvars.iv.next967, %460 ]
-  %461 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv966
+  %461 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv966
   %462 = getelementptr inbounds i8, ptr %461, i64 -36
   %463 = load <8 x i16>, ptr %462, align 1, !tbaa !9
   %464 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %450, <8 x i16> %463)
@@ -749,7 +749,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   %495 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %458, <8 x i16> %494)
   %496 = add <4 x i32> %492, %495
   %497 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %496, <4 x i32> %7)
-  %498 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv966
+  %498 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv966
   %499 = load <4 x i32>, ptr %461, align 1, !tbaa !9
   %500 = sub <4 x i32> %499, %497
   store <4 x i32> %500, ptr %498, align 1, !tbaa !9
@@ -826,7 +826,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 558:                                              ; preds = %.lr.ph902, %558
   %indvars.iv963 = phi i64 [ 0, %.lr.ph902 ], [ %indvars.iv.next964, %558 ]
-  %559 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv963
+  %559 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv963
   %560 = getelementptr inbounds i8, ptr %559, i64 -32
   %561 = load <8 x i16>, ptr %560, align 1, !tbaa !9
   %562 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %549, <8 x i16> %561)
@@ -859,7 +859,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   %589 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %556, <8 x i16> %588)
   %590 = add <4 x i32> %586, %589
   %591 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %590, <4 x i32> %7)
-  %592 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv963
+  %592 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv963
   %593 = load <4 x i32>, ptr %559, align 1, !tbaa !9
   %594 = sub <4 x i32> %593, %591
   store <4 x i32> %594, ptr %592, align 1, !tbaa !9
@@ -918,7 +918,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 640:                                              ; preds = %.lr.ph899, %640
   %indvars.iv960 = phi i64 [ 0, %.lr.ph899 ], [ %indvars.iv.next961, %640 ]
-  %641 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv960
+  %641 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv960
   %642 = getelementptr inbounds i8, ptr %641, i64 -28
   %643 = load <8 x i16>, ptr %642, align 1, !tbaa !9
   %644 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %632, <8 x i16> %643)
@@ -947,7 +947,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   %667 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %638, <8 x i16> %666)
   %668 = add <4 x i32> %664, %667
   %669 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %668, <4 x i32> %7)
-  %670 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv960
+  %670 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv960
   %671 = load <4 x i32>, ptr %641, align 1, !tbaa !9
   %672 = sub <4 x i32> %671, %669
   store <4 x i32> %672, ptr %670, align 1, !tbaa !9
@@ -1004,7 +1004,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 714:                                              ; preds = %.lr.ph896, %714
   %indvars.iv957 = phi i64 [ 0, %.lr.ph896 ], [ %indvars.iv.next958, %714 ]
-  %715 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv957
+  %715 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv957
   %716 = getelementptr inbounds i8, ptr %715, i64 -24
   %717 = load <8 x i16>, ptr %716, align 1, !tbaa !9
   %718 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %707, <8 x i16> %717)
@@ -1029,7 +1029,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   %737 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %712, <8 x i16> %736)
   %738 = add <4 x i32> %734, %737
   %739 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %738, <4 x i32> %7)
-  %740 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv957
+  %740 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv957
   %741 = load <4 x i32>, ptr %715, align 1, !tbaa !9
   %742 = sub <4 x i32> %741, %739
   store <4 x i32> %742, ptr %740, align 1, !tbaa !9
@@ -1076,7 +1076,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 776:                                              ; preds = %.lr.ph893, %776
   %indvars.iv954 = phi i64 [ 0, %.lr.ph893 ], [ %indvars.iv.next955, %776 ]
-  %777 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv954
+  %777 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv954
   %778 = getelementptr inbounds i8, ptr %777, i64 -20
   %779 = load <8 x i16>, ptr %778, align 1, !tbaa !9
   %780 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %770, <8 x i16> %779)
@@ -1097,7 +1097,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   %795 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %774, <8 x i16> %794)
   %796 = add <4 x i32> %792, %795
   %797 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %796, <4 x i32> %7)
-  %798 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv954
+  %798 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv954
   %799 = load <4 x i32>, ptr %777, align 1, !tbaa !9
   %800 = sub <4 x i32> %799, %797
   store <4 x i32> %800, ptr %798, align 1, !tbaa !9
@@ -1146,7 +1146,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 832:                                              ; preds = %.lr.ph890, %832
   %indvars.iv951 = phi i64 [ 0, %.lr.ph890 ], [ %indvars.iv.next952, %832 ]
-  %833 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv951
+  %833 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv951
   %834 = getelementptr inbounds i8, ptr %833, i64 -16
   %835 = load <8 x i16>, ptr %834, align 1, !tbaa !9
   %836 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %827, <8 x i16> %835)
@@ -1163,7 +1163,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   %847 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %830, <8 x i16> %846)
   %848 = add <4 x i32> %844, %847
   %849 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %848, <4 x i32> %7)
-  %850 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv951
+  %850 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv951
   %851 = load <4 x i32>, ptr %833, align 1, !tbaa !9
   %852 = sub <4 x i32> %851, %849
   store <4 x i32> %852, ptr %850, align 1, !tbaa !9
@@ -1198,7 +1198,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 874:                                              ; preds = %.lr.ph887, %874
   %indvars.iv948 = phi i64 [ 0, %.lr.ph887 ], [ %indvars.iv.next949, %874 ]
-  %875 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv948
+  %875 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv948
   %876 = getelementptr inbounds i8, ptr %875, i64 -12
   %877 = load <8 x i16>, ptr %876, align 1, !tbaa !9
   %878 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %870, <8 x i16> %877)
@@ -1211,7 +1211,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   %885 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %872, <8 x i16> %884)
   %886 = add <4 x i32> %882, %885
   %887 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %886, <4 x i32> %7)
-  %888 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv948
+  %888 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv948
   %889 = load <4 x i32>, ptr %875, align 1, !tbaa !9
   %890 = sub <4 x i32> %889, %887
   store <4 x i32> %890, ptr %888, align 1, !tbaa !9
@@ -1244,7 +1244,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 908:                                              ; preds = %.lr.ph884, %908
   %indvars.iv945 = phi i64 [ 0, %.lr.ph884 ], [ %indvars.iv.next946, %908 ]
-  %909 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv945
+  %909 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv945
   %910 = getelementptr inbounds i8, ptr %909, i64 -8
   %911 = load <8 x i16>, ptr %910, align 1, !tbaa !9
   %912 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %905, <8 x i16> %911)
@@ -1253,7 +1253,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
   %915 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %906, <8 x i16> %914)
   %916 = add <4 x i32> %915, %912
   %917 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %916, <4 x i32> %7)
-  %918 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv945
+  %918 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv945
   %919 = load <4 x i32>, ptr %909, align 1, !tbaa !9
   %920 = sub <4 x i32> %919, %917
   store <4 x i32> %920, ptr %918, align 1, !tbaa !9
@@ -1276,12 +1276,12 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 930:                                              ; preds = %.lr.ph882, %930
   %indvars.iv942 = phi i64 [ 0, %.lr.ph882 ], [ %indvars.iv.next943, %930 ]
-  %931 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv942
+  %931 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv942
   %932 = getelementptr inbounds i8, ptr %931, i64 -4
   %933 = load <8 x i16>, ptr %932, align 1, !tbaa !9
   %934 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %928, <8 x i16> %933)
   %935 = tail call <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32> %934, <4 x i32> %7)
-  %936 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv942
+  %936 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv942
   %937 = load <4 x i32>, ptr %931, align 1, !tbaa !9
   %938 = sub <4 x i32> %937, %935
   store <4 x i32> %938, ptr %936, align 1, !tbaa !9
@@ -1377,7 +1377,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 966:                                              ; preds = %965
   %967 = load i32, ptr %953, align 4, !tbaa !12
-  %968 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %968 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %969 = getelementptr i8, ptr %968, i64 -48
   %970 = load i32, ptr %969, align 4, !tbaa !12
   %971 = mul nsw i32 %970, %967
@@ -1386,7 +1386,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 972:                                              ; preds = %966, %965
   %.1851 = phi i32 [ %971, %966 ], [ 0, %965 ]
   %973 = load i32, ptr %954, align 4, !tbaa !12
-  %974 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %974 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %975 = getelementptr i8, ptr %974, i64 -44
   %976 = load i32, ptr %975, align 4, !tbaa !12
   %977 = mul nsw i32 %976, %973
@@ -1396,7 +1396,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 979:                                              ; preds = %972, %965
   %.2852 = phi i32 [ %978, %972 ], [ 0, %965 ]
   %980 = load i32, ptr %955, align 4, !tbaa !12
-  %981 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %981 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %982 = getelementptr i8, ptr %981, i64 -40
   %983 = load i32, ptr %982, align 4, !tbaa !12
   %984 = mul nsw i32 %983, %980
@@ -1406,7 +1406,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 986:                                              ; preds = %979, %965
   %.3853 = phi i32 [ %985, %979 ], [ 0, %965 ]
   %987 = load i32, ptr %956, align 4, !tbaa !12
-  %988 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %988 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %989 = getelementptr i8, ptr %988, i64 -36
   %990 = load i32, ptr %989, align 4, !tbaa !12
   %991 = mul nsw i32 %990, %987
@@ -1416,7 +1416,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 993:                                              ; preds = %986, %965
   %.4854 = phi i32 [ %992, %986 ], [ 0, %965 ]
   %994 = load i32, ptr %957, align 4, !tbaa !12
-  %995 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %995 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %996 = getelementptr i8, ptr %995, i64 -32
   %997 = load i32, ptr %996, align 4, !tbaa !12
   %998 = mul nsw i32 %997, %994
@@ -1426,7 +1426,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1000:                                             ; preds = %993, %965
   %.5855 = phi i32 [ %999, %993 ], [ 0, %965 ]
   %1001 = load i32, ptr %958, align 4, !tbaa !12
-  %1002 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %1002 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %1003 = getelementptr i8, ptr %1002, i64 -28
   %1004 = load i32, ptr %1003, align 4, !tbaa !12
   %1005 = mul nsw i32 %1004, %1001
@@ -1436,7 +1436,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1007:                                             ; preds = %1000, %965
   %.6856 = phi i32 [ %1006, %1000 ], [ 0, %965 ]
   %1008 = load i32, ptr %959, align 4, !tbaa !12
-  %1009 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %1009 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %1010 = getelementptr i8, ptr %1009, i64 -24
   %1011 = load i32, ptr %1010, align 4, !tbaa !12
   %1012 = mul nsw i32 %1011, %1008
@@ -1446,7 +1446,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1014:                                             ; preds = %1007, %965
   %.7857 = phi i32 [ %1013, %1007 ], [ 0, %965 ]
   %1015 = load i32, ptr %960, align 4, !tbaa !12
-  %1016 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %1016 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %1017 = getelementptr i8, ptr %1016, i64 -20
   %1018 = load i32, ptr %1017, align 4, !tbaa !12
   %1019 = mul nsw i32 %1018, %1015
@@ -1456,7 +1456,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1021:                                             ; preds = %1014, %965
   %.8858 = phi i32 [ %1020, %1014 ], [ 0, %965 ]
   %1022 = load i32, ptr %961, align 4, !tbaa !12
-  %1023 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %1023 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %1024 = getelementptr i8, ptr %1023, i64 -16
   %1025 = load i32, ptr %1024, align 4, !tbaa !12
   %1026 = mul nsw i32 %1025, %1022
@@ -1466,7 +1466,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1028:                                             ; preds = %1021, %965
   %.9859 = phi i32 [ %1027, %1021 ], [ 0, %965 ]
   %1029 = load i32, ptr %962, align 4, !tbaa !12
-  %1030 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %1030 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %1031 = getelementptr i8, ptr %1030, i64 -12
   %1032 = load i32, ptr %1031, align 4, !tbaa !12
   %1033 = mul nsw i32 %1032, %1029
@@ -1476,7 +1476,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1035:                                             ; preds = %1028, %965
   %.10860 = phi i32 [ %1034, %1028 ], [ 0, %965 ]
   %1036 = load i32, ptr %963, align 4, !tbaa !12
-  %1037 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %1037 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %1038 = getelementptr i8, ptr %1037, i64 -8
   %1039 = load i32, ptr %1038, align 4, !tbaa !12
   %1040 = mul nsw i32 %1039, %1036
@@ -1486,7 +1486,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1042:                                             ; preds = %1035, %965
   %.11861 = phi i32 [ %1041, %1035 ], [ 0, %965 ]
   %1043 = load i32, ptr %2, align 4, !tbaa !12
-  %1044 = getelementptr i32, ptr %0, i64 %indvars.iv978
+  %1044 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv978
   %1045 = getelementptr i8, ptr %1044, i64 -4
   %1046 = load i32, ptr %1045, align 4, !tbaa !12
   %1047 = mul nsw i32 %1046, %1043
@@ -1495,11 +1495,11 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 1049:                                             ; preds = %1042, %965
   %.0850 = phi i32 [ 0, %965 ], [ %1048, %1042 ]
-  %1050 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv978
+  %1050 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv978
   %1051 = load i32, ptr %1050, align 4, !tbaa !12
   %1052 = ashr i32 %.0850, %4
   %1053 = sub nsw i32 %1051, %1052
-  %1054 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv978
+  %1054 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv978
   store i32 %1053, ptr %1054, align 4, !tbaa !12
   %indvars.iv.next979 = add nuw nsw i64 %indvars.iv978, 1
   %exitcond982.not = icmp eq i64 %indvars.iv.next979, %wide.trip.count981
@@ -1532,7 +1532,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 1056:                                             ; preds = %1055
   %1057 = load i32, ptr %10, align 4, !tbaa !12
-  %1058 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1058 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1059 = getelementptr i8, ptr %1058, i64 -128
   %1060 = load i32, ptr %1059, align 4, !tbaa !12
   %1061 = mul nsw i32 %1060, %1057
@@ -1541,7 +1541,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1062:                                             ; preds = %1056, %1055
   %.13863 = phi i32 [ %1061, %1056 ], [ 0, %1055 ]
   %1063 = load i32, ptr %11, align 4, !tbaa !12
-  %1064 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1064 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1065 = getelementptr i8, ptr %1064, i64 -124
   %1066 = load i32, ptr %1065, align 4, !tbaa !12
   %1067 = mul nsw i32 %1066, %1063
@@ -1551,7 +1551,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1069:                                             ; preds = %1062, %1055
   %.14864 = phi i32 [ %1068, %1062 ], [ 0, %1055 ]
   %1070 = load i32, ptr %12, align 4, !tbaa !12
-  %1071 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1071 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1072 = getelementptr i8, ptr %1071, i64 -120
   %1073 = load i32, ptr %1072, align 4, !tbaa !12
   %1074 = mul nsw i32 %1073, %1070
@@ -1561,7 +1561,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1076:                                             ; preds = %1069, %1055
   %.15 = phi i32 [ %1075, %1069 ], [ 0, %1055 ]
   %1077 = load i32, ptr %13, align 4, !tbaa !12
-  %1078 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1078 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1079 = getelementptr i8, ptr %1078, i64 -116
   %1080 = load i32, ptr %1079, align 4, !tbaa !12
   %1081 = mul nsw i32 %1080, %1077
@@ -1571,7 +1571,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1083:                                             ; preds = %1076, %1055
   %.16 = phi i32 [ %1082, %1076 ], [ 0, %1055 ]
   %1084 = load i32, ptr %14, align 4, !tbaa !12
-  %1085 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1085 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1086 = getelementptr i8, ptr %1085, i64 -112
   %1087 = load i32, ptr %1086, align 4, !tbaa !12
   %1088 = mul nsw i32 %1087, %1084
@@ -1581,7 +1581,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1090:                                             ; preds = %1083, %1055
   %.17 = phi i32 [ %1089, %1083 ], [ 0, %1055 ]
   %1091 = load i32, ptr %15, align 4, !tbaa !12
-  %1092 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1092 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1093 = getelementptr i8, ptr %1092, i64 -108
   %1094 = load i32, ptr %1093, align 4, !tbaa !12
   %1095 = mul nsw i32 %1094, %1091
@@ -1591,7 +1591,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1097:                                             ; preds = %1090, %1055
   %.18 = phi i32 [ %1096, %1090 ], [ 0, %1055 ]
   %1098 = load i32, ptr %16, align 4, !tbaa !12
-  %1099 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1099 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1100 = getelementptr i8, ptr %1099, i64 -104
   %1101 = load i32, ptr %1100, align 4, !tbaa !12
   %1102 = mul nsw i32 %1101, %1098
@@ -1601,7 +1601,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1104:                                             ; preds = %1097, %1055
   %.19 = phi i32 [ %1103, %1097 ], [ 0, %1055 ]
   %1105 = load i32, ptr %17, align 4, !tbaa !12
-  %1106 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1106 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1107 = getelementptr i8, ptr %1106, i64 -100
   %1108 = load i32, ptr %1107, align 4, !tbaa !12
   %1109 = mul nsw i32 %1108, %1105
@@ -1611,7 +1611,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1111:                                             ; preds = %1104, %1055
   %.20 = phi i32 [ %1110, %1104 ], [ 0, %1055 ]
   %1112 = load i32, ptr %18, align 4, !tbaa !12
-  %1113 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1113 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1114 = getelementptr i8, ptr %1113, i64 -96
   %1115 = load i32, ptr %1114, align 4, !tbaa !12
   %1116 = mul nsw i32 %1115, %1112
@@ -1621,7 +1621,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1118:                                             ; preds = %1111, %1055
   %.21 = phi i32 [ %1117, %1111 ], [ 0, %1055 ]
   %1119 = load i32, ptr %19, align 4, !tbaa !12
-  %1120 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1120 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1121 = getelementptr i8, ptr %1120, i64 -92
   %1122 = load i32, ptr %1121, align 4, !tbaa !12
   %1123 = mul nsw i32 %1122, %1119
@@ -1631,7 +1631,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1125:                                             ; preds = %1118, %1055
   %.22 = phi i32 [ %1124, %1118 ], [ 0, %1055 ]
   %1126 = load i32, ptr %20, align 4, !tbaa !12
-  %1127 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1127 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1128 = getelementptr i8, ptr %1127, i64 -88
   %1129 = load i32, ptr %1128, align 4, !tbaa !12
   %1130 = mul nsw i32 %1129, %1126
@@ -1641,7 +1641,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1132:                                             ; preds = %1125, %1055
   %.23 = phi i32 [ %1131, %1125 ], [ 0, %1055 ]
   %1133 = load i32, ptr %21, align 4, !tbaa !12
-  %1134 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1134 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1135 = getelementptr i8, ptr %1134, i64 -84
   %1136 = load i32, ptr %1135, align 4, !tbaa !12
   %1137 = mul nsw i32 %1136, %1133
@@ -1651,7 +1651,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1139:                                             ; preds = %1132, %1055
   %.24 = phi i32 [ %1138, %1132 ], [ 0, %1055 ]
   %1140 = load i32, ptr %22, align 4, !tbaa !12
-  %1141 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1141 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1142 = getelementptr i8, ptr %1141, i64 -80
   %1143 = load i32, ptr %1142, align 4, !tbaa !12
   %1144 = mul nsw i32 %1143, %1140
@@ -1661,7 +1661,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1146:                                             ; preds = %1139, %1055
   %.25 = phi i32 [ %1145, %1139 ], [ 0, %1055 ]
   %1147 = load i32, ptr %23, align 4, !tbaa !12
-  %1148 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1148 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1149 = getelementptr i8, ptr %1148, i64 -76
   %1150 = load i32, ptr %1149, align 4, !tbaa !12
   %1151 = mul nsw i32 %1150, %1147
@@ -1671,7 +1671,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1153:                                             ; preds = %1146, %1055
   %.26 = phi i32 [ %1152, %1146 ], [ 0, %1055 ]
   %1154 = load i32, ptr %24, align 4, !tbaa !12
-  %1155 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1155 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1156 = getelementptr i8, ptr %1155, i64 -72
   %1157 = load i32, ptr %1156, align 4, !tbaa !12
   %1158 = mul nsw i32 %1157, %1154
@@ -1681,7 +1681,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1160:                                             ; preds = %1153, %1055
   %.27 = phi i32 [ %1159, %1153 ], [ 0, %1055 ]
   %1161 = load i32, ptr %25, align 4, !tbaa !12
-  %1162 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1162 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1163 = getelementptr i8, ptr %1162, i64 -68
   %1164 = load i32, ptr %1163, align 4, !tbaa !12
   %1165 = mul nsw i32 %1164, %1161
@@ -1691,7 +1691,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1167:                                             ; preds = %1160, %1055
   %.28 = phi i32 [ %1166, %1160 ], [ 0, %1055 ]
   %1168 = load i32, ptr %26, align 4, !tbaa !12
-  %1169 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1169 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1170 = getelementptr i8, ptr %1169, i64 -64
   %1171 = load i32, ptr %1170, align 4, !tbaa !12
   %1172 = mul nsw i32 %1171, %1168
@@ -1701,7 +1701,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1174:                                             ; preds = %1167, %1055
   %.29 = phi i32 [ %1173, %1167 ], [ 0, %1055 ]
   %1175 = load i32, ptr %27, align 4, !tbaa !12
-  %1176 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1176 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1177 = getelementptr i8, ptr %1176, i64 -60
   %1178 = load i32, ptr %1177, align 4, !tbaa !12
   %1179 = mul nsw i32 %1178, %1175
@@ -1711,7 +1711,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1181:                                             ; preds = %1174, %1055
   %.30 = phi i32 [ %1180, %1174 ], [ 0, %1055 ]
   %1182 = load i32, ptr %28, align 4, !tbaa !12
-  %1183 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1183 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1184 = getelementptr i8, ptr %1183, i64 -56
   %1185 = load i32, ptr %1184, align 4, !tbaa !12
   %1186 = mul nsw i32 %1185, %1182
@@ -1721,7 +1721,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 1188:                                             ; preds = %1181, %1055
   %.31 = phi i32 [ %1187, %1181 ], [ 0, %1055 ]
   %1189 = load i32, ptr %29, align 4, !tbaa !12
-  %1190 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %1190 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %1191 = getelementptr i8, ptr %1190, i64 -52
   %1192 = load i32, ptr %1191, align 4, !tbaa !12
   %1193 = mul nsw i32 %1192, %1189
@@ -1790,11 +1790,11 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_s
 
 1255:                                             ; preds = %1188, %1055
   %.12862 = phi i32 [ 0, %1055 ], [ %1254, %1188 ]
-  %1256 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %1256 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %1257 = load i32, ptr %1256, align 4, !tbaa !12
   %1258 = ashr i32 %.12862, %4
   %1259 = sub nsw i32 %1257, %1258
-  %1260 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %1260 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %1259, ptr %1260, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -3,12 +3,6 @@ source_filename = "bench/gromacs/original/biasgrid.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.gmx::GridPoint" = type { [4 x double], [4 x i32], %"class.std::vector.5" }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::GridAxis" = type <{ double, double, double, double, i32, i32, i8, [7 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -27,18 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ExceptionInfo" = type { %"class.gmx::internal::IExceptionInfo", %"struct.gmx::ThrowLocation" }
 %"class.gmx::internal::IExceptionInfo" = type { ptr }
 %"struct.gmx::ThrowLocation" = type <{ ptr, ptr, i32, [4 x i8] }>
-%"struct.gmx::DimParams" = type { %"class.std::variant", double }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized" }
-%"struct.std::__detail::__variant::_Uninitialized" = type { %"struct.gmx::DimParams::PullDimParams" }
-%"struct.gmx::DimParams::PullDimParams" = type { double, double, double }
-%"class.gmx::AwhDimParams" = type { i32, i32, double, double, double, double, double, double, double }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -142,13 +124,13 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 define noundef double @_ZN3gmx34getDeviationFromPointAlongGridAxisERKNS_8BiasGridEiid(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %0, align 8, !tbaa !4
-  %7 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [72 x i8], ptr %6, i64 %5
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds double, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load double, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !12
-  %13 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %12, i64 %8
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8, !tbaa !15
   %16 = fsub double %3, %10
@@ -182,17 +164,17 @@ _ZN3gmx12_GLOBAL__N_120getDeviationPeriodicEddd.exit: ; preds = %4, %21, %23, %2
 define noundef double @_ZN3gmx34getDeviationFromPointAlongGridAxisERKNS_8BiasGridEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %0, align 8, !tbaa !4
-  %7 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [72 x i8], ptr %6, i64 %5
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds double, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load double, ptr %9, align 8, !tbaa !10
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %6, i64 %11
-  %13 = getelementptr inbounds double, ptr %12, i64 %8
+  %12 = getelementptr inbounds nuw [72 x i8], ptr %6, i64 %11
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %8
   %14 = load double, ptr %13, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !12
-  %17 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %16, i64 %8
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %16, i64 %8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load double, ptr %18, align 8, !tbaa !15
   %20 = fsub double %10, %14
@@ -344,21 +326,21 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
 .lr.ph:                                           ; preds = %54
   %57 = sext i32 %1 to i64
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [72 x i8], ptr %58, i64 %57
   %60 = sext i32 %2 to i64
-  %61 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw [72 x i8], ptr %58, i64 %60
   %wide.trip.count = and i64 %11, 2147483647
   br label %62
 
 62:                                               ; preds = %.lr.ph, %99
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %99 ]
-  %63 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %5, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %indvars.iv
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load i8, ptr %64, align 8, !tbaa !20, !range !21, !noundef !22
   %66 = trunc nuw i8 %65 to i1
-  %67 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %68 = load double, ptr %67, align 8, !tbaa !10
-  %69 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %70 = load double, ptr %69, align 8, !tbaa !10
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %72 = load double, ptr %71, align 8, !tbaa !15
@@ -551,24 +533,24 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
 .lr.ph:                                           ; preds = %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit
   %56 = sext i32 %1 to i64
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [72 x i8], ptr %57, i64 %56
   %59 = sext i32 %2 to i64
-  %60 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [72 x i8], ptr %57, i64 %59
   %wide.trip.count = and i64 %11, 2147483647
   br label %61
 
 61:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %62 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %5, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %indvars.iv
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = load i8, ptr %63, align 8, !tbaa !20, !range !21, !noundef !22
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %86
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %68 = load double, ptr %67, align 8, !tbaa !10
-  %69 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %70 = load double, ptr %69, align 8, !tbaa !10
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %72 = load double, ptr %71, align 8, !tbaa !15
@@ -633,7 +615,7 @@ define void @_ZN3gmx26linearArrayIndexToMultiDimEiiPKiPi(i32 noundef %0, i32 nou
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph26
   %.017.lcssa = phi i32 [ 1, %.lr.ph26 ], [ %13, %.lr.ph ]
   %8 = sdiv i32 %.01923, %.017.lcssa
-  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv31
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv31
   store i32 %8, ptr %9, align 4, !tbaa !27
   %10 = mul nsw i32 %8, %.017.lcssa
   %.recomposed = srem i32 %.01923, %.017.lcssa
@@ -644,7 +626,7 @@ define void @_ZN3gmx26linearArrayIndexToMultiDimEiiPKiPi(i32 noundef %0, i32 nou
 .lr.ph:                                           ; preds = %.lr.ph26, %.lr.ph
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.lr.ph ], [ %indvars.iv, %.lr.ph26 ]
   %.01721 = phi i32 [ %13, %.lr.ph ], [ 1, %.lr.ph26 ]
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv28
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv28
   %12 = load i32, ptr %11, align 4, !tbaa !27
   %13 = mul nsw i32 %12, %.01721
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
@@ -687,7 +669,7 @@ define void @_ZN3gmx25linearGridindexToMultiDimERKNS_8BiasGridEiPi(ptr noundef n
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph26.i
   %.017.lcssa.i = phi i32 [ 1, %.lr.ph26.i ], [ %22, %.lr.ph.i ]
   %17 = sdiv i32 %.01923.i, %.017.lcssa.i
-  %18 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv31.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv31.i
   store i32 %17, ptr %18, align 4, !tbaa !27
   %19 = mul nsw i32 %17, %.017.lcssa.i
   %.recomposed = srem i32 %.01923.i, %.017.lcssa.i
@@ -698,7 +680,7 @@ define void @_ZN3gmx25linearGridindexToMultiDimERKNS_8BiasGridEiPi(ptr noundef n
 .lr.ph.i:                                         ; preds = %.lr.ph26.i, %.lr.ph.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.lr.ph.i ], [ %indvars.iv.i, %.lr.ph26.i ]
   %.01721.i = phi i32 [ %22, %.lr.ph.i ], [ 1, %.lr.ph26.i ]
-  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv28.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv28.i
   %21 = load i32, ptr %20, align 4, !tbaa !27
   %22 = mul nsw i32 %21, %.01721.i
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
@@ -711,10 +693,10 @@ _ZN3gmx26linearArrayIndexToMultiDimEiiPKiPi.exit: ; preds = %._crit_edge.i, %3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %23 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %8, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8, !tbaa !31
-  %26 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %25, ptr %26, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -739,11 +721,11 @@ define noundef i32 @_ZN3gmx26multiDimArrayIndexToLinearEPKiiS1_(ptr noundef read
   %.01013 = phi i32 [ 0, %.lr.ph.preheader ], [ %9, %.lr.ph ]
   %.01112 = phi i32 [ 1, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next
   %7 = load i32, ptr %6, align 4, !tbaa !27
   %8 = mul nsw i32 %7, %.01112
   %9 = add nsw i32 %8, %.01013
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4, !tbaa !27
   %12 = mul nsw i32 %11, %.01112
   %13 = icmp samesign ugt i64 %indvars.iv, 1
@@ -780,11 +762,11 @@ define noundef i32 @_ZN3gmx25multiDimGridIndexToLinearERKNS_8BiasGridEPKi(ptr no
   %.01013.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %18, %.lr.ph.i.i ]
   %.01112.i.i = phi i32 [ 1, %.lr.ph.preheader.i.i ], [ %21, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next.i.i
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = mul nsw i32 %16, %.01112.i.i
   %18 = add nsw i32 %17, %.01013.i.i
-  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i.i
   %20 = load i32, ptr %19, align 4, !tbaa !27
   %21 = mul nsw i32 %20, %.01112.i.i
   %22 = icmp samesign ugt i64 %indvars.iv.i.i, 1
@@ -792,10 +774,10 @@ define noundef i32 @_ZN3gmx25multiDimGridIndexToLinearERKNS_8BiasGridEPKi(ptr no
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.07.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %2 ]
-  %23 = getelementptr inbounds %"class.gmx::GridAxis", ptr %5, i64 %.07.i
+  %23 = getelementptr inbounds [48 x i8], ptr %5, i64 %.07.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8, !tbaa !31
-  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %.07.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.07.i
   store i32 %25, ptr %26, align 4, !tbaa !27
   %27 = add nuw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %27, %11
@@ -835,7 +817,7 @@ define noundef zeroext i1 @_ZN3gmx21advancePointInSubgridERKNS_8BiasGridEPKiS4_P
 .lr.ph.i:                                         ; preds = %9
   %19 = zext nneg i32 %6 to i64
   %20 = load ptr, ptr %0, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %wide.trip.count.i = and i64 %16, 2147483647
   br label %24
@@ -847,12 +829,12 @@ define noundef zeroext i1 @_ZN3gmx21advancePointInSubgridERKNS_8BiasGridEPKiS4_P
 
 24:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i
   %26 = load i32, ptr %25, align 4, !tbaa !27
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 4, !tbaa !27
   %29 = sub nsw i32 %26, %28
-  %30 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %12, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %indvars.iv.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 36
   %32 = load i32, ptr %31, align 4, !tbaa !36
   %33 = icmp eq i32 %32, 0
@@ -874,13 +856,13 @@ define noundef zeroext i1 @_ZN3gmx21advancePointInSubgridERKNS_8BiasGridEPKiS4_P
 
 _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i: ; preds = %37, %35, %24
   %.0.i.i = phi i32 [ %29, %24 ], [ %36, %35 ], [ %spec.select.i.i, %37 ]
-  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   store i32 %.0.i.i, ptr %40, align 4, !tbaa !27
   %41 = icmp sgt i32 %.0.i.i, -1
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %_ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i
-  %43 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %44 = load i32, ptr %43, align 4, !tbaa !27
   %45 = icmp slt i32 %.0.i.i, %44
   br i1 %45, label %23, label %46
@@ -915,9 +897,9 @@ _ZN3gmx12_GLOBAL__N_118gridToSubgridIndexERKNS_8BiasGridEPKiS5_iPi.exit: ; preds
 .lr.ph.preheader.i:                               ; preds = %52
   %61 = and i64 %58, 2147483647
   %indvars.iv.next.i2026 = add nsw i64 %61, -1
-  %62 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i2026
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next.i2026
   %63 = load i32, ptr %62, align 4, !tbaa !27
-  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next.i2026
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next.i2026
   %65 = load i32, ptr %64, align 4, !tbaa !27
   %66 = add nsw i32 %65, -1
   %67 = icmp slt i32 %63, %66
@@ -933,9 +915,9 @@ _ZN3gmx12_GLOBAL__N_118gridToSubgridIndexERKNS_8BiasGridEPKiS5_iPi.exit: ; preds
 .lr.ph.i18:                                       ; preds = %.lr.ph
   store i32 0, ptr %68, align 4, !tbaa !27
   %indvars.iv.next.i20 = add nsw i64 %indvars.iv.next.i2028, -1
-  %70 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next.i20
   %71 = load i32, ptr %70, align 4, !tbaa !27
-  %72 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next.i20
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next.i20
   %73 = load i32, ptr %72, align 4, !tbaa !27
   %74 = add nsw i32 %73, -1
   %75 = icmp slt i32 %71, %74
@@ -974,15 +956,15 @@ define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridI
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge54
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge54 ]
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !27
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !27
   %15 = add nsw i32 %14, %12
-  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %15, ptr %16, align 4, !tbaa !27
   %17 = icmp slt i32 %15, 0
-  %18 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %.24.val, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %.24.val, i64 %indvars.iv
   br i1 %17, label %22, label %19
 
 19:                                               ; preds = %.lr.ph
@@ -998,7 +980,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridI
   br i1 %25, label %30, label %.loopexit
 
 .thread:                                          ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %.24.val, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %.24.val, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load double, ptr %27, align 8, !tbaa !15
   %29 = fcmp ogt double %28, 0.000000e+00
@@ -1055,11 +1037,11 @@ define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridI
   %.01013.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %50, %.lr.ph.i.i.i ]
   %.01112.i.i.i = phi i32 [ 1, %.lr.ph.preheader.i.i.i ], [ %53, %.lr.ph.i.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
-  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i.i.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next.i.i.i
   %48 = load i32, ptr %47, align 4, !tbaa !27
   %49 = mul nsw i32 %48, %.01112.i.i.i
   %50 = add nsw i32 %49, %.01013.i.i.i
-  %51 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i.i.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next.i.i.i
   %52 = load i32, ptr %51, align 4, !tbaa !27
   %53 = mul nsw i32 %52, %.01112.i.i.i
   %54 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
@@ -1067,10 +1049,10 @@ define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridI
 
 .lr.ph.i.i:                                       ; preds = %.critedge, %.lr.ph.i.i
   %.07.i.i = phi i64 [ %59, %.lr.ph.i.i ], [ 0, %.critedge ]
-  %55 = getelementptr inbounds %"class.gmx::GridAxis", ptr %.24.val, i64 %.07.i.i
+  %55 = getelementptr inbounds [48 x i8], ptr %.24.val, i64 %.07.i.i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load i32, ptr %56, align 8, !tbaa !31
-  %58 = getelementptr inbounds nuw i32, ptr %4, i64 %.07.i.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.07.i.i
   store i32 %57, ptr %58, align 4, !tbaa !27
   %59 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %59, %9
@@ -1114,7 +1096,7 @@ define noundef zeroext i1 @_ZNK3gmx8BiasGrid6coversEPKd(ptr noundef nonnull read
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.preheader.i
   %.01319.i = phi i64 [ %13, %12 ], [ 0, %.lr.ph.preheader.i ]
-  %14 = getelementptr inbounds %"class.gmx::GridAxis", ptr %4, i64 %.01319.i
+  %14 = getelementptr inbounds [48 x i8], ptr %4, i64 %.01319.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load double, ptr %15, align 8, !tbaa !40
   %17 = fcmp ogt double %16, 0.000000e+00
@@ -1122,7 +1104,7 @@ define noundef zeroext i1 @_ZNK3gmx8BiasGrid6coversEPKd(ptr noundef nonnull read
 
 18:                                               ; preds = %.lr.ph.i
   %19 = load double, ptr %14, align 8, !tbaa !41
-  %20 = getelementptr inbounds nuw double, ptr %1, i64 %.01319.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01319.i
   %21 = load double, ptr %20, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %23 = load double, ptr %22, align 8, !tbaa !15
@@ -1210,7 +1192,7 @@ define range(i64 0, 8589934592) i64 @_ZNK3gmx8BiasGrid15lambdaAxisIndexEv(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %storemerge8 = phi i64 [ %15, %14 ], [ 0, %.lr.ph.preheader ]
-  %10 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %5, i64 %storemerge8
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %storemerge8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i8, ptr %11, align 8, !tbaa !20, !range !21, !noundef !22
   %13 = trunc nuw i8 %12 to i1
@@ -1268,7 +1250,7 @@ define noundef i32 @_ZNK3gmx8BiasGrid18numFepLambdaStatesEv(ptr noundef nonnull 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %.0610 = phi i64 [ %11, %10 ], [ 0, %.lr.ph.preheader ]
-  %12 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %5, i64 %.0610
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %.0610
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load i8, ptr %13, align 8, !tbaa !20, !range !21, !noundef !22
   %15 = trunc nuw i8 %14 to i1
@@ -1424,11 +1406,11 @@ define noundef i32 @_ZNK3gmx8BiasGrid12nearestIndexEPKd(ptr noundef nonnull read
   %.01013.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %19, %.lr.ph.i.i.i ]
   %.01112.i.i.i = phi i32 [ 1, %.lr.ph.preheader.i.i.i ], [ %22, %.lr.ph.i.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i.i.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next.i.i.i
   %17 = load i32, ptr %16, align 4, !tbaa !27
   %18 = mul nsw i32 %17, %.01112.i.i.i
   %19 = add nsw i32 %18, %.01013.i.i.i
-  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i.i.i
   %21 = load i32, ptr %20, align 4, !tbaa !27
   %22 = mul nsw i32 %21, %.01112.i.i.i
   %23 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
@@ -1436,10 +1418,10 @@ define noundef i32 @_ZNK3gmx8BiasGrid12nearestIndexEPKd(ptr noundef nonnull read
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.07.i.i = phi i64 [ %28, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %24 = getelementptr inbounds %"class.gmx::GridAxis", ptr %6, i64 %.07.i.i
+  %24 = getelementptr inbounds [48 x i8], ptr %6, i64 %.07.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !31
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %.07.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.07.i.i
   store i32 %26, ptr %27, align 4, !tbaa !27
   %28 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %28, %12
@@ -1447,11 +1429,11 @@ define noundef i32 @_ZNK3gmx8BiasGrid12nearestIndexEPKd(ptr noundef nonnull read
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.08.i = phi i64 [ %34, %.lr.ph.i ], [ 0, %2 ]
-  %29 = getelementptr inbounds %"class.gmx::GridAxis", ptr %6, i64 %.08.i
-  %30 = getelementptr inbounds nuw double, ptr %1, i64 %.08.i
+  %29 = getelementptr inbounds [48 x i8], ptr %6, i64 %.08.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.08.i
   %31 = load double, ptr %30, align 8, !tbaa !10
   %32 = tail call noundef i32 @_ZNK3gmx8GridAxis12nearestIndexEd(ptr noundef nonnull align 8 dereferenceable(41) %29, double noundef %31)
-  %33 = getelementptr inbounds nuw i32, ptr %4, i64 %.08.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.08.i
   store i32 %32, ptr %33, align 4, !tbaa !27
   %34 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %34, %12
@@ -1495,8 +1477,8 @@ define void @_ZN3gmx8BiasGrid10initPointsEv(ptr noundef nonnull readonly align 8
   %16 = icmp slt i32 %15, 1
   %17 = and i64 %11, 2147483647
   %indvars.iv.next.i4077 = add nsw i64 %17, -1
-  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i4077
-  %19 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next.i4077
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i4077
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next.i4077
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %_ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.us
@@ -1521,9 +1503,9 @@ define void @_ZN3gmx8BiasGrid10initPointsEv(ptr noundef nonnull readonly align 8
 .lr.ph.i.us:                                      ; preds = %.lr.ph43.us
   store i32 0, ptr %25, align 4, !tbaa !27
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.next.i42.us, -1
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i.us
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i.us
   %28 = load i32, ptr %27, align 4, !tbaa !27
-  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next.i.us
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next.i.us
   %30 = load i32, ptr %29, align 4, !tbaa !27
   %31 = add nsw i32 %30, -1
   %32 = icmp slt i32 %28, %31
@@ -1543,7 +1525,7 @@ _ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.us: ; preds = %.lr.ph43.u
 
 35:                                               ; preds = %.preheader.us, %69
   %.037.us = phi i64 [ 0, %.preheader.us ], [ %71, %69 ]
-  %36 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %7, i64 %.037.us
+  %36 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %.037.us
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %38 = load i8, ptr %37, align 8, !tbaa !20, !range !21, !noundef !22
   %39 = trunc nuw i8 %38 to i1
@@ -1551,7 +1533,7 @@ _ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.us: ; preds = %.lr.ph43.u
 
 40:                                               ; preds = %35
   %41 = load double, ptr %36, align 8, !tbaa !41
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %.037.us
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.037.us
   %43 = load i32, ptr %42, align 4, !tbaa !27
   %44 = sitofp i32 %43 to double
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -1560,7 +1542,7 @@ _ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.us: ; preds = %.lr.ph43.u
   br label %52
 
 48:                                               ; preds = %35
-  %49 = getelementptr inbounds nuw i32, ptr %3, i64 %.037.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.037.us
   %50 = load i32, ptr %49, align 4, !tbaa !27
   %51 = sitofp i32 %50 to double
   br label %52
@@ -1568,7 +1550,7 @@ _ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.us: ; preds = %.lr.ph43.u
 52:                                               ; preds = %48, %40
   %53 = phi i32 [ %50, %48 ], [ %43, %40 ]
   %54 = phi double [ %51, %48 ], [ %47, %40 ]
-  %55 = getelementptr inbounds nuw double, ptr %.sroa.027.047.us, i64 %.037.us
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.027.047.us, i64 %.037.us
   store double %54, ptr %55, align 8, !tbaa !10
   %56 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %57 = load double, ptr %56, align 8, !tbaa !15
@@ -1599,7 +1581,7 @@ _ZN3gmx12makePeriodicIdEET_S1_S1_.exit.us:        ; preds = %67, %65, %62
   br label %69
 
 69:                                               ; preds = %_ZN3gmx12makePeriodicIdEET_S1_S1_.exit.us, %52
-  %70 = getelementptr inbounds nuw i32, ptr %20, i64 %.037.us
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.037.us
   store i32 %53, ptr %70, align 4, !tbaa !27
   %71 = add nuw i64 %.037.us, 1
   %exitcond62.not = icmp eq i64 %71, %11
@@ -1610,10 +1592,10 @@ _ZN3gmx12makePeriodicIdEET_S1_S1_.exit.us:        ; preds = %67, %65, %62
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.02635 = phi i64 [ %76, %.lr.ph ], [ 0, %1 ]
-  %72 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %7, i64 %.02635
+  %72 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %.02635
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load i32, ptr %73, align 8, !tbaa !31
-  %75 = getelementptr inbounds nuw i32, ptr %2, i64 %.02635
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.02635
   store i32 %74, ptr %75, align 4, !tbaa !27
   %76 = add nuw i64 %.02635, 1
   %exitcond.not = icmp eq i64 %76, %11
@@ -1857,8 +1839,8 @@ define void @_ZN3gmx8BiasGridC2ENS_8ArrayRefIKNS_9DimParamsEEENS1_IKNS_12AwhDimP
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %91 ]
   %.040171 = phi i64 [ 1, %.lr.ph ], [ %97, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %42 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %1, i64 %indvars.iv
-  %43 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %3, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load double, ptr %44, align 8, !tbaa !49
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -1878,7 +1860,7 @@ define void @_ZN3gmx8BiasGridC2ENS_8ArrayRefIKNS_9DimParamsEEENS1_IKNS_12AwhDimP
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %56 = load double, ptr %55, align 8, !tbaa !63
   %57 = fmul double %47, %56
-  %58 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   store double %57, ptr %58, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -2018,7 +2000,7 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE12emplace_backIJRdS5_iRKibEEERS1_DpOT_.exit:
 
 91:                                               ; preds = %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE12emplace_backIJRdS5_iRKibEEERS1_DpOT_.exit, %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE12emplace_backIJRdS5_S5_S5_EEERS1_DpOT_.exit
   %92 = load ptr, ptr %23, align 8, !tbaa !12
-  %93 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [48 x i8], ptr %92, i64 %indvars.iv
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load i32, ptr %94, align 8, !tbaa !31
   %96 = sext i32 %95 to i64
@@ -2149,7 +2131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %116, 
   br i1 %133, label %134, label %_ZNSt6vectorIN3gmx9GridPointESaIS1_EE6resizeEm.exit
 
 134:                                              ; preds = %132
-  %135 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %124, i64 %.040.lcssa224
+  %135 = getelementptr inbounds nuw [72 x i8], ptr %124, i64 %.040.lcssa224
   %.not.i.i = icmp eq ptr %123, %135
   br i1 %.not.i.i, label %_ZNSt6vectorIN3gmx9GridPointESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -2205,7 +2187,7 @@ _ZNSt6vectorIN3gmx9GridPointESaIS1_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN
   %152 = phi ptr [ %.pre, %.lr.ph173 ], [ %361, %.loopexit ]
   %153 = phi ptr [ %146, %.lr.ph173 ], [ %365, %.loopexit ]
   %.028172 = phi i64 [ 0, %.lr.ph173 ], [ %363, %.loopexit ]
-  %154 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %153, i64 %.028172
+  %154 = getelementptr inbounds nuw [72 x i8], ptr %153, i64 %.028172
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -2222,7 +2204,7 @@ _ZNSt6vectorIN3gmx9GridPointESaIS1_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN
 .lr.ph.i:                                         ; preds = %150
   %sext = shl i64 %.028172, 32
   %162 = ashr exact i64 %sext, 32
-  %163 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %153, i64 %162
+  %163 = getelementptr inbounds nuw [72 x i8], ptr %153, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %wide.trip.count.i = and i64 %159, 2147483647
   br label %167
@@ -2234,7 +2216,7 @@ _ZNSt6vectorIN3gmx9GridPointESaIS1_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN
 
 167:                                              ; preds = %178, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %178 ]
-  %168 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %151, i64 %indvars.iv.i
+  %168 = getelementptr inbounds nuw [48 x i8], ptr %151, i64 %indvars.iv.i
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 40
   %170 = load i8, ptr %169, align 8, !tbaa !20, !range !21, !noundef !22
   %171 = trunc nuw i8 %170 to i1
@@ -2244,7 +2226,7 @@ _ZNSt6vectorIN3gmx9GridPointESaIS1_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN
 
 174:                                              ; preds = %167
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %173, i32 11)
-  %175 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv.i
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %indvars.iv.i
   %176 = load i32, ptr %175, align 4, !tbaa !27
   %.neg.i = sdiv i32 %.sroa.speculated.i, -2
   %177 = add i32 %176, %.neg.i
@@ -2253,9 +2235,9 @@ _ZNSt6vectorIN3gmx9GridPointESaIS1_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN
 178:                                              ; preds = %174, %167
   %.sroa.speculated.sink.i = phi i32 [ %.sroa.speculated.i, %174 ], [ %173, %167 ]
   %.sink.i = phi i32 [ %177, %174 ], [ 0, %167 ]
-  %179 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i
   store i32 %.sroa.speculated.sink.i, ptr %179, align 4, !tbaa !27
-  %180 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i
   store i32 %.sink.i, ptr %180, align 4, !tbaa !27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2282,7 +2264,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
 .lr.ph.i.i:                                       ; preds = %182
   %191 = zext nneg i32 %.0 to i64
   %192 = load ptr, ptr %0, align 8, !tbaa !4
-  %193 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %192, i64 %191
+  %193 = getelementptr inbounds nuw [72 x i8], ptr %192, i64 %191
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 32
   %wide.trip.count.i.i = and i64 %188, 2147483647
   br label %196
@@ -2294,12 +2276,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
 
 196:                                              ; preds = %195, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %195 ]
-  %197 = getelementptr inbounds nuw i32, ptr %194, i64 %indvars.iv.i.i
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %indvars.iv.i.i
   %198 = load i32, ptr %197, align 4, !tbaa !27
-  %199 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i.i
   %200 = load i32, ptr %199, align 4, !tbaa !27
   %201 = sub nsw i32 %198, %200
-  %202 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %184, i64 %indvars.iv.i.i
+  %202 = getelementptr inbounds nuw [48 x i8], ptr %184, i64 %indvars.iv.i.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 36
   %204 = load i32, ptr %203, align 4, !tbaa !36
   %205 = icmp eq i32 %204, 0
@@ -2321,13 +2303,13 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i: ; preds = %209, %207, %196
   %.0.i.i.i = phi i32 [ %201, %196 ], [ %208, %207 ], [ %spec.select.i.i.i, %209 ]
-  %212 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i, ptr %212, align 4, !tbaa !27
   %213 = icmp sgt i32 %.0.i.i.i, -1
   br i1 %213, label %214, label %218
 
 214:                                              ; preds = %_ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i
-  %215 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.i
   %216 = load i32, ptr %215, align 4, !tbaa !27
   %217 = icmp slt i32 %.0.i.i.i, %216
   br i1 %217, label %195, label %218
@@ -2357,15 +2339,15 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i: ; preds = %209, %207, %196
 
 .lr.ph.i85:                                       ; preds = %.critedge54.i93, %.lr.ph.preheader.i83
   %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.preheader.i83 ], [ %indvars.iv.next.i94, %.critedge54.i93 ]
-  %225 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i86
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i86
   %226 = load i32, ptr %225, align 4, !tbaa !27
-  %227 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i86
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i86
   %228 = load i32, ptr %227, align 4, !tbaa !27
   %229 = add nsw i32 %228, %226
-  %230 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i86
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i86
   store i32 %229, ptr %230, align 4, !tbaa !27
   %231 = icmp slt i32 %229, 0
-  %232 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %.val.i, i64 %indvars.iv.i86
+  %232 = getelementptr inbounds nuw [48 x i8], ptr %.val.i, i64 %indvars.iv.i86
   br i1 %231, label %236, label %233
 
 233:                                              ; preds = %.lr.ph.i85
@@ -2437,11 +2419,11 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i: ; preds = %209, %207, %196
   %.01013.i.i.i.i107 = phi i32 [ 0, %.lr.ph.preheader.i.i.i.i104 ], [ %263, %.lr.ph.i.i.i.i105 ]
   %.01112.i.i.i.i108 = phi i32 [ 1, %.lr.ph.preheader.i.i.i.i104 ], [ %266, %.lr.ph.i.i.i.i105 ]
   %indvars.iv.next.i.i.i.i109 = add nsw i64 %indvars.iv.i.i.i.i106, -1
-  %260 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next.i.i.i.i109
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next.i.i.i.i109
   %261 = load i32, ptr %260, align 4, !tbaa !27
   %262 = mul nsw i32 %261, %.01112.i.i.i.i108
   %263 = add nsw i32 %262, %.01013.i.i.i.i107
-  %264 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next.i.i.i.i109
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next.i.i.i.i109
   %265 = load i32, ptr %264, align 4, !tbaa !27
   %266 = mul nsw i32 %265, %.01112.i.i.i.i108
   %267 = icmp samesign ugt i64 %indvars.iv.i.i.i.i106, 1
@@ -2449,10 +2431,10 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i: ; preds = %209, %207, %196
 
 .lr.ph.i.i.i98:                                   ; preds = %.critedge.i96, %.lr.ph.i.i.i98
   %.07.i.i.i99 = phi i64 [ %272, %.lr.ph.i.i.i98 ], [ 0, %.critedge.i96 ]
-  %268 = getelementptr inbounds %"class.gmx::GridAxis", ptr %.val.i, i64 %.07.i.i.i99
+  %268 = getelementptr inbounds [48 x i8], ptr %.val.i, i64 %.07.i.i.i99
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 32
   %270 = load i32, ptr %269, align 8, !tbaa !31
-  %271 = getelementptr inbounds nuw i32, ptr %6, i64 %.07.i.i.i99
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.07.i.i.i99
   store i32 %270, ptr %271, align 4, !tbaa !27
   %272 = add nuw i64 %.07.i.i.i99, 1
   %exitcond.not.i.i.i100 = icmp eq i64 %272, %223
@@ -2474,8 +2456,8 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit110: ; pre
   %.ph225 = phi ptr [ %.val15.i, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit110.thread ], [ %183, %195 ]
   %273 = and i64 %.pre-phi185.ph, 2147483647
   %indvars.iv.next.i2026.i = add nsw i64 %273, -1
-  %274 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next.i2026.i
-  %275 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next.i2026.i
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.next.i2026.i
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.next.i2026.i
   %276 = load i32, ptr %275, align 4, !tbaa !27
   %277 = add nsw i32 %276, -1
   br label %.lr.ph.preheader.i.i
@@ -2500,9 +2482,9 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit110: ; pre
 .lr.ph.i18.i:                                     ; preds = %.lr.ph.i71
   store i32 0, ptr %281, align 4, !tbaa !27
   %indvars.iv.next.i20.i = add nsw i64 %indvars.iv.next.i2028.i, -1
-  %283 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next.i20.i
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.next.i20.i
   %284 = load i32, ptr %283, align 4, !tbaa !27
-  %285 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next.i20.i
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.next.i20.i
   %286 = load i32, ptr %285, align 4, !tbaa !27
   %287 = add nsw i32 %286, -1
   %288 = icmp slt i32 %284, %287
@@ -2519,15 +2501,15 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit110: ; pre
 
 .lr.ph.i75:                                       ; preds = %.critedge54.i, %.lr.ph.preheader.i
   %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i79, %.critedge54.i ]
-  %290 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i76
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i76
   %291 = load i32, ptr %290, align 4, !tbaa !27
-  %292 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i76
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i76
   %293 = load i32, ptr %292, align 4, !tbaa !27
   %294 = add nsw i32 %293, %291
-  %295 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i76
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i76
   store i32 %294, ptr %295, align 4, !tbaa !27
   %296 = icmp slt i32 %294, 0
-  %297 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %.ph, i64 %indvars.iv.i76
+  %297 = getelementptr inbounds nuw [48 x i8], ptr %.ph, i64 %indvars.iv.i76
   br i1 %296, label %301, label %298
 
 298:                                              ; preds = %.lr.ph.i75
@@ -2591,11 +2573,11 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit110: ; pre
   %.01013.i.i.i.i = phi i32 [ %326, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i.i ]
   %.01112.i.i.i.i = phi i32 [ %329, %.lr.ph.i.i.i.i ], [ 1, %.lr.ph.i.i.i ]
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, -1
-  %323 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next.i.i.i.i
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.next.i.i.i.i
   %324 = load i32, ptr %323, align 4, !tbaa !27
   %325 = mul nsw i32 %324, %.01112.i.i.i.i
   %326 = add nsw i32 %325, %.01013.i.i.i.i
-  %327 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i.i.i.i
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.next.i.i.i.i
   %328 = load i32, ptr %327, align 4, !tbaa !27
   %329 = mul nsw i32 %328, %.01112.i.i.i.i
   %330 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
@@ -2603,10 +2585,10 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit110: ; pre
 
 .lr.ph.i.i.i:                                     ; preds = %.critedge.i, %.lr.ph.i.i.i
   %.07.i.i.i = phi i64 [ %335, %.lr.ph.i.i.i ], [ 0, %.critedge.i ]
-  %331 = getelementptr inbounds %"class.gmx::GridAxis", ptr %.ph, i64 %.07.i.i.i
+  %331 = getelementptr inbounds [48 x i8], ptr %.ph, i64 %.07.i.i.i
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 32
   %333 = load i32, ptr %332, align 8, !tbaa !31
-  %334 = getelementptr inbounds nuw i32, ptr %8, i64 %.07.i.i.i
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.07.i.i.i
   store i32 %333, ptr %334, align 4, !tbaa !27
   %335 = add nuw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %335, %.pre-phi185.ph
@@ -2686,7 +2668,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %357, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %359, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %354, ptr %155, align 8, !tbaa !84
   store ptr %358, ptr %165, align 8, !tbaa !90
-  %360 = getelementptr inbounds nuw i32, ptr %354, i64 %352
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %354, i64 %352
   store ptr %360, ptr %166, align 8, !tbaa !87
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.backedge
 
@@ -3144,7 +3126,7 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35: ; preds
 _ZNSt12_Vector_baseIN3gmx8GridAxisESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, %35
   store ptr %23, ptr %0, align 8, !tbaa !12
   store ptr %.0.lcssa.i.i.i34, ptr %7, align 8, !tbaa !30
-  %39 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %23, i64 %19
+  %39 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %19
   store ptr %39, ptr %34, align 8, !tbaa !74
   ret void
 
@@ -3270,7 +3252,7 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36: ; preds
 _ZNSt12_Vector_baseIN3gmx8GridAxisESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %39
   store ptr %24, ptr %0, align 8, !tbaa !12
   store ptr %.0.lcssa.i.i.i35, ptr %8, align 8, !tbaa !30
-  %43 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %24, i64 %20
+  %43 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %20
   store ptr %43, ptr %38, align 8, !tbaa !74
   ret void
 
@@ -3446,9 +3428,9 @@ _ZNSt6vectorIN3gmx9GridPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds 
 
 _ZNSt12_Vector_baseIN3gmx9GridPointESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN3gmx9GridPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %40
   store ptr %26, ptr %0, align 8, !tbaa !4
-  %44 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %27, i64 %1
+  %44 = getelementptr inbounds nuw [72 x i8], ptr %27, i64 %1
   store ptr %44, ptr %4, align 8, !tbaa !83
-  %45 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %26, i64 %24
+  %45 = getelementptr inbounds nuw [72 x i8], ptr %26, i64 %24
   store ptr %45, ptr %11, align 8, !tbaa !119
   br label %46
 
@@ -3504,7 +3486,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
 .noexc105:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %34 = ashr exact i64 %sext, 30
   %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #31
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %32
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %32
   store i32 0, ptr %35, align 4, !tbaa !27
   %37 = add nsw i64 %32, -1
   %38 = icmp eq i64 %37, 0
@@ -3525,7 +3507,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc105
 
 45:                                               ; preds = %40
   %46 = lshr i64 %41, 6
-  %47 = getelementptr inbounds nuw i64, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %46
   %.idx.i.i = shl nuw nsw i64 %46, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %44, i8 0, i64 %.idx.i.i, i1 false)
   br label %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
@@ -3559,7 +3541,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %45, %_ZNSt6vectorIi
   %.086281 = phi i32 [ 1, %.lr.ph.preheader ], [ %76, %_ZNSt14_Bit_referenceaSEb.exit ]
   %indvars.iv.next296 = add nsw i64 %indvars.iv295, -1
   %52 = mul nsw i64 %.sroa.4212.8.copyload, %indvars.iv.next296
-  %53 = getelementptr inbounds double, ptr %22, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %22, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !10
   %55 = zext nneg i32 %.067282 to i64
   br label %56
@@ -3574,7 +3556,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %45, %_ZNSt6vectorIi
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv.next
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.next
   %62 = load double, ptr %61, align 8, !tbaa !10
   %63 = invoke noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %54, double noundef %62, double noundef 0x3E80000000000000)
           to label %64 unwind label %86
@@ -3583,16 +3565,16 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %45, %_ZNSt6vectorIi
   br i1 %63, label %65, label %56, !llvm.loop !151
 
 65:                                               ; preds = %64, %56
-  %66 = getelementptr inbounds nuw i32, ptr %.sroa.0205.0235, i64 %indvars.iv.next296
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0205.0235, i64 %indvars.iv.next296
   store i32 %57, ptr %66, align 4, !tbaa !27
   %67 = load ptr, ptr %23, align 8, !tbaa !12
-  %68 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %67, i64 %indvars.iv.next296
+  %68 = getelementptr inbounds nuw [48 x i8], ptr %67, i64 %indvars.iv.next296
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load i8, ptr %69, align 8, !tbaa !20, !range !21, !noundef !22
   %71 = trunc nuw i8 %70 to i1
   %72 = lshr i64 %indvars.iv.next296, 6
   %.zext = and i64 %72, 67108863
-  %73 = getelementptr inbounds nuw i64, ptr %.sroa.0195.0, i64 %.zext
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0195.0, i64 %.zext
   %74 = and i64 %indvars.iv.next296, 63
   %75 = shl nuw i64 1, %74
   %76 = mul nuw nsw i32 %57, %.086281
@@ -3744,7 +3726,7 @@ _ZNSt12_Vector_baseIN3gmx8GridAxisESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds
   %123 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %122, ptr %13, align 8, !tbaa !12
   store ptr %122, ptr %123, align 8, !tbaa !30
-  %124 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %122, i64 %116
+  %124 = getelementptr inbounds nuw [48 x i8], ptr %122, i64 %116
   store ptr %124, ptr %120, align 8, !tbaa !74
   br label %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE7reserveEm.exit
 
@@ -3804,22 +3786,22 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE7reserveEm.exit: ; preds = %119, %_ZNSt12_Ve
   %151 = phi ptr [ %51, %.lr.ph285 ], [ %193, %191 ]
   %152 = lshr i64 %indvars.iv298, 6
   %.zext272 = and i64 %152, 67108863
-  %153 = getelementptr inbounds nuw i64, ptr %.sroa.0195.0, i64 %.zext272
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0195.0, i64 %.zext272
   %154 = and i64 %indvars.iv298, 63
   %155 = shl nuw i64 1, %154
   %156 = load i64, ptr %153, align 8, !tbaa !106
   %157 = and i64 %156, %155
   %.not276 = icmp eq i64 %157, 0
   %158 = mul nsw i64 %.sroa.4212.8.copyload, %indvars.iv298
-  %159 = getelementptr inbounds double, ptr %22, i64 %158
-  %160 = getelementptr double, ptr %159, i64 %127
+  %159 = getelementptr inbounds [8 x i8], ptr %22, i64 %158
+  %160 = getelementptr [8 x i8], ptr %159, i64 %127
   %161 = getelementptr i8, ptr %160, i64 -8
   br i1 %.not276, label %175, label %162
 
 162:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !27
-  %163 = getelementptr inbounds nuw i32, ptr %.sroa.0205.0235, i64 %indvars.iv298
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0205.0235, i64 %indvars.iv298
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 1, ptr %15, align 1, !tbaa !75
   %164 = load ptr, ptr %128, align 8, !tbaa !30
@@ -3858,11 +3840,11 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE12emplace_backIJRKdS6_iRibEEERS1_DpOT_.exit:
 
 175:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %176 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %151, i64 %indvars.iv298
+  %176 = getelementptr inbounds nuw [48 x i8], ptr %151, i64 %indvars.iv298
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %178 = load double, ptr %177, align 8, !tbaa !15
   store double %178, ptr %16, align 8, !tbaa !10
-  %179 = getelementptr inbounds nuw i32, ptr %.sroa.0205.0235, i64 %indvars.iv298
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0205.0235, i64 %indvars.iv298
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 0, ptr %17, align 1, !tbaa !75
   %180 = load ptr, ptr %128, align 8, !tbaa !30
@@ -3935,7 +3917,7 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EED2Ev.exit:    ; preds = %._crit_edge288, %._
   %207 = sub i64 %205, %206
   %208 = ashr exact i64 %207, 3
   %209 = sub nsw i64 0, %208
-  %210 = getelementptr inbounds i64, ptr %.sroa.28201.0, i64 %209
+  %210 = getelementptr inbounds [8 x i8], ptr %.sroa.28201.0, i64 %209
   call void @_ZdlPvm(ptr noundef %210, i64 noundef %207) #30
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -3960,7 +3942,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt13_Bvector_bas
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph287, %.loopexit
   %.062286 = phi i64 [ %351, %.loopexit ], [ 0, %.lr.ph287 ]
-  %217 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %131, i64 %.062286
+  %217 = getelementptr inbounds nuw [72 x i8], ptr %131, i64 %.062286
   br label %.lr.ph.i
 
 218:                                              ; preds = %_ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.thread.i
@@ -3970,7 +3952,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt13_Bvector_bas
 
 .lr.ph.i:                                         ; preds = %218, %.lr.ph.preheader.i
   %.01319.i = phi i64 [ %219, %218 ], [ 0, %.lr.ph.preheader.i ]
-  %220 = getelementptr inbounds %"class.gmx::GridAxis", ptr %.pre, i64 %.01319.i
+  %220 = getelementptr inbounds [48 x i8], ptr %.pre, i64 %.01319.i
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 24
   %222 = load double, ptr %221, align 8, !tbaa !40
   %223 = fcmp ogt double %222, 0.000000e+00
@@ -3978,7 +3960,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt13_Bvector_bas
 
 224:                                              ; preds = %.lr.ph.i
   %225 = load double, ptr %220, align 8, !tbaa !41
-  %226 = getelementptr inbounds nuw double, ptr %217, i64 %.01319.i
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %.01319.i
   %227 = load double, ptr %226, align 8, !tbaa !10
   %228 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %229 = load double, ptr %228, align 8, !tbaa !15
@@ -4146,11 +4128,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %27
   %.01013.i.i.i = phi i32 [ %283, %.lr.ph.i.i.i ], [ 0, %._crit_edge.i.i ]
   %.01112.i.i.i = phi i32 [ %286, %.lr.ph.i.i.i ], [ 1, %._crit_edge.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
-  %280 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i.i.i
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.next.i.i.i
   %281 = load i32, ptr %280, align 4, !tbaa !27
   %282 = mul nsw i32 %281, %.01112.i.i.i
   %283 = add nsw i32 %282, %.01013.i.i.i
-  %284 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next.i.i.i
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next.i.i.i
   %285 = load i32, ptr %284, align 4, !tbaa !27
   %286 = mul nsw i32 %285, %.01112.i.i.i
   %287 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
@@ -4158,10 +4140,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %27
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.07.i.i = phi i64 [ %292, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %288 = getelementptr inbounds %"class.gmx::GridAxis", ptr %.pre, i64 %.07.i.i
+  %288 = getelementptr inbounds [48 x i8], ptr %.pre, i64 %.07.i.i
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 32
   %290 = load i32, ptr %289, align 8, !tbaa !31
-  %291 = getelementptr inbounds nuw i32, ptr %7, i64 %.07.i.i
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.07.i.i
   store i32 %290, ptr %291, align 4, !tbaa !27
   %292 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %292, %142
@@ -4169,14 +4151,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %27
 
 .lr.ph.i134:                                      ; preds = %279, %.noexc136
   %.08.i = phi i64 [ %348, %.noexc136 ], [ 0, %279 ]
-  %293 = getelementptr inbounds %"class.gmx::GridAxis", ptr %.pre, i64 %.08.i
+  %293 = getelementptr inbounds [48 x i8], ptr %.pre, i64 %.08.i
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 24
   %295 = load double, ptr %294, align 8, !tbaa !40
   %296 = fcmp ogt double %295, 0.000000e+00
   br i1 %296, label %297, label %_ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.i151
 
 297:                                              ; preds = %.lr.ph.i134
-  %298 = getelementptr inbounds nuw double, ptr %217, i64 %.08.i
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %.08.i
   %299 = load double, ptr %298, align 8, !tbaa !10
   %300 = load double, ptr %293, align 8, !tbaa !41
   %301 = getelementptr inbounds nuw i8, ptr %293, i64 16
@@ -4271,7 +4253,7 @@ _ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.i151: ; preds = %324, %3
 
 .noexc136:                                        ; preds = %344, %339, %_ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.i151
   %.0.i = phi i32 [ %spec.select.i, %339 ], [ %346, %344 ], [ %.0.i.i152, %_ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.i151 ]
-  %347 = getelementptr inbounds nuw i32, ptr %8, i64 %.08.i
+  %347 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.08.i
   store i32 %.0.i, ptr %347, align 4, !tbaa !27
   %348 = add nuw i64 %.08.i, 1
   %exitcond.not.i135 = icmp eq i64 %348, %142
@@ -4282,7 +4264,7 @@ _ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.i151: ; preds = %324, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %349 = load ptr, ptr %0, align 8, !tbaa !84
-  %350 = getelementptr inbounds nuw i32, ptr %349, i64 %.062286
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %349, i64 %.062286
   store i32 %.010.lcssa.i.i.i, ptr %350, align 4, !tbaa !27
   %351 = add nuw i64 %.062286, 1
   %exitcond.not = icmp eq i64 %351, %135
@@ -4318,7 +4300,7 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EED2Ev.exit138: ; preds = %352, %354
   %364 = sub i64 %362, %363
   %365 = ashr exact i64 %364, 3
   %366 = sub nsw i64 0, %365
-  %367 = getelementptr inbounds i64, ptr %.sroa.28201.0, i64 %366
+  %367 = getelementptr inbounds [8 x i8], ptr %.sroa.28201.0, i64 %366
   call void @_ZdlPvm(ptr noundef %367, i64 noundef %364) #30
   br label %.body
 
@@ -4429,7 +4411,7 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36: ; preds
 _ZNSt12_Vector_baseIN3gmx8GridAxisESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %39
   store ptr %24, ptr %0, align 8, !tbaa !12
   store ptr %.0.lcssa.i.i.i35, ptr %8, align 8, !tbaa !30
-  %43 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %24, i64 %20
+  %43 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %20
   store ptr %43, ptr %38, align 8, !tbaa !74
   ret void
 
@@ -4544,7 +4526,7 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36: ; preds
 _ZNSt12_Vector_baseIN3gmx8GridAxisESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx8GridAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %38
   store ptr %24, ptr %0, align 8, !tbaa !12
   store ptr %.0.lcssa.i.i.i35, ptr %8, align 8, !tbaa !30
-  %42 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %24, i64 %20
+  %42 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %20
   store ptr %42, ptr %37, align 8, !tbaa !74
   ret void
 

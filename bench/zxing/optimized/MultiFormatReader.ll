@@ -29,12 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.29" = type { %"struct.std::_Vector_base<ZXing::Result, std::allocator<ZXing::Result>>::_Vector_impl" }
 %"struct.std::_Vector_base<ZXing::Result, std::allocator<ZXing::Result>>::_Vector_impl" = type { %"struct.std::_Vector_base<ZXing::Result, std::allocator<ZXing::Result>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ZXing::Result, std::allocator<ZXing::Result>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
-%"struct.std::_Head_base.6" = type { ptr }
 
 $_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EED2Ev = comdat any
 
@@ -1533,7 +1527,7 @@ _ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_
 _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %21
   store ptr %10, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i21, ptr %5, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %10, i64 %3
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %3
   store ptr %25, ptr %20, align 8, !tbaa !15
   ret void
 }
@@ -1675,7 +1669,7 @@ _ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_
 _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %21
   store ptr %10, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i21, ptr %5, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %10, i64 %3
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %3
   store ptr %25, ptr %20, align 8, !tbaa !15
   ret void
 }
@@ -1844,7 +1838,7 @@ _ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_
 _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %21
   store ptr %10, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i21, ptr %5, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %10, i64 %3
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %3
   store ptr %25, ptr %20, align 8, !tbaa !15
   ret void
 }
@@ -1916,7 +1910,7 @@ _ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_
 _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %21
   store ptr %10, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i21, ptr %5, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %10, i64 %3
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %3
   store ptr %25, ptr %20, align 8, !tbaa !15
   ret void
 }
@@ -1988,7 +1982,7 @@ _ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_
 _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %21
   store ptr %10, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i21, ptr %5, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %10, i64 %3
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %3
   store ptr %25, ptr %20, align 8, !tbaa !15
   ret void
 }
@@ -2060,7 +2054,7 @@ _ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_
 _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %21
   store ptr %10, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i21, ptr %5, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %10, i64 %3
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %3
   store ptr %25, ptr %20, align 8, !tbaa !15
   ret void
 }
@@ -2602,7 +2596,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE15_M_range_insertI
 
 23:                                               ; preds = %18
   %24 = sub nsw i64 0, %10
-  %25 = getelementptr inbounds %"class.ZXing::Result", ptr %14, i64 %24
+  %25 = getelementptr inbounds [216 x i8], ptr %14, i64 %24
   %26 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN5ZXing6ResultEES3_ET0_T_S6_S5_(ptr %25, ptr %14, ptr noundef %14) #18
   %27 = load ptr, ptr %13, align 8, !tbaa !91
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %9
@@ -2616,7 +2610,7 @@ _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt
   %32 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_(ptr %31, ptr %3, ptr noundef %14) #18
   %33 = sub nuw nsw i64 %10, %21
   %34 = load ptr, ptr %13, align 8, !tbaa !91
-  %35 = getelementptr inbounds nuw %"class.ZXing::Result", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [216 x i8], ptr %34, i64 %33
   store ptr %35, ptr %13, align 8, !tbaa !91
   %36 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN5ZXing6ResultEES3_ET0_T_S6_S5_(ptr %1, ptr %14, ptr noundef %35) #18
   %37 = load ptr, ptr %13, align 8, !tbaa !91
@@ -2664,7 +2658,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5ZXing6ResultES2_SaIS1_EET0_T_S5_S4_R
 _ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5ZXing6ResultES2_SaIS1_EET0_T_S5_S4_RT1_.exit51, %49
   store ptr %45, ptr %0, align 8, !tbaa !94
   store ptr %48, ptr %13, align 8, !tbaa !91
-  %54 = getelementptr inbounds nuw %"class.ZXing::Result", ptr %45, i64 %42
+  %54 = getelementptr inbounds nuw [216 x i8], ptr %45, i64 %42
   store ptr %54, ptr %11, align 8, !tbaa !99
   br label %64
 
@@ -3103,7 +3097,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 54:                                               ; preds = %_ZN5ZXing6ResultD2Ev.exit24.i.i.i, %18
   %.010.i.i.i = phi i64 [ %21, %18 ], [ %129, %_ZN5ZXing6ResultD2Ev.exit24.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %55 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %.010.i.i.i
+  %55 = getelementptr inbounds [216 x i8], ptr %0, i64 %.010.i.i.i
   %56 = load ptr, ptr %55, align 8, !tbaa !37
   store ptr %56, ptr %6, align 8, !tbaa !37
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -3686,7 +3680,7 @@ _ZNSt6vectorIN5ZXing7Content8EncodingESaIS2_EED2Ev.exit.i.i12.i: ; preds = %289,
 301:                                              ; preds = %15
   %302 = add nsw i64 %.023, -1
   %303 = udiv i64 %16, 432
-  %304 = getelementptr inbounds nuw %"class.ZXing::Result", ptr %0, i64 %303
+  %304 = getelementptr inbounds nuw [216 x i8], ptr %0, i64 %303
   %305 = getelementptr inbounds i8, ptr %storemerge22, i64 -216
   %.val.i.i.i = load i64, ptr %13, align 4
   %306 = getelementptr i8, ptr %304, i64 104
@@ -3846,9 +3840,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.038 = phi i64 [ %21, %20 ], [ %1, %4 ]
   %9 = shl i64 %.038, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %10
+  %11 = getelementptr inbounds [216 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %12
+  %13 = getelementptr inbounds [216 x i8], ptr %0, i64 %12
   %14 = getelementptr i8, ptr %11, i64 104
   %.val.i = load i64, ptr %14, align 4
   %15 = getelementptr i8, ptr %13, i64 104
@@ -3874,8 +3868,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 20:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread"
   %21 = phi i64 [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread" ], [ %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit" ]
-  %22 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %21
-  %23 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %.038
+  %22 = getelementptr inbounds [216 x i8], ptr %0, i64 %21
+  %23 = getelementptr inbounds [216 x i8], ptr %0, i64 %.038
   tail call void @_ZNSt6vectorIhSaIhEE14_M_move_assignEOS1_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(211) %23, ptr noundef nonnull align 8 dereferenceable(211) %22) #20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -3920,8 +3914,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 50:                                               ; preds = %46
   %51 = shl nsw i64 %.0.lcssa, 1
   %52 = or disjoint i64 %51, 1
-  %53 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %52
-  %54 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %.0.lcssa
+  %53 = getelementptr inbounds [216 x i8], ptr %0, i64 %52
+  %54 = getelementptr inbounds [216 x i8], ptr %0, i64 %.0.lcssa
   tail call void @_ZNSt6vectorIhSaIhEE14_M_move_assignEOS1_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(211) %54, ptr noundef nonnull align 8 dereferenceable(211) %53) #20
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 24
@@ -4067,7 +4061,7 @@ _ZN5ZXing6ResultC2EOS0_.exit:                     ; preds = %121, %_ZNKSt7__cxx1
   %.010.i = phi i64 [ %.0911.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i" ], [ %.1, %_ZN5ZXing6ResultC2EOS0_.exit ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %133 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %.0911.i
+  %133 = getelementptr inbounds [216 x i8], ptr %0, i64 %.0911.i
   %.val.i25 = load i64, ptr %110, align 8
   %134 = getelementptr i8, ptr %133, i64 104
   %.val.i.i = load i64, ptr %134, align 4
@@ -4087,7 +4081,7 @@ _ZN5ZXing6ResultC2EOS0_.exit:                     ; preds = %121, %_ZNKSt7__cxx1
   br i1 %138, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i", label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5ZXing17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EclINS_17__normal_iteratorIPNS2_6ResultESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i", %.lr.ph.i
-  %139 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %.010.i
+  %139 = getelementptr inbounds [216 x i8], ptr %0, i64 %.010.i
   call void @_ZNSt6vectorIhSaIhEE14_M_move_assignEOS1_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(211) %139, ptr noundef nonnull align 8 dereferenceable(211) %133) #20
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %141 = getelementptr inbounds nuw i8, ptr %133, i64 24
@@ -4128,7 +4122,7 @@ _ZN5ZXing6ResultC2EOS0_.exit:                     ; preds = %121, %_ZNKSt7__cxx1
   %160 = phi ptr [ %78, %_ZN5ZXing6ResultC2EOS0_.exit ], [ %.pre42, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit" ]
   %161 = phi ptr [ %75, %_ZN5ZXing6ResultC2EOS0_.exit ], [ %.pre41, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit" ]
   %.0.lcssa.i = phi i64 [ %.1, %_ZN5ZXing6ResultC2EOS0_.exit ], [ %.0.lcssa.i.ph, %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_17MultiFormatReader12readMultipleERKNS2_12BinaryBitmapEiE3$_1EEEvT_T0_SI_T1_RT2_.exit.loopexit" ]
-  %162 = getelementptr inbounds %"class.ZXing::Result", ptr %0, i64 %.0.lcssa.i
+  %162 = getelementptr inbounds [216 x i8], ptr %0, i64 %.0.lcssa.i
   %163 = load ptr, ptr %162, align 8, !tbaa !37
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 16

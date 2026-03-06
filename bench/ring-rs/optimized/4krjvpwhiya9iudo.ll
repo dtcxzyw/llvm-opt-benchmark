@@ -25,10 +25,10 @@ switch.lookup:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i8, ptr %3, align 8, !range !9, !alias.scope !6, !noalias !10, !noundef !4
   %5 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h268331a342fc635aE", i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h268331a342fc635aE", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i8 %4 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h268331a342fc635aE.19", i64 %6
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h268331a342fc635aE.19", i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !6
   ret i1 %7
@@ -1074,7 +1074,7 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17hf8c54ada4
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i
 
 25:                                               ; preds = %._crit_edge.i
-  %26 = getelementptr inbounds i64, ptr %.sroa.57.0.copyload, i64 %15
+  %26 = getelementptr inbounds [8 x i8], ptr %.sroa.57.0.copyload, i64 %15
   store i64 %.016.lcssa.i, ptr %26, align 8, !noalias !159
   store i64 8, ptr %.sroa.4.0.copyload, align 8, !noalias !159
   %exitcond51.not.i = icmp eq i64 %9, %6
@@ -1370,7 +1370,7 @@ define hidden noundef zeroext i1 @"_ZN4ring4limb34parse_big_endian_and_pad_const
   br i1 %.not, label %27, label %.thread
 
 24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds i64, ptr %14, i64 %21
+  %25 = getelementptr inbounds [8 x i8], ptr %14, i64 %21
   store i64 %.016.lcssa, ptr %25, align 8
   store i64 8, ptr %6, align 8
   %exitcond51.not = icmp eq i64 %17, %4

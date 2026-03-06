@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.dpx::Block" = type { i32, i32, i32, i32 }
-%"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -59,7 +58,7 @@ define hidden void @_ZN3dpx6ReaderD2Ev(ptr noundef nonnull align 8 captures(none
 
 6:                                                ; preds = %13, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %13 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %.not10.i = icmp eq ptr %8, null
   br i1 %.not10.i, label %13, label %9
@@ -141,7 +140,7 @@ define hidden void @_ZN3dpx6Reader5ResetEv(ptr noundef nonnull align 8 captures(
 
 6:                                                ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %.not10 = icmp eq ptr %8, null
   br i1 %.not10, label %13, label %9
@@ -233,7 +232,7 @@ define hidden void @_ZN3dpx6Reader11SetInStreamEP8InStream(ptr noundef nonnull a
 
 8:                                                ; preds = %15, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %15 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %.not10.i = icmp eq ptr %10, null
   br i1 %.not10.i, label %15, label %11
@@ -345,7 +344,7 @@ define hidden noundef zeroext i1 @_ZN3dpx6Reader9ReadBlockEiPhRNS_5BlockE(ptr no
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [72 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 800
   %9 = load i8, ptr %8, align 8, !tbaa !29
   %10 = icmp eq i8 %9, -1
@@ -461,14 +460,14 @@ _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %37
 
 83:                                               ; preds = %37, %36, %31, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 2072
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %6
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %6
   %86 = load ptr, ptr %85, align 8, !tbaa !19
   %87 = icmp eq ptr %86, null
   br i1 %87, label %92, label %97
 
 .thread:                                          ; preds = %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2072
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %6
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %6
   %90 = load ptr, ptr %89, align 8, !tbaa !19
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.thread65, label %97
@@ -523,7 +522,7 @@ define linkonce_odr hidden void @_ZN3dpx21EndianSwapImageBufferENS_8DataSizeEPvi
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %.06.i.i = phi i64 [ %9, %.lr.ph.i.i ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %.06.i.i
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.06.i.i
   %7 = load i16, ptr %6, align 2, !tbaa !36
   %8 = tail call noundef i16 @llvm.bswap.i16(i16 %7)
   store i16 %8, ptr %6, align 2, !tbaa !36
@@ -538,7 +537,7 @@ define linkonce_odr hidden void @_ZN3dpx21EndianSwapImageBufferENS_8DataSizeEPvi
 
 .lr.ph.i.i9:                                      ; preds = %10, %.lr.ph.i.i9
   %.06.i.i10 = phi i64 [ %15, %.lr.ph.i.i9 ], [ 0, %10 ]
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %.06.i.i10
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.06.i.i10
   %13 = load i32, ptr %12, align 4, !tbaa !38
   %14 = tail call noundef i32 @llvm.bswap.i32(i32 %13)
   store i32 %14, ptr %12, align 4, !tbaa !38
@@ -553,7 +552,7 @@ define linkonce_odr hidden void @_ZN3dpx21EndianSwapImageBufferENS_8DataSizeEPvi
 
 .lr.ph.i.i13:                                     ; preds = %16, %.lr.ph.i.i13
   %.06.i.i14 = phi i64 [ %21, %.lr.ph.i.i13 ], [ 0, %16 ]
-  %18 = getelementptr inbounds nuw float, ptr %1, i64 %.06.i.i14
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.06.i.i14
   %19 = load i32, ptr %18, align 4, !tbaa !40
   %20 = tail call noundef i32 @llvm.bswap.i32(i32 %19)
   store i32 %20, ptr %18, align 4, !tbaa !40
@@ -568,7 +567,7 @@ define linkonce_odr hidden void @_ZN3dpx21EndianSwapImageBufferENS_8DataSizeEPvi
 
 .lr.ph.i.i17:                                     ; preds = %22, %.lr.ph.i.i17
   %.06.i.i18 = phi i64 [ %27, %.lr.ph.i.i17 ], [ 0, %22 ]
-  %24 = getelementptr inbounds nuw double, ptr %1, i64 %.06.i.i18
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.06.i.i18
   %25 = load i64, ptr %24, align 8, !tbaa !42
   %26 = tail call noundef i64 @llvm.bswap.i64(i64 %25)
   store i64 %26, ptr %24, align 8, !tbaa !42

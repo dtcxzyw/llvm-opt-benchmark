@@ -82,7 +82,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writ
   %26 = phi i8 [ %23, %.lr.ph ], [ %33, %31 ]
   %.184 = phi ptr [ %.046108, %.lr.ph ], [ %32, %31 ]
   %27 = zext i8 %26 to i64
-  %28 = getelementptr i16, ptr %24, i64 %27
+  %28 = getelementptr [2 x i8], ptr %24, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 256
   %.not53 = icmp eq i16 %30, 0
@@ -203,7 +203,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writ
   %81 = phi i8 [ %.pr, %.lr.ph87 ], [ %79, %77 ]
   %.386 = phi ptr [ %.2.ph, %.lr.ph87 ], [ %78, %77 ]
   %82 = zext i8 %81 to i64
-  %83 = getelementptr i16, ptr %76, i64 %82
+  %83 = getelementptr [2 x i8], ptr %76, i64 %82
   %84 = load i16, ptr %83, align 2
   %85 = and i16 %84, 256
   %.not55 = icmp eq i16 %85, 0

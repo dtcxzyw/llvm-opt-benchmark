@@ -1068,7 +1068,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %3 = phi ptr [ %19, %for.inc ], [ %1, %for.cond.preheader ]
   %4 = phi ptr [ %20, %for.inc ], [ %0, %for.cond.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv
+  %Mesh.split = getelementptr inbounds nuw [72 x i8], ptr %3, i64 %indvars.iv
   %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %5 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %cmp4 = icmp eq ptr %5, %mesh
@@ -1088,7 +1088,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   br i1 %cmp13, label %land.lhs.true.if.then14_crit_edge, label %land.lhs.true.for.inc_crit_edge
 
 land.lhs.true.if.then14_crit_edge:                ; preds = %land.lhs.true
-  %Mesh17.split.phi.trans.insert = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %.pre52, i64 %indvars.iv
+  %Mesh17.split.phi.trans.insert = getelementptr inbounds nuw [72 x i8], ptr %.pre52, i64 %indvars.iv
   %Mesh17.phi.trans.insert = getelementptr inbounds nuw i8, ptr %Mesh17.split.phi.trans.insert, i64 64
   %.pre6 = load ptr, ptr %Mesh17.phi.trans.insert, align 8, !tbaa !34
   br label %if.then14
@@ -1235,7 +1235,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %3 = phi ptr [ %7, %for.inc ], [ %1, %entry ]
   %4 = phi ptr [ %8, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv
+  %Mesh.split = getelementptr inbounds nuw [72 x i8], ptr %3, i64 %indvars.iv
   %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %5 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %cmp4 = icmp eq ptr %5, %mesh
@@ -1300,7 +1300,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv.i5 = zext i32 %number to i64
-  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %1, i64 %conv.i5
+  %Mesh.split = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %conv.i5
   %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %2 = load ptr, ptr %Mesh, align 8, !tbaa !34
   br label %return
@@ -1867,7 +1867,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryC2ERKNS_4core6stringIcEE.exit: ; preds = %for
 cond.true:                                        ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryC2ERKNS_4core6stringIcEE.exit
   %conv.i = zext i32 %call to i64
   %65 = load ptr, ptr %Meshes, align 8, !tbaa !12
-  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %65, i64 %conv.i
+  %Mesh.split = getelementptr inbounds nuw [72 x i8], ptr %65, i64 %conv.i
   %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %66 = load ptr, ptr %Mesh, align 8, !tbaa !34
   br label %cond.end
@@ -1973,7 +1973,7 @@ entry:
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %cmp.not = icmp ult i32 %index, %conv.i
   %conv.i5 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %1, i64 %conv.i5
+  %add.ptr.i.i = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %conv.i5
   %retval.0 = select i1 %cmp.not, ptr %add.ptr.i.i, ptr @_ZN3irr5sceneL14emptyNamedPathE
   ret ptr %retval.0
 }
@@ -2001,7 +2001,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %3 = phi ptr [ %8, %for.inc ], [ %1, %for.cond.preheader ]
   %4 = phi ptr [ %9, %for.inc ], [ %0, %for.cond.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv
+  %Mesh.split = getelementptr inbounds nuw [72 x i8], ptr %3, i64 %indvars.iv
   %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %5 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %cmp4 = icmp eq ptr %5, %mesh
@@ -2026,7 +2026,7 @@ land.lhs.true.for.inc_crit_edge:                  ; preds = %land.lhs.true
 
 if.then14:                                        ; preds = %land.lhs.true, %for.body
   %7 = phi ptr [ %.pre43, %land.lhs.true ], [ %3, %for.body ]
-  %add.ptr.i.i31 = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %7, i64 %indvars.iv
+  %add.ptr.i.i31 = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %indvars.iv
   br label %return
 
 for.inc:                                          ; preds = %land.lhs.true.for.inc_crit_edge, %lor.lhs.false
@@ -2063,7 +2063,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv.i6 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %1, i64 %conv.i6
+  %add.ptr.i.i = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %conv.i6
   tail call void @_ZN3irr2io10SNamedPath7setPathERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name)
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i8, ptr %is_sorted.i, align 8, !tbaa !40, !range !58, !noundef !59
@@ -2697,7 +2697,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %3 = phi ptr [ %12, %for.inc ], [ %1, %entry ]
   %4 = phi ptr [ %13, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv
+  %Mesh.split = getelementptr inbounds nuw [72 x i8], ptr %3, i64 %indvars.iv
   %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %5 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %cmp4 = icmp eq ptr %5, %mesh
@@ -2722,7 +2722,7 @@ land.lhs.true.for.inc_crit_edge:                  ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true, %for.body
   %7 = phi ptr [ %.pre45, %land.lhs.true ], [ %3, %for.body ]
-  %add.ptr.i.i28 = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %7, i64 %indvars.iv
+  %add.ptr.i.i28 = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %indvars.iv
   tail call void @_ZN3irr2io10SNamedPath7setPathERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %name)
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %8 = load i8, ptr %is_sorted.i, align 8, !tbaa !40, !range !58, !noundef !59
@@ -2862,7 +2862,7 @@ for.body:                                         ; preds = %entry, %_ZNK3irr17I
   %7 = phi ptr [ %12, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %1, %entry ]
   %8 = phi ptr [ %13, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ 0, %entry ]
-  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %7, i64 %indvars.iv
+  %Mesh.split = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %indvars.iv
   %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %9 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %vtable = load ptr, ptr %9, align 8, !tbaa !10
@@ -2921,7 +2921,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %4 = phi ptr [ %17, %for.inc ], [ %0, %entry ]
   %i.031 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
   %conv.i20 = zext i32 %i.031 to i64
-  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %conv.i20
+  %Mesh.split = getelementptr inbounds nuw [72 x i8], ptr %3, i64 %conv.i20
   %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %5 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %vtable = load ptr, ptr %5, align 8, !tbaa !10
@@ -3260,7 +3260,7 @@ _ZNSt12_Vector_baseIN3irr5scene10CMeshCache9MeshEntryESaIS3_EE13_M_deallocateEPS
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !12
   store ptr %__cur.0.lcssa.i.i.i.i.i51, ptr %_M_finish.i.i, align 8, !tbaa !14
-  %add.ptr20 = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [72 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !39
   ret void
 }
@@ -3298,7 +3298,7 @@ while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__op
   %__len.018.i.i = phi i64 [ %add.ptr.i.i.i.i42.idx1, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %__first.sroa.0.017.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %shr.i.i = lshr i64 %__len.018.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.sroa.0.017.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [72 x i8], ptr %__first.sroa.0.017.i.i, i64 %shr.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 40
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !21
   %.sroa.speculated.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
@@ -3453,7 +3453,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr5scene10CMeshCache9Mes
 
 if.end:                                           ; preds = %while.body
   %div.i = udiv i64 %sub.ptr.sub.i33, 144
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.coerce, i64 %div.i
+  %add.ptr.i.i = getelementptr inbounds nuw [72 x i8], ptr %__first.coerce, i64 %div.i
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge31, i64 -72
   call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_SD_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i28.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i29.i)
   br label %while.body.i.i23
@@ -3640,7 +3640,7 @@ if.end:                                           ; preds = %entry
 while.cond:                                       ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit45, %if.end
   %__parent.0 = phi i64 [ %div4950, %if.end ], [ %dec, %_ZN3irr5scene10CMeshCache9MeshEntryD2Ev.exit45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %__value)
-  %add.ptr.i = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.coerce, i64 %__parent.0
+  %add.ptr.i = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__parent.0
   store ptr %0, ptr %__value, align 8, !tbaa !20
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !21
   store i8 0, ptr %0, align 8, !tbaa !22
@@ -3853,9 +3853,9 @@ while.body:                                       ; preds = %entry, %_ZN3irr5sce
   %__holeIndex.addr.081 = phi i64 [ %spec.select, %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.081, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
-  %add.ptr.i56 = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.coerce, i64 %sub3
+  %add.ptr.i56 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %sub3
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 40
   %0 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !21
   %_M_string_length.i10.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i56, i64 40
@@ -3884,8 +3884,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5scene10CMe
   %__r.0.i.i.i.i.i.i = phi i32 [ %call.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %retval.0.i12.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp slt i32 %__r.0.i.i.i.i.i.i, 0
   %spec.select = select i1 %cmp.i.i.i.i.i, i64 %sub3, i64 %mul
-  %add.ptr.i57 = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.coerce, i64 %spec.select
-  %add.ptr.i58 = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.coerce, i64 %__holeIndex.addr.081
+  %add.ptr.i57 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %spec.select
+  %add.ptr.i58 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.081
   %cmp.i.i.i = icmp eq i64 %__holeIndex.addr.081, %spec.select
   br i1 %cmp.i.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit, label %if.end.i7.i.i
 
@@ -3919,8 +3919,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then21:                                        ; preds = %land.lhs.true
   %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
-  %add.ptr.i59 = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.coerce, i64 %sub25
-  %add.ptr.i60 = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i59 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %sub25
+  %add.ptr.i60 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %cmp.i.i.i61 = icmp eq i64 %__holeIndex.addr.0.lcssa, %sub25
   br i1 %cmp.i.i.i61, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit67, label %if.end.i7.i.i62
 
@@ -4015,7 +4015,7 @@ land.rhs:                                         ; preds = %_ZN3irr5scene10CMes
   %__holeIndex.addr.041 = phi i64 [ %__holeIndex, %land.rhs.lr.ph ], [ %__parent.042, %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit ]
   %__parent.042.in = add nsw i64 %__holeIndex.addr.041, -1
   %__parent.042 = sdiv i64 %__parent.042.in, 2
-  %add.ptr.i = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.coerce, i64 %__parent.042
+  %add.ptr.i = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__parent.042
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 40
   %0 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !21
   %1 = load i64, ptr %_M_string_length.i10.i.i.i.i.i.i, align 8, !tbaa !21
@@ -4044,7 +4044,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5scene10CMes
   br i1 %cmp.i.i.i.i.i, label %while.body, label %while.end
 
 while.body:                                       ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit
-  %add.ptr.i26 = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.coerce, i64 %__holeIndex.addr.041
+  %add.ptr.i26 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.041
   %cmp.i.i.i = icmp eq i64 %__holeIndex.addr.041, %__parent.042
   br i1 %cmp.i.i.i, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit, label %if.end.i7.i.i
 
@@ -4065,7 +4065,7 @@ _ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit:  ; preds = %if.end.i7.i.i, %whi
 
 while.end:                                        ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit, %entry
   %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %__holeIndex.addr.041, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5scene10CMeshCache9MeshEntryESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit ], [ %__parent.042, %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit ]
-  %add.ptr.i27 = getelementptr inbounds %"struct.irr::scene::CMeshCache::MeshEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i27 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %cmp.i.i.i28 = icmp eq ptr %add.ptr.i27, %__value
   br i1 %cmp.i.i.i28, label %_ZN3irr5scene10CMeshCache9MeshEntryaSEOS2_.exit34, label %if.end.i7.i.i29
 

@@ -27,12 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.35" }
 %"struct.std::_Head_base.35" = type { ptr }
 %"class.rocksdb::Slice" = type { ptr, i64 }
-%"class.std::unique_ptr.38" = type { %"struct.std::__uniq_ptr_data.39" }
-%"struct.std::__uniq_ptr_data.39" = type { %"class.std::__uniq_ptr_impl.40" }
-%"class.std::__uniq_ptr_impl.40" = type { %"class.std::tuple.41" }
-%"class.std::tuple.41" = type { %"struct.std::_Tuple_impl.42" }
-%"struct.std::_Tuple_impl.42" = type { %"struct.std::_Head_base.45" }
-%"struct.std::_Head_base.45" = type { ptr }
 %"struct.rocksdb::ConfigOptions" = type { i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", i32, i8, i64, ptr, %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
@@ -855,9 +849,9 @@ define void @_ZN7rocksdb23JemallocNodumpAllocatorD2Ev(ptr noundef nonnull align 
   %.sroa.4.019 = phi i64 [ %33, %_ZN7rocksdb23JemallocNodumpAllocator26DestroyThreadSpecificCacheEPv.exit ], [ 0, %8 ]
   %23 = icmp ult i64 %.sroa.4.019, 8
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.sroa.4.019
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.sroa.4.019
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr ptr, ptr %26, i64 %.sroa.4.019
+  %27 = getelementptr [8 x i8], ptr %26, i64 %.sroa.4.019
   %28 = getelementptr i8, ptr %27, i64 -64
   %.0.i.i = select i1 %23, ptr %25, ptr %28
   %29 = load ptr, ptr %.0.i.i, align 8, !tbaa !79
@@ -1668,7 +1662,7 @@ define noalias noundef ptr @_ZN7rocksdb23JemallocNodumpAllocator8AllocateEm(ptr 
   %31 = zext i32 %spec.select.i.i to i64
   %32 = mul nuw i64 %30, %31
   %33 = lshr i64 %32, 32
-  %34 = getelementptr inbounds nuw i32, ptr %18, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %33
   br label %_ZNK7rocksdb23JemallocNodumpAllocator13GetArenaIndexEv.exit
 
 _ZNK7rocksdb23JemallocNodumpAllocator13GetArenaIndexEv.exit: ; preds = %2, %17
@@ -1785,7 +1779,7 @@ define noundef i32 @_ZNK7rocksdb23JemallocNodumpAllocator13GetArenaIndexEv(ptr n
   %29 = zext i32 %spec.select.i to i64
   %30 = mul nuw i64 %28, %29
   %31 = lshr i64 %30, 32
-  %32 = getelementptr inbounds nuw i32, ptr %16, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %31
   br label %33
 
 33:                                               ; preds = %1, %15
@@ -2165,7 +2159,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %159, %_ZNK
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %161, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %155, ptr %28, align 8, !tbaa !54
   store ptr %160, ptr %29, align 8, !tbaa !114
-  %162 = getelementptr inbounds nuw i32, ptr %155, i64 %153
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %153
   store ptr %162, ptr %30, align 8, !tbaa !57
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -2174,7 +2168,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %139, %_ZNSt6vectorI
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %164 = getelementptr inbounds nuw i32, ptr %163, i64 %.0271
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %.0271
   %165 = load i32, ptr %164, align 4, !tbaa !87
   call void @llvm.experimental.noalias.scope.decl(metadata !147)
   %166 = icmp ult i32 %165, 10
@@ -2809,7 +2803,7 @@ _ZNSt6vectorISt10unique_ptrI14extent_hooks_sSt14default_deleteIS1_EESaIS4_EE11_S
 _ZNSt6vectorISt10unique_ptrI14extent_hooks_sSt14default_deleteIS1_EESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %407, %_ZNSt6vectorISt10unique_ptrI14extent_hooks_sSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i.i
   store ptr %401, ptr %37, align 8, !tbaa !58
   store ptr %406, ptr %38, align 8, !tbaa !61
-  %408 = getelementptr inbounds nuw %"class.std::unique_ptr.38", ptr %401, i64 %399
+  %408 = getelementptr inbounds nuw [8 x i8], ptr %401, i64 %399
   store ptr %408, ptr %39, align 8, !tbaa !65
   br label %_ZNSt6vectorISt10unique_ptrI14extent_hooks_sSt14default_deleteIS1_EESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit
 
@@ -4579,7 +4573,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb14OptionTypeInfoEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS6_EEmRKT_.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !46
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8, !tbaa !227
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge, label %38
@@ -4736,7 +4730,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store i64 %2, ptr %32, align 8, !tbaa !228
   %33 = load ptr, ptr %0, align 8, !tbaa !46
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !227
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -4762,7 +4756,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 224
   %46 = load i64, ptr %45, align 8, !tbaa !228
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !227
   br label %49
 
@@ -4965,7 +4959,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 224
   %16 = load i64, ptr %15, align 8, !tbaa !228
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !227
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4980,7 +4974,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !227
   br label %28
 

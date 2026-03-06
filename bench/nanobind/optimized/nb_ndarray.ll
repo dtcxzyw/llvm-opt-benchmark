@@ -869,7 +869,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit91.i: ; preds = %.noexc90.i
 239:                                              ; preds = %248, %.lr.ph.i
   %.048147.i = phi i64 [ 0, %.lr.ph.i ], [ %254, %248 ]
   %240 = load ptr, ptr %233, align 8
-  %241 = getelementptr inbounds nuw i64, ptr %240, i64 %.048147.i
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %.048147.i
   %242 = load i64, ptr %241, align 8
   %243 = sdiv i64 %242, %231
   %244 = mul nsw i64 %243, %231
@@ -886,12 +886,12 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit91.i: ; preds = %.noexc90.i
   br label %270
 
 248:                                              ; preds = %239
-  %249 = getelementptr inbounds nuw i64, ptr %224, i64 %.048147.i
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %.048147.i
   store i64 %243, ptr %249, align 8
   %250 = load ptr, ptr %234, align 8
-  %251 = getelementptr inbounds nuw i64, ptr %250, i64 %.048147.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %.048147.i
   %252 = load i64, ptr %251, align 8
-  %253 = getelementptr inbounds nuw i64, ptr %229, i64 %.048147.i
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %.048147.i
   store i64 %252, ptr %253, align 8
   %254 = add nuw i64 %.048147.i, 1
   %255 = load i32, ptr %216, align 4
@@ -1206,9 +1206,9 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %337, %328, %_ZNK8na
 
 385:                                              ; preds = %385, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %385 ]
-  %386 = getelementptr inbounds nuw i64, ptr %382, i64 %indvars.iv
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %indvars.iv
   %387 = load i64, ptr %386, align 8
-  %388 = getelementptr inbounds nuw i64, ptr %384, i64 %indvars.iv
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %384, i64 %indvars.iv
   %389 = load i64, ptr %388, align 8
   %.not207 = icmp eq i64 %387, %389
   %.not208 = icmp eq i64 %387, -1
@@ -1246,7 +1246,7 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %337, %328, %_ZNK8na
 400:                                              ; preds = %.lr.ph436, %400
   %indvars.iv464 = phi i64 [ 0, %.lr.ph436 ], [ %indvars.iv.next465, %400 ]
   %.0195434 = phi i64 [ 1, %.lr.ph436 ], [ %403, %400 ]
-  %401 = getelementptr inbounds nuw i64, ptr %398, i64 %indvars.iv464
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %398, i64 %indvars.iv464
   %402 = load i64, ptr %401, align 8
   %403 = mul nsw i64 %402, %.0195434
   %indvars.iv.next465 = add nuw nsw i64 %indvars.iv464, 1
@@ -1283,7 +1283,7 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %337, %328, %_ZNK8na
 416:                                              ; preds = %.lr.ph453, %416
   %indvars.iv470 = phi i64 [ 0, %.lr.ph453 ], [ %indvars.iv.next471, %416 ]
   %.0188451 = phi i32 [ 0, %.lr.ph453 ], [ %421, %416 ]
-  %417 = getelementptr inbounds nuw i64, ptr %414, i64 %indvars.iv470
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %indvars.iv470
   %418 = load i64, ptr %417, align 8
   %419 = icmp sgt i64 %418, 1
   %420 = zext i1 %419 to i32
@@ -1309,13 +1309,13 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %337, %328, %_ZNK8na
   %.0185441 = phi i64 [ 1, %.lr.ph443 ], [ %438, %435 ]
   %.0186440 = phi i64 [ %424, %.lr.ph443 ], [ %439, %435 ]
   %.1192439 = phi i1 [ %407, %.lr.ph443 ], [ %437, %435 ]
-  %428 = getelementptr inbounds nuw i64, ptr %426, i64 %.0186440
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %426, i64 %.0186440
   %429 = load i64, ptr %428, align 8
   %430 = icmp eq i64 %429, 1
   br i1 %430, label %435, label %431
 
 431:                                              ; preds = %427
-  %432 = getelementptr inbounds nuw i64, ptr %411, i64 %.0186440
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %411, i64 %.0186440
   %433 = load i64, ptr %432, align 8
   %434 = icmp eq i64 %433, %.0185441
   br label %435
@@ -1345,13 +1345,13 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %337, %328, %_ZNK8na
   %.0183447 = phi i64 [ 1, %.lr.ph449 ], [ %455, %452 ]
   %.0184446 = phi i64 [ 0, %.lr.ph449 ], [ %456, %452 ]
   %.1190445 = phi i1 [ %409, %.lr.ph449 ], [ %454, %452 ]
-  %445 = getelementptr inbounds nuw i64, ptr %443, i64 %.0184446
+  %445 = getelementptr inbounds nuw [8 x i8], ptr %443, i64 %.0184446
   %446 = load i64, ptr %445, align 8
   %447 = icmp eq i64 %446, 1
   br i1 %447, label %452, label %448
 
 448:                                              ; preds = %444
-  %449 = getelementptr inbounds nuw i64, ptr %411, i64 %.0184446
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %411, i64 %.0184446
   %450 = load i64, ptr %449, align 8
   %451 = icmp eq i64 %450, %.0183447
   br label %452
@@ -1775,7 +1775,7 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit: ; preds = %571, %576
   %580 = add i32 %577, 1
   store i32 %580, ptr %3, align 8
   %581 = zext i32 %577 to i64
-  %582 = getelementptr inbounds nuw ptr, ptr %579, i64 %581
+  %582 = getelementptr inbounds nuw [8 x i8], ptr %579, i64 %581
   store ptr %572, ptr %582, align 8
   br label %583
 
@@ -1934,10 +1934,10 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc336
 635:                                              ; preds = %.lr.ph458, %635
   %.0457 = phi i64 [ 1, %.lr.ph458 ], [ %640, %635 ]
   %.0168456 = phi i64 [ %630, %.lr.ph458 ], [ %641, %635 ]
-  %636 = getelementptr inbounds nuw i64, ptr %625, i64 %.0168456
+  %636 = getelementptr inbounds nuw [8 x i8], ptr %625, i64 %.0168456
   store i64 %.0457, ptr %636, align 8
   %637 = load ptr, ptr %631, align 8
-  %638 = getelementptr inbounds nuw i64, ptr %637, i64 %.0168456
+  %638 = getelementptr inbounds nuw [8 x i8], ptr %637, i64 %.0168456
   %639 = load i64, ptr %638, align 8
   %640 = mul nsw i64 %639, %.0457
   %641 = add nsw i64 %.0168456, -1
@@ -2629,9 +2629,9 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73.preheader: ; preds = %.noexc7
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73: ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73.preheader, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73
   %.057116 = phi i64 [ %32, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73 ], [ 0, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73.preheader ]
-  %29 = getelementptr inbounds nuw i64, ptr %2, i64 %.057116
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.057116
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i64, ptr %16, i64 %.057116
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.057116
   store i64 %30, ptr %31, align 8
   %32 = add nuw i64 %.057116, 1
   %exitcond.not = icmp eq i64 %32, %1
@@ -2643,9 +2643,9 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73._crit_edge: ; preds = %_ZN8na
 
 .preheader114:                                    ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73._crit_edge, %.preheader114
   %.055117 = phi i64 [ %36, %.preheader114 ], [ 0, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73._crit_edge ]
-  %33 = getelementptr inbounds nuw i64, ptr %4, i64 %.055117
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.055117
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i64, ptr %18, i64 %.055117
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.055117
   store i64 %34, ptr %35, align 8
   %36 = add nuw i64 %.055117, 1
   %exitcond127.not = icmp eq i64 %36, %1
@@ -2662,9 +2662,9 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73._crit_edge: ; preds = %_ZN8na
 .preheader:                                       ; preds = %37, %.preheader
   %.054122 = phi i64 [ %42, %.preheader ], [ 0, %37 ]
   %.056121 = phi i64 [ %41, %.preheader ], [ 1, %37 ]
-  %38 = getelementptr inbounds nuw i64, ptr %18, i64 %.054122
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.054122
   store i64 %.056121, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i64, ptr %2, i64 %.054122
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.054122
   %40 = load i64, ptr %39, align 8
   %41 = mul nsw i64 %40, %.056121
   %42 = add nuw i64 %.054122, 1
@@ -2679,9 +2679,9 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit73._crit_edge: ; preds = %_ZN8na
   %.0.in119 = phi i64 [ %.0, %.lr.ph120 ], [ %1, %43 ]
   %.1118 = phi i64 [ %48, %.lr.ph120 ], [ 1, %43 ]
   %.0 = add nsw i64 %.0.in119, -1
-  %45 = getelementptr inbounds nuw i64, ptr %18, i64 %.0
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0
   store i64 %.1118, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i64, ptr %2, i64 %.0
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0
   %47 = load i64, ptr %46, align 8
   %48 = mul nsw i64 %47, %.1118
   %49 = icmp samesign ugt i64 %.0.in119, 1
@@ -3780,13 +3780,13 @@ define internal noundef range(i32 -1, 1) i32 @_ZN8nanobind6detailL19nd_ndarray_t
 
 switch.lookup:                                    ; preds = %.split
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi, i64 %37
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %39
 
 switch.lookup76:                                  ; preds = %.split1
   %38 = zext nneg i32 %switch.tableidx75 to i64
-  %switch.gep77 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi.8, i64 %38
+  %switch.gep77 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi.8, i64 %38
   %switch.load78 = load ptr, ptr %switch.gep77, align 8
   br label %39
 
@@ -3916,20 +3916,20 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit55: ; preds = %.lr.ph, %_ZN8nano
   %.065 = phi i64 [ 0, %.lr.ph ], [ %108, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit55 ]
   %.05064 = phi i64 [ %58, %.lr.ph ], [ %97, %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit55 ]
   %94 = load ptr, ptr %70, align 8
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %.065
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.065
   %96 = load i64, ptr %95, align 8
   %97 = mul nsw i64 %96, %.05064
   %98 = load ptr, ptr %71, align 8
-  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %.065
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %.065
   %100 = load i64, ptr %99, align 8
   %101 = load i64, ptr %48, align 8
   %102 = mul nsw i64 %101, %100
-  %103 = getelementptr inbounds nuw i64, ptr %63, i64 %.065
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.065
   store i64 %102, ptr %103, align 8
   %104 = load ptr, ptr %70, align 8
-  %105 = getelementptr inbounds nuw i64, ptr %104, i64 %.065
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %.065
   %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i64, ptr %68, i64 %.065
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.065
   store i64 %106, ptr %107, align 8
   %108 = add nuw i64 %.065, 1
   %109 = load i32, ptr %59, align 8

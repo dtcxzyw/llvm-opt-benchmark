@@ -3,7 +3,6 @@ source_filename = "bench/cmake/original/filter_encoder.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lzma_filter_encoder = type { i64, ptr, ptr, ptr, ptr, i32, ptr }
 %struct.lzma_filter = type { i64, ptr }
 
 @encoders = internal constant [10 x { i64, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr }] [{ i64, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr } { i64 4611686018427387905, ptr @lzma_lzma_encoder_init, ptr @lzma_lzma_encoder_memusage, ptr null, ptr null, i32 5, [4 x i8] zeroinitializer, ptr @lzma_lzma_props_encode }, { i64, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr } { i64 4611686018427387906, ptr @lzma_lzma_encoder_init, ptr @lzma_lzma_encoder_memusage, ptr null, ptr null, i32 5, [4 x i8] zeroinitializer, ptr @lzma_lzma_props_encode }, { i64, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr } { i64 33, ptr @lzma_lzma2_encoder_init, ptr @lzma_lzma2_encoder_memusage, ptr @lzma_lzma2_block_size, ptr null, i32 1, [4 x i8] zeroinitializer, ptr @lzma_lzma2_props_encode }, { i64, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr } { i64 4, ptr @lzma_simple_x86_encoder_init, ptr null, ptr null, ptr @lzma_simple_props_size, i32 0, [4 x i8] zeroinitializer, ptr @lzma_simple_props_encode }, { i64, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr } { i64 5, ptr @lzma_simple_powerpc_encoder_init, ptr null, ptr null, ptr @lzma_simple_props_size, i32 0, [4 x i8] zeroinitializer, ptr @lzma_simple_props_encode }, { i64, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr } { i64 6, ptr @lzma_simple_ia64_encoder_init, ptr null, ptr null, ptr @lzma_simple_props_size, i32 0, [4 x i8] zeroinitializer, ptr @lzma_simple_props_encode }, { i64, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr } { i64 7, ptr @lzma_simple_arm_encoder_init, ptr null, ptr null, ptr @lzma_simple_props_size, i32 0, [4 x i8] zeroinitializer, ptr @lzma_simple_props_encode }, { i64, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr } { i64 8, ptr @lzma_simple_armthumb_encoder_init, ptr null, ptr null, ptr @lzma_simple_props_size, i32 0, [4 x i8] zeroinitializer, ptr @lzma_simple_props_encode }, { i64, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr } { i64 9, ptr @lzma_simple_sparc_encoder_init, ptr null, ptr null, ptr @lzma_simple_props_size, i32 0, [4 x i8] zeroinitializer, ptr @lzma_simple_props_encode }, { i64, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr } { i64 3, ptr @lzma_delta_encoder_init, ptr @lzma_delta_coder_memusage, ptr null, ptr null, i32 1, [4 x i8] zeroinitializer, ptr @lzma_delta_props_encode }], align 16
@@ -14,7 +13,7 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_filter_encoder_is_supported(i64
 
 2:                                                ; preds = %2, %1
   %.0610.i = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %3 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.0610.i
+  %3 = getelementptr inbounds nuw [56 x i8], ptr @encoders, i64 %.0610.i
   %4 = load i64, ptr %3, align 8, !tbaa !4
   %5 = icmp eq i64 %4, %0
   %6 = add nuw nsw i64 %.0610.i, 1
@@ -44,7 +43,7 @@ define dso_local i32 @lzma_filters_update(ptr noundef readonly captures(none) %0
 
 .preheader:                                       ; preds = %9, %.preheader
   %.017 = phi i64 [ %14, %.preheader ], [ 1, %9 ]
-  %12 = getelementptr inbounds nuw %struct.lzma_filter, ptr %1, i64 %.017
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.017
   %13 = load i64, ptr %12, align 8, !tbaa !21
   %.not = icmp eq i64 %13, -1
   %14 = add i64 %.017, 1
@@ -56,11 +55,11 @@ define dso_local i32 @lzma_filters_update(ptr noundef readonly captures(none) %0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %16 = getelementptr %struct.lzma_filter, ptr %3, i64 %.017
+  %16 = getelementptr [16 x i8], ptr %3, i64 %.017
   br label %25
 
 ._crit_edge:                                      ; preds = %25, %15
-  %17 = getelementptr inbounds nuw %struct.lzma_filter, ptr %3, i64 %.017
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.017
   store i64 -1, ptr %17, align 16, !tbaa !21
   %18 = load ptr, ptr %4, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -75,8 +74,8 @@ define dso_local i32 @lzma_filters_update(ptr noundef readonly captures(none) %0
 25:                                               ; preds = %.lr.ph, %25
   %.019 = phi i64 [ 0, %.lr.ph ], [ %29, %25 ]
   %26 = xor i64 %.019, -1
-  %27 = getelementptr %struct.lzma_filter, ptr %16, i64 %26
-  %28 = getelementptr inbounds nuw %struct.lzma_filter, ptr %1, i64 %.019
+  %27 = getelementptr [16 x i8], ptr %16, i64 %26
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !26
   %29 = add nuw i64 %.019, 1
   %exitcond.not = icmp eq i64 %29, %.017
@@ -115,7 +114,7 @@ define internal noundef ptr @coder_find(i64 noundef %0) #5 {
 
 4:                                                ; preds = %2, %1
   %.0610.i = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.0610.i
+  %5 = getelementptr inbounds nuw [56 x i8], ptr @encoders, i64 %.0610.i
   %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = icmp eq i64 %6, %0
   br i1 %7, label %encoder_find.exit, label %2
@@ -180,7 +179,7 @@ define dso_local i64 @lzma_mt_block_size(ptr noundef readonly captures(address_i
   %4 = phi i64 [ %21, %18 ], [ %3, %.preheader39 ]
   %.01949 = phi i64 [ %.221.ph, %18 ], [ 0, %.preheader39 ]
   %.02648 = phi i64 [ %19, %18 ], [ 0, %.preheader39 ]
-  %5 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %.02648
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.02648
   br label %8
 
 6:                                                ; preds = %8
@@ -190,7 +189,7 @@ define dso_local i64 @lzma_mt_block_size(ptr noundef readonly captures(address_i
 
 8:                                                ; preds = %.preheader, %6
   %.0610.i = phi i64 [ %7, %6 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.0610.i
+  %9 = getelementptr inbounds nuw [56 x i8], ptr @encoders, i64 %.0610.i
   %10 = load i64, ptr %9, align 8, !tbaa !4
   %11 = icmp eq i64 %10, %4
   br i1 %11, label %encoder_find.exit, label %6
@@ -211,7 +210,7 @@ encoder_find.exit:                                ; preds = %8
 18:                                               ; preds = %12, %encoder_find.exit
   %.221.ph = phi i64 [ %.01949, %encoder_find.exit ], [ %spec.select, %12 ]
   %19 = add i64 %.02648, 1
-  %20 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !21
   %.not = icmp eq i64 %21, -1
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !33
@@ -241,7 +240,7 @@ define dso_local i32 @lzma_properties_size(ptr noundef %0, ptr noundef readonly 
 
 6:                                                ; preds = %4, %2
   %.0610.i = phi i64 [ 0, %2 ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.0610.i
+  %7 = getelementptr inbounds nuw [56 x i8], ptr @encoders, i64 %.0610.i
   %8 = load i64, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i64 %8, %3
   br i1 %9, label %encoder_find.exit, label %4
@@ -287,7 +286,7 @@ define dso_local i32 @lzma_properties_encode(ptr noundef readonly captures(none)
 
 6:                                                ; preds = %4, %2
   %.0610.i = phi i64 [ 0, %2 ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw %struct.lzma_filter_encoder, ptr @encoders, i64 %.0610.i
+  %7 = getelementptr inbounds nuw [56 x i8], ptr @encoders, i64 %.0610.i
   %8 = load i64, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i64 %8, %3
   br i1 %9, label %encoder_find.exit, label %4

@@ -3445,7 +3445,7 @@ ehcleanup24:                                      ; preds = %if.then.i.i15, %ehc
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 do.end:                                           ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv
   %21 = load double, ptr %add.ptr.i, align 8, !tbaa !107
   ret double %21
 
@@ -3630,14 +3630,14 @@ ehcleanup24:                                      ; preds = %if.then.i.i16, %ehc
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 do.end:                                           ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv
   %21 = load double, ptr %add.ptr.i, align 8, !tbaa !107
   %heatRate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %22 = load double, ptr %heatRate_, align 8, !tbaa !79
   %fuelPrices_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %23 = load ptr, ptr %fuelPrices_, align 8, !tbaa !136
   %24 = load ptr, ptr %23, align 8, !tbaa !39
-  %add.ptr.i22 = getelementptr inbounds nuw double, ptr %24, i64 %conv
+  %add.ptr.i22 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %conv
   %25 = load double, ptr %add.ptr.i22, align 8, !tbaa !107
   %neg = fneg double %22
   %26 = tail call double @llvm.fmuladd.f64(double %neg, double %25, double %21)

@@ -692,7 +692,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %200 = zext i16 %spec.store.select.i197.i to i32
   %201 = tail call ptr @tvb_format_text(ptr noundef %195, ptr noundef %0, i32 noundef %199, i32 noundef %200)
   %202 = zext i8 %spec.store.select.i to i64
-  %203 = getelementptr ptr, ptr @req_headers, i64 %202
+  %203 = getelementptr [8 x i8], ptr @req_headers, i64 %202
   %204 = load ptr, ptr %203, align 8
   %205 = load i32, ptr %204, align 4
   %206 = zext i16 %197 to i32
@@ -736,7 +736,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %233 = zext i16 %spec.store.select.i199.i to i32
   %234 = tail call ptr @tvb_format_text(ptr noundef %228, ptr noundef %0, i32 noundef %232, i32 noundef %233)
   %235 = zext i8 %spec.store.select1.i to i64
-  %236 = getelementptr ptr, ptr @req_headers, i64 %235
+  %236 = getelementptr [8 x i8], ptr @req_headers, i64 %235
   %237 = load ptr, ptr %236, align 8
   %238 = load i32, ptr %237, align 4
   %239 = zext i16 %230 to i32
@@ -815,7 +815,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %290 = zext i16 %285 to i32
   %291 = add i32 %287, %290
   %292 = zext nneg i8 %spec.store.select2.i to i64
-  %293 = getelementptr ptr, ptr @req_attributes, i64 %292
+  %293 = getelementptr [8 x i8], ptr @req_attributes, i64 %292
   %294 = load ptr, ptr %293, align 8
   %295 = load i32, ptr %294, align 4
   %296 = add nuw nsw i32 %290, 3
@@ -947,7 +947,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %366 = zext i16 %spec.store.select.i106.i to i32
   %367 = tail call ptr @tvb_format_text(ptr noundef %361, ptr noundef %0, i32 noundef %365, i32 noundef %366)
   %368 = zext i8 %spec.store.select.i62 to i64
-  %369 = getelementptr ptr, ptr @rsp_headers, i64 %368
+  %369 = getelementptr [8 x i8], ptr @rsp_headers, i64 %368
   %370 = load ptr, ptr %369, align 8
   %371 = load i32, ptr %370, align 4
   %372 = zext i16 %363 to i32
@@ -979,7 +979,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %394 = icmp ugt i8 %354, 11
   %spec.store.select1.i59 = select i1 %394, i8 0, i8 %354
   %395 = zext i8 %spec.store.select1.i59 to i64
-  %396 = getelementptr ptr, ptr @rsp_headers, i64 %395
+  %396 = getelementptr [8 x i8], ptr @rsp_headers, i64 %395
   %397 = load ptr, ptr %396, align 8
   %398 = load i32, ptr %397, align 4
   %399 = zext i16 %389 to i32

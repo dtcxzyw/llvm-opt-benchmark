@@ -254,7 +254,7 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
 
 37:                                               ; preds = %34, %37
   %.0101122 = phi i64 [ 0, %34 ], [ %42, %37 ]
-  %38 = getelementptr inbounds nuw %struct.pointf_s, ptr %2, i64 %.0101122
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.0101122
   %39 = load double, ptr %38, align 8, !tbaa !44
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load double, ptr %40, align 8, !tbaa !45
@@ -317,7 +317,7 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
 
 switch.lookup:                                    ; preds = %64
   %69 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.map_output_shape, i64 %69
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.map_output_shape, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %70 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull %switch.load) #4
   %.not110 = icmp eq ptr %7, null
@@ -416,7 +416,7 @@ switch.lookup:                                    ; preds = %64
 
 .lr.ph:                                           ; preds = %115, %.lr.ph
   %.0121 = phi i64 [ %123, %.lr.ph ], [ 1, %115 ]
-  %119 = getelementptr inbounds nuw %struct.pointf_s, ptr %2, i64 %.0121
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.0121
   %120 = load double, ptr %119, align 8, !tbaa !44
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %122 = load double, ptr %121, align 8, !tbaa !45

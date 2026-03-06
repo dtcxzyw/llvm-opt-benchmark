@@ -1270,10 +1270,10 @@ define internal fastcc void @process_tiff_ifd_chain(ptr noundef %0, ptr noundef 
 
 switch.lookup:                                    ; preds = %.lr.ph161
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.process_tiff_ifd_chain, i64 %39
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.process_tiff_ifd_chain, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
   %40 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep184 = getelementptr inbounds nuw i32, ptr @switch.table.process_tiff_ifd_chain.1, i64 %40
+  %switch.gep184 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.process_tiff_ifd_chain.1, i64 %40
   %switch.load185 = load i32, ptr %switch.gep184, align 4
   %.0129.ph = load i32, ptr %switch.load, align 4
   %41 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %switch.load185, i1 true)

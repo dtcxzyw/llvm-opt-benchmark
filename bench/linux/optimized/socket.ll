@@ -1713,7 +1713,7 @@ define dso_local i32 @__sock_create(ptr noundef %0, i32 noundef %1, i32 noundef 
   %55 = getelementptr i8, ptr %29, i64 -124
   store i16 %54, ptr %55, align 4
   %56 = zext nneg i32 %22 to i64
-  %57 = getelementptr ptr, ptr @net_families, i64 %56
+  %57 = getelementptr [8 x i8], ptr @net_families, i64 %56
   %58 = load volatile ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %62
@@ -6993,7 +6993,7 @@ define dso_local noundef range(i32 -105, 1) i32 @sock_register(ptr noundef %0) #
   tail call void @_raw_spin_lock(ptr noundef nonnull @net_family_lock) #20
   %7 = load i32, ptr %0, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr ptr, ptr @net_families, i64 %8
+  %9 = getelementptr [8 x i8], ptr @net_families, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
@@ -7002,7 +7002,7 @@ define dso_local noundef range(i32 -105, 1) i32 @sock_register(ptr noundef %0) #
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !52
   %13 = load i32, ptr %0, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr ptr, ptr @net_families, i64 %14
+  %15 = getelementptr [8 x i8], ptr @net_families, i64 %14
   store volatile ptr %0, ptr %15, align 8
   br label %16
 
@@ -7011,7 +7011,7 @@ define dso_local noundef range(i32 -105, 1) i32 @sock_register(ptr noundef %0) #
   tail call void @_raw_spin_unlock(ptr noundef nonnull @net_family_lock) #20
   %18 = load i32, ptr %0, align 8
   %19 = sext i32 %18 to i64
-  %20 = getelementptr ptr, ptr @pf_family_names, i64 %19
+  %20 = getelementptr [8 x i8], ptr @pf_family_names, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %21) #22
   br label %23
@@ -7034,11 +7034,11 @@ define dso_local void @sock_unregister(i32 noundef %0) #0 align 16 {
 4:                                                ; preds = %1
   tail call void @_raw_spin_lock(ptr noundef nonnull @net_family_lock) #20
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr ptr, ptr @net_families, i64 %5
+  %6 = getelementptr [8 x i8], ptr @net_families, i64 %5
   store volatile ptr null, ptr %6, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @net_family_lock) #20
   tail call void @synchronize_rcu() #20
-  %7 = getelementptr ptr, ptr @pf_family_names, i64 %5
+  %7 = getelementptr [8 x i8], ptr @pf_family_names, i64 %5
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %8) #22
   ret void
@@ -7054,7 +7054,7 @@ define dso_local zeroext i1 @sock_is_registered(i32 noundef %0) local_unnamed_ad
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr ptr, ptr @net_families, i64 %4
+  %5 = getelementptr [8 x i8], ptr @net_families, i64 %4
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   br label %8

@@ -457,7 +457,7 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
 
 117:                                              ; preds = %.preheader, %116
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %116 ]
-  %118 = getelementptr inbounds nuw %struct.anon, ptr @pmi2_cmd_handlers, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [16 x i8], ptr @pmi2_cmd_handlers, i64 %indvars.iv
   %119 = load ptr, ptr %118, align 16
   %120 = load ptr, ptr %113, align 8
   %121 = call i32 @slurm_xstrcmp(ptr noundef %120, ptr noundef %119) #7
@@ -588,7 +588,7 @@ define internal i32 @_handle_fullinit(i32 noundef %0, i32 noundef %1, ptr nounde
   %19 = call ptr @client_resp_new() #7
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 48), align 8
   %21 = sext i32 %1 to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 36), align 4
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 60), align 4
@@ -789,7 +789,7 @@ define internal i32 @_handle_kvs_fence(i32 %0, i32 noundef %1, ptr readnone capt
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 48), align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.57, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_kvs_fence, i32 noundef %10) #7
   br label %11

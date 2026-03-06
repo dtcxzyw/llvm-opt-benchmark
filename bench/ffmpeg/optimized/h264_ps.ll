@@ -76,7 +76,7 @@ define void @ff_h264_ps_uninit(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   tail call void @av_refstruct_unref(ptr noundef %4) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -84,7 +84,7 @@ define void @ff_h264_ps_uninit(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %.preheader, %5
   %indvars.iv12 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next13, %5 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv12
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv12
   tail call void @av_refstruct_unref(ptr noundef nonnull %6) #11
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond15.not = icmp eq i64 %indvars.iv.next13, 256
@@ -623,7 +623,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 351:                                              ; preds = %.lr.ph, %347
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %347 ]
   %352 = tail call fastcc i32 @get_se_golomb_long(ptr noundef nonnull %0)
-  %353 = getelementptr inbounds nuw i32, ptr %345, i64 %indvars.iv
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %345, i64 %indvars.iv
   store i32 %352, ptr %353, align 4, !tbaa !51
   %354 = icmp eq i32 %352, -2147483648
   br i1 %354, label %355, label %347
@@ -914,7 +914,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %528 = getelementptr inbounds nuw i8, ptr %2, i64 2320
   %529 = load i32, ptr %519, align 8, !tbaa !81
   %530 = sext i32 %529 to i64
-  %531 = getelementptr inbounds i32, ptr %528, i64 %530
+  %531 = getelementptr inbounds [4 x i8], ptr %528, i64 %530
   %.not198 = icmp eq i32 %529, 0
   %532 = select i1 %.not198, ptr @.str.19, ptr @.str.18
   %533 = sub nsw i32 0, %524
@@ -951,13 +951,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 547:                                              ; preds = %543, %546
   %indvars.iv254 = phi i64 [ 0, %543 ], [ %indvars.iv.next255, %546 ]
-  %548 = getelementptr inbounds nuw [2 x i32], ptr @level_max_dpb_mbs, i64 %indvars.iv254
+  %548 = getelementptr inbounds nuw [8 x i8], ptr @level_max_dpb_mbs, i64 %indvars.iv254
   %549 = load i32, ptr %548, align 8, !tbaa !51
   %550 = icmp eq i32 %549, %545
   br i1 %550, label %551, label %546
 
 551:                                              ; preds = %547
-  %552 = getelementptr inbounds nuw [2 x i32], ptr @level_max_dpb_mbs, i64 %indvars.iv254
+  %552 = getelementptr inbounds nuw [8 x i8], ptr @level_max_dpb_mbs, i64 %indvars.iv254
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 4
   %554 = load i32, ptr %553, align 4, !tbaa !51
   %555 = load i32, ptr %385, align 8, !tbaa !70
@@ -1053,7 +1053,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 611:                                              ; preds = %609, %562
   %612 = zext nneg i8 %100 to i64
-  %613 = getelementptr inbounds nuw ptr, ptr %2, i64 %612
+  %613 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %612
   %614 = load ptr, ptr %613, align 8, !tbaa !14
   %.not210 = icmp eq ptr %614, null
   br i1 %.not210, label %617, label %615
@@ -1917,7 +1917,7 @@ get_ue_golomb.exit:                               ; preds = %28
 
 90:                                               ; preds = %68
   %91 = zext nneg i8 %86 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr %2, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !14
   %.not77 = icmp eq ptr %93, null
   br i1 %.not77, label %94, label %95
@@ -2245,7 +2245,7 @@ get_ue_golomb.exit:                               ; preds = %28
 307:                                              ; preds = %288, %284
   %308 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %309 = zext nneg i32 %.0.i100 to i64
-  %310 = getelementptr inbounds nuw ptr, ptr %308, i64 %309
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %309
   tail call void @av_refstruct_unref(ptr noundef nonnull %310) #11
   store ptr %46, ptr %310, align 8, !tbaa !100
   br label %312
@@ -2430,8 +2430,8 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
 
 .split.us.i:                                      ; preds = %.critedge..loopexit_crit_edge.us.i, %.split.us.preheader.i
   %indvars.iv34.i = phi i64 [ 0, %.split.us.preheader.i ], [ %indvars.iv.next35.i, %.critedge..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv34.i
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv34.i
+  %10 = getelementptr inbounds nuw [5632 x i8], ptr %5, i64 %indvars.iv34.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv34.i
   store ptr %10, ptr %11, align 8, !tbaa !119
   %.not11.i = icmp eq i64 %indvars.iv34.i, 0
   br i1 %.not11.i, label %.critedge.preheader.us.i, label %.lr.ph.us.i
@@ -2451,7 +2451,7 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
   %19 = load i8, ptr %18, align 1, !tbaa !27
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw [3 x i8], ptr @ff_h264_dequant4_coeff_init, i64 %20
-  %22 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 %indvars.iv29.i
+  %22 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %indvars.iv29.i
   br label %23
 
 .critedge.us.i:                                   ; preds = %23
@@ -2479,7 +2479,7 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
   %39 = and i32 %38, 12
   %40 = or disjoint i32 %39, %26
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %22, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %41
   store i32 %37, ptr %42, align 4, !tbaa !51
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 16
@@ -2493,7 +2493,7 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
   br i1 %.not.us.i, label %45, label %12
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv21.i
+  %46 = getelementptr inbounds nuw [5632 x i8], ptr %5, i64 %indvars.iv21.i
   store ptr %46, ptr %11, align 8, !tbaa !119
   br label %.critedge..loopexit_crit_edge.us.i
 
@@ -2512,8 +2512,8 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
 
 .split.i:                                         ; preds = %2, %.critedge.preheader.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.critedge.preheader.i ], [ 0, %2 ]
-  %49 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv17.i
-  %50 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv17.i
+  %49 = getelementptr inbounds nuw [5632 x i8], ptr %5, i64 %indvars.iv17.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv17.i
   store ptr %49, ptr %50, align 8, !tbaa !119
   %.not10.i = icmp eq i64 %indvars.iv17.i, 0
   br i1 %.not10.i, label %.critedge.preheader.i, label %.lr.ph.i
@@ -2535,7 +2535,7 @@ define internal fastcc void @init_dequant_tables(ptr noundef %0, ptr noundef rea
   br i1 %.not.i, label %55, label %52
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw [88 x [16 x i32]], ptr %5, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [5632 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %56, ptr %50, align 8, !tbaa !119
   br label %.critedge.preheader.i
 
@@ -2568,8 +2568,8 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
 
 .split.us.i41:                                    ; preds = %.critedge..loopexit_crit_edge.us.i59, %.split.us.preheader.i39
   %indvars.iv34.i42 = phi i64 [ 0, %.split.us.preheader.i39 ], [ %indvars.iv.next35.i60, %.critedge..loopexit_crit_edge.us.i59 ]
-  %66 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv34.i42
-  %67 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv34.i42
+  %66 = getelementptr inbounds nuw [22528 x i8], ptr %62, i64 %indvars.iv34.i42
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv34.i42
   store ptr %66, ptr %67, align 8, !tbaa !119
   %.not11.i43 = icmp eq i64 %indvars.iv34.i42, 0
   br i1 %.not11.i43, label %.critedge.preheader.us.i50, label %.lr.ph.us.i44
@@ -2588,7 +2588,7 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
   %74 = load i8, ptr %73, align 1, !tbaa !27
   %75 = zext i8 %74 to i64
   %76 = getelementptr inbounds nuw [6 x i8], ptr @ff_h264_dequant8_coeff_init, i64 %75
-  %77 = getelementptr inbounds nuw [64 x i32], ptr %66, i64 %indvars.iv29.i51
+  %77 = getelementptr inbounds nuw [256 x i8], ptr %66, i64 %indvars.iv29.i51
   br label %78
 
 .critedge.us.i56:                                 ; preds = %78
@@ -2619,7 +2619,7 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
   %97 = and i32 %96, 56
   %98 = or disjoint i32 %97, %95
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %77, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %99
   store i32 %94, ptr %100, align 4, !tbaa !51
   %indvars.iv.next26.i54 = add nuw nsw i64 %indvars.iv25.i52, 1
   %exitcond28.not.i55 = icmp eq i64 %indvars.iv.next26.i54, 64
@@ -2633,7 +2633,7 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
   br i1 %.not.us.i47, label %103, label %68
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv21.i45
+  %104 = getelementptr inbounds nuw [22528 x i8], ptr %62, i64 %indvars.iv21.i45
   store ptr %104, ptr %67, align 8, !tbaa !119
   br label %.critedge..loopexit_crit_edge.us.i59
 
@@ -2652,8 +2652,8 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
 
 .split.i27:                                       ; preds = %60, %.critedge.preheader.i36
   %indvars.iv17.i28 = phi i64 [ %indvars.iv.next18.i37, %.critedge.preheader.i36 ], [ 0, %60 ]
-  %107 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv17.i28
-  %108 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv17.i28
+  %107 = getelementptr inbounds nuw [22528 x i8], ptr %62, i64 %indvars.iv17.i28
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv17.i28
   store ptr %107, ptr %108, align 8, !tbaa !119
   %.not10.i29 = icmp eq i64 %indvars.iv17.i28, 0
   br i1 %.not10.i29, label %.critedge.preheader.i36, label %.lr.ph.i30
@@ -2675,7 +2675,7 @@ init_dequant4_coeff_table.exit:                   ; preds = %.critedge.preheader
   br i1 %.not.i33, label %113, label %110
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw [88 x [64 x i32]], ptr %62, i64 %indvars.iv.i31
+  %114 = getelementptr inbounds nuw [22528 x i8], ptr %62, i64 %indvars.iv.i31
   store ptr %114, ptr %108, align 8, !tbaa !119
   br label %.critedge.preheader.i36
 
@@ -2692,13 +2692,13 @@ init_dequant8_coeff_table.exit:                   ; preds = %.critedge.preheader
 
 .preheader63:                                     ; preds = %init_dequant8_coeff_table.exit, %121
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %121 ], [ 0, %init_dequant8_coeff_table.exit ]
-  %117 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv82
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv82
   %118 = load ptr, ptr %117, align 8, !tbaa !119
   br label %119
 
 119:                                              ; preds = %.preheader63, %119
   %indvars.iv = phi i64 [ 0, %.preheader63 ], [ %indvars.iv.next, %119 ]
-  %120 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv
   store i32 64, ptr %120, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -2716,13 +2716,13 @@ init_dequant8_coeff_table.exit:                   ; preds = %.critedge.preheader
 
 .preheader:                                       ; preds = %122, %128
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %128 ], [ 0, %122 ]
-  %124 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv90
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv90
   %125 = load ptr, ptr %124, align 8, !tbaa !119
   br label %126
 
 126:                                              ; preds = %.preheader, %126
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %126 ]
-  %127 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv86
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %indvars.iv86
   store i32 64, ptr %127, align 4, !tbaa !51
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 64
@@ -3036,7 +3036,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hrd_parameters(ptr 
 
 get_ue_golomb_long.exit:                          ; preds = %45, %87, %91
   %.0.i.i = phi i32 [ %88, %87 ], [ %108, %91 ], [ 0, %45 ]
-  %109 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   store i32 %.0.i.i, ptr %109, align 4, !tbaa !51
   %.sroa.46.0.copyload.i.i34 = load i32, ptr %4, align 8, !tbaa !51
   %.sroa.77.0.copyload.i.i36 = load i32, ptr %6, align 8, !tbaa !51
@@ -3127,7 +3127,7 @@ get_ue_golomb_long.exit:                          ; preds = %45, %87, %91
 
 get_ue_golomb_long.exit48:                        ; preds = %get_ue_golomb_long.exit, %151, %155
   %.0.i.i46 = phi i32 [ %152, %151 ], [ %172, %155 ], [ 0, %get_ue_golomb_long.exit ]
-  %173 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store i32 %.0.i.i46, ptr %173, align 4, !tbaa !51
   %174 = load i32, ptr %4, align 8, !tbaa !28
   %175 = lshr i32 %174, 3

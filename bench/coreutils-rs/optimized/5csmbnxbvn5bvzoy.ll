@@ -216,7 +216,7 @@ define hidden noundef ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u2
   %20 = and i16 %19, %.lcssa.i
   store i16 %20, ptr %6, align 8, !alias.scope !21
   %21 = sub nsw i64 0, %18
-  %22 = getelementptr inbounds { i8, i8 }, ptr %16, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %16, i64 %21
   %23 = add i64 %3, -1
   store i64 %23, ptr %2, align 8
   br label %24
@@ -713,7 +713,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_bas
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hef68ffcbafd6593dE.llvm.10958641669084791720"(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = sub nsw i64 0, %1
-  %4 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %3
+  %4 = getelementptr inbounds [2 x i8], ptr %0, i64 %3
   ret ptr %4
 }
 
@@ -731,7 +731,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hd030f1ecd9a4b82fE
 define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$6next_n17h20c2f723f83269c0E.llvm.10958641669084791720"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %4 = sub nsw i64 0, %1
-  %5 = getelementptr inbounds { i8, i8 }, ptr %3, i64 %4
+  %5 = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   ret ptr %5
 }
 
@@ -794,7 +794,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9nex
   %9 = and i16 %8, %.lcssa
   store i16 %9, ptr %2, align 8, !alias.scope !60
   %10 = sub nsw i64 0, %7
-  %11 = getelementptr inbounds { i8, i8 }, ptr %5, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %5, i64 %10
   ret ptr %11
 
 12:                                               ; preds = %.lr.ph, %12
@@ -1088,8 +1088,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 
 105:                                              ; preds = %105, %.thread48
   %.05.i = phi i64 [ 0, %.thread48 ], [ %110, %105 ]
-  %106 = getelementptr inbounds nuw i64, ptr %0, i64 %.05.i
-  %107 = getelementptr inbounds nuw i64, ptr %.sroa.617.0..sroa_idx.i.i, i64 %.05.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.05.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.617.0..sroa_idx.i.i, i64 %.05.i
   %108 = load i64, ptr %106, align 8, !noalias !106
   %109 = load i64, ptr %107, align 8, !noalias !106
   store i64 %109, ptr %106, align 8, !noalias !106
@@ -1445,7 +1445,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   call void @llvm.experimental.noalias.scope.decl(metadata !216)
   %94 = load ptr, ptr %0, align 8, !alias.scope !216, !noalias !219, !nonnull !7, !noundef !7
   %95 = sub nsw i64 0, %92
-  %96 = getelementptr inbounds { i8, i8 }, ptr %94, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr %94, i64 %95
   %97 = getelementptr inbounds i8, ptr %96, i64 -2
   %.val.i = load ptr, ptr %10, align 8, !noalias !221, !nonnull !7, !align !116, !noundef !7
   %.val4.i = load i8, ptr %97, align 1, !alias.scope !222, !noalias !227, !noundef !7
@@ -1485,8 +1485,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
 
 107:                                              ; preds = %107, %.thread48
   %.05.i = phi i64 [ 0, %.thread48 ], [ %112, %107 ]
-  %108 = getelementptr inbounds nuw i64, ptr %0, i64 %.05.i
-  %109 = getelementptr inbounds nuw i64, ptr %.sroa.617.0..sroa_idx.i.i, i64 %.05.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.05.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.617.0..sroa_idx.i.i, i64 %.05.i
   %110 = load i64, ptr %108, align 8, !noalias !212
   %111 = load i64, ptr %109, align 8, !noalias !212
   store i64 %111, ptr %108, align 8, !noalias !212
@@ -1726,7 +1726,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   %7 = load ptr, ptr %0, align 8, !nonnull !7, !align !116, !noundef !7
   %8 = load ptr, ptr %1, align 8, !nonnull !7, !noundef !7
   %9 = sub nsw i64 0, %2
-  %10 = getelementptr inbounds { i8, i8 }, ptr %8, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -2
   %.val = load ptr, ptr %7, align 8, !nonnull !7, !align !116, !noundef !7
   %.val4 = load i8, ptr %11, align 1, !alias.scope !325, !noalias !330, !noundef !7

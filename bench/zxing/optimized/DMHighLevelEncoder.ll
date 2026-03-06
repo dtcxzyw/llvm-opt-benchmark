@@ -2384,7 +2384,7 @@ _ZNKSt17basic_string_viewIwSt11char_traitsIwEE6substrEmm.exit: ; preds = %5
 _ZNSt11char_traitsIwE7compareEPKwS2_m.exit.i:     ; preds = %_ZNKSt17basic_string_viewIwSt11char_traitsIwEE6substrEmm.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !61
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %1
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1
   %14 = tail call i32 @wmemcmp(ptr noundef %13, ptr noundef %4, i64 noundef %.sroa.speculated.i4) #30
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZNSt11char_traitsIwE7compareEPKwS2_m.exit.thread.i, label %_ZNKSt17basic_string_viewIwSt11char_traitsIwEE7compareES2_.exit
@@ -2500,7 +2500,7 @@ define internal fastcc noundef range(i32 0, 6) i32 @_ZN5ZXing10DataMatrixL13Look
 9:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, ptr noundef nonnull align 4 dereferenceable(24) @constinit.8, i64 24, i1 false), !tbaa.struct !62
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw float, ptr %3, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %10
   store float 0.000000e+00, ptr %11, align 4, !tbaa !63
   br label %12
 
@@ -2557,7 +2557,7 @@ define internal fastcc noundef range(i32 0, 6) i32 @_ZN5ZXing10DataMatrixL13Look
 _ZNSt5arrayIiLm6EE4fillERKi.exit.preheader.i:     ; preds = %_ZNSt5arrayIiLm6EE4fillERKi.exit.i, %"_ZSt9transformIPfPiZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmiE3$_0ET0_T_SE_SD_T1_.exit"
   %indvars.iv.i = phi i64 [ 0, %"_ZSt9transformIPfPiZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmiE3$_0ET0_T_SE_SD_T1_.exit" ], [ %indvars.iv.next.i, %_ZNSt5arrayIiLm6EE4fillERKi.exit.i ]
   %.026.i = phi i32 [ 2147483647, %"_ZSt9transformIPfPiZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmiE3$_0ET0_T_SE_SD_T1_.exit" ], [ %.123.i, %_ZNSt5arrayIiLm6EE4fillERKi.exit.i ]
-  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 4, !tbaa !65
   %35 = icmp sgt i32 %.026.i, %34
   br i1 %35, label %.lr.ph.i.i.i.i.i15.preheader.i, label %_ZNSt5arrayIiLm6EE4fillERKi.exit20.i
@@ -2572,7 +2572,7 @@ _ZNSt5arrayIiLm6EE4fillERKi.exit20.i:             ; preds = %_ZNSt5arrayIiLm6EE4
 
 _ZNSt5arrayIiLm6EE4fillERKi.exit20.thread.i:      ; preds = %_ZNSt5arrayIiLm6EE4fillERKi.exit20.i, %.lr.ph.i.i.i.i.i15.preheader.i
   %.124.i = phi i32 [ %.026.i, %_ZNSt5arrayIiLm6EE4fillERKi.exit20.i ], [ %34, %.lr.ph.i.i.i.i.i15.preheader.i ]
-  %37 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %38 = load i32, ptr %37, align 4, !tbaa !65
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 4, !tbaa !65
@@ -2777,7 +2777,7 @@ _ZN5ZXing10DataMatrixL11IsNativeX12Ei.exit.thread: ; preds = %94, %_ZN5ZXing10Da
 _ZNSt5arrayIiLm6EE4fillERKi.exit.preheader.i72:   ; preds = %_ZNSt5arrayIiLm6EE4fillERKi.exit.i76, %"_ZSt9transformIPfPiZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmiE3$_1ET0_T_SE_SD_T1_.exit"
   %indvars.iv.i73 = phi i64 [ 0, %"_ZSt9transformIPfPiZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmiE3$_1ET0_T_SE_SD_T1_.exit" ], [ %indvars.iv.next.i78, %_ZNSt5arrayIiLm6EE4fillERKi.exit.i76 ]
   %.026.i74 = phi i32 [ 2147483647, %"_ZSt9transformIPfPiZN5ZXing10DataMatrixL13LookAheadTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmiE3$_1ET0_T_SE_SD_T1_.exit" ], [ %.123.i77, %_ZNSt5arrayIiLm6EE4fillERKi.exit.i76 ]
-  %110 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i73
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i73
   %111 = load i32, ptr %110, align 4, !tbaa !65
   %112 = icmp sgt i32 %.026.i74, %111
   br i1 %112, label %.lr.ph.i.i.i.i.i15.preheader.i82, label %_ZNSt5arrayIiLm6EE4fillERKi.exit20.i75
@@ -2792,7 +2792,7 @@ _ZNSt5arrayIiLm6EE4fillERKi.exit20.i75:           ; preds = %_ZNSt5arrayIiLm6EE4
 
 _ZNSt5arrayIiLm6EE4fillERKi.exit20.thread.i80:    ; preds = %_ZNSt5arrayIiLm6EE4fillERKi.exit20.i75, %.lr.ph.i.i.i.i.i15.preheader.i82
   %.124.i81 = phi i32 [ %.026.i74, %_ZNSt5arrayIiLm6EE4fillERKi.exit20.i75 ], [ %111, %.lr.ph.i.i.i.i.i15.preheader.i82 ]
-  %114 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i73
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i73
   %115 = load i32, ptr %114, align 4, !tbaa !65
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %114, align 4, !tbaa !65

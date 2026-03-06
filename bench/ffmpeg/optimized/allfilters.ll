@@ -471,7 +471,7 @@ define ptr @av_filter_iterate(ptr noundef captures(none) %0) local_unnamed_addr 
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @filter_list, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @filter_list, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   %7 = add i64 %4, 1
   %8 = inttoptr i64 %7 to ptr
@@ -495,7 +495,7 @@ define noundef ptr @avfilter_get_by_name(ptr noundef readonly captures(address_i
 
 av_filter_iterate.exit:                           ; preds = %.preheader
   %2 = ptrtoint ptr %.08 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @filter_list, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @filter_list, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !8
   %5 = add i64 %2, 1
   %6 = inttoptr i64 %5 to ptr

@@ -493,7 +493,7 @@ define internal fastcc noundef zeroext i1 @is_rosconnection_header(ptr noundef %
   %19 = add i32 %16, %.0191.i
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %19)
   %21 = zext i8 %20 to i64
-  %22 = getelementptr i16, ptr %17, i64 %21
+  %22 = getelementptr [2 x i8], ptr %17, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = trunc i16 %23 to i1
   %25 = icmp ne i8 %20, 0

@@ -21,12 +21,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.50" = type { %"struct.std::_Vector_base<cv::utils::logging::LogTagManager::CrossReference, std::allocator<cv::utils::logging::LogTagManager::CrossReference>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::utils::logging::LogTagManager::CrossReference, std::allocator<cv::utils::logging::LogTagManager::CrossReference>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::utils::logging::LogTagManager::CrossReference, std::allocator<cv::utils::logging::LogTagManager::CrossReference>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::utils::logging::LogTagManager::CrossReference, std::allocator<cv::utils::logging::LogTagManager::CrossReference>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cv::utils::logging::LogTagManager::FullNameInfo" = type { ptr, %"struct.cv::utils::logging::LogTagManager::ParsedLevel" }
-%"struct.cv::utils::logging::LogTagManager::ParsedLevel" = type { i32, i32 }
 %"class.std::allocator.31" = type { i8 }
-%"struct.cv::utils::logging::LogTagManager::CrossReference" = type { i64, i64, i64, ptr, ptr }
 %"struct.cv::utils::logging::LogTagManager::NamePartLookupResult" = type { %"class.std::__cxx11::basic_string", i64, ptr, i8, %"class.std::vector.49" }
-%"struct.cv::utils::logging::LogTagManager::NamePartInfo" = type { %"struct.cv::utils::logging::LogTagManager::ParsedLevel" }
 %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned long>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, unsigned long>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 
 $_ZNSt12__shared_ptrIN2cv5utils7logging18LogTagConfigParserELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
@@ -1306,7 +1302,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   unreachable
 
 _ZN2cv5utils7logging13LogTagManager9NameTable24internal_getFullNameInfoEm.exit: ; preds = %33
-  %43 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::FullNameInfo", ptr %37, i64 %34
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %34
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %43, ptr %44, align 8, !tbaa !73
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -1403,7 +1399,7 @@ _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.ex
 
 _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit: ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.preheader, %.critedge
   %.03041 = phi i64 [ %38, %.critedge ], [ 0, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.preheader ]
-  %28 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::CrossReference", ptr %23, i64 %.03041
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %.03041
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !113
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -1586,7 +1582,7 @@ _ZN2cv5utils7logging13LogTagManager9NameTable15getFullNameInfoERKNSt7__cxx1112ba
   br i1 %.not, label %_ZN2cv5utils7logging13LogTagManager9NameTable15getFullNameInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %21
 
 21:                                               ; preds = %_ZN2cv5utils7logging13LogTagManager9NameTable15getFullNameInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %22 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::FullNameInfo", ptr %15, i64 %12
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %12
   %23 = load ptr, ptr %22, align 8, !tbaa !74
   %.not12 = icmp eq ptr %23, null
   br i1 %.not12, label %_ZN2cv5utils7logging13LogTagManager9NameTable15getFullNameInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %29
@@ -1660,7 +1656,7 @@ define hidden noundef ptr @_ZN2cv5utils7logging13LogTagManager9NameTable15getFul
   unreachable
 
 _ZN2cv5utils7logging13LogTagManager9NameTable24internal_getFullNameInfoEm.exit: ; preds = %6
-  %17 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::FullNameInfo", ptr %11, i64 %8
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %8
   br label %18
 
 18:                                               ; preds = %2, %_ZN2cv5utils7logging13LogTagManager9NameTable24internal_getFullNameInfoEm.exit
@@ -1763,7 +1759,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %4
   unreachable
 
 _ZN2cv5utils7logging13LogTagManager9NameTable24internal_getNamePartInfoEm.exit.i: ; preds = %.noexc18
-  %40 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::NamePartInfo", ptr %34, i64 %30
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %30
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %40, ptr %41, align 8, !tbaa !125
   %42 = load i8, ptr %28, align 8, !tbaa !121, !range !110, !noundef !111
@@ -1896,7 +1892,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager9NameTable19addOrLookupNa
   unreachable
 
 _ZN2cv5utils7logging13LogTagManager9NameTable24internal_getNamePartInfoEm.exit: ; preds = %2
-  %14 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::NamePartInfo", ptr %8, i64 %3
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %14, ptr %15, align 8, !tbaa !125
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2026,7 +2022,7 @@ _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.ex
 
 _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us: ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us
   %.02741.us = phi i64 [ %57, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us ], [ 0, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph ]
-  %45 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::CrossReference", ptr %24, i64 %.02741.us
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %.02741.us
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8, !tbaa !129
   %48 = load ptr, ptr %47, align 8, !tbaa !74
@@ -2057,7 +2053,7 @@ _ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScop
 
 _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us43: ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47
   %.02741.us44 = phi i64 [ %67, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47 ], [ 0, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph ]
-  %58 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::CrossReference", ptr %24, i64 %.02741.us44
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %.02741.us44
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !129
   %61 = load ptr, ptr %60, align 8, !tbaa !74
@@ -2433,7 +2429,7 @@ _ZNSt6vectorIN2cv5utils7logging13LogTagManager12FullNameInfoESaIS4_EE11_S_reloca
 _ZNSt6vectorIN2cv5utils7logging13LogTagManager12FullNameInfoESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIN2cv5utils7logging13LogTagManager12FullNameInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
   store ptr %29, ptr %0, align 8, !tbaa !98
   store ptr %33, ptr %10, align 8, !tbaa !109
-  %35 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::FullNameInfo", ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %27
   store ptr %35, ptr %17, align 8, !tbaa !135
   br label %_ZNSt6vectorIN2cv5utils7logging13LogTagManager12FullNameInfoESaIS4_EE12emplace_backIJS4_EEEvDpOT_.exit
 
@@ -2486,7 +2482,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager9NameTable29internal_addO
   br i1 %23, label %24, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i64, ptr %14, i64 %11
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %11
   %.not.i.i = icmp eq ptr %13, %25
   br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit, label %26
 
@@ -2518,7 +2514,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %20, %22, %24, %26
   unreachable
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit: ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %.018
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %.018
   %35 = call noundef i64 @_ZN2cv5utils7logging13LogTagManager9NameTable28internal_addOrLookupNamePartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(32) %34)
   %36 = load ptr, ptr %12, align 8, !tbaa !144
   %37 = load ptr, ptr %2, align 8, !tbaa !80
@@ -2534,7 +2530,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
   unreachable
 
 _ZNSt6vectorImSaImEE2atEm.exit:                   ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit
-  %43 = getelementptr inbounds nuw i64, ptr %37, i64 %.018
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.018
   store i64 %35, ptr %43, align 8, !tbaa !49
   %44 = add nuw i64 %.018, 1
   %exitcond.not = icmp eq i64 %44, %11
@@ -2581,7 +2577,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager9NameTable26internal_addC
   unreachable
 
 _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %17
-  %25 = getelementptr inbounds nuw i64, ptr %19, i64 %storemerge30
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %storemerge30
   %26 = load i64, ptr %25, align 8, !tbaa !49
   %27 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
   store ptr null, ptr %27, align 8, !tbaa !91
@@ -2681,7 +2677,7 @@ define hidden noundef nonnull ptr @_ZN2cv5utils7logging13LogTagManager9NameTable
   unreachable
 
 _ZNSt6vectorIN2cv5utils7logging13LogTagManager12FullNameInfoESaIS4_EE2atEm.exit: ; preds = %2
-  %11 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::FullNameInfo", ptr %5, i64 %1
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %1
   ret ptr %11
 }
 
@@ -2758,7 +2754,7 @@ _ZNSt12_Vector_baseIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE13
   store ptr %34, ptr %15, align 8, !tbaa !79
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 %32
   store ptr %38, ptr %17, align 8, !tbaa !112
-  %39 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::CrossReference", ptr %34, i64 %14
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %14
   store ptr %39, ptr %24, align 8, !tbaa !152
   br label %_ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE7reserveEm.exit
 
@@ -2796,7 +2792,7 @@ _ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE7reserveE
   unreachable
 
 _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %45
-  %56 = getelementptr inbounds nuw i64, ptr %50, i64 %.041
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.041
   %57 = load i64, ptr %56, align 8, !tbaa !49
   %58 = load ptr, ptr %44, align 8, !tbaa !124
   %59 = load ptr, ptr %43, align 8, !tbaa !95
@@ -2812,7 +2808,7 @@ _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %45
   unreachable
 
 _ZN2cv5utils7logging13LogTagManager9NameTable24internal_getNamePartInfoEm.exit: ; preds = %_ZNKSt6vectorImSaImEE2atEm.exit
-  %65 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::NamePartInfo", ptr %59, i64 %57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   %.not.i = icmp eq ptr %48, %47
   br i1 %.not.i, label %68, label %66
 
@@ -2887,7 +2883,7 @@ _ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE11_S_relo
 _ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %85, %_ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
   store ptr %80, ptr %15, align 8, !tbaa !79
   store ptr %84, ptr %17, align 8, !tbaa !112
-  %86 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::CrossReference", ptr %80, i64 %78
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %80, i64 %78
   store ptr %86, ptr %24, align 8, !tbaa !152
   br label %_ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE12emplace_backIJS4_EEEvDpOT_.exit
 
@@ -2984,7 +2980,7 @@ _ZNSt6vectorIN2cv5utils7logging13LogTagManager12NamePartInfoESaIS4_EE11_S_reloca
 _ZNSt6vectorIN2cv5utils7logging13LogTagManager12NamePartInfoESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIN2cv5utils7logging13LogTagManager12NamePartInfoESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
   store ptr %31, ptr %10, align 8, !tbaa !95
   store ptr %36, ptr %11, align 8, !tbaa !124
-  %38 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::NamePartInfo", ptr %31, i64 %29
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %38, ptr %18, align 8, !tbaa !166
   br label %_ZNSt6vectorIN2cv5utils7logging13LogTagManager12NamePartInfoESaIS4_EE12emplace_backIJS4_EEEvDpOT_.exit
 
@@ -3017,7 +3013,7 @@ define hidden noundef nonnull ptr @_ZN2cv5utils7logging13LogTagManager9NameTable
   unreachable
 
 _ZNSt6vectorIN2cv5utils7logging13LogTagManager12NamePartInfoESaIS4_EE2atEm.exit: ; preds = %2
-  %12 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::NamePartInfo", ptr %6, i64 %1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   ret ptr %12
 }
 
@@ -3054,7 +3050,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager9NameTable41internal_find
   %19 = load i64, ptr %18, align 8, !tbaa !33
   %20 = urem i64 %4, %19
   %21 = load ptr, ptr %7, align 8, !tbaa !31
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !174
   %.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i, label %_ZNKSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE5countERS6_.exit, label %24
@@ -3169,7 +3165,7 @@ _ZNSt12_Vector_baseIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE13
   store ptr %60, ptr %41, align 8, !tbaa !79
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 %58
   store ptr %64, ptr %43, align 8, !tbaa !112
-  %65 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::CrossReference", ptr %60, i64 %.0.i.i
+  %65 = getelementptr inbounds nuw [40 x i8], ptr %60, i64 %.0.i.i
   store ptr %65, ptr %50, align 8, !tbaa !152
   br label %_ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE7reserveEm.exit
 
@@ -3204,7 +3200,7 @@ _ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE7reserveE
   %81 = load i64, ptr %80, align 8, !tbaa !33
   %82 = urem i64 %79, %81
   %83 = load ptr, ptr %7, align 8, !tbaa !31
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %82
   %85 = load ptr, ptr %84, align 8, !tbaa !174
   %.not.i.i.i.i.i18 = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i.i18, label %._crit_edge, label %86
@@ -3287,7 +3283,7 @@ _ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE11e
   unreachable
 
 _ZN2cv5utils7logging13LogTagManager9NameTable24internal_getFullNameInfoEm.exit: ; preds = %105
-  %120 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::FullNameInfo", ptr %114, i64 %110
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %110
   %.not.i = icmp eq ptr %108, %107
   br i1 %.not.i, label %123, label %121
 
@@ -3362,7 +3358,7 @@ _ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE11_S_relo
 _ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %140, %_ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
   store ptr %135, ptr %41, align 8, !tbaa !79
   store ptr %139, ptr %43, align 8, !tbaa !112
-  %141 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::CrossReference", ptr %135, i64 %133
+  %141 = getelementptr inbounds nuw [40 x i8], ptr %135, i64 %133
   store ptr %141, ptr %50, align 8, !tbaa !152
   br label %_ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE12emplace_backIJS4_EEEvDpOT_.exit
 
@@ -3689,7 +3685,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !81
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !82
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !108
   ret void
 }
@@ -3768,7 +3764,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !29
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !20
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !174
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -3928,7 +3924,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8, !tbaa !20
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %35
   %41 = load ptr, ptr %40, align 8, !tbaa !174
   %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %.critedge28, label %42
@@ -4095,7 +4091,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %2, ptr %32, align 8, !tbaa !207
   %33 = load ptr, ptr %0, align 8, !tbaa !20
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !174
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -4121,7 +4117,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %46 = load i64, ptr %45, align 8, !tbaa !207
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !174
   br label %49
 
@@ -4299,7 +4295,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !207
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !174
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4314,7 +4310,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !174
   br label %28
 
@@ -4387,7 +4383,7 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !144
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit, label %26
@@ -4396,7 +4392,7 @@ _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i64, ptr %9, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit
 
@@ -4507,7 +4503,7 @@ _ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i64, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -4528,7 +4524,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !80
   store ptr %72, ptr %8, align 8, !tbaa !144
-  %74 = getelementptr inbounds nuw i64, ptr %62, i64 %55
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %55
   store ptr %74, ptr %6, align 8, !tbaa !219
   br label %_ZSt4fillIPmmEvT_S1_RKT0_.exit
 
@@ -4608,7 +4604,7 @@ _ZNKSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_t
 
 37:                                               ; preds = %31, %_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE9_M_rehashEmRS1_.exit
   %38 = load ptr, ptr %0, align 8, !tbaa !31
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %30
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %30
   %40 = load ptr, ptr %39, align 8, !tbaa !174
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %.loopexit.thread, label %41
@@ -4668,7 +4664,7 @@ _ZNKSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_t
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr %0, align 8, !tbaa !31
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %65
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %65
   store ptr %3, ptr %68, align 8, !tbaa !174
   br label %_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE22_M_insert_bucket_beginEmPNS5_10_Hash_nodeIS3_Lb0EEE.exit
 
@@ -4692,7 +4688,7 @@ _ZNKSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_t
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = load i64, ptr %75, align 8, !tbaa !49
   %77 = urem i64 %76, %29
-  %78 = getelementptr inbounds nuw ptr, ptr %38, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %77
   store ptr %3, ptr %78, align 8, !tbaa !174
   br label %79
 
@@ -4785,12 +4781,12 @@ _ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   br i1 %.not64, label %31, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %28
   store ptr %.05469, ptr %30, align 8, !tbaa !174
   br label %31
 
 31:                                               ; preds = %23, %29, %25, %21
-  %32 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %33 = load ptr, ptr %32, align 8, !tbaa !174
   %.not65 = icmp eq ptr %33, null
   br i1 %.not65, label %34, label %39
@@ -4805,7 +4801,7 @@ _ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   br i1 %.not66, label %42, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.05271
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.05271
   store ptr %.072, ptr %38, align 8, !tbaa !174
   br label %42
 
@@ -4839,7 +4835,7 @@ _ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_to
   br i1 %.not61, label %._crit_edge.thread, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %49
   store ptr %.072, ptr %51, align 8, !tbaa !174
   br label %._crit_edge.thread
 

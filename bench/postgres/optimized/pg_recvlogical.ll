@@ -464,7 +464,7 @@ sub_164:                                          ; preds = %.tail, %sub_1
 
 133:                                              ; preds = %130
   %134 = sext i32 %131 to i64
-  %135 = getelementptr inbounds ptr, ptr %1, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %1, i64 %134
   %136 = load ptr, ptr %135, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef %136) #13
   %137 = load ptr, ptr @progname, align 8
@@ -740,11 +740,11 @@ sub_164:                                          ; preds = %.tail, %sub_1
   %235 = load ptr, ptr @options, align 8
   %236 = shl i32 %.095259.i, 1
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds ptr, ptr %235, i64 %237
+  %238 = getelementptr inbounds [8 x i8], ptr %235, i64 %237
   %239 = load ptr, ptr %238, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %223, ptr noundef nonnull @.str.89, ptr noundef %239) #13
   %240 = load ptr, ptr @options, align 8
-  %241 = getelementptr ptr, ptr %240, i64 %237
+  %241 = getelementptr [8 x i8], ptr %240, i64 %237
   %242 = getelementptr i8, ptr %241, i64 8
   %243 = load ptr, ptr %242, align 8
   %.not165.i = icmp eq ptr %243, null
@@ -1036,7 +1036,7 @@ sub_0208.i:                                       ; preds = %OutputFsync.exit173
   %356 = call i32 @PQsocket(ptr noundef %355) #13
   %357 = sdiv i32 %356, 64
   %358 = sext i32 %357 to i64
-  %359 = getelementptr inbounds i64, ptr %6, i64 %358
+  %359 = getelementptr inbounds [8 x i8], ptr %6, i64 %358
   %360 = load i64, ptr %359, align 8
   %361 = or i64 %360, %354
   store i64 %361, ptr %359, align 8

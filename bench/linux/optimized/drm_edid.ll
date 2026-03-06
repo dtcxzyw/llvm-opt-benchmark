@@ -54,21 +54,12 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_edid_is_
 %struct.anon.10 = type { i32, i32 }
 %struct.minimode = type { i16, i16, i16, i16 }
 %struct.stereo_mandatory_mode = type { i32, i32, i32, i32 }
-%struct.edid = type { [8 x i8], [2 x i8], [2 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.est_timings, [8 x %struct.std_timing], [4 x %struct.detailed_timing], i8, i8 }
-%struct.est_timings = type { i8, i8, i8 }
-%struct.std_timing = type { i8, i8 }
-%struct.detailed_timing = type { i16, %union.anon }
-%union.anon = type { %struct.detailed_pixel_timing }
-%struct.detailed_pixel_timing = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.displayid_iter = type { ptr, ptr, i32, i32, i32, i8, i8 }
 %struct.i2c_msg = type { i16, i16, i16, ptr }
 %struct.drm_edid = type { i64, ptr }
 %struct.cea_db_iter = type { %struct.drm_edid_iter, %struct.displayid_iter, ptr, i32, i32 }
 %struct.drm_edid_iter = type { ptr, i32 }
-%struct.cea_sad = type { i8, i8, i8, i8 }
 %struct.detailed_mode_closure = type { ptr, ptr, i8, i32 }
-%struct.displayid_detailed_timings_1 = type { [3 x i8], i8, [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8] }
-%struct.cvt_timing = type { [3 x i8] }
 
 @edid_header = internal unnamed_addr constant [8 x i8] c"\00\FF\FF\FF\FF\FF\FF\00", align 1
 @__UNIQUE_ID___addressable_drm_edid_header_is_valid448 = internal global ptr @drm_edid_header_is_valid, section ".discard.addressable", align 8
@@ -647,7 +638,7 @@ define dso_local noundef zeroext i1 @drm_edid_is_valid(ptr noundef %0) #2 align 
 
 10:                                               ; preds = %5, %3
   %11 = phi i64 [ 0, %3 ], [ %6, %5 ]
-  %12 = getelementptr %struct.edid, ptr %0, i64 %11
+  %12 = getelementptr [128 x i8], ptr %0, i64 %11
   %13 = trunc nuw nsw i64 %11 to i32
   %14 = tail call zeroext i1 @drm_edid_block_valid(ptr noundef %12, i32 noundef %13, i1 noundef zeroext true, ptr noundef null)
   br i1 %14, label %5, label %.loopexit
@@ -797,7 +788,7 @@ define dso_local noundef zeroext i1 @drm_edid_valid(ptr noundef readonly capture
   br i1 %.not.not.not, label %.thread12, label %84
 
 84:                                               ; preds = %78
-  %85 = getelementptr %struct.edid, ptr %.pre22, i64 %45
+  %85 = getelementptr [128 x i8], ptr %.pre22, i64 %45
   %86 = icmp eq i64 %45, 0
   %87 = icmp eq ptr %85, null
   br i1 %87, label %.thread12, label %88
@@ -1901,7 +1892,7 @@ select.unfold55:                                  ; preds = %95, %.thread22, %.t
   %175 = phi ptr [ %.ph52, %262 ], [ %166, %.preheader74.preheader ]
   %176 = phi i32 [ %.ph51, %262 ], [ 0, %.preheader74.preheader ]
   %177 = phi i32 [ %.ph50, %262 ], [ %173, %.preheader74.preheader ]
-  %178 = getelementptr %struct.edid, ptr %175, i64 %174
+  %178 = getelementptr [128 x i8], ptr %175, i64 %174
   %.fr101 = freeze ptr %178
   %179 = icmp eq ptr %.fr101, null
   %180 = getelementptr inbounds nuw i8, ptr %.fr101, i64 127
@@ -2259,7 +2250,7 @@ define internal range(i32 -1, 1) i32 @drm_do_probe_ddc_edid(ptr noundef %0, ptr 
   %24 = select i1 %13, i32 2, i32 3
   %25 = xor i32 %24, 3
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr %struct.i2c_msg, ptr %7, i64 %26
+  %27 = getelementptr [16 x i8], ptr %7, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 852
   br label %29
 
@@ -3241,7 +3232,7 @@ define dso_local ptr @drm_mode_find_dmt(ptr noundef %0, i32 noundef %1, i32 noun
 
 .split.us:                                        ; preds = %5, %43
   %6 = phi i64 [ %44, %43 ], [ 0, %5 ]
-  %7 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %6
+  %7 = getelementptr [120 x i8], ptr @drm_dmt_modes, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i32
@@ -3304,7 +3295,7 @@ define dso_local ptr @drm_mode_find_dmt(ptr noundef %0, i32 noundef %1, i32 noun
 
 .split:                                           ; preds = %5, %46
   %49 = phi i64 [ %47, %46 ], [ 0, %5 ]
-  %50 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %49
+  %50 = getelementptr [120 x i8], ptr @drm_dmt_modes, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i16, ptr %51, align 4
   %53 = zext i16 %52 to i32
@@ -3518,7 +3509,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %72
   %74 = phi i64 [ %75, %72 ], [ %62, %.lr.ph69.preheader ]
   %75 = add nsw i64 %74, 1
-  %76 = getelementptr %struct.edid, ptr %7, i64 %75
+  %76 = getelementptr [128 x i8], ptr %7, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = icmp eq i32 %1, %78
@@ -3541,7 +3532,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
 .lr.ph64:                                         ; preds = %.split.split.us, %.thread9.us
   %85 = phi i64 [ %86, %.thread9.us ], [ %70, %.split.split.us ]
   %86 = add nsw i64 %85, 1
-  %87 = getelementptr %struct.edid, ptr %7, i64 %86
+  %87 = getelementptr [128 x i8], ptr %7, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = icmp eq i32 %1, %89
@@ -3574,7 +3565,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
 .lr.ph59:                                         ; preds = %.split.split.split.us.split.us, %.thread9.us23.us
   %100 = phi i64 [ %101, %.thread9.us23.us ], [ %70, %.split.split.split.us.split.us ]
   %101 = add nsw i64 %100, 1
-  %102 = getelementptr %struct.edid, ptr %7, i64 %101
+  %102 = getelementptr [128 x i8], ptr %7, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   %105 = icmp eq i32 %1, %104
@@ -3602,7 +3593,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
 .lr.ph54:                                         ; preds = %.split.split.split.us.split.split.us, %.thread9.us23.us32
   %113 = phi i64 [ %114, %.thread9.us23.us32 ], [ %70, %.split.split.split.us.split.split.us ]
   %114 = add nsw i64 %113, 1
-  %115 = getelementptr %struct.edid, ptr %7, i64 %114
+  %115 = getelementptr [128 x i8], ptr %7, i64 %114
   %116 = load i8, ptr %115, align 1
   %117 = zext i8 %116 to i32
   %118 = icmp eq i32 %1, %117
@@ -3633,7 +3624,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
 .lr.ph49:                                         ; preds = %.split.split.split.us.split.split.split.us, %.thread9.us23.us36
   %129 = phi i64 [ %130, %.thread9.us23.us36 ], [ %70, %.split.split.split.us.split.split.split.us ]
   %130 = add nsw i64 %129, 1
-  %131 = getelementptr %struct.edid, ptr %7, i64 %130
+  %131 = getelementptr [128 x i8], ptr %7, i64 %130
   %132 = load i8, ptr %131, align 1
   %133 = zext i8 %132 to i32
   %134 = icmp eq i32 %1, %133
@@ -3669,7 +3660,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
 .lr.ph225:                                        ; preds = %.split.split.split.us.split.split.split.split.us, %.thread9.us23.us40
   %148 = phi i64 [ %149, %.thread9.us23.us40 ], [ %70, %.split.split.split.us.split.split.split.split.us ]
   %149 = add nsw i64 %148, 1
-  %150 = getelementptr %struct.edid, ptr %7, i64 %149
+  %150 = getelementptr [128 x i8], ptr %7, i64 %149
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
   %153 = icmp eq i32 %1, %152
@@ -3689,7 +3680,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
 .lr.ph44:                                         ; preds = %.split.split.split.us.split.split.split.split, %.thread9.us23
   %159 = phi i64 [ %160, %.thread9.us23 ], [ %70, %.split.split.split.us.split.split.split.split ]
   %160 = add nsw i64 %159, 1
-  %161 = getelementptr %struct.edid, ptr %7, i64 %160
+  %161 = getelementptr [128 x i8], ptr %7, i64 %160
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
   %164 = icmp eq i32 %1, %163
@@ -3712,7 +3703,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
 .lr.ph:                                           ; preds = %.split.split.split, %.thread9
   %170 = phi i64 [ %171, %.thread9 ], [ %70, %.split.split.split ]
   %171 = add nsw i64 %170, 1
-  %172 = getelementptr %struct.edid, ptr %7, i64 %171
+  %172 = getelementptr [128 x i8], ptr %7, i64 %171
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
   %175 = icmp eq i32 %1, %174
@@ -3838,7 +3829,7 @@ define dso_local zeroext i8 @drm_match_cea_mode(ptr noundef %0) #2 align 16 {
   %18 = zext nneg i8 %15 to i64
   %19 = add nuw nsw i64 %18, 4294967295
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %20
+  %21 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %20
   br label %29
 
 22:                                               ; preds = %14
@@ -3848,7 +3839,7 @@ define dso_local zeroext i8 @drm_match_cea_mode(ptr noundef %0) #2 align 16 {
 
 25:                                               ; preds = %22
   %26 = zext i8 %15 to i64
-  %27 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %26
+  %27 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -23160
   br label %29
 
@@ -3978,7 +3969,7 @@ define dso_local ptr @drm_display_mode_from_cea_vic(ptr noundef %0, i8 noundef z
   %5 = zext nneg i8 %1 to i64
   %6 = add nuw nsw i64 %5, 4294967295
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %7
+  %8 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %7
   br label %16
 
 9:                                                ; preds = %2
@@ -3988,7 +3979,7 @@ define dso_local ptr @drm_display_mode_from_cea_vic(ptr noundef %0, i8 noundef z
 
 12:                                               ; preds = %9
   %13 = zext i8 %1 to i64
-  %14 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %13
+  %14 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -23160
   br label %16
 
@@ -4064,7 +4055,7 @@ define internal fastcc i32 @get_monitor_name(ptr noundef readonly captures(addre
 10:                                               ; preds = %26, %6
   %11 = phi ptr [ null, %6 ], [ %27, %26 ]
   %12 = phi i64 [ 0, %6 ], [ %28, %26 ]
-  %13 = getelementptr %struct.detailed_timing, ptr %9, i64 %12
+  %13 = getelementptr [18 x i8], ptr %9, i64 %12
   %14 = load i16, ptr %13, align 1
   %15 = icmp eq i16 %14, 0
   br i1 %15, label %16, label %26
@@ -4159,7 +4150,7 @@ define internal fastcc i32 @get_monitor_name(ptr noundef readonly captures(addre
   %73 = tail call i32 @llvm.smin.i32(i32 %72, i32 %36)
   %74 = icmp slt i32 %46, %73
   %75 = sext i32 %46 to i64
-  %76 = getelementptr %struct.edid, ptr %8, i64 %75
+  %76 = getelementptr [128 x i8], ptr %8, i64 %75
   %77 = zext i1 %74 to i32
   %78 = add i32 %46, %77
   %79 = icmp ne ptr %76, null
@@ -4402,7 +4393,7 @@ define dso_local range(i32 -12, 11) i32 @drm_edid_to_sad(ptr noundef %0, ptr nou
 
 35:                                               ; preds = %35, %33
   %36 = phi i64 [ 0, %33 ], [ %52, %35 ]
-  %37 = getelementptr %struct.cea_sad, ptr %29, i64 %36
+  %37 = getelementptr [4 x i8], ptr %29, i64 %36
   %38 = mul nuw nsw i64 %36, 3
   %39 = getelementptr i8, ptr %34, i64 %38
   %40 = load i8, ptr %39, align 1
@@ -4528,10 +4519,10 @@ define dso_local range(i32 0, -2147483648) i32 @drm_av_sync_delay(ptr noundef re
   %14 = zext nneg i32 %10 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1860
   %16 = select i1 %13, i64 0, i64 %14
-  %17 = getelementptr i32, ptr %15, i64 %16
+  %17 = getelementptr [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1852
-  %20 = getelementptr i32, ptr %19, i64 %16
+  %20 = getelementptr [4 x i8], ptr %19, i64 %16
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %18, 255
   %23 = icmp eq i32 %21, 255
@@ -4693,7 +4684,7 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #2
   br i1 %exitcond55.not, label %.loopexit72, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr %struct.edid, ptr %10, i64 %indvars.iv50
+  %28 = getelementptr [128 x i8], ptr %10, i64 %indvars.iv50
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.loopexit72, label %30
 
@@ -4728,7 +4719,7 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #2
   br i1 %exitcond.not, label %.loopexit72, label %41
 
 41:                                               ; preds = %.thread.us.us
-  %42 = getelementptr %struct.edid, ptr %10, i64 %indvars.iv47
+  %42 = getelementptr [128 x i8], ptr %10, i64 %indvars.iv47
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.loopexit72, label %44
 
@@ -4805,7 +4796,7 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #2
   br i1 %78, label %79, label %.loopexit72
 
 79:                                               ; preds = %.thread
-  %80 = getelementptr %struct.edid, ptr %10, i64 %indvars.iv
+  %80 = getelementptr [128 x i8], ptr %10, i64 %indvars.iv
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.loopexit72, label %82
 
@@ -4957,13 +4948,13 @@ define internal fastcc void @update_display_info(ptr noundef initializes((200, 2
 
 48:                                               ; preds = %45, %24
   %49 = phi i64 [ 0, %24 ], [ %46, %45 ]
-  %50 = getelementptr %struct.edid_quirk, ptr @edid_quirk_list, i64 %49
+  %50 = getelementptr [8 x i8], ptr @edid_quirk_list, i64 %49
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, %44
   br i1 %52, label %53, label %45
 
 53:                                               ; preds = %48
-  %54 = getelementptr %struct.edid_quirk, ptr @edid_quirk_list, i64 %49
+  %54 = getelementptr [8 x i8], ptr @edid_quirk_list, i64 %49
   %55 = getelementptr i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   br label %.loopexit96
@@ -5003,7 +4994,7 @@ define internal fastcc void @update_display_info(ptr noundef initializes((200, 2
   %78 = phi i64 [ %119, %get_monitor_range.exit66 ], [ 0, %.preheader95 ]
   %79 = load ptr, ptr %25, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 54
-  %81 = getelementptr %struct.detailed_timing, ptr %80, i64 %78
+  %81 = getelementptr [18 x i8], ptr %80, i64 %78
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 5
   %83 = load i16, ptr %81, align 1
   %84 = icmp eq i16 %83, 0
@@ -5136,7 +5127,7 @@ get_monitor_range.exit66:                         ; preds = %77, %85, %89, %93, 
   %162 = tail call i32 @llvm.smin.i32(i32 %159, i32 %161)
   %163 = icmp slt i32 %121, %162
   %164 = sext i32 %121 to i64
-  %165 = getelementptr %struct.edid, ptr %122, i64 %164
+  %165 = getelementptr [128 x i8], ptr %122, i64 %164
   %166 = zext i1 %163 to i32
   %167 = add i32 %121, %166
   %168 = icmp ne ptr %165, null
@@ -5446,7 +5437,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %158
   %359 = tail call i32 @llvm.smin.i32(i32 %356, i32 %358)
   %360 = icmp slt i32 %318, %359
   %361 = zext nneg i32 %318 to i64
-  %362 = getelementptr %struct.edid, ptr %319, i64 %361
+  %362 = getelementptr [128 x i8], ptr %319, i64 %361
   %363 = zext i1 %360 to i32
   %364 = add nuw nsw i32 %318, %363
   %365 = icmp ne ptr %362, null
@@ -6212,7 +6203,7 @@ switch.lookup212:                                 ; preds = %702
   %813 = zext nneg i8 %810 to i64
   %814 = add nuw nsw i64 %813, 4294967295
   %815 = and i64 %814, 4294967295
-  %816 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %815
+  %816 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %815
   br label %824
 
 817:                                              ; preds = %.preheader91
@@ -6222,7 +6213,7 @@ switch.lookup212:                                 ; preds = %702
 
 820:                                              ; preds = %817
   %821 = zext i8 %810 to i64
-  %822 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %821
+  %822 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %821
   %823 = getelementptr i8, ptr %822, i64 -23160
   br label %824
 
@@ -6382,7 +6373,7 @@ switch.lookup212:                                 ; preds = %702
   %919 = zext nneg i8 %916 to i64
   %920 = add nuw nsw i64 %919, 4294967295
   %921 = and i64 %920, 4294967295
-  %922 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %921
+  %922 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %921
   br label %930
 
 923:                                              ; preds = %908
@@ -6392,7 +6383,7 @@ switch.lookup212:                                 ; preds = %702
 
 926:                                              ; preds = %923
   %927 = zext i8 %916 to i64
-  %928 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %927
+  %928 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %927
   %929 = getelementptr i8, ptr %928, i64 -23160
   br label %930
 
@@ -7169,7 +7160,7 @@ define internal fastcc i32 @_drm_edid_connector_add_modes(ptr noundef %0, ptr no
   %44 = phi i32 [ 0, %40 ], [ %53, %52 ]
   %45 = load ptr, ptr %19, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 38
-  %47 = getelementptr %struct.std_timing, ptr %46, i64 %43
+  %47 = getelementptr [2 x i8], ptr %46, i64 %43
   %48 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %47)
   %49 = icmp eq ptr %48, null
   br i1 %49, label %52, label %50
@@ -7197,7 +7188,7 @@ define internal fastcc i32 @_drm_edid_connector_add_modes(ptr noundef %0, ptr no
   %61 = phi i64 [ %87, %do_standard_modes.exit77 ], [ 0, %56 ]
   %62 = load ptr, ptr %19, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 54
-  %64 = getelementptr %struct.detailed_timing, ptr %63, i64 %61
+  %64 = getelementptr [18 x i8], ptr %63, i64 %61
   %65 = load i16, ptr %64, align 1
   %66 = icmp eq i16 %65, 0
   br i1 %66, label %67, label %do_standard_modes.exit77
@@ -7221,7 +7212,7 @@ define internal fastcc i32 @_drm_edid_connector_add_modes(ptr noundef %0, ptr no
 77:                                               ; preds = %84, %75
   %.sroa.1282.13 = phi i32 [ %.sroa.1282.1, %75 ], [ %.sroa.1282.14, %84 ]
   %78 = phi i64 [ 0, %75 ], [ %85, %84 ]
-  %79 = getelementptr %struct.std_timing, ptr %76, i64 %78
+  %79 = getelementptr [2 x i8], ptr %76, i64 %78
   %80 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %79)
   %81 = icmp eq ptr %80, null
   br i1 %81, label %84, label %82
@@ -7311,7 +7302,7 @@ do_standard_modes.exit77:                         ; preds = %84, %.preheader137,
   %130 = call i32 @llvm.smin.i32(i32 %127, i32 %129)
   %131 = icmp slt i32 %89, %130
   %132 = sext i32 %89 to i64
-  %133 = getelementptr %struct.edid, ptr %90, i64 %132
+  %133 = getelementptr [128 x i8], ptr %90, i64 %132
   %134 = zext i1 %131 to i32
   %135 = add i32 %89, %134
   %136 = icmp ne ptr %133, null
@@ -7371,7 +7362,7 @@ do_standard_modes.exit77:                         ; preds = %84, %.preheader137,
 168:                                              ; preds = %175, %166
   %.sroa.1282.10 = phi i32 [ %.sroa.1282.5, %166 ], [ %.sroa.1282.11, %175 ]
   %169 = phi i64 [ 0, %166 ], [ %176, %175 ]
-  %170 = getelementptr %struct.std_timing, ptr %167, i64 %169
+  %170 = getelementptr [2 x i8], ptr %167, i64 %169
   %171 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %170)
   %172 = icmp eq ptr %171, null
   br i1 %172, label %175, label %173
@@ -7437,7 +7428,7 @@ do_standard_modes.exit75:                         ; preds = %175, %152, %158, %1
 208:                                              ; preds = %215, %206
   %.sroa.1282.7 = phi i32 [ %.sroa.1282.4, %206 ], [ %.sroa.1282.8, %215 ]
   %209 = phi i64 [ 0, %206 ], [ %216, %215 ]
-  %210 = getelementptr %struct.std_timing, ptr %207, i64 %209
+  %210 = getelementptr [2 x i8], ptr %207, i64 %209
   %211 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %210)
   %212 = icmp eq ptr %211, null
   br i1 %212, label %215, label %213
@@ -7497,7 +7488,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
   br i1 %241, label %248, label %242
 
 242:                                              ; preds = %234
-  %243 = getelementptr %struct.drm_display_mode, ptr @edid_est_modes, i64 %235
+  %243 = getelementptr [120 x i8], ptr @edid_est_modes, i64 %235
   %244 = call ptr @drm_mode_duplicate(ptr noundef %221, ptr noundef %243) #22
   %245 = icmp eq ptr %244, null
   br i1 %245, label %248, label %246
@@ -7560,7 +7551,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
   %278 = zext nneg i8 %273 to i64
   %279 = add nuw nsw i64 %278, 4294967295
   %280 = and i64 %279, 4294967295
-  %281 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %280
+  %281 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %280
   br label %289
 
 282:                                              ; preds = %275
@@ -7570,7 +7561,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 
 285:                                              ; preds = %282
   %286 = zext i8 %273 to i64
-  %287 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %286
+  %287 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %286
   %288 = getelementptr i8, ptr %287, i64 -23160
   br label %289
 
@@ -7698,7 +7689,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 370:                                              ; preds = %407, %.preheader130
   %371 = phi i64 [ 0, %.preheader130 ], [ %409, %407 ]
   %372 = phi i32 [ %365, %.preheader130 ], [ %408, %407 ]
-  %373 = getelementptr %struct.stereo_mandatory_mode, ptr @stereo_mandatory_modes, i64 %371
+  %373 = getelementptr [16 x i8], ptr @stereo_mandatory_modes, i64 %371
   %374 = load i32, ptr %367, align 8
   %375 = load i16, ptr %368, align 4
   %376 = zext i16 %375 to i32
@@ -7830,7 +7821,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 
 457:                                              ; preds = %441
   %458 = zext nneg i8 %443 to i64
-  %459 = getelementptr %struct.drm_display_mode, ptr @edid_4k_modes, i64 %458
+  %459 = getelementptr [120 x i8], ptr @edid_4k_modes, i64 %458
   %460 = call ptr @drm_mode_duplicate(ptr noundef %444, ptr noundef %459) #22
   %461 = icmp eq ptr %460, null
   br i1 %461, label %463, label %462
@@ -7938,7 +7929,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
   %534 = zext nneg i8 %529 to i64
   %535 = add nuw nsw i64 %534, 4294967295
   %536 = and i64 %535, 4294967295
-  %537 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %536
+  %537 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %536
   br label %545
 
 538:                                              ; preds = %531
@@ -7948,7 +7939,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 
 541:                                              ; preds = %538
   %542 = zext i8 %529 to i64
-  %543 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %542
+  %543 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %542
   %544 = getelementptr i8, ptr %543, i64 -23160
   br label %545
 
@@ -8000,7 +7991,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
   %571 = zext nneg i8 %566 to i64
   %572 = add nuw nsw i64 %571, 4294967295
   %573 = and i64 %572, 4294967295
-  %574 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %573
+  %574 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %573
   br label %582
 
 575:                                              ; preds = %568
@@ -8010,7 +8001,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 
 578:                                              ; preds = %575
   %579 = zext i8 %566 to i64
-  %580 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %579
+  %580 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %579
   %581 = getelementptr i8, ptr %580, i64 -23160
   br label %582
 
@@ -8063,7 +8054,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
   %609 = zext nneg i8 %604 to i64
   %610 = add nuw nsw i64 %609, 4294967295
   %611 = and i64 %610, 4294967295
-  %612 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %611
+  %612 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %611
   br label %620
 
 613:                                              ; preds = %606
@@ -8073,7 +8064,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 
 616:                                              ; preds = %613
   %617 = zext i8 %604 to i64
-  %618 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %617
+  %618 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %617
   %619 = getelementptr i8, ptr %618, i64 -23160
   br label %620
 
@@ -8183,7 +8174,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
   %683 = zext nneg i8 %678 to i64
   %684 = add nuw nsw i64 %683, 4294967295
   %685 = and i64 %684, 4294967295
-  %686 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %685
+  %686 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %685
   br label %694
 
 687:                                              ; preds = %680
@@ -8193,7 +8184,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 
 690:                                              ; preds = %687
   %691 = zext i8 %678 to i64
-  %692 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %691
+  %692 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %691
   %693 = getelementptr i8, ptr %692, i64 -23160
   br label %694
 
@@ -8267,14 +8258,14 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 737:                                              ; preds = %726
   %738 = add nsw i8 %734, 36
   %739 = icmp ult i8 %738, -27
-  %740 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %735
+  %740 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %735
   %741 = getelementptr i8, ptr %740, i64 -23160
   %742 = icmp eq ptr %741, null
   %or.cond = or i1 %739, %742
   br i1 %or.cond, label %.thread103, label %.thread106
 
 743:                                              ; preds = %726
-  %744 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %735
+  %744 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %735
   %745 = getelementptr i8, ptr %744, i64 -120
   %746 = icmp eq ptr %745, null
   br i1 %746, label %.thread103, label %747
@@ -8282,7 +8273,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 747:                                              ; preds = %743
   %748 = add nuw nsw i64 %735, 4294967295
   %749 = and i64 %748, 4294967295
-  %750 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %749
+  %750 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %749
   br label %.thread106
 
 .thread106:                                       ; preds = %737, %747
@@ -8367,14 +8358,14 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 786:                                              ; preds = %.preheader125
   %787 = add nsw i8 %783, 36
   %788 = icmp ult i8 %787, -27
-  %789 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %784
+  %789 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %784
   %790 = getelementptr i8, ptr %789, i64 -23160
   %791 = icmp eq ptr %790, null
   %or.cond121 = or i1 %788, %791
   br i1 %or.cond121, label %.thread108, label %.thread111
 
 792:                                              ; preds = %.preheader125
-  %793 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %784
+  %793 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %784
   %794 = getelementptr i8, ptr %793, i64 -120
   %795 = icmp eq ptr %794, null
   br i1 %795, label %.thread108, label %796
@@ -8382,7 +8373,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 796:                                              ; preds = %792
   %797 = add nuw nsw i64 %784, 4294967295
   %798 = and i64 %797, 4294967295
-  %799 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %798
+  %799 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %798
   br label %.thread111
 
 .thread111:                                       ; preds = %786, %796
@@ -8432,7 +8423,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %126, %56
 
 826:                                              ; preds = %823, %818
   %827 = phi i64 [ 1, %818 ], [ %824, %823 ]
-  %828 = getelementptr %struct.drm_display_mode, ptr @edid_4k_modes, i64 %827
+  %828 = getelementptr [120 x i8], ptr @edid_4k_modes, i64 %827
   %829 = load i32, ptr %828, align 8
   %830 = call i32 @drm_mode_vrefresh(ptr noundef %828) #22
   %831 = srem i32 %830, 6
@@ -8487,7 +8478,7 @@ drm_match_hdmi_mode.exit:                         ; preds = %856
 
 861:                                              ; preds = %drm_match_hdmi_mode.exit
   %862 = and i64 %827, 255
-  %863 = getelementptr %struct.drm_display_mode, ptr @edid_4k_modes, i64 %862
+  %863 = getelementptr [120 x i8], ptr @edid_4k_modes, i64 %862
   %864 = load i32, ptr %863, align 8
   %865 = call i32 @drm_mode_vrefresh(ptr noundef %863) #22
   %866 = srem i32 %865, 6
@@ -8627,7 +8618,7 @@ drm_match_hdmi_mode.exit:                         ; preds = %856
 938:                                              ; preds = %.thread114, %935
   %939 = phi i64 [ 0, %935 ], [ %1019, %.thread114 ]
   %940 = phi i32 [ 0, %935 ], [ %1018, %.thread114 ]
-  %941 = getelementptr %struct.displayid_detailed_timings_1, ptr %936, i64 %939
+  %941 = getelementptr [20 x i8], ptr %936, i64 %939
   %942 = load ptr, ptr %0, align 8
   %943 = load i16, ptr %941, align 1
   %944 = getelementptr i8, ptr %941, i64 2
@@ -8901,7 +8892,7 @@ define dso_local i32 @drm_add_edid_modes(ptr noundef %0, ptr noundef %1) #2 alig
 
 12:                                               ; preds = %7, %5
   %13 = phi i64 [ 0, %5 ], [ %8, %7 ]
-  %14 = getelementptr %struct.edid, ptr %1, i64 %13
+  %14 = getelementptr [128 x i8], ptr %1, i64 %13
   %15 = trunc nuw nsw i64 %13 to i32
   %16 = tail call zeroext i1 @drm_edid_block_valid(ptr noundef %14, i32 noundef %15, i1 noundef zeroext true, ptr noundef null)
   br i1 %16, label %7, label %17
@@ -8957,7 +8948,7 @@ define dso_local i32 @drm_add_modes_noedid(ptr noundef %0, i32 noundef %1, i32 n
 .split.us:                                        ; preds = %3, %30
   %10 = phi i64 [ %32, %30 ], [ 0, %3 ]
   %11 = phi i32 [ %31, %30 ], [ 0, %3 ]
-  %12 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %10
+  %12 = getelementptr [120 x i8], ptr @drm_dmt_modes, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i16, ptr %13, align 4
   %15 = zext i16 %14 to i32
@@ -8995,7 +8986,7 @@ define dso_local i32 @drm_add_modes_noedid(ptr noundef %0, i32 noundef %1, i32 n
 .split:                                           ; preds = %3, %44
   %34 = phi i64 [ %46, %44 ], [ 0, %3 ]
   %35 = phi i32 [ %45, %44 ], [ 0, %3 ]
-  %36 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %34
+  %36 = getelementptr [120 x i8], ptr @drm_dmt_modes, i64 %34
   %37 = tail call i32 @drm_mode_vrefresh(ptr noundef %36) #22
   %38 = icmp sgt i32 %37, 61
   br i1 %38, label %44, label %39
@@ -9117,7 +9108,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_hdmi_avi_infoframe_from_disp
 
 35:                                               ; preds = %32, %27
   %36 = phi i64 [ 1, %27 ], [ %33, %32 ]
-  %37 = getelementptr %struct.drm_display_mode, ptr @edid_4k_modes, i64 %36
+  %37 = getelementptr [120 x i8], ptr @edid_4k_modes, i64 %36
   %38 = load i32, ptr %37, align 8
   %39 = tail call i32 @drm_mode_vrefresh(ptr noundef %37) #22
   %40 = srem i32 %39, 6
@@ -9208,7 +9199,7 @@ drm_match_hdmi_mode.exit.thread:                  ; preds = %32, %24, %drm_match
 
 91:                                               ; preds = %88, %83
   %92 = phi i64 [ 1, %83 ], [ %89, %88 ]
-  %93 = getelementptr %struct.drm_display_mode, ptr @edid_4k_modes, i64 %92
+  %93 = getelementptr [120 x i8], ptr @edid_4k_modes, i64 %92
   %94 = load i32, ptr %93, align 8
   %95 = tail call i32 @drm_mode_vrefresh(ptr noundef %93) #22
   %96 = srem i32 %95, 6
@@ -9284,7 +9275,7 @@ drm_match_hdmi_mode.exit16:                       ; preds = %88, %.loopexit.spli
   %136 = zext nneg i8 %71 to i64
   %137 = add nuw nsw i64 %136, 4294967295
   %138 = and i64 %137, 4294967295
-  %139 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %138
+  %139 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %138
   br label %147
 
 140:                                              ; preds = %133
@@ -9294,7 +9285,7 @@ drm_match_hdmi_mode.exit16:                       ; preds = %88, %.loopexit.spli
 
 143:                                              ; preds = %140
   %144 = zext i8 %71 to i64
-  %145 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %144
+  %145 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %144
   %146 = getelementptr i8, ptr %145, i64 -23160
   br label %147
 
@@ -9309,7 +9300,7 @@ drm_match_hdmi_mode.exit16:                       ; preds = %88, %.loopexit.spli
 
 152:                                              ; preds = %150
   %153 = zext i8 %124 to i64
-  %.split = getelementptr %struct.drm_display_mode, ptr @edid_4k_modes, i64 %153
+  %.split = getelementptr [120 x i8], ptr @edid_4k_modes, i64 %153
   br label %154
 
 154:                                              ; preds = %147, %152
@@ -9335,7 +9326,7 @@ drm_match_hdmi_mode.exit16:                       ; preds = %88, %.loopexit.spli
   %165 = zext nneg i8 %71 to i64
   %166 = add nuw nsw i64 %165, 4294967295
   %167 = and i64 %166, 4294967295
-  %168 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %167
+  %168 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %167
   br label %176
 
 169:                                              ; preds = %162
@@ -9345,7 +9336,7 @@ drm_match_hdmi_mode.exit16:                       ; preds = %88, %.loopexit.spli
 
 172:                                              ; preds = %169
   %173 = zext i8 %71 to i64
-  %174 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %173
+  %174 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %173
   %175 = getelementptr i8, ptr %174, i64 -23160
   br label %176
 
@@ -9366,7 +9357,7 @@ drm_match_hdmi_mode.exit16:                       ; preds = %88, %.loopexit.spli
 
 185:                                              ; preds = %183
   %186 = zext i8 %124 to i64
-  %.split14 = getelementptr %struct.drm_display_mode, ptr @edid_4k_modes, i64 %186
+  %.split14 = getelementptr [120 x i8], ptr @edid_4k_modes, i64 %186
   %187 = getelementptr i8, ptr %.split14, i64 116
   %188 = load i32, ptr %187, align 4
   %189 = icmp eq i32 %158, %188
@@ -9538,7 +9529,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_hdmi_vendor_infoframe_from_d
 
 35:                                               ; preds = %32, %27
   %36 = phi i64 [ 1, %27 ], [ %33, %32 ]
-  %37 = getelementptr %struct.drm_display_mode, ptr @edid_4k_modes, i64 %36
+  %37 = getelementptr [120 x i8], ptr @edid_4k_modes, i64 %36
   %38 = load i32, ptr %37, align 8
   %39 = tail call i32 @drm_mode_vrefresh(ptr noundef %37) #22
   %40 = srem i32 %39, 6
@@ -9670,7 +9661,7 @@ define internal fastcc void @connector_bad_edid(ptr noundef captures(none) %0, p
 
 8:                                                ; preds = %3
   %9 = zext i8 %5 to i64
-  %10 = getelementptr %struct.edid, ptr %1, i64 %9
+  %10 = getelementptr [128 x i8], ptr %1, i64 %9
   br label %11
 
 11:                                               ; preds = %11, %8
@@ -9725,7 +9716,7 @@ define internal fastcc void @connector_bad_edid(ptr noundef captures(none) %0, p
 
 44:                                               ; preds = %44, %37
   %45 = phi i64 [ 0, %37 ], [ %48, %44 ]
-  %46 = getelementptr %struct.edid, ptr %1, i64 %45
+  %46 = getelementptr [128 x i8], ptr %1, i64 %45
   %47 = trunc i64 %45 to i32
   tail call fastcc void @edid_block_dump(ptr noundef nonnull @.str.23, ptr noundef %46, i32 noundef %47)
   %48 = add nuw nsw i64 %45, 1
@@ -9747,7 +9738,7 @@ define internal fastcc ptr @edid_filter_invalid_blocks(ptr noundef %0, ptr nound
 4:                                                ; preds = %.thread, %2
   %5 = phi i64 [ 0, %2 ], [ %58, %.thread ]
   %6 = phi i32 [ 0, %2 ], [ %57, %.thread ]
-  %7 = getelementptr %struct.edid, ptr %0, i64 %5
+  %7 = getelementptr [128 x i8], ptr %0, i64 %5
   %8 = icmp eq i64 %5, 0
   %9 = icmp eq ptr %7, null
   br i1 %9, label %.thread, label %10
@@ -9825,7 +9816,7 @@ define internal fastcc ptr @edid_filter_invalid_blocks(ptr noundef %0, ptr nound
 
 edid_block_check.exit:                            ; preds = %47, %46, %51
   %54 = sext i32 %6 to i64
-  %55 = getelementptr %struct.edid, ptr %0, i64 %54
+  %55 = getelementptr [128 x i8], ptr %0, i64 %54
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(128) %55, ptr noundef nonnull align 1 dereferenceable(128) %7, i64 128, i1 false)
   %56 = add i32 %6, 1
   br label %.thread
@@ -9909,7 +9900,7 @@ define internal fastcc void @drm_for_each_detailed_block(ptr noundef readonly ca
   %8 = phi i64 [ 0, %5 ], [ %12, %7 ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 54
-  %11 = getelementptr %struct.detailed_timing, ptr %10, i64 %8
+  %11 = getelementptr [18 x i8], ptr %10, i64 %8
   tail call void %1(ptr noundef %11, ptr noundef %2) #22
   %12 = add nuw nsw i64 %8, 1
   %13 = icmp eq i64 %12, 4
@@ -9982,7 +9973,7 @@ define internal fastcc void @drm_for_each_detailed_block(ptr noundef readonly ca
   %55 = tail call i32 @llvm.smin.i32(i32 %52, i32 %54)
   %56 = icmp slt i32 %14, %55
   %57 = sext i32 %14 to i64
-  %58 = getelementptr %struct.edid, ptr %15, i64 %57
+  %58 = getelementptr [128 x i8], ptr %15, i64 %57
   %59 = zext i1 %56 to i32
   %60 = add i32 %14, %59
   %61 = icmp ne ptr %58, null
@@ -10202,7 +10193,7 @@ define internal fastcc noundef ptr @__cea_db_iter_next(ptr noundef %0) unnamed_a
   store i32 %89, ptr %37, align 8
   %90 = load ptr, ptr %44, align 8
   %91 = sext i32 %46 to i64
-  %92 = getelementptr %struct.edid, ptr %90, i64 %91
+  %92 = getelementptr [128 x i8], ptr %90, i64 %91
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.thread21, label %94
 
@@ -10590,7 +10581,7 @@ define internal void @do_detailed_mode(ptr noundef readonly captures(none) %0, p
   %198 = phi i16 [ %190, %194 ], [ %219, %218 ]
   %199 = phi i16 [ %191, %194 ], [ %220, %218 ]
   %200 = phi i64 [ 0, %194 ], [ %221, %218 ]
-  %201 = getelementptr %struct.anon.10, ptr @drm_mode_do_interlace_quirk.cea_interlaced, i64 %200
+  %201 = getelementptr [8 x i8], ptr @drm_mode_do_interlace_quirk.cea_interlaced, i64 %200
   %202 = load i32, ptr %201, align 8
   %203 = icmp eq i32 %202, %196
   br i1 %203, label %204, label %218
@@ -10762,7 +10753,7 @@ define internal void @do_detailed_mode(ptr noundef readonly captures(none) %0, p
   %316 = zext nneg i8 %313 to i64
   %317 = add nuw nsw i64 %316, 4294967295
   %318 = and i64 %317, 4294967295
-  %319 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %318
+  %319 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %318
   br label %327
 
 320:                                              ; preds = %312
@@ -10772,7 +10763,7 @@ define internal void @do_detailed_mode(ptr noundef readonly captures(none) %0, p
 
 323:                                              ; preds = %320
   %324 = zext i8 %313 to i64
-  %325 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %324
+  %325 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %324
   %326 = getelementptr i8, ptr %325, i64 -23160
   br label %327
 
@@ -10881,14 +10872,14 @@ thread-pre-split:                                 ; preds = %353, %353, %353, %3
 374:                                              ; preds = %372
   %375 = add i8 %313, 36
   %376 = icmp ult i8 %375, -27
-  %377 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %373
+  %377 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %373
   %378 = getelementptr i8, ptr %377, i64 -23160
   %379 = icmp eq ptr %378, null
   %or.cond = or i1 %376, %379
   br i1 %or.cond, label %.thread28, label %.thread69
 
 380:                                              ; preds = %372
-  %381 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %373
+  %381 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %373
   %382 = getelementptr i8, ptr %381, i64 -120
   %383 = icmp eq ptr %382, null
   br i1 %383, label %.thread28, label %384
@@ -10896,11 +10887,11 @@ thread-pre-split:                                 ; preds = %353, %353, %353, %3
 384:                                              ; preds = %380
   %385 = add nuw nsw i64 %373, 4294967295
   %386 = and i64 %385, 4294967295
-  %387 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_1, i64 %386
+  %387 = getelementptr [120 x i8], ptr @edid_cea_modes_1, i64 %386
   br label %390
 
 .thread69:                                        ; preds = %374
-  %388 = getelementptr %struct.drm_display_mode, ptr @edid_cea_modes_193, i64 %373
+  %388 = getelementptr [120 x i8], ptr @edid_cea_modes_193, i64 %373
   %389 = getelementptr i8, ptr %388, i64 -23160
   br label %390
 
@@ -10945,7 +10936,7 @@ thread-pre-split:                                 ; preds = %353, %353, %353, %3
 
 412:                                              ; preds = %.thread29, %408
   %413 = phi i64 [ 1, %408 ], [ %440, %.thread29 ]
-  %414 = getelementptr %struct.drm_display_mode, ptr @edid_4k_modes, i64 %413
+  %414 = getelementptr [120 x i8], ptr @edid_4k_modes, i64 %413
   %415 = load i32, ptr %414, align 8
   %416 = call i32 @drm_mode_vrefresh(ptr noundef %414) #22
   %417 = srem i32 %416, 6
@@ -11003,7 +10994,7 @@ thread-pre-split:                                 ; preds = %353, %353, %353, %3
 
 446:                                              ; preds = %442
   %447 = and i64 %413, 255
-  %448 = getelementptr %struct.drm_display_mode, ptr @edid_4k_modes, i64 %447
+  %448 = getelementptr [120 x i8], ptr @edid_4k_modes, i64 %447
   %449 = load i32, ptr %448, align 8
   %450 = call i32 @drm_mode_vrefresh(ptr noundef %448) #22
   %451 = srem i32 %450, 6
@@ -11116,7 +11107,7 @@ define internal void @do_cvt_mode(ptr noundef readonly captures(none) %0, ptr no
 18:                                               ; preds = %.loopexit, %14
   %19 = phi i64 [ 0, %14 ], [ %72, %.loopexit ]
   %20 = phi i32 [ 0, %14 ], [ %71, %.loopexit ]
-  %21 = getelementptr %struct.cvt_timing, ptr %17, i64 %19
+  %21 = getelementptr [3 x i8], ptr %17, i64 %19
   %22 = call i32 @bcmp(ptr noundef dereferenceable(3) %21, ptr noundef nonnull dereferenceable(3) %3, i64 3)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit, label %24
@@ -11183,7 +11174,7 @@ default.unreachable7:                             ; preds = %24
   br i1 %59, label %67, label %60
 
 60:                                               ; preds = %51
-  %61 = getelementptr i32, ptr @drm_cvt_modes.rates, i64 %52
+  %61 = getelementptr [4 x i8], ptr @drm_cvt_modes.rates, i64 %52
   %62 = load i32, ptr %61, align 4
   %63 = tail call ptr @drm_cvt_mode(ptr noundef %16, i32 noundef %49, i32 noundef %34, i32 noundef %62, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #22
   %64 = icmp eq ptr %63, null
@@ -11243,7 +11234,7 @@ define internal fastcc ptr @drm_mode_std(ptr noundef readonly captures(address) 
 17:                                               ; preds = %.preheader47, %get_timing_level.exit23
   %.0 = phi i32 [ %.8, %get_timing_level.exit23 ], [ 3, %.preheader47 ]
   %18 = phi i64 [ %36, %get_timing_level.exit23 ], [ 0, %.preheader47 ]
-  %19 = getelementptr %struct.detailed_timing, ptr %16, i64 %18
+  %19 = getelementptr [18 x i8], ptr %16, i64 %18
   %20 = load i16, ptr %19, align 1
   %21 = icmp eq i16 %20, 0
   br i1 %21, label %22, label %get_timing_level.exit23
@@ -11354,7 +11345,7 @@ get_timing_level.exit23:                          ; preds = %33, %34, %17, %22, 
   %78 = tail call i32 @llvm.smin.i32(i32 %77, i32 %43)
   %79 = icmp slt i32 %51, %78
   %80 = sext i32 %51 to i64
-  %81 = getelementptr %struct.edid, ptr %10, i64 %80
+  %81 = getelementptr [128 x i8], ptr %10, i64 %80
   %82 = zext i1 %79 to i32
   %83 = add i32 %51, %82
   %84 = icmp ne ptr %81, null
@@ -11667,7 +11658,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %76, %14, %161, %158
 254:                                              ; preds = %.preheader44, %is_rb.exit25
   %.027 = phi i8 [ %.835, %is_rb.exit25 ], [ 0, %.preheader44 ]
   %255 = phi i64 [ %276, %is_rb.exit25 ], [ 0, %.preheader44 ]
-  %256 = getelementptr %struct.detailed_timing, ptr %253, i64 %255
+  %256 = getelementptr [18 x i8], ptr %253, i64 %255
   %257 = load i16, ptr %256, align 1
   %258 = icmp eq i16 %257, 0
   br i1 %258, label %259, label %is_rb.exit25
@@ -11774,7 +11765,7 @@ is_rb.exit25:                                     ; preds = %271, %254, %259, %2
   %318 = tail call i32 @llvm.smin.i32(i32 %317, i32 %283)
   %319 = icmp slt i32 %291, %318
   %320 = sext i32 %291 to i64
-  %321 = getelementptr %struct.edid, ptr %247, i64 %320
+  %321 = getelementptr [128 x i8], ptr %247, i64 %320
   %322 = zext i1 %319 to i32
   %323 = add i32 %291, %322
   %324 = icmp ne ptr %321, null
@@ -11933,7 +11924,7 @@ drm_for_each_detailed_block.exit21:               ; preds = %316
 
 .preheader:                                       ; preds = %.preheader.preheader, %409
   %412 = phi i64 [ %410, %409 ], [ 0, %.preheader.preheader ]
-  %413 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %412
+  %413 = getelementptr [120 x i8], ptr @drm_dmt_modes, i64 %412
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 4
   %415 = load i16, ptr %414, align 4
   %416 = zext i16 %415 to i32
@@ -11999,7 +11990,7 @@ drm_for_each_detailed_block.exit21:               ; preds = %316
 
 .thread36:                                        ; preds = %.thread36.preheader, %453
   %456 = phi i64 [ %454, %453 ], [ 0, %.thread36.preheader ]
-  %457 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %456
+  %457 = getelementptr [120 x i8], ptr @drm_dmt_modes, i64 %456
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 4
   %459 = load i16, ptr %458, align 4
   %460 = zext i16 %459 to i32
@@ -12122,7 +12113,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
 27:                                               ; preds = %46, %23
   %28 = phi ptr [ null, %23 ], [ %47, %46 ]
   %29 = phi i64 [ 0, %23 ], [ %48, %46 ]
-  %30 = getelementptr %struct.detailed_timing, ptr %26, i64 %29
+  %30 = getelementptr [18 x i8], ptr %26, i64 %29
   %31 = load i16, ptr %30, align 1
   %32 = icmp eq i16 %31, 0
   br i1 %32, label %33, label %46
@@ -12222,7 +12213,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
   %93 = tail call i32 @llvm.smin.i32(i32 %92, i32 %56)
   %94 = icmp slt i32 %66, %93
   %95 = sext i32 %66 to i64
-  %96 = getelementptr %struct.edid, ptr %25, i64 %95
+  %96 = getelementptr [128 x i8], ptr %25, i64 %95
   %97 = zext i1 %94 to i32
   %98 = add i32 %66, %97
   %99 = icmp ne ptr %96, null
@@ -12359,7 +12350,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
 184:                                              ; preds = %203, %182
   %185 = phi ptr [ null, %182 ], [ %204, %203 ]
   %186 = phi i64 [ 0, %182 ], [ %205, %203 ]
-  %187 = getelementptr %struct.detailed_timing, ptr %26, i64 %186
+  %187 = getelementptr [18 x i8], ptr %26, i64 %186
   %188 = load i16, ptr %187, align 1
   %189 = icmp eq i16 %188, 0
   br i1 %189, label %190, label %203
@@ -12443,7 +12434,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
   %235 = tail call i32 @llvm.smin.i32(i32 %234, i32 %56)
   %236 = icmp slt i32 %208, %235
   %237 = sext i32 %208 to i64
-  %238 = getelementptr %struct.edid, ptr %25, i64 %237
+  %238 = getelementptr [128 x i8], ptr %25, i64 %237
   %239 = zext i1 %236 to i32
   %240 = add i32 %208, %239
   %241 = icmp ne ptr %238, null
@@ -12580,7 +12571,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
 326:                                              ; preds = %345, %324
   %327 = phi ptr [ null, %324 ], [ %346, %345 ]
   %328 = phi i64 [ 0, %324 ], [ %347, %345 ]
-  %329 = getelementptr %struct.detailed_timing, ptr %26, i64 %328
+  %329 = getelementptr [18 x i8], ptr %26, i64 %328
   %330 = load i16, ptr %329, align 1
   %331 = icmp eq i16 %330, 0
   br i1 %331, label %332, label %345
@@ -12664,7 +12655,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
   %377 = tail call i32 @llvm.smin.i32(i32 %376, i32 %56)
   %378 = icmp slt i32 %350, %377
   %379 = sext i32 %350 to i64
-  %380 = getelementptr %struct.edid, ptr %25, i64 %379
+  %380 = getelementptr [128 x i8], ptr %25, i64 %379
   %381 = zext i1 %378 to i32
   %382 = add i32 %350, %381
   %383 = icmp ne ptr %380, null
@@ -12801,7 +12792,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
 468:                                              ; preds = %487, %466
   %469 = phi ptr [ null, %466 ], [ %488, %487 ]
   %470 = phi i64 [ 0, %466 ], [ %489, %487 ]
-  %471 = getelementptr %struct.detailed_timing, ptr %26, i64 %470
+  %471 = getelementptr [18 x i8], ptr %26, i64 %470
   %472 = load i16, ptr %471, align 1
   %473 = icmp eq i16 %472, 0
   br i1 %473, label %474, label %487
@@ -12885,7 +12876,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
   %519 = tail call i32 @llvm.smin.i32(i32 %518, i32 %56)
   %520 = icmp slt i32 %492, %519
   %521 = sext i32 %492 to i64
-  %522 = getelementptr %struct.edid, ptr %25, i64 %521
+  %522 = getelementptr [128 x i8], ptr %25, i64 %521
   %523 = zext i1 %520 to i32
   %524 = add i32 %492, %523
   %525 = icmp ne ptr %522, null
@@ -13042,7 +13033,7 @@ define internal fastcc range(i32 0, 511) i32 @drm_gtf2_hbreak(ptr noundef readon
 7:                                                ; preds = %26, %3
   %8 = phi ptr [ null, %3 ], [ %27, %26 ]
   %9 = phi i64 [ 0, %3 ], [ %28, %26 ]
-  %10 = getelementptr %struct.detailed_timing, ptr %6, i64 %9
+  %10 = getelementptr [18 x i8], ptr %6, i64 %9
   %11 = load i16, ptr %10, align 1
   %12 = icmp eq i16 %11, 0
   br i1 %12, label %13, label %26
@@ -13142,7 +13133,7 @@ define internal fastcc range(i32 0, 511) i32 @drm_gtf2_hbreak(ptr noundef readon
   %73 = tail call i32 @llvm.smin.i32(i32 %72, i32 %36)
   %74 = icmp slt i32 %46, %73
   %75 = sext i32 %46 to i64
-  %76 = getelementptr %struct.edid, ptr %5, i64 %75
+  %76 = getelementptr [128 x i8], ptr %5, i64 %75
   %77 = zext i1 %74 to i32
   %78 = add i32 %46, %77
   %79 = icmp ne ptr %76, null
@@ -13372,7 +13363,7 @@ define internal void @do_established_modes(ptr noundef readonly captures(none) %
 
 34:                                               ; preds = %27
   %35 = load ptr, ptr %14, align 8
-  %36 = getelementptr %struct.minimode, ptr @est3_modes, i64 %25
+  %36 = getelementptr [8 x i8], ptr @est3_modes, i64 %25
   %37 = load i16, ptr %36, align 8
   %38 = sext i16 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 2
@@ -13388,7 +13379,7 @@ define internal void @do_established_modes(ptr noundef readonly captures(none) %
 
 .split.us:                                        ; preds = %34, %84
   %47 = phi i64 [ %85, %84 ], [ 0, %34 ]
-  %48 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %47
+  %48 = getelementptr [120 x i8], ptr @drm_dmt_modes, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i16, ptr %49, align 4
   %51 = zext i16 %50 to i32
@@ -13451,7 +13442,7 @@ define internal void @do_established_modes(ptr noundef readonly captures(none) %
 
 .split:                                           ; preds = %34, %87
   %90 = phi i64 [ %88, %87 ], [ 0, %34 ]
-  %91 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %90
+  %91 = getelementptr [120 x i8], ptr @drm_dmt_modes, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = load i16, ptr %92, align 4
   %94 = zext i16 %93 to i32
@@ -13569,7 +13560,7 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
 20:                                               ; preds = %.loopexit38, %14
   %21 = phi i64 [ 0, %14 ], [ %68, %.loopexit38 ]
   %22 = phi i32 [ 0, %14 ], [ %67, %.loopexit38 ]
-  %23 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %21
+  %23 = getelementptr [120 x i8], ptr @drm_dmt_modes, i64 %21
   %24 = tail call fastcc zeroext i1 @mode_in_range(ptr noundef %23, ptr noundef %17, ptr noundef %0)
   br i1 %24, label %25, label %.loopexit38
 
@@ -13680,7 +13671,7 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
 87:                                               ; preds = %156, %83
   %88 = phi i64 [ 0, %83 ], [ %157, %156 ]
   %89 = phi i32 [ 0, %83 ], [ %.ph, %156 ]
-  %90 = getelementptr %struct.minimode, ptr @extra_modes, i64 %88
+  %90 = getelementptr [8 x i8], ptr @extra_modes, i64 %88
   %91 = load i16, ptr %90, align 8
   %92 = sext i16 %91 to i32
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 2
@@ -13807,7 +13798,7 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
 163:                                              ; preds = %232, %159
   %164 = phi i64 [ 0, %159 ], [ %233, %232 ]
   %165 = phi i32 [ 0, %159 ], [ %.ph23, %232 ]
-  %166 = getelementptr %struct.minimode, ptr @extra_modes, i64 %164
+  %166 = getelementptr [8 x i8], ptr @extra_modes, i64 %164
   %167 = load i16, ptr %166, align 8
   %168 = sext i16 %167 to i32
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 2
@@ -13944,7 +13935,7 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
 243:                                              ; preds = %312, %237
   %244 = phi i64 [ 0, %237 ], [ %313, %312 ]
   %245 = phi i32 [ 0, %237 ], [ %.ph27, %312 ]
-  %246 = getelementptr %struct.minimode, ptr @extra_modes, i64 %244
+  %246 = getelementptr [8 x i8], ptr @extra_modes, i64 %244
   %247 = load i16, ptr %246, align 8
   %248 = sext i16 %247 to i32
   %249 = getelementptr inbounds nuw i8, ptr %246, i64 2

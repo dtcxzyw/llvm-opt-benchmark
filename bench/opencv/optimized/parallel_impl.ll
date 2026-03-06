@@ -1355,7 +1355,7 @@ _ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE17_S_check_init_lenEmRKS4_.ex
 
 .lr.ph63.preheader:                               ; preds = %_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   store ptr %25, ptr %3, align 8, !tbaa !85
-  %26 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %25, i64 %21
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %21
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %25, i8 0, i64 %24, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %25, i64 %24
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1378,7 +1378,7 @@ _ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE17_S_check_init_lenEmRKS4_.ex
   br i1 %33, label %34, label %_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE6resizeEm.exit
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %92, i64 %5
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %5
   %.not.i.i = icmp eq ptr %91, %35
   br i1 %.not.i.i, label %_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -1452,34 +1452,34 @@ _ZSt8_DestroyIPN2cv3PtrINS0_12WorkerThreadEEES3_EvT_S5_RSaIT0_E.exit.i.i: ; pred
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %89
   %62 = phi ptr [ %92, %89 ], [ %9, %.lr.ph63.preheader ]
   %.02262 = phi i64 [ %90, %89 ], [ %5, %.lr.ph63.preheader ]
-  %63 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %62, i64 %.02262
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %.02262
   %64 = load ptr, ptr %63, align 8, !tbaa !89
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %65) #4
   %67 = load ptr, ptr %6, align 8, !tbaa !85
-  %68 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %67, i64 %.02262
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %.02262
   %69 = load ptr, ptr %68, align 8, !tbaa !89
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 25
   store atomic i8 1, ptr %70 seq_cst, align 1
   %71 = load ptr, ptr %6, align 8, !tbaa !85
-  %72 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %71, i64 %.02262
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %.02262
   %73 = load ptr, ptr %72, align 8, !tbaa !89
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 26
   store atomic i8 1, ptr %74 seq_cst, align 1
   %75 = load ptr, ptr %6, align 8, !tbaa !85
-  %76 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %75, i64 %.02262
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 %.02262
   %77 = load ptr, ptr %76, align 8, !tbaa !89
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %79 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %78) #4
   %80 = load ptr, ptr %6, align 8, !tbaa !85
-  %81 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %80, i64 %.02262
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %.02262
   %82 = load ptr, ptr %81, align 8, !tbaa !89
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 96
   %84 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %83) #4
   %85 = load ptr, ptr %6, align 8, !tbaa !85
-  %86 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %85, i64 %.02262
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %.02262
   %87 = sub nuw i64 %.02262, %5
-  %88 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %25, i64 %87
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %87
   invoke void @_ZSt4swapIN2cv3PtrINS0_12WorkerThreadEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %88)
           to label %89 unwind label %98
 
@@ -3117,7 +3117,7 @@ _ZNSt12__shared_ptrIN2cv11ParallelJobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
 
 135:                                              ; preds = %.lr.ph
   %136 = load ptr, ptr %118, align 8, !tbaa !85
-  %137 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %136, i64 %.04696
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %136, i64 %.04696
   %138 = load ptr, ptr %137, align 8, !tbaa !89
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 88
   %140 = load volatile i8, ptr %139, align 8, !tbaa !9, !range !125, !noundef !126
@@ -4163,9 +4163,9 @@ _ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 
 _ZNSt12_Vector_baseIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE13_M_deallocateEPS3_m.exit36: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !85
-  %36 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %27, i64 %1
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %36, ptr %4, align 8, !tbaa !86
-  %37 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %26, i64 %24
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %37, ptr %11, align 8, !tbaa !88
   br label %38
 
@@ -4399,7 +4399,7 @@ _ZNSt12_Vector_baseIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EE13_M_deallocateEPS3_m.
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !85
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !86
-  %41 = getelementptr inbounds nuw %"struct.cv::Ptr.5", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %41, ptr %40, align 8, !tbaa !88
   ret void
 }

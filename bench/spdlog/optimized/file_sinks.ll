@@ -5869,7 +5869,7 @@ _ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit: ; pre
 
 35:                                               ; preds = %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit
   %36 = zext nneg i32 %22 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %10, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !158
   %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE20on_replacement_fieldEiPKc.exit
@@ -5933,7 +5933,7 @@ _ZN3fmt3v1113parse_contextIcE11next_arg_idEv.exit.i.i31: ; preds = %43
 
 63:                                               ; preds = %55
   %64 = zext nneg i32 %52 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %10, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !158
   %67 = call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %.thread47
@@ -5978,7 +5978,7 @@ _ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit33: ; p
 
 79:                                               ; preds = %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit33
   %80 = zext nneg i32 %.038.i to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %10, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !158
   %83 = call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE15on_format_specsEiPKcS5_.exit

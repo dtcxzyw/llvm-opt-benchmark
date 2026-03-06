@@ -8,12 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%"struct.Assimp::MS3DImporter::TempJoint" = type { [33 x i8], [33 x i8], %class.aiVector3t, %class.aiVector3t, %"class.std::vector.7", %"class.std::vector.7", %"class.std::__cxx11::basic_string" }
-%class.aiVector3t = type { float, float, float }
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<Assimp::MS3DImporter::TempKeyFrame, std::allocator<Assimp::MS3DImporter::TempKeyFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::MS3DImporter::TempKeyFrame, std::allocator<Assimp::MS3DImporter::TempKeyFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::MS3DImporter::TempKeyFrame, std::allocator<Assimp::MS3DImporter::TempKeyFrame>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::MS3DImporter::TempKeyFrame, std::allocator<Assimp::MS3DImporter::TempKeyFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.3" = type { %"struct.std::_Bvector_base" }
 %"struct.std::_Bvector_base" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" }
 %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" }
@@ -42,22 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, unsigned int>, std::_Select1st<std::pair<const unsigned int, unsigned int>>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.Assimp::MS3DImporter::TempVertex" = type { %class.aiVector3t, [4 x i32], i32, [4 x float] }
-%"struct.Assimp::MS3DImporter::TempTriangle" = type { [3 x i32], [3 x %class.aiVector3t], [3 x %class.aiVector2t], i32, i32 }
-%class.aiVector2t = type { float, float }
-%"struct.Assimp::MS3DImporter::TempGroup" = type { [33 x i8], %"class.std::vector.36", i32, %"class.std::__cxx11::basic_string" }
-%"class.std::vector.36" = type { %"struct.std::_Vector_base.37" }
-%"struct.std::_Vector_base.37" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.Assimp::MS3DImporter::TempMaterial" = type { [33 x i8], [129 x i8], [129 x i8], %class.aiColor4t, %class.aiColor4t, %class.aiColor4t, %class.aiColor4t, float, float, %"class.std::__cxx11::basic_string" }
-%class.aiColor4t = type { float, float, float, float }
-%"struct.Assimp::MS3DImporter::TempKeyFrame" = type { float, %class.aiVector3t }
-%struct.aiFace = type { i32, ptr }
-%struct.aiVertexWeight = type { i32, float }
-%struct.aiQuatKey = type <{ double, %class.aiQuaterniont, i32, [4 x i8] }>
-%class.aiQuaterniont = type { float, float, float, float }
-%struct.aiVectorKey = type { double, %class.aiVector3t, i32 }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -510,7 +488,7 @@ define hidden void @_ZN6Assimp12MS3DImporter18CollectChildJointsERKSt6vectorINS0
   %.0134 = phi i32 [ 0, %.lr.ph ], [ %.1, %.critedge ]
   %.055133 = phi i64 [ 0, %.lr.ph ], [ %59, %.critedge ]
   %46 = sdiv i64 %.055133, 64
-  %47 = getelementptr inbounds i64, ptr %17, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %17, i64 %46
   %48 = and i64 %.055133, -9223372036854775745
   %49 = icmp ugt i64 %48, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %49, i64 -8, i64 0
@@ -523,7 +501,7 @@ define hidden void @_ZN6Assimp12MS3DImporter18CollectChildJointsERKSt6vectorINS0
   br i1 %.not128, label %54, label %.critedge
 
 54:                                               ; preds = %45
-  %55 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempJoint", ptr %12, i64 %.055133
+  %55 = getelementptr inbounds nuw [176 x i8], ptr %12, i64 %.055133
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 33
   %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %18) #29
   %.not61 = icmp eq i32 %57, 0
@@ -547,7 +525,7 @@ define hidden void @_ZN6Assimp12MS3DImporter18CollectChildJointsERKSt6vectorINS0
   %.059142 = phi i64 [ 0, %.lr.ph145 ], [ %306, %.critedge2 ]
   %63 = load ptr, ptr %2, align 8
   %64 = sdiv i64 %.059142, 64
-  %65 = getelementptr inbounds i64, ptr %63, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %63, i64 %64
   %66 = and i64 %.059142, -9223372036854775745
   %67 = icmp ugt i64 %66, -9223372036854775808
   %storemerge.idx.i.i.i.i.i62 = select i1 %67, i64 -8, i64 0
@@ -560,7 +538,7 @@ define hidden void @_ZN6Assimp12MS3DImporter18CollectChildJointsERKSt6vectorINS0
   br i1 %.not127, label %72, label %.critedge2
 
 72:                                               ; preds = %60
-  %73 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempJoint", ptr %61, i64 %.059142
+  %73 = getelementptr inbounds nuw [176 x i8], ptr %61, i64 %.059142
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 33
   %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %26) #29
   %.not = icmp eq i32 %75, 0
@@ -616,7 +594,7 @@ define hidden void @_ZN6Assimp12MS3DImporter18CollectChildJointsERKSt6vectorINS0
   %91 = load ptr, ptr %23, align 8
   %92 = add i32 %.2143, 1
   %93 = zext i32 %.2143 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %91, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %93
   store ptr %77, ptr %94, align 8
   %95 = load ptr, ptr %7, align 8
   %96 = icmp eq ptr %95, %27
@@ -633,7 +611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %90, %
   %99 = getelementptr inbounds nuw i8, ptr %77, i64 1096
   store ptr %3, ptr %99, align 8
   %100 = load ptr, ptr %1, align 8
-  %101 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempJoint", ptr %100, i64 %.059142
+  %101 = getelementptr inbounds nuw [176 x i8], ptr %100, i64 %.059142
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 80
   %103 = load float, ptr %102, align 4
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 84
@@ -850,7 +828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %90, %
 
 ._crit_edge141:                                   ; preds = %._crit_edge138, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %261 = load ptr, ptr %2, align 8
-  %262 = getelementptr inbounds i64, ptr %261, i64 %64
+  %262 = getelementptr inbounds [8 x i8], ptr %261, i64 %64
   %storemerge.i.i.i.i.i68 = getelementptr inbounds i8, ptr %262, i64 %storemerge.idx.i.i.i.i.i62
   %263 = load i64, ptr %storemerge.i.i.i.i.i68, align 8
   %264 = or i64 %263, %69
@@ -890,7 +868,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %267
   %indvars.iv153 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next154, %._crit_edge138 ]
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 24
   %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds nuw ptr, ptr %276, i64 %indvars.iv153
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %indvars.iv153
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 216
   %280 = load i32, ptr %279, align 8
@@ -918,7 +896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %267
   %288 = phi i32 [ %280, %.lr.ph137 ], [ %301, %_ZNK8aiStringeqERKS_.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next, %_ZNK8aiStringeqERKS_.exit.thread ]
   %289 = load ptr, ptr %281, align 8
-  %290 = getelementptr inbounds nuw ptr, ptr %289, i64 %indvars.iv
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %indvars.iv
   %291 = load ptr, ptr %290, align 8
   %292 = load i32, ptr %291, align 4
   %293 = load i32, ptr %77, align 4
@@ -1271,12 +1249,12 @@ define hidden void @_ZN6Assimp12MS3DImporter18CollectChildJointsERKSt6vectorINS0
   %20 = and i64 %19, 2305843009213693944
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #28
   %22 = lshr i64 %18, 6
-  %23 = getelementptr inbounds nuw i64, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   store ptr %23, ptr %12, align 8
   store ptr %21, ptr %4, align 8
   store i32 0, ptr %9, align 8
   %24 = sdiv i64 %16, 11264
-  %25 = getelementptr inbounds i64, ptr %21, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %21, i64 %24
   %26 = and i64 %17, -9223372036854775745
   %27 = icmp ugt i64 %26, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %27, i64 -8, i64 0
@@ -1320,7 +1298,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %13, %3
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 3
   %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds i64, ptr %30, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %30, i64 %44
   tail call void @_ZdlPvm(ptr noundef %45, i64 noundef %42) #30
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -1341,7 +1319,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %38, %39
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 3
   %53 = sub nsw i64 0, %52
-  %54 = getelementptr inbounds i64, ptr %30, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %30, i64 %53
   tail call void @_ZdlPvm(ptr noundef %54, i64 noundef %51) #30
   br label %.body
 
@@ -1566,7 +1544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469: ; preds = %40
           to label %.lr.ph.preheader unwind label %111
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.i.i.i.i.i
-  %97 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempVertex", ptr %96, i64 %94
+  %97 = getelementptr inbounds nuw [48 x i8], ptr %96, i64 %94
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %96, i8 0, i64 %95, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %96, i64 %95
   %98 = ptrtoint ptr %97 to i64
@@ -1616,7 +1594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469: ; preds = %40
   %113 = phi ptr [ %54, %.lr.ph.preheader ], [ %126, %142 ]
   %114 = phi ptr [ %85, %.lr.ph.preheader ], [ %136, %142 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %142 ]
-  %115 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempVertex", ptr %96, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [48 x i8], ptr %96, i64 %indvars.iv
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 1
   store ptr %116, ptr %50, align 8
   %117 = icmp ugt ptr %116, %113
@@ -1731,7 +1709,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit: ; preds = %.lr.ph
           to label %.lr.ph1162.preheader unwind label %171
 
 .lr.ph1162.preheader:                             ; preds = %.lr.ph.preheader.i.i.i.i.i493
-  %158 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempTriangle", ptr %157, i64 %155
+  %158 = getelementptr inbounds nuw [80 x i8], ptr %157, i64 %155
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %157, i8 0, i64 %156, i1 false)
   %scevgep.i.i.i.i.i494 = getelementptr i8, ptr %157, i64 %156
   %159 = ptrtoint ptr %158 to i64
@@ -1779,7 +1757,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit: ; preds = %.lr.ph
 .lr.ph1162:                                       ; preds = %.lr.ph1162.preheader, %272
   %indvars.iv1306 = phi i64 [ 0, %.lr.ph1162.preheader ], [ %indvars.iv.next1307, %272 ]
   %.promoted114811511160 = phi ptr [ %102, %.lr.ph1162.preheader ], [ %266, %272 ]
-  %173 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempTriangle", ptr %157, i64 %indvars.iv1306
+  %173 = getelementptr inbounds nuw [80 x i8], ptr %157, i64 %indvars.iv1306
   %174 = getelementptr inbounds nuw i8, ptr %.promoted114811511160, i64 2
   store ptr %174, ptr %50, align 8
   %175 = icmp ugt ptr %174, %100
@@ -1834,7 +1812,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit505: ; preds = %_ZN6Assimp12Stre
   %191 = load i16, ptr %183, align 1
   store ptr %184, ptr %50, align 8
   %192 = sext i16 %191 to i32
-  %193 = getelementptr inbounds nuw i32, ptr %173, i64 %indvars.iv1290
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %indvars.iv1290
   store i32 %192, ptr %193, align 4
   %indvars.iv.next1291 = add nuw nsw i64 %indvars.iv1290, 1
   %exitcond1293.not = icmp eq i64 %indvars.iv.next1291, 3
@@ -1852,7 +1830,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit505: ; preds = %_ZN6Assimp12Stre
 197:                                              ; preds = %.preheader1085, %222
   %indvars.iv1294 = phi i64 [ 0, %.preheader1085 ], [ %indvars.iv.next1295, %222 ]
   %198 = phi ptr [ %184, %.preheader1085 ], [ %215, %222 ]
-  %199 = getelementptr inbounds nuw %class.aiVector3t, ptr %180, i64 %indvars.iv1294
+  %199 = getelementptr inbounds nuw [12 x i8], ptr %180, i64 %indvars.iv1294
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 4
   %201 = icmp ugt ptr %200, %100
   br i1 %201, label %202, label %_ZN6Assimp12StreamReaderILb0ELb0EErsIfEERS1_RT_.exit.i
@@ -1958,7 +1936,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EErsIfEERS1_RT_.exit4.i: ; preds = %_ZN6Assimp12
   br label %.body503.thread1585
 
 236:                                              ; preds = %227
-  %237 = getelementptr inbounds nuw %class.aiVector2t, ptr %196, i64 %indvars.iv1298
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv1298
   %238 = load float, ptr %228, align 1
   store ptr %229, ptr %50, align 8
   store float %238, ptr %237, align 4
@@ -2013,7 +1991,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EErsIfEERS1_RT_.exit4.i: ; preds = %_ZN6Assimp12
   br label %.body503.thread1585
 
 256:                                              ; preds = %.preheader1083
-  %257 = getelementptr inbounds nuw %class.aiVector2t, ptr %173, i64 %indvars.iv1302
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %indvars.iv1302
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 52
   %259 = load float, ptr %248, align 1
   store ptr %249, ptr %50, align 8
@@ -2086,7 +2064,7 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempGroupESaIS2_EEC2EmRKS3_.exit.i: ;
 
 .noexc532:                                        ; preds = %_ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempGroupESaIS2_EEC2EmRKS3_.exit.i
   store ptr %281, ptr %11, align 8
-  %282 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempGroup", ptr %281, i64 %278
+  %282 = getelementptr inbounds nuw [104 x i8], ptr %281, i64 %278
   %283 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %282, ptr %283, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -2155,7 +2133,7 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempGroupESaIS2_EEC2EmRKS3_.exit.i: ;
   %indvars.iv1316 = phi i64 [ 0, %.lr.ph1170.preheader ], [ %indvars.iv.next1317, %378 ]
   %.03491168 = phi i1 [ false, %.lr.ph1170.preheader ], [ %spec.select, %378 ]
   %303 = load ptr, ptr %11, align 8
-  %304 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempGroup", ptr %303, i64 %indvars.iv1316
+  %304 = getelementptr inbounds nuw [104 x i8], ptr %303, i64 %indvars.iv1316
   %305 = load ptr, ptr %50, align 8
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 1
   store ptr %306, ptr %50, align 8
@@ -2256,7 +2234,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit540: ; preds = %.lr.ph1170
   br i1 %348, label %349, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 349:                                              ; preds = %347
-  %350 = getelementptr inbounds nuw i32, ptr %339, i64 %336
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %339, i64 %336
   %.not.i.i = icmp eq ptr %338, %350
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %351
 
@@ -2336,7 +2314,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %345, %347, %349, %3
   store ptr %363, ptr %50, align 8
   %373 = sext i16 %372 to i32
   %374 = load ptr, ptr %335, align 8
-  %375 = getelementptr inbounds nuw i32, ptr %374, i64 %indvars.iv1311
+  %375 = getelementptr inbounds nuw [4 x i8], ptr %374, i64 %indvars.iv1311
   store i32 %373, ptr %375, align 4
   %indvars.iv.next1312 = add nuw nsw i64 %indvars.iv1311, 1
   %exitcond1315.not = icmp eq i64 %indvars.iv.next1312, %wide.trip.count1314
@@ -2379,7 +2357,7 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter12TempMaterialESaIS2_EEC2EmRKS3_.exit.
 
 .noexc565:                                        ; preds = %_ZNSt12_Vector_baseIN6Assimp12MS3DImporter12TempMaterialESaIS2_EEC2EmRKS3_.exit.i
   store ptr %388, ptr %12, align 8
-  %389 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempMaterial", ptr %388, i64 %385
+  %389 = getelementptr inbounds nuw [400 x i8], ptr %388, i64 %385
   %390 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %389, ptr %390, align 8
   br label %.lr.ph.i.i.i.i.i560
@@ -2439,7 +2417,7 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter12TempMaterialESaIS2_EEC2EmRKS3_.exit.
 .lr.ph1175:                                       ; preds = %.lr.ph1175.preheader, %483
   %indvars.iv1320 = phi i64 [ 0, %.lr.ph1175.preheader ], [ %indvars.iv.next1321, %483 ]
   %409 = load ptr, ptr %12, align 8
-  %410 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempMaterial", ptr %409, i64 %indvars.iv1320
+  %410 = getelementptr inbounds nuw [400 x i8], ptr %409, i64 %indvars.iv1320
   %411 = load ptr, ptr %50, align 8
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 32
   store ptr %412, ptr %50, align 8
@@ -2707,7 +2685,7 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempJointESaIS2_EEC2EmRKS3_.exit.i: ;
 
 .noexc614:                                        ; preds = %_ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempJointESaIS2_EEC2EmRKS3_.exit.i
   store ptr %515, ptr %13, align 8
-  %516 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempJoint", ptr %515, i64 %512
+  %516 = getelementptr inbounds nuw [176 x i8], ptr %515, i64 %512
   %517 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %516, ptr %517, align 8
   br label %.lr.ph.i.i.i.i.i609
@@ -2764,7 +2742,7 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempJointESaIS2_EEC2EmRKS3_.exit.i: ;
 .lr.ph1184:                                       ; preds = %.lr.ph1184.preheader, %._crit_edge1181
   %indvars.iv1325 = phi i64 [ 0, %.lr.ph1184.preheader ], [ %indvars.iv.next1326, %._crit_edge1181 ]
   %538 = load ptr, ptr %13, align 8
-  %539 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempJoint", ptr %538, i64 %indvars.iv1325
+  %539 = getelementptr inbounds nuw [176 x i8], ptr %538, i64 %indvars.iv1325
   %540 = load ptr, ptr %50, align 8
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 1
   store ptr %541, ptr %50, align 8
@@ -2893,7 +2871,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit618: ; preds = %.lr.ph1184
   br i1 %599, label %600, label %_ZNSt6vectorIN6Assimp12MS3DImporter12TempKeyFrameESaIS2_EE6resizeEm.exit
 
 600:                                              ; preds = %598
-  %601 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempKeyFrame", ptr %590, i64 %587
+  %601 = getelementptr inbounds nuw [16 x i8], ptr %590, i64 %587
   %.not.i.i633 = icmp eq ptr %589, %601
   br i1 %.not.i.i633, label %_ZNSt6vectorIN6Assimp12MS3DImporter12TempKeyFrameESaIS2_EE6resizeEm.exit, label %602
 
@@ -2944,7 +2922,7 @@ _ZNSt6vectorIN6Assimp12MS3DImporter12TempKeyFrameESaIS2_EE6resizeEm.exit: ; pred
   br i1 %626, label %627, label %_ZNSt6vectorIN6Assimp12MS3DImporter12TempKeyFrameESaIS2_EE6resizeEm.exit641
 
 627:                                              ; preds = %625
-  %628 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempKeyFrame", ptr %617, i64 %614
+  %628 = getelementptr inbounds nuw [16 x i8], ptr %617, i64 %614
   %.not.i.i639 = icmp eq ptr %616, %628
   br i1 %.not.i.i639, label %_ZNSt6vectorIN6Assimp12MS3DImporter12TempKeyFrameESaIS2_EE6resizeEm.exit641, label %629
 
@@ -2996,7 +2974,7 @@ _ZNSt6vectorIN6Assimp12MS3DImporter12TempKeyFrameESaIS2_EE6resizeEm.exit641: ; p
   br label %.body616
 
 644:                                              ; preds = %.lr.ph1178
-  %645 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempKeyFrame", ptr %634, i64 %635
+  %645 = getelementptr inbounds nuw [16 x i8], ptr %634, i64 %635
   %646 = load float, ptr %636, align 1
   store ptr %637, ptr %50, align 8
   store float %646, ptr %645, align 4
@@ -3120,7 +3098,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EErsIfEERS1_RT_.exit4.i647: ; preds = %_ZN6Assim
   br label %.body616
 
 700:                                              ; preds = %.lr.ph1180
-  %701 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempKeyFrame", ptr %690, i64 %691
+  %701 = getelementptr inbounds nuw [16 x i8], ptr %690, i64 %691
   %702 = load float, ptr %692, align 1
   store ptr %693, ptr %50, align 8
   store float %702, ptr %701, align 4
@@ -3483,7 +3461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit692: ; preds = %82
 851:                                              ; preds = %.lr.ph1193, %850
   %indvars.iv1334 = phi i64 [ 0, %.lr.ph1193 ], [ %indvars.iv.next1335, %850 ]
   %.promoted11881191 = phi ptr [ %836, %.lr.ph1193 ], [ %857, %850 ]
-  %852 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempVertex", ptr %.sroa.01016.01562, i64 %indvars.iv1334
+  %852 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.01016.01562, i64 %indvars.iv1334
   %853 = getelementptr inbounds nuw i8, ptr %852, i64 32
   %854 = getelementptr inbounds nuw i8, ptr %852, i64 44
   store float 1.000000e+00, ptr %854, align 4
@@ -3538,7 +3516,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit700: ; preds = %883
   store ptr %866, ptr %50, align 8
   %874 = sext i8 %873 to i32
   %indvars.iv.next1331 = add nuw nsw i64 %indvars.iv1330, 1
-  %875 = getelementptr inbounds nuw i32, ptr %855, i64 %indvars.iv.next1331
+  %875 = getelementptr inbounds nuw [4 x i8], ptr %855, i64 %indvars.iv.next1331
   store i32 %874, ptr %875, align 4
   %876 = getelementptr inbounds nuw i8, ptr %865, i64 2
   %877 = icmp ugt ptr %876, %837
@@ -3569,7 +3547,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit700: ; preds = %883
   %885 = sext i8 %884 to i32
   %886 = uitofp i32 %885 to float
   %887 = fdiv float %886, 2.550000e+02
-  %888 = getelementptr inbounds nuw float, ptr %853, i64 %indvars.iv1330
+  %888 = getelementptr inbounds nuw [4 x i8], ptr %853, i64 %indvars.iv1330
   store float %887, ptr %888, align 4
   %889 = load float, ptr %854, align 4
   %890 = fsub float %889, %887
@@ -3658,7 +3636,7 @@ _ZNSt6vectorIN6Assimp12MS3DImporter12TempMaterialESaIS2_EE12emplace_backIJEEERS2
   %920 = phi ptr [ %937, %935 ], [ %917, %_ZNSt6vectorIN6Assimp12MS3DImporter12TempMaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ]
   %921 = phi i64 [ %939, %935 ], [ 0, %_ZNSt6vectorIN6Assimp12MS3DImporter12TempMaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ]
   %.03661194 = phi i32 [ %938, %935 ], [ 0, %_ZNSt6vectorIN6Assimp12MS3DImporter12TempMaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ]
-  %922 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempGroup", ptr %919, i64 %921
+  %922 = getelementptr inbounds nuw [104 x i8], ptr %919, i64 %921
   %923 = getelementptr inbounds nuw i8, ptr %922, i64 64
   %924 = load i32, ptr %923, align 8
   %925 = icmp eq i32 %924, -1
@@ -3738,10 +3716,10 @@ _ZNSt6vectorIN6Assimp12MS3DImporter12TempMaterialESaIS2_EE12emplace_backIJEEERS2
   %974 = add i32 %973, 1
   store i32 %974, ptr %957, align 8
   %975 = zext i32 %973 to i64
-  %976 = getelementptr inbounds nuw ptr, ptr %972, i64 %975
+  %976 = getelementptr inbounds nuw [8 x i8], ptr %972, i64 %975
   store ptr %969, ptr %976, align 8
   %977 = load ptr, ptr %12, align 8
-  %978 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempMaterial", ptr %977, i64 %.03671196
+  %978 = getelementptr inbounds nuw [400 x i8], ptr %977, i64 %.03671196
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %15, i8 0, i64 1028, i1 false)
   %979 = getelementptr inbounds nuw i8, ptr %978, i64 162
@@ -4177,10 +4155,10 @@ _ZN10aiMaterial11AddPropertyEPKijPKcjj.exit:      ; preds = %_ZN10aiMaterial11Ad
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1044) %1140, i8 0, i64 1044, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %1141, i8 0, i64 36, i1 false)
   %1143 = load ptr, ptr %1120, align 8
-  %1144 = getelementptr inbounds nuw ptr, ptr %1143, i64 %indvars.iv1358
+  %1144 = getelementptr inbounds nuw [8 x i8], ptr %1143, i64 %indvars.iv1358
   store ptr %1135, ptr %1144, align 8
   %1145 = load ptr, ptr %11, align 8
-  %1146 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempGroup", ptr %1145, i64 %indvars.iv1358
+  %1146 = getelementptr inbounds nuw [104 x i8], ptr %1145, i64 %indvars.iv1358
   %1147 = load i32, ptr %1121, align 8
   %.not407 = icmp ne i32 %1147, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1146, i64 64
@@ -4246,7 +4224,7 @@ _ZN10aiMaterial11AddPropertyEPKijPKcjj.exit:      ; preds = %_ZN10aiMaterial11Ad
   br i1 %1172, label %.loopexit1050, label %1173
 
 1173:                                             ; preds = %1170
-  %1174 = getelementptr inbounds nuw %struct.aiFace, ptr %1171, i64 %1166
+  %1174 = getelementptr inbounds nuw [16 x i8], ptr %1171, i64 %1166
   br label %1175
 
 1175:                                             ; preds = %1175, %1173
@@ -4337,9 +4315,9 @@ _ZN10aiMaterial11AddPropertyEPKijPKcjj.exit:      ; preds = %_ZN10aiMaterial11Ad
   %.03701202 = phi i32 [ %1230, %1229 ], [ 0, %.loopexit1047 ]
   %1208 = load ptr, ptr %1180, align 8
   %1209 = zext i32 %.03701202 to i64
-  %1210 = getelementptr inbounds nuw %struct.aiFace, ptr %1208, i64 %1209
+  %1210 = getelementptr inbounds nuw [16 x i8], ptr %1208, i64 %1209
   %1211 = load ptr, ptr %1157, align 8
-  %1212 = getelementptr inbounds nuw i32, ptr %1211, i64 %1209
+  %1212 = getelementptr inbounds nuw [4 x i8], ptr %1211, i64 %1209
   %1213 = load i32, ptr %1212, align 4
   %1214 = zext i32 %1213 to i64
   %.not412 = icmp ugt i64 %1129, %1214
@@ -4366,7 +4344,7 @@ _ZN10aiMaterial11AddPropertyEPKijPKcjj.exit:      ; preds = %_ZN10aiMaterial11Ad
   br label %.body755
 
 1222:                                             ; preds = %.lr.ph1205
-  %1223 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempTriangle", ptr %.sroa.01004.01574, i64 %1214
+  %1223 = getelementptr inbounds nuw [80 x i8], ptr %.sroa.01004.01574, i64 %1214
   store i32 3, ptr %1210, align 8
   %1224 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znam(i64 noundef 12) #28
           to label %1225 unwind label %1233
@@ -4392,7 +4370,7 @@ _ZN10aiMaterial11AddPropertyEPKijPKcjj.exit:      ; preds = %_ZN10aiMaterial11Ad
 1235:                                             ; preds = %1225, %1249
   %indvars.iv1343 = phi i64 [ 0, %1225 ], [ %indvars.iv.next1344, %1249 ]
   %.13691200 = phi i32 [ %.03681203, %1225 ], [ %1265, %1249 ]
-  %1236 = getelementptr inbounds nuw i32, ptr %1223, i64 %indvars.iv1343
+  %1236 = getelementptr inbounds nuw [4 x i8], ptr %1223, i64 %indvars.iv1343
   %1237 = load i32, ptr %1236, align 4
   %1238 = zext i32 %1237 to i64
   %.not413 = icmp ugt i64 %1132, %1238
@@ -4419,33 +4397,33 @@ _ZN10aiMaterial11AddPropertyEPKijPKcjj.exit:      ; preds = %_ZN10aiMaterial11Ad
   br label %.body755
 
 1246:                                             ; preds = %1235
-  %1247 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempVertex", ptr %.sroa.01016.01562, i64 %1238
+  %1247 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.01016.01562, i64 %1238
   %1248 = getelementptr inbounds nuw i8, ptr %1247, i64 12
   br label %1266
 
 1249:                                             ; preds = %1348
   %1250 = load ptr, ptr %1139, align 8
   %1251 = zext i32 %.13691200 to i64
-  %1252 = getelementptr inbounds nuw %class.aiVector3t, ptr %1250, i64 %1251
+  %1252 = getelementptr inbounds nuw [12 x i8], ptr %1250, i64 %1251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1252, ptr noundef nonnull align 4 dereferenceable(12) %1247, i64 12, i1 false)
-  %1253 = getelementptr inbounds nuw %class.aiVector3t, ptr %1227, i64 %indvars.iv1343
+  %1253 = getelementptr inbounds nuw [12 x i8], ptr %1227, i64 %indvars.iv1343
   %1254 = load ptr, ptr %1197, align 8
-  %1255 = getelementptr inbounds nuw %class.aiVector3t, ptr %1254, i64 %1251
+  %1255 = getelementptr inbounds nuw [12 x i8], ptr %1254, i64 %1251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1255, ptr noundef nonnull align 4 dereferenceable(12) %1253, i64 12, i1 false)
-  %1256 = getelementptr inbounds nuw %class.aiVector2t, ptr %1228, i64 %indvars.iv1343
+  %1256 = getelementptr inbounds nuw [8 x i8], ptr %1228, i64 %indvars.iv1343
   %1257 = load float, ptr %1256, align 4
   %1258 = getelementptr inbounds nuw i8, ptr %1256, i64 4
   %1259 = load float, ptr %1258, align 4
   %1260 = fsub float 1.000000e+00, %1259
   %1261 = load ptr, ptr %1205, align 8
-  %1262 = getelementptr inbounds nuw %class.aiVector3t, ptr %1261, i64 %1251
+  %1262 = getelementptr inbounds nuw [12 x i8], ptr %1261, i64 %1251
   store float %1257, ptr %1262, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1262, i64 4
   store float %1260, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5975.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1262, i64 8
   store float 0.000000e+00, ptr %.sroa.5975.0..sroa_idx, align 4
   %1263 = load ptr, ptr %1226, align 8
-  %1264 = getelementptr inbounds nuw i32, ptr %1263, i64 %indvars.iv1343
+  %1264 = getelementptr inbounds nuw [4 x i8], ptr %1263, i64 %indvars.iv1343
   store i32 %.13691200, ptr %1264, align 4
   %indvars.iv.next1344 = add nuw nsw i64 %indvars.iv1343, 1
   %1265 = add i32 %.13691200, 1
@@ -4454,7 +4432,7 @@ _ZN10aiMaterial11AddPropertyEPKijPKcjj.exit:      ; preds = %_ZN10aiMaterial11Ad
 
 1266:                                             ; preds = %1246, %1348
   %indvars.iv1339 = phi i64 [ 0, %1246 ], [ %indvars.iv.next1340, %1348 ]
-  %1267 = getelementptr inbounds nuw i32, ptr %1248, i64 %indvars.iv1339
+  %1267 = getelementptr inbounds nuw [4 x i8], ptr %1248, i64 %indvars.iv1339
   %1268 = load i32, ptr %1267, align 4
   %.not414 = icmp eq i32 %1268, -1
   br i1 %.not414, label %1348, label %1269
@@ -4720,7 +4698,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1349
           to label %.noexc782 unwind label %.loopexit1056
 
 .noexc782:                                        ; preds = %1358
-  %1361 = getelementptr inbounds nuw i32, ptr %1360, i64 %1355
+  %1361 = getelementptr inbounds nuw [4 x i8], ptr %1360, i64 %1355
   store i32 0, ptr %1360, align 4
   %1362 = add nsw i64 %1355, -1
   %1363 = icmp eq i64 %1362, 0
@@ -4800,13 +4778,13 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   %1385 = load ptr, ptr %1140, align 8
   %1386 = load i32, ptr %1371, align 8
   %1387 = zext i32 %1386 to i64
-  %1388 = getelementptr inbounds nuw ptr, ptr %1385, i64 %1387
+  %1388 = getelementptr inbounds nuw [8 x i8], ptr %1385, i64 %1387
   store ptr %1376, ptr %1388, align 8
   %1389 = getelementptr inbounds nuw i8, ptr %.sroa.0961.01208, i64 32
   %1390 = load i32, ptr %1389, align 4
   %1391 = zext i32 %1390 to i64
   %1392 = load ptr, ptr %13, align 8
-  %1393 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempJoint", ptr %1392, i64 %1391
+  %1393 = getelementptr inbounds nuw [176 x i8], ptr %1392, i64 %1391
   %1394 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1393) #29
   %1395 = trunc i64 %1394 to i32
   %spec.store.select.i = call i32 @llvm.smin.i32(i32 %1395, i32 1023)
@@ -4839,7 +4817,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   store i32 %1408, ptr %1371, align 8
   %1409 = load i32, ptr %1389, align 4
   %1410 = zext i32 %1409 to i64
-  %1411 = getelementptr inbounds nuw i32, ptr %.sroa.0967.0, i64 %1410
+  %1411 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0967.0, i64 %1410
   store i32 %1407, ptr %1411, align 4
   %1412 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0961.01208) #29
   %.not1043 = icmp eq ptr %1412, %1122
@@ -4870,10 +4848,10 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   %indvars.iv1355 = phi i64 [ %indvars.iv.next1356, %1426 ], [ 0, %.preheader ]
   %.03581215 = phi i32 [ %1438, %1426 ], [ 0, %.preheader ]
   %1421 = load ptr, ptr %1157, align 8
-  %1422 = getelementptr inbounds nuw i32, ptr %1421, i64 %indvars.iv1355
+  %1422 = getelementptr inbounds nuw [4 x i8], ptr %1421, i64 %indvars.iv1355
   %1423 = load i32, ptr %1422, align 4
   %1424 = zext i32 %1423 to i64
-  %1425 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempTriangle", ptr %.sroa.01004.01574, i64 %1424
+  %1425 = getelementptr inbounds nuw [80 x i8], ptr %.sroa.01004.01574, i64 %1424
   br label %1430
 
 1426:                                             ; preds = %1437
@@ -4886,10 +4864,10 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
 1430:                                             ; preds = %.lr.ph1216, %1437
   %indvars.iv1351 = phi i64 [ 0, %.lr.ph1216 ], [ %indvars.iv.next1352, %1437 ]
   %.13591212 = phi i32 [ %.03581215, %.lr.ph1216 ], [ %1438, %1437 ]
-  %1431 = getelementptr inbounds nuw i32, ptr %1425, i64 %indvars.iv1351
+  %1431 = getelementptr inbounds nuw [4 x i8], ptr %1425, i64 %indvars.iv1351
   %1432 = load i32, ptr %1431, align 4
   %1433 = zext i32 %1432 to i64
-  %1434 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempVertex", ptr %.sroa.01016.01562, i64 %1433
+  %1434 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.01016.01562, i64 %1433
   %1435 = getelementptr inbounds nuw i8, ptr %1434, i64 12
   %1436 = getelementptr inbounds nuw i8, ptr %1434, i64 32
   br label %1439
@@ -4902,7 +4880,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
 
 1439:                                             ; preds = %1430, %1461
   %indvars.iv1347 = phi i64 [ 0, %1430 ], [ %indvars.iv.next1348, %1461 ]
-  %1440 = getelementptr inbounds nuw i32, ptr %1435, i64 %indvars.iv1347
+  %1440 = getelementptr inbounds nuw [4 x i8], ptr %1435, i64 %indvars.iv1347
   %1441 = load i32, ptr %1440, align 4
   %1442 = icmp eq i32 %1441, -1
   br i1 %1442, label %1461, label %1443
@@ -4910,10 +4888,10 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
 1443:                                             ; preds = %1439
   %1444 = load ptr, ptr %1140, align 8
   %1445 = zext i32 %1441 to i64
-  %1446 = getelementptr inbounds nuw i32, ptr %.sroa.0967.0, i64 %1445
+  %1446 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0967.0, i64 %1445
   %1447 = load i32, ptr %1446, align 4
   %1448 = zext i32 %1447 to i64
-  %1449 = getelementptr inbounds nuw ptr, ptr %1444, i64 %1448
+  %1449 = getelementptr inbounds nuw [8 x i8], ptr %1444, i64 %1448
   %1450 = load ptr, ptr %1449, align 8
   %1451 = getelementptr inbounds nuw i8, ptr %1450, i64 1048
   %1452 = load ptr, ptr %1451, align 8
@@ -4922,9 +4900,9 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   %1455 = add i32 %1454, 1
   store i32 %1455, ptr %1453, align 4
   %1456 = zext i32 %1454 to i64
-  %1457 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %1452, i64 %1456
+  %1457 = getelementptr inbounds nuw [8 x i8], ptr %1452, i64 %1456
   store i32 %.13591212, ptr %1457, align 4
-  %1458 = getelementptr inbounds nuw float, ptr %1436, i64 %indvars.iv1347
+  %1458 = getelementptr inbounds nuw [4 x i8], ptr %1436, i64 %indvars.iv1347
   %1459 = load float, ptr %1458, align 4
   %1460 = getelementptr inbounds nuw i8, ptr %1457, i64 4
   store float %1459, ptr %1460, align 4
@@ -5063,7 +5041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit796: ; preds = %14
   %1507 = add i32 %1506, 1
   store i32 %1507, ptr %1493, align 8
   %1508 = zext i32 %1506 to i64
-  %1509 = getelementptr inbounds nuw i32, ptr %1505, i64 %1508
+  %1509 = getelementptr inbounds nuw [4 x i8], ptr %1505, i64 %1508
   store i32 %.03481222, ptr %1509, align 4
   %1510 = add nuw i32 %.03481222, 1
   %1511 = load i32, ptr %1115, align 8
@@ -5209,7 +5187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit796: ; preds = %14
   %1580 = add i32 %1579, 1
   store i32 %1580, ptr %1535, align 8
   %1581 = zext i32 %1579 to i64
-  %1582 = getelementptr inbounds nuw ptr, ptr %1578, i64 %1581
+  %1582 = getelementptr inbounds nuw [8 x i8], ptr %1578, i64 %1581
   store ptr %1573, ptr %1582, align 8
   %1583 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0942.01235) #29
   %1584 = trunc i64 %1583 to i32
@@ -5237,7 +5215,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit796: ; preds = %14
           to label %1599 unwind label %1617
 
 1599:                                             ; preds = %1594
-  %1600 = getelementptr inbounds %struct.aiQuatKey, ptr %1598, i64 %1593
+  %1600 = getelementptr inbounds [32 x i8], ptr %1598, i64 %1593
   br label %1601
 
 1601:                                             ; preds = %1601, %1599
@@ -5283,7 +5261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit796: ; preds = %14
   %1622 = add i32 %1621, 1
   store i32 %1622, ptr %1613, align 8
   %1623 = zext i32 %1621 to i64
-  %1624 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %1620, i64 %1623
+  %1624 = getelementptr inbounds nuw [32 x i8], ptr %1620, i64 %1623
   %1625 = load float, ptr %.sroa.0936.01227, align 4
   %1626 = fmul float %487, %1625
   %1627 = fpext float %1626 to double
@@ -5491,7 +5469,7 @@ _ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit: ; preds = %1764, %1751, %1736,
           to label %1794 unwind label %1617
 
 1794:                                             ; preds = %1788
-  %1795 = getelementptr inbounds %struct.aiVectorKey, ptr %1793, i64 %1787
+  %1795 = getelementptr inbounds [24 x i8], ptr %1793, i64 %1787
   br label %1796
 
 1796:                                             ; preds = %1796, %1794
@@ -5525,7 +5503,7 @@ _ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit: ; preds = %1764, %1751, %1736,
   %1812 = add i32 %1811, 1
   store i32 %1812, ptr %1805, align 4
   %1813 = zext i32 %1811 to i64
-  %1814 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %1810, i64 %1813
+  %1814 = getelementptr inbounds nuw [24 x i8], ptr %1810, i64 %1813
   %1815 = load float, ptr %.sroa.0880.01231, align 4
   %1816 = fmul float %487, %1815
   %1817 = fpext float %1816 to double
@@ -6523,7 +6501,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EErsIjEERS1_RT_.exit13: ; preds = %_ZN6Assimp12S
   store i8 0, ptr %77, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempGroup", ptr %78, i64 %44
+  %79 = getelementptr inbounds nuw [104 x i8], ptr %78, i64 %44
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 72
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 88
@@ -6823,7 +6801,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EErsIjEERS1_RT_.exit13: ; preds = %_ZN6Assimp12S
   store i8 0, ptr %77, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempMaterial", ptr %78, i64 %44
+  %79 = getelementptr inbounds nuw [400 x i8], ptr %78, i64 %44
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 368
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 384
@@ -7123,7 +7101,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EErsIjEERS1_RT_.exit13: ; preds = %_ZN6Assimp12S
   store i8 0, ptr %77, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempJoint", ptr %78, i64 %44
+  %79 = getelementptr inbounds nuw [176 x i8], ptr %78, i64 %44
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 144
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 160
@@ -8127,9 +8105,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8
   br label %41
 
@@ -8213,9 +8191,9 @@ _ZNSt6vectorIN6Assimp12MS3DImporter12TempKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S
 
 _ZNSt12_Vector_baseIN6Assimp12MS3DImporter12TempKeyFrameESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN6Assimp12MS3DImporter12TempKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %31
   store ptr %26, ptr %0, align 8
-  %33 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempKeyFrame", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8
-  %34 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempKeyFrame", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8
   br label %35
 
@@ -8463,7 +8441,7 @@ _ZNSt6vectorIN6Assimp12MS3DImporter12TempMaterialESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt12_Vector_baseIN6Assimp12MS3DImporter12TempMaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp12MS3DImporter12TempMaterialESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25, %59
   store ptr %19, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i24, ptr %3, align 8
-  %63 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempMaterial", ptr %19, i64 %15
+  %63 = getelementptr inbounds nuw [400 x i8], ptr %19, i64 %15
   store ptr %63, ptr %58, align 8
   ret void
 }

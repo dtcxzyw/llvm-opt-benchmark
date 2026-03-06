@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5HF_indirect_ent_t = type { i64 }
 
 @H5HF_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -673,14 +672,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   %117 = load ptr, ptr %116, align 8, !tbaa !66
   %118 = load i32, ptr %8, align 4, !tbaa !71
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !72
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %123 = load ptr, ptr %122, align 8, !tbaa !74
   %124 = load i32, ptr %75, align 8, !tbaa !75
   %125 = udiv i32 %118, %124
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw i64, ptr %123, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %126
   %128 = load i64, ptr %127, align 8, !tbaa !8
   %.not114 = icmp eq i64 %121, -1
   br i1 %.not114, label %129, label %141
@@ -1064,7 +1063,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
   %105 = load ptr, ptr %104, align 8, !tbaa !66
   %106 = load i32, ptr %5, align 4, !tbaa !71
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %105, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %107
   %109 = load i64, ptr %108, align 8, !tbaa !72
   %.not94 = icmp eq i64 %109, -1
   br i1 %.not94, label %110, label %114
@@ -1081,13 +1080,13 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
   %117 = load i32, ptr %71, align 8, !tbaa !75
   %118 = udiv i32 %106, %117
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw i64, ptr %116, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !8
   %122 = getelementptr inbounds nuw i8, ptr %103, i64 336
   %123 = load i64, ptr %122, align 8, !tbaa !80
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %125 = load ptr, ptr %124, align 8, !tbaa !81
-  %126 = getelementptr inbounds nuw i64, ptr %125, i64 %119
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %119
   %127 = load i64, ptr %126, align 8, !tbaa !8
   %128 = add i64 %127, %123
   %129 = urem i32 %106, %117

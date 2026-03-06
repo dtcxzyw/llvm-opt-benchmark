@@ -726,10 +726,10 @@ for.cond.cleanup:                                 ; preds = %for.cond
   ret void
 
 do.body160:                                       ; preds = %for.cond
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %2, i64 %i.0
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %i.0
   %77 = load double, ptr %add.ptr.i, align 8, !tbaa !24
   %add162 = add i64 %i.0, 1
-  %add.ptr.i148 = getelementptr inbounds nuw double, ptr %2, i64 %add162
+  %add.ptr.i148 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %add162
   %78 = load double, ptr %add.ptr.i148, align 8, !tbaa !24
   %cmp164 = fcmp ugt double %77, %78
   br i1 %cmp164, label %if.then165, label %for.cond, !llvm.loop !26
@@ -1180,7 +1180,7 @@ entry:
   %knots_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %conv = zext i32 %i to i64
   %0 = load ptr, ptr %knots_, align 8, !tbaa !15
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv
   %1 = load double, ptr %add.ptr.i, align 8, !tbaa !24
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1191,7 +1191,7 @@ if.then:                                          ; preds = %entry
 land.rhs:                                         ; preds = %if.then
   %add = add i32 %i, 1
   %conv4 = zext i32 %add to i64
-  %add.ptr.i20 = getelementptr inbounds nuw double, ptr %0, i64 %conv4
+  %add.ptr.i20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv4
   %2 = load double, ptr %add.ptr.i20, align 8, !tbaa !24
   %cmp6 = fcmp olt double %x, %2
   %3 = select i1 %cmp6, double 1.000000e+00, double 0.000000e+00
@@ -1205,7 +1205,7 @@ if.else:                                          ; preds = %entry
   %sub = fsub double %x, %1
   %add11 = add i32 %p, %i
   %conv12 = zext i32 %add11 to i64
-  %add.ptr.i22 = getelementptr inbounds nuw double, ptr %0, i64 %conv12
+  %add.ptr.i22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv12
   %4 = load double, ptr %add.ptr.i22, align 8, !tbaa !24
   %sub17 = fsub double %4, %1
   %div = fdiv double %sub, %sub17
@@ -1213,12 +1213,12 @@ if.else:                                          ; preds = %entry
   %call19 = tail call noundef double @_ZNK8QuantLib7BSpline1NEjjd(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %i, i32 noundef %sub18, double noundef %x)
   %add22 = add i32 %add11, 1
   %conv23 = zext i32 %add22 to i64
-  %add.ptr.i24 = getelementptr inbounds nuw double, ptr %0, i64 %conv23
+  %add.ptr.i24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv23
   %5 = load double, ptr %add.ptr.i24, align 8, !tbaa !24
   %sub25 = fsub double %5, %x
   %add32 = add i32 %i, 1
   %conv33 = zext i32 %add32 to i64
-  %add.ptr.i26 = getelementptr inbounds nuw double, ptr %0, i64 %conv33
+  %add.ptr.i26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv33
   %6 = load double, ptr %add.ptr.i26, align 8, !tbaa !24
   %sub35 = fsub double %5, %6
   %div36 = fdiv double %sub25, %sub35

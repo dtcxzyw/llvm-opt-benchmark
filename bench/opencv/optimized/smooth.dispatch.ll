@@ -14,9 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::cpu_baseline::(anonymous namespace)::fixedSmoothInvoker" = type { %"class.cv::ParallelLoopBody", ptr, ptr, i64, i64, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr }
 %"class.cv::ParallelLoopBody" = type { ptr }
 %"class.cv::Range" = type { i32, i32 }
-%"class.cv::(anonymous namespace)::ufixedpoint16" = type { i16 }
 %"class.cv::cpu_baseline::(anonymous namespace)::fixedSmoothInvoker.16" = type { %"class.cv::ParallelLoopBody", ptr, ptr, i64, i64, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr }
-%"class.cv::(anonymous namespace)::ufixedpoint32" = type { i32 }
 %"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
 %"struct.cv::MatSize" = type { ptr }
 %"struct.cv::MatStep" = type { ptr, [2 x i64] }
@@ -57,8 +55,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cv::(anonymous namespace)::ufixedpoint32, std::allocator<cv::(anonymous namespace)::ufixedpoint32>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::AutoBuffer.14" = type { ptr, i64, [520 x %"class.cv::(anonymous namespace)::ufixedpoint16"] }
+%"class.cv::(anonymous namespace)::ufixedpoint16" = type { i16 }
 %"class.cv::AutoBuffer.15" = type { ptr, i64, [136 x ptr] }
 %"class.cv::AutoBuffer.17" = type { ptr, i64, [264 x %"class.cv::(anonymous namespace)::ufixedpoint32"] }
+%"class.cv::(anonymous namespace)::ufixedpoint32" = type { i32 }
 %"class.cv::AutoBuffer.18" = type { ptr, i64, [136 x ptr] }
 %"class.std::vector.19" = type { %"struct.std::_Vector_base.20" }
 %"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
@@ -369,7 +369,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
   %124 = add nsw i32 %3, -1
   %125 = lshr exact i32 %124, 1
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !40
   %129 = icmp eq i16 %128, 256
   %spec.select.i.i = select i1 %129, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_114hlineSmooth1N1IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKT_iPKT0_iPS8_ii, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKT_iPKT0_iPS8_ii
@@ -382,7 +382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
 .lr.ph.preheader.i.i:                             ; preds = %123
   %132 = zext nneg i32 %3 to i64
   %wide.trip.count.i.i = zext nneg i32 %131 to i64
-  %133 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %132
+  %133 = getelementptr [2 x i8], ptr %2, i64 %132
   br label %.lr.ph.i.i
 
 134:                                              ; preds = %.lr.ph.i.i
@@ -392,9 +392,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
 
 .lr.ph.i.i:                                       ; preds = %134, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %134 ]
-  %135 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv.i.i
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv.i.i
   %136 = xor i64 %indvars.iv.i.i, -1
-  %137 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %133, i64 %136
+  %137 = getelementptr [2 x i8], ptr %133, i64 %136
   %138 = load i16, ptr %135, align 2, !tbaa !40
   %139 = load i16, ptr %137, align 2, !tbaa !40
   %140 = icmp eq i16 %138, %139
@@ -511,7 +511,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
 .lr.ph107.preheader.i.i:                          ; preds = %190
   %192 = zext nneg i32 %5 to i64
   %wide.trip.count114.i.i = zext nneg i32 %191 to i64
-  %193 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %192
+  %193 = getelementptr [2 x i8], ptr %4, i64 %192
   br label %.lr.ph107.i.i
 
 194:                                              ; preds = %.lr.ph107.i.i
@@ -521,9 +521,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
 
 .lr.ph107.i.i:                                    ; preds = %194, %.lr.ph107.preheader.i.i
   %indvars.iv111.i.i = phi i64 [ 0, %.lr.ph107.preheader.i.i ], [ %indvars.iv.next112.i.i, %194 ]
-  %195 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv111.i.i
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv111.i.i
   %196 = xor i64 %indvars.iv111.i.i, -1
-  %197 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %193, i64 %196
+  %197 = getelementptr [2 x i8], ptr %193, i64 %196
   %198 = load i16, ptr %195, align 2, !tbaa !40
   %199 = load i16, ptr %197, align 2, !tbaa !40
   %200 = icmp eq i16 %198, %199
@@ -844,7 +844,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
   %124 = add nsw i32 %3, -1
   %125 = lshr exact i32 %124, 1
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !72
   %129 = icmp eq i32 %128, 65536
   %spec.select.i.i = select i1 %129, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_114hlineSmooth1N1ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKT_iPKT0_iPS8_ii, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKT_iPKT0_iPS8_ii
@@ -857,7 +857,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
 .lr.ph.preheader.i.i:                             ; preds = %123
   %132 = zext nneg i32 %3 to i64
   %wide.trip.count.i.i = zext nneg i32 %131 to i64
-  %133 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %132
+  %133 = getelementptr [4 x i8], ptr %2, i64 %132
   br label %.lr.ph.i.i
 
 134:                                              ; preds = %.lr.ph.i.i
@@ -867,9 +867,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
 
 .lr.ph.i.i:                                       ; preds = %134, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %134 ]
-  %135 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv.i.i
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.i
   %136 = xor i64 %indvars.iv.i.i, -1
-  %137 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %133, i64 %136
+  %137 = getelementptr [4 x i8], ptr %133, i64 %136
   %138 = load i32, ptr %135, align 4, !tbaa !72
   %139 = load i32, ptr %137, align 4, !tbaa !72
   %140 = icmp eq i32 %138, %139
@@ -986,7 +986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
 .lr.ph106.preheader.i.i:                          ; preds = %190
   %192 = zext nneg i32 %5 to i64
   %wide.trip.count113.i.i = zext nneg i32 %191 to i64
-  %193 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %192
+  %193 = getelementptr [4 x i8], ptr %4, i64 %192
   br label %.lr.ph106.i.i
 
 194:                                              ; preds = %.lr.ph106.i.i
@@ -996,9 +996,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %25,
 
 .lr.ph106.i.i:                                    ; preds = %194, %.lr.ph106.preheader.i.i
   %indvars.iv110.i.i = phi i64 [ 0, %.lr.ph106.preheader.i.i ], [ %indvars.iv.next111.i.i, %194 ]
-  %195 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv110.i.i
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv110.i.i
   %196 = xor i64 %indvars.iv110.i.i, -1
-  %197 = getelementptr %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %193, i64 %196
+  %197 = getelementptr [4 x i8], ptr %193, i64 %196
   %198 = load i32, ptr %195, align 4, !tbaa !72
   %199 = load i32, ptr %197, align 4, !tbaa !72
   %200 = icmp eq i32 %198, %199
@@ -1148,9 +1148,9 @@ _ZN2cv3Mat2atIdEERT_i.exit.us.us.preheader:       ; preds = %.lr.ph.split.us
 
 _ZN2cv3Mat2atIdEERT_i.exit.us.us:                 ; preds = %_ZN2cv3Mat2atIdEERT_i.exit.us.us.preheader, %_ZN2cv3Mat2atIdEERT_i.exit.us.us
   %indvars.iv59 = phi i64 [ 0, %_ZN2cv3Mat2atIdEERT_i.exit.us.us.preheader ], [ %indvars.iv.next60, %_ZN2cv3Mat2atIdEERT_i.exit.us.us ]
-  %26 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %.pre84, i64 %indvars.iv59
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre84, i64 %indvars.iv59
   %27 = load double, ptr %26, align 8, !tbaa !85
-  %28 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv59
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv59
   store double %27, ptr %28, align 8, !tbaa !87
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
@@ -1165,7 +1165,7 @@ _ZN2cv3Mat2atIdEERT_i.exit.us.us:                 ; preds = %_ZN2cv3Mat2atIdEERT
 
 _ZN2cv3Mat2atIdEERT_i.exit.us.us34:               ; preds = %.lr.ph.split.us.split, %_ZN2cv3Mat2atIdEERT_i.exit.us.us34
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %_ZN2cv3Mat2atIdEERT_i.exit.us.us34 ], [ 0, %.lr.ph.split.us.split ]
-  %32 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %.pre84, i64 %indvars.iv54
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.pre84, i64 %indvars.iv54
   %33 = load double, ptr %32, align 8, !tbaa !85
   %34 = mul i64 %31, %indvars.iv54
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 %34
@@ -1176,7 +1176,7 @@ _ZN2cv3Mat2atIdEERT_i.exit.us.us34:               ; preds = %.lr.ph.split.us.spl
 
 _ZN2cv3Mat2atIdEERT_i.exit.us:                    ; preds = %.lr.ph.split.us.split, %_ZN2cv3Mat2atIdEERT_i.exit.us
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %_ZN2cv3Mat2atIdEERT_i.exit.us ], [ 0, %.lr.ph.split.us.split ]
-  %36 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %.pre84, i64 %indvars.iv49
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.pre84, i64 %indvars.iv49
   %37 = load double, ptr %36, align 8, !tbaa !85
   %38 = trunc nuw nsw i64 %indvars.iv49 to i32
   %39 = sdiv i32 %38, %19
@@ -1186,7 +1186,7 @@ _ZN2cv3Mat2atIdEERT_i.exit.us:                    ; preds = %.lr.ph.split.us.spl
   %42 = mul i64 %31, %41
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 %42
   %44 = sext i32 %.recomposed to i64
-  %45 = getelementptr inbounds double, ptr %43, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %43, i64 %44
   store double %37, ptr %45, align 8, !tbaa !87
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count57
@@ -1225,9 +1225,9 @@ _ZN2cv3Mat2atIfEERT_i.exit.us.us.preheader:       ; preds = %.lr.ph37.split.us
 
 _ZN2cv3Mat2atIfEERT_i.exit.us.us:                 ; preds = %_ZN2cv3Mat2atIfEERT_i.exit.us.us.preheader, %_ZN2cv3Mat2atIfEERT_i.exit.us.us
   %indvars.iv79 = phi i64 [ 0, %_ZN2cv3Mat2atIfEERT_i.exit.us.us.preheader ], [ %indvars.iv.next80, %_ZN2cv3Mat2atIfEERT_i.exit.us.us ]
-  %59 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %.pre84, i64 %indvars.iv79
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.pre84, i64 %indvars.iv79
   %60 = load double, ptr %59, align 8, !tbaa !85
-  %61 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv79
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv79
   %62 = fptrunc double %60 to float
   store float %62, ptr %61, align 4, !tbaa !91
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
@@ -1243,7 +1243,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us.us:                 ; preds = %_ZN2cv3Mat2atIfEERT
 
 _ZN2cv3Mat2atIfEERT_i.exit.us.us39:               ; preds = %.lr.ph37.split.us.split, %_ZN2cv3Mat2atIfEERT_i.exit.us.us39
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %_ZN2cv3Mat2atIfEERT_i.exit.us.us39 ], [ 0, %.lr.ph37.split.us.split ]
-  %66 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %.pre84, i64 %indvars.iv74
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.pre84, i64 %indvars.iv74
   %67 = load double, ptr %66, align 8, !tbaa !85
   %68 = mul i64 %65, %indvars.iv74
   %69 = getelementptr inbounds nuw i8, ptr %54, i64 %68
@@ -1255,7 +1255,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us.us39:               ; preds = %.lr.ph37.split.us.s
 
 _ZN2cv3Mat2atIfEERT_i.exit.us:                    ; preds = %.lr.ph37.split.us.split, %_ZN2cv3Mat2atIfEERT_i.exit.us
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %_ZN2cv3Mat2atIfEERT_i.exit.us ], [ 0, %.lr.ph37.split.us.split ]
-  %71 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %.pre84, i64 %indvars.iv69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.pre84, i64 %indvars.iv69
   %72 = load double, ptr %71, align 8, !tbaa !85
   %73 = trunc nuw nsw i64 %indvars.iv69 to i32
   %74 = sdiv i32 %73, %52
@@ -1265,7 +1265,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us:                    ; preds = %.lr.ph37.split.us.s
   %77 = mul i64 %65, %76
   %78 = getelementptr inbounds nuw i8, ptr %54, i64 %77
   %79 = sext i32 %.recomposed109 to i64
-  %80 = getelementptr inbounds float, ptr %78, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %78, i64 %79
   %81 = fptrunc double %72 to float
   store float %81, ptr %80, align 4, !tbaa !91
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
@@ -1282,9 +1282,9 @@ _ZN2cv3Mat2atIfEERT_i.exit.us:                    ; preds = %.lr.ph37.split.us.s
 
 _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %_ZN2cv3Mat2atIfEERT_i.exit.preheader, %_ZN2cv3Mat2atIfEERT_i.exit
   %indvars.iv64 = phi i64 [ 0, %_ZN2cv3Mat2atIfEERT_i.exit.preheader ], [ %indvars.iv.next65, %_ZN2cv3Mat2atIfEERT_i.exit ]
-  %85 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %.pre84, i64 %indvars.iv64
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.pre84, i64 %indvars.iv64
   %86 = load double, ptr %85, align 8, !tbaa !85
-  %87 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv64
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv64
   %88 = fptrunc double %86 to float
   store float %88, ptr %87, align 4, !tbaa !91
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
@@ -1293,9 +1293,9 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %_ZN2cv3Mat2atIfEERT
 
 _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %_ZN2cv3Mat2atIdEERT_i.exit.preheader, %_ZN2cv3Mat2atIdEERT_i.exit
   %indvars.iv = phi i64 [ 0, %_ZN2cv3Mat2atIdEERT_i.exit.preheader ], [ %indvars.iv.next, %_ZN2cv3Mat2atIdEERT_i.exit ]
-  %89 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %.pre84, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.pre84, i64 %indvars.iv
   %90 = load double, ptr %89, align 8, !tbaa !85
-  %91 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   store double %90, ptr %91, align 8, !tbaa !87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1996,7 +1996,7 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_it
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %243 = load ptr, ptr %26, align 8, !tbaa !203
-  %244 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %243, i64 %indvars.iv
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %indvars.iv
   %.not.i = icmp eq ptr %28, %244
   br i1 %.not.i, label %_ZN2cv10softdoubleaSERKS0_.exit, label %245
 
@@ -2137,13 +2137,13 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %242, %245
   %indvars.iv227 = phi i64 [ 0, %.lr.ph207 ], [ %indvars.iv.next228, %294 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %281 = load ptr, ptr %26, align 8, !tbaa !203
-  %282 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %281, i64 %indvars.iv227
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv227
   invoke void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %282, ptr noundef nonnull align 8 dereferenceable(8) %34)
           to label %283 unwind label %295
 
 283:                                              ; preds = %280
   %284 = load ptr, ptr %1, align 8, !tbaa !81
-  %285 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %284, i64 %indvars.iv227
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %indvars.iv227
   %.not.i78 = icmp eq ptr %36, %285
   br i1 %.not.i78, label %_ZN2cv10softdoubleaSERKS0_.exit79, label %286
 
@@ -2154,7 +2154,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %242, %245
 
 _ZN2cv10softdoubleaSERKS0_.exit79:                ; preds = %283, %286
   %288 = sub nsw i64 %275, %indvars.iv227
-  %289 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %284, i64 %288
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %288
   %.not.i80 = icmp eq ptr %36, %289
   br i1 %.not.i80, label %_ZN2cv10softdoubleaSERKS0_.exit81, label %290
 
@@ -2215,7 +2215,7 @@ _ZN2cv10softdoubleaSERKS0_.exit81:                ; preds = %_ZN2cv10softdoublea
 301:                                              ; preds = %300
   %302 = zext nneg i32 %230 to i64
   %303 = load ptr, ptr %1, align 8, !tbaa !81
-  %304 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %303, i64 %302
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %302
   %.not.i88 = icmp eq ptr %38, %304
   br i1 %.not.i88, label %_ZN2cv10softdoubleaSERKS0_.exit89, label %305
 
@@ -2246,8 +2246,8 @@ _ZN2cv10softdoubleaSERKS0_.exit89:                ; preds = %301, %305
 
 _ZN2cv10softdoubleaSERKS0_.exit94:                ; preds = %309
   %310 = load ptr, ptr %1, align 8, !tbaa !81
-  %311 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %310, i64 %302
-  %312 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %310, i64 %232
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %310, i64 %302
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %310, i64 %232
   %313 = load i64, ptr %311, align 8, !tbaa !85
   store i64 %313, ptr %312, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3032,7 +3032,7 @@ _ZN2cvL21createGaussianKernelsISt6vectorINS_12_GLOBAL__N_113ufixedpoint16ESaIS3_
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.noexc390
   %.09.i = phi i64 [ %225, %.noexc390 ], [ 0, %.lr.ph.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %220 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val7.i, i64 %.09.i
+  %220 = getelementptr inbounds nuw [2 x i8], ptr %.val7.i, i64 %.09.i
   %221 = load i16, ptr %220, align 2, !tbaa !40
   %222 = uitofp i16 %221 to double
   %223 = fmul nnan double %222, 3.906250e-03
@@ -3333,7 +3333,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 .lr.ph.i415:                                      ; preds = %.lr.ph.i415.preheader, %.noexc422
   %.09.i417 = phi i64 [ %330, %.noexc422 ], [ 0, %.lr.ph.i415.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %325 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val7.i412, i64 %.09.i417
+  %325 = getelementptr inbounds nuw [2 x i8], ptr %.val7.i412, i64 %.09.i417
   %326 = load i16, ptr %325, align 2, !tbaa !40
   %327 = uitofp i16 %326 to double
   %328 = fmul nnan double %327, 3.906250e-03
@@ -4145,7 +4145,7 @@ _ZN2cvL21createGaussianKernelsISt6vectorINS_12_GLOBAL__N_113ufixedpoint32ESaIS3_
 .lr.ph.i529:                                      ; preds = %.lr.ph.i529.preheader, %.noexc536
   %.09.i531 = phi i64 [ %622, %.noexc536 ], [ 0, %.lr.ph.i529.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %617 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val7.i526, i64 %.09.i531
+  %617 = getelementptr inbounds nuw [4 x i8], ptr %.val7.i526, i64 %.09.i531
   %618 = load i32, ptr %617, align 4, !tbaa !72
   %619 = uitofp i32 %618 to double
   %620 = fmul nnan double %619, 0x3EF0000000000000
@@ -4441,7 +4441,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit568: ; preds
 .lr.ph.i575:                                      ; preds = %.lr.ph.i575.preheader, %.noexc582
   %.09.i577 = phi i64 [ %725, %.noexc582 ], [ 0, %.lr.ph.i575.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %720 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val7.i572, i64 %.09.i577
+  %720 = getelementptr inbounds nuw [4 x i8], ptr %.val7.i572, i64 %.09.i577
   %721 = load i32, ptr %720, align 4, !tbaa !72
   %722 = uitofp i32 %721 to double
   %723 = fmul nnan double %722, 0x3EF0000000000000
@@ -5679,9 +5679,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv10softdoubleES2_SaIS1_EET0_T_S5_S4
 
 _ZNSt12_Vector_baseIN2cv10softdoubleESaIS1_EE13_M_deallocateEPS1_m.exit46.i: ; preds = %34, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv10softdoubleES2_SaIS1_EET0_T_S5_S4_RT1_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !81
-  %35 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %29, i64 %12
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !94
-  %36 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %28, i64 %26
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %36, ptr %13, align 8, !tbaa !95
   br label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE17_M_default_appendEm.exit
 
@@ -5690,7 +5690,7 @@ _ZNSt12_Vector_baseIN2cv10softdoubleESaIS1_EE13_M_deallocateEPS1_m.exit46.i: ; p
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN2cv10softdoubleESaIS1_EE17_M_default_appendEm.exit, label %41
 
@@ -5766,7 +5766,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114hlineSmooth1N1IhNS_12_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %12 = load i8, ptr %10, align 1, !tbaa !281
   %13 = zext i8 %12 to i16
   %14 = shl nuw i16 %13, 8
@@ -5799,7 +5799,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth1NIhNS_12_G
   %15 = mul nuw nsw i32 %14, %12
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %15, i32 65535)
   %16 = trunc nuw i32 %.sroa.speculated.i to i16
-  %17 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 %16, ptr %17, align 2, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5848,7 +5848,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121IhNS_1
   %14 = load i8, ptr %13, align 1, !tbaa !281
   %15 = zext i8 %14 to i16
   %16 = shl nuw i16 %15, 8
-  %17 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv73.i
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv73.i
   store i16 %16, ptr %17, align 2, !tbaa !40
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next74.i, %wide.trip.count76.i
@@ -5860,7 +5860,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121IhNS_1
   %19 = load i8, ptr %18, align 1, !tbaa !281
   %20 = zext i8 %19 to i16
   %21 = shl nuw nsw i16 %20, 7
-  %22 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv78.i
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv78.i
   store i16 %21, ptr %22, align 2, !tbaa !40
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next79.i, %wide.trip.count81.i
@@ -5889,7 +5889,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121IhNS_1
   %29 = zext i8 %28 to i16
   %30 = shl nuw nsw i16 %29, 6
   %31 = add nuw i16 %30, %27
-  %32 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i
   store i16 %31, ptr %32, align 2, !tbaa !40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %10
@@ -5904,7 +5904,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121IhNS_1
 
 37:                                               ; preds = %37, %33
   %indvars.iv57.i = phi i64 [ 0, %33 ], [ %indvars.iv.next58.i, %37 ]
-  %38 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv57.i
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv57.i
   %gep96.i = getelementptr i8, ptr %invariant.gep95.i, i64 %indvars.iv57.i
   %39 = load i8, ptr %gep96.i, align 1, !tbaa !281
   %40 = zext i8 %39 to i16
@@ -5920,7 +5920,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121IhNS_1
   %.not89.i = phi i1 [ true, %._crit_edge.thread.i ], [ false, %.thread.i ], [ true, %._crit_edge.i ], [ false, %37 ]
   %44 = sext i32 %1 to i64
   %45 = getelementptr inbounds i8, ptr %0, i64 %44
-  %46 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %44
+  %46 = getelementptr inbounds [2 x i8], ptr %4, i64 %44
   %47 = add nsw i32 %5, -1
   %48 = mul nsw i32 %47, %1
   %49 = icmp slt i32 %1, %48
@@ -5985,7 +5985,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121IhNS_1
   %76 = zext i8 %75 to i16
   %77 = shl nuw nsw i16 %76, 7
   %78 = add nuw i16 %77, %73
-  %79 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.085.lcssa.i, i64 %indvars.iv63.i
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %.085.lcssa.i, i64 %indvars.iv63.i
   store i16 %78, ptr %79, align 2, !tbaa !40
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count66.i
@@ -6001,7 +6001,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121IhNS_1
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %80
   %indvars.iv68.i = phi i64 [ 0, %80 ], [ %indvars.iv.next69.i, %.lr.ph48.i ]
-  %85 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.085.lcssa.i, i64 %indvars.iv68.i
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %.085.lcssa.i, i64 %indvars.iv68.i
   %gep98.i = getelementptr i8, ptr %invariant.gep97.i, i64 %indvars.iv68.i
   %86 = load i8, ptr %gep98.i, align 1, !tbaa !281
   %87 = zext i8 %86 to i16
@@ -6057,7 +6057,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %26 = mul nuw nsw i32 %25, %21
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %26, i32 65535)
   %27 = trunc nuw i32 %.sroa.speculated.i to i16
-  %28 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv164
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv164
   store i16 %27, ptr %28, align 2, !tbaa !40
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
@@ -6112,7 +6112,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %55 = add nuw nsw i32 %54, %46
   %.sroa.speculated.i107 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %55, i32 65535)
   %56 = trunc nuw i32 %.sroa.speculated.i107 to i16
-  %57 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 %56, ptr %57, align 2, !tbaa !399
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6137,7 +6137,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %.sroa.speculated.i109 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %70, i32 65535)
   %71 = trunc nuw i32 %.sroa.speculated.i109 to i16
   %72 = tail call i16 @llvm.uadd.sat.i16(i16 %65, i16 %71)
-  %73 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv148
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv148
   store i16 %72, ptr %73, align 2, !tbaa !40
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %32
@@ -6146,7 +6146,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
 .loopexit125:                                     ; preds = %40, %58, %33, %.preheader124
   %74 = sext i32 %1 to i64
   %75 = getelementptr inbounds i8, ptr %0, i64 %74
-  %76 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %74
+  %76 = getelementptr inbounds [2 x i8], ptr %4, i64 %74
   %77 = add nsw i32 %5, -1
   %78 = mul nsw i32 %77, %1
   %79 = icmp slt i32 %1, %78
@@ -6237,7 +6237,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %130 = add nuw nsw i32 %129, %119
   %.sroa.speculated.i111 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %130, i32 65535)
   %131 = trunc nuw i32 %.sroa.speculated.i111 to i16
-  %132 = getelementptr inbounds nuw i16, ptr %.097.lcssa, i64 %indvars.iv154
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %.097.lcssa, i64 %indvars.iv154
   store i16 %131, ptr %132, align 2, !tbaa !399
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
@@ -6263,7 +6263,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaIhNS_1
   %.sroa.speculated.i113 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %147, i32 65535)
   %148 = trunc nuw i32 %.sroa.speculated.i113 to i16
   %149 = tail call i16 @llvm.uadd.sat.i16(i16 %141, i16 %148)
-  %150 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.097.lcssa, i64 %indvars.iv159
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %.097.lcssa, i64 %indvars.iv159
   store i16 %149, ptr %150, align 2, !tbaa !40
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
@@ -6325,7 +6325,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %31 = mul nuw nsw i32 %30, %26
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %31, i32 65535)
   %32 = trunc nuw i32 %.sroa.speculated.i to i16
-  %33 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv168
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv168
   store i16 %32, ptr %33, align 2, !tbaa !40
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
@@ -6362,7 +6362,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %.sroa.speculated.i102 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %47, i32 65535)
   %48 = trunc nuw i32 %.sroa.speculated.i102 to i16
   %49 = tail call i16 @llvm.uadd.sat.i16(i16 %42, i16 %48)
-  %50 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 %49, ptr %50, align 2, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
@@ -6378,7 +6378,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
 
 54:                                               ; preds = %.lr.ph133, %54
   %indvars.iv152 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next153, %54 ]
-  %55 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv152
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv152
   %gep185 = getelementptr i8, ptr %invariant.gep184, i64 %indvars.iv152
   %56 = load i16, ptr %2, align 2, !tbaa !40, !noalias !434
   %57 = zext i16 %56 to i32
@@ -6398,7 +6398,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %.not179 = phi i1 [ true, %._crit_edge.thread ], [ false, %.thread ], [ true, %._crit_edge ], [ false, %54 ]
   %64 = sext i32 %1 to i64
   %65 = getelementptr inbounds i8, ptr %0, i64 %64
-  %66 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %64
+  %66 = getelementptr inbounds [2 x i8], ptr %4, i64 %64
   %67 = add nsw i32 %5, -1
   %68 = mul nsw i32 %67, %1
   %69 = icmp slt i32 %1, %68
@@ -6487,7 +6487,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
   %.sroa.speculated.i108 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %116, i32 65535)
   %117 = trunc nuw i32 %.sroa.speculated.i108 to i16
   %118 = tail call i16 @llvm.uadd.sat.i16(i16 %110, i16 %117)
-  %119 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.091.lcssa, i64 %indvars.iv158
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %.091.lcssa, i64 %indvars.iv158
   store i16 %118, ptr %119, align 2, !tbaa !40
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
@@ -6505,7 +6505,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NIhNS_12_G
 
 125:                                              ; preds = %.lr.ph145, %125
   %indvars.iv163 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next164, %125 ]
-  %126 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.091.lcssa, i64 %indvars.iv163
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %.091.lcssa, i64 %indvars.iv163
   %gep187 = getelementptr i8, ptr %invariant.gep186, i64 %indvars.iv163
   %127 = load i16, ptr %123, align 2, !tbaa !40, !noalias !458
   %128 = zext i16 %127 to i32
@@ -6572,7 +6572,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %18 = load i8, ptr %17, align 1, !tbaa !281
   %19 = zext i8 %18 to i16
   %20 = mul nuw nsw i16 %19, 96
-  %21 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv613
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv613
   store i16 %20, ptr %21, align 2, !tbaa !40
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %exitcond617.not = icmp eq i64 %indvars.iv.next614, %wide.trip.count616
@@ -6581,7 +6581,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
 .lr.ph565:                                        ; preds = %.lr.ph565.preheader, %.lr.ph565
   %indvars.iv608 = phi i64 [ 0, %.lr.ph565.preheader ], [ %indvars.iv.next609, %.lr.ph565 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv608
-  %23 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv608
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv608
   %24 = load i8, ptr %22, align 1, !tbaa !281
   %25 = zext i8 %24 to i16
   %26 = shl nuw i16 %25, 8
@@ -6614,7 +6614,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %38 = zext i8 %37 to i16
   %39 = shl nuw nsw i16 %38, 6
   %40 = add nuw i16 %39, %34
-  %41 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv603
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv603
   store i16 %40, ptr %41, align 2, !tbaa !40
   %42 = load i8, ptr %31, align 1, !tbaa !281
   %43 = zext i8 %42 to i16
@@ -6623,7 +6623,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %46 = zext i8 %45 to i16
   %47 = mul nuw nsw i16 %46, 96
   %48 = add nuw i16 %47, %44
-  %49 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %35
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %35
   store i16 %48, ptr %49, align 2, !tbaa !40
   %indvars.iv.next604 = add nuw nsw i64 %indvars.iv603, 1
   %exitcond607.not = icmp eq i64 %indvars.iv.next604, %30
@@ -6679,7 +6679,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %82 = add nuw nsw i16 %81, %79
   %83 = shl nuw nsw i16 %82, 4
   %84 = add nuw i16 %77, %83
-  %85 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv598
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv598
   store i16 %84, ptr %85, align 2, !tbaa !40
   %86 = load i8, ptr %72, align 1, !tbaa !281
   %87 = zext i8 %86 to i16
@@ -6699,7 +6699,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %100 = add nuw nsw i16 %99, %97
   %101 = shl nuw nsw i16 %100, 4
   %102 = add nuw i16 %95, %101
-  %103 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %71
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %71
   store i16 %102, ptr %103, align 2, !tbaa !40
   %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
   %exitcond602.not = icmp eq i64 %indvars.iv.next599, %wide.trip.count601
@@ -6737,7 +6737,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %124 = zext i8 %123 to i16
   %125 = shl nuw nsw i16 %124, 4
   %126 = add nuw i16 %120, %125
-  %127 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv593
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv593
   store i16 %126, ptr %127, align 2, !tbaa !40
   %128 = load i8, ptr %116, align 1, !tbaa !281
   %129 = zext i8 %128 to i16
@@ -6749,7 +6749,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %135 = add nuw nsw i16 %134, %132
   %136 = shl nuw nsw i16 %135, 6
   %137 = add nuw i16 %136, %130
-  %138 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %115
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %115
   store i16 %137, ptr %138, align 2, !tbaa !40
   %139 = load i8, ptr %122, align 1, !tbaa !281
   %140 = zext i8 %139 to i16
@@ -6762,7 +6762,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %147 = zext i8 %146 to i16
   %148 = shl nuw nsw i16 %147, 4
   %149 = add nuw i16 %145, %148
-  %150 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %121
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %121
   store i16 %149, ptr %150, align 2, !tbaa !40
   %indvars.iv.next594 = add nuw nsw i64 %indvars.iv593, 1
   %exitcond597.not = icmp eq i64 %indvars.iv.next594, %108
@@ -6821,7 +6821,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %188 = add nuw nsw i16 %187, %185
   %189 = shl nuw nsw i16 %188, 4
   %190 = add nuw i16 %181, %189
-  %191 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 %190, ptr %191, align 2, !tbaa !40
   %192 = load i8, ptr %174, align 1, !tbaa !281
   %193 = zext i8 %192 to i16
@@ -6841,7 +6841,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %206 = add nuw nsw i16 %205, %203
   %207 = shl nuw nsw i16 %206, 4
   %208 = add nuw i16 %201, %207
-  %209 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %173
+  %209 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %173
   store i16 %208, ptr %209, align 2, !tbaa !40
   %210 = load i8, ptr %183, align 1, !tbaa !281
   %211 = zext i8 %210 to i16
@@ -6861,7 +6861,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %224 = add nuw nsw i16 %223, %221
   %225 = shl nuw nsw i16 %224, 4
   %226 = add nuw i16 %219, %225
-  %227 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %182
+  %227 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %182
   store i16 %226, ptr %227, align 2, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6888,7 +6888,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %240 = zext i8 %239 to i16
   %241 = shl nuw nsw i16 %240, 4
   %242 = add nuw i16 %238, %241
-  %243 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv618
+  %243 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv618
   store i16 %242, ptr %243, align 2, !tbaa !40
   %244 = load i8, ptr %234, align 1, !tbaa !281
   %245 = zext i8 %244 to i16
@@ -6905,7 +6905,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %255 = zext i8 %254 to i16
   %256 = shl nuw nsw i16 %255, 4
   %257 = add nuw i16 %253, %256
-  %258 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %233
+  %258 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %233
   store i16 %257, ptr %258, align 2, !tbaa !40
   %indvars.iv.next619 = add nuw nsw i64 %indvars.iv618, 1
   %exitcond622.not = icmp eq i64 %indvars.iv.next619, %11
@@ -6925,12 +6925,12 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %wide.trip.count626 = zext nneg i32 %1 to i64
   %invariant.gep670 = getelementptr i8, ptr %0, i64 %264
   %invariant.gep672 = getelementptr i8, ptr %0, i64 %265
-  %invariant.gep674 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %266
+  %invariant.gep674 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %266
   br label %.lr.ph572
 
 .lr.ph572:                                        ; preds = %.lr.ph572.preheader, %.lr.ph572
   %indvars.iv623 = phi i64 [ 0, %.lr.ph572.preheader ], [ %indvars.iv.next624, %.lr.ph572 ]
-  %267 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv623
+  %267 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv623
   %gep671 = getelementptr i8, ptr %invariant.gep670, i64 %indvars.iv623
   %268 = load i8, ptr %gep671, align 1, !tbaa !281
   %269 = zext i8 %268 to i16
@@ -6943,7 +6943,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %275 = shl nuw nsw i16 %274, 6
   %276 = tail call i16 @llvm.uadd.sat.i16(i16 %272, i16 %275)
   store i16 %276, ptr %267, align 2, !tbaa !40
-  %gep675 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %invariant.gep674, i64 %indvars.iv623
+  %gep675 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep674, i64 %indvars.iv623
   %277 = load i8, ptr %gep673, align 1, !tbaa !281
   %278 = zext i8 %277 to i16
   %279 = shl nuw nsw i16 %278, 4
@@ -6958,7 +6958,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %282 = shl nsw i32 %1, 1
   %283 = sext i32 %282 to i64
   %284 = getelementptr inbounds i8, ptr %0, i64 %283
-  %285 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %283
+  %285 = getelementptr inbounds [2 x i8], ptr %4, i64 %283
   %286 = add nsw i32 %5, -2
   %287 = mul nsw i32 %286, %1
   %288 = icmp slt i32 %282, %287
@@ -7040,7 +7040,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %338 = zext i8 %337 to i16
   %339 = shl nuw nsw i16 %338, 4
   %340 = add nuw i16 %334, %339
-  %341 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0324.lcssa, i64 %indvars.iv629
+  %341 = getelementptr inbounds nuw [2 x i8], ptr %.0324.lcssa, i64 %indvars.iv629
   store i16 %340, ptr %341, align 2, !tbaa !40
   %342 = load i8, ptr %329, align 1, !tbaa !281
   %343 = zext i8 %342 to i16
@@ -7053,7 +7053,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %350 = zext i8 %349 to i16
   %351 = shl nuw nsw i16 %350, 4
   %352 = add nuw i16 %348, %351
-  %353 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0324.lcssa, i64 %328
+  %353 = getelementptr inbounds nuw [2 x i8], ptr %.0324.lcssa, i64 %328
   store i16 %352, ptr %353, align 2, !tbaa !40
   %indvars.iv.next630 = add nuw nsw i64 %indvars.iv629, 1
   %exitcond633.not = icmp eq i64 %indvars.iv.next630, %wide.trip.count632
@@ -7075,13 +7075,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %364 = sext i32 %359 to i64
   %wide.trip.count637 = zext nneg i32 %1 to i64
   %invariant.gep676 = getelementptr i8, ptr %.0323.lcssa, i64 %362
-  %invariant.gep678 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0324.lcssa, i64 %363
+  %invariant.gep678 = getelementptr inbounds nuw [2 x i8], ptr %.0324.lcssa, i64 %363
   %invariant.gep680 = getelementptr i8, ptr %.0323.lcssa, i64 %364
   br label %.lr.ph584
 
 .lr.ph584:                                        ; preds = %.lr.ph584.preheader, %.lr.ph584
   %indvars.iv634 = phi i64 [ 0, %.lr.ph584.preheader ], [ %indvars.iv.next635, %.lr.ph584 ]
-  %365 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0324.lcssa, i64 %indvars.iv634
+  %365 = getelementptr inbounds nuw [2 x i8], ptr %.0324.lcssa, i64 %indvars.iv634
   %gep677 = getelementptr i8, ptr %invariant.gep676, i64 %indvars.iv634
   %366 = load i8, ptr %gep677, align 1, !tbaa !281
   %367 = zext i8 %366 to i16
@@ -7089,7 +7089,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641IhNS
   %369 = load i16, ptr %365, align 2, !tbaa !40, !noalias !481
   %370 = tail call i16 @llvm.uadd.sat.i16(i16 %369, i16 %368)
   store i16 %370, ptr %365, align 2, !tbaa !40
-  %gep679 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %invariant.gep678, i64 %indvars.iv634
+  %gep679 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep678, i64 %indvars.iv634
   %371 = load i8, ptr %gep677, align 1, !tbaa !281
   %372 = zext i8 %371 to i16
   %373 = shl nuw nsw i16 %372, 6
@@ -7155,7 +7155,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %28 = mul nuw nsw i32 %27, %23
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %28, i32 65535)
   %29 = trunc nuw i32 %.sroa.speculated.i to i16
-  %30 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv536
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv536
   store i16 %29, ptr %30, align 2, !tbaa !40
   %indvars.iv.next537 = add nuw nsw i64 %indvars.iv536, 1
   %exitcond540.not = icmp eq i64 %indvars.iv.next537, %wide.trip.count539
@@ -7194,7 +7194,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %.sroa.speculated.i421 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %50, i32 65535)
   %51 = trunc nuw i32 %.sroa.speculated.i421 to i16
   %52 = tail call i16 @llvm.uadd.sat.i16(i16 %43, i16 %51)
-  %53 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv531
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv531
   store i16 %52, ptr %53, align 2, !tbaa !40
   %54 = load i16, ptr %34, align 2, !tbaa !40, !noalias !504
   %55 = zext i16 %54 to i32
@@ -7211,7 +7211,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %.sroa.speculated.i423 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %64, i32 65535)
   %65 = trunc nuw i32 %.sroa.speculated.i423 to i16
   %66 = tail call i16 @llvm.uadd.sat.i16(i16 %59, i16 %65)
-  %67 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %44
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %44
   store i16 %66, ptr %67, align 2, !tbaa !40
   %indvars.iv.next532 = add nuw nsw i64 %indvars.iv531, 1
   %exitcond535.not = icmp eq i64 %indvars.iv.next532, %35
@@ -7277,7 +7277,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %111 = add nuw nsw i32 %102, %110
   %.sroa.speculated.i424 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %111, i32 65535)
   %112 = trunc nuw i32 %.sroa.speculated.i424 to i16
-  %113 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv526
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv526
   store i16 %112, ptr %113, align 2, !tbaa !399
   %114 = load i16, ptr %2, align 2, !tbaa !399
   %115 = zext i16 %114 to i32
@@ -7305,7 +7305,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %136 = add nuw nsw i32 %130, %135
   %.sroa.speculated.i425 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %136, i32 65535)
   %137 = trunc nuw i32 %.sroa.speculated.i425 to i16
-  %138 = getelementptr inbounds nuw i16, ptr %4, i64 %90
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %90
   store i16 %137, ptr %138, align 2, !tbaa !399
   %indvars.iv.next527 = add nuw nsw i64 %indvars.iv526, 1
   %exitcond530.not = icmp eq i64 %indvars.iv.next527, %wide.trip.count529
@@ -7356,7 +7356,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %.sroa.speculated.i428 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %169, i32 65535)
   %170 = trunc nuw i32 %.sroa.speculated.i428 to i16
   %171 = tail call i16 @llvm.uadd.sat.i16(i16 %162, i16 %170)
-  %172 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv521
+  %172 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv521
   store i16 %171, ptr %172, align 2, !tbaa !40
   %173 = load i16, ptr %142, align 2, !tbaa !399
   %174 = zext i16 %173 to i32
@@ -7374,7 +7374,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %186 = add nuw nsw i32 %185, %180
   %.sroa.speculated.i429 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %186, i32 65535)
   %187 = trunc nuw i32 %.sroa.speculated.i429 to i16
-  %188 = getelementptr inbounds nuw i16, ptr %4, i64 %154
+  %188 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %154
   store i16 %187, ptr %188, align 2, !tbaa !399
   %189 = load i16, ptr %2, align 2, !tbaa !40, !noalias !521
   %190 = zext i16 %189 to i32
@@ -7399,7 +7399,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %.sroa.speculated.i432 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %206, i32 65535)
   %207 = trunc nuw i32 %.sroa.speculated.i432 to i16
   %208 = tail call i16 @llvm.uadd.sat.i16(i16 %201, i16 %207)
-  %209 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %163
+  %209 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %163
   store i16 %208, ptr %209, align 2, !tbaa !40
   %indvars.iv.next522 = add nuw nsw i64 %indvars.iv521, 1
   %exitcond525.not = icmp eq i64 %indvars.iv.next522, %144
@@ -7468,7 +7468,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %257 = add nuw nsw i32 %246, %256
   %.sroa.speculated.i433 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %257, i32 65535)
   %258 = trunc nuw i32 %.sroa.speculated.i433 to i16
-  %259 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %259 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 %258, ptr %259, align 2, !tbaa !399
   %260 = load i16, ptr %220, align 2, !tbaa !399
   %261 = zext i16 %260 to i32
@@ -7496,7 +7496,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %282 = add nuw nsw i32 %273, %281
   %.sroa.speculated.i434 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %282, i32 65535)
   %283 = trunc nuw i32 %.sroa.speculated.i434 to i16
-  %284 = getelementptr inbounds nuw i16, ptr %4, i64 %238
+  %284 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %238
   store i16 %283, ptr %284, align 2, !tbaa !399
   %285 = load i16, ptr %2, align 2, !tbaa !399
   %286 = zext i16 %285 to i32
@@ -7524,7 +7524,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %307 = add nuw nsw i32 %301, %306
   %.sroa.speculated.i435 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %307, i32 65535)
   %308 = trunc nuw i32 %.sroa.speculated.i435 to i16
-  %309 = getelementptr inbounds nuw i16, ptr %4, i64 %249
+  %309 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %249
   store i16 %308, ptr %309, align 2, !tbaa !399
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7607,7 +7607,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %360 = add nuw nsw i32 %351, %359
   %.sroa.speculated.i436 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %360, i32 65535)
   %361 = trunc nuw i32 %.sroa.speculated.i436 to i16
-  %362 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv541
+  %362 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv541
   store i16 %361, ptr %362, align 2, !tbaa !399
   %363 = load i16, ptr %326, align 2, !tbaa !399
   %364 = zext i16 %363 to i32
@@ -7635,7 +7635,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %385 = add nuw nsw i32 %376, %384
   %.sroa.speculated.i437 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %385, i32 65535)
   %386 = trunc nuw i32 %.sroa.speculated.i437 to i16
-  %387 = getelementptr inbounds nuw i16, ptr %4, i64 %343
+  %387 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %343
   store i16 %386, ptr %387, align 2, !tbaa !399
   %indvars.iv.next542 = add nuw nsw i64 %indvars.iv541, 1
   %exitcond545.not = icmp eq i64 %indvars.iv.next542, %wide.trip.count544
@@ -7670,7 +7670,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %.sroa.speculated.i440 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %409, i32 65535)
   %410 = trunc nuw i32 %.sroa.speculated.i440 to i16
   %411 = tail call i16 @llvm.uadd.sat.i16(i16 %404, i16 %410)
-  %412 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv546
+  %412 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv546
   store i16 %411, ptr %412, align 2, !tbaa !40
   %413 = load i16, ptr %313, align 2, !tbaa !399
   %414 = zext i16 %413 to i32
@@ -7695,7 +7695,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %432 = add nuw nsw i32 %426, %431
   %.sroa.speculated.i441 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %432, i32 65535)
   %433 = trunc nuw i32 %.sroa.speculated.i441 to i16
-  %434 = getelementptr inbounds nuw i16, ptr %4, i64 %396
+  %434 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %396
   store i16 %433, ptr %434, align 2, !tbaa !399
   %indvars.iv.next547 = add nuw nsw i64 %indvars.iv546, 1
   %exitcond550.not = icmp eq i64 %indvars.iv.next547, %316
@@ -7705,7 +7705,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %435 = shl nsw i32 %1, 1
   %436 = sext i32 %435 to i64
   %437 = getelementptr inbounds i8, ptr %0, i64 %436
-  %438 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %436
+  %438 = getelementptr inbounds [2 x i8], ptr %4, i64 %436
   %439 = add nsw i32 %5, -2
   %440 = mul nsw i32 %439, %1
   %441 = icmp slt i32 %435, %440
@@ -7834,7 +7834,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %529 = add nuw nsw i32 %522, %528
   %.sroa.speculated.i443 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %529, i32 65535)
   %530 = trunc nuw i32 %.sroa.speculated.i443 to i16
-  %531 = getelementptr inbounds nuw i16, ptr %.0404.lcssa, i64 %indvars.iv552
+  %531 = getelementptr inbounds nuw [2 x i8], ptr %.0404.lcssa, i64 %indvars.iv552
   store i16 %530, ptr %531, align 2, !tbaa !399
   %532 = load i16, ptr %2, align 2, !tbaa !399
   %533 = zext i16 %532 to i32
@@ -7862,7 +7862,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %554 = add nuw nsw i32 %548, %553
   %.sroa.speculated.i444 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %554, i32 65535)
   %555 = trunc nuw i32 %.sroa.speculated.i444 to i16
-  %556 = getelementptr inbounds nuw i16, ptr %.0404.lcssa, i64 %516
+  %556 = getelementptr inbounds nuw [2 x i8], ptr %.0404.lcssa, i64 %516
   store i16 %555, ptr %556, align 2, !tbaa !399
   %indvars.iv.next553 = add nuw nsw i64 %indvars.iv552, 1
   %exitcond556.not = icmp eq i64 %indvars.iv.next553, %wide.trip.count555
@@ -7899,7 +7899,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %584 = add nuw nsw i32 %577, %583
   %.sroa.speculated.i445 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %584, i32 65535)
   %585 = trunc nuw i32 %.sroa.speculated.i445 to i16
-  %586 = getelementptr inbounds nuw i16, ptr %.0404.lcssa, i64 %indvars.iv557
+  %586 = getelementptr inbounds nuw [2 x i8], ptr %.0404.lcssa, i64 %indvars.iv557
   store i16 %585, ptr %586, align 2, !tbaa !399
   %587 = load i16, ptr %2, align 2, !tbaa !40, !noalias !545
   %588 = zext i16 %587 to i32
@@ -7924,7 +7924,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaIhNS
   %.sroa.speculated.i448 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %604, i32 65535)
   %605 = trunc nuw i32 %.sroa.speculated.i448 to i16
   %606 = tail call i16 @llvm.uadd.sat.i16(i16 %599, i16 %605)
-  %607 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0404.lcssa, i64 %571
+  %607 = getelementptr inbounds nuw [2 x i8], ptr %.0404.lcssa, i64 %571
   store i16 %606, ptr %607, align 2, !tbaa !40
   %indvars.iv.next558 = add nuw nsw i64 %indvars.iv557, 1
   %exitcond561.not = icmp eq i64 %indvars.iv.next558, %wide.trip.count560
@@ -8003,7 +8003,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %43 = mul nuw nsw i32 %42, %38
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %43, i32 65535)
   %44 = trunc nuw i32 %.sroa.speculated.i to i16
-  %45 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv638
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv638
   store i16 %44, ptr %45, align 2, !tbaa !40
   %indvars.iv.next639 = add nuw nsw i64 %indvars.iv638, 1
   %exitcond642.not = icmp eq i64 %indvars.iv.next639, %wide.trip.count641
@@ -8044,7 +8044,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i404 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %67, i32 65535)
   %68 = trunc nuw i32 %.sroa.speculated.i404 to i16
   %69 = tail call i16 @llvm.uadd.sat.i16(i16 %60, i16 %68)
-  %70 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv633
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv633
   store i16 %69, ptr %70, align 2, !tbaa !40
   %71 = load i16, ptr %51, align 2, !tbaa !40, !noalias !577
   %72 = zext i16 %71 to i32
@@ -8061,7 +8061,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i406 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %81, i32 65535)
   %82 = trunc nuw i32 %.sroa.speculated.i406 to i16
   %83 = tail call i16 @llvm.uadd.sat.i16(i16 %76, i16 %82)
-  %84 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %61
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %61
   store i16 %83, ptr %84, align 2, !tbaa !40
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 1
   %exitcond637.not = icmp eq i64 %indvars.iv.next634, %52
@@ -8143,7 +8143,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i411 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %139, i32 65535)
   %140 = trunc nuw i32 %.sroa.speculated.i411 to i16
   %141 = tail call i16 @llvm.uadd.sat.i16(i16 %134, i16 %140)
-  %142 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv628
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv628
   store i16 %141, ptr %142, align 2, !tbaa !40
   %143 = load i16, ptr %2, align 2, !tbaa !40, !noalias !599
   %144 = zext i16 %143 to i32
@@ -8185,7 +8185,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i416 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %174, i32 65535)
   %175 = trunc nuw i32 %.sroa.speculated.i416 to i16
   %176 = tail call i16 @llvm.uadd.sat.i16(i16 %169, i16 %175)
-  %177 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %119
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %119
   store i16 %176, ptr %177, align 2, !tbaa !40
   %indvars.iv.next629 = add nuw nsw i64 %indvars.iv628, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next629, %wide.trip.count631
@@ -8239,7 +8239,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i419 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %211, i32 65535)
   %212 = trunc nuw i32 %.sroa.speculated.i419 to i16
   %213 = tail call i16 @llvm.uadd.sat.i16(i16 %204, i16 %212)
-  %214 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv623
+  %214 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv623
   store i16 %213, ptr %214, align 2, !tbaa !40
   %215 = load i16, ptr %185, align 2, !tbaa !40, !noalias !624
   %216 = zext i16 %215 to i32
@@ -8264,7 +8264,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i422 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %232, i32 65535)
   %233 = trunc nuw i32 %.sroa.speculated.i422 to i16
   %234 = tail call i16 @llvm.uadd.sat.i16(i16 %227, i16 %233)
-  %235 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %196
+  %235 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %196
   store i16 %234, ptr %235, align 2, !tbaa !40
   %236 = load i16, ptr %2, align 2, !tbaa !40, !noalias !633
   %237 = zext i16 %236 to i32
@@ -8289,7 +8289,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i425 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %253, i32 65535)
   %254 = trunc nuw i32 %.sroa.speculated.i425 to i16
   %255 = tail call i16 @llvm.uadd.sat.i16(i16 %248, i16 %254)
-  %256 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %205
+  %256 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %205
   store i16 %255, ptr %256, align 2, !tbaa !40
   %indvars.iv.next624 = add nuw nsw i64 %indvars.iv623, 1
   %exitcond627.not = icmp eq i64 %indvars.iv.next624, %186
@@ -8374,7 +8374,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i430 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %315, i32 65535)
   %316 = trunc nuw i32 %.sroa.speculated.i430 to i16
   %317 = tail call i16 @llvm.uadd.sat.i16(i16 %310, i16 %316)
-  %318 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv
+  %318 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 %317, ptr %318, align 2, !tbaa !40
   %319 = load i16, ptr %271, align 2, !tbaa !40, !noalias !658
   %320 = zext i16 %319 to i32
@@ -8416,7 +8416,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i435 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %350, i32 65535)
   %351 = trunc nuw i32 %.sroa.speculated.i435 to i16
   %352 = tail call i16 @llvm.uadd.sat.i16(i16 %345, i16 %351)
-  %353 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %286
+  %353 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %286
   store i16 %352, ptr %353, align 2, !tbaa !40
   %354 = load i16, ptr %2, align 2, !tbaa !40, !noalias !673
   %355 = zext i16 %354 to i32
@@ -8458,7 +8458,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i440 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %385, i32 65535)
   %386 = trunc nuw i32 %.sroa.speculated.i440 to i16
   %387 = tail call i16 @llvm.uadd.sat.i16(i16 %380, i16 %386)
-  %388 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %295
+  %388 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %295
   store i16 %387, ptr %388, align 2, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8497,7 +8497,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i443 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %410, i32 65535)
   %411 = trunc nuw i32 %.sroa.speculated.i443 to i16
   %412 = tail call i16 @llvm.uadd.sat.i16(i16 %405, i16 %411)
-  %413 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv643
+  %413 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv643
   store i16 %412, ptr %413, align 2, !tbaa !40
   %414 = load i16, ptr %13, align 2, !tbaa !40, !noalias !698
   %415 = zext i16 %414 to i32
@@ -8531,7 +8531,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i447 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %438, i32 65535)
   %439 = trunc nuw i32 %.sroa.speculated.i447 to i16
   %440 = tail call i16 @llvm.uadd.sat.i16(i16 %433, i16 %439)
-  %441 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %397
+  %441 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %397
   store i16 %440, ptr %441, align 2, !tbaa !40
   %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
   %exitcond647.not = icmp eq i64 %indvars.iv.next644, %15
@@ -8552,12 +8552,12 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %wide.trip.count651 = zext nneg i32 %1 to i64
   %invariant.gep694 = getelementptr i8, ptr %0, i64 %448
   %invariant.gep696 = getelementptr i8, ptr %0, i64 %449
-  %invariant.gep698 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %450
+  %invariant.gep698 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %450
   br label %451
 
 451:                                              ; preds = %.lr.ph603, %451
   %indvars.iv648 = phi i64 [ 0, %.lr.ph603 ], [ %indvars.iv.next649, %451 ]
-  %452 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %indvars.iv648
+  %452 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv648
   %gep695 = getelementptr i8, ptr %invariant.gep694, i64 %indvars.iv648
   %453 = load i16, ptr %2, align 2, !tbaa !40, !noalias !711
   %454 = zext i16 %453 to i32
@@ -8578,7 +8578,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %466 = trunc nuw i32 %.sroa.speculated.i449 to i16
   %467 = tail call i16 @llvm.uadd.sat.i16(i16 %460, i16 %466)
   store i16 %467, ptr %452, align 2, !tbaa !40
-  %gep699 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %invariant.gep698, i64 %indvars.iv648
+  %gep699 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep698, i64 %indvars.iv648
   %468 = load i16, ptr %2, align 2, !tbaa !40, !noalias !720
   %469 = zext i16 %468 to i32
   %470 = load i8, ptr %gep697, align 1, !tbaa !281, !noalias !720
@@ -8597,7 +8597,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %476 = shl nsw i32 %1, 1
   %477 = sext i32 %476 to i64
   %478 = getelementptr inbounds i8, ptr %0, i64 %477
-  %479 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %4, i64 %477
+  %479 = getelementptr inbounds [2 x i8], ptr %4, i64 %477
   %480 = add nsw i32 %5, -2
   %481 = mul nsw i32 %480, %1
   %482 = icmp slt i32 %476, %481
@@ -8725,7 +8725,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i459 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %570, i32 65535)
   %571 = trunc nuw i32 %.sroa.speculated.i459 to i16
   %572 = tail call i16 @llvm.uadd.sat.i16(i16 %563, i16 %571)
-  %573 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0386.lcssa, i64 %indvars.iv654
+  %573 = getelementptr inbounds nuw [2 x i8], ptr %.0386.lcssa, i64 %indvars.iv654
   store i16 %572, ptr %573, align 2, !tbaa !40
   %574 = load i16, ptr %2, align 2, !tbaa !40, !noalias !755
   %575 = zext i16 %574 to i32
@@ -8750,7 +8750,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %.sroa.speculated.i462 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %591, i32 65535)
   %592 = trunc nuw i32 %.sroa.speculated.i462 to i16
   %593 = tail call i16 @llvm.uadd.sat.i16(i16 %586, i16 %592)
-  %594 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0386.lcssa, i64 %564
+  %594 = getelementptr inbounds nuw [2 x i8], ptr %.0386.lcssa, i64 %564
   store i16 %593, ptr %594, align 2, !tbaa !40
   %indvars.iv.next655 = add nuw nsw i64 %indvars.iv654, 1
   %exitcond658.not = icmp eq i64 %indvars.iv.next655, %wide.trip.count657
@@ -8774,13 +8774,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %607 = sext i32 %600 to i64
   %wide.trip.count662 = zext nneg i32 %1 to i64
   %invariant.gep700 = getelementptr i8, ptr %.0385.lcssa, i64 %605
-  %invariant.gep702 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0386.lcssa, i64 %606
+  %invariant.gep702 = getelementptr inbounds nuw [2 x i8], ptr %.0386.lcssa, i64 %606
   %invariant.gep704 = getelementptr i8, ptr %.0385.lcssa, i64 %607
   br label %608
 
 608:                                              ; preds = %.lr.ph615, %608
   %indvars.iv659 = phi i64 [ 0, %.lr.ph615 ], [ %indvars.iv.next660, %608 ]
-  %609 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0386.lcssa, i64 %indvars.iv659
+  %609 = getelementptr inbounds nuw [2 x i8], ptr %.0386.lcssa, i64 %indvars.iv659
   %gep701 = getelementptr i8, ptr %invariant.gep700, i64 %indvars.iv659
   %610 = load i16, ptr %603, align 2, !tbaa !40, !noalias !765
   %611 = zext i16 %610 to i32
@@ -8792,7 +8792,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NIhNS_12_G
   %616 = load i16, ptr %609, align 2, !tbaa !40, !noalias !768
   %617 = tail call i16 @llvm.uadd.sat.i16(i16 %616, i16 %615)
   store i16 %617, ptr %609, align 2, !tbaa !40
-  %gep703 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %invariant.gep702, i64 %indvars.iv659
+  %gep703 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep702, i64 %indvars.iv659
   %618 = load i16, ptr %604, align 2, !tbaa !40, !noalias !771
   %619 = zext i16 %618 to i32
   %620 = load i8, ptr %gep701, align 1, !tbaa !281, !noalias !771
@@ -8851,7 +8851,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 
 .lr.ph:                                           ; preds = %.preheader242
   %18 = sub nsw i64 %13, %indvars.iv376
-  %19 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %2, i64 %18
   br label %20
 
 ._crit_edge:                                      ; preds = %20, %.preheader242
@@ -8867,7 +8867,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %26 = mul nuw nsw i32 %25, %23
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %26, i32 65535)
   %27 = trunc nuw i32 %.sroa.speculated.i to i16
-  %28 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0162271, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.0162271, i64 %indvars.iv
   store i16 %27, ptr %28, align 2, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
@@ -8894,7 +8894,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %indvars.iv342 = phi i64 [ 0, %.lr.ph246.us.preheader ], [ %indvars.iv.next343, %._crit_edge247.us ]
   %.0176248.us = phi i32 [ %33, %.lr.ph246.us.preheader ], [ %48, %._crit_edge247.us ]
   %34 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %.0176248.us, i32 noundef %5, i32 noundef %6)
-  %35 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv342
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv342
   %36 = mul nsw i32 %34, %1
   %37 = sext i32 %36 to i64
   %invariant.gep = getelementptr i8, ptr %0, i64 %37
@@ -8902,7 +8902,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 
 38:                                               ; preds = %.lr.ph246.us, %38
   %indvars.iv337 = phi i64 [ 0, %.lr.ph246.us ], [ %indvars.iv.next338, %38 ]
-  %39 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0162271, i64 %indvars.iv337
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %.0162271, i64 %indvars.iv337
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv337
   %40 = load i16, ptr %35, align 2, !tbaa !40, !noalias !785
   %41 = zext i16 %40 to i32
@@ -8963,14 +8963,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 .preheader238.us:                                 ; preds = %.preheader238.us.preheader, %._crit_edge254.us
   %indvars.iv360 = phi i64 [ 1, %.preheader238.us.preheader ], [ %indvars.iv.next361, %._crit_edge254.us ]
   %indvars.iv358 = phi i64 [ %indvars.iv356, %.preheader238.us.preheader ], [ %indvars.iv.next359, %._crit_edge254.us ]
-  %63 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv358
+  %63 = getelementptr inbounds [2 x i8], ptr %2, i64 %indvars.iv358
   %64 = mul nuw nsw i64 %indvars.iv360, %15
   %invariant.gep434 = getelementptr inbounds nuw i8, ptr %0, i64 %64
   br label %65
 
 65:                                               ; preds = %.preheader238.us, %65
   %indvars.iv351 = phi i64 [ 0, %.preheader238.us ], [ %indvars.iv.next352, %65 ]
-  %66 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0162271, i64 %indvars.iv351
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.0162271, i64 %indvars.iv351
   %gep435 = getelementptr inbounds nuw i8, ptr %invariant.gep434, i64 %indvars.iv351
   %67 = load i16, ptr %63, align 2, !tbaa !40, !noalias !793
   %68 = zext i16 %67 to i32
@@ -9016,7 +9016,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   br i1 %11, label %._crit_edge266, label %.lr.ph265
 
 .lr.ph265:                                        ; preds = %.lr.ph269
-  %81 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv373
+  %81 = getelementptr inbounds [2 x i8], ptr %2, i64 %indvars.iv373
   %82 = mul nsw i32 %80, %1
   %83 = sext i32 %82 to i64
   %invariant.gep436 = getelementptr i8, ptr %0, i64 %83
@@ -9031,7 +9031,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 
 87:                                               ; preds = %.lr.ph265, %87
   %indvars.iv368 = phi i64 [ 0, %.lr.ph265 ], [ %indvars.iv.next369, %87 ]
-  %88 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0162271, i64 %indvars.iv368
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %.0162271, i64 %indvars.iv368
   %gep437 = getelementptr i8, ptr %invariant.gep436, i64 %indvars.iv368
   %89 = load i16, ptr %81, align 2, !tbaa !40, !noalias !802
   %90 = zext i16 %89 to i32
@@ -9049,7 +9049,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 
 .loopexit240:                                     ; preds = %._crit_edge266, %._crit_edge258
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
-  %97 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0162271, i64 %12
+  %97 = getelementptr inbounds [2 x i8], ptr %.0162271, i64 %12
   %indvars.iv.next346 = add nsw i32 %indvars.iv345, -1
   %indvars.iv.next350 = add i32 %indvars.iv349, 1
   %indvars.iv.next357 = add nsw i64 %indvars.iv356, -1
@@ -9071,7 +9071,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 
 .lr.ph284:                                        ; preds = %._crit_edge273
   %102 = sext i32 %8 to i64
-  %103 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %2, i64 %102
   %104 = mul nsw i32 %8, %1
   %105 = sext i32 %104 to i64
   %106 = icmp sgt i32 %3, 1
@@ -9101,7 +9101,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 116:                                              ; preds = %.lr.ph278.us, %116
   %indvars.iv382 = phi i64 [ 0, %.lr.ph278.us ], [ %indvars.iv.next383, %116 ]
   %117 = phi i16 [ %115, %.lr.ph278.us ], [ %136, %116 ]
-  %118 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv382
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv382
   %119 = mul nsw i64 %indvars.iv382, %107
   %120 = getelementptr inbounds i8, ptr %.0156282.us, i64 %119
   %121 = load i16, ptr %118, align 2, !tbaa !40, !noalias !813
@@ -9196,14 +9196,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 
 .preheader.us:                                    ; preds = %.preheader236, %._crit_edge296.us
   %indvars.iv398 = phi i64 [ %indvars.iv.next399, %._crit_edge296.us ], [ 1, %.preheader236 ]
-  %167 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv398
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv398
   %168 = mul nuw nsw i64 %indvars.iv398, %160
   %invariant.gep438 = getelementptr inbounds nuw i8, ptr %.1313, i64 %168
   br label %169
 
 169:                                              ; preds = %.preheader.us, %169
   %indvars.iv393 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next394, %169 ]
-  %170 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.2310, i64 %indvars.iv393
+  %170 = getelementptr inbounds nuw [2 x i8], ptr %.2310, i64 %indvars.iv393
   %gep439 = getelementptr inbounds nuw i8, ptr %invariant.gep438, i64 %indvars.iv393
   %171 = load i16, ptr %167, align 2, !tbaa !40, !noalias !821
   %172 = zext i16 %171 to i32
@@ -9234,7 +9234,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %185 = mul nuw nsw i32 %184, %182
   %.sroa.speculated.i187 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %185, i32 65535)
   %186 = trunc nuw i32 %.sroa.speculated.i187 to i16
-  %187 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.2310, i64 %indvars.iv386
+  %187 = getelementptr inbounds nuw [2 x i8], ptr %.2310, i64 %indvars.iv386
   store i16 %186, ptr %187, align 2, !tbaa !40
   %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
   %exitcond390.not = icmp eq i64 %indvars.iv.next387, %160
@@ -9268,7 +9268,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %194 = add nsw i32 %193, %192
   %195 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %194, i32 noundef %5, i32 noundef %6)
   %196 = sub nsw i32 %195, %192
-  %197 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv407
+  %197 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv407
   %198 = mul nsw i32 %196, %1
   %199 = sext i32 %198 to i64
   %invariant.gep440 = getelementptr i8, ptr %.1313, i64 %199
@@ -9276,7 +9276,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 
 200:                                              ; preds = %.lr.ph303.us, %200
   %indvars.iv402 = phi i64 [ 0, %.lr.ph303.us ], [ %indvars.iv.next403, %200 ]
-  %201 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.2310, i64 %indvars.iv402
+  %201 = getelementptr inbounds nuw [2 x i8], ptr %.2310, i64 %indvars.iv402
   %gep441 = getelementptr i8, ptr %invariant.gep440, i64 %indvars.iv402
   %202 = load i16, ptr %197, align 2, !tbaa !40, !noalias !833
   %203 = zext i16 %202 to i32
@@ -9309,7 +9309,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 .loopexit:                                        ; preds = %.lr.ph306.split, %._crit_edge304.us, %._crit_edge298
   %indvars.iv.next411 = add nsw i64 %indvars.iv410, 1
   %215 = getelementptr inbounds i8, ptr %.1313, i64 %157
-  %216 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.2310, i64 %157
+  %216 = getelementptr inbounds [2 x i8], ptr %.2310, i64 %157
   %217 = icmp slt i64 %indvars.iv.next411, %163
   %indvars.iv.next392 = add i32 %indvars.iv391, -1
   br i1 %217, label %.preheader237, label %._crit_edge316, !llvm.loop !841
@@ -9349,7 +9349,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 
 .lr.ph:                                           ; preds = %.preheader229
   %18 = sub nsw i64 %13, %indvars.iv363
-  %19 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %2, i64 %18
   br label %20
 
 ._crit_edge:                                      ; preds = %20, %.preheader229
@@ -9365,7 +9365,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %26 = mul nuw nsw i32 %25, %23
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %26, i32 65535)
   %27 = trunc nuw i32 %.sroa.speculated.i to i16
-  %28 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0156258, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.0156258, i64 %indvars.iv
   store i16 %27, ptr %28, align 2, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
@@ -9392,7 +9392,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %indvars.iv329 = phi i64 [ 0, %.lr.ph233.us.preheader ], [ %indvars.iv.next330, %._crit_edge234.us ]
   %.0170235.us = phi i32 [ %33, %.lr.ph233.us.preheader ], [ %48, %._crit_edge234.us ]
   %34 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %.0170235.us, i32 noundef %5, i32 noundef %6)
-  %35 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv329
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv329
   %36 = mul nsw i32 %34, %1
   %37 = sext i32 %36 to i64
   %invariant.gep = getelementptr i8, ptr %0, i64 %37
@@ -9400,7 +9400,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 
 38:                                               ; preds = %.lr.ph233.us, %38
   %indvars.iv324 = phi i64 [ 0, %.lr.ph233.us ], [ %indvars.iv.next325, %38 ]
-  %39 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0156258, i64 %indvars.iv324
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %.0156258, i64 %indvars.iv324
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv324
   %40 = load i16, ptr %35, align 2, !tbaa !40, !noalias !846
   %41 = zext i16 %40 to i32
@@ -9461,14 +9461,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 .preheader225.us:                                 ; preds = %.preheader225.us.preheader, %._crit_edge241.us
   %indvars.iv347 = phi i64 [ 1, %.preheader225.us.preheader ], [ %indvars.iv.next348, %._crit_edge241.us ]
   %indvars.iv345 = phi i64 [ %indvars.iv343, %.preheader225.us.preheader ], [ %indvars.iv.next346, %._crit_edge241.us ]
-  %63 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv345
+  %63 = getelementptr inbounds [2 x i8], ptr %2, i64 %indvars.iv345
   %64 = mul nuw nsw i64 %indvars.iv347, %15
   %invariant.gep421 = getelementptr inbounds nuw i8, ptr %0, i64 %64
   br label %65
 
 65:                                               ; preds = %.preheader225.us, %65
   %indvars.iv338 = phi i64 [ 0, %.preheader225.us ], [ %indvars.iv.next339, %65 ]
-  %66 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0156258, i64 %indvars.iv338
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.0156258, i64 %indvars.iv338
   %gep422 = getelementptr inbounds nuw i8, ptr %invariant.gep421, i64 %indvars.iv338
   %67 = load i16, ptr %63, align 2, !tbaa !40, !noalias !854
   %68 = zext i16 %67 to i32
@@ -9514,7 +9514,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   br i1 %11, label %._crit_edge253, label %.lr.ph252
 
 .lr.ph252:                                        ; preds = %.lr.ph256
-  %81 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv360
+  %81 = getelementptr inbounds [2 x i8], ptr %2, i64 %indvars.iv360
   %82 = mul nsw i32 %80, %1
   %83 = sext i32 %82 to i64
   %invariant.gep423 = getelementptr i8, ptr %0, i64 %83
@@ -9529,7 +9529,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 
 87:                                               ; preds = %.lr.ph252, %87
   %indvars.iv355 = phi i64 [ 0, %.lr.ph252 ], [ %indvars.iv.next356, %87 ]
-  %88 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0156258, i64 %indvars.iv355
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %.0156258, i64 %indvars.iv355
   %gep424 = getelementptr i8, ptr %invariant.gep423, i64 %indvars.iv355
   %89 = load i16, ptr %81, align 2, !tbaa !40, !noalias !863
   %90 = zext i16 %89 to i32
@@ -9547,7 +9547,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 
 .loopexit227:                                     ; preds = %._crit_edge253, %._crit_edge245
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
-  %97 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.0156258, i64 %12
+  %97 = getelementptr inbounds [2 x i8], ptr %.0156258, i64 %12
   %indvars.iv.next333 = add nsw i32 %indvars.iv332, -1
   %indvars.iv.next337 = add i32 %indvars.iv336, 1
   %indvars.iv.next344 = add nsw i64 %indvars.iv343, -1
@@ -9593,7 +9593,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 110:                                              ; preds = %.lr.ph265.us, %110
   %indvars.iv369 = phi i64 [ 1, %.lr.ph265.us ], [ %indvars.iv.next370, %110 ]
   %111 = phi i16 [ %109, %.lr.ph265.us ], [ %121, %110 ]
-  %112 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv369
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv369
   %113 = mul nsw i64 %indvars.iv369, %103
   %114 = getelementptr inbounds i8, ptr %.0150269.us, i64 %113
   %115 = load i16, ptr %112, align 2, !tbaa !40, !noalias !874
@@ -9677,14 +9677,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 
 .preheader.us:                                    ; preds = %.preheader223, %._crit_edge283.us
   %indvars.iv385 = phi i64 [ %indvars.iv.next386, %._crit_edge283.us ], [ 1, %.preheader223 ]
-  %151 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv385
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv385
   %152 = mul nuw nsw i64 %indvars.iv385, %144
   %invariant.gep425 = getelementptr inbounds nuw i8, ptr %.1300, i64 %152
   br label %153
 
 153:                                              ; preds = %.preheader.us, %153
   %indvars.iv380 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next381, %153 ]
-  %154 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.2297, i64 %indvars.iv380
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %.2297, i64 %indvars.iv380
   %gep426 = getelementptr inbounds nuw i8, ptr %invariant.gep425, i64 %indvars.iv380
   %155 = load i16, ptr %151, align 2, !tbaa !40, !noalias !879
   %156 = zext i16 %155 to i32
@@ -9715,7 +9715,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %169 = mul nuw nsw i32 %168, %166
   %.sroa.speculated.i180 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 83557126) %169, i32 65535)
   %170 = trunc nuw i32 %.sroa.speculated.i180 to i16
-  %171 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.2297, i64 %indvars.iv373
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %.2297, i64 %indvars.iv373
   store i16 %170, ptr %171, align 2, !tbaa !40
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next374, %144
@@ -9749,7 +9749,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %178 = add nsw i32 %177, %176
   %179 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %178, i32 noundef %5, i32 noundef %6)
   %180 = sub nsw i32 %179, %176
-  %181 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %2, i64 %indvars.iv394
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv394
   %182 = mul nsw i32 %180, %1
   %183 = sext i32 %182 to i64
   %invariant.gep427 = getelementptr i8, ptr %.1300, i64 %183
@@ -9757,7 +9757,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 
 184:                                              ; preds = %.lr.ph290.us, %184
   %indvars.iv389 = phi i64 [ 0, %.lr.ph290.us ], [ %indvars.iv.next390, %184 ]
-  %185 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.2297, i64 %indvars.iv389
+  %185 = getelementptr inbounds nuw [2 x i8], ptr %.2297, i64 %indvars.iv389
   %gep428 = getelementptr i8, ptr %invariant.gep427, i64 %indvars.iv389
   %186 = load i16, ptr %181, align 2, !tbaa !40, !noalias !891
   %187 = zext i16 %186 to i32
@@ -9790,7 +9790,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 .loopexit:                                        ; preds = %.lr.ph293.split, %._crit_edge291.us, %._crit_edge285
   %indvars.iv.next398 = add nsw i64 %indvars.iv397, 1
   %199 = getelementptr inbounds i8, ptr %.1300, i64 %141
-  %200 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.2297, i64 %141
+  %200 = getelementptr inbounds [2 x i8], ptr %.2297, i64 %141
   %201 = icmp slt i64 %indvars.iv.next398, %147
   %indvars.iv.next379 = add i32 %indvars.iv378, -1
   br i1 %201, label %.preheader224, label %._crit_edge303, !llvm.loop !899
@@ -9811,7 +9811,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114vlineSmooth1N1IhNS_12_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !399
   %10 = add i16 %9, 128
   %11 = lshr i16 %10, 8
@@ -9838,7 +9838,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_G
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   %9 = load i16, ptr %1, align 2, !tbaa !40, !noalias !902
   %10 = zext i16 %9 to i32
   %11 = load i16, ptr %8, align 2, !tbaa !40, !noalias !902
@@ -9872,15 +9872,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116vlineSmooth3N121IhNS_1
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !900
-  %11 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !399
   %13 = zext i16 %12 to i32
   %14 = load ptr, ptr %7, align 8, !tbaa !900
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv
   %16 = load i16, ptr %15, align 2, !tbaa !399
   %17 = zext i16 %16 to i32
   %18 = load ptr, ptr %8, align 8, !tbaa !900
-  %19 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2, !tbaa !399
   %21 = zext i16 %20 to i32
   %22 = shl nuw nsw i32 %21, 1
@@ -9915,14 +9915,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_G
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !900
-  %13 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv
   %14 = load i16, ptr %1, align 2, !tbaa !40, !noalias !907
   %15 = zext i16 %14 to i32
   %16 = load i16, ptr %13, align 2, !tbaa !40, !noalias !907
   %17 = zext i16 %16 to i32
   %18 = mul nuw i32 %17, %15
   %19 = load ptr, ptr %8, align 8, !tbaa !900
-  %20 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %indvars.iv
   %21 = load i16, ptr %7, align 2, !tbaa !40, !noalias !910
   %22 = zext i16 %21 to i32
   %23 = load i16, ptr %20, align 2, !tbaa !40, !noalias !910
@@ -9930,7 +9930,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_G
   %25 = mul nuw i32 %24, %22
   %26 = tail call i32 @llvm.uadd.sat.i32(i32 %18, i32 %25)
   %27 = load ptr, ptr %10, align 8, !tbaa !900
-  %28 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv
   %29 = load i16, ptr %9, align 2, !tbaa !40, !noalias !913
   %30 = zext i16 %29 to i32
   %31 = load i16, ptr %28, align 2, !tbaa !40, !noalias !913
@@ -9967,26 +9967,26 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118vlineSmooth5N14641IhNS
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %12 = load ptr, ptr %7, align 8, !tbaa !900
-  %13 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv
   %14 = load i16, ptr %13, align 2, !tbaa !399
   %15 = zext i16 %14 to i32
   %16 = mul nuw nsw i32 %15, 6
   %17 = load ptr, ptr %8, align 8, !tbaa !900
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2, !tbaa !399
   %20 = zext i16 %19 to i32
   %21 = load ptr, ptr %9, align 8, !tbaa !900
-  %22 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !399
   %24 = zext i16 %23 to i32
   %25 = add nuw nsw i32 %24, %20
   %26 = shl nuw nsw i32 %25, 2
   %27 = load ptr, ptr %0, align 8, !tbaa !900
-  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv
   %29 = load i16, ptr %28, align 2, !tbaa !399
   %30 = zext i16 %29 to i32
   %31 = load ptr, ptr %10, align 8, !tbaa !900
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %indvars.iv
   %33 = load i16, ptr %32, align 2, !tbaa !399
   %34 = zext i16 %33 to i32
   %35 = add nuw nsw i32 %16, 2048
@@ -10025,14 +10025,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NIhNS_12_G
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !900
-  %17 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv
   %18 = load i16, ptr %1, align 2, !tbaa !40, !noalias !918
   %19 = zext i16 %18 to i32
   %20 = load i16, ptr %17, align 2, !tbaa !40, !noalias !918
   %21 = zext i16 %20 to i32
   %22 = mul nuw i32 %21, %19
   %23 = load ptr, ptr %8, align 8, !tbaa !900
-  %24 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv
   %25 = load i16, ptr %7, align 2, !tbaa !40, !noalias !921
   %26 = zext i16 %25 to i32
   %27 = load i16, ptr %24, align 2, !tbaa !40, !noalias !921
@@ -10040,7 +10040,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NIhNS_12_G
   %29 = mul nuw i32 %28, %26
   %30 = tail call i32 @llvm.uadd.sat.i32(i32 %22, i32 %29)
   %31 = load ptr, ptr %10, align 8, !tbaa !900
-  %32 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %indvars.iv
   %33 = load i16, ptr %9, align 2, !tbaa !40, !noalias !924
   %34 = zext i16 %33 to i32
   %35 = load i16, ptr %32, align 2, !tbaa !40, !noalias !924
@@ -10048,7 +10048,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NIhNS_12_G
   %37 = mul nuw i32 %36, %34
   %38 = tail call i32 @llvm.uadd.sat.i32(i32 %30, i32 %37)
   %39 = load ptr, ptr %12, align 8, !tbaa !900
-  %40 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv
   %41 = load i16, ptr %11, align 2, !tbaa !40, !noalias !927
   %42 = zext i16 %41 to i32
   %43 = load i16, ptr %40, align 2, !tbaa !40, !noalias !927
@@ -10056,7 +10056,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NIhNS_12_G
   %45 = mul nuw i32 %44, %42
   %46 = tail call i32 @llvm.uadd.sat.i32(i32 %38, i32 %45)
   %47 = load ptr, ptr %14, align 8, !tbaa !900
-  %48 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv
   %49 = load i16, ptr %13, align 2, !tbaa !40, !noalias !930
   %50 = zext i16 %49 to i32
   %51 = load i16, ptr %48, align 2, !tbaa !40, !noalias !930
@@ -10094,7 +10094,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIh
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv32 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next33, %._crit_edge.us ]
   %8 = load ptr, ptr %0, align 8, !tbaa !900
-  %9 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %8, i64 %indvars.iv32
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv32
   %10 = load i16, ptr %1, align 2, !tbaa !40, !noalias !934
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %9, align 2, !tbaa !40, !noalias !934
@@ -10105,10 +10105,10 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIh
 15:                                               ; preds = %.lr.ph.us, %15
   %indvars.iv27 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next28, %15 ]
   %.sroa.017.019.us = phi i32 [ %14, %.lr.ph.us ], [ %25, %15 ]
-  %16 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1, i64 %indvars.iv27
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv27
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv27
   %18 = load ptr, ptr %17, align 8, !tbaa !900
-  %19 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %18, i64 %indvars.iv32
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %indvars.iv32
   %20 = load i16, ptr %16, align 2, !tbaa !40, !noalias !937
   %21 = zext i16 %20 to i32
   %22 = load i16, ptr %19, align 2, !tbaa !40, !noalias !937
@@ -10133,7 +10133,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIh
 .lr.ph23.split:                                   ; preds = %.lr.ph23, %.lr.ph23.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph23.split ], [ 0, %.lr.ph23 ]
   %30 = load ptr, ptr %0, align 8, !tbaa !900
-  %31 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   %32 = load i16, ptr %1, align 2, !tbaa !40, !noalias !934
   %33 = zext i16 %32 to i32
   %34 = load i16, ptr %31, align 2, !tbaa !40, !noalias !934
@@ -10170,7 +10170,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothIhNS_12_GLO
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv32 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next33, %._crit_edge.us ]
   %8 = load ptr, ptr %0, align 8, !tbaa !900
-  %9 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %8, i64 %indvars.iv32
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv32
   %10 = load i16, ptr %1, align 2, !tbaa !40, !noalias !942
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %9, align 2, !tbaa !40, !noalias !942
@@ -10181,10 +10181,10 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothIhNS_12_GLO
 15:                                               ; preds = %.lr.ph.us, %15
   %indvars.iv27 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next28, %15 ]
   %.sroa.017.019.us = phi i32 [ %14, %.lr.ph.us ], [ %25, %15 ]
-  %16 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1, i64 %indvars.iv27
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv27
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv27
   %18 = load ptr, ptr %17, align 8, !tbaa !900
-  %19 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %18, i64 %indvars.iv32
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %indvars.iv32
   %20 = load i16, ptr %16, align 2, !tbaa !40, !noalias !945
   %21 = zext i16 %20 to i32
   %22 = load i16, ptr %19, align 2, !tbaa !40, !noalias !945
@@ -10209,7 +10209,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothIhNS_12_GLO
 .lr.ph23.split:                                   ; preds = %.lr.ph23, %.lr.ph23.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph23.split ], [ 0, %.lr.ph23 ]
   %30 = load ptr, ptr %0, align 8, !tbaa !900
-  %31 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   %32 = load i16, ptr %1, align 2, !tbaa !40, !noalias !942
   %33 = zext i16 %32 to i32
   %34 = load i16, ptr %31, align 2, !tbaa !40, !noalias !942
@@ -10422,13 +10422,13 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %107 = load i32, ptr %7, align 8, !tbaa !34
   %108 = mul nsw i32 %106, %107
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val, i64 %109
-  %111 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv788
+  %110 = getelementptr inbounds [2 x i8], ptr %.val, i64 %109
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv788
   store ptr %110, ptr %111, align 8, !tbaa !900
   %112 = load i32, ptr %10, align 4, !tbaa !38
   %113 = add nsw i32 %112, %105
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds ptr, ptr %.val319, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %114
   store ptr %110, ptr %115, align 8, !tbaa !900
   %116 = load ptr, ptr %90, align 8, !tbaa !43
   %117 = load ptr, ptr %91, align 8, !tbaa !25
@@ -10508,13 +10508,13 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %146 = load i32, ptr %7, align 8, !tbaa !34
   %147 = mul nsw i32 %145, %146
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val, i64 %148
-  %150 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv793
+  %149 = getelementptr inbounds [2 x i8], ptr %.val, i64 %148
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv793
   store ptr %149, ptr %150, align 8, !tbaa !900
   %151 = load i32, ptr %10, align 4, !tbaa !38
   %152 = add nsw i32 %151, %144
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds ptr, ptr %.val319, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %153
   store ptr %149, ptr %154, align 8, !tbaa !900
   %155 = load ptr, ptr %97, align 8, !tbaa !43
   %156 = load ptr, ptr %98, align 8, !tbaa !25
@@ -10537,15 +10537,15 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
 167:                                              ; preds = %140
   %168 = sub nsw i32 %139, %.sroa.speculated596
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %169
   %171 = load ptr, ptr %170, align 8, !tbaa !900
-  %172 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv793
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv793
   store ptr %171, ptr %172, align 8, !tbaa !900
   %173 = load i32, ptr %10, align 4, !tbaa !38
   %174 = trunc nuw i64 %indvars.iv793 to i32
   %175 = add nsw i32 %173, %174
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %.val319, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %176
   store ptr %171, ptr %177, align 8, !tbaa !900
   br label %178
 
@@ -10559,7 +10559,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %181 = load ptr, ptr %180, align 8, !tbaa !49
   %182 = zext nneg i32 %.1292.lcssa to i64
-  %183 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %185 = load ptr, ptr %184, align 8, !tbaa !36
   %186 = load i32, ptr %10, align 4, !tbaa !38
@@ -10595,14 +10595,14 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %207 = load i32, ptr %7, align 8, !tbaa !34
   %208 = mul nsw i32 %206, %207
   %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val, i64 %209
+  %210 = getelementptr inbounds [2 x i8], ptr %.val, i64 %209
   %211 = sext i32 %204 to i64
-  %212 = getelementptr inbounds ptr, ptr %.val319, i64 %211
+  %212 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %211
   store ptr %210, ptr %212, align 8, !tbaa !900
   %213 = shl nsw i32 %203, 1
   %214 = add nsw i32 %213, %.0285675
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds ptr, ptr %.val319, i64 %215
+  %216 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %215
   store ptr %210, ptr %216, align 8, !tbaa !900
   %217 = load ptr, ptr %131, align 8, !tbaa !43
   %218 = load ptr, ptr %132, align 8, !tbaa !25
@@ -10624,17 +10624,17 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
 
 229:                                              ; preds = %201
   %230 = sext i32 %200 to i64
-  %231 = getelementptr inbounds ptr, ptr %.val319, i64 %230
+  %231 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %230
   %232 = load ptr, ptr %231, align 8, !tbaa !900
   %233 = load i32, ptr %10, align 4, !tbaa !38
   %234 = add nsw i32 %233, %.0285675
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds ptr, ptr %.val319, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %235
   store ptr %232, ptr %236, align 8, !tbaa !900
   %237 = shl nsw i32 %233, 1
   %238 = add nsw i32 %237, %.0285675
   %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds ptr, ptr %.val319, i64 %239
+  %240 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %239
   store ptr %232, ptr %240, align 8, !tbaa !900
   br label %241
 
@@ -10697,13 +10697,13 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %271 = load i32, ptr %7, align 8, !tbaa !34
   %272 = mul nsw i32 %270, %271
   %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val, i64 %273
+  %274 = getelementptr inbounds [2 x i8], ptr %.val, i64 %273
   %275 = sext i32 %.2293679 to i64
-  %276 = getelementptr inbounds ptr, ptr %.val319, i64 %275
+  %276 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %275
   store ptr %274, ptr %276, align 8, !tbaa !900
   %277 = add nsw i32 %268, %.2293679
   %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds ptr, ptr %.val319, i64 %278
+  %279 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %278
   store ptr %274, ptr %279, align 8, !tbaa !900
   %280 = load ptr, ptr %251, align 8, !tbaa !43
   %281 = load ptr, ptr %252, align 8, !tbaa !25
@@ -10723,7 +10723,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %292 = srem i32 %290, %291
   %293 = load ptr, ptr %180, align 8, !tbaa !49
   %294 = sext i32 %292 to i64
-  %295 = getelementptr inbounds ptr, ptr %.val319, i64 %294
+  %295 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %294
   %296 = load ptr, ptr %184, align 8, !tbaa !36
   %297 = load ptr, ptr %187, align 8, !tbaa !29
   %298 = load i64, ptr %190, align 8, !tbaa !31
@@ -10779,7 +10779,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %325 = load ptr, ptr %263, align 8, !tbaa !35
   %326 = load i32, ptr %264, align 8, !tbaa !37
   %327 = sext i32 %.3294687 to i64
-  %328 = getelementptr inbounds ptr, ptr %.val319, i64 %327
+  %328 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %327
   %329 = load ptr, ptr %328, align 8, !tbaa !900
   %330 = load i32, ptr %5, align 8, !tbaa !32
   %331 = load i32, ptr %77, align 8, !tbaa !39
@@ -10792,7 +10792,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %335 = srem i32 %333, %334
   %336 = load ptr, ptr %180, align 8, !tbaa !49
   %337 = sext i32 %335 to i64
-  %338 = getelementptr inbounds ptr, ptr %.val319, i64 %337
+  %338 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %337
   %339 = load ptr, ptr %184, align 8, !tbaa !36
   %340 = load ptr, ptr %187, align 8, !tbaa !29
   %341 = load i64, ptr %190, align 8, !tbaa !31
@@ -10837,7 +10837,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %366 = load ptr, ptr %315, align 8, !tbaa !35
   %367 = load i32, ptr %316, align 8, !tbaa !37
   %368 = sext i32 %.4295694 to i64
-  %369 = getelementptr inbounds ptr, ptr %.val319, i64 %368
+  %369 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %368
   %370 = load ptr, ptr %369, align 8, !tbaa !900
   %371 = load i32, ptr %5, align 8, !tbaa !32
   %372 = load i32, ptr %77, align 8, !tbaa !39
@@ -10858,13 +10858,13 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %377 = sub nsw i32 %376, %355
   %378 = srem i32 %377, %356
   %379 = sext i32 %378 to i64
-  %380 = getelementptr inbounds ptr, ptr %.val319, i64 %379
+  %380 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %379
   %381 = load ptr, ptr %380, align 8, !tbaa !900
   %382 = sext i32 %.4295694 to i64
-  %383 = getelementptr inbounds ptr, ptr %.val319, i64 %382
+  %383 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %382
   store ptr %381, ptr %383, align 8, !tbaa !900
   %384 = sext i32 %376 to i64
-  %385 = getelementptr inbounds ptr, ptr %.val319, i64 %384
+  %385 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %384
   store ptr %381, ptr %385, align 8, !tbaa !900
   br label %386
 
@@ -10874,7 +10874,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %389 = srem i32 %388, %387
   %390 = load ptr, ptr %180, align 8, !tbaa !49
   %391 = sext i32 %389 to i64
-  %392 = getelementptr inbounds ptr, ptr %.val319, i64 %391
+  %392 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %391
   %393 = load ptr, ptr %184, align 8, !tbaa !36
   %394 = load ptr, ptr %187, align 8, !tbaa !29
   %395 = load i64, ptr %190, align 8, !tbaa !31
@@ -10924,13 +10924,13 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %423 = load i32, ptr %7, align 8, !tbaa !34
   %424 = mul nsw i32 %422, %423
   %425 = sext i32 %424 to i64
-  %426 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val, i64 %425
-  %427 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv813
+  %426 = getelementptr inbounds [2 x i8], ptr %.val, i64 %425
+  %427 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv813
   store ptr %426, ptr %427, align 8, !tbaa !900
   %428 = load i32, ptr %10, align 4, !tbaa !38
   %429 = add nsw i32 %428, %421
   %430 = sext i32 %429 to i64
-  %431 = getelementptr inbounds ptr, ptr %.val319, i64 %430
+  %431 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %430
   store ptr %426, ptr %431, align 8, !tbaa !900
   %432 = load ptr, ptr %412, align 8, !tbaa !43
   %433 = load ptr, ptr %413, align 8, !tbaa !25
@@ -10979,7 +10979,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %.sroa.speculated535 = call i32 @llvm.smin.i32(i32 %83, i32 0)
   %446 = sext i32 %.sroa.speculated535 to i64
   %447 = sub nsw i64 0, %446
-  %448 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %445, i64 %447
+  %448 = getelementptr inbounds nuw [2 x i8], ptr %445, i64 %447
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %450 = load ptr, ptr %449, align 8, !tbaa !29
   %451 = sext i32 %82 to i64
@@ -11000,7 +11000,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %461 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %459, i64 %indvars.iv.i
+  %461 = getelementptr inbounds nuw [2 x i8], ptr %459, i64 %indvars.iv.i
   %462 = load i16, ptr %448, align 2, !tbaa !40, !noalias !966
   %463 = zext i16 %462 to i32
   %464 = load i16, ptr %461, align 2, !tbaa !40, !noalias !966
@@ -11022,7 +11022,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %.sroa.speculated530 = call i32 @llvm.smin.i32(i32 %83, i32 0)
   %474 = sext i32 %.sroa.speculated530 to i64
   %475 = sub nsw i64 0, %474
-  %476 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %473, i64 %475
+  %476 = getelementptr inbounds nuw [2 x i8], ptr %473, i64 %475
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %478 = load ptr, ptr %477, align 8, !tbaa !29
   %479 = sext i32 %82 to i64
@@ -11047,14 +11047,14 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
 492:                                              ; preds = %492, %.lr.ph.i328
   %indvars.iv.i330 = phi i64 [ 0, %.lr.ph.i328 ], [ %indvars.iv.next.i332, %492 ]
   %493 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %494 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %493, i64 %indvars.iv.i330
+  %494 = getelementptr inbounds nuw [2 x i8], ptr %493, i64 %indvars.iv.i330
   %495 = load i16, ptr %476, align 2, !tbaa !40, !noalias !969
   %496 = zext i16 %495 to i32
   %497 = load i16, ptr %494, align 2, !tbaa !40, !noalias !969
   %498 = zext i16 %497 to i32
   %499 = mul nuw i32 %498, %496
   %500 = load ptr, ptr %489, align 8, !tbaa !900
-  %501 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %500, i64 %indvars.iv.i330
+  %501 = getelementptr inbounds nuw [2 x i8], ptr %500, i64 %indvars.iv.i330
   %502 = load i16, ptr %488, align 2, !tbaa !40, !noalias !972
   %503 = zext i16 %502 to i32
   %504 = load i16, ptr %501, align 2, !tbaa !40, !noalias !972
@@ -11062,7 +11062,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %506 = mul nuw i32 %505, %503
   %507 = call i32 @llvm.uadd.sat.i32(i32 %499, i32 %506)
   %508 = load ptr, ptr %491, align 8, !tbaa !900
-  %509 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %508, i64 %indvars.iv.i330
+  %509 = getelementptr inbounds nuw [2 x i8], ptr %508, i64 %indvars.iv.i330
   %510 = load i16, ptr %490, align 2, !tbaa !40, !noalias !975
   %511 = zext i16 %510 to i32
   %512 = load i16, ptr %509, align 2, !tbaa !40, !noalias !975
@@ -11085,7 +11085,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %.sroa.speculated525 = call i32 @llvm.smin.i32(i32 %83, i32 0)
   %523 = sext i32 %.sroa.speculated525 to i64
   %524 = sub nsw i64 0, %523
-  %525 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %522, i64 %524
+  %525 = getelementptr inbounds nuw [2 x i8], ptr %522, i64 %524
   %526 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %527 = load ptr, ptr %526, align 8, !tbaa !29
   %528 = sext i32 %82 to i64
@@ -11114,14 +11114,14 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
 545:                                              ; preds = %545, %.lr.ph.i335
   %indvars.iv.i337 = phi i64 [ 0, %.lr.ph.i335 ], [ %indvars.iv.next.i339, %545 ]
   %546 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %547 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %546, i64 %indvars.iv.i337
+  %547 = getelementptr inbounds nuw [2 x i8], ptr %546, i64 %indvars.iv.i337
   %548 = load i16, ptr %525, align 2, !tbaa !40, !noalias !978
   %549 = zext i16 %548 to i32
   %550 = load i16, ptr %547, align 2, !tbaa !40, !noalias !978
   %551 = zext i16 %550 to i32
   %552 = mul nuw i32 %551, %549
   %553 = load ptr, ptr %538, align 8, !tbaa !900
-  %554 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %553, i64 %indvars.iv.i337
+  %554 = getelementptr inbounds nuw [2 x i8], ptr %553, i64 %indvars.iv.i337
   %555 = load i16, ptr %537, align 2, !tbaa !40, !noalias !981
   %556 = zext i16 %555 to i32
   %557 = load i16, ptr %554, align 2, !tbaa !40, !noalias !981
@@ -11129,7 +11129,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %559 = mul nuw i32 %558, %556
   %560 = call i32 @llvm.uadd.sat.i32(i32 %552, i32 %559)
   %561 = load ptr, ptr %540, align 8, !tbaa !900
-  %562 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %561, i64 %indvars.iv.i337
+  %562 = getelementptr inbounds nuw [2 x i8], ptr %561, i64 %indvars.iv.i337
   %563 = load i16, ptr %539, align 2, !tbaa !40, !noalias !984
   %564 = zext i16 %563 to i32
   %565 = load i16, ptr %562, align 2, !tbaa !40, !noalias !984
@@ -11137,7 +11137,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %567 = mul nuw i32 %566, %564
   %568 = call i32 @llvm.uadd.sat.i32(i32 %560, i32 %567)
   %569 = load ptr, ptr %542, align 8, !tbaa !900
-  %570 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %569, i64 %indvars.iv.i337
+  %570 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %indvars.iv.i337
   %571 = load i16, ptr %541, align 2, !tbaa !40, !noalias !987
   %572 = zext i16 %571 to i32
   %573 = load i16, ptr %570, align 2, !tbaa !40, !noalias !987
@@ -11145,7 +11145,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %575 = mul nuw i32 %574, %572
   %576 = call i32 @llvm.uadd.sat.i32(i32 %568, i32 %575)
   %577 = load ptr, ptr %544, align 8, !tbaa !900
-  %578 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %577, i64 %indvars.iv.i337
+  %578 = getelementptr inbounds nuw [2 x i8], ptr %577, i64 %indvars.iv.i337
   %579 = load i16, ptr %543, align 2, !tbaa !40, !noalias !990
   %580 = zext i16 %579 to i32
   %581 = load i16, ptr %578, align 2, !tbaa !40, !noalias !990
@@ -11170,7 +11170,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
   %.sroa.speculated520 = call i32 @llvm.smin.i32(i32 %83, i32 0)
   %591 = sext i32 %.sroa.speculated520 to i64
   %592 = sub nsw i64 0, %591
-  %593 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %590, i64 %592
+  %593 = getelementptr inbounds nuw [2 x i8], ptr %590, i64 %592
   %594 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %595 = load ptr, ptr %594, align 8, !tbaa !29
   %596 = sext i32 %82 to i64
@@ -11196,7 +11196,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next33.i, %._crit_edge.us.i ]
   %606 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %607 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %606, i64 %indvars.iv32.i
+  %607 = getelementptr inbounds nuw [2 x i8], ptr %606, i64 %indvars.iv32.i
   %608 = load i16, ptr %593, align 2, !tbaa !40, !noalias !993
   %609 = zext i16 %608 to i32
   %610 = load i16, ptr %607, align 2, !tbaa !40, !noalias !993
@@ -11207,10 +11207,10 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
 613:                                              ; preds = %613, %.lr.ph.us.i
   %indvars.iv27.i = phi i64 [ 1, %.lr.ph.us.i ], [ %indvars.iv.next28.i, %613 ]
   %.sroa.017.019.us.i = phi i32 [ %612, %.lr.ph.us.i ], [ %623, %613 ]
-  %614 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %593, i64 %indvars.iv27.i
-  %615 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv27.i
+  %614 = getelementptr inbounds nuw [2 x i8], ptr %593, i64 %indvars.iv27.i
+  %615 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv27.i
   %616 = load ptr, ptr %615, align 8, !tbaa !900
-  %617 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %616, i64 %indvars.iv32.i
+  %617 = getelementptr inbounds nuw [2 x i8], ptr %616, i64 %indvars.iv32.i
   %618 = load i16, ptr %614, align 2, !tbaa !40, !noalias !996
   %619 = zext i16 %618 to i32
   %620 = load i16, ptr %617, align 2, !tbaa !40, !noalias !996
@@ -11235,7 +11235,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint16ELm136EEC2Em.exit: ; preds =
 .lr.ph23.split.i:                                 ; preds = %.lr.ph23.i, %.lr.ph23.split.i
   %indvars.iv.i342 = phi i64 [ %indvars.iv.next.i344, %.lr.ph23.split.i ], [ 0, %.lr.ph23.i ]
   %628 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %629 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %628, i64 %indvars.iv.i342
+  %629 = getelementptr inbounds nuw [2 x i8], ptr %628, i64 %indvars.iv.i342
   %630 = load i16, ptr %593, align 2, !tbaa !40, !noalias !993
   %631 = zext i16 %630 to i32
   %632 = load i16, ptr %629, align 2, !tbaa !40, !noalias !993
@@ -11293,13 +11293,13 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
   %664 = load i32, ptr %7, align 8, !tbaa !34
   %665 = mul nsw i32 %663, %664
   %666 = sext i32 %665 to i64
-  %667 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val, i64 %666
+  %667 = getelementptr inbounds [2 x i8], ptr %.val, i64 %666
   %668 = sext i32 %.1708 to i64
-  %669 = getelementptr inbounds ptr, ptr %.val319, i64 %668
+  %669 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %668
   store ptr %667, ptr %669, align 8, !tbaa !900
   %670 = add nsw i32 %661, %.1708
   %671 = sext i32 %670 to i64
-  %672 = getelementptr inbounds ptr, ptr %.val319, i64 %671
+  %672 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %671
   store ptr %667, ptr %672, align 8, !tbaa !900
   %673 = load ptr, ptr %646, align 8, !tbaa !43
   %674 = load ptr, ptr %647, align 8, !tbaa !25
@@ -11317,7 +11317,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
   %683 = load ptr, ptr %651, align 8, !tbaa !36
   %684 = load i32, ptr %10, align 4, !tbaa !38
   %685 = sext i32 %684 to i64
-  %686 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %683, i64 %685
+  %686 = getelementptr inbounds [2 x i8], ptr %683, i64 %685
   switch i32 %682, label %785 [
     i32 3, label %687
     i32 5, label %727
@@ -11344,14 +11344,14 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
 699:                                              ; preds = %699, %.lr.ph.i348
   %indvars.iv.i350 = phi i64 [ 0, %.lr.ph.i348 ], [ %indvars.iv.next.i352, %699 ]
   %700 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %701 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %700, i64 %indvars.iv.i350
+  %701 = getelementptr inbounds nuw [2 x i8], ptr %700, i64 %indvars.iv.i350
   %702 = load i16, ptr %688, align 2, !tbaa !40, !noalias !999
   %703 = zext i16 %702 to i32
   %704 = load i16, ptr %701, align 2, !tbaa !40, !noalias !999
   %705 = zext i16 %704 to i32
   %706 = mul nuw i32 %705, %703
   %707 = load ptr, ptr %654, align 8, !tbaa !900
-  %708 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %707, i64 %indvars.iv.i350
+  %708 = getelementptr inbounds nuw [2 x i8], ptr %707, i64 %indvars.iv.i350
   %709 = load i16, ptr %697, align 2, !tbaa !40, !noalias !1002
   %710 = zext i16 %709 to i32
   %711 = load i16, ptr %708, align 2, !tbaa !40, !noalias !1002
@@ -11359,7 +11359,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
   %713 = mul nuw i32 %712, %710
   %714 = call i32 @llvm.uadd.sat.i32(i32 %706, i32 %713)
   %715 = load ptr, ptr %655, align 8, !tbaa !900
-  %716 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %715, i64 %indvars.iv.i350
+  %716 = getelementptr inbounds nuw [2 x i8], ptr %715, i64 %indvars.iv.i350
   %717 = load i16, ptr %698, align 2, !tbaa !40, !noalias !1005
   %718 = zext i16 %717 to i32
   %719 = load i16, ptr %716, align 2, !tbaa !40, !noalias !1005
@@ -11399,14 +11399,14 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
 741:                                              ; preds = %741, %.lr.ph.i355
   %indvars.iv.i357 = phi i64 [ 0, %.lr.ph.i355 ], [ %indvars.iv.next.i359, %741 ]
   %742 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %743 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %742, i64 %indvars.iv.i357
+  %743 = getelementptr inbounds nuw [2 x i8], ptr %742, i64 %indvars.iv.i357
   %744 = load i16, ptr %728, align 2, !tbaa !40, !noalias !1008
   %745 = zext i16 %744 to i32
   %746 = load i16, ptr %743, align 2, !tbaa !40, !noalias !1008
   %747 = zext i16 %746 to i32
   %748 = mul nuw i32 %747, %745
   %749 = load ptr, ptr %654, align 8, !tbaa !900
-  %750 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %749, i64 %indvars.iv.i357
+  %750 = getelementptr inbounds nuw [2 x i8], ptr %749, i64 %indvars.iv.i357
   %751 = load i16, ptr %737, align 2, !tbaa !40, !noalias !1011
   %752 = zext i16 %751 to i32
   %753 = load i16, ptr %750, align 2, !tbaa !40, !noalias !1011
@@ -11414,7 +11414,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
   %755 = mul nuw i32 %754, %752
   %756 = call i32 @llvm.uadd.sat.i32(i32 %748, i32 %755)
   %757 = load ptr, ptr %655, align 8, !tbaa !900
-  %758 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %757, i64 %indvars.iv.i357
+  %758 = getelementptr inbounds nuw [2 x i8], ptr %757, i64 %indvars.iv.i357
   %759 = load i16, ptr %738, align 2, !tbaa !40, !noalias !1014
   %760 = zext i16 %759 to i32
   %761 = load i16, ptr %758, align 2, !tbaa !40, !noalias !1014
@@ -11422,7 +11422,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
   %763 = mul nuw i32 %762, %760
   %764 = call i32 @llvm.uadd.sat.i32(i32 %756, i32 %763)
   %765 = load ptr, ptr %656, align 8, !tbaa !900
-  %766 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %765, i64 %indvars.iv.i357
+  %766 = getelementptr inbounds nuw [2 x i8], ptr %765, i64 %indvars.iv.i357
   %767 = load i16, ptr %739, align 2, !tbaa !40, !noalias !1017
   %768 = zext i16 %767 to i32
   %769 = load i16, ptr %766, align 2, !tbaa !40, !noalias !1017
@@ -11430,7 +11430,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
   %771 = mul nuw i32 %770, %768
   %772 = call i32 @llvm.uadd.sat.i32(i32 %764, i32 %771)
   %773 = load ptr, ptr %657, align 8, !tbaa !900
-  %774 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %773, i64 %indvars.iv.i357
+  %774 = getelementptr inbounds nuw [2 x i8], ptr %773, i64 %indvars.iv.i357
   %775 = load i16, ptr %740, align 2, !tbaa !40, !noalias !1020
   %776 = zext i16 %775 to i32
   %777 = load i16, ptr %774, align 2, !tbaa !40, !noalias !1020
@@ -11450,7 +11450,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
 785:                                              ; preds = %681
   %narrow = xor i32 %.1708, -1
   %786 = sext i32 %narrow to i64
-  %787 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %686, i64 %786
+  %787 = getelementptr inbounds [2 x i8], ptr %686, i64 %786
   %788 = load ptr, ptr %652, align 8, !tbaa !29
   %789 = load i64, ptr %653, align 8, !tbaa !31
   %790 = mul i64 %789, %indvars.iv821
@@ -11469,7 +11469,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
 .lr.ph.us.i371:                                   ; preds = %.lr.ph23.i362, %._crit_edge.us.i377
   %indvars.iv32.i372 = phi i64 [ %indvars.iv.next33.i379, %._crit_edge.us.i377 ], [ 0, %.lr.ph23.i362 ]
   %796 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %797 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %796, i64 %indvars.iv32.i372
+  %797 = getelementptr inbounds nuw [2 x i8], ptr %796, i64 %indvars.iv32.i372
   %798 = load i16, ptr %787, align 2, !tbaa !40, !noalias !1023
   %799 = zext i16 %798 to i32
   %800 = load i16, ptr %797, align 2, !tbaa !40, !noalias !1023
@@ -11480,10 +11480,10 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
 803:                                              ; preds = %803, %.lr.ph.us.i371
   %indvars.iv27.i373 = phi i64 [ 1, %.lr.ph.us.i371 ], [ %indvars.iv.next28.i375, %803 ]
   %.sroa.017.019.us.i374 = phi i32 [ %802, %.lr.ph.us.i371 ], [ %813, %803 ]
-  %804 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %787, i64 %indvars.iv27.i373
-  %805 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv27.i373
+  %804 = getelementptr inbounds nuw [2 x i8], ptr %787, i64 %indvars.iv27.i373
+  %805 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv27.i373
   %806 = load ptr, ptr %805, align 8, !tbaa !900
-  %807 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %806, i64 %indvars.iv32.i372
+  %807 = getelementptr inbounds nuw [2 x i8], ptr %806, i64 %indvars.iv32.i372
   %808 = load i16, ptr %804, align 2, !tbaa !40, !noalias !1026
   %809 = zext i16 %808 to i32
   %810 = load i16, ptr %807, align 2, !tbaa !40, !noalias !1026
@@ -11508,7 +11508,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NIhNS_12_GLOBAL__N_113ufixedpoin
 .lr.ph23.split.i364:                              ; preds = %.lr.ph23.i362, %.lr.ph23.split.i364
   %indvars.iv.i365 = phi i64 [ %indvars.iv.next.i367, %.lr.ph23.split.i364 ], [ 0, %.lr.ph23.i362 ]
   %818 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %819 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %818, i64 %indvars.iv.i365
+  %819 = getelementptr inbounds nuw [2 x i8], ptr %818, i64 %indvars.iv.i365
   %820 = load i16, ptr %787, align 2, !tbaa !40, !noalias !1023
   %821 = zext i16 %820 to i32
   %822 = load i16, ptr %819, align 2, !tbaa !40, !noalias !1023
@@ -11578,7 +11578,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %854 = load ptr, ptr %839, align 8, !tbaa !35
   %855 = load i32, ptr %840, align 8, !tbaa !37
   %856 = sext i32 %.2718 to i64
-  %857 = getelementptr inbounds ptr, ptr %.val319, i64 %856
+  %857 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %856
   %858 = load ptr, ptr %857, align 8, !tbaa !900
   %859 = load i32, ptr %5, align 8, !tbaa !32
   %860 = load i32, ptr %77, align 8, !tbaa !39
@@ -11591,7 +11591,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %864 = srem i32 %862, %863
   %865 = load ptr, ptr %841, align 8, !tbaa !49
   %866 = sext i32 %864 to i64
-  %867 = getelementptr inbounds ptr, ptr %.val319, i64 %866
+  %867 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %866
   %868 = load ptr, ptr %842, align 8, !tbaa !36
   %869 = load ptr, ptr %843, align 8, !tbaa !29
   %870 = load i64, ptr %844, align 8, !tbaa !31
@@ -11639,7 +11639,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %.3267724 = phi i32 [ %882, %.lr.ph727 ], [ %1025, %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i.exit389 ]
   %892 = load i32, ptr %409, align 4, !tbaa !33
   %893 = sub nsw i32 %892, %.3267724
-  %894 = getelementptr inbounds ptr, ptr %.val319, i64 %indvars.iv835
+  %894 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %indvars.iv835
   %895 = load ptr, ptr %886, align 8, !tbaa !36
   %896 = load ptr, ptr %887, align 8, !tbaa !29
   %897 = load i64, ptr %888, align 8, !tbaa !31
@@ -11668,14 +11668,14 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 909:                                              ; preds = %909, %.lr.ph.i383
   %indvars.iv.i385 = phi i64 [ 0, %.lr.ph.i383 ], [ %indvars.iv.next.i387, %909 ]
   %910 = load ptr, ptr %894, align 8, !tbaa !900
-  %911 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %910, i64 %indvars.iv.i385
+  %911 = getelementptr inbounds nuw [2 x i8], ptr %910, i64 %indvars.iv.i385
   %912 = load i16, ptr %895, align 2, !tbaa !40, !noalias !1031
   %913 = zext i16 %912 to i32
   %914 = load i16, ptr %911, align 2, !tbaa !40, !noalias !1031
   %915 = zext i16 %914 to i32
   %916 = mul nuw i32 %915, %913
   %917 = load ptr, ptr %906, align 8, !tbaa !900
-  %918 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %917, i64 %indvars.iv.i385
+  %918 = getelementptr inbounds nuw [2 x i8], ptr %917, i64 %indvars.iv.i385
   %919 = load i16, ptr %905, align 2, !tbaa !40, !noalias !1034
   %920 = zext i16 %919 to i32
   %921 = load i16, ptr %918, align 2, !tbaa !40, !noalias !1034
@@ -11683,7 +11683,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %923 = mul nuw i32 %922, %920
   %924 = call i32 @llvm.uadd.sat.i32(i32 %916, i32 %923)
   %925 = load ptr, ptr %908, align 8, !tbaa !900
-  %926 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %925, i64 %indvars.iv.i385
+  %926 = getelementptr inbounds nuw [2 x i8], ptr %925, i64 %indvars.iv.i385
   %927 = load i16, ptr %907, align 2, !tbaa !40, !noalias !1037
   %928 = zext i16 %927 to i32
   %929 = load i16, ptr %926, align 2, !tbaa !40, !noalias !1037
@@ -11718,14 +11718,14 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 946:                                              ; preds = %946, %.lr.ph.i390
   %indvars.iv.i392 = phi i64 [ 0, %.lr.ph.i390 ], [ %indvars.iv.next.i394, %946 ]
   %947 = load ptr, ptr %894, align 8, !tbaa !900
-  %948 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %947, i64 %indvars.iv.i392
+  %948 = getelementptr inbounds nuw [2 x i8], ptr %947, i64 %indvars.iv.i392
   %949 = load i16, ptr %895, align 2, !tbaa !40, !noalias !1040
   %950 = zext i16 %949 to i32
   %951 = load i16, ptr %948, align 2, !tbaa !40, !noalias !1040
   %952 = zext i16 %951 to i32
   %953 = mul nuw i32 %952, %950
   %954 = load ptr, ptr %939, align 8, !tbaa !900
-  %955 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %954, i64 %indvars.iv.i392
+  %955 = getelementptr inbounds nuw [2 x i8], ptr %954, i64 %indvars.iv.i392
   %956 = load i16, ptr %938, align 2, !tbaa !40, !noalias !1043
   %957 = zext i16 %956 to i32
   %958 = load i16, ptr %955, align 2, !tbaa !40, !noalias !1043
@@ -11733,7 +11733,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %960 = mul nuw i32 %959, %957
   %961 = call i32 @llvm.uadd.sat.i32(i32 %953, i32 %960)
   %962 = load ptr, ptr %941, align 8, !tbaa !900
-  %963 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %962, i64 %indvars.iv.i392
+  %963 = getelementptr inbounds nuw [2 x i8], ptr %962, i64 %indvars.iv.i392
   %964 = load i16, ptr %940, align 2, !tbaa !40, !noalias !1046
   %965 = zext i16 %964 to i32
   %966 = load i16, ptr %963, align 2, !tbaa !40, !noalias !1046
@@ -11741,7 +11741,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %968 = mul nuw i32 %967, %965
   %969 = call i32 @llvm.uadd.sat.i32(i32 %961, i32 %968)
   %970 = load ptr, ptr %943, align 8, !tbaa !900
-  %971 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %970, i64 %indvars.iv.i392
+  %971 = getelementptr inbounds nuw [2 x i8], ptr %970, i64 %indvars.iv.i392
   %972 = load i16, ptr %942, align 2, !tbaa !40, !noalias !1049
   %973 = zext i16 %972 to i32
   %974 = load i16, ptr %971, align 2, !tbaa !40, !noalias !1049
@@ -11749,7 +11749,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %976 = mul nuw i32 %975, %973
   %977 = call i32 @llvm.uadd.sat.i32(i32 %969, i32 %976)
   %978 = load ptr, ptr %945, align 8, !tbaa !900
-  %979 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %978, i64 %indvars.iv.i392
+  %979 = getelementptr inbounds nuw [2 x i8], ptr %978, i64 %indvars.iv.i392
   %980 = load i16, ptr %944, align 2, !tbaa !40, !noalias !1052
   %981 = zext i16 %980 to i32
   %982 = load i16, ptr %979, align 2, !tbaa !40, !noalias !1052
@@ -11781,7 +11781,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 .lr.ph.us.i406:                                   ; preds = %._crit_edge.us.i412, %.lr.ph.us.preheader.i404
   %indvars.iv32.i407 = phi i64 [ 0, %.lr.ph.us.preheader.i404 ], [ %indvars.iv.next33.i414, %._crit_edge.us.i412 ]
   %992 = load ptr, ptr %894, align 8, !tbaa !900
-  %993 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %992, i64 %indvars.iv32.i407
+  %993 = getelementptr inbounds nuw [2 x i8], ptr %992, i64 %indvars.iv32.i407
   %994 = load i16, ptr %895, align 2, !tbaa !40, !noalias !1055
   %995 = zext i16 %994 to i32
   %996 = load i16, ptr %993, align 2, !tbaa !40, !noalias !1055
@@ -11792,10 +11792,10 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 999:                                              ; preds = %999, %.lr.ph.us.i406
   %indvars.iv27.i408 = phi i64 [ 1, %.lr.ph.us.i406 ], [ %indvars.iv.next28.i410, %999 ]
   %.sroa.017.019.us.i409 = phi i32 [ %998, %.lr.ph.us.i406 ], [ %1009, %999 ]
-  %1000 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %895, i64 %indvars.iv27.i408
-  %1001 = getelementptr inbounds nuw ptr, ptr %894, i64 %indvars.iv27.i408
+  %1000 = getelementptr inbounds nuw [2 x i8], ptr %895, i64 %indvars.iv27.i408
+  %1001 = getelementptr inbounds nuw [8 x i8], ptr %894, i64 %indvars.iv27.i408
   %1002 = load ptr, ptr %1001, align 8, !tbaa !900
-  %1003 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1002, i64 %indvars.iv32.i407
+  %1003 = getelementptr inbounds nuw [2 x i8], ptr %1002, i64 %indvars.iv32.i407
   %1004 = load i16, ptr %1000, align 2, !tbaa !40, !noalias !1058
   %1005 = zext i16 %1004 to i32
   %1006 = load i16, ptr %1003, align 2, !tbaa !40, !noalias !1058
@@ -11820,7 +11820,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 .lr.ph23.split.i399:                              ; preds = %.lr.ph23.i397, %.lr.ph23.split.i399
   %indvars.iv.i400 = phi i64 [ %indvars.iv.next.i402, %.lr.ph23.split.i399 ], [ 0, %.lr.ph23.i397 ]
   %1014 = load ptr, ptr %894, align 8, !tbaa !900
-  %1015 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1014, i64 %indvars.iv.i400
+  %1015 = getelementptr inbounds nuw [2 x i8], ptr %1014, i64 %indvars.iv.i400
   %1016 = load i16, ptr %895, align 2, !tbaa !40, !noalias !1055
   %1017 = zext i16 %1016 to i32
   %1018 = load i16, ptr %1015, align 2, !tbaa !40, !noalias !1055
@@ -11880,7 +11880,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 .lr.ph737:                                        ; preds = %.preheader
   %1046 = zext nneg i32 %.sroa.speculated540 to i64
   %1047 = sub nsw i64 0, %1046
-  %invariant.gep = getelementptr ptr, ptr %.val319, i64 %1047
+  %invariant.gep = getelementptr [8 x i8], ptr %.val319, i64 %1047
   %1048 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1049 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1050 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -11894,7 +11894,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1054 = load i32, ptr %409, align 4, !tbaa !33
   %1055 = load ptr, ptr %1034, align 8, !tbaa !36
   %1056 = sub nsw i64 0, %indvars.iv842
-  %1057 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1055, i64 %1056
+  %1057 = getelementptr inbounds nuw [2 x i8], ptr %1055, i64 %1056
   %1058 = load ptr, ptr %1035, align 8, !tbaa !29
   %1059 = load i64, ptr %1036, align 8, !tbaa !31
   %1060 = mul i64 %1059, %indvars.iv844
@@ -11920,14 +11920,14 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 1069:                                             ; preds = %1069, %.lr.ph.i418
   %indvars.iv.i420 = phi i64 [ 0, %.lr.ph.i418 ], [ %indvars.iv.next.i422, %1069 ]
   %1070 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %1071 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1070, i64 %indvars.iv.i420
+  %1071 = getelementptr inbounds nuw [2 x i8], ptr %1070, i64 %indvars.iv.i420
   %1072 = load i16, ptr %1057, align 2, !tbaa !40, !noalias !1062
   %1073 = zext i16 %1072 to i32
   %1074 = load i16, ptr %1071, align 2, !tbaa !40, !noalias !1062
   %1075 = zext i16 %1074 to i32
   %1076 = mul nuw i32 %1075, %1073
   %1077 = load ptr, ptr %1037, align 8, !tbaa !900
-  %1078 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1077, i64 %indvars.iv.i420
+  %1078 = getelementptr inbounds nuw [2 x i8], ptr %1077, i64 %indvars.iv.i420
   %1079 = load i16, ptr %1067, align 2, !tbaa !40, !noalias !1065
   %1080 = zext i16 %1079 to i32
   %1081 = load i16, ptr %1078, align 2, !tbaa !40, !noalias !1065
@@ -11935,7 +11935,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1083 = mul nuw i32 %1082, %1080
   %1084 = call i32 @llvm.uadd.sat.i32(i32 %1076, i32 %1083)
   %1085 = load ptr, ptr %1038, align 8, !tbaa !900
-  %1086 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1085, i64 %indvars.iv.i420
+  %1086 = getelementptr inbounds nuw [2 x i8], ptr %1085, i64 %indvars.iv.i420
   %1087 = load i16, ptr %1068, align 2, !tbaa !40, !noalias !1068
   %1088 = zext i16 %1087 to i32
   %1089 = load i16, ptr %1086, align 2, !tbaa !40, !noalias !1068
@@ -11966,14 +11966,14 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 1102:                                             ; preds = %1102, %.lr.ph.i425
   %indvars.iv.i427 = phi i64 [ 0, %.lr.ph.i425 ], [ %indvars.iv.next.i429, %1102 ]
   %1103 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %1104 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1103, i64 %indvars.iv.i427
+  %1104 = getelementptr inbounds nuw [2 x i8], ptr %1103, i64 %indvars.iv.i427
   %1105 = load i16, ptr %1057, align 2, !tbaa !40, !noalias !1071
   %1106 = zext i16 %1105 to i32
   %1107 = load i16, ptr %1104, align 2, !tbaa !40, !noalias !1071
   %1108 = zext i16 %1107 to i32
   %1109 = mul nuw i32 %1108, %1106
   %1110 = load ptr, ptr %1037, align 8, !tbaa !900
-  %1111 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1110, i64 %indvars.iv.i427
+  %1111 = getelementptr inbounds nuw [2 x i8], ptr %1110, i64 %indvars.iv.i427
   %1112 = load i16, ptr %1098, align 2, !tbaa !40, !noalias !1074
   %1113 = zext i16 %1112 to i32
   %1114 = load i16, ptr %1111, align 2, !tbaa !40, !noalias !1074
@@ -11981,7 +11981,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1116 = mul nuw i32 %1115, %1113
   %1117 = call i32 @llvm.uadd.sat.i32(i32 %1109, i32 %1116)
   %1118 = load ptr, ptr %1038, align 8, !tbaa !900
-  %1119 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1118, i64 %indvars.iv.i427
+  %1119 = getelementptr inbounds nuw [2 x i8], ptr %1118, i64 %indvars.iv.i427
   %1120 = load i16, ptr %1099, align 2, !tbaa !40, !noalias !1077
   %1121 = zext i16 %1120 to i32
   %1122 = load i16, ptr %1119, align 2, !tbaa !40, !noalias !1077
@@ -11989,7 +11989,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1124 = mul nuw i32 %1123, %1121
   %1125 = call i32 @llvm.uadd.sat.i32(i32 %1117, i32 %1124)
   %1126 = load ptr, ptr %1039, align 8, !tbaa !900
-  %1127 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1126, i64 %indvars.iv.i427
+  %1127 = getelementptr inbounds nuw [2 x i8], ptr %1126, i64 %indvars.iv.i427
   %1128 = load i16, ptr %1100, align 2, !tbaa !40, !noalias !1080
   %1129 = zext i16 %1128 to i32
   %1130 = load i16, ptr %1127, align 2, !tbaa !40, !noalias !1080
@@ -11997,7 +11997,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1132 = mul nuw i32 %1131, %1129
   %1133 = call i32 @llvm.uadd.sat.i32(i32 %1125, i32 %1132)
   %1134 = load ptr, ptr %1040, align 8, !tbaa !900
-  %1135 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1134, i64 %indvars.iv.i427
+  %1135 = getelementptr inbounds nuw [2 x i8], ptr %1134, i64 %indvars.iv.i427
   %1136 = load i16, ptr %1101, align 2, !tbaa !40, !noalias !1083
   %1137 = zext i16 %1136 to i32
   %1138 = load i16, ptr %1135, align 2, !tbaa !40, !noalias !1083
@@ -12029,7 +12029,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 .lr.ph.us.i441:                                   ; preds = %._crit_edge.us.i447, %.lr.ph.us.preheader.i439
   %indvars.iv32.i442 = phi i64 [ 0, %.lr.ph.us.preheader.i439 ], [ %indvars.iv.next33.i449, %._crit_edge.us.i447 ]
   %1148 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %1149 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1148, i64 %indvars.iv32.i442
+  %1149 = getelementptr inbounds nuw [2 x i8], ptr %1148, i64 %indvars.iv32.i442
   %1150 = load i16, ptr %1057, align 2, !tbaa !40, !noalias !1086
   %1151 = zext i16 %1150 to i32
   %1152 = load i16, ptr %1149, align 2, !tbaa !40, !noalias !1086
@@ -12040,10 +12040,10 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 1155:                                             ; preds = %1155, %.lr.ph.us.i441
   %indvars.iv27.i443 = phi i64 [ 1, %.lr.ph.us.i441 ], [ %indvars.iv.next28.i445, %1155 ]
   %.sroa.017.019.us.i444 = phi i32 [ %1154, %.lr.ph.us.i441 ], [ %1165, %1155 ]
-  %1156 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1057, i64 %indvars.iv27.i443
-  %1157 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv27.i443
+  %1156 = getelementptr inbounds nuw [2 x i8], ptr %1057, i64 %indvars.iv27.i443
+  %1157 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv27.i443
   %1158 = load ptr, ptr %1157, align 8, !tbaa !900
-  %1159 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1158, i64 %indvars.iv32.i442
+  %1159 = getelementptr inbounds nuw [2 x i8], ptr %1158, i64 %indvars.iv32.i442
   %1160 = load i16, ptr %1156, align 2, !tbaa !40, !noalias !1089
   %1161 = zext i16 %1160 to i32
   %1162 = load i16, ptr %1159, align 2, !tbaa !40, !noalias !1089
@@ -12068,7 +12068,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 .lr.ph23.split.i434:                              ; preds = %.lr.ph23.i432, %.lr.ph23.split.i434
   %indvars.iv.i435 = phi i64 [ %indvars.iv.next.i437, %.lr.ph23.split.i434 ], [ 0, %.lr.ph23.i432 ]
   %1170 = load ptr, ptr %.val319, align 8, !tbaa !900
-  %1171 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1170, i64 %indvars.iv.i435
+  %1171 = getelementptr inbounds nuw [2 x i8], ptr %1170, i64 %indvars.iv.i435
   %1172 = load i16, ptr %1057, align 2, !tbaa !40, !noalias !1086
   %1173 = zext i16 %1172 to i32
   %1174 = load i16, ptr %1171, align 2, !tbaa !40, !noalias !1086
@@ -12100,7 +12100,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1186 = load i32, ptr %409, align 4, !tbaa !33
   %1187 = trunc nsw i64 %indvars.iv849 to i32
   %1188 = sub nsw i32 %1186, %1187
-  %gep741 = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv849
+  %gep741 = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv849
   %1189 = load ptr, ptr %1048, align 8, !tbaa !36
   %1190 = load ptr, ptr %1049, align 8, !tbaa !29
   %1191 = load i64, ptr %1050, align 8, !tbaa !31
@@ -12129,14 +12129,14 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 1203:                                             ; preds = %1203, %.lr.ph.i453
   %indvars.iv.i455 = phi i64 [ 0, %.lr.ph.i453 ], [ %indvars.iv.next.i457, %1203 ]
   %1204 = load ptr, ptr %gep741, align 8, !tbaa !900
-  %1205 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1204, i64 %indvars.iv.i455
+  %1205 = getelementptr inbounds nuw [2 x i8], ptr %1204, i64 %indvars.iv.i455
   %1206 = load i16, ptr %1189, align 2, !tbaa !40, !noalias !1093
   %1207 = zext i16 %1206 to i32
   %1208 = load i16, ptr %1205, align 2, !tbaa !40, !noalias !1093
   %1209 = zext i16 %1208 to i32
   %1210 = mul nuw i32 %1209, %1207
   %1211 = load ptr, ptr %1200, align 8, !tbaa !900
-  %1212 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1211, i64 %indvars.iv.i455
+  %1212 = getelementptr inbounds nuw [2 x i8], ptr %1211, i64 %indvars.iv.i455
   %1213 = load i16, ptr %1199, align 2, !tbaa !40, !noalias !1096
   %1214 = zext i16 %1213 to i32
   %1215 = load i16, ptr %1212, align 2, !tbaa !40, !noalias !1096
@@ -12144,7 +12144,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1217 = mul nuw i32 %1216, %1214
   %1218 = call i32 @llvm.uadd.sat.i32(i32 %1210, i32 %1217)
   %1219 = load ptr, ptr %1202, align 8, !tbaa !900
-  %1220 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1219, i64 %indvars.iv.i455
+  %1220 = getelementptr inbounds nuw [2 x i8], ptr %1219, i64 %indvars.iv.i455
   %1221 = load i16, ptr %1201, align 2, !tbaa !40, !noalias !1099
   %1222 = zext i16 %1221 to i32
   %1223 = load i16, ptr %1220, align 2, !tbaa !40, !noalias !1099
@@ -12179,14 +12179,14 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 1240:                                             ; preds = %1240, %.lr.ph.i461
   %indvars.iv.i463 = phi i64 [ 0, %.lr.ph.i461 ], [ %indvars.iv.next.i465, %1240 ]
   %1241 = load ptr, ptr %gep741, align 8, !tbaa !900
-  %1242 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1241, i64 %indvars.iv.i463
+  %1242 = getelementptr inbounds nuw [2 x i8], ptr %1241, i64 %indvars.iv.i463
   %1243 = load i16, ptr %1189, align 2, !tbaa !40, !noalias !1102
   %1244 = zext i16 %1243 to i32
   %1245 = load i16, ptr %1242, align 2, !tbaa !40, !noalias !1102
   %1246 = zext i16 %1245 to i32
   %1247 = mul nuw i32 %1246, %1244
   %1248 = load ptr, ptr %1233, align 8, !tbaa !900
-  %1249 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1248, i64 %indvars.iv.i463
+  %1249 = getelementptr inbounds nuw [2 x i8], ptr %1248, i64 %indvars.iv.i463
   %1250 = load i16, ptr %1232, align 2, !tbaa !40, !noalias !1105
   %1251 = zext i16 %1250 to i32
   %1252 = load i16, ptr %1249, align 2, !tbaa !40, !noalias !1105
@@ -12194,7 +12194,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1254 = mul nuw i32 %1253, %1251
   %1255 = call i32 @llvm.uadd.sat.i32(i32 %1247, i32 %1254)
   %1256 = load ptr, ptr %1235, align 8, !tbaa !900
-  %1257 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1256, i64 %indvars.iv.i463
+  %1257 = getelementptr inbounds nuw [2 x i8], ptr %1256, i64 %indvars.iv.i463
   %1258 = load i16, ptr %1234, align 2, !tbaa !40, !noalias !1108
   %1259 = zext i16 %1258 to i32
   %1260 = load i16, ptr %1257, align 2, !tbaa !40, !noalias !1108
@@ -12202,7 +12202,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1262 = mul nuw i32 %1261, %1259
   %1263 = call i32 @llvm.uadd.sat.i32(i32 %1255, i32 %1262)
   %1264 = load ptr, ptr %1237, align 8, !tbaa !900
-  %1265 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1264, i64 %indvars.iv.i463
+  %1265 = getelementptr inbounds nuw [2 x i8], ptr %1264, i64 %indvars.iv.i463
   %1266 = load i16, ptr %1236, align 2, !tbaa !40, !noalias !1111
   %1267 = zext i16 %1266 to i32
   %1268 = load i16, ptr %1265, align 2, !tbaa !40, !noalias !1111
@@ -12210,7 +12210,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
   %1270 = mul nuw i32 %1269, %1267
   %1271 = call i32 @llvm.uadd.sat.i32(i32 %1263, i32 %1270)
   %1272 = load ptr, ptr %1239, align 8, !tbaa !900
-  %1273 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1272, i64 %indvars.iv.i463
+  %1273 = getelementptr inbounds nuw [2 x i8], ptr %1272, i64 %indvars.iv.i463
   %1274 = load i16, ptr %1238, align 2, !tbaa !40, !noalias !1114
   %1275 = zext i16 %1274 to i32
   %1276 = load i16, ptr %1273, align 2, !tbaa !40, !noalias !1114
@@ -12242,7 +12242,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 .lr.ph.us.i478:                                   ; preds = %._crit_edge.us.i484, %.lr.ph.us.preheader.i476
   %indvars.iv32.i479 = phi i64 [ 0, %.lr.ph.us.preheader.i476 ], [ %indvars.iv.next33.i486, %._crit_edge.us.i484 ]
   %1286 = load ptr, ptr %gep741, align 8, !tbaa !900
-  %1287 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1286, i64 %indvars.iv32.i479
+  %1287 = getelementptr inbounds nuw [2 x i8], ptr %1286, i64 %indvars.iv32.i479
   %1288 = load i16, ptr %1189, align 2, !tbaa !40, !noalias !1117
   %1289 = zext i16 %1288 to i32
   %1290 = load i16, ptr %1287, align 2, !tbaa !40, !noalias !1117
@@ -12253,10 +12253,10 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 1293:                                             ; preds = %1293, %.lr.ph.us.i478
   %indvars.iv27.i480 = phi i64 [ 1, %.lr.ph.us.i478 ], [ %indvars.iv.next28.i482, %1293 ]
   %.sroa.017.019.us.i481 = phi i32 [ %1292, %.lr.ph.us.i478 ], [ %1303, %1293 ]
-  %1294 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1189, i64 %indvars.iv27.i480
-  %1295 = getelementptr inbounds nuw ptr, ptr %gep741, i64 %indvars.iv27.i480
+  %1294 = getelementptr inbounds nuw [2 x i8], ptr %1189, i64 %indvars.iv27.i480
+  %1295 = getelementptr inbounds nuw [8 x i8], ptr %gep741, i64 %indvars.iv27.i480
   %1296 = load ptr, ptr %1295, align 8, !tbaa !900
-  %1297 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1296, i64 %indvars.iv32.i479
+  %1297 = getelementptr inbounds nuw [2 x i8], ptr %1296, i64 %indvars.iv32.i479
   %1298 = load i16, ptr %1294, align 2, !tbaa !40, !noalias !1120
   %1299 = zext i16 %1298 to i32
   %1300 = load i16, ptr %1297, align 2, !tbaa !40, !noalias !1120
@@ -12281,7 +12281,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NIhNS_12_GLOBAL__N_113ufixedpoin
 .lr.ph23.split.i471:                              ; preds = %.lr.ph23.i469, %.lr.ph23.split.i471
   %indvars.iv.i472 = phi i64 [ %indvars.iv.next.i474, %.lr.ph23.split.i471 ], [ 0, %.lr.ph23.i469 ]
   %1308 = load ptr, ptr %gep741, align 8, !tbaa !900
-  %1309 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %1308, i64 %indvars.iv.i472
+  %1309 = getelementptr inbounds nuw [2 x i8], ptr %1308, i64 %indvars.iv.i472
   %1310 = load i16, ptr %1189, align 2, !tbaa !40, !noalias !1117
   %1311 = zext i16 %1310 to i32
   %1312 = load i16, ptr %1309, align 2, !tbaa !40, !noalias !1117
@@ -12431,7 +12431,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121ItNS_1
 
 .lr.ph.preheader.i:                               ; preds = %.preheader32.i
   %10 = zext nneg i32 %1 to i64
-  %invariant.gep.i = getelementptr inbounds nuw i16, ptr %0, i64 %10
+  %invariant.gep.i = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %10
   br label %.lr.ph.i
 
 11:                                               ; preds = %7
@@ -12455,11 +12455,11 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121ItNS_1
 
 .lr.ph50.i:                                       ; preds = %.lr.ph50.i, %.lr.ph50.preheader.i
   %indvars.iv73.i = phi i64 [ 0, %.lr.ph50.preheader.i ], [ %indvars.iv.next74.i, %.lr.ph50.i ]
-  %13 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv73.i
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv73.i
   %14 = load i16, ptr %13, align 2, !tbaa !399
   %15 = zext i16 %14 to i32
   %16 = shl nuw i32 %15, 16
-  %17 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv73.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv73.i
   store i32 %16, ptr %17, align 4, !tbaa !72
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next74.i, %wide.trip.count76.i
@@ -12467,11 +12467,11 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121ItNS_1
 
 .lr.ph52.i:                                       ; preds = %.lr.ph52.i, %.lr.ph52.preheader.i
   %indvars.iv78.i = phi i64 [ 0, %.lr.ph52.preheader.i ], [ %indvars.iv.next79.i, %.lr.ph52.i ]
-  %18 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv78.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv78.i
   %19 = load i16, ptr %18, align 2, !tbaa !399
   %20 = zext i16 %19 to i32
   %21 = shl nuw nsw i32 %20, 15
-  %22 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv78.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv78.i
   store i32 %21, ptr %22, align 4, !tbaa !72
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next79.i, %wide.trip.count81.i
@@ -12491,16 +12491,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121ItNS_1
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.i
   %25 = load i16, ptr %24, align 2, !tbaa !399
   %26 = zext i16 %25 to i32
   %27 = shl nuw nsw i32 %26, 15
-  %gep.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %28 = load i16, ptr %gep.i, align 2, !tbaa !399
   %29 = zext i16 %28 to i32
   %30 = shl nuw nsw i32 %29, 14
   %31 = add nuw i32 %30, %27
-  %32 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store i32 %31, ptr %32, align 4, !tbaa !72
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %10
@@ -12510,13 +12510,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121ItNS_1
   %34 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef -1, i32 noundef %5, i32 noundef %6)
   %35 = mul nsw i32 %34, %1
   %36 = sext i32 %35 to i64
-  %invariant.gep95.i = getelementptr i16, ptr %0, i64 %36
+  %invariant.gep95.i = getelementptr [2 x i8], ptr %0, i64 %36
   br label %37
 
 37:                                               ; preds = %37, %33
   %indvars.iv57.i = phi i64 [ 0, %33 ], [ %indvars.iv.next58.i, %37 ]
-  %38 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv57.i
-  %gep96.i = getelementptr i16, ptr %invariant.gep95.i, i64 %indvars.iv57.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv57.i
+  %gep96.i = getelementptr [2 x i8], ptr %invariant.gep95.i, i64 %indvars.iv57.i
   %39 = load i16, ptr %gep96.i, align 2, !tbaa !399
   %40 = zext i16 %39 to i32
   %41 = shl nuw nsw i32 %40, 14
@@ -12530,8 +12530,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121ItNS_1
 .loopexit31.i:                                    ; preds = %37, %.thread.i, %._crit_edge.thread.i, %._crit_edge.i
   %.not89.i = phi i1 [ true, %._crit_edge.thread.i ], [ false, %.thread.i ], [ true, %._crit_edge.i ], [ false, %37 ]
   %44 = sext i32 %1 to i64
-  %45 = getelementptr inbounds i16, ptr %0, i64 %44
-  %46 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %0, i64 %44
+  %46 = getelementptr inbounds [4 x i8], ptr %4, i64 %44
   %47 = add nsw i32 %5, -1
   %48 = mul nsw i32 %47, %1
   %49 = icmp slt i32 %1, %48
@@ -12555,10 +12555,10 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121ItNS_1
   %.08339.i = phi ptr [ %45, %.lr.ph41.i ], [ %66, %52 ]
   %.08538.i = phi ptr [ %46, %.lr.ph41.i ], [ %67, %52 ]
   %.08637.i = phi i32 [ %1, %.lr.ph41.i ], [ %65, %52 ]
-  %53 = getelementptr inbounds i16, ptr %.08339.i, i64 %51
+  %53 = getelementptr inbounds [2 x i8], ptr %.08339.i, i64 %51
   %54 = load i16, ptr %53, align 2, !tbaa !399
   %55 = zext i16 %54 to i32
-  %56 = getelementptr inbounds i16, ptr %.08339.i, i64 %44
+  %56 = getelementptr inbounds [2 x i8], ptr %.08339.i, i64 %44
   %57 = load i16, ptr %56, align 2, !tbaa !399
   %58 = zext i16 %57 to i32
   %59 = add nuw nsw i32 %58, %55
@@ -12587,16 +12587,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121ItNS_1
 .lr.ph44.i:                                       ; preds = %.lr.ph44.i, %.lr.ph44.preheader.i
   %indvars.iv63.i = phi i64 [ 0, %.lr.ph44.preheader.i ], [ %indvars.iv.next64.i, %.lr.ph44.i ]
   %69 = sub nsw i64 %indvars.iv63.i, %44
-  %70 = getelementptr inbounds i16, ptr %.083.lcssa.i, i64 %69
+  %70 = getelementptr inbounds [2 x i8], ptr %.083.lcssa.i, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !399
   %72 = zext i16 %71 to i32
   %73 = shl nuw nsw i32 %72, 14
-  %74 = getelementptr inbounds nuw i16, ptr %.083.lcssa.i, i64 %indvars.iv63.i
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %.083.lcssa.i, i64 %indvars.iv63.i
   %75 = load i16, ptr %74, align 2, !tbaa !399
   %76 = zext i16 %75 to i32
   %77 = shl nuw nsw i32 %76, 15
   %78 = add nuw i32 %77, %73
-  %79 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.085.lcssa.i, i64 %indvars.iv63.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.085.lcssa.i, i64 %indvars.iv63.i
   store i32 %78, ptr %79, align 4, !tbaa !72
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count66.i
@@ -12607,13 +12607,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3N121ItNS_1
   %82 = sub nsw i32 %81, %47
   %83 = mul nsw i32 %82, %1
   %84 = sext i32 %83 to i64
-  %invariant.gep97.i = getelementptr i16, ptr %.083.lcssa.i, i64 %84
+  %invariant.gep97.i = getelementptr [2 x i8], ptr %.083.lcssa.i, i64 %84
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %80
   %indvars.iv68.i = phi i64 [ 0, %80 ], [ %indvars.iv.next69.i, %.lr.ph48.i ]
-  %85 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.085.lcssa.i, i64 %indvars.iv68.i
-  %gep98.i = getelementptr i16, ptr %invariant.gep97.i, i64 %indvars.iv68.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.085.lcssa.i, i64 %indvars.iv68.i
+  %gep98.i = getelementptr [2 x i8], ptr %invariant.gep97.i, i64 %indvars.iv68.i
   %86 = load i16, ptr %gep98.i, align 2, !tbaa !399
   %87 = zext i16 %86 to i32
   %88 = shl nuw nsw i32 %87, 14
@@ -12662,13 +12662,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
 
 22:                                               ; preds = %.lr.ph166, %22
   %indvars.iv188 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next189, %22 ]
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv188
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv188
   %24 = load i16, ptr %23, align 2, !tbaa !399, !noalias !1148
   %25 = zext i16 %24 to i64
   %26 = mul nuw nsw i64 %25, %21
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %26, i64 4294967295)
   %27 = trunc nuw i64 %.sroa.speculated.i to i32
-  %28 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv188
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv188
   store i32 %27, ptr %28, align 4, !tbaa !72
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
@@ -12684,7 +12684,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
 .lr.ph152:                                        ; preds = %.preheader147
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %32 = zext nneg i32 %1 to i64
-  %invariant.gep203 = getelementptr inbounds nuw i16, ptr %0, i64 %32
+  %invariant.gep203 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %32
   br label %61
 
 33:                                               ; preds = %29
@@ -12698,13 +12698,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %38 = zext nneg i32 %1 to i64
   %39 = sext i32 %37 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %0, i64 %38
-  %invariant.gep201 = getelementptr i16, ptr %0, i64 %39
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %38
+  %invariant.gep201 = getelementptr [2 x i8], ptr %0, i64 %39
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %42 = load i32, ptr %36, align 4, !tbaa !72, !noalias !1152
   %43 = zext i32 %42 to i64
   %44 = load i16, ptr %41, align 2, !tbaa !399, !noalias !1152
@@ -12712,7 +12712,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %46 = mul nuw nsw i64 %45, %43
   %.sroa.speculated.i109 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %46, i64 4294967295)
   %47 = trunc nuw i64 %.sroa.speculated.i109 to i32
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %48 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1155
   %49 = zext i32 %48 to i64
   %50 = load i16, ptr %gep, align 2, !tbaa !399, !noalias !1155
@@ -12721,14 +12721,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %.sroa.speculated.i110 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %52, i64 4294967295)
   %53 = trunc nuw i64 %.sroa.speculated.i110 to i32
   %54 = tail call i32 @llvm.uadd.sat.i32(i32 %47, i32 %53)
-  %gep202 = getelementptr i16, ptr %invariant.gep201, i64 %indvars.iv
+  %gep202 = getelementptr [2 x i8], ptr %invariant.gep201, i64 %indvars.iv
   %55 = load i16, ptr %gep202, align 2, !tbaa !399, !noalias !1158
   %56 = zext i16 %55 to i64
   %57 = mul nuw nsw i64 %56, %49
   %.sroa.speculated.i111 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %57, i64 4294967295)
   %58 = trunc nuw i64 %.sroa.speculated.i111 to i32
   %59 = tail call i32 @llvm.uadd.sat.i32(i32 %54, i32 %58)
-  %60 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %59, ptr %60, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -12736,7 +12736,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
 
 61:                                               ; preds = %.lr.ph152, %61
   %indvars.iv172 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next173, %61 ]
-  %62 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv172
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv172
   %63 = load i32, ptr %31, align 4, !tbaa !72, !noalias !1162
   %64 = zext i32 %63 to i64
   %65 = load i16, ptr %62, align 2, !tbaa !399, !noalias !1162
@@ -12744,7 +12744,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %67 = mul nuw nsw i64 %66, %64
   %.sroa.speculated.i112 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %67, i64 4294967295)
   %68 = trunc nuw i64 %.sroa.speculated.i112 to i32
-  %gep204 = getelementptr inbounds nuw i16, ptr %invariant.gep203, i64 %indvars.iv172
+  %gep204 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep203, i64 %indvars.iv172
   %69 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1165
   %70 = zext i32 %69 to i64
   %71 = load i16, ptr %gep204, align 2, !tbaa !399, !noalias !1165
@@ -12753,7 +12753,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %.sroa.speculated.i113 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %73, i64 4294967295)
   %74 = trunc nuw i64 %.sroa.speculated.i113 to i32
   %75 = tail call i32 @llvm.uadd.sat.i32(i32 %68, i32 %74)
-  %76 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv172
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv172
   store i32 %75, ptr %76, align 4, !tbaa !72
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %32
@@ -12761,8 +12761,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
 
 .loopexit148:                                     ; preds = %40, %61, %33, %.preheader147
   %77 = sext i32 %1 to i64
-  %78 = getelementptr inbounds i16, ptr %0, i64 %77
-  %79 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %0, i64 %77
+  %79 = getelementptr inbounds [4 x i8], ptr %4, i64 %77
   %80 = add nsw i32 %5, -1
   %81 = mul nsw i32 %80, %1
   %82 = icmp slt i32 %1, %81
@@ -12799,7 +12799,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %93 = mul nuw nsw i64 %92, %90
   %.sroa.speculated.i114 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %93, i64 4294967295)
   %94 = trunc nuw i64 %.sroa.speculated.i114 to i32
-  %95 = getelementptr inbounds i16, ptr %.098155, i64 %85
+  %95 = getelementptr inbounds [2 x i8], ptr %.098155, i64 %85
   %96 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1172
   %97 = zext i32 %96 to i64
   %98 = load i16, ptr %95, align 2, !tbaa !399, !noalias !1172
@@ -12808,7 +12808,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %.sroa.speculated.i115 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %100, i64 4294967295)
   %101 = trunc nuw i64 %.sroa.speculated.i115 to i32
   %102 = tail call i32 @llvm.uadd.sat.i32(i32 %94, i32 %101)
-  %103 = getelementptr inbounds i16, ptr %.098155, i64 %77
+  %103 = getelementptr inbounds [2 x i8], ptr %.098155, i64 %77
   %104 = load i16, ptr %103, align 2, !tbaa !399, !noalias !1175
   %105 = zext i16 %104 to i64
   %106 = mul nuw nsw i64 %105, %97
@@ -12833,12 +12833,12 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %118 = sext i32 %116 to i64
   %wide.trip.count181 = zext nneg i32 %1 to i64
-  %invariant.gep205 = getelementptr i16, ptr %.098.lcssa, i64 %118
+  %invariant.gep205 = getelementptr [2 x i8], ptr %.098.lcssa, i64 %118
   br label %119
 
 119:                                              ; preds = %.lr.ph161, %119
   %indvars.iv178 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next179, %119 ]
-  %120 = getelementptr inbounds nuw i16, ptr %.098.lcssa, i64 %indvars.iv178
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %.098.lcssa, i64 %indvars.iv178
   %121 = load i32, ptr %117, align 4, !tbaa !72, !noalias !1179
   %122 = zext i32 %121 to i64
   %123 = load i16, ptr %120, align 2, !tbaa !399, !noalias !1179
@@ -12847,7 +12847,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %.sroa.speculated.i117 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %125, i64 4294967295)
   %126 = trunc nuw i64 %.sroa.speculated.i117 to i32
   %127 = sub nsw i64 %indvars.iv178, %77
-  %128 = getelementptr inbounds i16, ptr %.098.lcssa, i64 %127
+  %128 = getelementptr inbounds [2 x i8], ptr %.098.lcssa, i64 %127
   %129 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1182
   %130 = zext i32 %129 to i64
   %131 = load i16, ptr %128, align 2, !tbaa !399, !noalias !1182
@@ -12856,14 +12856,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %.sroa.speculated.i118 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %133, i64 4294967295)
   %134 = trunc nuw i64 %.sroa.speculated.i118 to i32
   %135 = tail call i32 @llvm.uadd.sat.i32(i32 %126, i32 %134)
-  %gep206 = getelementptr i16, ptr %invariant.gep205, i64 %indvars.iv178
+  %gep206 = getelementptr [2 x i8], ptr %invariant.gep205, i64 %indvars.iv178
   %136 = load i16, ptr %gep206, align 2, !tbaa !399, !noalias !1185
   %137 = zext i16 %136 to i64
   %138 = mul nuw nsw i64 %137, %130
   %.sroa.speculated.i119 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %138, i64 4294967295)
   %139 = trunc nuw i64 %.sroa.speculated.i119 to i32
   %140 = tail call i32 @llvm.uadd.sat.i32(i32 %135, i32 %139)
-  %141 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0102.lcssa, i64 %indvars.iv178
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %.0102.lcssa, i64 %indvars.iv178
   store i32 %140, ptr %141, align 4, !tbaa !72
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
@@ -12872,7 +12872,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
 142:                                              ; preds = %.lr.ph163, %142
   %indvars.iv183 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next184, %142 ]
   %143 = sub nsw i64 %indvars.iv183, %77
-  %144 = getelementptr inbounds i16, ptr %.098.lcssa, i64 %143
+  %144 = getelementptr inbounds [2 x i8], ptr %.098.lcssa, i64 %143
   %145 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1189
   %146 = zext i32 %145 to i64
   %147 = load i16, ptr %144, align 2, !tbaa !399, !noalias !1189
@@ -12880,7 +12880,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %149 = mul nuw nsw i64 %148, %146
   %.sroa.speculated.i120 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %149, i64 4294967295)
   %150 = trunc nuw i64 %.sroa.speculated.i120 to i32
-  %151 = getelementptr inbounds nuw i16, ptr %.098.lcssa, i64 %indvars.iv183
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %.098.lcssa, i64 %indvars.iv183
   %152 = load i32, ptr %87, align 4, !tbaa !72, !noalias !1192
   %153 = zext i32 %152 to i64
   %154 = load i16, ptr %151, align 2, !tbaa !399, !noalias !1192
@@ -12889,7 +12889,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116hlineSmooth3NabaItNS_1
   %.sroa.speculated.i121 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %156, i64 4294967295)
   %157 = trunc nuw i64 %.sroa.speculated.i121 to i32
   %158 = tail call i32 @llvm.uadd.sat.i32(i32 %150, i32 %157)
-  %159 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0102.lcssa, i64 %indvars.iv183
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %.0102.lcssa, i64 %indvars.iv183
   store i32 %158, ptr %159, align 4, !tbaa !72
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
@@ -12912,7 +12912,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = zext nneg i32 %1 to i64
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %0, i64 %12
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %12
   br label %35
 
 13:                                               ; preds = %7
@@ -12945,13 +12945,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
 
 27:                                               ; preds = %.lr.ph148, %27
   %indvars.iv168 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next169, %27 ]
-  %28 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv168
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv168
   %29 = load i16, ptr %28, align 2, !tbaa !399, !noalias !1202
   %30 = zext i16 %29 to i64
   %31 = mul nuw nsw i64 %30, %26
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %31, i64 4294967295)
   %32 = trunc nuw i64 %.sroa.speculated.i to i32
-  %33 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv168
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv168
   store i32 %32, ptr %33, align 4, !tbaa !72
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
@@ -12971,7 +12971,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
 
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %37 = load i32, ptr %10, align 4, !tbaa !72, !noalias !1206
   %38 = zext i32 %37 to i64
   %39 = load i16, ptr %36, align 2, !tbaa !399, !noalias !1206
@@ -12979,7 +12979,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %41 = mul nuw nsw i64 %40, %38
   %.sroa.speculated.i100 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %41, i64 4294967295)
   %42 = trunc nuw i64 %.sroa.speculated.i100 to i32
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %43 = load i32, ptr %11, align 4, !tbaa !72, !noalias !1209
   %44 = zext i32 %43 to i64
   %45 = load i16, ptr %gep, align 2, !tbaa !399, !noalias !1209
@@ -12988,7 +12988,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %.sroa.speculated.i101 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %47, i64 4294967295)
   %48 = trunc nuw i64 %.sroa.speculated.i101 to i32
   %49 = tail call i32 @llvm.uadd.sat.i32(i32 %42, i32 %48)
-  %50 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %49, ptr %50, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
@@ -12999,13 +12999,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %52 = mul nsw i32 %51, %1
   %53 = sext i32 %52 to i64
   %wide.trip.count155 = zext nneg i32 %1 to i64
-  %invariant.gep184 = getelementptr i16, ptr %0, i64 %53
+  %invariant.gep184 = getelementptr [2 x i8], ptr %0, i64 %53
   br label %54
 
 54:                                               ; preds = %.lr.ph132, %54
   %indvars.iv152 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next153, %54 ]
-  %55 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv152
-  %gep185 = getelementptr i16, ptr %invariant.gep184, i64 %indvars.iv152
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv152
+  %gep185 = getelementptr [2 x i8], ptr %invariant.gep184, i64 %indvars.iv152
   %56 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1213
   %57 = zext i32 %56 to i64
   %58 = load i16, ptr %gep185, align 2, !tbaa !399, !noalias !1213
@@ -13023,8 +13023,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
 .loopexit127:                                     ; preds = %54, %.thread, %._crit_edge.thread, %._crit_edge
   %.not179 = phi i1 [ true, %._crit_edge.thread ], [ false, %.thread ], [ true, %._crit_edge ], [ false, %54 ]
   %64 = sext i32 %1 to i64
-  %65 = getelementptr inbounds i16, ptr %0, i64 %64
-  %66 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %0, i64 %64
+  %66 = getelementptr inbounds [4 x i8], ptr %4, i64 %64
   %67 = add nsw i32 %5, -1
   %68 = mul nsw i32 %67, %1
   %69 = icmp slt i32 %1, %68
@@ -13051,7 +13051,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %.088135 = phi ptr [ %65, %.lr.ph137 ], [ %99, %75 ]
   %.090134 = phi i32 [ %1, %.lr.ph137 ], [ %98, %75 ]
   %.092133 = phi ptr [ %66, %.lr.ph137 ], [ %100, %75 ]
-  %76 = getelementptr inbounds i16, ptr %.088135, i64 %71
+  %76 = getelementptr inbounds [2 x i8], ptr %.088135, i64 %71
   %77 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1220
   %78 = zext i32 %77 to i64
   %79 = load i16, ptr %76, align 2, !tbaa !399, !noalias !1220
@@ -13067,7 +13067,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %.sroa.speculated.i104 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %87, i64 4294967295)
   %88 = trunc nuw i64 %.sroa.speculated.i104 to i32
   %89 = tail call i32 @llvm.uadd.sat.i32(i32 %82, i32 %88)
-  %90 = getelementptr inbounds i16, ptr %.088135, i64 %64
+  %90 = getelementptr inbounds [2 x i8], ptr %.088135, i64 %64
   %91 = load i32, ptr %73, align 4, !tbaa !72, !noalias !1226
   %92 = zext i32 %91 to i64
   %93 = load i16, ptr %90, align 2, !tbaa !399, !noalias !1226
@@ -13096,7 +13096,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
 102:                                              ; preds = %.lr.ph141, %102
   %indvars.iv158 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next159, %102 ]
   %103 = sub nsw i64 %indvars.iv158, %64
-  %104 = getelementptr inbounds i16, ptr %.088.lcssa, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr %.088.lcssa, i64 %103
   %105 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1230
   %106 = zext i32 %105 to i64
   %107 = load i16, ptr %104, align 2, !tbaa !399, !noalias !1230
@@ -13104,7 +13104,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %109 = mul nuw nsw i64 %108, %106
   %.sroa.speculated.i106 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %109, i64 4294967295)
   %110 = trunc nuw i64 %.sroa.speculated.i106 to i32
-  %111 = getelementptr inbounds nuw i16, ptr %.088.lcssa, i64 %indvars.iv158
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %.088.lcssa, i64 %indvars.iv158
   %112 = load i32, ptr %74, align 4, !tbaa !72, !noalias !1233
   %113 = zext i32 %112 to i64
   %114 = load i16, ptr %111, align 2, !tbaa !399, !noalias !1233
@@ -13113,7 +13113,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %.sroa.speculated.i107 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %116, i64 4294967295)
   %117 = trunc nuw i64 %.sroa.speculated.i107 to i32
   %118 = tail call i32 @llvm.uadd.sat.i32(i32 %110, i32 %117)
-  %119 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.092.lcssa, i64 %indvars.iv158
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.092.lcssa, i64 %indvars.iv158
   store i32 %118, ptr %119, align 4, !tbaa !72
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
@@ -13126,13 +13126,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth3NItNS_12_G
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %124 = sext i32 %122 to i64
   %wide.trip.count166 = zext nneg i32 %1 to i64
-  %invariant.gep186 = getelementptr i16, ptr %.088.lcssa, i64 %124
+  %invariant.gep186 = getelementptr [2 x i8], ptr %.088.lcssa, i64 %124
   br label %125
 
 125:                                              ; preds = %.lr.ph145, %125
   %indvars.iv163 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next164, %125 ]
-  %126 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.092.lcssa, i64 %indvars.iv163
-  %gep187 = getelementptr i16, ptr %invariant.gep186, i64 %indvars.iv163
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.092.lcssa, i64 %indvars.iv163
+  %gep187 = getelementptr [2 x i8], ptr %invariant.gep186, i64 %indvars.iv163
   %127 = load i32, ptr %123, align 4, !tbaa !72, !noalias !1237
   %128 = zext i32 %127 to i64
   %129 = load i16, ptr %gep187, align 2, !tbaa !399, !noalias !1237
@@ -13169,8 +13169,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
   %11 = zext nneg i32 %1 to i64
   %12 = zext nneg i32 %9 to i64
   %13 = zext nneg i32 %10 to i64
-  %invariant.gep696 = getelementptr inbounds nuw i16, ptr %0, i64 %12
-  %invariant.gep698 = getelementptr inbounds nuw i16, ptr %0, i64 %13
+  %invariant.gep696 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %12
+  %invariant.gep698 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %13
   br label %176
 
 14:                                               ; preds = %7
@@ -13194,11 +13194,11 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
 
 .lr.ph596:                                        ; preds = %.lr.ph596.preheader, %.lr.ph596
   %indvars.iv643 = phi i64 [ 0, %.lr.ph596.preheader ], [ %indvars.iv.next644, %.lr.ph596 ]
-  %17 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv643
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv643
   %18 = load i16, ptr %17, align 2, !tbaa !399
   %19 = zext i16 %18 to i32
   %20 = mul nuw nsw i32 %19, 24576
-  %21 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv643
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv643
   store i32 %20, ptr %21, align 4, !tbaa !72
   %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
   %exitcond647.not = icmp eq i64 %indvars.iv.next644, %wide.trip.count646
@@ -13206,8 +13206,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
 
 .lr.ph594:                                        ; preds = %.lr.ph594.preheader, %.lr.ph594
   %indvars.iv638 = phi i64 [ 0, %.lr.ph594.preheader ], [ %indvars.iv.next639, %.lr.ph594 ]
-  %22 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv638
-  %23 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv638
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv638
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv638
   %24 = load i16, ptr %22, align 2, !tbaa !399
   %25 = zext i16 %24 to i32
   %26 = shl nuw i32 %25, 16
@@ -13230,22 +13230,22 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
 
 .lr.ph592:                                        ; preds = %.lr.ph592.preheader, %.lr.ph592
   %indvars.iv633 = phi i64 [ 0, %.lr.ph592.preheader ], [ %indvars.iv.next634, %.lr.ph592 ]
-  %31 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv633
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv633
   %32 = load i16, ptr %31, align 2, !tbaa !399
   %33 = zext i16 %32 to i32
   %34 = shl nuw nsw i32 %33, 14
   %narrow568 = mul nuw nsw i32 %33, 24576
   %35 = add nuw nsw i64 %indvars.iv633, %30
-  %36 = getelementptr inbounds nuw i16, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !399
   %38 = zext i16 %37 to i32
   %39 = shl nuw nsw i32 %38, 14
   %40 = add nuw i32 %39, %narrow568
-  %41 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv633
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv633
   store i32 %40, ptr %41, align 4, !tbaa !72
   %narrow569 = mul nuw nsw i32 %38, 24576
   %42 = add nuw i32 %narrow569, %34
-  %43 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %35
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %35
   store i32 %42, ptr %43, align 4, !tbaa !72
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 1
   %exitcond637.not = icmp eq i64 %indvars.iv.next634, %30
@@ -13270,50 +13270,50 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
   %57 = sext i32 %53 to i64
   %58 = sext i32 %50 to i64
   %wide.trip.count631 = zext nneg i32 %1 to i64
-  %invariant.gep688 = getelementptr i16, ptr %0, i64 %54
-  %invariant.gep690 = getelementptr i16, ptr %0, i64 %56
-  %invariant.gep692 = getelementptr i16, ptr %0, i64 %57
-  %invariant.gep694 = getelementptr i16, ptr %0, i64 %58
+  %invariant.gep688 = getelementptr [2 x i8], ptr %0, i64 %54
+  %invariant.gep690 = getelementptr [2 x i8], ptr %0, i64 %56
+  %invariant.gep692 = getelementptr [2 x i8], ptr %0, i64 %57
+  %invariant.gep694 = getelementptr [2 x i8], ptr %0, i64 %58
   br label %.lr.ph590
 
 .lr.ph590:                                        ; preds = %.lr.ph590.preheader, %.lr.ph590
   %indvars.iv628 = phi i64 [ 0, %.lr.ph590.preheader ], [ %indvars.iv.next629, %.lr.ph590 ]
-  %59 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv628
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv628
   %60 = load i16, ptr %59, align 2, !tbaa !399
   %61 = zext i16 %60 to i32
   %narrow566 = mul nuw nsw i32 %61, 24576
-  %gep689 = getelementptr i16, ptr %invariant.gep688, i64 %indvars.iv628
+  %gep689 = getelementptr [2 x i8], ptr %invariant.gep688, i64 %indvars.iv628
   %62 = load i16, ptr %gep689, align 2, !tbaa !399
   %63 = zext i16 %62 to i32
   %64 = add nuw nsw i64 %indvars.iv628, %55
-  %65 = getelementptr inbounds nuw i16, ptr %0, i64 %64
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %64
   %66 = load i16, ptr %65, align 2, !tbaa !399
   %67 = zext i16 %66 to i32
   %68 = add nuw nsw i32 %67, %63
   %69 = shl nuw nsw i32 %68, 14
   %70 = add nuw i32 %69, %narrow566
-  %gep691 = getelementptr i16, ptr %invariant.gep690, i64 %indvars.iv628
+  %gep691 = getelementptr [2 x i8], ptr %invariant.gep690, i64 %indvars.iv628
   %71 = load i16, ptr %gep691, align 2, !tbaa !399
   %72 = zext i16 %71 to i32
-  %gep693 = getelementptr i16, ptr %invariant.gep692, i64 %indvars.iv628
+  %gep693 = getelementptr [2 x i8], ptr %invariant.gep692, i64 %indvars.iv628
   %73 = load i16, ptr %gep693, align 2, !tbaa !399
   %74 = zext i16 %73 to i32
   %75 = add nuw nsw i32 %74, %72
   %76 = shl nuw nsw i32 %75, 12
   %77 = add nuw i32 %70, %76
-  %78 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv628
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv628
   store i32 %77, ptr %78, align 4, !tbaa !72
   %narrow567 = mul nuw nsw i32 %67, 24576
   %79 = add nuw nsw i32 %72, %61
   %80 = shl nuw nsw i32 %79, 14
   %81 = add nuw i32 %80, %narrow567
-  %gep695 = getelementptr i16, ptr %invariant.gep694, i64 %indvars.iv628
+  %gep695 = getelementptr [2 x i8], ptr %invariant.gep694, i64 %indvars.iv628
   %82 = load i16, ptr %gep695, align 2, !tbaa !399
   %83 = zext i16 %82 to i32
   %84 = add nuw nsw i32 %83, %63
   %85 = shl nuw nsw i32 %84, 12
   %86 = add nuw i32 %81, %85
-  %87 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %64
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %64
   store i32 %86, ptr %87, align 4, !tbaa !72
   %indvars.iv.next629 = add nuw nsw i64 %indvars.iv628, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next629, %wide.trip.count631
@@ -13335,35 +13335,35 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
 
 94:                                               ; preds = %.lr.ph588, %94
   %indvars.iv623 = phi i64 [ 0, %.lr.ph588 ], [ %indvars.iv.next624, %94 ]
-  %95 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv623
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv623
   %96 = load i16, ptr %95, align 2, !tbaa !399
   %97 = zext i16 %96 to i32
   %98 = shl nuw nsw i32 %97, 12
   %narrow563 = mul nuw nsw i32 %97, 24576
   %99 = add nuw nsw i64 %indvars.iv623, %92
-  %100 = getelementptr inbounds nuw i16, ptr %0, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !399
   %102 = zext i16 %101 to i32
   %103 = shl nuw nsw i32 %102, 14
   %104 = add nuw i32 %103, %narrow563
   %105 = add nuw nsw i64 %indvars.iv623, %93
-  %106 = getelementptr inbounds nuw i16, ptr %0, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !399
   %108 = zext i16 %107 to i32
   %109 = shl nuw nsw i32 %108, 12
   %110 = add nuw i32 %104, %109
-  %111 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv623
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv623
   store i32 %110, ptr %111, align 4, !tbaa !72
   %narrow564 = mul nuw nsw i32 %102, 24576
   %112 = add nuw nsw i32 %108, %97
   %113 = shl nuw nsw i32 %112, 14
   %114 = add nuw i32 %113, %narrow564
-  %115 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %99
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %99
   store i32 %114, ptr %115, align 4, !tbaa !72
   %narrow565 = mul nuw nsw i32 %108, 24576
   %116 = add nuw nsw i32 %103, %98
   %117 = add nuw i32 %116, %narrow565
-  %118 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %105
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %105
   store i32 %117, ptr %118, align 4, !tbaa !72
   %indvars.iv.next624 = add nuw nsw i64 %indvars.iv623, 1
   %exitcond627.not = icmp eq i64 %indvars.iv.next624, %92
@@ -13390,32 +13390,32 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
   %134 = sext i32 %126 to i64
   %135 = sext i32 %125 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %invariant.gep = getelementptr i16, ptr %0, i64 %131
-  %invariant.gep682 = getelementptr i16, ptr %0, i64 %133
-  %invariant.gep684 = getelementptr i16, ptr %0, i64 %134
-  %invariant.gep686 = getelementptr i16, ptr %0, i64 %135
+  %invariant.gep = getelementptr [2 x i8], ptr %0, i64 %131
+  %invariant.gep682 = getelementptr [2 x i8], ptr %0, i64 %133
+  %invariant.gep684 = getelementptr [2 x i8], ptr %0, i64 %134
+  %invariant.gep686 = getelementptr [2 x i8], ptr %0, i64 %135
   br label %136
 
 136:                                              ; preds = %.lr.ph, %136
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %136 ]
-  %137 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %138 = load i16, ptr %137, align 2, !tbaa !399
   %139 = zext i16 %138 to i32
   %narrow = mul nuw nsw i32 %139, 24576
   %140 = add nuw nsw i64 %indvars.iv, %130
-  %141 = getelementptr inbounds nuw i16, ptr %0, i64 %140
+  %141 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %140
   %142 = load i16, ptr %141, align 2, !tbaa !399
   %143 = zext i16 %142 to i32
   %144 = shl nuw nsw i32 %143, 14
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %145 = load i16, ptr %gep, align 2, !tbaa !399
   %146 = zext i16 %145 to i32
   %147 = shl nuw nsw i32 %146, 14
   %148 = add nuw nsw i64 %indvars.iv, %132
-  %149 = getelementptr inbounds nuw i16, ptr %0, i64 %148
+  %149 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %148
   %150 = load i16, ptr %149, align 2, !tbaa !399
   %151 = zext i16 %150 to i32
-  %gep683 = getelementptr i16, ptr %invariant.gep682, i64 %indvars.iv
+  %gep683 = getelementptr [2 x i8], ptr %invariant.gep682, i64 %indvars.iv
   %152 = load i16, ptr %gep683, align 2, !tbaa !399
   %153 = zext i16 %152 to i32
   %reass.add = add nuw nsw i32 %153, %151
@@ -13423,31 +13423,31 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
   %154 = add nuw i32 %144, %narrow
   %155 = add nuw i32 %154, %147
   %156 = add nuw i32 %155, %reass.mul
-  %157 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %156, ptr %157, align 4, !tbaa !72
   %narrow561 = mul nuw nsw i32 %143, 24576
   %158 = add nuw nsw i32 %151, %139
   %159 = shl nuw nsw i32 %158, 14
   %160 = add nuw i32 %159, %narrow561
-  %gep685 = getelementptr i16, ptr %invariant.gep684, i64 %indvars.iv
+  %gep685 = getelementptr [2 x i8], ptr %invariant.gep684, i64 %indvars.iv
   %161 = load i16, ptr %gep685, align 2, !tbaa !399
   %162 = zext i16 %161 to i32
   %163 = shl nuw nsw i32 %162, 14
   %164 = add nuw nsw i32 %162, %146
   %165 = shl nuw nsw i32 %164, 12
   %166 = add nuw i32 %160, %165
-  %167 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %140
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %140
   store i32 %166, ptr %167, align 4, !tbaa !72
   %narrow562 = mul nuw nsw i32 %151, 24576
   %168 = add nuw i32 %narrow562, %144
   %169 = add nuw i32 %168, %163
-  %gep687 = getelementptr i16, ptr %invariant.gep686, i64 %indvars.iv
+  %gep687 = getelementptr [2 x i8], ptr %invariant.gep686, i64 %indvars.iv
   %170 = load i16, ptr %gep687, align 2, !tbaa !399
   %171 = zext i16 %170 to i32
   %172 = add nuw nsw i32 %171, %139
   %173 = shl nuw nsw i32 %172, 12
   %174 = add nuw i32 %169, %173
-  %175 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %148
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %148
   store i32 %174, ptr %175, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -13459,33 +13459,33 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
 
 176:                                              ; preds = %.lr.ph598, %176
   %indvars.iv648 = phi i64 [ 0, %.lr.ph598 ], [ %indvars.iv.next649, %176 ]
-  %177 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv648
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv648
   %178 = load i16, ptr %177, align 2, !tbaa !399
   %179 = zext i16 %178 to i32
   %narrow572 = mul nuw nsw i32 %179, 24576
   %180 = add nuw nsw i64 %indvars.iv648, %11
-  %181 = getelementptr inbounds nuw i16, ptr %0, i64 %180
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !399
   %183 = zext i16 %182 to i32
   %184 = shl nuw nsw i32 %183, 14
   %185 = add nuw i32 %184, %narrow572
-  %gep697 = getelementptr inbounds nuw i16, ptr %invariant.gep696, i64 %indvars.iv648
+  %gep697 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep696, i64 %indvars.iv648
   %186 = load i16, ptr %gep697, align 2, !tbaa !399
   %187 = zext i16 %186 to i32
   %188 = shl nuw nsw i32 %187, 12
   %189 = add nuw i32 %185, %188
-  %190 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv648
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv648
   store i32 %189, ptr %190, align 4, !tbaa !72
   %narrow573 = mul nuw nsw i32 %183, 24576
   %191 = add nuw nsw i32 %187, %179
   %192 = shl nuw nsw i32 %191, 14
   %193 = add nuw i32 %192, %narrow573
-  %gep699 = getelementptr inbounds nuw i16, ptr %invariant.gep698, i64 %indvars.iv648
+  %gep699 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep698, i64 %indvars.iv648
   %194 = load i16, ptr %gep699, align 2, !tbaa !399
   %195 = zext i16 %194 to i32
   %196 = shl nuw nsw i32 %195, 12
   %197 = add nuw i32 %193, %196
-  %198 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %180
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %180
   store i32 %197, ptr %198, align 4, !tbaa !72
   %indvars.iv.next649 = add nuw nsw i64 %indvars.iv648, 1
   %exitcond652.not = icmp eq i64 %indvars.iv.next649, %11
@@ -13503,28 +13503,28 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
   %205 = sext i32 %202 to i64
   %206 = zext nneg i32 %1 to i64
   %wide.trip.count656 = zext nneg i32 %1 to i64
-  %invariant.gep700 = getelementptr i16, ptr %0, i64 %204
-  %invariant.gep702 = getelementptr i16, ptr %0, i64 %205
-  %invariant.gep704 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %206
+  %invariant.gep700 = getelementptr [2 x i8], ptr %0, i64 %204
+  %invariant.gep702 = getelementptr [2 x i8], ptr %0, i64 %205
+  %invariant.gep704 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %206
   br label %.lr.ph601
 
 .lr.ph601:                                        ; preds = %.lr.ph601.preheader, %.lr.ph601
   %indvars.iv653 = phi i64 [ 0, %.lr.ph601.preheader ], [ %indvars.iv.next654, %.lr.ph601 ]
-  %207 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv653
-  %gep701 = getelementptr i16, ptr %invariant.gep700, i64 %indvars.iv653
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv653
+  %gep701 = getelementptr [2 x i8], ptr %invariant.gep700, i64 %indvars.iv653
   %208 = load i16, ptr %gep701, align 2, !tbaa !399
   %209 = zext i16 %208 to i32
   %210 = shl nuw nsw i32 %209, 12
   %211 = load i32, ptr %207, align 4, !tbaa !72, !noalias !1251
   %212 = tail call i32 @llvm.uadd.sat.i32(i32 %211, i32 %210)
-  %gep703 = getelementptr i16, ptr %invariant.gep702, i64 %indvars.iv653
+  %gep703 = getelementptr [2 x i8], ptr %invariant.gep702, i64 %indvars.iv653
   %213 = load i16, ptr %gep703, align 2, !tbaa !399
   %214 = zext i16 %213 to i32
   %215 = shl nuw nsw i32 %214, 12
   %216 = shl nuw nsw i32 %214, 14
   %217 = tail call i32 @llvm.uadd.sat.i32(i32 %212, i32 %216)
   store i32 %217, ptr %207, align 4, !tbaa !72
-  %gep705 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %invariant.gep704, i64 %indvars.iv653
+  %gep705 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep704, i64 %indvars.iv653
   %218 = load i32, ptr %gep705, align 4, !tbaa !72, !noalias !1254
   %219 = tail call i32 @llvm.uadd.sat.i32(i32 %218, i32 %215)
   store i32 %219, ptr %gep705, align 4, !tbaa !72
@@ -13535,8 +13535,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
 .loopexit574:                                     ; preds = %.lr.ph601, %199, %._crit_edge
   %220 = shl nsw i32 %1, 1
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds i16, ptr %0, i64 %221
-  %223 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %221
+  %222 = getelementptr inbounds [2 x i8], ptr %0, i64 %221
+  %223 = getelementptr inbounds [4 x i8], ptr %4, i64 %221
   %224 = add nsw i32 %5, -2
   %225 = mul nsw i32 %224, %1
   %226 = icmp slt i32 %220, %225
@@ -13567,19 +13567,19 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
   %234 = load i16, ptr %.0322604, align 2, !tbaa !399
   %235 = zext i16 %234 to i32
   %236 = mul nuw nsw i32 %235, 24576
-  %237 = getelementptr inbounds i16, ptr %.0322604, i64 %228
+  %237 = getelementptr inbounds [2 x i8], ptr %.0322604, i64 %228
   %238 = load i16, ptr %237, align 2, !tbaa !399
   %239 = zext i16 %238 to i32
-  %240 = getelementptr inbounds i16, ptr %.0322604, i64 %229
+  %240 = getelementptr inbounds [2 x i8], ptr %.0322604, i64 %229
   %241 = load i16, ptr %240, align 2, !tbaa !399
   %242 = zext i16 %241 to i32
   %243 = add nuw nsw i32 %242, %239
   %244 = shl nuw nsw i32 %243, 14
   %245 = add nuw i32 %244, %236
-  %246 = getelementptr inbounds i16, ptr %.0322604, i64 %231
+  %246 = getelementptr inbounds [2 x i8], ptr %.0322604, i64 %231
   %247 = load i16, ptr %246, align 2, !tbaa !399
   %248 = zext i16 %247 to i32
-  %249 = getelementptr inbounds i16, ptr %.0322604, i64 %221
+  %249 = getelementptr inbounds [2 x i8], ptr %.0322604, i64 %221
   %250 = load i16, ptr %249, align 2, !tbaa !399
   %251 = zext i16 %250 to i32
   %252 = add nuw nsw i32 %251, %248
@@ -13597,35 +13597,35 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
 
 .lr.ph610:                                        ; preds = %.lr.ph610.preheader, %.lr.ph610
   %indvars.iv659 = phi i64 [ 0, %.lr.ph610.preheader ], [ %indvars.iv.next660, %.lr.ph610 ]
-  %258 = getelementptr inbounds nuw i16, ptr %.0322.lcssa, i64 %indvars.iv659
+  %258 = getelementptr inbounds nuw [2 x i8], ptr %.0322.lcssa, i64 %indvars.iv659
   %259 = load i16, ptr %258, align 2, !tbaa !399
   %260 = zext i16 %259 to i32
   %261 = shl nuw nsw i32 %260, 14
   %narrow570 = mul nuw nsw i32 %260, 24576
   %262 = sub nsw i64 %indvars.iv659, %232
-  %263 = getelementptr inbounds i16, ptr %.0322.lcssa, i64 %262
+  %263 = getelementptr inbounds [2 x i8], ptr %.0322.lcssa, i64 %262
   %264 = load i16, ptr %263, align 2, !tbaa !399
   %265 = zext i16 %264 to i32
   %266 = shl nuw nsw i32 %265, 12
   %267 = add nuw nsw i64 %indvars.iv659, %232
-  %268 = getelementptr inbounds nuw i16, ptr %.0322.lcssa, i64 %267
+  %268 = getelementptr inbounds nuw [2 x i8], ptr %.0322.lcssa, i64 %267
   %269 = load i16, ptr %268, align 2, !tbaa !399
   %270 = zext i16 %269 to i32
   %271 = add nuw nsw i32 %270, %265
   %272 = shl nuw nsw i32 %271, 14
   %273 = add nuw i32 %272, %narrow570
   %274 = sub nsw i64 %indvars.iv659, %221
-  %275 = getelementptr inbounds i16, ptr %.0322.lcssa, i64 %274
+  %275 = getelementptr inbounds [2 x i8], ptr %.0322.lcssa, i64 %274
   %276 = load i16, ptr %275, align 2, !tbaa !399
   %277 = zext i16 %276 to i32
   %278 = shl nuw nsw i32 %277, 12
   %279 = add nuw i32 %273, %278
-  %280 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0323.lcssa, i64 %indvars.iv659
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %.0323.lcssa, i64 %indvars.iv659
   store i32 %279, ptr %280, align 4, !tbaa !72
   %narrow571 = mul nuw nsw i32 %270, 24576
   %281 = add nuw nsw i32 %266, %261
   %282 = add nuw i32 %281, %narrow571
-  %283 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0323.lcssa, i64 %267
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %.0323.lcssa, i64 %267
   store i32 %282, ptr %283, align 4, !tbaa !72
   %indvars.iv.next660 = add nuw nsw i64 %indvars.iv659, 1
   %exitcond663.not = icmp eq i64 %indvars.iv.next660, %wide.trip.count662
@@ -13646,15 +13646,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
   %293 = zext nneg i32 %1 to i64
   %294 = sext i32 %289 to i64
   %wide.trip.count667 = zext nneg i32 %1 to i64
-  %invariant.gep706 = getelementptr i16, ptr %.0322.lcssa, i64 %292
-  %invariant.gep708 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0323.lcssa, i64 %293
-  %invariant.gep710 = getelementptr i16, ptr %.0322.lcssa, i64 %294
+  %invariant.gep706 = getelementptr [2 x i8], ptr %.0322.lcssa, i64 %292
+  %invariant.gep708 = getelementptr inbounds nuw [4 x i8], ptr %.0323.lcssa, i64 %293
+  %invariant.gep710 = getelementptr [2 x i8], ptr %.0322.lcssa, i64 %294
   br label %.lr.ph614
 
 .lr.ph614:                                        ; preds = %.lr.ph614.preheader, %.lr.ph614
   %indvars.iv664 = phi i64 [ 0, %.lr.ph614.preheader ], [ %indvars.iv.next665, %.lr.ph614 ]
-  %295 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0323.lcssa, i64 %indvars.iv664
-  %gep707 = getelementptr i16, ptr %invariant.gep706, i64 %indvars.iv664
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %.0323.lcssa, i64 %indvars.iv664
+  %gep707 = getelementptr [2 x i8], ptr %invariant.gep706, i64 %indvars.iv664
   %296 = load i16, ptr %gep707, align 2, !tbaa !399
   %297 = zext i16 %296 to i32
   %298 = shl nuw nsw i32 %297, 14
@@ -13662,10 +13662,10 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5N14641ItNS
   %300 = load i32, ptr %295, align 4, !tbaa !72, !noalias !1260
   %301 = tail call i32 @llvm.uadd.sat.i32(i32 %300, i32 %299)
   store i32 %301, ptr %295, align 4, !tbaa !72
-  %gep709 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %invariant.gep708, i64 %indvars.iv664
+  %gep709 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep708, i64 %indvars.iv664
   %302 = load i32, ptr %gep709, align 4, !tbaa !72, !noalias !1263
   %303 = tail call i32 @llvm.uadd.sat.i32(i32 %302, i32 %298)
-  %gep711 = getelementptr i16, ptr %invariant.gep710, i64 %indvars.iv664
+  %gep711 = getelementptr [2 x i8], ptr %invariant.gep710, i64 %indvars.iv664
   %304 = load i16, ptr %gep711, align 2, !tbaa !399
   %305 = zext i16 %304 to i32
   %306 = shl nuw nsw i32 %305, 12
@@ -13699,8 +13699,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %13 = zext nneg i32 %1 to i64
   %14 = zext nneg i32 %11 to i64
   %15 = zext nneg i32 %12 to i64
-  %invariant.gep687 = getelementptr inbounds nuw i16, ptr %0, i64 %14
-  %invariant.gep689 = getelementptr inbounds nuw i16, ptr %0, i64 %15
+  %invariant.gep687 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %14
+  %invariant.gep689 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %15
   br label %313
 
 16:                                               ; preds = %7
@@ -13735,13 +13735,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
 
 32:                                               ; preds = %.lr.ph594, %32
   %indvars.iv635 = phi i64 [ 0, %.lr.ph594 ], [ %indvars.iv.next636, %32 ]
-  %33 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv635
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv635
   %34 = load i16, ptr %33, align 2, !tbaa !399, !noalias !1273
   %35 = zext i16 %34 to i64
   %36 = mul nuw nsw i64 %35, %31
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %36, i64 4294967295)
   %37 = trunc nuw i64 %.sroa.speculated.i to i32
-  %38 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv635
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv635
   store i32 %37, ptr %38, align 4, !tbaa !72
   %indvars.iv.next636 = add nuw nsw i64 %indvars.iv635, 1
   %exitcond639.not = icmp eq i64 %indvars.iv.next636, %wide.trip.count638
@@ -13763,7 +13763,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
 
 45:                                               ; preds = %.lr.ph592, %45
   %indvars.iv630 = phi i64 [ 0, %.lr.ph592 ], [ %indvars.iv.next631, %45 ]
-  %46 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv630
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv630
   %47 = load i32, ptr %42, align 4, !tbaa !72, !noalias !1277
   %48 = zext i32 %47 to i64
   %49 = load i16, ptr %46, align 2, !tbaa !399, !noalias !1277
@@ -13772,7 +13772,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i400 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %51, i64 4294967295)
   %52 = trunc nuw i64 %.sroa.speculated.i400 to i32
   %53 = add nuw nsw i64 %indvars.iv630, %44
-  %54 = getelementptr inbounds nuw i16, ptr %0, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %53
   %55 = load i32, ptr %43, align 4, !tbaa !72, !noalias !1280
   %56 = zext i32 %55 to i64
   %57 = load i16, ptr %54, align 2, !tbaa !399, !noalias !1280
@@ -13781,7 +13781,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i401 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %59, i64 4294967295)
   %60 = trunc nuw i64 %.sroa.speculated.i401 to i32
   %61 = tail call i32 @llvm.uadd.sat.i32(i32 %52, i32 %60)
-  %62 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv630
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv630
   store i32 %61, ptr %62, align 4, !tbaa !72
   %63 = load i32, ptr %43, align 4, !tbaa !72, !noalias !1283
   %64 = zext i32 %63 to i64
@@ -13794,7 +13794,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i403 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %69, i64 4294967295)
   %70 = trunc nuw i64 %.sroa.speculated.i403 to i32
   %71 = tail call i32 @llvm.uadd.sat.i32(i32 %66, i32 %70)
-  %72 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %53
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %53
   store i32 %71, ptr %72, align 4, !tbaa !72
   %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
   %exitcond634.not = icmp eq i64 %indvars.iv.next631, %44
@@ -13821,15 +13821,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %88 = sext i32 %82 to i64
   %89 = sext i32 %79 to i64
   %wide.trip.count628 = zext nneg i32 %1 to i64
-  %invariant.gep679 = getelementptr i16, ptr %0, i64 %85
-  %invariant.gep681 = getelementptr i16, ptr %0, i64 %87
-  %invariant.gep683 = getelementptr i16, ptr %0, i64 %88
-  %invariant.gep685 = getelementptr i16, ptr %0, i64 %89
+  %invariant.gep679 = getelementptr [2 x i8], ptr %0, i64 %85
+  %invariant.gep681 = getelementptr [2 x i8], ptr %0, i64 %87
+  %invariant.gep683 = getelementptr [2 x i8], ptr %0, i64 %88
+  %invariant.gep685 = getelementptr [2 x i8], ptr %0, i64 %89
   br label %90
 
 90:                                               ; preds = %.lr.ph590, %90
   %indvars.iv625 = phi i64 [ 0, %.lr.ph590 ], [ %indvars.iv.next626, %90 ]
-  %gep680 = getelementptr i16, ptr %invariant.gep679, i64 %indvars.iv625
+  %gep680 = getelementptr [2 x i8], ptr %invariant.gep679, i64 %indvars.iv625
   %91 = load i32, ptr %83, align 4, !tbaa !72, !noalias !1290
   %92 = zext i32 %91 to i64
   %93 = load i16, ptr %gep680, align 2, !tbaa !399, !noalias !1290
@@ -13837,7 +13837,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %95 = mul nuw nsw i64 %94, %92
   %.sroa.speculated.i404 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %95, i64 4294967295)
   %96 = trunc nuw i64 %.sroa.speculated.i404 to i32
-  %97 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv625
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv625
   %98 = load i32, ptr %84, align 4, !tbaa !72, !noalias !1293
   %99 = zext i32 %98 to i64
   %100 = load i16, ptr %97, align 2, !tbaa !399, !noalias !1293
@@ -13847,14 +13847,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %103 = trunc nuw i64 %.sroa.speculated.i405 to i32
   %104 = tail call i32 @llvm.uadd.sat.i32(i32 %96, i32 %103)
   %105 = add nuw nsw i64 %indvars.iv625, %86
-  %106 = getelementptr inbounds nuw i16, ptr %0, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !399, !noalias !1296
   %108 = zext i16 %107 to i64
   %109 = mul nuw nsw i64 %108, %92
   %.sroa.speculated.i406 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %109, i64 4294967295)
   %110 = trunc nuw i64 %.sroa.speculated.i406 to i32
   %111 = tail call i32 @llvm.uadd.sat.i32(i32 %104, i32 %110)
-  %gep682 = getelementptr i16, ptr %invariant.gep681, i64 %indvars.iv625
+  %gep682 = getelementptr [2 x i8], ptr %invariant.gep681, i64 %indvars.iv625
   %112 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1299
   %113 = zext i32 %112 to i64
   %114 = load i16, ptr %gep682, align 2, !tbaa !399, !noalias !1299
@@ -13863,14 +13863,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i407 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %116, i64 4294967295)
   %117 = trunc nuw i64 %.sroa.speculated.i407 to i32
   %118 = tail call i32 @llvm.uadd.sat.i32(i32 %111, i32 %117)
-  %gep684 = getelementptr i16, ptr %invariant.gep683, i64 %indvars.iv625
+  %gep684 = getelementptr [2 x i8], ptr %invariant.gep683, i64 %indvars.iv625
   %119 = load i16, ptr %gep684, align 2, !tbaa !399, !noalias !1302
   %120 = zext i16 %119 to i64
   %121 = mul nuw nsw i64 %120, %113
   %.sroa.speculated.i408 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %121, i64 4294967295)
   %122 = trunc nuw i64 %.sroa.speculated.i408 to i32
   %123 = tail call i32 @llvm.uadd.sat.i32(i32 %118, i32 %122)
-  %124 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv625
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv625
   store i32 %123, ptr %124, align 4, !tbaa !72
   %125 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1305
   %126 = zext i32 %125 to i64
@@ -13893,14 +13893,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i412 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %139, i64 4294967295)
   %140 = trunc nuw i64 %.sroa.speculated.i412 to i32
   %141 = tail call i32 @llvm.uadd.sat.i32(i32 %138, i32 %140)
-  %gep686 = getelementptr i16, ptr %invariant.gep685, i64 %indvars.iv625
+  %gep686 = getelementptr [2 x i8], ptr %invariant.gep685, i64 %indvars.iv625
   %142 = load i16, ptr %gep686, align 2, !tbaa !399, !noalias !1314
   %143 = zext i16 %142 to i64
   %144 = mul nuw nsw i64 %143, %126
   %.sroa.speculated.i413 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %144, i64 4294967295)
   %145 = trunc nuw i64 %.sroa.speculated.i413 to i32
   %146 = tail call i32 @llvm.uadd.sat.i32(i32 %141, i32 %145)
-  %147 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %105
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %105
   store i32 %146, ptr %147, align 4, !tbaa !72
   %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   %exitcond629.not = icmp eq i64 %indvars.iv.next626, %wide.trip.count628
@@ -13924,7 +13924,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
 
 156:                                              ; preds = %.lr.ph588, %156
   %indvars.iv620 = phi i64 [ 0, %.lr.ph588 ], [ %indvars.iv.next621, %156 ]
-  %157 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv620
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv620
   %158 = load i32, ptr %151, align 4, !tbaa !72, !noalias !1318
   %159 = zext i32 %158 to i64
   %160 = load i16, ptr %157, align 2, !tbaa !399, !noalias !1318
@@ -13933,7 +13933,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i414 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %162, i64 4294967295)
   %163 = trunc nuw i64 %.sroa.speculated.i414 to i32
   %164 = add nuw nsw i64 %indvars.iv620, %154
-  %165 = getelementptr inbounds nuw i16, ptr %0, i64 %164
+  %165 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %164
   %166 = load i32, ptr %152, align 4, !tbaa !72, !noalias !1321
   %167 = zext i32 %166 to i64
   %168 = load i16, ptr %165, align 2, !tbaa !399, !noalias !1321
@@ -13943,7 +13943,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %171 = trunc nuw i64 %.sroa.speculated.i415 to i32
   %172 = tail call i32 @llvm.uadd.sat.i32(i32 %163, i32 %171)
   %173 = add nuw nsw i64 %indvars.iv620, %155
-  %174 = getelementptr inbounds nuw i16, ptr %0, i64 %173
+  %174 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %173
   %175 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1324
   %176 = zext i32 %175 to i64
   %177 = load i16, ptr %174, align 2, !tbaa !399, !noalias !1324
@@ -13952,7 +13952,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i416 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %179, i64 4294967295)
   %180 = trunc nuw i64 %.sroa.speculated.i416 to i32
   %181 = tail call i32 @llvm.uadd.sat.i32(i32 %172, i32 %180)
-  %182 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv620
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv620
   store i32 %181, ptr %182, align 4, !tbaa !72
   %183 = load i32, ptr %152, align 4, !tbaa !72, !noalias !1327
   %184 = zext i32 %183 to i64
@@ -13969,7 +13969,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i419 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %192, i64 4294967295)
   %193 = trunc nuw i64 %.sroa.speculated.i419 to i32
   %194 = tail call i32 @llvm.uadd.sat.i32(i32 %191, i32 %193)
-  %195 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %164
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %164
   store i32 %194, ptr %195, align 4, !tbaa !72
   %196 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1333
   %197 = zext i32 %196 to i64
@@ -13988,7 +13988,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i422 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %207, i64 4294967295)
   %208 = trunc nuw i64 %.sroa.speculated.i422 to i32
   %209 = tail call i32 @llvm.uadd.sat.i32(i32 %204, i32 %208)
-  %210 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %173
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %173
   store i32 %209, ptr %210, align 4, !tbaa !72
   %indvars.iv.next621 = add nuw nsw i64 %indvars.iv620, 1
   %exitcond624.not = icmp eq i64 %indvars.iv.next621, %154
@@ -14017,15 +14017,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %228 = sext i32 %218 to i64
   %229 = sext i32 %217 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %invariant.gep = getelementptr i16, ptr %0, i64 %226
-  %invariant.gep673 = getelementptr i16, ptr %0, i64 %227
-  %invariant.gep675 = getelementptr i16, ptr %0, i64 %228
-  %invariant.gep677 = getelementptr i16, ptr %0, i64 %229
+  %invariant.gep = getelementptr [2 x i8], ptr %0, i64 %226
+  %invariant.gep673 = getelementptr [2 x i8], ptr %0, i64 %227
+  %invariant.gep675 = getelementptr [2 x i8], ptr %0, i64 %228
+  %invariant.gep677 = getelementptr [2 x i8], ptr %0, i64 %229
   br label %230
 
 230:                                              ; preds = %.lr.ph, %230
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %230 ]
-  %231 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %231 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %232 = load i32, ptr %221, align 4, !tbaa !72, !noalias !1343
   %233 = zext i32 %232 to i64
   %234 = load i16, ptr %231, align 2, !tbaa !399, !noalias !1343
@@ -14034,7 +14034,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i423 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %236, i64 4294967295)
   %237 = trunc nuw i64 %.sroa.speculated.i423 to i32
   %238 = add nuw nsw i64 %indvars.iv, %224
-  %239 = getelementptr inbounds nuw i16, ptr %0, i64 %238
+  %239 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %238
   %240 = load i32, ptr %222, align 4, !tbaa !72, !noalias !1346
   %241 = zext i32 %240 to i64
   %242 = load i16, ptr %239, align 2, !tbaa !399, !noalias !1346
@@ -14044,7 +14044,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %245 = trunc nuw i64 %.sroa.speculated.i424 to i32
   %246 = tail call i32 @llvm.uadd.sat.i32(i32 %237, i32 %245)
   %247 = add nuw nsw i64 %indvars.iv, %225
-  %248 = getelementptr inbounds nuw i16, ptr %0, i64 %247
+  %248 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %247
   %249 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1349
   %250 = zext i32 %249 to i64
   %251 = load i16, ptr %248, align 2, !tbaa !399, !noalias !1349
@@ -14053,21 +14053,21 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i425 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %253, i64 4294967295)
   %254 = trunc nuw i64 %.sroa.speculated.i425 to i32
   %255 = tail call i32 @llvm.uadd.sat.i32(i32 %246, i32 %254)
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %256 = load i16, ptr %gep, align 2, !tbaa !399, !noalias !1352
   %257 = zext i16 %256 to i64
   %258 = mul nuw nsw i64 %257, %250
   %.sroa.speculated.i426 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %258, i64 4294967295)
   %259 = trunc nuw i64 %.sroa.speculated.i426 to i32
   %260 = tail call i32 @llvm.uadd.sat.i32(i32 %255, i32 %259)
-  %gep674 = getelementptr i16, ptr %invariant.gep673, i64 %indvars.iv
+  %gep674 = getelementptr [2 x i8], ptr %invariant.gep673, i64 %indvars.iv
   %261 = load i16, ptr %gep674, align 2, !tbaa !399, !noalias !1355
   %262 = zext i16 %261 to i64
   %263 = mul nuw nsw i64 %262, %241
   %.sroa.speculated.i427 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %263, i64 4294967295)
   %264 = trunc nuw i64 %.sroa.speculated.i427 to i32
   %265 = tail call i32 @llvm.uadd.sat.i32(i32 %260, i32 %264)
-  %266 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %265, ptr %266, align 4, !tbaa !72
   %267 = load i32, ptr %222, align 4, !tbaa !72, !noalias !1358
   %268 = zext i32 %267 to i64
@@ -14090,14 +14090,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i431 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %281, i64 4294967295)
   %282 = trunc nuw i64 %.sroa.speculated.i431 to i32
   %283 = tail call i32 @llvm.uadd.sat.i32(i32 %278, i32 %282)
-  %gep676 = getelementptr i16, ptr %invariant.gep675, i64 %indvars.iv
+  %gep676 = getelementptr [2 x i8], ptr %invariant.gep675, i64 %indvars.iv
   %284 = load i16, ptr %gep676, align 2, !tbaa !399, !noalias !1367
   %285 = zext i16 %284 to i64
   %286 = mul nuw nsw i64 %285, %280
   %.sroa.speculated.i432 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %286, i64 4294967295)
   %287 = trunc nuw i64 %.sroa.speculated.i432 to i32
   %288 = tail call i32 @llvm.uadd.sat.i32(i32 %283, i32 %287)
-  %289 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %238
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %238
   store i32 %288, ptr %289, align 4, !tbaa !72
   %290 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1370
   %291 = zext i32 %290 to i64
@@ -14120,14 +14120,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i436 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %304, i64 4294967295)
   %305 = trunc nuw i64 %.sroa.speculated.i436 to i32
   %306 = tail call i32 @llvm.uadd.sat.i32(i32 %303, i32 %305)
-  %gep678 = getelementptr i16, ptr %invariant.gep677, i64 %indvars.iv
+  %gep678 = getelementptr [2 x i8], ptr %invariant.gep677, i64 %indvars.iv
   %307 = load i16, ptr %gep678, align 2, !tbaa !399, !noalias !1379
   %308 = zext i16 %307 to i64
   %309 = mul nuw nsw i64 %308, %291
   %.sroa.speculated.i437 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %309, i64 4294967295)
   %310 = trunc nuw i64 %.sroa.speculated.i437 to i32
   %311 = tail call i32 @llvm.uadd.sat.i32(i32 %306, i32 %310)
-  %312 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %247
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %247
   store i32 %311, ptr %312, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -14139,7 +14139,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
 
 313:                                              ; preds = %.lr.ph596, %313
   %indvars.iv640 = phi i64 [ 0, %.lr.ph596 ], [ %indvars.iv.next641, %313 ]
-  %314 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv640
+  %314 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv640
   %315 = load i32, ptr %9, align 4, !tbaa !72, !noalias !1383
   %316 = zext i32 %315 to i64
   %317 = load i16, ptr %314, align 2, !tbaa !399, !noalias !1383
@@ -14148,7 +14148,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i438 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %319, i64 4294967295)
   %320 = trunc nuw i64 %.sroa.speculated.i438 to i32
   %321 = add nuw nsw i64 %indvars.iv640, %13
-  %322 = getelementptr inbounds nuw i16, ptr %0, i64 %321
+  %322 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %321
   %323 = load i32, ptr %10, align 4, !tbaa !72, !noalias !1386
   %324 = zext i32 %323 to i64
   %325 = load i16, ptr %322, align 2, !tbaa !399, !noalias !1386
@@ -14157,7 +14157,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i439 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %327, i64 4294967295)
   %328 = trunc nuw i64 %.sroa.speculated.i439 to i32
   %329 = tail call i32 @llvm.uadd.sat.i32(i32 %320, i32 %328)
-  %gep688 = getelementptr inbounds nuw i16, ptr %invariant.gep687, i64 %indvars.iv640
+  %gep688 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep687, i64 %indvars.iv640
   %330 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1389
   %331 = zext i32 %330 to i64
   %332 = load i16, ptr %gep688, align 2, !tbaa !399, !noalias !1389
@@ -14166,7 +14166,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i440 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %334, i64 4294967295)
   %335 = trunc nuw i64 %.sroa.speculated.i440 to i32
   %336 = tail call i32 @llvm.uadd.sat.i32(i32 %329, i32 %335)
-  %337 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv640
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv640
   store i32 %336, ptr %337, align 4, !tbaa !72
   %338 = load i32, ptr %10, align 4, !tbaa !72, !noalias !1392
   %339 = zext i32 %338 to i64
@@ -14183,7 +14183,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i443 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %347, i64 4294967295)
   %348 = trunc nuw i64 %.sroa.speculated.i443 to i32
   %349 = tail call i32 @llvm.uadd.sat.i32(i32 %346, i32 %348)
-  %gep690 = getelementptr inbounds nuw i16, ptr %invariant.gep689, i64 %indvars.iv640
+  %gep690 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep689, i64 %indvars.iv640
   %350 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1398
   %351 = zext i32 %350 to i64
   %352 = load i16, ptr %gep690, align 2, !tbaa !399, !noalias !1398
@@ -14192,7 +14192,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i444 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %354, i64 4294967295)
   %355 = trunc nuw i64 %.sroa.speculated.i444 to i32
   %356 = tail call i32 @llvm.uadd.sat.i32(i32 %349, i32 %355)
-  %357 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %321
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %321
   store i32 %356, ptr %357, align 4, !tbaa !72
   %indvars.iv.next641 = add nuw nsw i64 %indvars.iv640, 1
   %exitcond644.not = icmp eq i64 %indvars.iv.next641, %13
@@ -14211,15 +14211,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %365 = sext i32 %361 to i64
   %366 = zext nneg i32 %1 to i64
   %wide.trip.count648 = zext nneg i32 %1 to i64
-  %invariant.gep691 = getelementptr i16, ptr %0, i64 %364
-  %invariant.gep693 = getelementptr i16, ptr %0, i64 %365
-  %invariant.gep695 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %366
+  %invariant.gep691 = getelementptr [2 x i8], ptr %0, i64 %364
+  %invariant.gep693 = getelementptr [2 x i8], ptr %0, i64 %365
+  %invariant.gep695 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %366
   br label %367
 
 367:                                              ; preds = %.lr.ph599, %367
   %indvars.iv645 = phi i64 [ 0, %.lr.ph599 ], [ %indvars.iv.next646, %367 ]
-  %368 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv645
-  %gep692 = getelementptr i16, ptr %invariant.gep691, i64 %indvars.iv645
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv645
+  %gep692 = getelementptr [2 x i8], ptr %invariant.gep691, i64 %indvars.iv645
   %369 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1402
   %370 = zext i32 %369 to i64
   %371 = load i16, ptr %gep692, align 2, !tbaa !399, !noalias !1402
@@ -14229,7 +14229,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %374 = trunc nuw i64 %.sroa.speculated.i445 to i32
   %375 = load i32, ptr %368, align 4, !tbaa !72, !noalias !1405
   %376 = tail call i32 @llvm.uadd.sat.i32(i32 %375, i32 %374)
-  %gep694 = getelementptr i16, ptr %invariant.gep693, i64 %indvars.iv645
+  %gep694 = getelementptr [2 x i8], ptr %invariant.gep693, i64 %indvars.iv645
   %377 = load i32, ptr %363, align 4, !tbaa !72, !noalias !1408
   %378 = zext i32 %377 to i64
   %379 = load i16, ptr %gep694, align 2, !tbaa !399, !noalias !1408
@@ -14239,7 +14239,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %382 = trunc nuw i64 %.sroa.speculated.i446 to i32
   %383 = tail call i32 @llvm.uadd.sat.i32(i32 %376, i32 %382)
   store i32 %383, ptr %368, align 4, !tbaa !72
-  %gep696 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %invariant.gep695, i64 %indvars.iv645
+  %gep696 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep695, i64 %indvars.iv645
   %384 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1411
   %385 = zext i32 %384 to i64
   %386 = mul nuw nsw i64 %385, %380
@@ -14255,8 +14255,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
 .loopexit577:                                     ; preds = %367, %358, %._crit_edge
   %390 = shl nsw i32 %1, 1
   %391 = sext i32 %390 to i64
-  %392 = getelementptr inbounds i16, ptr %0, i64 %391
-  %393 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %391
+  %392 = getelementptr inbounds [2 x i8], ptr %0, i64 %391
+  %393 = getelementptr inbounds [4 x i8], ptr %4, i64 %391
   %394 = add nsw i32 %5, -2
   %395 = mul nsw i32 %394, %1
   %396 = icmp slt i32 %390, %395
@@ -14291,7 +14291,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.0382602 = phi ptr [ %392, %.lr.ph604 ], [ %450, %410 ]
   %.0383601 = phi ptr [ %393, %.lr.ph604 ], [ %451, %410 ]
   %.0385600 = phi i32 [ %390, %.lr.ph604 ], [ %449, %410 ]
-  %411 = getelementptr inbounds i16, ptr %.0382602, i64 %398
+  %411 = getelementptr inbounds [2 x i8], ptr %.0382602, i64 %398
   %412 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1418
   %413 = zext i32 %412 to i64
   %414 = load i16, ptr %411, align 2, !tbaa !399, !noalias !1418
@@ -14299,7 +14299,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %416 = mul nuw nsw i64 %415, %413
   %.sroa.speculated.i448 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %416, i64 4294967295)
   %417 = trunc nuw i64 %.sroa.speculated.i448 to i32
-  %418 = getelementptr inbounds i16, ptr %.0382602, i64 %401
+  %418 = getelementptr inbounds [2 x i8], ptr %.0382602, i64 %401
   %419 = load i32, ptr %399, align 4, !tbaa !72, !noalias !1421
   %420 = zext i32 %419 to i64
   %421 = load i16, ptr %418, align 2, !tbaa !399, !noalias !1421
@@ -14316,7 +14316,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i450 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %430, i64 4294967295)
   %431 = trunc nuw i64 %.sroa.speculated.i450 to i32
   %432 = tail call i32 @llvm.uadd.sat.i32(i32 %425, i32 %431)
-  %433 = getelementptr inbounds i16, ptr %.0382602, i64 %404
+  %433 = getelementptr inbounds [2 x i8], ptr %.0382602, i64 %404
   %434 = load i32, ptr %403, align 4, !tbaa !72, !noalias !1427
   %435 = zext i32 %434 to i64
   %436 = load i16, ptr %433, align 2, !tbaa !399, !noalias !1427
@@ -14325,7 +14325,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i451 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %438, i64 4294967295)
   %439 = trunc nuw i64 %.sroa.speculated.i451 to i32
   %440 = tail call i32 @llvm.uadd.sat.i32(i32 %432, i32 %439)
-  %441 = getelementptr inbounds i16, ptr %.0382602, i64 %391
+  %441 = getelementptr inbounds [2 x i8], ptr %.0382602, i64 %391
   %442 = load i32, ptr %405, align 4, !tbaa !72, !noalias !1430
   %443 = zext i32 %442 to i64
   %444 = load i16, ptr %441, align 2, !tbaa !399, !noalias !1430
@@ -14347,7 +14347,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
 452:                                              ; preds = %.lr.ph608, %452
   %indvars.iv651 = phi i64 [ 0, %.lr.ph608 ], [ %indvars.iv.next652, %452 ]
   %453 = sub nsw i64 %indvars.iv651, %391
-  %454 = getelementptr inbounds i16, ptr %.0382.lcssa, i64 %453
+  %454 = getelementptr inbounds [2 x i8], ptr %.0382.lcssa, i64 %453
   %455 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1434
   %456 = zext i32 %455 to i64
   %457 = load i16, ptr %454, align 2, !tbaa !399, !noalias !1434
@@ -14356,7 +14356,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i453 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %459, i64 4294967295)
   %460 = trunc nuw i64 %.sroa.speculated.i453 to i32
   %461 = sub nsw i64 %indvars.iv651, %409
-  %462 = getelementptr inbounds i16, ptr %.0382.lcssa, i64 %461
+  %462 = getelementptr inbounds [2 x i8], ptr %.0382.lcssa, i64 %461
   %463 = load i32, ptr %406, align 4, !tbaa !72, !noalias !1437
   %464 = zext i32 %463 to i64
   %465 = load i16, ptr %462, align 2, !tbaa !399, !noalias !1437
@@ -14365,7 +14365,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i454 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %467, i64 4294967295)
   %468 = trunc nuw i64 %.sroa.speculated.i454 to i32
   %469 = tail call i32 @llvm.uadd.sat.i32(i32 %460, i32 %468)
-  %470 = getelementptr inbounds nuw i16, ptr %.0382.lcssa, i64 %indvars.iv651
+  %470 = getelementptr inbounds nuw [2 x i8], ptr %.0382.lcssa, i64 %indvars.iv651
   %471 = load i32, ptr %407, align 4, !tbaa !72, !noalias !1440
   %472 = zext i32 %471 to i64
   %473 = load i16, ptr %470, align 2, !tbaa !399, !noalias !1440
@@ -14375,7 +14375,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %476 = trunc nuw i64 %.sroa.speculated.i455 to i32
   %477 = tail call i32 @llvm.uadd.sat.i32(i32 %469, i32 %476)
   %478 = add nuw nsw i64 %indvars.iv651, %409
-  %479 = getelementptr inbounds nuw i16, ptr %.0382.lcssa, i64 %478
+  %479 = getelementptr inbounds nuw [2 x i8], ptr %.0382.lcssa, i64 %478
   %480 = load i32, ptr %408, align 4, !tbaa !72, !noalias !1443
   %481 = zext i32 %480 to i64
   %482 = load i16, ptr %479, align 2, !tbaa !399, !noalias !1443
@@ -14384,7 +14384,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i456 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %484, i64 4294967295)
   %485 = trunc nuw i64 %.sroa.speculated.i456 to i32
   %486 = tail call i32 @llvm.uadd.sat.i32(i32 %477, i32 %485)
-  %487 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0383.lcssa, i64 %indvars.iv651
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %.0383.lcssa, i64 %indvars.iv651
   store i32 %486, ptr %487, align 4, !tbaa !72
   %488 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1446
   %489 = zext i32 %488 to i64
@@ -14403,7 +14403,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %.sroa.speculated.i459 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %499, i64 4294967295)
   %500 = trunc nuw i64 %.sroa.speculated.i459 to i32
   %501 = tail call i32 @llvm.uadd.sat.i32(i32 %496, i32 %500)
-  %502 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0383.lcssa, i64 %478
+  %502 = getelementptr inbounds nuw [4 x i8], ptr %.0383.lcssa, i64 %478
   store i32 %501, ptr %502, align 4, !tbaa !72
   %indvars.iv.next652 = add nuw nsw i64 %indvars.iv651, 1
   %exitcond655.not = icmp eq i64 %indvars.iv.next652, %wide.trip.count654
@@ -14425,15 +14425,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %513 = zext nneg i32 %1 to i64
   %514 = sext i32 %508 to i64
   %wide.trip.count659 = zext nneg i32 %1 to i64
-  %invariant.gep697 = getelementptr i16, ptr %.0382.lcssa, i64 %512
-  %invariant.gep699 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0383.lcssa, i64 %513
-  %invariant.gep701 = getelementptr i16, ptr %.0382.lcssa, i64 %514
+  %invariant.gep697 = getelementptr [2 x i8], ptr %.0382.lcssa, i64 %512
+  %invariant.gep699 = getelementptr inbounds nuw [4 x i8], ptr %.0383.lcssa, i64 %513
+  %invariant.gep701 = getelementptr [2 x i8], ptr %.0382.lcssa, i64 %514
   br label %515
 
 515:                                              ; preds = %.lr.ph612, %515
   %indvars.iv656 = phi i64 [ 0, %.lr.ph612 ], [ %indvars.iv.next657, %515 ]
-  %516 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0383.lcssa, i64 %indvars.iv656
-  %gep698 = getelementptr i16, ptr %invariant.gep697, i64 %indvars.iv656
+  %516 = getelementptr inbounds nuw [4 x i8], ptr %.0383.lcssa, i64 %indvars.iv656
+  %gep698 = getelementptr [2 x i8], ptr %invariant.gep697, i64 %indvars.iv656
   %517 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1456
   %518 = zext i32 %517 to i64
   %519 = load i16, ptr %gep698, align 2, !tbaa !399, !noalias !1456
@@ -14444,7 +14444,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %523 = load i32, ptr %516, align 4, !tbaa !72, !noalias !1459
   %524 = tail call i32 @llvm.uadd.sat.i32(i32 %523, i32 %522)
   store i32 %524, ptr %516, align 4, !tbaa !72
-  %gep700 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %invariant.gep699, i64 %indvars.iv656
+  %gep700 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep699, i64 %indvars.iv656
   %525 = load i32, ptr %511, align 4, !tbaa !72, !noalias !1462
   %526 = zext i32 %525 to i64
   %527 = mul nuw nsw i64 %526, %520
@@ -14452,7 +14452,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118hlineSmooth5NabcbaItNS
   %528 = trunc nuw i64 %.sroa.speculated.i461 to i32
   %529 = load i32, ptr %gep700, align 4, !tbaa !72, !noalias !1465
   %530 = tail call i32 @llvm.uadd.sat.i32(i32 %529, i32 %528)
-  %gep702 = getelementptr i16, ptr %invariant.gep701, i64 %indvars.iv656
+  %gep702 = getelementptr [2 x i8], ptr %invariant.gep701, i64 %indvars.iv656
   %531 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1468
   %532 = zext i32 %531 to i64
   %533 = load i16, ptr %gep702, align 2, !tbaa !399, !noalias !1468
@@ -14492,8 +14492,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %15 = zext nneg i32 %1 to i64
   %16 = zext nneg i32 %12 to i64
   %17 = zext nneg i32 %14 to i64
-  %invariant.gep690 = getelementptr inbounds nuw i16, ptr %0, i64 %16
-  %invariant.gep692 = getelementptr inbounds nuw i16, ptr %0, i64 %17
+  %invariant.gep690 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %16
+  %invariant.gep692 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %17
   br label %349
 
 18:                                               ; preds = %7
@@ -14533,13 +14533,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
 
 39:                                               ; preds = %.lr.ph597, %39
   %indvars.iv638 = phi i64 [ 0, %.lr.ph597 ], [ %indvars.iv.next639, %39 ]
-  %40 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv638
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv638
   %41 = load i16, ptr %40, align 2, !tbaa !399, !noalias !1484
   %42 = zext i16 %41 to i64
   %43 = mul nuw nsw i64 %42, %38
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %43, i64 4294967295)
   %44 = trunc nuw i64 %.sroa.speculated.i to i32
-  %45 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv638
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv638
   store i32 %44, ptr %45, align 4, !tbaa !72
   %indvars.iv.next639 = add nuw nsw i64 %indvars.iv638, 1
   %exitcond642.not = icmp eq i64 %indvars.iv.next639, %wide.trip.count641
@@ -14562,7 +14562,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
 
 53:                                               ; preds = %.lr.ph595, %53
   %indvars.iv633 = phi i64 [ 0, %.lr.ph595 ], [ %indvars.iv.next634, %53 ]
-  %54 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv633
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv633
   %55 = load i32, ptr %49, align 4, !tbaa !72, !noalias !1488
   %56 = zext i32 %55 to i64
   %57 = load i16, ptr %54, align 2, !tbaa !399, !noalias !1488
@@ -14571,7 +14571,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i402 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %59, i64 4294967295)
   %60 = trunc nuw i64 %.sroa.speculated.i402 to i32
   %61 = add nuw nsw i64 %indvars.iv633, %52
-  %62 = getelementptr inbounds nuw i16, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %61
   %63 = load i32, ptr %50, align 4, !tbaa !72, !noalias !1491
   %64 = zext i32 %63 to i64
   %65 = load i16, ptr %62, align 2, !tbaa !399, !noalias !1491
@@ -14580,7 +14580,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i403 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %67, i64 4294967295)
   %68 = trunc nuw i64 %.sroa.speculated.i403 to i32
   %69 = tail call i32 @llvm.uadd.sat.i32(i32 %60, i32 %68)
-  %70 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv633
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv633
   store i32 %69, ptr %70, align 4, !tbaa !72
   %71 = load i32, ptr %51, align 4, !tbaa !72, !noalias !1494
   %72 = zext i32 %71 to i64
@@ -14593,7 +14593,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i405 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %77, i64 4294967295)
   %78 = trunc nuw i64 %.sroa.speculated.i405 to i32
   %79 = tail call i32 @llvm.uadd.sat.i32(i32 %74, i32 %78)
-  %80 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %61
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %61
   store i32 %79, ptr %80, align 4, !tbaa !72
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 1
   %exitcond637.not = icmp eq i64 %indvars.iv.next634, %52
@@ -14622,15 +14622,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %98 = sext i32 %90 to i64
   %99 = sext i32 %87 to i64
   %wide.trip.count631 = zext nneg i32 %1 to i64
-  %invariant.gep682 = getelementptr i16, ptr %0, i64 %95
-  %invariant.gep684 = getelementptr i16, ptr %0, i64 %97
-  %invariant.gep686 = getelementptr i16, ptr %0, i64 %98
-  %invariant.gep688 = getelementptr i16, ptr %0, i64 %99
+  %invariant.gep682 = getelementptr [2 x i8], ptr %0, i64 %95
+  %invariant.gep684 = getelementptr [2 x i8], ptr %0, i64 %97
+  %invariant.gep686 = getelementptr [2 x i8], ptr %0, i64 %98
+  %invariant.gep688 = getelementptr [2 x i8], ptr %0, i64 %99
   br label %100
 
 100:                                              ; preds = %.lr.ph593, %100
   %indvars.iv628 = phi i64 [ 0, %.lr.ph593 ], [ %indvars.iv.next629, %100 ]
-  %gep683 = getelementptr i16, ptr %invariant.gep682, i64 %indvars.iv628
+  %gep683 = getelementptr [2 x i8], ptr %invariant.gep682, i64 %indvars.iv628
   %101 = load i32, ptr %91, align 4, !tbaa !72, !noalias !1501
   %102 = zext i32 %101 to i64
   %103 = load i16, ptr %gep683, align 2, !tbaa !399, !noalias !1501
@@ -14638,7 +14638,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %105 = mul nuw nsw i64 %104, %102
   %.sroa.speculated.i406 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %105, i64 4294967295)
   %106 = trunc nuw i64 %.sroa.speculated.i406 to i32
-  %107 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv628
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv628
   %108 = load i32, ptr %92, align 4, !tbaa !72, !noalias !1504
   %109 = zext i32 %108 to i64
   %110 = load i16, ptr %107, align 2, !tbaa !399, !noalias !1504
@@ -14648,7 +14648,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %113 = trunc nuw i64 %.sroa.speculated.i407 to i32
   %114 = tail call i32 @llvm.uadd.sat.i32(i32 %106, i32 %113)
   %115 = add nuw nsw i64 %indvars.iv628, %96
-  %116 = getelementptr inbounds nuw i16, ptr %0, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %115
   %117 = load i32, ptr %93, align 4, !tbaa !72, !noalias !1507
   %118 = zext i32 %117 to i64
   %119 = load i16, ptr %116, align 2, !tbaa !399, !noalias !1507
@@ -14657,7 +14657,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i408 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %121, i64 4294967295)
   %122 = trunc nuw i64 %.sroa.speculated.i408 to i32
   %123 = tail call i32 @llvm.uadd.sat.i32(i32 %114, i32 %122)
-  %gep685 = getelementptr i16, ptr %invariant.gep684, i64 %indvars.iv628
+  %gep685 = getelementptr [2 x i8], ptr %invariant.gep684, i64 %indvars.iv628
   %124 = load i32, ptr %94, align 4, !tbaa !72, !noalias !1510
   %125 = zext i32 %124 to i64
   %126 = load i16, ptr %gep685, align 2, !tbaa !399, !noalias !1510
@@ -14666,7 +14666,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i409 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %128, i64 4294967295)
   %129 = trunc nuw i64 %.sroa.speculated.i409 to i32
   %130 = tail call i32 @llvm.uadd.sat.i32(i32 %123, i32 %129)
-  %gep687 = getelementptr i16, ptr %invariant.gep686, i64 %indvars.iv628
+  %gep687 = getelementptr [2 x i8], ptr %invariant.gep686, i64 %indvars.iv628
   %131 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1513
   %132 = zext i32 %131 to i64
   %133 = load i16, ptr %gep687, align 2, !tbaa !399, !noalias !1513
@@ -14675,7 +14675,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i410 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %135, i64 4294967295)
   %136 = trunc nuw i64 %.sroa.speculated.i410 to i32
   %137 = tail call i32 @llvm.uadd.sat.i32(i32 %130, i32 %136)
-  %138 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv628
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv628
   store i32 %137, ptr %138, align 4, !tbaa !72
   %139 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1516
   %140 = zext i32 %139 to i64
@@ -14700,7 +14700,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i414 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %155, i64 4294967295)
   %156 = trunc nuw i64 %.sroa.speculated.i414 to i32
   %157 = tail call i32 @llvm.uadd.sat.i32(i32 %152, i32 %156)
-  %gep689 = getelementptr i16, ptr %invariant.gep688, i64 %indvars.iv628
+  %gep689 = getelementptr [2 x i8], ptr %invariant.gep688, i64 %indvars.iv628
   %158 = load i32, ptr %94, align 4, !tbaa !72, !noalias !1528
   %159 = zext i32 %158 to i64
   %160 = load i16, ptr %gep689, align 2, !tbaa !399, !noalias !1528
@@ -14709,7 +14709,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i415 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %162, i64 4294967295)
   %163 = trunc nuw i64 %.sroa.speculated.i415 to i32
   %164 = tail call i32 @llvm.uadd.sat.i32(i32 %157, i32 %163)
-  %165 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %115
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %115
   store i32 %164, ptr %165, align 4, !tbaa !72
   %indvars.iv.next629 = add nuw nsw i64 %indvars.iv628, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next629, %wide.trip.count631
@@ -14735,7 +14735,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
 
 176:                                              ; preds = %.lr.ph591, %176
   %indvars.iv623 = phi i64 [ 0, %.lr.ph591 ], [ %indvars.iv.next624, %176 ]
-  %177 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv623
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv623
   %178 = load i32, ptr %169, align 4, !tbaa !72, !noalias !1532
   %179 = zext i32 %178 to i64
   %180 = load i16, ptr %177, align 2, !tbaa !399, !noalias !1532
@@ -14744,7 +14744,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i416 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %182, i64 4294967295)
   %183 = trunc nuw i64 %.sroa.speculated.i416 to i32
   %184 = add nuw nsw i64 %indvars.iv623, %174
-  %185 = getelementptr inbounds nuw i16, ptr %0, i64 %184
+  %185 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %184
   %186 = load i32, ptr %170, align 4, !tbaa !72, !noalias !1535
   %187 = zext i32 %186 to i64
   %188 = load i16, ptr %185, align 2, !tbaa !399, !noalias !1535
@@ -14754,7 +14754,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %191 = trunc nuw i64 %.sroa.speculated.i417 to i32
   %192 = tail call i32 @llvm.uadd.sat.i32(i32 %183, i32 %191)
   %193 = add nuw nsw i64 %indvars.iv623, %175
-  %194 = getelementptr inbounds nuw i16, ptr %0, i64 %193
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %193
   %195 = load i32, ptr %171, align 4, !tbaa !72, !noalias !1538
   %196 = zext i32 %195 to i64
   %197 = load i16, ptr %194, align 2, !tbaa !399, !noalias !1538
@@ -14763,7 +14763,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i418 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %199, i64 4294967295)
   %200 = trunc nuw i64 %.sroa.speculated.i418 to i32
   %201 = tail call i32 @llvm.uadd.sat.i32(i32 %192, i32 %200)
-  %202 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv623
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv623
   store i32 %201, ptr %202, align 4, !tbaa !72
   %203 = load i32, ptr %173, align 4, !tbaa !72, !noalias !1541
   %204 = zext i32 %203 to i64
@@ -14782,7 +14782,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i421 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %214, i64 4294967295)
   %215 = trunc nuw i64 %.sroa.speculated.i421 to i32
   %216 = tail call i32 @llvm.uadd.sat.i32(i32 %211, i32 %215)
-  %217 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %184
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %184
   store i32 %216, ptr %217, align 4, !tbaa !72
   %218 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1550
   %219 = zext i32 %218 to i64
@@ -14801,7 +14801,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i424 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %229, i64 4294967295)
   %230 = trunc nuw i64 %.sroa.speculated.i424 to i32
   %231 = tail call i32 @llvm.uadd.sat.i32(i32 %226, i32 %230)
-  %232 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %193
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %193
   store i32 %231, ptr %232, align 4, !tbaa !72
   %indvars.iv.next624 = add nuw nsw i64 %indvars.iv623, 1
   %exitcond627.not = icmp eq i64 %indvars.iv.next624, %174
@@ -14832,15 +14832,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %252 = sext i32 %240 to i64
   %253 = sext i32 %239 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %invariant.gep = getelementptr i16, ptr %0, i64 %250
-  %invariant.gep676 = getelementptr i16, ptr %0, i64 %251
-  %invariant.gep678 = getelementptr i16, ptr %0, i64 %252
-  %invariant.gep680 = getelementptr i16, ptr %0, i64 %253
+  %invariant.gep = getelementptr [2 x i8], ptr %0, i64 %250
+  %invariant.gep676 = getelementptr [2 x i8], ptr %0, i64 %251
+  %invariant.gep678 = getelementptr [2 x i8], ptr %0, i64 %252
+  %invariant.gep680 = getelementptr [2 x i8], ptr %0, i64 %253
   br label %254
 
 254:                                              ; preds = %.lr.ph, %254
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %254 ]
-  %255 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %255 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %256 = load i32, ptr %243, align 4, !tbaa !72, !noalias !1560
   %257 = zext i32 %256 to i64
   %258 = load i16, ptr %255, align 2, !tbaa !399, !noalias !1560
@@ -14849,7 +14849,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i425 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %260, i64 4294967295)
   %261 = trunc nuw i64 %.sroa.speculated.i425 to i32
   %262 = add nuw nsw i64 %indvars.iv, %248
-  %263 = getelementptr inbounds nuw i16, ptr %0, i64 %262
+  %263 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %262
   %264 = load i32, ptr %244, align 4, !tbaa !72, !noalias !1563
   %265 = zext i32 %264 to i64
   %266 = load i16, ptr %263, align 2, !tbaa !399, !noalias !1563
@@ -14859,7 +14859,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %269 = trunc nuw i64 %.sroa.speculated.i426 to i32
   %270 = tail call i32 @llvm.uadd.sat.i32(i32 %261, i32 %269)
   %271 = add nuw nsw i64 %indvars.iv, %249
-  %272 = getelementptr inbounds nuw i16, ptr %0, i64 %271
+  %272 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %271
   %273 = load i32, ptr %245, align 4, !tbaa !72, !noalias !1566
   %274 = zext i32 %273 to i64
   %275 = load i16, ptr %272, align 2, !tbaa !399, !noalias !1566
@@ -14868,7 +14868,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i427 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %277, i64 4294967295)
   %278 = trunc nuw i64 %.sroa.speculated.i427 to i32
   %279 = tail call i32 @llvm.uadd.sat.i32(i32 %270, i32 %278)
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %280 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1569
   %281 = zext i32 %280 to i64
   %282 = load i16, ptr %gep, align 2, !tbaa !399, !noalias !1569
@@ -14877,7 +14877,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i428 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %284, i64 4294967295)
   %285 = trunc nuw i64 %.sroa.speculated.i428 to i32
   %286 = tail call i32 @llvm.uadd.sat.i32(i32 %279, i32 %285)
-  %gep677 = getelementptr i16, ptr %invariant.gep676, i64 %indvars.iv
+  %gep677 = getelementptr [2 x i8], ptr %invariant.gep676, i64 %indvars.iv
   %287 = load i32, ptr %247, align 4, !tbaa !72, !noalias !1572
   %288 = zext i32 %287 to i64
   %289 = load i16, ptr %gep677, align 2, !tbaa !399, !noalias !1572
@@ -14886,7 +14886,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i429 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %291, i64 4294967295)
   %292 = trunc nuw i64 %.sroa.speculated.i429 to i32
   %293 = tail call i32 @llvm.uadd.sat.i32(i32 %286, i32 %292)
-  %294 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %293, ptr %294, align 4, !tbaa !72
   %295 = load i32, ptr %247, align 4, !tbaa !72, !noalias !1575
   %296 = zext i32 %295 to i64
@@ -14911,7 +14911,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i433 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %311, i64 4294967295)
   %312 = trunc nuw i64 %.sroa.speculated.i433 to i32
   %313 = tail call i32 @llvm.uadd.sat.i32(i32 %308, i32 %312)
-  %gep679 = getelementptr i16, ptr %invariant.gep678, i64 %indvars.iv
+  %gep679 = getelementptr [2 x i8], ptr %invariant.gep678, i64 %indvars.iv
   %314 = load i32, ptr %245, align 4, !tbaa !72, !noalias !1587
   %315 = zext i32 %314 to i64
   %316 = load i16, ptr %gep679, align 2, !tbaa !399, !noalias !1587
@@ -14920,7 +14920,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i434 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %318, i64 4294967295)
   %319 = trunc nuw i64 %.sroa.speculated.i434 to i32
   %320 = tail call i32 @llvm.uadd.sat.i32(i32 %313, i32 %319)
-  %321 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %262
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %262
   store i32 %320, ptr %321, align 4, !tbaa !72
   %322 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1590
   %323 = zext i32 %322 to i64
@@ -14945,7 +14945,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i438 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %338, i64 4294967295)
   %339 = trunc nuw i64 %.sroa.speculated.i438 to i32
   %340 = tail call i32 @llvm.uadd.sat.i32(i32 %335, i32 %339)
-  %gep681 = getelementptr i16, ptr %invariant.gep680, i64 %indvars.iv
+  %gep681 = getelementptr [2 x i8], ptr %invariant.gep680, i64 %indvars.iv
   %341 = load i32, ptr %245, align 4, !tbaa !72, !noalias !1602
   %342 = zext i32 %341 to i64
   %343 = load i16, ptr %gep681, align 2, !tbaa !399, !noalias !1602
@@ -14954,7 +14954,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i439 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %345, i64 4294967295)
   %346 = trunc nuw i64 %.sroa.speculated.i439 to i32
   %347 = tail call i32 @llvm.uadd.sat.i32(i32 %340, i32 %346)
-  %348 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %271
+  %348 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %271
   store i32 %347, ptr %348, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -14966,7 +14966,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
 
 349:                                              ; preds = %.lr.ph599, %349
   %indvars.iv643 = phi i64 [ 0, %.lr.ph599 ], [ %indvars.iv.next644, %349 ]
-  %350 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv643
+  %350 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv643
   %351 = load i32, ptr %9, align 4, !tbaa !72, !noalias !1606
   %352 = zext i32 %351 to i64
   %353 = load i16, ptr %350, align 2, !tbaa !399, !noalias !1606
@@ -14975,7 +14975,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i440 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %355, i64 4294967295)
   %356 = trunc nuw i64 %.sroa.speculated.i440 to i32
   %357 = add nuw nsw i64 %indvars.iv643, %15
-  %358 = getelementptr inbounds nuw i16, ptr %0, i64 %357
+  %358 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %357
   %359 = load i32, ptr %10, align 4, !tbaa !72, !noalias !1609
   %360 = zext i32 %359 to i64
   %361 = load i16, ptr %358, align 2, !tbaa !399, !noalias !1609
@@ -14984,7 +14984,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i441 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %363, i64 4294967295)
   %364 = trunc nuw i64 %.sroa.speculated.i441 to i32
   %365 = tail call i32 @llvm.uadd.sat.i32(i32 %356, i32 %364)
-  %gep691 = getelementptr inbounds nuw i16, ptr %invariant.gep690, i64 %indvars.iv643
+  %gep691 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep690, i64 %indvars.iv643
   %366 = load i32, ptr %11, align 4, !tbaa !72, !noalias !1612
   %367 = zext i32 %366 to i64
   %368 = load i16, ptr %gep691, align 2, !tbaa !399, !noalias !1612
@@ -14993,7 +14993,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i442 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %370, i64 4294967295)
   %371 = trunc nuw i64 %.sroa.speculated.i442 to i32
   %372 = tail call i32 @llvm.uadd.sat.i32(i32 %365, i32 %371)
-  %373 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv643
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv643
   store i32 %372, ptr %373, align 4, !tbaa !72
   %374 = load i32, ptr %13, align 4, !tbaa !72, !noalias !1615
   %375 = zext i32 %374 to i64
@@ -15012,7 +15012,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i445 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %385, i64 4294967295)
   %386 = trunc nuw i64 %.sroa.speculated.i445 to i32
   %387 = tail call i32 @llvm.uadd.sat.i32(i32 %382, i32 %386)
-  %gep693 = getelementptr inbounds nuw i16, ptr %invariant.gep692, i64 %indvars.iv643
+  %gep693 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep692, i64 %indvars.iv643
   %388 = load i32, ptr %11, align 4, !tbaa !72, !noalias !1624
   %389 = zext i32 %388 to i64
   %390 = load i16, ptr %gep693, align 2, !tbaa !399, !noalias !1624
@@ -15021,7 +15021,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i446 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %392, i64 4294967295)
   %393 = trunc nuw i64 %.sroa.speculated.i446 to i32
   %394 = tail call i32 @llvm.uadd.sat.i32(i32 %387, i32 %393)
-  %395 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %357
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %357
   store i32 %394, ptr %395, align 4, !tbaa !72
   %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
   %exitcond647.not = icmp eq i64 %indvars.iv.next644, %15
@@ -15040,15 +15040,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %403 = sext i32 %399 to i64
   %404 = zext nneg i32 %1 to i64
   %wide.trip.count651 = zext nneg i32 %1 to i64
-  %invariant.gep694 = getelementptr i16, ptr %0, i64 %402
-  %invariant.gep696 = getelementptr i16, ptr %0, i64 %403
-  %invariant.gep698 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %404
+  %invariant.gep694 = getelementptr [2 x i8], ptr %0, i64 %402
+  %invariant.gep696 = getelementptr [2 x i8], ptr %0, i64 %403
+  %invariant.gep698 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %404
   br label %405
 
 405:                                              ; preds = %.lr.ph602, %405
   %indvars.iv648 = phi i64 [ 0, %.lr.ph602 ], [ %indvars.iv.next649, %405 ]
-  %406 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %indvars.iv648
-  %gep695 = getelementptr i16, ptr %invariant.gep694, i64 %indvars.iv648
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv648
+  %gep695 = getelementptr [2 x i8], ptr %invariant.gep694, i64 %indvars.iv648
   %407 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1628
   %408 = zext i32 %407 to i64
   %409 = load i16, ptr %gep695, align 2, !tbaa !399, !noalias !1628
@@ -15058,7 +15058,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %412 = trunc nuw i64 %.sroa.speculated.i447 to i32
   %413 = load i32, ptr %406, align 4, !tbaa !72, !noalias !1631
   %414 = tail call i32 @llvm.uadd.sat.i32(i32 %413, i32 %412)
-  %gep697 = getelementptr i16, ptr %invariant.gep696, i64 %indvars.iv648
+  %gep697 = getelementptr [2 x i8], ptr %invariant.gep696, i64 %indvars.iv648
   %415 = load i32, ptr %401, align 4, !tbaa !72, !noalias !1634
   %416 = zext i32 %415 to i64
   %417 = load i16, ptr %gep697, align 2, !tbaa !399, !noalias !1634
@@ -15068,7 +15068,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %420 = trunc nuw i64 %.sroa.speculated.i448 to i32
   %421 = tail call i32 @llvm.uadd.sat.i32(i32 %414, i32 %420)
   store i32 %421, ptr %406, align 4, !tbaa !72
-  %gep699 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %invariant.gep698, i64 %indvars.iv648
+  %gep699 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep698, i64 %indvars.iv648
   %422 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1637
   %423 = zext i32 %422 to i64
   %424 = mul nuw nsw i64 %423, %418
@@ -15084,8 +15084,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
 .loopexit580:                                     ; preds = %405, %396, %._crit_edge
   %428 = shl nsw i32 %1, 1
   %429 = sext i32 %428 to i64
-  %430 = getelementptr inbounds i16, ptr %0, i64 %429
-  %431 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %4, i64 %429
+  %430 = getelementptr inbounds [2 x i8], ptr %0, i64 %429
+  %431 = getelementptr inbounds [4 x i8], ptr %4, i64 %429
   %432 = add nsw i32 %5, -2
   %433 = mul nsw i32 %432, %1
   %434 = icmp slt i32 %428, %433
@@ -15120,7 +15120,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.0384605 = phi ptr [ %430, %.lr.ph607 ], [ %488, %448 ]
   %.0385604 = phi ptr [ %431, %.lr.ph607 ], [ %489, %448 ]
   %.0387603 = phi i32 [ %428, %.lr.ph607 ], [ %487, %448 ]
-  %449 = getelementptr inbounds i16, ptr %.0384605, i64 %436
+  %449 = getelementptr inbounds [2 x i8], ptr %.0384605, i64 %436
   %450 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1644
   %451 = zext i32 %450 to i64
   %452 = load i16, ptr %449, align 2, !tbaa !399, !noalias !1644
@@ -15128,7 +15128,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %454 = mul nuw nsw i64 %453, %451
   %.sroa.speculated.i450 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %454, i64 4294967295)
   %455 = trunc nuw i64 %.sroa.speculated.i450 to i32
-  %456 = getelementptr inbounds i16, ptr %.0384605, i64 %439
+  %456 = getelementptr inbounds [2 x i8], ptr %.0384605, i64 %439
   %457 = load i32, ptr %437, align 4, !tbaa !72, !noalias !1647
   %458 = zext i32 %457 to i64
   %459 = load i16, ptr %456, align 2, !tbaa !399, !noalias !1647
@@ -15145,7 +15145,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i452 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %468, i64 4294967295)
   %469 = trunc nuw i64 %.sroa.speculated.i452 to i32
   %470 = tail call i32 @llvm.uadd.sat.i32(i32 %463, i32 %469)
-  %471 = getelementptr inbounds i16, ptr %.0384605, i64 %442
+  %471 = getelementptr inbounds [2 x i8], ptr %.0384605, i64 %442
   %472 = load i32, ptr %441, align 4, !tbaa !72, !noalias !1653
   %473 = zext i32 %472 to i64
   %474 = load i16, ptr %471, align 2, !tbaa !399, !noalias !1653
@@ -15154,7 +15154,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i453 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %476, i64 4294967295)
   %477 = trunc nuw i64 %.sroa.speculated.i453 to i32
   %478 = tail call i32 @llvm.uadd.sat.i32(i32 %470, i32 %477)
-  %479 = getelementptr inbounds i16, ptr %.0384605, i64 %429
+  %479 = getelementptr inbounds [2 x i8], ptr %.0384605, i64 %429
   %480 = load i32, ptr %443, align 4, !tbaa !72, !noalias !1656
   %481 = zext i32 %480 to i64
   %482 = load i16, ptr %479, align 2, !tbaa !399, !noalias !1656
@@ -15176,7 +15176,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
 490:                                              ; preds = %.lr.ph611, %490
   %indvars.iv654 = phi i64 [ 0, %.lr.ph611 ], [ %indvars.iv.next655, %490 ]
   %491 = sub nsw i64 %indvars.iv654, %429
-  %492 = getelementptr inbounds i16, ptr %.0384.lcssa, i64 %491
+  %492 = getelementptr inbounds [2 x i8], ptr %.0384.lcssa, i64 %491
   %493 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1660
   %494 = zext i32 %493 to i64
   %495 = load i16, ptr %492, align 2, !tbaa !399, !noalias !1660
@@ -15185,7 +15185,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i455 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %497, i64 4294967295)
   %498 = trunc nuw i64 %.sroa.speculated.i455 to i32
   %499 = sub nsw i64 %indvars.iv654, %447
-  %500 = getelementptr inbounds i16, ptr %.0384.lcssa, i64 %499
+  %500 = getelementptr inbounds [2 x i8], ptr %.0384.lcssa, i64 %499
   %501 = load i32, ptr %444, align 4, !tbaa !72, !noalias !1663
   %502 = zext i32 %501 to i64
   %503 = load i16, ptr %500, align 2, !tbaa !399, !noalias !1663
@@ -15194,7 +15194,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i456 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %505, i64 4294967295)
   %506 = trunc nuw i64 %.sroa.speculated.i456 to i32
   %507 = tail call i32 @llvm.uadd.sat.i32(i32 %498, i32 %506)
-  %508 = getelementptr inbounds nuw i16, ptr %.0384.lcssa, i64 %indvars.iv654
+  %508 = getelementptr inbounds nuw [2 x i8], ptr %.0384.lcssa, i64 %indvars.iv654
   %509 = load i32, ptr %445, align 4, !tbaa !72, !noalias !1666
   %510 = zext i32 %509 to i64
   %511 = load i16, ptr %508, align 2, !tbaa !399, !noalias !1666
@@ -15204,7 +15204,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %514 = trunc nuw i64 %.sroa.speculated.i457 to i32
   %515 = tail call i32 @llvm.uadd.sat.i32(i32 %507, i32 %514)
   %516 = add nuw nsw i64 %indvars.iv654, %447
-  %517 = getelementptr inbounds nuw i16, ptr %.0384.lcssa, i64 %516
+  %517 = getelementptr inbounds nuw [2 x i8], ptr %.0384.lcssa, i64 %516
   %518 = load i32, ptr %446, align 4, !tbaa !72, !noalias !1669
   %519 = zext i32 %518 to i64
   %520 = load i16, ptr %517, align 2, !tbaa !399, !noalias !1669
@@ -15213,7 +15213,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i458 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %522, i64 4294967295)
   %523 = trunc nuw i64 %.sroa.speculated.i458 to i32
   %524 = tail call i32 @llvm.uadd.sat.i32(i32 %515, i32 %523)
-  %525 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0385.lcssa, i64 %indvars.iv654
+  %525 = getelementptr inbounds nuw [4 x i8], ptr %.0385.lcssa, i64 %indvars.iv654
   store i32 %524, ptr %525, align 4, !tbaa !72
   %526 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1672
   %527 = zext i32 %526 to i64
@@ -15232,7 +15232,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %.sroa.speculated.i461 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %537, i64 4294967295)
   %538 = trunc nuw i64 %.sroa.speculated.i461 to i32
   %539 = tail call i32 @llvm.uadd.sat.i32(i32 %534, i32 %538)
-  %540 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0385.lcssa, i64 %516
+  %540 = getelementptr inbounds nuw [4 x i8], ptr %.0385.lcssa, i64 %516
   store i32 %539, ptr %540, align 4, !tbaa !72
   %indvars.iv.next655 = add nuw nsw i64 %indvars.iv654, 1
   %exitcond658.not = icmp eq i64 %indvars.iv.next655, %wide.trip.count657
@@ -15255,15 +15255,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %552 = zext nneg i32 %1 to i64
   %553 = sext i32 %546 to i64
   %wide.trip.count662 = zext nneg i32 %1 to i64
-  %invariant.gep700 = getelementptr i16, ptr %.0384.lcssa, i64 %551
-  %invariant.gep702 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0385.lcssa, i64 %552
-  %invariant.gep704 = getelementptr i16, ptr %.0384.lcssa, i64 %553
+  %invariant.gep700 = getelementptr [2 x i8], ptr %.0384.lcssa, i64 %551
+  %invariant.gep702 = getelementptr inbounds nuw [4 x i8], ptr %.0385.lcssa, i64 %552
+  %invariant.gep704 = getelementptr [2 x i8], ptr %.0384.lcssa, i64 %553
   br label %554
 
 554:                                              ; preds = %.lr.ph615, %554
   %indvars.iv659 = phi i64 [ 0, %.lr.ph615 ], [ %indvars.iv.next660, %554 ]
-  %555 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0385.lcssa, i64 %indvars.iv659
-  %gep701 = getelementptr i16, ptr %invariant.gep700, i64 %indvars.iv659
+  %555 = getelementptr inbounds nuw [4 x i8], ptr %.0385.lcssa, i64 %indvars.iv659
+  %gep701 = getelementptr [2 x i8], ptr %invariant.gep700, i64 %indvars.iv659
   %556 = load i32, ptr %549, align 4, !tbaa !72, !noalias !1682
   %557 = zext i32 %556 to i64
   %558 = load i16, ptr %gep701, align 2, !tbaa !399, !noalias !1682
@@ -15274,7 +15274,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %562 = load i32, ptr %555, align 4, !tbaa !72, !noalias !1685
   %563 = tail call i32 @llvm.uadd.sat.i32(i32 %562, i32 %561)
   store i32 %563, ptr %555, align 4, !tbaa !72
-  %gep703 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %invariant.gep702, i64 %indvars.iv659
+  %gep703 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep702, i64 %indvars.iv659
   %564 = load i32, ptr %550, align 4, !tbaa !72, !noalias !1688
   %565 = zext i32 %564 to i64
   %566 = mul nuw nsw i64 %565, %559
@@ -15282,7 +15282,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113hlineSmooth5NItNS_12_G
   %567 = trunc nuw i64 %.sroa.speculated.i463 to i32
   %568 = load i32, ptr %gep703, align 4, !tbaa !72, !noalias !1691
   %569 = tail call i32 @llvm.uadd.sat.i32(i32 %568, i32 %567)
-  %gep705 = getelementptr i16, ptr %invariant.gep704, i64 %indvars.iv659
+  %gep705 = getelementptr [2 x i8], ptr %invariant.gep704, i64 %indvars.iv659
   %570 = load i32, ptr %549, align 4, !tbaa !72, !noalias !1694
   %571 = zext i32 %570 to i64
   %572 = load i16, ptr %gep705, align 2, !tbaa !399, !noalias !1694
@@ -15331,7 +15331,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 
 .lr.ph:                                           ; preds = %.preheader242
   %18 = sub nsw i64 %13, %indvars.iv376
-  %19 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %2, i64 %18
   br label %20
 
 ._crit_edge:                                      ; preds = %20, %.preheader242
@@ -15339,7 +15339,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %22 = load i32, ptr %19, align 4, !tbaa !72, !noalias !1698
   %23 = zext i32 %22 to i64
   %24 = load i16, ptr %21, align 2, !tbaa !399, !noalias !1698
@@ -15347,7 +15347,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %26 = mul nuw nsw i64 %25, %23
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %26, i64 4294967295)
   %27 = trunc nuw i64 %.sroa.speculated.i to i32
-  %28 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0162271, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.0162271, i64 %indvars.iv
   store i32 %27, ptr %28, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
@@ -15374,16 +15374,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %indvars.iv342 = phi i64 [ 0, %.lr.ph246.us.preheader ], [ %indvars.iv.next343, %._crit_edge247.us ]
   %.0176248.us = phi i32 [ %33, %.lr.ph246.us.preheader ], [ %48, %._crit_edge247.us ]
   %34 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %.0176248.us, i32 noundef %5, i32 noundef %6)
-  %35 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv342
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv342
   %36 = mul nsw i32 %34, %1
   %37 = sext i32 %36 to i64
-  %invariant.gep = getelementptr i16, ptr %0, i64 %37
+  %invariant.gep = getelementptr [2 x i8], ptr %0, i64 %37
   br label %38
 
 38:                                               ; preds = %.lr.ph246.us, %38
   %indvars.iv337 = phi i64 [ 0, %.lr.ph246.us ], [ %indvars.iv.next338, %38 ]
-  %39 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0162271, i64 %indvars.iv337
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv337
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.0162271, i64 %indvars.iv337
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv337
   %40 = load i32, ptr %35, align 4, !tbaa !72, !noalias !1702
   %41 = zext i32 %40 to i64
   %42 = load i16, ptr %gep, align 2, !tbaa !399, !noalias !1702
@@ -15443,15 +15443,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 .preheader238.us:                                 ; preds = %.preheader238.us.preheader, %._crit_edge254.us
   %indvars.iv360 = phi i64 [ 1, %.preheader238.us.preheader ], [ %indvars.iv.next361, %._crit_edge254.us ]
   %indvars.iv358 = phi i64 [ %indvars.iv356, %.preheader238.us.preheader ], [ %indvars.iv.next359, %._crit_edge254.us ]
-  %63 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv358
+  %63 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv358
   %64 = mul nuw nsw i64 %indvars.iv360, %15
-  %invariant.gep435 = getelementptr inbounds nuw i16, ptr %0, i64 %64
+  %invariant.gep435 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %64
   br label %65
 
 65:                                               ; preds = %.preheader238.us, %65
   %indvars.iv351 = phi i64 [ 0, %.preheader238.us ], [ %indvars.iv.next352, %65 ]
-  %66 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0162271, i64 %indvars.iv351
-  %gep436 = getelementptr inbounds nuw i16, ptr %invariant.gep435, i64 %indvars.iv351
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.0162271, i64 %indvars.iv351
+  %gep436 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep435, i64 %indvars.iv351
   %67 = load i32, ptr %63, align 4, !tbaa !72, !noalias !1710
   %68 = zext i32 %67 to i64
   %69 = load i16, ptr %gep436, align 2, !tbaa !399, !noalias !1710
@@ -15496,10 +15496,10 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   br i1 %11, label %._crit_edge266, label %.lr.ph265
 
 .lr.ph265:                                        ; preds = %.lr.ph269
-  %81 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv373
+  %81 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv373
   %82 = mul nsw i32 %80, %1
   %83 = sext i32 %82 to i64
-  %invariant.gep437 = getelementptr i16, ptr %0, i64 %83
+  %invariant.gep437 = getelementptr [2 x i8], ptr %0, i64 %83
   br label %87
 
 ._crit_edge266:                                   ; preds = %87, %.lr.ph269
@@ -15511,8 +15511,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 
 87:                                               ; preds = %.lr.ph265, %87
   %indvars.iv368 = phi i64 [ 0, %.lr.ph265 ], [ %indvars.iv.next369, %87 ]
-  %88 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0162271, i64 %indvars.iv368
-  %gep438 = getelementptr i16, ptr %invariant.gep437, i64 %indvars.iv368
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.0162271, i64 %indvars.iv368
+  %gep438 = getelementptr [2 x i8], ptr %invariant.gep437, i64 %indvars.iv368
   %89 = load i32, ptr %81, align 4, !tbaa !72, !noalias !1719
   %90 = zext i32 %89 to i64
   %91 = load i16, ptr %gep438, align 2, !tbaa !399, !noalias !1719
@@ -15529,7 +15529,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 
 .loopexit240:                                     ; preds = %._crit_edge266, %._crit_edge258
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
-  %97 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0162271, i64 %12
+  %97 = getelementptr inbounds [4 x i8], ptr %.0162271, i64 %12
   %indvars.iv.next346 = add nsw i32 %indvars.iv345, -1
   %indvars.iv.next350 = add i32 %indvars.iv349, 1
   %indvars.iv.next357 = add nsw i64 %indvars.iv356, -1
@@ -15551,7 +15551,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 
 .lr.ph284:                                        ; preds = %._crit_edge273
   %102 = sext i32 %8 to i64
-  %103 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %102
+  %103 = getelementptr inbounds [4 x i8], ptr %2, i64 %102
   %104 = mul nsw i32 %8, %1
   %105 = sext i32 %104 to i64
   %106 = icmp sgt i32 %3, 1
@@ -15567,7 +15567,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %.0156282.us = phi ptr [ %138, %._crit_edge279.us ], [ %0, %.lr.ph278.us.preheader ]
   %.1163281.us = phi ptr [ %139, %._crit_edge279.us ], [ %.0162.lcssa, %.lr.ph278.us.preheader ]
   %.1166280.us = phi i32 [ %137, %._crit_edge279.us ], [ %.0165.lcssa, %.lr.ph278.us.preheader ]
-  %109 = getelementptr inbounds i16, ptr %.0156282.us, i64 %105
+  %109 = getelementptr inbounds [2 x i8], ptr %.0156282.us, i64 %105
   %110 = load i32, ptr %103, align 4, !tbaa !72, !noalias !1727
   %111 = zext i32 %110 to i64
   %112 = load i16, ptr %109, align 2, !tbaa !399, !noalias !1727
@@ -15581,9 +15581,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 116:                                              ; preds = %.lr.ph278.us, %116
   %indvars.iv382 = phi i64 [ 0, %.lr.ph278.us ], [ %indvars.iv.next383, %116 ]
   %117 = phi i32 [ %115, %.lr.ph278.us ], [ %136, %116 ]
-  %118 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv382
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv382
   %119 = mul nsw i64 %indvars.iv382, %107
-  %120 = getelementptr inbounds i16, ptr %.0156282.us, i64 %119
+  %120 = getelementptr inbounds [2 x i8], ptr %.0156282.us, i64 %119
   %121 = load i32, ptr %118, align 4, !tbaa !72, !noalias !1730
   %122 = zext i32 %121 to i64
   %123 = load i16, ptr %120, align 2, !tbaa !399, !noalias !1730
@@ -15595,7 +15595,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %128 = xor i64 %indvars.iv382, -1
   %129 = add nsw i64 %108, %128
   %130 = mul nsw i64 %129, %107
-  %131 = getelementptr inbounds i16, ptr %.0156282.us, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr %.0156282.us, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !399, !noalias !1733
   %133 = zext i16 %132 to i64
   %134 = mul nuw nsw i64 %133, %122
@@ -15618,7 +15618,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %.0156282 = phi ptr [ %149, %.lr.ph284.split ], [ %0, %.lr.ph284 ]
   %.1163281 = phi ptr [ %150, %.lr.ph284.split ], [ %.0162.lcssa, %.lr.ph284 ]
   %.1166280 = phi i32 [ %148, %.lr.ph284.split ], [ %.0165.lcssa, %.lr.ph284 ]
-  %141 = getelementptr inbounds i16, ptr %.0156282, i64 %105
+  %141 = getelementptr inbounds [2 x i8], ptr %.0156282, i64 %105
   %142 = load i32, ptr %103, align 4, !tbaa !72, !noalias !1727
   %143 = zext i32 %142 to i64
   %144 = load i16, ptr %141, align 2, !tbaa !399, !noalias !1727
@@ -15676,15 +15676,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 
 .preheader.us:                                    ; preds = %.preheader236, %._crit_edge296.us
   %indvars.iv399 = phi i64 [ %indvars.iv.next400, %._crit_edge296.us ], [ 1, %.preheader236 ]
-  %167 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv399
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv399
   %168 = mul nuw nsw i64 %indvars.iv399, %160
-  %invariant.gep439 = getelementptr inbounds nuw i16, ptr %.1313, i64 %168
+  %invariant.gep439 = getelementptr inbounds nuw [2 x i8], ptr %.1313, i64 %168
   br label %169
 
 169:                                              ; preds = %.preheader.us, %169
   %indvars.iv394 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next395, %169 ]
-  %170 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.2310, i64 %indvars.iv394
-  %gep440 = getelementptr inbounds nuw i16, ptr %invariant.gep439, i64 %indvars.iv394
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.2310, i64 %indvars.iv394
+  %gep440 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep439, i64 %indvars.iv394
   %171 = load i32, ptr %167, align 4, !tbaa !72, !noalias !1738
   %172 = zext i32 %171 to i64
   %173 = load i16, ptr %gep440, align 2, !tbaa !399, !noalias !1738
@@ -15706,7 +15706,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 
 .lr.ph293:                                        ; preds = %.preheader237, %.lr.ph293
   %indvars.iv387 = phi i64 [ %indvars.iv.next388, %.lr.ph293 ], [ 0, %.preheader237 ]
-  %180 = getelementptr inbounds nuw i16, ptr %.1313, i64 %indvars.iv387
+  %180 = getelementptr inbounds nuw [2 x i8], ptr %.1313, i64 %indvars.iv387
   %181 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1746
   %182 = zext i32 %181 to i64
   %183 = load i16, ptr %180, align 2, !tbaa !399, !noalias !1746
@@ -15714,7 +15714,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %185 = mul nuw nsw i64 %184, %182
   %.sroa.speculated.i187 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %185, i64 4294967295)
   %186 = trunc nuw i64 %.sroa.speculated.i187 to i32
-  %187 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.2310, i64 %indvars.iv387
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %.2310, i64 %indvars.iv387
   store i32 %186, ptr %187, align 4, !tbaa !72
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %exitcond391.not = icmp eq i64 %indvars.iv.next388, %160
@@ -15748,16 +15748,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %194 = add nsw i32 %193, %192
   %195 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %194, i32 noundef %5, i32 noundef %6)
   %196 = sub nsw i32 %195, %192
-  %197 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv408
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv408
   %198 = mul nsw i32 %196, %1
   %199 = sext i32 %198 to i64
-  %invariant.gep441 = getelementptr i16, ptr %.1313, i64 %199
+  %invariant.gep441 = getelementptr [2 x i8], ptr %.1313, i64 %199
   br label %200
 
 200:                                              ; preds = %.lr.ph303.us, %200
   %indvars.iv403 = phi i64 [ 0, %.lr.ph303.us ], [ %indvars.iv.next404, %200 ]
-  %201 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.2310, i64 %indvars.iv403
-  %gep442 = getelementptr i16, ptr %invariant.gep441, i64 %indvars.iv403
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %.2310, i64 %indvars.iv403
+  %gep442 = getelementptr [2 x i8], ptr %invariant.gep441, i64 %indvars.iv403
   %202 = load i32, ptr %197, align 4, !tbaa !72, !noalias !1750
   %203 = zext i32 %202 to i64
   %204 = load i16, ptr %gep442, align 2, !tbaa !399, !noalias !1750
@@ -15788,8 +15788,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 
 .loopexit:                                        ; preds = %.lr.ph306.split, %._crit_edge304.us, %._crit_edge298
   %indvars.iv.next412 = add nsw i64 %indvars.iv411, 1
-  %215 = getelementptr inbounds i16, ptr %.1313, i64 %157
-  %216 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.2310, i64 %157
+  %215 = getelementptr inbounds [2 x i8], ptr %.1313, i64 %157
+  %216 = getelementptr inbounds [4 x i8], ptr %.2310, i64 %157
   %217 = icmp slt i64 %indvars.iv.next412, %163
   %indvars.iv.next393 = add i32 %indvars.iv392, -1
   br i1 %217, label %.preheader237, label %._crit_edge316, !llvm.loop !1758
@@ -15829,7 +15829,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 
 .lr.ph:                                           ; preds = %.preheader228
   %18 = sub nsw i64 %13, %indvars.iv362
-  %19 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %2, i64 %18
   br label %20
 
 ._crit_edge:                                      ; preds = %20, %.preheader228
@@ -15837,7 +15837,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %22 = load i32, ptr %19, align 4, !tbaa !72, !noalias !1759
   %23 = zext i32 %22 to i64
   %24 = load i16, ptr %21, align 2, !tbaa !399, !noalias !1759
@@ -15845,7 +15845,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %26 = mul nuw nsw i64 %25, %23
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %26, i64 4294967295)
   %27 = trunc nuw i64 %.sroa.speculated.i to i32
-  %28 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0156257, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.0156257, i64 %indvars.iv
   store i32 %27, ptr %28, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
@@ -15872,16 +15872,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %indvars.iv328 = phi i64 [ 0, %.lr.ph232.us.preheader ], [ %indvars.iv.next329, %._crit_edge233.us ]
   %.0168234.us = phi i32 [ %33, %.lr.ph232.us.preheader ], [ %48, %._crit_edge233.us ]
   %34 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %.0168234.us, i32 noundef %5, i32 noundef %6)
-  %35 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv328
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv328
   %36 = mul nsw i32 %34, %1
   %37 = sext i32 %36 to i64
-  %invariant.gep = getelementptr i16, ptr %0, i64 %37
+  %invariant.gep = getelementptr [2 x i8], ptr %0, i64 %37
   br label %38
 
 38:                                               ; preds = %.lr.ph232.us, %38
   %indvars.iv323 = phi i64 [ 0, %.lr.ph232.us ], [ %indvars.iv.next324, %38 ]
-  %39 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0156257, i64 %indvars.iv323
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv323
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.0156257, i64 %indvars.iv323
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv323
   %40 = load i32, ptr %35, align 4, !tbaa !72, !noalias !1763
   %41 = zext i32 %40 to i64
   %42 = load i16, ptr %gep, align 2, !tbaa !399, !noalias !1763
@@ -15941,15 +15941,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 .preheader224.us:                                 ; preds = %.preheader224.us.preheader, %._crit_edge240.us
   %indvars.iv346 = phi i64 [ 1, %.preheader224.us.preheader ], [ %indvars.iv.next347, %._crit_edge240.us ]
   %indvars.iv344 = phi i64 [ %indvars.iv342, %.preheader224.us.preheader ], [ %indvars.iv.next345, %._crit_edge240.us ]
-  %63 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv344
+  %63 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv344
   %64 = mul nuw nsw i64 %indvars.iv346, %15
-  %invariant.gep421 = getelementptr inbounds nuw i16, ptr %0, i64 %64
+  %invariant.gep421 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %64
   br label %65
 
 65:                                               ; preds = %.preheader224.us, %65
   %indvars.iv337 = phi i64 [ 0, %.preheader224.us ], [ %indvars.iv.next338, %65 ]
-  %66 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0156257, i64 %indvars.iv337
-  %gep422 = getelementptr inbounds nuw i16, ptr %invariant.gep421, i64 %indvars.iv337
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.0156257, i64 %indvars.iv337
+  %gep422 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep421, i64 %indvars.iv337
   %67 = load i32, ptr %63, align 4, !tbaa !72, !noalias !1771
   %68 = zext i32 %67 to i64
   %69 = load i16, ptr %gep422, align 2, !tbaa !399, !noalias !1771
@@ -15994,10 +15994,10 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   br i1 %11, label %._crit_edge252, label %.lr.ph251
 
 .lr.ph251:                                        ; preds = %.lr.ph255
-  %81 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv359
+  %81 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv359
   %82 = mul nsw i32 %80, %1
   %83 = sext i32 %82 to i64
-  %invariant.gep423 = getelementptr i16, ptr %0, i64 %83
+  %invariant.gep423 = getelementptr [2 x i8], ptr %0, i64 %83
   br label %87
 
 ._crit_edge252:                                   ; preds = %87, %.lr.ph255
@@ -16009,8 +16009,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 
 87:                                               ; preds = %.lr.ph251, %87
   %indvars.iv354 = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next355, %87 ]
-  %88 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0156257, i64 %indvars.iv354
-  %gep424 = getelementptr i16, ptr %invariant.gep423, i64 %indvars.iv354
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.0156257, i64 %indvars.iv354
+  %gep424 = getelementptr [2 x i8], ptr %invariant.gep423, i64 %indvars.iv354
   %89 = load i32, ptr %81, align 4, !tbaa !72, !noalias !1780
   %90 = zext i32 %89 to i64
   %91 = load i16, ptr %gep424, align 2, !tbaa !399, !noalias !1780
@@ -16027,7 +16027,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 
 .loopexit226:                                     ; preds = %._crit_edge252, %._crit_edge244
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
-  %97 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.0156257, i64 %12
+  %97 = getelementptr inbounds [4 x i8], ptr %.0156257, i64 %12
   %indvars.iv.next332 = add nsw i32 %indvars.iv331, -1
   %indvars.iv.next336 = add i32 %indvars.iv335, 1
   %indvars.iv.next343 = add nsw i64 %indvars.iv342, -1
@@ -16073,9 +16073,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 110:                                              ; preds = %.lr.ph264.us, %110
   %indvars.iv368 = phi i64 [ 1, %.lr.ph264.us ], [ %indvars.iv.next369, %110 ]
   %111 = phi i32 [ %109, %.lr.ph264.us ], [ %121, %110 ]
-  %112 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv368
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv368
   %113 = mul nsw i64 %indvars.iv368, %103
-  %114 = getelementptr inbounds i16, ptr %.0149268.us, i64 %113
+  %114 = getelementptr inbounds [2 x i8], ptr %.0149268.us, i64 %113
   %115 = load i32, ptr %112, align 4, !tbaa !72, !noalias !1791
   %116 = zext i32 %115 to i64
   %117 = load i16, ptr %114, align 2, !tbaa !399, !noalias !1791
@@ -16157,15 +16157,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 
 .preheader.us:                                    ; preds = %.preheader222, %._crit_edge282.us
   %indvars.iv385 = phi i64 [ %indvars.iv.next386, %._crit_edge282.us ], [ 1, %.preheader222 ]
-  %151 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv385
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv385
   %152 = mul nuw nsw i64 %indvars.iv385, %144
-  %invariant.gep425 = getelementptr inbounds nuw i16, ptr %.1299, i64 %152
+  %invariant.gep425 = getelementptr inbounds nuw [2 x i8], ptr %.1299, i64 %152
   br label %153
 
 153:                                              ; preds = %.preheader.us, %153
   %indvars.iv380 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next381, %153 ]
-  %154 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.2296, i64 %indvars.iv380
-  %gep426 = getelementptr inbounds nuw i16, ptr %invariant.gep425, i64 %indvars.iv380
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %.2296, i64 %indvars.iv380
+  %gep426 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep425, i64 %indvars.iv380
   %155 = load i32, ptr %151, align 4, !tbaa !72, !noalias !1796
   %156 = zext i32 %155 to i64
   %157 = load i16, ptr %gep426, align 2, !tbaa !399, !noalias !1796
@@ -16187,7 +16187,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 
 .lr.ph279:                                        ; preds = %.preheader223, %.lr.ph279
   %indvars.iv373 = phi i64 [ %indvars.iv.next374, %.lr.ph279 ], [ 0, %.preheader223 ]
-  %164 = getelementptr inbounds nuw i16, ptr %.1299, i64 %indvars.iv373
+  %164 = getelementptr inbounds nuw [2 x i8], ptr %.1299, i64 %indvars.iv373
   %165 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1804
   %166 = zext i32 %165 to i64
   %167 = load i16, ptr %164, align 2, !tbaa !399, !noalias !1804
@@ -16195,7 +16195,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %169 = mul nuw nsw i64 %168, %166
   %.sroa.speculated.i179 = tail call i64 @llvm.umin.i64(i64 range(i64 0, 281470681677826) %169, i64 4294967295)
   %170 = trunc nuw i64 %.sroa.speculated.i179 to i32
-  %171 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.2296, i64 %indvars.iv373
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %.2296, i64 %indvars.iv373
   store i32 %170, ptr %171, align 4, !tbaa !72
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next374, %144
@@ -16229,16 +16229,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %178 = add nsw i32 %177, %176
   %179 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %178, i32 noundef %5, i32 noundef %6)
   %180 = sub nsw i32 %179, %176
-  %181 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %2, i64 %indvars.iv394
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv394
   %182 = mul nsw i32 %180, %1
   %183 = sext i32 %182 to i64
-  %invariant.gep427 = getelementptr i16, ptr %.1299, i64 %183
+  %invariant.gep427 = getelementptr [2 x i8], ptr %.1299, i64 %183
   br label %184
 
 184:                                              ; preds = %.lr.ph289.us, %184
   %indvars.iv389 = phi i64 [ 0, %.lr.ph289.us ], [ %indvars.iv.next390, %184 ]
-  %185 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.2296, i64 %indvars.iv389
-  %gep428 = getelementptr i16, ptr %invariant.gep427, i64 %indvars.iv389
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %.2296, i64 %indvars.iv389
+  %gep428 = getelementptr [2 x i8], ptr %invariant.gep427, i64 %indvars.iv389
   %186 = load i32, ptr %181, align 4, !tbaa !72, !noalias !1808
   %187 = zext i32 %186 to i64
   %188 = load i16, ptr %gep428, align 2, !tbaa !399, !noalias !1808
@@ -16269,8 +16269,8 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 
 .loopexit:                                        ; preds = %.lr.ph292.split, %._crit_edge290.us, %._crit_edge284
   %indvars.iv.next398 = add nsw i64 %indvars.iv397, 1
-  %199 = getelementptr inbounds i16, ptr %.1299, i64 %141
-  %200 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.2296, i64 %141
+  %199 = getelementptr inbounds [2 x i8], ptr %.1299, i64 %141
+  %200 = getelementptr inbounds [4 x i8], ptr %.2296, i64 %141
   %201 = icmp slt i64 %indvars.iv.next398, %147
   %indvars.iv.next379 = add i32 %indvars.iv378, -1
   br i1 %201, label %.preheader223, label %._crit_edge302, !llvm.loop !1816
@@ -16294,12 +16294,12 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114vlineSmooth1N1ItNS_12_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !84
   %10 = add i32 %9, 32768
   %11 = lshr i32 %10, 16
   %12 = trunc nuw i32 %11 to i16
-  %13 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   store i16 %12, ptr %13, align 2, !tbaa !399
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16323,7 +16323,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_G
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !72, !noalias !1819
   %13 = zext i32 %12 to i64
   %14 = mul nuw i64 %13, %9
@@ -16331,7 +16331,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_G
   %16 = lshr i64 %15, 32
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %16, i64 65535)
   %17 = trunc nuw i64 %.sroa.speculated.i to i16
-  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   store i16 %17, ptr %18, align 2, !tbaa !399
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16354,13 +16354,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116vlineSmooth3N121ItNS_1
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !84
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !84
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !84
   %21 = zext i32 %20 to i64
   %22 = shl nuw nsw i64 %21, 1
@@ -16369,7 +16369,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_116vlineSmooth3N121ItNS_1
   %25 = add nuw nsw i64 %24, %22
   %26 = lshr i64 %25, 18
   %27 = trunc i64 %26 to i16
-  %28 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   store i16 %27, ptr %28, align 2, !tbaa !399
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16406,16 +16406,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_G
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %7, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !72, !noalias !1824
   %23 = zext i32 %22 to i64
   %24 = mul nuw i64 %23, %9
-  %25 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %12, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !72, !noalias !1827
   %27 = zext i32 %26 to i64
   %28 = mul nuw i64 %27, %14
   %29 = tail call i64 @llvm.uadd.sat.i64(i64 %24, i64 %28)
-  %30 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %17, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !72, !noalias !1830
   %32 = zext i32 %31 to i64
   %33 = mul nuw i64 %32, %19
@@ -16424,7 +16424,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_G
   %36 = lshr i64 %35, 32
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %36, i64 65535)
   %37 = trunc nuw i64 %.sroa.speculated.i to i16
-  %38 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   store i16 %37, ptr %38, align 2, !tbaa !399
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16451,22 +16451,22 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118vlineSmooth5N14641ItNS
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !84
   %19 = zext i32 %18 to i64
   %20 = mul nuw nsw i64 %19, 6
-  %21 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !84
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !84
   %26 = zext i32 %25 to i64
   %27 = add nuw nsw i64 %26, %23
   %28 = shl nuw nsw i64 %27, 2
-  %29 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !84
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !84
   %34 = zext i32 %33 to i64
   %35 = add nuw nsw i64 %20, 524288
@@ -16475,7 +16475,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_118vlineSmooth5N14641ItNS
   %38 = add nuw nsw i64 %37, %34
   %39 = lshr i64 %38, 20
   %40 = trunc i64 %39 to i16
-  %41 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   store i16 %40, ptr %41, align 2, !tbaa !399
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16522,26 +16522,26 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NItNS_12_G
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %7, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !72, !noalias !1835
   %33 = zext i32 %32 to i64
   %34 = mul nuw i64 %33, %9
-  %35 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %12, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !72, !noalias !1838
   %37 = zext i32 %36 to i64
   %38 = mul nuw i64 %37, %14
   %39 = tail call i64 @llvm.uadd.sat.i64(i64 %34, i64 %38)
-  %40 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %17, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !72, !noalias !1841
   %42 = zext i32 %41 to i64
   %43 = mul nuw i64 %42, %19
   %44 = tail call i64 @llvm.uadd.sat.i64(i64 %39, i64 %43)
-  %45 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %22, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !72, !noalias !1844
   %47 = zext i32 %46 to i64
   %48 = mul nuw i64 %47, %24
   %49 = tail call i64 @llvm.uadd.sat.i64(i64 %44, i64 %48)
-  %50 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %27, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !72, !noalias !1847
   %52 = zext i32 %51 to i64
   %53 = mul nuw i64 %52, %29
@@ -16550,7 +16550,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth5NItNS_12_G
   %56 = lshr i64 %55, 32
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %56, i64 65535)
   %57 = trunc nuw i64 %.sroa.speculated.i to i16
-  %58 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   store i16 %57, ptr %58, align 2, !tbaa !399
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16576,7 +16576,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIt
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv32 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next33, %._crit_edge.us ]
-  %11 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %7, i64 %indvars.iv32
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv32
   %12 = load i32, ptr %11, align 4, !tbaa !72, !noalias !1851
   %13 = zext i32 %12 to i64
   %14 = mul nuw i64 %13, %9
@@ -16585,10 +16585,10 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIt
 15:                                               ; preds = %.lr.ph.us, %15
   %indvars.iv27 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next28, %15 ]
   %.sroa.017.019.us = phi i64 [ %14, %.lr.ph.us ], [ %25, %15 ]
-  %16 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1, i64 %indvars.iv27
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv27
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv27
   %18 = load ptr, ptr %17, align 8, !tbaa !1817
-  %19 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %18, i64 %indvars.iv32
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv32
   %20 = load i32, ptr %16, align 4, !tbaa !72, !noalias !1854
   %21 = zext i32 %20 to i64
   %22 = load i32, ptr %19, align 4, !tbaa !72, !noalias !1854
@@ -16604,7 +16604,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIt
   %27 = lshr i64 %26, 32
   %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %27, i64 65535)
   %28 = trunc nuw i64 %.sroa.speculated.i.us to i16
-  %29 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv32
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv32
   store i16 %28, ptr %29, align 2, !tbaa !399
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
@@ -16612,7 +16612,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIt
 
 .lr.ph23.split:                                   ; preds = %.lr.ph23, %.lr.ph23.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph23.split ], [ 0, %.lr.ph23 ]
-  %30 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %7, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !72, !noalias !1851
   %32 = zext i32 %31 to i64
   %33 = mul nuw i64 %32, %9
@@ -16620,7 +16620,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIt
   %35 = lshr i64 %34, 32
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %35, i64 65535)
   %36 = trunc nuw i64 %.sroa.speculated.i to i16
-  %37 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   store i16 %36, ptr %37, align 2, !tbaa !399
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count35
@@ -16649,7 +16649,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLO
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv32 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next33, %._crit_edge.us ]
-  %11 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %7, i64 %indvars.iv32
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv32
   %12 = load i32, ptr %11, align 4, !tbaa !72, !noalias !1859
   %13 = zext i32 %12 to i64
   %14 = mul nuw i64 %13, %9
@@ -16658,10 +16658,10 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLO
 15:                                               ; preds = %.lr.ph.us, %15
   %indvars.iv27 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next28, %15 ]
   %.sroa.017.019.us = phi i64 [ %14, %.lr.ph.us ], [ %25, %15 ]
-  %16 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1, i64 %indvars.iv27
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv27
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv27
   %18 = load ptr, ptr %17, align 8, !tbaa !1817
-  %19 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %18, i64 %indvars.iv32
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv32
   %20 = load i32, ptr %16, align 4, !tbaa !72, !noalias !1862
   %21 = zext i32 %20 to i64
   %22 = load i32, ptr %19, align 4, !tbaa !72, !noalias !1862
@@ -16677,7 +16677,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLO
   %27 = lshr i64 %26, 32
   %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %27, i64 65535)
   %28 = trunc nuw i64 %.sroa.speculated.i.us to i16
-  %29 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv32
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv32
   store i16 %28, ptr %29, align 2, !tbaa !399
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
@@ -16688,7 +16688,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLO
 
 .lr.ph23.split:                                   ; preds = %.lr.ph23, %.lr.ph23.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph23.split ], [ 0, %.lr.ph23 ]
-  %30 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %7, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !72, !noalias !1859
   %32 = zext i32 %31 to i64
   %33 = mul nuw i64 %32, %9
@@ -16696,7 +16696,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111vlineSmoothItNS_12_GLO
   %35 = lshr i64 %34, 32
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %35, i64 65535)
   %36 = trunc nuw i64 %.sroa.speculated.i to i16
-  %37 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   store i16 %36, ptr %37, align 2, !tbaa !399
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count35
@@ -16802,7 +16802,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %50 = load ptr, ptr %36, align 8, !tbaa !57
   %51 = load i64, ptr %37, align 8, !tbaa !62
   %52 = mul i64 %51, %indvars.iv858
-  %53 = getelementptr inbounds nuw i16, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %52
   %54 = load i32, ptr %7, align 8, !tbaa !66
   %55 = load ptr, ptr %38, align 8, !tbaa !67
   %56 = load i32, ptr %39, align 8, !tbaa !69
@@ -16819,7 +16819,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %64 = load ptr, ptr %43, align 8, !tbaa !61
   %65 = load i64, ptr %44, align 8, !tbaa !63
   %66 = mul i64 %65, %indvars.iv858
-  %67 = getelementptr inbounds nuw i16, ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %66
   %68 = load i32, ptr %5, align 8, !tbaa !64
   %69 = load i32, ptr %7, align 8, !tbaa !66
   %70 = mul nsw i32 %69, %68
@@ -16896,19 +16896,19 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %108 = load i32, ptr %7, align 8, !tbaa !66
   %109 = mul nsw i32 %107, %108
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val, i64 %110
-  %112 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv789
+  %111 = getelementptr inbounds [4 x i8], ptr %.val, i64 %110
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv789
   store ptr %111, ptr %112, align 8, !tbaa !1817
   %113 = load i32, ptr %10, align 4, !tbaa !70
   %114 = add nsw i32 %113, %106
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds ptr, ptr %.val319, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %115
   store ptr %111, ptr %116, align 8, !tbaa !1817
   %117 = load ptr, ptr %91, align 8, !tbaa !74
   %118 = load ptr, ptr %92, align 8, !tbaa !57
   %119 = load i64, ptr %93, align 8, !tbaa !62
   %120 = mul i64 %119, %indvars.iv
-  %121 = getelementptr inbounds nuw i16, ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [2 x i8], ptr %118, i64 %120
   %122 = load ptr, ptr %94, align 8, !tbaa !67
   %123 = load i32, ptr %95, align 8, !tbaa !69
   %124 = load ptr, ptr %112, align 8, !tbaa !1817
@@ -16982,20 +16982,20 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %147 = load i32, ptr %7, align 8, !tbaa !66
   %148 = mul nsw i32 %146, %147
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val, i64 %149
-  %151 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv794
+  %150 = getelementptr inbounds [4 x i8], ptr %.val, i64 %149
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv794
   store ptr %150, ptr %151, align 8, !tbaa !1817
   %152 = load i32, ptr %10, align 4, !tbaa !70
   %153 = add nsw i32 %152, %145
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr %.val319, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %154
   store ptr %150, ptr %155, align 8, !tbaa !1817
   %156 = load ptr, ptr %98, align 8, !tbaa !74
   %157 = load ptr, ptr %99, align 8, !tbaa !57
   %158 = sext i32 %140 to i64
   %159 = load i64, ptr %100, align 8, !tbaa !62
   %160 = mul i64 %159, %158
-  %161 = getelementptr inbounds nuw i16, ptr %157, i64 %160
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %157, i64 %160
   %162 = load ptr, ptr %101, align 8, !tbaa !67
   %163 = load i32, ptr %102, align 8, !tbaa !69
   %164 = load ptr, ptr %151, align 8, !tbaa !1817
@@ -17011,15 +17011,15 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
 168:                                              ; preds = %141
   %169 = sub nsw i32 %140, %.sroa.speculated596
   %170 = zext nneg i32 %169 to i64
-  %171 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !1817
-  %173 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv794
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv794
   store ptr %172, ptr %173, align 8, !tbaa !1817
   %174 = load i32, ptr %10, align 4, !tbaa !70
   %175 = trunc nuw i64 %indvars.iv794 to i32
   %176 = add nsw i32 %174, %175
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds ptr, ptr %.val319, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %177
   store ptr %172, ptr %178, align 8, !tbaa !1817
   br label %179
 
@@ -17033,7 +17033,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %182 = load ptr, ptr %181, align 8, !tbaa !79
   %183 = zext nneg i32 %.1292.lcssa to i64
-  %184 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %183
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %183
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %186 = load ptr, ptr %185, align 8, !tbaa !68
   %187 = load i32, ptr %10, align 4, !tbaa !70
@@ -17043,7 +17043,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %192 = load i64, ptr %191, align 8, !tbaa !63
   %193 = mul i64 %192, %190
-  %194 = getelementptr inbounds nuw i16, ptr %189, i64 %193
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %189, i64 %193
   %195 = load i32, ptr %5, align 8, !tbaa !64
   %196 = load i32, ptr %7, align 8, !tbaa !66
   %197 = mul nsw i32 %196, %195
@@ -17069,21 +17069,21 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %208 = load i32, ptr %7, align 8, !tbaa !66
   %209 = mul nsw i32 %207, %208
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val, i64 %210
+  %211 = getelementptr inbounds [4 x i8], ptr %.val, i64 %210
   %212 = sext i32 %205 to i64
-  %213 = getelementptr inbounds ptr, ptr %.val319, i64 %212
+  %213 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %212
   store ptr %211, ptr %213, align 8, !tbaa !1817
   %214 = shl nsw i32 %204, 1
   %215 = add nsw i32 %214, %.0285676
   %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds ptr, ptr %.val319, i64 %216
+  %217 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %216
   store ptr %211, ptr %217, align 8, !tbaa !1817
   %218 = load ptr, ptr %132, align 8, !tbaa !74
   %219 = load ptr, ptr %133, align 8, !tbaa !57
   %220 = sext i32 %201 to i64
   %221 = load i64, ptr %134, align 8, !tbaa !62
   %222 = mul i64 %221, %220
-  %223 = getelementptr inbounds nuw i16, ptr %219, i64 %222
+  %223 = getelementptr inbounds nuw [2 x i8], ptr %219, i64 %222
   %224 = load ptr, ptr %135, align 8, !tbaa !67
   %225 = load i32, ptr %136, align 8, !tbaa !69
   %226 = load ptr, ptr %213, align 8, !tbaa !1817
@@ -17098,17 +17098,17 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
 
 230:                                              ; preds = %202
   %231 = sext i32 %201 to i64
-  %232 = getelementptr inbounds ptr, ptr %.val319, i64 %231
+  %232 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %231
   %233 = load ptr, ptr %232, align 8, !tbaa !1817
   %234 = load i32, ptr %10, align 4, !tbaa !70
   %235 = add nsw i32 %234, %.0285676
   %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds ptr, ptr %.val319, i64 %236
+  %237 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %236
   store ptr %233, ptr %237, align 8, !tbaa !1817
   %238 = shl nsw i32 %234, 1
   %239 = add nsw i32 %238, %.0285676
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds ptr, ptr %.val319, i64 %240
+  %241 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %240
   store ptr %233, ptr %241, align 8, !tbaa !1817
   br label %242
 
@@ -17171,19 +17171,19 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %272 = load i32, ptr %7, align 8, !tbaa !66
   %273 = mul nsw i32 %271, %272
   %274 = sext i32 %273 to i64
-  %275 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val, i64 %274
+  %275 = getelementptr inbounds [4 x i8], ptr %.val, i64 %274
   %276 = sext i32 %.2293680 to i64
-  %277 = getelementptr inbounds ptr, ptr %.val319, i64 %276
+  %277 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %276
   store ptr %275, ptr %277, align 8, !tbaa !1817
   %278 = add nsw i32 %269, %.2293680
   %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds ptr, ptr %.val319, i64 %279
+  %280 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %279
   store ptr %275, ptr %280, align 8, !tbaa !1817
   %281 = load ptr, ptr %252, align 8, !tbaa !74
   %282 = load ptr, ptr %253, align 8, !tbaa !57
   %283 = load i64, ptr %254, align 8, !tbaa !62
   %284 = mul i64 %283, %indvars.iv799
-  %285 = getelementptr inbounds nuw i16, ptr %282, i64 %284
+  %285 = getelementptr inbounds nuw [2 x i8], ptr %282, i64 %284
   %286 = load ptr, ptr %255, align 8, !tbaa !67
   %287 = load i32, ptr %256, align 8, !tbaa !69
   %288 = load ptr, ptr %277, align 8, !tbaa !1817
@@ -17197,12 +17197,12 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %293 = srem i32 %291, %292
   %294 = load ptr, ptr %181, align 8, !tbaa !79
   %295 = sext i32 %293 to i64
-  %296 = getelementptr inbounds ptr, ptr %.val319, i64 %295
+  %296 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %295
   %297 = load ptr, ptr %185, align 8, !tbaa !68
   %298 = load ptr, ptr %188, align 8, !tbaa !61
   %299 = load i64, ptr %191, align 8, !tbaa !63
   %300 = mul i64 %299, %indvars.iv797
-  %301 = getelementptr inbounds nuw i16, ptr %298, i64 %300
+  %301 = getelementptr inbounds nuw [2 x i8], ptr %298, i64 %300
   %302 = load i32, ptr %5, align 8, !tbaa !64
   %303 = load i32, ptr %7, align 8, !tbaa !66
   %304 = mul nsw i32 %303, %302
@@ -17248,12 +17248,12 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %321 = load ptr, ptr %262, align 8, !tbaa !57
   %322 = load i64, ptr %263, align 8, !tbaa !62
   %323 = mul i64 %322, %indvars.iv806
-  %324 = getelementptr inbounds nuw i16, ptr %321, i64 %323
+  %324 = getelementptr inbounds nuw [2 x i8], ptr %321, i64 %323
   %325 = load i32, ptr %7, align 8, !tbaa !66
   %326 = load ptr, ptr %264, align 8, !tbaa !67
   %327 = load i32, ptr %265, align 8, !tbaa !69
   %328 = sext i32 %.3294688 to i64
-  %329 = getelementptr inbounds ptr, ptr %.val319, i64 %328
+  %329 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %328
   %330 = load ptr, ptr %329, align 8, !tbaa !1817
   %331 = load i32, ptr %5, align 8, !tbaa !64
   %332 = load i32, ptr %78, align 8, !tbaa !71
@@ -17266,12 +17266,12 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %336 = srem i32 %334, %335
   %337 = load ptr, ptr %181, align 8, !tbaa !79
   %338 = sext i32 %336 to i64
-  %339 = getelementptr inbounds ptr, ptr %.val319, i64 %338
+  %339 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %338
   %340 = load ptr, ptr %185, align 8, !tbaa !68
   %341 = load ptr, ptr %188, align 8, !tbaa !61
   %342 = load i64, ptr %191, align 8, !tbaa !63
   %343 = mul i64 %342, %indvars.iv804
-  %344 = getelementptr inbounds nuw i16, ptr %341, i64 %343
+  %344 = getelementptr inbounds nuw [2 x i8], ptr %341, i64 %343
   %345 = load i32, ptr %5, align 8, !tbaa !64
   %346 = load i32, ptr %7, align 8, !tbaa !66
   %347 = mul nsw i32 %346, %345
@@ -17306,12 +17306,12 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %362 = sext i32 %354 to i64
   %363 = load i64, ptr %315, align 8, !tbaa !62
   %364 = mul i64 %363, %362
-  %365 = getelementptr inbounds nuw i16, ptr %361, i64 %364
+  %365 = getelementptr inbounds nuw [2 x i8], ptr %361, i64 %364
   %366 = load i32, ptr %7, align 8, !tbaa !66
   %367 = load ptr, ptr %316, align 8, !tbaa !67
   %368 = load i32, ptr %317, align 8, !tbaa !69
   %369 = sext i32 %.4295695 to i64
-  %370 = getelementptr inbounds ptr, ptr %.val319, i64 %369
+  %370 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %369
   %371 = load ptr, ptr %370, align 8, !tbaa !1817
   %372 = load i32, ptr %5, align 8, !tbaa !64
   %373 = load i32, ptr %78, align 8, !tbaa !71
@@ -17332,13 +17332,13 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %378 = sub nsw i32 %377, %356
   %379 = srem i32 %378, %357
   %380 = sext i32 %379 to i64
-  %381 = getelementptr inbounds ptr, ptr %.val319, i64 %380
+  %381 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %380
   %382 = load ptr, ptr %381, align 8, !tbaa !1817
   %383 = sext i32 %.4295695 to i64
-  %384 = getelementptr inbounds ptr, ptr %.val319, i64 %383
+  %384 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %383
   store ptr %382, ptr %384, align 8, !tbaa !1817
   %385 = sext i32 %377 to i64
-  %386 = getelementptr inbounds ptr, ptr %.val319, i64 %385
+  %386 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %385
   store ptr %382, ptr %386, align 8, !tbaa !1817
   br label %387
 
@@ -17348,12 +17348,12 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %390 = srem i32 %389, %388
   %391 = load ptr, ptr %181, align 8, !tbaa !79
   %392 = sext i32 %390 to i64
-  %393 = getelementptr inbounds ptr, ptr %.val319, i64 %392
+  %393 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %392
   %394 = load ptr, ptr %185, align 8, !tbaa !68
   %395 = load ptr, ptr %188, align 8, !tbaa !61
   %396 = load i64, ptr %191, align 8, !tbaa !63
   %397 = mul i64 %396, %indvars.iv811
-  %398 = getelementptr inbounds nuw i16, ptr %395, i64 %397
+  %398 = getelementptr inbounds nuw [2 x i8], ptr %395, i64 %397
   %399 = load i32, ptr %5, align 8, !tbaa !64
   %400 = load i32, ptr %7, align 8, !tbaa !66
   %401 = mul nsw i32 %400, %399
@@ -17398,19 +17398,19 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %424 = load i32, ptr %7, align 8, !tbaa !66
   %425 = mul nsw i32 %423, %424
   %426 = sext i32 %425 to i64
-  %427 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val, i64 %426
-  %428 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv814
+  %427 = getelementptr inbounds [4 x i8], ptr %.val, i64 %426
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv814
   store ptr %427, ptr %428, align 8, !tbaa !1817
   %429 = load i32, ptr %10, align 4, !tbaa !70
   %430 = add nsw i32 %429, %422
   %431 = sext i32 %430 to i64
-  %432 = getelementptr inbounds ptr, ptr %.val319, i64 %431
+  %432 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %431
   store ptr %427, ptr %432, align 8, !tbaa !1817
   %433 = load ptr, ptr %413, align 8, !tbaa !74
   %434 = load ptr, ptr %414, align 8, !tbaa !57
   %435 = load i64, ptr %415, align 8, !tbaa !62
   %436 = mul i64 %435, %indvars.iv816
-  %437 = getelementptr inbounds nuw i16, ptr %434, i64 %436
+  %437 = getelementptr inbounds nuw [2 x i8], ptr %434, i64 %436
   %438 = load ptr, ptr %416, align 8, !tbaa !67
   %439 = load i32, ptr %417, align 8, !tbaa !69
   %440 = load ptr, ptr %428, align 8, !tbaa !1817
@@ -17454,7 +17454,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %449 = load i64, ptr %448, align 8, !tbaa !63
   %450 = mul i64 %449, %447
-  %451 = getelementptr inbounds nuw i16, ptr %446, i64 %450
+  %451 = getelementptr inbounds nuw [2 x i8], ptr %446, i64 %450
   %452 = load i32, ptr %5, align 8, !tbaa !64
   %453 = load i32, ptr %7, align 8, !tbaa !66
   %454 = mul nsw i32 %453, %452
@@ -17468,7 +17468,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %.sroa.speculated535 = call i32 @llvm.smin.i32(i32 %84, i32 0)
   %459 = sext i32 %.sroa.speculated535 to i64
   %460 = sub nsw i64 0, %459
-  %461 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %458, i64 %460
+  %461 = getelementptr inbounds nuw [4 x i8], ptr %458, i64 %460
   %462 = load i32, ptr %461, align 4, !tbaa !72, !noalias !1882
   %463 = zext i32 %462 to i64
   %wide.trip.count.i = zext nneg i32 %454 to i64
@@ -17476,7 +17476,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
 
 464:                                              ; preds = %464, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %464 ]
-  %465 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %455, i64 %indvars.iv.i
+  %465 = getelementptr inbounds nuw [4 x i8], ptr %455, i64 %indvars.iv.i
   %466 = load i32, ptr %465, align 4, !tbaa !72, !noalias !1882
   %467 = zext i32 %466 to i64
   %468 = mul nuw i64 %467, %463
@@ -17484,7 +17484,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %470 = lshr i64 %469, 32
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %470, i64 65535)
   %471 = trunc nuw i64 %.sroa.speculated.i.i to i16
-  %472 = getelementptr inbounds nuw i16, ptr %451, i64 %indvars.iv.i
+  %472 = getelementptr inbounds nuw [2 x i8], ptr %451, i64 %indvars.iv.i
   store i16 %471, ptr %472, align 2, !tbaa !399
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -17497,7 +17497,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %478 = load i64, ptr %477, align 8, !tbaa !63
   %479 = mul i64 %478, %476
-  %480 = getelementptr inbounds nuw i16, ptr %475, i64 %479
+  %480 = getelementptr inbounds nuw [2 x i8], ptr %475, i64 %479
   %481 = load i32, ptr %5, align 8, !tbaa !64
   %482 = load i32, ptr %7, align 8, !tbaa !66
   %483 = mul nsw i32 %482, %481
@@ -17510,7 +17510,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %.sroa.speculated530 = call i32 @llvm.smin.i32(i32 %84, i32 0)
   %487 = sext i32 %.sroa.speculated530 to i64
   %488 = sub nsw i64 0, %487
-  %489 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %486, i64 %488
+  %489 = getelementptr inbounds nuw [4 x i8], ptr %486, i64 %488
   %490 = load ptr, ptr %.val319, align 8, !tbaa !1817
   %491 = load i32, ptr %489, align 4, !tbaa !72, !noalias !1885
   %492 = zext i32 %491 to i64
@@ -17529,16 +17529,16 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
 
 503:                                              ; preds = %503, %.lr.ph.i328
   %indvars.iv.i330 = phi i64 [ 0, %.lr.ph.i328 ], [ %indvars.iv.next.i332, %503 ]
-  %504 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %490, i64 %indvars.iv.i330
+  %504 = getelementptr inbounds nuw [4 x i8], ptr %490, i64 %indvars.iv.i330
   %505 = load i32, ptr %504, align 4, !tbaa !72, !noalias !1885
   %506 = zext i32 %505 to i64
   %507 = mul nuw i64 %506, %492
-  %508 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %495, i64 %indvars.iv.i330
+  %508 = getelementptr inbounds nuw [4 x i8], ptr %495, i64 %indvars.iv.i330
   %509 = load i32, ptr %508, align 4, !tbaa !72, !noalias !1888
   %510 = zext i32 %509 to i64
   %511 = mul nuw i64 %510, %497
   %512 = call i64 @llvm.uadd.sat.i64(i64 %507, i64 %511)
-  %513 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %500, i64 %indvars.iv.i330
+  %513 = getelementptr inbounds nuw [4 x i8], ptr %500, i64 %indvars.iv.i330
   %514 = load i32, ptr %513, align 4, !tbaa !72, !noalias !1891
   %515 = zext i32 %514 to i64
   %516 = mul nuw i64 %515, %502
@@ -17547,7 +17547,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %519 = lshr i64 %518, 32
   %.sroa.speculated.i.i331 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %519, i64 65535)
   %520 = trunc nuw i64 %.sroa.speculated.i.i331 to i16
-  %521 = getelementptr inbounds nuw i16, ptr %480, i64 %indvars.iv.i330
+  %521 = getelementptr inbounds nuw [2 x i8], ptr %480, i64 %indvars.iv.i330
   store i16 %520, ptr %521, align 2, !tbaa !399
   %indvars.iv.next.i332 = add nuw nsw i64 %indvars.iv.i330, 1
   %exitcond.not.i333 = icmp eq i64 %indvars.iv.next.i332, %wide.trip.count.i329
@@ -17560,7 +17560,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %526 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %527 = load i64, ptr %526, align 8, !tbaa !63
   %528 = mul i64 %527, %525
-  %529 = getelementptr inbounds nuw i16, ptr %524, i64 %528
+  %529 = getelementptr inbounds nuw [2 x i8], ptr %524, i64 %528
   %530 = load i32, ptr %5, align 8, !tbaa !64
   %531 = load i32, ptr %7, align 8, !tbaa !66
   %532 = mul nsw i32 %531, %530
@@ -17573,7 +17573,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %.sroa.speculated525 = call i32 @llvm.smin.i32(i32 %84, i32 0)
   %536 = sext i32 %.sroa.speculated525 to i64
   %537 = sub nsw i64 0, %536
-  %538 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %535, i64 %537
+  %538 = getelementptr inbounds nuw [4 x i8], ptr %535, i64 %537
   %539 = load ptr, ptr %.val319, align 8, !tbaa !1817
   %540 = load i32, ptr %538, align 4, !tbaa !72, !noalias !1894
   %541 = zext i32 %540 to i64
@@ -17602,26 +17602,26 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
 
 562:                                              ; preds = %562, %.lr.ph.i335
   %indvars.iv.i337 = phi i64 [ 0, %.lr.ph.i335 ], [ %indvars.iv.next.i339, %562 ]
-  %563 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %539, i64 %indvars.iv.i337
+  %563 = getelementptr inbounds nuw [4 x i8], ptr %539, i64 %indvars.iv.i337
   %564 = load i32, ptr %563, align 4, !tbaa !72, !noalias !1894
   %565 = zext i32 %564 to i64
   %566 = mul nuw i64 %565, %541
-  %567 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %544, i64 %indvars.iv.i337
+  %567 = getelementptr inbounds nuw [4 x i8], ptr %544, i64 %indvars.iv.i337
   %568 = load i32, ptr %567, align 4, !tbaa !72, !noalias !1897
   %569 = zext i32 %568 to i64
   %570 = mul nuw i64 %569, %546
   %571 = call i64 @llvm.uadd.sat.i64(i64 %566, i64 %570)
-  %572 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %549, i64 %indvars.iv.i337
+  %572 = getelementptr inbounds nuw [4 x i8], ptr %549, i64 %indvars.iv.i337
   %573 = load i32, ptr %572, align 4, !tbaa !72, !noalias !1900
   %574 = zext i32 %573 to i64
   %575 = mul nuw i64 %574, %551
   %576 = call i64 @llvm.uadd.sat.i64(i64 %571, i64 %575)
-  %577 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %554, i64 %indvars.iv.i337
+  %577 = getelementptr inbounds nuw [4 x i8], ptr %554, i64 %indvars.iv.i337
   %578 = load i32, ptr %577, align 4, !tbaa !72, !noalias !1903
   %579 = zext i32 %578 to i64
   %580 = mul nuw i64 %579, %556
   %581 = call i64 @llvm.uadd.sat.i64(i64 %576, i64 %580)
-  %582 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %559, i64 %indvars.iv.i337
+  %582 = getelementptr inbounds nuw [4 x i8], ptr %559, i64 %indvars.iv.i337
   %583 = load i32, ptr %582, align 4, !tbaa !72, !noalias !1906
   %584 = zext i32 %583 to i64
   %585 = mul nuw i64 %584, %561
@@ -17630,7 +17630,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %588 = lshr i64 %587, 32
   %.sroa.speculated.i.i338 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %588, i64 65535)
   %589 = trunc nuw i64 %.sroa.speculated.i.i338 to i16
-  %590 = getelementptr inbounds nuw i16, ptr %529, i64 %indvars.iv.i337
+  %590 = getelementptr inbounds nuw [2 x i8], ptr %529, i64 %indvars.iv.i337
   store i16 %589, ptr %590, align 2, !tbaa !399
   %indvars.iv.next.i339 = add nuw nsw i64 %indvars.iv.i337, 1
   %exitcond.not.i340 = icmp eq i64 %indvars.iv.next.i339, %wide.trip.count.i336
@@ -17644,14 +17644,14 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %.sroa.speculated520 = call i32 @llvm.smin.i32(i32 %84, i32 0)
   %593 = sext i32 %.sroa.speculated520 to i64
   %594 = sub nsw i64 0, %593
-  %595 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %592, i64 %594
+  %595 = getelementptr inbounds nuw [4 x i8], ptr %592, i64 %594
   %596 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %597 = load ptr, ptr %596, align 8, !tbaa !61
   %598 = sext i32 %83 to i64
   %599 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %600 = load i64, ptr %599, align 8, !tbaa !63
   %601 = mul i64 %600, %598
-  %602 = getelementptr inbounds nuw i16, ptr %597, i64 %601
+  %602 = getelementptr inbounds nuw [2 x i8], ptr %597, i64 %601
   %603 = load i32, ptr %5, align 8, !tbaa !64
   %604 = load i32, ptr %7, align 8, !tbaa !66
   %605 = mul nsw i32 %604, %603
@@ -17672,7 +17672,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next33.i, %._crit_edge.us.i ]
-  %611 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %607, i64 %indvars.iv32.i
+  %611 = getelementptr inbounds nuw [4 x i8], ptr %607, i64 %indvars.iv32.i
   %612 = load i32, ptr %611, align 4, !tbaa !72, !noalias !1909
   %613 = zext i32 %612 to i64
   %614 = mul nuw i64 %613, %609
@@ -17681,10 +17681,10 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
 615:                                              ; preds = %615, %.lr.ph.us.i
   %indvars.iv27.i = phi i64 [ 1, %.lr.ph.us.i ], [ %indvars.iv.next28.i, %615 ]
   %.sroa.017.019.us.i = phi i64 [ %614, %.lr.ph.us.i ], [ %625, %615 ]
-  %616 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %595, i64 %indvars.iv27.i
-  %617 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv27.i
+  %616 = getelementptr inbounds nuw [4 x i8], ptr %595, i64 %indvars.iv27.i
+  %617 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv27.i
   %618 = load ptr, ptr %617, align 8, !tbaa !1817
-  %619 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %618, i64 %indvars.iv32.i
+  %619 = getelementptr inbounds nuw [4 x i8], ptr %618, i64 %indvars.iv32.i
   %620 = load i32, ptr %616, align 4, !tbaa !72, !noalias !1912
   %621 = zext i32 %620 to i64
   %622 = load i32, ptr %619, align 4, !tbaa !72, !noalias !1912
@@ -17700,7 +17700,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %627 = lshr i64 %626, 32
   %.sroa.speculated.i.us.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %627, i64 65535)
   %628 = trunc nuw i64 %.sroa.speculated.i.us.i to i16
-  %629 = getelementptr inbounds nuw i16, ptr %602, i64 %indvars.iv32.i
+  %629 = getelementptr inbounds nuw [2 x i8], ptr %602, i64 %indvars.iv32.i
   store i16 %628, ptr %629, align 2, !tbaa !399
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
@@ -17708,7 +17708,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
 
 .lr.ph23.split.i:                                 ; preds = %.lr.ph23.i, %.lr.ph23.split.i
   %indvars.iv.i342 = phi i64 [ %indvars.iv.next.i344, %.lr.ph23.split.i ], [ 0, %.lr.ph23.i ]
-  %630 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %607, i64 %indvars.iv.i342
+  %630 = getelementptr inbounds nuw [4 x i8], ptr %607, i64 %indvars.iv.i342
   %631 = load i32, ptr %630, align 4, !tbaa !72, !noalias !1909
   %632 = zext i32 %631 to i64
   %633 = mul nuw i64 %632, %609
@@ -17716,7 +17716,7 @@ _ZN2cv10AutoBufferIPNS_12_GLOBAL__N_113ufixedpoint32ELm136EEC2Em.exit: ; preds =
   %635 = lshr i64 %634, 32
   %.sroa.speculated.i.i343 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %635, i64 65535)
   %636 = trunc nuw i64 %.sroa.speculated.i.i343 to i16
-  %637 = getelementptr inbounds nuw i16, ptr %602, i64 %indvars.iv.i342
+  %637 = getelementptr inbounds nuw [2 x i8], ptr %602, i64 %indvars.iv.i342
   store i16 %636, ptr %637, align 2, !tbaa !399
   %indvars.iv.next.i344 = add nuw nsw i64 %indvars.iv.i342, 1
   %exitcond.not.i345 = icmp eq i64 %indvars.iv.next.i344, %wide.trip.count35.i
@@ -17766,19 +17766,19 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
   %665 = mul nsw i32 %663, %.1709
   %666 = mul nsw i32 %665, %662
   %667 = sext i32 %666 to i64
-  %668 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val, i64 %667
+  %668 = getelementptr inbounds [4 x i8], ptr %.val, i64 %667
   %669 = sext i32 %.1709 to i64
-  %670 = getelementptr inbounds ptr, ptr %.val319, i64 %669
+  %670 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %669
   store ptr %668, ptr %670, align 8, !tbaa !1817
   %671 = add nsw i32 %664, %.1709
   %672 = sext i32 %671 to i64
-  %673 = getelementptr inbounds ptr, ptr %.val319, i64 %672
+  %673 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %672
   store ptr %668, ptr %673, align 8, !tbaa !1817
   %674 = load ptr, ptr %647, align 8, !tbaa !74
   %675 = load ptr, ptr %648, align 8, !tbaa !57
   %676 = load i64, ptr %649, align 8, !tbaa !62
   %677 = mul i64 %676, %indvars.iv824
-  %678 = getelementptr inbounds nuw i16, ptr %675, i64 %677
+  %678 = getelementptr inbounds nuw [2 x i8], ptr %675, i64 %677
   %679 = load ptr, ptr %650, align 8, !tbaa !67
   %680 = load i32, ptr %651, align 8, !tbaa !69
   %681 = load i32, ptr %78, align 8, !tbaa !71
@@ -17796,7 +17796,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
   %685 = load ptr, ptr %652, align 8, !tbaa !61
   %686 = load i64, ptr %653, align 8, !tbaa !63
   %687 = mul i64 %686, %indvars.iv822
-  %688 = getelementptr inbounds nuw i16, ptr %685, i64 %687
+  %688 = getelementptr inbounds nuw [2 x i8], ptr %685, i64 %687
   %689 = load i32, ptr %5, align 8, !tbaa !64
   %690 = load i32, ptr %7, align 8, !tbaa !66
   %691 = mul nsw i32 %690, %689
@@ -17807,7 +17807,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
 .lr.ph.i348:                                      ; preds = %684
   %693 = load ptr, ptr %654, align 8, !tbaa !68
   %694 = sext i32 %.pre865 to i64
-  %695 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %693, i64 %694
+  %695 = getelementptr inbounds [4 x i8], ptr %693, i64 %694
   %696 = getelementptr inbounds i8, ptr %695, i64 -12
   %697 = load ptr, ptr %.val319, align 8, !tbaa !1817
   %698 = load i32, ptr %696, align 4, !tbaa !72, !noalias !1915
@@ -17825,16 +17825,16 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
 
 708:                                              ; preds = %708, %.lr.ph.i348
   %indvars.iv.i350 = phi i64 [ 0, %.lr.ph.i348 ], [ %indvars.iv.next.i352, %708 ]
-  %709 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %697, i64 %indvars.iv.i350
+  %709 = getelementptr inbounds nuw [4 x i8], ptr %697, i64 %indvars.iv.i350
   %710 = load i32, ptr %709, align 4, !tbaa !72, !noalias !1915
   %711 = zext i32 %710 to i64
   %712 = mul nuw i64 %711, %699
-  %713 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %701, i64 %indvars.iv.i350
+  %713 = getelementptr inbounds nuw [4 x i8], ptr %701, i64 %indvars.iv.i350
   %714 = load i32, ptr %713, align 4, !tbaa !72, !noalias !1918
   %715 = zext i32 %714 to i64
   %716 = mul nuw i64 %715, %703
   %717 = call i64 @llvm.uadd.sat.i64(i64 %712, i64 %716)
-  %718 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %705, i64 %indvars.iv.i350
+  %718 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %indvars.iv.i350
   %719 = load i32, ptr %718, align 4, !tbaa !72, !noalias !1921
   %720 = zext i32 %719 to i64
   %721 = mul nuw i64 %720, %707
@@ -17843,7 +17843,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
   %724 = lshr i64 %723, 32
   %.sroa.speculated.i.i351 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %724, i64 65535)
   %725 = trunc nuw i64 %.sroa.speculated.i.i351 to i16
-  %726 = getelementptr inbounds nuw i16, ptr %688, i64 %indvars.iv.i350
+  %726 = getelementptr inbounds nuw [2 x i8], ptr %688, i64 %indvars.iv.i350
   store i16 %725, ptr %726, align 2, !tbaa !399
   %indvars.iv.next.i352 = add nuw nsw i64 %indvars.iv.i350, 1
   %exitcond.not.i353 = icmp eq i64 %indvars.iv.next.i352, %wide.trip.count.i349
@@ -17853,7 +17853,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
   %728 = load ptr, ptr %652, align 8, !tbaa !61
   %729 = load i64, ptr %653, align 8, !tbaa !63
   %730 = mul i64 %729, %indvars.iv822
-  %731 = getelementptr inbounds nuw i16, ptr %728, i64 %730
+  %731 = getelementptr inbounds nuw [2 x i8], ptr %728, i64 %730
   %732 = load i32, ptr %5, align 8, !tbaa !64
   %733 = load i32, ptr %7, align 8, !tbaa !66
   %734 = mul nsw i32 %733, %732
@@ -17864,7 +17864,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
 .lr.ph.i355:                                      ; preds = %727
   %736 = load ptr, ptr %654, align 8, !tbaa !68
   %737 = sext i32 %.pre864 to i64
-  %738 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %736, i64 %737
+  %738 = getelementptr inbounds [4 x i8], ptr %736, i64 %737
   %739 = getelementptr inbounds i8, ptr %738, i64 -20
   %740 = load ptr, ptr %.val319, align 8, !tbaa !1817
   %741 = load i32, ptr %739, align 4, !tbaa !72, !noalias !1924
@@ -17890,26 +17890,26 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
 
 759:                                              ; preds = %759, %.lr.ph.i355
   %indvars.iv.i357 = phi i64 [ 0, %.lr.ph.i355 ], [ %indvars.iv.next.i359, %759 ]
-  %760 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %740, i64 %indvars.iv.i357
+  %760 = getelementptr inbounds nuw [4 x i8], ptr %740, i64 %indvars.iv.i357
   %761 = load i32, ptr %760, align 4, !tbaa !72, !noalias !1924
   %762 = zext i32 %761 to i64
   %763 = mul nuw i64 %762, %742
-  %764 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %744, i64 %indvars.iv.i357
+  %764 = getelementptr inbounds nuw [4 x i8], ptr %744, i64 %indvars.iv.i357
   %765 = load i32, ptr %764, align 4, !tbaa !72, !noalias !1927
   %766 = zext i32 %765 to i64
   %767 = mul nuw i64 %766, %746
   %768 = call i64 @llvm.uadd.sat.i64(i64 %763, i64 %767)
-  %769 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %748, i64 %indvars.iv.i357
+  %769 = getelementptr inbounds nuw [4 x i8], ptr %748, i64 %indvars.iv.i357
   %770 = load i32, ptr %769, align 4, !tbaa !72, !noalias !1930
   %771 = zext i32 %770 to i64
   %772 = mul nuw i64 %771, %750
   %773 = call i64 @llvm.uadd.sat.i64(i64 %768, i64 %772)
-  %774 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %752, i64 %indvars.iv.i357
+  %774 = getelementptr inbounds nuw [4 x i8], ptr %752, i64 %indvars.iv.i357
   %775 = load i32, ptr %774, align 4, !tbaa !72, !noalias !1933
   %776 = zext i32 %775 to i64
   %777 = mul nuw i64 %776, %754
   %778 = call i64 @llvm.uadd.sat.i64(i64 %773, i64 %777)
-  %779 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %756, i64 %indvars.iv.i357
+  %779 = getelementptr inbounds nuw [4 x i8], ptr %756, i64 %indvars.iv.i357
   %780 = load i32, ptr %779, align 4, !tbaa !72, !noalias !1936
   %781 = zext i32 %780 to i64
   %782 = mul nuw i64 %781, %758
@@ -17918,7 +17918,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
   %785 = lshr i64 %784, 32
   %.sroa.speculated.i.i358 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %785, i64 65535)
   %786 = trunc nuw i64 %.sroa.speculated.i.i358 to i16
-  %787 = getelementptr inbounds nuw i16, ptr %731, i64 %indvars.iv.i357
+  %787 = getelementptr inbounds nuw [2 x i8], ptr %731, i64 %indvars.iv.i357
   store i16 %786, ptr %787, align 2, !tbaa !399
   %indvars.iv.next.i359 = add nuw nsw i64 %indvars.iv.i357, 1
   %exitcond.not.i360 = icmp eq i64 %indvars.iv.next.i359, %wide.trip.count.i356
@@ -17928,14 +17928,14 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
   %789 = load ptr, ptr %654, align 8, !tbaa !68
   %790 = load i32, ptr %10, align 4, !tbaa !70
   %791 = sext i32 %790 to i64
-  %792 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %789, i64 %791
+  %792 = getelementptr inbounds [4 x i8], ptr %789, i64 %791
   %narrow = xor i32 %.1709, -1
   %793 = sext i32 %narrow to i64
-  %794 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %792, i64 %793
+  %794 = getelementptr inbounds [4 x i8], ptr %792, i64 %793
   %795 = load ptr, ptr %652, align 8, !tbaa !61
   %796 = load i64, ptr %653, align 8, !tbaa !63
   %797 = mul i64 %796, %indvars.iv822
-  %798 = getelementptr inbounds nuw i16, ptr %795, i64 %797
+  %798 = getelementptr inbounds nuw [2 x i8], ptr %795, i64 %797
   %799 = load i32, ptr %5, align 8, !tbaa !64
   %800 = load i32, ptr %7, align 8, !tbaa !66
   %801 = mul nsw i32 %800, %799
@@ -17952,7 +17952,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
 
 .lr.ph.us.i371:                                   ; preds = %.lr.ph23.i362, %._crit_edge.us.i377
   %indvars.iv32.i372 = phi i64 [ %indvars.iv.next33.i379, %._crit_edge.us.i377 ], [ 0, %.lr.ph23.i362 ]
-  %806 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %803, i64 %indvars.iv32.i372
+  %806 = getelementptr inbounds nuw [4 x i8], ptr %803, i64 %indvars.iv32.i372
   %807 = load i32, ptr %806, align 4, !tbaa !72, !noalias !1939
   %808 = zext i32 %807 to i64
   %809 = mul nuw i64 %808, %805
@@ -17961,10 +17961,10 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
 810:                                              ; preds = %810, %.lr.ph.us.i371
   %indvars.iv27.i373 = phi i64 [ 1, %.lr.ph.us.i371 ], [ %indvars.iv.next28.i375, %810 ]
   %.sroa.017.019.us.i374 = phi i64 [ %809, %.lr.ph.us.i371 ], [ %820, %810 ]
-  %811 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %794, i64 %indvars.iv27.i373
-  %812 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv27.i373
+  %811 = getelementptr inbounds nuw [4 x i8], ptr %794, i64 %indvars.iv27.i373
+  %812 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv27.i373
   %813 = load ptr, ptr %812, align 8, !tbaa !1817
-  %814 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %813, i64 %indvars.iv32.i372
+  %814 = getelementptr inbounds nuw [4 x i8], ptr %813, i64 %indvars.iv32.i372
   %815 = load i32, ptr %811, align 4, !tbaa !72, !noalias !1942
   %816 = zext i32 %815 to i64
   %817 = load i32, ptr %814, align 4, !tbaa !72, !noalias !1942
@@ -17980,7 +17980,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
   %822 = lshr i64 %821, 32
   %.sroa.speculated.i.us.i378 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %822, i64 65535)
   %823 = trunc nuw i64 %.sroa.speculated.i.us.i378 to i16
-  %824 = getelementptr inbounds nuw i16, ptr %798, i64 %indvars.iv32.i372
+  %824 = getelementptr inbounds nuw [2 x i8], ptr %798, i64 %indvars.iv32.i372
   store i16 %823, ptr %824, align 2, !tbaa !399
   %indvars.iv.next33.i379 = add nuw nsw i64 %indvars.iv32.i372, 1
   %exitcond36.not.i380 = icmp eq i64 %indvars.iv.next33.i379, %wide.trip.count35.i363
@@ -17988,7 +17988,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
 
 .lr.ph23.split.i364:                              ; preds = %.lr.ph23.i362, %.lr.ph23.split.i364
   %indvars.iv.i365 = phi i64 [ %indvars.iv.next.i367, %.lr.ph23.split.i364 ], [ 0, %.lr.ph23.i362 ]
-  %825 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %803, i64 %indvars.iv.i365
+  %825 = getelementptr inbounds nuw [4 x i8], ptr %803, i64 %indvars.iv.i365
   %826 = load i32, ptr %825, align 4, !tbaa !72, !noalias !1939
   %827 = zext i32 %826 to i64
   %828 = mul nuw i64 %827, %805
@@ -17996,7 +17996,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth1NItNS_12_GLOBAL__N_113ufixedpoin
   %830 = lshr i64 %829, 32
   %.sroa.speculated.i.i366 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %830, i64 65535)
   %831 = trunc nuw i64 %.sroa.speculated.i.i366 to i16
-  %832 = getelementptr inbounds nuw i16, ptr %798, i64 %indvars.iv.i365
+  %832 = getelementptr inbounds nuw [2 x i8], ptr %798, i64 %indvars.iv.i365
   store i16 %831, ptr %832, align 2, !tbaa !399
   %indvars.iv.next.i367 = add nuw nsw i64 %indvars.iv.i365, 1
   %exitcond.not.i368 = icmp eq i64 %indvars.iv.next.i367, %wide.trip.count35.i363
@@ -18053,12 +18053,12 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %855 = load ptr, ptr %843, align 8, !tbaa !57
   %856 = load i64, ptr %844, align 8, !tbaa !62
   %857 = mul i64 %856, %indvars.iv829
-  %858 = getelementptr inbounds nuw i16, ptr %855, i64 %857
+  %858 = getelementptr inbounds nuw [2 x i8], ptr %855, i64 %857
   %859 = load i32, ptr %7, align 8, !tbaa !66
   %860 = load ptr, ptr %845, align 8, !tbaa !67
   %861 = load i32, ptr %846, align 8, !tbaa !69
   %862 = sext i32 %.2719 to i64
-  %863 = getelementptr inbounds ptr, ptr %.val319, i64 %862
+  %863 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %862
   %864 = load ptr, ptr %863, align 8, !tbaa !1817
   %865 = load i32, ptr %5, align 8, !tbaa !64
   %866 = load i32, ptr %78, align 8, !tbaa !71
@@ -18071,12 +18071,12 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %870 = srem i32 %868, %869
   %871 = load ptr, ptr %847, align 8, !tbaa !79
   %872 = sext i32 %870 to i64
-  %873 = getelementptr inbounds ptr, ptr %.val319, i64 %872
+  %873 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %872
   %874 = load ptr, ptr %848, align 8, !tbaa !68
   %875 = load ptr, ptr %849, align 8, !tbaa !61
   %876 = load i64, ptr %850, align 8, !tbaa !63
   %877 = mul i64 %876, %indvars.iv831
-  %878 = getelementptr inbounds nuw i16, ptr %875, i64 %877
+  %878 = getelementptr inbounds nuw [2 x i8], ptr %875, i64 %877
   %879 = load i32, ptr %5, align 8, !tbaa !64
   %880 = load i32, ptr %7, align 8, !tbaa !66
   %881 = mul nsw i32 %880, %879
@@ -18139,11 +18139,11 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 912:                                              ; preds = %910
   %913 = mul i64 %897, %indvars.iv838
-  %914 = getelementptr inbounds nuw i16, ptr %895, i64 %913
+  %914 = getelementptr inbounds nuw [2 x i8], ptr %895, i64 %913
   br i1 %901, label %.lr.ph.i383, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit389
 
 .lr.ph.i383:                                      ; preds = %912
-  %915 = getelementptr inbounds ptr, ptr %.val319, i64 %indvars.iv836
+  %915 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %indvars.iv836
   %916 = load ptr, ptr %915, align 8, !tbaa !1817
   %917 = load i32, ptr %903, align 4, !tbaa !72, !noalias !1947
   %918 = zext i32 %917 to i64
@@ -18159,16 +18159,16 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 927:                                              ; preds = %927, %.lr.ph.i383
   %indvars.iv.i385 = phi i64 [ 0, %.lr.ph.i383 ], [ %indvars.iv.next.i387, %927 ]
-  %928 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %916, i64 %indvars.iv.i385
+  %928 = getelementptr inbounds nuw [4 x i8], ptr %916, i64 %indvars.iv.i385
   %929 = load i32, ptr %928, align 4, !tbaa !72, !noalias !1947
   %930 = zext i32 %929 to i64
   %931 = mul nuw i64 %930, %918
-  %932 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %920, i64 %indvars.iv.i385
+  %932 = getelementptr inbounds nuw [4 x i8], ptr %920, i64 %indvars.iv.i385
   %933 = load i32, ptr %932, align 4, !tbaa !72, !noalias !1950
   %934 = zext i32 %933 to i64
   %935 = mul nuw i64 %934, %922
   %936 = call i64 @llvm.uadd.sat.i64(i64 %931, i64 %935)
-  %937 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %924, i64 %indvars.iv.i385
+  %937 = getelementptr inbounds nuw [4 x i8], ptr %924, i64 %indvars.iv.i385
   %938 = load i32, ptr %937, align 4, !tbaa !72, !noalias !1953
   %939 = zext i32 %938 to i64
   %940 = mul nuw i64 %939, %926
@@ -18177,7 +18177,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %943 = lshr i64 %942, 32
   %.sroa.speculated.i.i386 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %943, i64 65535)
   %944 = trunc nuw i64 %.sroa.speculated.i.i386 to i16
-  %945 = getelementptr inbounds nuw i16, ptr %914, i64 %indvars.iv.i385
+  %945 = getelementptr inbounds nuw [2 x i8], ptr %914, i64 %indvars.iv.i385
   store i16 %944, ptr %945, align 2, !tbaa !399
   %indvars.iv.next.i387 = add nuw nsw i64 %indvars.iv.i385, 1
   %exitcond.not.i388 = icmp eq i64 %indvars.iv.next.i387, %wide.trip.count.i391
@@ -18185,11 +18185,11 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 946:                                              ; preds = %910
   %947 = mul i64 %897, %indvars.iv838
-  %948 = getelementptr inbounds nuw i16, ptr %895, i64 %947
+  %948 = getelementptr inbounds nuw [2 x i8], ptr %895, i64 %947
   br i1 %901, label %.lr.ph.i390, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit389
 
 .lr.ph.i390:                                      ; preds = %946
-  %949 = getelementptr inbounds ptr, ptr %.val319, i64 %indvars.iv836
+  %949 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %indvars.iv836
   %950 = load ptr, ptr %949, align 8, !tbaa !1817
   %951 = load i32, ptr %903, align 4, !tbaa !72, !noalias !1956
   %952 = zext i32 %951 to i64
@@ -18213,26 +18213,26 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 969:                                              ; preds = %969, %.lr.ph.i390
   %indvars.iv.i392 = phi i64 [ 0, %.lr.ph.i390 ], [ %indvars.iv.next.i394, %969 ]
-  %970 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %950, i64 %indvars.iv.i392
+  %970 = getelementptr inbounds nuw [4 x i8], ptr %950, i64 %indvars.iv.i392
   %971 = load i32, ptr %970, align 4, !tbaa !72, !noalias !1956
   %972 = zext i32 %971 to i64
   %973 = mul nuw i64 %972, %952
-  %974 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %954, i64 %indvars.iv.i392
+  %974 = getelementptr inbounds nuw [4 x i8], ptr %954, i64 %indvars.iv.i392
   %975 = load i32, ptr %974, align 4, !tbaa !72, !noalias !1959
   %976 = zext i32 %975 to i64
   %977 = mul nuw i64 %976, %956
   %978 = call i64 @llvm.uadd.sat.i64(i64 %973, i64 %977)
-  %979 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %958, i64 %indvars.iv.i392
+  %979 = getelementptr inbounds nuw [4 x i8], ptr %958, i64 %indvars.iv.i392
   %980 = load i32, ptr %979, align 4, !tbaa !72, !noalias !1962
   %981 = zext i32 %980 to i64
   %982 = mul nuw i64 %981, %960
   %983 = call i64 @llvm.uadd.sat.i64(i64 %978, i64 %982)
-  %984 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %962, i64 %indvars.iv.i392
+  %984 = getelementptr inbounds nuw [4 x i8], ptr %962, i64 %indvars.iv.i392
   %985 = load i32, ptr %984, align 4, !tbaa !72, !noalias !1965
   %986 = zext i32 %985 to i64
   %987 = mul nuw i64 %986, %964
   %988 = call i64 @llvm.uadd.sat.i64(i64 %983, i64 %987)
-  %989 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %966, i64 %indvars.iv.i392
+  %989 = getelementptr inbounds nuw [4 x i8], ptr %966, i64 %indvars.iv.i392
   %990 = load i32, ptr %989, align 4, !tbaa !72, !noalias !1968
   %991 = zext i32 %990 to i64
   %992 = mul nuw i64 %991, %968
@@ -18241,16 +18241,16 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %995 = lshr i64 %994, 32
   %.sroa.speculated.i.i393 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %995, i64 65535)
   %996 = trunc nuw i64 %.sroa.speculated.i.i393 to i16
-  %997 = getelementptr inbounds nuw i16, ptr %948, i64 %indvars.iv.i392
+  %997 = getelementptr inbounds nuw [2 x i8], ptr %948, i64 %indvars.iv.i392
   store i16 %996, ptr %997, align 2, !tbaa !399
   %indvars.iv.next.i394 = add nuw nsw i64 %indvars.iv.i392, 1
   %exitcond.not.i395 = icmp eq i64 %indvars.iv.next.i394, %wide.trip.count.i391
   br i1 %exitcond.not.i395, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit389, label %969, !llvm.loop !1850
 
 998:                                              ; preds = %910
-  %999 = getelementptr inbounds ptr, ptr %.val319, i64 %indvars.iv836
+  %999 = getelementptr inbounds [8 x i8], ptr %.val319, i64 %indvars.iv836
   %1000 = mul i64 %897, %indvars.iv838
-  %1001 = getelementptr inbounds nuw i16, ptr %895, i64 %1000
+  %1001 = getelementptr inbounds nuw [2 x i8], ptr %895, i64 %1000
   br i1 %901, label %.lr.ph23.i397, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit389
 
 .lr.ph23.i397:                                    ; preds = %998
@@ -18266,7 +18266,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 .lr.ph.us.i406:                                   ; preds = %._crit_edge.us.i412, %.lr.ph.us.preheader.i404
   %indvars.iv32.i407 = phi i64 [ 0, %.lr.ph.us.preheader.i404 ], [ %indvars.iv.next33.i414, %._crit_edge.us.i412 ]
-  %1006 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1002, i64 %indvars.iv32.i407
+  %1006 = getelementptr inbounds nuw [4 x i8], ptr %1002, i64 %indvars.iv32.i407
   %1007 = load i32, ptr %1006, align 4, !tbaa !72, !noalias !1971
   %1008 = zext i32 %1007 to i64
   %1009 = mul nuw i64 %1008, %1004
@@ -18275,10 +18275,10 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 1010:                                             ; preds = %1010, %.lr.ph.us.i406
   %indvars.iv27.i408 = phi i64 [ 1, %.lr.ph.us.i406 ], [ %indvars.iv.next28.i410, %1010 ]
   %.sroa.017.019.us.i409 = phi i64 [ %1009, %.lr.ph.us.i406 ], [ %1020, %1010 ]
-  %1011 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %903, i64 %indvars.iv27.i408
-  %1012 = getelementptr inbounds nuw ptr, ptr %999, i64 %indvars.iv27.i408
+  %1011 = getelementptr inbounds nuw [4 x i8], ptr %903, i64 %indvars.iv27.i408
+  %1012 = getelementptr inbounds nuw [8 x i8], ptr %999, i64 %indvars.iv27.i408
   %1013 = load ptr, ptr %1012, align 8, !tbaa !1817
-  %1014 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1013, i64 %indvars.iv32.i407
+  %1014 = getelementptr inbounds nuw [4 x i8], ptr %1013, i64 %indvars.iv32.i407
   %1015 = load i32, ptr %1011, align 4, !tbaa !72, !noalias !1974
   %1016 = zext i32 %1015 to i64
   %1017 = load i32, ptr %1014, align 4, !tbaa !72, !noalias !1974
@@ -18294,7 +18294,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1022 = lshr i64 %1021, 32
   %.sroa.speculated.i.us.i413 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1022, i64 65535)
   %1023 = trunc nuw i64 %.sroa.speculated.i.us.i413 to i16
-  %1024 = getelementptr inbounds nuw i16, ptr %1001, i64 %indvars.iv32.i407
+  %1024 = getelementptr inbounds nuw [2 x i8], ptr %1001, i64 %indvars.iv32.i407
   store i16 %1023, ptr %1024, align 2, !tbaa !399
   %indvars.iv.next33.i414 = add nuw nsw i64 %indvars.iv32.i407, 1
   %exitcond36.not.i415 = icmp eq i64 %indvars.iv.next33.i414, %wide.trip.count.i391
@@ -18302,7 +18302,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 .lr.ph23.split.i399:                              ; preds = %.lr.ph23.i397, %.lr.ph23.split.i399
   %indvars.iv.i400 = phi i64 [ %indvars.iv.next.i402, %.lr.ph23.split.i399 ], [ 0, %.lr.ph23.i397 ]
-  %1025 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1002, i64 %indvars.iv.i400
+  %1025 = getelementptr inbounds nuw [4 x i8], ptr %1002, i64 %indvars.iv.i400
   %1026 = load i32, ptr %1025, align 4, !tbaa !72, !noalias !1971
   %1027 = zext i32 %1026 to i64
   %1028 = mul nuw i64 %1027, %1004
@@ -18310,7 +18310,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1030 = lshr i64 %1029, 32
   %.sroa.speculated.i.i401 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1030, i64 65535)
   %1031 = trunc nuw i64 %.sroa.speculated.i.i401 to i16
-  %1032 = getelementptr inbounds nuw i16, ptr %1001, i64 %indvars.iv.i400
+  %1032 = getelementptr inbounds nuw [2 x i8], ptr %1001, i64 %indvars.iv.i400
   store i16 %1031, ptr %1032, align 2, !tbaa !399
   %indvars.iv.next.i402 = add nuw nsw i64 %indvars.iv.i400, 1
   %exitcond.not.i403 = icmp eq i64 %indvars.iv.next.i402, %wide.trip.count.i391
@@ -18378,7 +18378,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1070 = load ptr, ptr %1069, align 8
   %1071 = zext nneg i32 %.sroa.speculated540 to i64
   %1072 = sub nsw i64 0, %1071
-  %invariant.gep = getelementptr ptr, ptr %.val319, i64 %1072
+  %invariant.gep = getelementptr [8 x i8], ptr %.val319, i64 %1072
   %1073 = getelementptr inbounds nuw i8, ptr %1070, i64 4
   %1074 = getelementptr inbounds nuw i8, ptr %1070, i64 8
   %1075 = getelementptr inbounds nuw i8, ptr %1070, i64 12
@@ -18400,12 +18400,12 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 1082:                                             ; preds = %1081
   %1083 = mul i64 %1044, %indvars.iv845
-  %1084 = getelementptr inbounds nuw i16, ptr %1042, i64 %1083
+  %1084 = getelementptr inbounds nuw [2 x i8], ptr %1042, i64 %1083
   br i1 %1048, label %.lr.ph.i418, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit424
 
 .lr.ph.i418:                                      ; preds = %1082
   %1085 = sub nsw i64 0, %indvars.iv843
-  %1086 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1050, i64 %1085
+  %1086 = getelementptr inbounds [4 x i8], ptr %1050, i64 %1085
   %1087 = load ptr, ptr %.val319, align 8, !tbaa !1817
   %1088 = load i32, ptr %1086, align 4, !tbaa !72, !noalias !1978
   %1089 = zext i32 %1088 to i64
@@ -18421,16 +18421,16 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 1098:                                             ; preds = %1098, %.lr.ph.i418
   %indvars.iv.i420 = phi i64 [ 0, %.lr.ph.i418 ], [ %indvars.iv.next.i422, %1098 ]
-  %1099 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1087, i64 %indvars.iv.i420
+  %1099 = getelementptr inbounds nuw [4 x i8], ptr %1087, i64 %indvars.iv.i420
   %1100 = load i32, ptr %1099, align 4, !tbaa !72, !noalias !1978
   %1101 = zext i32 %1100 to i64
   %1102 = mul nuw i64 %1101, %1089
-  %1103 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1091, i64 %indvars.iv.i420
+  %1103 = getelementptr inbounds nuw [4 x i8], ptr %1091, i64 %indvars.iv.i420
   %1104 = load i32, ptr %1103, align 4, !tbaa !72, !noalias !1981
   %1105 = zext i32 %1104 to i64
   %1106 = mul nuw i64 %1105, %1093
   %1107 = call i64 @llvm.uadd.sat.i64(i64 %1102, i64 %1106)
-  %1108 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1095, i64 %indvars.iv.i420
+  %1108 = getelementptr inbounds nuw [4 x i8], ptr %1095, i64 %indvars.iv.i420
   %1109 = load i32, ptr %1108, align 4, !tbaa !72, !noalias !1984
   %1110 = zext i32 %1109 to i64
   %1111 = mul nuw i64 %1110, %1097
@@ -18439,7 +18439,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1114 = lshr i64 %1113, 32
   %.sroa.speculated.i.i421 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1114, i64 65535)
   %1115 = trunc nuw i64 %.sroa.speculated.i.i421 to i16
-  %1116 = getelementptr inbounds nuw i16, ptr %1084, i64 %indvars.iv.i420
+  %1116 = getelementptr inbounds nuw [2 x i8], ptr %1084, i64 %indvars.iv.i420
   store i16 %1115, ptr %1116, align 2, !tbaa !399
   %indvars.iv.next.i422 = add nuw nsw i64 %indvars.iv.i420, 1
   %exitcond.not.i423 = icmp eq i64 %indvars.iv.next.i422, %wide.trip.count.i426
@@ -18447,12 +18447,12 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 1117:                                             ; preds = %1081
   %1118 = mul i64 %1044, %indvars.iv845
-  %1119 = getelementptr inbounds nuw i16, ptr %1042, i64 %1118
+  %1119 = getelementptr inbounds nuw [2 x i8], ptr %1042, i64 %1118
   br i1 %1048, label %.lr.ph.i425, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit424
 
 .lr.ph.i425:                                      ; preds = %1117
   %1120 = sub nsw i64 0, %indvars.iv843
-  %1121 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1050, i64 %1120
+  %1121 = getelementptr inbounds [4 x i8], ptr %1050, i64 %1120
   %1122 = load ptr, ptr %.val319, align 8, !tbaa !1817
   %1123 = load i32, ptr %1121, align 4, !tbaa !72, !noalias !1987
   %1124 = zext i32 %1123 to i64
@@ -18476,26 +18476,26 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 1141:                                             ; preds = %1141, %.lr.ph.i425
   %indvars.iv.i427 = phi i64 [ 0, %.lr.ph.i425 ], [ %indvars.iv.next.i429, %1141 ]
-  %1142 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1122, i64 %indvars.iv.i427
+  %1142 = getelementptr inbounds nuw [4 x i8], ptr %1122, i64 %indvars.iv.i427
   %1143 = load i32, ptr %1142, align 4, !tbaa !72, !noalias !1987
   %1144 = zext i32 %1143 to i64
   %1145 = mul nuw i64 %1144, %1124
-  %1146 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1126, i64 %indvars.iv.i427
+  %1146 = getelementptr inbounds nuw [4 x i8], ptr %1126, i64 %indvars.iv.i427
   %1147 = load i32, ptr %1146, align 4, !tbaa !72, !noalias !1990
   %1148 = zext i32 %1147 to i64
   %1149 = mul nuw i64 %1148, %1128
   %1150 = call i64 @llvm.uadd.sat.i64(i64 %1145, i64 %1149)
-  %1151 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1130, i64 %indvars.iv.i427
+  %1151 = getelementptr inbounds nuw [4 x i8], ptr %1130, i64 %indvars.iv.i427
   %1152 = load i32, ptr %1151, align 4, !tbaa !72, !noalias !1993
   %1153 = zext i32 %1152 to i64
   %1154 = mul nuw i64 %1153, %1132
   %1155 = call i64 @llvm.uadd.sat.i64(i64 %1150, i64 %1154)
-  %1156 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1134, i64 %indvars.iv.i427
+  %1156 = getelementptr inbounds nuw [4 x i8], ptr %1134, i64 %indvars.iv.i427
   %1157 = load i32, ptr %1156, align 4, !tbaa !72, !noalias !1996
   %1158 = zext i32 %1157 to i64
   %1159 = mul nuw i64 %1158, %1136
   %1160 = call i64 @llvm.uadd.sat.i64(i64 %1155, i64 %1159)
-  %1161 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1138, i64 %indvars.iv.i427
+  %1161 = getelementptr inbounds nuw [4 x i8], ptr %1138, i64 %indvars.iv.i427
   %1162 = load i32, ptr %1161, align 4, !tbaa !72, !noalias !1999
   %1163 = zext i32 %1162 to i64
   %1164 = mul nuw i64 %1163, %1140
@@ -18504,7 +18504,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1167 = lshr i64 %1166, 32
   %.sroa.speculated.i.i428 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1167, i64 65535)
   %1168 = trunc nuw i64 %.sroa.speculated.i.i428 to i16
-  %1169 = getelementptr inbounds nuw i16, ptr %1119, i64 %indvars.iv.i427
+  %1169 = getelementptr inbounds nuw [2 x i8], ptr %1119, i64 %indvars.iv.i427
   store i16 %1168, ptr %1169, align 2, !tbaa !399
   %indvars.iv.next.i429 = add nuw nsw i64 %indvars.iv.i427, 1
   %exitcond.not.i430 = icmp eq i64 %indvars.iv.next.i429, %wide.trip.count.i426
@@ -18512,9 +18512,9 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 1170:                                             ; preds = %1081
   %1171 = sub nsw i64 0, %indvars.iv843
-  %1172 = getelementptr inbounds %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1050, i64 %1171
+  %1172 = getelementptr inbounds [4 x i8], ptr %1050, i64 %1171
   %1173 = mul i64 %1044, %indvars.iv845
-  %1174 = getelementptr inbounds nuw i16, ptr %1042, i64 %1173
+  %1174 = getelementptr inbounds nuw [2 x i8], ptr %1042, i64 %1173
   br i1 %1048, label %.lr.ph23.i432, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit424
 
 .lr.ph23.i432:                                    ; preds = %1170
@@ -18525,7 +18525,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 .lr.ph.us.i441:                                   ; preds = %.lr.ph23.i432, %._crit_edge.us.i447
   %indvars.iv32.i442 = phi i64 [ %indvars.iv.next33.i449, %._crit_edge.us.i447 ], [ 0, %.lr.ph23.i432 ]
-  %1178 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1175, i64 %indvars.iv32.i442
+  %1178 = getelementptr inbounds nuw [4 x i8], ptr %1175, i64 %indvars.iv32.i442
   %1179 = load i32, ptr %1178, align 4, !tbaa !72, !noalias !2002
   %1180 = zext i32 %1179 to i64
   %1181 = mul nuw i64 %1180, %1177
@@ -18534,10 +18534,10 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 1182:                                             ; preds = %1182, %.lr.ph.us.i441
   %indvars.iv27.i443 = phi i64 [ 1, %.lr.ph.us.i441 ], [ %indvars.iv.next28.i445, %1182 ]
   %.sroa.017.019.us.i444 = phi i64 [ %1181, %.lr.ph.us.i441 ], [ %1192, %1182 ]
-  %1183 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1172, i64 %indvars.iv27.i443
-  %1184 = getelementptr inbounds nuw ptr, ptr %.val319, i64 %indvars.iv27.i443
+  %1183 = getelementptr inbounds nuw [4 x i8], ptr %1172, i64 %indvars.iv27.i443
+  %1184 = getelementptr inbounds nuw [8 x i8], ptr %.val319, i64 %indvars.iv27.i443
   %1185 = load ptr, ptr %1184, align 8, !tbaa !1817
-  %1186 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1185, i64 %indvars.iv32.i442
+  %1186 = getelementptr inbounds nuw [4 x i8], ptr %1185, i64 %indvars.iv32.i442
   %1187 = load i32, ptr %1183, align 4, !tbaa !72, !noalias !2005
   %1188 = zext i32 %1187 to i64
   %1189 = load i32, ptr %1186, align 4, !tbaa !72, !noalias !2005
@@ -18553,7 +18553,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1194 = lshr i64 %1193, 32
   %.sroa.speculated.i.us.i448 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1194, i64 65535)
   %1195 = trunc nuw i64 %.sroa.speculated.i.us.i448 to i16
-  %1196 = getelementptr inbounds nuw i16, ptr %1174, i64 %indvars.iv32.i442
+  %1196 = getelementptr inbounds nuw [2 x i8], ptr %1174, i64 %indvars.iv32.i442
   store i16 %1195, ptr %1196, align 2, !tbaa !399
   %indvars.iv.next33.i449 = add nuw nsw i64 %indvars.iv32.i442, 1
   %exitcond36.not.i450 = icmp eq i64 %indvars.iv.next33.i449, %wide.trip.count.i426
@@ -18561,7 +18561,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 .lr.ph23.split.i434:                              ; preds = %.lr.ph23.i432, %.lr.ph23.split.i434
   %indvars.iv.i435 = phi i64 [ %indvars.iv.next.i437, %.lr.ph23.split.i434 ], [ 0, %.lr.ph23.i432 ]
-  %1197 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1175, i64 %indvars.iv.i435
+  %1197 = getelementptr inbounds nuw [4 x i8], ptr %1175, i64 %indvars.iv.i435
   %1198 = load i32, ptr %1197, align 4, !tbaa !72, !noalias !2002
   %1199 = zext i32 %1198 to i64
   %1200 = mul nuw i64 %1199, %1177
@@ -18569,7 +18569,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1202 = lshr i64 %1201, 32
   %.sroa.speculated.i.i436 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1202, i64 65535)
   %1203 = trunc nuw i64 %.sroa.speculated.i.i436 to i16
-  %1204 = getelementptr inbounds nuw i16, ptr %1174, i64 %indvars.iv.i435
+  %1204 = getelementptr inbounds nuw [2 x i8], ptr %1174, i64 %indvars.iv.i435
   store i16 %1203, ptr %1204, align 2, !tbaa !399
   %indvars.iv.next.i437 = add nuw nsw i64 %indvars.iv.i435, 1
   %exitcond.not.i438 = icmp eq i64 %indvars.iv.next.i437, %wide.trip.count.i426
@@ -18594,11 +18594,11 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 1208:                                             ; preds = %1205
   %1209 = mul i64 %1064, %indvars.iv853
-  %1210 = getelementptr inbounds nuw i16, ptr %1062, i64 %1209
+  %1210 = getelementptr inbounds nuw [2 x i8], ptr %1062, i64 %1209
   br i1 %1068, label %.lr.ph.i453, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit459
 
 .lr.ph.i453:                                      ; preds = %1208
-  %gep740 = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv851
+  %gep740 = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv851
   %1211 = load ptr, ptr %gep740, align 8, !tbaa !1817
   %1212 = load i32, ptr %1070, align 4, !tbaa !72, !noalias !2009
   %1213 = zext i32 %1212 to i64
@@ -18614,16 +18614,16 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 1222:                                             ; preds = %1222, %.lr.ph.i453
   %indvars.iv.i455 = phi i64 [ 0, %.lr.ph.i453 ], [ %indvars.iv.next.i457, %1222 ]
-  %1223 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1211, i64 %indvars.iv.i455
+  %1223 = getelementptr inbounds nuw [4 x i8], ptr %1211, i64 %indvars.iv.i455
   %1224 = load i32, ptr %1223, align 4, !tbaa !72, !noalias !2009
   %1225 = zext i32 %1224 to i64
   %1226 = mul nuw i64 %1225, %1213
-  %1227 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1215, i64 %indvars.iv.i455
+  %1227 = getelementptr inbounds nuw [4 x i8], ptr %1215, i64 %indvars.iv.i455
   %1228 = load i32, ptr %1227, align 4, !tbaa !72, !noalias !2012
   %1229 = zext i32 %1228 to i64
   %1230 = mul nuw i64 %1229, %1217
   %1231 = call i64 @llvm.uadd.sat.i64(i64 %1226, i64 %1230)
-  %1232 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1219, i64 %indvars.iv.i455
+  %1232 = getelementptr inbounds nuw [4 x i8], ptr %1219, i64 %indvars.iv.i455
   %1233 = load i32, ptr %1232, align 4, !tbaa !72, !noalias !2015
   %1234 = zext i32 %1233 to i64
   %1235 = mul nuw i64 %1234, %1221
@@ -18632,7 +18632,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1238 = lshr i64 %1237, 32
   %.sroa.speculated.i.i456 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1238, i64 65535)
   %1239 = trunc nuw i64 %.sroa.speculated.i.i456 to i16
-  %1240 = getelementptr inbounds nuw i16, ptr %1210, i64 %indvars.iv.i455
+  %1240 = getelementptr inbounds nuw [2 x i8], ptr %1210, i64 %indvars.iv.i455
   store i16 %1239, ptr %1240, align 2, !tbaa !399
   %indvars.iv.next.i457 = add nuw nsw i64 %indvars.iv.i455, 1
   %exitcond.not.i458 = icmp eq i64 %indvars.iv.next.i457, %wide.trip.count.i462
@@ -18640,11 +18640,11 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 1241:                                             ; preds = %1205
   %1242 = mul i64 %1064, %indvars.iv853
-  %1243 = getelementptr inbounds nuw i16, ptr %1062, i64 %1242
+  %1243 = getelementptr inbounds nuw [2 x i8], ptr %1062, i64 %1242
   br i1 %1068, label %.lr.ph.i461, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit459
 
 .lr.ph.i461:                                      ; preds = %1241
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv851
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv851
   %1244 = load ptr, ptr %gep, align 8, !tbaa !1817
   %1245 = load i32, ptr %1070, align 4, !tbaa !72, !noalias !2018
   %1246 = zext i32 %1245 to i64
@@ -18668,26 +18668,26 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 1263:                                             ; preds = %1263, %.lr.ph.i461
   %indvars.iv.i463 = phi i64 [ 0, %.lr.ph.i461 ], [ %indvars.iv.next.i465, %1263 ]
-  %1264 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1244, i64 %indvars.iv.i463
+  %1264 = getelementptr inbounds nuw [4 x i8], ptr %1244, i64 %indvars.iv.i463
   %1265 = load i32, ptr %1264, align 4, !tbaa !72, !noalias !2018
   %1266 = zext i32 %1265 to i64
   %1267 = mul nuw i64 %1266, %1246
-  %1268 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1248, i64 %indvars.iv.i463
+  %1268 = getelementptr inbounds nuw [4 x i8], ptr %1248, i64 %indvars.iv.i463
   %1269 = load i32, ptr %1268, align 4, !tbaa !72, !noalias !2021
   %1270 = zext i32 %1269 to i64
   %1271 = mul nuw i64 %1270, %1250
   %1272 = call i64 @llvm.uadd.sat.i64(i64 %1267, i64 %1271)
-  %1273 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1252, i64 %indvars.iv.i463
+  %1273 = getelementptr inbounds nuw [4 x i8], ptr %1252, i64 %indvars.iv.i463
   %1274 = load i32, ptr %1273, align 4, !tbaa !72, !noalias !2024
   %1275 = zext i32 %1274 to i64
   %1276 = mul nuw i64 %1275, %1254
   %1277 = call i64 @llvm.uadd.sat.i64(i64 %1272, i64 %1276)
-  %1278 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1256, i64 %indvars.iv.i463
+  %1278 = getelementptr inbounds nuw [4 x i8], ptr %1256, i64 %indvars.iv.i463
   %1279 = load i32, ptr %1278, align 4, !tbaa !72, !noalias !2027
   %1280 = zext i32 %1279 to i64
   %1281 = mul nuw i64 %1280, %1258
   %1282 = call i64 @llvm.uadd.sat.i64(i64 %1277, i64 %1281)
-  %1283 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1260, i64 %indvars.iv.i463
+  %1283 = getelementptr inbounds nuw [4 x i8], ptr %1260, i64 %indvars.iv.i463
   %1284 = load i32, ptr %1283, align 4, !tbaa !72, !noalias !2030
   %1285 = zext i32 %1284 to i64
   %1286 = mul nuw i64 %1285, %1262
@@ -18696,16 +18696,16 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1289 = lshr i64 %1288, 32
   %.sroa.speculated.i.i464 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1289, i64 65535)
   %1290 = trunc nuw i64 %.sroa.speculated.i.i464 to i16
-  %1291 = getelementptr inbounds nuw i16, ptr %1243, i64 %indvars.iv.i463
+  %1291 = getelementptr inbounds nuw [2 x i8], ptr %1243, i64 %indvars.iv.i463
   store i16 %1290, ptr %1291, align 2, !tbaa !399
   %indvars.iv.next.i465 = add nuw nsw i64 %indvars.iv.i463, 1
   %exitcond.not.i466 = icmp eq i64 %indvars.iv.next.i465, %wide.trip.count.i462
   br i1 %exitcond.not.i466, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit459, label %1263, !llvm.loop !1850
 
 1292:                                             ; preds = %1205
-  %gep742 = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv851
+  %gep742 = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv851
   %1293 = mul i64 %1064, %indvars.iv853
-  %1294 = getelementptr inbounds nuw i16, ptr %1062, i64 %1293
+  %1294 = getelementptr inbounds nuw [2 x i8], ptr %1062, i64 %1293
   br i1 %1068, label %.lr.ph23.i469, label %_ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i.exit459
 
 .lr.ph23.i469:                                    ; preds = %1292
@@ -18717,7 +18717,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 .lr.ph.us.i478:                                   ; preds = %.lr.ph23.i469, %._crit_edge.us.i484
   %indvars.iv32.i479 = phi i64 [ %indvars.iv.next33.i486, %._crit_edge.us.i484 ], [ 0, %.lr.ph23.i469 ]
-  %1299 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1295, i64 %indvars.iv32.i479
+  %1299 = getelementptr inbounds nuw [4 x i8], ptr %1295, i64 %indvars.iv32.i479
   %1300 = load i32, ptr %1299, align 4, !tbaa !72, !noalias !2033
   %1301 = zext i32 %1300 to i64
   %1302 = mul nuw i64 %1301, %1297
@@ -18726,10 +18726,10 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 1303:                                             ; preds = %1303, %.lr.ph.us.i478
   %indvars.iv27.i480 = phi i64 [ 1, %.lr.ph.us.i478 ], [ %indvars.iv.next28.i482, %1303 ]
   %.sroa.017.019.us.i481 = phi i64 [ %1302, %.lr.ph.us.i478 ], [ %1313, %1303 ]
-  %1304 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1070, i64 %indvars.iv27.i480
-  %1305 = getelementptr inbounds nuw ptr, ptr %gep742, i64 %indvars.iv27.i480
+  %1304 = getelementptr inbounds nuw [4 x i8], ptr %1070, i64 %indvars.iv27.i480
+  %1305 = getelementptr inbounds nuw [8 x i8], ptr %gep742, i64 %indvars.iv27.i480
   %1306 = load ptr, ptr %1305, align 8, !tbaa !1817
-  %1307 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1306, i64 %indvars.iv32.i479
+  %1307 = getelementptr inbounds nuw [4 x i8], ptr %1306, i64 %indvars.iv32.i479
   %1308 = load i32, ptr %1304, align 4, !tbaa !72, !noalias !2036
   %1309 = zext i32 %1308 to i64
   %1310 = load i32, ptr %1307, align 4, !tbaa !72, !noalias !2036
@@ -18745,7 +18745,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1315 = lshr i64 %1314, 32
   %.sroa.speculated.i.us.i485 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1315, i64 65535)
   %1316 = trunc nuw i64 %.sroa.speculated.i.us.i485 to i16
-  %1317 = getelementptr inbounds nuw i16, ptr %1294, i64 %indvars.iv32.i479
+  %1317 = getelementptr inbounds nuw [2 x i8], ptr %1294, i64 %indvars.iv32.i479
   store i16 %1316, ptr %1317, align 2, !tbaa !399
   %indvars.iv.next33.i486 = add nuw nsw i64 %indvars.iv32.i479, 1
   %exitcond36.not.i487 = icmp eq i64 %indvars.iv.next33.i486, %wide.trip.count.i462
@@ -18753,7 +18753,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
 
 .lr.ph23.split.i471:                              ; preds = %.lr.ph23.i469, %.lr.ph23.split.i471
   %indvars.iv.i472 = phi i64 [ %indvars.iv.next.i474, %.lr.ph23.split.i471 ], [ 0, %.lr.ph23.i469 ]
-  %1318 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %1295, i64 %indvars.iv.i472
+  %1318 = getelementptr inbounds nuw [4 x i8], ptr %1295, i64 %indvars.iv.i472
   %1319 = load i32, ptr %1318, align 4, !tbaa !72, !noalias !2033
   %1320 = zext i32 %1319 to i64
   %1321 = mul nuw i64 %1320, %1297
@@ -18761,7 +18761,7 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_113vlineSmooth3NItNS_12_GLOBAL__N_113ufixedpoin
   %1323 = lshr i64 %1322, 32
   %.sroa.speculated.i.i473 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %1323, i64 65535)
   %1324 = trunc nuw i64 %.sroa.speculated.i.i473 to i16
-  %1325 = getelementptr inbounds nuw i16, ptr %1294, i64 %indvars.iv.i472
+  %1325 = getelementptr inbounds nuw [2 x i8], ptr %1294, i64 %indvars.iv.i472
   store i16 %1324, ptr %1325, align 2, !tbaa !399
   %indvars.iv.next.i474 = add nuw nsw i64 %indvars.iv.i472, 1
   %exitcond.not.i475 = icmp eq i64 %indvars.iv.next.i474, %wide.trip.count.i462
@@ -19006,9 +19006,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv12_GLOBAL__N_113ufixedpoint16ES3_S
 
 _ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE13_M_deallocateEPS2_m.exit49.i.i: ; preds = %61, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv12_GLOBAL__N_113ufixedpoint16ES3_SaIS2_EET0_T_S6_S5_RT1_.exit.i.i
   store ptr %56, ptr %2, align 8, !tbaa !247
-  %62 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %57, i64 %40
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %40
   store ptr %62, ptr %33, align 8, !tbaa !249
-  %63 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %56, i64 %54
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %54
   store ptr %63, ptr %41, align 8, !tbaa !251
   br label %_ZNSt6vectorIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE6resizeEm.exit
 
@@ -19017,7 +19017,7 @@ _ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE13_M_deallocateEPS
   br i1 %65, label %66, label %_ZNSt6vectorIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE6resizeEm.exit
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val7.i, i64 %32
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %.val7.i, i64 %32
   %.not.i9.i = icmp eq ptr %.val8.i, %67
   br i1 %.not.i9.i, label %_ZNSt6vectorIN2cv12_GLOBAL__N_113ufixedpoint16ESaIS2_EE6resizeEm.exit, label %68
 
@@ -19081,10 +19081,10 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EED2Ev.exit21: ; preds = %_ZNSt6vectorIlSaIl
 
 80:                                               ; preds = %.lr.ph, %80
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
-  %81 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %82 = load i64, ptr %81, align 8, !tbaa !90
   %83 = trunc i64 %82 to i16
-  %84 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %.val, i64 %indvars.iv
   store i16 %83, ptr %84, align 2, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -19204,7 +19204,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
   br i1 %47, label %48, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i64, ptr %38, i64 %35
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %35
   %.not.i.i = icmp eq ptr %37, %49
   br i1 %.not.i.i, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %50
 
@@ -19234,13 +19234,13 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %55 = sext i32 %51 to i64
   %56 = load ptr, ptr %2, align 8, !tbaa !81
-  %57 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %55
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %58 = sub nsw i64 %34, %.035.lcssa
   %59 = load ptr, ptr %1, align 8, !tbaa !2042
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %55
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %55
   store i64 %58, ptr %60, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %58)
@@ -19257,7 +19257,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %61 = load ptr, ptr %2, align 8, !tbaa !81
-  %62 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -19272,11 +19272,11 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %66 = load ptr, ptr %1, align 8, !tbaa !2042
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   store i64 %64, ptr %67, align 8, !tbaa !90
   %68 = xor i64 %indvars.iv, -1
-  %69 = getelementptr i64, ptr %66, i64 %53
-  %70 = getelementptr i64, ptr %69, i64 %68
+  %69 = getelementptr [8 x i8], ptr %66, i64 %53
+  %70 = getelementptr [8 x i8], ptr %69, i64 %68
   store i64 %64, ptr %70, align 8, !tbaa !90
   %71 = add nsw i64 %.03539, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -19379,9 +19379,9 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !2042
-  %38 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !2045
-  %39 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !2052
   br label %40
 
@@ -19573,9 +19573,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv12_GLOBAL__N_113ufixedpoint32ES3_S
 
 _ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE13_M_deallocateEPS2_m.exit49.i.i: ; preds = %61, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv12_GLOBAL__N_113ufixedpoint32ES3_SaIS2_EET0_T_S6_S5_RT1_.exit.i.i
   store ptr %56, ptr %2, align 8, !tbaa !318
-  %62 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %57, i64 %40
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %40
   store ptr %62, ptr %33, align 8, !tbaa !320
-  %63 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %56, i64 %54
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %54
   store ptr %63, ptr %41, align 8, !tbaa !321
   br label %_ZNSt6vectorIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE6resizeEm.exit
 
@@ -19584,7 +19584,7 @@ _ZNSt12_Vector_baseIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE13_M_deallocateEPS
   br i1 %65, label %66, label %_ZNSt6vectorIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE6resizeEm.exit
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val7.i, i64 %32
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.val7.i, i64 %32
   %.not.i9.i = icmp eq ptr %.val8.i, %67
   br i1 %.not.i9.i, label %_ZNSt6vectorIN2cv12_GLOBAL__N_113ufixedpoint32ESaIS2_EE6resizeEm.exit, label %68
 
@@ -19648,10 +19648,10 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EED2Ev.exit21: ; preds = %_ZNSt6vectorIlSaIl
 
 80:                                               ; preds = %.lr.ph, %80
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
-  %81 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %82 = load i64, ptr %81, align 8, !tbaa !90
   %83 = trunc i64 %82 to i32
-  %84 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv
   store i32 %83, ptr %84, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

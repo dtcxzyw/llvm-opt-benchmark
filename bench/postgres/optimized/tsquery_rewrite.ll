@@ -137,11 +137,11 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %52, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %53, align 8
   %62 = sext i32 %.078110.i to i64
-  %63 = getelementptr inbounds ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 @QTNodeCompare(ptr noundef %60, ptr noundef %64) #4
   %66 = icmp eq i32 %65, 0
@@ -189,7 +189,7 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   %84 = load i8, ptr %83, align 1, !range !4, !noundef !5
   %85 = trunc nuw i8 %84 to i1
   %86 = load ptr, ptr %81, align 8
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv120.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv120.i
   %88 = load ptr, ptr %87, align 8
   br i1 %85, label %89, label %90
 
@@ -200,7 +200,7 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
 90:                                               ; preds = %82
   %91 = add i32 %.3116.i, 1
   %92 = sext i32 %.3116.i to i64
-  %93 = getelementptr inbounds ptr, ptr %86, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %86, i64 %92
   store ptr %88, ptr %93, align 8
   br label %94
 
@@ -227,7 +227,7 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   %104 = load ptr, ptr %103, align 8
   %105 = add i32 %.3.lcssa.i, 1
   %106 = sext i32 %.3.lcssa.i to i64
-  %107 = getelementptr inbounds ptr, ptr %104, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %104, i64 %106
   store ptr %99, ptr %107, align 8
   br label %108
 
@@ -310,15 +310,15 @@ findeq.exit.thread:                               ; preds = %44, %115, %35, %13,
   %137 = phi ptr [ %.pre, %.lr.ph ], [ %144, %136 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %136 ]
   %.02941 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %136 ]
-  %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv
   %139 = load ptr, ptr %138, align 8
   %140 = tail call fastcc ptr @dofindsubquery(ptr noundef %139, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %141 = load ptr, ptr %135, align 8
   %142 = sext i32 %.02941 to i64
-  %143 = getelementptr inbounds ptr, ptr %141, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %141, i64 %142
   store ptr %140, ptr %143, align 8
   %144 = load ptr, ptr %135, align 8
-  %145 = getelementptr inbounds ptr, ptr %144, i64 %142
+  %145 = getelementptr inbounds [8 x i8], ptr %144, i64 %142
   %146 = load ptr, ptr %145, align 8
   %.not36 = icmp ne ptr %146, null
   %147 = zext i1 %.not36 to i32
@@ -463,7 +463,7 @@ define dso_local i64 @tsquery_rewrite_query(ptr noundef readonly captures(none) 
   %59 = load ptr, ptr @SPI_tuptable, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %.082110
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.082110
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %59, align 8
   %65 = call i64 @SPI_getbinval(ptr noundef %63, ptr noundef %64, i32 noundef 1, ptr noundef nonnull %3) #4
@@ -475,7 +475,7 @@ define dso_local i64 @tsquery_rewrite_query(ptr noundef readonly captures(none) 
   %69 = load ptr, ptr @SPI_tuptable, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %.082110
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.082110
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %69, align 8
   %75 = call i64 @SPI_getbinval(ptr noundef %73, ptr noundef %74, i32 noundef 2, ptr noundef nonnull %3) #4

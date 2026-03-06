@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.Points = type { i16, i16 }
 
 @.str = private unnamed_addr constant [10 x i8] c"floodfill\00", align 1
 @.str.1 = private unnamed_addr constant [46 x i8] c"Fill area with same color with another color.\00", align 1
@@ -130,9 +129,9 @@ is_inside.exit:                                   ; preds = %37
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %54 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !31
-  %56 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !31
   %.not103 = icmp eq i32 %55, %57
   br i1 %.not103, label %58, label %._crit_edge.loopexit
@@ -168,7 +167,7 @@ is_inside.exit:                                   ; preds = %37
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %73 = load i32, ptr %72, align 8, !tbaa !49
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.Points, ptr %71, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %71, i64 %74
   store i16 %69, ptr %75, align 2, !tbaa !50
   %76 = load i32, ptr %34, align 4, !tbaa !42
   %77 = trunc i32 %76 to i16
@@ -206,7 +205,7 @@ is_inside.exit:                                   ; preds = %37
   store i32 %92, ptr %82, align 8, !tbaa !49
   %93 = load ptr, ptr %87, align 8, !tbaa !48
   %94 = sext i32 %92 to i64
-  %95 = getelementptr inbounds %struct.Points, ptr %93, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %93, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !50
   %97 = zext i16 %96 to i32
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 2
@@ -241,7 +240,7 @@ is_inside.exit114:                                ; preds = %108
   %114 = trunc i32 %111 to i16
   %115 = load ptr, ptr %87, align 8, !tbaa !48
   %116 = sext i32 %.pre144.pre.pre.pre to i64
-  %117 = getelementptr inbounds %struct.Points, ptr %115, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %115, i64 %116
   store i16 %114, ptr %117, align 2, !tbaa !50
   %118 = add nsw i32 %.pre144.pre.pre.pre, 1
   store i32 %118, ptr %82, align 8, !tbaa !49
@@ -261,7 +260,7 @@ is_inside.exit118:                                ; preds = %is_inside.exit114.t
   %122 = add i16 %96, -1
   %123 = load ptr, ptr %87, align 8, !tbaa !48
   %124 = sext i32 %.pre144.pre.pre to i64
-  %125 = getelementptr inbounds %struct.Points, ptr %123, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %123, i64 %124
   store i16 %122, ptr %125, align 2, !tbaa !50
   %126 = add nsw i32 %.pre144.pre.pre, 1
   store i32 %126, ptr %82, align 8, !tbaa !49
@@ -280,7 +279,7 @@ is_inside.exit118.thread:                         ; preds = %is_inside.exit114.t
 is_inside.exit122:                                ; preds = %is_inside.exit118.thread
   %131 = load ptr, ptr %87, align 8, !tbaa !48
   %132 = sext i32 %.pre144.pre to i64
-  %133 = getelementptr inbounds %struct.Points, ptr %131, i64 %132
+  %133 = getelementptr inbounds [4 x i8], ptr %131, i64 %132
   store i16 %96, ptr %133, align 2, !tbaa !50
   %134 = trunc i32 %128 to i16
   %135 = add nsw i32 %.pre144.pre, 1
@@ -301,7 +300,7 @@ is_inside.exit126:                                ; preds = %is_inside.exit122.t
   %140 = add i16 %99, -1
   %141 = load ptr, ptr %87, align 8, !tbaa !48
   %142 = sext i32 %.pre144 to i64
-  %143 = getelementptr inbounds %struct.Points, ptr %141, i64 %142
+  %143 = getelementptr inbounds [4 x i8], ptr %141, i64 %142
   store i16 %96, ptr %143, align 2, !tbaa !50
   %144 = add nsw i32 %.pre144, 1
   store i32 %144, ptr %82, align 8, !tbaa !49

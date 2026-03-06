@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HuffmanTreeGroup = type { ptr, ptr, i16, i16, i16 }
 %union.anon.0 = type { %struct.BrotliMetablockBodyArena }
 %struct.BrotliMetablockBodyArena = type { [544 x i8], [544 x i64] }
-%struct.HuffmanCode = type { i8, i16 }
 
 @.str = private unnamed_addr constant [10 x i8] c"_NO_ERROR\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"_SUCCESS\00", align 1
@@ -198,10 +197,10 @@ define range(i32 0, 2) i32 @BrotliDecoderAttachDictionary(ptr noundef captures(n
   %19 = phi ptr [ %13, %.lr.ph ], [ %41, %40 ]
   %.01520 = phi i64 [ %10, %.lr.ph ], [ %54, %40 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01520
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.01520
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %.01520
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.01520
   %25 = load i64, ptr %24, align 8, !tbaa !25
   %26 = load i32, ptr %0, align 8, !tbaa !3
   %.not.i = icmp eq i32 %26, 0
@@ -252,7 +251,7 @@ define range(i32 0, 2) i32 @BrotliDecoderAttachDictionary(ptr noundef captures(n
   %43 = phi i32 [ 0, %.thread.i ], [ %.pre.i, %._crit_edge ]
   %44 = getelementptr inbounds nuw i8, ptr %.034.i, i64 24
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %44, i64 %45
   store ptr %22, ptr %46, align 8, !tbaa !24
   %47 = add nsw i32 %43, 1
   store i32 %47, ptr %.034.i, align 8, !tbaa !28
@@ -262,7 +261,7 @@ define range(i32 0, 2) i32 @BrotliDecoderAttachDictionary(ptr noundef captures(n
   store i32 %50, ptr %49, align 4, !tbaa !30
   %51 = getelementptr inbounds nuw i8, ptr %.034.i, i64 152
   %52 = sext i32 %47 to i64
-  %53 = getelementptr inbounds i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %51, i64 %52
   store i32 %50, ptr %53, align 4, !tbaa !34
   %54 = add nuw nsw i64 %.01520, 1
   %55 = load i32, ptr %41, align 8, !tbaa !19
@@ -628,7 +627,7 @@ BrotliBitReaderUnload.exit:                       ; preds = %149
 ._crit_edge663:                                   ; preds = %165
   %.pre664 = load i32, ptr %58, align 4, !tbaa !48
   %.phi.trans.insert = sext i32 %.pre664 to i64
-  %.phi.trans.insert665 = getelementptr inbounds i64, ptr %63, i64 %.phi.trans.insert
+  %.phi.trans.insert665 = getelementptr inbounds [8 x i8], ptr %63, i64 %.phi.trans.insert
   %.pre666 = load i64, ptr %.phi.trans.insert665, align 8, !tbaa !25
   br label %306
 
@@ -847,7 +846,7 @@ BrotliPullByte.exit444:                           ; preds = %.lr.ph618
 
 BrotliTakeBits.exit437:                           ; preds = %258
   %261 = load i64, ptr %9, align 8, !tbaa !47
-  %262 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %260
+  %262 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %260
   %263 = load i64, ptr %262, align 8, !tbaa !25
   %264 = and i64 %263, %261
   %265 = and i64 %259, -8
@@ -932,7 +931,7 @@ BrotliBitReaderNormalize.exit428:                 ; preds = %BrotliJumpToByteBou
 291:                                              ; preds = %.thread, %288
   %292 = phi i32 [ 0, %.thread ], [ %.pre662, %288 ]
   %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds i64, ptr %63, i64 %293
+  %294 = getelementptr inbounds [8 x i8], ptr %63, i64 %293
   %295 = call fastcc i32 @DecodeVarLenUint8(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %294)
   %.not388 = icmp eq i32 %295, 1
   br i1 %.not388, label %296, label %.backedge.backedge
@@ -940,7 +939,7 @@ BrotliBitReaderNormalize.exit428:                 ; preds = %BrotliJumpToByteBou
 296:                                              ; preds = %291
   %297 = load i32, ptr %58, align 4, !tbaa !48
   %298 = sext i32 %297 to i64
-  %299 = getelementptr inbounds i64, ptr %63, i64 %298
+  %299 = getelementptr inbounds [8 x i8], ptr %63, i64 %298
   %300 = load i64, ptr %299, align 8, !tbaa !25
   %301 = add i64 %300, 1
   store i64 %301, ptr %299, align 8, !tbaa !25
@@ -963,7 +962,7 @@ BrotliBitReaderNormalize.exit428:                 ; preds = %BrotliJumpToByteBou
   %310 = mul nsw i32 %308, 632
   %311 = load ptr, ptr %87, align 8, !tbaa !50
   %312 = sext i32 %310 to i64
-  %313 = getelementptr inbounds %struct.HuffmanCode, ptr %311, i64 %312
+  %313 = getelementptr inbounds [4 x i8], ptr %311, i64 %312
   %314 = call fastcc i32 @ReadHuffmanCode(i64 noundef %309, i64 noundef %309, ptr noundef %313, ptr noundef null, ptr noundef nonnull %0)
   %.not389 = icmp eq i32 %314, 1
   br i1 %.not389, label %.thread516, label %.backedge.backedge
@@ -977,7 +976,7 @@ BrotliBitReaderNormalize.exit428:                 ; preds = %BrotliJumpToByteBou
   %317 = mul nsw i32 %316, 396
   %318 = load ptr, ptr %88, align 8, !tbaa !51
   %319 = sext i32 %317 to i64
-  %320 = getelementptr inbounds %struct.HuffmanCode, ptr %318, i64 %319
+  %320 = getelementptr inbounds [4 x i8], ptr %318, i64 %319
   %321 = call fastcc i32 @ReadHuffmanCode(i64 noundef 26, i64 noundef 26, ptr noundef %320, ptr noundef null, ptr noundef nonnull %0)
   %.not390 = icmp eq i32 %321, 1
   br i1 %.not390, label %.thread518, label %.backedge.backedge
@@ -990,10 +989,10 @@ BrotliBitReaderNormalize.exit428:                 ; preds = %BrotliJumpToByteBou
   %323 = load i32, ptr %58, align 4, !tbaa !48
   %324 = mul nsw i32 %323, 396
   %325 = sext i32 %323 to i64
-  %326 = getelementptr inbounds i64, ptr %96, i64 %325
+  %326 = getelementptr inbounds [8 x i8], ptr %96, i64 %325
   %327 = load ptr, ptr %88, align 8, !tbaa !51
   %328 = sext i32 %324 to i64
-  %329 = getelementptr inbounds %struct.HuffmanCode, ptr %327, i64 %328
+  %329 = getelementptr inbounds [4 x i8], ptr %327, i64 %328
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %330 = load i32, ptr %97, align 4, !tbaa !61
   %331 = icmp eq i32 %330, 0
@@ -1037,7 +1036,7 @@ BrotliPullByte.exit.i.i:                          ; preds = %334
   %346 = phi i64 [ %.promoted623, %.preheader.._crit_edge625_crit_edge ], [ %343, %BrotliPullByte.exit.i.i ]
   %347 = phi i64 [ %.pre667, %.preheader.._crit_edge625_crit_edge ], [ %342, %BrotliPullByte.exit.i.i ]
   %348 = and i64 %347, 255
-  %349 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %329, i64 %348
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %329, i64 %348
   %350 = load i8, ptr %349, align 2, !tbaa !63
   %351 = icmp ugt i8 %350, 8
   br i1 %351, label %BitMask.exit.i, label %SafeReadSymbol.exit.thread
@@ -1052,11 +1051,11 @@ BitMask.exit.i:                                   ; preds = %._crit_edge625
   %358 = zext i8 %350 to i64
   %359 = add nuw nsw i64 %358, 4294967288
   %360 = and i64 %359, 4294967295
-  %361 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %360
+  %361 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %360
   %362 = load i64, ptr %361, align 8, !tbaa !25
   %363 = and i64 %357, %362
-  %364 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %349, i64 %363
-  %365 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %364, i64 %356
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %349, i64 %363
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %364, i64 %356
   %.pre668 = load i8, ptr %365, align 2, !tbaa !63
   br label %SafeReadSymbol.exit.thread
 
@@ -1094,7 +1093,7 @@ SafeReadBlockLength.exit.thread:                  ; preds = %SafeReadSymbol.exit
 
 378:                                              ; preds = %SafeReadSymbol.exit._crit_edge, %SafeReadSymbol.exit.thread, %376
   %379 = phi i64 [ %.pre669, %SafeReadSymbol.exit._crit_edge ], [ %374, %SafeReadSymbol.exit.thread ], [ %377, %376 ]
-  %380 = getelementptr inbounds nuw %struct.BrotliPrefixCodeRange, ptr @_kBrotliPrefixCodeRanges, i64 %379
+  %380 = getelementptr inbounds nuw [4 x i8], ptr @_kBrotliPrefixCodeRanges, i64 %379
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 2
   %382 = load i8, ptr %381, align 2, !tbaa !67
   %383 = zext i8 %382 to i64
@@ -1141,7 +1140,7 @@ SafeReadBlockLength.exit.thread541:               ; preds = %387
 ._crit_edge631:                                   ; preds = %BrotliPullByte.exit, %.._crit_edge631_crit_edge
   %399 = phi i64 [ %.pre670, %.._crit_edge631_crit_edge ], [ %395, %BrotliPullByte.exit ]
   %.lcssa601 = phi i64 [ %.promoted628, %.._crit_edge631_crit_edge ], [ %396, %BrotliPullByte.exit ]
-  %400 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %383
+  %400 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %383
   %401 = load i64, ptr %400, align 8, !tbaa !25
   %402 = and i64 %401, %399
   %403 = sub i64 %.lcssa601, %383
@@ -1338,7 +1337,7 @@ ReadContextModes.exit:                            ; preds = %.lr.ph.i
   %499 = and i32 %498, 31
   %500 = shl nuw i32 1, %499
   %501 = lshr i64 %.1.i422615, 5
-  %502 = getelementptr inbounds nuw i32, ptr %67, i64 %501
+  %502 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %501
   %503 = load i32, ptr %502, align 4, !tbaa !34
   %504 = or i32 %503, %500
   store i32 %504, ptr %502, align 4, !tbaa !34
@@ -1515,10 +1514,10 @@ BrotliCalculateDistanceCodeLimit.exit:            ; preds = %518, %543
   %594 = load ptr, ptr %.0308, align 8, !tbaa !86
   %595 = load i32, ptr %77, align 4, !tbaa !80
   %596 = sext i32 %595 to i64
-  %597 = getelementptr inbounds ptr, ptr %594, i64 %596
+  %597 = getelementptr inbounds [8 x i8], ptr %594, i64 %596
   store ptr %593, ptr %597, align 8, !tbaa !87
   %598 = load i64, ptr %7, align 8, !tbaa !25
-  %599 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %593, i64 %598
+  %599 = getelementptr inbounds nuw [4 x i8], ptr %593, i64 %598
   store ptr %599, ptr %76, align 8, !tbaa !82
   %600 = add nsw i32 %595, 1
   store i32 %600, ptr %77, align 4, !tbaa !80
@@ -1555,7 +1554,7 @@ HuffmanTreeGroupDecode.exit:                      ; preds = %585
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 %610
   store ptr %612, ptr %79, align 8, !tbaa !89
   %613 = lshr i64 %609, 5
-  %614 = getelementptr inbounds nuw i32, ptr %67, i64 %613
+  %614 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %613
   %615 = load i32, ptr %614, align 4, !tbaa !34
   %616 = zext i32 %615 to i64
   %617 = and i64 %609, 31
@@ -1566,7 +1565,7 @@ HuffmanTreeGroupDecode.exit:                      ; preds = %585
   %621 = load ptr, ptr %71, align 8, !tbaa !91
   %622 = load i8, ptr %612, align 1, !tbaa !44
   %623 = zext i8 %622 to i64
-  %624 = getelementptr inbounds nuw ptr, ptr %621, i64 %623
+  %624 = getelementptr inbounds nuw [8 x i8], ptr %621, i64 %623
   %625 = load ptr, ptr %624, align 8, !tbaa !87
   store ptr %625, ptr %81, align 8, !tbaa !92
   %626 = load ptr, ptr %64, align 8, !tbaa !73
@@ -1609,7 +1608,7 @@ HuffmanTreeGroupDecode.exit:                      ; preds = %585
   %644 = getelementptr inbounds nuw i8, ptr %75, i64 %.03337.i
   store i8 0, ptr %644, align 1, !tbaa !44
   %645 = add nuw i64 %.038.i460, 1
-  %646 = getelementptr inbounds nuw i64, ptr %86, i64 %.03337.i
+  %646 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.03337.i
   store i64 %645, ptr %646, align 8, !tbaa !25
   %647 = add i64 %.03337.i, 1
   %exitcond.not.i = icmp eq i64 %645, %639
@@ -1633,7 +1632,7 @@ HuffmanTreeGroupDecode.exit:                      ; preds = %585
   %656 = getelementptr inbounds nuw i8, ptr %75, i64 %.239.i
   store i8 %653, ptr %656, align 1, !tbaa !44
   %657 = add i64 %654, %.140.i
-  %658 = getelementptr inbounds nuw i64, ptr %86, i64 %.239.i
+  %658 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.239.i
   store i64 %657, ptr %658, align 8, !tbaa !25
   %659 = add i64 %.239.i, 1
   %660 = add i64 %.140.i, 1
@@ -1722,13 +1721,13 @@ CalculateDistanceLut.exit:                        ; preds = %662, %.preheader.i4
   %704 = getelementptr inbounds i8, ptr %702, i64 %703
   %705 = load i32, ptr %694, align 8, !tbaa !105
   %706 = sext i32 %705 to i64
-  %707 = getelementptr inbounds ptr, ptr %693, i64 %706
+  %707 = getelementptr inbounds [8 x i8], ptr %693, i64 %706
   %708 = load ptr, ptr %707, align 8, !tbaa !24
   %709 = load i32, ptr %695, align 4, !tbaa !106
   %710 = sext i32 %709 to i64
   %711 = getelementptr inbounds i8, ptr %708, i64 %710
   %712 = sub nsw i32 %698, %.042.i
-  %713 = getelementptr i32, ptr %696, i64 %706
+  %713 = getelementptr [4 x i8], ptr %696, i64 %706
   %714 = getelementptr i8, ptr %713, i64 4
   %715 = load i32, ptr %714, align 4, !tbaa !34
   %716 = load i32, ptr %713, align 4, !tbaa !34
@@ -1828,7 +1827,7 @@ CopyFromCompoundDictionary.exit:                  ; preds = %697, %730
 
 BrotliTakeBits.exit435:                           ; preds = %756
   %759 = load i64, ptr %9, align 8, !tbaa !47
-  %760 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %758
+  %760 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %758
   %761 = load i64, ptr %760, align 8, !tbaa !25
   %762 = and i64 %761, %759
   %763 = and i64 %757, -8
@@ -2778,7 +2777,7 @@ BrotliPullByte.exit27:                            ; preds = %53
 ._crit_edge70:                                    ; preds = %BrotliPullByte.exit27, %.._crit_edge70_crit_edge
   %66 = phi i64 [ %.pre80, %.._crit_edge70_crit_edge ], [ %61, %BrotliPullByte.exit27 ]
   %.lcssa = phi i64 [ %.promoted67, %.._crit_edge70_crit_edge ], [ %62, %BrotliPullByte.exit27 ]
-  %67 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %47
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %47
   %68 = load i64, ptr %67, align 8, !tbaa !25
   %69 = and i64 %68, %66
   %70 = sub i64 %.lcssa, %47
@@ -2931,7 +2930,7 @@ BrotliPullByte.exit97:                            ; preds = %.lr.ph201
   %55 = phi i64 [ 0, %.loopexit.thread ], [ %.pre246, %.loopexit ]
   %56 = phi i64 [ %48, %.loopexit.thread ], [ %.pre248, %.loopexit ]
   %57 = sub nuw nsw i64 64, %.pn
-  %58 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 1048
   %.promoted.pre.i = load i64, ptr %9, align 8, !tbaa !46
   br label %.preheader59.i
@@ -2999,7 +2998,7 @@ BrotliPullByte.exit.i:                            ; preds = %64
 
 82:                                               ; preds = %._crit_edge.i
   %83 = trunc i64 %79 to i16
-  %84 = getelementptr inbounds nuw i16, ptr %59, i64 %.03374.i
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %.03374.i
   store i16 %83, ptr %84, align 2, !tbaa !121
   %85 = add i64 %.03374.i, 1
   %.not.i100 = icmp ugt i64 %85, %56
@@ -3012,7 +3011,7 @@ BrotliPullByte.exit.i:                            ; preds = %64
 .lr.ph78.i:                                       ; preds = %.loopexit.i, %.lr.ph80.i
   %.23579.i = phi i64 [ 0, %.lr.ph80.i ], [ %86, %.loopexit.i ]
   %86 = add nuw i64 %.23579.i, 1
-  %87 = getelementptr inbounds nuw i16, ptr %63, i64 %.23579.i
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %.23579.i
   %88 = load i16, ptr %87, align 2, !tbaa !121
   br label %91
 
@@ -3023,7 +3022,7 @@ BrotliPullByte.exit.i:                            ; preds = %64
 
 91:                                               ; preds = %89, %.lr.ph78.i
   %.076.i = phi i64 [ %86, %.lr.ph78.i ], [ %90, %89 ]
-  %92 = getelementptr inbounds nuw i16, ptr %63, i64 %.076.i
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %.076.i
   %93 = load i16, ptr %92, align 2, !tbaa !121
   %94 = icmp eq i16 %88, %93
   br i1 %94, label %.critedge, label %89
@@ -3201,7 +3200,7 @@ BrotliSafeGetBits.exit.i:                         ; preds = %BrotliPullByte.exit
   %162 = zext nneg i32 %161 to i64
   %163 = sub i64 %.04273.i, %162
   %164 = add i64 %.03875.i, 1
-  %165 = getelementptr inbounds nuw i16, ptr %14, i64 %159
+  %165 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %159
   %166 = load i16, ptr %165, align 2, !tbaa !121
   %167 = add i16 %166, 1
   store i16 %167, ptr %165, align 2, !tbaa !121
@@ -3237,10 +3236,10 @@ ReadCodeLengthCodeLengths.exit:                   ; preds = %._crit_edge.i101
   %.076198 = phi i64 [ 0, %ReadCodeLengthCodeLengths.exit ], [ %184, %178 ]
   %179 = trunc nuw nsw i64 %.076198 to i32
   %180 = or disjoint i32 %179, -16
-  %181 = getelementptr inbounds nuw i32, ptr %175, i64 %.076198
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %.076198
   store i32 %180, ptr %181, align 4, !tbaa !34
   %182 = sext i32 %180 to i64
-  %183 = getelementptr inbounds i16, ptr %177, i64 %182
+  %183 = getelementptr inbounds [2 x i8], ptr %177, i64 %182
   store i16 -1, ptr %183, align 2, !tbaa !121
   %184 = add nuw nsw i64 %.076198, 1
   %exitcond.not = icmp eq i64 %184, 16
@@ -3336,7 +3335,7 @@ BrotliFillBitWindow.exit.i:                       ; preds = %212, %209
   %219 = phi i64 [ %.pre.i109, %209 ], [ %215, %212 ]
   %220 = phi ptr [ %208, %209 ], [ %217, %212 ]
   %221 = and i64 %219, 31
-  %222 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %206, i64 %221
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %221
   %223 = load i8, ptr %222, align 2, !tbaa !63
   %224 = zext i8 %223 to i64
   %225 = sub i64 %218, %224
@@ -3355,10 +3354,10 @@ BrotliFillBitWindow.exit.i:                       ; preds = %212, %209
 
 232:                                              ; preds = %231
   %233 = trunc i64 %.082104.i to i16
-  %234 = getelementptr inbounds nuw i32, ptr %199, i64 %229
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %229
   %235 = load i32, ptr %234, align 4, !tbaa !34
   %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds i16, ptr %189, i64 %236
+  %237 = getelementptr inbounds [2 x i8], ptr %189, i64 %236
   store i16 %233, ptr %237, align 2, !tbaa !121
   %238 = trunc i64 %.082104.i to i32
   store i32 %238, ptr %234, align 4, !tbaa !34
@@ -3366,7 +3365,7 @@ BrotliFillBitWindow.exit.i:                       ; preds = %212, %209
   %240 = lshr exact i32 32768, %239
   %241 = zext nneg i32 %240 to i64
   %242 = sub i64 %.075106.i, %241
-  %243 = getelementptr inbounds nuw i16, ptr %14, i64 %229
+  %243 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %229
   %244 = load i16, ptr %243, align 2, !tbaa !121
   %245 = add i16 %244, 1
   store i16 %245, ptr %243, align 2, !tbaa !121
@@ -3381,7 +3380,7 @@ ProcessSingleCodeLength.exit.i:                   ; preds = %232, %231
 BitMask.exit.i:                                   ; preds = %BrotliFillBitWindow.exit.i
   %247 = icmp eq i16 %228, 16
   %248 = select i1 %247, i64 2, i64 3
-  %249 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %248
   %250 = load i64, ptr %249, align 8, !tbaa !25
   %251 = and i64 %250, %226
   %252 = sub i64 %225, %248
@@ -3417,7 +3416,7 @@ BitMask.exit.i:                                   ; preds = %BrotliFillBitWindow
   br i1 %.not52.i.i, label %ProcessRepeatedCodeLength.exit.i, label %264
 
 264:                                              ; preds = %263
-  %265 = getelementptr inbounds nuw i32, ptr %199, i64 %.290.i
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %.290.i
   %266 = load i32, ptr %265, align 4, !tbaa !34
   br label %267
 
@@ -3426,7 +3425,7 @@ BitMask.exit.i:                                   ; preds = %BrotliFillBitWindow
   %.0.i50.i = phi i32 [ %266, %264 ], [ %271, %267 ]
   %268 = trunc i64 %.284.i to i16
   %269 = sext i32 %.0.i50.i to i64
-  %270 = getelementptr inbounds i16, ptr %189, i64 %269
+  %270 = getelementptr inbounds [2 x i8], ptr %189, i64 %269
   store i16 %268, ptr %270, align 2, !tbaa !121
   %271 = trunc i64 %.284.i to i32
   %272 = add i64 %.284.i, 1
@@ -3438,7 +3437,7 @@ BitMask.exit.i:                                   ; preds = %BrotliFillBitWindow
   %274 = sub i64 15, %.290.i
   %275 = shl i64 %260, %274
   %276 = sub i64 %.075106.i, %275
-  %277 = getelementptr inbounds nuw i16, ptr %14, i64 %.290.i
+  %277 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %.290.i
   %278 = load i16, ptr %277, align 2, !tbaa !121
   %279 = trunc i64 %260 to i16
   %280 = add i16 %278, %279
@@ -3527,7 +3526,7 @@ BrotliPullByte.exit.i115:                         ; preds = %289
 306:                                              ; preds = %303, %301
   %.055.i = phi i64 [ %305, %303 ], [ 0, %301 ]
   %307 = and i64 %.055.i, 31
-  %308 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %285, i64 %307
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %285, i64 %307
   %309 = load i8, ptr %308, align 2, !tbaa !63
   %310 = zext i8 %309 to i64
   %311 = icmp ult i64 %302, %310
@@ -3553,10 +3552,10 @@ BrotliPullByte.exit.i115:                         ; preds = %289
 
 322:                                              ; preds = %317
   %323 = trunc i64 %.lcssa788182.i to i16
-  %324 = getelementptr inbounds nuw i32, ptr %199, i64 %315
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %315
   %325 = load i32, ptr %324, align 4, !tbaa !34
   %326 = sext i32 %325 to i64
-  %327 = getelementptr inbounds i16, ptr %321, i64 %326
+  %327 = getelementptr inbounds [2 x i8], ptr %321, i64 %326
   store i16 %323, ptr %327, align 2, !tbaa !121
   %328 = trunc i64 %.lcssa788182.i to i32
   store i32 %328, ptr %324, align 4, !tbaa !34
@@ -3566,7 +3565,7 @@ BrotliPullByte.exit.i115:                         ; preds = %289
   %331 = zext nneg i32 %330 to i64
   %332 = sub i64 %287, %331
   store i64 %332, ptr %12, align 8, !tbaa !25
-  %333 = getelementptr inbounds nuw i16, ptr %14, i64 %315
+  %333 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %315
   %334 = load i16, ptr %333, align 2, !tbaa !121
   %335 = add i16 %334, 1
   store i16 %335, ptr %333, align 2, !tbaa !121
@@ -3585,7 +3584,7 @@ BitMask.exit.i116:                                ; preds = %312
   br i1 %.not65.i, label %select.unfold.i, label %340, !llvm.loop !130
 
 340:                                              ; preds = %BitMask.exit.i116
-  %341 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %338
+  %341 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %338
   %342 = load i64, ptr %341, align 8, !tbaa !25
   %343 = lshr i64 %.055.i, %310
   %344 = and i64 %342, %343
@@ -3644,7 +3643,7 @@ BitMask.exit.i116:                                ; preds = %312
   br i1 %.not52.i.i119, label %385, label %367
 
 367:                                              ; preds = %366
-  %368 = getelementptr inbounds nuw i32, ptr %199, i64 %.045.i.i
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %.045.i.i
   %369 = load i32, ptr %368, align 4, !tbaa !34
   br label %370
 
@@ -3653,7 +3652,7 @@ BitMask.exit.i116:                                ; preds = %312
   %.0.i69.i = phi i32 [ %369, %367 ], [ %375, %370 ]
   %372 = trunc i64 %371 to i16
   %373 = sext i32 %.0.i69.i to i64
-  %374 = getelementptr inbounds i16, ptr %348, i64 %373
+  %374 = getelementptr inbounds [2 x i8], ptr %348, i64 %373
   store i16 %372, ptr %374, align 2, !tbaa !121
   %375 = trunc i64 %371 to i32
   %376 = add i64 %371, 1
@@ -3667,7 +3666,7 @@ BitMask.exit.i116:                                ; preds = %312
   %379 = shl i64 %363, %378
   %380 = sub i64 %287, %379
   store i64 %380, ptr %12, align 8, !tbaa !25
-  %381 = getelementptr inbounds nuw i16, ptr %14, i64 %.045.i.i
+  %381 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %.045.i.i
   %382 = load i16, ptr %381, align 2, !tbaa !121
   %383 = trunc i64 %363 to i16
   %384 = add i16 %382, %383
@@ -4223,7 +4222,7 @@ BrotliPullByte.exit.i.i:                          ; preds = %76
   %88 = phi i64 [ %.promoted183.pre218, %.._crit_edge180_crit_edge ], [ %85, %BrotliPullByte.exit.i.i ]
   %89 = phi i64 [ %.pre215, %.._crit_edge180_crit_edge ], [ %84, %BrotliPullByte.exit.i.i ]
   %90 = and i64 %89, 255
-  %91 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %67, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %90
   %92 = load i8, ptr %91, align 2, !tbaa !63
   %93 = icmp ugt i8 %92, 8
   br i1 %93, label %BitMask.exit.i, label %SafeReadSymbol.exit.thread
@@ -4238,11 +4237,11 @@ BitMask.exit.i:                                   ; preds = %._crit_edge180
   %100 = zext i8 %92 to i64
   %101 = add nuw nsw i64 %100, 4294967288
   %102 = and i64 %101, 4294967295
-  %103 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !25
   %105 = and i64 %99, %104
-  %106 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %91, i64 %105
-  %107 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %106, i64 %98
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %105
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %98
   %.pre216 = load i8, ptr %107, align 2, !tbaa !63
   br label %SafeReadSymbol.exit.thread
 
@@ -4342,7 +4341,7 @@ BrotliPullByte.exit:                              ; preds = %137
 ._crit_edge186:                                   ; preds = %BrotliPullByte.exit, %.._crit_edge186_crit_edge
   %149 = phi i64 [ %.pre220, %.._crit_edge186_crit_edge ], [ %145, %BrotliPullByte.exit ]
   %.lcssa164 = phi i64 [ %.promoted183, %.._crit_edge186_crit_edge ], [ %146, %BrotliPullByte.exit ]
-  %150 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %134
+  %150 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %134
   %151 = load i64, ptr %150, align 8, !tbaa !25
   %152 = and i64 %151, %149
   %153 = sub i64 %.lcssa164, %134
@@ -4594,7 +4593,7 @@ BrotliGet16BitsUnmasked.exit46:                   ; preds = %._crit_edge565, %34
   %40 = phi i64 [ %32, %._crit_edge565 ], [ %37, %34 ]
   %41 = phi i64 [ %.pre, %._crit_edge565 ], [ %36, %34 ]
   %42 = and i64 %41, 255
-  %43 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i8, ptr %43, align 2, !tbaa !63
   %45 = icmp ugt i8 %44, 8
   br i1 %45, label %BitMask.exit.i.i.i, label %ReadSymbol.exit.i
@@ -4608,11 +4607,11 @@ BitMask.exit.i.i.i:                               ; preds = %BrotliGet16BitsUnma
   %51 = zext i8 %44 to i64
   %52 = add nuw nsw i64 %51, 4294967288
   %53 = and i64 %52, 4294967295
-  %54 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !25
   %56 = and i64 %55, %47
-  %57 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %43, i64 %56
-  %58 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %57, i64 %50
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %56
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %50
   %.pre362 = load i8, ptr %58, align 2, !tbaa !63
   br label %ReadSymbol.exit.i
 
@@ -4629,7 +4628,7 @@ ReadSymbol.exit.i:                                ; preds = %BitMask.exit.i.i.i,
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i30.i, i64 2
   %66 = load i16, ptr %65, align 2, !tbaa !65
   %67 = zext i16 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.CmdLutElement, ptr @kCmdLut, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr @kCmdLut, i64 %67
   %.sroa.0.0.copyload.i = load i8, ptr %68, align 8, !tbaa !44
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %68, i64 1
   %.sroa.6.0.copyload.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 1, !tbaa !44
@@ -4677,7 +4676,7 @@ BrotliReadBits24.exit39.i:                        ; preds = %BrotliFillBitWindow
   %88 = phi ptr [ %87, %BrotliFillBitWindow.exit.i34.i.sink.split ], [ %39, %80 ]
   %89 = phi i64 [ %86, %BrotliFillBitWindow.exit.i34.i.sink.split ], [ %63, %80 ]
   %90 = phi i64 [ %85, %BrotliFillBitWindow.exit.i34.i.sink.split ], [ %64, %80 ]
-  %91 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %81
+  %91 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %81
   %92 = load i64, ptr %91, align 8, !tbaa !25
   %93 = and i64 %92, %90
   %94 = sub i64 %89, %81
@@ -4709,7 +4708,7 @@ BrotliFillBitWindow.exit.i.i.sink.split:          ; preds = %97
 ReadCommandInternal.exit:                         ; preds = %BrotliFillBitWindow.exit.i.i.sink.split, %97
   %108 = phi i64 [ %106, %BrotliFillBitWindow.exit.i.i.sink.split ], [ %100, %97 ]
   %109 = phi i64 [ %105, %BrotliFillBitWindow.exit.i.i.sink.split ], [ %99, %97 ]
-  %110 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %101
+  %110 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %101
   %111 = load i64, ptr %110, align 8, !tbaa !25
   %112 = and i64 %111, %109
   %113 = sub i64 %108, %101
@@ -4778,7 +4777,7 @@ ReadCommandInternal.exit:                         ; preds = %BrotliFillBitWindow
 BrotliGetBits.exit:                               ; preds = %138, %142
   %148 = phi i64 [ %.pre363, %138 ], [ %145, %142 ]
   %149 = and i64 %148, 255
-  %150 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %139, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %149
   %151 = load i8, ptr %150, align 2, !tbaa !63
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 2
   %153 = load i16, ptr %152, align 2, !tbaa !65
@@ -4876,15 +4875,15 @@ BrotliGet16BitsUnmasked.exit44:                   ; preds = %185, %187
   %193 = phi i64 [ %184, %185 ], [ %191, %187 ]
   %194 = phi i64 [ %.pre364, %185 ], [ %190, %187 ]
   %195 = and i64 %194, 255
-  %196 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %139, i64 %195
-  %197 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %196, i64 %.3271
-  %198 = getelementptr i64, ptr @kBrotliBitMask, i64 %.3107272
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %195
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %.3271
+  %198 = getelementptr [8 x i8], ptr @kBrotliBitMask, i64 %.3107272
   %199 = getelementptr i8, ptr %198, i64 -64
   %200 = load i64, ptr %199, align 8, !tbaa !25
   %201 = add i64 %193, -8
   %202 = lshr i64 %194, 8
   %203 = and i64 %200, %202
-  %204 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %197, i64 %203
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %203
   %205 = load i8, ptr %204, align 2, !tbaa !63
   %206 = zext i8 %205 to i64
   %207 = sub i64 %201, %206
@@ -4925,7 +4924,7 @@ BrotliGet16BitsUnmasked.exit44:                   ; preds = %185, %187
 ReadPreloadedSymbol.exit:                         ; preds = %215, %219
   %225 = phi i64 [ %216, %215 ], [ %222, %219 ]
   %226 = and i64 %225, 255
-  %227 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %139, i64 %226
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %226
   %228 = load i8, ptr %227, align 2, !tbaa !63
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 2
   %230 = load i16, ptr %229, align 2, !tbaa !65
@@ -4967,15 +4966,15 @@ BrotliGet16BitsUnmasked.exit42:                   ; preds = %237, %239
   %245 = phi i64 [ %236, %237 ], [ %242, %239 ]
   %246 = phi i64 [ %.pre367, %237 ], [ %241, %239 ]
   %247 = and i64 %246, 255
-  %248 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %139, i64 %247
-  %249 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %248, i64 %.4278
-  %250 = getelementptr i64, ptr @kBrotliBitMask, i64 %.4108277
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %247
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %248, i64 %.4278
+  %250 = getelementptr [8 x i8], ptr @kBrotliBitMask, i64 %.4108277
   %251 = getelementptr i8, ptr %250, i64 -64
   %252 = load i64, ptr %251, align 8, !tbaa !25
   %253 = add i64 %245, -8
   %254 = lshr i64 %246, 8
   %255 = and i64 %252, %254
-  %256 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %249, i64 %255
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %249, i64 %255
   %257 = load i8, ptr %256, align 2, !tbaa !63
   %258 = zext i8 %257 to i64
   %259 = sub i64 %253, %258
@@ -5017,7 +5016,7 @@ BrotliGet16BitsUnmasked.exit42:                   ; preds = %237, %239
 ReadPreloadedSymbol.exit27:                       ; preds = %268, %273
   %278 = phi i64 [ %270, %268 ], [ %275, %273 ]
   %279 = and i64 %278, 255
-  %280 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %139, i64 %279
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %279
   %281 = load i8, ptr %280, align 2, !tbaa !63
   %282 = zext i8 %281 to i64
   %283 = getelementptr inbounds nuw i8, ptr %280, i64 2
@@ -5135,15 +5134,15 @@ BrotliGet16BitsUnmasked.exit40:                   ; preds = %325, %327
   %333 = phi i64 [ %324, %325 ], [ %331, %327 ]
   %334 = phi i64 [ %.pre368, %325 ], [ %330, %327 ]
   %335 = and i64 %334, 255
-  %336 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %307, i64 %335
-  %337 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %336, i64 %.1286
-  %338 = getelementptr i64, ptr @kBrotliBitMask, i64 %.1105285
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %335
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %336, i64 %.1286
+  %338 = getelementptr [8 x i8], ptr @kBrotliBitMask, i64 %.1105285
   %339 = getelementptr i8, ptr %338, i64 -64
   %340 = load i64, ptr %339, align 8, !tbaa !25
   %341 = add i64 %333, -8
   %342 = lshr i64 %334, 8
   %343 = and i64 %340, %342
-  %344 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %337, i64 %343
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %343
   %345 = load i8, ptr %344, align 2, !tbaa !63
   %346 = zext i8 %345 to i64
   %347 = sub i64 %341, %346
@@ -5185,7 +5184,7 @@ BrotliGet16BitsUnmasked.exit40:                   ; preds = %325, %327
 ReadPreloadedSymbol.exit32:                       ; preds = %356, %360
   %366 = phi i64 [ %357, %356 ], [ %363, %360 ]
   %367 = and i64 %366, 255
-  %368 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %307, i64 %367
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %367
   %369 = load i8, ptr %368, align 2, !tbaa !63
   %370 = zext i8 %369 to i64
   %371 = getelementptr inbounds nuw i8, ptr %368, i64 2
@@ -5222,15 +5221,15 @@ BrotliGet16BitsUnmasked.exit:                     ; preds = %379, %381
   %387 = phi i64 [ %378, %379 ], [ %384, %381 ]
   %388 = phi i64 [ %.pre371, %379 ], [ %383, %381 ]
   %389 = and i64 %388, 255
-  %390 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %307, i64 %389
-  %391 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %390, i64 %.1.lcssa
-  %392 = getelementptr i64, ptr @kBrotliBitMask, i64 %.1105.lcssa
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %389
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %390, i64 %.1.lcssa
+  %392 = getelementptr [8 x i8], ptr @kBrotliBitMask, i64 %.1105.lcssa
   %393 = getelementptr i8, ptr %392, i64 -64
   %394 = load i64, ptr %393, align 8, !tbaa !25
   %395 = add i64 %387, -8
   %396 = lshr i64 %388, 8
   %397 = and i64 %394, %396
-  %398 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %391, i64 %397
+  %398 = getelementptr inbounds nuw [4 x i8], ptr %391, i64 %397
   %399 = load i8, ptr %398, align 2, !tbaa !63
   %400 = zext i8 %399 to i64
   %401 = sub i64 %395, %400
@@ -5272,7 +5271,7 @@ BrotliGet16BitsUnmasked.exit:                     ; preds = %379, %381
 ReadPreloadedSymbol.exit37:                       ; preds = %410, %415
   %420 = phi i64 [ %412, %410 ], [ %417, %415 ]
   %421 = and i64 %420, 255
-  %422 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %307, i64 %421
+  %422 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %421
   %423 = load i8, ptr %422, align 2, !tbaa !63
   %424 = zext i8 %423 to i64
   %425 = getelementptr inbounds nuw i8, ptr %422, i64 2
@@ -5359,7 +5358,7 @@ BrotliCopyPreloadedSymbolsToU8.exit:              ; preds = %ReadPreloadedSymbol
   %474 = getelementptr inbounds nuw i8, ptr %472, i64 %473
   %475 = load i8, ptr %474, align 1, !tbaa !44
   %476 = zext i8 %475 to i64
-  %477 = getelementptr inbounds nuw ptr, ptr %471, i64 %476
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %471, i64 %476
   %478 = load ptr, ptr %477, align 8, !tbaa !87
   %479 = load i64, ptr %128, align 8, !tbaa !46
   %480 = icmp ult i64 %479, 17
@@ -5379,7 +5378,7 @@ BrotliGet16BitsUnmasked.exit48:                   ; preds = %461, %481
   %486 = phi i64 [ %479, %461 ], [ %484, %481 ]
   %487 = phi i64 [ %.pre372, %461 ], [ %483, %481 ]
   %488 = and i64 %487, 255
-  %489 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %478, i64 %488
+  %489 = getelementptr inbounds nuw [4 x i8], ptr %478, i64 %488
   %490 = load i8, ptr %489, align 2, !tbaa !63
   %491 = icmp ugt i8 %490, 8
   br i1 %491, label %BitMask.exit.i.i, label %ReadSymbol.exit
@@ -5393,11 +5392,11 @@ BitMask.exit.i.i:                                 ; preds = %BrotliGet16BitsUnma
   %497 = zext i8 %490 to i64
   %498 = add nuw nsw i64 %497, 4294967288
   %499 = and i64 %498, 4294967295
-  %500 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %499
+  %500 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %499
   %501 = load i64, ptr %500, align 8, !tbaa !25
   %502 = and i64 %501, %493
-  %503 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %489, i64 %502
-  %504 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %503, i64 %496
+  %503 = getelementptr inbounds nuw [4 x i8], ptr %489, i64 %502
+  %504 = getelementptr inbounds nuw [4 x i8], ptr %503, i64 %496
   %.pre373 = load i8, ptr %504, align 2, !tbaa !63
   br label %ReadSymbol.exit
 
@@ -5466,7 +5465,7 @@ ReadSymbol.exit:                                  ; preds = %BrotliGet16BitsUnma
   %539 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %540 = and i32 %538, 3
   %541 = zext nneg i32 %540 to i64
-  %542 = getelementptr inbounds nuw i32, ptr %539, i64 %541
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %539, i64 %541
   %543 = load i32, ptr %542, align 4, !tbaa !34
   store i32 %543, ptr %530, align 8, !tbaa !141
   br label %ReadDistanceInternal.exit
@@ -5488,7 +5487,7 @@ ReadSymbol.exit:                                  ; preds = %BrotliGet16BitsUnma
   %553 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %554 = load i8, ptr %553, align 4, !tbaa !143
   %555 = zext i8 %554 to i64
-  %556 = getelementptr inbounds nuw ptr, ptr %552, i64 %555
+  %556 = getelementptr inbounds nuw [8 x i8], ptr %552, i64 %555
   %557 = load ptr, ptr %556, align 8, !tbaa !87
   %558 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %559 = load i64, ptr %558, align 8, !tbaa !46
@@ -5510,7 +5509,7 @@ BrotliGet16BitsUnmasked.exit.i:                   ; preds = %561, %549
   %567 = phi i64 [ %565, %561 ], [ %559, %549 ]
   %568 = phi i64 [ %564, %561 ], [ %.pre374, %549 ]
   %569 = and i64 %568, 255
-  %570 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %557, i64 %569
+  %570 = getelementptr inbounds nuw [4 x i8], ptr %557, i64 %569
   %571 = load i8, ptr %570, align 2, !tbaa !63
   %572 = icmp ugt i8 %571, 8
   br i1 %572, label %BitMask.exit.i.i.i51, label %ReadSymbol.exit.i49
@@ -5524,11 +5523,11 @@ BitMask.exit.i.i.i51:                             ; preds = %BrotliGet16BitsUnma
   %578 = zext i8 %571 to i64
   %579 = add nuw nsw i64 %578, 4294967288
   %580 = and i64 %579, 4294967295
-  %581 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %580
+  %581 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %580
   %582 = load i64, ptr %581, align 8, !tbaa !25
   %583 = and i64 %582, %574
-  %584 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %570, i64 %583
-  %585 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %584, i64 %577
+  %584 = getelementptr inbounds nuw [4 x i8], ptr %570, i64 %583
+  %585 = getelementptr inbounds nuw [4 x i8], ptr %584, i64 %577
   %.pre375 = load i8, ptr %585, align 2, !tbaa !63
   br label %ReadSymbol.exit.i49
 
@@ -5569,7 +5568,7 @@ ReadSymbol.exit.i49:                              ; preds = %BitMask.exit.i.i.i5
   %607 = add i32 %606, %.neg.i
   %608 = and i32 %607, 3
   %609 = zext nneg i32 %608 to i64
-  %610 = getelementptr inbounds nuw i32, ptr %604, i64 %609
+  %610 = getelementptr inbounds nuw [4 x i8], ptr %604, i64 %609
   %611 = load i32, ptr %610, align 4, !tbaa !34
   store i32 %611, ptr %530, align 8, !tbaa !141
   %612 = sub nsw i32 %606, %603
@@ -5591,7 +5590,7 @@ ReadSymbol.exit.i49:                              ; preds = %BitMask.exit.i.i.i5
   %622 = add nsw i32 %621, %.020.i
   %623 = and i32 %622, 3
   %624 = zext nneg i32 %623 to i64
-  %625 = getelementptr inbounds nuw i32, ptr %619, i64 %624
+  %625 = getelementptr inbounds nuw [4 x i8], ptr %619, i64 %624
   %626 = load i32, ptr %625, align 4, !tbaa !34
   %627 = add nsw i32 %618, %626
   %628 = icmp slt i32 %627, 1
@@ -5620,7 +5619,7 @@ BrotliFillBitWindow.exit.i.sink.split:            ; preds = %629
 BrotliReadBits32.exit:                            ; preds = %BrotliFillBitWindow.exit.i.sink.split, %629
   %638 = phi i64 [ %636, %BrotliFillBitWindow.exit.i.sink.split ], [ %590, %629 ]
   %639 = phi i64 [ %.ph521, %BrotliFillBitWindow.exit.i.sink.split ], [ %591, %629 ]
-  %640 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %632
+  %640 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %632
   %641 = load i64, ptr %640, align 8, !tbaa !25
   %642 = and i64 %641, %639
   %643 = sub i64 %638, %632
@@ -5628,7 +5627,7 @@ BrotliReadBits32.exit:                            ; preds = %BrotliFillBitWindow
   %644 = lshr i64 %639, %632
   store i64 %644, ptr %6, align 8, !tbaa !47
   %645 = getelementptr inbounds nuw i8, ptr %0, i64 1392
-  %646 = getelementptr inbounds nuw i64, ptr %645, i64 %594
+  %646 = getelementptr inbounds nuw [8 x i8], ptr %645, i64 %594
   %647 = load i64, ptr %646, align 8, !tbaa !25
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %649 = load i64, ptr %648, align 8, !tbaa !71
@@ -5712,7 +5711,7 @@ ReadDistanceInternal.exit:                        ; preds = %BrotliReadBits32.ex
 687:                                              ; preds = %687, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %686, %.preheader.i.i ], [ %indvars.iv.next.i.i, %687 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %688 = getelementptr inbounds i32, ptr %683, i64 %indvars.iv.next.i.i
+  %688 = getelementptr inbounds [4 x i8], ptr %683, i64 %indvars.iv.next.i.i
   %689 = load i32, ptr %688, align 4, !tbaa !34
   %690 = icmp slt i32 %689, %.0192.i.i
   br i1 %690, label %687, label %691, !llvm.loop !154
@@ -5746,7 +5745,7 @@ EnsureCoumpoundDictionaryInitialized.exit.i:      ; preds = %EnsureCoumpoundDict
 707:                                              ; preds = %707, %EnsureCoumpoundDictionaryInitialized.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %707 ], [ %706, %EnsureCoumpoundDictionaryInitialized.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %708 = getelementptr inbounds nuw i32, ptr %705, i64 %indvars.iv.next.i
+  %708 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %indvars.iv.next.i
   %709 = load i32, ptr %708, align 4, !tbaa !34
   %.not.i58 = icmp slt i32 %670, %709
   br i1 %.not.i58, label %710, label %707, !llvm.loop !156
@@ -5766,7 +5765,7 @@ EnsureCoumpoundDictionaryInitialized.exit.i:      ; preds = %EnsureCoumpoundDict
   %720 = load i32, ptr %719, align 4, !tbaa !151
   %721 = and i32 %720, 3
   %722 = zext nneg i32 %721 to i64
-  %723 = getelementptr inbounds nuw i32, ptr %718, i64 %722
+  %723 = getelementptr inbounds nuw [4 x i8], ptr %718, i64 %722
   store i32 %717, ptr %723, align 4, !tbaa !34
   %724 = add nsw i32 %720, 1
   store i32 %724, ptr %719, align 4, !tbaa !151
@@ -5777,7 +5776,7 @@ EnsureCoumpoundDictionaryInitialized.exit.i:      ; preds = %EnsureCoumpoundDict
   %728 = getelementptr inbounds nuw i8, ptr %671, i64 8
   store i32 %716, ptr %728, align 8, !tbaa !105
   %729 = and i64 %indvars.iv.i, 4294967295
-  %730 = getelementptr inbounds nuw i32, ptr %705, i64 %729
+  %730 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %729
   %731 = load i32, ptr %730, align 4, !tbaa !34
   %732 = sub nsw i32 %670, %731
   %733 = getelementptr inbounds nuw i8, ptr %671, i64 12
@@ -5813,13 +5812,13 @@ EnsureCoumpoundDictionaryInitialized.exit.i:      ; preds = %EnsureCoumpoundDict
   %751 = getelementptr inbounds i8, ptr %749, i64 %750
   %752 = load i32, ptr %741, align 8, !tbaa !105
   %753 = sext i32 %752 to i64
-  %754 = getelementptr inbounds ptr, ptr %740, i64 %753
+  %754 = getelementptr inbounds [8 x i8], ptr %740, i64 %753
   %755 = load ptr, ptr %754, align 8, !tbaa !24
   %756 = load i32, ptr %742, align 4, !tbaa !106
   %757 = sext i32 %756 to i64
   %758 = getelementptr inbounds i8, ptr %755, i64 %757
   %759 = sub nsw i32 %.pre376, %.042.i
-  %760 = getelementptr i32, ptr %744, i64 %753
+  %760 = getelementptr [4 x i8], ptr %744, i64 %753
   %761 = getelementptr i8, ptr %760, i64 4
   %762 = load i32, ptr %761, align 4, !tbaa !34
   %763 = load i32, ptr %760, align 4, !tbaa !34
@@ -5909,14 +5908,14 @@ CopyFromCompoundDictionary.exit.thread:           ; preds = %777, %CopyFromCompo
 BitMask.exit479.i:                                ; preds = %788, %782
   %817 = phi i64 [ %816, %788 ], [ 0, %782 ]
   %818 = getelementptr inbounds nuw i8, ptr %785, i64 320
-  %819 = getelementptr inbounds nuw ptr, ptr %818, i64 %817
+  %819 = getelementptr inbounds nuw [8 x i8], ptr %818, i64 %817
   %820 = load ptr, ptr %819, align 8, !tbaa !158
   %821 = getelementptr inbounds nuw i8, ptr %785, i64 832
-  %822 = getelementptr inbounds nuw ptr, ptr %821, i64 %817
+  %822 = getelementptr inbounds nuw [8 x i8], ptr %821, i64 %817
   %823 = load ptr, ptr %822, align 8, !tbaa !159
   %824 = getelementptr inbounds nuw i8, ptr %820, i64 32
   %825 = zext nneg i32 %663 to i64
-  %826 = getelementptr inbounds nuw i32, ptr %824, i64 %825
+  %826 = getelementptr inbounds nuw [4 x i8], ptr %824, i64 %825
   %827 = load i32, ptr %826, align 4, !tbaa !34
   %828 = getelementptr inbounds nuw i8, ptr %820, i64 %825
   %829 = load i8, ptr %828, align 1, !tbaa !44
@@ -5924,7 +5923,7 @@ BitMask.exit479.i:                                ; preds = %788, %782
   %831 = sub i32 %654, %11
   %832 = add i32 %831, %830
   %833 = zext i8 %829 to i64
-  %834 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %833
+  %834 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %833
   %835 = load i64, ptr %834, align 8, !tbaa !25
   %836 = trunc i64 %835 to i32
   %837 = and i32 %832, %836
@@ -5963,7 +5962,7 @@ BitMask.exit479.i:                                ; preds = %788, %782
 859:                                              ; preds = %854, %.thread169
   %indvars.iv358 = phi i64 [ 0, %854 ], [ %indvars.iv.next359, %.thread169 ]
   %.0383.i300 = phi i32 [ %858, %854 ], [ %.3386.i179, %.thread169 ]
-  %860 = getelementptr inbounds nuw ptr, ptr %818, i64 %indvars.iv358
+  %860 = getelementptr inbounds nuw [8 x i8], ptr %818, i64 %indvars.iv358
   %861 = load ptr, ptr %860, align 8, !tbaa !158
   %.not459.i = icmp eq i64 %indvars.iv358, %817
   br i1 %.not459.i, label %.thread169, label %862
@@ -5975,7 +5974,7 @@ BitMask.exit479.i:                                ; preds = %788, %782
   br i1 %.not460.i, label %.thread169, label %865
 
 865:                                              ; preds = %862
-  %866 = getelementptr inbounds nuw ptr, ptr %821, i64 %indvars.iv358
+  %866 = getelementptr inbounds nuw [8 x i8], ptr %821, i64 %indvars.iv358
   %867 = load ptr, ptr %866, align 8, !tbaa !159
   %868 = zext i8 %864 to i32
   %869 = shl nuw i32 1, %868
@@ -5992,13 +5991,13 @@ BitMask.exit479.i:                                ; preds = %788, %782
 
 .thread198:                                       ; preds = %865
   %876 = zext i8 %864 to i64
-  %877 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %876
+  %877 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %876
   %878 = load i64, ptr %877, align 8, !tbaa !25
   %879 = trunc i64 %878 to i32
   %880 = and i32 %.0383.i300, %879
   %881 = ashr i32 %.0383.i300, %868
   %882 = getelementptr inbounds nuw i8, ptr %861, i64 32
-  %883 = getelementptr inbounds nuw i32, ptr %882, i64 %825
+  %883 = getelementptr inbounds nuw [4 x i8], ptr %882, i64 %825
   %884 = load i32, ptr %883, align 4, !tbaa !34
   %885 = mul nsw i32 %880, %663
   %886 = add nsw i32 %885, %884
@@ -6092,7 +6091,7 @@ BitMask.exit479.i:                                ; preds = %788, %782
   %937 = load i32, ptr %936, align 4, !tbaa !151
   %938 = and i32 %937, 3
   %939 = zext nneg i32 %938 to i64
-  %940 = getelementptr inbounds nuw i32, ptr %935, i64 %939
+  %940 = getelementptr inbounds nuw [4 x i8], ptr %935, i64 %939
   store i32 %654, ptr %940, align 4, !tbaa !34
   %941 = add nsw i32 %937, 1
   store i32 %941, ptr %936, align 4, !tbaa !151
@@ -6314,7 +6313,7 @@ BrotliPullByte.exit.i.i.i12:                      ; preds = %.lr.ph
   %48 = phi i64 [ %26, %23 ], [ %45, %BrotliPullByte.exit.i.i.i12 ]
   %49 = phi i64 [ %24, %23 ], [ %44, %BrotliPullByte.exit.i.i.i12 ]
   %50 = and i64 %49, 255
-  %51 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %35, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %50
   %52 = load i8, ptr %51, align 2, !tbaa !63
   %53 = icmp ugt i8 %52, 8
   br i1 %53, label %BitMask.exit.i.i11, label %SafeReadSymbol.exit.i8.thread
@@ -6329,11 +6328,11 @@ BitMask.exit.i.i11:                               ; preds = %._crit_edge
   %60 = zext i8 %52 to i64
   %61 = add nuw nsw i64 %60, 4294967288
   %62 = and i64 %61, 4294967295
-  %63 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !25
   %65 = and i64 %59, %64
-  %66 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %51, i64 %65
-  %67 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %66, i64 %58
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %65
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %58
   %.pre = load i8, ptr %67, align 2, !tbaa !63
   br label %SafeReadSymbol.exit.i8.thread
 
@@ -6364,7 +6363,7 @@ SafeReadSymbol.exit.i8._crit_edge:                ; preds = %SafeReadSymbol.exit
 
 78:                                               ; preds = %SafeReadSymbol.exit.i8._crit_edge, %SafeReadSymbol.exit.i8.thread
   %79 = phi i64 [ %.pre462, %SafeReadSymbol.exit.i8._crit_edge ], [ %76, %SafeReadSymbol.exit.i8.thread ]
-  %80 = getelementptr inbounds nuw %struct.CmdLutElement, ptr @kCmdLut, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr @kCmdLut, i64 %79
   %.sroa.0.0.copyload.i = load i8, ptr %80, align 8, !tbaa !44
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %80, i64 1
   %.sroa.6.0.copyload.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 1, !tbaa !44
@@ -6431,7 +6430,7 @@ BrotliPullByte.exit.i26:                          ; preds = %95
 BrotliTakeBits.exit.i21:                          ; preds = %BrotliPullByte.exit.i26, %.preheader347.._crit_edge389_crit_edge
   %107 = phi i64 [ %.pre463, %.preheader347.._crit_edge389_crit_edge ], [ %103, %BrotliPullByte.exit.i26 ]
   %.lcssa383 = phi i64 [ %.promoted387, %.preheader347.._crit_edge389_crit_edge ], [ %104, %BrotliPullByte.exit.i26 ]
-  %108 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %92
+  %108 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %92
   %109 = load i64, ptr %108, align 8, !tbaa !25
   %110 = and i64 %109, %107
   %111 = sub i64 %.lcssa383, %92
@@ -6484,7 +6483,7 @@ BrotliPullByte.exit.i:                            ; preds = %118
 BrotliTakeBits.exit.i:                            ; preds = %BrotliPullByte.exit.i, %.preheader346.._crit_edge393_crit_edge
   %130 = phi i64 [ %.pre464, %.preheader346.._crit_edge393_crit_edge ], [ %126, %BrotliPullByte.exit.i ]
   %.lcssa381 = phi i64 [ %.promoted391, %.preheader346.._crit_edge393_crit_edge ], [ %127, %BrotliPullByte.exit.i ]
-  %131 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %115
+  %131 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %115
   %132 = load i64, ptr %131, align 8, !tbaa !25
   %133 = and i64 %132, %130
   %134 = sub i64 %.lcssa381, %115
@@ -6611,7 +6610,7 @@ BrotliPullByte.exit.i.i485.i:                     ; preds = %176
   %188 = phi i64 [ %.promoted396, %.._crit_edge399_crit_edge ], [ %185, %BrotliPullByte.exit.i.i485.i ]
   %189 = phi i64 [ %.pre466, %.._crit_edge399_crit_edge ], [ %184, %BrotliPullByte.exit.i.i485.i ]
   %190 = and i64 %189, 255
-  %191 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %173, i64 %190
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %190
   %192 = load i8, ptr %191, align 2, !tbaa !63
   %193 = icmp ugt i8 %192, 8
   br i1 %193, label %BitMask.exit.i.i, label %SafeReadSymbol.exit488.i.thread
@@ -6626,11 +6625,11 @@ BitMask.exit.i.i:                                 ; preds = %._crit_edge399
   %200 = zext i8 %192 to i64
   %201 = add nuw nsw i64 %200, 4294967288
   %202 = and i64 %201, 4294967295
-  %203 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %202
+  %203 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %202
   %204 = load i64, ptr %203, align 8, !tbaa !25
   %205 = and i64 %199, %204
-  %206 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %191, i64 %205
-  %207 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %206, i64 %198
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %205
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %198
   %.pre467 = load i8, ptr %207, align 2, !tbaa !63
   br label %SafeReadSymbol.exit488.i.thread
 
@@ -6736,7 +6735,7 @@ SafeReadSymbol.exit488.i._crit_edge:              ; preds = %SafeReadSymbol.exit
   %262 = getelementptr inbounds nuw i8, ptr %260, i64 %261
   %263 = load i8, ptr %262, align 1, !tbaa !44
   %264 = zext i8 %263 to i64
-  %265 = getelementptr inbounds nuw ptr, ptr %259, i64 %264
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %264
   %266 = load ptr, ptr %265, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.promoted402 = load i64, ptr %157, align 8, !tbaa !46
@@ -6776,7 +6775,7 @@ BrotliPullByte.exit.i.i.i:                        ; preds = %269
   %281 = phi i64 [ %.promoted402, %.._crit_edge405_crit_edge ], [ %278, %BrotliPullByte.exit.i.i.i ]
   %282 = phi i64 [ %.pre470, %.._crit_edge405_crit_edge ], [ %277, %BrotliPullByte.exit.i.i.i ]
   %283 = and i64 %282, 255
-  %284 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %266, i64 %283
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %283
   %285 = load i8, ptr %284, align 2, !tbaa !63
   %286 = icmp ugt i8 %285, 8
   br i1 %286, label %BitMask.exit.i492.i, label %SafeReadSymbol.exit.i.thread
@@ -6791,11 +6790,11 @@ BitMask.exit.i492.i:                              ; preds = %._crit_edge405
   %293 = zext i8 %285 to i64
   %294 = add nuw nsw i64 %293, 4294967288
   %295 = and i64 %294, 4294967295
-  %296 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %295
+  %296 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %295
   %297 = load i64, ptr %296, align 8, !tbaa !25
   %298 = and i64 %292, %297
-  %299 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %284, i64 %298
-  %300 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %299, i64 %291
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %284, i64 %298
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %299, i64 %291
   %.pre471 = load i8, ptr %300, align 2, !tbaa !63
   br label %SafeReadSymbol.exit.i.thread
 
@@ -6879,7 +6878,7 @@ SafeReadSymbol.exit.i:                            ; preds = %269
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %338 = and i32 %336, 3
   %339 = zext nneg i32 %338 to i64
-  %340 = getelementptr inbounds nuw i32, ptr %337, i64 %339
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %339
   %341 = load i32, ptr %340, align 4, !tbaa !34
   store i32 %341, ptr %328, align 8, !tbaa !141
   br label %486
@@ -6903,7 +6902,7 @@ SafeReadSymbol.exit.i:                            ; preds = %269
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %353 = load i8, ptr %352, align 4, !tbaa !143
   %354 = zext i8 %353 to i64
-  %355 = getelementptr inbounds nuw ptr, ptr %351, i64 %354
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %354
   %356 = load ptr, ptr %355, align 8, !tbaa !87
   %357 = load i64, ptr %10, align 8, !tbaa !47
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6942,7 +6941,7 @@ BrotliPullByte.exit.i.i.i40:                      ; preds = %.lr.ph409
   %379 = phi i64 [ %359, %348 ], [ %376, %BrotliPullByte.exit.i.i.i40 ]
   %380 = phi i64 [ %357, %348 ], [ %375, %BrotliPullByte.exit.i.i.i40 ]
   %381 = and i64 %380, 255
-  %382 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %356, i64 %381
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %356, i64 %381
   %383 = load i8, ptr %382, align 2, !tbaa !63
   %384 = icmp ugt i8 %383, 8
   br i1 %384, label %BitMask.exit.i.i39, label %SafeReadSymbol.exit.i34.thread
@@ -6957,11 +6956,11 @@ BitMask.exit.i.i39:                               ; preds = %._crit_edge410
   %391 = zext i8 %383 to i64
   %392 = add nuw nsw i64 %391, 4294967288
   %393 = and i64 %392, 4294967295
-  %394 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %393
+  %394 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %393
   %395 = load i64, ptr %394, align 8, !tbaa !25
   %396 = and i64 %390, %395
-  %397 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %382, i64 %396
-  %398 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %397, i64 %389
+  %397 = getelementptr inbounds nuw [4 x i8], ptr %382, i64 %396
+  %398 = getelementptr inbounds nuw [4 x i8], ptr %397, i64 %389
   %.pre472 = load i8, ptr %398, align 2, !tbaa !63
   br label %SafeReadSymbol.exit.i34.thread
 
@@ -7016,7 +7015,7 @@ SafeReadSymbol.exit.i34._crit_edge:               ; preds = %SafeReadSymbol.exit
   %424 = add i32 %423, %.neg.i
   %425 = and i32 %424, 3
   %426 = zext nneg i32 %425 to i64
-  %427 = getelementptr inbounds nuw i32, ptr %421, i64 %426
+  %427 = getelementptr inbounds nuw [4 x i8], ptr %421, i64 %426
   %428 = load i32, ptr %427, align 4, !tbaa !34
   store i32 %428, ptr %328, align 8, !tbaa !141
   %429 = sub nsw i32 %423, %420
@@ -7038,7 +7037,7 @@ SafeReadSymbol.exit.i34._crit_edge:               ; preds = %SafeReadSymbol.exit
   %439 = add i32 %438, %.020.i
   %440 = and i32 %439, 3
   %441 = zext nneg i32 %440 to i64
-  %442 = getelementptr inbounds nuw i32, ptr %436, i64 %441
+  %442 = getelementptr inbounds nuw [4 x i8], ptr %436, i64 %441
   %443 = load i32, ptr %442, align 4, !tbaa !34
   %444 = add nsw i32 %435, %443
   %445 = icmp slt i32 %444, 1
@@ -7090,7 +7089,7 @@ BrotliPullByte.exit.i49:                          ; preds = %452
 BrotliTakeBits.exit.i46:                          ; preds = %BrotliPullByte.exit.i49, %.preheader.._crit_edge414_crit_edge
   %464 = phi i64 [ %.pre474, %.preheader.._crit_edge414_crit_edge ], [ %460, %BrotliPullByte.exit.i49 ]
   %.lcssa359 = phi i64 [ %.promoted412, %.preheader.._crit_edge414_crit_edge ], [ %461, %BrotliPullByte.exit.i49 ]
-  %465 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %449
+  %465 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %449
   %466 = load i64, ptr %465, align 8, !tbaa !25
   %467 = and i64 %466, %464
   %468 = sub i64 %.lcssa359, %449
@@ -7117,7 +7116,7 @@ SafeReadBits32.exit:                              ; preds = %452
 475:                                              ; preds = %BrotliTakeBits.exit.i46, %446
   %.6.ph = phi i64 [ 0, %446 ], [ %467, %BrotliTakeBits.exit.i46 ]
   %476 = getelementptr inbounds nuw i8, ptr %0, i64 1392
-  %477 = getelementptr inbounds nuw i64, ptr %476, i64 %410
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %476, i64 %410
   %478 = load i64, ptr %477, align 8, !tbaa !25
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %480 = load i64, ptr %479, align 8, !tbaa !71
@@ -7211,7 +7210,7 @@ ReadDistanceInternal.exit:                        ; preds = %430, %419, %475
 521:                                              ; preds = %521, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %520, %.preheader.i.i ], [ %indvars.iv.next.i.i, %521 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %522 = getelementptr inbounds i32, ptr %517, i64 %indvars.iv.next.i.i
+  %522 = getelementptr inbounds [4 x i8], ptr %517, i64 %indvars.iv.next.i.i
   %523 = load i32, ptr %522, align 4, !tbaa !34
   %524 = icmp slt i32 %523, %.0192.i.i
   br i1 %524, label %521, label %525, !llvm.loop !154
@@ -7245,7 +7244,7 @@ EnsureCoumpoundDictionaryInitialized.exit.i:      ; preds = %EnsureCoumpoundDict
 541:                                              ; preds = %541, %EnsureCoumpoundDictionaryInitialized.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %541 ], [ %540, %EnsureCoumpoundDictionaryInitialized.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %542 = getelementptr inbounds nuw i32, ptr %539, i64 %indvars.iv.next.i
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %539, i64 %indvars.iv.next.i
   %543 = load i32, ptr %542, align 4, !tbaa !34
   %.not.i54 = icmp slt i32 %504, %543
   br i1 %.not.i54, label %544, label %541, !llvm.loop !156
@@ -7265,7 +7264,7 @@ EnsureCoumpoundDictionaryInitialized.exit.i:      ; preds = %EnsureCoumpoundDict
   %554 = load i32, ptr %553, align 4, !tbaa !151
   %555 = and i32 %554, 3
   %556 = zext nneg i32 %555 to i64
-  %557 = getelementptr inbounds nuw i32, ptr %552, i64 %556
+  %557 = getelementptr inbounds nuw [4 x i8], ptr %552, i64 %556
   store i32 %551, ptr %557, align 4, !tbaa !34
   %558 = add nsw i32 %554, 1
   store i32 %558, ptr %553, align 4, !tbaa !151
@@ -7276,7 +7275,7 @@ EnsureCoumpoundDictionaryInitialized.exit.i:      ; preds = %EnsureCoumpoundDict
   %562 = getelementptr inbounds nuw i8, ptr %505, i64 8
   store i32 %550, ptr %562, align 8, !tbaa !105
   %563 = and i64 %indvars.iv.i, 4294967295
-  %564 = getelementptr inbounds nuw i32, ptr %539, i64 %563
+  %564 = getelementptr inbounds nuw [4 x i8], ptr %539, i64 %563
   %565 = load i32, ptr %564, align 4, !tbaa !34
   %566 = sub nsw i32 %504, %565
   %567 = getelementptr inbounds nuw i8, ptr %505, i64 12
@@ -7312,13 +7311,13 @@ EnsureCoumpoundDictionaryInitialized.exit.i:      ; preds = %EnsureCoumpoundDict
   %585 = getelementptr inbounds i8, ptr %583, i64 %584
   %586 = load i32, ptr %575, align 8, !tbaa !105
   %587 = sext i32 %586 to i64
-  %588 = getelementptr inbounds ptr, ptr %574, i64 %587
+  %588 = getelementptr inbounds [8 x i8], ptr %574, i64 %587
   %589 = load ptr, ptr %588, align 8, !tbaa !24
   %590 = load i32, ptr %576, align 4, !tbaa !106
   %591 = sext i32 %590 to i64
   %592 = getelementptr inbounds i8, ptr %589, i64 %591
   %593 = sub nsw i32 %.pre475, %.042.i
-  %594 = getelementptr i32, ptr %578, i64 %587
+  %594 = getelementptr [4 x i8], ptr %578, i64 %587
   %595 = getelementptr i8, ptr %594, i64 4
   %596 = load i32, ptr %595, align 4, !tbaa !34
   %597 = load i32, ptr %594, align 4, !tbaa !34
@@ -7408,14 +7407,14 @@ CopyFromCompoundDictionary.exit.thread:           ; preds = %611, %CopyFromCompo
 BitMask.exit479.i:                                ; preds = %622, %616
   %651 = phi i64 [ %650, %622 ], [ 0, %616 ]
   %652 = getelementptr inbounds nuw i8, ptr %619, i64 320
-  %653 = getelementptr inbounds nuw ptr, ptr %652, i64 %651
+  %653 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %651
   %654 = load ptr, ptr %653, align 8, !tbaa !158
   %655 = getelementptr inbounds nuw i8, ptr %619, i64 832
-  %656 = getelementptr inbounds nuw ptr, ptr %655, i64 %651
+  %656 = getelementptr inbounds nuw [8 x i8], ptr %655, i64 %651
   %657 = load ptr, ptr %656, align 8, !tbaa !159
   %658 = getelementptr inbounds nuw i8, ptr %654, i64 32
   %659 = zext nneg i32 %497 to i64
-  %660 = getelementptr inbounds nuw i32, ptr %658, i64 %659
+  %660 = getelementptr inbounds nuw [4 x i8], ptr %658, i64 %659
   %661 = load i32, ptr %660, align 4, !tbaa !34
   %662 = getelementptr inbounds nuw i8, ptr %654, i64 %659
   %663 = load i8, ptr %662, align 1, !tbaa !44
@@ -7423,7 +7422,7 @@ BitMask.exit479.i:                                ; preds = %622, %616
   %665 = sub i32 %488, %15
   %666 = add i32 %665, %664
   %667 = zext i8 %663 to i64
-  %668 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %667
+  %668 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %667
   %669 = load i64, ptr %668, align 8, !tbaa !25
   %670 = trunc i64 %669 to i32
   %671 = and i32 %666, %670
@@ -7462,7 +7461,7 @@ BitMask.exit479.i:                                ; preds = %622, %616
 693:                                              ; preds = %688, %.thread272
   %indvars.iv459 = phi i64 [ 0, %688 ], [ %indvars.iv.next460, %.thread272 ]
   %.0383.i418 = phi i32 [ %692, %688 ], [ %.3386.i282, %.thread272 ]
-  %694 = getelementptr inbounds nuw ptr, ptr %652, i64 %indvars.iv459
+  %694 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %indvars.iv459
   %695 = load ptr, ptr %694, align 8, !tbaa !158
   %.not459.i = icmp eq i64 %indvars.iv459, %651
   br i1 %.not459.i, label %.thread272, label %696
@@ -7474,7 +7473,7 @@ BitMask.exit479.i:                                ; preds = %622, %616
   br i1 %.not460.i, label %.thread272, label %699
 
 699:                                              ; preds = %696
-  %700 = getelementptr inbounds nuw ptr, ptr %655, i64 %indvars.iv459
+  %700 = getelementptr inbounds nuw [8 x i8], ptr %655, i64 %indvars.iv459
   %701 = load ptr, ptr %700, align 8, !tbaa !159
   %702 = zext i8 %698 to i32
   %703 = shl nuw i32 1, %702
@@ -7491,13 +7490,13 @@ BitMask.exit479.i:                                ; preds = %622, %616
 
 .thread301:                                       ; preds = %699
   %710 = zext i8 %698 to i64
-  %711 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %710
+  %711 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %710
   %712 = load i64, ptr %711, align 8, !tbaa !25
   %713 = trunc i64 %712 to i32
   %714 = and i32 %.0383.i418, %713
   %715 = ashr i32 %.0383.i418, %702
   %716 = getelementptr inbounds nuw i8, ptr %695, i64 32
-  %717 = getelementptr inbounds nuw i32, ptr %716, i64 %659
+  %717 = getelementptr inbounds nuw [4 x i8], ptr %716, i64 %659
   %718 = load i32, ptr %717, align 4, !tbaa !34
   %719 = mul nsw i32 %714, %497
   %720 = add nsw i32 %719, %718
@@ -7591,7 +7590,7 @@ BitMask.exit479.i:                                ; preds = %622, %616
   %771 = load i32, ptr %770, align 4, !tbaa !151
   %772 = and i32 %771, 3
   %773 = zext nneg i32 %772 to i64
-  %774 = getelementptr inbounds nuw i32, ptr %769, i64 %773
+  %774 = getelementptr inbounds nuw [4 x i8], ptr %769, i64 %773
   store i32 %488, ptr %774, align 4, !tbaa !34
   %775 = add nsw i32 %771, 1
   store i32 %775, ptr %770, align 4, !tbaa !151
@@ -7919,7 +7918,7 @@ define noundef nonnull ptr @BrotliDecoderErrorString(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.BrotliDecoderErrorString, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.BrotliDecoderErrorString, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -7971,7 +7970,7 @@ define internal fastcc range(i32 0, 2) i32 @SafeDecodeSymbol(ptr noundef readonl
 10:                                               ; preds = %3
   %11 = load i64, ptr %1, align 8, !tbaa !47
   %12 = and i64 %11, 255
-  %13 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %12
   %14 = load i8, ptr %13, align 2, !tbaa !63
   %15 = icmp ult i8 %14, 9
   br i1 %15, label %16, label %18
@@ -7987,7 +7986,7 @@ define internal fastcc range(i32 0, 2) i32 @SafeDecodeSymbol(ptr noundef readonl
 
 BitMask.exit:                                     ; preds = %18
   %20 = zext i8 %14 to i64
-  %21 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !25
   %23 = and i64 %22, %11
   %24 = lshr i64 %23, 8
@@ -7995,8 +7994,8 @@ BitMask.exit:                                     ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %27 = load i16, ptr %26, align 2, !tbaa !65
   %28 = zext i16 %27 to i64
-  %29 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %13, i64 %24
-  %30 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %29, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %24
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %28
   %31 = load i8, ptr %30, align 2, !tbaa !63
   %32 = zext i8 %31 to i64
   %33 = icmp ult i64 %25, %32
@@ -8042,7 +8041,7 @@ define internal fastcc void @InverseMoveToFrontTransform(ptr noundef captures(no
   %.035 = phi i32 [ 50462976, %3 ], [ %9, %8 ]
   %.0 = phi i64 [ 1, %3 ], [ %11, %8 ]
   %9 = add i32 %.035, 67372036
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %.0
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0
   store i32 %9, ptr %10, align 4, !tbaa !34
   %11 = add nuw i64 %.0, 1
   %exitcond = icmp eq i64 %11, %umax
@@ -8139,7 +8138,7 @@ BrotliPullByte.exit.i.i52.i:                      ; preds = %.lr.ph
   %38 = phi i64 [ %18, %15 ], [ %35, %BrotliPullByte.exit.i.i52.i ]
   %39 = phi i64 [ %16, %15 ], [ %34, %BrotliPullByte.exit.i.i52.i ]
   %40 = and i64 %39, 255
-  %41 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %8, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %40
   %42 = load i8, ptr %41, align 2, !tbaa !63
   %43 = icmp ugt i8 %42, 8
   br i1 %43, label %BitMask.exit.i.i, label %SafeReadSymbol.exit55.i.thread
@@ -8154,11 +8153,11 @@ BitMask.exit.i.i:                                 ; preds = %._crit_edge
   %50 = zext i8 %42 to i64
   %51 = add nuw nsw i64 %50, 4294967288
   %52 = and i64 %51, 4294967295
-  %53 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !25
   %55 = and i64 %49, %54
-  %56 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %41, i64 %55
-  %57 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %56, i64 %48
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %55
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %48
   %.pre = load i8, ptr %57, align 2, !tbaa !63
   br label %SafeReadSymbol.exit55.i.thread
 
@@ -8229,7 +8228,7 @@ BrotliPullByte.exit.i.i.i:                        ; preds = %76
   %88 = phi i64 [ %.pr32, %.._crit_edge36_crit_edge ], [ %85, %BrotliPullByte.exit.i.i.i ]
   %89 = phi i64 [ %.pre44, %.._crit_edge36_crit_edge ], [ %84, %BrotliPullByte.exit.i.i.i ]
   %90 = and i64 %89, 255
-  %91 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %11, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %90
   %92 = load i8, ptr %91, align 2, !tbaa !63
   %93 = icmp ugt i8 %92, 8
   br i1 %93, label %BitMask.exit.i59.i, label %SafeReadSymbol.exit.i.thread
@@ -8244,11 +8243,11 @@ BitMask.exit.i59.i:                               ; preds = %._crit_edge36
   %100 = zext i8 %92 to i64
   %101 = add nuw nsw i64 %100, 4294967288
   %102 = and i64 %101, 4294967295
-  %103 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !25
   %105 = and i64 %99, %104
-  %106 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %91, i64 %105
-  %107 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %106, i64 %98
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %105
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %98
   %.pre45 = load i8, ptr %107, align 2, !tbaa !63
   br label %SafeReadSymbol.exit.i.thread
 
@@ -8283,7 +8282,7 @@ SafeReadSymbol.exit.i._crit_edge:                 ; preds = %SafeReadSymbol.exit
 
 121:                                              ; preds = %SafeReadSymbol.exit.i._crit_edge, %SafeReadSymbol.exit.i.thread, %118
   %122 = phi i64 [ %.pre46, %SafeReadSymbol.exit.i._crit_edge ], [ %116, %SafeReadSymbol.exit.i.thread ], [ %120, %118 ]
-  %123 = getelementptr inbounds nuw %struct.BrotliPrefixCodeRange, ptr @_kBrotliPrefixCodeRanges, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr @_kBrotliPrefixCodeRanges, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 2
   %125 = load i8, ptr %124, align 2, !tbaa !67
   %126 = zext i8 %125 to i64
@@ -8345,7 +8344,7 @@ SafeReadBlockLength.exit.i.thread:                ; preds = %SafeReadSymbol.exit
 ._crit_edge41:                                    ; preds = %BrotliPullByte.exit.i, %.._crit_edge41_crit_edge
   %148 = phi i64 [ %.pre47, %.._crit_edge41_crit_edge ], [ %138, %BrotliPullByte.exit.i ]
   %.lcssa = phi i64 [ %.promoted38, %.._crit_edge41_crit_edge ], [ %139, %BrotliPullByte.exit.i ]
-  %149 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %126
+  %149 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %126
   %150 = load i64, ptr %149, align 8, !tbaa !25
   %151 = and i64 %150, %148
   %152 = sub i64 %.lcssa, %126
@@ -8389,7 +8388,7 @@ SafeReadBlockLength.exit.i.thread:                ; preds = %SafeReadSymbol.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %171 = load ptr, ptr %170, align 8, !tbaa !96
-  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %spec.select
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %spec.select
   %173 = load ptr, ptr %172, align 8, !tbaa !87
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %173, ptr %174, align 8, !tbaa !97
@@ -8441,7 +8440,7 @@ BrotliGet16BitsUnmasked.exit9:                    ; preds = %13, %17
   %24 = phi i64 [ %15, %13 ], [ %22, %17 ]
   %25 = phi i64 [ %.pre, %13 ], [ %21, %17 ]
   %26 = and i64 %25, 255
-  %27 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %6, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %26
   %28 = load i8, ptr %27, align 2, !tbaa !63
   %29 = icmp ugt i8 %28, 8
   br i1 %29, label %BitMask.exit.i.i.i, label %ReadSymbol.exit.i
@@ -8455,11 +8454,11 @@ BitMask.exit.i.i.i:                               ; preds = %BrotliGet16BitsUnma
   %35 = zext i8 %28 to i64
   %36 = add nuw nsw i64 %35, 4294967288
   %37 = and i64 %36, 4294967295
-  %38 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !25
   %40 = and i64 %39, %31
-  %41 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %27, i64 %40
-  %42 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %41, i64 %34
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %40
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %34
   %.pre15 = load i8, ptr %42, align 2, !tbaa !63
   br label %ReadSymbol.exit.i
 
@@ -8494,7 +8493,7 @@ BrotliGet16BitsUnmasked.exit:                     ; preds = %ReadSymbol.exit.i, 
   %60 = phi i64 [ %47, %ReadSymbol.exit.i ], [ %58, %53 ]
   %61 = phi i64 [ %48, %ReadSymbol.exit.i ], [ %57, %53 ]
   %62 = and i64 %61, 255
-  %63 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %9, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %62
   %64 = load i8, ptr %63, align 2, !tbaa !63
   %65 = icmp ugt i8 %64, 8
   br i1 %65, label %BitMask.exit.i.i.i2, label %ReadBlockLength.exit
@@ -8508,11 +8507,11 @@ BitMask.exit.i.i.i2:                              ; preds = %BrotliGet16BitsUnma
   %71 = zext i8 %64 to i64
   %72 = add nuw nsw i64 %71, 4294967288
   %73 = and i64 %72, 4294967295
-  %74 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !25
   %76 = and i64 %75, %67
-  %77 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %63, i64 %76
-  %78 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %77, i64 %70
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %76
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %70
   %.pre16 = load i8, ptr %78, align 2, !tbaa !63
   br label %ReadBlockLength.exit
 
@@ -8529,7 +8528,7 @@ ReadBlockLength.exit:                             ; preds = %BrotliGet16BitsUnma
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2
   %86 = load i16, ptr %85, align 2, !tbaa !65
   %87 = zext i16 %86 to i64
-  %88 = getelementptr inbounds nuw %struct.BrotliPrefixCodeRange, ptr @_kBrotliPrefixCodeRanges, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr @_kBrotliPrefixCodeRanges, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
   %90 = load i8, ptr %89, align 2, !tbaa !67
   %91 = zext i8 %90 to i64
@@ -8553,7 +8552,7 @@ ReadBlockLength.exit:                             ; preds = %BrotliGet16BitsUnma
 BrotliReadBits24.exit:                            ; preds = %95, %ReadBlockLength.exit
   %103 = phi i64 [ %101, %95 ], [ %83, %ReadBlockLength.exit ]
   %104 = phi i64 [ %100, %95 ], [ %84, %ReadBlockLength.exit ]
-  %105 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %91
+  %105 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %91
   %106 = load i64, ptr %105, align 8, !tbaa !25
   %107 = and i64 %106, %104
   %108 = sub i64 %103, %91
@@ -8593,7 +8592,7 @@ BrotliReadBits24.exit:                            ; preds = %95, %ReadBlockLengt
   store i64 %spec.select, ptr %122, align 8, !tbaa !25
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %125 = load ptr, ptr %124, align 8, !tbaa !96
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %spec.select
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %spec.select
   %127 = load ptr, ptr %126, align 8, !tbaa !87
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %127, ptr %128, align 8, !tbaa !97
@@ -8659,7 +8658,7 @@ BrotliPullByte.exit.i.i52.i.i:                    ; preds = %.lr.ph
   %38 = phi i64 [ %18, %15 ], [ %35, %BrotliPullByte.exit.i.i52.i.i ]
   %39 = phi i64 [ %16, %15 ], [ %34, %BrotliPullByte.exit.i.i52.i.i ]
   %40 = and i64 %39, 255
-  %41 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %8, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %40
   %42 = load i8, ptr %41, align 2, !tbaa !63
   %43 = icmp ugt i8 %42, 8
   br i1 %43, label %BitMask.exit.i.i.i, label %SafeReadSymbol.exit55.i.i.thread
@@ -8674,11 +8673,11 @@ BitMask.exit.i.i.i:                               ; preds = %._crit_edge
   %50 = zext i8 %42 to i64
   %51 = add nuw nsw i64 %50, 4294967288
   %52 = and i64 %51, 4294967295
-  %53 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !25
   %55 = and i64 %49, %54
-  %56 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %41, i64 %55
-  %57 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %56, i64 %48
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %55
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %48
   %.pre = load i8, ptr %57, align 2, !tbaa !63
   br label %SafeReadSymbol.exit55.i.i.thread
 
@@ -8749,7 +8748,7 @@ BrotliPullByte.exit.i.i.i.i:                      ; preds = %76
   %88 = phi i64 [ %.pr32, %.._crit_edge36_crit_edge ], [ %85, %BrotliPullByte.exit.i.i.i.i ]
   %89 = phi i64 [ %.pre44, %.._crit_edge36_crit_edge ], [ %84, %BrotliPullByte.exit.i.i.i.i ]
   %90 = and i64 %89, 255
-  %91 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %11, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %90
   %92 = load i8, ptr %91, align 2, !tbaa !63
   %93 = icmp ugt i8 %92, 8
   br i1 %93, label %BitMask.exit.i59.i.i, label %SafeReadSymbol.exit.i.i.thread
@@ -8764,11 +8763,11 @@ BitMask.exit.i59.i.i:                             ; preds = %._crit_edge36
   %100 = zext i8 %92 to i64
   %101 = add nuw nsw i64 %100, 4294967288
   %102 = and i64 %101, 4294967295
-  %103 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !25
   %105 = and i64 %99, %104
-  %106 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %91, i64 %105
-  %107 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %106, i64 %98
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %105
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %98
   %.pre45 = load i8, ptr %107, align 2, !tbaa !63
   br label %SafeReadSymbol.exit.i.i.thread
 
@@ -8803,7 +8802,7 @@ SafeReadSymbol.exit.i.i._crit_edge:               ; preds = %SafeReadSymbol.exit
 
 121:                                              ; preds = %SafeReadSymbol.exit.i.i._crit_edge, %SafeReadSymbol.exit.i.i.thread, %118
   %122 = phi i64 [ %.pre46, %SafeReadSymbol.exit.i.i._crit_edge ], [ %116, %SafeReadSymbol.exit.i.i.thread ], [ %120, %118 ]
-  %123 = getelementptr inbounds nuw %struct.BrotliPrefixCodeRange, ptr @_kBrotliPrefixCodeRanges, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr @_kBrotliPrefixCodeRanges, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 2
   %125 = load i8, ptr %124, align 2, !tbaa !67
   %126 = zext i8 %125 to i64
@@ -8865,7 +8864,7 @@ SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit
 ._crit_edge41:                                    ; preds = %BrotliPullByte.exit.i.i, %.._crit_edge41_crit_edge
   %148 = phi i64 [ %.pre47, %.._crit_edge41_crit_edge ], [ %138, %BrotliPullByte.exit.i.i ]
   %.lcssa = phi i64 [ %.promoted38, %.._crit_edge41_crit_edge ], [ %139, %BrotliPullByte.exit.i.i ]
-  %149 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %126
+  %149 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %126
   %150 = load i64, ptr %149, align 8, !tbaa !25
   %151 = and i64 %150, %148
   %152 = sub i64 %.lcssa, %126
@@ -8968,7 +8967,7 @@ BrotliGet16BitsUnmasked.exit18.i:                 ; preds = %17, %13
   %24 = phi i64 [ %22, %17 ], [ %15, %13 ]
   %25 = phi i64 [ %21, %17 ], [ %.pre, %13 ]
   %26 = and i64 %25, 255
-  %27 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %6, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %26
   %28 = load i8, ptr %27, align 2, !tbaa !63
   %29 = icmp ugt i8 %28, 8
   br i1 %29, label %BitMask.exit.i.i.i.i, label %ReadSymbol.exit.i.i
@@ -8982,11 +8981,11 @@ BitMask.exit.i.i.i.i:                             ; preds = %BrotliGet16BitsUnma
   %35 = zext i8 %28 to i64
   %36 = add nuw nsw i64 %35, 4294967288
   %37 = and i64 %36, 4294967295
-  %38 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !25
   %40 = and i64 %39, %31
-  %41 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %27, i64 %40
-  %42 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %41, i64 %34
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %40
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %34
   %.pre6 = load i8, ptr %42, align 2, !tbaa !63
   br label %ReadSymbol.exit.i.i
 
@@ -9021,7 +9020,7 @@ BrotliGet16BitsUnmasked.exit.i:                   ; preds = %53, %ReadSymbol.exi
   %60 = phi i64 [ %58, %53 ], [ %47, %ReadSymbol.exit.i.i ]
   %61 = phi i64 [ %57, %53 ], [ %48, %ReadSymbol.exit.i.i ]
   %62 = and i64 %61, 255
-  %63 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %9, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %62
   %64 = load i8, ptr %63, align 2, !tbaa !63
   %65 = icmp ugt i8 %64, 8
   br i1 %65, label %BitMask.exit.i.i.i10.i, label %ReadBlockLength.exit.i
@@ -9035,11 +9034,11 @@ BitMask.exit.i.i.i10.i:                           ; preds = %BrotliGet16BitsUnma
   %71 = zext i8 %64 to i64
   %72 = add nuw nsw i64 %71, 4294967288
   %73 = and i64 %72, 4294967295
-  %74 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !25
   %76 = and i64 %75, %67
-  %77 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %63, i64 %76
-  %78 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %77, i64 %70
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %76
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %70
   %.pre7 = load i8, ptr %78, align 2, !tbaa !63
   br label %ReadBlockLength.exit.i
 
@@ -9056,7 +9055,7 @@ ReadBlockLength.exit.i:                           ; preds = %BitMask.exit.i.i.i1
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i9.i, i64 2
   %86 = load i16, ptr %85, align 2, !tbaa !65
   %87 = zext i16 %86 to i64
-  %88 = getelementptr inbounds nuw %struct.BrotliPrefixCodeRange, ptr @_kBrotliPrefixCodeRanges, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr @_kBrotliPrefixCodeRanges, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2
   %90 = load i8, ptr %89, align 2, !tbaa !67
   %91 = zext i8 %90 to i64
@@ -9080,7 +9079,7 @@ ReadBlockLength.exit.i:                           ; preds = %BitMask.exit.i.i.i1
 BrotliReadBits24.exit.i:                          ; preds = %95, %ReadBlockLength.exit.i
   %103 = phi i64 [ %101, %95 ], [ %83, %ReadBlockLength.exit.i ]
   %104 = phi i64 [ %100, %95 ], [ %84, %ReadBlockLength.exit.i ]
-  %105 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %91
+  %105 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %91
   %106 = load i64, ptr %105, align 8, !tbaa !25
   %107 = and i64 %106, %104
   %108 = sub i64 %103, %91
@@ -9193,7 +9192,7 @@ BrotliPullByte.exit.i.i52.i.i:                    ; preds = %.lr.ph
   %36 = phi i64 [ %16, %13 ], [ %33, %BrotliPullByte.exit.i.i52.i.i ]
   %37 = phi i64 [ %14, %13 ], [ %32, %BrotliPullByte.exit.i.i52.i.i ]
   %38 = and i64 %37, 255
-  %39 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %7, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %38
   %40 = load i8, ptr %39, align 2, !tbaa !63
   %41 = icmp ugt i8 %40, 8
   br i1 %41, label %BitMask.exit.i.i.i, label %SafeReadSymbol.exit55.i.i.thread
@@ -9208,11 +9207,11 @@ BitMask.exit.i.i.i:                               ; preds = %._crit_edge
   %48 = zext i8 %40 to i64
   %49 = add nuw nsw i64 %48, 4294967288
   %50 = and i64 %49, 4294967295
-  %51 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !25
   %53 = and i64 %47, %52
-  %54 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %39, i64 %53
-  %55 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %54, i64 %46
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %53
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %46
   %.pre = load i8, ptr %55, align 2, !tbaa !63
   br label %SafeReadSymbol.exit55.i.i.thread
 
@@ -9283,7 +9282,7 @@ BrotliPullByte.exit.i.i.i.i:                      ; preds = %74
   %86 = phi i64 [ %.pr32, %.._crit_edge36_crit_edge ], [ %83, %BrotliPullByte.exit.i.i.i.i ]
   %87 = phi i64 [ %.pre44, %.._crit_edge36_crit_edge ], [ %82, %BrotliPullByte.exit.i.i.i.i ]
   %88 = and i64 %87, 255
-  %89 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %9, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %88
   %90 = load i8, ptr %89, align 2, !tbaa !63
   %91 = icmp ugt i8 %90, 8
   br i1 %91, label %BitMask.exit.i59.i.i, label %SafeReadSymbol.exit.i.i.thread
@@ -9298,11 +9297,11 @@ BitMask.exit.i59.i.i:                             ; preds = %._crit_edge36
   %98 = zext i8 %90 to i64
   %99 = add nuw nsw i64 %98, 4294967288
   %100 = and i64 %99, 4294967295
-  %101 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %100
   %102 = load i64, ptr %101, align 8, !tbaa !25
   %103 = and i64 %97, %102
-  %104 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %89, i64 %103
-  %105 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %104, i64 %96
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %96
   %.pre45 = load i8, ptr %105, align 2, !tbaa !63
   br label %SafeReadSymbol.exit.i.i.thread
 
@@ -9337,7 +9336,7 @@ SafeReadSymbol.exit.i.i._crit_edge:               ; preds = %SafeReadSymbol.exit
 
 119:                                              ; preds = %SafeReadSymbol.exit.i.i._crit_edge, %SafeReadSymbol.exit.i.i.thread, %116
   %120 = phi i64 [ %.pre46, %SafeReadSymbol.exit.i.i._crit_edge ], [ %114, %SafeReadSymbol.exit.i.i.thread ], [ %118, %116 ]
-  %121 = getelementptr inbounds nuw %struct.BrotliPrefixCodeRange, ptr @_kBrotliPrefixCodeRanges, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr @_kBrotliPrefixCodeRanges, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 2
   %123 = load i8, ptr %122, align 2, !tbaa !67
   %124 = zext i8 %123 to i64
@@ -9399,7 +9398,7 @@ SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit
 ._crit_edge41:                                    ; preds = %BrotliPullByte.exit.i.i, %.._crit_edge41_crit_edge
   %146 = phi i64 [ %.pre47, %.._crit_edge41_crit_edge ], [ %136, %BrotliPullByte.exit.i.i ]
   %.lcssa = phi i64 [ %.promoted38, %.._crit_edge41_crit_edge ], [ %137, %BrotliPullByte.exit.i.i ]
-  %147 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %124
+  %147 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %124
   %148 = load i64, ptr %147, align 8, !tbaa !25
   %149 = and i64 %148, %146
   %150 = sub i64 %.lcssa, %124
@@ -9449,7 +9448,7 @@ SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit
   store ptr %171, ptr %172, align 8, !tbaa !89
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %174 = lshr i64 %spec.select, 5
-  %175 = getelementptr inbounds nuw i32, ptr %173, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !34
   %177 = zext i32 %176 to i64
   %178 = and i64 %spec.select, 31
@@ -9462,7 +9461,7 @@ SafeReadBlockLength.exit.i.i.thread:              ; preds = %SafeReadSymbol.exit
   %184 = load ptr, ptr %183, align 8, !tbaa !91
   %185 = load i8, ptr %171, align 1, !tbaa !44
   %186 = zext i8 %185 to i64
-  %187 = getelementptr inbounds nuw ptr, ptr %184, i64 %186
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !87
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %188, ptr %189, align 8, !tbaa !92
@@ -9522,7 +9521,7 @@ BrotliGet16BitsUnmasked.exit13.i:                 ; preds = %15, %11
   %22 = phi i64 [ %20, %15 ], [ %13, %11 ]
   %23 = phi i64 [ %19, %15 ], [ %.pre, %11 ]
   %24 = and i64 %23, 255
-  %25 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %5, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %24
   %26 = load i8, ptr %25, align 2, !tbaa !63
   %27 = icmp ugt i8 %26, 8
   br i1 %27, label %BitMask.exit.i.i.i.i, label %ReadSymbol.exit.i.i
@@ -9536,11 +9535,11 @@ BitMask.exit.i.i.i.i:                             ; preds = %BrotliGet16BitsUnma
   %33 = zext i8 %26 to i64
   %34 = add nuw nsw i64 %33, 4294967288
   %35 = and i64 %34, 4294967295
-  %36 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !25
   %38 = and i64 %37, %29
-  %39 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %25, i64 %38
-  %40 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %39, i64 %32
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %38
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %32
   %.pre6 = load i8, ptr %40, align 2, !tbaa !63
   br label %ReadSymbol.exit.i.i
 
@@ -9575,7 +9574,7 @@ BrotliGet16BitsUnmasked.exit.i:                   ; preds = %51, %ReadSymbol.exi
   %58 = phi i64 [ %56, %51 ], [ %45, %ReadSymbol.exit.i.i ]
   %59 = phi i64 [ %55, %51 ], [ %46, %ReadSymbol.exit.i.i ]
   %60 = and i64 %59, 255
-  %61 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %7, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %60
   %62 = load i8, ptr %61, align 2, !tbaa !63
   %63 = icmp ugt i8 %62, 8
   br i1 %63, label %BitMask.exit.i.i.i5.i, label %ReadBlockLength.exit.i
@@ -9589,11 +9588,11 @@ BitMask.exit.i.i.i5.i:                            ; preds = %BrotliGet16BitsUnma
   %69 = zext i8 %62 to i64
   %70 = add nuw nsw i64 %69, 4294967288
   %71 = and i64 %70, 4294967295
-  %72 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !25
   %74 = and i64 %73, %65
-  %75 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %61, i64 %74
-  %76 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %75, i64 %68
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %74
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %68
   %.pre7 = load i8, ptr %76, align 2, !tbaa !63
   br label %ReadBlockLength.exit.i
 
@@ -9610,7 +9609,7 @@ ReadBlockLength.exit.i:                           ; preds = %BitMask.exit.i.i.i5
   %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4.i, i64 2
   %84 = load i16, ptr %83, align 2, !tbaa !65
   %85 = zext i16 %84 to i64
-  %86 = getelementptr inbounds nuw %struct.BrotliPrefixCodeRange, ptr @_kBrotliPrefixCodeRanges, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr @_kBrotliPrefixCodeRanges, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 2
   %88 = load i8, ptr %87, align 2, !tbaa !67
   %89 = zext i8 %88 to i64
@@ -9634,7 +9633,7 @@ ReadBlockLength.exit.i:                           ; preds = %BitMask.exit.i.i.i5
 BrotliReadBits24.exit.i:                          ; preds = %93, %ReadBlockLength.exit.i
   %101 = phi i64 [ %99, %93 ], [ %81, %ReadBlockLength.exit.i ]
   %102 = phi i64 [ %98, %93 ], [ %82, %ReadBlockLength.exit.i ]
-  %103 = getelementptr inbounds nuw i64, ptr @kBrotliBitMask, i64 %89
+  %103 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliBitMask, i64 %89
   %104 = load i64, ptr %103, align 8, !tbaa !25
   %105 = and i64 %104, %102
   %106 = sub i64 %101, %89
@@ -9680,7 +9679,7 @@ BrotliReadBits24.exit.i:                          ; preds = %93, %ReadBlockLengt
   store ptr %125, ptr %126, align 8, !tbaa !89
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %128 = lshr i64 %spec.select, 5
-  %129 = getelementptr inbounds nuw i32, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !34
   %131 = zext i32 %130 to i64
   %132 = and i64 %spec.select, 31
@@ -9693,7 +9692,7 @@ BrotliReadBits24.exit.i:                          ; preds = %93, %ReadBlockLengt
   %138 = load ptr, ptr %137, align 8, !tbaa !91
   %139 = load i8, ptr %125, align 1, !tbaa !44
   %140 = zext i8 %139 to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %138, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !87
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %142, ptr %143, align 8, !tbaa !92

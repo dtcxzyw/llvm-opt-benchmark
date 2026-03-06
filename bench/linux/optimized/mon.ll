@@ -219,7 +219,7 @@ define internal fastcc i32 @nsm_mon_unmon(ptr noundef %0, i32 noundef range(i32 
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %54 = load ptr, ptr %53, align 8
   %55 = zext nneg i32 %1 to i64
-  %56 = getelementptr %struct.rpc_procinfo, ptr %54, i64 %55
+  %56 = getelementptr [48 x i8], ptr %54, i64 %55
   store ptr %56, ptr %8, align 8
   %57 = call i32 @rpc_call_sync(ptr noundef %47, ptr noundef nonnull %8, i32 noundef 1024) #10
   %58 = icmp eq i32 %57, -111
@@ -300,7 +300,7 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr noundef readonly captur
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #10
   %12 = icmp ne ptr %3, null
@@ -516,7 +516,7 @@ define dso_local ptr @nsm_reboot_lookup(ptr noundef %0, ptr noundef readonly cap
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @__rcu_read_unlock() #10
   tail call void @_raw_spin_lock(ptr noundef nonnull @nsm_lock) #10

@@ -553,7 +553,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %198, %_Z
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %200, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %195, ptr %17, align 8, !tbaa !56
   store ptr %199, ptr %91, align 8, !tbaa !53
-  %201 = getelementptr inbounds nuw i32, ptr %195, i64 %193
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %193
   store ptr %201, ptr %92, align 8, !tbaa !57
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -573,7 +573,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %187, %_ZNSt6vectorI
   %209 = load i32, ptr %14, align 4, !tbaa !45
   %spec.store.select63 = call i32 @llvm.smax.i32(i32 %209, i32 0)
   store i32 %spec.store.select63, ptr %14, align 4
-  %210 = getelementptr inbounds nuw i32, ptr %.lcssa67, i64 %175
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %.lcssa67, i64 %175
   %211 = load i32, ptr %210, align 4, !tbaa !45
   %212 = icmp eq i32 %211, -1
   %213 = select i1 %212, i32 0, i32 %211

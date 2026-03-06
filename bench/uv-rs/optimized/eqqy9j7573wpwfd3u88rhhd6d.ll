@@ -1866,7 +1866,7 @@ _ZN10serde_json3ser18format_escaped_str17hfcba829325f2f26aE.exit.i: ; preds = %1
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h6eea39d8ead7e50dE.llvm.1636240950872007849.exit"
 
 39:                                               ; preds = %2
-  %40 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %5, i64 %7
+  %40 = getelementptr inbounds [24 x i8], ptr %5, i64 %7
   %41 = tail call noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h53181c873d37e5f3E(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5, ptr noundef nonnull %40)
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h6eea39d8ead7e50dE.llvm.1636240950872007849.exit"
 

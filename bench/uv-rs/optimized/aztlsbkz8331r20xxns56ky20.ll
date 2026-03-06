@@ -401,7 +401,7 @@ define internal fastcc void @_ZN6digest11FixedOutput14finalize_fixed17hb62d60eeb
   %46 = add nuw nsw i64 %.sroa.12.034.i.i.i, 1
   %47 = shl nuw nsw i64 %.sroa.12.034.i.i.i, 2
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 %47
-  %49 = getelementptr inbounds nuw i32, ptr %15, i64 %.sroa.12.034.i.i.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.sroa.12.034.i.i.i
   %50 = load i32, ptr %49, align 4, !alias.scope !90, !noalias !91, !noundef !4
   %51 = call i32 @llvm.bswap.i32(i32 %50)
   store i32 %51, ptr %48, align 1, !alias.scope !119, !noalias !123
@@ -1599,7 +1599,7 @@ _ZN3std4sync6poison4once4Once9call_once17ha69a7ba607c67d9eE.llvm.434017973555861
 124:                                              ; preds = %119, %111
   %125 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %126 = load ptr, ptr %125, align 8, !alias.scope !455, !noalias !458, !nonnull !4, !noundef !4
-  %127 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %126, i64 %116
+  %127 = getelementptr inbounds [64 x i8], ptr %126, i64 %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %127, ptr noundef nonnull align 8 dereferenceable(64) %23, i64 64, i1 false)
   %128 = add i64 %116, 1
   store i64 %128, ptr %115, align 8, !alias.scope !455, !noalias !458
@@ -2034,7 +2034,7 @@ _ZN3std4sync6poison4once4Once9call_once17ha69a7ba607c67d9eE.llvm.434017973555861
 124:                                              ; preds = %119, %111
   %125 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %126 = load ptr, ptr %125, align 8, !alias.scope !585, !noalias !588, !nonnull !4, !noundef !4
-  %127 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %126, i64 %116
+  %127 = getelementptr inbounds [64 x i8], ptr %126, i64 %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %127, ptr noundef nonnull align 8 dereferenceable(64) %23, i64 64, i1 false)
   %128 = add i64 %116, 1
   store i64 %128, ptr %115, align 8, !alias.scope !585, !noalias !588
@@ -2473,7 +2473,7 @@ _ZN3std4sync6poison4once4Once9call_once17ha69a7ba607c67d9eE.llvm.434017973555861
 125:                                              ; preds = %120, %112
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %127 = load ptr, ptr %126, align 8, !alias.scope !715, !noalias !718, !nonnull !4, !noundef !4
-  %128 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %127, i64 %117
+  %128 = getelementptr inbounds [64 x i8], ptr %127, i64 %117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %128, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 64, i1 false)
   %129 = add i64 %117, 1
   store i64 %129, ptr %116, align 8, !alias.scope !715, !noalias !718
@@ -3187,7 +3187,7 @@ default.unreachable:                              ; preds = %.noexc58
   store i8 %181, ptr %188, align 1, !noalias !874
   %189 = load ptr, ptr %.sroa.6122.0.copyload, align 8, !alias.scope !881, !noalias !874, !nonnull !4, !noundef !4
   %190 = sub nsw i64 0, %171
-  %191 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %189, i64 %190
+  %191 = getelementptr inbounds [48 x i8], ptr %189, i64 %190
   %192 = and i8 %179, 1
   %193 = zext nneg i8 %192 to i64
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.6122.0.copyload, i64 16
@@ -3233,7 +3233,7 @@ default.unreachable:                              ; preds = %.noexc58
 211:                                              ; preds = %206, %201
   %212 = getelementptr inbounds i8, ptr %.pn.i, i64 -16
   %213 = load ptr, ptr %212, align 8, !alias.scope !882, !noalias !885, !nonnull !4, !noundef !4
-  %214 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %213, i64 %203
+  %214 = getelementptr inbounds [24 x i8], ptr %213, i64 %203
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %214, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   %215 = add i64 %203, 1
   store i64 %215, ptr %202, align 8, !alias.scope !882, !noalias !885

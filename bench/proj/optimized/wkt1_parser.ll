@@ -198,7 +198,7 @@ define hidden i32 @pj_wkt1_lex(ptr noundef readnone captures(none) %0, ptr nound
 
 .preheader125:                                    ; preds = %13, %29
   %.087132 = phi i64 [ %30, %29 ], [ 0, %13 ]
-  %16 = getelementptr inbounds nuw %struct.osr_cs_wkt_tokens, ptr @_ZL6tokens, i64 %.087132
+  %16 = getelementptr inbounds nuw [16 x i8], ptr @_ZL6tokens, i64 %.087132
   %17 = load ptr, ptr %16, align 16, !tbaa !21
   %18 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef nonnull %.0, ptr noundef %17) #11
   br i1 %18, label %19, label %29

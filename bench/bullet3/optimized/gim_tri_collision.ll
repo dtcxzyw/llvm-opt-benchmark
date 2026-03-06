@@ -495,7 +495,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN30GIM_TRIANGLE_CALCULATION_
   %312 = phi float [ -1.000000e+03, %.lr.ph.i.i ], [ %343, %342 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %342 ]
   %313 = phi i32 [ 0, %.lr.ph.i.i ], [ %344, %342 ]
-  %314 = getelementptr inbounds nuw %class.btVector3, ptr %303, i64 %indvars.iv.i.i
+  %314 = getelementptr inbounds nuw [16 x i8], ptr %303, i64 %indvars.iv.i.i
   %315 = load float, ptr %44, align 4, !tbaa !15
   %316 = load float, ptr %314, align 4, !tbaa !15
   %317 = load float, ptr %48, align 4, !tbaa !15
@@ -530,7 +530,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN30GIM_TRIANGLE_CALCULATION_
 
 337:                                              ; preds = %334
   %338 = zext i32 %313 to i64
-  %339 = getelementptr inbounds nuw i32, ptr %12, i64 %338
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %338
   %340 = trunc nuw i64 %indvars.iv.i.i to i32
   store i32 %340, ptr %339, align 4, !tbaa !24
   %341 = add i32 %313, 1
@@ -551,11 +551,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN30GIM_TRIANGLE_CALCULATION_
 
 345:                                              ; preds = %345, %.lr.ph22.i.i
   %indvars.iv25.i.i = phi i64 [ 0, %.lr.ph22.i.i ], [ %indvars.iv.next26.i.i, %345 ]
-  %346 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv25.i.i
+  %346 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv25.i.i
   %347 = load i32, ptr %346, align 4, !tbaa !24
   %348 = zext i32 %347 to i64
-  %349 = getelementptr inbounds nuw %class.btVector3, ptr %303, i64 %348
-  %350 = getelementptr inbounds nuw %class.btVector3, ptr %310, i64 %indvars.iv25.i.i
+  %349 = getelementptr inbounds nuw [16 x i8], ptr %303, i64 %348
+  %350 = getelementptr inbounds nuw [16 x i8], ptr %310, i64 %indvars.iv25.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %350, ptr noundef nonnull align 4 dereferenceable(16) %349, i64 16, i1 false), !tbaa.struct !13
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, %wide.trip.count28.i.i
@@ -594,7 +594,7 @@ _ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit: ; 
   %359 = phi float [ -1.000000e+03, %.lr.ph.i.i131 ], [ %390, %389 ]
   %indvars.iv.i.i133 = phi i64 [ 0, %.lr.ph.i.i131 ], [ %indvars.iv.next.i.i137, %389 ]
   %360 = phi i32 [ 0, %.lr.ph.i.i131 ], [ %391, %389 ]
-  %361 = getelementptr inbounds nuw %class.btVector3, ptr %303, i64 %indvars.iv.i.i133
+  %361 = getelementptr inbounds nuw [16 x i8], ptr %303, i64 %indvars.iv.i.i133
   %362 = load float, ptr %188, align 4, !tbaa !15
   %363 = load float, ptr %361, align 4, !tbaa !15
   %364 = load float, ptr %192, align 4, !tbaa !15
@@ -629,7 +629,7 @@ _ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit: ; 
 
 384:                                              ; preds = %381
   %385 = zext i32 %360 to i64
-  %386 = getelementptr inbounds nuw i32, ptr %11, i64 %385
+  %386 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %385
   %387 = trunc nuw i64 %indvars.iv.i.i133 to i32
   store i32 %387, ptr %386, align 4, !tbaa !24
   %388 = add i32 %360, 1
@@ -650,11 +650,11 @@ _ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit: ; 
 
 392:                                              ; preds = %392, %.lr.ph22.i.i141
   %indvars.iv25.i.i143 = phi i64 [ 0, %.lr.ph22.i.i141 ], [ %indvars.iv.next26.i.i144, %392 ]
-  %393 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv25.i.i143
+  %393 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv25.i.i143
   %394 = load i32, ptr %393, align 4, !tbaa !24
   %395 = zext i32 %394 to i64
-  %396 = getelementptr inbounds nuw %class.btVector3, ptr %303, i64 %395
-  %397 = getelementptr inbounds nuw %class.btVector3, ptr %357, i64 %indvars.iv25.i.i143
+  %396 = getelementptr inbounds nuw [16 x i8], ptr %303, i64 %395
+  %397 = getelementptr inbounds nuw [16 x i8], ptr %357, i64 %indvars.iv25.i.i143
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %397, ptr noundef nonnull align 4 dereferenceable(16) %396, i64 16, i1 false), !tbaa.struct !13
   %indvars.iv.next26.i.i144 = add nuw nsw i64 %indvars.iv25.i.i143, 1
   %exitcond29.not.i.i145 = icmp eq i64 %indvars.iv.next26.i.i144, %wide.trip.count28.i.i142
@@ -975,7 +975,7 @@ define linkonce_odr dso_local noundef i32 @_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVe
   %50 = fmul float %33, %47
   %51 = tail call float @llvm.fmuladd.f32(float %48, float %49, float %50)
   %52 = zext nneg i32 %.0 to i64
-  %53 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %52
   store float %51, ptr %53, align 4, !tbaa !15
   %54 = load float, ptr %10, align 4, !tbaa !15
   %55 = load float, ptr %34, align 4, !tbaa !15
@@ -999,7 +999,7 @@ define linkonce_odr dso_local noundef i32 @_Z27PLANE_CLIP_TRIANGLE_GENERICI9btVe
 66:                                               ; preds = %65
   %67 = load float, ptr %2, align 4, !tbaa !15
   %68 = zext nneg i32 %.1 to i64
-  %69 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %68
   store float %67, ptr %69, align 4, !tbaa !15
   %70 = load float, ptr %34, align 4, !tbaa !15
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
@@ -1039,7 +1039,7 @@ _Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit: ; preds = %65, 
   %96 = fmul float %76, %93
   %97 = tail call float @llvm.fmuladd.f32(float %94, float %95, float %96)
   %98 = zext nneg i32 %.2 to i64
-  %99 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %98
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %98
   store float %97, ptr %99, align 4, !tbaa !15
   %100 = load float, ptr %34, align 4, !tbaa !15
   %101 = load float, ptr %78, align 4, !tbaa !15
@@ -1063,7 +1063,7 @@ _Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit: ; preds = %65, 
 112:                                              ; preds = %111
   %113 = load float, ptr %3, align 4, !tbaa !15
   %114 = zext nneg i32 %.3 to i64
-  %115 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %114
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %114
   store float %113, ptr %115, align 4, !tbaa !15
   %116 = load float, ptr %78, align 4, !tbaa !15
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 4
@@ -1090,7 +1090,7 @@ _Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit32: ; preds = %11
   %129 = fmul float %125, %128
   %130 = tail call float @llvm.fmuladd.f32(float %126, float %127, float %129)
   %131 = zext nneg i32 %.4 to i64
-  %132 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %131
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %131
   store float %130, ptr %132, align 4, !tbaa !15
   %133 = load float, ptr %78, align 4, !tbaa !15
   %134 = load float, ptr %10, align 4, !tbaa !15
@@ -1114,7 +1114,7 @@ _Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit32: ; preds = %11
 145:                                              ; preds = %144
   %146 = load float, ptr %1, align 4, !tbaa !15
   %147 = zext nneg i32 %.5 to i64
-  %148 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %147
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %147
   store float %146, ptr %148, align 4, !tbaa !15
   %149 = load float, ptr %10, align 4, !tbaa !15
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 4
@@ -1180,7 +1180,7 @@ define linkonce_odr dso_local noundef i32 @_Z26PLANE_CLIP_POLYGON_GENERICI9btVec
 30:                                               ; preds = %._crit_edge
   %31 = add i32 %2, -1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %32
   %34 = fneg float %.0.lcssa
   %35 = fsub float %20, %.0.lcssa
   %36 = fdiv float %34, %35
@@ -1190,7 +1190,7 @@ define linkonce_odr dso_local noundef i32 @_Z26PLANE_CLIP_POLYGON_GENERICI9btVec
   %40 = fmul float %36, %39
   %41 = tail call float @llvm.fmuladd.f32(float %37, float %38, float %40)
   %42 = zext i32 %.1.lcssa to i64
-  %43 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %42
   store float %41, ptr %43, align 4, !tbaa !15
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %45 = load float, ptr %44, align 4, !tbaa !15
@@ -1216,7 +1216,7 @@ define linkonce_odr dso_local noundef i32 @_Z26PLANE_CLIP_POLYGON_GENERICI9btVec
 58:                                               ; preds = %57
   %59 = load float, ptr %1, align 4, !tbaa !15
   %60 = zext i32 %.2 to i64
-  %61 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %60
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %60
   store float %59, ptr %61, align 4, !tbaa !15
   %62 = load float, ptr %9, align 4, !tbaa !15
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -1235,7 +1235,7 @@ _Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit: ; preds = %57, 
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit32 ]
   %.044 = phi float [ %20, %.lr.ph.preheader ], [ %80, %_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit32 ]
   %.142 = phi i32 [ %.041, %.lr.ph.preheader ], [ %.5, %_Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit32 ]
-  %67 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %68 = load float, ptr %0, align 4, !tbaa !15
   %69 = load float, ptr %67, align 4, !tbaa !15
   %70 = load float, ptr %7, align 4, !tbaa !15
@@ -1255,7 +1255,7 @@ _Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit: ; preds = %57, 
   br i1 %.not.i31, label %108, label %83
 
 83:                                               ; preds = %.lr.ph
-  %84 = getelementptr %class.btVector3, ptr %1, i64 %indvars.iv
+  %84 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv
   %85 = getelementptr i8, ptr %84, i64 -16
   %86 = fneg float %.044
   %87 = fsub float %80, %.044
@@ -1265,7 +1265,7 @@ _Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit: ; preds = %57, 
   %91 = fmul float %69, %88
   %92 = tail call float @llvm.fmuladd.f32(float %89, float %90, float %91)
   %93 = zext i32 %.142 to i64
-  %94 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %93
   store float %92, ptr %94, align 4, !tbaa !15
   %95 = getelementptr i8, ptr %84, i64 -12
   %96 = load float, ptr %95, align 4, !tbaa !15
@@ -1291,7 +1291,7 @@ _Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit: ; preds = %57, 
 109:                                              ; preds = %108
   %110 = load float, ptr %67, align 4, !tbaa !15
   %111 = zext i32 %.4 to i64
-  %112 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %111
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %111
   store float %110, ptr %112, align 4, !tbaa !15
   %113 = load float, ptr %71, align 4, !tbaa !15
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 4

@@ -6,17 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::once_flag" = type { i32 }
 %class.anon = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
-%"class.llvm::MachineOperand" = type { i32, %union.anon.216, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon.216 = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef.217" }
-%"class.llvm::ArrayRef.217" = type { ptr, i64 }
-%"struct.std::pair" = type { %"class.llvm::PointerUnion", ptr }
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.118" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.118" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.119" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.119" = type { %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -311,12 +300,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_130AArch64DeadRegisterDefini
   %31 = load ptr, ptr %30, align 8, !tbaa !204
   %32 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.051.072.i) #11
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %33
   %35 = load ptr, ptr %30, align 8, !tbaa !204
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.051.072.i, i64 40
   %37 = load i24, ptr %36, align 8
   %38 = zext i24 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %38
   %.not14.not.i.i = icmp eq ptr %34, %39
   br i1 %.not14.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -511,7 +500,7 @@ _ZL23atomicReadDroppedOnZeroj.exit.i:             ; preds = %_ZN4llvmL26atomicBa
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.critedge.i ]
   %56 = load ptr, ptr %30, align 8, !tbaa !204
-  %57 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %56, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %56, i64 %indvars.iv.i
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 16777471
   %or.cond.i = icmp eq i32 %59, 16777216
@@ -534,7 +523,7 @@ _ZL23atomicReadDroppedOnZeroj.exit.i:             ; preds = %_ZN4llvmL26atomicBa
   %70 = and i32 %62, 2147483647
   %71 = zext nneg i32 %70 to i64
   %72 = load ptr, ptr %69, align 8
-  %73 = getelementptr inbounds nuw %"struct.std::pair", ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %71
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %.0.i.i.i.i = load ptr, ptr %74, align 8, !tbaa !222
   %.not.i.i.i.i = icmp eq ptr %.0.i.i.i.i, null

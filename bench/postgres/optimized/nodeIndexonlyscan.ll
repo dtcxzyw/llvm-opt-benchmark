@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @.str = private unnamed_addr constant [52 x i8] c"unexpected ExecIndexOnlyMarkPos call in EPQ recheck\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"nodeIndexonlyscan.c\00", align 1
@@ -135,7 +132,7 @@ define dso_local void @ExecIndexOnlyMarkPos(ptr noundef readonly captures(none) 
   %12 = load ptr, ptr %11, align 8
   %13 = add i32 %10, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %17, label %22
@@ -143,7 +140,7 @@ define dso_local void @ExecIndexOnlyMarkPos(ptr noundef readonly captures(none) 
 17:                                               ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %14
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %14
   %21 = load ptr, ptr %20, align 8
   %.not13 = icmp eq ptr %21, null
   br i1 %.not13, label %31, label %22
@@ -199,7 +196,7 @@ define dso_local void @ExecIndexOnlyRestrPos(ptr noundef readonly captures(none)
   %12 = load ptr, ptr %11, align 8
   %13 = add i32 %10, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %17, label %22
@@ -207,7 +204,7 @@ define dso_local void @ExecIndexOnlyRestrPos(ptr noundef readonly captures(none)
 17:                                               ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %14
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %14
   %21 = load ptr, ptr %20, align 8
   %.not13 = icmp eq ptr %21, null
   br i1 %.not13, label %31, label %22
@@ -291,7 +288,7 @@ define dso_local noundef ptr @ExecInitIndexOnlyScan(ptr noundef %0, ptr noundef 
   %.val.val = load ptr, ptr %34, align 8
   %35 = add i32 %32, -1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %union.ListCell, ptr %.val.val, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 36
   %40 = load i32, ptr %39, align 4
@@ -360,7 +357,7 @@ define dso_local noundef ptr @ExecInitIndexOnlyScan(ptr noundef %0, ptr noundef 
 78:                                               ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %.09296 = phi i32 [ 0, %.lr.ph ], [ %.193, %89 ]
-  %79 = getelementptr %struct.FormData_pg_attribute, ptr %75, i64 %indvars.iv
+  %79 = getelementptr [100 x i8], ptr %75, i64 %indvars.iv
   %80 = getelementptr i8, ptr %79, i64 92
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, 2275
@@ -368,7 +365,7 @@ define dso_local noundef ptr @ExecInitIndexOnlyScan(ptr noundef %0, ptr noundef 
 
 83:                                               ; preds = %78
   %84 = load ptr, ptr %76, align 8
-  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, 19
   %88 = zext i1 %87 to i32
@@ -399,7 +396,7 @@ define dso_local noundef ptr @ExecInitIndexOnlyScan(ptr noundef %0, ptr noundef 
   %98 = sext i32 %97 to i64
   %99 = shl nsw i64 %98, 4
   %100 = getelementptr i8, ptr %96, i64 %99
-  %101 = getelementptr %struct.FormData_pg_attribute, ptr %100, i64 %indvars.iv103
+  %101 = getelementptr [100 x i8], ptr %100, i64 %indvars.iv103
   %102 = getelementptr i8, ptr %101, i64 92
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 2275
@@ -407,7 +404,7 @@ define dso_local noundef ptr @ExecInitIndexOnlyScan(ptr noundef %0, ptr noundef 
 
 105:                                              ; preds = %95
   %106 = load ptr, ptr %94, align 8
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv103
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv103
   %108 = load i32, ptr %107, align 4
   %109 = icmp eq i32 %108, 19
   br i1 %109, label %110, label %116
@@ -417,7 +414,7 @@ define dso_local noundef ptr @ExecInitIndexOnlyScan(ptr noundef %0, ptr noundef 
   %112 = load ptr, ptr %63, align 8
   %113 = add i32 %.08998, 1
   %114 = sext i32 %.08998 to i64
-  %115 = getelementptr inbounds i16, ptr %112, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr %112, i64 %114
   store i16 %111, ptr %115, align 2
   br label %116
 
@@ -833,7 +830,7 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
 114:                                              ; preds = %135, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %135 ]
   %115 = load ptr, ptr %59, align 8
-  %116 = getelementptr inbounds nuw i16, ptr %115, i64 %indvars.iv.i
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %115, i64 %indvars.iv.i
   %117 = load i16, ptr %116, align 2
   %118 = load ptr, ptr %58, align 8
   %119 = sext i16 %117 to i64
@@ -848,13 +845,13 @@ define internal ptr @IndexOnlyNext(ptr noundef %0) #0 {
   %126 = load ptr, ptr %125, align 8
   %127 = call ptr @MemoryContextAlloc(ptr noundef %126, i64 noundef 64) #5
   %128 = load ptr, ptr %57, align 8
-  %129 = getelementptr inbounds i64, ptr %128, i64 %119
+  %129 = getelementptr inbounds [8 x i8], ptr %128, i64 %119
   %130 = load i64, ptr %129, align 8
   %131 = inttoptr i64 %130 to ptr
   call void @namestrcpy(ptr noundef %127, ptr noundef %131) #5
   %132 = ptrtoint ptr %127 to i64
   %133 = load ptr, ptr %57, align 8
-  %134 = getelementptr inbounds i64, ptr %133, i64 %119
+  %134 = getelementptr inbounds [8 x i8], ptr %133, i64 %119
   store i64 %132, ptr %134, align 8
   br label %135
 

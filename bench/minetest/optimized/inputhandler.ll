@@ -4859,7 +4859,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invok
           to label %invoke.cont178 unwind label %lpad177
 
 invoke.cont178:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %770 = getelementptr inbounds nuw %class.KeyPress, ptr %this, i64 %indvars.iv
+  %770 = getelementptr inbounds nuw [40 x i8], ptr %this, i64 %indvars.iv
   %arrayidx181 = getelementptr inbounds nuw i8, ptr %770, i64 1800
   %771 = load i64, ptr %ref.tmp175, align 8
   store i64 %771, ptr %arrayidx181, align 8
@@ -5930,7 +5930,7 @@ if.then109:                                       ; preds = %if.else32
   %Level = getelementptr inbounds nuw i8, ptr %event, i64 16
   %88 = load i32, ptr %Level, align 8, !tbaa !13
   %idxprom = zext i32 %88 to i64
-  %arrayidx = getelementptr inbounds nuw i32, ptr @_ZZN15MyEventReceiver7OnEventERKN3irr6SEventEE15irr_loglev_conv, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr @_ZZN15MyEventReceiver7OnEventERKN3irr6SEventEE15irr_loglev_conv, i64 %idxprom
   %89 = load i32, ptr %arrayidx, align 4, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp110)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp111)
@@ -7090,7 +7090,7 @@ entry:
   %0 = load ptr, ptr %m_receiver, align 8, !tbaa !57
   %keycache = getelementptr inbounds nuw i8, ptr %this, i64 496
   %idxprom = zext i32 %k to i64
-  %arrayidx = getelementptr inbounds nuw %class.KeyPress, ptr %keycache, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [40 x i8], ptr %keycache, i64 %idxprom
   %keyIsDown.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %vtable.i.i = load ptr, ptr %keyIsDown.i, align 8, !tbaa !26
   %1 = load ptr, ptr %vtable.i.i, align 8
@@ -7102,7 +7102,7 @@ entry:
 lor.rhs:                                          ; preds = %entry
   %m_keys_down.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %div1.i.i.i.i.i = lshr i64 %idxprom, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %m_keys_down.i, i64 %div1.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %m_keys_down.i, i64 %div1.i.i.i.i.i
   %rem.i.i.i.i = and i64 %idxprom, 63
   %2 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !35
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -7122,7 +7122,7 @@ entry:
   %0 = load ptr, ptr %m_receiver, align 8, !tbaa !57
   %keycache = getelementptr inbounds nuw i8, ptr %this, i64 496
   %idxprom = zext i32 %k to i64
-  %arrayidx = getelementptr inbounds nuw %class.KeyPress, ptr %keycache, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [40 x i8], ptr %keycache, i64 %idxprom
   %keyWasDown.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %vtable.i.i = load ptr, ptr %keyWasDown.i, align 8, !tbaa !26
   %1 = load ptr, ptr %vtable.i.i, align 8
@@ -7162,7 +7162,7 @@ _ZNSt7__cxx114listI8KeyPressSaIS1_EE5eraseESt20_List_const_iteratorIS1_E.exit.i.
 lor.rhs:                                          ; preds = %entry
   %m_past_keys_pressed.i = getelementptr inbounds nuw i8, ptr %this, i64 464
   %div1.i.i.i.i.i = lshr i64 %idxprom, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %m_past_keys_pressed.i, i64 %div1.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %m_past_keys_pressed.i, i64 %div1.i.i.i.i.i
   %rem.i.i.i.i = and i64 %idxprom, 63
   %6 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !35
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -7185,7 +7185,7 @@ entry:
   %0 = load ptr, ptr %m_receiver, align 8, !tbaa !57
   %keycache = getelementptr inbounds nuw i8, ptr %this, i64 496
   %idxprom = zext i32 %k to i64
-  %arrayidx = getelementptr inbounds nuw %class.KeyPress, ptr %keycache, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [40 x i8], ptr %keycache, i64 %idxprom
   %keyWasPressed.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %vtable.i.i = load ptr, ptr %keyWasPressed.i, align 8, !tbaa !26
   %1 = load ptr, ptr %vtable.i.i, align 8
@@ -7197,7 +7197,7 @@ entry:
 lor.rhs:                                          ; preds = %entry
   %m_keys_pressed.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %div1.i.i.i.i.i = lshr i64 %idxprom, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %m_keys_pressed.i, i64 %div1.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %m_keys_pressed.i, i64 %div1.i.i.i.i.i
   %rem.i.i.i.i = and i64 %idxprom, 63
   %2 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !35
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -7217,7 +7217,7 @@ entry:
   %0 = load ptr, ptr %m_receiver, align 8, !tbaa !57
   %keycache = getelementptr inbounds nuw i8, ptr %this, i64 496
   %idxprom = zext i32 %k to i64
-  %arrayidx = getelementptr inbounds nuw %class.KeyPress, ptr %keycache, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [40 x i8], ptr %keycache, i64 %idxprom
   %keyWasReleased.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %vtable.i.i = load ptr, ptr %keyWasReleased.i, align 8, !tbaa !26
   %1 = load ptr, ptr %vtable.i.i, align 8
@@ -7229,7 +7229,7 @@ entry:
 lor.rhs:                                          ; preds = %entry
   %m_keys_released.i = getelementptr inbounds nuw i8, ptr %this, i64 480
   %div1.i.i.i.i.i = lshr i64 %idxprom, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %m_keys_released.i, i64 %div1.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %m_keys_released.i, i64 %div1.i.i.i.i.i
   %rem.i.i.i.i = and i64 %idxprom, 63
   %2 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !35
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -7886,7 +7886,7 @@ entry:
   %keydown = getelementptr inbounds nuw i8, ptr %this, i64 3584
   %keycache = getelementptr inbounds nuw i8, ptr %this, i64 496
   %idxprom = zext i32 %k to i64
-  %arrayidx = getelementptr inbounds nuw %class.KeyPress, ptr %keycache, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [40 x i8], ptr %keycache, i64 %idxprom
   %vtable.i = load ptr, ptr %keydown, align 8, !tbaa !26
   %0 = load ptr, ptr %vtable.i, align 8
   %call.i = tail call ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %keydown, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx)

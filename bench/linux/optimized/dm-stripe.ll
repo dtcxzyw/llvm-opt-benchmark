@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.target_type = type { i64, ptr, ptr, [3 x i32], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
-%struct.stripe = type { ptr, i64, %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 
 @.str = private unnamed_addr constant [23 x i8] c"drivers/md/dm-stripe.c\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"dm_stripe_wq\00", align 1
@@ -61,7 +59,7 @@ define dso_local noundef range(i32 0, 2) i32 @stripe_map(ptr noundef readonly ca
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %16 = zext i32 %10 to i64
-  %17 = getelementptr %struct.stripe, ptr %15, i64 %16
+  %17 = getelementptr [24 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -177,7 +175,7 @@ define dso_local noundef range(i32 0, 2) i32 @stripe_map(ptr noundef readonly ca
   %92 = load i64, ptr %91, align 8
   %93 = add i64 %87, %92
   store i64 %93, ptr %39, align 8
-  %94 = getelementptr %struct.stripe, ptr %88, i64 %89
+  %94 = getelementptr [24 x i8], ptr %88, i64 %89
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -414,7 +412,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @stripe_map_range(ptr noundef
 140:                                              ; preds = %137
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %142 = zext i32 %2 to i64
-  %143 = getelementptr %struct.stripe, ptr %141, i64 %142
+  %143 = getelementptr [24 x i8], ptr %141, i64 %142
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -697,7 +695,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr noundef read
   %110 = load ptr, ptr %104, align 8
   %111 = load ptr, ptr %0, align 8
   %112 = call i32 @dm_table_get_mode(ptr noundef %111) #10
-  %113 = getelementptr %struct.stripe, ptr %100, i64 %102
+  %113 = getelementptr [24 x i8], ptr %100, i64 %102
   %114 = call i32 @dm_get_device(ptr noundef %0, ptr noundef %110, i32 noundef %112, ptr noundef %113) #10
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %.thread7, label %118
@@ -726,7 +724,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr noundef read
 .preheader:                                       ; preds = %.loopexit8, %.preheader
   %123 = phi i64 [ %124, %.preheader ], [ %102, %.loopexit8 ]
   %124 = add nsw i64 %123, -1
-  %125 = getelementptr %struct.stripe, ptr %100, i64 %124
+  %125 = getelementptr [24 x i8], ptr %100, i64 %124
   %126 = load ptr, ptr %125, align 8
   call void @dm_put_device(ptr noundef %0, ptr noundef %126) #10
   %127 = icmp eq i64 %124, 0
@@ -773,7 +771,7 @@ define internal void @stripe_dtr(ptr noundef %0) #0 align 16 {
 
 8:                                                ; preds = %8, %6
   %9 = phi i64 [ 0, %6 ], [ %12, %8 ]
-  %10 = getelementptr %struct.stripe, ptr %7, i64 %9
+  %10 = getelementptr [24 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @dm_put_device(ptr noundef %0, ptr noundef %11) #10
   %12 = add nuw nsw i64 %9, 1
@@ -833,7 +831,7 @@ define internal noundef i32 @stripe_end_io(ptr noundef readonly captures(none) %
 
 34:                                               ; preds = %48, %31
   %35 = phi i64 [ 0, %31 ], [ %49, %48 ]
-  %36 = getelementptr %struct.stripe, ptr %32, i64 %35
+  %36 = getelementptr [24 x i8], ptr %32, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %4) #10
@@ -906,7 +904,7 @@ define internal void @stripe_status(ptr noundef readonly captures(none) %0, i32 
   %27 = getelementptr i8, ptr %3, i64 %26
   %28 = sub nuw i32 %4, %23
   %29 = zext i32 %28 to i64
-  %30 = getelementptr %struct.stripe, ptr %19, i64 %22
+  %30 = getelementptr [24 x i8], ptr %19, i64 %22
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %33 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %27, i64 noundef %29, ptr noundef nonnull @.str.16, ptr noundef nonnull %32) #10
@@ -1013,7 +1011,7 @@ define internal void @stripe_status(ptr noundef readonly captures(none) %0, i32 
   %101 = getelementptr i8, ptr %3, i64 %100
   %102 = sub nuw i32 %4, %97
   %103 = zext i32 %102 to i64
-  %104 = getelementptr %struct.stripe, ptr %93, i64 %96
+  %104 = getelementptr [24 x i8], ptr %93, i64 %96
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 28
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 8
@@ -1089,7 +1087,7 @@ define internal void @stripe_status(ptr noundef readonly captures(none) %0, i32 
   %158 = getelementptr i8, ptr %3, i64 %157
   %159 = sub nuw i32 %4, %154
   %160 = zext i32 %159 to i64
-  %161 = getelementptr %struct.stripe, ptr %151, i64 %153
+  %161 = getelementptr [24 x i8], ptr %151, i64 %153
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 28
   %164 = trunc nuw i64 %153 to i32
@@ -1172,7 +1170,7 @@ define internal i32 @stripe_iterate_devices(ptr noundef %0, ptr noundef readonly
 
 8:                                                ; preds = %17, %3
   %9 = phi i64 [ %18, %17 ], [ 0, %3 ]
-  %10 = getelementptr %struct.stripe, ptr %6, i64 %9
+  %10 = getelementptr [24 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8

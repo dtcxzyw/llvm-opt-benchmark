@@ -1059,7 +1059,7 @@ _ZN15MLRenderingDataD2Ev.exit:                    ; preds = %134, %132, %222
           to label %253 unwind label %.loopexit.split-lp143.loopexit
 
 253:                                              ; preds = %252
-  %254 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 32
   store float 0.000000e+00, ptr %256, align 8
@@ -1462,7 +1462,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit:       ; preds = %339
   %.048167 = phi i64 [ 0, %.lr.ph168 ], [ %455, %439 ]
   %.049166 = phi double [ 0x54E6DC186EF9F45C, %.lr.ph168 ], [ %.150, %439 ]
   %.051165 = phi i32 [ -1, %.lr.ph168 ], [ %.152, %439 ]
-  %440 = getelementptr inbounds %"class.vcg::Point3", ptr %431, i64 %.048167
+  %440 = getelementptr inbounds [12 x i8], ptr %431, i64 %.048167
   %441 = load float, ptr %440, align 4
   %442 = fsub float %436, %441
   %443 = getelementptr inbounds nuw i8, ptr %440, i64 4
@@ -1491,7 +1491,7 @@ _ZN3vcg11glTranslateERKNS_6Point3IfEE.exit:       ; preds = %339
 
 457:                                              ; preds = %._crit_edge169
   %458 = zext nneg i32 %.152 to i64
-  %459 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %431, i64 %458
+  %459 = getelementptr inbounds nuw [12 x i8], ptr %431, i64 %458
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 12
   %.not.i.i = icmp eq ptr %460, %430
   br i1 %.not.i.i, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3vcg6Point3IfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
@@ -1578,7 +1578,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %489, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %484, ptr %417, align 8
   store ptr %488, ptr %429, align 8
-  %490 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %484, i64 %482
+  %490 = getelementptr inbounds nuw [12 x i8], ptr %484, i64 %482
   store ptr %490, ptr %466, align 8
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit
 
@@ -3169,7 +3169,7 @@ define void @_ZN15AlignPairWidget16drawPickedPointsEP8QPainterRSt6vectorIN3vcg6P
   %15 = phi ptr [ %12, %.lr.ph ], [ %35, %_ZN7QStringD2Ev.exit20 ]
   %16 = phi i64 [ 0, %.lr.ph ], [ %33, %_ZN7QStringD2Ev.exit20 ]
   %.01224 = phi i32 [ 0, %.lr.ph ], [ %32, %_ZN7QStringD2Ev.exit20 ]
-  %17 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [12 x i8], ptr %15, i64 %16
   call void @glPointSize(float noundef 5.000000e+00)
   store i32 -16777216, ptr %7, align 4
   call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %7)
@@ -3793,7 +3793,7 @@ define void @_ZN15AlignPairWidget15keyReleaseEventEP9QKeyEvent(ptr noundef nonnu
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZN3vcg9Trackball8ButtonUpENS0_6ButtonE(ptr noundef nonnull align 8 dereferenceable(597) %14, i32 noundef 32)
   %.pr = load i32, ptr %6, align 8
@@ -3805,7 +3805,7 @@ define void @_ZN15AlignPairWidget15keyReleaseEventEP9QKeyEvent(ptr noundef nonnu
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZN3vcg9Trackball8ButtonUpENS0_6ButtonE(ptr noundef nonnull align 8 dereferenceable(597) %20, i32 noundef 16)
   %.pre = load i32, ptr %6, align 8
@@ -3817,7 +3817,7 @@ define void @_ZN15AlignPairWidget15keyReleaseEventEP9QKeyEvent(ptr noundef nonnu
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   tail call void @_ZN3vcg9Trackball8ButtonUpENS0_6ButtonE(ptr noundef nonnull align 8 dereferenceable(597) %26, i32 noundef 64)
   br label %27
@@ -3850,7 +3850,7 @@ define void @_ZN15AlignPairWidget13keyPressEventEP9QKeyEvent(ptr noundef nonnull
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZN3vcg9Trackball10ButtonDownENS0_6ButtonEj(ptr noundef nonnull align 8 dereferenceable(597) %14, i32 noundef 32, i32 noundef 0)
   %.pr = load i32, ptr %6, align 8
@@ -3862,7 +3862,7 @@ define void @_ZN15AlignPairWidget13keyPressEventEP9QKeyEvent(ptr noundef nonnull
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZN3vcg9Trackball10ButtonDownENS0_6ButtonEj(ptr noundef nonnull align 8 dereferenceable(597) %20, i32 noundef 16, i32 noundef 0)
   %.pre = load i32, ptr %6, align 8
@@ -3874,7 +3874,7 @@ define void @_ZN15AlignPairWidget13keyPressEventEP9QKeyEvent(ptr noundef nonnull
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   tail call void @_ZN3vcg9Trackball10ButtonDownENS0_6ButtonEj(ptr noundef nonnull align 8 dereferenceable(597) %26, i32 noundef 64, i32 noundef 0)
   br label %27
@@ -4024,7 +4024,7 @@ _ZNK11QMouseEvent1xEv.exit:                       ; preds = %9, %12
   %30 = icmp sge i32 %20, %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %32 = zext i1 %30 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   store ptr %34, ptr %35, align 8
@@ -4447,7 +4447,7 @@ define void @_ZN15AlignPairWidget10wheelEventEP11QWheelEvent(ptr noundef nonnull
   %19 = icmp sle i32 %18, %9
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %21 = zext i1 %19 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %25 = load i32, ptr %24, align 8

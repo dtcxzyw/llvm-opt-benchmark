@@ -6,11 +6,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.intel_c10pll_state = type { i32, i8, i8, [20 x i8] }
 %struct.intel_c20pll_state = type { i32, [3 x i16], [4 x i16], %union.anon.48 }
 %union.anon.48 = type { [11 x i16] }
-%union.intel_ddi_buf_trans_entry = type { %struct.hsw_ddi_buf_trans }
-%struct.hsw_ddi_buf_trans = type { i32, i32, i8 }
 %struct.intel_cx0pll_state = type { %union.anon.47, i8 }
 %union.anon.47 = type { %struct.intel_c20pll_state }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 
 @intel_cx0_phy_set_signal_levels.__already_done = internal unnamed_addr global i1 false, section ".data.once", align 1
 @.str = private unnamed_addr constant [10 x i8] c"%s %s: %s\00", align 1
@@ -490,7 +487,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
   %190 = add nuw nsw i16 %189, 3456
   %191 = load ptr, ptr %65, align 8
   %192 = sext i32 %178 to i64
-  %193 = getelementptr %union.intel_ddi_buf_trans_entry, ptr %191, i64 %192
+  %193 = getelementptr [12 x i8], ptr %191, i64 %192
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 1
   %195 = load i8, ptr %194, align 1
   %196 = and i8 %195, 63
@@ -524,7 +521,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
   %213 = load i32, ptr %5, align 4
   %214 = add nuw i16 %189, 3457
   %215 = load ptr, ptr %65, align 8
-  %216 = getelementptr %union.intel_ddi_buf_trans_entry, ptr %215, i64 %192
+  %216 = getelementptr [12 x i8], ptr %215, i64 %192
   %217 = load i8, ptr %216, align 4
   %218 = and i8 %217, 63
   br label %219
@@ -556,7 +553,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
   %234 = load i32, ptr %5, align 4
   %235 = add nuw i16 %189, 3458
   %236 = load ptr, ptr %65, align 8
-  %237 = getelementptr %union.intel_ddi_buf_trans_entry, ptr %236, i64 %192
+  %237 = getelementptr [12 x i8], ptr %236, i64 %192
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 2
   %239 = load i8, ptr %238, align 2
   %240 = and i8 %239, 63
@@ -858,7 +855,7 @@ define dso_local noundef range(i32 0, 18) i32 @intel_cx0_phy_check_hdmi_link_rat
 
 13:                                               ; preds = %.preheader
   %14 = add nuw nsw i64 %18, 1
-  %15 = getelementptr ptr, ptr @mtl_c10_hdmi_tables, i64 %14
+  %15 = getelementptr [8 x i8], ptr @mtl_c10_hdmi_tables, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq i64 %14, 45
   br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !18
@@ -872,7 +869,7 @@ define dso_local noundef range(i32 0, 18) i32 @intel_cx0_phy_check_hdmi_link_rat
 
 22:                                               ; preds = %.preheader3
   %23 = add nuw nsw i64 %27, 1
-  %24 = getelementptr ptr, ptr @mtl_c20_hdmi_tables, i64 %23
+  %24 = getelementptr [8 x i8], ptr @mtl_c20_hdmi_tables, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq i64 %23, 10
   br i1 %26, label %31, label %.preheader3, !llvm.loop !19
@@ -956,7 +953,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_cx0pll_calc_state(ptr noun
 35:                                               ; preds = %41
   %36 = add i32 %43, 1
   %37 = sext i32 %36 to i64
-  %38 = getelementptr ptr, ptr %.ph, i64 %37
+  %38 = getelementptr [8 x i8], ptr %.ph, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.loopexit, label %41, !llvm.loop !25
@@ -1144,7 +1141,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_cx0pll_calc_state(ptr noun
 148:                                              ; preds = %154
   %149 = add i32 %156, 1
   %150 = sext i32 %149 to i64
-  %151 = getelementptr ptr, ptr %138, i64 %150
+  %151 = getelementptr [8 x i8], ptr %138, i64 %150
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
   br i1 %153, label %.loopexit, label %154, !llvm.loop !34
@@ -1229,7 +1226,7 @@ define dso_local void @intel_c20pll_dump_hw_state(ptr noundef readonly captures(
 
 .split.us:                                        ; preds = %40, %.split.us
   %41 = phi i64 [ %46, %.split.us ], [ 0, %40 ]
-  %42 = getelementptr i16, ptr %38, i64 %41
+  %42 = getelementptr [2 x i8], ptr %38, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i32
   %45 = trunc i64 %41 to i32
@@ -1243,7 +1240,7 @@ define dso_local void @intel_c20pll_dump_hw_state(ptr noundef readonly captures(
 
 .split4.us:                                       ; preds = %48, %.split4.us
   %49 = phi i64 [ %54, %.split4.us ], [ 0, %48 ]
-  %50 = getelementptr i16, ptr %38, i64 %49
+  %50 = getelementptr [2 x i8], ptr %38, i64 %49
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i32
   %53 = trunc i64 %49 to i32
@@ -1255,7 +1252,7 @@ define dso_local void @intel_c20pll_dump_hw_state(ptr noundef readonly captures(
 .split:                                           ; preds = %40, %.split
   %56 = phi i64 [ %62, %.split ], [ 0, %40 ]
   %57 = load ptr, ptr %39, align 8
-  %58 = getelementptr i16, ptr %38, i64 %56
+  %58 = getelementptr [2 x i8], ptr %38, i64 %56
   %59 = load i16, ptr %58, align 2
   %60 = zext i16 %59 to i32
   %61 = trunc i64 %56 to i32
@@ -1267,7 +1264,7 @@ define dso_local void @intel_c20pll_dump_hw_state(ptr noundef readonly captures(
 .split4:                                          ; preds = %48, %.split4
   %64 = phi i64 [ %70, %.split4 ], [ 0, %48 ]
   %65 = load ptr, ptr %39, align 8
-  %66 = getelementptr i16, ptr %38, i64 %64
+  %66 = getelementptr [2 x i8], ptr %38, i64 %64
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i32
   %69 = trunc i64 %64 to i32
@@ -2095,7 +2092,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %428 = phi i64 [ 0, %421 ], [ %434, %427 ]
   %429 = load i32, ptr %13, align 4
   %430 = trunc i64 %428 to i16
-  %431 = getelementptr i16, ptr %422, i64 %428
+  %431 = getelementptr [2 x i8], ptr %422, i64 %428
   %432 = load i16, ptr %431, align 2
   %433 = sub nuw nsw i16 %423, %430
   tail call fastcc void @intel_c20_sram_write(ptr noundef %12, i32 noundef %429, i16 noundef zeroext %433, i16 noundef zeroext %432)
@@ -2107,7 +2104,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %437 = phi i64 [ 0, %424 ], [ %443, %436 ]
   %438 = load i32, ptr %13, align 4
   %439 = trunc i64 %437 to i16
-  %440 = getelementptr i16, ptr %425, i64 %437
+  %440 = getelementptr [2 x i8], ptr %425, i64 %437
   %441 = load i16, ptr %440, align 2
   %442 = sub nuw nsw i16 %426, %439
   tail call fastcc void @intel_c20_sram_write(ptr noundef %12, i32 noundef %438, i16 noundef zeroext %442, i16 noundef zeroext %441)
@@ -2134,7 +2131,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %452 = phi i64 [ 0, %447 ], [ %458, %451 ]
   %453 = load i32, ptr %13, align 4
   %454 = trunc i64 %452 to i16
-  %455 = getelementptr i16, ptr %446, i64 %452
+  %455 = getelementptr [2 x i8], ptr %446, i64 %452
   %456 = load i16, ptr %455, align 2
   %457 = sub nuw nsw i16 %448, %454
   tail call fastcc void @intel_c20_sram_write(ptr noundef %12, i32 noundef %453, i16 noundef zeroext %457, i16 noundef zeroext %456)
@@ -2146,7 +2143,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %461 = phi i64 [ 0, %449 ], [ %467, %460 ]
   %462 = load i32, ptr %13, align 4
   %463 = trunc i64 %461 to i16
-  %464 = getelementptr i16, ptr %446, i64 %461
+  %464 = getelementptr [2 x i8], ptr %446, i64 %461
   %465 = load i16, ptr %464, align 2
   %466 = sub nuw nsw i16 %450, %463
   tail call fastcc void @intel_c20_sram_write(ptr noundef %12, i32 noundef %462, i16 noundef zeroext %466, i16 noundef zeroext %465)
@@ -3163,7 +3160,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr noundef
   %114 = phi i64 [ 0, %103 ], [ %120, %113 ]
   %115 = load i32, ptr %4, align 4
   %116 = trunc i64 %114 to i16
-  %117 = getelementptr i16, ptr %108, i64 %114
+  %117 = getelementptr [2 x i8], ptr %108, i64 %114
   %118 = sub nuw nsw i16 %109, %116
   %119 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %115, i16 noundef zeroext %118)
   store i16 %119, ptr %117, align 2
@@ -3175,7 +3172,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr noundef
   %123 = phi i64 [ 0, %110 ], [ %129, %122 ]
   %124 = load i32, ptr %4, align 4
   %125 = trunc i64 %123 to i16
-  %126 = getelementptr i16, ptr %111, i64 %123
+  %126 = getelementptr [2 x i8], ptr %111, i64 %123
   %127 = sub nuw nsw i16 %112, %125
   %128 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %124, i16 noundef zeroext %127)
   store i16 %128, ptr %126, align 2
@@ -3202,7 +3199,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr noundef
   %141 = phi i64 [ %147, %140 ], [ 0, %136 ]
   %142 = load i32, ptr %4, align 4
   %143 = trunc i64 %141 to i16
-  %144 = getelementptr i16, ptr %135, i64 %141
+  %144 = getelementptr [2 x i8], ptr %135, i64 %141
   %145 = sub nuw nsw i16 %137, %143
   %146 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %142, i16 noundef zeroext %145)
   store i16 %146, ptr %144, align 2
@@ -3214,7 +3211,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr noundef
   %150 = phi i64 [ %156, %149 ], [ 0, %138 ]
   %151 = load i32, ptr %4, align 4
   %152 = trunc i64 %150 to i16
-  %153 = getelementptr i16, ptr %135, i64 %150
+  %153 = getelementptr [2 x i8], ptr %135, i64 %150
   %154 = sub nuw nsw i16 %139, %152
   %155 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %151, i16 noundef zeroext %154)
   store i16 %155, ptr %153, align 2
@@ -3415,7 +3412,7 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr noundef rea
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %7, i64 %10
+  %.split = getelementptr [56 x i8], ptr %7, i64 %10
   %11 = getelementptr i8, ptr %.split, i64 24
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3749,9 +3746,9 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr noundef rea
 
 .preheader28:                                     ; preds = %209, %253
   %217 = phi i64 [ %254, %253 ], [ 0, %209 ]
-  %218 = getelementptr i16, ptr %210, i64 %217
+  %218 = getelementptr [2 x i8], ptr %210, i64 %217
   %219 = load i16, ptr %218, align 2
-  %220 = getelementptr i16, ptr %211, i64 %217
+  %220 = getelementptr [2 x i8], ptr %211, i64 %217
   %221 = load i16, ptr %220, align 2
   %222 = icmp eq i16 %219, %221
   br i1 %222, label %253, label %223, !prof !9
@@ -3814,9 +3811,9 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr noundef rea
 
 .preheader:                                       ; preds = %209, %292
   %256 = phi i64 [ %293, %292 ], [ 0, %209 ]
-  %257 = getelementptr i16, ptr %210, i64 %256
+  %257 = getelementptr [2 x i8], ptr %210, i64 %256
   %258 = load i16, ptr %257, align 2
-  %259 = getelementptr i16, ptr %211, i64 %256
+  %259 = getelementptr [2 x i8], ptr %211, i64 %256
   %260 = load i16, ptr %259, align 2
   %261 = icmp eq i16 %258, %260
   br i1 %261, label %292, label %262, !prof !9
@@ -3887,9 +3884,9 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr noundef rea
 
 .loopexit27:                                      ; preds = %.loopexit27.preheader, %334
   %298 = phi i64 [ %335, %334 ], [ 0, %.loopexit27.preheader ]
-  %299 = getelementptr i16, ptr %168, i64 %298
+  %299 = getelementptr [2 x i8], ptr %168, i64 %298
   %300 = load i16, ptr %299, align 2
-  %301 = getelementptr i16, ptr %166, i64 %298
+  %301 = getelementptr [2 x i8], ptr %166, i64 %298
   %302 = load i16, ptr %301, align 2
   %303 = icmp eq i16 %300, %302
   br i1 %303, label %334, label %304, !prof !9
@@ -3952,9 +3949,9 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr noundef rea
 
 337:                                              ; preds = %374, %295
   %338 = phi i64 [ 0, %295 ], [ %375, %374 ]
-  %339 = getelementptr i16, ptr %296, i64 %338
+  %339 = getelementptr [2 x i8], ptr %296, i64 %338
   %340 = load i16, ptr %339, align 2
-  %341 = getelementptr i16, ptr %297, i64 %338
+  %341 = getelementptr [2 x i8], ptr %297, i64 %338
   %342 = load i16, ptr %341, align 2
   %343 = icmp eq i16 %340, %342
   br i1 %343, label %374, label %344, !prof !9
